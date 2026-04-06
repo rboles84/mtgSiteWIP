@@ -1,0 +1,943 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vox Mana — Which MTG Guild Are You?</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Cinzel:wght@400;600&family=Crimson+Pro:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0c0b0a;--bg2:#131210;--bg3:#1a1816;
+  --gold:#c9a84c;--gold-l:#e8d08a;--gold-d:#8a6a1e;
+  --text:#d4c9b8;--text-dim:#7a6e5e;--text-muted:#4a4438;
+  --border:rgba(201,168,76,0.12);--border-s:rgba(201,168,76,0.25);
+  --danger-bg:rgba(176,48,48,0.12);--success-bg:rgba(42,138,80,0.12);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:'Crimson Pro',Georgia,serif;min-height:100vh;overflow-x:hidden;line-height:1.6}
+body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23n)' opacity='0.018'/%3E%3C/svg%3E");pointer-events:none;z-index:0}
+.app{position:relative;z-index:1}
+
+/* ── TOPBAR ─────────────────────────── */
+#topbar{position:sticky;top:0;z-index:100;background:rgba(12,11,10,0.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--border);padding:0.6rem 1.5rem;display:flex;align-items:center;gap:12px;transition:opacity 0.3s}
+#topbar.hidden{display:none}
+.tb-avatar{width:28px;height:28px;border-radius:50%;background:rgba(201,168,76,0.15);border:1px solid var(--border-s);display:flex;align-items:center;justify-content:center;font-family:'Cinzel',serif;font-size:0.65rem;color:var(--gold);flex-shrink:0}
+.tb-name{font-family:'Cinzel',serif;font-size:0.75rem;letter-spacing:0.12em;color:var(--text);flex:1}
+.tb-guild{font-size:0.75rem;color:var(--text-dim);font-style:italic;flex:1}
+.tb-btn{font-family:'Cinzel',serif;font-size:0.6rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-dim);background:transparent;border:1px solid var(--border);padding:0.35rem 0.9rem;cursor:pointer;transition:color 0.15s,border-color 0.15s;white-space:nowrap}
+.tb-btn:hover{color:var(--text);border-color:var(--border-s)}
+.tb-retake{color:var(--gold-d);border-color:rgba(201,168,76,0.15)}
+.tb-retake:hover{color:var(--gold);border-color:var(--border-s)}
+
+/* ── UTILS ─────────────────────────── */
+.hidden{display:none!important}
+.section{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:2rem 1.5rem}
+.ornament{text-align:center;color:var(--border);letter-spacing:1rem;margin:2.5rem 0;font-size:1rem;opacity:0.5}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes pulse{0%,100%{opacity:0.4}50%{opacity:1}}
+@keyframes glow{0%,100%{text-shadow:0 0 20px rgba(201,168,76,0)}50%{text-shadow:0 0 40px rgba(201,168,76,0.3)}}
+@keyframes shake{0%,100%{transform:translateX(0)}20%,60%{transform:translateX(-6px)}40%,80%{transform:translateX(6px)}}
+
+/* ── AUTH ───────────────────────────── */
+#auth{text-align:center}
+.auth-crest{margin:0 auto 2rem;display:block;animation:fadeUp 0.8s ease both}
+.auth-title{font-family:'Cinzel Decorative',serif;font-size:clamp(1.6rem,4vw,2.6rem);color:var(--gold);letter-spacing:0.04em;margin-bottom:0.5rem;animation:fadeUp 0.8s 0.1s ease both,glow 4s 1s ease-in-out infinite}
+.auth-sub{font-size:1rem;color:var(--text-dim);font-style:italic;margin-bottom:2.5rem;animation:fadeUp 0.8s 0.2s ease both}
+.auth-card{background:var(--bg2);border:1px solid var(--border);padding:2rem;max-width:380px;width:100%;animation:fadeUp 0.8s 0.3s ease both}
+.auth-tabs{display:flex;margin-bottom:1.75rem;border-bottom:1px solid var(--border)}
+.auth-tab{flex:1;padding:0.6rem;font-family:'Cinzel',serif;font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-muted);background:transparent;border:none;cursor:pointer;transition:color 0.15s;position:relative}
+.auth-tab::after{content:'';position:absolute;bottom:-1px;left:0;right:0;height:1px;background:var(--gold);transform:scaleX(0);transition:transform 0.2s}
+.auth-tab.on{color:var(--gold)}
+.auth-tab.on::after{transform:scaleX(1)}
+.field{margin-bottom:1rem}
+.field label{display:block;font-family:'Cinzel',serif;font-size:0.65rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--text-muted);margin-bottom:0.45rem}
+.field input{width:100%;background:var(--bg3);border:1px solid var(--border);color:var(--text);font-family:'Crimson Pro',serif;font-size:1rem;padding:0.7rem 0.9rem;outline:none;transition:border-color 0.15s}
+.field input:focus{border-color:var(--border-s)}
+.field input::placeholder{color:var(--text-muted)}
+.auth-msg{font-size:0.85rem;margin-bottom:1rem;padding:0.6rem 0.9rem;display:none}
+.auth-msg.err{display:block;background:var(--danger-bg);color:#e08080;border:1px solid rgba(176,48,48,0.25)}
+.auth-msg.ok{display:block;background:var(--success-bg);color:#60c090;border:1px solid rgba(42,138,80,0.25)}
+.auth-msg.shake{animation:shake 0.4s ease}
+.btn-primary{font-family:'Cinzel',serif;font-size:0.82rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--bg);background:var(--gold);border:none;padding:0.85rem 2.5rem;cursor:pointer;clip-path:polygon(10px 0%,100% 0%,calc(100% - 10px) 100%,0% 100%);transition:background 0.2s,transform 0.15s;width:100%}
+.btn-primary:hover{background:var(--gold-l);transform:translateY(-1px)}
+.btn-primary:disabled{background:var(--gold-d);cursor:not-allowed;transform:none}
+.auth-note{font-size:0.72rem;color:var(--text-muted);margin-top:1rem;line-height:1.5}
+
+/* ── WELCOME BACK ───────────────────── */
+#welcome{text-align:center}
+.wb-eyebrow{font-family:'Cinzel',serif;font-size:0.65rem;letter-spacing:0.35em;text-transform:uppercase;color:var(--text-dim);margin-bottom:0.6rem;animation:fadeUp 0.6s ease both}
+.wb-name{font-family:'Cinzel Decorative',serif;font-size:clamp(1.8rem,5vw,3rem);color:var(--gold);margin-bottom:0.5rem;animation:fadeUp 0.6s 0.1s ease both,glow 4s 0.6s ease-in-out infinite}
+.wb-guild{font-size:1.1rem;color:var(--text-dim);font-style:italic;margin-bottom:2.5rem;animation:fadeUp 0.6s 0.2s ease both}
+.wb-choices{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;animation:fadeUp 0.6s 0.3s ease both}
+.btn-choice{font-family:'Cinzel',serif;font-size:0.75rem;letter-spacing:0.12em;text-transform:uppercase;padding:0.85rem 2rem;cursor:pointer;transition:all 0.15s;border:1px solid}
+.btn-choice-primary{background:var(--gold);color:var(--bg);border-color:var(--gold);clip-path:polygon(8px 0%,100% 0%,calc(100% - 8px) 100%,0% 100%)}
+.btn-choice-primary:hover{background:var(--gold-l)}
+.btn-choice-secondary{background:transparent;color:var(--text-dim);border-color:var(--border)}
+.btn-choice-secondary:hover{border-color:var(--border-s);color:var(--text)}
+.wb-meta{font-size:0.8rem;color:var(--text-muted);font-style:italic;margin-top:1.5rem;animation:fadeUp 0.6s 0.4s ease both}
+
+/* ── LANDING ────────────────────────── */
+#landing{text-align:center}
+.landing-title{font-family:'Cinzel Decorative',serif;font-size:clamp(2rem,5.5vw,3.8rem);color:var(--gold);letter-spacing:0.04em;line-height:1.15;margin-bottom:0.75rem;animation:fadeUp 1s ease both,glow 4s 1.2s ease-in-out infinite}
+.landing-sub{font-size:1.15rem;color:var(--text-dim);font-style:italic;max-width:480px;margin:0 auto 3rem;animation:fadeUp 1s 0.2s ease both}
+.landing-note{font-size:0.8rem;color:var(--text-muted);margin-top:1.2rem;letter-spacing:0.05em;animation:fadeUp 1s 0.6s ease both}
+
+/* ── QUIZ ───────────────────────────── */
+#quiz{justify-content:center}
+.quiz-inner{max-width:640px;width:100%}
+.progress-wrap{margin-bottom:2.5rem}
+.progress-bar{height:1px;background:rgba(201,168,76,0.08);position:relative}
+.progress-fill{height:1px;background:var(--gold);transition:width 0.5s ease;position:relative}
+.progress-fill::after{content:'';position:absolute;right:-3px;top:-3px;width:7px;height:7px;background:var(--gold);border-radius:50%}
+.progress-label{display:flex;justify-content:space-between;margin-top:8px;font-family:'Cinzel',serif;font-size:0.65rem;letter-spacing:0.15em;color:var(--text-muted);text-transform:uppercase}
+.q-card{border:1px solid var(--border);background:var(--bg2);padding:2.5rem 2rem;animation:fadeUp 0.3s ease both}
+.q-num{font-family:'Cinzel',serif;font-size:0.65rem;letter-spacing:0.25em;color:var(--gold-d);text-transform:uppercase;margin-bottom:1rem}
+.q-text{font-size:1.35rem;font-weight:300;color:var(--text);margin-bottom:1.75rem;line-height:1.5}
+.answers{display:flex;flex-direction:column;gap:8px}
+.ans-btn{text-align:left;padding:0.85rem 1.1rem;background:transparent;border:1px solid rgba(201,168,76,0.08);color:var(--text);font-family:'Crimson Pro',serif;font-size:1rem;cursor:pointer;transition:border-color 0.15s,background 0.15s,padding-left 0.15s,color 0.15s;line-height:1.4;position:relative}
+.ans-btn::before{content:'◆';position:absolute;left:0.6rem;opacity:0;color:var(--gold);font-size:0.5rem;top:50%;transform:translateY(-50%);transition:opacity 0.15s}
+.ans-btn:hover{border-color:var(--border-s);background:rgba(201,168,76,0.04);color:var(--gold-l);padding-left:1.6rem}
+.ans-btn:hover::before{opacity:1}
+.ans-btn.selected{border-color:var(--gold);background:rgba(201,168,76,0.08);color:var(--gold-l);pointer-events:none}
+
+/* ── REVEAL ─────────────────────────── */
+#reveal{text-align:center;gap:1.5rem}
+.reveal-msg{font-family:'Cinzel',serif;font-size:0.8rem;letter-spacing:0.25em;color:var(--text-dim);text-transform:uppercase;animation:pulse 1.8s ease-in-out infinite}
+.reveal-spinner{animation:spin 3s linear infinite;opacity:0.3}
+
+/* ── RESULT ─────────────────────────── */
+#result{padding:0;align-items:stretch;justify-content:flex-start;min-height:unset}
+.result-inner{max-width:960px;width:100%;margin:0 auto;padding:0 1.5rem 4rem}
+
+.guild-banner{padding:3.5rem 2rem;text-align:center;margin-bottom:3rem;border-bottom:1px solid var(--border);animation:fadeUp 0.6s ease both}
+.guild-eyebrow{font-family:'Cinzel',serif;font-size:0.65rem;letter-spacing:0.35em;text-transform:uppercase;color:var(--text-dim);margin-bottom:0.75rem}
+.guild-name{font-family:'Cinzel Decorative',serif;font-size:clamp(2.2rem,6vw,4rem);letter-spacing:0.04em;line-height:1.1;margin-bottom:0.6rem}
+.guild-tagline{font-size:1.1rem;font-style:italic;color:var(--text-dim);margin-bottom:1.5rem;max-width:560px;margin-left:auto;margin-right:auto}
+.mana-pips{display:flex;gap:10px;justify-content:center;margin-bottom:1.75rem}
+.pip{width:26px;height:26px;border-radius:50%;border:1.5px solid rgba(255,255,255,0.15);box-shadow:0 0 10px rgba(0,0,0,0.4)}
+.pip-W{background:#ede8d4}.pip-U{background:#1a5b9b}.pip-B{background:#1c1428;border-color:rgba(130,100,160,0.5)}.pip-R{background:#be2a1f}.pip-G{background:#1b5c28}
+.guild-philosophy{font-size:1.05rem;color:var(--text);font-weight:300;max-width:640px;margin:0 auto;line-height:1.8}
+
+.section-label{font-family:'Cinzel',serif;font-size:0.65rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--gold);margin-bottom:1.25rem;padding-bottom:0.5rem;border-bottom:1px solid var(--border)}
+
+/* Score bars */
+.scores-section{margin-bottom:3rem;animation:fadeUp 0.6s 0.05s ease both}
+.score-bars{display:flex;flex-direction:column;gap:8px;max-width:420px}
+.score-row{display:flex;align-items:center;gap:10px}
+.score-label{font-family:'Cinzel',serif;font-size:0.7rem;letter-spacing:0.1em;width:48px;color:var(--text-dim)}
+.score-track{flex:1;height:4px;background:rgba(201,168,76,0.06);border-radius:2px;overflow:hidden}
+.score-fill{height:100%;border-radius:2px;transition:width 1s ease}
+.score-val{font-size:0.8rem;color:var(--text-muted);width:20px;text-align:right}
+
+/* Archetypes */
+.archetypes-section{margin-bottom:3rem;animation:fadeUp 0.6s 0.1s ease both}
+.archetypes-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1px;background:rgba(201,168,76,0.06)}
+.arch-card{background:var(--bg2);padding:1.4rem}
+.arch-name{font-family:'Cinzel',serif;font-size:0.9rem;color:var(--gold);margin-bottom:0.4rem}
+.arch-desc{font-size:0.9rem;color:var(--text-dim);line-height:1.55}
+
+/* ── STAPLE CARDS ───────────────────── */
+.staples-section{margin-bottom:3rem;animation:fadeUp 0.6s 0.15s ease both}
+.staples-category{margin-bottom:1.5rem}
+.staple-cat-label{font-family:'Cinzel',serif;font-size:0.6rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--text-muted);margin-bottom:0.75rem}
+.staple-row{display:flex;gap:10px;flex-wrap:wrap}
+.staple-wrap{flex:0 0 auto;width:110px;position:relative;z-index:1}
+.staple-wrap:hover{z-index:200}
+.staple-img{width:100%;border-radius:4.5%;border:1px solid var(--border-s);display:block;transition:transform 0.3s cubic-bezier(0.34,1.4,0.64,1),box-shadow 0.3s ease,border-color 0.15s;transform-origin:center 30%}
+.staple-img:hover{transform:scale(3);border-color:var(--gold);box-shadow:0 24px 64px rgba(0,0,0,0.92),0 0 0 2px rgba(201,168,76,0.4)}
+.staple-placeholder{width:100%;aspect-ratio:63/88;background:var(--bg3);border:1px solid rgba(201,168,76,0.06);display:flex;align-items:center;justify-content:center;font-size:0.7rem;color:var(--text-muted);border-radius:4.5%;text-align:center;padding:0.6rem;line-height:1.3}
+.staple-name{font-size:0.7rem;color:var(--text-muted);text-align:center;margin-top:5px;line-height:1.3}
+
+/* ── LAND BASE ──────────────────────── */
+.lands-section{margin-bottom:3rem;animation:fadeUp 0.6s 0.2s ease both}
+.lands-tiers{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(201,168,76,0.06);margin-bottom:1.5rem}
+.land-tier{background:var(--bg2);padding:1.1rem}
+.land-tier-label{font-family:'Cinzel',serif;font-size:0.6rem;letter-spacing:0.18em;text-transform:uppercase;margin-bottom:0.85rem}
+.tier-premium .land-tier-label{color:#e8c84a}
+.tier-midrange .land-tier-label{color:#7ab0d0}
+.tier-budget .land-tier-label{color:#8aaa6a}
+.land-cards-row{display:flex;gap:8px}
+.land-wrap{flex:0 0 auto;width:90px}
+.land-img{width:100%;border-radius:4.5%;border:1px solid var(--border-s);display:block;transition:transform 0.2s}
+.land-img:hover{transform:translateY(-3px) scale(1.02)}
+.land-placeholder{width:100%;aspect-ratio:63/88;background:var(--bg3);border:1px solid rgba(201,168,76,0.06);display:flex;align-items:center;justify-content:center;font-size:0.65rem;color:var(--text-muted);border-radius:4.5%;text-align:center;padding:0.5rem;line-height:1.3}
+.land-name{font-size:0.65rem;color:var(--text-muted);text-align:center;margin-top:4px;line-height:1.2}
+.lands-guide{background:var(--bg2);border:1px solid var(--border);padding:1.1rem 1.25rem}
+.guide-row{display:flex;gap:1rem;padding:0.45rem 0;border-bottom:1px solid rgba(201,168,76,0.05);font-size:0.88rem;align-items:baseline}
+.guide-row:last-child{border-bottom:none}
+.guide-tier{font-family:'Cinzel',serif;font-size:0.6rem;letter-spacing:0.12em;text-transform:uppercase;width:68px;flex-shrink:0}
+.guide-tier-p{color:#e8c84a}.guide-tier-m{color:#7ab0d0}.guide-tier-b{color:#8aaa6a}.guide-tier-u{color:var(--text-muted)}
+.guide-text{color:var(--text-dim);line-height:1.5;flex:1}
+
+/* ── DECKS ──────────────────────────── */
+.decks-section{margin-bottom:3rem;animation:fadeUp 0.6s 0.25s ease both}
+.decks-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1px;background:rgba(201,168,76,0.06)}
+.deck-card{background:var(--bg2);padding:1.4rem;display:flex;flex-direction:column}
+.deck-format{font-family:'Cinzel',serif;font-size:0.6rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold-d);margin-bottom:0.4rem}
+.deck-name{font-size:1.05rem;color:var(--text);margin-bottom:0.35rem}
+.deck-desc{font-size:0.88rem;color:var(--text-dim);line-height:1.5;flex:1;margin-bottom:1rem}
+.deck-links{display:flex;gap:6px;flex-wrap:wrap}
+.deck-link{font-family:'Cinzel',serif;font-size:0.62rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold);text-decoration:none;border:1px solid var(--border);padding:0.4rem 0.85rem;transition:background 0.15s,color 0.15s;white-space:nowrap}
+.deck-link:hover{background:rgba(201,168,76,0.1);color:var(--gold-l)}
+.deck-link-mtgd{color:#78b4e0;border-color:rgba(120,180,224,0.2)}
+.deck-link-mtgd:hover{background:rgba(120,180,224,0.08);color:#a8d0f0}
+.deck-link-arch{color:#a07ad0;border-color:rgba(160,122,208,0.2)}
+.deck-link-arch:hover{background:rgba(160,122,208,0.08);color:#c4a8f0}
+
+.footer-actions{text-align:center;padding-top:2rem;border-top:1px solid var(--border);animation:fadeUp 0.6s 0.3s ease both}
+.footer-note{font-size:0.8rem;color:var(--text-muted);font-style:italic;margin-bottom:1rem}
+.btn-secondary{font-family:'Cinzel',serif;font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-dim);background:transparent;border:1px solid var(--border);padding:0.6rem 1.75rem;cursor:pointer;transition:border-color 0.15s,color 0.15s}
+.btn-secondary:hover{border-color:var(--border-s);color:var(--text)}
+
+@media(max-width:700px){
+  .lands-tiers{grid-template-columns:1fr}
+  .land-wrap{width:80px}
+  .staple-wrap{width:90px}
+  .q-card,.guild-banner{padding:1.5rem 1.25rem}
+  .wb-choices{flex-direction:column;align-items:center}
+  .btn-choice{width:100%;max-width:280px;text-align:center}
+  #topbar{padding:0.5rem 1rem;gap:8px}
+  .tb-guild{display:none}
+}
+</style>
+<script src="shared.js"></script>
+</head>
+<body>
+<div class="app" id="app">
+
+<div id="topbar" class="hidden">
+  <div class="tb-avatar" id="tb-avatar">?</div>
+  <span class="tb-name" id="tb-name"></span>
+  <span class="tb-guild" id="tb-guild"></span>
+  <button class="tb-btn hidden" id="tb-research" onclick="window.location='research.html'">Research Archives</button>
+  <button class="tb-btn tb-retake hidden" id="tb-retake" onclick="confirmRetake()">Retake Quiz</button>
+  <button class="tb-btn" onclick="signOut()">Sign Out</button>
+</div>
+
+<!-- AUTH -->
+<section class="section" id="auth">
+  <svg class="auth-crest" width="56" height="56" viewBox="0 0 72 72" fill="none">
+    <path d="M36 6 L44 18 L58 16 L52 28 L60 40 L46 38 L36 50 L26 38 L12 40 L20 28 L14 16 L28 18 Z" stroke="#c9a84c" stroke-width="1" fill="none" opacity="0.7"/>
+    <circle cx="36" cy="28" r="10" stroke="#c9a84c" stroke-width="0.8" fill="none" opacity="0.45"/>
+    <path d="M36 22 L38 27 L44 27 L39 30 L41 36 L36 33 L31 36 L33 30 L28 27 L34 27 Z" stroke="#c9a84c" stroke-width="0.7" fill="rgba(201,168,76,0.1)"/>
+  </svg>
+  <div class="auth-title">Vox Mana</div>
+  <div class="auth-sub">Your guild remembers you.</div>
+  <div class="auth-card">
+    <div class="auth-tabs">
+      <button class="auth-tab on" id="tab-login" onclick="switchTab('login')">Sign In</button>
+      <button class="auth-tab" id="tab-register" onclick="switchTab('register')">Register</button>
+    </div>
+    <div id="auth-msg" class="auth-msg"></div>
+    <div class="field">
+      <label>Username</label>
+      <input type="text" id="auth-user" placeholder="your name" autocomplete="username" maxlength="32" onkeydown="if(event.key==='Enter')submitAuth()">
+    </div>
+    <div class="field">
+      <label>Password</label>
+      <input type="password" id="auth-pass" placeholder="••••••••" autocomplete="current-password" maxlength="64" onkeydown="if(event.key==='Enter')submitAuth()">
+    </div>
+    <button class="btn-primary" id="auth-submit" onclick="submitAuth()">Enter Vox Mana</button>
+    <div class="auth-note">Profiles are stored locally in your browser. No data leaves this page.</div>
+  </div>
+</section>
+
+<!-- WELCOME BACK -->
+<section class="section hidden" id="welcome">
+  <div class="wb-eyebrow">Welcome back, traveller</div>
+  <div class="wb-name" id="wb-name"></div>
+  <div class="wb-guild" id="wb-guild-line"></div>
+  <div class="wb-choices">
+    <button class="btn-choice btn-choice-primary" onclick="showResult()">View My Guild</button>
+    <button class="btn-choice btn-choice-secondary" onclick="confirmRetake()">Retake the Quiz</button>
+  </div>
+  <div class="wb-meta" id="wb-meta"></div>
+</section>
+
+<!-- LANDING -->
+<section class="section hidden" id="landing">
+  <svg style="margin:0 auto 2.5rem;display:block;animation:fadeUp 1s ease both" width="72" height="72" viewBox="0 0 72 72" fill="none">
+    <path d="M36 6 L44 18 L58 16 L52 28 L60 40 L46 38 L36 50 L26 38 L12 40 L20 28 L14 16 L28 18 Z" stroke="#c9a84c" stroke-width="1" fill="none" opacity="0.7"/>
+    <circle cx="36" cy="28" r="10" stroke="#c9a84c" stroke-width="0.8" fill="none" opacity="0.45"/>
+    <path d="M36 22 L38 27 L44 27 L39 30 L41 36 L36 33 L31 36 L33 30 L28 27 L34 27 Z" stroke="#c9a84c" stroke-width="0.7" fill="rgba(201,168,76,0.1)"/>
+  </svg>
+  <div class="landing-title">Vox Mana</div>
+  <div class="landing-sub" style="animation:fadeUp 1s 0.2s ease both">Twelve questions. Ten guilds. Your archetype, your land base, your decks.</div>
+  <button class="btn-primary" style="animation:fadeUp 1s 0.4s ease both;max-width:280px" onclick="startQuiz()">Begin the Questionnaire</button>
+  <div class="landing-note">Your results are saved to your profile automatically.</div>
+</section>
+
+<!-- QUIZ -->
+<section class="section hidden" id="quiz">
+  <div class="quiz-inner">
+    <div class="progress-wrap">
+      <div class="progress-bar"><div class="progress-fill" id="prog-fill" style="width:0%"></div></div>
+      <div class="progress-label">
+        <span id="prog-label">Question 1 of 12</span>
+        <span id="prog-pct">0%</span>
+      </div>
+    </div>
+    <div class="q-card" id="q-card"></div>
+  </div>
+</section>
+
+<!-- REVEAL -->
+<section class="section hidden" id="reveal">
+  <svg class="reveal-spinner" width="56" height="56" viewBox="0 0 56 56" fill="none">
+    <circle cx="28" cy="28" r="22" stroke="#c9a84c" stroke-width="0.8" stroke-dasharray="5 3"/>
+    <circle cx="28" cy="28" r="13" stroke="#c9a84c" stroke-width="0.5" stroke-dasharray="2 4"/>
+    <circle cx="28" cy="28" r="4" fill="none" stroke="#c9a84c" stroke-width="0.8"/>
+  </svg>
+  <div class="reveal-msg" id="reveal-msg">Consulting the Mana Matrix...</div>
+</section>
+
+<!-- RESULT -->
+<section class="hidden" id="result">
+  <div class="result-inner" id="result-inner"></div>
+</section>
+
+</div><!-- .app -->
+
+<script>
+/* ═══════════════════════════════════════
+   STORAGE — delegated to shared.js
+═══════════════════════════════════════ */
+const hashPass    = vm_hashPass;
+const loadProfile = vm_loadProfile;
+const saveProfile = vm_saveProfile;
+
+/* ═══════════════════════════════════════
+   SESSION
+═══════════════════════════════════════ */
+/* Session delegated to shared.js VM_SESSION — survives page navigation */
+const SESSION = VM_SESSION;
+
+/* ═══════════════════════════════════════
+   QUIZ DATA
+═══════════════════════════════════════ */
+const QUESTIONS=[
+  {text:"When facing a difficult decision, you typically...",answers:[{text:"Research everything first. Decide only when you have enough information.",c:"U"},{text:"Consider what's fair and just — for everyone involved.",c:"W"},{text:"Trust your gut. Overthinking is the enemy of action.",c:"R"},{text:"Identify what benefits you most and act accordingly.",c:"B"},{text:"Wait. The right path reveals itself if you're patient.",c:"G"}]},
+  {text:"What do you value most in life?",answers:[{text:"Knowledge — understanding the world as it truly is.",c:"U"},{text:"Justice — ensuring the right thing actually happens.",c:"W"},{text:"Freedom — the ability to live exactly as you choose.",c:"R"},{text:"Power — the ability to shape your own destiny.",c:"B"},{text:"Balance — harmony between yourself and the natural world.",c:"G"}]},
+  {text:"Your biggest personal flaw is probably...",answers:[{text:"Overthinking. You can analyze yourself into paralysis.",c:"U"},{text:"Rigidity. You struggle when the rules conflict with messy reality.",c:"W"},{text:"Impulsiveness. You act before you've thought it through.",c:"R"},{text:"Ruthlessness. You can justify almost anything for the goal.",c:"B"},{text:"Passivity. You wait when you should act.",c:"G"}]},
+  {text:"Your ideal Saturday looks like...",answers:[{text:"Deep in a puzzle, a book, or something that requires your full mind.",c:"U"},{text:"Volunteering, organizing, or doing something for your community.",c:"W"},{text:"Somewhere spontaneous — no plan, no schedule, no agenda.",c:"R"},{text:"Building something, networking, or investing in your future.",c:"B"},{text:"Hiking, gardening, cooking something from scratch.",c:"G"}]},
+  {text:"When leading a group, you...",answers:[{text:"Plan every step in advance and ensure the team understands the system.",c:"U"},{text:"Set clear expectations and make sure everyone is treated equally.",c:"W"},{text:"Lead through energy and passion — inspire, don't manage.",c:"R"},{text:"Make the hard calls that others won't. Someone has to.",c:"B"},{text:"Give people space to find their own role. Trust the process.",c:"G"}]},
+  {text:"Your favorite kind of story?",answers:[{text:"Mysteries, thrillers, sci-fi — the mind working against the unknown.",c:"U"},{text:"Epics of heroism and sacrifice — good triumphing against overwhelming evil.",c:"W"},{text:"Wild adventures, intense romance, stories soaked in raw emotion.",c:"R"},{text:"Political intrigue, morally grey anti-heroes, the real cost of ambition.",c:"B"},{text:"Ancient myths, nature epics — stories far bigger than any one person.",c:"G"}]},
+  {text:"In an argument, you...",answers:[{text:"Present logic, evidence, and irrefutable facts until the other side concedes.",c:"U"},{text:"Appeal to shared values. What can we all agree is right here?",c:"W"},{text:"Get passionate — you argue with your whole body and your whole voice.",c:"R"},{text:"Find the other person's weakest point and press it hard.",c:"B"},{text:"Seek common ground. Most arguments don't have a real winner.",c:"G"}]},
+  {text:"What frightens you most?",answers:[{text:"Ignorance — being wrong, uninformed, or deliberately deceived.",c:"U"},{text:"Chaos — a world with no order, no accountability, no structure.",c:"W"},{text:"Stagnation — a life where nothing changes, nothing burns, nothing risks.",c:"R"},{text:"Weakness — losing your edge, your leverage, your relevance.",c:"B"},{text:"Imbalance — civilization consuming what it cannot replace.",c:"G"}]},
+  {text:"At a gathering, you're most likely...",answers:[{text:"Quietly observing. You leave knowing far more than when you arrived.",c:"U"},{text:"Organizing, hosting, making sure everyone feels welcome and included.",c:"W"},{text:"The loudest voice in the room, turning strangers into fast friends.",c:"R"},{text:"Making the connections that matter. Relationships as investments.",c:"B"},{text:"In the corner or the garden, having the one deep conversation of the night.",c:"G"}]},
+  {text:"Your philosophy in one sentence?",answers:[{text:"\"Everything that exists can — and should — be understood.\"",c:"U"},{text:"\"Do the right thing. Always. Even when it costs you.\"",c:"W"},{text:"\"No regrets. Every scar is a story worth telling.\"",c:"R"},{text:"\"Power isn't taken. It's cultivated, quietly, over time.\"",c:"B"},{text:"\"I am not separate from the world. I am part of it.\"",c:"G"}]},
+  {text:"When you lose, you...",answers:[{text:"Analyze every mistake until you know exactly what went wrong.",c:"U"},{text:"Accept it with dignity. You fought the right way. That matters.",c:"W"},{text:"Get angry — then bounce back harder and faster than before.",c:"R"},{text:"Catalog the lesson as ammunition. It will not happen twice.",c:"B"},{text:"Accept it as part of the cycle. Loss always precedes growth.",c:"G"}]},
+  {text:"You're building something from nothing. Your first move?",answers:[{text:"Draft a detailed blueprint. Map every dependency before touching anything.",c:"U"},{text:"Define the principles and rules it will operate by.",c:"W"},{text:"Start building immediately. Adjust as you go. Speed beats planning.",c:"R"},{text:"Secure the resources and people you need before anything else.",c:"B"},{text:"Start small, naturally. Let it grow at its own pace.",c:"G"}]}
+];
+
+/* ═══════════════════════════════════════
+   GUILD DATA
+═══════════════════════════════════════ */
+const WUBRG=['W','U','B','R','G'];
+function normPair(a,b){return WUBRG.indexOf(a)<=WUBRG.indexOf(b)?a+b:b+a}
+
+const GUILDS={
+  WU:{
+    name:"Azorius Senate",tagline:"Order is not a constraint. It is civilization itself.",colors:["W","U"],accent:"#5a8fbc",
+    banner:"linear-gradient(160deg,rgba(26,60,100,0.35) 0%,rgba(12,11,10,0) 60%)",
+    philosophy:"You believe law and knowledge are the twin pillars of a functioning world. Without structure there is only chaos; without understanding, only fear. You plan carefully, enforce fairly, and build systems that outlast any individual.",
+    archetypes:[{name:"Draw-Go Control",desc:"Hold up mana every turn. Counter threats at instant speed. Win with one resilient finisher after the opponent exhausts their resources."},{name:"Prison Control",desc:"Deploy asymmetric restrictions — Thalia, Detention Sphere, Rule of Law — that prevent opponents from executing their game plan."},{name:"Tempo / Spirits",desc:"Flash threats and counterspells in the same turn. Deploy a creature, protect it, answer opposition with open mana."}],
+    staples:{
+      creatures:["Thalia, Guardian of Thraben","Lavinia of the Tenth","Aven Mindcensor"],
+      spells:["Supreme Verdict","Counterspell","Path to Exile"],
+      permanents:["Detention Sphere","Rhystic Study"]
+    },
+    lands:{
+      premium:["Hallowed Fountain","Sea of Clouds"],
+      midrange:["Glacial Fortress","Hengegate Pathway"],
+      budget:["Azorius Guildgate","Azorius Chancery"],
+      optimal:"4× Hallowed Fountain · 4× Sea of Clouds · 4× Glacial Fortress · 2× Hengegate Pathway · 2× Temple of Enlightenment",
+      mid:"4× Glacial Fortress · 4× Hengegate Pathway · 4× Temple of Enlightenment · 4× Port Town",
+      bgt:"4× Azorius Guildgate · 4× Azorius Chancery · 4× Temple of Enlightenment · 9 Plains · 9 Island",
+      utility:"Command Tower · Exotic Orchard · Fabled Passage · Myriad Landscape"
+    },
+    decks:[
+      {fmt:"Modern",name:"Azorius Control",desc:"Wraths, counterspells, and Teferi grinding opponents to dust turn by turn.",mtgg:"https://www.mtggoldfish.com/archetype/azorius-control#paper",edhrec:null,mtgd:"https://mtgdecks.net/Modern"},
+      {fmt:"Pioneer",name:"Azorius Spirits",desc:"Flash spirits backed by Mausoleum Wanderer — every turn is your turn.",mtgg:"https://www.mtggoldfish.com/archetype/azorius-spirits-53347#paper",edhrec:null,mtgd:"https://mtgdecks.net/Pioneer"},
+      {fmt:"Commander",name:"Azorius Commanders",desc:"Control the table with taxes and wraths, then close with inevitability.",mtgg:null,edhrec:"https://edhrec.com/commanders/azorius",mtgd:"https://mtgdecks.net/Commander"}
+    ],
+    edhrecGuild:"azorius"
+  },
+  UB:{
+    name:"House Dimir",tagline:"Information is the only currency that never devalues.",colors:["U","B"],accent:"#7a4aaa",
+    banner:"linear-gradient(160deg,rgba(70,30,110,0.35) 0%,rgba(12,11,10,0) 60%)",
+    philosophy:"Power flows to those who know what others don't. You operate in the spaces between — gathering information, anticipating moves, controlling the narrative before others know there is one. You prefer to win before your opponent realizes a game was being played.",
+    archetypes:[{name:"Combo-Control",desc:"Play a full control game until you can resolve a two-card instant-win: Thassa's Oracle + Demonic Consultation."},{name:"Discard Control",desc:"Strip key threats with Thoughtseize, then maintain the empty-hand lock with The Rack or Shrieking Affliction."},{name:"Mill Control",desc:"Counterspells and removal shield a mill engine — Ruin Crab, Archive Trap — that wins without dealing damage."}],
+    staples:{
+      creatures:["Snapcaster Mage","Notion Thief","Lazav, Dimir Mastermind"],
+      spells:["Thoughtseize","Counterspell","Fatal Push"],
+      permanents:["Rhystic Study","Necropotence"]
+    },
+    lands:{
+      premium:["Watery Grave","Morphic Pool"],
+      midrange:["Drowned Catacomb","Clearwater Pathway"],
+      budget:["Dimir Guildgate","Dimir Aqueduct"],
+      optimal:"4× Watery Grave · 4× Morphic Pool · 4× Drowned Catacomb · 2× Clearwater Pathway · 2× Temple of Deceit",
+      mid:"4× Drowned Catacomb · 4× Clearwater Pathway · 4× Temple of Deceit · 4× Choked Estuary",
+      bgt:"4× Dimir Guildgate · 4× Dimir Aqueduct · 4× Temple of Deceit · 9 Island · 9 Swamp",
+      utility:"Command Tower · Exotic Orchard · Fabled Passage · Urborg, Tomb of Yawgmoth"
+    },
+    decks:[
+      {fmt:"Modern",name:"Dimir Control",desc:"Thoughtseize into removal into a combo finish — on your own timeline.",mtgg:"https://www.mtggoldfish.com/archetype/dimir-control#paper",edhrec:null,mtgd:"https://mtgdecks.net/Modern"},
+      {fmt:"Modern",name:"Mill",desc:"Ruin Crab, Archive Trap, Fractured Sanity — 60 cards gone by turn four.",mtgg:"https://www.mtggoldfish.com/archetype/mill#paper",edhrec:null,mtgd:"https://mtgdecks.net/Modern"},
+      {fmt:"Commander",name:"Dimir Commanders",desc:"Manipulation, reanimation, and wins your opponents never see coming.",mtgg:null,edhrec:"https://edhrec.com/commanders/dimir",mtgd:"https://mtgdecks.net/Commander"}
+    ],
+    edhrecGuild:"dimir"
+  },
+  BR:{
+    name:"Cult of Rakdos",tagline:"Pain is entertainment. Death is the final punchline.",colors:["B","R"],accent:"#c03030",
+    banner:"linear-gradient(160deg,rgba(140,20,20,0.35) 0%,rgba(12,11,10,0) 60%)",
+    philosophy:"You live with intensity. Rules exist to be broken; conventions, to be shattered. Life is too short for restraint — you extract maximum experience from every moment even at a cost. You're drawn to chaos because you've decided control is an illusion worth abandoning.",
+    archetypes:[{name:"Rakdos Midrange",desc:"Thoughtseize into Bloodtithe Harvester into Fable of the Mirror-Breaker. Efficient threats, precise removal, pressure from every angle."},{name:"Aristocrats",desc:"Blood Artist and Mayhem Devil drain the table one sacrifice trigger at a time. Every creature death generates value."},{name:"Sacrifice Aggro",desc:"Generate cheap fodder, feed it to sac outlets for damage payoffs, and kill before the opponent stabilizes."}],
+    staples:{
+      creatures:["Bloodtithe Harvester","Mayhem Devil","Kroxa, Titan of Death's Hunger"],
+      spells:["Thoughtseize","Lightning Bolt","Terminate"],
+      permanents:["Fable of the Mirror-Breaker","Phyrexian Arena"]
+    },
+    lands:{
+      premium:["Blood Crypt","Luxury Suite"],
+      midrange:["Dragonskull Summit","Blightstep Pathway"],
+      budget:["Rakdos Guildgate","Rakdos Carnarium"],
+      optimal:"4× Blood Crypt · 4× Luxury Suite · 4× Dragonskull Summit · 2× Blightstep Pathway · 2× Temple of Malice",
+      mid:"4× Dragonskull Summit · 4× Blightstep Pathway · 4× Temple of Malice · 4× Smoldering Marsh",
+      bgt:"4× Rakdos Guildgate · 4× Rakdos Carnarium · 4× Temple of Malice · 9 Swamp · 9 Mountain",
+      utility:"Command Tower · Exotic Orchard · Fabled Passage · Urborg, Tomb of Yawgmoth"
+    },
+    decks:[
+      {fmt:"Modern",name:"Rakdos Midrange",desc:"The format's best threats in BR, backed by Thoughtseize and efficient removal.",mtgg:"https://www.mtggoldfish.com/archetype/rakdos-midrange#paper",edhrec:null,mtgd:"https://mtgdecks.net/Modern"},
+      {fmt:"Pioneer",name:"Rakdos Sacrifice",desc:"Mayhem Devil and Ob Nixilis drain opponents while you sacrifice everything.",mtgg:"https://www.mtggoldfish.com/archetype/rakdos-sacrifice-pioneer#paper",edhrec:null,mtgd:"https://mtgdecks.net/Pioneer"},
+      {fmt:"Commander",name:"Rakdos Commanders",desc:"Chaos effects and sacrifice synergies for the most dramatic table in the room.",mtgg:null,edhrec:"https://edhrec.com/commanders/rakdos",mtgd:"https://mtgdecks.net/Commander"}
+    ],
+    edhrecGuild:"rakdos"
+  },
+  RG:{
+    name:"Gruul Clans",tagline:"Civilization is a cage. Nature is freedom.",colors:["R","G"],accent:"#4a9e30",
+    banner:"linear-gradient(160deg,rgba(60,130,30,0.28) 0%,rgba(12,11,10,0) 60%)",
+    philosophy:"You distrust systems built to control others. You prefer direct action over elaborate plans, raw power over political maneuvering. The world tries to tame you — you push back. The forest doesn't lie. The volcano doesn't negotiate.",
+    archetypes:[{name:"Zoo / Aggro",desc:"Wild Nacatl, Bloodbraid Elf, Questing Beast. The most efficient bodies at each cost, ending games before midrange finds its footing."},{name:"Ramp",desc:"Accelerate mana with dorks and land spells, then deploy threats your opponent simply cannot race."},{name:"Ponza / Land Denial",desc:"Blood Moon and Stone Rain lock opponents out of their mana base, then slam threats into a field they can't answer."}],
+    staples:{
+      creatures:["Bloodbraid Elf","Questing Beast","Rampaging Baloths"],
+      spells:["Lightning Bolt","Farseek","Ancient Grudge"],
+      permanents:["Utopia Sprawl","Fires of Yavimaya"]
+    },
+    lands:{
+      premium:["Stomping Ground","Spire Garden"],
+      midrange:["Rootbound Crag","Cragcrown Pathway"],
+      budget:["Gruul Guildgate","Gruul Turf"],
+      optimal:"4× Stomping Ground · 4× Spire Garden · 4× Rootbound Crag · 2× Cragcrown Pathway · 2× Temple of Abandon",
+      mid:"4× Rootbound Crag · 4× Cragcrown Pathway · 4× Temple of Abandon · 4× Game Trail",
+      bgt:"4× Gruul Guildgate · 4× Gruul Turf · 4× Temple of Abandon · 9 Forest · 9 Mountain",
+      utility:"Command Tower · Exotic Orchard · Raging Ravine · Myriad Landscape"
+    },
+    decks:[
+      {fmt:"Modern",name:"Gruul Prowess",desc:"Burning-Tree Emissary chains into explosive early turns backed by Collected Company.",mtgg:"https://www.mtggoldfish.com/archetype/gruul-prowess#paper",edhrec:null,mtgd:"https://mtgdecks.net/Modern"},
+      {fmt:"Modern",name:"Ponza",desc:"Blood Moon on turn two. Your opponent can't cast their deck. You win from there.",mtgg:"https://www.mtggoldfish.com/archetype/ponza#paper",edhrec:null,mtgd:"https://mtgdecks.net/Modern"},
+      {fmt:"Commander",name:"Gruul Commanders",desc:"The most direct path: big bodies, ramp, and relentless aggression.",mtgg:null,edhrec:"https://edhrec.com/commanders/gruul",mtgd:"https://mtgdecks.net/Commander"}
+    ],
+    edhrecGuild:"gruul"
+  },
+  WG:{
+    name:"Selesnya Conclave",tagline:"The whole is greater than the sum of its parts.",colors:["W","G"],accent:"#6aaa30",
+    banner:"linear-gradient(160deg,rgba(80,140,30,0.3) 0%,rgba(12,11,10,0) 60%)",
+    philosophy:"You believe in the power of community. Individual ambition is small compared to collective strength. Your power comes not from dominance but from unity — when everyone plays their role, the whole becomes something far greater than any part could be alone.",
+    archetypes:[{name:"Token Go-Wide",desc:"Generate armies of tokens, back them with anthems, and win through an alpha strike the opponent cannot block."},{name:"+1/+1 Counters",desc:"Hardened Scales and Winding Constrictor scale every counter effect exponentially — each becomes two."},{name:"Company Hatebears",desc:"Collected Company at instant speed finding Thalia, Leonin Arbiter, and a board the opponent can't navigate."}],
+    staples:{
+      creatures:["Voice of Resurgence","Loxodon Smiter","Trostani, Selesnya's Voice"],
+      spells:["Collected Company","Path to Exile","Wrath of God"],
+      permanents:["Hardened Scales","Parallel Lives"]
+    },
+    lands:{
+      premium:["Temple Garden","Bountiful Promenade"],
+      midrange:["Sunpetal Grove","Branchloft Pathway"],
+      budget:["Selesnya Guildgate","Selesnya Sanctuary"],
+      optimal:"4× Temple Garden · 4× Bountiful Promenade · 4× Sunpetal Grove · 2× Branchloft Pathway · 2× Temple of Plenty",
+      mid:"4× Sunpetal Grove · 4× Branchloft Pathway · 4× Temple of Plenty · 4× Fortified Village",
+      bgt:"4× Selesnya Guildgate · 4× Selesnya Sanctuary · 4× Temple of Plenty · 9 Forest · 9 Plains",
+      utility:"Command Tower · Exotic Orchard · Gavony Township · Myriad Landscape"
+    },
+    decks:[
+      {fmt:"Modern",name:"Hardened Scales",desc:"Arcbound Ravager and Hardened Scales create exponentially growing threats from nothing.",mtgg:"https://www.mtggoldfish.com/archetype/hardened-scales#paper",edhrec:null,mtgd:"https://mtgdecks.net/Modern"},
+      {fmt:"Modern",name:"Selesnya Company",desc:"Collected Company finds the most impactful bears and threats at instant speed.",mtgg:"https://www.mtggoldfish.com/archetype/selesnya-company#paper",edhrec:null,mtgd:"https://mtgdecks.net/Modern"},
+      {fmt:"Commander",name:"Selesnya Commanders",desc:"Tokens, counters, and community engines that scale out of control.",mtgg:null,edhrec:"https://edhrec.com/commanders/selesnya",mtgd:"https://mtgdecks.net/Commander"}
+    ],
+    edhrecGuild:"selesnya"
+  },
+  WB:{
+    name:"Orzhov Syndicate",tagline:"The living serve the Syndicate. So do the dead.",colors:["W","B"],accent:"#9a7ab0",
+    banner:"linear-gradient(160deg,rgba(90,60,120,0.3) 0%,rgba(12,11,10,0) 60%)",
+    philosophy:"True power is measured not in moments but in legacies. You play the long game — building wealth and leverage across multiple timescales. You operate within structures of power, always near the top of them.",
+    archetypes:[{name:"Aristocrats",desc:"Blood Artist, Zulaport Cutthroat, and free sacrifice outlets drain the entire table one death trigger at a time."},{name:"Taxes",desc:"Thalia, Tidehollow Sculler, and Kaya's Guile make every spell the opponent casts cost more than they can afford."},{name:"Soul Sisters",desc:"Soul Warden converts each entering creature into life — Ajani's Pridemate and Serra Ascendant scale that into lethal pressure."}],
+    staples:{
+      creatures:["Blood Artist","Tidehollow Sculler","Vito, Thorn of the Dusk Rose"],
+      spells:["Thoughtseize","Path to Exile","Vindicate"],
+      permanents:["Phyrexian Arena","Grasp of Fate"]
+    },
+    lands:{
+      premium:["Godless Shrine","Shattered Sanctum"],
+      midrange:["Isolated Chapel","Brightclimb Pathway"],
+      budget:["Orzhov Guildgate","Orzhov Basilica"],
+      optimal:"4× Godless Shrine · 4× Shattered Sanctum · 4× Isolated Chapel · 2× Brightclimb Pathway · 2× Temple of Silence",
+      mid:"4× Isolated Chapel · 4× Brightclimb Pathway · 4× Temple of Silence · 4× Concealed Courtyard",
+      bgt:"4× Orzhov Guildgate · 4× Orzhov Basilica · 4× Temple of Silence · 9 Plains · 9 Swamp",
+      utility:"Command Tower · Exotic Orchard · Urborg, Tomb of Yawgmoth · Myriad Landscape"
+    },
+    decks:[
+      {fmt:"Modern",name:"Orzhov Taxes",desc:"Thalia and Sculler grinding every spell your opponent tries to cast.",mtgg:"https://www.mtggoldfish.com/archetype/death-and-taxes#paper",edhrec:null,mtgd:"https://mtgdecks.net/Modern"},
+      {fmt:"Modern",name:"Orzhov Midrange",desc:"Lingering Souls, Thoughtseize, Blood Artist — pure attrition.",mtgg:"https://www.mtggoldfish.com/archetype/orzhov-midrange#paper",edhrec:null,mtgd:"https://mtgdecks.net/Modern"},
+      {fmt:"Commander",name:"Orzhov Commanders",desc:"Sacrifice and recursion engines that pay dividends across long games.",mtgg:null,edhrec:"https://edhrec.com/commanders/orzhov",mtgd:"https://mtgdecks.net/Commander"}
+    ],
+    edhrecGuild:"orzhov"
+  },
+  UR:{
+    name:"Izzet League",tagline:"The question isn't whether it will explode. It's whether the explosion is interesting.",colors:["U","R"],accent:"#d08030",
+    banner:"linear-gradient(160deg,rgba(180,80,20,0.28) 0%,rgba(12,11,10,0) 60%)",
+    philosophy:"You are driven by curiosity and the thrill of discovery. You don't just want to understand the world — you want to push it to its limits and see what breaks. Your plans are technically flawless and emotionally reckless. Brilliant and chaotic in equal measure.",
+    archetypes:[{name:"Tempo / Delver",desc:"Delver of Secrets backed by Daze and Force of Will. Deploy a threat, protect it with single mana, answer everything else for free."},{name:"Storm",desc:"Chain rituals and cantrips until a Storm spell copies itself enough times to kill the table in one turn."},{name:"Spells-Matter / Phoenix",desc:"Faithless Looting and cantrips fuel Arclight Phoenix, which returns from the graveyard every time you cast three spells."}],
+    staples:{
+      creatures:["Arclight Phoenix","Murktide Regent","Goblin Electromancer"],
+      spells:["Lightning Bolt","Counterspell","Faithless Looting"],
+      permanents:["Rhystic Study","Thousand-Year Storm"]
+    },
+    lands:{
+      premium:["Steam Vents","Training Center"],
+      midrange:["Sulfur Falls","Riverglide Pathway"],
+      budget:["Izzet Guildgate","Izzet Boilerworks"],
+      optimal:"4× Steam Vents · 4× Training Center · 4× Sulfur Falls · 2× Riverglide Pathway · 2× Temple of Epiphany",
+      mid:"4× Sulfur Falls · 4× Riverglide Pathway · 4× Temple of Epiphany · 4× Spirebluff Canal",
+      bgt:"4× Izzet Guildgate · 4× Izzet Boilerworks · 4× Temple of Epiphany · 9 Island · 9 Mountain",
+      utility:"Command Tower · Exotic Orchard · Spirebluff Canal · Myriad Landscape"
+    },
+    decks:[
+      {fmt:"Modern",name:"Izzet Murktide",desc:"Murktide Regent and Ragavan backed by the best cheap blue and red spells.",mtgg:"https://www.mtggoldfish.com/archetype/izzet-murktide#paper",edhrec:null,mtgd:"https://mtgdecks.net/Modern"},
+      {fmt:"Modern",name:"Izzet Phoenix",desc:"Faithless Looting reanimating Arclight Phoenix at absurd speed and consistency.",mtgg:"https://www.mtggoldfish.com/archetype/izzet-phoenix#paper",edhrec:null,mtgd:"https://mtgdecks.net/Modern"},
+      {fmt:"Commander",name:"Izzet Commanders",desc:"Spells-matter engines, storm lines, and instants that cascade into each other.",mtgg:null,edhrec:"https://edhrec.com/commanders/izzet",mtgd:"https://mtgdecks.net/Commander"}
+    ],
+    edhrecGuild:"izzet"
+  },
+  BG:{
+    name:"Golgari Swarm",tagline:"Nothing is wasted. Everything feeds something else.",colors:["B","G"],accent:"#4a8a38",
+    banner:"linear-gradient(160deg,rgba(30,80,20,0.35) 0%,rgba(12,11,10,0) 60%)",
+    philosophy:"You understand the great cycle — that death is not an end but a transition. Every loss becomes fuel. Every sacrifice generates value. You're pragmatic and patient, willing to spend resources now because you know they return. You don't fear decay; you manage it.",
+    archetypes:[{name:"Rock / BGx Midrange",desc:"Thoughtseize strips threats. Tarmogoyf wins combat. Liliana grinds. Simply the best individual cards in black and green."},{name:"Graveyard Value",desc:"Grim Flayer fills the graveyard, Traverse the Ulvenwald tutors into threats, and every card recurs from the bin."},{name:"Dredge",desc:"Stinkweed Imp replaces draws with massive milling — Narcomoeba and Prized Amalgam enter for free, Creeping Chill deals damage before a single attack."}],
+    staples:{
+      creatures:["Tarmogoyf","Grim Flayer","Deathrite Shaman"],
+      spells:["Thoughtseize","Assassin's Trophy","Life from the Loam"],
+      permanents:["Sylvan Library","Pernicious Deed"]
+    },
+    lands:{
+      premium:["Overgrown Tomb","Undergrowth Stadium"],
+      midrange:["Woodland Cemetery","Darkbore Pathway"],
+      budget:["Golgari Guildgate","Golgari Rot Farm"],
+      optimal:"4× Overgrown Tomb · 4× Undergrowth Stadium · 4× Woodland Cemetery · 2× Darkbore Pathway · 2× Temple of Malady",
+      mid:"4× Woodland Cemetery · 4× Darkbore Pathway · 4× Temple of Malady · 4× Blooming Marsh",
+      bgt:"4× Golgari Guildgate · 4× Golgari Rot Farm · 4× Temple of Malady · 9 Forest · 9 Swamp",
+      utility:"Command Tower · Exotic Orchard · Svogthos, the Restless Tomb · Urborg, Tomb of Yawgmoth"
+    },
+    decks:[
+      {fmt:"Modern",name:"Golgari Midrange",desc:"The original Rock: discard, efficient removal, and threats that grow past answers.",mtgg:"https://www.mtggoldfish.com/archetype/golgari-midrange#paper",edhrec:null,mtgd:"https://mtgdecks.net/Modern"},
+      {fmt:"Modern",name:"Dredge",desc:"Stinkweed Imp turns every draw step into a graveyard full of free creatures.",mtgg:"https://www.mtggoldfish.com/archetype/dredge#paper",edhrec:null,mtgd:"https://mtgdecks.net/Modern"},
+      {fmt:"Commander",name:"Golgari Commanders",desc:"Sacrifice, recursion, and the great cycle of grinding value.",mtgg:null,edhrec:"https://edhrec.com/commanders/golgari",mtgd:"https://mtgdecks.net/Commander"}
+    ],
+    edhrecGuild:"golgari"
+  },
+  UG:{
+    name:"Simic Combine",tagline:"The natural world is a first draft. We are the revision.",colors:["U","G"],accent:"#2aaa78",
+    banner:"linear-gradient(160deg,rgba(20,120,70,0.3) 0%,rgba(12,11,10,0) 60%)",
+    philosophy:"You see nature and intellect not as opposites but as partners. Life should be understood, optimized, and expanded. You're not content with what exists — you imagine what it could become. Patient like the natural world, inventive like the finest minds in it.",
+    archetypes:[{name:"Ramp / Big Threats",desc:"Green ramp accelerates into enormous blue-green threats backed by counter magic for protection."},{name:"+1/+1 Counters / Evolve",desc:"Creatures that evolve and grow through counters, paired with proliferate to accelerate the scaling."},{name:"Blink / Flash Value",desc:"Flash creatures at instant speed for ETB triggers — Frilled Mystic, Uro, Wilderness Reclamation."}],
+    staples:{
+      creatures:["Uro, Titan of Nature's Wrath","Coiling Oracle","Prime Speaker Zegana"],
+      spells:["Counterspell","Growth Spiral","Cultivate"],
+      permanents:["Rhystic Study","Wilderness Reclamation"]
+    },
+    lands:{
+      premium:["Breeding Pool","Rejuvenating Springs"],
+      midrange:["Hinterland Harbor","Barkchannel Pathway"],
+      budget:["Simic Guildgate","Simic Growth Chamber"],
+      optimal:"4× Breeding Pool · 4× Rejuvenating Springs · 4× Hinterland Harbor · 2× Barkchannel Pathway · 2× Temple of Mystery",
+      mid:"4× Hinterland Harbor · 4× Barkchannel Pathway · 4× Temple of Mystery · 4× Botanical Sanctum",
+      bgt:"4× Simic Guildgate · 4× Simic Growth Chamber · 4× Temple of Mystery · 9 Forest · 9 Island",
+      utility:"Command Tower · Exotic Orchard · Alchemist's Refuge · Myriad Landscape"
+    },
+    decks:[
+      {fmt:"Modern",name:"Amulet Titan",desc:"Amulet of Vigor plus bounce lands plus Primeval Titan — fastest ramp kill in the format.",mtgg:"https://www.mtggoldfish.com/archetype/amulet-titan#paper",edhrec:null,mtgd:"https://mtgdecks.net/Modern"},
+      {fmt:"Pioneer",name:"Simic Ramp",desc:"Accelerate past the curve and deploy threats no opponent can race.",mtgg:"https://www.mtggoldfish.com/metagame/pioneer#paper",edhrec:null,mtgd:"https://mtgdecks.net/Pioneer"},
+      {fmt:"Commander",name:"Simic Commanders",desc:"Draw engines, counter synergies, and ramp scaling everything to lethal size.",mtgg:null,edhrec:"https://edhrec.com/commanders/simic",mtgd:"https://mtgdecks.net/Commander"}
+    ],
+    edhrecGuild:"simic"
+  },
+  WR:{
+    name:"Boros Legion",tagline:"Righteous fury is still fury. It still wins.",colors:["W","R"],accent:"#d06030",
+    banner:"linear-gradient(160deg,rgba(180,60,20,0.3) 0%,rgba(12,11,10,0) 60%)",
+    philosophy:"You believe in taking direct, decisive action in the name of what is right. Strategy matters, but so does courage — and sometimes the most powerful thing you can do is simply commit fully to the fight in front of you. You don't hesitate. You don't qualify. You act.",
+    archetypes:[{name:"Go-Wide Aggro",desc:"Raise the Alarm, Legion's Landing, Rally the Peasants. Flood the board with tokens and win through an alpha strike."},{name:"Burn / Heroic",desc:"Monastery Swiftspear and Goblin Guide backed by Lightning Bolt and Boros Charm — the fastest possible clock."},{name:"Equipment Voltron",desc:"Sram and Puresteel Paladin draw cards off every equipment, closing games with one overwhelming threat."}],
+    staples:{
+      creatures:["Goblin Guide","Monastery Swiftspear","Aurelia, the Warleader"],
+      spells:["Lightning Bolt","Lightning Helix","Path to Exile"],
+      permanents:["Sunforger","Assemble the Legion"]
+    },
+    lands:{
+      premium:["Sacred Foundry","Spectator Seating"],
+      midrange:["Clifftop Retreat","Needleverge Pathway"],
+      budget:["Boros Guildgate","Boros Garrison"],
+      optimal:"4× Sacred Foundry · 4× Spectator Seating · 4× Clifftop Retreat · 2× Needleverge Pathway · 2× Temple of Triumph",
+      mid:"4× Clifftop Retreat · 4× Needleverge Pathway · 4× Temple of Triumph · 4× Inspiring Vantage",
+      bgt:"4× Boros Guildgate · 4× Boros Garrison · 4× Temple of Triumph · 9 Plains · 9 Mountain",
+      utility:"Command Tower · Exotic Orchard · Sunhome, Fortress of the Legion · Myriad Landscape"
+    },
+    decks:[
+      {fmt:"Modern",name:"Burn",desc:"The fastest possible clock. Every single card deals damage.",mtgg:"https://www.mtggoldfish.com/archetype/burn#paper",edhrec:null,mtgd:"https://mtgdecks.net/Modern"},
+      {fmt:"Modern",name:"Boros Tokens",desc:"Go-wide token production backed by global pumps and precision combat tricks.",mtgg:"https://www.mtggoldfish.com/archetype/boros-tokens#paper",edhrec:null,mtgd:"https://mtgdecks.net/Modern"},
+      {fmt:"Commander",name:"Boros Commanders",desc:"Aggressive go-wide or equipment Voltron powered by the best white and red tools.",mtgg:null,edhrec:"https://edhrec.com/commanders/boros",mtgd:"https://mtgdecks.net/Commander"}
+    ],
+    edhrecGuild:"boros"
+  }
+};
+
+/* ═══════════════════════════════════════
+   SCREEN MANAGEMENT
+═══════════════════════════════════════ */
+function show(id){
+  ['auth','welcome','landing','quiz','reveal','result'].forEach(s=>document.getElementById(s).classList.add('hidden'));
+  document.getElementById(id).classList.remove('hidden');
+  window.scrollTo(0,0);
+}
+
+function updateTopbar(){
+  const bar=document.getElementById('topbar');
+  if(!SESSION.username){bar.classList.add('hidden');return}
+  bar.classList.remove('hidden');
+  const p=SESSION.profile;
+  document.getElementById('tb-avatar').textContent=(SESSION.username[0]||'?').toUpperCase();
+  document.getElementById('tb-research').classList.toggle('hidden',!SESSION.username);
+  document.getElementById('tb-name').textContent=SESSION.username;
+  const guildEl=document.getElementById('tb-guild');
+  const retakeBtn=document.getElementById('tb-retake');
+  if(p&&p.guild){
+    guildEl.textContent=GUILDS[p.guild]?.name||'';
+    retakeBtn.classList.remove('hidden');
+  }else{
+    guildEl.textContent='';
+    retakeBtn.classList.add('hidden');
+  }
+}
+
+/* ═══════════════════════════════════════
+   AUTH
+═══════════════════════════════════════ */
+let authMode='login';
+function switchTab(m){
+  authMode=m;
+  document.getElementById('tab-login').classList.toggle('on',m==='login');
+  document.getElementById('tab-register').classList.toggle('on',m==='register');
+  document.getElementById('auth-submit').textContent=m==='login'?'Enter Vox Mana':'Create My Profile';
+  clearAuthMsg();
+}
+function showAuthMsg(msg,type){
+  const el=document.getElementById('auth-msg');
+  el.className='auth-msg '+type;
+  el.textContent=msg;
+  if(type==='err'){el.classList.remove('shake');void el.offsetWidth;el.classList.add('shake')}
+}
+function clearAuthMsg(){const el=document.getElementById('auth-msg');el.className='auth-msg';el.textContent=''}
+
+async function submitAuth(){
+  const userRaw=document.getElementById('auth-user').value.trim();
+  const pass=document.getElementById('auth-pass').value;
+  if(!userRaw){showAuthMsg('Please enter a username.','err');return}
+  if(!pass||pass.length<4){showAuthMsg('Password must be at least 4 characters.','err');return}
+  const u=userRaw.replace(/[^a-zA-Z0-9_\-]/g,'');
+  if(u.length<2){showAuthMsg('Username must be at least 2 alphanumeric characters.','err');return}
+  const btn=document.getElementById('auth-submit');
+  btn.disabled=true;btn.textContent='...';
+  const existing=await loadProfile(u);
+  const hash=hashPass(u,pass);
+  if(authMode==='login'){
+    if(!existing){showAuthMsg('No profile found. Register first?','err');btn.disabled=false;btn.textContent='Enter Vox Mana';return}
+    if(existing.passwordHash!==hash){showAuthMsg('Incorrect password.','err');btn.disabled=false;btn.textContent='Enter Vox Mana';return}
+    SESSION={username:u,profile:existing};afterLogin();
+  }else{
+    if(existing){showAuthMsg('That username is taken. Try signing in instead.','err');btn.disabled=false;btn.textContent='Create My Profile';return}
+    const np={passwordHash:hash,guild:null,scores:null,takenAt:null};
+    const saved=await saveProfile(u,np);
+    if(!saved){showAuthMsg('Could not save profile. Storage unavailable.','err');btn.disabled=false;btn.textContent='Create My Profile';return}
+    SESSION={username:u,profile:np};afterLogin();
+  }
+}
+
+function afterLogin(){
+  updateTopbar();
+  const p=SESSION.profile;
+  if(p.guild){
+    const g=GUILDS[p.guild];
+    document.getElementById('wb-name').textContent=SESSION.username;
+    document.getElementById('wb-guild-line').textContent='Your guild: '+g.name;
+    const d=new Date(p.takenAt);
+    const ds=isNaN(d)?'':d.toLocaleDateString('en-US',{month:'long',day:'numeric',year:'numeric'});
+    document.getElementById('wb-meta').textContent=ds?'Quiz completed '+ds:'';
+    show('welcome');
+  }else{show('landing')}
+}
+
+function signOut(){
+  SESSION={username:null,profile:null};
+  updateTopbar();
+  document.getElementById('auth-user').value='';
+  document.getElementById('auth-pass').value='';
+  clearAuthMsg();switchTab('login');show('auth');
+}
+
+/* ═══════════════════════════════════════
+   RETAKE
+═══════════════════════════════════════ */
+function confirmRetake(){
+  if(!confirm('Retake the quiz? Your current result will be replaced.'))return;
+  retakeQuiz();
+}
+async function retakeQuiz(){
+  if(!SESSION.username)return;
+  SESSION.profile.guild=null;SESSION.profile.scores=null;SESSION.profile.takenAt=null;
+  await saveProfile(SESSION.username,SESSION.profile);
+  updateTopbar();startQuiz();
+}
+
+/* ═══════════════════════════════════════
+   QUIZ
+═══════════════════════════════════════ */
+let scores={W:0,U:0,B:0,R:0,G:0};
+let currentQ=0;
+
+function startQuiz(){
+  scores={W:0,U:0,B:0,R:0,G:0};currentQ=0;
+  show('quiz');renderQ();
+}
+function renderQ(){
+  const q=QUESTIONS[currentQ];
+  const pct=Math.round((currentQ/QUESTIONS.length)*100);
+  document.getElementById('prog-fill').style.width=pct+'%';
+  document.getElementById('prog-label').textContent=`Question ${currentQ+1} of ${QUESTIONS.length}`;
+  document.getElementById('prog-pct').textContent=pct+'%';
+  const sh=[...q.answers].sort(()=>Math.random()-0.5);
+  document.getElementById('q-card').innerHTML=`
+    <div class="q-num">Question ${currentQ+1}</div>
+    <div class="q-text">${q.text}</div>
+    <div class="answers">${sh.map(a=>`<button class="ans-btn" onclick="pick('${a.c}',this)">${a.text}</button>`).join('')}</div>`;
+}
+function pick(c,btn){
+  document.querySelectorAll('.ans-btn').forEach(b=>b.disabled=true);
+  btn.classList.add('selected');scores[c]++;
+  setTimeout(()=>{currentQ++;currentQ>=QUESTIONS.length?doReveal():renderQ()},380);
+}
+
+/* ═══════════════════════════════════════
+   REVEAL
+═══════════════════════════════════════ */
+function doReveal(){
+  show('reveal');
+  const msgs=["Consulting the Mana Matrix...","Weighing your convictions...","Reading the leylines...","Your guild awaits..."];
+  let i=0;const el=document.getElementById('reveal-msg');
+  const iv=setInterval(()=>{
+    i++;
+    if(i<msgs.length){el.textContent=msgs[i]}
+    else{clearInterval(iv);const key=resolveGuild();persistResult(key,scores).then(()=>buildResult(key,scores))}
+  },950);
+}
+function resolveGuild(){
+  const sorted=Object.entries(scores).sort((a,b)=>b[1]-a[1]);
+  for(let i=0;i<sorted.length;i++)for(let j=i+1;j<sorted.length;j++){const k=normPair(sorted[i][0],sorted[j][0]);if(GUILDS[k])return k}
+  return 'BR';
+}
+async function persistResult(guildKey,sc){
+  if(!SESSION.username)return;
+  SESSION.profile.guild=guildKey;SESSION.profile.scores={...sc};SESSION.profile.takenAt=new Date().toISOString();
+  await saveProfile(SESSION.username,SESSION.profile);updateTopbar();
+}
+function showResult(){
+  const p=SESSION.profile;
+  if(p&&p.guild)buildResult(p.guild,p.scores||{W:0,U:0,B:0,R:0,G:0});
+}
+
+/* ═══════════════════════════════════════
+   BUILD RESULT
+═══════════════════════════════════════ */
+async function buildResult(key,sc){
+  const g=GUILDS[key];
+  const total=Object.values(sc).reduce((a,b)=>a+b,0)||1;
+  const CM={W:{label:"White",fill:"#ede8d4"},U:{label:"Blue",fill:"#2a7ac8"},B:{label:"Black",fill:"#8060a0"},R:{label:"Red",fill:"#d04030"},G:{label:"Green",fill:"#2a8a30"}};
+
+  const pipsHtml=g.colors.map(c=>`<div class="pip pip-${c}"></div>`).join('');
+
+  const scoreBarsHtml=Object.entries(sc).sort((a,b)=>b[1]-a[1]).map(([c,v])=>{
+    const pct=Math.round((v/total)*100);
+    return `<div class="score-row"><span class="score-label">${CM[c].label}</span><div class="score-track"><div class="score-fill" style="width:0%;background:${CM[c].fill}" data-target="${pct}"></div></div><span class="score-val">${v}</span></div>`;
+  }).join('');
+
+  const archHtml=g.archetypes.map(a=>`<div class="arch-card"><div class="arch-name">${a.name}</div><div class="arch-desc">${a.desc}</div></div>`).join('');
+
+  // Staple cards
+  function stapleRowHtml(arr,prefix){
+    return arr.map((name,i)=>{
+      const id=`${prefix}_${i}`;
+      return `<div class="staple-wrap"><div class="staple-placeholder" id="${id}">${name}</div><div class="staple-name">${name}</div></div>`;
+    }).join('');
+  }
+  const staplesHtml=`
+    <div class="staples-category">
+      <div class="staple-cat-label">Creatures</div>
+      <div class="staple-row">${stapleRowHtml(g.staples.creatures,'sc')}</div>
+    </div>
+    <div class="staples-category">
+      <div class="staple-cat-label">Instants &amp; Sorceries</div>
+      <div class="staple-row">${stapleRowHtml(g.staples.spells,'ss')}</div>
+    </div>
+    <div class="staples-category">
+      <div class="staple-cat-label">Enchantments &amp; Artifacts</div>
+      <div class="staple-row">${stapleRowHtml(g.staples.permanents,'sp')}</div>
+    </div>`;
+
+  // Land base
+  function landRowHtml(arr,prefix){
+    return arr.map((name,i)=>{
+      const id=`${prefix}_${i}`;
+      return `<div class="land-wrap"><div class="land-placeholder" id="${id}">${name}</div><div class="land-name">${name}</div></div>`;
+    }).join('');
+  }
+  const landsHtml=`
+    <div class="lands-tiers">
+      <div class="land-tier tier-premium">
+        <div class="land-tier-label">Premium</div>
+        <div class="land-cards-row">${landRowHtml(g.lands.premium,'lp')}</div>
+      </div>
+      <div class="land-tier tier-midrange">
+        <div class="land-tier-label">Mid-Range</div>
+        <div class="land-cards-row">${landRowHtml(g.lands.midrange,'lm')}</div>
+      </div>
+      <div class="land-tier tier-budget">
+        <div class="land-tier-label">Budget</div>
+        <div class="land-cards-row">${landRowHtml(g.lands.budget,'lb')}</div>
+      </div>
+    </div>
+    <div class="lands-guide">
+      <div class="guide-row"><span class="guide-tier guide-tier-p">Optimal</span><span class="guide-text">${g.lands.optimal}</span></div>
+      <div class="guide-row"><span class="guide-tier guide-tier-m">Mid</span><span class="guide-text">${g.lands.mid}</span></div>
+      <div class="guide-row"><span class="guide-tier guide-tier-b">Budget</span><span class="guide-text">${g.lands.bgt}</span></div>
+      <div class="guide-row"><span class="guide-tier guide-tier-u">Utility</span><span class="guide-text">${g.lands.utility}</span></div>
+    </div>`;
+
+  // Decks — all external links built dynamically using the guild color key (e.g. 'UR')
+  const deckHtml=g.decks.map(d=>{
+    const links=[];
+    const isCmdr=d.fmt==='Commander';
+    // MTGGoldfish: specific archetype page where available
+    if(d.mtgg) links.push(`<a class="deck-link" href="${d.mtgg}" target="_blank" rel="noopener">MTGGoldfish ↗</a>`);
+    // EDHREC: guild commander page (already guild-specific in data)
+    if(d.edhrec) links.push(`<a class="deck-link" href="${d.edhrec}" target="_blank" rel="noopener">EDHREC ↗</a>`);
+    // MTGDecks: format page filtered to this guild's colors
+    links.push(`<a class="deck-link deck-link-mtgd" href="https://mtgdecks.net/${d.fmt}?colors=${key}" target="_blank" rel="noopener">MTGDecks ↗</a>`);
+    // Archidekt: deck search filtered to this guild's colors (+ Commander format if applicable)
+    const archUrl=isCmdr
+      ? `https://archidekt.com/search/decks?colors=${key}&format=commander`
+      : `https://archidekt.com/search/decks?colors=${key}`;
+    links.push(`<a class="deck-link deck-link-arch" href="${archUrl}" target="_blank" rel="noopener">Archidekt ↗</a>`);
+    return `<div class="deck-card"><div class="deck-format">${d.fmt}</div><div class="deck-name">${d.name}</div><div class="deck-desc">${d.desc}</div><div class="deck-links">${links.join('')}</div></div>`;
+  }).join('');
+
+  const userLabel=SESSION.username?`<div style="font-family:'Cinzel',serif;font-size:0.7rem;letter-spacing:0.2em;color:var(--text-muted);text-transform:uppercase;margin-bottom:1rem">${SESSION.username}'s Guild</div>`:'';
+
+  document.getElementById('result-inner').innerHTML=`
+    <div class="guild-banner" style="background:${g.banner}">
+      ${userLabel}
+      <div class="guild-eyebrow">Your True Guild</div>
+      <div class="guild-name" style="color:${g.accent}">${g.name}</div>
+      <div class="guild-tagline">${g.tagline}</div>
+      <div class="mana-pips">${pipsHtml}</div>
+      <div class="guild-philosophy">${g.philosophy}</div>
+    </div>
+
+    <div class="scores-section">
+      <div class="section-label">Your Mana Alignment</div>
+      <div class="score-bars">${scoreBarsHtml}</div>
+    </div>
+
+    <div class="ornament">— ✦ —</div>
+
+    <div class="archetypes-section">
+      <div class="section-label">Your Playstyle Archetypes</div>
+      <div class="archetypes-grid">${archHtml}</div>
+    </div>
+
+    <div class="ornament">— ✦ —</div>
+
+    <div class="staples-section">
+      <div class="section-label">Guild Staple Cards</div>
+      ${staplesHtml}
+    </div>
+
+    <div class="ornament">— ✦ —</div>
+
+    <div class="lands-section">
+      <div class="section-label">Guild Land Base</div>
+      ${landsHtml}
+    </div>
+
+    <div class="ornament">— ✦ —</div>
+
+    <div class="decks-section">
+      <div class="section-label">Where to Start Playing</div>
+      <div class="decks-grid">${deckHtml}</div>
+    </div>
+
+    <div class="footer-actions">
+      <div class="footer-note">Card &amp; land images via Scryfall API · Decklists via MTGGoldfish · Live metagame via MTGDecks · Commanders via EDHREC</div>
+      <button class="btn-secondary" onclick="confirmRetake()">Retake the Quiz</button>
+    </div>`;
+
+  show('result');
+
+  // Animate score bars
+  requestAnimationFrame(()=>{
+    document.querySelectorAll('.score-fill[data-target]').forEach(el=>{
+      setTimeout(()=>{el.style.transition='width 1s ease';el.style.width=el.dataset.target+'%'},300);
+    });
+  });
+
+  // Fetch all card images in sequence
+  const allCards=[
+    ...g.staples.creatures.map((n,i)=>({name:n,id:`sc_${i}`,cls:'staple-placeholder',imgCls:'staple-img'})),
+    ...g.staples.spells.map((n,i)=>({name:n,id:`ss_${i}`,cls:'staple-placeholder',imgCls:'staple-img'})),
+    ...g.staples.permanents.map((n,i)=>({name:n,id:`sp_${i}`,cls:'staple-placeholder',imgCls:'staple-img'})),
+    ...g.lands.premium.map((n,i)=>({name:n,id:`lp_${i}`,cls:'land-placeholder',imgCls:'land-img'})),
+    ...g.lands.midrange.map((n,i)=>({name:n,id:`lm_${i}`,cls:'land-placeholder',imgCls:'land-img'})),
+    ...g.lands.budget.map((n,i)=>({name:n,id:`lb_${i}`,cls:'land-placeholder',imgCls:'land-img'}))
+  ];
+
+  for(const card of allCards){
+    const el=document.getElementById(card.id);
+    if(!el)continue;
+    try{
+      const res=await fetch(`https://api.scryfall.com/cards/named?fuzzy=${encodeURIComponent(card.name)}`);
+      const data=await res.json();
+      const img=data.image_uris?.normal||data.card_faces?.[0]?.image_uris?.normal||null;
+      const link=data.scryfall_uri||'#';
+      if(img){
+        el.outerHTML=`<a href="${link}" target="_blank" rel="noopener"><img class="${card.imgCls}" src="${img}" alt="${data.name}" loading="lazy"/></a>`;
+      }else{el.textContent=card.name}
+    }catch(_){
+      const stillThere=document.getElementById(card.id);
+      if(stillThere)stillThere.textContent=card.name;
+    }
+    await new Promise(r=>setTimeout(r,110));
+  }
+}
+</script>
+</body>
+</html>

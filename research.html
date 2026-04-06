@@ -1,0 +1,1024 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vox Mana — Research Archives</title>
+<script src="shared.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Crimson+Pro:ital,wght@0,300;0,400;1,300;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0c0b0a;--bg2:#131210;--bg3:#1a1816;--bg4:#201e1b;
+  --gold:#c9a84c;--gold-l:#e8d08a;--gold-d:#7a5c14;
+  --teal:#1aaa96;--teal-l:#28d4bc;--teal-d:#0d6e60;--teal-bg:rgba(26,170,150,0.07);
+  --text:#d4c9b8;--text-dim:#7a6e5e;--text-muted:#4a4438;
+  --border:rgba(201,168,76,0.1);--border-s:rgba(201,168,76,0.22);
+  --border-t:rgba(26,170,150,0.2);--border-ts:rgba(26,170,150,0.4);
+  --danger:#b03030;--danger-bg:rgba(176,48,48,0.1);
+  --r:8px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;height:100%}
+body{background:var(--bg);color:var(--text);font-family:'Crimson Pro',Georgia,serif;min-height:100vh;overflow-x:hidden;line-height:1.6}
+body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23n)' opacity='0.015'/%3E%3C/svg%3E");pointer-events:none;z-index:0}
+.page{position:relative;z-index:1;display:flex;flex-direction:column;min-height:100vh}
+.hidden{display:none!important}
+@keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes pulse{0%,100%{opacity:.35}50%{opacity:.8}}
+@keyframes shimmer{0%{background-position:-400px 0}100%{background-position:400px 0}}
+
+/* ── HEADER ─────────────────────────── */
+.r-header{border-bottom:1px solid var(--border);padding:0.7rem 1.5rem;display:flex;align-items:center;gap:16px;background:rgba(12,11,10,0.9);backdrop-filter:blur(8px);position:sticky;top:0;z-index:200;flex-shrink:0}
+.back-link{font-family:'Cinzel',serif;font-size:0.65rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--text-dim);text-decoration:none;border:1px solid var(--border);padding:0.35rem 0.9rem;transition:color 0.15s,border-color 0.15s;white-space:nowrap}
+.back-link:hover{color:var(--gold);border-color:var(--border-s)}
+.r-title{font-family:'Cinzel',serif;font-size:1.05rem;letter-spacing:0.12em;color:var(--gold);flex:1}
+.r-title span{color:var(--text-dim);font-size:0.8rem;font-weight:400;letter-spacing:0.06em;margin-left:0.5rem}
+.key-btn{font-family:'Cinzel',serif;font-size:0.6rem;letter-spacing:0.12em;text-transform:uppercase;background:transparent;border:1px solid var(--border-t);color:var(--teal);padding:0.35rem 0.85rem;cursor:pointer;transition:background 0.15s,border-color 0.15s}
+.key-btn:hover{background:var(--teal-bg);border-color:var(--border-ts)}
+.key-btn.active{background:var(--teal-bg);border-color:var(--border-ts)}
+
+/* ── API KEY PANEL ───────────────────── */
+.key-panel{background:var(--bg2);border:1px solid var(--border-t);padding:1.25rem 1.5rem;animation:fadeUp 0.25s ease}
+.key-panel-inner{max-width:560px;margin:0 auto;display:flex;gap:10px;align-items:flex-end;flex-wrap:wrap}
+.key-field{flex:1;min-width:260px}
+.key-field label{display:block;font-family:'Cinzel',serif;font-size:0.58rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--teal);margin-bottom:0.4rem}
+.key-field input{width:100%;background:var(--bg3);border:1px solid var(--border-t);color:var(--text);font-family:'IBM Plex Mono',monospace;font-size:0.85rem;padding:0.6rem 0.85rem;outline:none;transition:border-color 0.15s}
+.key-field input:focus{border-color:var(--border-ts)}
+.key-note{font-size:0.78rem;color:var(--text-muted);margin-top:0.5rem;line-height:1.5}
+.key-note a{color:var(--teal);text-decoration:none}
+.key-note a:hover{text-decoration:underline}
+.btn-teal{font-family:'Cinzel',serif;font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;background:var(--teal);color:var(--bg);border:none;padding:0.65rem 1.5rem;cursor:pointer;transition:background 0.15s;white-space:nowrap;flex-shrink:0}
+.btn-teal:hover{background:var(--teal-l)}
+
+/* ── SEARCH ZONE ─────────────────────── */
+.r-search-zone{padding:1.25rem 1.5rem;border-bottom:1px solid var(--border)}
+.mode-row{display:flex;gap:4px;margin-bottom:1rem}
+.mode-btn{font-family:'Cinzel',serif;font-size:0.62rem;letter-spacing:0.14em;text-transform:uppercase;background:transparent;border:1px solid var(--border);color:var(--text-muted);padding:0.4rem 1rem;cursor:pointer;transition:all 0.15s}
+.mode-btn:hover{color:var(--text);border-color:var(--border-s)}
+.mode-btn.on{background:var(--bg3);color:var(--gold);border-color:var(--border-s)}
+.mode-btn.on.teal-mode{color:var(--teal);border-color:var(--border-t)}
+
+.search-input-row{display:flex;gap:8px;margin-bottom:0.85rem}
+.search-wrap{position:relative;flex:1}
+.search-icon{position:absolute;left:0.85rem;top:50%;transform:translateY(-50%);color:var(--text-muted);font-size:0.85rem;pointer-events:none;font-family:'IBM Plex Mono',monospace}
+.s-input{width:100%;background:var(--bg2);border:1px solid var(--border);color:var(--text);font-family:'Crimson Pro',serif;font-size:1rem;padding:0.75rem 0.9rem 0.75rem 2.2rem;outline:none;transition:border-color 0.15s}
+.s-input.mono{font-family:'IBM Plex Mono',monospace;font-size:0.88rem;color:var(--teal-l)}
+.s-input:focus{border-color:var(--border-s)}
+.s-input.mono:focus{border-color:var(--border-t)}
+.s-input::placeholder{color:var(--text-muted)}
+.btn-search{font-family:'Cinzel',serif;font-size:0.75rem;letter-spacing:0.12em;text-transform:uppercase;background:var(--gold);color:var(--bg);border:none;padding:0.75rem 1.75rem;cursor:pointer;clip-path:polygon(8px 0%,100% 0%,calc(100% - 8px) 100%,0% 100%);transition:background 0.15s;white-space:nowrap;flex-shrink:0}
+.btn-search:hover{background:var(--gold-l)}
+.btn-search:disabled{background:var(--gold-d);cursor:not-allowed}
+
+/* Query inspector */
+.query-inspector{background:var(--bg3);border:1px solid var(--border-t);padding:0.65rem 1rem;display:flex;align-items:center;gap:10px;font-family:'IBM Plex Mono',monospace;font-size:0.82rem;min-height:38px}
+.qi-label{color:var(--text-muted);font-size:0.68rem;letter-spacing:0.1em;text-transform:uppercase;white-space:nowrap;font-family:'Cinzel',serif}
+.qi-query{color:var(--teal-l);flex:1;word-break:break-all;line-height:1.4}
+.qi-reason{color:var(--text-muted);font-size:0.75rem;font-family:'Crimson Pro',serif;font-style:italic;border-left:1px solid var(--border-t);padding-left:10px;max-width:280px}
+.qi-actions{display:flex;gap:6px;flex-shrink:0}
+.qi-btn{font-size:0.62rem;letter-spacing:0.1em;font-family:'Cinzel',serif;text-transform:uppercase;background:transparent;border:1px solid var(--border-t);color:var(--teal);padding:0.28rem 0.75rem;cursor:pointer;text-decoration:none;display:inline-block;transition:background 0.15s;white-space:nowrap}
+.qi-btn:hover{background:var(--teal-bg)}
+
+/* ── VISUAL BUILDER ───────────────────── */
+.builder-panel{background:var(--bg2);border:1px solid var(--border);padding:1.1rem 1.25rem;margin-top:0.85rem;animation:fadeUp 0.25s ease}
+.builder-row{display:flex;align-items:center;gap:12px;margin-bottom:0.85rem;flex-wrap:wrap}
+.builder-row:last-child{margin-bottom:0}
+.bl{font-family:'Cinzel',serif;font-size:0.58rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--text-muted);white-space:nowrap;width:62px;flex-shrink:0}
+.color-pips{display:flex;gap:4px}
+.cpip{width:26px;height:26px;border-radius:50%;border:2px solid transparent;cursor:pointer;display:flex;align-items:center;justify-content:center;font-family:'Cinzel',serif;font-size:0.65rem;font-weight:600;transition:transform 0.1s,border-color 0.1s,opacity 0.1s;opacity:.55}
+.cpip:hover{transform:scale(1.12);opacity:.85}
+.cpip.on{border-color:white;opacity:1;transform:scale(1.08)}
+.cpip-W{background:#c8c4b0;color:#4a3c14}
+.cpip-U{background:#1a5b9b;color:#bcd4f4}
+.cpip-B{background:#2a1e38;color:#c0a0e0;border:2px solid rgba(180,140,220,0.3)}
+.cpip-R{background:#be2a1f;color:#fcc4b0}
+.cpip-G{background:#1b5c28;color:#a0d4a0}
+.cpip-C{background:#888;color:#f0f0f0}
+.color-op{background:var(--bg3);border:1px solid var(--border);color:var(--text-dim);font-family:'Cinzel',serif;font-size:0.65rem;padding:0.3rem 0.55rem;cursor:pointer;outline:none}
+.type-checks,.rarity-checks{display:flex;gap:6px;flex-wrap:wrap}
+.cb-label{display:flex;align-items:center;gap:4px;cursor:pointer;font-size:0.85rem;color:var(--text-dim);padding:0.2rem 0.55rem;border:1px solid var(--border);transition:color 0.12s,border-color 0.12s,background 0.12s}
+.cb-label input{display:none}
+.cb-label.checked{color:var(--text);border-color:var(--border-s);background:rgba(201,168,76,0.06)}
+.bld-select{background:var(--bg3);border:1px solid var(--border);color:var(--text-dim);font-family:'Crimson Pro',serif;font-size:0.9rem;padding:0.35rem 0.6rem;cursor:pointer;outline:none;min-width:110px}
+.cmc-inputs{display:flex;align-items:center;gap:6px}
+.cmc-input{width:52px;background:var(--bg3);border:1px solid var(--border);color:var(--text);font-family:'IBM Plex Mono',monospace;font-size:0.82rem;padding:0.35rem 0.55rem;outline:none;text-align:center;transition:border-color 0.15s}
+.cmc-input:focus{border-color:var(--border-s)}
+.kw-wrap{position:relative;flex:1;max-width:340px}
+.kw-input{width:100%;background:var(--bg3);border:1px solid var(--border);color:var(--text);font-family:'Crimson Pro',serif;font-size:0.9rem;padding:0.35rem 0.6rem;outline:none;transition:border-color 0.15s}
+.kw-input:focus{border-color:var(--border-s)}
+.kw-suggestions{position:absolute;top:100%;left:0;right:0;background:var(--bg3);border:1px solid var(--border-s);z-index:50;max-height:160px;overflow-y:auto}
+.kw-sug{padding:0.4rem 0.7rem;cursor:pointer;font-size:0.9rem;transition:background 0.1s}
+.kw-sug:hover{background:rgba(201,168,76,0.06)}
+.kw-active-chips{display:flex;gap:4px;flex-wrap:wrap}
+.kw-chip{font-size:0.75rem;padding:0.2rem 0.5rem;background:rgba(26,170,150,0.1);border:1px solid var(--border-t);color:var(--teal-l);cursor:pointer;display:flex;align-items:center;gap:4px}
+.kw-chip:hover{background:rgba(176,48,48,0.1);border-color:rgba(176,48,48,0.3);color:#e08080}
+
+/* ── BODY ─────────────────────────────── */
+.r-body{display:flex;flex:1;min-height:0}
+
+/* ── SIDEBAR ──────────────────────────── */
+.r-sidebar{width:216px;flex-shrink:0;border-right:1px solid var(--border);padding:1rem 0;overflow-y:auto;background:var(--bg2)}
+.sb-section{padding:0 1rem 1rem}
+.sb-section+.sb-section{border-top:1px solid var(--border);padding-top:1rem}
+.sb-label{font-family:'Cinzel',serif;font-size:0.58rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold-d);margin-bottom:0.75rem}
+.sb-btn{display:block;width:100%;text-align:left;padding:0.42rem 0.6rem;font-size:0.85rem;color:var(--text-dim);background:transparent;border:none;cursor:pointer;transition:color 0.12s,background 0.12s;line-height:1.35;font-family:'Crimson Pro',serif}
+.sb-btn:hover{color:var(--text);background:rgba(201,168,76,0.04)}
+.sb-btn span{display:block;font-size:0.7rem;color:var(--text-muted);font-style:italic;margin-top:1px}
+.color-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:4px}
+.color-sb-btn{padding:0.35rem;font-family:'Cinzel',serif;font-size:0.65rem;letter-spacing:0.06em;text-transform:uppercase;border:1px solid var(--border);background:transparent;color:var(--text-dim);cursor:pointer;transition:all 0.12s;text-align:center}
+.color-sb-btn:hover{background:rgba(201,168,76,0.06);color:var(--text);border-color:var(--border-s)}
+.sb-select{width:100%;background:var(--bg3);border:1px solid var(--border);color:var(--text-dim);font-family:'Crimson Pro',serif;font-size:0.9rem;padding:0.4rem 0.6rem;cursor:pointer;outline:none;transition:border-color 0.15s}
+.sb-select:focus{border-color:var(--border-s)}
+.recent-list{display:flex;flex-direction:column;gap:3px}
+.recent-item{font-family:'IBM Plex Mono',monospace;font-size:0.72rem;color:var(--teal-l);padding:0.35rem 0.5rem;cursor:pointer;border:1px solid transparent;transition:background 0.12s,border-color 0.12s;word-break:break-all;line-height:1.4}
+.recent-item:hover{background:var(--teal-bg);border-color:var(--border-t)}
+
+/* ── RESULTS ──────────────────────────── */
+.r-main{flex:1;min-width:0;display:flex;flex-direction:column;overflow-y:auto}
+.results-header{padding:0.85rem 1.25rem;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:10px;flex-shrink:0;flex-wrap:wrap}
+.res-count{font-family:'Cinzel',serif;font-size:0.72rem;letter-spacing:0.1em;color:var(--text-dim);flex:1}
+.res-count strong{color:var(--text);font-weight:500}
+.res-order{background:var(--bg3);border:1px solid var(--border);color:var(--text-dim);font-family:'Cinzel',serif;font-size:0.62rem;letter-spacing:0.1em;padding:0.35rem 0.6rem;cursor:pointer;outline:none;text-transform:uppercase}
+.card-grid{padding:1.25rem;display:grid;grid-template-columns:repeat(auto-fill,minmax(152px,1fr));gap:12px;flex:1}
+.card-item{cursor:pointer;position:relative;overflow:hidden;border-radius:4.5%}
+.card-item img{width:100%;display:block;border-radius:4.5%;border:1px solid var(--border);transition:transform 0.2s,border-color 0.2s}
+.card-item:hover img{transform:translateY(-3px) scale(1.02);border-color:var(--border-s)}
+.card-skeleton{width:100%;aspect-ratio:63/88;background:var(--bg3);border:1px solid var(--border);border-radius:4.5%;background-image:linear-gradient(90deg,var(--bg3) 0%,var(--bg4) 50%,var(--bg3) 100%);background-size:400px;animation:shimmer 1.4s ease-in-out infinite}
+.card-item-name{font-size:0.72rem;color:var(--text-muted);text-align:center;margin-top:5px;line-height:1.3}
+.results-footer{padding:1rem 1.25rem;border-top:1px solid var(--border);display:flex;align-items:center;justify-content:center;gap:12px;flex-shrink:0}
+.btn-more{font-family:'Cinzel',serif;font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;background:transparent;border:1px solid var(--border-s);color:var(--text-dim);padding:0.6rem 2rem;cursor:pointer;transition:color 0.15s,border-color 0.15s,background 0.15s}
+.btn-more:hover{color:var(--text);border-color:var(--gold);background:rgba(201,168,76,0.04)}
+.btn-more:disabled{opacity:.35;cursor:not-allowed}
+.more-count{font-size:0.8rem;color:var(--text-muted);font-style:italic}
+
+/* Empty / loading states */
+.state-panel{display:flex;flex-direction:column;align-items:center;justify-content:center;flex:1;padding:4rem 2rem;text-align:center;gap:1rem}
+.state-spinner{animation:spin 2.5s linear infinite;opacity:0.3}
+.state-title{font-family:'Cinzel',serif;font-size:1rem;color:var(--text-dim);letter-spacing:0.1em}
+.state-sub{font-size:0.9rem;color:var(--text-muted);font-style:italic;max-width:380px}
+.state-sub code{font-family:'IBM Plex Mono',monospace;font-size:0.82rem;color:var(--teal);background:var(--teal-bg);padding:0.1em 0.4em}
+.err-msg{background:var(--danger-bg);border:1px solid rgba(176,48,48,0.25);color:#e09090;padding:0.65rem 1rem;font-size:0.88rem;margin:1rem 1.25rem;line-height:1.5}
+
+/* ── MODAL ────────────────────────────── */
+.modal-bg{position:fixed;inset:0;background:rgba(0,0,0,0.7);z-index:500;display:flex;align-items:center;justify-content:center;padding:1.5rem;backdrop-filter:blur(4px)}
+.modal{background:var(--bg2);border:1px solid var(--border-s);max-width:820px;width:100%;max-height:90vh;overflow-y:auto;display:flex;gap:0;animation:fadeUp 0.25s ease}
+.modal-img-col{flex-shrink:0;width:240px;padding:1.5rem 1rem 1.5rem 1.5rem}
+.modal-img{width:100%;border-radius:4.5%;border:1px solid var(--border-s);display:block}
+.modal-img-dfc{display:flex;flex-direction:column;gap:8px}
+.modal-detail-col{flex:1;padding:1.5rem;border-left:1px solid var(--border);overflow-y:auto;min-width:0}
+.modal-close{position:absolute;top:0.6rem;right:0.9rem;background:none;border:none;color:var(--text-muted);font-size:1.4rem;cursor:pointer;line-height:1;transition:color 0.15s}
+.modal-close:hover{color:var(--text)}
+.modal-wrap{position:relative}
+.m-name{font-family:'Cinzel',serif;font-size:1.3rem;color:var(--text);margin-bottom:0.3rem;line-height:1.2}
+.m-cost{font-family:'IBM Plex Mono',monospace;font-size:0.88rem;color:var(--teal-l);margin-bottom:0.6rem}
+.m-type{font-size:0.88rem;color:var(--text-dim);font-style:italic;margin-bottom:1rem;padding-bottom:1rem;border-bottom:1px solid var(--border)}
+.m-oracle{font-size:0.95rem;color:var(--text);line-height:1.7;white-space:pre-wrap;margin-bottom:0.85rem}
+.m-flavor{font-size:0.88rem;color:var(--text-muted);font-style:italic;border-left:2px solid var(--border-s);padding-left:0.75rem;line-height:1.6;margin-bottom:1rem}
+.m-meta{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:1rem;font-size:0.82rem}
+.m-meta-row{display:flex;gap:6px}
+.m-meta-k{color:var(--text-muted);font-family:'Cinzel',serif;font-size:0.6rem;letter-spacing:0.1em;text-transform:uppercase;min-width:56px}
+.m-meta-v{color:var(--text-dim)}
+.m-price{color:var(--gold);font-family:'IBM Plex Mono',monospace}
+.m-actions{display:flex;gap:6px;flex-wrap:wrap;padding-top:1rem;border-top:1px solid var(--border)}
+.m-btn{font-family:'Cinzel',serif;font-size:0.62rem;letter-spacing:0.1em;text-transform:uppercase;padding:0.45rem 1rem;cursor:pointer;border:1px solid;background:transparent;transition:background 0.15s;text-decoration:none;display:inline-block;white-space:nowrap}
+.m-btn-gold{color:var(--gold);border-color:var(--border-s)}
+.m-btn-gold:hover{background:rgba(201,168,76,0.08)}
+.m-btn-teal{color:var(--teal);border-color:var(--border-t)}
+.m-btn-teal:hover{background:var(--teal-bg)}
+
+@media(max-width:780px){
+  .r-sidebar{display:none}
+  .modal{flex-direction:column}
+  .modal-img-col{width:100%;padding:1rem;display:flex;justify-content:center}
+  .modal-img{max-width:220px}
+  .modal-detail-col{border-left:none;border-top:1px solid var(--border)}
+  .card-grid{grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:8px;padding:0.85rem}
+}
+@media(max-width:560px){
+  .r-title span{display:none}
+  .mode-btn{padding:0.35rem 0.65rem;font-size:0.58rem}
+  .m-meta{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+<div class="page">
+
+<!-- ── HEADER ─── -->
+<header class="r-header">
+  <a href="index.html" class="back-link">← Vox Mana</a>
+  <div class="r-title">Research Archives <span>— card database explorer</span></div>
+  <span id="r-user-badge" style="font-family:'Cinzel',serif;font-size:0.65rem;letter-spacing:0.1em;color:var(--text-dim);display:none"></span>
+  <button class="key-btn" id="key-toggle-btn" onclick="toggleKeyPanel()">
+    <span id="key-status">Configure AI Key</span>
+  </button>
+</header>
+
+<!-- ── API KEY PANEL ─── -->
+<div class="key-panel hidden" id="key-panel">
+  <div class="key-panel-inner">
+    <div class="key-field" style="flex:1">
+      <label>Anthropic API Key <span style="color:var(--text-muted);font-size:0.9em">(enables Smart Search)</span></label>
+      <input type="password" id="key-input" placeholder="sk-ant-..." onkeydown="if(event.key==='Enter')saveKey()">
+      <div class="key-note">Key is stored in memory for this session only — never logged or shared. Calls go directly to api.anthropic.com. Get a key at <a href="https://console.anthropic.com" target="_blank">console.anthropic.com</a>. All other search modes work without a key.</div>
+    </div>
+    <button class="btn-teal" onclick="saveKey()">Enable Smart Search</button>
+  </div>
+</div>
+
+<!-- ── SEARCH ZONE ─── -->
+<div class="r-search-zone">
+  <div class="mode-row">
+    <button class="mode-btn on" id="mode-ai" onclick="setMode('ai')">Smart Search</button>
+    <button class="mode-btn" id="mode-raw" onclick="setMode('raw')">Scryfall Syntax</button>
+    <button class="mode-btn" id="mode-builder" onclick="setMode('builder')">Visual Builder</button>
+  </div>
+  <div class="search-input-row">
+    <div class="search-wrap">
+      <span class="search-icon" id="search-icon">✦</span>
+      <input type="text" class="s-input" id="search-input"
+        placeholder="e.g. 'red creatures with shroud that cost 3 or less'"
+        onkeydown="if(event.key==='Enter')doSearch()">
+    </div>
+    <button class="btn-search" id="search-btn" onclick="doSearch()">Search</button>
+  </div>
+  <div class="query-inspector hidden" id="query-inspector">
+    <span class="qi-label">Query</span>
+    <span class="qi-query" id="qi-query"></span>
+    <span class="qi-reason hidden" id="qi-reason"></span>
+    <div class="qi-actions">
+      <button class="qi-btn" onclick="copyQuery()">Copy</button>
+      <a class="qi-btn" id="qi-scryfall" href="#" target="_blank" rel="noopener">Open in Scryfall ↗</a>
+    </div>
+  </div>
+
+  <!-- Visual Builder (shown only in builder mode) -->
+  <div class="builder-panel hidden" id="builder-panel">
+    <div class="builder-row">
+      <span class="bl">Colors</span>
+      <div class="color-pips" id="color-pips">
+        <button class="cpip cpip-W" data-c="W" onclick="toggleColor('W')">W</button>
+        <button class="cpip cpip-U" data-c="U" onclick="toggleColor('U')">U</button>
+        <button class="cpip cpip-B" data-c="B" onclick="toggleColor('B')">B</button>
+        <button class="cpip cpip-R" data-c="R" onclick="toggleColor('R')">R</button>
+        <button class="cpip cpip-G" data-c="G" onclick="toggleColor('G')">G</button>
+        <button class="cpip cpip-C" data-c="C" onclick="toggleColor('C')">C</button>
+      </div>
+      <select class="color-op" id="color-op" onchange="rebuildFromFilters()">
+        <option value="c">exactly</option>
+        <option value="c>=">at least (includes)</option>
+        <option value="c<=">at most</option>
+        <option value="id">commander identity</option>
+      </select>
+    </div>
+    <div class="builder-row">
+      <span class="bl">Type</span>
+      <div class="type-checks" id="type-checks"></div>
+    </div>
+    <div class="builder-row">
+      <span class="bl">Format</span>
+      <select class="bld-select" id="bld-format" onchange="rebuildFromFilters()">
+        <option value="">Any format</option>
+        <option value="standard">Standard</option>
+        <option value="pioneer">Pioneer</option>
+        <option value="modern">Modern</option>
+        <option value="legacy">Legacy</option>
+        <option value="vintage">Vintage</option>
+        <option value="commander">Commander</option>
+        <option value="pauper">Pauper</option>
+      </select>
+      <span class="bl" style="margin-left:12px">Rarity</span>
+      <div class="rarity-checks" id="rarity-checks"></div>
+    </div>
+    <div class="builder-row">
+      <span class="bl">CMC</span>
+      <div class="cmc-inputs">
+        <input class="cmc-input" id="cmc-min" type="number" min="0" max="20" placeholder="min" oninput="rebuildFromFilters()">
+        <span style="color:var(--text-muted);font-size:0.85rem">to</span>
+        <input class="cmc-input" id="cmc-max" type="number" min="0" max="20" placeholder="max" oninput="rebuildFromFilters()">
+      </div>
+      <span class="bl" style="margin-left:12px">Keywords</span>
+      <div class="kw-wrap" id="kw-wrap">
+        <input class="kw-input" id="kw-input" type="text" placeholder="shroud, flying, lifelink..."
+          oninput="showKwSuggestions(this.value)" onkeydown="handleKwKey(event)">
+        <div class="kw-suggestions hidden" id="kw-suggestions"></div>
+      </div>
+      <div class="kw-active-chips" id="kw-chips"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ── MAIN BODY ─── -->
+<div class="r-body">
+
+  <!-- Sidebar -->
+  <aside class="r-sidebar">
+    <div class="sb-section">
+      <div class="sb-label">Quick Searches</div>
+      <div id="quick-search-list"></div>
+    </div>
+    <div class="sb-section">
+      <div class="sb-label">By Color</div>
+      <div class="color-grid" id="color-grid"></div>
+    </div>
+    <div class="sb-section">
+      <div class="sb-label">Format</div>
+      <select class="sb-select" id="sb-format" onchange="applyFormatFilter(this.value)">
+        <option value="">Any format</option>
+        <option value="commander">Commander</option>
+        <option value="modern">Modern</option>
+        <option value="pioneer">Pioneer</option>
+        <option value="standard">Standard</option>
+        <option value="legacy">Legacy</option>
+        <option value="pauper">Pauper</option>
+        <option value="vintage">Vintage</option>
+      </select>
+    </div>
+    <div class="sb-section" id="recent-section" style="display:none">
+      <div class="sb-label">Recent Searches</div>
+      <div class="recent-list" id="recent-list"></div>
+    </div>
+  </aside>
+
+  <!-- Results -->
+  <main class="r-main" id="r-main">
+    <div class="state-panel" id="state-panel">
+      <svg width="48" height="48" viewBox="0 0 48 48" fill="none" style="opacity:.2">
+        <circle cx="24" cy="24" r="18" stroke="#c9a84c" stroke-width="0.8" stroke-dasharray="4 3"/>
+        <circle cx="24" cy="24" r="10" stroke="#1aaa96" stroke-width="0.6" stroke-dasharray="2 4"/>
+        <path d="M18 24 L22 28 L30 18" stroke="#c9a84c" stroke-width="1" stroke-linecap="round"/>
+      </svg>
+      <div class="state-title">The Archives await</div>
+      <div class="state-sub">
+        Try <code>c:r kw:shroud</code> for red cards with shroud, or use Smart Search with natural language.
+        <br><br>Browse the <a href="https://scryfall.com/docs/syntax" target="_blank" style="color:var(--teal)">full Scryfall syntax reference ↗</a>
+      </div>
+    </div>
+    <div class="err-msg hidden" id="err-msg"></div>
+    <div class="results-header hidden" id="results-header">
+      <span class="res-count" id="res-count"></span>
+      <select class="res-order" onchange="changeOrder(this.value)">
+        <option value="name">A–Z</option>
+        <option value="edhrec">EDHREC popularity</option>
+        <option value="usd">Price (low)</option>
+        <option value="usd" data-dir="desc">Price (high)</option>
+        <option value="cmc">Mana value</option>
+        <option value="rarity">Rarity</option>
+        <option value="power">Power</option>
+        <option value="set">Set</option>
+      </select>
+    </div>
+    <div class="card-grid hidden" id="card-grid"></div>
+    <div class="results-footer hidden" id="results-footer">
+      <button class="btn-more" id="btn-more" onclick="loadMore()" disabled>Load More</button>
+      <span class="more-count" id="more-count"></span>
+    </div>
+  </main>
+</div>
+
+<!-- ── MODAL ─── -->
+<div class="modal-bg hidden" id="modal-bg" onclick="if(event.target===this)closeModal()">
+  <div class="modal-wrap">
+    <button class="modal-close" onclick="closeModal()">×</button>
+    <div class="modal" id="modal-inner"></div>
+  </div>
+</div>
+
+</div><!-- .page -->
+
+<script>
+/* ═══════════════════════════════════════
+   QUERY BUILDER SYSTEM PROMPT
+   (from Scryfall_query_builder.txt + JSON_RAG_Pack_MTG_Site.json)
+═══════════════════════════════════════ */
+const QUERY_SYSTEM = `You are a Scryfall query builder for Vox Mana, a Magic: The Gathering website.
+
+Your job is to translate user requests into precise Scryfall search syntax.
+
+RULES
+- Prefer exact-name lookup when the user asks for a specific named card.
+- Use c:/color: for actual card color.
+- Use id:/identity: for Commander deck-fit or color identity.
+- Use t:/type: for card type, subtype, or supertype.
+- Use kw:/keyword: for keyword abilities (PREFERRED over oracle text).
+- Use o:/oracle: for rules text phrases.
+- Use fo:/fulloracle: only when reminder text matters.
+- Use m:/mana: for mana symbols in mana cost.
+- Use mv:/manavalue: for mana value (mv<=3, mv=2, mv>=6 etc).
+- Use pow:/tou: for power/toughness filtering.
+- Use f:/format: for legality. Use banned: restricted: as needed.
+- Use set:, rarity:, date:, game:, price: only when print-specific.
+- Use ! for exact names in query mode. Use quotes around multi-word phrases.
+- Terms are ANDed by default. Use OR explicitly. Use parentheses to group OR logic.
+- Use - or not: to exclude. Use regex only when standard syntax cannot work.
+- Default to game:paper. Default unique:cards. Default order:name.
+
+SITE CONTEXT
+App: Vox Mana — guild quiz and deckbuilding tool.
+Defaults: game:paper, unique:cards, order:name.
+Guardrails: Prefer kw over oracle for keywords. Prefer identity over color for commander intent.
+
+Respond with ONLY a valid JSON object — no markdown, no extra text:
+{
+  "mode": "search",
+  "query": "the raw scryfall query string",
+  "reason": "plain English explanation under 100 characters",
+  "unique": "cards",
+  "game": "paper",
+  "order": "name"
+}
+For a single specific card by name use mode: "exact_name" and the card name in "query".`;
+
+/* ═══════════════════════════════════════
+   STATE
+═══════════════════════════════════════ */
+let ANTHRO_KEY = '';
+let currentMode = 'ai';
+let currentQuery = '';
+let currentOrder = 'name';
+let allResults = [];
+let displayPage = 0;
+const PAGE_SIZE = 24;
+let hasMore = false;
+let nextPageUrl = null;
+let totalCards = 0;
+let recentSearches = [];
+
+// Visual builder state
+const bFilters = {
+  colors: [],
+  colorOp: 'c',
+  types: [],
+  format: '',
+  keywords: [],
+  cmcMin: '',
+  cmcMax: '',
+  rarities: []
+};
+
+/* ═══════════════════════════════════════
+   CONSTANTS
+═══════════════════════════════════════ */
+const QUICK_SEARCHES = [
+  { label:"Commander staples",       hint:"by EDHREC rank",   q:"f:commander order:edhrec" },
+  { label:"Best counterspells",      hint:"instant speed",    q:"t:instant o:\"counter target spell\" order:edhrec" },
+  { label:"Board wipes",             hint:"commander legal",  q:"(o:\"destroy all creatures\" OR o:\"exile all creatures\") f:commander order:edhrec" },
+  { label:"Efficient removal",       hint:"≤ 2 mana",         q:"(t:instant OR t:sorcery) (o:\"destroy target creature\" OR o:\"exile target creature\") mv<=2 order:edhrec" },
+  { label:"Mana dorks",              hint:"1-mana creatures", q:"t:creature o:\"add {\" mv=1 f:commander order:edhrec" },
+  { label:"Ramp spells",             hint:"land search",      q:"t:sorcery o:\"search your library for a basic land\" f:commander mv<=4 order:edhrec" },
+  { label:"Card draw spells",        hint:"instants ≤ 3",     q:"t:instant o:\"draw\" -o:\"target player\" mv<=3 f:modern order:edhrec" },
+  { label:"Hexproof threats",        hint:"hard to remove",   q:"kw:hexproof t:creature f:modern order:edhrec" },
+  { label:"Free/uncounterable",      hint:"without paying",   q:"o:\"without paying its mana cost\" order:edhrec" },
+  { label:"ETB draw creatures",      hint:"value bodies",     q:"t:creature o:\"enters\" o:\"draw\" f:commander order:edhrec" },
+  { label:"Indestructible finishers",hint:"hard to kill",     q:"kw:indestructible t:creature mv>=4 f:commander order:edhrec" },
+  { label:"Budget tutor (≤$2)",      hint:"paper price",      q:"o:\"search your library\" f:commander usd<=2 order:usd" }
+];
+
+const COLOR_LABELS = [
+  {c:'W',label:'White',q:'c:W'},{c:'U',label:'Blue',q:'c:U'},{c:'B',label:'Black',q:'c:B'},
+  {c:'R',label:'Red',q:'c:R'},{c:'G',label:'Green',q:'c:G'},
+  {c:'WU',label:'Azorius',q:'id:WU'},{c:'UB',label:'Dimir',q:'id:UB'},{c:'BR',label:'Rakdos',q:'id:BR'},
+  {c:'RG',label:'Gruul',q:'id:RG'},{c:'WG',label:'Selesnya',q:'id:WG'},
+  {c:'WB',label:'Orzhov',q:'id:WB'},{c:'UR',label:'Izzet',q:'id:UR'},
+  {c:'BG',label:'Golgari',q:'id:BG'},{c:'UG',label:'Simic',q:'id:UG'},{c:'WR',label:'Boros',q:'id:WR'}
+];
+
+const KEYWORDS = [
+  'flying','first strike','double strike','trample','lifelink','deathtouch',
+  'vigilance','haste','hexproof','shroud','indestructible','flash','reach','menace',
+  'protection','cycling','kicker','convoke','delve','cascade','morph','emerge',
+  'investigate','explore','scry','proliferate','undying','persist','modular',
+  'equip','enchant','landfall','revolt','morbid','raid','spectacle','escape'
+].sort();
+
+const TYPES = ['Creature','Instant','Sorcery','Enchantment','Artifact','Planeswalker','Land','Battle'];
+const RARITIES = [{v:'c',l:'Common'},{v:'u',l:'Uncommon'},{v:'r',l:'Rare'},{v:'m',l:'Mythic'}];
+
+/* ═══════════════════════════════════════
+   INIT
+═══════════════════════════════════════ */
+window.addEventListener('load', () => {
+  /* Read session from shared.js and show user badge */
+  const _u = (typeof VM_SESSION !== 'undefined') ? VM_SESSION.username : null;
+  const badge = document.getElementById('r-user-badge');
+  if (_u && badge) { badge.textContent = _u; badge.style.display = ''; }
+
+  buildQuickSearches();
+  buildColorGrid();
+  buildTypeChecks();
+  buildRarityChecks();
+  // Pre-fill from URL param (e.g. ?q=c:r+kw:shroud)
+  const urlQ = new URLSearchParams(location.search).get('q');
+  if (urlQ) {
+    document.getElementById('search-input').value = urlQ;
+    setMode('raw');
+    triggerSearch(urlQ, {});
+  }
+});
+
+/* ═══════════════════════════════════════
+   KEY MANAGEMENT
+═══════════════════════════════════════ */
+function toggleKeyPanel() {
+  const p = document.getElementById('key-panel');
+  p.classList.toggle('hidden');
+  document.getElementById('key-toggle-btn').classList.toggle('active', !p.classList.contains('hidden'));
+}
+function saveKey() {
+  ANTHRO_KEY = document.getElementById('key-input').value.trim();
+  if (ANTHRO_KEY) {
+    document.getElementById('key-status').textContent = 'AI Search Active';
+    document.getElementById('key-toggle-btn').style.borderColor = 'var(--border-ts)';
+    showToast('Smart Search enabled');
+    document.getElementById('key-panel').classList.add('hidden');
+    document.getElementById('key-toggle-btn').classList.remove('active');
+  }
+}
+
+/* ═══════════════════════════════════════
+   MODE
+═══════════════════════════════════════ */
+function setMode(m) {
+  currentMode = m;
+  ['ai','raw','builder'].forEach(id => {
+    const btn = document.getElementById('mode-'+id);
+    btn.classList.toggle('on', id === m);
+    btn.classList.remove('teal-mode');
+  });
+  const input = document.getElementById('search-input');
+  const icon = document.getElementById('search-icon');
+  const builder = document.getElementById('builder-panel');
+  if (m === 'ai') {
+    input.className = 's-input'; input.placeholder = "e.g. 'red creatures with shroud under 3 mana'";
+    icon.textContent = '✦'; icon.style.color = '';
+    builder.classList.add('hidden');
+  } else if (m === 'raw') {
+    input.className = 's-input mono'; input.placeholder = "e.g. c:r kw:shroud mv<=3 f:modern";
+    icon.textContent = '>'; icon.style.color = 'var(--teal)';
+    document.getElementById('mode-raw').classList.add('teal-mode');
+    builder.classList.add('hidden');
+  } else {
+    input.className = 's-input mono'; input.placeholder = "";
+    icon.textContent = '='; icon.style.color = 'var(--teal)';
+    document.getElementById('mode-builder').classList.add('teal-mode');
+    builder.classList.remove('hidden');
+    rebuildFromFilters();
+  }
+}
+
+/* ═══════════════════════════════════════
+   SEARCH ENTRY POINT
+═══════════════════════════════════════ */
+async function doSearch() {
+  const rawInput = document.getElementById('search-input').value.trim();
+  if (!rawInput && currentMode !== 'builder') return;
+  setLoading(true);
+  clearError();
+  displayPage = 0;
+  allResults = [];
+  let query = rawInput;
+  let reason = '';
+  try {
+    if (currentMode === 'ai') {
+      if (!ANTHRO_KEY) {
+        showError('Smart Search requires an Anthropic API key. Click "Configure AI Key" in the header, or switch to Scryfall Syntax mode.');
+        setLoading(false); return;
+      }
+      const result = await translateWithAI(rawInput);
+      if (result.error) { showError(result.message); setLoading(false); return; }
+      query = result.query;
+      reason = result.reason || '';
+      if (result.mode === 'exact_name') {
+        const card = await scryfallExact(query);
+        setLoading(false);
+        if (card.error) { showError(card.details||'Card not found'); return; }
+        openModal(card); return;
+      }
+    } else if (currentMode === 'builder') {
+      query = buildFilterQuery();
+      if (!query.trim()) { showError('Add at least one filter before searching.'); setLoading(false); return; }
+    }
+    await triggerSearch(query, { reason, order: currentOrder });
+  } catch(e) {
+    showError('Search failed: '+e.message);
+  }
+  setLoading(false);
+}
+
+async function triggerSearch(query, opts={}) {
+  const { reason='', order=currentOrder } = opts;
+  currentQuery = query;
+  addRecent(query);
+  showQueryInspector(query, reason);
+  const data = await scryfallSearch(query, { order });
+  if (data.object === 'error') {
+    showError(data.details || data.warnings?.join('; ') || 'Scryfall returned an error.');
+    return;
+  }
+  totalCards = data.total_cards || 0;
+  allResults = data.data || [];
+  hasMore = data.has_more;
+  nextPageUrl = data.next_page || null;
+  renderResults();
+}
+
+/* ═══════════════════════════════════════
+   AI TRANSLATION (Anthropic API)
+═══════════════════════════════════════ */
+async function translateWithAI(input) {
+  try {
+    const res = await fetch('https://api.anthropic.com/v1/messages', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'x-api-key': ANTHRO_KEY,
+        'anthropic-version': '2023-06-01'
+      },
+      body: JSON.stringify({
+        model: 'claude-sonnet-4-20250514',
+        max_tokens: 256,
+        system: QUERY_SYSTEM,
+        messages: [{ role: 'user', content: input }]
+      })
+    });
+    const data = await res.json();
+    if (!res.ok) return { error:true, message: data.error?.message || 'AI translation failed.' };
+    const text = data.content?.[0]?.text || '';
+    try {
+      return JSON.parse(text.replace(/```json|```/g,'').trim());
+    } catch(_) {
+      // If JSON parse fails, use the text as a raw query
+      return { mode:'search', query:input, reason:'Using input as direct query' };
+    }
+  } catch(e) {
+    return { error:true, message:'Could not reach Anthropic API. Check your key and network: '+e.message };
+  }
+}
+
+/* ═══════════════════════════════════════
+   SCRYFALL API
+═══════════════════════════════════════ */
+async function scryfallSearch(query, opts={}) {
+  const { order='name', unique='cards', page=null } = opts;
+  try {
+    const url = page || `https://api.scryfall.com/cards/search?q=${encodeURIComponent(query)}&unique=${unique}&order=${order}`;
+    const res = await fetch(url);
+    return await res.json();
+  } catch(e) {
+    return { object:'error', details: e.message };
+  }
+}
+
+async function scryfallExact(name) {
+  try {
+    const res = await fetch(`https://api.scryfall.com/cards/named?fuzzy=${encodeURIComponent(name)}`);
+    return await res.json();
+  } catch(e) {
+    return { error:true, details: e.message };
+  }
+}
+
+async function loadMore() {
+  if (!hasMore && displayPage < Math.ceil(allResults.length/PAGE_SIZE)-1) {
+    displayPage++;
+    renderResults(true);
+    return;
+  }
+  if (hasMore && displayPage >= Math.ceil(allResults.length/PAGE_SIZE)-1) {
+    document.getElementById('btn-more').disabled = true;
+    const data = await scryfallSearch(currentQuery, { page: nextPageUrl, order: currentOrder });
+    if (data.data) {
+      allResults = [...allResults, ...data.data];
+      hasMore = data.has_more;
+      nextPageUrl = data.next_page || null;
+      displayPage++;
+      renderResults(true);
+    }
+    document.getElementById('btn-more').disabled = false;
+  }
+}
+
+/* ═══════════════════════════════════════
+   RESULTS RENDERING
+═══════════════════════════════════════ */
+function renderResults(append=false) {
+  hideState();
+  document.getElementById('results-header').classList.remove('hidden');
+  document.getElementById('card-grid').classList.remove('hidden');
+  document.getElementById('results-footer').classList.remove('hidden');
+
+  const start = displayPage * PAGE_SIZE;
+  const end = start + PAGE_SIZE;
+  const pageCards = allResults.slice(start, end);
+  const grid = document.getElementById('card-grid');
+  if (!append) grid.innerHTML = '';
+
+  document.getElementById('res-count').innerHTML =
+    `Showing <strong>${Math.min((displayPage+1)*PAGE_SIZE, allResults.length)}</strong> of <strong>${totalCards.toLocaleString()}</strong> cards`;
+
+  pageCards.forEach(card => grid.appendChild(makeCardEl(card)));
+
+  // Footer: load more button
+  const showing = Math.min((displayPage+1)*PAGE_SIZE, allResults.length);
+  const hasClientMore = allResults.length > showing;
+  const canLoad = hasClientMore || hasMore;
+  document.getElementById('btn-more').disabled = !canLoad;
+  document.getElementById('more-count').textContent = canLoad
+    ? `${totalCards - showing} more available`
+    : `All ${allResults.length} cards loaded`;
+}
+
+function makeCardEl(card) {
+  const wrap = document.createElement('div');
+  wrap.className = 'card-item';
+  const img = card.image_uris?.normal || card.card_faces?.[0]?.image_uris?.normal;
+  wrap.innerHTML = img
+    ? `<img src="${img}" alt="${card.name}" loading="lazy"/>`
+    : `<div class="card-skeleton"></div>`;
+  wrap.innerHTML += `<div class="card-item-name">${card.name}</div>`;
+  wrap.onclick = () => openModal(card);
+  return wrap;
+}
+
+/* ═══════════════════════════════════════
+   MODAL
+═══════════════════════════════════════ */
+function openModal(card) {
+  const isCmc = card.cmc !== undefined;
+  const imgUris = card.image_uris;
+  const faces = card.card_faces;
+  let imgHtml = '';
+  if (faces && !imgUris) {
+    imgHtml = `<div class="modal-img-dfc">
+      ${faces.map(f => f.image_uris?.normal
+        ? `<img class="modal-img" src="${f.image_uris.normal}" alt="${f.name}" loading="lazy"/>`
+        : `<div style="aspect-ratio:63/88;background:var(--bg3);border-radius:4.5%"></div>`
+      ).join('')}
+    </div>`;
+  } else if (imgUris?.normal) {
+    imgHtml = `<img class="modal-img" src="${imgUris.normal}" alt="${card.name}" loading="lazy"/>`;
+  }
+  const oracle = (card.oracle_text || faces?.map(f=>f.name+'\n'+f.oracle_text).join('\n\n--------\n\n') || '').trim();
+  const flavor = card.flavor_text || faces?.[0]?.flavor_text || '';
+  const prices = card.prices || {};
+  const priceHtml = prices.usd ? `<span class="m-price">$${prices.usd}</span>` : '<span style="color:var(--text-muted)">—</span>';
+  const sets = card.set_name || '—';
+  const rar = (card.rarity||'—').charAt(0).toUpperCase()+(card.rarity||'').slice(1);
+  const legalities = card.legalities || {};
+  const formatBadges = ['commander','modern','pioneer','standard','legacy','pauper']
+    .filter(f => legalities[f] === 'legal')
+    .map(f => `<span style="font-size:0.72rem;padding:0.15rem 0.5rem;border:1px solid var(--border);color:var(--text-muted);margin-right:3px">${f}</span>`)
+    .join('');
+  const similarQ = `c:${card.color_identity?.join('')||'C'} t:${(card.type_line||'').split(' — ')[0].split(' ').pop().toLowerCase()} order:edhrec`;
+  document.getElementById('modal-inner').innerHTML = `
+    <div class="modal-img-col">${imgHtml}</div>
+    <div class="modal-detail-col">
+      <div class="m-name">${card.name}</div>
+      <div class="m-cost">${card.mana_cost||faces?.[0]?.mana_cost||''}</div>
+      <div class="m-type">${card.type_line||''}</div>
+      ${oracle ? `<div class="m-oracle">${oracle.replace(/\n/g,'<br>')}</div>` : ''}
+      ${flavor ? `<div class="m-flavor">${flavor}</div>` : ''}
+      <div class="m-meta">
+        <div class="m-meta-row"><span class="m-meta-k">Set</span><span class="m-meta-v">${sets} (${card.set?.toUpperCase()||''})</span></div>
+        <div class="m-meta-row"><span class="m-meta-k">Rarity</span><span class="m-meta-v">${rar}</span></div>
+        <div class="m-meta-row"><span class="m-meta-k">Mana Value</span><span class="m-meta-v">${isCmc?card.cmc:'-'}</span></div>
+        <div class="m-meta-row"><span class="m-meta-k">Paper Price</span><span class="m-meta-v">${priceHtml}</span></div>
+      </div>
+      ${formatBadges ? `<div style="margin-bottom:1rem">${formatBadges}</div>` : ''}
+      <div class="m-actions">
+        <a class="m-btn m-btn-gold" href="${card.scryfall_uri||'#'}" target="_blank" rel="noopener">View on Scryfall ↗</a>
+        <button class="m-btn m-btn-teal" onclick="closeModal();setMode('raw');document.getElementById('search-input').value='${similarQ.replace(/'/g,"\\'")}';doSearch()">Find Similar</button>
+        ${prices.usd ? `<a class="m-btn m-btn-gold" href="https://www.tcgplayer.com/search/magic/product?q=${encodeURIComponent(card.name)}" target="_blank" rel="noopener">TCGPlayer ↗</a>` : ''}
+      </div>
+    </div>`;
+  document.getElementById('modal-bg').classList.remove('hidden');
+  document.body.style.overflow = 'hidden';
+}
+function closeModal() {
+  document.getElementById('modal-bg').classList.add('hidden');
+  document.body.style.overflow = '';
+}
+document.addEventListener('keydown', e => { if(e.key==='Escape') closeModal(); });
+
+/* ═══════════════════════════════════════
+   VISUAL BUILDER
+═══════════════════════════════════════ */
+function buildTypeChecks() {
+  const el = document.getElementById('type-checks');
+  el.innerHTML = TYPES.map(t => {
+    const v = t.toLowerCase();
+    return `<label class="cb-label" id="cb-type-${v}" onclick="toggleType('${v}',this)"><span>${t}</span></label>`;
+  }).join('');
+}
+function buildRarityChecks() {
+  const el = document.getElementById('rarity-checks');
+  el.innerHTML = RARITIES.map(r =>
+    `<label class="cb-label" id="cb-rar-${r.v}" onclick="toggleRarity('${r.v}',this)"><span>${r.l}</span></label>`
+  ).join('');
+}
+function toggleColor(c) {
+  const idx = bFilters.colors.indexOf(c);
+  if (idx >= 0) bFilters.colors.splice(idx,1); else bFilters.colors.push(c);
+  document.querySelectorAll('.cpip').forEach(pip => {
+    pip.classList.toggle('on', bFilters.colors.includes(pip.dataset.c));
+  });
+  rebuildFromFilters();
+}
+function toggleType(v,lbl) {
+  const idx = bFilters.types.indexOf(v);
+  if (idx>=0) bFilters.types.splice(idx,1); else bFilters.types.push(v);
+  lbl.classList.toggle('checked', bFilters.types.includes(v));
+  rebuildFromFilters();
+}
+function toggleRarity(v,lbl) {
+  const idx = bFilters.rarities.indexOf(v);
+  if (idx>=0) bFilters.rarities.splice(idx,1); else bFilters.rarities.push(v);
+  lbl.classList.toggle('checked', bFilters.rarities.includes(v));
+  rebuildFromFilters();
+}
+function rebuildFromFilters() {
+  bFilters.colorOp = document.getElementById('color-op')?.value || 'c';
+  bFilters.format  = document.getElementById('bld-format')?.value || '';
+  bFilters.cmcMin  = document.getElementById('cmc-min')?.value || '';
+  bFilters.cmcMax  = document.getElementById('cmc-max')?.value || '';
+  const q = buildFilterQuery();
+  const input = document.getElementById('search-input');
+  if (input) { input.value = q; input.dispatchEvent(new Event('input')); }
+}
+function buildFilterQuery() {
+  const p = [];
+  if (bFilters.colors.length) {
+    const op = bFilters.colorOp || 'c';
+    p.push(`${op}:${bFilters.colors.join('')}`);
+  }
+  if (bFilters.types.length) {
+    p.push(bFilters.types.length===1 ? `t:${bFilters.types[0]}` : `(${bFilters.types.map(t=>`t:${t}`).join(' OR ')})`);
+  }
+  if (bFilters.format) p.push(`f:${bFilters.format}`);
+  if (bFilters.rarities.length) {
+    p.push(bFilters.rarities.length===1 ? `r:${bFilters.rarities[0]}` : `(${bFilters.rarities.map(r=>`r:${r}`).join(' OR ')})`);
+  }
+  if (bFilters.cmcMin) p.push(`mv>=${bFilters.cmcMin}`);
+  if (bFilters.cmcMax) p.push(`mv<=${bFilters.cmcMax}`);
+  if (bFilters.keywords.length) {
+    p.push(bFilters.keywords.length===1 ? `kw:${bFilters.keywords[0]}` : `(${bFilters.keywords.map(k=>`kw:${k}`).join(' OR ')})`);
+  }
+  return p.join(' ');
+}
+
+// Keyword suggestions
+function showKwSuggestions(val) {
+  const list = document.getElementById('kw-suggestions');
+  if (!val || val.length < 2) { list.classList.add('hidden'); return; }
+  const matches = KEYWORDS.filter(k => k.startsWith(val.toLowerCase()) && !bFilters.keywords.includes(k));
+  if (!matches.length) { list.classList.add('hidden'); return; }
+  list.innerHTML = matches.slice(0,8).map(k => `<div class="kw-sug" onclick="addKeyword('${k}')">${k}</div>`).join('');
+  list.classList.remove('hidden');
+}
+function handleKwKey(e) {
+  if (e.key === 'Enter') {
+    const val = e.target.value.trim().toLowerCase();
+    if (val) addKeyword(val);
+  }
+}
+function addKeyword(kw) {
+  if (!bFilters.keywords.includes(kw)) {
+    bFilters.keywords.push(kw);
+    renderKwChips();
+    rebuildFromFilters();
+  }
+  document.getElementById('kw-input').value = '';
+  document.getElementById('kw-suggestions').classList.add('hidden');
+}
+function removeKeyword(kw) {
+  bFilters.keywords = bFilters.keywords.filter(k => k !== kw);
+  renderKwChips();
+  rebuildFromFilters();
+}
+function renderKwChips() {
+  document.getElementById('kw-chips').innerHTML = bFilters.keywords.map(k =>
+    `<span class="kw-chip" onclick="removeKeyword('${k}')">${k} ×</span>`
+  ).join('');
+}
+
+/* ═══════════════════════════════════════
+   SIDEBAR BUILDERS
+═══════════════════════════════════════ */
+function buildQuickSearches() {
+  const el = document.getElementById('quick-search-list');
+  el.innerHTML = QUICK_SEARCHES.map(qs => `
+    <button class="sb-btn" onclick="runQuickSearch('${qs.q.replace(/'/g,"\\'")}')">
+      ${qs.label}
+      <span>${qs.hint}</span>
+    </button>`).join('');
+}
+function buildColorGrid() {
+  const el = document.getElementById('color-grid');
+  el.innerHTML = COLOR_LABELS.map(c => `
+    <button class="color-sb-btn" onclick="runQuickSearch('${c.q}')" title="${c.label}">${c.c}</button>
+  `).join('');
+}
+function runQuickSearch(q) {
+  currentMode = 'raw';
+  document.getElementById('search-input').value = q;
+  setMode('raw');
+  currentOrder = q.includes('order:') ? q.split('order:')[1].split(' ')[0] : 'name';
+  displayPage = 0; allResults = [];
+  setLoading(true); clearError();
+  triggerSearch(q, { order: currentOrder }).then(() => setLoading(false));
+}
+function applyFormatFilter(fmt) {
+  if (!currentQuery) return;
+  const base = currentQuery.replace(/\s+f:\w+/g,'').trim();
+  const q = fmt ? `${base} f:${fmt}` : base;
+  runQuickSearch(q.trim());
+}
+function changeOrder(order) {
+  currentOrder = order;
+  if (currentQuery) runQuickSearch(currentQuery);
+}
+function addRecent(q) {
+  recentSearches = [q, ...recentSearches.filter(r=>r!==q)].slice(0,8);
+  const el = document.getElementById('recent-list');
+  el.innerHTML = recentSearches.map(r =>
+    `<div class="recent-item" onclick="runQuickSearch('${r.replace(/'/g,"\\'")}')">
+      ${r.length > 40 ? r.slice(0,40)+'…' : r}
+    </div>`
+  ).join('');
+  document.getElementById('recent-section').style.display = recentSearches.length ? '' : 'none';
+}
+
+/* ═══════════════════════════════════════
+   QUERY INSPECTOR
+═══════════════════════════════════════ */
+function showQueryInspector(query, reason) {
+  document.getElementById('qi-query').textContent = query;
+  const reasonEl = document.getElementById('qi-reason');
+  if (reason) { reasonEl.textContent = reason; reasonEl.classList.remove('hidden'); }
+  else reasonEl.classList.add('hidden');
+  const scryfallLink = `https://scryfall.com/search?q=${encodeURIComponent(query)}`;
+  document.getElementById('qi-scryfall').href = scryfallLink;
+  document.getElementById('query-inspector').classList.remove('hidden');
+}
+function copyQuery() {
+  navigator.clipboard.writeText(currentQuery).then(() => showToast('Query copied'));
+}
+
+/* ═══════════════════════════════════════
+   UI STATE
+═══════════════════════════════════════ */
+function setLoading(on) {
+  const btn = document.getElementById('search-btn');
+  btn.disabled = on;
+  btn.textContent = on ? '...' : 'Search';
+  if (on) {
+    document.getElementById('state-panel').innerHTML = `
+      <svg class="state-spinner" width="40" height="40" viewBox="0 0 40 40" fill="none">
+        <circle cx="20" cy="20" r="16" stroke="#1aaa96" stroke-width="0.8" stroke-dasharray="4 2"/>
+      </svg>
+      <div class="state-title">Searching the Archives...</div>`;
+    document.getElementById('state-panel').style.display = 'flex';
+    document.getElementById('card-grid').classList.add('hidden');
+    document.getElementById('results-header').classList.add('hidden');
+    document.getElementById('results-footer').classList.add('hidden');
+  }
+}
+function hideState() {
+  document.getElementById('state-panel').style.display = 'none';
+}
+function showError(msg) {
+  const el = document.getElementById('err-msg');
+  el.textContent = msg; el.classList.remove('hidden');
+  hideState();
+  document.getElementById('state-panel').style.display = 'none';
+}
+function clearError() {
+  const el = document.getElementById('err-msg');
+  el.classList.add('hidden'); el.textContent = '';
+}
+
+let toastTimeout;
+function showToast(msg) {
+  let t = document.getElementById('toast');
+  if (!t) {
+    t = document.createElement('div');
+    t.id = 'toast';
+    t.style.cssText = 'position:fixed;bottom:1.5rem;left:50%;transform:translateX(-50%);background:var(--bg3);border:1px solid var(--border-s);color:var(--text);padding:0.5rem 1.25rem;font-family:"Cinzel",serif;font-size:0.72rem;letter-spacing:0.1em;z-index:999;transition:opacity 0.25s;pointer-events:none';
+    document.body.appendChild(t);
+  }
+  t.textContent = msg; t.style.opacity = '1';
+  clearTimeout(toastTimeout);
+  toastTimeout = setTimeout(() => { t.style.opacity='0'; }, 2000);
+}
+
+// Close keyword dropdown when clicking outside
+document.addEventListener('click', e => {
+  if (!document.getElementById('kw-wrap')?.contains(e.target)) {
+    document.getElementById('kw-suggestions')?.classList.add('hidden');
+  }
+});
+</script>
+</body>
+</html>
