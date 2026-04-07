@@ -204,6 +204,7 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
   .tb-guild{display:none}
 }
 </style>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
 <script src="shared.js"></script>
 </head>
 <body>
@@ -237,12 +238,16 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
       <label>Username</label>
       <input type="text" id="auth-user" placeholder="your name" autocomplete="username" maxlength="32" onkeydown="if(event.key==='Enter')submitAuth()">
     </div>
+    <div class="field" id="email-field">
+      <label>Email <span style="color:var(--text-muted);font-size:0.85em">(for password recovery)</span></label>
+      <input type="email" id="auth-email" placeholder="you@example.com" autocomplete="email" onkeydown="if(event.key==='Enter')submitAuth()">
+    </div>
     <div class="field">
       <label>Password</label>
       <input type="password" id="auth-pass" placeholder="••••••••" autocomplete="current-password" maxlength="64" onkeydown="if(event.key==='Enter')submitAuth()">
     </div>
     <button class="btn-primary" id="auth-submit" onclick="submitAuth()">Enter Vox Mana</button>
-    <div class="auth-note">Profiles are stored locally in your browser. No data leaves this page.</div>
+    <div class="auth-note">Profiles stored securely via Supabase. Enter your email once for password recovery.</div>
   </div>
 </section>
 
@@ -304,16 +309,20 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 
 <script>
 /* ═══════════════════════════════════════
-   STORAGE — delegated to shared.js
+   BOOT — restore session on page load
 ═══════════════════════════════════════ */
-const hashPass    = vm_hashPass;
-const loadProfile = vm_loadProfile;
-const saveProfile = vm_saveProfile;
+document.addEventListener('DOMContentLoaded', async () => {
+  // Hide email field (shown only on Register tab)
+  const ef = document.getElementById('email-field');
+  if (ef) ef.style.display = 'none';
+  // Restore Supabase session if user was already logged in
+  const resumed = await vm_resumeSession();
+  if (resumed) { updateTopbar(); afterLogin(); }
+});
 
 /* ═══════════════════════════════════════
-   SESSION
+   SESSION — delegated to shared.js VM_SESSION
 ═══════════════════════════════════════ */
-/* Session delegated to shared.js VM_SESSION — survives page navigation */
 const SESSION = VM_SESSION;
 
 /* ═══════════════════════════════════════
@@ -640,6 +649,9 @@ function switchTab(m){
   document.getElementById('tab-login').classList.toggle('on',m==='login');
   document.getElementById('tab-register').classList.toggle('on',m==='register');
   document.getElementById('auth-submit').textContent=m==='login'?'Enter Vox Mana':'Create My Profile';
+  // Show email field only on register
+  const ef=document.getElementById('email-field');
+  if(ef) ef.style.display=m==='register'?'':'none';
   clearAuthMsg();
 }
 function showAuthMsg(msg,type){
@@ -653,24 +665,22 @@ function clearAuthMsg(){const el=document.getElementById('auth-msg');el.classNam
 async function submitAuth(){
   const userRaw=document.getElementById('auth-user').value.trim();
   const pass=document.getElementById('auth-pass').value;
-  if(!userRaw){showAuthMsg('Please enter a username.','err');return}
-  if(!pass||pass.length<4){showAuthMsg('Password must be at least 4 characters.','err');return}
+  const emailVal=document.getElementById('auth-email')?.value.trim()||'';
   const u=userRaw.replace(/[^a-zA-Z0-9_\-]/g,'');
-  if(u.length<2){showAuthMsg('Username must be at least 2 alphanumeric characters.','err');return}
+  if(u.length<2){showAuthMsg('Username must be at least 2 characters (letters, numbers, _ or -).','err');return}
+  if(!pass||pass.length<6){showAuthMsg('Password must be at least 6 characters.','err');return}
+  if(authMode==='register'&&!emailVal){showAuthMsg('Please enter an email address.','err');return}
   const btn=document.getElementById('auth-submit');
   btn.disabled=true;btn.textContent='...';
-  const existing=await loadProfile(u);
-  const hash=hashPass(u,pass);
+  clearAuthMsg();
   if(authMode==='login'){
-    if(!existing){showAuthMsg('No profile found. Register first?','err');btn.disabled=false;btn.textContent='Enter Vox Mana';return}
-    if(existing.passwordHash!==hash){showAuthMsg('Incorrect password.','err');btn.disabled=false;btn.textContent='Enter Vox Mana';return}
-    SESSION={username:u,profile:existing};afterLogin();
+    const result=await vm_login(u,pass);
+    if(!result.ok){showAuthMsg(result.message,'err');btn.disabled=false;btn.textContent='Enter Vox Mana';return}
+    afterLogin();
   }else{
-    if(existing){showAuthMsg('That username is taken. Try signing in instead.','err');btn.disabled=false;btn.textContent='Create My Profile';return}
-    const np={passwordHash:hash,guild:null,scores:null,takenAt:null};
-    const saved=await saveProfile(u,np);
-    if(!saved){showAuthMsg('Could not save profile. Storage unavailable.','err');btn.disabled=false;btn.textContent='Create My Profile';return}
-    SESSION={username:u,profile:np};afterLogin();
+    const result=await vm_register(u,emailVal,pass);
+    if(!result.ok){showAuthMsg(result.message,'err');btn.disabled=false;btn.textContent='Create My Profile';return}
+    afterLogin();
   }
 }
 
@@ -688,8 +698,8 @@ function afterLogin(){
   }else{show('landing')}
 }
 
-function signOut(){
-  SESSION={username:null,profile:null};
+async function signOut(){
+  await vm_signOut();
   updateTopbar();
   document.getElementById('auth-user').value='';
   document.getElementById('auth-pass').value='';
@@ -705,8 +715,7 @@ function confirmRetake(){
 }
 async function retakeQuiz(){
   if(!SESSION.username)return;
-  SESSION.profile.guild=null;SESSION.profile.scores=null;SESSION.profile.takenAt=null;
-  await saveProfile(SESSION.username,SESSION.profile);
+  await vm_clearGuild();
   updateTopbar();startQuiz();
 }
 
@@ -758,8 +767,8 @@ function resolveGuild(){
 }
 async function persistResult(guildKey,sc){
   if(!SESSION.username)return;
-  SESSION.profile.guild=guildKey;SESSION.profile.scores={...sc};SESSION.profile.takenAt=new Date().toISOString();
-  await saveProfile(SESSION.username,SESSION.profile);updateTopbar();
+  await vm_saveProfile(guildKey,sc);
+  updateTopbar();
 }
 function showResult(){
   const p=SESSION.profile;

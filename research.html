@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Vox Mana — Research Archives</title>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
 <script src="shared.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Crimson+Pro:ital,wght@0,300;0,400;1,300;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -499,8 +500,9 @@ const RARITIES = [{v:'c',l:'Common'},{v:'u',l:'Uncommon'},{v:'r',l:'Rare'},{v:'m
 /* ═══════════════════════════════════════
    INIT
 ═══════════════════════════════════════ */
-window.addEventListener('load', () => {
-  /* Read session from shared.js and show user badge */
+window.addEventListener('load', async () => {
+  /* Restore Supabase session on page load */
+  if (typeof vm_resumeSession !== 'undefined') await vm_resumeSession();
   const _u = (typeof VM_SESSION !== 'undefined') ? VM_SESSION.username : null;
   const badge = document.getElementById('r-user-badge');
   if (_u && badge) { badge.textContent = _u; badge.style.display = ''; }
