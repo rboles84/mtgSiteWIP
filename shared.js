@@ -1,10 +1,8 @@
 /* ============================================================
    shared.js — Vox Mana
    Supabase auth + profile storage.
-   ============================================================
+   ============================================================ */
 
-   SETUP — paste your values from Supabase > Integrations > Data API:
-   ---------------------------------------------------------- */
 const VM_CONFIG = {
   supabaseUrl:  'https://lwkjnwscowbqrfqqhgsp.supabase.co',
   supabaseKey:  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imx3a2pud3Njb3dicXJmcXFoZ3NwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzU0NTExMDcsImV4cCI6MjA5MTAyNzEwN30.mttdOwKCBkON8DOeEAV297rFV-Sj6n-TcLCT28BVlZ8'
@@ -71,39 +69,56 @@ const VM_SESSION = {
 
 /* ── AUTH FUNCTIONS ──────────────────────────────────────── */
 
+/*
+  Registration:
+  - Passes username in metadata so the DB trigger can store it.
+  - The trigger (handle_new_user) inserts the profile row automatically.
+  - We then UPDATE to ensure username + email are correct.
+  - No manual INSERT avoids RLS timing issues entirely.
+*/
 async function vm_register(username, email, password) {
   username = username.trim().toLowerCase();
 
   const sb = getSupabase();
-  if (!sb) return { ok: false, message: 'Could not connect to database. Check your browser console for details.' };
+  if (!sb) return { ok: false, message: 'Could not connect to database.' };
 
   try {
-    /* 1. Create Supabase auth user */
-    const { data, error: signUpErr } = await sb.auth.signUp({ email, password });
+    /* 1. Create auth user — pass username in metadata for the DB trigger */
+    const { data, error: signUpErr } = await sb.auth.signUp({
+      email,
+      password,
+      options: { data: { username } }
+    });
+
     if (signUpErr) return { ok: false, message: signUpErr.message };
 
     const userId = data.user?.id;
-    if (!userId) return { ok: false, message: 'Registration failed — no session returned. Make sure email confirmation is OFF in Supabase.' };
+    if (!userId) return {
+      ok: false,
+      message: 'Registration failed — no user ID returned. Make sure "Confirm email" is OFF in Supabase Auth settings.'
+    };
 
-    /* 2. Insert profile row */
-    const { error: profileErr } = await sb
+    /* 2. Update username + email in case trigger used a fallback value */
+    await sb
       .from('profiles')
-      .insert({ id: userId, username, email, guild: null, scores: null, taken_at: null });
-
-    if (profileErr) {
-      if (profileErr.code === '23505') return { ok: false, message: 'That username is already taken.' };
-      return { ok: false, message: 'Profile save failed: ' + profileErr.message };
-    }
+      .update({ username, email })
+      .eq('id', userId);
 
     VM_SESSION.username = username;
     VM_SESSION.profile  = { guild: null, scores: null, takenAt: null };
     return { ok: true };
 
   } catch(e) {
-    return { ok: false, message: 'Network error: ' + e.message };
+    return { ok: false, message: 'Network error during registration: ' + e.message };
   }
 }
 
+/*
+  Login:
+  - Looks up email from profiles table using the username.
+  - Then signs in with Supabase using that email + password.
+  - Gives a clear message if email is still NULL (needs SQL fix).
+*/
 async function vm_login(username, password) {
   username = username.trim().toLowerCase();
 
@@ -120,26 +135,43 @@ async function vm_login(username, password) {
 
     if (fetchErr) return { ok: false, message: 'Login error: ' + fetchErr.message };
     if (!row)     return { ok: false, message: 'No account found for that username.' };
+    if (!row.email) return {
+      ok: false,
+      message: 'Account email is missing — run the SQL email-fix in Supabase SQL Editor, then try again.'
+    };
 
     /* Sign in with Supabase */
-    const { error: signInErr } = await sb.auth.signInWithPassword({ email: row.email, password });
+    const { error: signInErr } = await sb.auth.signInWithPassword({
+      email: row.email,
+      password
+    });
     if (signInErr) return { ok: false, message: 'Incorrect password.' };
 
     VM_SESSION.username = username;
-    VM_SESSION.profile  = { guild: row.guild, scores: row.scores, takenAt: row.taken_at };
+    VM_SESSION.profile  = {
+      guild:   row.guild,
+      scores:  row.scores,
+      takenAt: row.taken_at
+    };
     return { ok: true };
 
   } catch(e) {
-    return { ok: false, message: 'Network error: ' + e.message };
+    return { ok: false, message: 'Network error during login: ' + e.message };
   }
 }
 
+/* Sign out and clear session */
 async function vm_signOut() {
   const sb = getSupabase();
   try { if (sb) await sb.auth.signOut(); } catch(_) {}
   VM_SESSION.clear();
 }
 
+/*
+  Resume an existing Supabase session on page load.
+  Call on DOMContentLoaded to restore auth after a page refresh.
+  Returns true if a session was restored.
+*/
 async function vm_resumeSession() {
   const sb = getSupabase();
   if (!sb) return false;
@@ -151,7 +183,7 @@ async function vm_resumeSession() {
     /* Already cached in this tab */
     if (VM_SESSION.username && VM_SESSION.profile) return true;
 
-    /* Re-fetch profile from DB */
+    /* Re-fetch profile from DB using auth user ID */
     const { data: row } = await sb
       .from('profiles')
       .select('username, guild, scores, taken_at')
@@ -161,7 +193,11 @@ async function vm_resumeSession() {
     if (!row) return false;
 
     VM_SESSION.username = row.username;
-    VM_SESSION.profile  = { guild: row.guild, scores: row.scores, takenAt: row.taken_at };
+    VM_SESSION.profile  = {
+      guild:   row.guild,
+      scores:  row.scores,
+      takenAt: row.taken_at
+    };
     return true;
 
   } catch(e) {
@@ -170,6 +206,7 @@ async function vm_resumeSession() {
   }
 }
 
+/* Save guild result to database */
 async function vm_saveProfile(guildKey, scoresObj) {
   const sb = getSupabase();
   if (!sb || !VM_SESSION.username) return false;
@@ -190,6 +227,7 @@ async function vm_saveProfile(guildKey, scoresObj) {
   }
 }
 
+/* Clear guild result so user can retake the quiz */
 async function vm_clearGuild() {
   const sb = getSupabase();
   if (!sb || !VM_SESSION.username) return false;
