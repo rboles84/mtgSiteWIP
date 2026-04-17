@@ -98,11 +98,22 @@ async function vm_register(username, email, password) {
       message: 'Registration failed — no user ID returned. Make sure "Confirm email" is OFF in Supabase Auth settings.'
     };
 
-    /* 2. Update username + email in case trigger used a fallback value */
-    await sb
+    /* 2. Upsert profile row — works whether the DB trigger already fired or not.
+          If the trigger created the row, this updates username + email.
+          If the trigger hasn't fired yet, this inserts the row directly. */
+    const { error: upsertErr } = await sb
       .from('profiles')
-      .update({ username, email })
-      .eq('id', userId);
+      .upsert(
+        { id: userId, username, email, guild: null, scores: null, taken_at: null },
+        { onConflict: 'id' }
+      );
+
+    if (upsertErr) {
+      /* Username already taken (unique constraint on username column) */
+      if (upsertErr.code === '23505') return { ok: false, message: 'That username is already taken.' };
+      console.warn('Profile upsert warning:', upsertErr.message);
+      /* Non-fatal — session still valid, profile may exist via trigger */
+    }
 
     VM_SESSION.username = username;
     VM_SESSION.profile  = { guild: null, scores: null, takenAt: null };
