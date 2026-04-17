@@ -121,6 +121,7 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 .pip{width:26px;height:26px;border-radius:50%;border:1.5px solid rgba(255,255,255,0.15);box-shadow:0 0 10px rgba(0,0,0,0.4)}
 .pip-W{background:#ede8d4}.pip-U{background:#1a5b9b}.pip-B{background:#1c1428;border-color:rgba(130,100,160,0.5)}.pip-R{background:#be2a1f}.pip-G{background:#1b5c28}
 .guild-philosophy{font-size:1.05rem;color:var(--text);font-weight:300;max-width:640px;margin:0 auto;line-height:1.8}
+.guild-lore-summary{font-size:0.9rem;color:var(--text-dim);font-weight:300;max-width:640px;margin:1.25rem auto 0;line-height:1.75;padding-top:1rem;border-top:1px solid var(--border);font-style:italic}
 
 .section-label{font-family:'Cinzel',serif;font-size:0.65rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--gold);margin-bottom:1.25rem;padding-bottom:0.5rem;border-bottom:1px solid var(--border)}
 
@@ -315,12 +316,14 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 </section>
 
 
+
+
+
 <!-- DEBUG PANEL -->
 <div id="debug-panel" class="collapsed">
-  <button id="debug-toggle" onclick="document.getElementById('debug-panel').classList.toggle('collapsed')">▲ Debug Log</button>
+  <button id="debug-toggle" onclick="document.getElementById('debug-panel').classList.toggle('collapsed')">Debug Log</button>
   <div id="debug-log"><span class="info">Debug output will appear here when you attempt login or register.</span></div>
 </div>
-
 </div><!-- .app -->
 
 <script>
@@ -341,7 +344,6 @@ document.addEventListener('DOMContentLoaded', async () => {
 ═══════════════════════════════════════ */
 const SESSION = VM_SESSION;
 
-/* Debug logger */
 function dbg(msg, type='info'){
   const log=document.getElementById('debug-log');
   if(!log) return;
@@ -355,6 +357,27 @@ function dbg(msg, type='info'){
   log.scrollTop=log.scrollHeight;
   console.log(`[voxmana:${type}] ${msg}`);
 }
+
+/* ═══════════════════════════════════════
+   GUILD LORE — fetched from guild-lore.json
+   Loaded once, cached globally.
+   Falls back gracefully if file is missing.
+═══════════════════════════════════════ */
+let GUILD_LORE = null;
+async function loadGuildLore() {
+  if (GUILD_LORE) return GUILD_LORE;
+  try {
+    const res = await fetch('./guild-lore.json');
+    if (!res.ok) throw new Error('HTTP ' + res.status);
+    GUILD_LORE = await res.json();
+    return GUILD_LORE;
+  } catch(e) {
+    console.warn('Guild lore not loaded:', e.message);
+    return null;
+  }
+}
+
+
 
 
 /* ═══════════════════════════════════════
@@ -709,7 +732,7 @@ async function submitAuth(){
   try{
     dbg(`Attempting ${authMode} for username: "${u}"`);
     const sb=getSupabase();
-    dbg(sb ? '✓ Supabase client initialised' : '✗ Supabase client is NULL — check keys in shared.js', sb?'ok':'err');
+    dbg(sb ? '✓ Supabase client initialised' : '✗ Supabase client is NULL','err');
     let result;
     if(authMode==='login'){
       dbg('Calling vm_login...');
@@ -752,7 +775,13 @@ async function signOut(){
   updateTopbar();
   document.getElementById('auth-user').value='';
   document.getElementById('auth-pass').value='';
-  clearAuthMsg();switchTab('login');show('auth');
+  const ef=document.getElementById('auth-email');
+  if(ef) ef.value='';
+  const btn=document.getElementById('auth-submit');
+  if(btn){ btn.disabled=false; btn.textContent='Enter Vox Mana'; }
+  clearAuthMsg();
+  switchTab('login');
+  show('auth');
 }
 
 /* ═══════════════════════════════════════
@@ -830,6 +859,13 @@ function showResult(){
 async function buildResult(key,sc){
   const g=GUILDS[key];
   const total=Object.values(sc).reduce((a,b)=>a+b,0)||1;
+
+  /* Load lore overlay — null-safe, falls back to GUILDS static data */
+  const lore = await loadGuildLore();
+  const l = lore?.[key] || null;
+  const tagline    = l?.tagline    || g.tagline;
+  const philosophy = l?.philosophy || g.philosophy;
+  const loreSummary = l?.lore_summary || null;
   const CM={W:{label:"White",fill:"#ede8d4"},U:{label:"Blue",fill:"#2a7ac8"},B:{label:"Black",fill:"#8060a0"},R:{label:"Red",fill:"#d04030"},G:{label:"Green",fill:"#2a8a30"}};
 
   const pipsHtml=g.colors.map(c=>`<div class="pip pip-${c}"></div>`).join('');
@@ -916,9 +952,10 @@ async function buildResult(key,sc){
       ${userLabel}
       <div class="guild-eyebrow">Your True Guild</div>
       <div class="guild-name" style="color:${g.accent}">${g.name}</div>
-      <div class="guild-tagline">${g.tagline}</div>
+      <div class="guild-tagline">${tagline}</div>
       <div class="mana-pips">${pipsHtml}</div>
-      <div class="guild-philosophy">${g.philosophy}</div>
+      <div class="guild-philosophy">${philosophy}</div>
+      ${loreSummary ? `<div class="guild-lore-summary">${loreSummary}</div>` : ''}
     </div>
 
     <div class="scores-section">
