@@ -1,0 +1,52 @@
+name: Task
+description: Track a work item for the mtgSiteWIP kanban board.
+title: "[Task]: "
+labels: []
+body:
+  - type: textarea
+    id: summary
+    attributes:
+      label: Summary
+      description: What needs to change?
+      placeholder: Describe the task in one or two sentences.
+    validations:
+      required: true
+  - type: textarea
+    id: acceptance-criteria
+    attributes:
+      label: Acceptance criteria
+      description: What must be true before this task is done?
+      placeholder: |
+        - [ ] The page or behavior works as expected.
+        - [ ] The change has been reviewed.
+        - [ ] Any related PR links this issue with "Closes #".
+    validations:
+      required: true
+  - type: dropdown
+    id: task-type
+    attributes:
+      label: Type
+      options:
+        - feature
+        - bug
+        - content
+        - design
+        - cleanup
+    validations:
+      required: true
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Priority
+      options:
+        - "priority: normal"
+        - "priority: high"
+        - "priority: low"
+    validations:
+      required: true
+  - type: textarea
+    id: notes
+    attributes:
+      label: Notes
+      description: Links, screenshots, constraints, or implementation notes.
+      placeholder: Add any useful context here.
