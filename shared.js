@@ -29,6 +29,10 @@ function getSupabase() {
 const VM_SESSION = {
   _username: null,
   _profile:  null,
+  chatHistory: [],
+  interviewActive: false,
+  interviewResult: null,
+  pendingSave: false,
 
   get username() {
     if (this._username) return this._username;
@@ -60,9 +64,14 @@ const VM_SESSION = {
   clear() {
     this._username = null;
     this._profile  = null;
+    this.chatHistory = [];
+    this.interviewActive = false;
+    this.interviewResult = null;
+    this.pendingSave = false;
     try {
       sessionStorage.removeItem('vm_user');
       sessionStorage.removeItem('vm_profile');
+      sessionStorage.removeItem('vm_pending_result');
     } catch(_) {}
   }
 };
@@ -144,8 +153,8 @@ async function vm_login(username, password) {
       .eq('username', username)
       .maybeSingle();
 
-    if (fetchErr) return { ok: false, message: 'Login error: ' + fetchErr.message };
-    if (!row)     return { ok: false, message: 'No account found for that username.' };
+    if (fetchErr) return { ok: false, message: 'Invalid username or password.' };
+    if (!row)     return { ok: false, message: 'Invalid username or password.' };
     if (!row.email) return {
       ok: false,
       message: 'Account email is missing — run the SQL email-fix in Supabase SQL Editor, then try again.'
@@ -156,7 +165,7 @@ async function vm_login(username, password) {
       email: row.email,
       password
     });
-    if (signInErr) return { ok: false, message: 'Incorrect password.' };
+    if (signInErr) return { ok: false, message: 'Invalid username or password.' };
 
     VM_SESSION.username = username;
     VM_SESSION.profile  = {
@@ -169,6 +178,110 @@ async function vm_login(username, password) {
   } catch(e) {
     return { ok: false, message: 'Network error during login: ' + e.message };
   }
+}
+
+/* ── INTERVIEW FUNCTIONS ───────────────────────────── */
+async function vm_conductInterview(userMessage) {
+  const sb = getSupabase();
+  if (!sb) throw new Error('Interview service unavailable');
+
+  const message = (userMessage || '').trim();
+  if (!message) throw new Error('Please enter a response.');
+
+  VM_SESSION.chatHistory.push({ role: 'user', content: message });
+
+  const { data, error } = await sb.functions.invoke('guild-recruiter', {
+    body: {
+      message,
+      history: VM_SESSION.chatHistory.slice(0, -1),
+      session_id: VM_SESSION.username || 'anonymous'
+    }
+  });
+
+  if (error) {
+    VM_SESSION.chatHistory.pop();
+    throw new Error(error.message || 'Interview service unavailable');
+  }
+
+  VM_SESSION.chatHistory.push({ role: 'assistant', content: data.response || '' });
+
+  if (data.decided && data.result) {
+    VM_SESSION.interviewResult = data.result;
+    VM_SESSION.interviewActive = false;
+  }
+
+  return data;
+}
+
+async function vm_startInterview() {
+  VM_SESSION.chatHistory = [];
+  VM_SESSION.interviewActive = true;
+  VM_SESSION.interviewResult = null;
+  return vm_conductInterview('I am ready to be assessed.');
+}
+
+function vm_resetInterview() {
+  VM_SESSION.chatHistory = [];
+  VM_SESSION.interviewResult = null;
+  VM_SESSION.interviewActive = false;
+}
+
+async function vm_saveInterviewResult(result) {
+  const sb = getSupabase();
+  if (!sb || !result) throw new Error('No result to save.');
+
+  const { data: { session } } = await sb.auth.getSession();
+  if (!session) throw new Error('Authentication required to save placement.');
+
+  const { error } = await sb
+    .from('profiles')
+    .upsert({
+      id: session.user.id,
+      email: session.user.email,
+      guild: result.faction,
+      guild_name: result.faction_name,
+      runner_up: result.runner_up,
+      confidence: result.confidence,
+      decree: result.decree,
+      taken_at: new Date().toISOString()
+    }, { onConflict: 'id' });
+
+  if (error) throw error;
+}
+
+async function vm_saveWithGoogle() {
+  const sb = getSupabase();
+  if (!sb) throw new Error('Could not connect to database.');
+  if (!VM_SESSION.interviewResult) throw new Error('No placement to save.');
+
+  sessionStorage.setItem('vm_pending_result', JSON.stringify(VM_SESSION.interviewResult));
+  VM_SESSION.pendingSave = true;
+
+  const { error } = await sb.auth.signInWithOAuth({
+    provider: 'google',
+    options: { redirectTo: window.location.origin }
+  });
+
+  if (error) throw error;
+}
+
+async function vm_checkPendingSave() {
+  const pending = sessionStorage.getItem('vm_pending_result');
+  if (!pending) return false;
+
+  const sb = getSupabase();
+  if (!sb) return false;
+
+  const { data: { session } } = await sb.auth.getSession();
+  if (!session) return false;
+
+  const result = JSON.parse(pending);
+  await vm_saveInterviewResult(result);
+  sessionStorage.removeItem('vm_pending_result');
+  VM_SESSION.pendingSave = false;
+
+  document.dispatchEvent(new CustomEvent('vm_placementSaved', { detail: result }));
+  return true;
 }
 
 /* Sign out and clear session */

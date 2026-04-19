@@ -86,23 +86,31 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 .landing-sub{font-size:1.15rem;color:var(--text-dim);font-style:italic;max-width:480px;margin:0 auto 3rem;animation:fadeUp 1s 0.2s ease both}
 .landing-note{font-size:0.8rem;color:var(--text-muted);margin-top:1.2rem;letter-spacing:0.05em;animation:fadeUp 1s 0.6s ease both}
 
-/* ── QUIZ ───────────────────────────── */
+/* ── SCRYING TERMINAL ────────────────── */
 #quiz{justify-content:center}
-.quiz-inner{max-width:640px;width:100%}
-.progress-wrap{margin-bottom:2.5rem}
-.progress-bar{height:1px;background:rgba(201,168,76,0.08);position:relative}
-.progress-fill{height:1px;background:var(--gold);transition:width 0.5s ease;position:relative}
-.progress-fill::after{content:'';position:absolute;right:-3px;top:-3px;width:7px;height:7px;background:var(--gold);border-radius:50%}
-.progress-label{display:flex;justify-content:space-between;margin-top:8px;font-family:'Cinzel',serif;font-size:0.65rem;letter-spacing:0.15em;color:var(--text-muted);text-transform:uppercase}
-.q-card{border:1px solid var(--border);background:var(--bg2);padding:2.5rem 2rem;animation:fadeUp 0.3s ease both}
-.q-num{font-family:'Cinzel',serif;font-size:0.65rem;letter-spacing:0.25em;color:var(--gold-d);text-transform:uppercase;margin-bottom:1rem}
-.q-text{font-size:1.35rem;font-weight:300;color:var(--text);margin-bottom:1.75rem;line-height:1.5}
-.answers{display:flex;flex-direction:column;gap:8px}
-.ans-btn{text-align:left;padding:0.85rem 1.1rem;background:transparent;border:1px solid rgba(201,168,76,0.08);color:var(--text);font-family:'Crimson Pro',serif;font-size:1rem;cursor:pointer;transition:border-color 0.15s,background 0.15s,padding-left 0.15s,color 0.15s;line-height:1.4;position:relative}
-.ans-btn::before{content:'◆';position:absolute;left:0.6rem;opacity:0;color:var(--gold);font-size:0.5rem;top:50%;transform:translateY(-50%);transition:opacity 0.15s}
-.ans-btn:hover{border-color:var(--border-s);background:rgba(201,168,76,0.04);color:var(--gold-l);padding-left:1.6rem}
-.ans-btn:hover::before{opacity:1}
-.ans-btn.selected{border-color:var(--gold);background:rgba(201,168,76,0.08);color:var(--gold-l);pointer-events:none}
+.terminal-shell{max-width:860px;width:100%;border:1px solid var(--border);background:#0c0b0a;padding:1rem}
+#terminal-idle{text-align:center;padding:2rem 1rem}
+#begin-interview-btn{max-width:320px}
+#terminal-container{display:flex;flex-direction:column;gap:0.8rem}
+#terminal-output{height:380px;overflow-y:auto;border:1px solid var(--border);padding:0.9rem;background:rgba(0,0,0,0.2);font-family:'IBM Plex Mono','Courier New',monospace}
+.terminal-message{margin:0 0 0.7rem;font-size:0.92rem;line-height:1.55;white-space:pre-wrap}
+.terminal-message.recruiter{color:var(--gold)}
+.terminal-message.user{color:#d4c9b8}
+.terminal-message.loading::after{content:' |';animation:pulse 0.8s ease-in-out infinite}
+#terminal-input-row{display:flex;gap:0.6rem}
+#terminal-input{flex:1;border:1px solid var(--border);background:#0c0b0a;color:#d4c9b8;padding:0.7rem;font-family:'IBM Plex Mono','Courier New',monospace;font-size:0.92rem;outline:none}
+#terminal-submit{border:1px solid var(--gold-d);background:transparent;color:var(--gold);padding:0.7rem 1rem;font-family:'Cinzel',serif;letter-spacing:0.08em;cursor:pointer}
+#terminal-submit:disabled,#terminal-input:disabled{opacity:0.45;cursor:not-allowed}
+#terminal-status{font-family:'IBM Plex Mono','Courier New',monospace;font-size:0.78rem;color:var(--text-dim);min-height:1.1rem}
+#terminal-error{font-size:0.85rem;color:#e08080}
+#decree-container{display:none;opacity:0;transition:opacity 0.5s ease;border:1px solid var(--border-s);padding:1.1rem;background:rgba(201,168,76,0.04)}
+#decree-container.visible{display:block;opacity:1}
+.decree-title{font-family:'Cinzel Decorative',serif;font-size:1.8rem;color:var(--gold);margin-bottom:0.4rem}
+.decree-tagline{color:var(--text-dim);font-style:italic;margin-bottom:0.8rem}
+.decree-rule{border:none;height:1px;background:var(--gold-d);margin:0.7rem 0 0.9rem}
+.decree-text{font-style:italic;color:var(--gold-l);font-size:1.05rem}
+.decree-runner{color:var(--text-dim);margin-top:0.7rem;font-size:0.9rem}
+.decree-actions{display:flex;gap:0.6rem;flex-wrap:wrap;margin-top:1rem}
 
 /* ── REVEAL ─────────────────────────── */
 #reveal{text-align:center;gap:1.5rem}
@@ -204,6 +212,7 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
   #topbar{padding:0.5rem 1rem;gap:8px}
   .tb-guild{display:none}
 }
+/* DEBUG CSS — disabled pre-launch
 #debug-panel{position:fixed;bottom:0;left:0;right:0;background:rgba(12,11,10,0.97);border-top:1px solid var(--border-s);z-index:999;font-family:'IBM Plex Mono',monospace;font-size:0.72rem;max-height:200px;display:flex;flex-direction:column}
 #debug-toggle{padding:0.3rem 1rem;cursor:pointer;color:var(--teal,#1aaa96);background:none;border:none;font-family:'Cinzel',serif;font-size:0.6rem;letter-spacing:0.15em;text-transform:uppercase;text-align:left;border-bottom:1px solid rgba(201,168,76,0.15)}
 #debug-log{flex:1;overflow-y:auto;padding:0.5rem 1rem;line-height:1.7}
@@ -213,6 +222,7 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 #debug-panel.collapsed #debug-log{display:none}
 #debug-panel.collapsed #debug-toggle::before{content:'▲ '}
 #debug-panel:not(.collapsed) #debug-toggle::before{content:'▼ '}
+*/
 </style>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
 <script src="shared.js"></script>
@@ -225,7 +235,7 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
   <span class="tb-name" id="tb-name"></span>
   <span class="tb-guild" id="tb-guild"></span>
   <button class="tb-btn hidden" id="tb-research" onclick="window.location='research.html'">Research Archives</button>
-  <button class="tb-btn tb-retake hidden" id="tb-retake" onclick="confirmRetake()">Retake Quiz</button>
+  <button class="tb-btn tb-retake hidden" id="tb-retake" onclick="confirmRetake()">Begin Again</button>
   <button class="tb-btn" onclick="signOut()">Sign Out</button>
 </div>
 
@@ -281,22 +291,37 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
     <path d="M36 22 L38 27 L44 27 L39 30 L41 36 L36 33 L31 36 L33 30 L28 27 L34 27 Z" stroke="#c9a84c" stroke-width="0.7" fill="rgba(201,168,76,0.1)"/>
   </svg>
   <div class="landing-title">Vox Mana</div>
-  <div class="landing-sub" style="animation:fadeUp 1s 0.2s ease both">Twelve questions. Ten guilds. Your archetype, your land base, your decks.</div>
-  <button class="btn-primary" style="animation:fadeUp 1s 0.4s ease both;max-width:280px" onclick="startQuiz()">Begin the Questionnaire</button>
-  <div class="landing-note">Your results are saved to your profile automatically.</div>
+  <div class="landing-sub" style="animation:fadeUp 1s 0.2s ease both">A recruiter will interview you and issue your Decree of Initiation.</div>
+  <button class="btn-primary" style="animation:fadeUp 1s 0.4s ease both;max-width:320px" onclick="startInterviewUI()">Begin Interview</button>
+  <div class="landing-note">No account required to interview. Save is optional.</div>
 </section>
 
 <!-- QUIZ -->
 <section class="section hidden" id="quiz">
-  <div class="quiz-inner">
-    <div class="progress-wrap">
-      <div class="progress-bar"><div class="progress-fill" id="prog-fill" style="width:0%"></div></div>
-      <div class="progress-label">
-        <span id="prog-label">Question 1 of 12</span>
-        <span id="prog-pct">0%</span>
+  <div class="terminal-shell">
+    <div id="terminal-idle">
+      <button class="btn-primary" id="begin-interview-btn" onclick="beginInterview()">Begin Interview</button>
+    </div>
+    <div id="terminal-container" class="hidden">
+      <div id="terminal-output"></div>
+      <div id="terminal-input-row">
+        <input id="terminal-input" type="text" placeholder="Enter your response..." autocomplete="off" />
+        <button id="terminal-submit" onclick="submitInterview()">Transmit</button>
+      </div>
+      <div id="terminal-status"></div>
+      <div id="terminal-error"></div>
+    </div>
+    <div id="decree-container">
+      <div class="decree-title" id="decree-title"></div>
+      <div class="decree-tagline" id="decree-tagline"></div>
+      <hr class="decree-rule" id="decree-rule" />
+      <div class="decree-text" id="decree-text"></div>
+      <div class="decree-runner" id="decree-runner"></div>
+      <div class="decree-actions">
+        <button class="btn-primary" id="save-placement-btn" style="max-width:260px">Save Your Placement</button>
+        <button class="btn-secondary" id="begin-again-btn">Begin Again</button>
       </div>
     </div>
-    <div class="q-card" id="q-card"></div>
   </div>
 </section>
 
@@ -319,11 +344,12 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 
 
 
-<!-- DEBUG PANEL -->
+<!-- DEBUG PANEL — disabled pre-launch
 <div id="debug-panel" class="collapsed">
   <button id="debug-toggle" onclick="document.getElementById('debug-panel').classList.toggle('collapsed')">Debug Log</button>
   <div id="debug-log"><span class="info">Debug output will appear here when you attempt login or register.</span></div>
 </div>
+-->
 </div><!-- .app -->
 
 <script>
@@ -336,7 +362,29 @@ document.addEventListener('DOMContentLoaded', async () => {
   if (ef) ef.style.display = 'none';
   // Restore Supabase session if user was already logged in
   const resumed = await vm_resumeSession();
-  if (resumed) { updateTopbar(); afterLogin(); }
+  await vm_checkPendingSave();
+  if (resumed) {
+    updateTopbar();
+    afterLogin();
+  } else {
+    show('landing');
+  }
+
+  const input = document.getElementById('terminal-input');
+  if (input) {
+    input.addEventListener('input', updateSubmitState);
+    input.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        submitInterview();
+      }
+    });
+  }
+  const saveBtn = document.getElementById('save-placement-btn');
+  const againBtn = document.getElementById('begin-again-btn');
+  if (saveBtn) saveBtn.addEventListener('click', handleSavePlacement);
+  if (againBtn) againBtn.addEventListener('click', beginAgain);
+  document.addEventListener('vm_placementSaved', () => markSavedState());
 });
 
 /* ═══════════════════════════════════════
@@ -344,6 +392,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 ═══════════════════════════════════════ */
 const SESSION = VM_SESSION;
 
+/* DBG FUNCTION — disabled pre-launch
 function dbg(msg, type='info'){
   const log=document.getElementById('debug-log');
   if(!log) return;
@@ -357,6 +406,7 @@ function dbg(msg, type='info'){
   log.scrollTop=log.scrollHeight;
   console.log(`[voxmana:${type}] ${msg}`);
 }
+*/
 
 /* ═══════════════════════════════════════
    GUILD LORE — fetched from guild-lore.json
@@ -404,7 +454,7 @@ const QUESTIONS=[
 const WUBRG=['W','U','B','R','G'];
 function normPair(a,b){return WUBRG.indexOf(a)<=WUBRG.indexOf(b)?a+b:b+a}
 
-const GUILDS={
+const FACTIONS={
   WU:{
     name:"Azorius Senate",tagline:"Order is not a constraint. It is civilization itself.",colors:["W","U"],accent:"#5a8fbc",
     banner:"linear-gradient(160deg,rgba(26,60,100,0.35) 0%,rgba(12,11,10,0) 60%)",
@@ -664,7 +714,157 @@ const GUILDS={
       {fmt:"Commander",name:"Boros Commanders",desc:"Aggressive go-wide or equipment Voltron powered by the best white and red tools.",mtgg:null,edhrec:"https://edhrec.com/commanders/boros",mtgd:"https://mtgdecks.net/Commander"}
     ],
     edhrecGuild:"boros"
-  }
+  },
+  LOREHOLD:{
+  name:"Lorehold College",tagline:"Leave no stone unturned.",colors:["W","R"],accent:"#c86420",
+  banner:"linear-gradient(160deg,rgba(180,80,20,0.3) 0%,rgba(12,11,10,0) 60%)",
+  philosophy:"You believe the past is not merely interesting but essential. Every ruin contains a lesson, every spirit a truth that living minds have forgotten. You are simultaneously the most scholarly and most physically reckless person in any room — equally at home with a thousand-year-old scroll and rappelling into an unstable dig site.",
+  archetypes:[
+    {name:"Spirit Tribal",desc:"Hofri Ghostforge and graveyard recursion fuel an army of spirits that grow stronger every time they die and return."},
+    {name:"Boros Artifacts",desc:"Osgir the Reconstructor doubles artifacts from the graveyard, turning every discarded relic into an army."},
+    {name:"Historic / Sagas",desc:"Lorehold's saga synergies accumulate value through history — each chapter a lesson, each lesson a threat."}
+  ],
+  staples:{
+    creatures:["Hofri Ghostforge","Quintorius Field Historian","Venerable Warsinger"],
+    spells:["Rip Apart","Thrilling Discovery","Cathartic Reunion"],
+    permanents:["Archaeomancer's Map","War Room"]
+  },
+  lands:{
+    premium:["Sacred Foundry","Spectator Seating"],
+    midrange:["Clifftop Retreat","Needleverge Pathway"],
+    budget:["Boros Guildgate","Wind-Scarred Crag"],
+    optimal:"4× Sacred Foundry · 4× Spectator Seating · 4× Clifftop Retreat · 2× Needleverge Pathway · 2× Temple of Triumph",
+    mid:"4× Clifftop Retreat · 4× Needleverge Pathway · 4× Temple of Triumph · 4× Inspiring Vantage",
+    bgt:"4× Boros Guildgate · 4× Wind-Scarred Crag · 4× Temple of Triumph · 9 Plains · 9 Mountain",
+    utility:"Command Tower · Exotic Orchard · Sunhome, Fortress of the Legion · Myriad Landscape"
+  },
+  decks:[
+    {fmt:"Commander",name:"Lorehold Spirit",desc:"Quintorius generates spirits from the graveyard — pile on spirit typal buffs and bury your opponents in history.",mtgg:null,edhrec:"https://edhrec.com/commanders/lorehold",mtgd:"https://mtgdecks.net/Commander"},
+    {fmt:"Commander",name:"Osgir the Reconstructor",desc:"Double every artifact from your graveyard. History doesn't repeat — it doubles.",mtgg:null,edhrec:"https://edhrec.com/commanders/osgir-the-reconstructor",mtgd:"https://mtgdecks.net/Commander"},
+    {fmt:"Commander",name:"Hofri Ghostforge",desc:"Creatures become spirits when they die — and those spirits are even stronger than the originals.",mtgg:null,edhrec:"https://edhrec.com/commanders/hofri-ghostforge",mtgd:"https://mtgdecks.net/Commander"}
+  ],
+  edhrecGuild:"lorehold"
+},
+  PRISMARI:{
+  name:"Prismari College",tagline:"Express yourself with the elements.",colors:["U","R"],accent:"#4a7ab0",
+  banner:"linear-gradient(160deg,rgba(50,80,160,0.3) 0%,rgba(12,11,10,0) 60%)",
+  philosophy:"You see no difference between magic and art. Casting a spell is a performance, a canvas, a composition. Any elemental force can be a muse and a medium. You live in the tension between discipline and spontaneity — and the spectacles you create outlast the moment that produced them.",
+  archetypes:[
+    {name:"Big Spell Storm",desc:"Galazeth Prismari converts artifacts to mana — chain massive instants and sorceries, generate elemental tokens, close out the game in one explosive turn."},
+    {name:"Spells-Matter Tokens",desc:"Every spell you cast creates an elemental. Cast enough spells, attack with enough elementals, and the game ends."},
+    {name:"Izzet Control / Tempo",desc:"Counter the threats that matter, answer everything else with removal, and close with one resilient threat backed by open mana."}
+  ],
+  staples:{
+    creatures:["Galazeth Prismari","Rootha Mercurial Artist","Veyran Voice of Duality"],
+    spells:["Magma Opus","Prismari Command","Creative Outburst"],
+    permanents:["Thousand-Year Storm","Metallurgic Summonings"]
+  },
+  lands:{
+    premium:["Steam Vents","Training Center"],
+    midrange:["Sulfur Falls","Riverglide Pathway"],
+    budget:["Izzet Guildgate","Swiftwater Cliffs"],
+    optimal:"4× Steam Vents · 4× Training Center · 4× Sulfur Falls · 2× Riverglide Pathway · 2× Temple of Epiphany",
+    mid:"4× Sulfur Falls · 4× Riverglide Pathway · 4× Temple of Epiphany · 4× Spirebluff Canal",
+    bgt:"4× Izzet Guildgate · 4× Swiftwater Cliffs · 4× Temple of Epiphany · 9 Island · 9 Mountain",
+    utility:"Command Tower · Exotic Orchard · Spirebluff Canal · Myriad Landscape"
+  },
+  decks:[
+    {fmt:"Commander",name:"Prismari Artistry",desc:"Rootha copies your biggest spells — the larger the mana value, the larger the elemental token you create as living art.",mtgg:null,edhrec:"https://edhrec.com/commanders/prismari",mtgd:"https://mtgdecks.net/Commander"},
+    {fmt:"Commander",name:"Galazeth Prismari",desc:"Tap artifacts for mana, spend that mana on enormous instants and sorceries, and go bigger than anyone at the table.",mtgg:null,edhrec:"https://edhrec.com/commanders/galazeth-prismari",mtgd:"https://mtgdecks.net/Commander"},
+    {fmt:"Commander",name:"Zaffai Thunder Conductor",desc:"The Grand Maestro rewards casting high-CMC spells with bonus damage and creature generation — a thunderstorm in card form.",mtgg:null,edhrec:"https://edhrec.com/commanders/zaffai-thunder-conductor",mtgd:"https://mtgdecks.net/Commander"}
+  ],
+  edhrecGuild:"prismari"
+},
+  WITHERBLOOM:{
+  name:"Witherbloom College",tagline:"Get your hands dirty.",colors:["B","G"],accent:"#4a8a4a",
+  banner:"linear-gradient(160deg,rgba(20,80,20,0.38) 0%,rgba(12,11,10,0) 60%)",
+  philosophy:"You study life and death at the level where they become indistinguishable. You find beauty in things others find repellent, humor in things others find morbid. Your hands are always dirty. You wouldn't have it any other way — the bog contains more truth than any lecture hall.",
+  archetypes:[
+    {name:"Life Drain Aristocrats",desc:"Dina Soul Steeper drains opponents every time you gain life. Sacrifice creatures for life, drain for the gain, repeat until the table is empty."},
+    {name:"Pest Sacrifice",desc:"Beledros creates free Pest tokens every upkeep — sacrifice them to fuel dark spells, gain life off their deaths, and pay 10 life to untap all your lands."},
+    {name:"Golgari Midrange",desc:"The best black and green threats backed by Thoughtseize and Assassin's Trophy — efficient, relentless, patient."}
+  ],
+  staples:{
+    creatures:["Beledros Witherbloom","Dina Soul Steeper","Willowdusk Essence Seer"],
+    spells:["Witherbloom Command","Mortality Spear","Tend the Pests"],
+    permanents:["Necropotence","Sylvan Library"]
+  },
+  lands:{
+    premium:["Overgrown Tomb","Undergrowth Stadium"],
+    midrange:["Woodland Cemetery","Darkbore Pathway"],
+    budget:["Golgari Guildgate","Foul Orchard"],
+    optimal:"4× Overgrown Tomb · 4× Undergrowth Stadium · 4× Woodland Cemetery · 2× Darkbore Pathway · 2× Temple of Malady",
+    mid:"4× Woodland Cemetery · 4× Darkbore Pathway · 4× Temple of Malady · 4× Blooming Marsh",
+    bgt:"4× Golgari Guildgate · 4× Foul Orchard · 4× Temple of Malady · 9 Forest · 9 Swamp",
+    utility:"Command Tower · Exotic Orchard · Urborg, Tomb of Yawgmoth · Myriad Landscape"
+  },
+  decks:[
+    {fmt:"Commander",name:"Witherbloom Pestilence",desc:"Dina drains the table every time you gain life — sacrifice Pests, gain life, drain, repeat. The bog always wins.",mtgg:null,edhrec:"https://edhrec.com/commanders/witherbloom",mtgd:"https://mtgdecks.net/Commander"},
+    {fmt:"Commander",name:"Beledros Witherbloom",desc:"Free Pest tokens every upkeep, pay 10 life to untap all lands — the most explosive mana engine in black-green.",mtgg:null,edhrec:"https://edhrec.com/commanders/beledros-witherbloom",mtgd:"https://mtgdecks.net/Commander"},
+    {fmt:"Commander",name:"Willowdusk Essence Seer",desc:"Your life total swings become power and toughness — gain life to grow your threats, spend life to fund your spells.",mtgg:null,edhrec:"https://edhrec.com/commanders/willowdusk-essence-seer",mtgd:"https://mtgdecks.net/Commander"}
+  ],
+  edhrecGuild:"witherbloom"
+},
+  QUANDRIX:{
+  name:"Quandrix College",tagline:"Math is magic.",colors:["G","U"],accent:"#2a9a7a",
+  banner:"linear-gradient(160deg,rgba(20,120,80,0.3) 0%,rgba(12,11,10,0) 60%)",
+  philosophy:"You hold that the patterns underlying nature are not descriptions of reality but reality itself — and that anyone who understands them well enough can reshape what exists. You enjoy the question more than the answer. You are comfortable with problems that have no obvious solution. You have been described as intimidating to talk to. You consider this a compliment.",
+  archetypes:[
+    {name:"Fractal Counters",desc:"Tanazir Quandrix doubles +1/+1 counters on entry and scales every creature to his power when attacking — mathematical inevitability made physical."},
+    {name:"Token Doubling",desc:"Adrix and Nev double every token you create — one Fractal becomes two, two become four, the math compounds until combat ends the game."},
+    {name:"Simic Ramp / Big Threats",desc:"Green ramp accelerates past the curve into enormous blue-green threats backed by countermagic — the oldest and most reliable Simic strategy."}
+  ],
+  staples:{
+    creatures:["Tanazir Quandrix","Adrix and Nev Twincasters","Zimone Quandrix Prodigy"],
+    spells:["Quandrix Command","Growth Spiral","Aether Gust"],
+    permanents:["Esix Fractal Bloom","Doubling Season"]
+  },
+  lands:{
+    premium:["Breeding Pool","Rejuvenating Springs"],
+    midrange:["Hinterland Harbor","Barkchannel Pathway"],
+    budget:["Simic Guildgate","Thornwood Falls"],
+    optimal:"4× Breeding Pool · 4× Rejuvenating Springs · 4× Hinterland Harbor · 2× Barkchannel Pathway · 2× Temple of Mystery",
+    mid:"4× Hinterland Harbor · 4× Barkchannel Pathway · 4× Temple of Mystery · 4× Botanical Sanctum",
+    bgt:"4× Simic Guildgate · 4× Thornwood Falls · 4× Temple of Mystery · 9 Forest · 9 Island",
+    utility:"Command Tower · Exotic Orchard · Alchemist's Refuge · Myriad Landscape"
+  },
+  decks:[
+    {fmt:"Commander",name:"Quandrix Unlimited",desc:"Zimone scales X-spells and +1/+1 counters — the bigger the number, the bigger the effect. The math keeps compounding.",mtgg:null,edhrec:"https://edhrec.com/commanders/quandrix",mtgd:"https://mtgdecks.net/Commander"},
+    {fmt:"Commander",name:"Adrix and Nev",desc:"Double every token you create. Everything you make becomes twice as much. The equation is simple. The result is not.",mtgg:null,edhrec:"https://edhrec.com/commanders/adrix-and-nev-twincasters",mtgd:"https://mtgdecks.net/Commander"},
+    {fmt:"Commander",name:"Tanazir Quandrix",desc:"Double counters on entry, set every creature's power equal to his when attacking — one swing can end the game.",mtgg:null,edhrec:"https://edhrec.com/commanders/tanazir-quandrix",mtgd:"https://mtgdecks.net/Commander"}
+  ],
+  edhrecGuild:"quandrix"
+},
+  SILVERQUILL:{
+  name:"Silverquill College",tagline:"Sharp style. Sharper wit.",colors:["W","B"],accent:"#9a7ab0",
+  banner:"linear-gradient(160deg,rgba(90,60,120,0.3) 0%,rgba(12,11,10,0) 60%)",
+  philosophy:"You understand that words are not merely descriptions of power but power itself. You wield language as weapon and beacon — battle poetry, biting precision, shadow magic conjured from ink. You are the most articulate person in every room and you are aware of this. You use it.",
+  archetypes:[
+    {name:"Inkling Tokens / Go-Wide",desc:"Shadrix Silverquill generates Inkling tokens that drain opponents — flood the board, back it with counters, close with an alpha strike."},
+    {name:"Political Goad",desc:"Breena the Demagogue draws cards when opponents attack each other — goad the table into fighting itself while you accumulate advantage."},
+    {name:"Orzhov Aristocrats",desc:"Blood Artist and sacrifice outlets drain the table one death trigger at a time — every creature that dies advances your position."}
+  ],
+  staples:{
+    creatures:["Shadrix Silverquill","Breena the Demagogue","Killian Ink Duelist"],
+    spells:["Silverquill Command","Vanishing Verse","Inkshield"],
+    permanents:["Phyrexian Arena","Necropotence"]
+  },
+  lands:{
+    premium:["Godless Shrine","Shattered Sanctum"],
+    midrange:["Isolated Chapel","Brightclimb Pathway"],
+    budget:["Orzhov Guildgate","Scoured Barrens"],
+    optimal:"4× Godless Shrine · 4× Shattered Sanctum · 4× Isolated Chapel · 2× Brightclimb Pathway · 2× Temple of Silence",
+    mid:"4× Isolated Chapel · 4× Brightclimb Pathway · 4× Temple of Silence · 4× Concealed Courtyard",
+    bgt:"4× Orzhov Guildgate · 4× Scoured Barrens · 4× Temple of Silence · 9 Plains · 9 Swamp",
+    utility:"Command Tower · Exotic Orchard · Urborg, Tomb of Yawgmoth · Myriad Landscape"
+  },
+  decks:[
+    {fmt:"Commander",name:"Silverquill Influence",desc:"Killian goads opponents into attacking each other while you draw cards and accumulate advantages — win by controlling the conversation.",mtgg:null,edhrec:"https://edhrec.com/commanders/silverquill",mtgd:"https://mtgdecks.net/Commander"},
+    {fmt:"Commander",name:"Breena the Demagogue",desc:"Draw cards when any opponent attacks a player other than you — the entire table works for your advantage.",mtgg:null,edhrec:"https://edhrec.com/commanders/breena-the-demagogue",mtgd:"https://mtgdecks.net/Commander"},
+    {fmt:"Commander",name:"Shadrix Silverquill",desc:"Choose two effects each combat — Inklings, card draw, or +1/+1 counters. The right words to the right people at the right time.",mtgg:null,edhrec:"https://edhrec.com/commanders/shadrix-silverquill",mtgd:"https://mtgdecks.net/Commander"}
+  ],
+  edhrecGuild:"silverquill"
+}
 };
 
 /* ═══════════════════════════════════════
@@ -687,7 +887,7 @@ function updateTopbar(){
   const guildEl=document.getElementById('tb-guild');
   const retakeBtn=document.getElementById('tb-retake');
   if(p&&p.guild){
-    guildEl.textContent=GUILDS[p.guild]?.name||'';
+    guildEl.textContent=FACTIONS[p.guild]?.name||'';
     retakeBtn.classList.remove('hidden');
   }else{
     guildEl.textContent='';
@@ -730,27 +930,27 @@ async function submitAuth(){
   btn.disabled=true; btn.textContent='...';
   clearAuthMsg();
   try{
-    dbg(`Attempting ${authMode} for username: "${u}"`);
+    // dbg(`Attempting ${authMode} for username: "${u}"`);
     const sb=getSupabase();
-    dbg(sb ? '✓ Supabase client initialised' : '✗ Supabase client is NULL','err');
+    // dbg(sb ? '✓ Supabase client initialised' : '✗ Supabase client is NULL','err');
     let result;
     if(authMode==='login'){
-      dbg('Calling vm_login...');
+      // dbg('Calling vm_login...');
       result=await vm_login(u,pass);
     }else{
-      dbg('Calling vm_register...');
+      // dbg('Calling vm_register...');
       result=await vm_register(u,emailVal,pass);
     }
     if(!result.ok){
-      dbg('Auth failed: '+result.message,'err');
+      // dbg('Auth failed: '+result.message,'err');
       showAuthMsg(result.message,'err');
       btn.disabled=false; btn.textContent=btnLabel;
       return;
     }
-    dbg('Auth succeeded! Username: '+VM_SESSION.username,'ok');
+    // dbg('Auth succeeded! Username: '+VM_SESSION.username,'ok');
     afterLogin();
   }catch(e){
-    dbg('Caught exception: '+e.message,'err');
+    // dbg('Caught exception: '+e.message,'err');
     showAuthMsg('Unexpected error: '+e.message,'err');
     btn.disabled=false; btn.textContent=btnLabel;
   }
@@ -760,7 +960,7 @@ function afterLogin(){
   updateTopbar();
   const p=SESSION.profile;
   if(p.guild){
-    const g=GUILDS[p.guild];
+    const g=FACTIONS[p.guild];
     document.getElementById('wb-name').textContent=SESSION.username;
     document.getElementById('wb-guild-line').textContent='Your guild: '+g.name;
     const d=new Date(p.takenAt);
@@ -788,66 +988,177 @@ async function signOut(){
    RETAKE
 ═══════════════════════════════════════ */
 function confirmRetake(){
-  if(!confirm('Retake the quiz? Your current result will be replaced.'))return;
-  retakeQuiz();
+  if(!confirm('Begin again? Your current interview result will be replaced.'))return;
+  beginAgain();
+  startInterviewUI();
 }
 async function retakeQuiz(){
   if(!SESSION.username)return;
   await vm_clearGuild();
-  updateTopbar();startQuiz();
+  updateTopbar();
+  beginAgain();
+  startInterviewUI();
 }
 
 /* ═══════════════════════════════════════
-   QUIZ
+   INTERVIEW TERMINAL
 ═══════════════════════════════════════ */
-let scores={W:0,U:0,B:0,R:0,G:0};
-let currentQ=0;
+let interviewState='idle';
+
+function startInterviewUI(){
+  show('quiz');
+  beginAgain();
+}
+
+function setInterviewState(state, turn){
+  interviewState=state;
+  const input=document.getElementById('terminal-input');
+  const submit=document.getElementById('terminal-submit');
+  const status=document.getElementById('terminal-status');
+  const idle=document.getElementById('terminal-idle');
+  const container=document.getElementById('terminal-container');
+  const loading=state==='loading';
+  const active=state==='interviewing'||state==='loading';
+
+  idle.classList.toggle('hidden',active||state==='decided');
+  container.classList.toggle('hidden',!active);
+  input.disabled=loading||state==='decided';
+  submit.disabled=loading||state==='decided'||input.value.trim().length<3;
+  status.textContent=turn?`Interviewing... Turn ${turn} of 6`:'';
+}
+
+function appendTerminalMessage(role,content,loading=false){
+  const output=document.getElementById('terminal-output');
+  const line=document.createElement('div');
+  line.className=`terminal-message ${role}`+(loading?' loading':'');
+  line.textContent=content;
+  output.appendChild(line);
+  output.scrollTop=output.scrollHeight;
+  return line;
+}
+
+function updateSubmitState(){
+  const input=document.getElementById('terminal-input');
+  const submit=document.getElementById('terminal-submit');
+  submit.disabled=interviewState==='loading'||interviewState==='decided'||input.value.trim().length<3;
+}
+
+async function beginInterview(){
+  const errorEl=document.getElementById('terminal-error');
+  const output=document.getElementById('terminal-output');
+  const decree=document.getElementById('decree-container');
+  output.innerHTML='';
+  decree.classList.remove('visible');
+  errorEl.textContent='';
+  setInterviewState('loading',1);
+  const loader=appendTerminalMessage('recruiter','The scrying glass hums.',true);
+  try{
+    const data=await vm_startInterview();
+    loader.remove();
+    appendTerminalMessage('recruiter',data.response||'Speak, and be weighed.');
+    setInterviewState('interviewing',data.turn||1);
+    document.getElementById('terminal-input').focus();
+  }catch(e){
+    loader.remove();
+    errorEl.textContent=e.message||'Interview service unavailable.';
+    setInterviewState('idle');
+  }
+}
+
+async function submitInterview(){
+  const input=document.getElementById('terminal-input');
+  const text=input.value.trim();
+  if(text.length<3||interviewState==='loading'||interviewState==='decided')return;
+  document.getElementById('terminal-error').textContent='';
+  appendTerminalMessage('user',text);
+  input.value='';
+  setInterviewState('loading');
+  const loader=appendTerminalMessage('recruiter','Interpreting your answer',true);
+  try{
+    const data=await vm_conductInterview(text);
+    loader.remove();
+    appendTerminalMessage('recruiter',data.response||'The glass stills.');
+    if(data.decided&&data.result){
+      await revealDecree(data.result);
+      setInterviewState('decided',data.turn||6);
+    }else{
+      setInterviewState('interviewing',data.turn||undefined);
+      input.focus();
+      updateSubmitState();
+    }
+  }catch(e){
+    loader.remove();
+    document.getElementById('terminal-error').textContent=e.message||'The connection wavers. Try again.';
+    setInterviewState('interviewing');
+    input.focus();
+    updateSubmitState();
+  }
+}
+
+function revealDecree(result){
+  return new Promise((resolve)=>{
+    const output=document.getElementById('terminal-output');
+    const decree=document.getElementById('decree-container');
+    const guild=FACTIONS[result.faction]||{};
+    const rule=document.getElementById('decree-rule');
+    setTimeout(()=>{
+      output.style.opacity='0.4';
+      document.getElementById('decree-title').textContent=result.faction_name||result.faction||'Unbound Order';
+      document.getElementById('decree-tagline').textContent=guild.tagline||'The scrying glass has spoken.';
+      document.getElementById('decree-text').textContent=result.decree||'The decree remains unwritten.';
+      document.getElementById('decree-runner').textContent=result.runner_up_name?`The scrying glass also noted an affinity for ${result.runner_up_name}.`:'';
+      rule.style.background=guild.accent||'var(--gold-d)';
+      decree.classList.add('visible');
+      resolve();
+    },1500);
+  });
+}
+
+function beginAgain(){
+  vm_resetInterview();
+  const output=document.getElementById('terminal-output');
+  const decree=document.getElementById('decree-container');
+  output.innerHTML='';
+  output.style.opacity='1';
+  decree.classList.remove('visible');
+  document.getElementById('terminal-error').textContent='';
+  const saveBtn=document.getElementById('save-placement-btn');
+  saveBtn.textContent='Save Your Placement';
+  saveBtn.disabled=false;
+  setInterviewState('idle');
+}
+
+async function handleSavePlacement(){
+  const saveBtn=document.getElementById('save-placement-btn');
+  if(!VM_SESSION.interviewResult)return;
+  saveBtn.disabled=true;
+  saveBtn.textContent='Saving...';
+  try{
+    const sb=getSupabase();
+    const { data: { session } } = await sb.auth.getSession();
+    if(session){
+      await vm_saveInterviewResult(VM_SESSION.interviewResult);
+      markSavedState();
+      return;
+    }
+    await vm_saveWithGoogle();
+  }catch(e){
+    saveBtn.disabled=false;
+    saveBtn.textContent='Retry Save';
+    document.getElementById('terminal-error').textContent=e.message||'Could not save placement.';
+  }
+}
+
+function markSavedState(){
+  const saveBtn=document.getElementById('save-placement-btn');
+  saveBtn.textContent='Saved ✓';
+  saveBtn.disabled=true;
+}
 
 function startQuiz(){
-  scores={W:0,U:0,B:0,R:0,G:0};currentQ=0;
-  show('quiz');renderQ();
-}
-function renderQ(){
-  const q=QUESTIONS[currentQ];
-  const pct=Math.round((currentQ/QUESTIONS.length)*100);
-  document.getElementById('prog-fill').style.width=pct+'%';
-  document.getElementById('prog-label').textContent=`Question ${currentQ+1} of ${QUESTIONS.length}`;
-  document.getElementById('prog-pct').textContent=pct+'%';
-  const sh=[...q.answers].sort(()=>Math.random()-0.5);
-  document.getElementById('q-card').innerHTML=`
-    <div class="q-num">Question ${currentQ+1}</div>
-    <div class="q-text">${q.text}</div>
-    <div class="answers">${sh.map(a=>`<button class="ans-btn" onclick="pick('${a.c}',this)">${a.text}</button>`).join('')}</div>`;
-}
-function pick(c,btn){
-  document.querySelectorAll('.ans-btn').forEach(b=>b.disabled=true);
-  btn.classList.add('selected');scores[c]++;
-  setTimeout(()=>{currentQ++;currentQ>=QUESTIONS.length?doReveal():renderQ()},380);
+  startInterviewUI();
 }
 
-/* ═══════════════════════════════════════
-   REVEAL
-═══════════════════════════════════════ */
-function doReveal(){
-  show('reveal');
-  const msgs=["Consulting the Mana Matrix...","Weighing your convictions...","Reading the leylines...","Your guild awaits..."];
-  let i=0;const el=document.getElementById('reveal-msg');
-  const iv=setInterval(()=>{
-    i++;
-    if(i<msgs.length){el.textContent=msgs[i]}
-    else{clearInterval(iv);const key=resolveGuild();persistResult(key,scores).then(()=>buildResult(key,scores))}
-  },950);
-}
-function resolveGuild(){
-  const sorted=Object.entries(scores).sort((a,b)=>b[1]-a[1]);
-  for(let i=0;i<sorted.length;i++)for(let j=i+1;j<sorted.length;j++){const k=normPair(sorted[i][0],sorted[j][0]);if(GUILDS[k])return k}
-  return 'BR';
-}
-async function persistResult(guildKey,sc){
-  if(!SESSION.username)return;
-  await vm_saveProfile(guildKey,sc);
-  updateTopbar();
-}
 function showResult(){
   const p=SESSION.profile;
   if(p&&p.guild)buildResult(p.guild,p.scores||{W:0,U:0,B:0,R:0,G:0});
@@ -857,10 +1168,10 @@ function showResult(){
    BUILD RESULT
 ═══════════════════════════════════════ */
 async function buildResult(key,sc){
-  const g=GUILDS[key];
+  const g=FACTIONS[key];
   const total=Object.values(sc).reduce((a,b)=>a+b,0)||1;
 
-  /* Load lore overlay — null-safe, falls back to GUILDS static data */
+  /* Load lore overlay — null-safe, falls back to FACTIONS static data */
   const lore = await loadGuildLore();
   const l = lore?.[key] || null;
   const tagline    = l?.tagline    || g.tagline;
