@@ -1150,19 +1150,15 @@ async function handleSavePlacement(){
 }
 
 function markSavedState(){
-  const saveBtn=document.getElementById('save-placement-btn');
-  saveBtn.textContent='Saved ✓';
-  saveBtn.disabled=true;
+  const saveBtn = document.getElementById('save-placement-btn');
+  saveBtn.textContent = 'Saved ✓';
+  saveBtn.disabled = true;
 
-  // Show View Guild button
   const result = VM_SESSION.interviewResult;
   if(result && result.faction){
-    const viewBtn = document.createElement('button');
-    viewBtn.className = 'btn-primary';
-    viewBtn.style.maxWidth = '260px';
-    viewBtn.textContent = 'View Your Guild';
-    viewBtn.onclick = () => buildResult(result.faction, scoresFromFaction(result.faction));
-    saveBtn.parentElement.appendChild(viewBtn);
+    setTimeout(() => {
+      buildResult(result.faction, scoresFromFaction(result.faction));
+    }, 800);
   }
 }
 
