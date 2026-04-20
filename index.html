@@ -292,7 +292,7 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
   </svg>
   <div class="landing-title">Vox Mana</div>
   <div class="landing-sub" style="animation:fadeUp 1s 0.2s ease both">A recruiter will interview you and issue your Decree of Initiation.</div>
-  <button class="btn-primary" style="animation:fadeUp 1s 0.4s ease both;max-width:320px" onclick="startInterviewUI()">Begin Interview</button>
+  <button class="btn-primary" style="animation:fadeUp 1s 0.4s ease both;max-width:320px" onclick="beginDirectly()">Begin Interview</button>
   <div class="landing-note">No account required to interview. Save is optional.</div>
 </section>
 
@@ -362,8 +362,19 @@ document.addEventListener('DOMContentLoaded', async () => {
   if (ef) ef.style.display = 'none';
   // Restore Supabase session if user was already logged in
   const resumed = await vm_resumeSession();
-  await vm_checkPendingSave();
-  if (resumed) {
+  const savedFromOAuth = await vm_checkPendingSave();
+  if (savedFromOAuth) {
+    show('quiz');
+    const result = VM_SESSION.interviewResult ||
+      JSON.parse(sessionStorage.getItem('vm_last_result') || 'null');
+    if (result) {
+      await revealDecree(result);
+      setInterviewState('decided');
+      markSavedState();
+    } else {
+      show('landing');
+    }
+  } else if (resumed) {
     updateTopbar();
     afterLogin();
   } else {
@@ -1005,6 +1016,11 @@ async function retakeQuiz(){
 ═══════════════════════════════════════ */
 let interviewState='idle';
 
+function beginDirectly(){
+  show('quiz');
+  beginInterview();
+}
+
 function startInterviewUI(){
   show('quiz');
   beginAgain();
@@ -1116,6 +1132,7 @@ function revealDecree(result){
 
 function beginAgain(){
   vm_resetInterview();
+  try { sessionStorage.removeItem('vm_last_result'); } catch(_) {}
   const output=document.getElementById('terminal-output');
   const decree=document.getElementById('decree-container');
   output.innerHTML='';
@@ -1149,14 +1166,23 @@ async function handleSavePlacement(){
   }
 }
 
-function markSavedState(){
-  const saveBtn = document.getElementById('save-placement-btn');
-  saveBtn.textContent = 'Saved ✓';
-  saveBtn.disabled = true;
+function scoresFromFaction(factionKey){
+  const faction = FACTIONS[factionKey];
+  if(!faction || !faction.colors) return {W:0,U:0,B:0,R:0,G:0};
+  const scores = {W:0,U:0,B:0,R:0,G:0};
+  faction.colors.forEach((c,i) => { scores[c] = i===0 ? 10 : 6; });
+  Object.keys(scores).forEach(c => { if(scores[c]===0) scores[c]=1; });
+  return scores;
+}
 
-  const result = VM_SESSION.interviewResult;
+function markSavedState(){
+  const saveBtn=document.getElementById('save-placement-btn');
+  saveBtn.textContent='Saved ✓';
+  saveBtn.disabled=true;
+  const result = VM_SESSION.interviewResult ||
+    JSON.parse(sessionStorage.getItem('vm_last_result') || 'null');
   if(result && result.faction){
-    setTimeout(() => {
+    setTimeout(()=>{
       buildResult(result.faction, scoresFromFaction(result.faction));
     }, 800);
   }
