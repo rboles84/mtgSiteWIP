@@ -292,7 +292,7 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
   </svg>
   <div class="landing-title">Vox Mana</div>
   <div class="landing-sub" style="animation:fadeUp 1s 0.2s ease both">A recruiter will interview you and issue your Decree of Initiation.</div>
-  <button class="btn-primary" style="animation:fadeUp 1s 0.4s ease both;max-width:320px" onclick="startInterviewUI()">Begin Interview</button>
+  <button class="btn-primary" style="animation:fadeUp 1s 0.4s ease both;max-width:320px" onclick="beginDirectly()">Begin Interview</button>
   <div class="landing-note">No account required to interview. Save is optional.</div>
 </section>
 
@@ -362,8 +362,20 @@ document.addEventListener('DOMContentLoaded', async () => {
   if (ef) ef.style.display = 'none';
   // Restore Supabase session if user was already logged in
   const resumed = await vm_resumeSession();
-  await vm_checkPendingSave();
-  if (resumed) {
+  const savedFromOAuth = await vm_checkPendingSave();
+  if (savedFromOAuth) {
+    // Returned from Google OAuth with a saved result — restore decree view
+    show('quiz');
+    const result = VM_SESSION.interviewResult ||
+      JSON.parse(sessionStorage.getItem('vm_last_result') || 'null');
+    if (result) {
+      await revealDecree(result);
+      setInterviewState('decided');
+      markSavedState();
+    } else {
+      show('landing');
+    }
+  } else if (resumed) {
     updateTopbar();
     afterLogin();
   } else {
@@ -1010,6 +1022,11 @@ function startInterviewUI(){
   beginAgain();
 }
 
+function beginDirectly(){
+  show('quiz');
+  beginInterview();
+}
+
 function setInterviewState(state, turn){
   interviewState=state;
   const input=document.getElementById('terminal-input');
@@ -1101,7 +1118,9 @@ function revealDecree(result){
     const decree=document.getElementById('decree-container');
     const guild=FACTIONS[result.faction]||{};
     const rule=document.getElementById('decree-rule');
-    setTimeout(()=>{
+    // Store result so we can restore after OAuth redirect
+  try { sessionStorage.setItem('vm_last_result', JSON.stringify(result)); } catch(_) {}
+  setTimeout(()=>{
       output.style.opacity='0.4';
       document.getElementById('decree-title').textContent=result.faction_name||result.faction||'Unbound Order';
       document.getElementById('decree-tagline').textContent=guild.tagline||'The scrying glass has spoken.';
@@ -1116,6 +1135,7 @@ function revealDecree(result){
 
 function beginAgain(){
   vm_resetInterview();
+  try { sessionStorage.removeItem('vm_last_result'); } catch(_) {}
   const output=document.getElementById('terminal-output');
   const decree=document.getElementById('decree-container');
   output.innerHTML='';
