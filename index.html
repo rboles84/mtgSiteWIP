@@ -633,8 +633,8 @@ body::before{
 </head>
 <body>
 <div class="app">
-  <header id="topbar" class="hidden">
-    <div class="tb-identity">
+  <header id="topbar">
+    <div class="tb-identity hidden" id="tb-identity">
       <div class="tb-avatar" id="tb-avatar"></div>
       <div class="tb-copy">
         <div class="tb-name" id="tb-name"></div>
@@ -643,6 +643,7 @@ body::before{
     </div>
     <div class="tb-actions">
       <button class="tb-btn" type="button" onclick="openResearch()">Research Archives</button>
+      <button class="tb-btn" type="button" onclick="openLibrary()">The Implicit Maze</button>
       <button class="tb-btn hidden" id="tb-retake" type="button" onclick="handleRetake()">Begin Again</button>
       <button class="tb-btn hidden" id="tb-signout" type="button" onclick="handleSignOut()">Sign Out</button>
     </div>
@@ -1070,6 +1071,7 @@ function renderStarterProfileControls() {
  */
 function updateTopbar() {
   const bar = document.getElementById("topbar");
+  const identity = document.getElementById("tb-identity");
   const signOut = document.getElementById("tb-signout");
   const retake = document.getElementById("tb-retake");
   const avatar = document.getElementById("tb-avatar");
@@ -1079,12 +1081,16 @@ function updateTopbar() {
   const activeResult = APP_STATE.activeResult || profileResult;
   const faction = getFaction(activeResult?.faction);
 
+  bar.classList.remove("hidden");
+
   if (!SESSION.username) {
-    bar.classList.add("hidden");
+    identity.classList.add("hidden");
+    signOut.classList.add("hidden");
+    retake.classList.add("hidden");
     return;
   }
 
-  bar.classList.remove("hidden");
+  identity.classList.remove("hidden");
   signOut.classList.remove("hidden");
   retake.classList.toggle("hidden", !activeResult);
   name.textContent = SESSION.username;
@@ -1102,6 +1108,13 @@ function updateTopbar() {
  */
 function openResearch() {
   window.location = "research.html";
+}
+
+/**
+ * Opens The Implicit Maze library.
+ */
+function openLibrary() {
+  window.location = "library/";
 }
 
 /**
