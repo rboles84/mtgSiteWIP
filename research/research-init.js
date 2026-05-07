@@ -845,6 +845,7 @@ function resetSearchResults() {
   document.getElementById("results-footer").classList.add("hidden");
 
   const panel = document.getElementById("state-panel");
+  panel.classList.remove("empty-result-active");
   panel.innerHTML = buildInitialStateHtml();
   panel.style.display = "flex";
 }
@@ -877,12 +878,14 @@ function setLoading(on) {
   btn.disabled = on;
   btn.textContent = on ? "..." : "Search";
   if (on) {
-    document.getElementById("state-panel").innerHTML = `
+    const panel = document.getElementById("state-panel");
+    panel.classList.remove("empty-result-active");
+    panel.innerHTML = `
       <svg class="state-spinner" width="40" height="40" viewBox="0 0 40 40" fill="none">
         <circle cx="20" cy="20" r="16" stroke="#1aaa96" stroke-width="0.8" stroke-dasharray="4 2"/>
       </svg>
       <div class="state-title">Searching the Archives...</div>`;
-    document.getElementById("state-panel").style.display = "flex";
+    panel.style.display = "flex";
     document.getElementById("card-grid").classList.add("hidden");
     document.getElementById("results-header").classList.add("hidden");
     document.getElementById("results-footer").classList.add("hidden");
@@ -921,6 +924,7 @@ async function showNoResultsState(query) {
 
   const panel = document.getElementById("state-panel");
   panel.innerHTML = buildNoResultsHtml(query);
+  panel.classList.add("empty-result-active");
   panel.style.display = "flex";
 
   const card = await ResearchSearch.scryfallRandom("kw:deathtouch");
@@ -945,6 +949,11 @@ function buildNoResultsHtml(query) {
           No cards matched this exact spellwork. Try loosening a color, removing one keyword, or switching an AND into an OR.
         </div>
         <div class="empty-query">${escapeHtml(query)}</div>
+        <div class="empty-card-lore hidden" id="empty-card-lore">
+          <div class="empty-card-name" id="empty-card-name"></div>
+          <div class="empty-card-flavor hidden" id="empty-card-flavor"></div>
+          <div class="empty-card-artist hidden" id="empty-card-artist"></div>
+        </div>
       </div>
     </div>
   `;
@@ -957,11 +966,48 @@ function buildNoResultsHtml(query) {
 function renderNoResultsCard(card) {
   const frame = document.getElementById("empty-card-frame");
   const link = document.getElementById("empty-card-link");
+  const lore = document.getElementById("empty-card-lore");
+  const nameEl = document.getElementById("empty-card-name");
+  const flavorEl = document.getElementById("empty-card-flavor");
+  const artistEl = document.getElementById("empty-card-artist");
   const image = card.image_uris?.normal || card.card_faces?.[0]?.image_uris?.normal;
   if (!frame || !image) return;
 
   frame.innerHTML = `<img src="${escapeHtml(image)}" alt="${escapeHtml(card.name)}" loading="lazy">`;
   if (link && card.scryfall_uri) link.href = card.scryfall_uri;
+
+  const flavor = getCardFlavorText(card);
+  const artist = getCardArtist(card);
+  if (lore && (card.name || flavor || artist)) lore.classList.remove("hidden");
+  if (nameEl) nameEl.textContent = card.name || "Deathtouch specimen";
+  if (flavorEl && flavor) {
+    flavorEl.textContent = flavor;
+    flavorEl.classList.remove("hidden");
+  }
+  if (artistEl && artist) {
+    artistEl.textContent = `Art by ${artist}`;
+    artistEl.classList.remove("hidden");
+  }
+}
+
+/**
+ * Gets flavor text from normal or multi-face Scryfall cards.
+ * @param {object} card - Scryfall card payload.
+ * @returns {string} Flavor text when present.
+ */
+function getCardFlavorText(card) {
+  return card.flavor_text || card.card_faces?.find((face) => face.flavor_text)?.flavor_text || "";
+}
+
+/**
+ * Gets artist credit from normal or multi-face Scryfall cards.
+ * @param {object} card - Scryfall card payload.
+ * @returns {string} Artist credit when present.
+ */
+function getCardArtist(card) {
+  if (card.artist) return card.artist;
+  const artists = card.card_faces?.map((face) => face.artist).filter(Boolean) || [];
+  return [...new Set(artists)].join(" / ");
 }
 
 /**
@@ -972,6 +1018,7 @@ function showError(message) {
   const el = document.getElementById("err-msg");
   el.textContent = message;
   el.classList.remove("hidden");
+  document.getElementById("state-panel").classList.remove("empty-result-active");
   hideState();
 }
 
