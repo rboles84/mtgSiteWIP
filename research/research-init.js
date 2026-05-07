@@ -17,7 +17,7 @@ let nextPageUrl = null;
 let totalCards = 0;
 let recentSearches = [];
 let toastTimeout;
-let clearAutoFilledInputOnFocus = false;
+let selectAutoFilledInputOnFocus = false;
 
 const PAGE_SIZE = 24;
 
@@ -106,7 +106,7 @@ async function initializeResearchArchives() {
   buildColorGrid();
   buildTypeChecks();
   buildRarityChecks();
-  bindSearchInputClearOnFocus();
+  bindSearchInputSelectOnFocus();
   setMode("ai");
 
   const urlQ = new URLSearchParams(location.search).get("q");
@@ -175,26 +175,30 @@ function syncInputForModeSwitch(input, previousMode, nextMode) {
     lastSmartQuery
   });
   if (!resolved.changed) return;
+  const previousValue = input.value.trim();
   input.value = resolved.value;
-  if (nextMode === "raw") clearAutoFilledInputOnFocus = false;
+  if (previousMode === "raw" && nextMode === "ai") {
+    lastSmartInput = resolved.value;
+    lastSmartQuery = previousValue;
+  }
+  if (nextMode === "raw") selectAutoFilledInputOnFocus = false;
 }
 
 /**
- * Clears quick-search generated text the next time the search input receives focus.
+ * Selects quick-search generated text the next time the search input receives focus.
  */
-function bindSearchInputClearOnFocus() {
+function bindSearchInputSelectOnFocus() {
   const input = document.getElementById("search-input");
   if (!input) return;
 
   input.addEventListener("focus", () => {
-    if (!clearAutoFilledInputOnFocus) return;
-    input.value = "";
-    clearAutoFilledInputOnFocus = false;
-    setMode("ai");
+    if (!selectAutoFilledInputOnFocus) return;
+    requestAnimationFrame(() => input.select());
+    selectAutoFilledInputOnFocus = false;
   });
 
   input.addEventListener("input", () => {
-    clearAutoFilledInputOnFocus = false;
+    selectAutoFilledInputOnFocus = false;
   });
 }
 
@@ -743,7 +747,7 @@ function buildColorGrid() {
 function runQuickSearch(query) {
   currentMode = "raw";
   document.getElementById("search-input").value = query;
-  clearAutoFilledInputOnFocus = true;
+  selectAutoFilledInputOnFocus = true;
   lastSmartQuery = "";
   setMode("raw");
   currentOrder = "name";
@@ -814,12 +818,54 @@ function clearSearchInput() {
     input.focus();
   }
 
-  clearAutoFilledInputOnFocus = false;
+  selectAutoFilledInputOnFocus = false;
   lastSmartInput = "";
   lastSmartQuery = "";
   setMode("ai");
   clearError();
+  resetSearchResults();
   document.getElementById("query-inspector")?.classList.add("hidden");
+}
+
+/**
+ * Resets results, pagination, and empty-state UI after clearing a search.
+ */
+function resetSearchResults() {
+  currentQuery = "";
+  currentOrder = "name";
+  allResults = [];
+  displayPage = 0;
+  hasMore = false;
+  nextPageUrl = null;
+  totalCards = 0;
+
+  document.getElementById("card-grid").innerHTML = "";
+  document.getElementById("card-grid").classList.add("hidden");
+  document.getElementById("results-header").classList.add("hidden");
+  document.getElementById("results-footer").classList.add("hidden");
+
+  const panel = document.getElementById("state-panel");
+  panel.innerHTML = buildInitialStateHtml();
+  panel.style.display = "flex";
+}
+
+/**
+ * Builds the initial Research Archives empty-state panel.
+ * @returns {string} Initial state HTML.
+ */
+function buildInitialStateHtml() {
+  return `
+    <svg width="48" height="48" viewBox="0 0 48 48" fill="none" style="opacity:.2">
+      <circle cx="24" cy="24" r="18" stroke="#c9a84c" stroke-width="0.8" stroke-dasharray="4 3"/>
+      <circle cx="24" cy="24" r="10" stroke="#1aaa96" stroke-width="0.6" stroke-dasharray="2 4"/>
+      <path d="M18 24 L22 28 L30 18" stroke="#c9a84c" stroke-width="1" stroke-linecap="round"/>
+    </svg>
+    <div class="state-title">The Archives await</div>
+    <div class="state-sub">
+      Try <code>c:r kw:shroud</code> for red cards with shroud, or use Smart Search with natural language.
+      <br><br>Browse the <a href="https://scryfall.com/docs/syntax" target="_blank" style="color:var(--teal)">full Scryfall syntax reference &nearr;</a>
+    </div>
+  `;
 }
 
 /**

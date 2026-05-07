@@ -39,11 +39,21 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 
 /* ── SEARCH ZONE ─────────────────────── */
 .r-search-zone{padding:1.25rem 1.5rem;border-bottom:1px solid var(--border)}
-.mode-row{display:flex;gap:4px;margin-bottom:1rem}
+.mode-row{display:flex;gap:4px;margin-bottom:1rem;align-items:center;flex-wrap:wrap}
 .mode-btn{font-family:'Cinzel',serif;font-size:0.62rem;letter-spacing:0.14em;text-transform:uppercase;background:transparent;border:1px solid var(--border);color:var(--text-muted);padding:0.4rem 1rem;cursor:pointer;transition:all 0.15s}
 .mode-btn:hover{color:var(--text);border-color:var(--border-s)}
 .mode-btn.on{background:var(--bg3);color:var(--gold);border-color:var(--border-s)}
 .mode-btn.on.teal-mode{color:var(--teal);border-color:var(--border-t)}
+.mode-help-wrap{position:relative;margin-left:0.35rem}
+.mode-help{width:27px;height:27px;border-radius:6px;border:1px solid var(--border-t);background:var(--teal-bg);color:var(--teal-l);font-family:'IBM Plex Mono',monospace;font-size:0.8rem;cursor:help;transition:border-color 0.15s,background 0.15s,color 0.15s}
+.mode-help:hover,.mode-help:focus{border-color:var(--border-ts);background:rgba(26,170,150,0.13);color:var(--text);outline:none}
+.mode-help-popover{display:none;position:absolute;top:calc(100% + 8px);left:0;width:min(380px,calc(100vw - 3rem));background:var(--bg3);border:1px solid var(--border-t);box-shadow:0 18px 42px rgba(0,0,0,0.45);padding:0.85rem 1rem;z-index:120;color:var(--text-dim);font-size:0.88rem;line-height:1.5}
+.mode-help-wrap:hover .mode-help-popover,.mode-help-wrap:focus-within .mode-help-popover{display:block;animation:fadeUp 0.18s ease}
+.mode-help-title{font-family:'Cinzel',serif;font-size:0.68rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--teal-l);margin-bottom:0.45rem}
+.mode-help-popover p{margin-bottom:0.45rem}
+.mode-help-popover p:last-child{margin-bottom:0}
+.mode-help-popover strong{color:var(--text);font-weight:500}
+.mode-help-popover code{font-family:'IBM Plex Mono',monospace;font-size:0.78rem;color:var(--teal-l);background:var(--teal-bg);padding:0.05rem 0.28rem}
 
 .search-input-row{display:flex;gap:8px;margin-bottom:0.85rem}
 .search-wrap{position:relative;flex:1}
@@ -232,6 +242,15 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
     <button class="mode-btn on" id="mode-ai" onclick="setMode('ai')">Smart Search</button>
     <button class="mode-btn" id="mode-raw" onclick="setMode('raw')">Scryfall Syntax</button>
     <button class="mode-btn" id="mode-builder" onclick="setMode('builder')">Visual Builder</button>
+    <div class="mode-help-wrap">
+      <button class="mode-help" type="button" aria-label="Search help" aria-describedby="mode-help-popover">?</button>
+      <div class="mode-help-popover" id="mode-help-popover" role="tooltip">
+        <div class="mode-help-title">Search Help</div>
+        <p><strong>Smart Search</strong> accepts plain English like <code>red instant</code> or <code>green haste</code>, then compiles it into Scryfall syntax.</p>
+        <p><strong>Scryfall Syntax</strong> is for exact queries like <code>c:rg kw:deathtouch</code>. Paste syntax here, then switch back to Smart Search for a readable translation.</p>
+        <p><strong>Visual Builder</strong> lets you compose filters without memorizing operators. The query panel shows the generated syntax and assumptions.</p>
+      </div>
+    </div>
   </div>
   <div class="search-input-row">
     <div class="search-wrap">

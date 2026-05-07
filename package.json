@@ -2,10 +2,11 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "test": "npm run test:parser && npm run test:builder && npm run test:syntax && npm run test:mode",
+    "test": "node research/run-tests.js",
     "test:builder": "node research/research-builder-tests.js",
     "test:mode": "node research/research-mode-tests.js",
     "test:parser": "node research/scryfall-parser-tests.js",
-    "test:syntax": "node research/research-syntax-language-tests.js"
+    "test:syntax": "node research/research-syntax-language-tests.js",
+    "test:watch": "node --watch research/run-tests.js"
   }
 }
