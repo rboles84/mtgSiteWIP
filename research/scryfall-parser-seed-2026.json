@@ -1,0 +1,2613 @@
+{
+  "version": "1.0",
+  "generated": "2026-05-06",
+  "use_case": "Vox Mana Research Archives local natural-language-to-Scryfall parser",
+  "metadata": {
+    "base_seed_rows": 140,
+    "expanded_parser_rows": 120,
+    "total_rows": 260,
+    "runtime_model": "local deterministic parser; Scryfall API executes generated query"
+  },
+  "rows": [
+    {
+      "id": "BASE-001",
+      "layer": "base",
+      "Category": "Core Syntax & Logic",
+      "Data Point": "Logical AND",
+      "Triggers": "and, with, that have",
+      "Scryfall Output": "implicit AND",
+      "Type": "Operator",
+      "Notes": "Scryfall ANDs adjacent terms by default; parser should not emit AND unless needed for clarity."
+    },
+    {
+      "id": "BASE-002",
+      "layer": "base",
+      "Category": "Core Syntax & Logic",
+      "Data Point": "Logical OR",
+      "Triggers": "or, either",
+      "Scryfall Output": "OR",
+      "Type": "Operator",
+      "Notes": "Emit uppercase OR and group with parentheses when mixing with AND terms."
+    },
+    {
+      "id": "BASE-003",
+      "layer": "base",
+      "Category": "Core Syntax & Logic",
+      "Data Point": "Grouping",
+      "Triggers": "either/or group, one of",
+      "Scryfall Output": "( )",
+      "Type": "Operator",
+      "Notes": "Use parentheses for OR bundles and nested alternatives."
+    },
+    {
+      "id": "BASE-004",
+      "layer": "base",
+      "Category": "Core Syntax & Logic",
+      "Data Point": "Negation",
+      "Triggers": "not, without, excluding",
+      "Scryfall Output": "-",
+      "Type": "Operator",
+      "Notes": "Prefix the specific term, not the entire query, unless group negation is required."
+    },
+    {
+      "id": "BASE-005",
+      "layer": "base",
+      "Category": "Core Syntax & Logic",
+      "Data Point": "Equal To",
+      "Triggers": "exactly, equal to",
+      "Scryfall Output": "=",
+      "Type": "Comparator",
+      "Notes": "Use for exact colors, mana value, rarity comparisons, etc."
+    },
+    {
+      "id": "BASE-006",
+      "layer": "base",
+      "Category": "Core Syntax & Logic",
+      "Data Point": "Greater Than",
+      "Triggers": "greater than, more than",
+      "Scryfall Output": ">",
+      "Type": "Comparator",
+      "Notes": "Numeric comparator for mana value, power, toughness, loyalty, price, year."
+    },
+    {
+      "id": "BASE-007",
+      "layer": "base",
+      "Category": "Core Syntax & Logic",
+      "Data Point": "Less Than",
+      "Triggers": "less than, under",
+      "Scryfall Output": "<",
+      "Type": "Comparator",
+      "Notes": "Numeric comparator; natural language 'under 3' usually maps to <3 unless user says '3 or less'."
+    },
+    {
+      "id": "BASE-008",
+      "layer": "base",
+      "Category": "Core Syntax & Logic",
+      "Data Point": "Greater or Equal",
+      "Triggers": "at least, or more, 3+",
+      "Scryfall Output": ">=",
+      "Type": "Comparator",
+      "Notes": "Natural language '3 or more' maps here."
+    },
+    {
+      "id": "BASE-009",
+      "layer": "base",
+      "Category": "Core Syntax & Logic",
+      "Data Point": "Less or Equal",
+      "Triggers": "at most, no more than, 3 or less",
+      "Scryfall Output": "<=",
+      "Type": "Comparator",
+      "Notes": "Natural language '3 or less' maps here."
+    },
+    {
+      "id": "BASE-010",
+      "layer": "base",
+      "Category": "Core Syntax & Logic",
+      "Data Point": "Not Equal",
+      "Triggers": "not exactly, other than",
+      "Scryfall Output": "!=",
+      "Type": "Comparator",
+      "Notes": "Useful for color counts, rarity, stats, and price edge cases."
+    },
+    {
+      "id": "BASE-011",
+      "layer": "base",
+      "Category": "Core Syntax & Logic",
+      "Data Point": "Regular Expression",
+      "Triggers": "matches pattern, text pattern",
+      "Scryfall Output": "/ /",
+      "Type": "Operator",
+      "Notes": "Use sparingly; needed for +1/+1 counters and symbol-oriented text."
+    },
+    {
+      "id": "BASE-012",
+      "layer": "base",
+      "Category": "Core Syntax & Logic",
+      "Data Point": "Exact Name",
+      "Triggers": "exact card, card named",
+      "Scryfall Output": "!",
+      "Type": "Operator",
+      "Notes": "Use when user asks for a specific card name only."
+    },
+    {
+      "id": "BASE-013",
+      "layer": "base",
+      "Category": "Core Syntax & Logic",
+      "Data Point": "Quoted Phrase",
+      "Triggers": "phrase with spaces",
+      "Scryfall Output": "\"...\"",
+      "Type": "Operator",
+      "Notes": "Use for multi-word Oracle text, names, artists, flavor, and exact phrases."
+    },
+    {
+      "id": "BASE-014",
+      "layer": "base",
+      "Category": "Core Syntax & Logic",
+      "Data Point": "Wildcard Card Name",
+      "Triggers": "this card, its name, CARDNAME",
+      "Scryfall Output": "~",
+      "Type": "Operator",
+      "Notes": "Within o: text, ~ represents the card's own name."
+    },
+    {
+      "id": "BASE-015",
+      "layer": "base",
+      "Category": "Color & Identity",
+      "Data Point": "White",
+      "Triggers": "white",
+      "Scryfall Output": "c:w",
+      "Type": "Color",
+      "Notes": "Actual card color."
+    },
+    {
+      "id": "BASE-016",
+      "layer": "base",
+      "Category": "Color & Identity",
+      "Data Point": "Blue",
+      "Triggers": "blue",
+      "Scryfall Output": "c:u",
+      "Type": "Color",
+      "Notes": "Actual card color; normalize 'blue' to U, not B."
+    },
+    {
+      "id": "BASE-017",
+      "layer": "base",
+      "Category": "Color & Identity",
+      "Data Point": "Black",
+      "Triggers": "black",
+      "Scryfall Output": "c:b",
+      "Type": "Color",
+      "Notes": "Actual card color."
+    },
+    {
+      "id": "BASE-018",
+      "layer": "base",
+      "Category": "Color & Identity",
+      "Data Point": "Red",
+      "Triggers": "red",
+      "Scryfall Output": "c:r",
+      "Type": "Color",
+      "Notes": "Actual card color."
+    },
+    {
+      "id": "BASE-019",
+      "layer": "base",
+      "Category": "Color & Identity",
+      "Data Point": "Green",
+      "Triggers": "green",
+      "Scryfall Output": "c:g",
+      "Type": "Color",
+      "Notes": "Actual card color."
+    },
+    {
+      "id": "BASE-020",
+      "layer": "base",
+      "Category": "Color & Identity",
+      "Data Point": "Colorless",
+      "Triggers": "colorless",
+      "Scryfall Output": "c:c",
+      "Type": "Color",
+      "Notes": "Actual colorless cards; for commander identity use id:c."
+    },
+    {
+      "id": "BASE-021",
+      "layer": "base",
+      "Category": "Color & Identity",
+      "Data Point": "Multicolor",
+      "Triggers": "multicolor, multi colored",
+      "Scryfall Output": "c:m",
+      "Type": "Color",
+      "Notes": "Cards with more than one actual color."
+    },
+    {
+      "id": "BASE-022",
+      "layer": "base",
+      "Category": "Color & Identity",
+      "Data Point": "Mono-colored",
+      "Triggers": "mono colored, one color",
+      "Scryfall Output": "c=1",
+      "Type": "Color Count",
+      "Notes": "Exactly one color."
+    },
+    {
+      "id": "BASE-023",
+      "layer": "base",
+      "Category": "Color & Identity",
+      "Data Point": "Exactly Two Colors",
+      "Triggers": "two color cards",
+      "Scryfall Output": "c=2",
+      "Type": "Color Count",
+      "Notes": "Use when user asks exactly two-color cards."
+    },
+    {
+      "id": "BASE-024",
+      "layer": "base",
+      "Category": "Color & Identity",
+      "Data Point": "Five Color",
+      "Triggers": "five color, WUBRG",
+      "Scryfall Output": "c:wubrg",
+      "Type": "Color",
+      "Notes": "Actual five-color cards; deck fit may require id<=wubrg."
+    },
+    {
+      "id": "BASE-025",
+      "layer": "base",
+      "Category": "Color & Identity",
+      "Data Point": "Azorius",
+      "Triggers": "azorius, white blue",
+      "Scryfall Output": "id:azorius",
+      "Type": "Guild Identity",
+      "Notes": "Commander identity nickname; exact color alternative is c:wu."
+    },
+    {
+      "id": "BASE-026",
+      "layer": "base",
+      "Category": "Color & Identity",
+      "Data Point": "Dimir",
+      "Triggers": "dimir, blue black",
+      "Scryfall Output": "id:dimir",
+      "Type": "Guild Identity",
+      "Notes": "Commander identity nickname."
+    },
+    {
+      "id": "BASE-027",
+      "layer": "base",
+      "Category": "Color & Identity",
+      "Data Point": "Rakdos",
+      "Triggers": "rakdos, black red, red black",
+      "Scryfall Output": "id:rakdos",
+      "Type": "Guild Identity",
+      "Notes": "Commander identity nickname; parser should use c:br when user says actual red and black cards."
+    },
+    {
+      "id": "BASE-028",
+      "layer": "base",
+      "Category": "Color & Identity",
+      "Data Point": "Gruul",
+      "Triggers": "gruul, red green",
+      "Scryfall Output": "id:gruul",
+      "Type": "Guild Identity",
+      "Notes": "Commander identity nickname."
+    },
+    {
+      "id": "BASE-029",
+      "layer": "base",
+      "Category": "Color & Identity",
+      "Data Point": "Selesnya",
+      "Triggers": "selesnya, green white, white green",
+      "Scryfall Output": "id:selesnya",
+      "Type": "Guild Identity",
+      "Notes": "Commander identity nickname."
+    },
+    {
+      "id": "BASE-030",
+      "layer": "base",
+      "Category": "Color & Identity",
+      "Data Point": "Orzhov",
+      "Triggers": "orzhov, white black, black white",
+      "Scryfall Output": "id:orzhov",
+      "Type": "Guild Identity",
+      "Notes": "Commander identity nickname."
+    },
+    {
+      "id": "BASE-031",
+      "layer": "base",
+      "Category": "Color & Identity",
+      "Data Point": "Izzet",
+      "Triggers": "izzet, blue red, red blue",
+      "Scryfall Output": "id:izzet",
+      "Type": "Guild Identity",
+      "Notes": "Commander identity nickname."
+    },
+    {
+      "id": "BASE-032",
+      "layer": "base",
+      "Category": "Color & Identity",
+      "Data Point": "Golgari",
+      "Triggers": "golgari, black green, green black",
+      "Scryfall Output": "id:golgari",
+      "Type": "Guild Identity",
+      "Notes": "Commander identity nickname."
+    },
+    {
+      "id": "BASE-033",
+      "layer": "base",
+      "Category": "Color & Identity",
+      "Data Point": "Boros",
+      "Triggers": "boros, red white, white red",
+      "Scryfall Output": "id:boros",
+      "Type": "Guild Identity",
+      "Notes": "Commander identity nickname."
+    },
+    {
+      "id": "BASE-034",
+      "layer": "base",
+      "Category": "Color & Identity",
+      "Data Point": "Simic",
+      "Triggers": "simic, green blue, blue green",
+      "Scryfall Output": "id:simic",
+      "Type": "Guild Identity",
+      "Notes": "Commander identity nickname."
+    },
+    {
+      "id": "BASE-035",
+      "layer": "base",
+      "Category": "Color & Identity",
+      "Data Point": "Bant",
+      "Triggers": "bant",
+      "Scryfall Output": "id:bant",
+      "Type": "Shard Identity",
+      "Notes": "White-blue-green."
+    },
+    {
+      "id": "BASE-036",
+      "layer": "base",
+      "Category": "Color & Identity",
+      "Data Point": "Esper",
+      "Triggers": "esper",
+      "Scryfall Output": "id:esper",
+      "Type": "Shard Identity",
+      "Notes": "White-blue-black."
+    },
+    {
+      "id": "BASE-037",
+      "layer": "base",
+      "Category": "Color & Identity",
+      "Data Point": "Grixis",
+      "Triggers": "grixis",
+      "Scryfall Output": "id:grixis",
+      "Type": "Shard Identity",
+      "Notes": "Blue-black-red."
+    },
+    {
+      "id": "BASE-038",
+      "layer": "base",
+      "Category": "Color & Identity",
+      "Data Point": "Jund",
+      "Triggers": "jund",
+      "Scryfall Output": "id:jund",
+      "Type": "Shard Identity",
+      "Notes": "Black-red-green."
+    },
+    {
+      "id": "BASE-039",
+      "layer": "base",
+      "Category": "Color & Identity",
+      "Data Point": "Naya",
+      "Triggers": "naya",
+      "Scryfall Output": "id:naya",
+      "Type": "Shard Identity",
+      "Notes": "Red-green-white."
+    },
+    {
+      "id": "BASE-040",
+      "layer": "base",
+      "Category": "Color & Identity",
+      "Data Point": "Abzan",
+      "Triggers": "abzan",
+      "Scryfall Output": "id:abzan",
+      "Type": "Wedge Identity",
+      "Notes": "White-black-green."
+    },
+    {
+      "id": "BASE-041",
+      "layer": "base",
+      "Category": "Color & Identity",
+      "Data Point": "Jeskai",
+      "Triggers": "jeskai",
+      "Scryfall Output": "id:jeskai",
+      "Type": "Wedge Identity",
+      "Notes": "Blue-red-white."
+    },
+    {
+      "id": "BASE-042",
+      "layer": "base",
+      "Category": "Color & Identity",
+      "Data Point": "Sultai",
+      "Triggers": "sultai",
+      "Scryfall Output": "id:sultai",
+      "Type": "Wedge Identity",
+      "Notes": "Black-green-blue."
+    },
+    {
+      "id": "BASE-043",
+      "layer": "base",
+      "Category": "Color & Identity",
+      "Data Point": "Mardu",
+      "Triggers": "mardu",
+      "Scryfall Output": "id:mardu",
+      "Type": "Wedge Identity",
+      "Notes": "Red-white-black."
+    },
+    {
+      "id": "BASE-044",
+      "layer": "base",
+      "Category": "Color & Identity",
+      "Data Point": "Temur",
+      "Triggers": "temur",
+      "Scryfall Output": "id:temur",
+      "Type": "Wedge Identity",
+      "Notes": "Green-blue-red."
+    },
+    {
+      "id": "BASE-045",
+      "layer": "base",
+      "Category": "Color & Identity",
+      "Data Point": "Lorehold",
+      "Triggers": "lorehold",
+      "Scryfall Output": "id:lorehold",
+      "Type": "College Identity",
+      "Notes": "Strixhaven college."
+    },
+    {
+      "id": "BASE-046",
+      "layer": "base",
+      "Category": "Color & Identity",
+      "Data Point": "Prismari",
+      "Triggers": "prismari",
+      "Scryfall Output": "id:prismari",
+      "Type": "College Identity",
+      "Notes": "Strixhaven college."
+    },
+    {
+      "id": "BASE-047",
+      "layer": "base",
+      "Category": "Color & Identity",
+      "Data Point": "Quandrix",
+      "Triggers": "quandrix",
+      "Scryfall Output": "id:quandrix",
+      "Type": "College Identity",
+      "Notes": "Strixhaven college."
+    },
+    {
+      "id": "BASE-048",
+      "layer": "base",
+      "Category": "Color & Identity",
+      "Data Point": "Silverquill",
+      "Triggers": "silverquill",
+      "Scryfall Output": "id:silverquill",
+      "Type": "College Identity",
+      "Notes": "Strixhaven college."
+    },
+    {
+      "id": "BASE-049",
+      "layer": "base",
+      "Category": "Color & Identity",
+      "Data Point": "Witherbloom",
+      "Triggers": "witherbloom",
+      "Scryfall Output": "id:witherbloom",
+      "Type": "College Identity",
+      "Notes": "Strixhaven college."
+    },
+    {
+      "id": "BASE-050",
+      "layer": "base",
+      "Category": "Color & Identity",
+      "Data Point": "Chaos",
+      "Triggers": "chaos, nonwhite",
+      "Scryfall Output": "id:ubrg",
+      "Type": "Four Color Identity",
+      "Notes": "Four-color nickname: non-white."
+    },
+    {
+      "id": "BASE-051",
+      "layer": "base",
+      "Category": "Color & Identity",
+      "Data Point": "Aggression",
+      "Triggers": "aggression, nonblue",
+      "Scryfall Output": "id:brgw",
+      "Type": "Four Color Identity",
+      "Notes": "Four-color nickname: non-blue."
+    },
+    {
+      "id": "BASE-052",
+      "layer": "base",
+      "Category": "Color & Identity",
+      "Data Point": "Altruism",
+      "Triggers": "altruism, nonblack",
+      "Scryfall Output": "id:rgwu",
+      "Type": "Four Color Identity",
+      "Notes": "Four-color nickname: non-black."
+    },
+    {
+      "id": "BASE-053",
+      "layer": "base",
+      "Category": "Color & Identity",
+      "Data Point": "Growth",
+      "Triggers": "growth, nonred",
+      "Scryfall Output": "id:gwub",
+      "Type": "Four Color Identity",
+      "Notes": "Four-color nickname: non-red."
+    },
+    {
+      "id": "BASE-054",
+      "layer": "base",
+      "Category": "Color & Identity",
+      "Data Point": "Artifice",
+      "Triggers": "artifice, nongreen",
+      "Scryfall Output": "id:wubr",
+      "Type": "Four Color Identity",
+      "Notes": "Four-color nickname: non-green."
+    },
+    {
+      "id": "BASE-055",
+      "layer": "base",
+      "Category": "Card Types & Faces",
+      "Data Point": "Creature",
+      "Triggers": "creature, creatures",
+      "Scryfall Output": "t:creature",
+      "Type": "Card Type",
+      "Notes": "Most common type filter."
+    },
+    {
+      "id": "BASE-056",
+      "layer": "base",
+      "Category": "Card Types & Faces",
+      "Data Point": "Instant",
+      "Triggers": "instant, instants",
+      "Scryfall Output": "t:instant",
+      "Type": "Card Type",
+      "Notes": "Spell type."
+    },
+    {
+      "id": "BASE-057",
+      "layer": "base",
+      "Category": "Card Types & Faces",
+      "Data Point": "Sorcery",
+      "Triggers": "sorcery, sorceries",
+      "Scryfall Output": "t:sorcery",
+      "Type": "Card Type",
+      "Notes": "Spell type."
+    },
+    {
+      "id": "BASE-058",
+      "layer": "base",
+      "Category": "Card Types & Faces",
+      "Data Point": "Artifact",
+      "Triggers": "artifact, artifacts",
+      "Scryfall Output": "t:artifact",
+      "Type": "Card Type",
+      "Notes": "Permanent type."
+    },
+    {
+      "id": "BASE-059",
+      "layer": "base",
+      "Category": "Card Types & Faces",
+      "Data Point": "Enchantment",
+      "Triggers": "enchantment, enchantments",
+      "Scryfall Output": "t:enchantment",
+      "Type": "Card Type",
+      "Notes": "Permanent type."
+    },
+    {
+      "id": "BASE-060",
+      "layer": "base",
+      "Category": "Card Types & Faces",
+      "Data Point": "Planeswalker",
+      "Triggers": "planeswalker, walkers",
+      "Scryfall Output": "t:planeswalker",
+      "Type": "Card Type",
+      "Notes": "Permanent type."
+    },
+    {
+      "id": "BASE-061",
+      "layer": "base",
+      "Category": "Card Types & Faces",
+      "Data Point": "Land",
+      "Triggers": "land, lands",
+      "Scryfall Output": "t:land",
+      "Type": "Card Type",
+      "Notes": "Permanent type."
+    },
+    {
+      "id": "BASE-062",
+      "layer": "base",
+      "Category": "Card Types & Faces",
+      "Data Point": "Battle",
+      "Triggers": "battle, battles",
+      "Scryfall Output": "t:battle",
+      "Type": "Card Type",
+      "Notes": "Card type introduced in MOM."
+    },
+    {
+      "id": "BASE-063",
+      "layer": "base",
+      "Category": "Card Types & Faces",
+      "Data Point": "Legendary",
+      "Triggers": "legendary",
+      "Scryfall Output": "t:legendary",
+      "Type": "Supertype",
+      "Notes": "Use with commanders, legends, typal legends."
+    },
+    {
+      "id": "BASE-064",
+      "layer": "base",
+      "Category": "Card Types & Faces",
+      "Data Point": "Basic",
+      "Triggers": "basic land, basics",
+      "Scryfall Output": "t:basic",
+      "Type": "Supertype",
+      "Notes": "Often combined with t:land."
+    },
+    {
+      "id": "BASE-065",
+      "layer": "base",
+      "Category": "Card Types & Faces",
+      "Data Point": "Token",
+      "Triggers": "tokens, token cards",
+      "Scryfall Output": "t:token",
+      "Type": "Type/Extra",
+      "Notes": "May require include:extras depending user intent."
+    },
+    {
+      "id": "BASE-066",
+      "layer": "base",
+      "Category": "Card Types & Faces",
+      "Data Point": "Goblin",
+      "Triggers": "goblin, goblins",
+      "Scryfall Output": "t:goblin",
+      "Type": "Subtype",
+      "Notes": "Subtype filter."
+    },
+    {
+      "id": "BASE-067",
+      "layer": "base",
+      "Category": "Card Types & Faces",
+      "Data Point": "Zombie",
+      "Triggers": "zombie, zombies",
+      "Scryfall Output": "t:zombie",
+      "Type": "Subtype",
+      "Notes": "Subtype filter."
+    },
+    {
+      "id": "BASE-068",
+      "layer": "base",
+      "Category": "Card Types & Faces",
+      "Data Point": "Elf",
+      "Triggers": "elf, elves",
+      "Scryfall Output": "t:elf",
+      "Type": "Subtype",
+      "Notes": "Subtype filter."
+    },
+    {
+      "id": "BASE-069",
+      "layer": "base",
+      "Category": "Card Types & Faces",
+      "Data Point": "Human",
+      "Triggers": "human, humans",
+      "Scryfall Output": "t:human",
+      "Type": "Subtype",
+      "Notes": "Subtype filter."
+    },
+    {
+      "id": "BASE-070",
+      "layer": "base",
+      "Category": "Card Types & Faces",
+      "Data Point": "Dragon",
+      "Triggers": "dragon, dragons",
+      "Scryfall Output": "t:dragon",
+      "Type": "Subtype",
+      "Notes": "Subtype filter."
+    },
+    {
+      "id": "BASE-071",
+      "layer": "base",
+      "Category": "Card Types & Faces",
+      "Data Point": "Vehicle",
+      "Triggers": "vehicle, vehicles",
+      "Scryfall Output": "t:vehicle",
+      "Type": "Subtype/Card Type",
+      "Notes": "Artifact subtype and archetype."
+    },
+    {
+      "id": "BASE-072",
+      "layer": "base",
+      "Category": "Card Types & Faces",
+      "Data Point": "Mount",
+      "Triggers": "mount, mounts",
+      "Scryfall Output": "t:mount",
+      "Type": "Subtype",
+      "Notes": "Relevant to saddle/mount searches."
+    },
+    {
+      "id": "BASE-073",
+      "layer": "base",
+      "Category": "Card Types & Faces",
+      "Data Point": "Double Faced",
+      "Triggers": "double-faced, dfc",
+      "Scryfall Output": "is:dfc",
+      "Type": "Face Type",
+      "Notes": "General double-faced cards."
+    },
+    {
+      "id": "BASE-074",
+      "layer": "base",
+      "Category": "Card Types & Faces",
+      "Data Point": "Modal DFC",
+      "Triggers": "modal double faced, mdfc",
+      "Scryfall Output": "is:mdfc",
+      "Type": "Face Type",
+      "Notes": "Modal double-faced cards."
+    },
+    {
+      "id": "BASE-075",
+      "layer": "base",
+      "Category": "Card Types & Faces",
+      "Data Point": "Split Card",
+      "Triggers": "split card, split cards",
+      "Scryfall Output": "is:split",
+      "Type": "Face Type",
+      "Notes": "Split cards."
+    },
+    {
+      "id": "BASE-076",
+      "layer": "base",
+      "Category": "Card Types & Faces",
+      "Data Point": "Transform",
+      "Triggers": "transform cards",
+      "Scryfall Output": "is:transform",
+      "Type": "Face Type",
+      "Notes": "Transforming cards."
+    },
+    {
+      "id": "BASE-077",
+      "layer": "base",
+      "Category": "Text, Keywords & Mechanics",
+      "Data Point": "Oracle Text",
+      "Triggers": "text says, rules text",
+      "Scryfall Output": "o:",
+      "Type": "Text Operator",
+      "Notes": "Use for current Oracle text."
+    },
+    {
+      "id": "BASE-078",
+      "layer": "base",
+      "Category": "Text, Keywords & Mechanics",
+      "Data Point": "Full Oracle Text",
+      "Triggers": "reminder text, full text",
+      "Scryfall Output": "fo:",
+      "Type": "Text Operator",
+      "Notes": "Includes reminder text."
+    },
+    {
+      "id": "BASE-079",
+      "layer": "base",
+      "Category": "Text, Keywords & Mechanics",
+      "Data Point": "Keyword Ability",
+      "Triggers": "keyword, ability",
+      "Scryfall Output": "kw:",
+      "Type": "Text Operator",
+      "Notes": "Preferred over o: for actual keyword abilities."
+    },
+    {
+      "id": "BASE-080",
+      "layer": "base",
+      "Category": "Text, Keywords & Mechanics",
+      "Data Point": "Flying",
+      "Triggers": "flying",
+      "Scryfall Output": "kw:flying",
+      "Type": "Evergreen Keyword",
+      "Notes": "Evasion."
+    },
+    {
+      "id": "BASE-081",
+      "layer": "base",
+      "Category": "Text, Keywords & Mechanics",
+      "Data Point": "Haste",
+      "Triggers": "haste",
+      "Scryfall Output": "kw:haste",
+      "Type": "Evergreen Keyword",
+      "Notes": "Fixed from prior kw: haste typo."
+    },
+    {
+      "id": "BASE-082",
+      "layer": "base",
+      "Category": "Text, Keywords & Mechanics",
+      "Data Point": "Ward",
+      "Triggers": "ward",
+      "Scryfall Output": "kw:ward",
+      "Type": "Evergreen Keyword",
+      "Notes": "Can include ward costs via oracle text if needed."
+    },
+    {
+      "id": "BASE-083",
+      "layer": "base",
+      "Category": "Text, Keywords & Mechanics",
+      "Data Point": "Menace",
+      "Triggers": "menace",
+      "Scryfall Output": "kw:menace",
+      "Type": "Evergreen Keyword",
+      "Notes": "Evasion."
+    },
+    {
+      "id": "BASE-084",
+      "layer": "base",
+      "Category": "Text, Keywords & Mechanics",
+      "Data Point": "Deathtouch",
+      "Triggers": "deathtouch",
+      "Scryfall Output": "kw:deathtouch",
+      "Type": "Evergreen Keyword",
+      "Notes": "Combat keyword."
+    },
+    {
+      "id": "BASE-085",
+      "layer": "base",
+      "Category": "Text, Keywords & Mechanics",
+      "Data Point": "Lifelink",
+      "Triggers": "lifelink",
+      "Scryfall Output": "kw:lifelink",
+      "Type": "Evergreen Keyword",
+      "Notes": "Combat keyword."
+    },
+    {
+      "id": "BASE-086",
+      "layer": "base",
+      "Category": "Text, Keywords & Mechanics",
+      "Data Point": "Vigilance",
+      "Triggers": "vigilance",
+      "Scryfall Output": "kw:vigilance",
+      "Type": "Evergreen Keyword",
+      "Notes": "Combat keyword."
+    },
+    {
+      "id": "BASE-087",
+      "layer": "base",
+      "Category": "Text, Keywords & Mechanics",
+      "Data Point": "Trample",
+      "Triggers": "trample",
+      "Scryfall Output": "kw:trample",
+      "Type": "Evergreen Keyword",
+      "Notes": "Combat keyword."
+    },
+    {
+      "id": "BASE-088",
+      "layer": "base",
+      "Category": "Text, Keywords & Mechanics",
+      "Data Point": "Reach",
+      "Triggers": "reach",
+      "Scryfall Output": "kw:reach",
+      "Type": "Evergreen Keyword",
+      "Notes": "Anti-flying keyword."
+    },
+    {
+      "id": "BASE-089",
+      "layer": "base",
+      "Category": "Text, Keywords & Mechanics",
+      "Data Point": "Hexproof",
+      "Triggers": "hexproof",
+      "Scryfall Output": "kw:hexproof",
+      "Type": "Evergreen/Deciduous Keyword",
+      "Notes": "Protection style keyword."
+    },
+    {
+      "id": "BASE-090",
+      "layer": "base",
+      "Category": "Text, Keywords & Mechanics",
+      "Data Point": "Indestructible",
+      "Triggers": "indestructible",
+      "Scryfall Output": "kw:indestructible",
+      "Type": "Keyword",
+      "Notes": "Protection style keyword."
+    },
+    {
+      "id": "BASE-091",
+      "layer": "base",
+      "Category": "Text, Keywords & Mechanics",
+      "Data Point": "Scry",
+      "Triggers": "scry",
+      "Scryfall Output": "o:scry",
+      "Type": "Keyword Action",
+      "Notes": "Oracle fallback; kw may not be the right operator for every action."
+    },
+    {
+      "id": "BASE-092",
+      "layer": "base",
+      "Category": "Text, Keywords & Mechanics",
+      "Data Point": "Surveil",
+      "Triggers": "surveil",
+      "Scryfall Output": "o:surveil",
+      "Type": "Keyword Action",
+      "Notes": "Oracle fallback."
+    },
+    {
+      "id": "BASE-093",
+      "layer": "base",
+      "Category": "Text, Keywords & Mechanics",
+      "Data Point": "Prepare",
+      "Triggers": "prepare",
+      "Scryfall Output": "o:prepare",
+      "Type": "2026 Mechanic",
+      "Notes": "Oracle fallback; preparation-card structural filters can be added as verified."
+    },
+    {
+      "id": "BASE-094",
+      "layer": "base",
+      "Category": "Text, Keywords & Mechanics",
+      "Data Point": "Increment",
+      "Triggers": "increment",
+      "Scryfall Output": "o:increment",
+      "Type": "2026 Mechanic",
+      "Notes": "Oracle fallback."
+    },
+    {
+      "id": "BASE-095",
+      "layer": "base",
+      "Category": "Text, Keywords & Mechanics",
+      "Data Point": "Paradigm",
+      "Triggers": "paradigm",
+      "Scryfall Output": "o:paradigm",
+      "Type": "2026 Mechanic",
+      "Notes": "Oracle fallback."
+    },
+    {
+      "id": "BASE-096",
+      "layer": "base",
+      "Category": "Text, Keywords & Mechanics",
+      "Data Point": "Web-slinging",
+      "Triggers": "web-slinging, web slinging",
+      "Scryfall Output": "kw:\"Web-slinging\"",
+      "Type": "2025/2026 Keyword",
+      "Notes": "Use quoted kw due hyphen."
+    },
+    {
+      "id": "BASE-097",
+      "layer": "base",
+      "Category": "Text, Keywords & Mechanics",
+      "Data Point": "Mayhem",
+      "Triggers": "mayhem",
+      "Scryfall Output": "kw:mayhem",
+      "Type": "2025/2026 Keyword",
+      "Notes": "Prefer kw over o when supported."
+    },
+    {
+      "id": "BASE-098",
+      "layer": "base",
+      "Category": "Text, Keywords & Mechanics",
+      "Data Point": "Speed",
+      "Triggers": "speed",
+      "Scryfall Output": "o:speed",
+      "Type": "2025 Mechanic",
+      "Notes": "Resource/text phrase; combine with max speed when specific."
+    },
+    {
+      "id": "BASE-099",
+      "layer": "base",
+      "Category": "Text, Keywords & Mechanics",
+      "Data Point": "Max Speed",
+      "Triggers": "max speed",
+      "Scryfall Output": "o:\"max speed\"",
+      "Type": "2025 Mechanic",
+      "Notes": "Quoted Oracle phrase."
+    },
+    {
+      "id": "BASE-100",
+      "layer": "base",
+      "Category": "Text, Keywords & Mechanics",
+      "Data Point": "Exhaust",
+      "Triggers": "exhaust",
+      "Scryfall Output": "kw:exhaust",
+      "Type": "2025 Mechanic",
+      "Notes": "Use kw when Scryfall supports it; otherwise o:exhaust fallback."
+    },
+    {
+      "id": "BASE-101",
+      "layer": "base",
+      "Category": "Mana, Stats & Prices",
+      "Data Point": "Mana Cost",
+      "Triggers": "mana cost includes red",
+      "Scryfall Output": "m:{R}",
+      "Type": "Mana",
+      "Notes": "Mana symbol in cost."
+    },
+    {
+      "id": "BASE-102",
+      "layer": "base",
+      "Category": "Mana, Stats & Prices",
+      "Data Point": "Hybrid Mana",
+      "Triggers": "hybrid mana",
+      "Scryfall Output": "is:hybrid",
+      "Type": "Mana",
+      "Notes": "Cards with hybrid mana symbols."
+    },
+    {
+      "id": "BASE-103",
+      "layer": "base",
+      "Category": "Mana, Stats & Prices",
+      "Data Point": "Phyrexian Mana",
+      "Triggers": "phyrexian mana",
+      "Scryfall Output": "is:phyrexian",
+      "Type": "Mana",
+      "Notes": "Cards with Phyrexian mana."
+    },
+    {
+      "id": "BASE-104",
+      "layer": "base",
+      "Category": "Mana, Stats & Prices",
+      "Data Point": "Mana Value Equal",
+      "Triggers": "cost exactly 3, mv 3",
+      "Scryfall Output": "mv=3",
+      "Type": "Mana Value",
+      "Notes": "Exact mana value."
+    },
+    {
+      "id": "BASE-105",
+      "layer": "base",
+      "Category": "Mana, Stats & Prices",
+      "Data Point": "Mana Value Less or Equal",
+      "Triggers": "cost 3 or less",
+      "Scryfall Output": "mv<=3",
+      "Type": "Mana Value",
+      "Notes": "Common natural phrase."
+    },
+    {
+      "id": "BASE-106",
+      "layer": "base",
+      "Category": "Mana, Stats & Prices",
+      "Data Point": "Mana Value Greater or Equal",
+      "Triggers": "cost 6 or more",
+      "Scryfall Output": "mv>=6",
+      "Type": "Mana Value",
+      "Notes": "Common finisher query."
+    },
+    {
+      "id": "BASE-107",
+      "layer": "base",
+      "Category": "Mana, Stats & Prices",
+      "Data Point": "Even Mana Value",
+      "Triggers": "even mana value",
+      "Scryfall Output": "mv:even",
+      "Type": "Mana Value",
+      "Notes": "Parity filter."
+    },
+    {
+      "id": "BASE-108",
+      "layer": "base",
+      "Category": "Mana, Stats & Prices",
+      "Data Point": "Odd Mana Value",
+      "Triggers": "odd mana value",
+      "Scryfall Output": "mv:odd",
+      "Type": "Mana Value",
+      "Notes": "Parity filter."
+    },
+    {
+      "id": "BASE-109",
+      "layer": "base",
+      "Category": "Mana, Stats & Prices",
+      "Data Point": "Produces Mana",
+      "Triggers": "produces red green",
+      "Scryfall Output": "produces:rg",
+      "Type": "Mana Production",
+      "Notes": "For mana sources, lands, rocks, and creatures."
+    },
+    {
+      "id": "BASE-110",
+      "layer": "base",
+      "Category": "Mana, Stats & Prices",
+      "Data Point": "Devotion",
+      "Triggers": "devotion to black",
+      "Scryfall Output": "devotion:{B}",
+      "Type": "Mana Symbols",
+      "Notes": "Devotion contribution."
+    },
+    {
+      "id": "BASE-111",
+      "layer": "base",
+      "Category": "Mana, Stats & Prices",
+      "Data Point": "Power Greater or Equal",
+      "Triggers": "power 4 or greater",
+      "Scryfall Output": "pow>=4",
+      "Type": "Stats",
+      "Notes": "Power comparator."
+    },
+    {
+      "id": "BASE-112",
+      "layer": "base",
+      "Category": "Mana, Stats & Prices",
+      "Data Point": "Toughness Less or Equal",
+      "Triggers": "toughness 2 or less",
+      "Scryfall Output": "tou<=2",
+      "Type": "Stats",
+      "Notes": "Toughness comparator."
+    },
+    {
+      "id": "BASE-113",
+      "layer": "base",
+      "Category": "Mana, Stats & Prices",
+      "Data Point": "Power Greater Than Toughness",
+      "Triggers": "more power than toughness",
+      "Scryfall Output": "pow>tou",
+      "Type": "Stats",
+      "Notes": "Stat-to-stat comparison."
+    },
+    {
+      "id": "BASE-114",
+      "layer": "base",
+      "Category": "Mana, Stats & Prices",
+      "Data Point": "Total P/T",
+      "Triggers": "total power toughness 5",
+      "Scryfall Output": "pt=5",
+      "Type": "Stats",
+      "Notes": "Combined power and toughness."
+    },
+    {
+      "id": "BASE-115",
+      "layer": "base",
+      "Category": "Mana, Stats & Prices",
+      "Data Point": "Loyalty Equal",
+      "Triggers": "starts with 3 loyalty",
+      "Scryfall Output": "loy=3",
+      "Type": "Stats",
+      "Notes": "Planeswalker starting loyalty."
+    },
+    {
+      "id": "BASE-116",
+      "layer": "base",
+      "Category": "Mana, Stats & Prices",
+      "Data Point": "USD Price",
+      "Triggers": "under five dollars",
+      "Scryfall Output": "usd<=5",
+      "Type": "Price",
+      "Notes": "Paper USD price filter."
+    },
+    {
+      "id": "BASE-117",
+      "layer": "base",
+      "Category": "Mana, Stats & Prices",
+      "Data Point": "EUR Price",
+      "Triggers": "under five euros",
+      "Scryfall Output": "eur<=5",
+      "Type": "Price",
+      "Notes": "Euro price filter."
+    },
+    {
+      "id": "BASE-118",
+      "layer": "base",
+      "Category": "Mana, Stats & Prices",
+      "Data Point": "TIX Price",
+      "Triggers": "under one ticket",
+      "Scryfall Output": "tix<=1",
+      "Type": "Price",
+      "Notes": "MTGO price filter."
+    },
+    {
+      "id": "BASE-119",
+      "layer": "base",
+      "Category": "Print, Metadata & Display",
+      "Data Point": "Set Code",
+      "Triggers": "from a set",
+      "Scryfall Output": "s:stx",
+      "Type": "Set Metadata",
+      "Notes": "Specific set code."
+    },
+    {
+      "id": "BASE-120",
+      "layer": "base",
+      "Category": "Print, Metadata & Display",
+      "Data Point": "Collector Number",
+      "Triggers": "collector number",
+      "Scryfall Output": "cn:001",
+      "Type": "Set Metadata",
+      "Notes": "Specific printing within set."
+    },
+    {
+      "id": "BASE-121",
+      "layer": "base",
+      "Category": "Print, Metadata & Display",
+      "Data Point": "Rarity Common",
+      "Triggers": "common cards",
+      "Scryfall Output": "r:common",
+      "Type": "Rarity",
+      "Notes": "Rarity filter."
+    },
+    {
+      "id": "BASE-122",
+      "layer": "base",
+      "Category": "Print, Metadata & Display",
+      "Data Point": "Rarity Rare Plus",
+      "Triggers": "rare or mythic",
+      "Scryfall Output": "r>=rare",
+      "Type": "Rarity",
+      "Notes": "Comparison-based rarity filter."
+    },
+    {
+      "id": "BASE-123",
+      "layer": "base",
+      "Category": "Print, Metadata & Display",
+      "Data Point": "Frame 1993",
+      "Triggers": "old frame, retro frame",
+      "Scryfall Output": "frame:1993",
+      "Type": "Frame",
+      "Notes": "Classic frame seed."
+    },
+    {
+      "id": "BASE-124",
+      "layer": "base",
+      "Category": "Print, Metadata & Display",
+      "Data Point": "Showcase Frame",
+      "Triggers": "showcase",
+      "Scryfall Output": "frame:showcase",
+      "Type": "Frame",
+      "Notes": "Frame treatment seed; verify exact support in UI if needed."
+    },
+    {
+      "id": "BASE-125",
+      "layer": "base",
+      "Category": "Print, Metadata & Display",
+      "Data Point": "Borderless",
+      "Triggers": "borderless",
+      "Scryfall Output": "is:borderless",
+      "Type": "Treatment",
+      "Notes": "Alt-art treatment."
+    },
+    {
+      "id": "BASE-126",
+      "layer": "base",
+      "Category": "Print, Metadata & Display",
+      "Data Point": "Serialized",
+      "Triggers": "serialized",
+      "Scryfall Output": "is:serialized",
+      "Type": "Treatment",
+      "Notes": "Collector treatment."
+    },
+    {
+      "id": "BASE-127",
+      "layer": "base",
+      "Category": "Print, Metadata & Display",
+      "Data Point": "Foil",
+      "Triggers": "foil",
+      "Scryfall Output": "is:foil",
+      "Type": "Finish",
+      "Notes": "Foil available."
+    },
+    {
+      "id": "BASE-128",
+      "layer": "base",
+      "Category": "Print, Metadata & Display",
+      "Data Point": "Nonfoil",
+      "Triggers": "nonfoil",
+      "Scryfall Output": "is:nonfoil",
+      "Type": "Finish",
+      "Notes": "Nonfoil available."
+    },
+    {
+      "id": "BASE-129",
+      "layer": "base",
+      "Category": "Print, Metadata & Display",
+      "Data Point": "Unique Cards",
+      "Triggers": "one result per card",
+      "Scryfall Output": "unique:cards",
+      "Type": "Display",
+      "Notes": "Default deduplication."
+    },
+    {
+      "id": "BASE-130",
+      "layer": "base",
+      "Category": "Print, Metadata & Display",
+      "Data Point": "Order EDHREC",
+      "Triggers": "most popular commander",
+      "Scryfall Output": "order:edhrec",
+      "Type": "Sorting",
+      "Notes": "Popularity sorting."
+    },
+    {
+      "id": "BASE-131",
+      "layer": "base",
+      "Category": "Formats, Otags & Special Status",
+      "Data Point": "Standard Legal",
+      "Triggers": "standard legal",
+      "Scryfall Output": "f:standard",
+      "Type": "Format",
+      "Notes": "Legality filter."
+    },
+    {
+      "id": "BASE-132",
+      "layer": "base",
+      "Category": "Formats, Otags & Special Status",
+      "Data Point": "Commander Legal",
+      "Triggers": "commander legal, edh legal",
+      "Scryfall Output": "f:commander",
+      "Type": "Format",
+      "Notes": "Canonical output; keep edh as alias input only."
+    },
+    {
+      "id": "BASE-133",
+      "layer": "base",
+      "Category": "Formats, Otags & Special Status",
+      "Data Point": "Modern Legal",
+      "Triggers": "modern legal",
+      "Scryfall Output": "f:modern",
+      "Type": "Format",
+      "Notes": "Legality filter."
+    },
+    {
+      "id": "BASE-134",
+      "layer": "base",
+      "Category": "Formats, Otags & Special Status",
+      "Data Point": "Pioneer Legal",
+      "Triggers": "pioneer legal",
+      "Scryfall Output": "f:pioneer",
+      "Type": "Format",
+      "Notes": "Legality filter."
+    },
+    {
+      "id": "BASE-135",
+      "layer": "base",
+      "Category": "Formats, Otags & Special Status",
+      "Data Point": "Pauper Legal",
+      "Triggers": "pauper legal",
+      "Scryfall Output": "f:pauper",
+      "Type": "Format",
+      "Notes": "Legality filter."
+    },
+    {
+      "id": "BASE-136",
+      "layer": "base",
+      "Category": "Formats, Otags & Special Status",
+      "Data Point": "Banned Modern",
+      "Triggers": "banned in modern",
+      "Scryfall Output": "banned:modern",
+      "Type": "Status",
+      "Notes": "Banned filter."
+    },
+    {
+      "id": "BASE-137",
+      "layer": "base",
+      "Category": "Formats, Otags & Special Status",
+      "Data Point": "Restricted Vintage",
+      "Triggers": "restricted in vintage",
+      "Scryfall Output": "restricted:vintage",
+      "Type": "Status",
+      "Notes": "Restricted filter."
+    },
+    {
+      "id": "BASE-138",
+      "layer": "base",
+      "Category": "Formats, Otags & Special Status",
+      "Data Point": "Commander Candidate",
+      "Triggers": "can be my commander",
+      "Scryfall Output": "is:commander",
+      "Type": "Status",
+      "Notes": "Commander-eligible card."
+    },
+    {
+      "id": "BASE-139",
+      "layer": "base",
+      "Category": "Formats, Otags & Special Status",
+      "Data Point": "Reserved List",
+      "Triggers": "reserved list",
+      "Scryfall Output": "is:reserved",
+      "Type": "Status",
+      "Notes": "Reserved list cards."
+    },
+    {
+      "id": "BASE-140",
+      "layer": "base",
+      "Category": "Formats, Otags & Special Status",
+      "Data Point": "Removal Otag",
+      "Triggers": "removal",
+      "Scryfall Output": "otag:removal-creature",
+      "Type": "Functional Tag",
+      "Notes": "Functional oracle tag seed."
+    },
+    {
+      "id": "EXP-001",
+      "layer": "expanded",
+      "Category": "Parser Intent - Color Ambiguity",
+      "Data Point": "Actual Color Intent",
+      "Triggers": "red and black cards",
+      "Scryfall Output": "c:br",
+      "Type": "Ambiguity Rule",
+      "Notes": "Use actual color when user says cards are a color."
+    },
+    {
+      "id": "EXP-002",
+      "layer": "expanded",
+      "Category": "Parser Intent - Color Ambiguity",
+      "Data Point": "Commander Identity Intent",
+      "Triggers": "cards for my rakdos commander deck",
+      "Scryfall Output": "id<=br f:commander",
+      "Type": "Ambiguity Rule",
+      "Notes": "Use identity <= for deck-fit/playable intent."
+    },
+    {
+      "id": "EXP-003",
+      "layer": "expanded",
+      "Category": "Parser Intent - Color Ambiguity",
+      "Data Point": "At Least Colors",
+      "Triggers": "cards that include blue and white",
+      "Scryfall Output": "c>=wu",
+      "Type": "Ambiguity Rule",
+      "Notes": "Use >= for 'include/at least these colors'."
+    },
+    {
+      "id": "EXP-004",
+      "layer": "expanded",
+      "Category": "Parser Intent - Color Ambiguity",
+      "Data Point": "At Most Colors",
+      "Triggers": "cards playable in esper but not outside",
+      "Scryfall Output": "id<=esper",
+      "Type": "Ambiguity Rule",
+      "Notes": "Use <= for commander identity restrictions."
+    },
+    {
+      "id": "EXP-005",
+      "layer": "expanded",
+      "Category": "Parser Intent - Color Ambiguity",
+      "Data Point": "Exactly Colors",
+      "Triggers": "exactly red and black",
+      "Scryfall Output": "c=br",
+      "Type": "Ambiguity Rule",
+      "Notes": "Use = when exactness is explicit."
+    },
+    {
+      "id": "EXP-006",
+      "layer": "expanded",
+      "Category": "Parser Intent - Color Ambiguity",
+      "Data Point": "Exclude Color",
+      "Triggers": "not blue",
+      "Scryfall Output": "-c:u",
+      "Type": "Ambiguity Rule",
+      "Notes": "Negate actual color unless deck identity context."
+    },
+    {
+      "id": "EXP-007",
+      "layer": "expanded",
+      "Category": "Parser Intent - Color Ambiguity",
+      "Data Point": "Exclude Identity Color",
+      "Triggers": "not playable in blue commander",
+      "Scryfall Output": "-id:u",
+      "Type": "Ambiguity Rule",
+      "Notes": "Use identity negation in commander context."
+    },
+    {
+      "id": "EXP-008",
+      "layer": "expanded",
+      "Category": "Parser Intent - Color Ambiguity",
+      "Data Point": "Colorless Identity",
+      "Triggers": "colorless commander cards",
+      "Scryfall Output": "id:c f:commander",
+      "Type": "Ambiguity Rule",
+      "Notes": "Commander colorless deck fit."
+    },
+    {
+      "id": "EXP-009",
+      "layer": "expanded",
+      "Category": "Parser Intent - Color Ambiguity",
+      "Data Point": "Multicolor Requirement",
+      "Triggers": "must be multicolor",
+      "Scryfall Output": "c:m",
+      "Type": "Ambiguity Rule",
+      "Notes": "Maps multi/multicolored."
+    },
+    {
+      "id": "EXP-010",
+      "layer": "expanded",
+      "Category": "Parser Intent - Color Ambiguity",
+      "Data Point": "Mono Color Requirement",
+      "Triggers": "mono red",
+      "Scryfall Output": "c=r",
+      "Type": "Ambiguity Rule",
+      "Notes": "Exact mono-color, not c:r which includes multicolor red cards."
+    },
+    {
+      "id": "EXP-011",
+      "layer": "expanded",
+      "Category": "Parser Intent - Counter Ambiguity",
+      "Data Point": "Counterspell Meaning",
+      "Triggers": "counter spells",
+      "Scryfall Output": "o:\"counter target spell\"",
+      "Type": "Counter Ambiguity",
+      "Notes": "Prefer spell-counter meaning when object is spell."
+    },
+    {
+      "id": "EXP-012",
+      "layer": "expanded",
+      "Category": "Parser Intent - Counter Ambiguity",
+      "Data Point": "Counterspell Functional",
+      "Triggers": "good counterspells",
+      "Scryfall Output": "otag:counterspell",
+      "Type": "Counter Ambiguity",
+      "Notes": "Functional search when user says 'good' or archetype role."
+    },
+    {
+      "id": "EXP-013",
+      "layer": "expanded",
+      "Category": "Parser Intent - Counter Ambiguity",
+      "Data Point": "Plus One Counters",
+      "Triggers": "+1/+1 counters",
+      "Scryfall Output": "o:/\\+1\\/\\+1 counter/",
+      "Type": "Counter Ambiguity",
+      "Notes": "Regex handles + and slash."
+    },
+    {
+      "id": "EXP-014",
+      "layer": "expanded",
+      "Category": "Parser Intent - Counter Ambiguity",
+      "Data Point": "Put Counters",
+      "Triggers": "put counters on creatures",
+      "Scryfall Output": "o:\"put a +1/+1 counter\"",
+      "Type": "Counter Intent",
+      "Notes": "Narrower than any counter mention."
+    },
+    {
+      "id": "EXP-015",
+      "layer": "expanded",
+      "Category": "Parser Intent - Counter Ambiguity",
+      "Data Point": "Counter Doublers",
+      "Triggers": "double counters",
+      "Scryfall Output": "o:\"double the number of each kind of counter\"",
+      "Type": "Counter Intent",
+      "Notes": "Known wording for counter doubling."
+    },
+    {
+      "id": "EXP-016",
+      "layer": "expanded",
+      "Category": "Parser Intent - Counter Ambiguity",
+      "Data Point": "Proliferate",
+      "Triggers": "proliferate cards",
+      "Scryfall Output": "kw:proliferate",
+      "Type": "Counter Intent",
+      "Notes": "Keyword ability/action if supported; fallback o:proliferate."
+    },
+    {
+      "id": "EXP-017",
+      "layer": "expanded",
+      "Category": "Parser Intent - Counter Ambiguity",
+      "Data Point": "Poison Counters",
+      "Triggers": "poison counters",
+      "Scryfall Output": "o:\"poison counter\"",
+      "Type": "Counter Ambiguity",
+      "Notes": "Player counters."
+    },
+    {
+      "id": "EXP-018",
+      "layer": "expanded",
+      "Category": "Parser Intent - Counter Ambiguity",
+      "Data Point": "Loyalty Counters",
+      "Triggers": "loyalty counters",
+      "Scryfall Output": "o:\"loyalty counter\"",
+      "Type": "Counter Ambiguity",
+      "Notes": "Planeswalker/counter text."
+    },
+    {
+      "id": "EXP-019",
+      "layer": "expanded",
+      "Category": "Parser Intent - Counter Ambiguity",
+      "Data Point": "Keyword Counters",
+      "Triggers": "keyword counters",
+      "Scryfall Output": "o:\"keyword counter\"",
+      "Type": "Counter Ambiguity",
+      "Notes": "Ikoria-style keyword counters."
+    },
+    {
+      "id": "EXP-020",
+      "layer": "expanded",
+      "Category": "Parser Intent - Counter Ambiguity",
+      "Data Point": "Energy Counters",
+      "Triggers": "energy counters",
+      "Scryfall Output": "o:{E}",
+      "Type": "Counter Ambiguity",
+      "Notes": "Energy symbol search; use oracle symbol if available."
+    },
+    {
+      "id": "EXP-021",
+      "layer": "expanded",
+      "Category": "Parser Intent - Typal / Kindred",
+      "Data Point": "Zombie Lords",
+      "Triggers": "zombie lords",
+      "Scryfall Output": "t:zombie o:\"other zombies\"",
+      "Type": "Typal",
+      "Notes": "Classic lord phrasing."
+    },
+    {
+      "id": "EXP-022",
+      "layer": "expanded",
+      "Category": "Parser Intent - Typal / Kindred",
+      "Data Point": "Goblin Lords",
+      "Triggers": "goblin lords",
+      "Scryfall Output": "t:goblin o:\"other goblins\"",
+      "Type": "Typal",
+      "Notes": "Classic lord phrasing."
+    },
+    {
+      "id": "EXP-023",
+      "layer": "expanded",
+      "Category": "Parser Intent - Typal / Kindred",
+      "Data Point": "Elf Lords",
+      "Triggers": "elf lords",
+      "Scryfall Output": "t:elf o:\"other elves\"",
+      "Type": "Typal",
+      "Notes": "Classic lord phrasing."
+    },
+    {
+      "id": "EXP-024",
+      "layer": "expanded",
+      "Category": "Parser Intent - Typal / Kindred",
+      "Data Point": "Dragon Support",
+      "Triggers": "dragon support",
+      "Scryfall Output": "o:dragon",
+      "Type": "Typal",
+      "Notes": "Broad support search."
+    },
+    {
+      "id": "EXP-025",
+      "layer": "expanded",
+      "Category": "Parser Intent - Typal / Kindred",
+      "Data Point": "Human Support",
+      "Triggers": "human support",
+      "Scryfall Output": "o:human",
+      "Type": "Typal",
+      "Notes": "Broad support search."
+    },
+    {
+      "id": "EXP-026",
+      "layer": "expanded",
+      "Category": "Parser Intent - Typal / Kindred",
+      "Data Point": "Typal Payoff",
+      "Triggers": "creature type payoff",
+      "Scryfall Output": "o:\"whenever\" o:\"you control\"",
+      "Type": "Typal",
+      "Notes": "Generic trigger pattern; lower confidence."
+    },
+    {
+      "id": "EXP-027",
+      "layer": "expanded",
+      "Category": "Parser Intent - Typal / Kindred",
+      "Data Point": "Changeling",
+      "Triggers": "all creature types",
+      "Scryfall Output": "kw:changeling",
+      "Type": "Typal",
+      "Notes": "Keyword for all creature types."
+    },
+    {
+      "id": "EXP-028",
+      "layer": "expanded",
+      "Category": "Parser Intent - Typal / Kindred",
+      "Data Point": "Choose Creature Type",
+      "Triggers": "choose a creature type",
+      "Scryfall Output": "o:\"choose a creature type\"",
+      "Type": "Typal",
+      "Notes": "Tribal selection cards."
+    },
+    {
+      "id": "EXP-029",
+      "layer": "expanded",
+      "Category": "Parser Intent - Typal / Kindred",
+      "Data Point": "Same Creature Type",
+      "Triggers": "same creature type",
+      "Scryfall Output": "o:\"share a creature type\"",
+      "Type": "Typal",
+      "Notes": "Typal synergy text."
+    },
+    {
+      "id": "EXP-030",
+      "layer": "expanded",
+      "Category": "Parser Intent - Typal / Kindred",
+      "Data Point": "Token Typal",
+      "Triggers": "make zombie tokens",
+      "Scryfall Output": "o:\"create\" o:\"zombie token\"",
+      "Type": "Typal",
+      "Notes": "Token creation for chosen subtype."
+    },
+    {
+      "id": "EXP-031",
+      "layer": "expanded",
+      "Category": "Parser Intent - Removal",
+      "Data Point": "Creature Removal",
+      "Triggers": "creature removal",
+      "Scryfall Output": "otag:removal-creature",
+      "Type": "Removal",
+      "Notes": "Functional tag."
+    },
+    {
+      "id": "EXP-032",
+      "layer": "expanded",
+      "Category": "Parser Intent - Removal",
+      "Data Point": "Destroy Target Creature",
+      "Triggers": "destroy target creature",
+      "Scryfall Output": "o:\"destroy target creature\"",
+      "Type": "Removal",
+      "Notes": "Literal oracle phrase."
+    },
+    {
+      "id": "EXP-033",
+      "layer": "expanded",
+      "Category": "Parser Intent - Removal",
+      "Data Point": "Exile Target Creature",
+      "Triggers": "exile target creature",
+      "Scryfall Output": "o:\"exile target creature\"",
+      "Type": "Removal",
+      "Notes": "Literal oracle phrase."
+    },
+    {
+      "id": "EXP-034",
+      "layer": "expanded",
+      "Category": "Parser Intent - Removal",
+      "Data Point": "Bounce Spell",
+      "Triggers": "bounce a creature",
+      "Scryfall Output": "o:\"return target\" o:\"to its owner's hand\"",
+      "Type": "Removal",
+      "Notes": "Tempo removal pattern."
+    },
+    {
+      "id": "EXP-035",
+      "layer": "expanded",
+      "Category": "Parser Intent - Removal",
+      "Data Point": "Edict Effect",
+      "Triggers": "make opponent sacrifice a creature",
+      "Scryfall Output": "o:\"sacrifices a creature\"",
+      "Type": "Removal",
+      "Notes": "Edict-style removal."
+    },
+    {
+      "id": "EXP-036",
+      "layer": "expanded",
+      "Category": "Parser Intent - Removal",
+      "Data Point": "Fight Spell",
+      "Triggers": "fight spell",
+      "Scryfall Output": "o:\"fights target\"",
+      "Type": "Removal",
+      "Notes": "Fight effect."
+    },
+    {
+      "id": "EXP-037",
+      "layer": "expanded",
+      "Category": "Parser Intent - Removal",
+      "Data Point": "Damage Removal",
+      "Triggers": "deal damage to target creature",
+      "Scryfall Output": "o:\"damage to target creature\"",
+      "Type": "Removal",
+      "Notes": "Burn/removal pattern."
+    },
+    {
+      "id": "EXP-038",
+      "layer": "expanded",
+      "Category": "Parser Intent - Removal",
+      "Data Point": "Board Wipe",
+      "Triggers": "board wipe",
+      "Scryfall Output": "otag:wrath",
+      "Type": "Removal",
+      "Notes": "Functional wrath tag."
+    },
+    {
+      "id": "EXP-039",
+      "layer": "expanded",
+      "Category": "Parser Intent - Removal",
+      "Data Point": "Destroy All Creatures",
+      "Triggers": "destroy all creatures",
+      "Scryfall Output": "o:\"destroy all creatures\"",
+      "Type": "Removal",
+      "Notes": "Literal wrath text."
+    },
+    {
+      "id": "EXP-040",
+      "layer": "expanded",
+      "Category": "Parser Intent - Removal",
+      "Data Point": "Exile All Creatures",
+      "Triggers": "exile all creatures",
+      "Scryfall Output": "o:\"exile all creatures\"",
+      "Type": "Removal",
+      "Notes": "Literal mass exile text."
+    },
+    {
+      "id": "EXP-041",
+      "layer": "expanded",
+      "Category": "Parser Intent - Ramp / Mana",
+      "Data Point": "Mana Rocks",
+      "Triggers": "mana rocks",
+      "Scryfall Output": "otag:ramp-mana-rock",
+      "Type": "Ramp",
+      "Notes": "Functional ramp tag."
+    },
+    {
+      "id": "EXP-042",
+      "layer": "expanded",
+      "Category": "Parser Intent - Ramp / Mana",
+      "Data Point": "Land Ramp",
+      "Triggers": "land ramp",
+      "Scryfall Output": "otag:tutor-land",
+      "Type": "Ramp",
+      "Notes": "Functional land tutor/ramp tag."
+    },
+    {
+      "id": "EXP-043",
+      "layer": "expanded",
+      "Category": "Parser Intent - Ramp / Mana",
+      "Data Point": "Mana Dorks",
+      "Triggers": "mana dorks",
+      "Scryfall Output": "t:creature o:\"add {\"",
+      "Type": "Ramp",
+      "Notes": "Creature taps/adds mana."
+    },
+    {
+      "id": "EXP-044",
+      "layer": "expanded",
+      "Category": "Parser Intent - Ramp / Mana",
+      "Data Point": "Treasure Ramp",
+      "Triggers": "make treasure",
+      "Scryfall Output": "o:treasure",
+      "Type": "Ramp",
+      "Notes": "Broad treasure token search."
+    },
+    {
+      "id": "EXP-045",
+      "layer": "expanded",
+      "Category": "Parser Intent - Ramp / Mana",
+      "Data Point": "Cost Reducer Generic",
+      "Triggers": "cost reducers",
+      "Scryfall Output": "o:\"costs {1} less\"",
+      "Type": "Ramp",
+      "Notes": "Common cost reduction wording."
+    },
+    {
+      "id": "EXP-046",
+      "layer": "expanded",
+      "Category": "Parser Intent - Ramp / Mana",
+      "Data Point": "Produces Red Green",
+      "Triggers": "produces red and green mana",
+      "Scryfall Output": "produces:rg",
+      "Type": "Ramp",
+      "Notes": "Mana production filter."
+    },
+    {
+      "id": "EXP-047",
+      "layer": "expanded",
+      "Category": "Parser Intent - Ramp / Mana",
+      "Data Point": "Search Basic Land",
+      "Triggers": "search for basic land",
+      "Scryfall Output": "o:\"search your library for a basic land\"",
+      "Type": "Ramp",
+      "Notes": "Common ramp spell wording."
+    },
+    {
+      "id": "EXP-048",
+      "layer": "expanded",
+      "Category": "Parser Intent - Ramp / Mana",
+      "Data Point": "Extra Land Drops",
+      "Triggers": "play additional lands",
+      "Scryfall Output": "o:\"play an additional land\"",
+      "Type": "Ramp",
+      "Notes": "Land-drop ramp."
+    },
+    {
+      "id": "EXP-049",
+      "layer": "expanded",
+      "Category": "Parser Intent - Ramp / Mana",
+      "Data Point": "Untap Lands",
+      "Triggers": "untap lands",
+      "Scryfall Output": "o:\"untap\" o:\"land\"",
+      "Type": "Ramp",
+      "Notes": "Potential ramp engine."
+    },
+    {
+      "id": "EXP-050",
+      "layer": "expanded",
+      "Category": "Parser Intent - Ramp / Mana",
+      "Data Point": "Mana Value Reduction",
+      "Triggers": "spells cost less",
+      "Scryfall Output": "o:\"costs less\"",
+      "Type": "Ramp",
+      "Notes": "Broad cost reducer fallback."
+    },
+    {
+      "id": "EXP-051",
+      "layer": "expanded",
+      "Category": "Parser Intent - Draw / Advantage",
+      "Data Point": "Draw Cards",
+      "Triggers": "draw cards",
+      "Scryfall Output": "o:draw",
+      "Type": "Card Advantage",
+      "Notes": "Broad draw search."
+    },
+    {
+      "id": "EXP-052",
+      "layer": "expanded",
+      "Category": "Parser Intent - Draw / Advantage",
+      "Data Point": "Card Draw Functional",
+      "Triggers": "card draw",
+      "Scryfall Output": "otag:draw",
+      "Type": "Card Advantage",
+      "Notes": "Functional tag."
+    },
+    {
+      "id": "EXP-053",
+      "layer": "expanded",
+      "Category": "Parser Intent - Draw / Advantage",
+      "Data Point": "Draw A Card",
+      "Triggers": "draw a card",
+      "Scryfall Output": "o:\"draw a card\"",
+      "Type": "Card Advantage",
+      "Notes": "Literal phrase."
+    },
+    {
+      "id": "EXP-054",
+      "layer": "expanded",
+      "Category": "Parser Intent - Draw / Advantage",
+      "Data Point": "Impulse Draw",
+      "Triggers": "impulse draw",
+      "Scryfall Output": "o:\"exile the top\" o:\"you may play\"",
+      "Type": "Card Advantage",
+      "Notes": "Red-style temporary card advantage."
+    },
+    {
+      "id": "EXP-055",
+      "layer": "expanded",
+      "Category": "Parser Intent - Draw / Advantage",
+      "Data Point": "Loot",
+      "Triggers": "loot, looting",
+      "Scryfall Output": "o:\"draw\" o:\"discard\"",
+      "Type": "Card Advantage",
+      "Notes": "Draw then discard pattern."
+    },
+    {
+      "id": "EXP-056",
+      "layer": "expanded",
+      "Category": "Parser Intent - Draw / Advantage",
+      "Data Point": "Rummage",
+      "Triggers": "rummage",
+      "Scryfall Output": "o:\"discard\" o:\"draw\"",
+      "Type": "Card Advantage",
+      "Notes": "Discard then draw pattern."
+    },
+    {
+      "id": "EXP-057",
+      "layer": "expanded",
+      "Category": "Parser Intent - Draw / Advantage",
+      "Data Point": "Wheel",
+      "Triggers": "wheel effect",
+      "Scryfall Output": "o:\"discard their hand\" o:\"draw\"",
+      "Type": "Card Advantage",
+      "Notes": "Classic wheel pattern."
+    },
+    {
+      "id": "EXP-058",
+      "layer": "expanded",
+      "Category": "Parser Intent - Draw / Advantage",
+      "Data Point": "Cantrip",
+      "Triggers": "cantrip",
+      "Scryfall Output": "mv<=2 o:\"draw a card\"",
+      "Type": "Card Advantage",
+      "Notes": "Low-cost spell that draws."
+    },
+    {
+      "id": "EXP-059",
+      "layer": "expanded",
+      "Category": "Parser Intent - Draw / Advantage",
+      "Data Point": "Selection",
+      "Triggers": "look at top cards",
+      "Scryfall Output": "o:\"look at the top\"",
+      "Type": "Card Advantage",
+      "Notes": "Card selection/filtering."
+    },
+    {
+      "id": "EXP-060",
+      "layer": "expanded",
+      "Category": "Parser Intent - Draw / Advantage",
+      "Data Point": "Tutor Generic",
+      "Triggers": "tutor",
+      "Scryfall Output": "otag:tutor",
+      "Type": "Card Advantage",
+      "Notes": "Functional tutor tag."
+    },
+    {
+      "id": "EXP-061",
+      "layer": "expanded",
+      "Category": "Parser Intent - Graveyard",
+      "Data Point": "Reanimate Functional",
+      "Triggers": "reanimate",
+      "Scryfall Output": "otag:reanimate",
+      "Type": "Graveyard",
+      "Notes": "Functional tag."
+    },
+    {
+      "id": "EXP-062",
+      "layer": "expanded",
+      "Category": "Parser Intent - Graveyard",
+      "Data Point": "Return Creature Graveyard",
+      "Triggers": "return creature from graveyard",
+      "Scryfall Output": "o:\"return target creature card from your graveyard\"",
+      "Type": "Graveyard",
+      "Notes": "Literal reanimation phrase."
+    },
+    {
+      "id": "EXP-063",
+      "layer": "expanded",
+      "Category": "Parser Intent - Graveyard",
+      "Data Point": "Graveyard Hate",
+      "Triggers": "graveyard hate",
+      "Scryfall Output": "o:\"exile target card from a graveyard\"",
+      "Type": "Graveyard",
+      "Notes": "Common graveyard hate wording."
+    },
+    {
+      "id": "EXP-064",
+      "layer": "expanded",
+      "Category": "Parser Intent - Graveyard",
+      "Data Point": "Exile Graveyards",
+      "Triggers": "exile all graveyards",
+      "Scryfall Output": "o:\"exile all cards from\" o:\"graveyard\"",
+      "Type": "Graveyard",
+      "Notes": "Mass graveyard hate."
+    },
+    {
+      "id": "EXP-065",
+      "layer": "expanded",
+      "Category": "Parser Intent - Graveyard",
+      "Data Point": "Cast From Graveyard",
+      "Triggers": "cast from graveyard",
+      "Scryfall Output": "o:\"from your graveyard\"",
+      "Type": "Graveyard",
+      "Notes": "Broad self-recursion/cast."
+    },
+    {
+      "id": "EXP-066",
+      "layer": "expanded",
+      "Category": "Parser Intent - Graveyard",
+      "Data Point": "Flashback",
+      "Triggers": "flashback",
+      "Scryfall Output": "kw:flashback",
+      "Type": "Graveyard",
+      "Notes": "Keyword."
+    },
+    {
+      "id": "EXP-067",
+      "layer": "expanded",
+      "Category": "Parser Intent - Graveyard",
+      "Data Point": "Escape",
+      "Triggers": "escape",
+      "Scryfall Output": "kw:escape",
+      "Type": "Graveyard",
+      "Notes": "Keyword."
+    },
+    {
+      "id": "EXP-068",
+      "layer": "expanded",
+      "Category": "Parser Intent - Graveyard",
+      "Data Point": "Disturb",
+      "Triggers": "disturb",
+      "Scryfall Output": "kw:disturb",
+      "Type": "Graveyard",
+      "Notes": "Keyword."
+    },
+    {
+      "id": "EXP-069",
+      "layer": "expanded",
+      "Category": "Parser Intent - Graveyard",
+      "Data Point": "Unearth",
+      "Triggers": "unearth",
+      "Scryfall Output": "kw:unearth",
+      "Type": "Graveyard",
+      "Notes": "Keyword."
+    },
+    {
+      "id": "EXP-070",
+      "layer": "expanded",
+      "Category": "Parser Intent - Graveyard",
+      "Data Point": "Mill",
+      "Triggers": "mill cards",
+      "Scryfall Output": "o:mill",
+      "Type": "Graveyard",
+      "Notes": "Keyword action/oracle text."
+    },
+    {
+      "id": "EXP-071",
+      "layer": "expanded",
+      "Category": "Parser Intent - Tokens",
+      "Data Point": "Treasure Token",
+      "Triggers": "treasure token",
+      "Scryfall Output": "o:treasure",
+      "Type": "Token",
+      "Notes": "Treasure text."
+    },
+    {
+      "id": "EXP-072",
+      "layer": "expanded",
+      "Category": "Parser Intent - Tokens",
+      "Data Point": "Food Token",
+      "Triggers": "food token",
+      "Scryfall Output": "o:food",
+      "Type": "Token",
+      "Notes": "Food text."
+    },
+    {
+      "id": "EXP-073",
+      "layer": "expanded",
+      "Category": "Parser Intent - Tokens",
+      "Data Point": "Clue Token",
+      "Triggers": "clue token",
+      "Scryfall Output": "o:clue",
+      "Type": "Token",
+      "Notes": "Clue text."
+    },
+    {
+      "id": "EXP-074",
+      "layer": "expanded",
+      "Category": "Parser Intent - Tokens",
+      "Data Point": "Blood Token",
+      "Triggers": "blood token",
+      "Scryfall Output": "o:blood",
+      "Type": "Token",
+      "Notes": "Blood text."
+    },
+    {
+      "id": "EXP-075",
+      "layer": "expanded",
+      "Category": "Parser Intent - Tokens",
+      "Data Point": "Map Token",
+      "Triggers": "map token",
+      "Scryfall Output": "o:map",
+      "Type": "Token",
+      "Notes": "Map text."
+    },
+    {
+      "id": "EXP-076",
+      "layer": "expanded",
+      "Category": "Parser Intent - Tokens",
+      "Data Point": "Junk Token",
+      "Triggers": "junk token",
+      "Scryfall Output": "o:junk",
+      "Type": "Token",
+      "Notes": "Junk text."
+    },
+    {
+      "id": "EXP-077",
+      "layer": "expanded",
+      "Category": "Parser Intent - Tokens",
+      "Data Point": "Mutagen Token",
+      "Triggers": "mutagen token",
+      "Scryfall Output": "o:mutagen",
+      "Type": "Token",
+      "Notes": "TMNT mutagen text."
+    },
+    {
+      "id": "EXP-078",
+      "layer": "expanded",
+      "Category": "Parser Intent - Tokens",
+      "Data Point": "Create Tokens",
+      "Triggers": "create tokens",
+      "Scryfall Output": "o:\"create\" o:\"token\"",
+      "Type": "Token",
+      "Notes": "Generic token creation."
+    },
+    {
+      "id": "EXP-079",
+      "layer": "expanded",
+      "Category": "Parser Intent - Tokens",
+      "Data Point": "Token Doublers",
+      "Triggers": "double tokens",
+      "Scryfall Output": "o:\"twice that many\"",
+      "Type": "Token",
+      "Notes": "Common token doubling wording."
+    },
+    {
+      "id": "EXP-080",
+      "layer": "expanded",
+      "Category": "Parser Intent - Tokens",
+      "Data Point": "Artifact Tokens",
+      "Triggers": "artifact tokens",
+      "Scryfall Output": "o:\"artifact token\"",
+      "Type": "Token",
+      "Notes": "Token subtype filter."
+    },
+    {
+      "id": "EXP-081",
+      "layer": "expanded",
+      "Category": "Parser Intent - Modern Mechanics",
+      "Data Point": "Start Your Engines",
+      "Triggers": "start your engines",
+      "Scryfall Output": "kw:\"Start your engines!\"",
+      "Type": "Modern Mechanic",
+      "Notes": "Aetherdrift speed mechanic."
+    },
+    {
+      "id": "EXP-082",
+      "layer": "expanded",
+      "Category": "Parser Intent - Modern Mechanics",
+      "Data Point": "Saddle",
+      "Triggers": "saddle",
+      "Scryfall Output": "kw:saddle",
+      "Type": "Modern Mechanic",
+      "Notes": "Mount mechanic."
+    },
+    {
+      "id": "EXP-083",
+      "layer": "expanded",
+      "Category": "Parser Intent - Modern Mechanics",
+      "Data Point": "Cycling",
+      "Triggers": "cycling",
+      "Scryfall Output": "kw:cycling",
+      "Type": "Mechanic",
+      "Notes": "Keyword."
+    },
+    {
+      "id": "EXP-084",
+      "layer": "expanded",
+      "Category": "Parser Intent - Modern Mechanics",
+      "Data Point": "Station",
+      "Triggers": "station",
+      "Scryfall Output": "o:station",
+      "Type": "Modern Mechanic",
+      "Notes": "Oracle fallback."
+    },
+    {
+      "id": "EXP-085",
+      "layer": "expanded",
+      "Category": "Parser Intent - Modern Mechanics",
+      "Data Point": "Warp",
+      "Triggers": "warp",
+      "Scryfall Output": "o:warp",
+      "Type": "Modern Mechanic",
+      "Notes": "Oracle fallback."
+    },
+    {
+      "id": "EXP-086",
+      "layer": "expanded",
+      "Category": "Parser Intent - Modern Mechanics",
+      "Data Point": "Airbend",
+      "Triggers": "airbend",
+      "Scryfall Output": "o:airbend",
+      "Type": "Modern Mechanic",
+      "Notes": "Oracle fallback."
+    },
+    {
+      "id": "EXP-087",
+      "layer": "expanded",
+      "Category": "Parser Intent - Modern Mechanics",
+      "Data Point": "Earthbend",
+      "Triggers": "earthbend",
+      "Scryfall Output": "o:earthbend",
+      "Type": "Modern Mechanic",
+      "Notes": "Oracle fallback."
+    },
+    {
+      "id": "EXP-088",
+      "layer": "expanded",
+      "Category": "Parser Intent - Modern Mechanics",
+      "Data Point": "Sneak",
+      "Triggers": "sneak",
+      "Scryfall Output": "o:sneak",
+      "Type": "Modern Mechanic",
+      "Notes": "TMNT oracle fallback."
+    },
+    {
+      "id": "EXP-089",
+      "layer": "expanded",
+      "Category": "Parser Intent - Modern Mechanics",
+      "Data Point": "Disappear",
+      "Triggers": "disappear",
+      "Scryfall Output": "o:disappear",
+      "Type": "Modern Mechanic",
+      "Notes": "TMNT oracle fallback."
+    },
+    {
+      "id": "EXP-090",
+      "layer": "expanded",
+      "Category": "Parser Intent - Modern Mechanics",
+      "Data Point": "Vivid",
+      "Triggers": "vivid",
+      "Scryfall Output": "o:vivid",
+      "Type": "Modern Mechanic",
+      "Notes": "Oracle fallback."
+    },
+    {
+      "id": "EXP-091",
+      "layer": "expanded",
+      "Category": "Parser Intent - Faces / Extras / Availability",
+      "Data Point": "Adventure Cards",
+      "Triggers": "adventure cards",
+      "Scryfall Output": "is:adventure",
+      "Type": "Card Structure",
+      "Notes": "Adventure cards."
+    },
+    {
+      "id": "EXP-092",
+      "layer": "expanded",
+      "Category": "Parser Intent - Faces / Extras / Availability",
+      "Data Point": "Meld Cards",
+      "Triggers": "meld cards",
+      "Scryfall Output": "is:meld",
+      "Type": "Card Structure",
+      "Notes": "Cards that meld."
+    },
+    {
+      "id": "EXP-093",
+      "layer": "expanded",
+      "Category": "Parser Intent - Faces / Extras / Availability",
+      "Data Point": "Meld Part",
+      "Triggers": "meld pieces",
+      "Scryfall Output": "is:meldpart",
+      "Type": "Card Structure",
+      "Notes": "Cards that are meld parts."
+    },
+    {
+      "id": "EXP-094",
+      "layer": "expanded",
+      "Category": "Parser Intent - Faces / Extras / Availability",
+      "Data Point": "Meld Result",
+      "Triggers": "meld result",
+      "Scryfall Output": "is:meldresult",
+      "Type": "Card Structure",
+      "Notes": "Meld result cards."
+    },
+    {
+      "id": "EXP-095",
+      "layer": "expanded",
+      "Category": "Parser Intent - Faces / Extras / Availability",
+      "Data Point": "Funny Cards",
+      "Triggers": "un-cards, funny cards",
+      "Scryfall Output": "is:funny",
+      "Type": "Extras",
+      "Notes": "Silver/acorn/funny card intent."
+    },
+    {
+      "id": "EXP-096",
+      "layer": "expanded",
+      "Category": "Parser Intent - Faces / Extras / Availability",
+      "Data Point": "Include Extras",
+      "Triggers": "include tokens planes schemes",
+      "Scryfall Output": "include:extras",
+      "Type": "Extras",
+      "Notes": "Reveal all card extras when user asks for everything."
+    },
+    {
+      "id": "EXP-097",
+      "layer": "expanded",
+      "Category": "Parser Intent - Faces / Extras / Availability",
+      "Data Point": "Digital Cards",
+      "Triggers": "arena only digital",
+      "Scryfall Output": "is:digital",
+      "Type": "Availability",
+      "Notes": "Digital-only cards."
+    },
+    {
+      "id": "EXP-098",
+      "layer": "expanded",
+      "Category": "Parser Intent - Faces / Extras / Availability",
+      "Data Point": "Arena Cards",
+      "Triggers": "arena legal available",
+      "Scryfall Output": "game:arena",
+      "Type": "Availability",
+      "Notes": "Game availability."
+    },
+    {
+      "id": "EXP-099",
+      "layer": "expanded",
+      "Category": "Parser Intent - Faces / Extras / Availability",
+      "Data Point": "Paper Cards",
+      "Triggers": "paper cards only",
+      "Scryfall Output": "game:paper",
+      "Type": "Availability",
+      "Notes": "Default app guardrail."
+    },
+    {
+      "id": "EXP-100",
+      "layer": "expanded",
+      "Category": "Parser Intent - Faces / Extras / Availability",
+      "Data Point": "MTGO Cards",
+      "Triggers": "mtgo cards",
+      "Scryfall Output": "game:mtgo",
+      "Type": "Availability",
+      "Notes": "Game availability."
+    },
+    {
+      "id": "EXP-101",
+      "layer": "expanded",
+      "Category": "Parser Intent - Display / Sorting",
+      "Data Point": "All Printings",
+      "Triggers": "all printings",
+      "Scryfall Output": "unique:prints",
+      "Type": "Display",
+      "Notes": "Every printing."
+    },
+    {
+      "id": "EXP-102",
+      "layer": "expanded",
+      "Category": "Parser Intent - Display / Sorting",
+      "Data Point": "Unique Art",
+      "Triggers": "unique art",
+      "Scryfall Output": "unique:art",
+      "Type": "Display",
+      "Notes": "Every unique illustration."
+    },
+    {
+      "id": "EXP-103",
+      "layer": "expanded",
+      "Category": "Parser Intent - Display / Sorting",
+      "Data Point": "Text Display",
+      "Triggers": "text only results",
+      "Scryfall Output": "display:text",
+      "Type": "Display",
+      "Notes": "Result display mode."
+    },
+    {
+      "id": "EXP-104",
+      "layer": "expanded",
+      "Category": "Parser Intent - Display / Sorting",
+      "Data Point": "Grid Display",
+      "Triggers": "grid view",
+      "Scryfall Output": "display:grid",
+      "Type": "Display",
+      "Notes": "Result display mode."
+    },
+    {
+      "id": "EXP-105",
+      "layer": "expanded",
+      "Category": "Parser Intent - Display / Sorting",
+      "Data Point": "Newest Printing",
+      "Triggers": "newest printing",
+      "Scryfall Output": "prefer:newest",
+      "Type": "Preference",
+      "Notes": "Prefer newest print."
+    },
+    {
+      "id": "EXP-106",
+      "layer": "expanded",
+      "Category": "Parser Intent - Display / Sorting",
+      "Data Point": "Oldest Printing",
+      "Triggers": "oldest printing",
+      "Scryfall Output": "prefer:oldest",
+      "Type": "Preference",
+      "Notes": "Prefer oldest print."
+    },
+    {
+      "id": "EXP-107",
+      "layer": "expanded",
+      "Category": "Parser Intent - Display / Sorting",
+      "Data Point": "Cheapest Printing",
+      "Triggers": "cheapest version",
+      "Scryfall Output": "prefer:usd-low",
+      "Type": "Preference",
+      "Notes": "Prefer low USD print."
+    },
+    {
+      "id": "EXP-108",
+      "layer": "expanded",
+      "Category": "Parser Intent - Display / Sorting",
+      "Data Point": "Most Expensive Printing",
+      "Triggers": "highest price",
+      "Scryfall Output": "prefer:usd-high",
+      "Type": "Preference",
+      "Notes": "Prefer high USD print."
+    },
+    {
+      "id": "EXP-109",
+      "layer": "expanded",
+      "Category": "Parser Intent - Display / Sorting",
+      "Data Point": "Newest Cards",
+      "Triggers": "newest cards",
+      "Scryfall Output": "order:released direction:desc",
+      "Type": "Sorting",
+      "Notes": "Sort by release date descending."
+    },
+    {
+      "id": "EXP-110",
+      "layer": "expanded",
+      "Category": "Parser Intent - Display / Sorting",
+      "Data Point": "Cheapest Cards",
+      "Triggers": "cheap cards first",
+      "Scryfall Output": "order:usd direction:asc",
+      "Type": "Sorting",
+      "Notes": "Sort by USD ascending."
+    },
+    {
+      "id": "EXP-111",
+      "layer": "expanded",
+      "Category": "QA / API Integration Seeds",
+      "Data Point": "Exact Name Test",
+      "Triggers": "lightning bolt exact",
+      "Scryfall Output": "!\"Lightning Bolt\"",
+      "Type": "QA Seed",
+      "Notes": "Exact-name output test."
+    },
+    {
+      "id": "EXP-112",
+      "layer": "expanded",
+      "Category": "QA / API Integration Seeds",
+      "Data Point": "Fuzzy Name Test",
+      "Triggers": "lightning boltt",
+      "Scryfall Output": "named:fuzzy",
+      "Type": "QA Seed",
+      "Notes": "Route to named endpoint, not search query syntax."
+    },
+    {
+      "id": "EXP-113",
+      "layer": "expanded",
+      "Category": "QA / API Integration Seeds",
+      "Data Point": "Regex Counter Test",
+      "Triggers": "plus one plus one counters",
+      "Scryfall Output": "o:/\\+1\\/\\+1 counter/",
+      "Type": "QA Seed",
+      "Notes": "Escaping regression."
+    },
+    {
+      "id": "EXP-114",
+      "layer": "expanded",
+      "Category": "QA / API Integration Seeds",
+      "Data Point": "Nested OR Test",
+      "Triggers": "legendary goblin or elf",
+      "Scryfall Output": "t:legendary (t:goblin OR t:elf)",
+      "Type": "QA Seed",
+      "Notes": "Grouping regression."
+    },
+    {
+      "id": "EXP-115",
+      "layer": "expanded",
+      "Category": "QA / API Integration Seeds",
+      "Data Point": "Negation Test",
+      "Triggers": "red instants without fire",
+      "Scryfall Output": "c:r t:instant -fire",
+      "Type": "QA Seed",
+      "Notes": "Loose name negation regression."
+    },
+    {
+      "id": "EXP-116",
+      "layer": "expanded",
+      "Category": "QA / API Integration Seeds",
+      "Data Point": "Budget Commander Test",
+      "Triggers": "cheap commander staples",
+      "Scryfall Output": "f:commander usd<=5 order:edhrec",
+      "Type": "QA Seed",
+      "Notes": "Combined intent regression."
+    },
+    {
+      "id": "EXP-117",
+      "layer": "expanded",
+      "Category": "QA / API Integration Seeds",
+      "Data Point": "Rate Limit Guardrail",
+      "Triggers": "search endpoint pacing",
+      "Scryfall Output": "2/sec max for /cards/search",
+      "Type": "API Guardrail",
+      "Notes": "Client should debounce and avoid hammering API."
+    },
+    {
+      "id": "EXP-118",
+      "layer": "expanded",
+      "Category": "QA / API Integration Seeds",
+      "Data Point": "Header Guardrail",
+      "Triggers": "Scryfall headers",
+      "Scryfall Output": "User-Agent + Accept",
+      "Type": "API Guardrail",
+      "Notes": "Server/proxy calls must send required headers."
+    },
+    {
+      "id": "EXP-119",
+      "layer": "expanded",
+      "Category": "QA / API Integration Seeds",
+      "Data Point": "Bulk Data Guardrail",
+      "Triggers": "bulk oracle cards",
+      "Scryfall Output": "oracle_cards weekly cache",
+      "Type": "Data Guardrail",
+      "Notes": "Use bulk data for autocomplete/local metadata, not price storefront logic."
+    },
+    {
+      "id": "EXP-120",
+      "layer": "expanded",
+      "Category": "QA / API Integration Seeds",
+      "Data Point": "Unknown Token Handling",
+      "Triggers": "unparsed phrase remains",
+      "Scryfall Output": "warning:unresolved",
+      "Type": "QA Seed",
+      "Notes": "Parser should surface unresolved tokens in inspector."
+    }
+  ]
+}
