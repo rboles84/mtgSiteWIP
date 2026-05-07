@@ -14,10 +14,39 @@ const cases = [
     expected: "c:br t:orc"
   },
   {
+    // Tests exact color intent with symbolic Oracle text
+    name: "only izzet plus one counters",
+    input: "only red and blue with +1/+1 counters",
+    expected: "c=ur o:/\\+1\\/\\+1 counter/",
+    expectedAssumptions: ["exact card colors"],
+    expectedUnresolvedExact: []
+  },
+  {
+    // Tests exact color intent without a guild alias
+    name: "exactly blue red creatures",
+    input: "exactly blue red creatures",
+    expected: "c=ur t:creature",
+    expectedAssumptions: ["exact card colors"]
+  },
+  {
     // Tests keyword mapping (kw:) for basic abilities
     name: "green haste",
     input: "green haste",
     expected: "c:g kw:haste"
+  },
+  {
+    // Tests multi-color searches provide alternate color-pool interpretations
+    name: "red green deathtouch ambiguity",
+    input: "red and green with deathtouch",
+    expected: "c:rg kw:deathtouch",
+    expectedAlternatives: 3,
+    expectedAlternativeIncludes: [
+      "(c:r OR c:g) c<=rg kw:deathtouch",
+      "id<=rg kw:deathtouch",
+      "c=rg kw:deathtouch"
+    ],
+    expectedAssumptions: ["multiple color words"],
+    minConfidence: 0.55
   },
   {
     // Tests mapping generic concepts (removal) to specific Oracle text strings
@@ -413,6 +442,15 @@ for (const testCase of cases) {
       }
     }
     if (testCase.expectedAlternatives) assert.equal(result.alternatives.length, testCase.expectedAlternatives);
+    if (testCase.expectedAlternativeIncludes) {
+      const queries = result.alternatives.map((alternative) => alternative.query).join(" | ");
+      for (const expected of testCase.expectedAlternativeIncludes) {
+        assert.ok(queries.includes(expected), `${testCase.name}: missing alternative ${expected} in ${queries}`);
+      }
+    }
+    if (Object.prototype.hasOwnProperty.call(testCase, "expectedUnresolvedExact")) {
+      assert.deepEqual(result.unresolved, testCase.expectedUnresolvedExact);
+    }
     if (testCase.expectedUnresolved) {
       for (const expected of testCase.expectedUnresolved) {
         assert.ok(result.unresolved.includes(expected), `${testCase.name}: missing unresolved ${expected} in ${result.unresolved.join(", ")}`);

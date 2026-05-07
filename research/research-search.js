@@ -28,3 +28,18 @@ export async function scryfallExact(name) {
     return { error: true, details: error.message };
   }
 }
+
+/**
+ * Calls Scryfall's random card endpoint with an optional query.
+ * @param {string} query - Optional Scryfall query.
+ * @returns {Promise<object>} Random Scryfall card response or error object.
+ */
+export async function scryfallRandom(query = "") {
+  try {
+    const suffix = query ? `?q=${encodeURIComponent(query)}` : "";
+    const response = await fetch(`https://api.scryfall.com/cards/random${suffix}`);
+    return await response.json();
+  } catch (error) {
+    return { object: "error", details: error.message };
+  }
+}

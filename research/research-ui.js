@@ -61,6 +61,7 @@ function renderDiagnostics(inspector, result) {
  * @returns {string} HTML string.
  */
 function renderConfidence(confidence) {
+  if (!Number.isFinite(confidence)) return "";
   const pct = Math.round((confidence || 0) * 100);
   const tone = pct >= 80 ? "high" : pct >= 65 ? "medium" : "low";
   return `<div class="qi-confidence ${tone}">Confidence ${pct}%</div>`;

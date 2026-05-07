@@ -1,11 +1,15 @@
 ﻿import { loadDictionaryFromSeedUrl } from "./scryfall-dictionary.js";
 import { parseScryfallNaturalLanguage, setScryfallDictionary } from "./scryfall-parser.js";
+import { buildVisualBuilderQuery, parseKeywordInput } from "./research-builder.js";
+import { resolveModeInputValue } from "./research-mode.js";
 import * as ResearchSearch from "./research-search.js";
 import { renderQueryInspector } from "./research-ui.js";
 
 let currentMode = "ai";
 let currentQuery = "";
 let currentOrder = "name";
+let lastSmartInput = "";
+let lastSmartQuery = "";
 let allResults = [];
 let displayPage = 0;
 let hasMore = false;
@@ -13,6 +17,7 @@ let nextPageUrl = null;
 let totalCards = 0;
 let recentSearches = [];
 let toastTimeout;
+let clearAutoFilledInputOnFocus = false;
 
 const PAGE_SIZE = 24;
 
@@ -101,6 +106,7 @@ async function initializeResearchArchives() {
   buildColorGrid();
   buildTypeChecks();
   buildRarityChecks();
+  bindSearchInputClearOnFocus();
   setMode("ai");
 
   const urlQ = new URLSearchParams(location.search).get("q");
@@ -116,6 +122,7 @@ async function initializeResearchArchives() {
  * @param {string} mode - Search mode id.
  */
 function setMode(mode) {
+  const previousMode = currentMode;
   currentMode = mode;
   ["ai", "raw", "builder"].forEach((id) => {
     const btn = document.getElementById(`mode-${id}`);
@@ -148,6 +155,47 @@ function setMode(mode) {
     builder.classList.remove("hidden");
     rebuildFromFilters();
   }
+
+  syncInputForModeSwitch(input, previousMode, mode);
+}
+
+/**
+ * Keeps the search field aligned when switching between human and syntax modes.
+ * @param {HTMLInputElement} input - Search input element.
+ * @param {string} previousMode - Mode being left.
+ * @param {string} nextMode - Mode being entered.
+ */
+function syncInputForModeSwitch(input, previousMode, nextMode) {
+  if (!input) return;
+  const resolved = resolveModeInputValue({
+    previousMode,
+    nextMode,
+    currentValue: input.value,
+    lastSmartInput,
+    lastSmartQuery
+  });
+  if (!resolved.changed) return;
+  input.value = resolved.value;
+  if (nextMode === "raw") clearAutoFilledInputOnFocus = false;
+}
+
+/**
+ * Clears quick-search generated text the next time the search input receives focus.
+ */
+function bindSearchInputClearOnFocus() {
+  const input = document.getElementById("search-input");
+  if (!input) return;
+
+  input.addEventListener("focus", () => {
+    if (!clearAutoFilledInputOnFocus) return;
+    input.value = "";
+    clearAutoFilledInputOnFocus = false;
+    setMode("ai");
+  });
+
+  input.addEventListener("input", () => {
+    clearAutoFilledInputOnFocus = false;
+  });
 }
 
 /**
@@ -170,6 +218,8 @@ async function doSearch() {
     if (currentMode === "ai") {
       parserResult = parseScryfallNaturalLanguage(rawInput);
       query = parserResult.query;
+      lastSmartInput = rawInput;
+      lastSmartQuery = query;
       reason = parserResult.reason || "";
       currentOrder = parserResult.api?.order || currentOrder;
 
@@ -192,6 +242,13 @@ async function doSearch() {
         setLoading(false);
         return;
       }
+    } else if (currentMode === "raw") {
+      const prepared = prepareRawSyntaxQuery(rawInput);
+      query = prepared.query;
+      reason = prepared.reason;
+      parserResult = prepared.diagnostics;
+      if (prepared.changed) document.getElementById("search-input").value = query;
+      if (query !== lastSmartQuery) lastSmartQuery = "";
     }
 
     await triggerSearch(query, { reason, order: currentOrder, parserResult });
@@ -218,6 +275,10 @@ async function triggerSearch(query, opts = {}) {
 
   const data = await ResearchSearch.scryfallSearch(query, { order: searchOrder, unique });
   if (data.object === "error") {
+    if (isNoResultsResponse(data)) {
+      await showNoResultsState(query);
+      return;
+    }
     showError(data.details || data.warnings?.join("; ") || "Scryfall returned an error.");
     return;
   }
@@ -308,6 +369,7 @@ function openModal(card) {
   const faces = card.card_faces;
   const imageUris = card.image_uris;
   const imgHtml = buildModalImageHtml(card);
+  const manaCostHtml = renderManaCost(card.mana_cost || faces?.[0]?.mana_cost || "");
   const oracle = (card.oracle_text || faces?.map((face) => `${face.name}\n${face.oracle_text || ""}`).join("\n\n--------\n\n") || "").trim();
   const flavor = card.flavor_text || faces?.[0]?.flavor_text || "";
   const priceHtml = card.prices?.usd ? `<span class="m-price">$${card.prices.usd}</span>` : '<span style="color:var(--text-muted)">-</span>';
@@ -324,7 +386,7 @@ function openModal(card) {
     <div class="modal-img-col">${imgHtml}</div>
     <div class="modal-detail-col">
       <div class="m-name">${escapeHtml(card.name)}</div>
-      <div class="m-cost">${escapeHtml(card.mana_cost || faces?.[0]?.mana_cost || "")}</div>
+      ${manaCostHtml ? `<div class="m-cost" aria-label="Mana cost ${escapeHtml(card.mana_cost || faces?.[0]?.mana_cost || "")}">${manaCostHtml}</div>` : ""}
       <div class="m-type">${escapeHtml(card.type_line || "")}</div>
       ${oracle ? `<div class="m-oracle">${escapeHtml(oracle).replace(/\n/g, "<br>")}</div>` : ""}
       ${flavor ? `<div class="m-flavor">${escapeHtml(flavor)}</div>` : ""}
@@ -358,14 +420,62 @@ function openModal(card) {
 function buildModalImageHtml(card) {
   if (card.card_faces && !card.image_uris) {
     return `<div class="modal-img-dfc">${card.card_faces.map((face) => face.image_uris?.normal
-      ? `<img class="modal-img" src="${escapeHtml(face.image_uris.normal)}" alt="${escapeHtml(face.name)}" loading="lazy"/>`
+      ? `<img class="modal-img" src="${escapeHtml(face.image_uris.normal)}" alt="${escapeHtml(face.name)}" loading="lazy" tabindex="0"/>`
       : `<div style="aspect-ratio:63/88;background:var(--bg3);border-radius:4.5%"></div>`
     ).join("")}</div>`;
   }
   if (card.image_uris?.normal) {
-    return `<img class="modal-img" src="${escapeHtml(card.image_uris.normal)}" alt="${escapeHtml(card.name)}" loading="lazy"/>`;
+    return `<img class="modal-img" src="${escapeHtml(card.image_uris.normal)}" alt="${escapeHtml(card.name)}" loading="lazy" tabindex="0"/>`;
   }
   return `<div style="aspect-ratio:63/88;background:var(--bg3);border-radius:4.5%"></div>`;
+}
+
+/**
+ * Converts raw Scryfall mana-cost text into styled mana symbol chips.
+ * @param {string} cost - Raw Scryfall mana cost, such as {2}{B}.
+ * @returns {string} HTML for visual mana symbols.
+ */
+function renderManaCost(cost) {
+  return parseManaSymbols(cost).map((symbol) => {
+    const className = getManaSymbolClass(symbol);
+    const label = getManaSymbolLabel(symbol);
+    return `<span class="mana-symbol ${className}" title="${escapeHtml(label)}" aria-label="${escapeHtml(label)}">${escapeHtml(symbol)}</span>`;
+  }).join("");
+}
+
+/**
+ * Extracts mana symbol tokens from Scryfall brace notation.
+ * @param {string} cost - Raw mana cost.
+ * @returns {string[]} Mana symbols without braces.
+ */
+function parseManaSymbols(cost) {
+  return [...String(cost || "").matchAll(/\{([^}]+)\}/g)].map((match) => match[1]);
+}
+
+/**
+ * Chooses a visual class for a mana symbol.
+ * @param {string} symbol - Mana symbol without braces.
+ * @returns {string} CSS class name.
+ */
+function getManaSymbolClass(symbol) {
+  const normalized = String(symbol || "").toUpperCase();
+  const color = ["W", "U", "B", "R", "G"].find((item) => normalized.includes(item));
+  if (color) return `mana-${color}${normalized.includes("/") ? " mana-half" : ""}`;
+  if (/^\d+$/.test(normalized)) return "mana-generic";
+  if (["X", "Y", "Z", "C", "P", "S"].includes(normalized)) return `mana-${normalized}`;
+  return "mana-generic";
+}
+
+/**
+ * Builds a human-readable label for a mana symbol chip.
+ * @param {string} symbol - Mana symbol without braces.
+ * @returns {string} Accessible symbol label.
+ */
+function getManaSymbolLabel(symbol) {
+  const names = { W: "white", U: "blue", B: "black", R: "red", G: "green", C: "colorless", X: "X", Y: "Y", Z: "Z", P: "phyrexian", S: "snow" };
+  const normalized = String(symbol || "").toUpperCase();
+  if (/^\d+$/.test(normalized)) return `${normalized} generic mana`;
+  return normalized.split("/").map((part) => names[part] || part).join(" or ") + " mana";
 }
 
 /**
@@ -454,15 +564,90 @@ function rebuildFromFilters() {
  * @returns {string} Built query.
  */
 function buildFilterQuery() {
+  return buildVisualBuilderQuery(bFilters);
+}
+
+/**
+ * Normalizes common plain-English glue accidentally pasted into raw syntax.
+ * @param {string} input - Raw Scryfall syntax field value.
+ * @returns {object} Prepared query with optional diagnostics.
+ */
+function prepareRawSyntaxQuery(input) {
+  const andParts = splitRawSyntaxOnStandaloneAnd(input);
+  if (andParts.length <= 1) {
+    return { query: input, reason: "", changed: false, diagnostics: null };
+  }
+
+  const query = andParts.join(" ").replace(/\s+/g, " ").trim();
+  const alternativeQuery = andParts.map((part) => `(${part})`).join(" OR ");
+  return {
+    query,
+    reason: "Removed plain-language AND from raw syntax; Scryfall combines filters with spaces.",
+    changed: query !== input,
+    diagnostics: {
+      reason: "Raw syntax normalized before searching.",
+      recognized: ["raw Scryfall syntax", "plain-language AND"],
+      assumptions: [
+        "Spaces already mean AND in Scryfall syntax.",
+        "This still searches for cards matching every remaining filter."
+      ],
+      unresolved: [],
+      alternatives: [
+        {
+          label: "Treat pasted snippets as alternatives",
+          query: alternativeQuery
+        }
+      ]
+    }
+  };
+}
+
+/**
+ * Splits raw syntax on standalone unquoted AND tokens.
+ * @param {string} query - Raw query text.
+ * @returns {string[]} Query parts split around plain-language AND.
+ */
+function splitRawSyntaxOnStandaloneAnd(query) {
   const parts = [];
-  if (bFilters.colors.length) parts.push(`${bFilters.colorOp}:${bFilters.colors.join("").toLowerCase()}`);
-  if (bFilters.types.length) parts.push(bFilters.types.length === 1 ? `t:${bFilters.types[0]}` : `(${bFilters.types.map((type) => `t:${type}`).join(" OR ")})`);
-  if (bFilters.format) parts.push(`f:${bFilters.format}`);
-  if (bFilters.rarities.length) parts.push(bFilters.rarities.length === 1 ? `r:${bFilters.rarities[0]}` : `(${bFilters.rarities.map((rarity) => `r:${rarity}`).join(" OR ")})`);
-  if (bFilters.cmcMin) parts.push(`mv>=${bFilters.cmcMin}`);
-  if (bFilters.cmcMax) parts.push(`mv<=${bFilters.cmcMax}`);
-  if (bFilters.keywords.length) parts.push(bFilters.keywords.length === 1 ? `kw:${bFilters.keywords[0]}` : `(${bFilters.keywords.map((keyword) => `kw:${keyword}`).join(" OR ")})`);
-  return parts.join(" ");
+  let current = "";
+  let inQuote = false;
+  const value = String(query || "");
+
+  for (let i = 0; i < value.length; i += 1) {
+    const char = value[i];
+    if (char === '"') {
+      inQuote = !inQuote;
+      current += char;
+      continue;
+    }
+
+    if (!inQuote && isStandaloneWordAt(value, i, "and")) {
+      if (current.trim()) parts.push(current.trim());
+      current = "";
+      i += 2;
+      continue;
+    }
+
+    current += char;
+  }
+
+  if (current.trim()) parts.push(current.trim());
+  return parts.length ? parts : [value.trim()].filter(Boolean);
+}
+
+/**
+ * Checks if a word appears at an index without being part of a larger token.
+ * @param {string} value - Full search text.
+ * @param {number} index - Candidate start index.
+ * @param {string} word - Word to match.
+ * @returns {boolean} True when the word is standalone at the index.
+ */
+function isStandaloneWordAt(value, index, word) {
+  const lower = value.toLowerCase();
+  if (lower.slice(index, index + word.length) !== word) return false;
+  const before = value[index - 1] || "";
+  const after = value[index + word.length] || "";
+  return !/[a-z0-9_]/i.test(before) && !/[a-z0-9_]/i.test(after);
 }
 
 /**
@@ -489,22 +674,23 @@ function showKwSuggestions(value) {
  * @param {KeyboardEvent} event - Keyboard event.
  */
 function handleKwKey(event) {
-  if (event.key === "Enter") {
+  if (event.key === "Enter" || event.key === ",") {
+    event.preventDefault();
     const value = event.target.value.trim().toLowerCase();
     if (value) addKeyword(value);
   }
 }
 
 /**
- * Adds a keyword to the Visual Builder filter state.
- * @param {string} keyword - Keyword to add.
+ * Adds one or more keywords to the Visual Builder filter state.
+ * @param {string} keyword - Keyword text to add.
  */
 function addKeyword(keyword) {
-  if (!bFilters.keywords.includes(keyword)) {
-    bFilters.keywords.push(keyword);
-    renderKwChips();
-    rebuildFromFilters();
-  }
+  parseKeywordInput(keyword, KEYWORDS).forEach((item) => {
+    if (!bFilters.keywords.includes(item)) bFilters.keywords.push(item);
+  });
+  renderKwChips();
+  rebuildFromFilters();
   document.getElementById("kw-input").value = "";
   document.getElementById("kw-suggestions").classList.add("hidden");
 }
@@ -557,6 +743,8 @@ function buildColorGrid() {
 function runQuickSearch(query) {
   currentMode = "raw";
   document.getElementById("search-input").value = query;
+  clearAutoFilledInputOnFocus = true;
+  lastSmartQuery = "";
   setMode("raw");
   currentOrder = "name";
   displayPage = 0;
@@ -617,6 +805,24 @@ function copyQuery() {
 }
 
 /**
+ * Clears the search input and returns the search controls to Smart Search mode.
+ */
+function clearSearchInput() {
+  const input = document.getElementById("search-input");
+  if (input) {
+    input.value = "";
+    input.focus();
+  }
+
+  clearAutoFilledInputOnFocus = false;
+  lastSmartInput = "";
+  lastSmartQuery = "";
+  setMode("ai");
+  clearError();
+  document.getElementById("query-inspector")?.classList.add("hidden");
+}
+
+/**
  * Toggles loading presentation for search execution.
  * @param {boolean} on - Whether loading state is active.
  */
@@ -642,6 +848,74 @@ function setLoading(on) {
  */
 function hideState() {
   document.getElementById("state-panel").style.display = "none";
+}
+
+/**
+ * Checks whether a Scryfall error response means the query had zero matches.
+ * @param {object} data - Scryfall response payload.
+ * @returns {boolean} True when Scryfall found no matching cards.
+ */
+function isNoResultsResponse(data) {
+  return data?.code === "not_found" || data?.status === 404;
+}
+
+/**
+ * Shows a themed empty-results panel instead of a red error banner.
+ * @param {string} query - Query that returned no cards.
+ */
+async function showNoResultsState(query) {
+  clearError();
+  allResults = [];
+  totalCards = 0;
+  hasMore = false;
+  nextPageUrl = null;
+  document.getElementById("card-grid").classList.add("hidden");
+  document.getElementById("results-header").classList.add("hidden");
+  document.getElementById("results-footer").classList.add("hidden");
+
+  const panel = document.getElementById("state-panel");
+  panel.innerHTML = buildNoResultsHtml(query);
+  panel.style.display = "flex";
+
+  const card = await ResearchSearch.scryfallRandom("kw:deathtouch");
+  if (card?.object === "card") renderNoResultsCard(card);
+}
+
+/**
+ * Builds the empty-results panel HTML.
+ * @param {string} query - Query that returned no cards.
+ * @returns {string} Empty-results HTML.
+ */
+function buildNoResultsHtml(query) {
+  return `
+    <div class="empty-archive">
+      <a class="empty-card-link" id="empty-card-link" href="https://scryfall.com/card/rna/81/pestilent-spirit" target="_blank" rel="noopener">
+        <div class="empty-card-frame" id="empty-card-frame">Searching for a strange specimen...</div>
+      </a>
+      <div>
+        <div class="empty-kicker">No match in the archive</div>
+        <div class="empty-title">The trail went cold.</div>
+        <div class="empty-copy">
+          No cards matched this exact spellwork. Try loosening a color, removing one keyword, or switching an AND into an OR.
+        </div>
+        <div class="empty-query">${escapeHtml(query)}</div>
+      </div>
+    </div>
+  `;
+}
+
+/**
+ * Renders a random deathtouch card image in the empty-results panel.
+ * @param {object} card - Scryfall card payload.
+ */
+function renderNoResultsCard(card) {
+  const frame = document.getElementById("empty-card-frame");
+  const link = document.getElementById("empty-card-link");
+  const image = card.image_uris?.normal || card.card_faces?.[0]?.image_uris?.normal;
+  if (!frame || !image) return;
+
+  frame.innerHTML = `<img src="${escapeHtml(image)}" alt="${escapeHtml(card.name)}" loading="lazy">`;
+  if (link && card.scryfall_uri) link.href = card.scryfall_uri;
 }
 
 /**
@@ -718,6 +992,7 @@ function exposeWindowHandlers() {
   Object.assign(window, {
     setMode,
     doSearch,
+    clearSearchInput,
     loadMore,
     openModal,
     closeModal,

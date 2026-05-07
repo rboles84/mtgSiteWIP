@@ -3,9 +3,9 @@ import { DEFAULT_DICTIONARY } from "./scryfall-dictionary.js";
 let activeDictionary = DEFAULT_DICTIONARY;
 
 const STOP_WORDS = new Set([
-  "a", "an", "and", "any", "are", "also", "but", "card", "cards", "for", "from",
-  "give", "gives", "have", "has", "in", "into", "is", "legal", "me", "my", "of",
-  "or", "that", "the", "to", "with", "without", "which", "who", "your", "under"
+  "a", "an", "and", "any", "are", "also", "but", "card", "cards", "exactly", "for", "from",
+  "give", "gives", "have", "has", "in", "into", "is", "just", "legal", "me", "my", "of",
+  "only", "or", "that", "the", "to", "with", "without", "which", "who", "your", "under"
 ]);
 
 /**
@@ -58,6 +58,7 @@ export function parseScryfallNaturalLanguage(input, options = {}) {
   detectPrices(state);
   detectSorting(state);
   detectCounterAmbiguity(state);
+  addColorAmbiguityAlternatives(state, commanderIntent);
 
   const query = assembleQuery(state);
   state.unresolved.push(...detectUnresolvedTerms(state));
@@ -333,6 +334,15 @@ function hasCommanderIntent(text) {
 }
 
 /**
+ * Determines whether color words should be interpreted as exact card colors.
+ * @param {string} text - Normalized user input.
+ * @returns {boolean} True when the user says only/exactly/just those colors.
+ */
+function hasExactColorIntent(text) {
+  return /\b(only|exactly|just)\b/.test(text) || /\bno other colou?rs?\b/.test(text);
+}
+
+/**
  * Detects format legality phrases.
  * @param {object} state - Mutable parse state.
  */
@@ -349,13 +359,18 @@ function detectFormats(state) {
  * @param {boolean} commanderIntent - Whether to emit id<= instead of c:.
  */
 function detectIdentities(state, commanderIntent) {
+  const exactColorIntent = hasExactColorIntent(state.normalized);
   Object.entries(activeDictionary.identities).forEach(([key, identity]) => {
     if (!hasPhrase(state.normalized, key)) return;
-    const query = commanderIntent ? `id<=${identity.colors}` : `c:${sortColors(identity.colors)}`;
+    const colorQuery = exactColorIntent ? `c=${sortColors(identity.colors)}` : `c:${sortColors(identity.colors)}`;
+    const query = commanderIntent ? `id<=${identity.colors}` : colorQuery;
     addTerm(state, query, `${identity.label} identity`, "identity", key);
+    if (exactColorIntent && !commanderIntent) consumeExactColorWords(state);
     state.assumptions.push(commanderIntent
       ? `Interpreted ${identity.label} as Commander color identity.`
-      : `Interpreted ${identity.label} as actual card color.`);
+      : exactColorIntent
+        ? `Interpreted ${identity.label} as exact card colors.`
+        : `Interpreted ${identity.label} as actual card color.`);
   });
 }
 
@@ -365,6 +380,7 @@ function detectIdentities(state, commanderIntent) {
  * @param {boolean} commanderIntent - Whether color words should become identity terms.
  */
 function detectColors(state, commanderIntent) {
+  const exactColorIntent = hasExactColorIntent(state.normalized);
   Object.entries(activeDictionary.colors).forEach(([word, symbol]) => {
     if (!hasPhrase(state.normalized, word)) return;
     if (isProtectionTargetColor(state.normalized, word)) return;
@@ -382,9 +398,14 @@ function detectColors(state, commanderIntent) {
   });
 
   if (state.colors.length && !state.terms.some((term) => term.kind === "identity")) {
-    const op = commanderIntent ? "id<=" : "c:";
+    const op = commanderIntent ? "id<=" : exactColorIntent ? "c=" : "c:";
     addTerm(state, `${op}${sortColors(state.colors.join(""))}`, commanderIntent ? "Commander color identity" : "card color", "color", "");
-    state.assumptions.push(commanderIntent ? "Used Commander color identity, not exact card color." : "Used actual card color, not Commander identity.");
+    if (exactColorIntent && !commanderIntent) consumeExactColorWords(state);
+    state.assumptions.push(commanderIntent
+      ? "Used Commander color identity, not exact card color."
+      : exactColorIntent
+        ? "Used exact card colors because the request said only/exactly."
+        : "Used actual card color, not Commander identity.");
   }
 
   state.negatedColors.forEach((color) => {
@@ -546,6 +567,35 @@ function detectCounterAmbiguity(state) {
 }
 
 /**
+ * Adds alternate color interpretations for multi-color natural-language searches.
+ * @param {object} state - Mutable parse state.
+ * @param {boolean} commanderIntent - Whether the primary color parse used identity.
+ */
+function addColorAmbiguityAlternatives(state, commanderIntent) {
+  if (commanderIntent || hasExactColorIntent(state.normalized)) return;
+  if (state.colors.length < 2 || !state.terms.some((term) => term.kind === "color")) return;
+
+  const sortedColors = sortColors(state.colors.join(""));
+  const colorPoolQuery = `(${state.colors.map((color) => `c:${color}`).join(" OR ")}) c<=${sortedColors}`;
+  const label = joinHuman(state.colors.map(colorName));
+  state.assumptions.push("Interpreted multiple color words as cards containing every listed color.");
+  state.alternatives.push(
+    {
+      label: `${label} cards, no outside colors`,
+      query: withReplacedTermKinds(state, colorPoolQuery, ["color"])
+    },
+    {
+      label: `${label} Commander identity`,
+      query: withReplacedTermKinds(state, `id<=${sortedColors}`, ["color"])
+    },
+    {
+      label: `Exactly ${label} multicolor`,
+      query: withReplacedTermKinds(state, `c=${sortedColors}`, ["color"])
+    }
+  );
+}
+
+/**
  * Matches a dictionary map against the input.
  * @param {object} state - Mutable parse state.
  * @param {object} map - Phrase-to-query map.
@@ -688,7 +738,7 @@ function extractArtistName(input) {
 function detectUnresolvedTerms(state) {
   let residual = state.normalized;
   state.consumed.forEach((phrase) => {
-    residual = residual.replace(new RegExp(`\\b${escapeRegExp(phrase)}\\b`, "g"), " ");
+    residual = removeConsumedPhrase(residual, phrase);
   });
   return unique(residual
     .replace(/["',?.!]/g, " ")
@@ -705,6 +755,28 @@ function detectUnresolvedTerms(state) {
 function consumePhrase(state, phrase) {
   const clean = normalizeInput(phrase);
   if (clean && !state.consumed.includes(clean)) state.consumed.push(clean);
+}
+
+/**
+ * Consumes exact-color intent words so they do not appear as unresolved noise.
+ * @param {object} state - Mutable parse state.
+ */
+function consumeExactColorWords(state) {
+  ["only", "exactly", "just", "no other color", "no other colors"].forEach((phrase) => {
+    if (hasPhrase(state.normalized, phrase)) consumePhrase(state, phrase);
+  });
+}
+
+/**
+ * Removes a consumed phrase from residual text without breaking symbols like +1/+1.
+ * @param {string} text - Residual normalized input.
+ * @param {string} phrase - Consumed normalized phrase.
+ * @returns {string} Residual text with the phrase removed.
+ */
+function removeConsumedPhrase(text, phrase) {
+  const boundaryStart = /^[a-z0-9]/.test(phrase) ? "\\b" : "";
+  const boundaryEnd = /[a-z0-9]$/.test(phrase) ? "\\b" : "";
+  return text.replace(new RegExp(`${boundaryStart}${escapeRegExp(phrase)}${boundaryEnd}`, "g"), " ");
 }
 
 /**
@@ -822,4 +894,18 @@ function withBaseTerms(state, oracleQuery) {
     .filter((term) => term.kind !== "oracle")
     .map((term) => term.query);
   return unique([...base, oracleQuery]).join(" ").trim();
+}
+
+/**
+ * Builds an alternative query by replacing selected term kinds.
+ * @param {object} state - Mutable parse state.
+ * @param {string} replacement - Replacement query fragment.
+ * @param {string[]} excludedKinds - Term kinds to remove from the base query.
+ * @returns {string} Alternative query.
+ */
+function withReplacedTermKinds(state, replacement, excludedKinds) {
+  const base = state.terms
+    .filter((term) => !excludedKinds.includes(term.kind))
+    .map((term) => term.query);
+  return unique([replacement, ...base]).join(" ").trim();
 }
