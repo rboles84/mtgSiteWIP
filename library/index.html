@@ -6,13 +6,21 @@
 <title>Vox Mana — The Implicit Maze</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Cinzel+Decorative:wght@400&family=Crimson+Pro:ital,wght@0,300;0,400;1,300;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<!-- Vox Mana shared design system (Batch 1) -->
+<link rel="stylesheet" href="/assets/css/fonts.css">
+<link rel="stylesheet" href="/assets/css/tokens.css">
+<link rel="stylesheet" href="/assets/css/topbar.css">
 <style>
+/* Page-local aliases. Values aligned with /assets/css/tokens.css (Batch 1 locked).
+   Variable names kept legacy (--bg2 not --bg-2) so the inline CSS below still resolves.
+   Future cleanup: rename to canonical token names and delete this block. */
 :root{
-  --bg:#0c0b0a;--bg2:#131210;--bg3:#1a1816;--bg4:#201e1b;
-  --gold:#c9a84c;--gold-l:#e8d08a;--gold-d:#7a5c14;
+  --bg:#0c0b0a;--bg2:#11100e;--bg3:#15120c;--bg4:#1a1816;
+  --gold:#b8954a;--gold-l:#d4b461;--gold-d:#7a5c14;
   --teal:#1aaa96;--teal-l:#28d4bc;--teal-d:#0d6e60;--teal-bg:rgba(26,170,150,0.07);
-  --text:#d4c9b8;--text-dim:#7a6e5e;--text-muted:#4a4438;
-  --border:rgba(201,168,76,0.10);--border-s:rgba(201,168,76,0.22);
+  --text:#d4c9b8;--text-dim:#8a7c68;--text-muted:#5a5042;
+  --border:rgba(184,149,74,0.10);--border-s:rgba(184,149,74,0.22);
   --border-t:rgba(26,170,150,0.2);--border-ts:rgba(26,170,150,0.4);
   --r:8px;
 }
@@ -46,8 +54,8 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 .source-group{margin-bottom:56px;}
 
 /* ── SOURCE CARDS ── */
-.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1px;background:var(--border);}
-.card{background:var(--bg2);padding:20px 22px;display:flex;flex-direction:column;gap:10px;transition:background 0.15s;}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:0;}
+.card{background:var(--bg2);padding:20px 22px;display:flex;flex-direction:column;gap:10px;transition:background 0.15s;border:1px solid var(--border);margin:-1px 0 0 -1px;}
 .card:hover{background:var(--bg3)}
 .card-type{font-family:'IBM Plex Mono',monospace;font-size:0.62rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);}
 .card-title{font-family:'Cinzel',serif;font-size:0.92rem;color:var(--gold-l);line-height:1.35;}
@@ -74,17 +82,19 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 }
 </style>
 </head>
-<body>
+<body data-page="library">
 <div class="page">
 
-  <div class="topbar">
-    <a class="brand" href="/">Vox Mana</a>
-    <nav class="nav" aria-label="Site navigation">
-      <a href="/">Return to Site</a>
-      <a href="/privacy/">Privacy</a>
-      <a href="/terms/">Terms</a>
+  <header class="vm-topbar">
+    <a class="vm-topbar__brand" href="/">Vox Mana</a>
+    <nav class="vm-topbar__nav" aria-label="Site navigation">
+      <a href="/">Home</a>
+      <a href="/archscry/">Archscry</a>
+      <a href="/research.html">Archives</a>
+      <a href="/library/" aria-current="page">Maze</a>
+      <span data-vm-reduce-motion-toggle></span>
     </nav>
-  </div>
+  </header>
 
   <!-- HERO -->
   <div class="hero">
@@ -246,5 +256,6 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
   </div>
 
 </div>
+<script src="/assets/js/reduce-motion.js" defer></script>
 </body>
 </html>

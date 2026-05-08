@@ -1,0 +1,193 @@
+/* ============================================================
+   Vox Mana — Design Tokens
+   Single source of truth for colors, typography, spacing.
+   Drop into /assets/css/tokens.css and link from <head>.
+   ============================================================ */
+
+:root {
+  /* ── BACKGROUNDS ── warm-black layering, never pure #000 */
+  --bg:        #0c0b0a;
+  --bg-2:      #11100e;
+  --bg-3:      #15120c;
+  --bg-4:      #1a1816;
+  --bg-paper:  #e8e1cf;  /* parchment near-white, for inverted moments */
+
+  /* ── GOLD ── patina dominates, polish punctuates */
+  --gold:        #b8954a;  /* body-scale accent (was c9a84c — softer 2026) */
+  --gold-l:      #d4b461;  /* hover/active only */
+  --gold-d:      #7a5c14;  /* deep, used in dividers */
+  --gold-quiet:  #8a6f3a;  /* muted variant for secondary chrome */
+
+  /* ── COOL COUNTER ── for shadows, quotes, off-blacks */
+  --graphite:  #1a1f24;
+
+  /* ── TEAL ACCENT ── kept as your link/interactive color */
+  --teal:      #1aaa96;
+  --teal-l:    #28d4bc;
+  --teal-d:    #0d6e60;
+  --teal-bg:   rgba(26, 170, 150, 0.07);
+
+  /* ── TEXT ── */
+  --text:        #d4c9b8;
+  --text-dim:    #8a7c68;  /* slightly warmer than the old 7a6e5e */
+  --text-muted:  #5a5042;
+
+  /* ── BORDERS ── consistent across all pages now */
+  --border:     rgba(184, 149, 74, 0.10);
+  --border-s:   rgba(184, 149, 74, 0.22);  /* "strong" — for hover states */
+  --border-t:   rgba(26, 170, 150, 0.20);
+  --border-ts:  rgba(26, 170, 150, 0.40);
+
+  /* ── DANGER / SUCCESS ── */
+  --danger:    #b03030;
+  --danger-bg: rgba(176, 48, 48, 0.10);
+  --success:   #2a8a50;
+  --success-bg: rgba(42, 138, 80, 0.12);
+
+  /* ── TYPOGRAPHY ──
+     Display = Fraunces Variable (rare, ceremonial)
+     Text    = Source Serif 4 Variable (body)
+     Mono    = IBM Plex Mono (labels, taxonomy, terminal voice)
+
+     System fallbacks ship if the WOFF2s aren't loaded yet.
+     The site stays readable with zero swap shift.
+  */
+  --font-display:  'Fraunces', 'Cinzel', Georgia, 'Times New Roman', serif;
+  --font-text:     'Source Serif 4', 'Crimson Pro', Georgia, 'Times New Roman', serif;
+  --font-mono:     'IBM Plex Mono', 'Menlo', 'Monaco', 'Courier New', monospace;
+
+  /* ── TYPE SCALE ──
+     Body up at 17–19 px on desktop, 16 px floor on mobile. */
+  --text-xs:   0.72rem;   /* eyebrow microcopy, mono labels */
+  --text-sm:   0.82rem;   /* small headers */
+  --text-base: 1.05rem;   /* body */
+  --text-lg:   1.18rem;   /* lede / standout body */
+  --text-xl:   1.4rem;
+  --text-2xl:  clamp(1.6rem, 3.5vw, 2.4rem);   /* h1 */
+  --text-3xl:  clamp(2rem, 4.5vw, 3.4rem);     /* hero display */
+  --text-4xl:  clamp(2.6rem, 6vw, 4.4rem);     /* rare ceremonial */
+
+  /* ── SPACING ── 4 px base unit */
+  --s-1:  4px;
+  --s-2:  8px;
+  --s-3:  12px;
+  --s-4:  16px;
+  --s-5:  20px;
+  --s-6:  24px;
+  --s-8:  32px;
+  --s-10: 40px;
+  --s-12: 48px;
+  --s-16: 64px;
+  --s-20: 80px;
+  --s-24: 96px;
+
+  /* ── RADII ── */
+  --r-0: 0;
+  --r-1: 4px;
+  --r-2: 8px;
+  --r-3: 16px;
+
+  /* ── MOTION ── shared timing for consistency */
+  --ease-out:    cubic-bezier(0.2, 0.8, 0.2, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --dur-fast:    150ms;
+  --dur-base:    300ms;
+  --dur-slow:    600ms;
+  --dur-reveal:  900ms;
+}
+
+/* ── REDUCE MOTION RESPECT ──
+   Two layers: OS preference, and the user's explicit toggle (Batch 1).
+   Anything inside [data-reduce-motion="true"] gets the no-motion treatment.
+*/
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+[data-reduce-motion="true"] *,
+[data-reduce-motion="true"] *::before,
+[data-reduce-motion="true"] *::after {
+  animation-duration: 0.01ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.01ms !important;
+}
+
+/* ── BASE RESET — minimal, additive ── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-text);
+  font-size: var(--text-base);
+  font-weight: 400;
+  line-height: 1.7;
+  min-height: 100vh;
+  overflow-x: hidden;
+  font-variation-settings: "opsz" 16;
+}
+
+/* ── GLOBAL GRAIN TEXTURE ──
+   Single SVG turbulence layer, rendered once, composited under content.
+   GPU-cheap, gives the site its "archival" feel.
+*/
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23n)' opacity='0.018'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ── LINKS ── */
+a {
+  color: var(--teal-l);
+  text-decoration: none;
+  transition: color var(--dur-fast) var(--ease-out);
+}
+a:hover {
+  color: var(--teal);
+}
+a:focus-visible {
+  outline: 2px solid var(--gold-l);
+  outline-offset: 2px;
+}
+
+/* ── HEADINGS — defaults; pages override for context ── */
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  line-height: 1.2;
+  font-variation-settings: "opsz" 32, "wght" 600, "SOFT" 50;
+}
+
+/* ── UTILITY ── */
+.hidden { display: none !important; }
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}

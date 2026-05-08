@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice" role="img" aria-hidden="true">
+<title>Blind Eternities</title>
+<desc>An abstract dark composition. Warm-black void with distant cool and warm nebular glows in the corners. Three angular planar shards cut into the negative space. Faint gold and teal energy currents arc across the field. Sparse particles suggest distance. The center stays dark to host content. Decorative.</desc>
+
+<defs>
+<radialGradient id="bgVoid" cx="50%" cy="55%" r="80%">
+<stop offset="0%" stop-color="#15120c"/>
+<stop offset="55%" stop-color="#0e0c0a"/>
+<stop offset="100%" stop-color="#070605"/>
+</radialGradient>
+
+<radialGradient id="nebulaCool" cx="85%" cy="18%" r="55%">
+<stop offset="0%" stop-color="#1a1f24" stop-opacity="0.55"/>
+<stop offset="55%" stop-color="#0d1014" stop-opacity="0.18"/>
+<stop offset="100%" stop-color="#000000" stop-opacity="0"/>
+</radialGradient>
+
+<radialGradient id="nebulaWarm" cx="12%" cy="82%" r="50%">
+<stop offset="0%" stop-color="#2a1d10" stop-opacity="0.55"/>
+<stop offset="55%" stop-color="#1a120a" stop-opacity="0.20"/>
+<stop offset="100%" stop-color="#000000" stop-opacity="0"/>
+</radialGradient>
+
+<radialGradient id="centerVeil" cx="50%" cy="56%" r="42%">
+<stop offset="0%" stop-color="#0a0908" stop-opacity="0.55"/>
+<stop offset="65%" stop-color="#0a0908" stop-opacity="0.22"/>
+<stop offset="100%" stop-color="#0a0908" stop-opacity="0"/>
+</radialGradient>
+
+<linearGradient id="shardFill" x1="0%" y1="0%" x2="100%" y2="100%">
+<stop offset="0%" stop-color="#11100e" stop-opacity="0.45"/>
+<stop offset="100%" stop-color="#0a0908" stop-opacity="0.85"/>
+</linearGradient>
+
+<linearGradient id="shardEdge" x1="0%" y1="0%" x2="100%" y2="100%">
+<stop offset="0%" stop-color="#b8954a" stop-opacity="0.0"/>
+<stop offset="50%" stop-color="#b8954a" stop-opacity="0.55"/>
+<stop offset="100%" stop-color="#b8954a" stop-opacity="0.0"/>
+</linearGradient>
+
+<linearGradient id="shardEdgeTeal" x1="0%" y1="100%" x2="100%" y2="0%">
+<stop offset="0%" stop-color="#1aaa96" stop-opacity="0.0"/>
+<stop offset="50%" stop-color="#1aaa96" stop-opacity="0.32"/>
+<stop offset="100%" stop-color="#1aaa96" stop-opacity="0.0"/>
+</linearGradient>
+
+<filter id="grain" x="0%" y="0%" width="100%" height="100%">
+<feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="3" stitchTiles="stitch" seed="7"/>
+<feColorMatrix values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.18 0"/>
+</filter>
+</defs>
+
+<rect width="1600" height="900" fill="url(#bgVoid)"/>
+<rect width="1600" height="900" fill="url(#nebulaCool)"/>
+<rect width="1600" height="900" fill="url(#nebulaWarm)"/>
+
+<g opacity="0.85">
+<path d="M -60,180 L 280,90 L 360,310 L 110,420 L -40,320 Z" fill="url(#shardFill)" stroke="url(#shardEdge)" stroke-width="1.2"/>
+<path d="M 1180,-40 L 1480,30 L 1620,260 L 1380,300 L 1240,140 Z" fill="url(#shardFill)" stroke="url(#shardEdge)" stroke-width="1.2"/>
+<path d="M 1100,640 L 1520,570 L 1660,820 L 1380,920 L 1080,840 Z" fill="url(#shardFill)" stroke="url(#shardEdgeTeal)" stroke-width="1.0"/>
+<path d="M -80,720 L 220,640 L 320,820 L 60,940 Z" fill="url(#shardFill)" stroke="url(#shardEdge)" stroke-width="0.9"/>
+</g>
+
+<g opacity="0.55" fill="none" stroke-width="0.7" stroke-linecap="round">
+<path d="M -40,460 C 280,360 520,580 760,440 S 1240,380 1640,500" stroke="#b8954a" stroke-opacity="0.45" stroke-dasharray="2 14"/>
+<path d="M -40,560 C 320,500 600,720 880,580 S 1320,460 1640,580" stroke="#b8954a" stroke-opacity="0.20" stroke-dasharray="1 22"/>
+<path d="M 80,80 C 380,200 660,40 940,180 S 1380,260 1620,140" stroke="#1aaa96" stroke-opacity="0.18" stroke-dasharray="1 28"/>
+</g>
+
+<g fill="#b8954a" opacity="0.6">
+<circle cx="120" cy="240" r="0.9"/><circle cx="200" cy="120" r="0.7"/>
+<circle cx="340" cy="180" r="1.1"/><circle cx="80" cy="380" r="0.8"/>
+<circle cx="260" cy="500" r="0.6"/><circle cx="180" cy="640" r="1.0"/>
+<circle cx="60" cy="780" r="0.7"/><circle cx="320" cy="720" r="0.9"/>
+<circle cx="1340" cy="80" r="0.9"/><circle cx="1480" cy="180" r="1.2"/>
+<circle cx="1240" cy="240" r="0.7"/><circle cx="1560" cy="340" r="0.6"/>
+<circle cx="1380" cy="440" r="0.8"/><circle cx="1200" cy="540" r="1.0"/>
+<circle cx="1480" cy="720" r="0.7"/><circle cx="1340" cy="820" r="0.9"/>
+<circle cx="500" cy="80" r="0.5"/><circle cx="620" cy="180" r="0.6"/>
+<circle cx="780" cy="120" r="0.7"/><circle cx="960" cy="220" r="0.6"/>
+<circle cx="1100" cy="80" r="0.5"/><circle cx="540" cy="780" r="0.6"/>
+<circle cx="720" cy="820" r="0.7"/><circle cx="900" cy="760" r="0.5"/>
+<circle cx="1060" cy="820" r="0.6"/>
+</g>
+
+<g fill="#1aaa96" opacity="0.45">
+<circle cx="280" cy="320" r="0.6"/><circle cx="160" cy="540" r="0.5"/>
+<circle cx="1420" cy="280" r="0.6"/><circle cx="1280" cy="640" r="0.5"/>
+<circle cx="640" cy="240" r="0.4"/><circle cx="980" cy="660" r="0.5"/>
+</g>
+
+<rect width="1600" height="900" fill="url(#centerVeil)"/>
+<rect width="1600" height="900" filter="url(#grain)" opacity="0.6"/>
+</svg>

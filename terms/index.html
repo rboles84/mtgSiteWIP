@@ -4,56 +4,110 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Vox Mana — Terms of Service</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Crimson+Pro:ital,wght@0,300;0,400;1,300;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="/assets/css/fonts.css">
+<link rel="stylesheet" href="/assets/css/tokens.css">
+<link rel="stylesheet" href="/assets/css/topbar.css">
+
 <style>
-:root{
-  --bg:#0c0b0a;--bg2:#131210;--bg3:#1a1816;--bg4:#201e1b;
-  --gold:#c9a84c;--gold-l:#e8d08a;--gold-d:#7a5c14;
-  --teal:#1aaa96;--teal-l:#28d4bc;--teal-d:#0d6e60;--teal-bg:rgba(26,170,150,0.07);
-  --text:#d4c9b8;--text-dim:#7a6e5e;--text-muted:#4a4438;
-  --border:rgba(201,168,76,0.10);--border-s:rgba(201,168,76,0.22);
-  --border-t:rgba(26,170,150,0.2);--border-ts:rgba(26,170,150,0.4);
-  --danger:#b03030;--danger-bg:rgba(176,48,48,0.10);--r:8px;
+.page {
+  position: relative;
+  z-index: 1;
+  width: min(760px, 100%);
+  margin: 0 auto;
+  padding: 0 var(--s-5) var(--s-20);
 }
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--text);font-family:'Crimson Pro',Georgia,serif;min-height:100vh;line-height:1.75;}
-body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23n)' opacity='0.018'/%3E%3C/svg%3E");pointer-events:none;z-index:0;}
-.page{position:relative;z-index:1;width:min(760px,100%);margin:0 auto;padding:0 20px 80px;}
-.topbar{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:20px 0 24px;border-bottom:1px solid var(--border);margin-bottom:40px;}
-.brand{font-family:'Cinzel',serif;font-size:0.72rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);text-decoration:none;}
-.brand:hover{color:var(--gold-l)}
-.nav{display:flex;gap:8px;flex-wrap:wrap;}
-.nav a{font-family:'Cinzel',serif;font-size:0.62rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-dim);text-decoration:none;border:1px solid var(--border);padding:8px 14px;transition:color 0.15s,border-color 0.15s;}
-.nav a:hover{color:var(--text);border-color:var(--border-s)}
-.doc-stamp{font-family:'Cinzel',serif;font-size:0.62rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--text-muted);margin-bottom:14px;}
-h1{font-family:'Cinzel',serif;font-size:clamp(1.6rem,3.5vw,2.4rem);font-weight:600;color:var(--gold-l);letter-spacing:0.02em;line-height:1.2;margin-bottom:12px;}
-.lede{color:var(--text-dim);font-size:1.05rem;max-width:580px;margin-bottom:36px;line-height:1.7;}
-section{padding:24px 0;border-top:1px solid var(--border);}
-section:first-of-type{border-top:none}
-h2{font-family:'Cinzel',serif;font-size:0.82rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold);margin-bottom:12px;}
-p{font-size:1.02rem;color:var(--text);margin-bottom:10px;}
-p:last-child{margin-bottom:0}
-ul{padding-left:20px;margin:0;}
-li{font-size:1.02rem;color:var(--text);margin-bottom:6px;line-height:1.65;}
-li:last-child{margin-bottom:0}
-a{color:var(--teal-l);text-decoration:none}
-a:hover{color:var(--teal)}
-.foot{margin-top:48px;padding-top:24px;border-top:1px solid var(--border);color:var(--text-muted);font-size:0.92rem;font-style:italic;}
-@media(max-width:560px){.topbar{flex-direction:column;align-items:flex-start}.nav{gap:6px}}
+
+.doc-stamp {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: var(--s-3);
+  margin-top: var(--s-10);
+}
+
+h1 {
+  font-family: var(--font-display);
+  font-size: var(--text-2xl);
+  color: var(--gold-l);
+  letter-spacing: 0.02em;
+  margin-bottom: var(--s-3);
+  font-variation-settings: "opsz" 60, "wght" 600, "SOFT" 50;
+}
+
+.lede {
+  color: var(--text-dim);
+  font-size: var(--text-base);
+  max-width: 580px;
+  margin-bottom: var(--s-10);
+  line-height: 1.7;
+}
+
+section {
+  padding: var(--s-6) 0;
+  border-top: 1px solid var(--border);
+}
+section:first-of-type { border-top: none; }
+
+h2 {
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: var(--s-3);
+}
+
+p {
+  font-size: var(--text-base);
+  color: var(--text);
+  margin-bottom: var(--s-3);
+}
+p:last-child { margin-bottom: 0; }
+
+ul {
+  padding-left: var(--s-5);
+  margin: 0;
+}
+li {
+  font-size: var(--text-base);
+  color: var(--text);
+  margin-bottom: var(--s-2);
+  line-height: 1.65;
+}
+li:last-child { margin-bottom: 0; }
+
+.foot {
+  margin-top: var(--s-12);
+  padding-top: var(--s-6);
+  border-top: 1px solid var(--border);
+  color: var(--text-muted);
+  font-size: 0.92rem;
+  font-style: italic;
+}
+
+@media (max-width: 640px) {
+  .doc-stamp { margin-top: var(--s-6); }
+}
 </style>
 </head>
-<body>
+<body data-page="terms">
+
+<header class="vm-topbar">
+  <a class="vm-topbar__brand" href="/">Vox Mana</a>
+  <nav class="vm-topbar__nav" aria-label="Site navigation">
+    <a href="/">Home</a>
+    <a href="/archscry/">Archscry</a>
+    <a href="/research.html">Archives</a>
+    <a href="/library/">Maze</a>
+    <span data-vm-reduce-motion-toggle></span>
+  </nav>
+</header>
+
 <main class="page">
-  <div class="topbar">
-    <a class="brand" href="/">Vox Mana</a>
-    <nav class="nav" aria-label="Legal navigation">
-      <a href="/">Return to Site</a>
-      <a href="/privacy/">Privacy</a>
-      <a href="/library/">Source Library</a>
-    </nav>
-  </div>
 
   <div class="doc-stamp">Terms of Service</div>
   <h1>Vox Mana Terms of Service</h1>
@@ -114,10 +168,13 @@ a:hover{color:var(--teal)}
 
   <section>
     <h2>Contact</h2>
-    <p>If you have questions about these terms, contact the site operator through the support or contact method listed on the site or the OAuth consent screen.</p>
+    <p>If you have questions about these terms, please open an issue on the project's public source repository or use the contact method listed on the site.</p>
   </section>
 
   <p class="foot">By using Vox Mana, you agree to these terms.</p>
+
 </main>
+
+<script src="/assets/js/reduce-motion.js" defer></script>
 </body>
 </html>

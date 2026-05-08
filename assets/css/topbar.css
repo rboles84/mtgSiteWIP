@@ -1,0 +1,278 @@
+/* ============================================================
+   Vox Mana — Topbar Component
+   Consistent across all pages. Drop-in via /assets/css/topbar.css.
+   ============================================================ */
+
+/* ── TOPBAR ROOT ── */
+.vm-topbar {
+  position: relative;
+  z-index: 100;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--s-4);
+  width: 100%;
+  padding: var(--s-5) var(--s-5) var(--s-6);
+  border-bottom: 1px solid var(--border);
+}
+
+/* When the topbar is sticky on a scrolling page (e.g. landing), pages
+   can opt in by adding .vm-topbar--sticky on the element. */
+.vm-topbar--sticky {
+  position: sticky;
+  top: 0;
+  background: rgba(12, 11, 10, 0.92);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+/* ── BRAND ── */
+.vm-topbar__brand {
+  font-family: var(--font-display);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold);
+  text-decoration: none;
+  font-variation-settings: "opsz" 14, "wght" 600;
+  transition: color var(--dur-fast) var(--ease-out);
+}
+.vm-topbar__brand:hover {
+  color: var(--gold-l);
+}
+
+/* ── NAV ── */
+.vm-topbar__nav {
+  display: flex;
+  gap: var(--s-2);
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.vm-topbar__nav a,
+.vm-topbar__nav button {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  text-decoration: none;
+  background: transparent;
+  border: 1px solid var(--border);
+  padding: var(--s-2) var(--s-4);
+  cursor: pointer;
+  transition: color var(--dur-fast) var(--ease-out),
+              border-color var(--dur-fast) var(--ease-out);
+  white-space: nowrap;
+}
+
+.vm-topbar__nav a:hover,
+.vm-topbar__nav a:focus-visible,
+.vm-topbar__nav button:hover,
+.vm-topbar__nav button:focus-visible {
+  color: var(--text);
+  border-color: var(--border-s);
+  outline: none;
+}
+
+.vm-topbar__nav a[aria-current="page"] {
+  color: var(--gold);
+  border-color: var(--border-s);
+}
+
+/* ── REDUCE MOTION TOGGLE ──
+   Per Batch 1 spec: a gold spinning rune by default. When the user
+   toggles motion off, the rune freezes and the gold gets brighter to
+   read as the "active / stilled" state. The icon is inline SVG so it
+   inherits the button's color via currentColor. */
+.vm-reduce-motion-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  background: transparent;
+  border: 1px solid var(--border);
+  cursor: pointer;
+  color: var(--gold-quiet);
+  position: relative;
+  transition: color var(--dur-fast) var(--ease-out),
+              border-color var(--dur-fast) var(--ease-out);
+}
+
+/* ── CUSTOM TOOLTIP ──
+   Replaces native title= with an editorial-style label that matches the site.
+   Pulls from data-vm-tooltip on the button. */
+.vm-reduce-motion-toggle::after {
+  content: attr(data-vm-tooltip);
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text);
+  background: var(--bg-2, #11100e);
+  border: 1px solid var(--border-s);
+  padding: 6px 10px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-4px);
+  transition: opacity var(--dur-fast) var(--ease-out),
+              transform var(--dur-fast) var(--ease-out);
+  z-index: 200;
+}
+
+.vm-reduce-motion-toggle:hover::after,
+.vm-reduce-motion-toggle:focus-visible::after {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.vm-reduce-motion-toggle:hover,
+.vm-reduce-motion-toggle:focus-visible {
+  color: var(--gold);
+  border-color: var(--border-s);
+  outline: none;
+}
+
+.vm-reduce-motion-toggle__icon {
+  width: 18px;
+  height: 18px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  /* Default state: motion is ON. Icon spins slowly in muted gold. */
+  animation: vm-rune-rotate 12s linear infinite;
+}
+
+/* When the user has turned reduce-motion on, freeze the icon
+   and brighten the gold + slight fill so it reads as active. */
+[data-reduce-motion="true"] .vm-reduce-motion-toggle {
+  color: var(--gold);
+}
+
+[data-reduce-motion="true"] .vm-reduce-motion-toggle__icon {
+  animation: none;
+  fill: currentColor;
+  fill-opacity: 0.18;
+}
+
+@keyframes vm-rune-rotate {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+/* Respect OS preference too — if the OS says reduce, freeze the icon */
+@media (prefers-reduced-motion: reduce) {
+  .vm-reduce-motion-toggle__icon {
+    animation: none;
+  }
+}
+
+/* ── MOBILE ── */
+@media (max-width: 640px) {
+  .vm-topbar {
+    padding: var(--s-4);
+    gap: var(--s-3);
+    flex-wrap: wrap;
+  }
+  .vm-topbar__nav {
+    gap: var(--s-1);
+  }
+  .vm-topbar__nav a,
+  .vm-topbar__nav button {
+    padding: var(--s-2) var(--s-3);
+  }
+}
+
+/* ── LEGACY COMPATIBILITY ──
+   The existing pages use #topbar with .tb-* classes. Map the old
+   selectors to the new component so we don't have to rewrite every
+   page's HTML at once. The HTML files modified in this batch use the
+   new vm-topbar classes, but anywhere we missed will still render. */
+#topbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(12, 11, 10, 0.92);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--border);
+  padding: var(--s-3) var(--s-5);
+  display: flex;
+  align-items: center;
+  gap: var(--s-3);
+  transition: opacity var(--dur-base) var(--ease-out);
+}
+#topbar.hidden { display: none; }
+
+.tb-avatar {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: rgba(184, 149, 74, 0.15);
+  border: 1px solid var(--border-s);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-size: 0.65rem;
+  color: var(--gold);
+  flex-shrink: 0;
+}
+.tb-name {
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  color: var(--text);
+  flex: 1;
+}
+.tb-guild {
+  font-size: 0.75rem;
+  color: var(--text-dim);
+  font-style: italic;
+  flex: 1;
+}
+.tb-btn {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  background: transparent;
+  border: 1px solid var(--border);
+  padding: var(--s-2) var(--s-3);
+  cursor: pointer;
+  transition: color var(--dur-fast) var(--ease-out),
+              border-color var(--dur-fast) var(--ease-out);
+  white-space: nowrap;
+  text-decoration: none;
+}
+.tb-btn:hover,
+.tb-btn:focus-visible {
+  color: var(--text);
+  border-color: var(--border-s);
+  outline: none;
+}
+.tb-retake {
+  color: var(--gold-d);
+  border-color: rgba(184, 149, 74, 0.15);
+}
+.tb-retake:hover {
+  color: var(--gold);
+  border-color: var(--border-s);
+}
+
+@media (max-width: 700px) {
+  #topbar { padding: var(--s-2) var(--s-4); gap: var(--s-2); }
+  .tb-guild { display: none; }
+}
