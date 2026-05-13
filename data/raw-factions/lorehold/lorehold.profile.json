@@ -1,0 +1,1071 @@
+{
+  "schema_version": "1.0.0",
+  "profile_version": "1.1.0",
+  "faction_id": "lorehold",
+  "faction_name": "Lorehold",
+  "faction_type": "College",
+  "plane_or_setting": "Arcavios (Strixhaven)",
+  "color_identity": [
+    "Red",
+    "White"
+  ],
+  "color_pair_or_group": "Red-White",
+  "source_review_date": "2026-05-09",
+  "last_full_review": "2026-05-09",
+  "last_incremental_review": "2026-05-09",
+  "last_updated": "2026-05-09",
+  "site_surface": {
+    "display_name": "Lorehold",
+    "short_summary": "Lorehold is Strixhaven's red-white College of Archaeomancy: a history-and-fieldwork college built around ruins, relics, spirits, scrolls, artifacts, living history, and the order-versus-chaos tension of preserving the past while chasing discovery.",
+    "one_sentence_identity": "Lorehold treats the past as a living record to uncover, test, preserve, and sometimes summon into the present.",
+    "tagline": "Leave no stone unturned.",
+    "primary_tags": [
+      "Archaeomancy",
+      "History",
+      "Spirits",
+      "Artifacts",
+      "Fieldwork",
+      "Red-White",
+      "Relics",
+      "Ruins",
+      "Living History",
+      "Spirit Mentors"
+    ],
+    "secondary_tags": [
+      "Order and Chaos",
+      "Preservation",
+      "Adventure",
+      "Ancient Tomes",
+      "Spirit Statues",
+      "Blood Age",
+      "Research",
+      "Scrolls",
+      "Lorehold Repositories",
+      "Fields of Strife",
+      "Zantafar",
+      "Artifact Preservation",
+      "Archaeological Ethics"
+    ],
+    "tone_words": [
+      "diligent",
+      "adventurous",
+      "inquisitive",
+      "enthusiastic",
+      "evidence-minded",
+      "restless",
+      "reverent",
+      "field-ready",
+      "archival",
+      "justice-minded",
+      "curious",
+      "protective of evidence"
+    ],
+    "visual_keywords": [
+      "statues",
+      "monuments",
+      "scrolls",
+      "ancient tomes",
+      "cliffside campus",
+      "spirit light",
+      "travel cloaks",
+      "red and white magic",
+      "dig sites",
+      "relics",
+      "ruins",
+      "bronze scrolls",
+      "maps",
+      "dig tools",
+      "repository shelves",
+      "battlefield ghosts",
+      "spirit statues"
+    ],
+    "best_for": [
+      "history-driven explorers",
+      "artifact researchers",
+      "ruin-delvers",
+      "people who learn from the past",
+      "fieldwork-minded scholars",
+      "students who like both rules and improvisation",
+      "people who protect artifacts as historical evidence",
+      "students who balance rules with justice",
+      "explorers who want primary sources, not just legends"
+    ],
+    "content_warnings_or_sensitivity_notes": [
+      "Lorehold material can involve war history, the dead, spirits, ruins, and post-invasion loss."
+    ],
+    "claim_ids": [
+      "claim_lorehold_core_0001",
+      "claim_lorehold_core_0003",
+      "claim_lorehold_core_0004",
+      "claim_lorehold_core_0005",
+      "claim_lorehold_core_0006",
+      "claim_lorehold_core_0007",
+      "claim_lorehold_core_0008",
+      "claim_lorehold_core_0009",
+      "claim_lorehold_core_0010",
+      "claim_lorehold_core_0011",
+      "claim_lorehold_structure_0007",
+      "claim_lorehold_mechanic_0016",
+      "claim_lorehold_placement_0009"
+    ]
+  },
+  "core_identity": {
+    "summary": "Lorehold is Strixhaven's College of Archaeomancy: red-white history magic expressed through artifacts, ancient tomes, spirits, scrolls, field expeditions, and the tension between orderly preservation and chaotic discovery. Its strongest verified pattern is not generic nostalgia, but active investigation of the past through records, ruins, relics, living spirits, and dangerous fieldwork.",
+    "confirmed_claim_ids": [
+      "claim_lorehold_core_0001",
+      "claim_lorehold_core_0002",
+      "claim_lorehold_core_0003",
+      "claim_lorehold_core_0004",
+      "claim_lorehold_core_0005",
+      "claim_lorehold_core_0006",
+      "claim_lorehold_core_0007",
+      "claim_lorehold_core_0008",
+      "claim_lorehold_core_0009",
+      "claim_lorehold_dichotomy_0001",
+      "claim_lorehold_dichotomy_0006",
+      "claim_lorehold_core_0011",
+      "claim_lorehold_location_0010",
+      "claim_lorehold_mechanic_0016"
+    ],
+    "interpretive_claim_ids": [
+      "claim_lorehold_placement_0001",
+      "claim_lorehold_placement_0002",
+      "claim_lorehold_placement_0008",
+      "claim_lorehold_placement_0009"
+    ],
+    "unknowns": [
+      "A complete, current faculty roster was not confirmed from the reviewed official sources."
+    ],
+    "claim_ids": [
+      "lorehold_claim_0022",
+      "lorehold_claim_0023",
+      "lorehold_claim_0024",
+      "lorehold_claim_0025",
+      "lorehold_claim_0026",
+      "lorehold_claim_0027"
+    ]
+  },
+  "structure": {
+    "summary": "Lorehold is one of Strixhaven's five colleges. Like the other colleges, it has two dean faces representing its color tension: a red-aligned chaotic/adventurous side and a white-aligned ordered/preservationist side. The reviewed sources support Plargg and Augusta as key dean figures, while Velomachus is the elder dragon founder associated with Lorehold.",
+    "known_roles": [
+      {
+        "role_name": "Lorehold mages and scholars",
+        "description": "Students and mages who study history through artifacts, ancient tomes, spirits, and field research.",
+        "claim_ids": [
+          "claim_lorehold_core_0005",
+          "claim_lorehold_core_0006",
+          "claim_lorehold_core_0007",
+          "claim_lorehold_core_0008",
+          "claim_lorehold_core_0009",
+          "claim_lorehold_structure_0006"
+        ],
+        "confidence": "High"
+      },
+      {
+        "role_name": "Red-aligned chaos and discovery tendency",
+        "description": "The Lorehold red side emphasizes reckless discovery, adventure, essence, and emotion over precise procedure.",
+        "claim_ids": [
+          "claim_lorehold_dichotomy_0001",
+          "claim_lorehold_dichotomy_0002",
+          "claim_lorehold_dichotomy_0003",
+          "claim_lorehold_structure_0005"
+        ],
+        "confidence": "High"
+      },
+      {
+        "role_name": "White-aligned order and preservation tendency",
+        "description": "The Lorehold white side emphasizes uncovering, recording, preserving, and caring for the past, including the use of historical precedent.",
+        "claim_ids": [
+          "claim_lorehold_dichotomy_0001",
+          "claim_lorehold_dichotomy_0004",
+          "claim_lorehold_dichotomy_0005",
+          "claim_lorehold_structure_0004"
+        ],
+        "confidence": "High"
+      },
+      {
+        "role_name": "Spirit-summoners and statue mediums",
+        "description": "Lorehold mages call on spirits of the ancient dead and may house spirits in statues as part of their archaeomantic practice.",
+        "claim_ids": [
+          "claim_lorehold_core_0007",
+          "claim_lorehold_mechanic_0001",
+          "claim_lorehold_mechanic_0002",
+          "claim_lorehold_mechanic_0003",
+          "claim_lorehold_mechanic_0004"
+        ],
+        "confidence": "High"
+      },
+      {
+        "role_name": "Spirit mentors",
+        "description": "The Mentor shows Lorehold students receiving mentor matches through spirits associated with statues in Effigy Row, including recently excavated statues paired by Dean Plargg.",
+        "claim_ids": [
+          "claim_lorehold_structure_0007",
+          "claim_lorehold_structure_0008",
+          "claim_lorehold_figure_0014"
+        ],
+        "confidence": "High"
+      },
+      {
+        "role_name": "Excavation researchers and repository documenters",
+        "description": "Lorehold excavation work includes cleaning, identifying, deliberating over, and documenting artifacts for Lorehold repositories.",
+        "claim_ids": [
+          "claim_lorehold_core_0011",
+          "claim_lorehold_location_0009",
+          "claim_lorehold_figure_0013"
+        ],
+        "confidence": "High"
+      },
+      {
+        "role_name": "Fields of Strife field researchers",
+        "description": "Lorehold students and professors use protected camps and wards to study restless Blood Age spirits as dangerous but unusually direct primary sources.",
+        "claim_ids": [
+          "claim_lorehold_location_0010",
+          "claim_lorehold_location_0011",
+          "claim_lorehold_mechanic_0016",
+          "claim_lorehold_mechanic_0017"
+        ],
+        "confidence": "High"
+      }
+    ],
+    "leaders": [
+      {
+        "character_id": "char_velomachus_lorehold",
+        "name": "Velomachus Lorehold",
+        "role": "Elder dragon founder associated with Lorehold",
+        "status": "Confirmed",
+        "claim_ids": [
+          "claim_lorehold_figure_0001",
+          "claim_lorehold_figure_0002",
+          "claim_lorehold_figure_0003",
+          "claim_lorehold_figure_0004",
+          "claim_lorehold_mechanic_0011",
+          "claim_lorehold_mechanic_0012"
+        ],
+        "confidence": "High",
+        "notes": "Also referred to as Lorehold, the Historian in the reviewed 2026 official legends article."
+      },
+      {
+        "character_id": "char_plargg_dean_of_chaos",
+        "name": "Plargg",
+        "role": "Dean of Chaos",
+        "status": "Confirmed",
+        "claim_ids": [
+          "claim_lorehold_structure_0003",
+          "claim_lorehold_structure_0005"
+        ],
+        "confidence": "High",
+        "notes": "Supported by official mechanics/release-note material and the Secrets of Strixhaven story source."
+      },
+      {
+        "character_id": "char_augusta_tullus",
+        "name": "Augusta Tullus",
+        "role": "Interim dean of order; spirit instructor after death",
+        "status": "Confirmed",
+        "claim_ids": [
+          "claim_lorehold_structure_0003",
+          "claim_lorehold_structure_0004",
+          "claim_lorehold_figure_0016",
+          "claim_lorehold_figure_0017"
+        ],
+        "confidence": "High",
+        "notes": "The 2026 official legends article states Augusta prepared a ritual to be summoned after death and currently serves as interim dean of order while seeking/training a successor."
+      }
+    ],
+    "locations": [
+      {
+        "location_id": "loc_pillardrop",
+        "name": "Pillardrop",
+        "type": "Campus district",
+        "relationship_to_faction": "Lorehold campus area with cliffside buildings used for research, classwork, and housing.",
+        "claim_ids": [
+          "claim_lorehold_location_0001"
+        ],
+        "confidence": "High",
+        "notes": ""
+      },
+      {
+        "location_id": "loc_effigy_row",
+        "name": "Effigy Row",
+        "type": "Campus landmark",
+        "relationship_to_faction": "Main Lorehold campus area lined with monuments.",
+        "claim_ids": [
+          "claim_lorehold_location_0002",
+          "claim_lorehold_location_0003"
+        ],
+        "confidence": "High",
+        "notes": ""
+      },
+      {
+        "location_id": "loc_kollema_hall",
+        "name": "Kollema Hall",
+        "type": "Grand exhibition hall",
+        "relationship_to_faction": "A Lorehold gallery and records location, including Kollema Hall and the Registry of Accounts consulted by Quintorius.",
+        "claim_ids": [
+          "claim_lorehold_location_0004",
+          "claim_lorehold_location_0005",
+          "claim_lorehold_location_0008"
+        ],
+        "confidence": "High",
+        "notes": "The Mentor adds an archival record/scroll function through the Registry of Accounts."
+      },
+      {
+        "location_id": "loc_zantafar",
+        "name": "Zantafar",
+        "type": "Rediscovered lost city",
+        "relationship_to_faction": "A major historical site tied to Quintorius and Lorehold-style archaeological discovery.",
+        "claim_ids": [
+          "claim_lorehold_location_0006",
+          "claim_lorehold_figure_0007"
+        ],
+        "confidence": "High",
+        "notes": "Relevant to Lorehold through Quintorius and Secrets of Strixhaven-era historical research."
+      },
+      {
+        "location_id": "loc_fields_of_strife",
+        "name": "Fields of Strife",
+        "type": "Field study site",
+        "relationship_to_faction": "A dangerous Lorehold field-study location where restless Blood Age spirits function as living primary sources and where Lorehold maintains research camps.",
+        "claim_ids": [
+          "claim_lorehold_location_0007",
+          "claim_lorehold_mechanic_0016",
+          "claim_lorehold_mechanic_0017",
+          "claim_lorehold_location_0010",
+          "claim_lorehold_location_0011"
+        ],
+        "confidence": "High",
+        "notes": "Includes Camp Herrian, Armory Arch, Pranticle Peak, and the Lost Barracks in the 2026 guide."
+      },
+      {
+        "location_id": "loc_lorehold_repositories",
+        "name": "Lorehold repositories",
+        "type": "Research/archive function",
+        "relationship_to_faction": "Repositories where Lorehold excavation teams document significant findings.",
+        "claim_ids": [
+          "claim_lorehold_location_0009"
+        ],
+        "confidence": "High",
+        "notes": "Named as repositories in The Mentor; exact physical location was not fully specified in reviewed text."
+      }
+    ],
+    "internal_divisions": [
+      {
+        "division_id": "div_lorehold_0001",
+        "name": "Order-oriented Lorehold practice",
+        "description": "The preservationist and precedent-minded side of Lorehold that uncovers, records, preserves, and cares for history.",
+        "claim_ids": [
+          "claim_lorehold_dichotomy_0001",
+          "claim_lorehold_dichotomy_0004",
+          "claim_lorehold_dichotomy_0005",
+          "claim_lorehold_structure_0004"
+        ],
+        "confidence": "High",
+        "notes": ""
+      },
+      {
+        "division_id": "div_lorehold_0002",
+        "name": "Chaos-oriented Lorehold practice",
+        "description": "The adventurous and discovery-driven side of Lorehold that prizes field action, essence, emotion, and rule-bending discovery.",
+        "claim_ids": [
+          "claim_lorehold_dichotomy_0001",
+          "claim_lorehold_dichotomy_0002",
+          "claim_lorehold_dichotomy_0003",
+          "claim_lorehold_structure_0005"
+        ],
+        "confidence": "High",
+        "notes": ""
+      },
+      {
+        "division_id": "div_lorehold_0003",
+        "name": "Field studies and archaeological expeditions",
+        "description": "Lorehold study includes history, archaeology, anthropology, architecture, mythology, theology, and fieldwork methodologies.",
+        "claim_ids": [
+          "claim_lorehold_structure_0006",
+          "claim_lorehold_core_0009",
+          "claim_lorehold_location_0007"
+        ],
+        "confidence": "High",
+        "notes": ""
+      },
+      {
+        "division_id": "div_lorehold_0004",
+        "name": "Spirit and statue practice",
+        "description": "Lorehold practice includes calling on spirits of the ancient dead and housing spirits in statues.",
+        "claim_ids": [
+          "claim_lorehold_core_0007",
+          "claim_lorehold_mechanic_0001",
+          "claim_lorehold_mechanic_0002"
+        ],
+        "confidence": "High",
+        "notes": ""
+      },
+      {
+        "division_id": "div_lorehold_0005",
+        "name": "Mentor-statue practice",
+        "description": "A spirit-study practice where students can be matched with spirit mentors housed in or associated with statues, under rules that restrict statue movement from Effigy Row without dean permission.",
+        "claim_ids": [
+          "claim_lorehold_structure_0007",
+          "claim_lorehold_structure_0008",
+          "claim_lorehold_structure_0009",
+          "claim_lorehold_figure_0014"
+        ],
+        "confidence": "High",
+        "notes": "Supported by The Mentor; may not cover every Lorehold mentorship model."
+      },
+      {
+        "division_id": "div_lorehold_0006",
+        "name": "Artifact preservation and restoration",
+        "description": "Lorehold practice includes protecting, documenting, preserving, and in some cases magically restoring historical artifacts.",
+        "claim_ids": [
+          "claim_lorehold_core_0011",
+          "claim_lorehold_location_0009",
+          "claim_lorehold_figure_0018",
+          "claim_lorehold_placement_0009"
+        ],
+        "confidence": "High",
+        "notes": "The Soovril claim is official legend material; the anti-looting placement claim is interpretive from Field Studies."
+      }
+    ],
+    "unknowns": [
+      "claim_lorehold_unknown_0001"
+    ]
+  },
+  "great_tension": {
+    "summary": "Lorehold is pulled between order and chaos: preserving records, rules, and historical continuity while also chasing risky discoveries, revising bad assumptions, and recognizing that unjust rules can corrupt authority.",
+    "status": "Supported Interpretation",
+    "claim_ids": [
+      "claim_lorehold_dichotomy_0001",
+      "claim_lorehold_dichotomy_0002",
+      "claim_lorehold_dichotomy_0003",
+      "claim_lorehold_dichotomy_0004",
+      "claim_lorehold_dichotomy_0005",
+      "claim_lorehold_dichotomy_0006",
+      "claim_lorehold_placement_0008",
+      "claim_lorehold_structure_0009"
+    ],
+    "interpretation_warning": "The order/chaos dichotomy is canon; the rule-versus-justice framing is an interpretation built from The Mentor and should be used as placement logic, not direct faction doctrine."
+  },
+  "historical_timeline": [
+    {
+      "event_id": "event_lorehold_0001",
+      "event": "The Blood Age spans the deep past of Arcavios in the reviewed 2026 official guide.",
+      "date_or_era": "Approximately 7000 to 700 years before the 2026 guide's present framing",
+      "claim_ids": [
+        "claim_lorehold_timeline_0002"
+      ],
+      "confidence": "High",
+      "notes": "This is broader Arcavios history, relevant to Lorehold because Lorehold studies Blood Age remnants, spirits, and artifacts."
+    },
+    {
+      "event_id": "event_lorehold_0002",
+      "event": "The Blood Age ends when the five elder dragons found Strixhaven, beginning the Mystic Age.",
+      "date_or_era": "Approximately 700 years before the 2026 guide's present framing",
+      "claim_ids": [
+        "claim_lorehold_timeline_0001",
+        "claim_lorehold_timeline_0003",
+        "claim_lorehold_figure_0001"
+      ],
+      "confidence": "High",
+      "notes": ""
+    },
+    {
+      "event_id": "event_lorehold_0003",
+      "event": "Blood Age artifacts and spirits continue to surface in the Mystic Age.",
+      "date_or_era": "Mystic Age",
+      "claim_ids": [
+        "claim_lorehold_timeline_0004",
+        "claim_lorehold_mechanic_0001",
+        "claim_lorehold_mechanic_0002"
+      ],
+      "confidence": "High",
+      "notes": "This supports Lorehold's ongoing interest in ruins, artifacts, spirits, and historical field sites."
+    },
+    {
+      "event_id": "event_lorehold_0004",
+      "event": "Quintorius and related Lorehold research surface the lost city of Zantafar and wider historical questions.",
+      "date_or_era": "Strixhaven and Secrets of Strixhaven story era",
+      "claim_ids": [
+        "claim_lorehold_location_0006",
+        "claim_lorehold_figure_0007"
+      ],
+      "confidence": "High",
+      "notes": ""
+    },
+    {
+      "event_id": "event_lorehold_0005",
+      "event": "The Phyrexian invasion reaches Strixhaven, with professors captured and compleated.",
+      "date_or_era": "March of the Machine story era",
+      "claim_ids": [
+        "claim_lorehold_timeline_0005",
+        "claim_lorehold_timeline_0006"
+      ],
+      "confidence": "High",
+      "notes": "This event informs later Lorehold student characterization, especially Kirol's post-invasion motivation."
+    },
+    {
+      "event_id": "event_lorehold_0007",
+      "event": "Quintorius and Asterion use Lorehold spirit-mentor investigation to redirect a Pillardrop excavation question toward the lost city of Zantafar.",
+      "date_or_era": "Strixhaven: School of Mages story era",
+      "claim_ids": [
+        "claim_lorehold_figure_0014",
+        "claim_lorehold_figure_0015",
+        "claim_lorehold_location_0006"
+      ],
+      "confidence": "Medium",
+      "notes": "Condensed from The Mentor; keep as story-specific and avoid overgeneralizing to all Lorehold archaeology."
+    },
+    {
+      "event_id": "event_lorehold_0008",
+      "event": "After the Phyrexian Invasion, Augusta's spirit serves as interim dean of order while seeking and training a successor.",
+      "date_or_era": "Secrets of Strixhaven era",
+      "claim_ids": [
+        "claim_lorehold_figure_0016",
+        "claim_lorehold_figure_0017"
+      ],
+      "confidence": "High",
+      "notes": "Supported by official 2026 legend material."
+    },
+    {
+      "event_id": "event_lorehold_0009",
+      "event": "Quintorius returns to Arcavios and uses Fields of Strife research while pursuing clues about Fomori or Coin Empire remnants.",
+      "date_or_era": "Secrets of Strixhaven era",
+      "claim_ids": [
+        "claim_lorehold_figure_0021",
+        "claim_lorehold_location_0010",
+        "claim_lorehold_mechanic_0016"
+      ],
+      "confidence": "High",
+      "notes": "Supported by official legend material and the Field Studies story source."
+    }
+  ],
+  "key_figures": [
+    {
+      "character_id": "char_velomachus_lorehold",
+      "name": "Velomachus Lorehold",
+      "role": "Elder dragon founder and historian figure",
+      "relationship_to_faction": "Founder dragon associated with Lorehold.",
+      "claim_ids": [
+        "claim_lorehold_figure_0001",
+        "claim_lorehold_figure_0002",
+        "claim_lorehold_figure_0003",
+        "claim_lorehold_figure_0004",
+        "claim_lorehold_mechanic_0011",
+        "claim_lorehold_mechanic_0012"
+      ],
+      "confidence": "High",
+      "notes": ""
+    },
+    {
+      "character_id": "char_plargg_dean_of_chaos",
+      "name": "Plargg",
+      "role": "Dean of Chaos",
+      "relationship_to_faction": "One of Lorehold's dean figures.",
+      "claim_ids": [
+        "claim_lorehold_structure_0003",
+        "claim_lorehold_structure_0005"
+      ],
+      "confidence": "High",
+      "notes": ""
+    },
+    {
+      "character_id": "char_augusta_tullus",
+      "name": "Augusta Tullus",
+      "role": "Interim dean of order; spirit instructor",
+      "relationship_to_faction": "One of Lorehold's dean figures.",
+      "claim_ids": [
+        "claim_lorehold_structure_0003",
+        "claim_lorehold_structure_0004",
+        "claim_lorehold_figure_0016",
+        "claim_lorehold_figure_0017"
+      ],
+      "confidence": "High",
+      "notes": "Official 2026 source makes her post-death interim dean role explicit."
+    },
+    {
+      "character_id": "char_quintorius_kand",
+      "name": "Quintorius Kand",
+      "role": "Lorehold student and later Planeswalker",
+      "relationship_to_faction": "A major Lorehold student character tied to archaeological discovery, history, and spirit/statue magic.",
+      "claim_ids": [
+        "claim_lorehold_figure_0005",
+        "claim_lorehold_figure_0006",
+        "claim_lorehold_figure_0007",
+        "claim_lorehold_location_0006",
+        "claim_lorehold_timeline_0006",
+        "claim_lorehold_figure_0021",
+        "claim_lorehold_figure_0015"
+      ],
+      "confidence": "High",
+      "notes": "Important representative Lorehold figure, but placement logic should not overfit the entire college to Quintorius alone."
+    },
+    {
+      "character_id": "char_kirol",
+      "name": "Kirol",
+      "role": "Lorehold student",
+      "relationship_to_faction": "A Lorehold student in the Secrets of Strixhaven-era official legends article.",
+      "claim_ids": [
+        "claim_lorehold_figure_0008",
+        "claim_lorehold_figure_0009"
+      ],
+      "confidence": "High",
+      "notes": ""
+    },
+    {
+      "character_id": "char_mica",
+      "name": "Mica",
+      "role": "Lorehold historian",
+      "relationship_to_faction": "A Lorehold figure focused on deep history, fossils, minerals, and sediment.",
+      "claim_ids": [
+        "claim_lorehold_figure_0010",
+        "claim_lorehold_figure_0020"
+      ],
+      "confidence": "High",
+      "notes": ""
+    },
+    {
+      "character_id": "char_aziza",
+      "name": "Aziza",
+      "role": "Lorehold Mage Tower captain",
+      "relationship_to_faction": "Captain of a Lorehold Mage Tower team.",
+      "claim_ids": [
+        "claim_lorehold_figure_0011"
+      ],
+      "confidence": "High",
+      "notes": ""
+    },
+    {
+      "character_id": "char_excava_risen_past",
+      "name": "Excava, Risen Past",
+      "role": "Animated statue and ancient spirit",
+      "relationship_to_faction": "A Blood Age war-horse spirit inhabiting a statue and sought by Lorehold students.",
+      "claim_ids": [
+        "claim_lorehold_figure_0012"
+      ],
+      "confidence": "High",
+      "notes": ""
+    },
+    {
+      "character_id": "char_hofri_ghostforge",
+      "name": "Hofri Ghostforge",
+      "role": "Lorehold professor and excavation project lead",
+      "relationship_to_faction": "Professor, mentor figure, and spirit-rousing specialist shown in The Mentor.",
+      "claim_ids": [
+        "claim_lorehold_figure_0013",
+        "claim_lorehold_mechanic_0015"
+      ],
+      "confidence": "High",
+      "notes": "Repository archive story support; card identity should be separately verified before card-data use."
+    },
+    {
+      "character_id": "char_asterion_spirit_mentor",
+      "name": "Asterion",
+      "role": "Quintorius Kand's assigned spirit mentor",
+      "relationship_to_faction": "Spirit mentor associated with a recently excavated statue in Effigy Row.",
+      "claim_ids": [
+        "claim_lorehold_figure_0014",
+        "claim_lorehold_figure_0015",
+        "claim_lorehold_structure_0007"
+      ],
+      "confidence": "High",
+      "notes": "Story-specific spirit mentor; useful for understanding Lorehold mentor/statue practice."
+    },
+    {
+      "character_id": "char_soovril_patient_antiquarian",
+      "name": "Soovril, Patient Antiquarian",
+      "role": "Lorehold chronomancy student and artifact restorer",
+      "relationship_to_faction": "Student whose chrono-methodologies restore historical artifacts.",
+      "claim_ids": [
+        "claim_lorehold_figure_0018"
+      ],
+      "confidence": "High",
+      "notes": "Official 2026 legends article support."
+    }
+  ],
+  "canonical_flavor_text": [
+    {
+      "card_name": "Lorehold Command",
+      "set": "Strixhaven: School of Mages",
+      "short_excerpt_or_summary": "A modal red-white Lorehold card with combat, card-selection, token, and sacrifice-damage modes.",
+      "is_exact_excerpt": false,
+      "claim_ids": [
+        "claim_lorehold_mechanic_0008"
+      ],
+      "source_ids": [
+        "src_lorehold_0005"
+      ],
+      "notes": "Summarized from official release notes rather than quoted in full."
+    },
+    {
+      "card_name": "Quintorius, Field Historian",
+      "set": "Strixhaven: School of Mages",
+      "short_excerpt_or_summary": "A Lorehold-associated card that strengthens Spirits and creates Spirit tokens when cards leave the graveyard.",
+      "is_exact_excerpt": false,
+      "claim_ids": [
+        "claim_lorehold_mechanic_0009"
+      ],
+      "source_ids": [
+        "src_lorehold_0005"
+      ],
+      "notes": "Summarized from official release notes rather than quoted in full."
+    },
+    {
+      "card_name": "Lorehold Apprentice",
+      "set": "Strixhaven: School of Mages",
+      "short_excerpt_or_summary": "A magecraft card that gives Spirits an activated ability to deal damage.",
+      "is_exact_excerpt": false,
+      "claim_ids": [
+        "claim_lorehold_mechanic_0010",
+        "claim_lorehold_mechanic_0005"
+      ],
+      "source_ids": [
+        "src_lorehold_0005"
+      ],
+      "notes": "Summarized from official release notes rather than quoted in full."
+    },
+    {
+      "card_name": "Velomachus Lorehold",
+      "set": "Strixhaven: School of Mages",
+      "short_excerpt_or_summary": "A red-white Elder Dragon card with flying, vigilance, haste, and an attack trigger involving instants and sorceries.",
+      "is_exact_excerpt": false,
+      "claim_ids": [
+        "claim_lorehold_mechanic_0011",
+        "claim_lorehold_mechanic_0012"
+      ],
+      "source_ids": [
+        "src_lorehold_0005"
+      ],
+      "notes": "Summarized from official release notes rather than quoted in full."
+    }
+  ],
+  "views_on_other_factions": [],
+  "mechanics": [
+    {
+      "mechanic_id": "mech_archaeomancy",
+      "mechanic_name": "Archaeomancy",
+      "associated_set": "Strixhaven / Secrets of Strixhaven lore framing",
+      "rules_summary": "Archaeomancy is a lore identity and magical study area in reviewed sources, not a standalone official keyword mechanic in the reviewed rules sources.",
+      "design_or_flavor_connection": "Connects Lorehold to historical study through artifacts, ancient tomes, spirits, and field research.",
+      "claim_ids": [
+        "claim_lorehold_core_0004",
+        "claim_lorehold_core_0005",
+        "claim_lorehold_core_0006",
+        "claim_lorehold_core_0007",
+        "claim_lorehold_core_0008",
+        "claim_lorehold_structure_0006"
+      ],
+      "confidence": "High",
+      "notes": ""
+    },
+    {
+      "mechanic_id": "mech_spirit_statues",
+      "mechanic_name": "Spirit statues and The Rousing",
+      "associated_set": "Strixhaven story lore",
+      "rules_summary": "Story magic rather than a formal keyword mechanic.",
+      "design_or_flavor_connection": "Lorehold mages call the spirits of the ancient dead, can house or engage spirits through statues, can use spirit mentors, and can sometimes rouse spirits without a statue focus.",
+      "claim_ids": [
+        "claim_lorehold_mechanic_0001",
+        "claim_lorehold_mechanic_0002",
+        "claim_lorehold_mechanic_0003",
+        "claim_lorehold_mechanic_0004",
+        "claim_lorehold_structure_0007",
+        "claim_lorehold_structure_0009",
+        "claim_lorehold_mechanic_0015"
+      ],
+      "confidence": "High",
+      "notes": ""
+    },
+    {
+      "mechanic_id": "mech_magecraft",
+      "mechanic_name": "Magecraft",
+      "associated_set": "Strixhaven: School of Mages",
+      "rules_summary": "Magecraft is an ability word that triggers when a player casts or copies an instant or sorcery spell.",
+      "design_or_flavor_connection": "Magecraft is a broad Strixhaven mechanic, not exclusive to Lorehold, but Lorehold cards can use it.",
+      "claim_ids": [
+        "claim_lorehold_mechanic_0005",
+        "claim_lorehold_mechanic_0010"
+      ],
+      "confidence": "High",
+      "notes": ""
+    },
+    {
+      "mechanic_id": "mech_learn_lesson",
+      "mechanic_name": "Learn and Lessons",
+      "associated_set": "Strixhaven: School of Mages",
+      "rules_summary": "Learn allows a player to reveal a Lesson from outside the game and put it into their hand, or discard a card to draw a card; Lesson is a spell subtype with no special rules by itself.",
+      "design_or_flavor_connection": "Learn/Lesson supports the school setting broadly, not Lorehold alone.",
+      "claim_ids": [
+        "claim_lorehold_mechanic_0006",
+        "claim_lorehold_mechanic_0007"
+      ],
+      "confidence": "High",
+      "notes": ""
+    },
+    {
+      "mechanic_id": "mech_lorehold_command",
+      "mechanic_name": "Lorehold Command",
+      "associated_set": "Strixhaven: School of Mages",
+      "rules_summary": "A modal instant with several red-white tactical effects.",
+      "design_or_flavor_connection": "Card-supported expression of Lorehold's battlefield, token, sacrifice, and card-selection texture.",
+      "claim_ids": [
+        "claim_lorehold_mechanic_0008"
+      ],
+      "confidence": "High",
+      "notes": ""
+    },
+    {
+      "mechanic_id": "mech_lorehold_spirits",
+      "mechanic_name": "Lorehold Spirits",
+      "associated_set": "Strixhaven: School of Mages / Secrets of Strixhaven Commander",
+      "rules_summary": "Card-supported Spirit synergies include Spirit tokens and Spirit-focused abilities on Lorehold-associated cards and deck material.",
+      "design_or_flavor_connection": "Connects Lorehold's lore of summoning ancient spirits to Spirit tokens and Spirit-focused gameplay materials.",
+      "claim_ids": [
+        "claim_lorehold_mechanic_0009",
+        "claim_lorehold_mechanic_0010",
+        "claim_lorehold_mechanic_0013",
+        "claim_lorehold_mechanic_0014"
+      ],
+      "confidence": "High",
+      "notes": ""
+    },
+    {
+      "mechanic_id": "mech_fields_of_strife_primary_sources",
+      "mechanic_name": "Fields of Strife primary-source spirits",
+      "associated_set": "Secrets of Strixhaven lore framing",
+      "rules_summary": "Story and worldbuilding concept rather than a formal card keyword mechanic.",
+      "design_or_flavor_connection": "The Fields of Strife turn Lorehold's history focus into direct contact with dangerous restless spirits treated as living primary sources.",
+      "claim_ids": [
+        "claim_lorehold_location_0010",
+        "claim_lorehold_mechanic_0016",
+        "claim_lorehold_mechanic_0017"
+      ],
+      "confidence": "High",
+      "notes": "Useful for placement and lore browsing; not a formal gameplay mechanic."
+    },
+    {
+      "mechanic_id": "mech_artifact_restoration",
+      "mechanic_name": "Historical artifact restoration",
+      "associated_set": "Secrets of Strixhaven lore framing",
+      "rules_summary": "Lore/worldbuilding practice rather than a formal keyword mechanic.",
+      "design_or_flavor_connection": "Soovril's chronomancy restores historical artifacts, reinforcing Lorehold's preservation and material-history identity.",
+      "claim_ids": [
+        "claim_lorehold_figure_0018",
+        "claim_lorehold_placement_0009"
+      ],
+      "confidence": "High",
+      "notes": "Do not generalize to every Lorehold student; use as a supported example of preservation-oriented practice."
+    }
+  ],
+  "search_and_filter_metadata": {
+    "aliases": [
+      "Lorehold",
+      "Lorehold College",
+      "College of Archaeomancy",
+      "Lorehold Spirit",
+      "Lorehold, the Historian"
+    ],
+    "related_terms": [
+      "Strixhaven",
+      "Arcavios",
+      "archaeomancy",
+      "history",
+      "artifacts",
+      "ancient tomes",
+      "spirits",
+      "The Rousing",
+      "Blood Age",
+      "Mystic Age",
+      "Pillardrop",
+      "Effigy Row",
+      "Kollema Hall",
+      "Zantafar",
+      "Fields of Strife",
+      "relics",
+      "ruins",
+      "scrolls",
+      "artifact restoration",
+      "Lorehold repositories",
+      "Registry of Accounts",
+      "spirit mentors",
+      "Fields of Strife primary sources",
+      "Camp Herrian",
+      "Armory Arch",
+      "Pranticle Peak",
+      "Lost Barracks"
+    ],
+    "known_mechanics": [
+      "Magecraft",
+      "Learn",
+      "Lessons",
+      "Spirit tokens",
+      "Lorehold Command",
+      "The Rousing",
+      "Spirit mentors",
+      "Artifact restoration",
+      "Fields of Strife research"
+    ],
+    "known_characters": [
+      "Velomachus Lorehold",
+      "Plargg",
+      "Augusta Tullus",
+      "Quintorius Kand",
+      "Kirol",
+      "Mica",
+      "Aziza",
+      "Excava",
+      "Hofri Ghostforge",
+      "Asterion",
+      "Soovril"
+    ],
+    "known_locations": [
+      "Pillardrop",
+      "Effigy Row",
+      "Kollema Hall",
+      "Zantafar",
+      "Fields of Strife",
+      "Lorehold repositories",
+      "Registry of Accounts",
+      "Camp Herrian",
+      "Armory Arch",
+      "Pranticle Peak",
+      "Lost Barracks"
+    ],
+    "sets_or_story_arcs": [
+      "Strixhaven: School of Mages",
+      "March of the Machine",
+      "Secrets of Strixhaven"
+    ],
+    "tags": [
+      "red-white",
+      "college",
+      "archaeomancy",
+      "history",
+      "spirits",
+      "artifacts",
+      "fieldwork",
+      "order-chaos",
+      "relics",
+      "ruins",
+      "scrolls",
+      "primary-sources",
+      "artifact-preservation",
+      "spirit-mentors",
+      "fields-of-strife"
+    ],
+    "search_keywords": [
+      "Lorehold",
+      "archaeomancy",
+      "Strixhaven Lorehold",
+      "Lorehold spirits",
+      "Velomachus Lorehold",
+      "Quintorius Lorehold",
+      "Augusta Tullus",
+      "Plargg Dean of Chaos",
+      "Pillardrop",
+      "Effigy Row",
+      "The Rousing",
+      "Blood Age artifacts",
+      "Lorehold College",
+      "Quintorius",
+      "Hofri",
+      "Plargg",
+      "Lorehold spirit",
+      "Lorehold relic",
+      "Lorehold archaeology",
+      "Lorehold history",
+      "Lorehold ruins",
+      "Lorehold scroll",
+      "Lorehold artifact",
+      "red white Lorehold",
+      "Lorehold magecraft",
+      "Lorehold learn",
+      "spirit",
+      "archaeology",
+      "history",
+      "ruins",
+      "scroll",
+      "learn",
+      "relic",
+      "artifact"
+    ],
+    "story_corpus_paths_added": 6
+  },
+  "data_quality": {
+    "overall_confidence": "High",
+    "official_source_coverage": "Strong",
+    "weakly_supported_sections": [
+      "views_on_other_factions",
+      "complete_current_faculty_roster",
+      "fine-grained_current_internal_hierarchy",
+      "complete details of spirit-mentor administration beyond The Mentor"
+    ],
+    "known_gaps": [
+      "No complete official current faculty list was confirmed from reviewed sources.",
+      "No direct official Lorehold-specific relationship map with each other Strixhaven college was confirmed in the reviewed sources.",
+      "Exact current status of every named Lorehold faculty member was not exhaustively verified.",
+      "Whether all Lorehold students receive spirit mentors was not established; The Mentor supports a shown practice, not a universal rule."
+    ],
+    "needs_review": false,
+    "notes": "Updated with requested GitHub archive inspection and official Secrets of Strixhaven cross-checks. Core Lorehold identity remains strongly supported; mentor-statue specifics are story-supported and should not be overgeneralized.",
+    "corpus_upgrade": {
+      "review_date": "2026-05-09",
+      "status": "MTG-Stories corpus evidence added",
+      "claim_ids": [
+        "lorehold_claim_0022",
+        "lorehold_claim_0023",
+        "lorehold_claim_0024",
+        "lorehold_claim_0025",
+        "lorehold_claim_0026",
+        "lorehold_claim_0027"
+      ]
+    }
+  },
+  "research_limitations": [
+    {
+      "limitation": "Official release-note pages were used for card/rules support instead of relying on fan card summaries.",
+      "impact": "Card text was summarized rather than reproduced in full.",
+      "affected_fields": [
+        "canonical_flavor_text",
+        "mechanics"
+      ],
+      "notes": "This reduces copyright risk and keeps the data compact."
+    },
+    {
+      "limitation": "The GitHub MTG-Stories repository was reviewed as an archive/discovery source but not needed as primary canon support where official Wizards pages were available.",
+      "impact": "Repository archive support is preserved for future recovery but most active claims rely on official sources.",
+      "affected_fields": [
+        "sources",
+        "changelog"
+      ],
+      "notes": ""
+    },
+    {
+      "limitation": "Placement logic is intentionally interpretive.",
+      "impact": "Moral foundations, axes, and fit indicators should not be shown as official Wizards intent.",
+      "affected_fields": [
+        "placement",
+        "site_surface.best_for"
+      ],
+      "notes": "Placement fields should display an interpretation warning in user-facing contexts."
+    },
+    {
+      "limitation": "GitHub repository code search pages were not directly usable without sign-in, so repository archive files were fetched by known Typst paths rather than by search-result snippets.",
+      "impact": "The update records inspected repository files and source paths, but not a full automated repo-wide keyword hit list.",
+      "affected_fields": [
+        "sources",
+        "claims",
+        "changelog"
+      ],
+      "notes": "Terms requested by the user were covered through official sources, repository index files, The Mentor, and Field Studies in a Future Tense."
+    },
+    {
+      "limitation": "Several new details come from specific narrative scenes involving Quintorius, Asterion, Hofri, Augusta, Mica, or Soovril.",
+      "impact": "These are useful representative signals but should not be treated as universal Lorehold personality rules.",
+      "affected_fields": [
+        "key_figures",
+        "structure",
+        "placement"
+      ],
+      "notes": "Placement logic includes explicit do-not-overweight guidance."
+    },
+    "MTG-Stories repository entries are treated as searchable archive copies; official Wizards pages should remain the primary canon authority when available."
+  ]
+}

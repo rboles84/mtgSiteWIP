@@ -1,0 +1,1162 @@
+{
+  "schema_version": "1.0.0",
+  "placement_profile_version": "1.1.0",
+  "faction_id": "izzet_league",
+  "faction_name": "Izzet League",
+  "based_on_profile_version": "1.1.0",
+  "last_updated": "2026-05-10T02:56:03.254Z",
+  "placement_summary": {
+    "short_description": "The Experimental Spark: an Izzet match is energized by discovery, prototypes, technical imagination, fast iteration, and the willingness to learn from volatile failure.",
+    "best_fit_summary": "Best fits people who turn strange ideas into working systems, enjoy technical or magical experimentation, can improvise under pressure, and treat failed tests as data rather than personal defeat.",
+    "poor_fit_summary": "Poor fit for people who require complete predictability, cannot tolerate prototype failure, or see discovery pressure as never worth safety, ethical, or procedural risk.",
+    "interpretation_warning": "Placement data is interpretive and should be treated as a matching heuristic, not direct canon.",
+    "claim_ids": [
+      "claim_izzet_league_0001",
+      "claim_izzet_league_0003",
+      "claim_izzet_league_0004",
+      "claim_izzet_league_0005",
+      "claim_izzet_league_0006",
+      "claim_izzet_league_0030",
+      "claim_izzet_league_0031",
+      "claim_izzet_league_0032",
+      "claim_izzet_league_0052",
+      "claim_izzet_league_0053",
+      "claim_izzet_league_0054",
+      "claim_izzet_league_0055",
+      "claim_izzet_league_0056",
+      "claim_izzet_league_0057",
+      "claim_izzet_league_0058",
+      "claim_izzet_league_0059",
+      "claim_izzet_league_0060",
+      "claim_izzet_league_0067",
+      "claim_izzet_league_0087",
+      "claim_izzet_league_0091",
+      "claim_izzet_league_0098",
+      "claim_izzet_league_0100"
+    ],
+    "calibrated_primary_read": "Requires experimental invention, mechanism-building, prototype thinking, or discovery through chaotic iteration.",
+    "calibrated_false_positive_guardrail": "Do not award for generic curiosity, intelligence, or blue-red color identity without an experiment/build signal.",
+    "evidence_claim_ids": [
+      "claim_izzet_league_0001",
+      "claim_izzet_league_0002",
+      "claim_izzet_league_0003",
+      "claim_izzet_league_0004",
+      "claim_izzet_league_0005",
+      "claim_izzet_league_0006"
+    ]
+  },
+  "moral_and_psychological_profile": {
+    "primary_moral_foundations": [
+      {
+        "foundation": "Liberty",
+        "weight": 0.46,
+        "rationale": "Izzet sources repeatedly reward discovery, invention, experimentation, and freedom from over-constraining procedure; story examples add unsanctioned labs, emergency improvisation, and rapid prototype culture.",
+        "claim_ids": [
+          "claim_izzet_league_0027",
+          "claim_izzet_league_0030",
+          "claim_izzet_league_0031",
+          "claim_izzet_league_0054",
+          "claim_izzet_league_0067",
+          "claim_izzet_league_0085",
+          "claim_izzet_league_0091"
+        ],
+        "confidence": "Medium"
+      }
+    ],
+    "secondary_moral_foundations": [
+      {
+        "foundation": "Fairness",
+        "weight": 0.22,
+        "rationale": "Fairness is secondary and indirect: the guild has a civic function in public works, infrastructure, and rebuilding that benefits the city, but this is not usually framed as moral equality or justice.",
+        "claim_ids": [
+          "claim_izzet_league_0005",
+          "claim_izzet_league_0032",
+          "claim_izzet_league_0042",
+          "claim_izzet_league_0043",
+          "claim_izzet_league_0055"
+        ],
+        "confidence": "Medium"
+      },
+      {
+        "foundation": "Authority",
+        "weight": 0.16,
+        "rationale": "Authority appears as guild structure around Niv-Mizzet, the Izmundi, the Izmagnus, and Ral's leadership, but it is not the dominant user-facing placement signal compared with invention and experimentation.",
+        "claim_ids": [
+          "claim_izzet_league_0008",
+          "claim_izzet_league_0009",
+          "claim_izzet_league_0010",
+          "claim_izzet_league_0011",
+          "claim_izzet_league_0033",
+          "claim_izzet_league_0038"
+        ],
+        "confidence": "Medium"
+      },
+      {
+        "foundation": "Care",
+        "weight": 0.16,
+        "rationale": "Care is weak-to-secondary when expressed through civic infrastructure and reconstruction, not through emotional nurture or harm-avoidant restraint.",
+        "claim_ids": [
+          "claim_izzet_league_0005",
+          "claim_izzet_league_0032",
+          "claim_izzet_league_0042",
+          "claim_izzet_league_0043",
+          "claim_izzet_league_0055"
+        ],
+        "confidence": "Medium"
+      }
+    ],
+    "possible_shadow_expression": {
+      "summary": "The shadow Izzet expression is brilliant but impatient experimentation that confuses novelty for wisdom, treats danger as proof of ambition, and may let discovery pressure, secrecy, or career ambition override safety, consent, protocol, or care for test subjects.",
+      "claim_ids": [
+        "claim_izzet_league_0006",
+        "claim_izzet_league_0017",
+        "claim_izzet_league_0024",
+        "claim_izzet_league_0031",
+        "claim_izzet_league_0041",
+        "claim_izzet_league_0056",
+        "claim_izzet_league_0060",
+        "claim_izzet_league_0066",
+        "claim_izzet_league_0067",
+        "claim_izzet_league_0084",
+        "claim_izzet_league_0087",
+        "claim_izzet_league_0094"
+      ],
+      "confidence": "Medium",
+      "warning": "Supported interpretation, not direct canon."
+    }
+  },
+  "placement_axes": [
+    {
+      "axis_id": "axis_experimentation_vs_procedure",
+      "label": "Experimentation vs. Procedure",
+      "description": "Measures whether the user prefers exploratory prototyping or controlled process execution.",
+      "low_end_label": "Procedure-first stability",
+      "high_end_label": "Prototype-first experimentation",
+      "faction_position": 90,
+      "rationale": "Official sources repeatedly frame Izzet through invention, discovery, spellcraft, and volatile experimentation.",
+      "claim_ids": [
+        "claim_izzet_league_0003",
+        "claim_izzet_league_0004",
+        "claim_izzet_league_0006",
+        "claim_izzet_league_0030",
+        "claim_izzet_league_0031",
+        "claim_izzet_league_0052",
+        "claim_izzet_league_0054",
+        "claim_izzet_league_0056",
+        "claim_izzet_league_0058"
+      ],
+      "confidence": "High",
+      "notes": ""
+    },
+    {
+      "axis_id": "axis_civic_utility_vs_private_obsession",
+      "label": "Civic Utility vs. Private Obsession",
+      "description": "Measures whether experimentation is aimed at useful infrastructure or private curiosity.",
+      "low_end_label": "Private pet project",
+      "high_end_label": "Civic utility",
+      "faction_position": 62,
+      "rationale": "Izzet has an official civic mandate and reconstruction role, but sources also show personal obsessions, dangerous experiments, and Niv-Mizzet's hidden Interlocus.",
+      "claim_ids": [
+        "claim_izzet_league_0005",
+        "claim_izzet_league_0025",
+        "claim_izzet_league_0026",
+        "claim_izzet_league_0032",
+        "claim_izzet_league_0042",
+        "claim_izzet_league_0043",
+        "claim_izzet_league_0059",
+        "claim_izzet_league_0060"
+      ],
+      "confidence": "Medium",
+      "notes": ""
+    },
+    {
+      "axis_id": "axis_volatile_scaling",
+      "label": "Volatile Scaling",
+      "description": "Measures comfort with turning small ideas into bigger, louder, broader effects.",
+      "low_end_label": "Small controlled effect",
+      "high_end_label": "Scaled explosive effect",
+      "faction_position": 88,
+      "rationale": "Replicate, overload, and jump-start all support a spell-scaling, repeat-use, or second-chance pattern for Izzet gameplay identity.",
+      "claim_ids": [
+        "claim_izzet_league_0046",
+        "claim_izzet_league_0047",
+        "claim_izzet_league_0048",
+        "claim_izzet_league_0049",
+        "claim_izzet_league_0050",
+        "claim_izzet_league_0051",
+        "claim_izzet_league_0052"
+      ],
+      "confidence": "High",
+      "notes": ""
+    },
+    {
+      "axis_id": "axis_information_flow",
+      "label": "Information Flow",
+      "description": "Measures whether the user prefers open shared knowledge or compartmentalized project control.",
+      "low_end_label": "Open shared context",
+      "high_end_label": "Compartmentalized control",
+      "faction_position": 58,
+      "rationale": "Attendants record and organize information, but Niv-Mizzet also compartmentalizes guild information around his own grand project.",
+      "claim_ids": [
+        "claim_izzet_league_0022",
+        "claim_izzet_league_0025",
+        "claim_izzet_league_0026"
+      ],
+      "confidence": "Medium",
+      "notes": ""
+    },
+    {
+      "axis_id": "axis_risk_tolerance",
+      "label": "Risk Tolerance",
+      "description": "Measures comfort with uncertain, failure-prone, high-energy attempts.",
+      "low_end_label": "Risk-averse",
+      "high_end_label": "Risk-tolerant",
+      "faction_position": 86,
+      "rationale": "Official sources repeatedly show dangerous experiments, risky locations, volatile mana, and impatience with slow methodical work.",
+      "claim_ids": [
+        "claim_izzet_league_0006",
+        "claim_izzet_league_0014",
+        "claim_izzet_league_0015",
+        "claim_izzet_league_0017",
+        "claim_izzet_league_0022",
+        "claim_izzet_league_0031",
+        "claim_izzet_league_0041",
+        "claim_izzet_league_0056"
+      ],
+      "confidence": "High",
+      "notes": "Do not equate game/faction risk tolerance with endorsing unsafe real-world behavior."
+    },
+    {
+      "axis_id": "axis_ethics_vs_discovery_pressure",
+      "label": "Ethical Guardrails vs Discovery Pressure",
+      "description": "Measures whether the user keeps safety/consent/protocol central when discovery opportunities appear.",
+      "low_end_label": "Guardrails first",
+      "high_end_label": "Discovery pressure first",
+      "faction_position": 0.68,
+      "rationale": "Izzet match is strengthened by curiosity and iteration, but weakened if the user endorses reckless or exploitative experimentation as a default.",
+      "claim_ids": [
+        "claim_izzet_league_0084",
+        "claim_izzet_league_0087",
+        "claim_izzet_league_0100"
+      ],
+      "confidence": "Medium",
+      "notes": "This axis should prevent over-flattering reckless users as automatically Izzet."
+    },
+    {
+      "axis_id": "axis_crisis_engineering",
+      "label": "Crisis Engineering",
+      "description": "Measures comfort with building or operating complex systems under time pressure and incomplete certainty.",
+      "low_end_label": "Deliberate steady-state work",
+      "high_end_label": "Emergency improvisational systems",
+      "faction_position": 0.82,
+      "rationale": "Ral’s resonator and beacon work gives a strong story pattern for Izzet crisis engineering.",
+      "claim_ids": [
+        "claim_izzet_league_0091",
+        "claim_izzet_league_0092",
+        "claim_izzet_league_0093",
+        "claim_izzet_league_0095",
+        "claim_izzet_league_0098"
+      ],
+      "confidence": "Medium",
+      "notes": ""
+    }
+  ],
+  "core_values": [
+    {
+      "value": "Invention",
+      "description": "Creating new tools, spells, technologies, and methods.",
+      "placement_relevance": "Strong match signal when the user is energized by making and testing new things.",
+      "claim_ids": [
+        "claim_izzet_league_0003",
+        "claim_izzet_league_0004",
+        "claim_izzet_league_0020",
+        "claim_izzet_league_0030",
+        "claim_izzet_league_0054",
+        "claim_izzet_league_0058"
+      ],
+      "confidence": "High"
+    },
+    {
+      "value": "Discovery",
+      "description": "Pursuing new knowledge even when the route is messy or unstable.",
+      "placement_relevance": "Strong match signal when curiosity outweighs fear of being wrong.",
+      "claim_ids": [
+        "claim_izzet_league_0030",
+        "claim_izzet_league_0031",
+        "claim_izzet_league_0054",
+        "claim_izzet_league_0058"
+      ],
+      "confidence": "High"
+    },
+    {
+      "value": "Spellcraft and scaling",
+      "description": "Using instants, sorceries, copies, overloaded effects, and second chances to compound results.",
+      "placement_relevance": "Good gameplay-to-personality bridge for users who like chaining ideas or turning one insight into many applications.",
+      "claim_ids": [
+        "claim_izzet_league_0046",
+        "claim_izzet_league_0047",
+        "claim_izzet_league_0048",
+        "claim_izzet_league_0049",
+        "claim_izzet_league_0050",
+        "claim_izzet_league_0051",
+        "claim_izzet_league_0052"
+      ],
+      "confidence": "High"
+    },
+    {
+      "value": "Applied civic utility",
+      "description": "Using experimental capability to build, repair, or power the city.",
+      "placement_relevance": "Prevents overfitting Izzet to chaos; good match for builders who want inventions to do real work.",
+      "claim_ids": [
+        "claim_izzet_league_0005",
+        "claim_izzet_league_0032",
+        "claim_izzet_league_0042",
+        "claim_izzet_league_0043",
+        "claim_izzet_league_0055",
+        "claim_izzet_league_0059"
+      ],
+      "confidence": "High"
+    },
+    {
+      "value": "Volatile brilliance",
+      "description": "High-output creativity that can be powerful, unstable, and impatient.",
+      "placement_relevance": "Supports Izzet when the user accepts iteration and failure; weakens Izzet when the user demands certainty before trying.",
+      "claim_ids": [
+        "claim_izzet_league_0006",
+        "claim_izzet_league_0014",
+        "claim_izzet_league_0017",
+        "claim_izzet_league_0024",
+        "claim_izzet_league_0031",
+        "claim_izzet_league_0056",
+        "claim_izzet_league_0060"
+      ],
+      "confidence": "High"
+    },
+    {
+      "value": "Crisis-scale improvisation",
+      "description": "Turning unstable constraints into functioning systems when time is short.",
+      "placement_relevance": "Strongly supports Izzet when paired with technical imagination and tolerance for uncertainty.",
+      "claim_ids": [
+        "claim_izzet_league_0091",
+        "claim_izzet_league_0095",
+        "claim_izzet_league_0098"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "value": "Recognition through breakthrough",
+      "description": "Seeking advancement or attention through original discoveries rather than rank alone.",
+      "placement_relevance": "Supports Izzet when ambition is tied to invention, not just status.",
+      "claim_ids": [
+        "claim_izzet_league_0063",
+        "claim_izzet_league_0077",
+        "claim_izzet_league_0084"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "value": "Ethical restraint under pressure",
+      "description": "Choosing not to let power or discovery erase concern for people in the blast radius.",
+      "placement_relevance": "Supports mature Izzet expression and helps separate healthy curiosity from reckless shadow expression.",
+      "claim_ids": [
+        "claim_izzet_league_0087",
+        "claim_izzet_league_0099",
+        "claim_izzet_league_0100"
+      ],
+      "confidence": "Medium"
+    }
+  ],
+  "behavioral_signals": [
+    {
+      "signal": "Builds a prototype before all requirements are settled.",
+      "placement_relevance": "Strong Izzet signal.",
+      "supports_match_when": "The user learns by making, testing, and revising.",
+      "weakens_match_when": "The user sees prototypes as irresponsible until all approvals and procedures are complete.",
+      "claim_ids": [
+        "claim_izzet_league_0030",
+        "claim_izzet_league_0031",
+        "claim_izzet_league_0056",
+        "claim_izzet_league_0058"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "signal": "Turns one working idea into a repeatable or scaled pattern.",
+      "placement_relevance": "Strong Izzet mechanics signal.",
+      "supports_match_when": "The user likes copying, amplifying, reusing, or chaining solutions.",
+      "weakens_match_when": "The user prefers a single precise result and dislikes cascading effects.",
+      "claim_ids": [
+        "claim_izzet_league_0046",
+        "claim_izzet_league_0047",
+        "claim_izzet_league_0048",
+        "claim_izzet_league_0049",
+        "claim_izzet_league_0050",
+        "claim_izzet_league_0051",
+        "claim_izzet_league_0052"
+      ],
+      "confidence": "High"
+    },
+    {
+      "signal": "Enjoys technical creativity with visible energy and risk.",
+      "placement_relevance": "Strong Izzet lore signal.",
+      "supports_match_when": "The user likes laboratories, tools, systems, code, engines, or magic-tech metaphors.",
+      "weakens_match_when": "The user is primarily motivated by tradition, ritual, secrecy, or biological adaptation.",
+      "claim_ids": [
+        "claim_izzet_league_0003",
+        "claim_izzet_league_0004",
+        "claim_izzet_league_0006",
+        "claim_izzet_league_0014",
+        "claim_izzet_league_0020",
+        "claim_izzet_league_0023",
+        "claim_izzet_league_0030"
+      ],
+      "confidence": "High"
+    },
+    {
+      "signal": "Uses innovation to solve practical infrastructure problems.",
+      "placement_relevance": "Separates healthy Izzet from pure chaos.",
+      "supports_match_when": "The user wants experiments to improve real systems or rebuild broken ones.",
+      "weakens_match_when": "The user only values novelty detached from usefulness.",
+      "claim_ids": [
+        "claim_izzet_league_0005",
+        "claim_izzet_league_0032",
+        "claim_izzet_league_0042",
+        "claim_izzet_league_0043",
+        "claim_izzet_league_0059"
+      ],
+      "confidence": "High"
+    },
+    {
+      "signal": "Accepts that failed experiments may still generate useful data.",
+      "placement_relevance": "Strong Izzet mindset signal.",
+      "supports_match_when": "The user treats failure as information and iteration fuel.",
+      "weakens_match_when": "The user treats failed attempts as unacceptable waste.",
+      "claim_ids": [
+        "claim_izzet_league_0006",
+        "claim_izzet_league_0022",
+        "claim_izzet_league_0026",
+        "claim_izzet_league_0031",
+        "claim_izzet_league_0058"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "signal": "Treats failed tests as data but still asks what safeguards failed.",
+      "placement_relevance": "Separates strong Izzet from reckless Izzet shadow.",
+      "supports_match_when": "The user wants to iterate, instrument, and learn after failure.",
+      "weakens_match_when": "The user either quits after one failure or ignores harm and repeats the same unsafe pattern.",
+      "claim_ids": [
+        "claim_izzet_league_0067",
+        "claim_izzet_league_0094",
+        "claim_izzet_league_0100"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "signal": "Can coordinate complex technical work under emergency constraints.",
+      "placement_relevance": "Supports crisis-engineer Izzet matching.",
+      "supports_match_when": "The user enjoys rapidly aligning people, systems, and power flows when time is compressed.",
+      "weakens_match_when": "The user freezes without complete certainty or formal approvals.",
+      "claim_ids": [
+        "claim_izzet_league_0091",
+        "claim_izzet_league_0092",
+        "claim_izzet_league_0093"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "signal": "Seeks recognition through original invention.",
+      "placement_relevance": "Supports Izzet ambition and distinguishes it from purely expressive or purely bureaucratic drives.",
+      "supports_match_when": "The user wants to be known for breakthrough ideas, prototypes, or discoveries.",
+      "weakens_match_when": "The user mainly wants stable status, tradition, or obedience to existing structures.",
+      "claim_ids": [
+        "claim_izzet_league_0063",
+        "claim_izzet_league_0077",
+        "claim_izzet_league_0084"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "signal": "Will bend process to explore a promising anomaly.",
+      "placement_relevance": "A strong but risky Izzet signal.",
+      "supports_match_when": "The user bends rules to investigate, while still showing awareness of consequences.",
+      "weakens_match_when": "The user treats rule-bending as inherently unacceptable or treats harm as irrelevant.",
+      "claim_ids": [
+        "claim_izzet_league_0085",
+        "claim_izzet_league_0086",
+        "claim_izzet_league_0104"
+      ],
+      "confidence": "Medium"
+    },
+    "gets excited by the process",
+    "builds to learn",
+    "turns failure into a new experiment"
+  ],
+  "inhibitor_traits": [
+    {
+      "trait": "Procedural certainty requirement",
+      "why_it_conflicts": "The Izzet placement pattern depends on acting, testing, and iterating before every variable is fully stable.",
+      "status": "Supported Interpretation",
+      "claim_ids": [
+        "claim_izzet_league_0030",
+        "claim_izzet_league_0031",
+        "claim_izzet_league_0056",
+        "claim_izzet_league_0057"
+      ],
+      "confidence": "Medium",
+      "notes": "Compare Azorius for users who prefer rule-based certainty."
+    },
+    {
+      "trait": "Low tolerance for experimental failure",
+      "why_it_conflicts": "Official sources tie Izzet identity to volatile experiments, risky infrastructure, and repeated spell experimentation.",
+      "status": "Supported Interpretation",
+      "claim_ids": [
+        "claim_izzet_league_0006",
+        "claim_izzet_league_0017",
+        "claim_izzet_league_0031",
+        "claim_izzet_league_0046",
+        "claim_izzet_league_0047",
+        "claim_izzet_league_0048",
+        "claim_izzet_league_0049",
+        "claim_izzet_league_0050",
+        "claim_izzet_league_0051",
+        "claim_izzet_league_0056"
+      ],
+      "confidence": "High",
+      "notes": ""
+    },
+    {
+      "trait": "Anti-novelty stability bias",
+      "why_it_conflicts": "Users who mainly want stability, tradition, or careful maintenance may not match a faction centered on invention and discovery.",
+      "status": "Supported Interpretation",
+      "claim_ids": [
+        "claim_izzet_league_0003",
+        "claim_izzet_league_0004",
+        "claim_izzet_league_0030",
+        "claim_izzet_league_0054",
+        "claim_izzet_league_0058"
+      ],
+      "confidence": "Medium",
+      "notes": "This is not an insult; it is a discriminator against other factions."
+    },
+    {
+      "trait": "Dislike of technical or magical systems thinking",
+      "why_it_conflicts": "Izzet identity repeatedly connects elemental magic, technology, spellcraft, mizzium, tools, and mana infrastructure.",
+      "status": "Supported Interpretation",
+      "claim_ids": [
+        "claim_izzet_league_0003",
+        "claim_izzet_league_0014",
+        "claim_izzet_league_0018",
+        "claim_izzet_league_0019",
+        "claim_izzet_league_0020",
+        "claim_izzet_league_0021",
+        "claim_izzet_league_0046",
+        "claim_izzet_league_0047",
+        "claim_izzet_league_0048",
+        "claim_izzet_league_0049",
+        "claim_izzet_league_0050",
+        "claim_izzet_league_0051"
+      ],
+      "confidence": "High",
+      "notes": ""
+    },
+    {
+      "trait": "Ethics-blind experimentation",
+      "why_it_conflicts": "Izzet matching should not reward a user who treats people as disposable test material; that is a shadow risk, not the aspirational match.",
+      "status": "Supported Interpretation",
+      "claim_ids": [
+        "claim_izzet_league_0087",
+        "claim_izzet_league_0100"
+      ],
+      "confidence": "Medium",
+      "notes": "Use this as an inhibitor or caution flag, not as a positive match."
+    },
+    {
+      "trait": "Total aversion to ambiguity",
+      "why_it_conflicts": "Izzet stories repeatedly involve partial data, dangerous anomalies, unstable prototypes, and emergency choices.",
+      "status": "Supported Interpretation",
+      "claim_ids": [
+        "claim_izzet_league_0067",
+        "claim_izzet_league_0085",
+        "claim_izzet_league_0091"
+      ],
+      "confidence": "Medium",
+      "notes": ""
+    },
+    {
+      "trait": "Pure status-seeking without curiosity",
+      "why_it_conflicts": "Izzet ambition is strongest when recognition comes through discovery or invention; status alone is a weaker signal.",
+      "status": "Supported Interpretation",
+      "claim_ids": [
+        "claim_izzet_league_0063",
+        "claim_izzet_league_0077",
+        "claim_izzet_league_0084"
+      ],
+      "confidence": "Medium",
+      "notes": ""
+    },
+    "seeks proof before experimentation",
+    "uses spectacle primarily as art",
+    "studies the past rather than building the next thing"
+  ],
+  "good_fit_indicators": [
+    {
+      "indicator": "You get excited by turning a strange idea into a working prototype.",
+      "rationale": "Izzet official identity emphasizes invention, discovery, and experimentation.",
+      "claim_ids": [
+        "claim_izzet_league_0030",
+        "claim_izzet_league_0031",
+        "claim_izzet_league_0054",
+        "claim_izzet_league_0058"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "indicator": "You like systems that can scale from one effect into many effects.",
+      "rationale": "Replicate, overload, and jump-start all support repeat, expand, or reuse patterns.",
+      "claim_ids": [
+        "claim_izzet_league_0046",
+        "claim_izzet_league_0047",
+        "claim_izzet_league_0048",
+        "claim_izzet_league_0049",
+        "claim_izzet_league_0050",
+        "claim_izzet_league_0051",
+        "claim_izzet_league_0052"
+      ],
+      "confidence": "High"
+    },
+    {
+      "indicator": "You enjoy applied problem solving, not just theory.",
+      "rationale": "The Izzet have a civic mandate and later reconstruction role, not only private experimentation.",
+      "claim_ids": [
+        "claim_izzet_league_0005",
+        "claim_izzet_league_0032",
+        "claim_izzet_league_0042",
+        "claim_izzet_league_0043",
+        "claim_izzet_league_0059"
+      ],
+      "confidence": "High"
+    },
+    {
+      "indicator": "You can tolerate volatility when the payoff is discovery.",
+      "rationale": "Official sources connect the guild to risky experiments and impatience with slow prolonged work.",
+      "claim_ids": [
+        "claim_izzet_league_0006",
+        "claim_izzet_league_0017",
+        "claim_izzet_league_0031",
+        "claim_izzet_league_0056",
+        "claim_izzet_league_0060"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "indicator": "You enjoy emergency problem solving where the machine is already smoking.",
+      "rationale": "Ral’s crisis work at Nivix supports an Izzet pattern of technical improvisation under pressure.",
+      "claim_ids": [
+        "claim_izzet_league_0091",
+        "claim_izzet_league_0095",
+        "claim_izzet_league_0098"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "indicator": "You want your ideas tested in reality, not only admired in theory.",
+      "rationale": "Story examples emphasize prototypes, devices, coils, detectors, labs, and field consequences.",
+      "claim_ids": [
+        "claim_izzet_league_0065",
+        "claim_izzet_league_0078",
+        "claim_izzet_league_0083",
+        "claim_izzet_league_0092"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "indicator": "You can learn from accidents without romanticizing harm.",
+      "rationale": "This captures a healthy Izzet match that values iteration but retains restraint.",
+      "claim_ids": [
+        "claim_izzet_league_0067",
+        "claim_izzet_league_0087",
+        "claim_izzet_league_0100"
+      ],
+      "confidence": "Medium"
+    }
+  ],
+  "poor_fit_indicators": [
+    {
+      "indicator": "You need formal approval, complete predictability, and fixed procedure before trying anything.",
+      "rationale": "That pattern points away from Izzet's experiment-first identity and toward more order-centered factions.",
+      "claim_ids": [
+        "claim_izzet_league_0027",
+        "claim_izzet_league_0030",
+        "claim_izzet_league_0031",
+        "claim_izzet_league_0056",
+        "claim_izzet_league_0057"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "indicator": "You dislike technical systems, spell chains, or invention metaphors.",
+      "rationale": "Izzet is heavily rooted in magic-tech, tools, spells, mana, and experimentation.",
+      "claim_ids": [
+        "claim_izzet_league_0003",
+        "claim_izzet_league_0019",
+        "claim_izzet_league_0020",
+        "claim_izzet_league_0021",
+        "claim_izzet_league_0046",
+        "claim_izzet_league_0047",
+        "claim_izzet_league_0048",
+        "claim_izzet_league_0049",
+        "claim_izzet_league_0050",
+        "claim_izzet_league_0051",
+        "claim_izzet_league_0052"
+      ],
+      "confidence": "High"
+    },
+    {
+      "indicator": "You value safety and maintenance so strongly that novelty feels irresponsible by default.",
+      "rationale": "The official sources repeatedly show Izzet as dangerous, volatile, and impatient, even though it also has civic utility.",
+      "claim_ids": [
+        "claim_izzet_league_0005",
+        "claim_izzet_league_0006",
+        "claim_izzet_league_0017",
+        "claim_izzet_league_0031",
+        "claim_izzet_league_0056",
+        "claim_izzet_league_0059",
+        "claim_izzet_league_0060"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "indicator": "You are primarily motivated by tradition, biological adaptation, secrecy, communal harmony, or law.",
+      "rationale": "Those motives compare better with factions such as Lorehold, Simic, Dimir, Selesnya, or Azorius depending on answer pattern.",
+      "claim_ids": [
+        "claim_izzet_league_0001",
+        "claim_izzet_league_0003",
+        "claim_izzet_league_0004",
+        "claim_izzet_league_0027",
+        "claim_izzet_league_0029",
+        "claim_izzet_league_0057"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "indicator": "You need safety guarantees before any learning can begin.",
+      "rationale": "Izzet stories often begin with imperfect tests, dangerous anomalies, and incomplete information.",
+      "claim_ids": [
+        "claim_izzet_league_0067",
+        "claim_izzet_league_0085",
+        "claim_izzet_league_0091"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "indicator": "You reject iteration after a visible failure.",
+      "rationale": "Izzet discovery culture treats failure as data; immediate abandonment weakens the match.",
+      "claim_ids": [
+        "claim_izzet_league_0067",
+        "claim_izzet_league_0077"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "indicator": "You are comfortable exploiting people in the name of discovery.",
+      "rationale": "That pattern maps to Izzet shadow-expression caution, not a healthy placement score.",
+      "claim_ids": [
+        "claim_izzet_league_0087",
+        "claim_izzet_league_0100"
+      ],
+      "confidence": "Medium"
+    }
+  ],
+  "discriminator_questions": [
+    {
+      "question_id": "q_izzet_league_0001",
+      "question": "When you find a promising but unstable idea, do you test a rough prototype quickly or pause until the process is safe and fully defined?",
+      "purpose": "Separate Izzet from Azorius/Boros process-first temperaments.",
+      "answer_pattern_that_supports_this_faction": "Tests quickly, learns from results, and accepts iteration risk.",
+      "answer_pattern_that_weakens_this_faction": "Refuses to act until rules, risks, and approvals are settled.",
+      "related_factions_to_compare": [
+        "Azorius Senate",
+        "Boros Legion",
+        "Quandrix"
+      ],
+      "claim_ids": [
+        "claim_izzet_league_0030",
+        "claim_izzet_league_0031",
+        "claim_izzet_league_0056",
+        "claim_izzet_league_0057",
+        "claim_izzet_league_0058"
+      ],
+      "confidence": "Medium",
+      "notes": ""
+    },
+    {
+      "question_id": "q_izzet_league_0002",
+      "question": "Is your favorite kind of solution elegant, explosive, reusable, or socially stabilizing?",
+      "purpose": "Identify whether the user prefers Izzet scaling/energy or other faction value centers.",
+      "answer_pattern_that_supports_this_faction": "Explosive or reusable, especially when tied to technical creativity.",
+      "answer_pattern_that_weakens_this_faction": "Socially stabilizing without experimentation, or elegant abstraction without messy implementation.",
+      "related_factions_to_compare": [
+        "Selesnya Conclave",
+        "Quandrix",
+        "Azorius Senate",
+        "Prismari"
+      ],
+      "claim_ids": [
+        "claim_izzet_league_0046",
+        "claim_izzet_league_0047",
+        "claim_izzet_league_0048",
+        "claim_izzet_league_0049",
+        "claim_izzet_league_0050",
+        "claim_izzet_league_0051",
+        "claim_izzet_league_0052",
+        "claim_izzet_league_0055"
+      ],
+      "confidence": "Medium",
+      "notes": ""
+    },
+    {
+      "question_id": "q_izzet_league_0003",
+      "question": "Do you want knowledge because it can build something, because it can prove something, or because it gives you leverage over others?",
+      "purpose": "Separate Izzet applied invention from Quandrix proof-patterns and Dimir information control.",
+      "answer_pattern_that_supports_this_faction": "Knowledge should become a tool, engine, spell, prototype, or practical breakthrough.",
+      "answer_pattern_that_weakens_this_faction": "Knowledge is mainly for secrecy, social control, or pure abstract proof.",
+      "related_factions_to_compare": [
+        "Quandrix",
+        "House Dimir",
+        "Azorius Senate"
+      ],
+      "claim_ids": [
+        "claim_izzet_league_0003",
+        "claim_izzet_league_0019",
+        "claim_izzet_league_0020",
+        "claim_izzet_league_0021",
+        "claim_izzet_league_0025",
+        "claim_izzet_league_0026",
+        "claim_izzet_league_0030"
+      ],
+      "confidence": "Medium",
+      "notes": ""
+    },
+    {
+      "question_id": "q_izzet_league_0004",
+      "question": "When a first attempt fails loudly, do you feel embarrassed, cautious, curious, or energized?",
+      "purpose": "Measure Izzet tolerance for volatile experimentation.",
+      "answer_pattern_that_supports_this_faction": "Curious or energized; the failure becomes data for the next attempt.",
+      "answer_pattern_that_weakens_this_faction": "Embarrassed or cautious enough to stop experimenting.",
+      "related_factions_to_compare": [
+        "Azorius Senate",
+        "Boros Legion",
+        "Lorehold"
+      ],
+      "claim_ids": [
+        "claim_izzet_league_0006",
+        "claim_izzet_league_0017",
+        "claim_izzet_league_0031",
+        "claim_izzet_league_0056",
+        "claim_izzet_league_0058"
+      ],
+      "confidence": "Medium",
+      "notes": ""
+    },
+    {
+      "question_id": "q_izzet_league_0005",
+      "question": "Would you rather maintain a city's systems, redesign them with risky new technology, or replace them with living adaptation?",
+      "purpose": "Separate Izzet infrastructure innovation from Azorius maintenance and Simic bio-design.",
+      "answer_pattern_that_supports_this_faction": "Redesign systems with risky but promising magic-tech.",
+      "answer_pattern_that_weakens_this_faction": "Maintain stable procedures or replace systems with biological adaptation.",
+      "related_factions_to_compare": [
+        "Azorius Senate",
+        "Simic Combine",
+        "Boros Legion"
+      ],
+      "claim_ids": [
+        "claim_izzet_league_0003",
+        "claim_izzet_league_0005",
+        "claim_izzet_league_0018",
+        "claim_izzet_league_0029",
+        "claim_izzet_league_0032",
+        "claim_izzet_league_0042",
+        "claim_izzet_league_0043"
+      ],
+      "confidence": "High",
+      "notes": ""
+    },
+    {
+      "question_id": "q_izzet_league_0006",
+      "question": "Do you like your creativity disciplined by a grand theory, a visible performance, or a practical prototype?",
+      "purpose": "Separate Izzet from Prismari and Quandrix in blue-red-adjacent creative space.",
+      "answer_pattern_that_supports_this_faction": "Practical prototype or experiment that can be tested and scaled.",
+      "answer_pattern_that_weakens_this_faction": "Visible performance as the primary goal, or abstract theory detached from implementation.",
+      "related_factions_to_compare": [
+        "Prismari",
+        "Quandrix",
+        "Izzet League"
+      ],
+      "claim_ids": [
+        "claim_izzet_league_0020",
+        "claim_izzet_league_0030",
+        "claim_izzet_league_0046",
+        "claim_izzet_league_0047",
+        "claim_izzet_league_0048",
+        "claim_izzet_league_0049",
+        "claim_izzet_league_0050",
+        "claim_izzet_league_0051",
+        "claim_izzet_league_0052",
+        "claim_izzet_league_0058"
+      ],
+      "confidence": "Medium",
+      "notes": ""
+    },
+    {
+      "question_id": "q_izzet_league_0007",
+      "question": "How do you react when rules slow down your experiment?",
+      "purpose": "Test the Izzet-Azorius contrast directly using official Izzet attitude toward rules and freedom.",
+      "answer_pattern_that_supports_this_faction": "Looks for a safe-enough workaround, new method, or experiment path without losing momentum.",
+      "answer_pattern_that_weakens_this_faction": "Prefers the rule system to decide what should be attempted.",
+      "related_factions_to_compare": [
+        "Azorius Senate",
+        "Boros Legion"
+      ],
+      "claim_ids": [
+        "claim_izzet_league_0027",
+        "claim_izzet_league_0030",
+        "claim_izzet_league_0031",
+        "claim_izzet_league_0054",
+        "claim_izzet_league_0057"
+      ],
+      "confidence": "Medium",
+      "notes": ""
+    },
+    {
+      "question_id": "q_izzet_league_0008",
+      "question": "Which feels more like you: careful guardian, hidden operator, living designer, or reckless inventor who still wants the machine to work?",
+      "purpose": "Broad final discriminator across adjacent Ravnica identities.",
+      "answer_pattern_that_supports_this_faction": "Reckless inventor who still wants the machine to work.",
+      "answer_pattern_that_weakens_this_faction": "Careful guardian, hidden operator, or living designer.",
+      "related_factions_to_compare": [
+        "Boros Legion",
+        "House Dimir",
+        "Simic Combine",
+        "Azorius Senate"
+      ],
+      "claim_ids": [
+        "claim_izzet_league_0003",
+        "claim_izzet_league_0005",
+        "claim_izzet_league_0006",
+        "claim_izzet_league_0029",
+        "claim_izzet_league_0030",
+        "claim_izzet_league_0032",
+        "claim_izzet_league_0042",
+        "claim_izzet_league_0043",
+        "claim_izzet_league_0059",
+        "claim_izzet_league_0060"
+      ],
+      "confidence": "Medium",
+      "notes": ""
+    },
+    {
+      "question_id": "q_izzet_league_0009",
+      "question": "When a prototype fails dangerously but reveals valuable data, do you shut the project down, redesign the controls, or immediately run a better test?",
+      "purpose": "Separates healthy Izzet iteration from Azorius shutdown, reckless shadow-Izzet, and Boros safety intervention.",
+      "answer_pattern_that_supports_this_faction": "Redesign the controls or run a better instrumented test while preserving the lesson.",
+      "answer_pattern_that_weakens_this_faction": "Shut it down because instability itself is unacceptable, or rerun it without addressing harm.",
+      "related_factions_to_compare": [
+        "Azorius Senate",
+        "Boros Legion",
+        "Simic Combine"
+      ],
+      "claim_ids": [
+        "claim_izzet_league_0067",
+        "claim_izzet_league_0087",
+        "claim_izzet_league_0094"
+      ],
+      "confidence": "Medium",
+      "notes": ""
+    },
+    {
+      "question_id": "q_izzet_league_0010",
+      "question": "Are you more energized by discovering a new principle, perfecting a beautiful expression, or optimizing a living system?",
+      "purpose": "Separates Izzet from Prismari and Simic.",
+      "answer_pattern_that_supports_this_faction": "Discovering a new principle through applied experiment, especially with tools, spells, or prototypes.",
+      "answer_pattern_that_weakens_this_faction": "Choosing performance/aesthetic expression points toward Prismari; choosing biological adaptation points toward Simic.",
+      "related_factions_to_compare": [
+        "Prismari",
+        "Simic Combine",
+        "Quandrix"
+      ],
+      "claim_ids": [
+        "claim_izzet_league_0030",
+        "claim_izzet_league_0067",
+        "claim_izzet_league_0078"
+      ],
+      "confidence": "Medium",
+      "notes": ""
+    },
+    {
+      "question_id": "q_izzet_league_0011",
+      "question": "Would you rather be known for a safe system that never fails, or a breakthrough that changes the field even if the first version explodes?",
+      "purpose": "Tests appetite for breakthrough and volatility.",
+      "answer_pattern_that_supports_this_faction": "Breakthrough, especially if followed by iteration and better safeguards.",
+      "answer_pattern_that_weakens_this_faction": "Safe system above all points more toward Azorius, Boros, or civic-maintenance profiles.",
+      "related_factions_to_compare": [
+        "Azorius Senate",
+        "Boros Legion",
+        "Lorehold"
+      ],
+      "claim_ids": [
+        "claim_izzet_league_0067",
+        "claim_izzet_league_0091",
+        "claim_izzet_league_0100"
+      ],
+      "confidence": "Medium",
+      "notes": ""
+    },
+    {
+      "question_id": "q_izzet_league_0012",
+      "question": "When the rules block a promising discovery, do you seek approval, exploit a loophole, build a side lab, or abandon the idea?",
+      "purpose": "Distinguishes Izzet rule-bending from Azorius compliance and Dimir secrecy.",
+      "answer_pattern_that_supports_this_faction": "Exploit a loophole or build a carefully contained side experiment, with awareness of risk.",
+      "answer_pattern_that_weakens_this_faction": "Seek approval every time, abandon the idea, or hide everything for manipulation rather than discovery.",
+      "related_factions_to_compare": [
+        "Azorius Senate",
+        "House Dimir",
+        "Quandrix"
+      ],
+      "claim_ids": [
+        "claim_izzet_league_0085",
+        "claim_izzet_league_0086",
+        "claim_izzet_league_0104"
+      ],
+      "confidence": "Medium",
+      "notes": ""
+    },
+    {
+      "question_id": "q_izzet_league_0013",
+      "question": "In a crisis, are you the person who stabilizes the process, protects the people, or rewires the machine while it is running?",
+      "purpose": "Separates Izzet from Azorius/Boros during high-pressure situations.",
+      "answer_pattern_that_supports_this_faction": "Rewires or redesigns the system while it is running, especially when technical imagination is needed.",
+      "answer_pattern_that_weakens_this_faction": "Stabilizing procedure points Azorius; protecting people first points Boros or Care-heavy profiles.",
+      "related_factions_to_compare": [
+        "Azorius Senate",
+        "Boros Legion",
+        "Lorehold"
+      ],
+      "claim_ids": [
+        "claim_izzet_league_0091",
+        "claim_izzet_league_0092",
+        "claim_izzet_league_0098"
+      ],
+      "confidence": "Medium",
+      "notes": ""
+    }
+  ],
+  "chatbot_guidance": {
+    "how_to_recognize_match": [
+      "User describes learning by building, testing, breaking, and rebuilding.",
+      "User enjoys technical creativity, prototypes, magic-tech, spell chains, or experimental systems.",
+      "User accepts failure as data and wants ideas to scale or become useful tools.",
+      "User pairs creativity with practical infrastructure or systems improvement.",
+      "User describes excitement about prototypes, experiments, technical systems, and fast iteration under uncertainty.",
+      "User frames mistakes as information and wants to instrument the next attempt rather than stop learning.",
+      "User likes crisis engineering: fixing or rewiring systems while pressure is high."
+    ],
+    "how_to_recognize_mismatch": [
+      "User consistently prioritizes fixed procedure, permission, and risk elimination over experimentation.",
+      "User dislikes technical systems, tool-building, spellcraft metaphors, or iteration.",
+      "User prefers secrecy, law, communal harmony, biological evolution, or martial protection as the primary motive.",
+      "User wants novelty without any usefulness, which may be more Rakdos/Prismari depending on tone.",
+      "User demands complete predictability before trying anything new.",
+      "User endorses harming or deceiving people as acceptable simply because a discovery is interesting.",
+      "User wants status without curiosity, experimentation, or technical problem solving."
+    ],
+    "questions_to_ask_when_uncertain": [
+      "Do you enjoy prototypes more when they are useful, beautiful, mathematically elegant, or disruptive?",
+      "What matters more: proving the theory, building the device, protecting people, or enforcing the rules?",
+      "When something fails, do you document it, hide it, mourn it, rebuild it, or weaponize it?",
+      "Ask whether they are more motivated by breakthrough, beauty, biological adaptation, law, or protection.",
+      "Ask how they respond after a dangerous prototype failure: abandon, stabilize, iterate, or hide it.",
+      "Ask whether they prefer planned systems engineering or improvised crisis engineering."
+    ],
+    "do_not_overweight": [
+      "Do not overfit Izzet to random chaos; official sources also support infrastructure, public works, records, and reconstruction.",
+      "Do not overfit Izzet to safe engineering; official sources also support volatile experimentation and dangerous ambition.",
+      "Do not treat Ral Zarek's personal history or Bolas involvement as a required user-placement trait.",
+      "Do not treat Niv-Mizzet's arrogance as mandatory for every Izzet-aligned user.",
+      "Do not overweight one explosive or chaotic answer; look for curiosity plus systems thinking.",
+      "Do not treat unethical experimentation as a positive score just because it resembles Izzet shadow behavior.",
+      "Do not confuse Prismari expressive performance with Izzet applied experimentation unless the user emphasizes prototypes and discovery."
+    ],
+    "never_claim_as_canon": [
+      "Never claim Moral Foundations Theory is part of Magic canon.",
+      "Never claim Wizards officially defines Izzet as a Liberty/Fairness psychological profile.",
+      "Never claim placement scores are objective truth.",
+      "Never claim all Izzet are reckless or all Izzet are civic engineers; the evidence supports both signals in tension.",
+      "Moral Foundations Theory is not Magic canon.",
+      "Izzet placement does not mean the user is reckless or unethical.",
+      "Melek and Mizzix details are limited to reviewed source claims unless additional sources are added."
+    ],
+    "calibration_note": "Izzet League should require its specific positive evidence cluster: experiment, invention, prototype, mechanism, lightning. Keep it adjacent when the answer only contains broad color identity or generic personality language.",
+    "scoring_guardrail": "Do not award for generic curiosity, intelligence, or blue-red color identity without an experiment/build signal."
+  },
+  "placement_quality": {
+    "overall_confidence": "High",
+    "strongest_evidence_areas": [
+      "innovation and discovery",
+      "spell-centric mechanics",
+      "public works and infrastructure",
+      "risk and volatility",
+      "Niv-Mizzet/Ral leadership transitions",
+      "story-local examples of prototype risk",
+      "crisis engineering at Nivix",
+      "lower-rank Izzet ambition and lab pressure",
+      "Melek and Mizzix search coverage"
+    ],
+    "weakest_evidence_areas": [
+      "formal psychological modeling",
+      "exact current hierarchy after Murders at Karlov Manor",
+      "fine-grained separation from Prismari without user-specific creative motive questions",
+      "complete psychological model remains interpretive",
+      "some older story evidence uses repository archive rather than live Wizards URLs",
+      "Melek and Mizzix coverage remains narrow"
+    ],
+    "manual_review_recommended": false,
+    "notes": "Placement profile expanded after required term-by-term GitHub story-corpus review; shadow-expression and discriminator questions were strengthened to avoid rewarding reckless or unethical behavior as a simple Izzet match.",
+    "calibration_tuning_status": "explicit",
+    "last_placement_ready_pass": "2026-05-10T02:56:03.254Z"
+  },
+  "calibration_tuning": {
+    "required_positive_evidence_terms": [
+      "experiment",
+      "invention",
+      "prototype",
+      "mechanism",
+      "lightning",
+      "science",
+      "build",
+      "discovery",
+      "question",
+      "engineering",
+      "chaotic"
+    ],
+    "required_positive_min_hits": 3,
+    "broad_match_penalty": 0.05,
+    "strengthen_when_user_centers": [
+      "experimental build",
+      "mechanism",
+      "prototype",
+      "discovery through failure",
+      "restless invention"
+    ],
+    "suppress_when_user_centers": [
+      "pure mathematical proof",
+      "performance as emotional art",
+      "history archive",
+      "biological adaptation",
+      "procedure"
+    ],
+    "false_positive_guardrail": "Do not award for generic curiosity, intelligence, or blue-red color identity without an experiment/build signal.",
+    "smoke_test_note": "Used by lore review scripts as metadata-level calibration guidance; production placement may use richer weighted logic."
+  },
+  "collision_guidance": []
+}

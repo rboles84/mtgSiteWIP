@@ -5,113 +5,152 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Vox Mana — Terms of Service</title>
 
-<link rel="stylesheet" href="/assets/css/fonts.css">
 <link rel="stylesheet" href="/assets/css/tokens.css">
+<link rel="stylesheet" href="/assets/css/fonts.css">
 <link rel="stylesheet" href="/assets/css/topbar.css">
+<link rel="stylesheet" href="/assets/css/atmosphere.css">
+<link rel="stylesheet" href="/assets/css/components.css">
 
 <style>
 .page {
   position: relative;
   z-index: 1;
-  width: min(760px, 100%);
+  width: min(720px, 100%);
   margin: 0 auto;
   padding: 0 var(--s-5) var(--s-20);
 }
-
 .doc-stamp {
   font-family: var(--font-mono);
   font-size: var(--text-xs);
-  letter-spacing: 0.22em;
+  letter-spacing: 0.28em;
   text-transform: uppercase;
-  color: var(--text-muted);
+  color: var(--gold-quiet);
   margin-bottom: var(--s-3);
-  margin-top: var(--s-10);
+  margin-top: var(--s-12);
 }
-
 h1 {
   font-family: var(--font-display);
-  font-size: var(--text-2xl);
+  font-size: clamp(2rem, 4vw, 3rem);
   color: var(--gold-l);
   letter-spacing: 0.02em;
-  margin-bottom: var(--s-3);
-  font-variation-settings: "opsz" 60, "wght" 600, "SOFT" 50;
+  margin-bottom: var(--s-4);
+  font-variation-settings: "opsz" 96, "wght" 600, "SOFT" 50;
 }
-
 .lede {
-  color: var(--text-dim);
-  font-size: var(--text-base);
-  max-width: 580px;
-  margin-bottom: var(--s-10);
+  color: var(--text);
+  font-family: var(--font-text);
+  font-size: 1.18rem;
+  max-width: 60ch;
+  margin-bottom: var(--s-12);
   line-height: 1.7;
+  font-style: italic;
 }
-
-section {
-  padding: var(--s-6) 0;
-  border-top: 1px solid var(--border);
-}
-section:first-of-type { border-top: none; }
-
+section { padding: var(--s-8) 0; border-top: 1px solid var(--border); }
+section:first-of-type { border-top: none; padding-top: 0; }
 h2 {
   font-family: var(--font-mono);
   font-size: var(--text-sm);
   font-weight: 500;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--gold);
-  margin-bottom: var(--s-3);
+  margin-bottom: var(--s-4);
 }
-
 p {
-  font-size: var(--text-base);
+  font-family: var(--font-text);
+  font-size: 1.08rem;
   color: var(--text);
   margin-bottom: var(--s-3);
+  max-width: 64ch;
+  line-height: 1.75;
 }
 p:last-child { margin-bottom: 0; }
-
-ul {
-  padding-left: var(--s-5);
-  margin: 0;
-}
+ul { padding-left: var(--s-5); margin: 0; max-width: 64ch; }
 li {
-  font-size: var(--text-base);
+  font-family: var(--font-text);
+  font-size: 1.08rem;
   color: var(--text);
-  margin-bottom: var(--s-2);
-  line-height: 1.65;
+  margin-bottom: var(--s-3);
+  line-height: 1.7;
 }
 li:last-child { margin-bottom: 0; }
-
 .foot {
   margin-top: var(--s-12);
   padding-top: var(--s-6);
   border-top: 1px solid var(--border);
   color: var(--text-muted);
-  font-size: 0.92rem;
+  font-size: 0.95rem;
   font-style: italic;
 }
-
-@media (max-width: 640px) {
-  .doc-stamp { margin-top: var(--s-6); }
-}
+@media (max-width: 640px) { .doc-stamp { margin-top: var(--s-6); } }
 </style>
 </head>
-<body data-page="terms">
+<body data-page="terms" data-vm-current="terms" data-bg="heavy">
 
-<header class="vm-topbar">
-  <a class="vm-topbar__brand" href="/">Vox Mana</a>
-  <nav class="vm-topbar__nav" aria-label="Site navigation">
-    <a href="/">Home</a>
-    <a href="/archscry/">Archscry</a>
-    <a href="/research.html">Archives</a>
-    <a href="/library/">Maze</a>
-    <span data-vm-reduce-motion-toggle></span>
+<div class="vm-bg" aria-hidden="true">
+  <picture class="vm-bg__picture">
+    <source type="image/avif" srcset="/assets/img/vox-mana-hero-768w.avif 768w, /assets/img/vox-mana-hero-1280w.avif 1280w, /assets/img/vox-mana-hero-2560w.avif 2560w" sizes="100vw">
+    <source type="image/webp" srcset="/assets/img/vox-mana-hero-768w.webp 768w, /assets/img/vox-mana-hero-1280w.webp 1280w, /assets/img/vox-mana-hero-2560w.webp 2560w" sizes="100vw">
+    <img src="/assets/img/vox-mana-hero-1280w.jpg" alt="" decoding="async">
+  </picture>
+  <div class="vm-bg__nebula"></div>
+</div>
+
+<header class="vm-topbar" role="banner">
+  <a class="vm-brand" href="/" aria-label="Vox Mana — home">
+    <span class="vm-brand-mark" aria-hidden="true"></span>
+    <span class="vm-brand-text">Vox Mana</span>
+  </a>
+
+  <nav class="vm-nav" aria-label="Primary">
+    <a class="vm-nav-link" href="/" data-vm-nav="home">Home</a>
+    <a class="vm-nav-link" href="/archscry/" data-vm-nav="archscry">Archscry</a>
+    <a class="vm-nav-link" href="/maze.html" data-vm-nav="maze">The Implicit Maze</a>
+    <a class="vm-nav-link" href="/library/" data-vm-nav="apocrypha">Apocrypha</a>
   </nav>
+
+  <div class="vm-utility">
+    <button
+      type="button"
+      class="vm-menu-button"
+      aria-label="Open menu"
+      aria-expanded="false"
+      aria-haspopup="true"
+      aria-controls="vm-menu-panel"
+      data-vm-menu-trigger
+    >
+      <span class="vm-menu-dots" aria-hidden="true">
+        <span></span><span></span><span></span>
+      </span>
+    </button>
+
+    <div
+      id="vm-menu-panel"
+      class="vm-menu-panel"
+      role="menu"
+      data-open="false"
+      data-vm-menu-panel
+    >
+      <button
+        type="button"
+        class="vm-menu-item"
+        role="menuitem"
+        data-vm-toggle="reduce-motion"
+        data-vm-tooltip-on="Stillness · on"
+        data-vm-tooltip-off="Quiet the motion"
+      >
+        <span>Reduce motion</span>
+        <span class="vm-menu-item-status" data-vm-status>Off</span>
+      </button>
+    </div>
+  </div>
 </header>
 
 <main class="page">
 
   <div class="doc-stamp">Terms of Service</div>
   <h1>Vox Mana Terms of Service</h1>
-  <p class="lede">These terms govern your use of Vox Mana, including guest readings, saved placements, and optional Google sign-in.</p>
+  <p class="lede">These terms govern your use of Vox Mana, including <span class="vm-gloss" tabindex="0" data-gloss="Reading without signing in. Your result is held in browser storage; you can save it permanently with Google sign-in.">guest readings</span>, saved placements, and optional Google sign-in.</p>
 
   <section>
     <h2>Effective Date</h2>
@@ -120,20 +159,20 @@ li:last-child { margin-bottom: 0; }
 
   <section>
     <h2>Use of the Service</h2>
-    <p>Vox Mana is provided as an informational and entertainment tool for Magic: The Gathering players and fans. Faction readings are grounded in a curated lore database compiled from published Magic: The Gathering sources and community research. Readings reflect that research — AI is used to evaluate responses against it, not to invent lore or gameplay content.</p>
+    <p>Vox Mana is provided as an informational and entertainment tool for Magic: The Gathering players and fans. <span class="vm-gloss" tabindex="0" data-gloss="The result of an Archscry session — your matched faction (one of 10 Ravnica guilds or 5 Strixhaven colleges) along with archetypes, staple cards, lands, and deck links.">Faction readings</span> are grounded in a curated lore database compiled from published Magic: The Gathering sources and community research. Readings reflect that research — AI is used to evaluate responses against it, not to invent lore or gameplay content.</p>
     <p>Vox Mana is an unofficial fan project and is not affiliated with or endorsed by Wizards of the Coast or Hasbro.</p>
   </section>
 
   <section>
     <h2>Fan Project &amp; Intellectual Property</h2>
-    <p>Magic: The Gathering, all guild and college names, card names, card artwork, and related intellectual property are owned by Wizards of the Coast LLC, a subsidiary of Hasbro, Inc. Vox Mana is an unofficial community fan project created to help players explore the game and is not produced by, affiliated with, or endorsed by Wizards of the Coast or Hasbro.</p>
+    <p>Magic: The Gathering, all guild and college names, card names, card artwork, and related intellectual property are owned by <span class="vm-gloss" tabindex="0" data-gloss="The publisher of Magic: The Gathering. A subsidiary of Hasbro, Inc. All MTG-related IP belongs to them.">Wizards of the Coast LLC</span>, a subsidiary of Hasbro, Inc. Vox Mana is an unofficial community fan project created to help players explore the game and is not produced by, affiliated with, or endorsed by Wizards of the Coast or Hasbro.</p>
     <p>Faction lore, playstyle descriptions, and deck guidance on this site are based on publicly available game materials, official articles, and community sources compiled and interpreted by the site operator. No original Wizards of the Coast content is reproduced for commercial purpose. Card names and deck links are referenced for informational purposes only.</p>
     <p>Card names, deck archetypes, and lore references are the intellectual property of Wizards of the Coast. This site reproduces none of that content for commercial purpose.</p>
   </section>
 
   <section>
     <h2>Acceptable Use</h2>
-    <p>You agree not to misuse the service. This includes attempting to disrupt the site, abuse authentication flows, spam the interview endpoint, scrape the service in a way that harms availability, or use the service for unlawful activity.</p>
+    <p>You agree not to misuse the service. This includes attempting to disrupt the site, abuse authentication flows, spam the <span class="vm-gloss" tabindex="0" data-gloss="The deeper interview API endpoint at /functions/v1/guild-recruiter, which is rate-limited and may be throttled per session.">interview endpoint</span>, scrape the service in a way that harms availability, or use the service for unlawful activity.</p>
   </section>
 
   <section>
@@ -148,7 +187,7 @@ li:last-child { margin-bottom: 0; }
 
   <section>
     <h2>No Purchase or Gameplay Guarantee</h2>
-    <p>Readings, format suggestions, deck links, staple cards, and land recommendations are provided for exploration and planning. They are not guarantees of price, performance, card legality, competitiveness, or personal enjoyment.</p>
+    <p>Readings, format suggestions, deck links, <span class="vm-gloss" tabindex="0" data-gloss="Cards typically considered foundational or commonly-played within a given faction or archetype. Suggestions are aggregated from public deck-building resources, not guarantees of competitive viability.">staple cards</span>, and land recommendations are provided for exploration and planning. They are not guarantees of price, performance, card legality, competitiveness, or personal enjoyment.</p>
   </section>
 
   <section>
@@ -175,6 +214,8 @@ li:last-child { margin-bottom: 0; }
 
 </main>
 
+<link rel="stylesheet" href="/assets/css/topbar.css" />
 <script src="/assets/js/reduce-motion.js" defer></script>
+<script src="/assets/js/atmosphere.js" defer></script>
 </body>
 </html>

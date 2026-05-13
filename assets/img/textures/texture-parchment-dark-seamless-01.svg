@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" preserveAspectRatio="none">
+  <defs>
+    <filter id="n">
+      <feTurbulence type="fractalNoise" baseFrequency=".03" numOctaves="5" stitchTiles="stitch" seed="9"/>
+      <feColorMatrix type="saturate" values=".2"/>
+      <feComponentTransfer><feFuncA type="table" tableValues="0 .22"/></feComponentTransfer>
+    </filter>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#15100b"/>
+      <stop offset=".55" stop-color="#2b2116"/>
+      <stop offset="1" stop-color="#15100b"/>
+    </linearGradient>
+  </defs>
+  <rect width="1024" height="1024" fill="url(#g)"/>
+  <rect width="1024" height="1024" filter="url(#n)" opacity=".85"/>
+</svg>

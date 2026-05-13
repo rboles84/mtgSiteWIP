@@ -1,0 +1,23 @@
+flowchart TD
+  Input["Search input"]
+  Mode{"Mode"}
+  Smart["Plain Reading<br/>parseScryfallNaturalLanguage"]
+  Raw["Operator's Hand<br/>prepareRawSyntaxQuery"]
+  Builder["Loom<br/>buildVisualBuilderQuery"]
+  Inspector["renderQueryInspector"]
+  Search["scryfallSearch"]
+  Results["renderResults + makeCardEl"]
+  Modal["openModal"]
+  More["loadMore"]
+  Empty["showNoResultsState + scryfallRandom"]
+
+  Input --> Mode
+  Mode -- "Smart" --> Smart --> Inspector
+  Mode -- "Raw" --> Raw --> Inspector
+  Mode -- "Builder" --> Builder
+  Inspector --> Search
+  Builder --> Search
+  Search --> Results
+  Search --> Empty
+  Results --> Modal
+  Results --> More --> Search

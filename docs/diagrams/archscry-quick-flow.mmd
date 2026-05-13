@@ -1,0 +1,18 @@
+flowchart TD
+  Load["DOMContentLoaded"]
+  Data["Load factions and placement model"]
+  Resume["Resume Supabase/session<br/>check pending OAuth save"]
+  Landing["Landing + starter profile chips"]
+  Start["startQuickFlow"]
+  State["createInitialAdaptiveState"]
+  Select["selectNextAdaptiveQuestion"]
+  Render["renderQuickQuestion"]
+  Answer["answerQuickQuestion"]
+  Apply["applyAdaptiveAnswer"]
+  Finish{"shouldFinishAdaptiveReading?"}
+  Result["buildAdaptivePlacementResult"]
+  Dossier["renderResult + loadResultCardArt"]
+
+  Load --> Data --> Resume --> Landing --> Start --> State --> Select --> Render --> Answer --> Apply --> Finish
+  Finish -- "No" --> Select
+  Finish -- "Yes" --> Result --> Dossier

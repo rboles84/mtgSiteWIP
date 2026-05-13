@@ -1,0 +1,561 @@
+{
+  "schema_version": "1.0.0",
+  "faction_id": "gruul_clans",
+  "faction_name": "Gruul Clans",
+  "source_review_date": "2026-05-09",
+  "last_updated": "2026-05-09",
+  "sources": [
+    {
+      "source_id": "src_gruul_clans_0001",
+      "title": "Ravnica",
+      "author": "Wizards of the Coast",
+      "publisher_or_site": "Magic: The Gathering",
+      "publication_date": null,
+      "url_or_repository_path": "https://magic.wizards.com/en/story/ravnica-plane",
+      "source_type": "Official Story",
+      "authority_rank": 1,
+      "date_reviewed": "2026-05-09",
+      "status": "Active",
+      "inspected": true,
+      "relevant_summary": "Official Ravnica plane page describing the plane as a worldwide cityscape, the ten guilds, and Gruul as red-green, associated with beggars, gangs, and raiding parties.",
+      "fields_supported": [
+        "plane_or_setting",
+        "color_identity",
+        "core_identity",
+        "search_and_filter_metadata"
+      ],
+      "limitations": [
+        "Plane overview is concise and not a detailed faction dossier.",
+        "Publication date was not visible in the inspected page text."
+      ],
+      "supersedes": [],
+      "superseded_by": [],
+      "notes": "Used for high-level identity only."
+    },
+    {
+      "source_id": "src_gruul_clans_0002",
+      "title": "Planeswalker's Guide to Gatecrash: Part 2",
+      "author": "Magic Creative Team",
+      "publisher_or_site": "Magic: The Gathering",
+      "publication_date": "2012-12-12",
+      "url_or_repository_path": "https://magic.wizards.com/en/news/feature/planeswalkers-guide-to-gatecrash-part-2",
+      "source_type": "Official Story",
+      "authority_rank": 1,
+      "date_reviewed": "2026-05-09",
+      "status": "Active",
+      "inspected": true,
+      "relevant_summary": "Official Gatecrash-era guide describing Gruul identity, the Rubblebelt, Borborygmos, stable clans, clan details, Skarrg, the Old Ways, and anti-civilization beliefs.",
+      "fields_supported": [
+        "core_identity",
+        "structure",
+        "locations",
+        "internal_divisions",
+        "key_figures",
+        "historical_timeline",
+        "placement"
+      ],
+      "limitations": [
+        "Represents Gatecrash-era worldbuilding; later Ravnica Allegiance sources update clan count and leadership context."
+      ],
+      "supersedes": [],
+      "superseded_by": [
+        "src_gruul_clans_0003"
+      ],
+      "notes": "Some details, such as six stable clans and Borborygmos's role, should be interpreted as era-specific when compared with later sources."
+    },
+    {
+      "source_id": "src_gruul_clans_0003",
+      "title": "A Flavorful Guide to the Guilds of Ravnica Allegiance",
+      "author": "Cassie LaBelle",
+      "publisher_or_site": "Magic: The Gathering",
+      "publication_date": "2019-02-08",
+      "url_or_repository_path": "https://magic.wizards.com/en/news/feature/flavorful-guide-guilds-ravnica-allegiance-2019-02-07",
+      "source_type": "Official Story",
+      "authority_rank": 1,
+      "date_reviewed": "2026-05-09",
+      "status": "Active",
+      "inspected": true,
+      "relevant_summary": "Official Ravnica Allegiance-era guide explaining the Gruul origin as former stewards of wild places, later marginalization, clan count, anti-civilization goal, Borborygmos as de facto leader, Domri Rade's takeover, and the Zhur-Taa End-Raze belief.",
+      "fields_supported": [
+        "core_identity",
+        "structure",
+        "historical_timeline",
+        "key_figures",
+        "great_tension",
+        "placement"
+      ],
+      "limitations": [
+        "Written as a flavor guide with a humorous tone; still official, but interpretive placement use should rely on atomic claims rather than tone."
+      ],
+      "supersedes": [
+        "src_gruul_clans_0002"
+      ],
+      "superseded_by": [],
+      "notes": "Used to update Gatecrash-era leadership and clan-count context."
+    },
+    {
+      "source_id": "src_gruul_clans_0004",
+      "title": "Ravnica Allegiance Mechanics",
+      "author": "Matt Tabak",
+      "publisher_or_site": "Magic: The Gathering",
+      "publication_date": "2018-12-17",
+      "url_or_repository_path": "https://magic.wizards.com/en/news/feature/ravnica-allegiance-mechanics",
+      "source_type": "Official Mechanics",
+      "authority_rank": 2,
+      "date_reviewed": "2026-05-09",
+      "status": "Active",
+      "inspected": true,
+      "relevant_summary": "Official mechanics article identifying Ravnica Allegiance guilds and explaining Gruul's riot mechanic as a choice between a +1/+1 counter or haste.",
+      "fields_supported": [
+        "mechanics",
+        "placement",
+        "search_and_filter_metadata"
+      ],
+      "limitations": [
+        "Mechanics article is primarily gameplay-facing and only lightly descriptive for lore."
+      ],
+      "supersedes": [],
+      "superseded_by": [
+        "src_gruul_clans_0007"
+      ],
+      "notes": "Used for original Ravnica Allegiance riot mechanic explanation."
+    },
+    {
+      "source_id": "src_gruul_clans_0005",
+      "title": "Gatecrash Mechanics",
+      "author": "Wizards of the Coast",
+      "publisher_or_site": "Magic: The Gathering",
+      "publication_date": "2012-12-31",
+      "url_or_repository_path": "https://magic.wizards.com/en/news/feature/gatecrash-mechanics",
+      "source_type": "Official Mechanics",
+      "authority_rank": 2,
+      "date_reviewed": "2026-05-09",
+      "status": "Active",
+      "inspected": true,
+      "relevant_summary": "Official mechanics article identifying Gruul as one of Gatecrash's guilds and explaining bloodrush as a Gruul-associated ability word used from a creature card in hand during combat.",
+      "fields_supported": [
+        "mechanics",
+        "search_and_filter_metadata",
+        "placement"
+      ],
+      "limitations": [
+        "Mechanics article is gameplay-facing; faction philosophy should not be inferred beyond the described combat emphasis without other support."
+      ],
+      "supersedes": [],
+      "superseded_by": [],
+      "notes": "Used for bloodrush rules summary and combat/action placement signals."
+    },
+    {
+      "source_id": "src_gruul_clans_0006",
+      "title": "Dragon's Maze Mechanics",
+      "author": "Wizards of the Coast",
+      "publisher_or_site": "Magic: The Gathering",
+      "publication_date": "2013-04-08",
+      "url_or_repository_path": "https://magic.wizards.com/en/news/feature/dragons-maze-mechanics",
+      "source_type": "Official Mechanics",
+      "authority_rank": 2,
+      "date_reviewed": "2026-05-09",
+      "status": "Active",
+      "inspected": true,
+      "relevant_summary": "Official Dragon's Maze mechanics article confirming bloodrush as the Gruul Gatecrash guild mechanic returning in Dragon's Maze.",
+      "fields_supported": [
+        "mechanics",
+        "search_and_filter_metadata"
+      ],
+      "limitations": [
+        "Provides confirmation of mechanic association, not additional lore detail."
+      ],
+      "supersedes": [],
+      "superseded_by": [],
+      "notes": "Used as cross-check for bloodrush association."
+    },
+    {
+      "source_id": "src_gruul_clans_0007",
+      "title": "Ravnica Remastered Release Notes",
+      "author": "Eric Levine",
+      "publisher_or_site": "Magic: The Gathering",
+      "publication_date": "2023-12-13",
+      "url_or_repository_path": "https://magic.wizards.com/en/news/feature/ravnica-remastered-release-notes",
+      "source_type": "Official Rules",
+      "authority_rank": 3,
+      "date_reviewed": "2026-05-09",
+      "status": "Active",
+      "inspected": true,
+      "relevant_summary": "Official release notes containing current rules clarifications for riot on cards such as Rhythm of the Wild.",
+      "fields_supported": [
+        "mechanics",
+        "rules_summary",
+        "future_update_reference"
+      ],
+      "limitations": [
+        "Release notes warn that future rules updates may make some information outdated; Comprehensive Rules remain the ultimate current rules reference."
+      ],
+      "supersedes": [],
+      "superseded_by": [],
+      "notes": "Used to reinforce riot rules behavior and future-proof rules update caution."
+    },
+    {
+      "source_id": "src_gruul_clans_0008",
+      "title": "Rage of the Unsung",
+      "author": "Nicky Drayden",
+      "publisher_or_site": "Magic: The Gathering",
+      "publication_date": "2019-01-30",
+      "url_or_repository_path": "https://magic.wizards.com/en/news/magic-story/rage-unsung-2019-01-30",
+      "source_type": "Official Story",
+      "authority_rank": 1,
+      "date_reviewed": "2026-05-09",
+      "status": "Active",
+      "inspected": true,
+      "relevant_summary": "Official Gruul-centered Magic Story showing Ghor Clan life, Rage, clan belonging, Ruric and Thar, ruined/wild spaces, tattoos, and tension between clan identity, violence, and survival.",
+      "fields_supported": [
+        "core_identity",
+        "structure",
+        "key_figures",
+        "great_tension",
+        "placement",
+        "tone_words"
+      ],
+      "limitations": [
+        "Story is character-perspective fiction; claims should avoid overgeneralizing one narrator's experience to the entire guild without support."
+      ],
+      "supersedes": [],
+      "superseded_by": [],
+      "notes": "Used for culture-level support only where consistent with broader official sources."
+    },
+    {
+      "source_id": "src_gruul_clans_0009",
+      "title": "War of the Spark: Ravnica – The Path to Opulent",
+      "author": "Greg Weisman",
+      "publisher_or_site": "Magic: The Gathering",
+      "publication_date": "2019-05-15",
+      "url_or_repository_path": "https://magic.wizards.com/en/news/magic-story/war-spark-ravnica-path-opulent-2019-05-15",
+      "source_type": "Official Story",
+      "authority_rank": 1,
+      "date_reviewed": "2026-05-09",
+      "status": "Active",
+      "inspected": true,
+      "relevant_summary": "Official War of the Spark story showing Gruul warriors led by Domri Rade fighting Eternals and stating that Domri had replaced Borborygmos as Gruul guildmaster.",
+      "fields_supported": [
+        "historical_timeline",
+        "key_figures",
+        "relationships",
+        "placement"
+      ],
+      "limitations": [
+        "Narrated from Rat's perspective; leadership wording should be cross-checked with adjacent official story where possible."
+      ],
+      "supersedes": [],
+      "superseded_by": [],
+      "notes": "Used for War of the Spark-era Domri and Gruul combat participation."
+    },
+    {
+      "source_id": "src_gruul_clans_0010",
+      "title": "War of the Spark: Ravnica – Rallying the Reluctant",
+      "author": "Greg Weisman",
+      "publisher_or_site": "Magic: The Gathering",
+      "publication_date": "2019-05-22",
+      "url_or_repository_path": "https://magic.wizards.com/en/news/magic-story/war-spark-ravnica-rallying-reluctant-2019-05-22",
+      "source_type": "Official Story",
+      "authority_rank": 1,
+      "date_reviewed": "2026-05-09",
+      "status": "Active",
+      "inspected": true,
+      "relevant_summary": "Official War of the Spark story noting that Domri was dead, his Spark harvested by an Eternal, and that nobody from the Gruul Clans was present at the summit because Gruul had been left leaderless.",
+      "fields_supported": [
+        "historical_timeline",
+        "key_figures",
+        "structure",
+        "data_quality"
+      ],
+      "limitations": [
+        "Only addresses immediate War of the Spark circumstances; it does not establish a long-term post-war leadership state."
+      ],
+      "supersedes": [],
+      "superseded_by": [],
+      "notes": "Used to mark post-Domri leadership as uncertain rather than inventing a successor."
+    },
+    {
+      "source_id": "src_gruul_clans_0011",
+      "title": "The Gathering Storm: Chapter 10",
+      "author": "Django Wexler",
+      "publisher_or_site": "MTGLore.com",
+      "publication_date": null,
+      "url_or_repository_path": "https://mtglore.com/web-fiction/the-gathering-storm-chapter-10/",
+      "source_type": "Secondary Discovery Source",
+      "authority_rank": 6,
+      "date_reviewed": "2026-05-09",
+      "status": "Needs Review",
+      "inspected": true,
+      "relevant_summary": "Secondary-hosted copy/index of The Gathering Storm material showing Borborygmos at a guild meeting and calling him Gruul guildmaster in that story context.",
+      "fields_supported": [
+        "discovery_cross_check",
+        "relationship_discovery"
+      ],
+      "limitations": [
+        "MTGLore is not an official Wizards page; used for discovery and cross-check only unless no official version can be located."
+      ],
+      "supersedes": [],
+      "superseded_by": [],
+      "notes": "Not used as a primary canon source for any claim in this build because official Wizards sources were available for core leadership facts."
+    },
+    {
+      "source_id": "src_gruul_clans_0012",
+      "title": "polarkac/MTG-Stories",
+      "author": "Lukáš Pohlreich",
+      "publisher_or_site": "GitHub",
+      "publication_date": null,
+      "url_or_repository_path": "https://github.com/polarkac/MTG-Stories",
+      "source_type": "Repository Archive",
+      "authority_rank": 5,
+      "date_reviewed": "2026-05-09",
+      "status": "Active",
+      "inspected": true,
+      "relevant_summary": "Repository archive of publicly available Wizards of the Coast MTG stories, organized by set and story order, including Ravnica-era story sets.",
+      "fields_supported": [
+        "source_discovery",
+        "repository_archive_context"
+      ],
+      "limitations": [
+        "Repository is an archive and compilation, not original canon authority. Official Wizards pages were preferred where available."
+      ],
+      "supersedes": [],
+      "superseded_by": [],
+      "notes": "Inspected per research process; not used as primary evidence because official pages were located."
+    },
+    {
+      "source_id": "src_gruul_clans_0013",
+      "title": "Gruul Ingenuity",
+      "author": "Adam Lee",
+      "publisher_or_site": "polarkac/MTG-Stories GitHub repository",
+      "publication_date": "2013-01-02",
+      "url_or_repository_path": "stories/003 - Gatecrash/001_Gruul Ingenuity.typ",
+      "source_type": "Repository Archive",
+      "authority_rank": 5,
+      "date_reviewed": "2026-05-09",
+      "status": "Active",
+      "inspected": true,
+      "relevant_summary": "Repository archive story centered on Kal, Nikya of the Old Ways, Zhur-Taa territory, Izzet surveillance, sleeping gods, bloodcrime language, Rakdos conflict, war-party selection, and Gruul-coded improvisational magic.",
+      "fields_supported": [
+        "claims.key_figures",
+        "claims.structure",
+        "claims.philosophy",
+        "claims.relationships",
+        "profile.structure",
+        "profile.key_figures",
+        "placement.behavioral_signals"
+      ],
+      "limitations": [
+        "Repository archive copy rather than the original official Wizards page.",
+        "Story scenes should not be generalized to every Gruul clan without corroboration."
+      ],
+      "supersedes": [],
+      "superseded_by": [],
+      "notes": "Added during targeted MTG-Stories follow-up for Gruul, Zhur-Taa, Nikya, Rakdos, Izzet, and Old Ways material."
+    },
+    {
+      "source_id": "src_gruul_clans_0014",
+      "title": "Rage of the Unsung",
+      "author": "Nicky Drayden",
+      "publisher_or_site": "polarkac/MTG-Stories GitHub repository",
+      "publication_date": "2019-01-30",
+      "url_or_repository_path": "stories/020 - Ravnica Allegiance/002_Rage of the Unsung.typ",
+      "source_type": "Repository Archive",
+      "authority_rank": 5,
+      "date_reviewed": "2026-05-09",
+      "status": "Active",
+      "inspected": true,
+      "relevant_summary": "Repository archive story centered on Ghor Clan, Arrus, Dryzek, Ruric and Thar, Baas, spreading Rage, the Raze-Boar, Rubblebelt decline, and Selesnya growth-magic conflict.",
+      "fields_supported": [
+        "claims.key_figures",
+        "claims.structure",
+        "claims.philosophy",
+        "claims.relationships",
+        "claims.timeline",
+        "profile.views_on_other_factions",
+        "placement.discriminator_questions"
+      ],
+      "limitations": [
+        "Repository archive copy rather than the original official Wizards page.",
+        "Some causal claims are character-perspective evidence from Arrus and should be marked accordingly."
+      ],
+      "supersedes": [],
+      "superseded_by": [],
+      "notes": "Added during targeted MTG-Stories follow-up for Ghor-Clan, Ruric Thar, Rubblebelt, Old Ways, and Rage material."
+    },
+    {
+      "source_id": "src_gruul_clans_0015",
+      "title": "Clans & Legions",
+      "author": "Nicky Drayden",
+      "publisher_or_site": "polarkac/MTG-Stories GitHub repository",
+      "publication_date": "2018-10-24",
+      "url_or_repository_path": "stories/019 - Guilds of Ravnica/003_Clans & Legions.typ",
+      "source_type": "Repository Archive",
+      "authority_rank": 5,
+      "date_reviewed": "2026-05-09",
+      "status": "Active",
+      "inspected": true,
+      "relevant_summary": "Repository archive story with Boros/Wojek material involving a Gruul encampment near the Tenth District, Brazer, Baas Solvar Radley, Wargate prisoner logistics, Rubblebelt dust, cindervine enchantments, and baby hydras.",
+      "fields_supported": [
+        "claims.key_figures",
+        "claims.locations",
+        "claims.relationships",
+        "profile.search_and_filter_metadata"
+      ],
+      "limitations": [
+        "Repository archive copy rather than the original official Wizards page.",
+        "Much of the Gruul detail is mediated through Boros/Wojek files and suspicion."
+      ],
+      "supersedes": [],
+      "superseded_by": [],
+      "notes": "Added during targeted MTG-Stories follow-up for Rubblebelt, Baas, Boros/Gruul conflict, and Tenth District material."
+    },
+    {
+      "source_id": "src_mtg_stories_the_gathering_storm_chapter_12_a8fc6d84",
+      "title": "The Gathering Storm: Chapter 12",
+      "author": "Django Wexler",
+      "publisher_or_site": "GitHub MTG Story Corpus / archived Magic story",
+      "publication_date": "2019-08-28",
+      "url_or_repository_path": "https://github.com/polarkac/MTG-Stories/blob/5e0a53c7193ba58835fd811f66612e8f6d6f344b/stories/037%20-%20Ravnica%20Allegiance/006_The%20Gathering%20Storm%3A%20Chapter%2012.typ",
+      "repository_path": "stories/037 - Ravnica Allegiance/006_The Gathering Storm: Chapter 12.typ",
+      "source_type": "Repository archive story file",
+      "reliability": "Repository/archive copy of official story material",
+      "notes": "Matched Gruul Clans corpus queries: Gruul Clans, Gruul, Borborygmos, Domri Rade, Rubblebelt. Treat as searchable archive evidence and cross-check against official Wizards story pages when available.",
+      "matched_queries": [
+        "Gruul Clans",
+        "Gruul",
+        "Borborygmos",
+        "Domri Rade",
+        "Rubblebelt"
+      ],
+      "set_name": "Ravnica Allegiance"
+    },
+    {
+      "source_id": "src_mtg_stories_in_praise_of_the_worldsoul_part_3_bc6ed8e9",
+      "title": "In Praise of the Worldsoul, Part 3",
+      "author": "Jenna Helland",
+      "publisher_or_site": "GitHub MTG Story Corpus / archived Magic story",
+      "publication_date": "2012-10-10",
+      "url_or_repository_path": "https://github.com/polarkac/MTG-Stories/blob/5e0a53c7193ba58835fd811f66612e8f6d6f344b/stories/002%20-%20Return%20to%20Ravnica/006_In%20Praise%20of%20the%20Worldsoul%2C%20Part%203.typ",
+      "repository_path": "stories/002 - Return to Ravnica/006_In Praise of the Worldsoul, Part 3.typ",
+      "source_type": "Repository archive story file",
+      "reliability": "Repository/archive copy of official story material",
+      "notes": "Matched Gruul Clans corpus queries: Gruul, Nikya of the Old Ways, Rubblebelt, Zhur-Taa, The Old Ways, bloodthirst. Treat as searchable archive evidence and cross-check against official Wizards story pages when available.",
+      "matched_queries": [
+        "Gruul",
+        "Nikya of the Old Ways",
+        "Rubblebelt",
+        "Zhur-Taa",
+        "The Old Ways",
+        "bloodthirst"
+      ],
+      "set_name": "Return to Ravnica"
+    },
+    {
+      "source_id": "src_mtg_stories_rage_of_the_unsung_d54f4c35",
+      "title": "Rage of the Unsung",
+      "author": "Nicky Drayden",
+      "publisher_or_site": "GitHub MTG Story Corpus / archived Magic story",
+      "publication_date": "2019-01-30",
+      "url_or_repository_path": "https://github.com/polarkac/MTG-Stories/blob/5e0a53c7193ba58835fd811f66612e8f6d6f344b/stories/037%20-%20Ravnica%20Allegiance/002_Rage%20of%20the%20Unsung.typ",
+      "repository_path": "stories/037 - Ravnica Allegiance/002_Rage of the Unsung.typ",
+      "source_type": "Repository archive story file",
+      "reliability": "Repository/archive copy of official story material",
+      "notes": "Matched Gruul Clans corpus queries: Gruul Clans, Gruul, Rubblebelt, The Old Ways. Treat as searchable archive evidence and cross-check against official Wizards story pages when available.",
+      "matched_queries": [
+        "Gruul Clans",
+        "Gruul",
+        "Rubblebelt",
+        "The Old Ways"
+      ],
+      "set_name": "Ravnica Allegiance"
+    },
+    {
+      "source_id": "src_mtg_stories_desperate_operatives_6c6a580b",
+      "title": "Desperate Operatives",
+      "author": "Greg Weisman",
+      "publisher_or_site": "GitHub MTG Story Corpus / archived Magic story",
+      "publication_date": "2019-05-29",
+      "url_or_repository_path": "https://github.com/polarkac/MTG-Stories/blob/5e0a53c7193ba58835fd811f66612e8f6d6f344b/stories/038%20-%20War%20of%20the%20Spark/004_Desperate%20Operatives.typ",
+      "repository_path": "stories/038 - War of the Spark/004_Desperate Operatives.typ",
+      "source_type": "Repository archive story file",
+      "reliability": "Repository/archive copy of official story material",
+      "notes": "Matched Gruul Clans corpus queries: Gruul Clans, Gruul, Borborygmos, Skarrg. Treat as searchable archive evidence and cross-check against official Wizards story pages when available.",
+      "matched_queries": [
+        "Gruul Clans",
+        "Gruul",
+        "Borborygmos",
+        "Skarrg"
+      ],
+      "set_name": "War of the Spark"
+    },
+    {
+      "source_id": "src_mtg_stories_the_gathering_storm_chapter_10_ed55e8dd",
+      "title": "The Gathering Storm: Chapter 10",
+      "author": "Django Wexler",
+      "publisher_or_site": "GitHub MTG Story Corpus / archived Magic story",
+      "publication_date": "2019-08-14",
+      "url_or_repository_path": "https://github.com/polarkac/MTG-Stories/blob/5e0a53c7193ba58835fd811f66612e8f6d6f344b/stories/036%20-%20Guilds%20of%20Ravnica/015_The%20Gathering%20Storm%3A%20Chapter%2010.typ",
+      "repository_path": "stories/036 - Guilds of Ravnica/015_The Gathering Storm: Chapter 10.typ",
+      "source_type": "Repository archive story file",
+      "reliability": "Repository/archive copy of official story material",
+      "notes": "Matched Gruul Clans corpus queries: Gruul Clans, Gruul, Borborygmos, riot. Treat as searchable archive evidence and cross-check against official Wizards story pages when available.",
+      "matched_queries": [
+        "Gruul Clans",
+        "Gruul",
+        "Borborygmos",
+        "riot"
+      ],
+      "set_name": "Guilds of Ravnica"
+    },
+    {
+      "source_id": "src_mtg_stories_rallying_the_reluctant_d21b8009",
+      "title": "Rallying the Reluctant",
+      "author": "Greg Weisman",
+      "publisher_or_site": "GitHub MTG Story Corpus / archived Magic story",
+      "publication_date": "2019-05-22",
+      "url_or_repository_path": "https://github.com/polarkac/MTG-Stories/blob/5e0a53c7193ba58835fd811f66612e8f6d6f344b/stories/038%20-%20War%20of%20the%20Spark/003_Rallying%20the%20Reluctant.typ",
+      "repository_path": "stories/038 - War of the Spark/003_Rallying the Reluctant.typ",
+      "source_type": "Repository archive story file",
+      "reliability": "Repository/archive copy of official story material",
+      "notes": "Matched Gruul Clans corpus queries: Gruul Clans, Gruul, Domri Rade. Treat as searchable archive evidence and cross-check against official Wizards story pages when available.",
+      "matched_queries": [
+        "Gruul Clans",
+        "Gruul",
+        "Domri Rade"
+      ],
+      "set_name": "War of the Spark"
+    }
+  ],
+  "not_used_or_rejected_sources": [
+    {
+      "title": "Gruul Clans - MTG Wiki",
+      "url_or_reference": "https://mtg.fandom.com/wiki/Gruul_Clans",
+      "reason_rejected": "Not used as primary canon because official Wizards sources were available for core faction, clan, location, and mechanic claims.",
+      "notes": "May remain useful as a discovery index for future incremental updates."
+    },
+    {
+      "title": "MTG Reddit / Vorthos discussion threads about Gruul",
+      "url_or_reference": "Reddit search results inspected during discovery",
+      "reason_rejected": "Fan commentary is not appropriate authority for canon claims in this build.",
+      "notes": "No claims were sourced from Reddit."
+    },
+    {
+      "title": "World of Warcraft Gruul search results",
+      "url_or_reference": "Wowhead / Wowpedia search results for Gruul",
+      "reason_rejected": "Unrelated franchise/entity; rejected as search noise.",
+      "notes": "Recorded to prevent accidental cross-contamination with Magic: The Gathering Gruul data."
+    },
+    {
+      "title": "YouTube lore summaries about Gruul",
+      "url_or_reference": "YouTube discovery result",
+      "reason_rejected": "Fan commentary; lower authority than official Wizards sources.",
+      "notes": "Not used."
+    },
+    {
+      "title": "Requested repository terms not converted into new claims without inspected evidence",
+      "url_or_reference": "Terms included Skarrg, Borborygmos, Domri Rade, Nikya of the Old Ways, Burning-Tree Clan, Ghor-Clan, Zhur-Taa, Ilharg, Rubblebelt, The Old Ways, Bloodrush, Riot, Cinderspawn, Ulasht, and Ruric Thar.",
+      "reason_rejected": "Search terms alone were not treated as evidence; only inspected source-backed facts were added as claims.",
+      "notes": "This does not assert that those terms never appear elsewhere in the repository; it records the anti-hallucination rule used in this incremental update."
+    }
+  ]
+}

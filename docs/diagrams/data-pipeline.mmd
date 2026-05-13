@@ -1,0 +1,22 @@
+flowchart TD
+  Raw["data/raw-factions/*<br/>profile, placement, claims, sources"]
+  Display["data/factions.json<br/>display surface"]
+  Builder["external tools workspace<br/>build:factions"]
+  Model["data/placement-model.json"]
+  Schema["data/placement-model.schema.json"]
+  Context["supabase/functions/guild-recruiter/faction-context.ts"]
+  Frontend["assets/js/index.js<br/>adaptive reading + dossier"]
+  Edge["guild-recruiter edge function"]
+  Docs["docs/data-contracts.md"]
+
+  Raw --> Builder
+  Display --> Builder
+  Builder --> Display
+  Builder --> Model
+  Builder --> Schema
+  Builder --> Context
+  Model --> Frontend
+  Display --> Frontend
+  Context --> Edge
+  Schema --> Docs
+  Model --> Docs

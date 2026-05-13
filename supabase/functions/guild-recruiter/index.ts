@@ -1,5 +1,5 @@
 import { serve } from "https://deno.land/std@0.208.0/http/server.ts";
-import { FACTION_CONTEXT } from "./faction-context.ts";
+import { FACTION_CONTEXT, PLACEMENT_MODEL_META } from "./faction-context.ts";
 
 interface Message {
   role: "user" | "assistant";
@@ -25,6 +25,7 @@ interface MatchResult {
 
 interface DecisionResult {
   version?: string;
+  model_version?: string;
   source_mode?: string;
   faction: string;
   faction_name?: string;
@@ -32,10 +33,13 @@ interface DecisionResult {
   world?: string;
   decree: string;
   confidence?: number;
+  confidence_gap?: number;
   mana_scores?: Record<string, number>;
   top_matches?: MatchResult[];
   adjacent_matches?: MatchResult[];
   starter_profile?: StarterProfile;
+  evidence_trail?: Record<string, unknown>[];
+  stage_history?: Record<string, unknown>[];
 }
 
 interface RequestBody {
@@ -53,7 +57,7 @@ interface TurnResponse {
   result: DecisionResult | null;
 }
 
-const RESULT_VERSION = "2026-05-05";
+const RESULT_VERSION = "2026-05-10";
 const MAX_TURNS = 5;
 const MAX_HISTORY_ITEMS = 8;
 const MAX_MESSAGE_LENGTH = 700;
@@ -179,6 +183,7 @@ function normalizeDecisionResult(result: DecisionResult, starterProfile: Starter
 
   return {
     version: RESULT_VERSION,
+    model_version: result.model_version || PLACEMENT_MODEL_META.model_version,
     source_mode: "interview",
     faction: result.faction,
     faction_name: result.faction_name || factionContext?.name || result.faction,
@@ -186,10 +191,16 @@ function normalizeDecisionResult(result: DecisionResult, starterProfile: Starter
     world: result.world || factionContext?.world || "Ravnica",
     decree: result.decree,
     confidence: Math.max(0.35, Math.min(0.98, Number(result.confidence || 0.72))),
+    confidence_gap:
+      typeof result.confidence_gap === "number"
+        ? Math.max(0, Math.min(1, Number(result.confidence_gap)))
+        : undefined,
     mana_scores: normalizeManaScores(result.mana_scores),
     top_matches: topMatches,
     adjacent_matches: adjacentMatches,
     starter_profile: normalizeStarterProfile(result.starter_profile || starterProfile),
+    evidence_trail: Array.isArray(result.evidence_trail) ? result.evidence_trail.slice(0, 8) : [],
+    stage_history: Array.isArray(result.stage_history) ? result.stage_history.slice(0, 8) : [],
   };
 }
 
@@ -203,9 +214,17 @@ function buildSystemPrompt(starterProfile: StarterProfile, currentResult?: Parti
 
   return `You are the Vox Mana Scrying Terminal recruiter.
 
-You must use only the faction lore and voice guidance supplied below. Do not invent new institutions, new world lore, or new faction history.
+You must use only the faction lore, biological-expression placement guidance, and voice guidance supplied below. Do not invent new institutions, new world lore, or new faction history.
 
-Your job is to conduct a short, pointed interview that places the user into one of the canon Vox Mana factions.
+Your job is to conduct a short, pointed interview that places the user into one of the canon Vox Mana factions using the Vox Mana adaptive placement model (${PLACEMENT_MODEL_META.model_version}).
+
+Placement model:
+- Treat each faction as a behavioral phenotype, not a color-pair vibe.
+- Use Bayesian evidence: broad answers create weak priors; specific tells create strong likelihood shifts.
+- Use negative evidence and inhibitor traps. Do not keep rewarding a faction after the user states a clear mismatch.
+- Use lateral inhibition for lookalike factions. When evidence distinguishes one candidate, suppress its collision targets.
+- Use discriminator questions when candidates are close, especially the supplied discriminator_questions and lateral_inhibition_targets.
+- Placement psychology is Vox Mana interpretation, not official Wizards canon and not an objective personality diagnosis.
 
 Interview rules:
 1. Ask one question at a time.
@@ -214,6 +233,7 @@ Interview rules:
 4. Do not mention faction names during the interview.
 5. Decide by turn 3, 4, or 5.
 6. Keep the interview mobile-friendly. Do not write long paragraphs when you are still asking questions.
+7. Prefer a Gate -> Hall -> Crucible rhythm: broad prior, adaptive evidence, then a pairwise discriminator if the top candidates are close.
 
 Practical context:
 - Requested starter format: ${starterProfile.format_interest}
@@ -232,6 +252,9 @@ When you decide, return a full placement object with:
 - top_matches with exactly 3 ranked entries
 - adjacent_matches with exactly 2 entries pulled from ranks 2 and 3
 - starter_profile copied from the practical context above
+- model_version copied from the placement model metadata
+- evidence_trail with short plain-English evidence signals from this interview
+- confidence_gap when you can estimate the gap between rank 1 and rank 2
 
 Factions:
 ${JSON.stringify(FACTION_CONTEXT, null, 2)}
@@ -253,6 +276,7 @@ If you are deciding, return:
   "decided": true,
   "result": {
     "faction": "WU",
+    "model_version": "${PLACEMENT_MODEL_META.model_version}",
     "faction_name": "Azorius Senate",
     "institution_type": "guild",
     "world": "Ravnica",
@@ -272,7 +296,16 @@ If you are deciding, return:
       "format_interest": "${starterProfile.format_interest}",
       "budget_band": "${starterProfile.budget_band}",
       "experience_level": "${starterProfile.experience_level}"
-    }
+    },
+    "confidence_gap": 0.09,
+    "evidence_trail": [
+      { "stage": "gate", "signal": "procedure before action", "supports": ["WU"], "suppresses": ["WR", "WG"] },
+      { "stage": "crucible", "signal": "law before belonging", "supports": ["WU"], "suppresses": ["WG"] }
+    ],
+    "stage_history": [
+      { "stage": "gate", "signal": "procedure before action" },
+      { "stage": "crucible", "signal": "law before belonging" }
+    ]
   }
 }`;
 }
@@ -328,6 +361,32 @@ function parseTurnResponse(rawContent: string): TurnResponse {
   return JSON.parse(cleaned) as TurnResponse;
 }
 
+/**
+ * Builds a safe in-character response when the model output cannot be used.
+ */
+function buildRecoveryResponse(turn: number): TurnResponse {
+  return {
+    response:
+      "The glass catches more static than signal. Answer plainly, with one choice you would make at a table or in a hard moment: what do you protect, pursue, or risk when the pressure rises?",
+    turn,
+    decided: false,
+    result: null,
+  };
+}
+
+/**
+ * Checks the minimum fields needed before a decision can be normalized.
+ */
+function hasUsableDecision(result: DecisionResult | null | undefined): result is DecisionResult {
+  return Boolean(
+    result &&
+      typeof result.faction === "string" &&
+      result.faction.trim() &&
+      typeof result.decree === "string" &&
+      result.decree.trim()
+  );
+}
+
 serve(async (req: Request) => {
   if (req.method === "OPTIONS") {
     return new Response("ok", { headers: corsHeaders });
@@ -379,12 +438,34 @@ serve(async (req: Request) => {
     const systemPrompt = buildSystemPrompt(starterProfile, body.current_result || null);
     const messages: Message[] = [...history, { role: "user", content: message }];
     const rawContent = await callAnthropic(systemPrompt, messages);
-    const parsed = parseTurnResponse(rawContent);
+    let parsed: TurnResponse;
+    try {
+      parsed = parseTurnResponse(rawContent);
+    } catch (parseError) {
+      console.error("Failed to parse guild-recruiter model JSON:", parseError, rawContent);
+      parsed = buildRecoveryResponse(turnCount);
+    }
+
     parsed.turn = turnCount;
 
-    if (parsed.decided && parsed.result) {
-      parsed.result = normalizeDecisionResult(parsed.result, starterProfile);
+    if (parsed.decided) {
+      if (hasUsableDecision(parsed.result)) {
+        try {
+          parsed.result = normalizeDecisionResult(parsed.result, starterProfile);
+        } catch (normalizeError) {
+          console.error("Failed to normalize guild-recruiter decision:", normalizeError, parsed.result);
+          parsed = buildRecoveryResponse(turnCount);
+        }
+      } else {
+        console.error("Model returned unusable guild-recruiter decision:", parsed);
+        parsed = buildRecoveryResponse(turnCount);
+      }
     } else {
+      parsed.response =
+        typeof parsed.response === "string" && parsed.response.trim()
+          ? parsed.response.trim().slice(0, 900)
+          : buildRecoveryResponse(turnCount).response;
+      parsed.decided = false;
       parsed.result = null;
     }
 

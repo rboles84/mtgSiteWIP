@@ -1,0 +1,276 @@
+{
+  "schema_version": "1.0.0",
+  "faction_id": "gruul_clans",
+  "faction_name": "Gruul Clans",
+  "last_updated": "2026-05-10T02:56:03.254Z",
+  "changes": [
+    {
+      "change_id": "change_gruul_clans_placement_ready_20260510025603",
+      "date": "2026-05-10",
+      "change_type": "placement_ready_calibration_tuning",
+      "summary": "Added explicit calibration_tuning metadata, behavioral guardrails, and collision/discriminator guidance for the Archscry placement engine.",
+      "affected_files": [
+        "gruul_clans.placement.json"
+      ]
+    },
+    {
+      "change_id": "gruul_clans_change_2026-05-10_fed6d8",
+      "date": "2026-05-10",
+      "change_type": "calibration_metadata_tuning",
+      "summary": "Added explicit calibration requirements, inhibitors, and collision suppressions so Gruul requires dispossession/wildness evidence rather than generic anger or freedom.",
+      "affected_files": [
+        "gruul_clans.placement.json"
+      ]
+    },
+    {
+      "change_id": "change_gruul_clans_0001",
+      "change_type": "Initial Build",
+      "change_date": "2026-05-09",
+      "summary": "Created initial JSON-first Gruul Clans lore, claims, profile, placement, and changelog package from official Wizards sources, repository/archive discovery, and secondary-source cross-checks.",
+      "sources_added": [
+        "src_gruul_clans_0001",
+        "src_gruul_clans_0002",
+        "src_gruul_clans_0003",
+        "src_gruul_clans_0004",
+        "src_gruul_clans_0005",
+        "src_gruul_clans_0006",
+        "src_gruul_clans_0007",
+        "src_gruul_clans_0008",
+        "src_gruul_clans_0009",
+        "src_gruul_clans_0010",
+        "src_gruul_clans_0011",
+        "src_gruul_clans_0012"
+      ],
+      "sources_updated": [],
+      "claims_added": [
+        "claim_gruul_clans_location_0001",
+        "claim_gruul_clans_core_identity_0001",
+        "claim_gruul_clans_core_identity_0002",
+        "claim_gruul_clans_core_identity_0003",
+        "claim_gruul_clans_philosophy_0004",
+        "claim_gruul_clans_structure_0005",
+        "claim_gruul_clans_location_0006",
+        "claim_gruul_clans_location_0007",
+        "claim_gruul_clans_philosophy_0008",
+        "claim_gruul_clans_philosophy_0009",
+        "claim_gruul_clans_philosophy_0010",
+        "claim_gruul_clans_structure_0011",
+        "claim_gruul_clans_key_figure_0012",
+        "claim_gruul_clans_key_figure_0013",
+        "claim_gruul_clans_structure_0014",
+        "claim_gruul_clans_visual_identity_0015",
+        "claim_gruul_clans_key_figure_0016",
+        "claim_gruul_clans_structure_0017",
+        "claim_gruul_clans_structure_0018",
+        "claim_gruul_clans_structure_0019",
+        "claim_gruul_clans_structure_0020",
+        "claim_gruul_clans_structure_0021",
+        "claim_gruul_clans_philosophy_0022",
+        "claim_gruul_clans_key_figure_0023",
+        "claim_gruul_clans_location_0024",
+        "claim_gruul_clans_location_0025",
+        "claim_gruul_clans_relationship_0026",
+        "claim_gruul_clans_timeline_0027",
+        "claim_gruul_clans_philosophy_0028",
+        "claim_gruul_clans_timeline_0029",
+        "claim_gruul_clans_timeline_0030",
+        "claim_gruul_clans_timeline_0031",
+        "claim_gruul_clans_structure_0032",
+        "claim_gruul_clans_philosophy_0033",
+        "claim_gruul_clans_structure_0034",
+        "claim_gruul_clans_key_figure_0035",
+        "claim_gruul_clans_key_figure_0036",
+        "claim_gruul_clans_philosophy_0037",
+        "claim_gruul_clans_timeline_0038",
+        "claim_gruul_clans_mechanic_0039",
+        "claim_gruul_clans_mechanic_0040",
+        "claim_gruul_clans_philosophy_0041",
+        "claim_gruul_clans_mechanic_0042",
+        "claim_gruul_clans_mechanic_0043",
+        "claim_gruul_clans_mechanic_0044",
+        "claim_gruul_clans_timeline_0045",
+        "claim_gruul_clans_key_figure_0046",
+        "claim_gruul_clans_timeline_0047",
+        "claim_gruul_clans_structure_0048",
+        "claim_gruul_clans_philosophy_0049",
+        "claim_gruul_clans_philosophy_0050",
+        "claim_gruul_clans_philosophy_0051",
+        "claim_gruul_clans_structure_0052",
+        "claim_gruul_clans_placement_0001",
+        "claim_gruul_clans_placement_0002",
+        "claim_gruul_clans_placement_0003",
+        "claim_gruul_clans_placement_0004"
+      ],
+      "claims_updated": [],
+      "claims_superseded": [],
+      "claims_contradicted": [],
+      "profile_fields_updated": [
+        "site_surface",
+        "core_identity",
+        "structure",
+        "great_tension",
+        "historical_timeline",
+        "key_figures",
+        "views_on_other_factions",
+        "mechanics",
+        "search_and_filter_metadata",
+        "data_quality",
+        "research_limitations"
+      ],
+      "placement_fields_updated": [
+        "placement_summary",
+        "moral_and_psychological_profile",
+        "placement_axes",
+        "core_values",
+        "behavioral_signals",
+        "inhibitor_traits",
+        "good_fit_indicators",
+        "poor_fit_indicators",
+        "discriminator_questions",
+        "chatbot_guidance",
+        "placement_quality"
+      ],
+      "manual_review_required": [
+        "Verify future official Ravnica story updates for post-Domri Gruul leadership.",
+        "Add card-level flavor text excerpts only after card-by-card source inspection.",
+        "If a future source provides a full list of seven or current clans, add claims rather than overwriting era-specific claims."
+      ],
+      "notes": "Initial build followed the uploaded JSON-first Gruul build prompt."
+    },
+    {
+      "change_id": "change_gruul_clans_0002",
+      "change_type": "Incremental Update",
+      "change_date": "2026-05-09",
+      "summary": "Added targeted MTG-Stories repository-archive research for Gruul-specific story material, especially Gruul Ingenuity, Rage of the Unsung, and Clans & Legions. Updated sources, atomic claims, profile details, and placement heuristics without renaming existing stable IDs.",
+      "sources_added": [
+        "src_gruul_clans_0013",
+        "src_gruul_clans_0014",
+        "src_gruul_clans_0015"
+      ],
+      "sources_updated": [],
+      "claims_added": [
+        "claim_gruul_clans_key_figure_0053",
+        "claim_gruul_clans_philosophy_0054",
+        "claim_gruul_clans_structure_0055",
+        "claim_gruul_clans_philosophy_0056",
+        "claim_gruul_clans_relationship_0057",
+        "claim_gruul_clans_structure_0058",
+        "claim_gruul_clans_philosophy_0059",
+        "claim_gruul_clans_structure_0060",
+        "claim_gruul_clans_philosophy_0061",
+        "claim_gruul_clans_structure_0062",
+        "claim_gruul_clans_philosophy_0063",
+        "claim_gruul_clans_relationship_0064",
+        "claim_gruul_clans_timeline_0065",
+        "claim_gruul_clans_key_figure_0066",
+        "claim_gruul_clans_key_figure_0067",
+        "claim_gruul_clans_key_figure_0068",
+        "claim_gruul_clans_key_figure_0069",
+        "claim_gruul_clans_location_0070",
+        "claim_gruul_clans_location_0071",
+        "claim_gruul_clans_placement_0072",
+        "claim_gruul_clans_placement_0073"
+      ],
+      "claims_updated": [],
+      "claims_superseded": [],
+      "claims_contradicted": [],
+      "profile_fields_updated": [
+        "site_surface",
+        "core_identity",
+        "structure.known_roles",
+        "structure.locations",
+        "great_tension",
+        "historical_timeline",
+        "key_figures",
+        "views_on_other_factions",
+        "search_and_filter_metadata",
+        "data_quality",
+        "research_limitations"
+      ],
+      "placement_fields_updated": [
+        "placement_summary",
+        "placement_axes",
+        "core_values",
+        "behavioral_signals",
+        "inhibitor_traits",
+        "good_fit_indicators",
+        "poor_fit_indicators",
+        "discriminator_questions",
+        "chatbot_guidance",
+        "placement_quality"
+      ],
+      "manual_review_required": [
+        "Cross-check repository-archive story files against original official Wizards pages if those URLs are available.",
+        "Run a full local-clone or GitHub API/code-search pass across every requested term if exhaustive repository coverage is required.",
+        "Review character-perspective claims before treating them as omniscient setting facts."
+      ],
+      "notes": "No existing stable IDs were renamed. New claims are additive. Story-only claims are labeled Repository Archive Supported or Supported Interpretation."
+    },
+    {
+      "change_id": "gruul_clans_change_corpus_upgrade_2026-05-10T01-40-01-100Z",
+      "change_type": "Incremental Update",
+      "change_date": "2026-05-09",
+      "summary": "Added targeted MTG-Stories repository-archive research from per-faction prompt search rows.",
+      "sources_added": [
+        "src_mtg_stories_the_gathering_storm_chapter_12_a8fc6d84",
+        "src_mtg_stories_in_praise_of_the_worldsoul_part_3_bc6ed8e9",
+        "src_mtg_stories_rage_of_the_unsung_d54f4c35",
+        "src_mtg_stories_desperate_operatives_6c6a580b",
+        "src_mtg_stories_the_gathering_storm_chapter_10_ed55e8dd",
+        "src_mtg_stories_rallying_the_reluctant_d21b8009"
+      ],
+      "sources_updated": [],
+      "claims_added": [
+        "gruul_clans_claim_0074",
+        "gruul_clans_claim_0075",
+        "gruul_clans_claim_0076",
+        "gruul_clans_claim_0077",
+        "gruul_clans_claim_0078",
+        "gruul_clans_claim_0079"
+      ],
+      "claims_updated": [],
+      "claims_superseded": [],
+      "claims_contradicted": [],
+      "profile_fields_updated": [
+        "core_identity",
+        "search_and_filter_metadata",
+        "data_quality"
+      ],
+      "placement_fields_updated": [
+        "placement_summary",
+        "placement_axes",
+        "behavioral_signals",
+        "inhibitor_traits",
+        "chatbot_guidance"
+      ],
+      "manual_review_required": [
+        "Review corpus-derived placement signals during schema, calibration, and collision passes."
+      ],
+      "notes": "Queries run: 17. Duplicate story sources skipped: 88."
+    }
+  ],
+  "audit_summary": {
+    "faction_researched": "Gruul Clans",
+    "plane_or_setting": "Ravnica",
+    "number_of_sources_reviewed": 21,
+    "number_of_official_sources_used": 10,
+    "number_of_repository_archive_sources_used": 10,
+    "number_of_secondary_discovery_sources_used": 1,
+    "number_of_claims_verified": 83,
+    "number_of_claims_marked_uncertain": 1,
+    "sections_with_limited_evidence": [
+      "Repository-only story details awaiting original Wizards URL cross-check.",
+      "Exhaustive repository-wide term coverage for every requested search term.",
+      "Character-perspective causal claims from story scenes."
+    ],
+    "conflicting_sources_found": [],
+    "assumptions_removed_during_validation": [
+      "Did not add unsupported Cinderspawn or Ulasht claims without inspected story evidence.",
+      "Did not treat search terms alone as evidence.",
+      "Did not convert character-perspective accusations into universal faction policy."
+    ],
+    "overall_confidence_rating": "High",
+    "last_tuning_pass": "2026-05-10T02:24:27.430Z",
+    "last_placement_ready_pass": "2026-05-10T02:56:03.254Z"
+  }
+}

@@ -1,0 +1,122 @@
+{
+  "schema_version": "1.0.0",
+  "faction_id": "silverquill",
+  "faction_name": "Silverquill College",
+  "last_updated": "2026-05-10T02:56:03.254Z",
+  "changes": [
+    {
+      "change_id": "change_silverquill_placement_ready_20260510025603",
+      "date": "2026-05-10",
+      "change_type": "placement_ready_calibration_tuning",
+      "summary": "Added explicit calibration_tuning metadata, behavioral guardrails, and collision/discriminator guidance for the Archscry placement engine.",
+      "affected_files": [
+        "silverquill.placement.json"
+      ]
+    },
+    {
+      "change_id": "silverquill_change_001",
+      "change_type": "Initial Build",
+      "change_date": "2026-05-09",
+      "summary": "Created first-pass source-supported JSON package for Silverquill College.",
+      "sources_added": [
+        "src_wotc_planeswalkers_guide_strixhaven_2021",
+        "src_wotc_strixhaven_product_page_2021",
+        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026"
+      ],
+      "sources_updated": [],
+      "claims_added": [
+        "silverquill_claim_001",
+        "silverquill_claim_002",
+        "silverquill_claim_003",
+        "silverquill_claim_004",
+        "silverquill_claim_005",
+        "silverquill_claim_006"
+      ],
+      "claims_updated": [],
+      "claims_superseded": [],
+      "claims_contradicted": [],
+      "profile_fields_updated": [
+        "profile",
+        "evidence_summary"
+      ],
+      "placement_fields_updated": [
+        "ideal_fit_indicators",
+        "poor_fit_indicators",
+        "discriminator_questions",
+        "chatbot_guidance"
+      ],
+      "manual_review_required": [
+        "Add direct story citations and deeper character-specific claims in a later pass."
+      ],
+      "notes": "Generated as part of completing remaining Vox Mana faction JSON packages."
+    },
+    {
+      "change_id": "silverquill_change_corpus_upgrade_2026-05-10T01-40-01-100Z",
+      "change_type": "Incremental Update",
+      "change_date": "2026-05-09",
+      "summary": "Added targeted MTG-Stories repository-archive research from per-faction prompt search rows.",
+      "sources_added": [
+        "src_mtg_stories_a_silent_voice_calls_36854b19",
+        "src_mtg_stories_winnowing_season_0ca1ec59",
+        "src_mtg_stories_the_chains_that_bind_5673ab04",
+        "src_mtg_stories_off_the_record_2ea68353",
+        "src_mtg_stories_episode_1_class_is_in_session_bd3caf13",
+        "src_mtg_stories_episode_3_extracurriculars_39c7efc0",
+        "src_mtg_stories_blue_green_ribbons_2e2606a8",
+        "src_mtg_stories_episode_1_penmanship_practice_f245144d",
+        "src_mtg_stories_episode_4_put_to_the_test_8c6b8d55",
+        "src_mtg_stories_episode_4_something_to_offer_8ebeacb3"
+      ],
+      "sources_updated": [],
+      "claims_added": [
+        "silverquill_claim_0007",
+        "silverquill_claim_0008",
+        "silverquill_claim_0009",
+        "silverquill_claim_0010",
+        "silverquill_claim_0011",
+        "silverquill_claim_0012",
+        "silverquill_claim_0013",
+        "silverquill_claim_0014",
+        "silverquill_claim_0015",
+        "silverquill_claim_0016"
+      ],
+      "claims_updated": [],
+      "claims_superseded": [],
+      "claims_contradicted": [],
+      "profile_fields_updated": [
+        "core_identity",
+        "search_and_filter_metadata",
+        "data_quality"
+      ],
+      "placement_fields_updated": [
+        "placement_summary",
+        "placement_axes",
+        "behavioral_signals",
+        "inhibitor_traits",
+        "chatbot_guidance"
+      ],
+      "manual_review_required": [
+        "Review corpus-derived placement signals during schema, calibration, and collision passes."
+      ],
+      "notes": "Queries run: 16. Duplicate story sources skipped: 228."
+    }
+  ],
+  "audit_summary": {
+    "faction_researched": "Silverquill College",
+    "plane_or_setting": "Arcavios / Strixhaven",
+    "number_of_sources_reviewed": 13,
+    "number_of_official_sources_used": 3,
+    "number_of_repository_archive_sources_used": 10,
+    "number_of_secondary_discovery_sources_used": 0,
+    "number_of_claims_verified": 15,
+    "number_of_claims_marked_uncertain": 0,
+    "sections_with_limited_evidence": [
+      "deep story episode coverage",
+      "current post-source leadership status where later canon may update the cited-era overview"
+    ],
+    "conflicting_sources_found": [],
+    "assumptions_removed_during_validation": [],
+    "overall_confidence_rating": "Medium",
+    "last_placement_ready_pass": "2026-05-10T02:56:03.254Z"
+  }
+}

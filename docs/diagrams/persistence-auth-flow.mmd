@@ -1,0 +1,18 @@
+flowchart TD
+  Result["Placement result"]
+  Normalize["normalizePlacementResult"]
+  Cache["vm_cachePlacementResult<br/>sessionStorage"]
+  Save{"Signed in?"}
+  OAuth["vm_saveWithGoogle<br/>pending result + redirect"]
+  Supabase["vm_savePlacementResult<br/>profiles row"]
+  Resume["vm_resumeSession"]
+  Pending["vm_checkPendingSave"]
+  Restore["restoreInitialView"]
+  Clear["vm_clearPlacement / vm_signOut"]
+
+  Result --> Normalize --> Cache --> Save
+  Save -- "No" --> OAuth --> Pending --> Supabase
+  Save -- "Yes" --> Supabase
+  Supabase --> Resume --> Restore
+  Cache --> Restore
+  Restore --> Clear

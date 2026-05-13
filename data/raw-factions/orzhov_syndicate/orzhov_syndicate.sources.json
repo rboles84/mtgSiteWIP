@@ -1,0 +1,257 @@
+{
+  "schema_version": "1.0.0",
+  "faction_id": "orzhov_syndicate",
+  "faction_name": "Orzhov Syndicate",
+  "source_review_date": "2026-05-09",
+  "last_updated": "2026-05-09",
+  "sources": [
+    {
+      "source_id": "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+      "title": "A Flavorful Guide to the Guilds of Ravnica Allegiance",
+      "author": "Cassie LaBelle",
+      "publisher_or_site": "Magic: The Gathering",
+      "publication_date": "2019-02-08",
+      "url_or_repository_path": "https://magic.wizards.com/en/news/feature/flavorful-guide-guilds-ravnica-allegiance-2019-02-07",
+      "source_type": "Official article",
+      "reliability": "Primary / official",
+      "notes": "Official Wizards overview of the Ravnica Allegiance factions: Azorius, Rakdos, Simic, Gruul, and Orzhov."
+    },
+    {
+      "source_id": "src_wotc_ravnica_allegiance_mechanics_2018",
+      "title": "Ravnica Allegiance Mechanics",
+      "author": "Matt Tabak",
+      "publisher_or_site": "Magic: The Gathering",
+      "publication_date": "2018-12-17",
+      "url_or_repository_path": "https://magic.wizards.com/en/news/feature/ravnica-allegiance-mechanics",
+      "source_type": "Official mechanics article",
+      "reliability": "Primary / official",
+      "notes": "Official mechanics article for Orzhov, Gruul, Simic, Azorius, and Rakdos in Ravnica Allegiance."
+    },
+    {
+      "source_id": "src_wotc_dragons_maze_mechanics_2013",
+      "title": "Dragon's Maze Mechanics",
+      "author": "Wizards of the Coast",
+      "publisher_or_site": "Magic: The Gathering",
+      "publication_date": "2013-04-08",
+      "url_or_repository_path": "https://magic.wizards.com/en/news/feature/dragons-maze-mechanics",
+      "source_type": "Official mechanics article",
+      "reliability": "Primary / official",
+      "notes": "Official mechanics article noting all ten guilds and the Implicit Maze context."
+    },
+    {
+      "source_id": "src_mtg_stories_rallying_the_reluctant_d21b8009",
+      "title": "Rallying the Reluctant",
+      "author": "Greg Weisman",
+      "publisher_or_site": "GitHub MTG Story Corpus / archived Magic story",
+      "publication_date": "2019-05-22",
+      "url_or_repository_path": "https://github.com/polarkac/MTG-Stories/blob/5e0a53c7193ba58835fd811f66612e8f6d6f344b/stories/038%20-%20War%20of%20the%20Spark/003_Rallying%20the%20Reluctant.typ",
+      "repository_path": "stories/038 - War of the Spark/003_Rallying the Reluctant.typ",
+      "source_type": "Repository archive story file",
+      "reliability": "Repository/archive copy of official story material",
+      "notes": "Matched Orzhov Syndicate corpus queries: Orzhov Syndicate, Orzhov, Obzedat, Ghost Council, Teysa Karlov, Kaya, Karlov, debt, tithe, thrull. Treat as searchable archive evidence and cross-check against official Wizards story pages when available.",
+      "matched_queries": [
+        "Orzhov Syndicate",
+        "Orzhov",
+        "Obzedat",
+        "Ghost Council",
+        "Teysa Karlov",
+        "Kaya",
+        "Karlov",
+        "debt",
+        "tithe",
+        "thrull"
+      ],
+      "set_name": "War of the Spark"
+    },
+    {
+      "source_id": "src_mtg_stories_the_ledger_of_hidden_fortunes_daa0c70e",
+      "title": "The Ledger of Hidden Fortunes",
+      "author": "Nicky Drayden",
+      "publisher_or_site": "GitHub MTG Story Corpus / archived Magic story",
+      "publication_date": "2019-02-20",
+      "url_or_repository_path": "https://github.com/polarkac/MTG-Stories/blob/5e0a53c7193ba58835fd811f66612e8f6d6f344b/stories/037%20-%20Ravnica%20Allegiance/004_The%20Ledger%20of%20Hidden%20Fortunes.typ",
+      "repository_path": "stories/037 - Ravnica Allegiance/004_The Ledger of Hidden Fortunes.typ",
+      "source_type": "Repository archive story file",
+      "reliability": "Repository/archive copy of official story material",
+      "notes": "Matched Orzhov Syndicate corpus queries: Orzhov Syndicate, Orzhov, Obzedat, Ghost Council, Basilica, debt, tithe, thrull. Treat as searchable archive evidence and cross-check against official Wizards story pages when available.",
+      "matched_queries": [
+        "Orzhov Syndicate",
+        "Orzhov",
+        "Obzedat",
+        "Ghost Council",
+        "Basilica",
+        "debt",
+        "tithe",
+        "thrull"
+      ],
+      "set_name": "Ravnica Allegiance"
+    },
+    {
+      "source_id": "src_mtg_stories_teysa_karlov_88b8425e",
+      "title": "Teysa Karlov",
+      "author": "Adam Lee",
+      "publisher_or_site": "GitHub MTG Story Corpus / archived Magic story",
+      "publication_date": "2013-04-10",
+      "url_or_repository_path": "https://github.com/polarkac/MTG-Stories/blob/5e0a53c7193ba58835fd811f66612e8f6d6f344b/stories/004%20-%20Dragon's%20Maze/002_Teysa%20Karlov.typ",
+      "repository_path": "stories/004 - Dragon's Maze/002_Teysa Karlov.typ",
+      "source_type": "Repository archive story file",
+      "reliability": "Repository/archive copy of official story material",
+      "notes": "Matched Orzhov Syndicate corpus queries: Orzhov, Obzedat, Ghost Council, Teysa Karlov, Karlov, thrull. Treat as searchable archive evidence and cross-check against official Wizards story pages when available.",
+      "matched_queries": [
+        "Orzhov",
+        "Obzedat",
+        "Ghost Council",
+        "Teysa Karlov",
+        "Karlov",
+        "thrull"
+      ],
+      "set_name": "Dragon's Maze"
+    },
+    {
+      "source_id": "src_mtg_stories_bound_and_bonded_7559b6f4",
+      "title": "Bound and Bonded",
+      "author": "Nicky Drayden",
+      "publisher_or_site": "GitHub MTG Story Corpus / archived Magic story",
+      "publication_date": "2018-11-14",
+      "url_or_repository_path": "https://github.com/polarkac/MTG-Stories/blob/5e0a53c7193ba58835fd811f66612e8f6d6f344b/stories/036%20-%20Guilds%20of%20Ravnica/005_Bound%20and%20Bonded.typ",
+      "repository_path": "stories/036 - Guilds of Ravnica/005_Bound and Bonded.typ",
+      "source_type": "Repository archive story file",
+      "reliability": "Repository/archive copy of official story material",
+      "notes": "Matched Orzhov Syndicate corpus queries: Orzhov Syndicate, Orzhov, Basilica, debt, thrull. Treat as searchable archive evidence and cross-check against official Wizards story pages when available.",
+      "matched_queries": [
+        "Orzhov Syndicate",
+        "Orzhov",
+        "Basilica",
+        "debt",
+        "thrull"
+      ],
+      "set_name": "Guilds of Ravnica"
+    },
+    {
+      "source_id": "src_mtg_stories_family_values_c60eb616",
+      "title": "Family Values",
+      "author": "Alison Luhrs",
+      "publisher_or_site": "GitHub MTG Story Corpus / archived Magic story",
+      "publication_date": "2015-11-11",
+      "url_or_repository_path": "https://github.com/polarkac/MTG-Stories/blob/5e0a53c7193ba58835fd811f66612e8f6d6f344b/stories/022%20-%20Commander%20(2015%20Edition)/002_Family%20Values.typ",
+      "repository_path": "stories/022 - Commander (2015 Edition)/002_Family Values.typ",
+      "source_type": "Repository archive story file",
+      "reliability": "Repository/archive copy of official story material",
+      "notes": "Matched Orzhov Syndicate corpus queries: Orzhov, Obzedat, Ghost Council, Teysa Karlov, Karlov, Basilica, debt, thrull. Treat as searchable archive evidence and cross-check against official Wizards story pages when available.",
+      "matched_queries": [
+        "Orzhov",
+        "Obzedat",
+        "Ghost Council",
+        "Teysa Karlov",
+        "Karlov",
+        "Basilica",
+        "debt",
+        "thrull"
+      ],
+      "set_name": "Commander (2015 Edition)"
+    },
+    {
+      "source_id": "src_mtg_stories_the_gathering_storm_chapter_2_c2c05981",
+      "title": "The Gathering Storm: Chapter 2",
+      "author": "Django Wexler",
+      "publisher_or_site": "GitHub MTG Story Corpus / archived Magic story",
+      "publication_date": "2019-06-12",
+      "url_or_repository_path": "https://github.com/polarkac/MTG-Stories/blob/5e0a53c7193ba58835fd811f66612e8f6d6f344b/stories/036%20-%20Guilds%20of%20Ravnica/008_The%20Gathering%20Storm%3A%20Chapter%202.typ",
+      "repository_path": "stories/036 - Guilds of Ravnica/008_The Gathering Storm: Chapter 2.typ",
+      "source_type": "Repository archive story file",
+      "reliability": "Repository/archive copy of official story material",
+      "notes": "Matched Orzhov Syndicate corpus queries: Orzhov, Obzedat, Ghost Council, Teysa Karlov, Kaya, Karlov. Treat as searchable archive evidence and cross-check against official Wizards story pages when available.",
+      "matched_queries": [
+        "Orzhov",
+        "Obzedat",
+        "Ghost Council",
+        "Teysa Karlov",
+        "Kaya",
+        "Karlov"
+      ],
+      "set_name": "Guilds of Ravnica"
+    },
+    {
+      "source_id": "src_mtg_stories_episode_1_ghosts_of_our_past_3c1a1077",
+      "title": "Episode 1: Ghosts of Our Past",
+      "author": "Seanan McGuire",
+      "publisher_or_site": "GitHub MTG Story Corpus / archived Magic story",
+      "publication_date": "2023-12-05",
+      "url_or_repository_path": "https://github.com/polarkac/MTG-Stories/blob/5e0a53c7193ba58835fd811f66612e8f6d6f344b/stories/055%20-%20Murders%20at%20Karlov%20Manor/001_Episode%201%3A%20Ghosts%20of%20Our%20Past.typ",
+      "repository_path": "stories/055 - Murders at Karlov Manor/001_Episode 1: Ghosts of Our Past.typ",
+      "source_type": "Repository archive story file",
+      "reliability": "Repository/archive copy of official story material",
+      "notes": "Matched Orzhov Syndicate corpus queries: Orzhov Syndicate, Orzhov, Kaya, Karlov, debt. Treat as searchable archive evidence and cross-check against official Wizards story pages when available.",
+      "matched_queries": [
+        "Orzhov Syndicate",
+        "Orzhov",
+        "Kaya",
+        "Karlov",
+        "debt"
+      ],
+      "set_name": "Murders at Karlov Manor"
+    },
+    {
+      "source_id": "src_mtg_stories_episode_10_roots_of_decay_955d3d20",
+      "title": "Episode 10: Roots of Decay",
+      "author": "Seanan McGuire",
+      "publisher_or_site": "GitHub MTG Story Corpus / archived Magic story",
+      "publication_date": "2024-01-18",
+      "url_or_repository_path": "https://github.com/polarkac/MTG-Stories/blob/5e0a53c7193ba58835fd811f66612e8f6d6f344b/stories/055%20-%20Murders%20at%20Karlov%20Manor/010_Episode%2010%3A%20Roots%20of%20Decay.typ",
+      "repository_path": "stories/055 - Murders at Karlov Manor/010_Episode 10: Roots of Decay.typ",
+      "source_type": "Repository archive story file",
+      "reliability": "Repository/archive copy of official story material",
+      "notes": "Matched Orzhov Syndicate corpus queries: Orzhov, Ghost Council, Kaya, Karlov, debt, haunt, afterlife. Treat as searchable archive evidence and cross-check against official Wizards story pages when available.",
+      "matched_queries": [
+        "Orzhov",
+        "Ghost Council",
+        "Kaya",
+        "Karlov",
+        "debt",
+        "haunt",
+        "afterlife"
+      ],
+      "set_name": "Murders at Karlov Manor"
+    },
+    {
+      "source_id": "src_mtg_stories_the_gathering_storm_chapter_15_512aa9f3",
+      "title": "The Gathering Storm: Chapter 15",
+      "author": "Django Wexler",
+      "publisher_or_site": "GitHub MTG Story Corpus / archived Magic story",
+      "publication_date": "2019-09-18",
+      "url_or_repository_path": "https://github.com/polarkac/MTG-Stories/blob/5e0a53c7193ba58835fd811f66612e8f6d6f344b/stories/037%20-%20Ravnica%20Allegiance/009_The%20Gathering%20Storm%3A%20Chapter%2015.typ",
+      "repository_path": "stories/037 - Ravnica Allegiance/009_The Gathering Storm: Chapter 15.typ",
+      "source_type": "Repository archive story file",
+      "reliability": "Repository/archive copy of official story material",
+      "notes": "Matched Orzhov Syndicate corpus queries: Orzhov, Teysa Karlov, Kaya, Karlov, debt, thrull. Treat as searchable archive evidence and cross-check against official Wizards story pages when available.",
+      "matched_queries": [
+        "Orzhov",
+        "Teysa Karlov",
+        "Kaya",
+        "Karlov",
+        "debt",
+        "thrull"
+      ],
+      "set_name": "Ravnica Allegiance"
+    },
+    {
+      "source_id": "src_mtg_stories_episode_8_gods_of_chaos_a773d3bd",
+      "title": "Episode 8: Gods of Chaos",
+      "author": "Seanan McGuire",
+      "publisher_or_site": "GitHub MTG Story Corpus / archived Magic story",
+      "publication_date": "2024-01-16",
+      "url_or_repository_path": "https://github.com/polarkac/MTG-Stories/blob/5e0a53c7193ba58835fd811f66612e8f6d6f344b/stories/055%20-%20Murders%20at%20Karlov%20Manor/008_Episode%208%3A%20Gods%20of%20Chaos.typ",
+      "repository_path": "stories/055 - Murders at Karlov Manor/008_Episode 8: Gods of Chaos.typ",
+      "source_type": "Repository archive story file",
+      "reliability": "Repository/archive copy of official story material",
+      "notes": "Matched Orzhov Syndicate corpus queries: Orzhov Syndicate, Orzhov, Kaya, Karlov. Treat as searchable archive evidence and cross-check against official Wizards story pages when available.",
+      "matched_queries": [
+        "Orzhov Syndicate",
+        "Orzhov",
+        "Kaya",
+        "Karlov"
+      ],
+      "set_name": "Murders at Karlov Manor"
+    }
+  ]
+}

@@ -1,0 +1,67 @@
+{
+  "schema_version": "1.0.0",
+  "faction_id": "boros_legion",
+  "faction_name": "Boros Legion",
+  "last_updated": "2026-05-10T02:56:03.254Z",
+  "changes": [
+    {
+      "change_id": "change_boros_legion_placement_ready_20260510025603",
+      "date": "2026-05-10",
+      "change_type": "placement_ready_calibration_tuning",
+      "summary": "Added explicit calibration_tuning metadata, behavioral guardrails, and collision/discriminator guidance for the Archscry placement engine.",
+      "affected_files": [
+        "boros_legion.placement.json"
+      ]
+    },
+    {
+      "change_id": "boros_legion_change_2026-05-10_879ea7",
+      "date": "2026-05-10",
+      "change_type": "corpus_enrichment_and_schema_upgrade",
+      "summary": "Ran the Boros MTG-Stories corpus prompt rows, added deduped archive sources/claims, and upgraded placement metadata into the richer calibrated shape.",
+      "affected_files": [
+        "boros_legion.sources.json",
+        "boros_legion.claims.json",
+        "boros_legion.profile.json",
+        "boros_legion.placement.json"
+      ],
+      "source_count_after": 17,
+      "claim_count_after": 24,
+      "corpus_prompt_rows_run": 16,
+      "corpus_sources_added": 12,
+      "corpus_claims_added": 12
+    },
+    {
+      "change_id": "boros_legion_change_001",
+      "change_type": "Initial Build",
+      "change_date": "2026-05-09",
+      "summary": "Created first-pass source-supported JSON package."
+    },
+    {
+      "change_id": "boros_legion_change_002",
+      "change_type": "Lore Deep-Dive Integration",
+      "change_date": "2026-05-09",
+      "summary": "Integrated full historical leadership, sub-faction duality (Wojek vs. Army), and character archetypes.",
+      "sources_added": [
+        "src_ravnica_novel_2005",
+        "src_wotc_gatecrash_boros_lore_2013",
+        "src_wotc_legends_karlov_manor_2024"
+      ],
+      "claims_added": [
+        "boros_legion_claim_008",
+        "boros_legion_claim_009",
+        "boros_legion_claim_010",
+        "boros_legion_claim_011",
+        "boros_legion_claim_012"
+      ],
+      "notes": "Unified the numbering system and ensured full integration of the 12 primary claims for the Vox Mana archive."
+    }
+  ],
+  "audit_summary": {
+    "faction_researched": "Boros Legion",
+    "number_of_sources_reviewed": 5,
+    "number_of_claims_verified": 12,
+    "overall_confidence_rating": "High",
+    "last_tuning_pass": "2026-05-10T02:24:27.430Z",
+    "last_placement_ready_pass": "2026-05-10T02:56:03.254Z"
+  }
+}

@@ -1,0 +1,238 @@
+{
+  "schema_version": "1.0.0",
+  "faction_id": "boros_legion",
+  "faction_name": "Boros Legion",
+  "last_updated": "2026-05-10T02:56:03.254Z",
+  "placement_model_version": "vox-mana-lore-json-v1",
+  "color_identity": [
+    "white",
+    "red"
+  ],
+  "ideal_fit_indicators": [
+    {
+      "indicator": "protects others under pressure",
+      "rationale": "Aligns with the guild's core martial justice identity.",
+      "claim_ids": [
+        "boros_legion_claim_001"
+      ],
+      "confidence": "High"
+    },
+    {
+      "indicator": "The 'Grizzled Veteran' Mentality",
+      "rationale": "Reflects the League of Wojek's pragmatic approach to survival and investigation.",
+      "claim_ids": [
+        "boros_legion_claim_011"
+      ],
+      "confidence": "High"
+    },
+    {
+      "indicator": "Heroic Solidarity",
+      "rationale": "Values the unit as the primary source of strength (Battalion/Mentor).",
+      "claim_ids": [
+        "boros_legion_claim_012"
+      ],
+      "confidence": "High"
+    }
+  ],
+  "poor_fit_indicators": [
+    {
+      "indicator": "avoids conflict at any cost",
+      "rationale": "Directly counters the guild's martial and protective mandate.",
+      "claim_ids": [
+        "boros_legion_claim_001"
+      ],
+      "confidence": "High"
+    },
+    {
+      "indicator": "treats rules as more important than people",
+      "rationale": "Distinguishes Boros moral urgency from Azorius legal rigidity.",
+      "claim_ids": [
+        "boros_legion_claim_008"
+      ],
+      "confidence": "High"
+    }
+  ],
+  "discriminator_questions": [
+    {
+      "question_id": "q_boros_legion_0001",
+      "question": "Is the law a set of rules to be interpreted or a shield to be used for protection?",
+      "purpose": "Separates the protective instinct (Boros) from procedural debate (Azorius).",
+      "claim_ids": [
+        "boros_legion_claim_001",
+        "boros_legion_claim_008"
+      ]
+    },
+    {
+      "question_id": "q_boros_legion_0002",
+      "question": "Would you work with a 'shady' ally to solve a crime that threatens the public?",
+      "purpose": "Tests for the Wojek investigator archetype (Agrus Kos).",
+      "claim_ids": [
+        "boros_legion_claim_011"
+      ]
+    },
+    {
+      "question_id": "q_boros_legion_9001",
+      "collision_targets": [
+        "azorius_senate",
+        "lorehold",
+        "selesnya_conclave"
+      ],
+      "prompt": "A rule, a precedent, and a community consensus all say to wait, but someone will be hurt before the process finishes. What do you do first?",
+      "boros_signal": "acts visibly to protect the person and accepts consequences afterward",
+      "suppresses_boros_if": "waits for procedure, researches precedent, or preserves harmony as the first priority",
+      "evidence_claim_ids": [
+        "boros_legion_claim_001",
+        "boros_legion_claim_002",
+        "boros_legion_claim_003",
+        "boros_legion_claim_004",
+        "boros_legion_claim_005"
+      ]
+    }
+  ],
+  "placement_quality": {
+    "overall_confidence": "High",
+    "strongest_evidence_areas": [
+      "Sub-faction duality",
+      "Historical leadership transition",
+      "Mechanical psychology"
+    ],
+    "schema_shape": "rich",
+    "last_tuning_pass": "2026-05-10T02:24:27.430Z",
+    "corpus_prompt_rows_run": 16,
+    "corpus_sources_added": 12,
+    "corpus_claims_added": 12,
+    "calibration_tuning_status": "explicit",
+    "last_placement_ready_pass": "2026-05-10T02:56:03.254Z"
+  },
+  "placement_profile_version": "2.0",
+  "based_on_profile_version": "2.0",
+  "placement_summary": {
+    "primary_read": "Place Boros when the user repeatedly chooses immediate protection, visible accountability, team loyalty, moral courage, and action under pressure over delay, secrecy, or purely abstract principle.",
+    "false_positive_guardrail": "Do not award Boros for generic rule-following, generic aggression, generic hero fantasy, or historical curiosity without present-tense intervention.",
+    "evidence_claim_ids": [
+      "boros_legion_claim_001",
+      "boros_legion_claim_002",
+      "boros_legion_claim_003",
+      "boros_legion_claim_004",
+      "boros_legion_claim_005",
+      "boros_legion_claim_006",
+      "boros_legion_claim_007",
+      "boros_legion_claim_008",
+      "boros_legion_claim_009",
+      "boros_legion_claim_010"
+    ],
+    "calibrated_primary_read": "Requires immediate protection, visible accountability, team duty, and moral urgency.",
+    "calibrated_false_positive_guardrail": "Do not award for generic heroism, generic aggression, or white-red identity without active protection."
+  },
+  "placement_axes": [
+    {
+      "axis_id": "axis_boros_action_vs_procedure",
+      "name": "Immediate Protection vs Procedural Restraint",
+      "boros_pole": "Act when delay leaves someone exposed.",
+      "opposing_pole": "Wait for the proper channel even under pressure.",
+      "scoring_hint": "High Boros only when protection and action are both present.",
+      "evidence_claim_ids": [
+        "boros_legion_claim_001",
+        "boros_legion_claim_002",
+        "boros_legion_claim_003",
+        "boros_legion_claim_004"
+      ]
+    },
+    {
+      "axis_id": "axis_boros_team_duty",
+      "name": "Team-Bound Duty",
+      "boros_pole": "Shoulder risk publicly with comrades.",
+      "opposing_pole": "Win privately, indirectly, or without shared accountability.",
+      "scoring_hint": "Reward loyalty and front-line responsibility more than solitary competence.",
+      "evidence_claim_ids": [
+        "boros_legion_claim_004",
+        "boros_legion_claim_005",
+        "boros_legion_claim_006",
+        "boros_legion_claim_007"
+      ]
+    },
+    {
+      "axis_id": "axis_boros_righteous_zeal",
+      "name": "Righteous Zeal Under Constraint",
+      "boros_pole": "Moral urgency burns hotter than institutional comfort.",
+      "opposing_pole": "Anger without a protective duty or spectacle without service.",
+      "scoring_hint": "Separate Boros zeal from Rakdos performance and Gruul grievance.",
+      "evidence_claim_ids": [
+        "boros_legion_claim_007",
+        "boros_legion_claim_008",
+        "boros_legion_claim_009",
+        "boros_legion_claim_010"
+      ]
+    }
+  ],
+  "behavioral_signals": [
+    "protects someone who cannot protect themselves",
+    "breaks procedure only when a present-tense harm requires intervention",
+    "describes duty as something carried with other people, not just a private value",
+    "prefers accountable action over hidden leverage",
+    "acts to protect someone exposed to harm",
+    "accepts consequences after doing the right thing",
+    "frames courage as shared duty"
+  ],
+  "inhibitor_traits": [
+    "prefers process over intervention even when harm is immediate",
+    "frames justice as reputation, debt, private leverage, or historical analysis rather than protection",
+    "seeks harmony by avoiding conflict when protection would require confrontation",
+    "waits for process when someone is being harmed",
+    "prefers hidden leverage",
+    "avoids confrontation for harmony"
+  ],
+  "good_fit_indicators": [
+    "The user chooses protection and visible duty over comfort.",
+    "The user accepts personal risk to stop a present injustice.",
+    "The user values teammates, accountability, and decisive action."
+  ],
+  "chatbot_guidance": {
+    "ask_when_uncertain": "When Boros is close to Azorius, Lorehold, or Selesnya, ask whether the user would act now to protect someone, preserve procedure, research precedent, or preserve group harmony.",
+    "avoid": "Avoid treating any white-red answer as Boros. Require active protection or moral urgency in the present.",
+    "calibration_note": "Boros Legion should require its specific positive evidence cluster: protect, protection, intervene, immediate, action. Keep it adjacent when the answer only contains broad color identity or generic personality language.",
+    "scoring_guardrail": "Do not award for generic heroism, generic aggression, or white-red identity without active protection."
+  },
+  "calibration_tuning": {
+    "required_positive_evidence_terms": [
+      "protect",
+      "protection",
+      "intervene",
+      "immediate",
+      "action",
+      "teammate",
+      "duty",
+      "justice",
+      "accountable",
+      "defend"
+    ],
+    "required_positive_min_hits": 2,
+    "broad_match_penalty": 0.12,
+    "strengthen_when_user_centers": [
+      "present-tense protection",
+      "visible accountability",
+      "risk for someone else",
+      "justice over delay"
+    ],
+    "suppress_when_user_centers": [
+      "procedure without urgency",
+      "historical evidence without intervention",
+      "harmony without confrontation",
+      "performance without service",
+      "private leverage"
+    ],
+    "collision_suppressions": [
+      {
+        "against": "azorius_senate",
+        "rule": "Suppress Boros if the user emphasizes channels, legislation, precedent, or enforceable systems more than immediate protection."
+      },
+      {
+        "against": "lorehold",
+        "rule": "Suppress Boros if the user chooses research, historical evidence, or preservation of memory over acting in the present."
+      }
+    ],
+    "false_positive_guardrail": "Do not award for generic heroism, generic aggression, or white-red identity without active protection.",
+    "smoke_test_note": "Used by lore review scripts as metadata-level calibration guidance; production placement may use richer weighted logic."
+  },
+  "collision_guidance": []
+}

@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="920" height="440" viewBox="0 0 920 440" role="img" aria-labelledby="title desc">
+  <title id="title">Persistence and auth flow</title>
+  <desc id="desc">Placement results normalize, cache, save through Supabase or OAuth, then resume into the site.</desc>
+  <defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#8fbfd0"/></marker><style>.bg{fill:#121315}.box{fill:#202225;stroke:#bfa46a;rx:7}.store{fill:#172a2e;stroke:#62b7c4;rx:7}.decision{fill:#2a2217;stroke:#d0b46f}.text{fill:#f1ead7;font:13px Arial}.small{fill:#c9c0aa;font:12px Arial}.line{stroke:#8fbfd0;stroke-width:1.5;fill:none;marker-end:url(#arrow)}</style></defs>
+  <rect class="bg" width="920" height="440"/>
+  <rect class="box" x="45" y="80" width="150" height="54"/><text class="text" x="120" y="103" text-anchor="middle">Placement result</text><text class="small" x="120" y="120" text-anchor="middle">quick/interview</text>
+  <rect class="box" x="245" y="80" width="170" height="54"/><text class="text" x="330" y="103" text-anchor="middle">Normalize</text><text class="small" x="330" y="120" text-anchor="middle">shared result shape</text>
+  <rect class="store" x="465" y="80" width="160" height="54"/><text class="text" x="545" y="103" text-anchor="middle">Cache</text><text class="small" x="545" y="120" text-anchor="middle">sessionStorage</text>
+  <rect class="decision" x="690" y="70" width="130" height="74"/><text class="text" x="755" y="100" text-anchor="middle">Signed in?</text>
+  <rect class="box" x="620" y="210" width="180" height="54"/><text class="text" x="710" y="233" text-anchor="middle">OAuth pending</text><text class="small" x="710" y="250" text-anchor="middle">redirect + restore</text>
+  <rect class="store" x="390" y="210" width="170" height="54"/><text class="text" x="475" y="233" text-anchor="middle">Supabase profile</text><text class="small" x="475" y="250" text-anchor="middle">placement_result</text>
+  <rect class="box" x="170" y="210" width="155" height="54"/><text class="text" x="248" y="233" text-anchor="middle">Resume session</text><text class="small" x="248" y="250" text-anchor="middle">auth + profile</text>
+  <rect class="box" x="170" y="330" width="155" height="54"/><text class="text" x="248" y="353" text-anchor="middle">Restore view</text><text class="small" x="248" y="370" text-anchor="middle">landing or dossier</text>
+  <rect class="box" x="390" y="330" width="155" height="54"/><text class="text" x="468" y="353" text-anchor="middle">Clear/sign out</text><text class="small" x="468" y="370" text-anchor="middle">retake cleanup</text>
+  <path class="line" d="M195 107 L245 107"/><path class="line" d="M415 107 L465 107"/><path class="line" d="M625 107 L690 107"/><path class="line" d="M755 144 L710 210"/><path class="line" d="M690 144 L475 210"/><path class="line" d="M620 237 L560 237"/><path class="line" d="M390 237 L325 237"/><path class="line" d="M248 264 L248 330"/><path class="line" d="M545 134 C540 285 340 320 325 345"/><path class="line" d="M325 357 L390 357"/>
+</svg>

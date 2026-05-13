@@ -5,114 +5,169 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Vox Mana — Privacy Policy</title>
 
-<link rel="stylesheet" href="/assets/css/fonts.css">
 <link rel="stylesheet" href="/assets/css/tokens.css">
+<link rel="stylesheet" href="/assets/css/fonts.css">
 <link rel="stylesheet" href="/assets/css/topbar.css">
+<link rel="stylesheet" href="/assets/css/atmosphere.css">
+<link rel="stylesheet" href="/assets/css/components.css">
 
 <style>
-/* Page-specific layout. All shared tokens live in tokens.css. */
 .page {
   position: relative;
   z-index: 1;
-  width: min(760px, 100%);
+  width: min(720px, 100%);
   margin: 0 auto;
   padding: 0 var(--s-5) var(--s-20);
 }
-
 .doc-stamp {
   font-family: var(--font-mono);
   font-size: var(--text-xs);
-  letter-spacing: 0.22em;
+  letter-spacing: 0.28em;
   text-transform: uppercase;
-  color: var(--text-muted);
+  color: var(--gold-quiet);
   margin-bottom: var(--s-3);
-  margin-top: var(--s-10);
+  margin-top: var(--s-12);
 }
-
 h1 {
   font-family: var(--font-display);
-  font-size: var(--text-2xl);
+  font-size: clamp(2rem, 4vw, 3rem);
   color: var(--gold-l);
   letter-spacing: 0.02em;
-  margin-bottom: var(--s-3);
-  font-variation-settings: "opsz" 60, "wght" 600, "SOFT" 50;
+  margin-bottom: var(--s-4);
+  font-variation-settings: "opsz" 96, "wght" 600, "SOFT" 50;
 }
-
 .lede {
-  color: var(--text-dim);
-  font-size: var(--text-base);
-  max-width: 580px;
-  margin-bottom: var(--s-10);
+  color: var(--text);
+  font-family: var(--font-text);
+  font-size: 1.18rem;
+  max-width: 60ch;
+  margin-bottom: var(--s-12);
   line-height: 1.7;
+  font-style: italic;
 }
-
 section {
-  padding: var(--s-6) 0;
+  padding: var(--s-8) 0;
   border-top: 1px solid var(--border);
 }
-section:first-of-type { border-top: none; }
-
+section:first-of-type { border-top: none; padding-top: 0; }
 h2 {
   font-family: var(--font-mono);
   font-size: var(--text-sm);
   font-weight: 500;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--gold);
-  margin-bottom: var(--s-3);
+  margin-bottom: var(--s-4);
 }
-
 p {
-  font-size: var(--text-base);
+  font-family: var(--font-text);
+  font-size: 1.08rem;
   color: var(--text);
   margin-bottom: var(--s-3);
+  max-width: 64ch;
+  line-height: 1.75;
 }
 p:last-child { margin-bottom: 0; }
-
 ul {
   padding-left: var(--s-5);
   margin: 0;
+  max-width: 64ch;
 }
 li {
-  font-size: var(--text-base);
+  font-family: var(--font-text);
+  font-size: 1.08rem;
   color: var(--text);
-  margin-bottom: var(--s-2);
-  line-height: 1.65;
+  margin-bottom: var(--s-3);
+  line-height: 1.7;
 }
 li:last-child { margin-bottom: 0; }
-
 .foot {
   margin-top: var(--s-12);
   padding-top: var(--s-6);
   border-top: 1px solid var(--border);
   color: var(--text-muted);
-  font-size: 0.92rem;
+  font-size: 0.95rem;
   font-style: italic;
 }
-
 @media (max-width: 640px) {
   .doc-stamp { margin-top: var(--s-6); }
 }
 </style>
 </head>
-<body data-page="privacy">
+<body data-page="privacy" data-vm-current="privacy" data-bg="heavy">
 
-<header class="vm-topbar">
-  <a class="vm-topbar__brand" href="/">Vox Mana</a>
-  <nav class="vm-topbar__nav" aria-label="Site navigation">
-    <a href="/">Home</a>
-    <a href="/archscry/">Archscry</a>
-    <a href="/research.html">Archives</a>
-    <a href="/library/">Maze</a>
-    <span data-vm-reduce-motion-toggle></span>
+<div class="vm-bg" aria-hidden="true">
+  <picture class="vm-bg__picture">
+    <source type="image/avif"
+            srcset="/assets/img/vox-mana-hero-768w.avif 768w,
+                    /assets/img/vox-mana-hero-1280w.avif 1280w,
+                    /assets/img/vox-mana-hero-2560w.avif 2560w"
+            sizes="100vw">
+    <source type="image/webp"
+            srcset="/assets/img/vox-mana-hero-768w.webp 768w,
+                    /assets/img/vox-mana-hero-1280w.webp 1280w,
+                    /assets/img/vox-mana-hero-2560w.webp 2560w"
+            sizes="100vw">
+    <img src="/assets/img/vox-mana-hero-1280w.jpg" alt="" decoding="async">
+  </picture>
+  <div class="vm-bg__nebula"></div>
+</div>
+
+<header class="vm-topbar" role="banner">
+  <a class="vm-brand" href="/" aria-label="Vox Mana — home">
+    <span class="vm-brand-mark" aria-hidden="true"></span>
+    <span class="vm-brand-text">Vox Mana</span>
+  </a>
+
+  <nav class="vm-nav" aria-label="Primary">
+    <a class="vm-nav-link" href="/" data-vm-nav="home">Home</a>
+    <a class="vm-nav-link" href="/archscry/" data-vm-nav="archscry">Archscry</a>
+    <a class="vm-nav-link" href="/maze.html" data-vm-nav="maze">The Implicit Maze</a>
+    <a class="vm-nav-link" href="/library/" data-vm-nav="apocrypha">Apocrypha</a>
   </nav>
+
+  <div class="vm-utility">
+    <button
+      type="button"
+      class="vm-menu-button"
+      aria-label="Open menu"
+      aria-expanded="false"
+      aria-haspopup="true"
+      aria-controls="vm-menu-panel"
+      data-vm-menu-trigger
+    >
+      <span class="vm-menu-dots" aria-hidden="true">
+        <span></span><span></span><span></span>
+      </span>
+    </button>
+
+    <div
+      id="vm-menu-panel"
+      class="vm-menu-panel"
+      role="menu"
+      data-open="false"
+      data-vm-menu-panel
+    >
+      <button
+        type="button"
+        class="vm-menu-item"
+        role="menuitem"
+        data-vm-toggle="reduce-motion"
+        data-vm-tooltip-on="Stillness · on"
+        data-vm-tooltip-off="Quiet the motion"
+      >
+        <span>Reduce motion</span>
+        <span class="vm-menu-item-status" data-vm-status>Off</span>
+      </button>
+    </div>
+  </div>
 </header>
 
 <main class="page">
 
   <div class="doc-stamp">Privacy Policy</div>
   <h1>Vox Mana Privacy Policy</h1>
-  <p class="lede">Vox Mana is an unofficial MTG fan tool for faction alignment and deck-start guidance. This policy explains what information is used when you take a reading, save a result, or sign in with Google.</p>
+  <p class="lede">Vox Mana is an unofficial Magic: The Gathering fan tool for faction alignment and deck-start guidance. This policy explains what information is used when you take a <span class="vm-gloss" tabindex="0" data-gloss="A short series of questions that determines which MTG faction (10 Ravnica guilds + 5 Strixhaven colleges) most closely fits how you actually play.">reading</span>, save a result, or sign in with Google.</p>
 
   <section>
     <h2>Effective Date</h2>
@@ -123,7 +178,7 @@ li:last-child { margin-bottom: 0; }
     <h2>What We Collect</h2>
     <p>Vox Mana may collect the following information when you use the site:</p>
     <ul>
-      <li>Your reading answers, interview responses, and resulting guild or college placement.</li>
+      <li>Your reading answers, <span class="vm-gloss" tabindex="0" data-gloss="The deeper interview path, where you answer open questions in your own words rather than picking from a list. Powered by AI evaluating your responses against curated MTG lore.">interview</span> responses, and resulting guild or college placement.</li>
       <li>Your selected preferences such as format interest, budget band, and experience level.</li>
       <li>If you choose Google sign-in, account details made available through authentication such as your email address, display name, profile image, and a provider-specific user identifier.</li>
       <li>Basic technical and security information needed to operate the site, such as timestamps, request metadata, and anti-abuse logs generated by hosting, authentication, or API providers.</li>
@@ -144,12 +199,12 @@ li:last-child { margin-bottom: 0; }
 
   <section>
     <h2>How the Interview Works</h2>
-    <p>If you use the deeper Scrying Terminal interview, your responses are evaluated against a curated lore database built from published Magic: The Gathering sources. AI processing is used to match your answers to that research — not to generate freeform or invented content. Please do not submit passwords, payment information, or other sensitive personal information in interview responses.</p>
+    <p>If you use the deeper <span class="vm-gloss" tabindex="0" data-gloss="The interview interface inside Archscry. You answer open-ended questions about your playstyle in your own words.">Scrying Terminal</span> interview, your responses are evaluated against a <span class="vm-gloss" tabindex="0" data-gloss="A hand-compiled set of faction lore drawn from official Wizards sources, community story archives, and published MTG fiction. The AI matches your answers against this — it does not invent lore.">curated lore database</span> built from published Magic: The Gathering sources. AI processing is used to match your answers to that research — not to generate freeform or invented content. Please do not submit passwords, payment information, or other sensitive personal information in interview responses.</p>
   </section>
 
   <section>
     <h2>Fan Project &amp; Intellectual Property</h2>
-    <p>Vox Mana is an unofficial fan project and is not affiliated with, endorsed by, or produced by Wizards of the Coast or Hasbro. Magic: The Gathering, all guild and college names, card names, and related lore are intellectual property of Wizards of the Coast. Faction placements, lore summaries, and deck guidance on this site are based on publicly available game materials and community sources compiled by the site operator. No original Wizards of the Coast content is reproduced for commercial purpose.</p>
+    <p>Vox Mana is an <span class="vm-gloss" tabindex="0" data-gloss="A site built by an MTG fan, for MTG fans. Not produced by, paid for, or endorsed by Wizards of the Coast or Hasbro. All MTG IP belongs to its rightful owners.">unofficial fan project</span> and is not affiliated with, endorsed by, or produced by Wizards of the Coast or Hasbro. Magic: The Gathering, all guild and college names, card names, and related lore are intellectual property of Wizards of the Coast. Faction placements, lore summaries, and deck guidance on this site are based on publicly available game materials and community sources compiled by the site operator. No original Wizards of the Coast content is reproduced for commercial purpose.</p>
   </section>
 
   <section>
@@ -157,7 +212,7 @@ li:last-child { margin-bottom: 0; }
     <p>Vox Mana relies on third-party services to operate. These may include:</p>
     <ul>
       <li>Google, for optional account sign-in;</li>
-      <li>Supabase, for authentication, database storage, and edge functions;</li>
+      <li><span class="vm-gloss" tabindex="0" data-gloss="The platform handling Vox Mana's authentication, database storage, and edge function backend. https://supabase.com">Supabase</span>, for authentication, database storage, and edge functions;</li>
       <li>AI processing providers used to evaluate interview responses against curated lore research;</li>
       <li>third-party sites you choose to visit through outbound deck and card links.</li>
     </ul>
@@ -192,7 +247,8 @@ li:last-child { margin-bottom: 0; }
   <p class="foot">By continuing to use Vox Mana, you acknowledge this privacy policy.</p>
 
 </main>
-
+<link rel="stylesheet" href="/assets/css/topbar.css" />
 <script src="/assets/js/reduce-motion.js" defer></script>
+<script src="/assets/js/atmosphere.js" defer></script>
 </body>
 </html>

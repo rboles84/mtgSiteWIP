@@ -1,20 +1,21 @@
 import {
   DEFAULT_STARTER_PROFILE,
   MANA_ORDER,
-  QUICK_QUESTIONS as QUICK_READING_QUESTIONS,
   RESULT_VERSION,
-  buildQuickDecree as buildQuickDecreeCore,
-  buildQuickPlacementResult,
-  buildQuickReason as buildQuickReasonCore,
-  createEmptyManaScores as createEmptyManaScoresCore,
-  scoreQuickReading as scoreQuickReadingCore,
-} from "./quick-reading.js";
+  applyAdaptiveAnswer,
+  buildAdaptivePlacementResult,
+  createInitialAdaptiveState,
+  getStageLabel,
+  replayAdaptiveSelections,
+  selectNextAdaptiveQuestion,
+  shouldFinishAdaptiveReading,
+} from "./adaptive-placement.js";
 
 const SESSION = VM_SESSION;
 const COLOR_META = {
   W: { label: "White", fill: "#ede8d4" },
   U: { label: "Blue", fill: "#2a7ac8" },
-  B: { label: "Black", fill: "#8060a0" },
+  B: { label: "Black", fill: "#17120f" },
   R: { label: "Red", fill: "#d04030" },
   G: { label: "Green", fill: "#2a8a30" },
 };
@@ -37,14 +38,18 @@ const STARTER_OPTIONS = {
   ],
 };
 
-const QUICK_QUESTIONS = QUICK_READING_QUESTIONS;
-
 const APP_STATE = {
   factions: {},
+  placementModel: null,
   quickIndex: 0,
   quickAnswers: [],
+  quickSelections: [],
+  adaptiveState: null,
+  currentQuickQuestion: null,
   activeResult: null,
   activeViewKey: null,
+  resultSource: "quick",
+  returnSection: null,
   interviewState: "idle",
   starterProfile: { ...DEFAULT_STARTER_PROFILE },
 };
@@ -62,6 +67,20 @@ async function loadFactionData() {
   const json = await response.json();
   APP_STATE.factions = json.factions || {};
   return APP_STATE.factions;
+}
+
+/**
+ * Loads the adaptive placement model used by the Gate -> Hall -> Crucible flow.
+ *
+ * @returns {Promise<object>} Generated placement model.
+ */
+async function loadPlacementModel() {
+  const response = await fetch("/data/placement-model.json");
+  if (!response.ok) {
+    throw new Error("Could not load placement model.");
+  }
+  APP_STATE.placementModel = await response.json();
+  return APP_STATE.placementModel;
 }
 
 /**
@@ -171,7 +190,7 @@ function updateTopbar() {
  * Opens the research page.
  */
 function openResearch() {
-  window.location = "/research.html";
+  window.location = "/maze.html";
 }
 
 /**
@@ -187,6 +206,11 @@ function openLibrary() {
 function resetLocalFlow() {
   APP_STATE.quickIndex = 0;
   APP_STATE.quickAnswers = [];
+  APP_STATE.quickSelections = [];
+  APP_STATE.adaptiveState = APP_STATE.placementModel
+    ? createInitialAdaptiveState(APP_STATE.placementModel)
+    : null;
+  APP_STATE.currentQuickQuestion = null;
   APP_STATE.activeResult = null;
   APP_STATE.activeViewKey = null;
   APP_STATE.interviewState = "idle";
@@ -229,11 +253,22 @@ async function handleSignOut() {
 }
 
 /**
- * Starts the quick reading flow from question one.
+ * Starts the adaptive Gate -> Hall -> Crucible quick reading flow.
  */
 function startQuickFlow() {
-  APP_STATE.quickIndex = 0;
+  if (!APP_STATE.placementModel) {
+    alert("The placement model is still loading. Try again in a moment.");
+    return;
+  }
+
+  APP_STATE.adaptiveState = createInitialAdaptiveState(APP_STATE.placementModel);
+  APP_STATE.currentQuickQuestion = selectNextAdaptiveQuestion(
+    APP_STATE.adaptiveState,
+    APP_STATE.placementModel
+  );
+  APP_STATE.quickSelections = [];
   APP_STATE.quickAnswers = [];
+  APP_STATE.quickIndex = 0;
   showSection("quick");
   renderQuickQuestion();
 }
@@ -251,20 +286,30 @@ async function startInterviewFlow() {
  * Returns to the previous quick question when possible.
  */
 function goBackQuickQuestion() {
-  if (APP_STATE.quickIndex === 0) {
+  if (!APP_STATE.quickSelections.length) {
     showSection("landing");
     return;
   }
+
+  APP_STATE.quickSelections.pop();
   APP_STATE.quickAnswers.pop();
-  APP_STATE.quickIndex -= 1;
+  APP_STATE.adaptiveState = replayAdaptiveSelections(
+    APP_STATE.placementModel,
+    APP_STATE.quickSelections
+  );
+  APP_STATE.currentQuickQuestion = selectNextAdaptiveQuestion(
+    APP_STATE.adaptiveState,
+    APP_STATE.placementModel
+  );
+  APP_STATE.quickIndex = APP_STATE.quickSelections.length;
   renderQuickQuestion();
 }
 
 /**
- * Renders the active quick-path question and answer cards.
+ * Renders the active adaptive question and answer cards.
  */
 function renderQuickQuestion() {
-  const question = QUICK_QUESTIONS[APP_STATE.quickIndex];
+  const question = APP_STATE.currentQuickQuestion;
   const progressFill = document.getElementById("progress-fill");
   const progressCopy = document.getElementById("progress-copy");
   const backButton = document.getElementById("quick-back-btn");
@@ -274,7 +319,14 @@ function renderQuickQuestion() {
     return;
   }
 
-  document.getElementById("question-eyebrow").textContent = question.eyebrow;
+  const stageLabel = getStageLabel(question.stage);
+  const stageCounts = APP_STATE.adaptiveState?.stage_counts || {};
+  const stageQuestionNumber = (stageCounts[question.stage] || 0) + 1;
+  const questionNumber = APP_STATE.quickSelections.length + 1;
+  const maxQuestions = APP_STATE.placementModel?.stages?.max_total_questions || 8;
+
+  document.getElementById("question-eyebrow").textContent =
+    question.eyebrow || `${stageLabel} ${stageQuestionNumber}`;
   document.getElementById("question-title").textContent = question.prompt;
   document.getElementById("answer-grid").innerHTML = question.answers
     .map((answer, index) => {
@@ -288,9 +340,9 @@ function renderQuickQuestion() {
     })
     .join("");
 
-  progressCopy.textContent = `Question ${APP_STATE.quickIndex + 1} of ${QUICK_QUESTIONS.length}`;
-  progressFill.style.width = `${((APP_STATE.quickIndex + 1) / QUICK_QUESTIONS.length) * 100}%`;
-  backButton.textContent = APP_STATE.quickIndex === 0 ? "Return to landing" : "Back";
+  progressCopy.textContent = `${stageLabel} ${stageQuestionNumber} - Question ${questionNumber} of up to ${maxQuestions}`;
+  progressFill.style.width = `${Math.min(100, (questionNumber / maxQuestions) * 100)}%`;
+  backButton.textContent = APP_STATE.quickSelections.length === 0 ? "Return to landing" : "Back";
 }
 
 /**
@@ -299,23 +351,33 @@ function renderQuickQuestion() {
  * @param {number} answerIndex Selected answer index.
  */
 function answerQuickQuestion(answerIndex) {
-  const question = QUICK_QUESTIONS[APP_STATE.quickIndex];
+  const question = APP_STATE.currentQuickQuestion;
   const answer = question?.answers?.[answerIndex];
   if (!answer) {
     return;
   }
-  APP_STATE.quickAnswers[APP_STATE.quickIndex] = answer;
-  APP_STATE.quickIndex += 1;
-  renderQuickQuestion();
-}
 
-/**
- * Creates an empty mana-score object in WUBRG order.
- *
- * @returns {{W:number,U:number,B:number,R:number,G:number}} Empty mana score map.
- */
-function createEmptyManaScores() {
-  return createEmptyManaScoresCore();
+  APP_STATE.quickSelections.push({ question, answer, answerIndex });
+  APP_STATE.quickAnswers.push(answer);
+  APP_STATE.adaptiveState = applyAdaptiveAnswer({
+    state: APP_STATE.adaptiveState,
+    model: APP_STATE.placementModel,
+    question,
+    answer,
+    answerIndex,
+  });
+  APP_STATE.quickIndex = APP_STATE.quickSelections.length;
+
+  if (shouldFinishAdaptiveReading(APP_STATE.adaptiveState, APP_STATE.placementModel)) {
+    finalizeQuickReading();
+    return;
+  }
+
+  APP_STATE.currentQuickQuestion = selectNextAdaptiveQuestion(
+    APP_STATE.adaptiveState,
+    APP_STATE.placementModel
+  );
+  renderQuickQuestion();
 }
 
 /**
@@ -332,41 +394,12 @@ function getStarterProfile() {
 }
 
 /**
- * Builds ranked faction matches from quick-path answers and canonical faction colors.
- *
- * @returns {{manaScores:object,topMatches:object[]}} Ranked match output.
- */
-function scoreQuickReading() {
-  return scoreQuickReadingCore(APP_STATE.quickAnswers, APP_STATE.factions);
-}
-
-/**
- * Builds a short reason line for a quick-path match using the selected answer signals.
- *
- * @param {object} faction Canonical faction record.
- * @returns {string} Short explanatory sentence.
- */
-function buildQuickReason(faction) {
-  return buildQuickReasonCore(APP_STATE.quickAnswers, faction);
-}
-
-/**
- * Builds a deterministic quick-path decree using the faction philosophy and chosen signals.
- *
- * @param {object} faction Canonical faction record.
- * @param {string} runnerUpName Name of the next-closest faction.
- * @returns {string} Personalized decree text.
- */
-function buildQuickDecree(faction, runnerUpName) {
-  return buildQuickDecreeCore(APP_STATE.quickAnswers, faction, runnerUpName, getStarterProfile());
-}
-
-/**
- * Finalizes the quick reading, stores the normalized result locally, and opens the dossier.
+ * Finalizes the adaptive quick reading, stores the normalized result locally, and opens the dossier.
  */
 function finalizeQuickReading() {
-  const result = buildQuickPlacementResult({
-    answers: APP_STATE.quickAnswers,
+  const result = buildAdaptivePlacementResult({
+    state: APP_STATE.adaptiveState,
+    model: APP_STATE.placementModel,
     factions: APP_STATE.factions,
     starterProfile: getStarterProfile(),
     version: RESULT_VERSION,
@@ -374,6 +407,8 @@ function finalizeQuickReading() {
 
   APP_STATE.activeResult = result;
   APP_STATE.activeViewKey = result.faction;
+  APP_STATE.resultSource = "quick";
+  APP_STATE.returnSection = null;
   SESSION.interviewResult = result;
   vm_cachePlacementResult(result);
   renderResult();
@@ -450,7 +485,7 @@ async function beginInterview() {
   } catch (error) {
     loader.remove();
     document.getElementById("terminal-error").textContent =
-      error.message || "Interview service unavailable.";
+      "The Scrying Terminal failed to open cleanly. Wait a breath, then try again.";
     updateInterviewControls("idle");
   }
 }
@@ -488,7 +523,7 @@ async function submitInterview() {
   } catch (error) {
     loader.remove();
     document.getElementById("terminal-error").textContent =
-      error.message || "The connection wavers. Try again.";
+      "The terminal lost the thread. Try one concrete answer about what you would do next.";
     updateInterviewControls("interviewing");
     input.focus();
   }
@@ -508,6 +543,8 @@ function revealDecree(result) {
 
     APP_STATE.activeResult = result;
     APP_STATE.activeViewKey = result.faction;
+    APP_STATE.resultSource = "interview";
+    APP_STATE.returnSection = "interview";
     vm_cachePlacementResult(result);
 
     setTimeout(() => {
@@ -533,7 +570,21 @@ function openInterviewDossier() {
   if (!APP_STATE.activeResult) {
     return;
   }
+  APP_STATE.resultSource = "interview";
+  APP_STATE.returnSection = "interview";
+  if (!history.state?.vmDossier) {
+    history.pushState({ vmDossier: true, returnSection: "interview" }, "", "#dossier");
+  }
   renderResult();
+}
+
+/**
+ * Returns from an interview-sourced dossier to the Scrying Terminal context.
+ */
+function returnToInterviewSource() {
+  APP_STATE.returnSection = null;
+  showSection("interview");
+  updateTopbar();
 }
 
 /**
@@ -743,12 +794,35 @@ function renderResult(viewKey) {
     : `<div class="adjacent-card"><div class="adjacent-name">No adjacent fits saved yet.</div><div class="adjacent-copy">Retake or use the Scrying Terminal to generate a fuller read.</div></div>`;
 
   const saveButtonLabel = SESSION.username ? "Save this reading" : "Save with Google";
+  const returnToTerminalButton =
+    APP_STATE.resultSource === "interview"
+      ? `<button class="btn-secondary" type="button" onclick="returnToInterviewSource()">Return to the Terminal</button>`
+      : "";
   const resultStatus = isPrimary
     ? `This is your primary ${institutionLabel.toLowerCase()} fit.`
     : `You are viewing an adjacent fit built from the same reading.`;
   const decreeCopy = isPrimary
     ? result.decree
     : activeMatch.reason || `${faction.name} stays close to your saved reading and offers a second lane worth exploring.`;
+  const evidenceTrail = result.evidence_trail || [];
+  const evidenceHtml = evidenceTrail.length
+    ? evidenceTrail
+        .slice(-4)
+        .map((entry) => {
+          const positive = (entry.deltas || [])
+            .filter((delta) => delta.delta > 0)
+            .sort((left, right) => right.delta - left.delta)
+            .slice(0, 2)
+            .map((delta) => getFaction(delta.faction)?.name || delta.faction)
+            .join(", ");
+          return `
+            <div class="starter-card">
+              <div class="starter-title">${getStageLabel(entry.stage)} - ${entry.answer_title}</div>
+              <div class="starter-copy">${entry.signal}${positive ? ` reinforced ${positive}.` : "."}</div>
+            </div>`;
+        })
+        .join("")
+    : "";
 
   const pipsHtml = (faction.colors || []).map((color) => `<div class="pip pip-${color}"></div>`).join("");
   const decksHtml = (faction.deck_links || [])
@@ -774,6 +848,12 @@ function renderResult(viewKey) {
       <div class="section-label">Mana Alignment</div>
       <div class="score-bars">${scoreBarsHtml}</div>
     </div>
+
+    ${evidenceHtml ? `
+      <div class="starter-section">
+        <div class="section-label">Evidence Trail</div>
+        <div class="starter-grid">${evidenceHtml}</div>
+      </div>` : ""}
 
     <div class="starter-section">
       <div class="section-label">Where to Start Planning</div>
@@ -849,6 +929,7 @@ function renderResult(viewKey) {
       <div class="footer-note">Card and land images via Scryfall API. Deck links route out to MTGGoldfish, MTGDecks, Archidekt, and EDHREC.</div>
       <div class="footer-button-row">
         <button class="btn-primary" type="button" onclick="saveCurrentResult()">${saveButtonLabel}</button>
+        ${returnToTerminalButton}
         <button class="btn-secondary" type="button" onclick="startInterviewFlow()">Try the deeper reading</button>
         <button class="btn-secondary" type="button" onclick="handleRetake()">Begin Again</button>
       </div>
@@ -976,6 +1057,8 @@ function restoreInitialView(savedFromOAuth) {
   if (savedFromOAuth && result) {
     APP_STATE.activeResult = result;
     APP_STATE.activeViewKey = result.faction;
+    APP_STATE.resultSource = "saved";
+    APP_STATE.returnSection = null;
     renderResult(result.faction);
     return;
   }
@@ -983,6 +1066,8 @@ function restoreInitialView(savedFromOAuth) {
   if (profileResult) {
     APP_STATE.activeResult = profileResult;
     APP_STATE.activeViewKey = profileResult.faction;
+    APP_STATE.resultSource = "saved";
+    APP_STATE.returnSection = null;
     renderResult(profileResult.faction);
     return;
   }
@@ -997,7 +1082,16 @@ document.addEventListener("vm_placementSaved", (event) => {
   }
   APP_STATE.activeResult = result;
   APP_STATE.activeViewKey = result.faction;
+  APP_STATE.resultSource = "saved";
+  APP_STATE.returnSection = null;
   renderResult(result.faction);
+});
+
+window.addEventListener("popstate", () => {
+  const resultVisible = !document.getElementById("result")?.classList.contains("hidden");
+  if (resultVisible && APP_STATE.returnSection === "interview") {
+    returnToInterviewSource();
+  }
 });
 
 /**
@@ -1013,6 +1107,7 @@ Object.assign(window, {
   openInterviewDossier,
   openLibrary,
   openResearch,
+  returnToInterviewSource,
   saveCurrentResult,
   showSection,
   startInterviewFlow,
@@ -1024,8 +1119,9 @@ Object.assign(window, {
 document.addEventListener("DOMContentLoaded", async () => {
   try {
     await loadFactionData();
+    await loadPlacementModel();
   } catch (error) {
-    document.body.innerHTML = `<div class="section"><div class="empty-state"><h2>Faction data missing.</h2><p>${error.message}</p></div></div>`;
+    document.body.innerHTML = `<div class="section"><div class="empty-state"><h2>Placement data missing.</h2><p>${error.message}</p></div></div>`;
     return;
   }
 

@@ -1,0 +1,405 @@
+{
+  "schema_version": "1.0.0",
+  "faction_id": "boros_legion",
+  "faction_name": "Boros Legion",
+  "last_updated": "2026-05-10T02:24:27.430Z",
+  "claim_count": 24,
+  "claims": [
+    {
+      "claim_id": "boros_legion_claim_001",
+      "claim_type": "identity",
+      "statement": "Boros is the white-red guild of Ravnica, framed around martial justice, honor, and peacekeeping.",
+      "canon_status": "Canon-supported",
+      "source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018"
+      ],
+      "confidence": "High"
+    },
+    {
+      "claim_id": "boros_legion_claim_002",
+      "claim_type": "role",
+      "statement": "The official guide describes Boros as the military and peacekeeping arm of Ravnican society.",
+      "canon_status": "Canon-supported",
+      "source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018"
+      ],
+      "confidence": "High"
+    },
+    {
+      "claim_id": "boros_legion_claim_003",
+      "claim_type": "organization",
+      "statement": "Boros is organized as a military-style hierarchy designed to keep peace and enforce law.",
+      "canon_status": "Canon-supported",
+      "source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018"
+      ],
+      "confidence": "High"
+    },
+    {
+      "claim_id": "boros_legion_claim_004",
+      "claim_type": "leadership",
+      "statement": "The 2018 guide presents Aurelia as guildmaster and describes her preference for fighting alongside Boros troops.",
+      "canon_status": "Canon-supported",
+      "source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018"
+      ],
+      "confidence": "High"
+    },
+    {
+      "claim_id": "boros_legion_claim_005",
+      "claim_type": "history",
+      "statement": "The parun Razia is the original founder and first leader of the Boros Legion.",
+      "canon_status": "Canon-supported",
+      "source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_ravnica_novel_2005"
+      ],
+      "confidence": "High"
+    },
+    {
+      "claim_id": "boros_legion_claim_006",
+      "claim_type": "mechanics",
+      "statement": "Mentor is the Guilds of Ravnica signature mechanic associated with Boros.",
+      "canon_status": "Canon-supported",
+      "source_ids": [
+        "src_wotc_guilds_ravnica_mechanics_2018"
+      ],
+      "confidence": "High"
+    },
+    {
+      "claim_id": "boros_legion_claim_007",
+      "claim_type": "placement",
+      "statement": "Boros placement signals should weight protection, moral urgency, teamwork, and willingness to act.",
+      "canon_status": "Supported Interpretation",
+      "source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018"
+      ],
+      "confidence": "High"
+    },
+    {
+      "claim_id": "boros_legion_claim_008",
+      "claim_type": "organization",
+      "statement": "The Legion is split into two primary arms: the League of Wojek (police and investigators) and the Boros Army (martial defense).",
+      "canon_status": "Canon-supported",
+      "source_ids": [
+        "src_ravnica_novel_2005",
+        "src_wotc_gatecrash_boros_lore_2013"
+      ],
+      "confidence": "High"
+    },
+    {
+      "claim_id": "boros_legion_claim_009",
+      "claim_type": "history",
+      "statement": "Leadership transitioned from Razia to the angel Feather (Pierakor), and later to Aurelia.",
+      "canon_status": "Canon-supported",
+      "source_ids": [
+        "src_ravnica_novel_2005",
+        "src_wotc_gatecrash_boros_lore_2013"
+      ],
+      "confidence": "High"
+    },
+    {
+      "claim_id": "boros_legion_claim_010",
+      "claim_type": "location",
+      "statement": "The guild operates out of Sunhome (fortress-barracks) and utilizes the sky-fortress Parhelion II.",
+      "canon_status": "Canon-supported",
+      "source_ids": [
+        "src_wotc_gatecrash_boros_lore_2013"
+      ],
+      "confidence": "High"
+    },
+    {
+      "claim_id": "boros_legion_claim_011",
+      "claim_type": "character",
+      "statement": "Agrus Kos (Wojek investigator) and Tajic (Legion commander) represent the two ideological halves of the guild.",
+      "canon_status": "Canon-supported",
+      "source_ids": [
+        "src_ravnica_novel_2005",
+        "src_wotc_legends_karlov_manor_2024"
+      ],
+      "confidence": "High"
+    },
+    {
+      "claim_id": "boros_legion_claim_012",
+      "claim_type": "mechanics",
+      "statement": "Battalion and Radiance reflect the guild's belief in group synergy and widespread moral influence.",
+      "canon_status": "Canon-supported",
+      "source_ids": [
+        "src_wotc_gatecrash_boros_lore_2013"
+      ],
+      "confidence": "High"
+    },
+    {
+      "claim_id": "boros_legion_claim_013",
+      "claim_type": "story_corpus_evidence",
+      "statement": "The MTG-Stories archive entry \"003 Clans & Legions\" is relevant Boros evidence because it matched Boros Legion, Boros, Aurelia, Razia, Tajic, Feather, Sunhome, Parhelion, Wojek, Skyknight, radiance, battalion, justice and gives the placement model additional story context for Boros justice, martial duty, protection, institutional conflict, or named Boros figures.",
+      "source_ids": [
+        "src_mtg_stories_003_clans_legions_de2e9b38"
+      ],
+      "evidence_excerpt": "r spoken face to face. He extends his hand, and I fight the urge to flee. They say there are two types of people within Boros Legion: those who flock to flame-kin, and those who run from them. I definitely fall into that latter category, but I shake my boss's hand anyway. Even through the protection of his enchanted gl",
+      "confidence": "medium",
+      "confidence_level": "medium",
+      "placement_use": "Use as additive context for distinguishing Boros action-oriented protection from Azorius procedure and Lorehold historical inquiry.",
+      "tags": [
+        "boros",
+        "mtg_stories",
+        "corpus_enrichment",
+        "boros_legion",
+        "boros",
+        "aurelia",
+        "razia",
+        "tajic",
+        "feather",
+        "sunhome",
+        "parhelion",
+        "wojek",
+        "skyknight",
+        "radiance",
+        "battalion",
+        "justice"
+      ]
+    },
+    {
+      "claim_id": "boros_legion_claim_014",
+      "claim_type": "story_corpus_evidence",
+      "statement": "The MTG-Stories archive entry \"003 The Absolution Of The Guildpact\" is relevant Boros evidence because it matched Boros, Razia, Agrus Kos, Sunhome, Wojek, Skyknight and gives the placement model additional story context for Boros justice, martial duty, protection, institutional conflict, or named Boros figures.",
+      "source_ids": [
+        "src_mtg_stories_003_the_absolution_of_the_guildpact_4e863503"
+      ],
+      "evidence_excerpt": "any years into his retirement, he would tell you he was #emph[still] a Wojek. No one knew exactly how old Gorev was, as Boros magic could sustain a Wojek's life far beyond the average person. In spite of his age, gray hair, and weathered features, Gorev still looked like he could wrestle a drunken ogre out of a bar or",
+      "confidence": "medium",
+      "confidence_level": "medium",
+      "placement_use": "Use as additive context for distinguishing Boros action-oriented protection from Azorius procedure and Lorehold historical inquiry.",
+      "tags": [
+        "boros",
+        "mtg_stories",
+        "corpus_enrichment",
+        "boros",
+        "razia",
+        "agrus_kos",
+        "sunhome",
+        "wojek",
+        "skyknight"
+      ]
+    },
+    {
+      "claim_id": "boros_legion_claim_015",
+      "claim_type": "story_corpus_evidence",
+      "statement": "The MTG-Stories archive entry \"006 The Gathering Storm: Chapter 12\" is relevant Boros evidence because it matched Boros Legion, Boros, Aurelia, Feather, Skyknight, battalion and gives the placement model additional story context for Boros justice, martial duty, protection, institutional conflict, or named Boros figures.",
+      "source_ids": [
+        "src_mtg_stories_006_the_gathering_storm_chapter_12_a8fc6d84"
+      ],
+      "evidence_excerpt": "e to cut loose in the open field. The bulk of the force accompanying them, as Aurelia had promised, was provided by the Boros Legion. Two battalions of infantry marched in disciplined columns, shielded spearmen at the fore and archers behind. Sergeants in notched helmets prowled up and down the files, lambasting their",
+      "confidence": "medium",
+      "confidence_level": "medium",
+      "placement_use": "Use as additive context for distinguishing Boros action-oriented protection from Azorius procedure and Lorehold historical inquiry.",
+      "tags": [
+        "boros",
+        "mtg_stories",
+        "corpus_enrichment",
+        "boros_legion",
+        "boros",
+        "aurelia",
+        "feather",
+        "skyknight",
+        "battalion"
+      ]
+    },
+    {
+      "claim_id": "boros_legion_claim_016",
+      "claim_type": "story_corpus_evidence",
+      "statement": "The MTG-Stories archive entry \"006 The Greater Good\" is relevant Boros evidence because it matched Boros, Aurelia, Sunhome, battalion, justice and gives the placement model additional story context for Boros justice, martial duty, protection, institutional conflict, or named Boros figures.",
+      "source_ids": [
+        "src_mtg_stories_006_the_greater_good_a536bab3"
+      ],
+      "evidence_excerpt": "but her aura was an order of magnitude higher than any he had encountered. A quick smirk flashed across the face of the Boros guildmage who escorted Gideon as they walked into the chamber. The escort carried out the Boros salute and announced, \"Warleader. Gideon Jura to see you.\" He then bowed and left. Aurelia looked",
+      "confidence": "medium",
+      "confidence_level": "medium",
+      "placement_use": "Use as additive context for distinguishing Boros action-oriented protection from Azorius procedure and Lorehold historical inquiry.",
+      "tags": [
+        "boros",
+        "mtg_stories",
+        "corpus_enrichment",
+        "boros",
+        "aurelia",
+        "sunhome",
+        "battalion",
+        "justice"
+      ]
+    },
+    {
+      "claim_id": "boros_legion_claim_017",
+      "claim_type": "story_corpus_evidence",
+      "statement": "The MTG-Stories archive entry \"011 Battle For The Ninth\" is relevant Boros evidence because it matched Boros Legion, Boros, Aurelia, Tajic, Sunhome and gives the placement model additional story context for Boros justice, martial duty, protection, institutional conflict, or named Boros figures.",
+      "source_ids": [
+        "src_mtg_stories_011_battle_for_the_ninth_4fb87675"
+      ],
+      "evidence_excerpt": "he Ninth District. All manner of hell was breaking loose and he still had no sign of Jura. Gideon had Dars assemble the Boros legion known as the Firefist in the square, hidden in the surrounding buildings. Many before had tried to reclaim the Ninth but all had failed. The unguilded citizens looked from behind their ba",
+      "confidence": "medium",
+      "confidence_level": "medium",
+      "placement_use": "Use as additive context for distinguishing Boros action-oriented protection from Azorius procedure and Lorehold historical inquiry.",
+      "tags": [
+        "boros",
+        "mtg_stories",
+        "corpus_enrichment",
+        "boros_legion",
+        "boros",
+        "aurelia",
+        "tajic",
+        "sunhome"
+      ]
+    },
+    {
+      "claim_id": "boros_legion_claim_018",
+      "claim_type": "story_corpus_evidence",
+      "statement": "The MTG-Stories archive entry \"009 The Gathering Storm: Chapter 3\" is relevant Boros evidence because it matched Boros Legion, Boros, Aurelia, Feather, justice and gives the placement model additional story context for Boros justice, martial duty, protection, institutional conflict, or named Boros figures.",
+      "source_ids": [
+        "src_mtg_stories_009_the_gathering_storm_chapter_3_c2a81b82"
+      ],
+      "evidence_excerpt": "r. From inside, Ral could hear the faint sound of voices raised in anger. The captain coughed. \"The delegation from the Boros Legion has already arrived,\" he said. \"I understand that the guildmaster will be a few moments longer. Please wait inside.\" He opened the door, bowing again. Beyond, Ral found an oval conference",
+      "confidence": "medium",
+      "confidence_level": "medium",
+      "placement_use": "Use as additive context for distinguishing Boros action-oriented protection from Azorius procedure and Lorehold historical inquiry.",
+      "tags": [
+        "boros",
+        "mtg_stories",
+        "corpus_enrichment",
+        "boros_legion",
+        "boros",
+        "aurelia",
+        "feather",
+        "justice"
+      ]
+    },
+    {
+      "claim_id": "boros_legion_claim_019",
+      "claim_type": "story_corpus_evidence",
+      "statement": "The MTG-Stories archive entry \"006 Ashes\" is relevant Boros evidence because it matched Boros, Aurelia, Parhelion, Skyknight, justice and gives the placement model additional story context for Boros justice, martial duty, protection, institutional conflict, or named Boros figures.",
+      "source_ids": [
+        "src_mtg_stories_006_ashes_6ede4fea"
+      ],
+      "evidence_excerpt": "assing seconds. I had no idea how long we'd already been fighting when a horn sounded, and I looked up to see the great Boros airship #emph[Parhelion II ] advancing across the sky. Angels descended from its decks. (Including one rare four-winged angel, leading multiple squadrons, and Milady Maladola, who was finally ge",
+      "confidence": "medium",
+      "confidence_level": "medium",
+      "placement_use": "Use as additive context for distinguishing Boros action-oriented protection from Azorius procedure and Lorehold historical inquiry.",
+      "tags": [
+        "boros",
+        "mtg_stories",
+        "corpus_enrichment",
+        "boros",
+        "aurelia",
+        "parhelion",
+        "skyknight",
+        "justice"
+      ]
+    },
+    {
+      "claim_id": "boros_legion_claim_020",
+      "claim_type": "story_corpus_evidence",
+      "statement": "The MTG-Stories archive entry \"004 Episode 4: Justice Before Mercy\" is relevant Boros evidence because it matched Boros Legion, Boros, Aurelia, Agrus Kos, justice and gives the placement model additional story context for Boros justice, martial duty, protection, institutional conflict, or named Boros figures.",
+      "source_ids": [
+        "src_mtg_stories_004_episode_4_justice_before_mercy_57b8ab88"
+      ],
+      "evidence_excerpt": "er Kos, we were just on our way to follow up with a potential person of interest. Can we help you with something?\" \"The Boros Legion has asked me to work alongside the Agency doing whatever they feel is necessary to catch the party or parties responsible.\" He grimaced. \"Because one thing every dead man likes is being s",
+      "confidence": "medium",
+      "confidence_level": "medium",
+      "placement_use": "Use as additive context for distinguishing Boros action-oriented protection from Azorius procedure and Lorehold historical inquiry.",
+      "tags": [
+        "boros",
+        "mtg_stories",
+        "corpus_enrichment",
+        "boros_legion",
+        "boros",
+        "aurelia",
+        "agrus_kos",
+        "justice"
+      ]
+    },
+    {
+      "claim_id": "boros_legion_claim_021",
+      "claim_type": "story_corpus_evidence",
+      "statement": "The MTG-Stories archive entry \"007 Episode 7: Rot Before Recovery\" is relevant Boros evidence because it matched Boros Legion, Boros, Aurelia, Feather, Agrus Kos and gives the placement model additional story context for Boros justice, martial duty, protection, institutional conflict, or named Boros figures.",
+      "source_ids": [
+        "src_mtg_stories_007_episode_7_rot_before_recovery_aff91fb1"
+      ],
+      "evidence_excerpt": "t. \"He was meant to report in at the sixth bell, and he didn't appear. This is an insult too far. I'm done waiting. The Boros Legion marches to war. The Cult of Rakdos will pay for what they've done.\" Kaya took a large step backward, through the wall into the next office. If the Boros were going to war, all of Ravnica",
+      "confidence": "medium",
+      "confidence_level": "medium",
+      "placement_use": "Use as additive context for distinguishing Boros action-oriented protection from Azorius procedure and Lorehold historical inquiry.",
+      "tags": [
+        "boros",
+        "mtg_stories",
+        "corpus_enrichment",
+        "boros_legion",
+        "boros",
+        "aurelia",
+        "feather",
+        "agrus_kos"
+      ]
+    },
+    {
+      "claim_id": "boros_legion_claim_022",
+      "claim_type": "story_corpus_evidence",
+      "statement": "The MTG-Stories archive entry \"008 Episode 8: Gods Of Chaos\" is relevant Boros evidence because it matched Boros Legion, Boros, Aurelia, Feather, justice and gives the placement model additional story context for Boros justice, martial duty, protection, institutional conflict, or named Boros figures.",
+      "source_ids": [
+        "src_mtg_stories_008_episode_8_gods_of_chaos_a773d3bd"
+      ],
+      "evidence_excerpt": "t Ral. \"My apologies on the loss of one of your own. A further attempt was made on the life of Warleader Aurelia of the Boros Legion—but the attack on her carried a note of similarity to the attack on Zegana. In both cases, a known assassin of a guild whose relations with the rest of Ravnica were under strain was ident",
+      "confidence": "medium",
+      "confidence_level": "medium",
+      "placement_use": "Use as additive context for distinguishing Boros action-oriented protection from Azorius procedure and Lorehold historical inquiry.",
+      "tags": [
+        "boros",
+        "mtg_stories",
+        "corpus_enrichment",
+        "boros_legion",
+        "boros",
+        "aurelia",
+        "feather",
+        "justice"
+      ]
+    },
+    {
+      "claim_id": "boros_legion_claim_023",
+      "claim_type": "story_corpus_evidence",
+      "statement": "The MTG-Stories archive entry \"002 Episode 2: Monsters We Became\" is relevant Boros evidence because it matched Boros Legion, Boros, Aurelia, Feather and gives the placement model additional story context for Boros justice, martial duty, protection, institutional conflict, or named Boros figures.",
+      "source_ids": [
+        "src_mtg_stories_002_episode_2_monsters_we_became_e6ec05b7"
+      ],
+      "evidence_excerpt": "their spells with admirable speed, making Kaya wonder if they hadn't been preparing for something to go wrong tonight. Boros legionnaires stood near the casting mages, protecting them from interference. #figure(image(\"002_Episode 2: Monsters We Became/02.png.jpg\", width: 100%), caption: [Art by: Borja Pindado], supple",
+      "confidence": "medium",
+      "confidence_level": "medium",
+      "placement_use": "Use as additive context for distinguishing Boros action-oriented protection from Azorius procedure and Lorehold historical inquiry.",
+      "tags": [
+        "boros",
+        "mtg_stories",
+        "corpus_enrichment",
+        "boros_legion",
+        "boros",
+        "aurelia",
+        "feather"
+      ]
+    },
+    {
+      "claim_id": "boros_legion_claim_024",
+      "claim_type": "story_corpus_evidence",
+      "statement": "The MTG-Stories archive entry \"006 Episode 6: Explosions Of Genius\" is relevant Boros evidence because it matched Boros Legion, Boros, Aurelia, Agrus Kos and gives the placement model additional story context for Boros justice, martial duty, protection, institutional conflict, or named Boros figures.",
+      "source_ids": [
+        "src_mtg_stories_006_episode_6_explosions_of_genius_9db78723"
+      ],
+      "evidence_excerpt": "f Rakdos is behind all this senseless slaughter. We should have known. I'll gather the Legion, and we'll march—\" If the Boros Legion marched to war against another guild with the city in such a delicate state of recovery, everything would collapse. The Dimir were missing, and the Golgari were in self-imposed exile. Rav",
+      "confidence": "medium",
+      "confidence_level": "medium",
+      "placement_use": "Use as additive context for distinguishing Boros action-oriented protection from Azorius procedure and Lorehold historical inquiry.",
+      "tags": [
+        "boros",
+        "mtg_stories",
+        "corpus_enrichment",
+        "boros_legion",
+        "boros",
+        "aurelia",
+        "agrus_kos"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,123 @@
+{
+  "schema_version": "1.0.0",
+  "faction_id": "house_dimir",
+  "faction_name": "House Dimir",
+  "last_updated": "2026-05-10T02:56:03.254Z",
+  "changes": [
+    {
+      "change_id": "change_house_dimir_placement_ready_20260510025603",
+      "date": "2026-05-10",
+      "change_type": "placement_ready_calibration_tuning",
+      "summary": "Added explicit calibration_tuning metadata, behavioral guardrails, and collision/discriminator guidance for the Archscry placement engine.",
+      "affected_files": [
+        "house_dimir.placement.json"
+      ]
+    },
+    {
+      "change_id": "house_dimir_change_001",
+      "change_type": "Initial Build",
+      "change_date": "2026-05-09",
+      "summary": "Created first-pass source-supported JSON package for House Dimir.",
+      "sources_added": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018",
+        "src_wotc_guilds_ravnica_prerelease_primer_2018",
+        "src_wotc_dragons_maze_mechanics_2013"
+      ],
+      "sources_updated": [],
+      "claims_added": [
+        "house_dimir_claim_001",
+        "house_dimir_claim_002",
+        "house_dimir_claim_003",
+        "house_dimir_claim_004",
+        "house_dimir_claim_005",
+        "house_dimir_claim_006"
+      ],
+      "claims_updated": [],
+      "claims_superseded": [],
+      "claims_contradicted": [],
+      "profile_fields_updated": [
+        "profile",
+        "evidence_summary"
+      ],
+      "placement_fields_updated": [
+        "ideal_fit_indicators",
+        "poor_fit_indicators",
+        "discriminator_questions",
+        "chatbot_guidance"
+      ],
+      "manual_review_required": [
+        "Add direct story citations and deeper character-specific claims in a later pass."
+      ],
+      "notes": "Generated as part of completing remaining Vox Mana faction JSON packages."
+    },
+    {
+      "change_id": "house_dimir_change_corpus_upgrade_2026-05-10T01-40-01-100Z",
+      "change_type": "Incremental Update",
+      "change_date": "2026-05-09",
+      "summary": "Added targeted MTG-Stories repository-archive research from per-faction prompt search rows.",
+      "sources_added": [
+        "src_mtg_stories_episode_3_shadows_of_regret_1b969924",
+        "src_mtg_stories_episode_10_roots_of_decay_955d3d20",
+        "src_mtg_stories_under_the_cover_of_fog_7afe2169",
+        "src_mtg_stories_episode_6_explosions_of_genius_9db78723",
+        "src_mtg_stories_episode_8_gods_of_chaos_a773d3bd",
+        "src_mtg_stories_episode_2_monsters_we_became_e6ec05b7",
+        "src_mtg_stories_last_day_94047f8e",
+        "src_mtg_stories_desperate_operatives_6c6a580b",
+        "src_mtg_stories_operation_desperation_e6d285ea",
+        "src_mtg_stories_episode_9_beauty_in_destruction_8206653c"
+      ],
+      "sources_updated": [],
+      "claims_added": [
+        "house_dimir_claim_0007",
+        "house_dimir_claim_0008",
+        "house_dimir_claim_0009",
+        "house_dimir_claim_0010",
+        "house_dimir_claim_0011",
+        "house_dimir_claim_0012",
+        "house_dimir_claim_0013",
+        "house_dimir_claim_0014",
+        "house_dimir_claim_0015",
+        "house_dimir_claim_0016"
+      ],
+      "claims_updated": [],
+      "claims_superseded": [],
+      "claims_contradicted": [],
+      "profile_fields_updated": [
+        "core_identity",
+        "search_and_filter_metadata",
+        "data_quality"
+      ],
+      "placement_fields_updated": [
+        "placement_summary",
+        "placement_axes",
+        "behavioral_signals",
+        "inhibitor_traits",
+        "chatbot_guidance"
+      ],
+      "manual_review_required": [
+        "Review corpus-derived placement signals during schema, calibration, and collision passes."
+      ],
+      "notes": "Queries run: 16. Duplicate story sources skipped: 367."
+    }
+  ],
+  "audit_summary": {
+    "faction_researched": "House Dimir",
+    "plane_or_setting": "Ravnica",
+    "number_of_sources_reviewed": 14,
+    "number_of_official_sources_used": 4,
+    "number_of_repository_archive_sources_used": 10,
+    "number_of_secondary_discovery_sources_used": 0,
+    "number_of_claims_verified": 15,
+    "number_of_claims_marked_uncertain": 0,
+    "sections_with_limited_evidence": [
+      "deep story episode coverage",
+      "current post-source leadership status where later canon may update the cited-era overview"
+    ],
+    "conflicting_sources_found": [],
+    "assumptions_removed_during_validation": [],
+    "overall_confidence_rating": "Medium",
+    "last_placement_ready_pass": "2026-05-10T02:56:03.254Z"
+  }
+}

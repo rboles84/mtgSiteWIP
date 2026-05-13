@@ -1,0 +1,388 @@
+{
+  "schema_version": "1.0.0",
+  "faction_id": "prismari",
+  "faction_name": "Prismari College",
+  "last_updated": "2026-05-10T02:56:03.254Z",
+  "placement_model_version": "vox-mana-lore-json-v1",
+  "color_identity": [
+    "blue",
+    "red"
+  ],
+  "ideal_fit_indicators": [
+    {
+      "indicator": "thinks through art or performance",
+      "rationale": "Matches the official Prismari College identity summarized in the profile.",
+      "claim_ids": [
+        "prismari_claim_001"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "indicator": "values emotional truth and craft",
+      "rationale": "Matches the official Prismari College identity summarized in the profile.",
+      "claim_ids": [
+        "prismari_claim_002"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "indicator": "wants work to be felt, not merely understood",
+      "rationale": "Matches the official Prismari College identity summarized in the profile.",
+      "claim_ids": [
+        "prismari_claim_003"
+      ],
+      "confidence": "Medium"
+    }
+  ],
+  "poor_fit_indicators": [
+    {
+      "indicator": "prefers invisible optimization",
+      "rationale": "Counters a core Prismari College placement signal.",
+      "claim_ids": [
+        "prismari_claim_001"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "indicator": "rejects spectacle as unserious",
+      "rationale": "Counters a core Prismari College placement signal.",
+      "claim_ids": [
+        "prismari_claim_002"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "indicator": "values only proof and never expression",
+      "rationale": "Counters a core Prismari College placement signal.",
+      "claim_ids": [
+        "prismari_claim_003"
+      ],
+      "confidence": "Medium"
+    }
+  ],
+  "discriminator_questions": [
+    {
+      "question_id": "prismari_q1",
+      "question": "When has making something beautiful mattered more than making it efficient?",
+      "purpose": "Tests Prismari value logic.",
+      "answer_pattern_that_supports_this_faction": "The answer emphasizes the ideal-fit indicators listed for this faction.",
+      "answer_pattern_that_weakens_this_faction": "The answer rejects or treats the faction's core tension as irrelevant.",
+      "related_factions_to_compare": [],
+      "claim_ids": [
+        "prismari_claim_001",
+        "prismari_claim_002",
+        "prismari_claim_003"
+      ],
+      "confidence": "Medium",
+      "notes": "Question is placement-engine guidance, not canon text."
+    },
+    {
+      "question_id": "prismari_q2",
+      "question": "Do you perfect the technique first, or throw the feeling into the room and refine later?",
+      "purpose": "Separates blue and red Prismari poles.",
+      "answer_pattern_that_supports_this_faction": "The answer emphasizes the ideal-fit indicators listed for this faction.",
+      "answer_pattern_that_weakens_this_faction": "The answer rejects or treats the faction's core tension as irrelevant.",
+      "related_factions_to_compare": [],
+      "claim_ids": [
+        "prismari_claim_001",
+        "prismari_claim_002",
+        "prismari_claim_003"
+      ],
+      "confidence": "Medium",
+      "notes": "Question is placement-engine guidance, not canon text."
+    }
+  ],
+  "chatbot_guidance": {
+    "how_to_recognize_match": [
+      "thinks through art or performance",
+      "values emotional truth and craft",
+      "wants work to be felt, not merely understood"
+    ],
+    "how_to_recognize_mismatch": [
+      "prefers invisible optimization",
+      "rejects spectacle as unserious",
+      "values only proof and never expression"
+    ],
+    "questions_to_ask_when_uncertain": [
+      "When has making something beautiful mattered more than making it efficient?",
+      "Do you perfect the technique first, or throw the feeling into the room and refine later?"
+    ],
+    "do_not_overweight": [
+      "Do not overfit a single color preference.",
+      "Do not treat one favorite card or mechanic as enough evidence by itself.",
+      "Do not score a faction highly from color identity alone when another faction shares the same colors or surface traits."
+    ],
+    "never_claim_as_canon": [
+      "Psychological placement categories are Vox Mana interpretation, not official Wizards canon.",
+      "Do not state that a user's personality is objectively determined by a faction.",
+      "Placement scoring is a Vox Mana interpretation, not official Wizards canon."
+    ],
+    "calibration_note": "Prismari College should require its specific positive evidence cluster: expression, performance, art, emotion, elemental. Keep it adjacent when the answer only contains broad color identity or generic personality language.",
+    "scoring_guardrail": "Do not award for generic spectacle if the answer is provocation, engineering, or rhetoric."
+  },
+  "placement_quality": {
+    "overall_confidence": "Medium",
+    "strongest_evidence_areas": [
+      "official faction overview",
+      "official mechanics identity",
+      "MTG-Stories corpus search evidence"
+    ],
+    "weakest_evidence_areas": [
+      "deep story episode coverage",
+      "cross-faction comparison calibration"
+    ],
+    "manual_review_recommended": true,
+    "notes": "Good for initial placement testing; should be expanded with story-specific claims in a later pass. Corpus-enriched data should be reviewed with calibration and collision reports before being treated as tuned scoring fuel.",
+    "calibration_tuning_status": "explicit",
+    "last_placement_ready_pass": "2026-05-10T02:56:03.254Z"
+  },
+  "placement_profile_version": "vox-mana-lore-json-v1",
+  "based_on_profile_version": "1.0.0",
+  "placement_summary": {
+    "short_description": "Prismari College placement is informed by official overview sources and MTG-Stories corpus evidence.",
+    "best_fit_summary": "thinks through art or performance values emotional truth and craft wants work to be felt, not merely understood",
+    "poor_fit_summary": "prefers invisible optimization rejects spectacle as unserious values only proof and never expression",
+    "interpretation_warning": "Placement data is interpretive and should be treated as a matching heuristic, not direct canon.",
+    "claim_ids": [
+      "prismari_claim_0007",
+      "prismari_claim_0008",
+      "prismari_claim_0009",
+      "prismari_claim_0010",
+      "prismari_claim_0011",
+      "prismari_claim_0012",
+      "prismari_claim_0013",
+      "prismari_claim_0014"
+    ],
+    "calibrated_primary_read": "Requires expressive art, emotional force, elemental performance, or creative spectacle.",
+    "calibrated_false_positive_guardrail": "Do not award for generic spectacle if the answer is provocation, engineering, or rhetoric.",
+    "evidence_claim_ids": [
+      "prismari_claim_001",
+      "prismari_claim_002",
+      "prismari_claim_003",
+      "prismari_claim_004",
+      "prismari_claim_005",
+      "prismari_claim_006"
+    ]
+  },
+  "placement_axes": [
+    {
+      "axis_id": "axis_expression_vs_optimization",
+      "label": "Expression vs Optimization",
+      "description": "Measures whether user answers align with Prismari College's specific evidence instead of only its color pair.",
+      "low_end_label": "private optimization",
+      "high_end_label": "performed feeling",
+      "faction_position": 88,
+      "rationale": "Corpus evidence adds story-context support for Prismari, Rootha, elemental, performance, art, expression, learn, Prismari College.",
+      "claim_ids": [
+        "prismari_claim_0007",
+        "prismari_claim_0008",
+        "prismari_claim_0009",
+        "prismari_claim_0010",
+        "prismari_claim_0011",
+        "prismari_claim_0012",
+        "prismari_claim_0013",
+        "prismari_claim_0014"
+      ],
+      "confidence": "Medium",
+      "notes": "Added during MTG-Stories corpus upgrade."
+    }
+  ],
+  "moral_and_psychological_profile": {
+    "summary": "Prismari College should be scored through faction-specific behavioral evidence, not only broad color identity.",
+    "claim_ids": [
+      "prismari_claim_0007",
+      "prismari_claim_0008",
+      "prismari_claim_0009",
+      "prismari_claim_0010",
+      "prismari_claim_0011"
+    ]
+  },
+  "core_values": [
+    {
+      "value": "Prismari",
+      "placement_relevance": "Corpus search evidence for Prismari College.",
+      "claim_ids": [
+        "prismari_claim_0007",
+        "prismari_claim_0008",
+        "prismari_claim_0009"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "value": "Rootha",
+      "placement_relevance": "Corpus search evidence for Prismari College.",
+      "claim_ids": [
+        "prismari_claim_0007",
+        "prismari_claim_0008",
+        "prismari_claim_0009"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "value": "elemental",
+      "placement_relevance": "Corpus search evidence for Prismari College.",
+      "claim_ids": [
+        "prismari_claim_0007",
+        "prismari_claim_0008",
+        "prismari_claim_0009"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "value": "performance",
+      "placement_relevance": "Corpus search evidence for Prismari College.",
+      "claim_ids": [
+        "prismari_claim_0007",
+        "prismari_claim_0008",
+        "prismari_claim_0009"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "value": "art",
+      "placement_relevance": "Corpus search evidence for Prismari College.",
+      "claim_ids": [
+        "prismari_claim_0007",
+        "prismari_claim_0008",
+        "prismari_claim_0009"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "value": "expression",
+      "placement_relevance": "Corpus search evidence for Prismari College.",
+      "claim_ids": [
+        "prismari_claim_0007",
+        "prismari_claim_0008",
+        "prismari_claim_0009"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "value": "learn",
+      "placement_relevance": "Corpus search evidence for Prismari College.",
+      "claim_ids": [
+        "prismari_claim_0007",
+        "prismari_claim_0008",
+        "prismari_claim_0009"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "value": "Prismari College",
+      "placement_relevance": "Corpus search evidence for Prismari College.",
+      "claim_ids": [
+        "prismari_claim_0007",
+        "prismari_claim_0008",
+        "prismari_claim_0009"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "value": "Uvilda",
+      "placement_relevance": "Corpus search evidence for Prismari College.",
+      "claim_ids": [
+        "prismari_claim_0007",
+        "prismari_claim_0008",
+        "prismari_claim_0009"
+      ],
+      "confidence": "Medium"
+    }
+  ],
+  "behavioral_signals": [
+    {
+      "signal": "References A Living Flame, A Cry of Magic, The Chains That Bind as story-context evidence rather than relying only on color identity.",
+      "placement_relevance": "Strengthens Prismari College with corpus-backed specificity.",
+      "supports_match_when": "The user's answers echo Prismari, Rootha, elemental, performance, art, expression in a faction-specific way.",
+      "weakens_match_when": "The user's answers only match the shared color pair without any faction-specific behavior.",
+      "claim_ids": [
+        "prismari_claim_0007",
+        "prismari_claim_0008",
+        "prismari_claim_0009",
+        "prismari_claim_0010",
+        "prismari_claim_0011",
+        "prismari_claim_0012"
+      ],
+      "confidence": "Medium"
+    },
+    "feels ideas physically",
+    "communicates through artful force",
+    "values beauty and intensity together"
+  ],
+  "inhibitor_traits": [
+    {
+      "trait": "Generic color-pair overfit",
+      "why_it_conflicts": "The corpus upgrade is intended to prevent Prismari College from winning on broad color identity alone.",
+      "status": "Supported Interpretation",
+      "claim_ids": [
+        "prismari_claim_0007",
+        "prismari_claim_0008",
+        "prismari_claim_0009",
+        "prismari_claim_0010"
+      ],
+      "confidence": "Medium",
+      "notes": "Use collision questions when another faction shares the same or adjacent colors."
+    },
+    "experiments to solve mechanisms",
+    "uses words for status",
+    "performs to unsettle rather than express"
+  ],
+  "good_fit_indicators": [
+    {
+      "indicator": "thinks through art or performance",
+      "rationale": "Matches the official Prismari College identity summarized in the profile.",
+      "claim_ids": [
+        "prismari_claim_001"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "indicator": "values emotional truth and craft",
+      "rationale": "Matches the official Prismari College identity summarized in the profile.",
+      "claim_ids": [
+        "prismari_claim_002"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "indicator": "wants work to be felt, not merely understood",
+      "rationale": "Matches the official Prismari College identity summarized in the profile.",
+      "claim_ids": [
+        "prismari_claim_003"
+      ],
+      "confidence": "Medium"
+    }
+  ],
+  "calibration_tuning": {
+    "required_positive_evidence_terms": [
+      "expression",
+      "performance",
+      "art",
+      "emotion",
+      "elemental",
+      "creativity",
+      "dramatic",
+      "style",
+      "movement",
+      "spectacle"
+    ],
+    "required_positive_min_hits": 2,
+    "broad_match_penalty": 0.1,
+    "strengthen_when_user_centers": [
+      "emotion as art",
+      "elemental expression",
+      "creative performance",
+      "style as force"
+    ],
+    "suppress_when_user_centers": [
+      "mechanical experiment",
+      "precise rhetoric",
+      "dangerous transgression",
+      "mathematical proof",
+      "archive evidence"
+    ],
+    "false_positive_guardrail": "Do not award for generic spectacle if the answer is provocation, engineering, or rhetoric.",
+    "smoke_test_note": "Used by lore review scripts as metadata-level calibration guidance; production placement may use richer weighted logic."
+  },
+  "collision_guidance": []
+}

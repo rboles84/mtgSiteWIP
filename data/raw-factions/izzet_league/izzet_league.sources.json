@@ -1,0 +1,706 @@
+{
+  "schema_version": "1.0.0",
+  "faction_id": "izzet_league",
+  "faction_name": "Izzet League",
+  "source_review_date": "2026-05-09",
+  "last_updated": "2026-05-09",
+  "sources": [
+    {
+      "source_id": "src_izzet_league_0001",
+      "title": "Ravnica",
+      "author": "Wizards of the Coast",
+      "publisher_or_site": "Magic: The Gathering",
+      "publication_date": null,
+      "url_or_repository_path": "https://magic.wizards.com/en/story/ravnica-plane",
+      "source_type": "Official Story",
+      "authority_rank": 1,
+      "date_reviewed": "2026-05-09",
+      "status": "Active",
+      "inspected": true,
+      "relevant_summary": "Official plane overview stating that Ravnica has ten two-color guilds and that the dragon-led blue-red Izzet fuse elemental magic and technology as masters of innovation.",
+      "fields_supported": [
+        "core_identity",
+        "color_identity",
+        "plane_or_setting",
+        "site_surface"
+      ],
+      "limitations": [],
+      "supersedes": [],
+      "superseded_by": [],
+      "notes": ""
+    },
+    {
+      "source_id": "src_izzet_league_0002",
+      "title": "Planeswalker's Guide to Return to Ravnica: Part 2",
+      "author": "Magic Creative Team",
+      "publisher_or_site": "Magic: The Gathering",
+      "publication_date": "2012-05-09",
+      "url_or_repository_path": "https://magic.wizards.com/en/news/feature/planeswalkers-guide-to-return-to-ravnica-part-2",
+      "source_type": "Official Story",
+      "authority_rank": 1,
+      "date_reviewed": "2026-05-09",
+      "status": "Active",
+      "inspected": true,
+      "relevant_summary": "Primary official worldbuilding source for Izzet identity, mandate, Niv-Mizzet, internal court, key locations, roles, weirds, Interlocus, and attitudes toward other guilds.",
+      "fields_supported": [
+        "core_identity",
+        "structure",
+        "leaders",
+        "locations",
+        "internal_divisions",
+        "roles",
+        "relationships",
+        "placement_support"
+      ],
+      "limitations": [],
+      "supersedes": [],
+      "superseded_by": [],
+      "notes": ""
+    },
+    {
+      "source_id": "src_izzet_league_0003",
+      "title": "A Flavorful Guide to the Guilds of Ravnica",
+      "author": "Wizards of the Coast",
+      "publisher_or_site": "Magic: The Gathering",
+      "publication_date": "2018-10-03",
+      "url_or_repository_path": "https://magic.wizards.com/en/news/feature/flavorful-guide-guilds-ravnica-2018-10-03",
+      "source_type": "Official Story",
+      "authority_rank": 1,
+      "date_reviewed": "2026-05-09",
+      "status": "Active",
+      "inspected": true,
+      "relevant_summary": "Official Guilds of Ravnica feature summarizing Izzet values, invention, civic engineering, Niv-Mizzet's leadership, Ral Zarek's day-to-day role, and Ral's hidden Bolas allegiance at that story point.",
+      "fields_supported": [
+        "core_identity",
+        "leaders",
+        "timeline",
+        "placement_support"
+      ],
+      "limitations": [],
+      "supersedes": [],
+      "superseded_by": [],
+      "notes": ""
+    },
+    {
+      "source_id": "src_izzet_league_0004",
+      "title": "Guilds of Ravnica Mechanics",
+      "author": "Matt Tabak",
+      "publisher_or_site": "Magic: The Gathering",
+      "publication_date": "2018-09-04",
+      "url_or_repository_path": "https://magic.wizards.com/en/news/feature/guilds-ravnica-mechanics-2018-09-04",
+      "source_type": "Official Mechanics",
+      "authority_rank": 2,
+      "date_reviewed": "2026-05-09",
+      "status": "Active",
+      "inspected": true,
+      "relevant_summary": "Official mechanics article for Guilds of Ravnica identifying Izzet among featured guilds and explaining jump-start as a Guilds of Ravnica mechanic.",
+      "fields_supported": [
+        "mechanics",
+        "placement_support"
+      ],
+      "limitations": [],
+      "supersedes": [],
+      "superseded_by": [],
+      "notes": ""
+    },
+    {
+      "source_id": "src_izzet_league_0005",
+      "title": "Return to Ravnica Mechanics",
+      "author": "Wizards of the Coast",
+      "publisher_or_site": "Magic: The Gathering",
+      "publication_date": "2012-09-03",
+      "url_or_repository_path": "https://magic.wizards.com/en/news/feature/return-to-ravnica-mechanics",
+      "source_type": "Official Mechanics",
+      "authority_rank": 2,
+      "date_reviewed": "2026-05-09",
+      "status": "Active",
+      "inspected": true,
+      "relevant_summary": "Official mechanics article describing Return to Ravnica guilds, calling Izzet blue-red experimenters, and explaining overload as the Izzet League mechanic.",
+      "fields_supported": [
+        "mechanics",
+        "color_identity",
+        "placement_support"
+      ],
+      "limitations": [],
+      "supersedes": [],
+      "superseded_by": [],
+      "notes": ""
+    },
+    {
+      "source_id": "src_izzet_league_0006",
+      "title": "Getting Kitted Out with Guilds Kits",
+      "author": "Wizards of the Coast",
+      "publisher_or_site": "Magic: The Gathering",
+      "publication_date": "2018-11-02",
+      "url_or_repository_path": "https://magic.wizards.com/en/news/feature/getting-kitted-out-guilds-kits-2018-11-02",
+      "source_type": "Official Card Data",
+      "authority_rank": 2,
+      "date_reviewed": "2026-05-09",
+      "status": "Active",
+      "inspected": true,
+      "relevant_summary": "Official guild kit article stating that Izzet is all about spells and connecting replicate, overload, and jump-start across Ravnica visits.",
+      "fields_supported": [
+        "mechanics",
+        "card_supported_signals",
+        "placement_support"
+      ],
+      "limitations": [],
+      "supersedes": [],
+      "superseded_by": [],
+      "notes": ""
+    },
+    {
+      "source_id": "src_izzet_league_0007",
+      "title": "Commanding the Guilds of Ravnica",
+      "author": "Wizards of the Coast",
+      "publisher_or_site": "Magic: The Gathering",
+      "publication_date": "2018-10-18",
+      "url_or_repository_path": "https://magic.wizards.com/en/news/feature/commanding-guilds-ravnica-2018-10-18",
+      "source_type": "Official Card Data",
+      "authority_rank": 2,
+      "date_reviewed": "2026-05-09",
+      "status": "Active",
+      "inspected": true,
+      "relevant_summary": "Official Commander-focused article describing Izzet as blue-red, tied to public works, infrastructure, experimentation, instants, sorceries, combinations, and mana mastery.",
+      "fields_supported": [
+        "mechanics",
+        "core_identity",
+        "placement_support"
+      ],
+      "limitations": [],
+      "supersedes": [],
+      "superseded_by": [],
+      "notes": ""
+    },
+    {
+      "source_id": "src_izzet_league_0008",
+      "title": "Rules",
+      "author": "Wizards of the Coast",
+      "publisher_or_site": "Magic: The Gathering",
+      "publication_date": "current webpage reviewed 2026-05-09",
+      "url_or_repository_path": "https://magic.wizards.com/en/rules",
+      "source_type": "Official Rules",
+      "authority_rank": 2,
+      "date_reviewed": "2026-05-09",
+      "status": "Active",
+      "inspected": true,
+      "relevant_summary": "Official rules landing page identifying the Comprehensive Rules as the reference document for Magic rules and linking DOCX, PDF, and TXT versions.",
+      "fields_supported": [
+        "rules_reference",
+        "mechanics"
+      ],
+      "limitations": [],
+      "supersedes": [],
+      "superseded_by": [],
+      "notes": ""
+    },
+    {
+      "source_id": "src_izzet_league_0009",
+      "title": "Magic: The Gathering Comprehensive Rules",
+      "author": "Wizards of the Coast",
+      "publisher_or_site": "Magic: The Gathering",
+      "publication_date": "2026-02-27",
+      "url_or_repository_path": "https://media.wizards.com/2026/downloads/MagicCompRules%2020260227.txt",
+      "source_type": "Official Rules",
+      "authority_rank": 2,
+      "date_reviewed": "2026-05-09",
+      "status": "Active",
+      "inspected": true,
+      "relevant_summary": "Current Comprehensive Rules text reviewed for the rules meaning of replicate, overload, and jump-start.",
+      "fields_supported": [
+        "rules_supported_mechanics"
+      ],
+      "limitations": [],
+      "supersedes": [],
+      "superseded_by": [],
+      "notes": ""
+    },
+    {
+      "source_id": "src_izzet_league_0010",
+      "title": "Planeswalker's Guide to Murders at Karlov Manor",
+      "author": "Wizards of the Coast",
+      "publisher_or_site": "Magic: The Gathering",
+      "publication_date": "2024-02-01",
+      "url_or_repository_path": "https://magic.wizards.com/en/news/feature/planeswalkers-guide-to-murders-at-karlov-manor",
+      "source_type": "Official Story",
+      "authority_rank": 1,
+      "date_reviewed": "2026-05-09",
+      "status": "Active",
+      "inspected": true,
+      "relevant_summary": "Official current-status Ravnica guide describing the post-Phyrexian invasion state of the guilds, Niv-Mizzet as current Living Guildpact, Izzet reconstruction work, and some Izzet/Simic being drawn to Phyrexian opportunities.",
+      "fields_supported": [
+        "timeline",
+        "current_status",
+        "relationships",
+        "locations",
+        "placement_support"
+      ],
+      "limitations": [],
+      "supersedes": [],
+      "superseded_by": [],
+      "notes": ""
+    },
+    {
+      "source_id": "src_izzet_league_0011",
+      "title": "The Legends (and Characters) of Murders at Karlov Manor",
+      "author": "Wizards of the Coast",
+      "publisher_or_site": "Magic: The Gathering",
+      "publication_date": "2024-02-06",
+      "url_or_repository_path": "https://magic.wizards.com/en/news/feature/the-legends-and-characters-of-murders-at-karlov-manor",
+      "source_type": "Official Story / Official Character Feature",
+      "authority_rank": 1,
+      "date_reviewed": "2026-05-09",
+      "status": "Active",
+      "inspected": true,
+      "relevant_summary": "Official character feature identifying Niv-Mizzet, Guildpact as the current embodiment of the Living Guildpact and the most intelligent being on Ravnica.",
+      "fields_supported": [
+        "key_figures",
+        "current_status",
+        "timeline"
+      ],
+      "limitations": [],
+      "supersedes": [],
+      "superseded_by": [],
+      "notes": ""
+    },
+    {
+      "source_id": "src_izzet_league_0012",
+      "title": "War of the Spark: Ravnica—Operation Desperation",
+      "author": "Wizards of the Coast",
+      "publisher_or_site": "Magic: The Gathering",
+      "publication_date": "2019-06-05",
+      "url_or_repository_path": "https://magic.wizards.com/en/news/magic-story/war-spark-ravnica-operation-desperation-2019-06-05",
+      "source_type": "Official Story",
+      "authority_rank": 1,
+      "date_reviewed": "2026-05-09",
+      "status": "Active",
+      "inspected": true,
+      "relevant_summary": "Official story source for Operation Desperation: Ral explains the plan to resurrect Niv-Mizzet as the new Living Guildpact and for Niv-Mizzet to step down as Izzet guildmaster.",
+      "fields_supported": [
+        "timeline",
+        "leaders",
+        "key_figures"
+      ],
+      "limitations": [],
+      "supersedes": [],
+      "superseded_by": [],
+      "notes": ""
+    },
+    {
+      "source_id": "src_izzet_league_0013",
+      "title": "War of the Spark: Ravnica—Rallying the Reluctant",
+      "author": "Wizards of the Coast",
+      "publisher_or_site": "Magic: The Gathering",
+      "publication_date": "2019-05-22",
+      "url_or_repository_path": "https://magic.wizards.com/en/news/magic-story/war-spark-ravnica-rallying-reluctant-2019-05-22",
+      "source_type": "Official Story",
+      "authority_rank": 1,
+      "date_reviewed": "2026-05-09",
+      "status": "Active",
+      "inspected": true,
+      "relevant_summary": "Official story source showing the Izzet League led by Master Zarek and Chamberlain Maree during the War of the Spark crisis and referencing the dead Firemind before Operation Desperation.",
+      "fields_supported": [
+        "timeline",
+        "leaders",
+        "key_figures"
+      ],
+      "limitations": [],
+      "supersedes": [],
+      "superseded_by": [],
+      "notes": ""
+    },
+    {
+      "source_id": "src_izzet_league_0014",
+      "title": "Project Lightning Bug",
+      "author": "Doug Beyer",
+      "publisher_or_site": "Magic: The Gathering",
+      "publication_date": "2015-05-27",
+      "url_or_repository_path": "https://magic.wizards.com/en/news/magic-story/project-lightning-bug-2015-05-27",
+      "source_type": "Official Story",
+      "authority_rank": 1,
+      "date_reviewed": "2026-05-09",
+      "status": "Active",
+      "inspected": true,
+      "relevant_summary": "Official story source identifying Ral Zarek as an Izzet guildmage and secret Planeswalker, and showing Jace Beleren as Living Guildpact at that story point.",
+      "fields_supported": [
+        "key_figures",
+        "timeline"
+      ],
+      "limitations": [],
+      "supersedes": [],
+      "superseded_by": [],
+      "notes": ""
+    },
+    {
+      "source_id": "src_izzet_league_0015",
+      "title": "March of the Machine | Ravnica: One and the Same",
+      "author": "Wizards of the Coast",
+      "publisher_or_site": "Magic: The Gathering",
+      "publication_date": "2023-03-24",
+      "url_or_repository_path": "https://magic.wizards.com/en/news/magic-story/one-and-the-same",
+      "source_type": "Official Story",
+      "authority_rank": 1,
+      "date_reviewed": "2026-05-09",
+      "status": "Active",
+      "inspected": true,
+      "relevant_summary": "Official story source during the Phyrexian invasion referring to Ral Zarek as Izzet guildmaster.",
+      "fields_supported": [
+        "timeline",
+        "leaders",
+        "current_status"
+      ],
+      "limitations": [],
+      "supersedes": [],
+      "superseded_by": [],
+      "notes": ""
+    },
+    {
+      "source_id": "src_izzet_league_0016",
+      "title": "polarkac/MTG-Stories",
+      "author": "polarkac",
+      "publisher_or_site": "GitHub",
+      "publication_date": "repository reviewed 2026-05-09",
+      "url_or_repository_path": "https://github.com/polarkac/MTG-Stories",
+      "source_type": "Repository Archive",
+      "authority_rank": 5,
+      "date_reviewed": "2026-05-09",
+      "status": "Active",
+      "inspected": true,
+      "relevant_summary": "Repository archive of publicly available Magic story content. Reviewed as a discovery/backup corpus, not used as primary authority where official Wizards pages were available.",
+      "fields_supported": [
+        "discovery",
+        "repository_archive"
+      ],
+      "limitations": [
+        "Archive is not the publisher of record for official canon when Wizards pages are available.",
+        "Repository may contain conversion or compilation errors."
+      ],
+      "supersedes": [],
+      "superseded_by": [],
+      "notes": ""
+    },
+    {
+      "source_id": "src_izzet_league_0017",
+      "title": "Epic Experiment",
+      "author": "Jenna Helland",
+      "publisher_or_site": "polarkac/MTG-Stories GitHub repository archive of Magic Story",
+      "publication_date": "2012-09-12",
+      "url_or_repository_path": "https://github.com/polarkac/MTG-Stories/blob/5e0a53c7193ba58835fd811f66612e8f6d6f344b/stories/002%20-%20Return%20to%20Ravnica/003_Epic%20Experiment.typ",
+      "source_type": "Repository Archive",
+      "authority_rank": 5,
+      "date_reviewed": "2026-05-09",
+      "status": "Active",
+      "inspected": true,
+      "relevant_summary": "Repository archive copy of an official Magic story used to support story-local claims about Trenz, Experiment Day, Nivix, Niv-Mizzet assignments, and volatile Izzet testing.",
+      "fields_supported": [
+        "culture",
+        "narrative_examples",
+        "Nivix",
+        "Chemister ambition",
+        "mizzium",
+        "placement_support"
+      ],
+      "limitations": [
+        "Repository archive copy; official Wizards page should supersede this source if a live official page is located and inspected."
+      ],
+      "supersedes": [],
+      "superseded_by": [],
+      "notes": "Added during requested term-by-term GitHub MTG-Stories Izzet review pass."
+    },
+    {
+      "source_id": "src_izzet_league_0018",
+      "title": "The Pursuit, Part 1",
+      "author": "Ari Levitch",
+      "publisher_or_site": "polarkac/MTG-Stories GitHub repository archive of Magic Story",
+      "publication_date": "2013-05-01",
+      "url_or_repository_path": "https://github.com/polarkac/MTG-Stories/blob/5e0a53c7193ba58835fd811f66612e8f6d6f344b/stories/004%20-%20Dragon%27s%20Maze/005_The%20Pursuit%2C%20Part%201.typ",
+      "source_type": "Repository Archive",
+      "authority_rank": 5,
+      "date_reviewed": "2026-05-09",
+      "status": "Active",
+      "inspected": true,
+      "relevant_summary": "Repository archive copy of an official Magic story used to support claims about an Izzet lab accident, Nivix, Niv-Mizzet delegating a recovery mission, and internal ambition toward the Izmagnus.",
+      "fields_supported": [
+        "narrative_examples",
+        "Nivix",
+        "Chamberlain Pelener",
+        "Madarrak",
+        "Castan",
+        "Erno Zslod",
+        "mizzium"
+      ],
+      "limitations": [
+        "Repository archive copy; official Wizards page should supersede this source if a live official page is located and inspected."
+      ],
+      "supersedes": [],
+      "superseded_by": [],
+      "notes": "Added during requested term-by-term GitHub MTG-Stories Izzet review pass."
+    },
+    {
+      "source_id": "src_izzet_league_0019",
+      "title": "The Pursuit, Part 2",
+      "author": "Ari Levitch",
+      "publisher_or_site": "polarkac/MTG-Stories GitHub repository archive of Magic Story",
+      "publication_date": "2013-05-14",
+      "url_or_repository_path": "https://github.com/polarkac/MTG-Stories/blob/5e0a53c7193ba58835fd811f66612e8f6d6f344b/stories/004%20-%20Dragon%27s%20Maze/007_The%20Pursuit%2C%20Part%202.typ",
+      "source_type": "Repository Archive",
+      "authority_rank": 5,
+      "date_reviewed": "2026-05-09",
+      "status": "Active",
+      "inspected": true,
+      "relevant_summary": "Repository archive copy of an official Magic story used to support claims about Erno Zslod, a mizzium suit/device, a dangerous recovery mission, and Madarrak returning to Nivix.",
+      "fields_supported": [
+        "narrative_examples",
+        "Madarrak",
+        "Castan",
+        "Erno Zslod",
+        "mizzium",
+        "cross_guild_risks"
+      ],
+      "limitations": [
+        "Repository archive copy; official Wizards page should supersede this source if a live official page is located and inspected."
+      ],
+      "supersedes": [],
+      "superseded_by": [],
+      "notes": "Added during requested term-by-term GitHub MTG-Stories Izzet review pass."
+    },
+    {
+      "source_id": "src_izzet_league_0020",
+      "title": "Last Day",
+      "author": "Colin Kawakami",
+      "publisher_or_site": "polarkac/MTG-Stories GitHub repository archive of Magic Story",
+      "publication_date": "2013-06-05",
+      "url_or_repository_path": "https://github.com/polarkac/MTG-Stories/blob/5e0a53c7193ba58835fd811f66612e8f6d6f344b/stories/004%20-%20Dragon%27s%20Maze/009_Last%20Day.typ",
+      "source_type": "Repository Archive",
+      "authority_rank": 5,
+      "date_reviewed": "2026-05-09",
+      "status": "Active",
+      "inspected": true,
+      "relevant_summary": "Repository archive copy of an official Magic story surfaced by Izzet search terms; reviewed as low direct Izzet value because its main plot centers Dimir, with only brief Ral/Niv-Mizzet memory-wall references.",
+      "fields_supported": [
+        "search_review",
+        "Dragon’s Maze context"
+      ],
+      "limitations": [
+        "Repository archive copy; official Wizards page should supersede this source if a live official page is located and inspected."
+      ],
+      "supersedes": [],
+      "superseded_by": [],
+      "notes": "Added during requested term-by-term GitHub MTG-Stories Izzet review pass."
+    },
+    {
+      "source_id": "src_izzet_league_0021",
+      "title": "Paper Trail",
+      "author": "Nik Davidson",
+      "publisher_or_site": "polarkac/MTG-Stories GitHub repository archive of Magic Story",
+      "publication_date": "2013-06-12",
+      "url_or_repository_path": "https://github.com/polarkac/MTG-Stories/blob/5e0a53c7193ba58835fd811f66612e8f6d6f344b/stories/004%20-%20Dragon%27s%20Maze/010_Paper%20Trail.typ",
+      "source_type": "Repository Archive",
+      "authority_rank": 5,
+      "date_reviewed": "2026-05-09",
+      "status": "Active",
+      "inspected": true,
+      "relevant_summary": "Repository archive copy of an official Magic story used to support claims about Izzet biomechanical augmentation, mizzium framework, and downstream consequences from cross-guild contamination.",
+      "fields_supported": [
+        "narrative_examples",
+        "mizzium augmentation",
+        "Izzet tinkering",
+        "cross_guild_consequences"
+      ],
+      "limitations": [
+        "Repository archive copy; official Wizards page should supersede this source if a live official page is located and inspected."
+      ],
+      "supersedes": [],
+      "superseded_by": [],
+      "notes": "Added during requested term-by-term GitHub MTG-Stories Izzet review pass."
+    },
+    {
+      "source_id": "src_izzet_league_0022",
+      "title": "Testing the Dark Waters",
+      "author": "Nicky Drayden",
+      "publisher_or_site": "polarkac/MTG-Stories GitHub repository archive of Magic Story",
+      "publication_date": "2018-10-17",
+      "url_or_repository_path": "https://github.com/polarkac/MTG-Stories/blob/5e0a53c7193ba58835fd811f66612e8f6d6f344b/stories/036%20-%20Guilds%20of%20Ravnica/002_Testing%20the%20Dark%20Waters.typ",
+      "source_type": "Repository Archive",
+      "authority_rank": 5,
+      "date_reviewed": "2026-05-09",
+      "status": "Active",
+      "inspected": true,
+      "relevant_summary": "Repository archive copy of an official Magic story used to support claims about Izzet lower-rank ambition, lab hierarchy, discovery pressure, unsanctioned experimentation, and ethical shadow risks.",
+      "fields_supported": [
+        "narrative_examples",
+        "attendants",
+        "chemisters",
+        "blastseekers",
+        "mizzium equipment",
+        "unsanctioned labs",
+        "placement_support"
+      ],
+      "limitations": [
+        "Repository archive copy; official Wizards page should supersede this source if a live official page is located and inspected."
+      ],
+      "supersedes": [],
+      "superseded_by": [],
+      "notes": "Added during requested term-by-term GitHub MTG-Stories Izzet review pass."
+    },
+    {
+      "source_id": "src_izzet_league_0023",
+      "title": "The Gathering Storm: Chapter 17",
+      "author": "Django Wexler",
+      "publisher_or_site": "polarkac/MTG-Stories GitHub repository archive of Magic Story",
+      "publication_date": "2019-10-02",
+      "url_or_repository_path": "https://github.com/polarkac/MTG-Stories/blob/5e0a53c7193ba58835fd811f66612e8f6d6f344b/stories/037%20-%20Ravnica%20Allegiance/011_The%20Gathering%20Storm%3A%20Chapter%2017.typ",
+      "source_type": "Repository Archive",
+      "authority_rank": 5,
+      "date_reviewed": "2026-05-09",
+      "status": "Active",
+      "inspected": true,
+      "relevant_summary": "Repository archive copy of an official Magic story used to support claims about Ral directing Izzet personnel at Nivix, resonator-node operations, and catastrophic crisis engineering.",
+      "fields_supported": [
+        "narrative_examples",
+        "Ral Zarek",
+        "Nivix",
+        "resonator project",
+        "mizzium coils",
+        "crisis engineering",
+        "placement_support"
+      ],
+      "limitations": [
+        "Repository archive copy; official Wizards page should supersede this source if a live official page is located and inspected."
+      ],
+      "supersedes": [],
+      "superseded_by": [],
+      "notes": "Added during requested term-by-term GitHub MTG-Stories Izzet review pass."
+    },
+    {
+      "source_id": "src_izzet_league_0024",
+      "title": "The Gathering Storm: Chapter 18",
+      "author": "Django Wexler",
+      "publisher_or_site": "polarkac/MTG-Stories GitHub repository archive of Magic Story",
+      "publication_date": "2019-10-09",
+      "url_or_repository_path": "https://github.com/polarkac/MTG-Stories/blob/5e0a53c7193ba58835fd811f66612e8f6d6f344b/stories/037%20-%20Ravnica%20Allegiance/012_The%20Gathering%20Storm%3A%20Chapter%2018.typ",
+      "source_type": "Repository Archive",
+      "authority_rank": 5,
+      "date_reviewed": "2026-05-09",
+      "status": "Active",
+      "inspected": true,
+      "relevant_summary": "Repository archive copy of an official Magic story used to support claims about Niv-Mizzet entrusting Ral with the beacon mission and personally delaying Bolas.",
+      "fields_supported": [
+        "narrative_examples",
+        "Niv-Mizzet",
+        "Ral Zarek",
+        "Bolas invasion",
+        "Interplanar Beacon",
+        "mizzium batteries"
+      ],
+      "limitations": [
+        "Repository archive copy; official Wizards page should supersede this source if a live official page is located and inspected."
+      ],
+      "supersedes": [],
+      "superseded_by": [],
+      "notes": "Added during requested term-by-term GitHub MTG-Stories Izzet review pass."
+    },
+    {
+      "source_id": "src_izzet_league_0025",
+      "title": "The Gathering Storm: Chapter 20",
+      "author": "Django Wexler",
+      "publisher_or_site": "polarkac/MTG-Stories GitHub repository archive of Magic Story",
+      "publication_date": "2019-10-23",
+      "url_or_repository_path": "https://github.com/polarkac/MTG-Stories/blob/5e0a53c7193ba58835fd811f66612e8f6d6f344b/stories/037%20-%20Ravnica%20Allegiance/014_The%20Gathering%20Storm%3A%20Chapter%2020.typ",
+      "source_type": "Repository Archive",
+      "authority_rank": 5,
+      "date_reviewed": "2026-05-09",
+      "status": "Active",
+      "inspected": true,
+      "relevant_summary": "Repository archive copy of an official Magic story used to support claims about Ral activating the Interplanar Beacon, his restraint toward Lavinia, and the cost of the Bolas crisis.",
+      "fields_supported": [
+        "narrative_examples",
+        "Ral Zarek",
+        "Interplanar Beacon",
+        "Lavinia",
+        "Bolas",
+        "placement_support"
+      ],
+      "limitations": [
+        "Repository archive copy; official Wizards page should supersede this source if a live official page is located and inspected."
+      ],
+      "supersedes": [],
+      "superseded_by": [],
+      "notes": "Added during requested term-by-term GitHub MTG-Stories Izzet review pass."
+    },
+    {
+      "source_id": "src_izzet_league_0026",
+      "title": "War of the Spark: Ravnica—Ashes",
+      "author": "Greg Weisman",
+      "publisher_or_site": "polarkac/MTG-Stories GitHub repository archive of Magic Story",
+      "publication_date": "2019-06-12",
+      "url_or_repository_path": "https://github.com/polarkac/MTG-Stories/blob/5e0a53c7193ba58835fd811f66612e8f6d6f344b/stories/038%20-%20War%20of%20the%20Spark/006_Ashes.typ",
+      "source_type": "Repository Archive",
+      "authority_rank": 5,
+      "date_reviewed": "2026-05-09",
+      "status": "Active",
+      "inspected": true,
+      "relevant_summary": "Repository archive result surfaced by Ral Zarek and mizzium searches; retained as a reviewed source candidate for future War of the Spark cross-checking but not used for new atomic claims in this update.",
+      "fields_supported": [
+        "search_review",
+        "War of the Spark context"
+      ],
+      "limitations": [
+        "Repository archive copy; official Wizards page should supersede this source if a live official page is located and inspected."
+      ],
+      "supersedes": [],
+      "superseded_by": [],
+      "notes": "Added during requested term-by-term GitHub MTG-Stories Izzet review pass."
+    }
+  ],
+  "not_used_or_rejected_sources": [
+    {
+      "title": "Uploaded build prompt: izzit(1).txt",
+      "url_or_reference": "fileciteturn0file0",
+      "reason_rejected": "Input instructions only; not a lore authority source and not used to verify faction claims.",
+      "notes": "Used to determine required output structure, build mode, faction_id, and anti-hallucination rules."
+    },
+    {
+      "title": "Izzet League - MTG Wiki",
+      "url_or_reference": "https://mtg.fandom.com/wiki/Izzet_League",
+      "reason_rejected": "Secondary/fan-edited source. Used only as optional discovery context; no claims depend on it when official Wizards or rules sources were available.",
+      "notes": "Can be revisited for leads during later incremental updates, but primary claims should remain tied to official or card/rules sources."
+    },
+    {
+      "title": "MTGLore.com story index",
+      "url_or_reference": "https://mtglore.com/",
+      "reason_rejected": "Discovery index rather than primary canon source.",
+      "notes": "Not needed for this initial build because the reviewed Wizards pages directly supported the selected claims."
+    },
+    {
+      "title": "Reddit, YouTube, EDHREC, blogs, and fan commentary",
+      "url_or_reference": "various",
+      "reason_rejected": "Not necessary for the initial canon-supported build and lower authority than official Wizards sources.",
+      "notes": "Excluded to avoid fan consensus being mistaken for canon."
+    },
+    {
+      "title": "GitHub search term: jump-start",
+      "url_or_reference": "repo:polarkac/MTG-Stories \"jump-start\"",
+      "reason_rejected": "No meaningful story-corpus hits found in this pass.",
+      "notes": "Jump-start remains covered by official mechanics/rules/card-data sources rather than story sources."
+    },
+    {
+      "title": "GitHub search term: blue red",
+      "url_or_reference": "repo:polarkac/MTG-Stories \"blue red\"",
+      "reason_rejected": "Results were noisy and not Izzet-specific enough to support atomic lore claims.",
+      "notes": "Color identity remains covered by official Ravnica/guild sources."
+    },
+    {
+      "title": "GitHub search term: dragon",
+      "url_or_reference": "repo:polarkac/MTG-Stories \"dragon\"",
+      "reason_rejected": "Results were very broad across Magic story and not automatically Izzet-specific.",
+      "notes": "Used only where tied directly to Niv-Mizzet/Izzet story files."
+    },
+    {
+      "title": "Last Day",
+      "url_or_reference": "stories/004 - Dragon's Maze/009_Last Day.typ",
+      "reason_rejected": "Reviewed but not used for new Izzet claims because direct Izzet content was brief and mainly appeared through Dimir memory-wall context.",
+      "notes": "Kept in sources.json as reviewed search evidence because it appeared in required Izzet searches."
+    }
+  ]
+}

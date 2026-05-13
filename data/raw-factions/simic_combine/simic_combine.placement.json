@@ -1,0 +1,451 @@
+{
+  "schema_version": "1.0.0",
+  "faction_id": "simic_combine",
+  "faction_name": "Simic Combine",
+  "last_updated": "2026-05-10T02:56:03.254Z",
+  "placement_model_version": "vox-mana-lore-json-v1",
+  "color_identity": [
+    "green",
+    "blue"
+  ],
+  "ideal_fit_indicators": [
+    {
+      "indicator": "wants to improve systems rather than merely preserve them",
+      "rationale": "Matches the official Simic Combine identity summarized in the profile.",
+      "claim_ids": [
+        "simic_combine_claim_001"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "indicator": "thinks biologically and experimentally",
+      "rationale": "Matches the official Simic Combine identity summarized in the profile.",
+      "claim_ids": [
+        "simic_combine_claim_002"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "indicator": "is comfortable changing in response to new conditions",
+      "rationale": "Matches the official Simic Combine identity summarized in the profile.",
+      "claim_ids": [
+        "simic_combine_claim_003"
+      ],
+      "confidence": "Medium"
+    }
+  ],
+  "poor_fit_indicators": [
+    {
+      "indicator": "treats nature as untouchable",
+      "rationale": "Counters a core Simic Combine placement signal.",
+      "claim_ids": [
+        "simic_combine_claim_001"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "indicator": "rejects experimentation categorically",
+      "rationale": "Counters a core Simic Combine placement signal.",
+      "claim_ids": [
+        "simic_combine_claim_002"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "indicator": "cares more about spectacle than sustained inquiry",
+      "rationale": "Counters a core Simic Combine placement signal.",
+      "claim_ids": [
+        "simic_combine_claim_003"
+      ],
+      "confidence": "Medium"
+    }
+  ],
+  "discriminator_questions": [
+    {
+      "question_id": "simic_q1",
+      "question": "What part of yourself would you improve if the change was permanent?",
+      "purpose": "Tests adaptation and ethical boundaries.",
+      "answer_pattern_that_supports_this_faction": "The answer emphasizes the ideal-fit indicators listed for this faction.",
+      "answer_pattern_that_weakens_this_faction": "The answer rejects or treats the faction's core tension as irrelevant.",
+      "related_factions_to_compare": [],
+      "claim_ids": [
+        "simic_combine_claim_001",
+        "simic_combine_claim_002",
+        "simic_combine_claim_003"
+      ],
+      "confidence": "Medium",
+      "notes": "Question is placement-engine guidance, not canon text."
+    },
+    {
+      "question_id": "simic_q2",
+      "question": "When does healing become experimentation?",
+      "purpose": "Distinguishes Simic from Selesnya and Witherbloom.",
+      "answer_pattern_that_supports_this_faction": "The answer emphasizes the ideal-fit indicators listed for this faction.",
+      "answer_pattern_that_weakens_this_faction": "The answer rejects or treats the faction's core tension as irrelevant.",
+      "related_factions_to_compare": [],
+      "claim_ids": [
+        "simic_combine_claim_001",
+        "simic_combine_claim_002",
+        "simic_combine_claim_003"
+      ],
+      "confidence": "Medium",
+      "notes": "Question is placement-engine guidance, not canon text."
+    },
+    {
+      "question_id": "q_simic_combine_9801",
+      "collision_targets": [
+        "quandrix"
+      ],
+      "prompt": "If a system can be changed, do you start with the organism or the equation underneath it?",
+      "target_signal": "Simic improves living systems; Quandrix proves and manipulates abstract pattern.",
+      "suppresses_this_faction_if": "the answer centers proof, equations, abstraction, or mathematical precision",
+      "evidence_claim_ids": [
+        "simic_combine_claim_001",
+        "simic_combine_claim_002",
+        "simic_combine_claim_003"
+      ]
+    },
+    {
+      "question_id": "q_simic_combine_9802",
+      "collision_targets": [
+        "witherbloom"
+      ],
+      "prompt": "Are you improving the organism, or learning what vitality costs and how to spend it?",
+      "target_signal": "Simic optimizes biology toward progress; Witherbloom studies essence, cost, and life/death craft.",
+      "suppresses_this_faction_if": "the answer centers essence, bodily exchange, or life/death craft",
+      "evidence_claim_ids": [
+        "simic_combine_claim_001",
+        "simic_combine_claim_002",
+        "simic_combine_claim_003"
+      ]
+    }
+  ],
+  "chatbot_guidance": {
+    "how_to_recognize_match": [
+      "wants to improve systems rather than merely preserve them",
+      "thinks biologically and experimentally",
+      "is comfortable changing in response to new conditions"
+    ],
+    "how_to_recognize_mismatch": [
+      "treats nature as untouchable",
+      "rejects experimentation categorically",
+      "cares more about spectacle than sustained inquiry"
+    ],
+    "questions_to_ask_when_uncertain": [
+      "What part of yourself would you improve if the change was permanent?",
+      "When does healing become experimentation?"
+    ],
+    "do_not_overweight": [
+      "Do not overfit a single color preference.",
+      "Do not treat one favorite card or mechanic as enough evidence by itself.",
+      "Do not score a faction highly from color identity alone when another faction shares the same colors or surface traits."
+    ],
+    "never_claim_as_canon": [
+      "Psychological placement categories are Vox Mana interpretation, not official Wizards canon.",
+      "Do not state that a user's personality is objectively determined by a faction.",
+      "Placement scoring is a Vox Mana interpretation, not official Wizards canon."
+    ],
+    "calibration_note": "Simic Combine should require its specific positive evidence cluster: adaptation, improvement, biology, evolve, specimen. Keep it adjacent when the answer only contains broad color identity or generic personality language.",
+    "scoring_guardrail": "Do not award for generic systems thinking without organism/adaptation language."
+  },
+  "placement_quality": {
+    "overall_confidence": "Medium",
+    "strongest_evidence_areas": [
+      "official faction overview",
+      "official mechanics identity",
+      "MTG-Stories corpus search evidence"
+    ],
+    "weakest_evidence_areas": [
+      "deep story episode coverage",
+      "cross-faction comparison calibration"
+    ],
+    "manual_review_recommended": true,
+    "notes": "Good for initial placement testing; should be expanded with story-specific claims in a later pass. Corpus-enriched data should be reviewed with calibration and collision reports before being treated as tuned scoring fuel.",
+    "calibration_tuning_status": "explicit",
+    "last_placement_ready_pass": "2026-05-10T02:56:03.254Z"
+  },
+  "placement_profile_version": "vox-mana-lore-json-v1",
+  "based_on_profile_version": "1.0.0",
+  "placement_summary": {
+    "short_description": "Simic Combine placement is informed by official overview sources and MTG-Stories corpus evidence.",
+    "best_fit_summary": "wants to improve systems rather than merely preserve them thinks biologically and experimentally is comfortable changing in response to new conditions",
+    "poor_fit_summary": "treats nature as untouchable rejects experimentation categorically cares more about spectacle than sustained inquiry",
+    "interpretation_warning": "Placement data is interpretive and should be treated as a matching heuristic, not direct canon.",
+    "claim_ids": [
+      "simic_combine_claim_0008",
+      "simic_combine_claim_0009",
+      "simic_combine_claim_0010",
+      "simic_combine_claim_0011",
+      "simic_combine_claim_0012",
+      "simic_combine_claim_0013",
+      "simic_combine_claim_0014",
+      "simic_combine_claim_0015"
+    ],
+    "calibrated_primary_read": "Requires biological adaptation, improvement, mutation, optimization, or living-system experimentation.",
+    "calibrated_false_positive_guardrail": "Do not award for generic systems thinking without organism/adaptation language.",
+    "evidence_claim_ids": [
+      "simic_combine_claim_001",
+      "simic_combine_claim_002",
+      "simic_combine_claim_003",
+      "simic_combine_claim_004",
+      "simic_combine_claim_005",
+      "simic_combine_claim_006"
+    ]
+  },
+  "placement_axes": [
+    {
+      "axis_id": "axis_adaptation_vs_preservation",
+      "label": "Adaptation vs Preservation",
+      "description": "Measures whether user answers align with Simic Combine's specific evidence instead of only its color pair.",
+      "low_end_label": "unchanged preservation",
+      "high_end_label": "iterative biological improvement",
+      "faction_position": 86,
+      "rationale": "Corpus evidence adds story-context support for Simic Combine, Simic, Momir Vig, Vannifar, Zonot, cytoplast, adaptation, adapt.",
+      "claim_ids": [
+        "simic_combine_claim_0008",
+        "simic_combine_claim_0009",
+        "simic_combine_claim_0010",
+        "simic_combine_claim_0011",
+        "simic_combine_claim_0012",
+        "simic_combine_claim_0013",
+        "simic_combine_claim_0014",
+        "simic_combine_claim_0015"
+      ],
+      "confidence": "Medium",
+      "notes": "Added during MTG-Stories corpus upgrade."
+    }
+  ],
+  "moral_and_psychological_profile": {
+    "summary": "Simic Combine should be scored through faction-specific behavioral evidence, not only broad color identity.",
+    "claim_ids": [
+      "simic_combine_claim_0008",
+      "simic_combine_claim_0009",
+      "simic_combine_claim_0010",
+      "simic_combine_claim_0011",
+      "simic_combine_claim_0012"
+    ]
+  },
+  "core_values": [
+    {
+      "value": "Simic Combine",
+      "placement_relevance": "Corpus search evidence for Simic Combine.",
+      "claim_ids": [
+        "simic_combine_claim_0008",
+        "simic_combine_claim_0009",
+        "simic_combine_claim_0010"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "value": "Simic",
+      "placement_relevance": "Corpus search evidence for Simic Combine.",
+      "claim_ids": [
+        "simic_combine_claim_0008",
+        "simic_combine_claim_0009",
+        "simic_combine_claim_0010"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "value": "Momir Vig",
+      "placement_relevance": "Corpus search evidence for Simic Combine.",
+      "claim_ids": [
+        "simic_combine_claim_0008",
+        "simic_combine_claim_0009",
+        "simic_combine_claim_0010"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "value": "Vannifar",
+      "placement_relevance": "Corpus search evidence for Simic Combine.",
+      "claim_ids": [
+        "simic_combine_claim_0008",
+        "simic_combine_claim_0009",
+        "simic_combine_claim_0010"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "value": "Zonot",
+      "placement_relevance": "Corpus search evidence for Simic Combine.",
+      "claim_ids": [
+        "simic_combine_claim_0008",
+        "simic_combine_claim_0009",
+        "simic_combine_claim_0010"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "value": "cytoplast",
+      "placement_relevance": "Corpus search evidence for Simic Combine.",
+      "claim_ids": [
+        "simic_combine_claim_0008",
+        "simic_combine_claim_0009",
+        "simic_combine_claim_0010"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "value": "adaptation",
+      "placement_relevance": "Corpus search evidence for Simic Combine.",
+      "claim_ids": [
+        "simic_combine_claim_0008",
+        "simic_combine_claim_0009",
+        "simic_combine_claim_0010"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "value": "adapt",
+      "placement_relevance": "Corpus search evidence for Simic Combine.",
+      "claim_ids": [
+        "simic_combine_claim_0008",
+        "simic_combine_claim_0009",
+        "simic_combine_claim_0010"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "value": "mutation",
+      "placement_relevance": "Corpus search evidence for Simic Combine.",
+      "claim_ids": [
+        "simic_combine_claim_0008",
+        "simic_combine_claim_0009",
+        "simic_combine_claim_0010"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "value": "Prime Speaker Zegana",
+      "placement_relevance": "Corpus search evidence for Simic Combine.",
+      "claim_ids": [
+        "simic_combine_claim_0008",
+        "simic_combine_claim_0009",
+        "simic_combine_claim_0010"
+      ],
+      "confidence": "Medium"
+    }
+  ],
+  "behavioral_signals": [
+    {
+      "signal": "References The Principles of Unnatural Selection, The Fathom Edict, Operation Desperation as story-context evidence rather than relying only on color identity.",
+      "placement_relevance": "Strengthens Simic Combine with corpus-backed specificity.",
+      "supports_match_when": "The user's answers echo Simic Combine, Simic, Momir Vig, Vannifar, Zonot, cytoplast in a faction-specific way.",
+      "weakens_match_when": "The user's answers only match the shared color pair without any faction-specific behavior.",
+      "claim_ids": [
+        "simic_combine_claim_0008",
+        "simic_combine_claim_0009",
+        "simic_combine_claim_0010",
+        "simic_combine_claim_0011",
+        "simic_combine_claim_0012",
+        "simic_combine_claim_0013"
+      ],
+      "confidence": "Medium"
+    },
+    "improves living systems",
+    "treats change as progress",
+    "optimizes through adaptation"
+  ],
+  "inhibitor_traits": [
+    {
+      "trait": "Generic color-pair overfit",
+      "why_it_conflicts": "The corpus upgrade is intended to prevent Simic Combine from winning on broad color identity alone.",
+      "status": "Supported Interpretation",
+      "claim_ids": [
+        "simic_combine_claim_0008",
+        "simic_combine_claim_0009",
+        "simic_combine_claim_0010",
+        "simic_combine_claim_0011"
+      ],
+      "confidence": "Medium",
+      "notes": "Use collision questions when another faction shares the same or adjacent colors."
+    },
+    "seeks mathematical proof",
+    "studies essence craft",
+    "mourns wilderness lost to systems"
+  ],
+  "good_fit_indicators": [
+    {
+      "indicator": "wants to improve systems rather than merely preserve them",
+      "rationale": "Matches the official Simic Combine identity summarized in the profile.",
+      "claim_ids": [
+        "simic_combine_claim_001"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "indicator": "thinks biologically and experimentally",
+      "rationale": "Matches the official Simic Combine identity summarized in the profile.",
+      "claim_ids": [
+        "simic_combine_claim_002"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "indicator": "is comfortable changing in response to new conditions",
+      "rationale": "Matches the official Simic Combine identity summarized in the profile.",
+      "claim_ids": [
+        "simic_combine_claim_003"
+      ],
+      "confidence": "Medium"
+    }
+  ],
+  "calibration_tuning": {
+    "required_positive_evidence_terms": [
+      "adaptation",
+      "improvement",
+      "biology",
+      "evolve",
+      "specimen",
+      "mutation",
+      "progress",
+      "organism",
+      "experiment",
+      "biomancy"
+    ],
+    "required_positive_min_hits": 2,
+    "broad_match_penalty": 0.1,
+    "strengthen_when_user_centers": [
+      "biological adaptation",
+      "iterative improvement",
+      "evolution",
+      "living system optimization"
+    ],
+    "suppress_when_user_centers": [
+      "abstract proof",
+      "life death craft",
+      "law procedure",
+      "wild dispossession",
+      "archive history"
+    ],
+    "false_positive_guardrail": "Do not award for generic systems thinking without organism/adaptation language.",
+    "smoke_test_note": "Used by lore review scripts as metadata-level calibration guidance; production placement may use richer weighted logic."
+  },
+  "collision_guidance": [
+    {
+      "collision_id": "collision_simic_combine_vs_quandrix_placement_ready",
+      "against": "quandrix",
+      "separator": "Simic improves living systems; Quandrix proves and manipulates abstract pattern.",
+      "ask": "If a system can be changed, do you start with the organism or the equation underneath it?",
+      "suppress_if": "the answer centers proof, equations, abstraction, or mathematical precision",
+      "evidence_claim_ids": [
+        "simic_combine_claim_001",
+        "simic_combine_claim_002",
+        "simic_combine_claim_003"
+      ]
+    },
+    {
+      "collision_id": "collision_simic_combine_vs_witherbloom_placement_ready",
+      "against": "witherbloom",
+      "separator": "Simic optimizes biology toward progress; Witherbloom studies essence, cost, and life/death craft.",
+      "ask": "Are you improving the organism, or learning what vitality costs and how to spend it?",
+      "suppress_if": "the answer centers essence, bodily exchange, or life/death craft",
+      "evidence_claim_ids": [
+        "simic_combine_claim_001",
+        "simic_combine_claim_002",
+        "simic_combine_claim_003"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,124 @@
+{
+  "schema_version": "1.0.0",
+  "faction_id": "golgari_swarm",
+  "faction_name": "Golgari Swarm",
+  "last_updated": "2026-05-10T02:56:03.254Z",
+  "changes": [
+    {
+      "change_id": "change_golgari_swarm_placement_ready_20260510025603",
+      "date": "2026-05-10",
+      "change_type": "placement_ready_calibration_tuning",
+      "summary": "Added explicit calibration_tuning metadata, behavioral guardrails, and collision/discriminator guidance for the Archscry placement engine.",
+      "affected_files": [
+        "golgari_swarm.placement.json"
+      ]
+    },
+    {
+      "change_id": "golgari_swarm_change_001",
+      "change_type": "Initial Build",
+      "change_date": "2026-05-09",
+      "summary": "Created first-pass source-supported JSON package for Golgari Swarm.",
+      "sources_added": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018",
+        "src_wotc_guilds_ravnica_prerelease_primer_2018",
+        "src_wotc_dragons_maze_mechanics_2013"
+      ],
+      "sources_updated": [],
+      "claims_added": [
+        "golgari_swarm_claim_001",
+        "golgari_swarm_claim_002",
+        "golgari_swarm_claim_003",
+        "golgari_swarm_claim_004",
+        "golgari_swarm_claim_005",
+        "golgari_swarm_claim_006",
+        "golgari_swarm_claim_007"
+      ],
+      "claims_updated": [],
+      "claims_superseded": [],
+      "claims_contradicted": [],
+      "profile_fields_updated": [
+        "profile",
+        "evidence_summary"
+      ],
+      "placement_fields_updated": [
+        "ideal_fit_indicators",
+        "poor_fit_indicators",
+        "discriminator_questions",
+        "chatbot_guidance"
+      ],
+      "manual_review_required": [
+        "Add direct story citations and deeper character-specific claims in a later pass."
+      ],
+      "notes": "Generated as part of completing remaining Vox Mana faction JSON packages."
+    },
+    {
+      "change_id": "golgari_swarm_change_corpus_upgrade_2026-05-10T01-40-01-100Z",
+      "change_type": "Incremental Update",
+      "change_date": "2026-05-09",
+      "summary": "Added targeted MTG-Stories repository-archive research from per-faction prompt search rows.",
+      "sources_added": [
+        "src_mtg_stories_desperate_operatives_6c6a580b",
+        "src_mtg_stories_the_gathering_storm_chapter_4_910c6134",
+        "src_mtg_stories_deaths_precious_moments_1f524c65",
+        "src_mtg_stories_the_gathering_storm_chapter_2_c2c05981",
+        "src_mtg_stories_the_gathering_storm_chapter_11_48705560",
+        "src_mtg_stories_the_gathering_storm_chapter_9_9913612d",
+        "src_mtg_stories_the_gathering_storm_chapter_7_de8fb26e",
+        "src_mtg_stories_the_gathering_storm_chapter_14_a6cf56c0",
+        "src_mtg_stories_the_gathering_storm_chapter_16_819d5212",
+        "src_mtg_stories_rallying_the_reluctant_d21b8009"
+      ],
+      "sources_updated": [],
+      "claims_added": [
+        "golgari_swarm_claim_0008",
+        "golgari_swarm_claim_0009",
+        "golgari_swarm_claim_0010",
+        "golgari_swarm_claim_0011",
+        "golgari_swarm_claim_0012",
+        "golgari_swarm_claim_0013",
+        "golgari_swarm_claim_0014",
+        "golgari_swarm_claim_0015",
+        "golgari_swarm_claim_0016",
+        "golgari_swarm_claim_0017"
+      ],
+      "claims_updated": [],
+      "claims_superseded": [],
+      "claims_contradicted": [],
+      "profile_fields_updated": [
+        "core_identity",
+        "search_and_filter_metadata",
+        "data_quality"
+      ],
+      "placement_fields_updated": [
+        "placement_summary",
+        "placement_axes",
+        "behavioral_signals",
+        "inhibitor_traits",
+        "chatbot_guidance"
+      ],
+      "manual_review_required": [
+        "Review corpus-derived placement signals during schema, calibration, and collision passes."
+      ],
+      "notes": "Queries run: 16. Duplicate story sources skipped: 134."
+    }
+  ],
+  "audit_summary": {
+    "faction_researched": "Golgari Swarm",
+    "plane_or_setting": "Ravnica",
+    "number_of_sources_reviewed": 14,
+    "number_of_official_sources_used": 4,
+    "number_of_repository_archive_sources_used": 10,
+    "number_of_secondary_discovery_sources_used": 0,
+    "number_of_claims_verified": 16,
+    "number_of_claims_marked_uncertain": 0,
+    "sections_with_limited_evidence": [
+      "deep story episode coverage",
+      "current post-source leadership status where later canon may update the cited-era overview"
+    ],
+    "conflicting_sources_found": [],
+    "assumptions_removed_during_validation": [],
+    "overall_confidence_rating": "Medium",
+    "last_placement_ready_pass": "2026-05-10T02:56:03.254Z"
+  }
+}

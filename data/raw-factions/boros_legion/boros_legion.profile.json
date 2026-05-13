@@ -1,0 +1,118 @@
+{
+  "schema_version": "1.0.0",
+  "faction_id": "boros_legion",
+  "faction_name": "Boros Legion",
+  "faction_type": "Guild",
+  "plane_or_setting": "Ravnica",
+  "color_identity": [
+    "white",
+    "red"
+  ],
+  "last_updated": "2026-05-10T02:24:27.430Z",
+  "profile": {
+    "overview": "The Boros Legion is the militant fist of Ravnican justice, serving as both a police force and a standing army.",
+    "philosophy": "Justice must be defended in public. Boros philosophy merges white structural order with red moral conviction, creating a peacekeeping ideal where immediate action is favored over procedural delay.",
+    "core_tension": "The 'Wojek vs. Army' dynamic: Balancing the pragmatic, street-level investigation of the officer with the unyielding, high-altitude zeal of the military commander.",
+    "social_or_institutional_role": "As the primary peacekeeping force, the Legion manages everything from local neighborhood patrols (League of Wojek) to planetary defense (Boros Army).",
+    "mechanics_and_play_pattern": "Mechanics like Battalion and Mentor emphasize unit cohesion; individuals are strengthened by the presence of their allies on the field.",
+    "claim_ids": [
+      "boros_legion_claim_001",
+      "boros_legion_claim_002",
+      "boros_legion_claim_003",
+      "boros_legion_claim_004",
+      "boros_legion_claim_005",
+      "boros_legion_claim_006",
+      "boros_legion_claim_007",
+      "boros_legion_claim_008",
+      "boros_legion_claim_009",
+      "boros_legion_claim_010",
+      "boros_legion_claim_011",
+      "boros_legion_claim_012"
+    ]
+  },
+  "evidence_summary": {
+    "overall_confidence": "High",
+    "limitations": [
+      "Integrates core mechanics and overview guides with deep-lore novel details and character archetypes."
+    ]
+  },
+  "source_review_date": "2026-05-10",
+  "profile_version": "2.0",
+  "site_surface": {
+    "library_tags": [
+      "justice",
+      "protection",
+      "law-vs-action",
+      "martial-duty",
+      "ravnica"
+    ],
+    "search_aliases": [
+      "boros",
+      "legion",
+      "aurelia",
+      "razia",
+      "tajic",
+      "feather",
+      "wojek"
+    ]
+  },
+  "core_identity": {
+    "summary": "Boros is the faction of immediate protection, martial solidarity, righteous intervention, and the dangerous conviction that justice sometimes has to move before procedure catches up.",
+    "evidence_claim_ids": [
+      "boros_legion_claim_001",
+      "boros_legion_claim_002",
+      "boros_legion_claim_003",
+      "boros_legion_claim_004",
+      "boros_legion_claim_005",
+      "boros_legion_claim_006",
+      "boros_legion_claim_007",
+      "boros_legion_claim_008"
+    ]
+  },
+  "great_tension": {
+    "summary": "Boros honors law and civic order, but its defining tension is the moment when law becomes too slow to protect the vulnerable. The placement engine should read Boros as action under moral pressure, not generic orderliness.",
+    "separates_from": [
+      "azorius_senate",
+      "lorehold",
+      "selesnya_conclave"
+    ],
+    "evidence_claim_ids": [
+      "boros_legion_claim_003",
+      "boros_legion_claim_004",
+      "boros_legion_claim_005",
+      "boros_legion_claim_006",
+      "boros_legion_claim_007",
+      "boros_legion_claim_008",
+      "boros_legion_claim_009",
+      "boros_legion_claim_010"
+    ]
+  },
+  "key_figures": [
+    "Aurelia",
+    "Razia",
+    "Tajic",
+    "Feather",
+    "Agrus Kos"
+  ],
+  "search_and_filter_metadata": {
+    "faction_tags": [
+      "WR",
+      "Boros",
+      "Ravnica"
+    ],
+    "theme_tags": [
+      "justice",
+      "protection",
+      "military",
+      "intervention",
+      "zeal",
+      "teamwork"
+    ]
+  },
+  "data_quality": {
+    "corpus_enrichment_status": "complete_for_current_prompt_rows",
+    "source_count": 17,
+    "claim_count": 24,
+    "last_corpus_pass": "2026-05-10T02:24:27.430Z"
+  }
+}

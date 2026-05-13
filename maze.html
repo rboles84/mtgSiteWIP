@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Vox Mana — Research Archives</title>
+<title>Vox Mana — The Implicit Maze</title>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
 <script src="/assets/js/shared.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -13,6 +13,8 @@
 <link rel="stylesheet" href="/assets/css/fonts.css">
 <link rel="stylesheet" href="/assets/css/tokens.css">
 <link rel="stylesheet" href="/assets/css/topbar.css">
+<link rel="stylesheet" href="/assets/css/atmosphere.css">
+<link rel="stylesheet" href="/assets/css/components.css">
 <style>
 /* Page-local aliases. Values aligned with /assets/css/tokens.css (Batch 1 locked).
    Variable names kept legacy (--bg2 not --bg-2) so the inline CSS below still resolves.
@@ -46,7 +48,7 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 .r-title span{color:var(--text-dim);font-size:0.8rem;font-weight:400;letter-spacing:0.06em;margin-left:0.5rem}
 
 /* ── SEARCH ZONE ─────────────────────── */
-.r-search-zone{padding:1.25rem 1.5rem;border-bottom:1px solid var(--border)}
+.r-search-zone{padding:1.25rem 1.5rem;border-bottom:1px solid var(--border);background:rgba(12,11,10,0.72);box-shadow:0 18px 70px rgba(0,0,0,0.2)}
 .mode-row{display:flex;gap:4px;margin-bottom:1rem;align-items:center;flex-wrap:wrap}
 .mode-btn{font-family:'Cinzel',serif;font-size:0.62rem;letter-spacing:0.14em;text-transform:uppercase;background:transparent;border:1px solid var(--border);color:var(--text-muted);padding:0.4rem 1rem;cursor:pointer;transition:all 0.15s}
 .mode-btn:hover{color:var(--text);border-color:var(--border-s)}
@@ -100,7 +102,7 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 .qi-alt code{font-family:'IBM Plex Mono',monospace;font-size:0.68rem;color:var(--text-dim);white-space:normal;word-break:break-all}
 
 /* ── VISUAL BUILDER ───────────────────── */
-.builder-panel{background:var(--bg2);border:1px solid var(--border);padding:1.1rem 1.25rem;margin-top:0.85rem;animation:fadeUp 0.25s ease}
+.builder-panel{background:rgba(12,11,10,0.9);border:1px solid var(--border-s);padding:1.1rem 1.25rem;margin-top:0.85rem;animation:fadeUp 0.25s ease;box-shadow:0 18px 60px rgba(0,0,0,0.28)}
 .builder-row{display:flex;align-items:center;gap:12px;margin-bottom:0.85rem;flex-wrap:wrap}
 .builder-row:last-child{margin-bottom:0}
 .bl{font-family:'Cinzel',serif;font-size:0.58rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--text-muted);white-space:nowrap;width:62px;flex-shrink:0}
@@ -110,7 +112,7 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 .cpip.on{border-color:white;opacity:1;transform:scale(1.08)}
 .cpip-W{background:#c8c4b0;color:#4a3c14}
 .cpip-U{background:#1a5b9b;color:#bcd4f4}
-.cpip-B{background:#2a1e38;color:#c0a0e0;border:2px solid rgba(180,140,220,0.3)}
+.cpip-B{background:#17120f;color:#d4c9b8;border:2px solid rgba(237,220,180,0.24)}
 .cpip-R{background:#be2a1f;color:#fcc4b0}
 .cpip-G{background:#1b5c28;color:#a0d4a0}
 .cpip-C{background:#888;color:#f0f0f0}
@@ -137,7 +139,7 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 .r-body{display:flex;flex:1;min-height:0}
 
 /* ── SIDEBAR ──────────────────────────── */
-.r-sidebar{width:216px;flex-shrink:0;border-right:1px solid var(--border);padding:1rem 0;overflow-y:auto;background:var(--bg2)}
+.r-sidebar{width:216px;flex-shrink:0;border-right:1px solid var(--border);padding:1rem 0;overflow-y:auto;background:rgba(12,11,10,0.82)}
 .sb-section{padding:0 1rem 1rem}
 .sb-section+.sb-section{border-top:1px solid var(--border);padding-top:1rem}
 .sb-label{font-family:'Cinzel',serif;font-size:0.58rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold-d);margin-bottom:0.75rem}
@@ -155,11 +157,11 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 
 /* ── RESULTS ──────────────────────────── */
 .r-main{flex:1;min-width:0;display:flex;flex-direction:column;overflow-y:auto}
-.results-header{padding:0.85rem 1.25rem;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:10px;flex-shrink:0;flex-wrap:wrap}
+.results-header{padding:0.85rem 1.25rem;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:10px;flex-shrink:0;flex-wrap:wrap;background:rgba(12,11,10,0.78);backdrop-filter:blur(6px)}
 .res-count{font-family:'Cinzel',serif;font-size:0.72rem;letter-spacing:0.1em;color:var(--text-dim);flex:1}
 .res-count strong{color:var(--text);font-weight:500}
 .res-order{background:var(--bg3);border:1px solid var(--border);color:var(--text-dim);font-family:'Cinzel',serif;font-size:0.62rem;letter-spacing:0.1em;padding:0.35rem 0.6rem;cursor:pointer;outline:none;text-transform:uppercase}
-.card-grid{padding:1.25rem;display:grid;grid-template-columns:repeat(auto-fill,minmax(152px,1fr));gap:12px;flex:1}
+.card-grid{padding:1.25rem;display:grid;grid-template-columns:repeat(auto-fill,minmax(152px,1fr));gap:14px;flex:1;background:linear-gradient(180deg,rgba(12,11,10,0.34),rgba(12,11,10,0.72))}
 .card-item{cursor:pointer;position:relative;overflow:hidden;border-radius:4.5%}
 .card-item img{width:100%;display:block;border-radius:4.5%;border:1px solid var(--border);transition:transform 0.2s,border-color 0.2s}
 .card-item:hover img{transform:translateY(-3px) scale(1.02);border-color:var(--border-s)}
@@ -239,39 +241,88 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 }
 </style>
 </head>
-<body data-page="research">
+<body data-page="maze" data-vm-current="maze" data-bg="heavy">
+
+<div class="vm-bg" aria-hidden="true">
+  <picture class="vm-bg__picture">
+    <source type="image/avif" srcset="/assets/img/vox-mana-hero-768w.avif 768w, /assets/img/vox-mana-hero-1280w.avif 1280w, /assets/img/vox-mana-hero-2560w.avif 2560w" sizes="100vw">
+    <source type="image/webp" srcset="/assets/img/vox-mana-hero-768w.webp 768w, /assets/img/vox-mana-hero-1280w.webp 1280w, /assets/img/vox-mana-hero-2560w.webp 2560w" sizes="100vw">
+    <img src="/assets/img/vox-mana-hero-1280w.jpg" alt="" decoding="async">
+  </picture>
+  <div class="vm-bg__nebula"></div>
+</div>
+
 <div class="page">
 
 <!-- ── HEADER ─── -->
-<header class="vm-topbar">
-  <a class="vm-topbar__brand" href="/">Vox Mana</a>
-  <nav class="vm-topbar__nav" aria-label="Site navigation">
-    <a href="/">Home</a>
-    <a href="/archscry/">Archscry</a>
-    <a href="/research.html" aria-current="page">Archives</a>
-    <a href="/library/">Maze</a>
-    <span data-vm-reduce-motion-toggle></span>
+<header class="vm-topbar" role="banner">
+  <a class="vm-brand" href="/" aria-label="Vox Mana — home">
+    <span class="vm-brand-mark" aria-hidden="true"></span>
+    <span class="vm-brand-text">Vox Mana</span>
+  </a>
+
+  <nav class="vm-nav" aria-label="Primary">
+    <a class="vm-nav-link" href="/" data-vm-nav="home">Home</a>
+    <a class="vm-nav-link" href="/archscry/" data-vm-nav="archscry">Archscry</a>
+    <a class="vm-nav-link" href="/maze.html" data-vm-nav="maze">The Implicit Maze</a>
+    <a class="vm-nav-link" href="/library/" data-vm-nav="apocrypha">Apocrypha</a>
   </nav>
+
+  <div class="vm-utility">
+    <button
+      type="button"
+      class="vm-menu-button"
+      aria-label="Open menu"
+      aria-expanded="false"
+      aria-haspopup="true"
+      aria-controls="vm-menu-panel"
+      data-vm-menu-trigger
+    >
+      <span class="vm-menu-dots" aria-hidden="true">
+        <span></span><span></span><span></span>
+      </span>
+    </button>
+
+    <div
+      id="vm-menu-panel"
+      class="vm-menu-panel"
+      role="menu"
+      data-open="false"
+      data-vm-menu-panel
+    >
+      <button
+        type="button"
+        class="vm-menu-item"
+        role="menuitem"
+        data-vm-toggle="reduce-motion"
+        data-vm-tooltip-on="Stillness · on"
+        data-vm-tooltip-off="Quiet the motion"
+      >
+        <span>Reduce motion</span>
+        <span class="vm-menu-item-status" data-vm-status>Off</span>
+      </button>
+    </div>
+  </div>
 </header>
 
 <header class="r-header">
-  <div class="r-title">Research Archives <span>— card database explorer</span></div>
+  <div class="r-title">The Implicit Maze <span>— Scryfall query explorer</span></div>
   <span id="r-user-badge" style="font-family:'Cinzel',serif;font-size:0.65rem;letter-spacing:0.1em;color:var(--text-dim);display:none"></span>
 </header>
 
 <!-- ── SEARCH ZONE ─── -->
 <div class="r-search-zone">
   <div class="mode-row">
-    <button class="mode-btn on" id="mode-ai" onclick="setMode('ai')">Smart Search</button>
-    <button class="mode-btn" id="mode-raw" onclick="setMode('raw')">Scryfall Syntax</button>
-    <button class="mode-btn" id="mode-builder" onclick="setMode('builder')">Visual Builder</button>
+    <button class="mode-btn on" id="mode-ai" onclick="setMode('ai')">The Plain Reading</button>
+    <button class="mode-btn" id="mode-raw" onclick="setMode('raw')">The Operator's Hand</button>
+    <button class="mode-btn" id="mode-builder" onclick="setMode('builder')">The Loom</button>
     <div class="mode-help-wrap">
       <button class="mode-help" type="button" aria-label="Search help" aria-describedby="mode-help-popover">?</button>
       <div class="mode-help-popover" id="mode-help-popover" role="tooltip">
         <div class="mode-help-title">Search Help</div>
-        <p><strong>Smart Search</strong> accepts plain English like <code>red instant</code> or <code>green haste</code>, then compiles it into Scryfall syntax.</p>
-        <p><strong>Scryfall Syntax</strong> is for exact queries like <code>c:rg kw:deathtouch</code>. Paste syntax here, then switch back to Smart Search for a readable translation.</p>
-        <p><strong>Visual Builder</strong> lets you compose filters without memorizing operators. The query panel shows the generated syntax and assumptions.</p>
+        <p><strong>The Plain Reading</strong> accepts plain English like <code>red instant</code> or <code>green haste</code>, then compiles it into Scryfall syntax.</p>
+        <p><strong>The Operator's Hand</strong> is for exact queries like <code>c:rg kw:deathtouch</code>. Paste syntax here, then switch back to The Plain Reading for a readable translation.</p>
+        <p><strong>The Loom</strong> lets you compose filters without memorizing operators. The query panel shows the generated syntax and assumptions.</p>
       </div>
     </div>
   </div>
@@ -295,7 +346,7 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
     </div>
   </div>
 
-  <!-- Visual Builder (shown only in builder mode) -->
+  <!-- The Loom (shown only in builder mode) -->
   <div class="builder-panel hidden" id="builder-panel">
     <div class="builder-row">
       <span class="bl">Colors</span>
@@ -393,7 +444,7 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
       </svg>
       <div class="state-title">The Archives await</div>
       <div class="state-sub">
-        Try <code>c:r kw:shroud</code> for red cards with shroud, or use Smart Search with natural language.
+        Try <code>c:r kw:shroud</code> for red cards with shroud, or use The Plain Reading with natural language.
         <br><br>Browse the <a href="https://scryfall.com/docs/syntax" target="_blank" style="color:var(--teal)">full Scryfall syntax reference ↗</a>
       </div>
     </div>
@@ -429,5 +480,7 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 </div><!-- .page -->
 <script type="module" src="research/research-init.js"></script>
 <script src="/assets/js/reduce-motion.js" defer></script>
+<script src="/assets/js/vm-topbar.js" defer></script>
+<script src="/assets/js/atmosphere.js" defer></script>
 </body>
 </html>

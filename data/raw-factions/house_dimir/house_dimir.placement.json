@@ -1,0 +1,451 @@
+{
+  "schema_version": "1.0.0",
+  "faction_id": "house_dimir",
+  "faction_name": "House Dimir",
+  "last_updated": "2026-05-10T02:56:03.254Z",
+  "placement_model_version": "vox-mana-lore-json-v1",
+  "color_identity": [
+    "blue",
+    "black"
+  ],
+  "ideal_fit_indicators": [
+    {
+      "indicator": "watches before acting",
+      "rationale": "Matches the official House Dimir identity summarized in the profile.",
+      "claim_ids": [
+        "house_dimir_claim_001"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "indicator": "values leverage, discretion, and hidden information",
+      "rationale": "Matches the official House Dimir identity summarized in the profile.",
+      "claim_ids": [
+        "house_dimir_claim_002"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "indicator": "does not need public credit",
+      "rationale": "Matches the official House Dimir identity summarized in the profile.",
+      "claim_ids": [
+        "house_dimir_claim_003"
+      ],
+      "confidence": "Medium"
+    }
+  ],
+  "poor_fit_indicators": [
+    {
+      "indicator": "needs total transparency",
+      "rationale": "Counters a core House Dimir placement signal.",
+      "claim_ids": [
+        "house_dimir_claim_001"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "indicator": "acts impulsively in ways that expose position",
+      "rationale": "Counters a core House Dimir placement signal.",
+      "claim_ids": [
+        "house_dimir_claim_002"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "indicator": "requires public recognition to feel successful",
+      "rationale": "Counters a core House Dimir placement signal.",
+      "claim_ids": [
+        "house_dimir_claim_003"
+      ],
+      "confidence": "Medium"
+    }
+  ],
+  "discriminator_questions": [
+    {
+      "question_id": "dimir_q1",
+      "question": "Would you rather solve a problem visibly and be trusted, or invisibly and be underestimated?",
+      "purpose": "Separates Dimir from Boros and Silverquill.",
+      "answer_pattern_that_supports_this_faction": "The answer emphasizes the ideal-fit indicators listed for this faction.",
+      "answer_pattern_that_weakens_this_faction": "The answer rejects or treats the faction's core tension as irrelevant.",
+      "related_factions_to_compare": [],
+      "claim_ids": [
+        "house_dimir_claim_001",
+        "house_dimir_claim_002",
+        "house_dimir_claim_003"
+      ],
+      "confidence": "Medium",
+      "notes": "Question is placement-engine guidance, not canon text."
+    },
+    {
+      "question_id": "dimir_q2",
+      "question": "What kind of information do you keep private even from allies?",
+      "purpose": "Tests boundaries around secrecy and strategy.",
+      "answer_pattern_that_supports_this_faction": "The answer emphasizes the ideal-fit indicators listed for this faction.",
+      "answer_pattern_that_weakens_this_faction": "The answer rejects or treats the faction's core tension as irrelevant.",
+      "related_factions_to_compare": [],
+      "claim_ids": [
+        "house_dimir_claim_001",
+        "house_dimir_claim_002",
+        "house_dimir_claim_003"
+      ],
+      "confidence": "Medium",
+      "notes": "Question is placement-engine guidance, not canon text."
+    },
+    {
+      "question_id": "q_house_dimir_9801",
+      "collision_targets": [
+        "orzhov_syndicate"
+      ],
+      "prompt": "Would you rather possess the hidden truth or hold the signed obligation?",
+      "target_signal": "Dimir erases its fingerprints; Orzhov leaves ornate obligations everyone can see.",
+      "suppresses_this_faction_if": "the answer centers prestige, debt, or legitimate institutions",
+      "evidence_claim_ids": [
+        "house_dimir_claim_001",
+        "house_dimir_claim_002",
+        "house_dimir_claim_003"
+      ]
+    },
+    {
+      "question_id": "q_house_dimir_9802",
+      "collision_targets": [
+        "silverquill"
+      ],
+      "prompt": "Is influence strongest when no one can trace it, or when everyone hears exactly who changed the room?",
+      "target_signal": "Dimir gains power from hidden information; Silverquill gains power from public language and image.",
+      "suppresses_this_faction_if": "the answer seeks visible rhetoric or reputation",
+      "evidence_claim_ids": [
+        "house_dimir_claim_001",
+        "house_dimir_claim_002",
+        "house_dimir_claim_003"
+      ]
+    }
+  ],
+  "chatbot_guidance": {
+    "how_to_recognize_match": [
+      "watches before acting",
+      "values leverage, discretion, and hidden information",
+      "does not need public credit"
+    ],
+    "how_to_recognize_mismatch": [
+      "needs total transparency",
+      "acts impulsively in ways that expose position",
+      "requires public recognition to feel successful"
+    ],
+    "questions_to_ask_when_uncertain": [
+      "Would you rather solve a problem visibly and be trusted, or invisibly and be underestimated?",
+      "What kind of information do you keep private even from allies?"
+    ],
+    "do_not_overweight": [
+      "Do not overfit a single color preference.",
+      "Do not treat one favorite card or mechanic as enough evidence by itself.",
+      "Do not score a faction highly from color identity alone when another faction shares the same colors or surface traits."
+    ],
+    "never_claim_as_canon": [
+      "Psychological placement categories are Vox Mana interpretation, not official Wizards canon.",
+      "Do not state that a user's personality is objectively determined by a faction.",
+      "Placement scoring is a Vox Mana interpretation, not official Wizards canon."
+    ],
+    "calibration_note": "House Dimir should require its specific positive evidence cluster: secrecy, information, hidden, surveillance, discretion. Keep it adjacent when the answer only contains broad color identity or generic personality language.",
+    "scoring_guardrail": "Do not award for generic manipulation if the user wants visibility, reputation, or formal power."
+  },
+  "placement_quality": {
+    "overall_confidence": "Medium",
+    "strongest_evidence_areas": [
+      "official faction overview",
+      "official mechanics identity",
+      "MTG-Stories corpus search evidence"
+    ],
+    "weakest_evidence_areas": [
+      "deep story episode coverage",
+      "cross-faction comparison calibration"
+    ],
+    "manual_review_recommended": true,
+    "notes": "Good for initial placement testing; should be expanded with story-specific claims in a later pass. Corpus-enriched data should be reviewed with calibration and collision reports before being treated as tuned scoring fuel.",
+    "calibration_tuning_status": "explicit",
+    "last_placement_ready_pass": "2026-05-10T02:56:03.254Z"
+  },
+  "placement_profile_version": "vox-mana-lore-json-v1",
+  "based_on_profile_version": "1.0.0",
+  "placement_summary": {
+    "short_description": "House Dimir placement is informed by official overview sources and MTG-Stories corpus evidence.",
+    "best_fit_summary": "watches before acting values leverage, discretion, and hidden information does not need public credit",
+    "poor_fit_summary": "needs total transparency acts impulsively in ways that expose position requires public recognition to feel successful",
+    "interpretation_warning": "Placement data is interpretive and should be treated as a matching heuristic, not direct canon.",
+    "claim_ids": [
+      "house_dimir_claim_0007",
+      "house_dimir_claim_0008",
+      "house_dimir_claim_0009",
+      "house_dimir_claim_0010",
+      "house_dimir_claim_0011",
+      "house_dimir_claim_0012",
+      "house_dimir_claim_0013",
+      "house_dimir_claim_0014"
+    ],
+    "calibrated_primary_read": "Requires privacy, hidden knowledge, information asymmetry, discretion, or invisible operation.",
+    "calibrated_false_positive_guardrail": "Do not award for generic manipulation if the user wants visibility, reputation, or formal power.",
+    "evidence_claim_ids": [
+      "house_dimir_claim_001",
+      "house_dimir_claim_002",
+      "house_dimir_claim_003",
+      "house_dimir_claim_004",
+      "house_dimir_claim_005",
+      "house_dimir_claim_006"
+    ]
+  },
+  "placement_axes": [
+    {
+      "axis_id": "axis_concealment_vs_visibility",
+      "label": "Concealment vs Visibility",
+      "description": "Measures whether user answers align with House Dimir's specific evidence instead of only its color pair.",
+      "low_end_label": "public presence",
+      "high_end_label": "hidden leverage",
+      "faction_position": 89,
+      "rationale": "Corpus evidence adds story-context support for House Dimir, Dimir, Etrata, Circu, memory, secrets, Lazav, surveil.",
+      "claim_ids": [
+        "house_dimir_claim_0007",
+        "house_dimir_claim_0008",
+        "house_dimir_claim_0009",
+        "house_dimir_claim_0010",
+        "house_dimir_claim_0011",
+        "house_dimir_claim_0012",
+        "house_dimir_claim_0013",
+        "house_dimir_claim_0014"
+      ],
+      "confidence": "Medium",
+      "notes": "Added during MTG-Stories corpus upgrade."
+    }
+  ],
+  "moral_and_psychological_profile": {
+    "summary": "House Dimir should be scored through faction-specific behavioral evidence, not only broad color identity.",
+    "claim_ids": [
+      "house_dimir_claim_0007",
+      "house_dimir_claim_0008",
+      "house_dimir_claim_0009",
+      "house_dimir_claim_0010",
+      "house_dimir_claim_0011"
+    ]
+  },
+  "core_values": [
+    {
+      "value": "House Dimir",
+      "placement_relevance": "Corpus search evidence for House Dimir.",
+      "claim_ids": [
+        "house_dimir_claim_0007",
+        "house_dimir_claim_0008",
+        "house_dimir_claim_0009"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "value": "Dimir",
+      "placement_relevance": "Corpus search evidence for House Dimir.",
+      "claim_ids": [
+        "house_dimir_claim_0007",
+        "house_dimir_claim_0008",
+        "house_dimir_claim_0009"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "value": "Etrata",
+      "placement_relevance": "Corpus search evidence for House Dimir.",
+      "claim_ids": [
+        "house_dimir_claim_0007",
+        "house_dimir_claim_0008",
+        "house_dimir_claim_0009"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "value": "Circu",
+      "placement_relevance": "Corpus search evidence for House Dimir.",
+      "claim_ids": [
+        "house_dimir_claim_0007",
+        "house_dimir_claim_0008",
+        "house_dimir_claim_0009"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "value": "memory",
+      "placement_relevance": "Corpus search evidence for House Dimir.",
+      "claim_ids": [
+        "house_dimir_claim_0007",
+        "house_dimir_claim_0008",
+        "house_dimir_claim_0009"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "value": "secrets",
+      "placement_relevance": "Corpus search evidence for House Dimir.",
+      "claim_ids": [
+        "house_dimir_claim_0007",
+        "house_dimir_claim_0008",
+        "house_dimir_claim_0009"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "value": "Lazav",
+      "placement_relevance": "Corpus search evidence for House Dimir.",
+      "claim_ids": [
+        "house_dimir_claim_0007",
+        "house_dimir_claim_0008",
+        "house_dimir_claim_0009"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "value": "surveil",
+      "placement_relevance": "Corpus search evidence for House Dimir.",
+      "claim_ids": [
+        "house_dimir_claim_0007",
+        "house_dimir_claim_0008",
+        "house_dimir_claim_0009"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "value": "transmute",
+      "placement_relevance": "Corpus search evidence for House Dimir.",
+      "claim_ids": [
+        "house_dimir_claim_0007",
+        "house_dimir_claim_0008",
+        "house_dimir_claim_0009"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "value": "Duskmantle",
+      "placement_relevance": "Corpus search evidence for House Dimir.",
+      "claim_ids": [
+        "house_dimir_claim_0007",
+        "house_dimir_claim_0008",
+        "house_dimir_claim_0009"
+      ],
+      "confidence": "Medium"
+    }
+  ],
+  "behavioral_signals": [
+    {
+      "signal": "References Episode 3: Shadows of Regret, Episode 10: Roots of Decay, Under the Cover of Fog as story-context evidence rather than relying only on color identity.",
+      "placement_relevance": "Strengthens House Dimir with corpus-backed specificity.",
+      "supports_match_when": "The user's answers echo House Dimir, Dimir, Etrata, Circu, memory, secrets in a faction-specific way.",
+      "weakens_match_when": "The user's answers only match the shared color pair without any faction-specific behavior.",
+      "claim_ids": [
+        "house_dimir_claim_0007",
+        "house_dimir_claim_0008",
+        "house_dimir_claim_0009",
+        "house_dimir_claim_0010",
+        "house_dimir_claim_0011",
+        "house_dimir_claim_0012"
+      ],
+      "confidence": "Medium"
+    },
+    "watches before acting",
+    "values what others do not know",
+    "prefers outcome over credit"
+  ],
+  "inhibitor_traits": [
+    {
+      "trait": "Generic color-pair overfit",
+      "why_it_conflicts": "The corpus upgrade is intended to prevent House Dimir from winning on broad color identity alone.",
+      "status": "Supported Interpretation",
+      "claim_ids": [
+        "house_dimir_claim_0007",
+        "house_dimir_claim_0008",
+        "house_dimir_claim_0009",
+        "house_dimir_claim_0010"
+      ],
+      "confidence": "Medium",
+      "notes": "Use collision questions when another faction shares the same or adjacent colors."
+    },
+    "seeks public influence",
+    "uses ornate institutions openly",
+    "wants visible authority"
+  ],
+  "good_fit_indicators": [
+    {
+      "indicator": "watches before acting",
+      "rationale": "Matches the official House Dimir identity summarized in the profile.",
+      "claim_ids": [
+        "house_dimir_claim_001"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "indicator": "values leverage, discretion, and hidden information",
+      "rationale": "Matches the official House Dimir identity summarized in the profile.",
+      "claim_ids": [
+        "house_dimir_claim_002"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "indicator": "does not need public credit",
+      "rationale": "Matches the official House Dimir identity summarized in the profile.",
+      "claim_ids": [
+        "house_dimir_claim_003"
+      ],
+      "confidence": "Medium"
+    }
+  ],
+  "calibration_tuning": {
+    "required_positive_evidence_terms": [
+      "secrecy",
+      "information",
+      "hidden",
+      "surveillance",
+      "discretion",
+      "unseen",
+      "memory",
+      "privacy",
+      "knowledge",
+      "infiltration"
+    ],
+    "required_positive_min_hits": 2,
+    "broad_match_penalty": 0.1,
+    "strengthen_when_user_centers": [
+      "information asymmetry",
+      "quiet observation",
+      "invisible operation",
+      "memory control"
+    ],
+    "suppress_when_user_centers": [
+      "public rhetoric",
+      "institutional prestige",
+      "visible justice",
+      "open community",
+      "biological improvement"
+    ],
+    "false_positive_guardrail": "Do not award for generic manipulation if the user wants visibility, reputation, or formal power.",
+    "smoke_test_note": "Used by lore review scripts as metadata-level calibration guidance; production placement may use richer weighted logic."
+  },
+  "collision_guidance": [
+    {
+      "collision_id": "collision_house_dimir_vs_orzhov_syndicate_placement_ready",
+      "against": "orzhov_syndicate",
+      "separator": "Dimir erases its fingerprints; Orzhov leaves ornate obligations everyone can see.",
+      "ask": "Would you rather possess the hidden truth or hold the signed obligation?",
+      "suppress_if": "the answer centers prestige, debt, or legitimate institutions",
+      "evidence_claim_ids": [
+        "house_dimir_claim_001",
+        "house_dimir_claim_002",
+        "house_dimir_claim_003"
+      ]
+    },
+    {
+      "collision_id": "collision_house_dimir_vs_silverquill_placement_ready",
+      "against": "silverquill",
+      "separator": "Dimir gains power from hidden information; Silverquill gains power from public language and image.",
+      "ask": "Is influence strongest when no one can trace it, or when everyone hears exactly who changed the room?",
+      "suppress_if": "the answer seeks visible rhetoric or reputation",
+      "evidence_claim_ids": [
+        "house_dimir_claim_001",
+        "house_dimir_claim_002",
+        "house_dimir_claim_003"
+      ]
+    }
+  ]
+}

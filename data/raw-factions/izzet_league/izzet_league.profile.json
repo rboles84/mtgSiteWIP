@@ -1,0 +1,1138 @@
+{
+  "schema_version": "1.0.0",
+  "profile_version": "1.1.0",
+  "faction_id": "izzet_league",
+  "faction_name": "Izzet League",
+  "faction_type": "Guild",
+  "plane_or_setting": "Ravnica",
+  "color_identity": [
+    "Blue",
+    "Red"
+  ],
+  "color_pair_or_group": "Blue-Red",
+  "source_review_date": "2026-05-09",
+  "last_full_review": "2026-05-09",
+  "last_incremental_review": "2026-05-09",
+  "last_updated": "2026-05-09",
+  "site_surface": {
+    "display_name": "Izzet League",
+    "short_summary": "Blue-red Ravnican guild of elemental science, civic engineering, volatile invention, and crisis-scale experimentation under the long shadow of Niv-Mizzet and Ral Zarek.",
+    "one_sentence_identity": "The Izzet League turns curiosity into machinery, spells, public works, and occasionally city-shaking disasters.",
+    "tagline": "Invent first. Stabilize later.",
+    "primary_tags": [
+      "innovation",
+      "experimentation",
+      "spellcraft",
+      "elemental technology",
+      "civic engineering",
+      "crisis engineering",
+      "prototype culture",
+      "mizzium technology",
+      "dangerous discovery"
+    ],
+    "secondary_tags": [
+      "public works",
+      "volatile prototypes",
+      "Niv-Mizzet",
+      "Ral Zarek",
+      "mizzium",
+      "weirds",
+      "instants and sorceries"
+    ],
+    "tone_words": [
+      "brilliant",
+      "volatile",
+      "curious",
+      "impatient",
+      "inventive",
+      "electric",
+      "combustive",
+      "improvisational",
+      "technical",
+      "audacious"
+    ],
+    "visual_keywords": [
+      "blue-red lightning",
+      "brass boilers",
+      "mizzium coils",
+      "arcane laboratories",
+      "Nivix tower",
+      "elemental weirds",
+      "steam and sparks",
+      "laboratory sparks",
+      "storm-lit towers",
+      "schematic clutter",
+      "boilerpit steam"
+    ],
+    "best_for": [
+      "users who learn by building prototypes",
+      "users who enjoy creative problem solving",
+      "users who value invention and discovery",
+      "users who can tolerate failed experiments"
+    ],
+    "content_warnings_or_sensitivity_notes": [
+      "Placement interpretation should avoid glorifying recklessness in real-world safety contexts."
+    ],
+    "claim_ids": [
+      "claim_izzet_league_0001",
+      "claim_izzet_league_0003",
+      "claim_izzet_league_0004",
+      "claim_izzet_league_0005",
+      "claim_izzet_league_0006",
+      "claim_izzet_league_0030",
+      "claim_izzet_league_0031",
+      "claim_izzet_league_0032",
+      "claim_izzet_league_0052",
+      "claim_izzet_league_0067",
+      "claim_izzet_league_0087",
+      "claim_izzet_league_0091",
+      "claim_izzet_league_0098",
+      "claim_izzet_league_0100"
+    ]
+  },
+  "core_identity": {
+    "summary": "The Izzet League is the blue-red guild of Ravnica: a dragon-led culture of elemental magic, mizzium technology, civic engineering, and volatile discovery. The expanded story pass adds concrete examples of this identity at multiple levels: Trenz on Experiment Day, Madarrak and Castan pursuing Erno Zslod, lower-rank attendants fighting for recognition, and Ral Zarek directing crisis-scale resonator and beacon operations.",
+    "confirmed_claim_ids": [
+      "claim_izzet_league_0001",
+      "claim_izzet_league_0002",
+      "claim_izzet_league_0003",
+      "claim_izzet_league_0004",
+      "claim_izzet_league_0005",
+      "claim_izzet_league_0006",
+      "claim_izzet_league_0030",
+      "claim_izzet_league_0031",
+      "claim_izzet_league_0032",
+      "claim_izzet_league_0042",
+      "claim_izzet_league_0043",
+      "claim_izzet_league_0052",
+      "claim_izzet_league_0061",
+      "claim_izzet_league_0064",
+      "claim_izzet_league_0074",
+      "claim_izzet_league_0084",
+      "claim_izzet_league_0091",
+      "claim_izzet_league_0103"
+    ],
+    "interpretive_claim_ids": [
+      "claim_izzet_league_0059",
+      "claim_izzet_league_0060",
+      "claim_izzet_league_0067",
+      "claim_izzet_league_0087",
+      "claim_izzet_league_0100"
+    ],
+    "unknowns": [
+      "The ultimate purpose of the Return to Ravnica-era dangerous experimental push is stated as unknown in the reviewed official guide.",
+      "The full current post-Murders at Karlov Manor internal leadership state beyond Ral's 2023 guildmaster reference was not fully established in the reviewed official sources."
+    ]
+  },
+  "structure": {
+    "summary": "The guild is strongly shaped by Niv-Mizzet's intellect, compartmentalized planning, and project-driven research culture. Known roles include chemisters, blastseekers, and attendants; known internal groups include the Izmundi, Izmagnus, and engineered weirds.",
+    "known_roles": [
+      {
+        "role_name": "Chemister",
+        "description": "Alchemist role that forges mizzium and other elements into arcane tools and experiments with alloys, energies, and runic markings.",
+        "claim_ids": [
+          "claim_izzet_league_0019",
+          "claim_izzet_league_0020"
+        ],
+        "confidence": "High"
+      },
+      {
+        "role_name": "Blastseeker",
+        "description": "Mage role that wields and controls arcane tools created by chemisters.",
+        "claim_ids": [
+          "claim_izzet_league_0021"
+        ],
+        "confidence": "High"
+      },
+      {
+        "role_name": "Attendant",
+        "description": "Support role that records and organizes information, acquires rare materials, and completes experiments under dangerous circumstances.",
+        "claim_ids": [
+          "claim_izzet_league_0022"
+        ],
+        "confidence": "High"
+      },
+      {
+        "role_name": "Scorchbringer",
+        "description": "Izzet-associated worker or role mentioned around Nivix in The Gathering Storm: Chapter 17; exact duties were not defined in the reviewed passage.",
+        "claim_ids": [
+          "claim_izzet_league_0088"
+        ],
+        "confidence": "Medium"
+      },
+      {
+        "role_name": "Head Researcher",
+        "description": "Project leadership role held by Ral Zarek during Project Lightning Bug.",
+        "claim_ids": [
+          "claim_izzet_league_0103"
+        ],
+        "confidence": "High"
+      },
+      {
+        "role_name": "Mechanoaugmentation Specialist",
+        "description": "Izzet specialist role represented by Kelen Jek’s trial proposal in Paper Trail.",
+        "claim_ids": [
+          "claim_izzet_league_0078"
+        ],
+        "confidence": "Medium"
+      }
+    ],
+    "leaders": [
+      {
+        "character_id": "char_niv_mizzet",
+        "name": "Niv-Mizzet",
+        "role": "Original Izzet parun; former guildmaster; current Living Guildpact in reviewed current-status sources.",
+        "status": "Former",
+        "claim_ids": [
+          "claim_izzet_league_0008",
+          "claim_izzet_league_0036",
+          "claim_izzet_league_0037",
+          "claim_izzet_league_0039",
+          "claim_izzet_league_0045"
+        ],
+        "confidence": "High",
+        "notes": "Niv-Mizzet remains central to Izzet identity, but current official guidance places him as Living Guildpact rather than active day-to-day Izzet guildmaster."
+      },
+      {
+        "character_id": "char_ral_zarek",
+        "name": "Ral Zarek",
+        "role": "Izzet guildmage, secret Planeswalker in earlier story, day-to-day operator in Guilds of Ravnica-era guidance, and Izzet guildmaster during the Phyrexian invasion story.",
+        "status": "Confirmed",
+        "claim_ids": [
+          "claim_izzet_league_0033",
+          "claim_izzet_league_0034",
+          "claim_izzet_league_0035",
+          "claim_izzet_league_0038"
+        ],
+        "confidence": "High",
+        "notes": "The latest reviewed direct title reference is the March of the Machine story calling him Izzet guildmaster; no later reviewed source contradicted this."
+      },
+      {
+        "character_id": "char_chamberlain_maree",
+        "name": "Chamberlain Maree",
+        "role": "Izzet chamberlain associated with Niv-Mizzet, Melek work, Project Lightning Bug expansion, and Ral Zarek during crisis leadership.",
+        "status": "Confirmed",
+        "claim_ids": [
+          "claim_izzet_league_0035",
+          "claim_izzet_league_0101",
+          "claim_izzet_league_0102"
+        ],
+        "confidence": "High",
+        "notes": "Included because she is directly named in the official War of the Spark story as part of Izzet crisis leadership."
+      },
+      {
+        "character_id": "char_pelener",
+        "name": "Chamberlain Pelener",
+        "role": "Historical Izzet chamberlain and chief attendant to Niv-Mizzet in The Pursuit, Part 1.",
+        "status": "Historical",
+        "claim_ids": [
+          "claim_izzet_league_0071"
+        ],
+        "confidence": "Medium",
+        "notes": "Story-specific chamberlain; no current-status leadership claim is implied."
+      }
+    ],
+    "locations": [
+      {
+        "location_id": "loc_nivix",
+        "name": "Nivix, Aerie of the Firemind",
+        "type": "Guildhall / tower",
+        "relationship_to_faction": "Home of Niv-Mizzet and central guildhall of the Izzet.",
+        "claim_ids": [
+          "claim_izzet_league_0012",
+          "claim_izzet_league_0013"
+        ],
+        "confidence": "High",
+        "notes": ""
+      },
+      {
+        "location_id": "loc_blistercoils",
+        "name": "The Blistercoils",
+        "type": "Mana infrastructure",
+        "relationship_to_faction": "Izzet structure containing mizzium coils that generate volatile mana; broader purpose stated as unknown.",
+        "claim_ids": [
+          "claim_izzet_league_0014",
+          "claim_izzet_league_0015"
+        ],
+        "confidence": "High",
+        "notes": ""
+      },
+      {
+        "location_id": "loc_boilerpits",
+        "name": "Boilerpits",
+        "type": "Underground pipeline maze",
+        "relationship_to_faction": "Izzet-associated underground passageways used for grand and risky experiments.",
+        "claim_ids": [
+          "claim_izzet_league_0016",
+          "claim_izzet_league_0017"
+        ],
+        "confidence": "High",
+        "notes": ""
+      },
+      {
+        "location_id": "loc_mizzium_foundry",
+        "name": "Mizzium Foundry",
+        "type": "Foundry",
+        "relationship_to_faction": "Only reviewed official location where mizzium alloy is smelted on Ravnica.",
+        "claim_ids": [
+          "claim_izzet_league_0018"
+        ],
+        "confidence": "High",
+        "notes": ""
+      },
+      {
+        "location_id": "loc_chamber_of_the_guildpact",
+        "name": "Chamber of the Guildpact",
+        "type": "Civic / magical authority site",
+        "relationship_to_faction": "Current official-status source associates it with Niv-Mizzet as Living Guildpact rather than as an Izzet guildhall.",
+        "claim_ids": [
+          "claim_izzet_league_0039",
+          "claim_izzet_league_0044"
+        ],
+        "confidence": "High",
+        "notes": "Included because Niv-Mizzet's current role moved beyond Izzet-specific leadership."
+      },
+      {
+        "location_id": "loc_smoking_wreckage",
+        "name": "The Smoking Wreckage",
+        "type": "Tavern near Nivix",
+        "relationship_to_faction": "A Nivix-area tavern associated with failed projects, schemes, and researchers whose work has gone wrong.",
+        "claim_ids": [
+          "claim_izzet_league_0089"
+        ],
+        "confidence": "Medium",
+        "notes": ""
+      },
+      {
+        "location_id": "loc_lightning_rod",
+        "name": "The Lightning Rod",
+        "type": "Izzet workplace / building",
+        "relationship_to_faction": "Workplace where the Testing the Dark Waters narrator lost access spells, keys, and equipment after a failed career bid.",
+        "claim_ids": [
+          "claim_izzet_league_0081",
+          "claim_izzet_league_0082"
+        ],
+        "confidence": "Medium",
+        "notes": "The exact institutional function of the building is not fully defined in the reviewed passage."
+      },
+      {
+        "location_id": "loc_elemental_metastream_lab",
+        "name": "Laboratory of Elemental Metastream Dynamics and Coil Field Fractalization",
+        "type": "Izzet laboratory",
+        "relationship_to_faction": "A boilerpit lab that became officially recognized by the Izmundi after procedural manipulation.",
+        "claim_ids": [
+          "claim_izzet_league_0085",
+          "claim_izzet_league_0086"
+        ],
+        "confidence": "Medium",
+        "notes": ""
+      },
+      {
+        "location_id": "loc_resonator_control_chamber",
+        "name": "Nivix resonator control chamber",
+        "type": "Crisis engineering site",
+        "relationship_to_faction": "Central control site for Ral Zarek’s resonator-node operation during The Gathering Storm.",
+        "claim_ids": [
+          "claim_izzet_league_0091",
+          "claim_izzet_league_0092",
+          "claim_izzet_league_0093",
+          "claim_izzet_league_0094"
+        ],
+        "confidence": "Medium",
+        "notes": ""
+      }
+    ],
+    "internal_divisions": [
+      {
+        "division_id": "div_izzet_league_0001",
+        "name": "Izmundi",
+        "description": "Niv-Mizzet's personal court of servants who help guide his machinations and keep him informed.",
+        "claim_ids": [
+          "claim_izzet_league_0010"
+        ],
+        "confidence": "High",
+        "notes": ""
+      },
+      {
+        "division_id": "div_izzet_league_0002",
+        "name": "Izmagnus",
+        "description": "The most powerful members of the Izmundi court.",
+        "claim_ids": [
+          "claim_izzet_league_0011"
+        ],
+        "confidence": "High",
+        "notes": ""
+      },
+      {
+        "division_id": "div_izzet_league_0003",
+        "name": "Weirds",
+        "description": "Elemental creatures produced by Izzet experiments combining opposing elemental types; useful but unpredictable.",
+        "claim_ids": [
+          "claim_izzet_league_0023",
+          "claim_izzet_league_0024"
+        ],
+        "confidence": "High",
+        "notes": ""
+      },
+      {
+        "division_id": "div_izzet_league_0004",
+        "name": "Project Lightning Bug team",
+        "description": "A Ral Zarek-led detection project created to record and explain Jace Beleren’s disappearances; later expanded by Chamberlain Maree and Mizzix.",
+        "claim_ids": [
+          "claim_izzet_league_0102",
+          "claim_izzet_league_0103",
+          "claim_izzet_league_0104"
+        ],
+        "confidence": "High",
+        "notes": "Project-specific group, not a permanent division of the guild."
+      },
+      {
+        "division_id": "div_izzet_league_0005",
+        "name": "Resonator project personnel",
+        "description": "Izzet workers, chemisters, engineers, and technicians commanded by Ral Zarek to activate the resonator network during the Bolas crisis.",
+        "claim_ids": [
+          "claim_izzet_league_0088",
+          "claim_izzet_league_0091",
+          "claim_izzet_league_0092",
+          "claim_izzet_league_0093"
+        ],
+        "confidence": "Medium",
+        "notes": "Temporary crisis-project grouping."
+      }
+    ],
+    "unknowns": [
+      "Full membership of the Izmagnus is not established in the reviewed source.",
+      "The reviewed sources do not provide a complete current organizational chart."
+    ]
+  },
+  "great_tension": {
+    "summary": "The Izzet great tension is invention as public benefit versus invention as obsession: the same guild that builds infrastructure and emergency solutions also rewards breakthroughs, speed, and spectacle strongly enough that risky or ethically compromised experiments can emerge under pressure.",
+    "status": "Supported Interpretation",
+    "claim_ids": [
+      "claim_izzet_league_0005",
+      "claim_izzet_league_0006",
+      "claim_izzet_league_0007",
+      "claim_izzet_league_0017",
+      "claim_izzet_league_0025",
+      "claim_izzet_league_0026",
+      "claim_izzet_league_0030",
+      "claim_izzet_league_0031",
+      "claim_izzet_league_0032",
+      "claim_izzet_league_0041",
+      "claim_izzet_league_0042",
+      "claim_izzet_league_0043",
+      "claim_izzet_league_0059",
+      "claim_izzet_league_0060",
+      "claim_izzet_league_0067",
+      "claim_izzet_league_0084",
+      "claim_izzet_league_0087",
+      "claim_izzet_league_0094",
+      "claim_izzet_league_0100"
+    ],
+    "interpretation_warning": "This summarizes a pattern across official guide text and inspected story examples; it is not a direct psychological statement from Wizards."
+  },
+  "historical_timeline": [
+    {
+      "event_id": "event_izzet_league_0001",
+      "event": "The Izzet League's original mandate is to solve civic public works problems.",
+      "date_or_era": "Original guild mandate / ancient Ravnica context",
+      "claim_ids": [
+        "claim_izzet_league_0005",
+        "claim_izzet_league_0008"
+      ],
+      "confidence": "High",
+      "notes": "Exact date not independently asserted beyond parun-era context in reviewed claims."
+    },
+    {
+      "event_id": "event_izzet_league_0002",
+      "event": "Return to Ravnica-era guide presents Niv-Mizzet driving the Izzet into deeper dangerous experimental magic for an unknown purpose.",
+      "date_or_era": "Return to Ravnica era",
+      "claim_ids": [
+        "claim_izzet_league_0006",
+        "claim_izzet_league_0007",
+        "claim_izzet_league_0026"
+      ],
+      "confidence": "High",
+      "notes": ""
+    },
+    {
+      "event_id": "event_izzet_league_0003",
+      "event": "Guilds of Ravnica-era guidance describes Niv-Mizzet as leader in name and spirit while Ral Zarek handles day-to-day operations.",
+      "date_or_era": "Guilds of Ravnica era",
+      "claim_ids": [
+        "claim_izzet_league_0030",
+        "claim_izzet_league_0031",
+        "claim_izzet_league_0033"
+      ],
+      "confidence": "High",
+      "notes": ""
+    },
+    {
+      "event_id": "event_izzet_league_0004",
+      "event": "During War of the Spark, the Izzet League is shown under Master Zarek and Chamberlain Maree during the crisis, with Niv-Mizzet dead before Operation Desperation.",
+      "date_or_era": "War of the Spark",
+      "claim_ids": [
+        "claim_izzet_league_0035",
+        "claim_izzet_league_0036",
+        "claim_izzet_league_0037"
+      ],
+      "confidence": "High",
+      "notes": ""
+    },
+    {
+      "event_id": "event_izzet_league_0005",
+      "event": "Operation Desperation seeks to resurrect Niv-Mizzet as the new Living Guildpact, with Niv-Mizzet stepping down as Izzet guildmaster if successful.",
+      "date_or_era": "War of the Spark",
+      "claim_ids": [
+        "claim_izzet_league_0036",
+        "claim_izzet_league_0037",
+        "claim_izzet_league_0039"
+      ],
+      "confidence": "High",
+      "notes": ""
+    },
+    {
+      "event_id": "event_izzet_league_0006",
+      "event": "During the Phyrexian invasion of Ravnica, Ral Zarek is referred to as Izzet guildmaster.",
+      "date_or_era": "March of the Machine / Phyrexian invasion",
+      "claim_ids": [
+        "claim_izzet_league_0038"
+      ],
+      "confidence": "High",
+      "notes": ""
+    },
+    {
+      "event_id": "event_izzet_league_0007",
+      "event": "During the Phyrexian invasion, some Izzet defend Ravnica while others are drawn toward New Phyrexia's perceived technological opportunities.",
+      "date_or_era": "March of the Machine / Phyrexian invasion",
+      "claim_ids": [
+        "claim_izzet_league_0040",
+        "claim_izzet_league_0041"
+      ],
+      "confidence": "High",
+      "notes": ""
+    },
+    {
+      "event_id": "event_izzet_league_0008",
+      "event": "After the Phyrexian invasion, official guidance says much of Ravnica's rebuilding is spearheaded by the Izzet as they set aside wild destructive experiments for reconstruction and public works.",
+      "date_or_era": "Murders at Karlov Manor era",
+      "claim_ids": [
+        "claim_izzet_league_0042",
+        "claim_izzet_league_0043"
+      ],
+      "confidence": "High",
+      "notes": ""
+    },
+    {
+      "event_id": "event_izzet_league_0009",
+      "event": "Trenz’s Experiment Day shows Niv-Mizzet-directed Izzet research producing useful discoveries and destructive side effects.",
+      "date_or_era": "Return to Ravnica story era",
+      "claim_ids": [
+        "claim_izzet_league_0061",
+        "claim_izzet_league_0064",
+        "claim_izzet_league_0066",
+        "claim_izzet_league_0067"
+      ],
+      "confidence": "Medium",
+      "notes": ""
+    },
+    {
+      "event_id": "event_izzet_league_0010",
+      "event": "Madarrak and Castan pursued Erno Zslod and recovered a mizzium-related device connected to a teleportation experiment.",
+      "date_or_era": "Dragon’s Maze story era",
+      "claim_ids": [
+        "claim_izzet_league_0068",
+        "claim_izzet_league_0069",
+        "claim_izzet_league_0072",
+        "claim_izzet_league_0074",
+        "claim_izzet_league_0077"
+      ],
+      "confidence": "Medium",
+      "notes": ""
+    },
+    {
+      "event_id": "event_izzet_league_0011",
+      "event": "Paper Trail documents an Izzet mizzium augmentation proposal whose consequences intersected with Golgari and Simic material.",
+      "date_or_era": "Dragon’s Maze story era",
+      "claim_ids": [
+        "claim_izzet_league_0078",
+        "claim_izzet_league_0079",
+        "claim_izzet_league_0080"
+      ],
+      "confidence": "Medium",
+      "notes": ""
+    },
+    {
+      "event_id": "event_izzet_league_0012",
+      "event": "Testing the Dark Waters depicts lower-rank Izzet advancement pressure, unsanctioned lab work, and ethically compromised experimentation.",
+      "date_or_era": "Guilds of Ravnica story era",
+      "claim_ids": [
+        "claim_izzet_league_0081",
+        "claim_izzet_league_0084",
+        "claim_izzet_league_0085",
+        "claim_izzet_league_0086",
+        "claim_izzet_league_0087"
+      ],
+      "confidence": "Medium",
+      "notes": ""
+    },
+    {
+      "event_id": "event_izzet_league_0013",
+      "event": "Ral Zarek directed the Nivix-centered resonator network under emergency conditions; the network failed catastrophically after a surge from the Azorius-side node.",
+      "date_or_era": "The Gathering Storm / pre-War of the Spark",
+      "claim_ids": [
+        "claim_izzet_league_0090",
+        "claim_izzet_league_0091",
+        "claim_izzet_league_0092",
+        "claim_izzet_league_0093",
+        "claim_izzet_league_0094"
+      ],
+      "confidence": "Medium",
+      "notes": ""
+    },
+    {
+      "event_id": "event_izzet_league_0014",
+      "event": "Niv-Mizzet entrusted Ral Zarek with the beacon mission and personally delayed Nicol Bolas during the invasion.",
+      "date_or_era": "The Gathering Storm / War of the Spark setup",
+      "claim_ids": [
+        "claim_izzet_league_0095",
+        "claim_izzet_league_0096",
+        "claim_izzet_league_0097"
+      ],
+      "confidence": "Medium",
+      "notes": ""
+    },
+    {
+      "event_id": "event_izzet_league_0015",
+      "event": "Ral Zarek activated the Interplanar Beacon after fighting through Bolas-controlled opposition.",
+      "date_or_era": "The Gathering Storm / War of the Spark setup",
+      "claim_ids": [
+        "claim_izzet_league_0098",
+        "claim_izzet_league_0099",
+        "claim_izzet_league_0100"
+      ],
+      "confidence": "Medium",
+      "notes": ""
+    }
+  ],
+  "key_figures": [
+    {
+      "character_id": "char_niv_mizzet",
+      "name": "Niv-Mizzet",
+      "role": "Original parun, former Izzet guildmaster, current Living Guildpact.",
+      "relationship_to_faction": "Founder-like parun and defining dragon intellect of the Izzet League.",
+      "claim_ids": [
+        "claim_izzet_league_0008",
+        "claim_izzet_league_0009",
+        "claim_izzet_league_0025",
+        "claim_izzet_league_0036",
+        "claim_izzet_league_0037",
+        "claim_izzet_league_0039",
+        "claim_izzet_league_0045"
+      ],
+      "confidence": "High",
+      "notes": ""
+    },
+    {
+      "character_id": "char_ral_zarek",
+      "name": "Ral Zarek",
+      "role": "Izzet guildmage / Planeswalker / guildmaster during reviewed later story.",
+      "relationship_to_faction": "Major Izzet leader and operator, especially after Niv-Mizzet's shift toward Living Guildpact role.",
+      "claim_ids": [
+        "claim_izzet_league_0033",
+        "claim_izzet_league_0034",
+        "claim_izzet_league_0035",
+        "claim_izzet_league_0038",
+        "claim_izzet_league_0091",
+        "claim_izzet_league_0095",
+        "claim_izzet_league_0098",
+        "claim_izzet_league_0099",
+        "claim_izzet_league_0103",
+        "claim_izzet_league_0104"
+      ],
+      "confidence": "High",
+      "notes": ""
+    },
+    {
+      "character_id": "char_chamberlain_maree",
+      "name": "Chamberlain Maree",
+      "role": "Chamberlain",
+      "relationship_to_faction": "Crisis leadership figure shown alongside Ral Zarek during War of the Spark.",
+      "claim_ids": [
+        "claim_izzet_league_0035",
+        "claim_izzet_league_0101",
+        "claim_izzet_league_0102"
+      ],
+      "confidence": "High",
+      "notes": ""
+    },
+    {
+      "character_id": "char_trenz",
+      "name": "Trenz",
+      "role": "Izzet researcher / Chemister-associated experimenter",
+      "relationship_to_faction": "Story-local Izzet researcher whose work attracted Niv-Mizzet and whose Experiment Day tests illustrate volatile discovery culture.",
+      "claim_ids": [
+        "claim_izzet_league_0061",
+        "claim_izzet_league_0062",
+        "claim_izzet_league_0063",
+        "claim_izzet_league_0064",
+        "claim_izzet_league_0065",
+        "claim_izzet_league_0066"
+      ],
+      "confidence": "Medium",
+      "notes": ""
+    },
+    {
+      "character_id": "char_madarrak",
+      "name": "Madarrak",
+      "role": "Aging Izzet guildmage",
+      "relationship_to_faction": "Story-local guildmage who pursued Erno Zslod and sought renewed recognition through dangerous recovery work.",
+      "claim_ids": [
+        "claim_izzet_league_0068",
+        "claim_izzet_league_0074",
+        "claim_izzet_league_0077"
+      ],
+      "confidence": "Medium",
+      "notes": ""
+    },
+    {
+      "character_id": "char_castan",
+      "name": "Castan",
+      "role": "Vedalken attendant",
+      "relationship_to_faction": "Attendant to Madarrak in The Pursuit stories.",
+      "claim_ids": [
+        "claim_izzet_league_0069",
+        "claim_izzet_league_0076"
+      ],
+      "confidence": "Medium",
+      "notes": ""
+    },
+    {
+      "character_id": "char_yzaak",
+      "name": "Yzaak",
+      "role": "Cyclops assistant",
+      "relationship_to_faction": "Cyclops in Madarrak’s service during The Pursuit.",
+      "claim_ids": [
+        "claim_izzet_league_0070"
+      ],
+      "confidence": "Medium",
+      "notes": ""
+    },
+    {
+      "character_id": "char_pelener",
+      "name": "Chamberlain Pelener",
+      "role": "Chief attendant to Niv-Mizzet",
+      "relationship_to_faction": "Historical chamberlain in The Pursuit, Part 1.",
+      "claim_ids": [
+        "claim_izzet_league_0071"
+      ],
+      "confidence": "Medium",
+      "notes": ""
+    },
+    {
+      "character_id": "char_erno_zslod",
+      "name": "Erno Zslod",
+      "role": "Izzet chemister",
+      "relationship_to_faction": "Chemister whose hypermana focusing lens and transport event drove The Pursuit plot.",
+      "claim_ids": [
+        "claim_izzet_league_0072",
+        "claim_izzet_league_0075",
+        "claim_izzet_league_0076"
+      ],
+      "confidence": "Medium",
+      "notes": ""
+    },
+    {
+      "character_id": "char_leighbet",
+      "name": "Leighbet",
+      "role": "Izzet attendant / self-proclaimed chemister",
+      "relationship_to_faction": "Narrator of Testing the Dark Waters; useful for lower-rank ambition and ethical-risk examples.",
+      "claim_ids": [
+        "claim_izzet_league_0081",
+        "claim_izzet_league_0082",
+        "claim_izzet_league_0085",
+        "claim_izzet_league_0087"
+      ],
+      "confidence": "Medium",
+      "notes": ""
+    },
+    {
+      "character_id": "char_dax_foley",
+      "name": "Dax Foley",
+      "role": "Master chemister",
+      "relationship_to_faction": "High-level chemister specializing in arcane metallurgy and practical alchemy in Testing the Dark Waters.",
+      "claim_ids": [
+        "claim_izzet_league_0081"
+      ],
+      "confidence": "Medium",
+      "notes": ""
+    },
+    {
+      "character_id": "char_tamsyn_sweene",
+      "name": "Tamsyn Sweene",
+      "role": "False blastseeker / infiltrator figure",
+      "relationship_to_faction": "Figure in Testing the Dark Waters whose claimed Izzet experience and later deception contribute to the story’s ethical and security risks.",
+      "claim_ids": [
+        "claim_izzet_league_0087"
+      ],
+      "confidence": "Medium",
+      "notes": "Her blastseeker credentials are not treated as reliable because the story later reveals deception."
+    },
+    {
+      "character_id": "char_gullifen",
+      "name": "Gullifen",
+      "role": "Goblin engineer / project worker",
+      "relationship_to_faction": "Primary engineer on parts of Ral’s resonator project inside Nivix; killed during the control-chamber failure.",
+      "claim_ids": [
+        "claim_izzet_league_0091",
+        "claim_izzet_league_0094"
+      ],
+      "confidence": "Medium",
+      "notes": ""
+    },
+    {
+      "character_id": "char_melek",
+      "name": "Melek",
+      "role": "Izzet-associated figure connected to Chamberlain Maree’s work",
+      "relationship_to_faction": "Required-search figure; Project Lightning Bug says Maree impressed Niv-Mizzet with her work on Melek.",
+      "claim_ids": [
+        "claim_izzet_league_0101"
+      ],
+      "confidence": "High",
+      "notes": "Only the reviewed Project Lightning Bug claim is asserted here; no extra Melek biography is inferred."
+    },
+    {
+      "character_id": "char_mizzix",
+      "name": "Mizzix",
+      "role": "Izmagnus-associated Izzet researcher",
+      "relationship_to_faction": "Required-search figure; helped Maree calibrate and improve Ral’s detector spell.",
+      "claim_ids": [
+        "claim_izzet_league_0102"
+      ],
+      "confidence": "High",
+      "notes": "No broader Mizzix biography is inferred from this pass."
+    }
+  ],
+  "canonical_flavor_text": [],
+  "views_on_other_factions": [
+    {
+      "relationship_id": "rel_izzet_league_azorius_senate_0001",
+      "other_faction": "Azorius Senate",
+      "relationship_summary": "Izzet sources frame Azorius rulemaking as a constraint on freedom.",
+      "evidence_type": "Direct",
+      "claim_ids": [
+        "claim_izzet_league_0027"
+      ],
+      "confidence": "Medium",
+      "notes": "Based on official Izzet attitude text; phrased as faction-perspective, not objective fact."
+    },
+    {
+      "relationship_id": "rel_izzet_league_boros_legion_0001",
+      "other_faction": "Boros Legion",
+      "relationship_summary": "Izzet sources frame Boros intervention as frustrating dangerous experimentation.",
+      "evidence_type": "Direct",
+      "claim_ids": [
+        "claim_izzet_league_0028"
+      ],
+      "confidence": "Medium",
+      "notes": "Based on official Izzet attitude text; phrased as faction-perspective, not objective fact."
+    },
+    {
+      "relationship_id": "rel_izzet_league_simic_combine_0001",
+      "other_faction": "Simic Combine",
+      "relationship_summary": "Izzet sources acknowledge Simic inventiveness but criticize Simic creation as lacking inspiration, soul, and fire.",
+      "evidence_type": "Direct",
+      "claim_ids": [
+        "claim_izzet_league_0029"
+      ],
+      "confidence": "Medium",
+      "notes": "Based on official Izzet attitude text; phrased as faction-perspective, not objective fact."
+    },
+    {
+      "relationship_id": "rel_izzet_league_golgari_swarm_0001",
+      "other_faction": "Golgari Swarm",
+      "relationship_summary": "Izzet stories repeatedly route dangerous experiments and aftermath into the Undercity and Golgari-adjacent spaces, including fatbergs, rot farms, abandoned zones, and recovery missions.",
+      "evidence_type": "Implied",
+      "claim_ids": [
+        "claim_izzet_league_0074",
+        "claim_izzet_league_0075",
+        "claim_izzet_league_0079",
+        "claim_izzet_league_0085"
+      ],
+      "confidence": "Medium",
+      "notes": "Interpretive relationship based on story proximity and consequences, not a formal alliance or rivalry statement."
+    },
+    {
+      "relationship_id": "rel_izzet_league_simic_combine_0002",
+      "other_faction": "Simic Combine",
+      "relationship_summary": "Paper Trail and Testing the Dark Waters show Izzet experimentation intersecting dangerously with Simic biomancy and biological transformation.",
+      "evidence_type": "Implied",
+      "claim_ids": [
+        "claim_izzet_league_0080",
+        "claim_izzet_league_0087"
+      ],
+      "confidence": "Medium",
+      "notes": "Separate from the official attitude claim that Izzet admire but criticize Simic invention."
+    },
+    {
+      "relationship_id": "rel_izzet_league_dimir_0001",
+      "other_faction": "House Dimir",
+      "relationship_summary": "Testing the Dark Waters supports a security-risk relationship: small Izzet labs and rising geniuses can be vulnerable to Dimir infiltration.",
+      "evidence_type": "Implied",
+      "claim_ids": [
+        "claim_izzet_league_0087"
+      ],
+      "confidence": "Medium",
+      "notes": "Based on one inspected story; do not generalize as universal."
+    }
+  ],
+  "mechanics": [
+    {
+      "mechanic_id": "mech_replicate",
+      "mechanic_name": "Replicate",
+      "associated_set": "Guildpact / original Ravnica block",
+      "rules_summary": "A replicate cost may be paid any number of times as an additional cost; when the spell is cast, it is copied for each time the replicate cost was paid.",
+      "design_or_flavor_connection": "Official guild kit guidance identifies replicate as the original Ravnica-block Izzet mechanic and connects it to Izzet's spell-scaling identity.",
+      "claim_ids": [
+        "claim_izzet_league_0048",
+        "claim_izzet_league_0049"
+      ],
+      "confidence": "High",
+      "notes": ""
+    },
+    {
+      "mechanic_id": "mech_overload",
+      "mechanic_name": "Overload",
+      "associated_set": "Return to Ravnica",
+      "rules_summary": "A spell can be cast for its overload cost; if paid, its text changes instances of target to each and the spell does not require targets.",
+      "design_or_flavor_connection": "Official mechanics guidance identifies overload as the Return to Ravnica Izzet League mechanic and frames it as powering up instants and sorceries to large proportions.",
+      "claim_ids": [
+        "claim_izzet_league_0046",
+        "claim_izzet_league_0047"
+      ],
+      "confidence": "High",
+      "notes": ""
+    },
+    {
+      "mechanic_id": "mech_jump_start",
+      "mechanic_name": "Jump-start",
+      "associated_set": "Guilds of Ravnica",
+      "rules_summary": "A player may cast an instant or sorcery card from their graveyard by discarding a card as an additional cost; if cast this way, the card is exiled when it leaves the stack.",
+      "design_or_flavor_connection": "Official mechanics and guild kit guidance identify jump-start as the Guilds of Ravnica Izzet mechanic and connect it to getting a second chance at spells.",
+      "claim_ids": [
+        "claim_izzet_league_0050",
+        "claim_izzet_league_0051"
+      ],
+      "confidence": "High",
+      "notes": ""
+    },
+    {
+      "mechanic_id": "mech_mizzium_augmentation",
+      "mechanic_name": "Mizzium augmentation",
+      "associated_set": "Story-local technology",
+      "rules_summary": "Not a formal card keyword in this profile; represents story technology involving mizzium frameworks, suits, coils, batteries, and devices.",
+      "design_or_flavor_connection": "Story evidence makes mizzium a useful search and placement signal for Izzet applied invention.",
+      "claim_ids": [
+        "claim_izzet_league_0065",
+        "claim_izzet_league_0076",
+        "claim_izzet_league_0078",
+        "claim_izzet_league_0083",
+        "claim_izzet_league_0092",
+        "claim_izzet_league_0097"
+      ],
+      "confidence": "Medium",
+      "notes": "Not a game mechanic; stored here as lore technology metadata."
+    },
+    {
+      "mechanic_id": "mech_resonator_network",
+      "mechanic_name": "Resonator network",
+      "associated_set": "The Gathering Storm",
+      "rules_summary": "Not a formal game mechanic; story-scale Izzet/Guildpact engineering system.",
+      "design_or_flavor_connection": "Represents Izzet crisis engineering at city scale and supports placement around volatile scaling.",
+      "claim_ids": [
+        "claim_izzet_league_0090",
+        "claim_izzet_league_0092",
+        "claim_izzet_league_0093",
+        "claim_izzet_league_0094"
+      ],
+      "confidence": "Medium",
+      "notes": "Story technology, not rules text."
+    }
+  ],
+  "search_and_filter_metadata": {
+    "aliases": [
+      "Izzet",
+      "Izzet League",
+      "The Magewrights",
+      "The Firemind’s guild"
+    ],
+    "related_terms": [
+      "Nivix",
+      "Aerie of the Firemind",
+      "Firemind",
+      "mizzium",
+      "weirds",
+      "Izmundi",
+      "Izmagnus",
+      "Interlocus",
+      "Blistercoils",
+      "Boilerpits",
+      "Experiment Day",
+      "Exospecial Experiments",
+      "Ætherprax",
+      "Project Lightning Bug",
+      "resonator network",
+      "Interplanar Beacon",
+      "The Smoking Wreckage",
+      "The Lightning Rod",
+      "boilerpit lab",
+      "mizzium coils",
+      "hypermana focusing lens",
+      "Mechanoaugmentation Specialist"
+    ],
+    "known_mechanics": [
+      "Replicate",
+      "Overload",
+      "Jump-start"
+    ],
+    "known_characters": [
+      "Niv-Mizzet",
+      "Ral Zarek",
+      "Chamberlain Maree",
+      "Trenz",
+      "Madarrak",
+      "Castan",
+      "Yzaak",
+      "Chamberlain Pelener",
+      "Erno Zslod",
+      "Leighbet",
+      "Dax Foley",
+      "Tamsyn Sweene",
+      "Gullifen",
+      "Melek",
+      "Mizzix"
+    ],
+    "known_locations": [
+      "Nivix",
+      "Blistercoils",
+      "Boilerpits",
+      "Mizzium Foundry",
+      "Chamber of the Guildpact",
+      "The Smoking Wreckage",
+      "The Lightning Rod",
+      "Laboratory of Elemental Metastream Dynamics and Coil Field Fractalization",
+      "Nivix resonator control chamber"
+    ],
+    "sets_or_story_arcs": [
+      "Guildpact",
+      "Return to Ravnica",
+      "Guilds of Ravnica",
+      "War of the Spark",
+      "March of the Machine",
+      "Murders at Karlov Manor",
+      "Epic Experiment",
+      "The Pursuit",
+      "Paper Trail",
+      "Testing the Dark Waters",
+      "The Gathering Storm"
+    ],
+    "tags": [
+      "blue-red",
+      "Ravnica",
+      "guild",
+      "innovation",
+      "spells",
+      "experiments",
+      "infrastructure",
+      "public works",
+      "elemental magic",
+      "technology",
+      "crisis engineering",
+      "unsanctioned lab",
+      "mizzium augmentation",
+      "dangerous prototype",
+      "ethical risk",
+      "rapid discovery pressure"
+    ],
+    "search_keywords": [
+      "Izzet League",
+      "Izzet guild",
+      "blue red guild",
+      "Niv-Mizzet",
+      "Ral Zarek",
+      "mizzium",
+      "overload",
+      "replicate",
+      "jump-start",
+      "Nivix",
+      "weird",
+      "Interlocus",
+      "Melek",
+      "Mizzix",
+      "Chemisters",
+      "Weirds",
+      "Mizzium",
+      "blue red",
+      "dragon"
+    ]
+  },
+  "data_quality": {
+    "overall_confidence": "High",
+    "official_source_coverage": "Strong",
+    "weakly_supported_sections": [
+      "Current post-Murders at Karlov Manor Izzet internal leadership chart",
+      "Full membership of the Izmagnus",
+      "Exact operational status of every Izzet location after the Phyrexian invasion",
+      "story-local secondary figures",
+      "complete official pages for older archived stories",
+      "all possible Izzet card flavor text"
+    ],
+    "known_gaps": [
+      "No official source in this build was found that gives a full current Izzet org chart after Murders at Karlov Manor.",
+      "No complete official list of all active Izzet projects was reviewed.",
+      "Older story sources added from GitHub archive should be superseded with live official Wizards URLs if found later.",
+      "Melek and Mizzix coverage is intentionally narrow and limited to reviewed Project Lightning Bug evidence plus existing official/card-source coverage."
+    ],
+    "needs_review": false,
+    "notes": "Incremental GitHub MTG-Stories search pass expanded story-local coverage while preserving official sources as higher authority."
+  },
+  "research_limitations": [
+    {
+      "limitation": "Official pages support the selected claims, so repository archive text was not used as primary evidence.",
+      "impact": "Lower risk of archive transcription error, but less exhaustive story mining.",
+      "affected_fields": [
+        "sources",
+        "historical_timeline"
+      ],
+      "notes": "Future incremental updates can search repository PDFs for story appearances not covered by current official pages."
+    },
+    {
+      "limitation": "Current leadership after Murders at Karlov Manor is inferred only cautiously from latest reviewed title references and lack of contradiction.",
+      "impact": "Profile avoids overclaiming a complete current hierarchy.",
+      "affected_fields": [
+        "leaders",
+        "data_quality"
+      ],
+      "notes": "Review new Ravnica stories if Wizards publishes additional post-MKM Izzet status material."
+    },
+    {
+      "limitation": "Canonical flavor text was left empty because the initial build prioritized higher-level official worldbuilding and mechanics sources.",
+      "impact": "Website flavor-text module will need a later card-data pass if desired.",
+      "affected_fields": [
+        "canonical_flavor_text"
+      ],
+      "notes": "Future update should inspect Gatherer or Scryfall card records directly for curated short excerpts."
+    },
+    {
+      "limitation": "Several older official stories were inspected through the polarkac/MTG-Stories GitHub archive rather than live Wizards URLs.",
+      "impact": "Claims are marked Repository Archive Supported unless already covered by official Wizards sources.",
+      "affected_fields": [
+        "sources",
+        "claims",
+        "profile",
+        "placement"
+      ],
+      "notes": "Future updates should replace archive source IDs with official page source IDs only after inspecting the official pages."
+    }
+  ]
+}

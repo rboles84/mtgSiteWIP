@@ -1,0 +1,2569 @@
+{
+  "schema_version": "1.0.0",
+  "faction_id": "lorehold",
+  "faction_name": "Lorehold",
+  "source_review_date": "2026-05-09",
+  "last_updated": "2026-05-09",
+  "claims": [
+    {
+      "claim_id": "claim_lorehold_core_0001",
+      "faction_id": "lorehold",
+      "claim": "Lorehold is one of the five colleges of Strixhaven University.",
+      "claim_type": "core_identity",
+      "canon_status": "Confirmed Canon",
+      "confidence": "High",
+      "evidence_type": "Direct canon",
+      "source_ids": [
+        "src_lorehold_0001",
+        "src_lorehold_0002"
+      ],
+      "first_recorded": "2026-05-09",
+      "last_verified": "2026-05-09",
+      "status": "Active",
+      "replaces_claim_ids": [],
+      "replaced_by_claim_ids": [],
+      "contradicted_by_claim_ids": [],
+      "used_by_profile_fields": [
+        "site_surface",
+        "core_identity"
+      ],
+      "used_by_placement_fields": [
+        "placement_summary"
+      ],
+      "notes": "",
+      "risk_of_hallucination_or_overreach": "Low"
+    },
+    {
+      "claim_id": "claim_lorehold_core_0002",
+      "faction_id": "lorehold",
+      "claim": "Strixhaven University is on the plane of Arcavios.",
+      "claim_type": "core_identity",
+      "canon_status": "Confirmed Canon",
+      "confidence": "High",
+      "evidence_type": "Direct canon",
+      "source_ids": [
+        "src_lorehold_0002"
+      ],
+      "first_recorded": "2026-05-09",
+      "last_verified": "2026-05-09",
+      "status": "Active",
+      "replaces_claim_ids": [],
+      "replaced_by_claim_ids": [],
+      "contradicted_by_claim_ids": [],
+      "used_by_profile_fields": [
+        "plane_or_setting",
+        "core_identity"
+      ],
+      "used_by_placement_fields": [],
+      "notes": "",
+      "risk_of_hallucination_or_overreach": "Low"
+    },
+    {
+      "claim_id": "claim_lorehold_core_0003",
+      "faction_id": "lorehold",
+      "claim": "Lorehold is aligned with red and white mana.",
+      "claim_type": "core_identity",
+      "canon_status": "Confirmed Canon",
+      "confidence": "High",
+      "evidence_type": "Direct canon",
+      "source_ids": [
+        "src_lorehold_0002"
+      ],
+      "first_recorded": "2026-05-09",
+      "last_verified": "2026-05-09",
+      "status": "Active",
+      "replaces_claim_ids": [],
+      "replaced_by_claim_ids": [],
+      "contradicted_by_claim_ids": [],
+      "used_by_profile_fields": [
+        "color_identity",
+        "core_identity"
+      ],
+      "used_by_placement_fields": [
+        "moral_and_psychological_profile",
+        "placement_axes"
+      ],
+      "notes": "",
+      "risk_of_hallucination_or_overreach": "Low"
+    },
+    {
+      "claim_id": "claim_lorehold_core_0004",
+      "faction_id": "lorehold",
+      "claim": "Lorehold is the College of Archaeomancy.",
+      "claim_type": "core_identity",
+      "canon_status": "Confirmed Canon",
+      "confidence": "High",
+      "evidence_type": "Direct canon",
+      "source_ids": [
+        "src_lorehold_0001",
+        "src_lorehold_0002",
+        "src_lorehold_0008"
+      ],
+      "first_recorded": "2026-05-09",
+      "last_verified": "2026-05-09",
+      "status": "Active",
+      "replaces_claim_ids": [],
+      "replaced_by_claim_ids": [],
+      "contradicted_by_claim_ids": [],
+      "used_by_profile_fields": [
+        "site_surface",
+        "core_identity"
+      ],
+      "used_by_placement_fields": [
+        "placement_summary"
+      ],
+      "notes": "",
+      "risk_of_hallucination_or_overreach": "Low"
+    },
+    {
+      "claim_id": "claim_lorehold_core_0005",
+      "faction_id": "lorehold",
+      "claim": "Lorehold mages are passionate scholars captivated by history.",
+      "claim_type": "philosophy",
+      "canon_status": "Confirmed Canon",
+      "confidence": "High",
+      "evidence_type": "Direct canon",
+      "source_ids": [
+        "src_lorehold_0002",
+        "src_lorehold_0008"
+      ],
+      "first_recorded": "2026-05-09",
+      "last_verified": "2026-05-09",
+      "status": "Active",
+      "replaces_claim_ids": [],
+      "replaced_by_claim_ids": [],
+      "contradicted_by_claim_ids": [],
+      "used_by_profile_fields": [
+        "site_surface",
+        "core_identity"
+      ],
+      "used_by_placement_fields": [
+        "core_values",
+        "good_fit_indicators"
+      ],
+      "notes": "",
+      "risk_of_hallucination_or_overreach": "Low"
+    },
+    {
+      "claim_id": "claim_lorehold_core_0006",
+      "faction_id": "lorehold",
+      "claim": "Lorehold mages explore the past by studying archaeological artifacts.",
+      "claim_type": "philosophy",
+      "canon_status": "Confirmed Canon",
+      "confidence": "High",
+      "evidence_type": "Direct canon",
+      "source_ids": [
+        "src_lorehold_0001",
+        "src_lorehold_0002"
+      ],
+      "first_recorded": "2026-05-09",
+      "last_verified": "2026-05-09",
+      "status": "Active",
+      "replaces_claim_ids": [],
+      "replaced_by_claim_ids": [],
+      "contradicted_by_claim_ids": [],
+      "used_by_profile_fields": [
+        "core_identity"
+      ],
+      "used_by_placement_fields": [
+        "behavioral_signals",
+        "good_fit_indicators"
+      ],
+      "notes": "",
+      "risk_of_hallucination_or_overreach": "Low"
+    },
+    {
+      "claim_id": "claim_lorehold_core_0007",
+      "faction_id": "lorehold",
+      "claim": "Lorehold mages summon spirits of long-dead historical figures.",
+      "claim_type": "mechanic",
+      "canon_status": "Confirmed Canon",
+      "confidence": "High",
+      "evidence_type": "Direct canon",
+      "source_ids": [
+        "src_lorehold_0002",
+        "src_lorehold_0008"
+      ],
+      "first_recorded": "2026-05-09",
+      "last_verified": "2026-05-09",
+      "status": "Active",
+      "replaces_claim_ids": [],
+      "replaced_by_claim_ids": [],
+      "contradicted_by_claim_ids": [],
+      "used_by_profile_fields": [
+        "core_identity",
+        "mechanics"
+      ],
+      "used_by_placement_fields": [
+        "behavioral_signals"
+      ],
+      "notes": "",
+      "risk_of_hallucination_or_overreach": "Low"
+    },
+    {
+      "claim_id": "claim_lorehold_core_0008",
+      "faction_id": "lorehold",
+      "claim": "Lorehold mages call forth magic from ancient tomes.",
+      "claim_type": "mechanic",
+      "canon_status": "Confirmed Canon",
+      "confidence": "High",
+      "evidence_type": "Direct canon",
+      "source_ids": [
+        "src_lorehold_0002",
+        "src_lorehold_0008"
+      ],
+      "first_recorded": "2026-05-09",
+      "last_verified": "2026-05-09",
+      "status": "Active",
+      "replaces_claim_ids": [],
+      "replaced_by_claim_ids": [],
+      "contradicted_by_claim_ids": [],
+      "used_by_profile_fields": [
+        "core_identity",
+        "mechanics"
+      ],
+      "used_by_placement_fields": [
+        "behavioral_signals"
+      ],
+      "notes": "",
+      "risk_of_hallucination_or_overreach": "Low"
+    },
+    {
+      "claim_id": "claim_lorehold_core_0009",
+      "faction_id": "lorehold",
+      "claim": "Lorehold students are described as diligent researchers, daring adventurers, and scholars passionate about history.",
+      "claim_type": "philosophy",
+      "canon_status": "Confirmed Canon",
+      "confidence": "High",
+      "evidence_type": "Direct canon",
+      "source_ids": [
+        "src_lorehold_0001",
+        "src_lorehold_0003"
+      ],
+      "first_recorded": "2026-05-09",
+      "last_verified": "2026-05-09",
+      "status": "Active",
+      "replaces_claim_ids": [],
+      "replaced_by_claim_ids": [],
+      "contradicted_by_claim_ids": [],
+      "used_by_profile_fields": [
+        "site_surface"
+      ],
+      "used_by_placement_fields": [
+        "good_fit_indicators"
+      ],
+      "notes": "",
+      "risk_of_hallucination_or_overreach": "Low"
+    },
+    {
+      "claim_id": "claim_lorehold_core_0010",
+      "faction_id": "lorehold",
+      "claim": "Lorehold's motto in the original Strixhaven introduction is 'Leave no stone unturned.'",
+      "claim_type": "flavor_text",
+      "canon_status": "Confirmed Canon",
+      "confidence": "High",
+      "evidence_type": "Direct canon",
+      "source_ids": [
+        "src_lorehold_0003"
+      ],
+      "first_recorded": "2026-05-09",
+      "last_verified": "2026-05-09",
+      "status": "Active",
+      "replaces_claim_ids": [],
+      "replaced_by_claim_ids": [],
+      "contradicted_by_claim_ids": [],
+      "used_by_profile_fields": [
+        "site_surface"
+      ],
+      "used_by_placement_fields": [
+        "core_values"
+      ],
+      "notes": "",
+      "risk_of_hallucination_or_overreach": "Low"
+    },
+    {
+      "claim_id": "claim_lorehold_structure_0001",
+      "faction_id": "lorehold",
+      "claim": "Strixhaven is divided into five colleges, each with its own campus, faculty, and magical specialties.",
+      "claim_type": "structure",
+      "canon_status": "Confirmed Canon",
+      "confidence": "High",
+      "evidence_type": "Direct canon",
+      "source_ids": [
+        "src_lorehold_0002"
+      ],
+      "first_recorded": "2026-05-09",
+      "last_verified": "2026-05-09",
+      "status": "Active",
+      "replaces_claim_ids": [],
+      "replaced_by_claim_ids": [],
+      "contradicted_by_claim_ids": [],
+      "used_by_profile_fields": [
+        "structure"
+      ],
+      "used_by_placement_fields": [],
+      "notes": "",
+      "risk_of_hallucination_or_overreach": "Low"
+    },
+    {
+      "claim_id": "claim_lorehold_structure_0002",
+      "faction_id": "lorehold",
+      "claim": "Each Strixhaven college has two deans, one aligned with each of the two mana colors of the college.",
+      "claim_type": "structure",
+      "canon_status": "Confirmed Canon",
+      "confidence": "High",
+      "evidence_type": "Direct canon",
+      "source_ids": [
+        "src_lorehold_0002",
+        "src_lorehold_0004"
+      ],
+      "first_recorded": "2026-05-09",
+      "last_verified": "2026-05-09",
+      "status": "Active",
+      "replaces_claim_ids": [],
+      "replaced_by_claim_ids": [],
+      "contradicted_by_claim_ids": [],
+      "used_by_profile_fields": [
+        "structure"
+      ],
+      "used_by_placement_fields": [
+        "placement_axes"
+      ],
+      "notes": "",
+      "risk_of_hallucination_or_overreach": "Low"
+    },
+    {
+      "claim_id": "claim_lorehold_structure_0003",
+      "faction_id": "lorehold",
+      "claim": "Plargg, Dean of Chaos and Augusta, Dean of Order are the two faces of Lorehold's modal double-faced dean card.",
+      "claim_type": "key_figure",
+      "canon_status": "Rules-Supported",
+      "confidence": "High",
+      "evidence_type": "Rules-mechanics",
+      "source_ids": [
+        "src_lorehold_0004",
+        "src_lorehold_0005"
+      ],
+      "first_recorded": "2026-05-09",
+      "last_verified": "2026-05-09",
+      "status": "Active",
+      "replaces_claim_ids": [],
+      "replaced_by_claim_ids": [],
+      "contradicted_by_claim_ids": [],
+      "used_by_profile_fields": [
+        "structure",
+        "key_figures"
+      ],
+      "used_by_placement_fields": [
+        "placement_axes"
+      ],
+      "notes": "",
+      "risk_of_hallucination_or_overreach": "Low"
+    },
+    {
+      "claim_id": "claim_lorehold_structure_0004",
+      "faction_id": "lorehold",
+      "claim": "In 2026 story context, Augusta Tullus is described as Lorehold's dean of order in life and continues teaching after death.",
+      "claim_type": "key_figure",
+      "canon_status": "Confirmed Canon",
+      "confidence": "High",
+      "evidence_type": "Direct canon",
+      "source_ids": [
+        "src_lorehold_0010",
+        "src_lorehold_0009"
+      ],
+      "first_recorded": "2026-05-09",
+      "last_verified": "2026-05-09",
+      "status": "Active",
+      "replaces_claim_ids": [],
+      "replaced_by_claim_ids": [],
+      "contradicted_by_claim_ids": [],
+      "used_by_profile_fields": [
+        "structure",
+        "key_figures"
+      ],
+      "used_by_placement_fields": [
+        "placement_axes",
+        "inhibitor_traits"
+      ],
+      "notes": "",
+      "risk_of_hallucination_or_overreach": "Low"
+    },
+    {
+      "claim_id": "claim_lorehold_structure_0005",
+      "faction_id": "lorehold",
+      "claim": "Dean Plargg is described in 2026 story context as Augusta Tullus's counterpart who is more likely to bend rules when it amuses him.",
+      "claim_type": "key_figure",
+      "canon_status": "Confirmed Canon",
+      "confidence": "High",
+      "evidence_type": "Direct canon",
+      "source_ids": [
+        "src_lorehold_0010"
+      ],
+      "first_recorded": "2026-05-09",
+      "last_verified": "2026-05-09",
+      "status": "Active",
+      "replaces_claim_ids": [],
+      "replaced_by_claim_ids": [],
+      "contradicted_by_claim_ids": [],
+      "used_by_profile_fields": [
+        "structure",
+        "key_figures"
+      ],
+      "used_by_placement_fields": [
+        "placement_axes"
+      ],
+      "notes": "",
+      "risk_of_hallucination_or_overreach": "Low"
+    },
+    {
+      "claim_id": "claim_lorehold_structure_0006",
+      "faction_id": "lorehold",
+      "claim": "Lorehold's major areas of study include history, archeology, anthropology, architecture, mythology, theology, and fieldwork methodologies.",
+      "claim_type": "structure",
+      "canon_status": "Confirmed Canon",
+      "confidence": "High",
+      "evidence_type": "Direct canon",
+      "source_ids": [
+        "src_lorehold_0008"
+      ],
+      "first_recorded": "2026-05-09",
+      "last_verified": "2026-05-09",
+      "status": "Active",
+      "replaces_claim_ids": [],
+      "replaced_by_claim_ids": [],
+      "contradicted_by_claim_ids": [],
+      "used_by_profile_fields": [
+        "structure",
+        "search_and_filter_metadata"
+      ],
+      "used_by_placement_fields": [
+        "core_values",
+        "behavioral_signals"
+      ],
+      "notes": "",
+      "risk_of_hallucination_or_overreach": "Low"
+    },
+    {
+      "claim_id": "claim_lorehold_dichotomy_0001",
+      "faction_id": "lorehold",
+      "claim": "Lorehold magic is driven by the duality of order and chaos.",
+      "claim_type": "philosophy",
+      "canon_status": "Confirmed Canon",
+      "confidence": "High",
+      "evidence_type": "Direct canon",
+      "source_ids": [
+        "src_lorehold_0008",
+        "src_lorehold_0002"
+      ],
+      "first_recorded": "2026-05-09",
+      "last_verified": "2026-05-09",
+      "status": "Active",
+      "replaces_claim_ids": [],
+      "replaced_by_claim_ids": [],
+      "contradicted_by_claim_ids": [],
+      "used_by_profile_fields": [
+        "great_tension",
+        "core_identity"
+      ],
+      "used_by_placement_fields": [
+        "moral_and_psychological_profile",
+        "placement_axes"
+      ],
+      "notes": "",
+      "risk_of_hallucination_or_overreach": "Low"
+    },
+    {
+      "claim_id": "claim_lorehold_dichotomy_0002",
+      "faction_id": "lorehold",
+      "claim": "The red side of Lorehold gravitates toward reckless discovery and adventure in historical research.",
+      "claim_type": "philosophy",
+      "canon_status": "Confirmed Canon",
+      "confidence": "High",
+      "evidence_type": "Direct canon",
+      "source_ids": [
+        "src_lorehold_0002"
+      ],
+      "first_recorded": "2026-05-09",
+      "last_verified": "2026-05-09",
+      "status": "Active",
+      "replaces_claim_ids": [],
+      "replaced_by_claim_ids": [],
+      "contradicted_by_claim_ids": [],
+      "used_by_profile_fields": [
+        "great_tension",
+        "structure"
+      ],
+      "used_by_placement_fields": [
+        "placement_axes",
+        "behavioral_signals"
+      ],
+      "notes": "",
+      "risk_of_hallucination_or_overreach": "Low"
+    },
+    {
+      "claim_id": "claim_lorehold_dichotomy_0003",
+      "faction_id": "lorehold",
+      "claim": "The red side of Lorehold prioritizes the essence and emotion of history over precision or procedure.",
+      "claim_type": "philosophy",
+      "canon_status": "Confirmed Canon",
+      "confidence": "High",
+      "evidence_type": "Direct canon",
+      "source_ids": [
+        "src_lorehold_0002"
+      ],
+      "first_recorded": "2026-05-09",
+      "last_verified": "2026-05-09",
+      "status": "Active",
+      "replaces_claim_ids": [],
+      "replaced_by_claim_ids": [],
+      "contradicted_by_claim_ids": [],
+      "used_by_profile_fields": [
+        "great_tension"
+      ],
+      "used_by_placement_fields": [
+        "placement_axes"
+      ],
+      "notes": "",
+      "risk_of_hallucination_or_overreach": "Low"
+    },
+    {
+      "claim_id": "claim_lorehold_dichotomy_0004",
+      "faction_id": "lorehold",
+      "claim": "The white side of Lorehold focuses on uncovering, recording, preserving, and caring for the past.",
+      "claim_type": "philosophy",
+      "canon_status": "Confirmed Canon",
+      "confidence": "High",
+      "evidence_type": "Direct canon",
+      "source_ids": [
+        "src_lorehold_0002"
+      ],
+      "first_recorded": "2026-05-09",
+      "last_verified": "2026-05-09",
+      "status": "Active",
+      "replaces_claim_ids": [],
+      "replaced_by_claim_ids": [],
+      "contradicted_by_claim_ids": [],
+      "used_by_profile_fields": [
+        "great_tension",
+        "structure"
+      ],
+      "used_by_placement_fields": [
+        "placement_axes",
+        "core_values"
+      ],
+      "notes": "",
+      "risk_of_hallucination_or_overreach": "Low"
+    },
+    {
+      "claim_id": "claim_lorehold_dichotomy_0005",
+      "faction_id": "lorehold",
+      "claim": "Some Lorehold roles use historical precedent to enforce magical laws.",
+      "claim_type": "philosophy",
+      "canon_status": "Confirmed Canon",
+      "confidence": "High",
+      "evidence_type": "Direct canon",
+      "source_ids": [
+        "src_lorehold_0002"
+      ],
+      "first_recorded": "2026-05-09",
+      "last_verified": "2026-05-09",
+      "status": "Active",
+      "replaces_claim_ids": [],
+      "replaced_by_claim_ids": [],
+      "contradicted_by_claim_ids": [],
+      "used_by_profile_fields": [
+        "structure"
+      ],
+      "used_by_placement_fields": [
+        "moral_and_psychological_profile",
+        "placement_axes"
+      ],
+      "notes": "",
+      "risk_of_hallucination_or_overreach": "Low"
+    },
+    {
+      "claim_id": "claim_lorehold_dichotomy_0006",
+      "faction_id": "lorehold",
+      "claim": "Lorehold mages are generally cooperative and enthusiastic, though their passion can be overwhelming.",
+      "claim_type": "philosophy",
+      "canon_status": "Confirmed Canon",
+      "confidence": "High",
+      "evidence_type": "Direct canon",
+      "source_ids": [
+        "src_lorehold_0008"
+      ],
+      "first_recorded": "2026-05-09",
+      "last_verified": "2026-05-09",
+      "status": "Active",
+      "replaces_claim_ids": [],
+      "replaced_by_claim_ids": [],
+      "contradicted_by_claim_ids": [],
+      "used_by_profile_fields": [
+        "site_surface",
+        "core_identity"
+      ],
+      "used_by_placement_fields": [
+        "behavioral_signals",
+        "poor_fit_indicators"
+      ],
+      "notes": "",
+      "risk_of_hallucination_or_overreach": "Low"
+    },
+    {
+      "claim_id": "claim_lorehold_location_0001",
+      "faction_id": "lorehold",
+      "claim": "Pillardrop is a series of historical buildings excavated out of cliffs and used for research, classwork, and housing.",
+      "claim_type": "location",
+      "canon_status": "Confirmed Canon",
+      "confidence": "High",
+      "evidence_type": "Direct canon",
+      "source_ids": [
+        "src_lorehold_0002"
+      ],
+      "first_recorded": "2026-05-09",
+      "last_verified": "2026-05-09",
+      "status": "Active",
+      "replaces_claim_ids": [],
+      "replaced_by_claim_ids": [],
+      "contradicted_by_claim_ids": [],
+      "used_by_profile_fields": [
+        "structure.locations",
+        "search_and_filter_metadata"
+      ],
+      "used_by_placement_fields": [],
+      "notes": "",
+      "risk_of_hallucination_or_overreach": "Low"
+    },
+    {
+      "claim_id": "claim_lorehold_location_0002",
+      "faction_id": "lorehold",
+      "claim": "Effigy Row is the main campus area of Lorehold.",
+      "claim_type": "location",
+      "canon_status": "Confirmed Canon",
+      "confidence": "High",
+      "evidence_type": "Direct canon",
+      "source_ids": [
+        "src_lorehold_0002",
+        "src_lorehold_0006"
+      ],
+      "first_recorded": "2026-05-09",
+      "last_verified": "2026-05-09",
+      "status": "Active",
+      "replaces_claim_ids": [],
+      "replaced_by_claim_ids": [],
+      "contradicted_by_claim_ids": [],
+      "used_by_profile_fields": [
+        "structure.locations"
+      ],
+      "used_by_placement_fields": [
+        "behavioral_signals"
+      ],
+      "notes": "",
+      "risk_of_hallucination_or_overreach": "Low"
+    },
+    {
+      "claim_id": "claim_lorehold_location_0003",
+      "faction_id": "lorehold",
+      "claim": "Effigy Row's pathways are lined with monuments of famous historical figures, past professors, prominent mage-students, war heroes, and heads of state from ages past.",
+      "claim_type": "location",
+      "canon_status": "Confirmed Canon",
+      "confidence": "High",
+      "evidence_type": "Direct canon",
+      "source_ids": [
+        "src_lorehold_0002",
+        "src_lorehold_0006"
+      ],
+      "first_recorded": "2026-05-09",
+      "last_verified": "2026-05-09",
+      "status": "Active",
+      "replaces_claim_ids": [],
+      "replaced_by_claim_ids": [],
+      "contradicted_by_claim_ids": [],
+      "used_by_profile_fields": [
+        "structure.locations"
+      ],
+      "used_by_placement_fields": [
+        "behavioral_signals"
+      ],
+      "notes": "",
+      "risk_of_hallucination_or_overreach": "Low"
+    },
+    {
+      "claim_id": "claim_lorehold_location_0004",
+      "faction_id": "lorehold",
+      "claim": "Kollema Hall is a grand, multi-tiered gallery where Lorehold mages gather for large lectures and demonstrations.",
+      "claim_type": "location",
+      "canon_status": "Confirmed Canon",
+      "confidence": "High",
+      "evidence_type": "Direct canon",
+      "source_ids": [
+        "src_lorehold_0002"
+      ],
+      "first_recorded": "2026-05-09",
+      "last_verified": "2026-05-09",
+      "status": "Active",
+      "replaces_claim_ids": [],
+      "replaced_by_claim_ids": [],
+      "contradicted_by_claim_ids": [],
+      "used_by_profile_fields": [
+        "structure.locations"
+      ],
+      "used_by_placement_fields": [],
+      "notes": "",
+      "risk_of_hallucination_or_overreach": "Low"
+    },
+    {
+      "claim_id": "claim_lorehold_location_0005",
+      "faction_id": "lorehold",
+      "claim": "The center of Kollema Hall contains a restored statue of Kollema, described as a wise monk and one of the first Lorehold professors.",
+      "claim_type": "location",
+      "canon_status": "Confirmed Canon",
+      "confidence": "High",
+      "evidence_type": "Direct canon",
+      "source_ids": [
+        "src_lorehold_0002"
+      ],
+      "first_recorded": "2026-05-09",
+      "last_verified": "2026-05-09",
+      "status": "Active",
+      "replaces_claim_ids": [],
+      "replaced_by_claim_ids": [],
+      "contradicted_by_claim_ids": [],
+      "used_by_profile_fields": [
+        "structure.locations"
+      ],
+      "used_by_placement_fields": [],
+      "notes": "",
+      "risk_of_hallucination_or_overreach": "Low"
+    },
+    {
+      "claim_id": "claim_lorehold_location_0006",
+      "faction_id": "lorehold",
+      "claim": "Zantafar is a lost, ruined city rediscovered by Quintorius Kand and later became a historical site of great interest to Lorehold mages and anthropologists.",
+      "claim_type": "location",
+      "canon_status": "Confirmed Canon",
+      "confidence": "High",
+      "evidence_type": "Direct canon",
+      "source_ids": [
+        "src_lorehold_0008",
+        "src_lorehold_0006"
+      ],
+      "first_recorded": "2026-05-09",
+      "last_verified": "2026-05-09",
+      "status": "Active",
+      "replaces_claim_ids": [],
+      "replaced_by_claim_ids": [],
+      "contradicted_by_claim_ids": [],
+      "used_by_profile_fields": [
+        "structure.locations",
+        "historical_timeline"
+      ],
+      "used_by_placement_fields": [
+        "behavioral_signals"
+      ],
+      "notes": "",
+      "risk_of_hallucination_or_overreach": "Low"
+    },
+    {
+      "claim_id": "claim_lorehold_location_0007",
+      "faction_id": "lorehold",
+      "claim": "The Fields of Strife are connected to Lorehold field study in 2026 story context and contain restless dead continuing Blood Age conflict.",
+      "claim_type": "location",
+      "canon_status": "Confirmed Canon",
+      "confidence": "High",
+      "evidence_type": "Direct canon",
+      "source_ids": [
+        "src_lorehold_0010",
+        "src_lorehold_0009"
+      ],
+      "first_recorded": "2026-05-09",
+      "last_verified": "2026-05-09",
+      "status": "Active",
+      "replaces_claim_ids": [],
+      "replaced_by_claim_ids": [],
+      "contradicted_by_claim_ids": [],
+      "used_by_profile_fields": [
+        "structure.locations",
+        "historical_timeline"
+      ],
+      "used_by_placement_fields": [
+        "behavioral_signals"
+      ],
+      "notes": "",
+      "risk_of_hallucination_or_overreach": "Low"
+    },
+    {
+      "claim_id": "claim_lorehold_mechanic_0001",
+      "faction_id": "lorehold",
+      "claim": "Lorehold mages supplement their study of history by calling on the spirits of the ancient dead.",
+      "claim_type": "mechanic",
+      "canon_status": "Confirmed Canon",
+      "confidence": "High",
+      "evidence_type": "Direct canon",
+      "source_ids": [
+        "src_lorehold_0002"
+      ],
+      "first_recorded": "2026-05-09",
+      "last_verified": "2026-05-09",
+      "status": "Active",
+      "replaces_claim_ids": [],
+      "replaced_by_claim_ids": [],
+      "contradicted_by_claim_ids": [],
+      "used_by_profile_fields": [
+        "mechanics"
+      ],
+      "used_by_placement_fields": [
+        "behavioral_signals"
+      ],
+      "notes": "",
+      "risk_of_hallucination_or_overreach": "Low"
+    },
+    {
+      "claim_id": "claim_lorehold_mechanic_0002",
+      "faction_id": "lorehold",
+      "claim": "Some Lorehold mages house spirits in statues depicting the spirits' living selves.",
+      "claim_type": "mechanic",
+      "canon_status": "Confirmed Canon",
+      "confidence": "High",
+      "evidence_type": "Direct canon",
+      "source_ids": [
+        "src_lorehold_0002"
+      ],
+      "first_recorded": "2026-05-09",
+      "last_verified": "2026-05-09",
+      "status": "Active",
+      "replaces_claim_ids": [],
+      "replaced_by_claim_ids": [],
+      "contradicted_by_claim_ids": [],
+      "used_by_profile_fields": [
+        "mechanics"
+      ],
+      "used_by_placement_fields": [
+        "behavioral_signals"
+      ],
+      "notes": "",
+      "risk_of_hallucination_or_overreach": "Low"
+    },
+    {
+      "claim_id": "claim_lorehold_mechanic_0003",
+      "faction_id": "lorehold",
+      "claim": "The Rousing is described as Lorehold's most important spell and a lynchpin for constructive understanding of archaeomancy.",
+      "claim_type": "mechanic",
+      "canon_status": "Confirmed Canon",
+      "confidence": "High",
+      "evidence_type": "Direct canon",
+      "source_ids": [
+        "src_lorehold_0006"
+      ],
+      "first_recorded": "2026-05-09",
+      "last_verified": "2026-05-09",
+      "status": "Active",
+      "replaces_claim_ids": [],
+      "replaced_by_claim_ids": [],
+      "contradicted_by_claim_ids": [],
+      "used_by_profile_fields": [
+        "mechanics"
+      ],
+      "used_by_placement_fields": [
+        "behavioral_signals"
+      ],
+      "notes": "",
+      "risk_of_hallucination_or_overreach": "Low"
+    },
+    {
+      "claim_id": "claim_lorehold_mechanic_0004",
+      "faction_id": "lorehold",
+      "claim": "The Rousing allows an archaeomancer to project their will backward along currents of time around Arcavios and pull a name, face, or event into the present.",
+      "claim_type": "mechanic",
+      "canon_status": "Confirmed Canon",
+      "confidence": "Medium",
+      "evidence_type": "Direct canon",
+      "source_ids": [
+        "src_lorehold_0006"
+      ],
+      "first_recorded": "2026-05-09",
+      "last_verified": "2026-05-09",
+      "status": "Active",
+      "replaces_claim_ids": [],
+      "replaced_by_claim_ids": [],
+      "contradicted_by_claim_ids": [],
+      "used_by_profile_fields": [
+        "mechanics"
+      ],
+      "used_by_placement_fields": [
+        "behavioral_signals"
+      ],
+      "notes": "",
+      "risk_of_hallucination_or_overreach": "Medium: narrative description of a spell should not be converted into formal gameplay rules."
+    },
+    {
+      "claim_id": "claim_lorehold_mechanic_0005",
+      "faction_id": "lorehold",
+      "claim": "Magecraft is an ability word for abilities that reward a player when they cast or copy an instant or sorcery spell.",
+      "claim_type": "mechanic",
+      "canon_status": "Rules-Supported",
+      "confidence": "High",
+      "evidence_type": "Rules-mechanics",
+      "source_ids": [
+        "src_lorehold_0004",
+        "src_lorehold_0005"
+      ],
+      "first_recorded": "2026-05-09",
+      "last_verified": "2026-05-09",
+      "status": "Active",
+      "replaces_claim_ids": [],
+      "replaced_by_claim_ids": [],
+      "contradicted_by_claim_ids": [],
+      "used_by_profile_fields": [
+        "mechanics"
+      ],
+      "used_by_placement_fields": [],
+      "notes": "",
+      "risk_of_hallucination_or_overreach": "Low"
+    },
+    {
+      "claim_id": "claim_lorehold_mechanic_0006",
+      "faction_id": "lorehold",
+      "claim": "Learn lets a player either reveal a Lesson card from outside the game and put it into their hand, discard a card to draw a card, or do nothing.",
+      "claim_type": "mechanic",
+      "canon_status": "Rules-Supported",
+      "confidence": "High",
+      "evidence_type": "Rules-mechanics",
+      "source_ids": [
+        "src_lorehold_0004",
+        "src_lorehold_0005"
+      ],
+      "first_recorded": "2026-05-09",
+      "last_verified": "2026-05-09",
+      "status": "Active",
+      "replaces_claim_ids": [],
+      "replaced_by_claim_ids": [],
+      "contradicted_by_claim_ids": [],
+      "used_by_profile_fields": [
+        "mechanics"
+      ],
+      "used_by_placement_fields": [],
+      "notes": "",
+      "risk_of_hallucination_or_overreach": "Low"
+    },
+    {
+      "claim_id": "claim_lorehold_mechanic_0007",
+      "faction_id": "lorehold",
+      "claim": "Strixhaven's Lesson subtype has no special rules associated with it.",
+      "claim_type": "mechanic",
+      "canon_status": "Rules-Supported",
+      "confidence": "High",
+      "evidence_type": "Rules-mechanics",
+      "source_ids": [
+        "src_lorehold_0005"
+      ],
+      "first_recorded": "2026-05-09",
+      "last_verified": "2026-05-09",
+      "status": "Active",
+      "replaces_claim_ids": [],
+      "replaced_by_claim_ids": [],
+      "contradicted_by_claim_ids": [],
+      "used_by_profile_fields": [
+        "mechanics"
+      ],
+      "used_by_placement_fields": [],
+      "notes": "",
+      "risk_of_hallucination_or_overreach": "Low"
+    },
+    {
+      "claim_id": "claim_lorehold_mechanic_0008",
+      "faction_id": "lorehold",
+      "claim": "Lorehold Command can create a red-white Spirit token, empower creatures with haste and indestructible, deal damage and grant life, or sacrifice a permanent to draw cards.",
+      "claim_type": "mechanic",
+      "canon_status": "Rules-Supported",
+      "confidence": "High",
+      "evidence_type": "Rules-mechanics",
+      "source_ids": [
+        "src_lorehold_0005"
+      ],
+      "first_recorded": "2026-05-09",
+      "last_verified": "2026-05-09",
+      "status": "Active",
+      "replaces_claim_ids": [],
+      "replaced_by_claim_ids": [],
+      "contradicted_by_claim_ids": [],
+      "used_by_profile_fields": [
+        "mechanics",
+        "canonical_flavor_text"
+      ],
+      "used_by_placement_fields": [
+        "behavioral_signals"
+      ],
+      "notes": "",
+      "risk_of_hallucination_or_overreach": "Low"
+    },
+    {
+      "claim_id": "claim_lorehold_mechanic_0009",
+      "faction_id": "lorehold",
+      "claim": "Quintorius, Field Historian gives Spirits +1/+0 and creates a red-white Spirit token when cards leave its controller's graveyard.",
+      "claim_type": "mechanic",
+      "canon_status": "Rules-Supported",
+      "confidence": "High",
+      "evidence_type": "Rules-mechanics",
+      "source_ids": [
+        "src_lorehold_0005"
+      ],
+      "first_recorded": "2026-05-09",
+      "last_verified": "2026-05-09",
+      "status": "Active",
+      "replaces_claim_ids": [],
+      "replaced_by_claim_ids": [],
+      "contradicted_by_claim_ids": [],
+      "used_by_profile_fields": [
+        "mechanics",
+        "key_figures"
+      ],
+      "used_by_placement_fields": [
+        "behavioral_signals"
+      ],
+      "notes": "",
+      "risk_of_hallucination_or_overreach": "Low"
+    },
+    {
+      "claim_id": "claim_lorehold_mechanic_0010",
+      "faction_id": "lorehold",
+      "claim": "Lorehold Apprentice has a magecraft ability that grants Spirit creatures a temporary activated ability to deal damage to each opponent.",
+      "claim_type": "mechanic",
+      "canon_status": "Rules-Supported",
+      "confidence": "High",
+      "evidence_type": "Rules-mechanics",
+      "source_ids": [
+        "src_lorehold_0005"
+      ],
+      "first_recorded": "2026-05-09",
+      "last_verified": "2026-05-09",
+      "status": "Active",
+      "replaces_claim_ids": [],
+      "replaced_by_claim_ids": [],
+      "contradicted_by_claim_ids": [],
+      "used_by_profile_fields": [
+        "mechanics"
+      ],
+      "used_by_placement_fields": [
+        "behavioral_signals"
+      ],
+      "notes": "",
+      "risk_of_hallucination_or_overreach": "Low"
+    },
+    {
+      "claim_id": "claim_lorehold_mechanic_0011",
+      "faction_id": "lorehold",
+      "claim": "Velomachus Lorehold is a red-white legendary Elder Dragon card with flying, vigilance, and haste.",
+      "claim_type": "mechanic",
+      "canon_status": "Rules-Supported",
+      "confidence": "High",
+      "evidence_type": "Rules-mechanics",
+      "source_ids": [
+        "src_lorehold_0005"
+      ],
+      "first_recorded": "2026-05-09",
+      "last_verified": "2026-05-09",
+      "status": "Active",
+      "replaces_claim_ids": [],
+      "replaced_by_claim_ids": [],
+      "contradicted_by_claim_ids": [],
+      "used_by_profile_fields": [
+        "key_figures",
+        "mechanics"
+      ],
+      "used_by_placement_fields": [
+        "behavioral_signals"
+      ],
+      "notes": "",
+      "risk_of_hallucination_or_overreach": "Low"
+    },
+    {
+      "claim_id": "claim_lorehold_mechanic_0012",
+      "faction_id": "lorehold",
+      "claim": "Velomachus Lorehold's attack trigger can cast an instant or sorcery from the top seven cards of its controller's library if the spell's mana value is less than or equal to Velomachus's power.",
+      "claim_type": "mechanic",
+      "canon_status": "Rules-Supported",
+      "confidence": "High",
+      "evidence_type": "Rules-mechanics",
+      "source_ids": [
+        "src_lorehold_0005"
+      ],
+      "first_recorded": "2026-05-09",
+      "last_verified": "2026-05-09",
+      "status": "Active",
+      "replaces_claim_ids": [],
+      "replaced_by_claim_ids": [],
+      "contradicted_by_claim_ids": [],
+      "used_by_profile_fields": [
+        "key_figures",
+        "mechanics"
+      ],
+      "used_by_placement_fields": [
+        "behavioral_signals"
+      ],
+      "notes": "",
+      "risk_of_hallucination_or_overreach": "Low"
+    },
+    {
+      "claim_id": "claim_lorehold_mechanic_0013",
+      "faction_id": "lorehold",
+      "claim": "Secrets of Strixhaven's Lorehold Spirit Commander deck is an official 2026 product/decklist.",
+      "claim_type": "mechanic",
+      "canon_status": "Card-Supported",
+      "confidence": "High",
+      "evidence_type": "Card text",
+      "source_ids": [
+        "src_lorehold_0011"
+      ],
+      "first_recorded": "2026-05-09",
+      "last_verified": "2026-05-09",
+      "status": "Active",
+      "replaces_claim_ids": [],
+      "replaced_by_claim_ids": [],
+      "contradicted_by_claim_ids": [],
+      "used_by_profile_fields": [
+        "mechanics",
+        "search_and_filter_metadata"
+      ],
+      "used_by_placement_fields": [
+        "behavioral_signals"
+      ],
+      "notes": "",
+      "risk_of_hallucination_or_overreach": "Low"
+    },
+    {
+      "claim_id": "claim_lorehold_mechanic_0014",
+      "faction_id": "lorehold",
+      "claim": "The Lorehold Spirit Commander deck uses Spirit tokens among its token support.",
+      "claim_type": "mechanic",
+      "canon_status": "Card-Supported",
+      "confidence": "High",
+      "evidence_type": "Card text",
+      "source_ids": [
+        "src_lorehold_0011"
+      ],
+      "first_recorded": "2026-05-09",
+      "last_verified": "2026-05-09",
+      "status": "Active",
+      "replaces_claim_ids": [],
+      "replaced_by_claim_ids": [],
+      "contradicted_by_claim_ids": [],
+      "used_by_profile_fields": [
+        "mechanics"
+      ],
+      "used_by_placement_fields": [
+        "behavioral_signals"
+      ],
+      "notes": "",
+      "risk_of_hallucination_or_overreach": "Low"
+    },
+    {
+      "claim_id": "claim_lorehold_figure_0001",
+      "faction_id": "lorehold",
+      "claim": "Velomachus Lorehold is one of the five elder dragon founders of Strixhaven University.",
+      "claim_type": "key_figure",
+      "canon_status": "Confirmed Canon",
+      "confidence": "High",
+      "evidence_type": "Direct canon",
+      "source_ids": [
+        "src_lorehold_0009",
+        "src_lorehold_0002"
+      ],
+      "first_recorded": "2026-05-09",
+      "last_verified": "2026-05-09",
+      "status": "Active",
+      "replaces_claim_ids": [],
+      "replaced_by_claim_ids": [],
+      "contradicted_by_claim_ids": [],
+      "used_by_profile_fields": [
+        "structure.leaders",
+        "key_figures"
+      ],
+      "used_by_placement_fields": [
+        "moral_and_psychological_profile"
+      ],
+      "notes": "",
+      "risk_of_hallucination_or_overreach": "Low"
+    },
+    {
+      "claim_id": "claim_lorehold_figure_0002",
+      "faction_id": "lorehold",
+      "claim": "Velomachus Lorehold is observant and standoffish, and considers it her responsibility to watch and document history without interference unless necessary.",
+      "claim_type": "key_figure",
+      "canon_status": "Confirmed Canon",
+      "confidence": "High",
+      "evidence_type": "Direct canon",
+      "source_ids": [
+        "src_lorehold_0009"
+      ],
+      "first_recorded": "2026-05-09",
+      "last_verified": "2026-05-09",
+      "status": "Active",
+      "replaces_claim_ids": [],
+      "replaced_by_claim_ids": [],
+      "contradicted_by_claim_ids": [],
+      "used_by_profile_fields": [
+        "structure.leaders",
+        "key_figures"
+      ],
+      "used_by_placement_fields": [
+        "moral_and_psychological_profile",
+        "inhibitor_traits"
+      ],
+      "notes": "",
+      "risk_of_hallucination_or_overreach": "Low"
+    },
+    {
+      "claim_id": "claim_lorehold_figure_0003",
+      "faction_id": "lorehold",
+      "claim": "Velomachus Lorehold expects people to learn from the past and work toward a better future.",
+      "claim_type": "philosophy",
+      "canon_status": "Confirmed Canon",
+      "confidence": "High",
+      "evidence_type": "Direct canon",
+      "source_ids": [
+        "src_lorehold_0009"
+      ],
+      "first_recorded": "2026-05-09",
+      "last_verified": "2026-05-09",
+      "status": "Active",
+      "replaces_claim_ids": [],
+      "replaced_by_claim_ids": [],
+      "contradicted_by_claim_ids": [],
+      "used_by_profile_fields": [
+        "key_figures",
+        "core_identity"
+      ],
+      "used_by_placement_fields": [
+        "moral_and_psychological_profile",
+        "core_values"
+      ],
+      "notes": "",
+      "risk_of_hallucination_or_overreach": "Low"
+    },
+    {
+      "claim_id": "claim_lorehold_figure_0004",
+      "faction_id": "lorehold",
+      "claim": "Velomachus Lorehold has a fondness for collecting artifacts and trinkets.",
+      "claim_type": "key_figure",
+      "canon_status": "Confirmed Canon",
+      "confidence": "High",
+      "evidence_type": "Direct canon",
+      "source_ids": [
+        "src_lorehold_0009"
+      ],
+      "first_recorded": "2026-05-09",
+      "last_verified": "2026-05-09",
+      "status": "Active",
+      "replaces_claim_ids": [],
+      "replaced_by_claim_ids": [],
+      "contradicted_by_claim_ids": [],
+      "used_by_profile_fields": [
+        "key_figures"
+      ],
+      "used_by_placement_fields": [
+        "behavioral_signals"
+      ],
+      "notes": "",
+      "risk_of_hallucination_or_overreach": "Low"
+    },
+    {
+      "claim_id": "claim_lorehold_figure_0005",
+      "faction_id": "lorehold",
+      "claim": "Quintorius Kand is a Lorehold student who became a recently sparked Planeswalker by the 2026 Secrets of Strixhaven legend guide.",
+      "claim_type": "key_figure",
+      "canon_status": "Confirmed Canon",
+      "confidence": "High",
+      "evidence_type": "Direct canon",
+      "source_ids": [
+        "src_lorehold_0009"
+      ],
+      "first_recorded": "2026-05-09",
+      "last_verified": "2026-05-09",
+      "status": "Active",
+      "replaces_claim_ids": [],
+      "replaced_by_claim_ids": [],
+      "contradicted_by_claim_ids": [],
+      "used_by_profile_fields": [
+        "key_figures",
+        "historical_timeline"
+      ],
+      "used_by_placement_fields": [
+        "behavioral_signals"
+      ],
+      "notes": "",
+      "risk_of_hallucination_or_overreach": "Low"
+    },
+    {
+      "claim_id": "claim_lorehold_figure_0006",
+      "faction_id": "lorehold",
+      "claim": "Quintorius Kand is described as a prolific reader and gregarious adventurer with deep appreciation for cultures, histories, and myths.",
+      "claim_type": "key_figure",
+      "canon_status": "Confirmed Canon",
+      "confidence": "High",
+      "evidence_type": "Direct canon",
+      "source_ids": [
+        "src_lorehold_0009"
+      ],
+      "first_recorded": "2026-05-09",
+      "last_verified": "2026-05-09",
+      "status": "Active",
+      "replaces_claim_ids": [],
+      "replaced_by_claim_ids": [],
+      "contradicted_by_claim_ids": [],
+      "used_by_profile_fields": [
+        "key_figures"
+      ],
+      "used_by_placement_fields": [
+        "good_fit_indicators"
+      ],
+      "notes": "",
+      "risk_of_hallucination_or_overreach": "Low"
+    },
+    {
+      "claim_id": "claim_lorehold_figure_0007",
+      "faction_id": "lorehold",
+      "claim": "Quintorius Kand has investigated remnants of the Fomori and mysterious multiversal colonizers lost to time.",
+      "claim_type": "key_figure",
+      "canon_status": "Confirmed Canon",
+      "confidence": "High",
+      "evidence_type": "Direct canon",
+      "source_ids": [
+        "src_lorehold_0009",
+        "src_lorehold_0010"
+      ],
+      "first_recorded": "2026-05-09",
+      "last_verified": "2026-05-09",
+      "status": "Active",
+      "replaces_claim_ids": [],
+      "replaced_by_claim_ids": [],
+      "contradicted_by_claim_ids": [],
+      "used_by_profile_fields": [
+        "key_figures",
+        "historical_timeline"
+      ],
+      "used_by_placement_fields": [
+        "behavioral_signals"
+      ],
+      "notes": "",
+      "risk_of_hallucination_or_overreach": "Low"
+    },
+    {
+      "claim_id": "claim_lorehold_figure_0008",
+      "faction_id": "lorehold",
+      "claim": "Kirol is an athletic and inquisitive Lorehold student who does not hesitate to jump into trouble.",
+      "claim_type": "key_figure",
+      "canon_status": "Confirmed Canon",
+      "confidence": "High",
+      "evidence_type": "Direct canon",
+      "source_ids": [
+        "src_lorehold_0009"
+      ],
+      "first_recorded": "2026-05-09",
+      "last_verified": "2026-05-09",
+      "status": "Active",
+      "replaces_claim_ids": [],
+      "replaced_by_claim_ids": [],
+      "contradicted_by_claim_ids": [],
+      "used_by_profile_fields": [
+        "key_figures"
+      ],
+      "used_by_placement_fields": [
+        "good_fit_indicators",
+        "behavioral_signals"
+      ],
+      "notes": "",
+      "risk_of_hallucination_or_overreach": "Low"
+    },
+    {
+      "claim_id": "claim_lorehold_figure_0009",
+      "faction_id": "lorehold",
+      "claim": "Kirol became more committed to exploring and preserving history after the losses of the Phyrexian Invasion.",
+      "claim_type": "key_figure",
+      "canon_status": "Confirmed Canon",
+      "confidence": "High",
+      "evidence_type": "Direct canon",
+      "source_ids": [
+        "src_lorehold_0009"
+      ],
+      "first_recorded": "2026-05-09",
+      "last_verified": "2026-05-09",
+      "status": "Active",
+      "replaces_claim_ids": [],
+      "replaced_by_claim_ids": [],
+      "contradicted_by_claim_ids": [],
+      "used_by_profile_fields": [
+        "key_figures",
+        "historical_timeline"
+      ],
+      "used_by_placement_fields": [
+        "core_values"
+      ],
+      "notes": "",
+      "risk_of_hallucination_or_overreach": "Low"
+    },
+    {
+      "claim_id": "claim_lorehold_figure_0010",
+      "faction_id": "lorehold",
+      "claim": "Mica, Reader of Ruins is a Lorehold-associated historian focused on deep history through fossils, minerals, and sediment.",
+      "claim_type": "key_figure",
+      "canon_status": "Confirmed Canon",
+      "confidence": "High",
+      "evidence_type": "Direct canon",
+      "source_ids": [
+        "src_lorehold_0009"
+      ],
+      "first_recorded": "2026-05-09",
+      "last_verified": "2026-05-09",
+      "status": "Active",
+      "replaces_claim_ids": [],
+      "replaced_by_claim_ids": [],
+      "contradicted_by_claim_ids": [],
+      "used_by_profile_fields": [
+        "key_figures"
+      ],
+      "used_by_placement_fields": [
+        "behavioral_signals"
+      ],
+      "notes": "",
+      "risk_of_hallucination_or_overreach": "Low"
+    },
+    {
+      "claim_id": "claim_lorehold_figure_0011",
+      "faction_id": "lorehold",
+      "claim": "Aziza, Mage Tower Captain is captain of the Lorehold Mage Tower team and the intramural Strixhaven team.",
+      "claim_type": "key_figure",
+      "canon_status": "Confirmed Canon",
+      "confidence": "High",
+      "evidence_type": "Direct canon",
+      "source_ids": [
+        "src_lorehold_0009"
+      ],
+      "first_recorded": "2026-05-09",
+      "last_verified": "2026-05-09",
+      "status": "Active",
+      "replaces_claim_ids": [],
+      "replaced_by_claim_ids": [],
+      "contradicted_by_claim_ids": [],
+      "used_by_profile_fields": [
+        "key_figures"
+      ],
+      "used_by_placement_fields": [
+        "behavioral_signals"
+      ],
+      "notes": "",
+      "risk_of_hallucination_or_overreach": "Low"
+    },
+    {
+      "claim_id": "claim_lorehold_figure_0012",
+      "faction_id": "lorehold",
+      "claim": "Excava, the Risen Past is the animated statue of a Blood Age war horse spirit who has been sought by Lorehold students.",
+      "claim_type": "key_figure",
+      "canon_status": "Confirmed Canon",
+      "confidence": "High",
+      "evidence_type": "Direct canon",
+      "source_ids": [
+        "src_lorehold_0009"
+      ],
+      "first_recorded": "2026-05-09",
+      "last_verified": "2026-05-09",
+      "status": "Active",
+      "replaces_claim_ids": [],
+      "replaced_by_claim_ids": [],
+      "contradicted_by_claim_ids": [],
+      "used_by_profile_fields": [
+        "key_figures"
+      ],
+      "used_by_placement_fields": [
+        "behavioral_signals"
+      ],
+      "notes": "",
+      "risk_of_hallucination_or_overreach": "Low"
+    },
+    {
+      "claim_id": "claim_lorehold_timeline_0001",
+      "faction_id": "lorehold",
+      "claim": "Strixhaven University was founded approximately 700 years before the 2021 Planeswalker's Guide timeframe by five spellcasting dragons.",
+      "claim_type": "timeline",
+      "canon_status": "Confirmed Canon",
+      "confidence": "High",
+      "evidence_type": "Direct canon",
+      "source_ids": [
+        "src_lorehold_0002"
+      ],
+      "first_recorded": "2026-05-09",
+      "last_verified": "2026-05-09",
+      "status": "Active",
+      "replaces_claim_ids": [],
+      "replaced_by_claim_ids": [],
+      "contradicted_by_claim_ids": [],
+      "used_by_profile_fields": [
+        "historical_timeline"
+      ],
+      "used_by_placement_fields": [],
+      "notes": "",
+      "risk_of_hallucination_or_overreach": "Low"
+    },
+    {
+      "claim_id": "claim_lorehold_timeline_0002",
+      "faction_id": "lorehold",
+      "claim": "The Blood Age lasted from approximately 7,000 to 700 years ago in the 2026 guide's timeline.",
+      "claim_type": "timeline",
+      "canon_status": "Confirmed Canon",
+      "confidence": "High",
+      "evidence_type": "Direct canon",
+      "source_ids": [
+        "src_lorehold_0008"
+      ],
+      "first_recorded": "2026-05-09",
+      "last_verified": "2026-05-09",
+      "status": "Active",
+      "replaces_claim_ids": [],
+      "replaced_by_claim_ids": [],
+      "contradicted_by_claim_ids": [],
+      "used_by_profile_fields": [
+        "historical_timeline"
+      ],
+      "used_by_placement_fields": [
+        "behavioral_signals"
+      ],
+      "notes": "",
+      "risk_of_hallucination_or_overreach": "Low"
+    },
+    {
+      "claim_id": "claim_lorehold_timeline_0003",
+      "faction_id": "lorehold",
+      "claim": "The Blood Age ended when five elder dragons founded Strixhaven University, beginning the Mystic Age.",
+      "claim_type": "timeline",
+      "canon_status": "Confirmed Canon",
+      "confidence": "High",
+      "evidence_type": "Direct canon",
+      "source_ids": [
+        "src_lorehold_0008"
+      ],
+      "first_recorded": "2026-05-09",
+      "last_verified": "2026-05-09",
+      "status": "Active",
+      "replaces_claim_ids": [],
+      "replaced_by_claim_ids": [],
+      "contradicted_by_claim_ids": [],
+      "used_by_profile_fields": [
+        "historical_timeline"
+      ],
+      "used_by_placement_fields": [
+        "moral_and_psychological_profile"
+      ],
+      "notes": "",
+      "risk_of_hallucination_or_overreach": "Low"
+    },
+    {
+      "claim_id": "claim_lorehold_timeline_0004",
+      "faction_id": "lorehold",
+      "claim": "Artifacts and spirits from the Blood Age still surface from time to time in the current Mystic Age.",
+      "claim_type": "timeline",
+      "canon_status": "Confirmed Canon",
+      "confidence": "High",
+      "evidence_type": "Direct canon",
+      "source_ids": [
+        "src_lorehold_0008"
+      ],
+      "first_recorded": "2026-05-09",
+      "last_verified": "2026-05-09",
+      "status": "Active",
+      "replaces_claim_ids": [],
+      "replaced_by_claim_ids": [],
+      "contradicted_by_claim_ids": [],
+      "used_by_profile_fields": [
+        "historical_timeline"
+      ],
+      "used_by_placement_fields": [
+        "behavioral_signals"
+      ],
+      "notes": "",
+      "risk_of_hallucination_or_overreach": "Low"
+    },
+    {
+      "claim_id": "claim_lorehold_timeline_0005",
+      "faction_id": "lorehold",
+      "claim": "During the New Phyrexian invasion of Arcavios, Strixhaven's defenses were breached and professors were captured and compleated.",
+      "claim_type": "timeline",
+      "canon_status": "Confirmed Canon",
+      "confidence": "High",
+      "evidence_type": "Direct canon",
+      "source_ids": [
+        "src_lorehold_0007"
+      ],
+      "first_recorded": "2026-05-09",
+      "last_verified": "2026-05-09",
+      "status": "Active",
+      "replaces_claim_ids": [],
+      "replaced_by_claim_ids": [],
+      "contradicted_by_claim_ids": [],
+      "used_by_profile_fields": [
+        "historical_timeline"
+      ],
+      "used_by_placement_fields": [],
+      "notes": "",
+      "risk_of_hallucination_or_overreach": "Low"
+    },
+    {
+      "claim_id": "claim_lorehold_timeline_0006",
+      "faction_id": "lorehold",
+      "claim": "Quintorius used spirit/statue magic during the New Phyrexian invasion of Arcavios to seek guidance from Strixhaven's earliest professors.",
+      "claim_type": "timeline",
+      "canon_status": "Confirmed Canon",
+      "confidence": "High",
+      "evidence_type": "Direct canon",
+      "source_ids": [
+        "src_lorehold_0007"
+      ],
+      "first_recorded": "2026-05-09",
+      "last_verified": "2026-05-09",
+      "status": "Active",
+      "replaces_claim_ids": [],
+      "replaced_by_claim_ids": [],
+      "contradicted_by_claim_ids": [],
+      "used_by_profile_fields": [
+        "historical_timeline",
+        "mechanics"
+      ],
+      "used_by_placement_fields": [
+        "behavioral_signals"
+      ],
+      "notes": "",
+      "risk_of_hallucination_or_overreach": "Low"
+    },
+    {
+      "claim_id": "claim_lorehold_placement_0001",
+      "faction_id": "lorehold",
+      "claim": "Lorehold is a strong placement match for people who treat the past as an active tool for discovery, ethical learning, and present-day action.",
+      "claim_type": "placement_support",
+      "canon_status": "Supported Interpretation",
+      "confidence": "High",
+      "evidence_type": "Interpretation",
+      "source_ids": [
+        "src_lorehold_0002",
+        "src_lorehold_0008",
+        "src_lorehold_0009"
+      ],
+      "first_recorded": "2026-05-09",
+      "last_verified": "2026-05-09",
+      "status": "Active",
+      "replaces_claim_ids": [],
+      "replaced_by_claim_ids": [],
+      "contradicted_by_claim_ids": [],
+      "used_by_profile_fields": [
+        "site_surface"
+      ],
+      "used_by_placement_fields": [
+        "placement_summary",
+        "good_fit_indicators"
+      ],
+      "notes": "",
+      "risk_of_hallucination_or_overreach": "Medium: placement heuristic synthesized from canon identity, not stated as official psychology."
+    },
+    {
+      "claim_id": "claim_lorehold_placement_0002",
+      "faction_id": "lorehold",
+      "claim": "Lorehold placement should balance archival/preservation instincts with action-oriented fieldwork rather than scoring only bookishness.",
+      "claim_type": "placement_support",
+      "canon_status": "Supported Interpretation",
+      "confidence": "High",
+      "evidence_type": "Interpretation",
+      "source_ids": [
+        "src_lorehold_0002",
+        "src_lorehold_0008"
+      ],
+      "first_recorded": "2026-05-09",
+      "last_verified": "2026-05-09",
+      "status": "Active",
+      "replaces_claim_ids": [],
+      "replaced_by_claim_ids": [],
+      "contradicted_by_claim_ids": [],
+      "used_by_profile_fields": [],
+      "used_by_placement_fields": [
+        "placement_summary",
+        "placement_axes",
+        "behavioral_signals"
+      ],
+      "notes": "",
+      "risk_of_hallucination_or_overreach": "Medium: interpretive placement framing."
+    },
+    {
+      "claim_id": "claim_lorehold_placement_0003",
+      "faction_id": "lorehold",
+      "claim": "A useful Lorehold inhibitor trait is incuriosity about history unless it provides immediate status, power, or spectacle.",
+      "claim_type": "placement_support",
+      "canon_status": "Supported Interpretation",
+      "confidence": "Medium",
+      "evidence_type": "Interpretation",
+      "source_ids": [
+        "src_lorehold_0002",
+        "src_lorehold_0008",
+        "src_lorehold_0009"
+      ],
+      "first_recorded": "2026-05-09",
+      "last_verified": "2026-05-09",
+      "status": "Active",
+      "replaces_claim_ids": [],
+      "replaced_by_claim_ids": [],
+      "contradicted_by_claim_ids": [],
+      "used_by_profile_fields": [],
+      "used_by_placement_fields": [
+        "inhibitor_traits",
+        "poor_fit_indicators"
+      ],
+      "notes": "",
+      "risk_of_hallucination_or_overreach": "Medium: negative match heuristic, not canon."
+    },
+    {
+      "claim_id": "claim_lorehold_placement_0004",
+      "faction_id": "lorehold",
+      "claim": "A useful Lorehold inhibitor trait is rejecting evidence, records, or precedent whenever they complicate a preferred story.",
+      "claim_type": "placement_support",
+      "canon_status": "Supported Interpretation",
+      "confidence": "High",
+      "evidence_type": "Interpretation",
+      "source_ids": [
+        "src_lorehold_0002",
+        "src_lorehold_0008",
+        "src_lorehold_0010"
+      ],
+      "first_recorded": "2026-05-09",
+      "last_verified": "2026-05-09",
+      "status": "Active",
+      "replaces_claim_ids": [],
+      "replaced_by_claim_ids": [],
+      "contradicted_by_claim_ids": [],
+      "used_by_profile_fields": [],
+      "used_by_placement_fields": [
+        "inhibitor_traits",
+        "poor_fit_indicators"
+      ],
+      "notes": "",
+      "risk_of_hallucination_or_overreach": "Medium: extrapolated from Lorehold's evidence/history emphasis and order side."
+    },
+    {
+      "claim_id": "claim_lorehold_placement_0005",
+      "faction_id": "lorehold",
+      "claim": "Lorehold's strongest moral-foundation analogs are Authority, because it values precedent and institutional memory, and Liberty, because its red side prizes field discovery and action.",
+      "claim_type": "placement_support",
+      "canon_status": "Supported Interpretation",
+      "confidence": "Medium",
+      "evidence_type": "Interpretation",
+      "source_ids": [
+        "src_lorehold_0002",
+        "src_lorehold_0008"
+      ],
+      "first_recorded": "2026-05-09",
+      "last_verified": "2026-05-09",
+      "status": "Active",
+      "replaces_claim_ids": [],
+      "replaced_by_claim_ids": [],
+      "contradicted_by_claim_ids": [],
+      "used_by_profile_fields": [],
+      "used_by_placement_fields": [
+        "moral_and_psychological_profile"
+      ],
+      "notes": "",
+      "risk_of_hallucination_or_overreach": "High: Moral Foundations Theory is external to Magic canon and must not be presented as official Wizards intent."
+    },
+    {
+      "claim_id": "claim_lorehold_placement_0006",
+      "faction_id": "lorehold",
+      "claim": "Lorehold has a secondary Care signal when history is framed as preservation, protection of students, learning from loss, and working toward a better future.",
+      "claim_type": "placement_support",
+      "canon_status": "Supported Interpretation",
+      "confidence": "Medium",
+      "evidence_type": "Interpretation",
+      "source_ids": [
+        "src_lorehold_0008",
+        "src_lorehold_0009",
+        "src_lorehold_0010"
+      ],
+      "first_recorded": "2026-05-09",
+      "last_verified": "2026-05-09",
+      "status": "Active",
+      "replaces_claim_ids": [],
+      "replaced_by_claim_ids": [],
+      "contradicted_by_claim_ids": [],
+      "used_by_profile_fields": [],
+      "used_by_placement_fields": [
+        "moral_and_psychological_profile",
+        "core_values"
+      ],
+      "notes": "",
+      "risk_of_hallucination_or_overreach": "High: moral-foundation mapping is interpretive."
+    },
+    {
+      "claim_id": "claim_lorehold_placement_0007",
+      "faction_id": "lorehold",
+      "claim": "Lorehold's shadow expression is using history as rigid justification, romanticized nostalgia, or reckless tomb-raiding without humility toward evidence.",
+      "claim_type": "placement_support",
+      "canon_status": "Supported Interpretation",
+      "confidence": "Medium",
+      "evidence_type": "Interpretation",
+      "source_ids": [
+        "src_lorehold_0002",
+        "src_lorehold_0008",
+        "src_lorehold_0010"
+      ],
+      "first_recorded": "2026-05-09",
+      "last_verified": "2026-05-09",
+      "status": "Active",
+      "replaces_claim_ids": [],
+      "replaced_by_claim_ids": [],
+      "contradicted_by_claim_ids": [],
+      "used_by_profile_fields": [],
+      "used_by_placement_fields": [
+        "moral_and_psychological_profile",
+        "poor_fit_indicators"
+      ],
+      "notes": "",
+      "risk_of_hallucination_or_overreach": "High: shadow expression is a placement/UX heuristic, not canon."
+    },
+    {
+      "claim_id": "claim_lorehold_unknown_0001",
+      "faction_id": "lorehold",
+      "claim": "A complete official list of all current Lorehold faculty after the events of Secrets of Strixhaven was not found in the reviewed official sources.",
+      "claim_type": "structure",
+      "canon_status": "Unknown / Not Found",
+      "confidence": "Medium",
+      "evidence_type": "Secondary discovery",
+      "source_ids": [],
+      "first_recorded": "2026-05-09",
+      "last_verified": "2026-05-09",
+      "status": "Active",
+      "replaces_claim_ids": [],
+      "replaced_by_claim_ids": [],
+      "contradicted_by_claim_ids": [],
+      "used_by_profile_fields": [
+        "structure.unknowns"
+      ],
+      "used_by_placement_fields": [],
+      "notes": "",
+      "risk_of_hallucination_or_overreach": "Low: explicitly marked unknown."
+    },
+    {
+      "claim_id": "claim_lorehold_core_0011",
+      "faction_id": "lorehold",
+      "claim": "Lorehold field studies seek relics, battle sites, monuments, lost magics, and other antiquities in remote and dangerous parts of Arcavios.",
+      "claim_type": "core_identity",
+      "canon_status": "Confirmed Canon",
+      "confidence": "High",
+      "evidence_type": "Direct canon",
+      "source_ids": [
+        "src_lorehold_0008"
+      ],
+      "first_recorded": "2026-05-09",
+      "last_verified": "2026-05-09",
+      "status": "Active",
+      "replaces_claim_ids": [],
+      "replaced_by_claim_ids": [],
+      "contradicted_by_claim_ids": [],
+      "used_by_profile_fields": [
+        "site_surface",
+        "core_identity",
+        "structure",
+        "search_and_filter_metadata"
+      ],
+      "used_by_placement_fields": [
+        "placement_summary",
+        "placement_axes",
+        "behavioral_signals"
+      ],
+      "notes": "",
+      "risk_of_hallucination_or_overreach": "Low"
+    },
+    {
+      "claim_id": "claim_lorehold_structure_0007",
+      "faction_id": "lorehold",
+      "claim": "Lorehold students can be paired with spirit mentors associated with statues in Effigy Row.",
+      "claim_type": "structure",
+      "canon_status": "Repository Archive Supported",
+      "confidence": "High",
+      "evidence_type": "Repository archive",
+      "source_ids": [
+        "src_lorehold_0006",
+        "src_lorehold_0013"
+      ],
+      "first_recorded": "2026-05-09",
+      "last_verified": "2026-05-09",
+      "status": "Active",
+      "replaces_claim_ids": [],
+      "replaced_by_claim_ids": [],
+      "contradicted_by_claim_ids": [],
+      "used_by_profile_fields": [
+        "structure",
+        "mechanics",
+        "search_and_filter_metadata"
+      ],
+      "used_by_placement_fields": [
+        "behavioral_signals",
+        "discriminator_questions"
+      ],
+      "notes": "Supported by The Mentor; specific to the spirit-mentor system shown there.",
+      "risk_of_hallucination_or_overreach": "Low"
+    },
+    {
+      "claim_id": "claim_lorehold_structure_0008",
+      "faction_id": "lorehold",
+      "claim": "Dean Plargg paired Lorehold students with recently excavated statues for mentor assignments in The Mentor.",
+      "claim_type": "structure",
+      "canon_status": "Repository Archive Supported",
+      "confidence": "High",
+      "evidence_type": "Repository archive",
+      "source_ids": [
+        "src_lorehold_0006",
+        "src_lorehold_0013"
+      ],
+      "first_recorded": "2026-05-09",
+      "last_verified": "2026-05-09",
+      "status": "Active",
+      "replaces_claim_ids": [],
+      "replaced_by_claim_ids": [],
+      "contradicted_by_claim_ids": [],
+      "used_by_profile_fields": [
+        "structure",
+        "key_figures"
+      ],
+      "used_by_placement_fields": [
+        "placement_axes"
+      ],
+      "notes": "Story-specific example of Plargg encouraging students toward the vanguard of history.",
+      "risk_of_hallucination_or_overreach": "Low"
+    },
+    {
+      "claim_id": "claim_lorehold_structure_0009",
+      "faction_id": "lorehold",
+      "claim": "In The Mentor, Quintorius states that spirit statues are not permitted to leave Effigy Row without permission from a Lorehold dean.",
+      "claim_type": "structure",
+      "canon_status": "Repository Archive Supported",
+      "confidence": "High",
+      "evidence_type": "Repository archive",
+      "source_ids": [
+        "src_lorehold_0006",
+        "src_lorehold_0013"
+      ],
+      "first_recorded": "2026-05-09",
+      "last_verified": "2026-05-09",
+      "status": "Active",
+      "replaces_claim_ids": [],
+      "replaced_by_claim_ids": [],
+      "contradicted_by_claim_ids": [],
+      "used_by_profile_fields": [
+        "structure",
+        "mechanics"
+      ],
+      "used_by_placement_fields": [
+        "placement_axes",
+        "discriminator_questions"
+      ],
+      "notes": "This is a story-context rule; it should not be broadened beyond spirit-statue handling without more support.",
+      "risk_of_hallucination_or_overreach": "Medium"
+    },
+    {
+      "claim_id": "claim_lorehold_location_0008",
+      "faction_id": "lorehold",
+      "claim": "The Registry of Accounts in Kollema Hall contains school records and scrolls that Quintorius consults for information about Asterion and his family.",
+      "claim_type": "location",
+      "canon_status": "Repository Archive Supported",
+      "confidence": "High",
+      "evidence_type": "Repository archive",
+      "source_ids": [
+        "src_lorehold_0006",
+        "src_lorehold_0013"
+      ],
+      "first_recorded": "2026-05-09",
+      "last_verified": "2026-05-09",
+      "status": "Active",
+      "replaces_claim_ids": [],
+      "replaced_by_claim_ids": [],
+      "contradicted_by_claim_ids": [],
+      "used_by_profile_fields": [
+        "structure",
+        "search_and_filter_metadata"
+      ],
+      "used_by_placement_fields": [
+        "behavioral_signals"
+      ],
+      "notes": "Adds an archival-record facet to Kollema Hall from The Mentor.",
+      "risk_of_hallucination_or_overreach": "Low"
+    },
+    {
+      "claim_id": "claim_lorehold_location_0009",
+      "faction_id": "lorehold",
+      "claim": "Lorehold excavation teams document significant findings for Lorehold repositories.",
+      "claim_type": "location",
+      "canon_status": "Repository Archive Supported",
+      "confidence": "High",
+      "evidence_type": "Repository archive",
+      "source_ids": [
+        "src_lorehold_0006",
+        "src_lorehold_0013"
+      ],
+      "first_recorded": "2026-05-09",
+      "last_verified": "2026-05-09",
+      "status": "Active",
+      "replaces_claim_ids": [],
+      "replaced_by_claim_ids": [],
+      "contradicted_by_claim_ids": [],
+      "used_by_profile_fields": [
+        "structure",
+        "search_and_filter_metadata"
+      ],
+      "used_by_placement_fields": [
+        "behavioral_signals"
+      ],
+      "notes": "The Mentor frames artifact cleaning, identification, and documentation as part of Lorehold excavation work.",
+      "risk_of_hallucination_or_overreach": "Low"
+    },
+    {
+      "claim_id": "claim_lorehold_location_0010",
+      "faction_id": "lorehold",
+      "claim": "Lorehold maintains semi-permanent camps on the outskirts of the Fields of Strife to support students and professors researching there.",
+      "claim_type": "location",
+      "canon_status": "Confirmed Canon",
+      "confidence": "High",
+      "evidence_type": "Direct canon",
+      "source_ids": [
+        "src_lorehold_0008"
+      ],
+      "first_recorded": "2026-05-09",
+      "last_verified": "2026-05-09",
+      "status": "Active",
+      "replaces_claim_ids": [],
+      "replaced_by_claim_ids": [],
+      "contradicted_by_claim_ids": [],
+      "used_by_profile_fields": [
+        "structure",
+        "historical_timeline",
+        "search_and_filter_metadata"
+      ],
+      "used_by_placement_fields": [
+        "behavioral_signals",
+        "discriminator_questions"
+      ],
+      "notes": "",
+      "risk_of_hallucination_or_overreach": "Low"
+    },
+    {
+      "claim_id": "claim_lorehold_location_0011",
+      "faction_id": "lorehold",
+      "claim": "Camp Herrian, Armory Arch, Pranticle Peak, and the Lost Barracks are named locations within or around the Fields of Strife.",
+      "claim_type": "location",
+      "canon_status": "Confirmed Canon",
+      "confidence": "High",
+      "evidence_type": "Direct canon",
+      "source_ids": [
+        "src_lorehold_0008"
+      ],
+      "first_recorded": "2026-05-09",
+      "last_verified": "2026-05-09",
+      "status": "Active",
+      "replaces_claim_ids": [],
+      "replaced_by_claim_ids": [],
+      "contradicted_by_claim_ids": [],
+      "used_by_profile_fields": [
+        "structure",
+        "search_and_filter_metadata"
+      ],
+      "used_by_placement_fields": [
+        "discriminator_questions"
+      ],
+      "notes": "These are sublocations of the Fields of Strife from the official 2026 guide.",
+      "risk_of_hallucination_or_overreach": "Low"
+    },
+    {
+      "claim_id": "claim_lorehold_mechanic_0015",
+      "faction_id": "lorehold",
+      "claim": "Hofri Ghostforge is known for rousing spirits of the dead even without a material focus like a statue.",
+      "claim_type": "mechanic",
+      "canon_status": "Repository Archive Supported",
+      "confidence": "High",
+      "evidence_type": "Repository archive",
+      "source_ids": [
+        "src_lorehold_0006",
+        "src_lorehold_0013"
+      ],
+      "first_recorded": "2026-05-09",
+      "last_verified": "2026-05-09",
+      "status": "Active",
+      "replaces_claim_ids": [],
+      "replaced_by_claim_ids": [],
+      "contradicted_by_claim_ids": [],
+      "used_by_profile_fields": [
+        "mechanics",
+        "key_figures"
+      ],
+      "used_by_placement_fields": [
+        "behavioral_signals"
+      ],
+      "notes": "Specific capability described in The Mentor; not a formal rules mechanic.",
+      "risk_of_hallucination_or_overreach": "Low"
+    },
+    {
+      "claim_id": "claim_lorehold_mechanic_0016",
+      "faction_id": "lorehold",
+      "claim": "The restless spirits of the Fields of Strife are considered excellent primary sources because they are living their history rather than simply recounting it.",
+      "claim_type": "mechanic",
+      "canon_status": "Confirmed Canon",
+      "confidence": "High",
+      "evidence_type": "Direct canon",
+      "source_ids": [
+        "src_lorehold_0008"
+      ],
+      "first_recorded": "2026-05-09",
+      "last_verified": "2026-05-09",
+      "status": "Active",
+      "replaces_claim_ids": [],
+      "replaced_by_claim_ids": [],
+      "contradicted_by_claim_ids": [],
+      "used_by_profile_fields": [
+        "mechanics",
+        "structure",
+        "search_and_filter_metadata"
+      ],
+      "used_by_placement_fields": [
+        "placement_summary",
+        "placement_axes",
+        "behavioral_signals",
+        "discriminator_questions"
+      ],
+      "notes": "",
+      "risk_of_hallucination_or_overreach": "Low"
+    },
+    {
+      "claim_id": "claim_lorehold_mechanic_0017",
+      "faction_id": "lorehold",
+      "claim": "People who linger carelessly in the Fields of Strife can be drawn into the battle, lose sight of the world, and eventually become restless spirits.",
+      "claim_type": "mechanic",
+      "canon_status": "Confirmed Canon",
+      "confidence": "High",
+      "evidence_type": "Direct canon",
+      "source_ids": [
+        "src_lorehold_0008"
+      ],
+      "first_recorded": "2026-05-09",
+      "last_verified": "2026-05-09",
+      "status": "Active",
+      "replaces_claim_ids": [],
+      "replaced_by_claim_ids": [],
+      "contradicted_by_claim_ids": [],
+      "used_by_profile_fields": [
+        "mechanics",
+        "research_limitations"
+      ],
+      "used_by_placement_fields": [
+        "poor_fit_indicators",
+        "chatbot_guidance"
+      ],
+      "notes": "Useful as a caution that Lorehold field research is dangerous, not just aesthetic.",
+      "risk_of_hallucination_or_overreach": "Low"
+    },
+    {
+      "claim_id": "claim_lorehold_figure_0013",
+      "faction_id": "lorehold",
+      "claim": "Hofri Ghostforge is a Lorehold professor and project lead at a Pillardrop excavation in The Mentor.",
+      "claim_type": "key_figure",
+      "canon_status": "Repository Archive Supported",
+      "confidence": "High",
+      "evidence_type": "Repository archive",
+      "source_ids": [
+        "src_lorehold_0006",
+        "src_lorehold_0013"
+      ],
+      "first_recorded": "2026-05-09",
+      "last_verified": "2026-05-09",
+      "status": "Active",
+      "replaces_claim_ids": [],
+      "replaced_by_claim_ids": [],
+      "contradicted_by_claim_ids": [],
+      "used_by_profile_fields": [
+        "structure",
+        "key_figures"
+      ],
+      "used_by_placement_fields": [
+        "chatbot_guidance"
+      ],
+      "notes": "The story identifies him as Professor Ghostforge and the project lead.",
+      "risk_of_hallucination_or_overreach": "Low"
+    },
+    {
+      "claim_id": "claim_lorehold_figure_0014",
+      "faction_id": "lorehold",
+      "claim": "Asterion is Quintorius Kand's assigned spirit mentor in The Mentor.",
+      "claim_type": "key_figure",
+      "canon_status": "Repository Archive Supported",
+      "confidence": "High",
+      "evidence_type": "Repository archive",
+      "source_ids": [
+        "src_lorehold_0006",
+        "src_lorehold_0013"
+      ],
+      "first_recorded": "2026-05-09",
+      "last_verified": "2026-05-09",
+      "status": "Active",
+      "replaces_claim_ids": [],
+      "replaced_by_claim_ids": [],
+      "contradicted_by_claim_ids": [],
+      "used_by_profile_fields": [
+        "key_figures",
+        "structure"
+      ],
+      "used_by_placement_fields": [
+        "discriminator_questions"
+      ],
+      "notes": "Asterion is story-specific but strongly illuminates Lorehold spirit mentor practice.",
+      "risk_of_hallucination_or_overreach": "Low"
+    },
+    {
+      "claim_id": "claim_lorehold_figure_0015",
+      "faction_id": "lorehold",
+      "claim": "Asterion helps redirect Quintorius from a mistaken Pillardrop excavation theory toward Zantafar.",
+      "claim_type": "key_figure",
+      "canon_status": "Repository Archive Supported",
+      "confidence": "Medium",
+      "evidence_type": "Repository archive",
+      "source_ids": [
+        "src_lorehold_0006",
+        "src_lorehold_0013"
+      ],
+      "first_recorded": "2026-05-09",
+      "last_verified": "2026-05-09",
+      "status": "Active",
+      "replaces_claim_ids": [],
+      "replaced_by_claim_ids": [],
+      "contradicted_by_claim_ids": [],
+      "used_by_profile_fields": [
+        "key_figures",
+        "historical_timeline"
+      ],
+      "used_by_placement_fields": [
+        "placement_axes",
+        "behavioral_signals"
+      ],
+      "notes": "Condenses a story sequence; should not be treated as a full Zantafar summary.",
+      "risk_of_hallucination_or_overreach": "Medium"
+    },
+    {
+      "claim_id": "claim_lorehold_figure_0016",
+      "faction_id": "lorehold",
+      "claim": "Augusta Tullus prepared a ritual so she could be summoned shortly after death, and her spirit serves as interim dean of order after the Phyrexian Invasion.",
+      "claim_type": "key_figure",
+      "canon_status": "Confirmed Canon",
+      "confidence": "High",
+      "evidence_type": "Direct canon",
+      "source_ids": [
+        "src_lorehold_0009"
+      ],
+      "first_recorded": "2026-05-09",
+      "last_verified": "2026-05-09",
+      "status": "Active",
+      "replaces_claim_ids": [],
+      "replaced_by_claim_ids": [],
+      "contradicted_by_claim_ids": [],
+      "used_by_profile_fields": [
+        "leaders",
+        "key_figures",
+        "structure"
+      ],
+      "used_by_placement_fields": [
+        "moral_and_psychological_profile",
+        "chatbot_guidance"
+      ],
+      "notes": "Updates Augusta from general post-death teaching to explicit interim dean of order status from official 2026 legend material.",
+      "risk_of_hallucination_or_overreach": "Low"
+    },
+    {
+      "claim_id": "claim_lorehold_figure_0017",
+      "faction_id": "lorehold",
+      "claim": "Augusta, as a Lorehold-summoned spirit, is focused on finding and training an appropriate successor to the dean of order position.",
+      "claim_type": "key_figure",
+      "canon_status": "Confirmed Canon",
+      "confidence": "High",
+      "evidence_type": "Direct canon",
+      "source_ids": [
+        "src_lorehold_0009"
+      ],
+      "first_recorded": "2026-05-09",
+      "last_verified": "2026-05-09",
+      "status": "Active",
+      "replaces_claim_ids": [],
+      "replaced_by_claim_ids": [],
+      "contradicted_by_claim_ids": [],
+      "used_by_profile_fields": [
+        "leaders",
+        "key_figures",
+        "structure"
+      ],
+      "used_by_placement_fields": [
+        "moral_and_psychological_profile"
+      ],
+      "notes": "",
+      "risk_of_hallucination_or_overreach": "Low"
+    },
+    {
+      "claim_id": "claim_lorehold_figure_0018",
+      "faction_id": "lorehold",
+      "claim": "Soovril is a Lorehold student of chronomancy who has developed techniques to restore historical artifacts to their original pristine conditions.",
+      "claim_type": "key_figure",
+      "canon_status": "Confirmed Canon",
+      "confidence": "High",
+      "evidence_type": "Direct canon",
+      "source_ids": [
+        "src_lorehold_0009"
+      ],
+      "first_recorded": "2026-05-09",
+      "last_verified": "2026-05-09",
+      "status": "Active",
+      "replaces_claim_ids": [],
+      "replaced_by_claim_ids": [],
+      "contradicted_by_claim_ids": [],
+      "used_by_profile_fields": [
+        "key_figures",
+        "search_and_filter_metadata"
+      ],
+      "used_by_placement_fields": [
+        "behavioral_signals",
+        "discriminator_questions"
+      ],
+      "notes": "",
+      "risk_of_hallucination_or_overreach": "Low"
+    },
+    {
+      "claim_id": "claim_lorehold_figure_0019",
+      "faction_id": "lorehold",
+      "claim": "Aziza has dedicated herself to studying fieldwork methodologies as captain of the Lorehold Mage Tower team and the intramural Strixhaven team.",
+      "claim_type": "key_figure",
+      "canon_status": "Confirmed Canon",
+      "confidence": "High",
+      "evidence_type": "Direct canon",
+      "source_ids": [
+        "src_lorehold_0009"
+      ],
+      "first_recorded": "2026-05-09",
+      "last_verified": "2026-05-09",
+      "status": "Active",
+      "replaces_claim_ids": [],
+      "replaced_by_claim_ids": [],
+      "contradicted_by_claim_ids": [],
+      "used_by_profile_fields": [
+        "key_figures",
+        "search_and_filter_metadata"
+      ],
+      "used_by_placement_fields": [
+        "behavioral_signals"
+      ],
+      "notes": "Adds fieldwork-methodology specificity to the existing Aziza claim.",
+      "risk_of_hallucination_or_overreach": "Low"
+    },
+    {
+      "claim_id": "claim_lorehold_figure_0020",
+      "faction_id": "lorehold",
+      "claim": "Mica has no real gift for the spiritual side of Lorehold magic, but his geomancy is described as unparalleled in Field Studies in a Future Tense.",
+      "claim_type": "key_figure",
+      "canon_status": "Repository Archive Supported",
+      "confidence": "High",
+      "evidence_type": "Repository archive",
+      "source_ids": [
+        "src_lorehold_0010",
+        "src_lorehold_0014"
+      ],
+      "first_recorded": "2026-05-09",
+      "last_verified": "2026-05-09",
+      "status": "Active",
+      "replaces_claim_ids": [],
+      "replaced_by_claim_ids": [],
+      "contradicted_by_claim_ids": [],
+      "used_by_profile_fields": [
+        "key_figures",
+        "mechanics"
+      ],
+      "used_by_placement_fields": [
+        "discriminator_questions"
+      ],
+      "notes": "Supports splitting Lorehold spirit practice from earth/mineral/history practice.",
+      "risk_of_hallucination_or_overreach": "Low"
+    },
+    {
+      "claim_id": "claim_lorehold_figure_0021",
+      "faction_id": "lorehold",
+      "claim": "Quintorius guides younger Lorehold students at the Fields of Strife while investigating the remnants of the Fomori and a mysterious multiversal empire.",
+      "claim_type": "key_figure",
+      "canon_status": "Confirmed Canon",
+      "confidence": "High",
+      "evidence_type": "Direct canon",
+      "source_ids": [
+        "src_lorehold_0009",
+        "src_lorehold_0010"
+      ],
+      "first_recorded": "2026-05-09",
+      "last_verified": "2026-05-09",
+      "status": "Active",
+      "replaces_claim_ids": [],
+      "replaced_by_claim_ids": [],
+      "contradicted_by_claim_ids": [],
+      "used_by_profile_fields": [
+        "key_figures",
+        "historical_timeline"
+      ],
+      "used_by_placement_fields": [
+        "placement_summary",
+        "behavioral_signals"
+      ],
+      "notes": "",
+      "risk_of_hallucination_or_overreach": "Low"
+    },
+    {
+      "claim_id": "claim_lorehold_placement_0008",
+      "faction_id": "lorehold",
+      "claim": "A useful Lorehold discriminator is whether a person treats rules as protective guardrails that must still yield to justice and evidence when rules become unjust.",
+      "claim_type": "placement_support",
+      "canon_status": "Supported Interpretation",
+      "confidence": "Medium",
+      "evidence_type": "Interpretation",
+      "source_ids": [
+        "src_lorehold_0006",
+        "src_lorehold_0013"
+      ],
+      "first_recorded": "2026-05-09",
+      "last_verified": "2026-05-09",
+      "status": "Active",
+      "replaces_claim_ids": [],
+      "replaced_by_claim_ids": [],
+      "contradicted_by_claim_ids": [],
+      "used_by_profile_fields": [
+        "great_tension"
+      ],
+      "used_by_placement_fields": [
+        "placement_summary",
+        "moral_and_psychological_profile",
+        "placement_axes",
+        "discriminator_questions",
+        "chatbot_guidance"
+      ],
+      "notes": "Synthesized from Quintorius respecting Lorehold rules and Asterion warning that unjust rules can make people tyrants.",
+      "risk_of_hallucination_or_overreach": "Medium"
+    },
+    {
+      "claim_id": "claim_lorehold_placement_0009",
+      "faction_id": "lorehold",
+      "claim": "Lorehold placement is strengthened by answers that protect artifacts as belonging to history rather than treating them as unowned loot.",
+      "claim_type": "placement_support",
+      "canon_status": "Supported Interpretation",
+      "confidence": "Medium",
+      "evidence_type": "Interpretation",
+      "source_ids": [
+        "src_lorehold_0010",
+        "src_lorehold_0014"
+      ],
+      "first_recorded": "2026-05-09",
+      "last_verified": "2026-05-09",
+      "status": "Active",
+      "replaces_claim_ids": [],
+      "replaced_by_claim_ids": [],
+      "contradicted_by_claim_ids": [],
+      "used_by_profile_fields": [
+        "great_tension"
+      ],
+      "used_by_placement_fields": [
+        "behavioral_signals",
+        "good_fit_indicators",
+        "discriminator_questions",
+        "chatbot_guidance"
+      ],
+      "notes": "Synthesized from Field Studies in a Future Tense, where Quintorius opposes removing Arcavios artifacts for sale.",
+      "risk_of_hallucination_or_overreach": "Medium"
+    },
+    {
+      "claim_id": "lorehold_claim_0022",
+      "faction_id": "lorehold",
+      "claim_type": "story_corpus_evidence",
+      "statement": "The MTG-Stories archive file \"Episode 1: Penmanship Practice\" is relevant evidence for Lorehold because it matches targeted corpus queries: Lorehold, spirit, archaeology, history, ruins, scroll, learn.",
+      "canon_status": "Archive-supported",
+      "source_ids": [
+        "src_mtg_stories_episode_1_penmanship_practice_f245144d"
+      ],
+      "confidence": "Medium",
+      "confidence_level": "Medium",
+      "notes": "This claim records searchable story-corpus relevance without treating repository search results as a substitute for full source reading."
+    },
+    {
+      "claim_id": "lorehold_claim_0023",
+      "faction_id": "lorehold",
+      "claim_type": "story_corpus_evidence",
+      "statement": "The MTG-Stories archive file \"A Silent Voice Calls\" is relevant evidence for Lorehold because it matches targeted corpus queries: Lorehold, Quintorius, spirit, history, learn.",
+      "canon_status": "Archive-supported",
+      "source_ids": [
+        "src_mtg_stories_a_silent_voice_calls_36854b19"
+      ],
+      "confidence": "Medium",
+      "confidence_level": "Medium",
+      "notes": "This claim records searchable story-corpus relevance without treating repository search results as a substitute for full source reading."
+    },
+    {
+      "claim_id": "lorehold_claim_0024",
+      "faction_id": "lorehold",
+      "claim_type": "story_corpus_evidence",
+      "statement": "The MTG-Stories archive file \"Arcavios: A Radiant Heart\" is relevant evidence for Lorehold because it matches targeted corpus queries: Lorehold, Quintorius, spirit, relic, ruins, scroll, learn.",
+      "canon_status": "Archive-supported",
+      "source_ids": [
+        "src_mtg_stories_arcavios_a_radiant_heart_311b0936"
+      ],
+      "confidence": "Medium",
+      "confidence_level": "Medium",
+      "notes": "This claim records searchable story-corpus relevance without treating repository search results as a substitute for full source reading."
+    },
+    {
+      "claim_id": "lorehold_claim_0025",
+      "faction_id": "lorehold",
+      "claim_type": "story_corpus_evidence",
+      "statement": "The MTG-Stories archive file \"Off the Record\" is relevant evidence for Lorehold because it matches targeted corpus queries: Lorehold, scroll, artifact, learn.",
+      "canon_status": "Archive-supported",
+      "source_ids": [
+        "src_mtg_stories_off_the_record_2ea68353"
+      ],
+      "confidence": "Medium",
+      "confidence_level": "Medium",
+      "notes": "This claim records searchable story-corpus relevance without treating repository search results as a substitute for full source reading."
+    },
+    {
+      "claim_id": "lorehold_claim_0026",
+      "faction_id": "lorehold",
+      "claim_type": "story_corpus_evidence",
+      "statement": "The MTG-Stories archive file \"Episode 3: Extracurriculars\" is relevant evidence for Lorehold because it matches targeted corpus queries: Lorehold, scroll, learn.",
+      "canon_status": "Archive-supported",
+      "source_ids": [
+        "src_mtg_stories_episode_3_extracurriculars_39c7efc0"
+      ],
+      "confidence": "Medium",
+      "confidence_level": "Medium",
+      "notes": "This claim records searchable story-corpus relevance without treating repository search results as a substitute for full source reading."
+    },
+    {
+      "claim_id": "lorehold_claim_0027",
+      "faction_id": "lorehold",
+      "claim_type": "story_corpus_evidence",
+      "statement": "The MTG-Stories archive file \"A Living Flame\" is relevant evidence for Lorehold because it matches targeted corpus queries: Lorehold, history, learn.",
+      "canon_status": "Archive-supported",
+      "source_ids": [
+        "src_mtg_stories_a_living_flame_92d3419c"
+      ],
+      "confidence": "Medium",
+      "confidence_level": "Medium",
+      "notes": "This claim records searchable story-corpus relevance without treating repository search results as a substitute for full source reading."
+    }
+  ],
+  "claim_quality_summary": {
+    "total_claims": 91,
+    "high_confidence_claims": 82,
+    "medium_confidence_claims": 9,
+    "low_confidence_claims": 0,
+    "supported_interpretation_claims": 9,
+    "unknown_or_not_found_claims": 1,
+    "needs_review_claims": 0
+  },
+  "claim_count": 97
+}

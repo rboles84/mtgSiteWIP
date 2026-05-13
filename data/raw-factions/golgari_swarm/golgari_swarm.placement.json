@@ -1,0 +1,396 @@
+{
+  "schema_version": "1.0.0",
+  "faction_id": "golgari_swarm",
+  "faction_name": "Golgari Swarm",
+  "last_updated": "2026-05-10T02:56:03.254Z",
+  "placement_model_version": "vox-mana-lore-json-v1",
+  "color_identity": [
+    "black",
+    "green"
+  ],
+  "ideal_fit_indicators": [
+    {
+      "indicator": "finds value in what others discard",
+      "rationale": "Matches the official Golgari Swarm identity summarized in the profile.",
+      "claim_ids": [
+        "golgari_swarm_claim_001"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "indicator": "accepts endings as material for renewal",
+      "rationale": "Matches the official Golgari Swarm identity summarized in the profile.",
+      "claim_ids": [
+        "golgari_swarm_claim_002"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "indicator": "survives through adaptation and practical resilience",
+      "rationale": "Matches the official Golgari Swarm identity summarized in the profile.",
+      "claim_ids": [
+        "golgari_swarm_claim_003"
+      ],
+      "confidence": "Medium"
+    }
+  ],
+  "poor_fit_indicators": [
+    {
+      "indicator": "needs purity or cleanliness as a moral principle",
+      "rationale": "Counters a core Golgari Swarm placement signal.",
+      "claim_ids": [
+        "golgari_swarm_claim_001"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "indicator": "denies loss instead of integrating it",
+      "rationale": "Counters a core Golgari Swarm placement signal.",
+      "claim_ids": [
+        "golgari_swarm_claim_002"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "indicator": "rejects the body, decay, or mortality as topics",
+      "rationale": "Counters a core Golgari Swarm placement signal.",
+      "claim_ids": [
+        "golgari_swarm_claim_003"
+      ],
+      "confidence": "Medium"
+    }
+  ],
+  "discriminator_questions": [
+    {
+      "question_id": "golgari_q1",
+      "question": "What do you do with a failure after everyone else has walked away from it?",
+      "purpose": "Tests renewal, salvage, and survival thinking.",
+      "answer_pattern_that_supports_this_faction": "The answer emphasizes the ideal-fit indicators listed for this faction.",
+      "answer_pattern_that_weakens_this_faction": "The answer rejects or treats the faction's core tension as irrelevant.",
+      "related_factions_to_compare": [],
+      "claim_ids": [
+        "golgari_swarm_claim_001",
+        "golgari_swarm_claim_002",
+        "golgari_swarm_claim_003"
+      ],
+      "confidence": "Medium",
+      "notes": "Question is placement-engine guidance, not canon text."
+    },
+    {
+      "question_id": "golgari_q2",
+      "question": "Is an ending mainly a loss, a release, or raw material?",
+      "purpose": "Distinguishes Golgari cycle logic from Witherbloom study.",
+      "answer_pattern_that_supports_this_faction": "The answer emphasizes the ideal-fit indicators listed for this faction.",
+      "answer_pattern_that_weakens_this_faction": "The answer rejects or treats the faction's core tension as irrelevant.",
+      "related_factions_to_compare": [],
+      "claim_ids": [
+        "golgari_swarm_claim_001",
+        "golgari_swarm_claim_002",
+        "golgari_swarm_claim_003"
+      ],
+      "confidence": "Medium",
+      "notes": "Question is placement-engine guidance, not canon text."
+    }
+  ],
+  "chatbot_guidance": {
+    "how_to_recognize_match": [
+      "finds value in what others discard",
+      "accepts endings as material for renewal",
+      "survives through adaptation and practical resilience"
+    ],
+    "how_to_recognize_mismatch": [
+      "needs purity or cleanliness as a moral principle",
+      "denies loss instead of integrating it",
+      "rejects the body, decay, or mortality as topics"
+    ],
+    "questions_to_ask_when_uncertain": [
+      "What do you do with a failure after everyone else has walked away from it?",
+      "Is an ending mainly a loss, a release, or raw material?"
+    ],
+    "do_not_overweight": [
+      "Do not overfit a single color preference.",
+      "Do not treat one favorite card or mechanic as enough evidence by itself.",
+      "Do not score a faction highly from color identity alone when another faction shares the same colors or surface traits."
+    ],
+    "never_claim_as_canon": [
+      "Psychological placement categories are Vox Mana interpretation, not official Wizards canon.",
+      "Do not state that a user's personality is objectively determined by a faction.",
+      "Placement scoring is a Vox Mana interpretation, not official Wizards canon."
+    ],
+    "calibration_note": "Golgari Swarm should require its specific positive evidence cluster: decay, renewal, death, life, rot. Keep it adjacent when the answer only contains broad color identity or generic personality language.",
+    "scoring_guardrail": "Do not award for generic resilience or nature language without decay, death, or reclamation."
+  },
+  "placement_quality": {
+    "overall_confidence": "Medium",
+    "strongest_evidence_areas": [
+      "official faction overview",
+      "official mechanics identity",
+      "MTG-Stories corpus search evidence"
+    ],
+    "weakest_evidence_areas": [
+      "deep story episode coverage",
+      "cross-faction comparison calibration"
+    ],
+    "manual_review_recommended": true,
+    "notes": "Good for initial placement testing; should be expanded with story-specific claims in a later pass. Corpus-enriched data should be reviewed with calibration and collision reports before being treated as tuned scoring fuel.",
+    "calibration_tuning_status": "explicit",
+    "last_placement_ready_pass": "2026-05-10T02:56:03.254Z"
+  },
+  "placement_profile_version": "vox-mana-lore-json-v1",
+  "based_on_profile_version": "1.0.0",
+  "placement_summary": {
+    "short_description": "Golgari Swarm placement is informed by official overview sources and MTG-Stories corpus evidence.",
+    "best_fit_summary": "finds value in what others discard accepts endings as material for renewal survives through adaptation and practical resilience",
+    "poor_fit_summary": "needs purity or cleanliness as a moral principle denies loss instead of integrating it rejects the body, decay, or mortality as topics",
+    "interpretation_warning": "Placement data is interpretive and should be treated as a matching heuristic, not direct canon.",
+    "claim_ids": [
+      "golgari_swarm_claim_0008",
+      "golgari_swarm_claim_0009",
+      "golgari_swarm_claim_0010",
+      "golgari_swarm_claim_0011",
+      "golgari_swarm_claim_0012",
+      "golgari_swarm_claim_0013",
+      "golgari_swarm_claim_0014",
+      "golgari_swarm_claim_0015"
+    ],
+    "calibrated_primary_read": "Requires death-to-life realism, decay, reclamation, undercity survival, or graveyard-cycle thinking.",
+    "calibrated_false_positive_guardrail": "Do not award for generic resilience or nature language without decay, death, or reclamation.",
+    "evidence_claim_ids": [
+      "golgari_swarm_claim_001",
+      "golgari_swarm_claim_002",
+      "golgari_swarm_claim_003",
+      "golgari_swarm_claim_004",
+      "golgari_swarm_claim_005",
+      "golgari_swarm_claim_006"
+    ]
+  },
+  "placement_axes": [
+    {
+      "axis_id": "axis_reclamation_vs_denial",
+      "label": "Reclamation vs Denial",
+      "description": "Measures whether user answers align with Golgari Swarm's specific evidence instead of only its color pair.",
+      "low_end_label": "denial of decay",
+      "high_end_label": "survival through renewal",
+      "faction_position": 86,
+      "rationale": "Corpus evidence adds story-context support for Golgari Swarm, Golgari, Vraska, Izoni, Korozda, Devkarin, kraul, Jarad.",
+      "claim_ids": [
+        "golgari_swarm_claim_0008",
+        "golgari_swarm_claim_0009",
+        "golgari_swarm_claim_0010",
+        "golgari_swarm_claim_0011",
+        "golgari_swarm_claim_0012",
+        "golgari_swarm_claim_0013",
+        "golgari_swarm_claim_0014",
+        "golgari_swarm_claim_0015"
+      ],
+      "confidence": "Medium",
+      "notes": "Added during MTG-Stories corpus upgrade."
+    }
+  ],
+  "moral_and_psychological_profile": {
+    "summary": "Golgari Swarm should be scored through faction-specific behavioral evidence, not only broad color identity.",
+    "claim_ids": [
+      "golgari_swarm_claim_0008",
+      "golgari_swarm_claim_0009",
+      "golgari_swarm_claim_0010",
+      "golgari_swarm_claim_0011",
+      "golgari_swarm_claim_0012"
+    ]
+  },
+  "core_values": [
+    {
+      "value": "Golgari Swarm",
+      "placement_relevance": "Corpus search evidence for Golgari Swarm.",
+      "claim_ids": [
+        "golgari_swarm_claim_0008",
+        "golgari_swarm_claim_0009",
+        "golgari_swarm_claim_0010"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "value": "Golgari",
+      "placement_relevance": "Corpus search evidence for Golgari Swarm.",
+      "claim_ids": [
+        "golgari_swarm_claim_0008",
+        "golgari_swarm_claim_0009",
+        "golgari_swarm_claim_0010"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "value": "Vraska",
+      "placement_relevance": "Corpus search evidence for Golgari Swarm.",
+      "claim_ids": [
+        "golgari_swarm_claim_0008",
+        "golgari_swarm_claim_0009",
+        "golgari_swarm_claim_0010"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "value": "Izoni",
+      "placement_relevance": "Corpus search evidence for Golgari Swarm.",
+      "claim_ids": [
+        "golgari_swarm_claim_0008",
+        "golgari_swarm_claim_0009",
+        "golgari_swarm_claim_0010"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "value": "Korozda",
+      "placement_relevance": "Corpus search evidence for Golgari Swarm.",
+      "claim_ids": [
+        "golgari_swarm_claim_0008",
+        "golgari_swarm_claim_0009",
+        "golgari_swarm_claim_0010"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "value": "Devkarin",
+      "placement_relevance": "Corpus search evidence for Golgari Swarm.",
+      "claim_ids": [
+        "golgari_swarm_claim_0008",
+        "golgari_swarm_claim_0009",
+        "golgari_swarm_claim_0010"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "value": "kraul",
+      "placement_relevance": "Corpus search evidence for Golgari Swarm.",
+      "claim_ids": [
+        "golgari_swarm_claim_0008",
+        "golgari_swarm_claim_0009",
+        "golgari_swarm_claim_0010"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "value": "Jarad",
+      "placement_relevance": "Corpus search evidence for Golgari Swarm.",
+      "claim_ids": [
+        "golgari_swarm_claim_0008",
+        "golgari_swarm_claim_0009",
+        "golgari_swarm_claim_0010"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "value": "Undercity",
+      "placement_relevance": "Corpus search evidence for Golgari Swarm.",
+      "claim_ids": [
+        "golgari_swarm_claim_0008",
+        "golgari_swarm_claim_0009",
+        "golgari_swarm_claim_0010"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "value": "rot farms",
+      "placement_relevance": "Corpus search evidence for Golgari Swarm.",
+      "claim_ids": [
+        "golgari_swarm_claim_0008",
+        "golgari_swarm_claim_0009",
+        "golgari_swarm_claim_0010"
+      ],
+      "confidence": "Medium"
+    }
+  ],
+  "behavioral_signals": [
+    {
+      "signal": "References Desperate Operatives, The Gathering Storm: Chapter 4, Death's Precious Moments as story-context evidence rather than relying only on color identity.",
+      "placement_relevance": "Strengthens Golgari Swarm with corpus-backed specificity.",
+      "supports_match_when": "The user's answers echo Golgari Swarm, Golgari, Vraska, Izoni, Korozda, Devkarin in a faction-specific way.",
+      "weakens_match_when": "The user's answers only match the shared color pair without any faction-specific behavior.",
+      "claim_ids": [
+        "golgari_swarm_claim_0008",
+        "golgari_swarm_claim_0009",
+        "golgari_swarm_claim_0010",
+        "golgari_swarm_claim_0011",
+        "golgari_swarm_claim_0012",
+        "golgari_swarm_claim_0013"
+      ],
+      "confidence": "Medium"
+    },
+    "accepts rot as useful truth",
+    "builds from what others discard",
+    "sees endings as material for continuation"
+  ],
+  "inhibitor_traits": [
+    {
+      "trait": "Generic color-pair overfit",
+      "why_it_conflicts": "The corpus upgrade is intended to prevent Golgari Swarm from winning on broad color identity alone.",
+      "status": "Supported Interpretation",
+      "claim_ids": [
+        "golgari_swarm_claim_0008",
+        "golgari_swarm_claim_0009",
+        "golgari_swarm_claim_0010",
+        "golgari_swarm_claim_0011"
+      ],
+      "confidence": "Medium",
+      "notes": "Use collision questions when another faction shares the same or adjacent colors."
+    },
+    "mourns lost wilderness rather than cultivating decay",
+    "studies essence as craft rather than living inside the cycle"
+  ],
+  "good_fit_indicators": [
+    {
+      "indicator": "finds value in what others discard",
+      "rationale": "Matches the official Golgari Swarm identity summarized in the profile.",
+      "claim_ids": [
+        "golgari_swarm_claim_001"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "indicator": "accepts endings as material for renewal",
+      "rationale": "Matches the official Golgari Swarm identity summarized in the profile.",
+      "claim_ids": [
+        "golgari_swarm_claim_002"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "indicator": "survives through adaptation and practical resilience",
+      "rationale": "Matches the official Golgari Swarm identity summarized in the profile.",
+      "claim_ids": [
+        "golgari_swarm_claim_003"
+      ],
+      "confidence": "Medium"
+    }
+  ],
+  "calibration_tuning": {
+    "required_positive_evidence_terms": [
+      "decay",
+      "renewal",
+      "death",
+      "life",
+      "rot",
+      "undercity",
+      "survival",
+      "graveyard",
+      "cycle",
+      "reclamation"
+    ],
+    "required_positive_min_hits": 2,
+    "broad_match_penalty": 0.1,
+    "strengthen_when_user_centers": [
+      "death as beginning",
+      "survival below the city",
+      "decay renewal cycle",
+      "reclamation of what is discarded"
+    ],
+    "suppress_when_user_centers": [
+      "wild dispossession",
+      "essence craft study",
+      "community harmony",
+      "theatrical chaos"
+    ],
+    "false_positive_guardrail": "Do not award for generic resilience or nature language without decay, death, or reclamation.",
+    "smoke_test_note": "Used by lore review scripts as metadata-level calibration guidance; production placement may use richer weighted logic."
+  },
+  "collision_guidance": []
+}

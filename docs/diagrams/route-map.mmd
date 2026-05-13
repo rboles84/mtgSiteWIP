@@ -1,0 +1,21 @@
+flowchart LR
+  Root["/"]
+  HomeJS["home.js<br/>resume + motion"]
+  Arch["/archscry/"]
+  PlaceJS["index.js<br/>quick + interview + dossier"]
+  Maze["/maze.html"]
+  ResearchJS["research-init.js<br/>Smart/raw/builder"]
+  Library["/library/"]
+  Policy["/privacy/ and /terms/"]
+  Shared["shared topbar + atmosphere"]
+  Panel["127.0.0.1:4783<br/>command panel"]
+
+  Root --> HomeJS
+  Arch --> PlaceJS
+  Maze --> ResearchJS
+  Library --> Shared
+  Policy --> Shared
+  HomeJS --> Shared
+  PlaceJS --> Shared
+  ResearchJS --> Shared
+  Panel --> SharedPanel["server.mjs + panel.js"]

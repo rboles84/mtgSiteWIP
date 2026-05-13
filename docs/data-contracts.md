@@ -1,8 +1,16 @@
 # Vox Mana Data Contracts
 
-## Canonical faction data
+## Faction data layers
 
-`data/factions.json` is the single checked-in source of truth for faction rendering.
+Vox Mana now uses a raw-plus-generated data flow:
+
+- `data/raw-factions/` keeps the raw faction folders, claims, placement guidance, and source metadata for provenance.
+- `data/factions.json` is the generated display surface used by dossier rendering.
+- `data/placement-model.json` is the generated adaptive placement model used by Archscry.
+- `data/placement-model.schema.json` describes the generated placement model shape.
+- `supabase/functions/guild-recruiter/faction-context.ts` is the generated server-side Scrying Terminal context.
+
+After changing raw faction data or display data, run `npm run build:factions` from `C:\dev\projectFiles\voxmana-tools`.
 
 Each faction entry contains:
 
@@ -25,9 +33,20 @@ Each faction entry contains:
 - `deck_links`
 - `research_links`
 
-The frontend renders from this file.
+The frontend dossier renders from this file.
 
-The edge function imports `supabase/functions/guild-recruiter/faction-context.ts`, which is a condensed artifact generated from the same canonical content.
+The edge function imports `supabase/functions/guild-recruiter/faction-context.ts`, which is a condensed artifact generated from the same raw and display content.
+
+## Adaptive placement model
+
+`data/placement-model.json` contains:
+
+- `scoring_rules` for equal priors, likelihood-to-log-delta mapping, pruning, softmax confidence, and lateral inhibition.
+- `stages` for the Gate, Hall, and Crucible flow.
+- `factions` with identity, biological-expression framing, placement axes, good/poor-fit indicators, inhibitor traps, discriminator questions, and lateral inhibition targets.
+- `question_bank` with structured Gate, Hall, and Crucible answer cards.
+
+The model treats faction placement as a Vox Mana interpretive taxonomy, not official Wizards canon and not an objective personality diagnosis.
 
 ## Placement result
 
@@ -35,7 +54,8 @@ All result-producing paths should converge on this shape:
 
 ```json
 {
-  "version": "2026-05-05",
+  "version": "2026-05-10",
+  "model_version": "vox-mana-adaptive-placement-v1",
   "source_mode": "quick",
   "faction": "WU",
   "faction_name": "Azorius Senate",
@@ -43,6 +63,7 @@ All result-producing paths should converge on this shape:
   "world": "Ravnica",
   "decree": "Personalized decree text.",
   "confidence": 0.78,
+  "confidence_gap": 0.08,
   "mana_scores": {
     "W": 8,
     "U": 10,
@@ -78,7 +99,21 @@ All result-producing paths should converge on this shape:
     "format_interest": "commander",
     "budget_band": "mid",
     "experience_level": "returning"
-  }
+  },
+  "evidence_trail": [
+    {
+      "stage": "gate",
+      "question_id": "gate_pressure_trust",
+      "signal": "procedure as protection"
+    }
+  ],
+  "stage_history": [
+    {
+      "stage": "gate",
+      "question_id": "gate_pressure_trust",
+      "answer_title": "A process that binds everyone"
+    }
+  ]
 }
 ```
 

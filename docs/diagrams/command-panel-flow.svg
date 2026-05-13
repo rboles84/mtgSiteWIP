@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="920" height="440" viewBox="0 0 920 440" role="img" aria-labelledby="title desc">
+  <title id="title">Command panel flow</title>
+  <desc id="desc">The local command panel imports manifests, persists review state, serves the browser UI, and runs allowlisted commands.</desc>
+  <defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#8fbfd0"/></marker><style>.bg{fill:#121315}.box{fill:#202225;stroke:#bfa46a;rx:7}.store{fill:#172a2e;stroke:#62b7c4;rx:7}.text{fill:#f1ead7;font:13px Arial}.small{fill:#c9c0aa;font:12px Arial}.line{stroke:#8fbfd0;stroke-width:1.5;fill:none;marker-end:url(#arrow)}</style></defs>
+  <rect class="bg" width="920" height="440"/>
+  <rect class="box" x="60" y="60" width="170" height="54"/><text class="text" x="145" y="83" text-anchor="middle">external tools</text><text class="small" x="145" y="100" text-anchor="middle">npm run panel</text>
+  <rect class="store" x="310" y="35" width="170" height="54"/><text class="text" x="395" y="58" text-anchor="middle">commands.json</text><text class="small" x="395" y="75" text-anchor="middle">allowlist</text>
+  <rect class="store" x="310" y="115" width="170" height="54"/><text class="text" x="395" y="138" text-anchor="middle">Apocrypha manifests</text><text class="small" x="395" y="155" text-anchor="middle">external source data</text>
+  <rect class="store" x="310" y="195" width="170" height="54"/><text class="text" x="395" y="218" text-anchor="middle">state.json</text><text class="small" x="395" y="235" text-anchor="middle">review queue</text>
+  <rect class="box" x="600" y="115" width="170" height="54"/><text class="text" x="685" y="138" text-anchor="middle">panel.js UI</text><text class="small" x="685" y="155" text-anchor="middle">filters + views</text>
+  <rect class="box" x="600" y="235" width="170" height="54"/><text class="text" x="685" y="258" text-anchor="middle">JSON APIs</text><text class="small" x="685" y="275" text-anchor="middle">items + run + bulk</text>
+  <rect class="box" x="380" y="335" width="170" height="54"/><text class="text" x="465" y="358" text-anchor="middle">spawn command</text><text class="small" x="465" y="375" text-anchor="middle">allowlisted only</text>
+  <rect class="store" x="640" y="335" width="170" height="54"/><text class="text" x="725" y="358" text-anchor="middle">run logs</text><text class="small" x="725" y="375" text-anchor="middle">stdout + stderr</text>
+  <path class="line" d="M230 87 L310 62"/><path class="line" d="M230 87 L310 142"/><path class="line" d="M230 87 L310 222"/><path class="line" d="M480 142 L600 142"/><path class="line" d="M685 169 L685 235"/><path class="line" d="M600 262 L480 222"/><path class="line" d="M600 262 L465 335"/><path class="line" d="M550 362 L640 362"/><path class="line" d="M725 335 L715 289"/>
+</svg>

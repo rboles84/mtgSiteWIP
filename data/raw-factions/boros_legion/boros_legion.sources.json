@@ -1,0 +1,312 @@
+{
+  "schema_version": "1.0.0",
+  "faction_id": "boros_legion",
+  "faction_name": "Boros Legion",
+  "source_review_date": "2026-05-10",
+  "last_updated": "2026-05-10T02:24:27.430Z",
+  "sources": [
+    {
+      "source_id": "src_wotc_flavorful_guide_guilds_ravnica_2018",
+      "title": "A Flavorful Guide to the Guilds of Ravnica",
+      "author": "Cassie LaBelle",
+      "publisher_or_site": "Magic: The Gathering",
+      "publication_date": "2018-10-03",
+      "url_or_repository_path": "https://magic.wizards.com/en/news/feature/flavorful-guide-guilds-ravnica-2018-10-03",
+      "source_type": "Official article",
+      "reliability": "Primary / official",
+      "notes": "Official Wizards overview of the Guilds of Ravnica factions: Izzet, Boros, Selesnya, Golgari, and Dimir."
+    },
+    {
+      "source_id": "src_ravnica_novel_2005",
+      "title": "Ravnica: City of Guilds",
+      "author": "Cory J. Herndon",
+      "publisher_or_site": "Wizards of the Coast",
+      "publication_date": "2005-10-01",
+      "url_or_repository_path": "N/A",
+      "source_type": "Novel",
+      "reliability": "Primary / official",
+      "notes": "Primary lore source for Agrus Kos, the League of Wojek, and the Parhelion I."
+    },
+    {
+      "source_id": "src_wotc_gatecrash_boros_lore_2013",
+      "title": "The Boros Legion",
+      "author": "Wizards of the Coast",
+      "publisher_or_site": "Magic: The Gathering",
+      "publication_date": "2013-01-23",
+      "url_or_repository_path": "https://magic.wizards.com/en/news/feature/boros-legion",
+      "source_type": "Official lore article",
+      "reliability": "Primary / official",
+      "notes": "Defines the Battalion mechanic and the transition of the Parhelion II."
+    },
+    {
+      "source_id": "src_wotc_legends_karlov_manor_2024",
+      "title": "The Legends of Murders at Karlov Manor",
+      "author": "Wizards of the Coast",
+      "publisher_or_site": "Magic: The Gathering",
+      "publication_date": "2024-02-06",
+      "url_or_repository_path": "https://magic.wizards.com/en/news/feature/legends-murders-karlov-manor",
+      "source_type": "Official lore article",
+      "reliability": "Primary / official",
+      "notes": "Updated context for Aurelia and the spirit of Agrus Kos."
+    },
+    {
+      "source_id": "src_wotc_guilds_ravnica_mechanics_2018",
+      "title": "Guilds of Ravnica Mechanics",
+      "author": "Matt Tabak",
+      "publisher_or_site": "Magic: The Gathering",
+      "publication_date": "2018-09-04",
+      "url_or_repository_path": "https://magic.wizards.com/en/news/feature/guilds-ravnica-mechanics-2018-09-04",
+      "source_type": "Official mechanics article",
+      "reliability": "Primary / official",
+      "notes": "Official mechanics article for the Guilds of Ravnica set."
+    },
+    {
+      "source_id": "src_mtg_stories_003_clans_legions_de2e9b38",
+      "title": "003 Clans & Legions",
+      "source_type": "mtg_story_corpus_archive",
+      "origin": "GitHub MTG-Stories repository",
+      "url": "https://github.com/polarkac/MTG-Stories/blob/master/stories/036 - Guilds of Ravnica/003_Clans & Legions.typ",
+      "repository": "polarkac/MTG-Stories",
+      "repository_path": "stories/036 - Guilds of Ravnica/003_Clans & Legions.typ",
+      "matched_queries": [
+        "Boros Legion",
+        "Boros",
+        "Aurelia",
+        "Razia",
+        "Tajic",
+        "Feather",
+        "Sunhome",
+        "Parhelion",
+        "Wojek",
+        "Skyknight",
+        "radiance",
+        "battalion",
+        "justice"
+      ],
+      "relevance_note": "Selected during the Boros MTG-Stories enrichment pass because it matched Boros-specific prompt rows or high-signal Boros names, places, mechanics, or ideals.",
+      "reliability": "Archive copy of Magic story/lore material; use as source-backed story evidence and cross-check against official publication metadata when needed.",
+      "added_by": "boros_azorius_gruul_tuning_pass",
+      "added_at": "2026-05-10T02:24:27.430Z"
+    },
+    {
+      "source_id": "src_mtg_stories_003_the_absolution_of_the_guildpact_4e863503",
+      "title": "003 The Absolution Of The Guildpact",
+      "source_type": "mtg_story_corpus_archive",
+      "origin": "GitHub MTG-Stories repository",
+      "url": "https://github.com/polarkac/MTG-Stories/blob/master/stories/003 - Gatecrash/003_The Absolution of the Guildpact.typ",
+      "repository": "polarkac/MTG-Stories",
+      "repository_path": "stories/003 - Gatecrash/003_The Absolution of the Guildpact.typ",
+      "matched_queries": [
+        "Boros",
+        "Razia",
+        "Agrus Kos",
+        "Sunhome",
+        "Wojek",
+        "Skyknight"
+      ],
+      "relevance_note": "Selected during the Boros MTG-Stories enrichment pass because it matched Boros-specific prompt rows or high-signal Boros names, places, mechanics, or ideals.",
+      "reliability": "Archive copy of Magic story/lore material; use as source-backed story evidence and cross-check against official publication metadata when needed.",
+      "added_by": "boros_azorius_gruul_tuning_pass",
+      "added_at": "2026-05-10T02:24:27.430Z"
+    },
+    {
+      "source_id": "src_mtg_stories_006_the_gathering_storm_chapter_12_a8fc6d84",
+      "title": "006 The Gathering Storm: Chapter 12",
+      "source_type": "mtg_story_corpus_archive",
+      "origin": "GitHub MTG-Stories repository",
+      "url": "https://github.com/polarkac/MTG-Stories/blob/master/stories/037 - Ravnica Allegiance/006_The Gathering Storm: Chapter 12.typ",
+      "repository": "polarkac/MTG-Stories",
+      "repository_path": "stories/037 - Ravnica Allegiance/006_The Gathering Storm: Chapter 12.typ",
+      "matched_queries": [
+        "Boros Legion",
+        "Boros",
+        "Aurelia",
+        "Feather",
+        "Skyknight",
+        "battalion"
+      ],
+      "relevance_note": "Selected during the Boros MTG-Stories enrichment pass because it matched Boros-specific prompt rows or high-signal Boros names, places, mechanics, or ideals.",
+      "reliability": "Archive copy of Magic story/lore material; use as source-backed story evidence and cross-check against official publication metadata when needed.",
+      "added_by": "boros_azorius_gruul_tuning_pass",
+      "added_at": "2026-05-10T02:24:27.430Z"
+    },
+    {
+      "source_id": "src_mtg_stories_006_the_greater_good_a536bab3",
+      "title": "006 The Greater Good",
+      "source_type": "mtg_story_corpus_archive",
+      "origin": "GitHub MTG-Stories repository",
+      "url": "https://github.com/polarkac/MTG-Stories/blob/master/stories/003 - Gatecrash/006_The Greater Good.typ",
+      "repository": "polarkac/MTG-Stories",
+      "repository_path": "stories/003 - Gatecrash/006_The Greater Good.typ",
+      "matched_queries": [
+        "Boros",
+        "Aurelia",
+        "Sunhome",
+        "battalion",
+        "justice"
+      ],
+      "relevance_note": "Selected during the Boros MTG-Stories enrichment pass because it matched Boros-specific prompt rows or high-signal Boros names, places, mechanics, or ideals.",
+      "reliability": "Archive copy of Magic story/lore material; use as source-backed story evidence and cross-check against official publication metadata when needed.",
+      "added_by": "boros_azorius_gruul_tuning_pass",
+      "added_at": "2026-05-10T02:24:27.430Z"
+    },
+    {
+      "source_id": "src_mtg_stories_011_battle_for_the_ninth_4fb87675",
+      "title": "011 Battle For The Ninth",
+      "source_type": "mtg_story_corpus_archive",
+      "origin": "GitHub MTG-Stories repository",
+      "url": "https://github.com/polarkac/MTG-Stories/blob/master/stories/004 - Dragon's Maze/011_Battle for the Ninth.typ",
+      "repository": "polarkac/MTG-Stories",
+      "repository_path": "stories/004 - Dragon's Maze/011_Battle for the Ninth.typ",
+      "matched_queries": [
+        "Boros Legion",
+        "Boros",
+        "Aurelia",
+        "Tajic",
+        "Sunhome"
+      ],
+      "relevance_note": "Selected during the Boros MTG-Stories enrichment pass because it matched Boros-specific prompt rows or high-signal Boros names, places, mechanics, or ideals.",
+      "reliability": "Archive copy of Magic story/lore material; use as source-backed story evidence and cross-check against official publication metadata when needed.",
+      "added_by": "boros_azorius_gruul_tuning_pass",
+      "added_at": "2026-05-10T02:24:27.430Z"
+    },
+    {
+      "source_id": "src_mtg_stories_009_the_gathering_storm_chapter_3_c2a81b82",
+      "title": "009 The Gathering Storm: Chapter 3",
+      "source_type": "mtg_story_corpus_archive",
+      "origin": "GitHub MTG-Stories repository",
+      "url": "https://github.com/polarkac/MTG-Stories/blob/master/stories/036 - Guilds of Ravnica/009_The Gathering Storm: Chapter 3.typ",
+      "repository": "polarkac/MTG-Stories",
+      "repository_path": "stories/036 - Guilds of Ravnica/009_The Gathering Storm: Chapter 3.typ",
+      "matched_queries": [
+        "Boros Legion",
+        "Boros",
+        "Aurelia",
+        "Feather",
+        "justice"
+      ],
+      "relevance_note": "Selected during the Boros MTG-Stories enrichment pass because it matched Boros-specific prompt rows or high-signal Boros names, places, mechanics, or ideals.",
+      "reliability": "Archive copy of Magic story/lore material; use as source-backed story evidence and cross-check against official publication metadata when needed.",
+      "added_by": "boros_azorius_gruul_tuning_pass",
+      "added_at": "2026-05-10T02:24:27.430Z"
+    },
+    {
+      "source_id": "src_mtg_stories_006_ashes_6ede4fea",
+      "title": "006 Ashes",
+      "source_type": "mtg_story_corpus_archive",
+      "origin": "GitHub MTG-Stories repository",
+      "url": "https://github.com/polarkac/MTG-Stories/blob/master/stories/038 - War of the Spark/006_Ashes.typ",
+      "repository": "polarkac/MTG-Stories",
+      "repository_path": "stories/038 - War of the Spark/006_Ashes.typ",
+      "matched_queries": [
+        "Boros",
+        "Aurelia",
+        "Parhelion",
+        "Skyknight",
+        "justice"
+      ],
+      "relevance_note": "Selected during the Boros MTG-Stories enrichment pass because it matched Boros-specific prompt rows or high-signal Boros names, places, mechanics, or ideals.",
+      "reliability": "Archive copy of Magic story/lore material; use as source-backed story evidence and cross-check against official publication metadata when needed.",
+      "added_by": "boros_azorius_gruul_tuning_pass",
+      "added_at": "2026-05-10T02:24:27.430Z"
+    },
+    {
+      "source_id": "src_mtg_stories_004_episode_4_justice_before_mercy_57b8ab88",
+      "title": "004 Episode 4: Justice Before Mercy",
+      "source_type": "mtg_story_corpus_archive",
+      "origin": "GitHub MTG-Stories repository",
+      "url": "https://github.com/polarkac/MTG-Stories/blob/master/stories/055 - Murders at Karlov Manor/004_Episode 4: Justice Before Mercy.typ",
+      "repository": "polarkac/MTG-Stories",
+      "repository_path": "stories/055 - Murders at Karlov Manor/004_Episode 4: Justice Before Mercy.typ",
+      "matched_queries": [
+        "Boros Legion",
+        "Boros",
+        "Aurelia",
+        "Agrus Kos",
+        "justice"
+      ],
+      "relevance_note": "Selected during the Boros MTG-Stories enrichment pass because it matched Boros-specific prompt rows or high-signal Boros names, places, mechanics, or ideals.",
+      "reliability": "Archive copy of Magic story/lore material; use as source-backed story evidence and cross-check against official publication metadata when needed.",
+      "added_by": "boros_azorius_gruul_tuning_pass",
+      "added_at": "2026-05-10T02:24:27.430Z"
+    },
+    {
+      "source_id": "src_mtg_stories_007_episode_7_rot_before_recovery_aff91fb1",
+      "title": "007 Episode 7: Rot Before Recovery",
+      "source_type": "mtg_story_corpus_archive",
+      "origin": "GitHub MTG-Stories repository",
+      "url": "https://github.com/polarkac/MTG-Stories/blob/master/stories/055 - Murders at Karlov Manor/007_Episode 7: Rot before Recovery.typ",
+      "repository": "polarkac/MTG-Stories",
+      "repository_path": "stories/055 - Murders at Karlov Manor/007_Episode 7: Rot before Recovery.typ",
+      "matched_queries": [
+        "Boros Legion",
+        "Boros",
+        "Aurelia",
+        "Feather",
+        "Agrus Kos"
+      ],
+      "relevance_note": "Selected during the Boros MTG-Stories enrichment pass because it matched Boros-specific prompt rows or high-signal Boros names, places, mechanics, or ideals.",
+      "reliability": "Archive copy of Magic story/lore material; use as source-backed story evidence and cross-check against official publication metadata when needed.",
+      "added_by": "boros_azorius_gruul_tuning_pass",
+      "added_at": "2026-05-10T02:24:27.430Z"
+    },
+    {
+      "source_id": "src_mtg_stories_008_episode_8_gods_of_chaos_a773d3bd",
+      "title": "008 Episode 8: Gods Of Chaos",
+      "source_type": "mtg_story_corpus_archive",
+      "origin": "GitHub MTG-Stories repository",
+      "url": "https://github.com/polarkac/MTG-Stories/blob/master/stories/055 - Murders at Karlov Manor/008_Episode 8: Gods of Chaos.typ",
+      "repository": "polarkac/MTG-Stories",
+      "repository_path": "stories/055 - Murders at Karlov Manor/008_Episode 8: Gods of Chaos.typ",
+      "matched_queries": [
+        "Boros Legion",
+        "Boros",
+        "Aurelia",
+        "Feather",
+        "justice"
+      ],
+      "relevance_note": "Selected during the Boros MTG-Stories enrichment pass because it matched Boros-specific prompt rows or high-signal Boros names, places, mechanics, or ideals.",
+      "reliability": "Archive copy of Magic story/lore material; use as source-backed story evidence and cross-check against official publication metadata when needed.",
+      "added_by": "boros_azorius_gruul_tuning_pass",
+      "added_at": "2026-05-10T02:24:27.430Z"
+    },
+    {
+      "source_id": "src_mtg_stories_002_episode_2_monsters_we_became_e6ec05b7",
+      "title": "002 Episode 2: Monsters We Became",
+      "source_type": "mtg_story_corpus_archive",
+      "origin": "GitHub MTG-Stories repository",
+      "url": "https://github.com/polarkac/MTG-Stories/blob/master/stories/055 - Murders at Karlov Manor/002_Episode 2: Monsters We Became.typ",
+      "repository": "polarkac/MTG-Stories",
+      "repository_path": "stories/055 - Murders at Karlov Manor/002_Episode 2: Monsters We Became.typ",
+      "matched_queries": [
+        "Boros Legion",
+        "Boros",
+        "Aurelia",
+        "Feather"
+      ],
+      "relevance_note": "Selected during the Boros MTG-Stories enrichment pass because it matched Boros-specific prompt rows or high-signal Boros names, places, mechanics, or ideals.",
+      "reliability": "Archive copy of Magic story/lore material; use as source-backed story evidence and cross-check against official publication metadata when needed.",
+      "added_by": "boros_azorius_gruul_tuning_pass",
+      "added_at": "2026-05-10T02:24:27.430Z"
+    },
+    {
+      "source_id": "src_mtg_stories_006_episode_6_explosions_of_genius_9db78723",
+      "title": "006 Episode 6: Explosions Of Genius",
+      "source_type": "mtg_story_corpus_archive",
+      "origin": "GitHub MTG-Stories repository",
+      "url": "https://github.com/polarkac/MTG-Stories/blob/master/stories/055 - Murders at Karlov Manor/006_Episode 6: Explosions of Genius.typ",
+      "repository": "polarkac/MTG-Stories",
+      "repository_path": "stories/055 - Murders at Karlov Manor/006_Episode 6: Explosions of Genius.typ",
+      "matched_queries": [
+        "Boros Legion",
+        "Boros",
+        "Aurelia",
+        "Agrus Kos"
+      ],
+      "relevance_note": "Selected during the Boros MTG-Stories enrichment pass because it matched Boros-specific prompt rows or high-signal Boros names, places, mechanics, or ideals.",
+      "reliability": "Archive copy of Magic story/lore material; use as source-backed story evidence and cross-check against official publication metadata when needed.",
+      "added_by": "boros_azorius_gruul_tuning_pass",
+      "added_at": "2026-05-10T02:24:27.430Z"
+    }
+  ]
+}

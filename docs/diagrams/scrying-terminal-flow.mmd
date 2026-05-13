@@ -1,0 +1,18 @@
+flowchart TD
+  User["User opens Scrying Terminal"]
+  Start["vm_startInterview"]
+  Shared["assets/js/shared.js"]
+  Edge["Supabase edge function<br/>guild-recruiter"]
+  Sanitize["sanitizeHistory + validate message"]
+  Rate["enforceRateLimit"]
+  Prompt["buildSystemPrompt<br/>generated faction context"]
+  Anthropic["Anthropic Messages API"]
+  Parse["parseTurnResponse"]
+  Decide{"decided?"}
+  Normalize["normalizeDecisionResult"]
+  Question["Return next question"]
+  Dossier["Reveal decree + dossier"]
+
+  User --> Start --> Shared --> Edge --> Sanitize --> Rate --> Prompt --> Anthropic --> Parse --> Decide
+  Decide -- "No" --> Question --> User
+  Decide -- "Yes" --> Normalize --> Dossier

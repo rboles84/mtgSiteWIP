@@ -1,0 +1,303 @@
+/* ============================================================
+   Vox Mana — Atmosphere Layer
+   /assets/css/atmosphere.css
+
+   Loaded by every page. Provides:
+     - the painted hero backdrop (responsive <picture>)
+     - layered ambient motion: heat-haze warp + nebula drift + star pulse
+     - per-page mask treatments (light / medium / heavy)
+     - the bracketed octagonal frame component (.vm-bracket)
+     - topbar legibility shielding for any page that has a bg
+     - reduce-motion respect on every animated layer
+
+   Depends on tokens.css for variables.
+   ============================================================ */
+
+/* ── BACKDROP CONTAINER ──
+   Fixed, behind everything. Pages add data-bg="<weight>" on <body>
+   to control the mask treatment. No bg defined here — the <picture>
+   element inside .vm-bg__picture handles the image. */
+.vm-bg {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: var(--bg);
+  overflow: hidden;
+}
+
+.vm-bg::before,
+.vm-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.vm-bg::before {
+  z-index: 2;
+  background-image: var(--asset-overlay-vignette);
+  background-size: cover;
+}
+
+.vm-bg::after {
+  z-index: 3;
+  background:
+    var(--asset-overlay-fog) center / cover no-repeat,
+    var(--asset-overlay-teal-glow) center / cover no-repeat;
+  opacity: var(--vm-bg-overlay-opacity, 0.62);
+  mix-blend-mode: screen;
+}
+
+/* The painted image fills the container. Mask is applied per-page. */
+.vm-bg__picture,
+.vm-bg__picture img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.vm-bg__picture {
+  z-index: 0;
+}
+
+.vm-bg__picture img {
+  object-fit: cover;
+  object-position: center center;
+  transform-origin: 50% 55%;
+  animation: vm-bg-burns 90s ease-in-out infinite alternate;
+  will-change: transform;
+}
+
+@keyframes vm-bg-burns {
+  from { transform: scale(1)     translate3d(0, 0, 0); }
+  to   { transform: scale(1.035) translate3d(0.5%, -0.4%, 0); }
+}
+
+/* ── PER-PAGE MASK TREATMENTS ──
+   data-bg="light"   → home: light center-fade, image at full presence
+   data-bg="medium"  → archscry, apocrypha: medium vignette
+   data-bg="heavy"   → maze (text-heavy), privacy, terms: heavy vignette */
+[data-bg="light"]  .vm-bg__picture img {
+  -webkit-mask-image: radial-gradient(ellipse at center,
+                        black 60%, rgba(0,0,0,0.85) 80%, rgba(0,0,0,0.4) 95%, transparent 100%);
+          mask-image: radial-gradient(ellipse at center,
+                        black 60%, rgba(0,0,0,0.85) 80%, rgba(0,0,0,0.4) 95%, transparent 100%);
+}
+[data-bg="medium"] .vm-bg__picture img {
+  -webkit-mask-image: radial-gradient(ellipse at center,
+                        black 35%, rgba(0,0,0,0.65) 60%, rgba(0,0,0,0.25) 85%, transparent 100%);
+          mask-image: radial-gradient(ellipse at center,
+                        black 35%, rgba(0,0,0,0.65) 60%, rgba(0,0,0,0.25) 85%, transparent 100%);
+  opacity: 0.78;
+}
+[data-bg="heavy"]  .vm-bg__picture img {
+  -webkit-mask-image: radial-gradient(ellipse at center,
+                        black 20%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0.15) 80%, transparent 100%);
+          mask-image: radial-gradient(ellipse at center,
+                        black 20%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0.15) 80%, transparent 100%);
+  opacity: 0.5;
+}
+
+/* ── NEBULA DRIFT ──
+   A second layer using gradient clouds that drifts slowly across the
+   image's upper portion. Multiplied softly so it doesn't read as a
+   discrete element — just adds gentle motion to the cool nebula areas. */
+.vm-bg__nebula {
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 40% 30% at 30% 20%, rgba(40, 100, 130, 0.15), transparent 60%),
+    radial-gradient(ellipse 35% 25% at 75% 25%, rgba(60, 110, 140, 0.18), transparent 60%);
+  mix-blend-mode: screen;
+  animation: vm-nebula-drift 60s ease-in-out infinite alternate;
+  will-change: transform, opacity;
+}
+[data-bg="heavy"]  .vm-bg__nebula { opacity: 0.4; }
+[data-bg="medium"] .vm-bg__nebula { opacity: 0.7; }
+
+@keyframes vm-nebula-drift {
+  0%   { transform: translate3d(0, 0, 0) scale(1); opacity: 0.85; }
+  50%  { opacity: 1; }
+  100% { transform: translate3d(-3%, 1.5%, 0) scale(1.05); opacity: 0.85; }
+}
+
+/* ── STAR FIELD ──
+   A canvas layer painted by atmosphere.js — pulsing distant lights.
+   Sits above the picture but below content. */
+.vm-bg__stars {
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  pointer-events: none;
+  opacity: 0.85;
+}
+[data-bg="heavy"]  .vm-bg__stars { opacity: 0.4; }
+
+/* ── REDUCE MOTION RESPECT ──
+   OS preference and the user's toggle both freeze every motion layer. */
+@media (prefers-reduced-motion: reduce) {
+  .vm-bg__picture img,
+  .vm-bg__nebula {
+    animation: none;
+    transform: none;
+  }
+}
+[data-reduce-motion="true"] .vm-bg__picture img,
+[data-reduce-motion="true"] .vm-bg__nebula {
+  animation: none;
+  transform: none;
+}
+
+/* ── TOPBAR LEGIBILITY SHIELDING ──
+   On any page with a bg image, give the topbar a soft dark backing so
+   nav links stay readable. Subtle gradient feathered at the bottom. */
+body[data-bg] .vm-topbar {
+  background: linear-gradient(180deg,
+    rgba(12, 11, 10, 0.85) 0%,
+    rgba(12, 11, 10, 0.55) 60%,
+    rgba(12, 11, 10, 0) 100%);
+  -webkit-backdrop-filter: blur(6px) saturate(115%);
+          backdrop-filter: blur(6px) saturate(115%);
+}
+
+/* Nav buttons get a slightly darker surface beneath them so the painting
+   doesn't bleed through the buttons themselves. */
+body[data-bg] .vm-topbar__nav a,
+body[data-bg] .vm-topbar__nav button {
+  background: rgba(12, 11, 10, 0.45);
+}
+body[data-bg] .vm-topbar__nav a:hover,
+body[data-bg] .vm-topbar__nav a:focus-visible,
+body[data-bg] .vm-topbar__nav button:hover,
+body[data-bg] .vm-topbar__nav button:focus-visible {
+  background: rgba(12, 11, 10, 0.7);
+}
+body[data-bg] .vm-topbar__nav a[aria-current="page"] {
+  color: var(--gold-l);
+  border-color: var(--gold);
+  background: rgba(184, 149, 74, 0.12);
+  box-shadow: 0 0 18px rgba(184, 149, 74, 0.12);
+}
+
+/* ── BRACKETED OCTAGONAL FRAME ──
+   Reusable component used by:
+     - the three home cards (.vm-card)
+     - the archscry interview panel
+     - the maze search result blocks
+     - the apocrypha lore entry blocks
+     - the decree result page
+   Apply by placing 8 .vm-bracket__corner spans inside any .vm-bracket
+   element. Outline drawn in CSS borders + clip-path for the chamfers. */
+.vm-bracket {
+  position: relative;
+  isolation: isolate;
+  /* Clip-path chamfers two opposite corners; we use top-left and
+     bottom-right by default. Cards override with --bracket-corners
+     to chamfer different corners. */
+  --bracket-chamfer: 18px;
+  --bracket-bg: rgba(12, 11, 10, 0.72);
+  --bracket-border: var(--border-s);
+  background: var(--bracket-bg);
+  border: 1px solid var(--bracket-border);
+  clip-path: polygon(
+    var(--bracket-chamfer) 0,
+    100% 0,
+    100% calc(100% - var(--bracket-chamfer)),
+    calc(100% - var(--bracket-chamfer)) 100%,
+    0 100%,
+    0 var(--bracket-chamfer)
+  );
+  transition: background var(--dur-base) var(--ease-out),
+              border-color var(--dur-base) var(--ease-out);
+}
+
+/* Bracket "tick" ornaments — short hairline-gold lines just inside the
+   chamfered corners. Drawn as ::before pseudo-elements on .vm-bracket
+   children that have data-bracket-corner. */
+.vm-bracket__tick {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  border: 1px solid var(--gold);
+  opacity: 0.55;
+  pointer-events: none;
+  z-index: 2;
+  transition: opacity var(--dur-base) var(--ease-out);
+}
+.vm-bracket__tick--tl { top: -1px; left: -1px;  border-right: none; border-bottom: none; }
+.vm-bracket__tick--tr { top: -1px; right: -1px; border-left: none;  border-bottom: none; }
+.vm-bracket__tick--bl { bottom: -1px; left: -1px;  border-right: none; border-top: none; }
+.vm-bracket__tick--br { bottom: -1px; right: -1px; border-left: none;  border-top: none; }
+/* Hide ticks on the chamfered corners — they'd float in air. */
+.vm-bracket .vm-bracket__tick--tl,
+.vm-bracket .vm-bracket__tick--br {
+  display: none;
+}
+.vm-bracket:hover .vm-bracket__tick,
+.vm-bracket:focus-visible .vm-bracket__tick {
+  opacity: 1;
+}
+
+/* ── DEEP-BLACK PANEL FIX ──
+   Anywhere a panel needs to read as "near-black against painted bg"
+   without going purple-cast, use --bg-3 (warm). This class is meant
+   for things like B-mana indicators, modal underlays, and any internal
+   panels that were previously rgba(0,0,0,...). */
+.vm-panel-deep {
+  background: var(--bg-3);
+  border: 1px solid var(--border);
+}
+
+/* ── HOVER-REVEAL GLOSSARY (for privacy/terms) ──
+   Key terms get hairline-gold underline; on hover/focus a tooltip with
+   a definition appears beneath. Pure CSS, keyboard-accessible. */
+.vm-gloss {
+  position: relative;
+  border-bottom: 1px dotted var(--gold-quiet);
+  cursor: help;
+  color: inherit;
+  transition: color var(--dur-fast) var(--ease-out),
+              border-color var(--dur-fast) var(--ease-out);
+}
+.vm-gloss:hover,
+.vm-gloss:focus-visible {
+  color: var(--gold-l);
+  border-bottom-color: var(--gold);
+  outline: none;
+}
+.vm-gloss::after {
+  content: attr(data-gloss);
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  min-width: 240px;
+  max-width: 360px;
+  font-family: var(--font-text);
+  font-style: italic;
+  font-size: 0.92rem;
+  line-height: 1.5;
+  color: var(--text);
+  background: var(--bg-3);
+  border: 1px solid var(--border-s);
+  padding: var(--s-3) var(--s-4);
+  white-space: normal;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-4px);
+  transition: opacity var(--dur-fast) var(--ease-out),
+              transform var(--dur-fast) var(--ease-out);
+  z-index: 50;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+.vm-gloss:hover::after,
+.vm-gloss:focus-visible::after {
+  opacity: 1;
+  transform: translateY(0);
+}
+/* If glossed item is near right edge, allow tooltip to anchor right */
+.vm-gloss--right::after { left: auto; right: 0; }

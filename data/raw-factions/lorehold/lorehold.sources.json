@@ -1,0 +1,525 @@
+{
+  "schema_version": "1.0.0",
+  "faction_id": "lorehold",
+  "faction_name": "Lorehold",
+  "source_review_date": "2026-05-09",
+  "last_updated": "2026-05-09",
+  "sources": [
+    {
+      "source_id": "src_lorehold_0001",
+      "title": "Strixhaven Available Now",
+      "author": "Wizards of the Coast",
+      "publisher_or_site": "Magic: The Gathering",
+      "publication_date": "2021",
+      "url_or_repository_path": "https://magic.wizards.com/en/products/strixhaven",
+      "source_type": "Official Story",
+      "authority_rank": 1,
+      "date_reviewed": "2026-05-09",
+      "status": "Active",
+      "inspected": true,
+      "relevant_summary": "Official product page describing Strixhaven's five colleges and Lorehold as the College of Archaeomancy, with students characterized as researchers, adventurers, and history-focused scholars.",
+      "fields_supported": [
+        "core_identity",
+        "site_surface",
+        "search_and_filter_metadata"
+      ],
+      "limitations": [
+        "Brief marketing overview rather than a detailed lore guide."
+      ],
+      "supersedes": [],
+      "superseded_by": [],
+      "notes": "Reviewed as official source. Citation: citeturn631979view2"
+    },
+    {
+      "source_id": "src_lorehold_0002",
+      "title": "Planeswalker's Guide to Strixhaven",
+      "author": "Doug Beyer and Ari Zirulnik",
+      "publisher_or_site": "Magic: The Gathering",
+      "publication_date": "2021-04-01",
+      "url_or_repository_path": "https://magic.wizards.com/en/news/feature/planeswalkers-guide-strixhaven-2021-04-01",
+      "source_type": "Official Story",
+      "authority_rank": 1,
+      "date_reviewed": "2026-05-09",
+      "status": "Active",
+      "inspected": true,
+      "relevant_summary": "Official world guide covering Strixhaven University, the five colleges, Lorehold's red-white identity, campus locations, roles, spirit statues, and the order-vs-chaos dichotomy.",
+      "fields_supported": [
+        "core_identity",
+        "structure",
+        "locations",
+        "mechanics",
+        "views_on_other_factions",
+        "placement"
+      ],
+      "limitations": [
+        "Represents the original 2021 setting guide; later 2026 sources add updated story context."
+      ],
+      "supersedes": [],
+      "superseded_by": [],
+      "notes": "Reviewed as official source. Citations: citeturn427453view0 citeturn701593view2"
+    },
+    {
+      "source_id": "src_lorehold_0003",
+      "title": "The First Lesson: Introduction to Strixhaven",
+      "author": "Wizards of the Coast",
+      "publisher_or_site": "Magic: The Gathering",
+      "publication_date": "2021-02-18",
+      "url_or_repository_path": "https://magic.wizards.com/en/news/feature/first-lesson-introduction-strixhaven-2021-02-18",
+      "source_type": "Official Story",
+      "authority_rank": 1,
+      "date_reviewed": "2026-05-09",
+      "status": "Active",
+      "inspected": true,
+      "relevant_summary": "Official introductory article providing compact college identities and Lorehold's motto, 'Leave no stone unturned.'",
+      "fields_supported": [
+        "site_surface",
+        "core_identity",
+        "search_and_filter_metadata"
+      ],
+      "limitations": [
+        "Introductory marketing/overview article; less detailed than the Planeswalker's Guide."
+      ],
+      "supersedes": [],
+      "superseded_by": [],
+      "notes": "Reviewed as official source. Citation: citeturn631979view7"
+    },
+    {
+      "source_id": "src_lorehold_0004",
+      "title": "Strixhaven: School of Mages Mechanics",
+      "author": "Matt Tabak",
+      "publisher_or_site": "Magic: The Gathering",
+      "publication_date": "2021-03-25",
+      "url_or_repository_path": "https://magic.wizards.com/en/news/feature/strixhaven-school-mages-mechanics-2021-03-25",
+      "source_type": "Official Mechanics",
+      "authority_rank": 1,
+      "date_reviewed": "2026-05-09",
+      "status": "Active",
+      "inspected": true,
+      "relevant_summary": "Official mechanics article explaining learn, Lesson, magecraft, ward, and modal double-faced deans for Strixhaven.",
+      "fields_supported": [
+        "mechanics",
+        "structure",
+        "placement"
+      ],
+      "limitations": [
+        "Rules/mechanics source; does not provide deep character lore."
+      ],
+      "supersedes": [],
+      "superseded_by": [],
+      "notes": "Reviewed as official source. Citations: citeturn701593view3 citeturn701593view4"
+    },
+    {
+      "source_id": "src_lorehold_0005",
+      "title": "Strixhaven: School of Mages and Commander (2021 Edition) Release Notes",
+      "author": "Jess Dunks and Matt Tabak",
+      "publisher_or_site": "Magic: The Gathering",
+      "publication_date": "2021-04-16",
+      "url_or_repository_path": "https://magic.wizards.com/en/news/feature/strixhaven-school-mages-and-commander-2021-edition-release-notes-2021-04-16",
+      "source_type": "Official Rules",
+      "authority_rank": 1,
+      "date_reviewed": "2026-05-09",
+      "status": "Active",
+      "inspected": true,
+      "relevant_summary": "Official release notes containing rules explanations and card-specific text for Strixhaven, including Lorehold Apprentice, Lorehold Command, Plargg/Augusta, Quintorius, and Velomachus Lorehold.",
+      "fields_supported": [
+        "mechanics",
+        "canonical_flavor_text",
+        "key_figures",
+        "card_supported_claims"
+      ],
+      "limitations": [
+        "Release notes include rules/card text; not all card flavor or story context is covered."
+      ],
+      "supersedes": [],
+      "superseded_by": [],
+      "notes": "Reviewed as official source. Citations: citeturn501983view0 citeturn501983view1 citeturn501983view2 citeturn501983view3"
+    },
+    {
+      "source_id": "src_lorehold_0006",
+      "title": "The Mentor",
+      "author": "Reinhardt Suarez",
+      "publisher_or_site": "Magic: The Gathering",
+      "publication_date": "2021-04-16",
+      "url_or_repository_path": "https://magic.wizards.com/en/news/magic-story/mentor-2021-04-16",
+      "source_type": "Official Story",
+      "authority_rank": 1,
+      "date_reviewed": "2026-05-09",
+      "status": "Active",
+      "inspected": true,
+      "relevant_summary": "Official Lorehold-focused story centered on Quintorius Kand, Effigy Row, spirit mentors, The Rousing, and Lorehold archaeomancy.",
+      "fields_supported": [
+        "key_figures",
+        "locations",
+        "mechanics",
+        "timeline",
+        "placement"
+      ],
+      "limitations": [
+        "Narrative source centered on Quintorius; should not be overgeneralized to all Lorehold students without support from broader sources."
+      ],
+      "supersedes": [],
+      "superseded_by": [],
+      "notes": "Reviewed as official source. Citation: citeturn890741view2"
+    },
+    {
+      "source_id": "src_lorehold_0007",
+      "title": "March of the Machine | Arcavios: A Radiant Heart",
+      "author": "Evelyn Teng",
+      "publisher_or_site": "Magic: The Gathering",
+      "publication_date": "2023-03-20",
+      "url_or_repository_path": "https://magic.wizards.com/en/news/magic-story/a-radiant-heart",
+      "source_type": "Official Story",
+      "authority_rank": 1,
+      "date_reviewed": "2026-05-09",
+      "status": "Active",
+      "inspected": true,
+      "relevant_summary": "Official story showing Quintorius during the New Phyrexian invasion of Arcavios, including Lorehold-style spirit/statue magic used to seek guidance.",
+      "fields_supported": [
+        "timeline",
+        "key_figures",
+        "mechanics"
+      ],
+      "limitations": [
+        "Crisis narrative; not a full faction overview."
+      ],
+      "supersedes": [],
+      "superseded_by": [],
+      "notes": "Reviewed as official source. Citation: citeturn890741view4"
+    },
+    {
+      "source_id": "src_lorehold_0008",
+      "title": "Planeswalker's Guide to Secrets of Strixhaven",
+      "author": "Wizards of the Coast",
+      "publisher_or_site": "Magic: The Gathering",
+      "publication_date": "2026-03-16",
+      "url_or_repository_path": "https://magic.wizards.com/en/news/magic-story/planeswalkers-guide-to-secrets-of-strixhaven",
+      "source_type": "Official Story",
+      "authority_rank": 1,
+      "date_reviewed": "2026-05-09",
+      "status": "Active",
+      "inspected": true,
+      "relevant_summary": "Updated 2026 official guide expanding Lorehold's identity, order/chaos tension, field studies, areas of study, the Blood Age, and present-day Arcavios geography.",
+      "fields_supported": [
+        "core_identity",
+        "structure",
+        "historical_timeline",
+        "locations",
+        "placement"
+      ],
+      "limitations": [
+        "Current as of review date; later story releases may change details."
+      ],
+      "supersedes": [],
+      "superseded_by": [],
+      "notes": "Reviewed as current official source. Citations: citeturn890741view0 citeturn701593view1"
+    },
+    {
+      "source_id": "src_lorehold_0009",
+      "title": "The Legends of Secrets of Strixhaven",
+      "author": "Wizards of the Coast",
+      "publisher_or_site": "Magic: The Gathering",
+      "publication_date": "2026-04-13",
+      "url_or_repository_path": "https://magic.wizards.com/en/news/magic-story/the-legends-of-secrets-of-strixhaven",
+      "source_type": "Official Story",
+      "authority_rank": 1,
+      "date_reviewed": "2026-05-09",
+      "status": "Active",
+      "inspected": true,
+      "relevant_summary": "Official character/legend guide for Secrets of Strixhaven, including Kirol, Mica, Aziza, Velomachus/Lorehold the Historian, Quintorius, Excava, and Augusta Order Returned.",
+      "fields_supported": [
+        "key_figures",
+        "leaders",
+        "timeline",
+        "placement"
+      ],
+      "limitations": [
+        "Character-focused source; not every entry is a full lore history."
+      ],
+      "supersedes": [],
+      "superseded_by": [],
+      "notes": "Reviewed as current official source. Citations: citeturn890741view1 citeturn701593view0"
+    },
+    {
+      "source_id": "src_lorehold_0010",
+      "title": "Secrets of Strixhaven | Field Studies in a Future Tense",
+      "author": "Seanan McGuire",
+      "publisher_or_site": "Magic: The Gathering",
+      "publication_date": "2026-04-03",
+      "url_or_repository_path": "https://magic.wizards.com/en/news/magic-story/secrets-of-strixhaven-field-studies-in-a-future-tense",
+      "source_type": "Official Story",
+      "authority_rank": 1,
+      "date_reviewed": "2026-05-09",
+      "status": "Active",
+      "inspected": true,
+      "relevant_summary": "Official story showing Quintorius returning to Arcavios, Dean Augusta Tullus as a spirit/stone-like ongoing dean figure, and fieldwork at the Fields of Strife.",
+      "fields_supported": [
+        "timeline",
+        "leaders",
+        "key_figures",
+        "field_studies",
+        "placement"
+      ],
+      "limitations": [
+        "Narrative source; some events are specific to Quintorius and should not be generalized to all Lorehold."
+      ],
+      "supersedes": [],
+      "superseded_by": [],
+      "notes": "Reviewed as current official source. Citation: citeturn348781view3"
+    },
+    {
+      "source_id": "src_lorehold_0011",
+      "title": "Secrets of Strixhaven Commander Decklists",
+      "author": "Jubilee Finnegan",
+      "publisher_or_site": "Magic: The Gathering",
+      "publication_date": "2026-04-01",
+      "url_or_repository_path": "https://magic.wizards.com/en/news/announcements/secrets-of-strixhaven-commander-decklists",
+      "source_type": "Official Card Data",
+      "authority_rank": 2,
+      "date_reviewed": "2026-05-09",
+      "status": "Active",
+      "inspected": true,
+      "relevant_summary": "Official 2026 Commander decklist article listing the Lorehold Spirit deck and associated Lorehold Spirit tokens.",
+      "fields_supported": [
+        "mechanics",
+        "search_and_filter_metadata",
+        "card_supported_claims"
+      ],
+      "limitations": [
+        "Decklist/source for product composition; not a primary narrative source."
+      ],
+      "supersedes": [],
+      "superseded_by": [],
+      "notes": "Reviewed as official card/product source. Citation: citeturn394421search2"
+    },
+    {
+      "source_id": "src_lorehold_0012",
+      "title": "polarkac/MTG-Stories repository",
+      "author": "polarkac",
+      "publisher_or_site": "GitHub",
+      "publication_date": "2025-07-07",
+      "url_or_repository_path": "https://github.com/polarkac/MTG-Stories",
+      "source_type": "Repository Archive",
+      "authority_rank": 5,
+      "date_reviewed": "2026-05-09",
+      "status": "Active",
+      "inspected": true,
+      "relevant_summary": "Repository archive of publicly available MTG stories. Used as archive/discovery support and cross-reference for requested Lorehold terms including Velomachus Lorehold, Quintorius, Hofri, Plargg, spirit, relic, archaeology, history, ruins, scroll, artifact, red white, magecraft, and learn.",
+      "fields_supported": [
+        "source_discovery",
+        "archive_cross_reference",
+        "requested_search_terms"
+      ],
+      "limitations": [
+        "Repository archive, not primary canon when official Wizards pages remain available.",
+        "GitHub code search required sign-in in the browser view; repository files were fetched directly by known paths from the Typst index."
+      ],
+      "supersedes": [],
+      "superseded_by": [],
+      "notes": "Reviewed repository landing/release information only. Citation: citeturn759470search1",
+      "last_updated": "2026-05-09"
+    },
+    {
+      "source_id": "src_lorehold_0013",
+      "title": "The Mentor (MTG-Stories repository archive)",
+      "author": "Reinhardt Suarez",
+      "publisher_or_site": "GitHub / polarkac/MTG-Stories",
+      "publication_date": "2021-04-16",
+      "url_or_repository_path": "stories/042 - Strixhaven: School of Mages/007_The Mentor.typ",
+      "source_type": "Repository Archive",
+      "authority_rank": 5,
+      "date_reviewed": "2026-05-09",
+      "status": "Active",
+      "inspected": true,
+      "relevant_summary": "Repository archive copy of the official Strixhaven side story The Mentor. Used to enrich Lorehold data around Quintorius Kand, Asterion, Effigy Row spirit mentors, The Rousing, Pillardrop excavation, Hofri Ghostforge, Lorehold repositories, and the rules-versus-justice tension in Lorehold practice.",
+      "fields_supported": [
+        "source_discovery",
+        "key_figures",
+        "locations",
+        "spirit_statues",
+        "archaeomancy",
+        "placement"
+      ],
+      "limitations": [
+        "Repository archive, not primary canon when official Wizards story pages are available.",
+        "Narrative evidence from one story should not be generalized to every Lorehold student without corroboration."
+      ],
+      "supersedes": [],
+      "superseded_by": [],
+      "notes": "Fetched from the repository after GitHub code search did not return accessible content; inspected as requested search support."
+    },
+    {
+      "source_id": "src_lorehold_0014",
+      "title": "Field Studies in a Future Tense (MTG-Stories repository archive)",
+      "author": "Seanan McGuire",
+      "publisher_or_site": "GitHub / polarkac/MTG-Stories",
+      "publication_date": "2026-04-03",
+      "url_or_repository_path": "stories/063 - Secrets of Strixhaven/009_Field Studies in a Future Tense.typ",
+      "source_type": "Repository Archive",
+      "authority_rank": 5,
+      "date_reviewed": "2026-05-09",
+      "status": "Active",
+      "inspected": true,
+      "relevant_summary": "Repository archive copy of the Secrets of Strixhaven Lorehold side story. Used to enrich Lorehold data around Quintorius returning to Arcavios, Augusta Tullus as spirit dean, Fields of Strife research, Mica, artifact preservation, and the ethical contrast between archaeology and theft.",
+      "fields_supported": [
+        "source_discovery",
+        "key_figures",
+        "locations",
+        "field_studies",
+        "artifacts",
+        "placement"
+      ],
+      "limitations": [
+        "Repository archive, not primary canon when official Wizards story pages are available.",
+        "Story-specific actions by Quintorius, Mica, or Augusta should not be treated as universal Lorehold behavior."
+      ],
+      "supersedes": [],
+      "superseded_by": [],
+      "notes": "Fetched from the repository as part of the requested Lorehold search update."
+    },
+    {
+      "source_id": "src_mtg_stories_episode_1_penmanship_practice_f245144d",
+      "title": "Episode 1: Penmanship Practice",
+      "author": "K. Arsenault Rivera",
+      "publisher_or_site": "GitHub MTG Story Corpus / archived Magic story",
+      "publication_date": "2026-03-23",
+      "url_or_repository_path": "https://github.com/polarkac/MTG-Stories/blob/5e0a53c7193ba58835fd811f66612e8f6d6f344b/stories/063%20-%20Secrets%20of%20Strixhaven/001_Episode%201%3A%20Penmanship%20Practice.typ",
+      "repository_path": "stories/063 - Secrets of Strixhaven/001_Episode 1: Penmanship Practice.typ",
+      "source_type": "Repository archive story file",
+      "reliability": "Repository/archive copy of official story material",
+      "notes": "Matched Lorehold corpus queries: Lorehold, spirit, archaeology, history, ruins, scroll, learn. Treat as searchable archive evidence and cross-check against official Wizards story pages when available.",
+      "matched_queries": [
+        "Lorehold",
+        "spirit",
+        "archaeology",
+        "history",
+        "ruins",
+        "scroll",
+        "learn"
+      ],
+      "set_name": "Secrets of Strixhaven"
+    },
+    {
+      "source_id": "src_mtg_stories_a_silent_voice_calls_36854b19",
+      "title": "A Silent Voice Calls",
+      "author": "Marcus Terell Smith",
+      "publisher_or_site": "GitHub MTG Story Corpus / archived Magic story",
+      "publication_date": "2021-04-30",
+      "url_or_repository_path": "https://github.com/polarkac/MTG-Stories/blob/5e0a53c7193ba58835fd811f66612e8f6d6f344b/stories/042%20-%20Strixhaven%3A%20School%20of%20Mages/010_A%20Silent%20Voice%20Calls.typ",
+      "repository_path": "stories/042 - Strixhaven: School of Mages/010_A Silent Voice Calls.typ",
+      "source_type": "Repository archive story file",
+      "reliability": "Repository/archive copy of official story material",
+      "notes": "Matched Lorehold corpus queries: Lorehold, Quintorius, spirit, history, learn. Treat as searchable archive evidence and cross-check against official Wizards story pages when available.",
+      "matched_queries": [
+        "Lorehold",
+        "Quintorius",
+        "spirit",
+        "history",
+        "learn"
+      ],
+      "set_name": "Strixhaven: School of Mages"
+    },
+    {
+      "source_id": "src_mtg_stories_arcavios_a_radiant_heart_311b0936",
+      "title": "Arcavios: A Radiant Heart",
+      "author": "Evelyn Teng",
+      "publisher_or_site": "GitHub MTG Story Corpus / archived Magic story",
+      "publication_date": "2023-04-20",
+      "url_or_repository_path": "https://github.com/polarkac/MTG-Stories/blob/5e0a53c7193ba58835fd811f66612e8f6d6f344b/stories/051%20-%20March%20of%20the%20Machine/005_Arcavios%3A%20A%20Radiant%20Heart.typ",
+      "repository_path": "stories/051 - March of the Machine/005_Arcavios: A Radiant Heart.typ",
+      "source_type": "Repository archive story file",
+      "reliability": "Repository/archive copy of official story material",
+      "notes": "Matched Lorehold corpus queries: Lorehold, Quintorius, spirit, relic, ruins, scroll, learn. Treat as searchable archive evidence and cross-check against official Wizards story pages when available.",
+      "matched_queries": [
+        "Lorehold",
+        "Quintorius",
+        "spirit",
+        "relic",
+        "ruins",
+        "scroll",
+        "learn"
+      ],
+      "set_name": "March of the Machine"
+    },
+    {
+      "source_id": "src_mtg_stories_off_the_record_2ea68353",
+      "title": "Off the Record",
+      "author": "Valerie Valdes",
+      "publisher_or_site": "GitHub MTG Story Corpus / archived Magic story",
+      "publication_date": "2026-03-09",
+      "url_or_repository_path": "https://github.com/polarkac/MTG-Stories/blob/5e0a53c7193ba58835fd811f66612e8f6d6f344b/stories/063%20-%20Secrets%20of%20Strixhaven/007_Off%20the%20Record.typ",
+      "repository_path": "stories/063 - Secrets of Strixhaven/007_Off the Record.typ",
+      "source_type": "Repository archive story file",
+      "reliability": "Repository/archive copy of official story material",
+      "notes": "Matched Lorehold corpus queries: Lorehold, scroll, artifact, learn. Treat as searchable archive evidence and cross-check against official Wizards story pages when available.",
+      "matched_queries": [
+        "Lorehold",
+        "scroll",
+        "artifact",
+        "learn"
+      ],
+      "set_name": "Secrets of Strixhaven"
+    },
+    {
+      "source_id": "src_mtg_stories_episode_3_extracurriculars_39c7efc0",
+      "title": "Episode 3: Extracurriculars",
+      "author": "Adana Washington",
+      "publisher_or_site": "GitHub MTG Story Corpus / archived Magic story",
+      "publication_date": "2021-04-07",
+      "url_or_repository_path": "https://github.com/polarkac/MTG-Stories/blob/5e0a53c7193ba58835fd811f66612e8f6d6f344b/stories/042%20-%20Strixhaven%3A%20School%20of%20Mages/004_Episode%203%3A%20Extracurriculars.typ",
+      "repository_path": "stories/042 - Strixhaven: School of Mages/004_Episode 3: Extracurriculars.typ",
+      "source_type": "Repository archive story file",
+      "reliability": "Repository/archive copy of official story material",
+      "notes": "Matched Lorehold corpus queries: Lorehold, scroll, learn. Treat as searchable archive evidence and cross-check against official Wizards story pages when available.",
+      "matched_queries": [
+        "Lorehold",
+        "scroll",
+        "learn"
+      ],
+      "set_name": "Strixhaven: School of Mages"
+    },
+    {
+      "source_id": "src_mtg_stories_a_living_flame_92d3419c",
+      "title": "A Living Flame",
+      "author": "Aysha U. Farah",
+      "publisher_or_site": "GitHub MTG Story Corpus / archived Magic story",
+      "publication_date": "2026-04-02",
+      "url_or_repository_path": "https://github.com/polarkac/MTG-Stories/blob/5e0a53c7193ba58835fd811f66612e8f6d6f344b/stories/063%20-%20Secrets%20of%20Strixhaven/008_A%20Living%20Flame.typ",
+      "repository_path": "stories/063 - Secrets of Strixhaven/008_A Living Flame.typ",
+      "source_type": "Repository archive story file",
+      "reliability": "Repository/archive copy of official story material",
+      "notes": "Matched Lorehold corpus queries: Lorehold, history, learn. Treat as searchable archive evidence and cross-check against official Wizards story pages when available.",
+      "matched_queries": [
+        "Lorehold",
+        "history",
+        "learn"
+      ],
+      "set_name": "Secrets of Strixhaven"
+    }
+  ],
+  "not_used_or_rejected_sources": [
+    {
+      "title": "MTG Wiki: Lorehold and related pages",
+      "url_or_reference": "https://mtg.fandom.com/wiki/Lorehold",
+      "reason_rejected": "Useful as discovery/catalog context, but not used as primary support because official Wizards story, guide, mechanics, and release-note sources were available.",
+      "notes": "Search result surfaced the page, but official sources were preferred for claims."
+    },
+    {
+      "title": "MTGLore and fan/story-summary sites",
+      "url_or_reference": "MTGLore.com, Draftsim, Reddit, YouTube, blogs",
+      "reason_rejected": "Not needed for primary claims after official Wizards sources were located. Fan commentary was excluded from canon claims.",
+      "notes": "Secondary sources may still be useful for future discovery passes but should not be treated as canon authority."
+    },
+    {
+      "title": "lorehold.txt uploaded build prompt",
+      "url_or_reference": "Conversation upload",
+      "reason_rejected": "User-provided build instructions, not a lore authority source.",
+      "notes": "Included only to acknowledge the build contract and requested JSON-first approach. fileciteturn0file0"
+    },
+    {
+      "title": "Unauthenticated GitHub code search result pages for requested Lorehold terms",
+      "url_or_reference": "https://github.com/search?q=repo%3Apolarkac%2FMTG-Stories+%22Velomachus+Lorehold%22&type=code",
+      "reason_rejected": "Browser-accessible GitHub code search page required sign-in and did not expose result snippets; direct repository file fetches were used instead.",
+      "notes": "Recorded so future audits understand why the specific code-search result pages themselves were not treated as inspected canon sources."
+    }
+  ]
+}

@@ -9,7 +9,7 @@ const VM_CONFIG = {
     "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imx3a2pud3Njb3dicXJmcXFoZ3NwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzU0NTExMDcsImV4cCI6MjA5MTAyNzEwN30.mttdOwKCBkON8DOeEAV297rFV-Sj6n-TcLCT28BVlZ8",
 };
 
-const VM_RESULT_VERSION = "2026-05-05";
+const VM_RESULT_VERSION = "2026-05-10";
 
 let _supabaseClient = null;
 

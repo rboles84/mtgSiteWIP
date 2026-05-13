@@ -87,6 +87,31 @@
   --r-2: 8px;
   --r-3: 16px;
 
+  /* ---- ASSET PATHS -------------------------------------------------
+     Production image references. Page CSS can consume these directly,
+     while the current <picture> pattern can keep responsive sources. */
+  --asset-bg-home: url("/assets/img/backgrounds/background-vox-gateway-clean-13.webp");
+  --asset-bg-archscry: url("/assets/img/backgrounds/background-archscry-chamber-clean-01.webp");
+  --asset-bg-maze: url("/assets/img/backgrounds/background-maze-chamber-clean-01.webp");
+  --asset-bg-apocrypha: url("/assets/img/backgrounds/background-apocrypha-library-clean-01.webp");
+  --asset-bg-loom: url("/assets/img/backgrounds/background-loom-thread-chamber-clean-01.webp");
+
+  --asset-overlay-fog: url("/assets/img/overlays/overlay-fog-soft-01.svg");
+  --asset-overlay-mist: url("/assets/img/overlays/overlay-low-mist-01.svg");
+  --asset-overlay-vignette: url("/assets/img/overlays/overlay-vignette-shadow-01.svg");
+  --asset-overlay-teal-glow: url("/assets/img/overlays/overlay-arcane-glow-teal-01.svg");
+  --asset-overlay-library-light: url("/assets/img/overlays/overlay-library-warm-light-01.svg");
+
+  --asset-texture-panel: url("/assets/img/textures/texture-obsidian-polished-seamless-01.svg");
+  --asset-texture-parchment: url("/assets/img/textures/texture-parchment-dark-seamless-01.svg");
+  --asset-texture-stone: url("/assets/img/textures/texture-stone-citadel-seamless-01.svg");
+  --asset-texture-vellum: url("/assets/img/textures/texture-vellum-soft-seamless-01.svg");
+
+  --z-bg: -1;
+  --z-atmosphere: 0;
+  --z-content: 1;
+  --z-topbar: 100;
+
   /* ── MOTION ── shared timing for consistency */
   --ease-out:    cubic-bezier(0.2, 0.8, 0.2, 1);
   --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);

@@ -1,0 +1,140 @@
+{
+  "schema_version": "1.0.0",
+  "faction_id": "house_dimir",
+  "faction_name": "House Dimir",
+  "faction_type": "Guild",
+  "plane_or_setting": "Ravnica",
+  "color_identity": [
+    "blue",
+    "black"
+  ],
+  "last_updated": "2026-05-09",
+  "profile": {
+    "overview": "House Dimir is a blue-black guild associated with Ravnica.",
+    "philosophy": "Information is power, and power is safest when others cannot see its shape.",
+    "core_tension": "Dimir wants knowledge and control, but its central method is denying others knowledge about itself.",
+    "social_or_institutional_role": "The official guide frames Dimir as a network of spies, assassins, secrets, and need-to-know loyalty, with Lazav as guildmaster in that era.",
+    "mechanics_and_play_pattern": "Surveil expresses Dimir information control by filtering future draws and feeding graveyard resources.",
+    "placement_use": "Use this profile to support thematic placement, quiz design, and lore browsing. Do not present placement inferences as canon.",
+    "strongest_source_ids": [
+      "src_wotc_flavorful_guide_guilds_ravnica_2018",
+      "src_wotc_guilds_ravnica_mechanics_2018",
+      "src_wotc_guilds_ravnica_prerelease_primer_2018",
+      "src_wotc_dragons_maze_mechanics_2013"
+    ],
+    "claim_ids": [
+      "house_dimir_claim_001",
+      "house_dimir_claim_002",
+      "house_dimir_claim_003",
+      "house_dimir_claim_004",
+      "house_dimir_claim_005",
+      "house_dimir_claim_006"
+    ]
+  },
+  "evidence_summary": {
+    "overall_confidence": "High",
+    "limitations": [
+      "This is a compact first-pass JSON package generated from official overview and mechanics sources.",
+      "Novel-level or story-episode-specific details should be added in a later deep-dive pass with direct story citations."
+    ]
+  },
+  "profile_version": "1.0.0",
+  "source_review_date": "2026-05-09",
+  "last_incremental_review": "2026-05-09",
+  "core_identity": {
+    "summary": "House Dimir is a blue-black guild associated with Ravnica.",
+    "philosophy": "Information is power, and power is safest when others cannot see its shape.",
+    "central_tension": "Dimir wants knowledge and control, but its central method is denying others knowledge about itself.",
+    "claim_ids": [
+      "house_dimir_claim_0007",
+      "house_dimir_claim_0008",
+      "house_dimir_claim_0009",
+      "house_dimir_claim_0010",
+      "house_dimir_claim_0011",
+      "house_dimir_claim_0012",
+      "house_dimir_claim_0013",
+      "house_dimir_claim_0014"
+    ]
+  },
+  "site_surface": {
+    "display_name": "House Dimir",
+    "short_label": "House Dimir",
+    "tagline": "Information is power, and power is safest when others cannot see its shape.",
+    "claim_ids": [
+      "house_dimir_claim_0007",
+      "house_dimir_claim_0008",
+      "house_dimir_claim_0009",
+      "house_dimir_claim_0010"
+    ]
+  },
+  "structure": {
+    "summary": "The official guide frames Dimir as a network of spies, assassins, secrets, and need-to-know loyalty, with Lazav as guildmaster in that era.",
+    "claim_ids": [
+      "house_dimir_claim_0007",
+      "house_dimir_claim_0008",
+      "house_dimir_claim_0009",
+      "house_dimir_claim_0010"
+    ]
+  },
+  "great_tension": {
+    "summary": "Dimir wants knowledge and control, but its central method is denying others knowledge about itself.",
+    "placement_relevance": "Used to distinguish surface color overlap from faction-specific behavior.",
+    "claim_ids": [
+      "house_dimir_claim_0007",
+      "house_dimir_claim_0008",
+      "house_dimir_claim_0009",
+      "house_dimir_claim_0010",
+      "house_dimir_claim_0011"
+    ]
+  },
+  "historical_timeline": [],
+  "key_figures": [],
+  "canonical_flavor_text": [],
+  "views_on_other_factions": [],
+  "mechanics": {
+    "summary": "Surveil expresses Dimir information control by filtering future draws and feeding graveyard resources.",
+    "claim_ids": [
+      "house_dimir_claim_0007",
+      "house_dimir_claim_0008",
+      "house_dimir_claim_0009",
+      "house_dimir_claim_0010"
+    ]
+  },
+  "search_and_filter_metadata": {
+    "search_keywords": [
+      "House Dimir",
+      "Dimir",
+      "Etrata",
+      "Circu",
+      "memory",
+      "secrets",
+      "Lazav",
+      "surveil",
+      "transmute",
+      "Duskmantle",
+      "Undercity"
+    ],
+    "story_corpus_paths_added": 10
+  },
+  "data_quality": {
+    "corpus_upgrade": {
+      "review_date": "2026-05-09",
+      "status": "MTG-Stories corpus evidence added",
+      "claim_ids": [
+        "house_dimir_claim_0007",
+        "house_dimir_claim_0008",
+        "house_dimir_claim_0009",
+        "house_dimir_claim_0010",
+        "house_dimir_claim_0011",
+        "house_dimir_claim_0012",
+        "house_dimir_claim_0013",
+        "house_dimir_claim_0014",
+        "house_dimir_claim_0015",
+        "house_dimir_claim_0016"
+      ]
+    }
+  },
+  "research_limitations": [
+    "MTG-Stories repository entries are treated as searchable archive copies; official Wizards pages should remain the primary canon authority when available."
+  ]
+}

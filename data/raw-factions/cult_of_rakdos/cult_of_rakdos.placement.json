@@ -1,0 +1,398 @@
+{
+  "schema_version": "1.0.0",
+  "faction_id": "cult_of_rakdos",
+  "faction_name": "Cult of Rakdos",
+  "last_updated": "2026-05-10T02:56:03.254Z",
+  "placement_model_version": "vox-mana-lore-json-v1",
+  "color_identity": [
+    "black",
+    "red"
+  ],
+  "ideal_fit_indicators": [
+    {
+      "indicator": "uses performance to reveal truth",
+      "rationale": "Matches the official Cult of Rakdos identity summarized in the profile.",
+      "claim_ids": [
+        "cult_of_rakdos_claim_001"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "indicator": "chooses intensity over polite safety",
+      "rationale": "Matches the official Cult of Rakdos identity summarized in the profile.",
+      "claim_ids": [
+        "cult_of_rakdos_claim_002"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "indicator": "finds hypocrisy more offensive than disruption",
+      "rationale": "Matches the official Cult of Rakdos identity summarized in the profile.",
+      "claim_ids": [
+        "cult_of_rakdos_claim_003"
+      ],
+      "confidence": "Medium"
+    }
+  ],
+  "poor_fit_indicators": [
+    {
+      "indicator": "needs stability and restraint above all",
+      "rationale": "Counters a core Cult of Rakdos placement signal.",
+      "claim_ids": [
+        "cult_of_rakdos_claim_001"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "indicator": "avoids attention and spectacle",
+      "rationale": "Counters a core Cult of Rakdos placement signal.",
+      "claim_ids": [
+        "cult_of_rakdos_claim_002"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "indicator": "finds transgression meaningless rather than clarifying",
+      "rationale": "Counters a core Cult of Rakdos placement signal.",
+      "claim_ids": [
+        "cult_of_rakdos_claim_003"
+      ],
+      "confidence": "Medium"
+    }
+  ],
+  "discriminator_questions": [
+    {
+      "question_id": "rakdos_q1",
+      "question": "When did a performance, joke, or provocation tell the truth better than a careful explanation?",
+      "purpose": "Tests expressive transgression.",
+      "answer_pattern_that_supports_this_faction": "The answer emphasizes the ideal-fit indicators listed for this faction.",
+      "answer_pattern_that_weakens_this_faction": "The answer rejects or treats the faction's core tension as irrelevant.",
+      "related_factions_to_compare": [],
+      "claim_ids": [
+        "cult_of_rakdos_claim_001",
+        "cult_of_rakdos_claim_002",
+        "cult_of_rakdos_claim_003"
+      ],
+      "confidence": "Medium",
+      "notes": "Question is placement-engine guidance, not canon text."
+    },
+    {
+      "question_id": "rakdos_q2",
+      "question": "What kind of boredom feels intolerable to you?",
+      "purpose": "Finds the Rakdos pressure point without asking directly about chaos.",
+      "answer_pattern_that_supports_this_faction": "The answer emphasizes the ideal-fit indicators listed for this faction.",
+      "answer_pattern_that_weakens_this_faction": "The answer rejects or treats the faction's core tension as irrelevant.",
+      "related_factions_to_compare": [],
+      "claim_ids": [
+        "cult_of_rakdos_claim_001",
+        "cult_of_rakdos_claim_002",
+        "cult_of_rakdos_claim_003"
+      ],
+      "confidence": "Medium",
+      "notes": "Question is placement-engine guidance, not canon text."
+    }
+  ],
+  "chatbot_guidance": {
+    "how_to_recognize_match": [
+      "uses performance to reveal truth",
+      "chooses intensity over polite safety",
+      "finds hypocrisy more offensive than disruption"
+    ],
+    "how_to_recognize_mismatch": [
+      "needs stability and restraint above all",
+      "avoids attention and spectacle",
+      "finds transgression meaningless rather than clarifying"
+    ],
+    "questions_to_ask_when_uncertain": [
+      "When did a performance, joke, or provocation tell the truth better than a careful explanation?",
+      "What kind of boredom feels intolerable to you?"
+    ],
+    "do_not_overweight": [
+      "Do not overfit a single color preference.",
+      "Do not treat one favorite card or mechanic as enough evidence by itself.",
+      "Do not score a faction highly from color identity alone when another faction shares the same colors or surface traits."
+    ],
+    "never_claim_as_canon": [
+      "Psychological placement categories are Vox Mana interpretation, not official Wizards canon.",
+      "Do not state that a user's personality is objectively determined by a faction.",
+      "Placement scoring is a Vox Mana interpretation, not official Wizards canon."
+    ],
+    "calibration_note": "Cult of Rakdos should require its specific positive evidence cluster: spectacle, performance, transgression, sensation, danger. Keep it adjacent when the answer only contains broad color identity or generic personality language.",
+    "scoring_guardrail": "Do not award for generic chaos if the answer is grief, survival, or anti-civilization loss."
+  },
+  "placement_quality": {
+    "overall_confidence": "Medium",
+    "strongest_evidence_areas": [
+      "official faction overview",
+      "official mechanics identity",
+      "MTG-Stories corpus search evidence"
+    ],
+    "weakest_evidence_areas": [
+      "deep story episode coverage",
+      "cross-faction comparison calibration"
+    ],
+    "manual_review_recommended": true,
+    "notes": "Good for initial placement testing; should be expanded with story-specific claims in a later pass. Corpus-enriched data should be reviewed with calibration and collision reports before being treated as tuned scoring fuel.",
+    "calibration_tuning_status": "explicit",
+    "last_placement_ready_pass": "2026-05-10T02:56:03.254Z"
+  },
+  "placement_profile_version": "vox-mana-lore-json-v1",
+  "based_on_profile_version": "1.0.0",
+  "placement_summary": {
+    "short_description": "Cult of Rakdos placement is informed by official overview sources and MTG-Stories corpus evidence.",
+    "best_fit_summary": "uses performance to reveal truth chooses intensity over polite safety finds hypocrisy more offensive than disruption",
+    "poor_fit_summary": "needs stability and restraint above all avoids attention and spectacle finds transgression meaningless rather than clarifying",
+    "interpretation_warning": "Placement data is interpretive and should be treated as a matching heuristic, not direct canon.",
+    "claim_ids": [
+      "cult_of_rakdos_claim_0007",
+      "cult_of_rakdos_claim_0008",
+      "cult_of_rakdos_claim_0009",
+      "cult_of_rakdos_claim_0010",
+      "cult_of_rakdos_claim_0011",
+      "cult_of_rakdos_claim_0012",
+      "cult_of_rakdos_claim_0013",
+      "cult_of_rakdos_claim_0014"
+    ],
+    "calibrated_primary_read": "Requires performance, sensation, transgression, or theatrical truth-seeking.",
+    "calibrated_false_positive_guardrail": "Do not award for generic chaos if the answer is grief, survival, or anti-civilization loss.",
+    "evidence_claim_ids": [
+      "cult_of_rakdos_claim_001",
+      "cult_of_rakdos_claim_002",
+      "cult_of_rakdos_claim_003",
+      "cult_of_rakdos_claim_004",
+      "cult_of_rakdos_claim_005",
+      "cult_of_rakdos_claim_006"
+    ]
+  },
+  "placement_axes": [
+    {
+      "axis_id": "axis_transgression_vs_restraint",
+      "label": "Transgression vs Restraint",
+      "description": "Measures whether user answers align with Cult of Rakdos's specific evidence instead of only its color pair.",
+      "low_end_label": "polite restraint",
+      "high_end_label": "expressive rupture",
+      "faction_position": 88,
+      "rationale": "Corpus evidence adds story-context support for Cult of Rakdos, Rakdos, Rakdos the Defiler, Exava, Rix Maadi, performance, pain, demon.",
+      "claim_ids": [
+        "cult_of_rakdos_claim_0007",
+        "cult_of_rakdos_claim_0008",
+        "cult_of_rakdos_claim_0009",
+        "cult_of_rakdos_claim_0010",
+        "cult_of_rakdos_claim_0011",
+        "cult_of_rakdos_claim_0012",
+        "cult_of_rakdos_claim_0013",
+        "cult_of_rakdos_claim_0014"
+      ],
+      "confidence": "Medium",
+      "notes": "Added during MTG-Stories corpus upgrade."
+    }
+  ],
+  "moral_and_psychological_profile": {
+    "summary": "Cult of Rakdos should be scored through faction-specific behavioral evidence, not only broad color identity.",
+    "claim_ids": [
+      "cult_of_rakdos_claim_0007",
+      "cult_of_rakdos_claim_0008",
+      "cult_of_rakdos_claim_0009",
+      "cult_of_rakdos_claim_0010",
+      "cult_of_rakdos_claim_0011"
+    ]
+  },
+  "core_values": [
+    {
+      "value": "Cult of Rakdos",
+      "placement_relevance": "Corpus search evidence for Cult of Rakdos.",
+      "claim_ids": [
+        "cult_of_rakdos_claim_0007",
+        "cult_of_rakdos_claim_0008",
+        "cult_of_rakdos_claim_0009"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "value": "Rakdos",
+      "placement_relevance": "Corpus search evidence for Cult of Rakdos.",
+      "claim_ids": [
+        "cult_of_rakdos_claim_0007",
+        "cult_of_rakdos_claim_0008",
+        "cult_of_rakdos_claim_0009"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "value": "Rakdos the Defiler",
+      "placement_relevance": "Corpus search evidence for Cult of Rakdos.",
+      "claim_ids": [
+        "cult_of_rakdos_claim_0007",
+        "cult_of_rakdos_claim_0008",
+        "cult_of_rakdos_claim_0009"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "value": "Exava",
+      "placement_relevance": "Corpus search evidence for Cult of Rakdos.",
+      "claim_ids": [
+        "cult_of_rakdos_claim_0007",
+        "cult_of_rakdos_claim_0008",
+        "cult_of_rakdos_claim_0009"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "value": "Rix Maadi",
+      "placement_relevance": "Corpus search evidence for Cult of Rakdos.",
+      "claim_ids": [
+        "cult_of_rakdos_claim_0007",
+        "cult_of_rakdos_claim_0008",
+        "cult_of_rakdos_claim_0009"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "value": "performance",
+      "placement_relevance": "Corpus search evidence for Cult of Rakdos.",
+      "claim_ids": [
+        "cult_of_rakdos_claim_0007",
+        "cult_of_rakdos_claim_0008",
+        "cult_of_rakdos_claim_0009"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "value": "pain",
+      "placement_relevance": "Corpus search evidence for Cult of Rakdos.",
+      "claim_ids": [
+        "cult_of_rakdos_claim_0007",
+        "cult_of_rakdos_claim_0008",
+        "cult_of_rakdos_claim_0009"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "value": "demon",
+      "placement_relevance": "Corpus search evidence for Cult of Rakdos.",
+      "claim_ids": [
+        "cult_of_rakdos_claim_0007",
+        "cult_of_rakdos_claim_0008",
+        "cult_of_rakdos_claim_0009"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "value": "Judith",
+      "placement_relevance": "Corpus search evidence for Cult of Rakdos.",
+      "claim_ids": [
+        "cult_of_rakdos_claim_0007",
+        "cult_of_rakdos_claim_0008",
+        "cult_of_rakdos_claim_0009"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "value": "chaos",
+      "placement_relevance": "Corpus search evidence for Cult of Rakdos.",
+      "claim_ids": [
+        "cult_of_rakdos_claim_0007",
+        "cult_of_rakdos_claim_0008",
+        "cult_of_rakdos_claim_0009"
+      ],
+      "confidence": "Medium"
+    }
+  ],
+  "behavioral_signals": [
+    {
+      "signal": "References Operation Desperation, Episode 7: Rot before Recovery, The Illusions of Child's Play as story-context evidence rather than relying only on color identity.",
+      "placement_relevance": "Strengthens Cult of Rakdos with corpus-backed specificity.",
+      "supports_match_when": "The user's answers echo Cult of Rakdos, Rakdos, Rakdos the Defiler, Exava, Rix Maadi, performance in a faction-specific way.",
+      "weakens_match_when": "The user's answers only match the shared color pair without any faction-specific behavior.",
+      "claim_ids": [
+        "cult_of_rakdos_claim_0007",
+        "cult_of_rakdos_claim_0008",
+        "cult_of_rakdos_claim_0009",
+        "cult_of_rakdos_claim_0010",
+        "cult_of_rakdos_claim_0011",
+        "cult_of_rakdos_claim_0012"
+      ],
+      "confidence": "Medium"
+    },
+    "turns discomfort into art",
+    "values intensity over safety",
+    "uses spectacle to expose pretense"
+  ],
+  "inhibitor_traits": [
+    {
+      "trait": "Generic color-pair overfit",
+      "why_it_conflicts": "The corpus upgrade is intended to prevent Cult of Rakdos from winning on broad color identity alone.",
+      "status": "Supported Interpretation",
+      "claim_ids": [
+        "cult_of_rakdos_claim_0007",
+        "cult_of_rakdos_claim_0008",
+        "cult_of_rakdos_claim_0009",
+        "cult_of_rakdos_claim_0010"
+      ],
+      "confidence": "Medium",
+      "notes": "Use collision questions when another faction shares the same or adjacent colors."
+    },
+    "rage rooted in dispossession",
+    "quiet strategic secrecy",
+    "expression refined as craft rather than provocation"
+  ],
+  "good_fit_indicators": [
+    {
+      "indicator": "uses performance to reveal truth",
+      "rationale": "Matches the official Cult of Rakdos identity summarized in the profile.",
+      "claim_ids": [
+        "cult_of_rakdos_claim_001"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "indicator": "chooses intensity over polite safety",
+      "rationale": "Matches the official Cult of Rakdos identity summarized in the profile.",
+      "claim_ids": [
+        "cult_of_rakdos_claim_002"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "indicator": "finds hypocrisy more offensive than disruption",
+      "rationale": "Matches the official Cult of Rakdos identity summarized in the profile.",
+      "claim_ids": [
+        "cult_of_rakdos_claim_003"
+      ],
+      "confidence": "Medium"
+    }
+  ],
+  "calibration_tuning": {
+    "required_positive_evidence_terms": [
+      "spectacle",
+      "performance",
+      "transgression",
+      "sensation",
+      "danger",
+      "provocation",
+      "comedy",
+      "chaos",
+      "entertainment",
+      "intensity"
+    ],
+    "required_positive_min_hits": 2,
+    "broad_match_penalty": 0.1,
+    "strengthen_when_user_centers": [
+      "dangerous performance",
+      "honest transgression",
+      "sensation over comfort",
+      "provocation as truth"
+    ],
+    "suppress_when_user_centers": [
+      "grief from dispossession",
+      "lawful protection",
+      "private secrecy",
+      "community harmony",
+      "scholarly expression"
+    ],
+    "false_positive_guardrail": "Do not award for generic chaos if the answer is grief, survival, or anti-civilization loss.",
+    "smoke_test_note": "Used by lore review scripts as metadata-level calibration guidance; production placement may use richer weighted logic."
+  },
+  "collision_guidance": []
+}

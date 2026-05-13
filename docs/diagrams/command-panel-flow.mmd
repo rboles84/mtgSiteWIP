@@ -1,0 +1,21 @@
+flowchart TD
+  Server["external tools workspace<br/>npm run panel"]
+  Commands["commands.json"]
+  External["Apocrypha dry-run + source manifest"]
+  State["test-results/command-panel/state.json"]
+  UI["panel.js browser UI"]
+  Bootstrap["GET /api/bootstrap"]
+  Items["GET /api/items"]
+  Mutations["POST /api/item, /api/bulk, /api/select-next"]
+  Run["POST /api/run"]
+  Spawn["spawn allowlisted command"]
+  Logs["test-results/command-panel/runs/*"]
+
+  Server --> Commands
+  Server --> External
+  Server --> State
+  UI --> Bootstrap --> Server
+  UI --> Items --> Server
+  UI --> Mutations --> Server --> State
+  UI --> Run --> Server --> Spawn --> Logs
+  Logs --> UI

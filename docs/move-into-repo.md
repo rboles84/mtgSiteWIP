@@ -5,8 +5,11 @@ Copy these files into `C:\dev\mtgSiteWIP` and replace the existing versions ther
 - `index.html`
 - `shared.js`
 - `README.md`
-- `research.html` (only if you want the copied version here to remain in sync with the new shared session layer)
+- `maze.html`
 - `data/factions.json`
+- `data/placement-model.json`
+- `data/placement-model.schema.json`
+- `data/raw-factions/`
 - `docs/data-contracts.md`
 - `docs/manual-test-cases.md`
 - `docs/supabase-profile-update.sql`
@@ -30,11 +33,13 @@ Delete these older automated-test artifacts from the repo for this phase:
 ## Recommended copy order
 
 1. Copy `data/factions.json`.
-2. Copy `shared.js`.
-3. Copy `index.html`.
-4. Copy the `supabase/functions/guild-recruiter` files.
-5. Copy the new docs.
-6. Remove the automated-test files listed above.
-7. Run the SQL in `docs/supabase-profile-update.sql`.
-8. Redeploy the edge function.
-9. Redeploy the static site.
+2. Copy `data/raw-factions/`.
+3. From `C:\dev\projectFiles\voxmana-tools`, run `npm run build:factions` to generate placement artifacts and the edge-function context.
+4. Copy `shared.js`.
+5. Copy `index.html`.
+6. Copy the `supabase/functions/guild-recruiter` files.
+7. Copy the new docs.
+8. Remove the automated-test files listed above.
+9. Run the SQL in `docs/supabase-profile-update.sql`.
+10. Redeploy the edge function.
+11. Redeploy the static site.

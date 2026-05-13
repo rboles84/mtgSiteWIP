@@ -1,0 +1,57 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Vox Mana Adaptive Placement Model",
+  "type": "object",
+  "required": [
+    "_meta",
+    "scoring_rules",
+    "stages",
+    "factions",
+    "question_bank"
+  ],
+  "properties": {
+    "_meta": {
+      "type": "object",
+      "required": [
+        "model_version",
+        "result_version",
+        "faction_count"
+      ]
+    },
+    "scoring_rules": {
+      "type": "object"
+    },
+    "stages": {
+      "type": "object"
+    },
+    "factions": {
+      "type": "object",
+      "minProperties": 15,
+      "additionalProperties": {
+        "type": "object",
+        "required": [
+          "key",
+          "raw_id",
+          "name",
+          "institution_type",
+          "world",
+          "colors",
+          "biological_expression",
+          "placement_axes",
+          "good_fit_indicators",
+          "poor_fit_indicators",
+          "discriminator_questions",
+          "lateral_inhibition_targets"
+        ]
+      }
+    },
+    "question_bank": {
+      "type": "object",
+      "required": [
+        "gate",
+        "hall",
+        "crucible"
+      ]
+    }
+  }
+}

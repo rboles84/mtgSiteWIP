@@ -1,0 +1,1103 @@
+{
+  "schema_version": "1.0.0",
+  "placement_profile_version": "1.1.0",
+  "faction_id": "gruul_clans",
+  "faction_name": "Gruul Clans",
+  "based_on_profile_version": "1.1.0",
+  "last_updated": "2026-05-10T02:56:03.254Z",
+  "placement_summary": {
+    "short_description": "Gruul is the placement for people who instinctively resist overbuilt systems, defend wildness, and prefer direct, embodied action over procedural control. The 1.1.0 update adds story-backed distinction between shallow aggression and rage tied to land, memory, bloodcrime, and survival.",
+    "best_fit_summary": "Best fit for users who value freedom from institutions, respond strongly to ecological or cultural erasure, trust proven strength more than titles, and would rather break a harmful system than decorate it with better paperwork. Strong matches include people whose anger is activated by ecological harm, erased local history, or systems that drain life while calling themselves orderly.",
+    "poor_fit_summary": "Poor fit for users who are most comfortable with centralized bureaucracy, title-based authority, careful procedural order, or civilization-as-progress assumptions. Weaker matches want rebellion only as spectacle or domination, without the protective, territorial, or old-ways motive visible in the story evidence.",
+    "interpretation_warning": "Placement data is interpretive and should be treated as a matching heuristic, not direct canon.",
+    "claim_ids": [
+      "claim_gruul_clans_philosophy_0010",
+      "claim_gruul_clans_philosophy_0033",
+      "claim_gruul_clans_philosophy_0041",
+      "claim_gruul_clans_placement_0001",
+      "claim_gruul_clans_placement_0002",
+      "claim_gruul_clans_placement_0003",
+      "claim_gruul_clans_placement_0004",
+      "claim_gruul_clans_philosophy_0056",
+      "claim_gruul_clans_philosophy_0063",
+      "claim_gruul_clans_relationship_0064",
+      "claim_gruul_clans_timeline_0065",
+      "claim_gruul_clans_placement_0072",
+      "claim_gruul_clans_placement_0073",
+      "gruul_clans_claim_0074",
+      "gruul_clans_claim_0075",
+      "gruul_clans_claim_0076",
+      "gruul_clans_claim_0077",
+      "gruul_clans_claim_0078",
+      "gruul_clans_claim_0079"
+    ],
+    "calibrated_primary_read": "Requires loss, dispossession, wildness, anti-civilization pressure, directness, or clan survival outside institutions.",
+    "calibrated_false_positive_guardrail": "Do not award for generic anger or freedom without concrete loss or wildness.",
+    "evidence_claim_ids": [
+      "claim_gruul_clans_location_0001",
+      "claim_gruul_clans_core_identity_0001",
+      "claim_gruul_clans_core_identity_0002",
+      "claim_gruul_clans_core_identity_0003",
+      "claim_gruul_clans_philosophy_0004",
+      "claim_gruul_clans_structure_0005"
+    ]
+  },
+  "moral_and_psychological_profile": {
+    "primary_moral_foundations": [
+      {
+        "foundation": "Liberty",
+        "weight": 0.92,
+        "rationale": "Gruul is repeatedly framed as anti-civilization, loosely affiliated, resistant to encroachment, and willing to riot against urban/political order.",
+        "claim_ids": [
+          "claim_gruul_clans_structure_0005",
+          "claim_gruul_clans_philosophy_0010",
+          "claim_gruul_clans_relationship_0026",
+          "claim_gruul_clans_philosophy_0033",
+          "claim_gruul_clans_philosophy_0041",
+          "claim_gruul_clans_placement_0001"
+        ],
+        "confidence": "High"
+      },
+      {
+        "foundation": "Sanctity",
+        "weight": 0.74,
+        "rationale": "Not moral purity in a legalistic sense; rather, sanctity of wild places, old ways, beasts, deep-earth gods, and the violated natural world.",
+        "claim_ids": [
+          "claim_gruul_clans_timeline_0027",
+          "claim_gruul_clans_philosophy_0028",
+          "claim_gruul_clans_structure_0021",
+          "claim_gruul_clans_philosophy_0022",
+          "claim_gruul_clans_timeline_0029",
+          "claim_gruul_clans_timeline_0030",
+          "claim_gruul_clans_placement_0003"
+        ],
+        "confidence": "High"
+      }
+    ],
+    "secondary_moral_foundations": [
+      {
+        "foundation": "Loyalty",
+        "weight": 0.58,
+        "rationale": "Gruul identity is clan-based, and official story evidence emphasizes that clan belonging can be a survival condition.",
+        "claim_ids": [
+          "claim_gruul_clans_structure_0005",
+          "claim_gruul_clans_location_0024",
+          "claim_gruul_clans_philosophy_0049"
+        ],
+        "confidence": "Medium"
+      },
+      {
+        "foundation": "Fairness",
+        "weight": 0.42,
+        "rationale": "Gruul rage has a grievance component: official sources describe marginalization, enslavement, and wilderness destruction. This is not legalistic fairness, but retaliatory justice against perceived civilizational theft.",
+        "claim_ids": [
+          "claim_gruul_clans_philosophy_0010",
+          "claim_gruul_clans_timeline_0030",
+          "claim_gruul_clans_timeline_0031",
+          "claim_gruul_clans_philosophy_0051"
+        ],
+        "confidence": "Medium"
+      }
+    ],
+    "possible_shadow_expression": {
+      "summary": "When overexpressed, Gruul placement can collapse from liberation into indiscriminate destruction, contempt for planning, domination by whoever looks strongest, or refusal to distinguish harmful civilization from necessary cooperation.",
+      "claim_ids": [
+        "claim_gruul_clans_philosophy_0008",
+        "claim_gruul_clans_philosophy_0009",
+        "claim_gruul_clans_structure_0034",
+        "claim_gruul_clans_timeline_0031",
+        "claim_gruul_clans_placement_0002",
+        "claim_gruul_clans_placement_0004"
+      ],
+      "confidence": "Medium",
+      "warning": "Supported interpretation, not direct canon."
+    }
+  },
+  "placement_axes": [
+    {
+      "axis_id": "axis_order_vs_freedom",
+      "label": "Order vs. Freedom",
+      "description": "Measures whether a user prefers formal order or freedom from imposed structures.",
+      "low_end_label": "Formal order",
+      "high_end_label": "Primal freedom",
+      "faction_position": 94,
+      "rationale": "Gruul is loose, anti-civilization, and reactive against political/urban control. Repository story evidence adds the dying Rubblebelt and land-draining growth magic as concrete signals.",
+      "claim_ids": [
+        "claim_gruul_clans_structure_0005",
+        "claim_gruul_clans_philosophy_0010",
+        "claim_gruul_clans_philosophy_0041",
+        "claim_gruul_clans_placement_0001",
+        "claim_gruul_clans_philosophy_0063",
+        "claim_gruul_clans_relationship_0064",
+        "claim_gruul_clans_timeline_0065",
+        "claim_gruul_clans_placement_0072"
+      ],
+      "confidence": "High",
+      "notes": "Do not confuse this with simple randomness; clan loyalty and old ways still matter."
+    },
+    {
+      "axis_id": "axis_civilization_vs_wildness",
+      "label": "Civilization vs. Wildness",
+      "description": "Measures whether a user identifies with built civic systems or reclaimed wild space.",
+      "low_end_label": "City/system preservation",
+      "high_end_label": "Wild reclamation",
+      "faction_position": 97,
+      "rationale": "Official sources frame Gruul as anti-civilization former stewards of wild places who want the natural world to take root again. Repository story evidence adds the dying Rubblebelt and land-draining growth magic as concrete signals.",
+      "claim_ids": [
+        "claim_gruul_clans_timeline_0027",
+        "claim_gruul_clans_timeline_0029",
+        "claim_gruul_clans_timeline_0030",
+        "claim_gruul_clans_philosophy_0033",
+        "claim_gruul_clans_placement_0003",
+        "claim_gruul_clans_philosophy_0063",
+        "claim_gruul_clans_relationship_0064",
+        "claim_gruul_clans_timeline_0065",
+        "claim_gruul_clans_placement_0072"
+      ],
+      "confidence": "High",
+      "notes": "This is one of the strongest placement axes for Gruul."
+    },
+    {
+      "axis_id": "axis_deliberation_vs_direct_action",
+      "label": "Deliberation vs. Direct Action",
+      "description": "Measures whether a user defaults to analysis/procedure or embodied immediate action.",
+      "low_end_label": "Deliberative process",
+      "high_end_label": "Immediate action",
+      "faction_position": 87,
+      "rationale": "Riot, bloodrush, raiding, warfare, and combat-based leadership all support a direct-action signal.",
+      "claim_ids": [
+        "claim_gruul_clans_philosophy_0008",
+        "claim_gruul_clans_mechanic_0040",
+        "claim_gruul_clans_mechanic_0043",
+        "claim_gruul_clans_timeline_0045",
+        "claim_gruul_clans_placement_0002"
+      ],
+      "confidence": "High",
+      "notes": "Still allow cunning and stealth because Slizt and 'Rage of the Unsung' complicate a pure brute-force reading."
+    },
+    {
+      "axis_id": "axis_bureaucratic_authority_vs_proven_strength",
+      "label": "Bureaucratic Authority vs. Proven Strength",
+      "description": "Measures whether legitimacy comes from offices and titles or demonstrated power and survival.",
+      "low_end_label": "Title-based authority",
+      "high_end_label": "Proven strength",
+      "faction_position": 91,
+      "rationale": "Official sources emphasize strongest-rule logic, strength-based following, Borborygmos's might, and Domri's combat-based rise.",
+      "claim_ids": [
+        "claim_gruul_clans_philosophy_0009",
+        "claim_gruul_clans_structure_0011",
+        "claim_gruul_clans_key_figure_0013",
+        "claim_gruul_clans_structure_0034",
+        "claim_gruul_clans_key_figure_0036",
+        "claim_gruul_clans_placement_0002"
+      ],
+      "confidence": "High",
+      "notes": "This is a placement heuristic, not an endorsement of domination."
+    },
+    {
+      "axis_id": "axis_uniform_collective_vs_clan_identity",
+      "label": "Uniform Collective vs. Clan Identity",
+      "description": "Measures whether group belonging is centralized/uniform or local, clan-based, and variable.",
+      "low_end_label": "Unified collective",
+      "high_end_label": "Local clan identity",
+      "faction_position": 82,
+      "rationale": "Gruul is a loose affiliation of clans with changing clan counts and named internal divisions.",
+      "claim_ids": [
+        "claim_gruul_clans_structure_0005",
+        "claim_gruul_clans_structure_0032",
+        "claim_gruul_clans_philosophy_0049"
+      ],
+      "confidence": "High",
+      "notes": "Selesnya should score lower on this axis despite also being green-aligned."
+    },
+    {
+      "axis_id": "axis_controlled_restraint_vs_rage_expression",
+      "label": "Controlled Restraint vs. Rage Expression",
+      "description": "Measures whether a user suppresses conflict for stability or channels anger into action.",
+      "low_end_label": "Restraint and containment",
+      "high_end_label": "Rage as action",
+      "faction_position": 86,
+      "rationale": "Official story and faction sources present Rage, riot, and destructive reaction as recurring Gruul signals, while 'Rage of the Unsung' adds that Rage is not only fighting.",
+      "claim_ids": [
+        "claim_gruul_clans_philosophy_0041",
+        "claim_gruul_clans_philosophy_0050",
+        "claim_gruul_clans_philosophy_0051"
+      ],
+      "confidence": "High",
+      "notes": "Use this axis carefully to distinguish purposeful anger from random cruelty."
+    },
+    {
+      "axis_id": "axis_control_vs_protective_rage",
+      "label": "Control vs. Protective Rage",
+      "description": "Measures whether the user suppresses anger for order’s sake or treats anger as a warning signal when land, autonomy, memory, or vulnerable life is being stripped away.",
+      "low_end_label": "Managed composure",
+      "high_end_label": "Protective rage",
+      "faction_position": 88,
+      "rationale": "Gruul story evidence ties anger to bloodcrime, territorial defilement, the dying Rubblebelt, and resistance to life-draining systems.",
+      "claim_ids": [
+        "claim_gruul_clans_philosophy_0056",
+        "claim_gruul_clans_philosophy_0061",
+        "claim_gruul_clans_philosophy_0063",
+        "claim_gruul_clans_relationship_0064",
+        "claim_gruul_clans_timeline_0065",
+        "claim_gruul_clans_placement_0072"
+      ],
+      "confidence": "Medium",
+      "notes": "Supported interpretation, not official psychology."
+    },
+    {
+      "axis_id": "axis_wild_grievance_vs_civic_compromise",
+      "label": "Wild Grievance vs Civic Compromise",
+      "description": "Measures whether user answers align with Gruul Clans's specific evidence instead of only its color pair.",
+      "low_end_label": "institutional patience",
+      "high_end_label": "direct revolt",
+      "faction_position": 88,
+      "rationale": "Corpus evidence adds story-context support for Gruul Clans, Gruul, Borborygmos, Domri Rade, Rubblebelt, Nikya of the Old Ways, Zhur-Taa, The Old Ways.",
+      "claim_ids": [
+        "gruul_clans_claim_0074",
+        "gruul_clans_claim_0075",
+        "gruul_clans_claim_0076",
+        "gruul_clans_claim_0077",
+        "gruul_clans_claim_0078",
+        "gruul_clans_claim_0079"
+      ],
+      "confidence": "Medium",
+      "notes": "Added during MTG-Stories corpus upgrade."
+    }
+  ],
+  "core_values": [
+    {
+      "value": "Wild reclamation",
+      "description": "The desire for the natural world to return where the city has smothered it.",
+      "placement_relevance": "Strong positive signal when the user frames systems as harmful because they erase living things, local cultures, or natural space.",
+      "claim_ids": [
+        "claim_gruul_clans_timeline_0029",
+        "claim_gruul_clans_timeline_0030",
+        "claim_gruul_clans_philosophy_0033",
+        "claim_gruul_clans_placement_0003"
+      ],
+      "confidence": "High"
+    },
+    {
+      "value": "Freedom from imposed order",
+      "description": "Resistance to civic, political, and bureaucratic structures that expand over local life.",
+      "placement_relevance": "Strong positive signal when the user distrusts rules that protect systems more than people or land.",
+      "claim_ids": [
+        "claim_gruul_clans_philosophy_0010",
+        "claim_gruul_clans_relationship_0026",
+        "claim_gruul_clans_philosophy_0041",
+        "claim_gruul_clans_placement_0001"
+      ],
+      "confidence": "High"
+    },
+    {
+      "value": "Strength-tested leadership",
+      "description": "Legitimacy through demonstrated force, survival, courage, and the ability to lead in conflict.",
+      "placement_relevance": "Positive signal when the user respects earned presence over job title or inherited office.",
+      "claim_ids": [
+        "claim_gruul_clans_philosophy_0009",
+        "claim_gruul_clans_key_figure_0013",
+        "claim_gruul_clans_structure_0034",
+        "claim_gruul_clans_key_figure_0036"
+      ],
+      "confidence": "High"
+    },
+    {
+      "value": "Clan belonging",
+      "description": "Local belonging and loyalty matter in a dangerous world where isolation can be fatal.",
+      "placement_relevance": "Positive signal when the user values tight, proven circles over broad institutions.",
+      "claim_ids": [
+        "claim_gruul_clans_structure_0005",
+        "claim_gruul_clans_location_0024",
+        "claim_gruul_clans_philosophy_0049"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "value": "The old ways",
+      "description": "Connection to beasts, shamans, deep earth, and pre-urban memory.",
+      "placement_relevance": "Positive signal when the user is drawn to ancestral, embodied, land-based, or pre-institutional wisdom.",
+      "claim_ids": [
+        "claim_gruul_clans_timeline_0027",
+        "claim_gruul_clans_structure_0021",
+        "claim_gruul_clans_philosophy_0022",
+        "claim_gruul_clans_key_figure_0023"
+      ],
+      "confidence": "High"
+    },
+    {
+      "value": "Rage with a reason",
+      "description": "Anger as a response to erasure, stolen land, oppression, or lost stories, not merely anger for its own sake.",
+      "placement_relevance": "Positive signal when the user can name what they are angry about and what living thing or memory they are trying to defend.",
+      "claim_ids": [
+        "claim_gruul_clans_philosophy_0050",
+        "claim_gruul_clans_philosophy_0051",
+        "claim_gruul_clans_placement_0002"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "value": "Protective rage",
+      "description": "Anger becomes meaningful when it answers territorial defilement, land-draining magic, erased stories, or systems that make wild life impossible.",
+      "placement_relevance": "Strongly supports Gruul when the user frames anger as a protective warning rather than thrill-seeking or status performance.",
+      "claim_ids": [
+        "claim_gruul_clans_philosophy_0056",
+        "claim_gruul_clans_philosophy_0063",
+        "claim_gruul_clans_relationship_0064",
+        "claim_gruul_clans_timeline_0065",
+        "claim_gruul_clans_placement_0072"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "value": "Improvised usefulness",
+      "description": "Gruul contribution can include scouting, shamanic magic, tattoo-art, rallying, or adaptation from enemies, not only direct brawling.",
+      "placement_relevance": "Helps recognize Gruul-leaning users who are resourceful, embodied, and defiant without being simple combat maximalists.",
+      "claim_ids": [
+        "claim_gruul_clans_key_figure_0053",
+        "claim_gruul_clans_structure_0055",
+        "claim_gruul_clans_philosophy_0059",
+        "claim_gruul_clans_key_figure_0066",
+        "claim_gruul_clans_key_figure_0069",
+        "claim_gruul_clans_placement_0073"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "value": "Gruul Clans",
+      "placement_relevance": "Corpus search evidence for Gruul Clans.",
+      "claim_ids": [
+        "gruul_clans_claim_0074",
+        "gruul_clans_claim_0075",
+        "gruul_clans_claim_0076"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "value": "Gruul",
+      "placement_relevance": "Corpus search evidence for Gruul Clans.",
+      "claim_ids": [
+        "gruul_clans_claim_0074",
+        "gruul_clans_claim_0075",
+        "gruul_clans_claim_0076"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "value": "Borborygmos",
+      "placement_relevance": "Corpus search evidence for Gruul Clans.",
+      "claim_ids": [
+        "gruul_clans_claim_0074",
+        "gruul_clans_claim_0075",
+        "gruul_clans_claim_0076"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "value": "Domri Rade",
+      "placement_relevance": "Corpus search evidence for Gruul Clans.",
+      "claim_ids": [
+        "gruul_clans_claim_0074",
+        "gruul_clans_claim_0075",
+        "gruul_clans_claim_0076"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "value": "Rubblebelt",
+      "placement_relevance": "Corpus search evidence for Gruul Clans.",
+      "claim_ids": [
+        "gruul_clans_claim_0074",
+        "gruul_clans_claim_0075",
+        "gruul_clans_claim_0076"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "value": "Nikya of the Old Ways",
+      "placement_relevance": "Corpus search evidence for Gruul Clans.",
+      "claim_ids": [
+        "gruul_clans_claim_0074",
+        "gruul_clans_claim_0075",
+        "gruul_clans_claim_0076"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "value": "Zhur-Taa",
+      "placement_relevance": "Corpus search evidence for Gruul Clans.",
+      "claim_ids": [
+        "gruul_clans_claim_0074",
+        "gruul_clans_claim_0075",
+        "gruul_clans_claim_0076"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "value": "The Old Ways",
+      "placement_relevance": "Corpus search evidence for Gruul Clans.",
+      "claim_ids": [
+        "gruul_clans_claim_0074",
+        "gruul_clans_claim_0075",
+        "gruul_clans_claim_0076"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "value": "bloodthirst",
+      "placement_relevance": "Corpus search evidence for Gruul Clans.",
+      "claim_ids": [
+        "gruul_clans_claim_0074",
+        "gruul_clans_claim_0075",
+        "gruul_clans_claim_0076"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "value": "Skarrg",
+      "placement_relevance": "Corpus search evidence for Gruul Clans.",
+      "claim_ids": [
+        "gruul_clans_claim_0074",
+        "gruul_clans_claim_0075",
+        "gruul_clans_claim_0076"
+      ],
+      "confidence": "Medium"
+    }
+  ],
+  "behavioral_signals": [
+    {
+      "signal": "Rejects bureaucracy when it protects the system instead of the living world.",
+      "placement_relevance": "Strong Gruul match signal.",
+      "supports_match_when": "The user says a harmful system should be dismantled, bypassed, or physically disrupted rather than endlessly reformed.",
+      "weakens_match_when": "The user wants legitimacy to come primarily from procedures, committees, or institutional permission.",
+      "claim_ids": [
+        "claim_gruul_clans_philosophy_0010",
+        "claim_gruul_clans_relationship_0026",
+        "claim_gruul_clans_philosophy_0033",
+        "claim_gruul_clans_placement_0001",
+        "claim_gruul_clans_placement_0004"
+      ],
+      "confidence": "High"
+    },
+    {
+      "signal": "Moves toward conflict directly instead of waiting for perfect conditions.",
+      "placement_relevance": "Strong Gruul match signal, especially when paired with wildness or anti-institutional motives.",
+      "supports_match_when": "The user prefers decisive confrontation, immediate physical action, or direct intervention.",
+      "weakens_match_when": "The user prefers delay, simulation, abstract planning, or diplomacy even when harm is ongoing.",
+      "claim_ids": [
+        "claim_gruul_clans_philosophy_0008",
+        "claim_gruul_clans_mechanic_0040",
+        "claim_gruul_clans_mechanic_0043",
+        "claim_gruul_clans_timeline_0045",
+        "claim_gruul_clans_placement_0002"
+      ],
+      "confidence": "High"
+    },
+    {
+      "signal": "Trusts earned strength more than titles.",
+      "placement_relevance": "Strong discriminator against Azorius, Orzhov, and some Boros expressions.",
+      "supports_match_when": "The user respects someone who proves capability under pressure more than someone with official credentials.",
+      "weakens_match_when": "The user defaults to hierarchy, rank, certification, or office as the main source of trust.",
+      "claim_ids": [
+        "claim_gruul_clans_philosophy_0009",
+        "claim_gruul_clans_structure_0034",
+        "claim_gruul_clans_key_figure_0036",
+        "claim_gruul_clans_placement_0002"
+      ],
+      "confidence": "High"
+    },
+    {
+      "signal": "Defends local group belonging without requiring uniform ideology.",
+      "placement_relevance": "Moderate Gruul match signal.",
+      "supports_match_when": "The user prefers small fierce circles, crews, families, or clans over formal mass organizations.",
+      "weakens_match_when": "The user wants harmonized consensus, centralized doctrine, or a single shared voice.",
+      "claim_ids": [
+        "claim_gruul_clans_structure_0005",
+        "claim_gruul_clans_structure_0032",
+        "claim_gruul_clans_philosophy_0049"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "signal": "Can use cunning, stealth, or terrain rather than only brute force.",
+      "placement_relevance": "Prevents shallow matching that treats Gruul as only big and loud.",
+      "supports_match_when": "The user favors practical ambush, terrain advantage, embodied skill, or opportunistic survival.",
+      "weakens_match_when": "The user favors detached manipulation, secrecy for control, or information dominance as an end in itself.",
+      "claim_ids": [
+        "claim_gruul_clans_structure_0020",
+        "claim_gruul_clans_philosophy_0049"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "signal": "Protective anger toward land, memory, or local autonomy",
+      "placement_relevance": "Differentiates Gruul from factions that value rebellion as abstraction, spectacle, or opportunism.",
+      "supports_match_when": "The user gets angry when institutions drain vitality, erase older stories, or call destructive control progress.",
+      "weakens_match_when": "The user’s anger is mainly about personal insult, attention, or status dominance.",
+      "claim_ids": [
+        "claim_gruul_clans_philosophy_0063",
+        "claim_gruul_clans_relationship_0064",
+        "claim_gruul_clans_timeline_0065",
+        "claim_gruul_clans_placement_0072"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "signal": "Embodied craft or scouting as real contribution",
+      "placement_relevance": "Prevents the engine from reducing Gruul to only the loudest fighter.",
+      "supports_match_when": "The user values hands-on skill, field observation, practical magic, or preserving group memory through craft.",
+      "weakens_match_when": "The user only respects formal credentials, abstract planning, or hierarchical office.",
+      "claim_ids": [
+        "claim_gruul_clans_key_figure_0053",
+        "claim_gruul_clans_structure_0055",
+        "claim_gruul_clans_philosophy_0059",
+        "claim_gruul_clans_key_figure_0066",
+        "claim_gruul_clans_placement_0073"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "signal": "References The Gathering Storm: Chapter 12, In Praise of the Worldsoul, Part 3, Rage of the Unsung as story-context evidence rather than relying only on color identity.",
+      "placement_relevance": "Strengthens Gruul Clans with corpus-backed specificity.",
+      "supports_match_when": "The user's answers echo Gruul Clans, Gruul, Borborygmos, Domri Rade, Rubblebelt, Nikya of the Old Ways in a faction-specific way.",
+      "weakens_match_when": "The user's answers only match the shared color pair without any faction-specific behavior.",
+      "claim_ids": [
+        "gruul_clans_claim_0074",
+        "gruul_clans_claim_0075",
+        "gruul_clans_claim_0076",
+        "gruul_clans_claim_0077",
+        "gruul_clans_claim_0078",
+        "gruul_clans_claim_0079"
+      ],
+      "confidence": "Medium"
+    },
+    "names something real that was taken by a system",
+    "chooses direct physical or communal survival over negotiation with institutions",
+    "frames wildness as sacred, endangered, and worth defending",
+    "names what a system took",
+    "defends wildness as sacred",
+    "chooses direct survival over institutional negotiation"
+  ],
+  "inhibitor_traits": [
+    {
+      "trait": "Bureaucratic deference",
+      "why_it_conflicts": "Gruul is defined by anti-civilization, loose affiliation, strength-based leadership, and hostility toward encroaching systems.",
+      "status": "Supported Interpretation",
+      "claim_ids": [
+        "claim_gruul_clans_structure_0005",
+        "claim_gruul_clans_philosophy_0010",
+        "claim_gruul_clans_relationship_0026",
+        "claim_gruul_clans_structure_0034",
+        "claim_gruul_clans_placement_0004"
+      ],
+      "confidence": "High",
+      "notes": "This is the strongest inhibitor trait for placement."
+    },
+    {
+      "trait": "Comfort with urban expansion as automatic progress",
+      "why_it_conflicts": "Official sources frame Gruul trauma and rage around urban growth destroying wild places and natural beauty.",
+      "status": "Supported Interpretation",
+      "claim_ids": [
+        "claim_gruul_clans_philosophy_0028",
+        "claim_gruul_clans_timeline_0029",
+        "claim_gruul_clans_timeline_0030",
+        "claim_gruul_clans_philosophy_0033",
+        "claim_gruul_clans_placement_0003"
+      ],
+      "confidence": "High",
+      "notes": "Distinguish from a user who likes cities but criticizes extractive systems."
+    },
+    {
+      "trait": "Need for stable centralized leadership",
+      "why_it_conflicts": "Gruul clan structure is unstable, loose, and often follows whoever seems strongest at the moment.",
+      "status": "Supported Interpretation",
+      "claim_ids": [
+        "claim_gruul_clans_structure_0011",
+        "claim_gruul_clans_structure_0032",
+        "claim_gruul_clans_structure_0034",
+        "claim_gruul_clans_structure_0048"
+      ],
+      "confidence": "Medium",
+      "notes": "This does not mean Gruul lacks belonging; it means belonging is not primarily bureaucratic."
+    },
+    {
+      "trait": "Pure thrill-seeking destruction",
+      "why_it_conflicts": "Expanded story evidence supports destruction and Rage as tied to territory, memory, ecological survival, bloodcrime, or old-ways defense, not only spectacle.",
+      "status": "Supported Interpretation",
+      "claim_ids": [
+        "claim_gruul_clans_philosophy_0056",
+        "claim_gruul_clans_philosophy_0063",
+        "claim_gruul_clans_relationship_0064",
+        "claim_gruul_clans_placement_0072"
+      ],
+      "confidence": "Medium",
+      "notes": "Useful discriminator against Rakdos-like spectacle or shallow chaos readings."
+    },
+    {
+      "trait": "Generic color-pair overfit",
+      "why_it_conflicts": "The corpus upgrade is intended to prevent Gruul Clans from winning on broad color identity alone.",
+      "status": "Supported Interpretation",
+      "claim_ids": [
+        "gruul_clans_claim_0074",
+        "gruul_clans_claim_0075",
+        "gruul_clans_claim_0076",
+        "gruul_clans_claim_0077"
+      ],
+      "confidence": "Medium",
+      "notes": "Use collision questions when another faction shares the same or adjacent colors."
+    },
+    "expresses generic rage without loss or dispossession",
+    "treats chaos as performance rather than grief",
+    "focuses on decay and renewal rather than ruined wildness",
+    "chooses archive/history interest over present anti-civilization pressure",
+    "chaos as performance",
+    "decay as renewal",
+    "historical curiosity instead of present grievance"
+  ],
+  "good_fit_indicators": [
+    {
+      "indicator": "The user sees broken systems as things to dismantle, not merely optimize.",
+      "rationale": "Gruul sources repeatedly frame civilization itself as the threat when it destroys wildness.",
+      "claim_ids": [
+        "claim_gruul_clans_philosophy_0010",
+        "claim_gruul_clans_philosophy_0033",
+        "claim_gruul_clans_placement_0001"
+      ],
+      "confidence": "High"
+    },
+    {
+      "indicator": "The user values raw honesty, presence, physicality, or courage under pressure.",
+      "rationale": "Gruul leadership and mechanics emphasize strength, action, combat, and immediacy.",
+      "claim_ids": [
+        "claim_gruul_clans_philosophy_0009",
+        "claim_gruul_clans_mechanic_0040",
+        "claim_gruul_clans_mechanic_0043",
+        "claim_gruul_clans_placement_0002"
+      ],
+      "confidence": "High"
+    },
+    {
+      "indicator": "The user is protective of wild places, old ways, or erased local stories.",
+      "rationale": "Official sources tie Gruul history and Rage to wilderness destruction and lost stories.",
+      "claim_ids": [
+        "claim_gruul_clans_timeline_0027",
+        "claim_gruul_clans_timeline_0030",
+        "claim_gruul_clans_philosophy_0051",
+        "claim_gruul_clans_placement_0003"
+      ],
+      "confidence": "High"
+    },
+    {
+      "indicator": "The user prefers fiercely loyal small groups over polished institutions.",
+      "rationale": "Gruul is clan-based, and official story material treats clanlessness as dangerous.",
+      "claim_ids": [
+        "claim_gruul_clans_structure_0005",
+        "claim_gruul_clans_location_0024",
+        "claim_gruul_clans_philosophy_0049"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "indicator": "Your anger is protective before it is performative",
+      "rationale": "Story evidence supports Gruul Rage as a response to territory, old stories, bloodcrime, and the dying Rubblebelt.",
+      "claim_ids": [
+        "claim_gruul_clans_philosophy_0056",
+        "claim_gruul_clans_philosophy_0063",
+        "claim_gruul_clans_timeline_0065",
+        "claim_gruul_clans_placement_0072"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "indicator": "You respect practical field skill over polished institutional status",
+      "rationale": "The added stories show scouts, shamans, tattoo-artists, and improvised magic as meaningful Gruul contributions.",
+      "claim_ids": [
+        "claim_gruul_clans_key_figure_0053",
+        "claim_gruul_clans_structure_0055",
+        "claim_gruul_clans_philosophy_0059",
+        "claim_gruul_clans_key_figure_0066",
+        "claim_gruul_clans_placement_0073"
+      ],
+      "confidence": "Medium"
+    }
+  ],
+  "poor_fit_indicators": [
+    {
+      "indicator": "The user treats law, process, or official structure as inherently legitimate.",
+      "rationale": "Gruul is one of the clearest anti-civilization and anti-bureaucratic placements.",
+      "claim_ids": [
+        "claim_gruul_clans_philosophy_0010",
+        "claim_gruul_clans_philosophy_0033",
+        "claim_gruul_clans_placement_0004"
+      ],
+      "confidence": "High"
+    },
+    {
+      "indicator": "The user dislikes conflict so strongly that they avoid direct action even when something living is being harmed.",
+      "rationale": "Gruul mechanics and story behavior heavily reward immediate force and confrontation.",
+      "claim_ids": [
+        "claim_gruul_clans_philosophy_0008",
+        "claim_gruul_clans_mechanic_0040",
+        "claim_gruul_clans_mechanic_0043",
+        "claim_gruul_clans_timeline_0045"
+      ],
+      "confidence": "High"
+    },
+    {
+      "indicator": "The user wants group identity to be peaceful, harmonious, and centrally unified.",
+      "rationale": "Gruul is clan-fragmented, conflict-heavy, and strength-driven rather than consensus-driven.",
+      "claim_ids": [
+        "claim_gruul_clans_structure_0005",
+        "claim_gruul_clans_philosophy_0008",
+        "claim_gruul_clans_structure_0032",
+        "claim_gruul_clans_structure_0034"
+      ],
+      "confidence": "High"
+    },
+    {
+      "indicator": "The user primarily wants secrecy, leverage, or information control.",
+      "rationale": "Gruul can use stealth tactically, but its core match is not hidden information dominance.",
+      "claim_ids": [
+        "claim_gruul_clans_structure_0020",
+        "claim_gruul_clans_placement_0002"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "indicator": "You need official authority to validate harm before you care about it",
+      "rationale": "The Gruul signal strengthens when a user responds directly to visible harm, defilement, or land-draining systems without waiting for institutional permission.",
+      "claim_ids": [
+        "claim_gruul_clans_philosophy_0056",
+        "claim_gruul_clans_relationship_0064",
+        "claim_gruul_clans_timeline_0065",
+        "claim_gruul_clans_placement_0072"
+      ],
+      "confidence": "Medium"
+    }
+  ],
+  "discriminator_questions": [
+    {
+      "question_id": "q_gruul_clans_0001",
+      "question": "When a well-run institution is slowly destroying something living, do you reform it from inside, leave it alone, or break its power first?",
+      "purpose": "Separates Gruul from Azorius, Selesnya, Simic, and some Boros placements.",
+      "answer_pattern_that_supports_this_faction": "Break its power first, especially if the institution has already ignored warnings and consumed wild or local life.",
+      "answer_pattern_that_weakens_this_faction": "Reform it through procedure, committees, compliance, or gradual policy.",
+      "related_factions_to_compare": [
+        "Azorius Senate",
+        "Selesnya Conclave",
+        "Simic Combine",
+        "Boros Legion"
+      ],
+      "claim_ids": [
+        "claim_gruul_clans_timeline_0030",
+        "claim_gruul_clans_philosophy_0033",
+        "claim_gruul_clans_placement_0001",
+        "claim_gruul_clans_placement_0004"
+      ],
+      "confidence": "High",
+      "notes": "Follow up by asking whether the user's motive is liberation, revenge, protection, or thrill."
+    },
+    {
+      "question_id": "q_gruul_clans_0002",
+      "question": "Who earns your trust faster: the person with the title, the person with the plan, or the person who proves they can survive the fight?",
+      "purpose": "Tests strength-based legitimacy versus hierarchy or intellect.",
+      "answer_pattern_that_supports_this_faction": "The person who proves they can survive or lead under pressure.",
+      "answer_pattern_that_weakens_this_faction": "The person with formal authority, institutional mandate, or the most carefully reasoned plan.",
+      "related_factions_to_compare": [
+        "Boros Legion",
+        "Azorius Senate",
+        "Izzet League",
+        "Orzhov Syndicate"
+      ],
+      "claim_ids": [
+        "claim_gruul_clans_philosophy_0009",
+        "claim_gruul_clans_structure_0034",
+        "claim_gruul_clans_key_figure_0036",
+        "claim_gruul_clans_placement_0002"
+      ],
+      "confidence": "High",
+      "notes": "Boros may also value proven courage; Gruul differs by distrusting formal chain of command."
+    },
+    {
+      "question_id": "q_gruul_clans_0003",
+      "question": "Is anger more dangerous when it is expressed, or when it is buried until the damage becomes normal?",
+      "purpose": "Tests relationship to Rage as a force for action and memory.",
+      "answer_pattern_that_supports_this_faction": "Buried anger is more dangerous; anger can name what has been stolen and push action.",
+      "answer_pattern_that_weakens_this_faction": "Expressed anger is the main danger and should usually be contained by order or harmony.",
+      "related_factions_to_compare": [
+        "Selesnya Conclave",
+        "Azorius Senate",
+        "Rakdos Cult"
+      ],
+      "claim_ids": [
+        "claim_gruul_clans_philosophy_0050",
+        "claim_gruul_clans_philosophy_0051"
+      ],
+      "confidence": "Medium",
+      "notes": "Rakdos may enjoy transgression; Gruul anger should connect to land, survival, or loss."
+    },
+    {
+      "question_id": "q_gruul_clans_0004",
+      "question": "Would you rather belong to a polished organization with broad reach or a rough local crew that knows exactly what it is fighting for?",
+      "purpose": "Separates clan identity from institution-scale identity.",
+      "answer_pattern_that_supports_this_faction": "A rough local crew with lived loyalty and clear stakes.",
+      "answer_pattern_that_weakens_this_faction": "A polished, legitimate, scalable organization with defined roles.",
+      "related_factions_to_compare": [
+        "Selesnya Conclave",
+        "Boros Legion",
+        "Orzhov Syndicate",
+        "Azorius Senate"
+      ],
+      "claim_ids": [
+        "claim_gruul_clans_structure_0005",
+        "claim_gruul_clans_structure_0032",
+        "claim_gruul_clans_philosophy_0049"
+      ],
+      "confidence": "Medium",
+      "notes": "Selesnya may also value belonging, but tends toward spiritual communion rather than rough clan survival."
+    },
+    {
+      "question_id": "q_gruul_clans_0005",
+      "question": "When you hear 'tradition,' do you picture a rulebook, a ceremony, a bloodline, or an old trail through wild ground?",
+      "purpose": "Tests old-ways and land-memory signals.",
+      "answer_pattern_that_supports_this_faction": "An old trail, beast lore, embodied practice, or pre-institutional memory.",
+      "answer_pattern_that_weakens_this_faction": "A written code, official ceremony, lineage hierarchy, or civic archive.",
+      "related_factions_to_compare": [
+        "Lorehold College",
+        "Selesnya Conclave",
+        "Orzhov Syndicate",
+        "Azorius Senate"
+      ],
+      "claim_ids": [
+        "claim_gruul_clans_timeline_0027",
+        "claim_gruul_clans_structure_0021",
+        "claim_gruul_clans_philosophy_0022",
+        "claim_gruul_clans_placement_0003"
+      ],
+      "confidence": "High",
+      "notes": "Useful when comparing Gruul with other tradition-heavy factions."
+    },
+    {
+      "question_id": "q_gruul_clans_0006",
+      "question": "In a crisis, do you want the bigger hit now, the faster move now, or the smarter long game?",
+      "purpose": "Maps user preference onto riot/bloodrush immediacy versus slower strategic factions.",
+      "answer_pattern_that_supports_this_faction": "Bigger hit now or faster move now, especially in a concrete fight.",
+      "answer_pattern_that_weakens_this_faction": "The smarter long game, hidden leverage, or careful infrastructure buildout.",
+      "related_factions_to_compare": [
+        "Izzet League",
+        "Dimir House",
+        "Simic Combine",
+        "Quandrix College"
+      ],
+      "claim_ids": [
+        "claim_gruul_clans_mechanic_0040",
+        "claim_gruul_clans_mechanic_0043",
+        "claim_gruul_clans_placement_0002"
+      ],
+      "confidence": "High",
+      "notes": "This should not be the only question; otherwise Gruul becomes shallow aggro stereotypes."
+    },
+    {
+      "question_id": "q_gruul_clans_0007",
+      "question": "When anger finally becomes useful, is it because someone insulted you, because rules were broken, or because something living, old, or local is being erased?",
+      "purpose": "Separates Gruul protective/ecological rage from Rakdos spectacle, Boros enforcement, and Azorius rule-order instincts.",
+      "answer_pattern_that_supports_this_faction": "The user focuses on something living, old, wild, or local being drained, paved over, sanitized, or erased.",
+      "answer_pattern_that_weakens_this_faction": "The user focuses mainly on attention, personal insult, procedural violation, or punishment authority.",
+      "related_factions_to_compare": [
+        "Cult of Rakdos",
+        "Boros Legion",
+        "Azorius Senate",
+        "Selesnya Conclave",
+        "Golgari Swarm"
+      ],
+      "claim_ids": [
+        "claim_gruul_clans_philosophy_0056",
+        "claim_gruul_clans_philosophy_0063",
+        "claim_gruul_clans_relationship_0064",
+        "claim_gruul_clans_timeline_0065",
+        "claim_gruul_clans_placement_0072"
+      ],
+      "confidence": "Medium",
+      "notes": "Placement heuristic, not canon."
+    },
+    {
+      "question_id": "q_gruul_clans_0008",
+      "question": "In a rough clan, do you need to be the strongest fighter to matter, or can craft, scouting, magic, and memory-keeping be real power too?",
+      "purpose": "Avoids under-matching Gruul users who are practical, embodied, and defiant but not pure brawlers.",
+      "answer_pattern_that_supports_this_faction": "The user respects non-polished, hands-on contribution such as scouting, craft, shamanic practice, or rallying others through lived knowledge.",
+      "answer_pattern_that_weakens_this_faction": "The user only respects formal office, credentials, or direct dominance.",
+      "related_factions_to_compare": [
+        "Boros Legion",
+        "Izzet League",
+        "Golgari Swarm",
+        "Selesnya Conclave"
+      ],
+      "claim_ids": [
+        "claim_gruul_clans_key_figure_0053",
+        "claim_gruul_clans_structure_0055",
+        "claim_gruul_clans_philosophy_0059",
+        "claim_gruul_clans_key_figure_0066",
+        "claim_gruul_clans_key_figure_0069",
+        "claim_gruul_clans_placement_0073"
+      ],
+      "confidence": "Medium",
+      "notes": "Placement heuristic, not canon."
+    },
+    {
+      "question_id": "q_gruul_clans_9001",
+      "collision_targets": [
+        "cult_of_rakdos",
+        "golgari_swarm",
+        "lorehold"
+      ],
+      "prompt": "You find a ruin where something living was replaced by a system that calls the loss progress. What makes you move: grief, spectacle, study, or cultivation?",
+      "gruul_signal": "grief and anger at the loss of something wild or real",
+      "suppresses_gruul_if": "chooses spectacle, archive study, or decay-renewal cultivation",
+      "evidence_claim_ids": [
+        "claim_gruul_clans_location_0001",
+        "claim_gruul_clans_core_identity_0001",
+        "claim_gruul_clans_core_identity_0002"
+      ]
+    }
+  ],
+  "chatbot_guidance": {
+    "how_to_recognize_match": [
+      "User frames institutions as harmful when they erase living systems, local autonomy, or old ways.",
+      "User favors decisive direct action over formal permission.",
+      "User respects earned strength and survival over title-based legitimacy.",
+      "User speaks positively about wildness, ruins reclaimed by nature, physical courage, or small fierce groups.",
+      "User can articulate anger as protective or memory-preserving rather than merely chaotic.",
+      "User frames anger as a protective response to stripped land, erased local stories, or stolen autonomy rather than random violence.",
+      "User respects practical field contribution: scouting, craft, embodied skill, improvised magic, or direct local knowledge."
+    ],
+    "how_to_recognize_mismatch": [
+      "User primarily wants law, order, bureaucracy, and procedural legitimacy.",
+      "User wants harmony, consensus, and spiritual unity more than conflict or clan autonomy.",
+      "User prefers secrecy, subtle manipulation, or information control as their core method.",
+      "User sees urban progress as inherently good and wildness as something to manage.",
+      "User wants stable centralized leadership and clear rank more than loose strength-based belonging.",
+      "User equates Gruul only with random violence, attention-seeking spectacle, or dominance and shows no protective/wildness motive."
+    ],
+    "questions_to_ask_when_uncertain": [
+      "What are you trying to protect when you get angry?",
+      "Do you want to repair the system, escape it, or bring it down?",
+      "Would you rather lead by title, by expertise, by devotion, or by proving yourself under pressure?",
+      "Is your ideal group a community, a crew, a movement, a court, or a lab?",
+      "When nature and civilization conflict, where do your instincts go first?",
+      "What would make your anger useful rather than merely destructive?",
+      "Would you rather preserve a place’s old rough life or rebuild it into something cleaner, safer, and more managed?"
+    ],
+    "do_not_overweight": [
+      "One preference for aggressive gameplay.",
+      "Aesthetic enjoyment of beasts, axes, or ruins without anti-institutional values.",
+      "General anger that lacks a protective, ecological, or survival frame.",
+      "One stealth/cunning answer, because Slizt supports tactical stealth but Gruul is not primarily Dimir.",
+      "A love of nature alone, because Selesnya, Simic, Golgari, and Witherbloom can also score high on nature signals.",
+      "Do not assume every Gruul-leaning user must be a frontline berserker; story evidence includes scouts, shamans, artists, tattooists, and rallying figures.",
+      "Do not reduce Rage to generic aggression when story evidence ties it to the Rubblebelt, memory, bloodcrime, and territorial harm.",
+      "Do not score a faction highly from color identity alone when another faction shares the same colors or surface traits."
+    ],
+    "never_claim_as_canon": [
+      "Moral Foundations Theory categories are not Magic canon.",
+      "A user's psychological profile is not an official Wizards faction assignment.",
+      "Gruul is not simply 'evil' or 'stupid'; official sources include ecological grievance, lost stewardship, and clan survival.",
+      "Current post-Domri leadership should not be named unless a later official source is added.",
+      "Placement scores are heuristics, not objective truth.",
+      "Do not claim that every Gruul member experiences Rage the same way.",
+      "Do not claim that Moral Foundations Theory or the protective-rage axis is official Wizards canon.",
+      "Placement scoring is a Vox Mana interpretation, not official Wizards canon."
+    ],
+    "calibration_note": "Gruul Clans should require its specific positive evidence cluster: loss, taken, dispossessed, wild, wilderness. Keep it adjacent when the answer only contains broad color identity or generic personality language.",
+    "scoring_guardrail": "Do not award for generic anger or freedom without concrete loss or wildness."
+  },
+  "placement_quality": {
+    "overall_confidence": "High",
+    "strongest_evidence_areas": [
+      "anti-civilization stance",
+      "wild reclamation motive",
+      "loose clan structure",
+      "strength-based leadership",
+      "riot and bloodrush direct-action mechanics",
+      "Repository story evidence for Rage as protective/ecological anger rather than only generalized aggression.",
+      "Repository story evidence for non-brawler Gruul roles such as scout, shaman, tattoo artist, and rallying challenger.",
+      "MTG-Stories corpus search evidence"
+    ],
+    "weakest_evidence_areas": [
+      "long-term post-War leadership",
+      "full current clan list",
+      "exact psychological mapping weights",
+      "Exhaustive repository-wide term coverage beyond inspected raw story files.",
+      "Claims currently supported only by repository archive copies until original official story URLs are located."
+    ],
+    "manual_review_recommended": true,
+    "notes": "Placement is strongly supported at the axis/value level, but psychological labels remain external interpretation. Version 1.1.0 adds targeted MTG-Stories archive evidence and improves separation of protective/ecological Gruul anger from shallow chaos or spectacle. Corpus-enriched data should be reviewed with calibration and collision reports before being treated as tuned scoring fuel.",
+    "last_tuning_pass": "2026-05-10T02:24:27.430Z",
+    "calibration_status": "metadata_tuned",
+    "calibration_tuning_status": "explicit",
+    "last_placement_ready_pass": "2026-05-10T02:56:03.254Z"
+  },
+  "color_identity": [
+    "Red",
+    "Green"
+  ],
+  "calibration_tuning": {
+    "required_positive_evidence_terms": [
+      "loss",
+      "taken",
+      "dispossessed",
+      "wild",
+      "wilderness",
+      "civilization",
+      "institution",
+      "clan",
+      "survival",
+      "grievance",
+      "ruin",
+      "direct"
+    ],
+    "required_positive_min_hits": 2,
+    "broad_match_penalty": 0.08,
+    "overselection_reason": "Previous smoke tests over-rewarded broad rage/freedom/directness language. This pass requires loss, wildness, or dispossession evidence.",
+    "suppress_when_user_centers": [
+      "generic rage",
+      "generic freedom",
+      "theatrical chaos",
+      "ordinary resilience",
+      "archive history",
+      "decay renewal"
+    ],
+    "strengthen_when_user_centers": [
+      "dispossession",
+      "wild places",
+      "systems taking something real",
+      "direct survival outside institutions",
+      "clan against city"
+    ],
+    "collision_suppressions": [
+      {
+        "against": "cult_of_rakdos",
+        "rule": "Suppress Gruul when chaos is spectacle, sensation, comedy, or performance rather than grief from loss."
+      },
+      {
+        "against": "golgari_swarm",
+        "rule": "Suppress Gruul when the answer centers decay, recycling, undercity survival, or death-to-life logic rather than the wild being taken."
+      }
+    ],
+    "false_positive_guardrail": "Do not award for generic anger or freedom without concrete loss or wildness.",
+    "smoke_test_note": "Used by lore review scripts as metadata-level calibration guidance; production placement may use richer weighted logic."
+  },
+  "collision_guidance": [
+    {
+      "collision_id": "collision_gruul_rakdos_tuned",
+      "against": "cult_of_rakdos",
+      "separator": "Gruul chaos is grief and grievance from dispossession; Rakdos chaos is performance, sensation, and transgressive honesty.",
+      "ask": "Is the destruction about showing people the truth of the moment, or about answering something that was taken from you?"
+    },
+    {
+      "collision_id": "collision_gruul_golgari_tuned",
+      "against": "golgari_swarm",
+      "separator": "Gruul mourns the wild places civilization destroyed; Golgari accepts decay and builds a society from what the city throws below.",
+      "ask": "When something dies, do you feel the urge to avenge what was lost or cultivate what grows from it?"
+    }
+  ]
+}

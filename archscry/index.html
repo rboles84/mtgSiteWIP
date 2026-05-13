@@ -9,10 +9,12 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Cinzel:wght@400;600&family=Crimson+Pro:ital,wght@0,300;0,400;1,300;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 
-<!-- Vox Mana shared design system (Batch 1) -->
-<link rel="stylesheet" href="/assets/css/fonts.css">
+<!-- Vox Mana shared design system -->
 <link rel="stylesheet" href="/assets/css/tokens.css">
+<link rel="stylesheet" href="/assets/css/fonts.css">
 <link rel="stylesheet" href="/assets/css/topbar.css">
+<link rel="stylesheet" href="/assets/css/atmosphere.css">
+<link rel="stylesheet" href="/assets/css/components.css">
 <style>
 /* Page-local aliases. Values aligned with /assets/css/tokens.css (Batch 1 locked).
    Variable names kept legacy (--bg2 not --bg-2) so the inline CSS below still resolves.
@@ -88,20 +90,7 @@ body::before{
 .btn-secondary:hover{color:var(--text);border-color:var(--border-s);background:rgba(184,149,74,0.04)}
 .btn-secondary:disabled{opacity:0.5;cursor:not-allowed}
 
-/* Topbar */
-#topbar{
-  position:sticky;
-  top:0;
-  z-index:100;
-  background:rgba(12,11,10,0.92);
-  backdrop-filter:blur(8px);
-  border-bottom:1px solid var(--border);
-  padding:0.75rem 1.25rem;
-  display:flex;
-  align-items:center;
-  gap:14px;
-  justify-content:space-between;
-}
+/* Auth identity elements — shown by index.js after sign-in */
 .tb-identity{display:flex;align-items:center;gap:12px;min-width:0}
 .tb-avatar{
   width:32px;
@@ -138,7 +127,6 @@ body::before{
   overflow:hidden;
   text-overflow:ellipsis;
 }
-.tb-actions{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}
 .tb-btn{
   font-size:0.6rem;
   color:var(--text-dim);
@@ -149,8 +137,6 @@ body::before{
   white-space:nowrap;
 }
 .tb-btn:hover{color:var(--text);border-color:var(--border-s)}
-/* Reduce motion toggle slot — sized to match .tb-btn height */
-.tb-toggle-slot{display:inline-flex;align-items:center}
 
 /* Landing */
 #landing{justify-content:flex-start;padding-top:6rem;padding-bottom:4rem}
@@ -184,8 +170,9 @@ body::before{
 }
 .landing-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:2rem}
 .landing-panel{
-  background:var(--bg2);
-  border:1px solid var(--border);
+  background:rgba(12,11,10,0.88);
+  border:1px solid var(--border-s);
+  box-shadow:0 18px 60px rgba(0,0,0,0.34);
   padding:1.4rem;
 }
 .panel-title{
@@ -274,8 +261,9 @@ body::before{
   transition:width 0.3s ease;
 }
 .question-card{
-  background:var(--bg2);
-  border:1px solid var(--border);
+  background:rgba(12,11,10,0.9);
+  border:1px solid var(--border-s);
+  box-shadow:0 18px 60px rgba(0,0,0,0.34);
   padding:1.6rem;
 }
 .question-eyebrow{
@@ -338,8 +326,9 @@ body::before{
 /* Interview */
 #interview{justify-content:flex-start;padding-top:6rem;padding-bottom:4rem}
 .interview-shell{
-  border:1px solid var(--border);
-  background:#0c0b0a;
+  border:1px solid var(--border-s);
+  background:rgba(12,11,10,0.92);
+  box-shadow:0 24px 80px rgba(0,0,0,0.42);
   padding:1rem;
 }
 .interview-header{display:flex;justify-content:space-between;gap:12px;align-items:end;flex-wrap:wrap;margin-bottom:0.9rem}
@@ -419,8 +408,18 @@ body::before{
   padding:3.5rem 2rem;
   text-align:center;
   margin-bottom:3rem;
-  border-bottom:1px solid var(--border);
+  border-bottom:1px solid var(--border-s);
+  box-shadow:0 24px 90px rgba(0,0,0,0.48);
+  position:relative;
 }
+.guild-banner::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(180deg,rgba(12,11,10,0.18),rgba(12,11,10,0.72));
+  pointer-events:none;
+}
+.guild-banner>*{position:relative}
 .guild-eyebrow{
   font-family:"Cinzel",serif;
   font-size:0.65rem;
@@ -449,7 +448,7 @@ body::before{
 .pip{width:26px;height:26px;border-radius:50%;border:1.5px solid rgba(255,255,255,0.15);box-shadow:0 0 10px rgba(0,0,0,0.4)}
 .pip-W{background:#ede8d4}
 .pip-U{background:#1a5b9b}
-.pip-B{background:#1c1428;border-color:rgba(130,100,160,0.5)}
+.pip-B{background:#17120f;border-color:rgba(237,220,180,0.22)}
 .pip-R{background:#be2a1f}
 .pip-G{background:#1b5c28}
 .guild-philosophy{
@@ -474,8 +473,9 @@ body::before{
 .result-status{
   width:min(860px,100%);
   margin:0 auto 1.25rem;
-  background:rgba(184,149,74,0.05);
-  border:1px solid var(--border);
+  background:rgba(12,11,10,0.88);
+  border:1px solid var(--border-s);
+  box-shadow:0 18px 60px rgba(0,0,0,0.35);
   padding:0.9rem 1rem;
 }
 .result-status strong{color:var(--gold)}
@@ -499,7 +499,7 @@ body::before{
 .score-fill{height:100%;border-radius:2px;transition:width 1s ease}
 .score-val{font-size:0.8rem;color:var(--text-muted);width:20px;text-align:right}
 .archetypes-grid,.decks-grid,.adjacent-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1px;background:rgba(184,149,74,0.06)}
-.arch-card,.deck-card,.adjacent-card,.starter-card{background:var(--bg2);padding:1.4rem}
+.arch-card,.deck-card,.adjacent-card,.starter-card{background:rgba(12,11,10,0.9);border:1px solid rgba(184,149,74,0.08);padding:1.4rem}
 .arch-name,.starter-title{font-family:"Cinzel",serif;font-size:0.9rem;color:var(--gold);margin-bottom:0.4rem}
 .arch-desc,.starter-copy{font-size:0.9rem;color:var(--text-dim);line-height:1.55}
 .starter-grid{
@@ -573,7 +573,7 @@ body::before{
 }
 .staple-name,.land-name{font-size:0.7rem;color:var(--text-muted);text-align:center;margin-top:5px;line-height:1.3}
 .lands-tiers{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(184,149,74,0.06);margin-bottom:1.5rem}
-.land-tier{background:var(--bg2);padding:1.1rem}
+.land-tier{background:rgba(12,11,10,0.9);padding:1.1rem}
 .land-tier-label{font-family:"Cinzel",serif;font-size:0.6rem;letter-spacing:0.18em;text-transform:uppercase;margin-bottom:0.85rem}
 .tier-premium .land-tier-label{color:#e8c84a}
 .tier-midrange .land-tier-label{color:#7ab0d0}
@@ -594,7 +594,7 @@ body::before{
   border-color:var(--gold);
   box-shadow:0 24px 64px rgba(0,0,0,0.92),0 0 0 2px rgba(184,149,74,0.4);
 }
-.lands-guide{background:var(--bg2);border:1px solid var(--border);padding:1.1rem 1.25rem}
+.lands-guide{background:rgba(12,11,10,0.9);border:1px solid var(--border-s);padding:1.1rem 1.25rem}
 .guide-row{display:flex;gap:1rem;padding:0.45rem 0;border-bottom:1px solid rgba(184,149,74,0.05);font-size:0.88rem;align-items:baseline}
 .guide-row:last-child{border-bottom:none}
 .guide-tier{font-family:"Cinzel",serif;font-size:0.6rem;letter-spacing:0.12em;text-transform:uppercase;width:68px;flex-shrink:0}
@@ -633,36 +633,93 @@ body::before{
   .lands-tiers{grid-template-columns:1fr}
   .land-wrap{width:80px}
   .staple-wrap{width:92px}
-  #topbar{padding:0.65rem 1rem;align-items:flex-start}
   .tb-placement{display:none}
-  .tb-actions{width:100%}
   #terminal-input-row{flex-direction:column}
   #terminal-submit{width:100%}
 }
 </style>
 </head>
-<body data-page="landing">
+<body data-page="archscry" data-vm-current="archscry" data-bg="medium">
+
+<div class="vm-bg" aria-hidden="true">
+  <picture class="vm-bg__picture">
+    <source type="image/avif" srcset="/assets/img/vox-mana-hero-768w.avif 768w, /assets/img/vox-mana-hero-1280w.avif 1280w, /assets/img/vox-mana-hero-2560w.avif 2560w" sizes="100vw">
+    <source type="image/webp" srcset="/assets/img/vox-mana-hero-768w.webp 768w, /assets/img/vox-mana-hero-1280w.webp 1280w, /assets/img/vox-mana-hero-2560w.webp 2560w" sizes="100vw">
+    <img src="/assets/img/vox-mana-hero-1280w.jpg" alt="" decoding="async">
+  </picture>
+  <div class="vm-bg__nebula"></div>
+</div>
+
 <div class="app">
-  <header class="vm-topbar" id="topbar">
-    <a class="vm-topbar__brand" href="/">Vox Mana</a>
-    <div class="tb-identity hidden" id="tb-identity">
-      <div class="tb-avatar" id="tb-avatar"></div>
-      <div class="tb-copy">
-        <div class="tb-name" id="tb-name"></div>
-        <div class="tb-placement" id="tb-placement"></div>
+
+  <!-- ============================================================
+       TOPBAR — Batch 3 markup with auth identity elements preserved
+       id="topbar" required by index.js updateTopbar()
+       ============================================================ -->
+  <header class="vm-topbar" role="banner" id="topbar">
+    <a class="vm-brand" href="/" aria-label="Vox Mana — home">
+      <span class="vm-brand-mark" aria-hidden="true"></span>
+      <span class="vm-brand-text">Vox Mana</span>
+    </a>
+
+    <nav class="vm-nav" aria-label="Primary">
+      <a class="vm-nav-link" href="/" data-vm-nav="home">Home</a>
+      <a class="vm-nav-link" href="/archscry/" data-vm-nav="archscry">Archscry</a>
+      <a class="vm-nav-link" href="/maze.html" data-vm-nav="maze">The Implicit Maze</a>
+      <a class="vm-nav-link" href="/library/" data-vm-nav="apocrypha">Apocrypha</a>
+    </nav>
+
+    <div class="vm-utility">
+      <!-- Auth identity — populated and shown by index.js after sign-in -->
+      <div class="tb-identity hidden" id="tb-identity">
+        <div class="tb-avatar" id="tb-avatar"></div>
+        <div class="tb-copy">
+          <div class="tb-name" id="tb-name"></div>
+          <div class="tb-placement" id="tb-placement"></div>
+        </div>
       </div>
-    </div>
-    <nav class="vm-topbar__nav tb-actions" aria-label="Site navigation">
-      <a href="/">Home</a>
-      <a href="/archscry/" aria-current="page">Archscry</a>
-      <a href="/research.html">Archives</a>
-      <a href="/library/">Maze</a>
       <button class="tb-btn hidden" id="tb-retake" type="button" onclick="handleRetake()">Begin Again</button>
       <button class="tb-btn hidden" id="tb-signout" type="button" onclick="handleSignOut()">Sign Out</button>
-      <span class="tb-toggle-slot" data-vm-reduce-motion-toggle></span>
-    </nav>
+
+      <button
+        type="button"
+        class="vm-menu-button"
+        aria-label="Open menu"
+        aria-expanded="false"
+        aria-haspopup="true"
+        aria-controls="vm-menu-panel"
+        data-vm-menu-trigger
+      >
+        <span class="vm-menu-dots" aria-hidden="true">
+          <span></span><span></span><span></span>
+        </span>
+      </button>
+
+      <div
+        id="vm-menu-panel"
+        class="vm-menu-panel"
+        role="menu"
+        data-open="false"
+        data-vm-menu-panel
+      >
+        <button
+          type="button"
+          class="vm-menu-item"
+          role="menuitem"
+          data-vm-toggle="reduce-motion"
+          data-vm-tooltip-on="Stillness · on"
+          data-vm-tooltip-off="Quiet the motion"
+        >
+          <span>Reduce motion</span>
+          <span class="vm-menu-item-status" data-vm-status>Off</span>
+        </button>
+      </div>
+    </div>
   </header>
 
+  <!-- ============================================================
+       LANDING
+       ============================================================ -->
   <section class="section" id="landing">
     <div class="landing-wrap">
       <div class="hero-band">
@@ -703,7 +760,7 @@ body::before{
 
         <div class="flow-card">
           <div class="flow-title">Quick path</div>
-          <div class="flow-copy">A short card-based reading with a clean finish and no AI calls per answer.</div>
+          <div class="flow-copy">An adaptive Gate, Hall, and Crucible reading with Bayesian evidence and no AI calls per answer.</div>
         </div>
 
         <div class="flow-card">
@@ -714,16 +771,19 @@ body::before{
     </div>
   </section>
 
+  <!-- ============================================================
+       QUICK READING
+       ============================================================ -->
   <section class="section hidden" id="quick">
     <div class="quick-shell">
       <div class="quick-header">
         <div class="eyebrow">Quick Reading</div>
         <div class="quick-title">A modern read on your faction identity.</div>
-        <div class="quick-sub">Short prompts, clean choices, and one practical dossier at the end.</div>
+        <div class="quick-sub">Gate questions set broad priors, Hall questions gather evidence, and the Crucible resolves close lookalikes.</div>
       </div>
 
       <div class="progress-row">
-        <div class="progress-copy" id="progress-copy">Question 1 of 5</div>
+        <div class="progress-copy" id="progress-copy">Gate 1 - Question 1</div>
         <div class="progress-track"><div class="progress-fill" id="progress-fill"></div></div>
       </div>
 
@@ -741,6 +801,9 @@ body::before{
     </div>
   </section>
 
+  <!-- ============================================================
+       SCRYING TERMINAL
+       ============================================================ -->
   <section class="section hidden" id="interview">
     <div class="interview-shell">
       <div class="interview-header">
@@ -777,12 +840,18 @@ body::before{
     </div>
   </section>
 
+  <!-- ============================================================
+       RESULT / DOSSIER
+       ============================================================ -->
   <section class="section hidden" id="result">
     <div class="result-inner" id="result-inner"></div>
   </section>
-</div>
+
+</div><!-- .app -->
 
 <script type="module" src="/assets/js/index.js" defer></script>
 <script src="/assets/js/reduce-motion.js" defer></script>
+<script src="/assets/js/vm-topbar.js" defer></script>
+<script src="/assets/js/atmosphere.js" defer></script>
 </body>
 </html>

@@ -6,6 +6,7 @@
 2. Deploy the updated `guild-recruiter` edge function.
 3. Run the SQL in `docs/supabase-profile-update.sql`.
 4. Confirm `data/factions.json` is present at the site root under `/data/factions.json`.
+5. Confirm `data/placement-model.json` is present at the site root under `/data/placement-model.json`.
 
 ## Happy path - quick reading
 
@@ -13,7 +14,7 @@
 2. Confirm the landing page appears without any login prompt.
 3. Change format, budget, and experience chips on the landing page.
 4. Start the quick reading.
-5. Complete all five questions.
+5. Complete the adaptive Gate -> Hall -> Crucible reading.
 6. Confirm the result page renders:
    - primary guild or college
    - decree text
@@ -24,6 +25,16 @@
    - starter planning section
    - deck-start links
 7. Confirm two adjacent fits are shown.
+8. Confirm the result page includes an evidence trail when the adaptive quick path produced one.
+
+## Adaptive placement sanity
+
+1. Run `node assets/js/quick-reading-tests.js`.
+2. Confirm all 15 golden paths pass.
+3. Run `node assets/js/quick-reading-bias.js --all`.
+4. Confirm no faction is listed under `Never selected`.
+5. Run `node assets/js/quick-reading-bias.js --runs=100`.
+6. Confirm no faction is listed under `Never selected` and no single faction dominates the report.
 
 ## Happy path - deep interview
 
@@ -79,6 +90,11 @@
 1. Break or remove `data/factions.json`.
 2. Open the site.
 3. Confirm the page fails with a clear data-loading message.
+
+### Missing placement model
+1. Break or remove `data/placement-model.json`.
+2. Open the site.
+3. Confirm the page fails with a clear placement-data message.
 
 ### Failed save
 1. Break the Supabase profile schema by omitting the new columns.

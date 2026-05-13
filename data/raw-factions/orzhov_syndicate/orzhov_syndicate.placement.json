@@ -1,0 +1,451 @@
+{
+  "schema_version": "1.0.0",
+  "faction_id": "orzhov_syndicate",
+  "faction_name": "Orzhov Syndicate",
+  "last_updated": "2026-05-10T02:56:03.254Z",
+  "placement_model_version": "vox-mana-lore-json-v1",
+  "color_identity": [
+    "white",
+    "black"
+  ],
+  "ideal_fit_indicators": [
+    {
+      "indicator": "thinks in ledgers, obligations, and long consequences",
+      "rationale": "Matches the official Orzhov Syndicate identity summarized in the profile.",
+      "claim_ids": [
+        "orzhov_syndicate_claim_001"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "indicator": "uses institutions as leverage",
+      "rationale": "Matches the official Orzhov Syndicate identity summarized in the profile.",
+      "claim_ids": [
+        "orzhov_syndicate_claim_002"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "indicator": "cares about legacy and social position",
+      "rationale": "Matches the official Orzhov Syndicate identity summarized in the profile.",
+      "claim_ids": [
+        "orzhov_syndicate_claim_003"
+      ],
+      "confidence": "Medium"
+    }
+  ],
+  "poor_fit_indicators": [
+    {
+      "indicator": "hates all hierarchy reflexively",
+      "rationale": "Counters a core Orzhov Syndicate placement signal.",
+      "claim_ids": [
+        "orzhov_syndicate_claim_001"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "indicator": "gives without caring about reciprocity",
+      "rationale": "Counters a core Orzhov Syndicate placement signal.",
+      "claim_ids": [
+        "orzhov_syndicate_claim_002"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "indicator": "prefers chaotic power with no durable structure",
+      "rationale": "Counters a core Orzhov Syndicate placement signal.",
+      "claim_ids": [
+        "orzhov_syndicate_claim_003"
+      ],
+      "confidence": "Medium"
+    }
+  ],
+  "discriminator_questions": [
+    {
+      "question_id": "orzhov_q1",
+      "question": "When someone says a debt is only a story, do you believe them?",
+      "purpose": "Tests whether obligation feels real or manipulative.",
+      "answer_pattern_that_supports_this_faction": "The answer emphasizes the ideal-fit indicators listed for this faction.",
+      "answer_pattern_that_weakens_this_faction": "The answer rejects or treats the faction's core tension as irrelevant.",
+      "related_factions_to_compare": [],
+      "claim_ids": [
+        "orzhov_syndicate_claim_001",
+        "orzhov_syndicate_claim_002",
+        "orzhov_syndicate_claim_003"
+      ],
+      "confidence": "Medium",
+      "notes": "Question is placement-engine guidance, not canon text."
+    },
+    {
+      "question_id": "orzhov_q2",
+      "question": "What do people owe each other after help has been given?",
+      "purpose": "Separates Orzhov reciprocity from Selesnya caretaking.",
+      "answer_pattern_that_supports_this_faction": "The answer emphasizes the ideal-fit indicators listed for this faction.",
+      "answer_pattern_that_weakens_this_faction": "The answer rejects or treats the faction's core tension as irrelevant.",
+      "related_factions_to_compare": [],
+      "claim_ids": [
+        "orzhov_syndicate_claim_001",
+        "orzhov_syndicate_claim_002",
+        "orzhov_syndicate_claim_003"
+      ],
+      "confidence": "Medium",
+      "notes": "Question is placement-engine guidance, not canon text."
+    },
+    {
+      "question_id": "q_orzhov_syndicate_9801",
+      "collision_targets": [
+        "silverquill"
+      ],
+      "prompt": "When a room needs to move, do you bind people through what they owe or change what they believe through words?",
+      "target_signal": "Orzhov uses obligation, debt, hierarchy, and institutional prestige; Silverquill uses visible language, rhetoric, image, and public influence.",
+      "suppresses_this_faction_if": "the answer centers public rhetoric, verbal style, or reputation over obligation and repayment",
+      "evidence_claim_ids": [
+        "orzhov_syndicate_claim_001",
+        "orzhov_syndicate_claim_002",
+        "orzhov_syndicate_claim_003"
+      ]
+    },
+    {
+      "question_id": "q_orzhov_syndicate_9802",
+      "collision_targets": [
+        "house_dimir"
+      ],
+      "prompt": "Would you rather everyone know the contract binds them, or no one know you shaped the situation at all?",
+      "target_signal": "Orzhov wants power to look legitimate and collectible; Dimir wants power to remain unseen and informational.",
+      "suppresses_this_faction_if": "the answer prefers invisibility, secrecy, or no credit",
+      "evidence_claim_ids": [
+        "orzhov_syndicate_claim_001",
+        "orzhov_syndicate_claim_002",
+        "orzhov_syndicate_claim_003"
+      ]
+    }
+  ],
+  "chatbot_guidance": {
+    "how_to_recognize_match": [
+      "thinks in ledgers, obligations, and long consequences",
+      "uses institutions as leverage",
+      "cares about legacy and social position"
+    ],
+    "how_to_recognize_mismatch": [
+      "hates all hierarchy reflexively",
+      "gives without caring about reciprocity",
+      "prefers chaotic power with no durable structure"
+    ],
+    "questions_to_ask_when_uncertain": [
+      "When someone says a debt is only a story, do you believe them?",
+      "What do people owe each other after help has been given?"
+    ],
+    "do_not_overweight": [
+      "Do not overfit a single color preference.",
+      "Do not treat one favorite card or mechanic as enough evidence by itself.",
+      "Do not score a faction highly from color identity alone when another faction shares the same colors or surface traits."
+    ],
+    "never_claim_as_canon": [
+      "Psychological placement categories are Vox Mana interpretation, not official Wizards canon.",
+      "Do not state that a user's personality is objectively determined by a faction.",
+      "Placement scoring is a Vox Mana interpretation, not official Wizards canon."
+    ],
+    "calibration_note": "Orzhov Syndicate should require its specific positive evidence cluster: debt, obligation, contract, prestige, tithe. Keep it adjacent when the answer only contains broad color identity or generic personality language.",
+    "scoring_guardrail": "Do not award for generic institutions unless the answer frames them as leverage, obligation, or repayment."
+  },
+  "placement_quality": {
+    "overall_confidence": "Medium",
+    "strongest_evidence_areas": [
+      "official faction overview",
+      "official mechanics identity",
+      "MTG-Stories corpus search evidence"
+    ],
+    "weakest_evidence_areas": [
+      "deep story episode coverage",
+      "cross-faction comparison calibration"
+    ],
+    "manual_review_recommended": true,
+    "notes": "Good for initial placement testing; should be expanded with story-specific claims in a later pass. Corpus-enriched data should be reviewed with calibration and collision reports before being treated as tuned scoring fuel.",
+    "calibration_tuning_status": "explicit",
+    "last_placement_ready_pass": "2026-05-10T02:56:03.254Z"
+  },
+  "placement_profile_version": "vox-mana-lore-json-v1",
+  "based_on_profile_version": "1.0.0",
+  "placement_summary": {
+    "short_description": "Orzhov Syndicate placement is informed by official overview sources and MTG-Stories corpus evidence.",
+    "best_fit_summary": "thinks in ledgers, obligations, and long consequences uses institutions as leverage cares about legacy and social position",
+    "poor_fit_summary": "hates all hierarchy reflexively gives without caring about reciprocity prefers chaotic power with no durable structure",
+    "interpretation_warning": "Placement data is interpretive and should be treated as a matching heuristic, not direct canon.",
+    "claim_ids": [
+      "orzhov_syndicate_claim_0008",
+      "orzhov_syndicate_claim_0009",
+      "orzhov_syndicate_claim_0010",
+      "orzhov_syndicate_claim_0011",
+      "orzhov_syndicate_claim_0012",
+      "orzhov_syndicate_claim_0013",
+      "orzhov_syndicate_claim_0014",
+      "orzhov_syndicate_claim_0015"
+    ],
+    "calibrated_primary_read": "Requires debt, obligation, contract, prestige, hierarchy, legacy, or guilt-as-currency.",
+    "calibrated_false_positive_guardrail": "Do not award for generic institutions unless the answer frames them as leverage, obligation, or repayment.",
+    "evidence_claim_ids": [
+      "orzhov_syndicate_claim_001",
+      "orzhov_syndicate_claim_002",
+      "orzhov_syndicate_claim_003",
+      "orzhov_syndicate_claim_004",
+      "orzhov_syndicate_claim_005",
+      "orzhov_syndicate_claim_006"
+    ]
+  },
+  "placement_axes": [
+    {
+      "axis_id": "axis_obligation_vs_untallied_grace",
+      "label": "Obligation vs Untallied Grace",
+      "description": "Measures whether user answers align with Orzhov Syndicate's specific evidence instead of only its color pair.",
+      "low_end_label": "unstructured generosity",
+      "high_end_label": "ledgered obligation",
+      "faction_position": 86,
+      "rationale": "Corpus evidence adds story-context support for Orzhov Syndicate, Orzhov, Obzedat, Ghost Council, Teysa Karlov, Kaya, Karlov, debt.",
+      "claim_ids": [
+        "orzhov_syndicate_claim_0008",
+        "orzhov_syndicate_claim_0009",
+        "orzhov_syndicate_claim_0010",
+        "orzhov_syndicate_claim_0011",
+        "orzhov_syndicate_claim_0012",
+        "orzhov_syndicate_claim_0013",
+        "orzhov_syndicate_claim_0014",
+        "orzhov_syndicate_claim_0015"
+      ],
+      "confidence": "Medium",
+      "notes": "Added during MTG-Stories corpus upgrade."
+    }
+  ],
+  "moral_and_psychological_profile": {
+    "summary": "Orzhov Syndicate should be scored through faction-specific behavioral evidence, not only broad color identity.",
+    "claim_ids": [
+      "orzhov_syndicate_claim_0008",
+      "orzhov_syndicate_claim_0009",
+      "orzhov_syndicate_claim_0010",
+      "orzhov_syndicate_claim_0011",
+      "orzhov_syndicate_claim_0012"
+    ]
+  },
+  "core_values": [
+    {
+      "value": "Orzhov Syndicate",
+      "placement_relevance": "Corpus search evidence for Orzhov Syndicate.",
+      "claim_ids": [
+        "orzhov_syndicate_claim_0008",
+        "orzhov_syndicate_claim_0009",
+        "orzhov_syndicate_claim_0010"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "value": "Orzhov",
+      "placement_relevance": "Corpus search evidence for Orzhov Syndicate.",
+      "claim_ids": [
+        "orzhov_syndicate_claim_0008",
+        "orzhov_syndicate_claim_0009",
+        "orzhov_syndicate_claim_0010"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "value": "Obzedat",
+      "placement_relevance": "Corpus search evidence for Orzhov Syndicate.",
+      "claim_ids": [
+        "orzhov_syndicate_claim_0008",
+        "orzhov_syndicate_claim_0009",
+        "orzhov_syndicate_claim_0010"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "value": "Ghost Council",
+      "placement_relevance": "Corpus search evidence for Orzhov Syndicate.",
+      "claim_ids": [
+        "orzhov_syndicate_claim_0008",
+        "orzhov_syndicate_claim_0009",
+        "orzhov_syndicate_claim_0010"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "value": "Teysa Karlov",
+      "placement_relevance": "Corpus search evidence for Orzhov Syndicate.",
+      "claim_ids": [
+        "orzhov_syndicate_claim_0008",
+        "orzhov_syndicate_claim_0009",
+        "orzhov_syndicate_claim_0010"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "value": "Kaya",
+      "placement_relevance": "Corpus search evidence for Orzhov Syndicate.",
+      "claim_ids": [
+        "orzhov_syndicate_claim_0008",
+        "orzhov_syndicate_claim_0009",
+        "orzhov_syndicate_claim_0010"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "value": "Karlov",
+      "placement_relevance": "Corpus search evidence for Orzhov Syndicate.",
+      "claim_ids": [
+        "orzhov_syndicate_claim_0008",
+        "orzhov_syndicate_claim_0009",
+        "orzhov_syndicate_claim_0010"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "value": "debt",
+      "placement_relevance": "Corpus search evidence for Orzhov Syndicate.",
+      "claim_ids": [
+        "orzhov_syndicate_claim_0008",
+        "orzhov_syndicate_claim_0009",
+        "orzhov_syndicate_claim_0010"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "value": "tithe",
+      "placement_relevance": "Corpus search evidence for Orzhov Syndicate.",
+      "claim_ids": [
+        "orzhov_syndicate_claim_0008",
+        "orzhov_syndicate_claim_0009",
+        "orzhov_syndicate_claim_0010"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "value": "thrull",
+      "placement_relevance": "Corpus search evidence for Orzhov Syndicate.",
+      "claim_ids": [
+        "orzhov_syndicate_claim_0008",
+        "orzhov_syndicate_claim_0009",
+        "orzhov_syndicate_claim_0010"
+      ],
+      "confidence": "Medium"
+    }
+  ],
+  "behavioral_signals": [
+    {
+      "signal": "References Rallying the Reluctant, The Ledger of Hidden Fortunes, Teysa Karlov as story-context evidence rather than relying only on color identity.",
+      "placement_relevance": "Strengthens Orzhov Syndicate with corpus-backed specificity.",
+      "supports_match_when": "The user's answers echo Orzhov Syndicate, Orzhov, Obzedat, Ghost Council, Teysa Karlov, Kaya in a faction-specific way.",
+      "weakens_match_when": "The user's answers only match the shared color pair without any faction-specific behavior.",
+      "claim_ids": [
+        "orzhov_syndicate_claim_0008",
+        "orzhov_syndicate_claim_0009",
+        "orzhov_syndicate_claim_0010",
+        "orzhov_syndicate_claim_0011",
+        "orzhov_syndicate_claim_0012",
+        "orzhov_syndicate_claim_0013"
+      ],
+      "confidence": "Medium"
+    },
+    "tracks what is owed",
+    "uses legitimacy as power",
+    "treats forgiveness without restitution as suspect"
+  ],
+  "inhibitor_traits": [
+    {
+      "trait": "Generic color-pair overfit",
+      "why_it_conflicts": "The corpus upgrade is intended to prevent Orzhov Syndicate from winning on broad color identity alone.",
+      "status": "Supported Interpretation",
+      "claim_ids": [
+        "orzhov_syndicate_claim_0008",
+        "orzhov_syndicate_claim_0009",
+        "orzhov_syndicate_claim_0010",
+        "orzhov_syndicate_claim_0011"
+      ],
+      "confidence": "Medium",
+      "notes": "Use collision questions when another faction shares the same or adjacent colors."
+    },
+    "believes rules should be impartial",
+    "wants no credit or visibility",
+    "uses words as public influence rather than obligation"
+  ],
+  "good_fit_indicators": [
+    {
+      "indicator": "thinks in ledgers, obligations, and long consequences",
+      "rationale": "Matches the official Orzhov Syndicate identity summarized in the profile.",
+      "claim_ids": [
+        "orzhov_syndicate_claim_001"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "indicator": "uses institutions as leverage",
+      "rationale": "Matches the official Orzhov Syndicate identity summarized in the profile.",
+      "claim_ids": [
+        "orzhov_syndicate_claim_002"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "indicator": "cares about legacy and social position",
+      "rationale": "Matches the official Orzhov Syndicate identity summarized in the profile.",
+      "claim_ids": [
+        "orzhov_syndicate_claim_003"
+      ],
+      "confidence": "Medium"
+    }
+  ],
+  "calibration_tuning": {
+    "required_positive_evidence_terms": [
+      "debt",
+      "obligation",
+      "contract",
+      "prestige",
+      "tithe",
+      "leverage",
+      "legacy",
+      "hierarchy",
+      "payment",
+      "guilt"
+    ],
+    "required_positive_min_hits": 2,
+    "broad_match_penalty": 0.1,
+    "strengthen_when_user_centers": [
+      "debt as real",
+      "obligation ledger",
+      "prestige as power",
+      "institutional leverage"
+    ],
+    "suppress_when_user_centers": [
+      "impartial law",
+      "invisible secrecy",
+      "public rhetoric",
+      "selfless belonging",
+      "free charity"
+    ],
+    "false_positive_guardrail": "Do not award for generic institutions unless the answer frames them as leverage, obligation, or repayment.",
+    "smoke_test_note": "Used by lore review scripts as metadata-level calibration guidance; production placement may use richer weighted logic."
+  },
+  "collision_guidance": [
+    {
+      "collision_id": "collision_orzhov_syndicate_vs_silverquill_placement_ready",
+      "against": "silverquill",
+      "separator": "Orzhov uses obligation, debt, hierarchy, and institutional prestige; Silverquill uses visible language, rhetoric, image, and public influence.",
+      "ask": "When a room needs to move, do you bind people through what they owe or change what they believe through words?",
+      "suppress_if": "the answer centers public rhetoric, verbal style, or reputation over obligation and repayment",
+      "evidence_claim_ids": [
+        "orzhov_syndicate_claim_001",
+        "orzhov_syndicate_claim_002",
+        "orzhov_syndicate_claim_003"
+      ]
+    },
+    {
+      "collision_id": "collision_orzhov_syndicate_vs_house_dimir_placement_ready",
+      "against": "house_dimir",
+      "separator": "Orzhov wants power to look legitimate and collectible; Dimir wants power to remain unseen and informational.",
+      "ask": "Would you rather everyone know the contract binds them, or no one know you shaped the situation at all?",
+      "suppress_if": "the answer prefers invisibility, secrecy, or no credit",
+      "evidence_claim_ids": [
+        "orzhov_syndicate_claim_001",
+        "orzhov_syndicate_claim_002",
+        "orzhov_syndicate_claim_003"
+      ]
+    }
+  ]
+}

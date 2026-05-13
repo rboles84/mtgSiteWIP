@@ -1,0 +1,133 @@
+{
+  "schema_version": "1.0.0",
+  "faction_id": "azorius_senate",
+  "faction_name": "Azorius Senate",
+  "last_updated": "2026-05-10T02:56:03.254Z",
+  "changes": [
+    {
+      "change_id": "change_azorius_senate_placement_ready_20260510025603",
+      "date": "2026-05-10",
+      "change_type": "placement_ready_calibration_tuning",
+      "summary": "Added explicit calibration_tuning metadata, behavioral guardrails, and collision/discriminator guidance for the Archscry placement engine.",
+      "affected_files": [
+        "azorius_senate.placement.json"
+      ]
+    },
+    {
+      "change_id": "azorius_senate_change_2026-05-10_feaece",
+      "date": "2026-05-10",
+      "change_type": "calibration_metadata_tuning",
+      "summary": "Added explicit calibration requirements, inhibitors, and collision suppressions so Azorius requires process evidence rather than broad white-blue identity.",
+      "affected_files": [
+        "azorius_senate.placement.json"
+      ]
+    },
+    {
+      "change_id": "azorius_senate_change_001",
+      "change_type": "Initial Build",
+      "change_date": "2026-05-09",
+      "summary": "Created first-pass source-supported JSON package for Azorius Senate.",
+      "sources_added": [
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_ravnica_allegiance_mechanics_2018",
+        "src_wotc_dragons_maze_mechanics_2013"
+      ],
+      "sources_updated": [],
+      "claims_added": [
+        "azorius_senate_claim_001",
+        "azorius_senate_claim_002",
+        "azorius_senate_claim_003",
+        "azorius_senate_claim_004",
+        "azorius_senate_claim_005",
+        "azorius_senate_claim_006",
+        "azorius_senate_claim_007"
+      ],
+      "claims_updated": [],
+      "claims_superseded": [],
+      "claims_contradicted": [],
+      "profile_fields_updated": [
+        "profile",
+        "evidence_summary"
+      ],
+      "placement_fields_updated": [
+        "ideal_fit_indicators",
+        "poor_fit_indicators",
+        "discriminator_questions",
+        "chatbot_guidance"
+      ],
+      "manual_review_required": [
+        "Add direct story citations and deeper character-specific claims in a later pass."
+      ],
+      "notes": "Generated to complete the Vox Mana Azorius and Quandrix faction JSON packages."
+    },
+    {
+      "change_id": "azorius_senate_change_corpus_upgrade_2026-05-10T01-40-01-100Z",
+      "change_type": "Incremental Update",
+      "change_date": "2026-05-09",
+      "summary": "Added targeted MTG-Stories repository-archive research from per-faction prompt search rows.",
+      "sources_added": [
+        "src_mtg_stories_the_gathering_storm_chapter_3_c2a81b82",
+        "src_mtg_stories_rallying_the_reluctant_d21b8009",
+        "src_mtg_stories_ashes_6ede4fea",
+        "src_mtg_stories_the_illusions_of_childs_play_a33a5af6",
+        "src_mtg_stories_the_ascension_of_reza_0f733278",
+        "src_mtg_stories_desperate_operatives_6c6a580b",
+        "src_mtg_stories_operation_desperation_e6d285ea",
+        "src_mtg_stories_episode_1_ghosts_of_our_past_3c1a1077",
+        "src_mtg_stories_fblthp_e26059d7",
+        "src_mtg_stories_expectations_56e0f1dc"
+      ],
+      "sources_updated": [],
+      "claims_added": [
+        "azorius_senate_claim_0008",
+        "azorius_senate_claim_0009",
+        "azorius_senate_claim_0010",
+        "azorius_senate_claim_0011",
+        "azorius_senate_claim_0012",
+        "azorius_senate_claim_0013",
+        "azorius_senate_claim_0014",
+        "azorius_senate_claim_0015",
+        "azorius_senate_claim_0016",
+        "azorius_senate_claim_0017"
+      ],
+      "claims_updated": [],
+      "claims_superseded": [],
+      "claims_contradicted": [],
+      "profile_fields_updated": [
+        "core_identity",
+        "search_and_filter_metadata",
+        "data_quality"
+      ],
+      "placement_fields_updated": [
+        "placement_summary",
+        "placement_axes",
+        "behavioral_signals",
+        "inhibitor_traits",
+        "chatbot_guidance"
+      ],
+      "manual_review_required": [
+        "Review corpus-derived placement signals during schema, calibration, and collision passes."
+      ],
+      "notes": "Queries run: 14. Duplicate story sources skipped: 149."
+    }
+  ],
+  "audit_summary": {
+    "faction_researched": "Azorius Senate",
+    "plane_or_setting": "Ravnica",
+    "number_of_sources_reviewed": 13,
+    "number_of_official_sources_used": 3,
+    "number_of_repository_archive_sources_used": 10,
+    "number_of_secondary_discovery_sources_used": 0,
+    "number_of_claims_verified": 16,
+    "number_of_claims_marked_uncertain": 0,
+    "sections_with_limited_evidence": [
+      "deep story episode coverage",
+      "current post-source leadership status where later canon may update the cited-era overview"
+    ],
+    "conflicting_sources_found": [],
+    "assumptions_removed_during_validation": [],
+    "overall_confidence_rating": "Medium",
+    "last_tuning_pass": "2026-05-10T02:24:27.430Z",
+    "last_placement_ready_pass": "2026-05-10T02:56:03.254Z"
+  }
+}

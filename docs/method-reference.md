@@ -1,0 +1,574 @@
+# Method Reference
+
+This is the Javadoc-equivalent inventory for the current working tree. It focuses on named functions, exported constants, global/browser handlers, local API endpoints, and TypeScript interfaces. Generated bulk data is listed by exported surface only.
+
+## Legend
+
+| Scope | Meaning |
+|---|---|
+| Export | ES module export imported by other modules/tests. |
+| Global | Classic-script function or global lexical binding consumed across scripts. |
+| Window | Explicitly exposed on `window` for inline HTML handlers or integration hooks. |
+| Internal | Module-local helper. |
+| Nested | Helper declared inside another function. |
+| CLI | Node script helper. |
+| Test | Test-only helper or top-level test module. |
+| Generated | Generated artifact export; do not hand-edit. |
+
+## Browser Runtime: Placement And Site Shell
+
+### `assets/js/adaptive-placement.js`
+
+| Line | Symbol | Scope | Purpose |
+|---:|---|---|---|
+| 1 | `RESULT_VERSION` | Export | Result contract date for adaptive placement output. |
+| 2 | `ADAPTIVE_MODEL_VERSION` | Export | Expected generated model id. |
+| 3 | `MANA_ORDER` | Export | Canonical WUBRG order for scores and rendering. |
+| 5 | `DEFAULT_STARTER_PROFILE` | Export | Default format, budget, and experience profile. |
+| 23 | `normalizeStarterProfile(profile)` | Export | Fills missing starter-profile fields. |
+| 35 | `createEmptyManaScores()` | Export | Returns a zeroed WUBRG score map. |
+| 45 | `createInitialAdaptiveState(model)` | Export | Creates equal-prior mutable adaptive state. |
+| 71 | `cloneState(state)` | Internal | Deep-clones adaptive state before mutation. |
+| 82 | `likelihoodToDelta(likelihood, rules)` | Export | Maps answer likelihoods to configured score deltas. |
+| 105 | `applyDelta(state, factionKey, delta, reason, deltas)` | Internal | Applies one score delta and records explanation. |
+| 127 | `applyLateralInhibition(options)` | Internal | Suppresses lookalike factions after strong reinforcement. |
+| 166 | `applyAdaptiveAnswer(options)` | Export | Applies one selected answer to adaptive state. |
+| 247 | `softmaxScores(state)` | Export | Converts log scores to normalized probabilities. |
+| 273 | `rankAdaptiveFactions(state, model)` | Export | Sorts factions by probability and display metadata. |
+| 301 | `pairId(pair)` | Internal | Builds stable two-faction ids for close-pair matching. |
+| 313 | `findCrucibleQuestion(ranked, model, asked)` | Internal | Selects the best unresolved Crucible discriminator. |
+| 338 | `needsCrucible(state, model, ranked)` | Export | Decides whether close candidates need a Crucible question. |
+| 366 | `findHallQuestion(ranked, model, asked)` | Internal | Selects Hall evidence questions for current candidates. |
+| 387 | `selectNextAdaptiveQuestion(state, model)` | Export | Chooses Gate, Hall, or Crucible question by stage. |
+| 427 | `shouldFinishAdaptiveReading(...)` | Export | Applies completion rules based on stage counts and confidence. |
+| 475 | `replayAdaptiveSelections(model, selections)` | Export | Rebuilds state from prior answer selections. |
+| 495 | `getStageLabel(stage)` | Export | Converts stage id to display label. |
+| 506 | `supportingSignalsForFaction(factionKey, state)` | Internal | Extracts up to three supporting evidence signals. |
+| 522 | `buildAdaptiveReason(match, state, model)` | Internal | Creates short match reason text. |
+| 541 | `buildManaScores(ranked)` | Internal | Converts ranked matches to WUBRG bar scores. |
+| 567 | `buildAdaptiveDecree(top, runnerUp, state, model, starterProfile)` | Internal | Writes final adaptive decree copy. |
+| 592 | `buildAdaptivePlacementResult(options)` | Export | Emits shared normalized placement result. |
+| 655 | `answerSupportsFaction(answer, factionKey)` | Export | Checks if an answer positively supports a faction. |
+| 665 | `runAdaptiveReadingWithStrategy(options)` | Export | Simulation runner over adaptive questions. |
+| 705 | `runAdaptiveGoldenPath(options)` | Export | Simulation runner targeting one faction. |
+
+### `assets/js/index.js`
+
+| Line | Symbol | Scope | Purpose |
+|---:|---|---|---|
+| 62 | `loadFactionData()` | Internal | Fetches `/data/factions.json` and stores canonical faction map. |
+| 77 | `loadPlacementModel()` | Internal | Fetches `/data/placement-model.json`. |
+| 92 | `getFaction(key)` | Internal | Reads one display faction by key. |
+| 102 | `getInstitutionLabel(faction)` | Internal | Converts faction type to display label. |
+| 111 | `showSection(id)` | Window | Reveals one Archscry section and hides the others. |
+| 124 | `renderStarterProfileControls()` | Internal | Builds format, budget, and experience chips. |
+| 155 | `updateTopbar()` | Internal | Syncs signed-in identity and saved placement controls. |
+| 192 | `openResearch()` | Window | Navigates to `/maze.html`. |
+| 199 | `openLibrary()` | Window | Navigates to `/library/`. |
+| 206 | `resetLocalFlow()` | Internal | Clears local quick/interview/result state. |
+| 236 | `handleRetake()` | Window | Clears saved placement and returns to landing. |
+| 248 | `handleSignOut()` | Window | Signs out and resets view. |
+| 258 | `startQuickFlow()` | Window | Starts adaptive quick reading. |
+| 279 | `startInterviewFlow()` | Window | Opens Scrying Terminal flow. |
+| 288 | `goBackQuickQuestion()` | Window | Rewinds one quick-reading selection. |
+| 311 | `renderQuickQuestion()` | Internal | Renders current adaptive question and answers. |
+| 353 | `answerQuickQuestion(answerIndex)` | Window | Applies selected answer and advances/finalizes. |
+| 388 | `getStarterProfile()` | Internal | Reads current starter profile from app state. |
+| 399 | `finalizeQuickReading()` | Internal | Builds and reveals quick adaptive result. |
+| 423 | `updateInterviewControls(state, turn)` | Internal | Enables/disables terminal controls and status text. |
+| 444 | `appendTerminalMessage(role, content, loading)` | Internal | Adds terminal transcript messages. |
+| 457 | `resetInterviewDossier()` | Internal | Clears decree/dossier UI before a new interview. |
+| 471 | `beginInterview()` | Internal | Starts edge-function interview with opening prompt. |
+| 498 | `submitInterview()` | Window | Sends user response to interview endpoint. |
+| 538 | `revealDecree(result)` | Internal | Renders final interview decree before dossier. |
+| 569 | `openInterviewDossier()` | Window | Opens full dossier from interview result. |
+| 584 | `returnToInterviewSource()` | Window | Navigates result view back to interview source. |
+| 595 | `handleSavePlacement()` | Window | Saves active interview/quick result. |
+| 635 | `formatEnumLabel(value)` | Internal | Converts enum-like strings to labels. |
+| 649 | `pickRecommendedDeck(faction, starterProfile)` | Internal | Selects deck link matching starter preferences. |
+| 666 | `buildDeckLinks(deck, factionKey)` | Internal | Builds deck-link HTML. |
+| 690 | `getActiveResultContext()` | Internal | Returns active result and current viewed faction. |
+| 702 | `renderResult(viewKey)` | Internal | Renders full dossier and adjacent-fit UI. |
+| 747 | `cardSlots(items, prefix, placeholderClass, imageClass)` | Internal | Builds card-art placeholder slots. |
+| 756 | `landSlots(items, prefix)` | Internal | Builds land-art placeholder slots. |
+| 951 | `switchAdjacentView(factionKey)` | Window | Re-renders result for an adjacent faction. |
+| 959 | `animateScoreBars()` | Internal | Animates rendered mana bars. |
+| 975 | `loadResultCardArt(faction)` | Internal | Fetches Scryfall images/links for staples and lands. |
+| 1021 | `saveCurrentResult()` | Window | Saves the currently active dossier result. |
+| 1052 | `restoreInitialView(savedFromOAuth)` | Internal | Restores saved/cached result or landing on load. |
+
+Window handlers exposed by `Object.assign(window, ...)`: `answerQuickQuestion`, `goBackQuickQuestion`, `handleRetake`, `handleSavePlacement`, `handleSignOut`, `openInterviewDossier`, `openLibrary`, `openResearch`, `returnToInterviewSource`, `saveCurrentResult`, `showSection`, `startInterviewFlow`, `startQuickFlow`, `submitInterview`, and `switchAdjacentView`.
+
+### `assets/js/shared.js`
+
+| Line | Symbol | Scope | Purpose |
+|---:|---|---|---|
+| 6 | `VM_CONFIG` | Global | Supabase URL and anon key config. |
+| 12 | `VM_RESULT_VERSION` | Global | Shared result version fallback. |
+| 21 | `getSupabase()` | Global | Lazily creates browser Supabase client. |
+| 49 | `readJsonStorage(key)` | Global | Reads JSON from `sessionStorage`. |
+| 64 | `writeStringStorage(key, value)` | Global | Writes/removes plain session-storage values. |
+| 80 | `writeJsonStorage(key, value)` | Global | Writes/removes JSON session-storage values. |
+| 96 | `clonePlacementResult(result)` | Global | Deep-clones result payloads. |
+| 110 | `deriveDisplayName(authSession, profileRow)` | Global | Chooses user-facing name from auth/profile. |
+| 134 | `deriveAvatarUrl(authSession, profileRow)` | Global | Chooses avatar URL from auth/profile. |
+| 147 | `normalizeStarterProfile(starterProfile)` | Global | Fills starter profile defaults. |
+| 163 | `normalizeMatch(match, index)` | Global | Normalizes ranked match entries. |
+| 193 | `normalizePlacementResult(result, fallbackProfile)` | Global | Normalizes saved/interview/quick result payloads. |
+| 251 | `makeLegacyPlacementResult(profileRow)` | Global | Builds compatibility result from legacy profile rows. |
+| 277 | `vm_cachePlacementResult(result)` | Global | Stores/removes cached placement result. |
+| 286 | `vm_getCachedPlacementResult()` | Global | Reads cached placement result. |
+| 296 | `syncSessionState(authSession, profileRow)` | Global | Updates `VM_SESSION` from auth/profile. |
+| 318 | `VM_SESSION` | Global | Shared browser session/profile/interview state object. |
+| 383 | `vm_startInterview(context)` | Global | Starts Scrying Terminal with opening message. |
+| 400 | `vm_conductInterview(userMessage)` | Global | Sends one interview message to edge function. |
+| 449 | `vm_resetInterview()` | Global | Clears local interview state. |
+| 463 | `vm_savePlacementResult(result)` | Global | Saves normalized result to Supabase profile. |
+| 538 | `vm_saveWithGoogle(result)` | Global | Starts OAuth flow after caching pending result. |
+| 569 | `vm_checkPendingSave()` | Global | Completes post-OAuth pending save. |
+| 606 | `vm_signOut()` | Global | Signs out and clears session state. |
+| 621 | `vm_resumeSession()` | Global | Loads existing Supabase session/profile. |
+| 672 | `vm_clearPlacement()` | Global | Clears saved placement fields. |
+
+### `assets/js/quick-reading.js`
+
+| Line | Symbol | Scope | Purpose |
+|---:|---|---|---|
+| 1 | `RESULT_VERSION` | Export | Legacy quick-result contract date. |
+| 2 | `MANA_ORDER` | Export | Canonical WUBRG order. |
+| 4 | `DEFAULT_STARTER_PROFILE` | Export | Default practical deck profile. |
+| 10 | `QUICK_QUESTIONS` | Export | Fixed legacy quick-reading question bank. |
+| 188 | `createEmptyManaScores()` | Export | Returns zeroed WUBRG map. |
+| 198 | `normalizeStarterProfile(profile)` | Export | Fills starter profile defaults. |
+| 212 | `buildQuickReason(answers, faction)` | Export | Builds reason text from selected signals. |
+| 232 | `scoreQuickReading(answers, factions)` | Export | Aggregates mana weights and faction boosts. |
+| 292 | `buildQuickDecree(answers, faction, runnerUpName, starterProfile)` | Export | Builds legacy decree text. |
+| 318 | `buildQuickPlacementResult(options)` | Export | Emits normalized quick result. |
+| 365 | `createSeededRandom(seed)` | Export | Deterministic pseudo-random generator. |
+| 382 | `pickRandomAnswerIndexes(random)` | Export | Picks one answer index per quick question. |
+| 392 | `getAnswersFromIndexes(indexes)` | Export | Resolves answer records from indexes. |
+| 410 | `summarizePlacementBias(placements, factions)` | Export | Summarizes distribution and reachability. |
+| 497 | `runQuickReadingBiasSimulation(options)` | Export | Runs seeded random bias simulation. |
+| 534 | `runQuickReadingExhaustiveAnalysis(options)` | Export | Walks all answer combinations. |
+| 539 | `walk(questionIndex, answerIndexes)` | Nested | Recursive exhaustive-analysis traversal. |
+
+### `assets/js/quick-reading-bias.js`
+
+| Line | Symbol | Scope | Purpose |
+|---:|---|---|---|
+| 16 | `parseArgs(argv)` | CLI | Parses `--all`, `--runs`, and `--seed`. |
+| 47 | `createSeededRandom(seed)` | CLI | Local deterministic random generator. |
+| 63 | `loadRuntimeData()` | CLI | Reads faction and placement model JSON. |
+| 83 | `summarizePlacements(placements, factions)` | CLI | Builds bias distribution summary. |
+| 138 | `runGoldenPlacements(model, factions)` | CLI | Runs golden path for every faction. |
+| 160 | `runSeededPlacements(options)` | CLI | Runs random adaptive placements. |
+| 196 | `buildOutput(placements, factions, options, mode)` | CLI | Serializes report payload. |
+| 234 | `printSummary(output)` | CLI | Writes human-readable report summary. |
+
+### `assets/js/quick-reading-tests.js`
+
+| Line | Symbol | Scope | Purpose |
+|---:|---|---|---|
+| 35 | `assertValidPlacement(placement)` | Test | Shared assertion for adaptive placement result shape. |
+
+The rest of the file is top-level test code covering schema metadata, model/faction alignment, scoring deltas, pruning, Crucible selection, golden-path reachability, ranking, and direct placement builds.
+
+### `assets/js/home.js`
+
+| Line | Symbol | Scope | Purpose |
+|---:|---|---|---|
+| 20 | `getCachedFaction()` | Internal | Finds readable cached faction data from storage. |
+| 45 | `init()` | Internal | Updates resume chip and starts home motion. |
+| 58 | `motionIsReduced()` | Internal | Reads OS/document motion state. |
+| 63 | `initHomeMotion()` | Internal | Starts pointer-driven home foreground motion. |
+| 71 | `apply()` | Nested | Applies interpolated foreground transform. |
+
+### `assets/js/atmosphere.js`
+
+| Line | Symbol | Scope | Purpose |
+|---:|---|---|---|
+| 18 | `isReduced()` | Internal | Reads reduced-motion state. |
+| 25 | `init()` | Internal | Creates and controls atmospheric canvas. |
+| 45 | `sizeCanvas()` | Nested | Sizes canvas with device-pixel ratio. |
+| 57 | `generateStars(w, h)` | Nested | Creates starburst particle data. |
+| 76 | `drawStarburst(s, alpha)` | Nested | Paints one starburst. |
+| 100 | `paint(t)` | Nested | Renders animated atmosphere frame. |
+| 145 | `start()` | Nested | Starts animation loop. |
+| 150 | `stop()` | Nested | Stops animation loop. |
+| 157 | `paintOnceStatic()` | Nested | Renders static reduced-motion frame. |
+| 178 | `reactToReducedChange()` | Nested | Switches live/static mode when preference changes. |
+
+### `assets/js/reduce-motion.js`
+
+| Line | Symbol | Scope | Purpose |
+|---:|---|---|---|
+| 29 | `getStoredChoice()` | Internal | Reads saved motion preference. |
+| 40 | `osPrefersReduced()` | Internal | Reads OS media query. |
+| 45 | `setStoredChoice(value)` | Internal | Persists motion preference. |
+| 51 | `applyState(reduced)` | Internal | Applies document attribute and button states. |
+| 83 | `buildToggle()` | Internal | Creates fallback reduce-motion toggle. |
+| 97 | `mountToggles()` | Internal | Inserts fallback toggles. |
+| 106 | `init()` | Internal | Boots shared motion preference behavior. |
+
+### `assets/js/vm-topbar.js`
+
+| Line | Symbol | Scope | Purpose |
+|---:|---|---|---|
+| 16 | `highlightCurrentPage()` | Internal | Marks active nav link from page data. |
+| 26 | `setupMenu()` | Internal | Binds topbar menu open/close behavior. |
+| 31 | `open()` | Nested | Opens topbar menu. |
+| 41 | `close(returnFocus)` | Nested | Closes topbar menu and optionally refocuses trigger. |
+| 73 | `setupReduceMotionToggle()` | Internal | Binds menu reduce-motion control. |
+| 80 | `readState()` | Nested | Reads stored motion preference. |
+| 88 | `writeState(on)` | Nested | Writes motion preference. |
+| 94 | `applyState(on)` | Nested | Applies topbar motion state UI. |
+| 130 | `init()` | Internal | Boots current-page, menu, and motion controls. |
+
+## Research Workspace
+
+### `research/research-init.js`
+
+| Line | Symbol | Scope | Purpose |
+|---:|---|---|---|
+| 82 | `initializeParserDictionary()` | Internal | Loads checked-in parser seed and installs dictionary. |
+| 94 | `initializeResearchArchives()` | Internal | Boots Maze page, session, controls, and optional URL query. |
+| 124 | `setMode(mode)` | Window | Switches Smart, raw, and builder modes. |
+| 168 | `syncInputForModeSwitch(input, previousMode, nextMode)` | Internal | Preserves or translates input across mode switches. |
+| 190 | `bindSearchInputSelectOnFocus()` | Internal | Selects auto-filled search text on focus. |
+| 208 | `doSearch()` | Window | Dispatches search based on active mode. |
+| 271 | `triggerSearch(query, opts)` | Internal | Calls Scryfall search and renders first page. |
+| 300 | `loadMore()` | Window | Loads next client/server result page. |
+| 325 | `renderResults(append)` | Internal | Renders result grid and pagination state. |
+| 356 | `makeCardEl(card)` | Internal | Builds result-grid card element. |
+| 372 | `openModal(card)` | Window | Opens card-detail modal. |
+| 424 | `buildModalImageHtml(card)` | Internal | Builds image HTML for single/double-faced cards. |
+| 442 | `renderManaCost(cost)` | Internal | Renders mana symbols as spans. |
+| 455 | `parseManaSymbols(cost)` | Internal | Extracts symbols from Scryfall mana cost. |
+| 464 | `getManaSymbolClass(symbol)` | Internal | Maps mana symbol to CSS class. |
+| 478 | `getManaSymbolLabel(symbol)` | Internal | Maps mana symbol to accessible label. |
+| 488 | `closeModal()` | Window | Closes card modal. |
+| 496 | `buildTypeChecks()` | Internal | Renders type filter check controls. |
+| 507 | `buildRarityChecks()` | Internal | Renders rarity filter check controls. |
+| 518 | `toggleColor(color)` | Window | Toggles builder color selection. |
+| 533 | `toggleType(value, label)` | Window | Toggles builder type selection. |
+| 546 | `toggleRarity(value, label)` | Window | Toggles builder rarity selection. |
+| 557 | `rebuildFromFilters()` | Window | Rebuilds search input from builder filters. |
+| 570 | `buildFilterQuery()` | Internal | Creates visual-builder query string. |
+| 579 | `prepareRawSyntaxQuery(input)` | Internal | Cleans raw syntax and builds optional OR diagnostic. |
+| 614 | `splitRawSyntaxOnStandaloneAnd(query)` | Internal | Splits raw syntax on plain-language standalone AND. |
+| 649 | `isStandaloneWordAt(value, index, word)` | Internal | Checks standalone word boundaries. |
+| 661 | `showKwSuggestions(value)` | Window | Displays keyword autocomplete suggestions. |
+| 680 | `handleKwKey(event)` | Window | Handles keyword input key events. |
+| 692 | `addKeyword(keyword)` | Window | Adds a keyword filter. |
+| 706 | `removeKeyword(keyword)` | Window | Removes a keyword filter. |
+| 715 | `renderKwChips()` | Internal | Renders selected keyword chips. |
+| 724 | `buildQuickSearches()` | Internal | Renders canned quick-search buttons. |
+| 736 | `buildColorGrid()` | Internal | Renders color shortcut buttons. |
+| 747 | `runQuickSearch(query)` | Window | Executes a canned query. |
+| 765 | `applyFormatFilter(format)` | Window | Adds/replaces format term in current query. |
+| 775 | `changeOrder(order)` | Window | Re-runs search with selected order. |
+| 784 | `addRecent(query)` | Internal | Adds query to recent-search list. |
+| 800 | `showQueryInspector(query, reason, parserResult)` | Internal | Renders parser/query diagnostics. |
+| 807 | `copyQuery()` | Window | Copies generated query to clipboard. |
+| 814 | `clearSearchInput()` | Window | Clears input and resets results. |
+| 833 | `resetSearchResults()` | Internal | Clears result state and UI. |
+| 857 | `buildInitialStateHtml()` | Internal | Renders empty state panel. |
+| 876 | `setLoading(on)` | Internal | Toggles search loading state. |
+| 898 | `hideState()` | Internal | Hides state panel. |
+| 907 | `isNoResultsResponse(data)` | Internal | Detects Scryfall no-results response. |
+| 915 | `showNoResultsState(query)` | Internal | Renders no-results state with random fallback card. |
+| 939 | `buildNoResultsHtml(query)` | Internal | Builds no-results HTML. |
+| 966 | `renderNoResultsCard(card)` | Internal | Fills no-results card preview. |
+| 998 | `getCardFlavorText(card)` | Internal | Selects flavor text from card/faces. |
+| 1007 | `getCardArtist(card)` | Internal | Selects artist from card/faces. |
+| 1017 | `showError(message)` | Internal | Shows user-facing error. |
+| 1028 | `clearError()` | Internal | Clears error message. |
+| 1038 | `showToast(message)` | Internal | Shows temporary toast. |
+| 1057 | `escapeHtml(value)` | Internal | Escapes HTML text. |
+| 1071 | `escapeAttribute(value)` | Internal | Escapes inline handler attribute text. |
+| 1084 | `exposeWindowHandlers()` | Internal | Publishes inline-handler functions onto `window`. |
+
+Window handlers exposed by `exposeWindowHandlers`: `setMode`, `doSearch`, `clearSearchInput`, `loadMore`, `openModal`, `closeModal`, `toggleColor`, `toggleType`, `toggleRarity`, `rebuildFromFilters`, `showKwSuggestions`, `handleKwKey`, `addKeyword`, `removeKeyword`, `runQuickSearch`, `applyFormatFilter`, `changeOrder`, and `copyQuery`.
+
+### `research/scryfall-parser.js`
+
+| Line | Symbol | Scope | Purpose |
+|---:|---|---|---|
+| 15 | `setScryfallDictionary(dictionary)` | Export | Replaces active parser dictionary. |
+| 25 | `parseScryfallNaturalLanguage(input, options)` | Export | Compiles plain English into Scryfall syntax and diagnostics. |
+| 74 | `detectHighConfidenceSearch(state)` | Internal | Handles high-confidence special cases. |
+| 233 | `normalizeInput(input)` | Internal | Lowercases and normalizes user text. |
+| 267 | `createParseState(original, normalized, options)` | Internal | Creates mutable parser state. |
+| 292 | `detectExactName(original, normalized)` | Internal | Detects named-card lookup intent. |
+| 323 | `cleanupCardName(value)` | Internal | Cleans candidate card name. |
+| 332 | `hasCommanderIntent(text)` | Internal | Detects commander/deck context. |
+| 341 | `hasExactColorIntent(text)` | Internal | Detects only/exactly/just color intent. |
+| 349 | `detectFormats(state)` | Internal | Adds format legality terms. |
+| 361 | `detectIdentities(state, commanderIntent)` | Internal | Adds color identity terms. |
+| 382 | `detectColors(state, commanderIntent)` | Internal | Adds color or identity terms. |
+| 420 | `detectTypes(state)` | Internal | Adds card type terms. |
+| 433 | `detectKeywords(state)` | Internal | Adds keyword terms. |
+| 444 | `detectOraclePhrases(state)` | Internal | Adds oracle text terms and OR groups. |
+| 475 | `detectManaValue(state)` | Internal | Adds mana value terms. |
+| 496 | `detectPowerToughness(state)` | Internal | Adds power/toughness terms. |
+| 508 | `detectRarity(state)` | Internal | Adds rarity terms. |
+| 518 | `detectPrices(state)` | Internal | Adds price terms. |
+| 542 | `detectSorting(state)` | Internal | Adds sort metadata. |
+| 555 | `detectCounterAmbiguity(state)` | Internal | Adds warnings/alternatives for counter ambiguity. |
+| 574 | `addColorAmbiguityAlternatives(state, commanderIntent)` | Internal | Adds color interpretation alternatives. |
+| 604 | `matchMap(state, map, callback)` | Internal | Matches trigger phrases against dictionary maps. |
+| 621 | `addTerm(state, query, recognized, kind, phrase)` | Internal | Adds one parsed query term. |
+| 636 | `assembleQuery(state)` | Internal | Joins parsed terms into query string. |
+| 646 | `scoreConfidence(state, query)` | Internal | Scores parse confidence. |
+| 663 | `buildReason(state)` | Internal | Builds human-readable parse reason. |
+| 686 | `finalizeResult(state, mode, query, reason, confidence, api)` | Internal | Builds final parser result object. |
+| 716 | `directResult(state, query, reason, recognized)` | Internal | Builds direct high-confidence parser result. |
+| 727 | `extractArtistName(input)` | Internal | Extracts artist name phrases. |
+| 738 | `detectUnresolvedTerms(state)` | Internal | Finds meaningful unparsed words. |
+| 755 | `consumePhrase(state, phrase)` | Internal | Marks phrase consumed. |
+| 764 | `consumeExactColorWords(state)` | Internal | Consumes exact-color modifiers. |
+| 776 | `removeConsumedPhrase(text, phrase)` | Internal | Removes consumed phrase from residual text. |
+| 788 | `isConsumed(state, phrase)` | Internal | Checks consumed phrase set. |
+| 799 | `hasPhrase(text, phrase)` | Internal | Boundary-aware phrase check. |
+| 813 | `isNegatedPhrase(text, phrase)` | Internal | Detects not/no/without/excluding phrases. |
+| 824 | `isProtectionTargetColor(text, colorWord)` | Internal | Avoids reading protection target as card color. |
+| 833 | `sortColors(colors)` | Internal | Orders color symbols by dictionary order. |
+| 844 | `addUnique(array, value)` | Internal | Adds value if missing. |
+| 853 | `unique(values)` | Internal | Deduplicates array. |
+| 862 | `escapeRegExp(value)` | Internal | Escapes regex metacharacters. |
+| 871 | `joinHuman(parts)` | Internal | Human-readable comma/conjunction join. |
+| 882 | `colorName(color)` | Internal | Maps symbol to color name. |
+| 892 | `withBaseTerms(state, oracleQuery)` | Internal | Adds oracle query to base terms. |
+| 906 | `withReplacedTermKinds(state, replacement, excludedKinds)` | Internal | Creates alternative query with replaced term kinds. |
+
+### `research/scryfall-dictionary.js`
+
+| Line | Symbol | Scope | Purpose |
+|---:|---|---|---|
+| 6 | `DEFAULT_DICTIONARY` | Export | Built-in parser phrase maps. |
+| 221 | `loadDictionaryFromSeedUrl(url)` | Export | Fetches and builds dictionary from seed JSON. |
+| 234 | `createDictionaryFromSeed(seed)` | Export | Expands seed rows into parser dictionaries. |
+| 275 | `addMapEntry(target, trigger, output)` | Internal | Adds one trigger-output mapping. |
+| 287 | `splitTriggers(value)` | Internal | Splits trigger strings on comma/semicolon/pipe. |
+| 299 | `normalizeTrigger(value)` | Internal | Cleans trigger phrase. |
+| 312 | `normalizeSeedOutput(value)` | Internal | Cleans seed Scryfall output. |
+| 326 | `shouldBecomeOraclePhrase(type, output)` | Internal | Decides if seed row feeds oracle phrase table. |
+| 350 | `dedupePhraseRows(rows)` | Internal | Deduplicates oracle phrase rows. |
+
+### `research/research-builder.js`
+
+| Line | Symbol | Scope | Purpose |
+|---:|---|---|---|
+| 16 | `buildVisualBuilderQuery(filters)` | Export | Builds Scryfall query from visual filters. |
+| 47 | `parseKeywordInput(value, knownKeywords)` | Export | Parses keyword input with multi-word detection. |
+| 80 | `buildColorFilterQuery(colors, colorOp)` | Internal | Builds color or identity fragment. |
+| 95 | `sortBuilderColors(colors)` | Internal | Orders selected color symbols. |
+| 105 | `formatKeywordQuery(keyword)` | Internal | Formats `kw:` query with quotes when needed. |
+| 115 | `normalizeList(values)` | Internal | Cleans array-like filter values. |
+| 125 | `hasStandaloneKeyword(value, keyword)` | Internal | Boundary-aware keyword phrase check. |
+| 134 | `escapeRegExp(value)` | Internal | Escapes regex metacharacters. |
+
+### `research/research-mode.js`
+
+| Line | Symbol | Scope | Purpose |
+|---:|---|---|---|
+| 13 | `resolveModeInputValue(state)` | Export | Preserves/translates input when switching search modes. |
+
+### `research/research-search.js`
+
+| Line | Symbol | Scope | Purpose |
+|---:|---|---|---|
+| 7 | `scryfallSearch(query, opts)` | Export | Calls Scryfall search endpoint. |
+| 23 | `scryfallExact(name)` | Export | Calls Scryfall fuzzy named-card endpoint. |
+| 37 | `scryfallRandom(query)` | Export | Calls Scryfall random endpoint. |
+
+### `research/research-syntax-language.js`
+
+| Line | Symbol | Scope | Purpose |
+|---:|---|---|---|
+| 9 | `translateScryfallSyntaxToPlainText(query)` | Export | Converts Scryfall syntax into plain-language text. |
+| 31 | `createPhraseParts()` | Internal | Creates translation buckets. |
+| 51 | `applyTerm(term, parts)` | Internal | Translates one simple term into buckets. |
+| 66 | `applyOrGroup(term, parts)` | Internal | Translates top-level OR groups. |
+| 85 | `parseSimpleTerm(term)` | Internal | Parses field/operator/value terms. |
+| 137 | `parseColorTerm(value, negated)` | Internal | Converts color fragments to phrase items. |
+| 156 | `assemblePhrase(parts, unhandled)` | Internal | Builds final English sentence. |
+| 176 | `splitTopLevelTerms(query)` | Internal | Splits syntax terms while respecting quotes/groups. |
+| 205 | `isOrGroup(term)` | Internal | Detects parenthesized OR group. |
+| 214 | `splitOrTerms(value)` | Internal | Splits OR group contents. |
+| 223 | `colorsToWords(colors, conjunction)` | Internal | Converts color symbols to words. |
+| 237 | `operatorToWords(operator, amount)` | Internal | Converts comparisons to English. |
+| 253 | `unquote(value)` | Internal | Removes surrounding quotes. |
+| 262 | `joinHuman(values)` | Internal | Human-readable list join. |
+| 274 | `joinOrHuman(values)` | Internal | Human-readable OR join. |
+
+### `research/research-ui.js`
+
+| Line | Symbol | Scope | Purpose |
+|---:|---|---|---|
+| 8 | `renderQueryInspector(options)` | Export | Renders query inspector HTML. |
+| 32 | `renderDiagnostics(inspector, result)` | Internal | Renders parser diagnostics. |
+| 63 | `renderConfidence(confidence)` | Internal | Renders confidence label. |
+| 77 | `renderChipGroup(label, items, tone)` | Internal | Renders diagnostic chips. |
+| 87 | `renderAlternatives(alternatives)` | Internal | Renders alternative query buttons. |
+| 101 | `bindAlternativeButtons()` | Internal | Binds alternative query event dispatch. |
+| 119 | `escapeHtml(value)` | Internal | Escapes HTML text. |
+
+### Research Test Files
+
+| File | Named functions | Notes |
+|---|---|---|
+| `research/run-tests.js` | None | Top-level imports execute the test modules. |
+| `research/scryfall-parser-tests.js` | None | Top-level test loop validates parser cases and diagnostics. |
+| `research/research-builder-tests.js` | None | Top-level test loops validate builder and keyword parser cases. |
+| `research/research-mode-tests.js` | None | Top-level test loop validates mode input transitions. |
+| `research/research-syntax-language-tests.js` | None | Top-level test loop validates syntax-to-English translation. |
+
+## Tooling
+
+The tooling below lives outside the site repo in `C:\dev\projectFiles\voxmana-tools`.
+
+### External faction artifact builder
+
+| Line | Symbol | Scope | Purpose |
+|---:|---|---|---|
+| 1063 | `readJson(filePath)` | CLI | Reads and parses JSON. |
+| 1067 | `writeJson(filePath, value)` | CLI | Writes formatted JSON. |
+| 1071 | `normalizeColor(color)` | CLI | Maps color names/symbols to WUBRG symbols. |
+| 1087 | `indicatorText(item)` | CLI | Extracts text from indicator objects. |
+| 1094 | `normalizeIndicatorList(list)` | CLI | Flattens indicator list to strings. |
+| 1098 | `normalizeTarget(rawTarget)` | CLI | Normalizes raw or display faction target to runtime key. |
+| 1112 | `normalizeQuestion(rawQuestion, fallbackFactionKey, index)` | CLI | Normalizes discriminator question records. |
+| 1133 | `unique(values)` | CLI | Deduplicates truthy values. |
+| 1137 | `buildFactionRecord(options)` | CLI | Builds one generated placement-model faction record. |
+| 1211 | `loadRawFaction(rawId)` | CLI | Loads raw profile and placement JSON for one faction. |
+| 1219 | `buildPlacementModel(displayData, rawRecords)` | CLI | Builds full generated adaptive placement model. |
+| 1280 | `buildFactionContext(model, displayData)` | CLI | Builds condensed edge-function context. |
+| 1308 | `main()` | CLI | Validates raw folders and writes all generated artifacts. |
+
+Important top-level constants: `MODEL_VERSION`, `RESULT_VERSION`, `RAW_TO_KEY`, `KEY_TO_RAW`, `BIOLOGICAL_PRIORS`, `KNOWN_LATERAL_INHIBITION`, `QUESTION_BANK`, and `PLACEMENT_SCHEMA`.
+
+### External asset-source generator
+
+| Line | Symbol | Scope | Purpose |
+|---:|---|---|---|
+| 12 | `svg(body, attrs)` | CLI | Wraps icon SVG body with XML/root markup. |
+| 84 | `overlay(defs, rects)` | CLI | Builds transparent overlay SVG source. |
+| 154 | `texture(base, accent, freq, opacity)` | CLI | Builds tileable texture SVG source. |
+| 190 | `arch(body)` | CLI | Wraps architecture-fragment SVG source. |
+
+Important top-level data maps: `dirs`, `icons`, `overlays`, `textures`, and `architecture`.
+
+### External command-panel server
+
+| Line | Symbol | Scope | Purpose |
+|---:|---|---|---|
+| 38 | `slug(text)` | Internal | Creates filesystem-safe run labels. |
+| 47 | `runIdFor(label)` | Internal | Builds timestamped run id. |
+| 52 | `ensureDir(dir)` | Internal | Creates directory if needed. |
+| 56 | `readJson(file, fallback)` | Internal | Safely reads JSON with fallback. |
+| 64 | `writeJsonAtomic(file, data)` | Internal | Writes JSON through temp file and rename. |
+| 71 | `loadCommands()` | Internal | Reads allowlisted command manifest. |
+| 83 | `sourceLabel(source)` | Internal | Builds inventory display label. |
+| 87 | `loadSnapshot()` | Internal | Reads external dry-run and source manifests. |
+| 94 | `defaultStatusFor(source)` | Internal | Sets initial inventory status. |
+| 99 | `defaultSkippedReason(source)` | Internal | Provides default skip reason. |
+| 106 | `buildInventory(manifest, existingState)` | Internal | Builds/merges source inventory. |
+| 140 | `computeSummary(state)` | Internal | Counts inventory, extensions, queue, and corpus metadata. |
+| 187 | `sortItems(items)` | Internal | Sorts inventory by status/lane/label. |
+| 197 | `filterItems(state, query)` | Internal | Applies lane/status/search/page filters. |
+| 243 | `safeResolve(base, relativePath)` | Internal | Prevents run-log path traversal. |
+| 251 | `commandString(command)` | Internal | Formats executable and args for display. |
+| 252 | `quote(value)` | Nested | Quotes command fragments when needed. |
+| 259 | `loadState()` | Internal | Loads persistent panel state and refreshes inventory. |
+| 277 | `saveState(state)` | Internal | Persists panel state atomically. |
+| 282 | `refreshInventory(state)` | Internal | Rebuilds inventory from current manifest. |
+| 293 | `readBody(req)` | Internal | Parses JSON request body. |
+| 300 | `updateItems(state, ids, patch)` | Internal | Applies status/metadata updates to source ids. |
+| 315 | `runProcess(command, runDir, logPrefix)` | Internal | Spawns one command and logs stdout/stderr. |
+| 344 | `runCommandById(state, commands, commandId)` | Internal | Runs one command or command chain and records result. |
+| 397 | `sendJson(res, statusCode, data)` | Internal | Writes JSON HTTP response. |
+| 406 | `serveText(res, filePath)` | Internal | Serves static panel/run-log files. |
+| 413 | `main()` | Internal | Starts local HTTP server. |
+
+Local endpoints served by `main`: `GET /`, `/index.html`, `/panel.js`, `/panel.css`, `/runs/*`, `/api/bootstrap`, `/api/items`, `/api/runs`; `POST /api/refresh`, `/api/item`, `/api/bulk`, `/api/select-next`, and `/api/run`.
+
+### External command-panel browser UI
+
+| Line | Symbol | Scope | Purpose |
+|---:|---|---|---|
+| 21 | `$(id)` | Internal | `getElementById` shorthand. |
+| 25 | `escapeHtml(value)` | Internal | Escapes HTML text. |
+| 33 | `formatNumber(value)` | Internal | Formats numeric counts. |
+| 37 | `statusLabel(status)` | Internal | Converts status ids to labels. |
+| 48 | `queuePriority(item)` | Internal | Sorts queued work by lane and status. |
+| 59 | `commandString(command)` | Internal | Formats command display string. |
+| 60 | `quote(text)` | Nested | Quotes command parts when needed. |
+| 64 | `syncFiltersToInputs()` | Internal | Syncs local state to filter controls. |
+| 71 | `saveFilters()` | Internal | Persists filters in local storage. |
+| 79 | `apiJson(url, options)` | Internal | Calls panel server JSON API. |
+| 91 | `refreshBootstrap()` | Internal | Loads commands, summary, runs, and metadata. |
+| 106 | `refreshItems()` | Internal | Loads filtered inventory page. |
+| 129 | `refreshQueue()` | Internal | Loads selected/running queue items. |
+| 143 | `renderSummary()` | Internal | Renders summary cards. |
+| 166 | `renderCommands()` | Internal | Renders command buttons. |
+| 196 | `renderInventory()` | Internal | Renders paged inventory table. |
+| 237 | `renderDetail()` | Internal | Renders selected source detail panel. |
+| 256 | `renderQueue()` | Internal | Renders queue list. |
+| 271 | `renderRuns()` | Internal | Renders run history. |
+| 293 | `renderPagination()` | Internal | Renders pagination labels/buttons. |
+| 300 | `updateTopbar()` | Internal | Updates topbar metadata. |
+| 308 | `saveSelectedItem(patch)` | Internal | Persists current detail edits/status. |
+| 325 | `bulkUpdate(status)` | Internal | Updates checked rows in bulk. |
+| 341 | `selectAllVisible()` | Internal | Checks all visible inventory rows. |
+| 349 | `queueNext25()` | Internal | Selects next batch of unseen lane items. |
+| 361 | `runCommand(commandId)` | Internal | Calls run API and refreshes panel. |
+| 372 | `reloadData()` | Internal | Refreshes server inventory and UI. |
+| 378 | `bindEvents()` | Internal | Binds all panel controls. |
+| 452 | `boot()` | Internal | Initializes panel. |
+
+## Backend
+
+### `supabase/functions/guild-recruiter/index.ts`
+
+| Line | Symbol | Scope | Purpose |
+|---:|---|---|---|
+| 3 | `Message` | Type | Sanitized chat message shape. |
+| 8 | `StarterProfile` | Type | Format, budget, and experience context. |
+| 14 | `MatchResult` | Type | Ranked or adjacent match shape. |
+| 25 | `DecisionResult` | Type | Placement result subset returned by model. |
+| 43 | `RequestBody` | Type | Edge function request JSON shape. |
+| 51 | `TurnResponse` | Type | Edge function response JSON shape. |
+| 60 | `RESULT_VERSION` | Internal | Server-side result version. |
+| 78 | `normalizeStarterProfile(profile)` | Internal | Fills starter profile defaults. |
+| 89 | `getThrottleKey(req, sessionId)` | Internal | Chooses rate-limit bucket. |
+| 98 | `enforceRateLimit(key)` | Internal | Applies in-memory calls-per-minute throttle. |
+| 110 | `sanitizeHistory(history)` | Internal | Trims, coerces, and limits chat history. |
+| 130 | `normalizeManaScores(scores)` | Internal | Clamps WUBRG scores to integer 1-10 range. |
+| 142 | `normalizeMatch(match, index)` | Internal | Normalizes match rank/score/confidence fields. |
+| 163 | `normalizeDecisionResult(result, starterProfile)` | Internal | Emits full frontend-compatible decision payload. |
+| 210 | `buildSystemPrompt(starterProfile, currentResult)` | Internal | Builds Anthropic prompt from generated faction context. |
+| 316 | `callAnthropic(systemPrompt, messages)` | Internal | Calls Anthropic Messages API and returns text. |
+| 355 | `parseTurnResponse(rawContent)` | Internal | Strips code fences and parses JSON. |
+| 367 | `buildRecoveryResponse(turn)` | Internal | Returns safe fallback interview question. |
+| 380 | `hasUsableDecision(result)` | Internal | Type guard for minimum decision fields. |
+| 390 | `serve(async req => ...)` | Endpoint | Handles CORS, validation, rate limit, model call, normalization, and JSON response. |
+
+Endpoint behavior: `OPTIONS` returns CORS ok, non-`POST` returns `405`, empty messages return `400`, messages over `MAX_MESSAGE_LENGTH` return `400`, overlong interviews return `400`, throttled requests return `429`, valid turns return `TurnResponse`.
+
+### `supabase/functions/guild-recruiter/faction-context.ts`
+
+| Line | Symbol | Scope | Purpose |
+|---:|---|---|---|
+| 5 | `FACTION_CONTEXT` | Generated export | Condensed faction lore and placement guidance for the edge prompt. |
+| 3072 | `PLACEMENT_MODEL_META` | Generated export | Model metadata imported by the edge function. |
+
+## Files With No Named Functions
+
+| File | Notes |
+|---|---|
+| External command-panel HTML | Static command-panel shell. |
+| External command manifest | Command manifest data. |
+| External command-panel CSS | Command-panel styling. |
+| `research/scryfall-parser-seed-2026.json` | Parser seed data. |
+| `data/*.json` and `data/raw-factions/**` | Runtime/generated/source data, documented in [Data Flow Map](data-flow-map.md). |

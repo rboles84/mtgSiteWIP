@@ -1,0 +1,1129 @@
+{
+  "schema_version": "1.0.0",
+  "placement_profile_version": "1.1.0",
+  "faction_id": "lorehold",
+  "faction_name": "Lorehold",
+  "based_on_profile_version": "1.1.0",
+  "last_updated": "2026-05-10T02:56:03.254Z",
+  "placement_summary": {
+    "short_description": "Lorehold fits people who treat history as a living toolkit: records to verify, relics to protect, ruins to enter carefully, spirits to listen to, and old assumptions to test against evidence.",
+    "best_fit_summary": "Strong Lorehold signals include curiosity about ruins, artifacts, spirits, scrolls, and primary sources; a willingness to do fieldwork; respect for preservation; and a rules-with-justice mindset that treats the past as evidence rather than loot or nostalgia.",
+    "poor_fit_summary": "Weak Lorehold signals include disinterest in history, treating artifacts as unowned prizes, preferring abstract theory without material evidence, or using rules/history only to win status instead of protecting truth.",
+    "interpretation_warning": "Placement data is interpretive and should be treated as a matching heuristic, not direct canon.",
+    "claim_ids": [
+      "claim_lorehold_core_0004",
+      "claim_lorehold_core_0005",
+      "claim_lorehold_core_0006",
+      "claim_lorehold_core_0007",
+      "claim_lorehold_core_0009",
+      "claim_lorehold_dichotomy_0001",
+      "claim_lorehold_placement_0001",
+      "claim_lorehold_placement_0002",
+      "claim_lorehold_placement_0003",
+      "claim_lorehold_placement_0004",
+      "claim_lorehold_core_0011",
+      "claim_lorehold_mechanic_0016",
+      "claim_lorehold_placement_0008",
+      "claim_lorehold_placement_0009",
+      "lorehold_claim_0022",
+      "lorehold_claim_0023",
+      "lorehold_claim_0024",
+      "lorehold_claim_0025",
+      "lorehold_claim_0026",
+      "lorehold_claim_0027"
+    ],
+    "calibrated_primary_read": "Requires historical evidence, field research, relics, archives, or learning from the past.",
+    "calibrated_false_positive_guardrail": "Do not award for generic duty, courage, or white-red identity without history/evidence language.",
+    "evidence_claim_ids": [
+      "claim_lorehold_core_0001",
+      "claim_lorehold_core_0002",
+      "claim_lorehold_core_0003",
+      "claim_lorehold_core_0004",
+      "claim_lorehold_core_0005",
+      "claim_lorehold_core_0006"
+    ]
+  },
+  "moral_and_psychological_profile": {
+    "primary_moral_foundations": [
+      {
+        "foundation": "Authority",
+        "weight": 0.76,
+        "rationale": "Lorehold's white-aligned side emphasizes records, preservation, precedent, dean-guided rules, and institutional memory. The Mentor also strengthens the placement nuance: Lorehold respects rules, but good Lorehold placement should test whether authority protects history and justice rather than becoming rigid control.",
+        "claim_ids": [
+          "claim_lorehold_dichotomy_0004",
+          "claim_lorehold_dichotomy_0005",
+          "claim_lorehold_structure_0004",
+          "claim_lorehold_placement_0005",
+          "claim_lorehold_structure_0009",
+          "claim_lorehold_placement_0008"
+        ],
+        "confidence": "Medium"
+      },
+      {
+        "foundation": "Liberty",
+        "weight": 0.7,
+        "rationale": "Lorehold's red-aligned side values field action, relic discovery, ruins, dangerous expeditions, and the courage to check the site directly. This is not pure rebellion; it is freedom in service of evidence and discovery.",
+        "claim_ids": [
+          "claim_lorehold_dichotomy_0002",
+          "claim_lorehold_dichotomy_0003",
+          "claim_lorehold_structure_0005",
+          "claim_lorehold_placement_0005",
+          "claim_lorehold_core_0011",
+          "claim_lorehold_location_0010"
+        ],
+        "confidence": "Medium"
+      }
+    ],
+    "secondary_moral_foundations": [
+      {
+        "foundation": "Care",
+        "weight": 0.55,
+        "rationale": "Lorehold's preservation of the past, Velomachus's expectation that people learn from history toward a better future, post-invasion motivations, and artifact-protection ethics support a Care-adjacent reading.",
+        "claim_ids": [
+          "claim_lorehold_dichotomy_0004",
+          "claim_lorehold_figure_0003",
+          "claim_lorehold_figure_0009",
+          "claim_lorehold_placement_0006",
+          "claim_lorehold_placement_0009",
+          "claim_lorehold_figure_0016"
+        ],
+        "confidence": "Medium"
+      },
+      {
+        "foundation": "Loyalty",
+        "weight": 0.45,
+        "rationale": "Lorehold can support group memory, campus tradition, and cooperative enthusiasm, but the reviewed sources give stronger direct support to history/predecessor/precent and field-discovery themes than to loyalty as a primary driver.",
+        "claim_ids": [
+          "claim_lorehold_dichotomy_0006",
+          "claim_lorehold_structure_0001",
+          "claim_lorehold_placement_0006"
+        ],
+        "confidence": "Medium"
+      }
+    ],
+    "possible_shadow_expression": {
+      "summary": "Lorehold can go wrong when reverence for history becomes rigid justification, when adventure becomes reckless tomb-raiding, when relics are treated as loot, or when rules are used to dodge justice instead of protecting evidence and people.",
+      "claim_ids": [
+        "claim_lorehold_placement_0007",
+        "claim_lorehold_dichotomy_0001",
+        "claim_lorehold_dichotomy_0002",
+        "claim_lorehold_dichotomy_0004",
+        "claim_lorehold_placement_0008",
+        "claim_lorehold_placement_0009",
+        "claim_lorehold_mechanic_0017"
+      ],
+      "confidence": "Medium",
+      "warning": "Supported interpretation, not direct canon."
+    }
+  },
+  "placement_axes": [
+    {
+      "axis_id": "axis_order_vs_freedom",
+      "label": "Order vs Justified Rule-Bending",
+      "description": "Measures whether a user values rules, records, and precedent as guardrails while still recognizing moments when rigid rules must yield to evidence or justice.",
+      "low_end_label": "Improvisational freedom",
+      "high_end_label": "Historical order",
+      "faction_position": 60,
+      "rationale": "Lorehold is framed through order and chaos; The Mentor makes this psychologically useful by contrasting Quintorius’s respect for rules with Asterion’s warning about unjust rules.",
+      "claim_ids": [
+        "claim_lorehold_dichotomy_0001",
+        "claim_lorehold_dichotomy_0002",
+        "claim_lorehold_dichotomy_0003",
+        "claim_lorehold_dichotomy_0004",
+        "claim_lorehold_dichotomy_0005",
+        "claim_lorehold_structure_0009",
+        "claim_lorehold_placement_0008"
+      ],
+      "confidence": "High",
+      "notes": "Do not score blind obedience as automatically Lorehold; the justice/evidence check matters."
+    },
+    {
+      "axis_id": "axis_archive_vs_expedition",
+      "label": "Archive vs Expedition",
+      "description": "Measures whether a user prefers static study and classification or active fieldwork, ruins, dig sites, and evidence gathering.",
+      "low_end_label": "Archive study",
+      "high_end_label": "Expedition fieldwork",
+      "faction_position": 72,
+      "rationale": "Official descriptions emphasize Lorehold scholars as researchers and adventurers; the 2026 guide adds relics, battle sites, lost magics, remote danger, and Fields of Strife camps.",
+      "claim_ids": [
+        "claim_lorehold_core_0009",
+        "claim_lorehold_structure_0006",
+        "claim_lorehold_placement_0002",
+        "claim_lorehold_location_0007",
+        "claim_lorehold_core_0011",
+        "claim_lorehold_location_0010"
+      ],
+      "confidence": "High",
+      "notes": ""
+    },
+    {
+      "axis_id": "axis_past_as_record_vs_past_as_living_force",
+      "label": "Past as Record vs Past as Living Force",
+      "description": "Measures whether a user treats history as inert information or as an active force that can speak, haunt, instruct, and shape the present.",
+      "low_end_label": "Past as record",
+      "high_end_label": "Past as living force",
+      "faction_position": 82,
+      "rationale": "Lorehold's identity includes summoning spirits of the ancient dead, housing spirits in statues, and treating some restless spirits as living primary sources.",
+      "claim_ids": [
+        "claim_lorehold_core_0007",
+        "claim_lorehold_mechanic_0001",
+        "claim_lorehold_mechanic_0002",
+        "claim_lorehold_mechanic_0003",
+        "claim_lorehold_mechanic_0004",
+        "claim_lorehold_mechanic_0016"
+      ],
+      "confidence": "High",
+      "notes": ""
+    },
+    {
+      "axis_id": "axis_evidence_vs_romanticization",
+      "label": "Evidence vs Romanticization",
+      "description": "Measures whether a user wants to test inherited stories against evidence or mainly enjoys mythic aesthetics and nostalgic spectacle.",
+      "low_end_label": "Romanticized myth",
+      "high_end_label": "Evidence-based restoration",
+      "faction_position": 70,
+      "rationale": "Lorehold's preservation and historical-precedent side supports evidence, records, and care for the past, while its shadow expression can drift into romanticized or reckless misuse of history.",
+      "claim_ids": [
+        "claim_lorehold_dichotomy_0004",
+        "claim_lorehold_dichotomy_0005",
+        "claim_lorehold_placement_0004",
+        "claim_lorehold_placement_0007"
+      ],
+      "confidence": "Medium",
+      "notes": "Use carefully; Lorehold also values myth, archaeology, and adventure."
+    },
+    {
+      "axis_id": "axis_individual_glory_vs_cooperative_study",
+      "label": "Individual Glory vs Cooperative Study",
+      "description": "Measures whether a user approaches discovery as personal status or as collaborative research and shared memory.",
+      "low_end_label": "Solo glory",
+      "high_end_label": "Cooperative study",
+      "faction_position": 62,
+      "rationale": "The 2026 guide describes Lorehold students as cooperative and enthusiastic, but the faction also contains individual adventurer energy.",
+      "claim_ids": [
+        "claim_lorehold_dichotomy_0006",
+        "claim_lorehold_core_0005",
+        "claim_lorehold_core_0009",
+        "claim_lorehold_structure_0006"
+      ],
+      "confidence": "Medium",
+      "notes": ""
+    },
+    {
+      "axis_id": "axis_relic_as_loot_vs_relic_as_evidence",
+      "label": "Relic as Loot vs Relic as Evidence",
+      "description": "Measures whether a user treats old objects as trophies/prizes or as context-rich evidence requiring preservation, documentation, and ethical handling.",
+      "low_end_label": "Loot and ownership",
+      "high_end_label": "Evidence and stewardship",
+      "faction_position": 78,
+      "rationale": "Lorehold field studies explicitly seek relics and antiquities, while Field Studies in a Future Tense supports an ethical preservation signal when Quintorius argues that artifacts belong to history rather than to opportunistic sellers.",
+      "claim_ids": [
+        "claim_lorehold_core_0011",
+        "claim_lorehold_location_0009",
+        "claim_lorehold_figure_0018",
+        "claim_lorehold_placement_0009"
+      ],
+      "confidence": "Medium",
+      "notes": "Interpretive placement axis, not direct canon doctrine."
+    }
+  ],
+  "core_values": [
+    {
+      "value": "Historical inquiry",
+      "description": "A drive to investigate what happened, why it happened, and what evidence remains.",
+      "placement_relevance": "Strongly supports Lorehold when the user likes historical mysteries, primary evidence, ruins, old records, or artifact-based discovery.",
+      "claim_ids": [
+        "claim_lorehold_core_0005",
+        "claim_lorehold_core_0006",
+        "claim_lorehold_core_0008",
+        "claim_lorehold_structure_0006",
+        "claim_lorehold_placement_0001"
+      ],
+      "confidence": "High"
+    },
+    {
+      "value": "Preservation and restoration",
+      "description": "Care for the past through recording, preserving, and restoring memory, places, and objects.",
+      "placement_relevance": "Supports Lorehold when the user values stewardship of history rather than novelty for its own sake.",
+      "claim_ids": [
+        "claim_lorehold_dichotomy_0004",
+        "claim_lorehold_dichotomy_0005",
+        "claim_lorehold_placement_0006"
+      ],
+      "confidence": "High"
+    },
+    {
+      "value": "Adventurous fieldwork",
+      "description": "Willingness to leave the library and go where the evidence is.",
+      "placement_relevance": "Supports Lorehold when the user prefers hands-on exploration, dig sites, travel, ruins, and risk-aware action.",
+      "claim_ids": [
+        "claim_lorehold_core_0009",
+        "claim_lorehold_dichotomy_0002",
+        "claim_lorehold_structure_0006",
+        "claim_lorehold_placement_0002"
+      ],
+      "confidence": "High"
+    },
+    {
+      "value": "Conversation with the past",
+      "description": "A theme of the dead, spirits, statues, and inherited memory becoming active in the present.",
+      "placement_relevance": "Supports Lorehold when the user is drawn to ancestors, monuments, ghosts, ruins, or object-history narratives.",
+      "claim_ids": [
+        "claim_lorehold_core_0007",
+        "claim_lorehold_mechanic_0001",
+        "claim_lorehold_mechanic_0002",
+        "claim_lorehold_mechanic_0003",
+        "claim_lorehold_mechanic_0004"
+      ],
+      "confidence": "High"
+    },
+    {
+      "value": "Precedent with motion",
+      "description": "Using the past as a guide without becoming frozen by it.",
+      "placement_relevance": "A good Lorehold answer often respects evidence and precedent while still choosing action.",
+      "claim_ids": [
+        "claim_lorehold_dichotomy_0001",
+        "claim_lorehold_dichotomy_0002",
+        "claim_lorehold_dichotomy_0005",
+        "claim_lorehold_placement_0001"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "value": "Primary-source hunger",
+      "description": "Lorehold is strongest when the user wants to get as close as possible to firsthand evidence: ruins, artifacts, records, spirits, and places where events happened.",
+      "placement_relevance": "Distinguishes Lorehold from factions that prefer abstraction, persuasion, spectacle, or biological transformation.",
+      "claim_ids": [
+        "claim_lorehold_core_0011",
+        "claim_lorehold_location_0008",
+        "claim_lorehold_mechanic_0016"
+      ],
+      "confidence": "High"
+    },
+    {
+      "value": "Stewardship of artifacts",
+      "description": "The best Lorehold fit protects relics as part of history rather than treating them as loot, props, or status objects.",
+      "placement_relevance": "Useful to distinguish Lorehold explorer energy from Gruul-style rejection, Rakdos-style spectacle, or Orzhov-style acquisition.",
+      "claim_ids": [
+        "claim_lorehold_core_0011",
+        "claim_lorehold_figure_0018",
+        "claim_lorehold_placement_0009"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "value": "Rules with conscience",
+      "description": "Lorehold fit improves when the user respects rules as safety and continuity tools but can recognize when rules become unjust or anti-evidentiary.",
+      "placement_relevance": "Sharpens the order/chaos axis and prevents over-scoring rigid rule-followers as Lorehold.",
+      "claim_ids": [
+        "claim_lorehold_structure_0009",
+        "claim_lorehold_placement_0008"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "value": "Lorehold",
+      "placement_relevance": "Corpus search evidence for Lorehold.",
+      "claim_ids": [
+        "lorehold_claim_0022",
+        "lorehold_claim_0023",
+        "lorehold_claim_0024"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "value": "spirit",
+      "placement_relevance": "Corpus search evidence for Lorehold.",
+      "claim_ids": [
+        "lorehold_claim_0022",
+        "lorehold_claim_0023",
+        "lorehold_claim_0024"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "value": "archaeology",
+      "placement_relevance": "Corpus search evidence for Lorehold.",
+      "claim_ids": [
+        "lorehold_claim_0022",
+        "lorehold_claim_0023",
+        "lorehold_claim_0024"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "value": "history",
+      "placement_relevance": "Corpus search evidence for Lorehold.",
+      "claim_ids": [
+        "lorehold_claim_0022",
+        "lorehold_claim_0023",
+        "lorehold_claim_0024"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "value": "ruins",
+      "placement_relevance": "Corpus search evidence for Lorehold.",
+      "claim_ids": [
+        "lorehold_claim_0022",
+        "lorehold_claim_0023",
+        "lorehold_claim_0024"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "value": "scroll",
+      "placement_relevance": "Corpus search evidence for Lorehold.",
+      "claim_ids": [
+        "lorehold_claim_0022",
+        "lorehold_claim_0023",
+        "lorehold_claim_0024"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "value": "learn",
+      "placement_relevance": "Corpus search evidence for Lorehold.",
+      "claim_ids": [
+        "lorehold_claim_0022",
+        "lorehold_claim_0023",
+        "lorehold_claim_0024"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "value": "Quintorius",
+      "placement_relevance": "Corpus search evidence for Lorehold.",
+      "claim_ids": [
+        "lorehold_claim_0022",
+        "lorehold_claim_0023",
+        "lorehold_claim_0024"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "value": "relic",
+      "placement_relevance": "Corpus search evidence for Lorehold.",
+      "claim_ids": [
+        "lorehold_claim_0022",
+        "lorehold_claim_0023",
+        "lorehold_claim_0024"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "value": "artifact",
+      "placement_relevance": "Corpus search evidence for Lorehold.",
+      "claim_ids": [
+        "lorehold_claim_0022",
+        "lorehold_claim_0023",
+        "lorehold_claim_0024"
+      ],
+      "confidence": "Medium"
+    }
+  ],
+  "behavioral_signals": [
+    {
+      "signal": "Looks for primary evidence before making a confident claim",
+      "placement_relevance": "Matches Lorehold's record, artifact, and historical-precedent side.",
+      "supports_match_when": "The user wants sources, records, artifacts, first-hand traces, or physical evidence.",
+      "weakens_match_when": "The user prefers vibes, status, spectacle, or pure theory without evidence.",
+      "claim_ids": [
+        "claim_lorehold_core_0006",
+        "claim_lorehold_core_0008",
+        "claim_lorehold_dichotomy_0004",
+        "claim_lorehold_dichotomy_0005",
+        "claim_lorehold_placement_0004"
+      ],
+      "confidence": "High"
+    },
+    {
+      "signal": "Enjoys field research and exploration",
+      "placement_relevance": "Strong Lorehold signal because official descriptions include adventurers and fieldwork.",
+      "supports_match_when": "The user would rather investigate ruins, locations, and artifacts directly than only read about them.",
+      "weakens_match_when": "The user wants only abstract debate, performance, or laboratory optimization.",
+      "claim_ids": [
+        "claim_lorehold_core_0009",
+        "claim_lorehold_structure_0006",
+        "claim_lorehold_location_0007",
+        "claim_lorehold_placement_0002"
+      ],
+      "confidence": "High"
+    },
+    {
+      "signal": "Asks what history can teach the present",
+      "placement_relevance": "Captures the faction's use of history as a guide for action and responsibility.",
+      "supports_match_when": "The user frames the past as a source of lessons, warnings, and responsibilities.",
+      "weakens_match_when": "The user treats the past as irrelevant trivia or mere aesthetic decoration.",
+      "claim_ids": [
+        "claim_lorehold_figure_0003",
+        "claim_lorehold_figure_0009",
+        "claim_lorehold_placement_0001",
+        "claim_lorehold_placement_0006"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "signal": "Balances rules and improvisation",
+      "placement_relevance": "Lorehold has a direct order/chaos identity split.",
+      "supports_match_when": "The user respects procedure when it protects truth but will break routine to reach important evidence.",
+      "weakens_match_when": "The user is either rigidly procedural with no curiosity or impulsive with no respect for evidence.",
+      "claim_ids": [
+        "claim_lorehold_dichotomy_0001",
+        "claim_lorehold_dichotomy_0002",
+        "claim_lorehold_dichotomy_0004",
+        "claim_lorehold_structure_0004",
+        "claim_lorehold_structure_0005"
+      ],
+      "confidence": "High"
+    },
+    {
+      "signal": "Feels drawn to spirits, ancestors, monuments, and object histories",
+      "placement_relevance": "Lorehold's magic makes spirits and statues a key part of historical inquiry.",
+      "supports_match_when": "The user imagines history as something embodied in places, objects, and the dead.",
+      "weakens_match_when": "The user rejects the past as inert or only wants living social influence.",
+      "claim_ids": [
+        "claim_lorehold_core_0007",
+        "claim_lorehold_mechanic_0001",
+        "claim_lorehold_mechanic_0002",
+        "claim_lorehold_mechanic_0003"
+      ],
+      "confidence": "High"
+    },
+    {
+      "signal": "Turns loss into preservation work",
+      "placement_relevance": "The Secrets of Strixhaven legends material gives a strong example of post-invasion preservation motivation.",
+      "supports_match_when": "The user responds to destruction or loss by documenting, preserving, teaching, or rebuilding memory.",
+      "weakens_match_when": "The user responds to loss only by chasing power, spectacle, or denial.",
+      "claim_ids": [
+        "claim_lorehold_figure_0009",
+        "claim_lorehold_timeline_0005",
+        "claim_lorehold_placement_0006"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "signal": "Wants to verify old stories against artifacts, maps, scrolls, ruins, or witnesses rather than accepting the most famous version.",
+      "placement_relevance": "Strong Lorehold signal because it combines archive, fieldwork, and evidence skepticism.",
+      "supports_match_when": "The user says they would check records, visit the site, consult primary sources, and document contradictions.",
+      "weakens_match_when": "The user prefers the most dramatic version of the story even when evidence complicates it.",
+      "claim_ids": [
+        "claim_lorehold_location_0008",
+        "claim_lorehold_figure_0015",
+        "claim_lorehold_mechanic_0016",
+        "claim_lorehold_placement_0004"
+      ],
+      "confidence": "High"
+    },
+    {
+      "signal": "Protects artifacts from theft, careless handling, or decontextualized collecting.",
+      "placement_relevance": "Strong preservation signal; separates Lorehold stewardship from treasure-hunter aesthetics.",
+      "supports_match_when": "The user talks about documentation, provenance, context, museum-quality care, or returning artifacts to their historical community.",
+      "weakens_match_when": "The user treats relics mainly as prizes, loot, or personal status symbols.",
+      "claim_ids": [
+        "claim_lorehold_core_0011",
+        "claim_lorehold_location_0009",
+        "claim_lorehold_figure_0018",
+        "claim_lorehold_placement_0009"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "signal": "Accepts danger or discomfort when the evidence requires fieldwork, but still wants safeguards, records, and a plan.",
+      "placement_relevance": "Good Lorehold middle path between reckless ruin-delving and purely sheltered archive work.",
+      "supports_match_when": "The user wants to go into the field with preparation, wards, tools, maps, and an exit plan.",
+      "weakens_match_when": "The user wants either no field risk at all or pure danger without documentation or preservation.",
+      "claim_ids": [
+        "claim_lorehold_core_0011",
+        "claim_lorehold_location_0010",
+        "claim_lorehold_mechanic_0017",
+        "claim_lorehold_placement_0002"
+      ],
+      "confidence": "High"
+    },
+    {
+      "signal": "References Episode 1: Penmanship Practice, A Silent Voice Calls, Arcavios: A Radiant Heart as story-context evidence rather than relying only on color identity.",
+      "placement_relevance": "Strengthens Lorehold with corpus-backed specificity.",
+      "supports_match_when": "The user's answers echo Lorehold, spirit, archaeology, history, ruins, scroll in a faction-specific way.",
+      "weakens_match_when": "The user's answers only match the shared color pair without any faction-specific behavior.",
+      "claim_ids": [
+        "lorehold_claim_0022",
+        "lorehold_claim_0023",
+        "lorehold_claim_0024",
+        "lorehold_claim_0025",
+        "lorehold_claim_0026",
+        "lorehold_claim_0027"
+      ],
+      "confidence": "Medium"
+    },
+    "asks what the past proves",
+    "uses memory as guidance",
+    "finds living relevance in old evidence"
+  ],
+  "inhibitor_traits": [
+    {
+      "trait": "Historical incuriosity",
+      "why_it_conflicts": "Lorehold's identity is built around history, archaeology, artifacts, spirits, and ancient knowledge; indifference to the past undercuts the faction's core.",
+      "status": "Supported Interpretation",
+      "claim_ids": [
+        "claim_lorehold_core_0004",
+        "claim_lorehold_core_0005",
+        "claim_lorehold_core_0006",
+        "claim_lorehold_core_0007",
+        "claim_lorehold_placement_0003"
+      ],
+      "confidence": "High",
+      "notes": ""
+    },
+    {
+      "trait": "Disregard for evidence when it complicates a preferred story",
+      "why_it_conflicts": "Lorehold's preservation and precedent side depends on records, artifacts, and care for the past; ignoring evidence is a poor fit.",
+      "status": "Supported Interpretation",
+      "claim_ids": [
+        "claim_lorehold_dichotomy_0004",
+        "claim_lorehold_dichotomy_0005",
+        "claim_lorehold_placement_0004"
+      ],
+      "confidence": "High",
+      "notes": ""
+    },
+    {
+      "trait": "Pure abstraction with no physical or historical anchor",
+      "why_it_conflicts": "Lorehold can be intellectual, but its strongest evidence points toward artifacts, spirits, tomes, ruins, fieldwork, and history rather than pure theory.",
+      "status": "Supported Interpretation",
+      "claim_ids": [
+        "claim_lorehold_core_0006",
+        "claim_lorehold_core_0007",
+        "claim_lorehold_core_0008",
+        "claim_lorehold_structure_0006",
+        "claim_lorehold_placement_0002"
+      ],
+      "confidence": "Medium",
+      "notes": "This can help separate Lorehold from Quandrix-style abstraction."
+    },
+    {
+      "trait": "Status-first spectacle without curiosity",
+      "why_it_conflicts": "Lorehold can be adventurous, but the adventure is anchored in discovery and history, not attention-seeking performance alone.",
+      "status": "Supported Interpretation",
+      "claim_ids": [
+        "claim_lorehold_core_0005",
+        "claim_lorehold_core_0009",
+        "claim_lorehold_placement_0003",
+        "claim_lorehold_placement_0007"
+      ],
+      "confidence": "Medium",
+      "notes": "This can help separate Lorehold from Prismari or Silverquill-style expressive placement when the user's answers lack historical curiosity."
+    },
+    {
+      "trait": "Treating relics as unowned loot",
+      "why_it_conflicts": "Lorehold's strongest placement pattern is evidence, preservation, and historical stewardship; loot-first behavior cuts against that pattern.",
+      "status": "Supported Interpretation",
+      "claim_ids": [
+        "claim_lorehold_core_0011",
+        "claim_lorehold_placement_0009"
+      ],
+      "confidence": "Medium",
+      "notes": "Inspired by Field Studies in a Future Tense; use as heuristic, not direct canon doctrine."
+    },
+    {
+      "trait": "Blind rule obedience without justice or evidence checks",
+      "why_it_conflicts": "Lorehold has an order signal, but The Mentor supports a more nuanced view where unjust rules can become harmful authority.",
+      "status": "Supported Interpretation",
+      "claim_ids": [
+        "claim_lorehold_structure_0009",
+        "claim_lorehold_placement_0008"
+      ],
+      "confidence": "Medium",
+      "notes": "Prevents misclassifying rigid Azorius-style proceduralism as Lorehold."
+    },
+    {
+      "trait": "Generic color-pair overfit",
+      "why_it_conflicts": "The corpus upgrade is intended to prevent Lorehold from winning on broad color identity alone.",
+      "status": "Supported Interpretation",
+      "claim_ids": [
+        "lorehold_claim_0022",
+        "lorehold_claim_0023",
+        "lorehold_claim_0024",
+        "lorehold_claim_0025"
+      ],
+      "confidence": "Medium",
+      "notes": "Use collision questions when another faction shares the same or adjacent colors."
+    },
+    "acts before studying evidence",
+    "cares about procedure more than history",
+    "builds prototypes instead of investigating what remains"
+  ],
+  "good_fit_indicators": [
+    {
+      "indicator": "The user wants to uncover hidden history through physical clues, archives, ruins, or artifacts.",
+      "rationale": "This directly matches Lorehold's archaeomancy, artifacts, tomes, and fieldwork identity.",
+      "claim_ids": [
+        "claim_lorehold_core_0004",
+        "claim_lorehold_core_0006",
+        "claim_lorehold_core_0008",
+        "claim_lorehold_structure_0006",
+        "claim_lorehold_placement_0001"
+      ],
+      "confidence": "High"
+    },
+    {
+      "indicator": "The user likes the idea that the dead or forgotten past can actively teach the living.",
+      "rationale": "Lorehold's spirit and statue magic makes this a core flavor signal.",
+      "claim_ids": [
+        "claim_lorehold_core_0007",
+        "claim_lorehold_mechanic_0001",
+        "claim_lorehold_mechanic_0002",
+        "claim_lorehold_mechanic_0003",
+        "claim_lorehold_mechanic_0004"
+      ],
+      "confidence": "High"
+    },
+    {
+      "indicator": "The user respects precedent but still wants adventure.",
+      "rationale": "Lorehold's order/chaos tension is a strong differentiator from single-note scholar or warrior profiles.",
+      "claim_ids": [
+        "claim_lorehold_dichotomy_0001",
+        "claim_lorehold_dichotomy_0002",
+        "claim_lorehold_dichotomy_0004",
+        "claim_lorehold_dichotomy_0005"
+      ],
+      "confidence": "High"
+    },
+    {
+      "indicator": "The user learns by going to the source, not just reading a summary.",
+      "rationale": "Lorehold placement should reward hands-on investigation and direct evidence.",
+      "claim_ids": [
+        "claim_lorehold_core_0009",
+        "claim_lorehold_structure_0006",
+        "claim_lorehold_placement_0002",
+        "claim_lorehold_placement_0004"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "indicator": "They want to preserve the site before extracting the object.",
+      "rationale": "Lorehold fieldwork rewards context and documentation, not just possession of the artifact.",
+      "claim_ids": [
+        "claim_lorehold_core_0011",
+        "claim_lorehold_location_0009",
+        "claim_lorehold_placement_0009"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "indicator": "They see ghosts, fossils, records, and ruins as different kinds of historical witnesses.",
+      "rationale": "This maps directly to Lorehold's living-history identity and its Fields of Strife primary-source framing.",
+      "claim_ids": [
+        "claim_lorehold_core_0007",
+        "claim_lorehold_mechanic_0016",
+        "claim_lorehold_figure_0020"
+      ],
+      "confidence": "High"
+    }
+  ],
+  "poor_fit_indicators": [
+    {
+      "indicator": "The user sees history as irrelevant unless it provides immediate power or social status.",
+      "rationale": "Lorehold's core is historical inquiry, preservation, and discovery rather than purely instrumental status.",
+      "claim_ids": [
+        "claim_lorehold_core_0005",
+        "claim_lorehold_core_0006",
+        "claim_lorehold_placement_0003"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "indicator": "The user prefers polished performance over messy evidence.",
+      "rationale": "Lorehold can be dramatic, but the strongest support centers fieldwork, artifacts, spirits, and records.",
+      "claim_ids": [
+        "claim_lorehold_core_0006",
+        "claim_lorehold_core_0009",
+        "claim_lorehold_placement_0004"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "indicator": "The user wants pure future-facing invention without interest in old systems, ruins, or inherited lessons.",
+      "rationale": "That answer pattern weakens Lorehold and may point toward Izzet, Prismari, Simic, or Quandrix depending on the rest of the profile.",
+      "claim_ids": [
+        "claim_lorehold_core_0005",
+        "claim_lorehold_core_0006",
+        "claim_lorehold_placement_0001"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "indicator": "The user uses precedent only to shut down inquiry.",
+      "rationale": "Lorehold's order side is balanced by discovery and field action; rigid anti-curiosity is a shadow mismatch.",
+      "claim_ids": [
+        "claim_lorehold_dichotomy_0001",
+        "claim_lorehold_dichotomy_0002",
+        "claim_lorehold_dichotomy_0005",
+        "claim_lorehold_placement_0007"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "indicator": "They would sell or display a found relic without documenting context, provenance, or cultural significance.",
+      "rationale": "This weakens Lorehold because it treats history as extractive possession rather than evidence and stewardship.",
+      "claim_ids": [
+        "claim_lorehold_core_0011",
+        "claim_lorehold_placement_0009"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "indicator": "They want the romance of ruins but not the slow work of records, tools, maps, safety, and documentation.",
+      "rationale": "Lorehold contains adventure energy, but official field-study descriptions and The Mentor emphasize evidence, records, tools, and archaeological work.",
+      "claim_ids": [
+        "claim_lorehold_core_0011",
+        "claim_lorehold_location_0008",
+        "claim_lorehold_location_0009",
+        "claim_lorehold_mechanic_0017"
+      ],
+      "confidence": "High"
+    }
+  ],
+  "discriminator_questions": [
+    {
+      "question_id": "q_lorehold_0001",
+      "question": "When you find an old sealed ruin, what excites you most: preserving its record, entering it to discover what happened, turning it into art, or solving the theory behind how it works?",
+      "purpose": "Separates Lorehold from Prismari and Quandrix by testing whether the user's attraction is historical/evidentiary, expressive, or abstract.",
+      "answer_pattern_that_supports_this_faction": "They want to investigate the ruin through artifacts, records, spirit traces, and careful-but-active exploration.",
+      "answer_pattern_that_weakens_this_faction": "They mainly want aesthetic spectacle, social performance, or pure mathematical abstraction.",
+      "related_factions_to_compare": [
+        "Prismari",
+        "Quandrix",
+        "Silverquill"
+      ],
+      "claim_ids": [
+        "claim_lorehold_core_0004",
+        "claim_lorehold_core_0006",
+        "claim_lorehold_core_0007",
+        "claim_lorehold_structure_0006",
+        "claim_lorehold_placement_0002"
+      ],
+      "confidence": "High",
+      "notes": ""
+    },
+    {
+      "question_id": "q_lorehold_0002",
+      "question": "When a rule blocks an important discovery, do you follow the rule, break it, document why it exists first, or look for a precedent that lets you act responsibly?",
+      "purpose": "Tests Lorehold's order/chaos tension without reducing the faction to obedience or recklessness.",
+      "answer_pattern_that_supports_this_faction": "They respect why the rule exists but still look for a responsible way to reach the evidence.",
+      "answer_pattern_that_weakens_this_faction": "They obey without curiosity, break rules only for thrill, or ignore evidence entirely.",
+      "related_factions_to_compare": [
+        "Azorius Senate",
+        "Boros Legion",
+        "Prismari"
+      ],
+      "claim_ids": [
+        "claim_lorehold_dichotomy_0001",
+        "claim_lorehold_dichotomy_0002",
+        "claim_lorehold_dichotomy_0004",
+        "claim_lorehold_dichotomy_0005"
+      ],
+      "confidence": "High",
+      "notes": ""
+    },
+    {
+      "question_id": "q_lorehold_0003",
+      "question": "Which source of truth feels strongest to you: a surviving artifact, a living witness, a mathematical proof, a powerful speech, or a shared community tradition?",
+      "purpose": "Checks whether the user privileges physical-historical evidence in a Lorehold way.",
+      "answer_pattern_that_supports_this_faction": "They gravitate toward artifacts, records, ruins, monuments, and historical witnesses while remaining open to interpretation.",
+      "answer_pattern_that_weakens_this_faction": "They select pure proof, rhetoric, or social consensus with little interest in material history.",
+      "related_factions_to_compare": [
+        "Quandrix",
+        "Silverquill",
+        "Selesnya Conclave"
+      ],
+      "claim_ids": [
+        "claim_lorehold_core_0006",
+        "claim_lorehold_core_0008",
+        "claim_lorehold_dichotomy_0004",
+        "claim_lorehold_placement_0004"
+      ],
+      "confidence": "Medium",
+      "notes": ""
+    },
+    {
+      "question_id": "q_lorehold_0004",
+      "question": "A forgotten war left behind statues, graves, and contradictory accounts. What do you do first?",
+      "purpose": "Tests Lorehold's blend of spirits, monuments, historical care, and fieldwork.",
+      "answer_pattern_that_supports_this_faction": "They preserve the site, compare accounts, investigate physical evidence, and try to understand what the dead or memorials can teach.",
+      "answer_pattern_that_weakens_this_faction": "They ignore the dead, exploit the site, or turn the conflict into spectacle without care for evidence.",
+      "related_factions_to_compare": [
+        "Witherbloom",
+        "Boros Legion",
+        "Prismari"
+      ],
+      "claim_ids": [
+        "claim_lorehold_core_0007",
+        "claim_lorehold_mechanic_0001",
+        "claim_lorehold_mechanic_0002",
+        "claim_lorehold_location_0007",
+        "claim_lorehold_placement_0006"
+      ],
+      "confidence": "High",
+      "notes": ""
+    },
+    {
+      "question_id": "q_lorehold_0005",
+      "question": "Do you learn better from theories, debates, performances, experiments, or walking the ground where something happened?",
+      "purpose": "Identifies the fieldwork and direct-evidence preference central to Lorehold placement.",
+      "answer_pattern_that_supports_this_faction": "They prefer going to the site, handling evidence, comparing records, and reconstructing what happened.",
+      "answer_pattern_that_weakens_this_faction": "They prefer purely abstract models, social debate, or performance as the main mode.",
+      "related_factions_to_compare": [
+        "Quandrix",
+        "Silverquill",
+        "Prismari"
+      ],
+      "claim_ids": [
+        "claim_lorehold_core_0009",
+        "claim_lorehold_structure_0006",
+        "claim_lorehold_placement_0002"
+      ],
+      "confidence": "High",
+      "notes": ""
+    },
+    {
+      "question_id": "q_lorehold_0006",
+      "question": "When the past contradicts the story your group wants to tell, should the record be protected, revised, buried, or used as a weapon?",
+      "purpose": "Tests evidence integrity and separates Lorehold from manipulative or reputation-first profiles.",
+      "answer_pattern_that_supports_this_faction": "They protect and examine the record, even when it complicates the preferred narrative.",
+      "answer_pattern_that_weakens_this_faction": "They bury the record, weaponize it without context, or rewrite it for status.",
+      "related_factions_to_compare": [
+        "House Dimir",
+        "Silverquill",
+        "Orzhov Syndicate"
+      ],
+      "claim_ids": [
+        "claim_lorehold_dichotomy_0004",
+        "claim_lorehold_dichotomy_0005",
+        "claim_lorehold_placement_0004"
+      ],
+      "confidence": "Medium",
+      "notes": ""
+    },
+    {
+      "question_id": "q_lorehold_0007",
+      "question": "Which phrase sounds most like you: 'prove the pattern,' 'make it unforgettable,' 'preserve the evidence,' 'keep the group alive,' or 'win the argument'?",
+      "purpose": "Quickly separates Lorehold from Quandrix, Prismari, Witherbloom, and Silverquill.",
+      "answer_pattern_that_supports_this_faction": "They choose preserving evidence or learning from the past, especially if paired with exploration.",
+      "answer_pattern_that_weakens_this_faction": "They choose pattern-proof, spectacle, survival biology, or rhetoric without historical interest.",
+      "related_factions_to_compare": [
+        "Quandrix",
+        "Prismari",
+        "Witherbloom",
+        "Silverquill"
+      ],
+      "claim_ids": [
+        "claim_lorehold_core_0005",
+        "claim_lorehold_core_0006",
+        "claim_lorehold_dichotomy_0004",
+        "claim_lorehold_placement_0001"
+      ],
+      "confidence": "Medium",
+      "notes": ""
+    },
+    {
+      "question_id": "q_lorehold_0008",
+      "question": "Would you rather consult a ghost, restore a broken artifact, map a battlefield, write a persuasive manifesto, or design a new organism?",
+      "purpose": "Tests Lorehold imagery and mechanics against other factions with strong thematic hooks.",
+      "answer_pattern_that_supports_this_faction": "They choose consulting a ghost, restoring an artifact, or mapping a battlefield to understand history.",
+      "answer_pattern_that_weakens_this_faction": "They choose rhetoric, biological design, or performance as their first instinct.",
+      "related_factions_to_compare": [
+        "Witherbloom",
+        "Silverquill",
+        "Simic Combine",
+        "Prismari"
+      ],
+      "claim_ids": [
+        "claim_lorehold_core_0006",
+        "claim_lorehold_core_0007",
+        "claim_lorehold_mechanic_0001",
+        "claim_lorehold_location_0007"
+      ],
+      "confidence": "High",
+      "notes": ""
+    },
+    {
+      "question_id": "q_lorehold_0009",
+      "question": "You find a sealed cache of ancient artifacts in a dangerous ruin. What matters first: getting the best piece out, documenting the site, asking who the history belongs to, proving a theory, or turning it into a spectacle?",
+      "purpose": "Separates Lorehold stewardship from treasure-hunter, Quandrix proof-first, Prismari spectacle-first, and Orzhov acquisition-first patterns.",
+      "answer_pattern_that_supports_this_faction": "They prioritize documentation, preservation, provenance, historical ownership, and safe extraction only after context is protected.",
+      "answer_pattern_that_weakens_this_faction": "They prioritize personal possession, sale, spectacle, or theory validation without preserving the site.",
+      "related_factions_to_compare": [
+        "Orzhov Syndicate",
+        "Prismari",
+        "Quandrix",
+        "Gruul Clans"
+      ],
+      "claim_ids": [
+        "claim_lorehold_core_0011",
+        "claim_lorehold_location_0009",
+        "claim_lorehold_figure_0018",
+        "claim_lorehold_placement_0009"
+      ],
+      "confidence": "Medium",
+      "notes": "Good high-signal question for artifact ethics."
+    },
+    {
+      "question_id": "q_lorehold_0010",
+      "question": "A rule says the spirit statue cannot leave Effigy Row, but the spirit may hold evidence that could correct history or prevent harm. Do you follow the rule, break it, seek permission, or ignore the evidence?",
+      "purpose": "Tests the Lorehold order-versus-chaos tension through rules, evidence, justice, and risk.",
+      "answer_pattern_that_supports_this_faction": "They recognize the rule as a safety guardrail, seek permission or a responsible exception, and keep evidence/justice in view.",
+      "answer_pattern_that_weakens_this_faction": "They either obey blindly while burying evidence, break rules for thrill alone, or ignore the spirit as inconvenient.",
+      "related_factions_to_compare": [
+        "Azorius Senate",
+        "Boros Legion",
+        "Gruul Clans",
+        "House Dimir"
+      ],
+      "claim_ids": [
+        "claim_lorehold_structure_0009",
+        "claim_lorehold_placement_0008",
+        "claim_lorehold_figure_0015"
+      ],
+      "confidence": "Medium",
+      "notes": "Based on The Mentor; do not present as a universal official test."
+    },
+    {
+      "question_id": "q_lorehold_0011",
+      "question": "Which historical witness would you trust most at first: a fossil layer, an old scroll, a restless spirit reliving events, a professor's theory, or a mathematical model?",
+      "purpose": "Distinguishes Lorehold's wide evidence palette from Quandrix abstraction and pure authority reliance.",
+      "answer_pattern_that_supports_this_faction": "They want to compare multiple primary sources—material, written, spiritual, and field evidence—rather than trusting only one authority.",
+      "answer_pattern_that_weakens_this_faction": "They choose only the theory/model/status source and show little interest in artifacts, ruins, spirits, or records.",
+      "related_factions_to_compare": [
+        "Quandrix",
+        "Azorius Senate",
+        "Silverquill",
+        "Witherbloom"
+      ],
+      "claim_ids": [
+        "claim_lorehold_location_0008",
+        "claim_lorehold_mechanic_0016",
+        "claim_lorehold_figure_0020",
+        "claim_lorehold_core_0011"
+      ],
+      "confidence": "High",
+      "notes": "Useful for chat-based placement when the user gives mixed scholar/explorer signals."
+    }
+  ],
+  "chatbot_guidance": {
+    "how_to_recognize_match": [
+      "Look for repeated interest in history, archaeology, ruins, artifacts, spirits, monuments, and direct evidence.",
+      "Give extra weight when the user wants both preservation and action rather than only archive work or only adventure.",
+      "Treat respectful rule-bending in pursuit of truth as a strong Lorehold pattern.",
+      "Watch for answers that frame the past as useful for present responsibility, not just nostalgia.",
+      "Recognize grief-to-preservation answers as potentially strong Lorehold signals.",
+      "Give strong weight when the user wants provenance, context, and preservation before removing or displaying a relic.",
+      "Recognize answers that compare records, ruins, spirits, fossils, and field observations as a strong Lorehold evidence pattern.",
+      "Treat rules-with-conscience answers as stronger Lorehold signals than blind obedience or reckless rule-breaking."
+    ],
+    "how_to_recognize_mismatch": [
+      "Down-rank Lorehold when the user has little interest in history, old objects, records, or field investigation.",
+      "Down-rank Lorehold when the user's main driver is pure performance, persuasion, mathematical abstraction, biological transformation, or institutional control without curiosity.",
+      "Down-rank Lorehold when the user repeatedly treats evidence as disposable if it conflicts with identity, status, or power.",
+      "Down-rank Lorehold when the user wants novelty without roots or tradition without inquiry.",
+      "Down-rank Lorehold when the user treats artifacts as unowned loot, trophies, or status objects with no concern for context.",
+      "Down-rank Lorehold when the user wants only the vibe of ruins but not the slow work of records, preservation, maps, tools, or safety."
+    ],
+    "questions_to_ask_when_uncertain": [
+      "Are you more excited by the artifact itself, the story it proves, the system behind it, or the audience reaction to it?",
+      "Would you rather protect a difficult historical truth or simplify it so people can move on?",
+      "Do you want your magic to recover the past, explain the present, inspire an audience, or reshape life?",
+      "When you break a rule, is it for evidence, justice, expression, survival, or advantage?",
+      "Does the artifact matter more as an object, as evidence, as a symbol, as a spell component, or as a performance prop?",
+      "When a rule protects a site but blocks urgent truth, do you seek a responsible exception, break it quietly, obey it, or reject the whole system?"
+    ],
+    "do_not_overweight": [
+      "Do not place a user in Lorehold just because they like red-white gameplay.",
+      "Do not overfit Quintorius; he is a strong example but not the whole college.",
+      "Do not treat Spirit tribal preference alone as sufficient for Lorehold if the user lacks historical curiosity.",
+      "Do not make every interest in museums or old things a high Lorehold score without testing action, evidence, and preservation.",
+      "Do not equate Lorehold with generic military discipline; the faction is archaeomantic and historical, not simply martial.",
+      "Do not overfit Asterion or the spirit-mentor system into a universal requirement for every Lorehold match.",
+      "Do not treat relic hunting alone as Lorehold unless the answer also shows evidence, preservation, or historical context.",
+      "Do not treat blind respect for authority as Lorehold; Lorehold order is balanced against discovery, justice, and evidence.",
+      "Do not score a faction highly from color identity alone when another faction shares the same colors or surface traits."
+    ],
+    "never_claim_as_canon": [
+      "Never claim Moral Foundations Theory is official Magic canon.",
+      "Never claim this psychological placement profile represents Wizards' official intent.",
+      "Never claim all Lorehold students share the same personality.",
+      "Never claim placement scoring is objective truth.",
+      "Never claim unsupported relationships with other factions as canon.",
+      "Never claim the relic-as-evidence axis is official Wizards terminology.",
+      "Never claim every Lorehold student is assigned a spirit mentor unless a future official source confirms that broadly.",
+      "Placement scoring is a Vox Mana interpretation, not official Wizards canon."
+    ],
+    "calibration_note": "Lorehold College should require its specific positive evidence cluster: history, archive, relic, evidence, field. Keep it adjacent when the answer only contains broad color identity or generic personality language.",
+    "scoring_guardrail": "Do not award for generic duty, courage, or white-red identity without history/evidence language."
+  },
+  "placement_quality": {
+    "overall_confidence": "Medium",
+    "strongest_evidence_areas": [
+      "official college identity",
+      "red-white color identity",
+      "archaeomancy",
+      "order-versus-chaos tension",
+      "spirit and statue magic",
+      "fieldwork and artifact research",
+      "spirit mentor practice shown in The Mentor",
+      "Fields of Strife primary-source spirits",
+      "artifact preservation ethics",
+      "MTG-Stories corpus search evidence"
+    ],
+    "weakest_evidence_areas": [
+      "moral foundations mapping",
+      "cross-faction discriminator calibration",
+      "complete current faculty hierarchy",
+      "direct personality evidence beyond representative characters",
+      "how universal spirit-mentor assignments are across Lorehold",
+      "artifact ethics as a placement axis beyond story-supported interpretation"
+    ],
+    "manual_review_recommended": true,
+    "notes": "Updated with requested repository archive review and official Secrets of Strixhaven support. Placement remains interpretive; new relic ethics and rules-with-conscience logic should be calibrated against actual user outcomes. Corpus-enriched data should be reviewed with calibration and collision reports before being treated as tuned scoring fuel.",
+    "calibration_tuning_status": "explicit",
+    "last_placement_ready_pass": "2026-05-10T02:56:03.254Z"
+  },
+  "color_identity": [
+    "Red",
+    "White"
+  ],
+  "calibration_tuning": {
+    "required_positive_evidence_terms": [
+      "history",
+      "archive",
+      "relic",
+      "evidence",
+      "field",
+      "past",
+      "archaeology",
+      "memory",
+      "lesson",
+      "ruins",
+      "research"
+    ],
+    "required_positive_min_hits": 3,
+    "broad_match_penalty": 0.05,
+    "strengthen_when_user_centers": [
+      "historical evidence",
+      "field research",
+      "relic interpretation",
+      "past as living teacher",
+      "archive memory"
+    ],
+    "suppress_when_user_centers": [
+      "immediate protection",
+      "procedure first",
+      "pure performance",
+      "experiment invention",
+      "private leverage"
+    ],
+    "false_positive_guardrail": "Do not award for generic duty, courage, or white-red identity without history/evidence language.",
+    "smoke_test_note": "Used by lore review scripts as metadata-level calibration guidance; production placement may use richer weighted logic."
+  },
+  "collision_guidance": []
+}

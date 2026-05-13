@@ -44,15 +44,65 @@
 
   function init() {
     var name = getCachedFaction();
-    if (!name) return;
-
     var resume = document.querySelector('[data-vm-resume]');
-    if (!resume) return;
+    if (name && resume) {
+      var label = resume.querySelector('[data-vm-resume-faction]');
+      if (label) label.textContent = name;
 
-    var label = resume.querySelector('[data-vm-resume-faction]');
-    if (label) label.textContent = name;
+      resume.removeAttribute('hidden');
+    }
 
-    resume.removeAttribute('hidden');
+    initHomeMotion();
+  }
+
+  function motionIsReduced() {
+    return (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) ||
+      document.documentElement.getAttribute('data-reduce-motion') === 'true';
+  }
+
+  function initHomeMotion() {
+    var home = document.querySelector('.vm-home');
+    if (!home) return;
+
+    var raf = null;
+    var targetX = 0;
+    var targetY = 0;
+
+    function apply() {
+      raf = null;
+      if (motionIsReduced()) {
+        home.style.setProperty('--vm-home-parallax-x', '0px');
+        home.style.setProperty('--vm-home-parallax-y', '0px');
+        return;
+      }
+      home.style.setProperty('--vm-home-parallax-x', targetX.toFixed(2) + 'px');
+      home.style.setProperty('--vm-home-parallax-y', targetY.toFixed(2) + 'px');
+    }
+
+    window.addEventListener('mousemove', function (event) {
+      if (motionIsReduced()) return;
+      targetX = ((event.clientX / window.innerWidth) - 0.5) * 10;
+      targetY = ((event.clientY / window.innerHeight) - 0.5) * 8;
+      if (!raf) raf = requestAnimationFrame(apply);
+    });
+
+    window.addEventListener('mouseleave', function () {
+      targetX = 0;
+      targetY = 0;
+      if (!raf) raf = requestAnimationFrame(apply);
+    });
+
+    document.addEventListener('click', function (event) {
+      if (motionIsReduced()) return;
+      var ripple = document.createElement('span');
+      ripple.className = 'vm-home__click-ripple';
+      ripple.style.left = event.clientX + 'px';
+      ripple.style.top = event.clientY + 'px';
+      document.body.appendChild(ripple);
+      window.setTimeout(function () {
+        ripple.remove();
+      }, 700);
+    });
   }
 
   if (document.readyState === 'loading') {

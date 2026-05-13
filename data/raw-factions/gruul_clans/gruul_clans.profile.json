@@ -1,0 +1,952 @@
+{
+  "schema_version": "1.0.0",
+  "profile_version": "1.1.0",
+  "faction_id": "gruul_clans",
+  "faction_name": "Gruul Clans",
+  "faction_type": "Guild",
+  "plane_or_setting": "Ravnica",
+  "color_identity": [
+    "Red",
+    "Green"
+  ],
+  "color_pair_or_group": "Red-Green",
+  "source_review_date": "2026-05-09",
+  "last_full_review": "2026-05-09",
+  "last_incremental_review": "2026-05-09",
+  "last_updated": "2026-05-09",
+  "site_surface": {
+    "display_name": "Gruul Clans",
+    "short_summary": "A loose red-green alliance of Ravnican clans rooted in the Rubblebelt, the Gruul are former stewards of the wild who became anti-civilization raiders after their lands and role were crushed by the city.",
+    "one_sentence_identity": "The Gruul Clans are Ravnica's disenfranchised red-green force of clan survival, anti-civilization rage, wild reclamation, and strength-tested leadership.",
+    "tagline": "Break the city so the wild can breathe.",
+    "primary_tags": [
+      "anti-civilization",
+      "wild reclamation",
+      "clan survival",
+      "direct action",
+      "Rubblebelt"
+    ],
+    "secondary_tags": [
+      "riot",
+      "bloodrush",
+      "Rage",
+      "old ways",
+      "strength-based leadership",
+      "ruins",
+      "beasts",
+      "bloodcrime",
+      "protective rage",
+      "clan challenge",
+      "rubblebelt survival"
+    ],
+    "tone_words": [
+      "feral",
+      "defiant",
+      "earthy",
+      "explosive",
+      "wounded",
+      "uncompromising",
+      "territorial",
+      "improvisational"
+    ],
+    "visual_keywords": [
+      "rubble",
+      "boar tusks",
+      "burning tree symbol",
+      "ruined stone",
+      "wild vines",
+      "battle scars",
+      "bonfires",
+      "mauls",
+      "cindervine",
+      "tattoos",
+      "baby hydras",
+      "dragon-bone dust",
+      "wild bunker"
+    ],
+    "best_for": [
+      "players who prefer instinct over bureaucracy",
+      "users drawn to primal freedom and anti-institutional resistance",
+      "users who see civilization as something that can erase living systems",
+      "users who value directness, embodied courage, and local clan loyalty"
+    ],
+    "content_warnings_or_sensitivity_notes": [
+      "Gruul lore includes violence, raids, body scarring, oppression, enslavement, and destructive anti-civilization themes."
+    ],
+    "claim_ids": [
+      "claim_gruul_clans_core_identity_0002",
+      "claim_gruul_clans_core_identity_0003",
+      "claim_gruul_clans_philosophy_0004",
+      "claim_gruul_clans_structure_0005",
+      "claim_gruul_clans_philosophy_0010",
+      "claim_gruul_clans_philosophy_0033",
+      "claim_gruul_clans_philosophy_0041",
+      "claim_gruul_clans_philosophy_0050",
+      "claim_gruul_clans_placement_0072",
+      "claim_gruul_clans_placement_0073",
+      "claim_gruul_clans_philosophy_0063"
+    ]
+  },
+  "core_identity": {
+    "summary": "The Gruul Clans are a loose affiliation of Ravnican red-green clans, largely associated with ruined spaces, the Rubblebelt, raiding, instinct, and resistance to civilization. Official sources frame their present destructiveness as rooted in a lost stewardship role: they once claimed or protected wild places, but urban expansion and the other guilds' disregard helped turn that role into rage, clan survival, and attempts to break the city so nature can return. Targeted repository-archive story review adds texture around Zhur-Taa bloodcrime practice, Ghor challenge dynamics, contagious Rage, and Rubblebelt survival as a motive beyond random destruction.",
+    "confirmed_claim_ids": [
+      "claim_gruul_clans_core_identity_0002",
+      "claim_gruul_clans_core_identity_0003",
+      "claim_gruul_clans_philosophy_0004",
+      "claim_gruul_clans_structure_0005",
+      "claim_gruul_clans_philosophy_0008",
+      "claim_gruul_clans_philosophy_0009",
+      "claim_gruul_clans_philosophy_0010",
+      "claim_gruul_clans_timeline_0029",
+      "claim_gruul_clans_timeline_0030",
+      "claim_gruul_clans_timeline_0031",
+      "claim_gruul_clans_philosophy_0033",
+      "claim_gruul_clans_philosophy_0041",
+      "claim_gruul_clans_philosophy_0049",
+      "claim_gruul_clans_philosophy_0050",
+      "claim_gruul_clans_philosophy_0051",
+      "claim_gruul_clans_philosophy_0054",
+      "claim_gruul_clans_structure_0055",
+      "claim_gruul_clans_philosophy_0056",
+      "claim_gruul_clans_structure_0060",
+      "claim_gruul_clans_philosophy_0061",
+      "claim_gruul_clans_structure_0062",
+      "claim_gruul_clans_philosophy_0063"
+    ],
+    "interpretive_claim_ids": [
+      "claim_gruul_clans_philosophy_0028",
+      "claim_gruul_clans_placement_0001",
+      "claim_gruul_clans_placement_0002",
+      "claim_gruul_clans_placement_0003",
+      "claim_gruul_clans_placement_0004",
+      "claim_gruul_clans_placement_0072",
+      "claim_gruul_clans_placement_0073"
+    ],
+    "unknowns": [
+      "Current long-term post-War-of-the-Spark Gruul leadership was not established by the reviewed official sources."
+    ],
+    "claim_ids": [
+      "gruul_clans_claim_0074",
+      "gruul_clans_claim_0075",
+      "gruul_clans_claim_0076",
+      "gruul_clans_claim_0077",
+      "gruul_clans_claim_0078",
+      "gruul_clans_claim_0079"
+    ]
+  },
+  "structure": {
+    "summary": "Gruul organization is loose and clan-based rather than bureaucratic. Gatecrash-era material identifies several stable clans and emphasizes that no leader had fully unified all Gruul clans. Ravnica Allegiance-era material says the clan count changes over time, that seven clans existed then, and that many Gruul follow whoever appears strongest at the moment.",
+    "known_roles": [
+      {
+        "role_name": "Clan leader / chieftain",
+        "description": "Leadership is clan-centered and strongly tied to perceived strength, combat reputation, and the ability to command fear, awe, or loyalty.",
+        "claim_ids": [
+          "claim_gruul_clans_structure_0011",
+          "claim_gruul_clans_key_figure_0012",
+          "claim_gruul_clans_key_figure_0013",
+          "claim_gruul_clans_structure_0034"
+        ],
+        "confidence": "High"
+      },
+      {
+        "role_name": "Shaman / druid",
+        "description": "Gruul history and certain clans, especially Zhur-Taa, preserve shamanic and druidic connections to beasts, old ways, and deep-earth religious expectations.",
+        "claim_ids": [
+          "claim_gruul_clans_timeline_0027",
+          "claim_gruul_clans_structure_0021",
+          "claim_gruul_clans_philosophy_0022",
+          "claim_gruul_clans_key_figure_0023"
+        ],
+        "confidence": "High"
+      },
+      {
+        "role_name": "Warrior / raider",
+        "description": "Official sources repeatedly associate Gruul with raiding parties, warfare, assaults, riot, and direct combat.",
+        "claim_ids": [
+          "claim_gruul_clans_core_identity_0003",
+          "claim_gruul_clans_philosophy_0008",
+          "claim_gruul_clans_structure_0017",
+          "claim_gruul_clans_mechanic_0040",
+          "claim_gruul_clans_mechanic_0043",
+          "claim_gruul_clans_timeline_0045"
+        ],
+        "confidence": "High"
+      },
+      {
+        "role_name": "Clan chieftain / challenge-recognized leader",
+        "description": "Story evidence shows Ghor chieftain authority being challenged publicly and Zhur-Taa war-party selection being performed through a leader touching upheld weapons.",
+        "claim_ids": [
+          "claim_gruul_clans_structure_0058",
+          "claim_gruul_clans_structure_0060",
+          "claim_gruul_clans_structure_0062"
+        ],
+        "confidence": "High"
+      },
+      {
+        "role_name": "Shaman",
+        "description": "Story evidence adds Gruul shamans as scouts, magic-users, and figures associated with clan leadership or destructive reputation, including Kal, Nikya, and Baas.",
+        "claim_ids": [
+          "claim_gruul_clans_key_figure_0053",
+          "claim_gruul_clans_structure_0055",
+          "claim_gruul_clans_key_figure_0069"
+        ],
+        "confidence": "Medium"
+      },
+      {
+        "role_name": "Tattoo artist / rage-memory keeper",
+        "description": "The Ghor Clan story uses tattooing, territory maps, and shining ink as a way to carry clan memory, rage, and destroyed-place identity.",
+        "claim_ids": [
+          "claim_gruul_clans_philosophy_0061",
+          "claim_gruul_clans_key_figure_0066"
+        ],
+        "confidence": "Medium"
+      }
+    ],
+    "leaders": [
+      {
+        "character_id": "char_borborygmos",
+        "name": "Borborygmos",
+        "role": "Burning Tree clan leader; Gruul de facto leader / mightiest clan leader in relevant eras",
+        "status": "Former",
+        "claim_ids": [
+          "claim_gruul_clans_key_figure_0012",
+          "claim_gruul_clans_key_figure_0013",
+          "claim_gruul_clans_key_figure_0035",
+          "claim_gruul_clans_key_figure_0036",
+          "claim_gruul_clans_key_figure_0046"
+        ],
+        "confidence": "High",
+        "notes": "Gatecrash-era sources emphasize that he had not unified all clans; later sources state Domri bested and replaced him."
+      },
+      {
+        "character_id": "char_domri_rade",
+        "name": "Domri Rade",
+        "role": "Planeswalker; Gruul leader / guildmaster during the Ravnica Allegiance and War of the Spark period",
+        "status": "Former",
+        "claim_ids": [
+          "claim_gruul_clans_key_figure_0036",
+          "claim_gruul_clans_timeline_0038",
+          "claim_gruul_clans_key_figure_0046",
+          "claim_gruul_clans_timeline_0047",
+          "claim_gruul_clans_structure_0048"
+        ],
+        "confidence": "High",
+        "notes": "Domri died during War of the Spark after his Spark was harvested by an Eternal."
+      },
+      {
+        "character_id": "char_ruric_thar",
+        "name": "Ruric Thar",
+        "role": "Leader of the Ghor clan",
+        "status": "Confirmed",
+        "claim_ids": [
+          "claim_gruul_clans_key_figure_0016",
+          "claim_gruul_clans_structure_0017"
+        ],
+        "confidence": "High",
+        "notes": "The name represents a two-headed ogre leader in official Gatecrash-era material."
+      },
+      {
+        "character_id": "char_nikya_of_the_old_ways",
+        "name": "Nikya of the Old Ways",
+        "role": "Leader of the Zhur-Taa clan; shaman",
+        "status": "Confirmed",
+        "claim_ids": [
+          "claim_gruul_clans_key_figure_0023",
+          "claim_gruul_clans_structure_0021",
+          "claim_gruul_clans_philosophy_0022"
+        ],
+        "confidence": "High",
+        "notes": "Known from Gatecrash-era official guide."
+      }
+    ],
+    "locations": [
+      {
+        "location_id": "loc_rubblebelt",
+        "name": "The Rubblebelt",
+        "type": "Wasteland / ruin zone",
+        "relationship_to_faction": "Primary Gruul-associated territory and recurring conflict zone with civilization and encroaching guilds.",
+        "claim_ids": [
+          "claim_gruul_clans_location_0006",
+          "claim_gruul_clans_location_0007",
+          "claim_gruul_clans_location_0025",
+          "claim_gruul_clans_relationship_0026"
+        ],
+        "confidence": "High",
+        "notes": "Described as discontinuous and bordered or surrounded by more civilized areas."
+      },
+      {
+        "location_id": "loc_skarrg",
+        "name": "Skarrg",
+        "type": "Reunion turf",
+        "relationship_to_faction": "Traditional place where Gruul clans periodically converge without guaranteed truce.",
+        "claim_ids": [
+          "claim_gruul_clans_location_0024"
+        ],
+        "confidence": "High",
+        "notes": "Associated with bonfires, roasted giant boars, battles, and temporary camaraderie."
+      },
+      {
+        "location_id": "loc_the_husk",
+        "name": "The Husk",
+        "type": "Rubblebelt area",
+        "relationship_to_faction": "Home ground of the Slizt clan.",
+        "claim_ids": [
+          "claim_gruul_clans_structure_0020"
+        ],
+        "confidence": "High",
+        "notes": "Known for elevated ruins used by Slizt ambushers."
+      },
+      {
+        "location_id": "loc_tenth_district_outskirts",
+        "name": "Tenth District outskirts",
+        "type": "Urban edge / conflict zone",
+        "relationship_to_faction": "A Gruul encampment is described as steadily encroaching into a neighborhood at the outskirts of the Tenth District.",
+        "claim_ids": [
+          "claim_gruul_clans_location_0070"
+        ],
+        "confidence": "High",
+        "notes": "Story-specific location from Clans & Legions."
+      },
+      {
+        "location_id": "loc_rubblebelt_hidden_bunker",
+        "name": "Rubblebelt-adjacent hidden bunker",
+        "type": "Hidden bunker / wild ruin",
+        "relationship_to_faction": "A bunker near the Gruul Rubblebelt is hidden by weeds and cindervine enchantments and includes baby hydras.",
+        "claim_ids": [
+          "claim_gruul_clans_location_0071"
+        ],
+        "confidence": "High",
+        "notes": "Story-specific location texture from Clans & Legions."
+      },
+      {
+        "location_id": "loc_zhur_taa_territory",
+        "name": "Zhur-Taa territory",
+        "type": "Clan territory",
+        "relationship_to_faction": "Zhur-Taa territory is the site of Kal’s surveillance of Izzet activity and Nikya’s bloodcrime response in Gruul Ingenuity.",
+        "claim_ids": [
+          "claim_gruul_clans_key_figure_0053",
+          "claim_gruul_clans_philosophy_0056"
+        ],
+        "confidence": "High",
+        "notes": "Repository-archive story support."
+      }
+    ],
+    "internal_divisions": [
+      {
+        "division_id": "div_gruul_clans_0001",
+        "name": "Burning Tree clan",
+        "description": "Largest, most diverse, and most powerful stable Gruul clan in the Gatecrash-era guide; associated with Borborygmos and with a symbol widely treated as the guild symbol.",
+        "claim_ids": [
+          "claim_gruul_clans_structure_0014",
+          "claim_gruul_clans_visual_identity_0015",
+          "claim_gruul_clans_key_figure_0012",
+          "claim_gruul_clans_key_figure_0035"
+        ],
+        "confidence": "High",
+        "notes": "Later clan count changed, but Burning Tree remains central to reviewed sources."
+      },
+      {
+        "division_id": "div_gruul_clans_0002",
+        "name": "Ghor clan",
+        "description": "Clan led by Ruric Thar and described as responsible for especially frequent and savage assaults on Ravnican citizenry.",
+        "claim_ids": [
+          "claim_gruul_clans_key_figure_0016",
+          "claim_gruul_clans_structure_0017"
+        ],
+        "confidence": "High",
+        "notes": "Also appears in 'Rage of the Unsung' as a story context."
+      },
+      {
+        "division_id": "div_gruul_clans_0003",
+        "name": "Scab clan",
+        "description": "Multi-race clan whose warriors despise pretentiousness and treat scarred or maimed bodies as authentic outward expressions of spirit.",
+        "claim_ids": [
+          "claim_gruul_clans_structure_0018"
+        ],
+        "confidence": "High",
+        "notes": "Gatecrash-era official guide."
+      },
+      {
+        "division_id": "div_gruul_clans_0004",
+        "name": "Bolrac clan",
+        "description": "Clan of large brutes whose leadership changes frequently and whose members specialize in toppling large structures.",
+        "claim_ids": [
+          "claim_gruul_clans_structure_0019"
+        ],
+        "confidence": "High",
+        "notes": "Gatecrash-era official guide."
+      },
+      {
+        "division_id": "div_gruul_clans_0005",
+        "name": "Slizt clan",
+        "description": "Mostly viashino clan using stealth, elevation, ranged attacks, and ambush tactics from high ruins.",
+        "claim_ids": [
+          "claim_gruul_clans_structure_0020"
+        ],
+        "confidence": "High",
+        "notes": "Gatecrash-era official guide."
+      },
+      {
+        "division_id": "div_gruul_clans_0006",
+        "name": "Zhur-Taa clan",
+        "description": "Old-ways clan tied to beasts, shamans, the Utmungr, and expectation of a boar-god apocalypse.",
+        "claim_ids": [
+          "claim_gruul_clans_structure_0021",
+          "claim_gruul_clans_philosophy_0022",
+          "claim_gruul_clans_key_figure_0023",
+          "claim_gruul_clans_philosophy_0037"
+        ],
+        "confidence": "High",
+        "notes": "Gatecrash and Ravnica Allegiance sources both support its mythic/religious importance."
+      }
+    ],
+    "unknowns": [
+      "Reviewed sources did not identify every one of the seven Ravnica Allegiance-era clans by name.",
+      "Reviewed sources did not establish a stable post-Domri long-term Gruul leader."
+    ]
+  },
+  "great_tension": {
+    "summary": "Gruul's central tension is not merely chaos versus order; it is erased wildness versus totalizing city. Official sources depict the guild as former stewards of Ravnica's wild places who became destructive after marginalization, enslavement, and the loss of wilderness. Their rage is aimed at civilization, but individual stories also show that Rage can be personal, cultural, historical, and tied to lost stories. MTG-Stories archive additions strengthen this tension by showing Gruul anger responding to bloodcrime, territorial defilement, and the dying Rubblebelt rather than functioning only as random destruction.",
+    "status": "Supported Interpretation",
+    "claim_ids": [
+      "claim_gruul_clans_philosophy_0010",
+      "claim_gruul_clans_relationship_0026",
+      "claim_gruul_clans_timeline_0027",
+      "claim_gruul_clans_philosophy_0028",
+      "claim_gruul_clans_timeline_0029",
+      "claim_gruul_clans_timeline_0030",
+      "claim_gruul_clans_timeline_0031",
+      "claim_gruul_clans_philosophy_0033",
+      "claim_gruul_clans_philosophy_0050",
+      "claim_gruul_clans_philosophy_0051",
+      "claim_gruul_clans_placement_0001",
+      "claim_gruul_clans_placement_0003",
+      "claim_gruul_clans_philosophy_0056",
+      "claim_gruul_clans_philosophy_0063",
+      "claim_gruul_clans_relationship_0064",
+      "claim_gruul_clans_timeline_0065",
+      "claim_gruul_clans_placement_0072"
+    ],
+    "interpretation_warning": "The ecological/grievance framing is source-supported, but the exact wording of this tension is interpretive synthesis."
+  },
+  "historical_timeline": [
+    {
+      "event_id": "event_gruul_clans_0001",
+      "event": "Before the guilds, Gruul druids and shamans celebrated and claimed the wilds of Ravnica.",
+      "date_or_era": "Pre-Guildpact / before the guilds",
+      "claim_ids": [
+        "claim_gruul_clans_timeline_0027"
+      ],
+      "confidence": "High",
+      "notes": "Gatecrash-era official guide."
+    },
+    {
+      "event_id": "event_gruul_clans_0002",
+      "event": "When the Guildpact was written, the Gruul were given stewardship over Ravnica's wild places and natural beauty.",
+      "date_or_era": "Guildpact foundation era",
+      "claim_ids": [
+        "claim_gruul_clans_timeline_0029"
+      ],
+      "confidence": "High",
+      "notes": "Ravnica Allegiance flavor guide."
+    },
+    {
+      "event_id": "event_gruul_clans_0003",
+      "event": "Urban expansion and other guilds' disregard for Gruul warnings destroyed wilderness and contributed to Gruul marginalization and enslavement.",
+      "date_or_era": "Post-Guildpact urban expansion",
+      "claim_ids": [
+        "claim_gruul_clans_timeline_0030"
+      ],
+      "confidence": "High",
+      "notes": "This is the official flavor guide's historical framing."
+    },
+    {
+      "event_id": "event_gruul_clans_0004",
+      "event": "Gruul leadership crumbled and the Gruul became agents of chaos and destruction.",
+      "date_or_era": "After centuries of marginalization and oppression",
+      "claim_ids": [
+        "claim_gruul_clans_timeline_0031"
+      ],
+      "confidence": "High",
+      "notes": "Ravnica Allegiance flavor guide."
+    },
+    {
+      "event_id": "event_gruul_clans_0005",
+      "event": "Gatecrash-era sources described six stable Gruul clans and Borborygmos as the mightiest clan leader.",
+      "date_or_era": "Gatecrash era",
+      "claim_ids": [
+        "claim_gruul_clans_structure_0011",
+        "claim_gruul_clans_key_figure_0012",
+        "claim_gruul_clans_key_figure_0013",
+        "claim_gruul_clans_structure_0014"
+      ],
+      "confidence": "High",
+      "notes": "Later sources say clan count changes and identify seven clans during Ravnica Allegiance."
+    },
+    {
+      "event_id": "event_gruul_clans_0006",
+      "event": "Zhur-Taa claim bloodcrime and hunt Rakdos after a reported massacre and territorial defilement in Gruul Ingenuity.",
+      "date_or_era": "Gatecrash story era / published 2013-01-02",
+      "claim_ids": [
+        "claim_gruul_clans_philosophy_0056",
+        "claim_gruul_clans_relationship_0057",
+        "claim_gruul_clans_structure_0058"
+      ],
+      "confidence": "Medium",
+      "notes": "Story-supported; Rakdos blame is presented through in-world characters."
+    },
+    {
+      "event_id": "event_gruul_clans_0007",
+      "event": "Arrus challenges Ruric and Thar over the dying Rubblebelt, leading them to answer that Selesnya will get war in Rage of the Unsung.",
+      "date_or_era": "Ravnica Allegiance story era / published 2019-01-30",
+      "claim_ids": [
+        "claim_gruul_clans_relationship_0064",
+        "claim_gruul_clans_timeline_0065",
+        "claim_gruul_clans_key_figure_0066"
+      ],
+      "confidence": "High",
+      "notes": "Key story event for protective/ecological Rage interpretation."
+    },
+    {
+      "event_id": "event_gruul_clans_0008",
+      "event": "Boros/Wojek material in Clans & Legions ties Baas Solvar Radley, a Gruul prisoner-release request, and a Gruul encampment near the Tenth District.",
+      "date_or_era": "Guilds of Ravnica story era / published 2018-10-24",
+      "claim_ids": [
+        "claim_gruul_clans_key_figure_0068",
+        "claim_gruul_clans_location_0070",
+        "claim_gruul_clans_location_0071"
+      ],
+      "confidence": "Medium",
+      "notes": "Boros-file perspective; useful for relationship and location metadata."
+    }
+  ],
+  "key_figures": [
+    {
+      "character_id": "char_borborygmos",
+      "name": "Borborygmos",
+      "role": "Cyclops; Burning Tree leader; de facto / mightiest Gruul leader in relevant eras",
+      "relationship_to_faction": "A central strength-based leader whose authority derived from personal might and Burning Tree's dominance.",
+      "claim_ids": [
+        "claim_gruul_clans_key_figure_0012",
+        "claim_gruul_clans_key_figure_0013",
+        "claim_gruul_clans_key_figure_0035",
+        "claim_gruul_clans_key_figure_0036",
+        "claim_gruul_clans_key_figure_0046"
+      ],
+      "confidence": "High",
+      "notes": "Supplanted by Domri in Ravnica Allegiance / War of the Spark-era sources."
+    },
+    {
+      "character_id": "char_domri_rade",
+      "name": "Domri Rade",
+      "role": "Planeswalker; Gruul leader / guildmaster during a short era",
+      "relationship_to_faction": "Rose by besting Borborygmos; led Gruul warriors during War of the Spark; died after his Spark was harvested.",
+      "claim_ids": [
+        "claim_gruul_clans_key_figure_0036",
+        "claim_gruul_clans_timeline_0038",
+        "claim_gruul_clans_timeline_0045",
+        "claim_gruul_clans_key_figure_0046",
+        "claim_gruul_clans_timeline_0047",
+        "claim_gruul_clans_structure_0048"
+      ],
+      "confidence": "High",
+      "notes": "Treat as former, not current, leader."
+    },
+    {
+      "character_id": "char_ruric_thar",
+      "name": "Ruric Thar",
+      "role": "Ghor clan leader",
+      "relationship_to_faction": "Represents one of the major clan leadership structures within Gruul.",
+      "claim_ids": [
+        "claim_gruul_clans_key_figure_0016",
+        "claim_gruul_clans_structure_0017"
+      ],
+      "confidence": "High",
+      "notes": "Official guide identifies Ruric Thar as a two-headed ogre."
+    },
+    {
+      "character_id": "char_nikya_of_the_old_ways",
+      "name": "Nikya of the Old Ways",
+      "role": "Zhur-Taa leader and shaman",
+      "relationship_to_faction": "Embodies the old-ways, shamanic, deep-earth side of Gruul culture.",
+      "claim_ids": [
+        "claim_gruul_clans_key_figure_0023",
+        "claim_gruul_clans_structure_0021",
+        "claim_gruul_clans_philosophy_0022"
+      ],
+      "confidence": "High",
+      "notes": "Known from Gatecrash-era official guide."
+    },
+    {
+      "character_id": "char_gan_shokta",
+      "name": "Gan Shokta",
+      "role": "Gruul warrior",
+      "relationship_to_faction": "Appears among Gruul fighters in War of the Spark.",
+      "claim_ids": [
+        "claim_gruul_clans_timeline_0045"
+      ],
+      "confidence": "High",
+      "notes": "Included as a story appearance, not a structural leader in the reviewed sources."
+    },
+    {
+      "character_id": "char_kal_zhur_taa",
+      "name": "Kal",
+      "role": "Zhur-Taa shaman and scout",
+      "relationship_to_faction": "Serves Nikya’s Zhur-Taa assignment and demonstrates improvisational magic in Gruul Ingenuity.",
+      "claim_ids": [
+        "claim_gruul_clans_key_figure_0053",
+        "claim_gruul_clans_structure_0055",
+        "claim_gruul_clans_philosophy_0059"
+      ],
+      "confidence": "Medium",
+      "notes": "Useful for placement nuance; not treated as a major cross-story character."
+    },
+    {
+      "character_id": "char_arrus",
+      "name": "Arrus",
+      "role": "Ghor Clan viashino tattoo artist and challenger",
+      "relationship_to_faction": "POV character for Ghor Rage, clanless exile, Rubblebelt decline, and the public challenge to Ruric and Thar.",
+      "claim_ids": [
+        "claim_gruul_clans_key_figure_0066",
+        "claim_gruul_clans_timeline_0065"
+      ],
+      "confidence": "High",
+      "notes": "Important for non-leader Gruul worldview."
+    },
+    {
+      "character_id": "char_dryzek",
+      "name": "Dryzek",
+      "role": "Legendary Ghor berserker",
+      "relationship_to_faction": "His return from prison creates a power-struggle test for Ghor Clan loyalty and chieftain authority.",
+      "claim_ids": [
+        "claim_gruul_clans_key_figure_0067",
+        "claim_gruul_clans_structure_0060"
+      ],
+      "confidence": "High",
+      "notes": "Story-specific Ghor figure."
+    },
+    {
+      "character_id": "char_baas_solvar_radley",
+      "name": "Baas Solvar Radley",
+      "role": "Gruul shaman / prisoner-file subject",
+      "relationship_to_faction": "Boros-file material identifies Baas Solvar Radley, while Gruul story material recognizes Baas as a shaman with destructive reputation.",
+      "claim_ids": [
+        "claim_gruul_clans_key_figure_0068",
+        "claim_gruul_clans_key_figure_0069"
+      ],
+      "confidence": "Medium",
+      "notes": "Use full name for Clans & Legions; avoid assuming details beyond inspected sources."
+    }
+  ],
+  "canonical_flavor_text": [],
+  "views_on_other_factions": [
+    {
+      "relationship_id": "rel_gruul_clans_other_guilds_0001",
+      "other_faction": "Other Ravnican guilds generally",
+      "relationship_summary": "Other guilds' encroachment on Gruul-occupied Rubblebelt territory generates recurring conflict.",
+      "evidence_type": "Direct",
+      "claim_ids": [
+        "claim_gruul_clans_relationship_0026",
+        "claim_gruul_clans_timeline_0030"
+      ],
+      "confidence": "High",
+      "notes": "Keep broad; do not invent specific bilateral politics without source support."
+    },
+    {
+      "relationship_id": "rel_gruul_clans_selesnya_conclave_0001",
+      "other_faction": "Selesnya Conclave",
+      "relationship_summary": "Official story evidence shows at least one Gruul narrator identifying anger at Selesnya as part of his Rage, while also acknowledging Selesnyan healing magic as nature-kindred but orderly. Story evidence adds Arrus’s conclusion that Selesnya growth magic leaches Gruul land and Ruric-and-Thar’s answer of war.",
+      "evidence_type": "Direct",
+      "claim_ids": [
+        "claim_gruul_clans_philosophy_0051",
+        "claim_gruul_clans_relationship_0064",
+        "claim_gruul_clans_timeline_0065"
+      ],
+      "confidence": "Medium",
+      "notes": "Based on a character-perspective story; avoid overgeneralizing to all Gruul."
+    },
+    {
+      "relationship_id": "rel_gruul_clans_civilization_0001",
+      "other_faction": "Civilization / urban Ravnica",
+      "relationship_summary": "Gruul identity is repeatedly framed around hostility to civilization and the desire for the natural world to reclaim Ravnica.",
+      "evidence_type": "Direct",
+      "claim_ids": [
+        "claim_gruul_clans_philosophy_0010",
+        "claim_gruul_clans_timeline_0030",
+        "claim_gruul_clans_philosophy_0033",
+        "claim_gruul_clans_philosophy_0041"
+      ],
+      "confidence": "High",
+      "notes": "This is a broader civilizational stance rather than a single guild-to-guild relationship."
+    },
+    {
+      "relationship_id": "rel_gruul_clans_rakdos_cult_0001",
+      "other_faction": "Cult of Rakdos",
+      "relationship_summary": "In Gruul Ingenuity, Zhur-Taa characters blame Rakdos for a massacre and assemble a hunt in response.",
+      "evidence_type": "Direct",
+      "claim_ids": [
+        "claim_gruul_clans_relationship_0057"
+      ],
+      "confidence": "Medium",
+      "notes": "Story-specific and in-world."
+    },
+    {
+      "relationship_id": "rel_gruul_clans_izzet_league_0001",
+      "other_faction": "Izzet League",
+      "relationship_summary": "In Gruul Ingenuity, Kal watches Izzet activity near Zhur-Taa territory and later adapts observed Izzet-like fire and lightning into an act Durri accepts as feeling Gruul.",
+      "evidence_type": "Direct",
+      "claim_ids": [
+        "claim_gruul_clans_key_figure_0053",
+        "claim_gruul_clans_philosophy_0059"
+      ],
+      "confidence": "Medium",
+      "notes": "Territorial suspicion plus useful observation/adaptation."
+    },
+    {
+      "relationship_id": "rel_gruul_clans_boros_legion_0001",
+      "other_faction": "Boros Legion",
+      "relationship_summary": "In Clans & Legions, Boros/Wojek material involves Gruul prisoner-release logistics, Gruul riot records, and a Gruul encampment near the Tenth District.",
+      "evidence_type": "Direct",
+      "claim_ids": [
+        "claim_gruul_clans_key_figure_0068",
+        "claim_gruul_clans_location_0070"
+      ],
+      "confidence": "Medium",
+      "notes": "Boros-file perspective."
+    }
+  ],
+  "mechanics": [
+    {
+      "mechanic_id": "mech_riot",
+      "mechanic_name": "Riot",
+      "associated_set": "Ravnica Allegiance; Ravnica Remastered reprint/rules support",
+      "rules_summary": "A creature with riot enters with its controller's choice of a +1/+1 counter or haste. The choice is made as the creature enters the battlefield and cannot be responded to as a separate choice.",
+      "design_or_flavor_connection": "Riot turns Gruul immediacy into a gameplay fork: hit faster or hit bigger.",
+      "claim_ids": [
+        "claim_gruul_clans_mechanic_0040",
+        "claim_gruul_clans_philosophy_0041"
+      ],
+      "confidence": "High",
+      "notes": "Use current Comprehensive Rules for future rules-critical updates."
+    },
+    {
+      "mechanic_id": "mech_bloodrush",
+      "mechanic_name": "Bloodrush",
+      "associated_set": "Gatecrash; Dragon's Maze",
+      "rules_summary": "Bloodrush is an ability word for activated abilities on creature cards in hand; the player pays a cost and discards the card to target an attacking creature with a card-specific combat bonus.",
+      "design_or_flavor_connection": "Bloodrush supports a combat-first Gruul pattern: a creature can become immediate force even before being cast.",
+      "claim_ids": [
+        "claim_gruul_clans_mechanic_0043",
+        "claim_gruul_clans_mechanic_0044"
+      ],
+      "confidence": "High",
+      "notes": "Ability-word details vary by card."
+    }
+  ],
+  "search_and_filter_metadata": {
+    "aliases": [
+      "Gruul",
+      "The Gruul",
+      "Gruul Clans",
+      "Ghor-Clan",
+      "Baas Solvar Radley"
+    ],
+    "related_terms": [
+      "Rubblebelt",
+      "Skarrg",
+      "Burning Tree",
+      "Ghor Clan",
+      "Scab Clan",
+      "Bolrac Clan",
+      "Slizt Clan",
+      "Zhur-Taa",
+      "Utmungr",
+      "Ilharg",
+      "End-Raze",
+      "Rage",
+      "bloodcrime",
+      "Raze-Boar",
+      "Rubblebelt decline",
+      "Tenth District outskirts",
+      "Zhur-Taa territory",
+      "Wargate",
+      "cindervine",
+      "Jezeru dams",
+      "dragon-bone dust",
+      "baby hydras",
+      "clanless",
+      "tattoo ink",
+      "Gruul Ingenuity",
+      "Rage of the Unsung",
+      "Clans & Legions"
+    ],
+    "known_mechanics": [
+      "riot",
+      "bloodrush"
+    ],
+    "known_characters": [
+      "Borborygmos",
+      "Domri Rade",
+      "Ruric Thar",
+      "Nikya of the Old Ways",
+      "Gan Shokta",
+      "Kal",
+      "Arrus",
+      "Dryzek",
+      "Baas Solvar Radley",
+      "Baas",
+      "Durri",
+      "Brazer"
+    ],
+    "known_locations": [
+      "Ravnica",
+      "Rubblebelt",
+      "Skarrg",
+      "The Husk",
+      "Tenth District",
+      "Tenth District outskirts",
+      "Rubblebelt-adjacent hidden bunker",
+      "Zhur-Taa territory",
+      "Wargate",
+      "Jezeru dams"
+    ],
+    "sets_or_story_arcs": [
+      "Gatecrash",
+      "Dragon's Maze",
+      "Ravnica Allegiance",
+      "War of the Spark",
+      "Ravnica Remastered",
+      "Gatecrash: Gruul Ingenuity",
+      "Guilds of Ravnica: Clans & Legions",
+      "Ravnica Allegiance: Rage of the Unsung"
+    ],
+    "tags": [
+      "red-green",
+      "Ravnica guild",
+      "anti-civilization",
+      "clan-based",
+      "wild reclamation",
+      "strength-based leadership",
+      "raiders",
+      "ruins",
+      "beasts",
+      "repository-archive-supported",
+      "bloodcrime",
+      "protective-rage",
+      "clan-challenge",
+      "rubblebelt-survival",
+      "zhur-taa",
+      "ghor-clan"
+    ],
+    "search_keywords": [
+      "Gruul Clans Ravnica",
+      "Gruul Rubblebelt",
+      "Gruul riot",
+      "Gruul bloodrush",
+      "Borborygmos Burning Tree",
+      "Domri Rade Gruul",
+      "Zhur-Taa Ilharg",
+      "Rage of the Unsung Gruul",
+      "Baas Solvar Radley",
+      "Arrus",
+      "Dryzek",
+      "Kal",
+      "bloodcrime",
+      "Raze-Boar",
+      "Wargate",
+      "Jezeru dams",
+      "cindervine enchantments",
+      "baby hydras",
+      "Zhur-Taa territory",
+      "Gruul Clans",
+      "Gruul",
+      "Borborygmos",
+      "Domri Rade",
+      "Rubblebelt",
+      "Nikya of the Old Ways",
+      "Zhur-Taa",
+      "The Old Ways",
+      "bloodthirst",
+      "Skarrg",
+      "riot"
+    ],
+    "story_corpus_paths_added": 6
+  },
+  "data_quality": {
+    "overall_confidence": "High",
+    "official_source_coverage": "Strong",
+    "weakly_supported_sections": [
+      "current post-War-of-the-Spark leadership",
+      "complete list of Ravnica Allegiance-era seven clans",
+      "fine-grained bilateral views toward every other guild",
+      "canonical flavor text excerpts",
+      "Repository-only story details from archived Typst files should be cross-checked against original Wizards story pages if located.",
+      "Precise exhaustive coverage for every requested repository search term requires a local clone or GitHub API/code-search pass."
+    ],
+    "known_gaps": [
+      "Officially reviewed sources did not identify every current clan by name.",
+      "No stable post-Domri leader was confirmed from reviewed official sources.",
+      "Card-by-card flavor-text extraction was intentionally deferred to avoid uncited card claims.",
+      "This incremental update added only source-backed claims from inspected story files; it did not add unsupported claims for requested terms where no inspected evidence was added.",
+      "Some story claims are character-perspective evidence and should not be treated as omniscient setting facts."
+    ],
+    "needs_review": true,
+    "notes": "Updated to profile_version 1.1.0 with targeted MTG-Stories repository-archive evidence. Overall Gruul identity remains strongly supported by official sources, while new story details are intentionally labeled Repository Archive Supported or Supported Interpretation.",
+    "corpus_upgrade": {
+      "review_date": "2026-05-09",
+      "status": "MTG-Stories corpus evidence added",
+      "claim_ids": [
+        "gruul_clans_claim_0074",
+        "gruul_clans_claim_0075",
+        "gruul_clans_claim_0076",
+        "gruul_clans_claim_0077",
+        "gruul_clans_claim_0078",
+        "gruul_clans_claim_0079"
+      ]
+    }
+  },
+  "research_limitations": [
+    {
+      "limitation": "Gatecrash and Ravnica Allegiance sources present different clan-count snapshots.",
+      "impact": "Clan count must be stored as era-specific rather than treated as a permanent number.",
+      "affected_fields": [
+        "structure.internal_divisions",
+        "historical_timeline",
+        "data_quality"
+      ],
+      "notes": "Gatecrash guide names six stable clans; Ravnica Allegiance flavor guide states seven clans at that time and that the count changes."
+    },
+    {
+      "limitation": "The reviewed sources did not establish a current long-term Gruul leader after Domri's death.",
+      "impact": "Profile should avoid naming a current guildmaster unless a later official source is added.",
+      "affected_fields": [
+        "structure.leaders",
+        "key_figures",
+        "data_quality"
+      ],
+      "notes": "Marked unknown rather than inferred."
+    },
+    {
+      "limitation": "Some strong cultural signals come from character-perspective fiction.",
+      "impact": "Use those claims as support, not as universal statements about all Gruul members.",
+      "affected_fields": [
+        "great_tension",
+        "placement",
+        "tone_words"
+      ],
+      "notes": "Especially relevant to Rage, Selesnya anger, and Ghor Clan lived experience."
+    },
+    {
+      "limitation": "Targeted follow-up used inspected repository story files rather than a guaranteed exhaustive local clone of the full MTG-Stories repository.",
+      "impact": "Terms not represented in the newly inspected files were not converted into claims unless already supported elsewhere.",
+      "affected_fields": [
+        "sources",
+        "claims",
+        "profile.search_and_filter_metadata",
+        "placement.chatbot_guidance"
+      ],
+      "notes": "Recommended future pass: clone the repository locally or use GitHub code search/API to confirm every requested term across all archived stories."
+    },
+    "MTG-Stories repository entries are treated as searchable archive copies; official Wizards pages should remain the primary canon authority when available."
+  ]
+}
