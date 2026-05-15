@@ -48,13 +48,14 @@ Files: `archscry/index.html`, `assets/js/index.js`, `assets/js/shared.js`.
 
 Flow:
 
-1. Load `/data/factions.json` and `/data/placement-model.json`.
+1. Load `/data/factions.json`, `/data/placement-model.json`, deck tags, and optional Scryfall discovery indexes.
 2. Render starter profile chips.
 3. Resume Supabase/session state and pending OAuth saves.
 4. Show a saved/cached result or the landing state.
 5. Quick path creates adaptive state, renders answer cards, applies selections, and finalizes.
 6. The Scrying Terminal remains behind a feature flag and is hidden by default.
-7. Result rendering switches between primary and adjacent fits, renders deck/source guidance, loads Scryfall card art, and exposes save actions.
+7. Result rendering switches between primary and adjacent fits, translates raw placement signals into a faction-native presenter layer, renders deck/source guidance, loads Scryfall card art, and exposes save actions.
+8. Maze links carry an Archscry handoff through query parameters and `localStorage` so Maze can show a return banner back to the originating dossier.
 
 ## Scrying Terminal Backend
 
@@ -133,6 +134,29 @@ The Maze has three modes:
 - Loom: build a query from visual filters.
 
 The UI keeps mode state, filter state, search results, pagination, recent searches, keyword suggestions, query inspector content, and modal state in module-local variables. It exposes handlers for existing inline attributes after module load.
+
+Maze also has two discovery layers that do not replace search:
+
+1. General Discovery Paths are static query seeds for fresh users.
+2. From Your Reading paths are rendered only when a saved or cached placement result exists.
+
+The lightweight stash uses `localStorage` key `vm_maze_card_stash_v1`. Saved cards keep normalized Scryfall identifiers, name, set, collector number, type line, color identity, URI, image URI, soft stash section, and source query. It is intentionally not a deckbuilder: there is no legality validation, mana curve, land advice, account sync, or direct Moxfield/Archidekt export.
+
+## Scryfall Bulk Indexing
+
+Files: `scripts/download-scryfall-bulk.mjs`, `scripts/build-scryfall-indexes.mjs`, `scripts/inspect-scryfall-indexes.mjs`, `data/scryfall/indexes/*.json`, `data/taxonomy/vox-mana-tags.json`.
+
+The Scryfall pipeline downloads ignored `oracle_cards` bulk data and builds committed derived indexes. The builder reads the centralized Vox Mana tag taxonomy, applies categorized rule-based detection, and emits mechanical, playstyle, identity, and lore-tone tags.
+
+The committed flavor index is deliberately slim. It stores identifiers, display metadata, image references, categorized tags, lore tones, and short display excerpts, not full oracle or flavor text. If the potential flavor index is too large, the builder samples a smaller display index while keeping aggregate color and mechanic summaries available.
+
+Archscry uses these indexes to add:
+
+- reading summary and tag interpretation cards,
+- Commander Compass metadata enrichment,
+- short Flavor Echoes with Scryfall links,
+- personalized Maze discovery paths,
+- Apocrypha library links.
 
 ## Visual Builder Query Logic
 

@@ -146,6 +146,8 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 .sb-btn{display:block;width:100%;text-align:left;padding:0.42rem 0.6rem;font-size:0.85rem;color:var(--text-dim);background:transparent;border:none;cursor:pointer;transition:color 0.12s,background 0.12s;line-height:1.35;font-family:'Crimson Pro',serif}
 .sb-btn:hover{color:var(--text);background:rgba(184,149,74,0.04)}
 .sb-btn span{display:block;font-size:0.7rem;color:var(--text-muted);font-style:italic;margin-top:1px}
+.sb-btn.is-reading{color:var(--teal-l)}
+.sb-btn.is-reading:hover{background:var(--teal-bg)}
 .color-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:4px}
 .color-sb-btn{padding:0.35rem;font-family:'Cinzel',serif;font-size:0.65rem;letter-spacing:0.06em;text-transform:uppercase;border:1px solid var(--border);background:transparent;color:var(--text-dim);cursor:pointer;transition:all 0.12s;text-align:center}
 .color-sb-btn:hover{background:rgba(184,149,74,0.06);color:var(--text);border-color:var(--border-s)}
@@ -158,6 +160,31 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 /* ── RESULTS ──────────────────────────── */
 .r-main{flex:1;min-width:0;display:flex;flex-direction:column;overflow-y:auto}
 .results-header{padding:0.85rem 1.25rem;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:10px;flex-shrink:0;flex-wrap:wrap;background:rgba(12,11,10,0.78);backdrop-filter:blur(6px)}
+.maze-return-banner{
+  display:none;
+  align-items:center;
+  justify-content:space-between;
+  gap:1rem;
+  padding:0.75rem 1.25rem;
+  border-bottom:1px solid var(--border-t);
+  background:rgba(26,170,150,0.08);
+  color:var(--text-dim);
+}
+.maze-return-banner.is-visible{display:flex}
+.maze-return-copy{font-size:0.88rem;line-height:1.4}
+.maze-return-copy strong{color:var(--teal-l);font-weight:500}
+.maze-return-link{
+  font-family:'Cinzel',serif;
+  font-size:0.58rem;
+  letter-spacing:0.12em;
+  text-transform:uppercase;
+  color:var(--gold);
+  text-decoration:none;
+  border:1px solid var(--border-s);
+  padding:0.38rem 0.72rem;
+  white-space:nowrap;
+}
+.maze-return-link:hover{background:rgba(184,149,74,0.08);color:var(--gold-l)}
 .res-count{font-family:'Cinzel',serif;font-size:0.72rem;letter-spacing:0.1em;color:var(--text-dim);flex:1}
 .res-count strong{color:var(--text);font-weight:500}
 .res-order{background:var(--bg3);border:1px solid var(--border);color:var(--text-dim);font-family:'Cinzel',serif;font-size:0.62rem;letter-spacing:0.1em;padding:0.35rem 0.6rem;cursor:pointer;outline:none;text-transform:uppercase}
@@ -165,6 +192,22 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 .card-item{cursor:pointer;position:relative;overflow:hidden;border-radius:4.5%}
 .card-item img{width:100%;display:block;border-radius:4.5%;border:1px solid var(--border);transition:transform 0.2s,border-color 0.2s}
 .card-item:hover img{transform:translateY(-3px) scale(1.02);border-color:var(--border-s)}
+.card-stash-btn{
+  position:absolute;
+  top:7px;
+  right:7px;
+  z-index:3;
+  min-width:30px;
+  height:28px;
+  border:1px solid rgba(26,170,150,0.35);
+  background:rgba(12,11,10,0.84);
+  color:var(--teal-l);
+  font-family:'IBM Plex Mono',monospace;
+  font-size:0.72rem;
+  cursor:pointer;
+  transition:background 0.15s,border-color 0.15s,color 0.15s;
+}
+.card-stash-btn:hover,.card-stash-btn.on{background:var(--teal-bg);border-color:var(--border-ts);color:var(--text)}
 .card-skeleton{width:100%;aspect-ratio:63/88;background:var(--bg3);border:1px solid var(--border);border-radius:4.5%;background-image:linear-gradient(90deg,var(--bg3) 0%,var(--bg4) 50%,var(--bg3) 100%);background-size:400px;animation:shimmer 1.4s ease-in-out infinite}
 .card-item-name{font-size:0.72rem;color:var(--text-muted);text-align:center;margin-top:5px;line-height:1.3}
 .results-footer{padding:1rem 1.25rem;border-top:1px solid var(--border);display:flex;align-items:center;justify-content:center;gap:12px;flex-shrink:0}
@@ -224,9 +267,40 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 .m-btn-gold:hover{background:rgba(184,149,74,0.08)}
 .m-btn-teal{color:var(--teal);border-color:var(--border-t)}
 .m-btn-teal:hover{background:var(--teal-bg)}
+.m-stash-actions{display:flex;gap:6px;flex-wrap:wrap;margin-top:0.75rem;padding-top:0.75rem;border-top:1px solid var(--border)}
+
+/* Stash */
+.stash-panel{
+  position:fixed;
+  right:1rem;
+  bottom:1rem;
+  width:min(360px,calc(100vw - 2rem));
+  max-height:54vh;
+  z-index:180;
+  border:1px solid var(--border-s);
+  background:rgba(12,11,10,0.94);
+  box-shadow:0 20px 60px rgba(0,0,0,0.42);
+  display:flex;
+  flex-direction:column;
+}
+.stash-head{display:flex;align-items:center;gap:10px;padding:0.75rem 0.9rem;border-bottom:1px solid var(--border)}
+.stash-title{font-family:'Cinzel',serif;font-size:0.66rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);flex:1}
+.stash-count{font-family:'IBM Plex Mono',monospace;font-size:0.7rem;color:var(--text-muted)}
+.stash-body{overflow:auto;padding:0.75rem 0.9rem;display:flex;flex-direction:column;gap:0.85rem}
+.stash-empty{font-size:0.86rem;color:var(--text-muted);font-style:italic}
+.stash-section-title{font-family:'Cinzel',serif;font-size:0.58rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--teal);margin-bottom:0.35rem}
+.stash-list{display:flex;flex-direction:column;gap:4px}
+.stash-item{display:grid;grid-template-columns:1fr auto;gap:8px;align-items:center;padding:0.35rem 0;border-bottom:1px solid rgba(184,149,74,0.06)}
+.stash-name{font-size:0.82rem;color:var(--text-dim);line-height:1.25}
+.stash-remove{border:1px solid rgba(176,48,48,0.25);background:transparent;color:#d28a8a;font-family:'IBM Plex Mono',monospace;font-size:0.68rem;padding:0.1rem 0.35rem;cursor:pointer}
+.stash-actions{display:flex;gap:6px;flex-wrap:wrap;padding:0 0.9rem 0.85rem}
+.stash-copy{font-family:'Cinzel',serif;font-size:0.58rem;letter-spacing:0.1em;text-transform:uppercase;border:1px solid var(--border-t);background:transparent;color:var(--teal);padding:0.35rem 0.7rem;cursor:pointer}
+.stash-copy:hover{background:var(--teal-bg)}
 
 @media(max-width:780px){
   .r-sidebar{display:none}
+  .maze-return-banner{align-items:flex-start;flex-direction:column}
+  .stash-panel{position:static;width:auto;max-height:none;margin:0.85rem;border-left:none;border-right:none}
   .modal{flex-direction:column}
   .modal-img-col{width:100%;padding:1rem;display:flex;justify-content:center}
   .modal-img{max-width:220px}
@@ -410,6 +484,14 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
       <div id="quick-search-list"></div>
     </div>
     <div class="sb-section">
+      <div class="sb-label">Discovery Paths</div>
+      <div id="discovery-path-list"></div>
+    </div>
+    <div class="sb-section" id="reading-path-section" style="display:none">
+      <div class="sb-label">From Your Reading</div>
+      <div id="reading-path-list"></div>
+    </div>
+    <div class="sb-section">
       <div class="sb-label">By Color</div>
       <div class="color-grid" id="color-grid"></div>
     </div>
@@ -434,6 +516,10 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 
   <!-- Results -->
   <main class="r-main" id="r-main">
+    <div class="maze-return-banner" id="maze-return-banner">
+      <div class="maze-return-copy" id="maze-return-copy"></div>
+      <a class="maze-return-link" id="maze-return-link" href="/archscry/">Return to dossier</a>
+    </div>
     <div class="state-panel" id="state-panel">
       <svg width="48" height="48" viewBox="0 0 48 48" fill="none" style="opacity:.2">
         <circle cx="24" cy="24" r="18" stroke="#b8954a" stroke-width="0.8" stroke-dasharray="4 3"/>
@@ -467,6 +553,18 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
     </div>
   </main>
 </div>
+
+<section class="stash-panel" id="stash-panel" aria-label="Maze stash">
+  <div class="stash-head">
+    <div class="stash-title">Stash</div>
+    <div class="stash-count" id="stash-count">0</div>
+  </div>
+  <div class="stash-body" id="stash-body"></div>
+  <div class="stash-actions">
+    <button class="stash-copy" type="button" onclick="copyStashExport()">Copy export</button>
+    <button class="stash-copy" type="button" onclick="clearStash()">Clear</button>
+  </div>
+</section>
 
 <!-- ── MODAL ─── -->
 <div class="modal-bg hidden" id="modal-bg" onclick="if(event.target===this)closeModal()">

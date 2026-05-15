@@ -20,8 +20,17 @@ let totalCards = 0;
 let recentSearches = [];
 let toastTimeout;
 let selectAutoFilledInputOnFocus = false;
+let cardStash = [];
+let activeModalCard = null;
 
 const PAGE_SIZE = 24;
+const STASH_KEY = "vm_maze_card_stash_v1";
+const ARCHSCRY_MAZE_HANDOFF_KEY = "vm_archscry_maze_handoff_v1";
+const STASH_SECTIONS = [
+  { id: "commander", label: "Commander Ideas", exportHeading: "Commander" },
+  { id: "support", label: "Cards That Support This Shape", exportHeading: "Deck" },
+  { id: "maybe", label: "Maybe / Curious Finds", exportHeading: "Deck" }
+];
 
 const bFilters = {
   colors: [],
@@ -47,6 +56,14 @@ const QUICK_SEARCHES = [
   { label: "ETB draw creatures", hint: "value bodies", q: "t:creature o:enters o:draw f:commander" },
   { label: "Indestructible finishers", hint: "hard to kill", q: "kw:indestructible t:creature mv>=4 f:commander" },
   { label: "Budget tutor", hint: "paper price", q: "o:\"search your library\" f:commander usd<=2" }
+];
+
+const DISCOVERY_PATHS = [
+  { label: "Commander entry points", hint: "legal legends", q: "f:commander t:legendary t:creature" },
+  { label: "Flavor-rich cards", hint: "story moments", q: "has:flavor f:commander" },
+  { label: "Graveyard engines", hint: "recursion and value", q: "f:commander (o:graveyard OR o:\"return target\" OR o:dies)" },
+  { label: "Token pressure", hint: "wide boards", q: "f:commander (o:\"create\" o:\"token\" OR o:\"creatures you control get\")" },
+  { label: "Strange legends", hint: "offbeat commanders", q: "f:commander t:legendary t:creature (o:\"at the beginning\" OR o:\"whenever you\")" }
 ];
 
 const COLOR_LABELS = [
@@ -104,14 +121,19 @@ async function initializeResearchArchives() {
     badge.style.display = "";
   }
 
+  const urlParams = new URLSearchParams(location.search);
+  initializeArchscryMazeHandoff(urlParams);
   buildQuickSearches();
+  buildDiscoveryPaths();
+  buildReadingPaths();
+  cardStash = loadStash();
+  renderStash();
   buildColorGrid();
   buildTypeChecks();
   buildRarityChecks();
   bindSearchInputSelectOnFocus();
   setMode("ai");
 
-  const urlParams = new URLSearchParams(location.search);
   const urlQ = urlParams.get("q");
   if (urlQ) {
     document.getElementById("search-input").value = urlQ;
@@ -375,11 +397,23 @@ function renderResults(append = false) {
 function makeCardEl(card) {
   const wrap = document.createElement("div");
   wrap.className = "card-item";
+  wrap.dataset.stashKey = cardStashKey(card);
   const img = card.image_uris?.normal || card.card_faces?.[0]?.image_uris?.normal;
   wrap.innerHTML = img
     ? `<img src="${escapeHtml(img)}" alt="${escapeHtml(card.name)}" loading="lazy"/>`
     : `<div class="card-skeleton"></div>`;
   wrap.innerHTML += `<div class="card-item-name">${escapeHtml(card.name)}</div>`;
+  const stashButton = document.createElement("button");
+  stashButton.type = "button";
+  stashButton.className = `card-stash-btn${isCardStashed(card) ? " on" : ""}`;
+  stashButton.textContent = isCardStashed(card) ? "Saved" : "+";
+  stashButton.title = isCardStashed(card) ? "Remove from stash" : "Add to stash";
+  stashButton.setAttribute("aria-label", stashButton.title);
+  stashButton.addEventListener("click", (event) => {
+    event.stopPropagation();
+    toggleCardStash(card, isCardStashed(card) ? null : "maybe");
+  });
+  wrap.appendChild(stashButton);
   wrap.onclick = () => openModal(card);
   return wrap;
 }
@@ -389,6 +423,7 @@ function makeCardEl(card) {
  * @param {object} card - Scryfall card object.
  */
 function openModal(card) {
+  activeModalCard = card;
   const faces = card.card_faces;
   const imageUris = card.image_uris;
   const imgHtml = buildModalImageHtml(card);
@@ -424,6 +459,9 @@ function openModal(card) {
         <a class="m-btn m-btn-gold" href="${escapeHtml(card.scryfall_uri || "#")}" target="_blank" rel="noopener">View on Scryfall</a>
         <button class="m-btn m-btn-teal" id="find-similar-btn">Find Similar</button>
         ${card.prices?.usd ? `<a class="m-btn m-btn-gold" href="https://www.tcgplayer.com/search/magic/product?q=${encodeURIComponent(card.name)}" target="_blank" rel="noopener">TCGPlayer</a>` : ""}
+      </div>
+      <div class="m-stash-actions">
+        ${STASH_SECTIONS.map((section) => `<button class="m-btn m-btn-teal" onclick="toggleCardStashFromModal('${section.id}')">${section.label}</button>`).join("")}
       </div>
     </div>`;
 
@@ -750,6 +788,204 @@ function buildQuickSearches() {
 }
 
 /**
+ * Renders general discovery paths for fresh Maze users.
+ */
+function buildDiscoveryPaths() {
+  const el = document.getElementById("discovery-path-list");
+  if (!el) return;
+  el.innerHTML = DISCOVERY_PATHS.map((path) => `
+    <button class="sb-btn" onclick="runQuickSearch('${escapeAttribute(path.q)}')">
+      ${path.label}
+      <span>${path.hint}</span>
+    </button>`).join("");
+}
+
+function readArchscryMazeHandoff() {
+  try {
+    const parsed = JSON.parse(localStorage.getItem(ARCHSCRY_MAZE_HANDOFF_KEY) || "null");
+    return parsed && typeof parsed === "object" ? parsed : null;
+  } catch (_) {
+    return null;
+  }
+}
+
+function writeArchscryMazeHandoff(handoff) {
+  try {
+    localStorage.setItem(ARCHSCRY_MAZE_HANDOFF_KEY, JSON.stringify({
+      ...handoff,
+      updatedAt: new Date().toISOString()
+    }));
+  } catch (_) {}
+}
+
+function initializeArchscryMazeHandoff(urlParams) {
+  if (urlParams.get("from") !== "archscry") {
+    const existing = readArchscryMazeHandoff();
+    if (existing?.returnUrl) {
+      renderArchscryReturnBanner(existing);
+    }
+    return;
+  }
+
+  const existing = readArchscryMazeHandoff() || {};
+  const handoff = {
+    ...existing,
+    from: "archscry",
+    readingId: urlParams.get("readingId") || existing.readingId || "",
+    guild: urlParams.get("guild") || existing.guild || "",
+    fit: urlParams.get("fit") || existing.fit || "",
+    readingTitle: urlParams.get("readingTitle") || existing.readingTitle || "your Vox Mana reading",
+    returnUrl: urlParams.get("returnUrl") || existing.returnUrl || "/archscry/"
+  };
+  writeArchscryMazeHandoff(handoff);
+  renderArchscryReturnBanner(handoff);
+}
+
+function renderArchscryReturnBanner(handoff) {
+  const banner = document.getElementById("maze-return-banner");
+  const copy = document.getElementById("maze-return-copy");
+  const link = document.getElementById("maze-return-link");
+  if (!banner || !copy || !link || !handoff?.returnUrl) return;
+
+  const title = handoff.readingTitle || "your Vox Mana reading";
+  const fit = handoff.fit || handoff.guild || "";
+  const returnUrl = appendReturnUrlParams(handoff.returnUrl, {
+    from: "maze",
+    view: fit,
+    readingId: handoff.readingId || "",
+    mazeReturnUrl: `${location.pathname}${location.search}`
+  });
+
+  copy.innerHTML = `Viewing paths from <strong>${escapeHtml(title)}</strong>.`;
+  link.href = returnUrl;
+  link.textContent = `Return to My ${handoff.factionName || handoff.guild || "Reading"} Dossier`;
+  banner.classList.add("is-visible");
+}
+
+function appendReturnUrlParams(url, params) {
+  const parsed = new URL(url, location.origin);
+  Object.entries(params).forEach(([key, value]) => {
+    if (value) parsed.searchParams.set(key, value);
+  });
+  return parsed.origin === location.origin
+    ? `${parsed.pathname}${parsed.search}${parsed.hash}`
+    : parsed.toString();
+}
+
+/**
+ * Renders optional placement-shaped searches when Archscry data exists locally.
+ */
+function buildReadingPaths() {
+  const section = document.getElementById("reading-path-section");
+  const list = document.getElementById("reading-path-list");
+  if (!section || !list) return;
+
+  const result = getStoredPlacementResult();
+  const paths = result ? createReadingPaths(result) : [];
+  if (!paths.length) {
+    section.style.display = "none";
+    list.innerHTML = "";
+    return;
+  }
+
+  section.style.display = "";
+  list.innerHTML = paths.map((path) => `
+    <button class="sb-btn is-reading" onclick="runQuickSearch('${escapeAttribute(path.q)}')">
+      ${path.label}
+      <span>${path.hint}</span>
+    </button>`).join("");
+}
+
+function getStoredPlacementResult() {
+  const sessionResult = (typeof VM_SESSION !== "undefined" && VM_SESSION.profile?.placementResult) ||
+    (typeof VM_SESSION !== "undefined" && VM_SESSION.interviewResult) ||
+    null;
+  if (sessionResult?.faction || sessionResult?.mana_scores) return sessionResult;
+
+  if (typeof vm_getCachedPlacementResult === "function") {
+    const cached = vm_getCachedPlacementResult();
+    if (cached?.faction || cached?.mana_scores) return cached;
+  }
+
+  try {
+    const handoff = readArchscryMazeHandoff();
+    if (handoff?.placementResult?.faction || handoff?.placementResult?.mana_scores) {
+      return handoff.placementResult;
+    }
+
+    const raw = localStorage.getItem("vm_last_result") || localStorage.getItem("vm_placement_result");
+    const parsed = raw ? JSON.parse(raw) : null;
+    return parsed?.placement_result || parsed;
+  } catch (_) {
+    return null;
+  }
+}
+
+function createReadingPaths(result) {
+  const identity = colorIdentityFromPlacement(result);
+  if (!identity) return [];
+  const signals = readingSearchSignals(result);
+  const oracleGroup = signals.oracle.length
+    ? `(${signals.oracle.map((term) => queryTerm(term, "o")).join(" OR ")})`
+    : "(o:graveyard OR o:sacrifice OR o:draw OR o:token)";
+  const flavorGroup = signals.flavor.length
+    ? `(${signals.flavor.map((term) => queryTerm(term, "ft")).join(" OR ")})`
+    : "(ft:death OR ft:secret OR ft:growth OR ft:law)";
+
+  return [
+    { label: "Commanders that fit this reading", hint: identity.toUpperCase(), q: `ci<=${identity} t:legendary t:creature f:commander ${oracleGroup}` },
+    { label: "Cards that support this shape", hint: "nonlegendary support", q: `ci<=${identity} f:commander -t:legendary ${oracleGroup}` },
+    { label: "Flavor echoes", hint: "card-story texture", q: `ci<=${identity} ${flavorGroup}` },
+    { label: "Same fantasy, different mechanic", hint: "stretch lane", q: `f:commander t:legendary t:creature -ci<=${identity} ${oracleGroup}` }
+  ];
+}
+
+function colorIdentityFromPlacement(result) {
+  const faction = String(result?.faction || "").toUpperCase();
+  if (/^[WUBRG]{1,5}$/.test(faction)) {
+    return [...new Set(faction.split(""))].sort(sortManaSymbols).join("").toLowerCase();
+  }
+  const scores = result?.mana_scores || result?.scores || {};
+  const ranked = ["W", "U", "B", "R", "G"]
+    .map((color) => ({ color, value: Number(scores[color] || 0) }))
+    .filter((entry) => entry.value > 0)
+    .sort((left, right) => right.value - left.value || sortManaSymbols(left.color, right.color));
+  return ranked.slice(0, 2).map((entry) => entry.color).sort(sortManaSymbols).join("").toLowerCase();
+}
+
+function sortManaSymbols(left, right) {
+  return ["W", "U", "B", "R", "G"].indexOf(left) - ["W", "U", "B", "R", "G"].indexOf(right);
+}
+
+function readingSearchSignals(result) {
+  const text = [
+    result?.decree,
+    result?.faction_name,
+    ...(result?.evidence_trail || []).flatMap((entry) => [entry.signal, entry.answer_title, entry.prompt])
+  ].filter(Boolean).join(" ").toLowerCase();
+  const signals = [
+    { test: /graveyard|death|reclamation|recursion|rot|return/i, oracle: ["graveyard", "return target", "dies"], flavor: ["death", "grave", "again"] },
+    { test: /sacrifice|debt|drain|obligation|aristocrat/i, oracle: ["sacrifice", "each opponent loses", "dies"], flavor: ["debt", "blood", "price"] },
+    { test: /spell|experiment|expression|storm|instant|sorcery/i, oracle: ["instant or sorcery", "copy", "draw"], flavor: ["spark", "experiment", "flame"] },
+    { test: /community|communal|tokens|wide|harmony/i, oracle: ["create", "token", "creatures you control"], flavor: ["together", "conclave", "home"] },
+    { test: /order|law|procedure|control|rules/i, oracle: ["counter target", "exile target", "can't attack"], flavor: ["law", "judgment", "order"] },
+    { test: /secret|hidden|information|shadow|memory/i, oracle: ["surveil", "mill", "discard"], flavor: ["secret", "shadow", "memory"] },
+    { test: /growth|nature|adapt|counter|land/i, oracle: ["land", "+1/+1 counter", "search your library"], flavor: ["growth", "root", "wild"] }
+  ];
+  const matched = signals.filter((signal) => signal.test.test(text));
+  return {
+    oracle: [...new Set(matched.flatMap((signal) => signal.oracle))].slice(0, 5),
+    flavor: [...new Set(matched.flatMap((signal) => signal.flavor))].slice(0, 5)
+  };
+}
+
+function queryTerm(value, field) {
+  const cleaned = String(value || "").trim().toLowerCase();
+  if (!cleaned) return "";
+  return /[^a-z0-9-]/i.test(cleaned) ? `${field}:"${cleaned.replace(/"/g, "")}"` : `${field}:${cleaned}`;
+}
+
+/**
  * Renders color identity shortcut buttons in the sidebar.
  */
 function buildColorGrid() {
@@ -1042,6 +1278,157 @@ function renderNoResultsCard(card) {
   }
 }
 
+function loadStash() {
+  try {
+    const parsed = JSON.parse(localStorage.getItem(STASH_KEY) || "[]");
+    return Array.isArray(parsed) ? parsed.filter((item) => item?.name) : [];
+  } catch (_) {
+    return [];
+  }
+}
+
+function saveStash() {
+  localStorage.setItem(STASH_KEY, JSON.stringify(cardStash));
+}
+
+function cardStashKey(card) {
+  return card?.oracle_id || card?.oracleId || card?.scryfall_id || card?.id || normalizeStashName(card?.name || "");
+}
+
+function normalizeStashName(value) {
+  return String(value || "").toLowerCase().replace(/[^a-z0-9]+/g, " ").trim();
+}
+
+function isCardStashed(card) {
+  const key = cardStashKey(card);
+  return Boolean(key && cardStash.some((item) => cardStashKey(item) === key));
+}
+
+function normalizeStashCard(card, sectionId) {
+  return {
+    oracle_id: card.oracle_id || "",
+    scryfall_id: card.id || card.scryfall_id || "",
+    name: card.name || "",
+    set: card.set || "",
+    collector_number: card.collector_number || "",
+    type_line: card.type_line || card.card_faces?.[0]?.type_line || "",
+    color_identity: card.color_identity || [],
+    scryfall_uri: card.scryfall_uri || "",
+    image_uri: card.image_uris?.normal || card.card_faces?.[0]?.image_uris?.normal || "",
+    stash_section: sectionId,
+    source_path: currentQuery ? `maze:${currentQuery}` : "maze"
+  };
+}
+
+function toggleCardStash(card, sectionId = "maybe") {
+  const key = cardStashKey(card);
+  if (!key) return;
+  const existingIndex = cardStash.findIndex((item) => cardStashKey(item) === key);
+
+  if (!sectionId) {
+    if (existingIndex >= 0) cardStash.splice(existingIndex, 1);
+    saveStash();
+    renderStash();
+    refreshStashButtons();
+    showToast("Removed from stash");
+    return;
+  }
+
+  const normalized = normalizeStashCard(card, sectionId);
+  if (existingIndex >= 0) cardStash[existingIndex] = normalized;
+  else cardStash.push(normalized);
+  saveStash();
+  renderStash();
+  refreshStashButtons();
+  showToast(existingIndex >= 0 ? "Moved in stash" : "Added to stash");
+}
+
+function toggleCardStashFromModal(sectionId) {
+  if (!activeModalCard) return;
+  toggleCardStash(activeModalCard, sectionId);
+}
+
+function removeStashCard(key) {
+  cardStash = cardStash.filter((item) => cardStashKey(item) !== key);
+  saveStash();
+  renderStash();
+  refreshStashButtons();
+}
+
+function clearStash() {
+  cardStash = [];
+  saveStash();
+  renderStash();
+  refreshStashButtons();
+  showToast("Stash cleared");
+}
+
+function renderStash() {
+  const countEl = document.getElementById("stash-count");
+  const body = document.getElementById("stash-body");
+  if (!countEl || !body) return;
+
+  countEl.textContent = String(cardStash.length);
+  if (!cardStash.length) {
+    body.innerHTML = `<div class="stash-empty">No cards saved yet.</div>`;
+    return;
+  }
+
+  body.innerHTML = STASH_SECTIONS.map((section) => {
+    const items = cardStash.filter((item) => item.stash_section === section.id);
+    if (!items.length) return "";
+    return `
+      <div class="stash-group">
+        <div class="stash-section-title">${section.label}</div>
+        <div class="stash-list">
+          ${items.map((item) => `
+            <div class="stash-item">
+              <a class="stash-name" href="${escapeHtml(item.scryfall_uri || "#")}" target="_blank" rel="noopener">${escapeHtml(item.name)}</a>
+              <button class="stash-remove" type="button" onclick="removeStashCard('${escapeAttribute(cardStashKey(item))}')">x</button>
+            </div>`).join("")}
+        </div>
+      </div>`;
+  }).join("") || `<div class="stash-empty">No cards saved yet.</div>`;
+}
+
+function refreshStashButtons() {
+  document.querySelectorAll(".card-item").forEach((node) => {
+    const key = node.dataset.stashKey;
+    const button = node.querySelector(".card-stash-btn");
+    if (!key || !button) return;
+    const saved = cardStash.some((item) => cardStashKey(item) === key);
+    button.classList.toggle("on", saved);
+    button.textContent = saved ? "Saved" : "+";
+    button.title = saved ? "Remove from stash" : "Add to stash";
+    button.setAttribute("aria-label", button.title);
+  });
+}
+
+function buildStashExportText() {
+  const commanderItems = cardStash.filter((item) => item.stash_section === "commander");
+  const deckItems = cardStash.filter((item) => item.stash_section !== "commander");
+  const lines = [];
+  if (commanderItems.length) {
+    lines.push("Commander");
+    commanderItems.forEach((item) => lines.push(`1 ${item.name}`));
+    lines.push("");
+  }
+  if (deckItems.length) {
+    lines.push("Deck");
+    deckItems.forEach((item) => lines.push(`1 ${item.name}`));
+  }
+  return lines.join("\n").trim();
+}
+
+function copyStashExport() {
+  const text = buildStashExportText();
+  if (!text) {
+    showToast("Stash is empty");
+    return;
+  }
+  navigator.clipboard.writeText(text).then(() => showToast("Export copied"));
+}
+
 /**
  * Gets flavor text from normal or multi-face Scryfall cards.
  * @param {object} card - Scryfall card payload.
@@ -1153,7 +1540,11 @@ function exposeWindowHandlers() {
     runQueryAlternative,
     applyFormatFilter,
     changeOrder,
-    copyQuery
+    copyQuery,
+    toggleCardStashFromModal,
+    removeStashCard,
+    clearStash,
+    copyStashExport
   });
 }
 

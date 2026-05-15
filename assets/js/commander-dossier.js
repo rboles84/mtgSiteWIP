@@ -37,6 +37,13 @@ export const SERVICE_CHIP_META = {
     color: "#d8b45f",
     glow: "rgba(216,180,95,0.38)",
   },
+  moxfield: {
+    key: "moxfield",
+    label: "Moxfield",
+    mark: "X",
+    color: "#f09a64",
+    glow: "rgba(240,154,100,0.34)",
+  },
   mtgdecks: {
     key: "mtgdecks",
     label: "MTGDecks",

@@ -1,0 +1,48 @@
+{
+  "meta": {
+    "index_type": "scryfall-index-manifest",
+    "source": "Scryfall oracle_cards bulk data",
+    "source_endpoint": "https://api.scryfall.com/bulk-data",
+    "bulk_id": "27bf3214-1271-490b-bdfe-c0be6c23d02e",
+    "bulk_type": "oracle_cards",
+    "bulk_updated_at": "2026-05-14T21:03:29.973+00:00",
+    "downloaded_at": "2026-05-15T06:25:20.295Z",
+    "text_guardrail": "slim-derived-index: full oracle_text and flavor_text are not committed; only short display excerpts and derived tags are stored.",
+    "source_card_count": 37442
+  },
+  "files": [
+    {
+      "path": "data/scryfall/indexes/card-flavor-index.json",
+      "records": 2600
+    },
+    {
+      "path": "data/scryfall/indexes/commander-index.json",
+      "records": 2977
+    },
+    {
+      "path": "data/scryfall/indexes/color-theme-index.json",
+      "records": 32
+    },
+    {
+      "path": "data/scryfall/indexes/mechanic-theme-index.json",
+      "records": 94
+    }
+  ],
+  "taxonomy": {
+    "path": "data/taxonomy/vox-mana-tags.json",
+    "tag_count": 94,
+    "categories": [
+      "identity",
+      "lore-tone",
+      "mechanical",
+      "playstyle"
+    ]
+  },
+  "guardrails": {
+    "raw_bulk_committed": false,
+    "full_oracle_text_committed": false,
+    "full_flavor_text_committed": false,
+    "flavor_index_size_guardrail_bytes": 4500000,
+    "flavor_index_guardrail_applied": true
+  }
+}

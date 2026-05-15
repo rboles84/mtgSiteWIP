@@ -21,9 +21,10 @@ Vox Mana is an unofficial Magic: The Gathering fan site that combines a themed s
 | Static shells | `index.html`, `archscry/index.html`, `maze.html`, `library/index.html`, policy pages | Define route-specific DOM, preload assets, script entrypoints, and inline handler hooks. |
 | Shared visual system | `assets/css/tokens.css`, `assets/css/fonts.css`, `assets/css/topbar.css`, `assets/css/atmosphere.css`, `assets/css/components.css` | Site tokens, fonts, topbar, atmospheric canvas, and reusable panels/buttons/chips/progress treatments. |
 | Home gateway | `assets/js/home.js` | Resume-chip detection and subtle gateway motion. |
-| Placement frontend | `assets/js/index.js`, `assets/js/adaptive-placement.js`, `assets/js/shared.js` | Loads data, runs quick adaptive reading, renders dossiers, saves and resumes results, and keeps the terminal dormant behind the shared site flag. |
+| Placement frontend | `assets/js/index.js`, `assets/js/adaptive-placement.js`, `assets/js/shared.js` | Loads data, runs quick adaptive reading, renders narrative dossiers, saves/resumes results, preserves adjacent-fit context, and keeps the terminal dormant behind the shared site flag. |
 | Site flags | `assets/js/site-flags.js` | Single checked-in switch that hides or reveals the archived terminal UI and browser guards. |
-| Research workspace | `research/*.js`, `maze.html` | Smart Search, raw syntax, Visual Builder, Scryfall search/rendering, no-results handling, and card modal UI. |
+| Research workspace | `research/*.js`, `maze.html` | Smart Search, raw syntax, Visual Builder, Scryfall search/rendering, reading-aware paths, Archscry return banners, no-results handling, and card modal UI. |
+| Scryfall card-expression indexes | `scripts/download-scryfall-bulk.mjs`, `scripts/build-scryfall-indexes.mjs`, `data/scryfall/indexes/*.json`, `data/taxonomy/vox-mana-tags.json` | Ignored local oracle bulk data, lightweight derived indexes, categorized tags, Commander candidates, and flavor echo samples. |
 | External data build tools | `C:\dev\projectFiles\voxmana-tools` | Generate placement artifacts, Supabase faction context, schema, and local-only asset/reference sources. |
 | External command panel | `C:\dev\projectFiles\voxmana-tools` | Runs allowlisted commands, reads external Apocrypha manifest data, and tracks panel state outside the site repo. |
 | Backend interview | `supabase/functions/guild-recruiter/index.ts` | Deno edge function retained for the archived terminal path and future deterministic replacement work. |
@@ -48,6 +49,7 @@ Vox Mana is an unofficial Magic: The Gathering fan site that combines a themed s
 | Browser globals | `assets/js/shared.js`, `assets/js/index.js`, `research/research-init.js` | Inline handler functions, `VM_SESSION`, `vm_*` helpers, and research handlers. |
 | Supabase profile row | `assets/js/shared.js` | Compatibility fields plus richer `placement_result` source of truth. |
 | Scryfall API calls | `research/research-search.js`, `assets/js/index.js` | Search/exact/random endpoints for Maze and card-art enrichment. |
+| Scryfall bulk indexes | `data/scryfall/indexes/*.json` | Archscry flavor echoes, Commander metadata enrichment, color/theme summaries, and future discovery surfaces. |
 | Anthropic API call | `supabase/functions/guild-recruiter/index.ts` | Messages endpoint with prompt built from generated faction context, only when the terminal is explicitly re-enabled. |
 | Local command-panel API | External tools workspace | `GET /api/bootstrap`, `/api/items`, `/api/runs`; `POST /api/refresh`, `/api/item`, `/api/bulk`, `/api/select-next`, `/api/run`. |
 
@@ -60,6 +62,9 @@ Vox Mana is an unofficial Magic: The Gathering fan site that combines a themed s
 | `data/placement-model.schema.json` | External faction artifact builder | Contract check for generated placement model shape. |
 | `supabase/functions/guild-recruiter/faction-context.ts` | External faction artifact builder | Edge function prompt context. |
 | `data/raw-factions/*` | Curated source, profile, placement, claims, changelog files | Placement model and generated context. |
+| `data/taxonomy/vox-mana-tags.json` | Hand-authored Vox Mana tag dictionary | Scryfall index builder, Archscry tag explanations, Maze/future discovery copy. |
+| `data/scryfall/raw/oracle-cards.json` | `npm run scryfall:download` | Local-only ignored Scryfall oracle bulk source. |
+| `data/scryfall/indexes/*.json` | `npm run scryfall:index` | Lightweight committed card-expression, commander, color, and mechanic indexes. |
 | `assets/img/**` | Generated or curated visual assets | Static page backgrounds, logo, responsive hero images, and token-referenced overlays/textures. |
 | `test-results/**` | Test/command output | Bias reports, command panel state, run logs. |
 
@@ -73,6 +78,8 @@ Vox Mana is an unofficial Magic: The Gathering fan site that combines a themed s
 | Test suite | `npm test` | Runs parser, builder, mode, syntax, and placement checks. |
 | Placement tests | `npm run test:placement` | Runs adaptive placement model/golden-path assertions. |
 | Bias simulation | `npm run test:bias` / `npm run test:bias:all` | Writes quick-reading bias reports under `test-results/`. |
+| Scryfall download | `npm run scryfall:download` | Downloads ignored `oracle_cards` bulk JSON and a raw manifest. |
+| Scryfall indexes | `npm run scryfall:index` / `npm run scryfall:inspect` | Builds and verifies derived Scryfall indexes. |
 
 ## Architecture Constraints
 

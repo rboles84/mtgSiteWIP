@@ -14,6 +14,7 @@ import {
   buildCommanderDossier,
   createArchidektTagCatalog,
   getColorIdentity,
+  getCommanderFactionGuidance,
   getServiceChipMeta,
 } from "./commander-dossier.js";
 
@@ -41,6 +42,223 @@ const APP_STATE = {
   interviewState: "idle",
   starterProfile: { ...DEFAULT_STARTER_PROFILE },
   deckTagCatalog: null,
+  tagTaxonomy: null,
+  tagTaxonomyByKey: new Map(),
+  scryfallFlavorIndex: null,
+  scryfallCommanderIndex: null,
+  scryfallCommanderByName: new Map(),
+  scryfallColorThemeIndex: null,
+  scryfallMechanicThemeIndex: null,
+  previousViewKey: null,
+  mazeReturnUrl: "",
+};
+
+const ARCHSCRY_MAZE_HANDOFF_KEY = "vm_archscry_maze_handoff_v1";
+const MANA_SYMBOL_NAMES = {
+  W: "White",
+  U: "Blue",
+  B: "Black",
+  R: "Red",
+  G: "Green",
+  C: "Colorless",
+};
+
+const FACTION_PRESENTATION = {
+  WU: {
+    shortName: "Azorius",
+    tableRole: "The arbiter",
+    opponentRead: "Opponents experience the deck as procedure with teeth: every shortcut must answer to the record.",
+    emotionalPressure: "Pressure through permission, timing, and the feeling that the table has entered court.",
+    loreRole: "senate, judiciary, and lawkeeping bureaucracy",
+    mechanics: "Detain, taxation, permission, sweepers, tempo, and rule-setting permanents",
+    tableExperience: "restricted action, procedural leverage, and clean enforcement",
+    thesis: "Azorius read you as someone who protects the table by defining what is allowed to happen. White supplies the standard; blue supplies timing, documentation, and restraint. Together, the deck becomes law made playable: patient, exacting, and difficult to slip past.",
+    closeReason: "procedure, restraint, and enforceable standards",
+    forkQuestion: "What rule keeps the table from collapsing?",
+    direction: "moves upward into order and precedent",
+  },
+  UB: {
+    shortName: "Dimir",
+    tableRole: "The concealed hand",
+    opponentRead: "Opponents rarely know which card matters until it has already taken their best line away.",
+    emotionalPressure: "Pressure through uncertainty, hidden leverage, and delayed reveal.",
+    loreRole: "couriers, archivists, spies, and memory manipulators",
+    mechanics: "Surveil, mill, discard, theft, evasive threats, and control",
+    tableExperience: "hidden pressure, information advantage, and wins that arrive before the table understands them",
+    thesis: "Dimir read you as someone who values the move no one can see yet. Blue gathers the pattern; black keeps the leverage private. Together, the deck wins by letting the table misread what matters.",
+    closeReason: "secrecy, patience, and information leverage",
+    forkQuestion: "What can be won before anyone realizes it was contested?",
+    direction: "moves inward into secrecy and timing",
+  },
+  BR: {
+    shortName: "Rakdos",
+    tableRole: "The spectacle engine",
+    opponentRead: "Opponents feel the deck as a dare: life totals, resources, and caution all become part of the show.",
+    emotionalPressure: "Pressure through risk, damage, sacrifice, and ecstatic escalation.",
+    loreRole: "performance cult, riotous stage, and thrill economy",
+    mechanics: "Spectacle, sacrifice, impulse draw, menace, damage triggers, and reckless advantage",
+    tableExperience: "volatile pressure, public risk, and turns that make the room react",
+    thesis: "Rakdos read you as someone who would rather make the truth loud than make it polite. Black is willing to spend the piece; red is willing to light the fuse. Together, the deck turns danger into entertainment the table cannot ignore.",
+    closeReason: "spectacle, risk, and emotional force",
+    forkQuestion: "What if the honest answer is the one that breaks the room open?",
+    direction: "moves outward into spectacle and risk",
+  },
+  RG: {
+    shortName: "Gruul",
+    tableRole: "The breaker of gates",
+    opponentRead: "Opponents see the deck as pressure from outside the city walls: fast, physical, and hard to civilize.",
+    emotionalPressure: "Pressure through instinct, oversized threats, and refusal of imposed order.",
+    loreRole: "clans, wild places, razed boundaries, and anti-civilized resistance",
+    mechanics: "Riot, bloodrush, ramp, trample, fight spells, and creature pressure",
+    tableExperience: "immediate combat, land-fed force, and damage that refuses delay",
+    thesis: "Gruul read you as someone who trusts the body of the answer before the paperwork of the answer. Green brings the world that keeps growing; red brings the refusal to wait. Together, the deck asks whether the table can survive what it tried to fence in.",
+    closeReason: "anger, wildness, and direct force",
+    forkQuestion: "What boundary deserves to be broken?",
+    direction: "moves forward into impact and refusal",
+  },
+  WG: {
+    shortName: "Selesnya",
+    tableRole: "The chorus",
+    opponentRead: "Opponents feel the deck as a board that becomes a community before it becomes a threat.",
+    emotionalPressure: "Pressure through belonging, protection, and many small pieces becoming one large promise.",
+    loreRole: "conclave, communal faith, and living civic body",
+    mechanics: "Convoke, populate, tokens, anthem effects, lifegain, and board protection",
+    tableExperience: "collective momentum, shared growth, and combat math that multiplies",
+    thesis: "Selesnya read you as someone who trusts strength that is held together. White protects the bond; green lets it grow. Together, the deck makes a battlefield where the whole is more frightening than any single body.",
+    closeReason: "community, protection, and shared growth",
+    forkQuestion: "What becomes possible when the answer is held by many hands?",
+    direction: "moves outward into belonging and scale",
+  },
+  WB: {
+    shortName: "Orzhov",
+    tableRole: "The creditor",
+    opponentRead: "Opponents feel the deck as a ledger: every attack, death, and favor creates a debt that comes due.",
+    emotionalPressure: "Pressure through obligation, drain, taxation, and deals that keep their receipts.",
+    loreRole: "church-bank hierarchy, contracts, afterlife debt, and inherited power",
+    mechanics: "Extort, afterlife, aristocrats, lifedrain, sacrifice, taxes, and recursion",
+    tableExperience: "transactional pressure, slow drain, and resource exchanges that stop being equal",
+    thesis: "Orzhov read you as someone who notices what is owed. White gives the institution; black gives the leverage. Together, the deck turns every exchange into a contract the table did not read closely enough.",
+    closeReason: "obligation, debt, and consequence",
+    forkQuestion: "What is owed, and who pays when the bill arrives?",
+    direction: "moves downward into debt and permanence",
+  },
+  UR: {
+    shortName: "Izzet",
+    tableRole: "The live experiment",
+    opponentRead: "Opponents feel the deck accelerating in public, where every cantrip might become the turn that matters.",
+    emotionalPressure: "Pressure through velocity, improvisation, and spell sequences that refuse to sit still.",
+    loreRole: "inventors, engineers, experimenters, and dangerous civic infrastructure",
+    mechanics: "Jump-start, overload, spellslinger, copying, cantrips, artifacts, and tempo",
+    tableExperience: "spell velocity, explosive pivots, and the sense that the device is running while it is built",
+    thesis: "Izzet read you as someone who learns by putting the spell on the stack. Blue asks what the pattern can do; red asks what happens if it happens now. Together, the deck turns curiosity into acceleration.",
+    closeReason: "curiosity, velocity, and experimental risk",
+    forkQuestion: "What happens if the question is tested at full speed?",
+    direction: "moves upward into acceleration and iteration",
+  },
+  BG: {
+    shortName: "Golgari",
+    tableRole: "The survivor",
+    opponentRead: "Opponents learn that removal is not an ending; it is the next material the deck will use.",
+    emotionalPressure: "Pressure through endurance, reclamation, and the certainty that nothing is wasted.",
+    loreRole: "waste, agriculture, rot, undercity survival, and reclamation",
+    mechanics: "Dredge, scavenge, undergrowth, recursion, sacrifice, and graveyard value",
+    tableExperience: "loss converted into future pressure and a board that keeps returning",
+    thesis: "Golgari read you as someone who does not confuse loss with disappearance. Black accepts the cost; green makes the remains useful. Together, the deck turns every dead thing into future leverage.",
+    closeReason: "endurance, grievance, rot, and reclamation",
+    forkQuestion: "What can be reclaimed from what was lost?",
+    direction: "moves downward into endurance and recursion",
+  },
+  UG: {
+    shortName: "Simic",
+    tableRole: "The adapter",
+    opponentRead: "Opponents see the deck changing shape until yesterday's answer no longer fits today's board.",
+    emotionalPressure: "Pressure through adaptation, counters, ramp, and creatures that keep improving.",
+    loreRole: "biomancers, laboratories, evolutionary projects, and living infrastructure",
+    mechanics: "Graft, evolve, adapt, counters, ramp, card draw, and creature upgrades",
+    tableExperience: "incremental growth, biological scaling, and threats that outgrow old answers",
+    thesis: "Simic read you as someone who expects a living plan to change. Green supplies the organism; blue supplies the method. Together, the deck asks what the next version can become.",
+    closeReason: "adaptation, growth, and biological change",
+    forkQuestion: "What form survives because it can change?",
+    direction: "moves forward into adaptation and upgrade",
+  },
+  WR: {
+    shortName: "Boros",
+    tableRole: "The responder",
+    opponentRead: "Opponents see the deck coming. That is part of the point: the line is public, and crossing it has consequences.",
+    emotionalPressure: "Pressure through action, retaliation, combat, and visible protection.",
+    loreRole: "security force, constabulary, and army",
+    mechanics: "Battalion, mentor, tactical combat, equipment, burn, and protection",
+    tableExperience: "coordinated pressure, righteous retaliation, and visible action",
+    thesis: "Boros did not read you as a passive defender. It read you as someone who moves when the line is crossed. White gives the instinct to protect the table, the team, or the principle. Red gives the spark that refuses to wait. Together, that becomes righteous retaliation: a shield with fire behind it.",
+    closeReason: "protection, grievance, and immediate action",
+    forkQuestion: "What line was crossed, and who must answer for it?",
+    direction: "moves outward into intervention",
+  },
+  LOREHOLD: {
+    shortName: "Lorehold",
+    tableRole: "The field historian",
+    opponentRead: "Opponents feel the deck turning old material into present danger: relics, spirits, and remembered battles.",
+    emotionalPressure: "Pressure through history, evidence, artifact recursion, and memory that refuses to stay still.",
+    loreRole: "archaeologists, spirit scholars, and combat historians",
+    mechanics: "Spirit tokens, artifact recursion, graveyard artifacts, combat value, and historic payoffs",
+    tableExperience: "history fighting back and old resources becoming live pressure",
+    thesis: "Lorehold read you as someone who goes into the ruins because the past is still active. White gives testimony and duty; red gives motion and heat. Together, the deck turns memory into a battlefield resource.",
+    closeReason: "history, artifacts, memory, and active investigation",
+    forkQuestion: "What does the past prove when it is allowed to fight back?",
+    direction: "moves backward into evidence, then forward into action",
+  },
+  PRISMARI: {
+    shortName: "Prismari",
+    tableRole: "The crescendo",
+    opponentRead: "Opponents feel the deck building toward a visible turn where expression and impact become the same thing.",
+    emotionalPressure: "Pressure through spectacle, spellcraft, and large expressive turns.",
+    loreRole: "artists, elemental performers, and spellcraft prodigies",
+    mechanics: "Magecraft, big instants and sorceries, treasures, copying, and expressive spell turns",
+    tableExperience: "performance pressure, elemental swing turns, and spells that announce themselves",
+    thesis: "Prismari read you as someone who cares how the win feels when it lands. Blue shapes the composition; red releases the force. Together, the deck makes the decisive turn a performance with consequences.",
+    closeReason: "expression, spectacle, and emotional force",
+    forkQuestion: "What does the spell need to say when everyone is watching?",
+    direction: "moves outward into performance and impact",
+  },
+  QUANDRIX: {
+    shortName: "Quandrix",
+    tableRole: "The pattern engine",
+    opponentRead: "Opponents feel the deck scaling from small proofs into board states that become hard to calculate.",
+    emotionalPressure: "Pressure through structure, doubling, counters, and math that becomes physical.",
+    loreRole: "mathematicians, theorists, fractal mages, and pattern seekers",
+    mechanics: "Fractals, doubling, counters, ramp, tokens, and exponential scaling",
+    tableExperience: "mathematical inevitability and advantages that compound past ordinary answers",
+    thesis: "Quandrix read you as someone who trusts the hidden structure beneath the board. Blue finds the proof; green gives it mass. Together, the deck turns an elegant pattern into something the table has to block.",
+    closeReason: "patterns, proof, scale, and abstraction",
+    forkQuestion: "What structure is already growing under the visible game?",
+    direction: "moves upward into proof and multiplication",
+  },
+  SILVERQUILL: {
+    shortName: "Silverquill",
+    tableRole: "The table speaker",
+    opponentRead: "Opponents feel the deck turning attacks, deals, and words into leverage.",
+    emotionalPressure: "Pressure through rhetoric, politics, counters, and social combat.",
+    loreRole: "orators, duelists, poets, and social power brokers",
+    mechanics: "Inkling tokens, counters, combat negotiation, goad-like pressure, and life-drain politics",
+    tableExperience: "public leverage, sharpened alliances, and words that become damage",
+    thesis: "Silverquill read you as someone who knows a sentence can change the room. White gives the form; black gives the edge. Together, the deck turns social pressure into a combat plan.",
+    closeReason: "language, politics, ambition, and public leverage",
+    forkQuestion: "Who moves when the right words land?",
+    direction: "moves sideways into influence and pressure",
+  },
+  WITHERBLOOM: {
+    shortName: "Witherbloom",
+    tableRole: "The life-exchanger",
+    opponentRead: "Opponents feel the deck converting bodies, pests, and life totals into a working engine.",
+    emotionalPressure: "Pressure through life exchange, sacrifice, drain, and practical survival.",
+    loreRole: "pest mages, essence workers, bog naturalists, and life-cycle scholars",
+    mechanics: "Pest tokens, sacrifice, lifegain, lifedrain, recursion, and essence exchange",
+    tableExperience: "metabolic pressure where every gain, loss, and small body feeds the engine",
+    thesis: "Witherbloom read you as someone who studies life by touching the exchange directly. Green supplies growth and bodies; black supplies cost and appetite. Together, the deck turns survival into a craft.",
+    closeReason: "life exchange, pests, sacrifice, and practical ecology",
+    forkQuestion: "What must be spent so the living engine keeps working?",
+    direction: "moves downward into essence, body, and exchange",
+  },
 };
 
 /**
@@ -112,6 +330,67 @@ async function loadDeckTagCatalog() {
 }
 
 /**
+ * Loads optional discovery indexes used to enrich Archscry results.
+ *
+ * The placement experience should still work when these files are absent.
+ *
+ * @returns {Promise<void>} Resolves after optional data has been attempted.
+ */
+async function loadDiscoveryData() {
+  const [
+    taxonomy,
+    flavorIndex,
+    commanderIndex,
+    colorThemeIndex,
+    mechanicThemeIndex,
+  ] = await Promise.all([
+    loadOptionalJson("/data/taxonomy/vox-mana-tags.json", "tag taxonomy"),
+    loadOptionalJson("/data/scryfall/indexes/card-flavor-index.json", "Scryfall flavor index"),
+    loadOptionalJson("/data/scryfall/indexes/commander-index.json", "Scryfall commander index"),
+    loadOptionalJson("/data/scryfall/indexes/color-theme-index.json", "Scryfall color theme index"),
+    loadOptionalJson("/data/scryfall/indexes/mechanic-theme-index.json", "Scryfall mechanic theme index"),
+  ]);
+
+  APP_STATE.tagTaxonomy = taxonomy;
+  APP_STATE.tagTaxonomyByKey = buildTaxonomyLookup(taxonomy);
+  APP_STATE.scryfallFlavorIndex = flavorIndex;
+  APP_STATE.scryfallCommanderIndex = commanderIndex;
+  APP_STATE.scryfallColorThemeIndex = colorThemeIndex;
+  APP_STATE.scryfallMechanicThemeIndex = mechanicThemeIndex;
+  APP_STATE.scryfallCommanderByName = new Map(
+    (commanderIndex?.commanders || []).map((card) => [normalizeCardName(card.name), card])
+  );
+}
+
+/**
+ * Fetches optional JSON without failing the main page boot.
+ *
+ * @param {string} path Data path.
+ * @param {string} label Human-readable label for warnings.
+ * @returns {Promise<object|null>} Parsed JSON or null.
+ */
+async function loadOptionalJson(path, label) {
+  try {
+    const response = await fetch(path);
+    if (!response.ok) {
+      throw new Error(`${response.status} ${response.statusText}`);
+    }
+    return await response.json();
+  } catch (error) {
+    console.warn(`Optional ${label} unavailable.`, error);
+    return null;
+  }
+}
+
+function buildTaxonomyLookup(taxonomy) {
+  const map = new Map();
+  (taxonomy?.tags || []).forEach((entry) => {
+    map.set(`${entry.category}:${entry.tag}`, entry);
+  });
+  return map;
+}
+
+/**
  * Returns the canonical faction entry for a given key.
  *
  * @param {string} key Faction key.
@@ -129,6 +408,199 @@ function getFaction(key) {
  */
 function getInstitutionLabel(faction) {
   return faction?.institution_type === "college" ? "College" : "Guild";
+}
+
+function colorIdentityNames(colors) {
+  const identity = Array.isArray(colors) ? colors : String(colors || "").split("");
+  const names = identity
+    .filter(Boolean)
+    .map((color) => MANA_SYMBOL_NAMES[color.toUpperCase()] || color.toUpperCase());
+  return names.length ? names.join(" + ") : "Colorless";
+}
+
+function basicLandNamesForColors(colors) {
+  const basicNames = {
+    W: "Plains",
+    U: "Islands",
+    B: "Swamps",
+    R: "Mountains",
+    G: "Forests",
+  };
+  return (Array.isArray(colors) ? colors : String(colors || "").split(""))
+    .map((color) => basicNames[color.toUpperCase()])
+    .filter(Boolean);
+}
+
+function basicLandGuidanceCopy(colors) {
+  const colorSymbols = (Array.isArray(colors) ? colors : String(colors || "").split(""))
+    .map((color) => color.toUpperCase())
+    .filter((color) => MANA_SYMBOL_NAMES[color]);
+  const basics = basicLandNamesForColors(colorSymbols);
+  if (!basics.length) {
+    return "After choosing your nonbasic lands, fill the rest with basics or colorless utility lands based on your early mana needs.";
+  }
+  if (basics.length === 1) {
+    return `After choosing your nonbasic lands, fill the rest with ${basics[0]} unless your utility lands need more room.`;
+  }
+  const firstColor = (MANA_SYMBOL_NAMES[colorSymbols[0]] || basics[0]).toLowerCase();
+  const secondColor = (MANA_SYMBOL_NAMES[colorSymbols[1]] || basics[1]).toLowerCase();
+  return `After choosing your nonbasic lands, fill the rest with ${basics.join(" and ")} based on your early colored mana needs. If most early spells need ${firstColor}, lean ${basics[0]}. If your early interaction needs ${secondColor}, lean ${basics[1]}.`;
+}
+
+function presentationForFaction(factionOrKey) {
+  const key = typeof factionOrKey === "string" ? factionOrKey : factionOrKey?.key;
+  const faction = typeof factionOrKey === "string" ? getFaction(factionOrKey) : factionOrKey;
+  const guidance = getCommanderFactionGuidance(faction || key);
+  return FACTION_PRESENTATION[key] || {
+    shortName: faction?.name || key || "This path",
+    tableRole: "The pilot",
+    opponentRead: "Opponents experience the deck through its repeated play patterns and the choices it forces.",
+    emotionalPressure: "Pressure through the mechanics, resources, and table behavior this reading selected.",
+    loreRole: guidance?.ownedThemes?.slice(0, 3).join(", ") || faction?.philosophy || "faction identity",
+    mechanics: guidance?.spellcraftIdentity || "Commander mechanics that make the faction plan visible",
+    tableExperience: guidance?.commanderPlan || "a recognizable Commander table role",
+    thesis: `${faction?.name || "This faction"} read your answers as a playable pattern, not a personality label. The deck should make that pattern visible through its cards, combat, resources, and table pressure.`,
+    closeReason: guidance?.ownedThemes?.slice(0, 3).join(", ") || "a nearby Commander pressure",
+    forkQuestion: "What does this path do with the same tension?",
+    direction: "moves toward its own Commander expression",
+  };
+}
+
+function confidenceBand(confidence) {
+  const value = Number(confidence || 0);
+  if (value >= 0.6) return "strong";
+  if (value >= 0.3) return "moderate";
+  return "emerging";
+}
+
+function confidencePercent(confidence) {
+  const value = Number(confidence || 0);
+  return value ? `${Math.round(value * 100)}%` : "unscored";
+}
+
+function matchForFaction(result, factionKey) {
+  return [...(result?.top_matches || []), ...(result?.adjacent_matches || [])]
+    .find((match) => match?.faction === factionKey) || null;
+}
+
+function primaryMatch(result) {
+  return matchForFaction(result, result?.faction) || result?.top_matches?.[0] || null;
+}
+
+function adjacentMatchForSummary(result, activeKey) {
+  const matches = result?.adjacent_matches || [];
+  if (activeKey && activeKey !== result?.faction) {
+    return primaryMatch(result);
+  }
+  return matches[0] || null;
+}
+
+function factionDisplayName(key) {
+  return getFaction(key)?.name || key || "the neighboring path";
+}
+
+function buildContrastCopy(primaryFaction, adjacentFaction) {
+  if (!primaryFaction || !adjacentFaction) return "";
+  const primary = presentationForFaction(primaryFaction);
+  const adjacent = presentationForFaction(adjacentFaction);
+
+  if (primaryFaction.key === "WR" && adjacentFaction.key === "BG") {
+    return "Both recognize harm and grievance. Boros asks: \"What line was crossed, and who must answer for it?\" Golgari asks: \"What can be reclaimed from what was lost?\" Boros moves outward into intervention. Golgari moves downward into endurance and recursion.";
+  }
+
+  return `Both paths recognized the same tension, but they solve it differently. ${primary.shortName} asks: "${primary.forkQuestion}" ${adjacent.shortName} asks: "${adjacent.forkQuestion}" ${primary.shortName} ${primary.direction}; ${adjacent.shortName} ${adjacent.direction}.`;
+}
+
+function buildHeroNarrative({ dossier, faction, result }) {
+  const presentation = presentationForFaction(faction);
+  const adjacent = adjacentMatchForSummary(result, dossier.targetFactionKey);
+  const adjacentFaction = adjacent?.faction ? getFaction(adjacent.faction) : null;
+
+  if (dossier.isPrimary && faction.key === "WR" && adjacentFaction?.key === "BG") {
+    return `${presentation.thesis} Golgari stayed close because your answers carried grievance, endurance, and the memory of harm. But Golgari absorbs pain and turns it into survival. Boros turns harm into action.`;
+  }
+
+  if (!dossier.isPrimary) {
+    const primaryFaction = getFaction(dossier.primaryFactionKey);
+    return `${presentation.thesis} This is an adjacent reading from your original ${primaryFaction?.name || "primary"} result, so it should feel related rather than disconnected. ${buildContrastCopy(primaryFaction, faction)}`;
+  }
+
+  const closeCopy = adjacentFaction
+    ? ` ${adjacentFaction.name} stayed close because your answers also carried ${presentationForFaction(adjacentFaction).closeReason}. The deciding difference was how ${presentation.shortName} turns that pressure into ${presentation.tableExperience}.`
+    : "";
+  return `${presentation.thesis}${closeCopy}`;
+}
+
+function technicalSignalCopy(result, activeKey) {
+  const match = matchForFaction(result, activeKey) || primaryMatch(result);
+  return `Signal strength: ${confidencePercent(match?.confidence || result?.confidence)}`;
+}
+
+function buildReadingSignalCopy({ dossier, faction, result }) {
+  const activeMatch = matchForFaction(result, dossier.targetFactionKey) || primaryMatch(result);
+  const adjacent = adjacentMatchForSummary(result, dossier.targetFactionKey);
+  const band = confidenceBand(activeMatch?.confidence || result?.confidence);
+  const presentation = presentationForFaction(faction);
+
+  if (!dossier.isPrimary) {
+    const primaryName = dossier.primaryFaction?.name || factionDisplayName(dossier.primaryFactionKey);
+    return `${faction.name} remained close to your ${primaryName} reading with a ${band} signal. It is not a new diagnosis; it is the neighboring fork where the same answers become ${presentation.tableExperience}.`;
+  }
+
+  if (!adjacent?.faction) {
+    return `${faction.name} led with a ${band} signal. The result points toward ${presentation.tableExperience}, then asks you to turn that identity into a Commander plan.`;
+  }
+
+  const adjacentFaction = getFaction(adjacent.faction);
+  const adjacentPresentation = presentationForFaction(adjacentFaction);
+  return `${faction.name} led with a ${band} signal. The reading was not one-note; ${adjacentFaction?.name || adjacent.faction_name} remained nearby, which suggests your answers carried both ${presentation.closeReason} and ${adjacentPresentation.closeReason}. The deciding difference was motion: this result chose the path that ${presentation.direction}.`;
+}
+
+function buildTableIdentityHtml(faction) {
+  const presentation = presentationForFaction(faction);
+  return `
+    <div class="starter-card">
+      <div class="starter-title">Table Identity</div>
+      <div class="table-identity-list">
+        <div><span>Role</span>${escapeHtml(presentation.tableRole)}</div>
+        <div><span>How opponents read it</span>${escapeHtml(presentation.opponentRead)}</div>
+        <div><span>Emotional pressure</span>${escapeHtml(presentation.emotionalPressure)}</div>
+      </div>
+    </div>
+    <div class="starter-card">
+      <div class="starter-title">Lore To Mechanic</div>
+      <div class="table-identity-list">
+        <div><span>Lore role</span>${escapeHtml(presentation.loreRole)}</div>
+        <div><span>Mechanical expression</span>${escapeHtml(presentation.mechanics)}</div>
+        <div><span>Table experience</span>${escapeHtml(presentation.tableExperience)}</div>
+      </div>
+    </div>`;
+}
+
+function buildAdjacentContextHtml({ dossier, result }) {
+  const primaryFaction = getFaction(dossier.primaryFactionKey);
+  const previous = APP_STATE.previousViewKey && APP_STATE.previousViewKey !== dossier.targetFactionKey
+    ? getFaction(APP_STATE.previousViewKey)
+    : null;
+  const mazeReturnUrl = APP_STATE.mazeReturnUrl || "";
+
+  if (dossier.isPrimary && !mazeReturnUrl) {
+    return "";
+  }
+
+  return `
+    <div class="result-context-bar">
+      <div class="context-copy">
+        ${dossier.isPrimary
+          ? `Returned to your primary ${primaryFaction?.name || "dossier"} reading.`
+          : `This is an adjacent reading from your original ${primaryFaction?.name || "primary"} result.`}
+      </div>
+      <div class="context-actions">
+        ${!dossier.isPrimary ? `<button class="adjacent-btn" type="button" onclick="switchAdjacentView('${result.faction}')">Return to primary ${escapeHtml(primaryFaction?.name || "dossier")}</button>` : ""}
+        ${previous ? `<button class="adjacent-btn" type="button" onclick="switchAdjacentView('${previous.key}')">Return to ${escapeHtml(previous.name)}</button>` : ""}
+        ${mazeReturnUrl ? `<a class="adjacent-btn" href="${escapeHtml(mazeReturnUrl)}">Back to Maze</a>` : ""}
+      </div>
+    </div>`;
 }
 
 /**
@@ -655,15 +1127,546 @@ function buildLinkButtons(links, className = "") {
       const service = getServiceChipMeta(link);
       const classes = ["deck-link", "service-chip", `service-${service.key}`, className].filter(Boolean).join(" ");
       return `
-        <a class="${classes}" href="${link.url}" target="_blank" rel="noopener" data-service="${service.key}" style="--service-color:${service.color};--service-glow:${service.glow}">
+        <a class="${classes}" href="${escapeHtml(link.url)}" target="_blank" rel="noopener" data-service="${service.key}" style="--service-color:${service.color};--service-glow:${service.glow}">
           <span class="service-mark" aria-hidden="true">${service.mark}</span>
           <span class="service-copy">
             <span class="service-name">${service.label}</span>
-            <span class="service-label">${link.label}</span>
+            <span class="service-label">${escapeHtml(link.label)}</span>
           </span>
         </a>`;
     })
     .join("");
+}
+
+function dedupeLinks(links = []) {
+  const seen = new Set();
+  return (links || []).filter((link) => {
+    const key = `${link?.service || ""}:${link?.url || ""}:${link?.label || ""}`;
+    if (!link?.url || seen.has(key)) return false;
+    seen.add(key);
+    return true;
+  });
+}
+
+function searchSlug(value) {
+  return normalizeCardName(value).replace(/\s+/g, "-");
+}
+
+function siteSearchUrl(service, query) {
+  const encoded = encodeURIComponent(query);
+  // Source search patterns are intentionally conservative where stable deep links are uncertain.
+  if (service === "moxfield") return `https://www.moxfield.com/decks/public/advanced?format=commander&filter=${encoded}`;
+  if (service === "mtggoldfish") return `https://www.mtggoldfish.com/search?query=${encoded}`;
+  if (service === "mtgdecks") return `https://mtgdecks.net/Commander?search=${encoded}`;
+  return `https://www.google.com/search?q=${encoded}`;
+}
+
+function buildCommanderSpecificLinks(candidates = [], service) {
+  return (candidates || []).slice(0, 2).map((candidate) => {
+    const name = candidate?.name || candidate?.display_name || "";
+    if (!name) return null;
+    if (service === "edhrec" && candidate.edhrec) {
+      return { service, label: name, url: candidate.edhrec };
+    }
+    if (service === "scryfall" && candidate.scryfall) {
+      return { service, label: name, url: candidate.scryfall };
+    }
+    if (service === "edhrec") {
+      return { service, label: name, url: `https://edhrec.com/commanders/${searchSlug(name)}` };
+    }
+    return { service, label: name, url: siteSearchUrl(service, `${name} Commander`) };
+  }).filter(Boolean);
+}
+
+function buildDeckDiscoveryGroups({
+  faction,
+  archidektLinks,
+  commanderDirectoryLinks,
+  packageLinks,
+  mazePersonalLinks,
+  commanderCandidates,
+  tagRefs,
+}) {
+  const identity = getColorIdentity(faction?.colors || faction?.key || "");
+  const identityLabel = `${identity} Commander`;
+  const topTag = uniqueTagRefs(tagRefs)[0];
+  const tagEntry = topTag ? taxonomyEntry(topTag.category, topTag.tag) : null;
+  const themeQuery = tagEntry ? `${identity} Commander ${tagEntry.display_name}` : identityLabel;
+  const edhrecSlug = faction?.research_links?.edhrec_slug || searchSlug(faction?.name || identity);
+
+  return [
+    {
+      service: "edhrec",
+      name: "EDHREC",
+      desc: "Browse commanders and theme pages by color identity, then compare common packages before choosing a list.",
+      links: dedupeLinks([
+        ...commanderDirectoryLinks.filter((link) => getServiceChipMeta(link).key === "edhrec"),
+        { service: "edhrec", label: `${faction?.name || identity} commanders`, url: `https://edhrec.com/commanders/${edhrecSlug}` },
+        ...buildCommanderSpecificLinks(commanderCandidates, "edhrec"),
+      ]).slice(0, 4),
+    },
+    {
+      service: "moxfield",
+      name: "Moxfield",
+      desc: "Use public deck search for real player lists; start broad, then narrow by commander or theme.",
+      links: dedupeLinks([
+        { service: "moxfield", label: `${identity} Commander decks`, url: siteSearchUrl("moxfield", identityLabel) },
+        { service: "moxfield", label: tagEntry ? tagEntry.display_name : "theme lane", url: siteSearchUrl("moxfield", themeQuery) },
+        ...buildCommanderSpecificLinks(commanderCandidates, "moxfield"),
+      ]).slice(0, 4),
+    },
+    {
+      service: "archidekt",
+      name: "Archidekt",
+      desc: "Use color and catalog-tag lanes when you want deckbuilder-native filtering.",
+      links: dedupeLinks(archidektLinks).slice(0, 4),
+    },
+    {
+      service: "mtggoldfish",
+      name: "MTGGoldfish",
+      desc: "Use broad search when exact Commander deck routes vary; commander names are the safest anchor.",
+      links: dedupeLinks([
+        { service: "mtggoldfish", label: `${identity} Commander`, url: siteSearchUrl("mtggoldfish", identityLabel) },
+        ...buildCommanderSpecificLinks(commanderCandidates, "mtggoldfish"),
+        { service: "mtggoldfish", label: tagEntry ? tagEntry.display_name : "theme lane", url: siteSearchUrl("mtggoldfish", themeQuery) },
+      ]).slice(0, 4),
+    },
+    {
+      service: "mtgdecks",
+      name: "MTGDecks",
+      desc: "Start with the color lane, then search commander names when you want tournament-adjacent deck examples.",
+      links: dedupeLinks([
+        ...commanderDirectoryLinks.filter((link) => getServiceChipMeta(link).key === "mtgdecks"),
+        ...buildCommanderSpecificLinks(commanderCandidates, "mtgdecks"),
+      ]).slice(0, 4),
+    },
+    {
+      service: "scryfall",
+      name: "Scryfall",
+      desc: "Search card roles directly: commanders, ramp, draw, interaction, lands, and win conditions.",
+      links: dedupeLinks(packageLinks.scryfall).slice(0, 6),
+    },
+    {
+      service: "maze",
+      name: "Maze",
+      desc: "Open personalized Vox Mana searches with a return path back to this dossier.",
+      links: dedupeLinks([...(mazePersonalLinks || []), ...(packageLinks.maze || [])]).slice(0, 6),
+    },
+  ].filter((group) => group.links.length);
+}
+
+function buildDeckDiscoveryHtml(groups = []) {
+  return groups.map((group) => `
+    <div class="deck-card deck-source-${escapeHtml(group.service)}">
+      <div class="deck-format">${escapeHtml(group.name)}</div>
+      <div class="deck-name">${escapeHtml(group.name)} starting points</div>
+      <div class="deck-desc">${escapeHtml(group.desc)}</div>
+      <div class="deck-links">${buildLinkButtons(group.links)}</div>
+    </div>`).join("");
+}
+
+function readingIdForResult(result) {
+  return [
+    result?.model_version || result?.version || "reading",
+    result?.source_mode || "archscry",
+    result?.faction || "unknown",
+    confidencePercent(result?.confidence).replace(/[^0-9a-z]+/gi, ""),
+  ].filter(Boolean).join("-").toLowerCase();
+}
+
+function appendUrlParams(url, params) {
+  const parsed = new URL(url, window.location.origin);
+  Object.entries(params).forEach(([key, value]) => {
+    if (value !== null && value !== undefined && value !== "") {
+      parsed.searchParams.set(key, value);
+    }
+  });
+  return parsed.origin === window.location.origin
+    ? `${parsed.pathname}${parsed.search}${parsed.hash}`
+    : parsed.toString();
+}
+
+function buildArchscryMazeContext({ result, dossier, faction }) {
+  const readingId = readingIdForResult(result);
+  const returnUrl = `/archscry/?from=maze&view=${encodeURIComponent(dossier.targetFactionKey)}&readingId=${encodeURIComponent(readingId)}`;
+  return {
+    from: "archscry",
+    readingId,
+    guild: result?.faction || dossier.primaryFactionKey,
+    fit: dossier.targetFactionKey,
+    factionName: faction?.name || factionDisplayName(dossier.targetFactionKey),
+    readingTitle: `${faction?.name || "Vox Mana"} dossier`,
+    returnUrl,
+  };
+}
+
+function withArchscryMazeContext(links = [], context) {
+  return (links || []).map((link) => {
+    const isMaze = getServiceChipMeta(link).key === "maze" || String(link?.url || "").startsWith("/maze.html");
+    if (!isMaze) return link;
+    return {
+      ...link,
+      url: appendUrlParams(link.url, {
+        from: "archscry",
+        readingId: context.readingId,
+        guild: context.guild,
+        fit: context.fit,
+        readingTitle: context.readingTitle,
+        returnUrl: context.returnUrl,
+      }),
+    };
+  });
+}
+
+function writeArchscryDossierHandoff(result, context) {
+  try {
+    localStorage.setItem(ARCHSCRY_MAZE_HANDOFF_KEY, JSON.stringify({
+      ...context,
+      placementResult: result,
+      updatedAt: new Date().toISOString(),
+    }));
+  } catch (_) {}
+}
+
+function readArchscryDossierHandoff() {
+  try {
+    const parsed = JSON.parse(localStorage.getItem(ARCHSCRY_MAZE_HANDOFF_KEY) || "null");
+    return parsed && typeof parsed === "object" ? parsed : null;
+  } catch (_) {
+    return null;
+  }
+}
+
+function requestedDossierViewKey() {
+  const params = new URLSearchParams(window.location.search);
+  return (params.get("view") || params.get("fit") || params.get("guild") || "").toUpperCase();
+}
+
+function captureMazeReturnUrl() {
+  const params = new URLSearchParams(window.location.search);
+  APP_STATE.mazeReturnUrl = params.get("mazeReturnUrl") || "";
+}
+
+function escapeHtml(value) {
+  return String(value ?? "")
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
+}
+
+function normalizeCardName(value) {
+  return String(value || "")
+    .toLowerCase()
+    .normalize("NFKD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/[^a-z0-9]+/g, " ")
+    .trim();
+}
+
+function taxonomyEntry(category, tag) {
+  return APP_STATE.tagTaxonomyByKey.get(`${category}:${tag}`) || null;
+}
+
+function tagRefsForRecord(record = {}) {
+  return [
+    ...(record.detected_tags?.mechanical || []).map((tag) => ({ category: "mechanical", tag })),
+    ...(record.detected_tags?.playstyle || []).map((tag) => ({ category: "playstyle", tag })),
+    ...(record.detected_tags?.identity || []).map((tag) => ({ category: "identity", tag })),
+    ...(record.lore_tones || []).map((tag) => ({ category: "lore-tone", tag })),
+  ];
+}
+
+function uniqueTagRefs(refs = []) {
+  const seen = new Set();
+  return refs.filter((ref) => {
+    const key = `${ref.category}:${ref.tag}`;
+    if (seen.has(key)) return false;
+    seen.add(key);
+    return true;
+  });
+}
+
+function textIncludesTag(text, entry) {
+  const haystack = String(text || "").toLowerCase();
+  return [entry.tag, entry.display_name, ...(entry.aliases || [])]
+    .filter(Boolean)
+    .some((needle) => haystack.includes(String(needle).toLowerCase()));
+}
+
+function selectReadingTagRefs({ dossier, faction, result }) {
+  const evidenceText = (result?.evidence_trail || [])
+    .flatMap((entry) => [entry.signal, entry.answer_title, entry.prompt])
+    .filter(Boolean)
+    .join(" ");
+  const text = [
+    dossier?.decreeCopy,
+    dossier?.commanderPath?.copy,
+    dossier?.commanderPath?.spellcraft,
+    faction?.tagline,
+    faction?.philosophy,
+    ...(dossier?.archetypes || []).flatMap((item) => [item.name, item.desc]),
+    evidenceText,
+  ].filter(Boolean).join(" ");
+
+  const categoryOrder = new Map([
+    ["mechanical", 0],
+    ["playstyle", 1],
+    ["identity", 2],
+    ["lore-tone", 3],
+  ]);
+
+  return uniqueTagRefs((APP_STATE.tagTaxonomy?.tags || [])
+    .filter((entry) => textIncludesTag(text, entry))
+    .map((entry) => ({ category: entry.category, tag: entry.tag })))
+    .sort((left, right) =>
+      (categoryOrder.get(left.category) ?? 9) - (categoryOrder.get(right.category) ?? 9) ||
+      left.tag.localeCompare(right.tag)
+    )
+    .slice(0, 9);
+}
+
+function renderTagChips(tagRefs = [], limit = 6) {
+  return uniqueTagRefs(tagRefs)
+    .slice(0, limit)
+    .map((ref) => {
+      const entry = taxonomyEntry(ref.category, ref.tag);
+      if (!entry) return "";
+      return `<span class="vm-tag-chip" title="${escapeHtml(entry.canonical_definition)}">${escapeHtml(entry.display_name)}</span>`;
+    })
+    .join("");
+}
+
+function renderTagInterpretations(tagRefs = [], limit = 3) {
+  return uniqueTagRefs(tagRefs)
+    .slice(0, limit)
+    .map((ref) => {
+      const entry = taxonomyEntry(ref.category, ref.tag);
+      if (!entry) return "";
+      const note = entry.new_player_note || entry.table_feel || entry.canonical_definition;
+      return `
+        <div class="tag-interpretation">
+          <div class="tag-interpretation-name">${escapeHtml(entry.display_name)}</div>
+          <div class="starter-copy">${escapeHtml(entry.vox_mana_interpretation)}</div>
+          <div class="tag-helper">${escapeHtml(note)}</div>
+        </div>`;
+    })
+    .join("");
+}
+
+function tagWhyFitsCopy(entry, faction) {
+  const presentation = presentationForFaction(faction);
+  const actions = (entry.typical_actions || []).slice(0, 2).join(" and ");
+  const actionCopy = actions ? ` In deck terms, that often means ${actions}.` : "";
+  return `${entry.table_feel || entry.player_fantasy || entry.vox_mana_interpretation} In this ${presentation.shortName} reading, it points toward ${presentation.tableExperience}.${actionCopy}`;
+}
+
+function buildTagExplanationCards(tagRefs = [], faction, limit = 4) {
+  const refs = uniqueTagRefs(tagRefs).slice(0, limit);
+  if (!refs.length) {
+    const presentation = presentationForFaction(faction);
+    return `
+      <div class="starter-card">
+        <div class="starter-title">${escapeHtml(presentation.shortName)} pressure</div>
+        <div class="tag-meaning">${escapeHtml(presentation.tableExperience)}</div>
+        <div class="starter-copy">This reading was driven by faction identity and Commander table role more than a single mechanical tag.</div>
+      </div>`;
+  }
+
+  return refs.map((ref) => {
+    const entry = taxonomyEntry(ref.category, ref.tag);
+    if (!entry) return "";
+    return `
+      <div class="starter-card tag-explainer-card">
+        <div class="starter-title">${escapeHtml(entry.display_name)}</div>
+        <div class="tag-meaning">${escapeHtml(entry.vox_mana_interpretation)}</div>
+        <div class="starter-copy">${escapeHtml(tagWhyFitsCopy(entry, faction))}</div>
+        ${entry.new_player_note ? `<div class="tag-helper">${escapeHtml(entry.new_player_note)}</div>` : ""}
+      </div>`;
+  }).join("");
+}
+
+function isColorIdentitySubset(cardIdentity = [], factionColors = []) {
+  const allowed = new Set(factionColors || []);
+  return (cardIdentity || []).every((color) => allowed.has(color));
+}
+
+function wordExcerpt(value, maxWords = 18) {
+  const words = String(value || "").replace(/\s+/g, " ").trim().split(" ").filter(Boolean);
+  if (words.length <= maxWords) return words.join(" ");
+  return `${words.slice(0, maxWords).join(" ")}...`;
+}
+
+function flavorExcerptForCard(card) {
+  return card.flavor_excerpt || (card.card_faces || []).find((face) => face.flavor_excerpt)?.flavor_excerpt || "";
+}
+
+function selectFlavorEchoes({ faction, tagRefs }) {
+  const desired = new Set(uniqueTagRefs(tagRefs).map((ref) => `${ref.category}:${ref.tag}`));
+  const cards = APP_STATE.scryfallFlavorIndex?.cards || [];
+  const factionColors = faction?.colors || [];
+
+  return cards
+    .map((card) => {
+      const refs = tagRefsForRecord(card);
+      const identityFits = isColorIdentitySubset(card.color_identity || [], factionColors);
+      const tagMatches = refs.filter((ref) => desired.has(`${ref.category}:${ref.tag}`));
+      const toneMatches = tagMatches.filter((ref) => ref.category === "identity" || ref.category === "lore-tone");
+      const score =
+        (identityFits ? 5 : 0) +
+        tagMatches.length * 3 +
+        toneMatches.length * 2 +
+        (flavorExcerptForCard(card) ? 1 : 0) +
+        ((card.image_uris?.art_crop || card.image_uris?.normal) ? 1 : 0);
+      return { card, refs, tagMatches, score };
+    })
+    .filter((item) => item.score > 4 && flavorExcerptForCard(item.card))
+    .sort((left, right) => right.score - left.score || left.card.name.localeCompare(right.card.name))
+    .slice(0, 3);
+}
+
+function queryTerm(value, field = "o") {
+  const cleaned = String(value || "").trim().toLowerCase();
+  if (!cleaned) return "";
+  return /[^a-z0-9-]/i.test(cleaned) ? `${field}:"${cleaned.replace(/"/g, "")}"` : `${field}:${cleaned}`;
+}
+
+function queryTermsForTags(tagRefs = [], field = "o") {
+  const terms = [];
+  uniqueTagRefs(tagRefs).slice(0, 4).forEach((ref) => {
+    const entry = taxonomyEntry(ref.category, ref.tag);
+    if (!entry) return;
+    terms.push(queryTerm(entry.tag, field));
+    (entry.aliases || []).slice(0, 1).forEach((alias) => terms.push(queryTerm(alias, field)));
+  });
+  return [...new Set(terms)].filter(Boolean);
+}
+
+function groupedOr(terms = []) {
+  return terms.length ? `(${terms.join(" OR ")})` : "";
+}
+
+function mazeSearchLink(label, query, service = "maze") {
+  return {
+    service,
+    label,
+    url: `/maze.html?q=${encodeURIComponent(query)}`,
+  };
+}
+
+function buildPersonalizedMazePaths({ faction, tagRefs, flavorEchoes }) {
+  const identity = getColorIdentity(faction?.colors || faction?.key || "").toLowerCase() || "c";
+  const oracleGroup = groupedOr(queryTermsForTags(tagRefs, "o"));
+  const flavorTerms = groupedOr([
+    ...queryTermsForTags(tagRefs.filter((ref) => ref.category === "identity" || ref.category === "lore-tone"), "ft"),
+  ]);
+  const supportGroup = oracleGroup || "(o:draw OR o:token OR o:graveyard OR o:sacrifice OR o:return)";
+  const flavorGroup = flavorTerms || "(ft:death OR ft:secret OR ft:fire OR ft:growth OR ft:law)";
+
+  return [
+    mazeSearchLink("commanders that fit", `ci<=${identity} t:legendary t:creature f:commander ${supportGroup}`),
+    mazeSearchLink("cards that support this shape", `ci<=${identity} f:commander -t:legendary ${supportGroup}`),
+    mazeSearchLink("flavor echoes", `ci<=${identity} ${flavorGroup}`),
+    mazeSearchLink("weird stretch commanders", `f:commander t:legendary t:creature -ci<=${identity} ${supportGroup}`),
+  ];
+}
+
+function buildDiscoverySummaryHtml({ dossier, faction, result, tagRefs }) {
+  const adjacent = adjacentMatchForSummary(result, dossier.targetFactionKey);
+  const adjacentFaction = adjacent?.faction ? getFaction(adjacent.faction) : null;
+  const signalCopy = buildReadingSignalCopy({ dossier, faction, result });
+  const contrastCopy = adjacentFaction
+    ? buildContrastCopy(dossier.isPrimary ? faction : getFaction(dossier.primaryFactionKey), dossier.isPrimary ? adjacentFaction : faction)
+    : "";
+
+  return `
+    <div class="starter-section">
+      <div class="section-label">The Shape of the Reading</div>
+      <div class="starter-grid">
+        <div class="starter-card starter-card-wide">
+          <div class="starter-title">${escapeHtml(dossier.isPrimary ? `Why ${faction.name} Rose First` : `${faction.name} As Adjacent Fit`)}</div>
+          <div class="starter-copy">${escapeHtml(signalCopy)}</div>
+          <div class="signal-technical">${escapeHtml(technicalSignalCopy(result, dossier.targetFactionKey))}</div>
+        </div>
+        ${contrastCopy ? `<div class="starter-card starter-card-wide"><div class="starter-title">Faction Fork</div><div class="starter-copy">${escapeHtml(contrastCopy)}</div></div>` : ""}
+        ${buildTableIdentityHtml(faction)}
+      </div>
+    </div>
+    <div class="starter-section">
+      <div class="section-label">Why This Fits You</div>
+      <div class="starter-grid">${buildTagExplanationCards(tagRefs, faction, 4)}</div>
+    </div>`;
+}
+
+function buildFlavorEchoWhy({ card, tagMatches, faction }) {
+  const presentation = presentationForFaction(faction);
+  const bestRef = tagMatches.find((ref) => ref.category === "identity" || ref.category === "lore-tone") || tagMatches[0];
+  const entry = bestRef ? taxonomyEntry(bestRef.category, bestRef.tag) : null;
+  if (entry) {
+    return `Why it echoes: ${entry.vox_mana_interpretation} Here, that card moment supports ${presentation.shortName}'s ${presentation.tableExperience}.`;
+  }
+  return `Why it echoes: this card belongs to the same emotional shape as the reading: ${presentation.tableExperience}.`;
+}
+
+function buildFlavorEchoesHtml(flavorEchoes = [], faction = {}) {
+  if (!flavorEchoes.length) return "";
+  return `
+    <div class="starter-section">
+      <div class="section-label">Flavor Echoes</div>
+      <div class="flavor-echo-grid">
+        ${flavorEchoes.map(({ card, tagMatches }) => {
+          const excerpt = wordExcerpt(flavorExcerptForCard(card), 18);
+          const image = card.image_uris?.art_crop || card.image_uris?.normal || card.card_faces?.[0]?.image_uris?.art_crop || "";
+          const why = buildFlavorEchoWhy({ card, tagMatches, faction });
+          return `
+            <a class="flavor-echo-card" href="${escapeHtml(card.scryfall_uri || "#")}" target="_blank" rel="noopener">
+              ${image ? `<img src="${escapeHtml(image)}" alt="" loading="lazy">` : ""}
+              <span class="flavor-echo-body">
+                <span class="flavor-echo-name">${escapeHtml(card.name)}</span>
+                <span class="flavor-echo-kicker">Card moment</span>
+                <span class="flavor-echo-text">${escapeHtml(excerpt)}</span>
+                <span class="flavor-echo-why">${escapeHtml(why)}</span>
+                <span class="vm-tag-row">${renderTagChips(tagMatches, 3)}</span>
+              </span>
+            </a>`;
+        }).join("")}
+      </div>
+    </div>`;
+}
+
+function buildMazeDiscoveryHtml(paths = []) {
+  if (!paths.length) return "";
+  return `
+    <div class="starter-section">
+      <div class="section-label">Explore In Maze</div>
+      <div class="starter-grid">
+        <div class="starter-card starter-card-wide">
+          <div class="starter-title">Personal discovery paths</div>
+          <div class="starter-copy">Open the Implicit Maze with searches shaped by this reading. The Maze still runs live Scryfall search when you arrive.</div>
+          <div class="starter-links">${buildLinkButtons(paths)}</div>
+        </div>
+      </div>
+    </div>`;
+}
+
+function buildApocryphaHtml(faction) {
+  return "";
+}
+
+function indexedCommanderForCandidate(candidate) {
+  return APP_STATE.scryfallCommanderByName.get(normalizeCardName(candidate?.name || "")) || null;
+}
+
+function commanderMetaHtml(indexed) {
+  if (!indexed) return "";
+  const colors = (indexed.color_identity || []).length
+    ? colorIdentityNames(indexed.color_identity)
+    : "Colorless";
+  return [
+    indexed.type_line ? `<span>${escapeHtml(indexed.type_line)}</span>` : "",
+    `<span>Color Identity: ${escapeHtml(colors)}</span>`,
+  ].filter(Boolean).join("");
 }
 
 /**
@@ -717,13 +1720,27 @@ function renderResult(viewKey) {
   const isPrimary = dossier.isPrimary;
   const archidektSearchLinks = dossier.links.archidekt || [];
   const commanderLane = dossier.commanderLane;
-  const packageLinks = {
-    maze: dossier.links.maze || [],
-    scryfall: dossier.links.scryfall || [],
-  };
   const commanderDirectoryLinks = dossier.links.commanderStart || [];
   const commanderPreviewCandidates = dossier.commanderRecommendations || [];
   const landRecommendations = dossier.landRecommendations || {};
+  const readingTagRefs = selectReadingTagRefs({ dossier, faction, result });
+  const flavorEchoes = selectFlavorEchoes({ faction, tagRefs: readingTagRefs });
+  const mazeContext = buildArchscryMazeContext({ result, dossier, faction });
+  writeArchscryDossierHandoff(result, mazeContext);
+  const packageLinks = {
+    maze: withArchscryMazeContext(dossier.links.maze || [], mazeContext),
+    scryfall: dossier.links.scryfall || [],
+  };
+  const personalizedMazePaths = withArchscryMazeContext(
+    buildPersonalizedMazePaths({ faction, tagRefs: readingTagRefs, flavorEchoes }),
+    mazeContext
+  );
+  const discoverySummaryHtml = buildDiscoverySummaryHtml({ dossier, faction, result, tagRefs: readingTagRefs });
+  const flavorEchoesHtml = buildFlavorEchoesHtml(flavorEchoes, faction);
+  const mazeDiscoveryHtml = buildMazeDiscoveryHtml(personalizedMazePaths);
+  const apocryphaHtml = buildApocryphaHtml(faction);
+  const heroNarrative = buildHeroNarrative({ dossier, faction, result });
+  const adjacentContextHtml = buildAdjacentContextHtml({ dossier, result });
   const scoreBarsHtml = dossier.manaAlignment.map(({ color, value }) => {
     const target = Math.min(100, value * 10);
     return `<div class="score-row score-row-${color}"><span class="score-label">${COLOR_META[color].label}</span><div class="score-track"><div class="score-fill score-fill-${color}" style="width:0;background:${COLOR_META[color].fill}" data-target="${target}"></div></div><span class="score-val">${value}</span></div>`;
@@ -755,6 +1772,9 @@ function renderResult(viewKey) {
     return (items || [])
       .map((candidate, index) => {
         const id = `cmd_${index}`;
+        const indexed = indexedCommanderForCandidate(candidate);
+        const meta = commanderMetaHtml(indexed);
+        const tagChips = indexed ? renderTagChips(tagRefsForRecord(indexed), 3) : "";
         return `
           <div class="commander-preview-card" data-commander-card>
             <div class="commander-art-shell">
@@ -762,7 +1782,9 @@ function renderResult(viewKey) {
             </div>
             <div class="commander-preview-body">
               <div class="commander-name">${candidate.name}</div>
+              ${meta ? `<div class="commander-meta">${meta}</div>` : ""}
               <div class="commander-desc">${candidate.desc}</div>
+              ${tagChips ? `<div class="commander-tags">${tagChips}</div>` : ""}
             </div>
           </div>`;
       })
@@ -808,7 +1830,7 @@ function renderResult(viewKey) {
   const readingOmens = dossier.readingOmens || [];
   const manaSectionLabel = isPrimary
     ? "Mana Alignment"
-    : `Reading Mana Alignment · Commander Color Identity: ${dossier.faction.colorIdentity || getColorIdentity(faction.colors)}`;
+    : `Reading Mana Alignment - Commander Colors: ${colorIdentityNames(faction.colors || dossier.faction.colorIdentity || getColorIdentity(faction.colors))}`;
   const evidenceHtml = readingOmens.length
     ? readingOmens
         .map((omen) => `
@@ -821,32 +1843,46 @@ function renderResult(viewKey) {
     : "";
 
   const pipsHtml = (faction.colors || []).map((color) => `<div class="pip pip-${color}"></div>`).join("");
-  const archidektHtml = archidektSearchLinks.length
-    ? `<div class="deck-card"><div class="deck-format">Archidekt</div><div class="deck-name">Validated Searches</div><div class="deck-desc">One color-identity lane plus up to three catalog-matched archetype lanes for your first deck browse.</div><div class="deck-links">${buildLinkButtons(archidektSearchLinks)}</div></div>`
-    : "";
-  const mazePackageHtml = `<div class="deck-card"><div class="deck-format">Maze</div><div class="deck-name">Package Searches</div><div class="deck-desc">Open the Implicit Maze with starter queries for commanders, ramp, draw, interaction, lands, and win conditions.</div><div class="deck-links">${buildLinkButtons(packageLinks.maze)}</div></div>`;
-  const scryfallPackageHtml = `<div class="deck-card"><div class="deck-format">Scryfall</div><div class="deck-name">Direct Card Searches</div><div class="deck-desc">Jump straight to Scryfall for the same Commander package lanes in ${getColorIdentity(faction.colors)} colors.</div><div class="deck-links">${buildLinkButtons(packageLinks.scryfall)}</div></div>`;
-  const decksHtml = `${archidektHtml}${mazePackageHtml}${scryfallPackageHtml}`;
+  const decksHtml = buildDeckDiscoveryHtml(buildDeckDiscoveryGroups({
+    faction,
+    archidektLinks: archidektSearchLinks,
+    commanderDirectoryLinks,
+    packageLinks,
+    mazePersonalLinks: personalizedMazePaths,
+    commanderCandidates: commanderPreviewCandidates,
+    tagRefs: readingTagRefs,
+  }));
+  const landLaneCopy = {
+    premium: "Best when you want speed, consistency, and fewer tapped lands.",
+    midrange: "Good first upgrade lane: stronger fixing without chasing every premium land.",
+    budget: "Playable entry point. Expect more tapped lands, but the deck will still function.",
+    utility: "Adds Commander flexibility beyond color fixing.",
+  };
+  const basicLandCopy = basicLandGuidanceCopy(faction.colors || []);
 
   document.getElementById("result-inner").innerHTML = `
+    ${adjacentContextHtml}
+
     <div class="guild-banner" style="background:${faction.banner}">
       <div class="guild-eyebrow">${isPrimary ? `Your ${institutionLabel}` : `Adjacent ${institutionLabel} Fit`}</div>
       <div class="guild-name" style="color:${faction.accent}">${faction.name}</div>
       <div class="guild-tagline">${faction.tagline}</div>
       <div class="mana-pips">${pipsHtml}</div>
-      <div class="guild-philosophy">${decreeCopy}</div>
+      <div class="guild-philosophy">${escapeHtml(heroNarrative)}</div>
       <div class="guild-lore-summary">${faction.philosophy}</div>
     </div>
 
     <div class="result-status">
       <strong>${resultStatus}</strong>
-      ${SESSION.username ? ` Saved under ${SESSION.username}.` : " Save it with Google when you want this exact reading back on a later visit."}
+      ${SESSION.username ? ` Saved under ${SESSION.username}.` : ""}
     </div>
 
     <div class="scores-section">
       <div class="section-label">${manaSectionLabel}</div>
       <div class="score-bars">${scoreBarsHtml}</div>
     </div>
+
+    ${discoverySummaryHtml}
 
     ${evidenceHtml ? `
       <div class="starter-section">
@@ -872,6 +1908,10 @@ function renderResult(viewKey) {
         </div>
       </div>
     </div>
+
+    ${flavorEchoesHtml}
+    ${mazeDiscoveryHtml}
+    ${apocryphaHtml}
 
     <div class="adjacent-section">
       <div class="section-label">Adjacent Fits</div>
@@ -900,31 +1940,31 @@ function renderResult(viewKey) {
     </div>
 
     <div class="lands-section">
-      <div class="section-label">${institutionLabel} Starter Land References</div>
+      <div class="section-label">Mana Base Starting Map</div>
       <div class="lands-tiers">
         <div class="land-tier tier-premium">
           <div class="land-tier-label">Premium</div>
+          <div class="land-tier-copy">${landLaneCopy.premium}</div>
           <div class="land-cards-row">${landSlots(landRecommendations.premium, "lp")}</div>
         </div>
         <div class="land-tier tier-midrange">
-          <div class="land-tier-label">Mid-range</div>
+          <div class="land-tier-label">Midrange</div>
+          <div class="land-tier-copy">${landLaneCopy.midrange}</div>
           <div class="land-cards-row">${landSlots(landRecommendations.midrange, "lm")}</div>
         </div>
         <div class="land-tier tier-budget">
           <div class="land-tier-label">Budget</div>
+          <div class="land-tier-copy">${landLaneCopy.budget}</div>
           <div class="land-cards-row">${landSlots(landRecommendations.budget, "lb")}</div>
         </div>
         <div class="land-tier tier-utility">
           <div class="land-tier-label">Utility</div>
+          <div class="land-tier-copy">${landLaneCopy.utility}</div>
           <div class="land-cards-row">${landSlots(landRecommendations.utility, "lu")}</div>
         </div>
       </div>
       <div class="lands-guide">
-        <div class="guide-row"><span class="guide-tier guide-tier-p">Premium picks</span><span class="guide-text">${(landRecommendations.premium || []).join(" / ")}</span></div>
-        <div class="guide-row"><span class="guide-tier guide-tier-m">Midrange picks</span><span class="guide-text">${(landRecommendations.midrange || []).join(" / ")}</span></div>
-        <div class="guide-row"><span class="guide-tier guide-tier-b">Budget picks</span><span class="guide-text">${(landRecommendations.budget || []).join(" / ")}</span></div>
-        <div class="guide-row"><span class="guide-tier guide-tier-u">Utility picks</span><span class="guide-text">${(landRecommendations.utility || []).join(" / ")}</span></div>
-        <div class="guide-row"><span class="guide-tier guide-tier-u">Basic land guidance</span><span class="guide-text">${landRecommendations.basicGuidance || ""}</span></div>
+        <div class="guide-row"><span class="guide-tier guide-tier-u">Basics</span><span class="guide-text">${basicLandCopy}</span></div>
       </div>
     </div>
 
@@ -938,7 +1978,7 @@ function renderResult(viewKey) {
     </p>
 
     <div class="footer-actions">
-      <div class="footer-note">Card and land images via Scryfall API. Starter references are curated from faction data; deck links route out to MTGDecks, Archidekt, EDHREC, Maze, and Scryfall.</div>
+      <div class="footer-note">Card and land images via Scryfall API. Starter references are curated from faction data; deck links route out to EDHREC, Moxfield, Archidekt, MTGGoldfish, MTGDecks, Maze, and Scryfall.</div>
       <div class="footer-button-row">
         <button class="btn-primary" type="button" onclick="saveCurrentResult()">${saveButtonLabel}</button>
         ${returnToTerminalButton}
@@ -962,6 +2002,7 @@ function renderResult(viewKey) {
  * @param {string} factionKey Adjacent faction key to render.
  */
 function switchAdjacentView(factionKey) {
+  APP_STATE.previousViewKey = APP_STATE.activeViewKey;
   APP_STATE.activeViewKey = factionKey;
   renderResult(factionKey);
 }
@@ -1109,23 +2150,28 @@ async function saveCurrentResult() {
 function restoreInitialView(savedFromOAuth) {
   const profileResult = SESSION.profile?.placementResult || null;
   const cached = vm_getCachedPlacementResult();
-  const result = profileResult || cached;
+  const handoff = readArchscryDossierHandoff();
+  const result = profileResult || cached || handoff?.placementResult || null;
+  const requestedView = requestedDossierViewKey();
+  const viewKey = requestedView && APP_STATE.factions[requestedView] ? requestedView : result?.faction;
+  captureMazeReturnUrl();
 
   if (savedFromOAuth && result) {
     APP_STATE.activeResult = result;
-    APP_STATE.activeViewKey = result.faction;
+    APP_STATE.activeViewKey = viewKey;
     APP_STATE.resultSource = "saved";
     APP_STATE.returnSection = null;
-    renderResult(result.faction);
+    renderResult(viewKey);
     return;
   }
 
-  if (profileResult) {
-    APP_STATE.activeResult = profileResult;
-    APP_STATE.activeViewKey = profileResult.faction;
-    APP_STATE.resultSource = "saved";
+  if (result) {
+    APP_STATE.activeResult = result;
+    APP_STATE.activeViewKey = viewKey;
+    APP_STATE.resultSource = profileResult ? "saved" : "cached";
     APP_STATE.returnSection = null;
-    renderResult(profileResult.faction);
+    vm_cachePlacementResult(result);
+    renderResult(viewKey);
     return;
   }
 
@@ -1178,6 +2224,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     await loadFactionData();
     await loadPlacementModel();
     await loadDeckTagCatalog();
+    await loadDiscoveryData();
   } catch (error) {
     document.body.innerHTML = `<div class="section"><div class="empty-state"><h2>Placement data missing.</h2><p>${error.message}</p></div></div>`;
     return;
