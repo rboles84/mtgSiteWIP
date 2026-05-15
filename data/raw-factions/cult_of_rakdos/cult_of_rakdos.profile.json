@@ -8,7 +8,7 @@
     "black",
     "red"
   ],
-  "last_updated": "2026-05-09",
+  "last_updated": "2026-05-13T21:14:06.308Z",
   "profile": {
     "overview": "Cult of Rakdos is a black-red guild associated with Ravnica.",
     "philosophy": "Life is short, authority is mockable, and performance can expose truths politeness hides.",
@@ -87,8 +87,129 @@
     ]
   },
   "historical_timeline": [],
-  "key_figures": [],
-  "canonical_flavor_text": [],
+  "key_figures": [
+    {
+      "character_id": "char_rakdos",
+      "name": "Rakdos",
+      "role": "Namesake demon and cult patron.",
+      "relationship_to_faction": "Appears in source-backed evidence for this faction.",
+      "claim_ids": [
+        "cult_of_rakdos_claim_001",
+        "cult_of_rakdos_claim_002",
+        "cult_of_rakdos_claim_003",
+        "cult_of_rakdos_claim_004",
+        "cult_of_rakdos_claim_005",
+        "cult_of_rakdos_claim_006",
+        "cult_of_rakdos_claim_0007",
+        "cult_of_rakdos_claim_0008",
+        "cult_of_rakdos_claim_0009",
+        "cult_of_rakdos_claim_0010",
+        "cult_of_rakdos_claim_0011",
+        "cult_of_rakdos_claim_0012",
+        "cult_of_rakdos_claim_0013",
+        "cult_of_rakdos_claim_0014",
+        "cult_of_rakdos_claim_0015",
+        "cult_of_rakdos_claim_0016"
+      ],
+      "source_ids": [
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_ravnica_allegiance_mechanics_2018",
+        "src_mtg_stories_operation_desperation_e6d285ea",
+        "src_mtg_stories_episode_7_rot_before_recovery_aff91fb1",
+        "src_mtg_stories_the_illusions_of_childs_play_a33a5af6",
+        "src_mtg_stories_episode_5_chains_of_expectation_18265ca0",
+        "src_mtg_stories_rallying_the_reluctant_d21b8009",
+        "src_mtg_stories_ashes_6ede4fea",
+        "src_mtg_stories_episode_6_explosions_of_genius_9db78723",
+        "src_mtg_stories_slaughter_games_270f4c5d",
+        "src_mtg_stories_the_gathering_storm_chapter_19_dab06589",
+        "src_mtg_stories_episode_4_justice_before_mercy_57b8ab88"
+      ],
+      "confidence": "High",
+      "notes": ""
+    },
+    {
+      "character_id": "char_rakdos_the_defiler",
+      "name": "Rakdos the Defiler",
+      "role": "Rakdos figure referenced in faction lore.",
+      "relationship_to_faction": "Appears in source-backed evidence for this faction.",
+      "claim_ids": [
+        "cult_of_rakdos_claim_0007"
+      ],
+      "source_ids": [
+        "src_mtg_stories_operation_desperation_e6d285ea"
+      ],
+      "confidence": "Medium",
+      "notes": ""
+    },
+    {
+      "character_id": "char_exava",
+      "name": "Exava",
+      "role": "Prominent Cult of Rakdos figure.",
+      "relationship_to_faction": "Appears in source-backed evidence for this faction.",
+      "claim_ids": [
+        "cult_of_rakdos_claim_0007",
+        "cult_of_rakdos_claim_0012"
+      ],
+      "source_ids": [
+        "src_mtg_stories_operation_desperation_e6d285ea",
+        "src_mtg_stories_ashes_6ede4fea"
+      ],
+      "confidence": "Medium",
+      "notes": ""
+    },
+    {
+      "character_id": "char_judith",
+      "name": "Judith",
+      "role": "Prominent Cult of Rakdos figure.",
+      "relationship_to_faction": "Appears in source-backed evidence for this faction.",
+      "claim_ids": [
+        "cult_of_rakdos_claim_0008",
+        "cult_of_rakdos_claim_0010",
+        "cult_of_rakdos_claim_0013",
+        "cult_of_rakdos_claim_0016"
+      ],
+      "source_ids": [
+        "src_mtg_stories_episode_7_rot_before_recovery_aff91fb1",
+        "src_mtg_stories_episode_5_chains_of_expectation_18265ca0",
+        "src_mtg_stories_episode_6_explosions_of_genius_9db78723",
+        "src_mtg_stories_episode_4_justice_before_mercy_57b8ab88"
+      ],
+      "confidence": "Medium",
+      "notes": ""
+    }
+  ],
+  "canonical_flavor_text": [
+    {
+      "card_name": "Cult of Rakdos dossier anchor",
+      "set": "Ravnica",
+      "short_excerpt_or_summary": "Life is short, authority is mockable, and performance can expose truths politeness hides.",
+      "is_exact_excerpt": false,
+      "claim_ids": [
+        "cult_of_rakdos_claim_0007",
+        "cult_of_rakdos_claim_0008",
+        "cult_of_rakdos_claim_0009",
+        "cult_of_rakdos_claim_0010",
+        "cult_of_rakdos_claim_0011",
+        "cult_of_rakdos_claim_0012",
+        "cult_of_rakdos_claim_0013",
+        "cult_of_rakdos_claim_0014"
+      ],
+      "source_ids": [
+        "src_mtg_stories_operation_desperation_e6d285ea",
+        "src_mtg_stories_episode_7_rot_before_recovery_aff91fb1",
+        "src_mtg_stories_the_illusions_of_childs_play_a33a5af6",
+        "src_mtg_stories_episode_5_chains_of_expectation_18265ca0",
+        "src_mtg_stories_rallying_the_reluctant_d21b8009",
+        "src_mtg_stories_ashes_6ede4fea",
+        "src_mtg_stories_episode_6_explosions_of_genius_9db78723",
+        "src_mtg_stories_slaughter_games_270f4c5d",
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_ravnica_allegiance_mechanics_2018"
+      ],
+      "notes": "Derived from the faction's raw dossier copy so the flavor layer stays evidence-backed and reusable for Commander Compass."
+    }
+  ],
   "views_on_other_factions": [],
   "mechanics": {
     "summary": "Spectacle rewards action after an opponent has lost life, expressing Rakdos's taste for consequence, audience, and escalation.",
@@ -113,9 +234,36 @@
       "chaos",
       "spectacle",
       "unleash",
-      "carnival"
+      "carnival",
+      "Ravnica",
+      "ward",
+      "Guilds of Ravnica",
+      "Ravnica Allegiance",
+      "Dragon's Maze",
+      "War of the Spark",
+      "Murders at Karlov Manor",
+      "Return to Ravnica"
     ],
-    "story_corpus_paths_added": 10
+    "story_corpus_paths_added": 10,
+    "known_characters": [
+      "Rakdos",
+      "Rakdos the Defiler",
+      "Exava",
+      "Judith"
+    ],
+    "known_mechanics": [
+      "ward",
+      "spectacle",
+      "unleash"
+    ],
+    "sets_or_story_arcs": [
+      "Guilds of Ravnica",
+      "Ravnica Allegiance",
+      "Dragon's Maze",
+      "War of the Spark",
+      "Murders at Karlov Manor",
+      "Return to Ravnica"
+    ]
   },
   "data_quality": {
     "corpus_upgrade": {
@@ -133,9 +281,559 @@
         "cult_of_rakdos_claim_0015",
         "cult_of_rakdos_claim_0016"
       ]
+    },
+    "raw_enrichment": {
+      "review_date": "2026-05-13T21:14:06.308Z",
+      "source_basis": "data/raw-factions claims.json + sources.json",
+      "key_figures_added": 0,
+      "historical_timeline_entries": 0,
+      "canonical_flavor_text_entries": 1,
+      "relationship_entries": 0,
+      "known_characters": 4,
+      "known_mechanics": 3,
+      "story_arcs": 6
     }
   },
   "research_limitations": [
     "MTG-Stories repository entries are treated as searchable archive copies; official Wizards pages should remain the primary canon authority when available."
-  ]
+  ],
+  "commander_compass": {
+    "schema_version": "1.0.0",
+    "source_research_file": "cult_of_rakdos.commander_compass.research.json",
+    "last_reviewed": "2026-05-14",
+    "review_status": "reviewed_not_canonical_lore",
+    "recommendation_philosophy": "Favor commanders that reward life loss, sacrifice, all-in pressure, and theatrical chaos. A strong Rakdos recommendation should feel like a performance with a cost: powerful, dangerous, funny, and a little socially volatile.",
+    "identity_basis": {
+      "owned_themes": [
+        "performance and spectacle",
+        "hedonism and cruelty",
+        "chaos and anti-authority parody",
+        "demons/devils/imps",
+        "life-loss gates",
+        "sacrifice and death damage",
+        "empty-hand aggression",
+        "Rix Maadi and Rakdos as cult icon"
+      ],
+      "allowed_phrases": [
+        "the show must go on",
+        "spectacle engine",
+        "pain as ticket price",
+        "demon headliner",
+        "chaotic performance",
+        "burning the stage down"
+      ],
+      "avoid_or_contrast_phrases": [
+        "orderly midrange with no spectacle",
+        "pure treasure value without risk or performance",
+        "canon claim from product recommendation",
+        "planeswalker commander without permission"
+      ],
+      "adjacent_overlap_notes": [
+        "Rakdos overlaps with generic BR sacrifice, exile-value, and goad decks. Keep cult identity by emphasizing performance, pain, chaos, and audience/act language."
+      ],
+      "supporting_claim_ids": [
+        "cult_of_rakdos_claim_001",
+        "cult_of_rakdos_claim_002",
+        "cult_of_rakdos_claim_003",
+        "cult_of_rakdos_claim_004",
+        "cult_of_rakdos_claim_005",
+        "cult_of_rakdos_claim_006",
+        "cult_of_rakdos_claim_0007",
+        "cult_of_rakdos_claim_0008",
+        "cult_of_rakdos_claim_0009",
+        "cult_of_rakdos_claim_0010"
+      ],
+      "supporting_source_ids": [
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_ravnica_allegiance_mechanics_2018",
+        "src_mtg_stories_operation_desperation_e6d285ea",
+        "src_mtg_stories_episode_7_rot_before_recovery_aff91fb1",
+        "src_mtg_stories_the_illusions_of_childs_play_a33a5af6",
+        "src_mtg_stories_episode_5_chains_of_expectation_18265ca0"
+      ]
+    },
+    "native_fit_commanders": [
+      {
+        "exact_card_name": "Rakdos, Lord of Riots",
+        "display_name": "Rakdos, Lord of Riots",
+        "scryfall_uri": "https://scryfall.com/card/dsc/230/rakdos-lord-of-riots",
+        "edhrec_uri": "https://edhrec.com/commanders/rakdos-lord-of-riots",
+        "color_identity": [
+          "B",
+          "R"
+        ],
+        "commander_legal": true,
+        "recommendation_type": "Native Fit",
+        "archetype_tags": [
+          "Demons",
+          "Big Mana",
+          "Damage Gate"
+        ],
+        "why_this_fits": "Rakdos is the native demon-headliner choice: opponents must lose life before the show begins, then pain discounts enormous creatures.",
+        "skip_if": "Skip if you want consistent early casting, low variance, or a commander that avoids big threat perception.",
+        "gameplay_summary": "A flying trampling Demon that requires opponent life loss to cast and discounts creature spells based on life opponents lost.",
+        "faction_identity_terms": [
+          "Rakdos",
+          "demon",
+          "spectacle",
+          "pain",
+          "the show"
+        ],
+        "source_basis": {
+          "card_data": [
+            "https://scryfall.com/search?as=grid&order=name&q=%21%22Rakdos%2C%20Lord%20of%20Riots%22&unique=cards"
+          ],
+          "lore_or_identity": [
+            "https://magic.wizards.com/en/news/feature/flavorful-guide-guilds-ravnica-allegiance-2019-02-07",
+            "https://magic.wizards.com/en/news/feature/commanding-ravnica-allegiance-2019-01-17",
+            "https://magic.wizards.com/en/news/feature/ravnica-allegiance-mechanics"
+          ],
+          "commander_product_relevance": [
+            "https://edhrec.com/commanders/rakdos-lord-of-riots",
+            "https://edhrec.com/commanders/rakdos"
+          ],
+          "existing_repo_claim_ids": [
+            "cult_of_rakdos_claim_001",
+            "cult_of_rakdos_claim_002",
+            "cult_of_rakdos_claim_003",
+            "cult_of_rakdos_claim_004",
+            "cult_of_rakdos_claim_005",
+            "cult_of_rakdos_claim_006",
+            "cult_of_rakdos_claim_0007",
+            "cult_of_rakdos_claim_0008",
+            "cult_of_rakdos_claim_0009",
+            "cult_of_rakdos_claim_0010"
+          ],
+          "existing_repo_source_ids": [
+            "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+            "src_wotc_ravnica_allegiance_mechanics_2018",
+            "src_mtg_stories_operation_desperation_e6d285ea",
+            "src_mtg_stories_episode_7_rot_before_recovery_aff91fb1",
+            "src_mtg_stories_the_illusions_of_childs_play_a33a5af6",
+            "src_mtg_stories_episode_5_chains_of_expectation_18265ca0"
+          ]
+        },
+        "confidence": "High",
+        "caution_notes": [],
+        "type_line": "Legendary Creature — Demon"
+      },
+      {
+        "exact_card_name": "Judith, the Scourge Diva",
+        "display_name": "Judith, the Scourge Diva",
+        "scryfall_uri": "https://scryfall.com/card/cmm/341/judith-the-scourge-diva",
+        "edhrec_uri": "https://edhrec.com/commanders/judith-the-scourge-diva",
+        "color_identity": [
+          "B",
+          "R"
+        ],
+        "commander_legal": true,
+        "recommendation_type": "Native Fit",
+        "archetype_tags": [
+          "Aristocrats",
+          "Aggro",
+          "Death Damage"
+        ],
+        "why_this_fits": "Judith makes the cult feel like a packed stage: every creature hits harder, and nontoken deaths throw damage back into the audience.",
+        "skip_if": "Skip if you want a large demon commander or dislike small-creature sacrifice combat.",
+        "gameplay_summary": "A low-cost Rakdos legend that pumps your creatures and turns nontoken creature deaths into damage.",
+        "faction_identity_terms": [
+          "Judith",
+          "performance",
+          "death damage",
+          "aggression"
+        ],
+        "source_basis": {
+          "card_data": [
+            "https://scryfall.com/search?as=grid&order=name&q=%21%22Judith%2C%20the%20Scourge%20Diva%22&unique=cards"
+          ],
+          "lore_or_identity": [
+            "https://magic.wizards.com/en/news/feature/commanding-ravnica-allegiance-2019-01-17",
+            "https://magic.wizards.com/en/news/feature/flavorful-guide-guilds-ravnica-allegiance-2019-02-07"
+          ],
+          "commander_product_relevance": [
+            "https://edhrec.com/commanders/judith-the-scourge-diva",
+            "https://edhrec.com/commanders/rakdos"
+          ],
+          "existing_repo_claim_ids": [
+            "cult_of_rakdos_claim_0008",
+            "cult_of_rakdos_claim_0010",
+            "cult_of_rakdos_claim_0013",
+            "cult_of_rakdos_claim_0016"
+          ],
+          "existing_repo_source_ids": [
+            "src_mtg_stories_episode_7_rot_before_recovery_aff91fb1",
+            "src_mtg_stories_episode_5_chains_of_expectation_18265ca0",
+            "src_mtg_stories_episode_6_explosions_of_genius_9db78723",
+            "src_mtg_stories_episode_4_justice_before_mercy_57b8ab88"
+          ]
+        },
+        "confidence": "High",
+        "caution_notes": [],
+        "type_line": "Legendary Creature — Human Shaman"
+      }
+    ],
+    "weird_stretch_commanders": [
+      {
+        "exact_card_name": "Blim, Comedic Genius",
+        "display_name": "Blim, Comedic Genius",
+        "scryfall_uri": "https://scryfall.com/card/cmr/272/blim-comedic-genius",
+        "edhrec_uri": "https://edhrec.com/commanders/blim-comedic-genius",
+        "color_identity": [
+          "B",
+          "R"
+        ],
+        "commander_legal": true,
+        "recommendation_type": "Weird Stretch",
+        "archetype_tags": [
+          "Gifts",
+          "Politics",
+          "Chaos"
+        ],
+        "why_this_fits": "Blim is weird Rakdos in the right way: comedy, cruelty, and bad gifts become the performance mechanic.",
+        "skip_if": "Skip if your table dislikes donated permanents, confusing board states, or spiteful politics.",
+        "gameplay_summary": "A flying, hasty commander that gives away your permanents and punishes opponents for controlling cards they do not own.",
+        "faction_identity_terms": [
+          "comedy",
+          "cruelty",
+          "performance",
+          "chaos"
+        ],
+        "source_basis": {
+          "card_data": [
+            "https://scryfall.com/search?as=grid&order=name&q=%21%22Blim%2C%20Comedic%20Genius%22&unique=cards"
+          ],
+          "lore_or_identity": [
+            "https://magic.wizards.com/en/news/feature/flavorful-guide-guilds-ravnica-allegiance-2019-02-07",
+            "https://magic.wizards.com/en/news/feature/commanding-ravnica-allegiance-2019-01-17"
+          ],
+          "commander_product_relevance": [
+            "https://edhrec.com/commanders/blim-comedic-genius",
+            "https://edhrec.com/commanders/rakdos"
+          ],
+          "existing_repo_claim_ids": [
+            "cult_of_rakdos_claim_001",
+            "cult_of_rakdos_claim_002",
+            "cult_of_rakdos_claim_003",
+            "cult_of_rakdos_claim_004",
+            "cult_of_rakdos_claim_005",
+            "cult_of_rakdos_claim_006",
+            "cult_of_rakdos_claim_0007",
+            "cult_of_rakdos_claim_0008",
+            "cult_of_rakdos_claim_0009",
+            "cult_of_rakdos_claim_0010"
+          ],
+          "existing_repo_source_ids": [
+            "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+            "src_wotc_ravnica_allegiance_mechanics_2018",
+            "src_mtg_stories_operation_desperation_e6d285ea",
+            "src_mtg_stories_episode_7_rot_before_recovery_aff91fb1",
+            "src_mtg_stories_the_illusions_of_childs_play_a33a5af6",
+            "src_mtg_stories_episode_5_chains_of_expectation_18265ca0"
+          ]
+        },
+        "confidence": "Medium",
+        "caution_notes": [
+          "Not Ravnica-native; product fit is tonal and mechanical."
+        ],
+        "type_line": "Legendary Creature — Imp"
+      }
+    ],
+    "budget_friendly_commanders": [
+      {
+        "exact_card_name": "Juri, Master of the Revue",
+        "display_name": "Juri, Master of the Revue",
+        "scryfall_uri": "https://scryfall.com/card/eoc/119/juri-master-of-the-revue",
+        "edhrec_uri": "https://edhrec.com/commanders/juri-master-of-the-revue",
+        "color_identity": [
+          "B",
+          "R"
+        ],
+        "commander_legal": true,
+        "recommendation_type": "Budget Friendly",
+        "archetype_tags": [
+          "Sacrifice",
+          "Counters",
+          "Death Damage"
+        ],
+        "why_this_fits": "Juri is a compact stage-manager for budget Rakdos sacrifice: every sacrificed permanent builds toward one dramatic death burst.",
+        "skip_if": "Skip if you want demon tribal or a commander that wins without sacrifice density.",
+        "gameplay_summary": "A two-mana sacrifice payoff that grows as you sacrifice permanents and deals its power as damage when it dies.",
+        "faction_identity_terms": [
+          "performance",
+          "sacrifice",
+          "finale",
+          "damage"
+        ],
+        "source_basis": {
+          "card_data": [
+            "https://scryfall.com/search?as=grid&order=name&q=%21%22Juri%2C%20Master%20of%20the%20Revue%22&unique=cards"
+          ],
+          "lore_or_identity": [
+            "https://magic.wizards.com/en/news/feature/commanding-ravnica-allegiance-2019-01-17",
+            "https://magic.wizards.com/en/news/feature/ravnica-allegiance-mechanics"
+          ],
+          "commander_product_relevance": [
+            "https://edhrec.com/commanders/juri-master-of-the-revue",
+            "https://edhrec.com/commanders/rakdos"
+          ],
+          "existing_repo_claim_ids": [
+            "cult_of_rakdos_claim_001",
+            "cult_of_rakdos_claim_002",
+            "cult_of_rakdos_claim_003",
+            "cult_of_rakdos_claim_004",
+            "cult_of_rakdos_claim_005",
+            "cult_of_rakdos_claim_006",
+            "cult_of_rakdos_claim_0007",
+            "cult_of_rakdos_claim_0008",
+            "cult_of_rakdos_claim_0009",
+            "cult_of_rakdos_claim_0010"
+          ],
+          "existing_repo_source_ids": [
+            "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+            "src_wotc_ravnica_allegiance_mechanics_2018",
+            "src_mtg_stories_operation_desperation_e6d285ea",
+            "src_mtg_stories_episode_7_rot_before_recovery_aff91fb1",
+            "src_mtg_stories_the_illusions_of_childs_play_a33a5af6",
+            "src_mtg_stories_episode_5_chains_of_expectation_18265ca0"
+          ]
+        },
+        "confidence": "High",
+        "caution_notes": [],
+        "type_line": "Legendary Creature — Human Shaman"
+      }
+    ],
+    "advanced_complexity_commanders": [
+      {
+        "exact_card_name": "Prosper, Tome-Bound",
+        "display_name": "Prosper, Tome-Bound",
+        "scryfall_uri": "https://scryfall.com/card/afc/2/prosper-tome-bound",
+        "edhrec_uri": "https://edhrec.com/commanders/prosper-tome-bound",
+        "color_identity": [
+          "B",
+          "R"
+        ],
+        "commander_legal": true,
+        "recommendation_type": "Advanced",
+        "archetype_tags": [
+          "Exile Value",
+          "Treasure",
+          "Combo"
+        ],
+        "why_this_fits": "Prosper is not Rakdos-cult lore, but as product guidance he turns reckless opportunity into material gain: every stolen moment from exile becomes treasure.",
+        "skip_if": "Skip if you want strict Ravnican flavor or if your group dislikes high-efficiency value engines.",
+        "gameplay_summary": "A deathtouch commander that exiles cards to play later and creates Treasure whenever you play from exile.",
+        "faction_identity_terms": [
+          "risk",
+          "opportunity",
+          "resource conversion",
+          "dangerous bargain"
+        ],
+        "source_basis": {
+          "card_data": [
+            "https://scryfall.com/search?as=grid&order=name&q=%21%22Prosper%2C%20Tome-Bound%22&unique=cards"
+          ],
+          "lore_or_identity": [
+            "https://magic.wizards.com/en/news/feature/commanding-ravnica-allegiance-2019-01-17",
+            "https://magic.wizards.com/en/news/feature/ravnica-allegiance-mechanics"
+          ],
+          "commander_product_relevance": [
+            "https://edhrec.com/commanders/prosper-tome-bound",
+            "https://edhrec.com/commanders/rakdos"
+          ],
+          "existing_repo_claim_ids": [
+            "cult_of_rakdos_claim_001",
+            "cult_of_rakdos_claim_002",
+            "cult_of_rakdos_claim_003",
+            "cult_of_rakdos_claim_004",
+            "cult_of_rakdos_claim_005",
+            "cult_of_rakdos_claim_006",
+            "cult_of_rakdos_claim_0007",
+            "cult_of_rakdos_claim_0008",
+            "cult_of_rakdos_claim_0009",
+            "cult_of_rakdos_claim_0010"
+          ],
+          "existing_repo_source_ids": [
+            "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+            "src_wotc_ravnica_allegiance_mechanics_2018",
+            "src_mtg_stories_operation_desperation_e6d285ea",
+            "src_mtg_stories_episode_7_rot_before_recovery_aff91fb1",
+            "src_mtg_stories_the_illusions_of_childs_play_a33a5af6",
+            "src_mtg_stories_episode_5_chains_of_expectation_18265ca0"
+          ]
+        },
+        "confidence": "Medium",
+        "caution_notes": [
+          "Strong generic BR product fit, but not a lore-forward Cult of Rakdos card."
+        ],
+        "type_line": "Legendary Creature — Tiefling Warlock"
+      }
+    ],
+    "iconic_lore_forward_commanders": [
+      {
+        "exact_card_name": "Rakdos, the Showstopper",
+        "display_name": "Rakdos, the Showstopper",
+        "scryfall_uri": "https://scryfall.com/card/clu/205/rakdos-the-showstopper",
+        "edhrec_uri": "https://edhrec.com/commanders/rakdos-the-showstopper",
+        "color_identity": [
+          "B",
+          "R"
+        ],
+        "commander_legal": true,
+        "recommendation_type": "Iconic Lore-Forward",
+        "archetype_tags": [
+          "Demons",
+          "Chaos",
+          "Board Wipe"
+        ],
+        "why_this_fits": "This is a pure flavor-forward Rakdos performance: the demon arrives, the stage erupts, and survival becomes a coin-flip spectacle.",
+        "skip_if": "Skip if you want reliability, low variance, or table-safe board states.",
+        "gameplay_summary": "A six-mana Demon with flying/trample that flips coins for many creatures and destroys those that lose the flip.",
+        "faction_identity_terms": [
+          "Rakdos",
+          "demon",
+          "spectacle",
+          "chaos",
+          "performance"
+        ],
+        "source_basis": {
+          "card_data": [
+            "https://scryfall.com/search?as=grid&order=name&q=%21%22Rakdos%2C%20the%20Showstopper%22&unique=cards"
+          ],
+          "lore_or_identity": [
+            "https://magic.wizards.com/en/news/feature/flavorful-guide-guilds-ravnica-allegiance-2019-02-07",
+            "https://magic.wizards.com/en/news/feature/commanding-ravnica-allegiance-2019-01-17"
+          ],
+          "commander_product_relevance": [
+            "https://edhrec.com/commanders/rakdos-the-showstopper",
+            "https://edhrec.com/commanders/rakdos"
+          ],
+          "existing_repo_claim_ids": [
+            "cult_of_rakdos_claim_001",
+            "cult_of_rakdos_claim_002",
+            "cult_of_rakdos_claim_003",
+            "cult_of_rakdos_claim_004",
+            "cult_of_rakdos_claim_005",
+            "cult_of_rakdos_claim_006",
+            "cult_of_rakdos_claim_0007",
+            "cult_of_rakdos_claim_0008",
+            "cult_of_rakdos_claim_0009",
+            "cult_of_rakdos_claim_0010"
+          ],
+          "existing_repo_source_ids": [
+            "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+            "src_wotc_ravnica_allegiance_mechanics_2018",
+            "src_mtg_stories_operation_desperation_e6d285ea",
+            "src_mtg_stories_episode_7_rot_before_recovery_aff91fb1",
+            "src_mtg_stories_the_illusions_of_childs_play_a33a5af6",
+            "src_mtg_stories_episode_5_chains_of_expectation_18265ca0"
+          ]
+        },
+        "confidence": "High",
+        "caution_notes": [
+          "High-variance by design."
+        ],
+        "type_line": "Legendary Creature — Demon"
+      }
+    ],
+    "not_recommended_or_deprioritized": [
+      {
+        "name": "Rakdos the Defiler",
+        "reason": "Commander-legal and iconic, but socially punishing and often miserable because attack/combat damage triggers sacrifice huge board resources.",
+        "could_still_be_used_if": "Use only for a deliberately high-risk, consent-first demon deck.",
+        "confidence": "High"
+      },
+      {
+        "name": "Tibalt, Rakish Instigator",
+        "reason": "Planeswalker card without commander permission; not a commander recommendation.",
+        "could_still_be_used_if": "Use in the 99 if legal and mechanically useful.",
+        "confidence": "High"
+      },
+      {
+        "name": "Mogis, God of Slaughter",
+        "reason": "BR and Commander-legal but Theros lore, not Rakdos cult identity; product fit is adjacent punisher rather than native.",
+        "could_still_be_used_if": "Use in a broader BR pain/punisher path, not as core Cult of Rakdos guidance.",
+        "confidence": "Medium"
+      }
+    ],
+    "archetype_lanes": [
+      {
+        "lane_name": "Spectacle / Life-Loss Gate",
+        "description": "Deal early damage, then unlock discounted or explosive plays.",
+        "recommended_for": "Players who like pressure that turns into payoff.",
+        "skip_if": "Avoid if you want slow setup.",
+        "example_commanders": [
+          "Rakdos, Lord of Riots",
+          "Judith, the Scourge Diva"
+        ],
+        "supporting_identity_terms": [
+          "spectacle",
+          "pain",
+          "showtime"
+        ],
+        "complexity": "Medium",
+        "budget_friendliness": "Variable"
+      },
+      {
+        "lane_name": "Aristocrats Revue",
+        "description": "Sacrifice creatures and permanents for damage, counters, and dramatic finales.",
+        "recommended_for": "Players who like creature churn and death triggers.",
+        "skip_if": "Avoid if sacrifice loops are not welcome.",
+        "example_commanders": [
+          "Judith, the Scourge Diva",
+          "Juri, Master of the Revue"
+        ],
+        "supporting_identity_terms": [
+          "sacrifice",
+          "performance",
+          "death damage"
+        ],
+        "complexity": "Medium",
+        "budget_friendliness": "High"
+      },
+      {
+        "lane_name": "Chaos Theater",
+        "description": "Use goad, gifts, coin flips, and table politics to make the game feel like a dangerous show.",
+        "recommended_for": "Players who want memorable stories more than perfect efficiency.",
+        "skip_if": "Avoid in control-heavy or low-chaos groups.",
+        "example_commanders": [
+          "Blim, Comedic Genius",
+          "Rakdos, the Showstopper"
+        ],
+        "supporting_identity_terms": [
+          "chaos",
+          "comedy",
+          "audience"
+        ],
+        "complexity": "High",
+        "budget_friendliness": "Medium"
+      },
+      {
+        "lane_name": "Exile Bargain Value",
+        "description": "Use temporary access to cards as reckless profit and treasure.",
+        "recommended_for": "Players who want strong Rakdos resource engines.",
+        "skip_if": "Avoid if strict lore grounding matters.",
+        "example_commanders": [
+          "Prosper, Tome-Bound"
+        ],
+        "supporting_identity_terms": [
+          "dangerous bargain",
+          "resource conversion"
+        ],
+        "complexity": "High",
+        "budget_friendliness": "Medium"
+      }
+    ],
+    "link_targets": {
+      "edhrec_commander_index": "https://edhrec.com/commanders/rakdos",
+      "mtgdecks_color_identity": "https://mtgdecks.net/Commander/rakdos",
+      "scryfall_commander_search": "https://scryfall.com/search?as=grid&order=edhrec&q=is%3Acommander+legal%3Acommander+ci%3Dbr&unique=cards",
+      "archidekt_color_search": "https://archidekt.com/search/decks?formats=3&colors=B%2CR"
+    },
+    "merge_notes": {
+      "product_guidance_not_canon": true,
+      "commander_legality_validated": true,
+      "scryfall_card_pages_validated": true,
+      "do_not_use_as_claim_source": true
+    }
+  }
 }

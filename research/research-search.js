@@ -5,14 +5,34 @@
  * @returns {Promise<object>} Scryfall response JSON.
  */
 export async function scryfallSearch(query, opts = {}) {
-  const { order = "name", unique = "cards", page = null } = opts;
   try {
-    const url = page || `https://api.scryfall.com/cards/search?q=${encodeURIComponent(query)}&unique=${unique}&order=${order}`;
+    const url = buildScryfallApiSearchUrl(query, opts);
     const response = await fetch(url);
     return await response.json();
   } catch (error) {
     return { object: "error", details: error.message };
   }
+}
+
+/**
+ * Builds a Scryfall API search URL with query and display metadata separated.
+ * @param {string} query - Raw Scryfall query syntax.
+ * @param {object} [opts] - Search options.
+ * @param {string} [opts.unique] - Scryfall unique mode.
+ * @param {string} [opts.order] - Scryfall result order.
+ * @param {string} [opts.dir] - Scryfall sort direction.
+ * @param {string} [opts.page] - Existing Scryfall next_page URL.
+ * @returns {string} Scryfall API URL.
+ */
+export function buildScryfallApiSearchUrl(query, opts = {}) {
+  if (opts.page) return opts.page;
+  const { order = "name", unique = "cards", dir } = opts;
+  const url = new URL("https://api.scryfall.com/cards/search");
+  url.searchParams.set("q", query);
+  url.searchParams.set("unique", unique);
+  url.searchParams.set("order", order);
+  if (dir) url.searchParams.set("dir", dir);
+  return url.toString();
 }
 
 /**

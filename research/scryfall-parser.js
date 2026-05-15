@@ -36,9 +36,7 @@ export function parseScryfallNaturalLanguage(input, options = {}) {
     state.recognized.push(`exact name: ${exactName}`);
     state.assumptions.push("Used direct Scryfall named-card lookup.");
     return finalizeResult(state, "exact_name", exactName, "Detected an exact-name lookup.", 0.96, {
-      endpoint: "/cards/named",
-      unique: "cards",
-      order: "name"
+      endpoint: "/cards/named"
     });
   }
 
@@ -46,6 +44,9 @@ export function parseScryfallNaturalLanguage(input, options = {}) {
   if (highConfidence) return highConfidence;
 
   const commanderIntent = hasCommanderIntent(normalized);
+  detectFieldSearches(state);
+  detectQueryPhrases(state);
+  detectManaProduction(state);
   detectFormats(state);
   detectIdentities(state, commanderIntent);
   detectColors(state, commanderIntent);
@@ -62,8 +63,12 @@ export function parseScryfallNaturalLanguage(input, options = {}) {
 
   const query = assembleQuery(state);
   state.unresolved.push(...detectUnresolvedTerms(state));
+  const finalQuery = query || (state.recognized.length ? "*" : original);
+  if (!query && state.recognized.length) {
+    state.assumptions.push("Searched all cards because the input only changed result metadata.");
+  }
 
-  return finalizeResult(state, "search", query || original, buildReason(state), scoreConfidence(state, query));
+  return finalizeResult(state, "search", finalQuery, buildReason(state), scoreConfidence(state, finalQuery));
 }
 
 /**
@@ -187,7 +192,7 @@ function detectHighConfidenceSearch(state) {
   }
 
   if (hasPhrase(text, "legal in legacy") && hasPhrase(text, "banned in modern")) {
-    return directResult(state, "f:legacy b:modern", "Parsed format crossover.", ["legal: legacy", "banned: modern"]);
+    return directResult(state, "f:legacy banned:modern", "Parsed format crossover.", ["legal: legacy", "banned: modern"]);
   }
 
   if (hasPhrase(text, "phyrexian mana")) {
@@ -206,8 +211,8 @@ function detectHighConfidenceSearch(state) {
     return directResult(state, "id:c t:card", "Parsed colorless Commander identity.", ["colorless identity", "card"]);
   }
 
-  if (hasPhrase(text, "japanese language") && hasPhrase(text, "alternate art")) {
-    return directResult(state, "lang:ja is:alt-art", "Parsed Japanese alternate-art print filter.", ["language: Japanese", "alternate art"]);
+  if ((hasPhrase(text, "japanese language") || hasPhrase(text, "japanese")) && hasPhrase(text, "alternate art")) {
+    return directResult(state, "lang:ja is:alternate", "Parsed Japanese alternate-art print filter.", ["language: Japanese", "alternate art"]);
   }
 
   if (hasPhrase(text, "blue") && hasPhrase(text, "trigger when i draw or discard")) {
@@ -220,6 +225,42 @@ function detectHighConfidenceSearch(state) {
 
   if (hasPhrase(text, "izzet") && hasPhrase(text, "spellslinger")) {
     return directResult(state, "c:ur (o:instant OR o:sorcery)", "Parsed Izzet spellslinger payoffs.", ["Izzet colors", "instant or sorcery payoff"]);
+  }
+
+  if (hasPhrase(text, "board wipe") || hasPhrase(text, "board wipes") || hasPhrase(text, "wrath") || hasPhrase(text, "wraths")) {
+    addAlternativeWithApi(
+      state,
+      "Broader Oracle text board wipes",
+      '(o:"destroy all creatures" OR o:"exile all creatures" OR o:"destroy all nonland permanents")'
+    );
+    state.assumptions.push("Used Scryfall's validated board-wipe functional tag.");
+    return directResult(state, "otag:board-wipe", "Parsed board-wipe role as a functional Scryfall tag.", ["functional tag: board wipe"]);
+  }
+
+  if (hasPhrase(text, "mana rock") || hasPhrase(text, "mana rocks")) {
+    addAlternativeWithApi(
+      state,
+      "Broader artifact mana text",
+      't:artifact (o:"add {" OR produces:any)'
+    );
+    state.assumptions.push("Used Scryfall's validated mana-rock functional tag.");
+    return directResult(state, "otag:mana-rock", "Parsed mana rocks as a functional Scryfall tag.", ["functional tag: mana rock"]);
+  }
+
+  if (hasPhrase(text, "free sacrifice outlet") || hasPhrase(text, "free sac outlet")) {
+    addAlternativeWithApi(state, "Broader sacrifice outlets", "otag:sacrifice-outlet");
+    state.assumptions.push("Used Scryfall's validated free-sacrifice-outlet functional tag.");
+    return directResult(state, "otag:free-sacrifice-outlet", "Parsed free sacrifice outlets as a functional Scryfall tag.", ["functional tag: free sacrifice outlet"]);
+  }
+
+  if (hasPhrase(text, "sacrifice outlet") || hasPhrase(text, "sac outlet")) {
+    addAlternativeWithApi(
+      state,
+      "Oracle text sacrifice approximation",
+      'o:sacrifice o:creature'
+    );
+    state.assumptions.push("Used Scryfall's validated sacrifice-outlet functional tag.");
+    return directResult(state, "otag:sacrifice-outlet", "Parsed sacrifice outlets as a functional Scryfall tag.", ["functional tag: sacrifice outlet"]);
   }
 
   return null;
@@ -383,6 +424,7 @@ function detectColors(state, commanderIntent) {
   const exactColorIntent = hasExactColorIntent(state.normalized);
   Object.entries(activeDictionary.colors).forEach(([word, symbol]) => {
     if (!hasPhrase(state.normalized, word)) return;
+    if (isConsumed(state, word)) return;
     if (isProtectionTargetColor(state.normalized, word)) return;
     if (isNegatedPhrase(state.normalized, word)) {
       addUnique(state.negatedColors, symbol);
@@ -411,6 +453,98 @@ function detectColors(state, commanderIntent) {
   state.negatedColors.forEach((color) => {
     addTerm(state, `-c:${color}`, `not ${colorName(color)}`, "negation", "");
   });
+}
+
+/**
+ * Detects fielded text searches that need a user-provided value.
+ * @param {object} state - Mutable parse state.
+ */
+function detectFieldSearches(state) {
+  const original = state.original;
+  const normalized = state.normalized;
+  const fields = [
+    {
+      kind: "art",
+      label: "artwork",
+      re: /\b(?:art|artwork)\s*:?\s*(?:search\s+)?(?:for|with|of|depicting|showing)?\s+(.+)$/i,
+      prefix: "art:"
+    },
+    {
+      kind: "flavor",
+      label: "flavor text",
+      re: /\b(?:flavo[u]?r\s+text|flavo[u]?r|ft)\s*:?\s*(?:search\s+)?(?:for|with|that says|says)?\s+(.+)$/i,
+      prefix: "ft:"
+    },
+    {
+      kind: "artist",
+      label: "artist",
+      re: /\b(?:artist\s*:?\s*(?:is|by)?\s+|a\s*:\s*)(.+)$/i,
+      prefix: "a:"
+    },
+    {
+      kind: "set",
+      label: "set",
+      re: /\b(?:set\s*:?\s*|s\s*:\s*)([a-z0-9]{2,6})$/i,
+      prefix: "s:",
+      raw: true
+    }
+  ];
+
+  for (const field of fields) {
+    if (field.kind === "art" && hasPhrase(normalized, "alternate art")) continue;
+    const match = original.match(field.re);
+    if (!match?.[1]) continue;
+    const value = cleanupFieldValue(match[1]);
+    if (!value) continue;
+    const query = field.raw ? `${field.prefix}${value.toLowerCase()}` : `${field.prefix}${quoteIfNeeded(value)}`;
+    addTerm(state, query, `${field.label}: ${value}`, field.kind, match[0]);
+    return;
+  }
+}
+
+/**
+ * Detects generic seed-backed query phrases such as status, finish, and display hints.
+ * @param {object} state - Mutable parse state.
+ */
+function detectQueryPhrases(state) {
+  (activeDictionary.queryPhrases || [])
+    .sort((a, b) => (b.triggers?.[0]?.length || 0) - (a.triggers?.[0]?.length || 0))
+    .forEach((entry) => {
+      const trigger = entry.triggers?.find((phrase) => hasPhrase(state.normalized, phrase));
+      if (!trigger || isConsumed(state, trigger)) return;
+      addTerm(state, entry.query, entry.label ? `filter: ${entry.label}` : `filter: ${trigger}`, "query", trigger);
+    });
+}
+
+/**
+ * Detects mana-production filters before color words become card-color filters.
+ * @param {object} state - Mutable parse state.
+ */
+function detectManaProduction(state) {
+  const text = state.normalized;
+  const colorWords = Object.keys(activeDictionary.colors).filter((word) => word !== "colorless");
+  const colorPattern = colorWords.join("|");
+  const colorMatch = text.match(new RegExp(`\\bproduces\\s+((?:(?:${colorPattern})\\s*(?:and\\s*)?)+)\\s+mana\\b`));
+  if (colorMatch?.[1]) {
+    const colors = colorWords
+      .filter((word) => hasPhrase(colorMatch[1], word))
+      .map((word) => activeDictionary.colors[word])
+      .join("");
+    if (colors) {
+      addTerm(state, `produces:${sortColors(colors)}`, "mana production", "mana", colorMatch[0]);
+      return;
+    }
+  }
+
+  const symbolMatch = text.match(/\bproduces\s+([wubrgc]{1,5})\s+mana\b/);
+  if (symbolMatch?.[1]) {
+    addTerm(state, `produces:${sortColors(symbolMatch[1]) || symbolMatch[1]}`, "mana production", "mana", symbolMatch[0]);
+    return;
+  }
+
+  if (/\bproduces\s+mana\b/.test(text)) {
+    addTerm(state, "produces:any", "mana production", "mana", "produces mana");
+  }
 }
 
 /**
@@ -443,9 +577,14 @@ function detectKeywords(state) {
  */
 function detectOraclePhrases(state) {
   const matches = [];
-  activeDictionary.oraclePhrases.forEach((entry) => {
+  const seenTriggers = new Set();
+  [...activeDictionary.oraclePhrases]
+    .sort((a, b) => longestTriggerLength(b) - longestTriggerLength(a))
+    .forEach((entry) => {
     const trigger = entry.triggers.find((phrase) => hasPhrase(state.normalized, phrase));
     if (!trigger || isConsumed(state, trigger)) return;
+    if ([...seenTriggers].some((seen) => seen.includes(trigger))) return;
+    seenTriggers.add(trigger);
     matches.push({ ...entry, trigger });
   });
 
@@ -453,7 +592,7 @@ function detectOraclePhrases(state) {
 
   const shouldGroupAsOr = /\b(or|also any|but also|either)\b/.test(state.normalized) && matches.length > 1;
   if (shouldGroupAsOr) {
-    const group = `(${unique(matches.map((match) => match.query)).join(" OR ")})`;
+    const group = formatOrGroup(unique(matches.map((match) => match.query)));
     addTerm(state, group, "oracle alternatives", "oracle", matches.map((match) => match.trigger).join(" "));
     state.assumptions.push("Grouped multiple text intents with OR because the request used alternate wording.");
     matches.forEach((match) => {
@@ -465,6 +604,7 @@ function detectOraclePhrases(state) {
 
   matches.forEach((match) => {
     addTerm(state, match.query, `text: ${match.label}`, "oracle", match.trigger);
+    addFunctionalAlternative(state, match);
   });
 }
 
@@ -494,11 +634,34 @@ function detectManaValue(state) {
  * @param {object} state - Mutable parse state.
  */
 function detectPowerToughness(state) {
-  const power = state.normalized.match(/\bpower\s*(\d+)\s*(or more|or greater|\+|>=)?\b/);
-  if (power) addTerm(state, `pow${power[2] ? ">=" : "="}${power[1]}`, `power ${power[1]}`, "stats", power[0]);
+  detectStatConstraint(state, "power", "pow");
+  detectStatConstraint(state, "toughness", "tou");
+}
 
-  const toughness = state.normalized.match(/\btoughness\s*(\d+)\s*(or more|or greater|\+|>=)?\b/);
-  if (toughness) addTerm(state, `tou${toughness[2] ? ">=" : "="}${toughness[1]}`, `toughness ${toughness[1]}`, "stats", toughness[0]);
+/**
+ * Detects one power/toughness comparator phrase.
+ * @param {object} state - Mutable parse state.
+ * @param {string} word - Natural language stat word.
+ * @param {string} field - Scryfall stat field.
+ */
+function detectStatConstraint(state, word, field) {
+  const patterns = [
+    { re: new RegExp(`\\b${word}\\s*(<=|>=|<|>|=|:)\\s*(\\d+)\\b`), opIndex: 1, valueIndex: 2 },
+    { re: new RegExp(`\\b${word}\\s+(\\d+)\\s*(or less|or fewer|or lower|or under|at most)\\b`), op: "<=", valueIndex: 1 },
+    { re: new RegExp(`\\b${word}\\s+(\\d+)\\s*(or more|or greater|or higher|and up|\\+)\\b`), op: ">=", valueIndex: 1 },
+    { re: new RegExp(`\\b${word}\\s+(?:under|less than|below)\\s*(\\d+)\\b`), op: "<", valueIndex: 1 },
+    { re: new RegExp(`\\b${word}\\s+(?:over|greater than|more than|above)\\s*(\\d+)\\b`), op: ">", valueIndex: 1 },
+    { re: new RegExp(`\\b${word}\\s+(\\d+)\\b`), op: "=", valueIndex: 1 }
+  ];
+
+  for (const pattern of patterns) {
+    const match = state.normalized.match(pattern.re);
+    if (!match) continue;
+    const op = pattern.op || normalizeComparator(match[pattern.opIndex]);
+    const value = match[pattern.valueIndex];
+    addTerm(state, `${field}${op}${value}`, `${word} ${op}${value}`, "stats", match[0]);
+    return;
+  }
 }
 
 /**
@@ -540,12 +703,15 @@ function detectPrices(state) {
  * @param {object} state - Mutable parse state.
  */
 function detectSorting(state) {
-  Object.entries(activeDictionary.sorting).forEach(([phrase, query]) => {
-    if (!hasPhrase(state.normalized, phrase)) return;
-    state.api.order = query.replace(/^order:/, "");
-    state.recognized.push(`sort: ${phrase}`);
-    consumePhrase(state, phrase);
-  });
+  Object.entries(activeDictionary.sorting)
+    .sort((a, b) => b[0].length - a[0].length)
+    .forEach(([phrase, query]) => {
+      if (!hasPhrase(state.normalized, phrase)) return;
+      if (isConsumed(state, phrase)) return;
+      applyApiMetadata(state, parseApiMetadataFromQueryFragment(query));
+      state.recognized.push(`sort: ${phrase}`);
+      consumePhrase(state, phrase);
+    });
 }
 
 /**
@@ -620,8 +786,11 @@ function matchMap(state, map, callback) {
  */
 function addTerm(state, query, recognized, kind, phrase) {
   if (!query || query === "implicit AND") return;
-  if (!state.terms.some((term) => term.query === query)) {
-    state.terms.push({ query, kind });
+  const api = parseApiMetadataFromQueryFragment(query);
+  applyApiMetadata(state, api);
+  const cleanQuery = stripApiMetadataFromQuery(query);
+  if (cleanQuery && cleanQuery !== "implicit AND" && !state.terms.some((term) => term.query === cleanQuery)) {
+    state.terms.push({ query: cleanQuery, kind });
   }
   if (recognized && !state.recognized.includes(recognized)) state.recognized.push(recognized);
   if (kind) state.matchedKinds.add(kind);
@@ -645,10 +814,14 @@ function assembleQuery(state) {
  */
 function scoreConfidence(state, query) {
   if (!query) return 0.2;
+  if (!state.recognized.length && !state.unresolved.length) return 0.25;
   let score = 0.28 + Math.min(state.recognized.length * 0.08, 0.48);
   if (state.matchedKinds.has("color")) score += 0.08;
   if (state.matchedKinds.has("type") || state.matchedKinds.has("subtype")) score += 0.08;
   if (state.matchedKinds.has("keyword") || state.matchedKinds.has("oracle")) score += 0.08;
+  if (state.matchedKinds.has("format") || state.matchedKinds.has("rarity") || state.matchedKinds.has("price")) score += 0.08;
+  if (state.matchedKinds.has("mana") || state.matchedKinds.has("stats") || state.matchedKinds.has("query")) score += 0.08;
+  if (state.recognized.length && !state.unresolved.length) score += 0.08;
   if (state.assumptions.length) score -= 0.04;
   if (state.alternatives.length) score -= 0.12;
   if (state.unresolved.length) score -= Math.min(state.unresolved.length * 0.04, 0.18);
@@ -716,7 +889,156 @@ function finalizeResult(state, mode, query, reason, confidence, api = state.api)
 function directResult(state, query, reason, recognized = []) {
   state.recognized.push(...recognized.filter(Boolean));
   state.matchedKinds.add("curated");
-  return finalizeResult(state, "search", query, reason, 0.94);
+  applyApiMetadata(state, parseApiMetadataFromQueryFragment(query));
+  return finalizeResult(state, "search", stripApiMetadataFromQuery(query) || query, reason, 0.94);
+}
+
+/**
+ * Extracts Scryfall API metadata from a query-like seed fragment.
+ * @param {string} fragment - Query fragment that may contain API metadata.
+ * @returns {object} API metadata found in the fragment.
+ */
+export function parseApiMetadataFromQueryFragment(fragment) {
+  const api = {};
+  const pattern = /\b(order|unique|direction|dir):([a-z0-9_-]+)\b/gi;
+  for (const match of String(fragment || "").matchAll(pattern)) {
+    const key = match[1].toLowerCase();
+    const value = match[2].toLowerCase();
+    if (key === "order") {
+      api.order = value;
+    } else if (key === "unique") {
+      const uniqueValue = normalizeUnique(value);
+      if (uniqueValue) api.unique = uniqueValue;
+    } else {
+      const dir = normalizeSortDirection(value);
+      if (dir) api.dir = dir;
+    }
+  }
+  return api;
+}
+
+/**
+ * Removes Scryfall API/display metadata from a query fragment.
+ * @param {string} fragment - Query fragment that may contain metadata.
+ * @returns {string} Clean query fragment.
+ */
+export function stripApiMetadataFromQuery(fragment) {
+  return String(fragment || "")
+    .replace(/\b(?:order|unique|direction|dir|display):[a-z0-9_-]+\b/gi, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+/**
+ * Normalizes sort direction values accepted from seeds and UI controls.
+ * @param {string} value - Direction value.
+ * @returns {string|undefined} Scryfall sort direction.
+ */
+export function normalizeSortDirection(value) {
+  const clean = String(value || "").toLowerCase().trim();
+  if (["asc", "ascending", "up"].includes(clean)) return "asc";
+  if (["desc", "descending", "down"].includes(clean)) return "desc";
+  if (clean === "auto") return "auto";
+  return undefined;
+}
+
+/**
+ * Adds an alternative query and optional API metadata.
+ * @param {object} state - Mutable parse state.
+ * @param {string} label - Human-readable alternative label.
+ * @param {string} query - Alternative Scryfall query.
+ * @param {object} [api] - Optional API metadata.
+ */
+function addAlternativeWithApi(state, label, query, api = {}) {
+  const fragmentApi = parseApiMetadataFromQueryFragment(query);
+  const cleanQuery = stripApiMetadataFromQuery(query);
+  const alternative = { label, query: cleanQuery || query };
+  const mergedApi = normalizeApiMetadata({ ...fragmentApi, ...api });
+  if (Object.keys(mergedApi).length) alternative.api = mergedApi;
+  if (!state.alternatives.some((item) => item.label === alternative.label && item.query === alternative.query)) {
+    state.alternatives.push(alternative);
+  }
+}
+
+/**
+ * Applies parsed API metadata to the parser state.
+ * @param {object} state - Mutable parse state.
+ * @param {object} api - API metadata.
+ */
+function applyApiMetadata(state, api = {}) {
+  const normalized = normalizeApiMetadata(api);
+  if (normalized.unique) state.api.unique = normalized.unique;
+  if (normalized.order) state.api.order = normalized.order;
+  if (normalized.dir) state.api.dir = normalized.dir;
+}
+
+/**
+ * Normalizes API metadata values and drops unsupported keys.
+ * @param {object} api - API metadata.
+ * @returns {object} Normalized metadata.
+ */
+function normalizeApiMetadata(api = {}) {
+  const normalized = {};
+  const uniqueValue = normalizeUnique(api.unique);
+  const dir = normalizeSortDirection(api.dir);
+  if (uniqueValue) normalized.unique = uniqueValue;
+  if (api.order) normalized.order = String(api.order).toLowerCase().trim();
+  if (dir) normalized.dir = dir;
+  return normalized;
+}
+
+/**
+ * Normalizes Scryfall unique modes.
+ * @param {string} value - Unique mode.
+ * @returns {string|undefined} Valid unique mode.
+ */
+function normalizeUnique(value) {
+  const clean = String(value || "").toLowerCase().trim();
+  return ["cards", "art", "prints"].includes(clean) ? clean : undefined;
+}
+
+/**
+ * Adds a broader Oracle-text fallback for known functional tag searches.
+ * @param {object} state - Mutable parse state.
+ * @param {object} match - Matched oracle phrase row.
+ */
+function addFunctionalAlternative(state, match) {
+  const alternatives = {
+    "otag:board-wipe": {
+      label: "Broader Oracle text board wipes",
+      query: '(o:"destroy all creatures" OR o:"exile all creatures" OR o:"destroy all nonland permanents")'
+    },
+    "otag:mana-rock": {
+      label: "Broader artifact mana text",
+      query: 't:artifact (o:"add {" OR produces:any)'
+    },
+    "otag:tutor": {
+      label: "Broader library-search text",
+      query: 'o:"search your library"'
+    },
+    "otag:removal": {
+      label: "Broader Oracle text removal",
+      query: '(o:"destroy target" OR o:"exile target" OR o:"return target" OR o:"counter target")'
+    },
+    "otag:removal-creature": {
+      label: "Broader creature-removal Oracle text",
+      query: '(o:"destroy target creature" OR o:"exile target creature")'
+    },
+    "otag:mana-ramp": {
+      label: "Broader ramp Oracle text",
+      query: '(o:"search your library for a land" OR o:"add {")'
+    },
+    "otag:card-advantage": {
+      label: "Broader card advantage text",
+      query: '(o:draw OR o:"return target" OR o:"from your graveyard")'
+    },
+    "otag:draw-engine": {
+      label: "Broader repeatable draw text",
+      query: '(o:"whenever" o:draw)'
+    }
+  };
+  const alternative = alternatives[match.query];
+  if (alternative) addAlternativeWithApi(state, alternative.label, withBaseTerms(state, alternative.query));
 }
 
 /**
@@ -852,6 +1174,56 @@ function addUnique(array, value) {
  */
 function unique(values) {
   return [...new Set(values.filter(Boolean))];
+}
+
+/**
+ * Formats an OR bundle, avoiding unnecessary parentheses for one term.
+ * @param {string[]} queries - Query terms.
+ * @returns {string} Scryfall query fragment.
+ */
+function formatOrGroup(queries) {
+  const clean = unique(queries);
+  if (clean.length <= 1) return clean[0] || "";
+  return `(${clean.join(" OR ")})`;
+}
+
+/**
+ * Finds the longest trigger length in a phrase row.
+ * @param {object} entry - Phrase row.
+ * @returns {number} Longest trigger length.
+ */
+function longestTriggerLength(entry) {
+  return Math.max(...(entry.triggers || [""]).map((trigger) => trigger.length));
+}
+
+/**
+ * Normalizes symbolic and colon comparators.
+ * @param {string} value - Comparator text.
+ * @returns {string} Scryfall comparator.
+ */
+function normalizeComparator(value) {
+  return value === ":" ? "=" : value;
+}
+
+/**
+ * Cleans user-provided field-search values.
+ * @param {string} value - Raw field value.
+ * @returns {string} Clean field value.
+ */
+function cleanupFieldValue(value) {
+  return String(value || "")
+    .replace(/^["']|["']$/g, "")
+    .replace(/[?.!]+$/g, "")
+    .trim();
+}
+
+/**
+ * Quotes a Scryfall field value only when it needs phrase matching.
+ * @param {string} value - Field value.
+ * @returns {string} Field-ready value.
+ */
+function quoteIfNeeded(value) {
+  return /\s/.test(value) ? `"${value.replace(/"/g, "\\\"")}"` : value;
 }
 
 /**

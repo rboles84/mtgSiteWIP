@@ -8,7 +8,7 @@
     "blue",
     "red"
   ],
-  "last_updated": "2026-05-09",
+  "last_updated": "2026-05-13T21:14:06.308Z",
   "profile": {
     "overview": "Prismari College is a blue-red college associated with Arcavios / Strixhaven.",
     "philosophy": "Magic and art are the same act when craft, emotion, spectacle, and elemental force become expression.",
@@ -87,8 +87,74 @@
     ]
   },
   "historical_timeline": [],
-  "key_figures": [],
-  "canonical_flavor_text": [],
+  "key_figures": [
+    {
+      "character_id": "char_rootha",
+      "name": "Rootha",
+      "role": "Named Prismari figure in archive evidence.",
+      "relationship_to_faction": "Appears in source-backed evidence for this faction.",
+      "claim_ids": [
+        "prismari_claim_0007",
+        "prismari_claim_0008"
+      ],
+      "source_ids": [
+        "src_mtg_stories_a_living_flame_92d3419c",
+        "src_mtg_stories_a_cry_of_magic_2e64d07c"
+      ],
+      "confidence": "Medium",
+      "notes": ""
+    },
+    {
+      "character_id": "char_uvilda",
+      "name": "Uvilda",
+      "role": "Named Prismari figure in archive evidence.",
+      "relationship_to_faction": "Appears in source-backed evidence for this faction.",
+      "claim_ids": [
+        "prismari_claim_0008",
+        "prismari_claim_0010",
+        "prismari_claim_0015"
+      ],
+      "source_ids": [
+        "src_mtg_stories_a_cry_of_magic_2e64d07c",
+        "src_mtg_stories_episode_4_put_to_the_test_8c6b8d55",
+        "src_mtg_stories_episode_5_final_exam_6511a68e"
+      ],
+      "confidence": "Medium",
+      "notes": ""
+    }
+  ],
+  "canonical_flavor_text": [
+    {
+      "card_name": "Prismari College dossier anchor",
+      "set": "Arcavios / Strixhaven",
+      "short_excerpt_or_summary": "Magic and art are the same act when craft, emotion, spectacle, and elemental force become expression.",
+      "is_exact_excerpt": false,
+      "claim_ids": [
+        "prismari_claim_0007",
+        "prismari_claim_0008",
+        "prismari_claim_0009",
+        "prismari_claim_0010",
+        "prismari_claim_0011",
+        "prismari_claim_0012",
+        "prismari_claim_0013",
+        "prismari_claim_0014"
+      ],
+      "source_ids": [
+        "src_mtg_stories_a_living_flame_92d3419c",
+        "src_mtg_stories_a_cry_of_magic_2e64d07c",
+        "src_mtg_stories_the_chains_that_bind_5673ab04",
+        "src_mtg_stories_episode_4_put_to_the_test_8c6b8d55",
+        "src_mtg_stories_the_mentor_37155db5",
+        "src_mtg_stories_episode_1_class_is_in_session_bd3caf13",
+        "src_mtg_stories_episode_2_lessons_988edeb7",
+        "src_mtg_stories_episode_3_extracurriculars_39c7efc0",
+        "src_wotc_planeswalkers_guide_strixhaven_2021",
+        "src_wotc_strixhaven_product_page_2021",
+        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026"
+      ],
+      "notes": "Derived from the faction's raw dossier copy so the flavor layer stays evidence-backed and reusable for Commander Compass."
+    }
+  ],
   "views_on_other_factions": [],
   "mechanics": {
     "summary": "Prismari's mechanical and thematic identity centers on spells, elemental scale, performance, and expressive payoff.",
@@ -109,9 +175,28 @@
       "expression",
       "learn",
       "Prismari College",
+      "Uvilda",
+      "Arcavios / Strixhaven",
+      "spectacle",
+      "mentor",
+      "lesson",
+      "Strixhaven: School of Mages",
+      "Secrets of Strixhaven"
+    ],
+    "story_corpus_paths_added": 10,
+    "known_characters": [
+      "Rootha",
       "Uvilda"
     ],
-    "story_corpus_paths_added": 10
+    "known_mechanics": [
+      "spectacle",
+      "mentor",
+      "lesson"
+    ],
+    "sets_or_story_arcs": [
+      "Strixhaven: School of Mages",
+      "Secrets of Strixhaven"
+    ]
   },
   "data_quality": {
     "corpus_upgrade": {
@@ -129,9 +214,229 @@
         "prismari_claim_0015",
         "prismari_claim_0016"
       ]
+    },
+    "raw_enrichment": {
+      "review_date": "2026-05-13T21:14:06.308Z",
+      "source_basis": "data/raw-factions claims.json + sources.json",
+      "key_figures_added": 0,
+      "historical_timeline_entries": 0,
+      "canonical_flavor_text_entries": 1,
+      "relationship_entries": 0,
+      "known_characters": 2,
+      "known_mechanics": 3,
+      "story_arcs": 2
     }
   },
   "research_limitations": [
     "MTG-Stories repository entries are treated as searchable archive copies; official Wizards pages should remain the primary canon authority when available."
-  ]
+  ],
+  "commander_compass": {
+    "schema_version": "1.0.0",
+    "source_research_file": "prismari.commander_compass.research.json",
+    "last_reviewed": "2026-05-14",
+    "review_status": "reviewed_not_canonical_lore",
+    "recommendation_philosophy": "Priority given to 2026 Elder Dragons as flagship 'Native Fit' options, with 2021 staples as 'Iconic' or 'Advanced' pivots.",
+    "identity_basis": {
+      "owned_themes": [
+        "Prismari is the college of elemental arts. For them, magic is performance and self-expression. Mechanically, they focus on high-mana instants and sorceries, Treasure generation, and Storm."
+      ],
+      "allowed_phrases": [
+        "prismari college",
+        "prismari mage"
+      ],
+      "avoid_or_contrast_phrases": [
+        "Ravnica guilds",
+        "generic mana"
+      ],
+      "adjacent_overlap_notes": [
+        "Shares spell-focused identity with Prismari/Quandrix but with different mechanical execution."
+      ],
+      "supporting_claim_ids": [
+        "prismari_claim_0007",
+        "prismari_claim_0008",
+        "prismari_claim_0009",
+        "prismari_claim_0010",
+        "prismari_claim_0011",
+        "prismari_claim_0012",
+        "prismari_claim_0013",
+        "prismari_claim_0014",
+        "prismari_claim_0015"
+      ],
+      "supporting_source_ids": [
+        "src_mtg_stories_a_living_flame_92d3419c",
+        "src_mtg_stories_a_cry_of_magic_2e64d07c",
+        "src_mtg_stories_the_chains_that_bind_5673ab04",
+        "src_mtg_stories_episode_4_put_to_the_test_8c6b8d55",
+        "src_mtg_stories_the_mentor_37155db5",
+        "src_mtg_stories_episode_1_class_is_in_session_bd3caf13",
+        "src_mtg_stories_episode_2_lessons_988edeb7",
+        "src_mtg_stories_episode_3_extracurriculars_39c7efc0",
+        "src_mtg_stories_episode_5_final_exam_6511a68e"
+      ]
+    },
+    "native_fit_commanders": [
+      {
+        "exact_card_name": "Prismari, the Inspiration",
+        "display_name": "Prismari, the Inspiration",
+        "scryfall_uri": "https://scryfall.com/card/sos/212/prismari-the-inspiration",
+        "edhrec_uri": "https://edhrec.com/commanders/prismari-the-inspiration",
+        "color_identity": [
+          "R",
+          "U"
+        ],
+        "commander_legal": true,
+        "recommendation_type": "Native Fit",
+        "archetype_tags": [
+          "Storm",
+          "Spellslinger",
+          "Big Mana"
+        ],
+        "why_this_fits": "The 2026 Elder Dragon that grants Storm to all instants and sorceries, the ultimate expression of Prismari flair.",
+        "skip_if": "You find long, non-deterministic turns (Storm) frustrating for the table.",
+        "gameplay_summary": "A 7/7 flyer with high protection (Ward 5 life) that turns every spell into a game-ending chain.",
+        "faction_identity_terms": [
+          "Inspiration",
+          "Elemental Arts",
+          "Storm"
+        ],
+        "source_basis": {
+          "card_data": [
+            "Draftsim Prismari Guide"
+          ],
+          "lore_or_identity": [
+            "The Legends of Secrets of Strixhaven"
+          ],
+          "commander_product_relevance": [],
+          "existing_repo_claim_ids": [
+            "prismari_claim_0007",
+            "prismari_claim_0008",
+            "prismari_claim_0009",
+            "prismari_claim_0010",
+            "prismari_claim_0011",
+            "prismari_claim_0012",
+            "prismari_claim_0013",
+            "prismari_claim_0014",
+            "prismari_claim_0015"
+          ],
+          "existing_repo_source_ids": [
+            "src_mtg_stories_a_living_flame_92d3419c",
+            "src_mtg_stories_a_cry_of_magic_2e64d07c",
+            "src_mtg_stories_the_chains_that_bind_5673ab04",
+            "src_mtg_stories_episode_4_put_to_the_test_8c6b8d55",
+            "src_mtg_stories_the_mentor_37155db5",
+            "src_mtg_stories_episode_1_class_is_in_session_bd3caf13",
+            "src_mtg_stories_episode_2_lessons_988edeb7",
+            "src_mtg_stories_episode_3_extracurriculars_39c7efc0",
+            "src_mtg_stories_episode_5_final_exam_6511a68e"
+          ]
+        },
+        "confidence": "High",
+        "caution_notes": [
+          "High mana cost (7) makes early-game ramp and protection essential."
+        ],
+        "type_line": "Legendary Creature — Elder Dragon"
+      }
+    ],
+    "weird_stretch_commanders": [],
+    "budget_friendly_commanders": [],
+    "advanced_complexity_commanders": [
+      {
+        "exact_card_name": "Veyran, Voice of Duality",
+        "display_name": "Veyran, Voice of Duality",
+        "scryfall_uri": "https://scryfall.com/card/soc/337/veyran-voice-of-duality",
+        "edhrec_uri": "https://edhrec.com/commanders/veyran-voice-of-duality",
+        "color_identity": [
+          "R",
+          "U"
+        ],
+        "commander_legal": true,
+        "recommendation_type": "Advanced / High Complexity",
+        "archetype_tags": [
+          "Magecraft",
+          "Value Engine"
+        ],
+        "why_this_fits": "A strong Prismari product fit for expressive spell turns: casting and copying instants or sorceries makes the performance louder and the payoff repeat.",
+        "skip_if": "You want a simple board state; Veyran's trigger tracking can become overwhelming.",
+        "gameplay_summary": "Grows from magecraft when you cast or copy instants and sorceries, and doubles your permanents' cast/copy-triggered abilities from those spells.",
+        "faction_identity_terms": [
+          "Magecraft",
+          "Duality"
+        ],
+        "source_basis": {
+          "card_data": [
+            "Scryfall C21 #3"
+          ],
+          "commander_product_relevance": [
+            "EDHREC Top Izzet Commanders"
+          ],
+          "lore_or_identity": [],
+          "existing_repo_claim_ids": [
+            "prismari_claim_0007",
+            "prismari_claim_0008",
+            "prismari_claim_0009",
+            "prismari_claim_0010",
+            "prismari_claim_0011",
+            "prismari_claim_0012",
+            "prismari_claim_0013",
+            "prismari_claim_0014",
+            "prismari_claim_0015"
+          ],
+          "existing_repo_source_ids": [
+            "src_mtg_stories_a_living_flame_92d3419c",
+            "src_mtg_stories_a_cry_of_magic_2e64d07c",
+            "src_mtg_stories_the_chains_that_bind_5673ab04",
+            "src_mtg_stories_episode_4_put_to_the_test_8c6b8d55",
+            "src_mtg_stories_the_mentor_37155db5",
+            "src_mtg_stories_episode_1_class_is_in_session_bd3caf13",
+            "src_mtg_stories_episode_2_lessons_988edeb7",
+            "src_mtg_stories_episode_3_extracurriculars_39c7efc0",
+            "src_mtg_stories_episode_5_final_exam_6511a68e"
+          ]
+        },
+        "confidence": "High",
+        "caution_notes": [],
+        "type_line": "Legendary Creature — Efreet Wizard"
+      }
+    ],
+    "iconic_lore_forward_commanders": [],
+    "not_recommended_or_deprioritized": [
+      {
+        "name": "Zimone and Dina",
+        "reason": "Off-color (Sultai) for pure Prismari College (UG/BG).",
+        "could_still_be_used_if": "Building a multi-faction theme deck.",
+        "confidence": "High"
+      }
+    ],
+    "archetype_lanes": [
+      {
+        "lane_name": "Grand Performance (Storm)",
+        "description": "Winning through a single, explosive turn of casting numerous spells.",
+        "recommended_for": "Spellslinger enthusiasts and combo players.",
+        "skip_if": "You prefer creature-based combat or slow control.",
+        "example_commanders": [
+          "Prismari, the Inspiration",
+          "Zaffai, Thunder Collector"
+        ],
+        "supporting_identity_terms": [
+          "Performance",
+          "Storm",
+          "Treasure"
+        ],
+        "complexity": "High",
+        "budget_friendliness": "Medium"
+      }
+    ],
+    "link_targets": {
+      "edhrec_commander_index": "https://edhrec.com/commanders/prismari",
+      "mtgdecks_color_identity": "https://mtgdecks.net/Commander/UR",
+      "scryfall_commander_search": "https://scryfall.com/search?q=is%3Acommander+color%3DUR",
+      "archidekt_color_search": "https://archidekt.com/search/decks?colors=UR"
+    },
+    "merge_notes": {
+      "product_guidance_not_canon": true,
+      "commander_legality_validated": true,
+      "scryfall_card_pages_validated": true,
+      "do_not_use_as_claim_source": true
+    }
+  }
 }

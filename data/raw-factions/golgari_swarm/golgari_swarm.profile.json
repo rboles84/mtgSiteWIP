@@ -8,7 +8,7 @@
     "black",
     "green"
   ],
-  "last_updated": "2026-05-09",
+  "last_updated": "2026-05-13T21:14:06.308Z",
   "profile": {
     "overview": "Golgari Swarm is a black-green guild associated with Ravnica.",
     "philosophy": "Death, decay, survival, and renewal are one cycle, not separate moral categories.",
@@ -88,9 +88,136 @@
       "golgari_swarm_claim_0012"
     ]
   },
-  "historical_timeline": [],
-  "key_figures": [],
-  "canonical_flavor_text": [],
+  "historical_timeline": [
+    {
+      "event_id": "event_golgari_swarm_golgari_swarm_claim_004",
+      "event": "The guide identifies Svogthir as the original founder of the Golgari Swarm.",
+      "date_or_era": "Founding era",
+      "claim_ids": [
+        "golgari_swarm_claim_004"
+      ],
+      "confidence": "High",
+      "notes": "Canon-supported claim used for raw enrichment."
+    }
+  ],
+  "key_figures": [
+    {
+      "character_id": "char_svogthir",
+      "name": "Svogthir",
+      "role": "Original founder of the Golgari Swarm.",
+      "relationship_to_faction": "Appears in source-backed evidence for this faction.",
+      "claim_ids": [
+        "golgari_swarm_claim_004"
+      ],
+      "source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018"
+      ],
+      "confidence": "High",
+      "notes": ""
+    },
+    {
+      "character_id": "char_vraska",
+      "name": "Vraska",
+      "role": "Prominent Golgari leader and turncoat-turned-operator.",
+      "relationship_to_faction": "Appears in source-backed evidence for this faction.",
+      "claim_ids": [
+        "golgari_swarm_claim_005",
+        "golgari_swarm_claim_0008",
+        "golgari_swarm_claim_0009",
+        "golgari_swarm_claim_0010",
+        "golgari_swarm_claim_0011",
+        "golgari_swarm_claim_0012",
+        "golgari_swarm_claim_0013",
+        "golgari_swarm_claim_0014",
+        "golgari_swarm_claim_0015",
+        "golgari_swarm_claim_0016",
+        "golgari_swarm_claim_0017"
+      ],
+      "source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_mtg_stories_desperate_operatives_6c6a580b",
+        "src_mtg_stories_the_gathering_storm_chapter_4_910c6134",
+        "src_mtg_stories_deaths_precious_moments_1f524c65",
+        "src_mtg_stories_the_gathering_storm_chapter_2_c2c05981",
+        "src_mtg_stories_the_gathering_storm_chapter_11_48705560",
+        "src_mtg_stories_the_gathering_storm_chapter_9_9913612d",
+        "src_mtg_stories_the_gathering_storm_chapter_7_de8fb26e",
+        "src_mtg_stories_the_gathering_storm_chapter_14_a6cf56c0",
+        "src_mtg_stories_the_gathering_storm_chapter_16_819d5212",
+        "src_mtg_stories_rallying_the_reluctant_d21b8009"
+      ],
+      "confidence": "High",
+      "notes": ""
+    },
+    {
+      "character_id": "char_izoni",
+      "name": "Izoni",
+      "role": "Prominent Golgari figure.",
+      "relationship_to_faction": "Appears in source-backed evidence for this faction.",
+      "claim_ids": [
+        "golgari_swarm_claim_0008",
+        "golgari_swarm_claim_0009"
+      ],
+      "source_ids": [
+        "src_mtg_stories_desperate_operatives_6c6a580b",
+        "src_mtg_stories_the_gathering_storm_chapter_4_910c6134"
+      ],
+      "confidence": "Medium",
+      "notes": ""
+    },
+    {
+      "character_id": "char_jarad",
+      "name": "Jarad",
+      "role": "Prominent Golgari figure.",
+      "relationship_to_faction": "Appears in source-backed evidence for this faction.",
+      "claim_ids": [
+        "golgari_swarm_claim_005",
+        "golgari_swarm_claim_0009",
+        "golgari_swarm_claim_0011",
+        "golgari_swarm_claim_0013"
+      ],
+      "source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_mtg_stories_the_gathering_storm_chapter_4_910c6134",
+        "src_mtg_stories_the_gathering_storm_chapter_2_c2c05981",
+        "src_mtg_stories_the_gathering_storm_chapter_9_9913612d"
+      ],
+      "confidence": "High",
+      "notes": ""
+    }
+  ],
+  "canonical_flavor_text": [
+    {
+      "card_name": "Golgari Swarm dossier anchor",
+      "set": "Ravnica",
+      "short_excerpt_or_summary": "Death, decay, survival, and renewal are one cycle, not separate moral categories.",
+      "is_exact_excerpt": false,
+      "claim_ids": [
+        "golgari_swarm_claim_0008",
+        "golgari_swarm_claim_0009",
+        "golgari_swarm_claim_0010",
+        "golgari_swarm_claim_0011",
+        "golgari_swarm_claim_0012",
+        "golgari_swarm_claim_0013",
+        "golgari_swarm_claim_0014",
+        "golgari_swarm_claim_0015"
+      ],
+      "source_ids": [
+        "src_mtg_stories_desperate_operatives_6c6a580b",
+        "src_mtg_stories_the_gathering_storm_chapter_4_910c6134",
+        "src_mtg_stories_deaths_precious_moments_1f524c65",
+        "src_mtg_stories_the_gathering_storm_chapter_2_c2c05981",
+        "src_mtg_stories_the_gathering_storm_chapter_11_48705560",
+        "src_mtg_stories_the_gathering_storm_chapter_9_9913612d",
+        "src_mtg_stories_the_gathering_storm_chapter_7_de8fb26e",
+        "src_mtg_stories_the_gathering_storm_chapter_14_a6cf56c0",
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_prerelease_primer_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018"
+      ],
+      "notes": "Derived from the faction's raw dossier copy so the flavor layer stays evidence-backed and reusable for Commander Compass."
+    }
+  ],
   "views_on_other_factions": [],
   "mechanics": {
     "summary": "Undergrowth expresses Golgari's ability to turn dead creatures in graveyards into present power.",
@@ -113,9 +240,30 @@
       "Jarad",
       "Undercity",
       "rot farms",
+      "scavenge",
+      "Ravnica",
+      "Svogthir",
+      "Guilds of Ravnica",
+      "Dragon's Maze",
+      "War of the Spark",
+      "Ravnica Allegiance"
+    ],
+    "story_corpus_paths_added": 10,
+    "known_characters": [
+      "Svogthir",
+      "Vraska",
+      "Izoni",
+      "Jarad"
+    ],
+    "known_mechanics": [
       "scavenge"
     ],
-    "story_corpus_paths_added": 10
+    "sets_or_story_arcs": [
+      "Guilds of Ravnica",
+      "Dragon's Maze",
+      "War of the Spark",
+      "Ravnica Allegiance"
+    ]
   },
   "data_quality": {
     "corpus_upgrade": {
@@ -133,9 +281,290 @@
         "golgari_swarm_claim_0016",
         "golgari_swarm_claim_0017"
       ]
+    },
+    "raw_enrichment": {
+      "review_date": "2026-05-13T21:14:06.308Z",
+      "source_basis": "data/raw-factions claims.json + sources.json",
+      "key_figures_added": 0,
+      "historical_timeline_entries": 1,
+      "canonical_flavor_text_entries": 1,
+      "relationship_entries": 0,
+      "known_characters": 4,
+      "known_mechanics": 1,
+      "story_arcs": 4
     }
   },
   "research_limitations": [
     "MTG-Stories repository entries are treated as searchable archive copies; official Wizards pages should remain the primary canon authority when available."
-  ]
+  ],
+  "commander_compass": {
+    "schema_version": "1.0.0",
+    "source_research_file": "golgari_swarm.commander_compass.research.json",
+    "last_reviewed": "2026-05-14",
+    "review_status": "reviewed_not_canonical_lore",
+    "recommendation_philosophy": "Focus on the graveyard as a second hand and the inevitability of the swarm.",
+    "identity_basis": {
+      "owned_themes": [
+        "Graveyard",
+        "Reanimate",
+        "Dredge",
+        "Sacrifice",
+        "Undergrowth"
+      ],
+      "allowed_phrases": [
+        "Death feeds life",
+        "The Swarm grows",
+        "Nothing is wasted"
+      ],
+      "avoid_or_contrast_phrases": [
+        "Sterility",
+        "Exile",
+        "Preservation without purpose"
+      ],
+      "adjacent_overlap_notes": [
+        "Sacrifice overlap with Rakdos",
+        "Lands overlap with Gruul"
+      ],
+      "supporting_claim_ids": [
+        "golgari_swarm_claim_0008",
+        "golgari_swarm_claim_0009",
+        "golgari_swarm_claim_0010",
+        "golgari_swarm_claim_0011",
+        "golgari_swarm_claim_0012",
+        "golgari_swarm_claim_0013",
+        "golgari_swarm_claim_0014",
+        "golgari_swarm_claim_0015"
+      ],
+      "supporting_source_ids": [
+        "src_mtg_stories_desperate_operatives_6c6a580b",
+        "src_mtg_stories_the_gathering_storm_chapter_4_910c6134",
+        "src_mtg_stories_deaths_precious_moments_1f524c65",
+        "src_mtg_stories_the_gathering_storm_chapter_2_c2c05981",
+        "src_mtg_stories_the_gathering_storm_chapter_11_48705560",
+        "src_mtg_stories_the_gathering_storm_chapter_9_9913612d",
+        "src_mtg_stories_the_gathering_storm_chapter_7_de8fb26e",
+        "src_mtg_stories_the_gathering_storm_chapter_14_a6cf56c0"
+      ]
+    },
+    "native_fit_commanders": [
+      {
+        "exact_card_name": "Jarad, Golgari Lich Lord",
+        "display_name": "Jarad, Golgari Lich Lord",
+        "scryfall_uri": "https://scryfall.com/card/tdc/293/jarad-golgari-lich-lord",
+        "edhrec_uri": "https://edhrec.com/commanders/jarad-golgari-lich-lord",
+        "color_identity": [
+          "B",
+          "G"
+        ],
+        "commander_legal": true,
+        "recommendation_type": "Native Fit",
+        "archetype_tags": [
+          "Sacrifice",
+          "Graveyard Matters"
+        ],
+        "why_this_fits": "A classic Golgari leader who scales with the size of your graveyard and allows you to 'recycle' creatures into direct damage.",
+        "skip_if": "You don't like 'glass cannon' combos or graveyard hate.",
+        "gameplay_summary": "Gains power for creatures in your grave and sacrifices others to drain the entire table.",
+        "faction_identity_terms": [
+          "Lich",
+          "Swarm",
+          "Undergrowth"
+        ],
+        "source_basis": {
+          "card_data": [
+            "Jarad, Golgari Lich Lord"
+          ],
+          "lore_or_identity": [
+            "Former Guildmaster"
+          ],
+          "commander_product_relevance": [
+            "High popularity for Golgari veterans"
+          ],
+          "existing_repo_claim_ids": [
+            "golgari_swarm_claim_005",
+            "golgari_swarm_claim_0009",
+            "golgari_swarm_claim_0011",
+            "golgari_swarm_claim_0013"
+          ],
+          "existing_repo_source_ids": [
+            "src_wotc_flavorful_guide_guilds_ravnica_2018",
+            "src_mtg_stories_the_gathering_storm_chapter_4_910c6134",
+            "src_mtg_stories_the_gathering_storm_chapter_2_c2c05981",
+            "src_mtg_stories_the_gathering_storm_chapter_9_9913612d"
+          ]
+        },
+        "confidence": "High",
+        "caution_notes": [],
+        "type_line": "Legendary Creature — Zombie Elf"
+      }
+    ],
+    "weird_stretch_commanders": [
+      {
+        "exact_card_name": "The Gitrog Monster",
+        "display_name": "The Gitrog Monster",
+        "scryfall_uri": "https://scryfall.com/card/eoc/117/the-gitrog-monster",
+        "edhrec_uri": "https://edhrec.com/commanders/the-gitrog-monster",
+        "color_identity": [
+          "B",
+          "G"
+        ],
+        "commander_legal": true,
+        "recommendation_type": "Weird Stretch",
+        "archetype_tags": [
+          "Lands",
+          "Combo"
+        ],
+        "why_this_fits": "Captures the 'decay' of the land side of Golgari flavor, even if it's from Innistrad.",
+        "skip_if": "You want a simple, straightforward creature deck.",
+        "gameplay_summary": "Turns land sacrifice into massive card draw, enabling infinite loops with discard outlets.",
+        "faction_identity_terms": [
+          "Corruption",
+          "Growth"
+        ],
+        "source_basis": {
+          "card_data": [
+            "The Gitrog Monster"
+          ],
+          "lore_or_identity": [
+            "Innistrad Horror"
+          ],
+          "commander_product_relevance": [
+            "Competitive staple in BG"
+          ],
+          "existing_repo_claim_ids": [
+            "golgari_swarm_claim_0008",
+            "golgari_swarm_claim_0009",
+            "golgari_swarm_claim_0010",
+            "golgari_swarm_claim_0011",
+            "golgari_swarm_claim_0012",
+            "golgari_swarm_claim_0013",
+            "golgari_swarm_claim_0014",
+            "golgari_swarm_claim_0015"
+          ],
+          "existing_repo_source_ids": [
+            "src_mtg_stories_desperate_operatives_6c6a580b",
+            "src_mtg_stories_the_gathering_storm_chapter_4_910c6134",
+            "src_mtg_stories_deaths_precious_moments_1f524c65",
+            "src_mtg_stories_the_gathering_storm_chapter_2_c2c05981",
+            "src_mtg_stories_the_gathering_storm_chapter_11_48705560",
+            "src_mtg_stories_the_gathering_storm_chapter_9_9913612d",
+            "src_mtg_stories_the_gathering_storm_chapter_7_de8fb26e",
+            "src_mtg_stories_the_gathering_storm_chapter_14_a6cf56c0"
+          ]
+        },
+        "confidence": "High",
+        "caution_notes": [
+          "Mechanically very high complexity."
+        ],
+        "type_line": "Legendary Creature — Frog Horror"
+      }
+    ],
+    "budget_friendly_commanders": [],
+    "advanced_complexity_commanders": [
+      {
+        "exact_card_name": "Meren of Clan Nel Toth",
+        "display_name": "Meren of Clan Nel Toth",
+        "scryfall_uri": "https://scryfall.com/card/tdc/297/meren-of-clan-nel-toth",
+        "edhrec_uri": "https://edhrec.com/commanders/meren-of-clan-nel-toth",
+        "color_identity": [
+          "B",
+          "G"
+        ],
+        "commander_legal": true,
+        "recommendation_type": "Advanced",
+        "archetype_tags": [
+          "Reanimate",
+          "Experience Counters"
+        ],
+        "why_this_fits": "A non-Ravnica gameplay fit for Golgari-style recursion: repeated creature death turns into experience and graveyard value.",
+        "skip_if": "You don't want to play a highly popular, well-known commander that might draw focus.",
+        "gameplay_summary": "Recurs creatures from the graveyard for free every end step based on how many of your creatures have died.",
+        "faction_identity_terms": [
+          "Necromancy",
+          "Clan"
+        ],
+        "source_basis": {
+          "card_data": [
+            "Meren of Clan Nel Toth"
+          ],
+          "lore_or_identity": [
+            "Alara flavor but mechanically perfect for Golgari"
+          ],
+          "commander_product_relevance": [
+            "Hall of Fame commander status"
+          ],
+          "existing_repo_claim_ids": [
+            "golgari_swarm_claim_0008",
+            "golgari_swarm_claim_0009",
+            "golgari_swarm_claim_0010",
+            "golgari_swarm_claim_0011",
+            "golgari_swarm_claim_0012",
+            "golgari_swarm_claim_0013",
+            "golgari_swarm_claim_0014",
+            "golgari_swarm_claim_0015"
+          ],
+          "existing_repo_source_ids": [
+            "src_mtg_stories_desperate_operatives_6c6a580b",
+            "src_mtg_stories_the_gathering_storm_chapter_4_910c6134",
+            "src_mtg_stories_deaths_precious_moments_1f524c65",
+            "src_mtg_stories_the_gathering_storm_chapter_2_c2c05981",
+            "src_mtg_stories_the_gathering_storm_chapter_11_48705560",
+            "src_mtg_stories_the_gathering_storm_chapter_9_9913612d",
+            "src_mtg_stories_the_gathering_storm_chapter_7_de8fb26e",
+            "src_mtg_stories_the_gathering_storm_chapter_14_a6cf56c0"
+          ]
+        },
+        "confidence": "High",
+        "caution_notes": [
+          "Not Golgari Swarm canon or Ravnica lore; keep framed as gameplay guidance."
+        ],
+        "type_line": "Legendary Creature — Human Shaman"
+      }
+    ],
+    "iconic_lore_forward_commanders": [],
+    "not_recommended_or_deprioritized": [
+      {
+        "name": "Vraska, Golgari Queen",
+        "reason": "Planeswalker that cannot be your commander.",
+        "could_still_be_used_if": "Playing Rule 0 or in the 99.",
+        "confidence": "High"
+      },
+      {
+        "name": "Dina, Soul Steeper",
+        "reason": "Witherbloom-native card and character; use only as an explicitly marked cross-faction product stretch, not a Golgari Swarm recommendation in this batch.",
+        "could_still_be_used_if": "A player wants a Witherbloom-flavored black-green lifegain/sacrifice deck rather than a Golgari Swarm identity pick.",
+        "confidence": "High"
+      }
+    ],
+    "archetype_lanes": [
+      {
+        "lane_name": "Elf-Ball (Golgari)",
+        "description": "Swarming the board with elves and using black for recursion/aristocrats.",
+        "recommended_for": "Lathril, Blade of the Elves",
+        "skip_if": "You prefer a purely non-tribal graveyard strategy.",
+        "example_commanders": [
+          "Lathril, Blade of the Elves",
+          "Abomination of Llanowar"
+        ],
+        "supporting_identity_terms": [
+          "Devkarin",
+          "Swarm"
+        ],
+        "complexity": "Low",
+        "budget_friendliness": "High"
+      }
+    ],
+    "link_targets": {
+      "edhrec_commander_index": "https://edhrec.com/commanders/bg",
+      "mtgdecks_color_identity": "https://mtgdecks.net/Commander/Golgari",
+      "scryfall_commander_search": "https://scryfall.com/search?q=is%3Acommander+identity%3ABG",
+      "archidekt_color_search": "https://www.archidekt.com/search/decks?colors=2%2C3"
+    },
+    "merge_notes": {
+      "product_guidance_not_canon": true,
+      "commander_legality_validated": true,
+      "scryfall_card_pages_validated": true,
+      "do_not_use_as_claim_source": true
+    }
+  }
 }

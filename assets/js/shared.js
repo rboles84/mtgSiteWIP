@@ -242,6 +242,10 @@ function normalizePlacementResult(result, fallbackProfile) {
   return normalized;
 }
 
+function isScryingTerminalEnabled() {
+  return globalThis.VM_SITE_FLAGS?.SCRYING_TERMINAL_ENABLED === true;
+}
+
 /**
  * Builds a compatibility placement result from older guild-plus-scores profile rows.
  *
@@ -381,6 +385,10 @@ const VM_SESSION = {
  * @returns {Promise<object>} First interview response payload.
  */
 async function vm_startInterview(context = {}) {
+  if (!isScryingTerminalEnabled()) {
+    throw new Error("Scrying Terminal is temporarily unavailable.");
+  }
+
   VM_SESSION.chatHistory = [];
   VM_SESSION.interviewActive = true;
   VM_SESSION.interviewResult = null;
@@ -398,6 +406,10 @@ async function vm_startInterview(context = {}) {
  * @returns {Promise<object>} Normalized interview response payload.
  */
 async function vm_conductInterview(userMessage) {
+  if (!isScryingTerminalEnabled()) {
+    throw new Error("Scrying Terminal is temporarily unavailable.");
+  }
+
   const sb = getSupabase();
   if (!sb) {
     throw new Error("Interview service unavailable.");

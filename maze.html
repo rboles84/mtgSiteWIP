@@ -241,18 +241,14 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 }
 </style>
 </head>
-<body data-page="maze" data-vm-current="maze" data-bg="heavy">
+<body data-page="maze" data-vm-current="maze" data-bg="heavy" data-bg-clean="true">
 
 <div class="vm-bg" aria-hidden="true">
   <picture class="vm-bg__picture">
-    <source type="image/avif" srcset="/assets/img/vox-mana-hero-768w.avif 768w, /assets/img/vox-mana-hero-1280w.avif 1280w, /assets/img/vox-mana-hero-2560w.avif 2560w" sizes="100vw">
-    <source type="image/webp" srcset="/assets/img/vox-mana-hero-768w.webp 768w, /assets/img/vox-mana-hero-1280w.webp 1280w, /assets/img/vox-mana-hero-2560w.webp 2560w" sizes="100vw">
-    <img src="/assets/img/vox-mana-hero-1280w.jpg" alt="" decoding="async">
+    <source type="image/webp" srcset="/assets/img/backgrounds/background-maze-chamber-clean-01.webp 2560w" sizes="100vw">
+    <img src="/assets/img/backgrounds/background-maze-chamber-clean-01.webp" alt="" decoding="async">
   </picture>
-  <div class="vm-bg__nebula"></div>
 </div>
-
-<div class="page">
 
 <!-- ── HEADER ─── -->
 <header class="vm-topbar" role="banner">
@@ -304,6 +300,8 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
     </div>
   </div>
 </header>
+
+<div class="page">
 
 <header class="r-header">
   <div class="r-title">The Implicit Maze <span>— Scryfall query explorer</span></div>
@@ -451,7 +449,7 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
     <div class="err-msg hidden" id="err-msg"></div>
     <div class="results-header hidden" id="results-header">
       <span class="res-count" id="res-count"></span>
-      <select class="res-order" onchange="changeOrder(this.value)">
+      <select class="res-order" onchange="changeOrder(this.value,this.selectedOptions[0]?.dataset.dir)">
         <option value="name">A–Z</option>
         <option value="edhrec">EDHREC popularity</option>
         <option value="usd">Price (low)</option>
@@ -481,6 +479,5 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 <script type="module" src="research/research-init.js"></script>
 <script src="/assets/js/reduce-motion.js" defer></script>
 <script src="/assets/js/vm-topbar.js" defer></script>
-<script src="/assets/js/atmosphere.js" defer></script>
 </body>
 </html>

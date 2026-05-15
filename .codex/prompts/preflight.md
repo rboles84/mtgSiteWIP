@@ -1,0 +1,34 @@
+# Vox Mana Pre-Flight Review
+
+Run this before any meaningful work.
+
+## Task
+
+Review project memory before acting.
+
+Read:
+- `AGENTS.md`
+- `docs/handoffs/HANDOFF_INDEX.md`
+- recent relevant files in `docs/handoffs/`
+- `docs/kanban/board.md`
+- related cards in `docs/kanban/`
+- related docs/plans if referenced
+
+## Return
+
+Provide:
+
+1. Relevant prior work
+2. Current card/status
+3. Known risks
+4. Files recently touched
+5. Decisions already made
+6. What should not be touched
+7. Recommended next action
+
+## Rules
+
+- Do not modify files.
+- Do not implement.
+- Do not guess missing context.
+- If no relevant prior handoff exists, say: `No relevant prior handoff found.`

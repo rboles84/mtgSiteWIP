@@ -8,7 +8,7 @@
     "white",
     "green"
   ],
-  "last_updated": "2026-05-09",
+  "last_updated": "2026-05-13T21:14:06.308Z",
   "profile": {
     "overview": "Selesnya Conclave is a white-green guild associated with Ravnica.",
     "philosophy": "The self finds peace by becoming part of a greater living community.",
@@ -88,9 +88,127 @@
       "selesnya_conclave_claim_0012"
     ]
   },
-  "historical_timeline": [],
-  "key_figures": [],
-  "canonical_flavor_text": [],
+  "historical_timeline": [
+    {
+      "event_id": "event_selesnya_conclave_selesnya_conclave_claim_004",
+      "event": "The guide identifies Mat'Selesnya as Selesnya's founder and voice of nature, dwelling in Vitu-Ghazi.",
+      "date_or_era": "Founding era",
+      "claim_ids": [
+        "selesnya_conclave_claim_004"
+      ],
+      "confidence": "High",
+      "notes": "Canon-supported claim used for raw enrichment."
+    }
+  ],
+  "key_figures": [
+    {
+      "character_id": "char_mat_selesnya",
+      "name": "Mat'Selesnya",
+      "role": "Selesnya founder and voice of nature.",
+      "relationship_to_faction": "Appears in source-backed evidence for this faction.",
+      "claim_ids": [
+        "selesnya_conclave_claim_004",
+        "selesnya_conclave_claim_005",
+        "selesnya_conclave_claim_0008",
+        "selesnya_conclave_claim_0010",
+        "selesnya_conclave_claim_0011",
+        "selesnya_conclave_claim_0012",
+        "selesnya_conclave_claim_0015"
+      ],
+      "source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_mtg_stories_episode_5_chains_of_expectation_18265ca0",
+        "src_mtg_stories_desperate_operatives_6c6a580b",
+        "src_mtg_stories_episode_10_roots_of_decay_955d3d20",
+        "src_mtg_stories_the_great_concourse_cc6ee0e6",
+        "src_mtg_stories_episode_9_beauty_in_destruction_8206653c"
+      ],
+      "confidence": "High",
+      "notes": ""
+    },
+    {
+      "character_id": "char_trostani",
+      "name": "Trostani",
+      "role": "Prominent Selesnya voice and guild leader.",
+      "relationship_to_faction": "Appears in source-backed evidence for this faction.",
+      "claim_ids": [
+        "selesnya_conclave_claim_005",
+        "selesnya_conclave_claim_0008",
+        "selesnya_conclave_claim_0009",
+        "selesnya_conclave_claim_0010",
+        "selesnya_conclave_claim_0011",
+        "selesnya_conclave_claim_0012",
+        "selesnya_conclave_claim_0013",
+        "selesnya_conclave_claim_0015",
+        "selesnya_conclave_claim_0016",
+        "selesnya_conclave_claim_0017"
+      ],
+      "source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_mtg_stories_episode_5_chains_of_expectation_18265ca0",
+        "src_mtg_stories_in_praise_of_the_worldsoul_part_1_d5ba8171",
+        "src_mtg_stories_desperate_operatives_6c6a580b",
+        "src_mtg_stories_episode_10_roots_of_decay_955d3d20",
+        "src_mtg_stories_the_great_concourse_cc6ee0e6",
+        "src_mtg_stories_in_praise_of_the_worldsoul_part_2_f671c9f9",
+        "src_mtg_stories_episode_9_beauty_in_destruction_8206653c",
+        "src_mtg_stories_the_gathering_storm_chapter_5_85ba569f",
+        "src_mtg_stories_in_praise_of_the_worldsoul_part_3_bc6ed8e9"
+      ],
+      "confidence": "High",
+      "notes": ""
+    },
+    {
+      "character_id": "char_emmara_tandris",
+      "name": "Emmara Tandris",
+      "role": "Prominent Selesnya figure.",
+      "relationship_to_faction": "Appears in source-backed evidence for this faction.",
+      "claim_ids": [
+        "selesnya_conclave_claim_0010",
+        "selesnya_conclave_claim_0011",
+        "selesnya_conclave_claim_0016"
+      ],
+      "source_ids": [
+        "src_mtg_stories_desperate_operatives_6c6a580b",
+        "src_mtg_stories_episode_10_roots_of_decay_955d3d20",
+        "src_mtg_stories_the_gathering_storm_chapter_5_85ba569f"
+      ],
+      "confidence": "Medium",
+      "notes": ""
+    }
+  ],
+  "canonical_flavor_text": [
+    {
+      "card_name": "Selesnya Conclave dossier anchor",
+      "set": "Ravnica",
+      "short_excerpt_or_summary": "The self finds peace by becoming part of a greater living community.",
+      "is_exact_excerpt": false,
+      "claim_ids": [
+        "selesnya_conclave_claim_0008",
+        "selesnya_conclave_claim_0009",
+        "selesnya_conclave_claim_0010",
+        "selesnya_conclave_claim_0011",
+        "selesnya_conclave_claim_0012",
+        "selesnya_conclave_claim_0013",
+        "selesnya_conclave_claim_0014",
+        "selesnya_conclave_claim_0015"
+      ],
+      "source_ids": [
+        "src_mtg_stories_episode_5_chains_of_expectation_18265ca0",
+        "src_mtg_stories_in_praise_of_the_worldsoul_part_1_d5ba8171",
+        "src_mtg_stories_desperate_operatives_6c6a580b",
+        "src_mtg_stories_episode_10_roots_of_decay_955d3d20",
+        "src_mtg_stories_the_great_concourse_cc6ee0e6",
+        "src_mtg_stories_in_praise_of_the_worldsoul_part_2_f671c9f9",
+        "src_mtg_stories_the_ledger_of_hidden_fortunes_daa0c70e",
+        "src_mtg_stories_episode_9_beauty_in_destruction_8206653c",
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_prerelease_primer_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018"
+      ],
+      "notes": "Derived from the faction's raw dossier copy so the flavor layer stays evidence-backed and reusable for Commander Compass."
+    }
+  ],
   "views_on_other_factions": [],
   "mechanics": {
     "summary": "Convoke expresses Selesnya solidarity by allowing a community of creatures to help cast spells.",
@@ -116,9 +234,34 @@
       "community",
       "unity",
       "Emmara Tandris",
+      "populate",
+      "Ravnica",
+      "convoke",
+      "Guilds of Ravnica",
+      "Dragon's Maze",
+      "Murders at Karlov Manor",
+      "Return to Ravnica",
+      "War of the Spark",
+      "Ravnica Allegiance"
+    ],
+    "story_corpus_paths_added": 10,
+    "known_characters": [
+      "Mat'Selesnya",
+      "Trostani",
+      "Emmara Tandris"
+    ],
+    "known_mechanics": [
+      "convoke",
       "populate"
     ],
-    "story_corpus_paths_added": 10
+    "sets_or_story_arcs": [
+      "Guilds of Ravnica",
+      "Dragon's Maze",
+      "Murders at Karlov Manor",
+      "Return to Ravnica",
+      "War of the Spark",
+      "Ravnica Allegiance"
+    ]
   },
   "data_quality": {
     "corpus_upgrade": {
@@ -136,9 +279,558 @@
         "selesnya_conclave_claim_0016",
         "selesnya_conclave_claim_0017"
       ]
+    },
+    "raw_enrichment": {
+      "review_date": "2026-05-13T21:14:06.308Z",
+      "source_basis": "data/raw-factions claims.json + sources.json",
+      "key_figures_added": 0,
+      "historical_timeline_entries": 1,
+      "canonical_flavor_text_entries": 1,
+      "relationship_entries": 0,
+      "known_characters": 3,
+      "known_mechanics": 2,
+      "story_arcs": 6
     }
   },
   "research_limitations": [
     "MTG-Stories repository entries are treated as searchable archive copies; official Wizards pages should remain the primary canon authority when available."
-  ]
+  ],
+  "commander_compass": {
+    "schema_version": "1.0.0",
+    "source_research_file": "selesnya_conclave.commander_compass.research.json",
+    "last_reviewed": "2026-05-14",
+    "review_status": "reviewed_not_canonical_lore",
+    "recommendation_philosophy": "Favor commanders that make many creatures matter together. Selesnya should feel like a living chorus: tokens, convoke, populate, lifegain, and board-wide growth turn individual bodies into a collective win condition.",
+    "identity_basis": {
+      "owned_themes": [
+        "unity and collectivism",
+        "nature and preservation",
+        "Vitu-Ghazi and Worldsoul",
+        "Mat’Selesnya and Trostani",
+        "go-wide creatures",
+        "tokens",
+        "convoke",
+        "populate",
+        "lifegain through community",
+        "large communal boards"
+      ],
+      "allowed_phrases": [
+        "chorus of bodies",
+        "strength through unity",
+        "populate the Worldsoul",
+        "communal board engine",
+        "convoke swarm",
+        "many small creatures become one voice"
+      ],
+      "avoid_or_contrast_phrases": [
+        "solitary Voltron identity",
+        "pure prison/stax with no communal theme",
+        "generic GW goodstuff",
+        "canon proof from deck popularity"
+      ],
+      "adjacent_overlap_notes": [
+        "Enchantress and lifegain can overlap with Selesnya when framed as growth/community engines, but native Selesnya should center collective bodies, tokens, and unity."
+      ],
+      "supporting_claim_ids": [
+        "selesnya_conclave_claim_0008",
+        "selesnya_conclave_claim_0009",
+        "selesnya_conclave_claim_0010",
+        "selesnya_conclave_claim_0011",
+        "selesnya_conclave_claim_0012",
+        "selesnya_conclave_claim_0013",
+        "selesnya_conclave_claim_0014",
+        "selesnya_conclave_claim_0015"
+      ],
+      "supporting_source_ids": [
+        "src_mtg_stories_episode_5_chains_of_expectation_18265ca0",
+        "src_mtg_stories_in_praise_of_the_worldsoul_part_1_d5ba8171",
+        "src_mtg_stories_desperate_operatives_6c6a580b",
+        "src_mtg_stories_episode_10_roots_of_decay_955d3d20",
+        "src_mtg_stories_the_great_concourse_cc6ee0e6",
+        "src_mtg_stories_in_praise_of_the_worldsoul_part_2_f671c9f9",
+        "src_mtg_stories_the_ledger_of_hidden_fortunes_daa0c70e",
+        "src_mtg_stories_episode_9_beauty_in_destruction_8206653c"
+      ]
+    },
+    "native_fit_commanders": [
+      {
+        "exact_card_name": "Trostani, Selesnya's Voice",
+        "display_name": "Trostani, Selesnya's Voice",
+        "scryfall_uri": "https://scryfall.com/card/c19/204/trostani-selesnyas-voice",
+        "edhrec_uri": "https://edhrec.com/commanders/trostani-selesnyas-voice",
+        "color_identity": [
+          "G",
+          "W"
+        ],
+        "commander_legal": true,
+        "recommendation_type": "Native Fit",
+        "archetype_tags": [
+          "Tokens",
+          "Populate",
+          "Lifegain"
+        ],
+        "why_this_fits": "Trostani is the most direct native Selesnya Commander bridge: the guild voice becomes a token-populate and lifegain engine.",
+        "skip_if": "Skip if you dislike token bookkeeping, longer board-development games, or populate needing good token targets.",
+        "gameplay_summary": "A four-mana Dryad commander that gains life from creature toughness and populates to copy creature tokens.",
+        "faction_identity_terms": [
+          "Trostani",
+          "Worldsoul",
+          "populate",
+          "unity",
+          "lifegain"
+        ],
+        "source_basis": {
+          "card_data": [
+            "https://scryfall.com/search?as=grid&order=name&q=%21%22Trostani%2C%20Selesnya%27s%20Voice%22&unique=cards"
+          ],
+          "lore_or_identity": [
+            "https://magic.wizards.com/en/news/feature/flavorful-guide-guilds-ravnica-2018-10-03",
+            "https://magic.wizards.com/en/news/feature/commanding-guilds-ravnica-2018-10-18",
+            "https://magic.wizards.com/en/news/feature/guilds-ravnica-mechanics-2018-09-04"
+          ],
+          "commander_product_relevance": [
+            "https://edhrec.com/commanders/trostani-selesnyas-voice",
+            "https://edhrec.com/commanders/selesnya"
+          ],
+          "existing_repo_claim_ids": [
+            "selesnya_conclave_claim_005",
+            "selesnya_conclave_claim_0008",
+            "selesnya_conclave_claim_0009",
+            "selesnya_conclave_claim_0010",
+            "selesnya_conclave_claim_0011",
+            "selesnya_conclave_claim_0012",
+            "selesnya_conclave_claim_0013",
+            "selesnya_conclave_claim_0015"
+          ],
+          "existing_repo_source_ids": [
+            "src_wotc_flavorful_guide_guilds_ravnica_2018",
+            "src_mtg_stories_episode_5_chains_of_expectation_18265ca0",
+            "src_mtg_stories_in_praise_of_the_worldsoul_part_1_d5ba8171",
+            "src_mtg_stories_desperate_operatives_6c6a580b",
+            "src_mtg_stories_episode_10_roots_of_decay_955d3d20",
+            "src_mtg_stories_the_great_concourse_cc6ee0e6",
+            "src_mtg_stories_in_praise_of_the_worldsoul_part_2_f671c9f9",
+            "src_mtg_stories_episode_9_beauty_in_destruction_8206653c"
+          ]
+        },
+        "confidence": "High",
+        "caution_notes": [],
+        "type_line": "Legendary Creature — Dryad"
+      },
+      {
+        "exact_card_name": "Emmara, Soul of the Accord",
+        "display_name": "Emmara, Soul of the Accord",
+        "scryfall_uri": "https://scryfall.com/card/grn/168/emmara-soul-of-the-accord",
+        "edhrec_uri": "https://edhrec.com/commanders/emmara-soul-of-the-accord",
+        "color_identity": [
+          "G",
+          "W"
+        ],
+        "commander_legal": true,
+        "recommendation_type": "Native Fit",
+        "archetype_tags": [
+          "Tokens",
+          "Convoke",
+          "Tap Synergy"
+        ],
+        "why_this_fits": "Emmara turns the Selesnya body-count philosophy into a simple engine: tapping a communal worker creates another lifelink body for the chorus.",
+        "skip_if": "Skip if you want a commander that creates large threats by itself or dislike needing tap outlets/convoke support.",
+        "gameplay_summary": "A two-mana Elf Cleric that creates 1/1 lifelink Soldier tokens whenever she becomes tapped.",
+        "faction_identity_terms": [
+          "convoke",
+          "community",
+          "lifelink tokens",
+          "Selesnya"
+        ],
+        "source_basis": {
+          "card_data": [
+            "https://scryfall.com/search?as=grid&order=name&q=%21%22Emmara%2C%20Soul%20of%20the%20Accord%22&unique=cards"
+          ],
+          "lore_or_identity": [
+            "https://magic.wizards.com/en/news/feature/commanding-guilds-ravnica-2018-10-18",
+            "https://magic.wizards.com/en/news/feature/guilds-ravnica-mechanics-2018-09-04"
+          ],
+          "commander_product_relevance": [
+            "https://edhrec.com/commanders/emmara-soul-of-the-accord",
+            "https://edhrec.com/commanders/selesnya"
+          ],
+          "existing_repo_claim_ids": [
+            "selesnya_conclave_claim_0010",
+            "selesnya_conclave_claim_0011",
+            "selesnya_conclave_claim_0016"
+          ],
+          "existing_repo_source_ids": [
+            "src_mtg_stories_desperate_operatives_6c6a580b",
+            "src_mtg_stories_episode_10_roots_of_decay_955d3d20",
+            "src_mtg_stories_the_gathering_storm_chapter_5_85ba569f"
+          ]
+        },
+        "confidence": "High",
+        "caution_notes": [],
+        "type_line": "Legendary Creature — Elf Cleric"
+      }
+    ],
+    "weird_stretch_commanders": [
+      {
+        "exact_card_name": "Sythis, Harvest's Hand",
+        "display_name": "Sythis, Harvest's Hand",
+        "scryfall_uri": "https://scryfall.com/card/cmm/938/sythis-harvests-hand",
+        "edhrec_uri": "https://edhrec.com/commanders/sythis-harvests-hand",
+        "color_identity": [
+          "G",
+          "W"
+        ],
+        "commander_legal": true,
+        "recommendation_type": "Weird Stretch",
+        "archetype_tags": [
+          "Enchantress",
+          "Lifegain",
+          "Card Draw"
+        ],
+        "why_this_fits": "Sythis is not Selesnya lore, but enchantments can become a product-adjacent expression of natural growth, protection, and communal infrastructure.",
+        "skip_if": "Skip if you want tokens/convoke/populate or a Ravnica-native commander.",
+        "gameplay_summary": "A two-mana enchantment-creature commander that gains life and draws a card whenever you cast an enchantment.",
+        "faction_identity_terms": [
+          "growth",
+          "harmony",
+          "sustaining engine",
+          "lifegain"
+        ],
+        "source_basis": {
+          "card_data": [
+            "https://scryfall.com/search?as=grid&order=name&q=%21%22Sythis%2C%20Harvest%27s%20Hand%22&unique=cards"
+          ],
+          "lore_or_identity": [
+            "https://magic.wizards.com/en/news/feature/flavorful-guide-guilds-ravnica-2018-10-03",
+            "https://magic.wizards.com/en/news/feature/commanding-guilds-ravnica-2018-10-18"
+          ],
+          "commander_product_relevance": [
+            "https://edhrec.com/commanders/sythis-harvests-hand",
+            "https://edhrec.com/commanders/selesnya"
+          ],
+          "existing_repo_claim_ids": [
+            "selesnya_conclave_claim_0008",
+            "selesnya_conclave_claim_0009",
+            "selesnya_conclave_claim_0010",
+            "selesnya_conclave_claim_0011",
+            "selesnya_conclave_claim_0012",
+            "selesnya_conclave_claim_0013",
+            "selesnya_conclave_claim_0014",
+            "selesnya_conclave_claim_0015"
+          ],
+          "existing_repo_source_ids": [
+            "src_mtg_stories_episode_5_chains_of_expectation_18265ca0",
+            "src_mtg_stories_in_praise_of_the_worldsoul_part_1_d5ba8171",
+            "src_mtg_stories_desperate_operatives_6c6a580b",
+            "src_mtg_stories_episode_10_roots_of_decay_955d3d20",
+            "src_mtg_stories_the_great_concourse_cc6ee0e6",
+            "src_mtg_stories_in_praise_of_the_worldsoul_part_2_f671c9f9",
+            "src_mtg_stories_the_ledger_of_hidden_fortunes_daa0c70e",
+            "src_mtg_stories_episode_9_beauty_in_destruction_8206653c"
+          ]
+        },
+        "confidence": "Medium",
+        "caution_notes": [
+          "Product-adjacent only; not a Selesnya lore card."
+        ],
+        "type_line": "Legendary Enchantment Creature — Nymph"
+      }
+    ],
+    "budget_friendly_commanders": [
+      {
+        "exact_card_name": "Trelasarra, Moon Dancer",
+        "display_name": "Trelasarra, Moon Dancer",
+        "scryfall_uri": "https://scryfall.com/card/afr/236/trelasarra-moon-dancer",
+        "edhrec_uri": "https://edhrec.com/commanders/trelasarra-moon-dancer",
+        "color_identity": [
+          "G",
+          "W"
+        ],
+        "commander_legal": true,
+        "recommendation_type": "Budget Friendly",
+        "archetype_tags": [
+          "Lifegain",
+          "Counters",
+          "Scry"
+        ],
+        "why_this_fits": "Trelasarra offers a simple, affordable Selesnya-adjacent on-ramp: life gain becomes growth and selection, echoing community sustainment.",
+        "skip_if": "Skip if you want a token-first guild expression or strict Ravnica flavor.",
+        "gameplay_summary": "A two-mana lifegain payoff that gains +1/+1 counters and scries whenever you gain life.",
+        "faction_identity_terms": [
+          "lifegain",
+          "growth",
+          "harmony",
+          "incremental strength"
+        ],
+        "source_basis": {
+          "card_data": [
+            "https://scryfall.com/search?as=grid&order=name&q=%21%22Trelasarra%2C%20Moon%20Dancer%22&unique=cards"
+          ],
+          "lore_or_identity": [
+            "https://magic.wizards.com/en/news/feature/commanding-guilds-ravnica-2018-10-18"
+          ],
+          "commander_product_relevance": [
+            "https://edhrec.com/commanders/trelasarra-moon-dancer",
+            "https://edhrec.com/commanders/selesnya"
+          ],
+          "existing_repo_claim_ids": [
+            "selesnya_conclave_claim_0008",
+            "selesnya_conclave_claim_0009",
+            "selesnya_conclave_claim_0010",
+            "selesnya_conclave_claim_0011",
+            "selesnya_conclave_claim_0012",
+            "selesnya_conclave_claim_0013",
+            "selesnya_conclave_claim_0014",
+            "selesnya_conclave_claim_0015"
+          ],
+          "existing_repo_source_ids": [
+            "src_mtg_stories_episode_5_chains_of_expectation_18265ca0",
+            "src_mtg_stories_in_praise_of_the_worldsoul_part_1_d5ba8171",
+            "src_mtg_stories_desperate_operatives_6c6a580b",
+            "src_mtg_stories_episode_10_roots_of_decay_955d3d20",
+            "src_mtg_stories_the_great_concourse_cc6ee0e6",
+            "src_mtg_stories_in_praise_of_the_worldsoul_part_2_f671c9f9",
+            "src_mtg_stories_the_ledger_of_hidden_fortunes_daa0c70e",
+            "src_mtg_stories_episode_9_beauty_in_destruction_8206653c"
+          ]
+        },
+        "confidence": "Medium",
+        "caution_notes": [
+          "Not Ravnica-native; use as budget gameplay adjacency."
+        ],
+        "type_line": "Legendary Creature — Elf Cleric"
+      }
+    ],
+    "advanced_complexity_commanders": [
+      {
+        "exact_card_name": "Rhys the Redeemed",
+        "display_name": "Rhys the Redeemed",
+        "scryfall_uri": "https://scryfall.com/card/2xm/213/rhys-the-redeemed",
+        "edhrec_uri": "https://edhrec.com/commanders/rhys-the-redeemed",
+        "color_identity": [
+          "G",
+          "W"
+        ],
+        "commander_legal": true,
+        "recommendation_type": "Advanced",
+        "archetype_tags": [
+          "Tokens",
+          "Token Doubling",
+          "Go-Wide"
+        ],
+        "why_this_fits": "Rhys pushes the collective to its extreme: one body becomes many, then many become overwhelming. The gameplay maps strongly to Selesnya even though the card is not Ravnican.",
+        "skip_if": "Skip if you want native Selesnya lore, low token counts, or a deck that avoids exponential board states.",
+        "gameplay_summary": "A one-mana token commander that can create Elf tokens and later double all creature tokens you control.",
+        "faction_identity_terms": [
+          "collective growth",
+          "go-wide",
+          "unity",
+          "token multiplication"
+        ],
+        "source_basis": {
+          "card_data": [
+            "https://scryfall.com/search?as=grid&order=name&q=%21%22Rhys%20the%20Redeemed%22&unique=cards"
+          ],
+          "lore_or_identity": [
+            "https://magic.wizards.com/en/news/feature/commanding-guilds-ravnica-2018-10-18",
+            "https://magic.wizards.com/en/news/feature/guilds-ravnica-mechanics-2018-09-04"
+          ],
+          "commander_product_relevance": [
+            "https://edhrec.com/commanders/rhys-the-redeemed",
+            "https://edhrec.com/commanders/selesnya"
+          ],
+          "existing_repo_claim_ids": [
+            "selesnya_conclave_claim_0008",
+            "selesnya_conclave_claim_0009",
+            "selesnya_conclave_claim_0010",
+            "selesnya_conclave_claim_0011",
+            "selesnya_conclave_claim_0012",
+            "selesnya_conclave_claim_0013",
+            "selesnya_conclave_claim_0014",
+            "selesnya_conclave_claim_0015"
+          ],
+          "existing_repo_source_ids": [
+            "src_mtg_stories_episode_5_chains_of_expectation_18265ca0",
+            "src_mtg_stories_in_praise_of_the_worldsoul_part_1_d5ba8171",
+            "src_mtg_stories_desperate_operatives_6c6a580b",
+            "src_mtg_stories_episode_10_roots_of_decay_955d3d20",
+            "src_mtg_stories_the_great_concourse_cc6ee0e6",
+            "src_mtg_stories_in_praise_of_the_worldsoul_part_2_f671c9f9",
+            "src_mtg_stories_the_ledger_of_hidden_fortunes_daa0c70e",
+            "src_mtg_stories_episode_9_beauty_in_destruction_8206653c"
+          ]
+        },
+        "confidence": "Medium",
+        "caution_notes": [
+          "Strong gameplay fit; not an official Selesnya/Ravnica character."
+        ],
+        "type_line": "Legendary Creature — Elf Warrior"
+      }
+    ],
+    "iconic_lore_forward_commanders": [
+      {
+        "exact_card_name": "Trostani Discordant",
+        "display_name": "Trostani Discordant",
+        "scryfall_uri": "https://scryfall.com/card/clu/213/trostani-discordant",
+        "edhrec_uri": "https://edhrec.com/commanders/trostani-discordant",
+        "color_identity": [
+          "G",
+          "W"
+        ],
+        "commander_legal": true,
+        "recommendation_type": "Iconic Lore-Forward",
+        "archetype_tags": [
+          "Tokens",
+          "Anthem",
+          "Ownership"
+        ],
+        "why_this_fits": "This Trostani version is a lore-forward snapshot of unity under strain: it makes bodies, strengthens the group, and reasserts rightful belonging.",
+        "skip_if": "Skip if you want a stronger engine commander; this is more flavor-forward than optimized.",
+        "gameplay_summary": "A five-mana Dryad commander that buffs your creatures, creates lifelink Soldiers, and returns stolen creatures to their owners at end step.",
+        "faction_identity_terms": [
+          "Trostani",
+          "Life Order Harmony",
+          "unity",
+          "discord",
+          "conclave"
+        ],
+        "source_basis": {
+          "card_data": [
+            "https://scryfall.com/search?as=grid&order=name&q=%21%22Trostani%20Discordant%22&unique=cards"
+          ],
+          "lore_or_identity": [
+            "https://magic.wizards.com/en/news/feature/flavorful-guide-guilds-ravnica-2018-10-03",
+            "https://magic.wizards.com/en/news/feature/commanding-guilds-ravnica-2018-10-18"
+          ],
+          "commander_product_relevance": [
+            "https://edhrec.com/commanders/trostani-discordant",
+            "https://edhrec.com/commanders/selesnya"
+          ],
+          "existing_repo_claim_ids": [
+            "selesnya_conclave_claim_005",
+            "selesnya_conclave_claim_0008",
+            "selesnya_conclave_claim_0009",
+            "selesnya_conclave_claim_0010",
+            "selesnya_conclave_claim_0011",
+            "selesnya_conclave_claim_0012",
+            "selesnya_conclave_claim_0013",
+            "selesnya_conclave_claim_0015"
+          ],
+          "existing_repo_source_ids": [
+            "src_wotc_flavorful_guide_guilds_ravnica_2018",
+            "src_mtg_stories_episode_5_chains_of_expectation_18265ca0",
+            "src_mtg_stories_in_praise_of_the_worldsoul_part_1_d5ba8171",
+            "src_mtg_stories_desperate_operatives_6c6a580b",
+            "src_mtg_stories_episode_10_roots_of_decay_955d3d20",
+            "src_mtg_stories_the_great_concourse_cc6ee0e6",
+            "src_mtg_stories_in_praise_of_the_worldsoul_part_2_f671c9f9",
+            "src_mtg_stories_episode_9_beauty_in_destruction_8206653c"
+          ]
+        },
+        "confidence": "High",
+        "caution_notes": [],
+        "type_line": "Legendary Creature — Dryad"
+      }
+    ],
+    "not_recommended_or_deprioritized": [
+      {
+        "name": "Emmara Tandris",
+        "reason": "Commander-legal and lore-relevant, but seven mana and mostly protective rather than engine-driving, making her a weak first recommendation.",
+        "could_still_be_used_if": "Use for flavor-first casual builds that already generate many creature tokens.",
+        "confidence": "Medium"
+      },
+      {
+        "name": "Mat'Selesnya",
+        "reason": "Lore entity and guild parun/worldsoul figure, not a Scryfall commander card candidate.",
+        "could_still_be_used_if": "Referenced in lore copy or flavor context, not as a deck commander recommendation.",
+        "confidence": "High"
+      },
+      {
+        "name": "Ajani, Mentor of Heroes",
+        "reason": "Planeswalker card without commander permission; not a commander candidate.",
+        "could_still_be_used_if": "Use in the 99 if legal and thematically appropriate.",
+        "confidence": "High"
+      }
+    ],
+    "archetype_lanes": [
+      {
+        "lane_name": "Convoke Chorus",
+        "description": "Turn creatures into mana and bodies into shared work.",
+        "recommended_for": "Players who want Selesnya to feel like community labor becoming power.",
+        "skip_if": "Avoid if you dislike tap math.",
+        "example_commanders": [
+          "Emmara, Soul of the Accord"
+        ],
+        "supporting_identity_terms": [
+          "convoke",
+          "community",
+          "unity"
+        ],
+        "complexity": "Low",
+        "budget_friendliness": "High"
+      },
+      {
+        "lane_name": "Populate / Big Tokens",
+        "description": "Create meaningful tokens, then copy the best ones.",
+        "recommended_for": "Players who like lifegain, token copies, and durable boards.",
+        "skip_if": "Avoid if you prefer fast combo or low board complexity.",
+        "example_commanders": [
+          "Trostani, Selesnya's Voice"
+        ],
+        "supporting_identity_terms": [
+          "populate",
+          "Worldsoul",
+          "lifegain"
+        ],
+        "complexity": "Medium",
+        "budget_friendliness": "Variable"
+      },
+      {
+        "lane_name": "Go-Wide Overrun",
+        "description": "Create many creatures and convert the crowd into lethal pressure.",
+        "recommended_for": "Players who want the classic collective army finish.",
+        "skip_if": "Avoid if sweepers dominate your meta.",
+        "example_commanders": [
+          "Rhys the Redeemed",
+          "Emmara, Soul of the Accord"
+        ],
+        "supporting_identity_terms": [
+          "collective",
+          "many bodies",
+          "unity"
+        ],
+        "complexity": "Medium",
+        "budget_friendliness": "Variable"
+      },
+      {
+        "lane_name": "Growth / Lifegain Adjacent",
+        "description": "Use life gain, enchantments, and counters as a softer expression of harmony and sustainment.",
+        "recommended_for": "Players who like value engines more than pure token play.",
+        "skip_if": "Avoid if strict Selesnya guild mechanics matter.",
+        "example_commanders": [
+          "Sythis, Harvest's Hand",
+          "Trelasarra, Moon Dancer"
+        ],
+        "supporting_identity_terms": [
+          "harmony",
+          "growth",
+          "sustainment"
+        ],
+        "complexity": "Medium",
+        "budget_friendliness": "High"
+      }
+    ],
+    "link_targets": {
+      "edhrec_commander_index": "https://edhrec.com/commanders/selesnya",
+      "mtgdecks_color_identity": "https://mtgdecks.net/Commander/selesnya",
+      "scryfall_commander_search": "https://scryfall.com/search?as=grid&order=edhrec&q=is%3Acommander+legal%3Acommander+ci%3Dgw&unique=cards",
+      "archidekt_color_search": "https://archidekt.com/search/decks?formats=3&colors=W%2CG"
+    },
+    "merge_notes": {
+      "product_guidance_not_canon": true,
+      "commander_legality_validated": true,
+      "scryfall_card_pages_validated": true,
+      "do_not_use_as_claim_source": true
+    }
+  }
 }

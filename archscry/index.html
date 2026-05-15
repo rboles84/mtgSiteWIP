@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Vox Mana - MTG Guild and College Reading</title>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+<script src="/assets/js/site-flags.js"></script>
 <script src="/assets/js/shared.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Cinzel:wght@400;600&family=Crimson+Pro:ital,wght@0,300;0,400;1,300;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -62,7 +63,7 @@ body::before{
   justify-content:center;
   padding:2rem 1.5rem;
 }
-.btn-primary,.btn-secondary,.tb-btn,.chip-btn,.answer-card button{
+.btn-primary,.btn-secondary,.tb-btn,.answer-card button{
   font-family:"Cinzel",serif;
   letter-spacing:0.12em;
   text-transform:uppercase;
@@ -140,7 +141,7 @@ body::before{
 
 /* Landing */
 #landing{justify-content:flex-start;padding-top:6rem;padding-bottom:4rem}
-.landing-wrap{width:min(1100px,100%);display:grid;grid-template-columns:minmax(0,1.1fr) minmax(320px,420px);gap:28px;align-items:start}
+.landing-wrap{width:min(760px,100%);display:block}
 .hero-band{padding:1rem 0}
 .eyebrow{
   font-family:"Cinzel",serif;
@@ -160,68 +161,15 @@ body::before{
 .landing-sub{
   font-size:1.15rem;
   color:var(--text);
-  max-width:580px;
+  max-width:680px;
   margin-bottom:1.2rem;
 }
 .landing-note{
   font-size:0.95rem;
   color:var(--text-dim);
-  max-width:620px;
+  max-width:660px;
 }
 .landing-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:2rem}
-.landing-panel{
-  background:rgba(12,11,10,0.88);
-  border:1px solid var(--border-s);
-  box-shadow:0 18px 60px rgba(0,0,0,0.34);
-  padding:1.4rem;
-}
-.panel-title{
-  font-family:"Cinzel",serif;
-  font-size:0.72rem;
-  letter-spacing:0.18em;
-  text-transform:uppercase;
-  color:var(--gold);
-  margin-bottom:0.5rem;
-}
-.panel-copy{font-size:0.95rem;color:var(--text-dim);margin-bottom:1.15rem}
-.pref-group{margin-bottom:1rem}
-.pref-label{
-  font-family:"Cinzel",serif;
-  font-size:0.6rem;
-  letter-spacing:0.18em;
-  text-transform:uppercase;
-  color:var(--text-muted);
-  margin-bottom:0.45rem;
-}
-.chip-row{display:flex;gap:8px;flex-wrap:wrap}
-.chip-btn{
-  font-size:0.62rem;
-  color:var(--text-dim);
-  background:transparent;
-  border:1px solid var(--border);
-  padding:0.55rem 0.85rem;
-  transition:color 0.15s,border-color 0.15s,background 0.15s;
-}
-.chip-btn.active{
-  color:var(--gold);
-  border-color:var(--border-s);
-  background:rgba(184,149,74,0.08);
-}
-.chip-btn:hover{color:var(--text);border-color:var(--border-s)}
-.flow-card{
-  border-top:1px solid var(--border);
-  padding-top:1rem;
-  margin-top:1rem;
-}
-.flow-title{
-  font-family:"Cinzel",serif;
-  font-size:0.65rem;
-  letter-spacing:0.18em;
-  text-transform:uppercase;
-  color:var(--text);
-  margin-bottom:0.35rem;
-}
-.flow-copy{font-size:0.92rem;color:var(--text-dim)}
 
 /* Quick path */
 #quick{justify-content:flex-start;padding-top:6rem;padding-bottom:4rem}
@@ -448,7 +396,11 @@ body::before{
 .pip{width:26px;height:26px;border-radius:50%;border:1.5px solid rgba(255,255,255,0.15);box-shadow:0 0 10px rgba(0,0,0,0.4)}
 .pip-W{background:#ede8d4}
 .pip-U{background:#1a5b9b}
-.pip-B{background:#17120f;border-color:rgba(237,220,180,0.22)}
+.pip-B{
+  background:linear-gradient(135deg,#050407 0%,#1d1328 45%,#09070a 100%);
+  border-color:rgba(238,226,197,0.5);
+  box-shadow:0 0 14px rgba(130,92,180,0.42),inset 0 0 0 1px rgba(255,255,255,0.08);
+}
 .pip-R{background:#be2a1f}
 .pip-G{background:#1b5c28}
 .guild-philosophy{
@@ -497,11 +449,33 @@ body::before{
 .score-label{font-family:"Cinzel",serif;font-size:0.7rem;letter-spacing:0.1em;width:48px;color:var(--text-dim)}
 .score-track{flex:1;height:4px;background:rgba(184,149,74,0.06);border-radius:2px;overflow:hidden}
 .score-fill{height:100%;border-radius:2px;transition:width 1s ease}
+.score-row-B .score-track{
+  height:6px;
+  background:rgba(128,96,166,0.14);
+  box-shadow:inset 0 0 0 1px rgba(238,226,197,0.16);
+}
+.score-fill-B{
+  border:1px solid rgba(238,226,197,0.58);
+  box-shadow:0 0 12px rgba(150,105,205,0.42),0 0 2px rgba(248,241,220,0.45);
+  box-sizing:border-box;
+}
 .score-val{font-size:0.8rem;color:var(--text-muted);width:20px;text-align:right}
 .archetypes-grid,.decks-grid,.adjacent-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1px;background:rgba(184,149,74,0.06)}
 .arch-card,.deck-card,.adjacent-card,.starter-card{background:rgba(12,11,10,0.9);border:1px solid rgba(184,149,74,0.08);padding:1.4rem}
 .arch-name,.starter-title{font-family:"Cinzel",serif;font-size:0.9rem;color:var(--gold);margin-bottom:0.4rem}
 .arch-desc,.starter-copy{font-size:0.9rem;color:var(--text-dim);line-height:1.55}
+.omen-index,.commander-preview-label,.starter-note-label{
+  font-family:"Cinzel",serif;
+  font-size:0.58rem;
+  letter-spacing:0.18em;
+  text-transform:uppercase;
+  color:var(--gold-d);
+}
+.omen-card{
+  background:
+    radial-gradient(circle at top left,rgba(184,149,74,0.1),transparent 38%),
+    rgba(12,11,10,0.9);
+}
 .starter-grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
@@ -509,29 +483,30 @@ body::before{
   background:rgba(184,149,74,0.06);
   margin-bottom:1rem;
 }
-.starter-meta{
-  display:flex;
-  flex-direction:column;
-  gap:0.55rem;
+.starter-grid-start{grid-template-columns:1fr}
+.starter-card-wide{
+  background:
+    linear-gradient(135deg,rgba(184,149,74,0.1),transparent 34%),
+    rgba(12,11,10,0.92);
 }
-.starter-meta-line{
-  font-size:0.88rem;
-  color:var(--text-dim);
+.starter-notes{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
+  gap:10px;
+  margin-top:1rem;
 }
-.starter-meta-line strong{
-  font-family:"Cinzel",serif;
-  font-size:0.62rem;
-  letter-spacing:0.12em;
-  text-transform:uppercase;
-  color:var(--text-muted);
-  margin-right:0.45rem;
+.starter-note{
+  border:1px solid rgba(184,149,74,0.09);
+  background:rgba(0,0,0,0.16);
+  padding:0.85rem;
 }
-.starter-links{display:flex;gap:6px;flex-wrap:wrap;margin-top:1rem}
+.starter-note-label{margin-bottom:0.35rem}
+.starter-links{display:flex;gap:8px;flex-wrap:wrap;margin-top:1rem}
 .deck-format,.adjacent-label{font-family:"Cinzel",serif;font-size:0.6rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold-d);margin-bottom:0.4rem}
 .deck-name,.adjacent-name{font-size:1.05rem;color:var(--text);margin-bottom:0.35rem}
 .deck-desc,.adjacent-copy{font-size:0.88rem;color:var(--text-dim);line-height:1.5;flex:1;margin-bottom:1rem}
 .deck-links,.adjacent-actions{display:flex;gap:6px;flex-wrap:wrap}
-.deck-link,.adjacent-btn{
+.adjacent-btn{
   font-family:"Cinzel",serif;
   font-size:0.62rem;
   letter-spacing:0.1em;
@@ -543,11 +518,119 @@ body::before{
   transition:background 0.15s,color 0.15s,border-color 0.15s;
   background:transparent;
 }
-.deck-link:hover,.adjacent-btn:hover{background:rgba(184,149,74,0.1);color:var(--gold-l);border-color:var(--border-s)}
-.deck-link-mtgd{color:#78b4e0;border-color:rgba(120,180,224,0.2)}
-.deck-link-mtgd:hover{background:rgba(120,180,224,0.08);color:#a8d0f0}
-.deck-link-arch{color:#a07ad0;border-color:rgba(160,122,208,0.2)}
-.deck-link-arch:hover{background:rgba(160,122,208,0.08);color:#c4a8f0}
+.adjacent-btn:hover{background:rgba(184,149,74,0.1);color:var(--gold-l);border-color:var(--border-s)}
+.service-chip{
+  --service-color:var(--gold);
+  --service-glow:rgba(184,149,74,0.3);
+  position:relative;
+  display:inline-flex;
+  align-items:center;
+  gap:0.55rem;
+  min-height:38px;
+  padding:0.45rem 0.8rem 0.45rem 0.48rem;
+  color:var(--text);
+  text-decoration:none;
+  border:1px solid color-mix(in srgb,var(--service-color) 46%,transparent);
+  background:
+    linear-gradient(135deg,color-mix(in srgb,var(--service-color) 16%,transparent),transparent 58%),
+    rgba(12,11,10,0.72);
+  clip-path:polygon(9px 0,100% 0,calc(100% - 9px) 100%,0 100%);
+  transition:transform 0.18s ease,border-color 0.18s ease,box-shadow 0.18s ease,background 0.18s ease;
+}
+.service-chip:hover{
+  transform:translateY(-1px);
+  border-color:var(--service-color);
+  box-shadow:0 0 22px var(--service-glow),0 10px 28px rgba(0,0,0,0.38);
+  background:
+    linear-gradient(135deg,color-mix(in srgb,var(--service-color) 24%,transparent),transparent 62%),
+    rgba(16,13,12,0.88);
+}
+.service-mark{
+  display:grid;
+  place-items:center;
+  width:24px;
+  height:24px;
+  flex:0 0 auto;
+  font-family:"Cinzel",serif;
+  font-size:0.7rem;
+  color:#0c0b0a;
+  background:var(--service-color);
+  clip-path:polygon(24% 0,100% 0,76% 100%,0 100%);
+  box-shadow:0 0 12px var(--service-glow);
+}
+.service-copy{display:flex;flex-direction:column;line-height:1.05}
+.service-name{
+  font-family:"Cinzel",serif;
+  font-size:0.54rem;
+  letter-spacing:0.16em;
+  text-transform:uppercase;
+  color:var(--service-color);
+}
+.service-label{
+  font-size:0.68rem;
+  color:var(--text-dim);
+}
+.commander-preview-block{
+  margin-top:1.25rem;
+  padding-top:1rem;
+  border-top:1px solid rgba(184,149,74,0.12);
+}
+.commander-preview-label{margin-bottom:0.8rem}
+.commander-preview-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+  gap:12px;
+}
+.commander-preview-card{
+  position:relative;
+  z-index:1;
+  display:none;
+  background:rgba(0,0,0,0.18);
+  border:1px solid rgba(184,149,74,0.1);
+  padding:0.8rem;
+}
+.commander-preview-card.is-verified{display:block}
+.commander-preview-card:hover{z-index:220}
+.commander-art-shell{max-width:150px;margin:0 auto 0.7rem}
+.commander-placeholder{
+  width:100%;
+  aspect-ratio:63/88;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:0.7rem;
+  border-radius:4.5%;
+  border:1px solid rgba(184,149,74,0.08);
+  background:linear-gradient(135deg,rgba(184,149,74,0.12),rgba(20,15,20,0.9));
+  color:var(--text-muted);
+  font-size:0.72rem;
+  text-align:center;
+}
+.commander-img{
+  width:100%;
+  display:block;
+  border-radius:4.5%;
+  border:1px solid var(--border-s);
+  transition:transform 0.28s cubic-bezier(0.34,1.4,0.64,1),box-shadow 0.28s ease,border-color 0.15s;
+  transform-origin:center 24%;
+}
+.commander-img:hover{
+  transform:scale(2.1);
+  border-color:var(--gold);
+  box-shadow:0 24px 64px rgba(0,0,0,0.92),0 0 0 2px rgba(184,149,74,0.4);
+}
+.commander-name{
+  color:var(--text);
+  font-size:0.95rem;
+  margin-bottom:0.35rem;
+}
+.commander-desc{
+  color:var(--text-dim);
+  font-size:0.78rem;
+  line-height:1.45;
+}
+.commander-preview-fallback{display:none;gap:8px;flex-wrap:wrap}
+.commander-preview-fallback.is-visible{display:flex}
 .adjacent-card.active{outline:1px solid var(--border-s)}
 .staples-category{margin-bottom:1.5rem}
 .staple-cat-label{font-family:"Cinzel",serif;font-size:0.6rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--text-muted);margin-bottom:0.75rem}
@@ -608,6 +691,16 @@ body::before{
   padding-top:2rem;
   border-top:1px solid var(--border);
 }
+.decree-footer{
+  margin-top:3rem;
+  padding-top:1.5rem;
+  border-top:1px solid var(--border);
+  font-family:var(--font-text);
+  font-size:0.9375rem;
+  line-height:1.6;
+  color:var(--text-dim);
+  max-width:64ch;
+}
 .footer-note{font-size:0.8rem;color:var(--text-muted);font-style:italic;margin-bottom:1rem}
 .footer-button-row{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
 .empty-state{
@@ -625,7 +718,7 @@ body::before{
 @keyframes pulse{0%,100%{opacity:0.4}50%{opacity:1}}
 
 @media(max-width:900px){
-  .landing-wrap{grid-template-columns:1fr}
+  .landing-wrap{width:100%}
 }
 @media(max-width:700px){
   #landing,#quick,#interview{padding-top:5rem}
@@ -633,21 +726,22 @@ body::before{
   .lands-tiers{grid-template-columns:1fr}
   .land-wrap{width:80px}
   .staple-wrap{width:92px}
+  .commander-preview-grid{grid-template-columns:1fr}
+  .commander-img:hover,.staple-img:hover,.land-img:hover{transform:scale(1.7)}
+  .service-chip{width:100%;justify-content:flex-start}
   .tb-placement{display:none}
   #terminal-input-row{flex-direction:column}
   #terminal-submit{width:100%}
 }
 </style>
 </head>
-<body data-page="archscry" data-vm-current="archscry" data-bg="medium">
+<body data-page="archscry" data-vm-current="archscry" data-bg="medium" data-bg-clean="true">
 
 <div class="vm-bg" aria-hidden="true">
   <picture class="vm-bg__picture">
-    <source type="image/avif" srcset="/assets/img/vox-mana-hero-768w.avif 768w, /assets/img/vox-mana-hero-1280w.avif 1280w, /assets/img/vox-mana-hero-2560w.avif 2560w" sizes="100vw">
-    <source type="image/webp" srcset="/assets/img/vox-mana-hero-768w.webp 768w, /assets/img/vox-mana-hero-1280w.webp 1280w, /assets/img/vox-mana-hero-2560w.webp 2560w" sizes="100vw">
-    <img src="/assets/img/vox-mana-hero-1280w.jpg" alt="" decoding="async">
+    <source type="image/webp" srcset="/assets/img/backgrounds/background-archscry-chamber-clean-01.webp 2560w" sizes="100vw">
+    <img src="/assets/img/backgrounds/background-archscry-chamber-clean-01.webp" alt="" decoding="async">
   </picture>
-  <div class="vm-bg__nebula"></div>
 </div>
 
 <div class="app">
@@ -726,8 +820,7 @@ body::before{
         <div class="eyebrow">A modern Magic reading</div>
         <h1 class="landing-title">Find the guild or college that actually fits how you play.</h1>
         <p class="landing-sub">
-          Vox Mana pairs a fast personal reading with a deeper Scrying Terminal when you want it,
-          then turns that result into mana alignment, staple cards, land guidance, and deck-start links you can use.
+          Vox Mana pairs a fast personal reading with a polished dossier that turns your result into mana alignment, staple cards, land guidance, and Commander deck-start links you can use.
         </p>
         <p class="landing-note">
           No login wall up front. Get your reading first, then save it with Google if you want to come back to the same result,
@@ -735,39 +828,9 @@ body::before{
         </p>
         <div class="landing-actions">
           <button class="btn-primary" type="button" onclick="startQuickFlow()">Start the Quick Reading</button>
-          <button class="btn-secondary" type="button" onclick="startInterviewFlow()">Use the Scrying Terminal</button>
+          <button class="btn-secondary" type="button" data-vm-terminal-only hidden onclick="startInterviewFlow()">Use the Scrying Terminal</button>
         </div>
       </div>
-
-      <aside class="landing-panel">
-        <div class="panel-title">Set your starting lane</div>
-        <div class="panel-copy">These preferences shape the practical deck guidance without locking your reading into a single format.</div>
-
-        <div class="pref-group">
-          <div class="pref-label">Format interest</div>
-          <div class="chip-row" id="format-chips"></div>
-        </div>
-
-        <div class="pref-group">
-          <div class="pref-label">Budget band</div>
-          <div class="chip-row" id="budget-chips"></div>
-        </div>
-
-        <div class="pref-group">
-          <div class="pref-label">Experience level</div>
-          <div class="chip-row" id="experience-chips"></div>
-        </div>
-
-        <div class="flow-card">
-          <div class="flow-title">Quick path</div>
-          <div class="flow-copy">An adaptive Gate, Hall, and Crucible reading with Bayesian evidence and no AI calls per answer.</div>
-        </div>
-
-        <div class="flow-card">
-          <div class="flow-title">Deep path</div>
-          <div class="flow-copy">The Scrying Terminal asks a few open questions and issues a richer decree when you want the longer version.</div>
-        </div>
-      </aside>
     </div>
   </section>
 
@@ -779,7 +842,7 @@ body::before{
       <div class="quick-header">
         <div class="eyebrow">Quick Reading</div>
         <div class="quick-title">A modern read on your faction identity.</div>
-        <div class="quick-sub">Gate questions set broad priors, Hall questions gather evidence, and the Crucible resolves close lookalikes.</div>
+        <div class="quick-sub">Answer a handful of table moments. Archscry listens for color, tempo, appetite for risk, and how you want a game of Magic to feel, then opens the guild or college that answers back.</div>
       </div>
 
       <div class="progress-row">
@@ -795,7 +858,7 @@ body::before{
 
       <div class="quick-footer">
         <button class="btn-secondary" type="button" id="quick-back-btn" onclick="goBackQuickQuestion()">Back</button>
-        <button class="btn-secondary" type="button" onclick="startInterviewFlow()">Switch to the Scrying Terminal</button>
+        <button class="btn-secondary" type="button" data-vm-terminal-only hidden onclick="startInterviewFlow()">Switch to the Scrying Terminal</button>
         <button class="btn-secondary" type="button" onclick="showSection('landing')">Return to landing</button>
       </div>
     </div>
@@ -804,7 +867,7 @@ body::before{
   <!-- ============================================================
        SCRYING TERMINAL
        ============================================================ -->
-  <section class="section hidden" id="interview">
+  <section class="section hidden" id="interview" data-vm-terminal-only hidden>
     <div class="interview-shell">
       <div class="interview-header">
         <div>
@@ -852,6 +915,5 @@ body::before{
 <script type="module" src="/assets/js/index.js" defer></script>
 <script src="/assets/js/reduce-motion.js" defer></script>
 <script src="/assets/js/vm-topbar.js" defer></script>
-<script src="/assets/js/atmosphere.js" defer></script>
 </body>
 </html>

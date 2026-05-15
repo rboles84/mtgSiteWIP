@@ -8,7 +8,7 @@
     "white",
     "black"
   ],
-  "last_updated": "2026-05-09",
+  "last_updated": "2026-05-13T21:14:06.308Z",
   "profile": {
     "overview": "Silverquill College is a white-black college associated with Arcavios / Strixhaven.",
     "philosophy": "Language is power: it can inspire, expose, command, wound, defend, and transform identity.",
@@ -87,8 +87,102 @@
     ]
   },
   "historical_timeline": [],
-  "key_figures": [],
-  "canonical_flavor_text": [],
+  "key_figures": [
+    {
+      "character_id": "char_embrose_lu",
+      "name": "Embrose Lu",
+      "role": "Named Silverquill figure in archive evidence.",
+      "relationship_to_faction": "Appears in source-backed evidence for this faction.",
+      "claim_ids": [
+        "silverquill_claim_0007",
+        "silverquill_claim_0008"
+      ],
+      "source_ids": [
+        "src_mtg_stories_a_silent_voice_calls_36854b19",
+        "src_mtg_stories_winnowing_season_0ca1ec59"
+      ],
+      "confidence": "Medium",
+      "notes": ""
+    },
+    {
+      "character_id": "char_killian_lu",
+      "name": "Killian Lu",
+      "role": "Named Silverquill figure in archive evidence.",
+      "relationship_to_faction": "Appears in source-backed evidence for this faction.",
+      "claim_ids": [
+        "silverquill_claim_0007"
+      ],
+      "source_ids": [
+        "src_mtg_stories_a_silent_voice_calls_36854b19"
+      ],
+      "confidence": "Medium",
+      "notes": ""
+    },
+    {
+      "character_id": "char_shaile",
+      "name": "Shaile",
+      "role": "Named Silverquill figure in archive evidence.",
+      "relationship_to_faction": "Appears in source-backed evidence for this faction.",
+      "claim_ids": [
+        "silverquill_claim_0007",
+        "silverquill_claim_0011"
+      ],
+      "source_ids": [
+        "src_mtg_stories_a_silent_voice_calls_36854b19",
+        "src_mtg_stories_episode_1_class_is_in_session_bd3caf13"
+      ],
+      "confidence": "Medium",
+      "notes": ""
+    },
+    {
+      "character_id": "char_shadrix_silverquill",
+      "name": "Shadrix Silverquill",
+      "role": "Named Silverquill figure in archive evidence.",
+      "relationship_to_faction": "Appears in source-backed evidence for this faction.",
+      "claim_ids": [
+        "silverquill_claim_0008",
+        "silverquill_claim_0010"
+      ],
+      "source_ids": [
+        "src_mtg_stories_winnowing_season_0ca1ec59",
+        "src_mtg_stories_off_the_record_2ea68353"
+      ],
+      "confidence": "Medium",
+      "notes": ""
+    }
+  ],
+  "canonical_flavor_text": [
+    {
+      "card_name": "Silverquill College dossier anchor",
+      "set": "Arcavios / Strixhaven",
+      "short_excerpt_or_summary": "Language is power: it can inspire, expose, command, wound, defend, and transform identity.",
+      "is_exact_excerpt": false,
+      "claim_ids": [
+        "silverquill_claim_0007",
+        "silverquill_claim_0008",
+        "silverquill_claim_0009",
+        "silverquill_claim_0010",
+        "silverquill_claim_0011",
+        "silverquill_claim_0012",
+        "silverquill_claim_0013",
+        "silverquill_claim_0014"
+      ],
+      "source_ids": [
+        "src_mtg_stories_a_silent_voice_calls_36854b19",
+        "src_mtg_stories_winnowing_season_0ca1ec59",
+        "src_mtg_stories_the_chains_that_bind_5673ab04",
+        "src_mtg_stories_off_the_record_2ea68353",
+        "src_mtg_stories_episode_1_class_is_in_session_bd3caf13",
+        "src_mtg_stories_episode_3_extracurriculars_39c7efc0",
+        "src_mtg_stories_blue_green_ribbons_2e2606a8",
+        "src_mtg_stories_episode_1_penmanship_practice_f245144d",
+        "src_wotc_planeswalkers_guide_strixhaven_2021",
+        "src_wotc_strixhaven_product_page_2021",
+        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026"
+      ],
+      "notes": "Derived from the faction's raw dossier copy so the flavor layer stays evidence-backed and reusable for Commander Compass."
+    }
+  ],
   "views_on_other_factions": [],
   "mechanics": {
     "summary": "Silverquill's mechanical identity is tied to word-magic, leadership, morale, criticism, and black-white pressure.",
@@ -114,9 +208,25 @@
       "debate",
       "magecraft",
       "Silverquill College",
-      "rhetoric"
+      "rhetoric",
+      "Arcavios / Strixhaven",
+      "Strixhaven: School of Mages",
+      "Secrets of Strixhaven"
     ],
-    "story_corpus_paths_added": 10
+    "story_corpus_paths_added": 10,
+    "known_characters": [
+      "Embrose Lu",
+      "Killian Lu",
+      "Shaile",
+      "Shadrix Silverquill"
+    ],
+    "known_mechanics": [
+      "magecraft"
+    ],
+    "sets_or_story_arcs": [
+      "Strixhaven: School of Mages",
+      "Secrets of Strixhaven"
+    ]
   },
   "data_quality": {
     "corpus_upgrade": {
@@ -134,9 +244,220 @@
         "silverquill_claim_0015",
         "silverquill_claim_0016"
       ]
+    },
+    "raw_enrichment": {
+      "review_date": "2026-05-13T21:14:06.308Z",
+      "source_basis": "data/raw-factions claims.json + sources.json",
+      "key_figures_added": 0,
+      "historical_timeline_entries": 0,
+      "canonical_flavor_text_entries": 1,
+      "relationship_entries": 0,
+      "known_characters": 4,
+      "known_mechanics": 1,
+      "story_arcs": 2
     }
   },
   "research_limitations": [
     "MTG-Stories repository entries are treated as searchable archive copies; official Wizards pages should remain the primary canon authority when available."
-  ]
+  ],
+  "commander_compass": {
+    "schema_version": "1.0.0",
+    "source_research_file": "silverquill.commander_compass.research.json",
+    "last_reviewed": "2026-05-14",
+    "review_status": "reviewed_not_canonical_lore",
+    "recommendation_philosophy": "Priority given to 2026 Elder Dragons as flagship 'Native Fit' options, with 2021 staples as 'Iconic' or 'Advanced' pivots.",
+    "identity_basis": {
+      "owned_themes": [
+        "Silverquill is the college of eloquence. They use 'ink magic'—the power of words—to manipulate both the battlefield and the social dynamics of the game. Themes include counters, politics, and Casualty."
+      ],
+      "allowed_phrases": [
+        "silverquill college",
+        "silverquill mage"
+      ],
+      "avoid_or_contrast_phrases": [
+        "Ravnica guilds",
+        "generic mana"
+      ],
+      "adjacent_overlap_notes": [
+        "Shares spell-focused identity with Prismari/Quandrix but with different mechanical execution."
+      ],
+      "supporting_claim_ids": [
+        "silverquill_claim_0007",
+        "silverquill_claim_0008",
+        "silverquill_claim_0009",
+        "silverquill_claim_0010",
+        "silverquill_claim_0011",
+        "silverquill_claim_0012",
+        "silverquill_claim_0013",
+        "silverquill_claim_0014"
+      ],
+      "supporting_source_ids": [
+        "src_mtg_stories_a_silent_voice_calls_36854b19",
+        "src_mtg_stories_winnowing_season_0ca1ec59",
+        "src_mtg_stories_the_chains_that_bind_5673ab04",
+        "src_mtg_stories_off_the_record_2ea68353",
+        "src_mtg_stories_episode_1_class_is_in_session_bd3caf13",
+        "src_mtg_stories_episode_3_extracurriculars_39c7efc0",
+        "src_mtg_stories_blue_green_ribbons_2e2606a8",
+        "src_mtg_stories_episode_1_penmanship_practice_f245144d"
+      ]
+    },
+    "native_fit_commanders": [
+      {
+        "exact_card_name": "Silverquill, the Disputant",
+        "display_name": "Silverquill, the Disputant",
+        "scryfall_uri": "https://scryfall.com/card/sos/226/silverquill-the-disputant",
+        "edhrec_uri": "https://edhrec.com/commanders/silverquill-the-disputant",
+        "color_identity": [
+          "B",
+          "W"
+        ],
+        "commander_legal": true,
+        "recommendation_type": "Native Fit",
+        "archetype_tags": [
+          "Casualty",
+          "Aristocrats",
+          "Spellslinger"
+        ],
+        "why_this_fits": "Uses white-black/Silverquill casualty-style spell copying: small creatures become rhetorical fuel for sharper instant and sorcery moments.",
+        "skip_if": "You want a purely political, non-aggressive deck.",
+        "gameplay_summary": "A 4-mana commander that allows you to copy any instant or sorcery by sacrificing a small creature.",
+        "faction_identity_terms": [
+          "Eloquence",
+          "Dispute",
+          "Casualty"
+        ],
+        "source_basis": {
+          "card_data": [
+            "MagicSpoiler Silverquill Spoiler"
+          ],
+          "lore_or_identity": [
+            "Silverquill white-black rhetoric, pressure, and words-as-power identity"
+          ],
+          "commander_product_relevance": [],
+          "existing_repo_claim_ids": [
+            "silverquill_claim_0007",
+            "silverquill_claim_0008",
+            "silverquill_claim_0009",
+            "silverquill_claim_0010",
+            "silverquill_claim_0011",
+            "silverquill_claim_0012",
+            "silverquill_claim_0013",
+            "silverquill_claim_0014"
+          ],
+          "existing_repo_source_ids": [
+            "src_mtg_stories_a_silent_voice_calls_36854b19",
+            "src_mtg_stories_winnowing_season_0ca1ec59",
+            "src_mtg_stories_the_chains_that_bind_5673ab04",
+            "src_mtg_stories_off_the_record_2ea68353",
+            "src_mtg_stories_episode_1_class_is_in_session_bd3caf13",
+            "src_mtg_stories_episode_3_extracurriculars_39c7efc0",
+            "src_mtg_stories_blue_green_ribbons_2e2606a8",
+            "src_mtg_stories_episode_1_penmanship_practice_f245144d"
+          ]
+        },
+        "confidence": "High",
+        "caution_notes": [],
+        "type_line": "Legendary Creature — Elder Dragon"
+      }
+    ],
+    "weird_stretch_commanders": [],
+    "budget_friendly_commanders": [],
+    "advanced_complexity_commanders": [],
+    "iconic_lore_forward_commanders": [
+      {
+        "exact_card_name": "Breena, the Demagogue",
+        "display_name": "Breena, the Demagogue",
+        "scryfall_uri": "https://scryfall.com/card/soc/298/breena-the-demagogue",
+        "edhrec_uri": "https://edhrec.com/commanders/breena-the-demagogue",
+        "color_identity": [
+          "B",
+          "W"
+        ],
+        "commander_legal": true,
+        "recommendation_type": "Iconic Lore-Forward",
+        "archetype_tags": [
+          "Politics",
+          "Counters"
+        ],
+        "why_this_fits": "The definitive Silverquill political commander, rewarding players for attacking your opponents.",
+        "skip_if": "You prefer to play 'archenemy' rather than making deals with the table.",
+        "gameplay_summary": "Draws cards and grows Breena whenever players attack each other, steering the game's flow.",
+        "faction_identity_terms": [
+          "Demagogue",
+          "Rhetoric"
+        ],
+        "source_basis": {
+          "card_data": [
+            "Scryfall C21 #1"
+          ],
+          "commander_product_relevance": [
+            "EDHREC Silverquill Precon"
+          ],
+          "lore_or_identity": [],
+          "existing_repo_claim_ids": [
+            "silverquill_claim_0007",
+            "silverquill_claim_0008",
+            "silverquill_claim_0009",
+            "silverquill_claim_0010",
+            "silverquill_claim_0011",
+            "silverquill_claim_0012",
+            "silverquill_claim_0013",
+            "silverquill_claim_0014"
+          ],
+          "existing_repo_source_ids": [
+            "src_mtg_stories_a_silent_voice_calls_36854b19",
+            "src_mtg_stories_winnowing_season_0ca1ec59",
+            "src_mtg_stories_the_chains_that_bind_5673ab04",
+            "src_mtg_stories_off_the_record_2ea68353",
+            "src_mtg_stories_episode_1_class_is_in_session_bd3caf13",
+            "src_mtg_stories_episode_3_extracurriculars_39c7efc0",
+            "src_mtg_stories_blue_green_ribbons_2e2606a8",
+            "src_mtg_stories_episode_1_penmanship_practice_f245144d"
+          ]
+        },
+        "confidence": "High",
+        "caution_notes": [],
+        "type_line": "Legendary Creature — Bird Warlock"
+      }
+    ],
+    "not_recommended_or_deprioritized": [
+      {
+        "name": "Zimone and Dina",
+        "reason": "Off-color (Sultai) for pure Silverquill College (UG/BG).",
+        "could_still_be_used_if": "Building a multi-faction theme deck.",
+        "confidence": "High"
+      }
+    ],
+    "archetype_lanes": [
+      {
+        "lane_name": "Political Oratory",
+        "description": "Using incentives and social engineering to keep the table off-balance.",
+        "recommended_for": "Social players who enjoy negotiation and manipulation.",
+        "skip_if": "You prefer straightforward combat with no 'diplomatic' elements.",
+        "example_commanders": [
+          "Breena, the Demagogue",
+          "Scriv, the Obligator"
+        ],
+        "supporting_identity_terms": [
+          "Rhetoric",
+          "Negotiation"
+        ],
+        "complexity": "Medium",
+        "budget_friendliness": "High"
+      }
+    ],
+    "link_targets": {
+      "edhrec_commander_index": "https://edhrec.com/commanders/silverquill",
+      "mtgdecks_color_identity": "https://mtgdecks.net/Commander/WB",
+      "scryfall_commander_search": "https://scryfall.com/search?q=is%3Acommander+color%3DWB",
+      "archidekt_color_search": "https://archidekt.com/search/decks?colors=WB"
+    },
+    "merge_notes": {
+      "product_guidance_not_canon": true,
+      "commander_legality_validated": true,
+      "scryfall_card_pages_validated": true,
+      "do_not_use_as_claim_source": true
+    }
+  }
 }

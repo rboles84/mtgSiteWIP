@@ -1,5 +1,5 @@
 ﻿import { loadDictionaryFromSeedUrl } from "./scryfall-dictionary.js";
-import { parseScryfallNaturalLanguage, setScryfallDictionary } from "./scryfall-parser.js";
+import { normalizeSortDirection, parseScryfallNaturalLanguage, setScryfallDictionary } from "./scryfall-parser.js";
 import { buildVisualBuilderQuery, parseKeywordInput } from "./research-builder.js";
 import { resolveModeInputValue } from "./research-mode.js";
 import * as ResearchSearch from "./research-search.js";
@@ -8,6 +8,8 @@ import { renderQueryInspector } from "./research-ui.js";
 let currentMode = "ai";
 let currentQuery = "";
 let currentOrder = "name";
+let currentUnique = "cards";
+let currentDir = undefined;
 let lastSmartInput = "";
 let lastSmartQuery = "";
 let allResults = [];
@@ -109,11 +111,16 @@ async function initializeResearchArchives() {
   bindSearchInputSelectOnFocus();
   setMode("ai");
 
-  const urlQ = new URLSearchParams(location.search).get("q");
+  const urlParams = new URLSearchParams(location.search);
+  const urlQ = urlParams.get("q");
   if (urlQ) {
     document.getElementById("search-input").value = urlQ;
     setMode("raw");
-    triggerSearch(urlQ, {});
+    triggerSearch(urlQ, {
+      order: urlParams.get("order") || currentOrder,
+      unique: urlParams.get("unique") || currentUnique,
+      dir: normalizeSortDirection(urlParams.get("dir")) || currentDir
+    });
   }
 }
 
@@ -226,6 +233,8 @@ async function doSearch() {
       lastSmartQuery = query;
       reason = parserResult.reason || "";
       currentOrder = parserResult.api?.order || currentOrder;
+      currentUnique = parserResult.api?.unique || currentUnique;
+      currentDir = parserResult.api?.dir || currentDir;
 
       if (parserResult.mode === "exact_name") {
         showQueryInspector(query, reason, parserResult);
@@ -269,15 +278,20 @@ async function doSearch() {
  * @param {object} opts - Search metadata and UI diagnostics.
  */
 async function triggerSearch(query, opts = {}) {
-  const { reason = "", order = currentOrder, parserResult = null } = opts;
-  const searchOrder = parserResult?.api?.order || order;
-  const unique = parserResult?.api?.unique || "cards";
+  const { reason = "", order = currentOrder, unique = currentUnique, dir = currentDir, parserResult = null } = opts;
+  const searchOrder = parserResult?.api?.order || order || "name";
+  const searchUnique = parserResult?.api?.unique || unique || "cards";
+  const searchDir = normalizeSortDirection(parserResult?.api?.dir || dir);
+  const searchApi = { endpoint: "/cards/search", unique: searchUnique, order: searchOrder };
+  if (searchDir) searchApi.dir = searchDir;
   currentQuery = query;
   currentOrder = searchOrder;
+  currentUnique = searchUnique;
+  currentDir = searchDir;
   addRecent(query);
-  showQueryInspector(query, reason, parserResult);
+  showQueryInspector(query, reason, parserResult, searchApi);
 
-  const data = await ResearchSearch.scryfallSearch(query, { order: searchOrder, unique });
+  const data = await ResearchSearch.scryfallSearch(query, { order: searchOrder, unique: searchUnique, dir: searchDir });
   if (data.object === "error") {
     if (isNoResultsResponse(data)) {
       await showNoResultsState(query);
@@ -306,7 +320,12 @@ async function loadMore() {
 
   if (hasMore && displayPage >= Math.ceil(allResults.length / PAGE_SIZE) - 1) {
     document.getElementById("btn-more").disabled = true;
-    const data = await ResearchSearch.scryfallSearch(currentQuery, { page: nextPageUrl, order: currentOrder });
+    const data = await ResearchSearch.scryfallSearch(currentQuery, {
+      page: nextPageUrl,
+      order: currentOrder,
+      unique: currentUnique,
+      dir: currentDir
+    });
     if (data.data) {
       allResults = [...allResults, ...data.data];
       hasMore = data.has_more;
@@ -744,18 +763,33 @@ function buildColorGrid() {
  * Runs a prebuilt raw Scryfall query.
  * @param {string} query - Raw query.
  */
-function runQuickSearch(query) {
+function runQuickSearch(query, opts = {}) {
   currentMode = "raw";
   document.getElementById("search-input").value = query;
   selectAutoFilledInputOnFocus = true;
   lastSmartQuery = "";
   setMode("raw");
-  currentOrder = "name";
+  currentOrder = opts.order || "name";
+  currentUnique = opts.unique || "cards";
+  currentDir = normalizeSortDirection(opts.dir);
   displayPage = 0;
   allResults = [];
   setLoading(true);
   clearError();
-  triggerSearch(query, { order: currentOrder }).then(() => setLoading(false));
+  triggerSearch(query, { order: currentOrder, unique: currentUnique, dir: currentDir }).then(() => setLoading(false));
+}
+
+/**
+ * Runs a parser alternative, preserving any attached search metadata.
+ * @param {string} query - Alternative query.
+ * @param {object} api - Optional alternative API metadata.
+ */
+function runQueryAlternative(query, api = {}) {
+  runQuickSearch(query, {
+    order: api.order || currentOrder,
+    unique: api.unique || currentUnique,
+    dir: api.dir || currentDir
+  });
 }
 
 /**
@@ -765,16 +799,32 @@ function runQuickSearch(query) {
 function applyFormatFilter(format) {
   if (!currentQuery) return;
   const base = currentQuery.replace(/\s+f:\w+/g, "").trim();
-  runQuickSearch((format ? `${base} f:${format}` : base).trim());
+  runQuickSearch((format ? `${base} f:${format}` : base).trim(), {
+    order: currentOrder,
+    unique: currentUnique,
+    dir: currentDir
+  });
 }
 
 /**
  * Changes the Scryfall result order and reruns the current query.
  * @param {string} order - Scryfall order value.
  */
-function changeOrder(order) {
+function changeOrder(order, dir = undefined) {
   currentOrder = order;
-  if (currentQuery) runQuickSearch(currentQuery);
+  currentDir = normalizeSortDirection(dir);
+  if (currentQuery) {
+    displayPage = 0;
+    allResults = [];
+    setLoading(true);
+    clearError();
+    triggerSearch(currentQuery, {
+      reason: "Updated result sorting.",
+      order: currentOrder,
+      unique: currentUnique,
+      dir: currentDir
+    }).then(() => setLoading(false));
+  }
 }
 
 /**
@@ -797,8 +847,8 @@ function addRecent(query) {
  * @param {string} reason - Short explanation.
  * @param {object|null} parserResult - Optional parser diagnostics.
  */
-function showQueryInspector(query, reason, parserResult = null) {
-  renderQueryInspector({ query, reason, parserResult });
+function showQueryInspector(query, reason, parserResult = null, api = null) {
+  renderQueryInspector({ query, reason, parserResult, api });
 }
 
 /**
@@ -833,6 +883,8 @@ function clearSearchInput() {
 function resetSearchResults() {
   currentQuery = "";
   currentOrder = "name";
+  currentUnique = "cards";
+  currentDir = undefined;
   allResults = [];
   displayPage = 0;
   hasMore = false;
@@ -1098,6 +1150,7 @@ function exposeWindowHandlers() {
     addKeyword,
     removeKeyword,
     runQuickSearch,
+    runQueryAlternative,
     applyFormatFilter,
     changeOrder,
     copyQuery

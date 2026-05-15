@@ -8,7 +8,7 @@
     "blue",
     "black"
   ],
-  "last_updated": "2026-05-09",
+  "last_updated": "2026-05-13T21:14:06.308Z",
   "profile": {
     "overview": "House Dimir is a blue-black guild associated with Ravnica.",
     "philosophy": "Information is power, and power is safest when others cannot see its shape.",
@@ -87,9 +87,138 @@
       "house_dimir_claim_0011"
     ]
   },
-  "historical_timeline": [],
-  "key_figures": [],
-  "canonical_flavor_text": [],
+  "historical_timeline": [
+    {
+      "event_id": "event_house_dimir_house_dimir_claim_003",
+      "event": "The guide identifies Szadek as the psychic vampire founder of House Dimir.",
+      "date_or_era": "Founding era",
+      "claim_ids": [
+        "house_dimir_claim_003"
+      ],
+      "confidence": "High",
+      "notes": "Canon-supported claim used for raw enrichment."
+    }
+  ],
+  "key_figures": [
+    {
+      "character_id": "char_szadek",
+      "name": "Szadek",
+      "role": "Psychic-vampire founder of House Dimir.",
+      "relationship_to_faction": "Appears in source-backed evidence for this faction.",
+      "claim_ids": [
+        "house_dimir_claim_003"
+      ],
+      "source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018"
+      ],
+      "confidence": "High",
+      "notes": ""
+    },
+    {
+      "character_id": "char_etrata",
+      "name": "Etrata",
+      "role": "Prominent House Dimir figure.",
+      "relationship_to_faction": "Appears in source-backed evidence for this faction.",
+      "claim_ids": [
+        "house_dimir_claim_0007",
+        "house_dimir_claim_0008",
+        "house_dimir_claim_0010",
+        "house_dimir_claim_0011",
+        "house_dimir_claim_0012",
+        "house_dimir_claim_0016"
+      ],
+      "source_ids": [
+        "src_mtg_stories_episode_3_shadows_of_regret_1b969924",
+        "src_mtg_stories_episode_10_roots_of_decay_955d3d20",
+        "src_mtg_stories_episode_6_explosions_of_genius_9db78723",
+        "src_mtg_stories_episode_8_gods_of_chaos_a773d3bd",
+        "src_mtg_stories_episode_2_monsters_we_became_e6ec05b7",
+        "src_mtg_stories_episode_9_beauty_in_destruction_8206653c"
+      ],
+      "confidence": "Medium",
+      "notes": ""
+    },
+    {
+      "character_id": "char_circu",
+      "name": "Circu",
+      "role": "Prominent House Dimir figure.",
+      "relationship_to_faction": "Appears in source-backed evidence for this faction.",
+      "claim_ids": [
+        "house_dimir_claim_0007",
+        "house_dimir_claim_0008",
+        "house_dimir_claim_0010",
+        "house_dimir_claim_0012",
+        "house_dimir_claim_0014",
+        "house_dimir_claim_0015"
+      ],
+      "source_ids": [
+        "src_mtg_stories_episode_3_shadows_of_regret_1b969924",
+        "src_mtg_stories_episode_10_roots_of_decay_955d3d20",
+        "src_mtg_stories_episode_6_explosions_of_genius_9db78723",
+        "src_mtg_stories_episode_2_monsters_we_became_e6ec05b7",
+        "src_mtg_stories_desperate_operatives_6c6a580b",
+        "src_mtg_stories_operation_desperation_e6d285ea"
+      ],
+      "confidence": "Medium",
+      "notes": ""
+    },
+    {
+      "character_id": "char_lazav",
+      "name": "Lazav",
+      "role": "Shape-shifting Dimir guildmaster figure.",
+      "relationship_to_faction": "Appears in source-backed evidence for this faction.",
+      "claim_ids": [
+        "house_dimir_claim_004",
+        "house_dimir_claim_0008",
+        "house_dimir_claim_0009",
+        "house_dimir_claim_0013",
+        "house_dimir_claim_0014",
+        "house_dimir_claim_0015"
+      ],
+      "source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_mtg_stories_episode_10_roots_of_decay_955d3d20",
+        "src_mtg_stories_under_the_cover_of_fog_7afe2169",
+        "src_mtg_stories_last_day_94047f8e",
+        "src_mtg_stories_desperate_operatives_6c6a580b",
+        "src_mtg_stories_operation_desperation_e6d285ea"
+      ],
+      "confidence": "High",
+      "notes": ""
+    }
+  ],
+  "canonical_flavor_text": [
+    {
+      "card_name": "House Dimir dossier anchor",
+      "set": "Ravnica",
+      "short_excerpt_or_summary": "Information is power, and power is safest when others cannot see its shape.",
+      "is_exact_excerpt": false,
+      "claim_ids": [
+        "house_dimir_claim_0007",
+        "house_dimir_claim_0008",
+        "house_dimir_claim_0009",
+        "house_dimir_claim_0010",
+        "house_dimir_claim_0011",
+        "house_dimir_claim_0012",
+        "house_dimir_claim_0013",
+        "house_dimir_claim_0014"
+      ],
+      "source_ids": [
+        "src_mtg_stories_episode_3_shadows_of_regret_1b969924",
+        "src_mtg_stories_episode_10_roots_of_decay_955d3d20",
+        "src_mtg_stories_under_the_cover_of_fog_7afe2169",
+        "src_mtg_stories_episode_6_explosions_of_genius_9db78723",
+        "src_mtg_stories_episode_8_gods_of_chaos_a773d3bd",
+        "src_mtg_stories_episode_2_monsters_we_became_e6ec05b7",
+        "src_mtg_stories_last_day_94047f8e",
+        "src_mtg_stories_desperate_operatives_6c6a580b",
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_prerelease_primer_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018"
+      ],
+      "notes": "Derived from the faction's raw dossier copy so the flavor layer stays evidence-backed and reusable for Commander Compass."
+    }
+  ],
   "views_on_other_factions": [],
   "mechanics": {
     "summary": "Surveil expresses Dimir information control by filtering future draws and feeding graveyard resources.",
@@ -112,9 +241,31 @@
       "surveil",
       "transmute",
       "Duskmantle",
-      "Undercity"
+      "Undercity",
+      "Ravnica",
+      "Szadek",
+      "Guilds of Ravnica",
+      "Dragon's Maze",
+      "Murders at Karlov Manor",
+      "War of the Spark"
     ],
-    "story_corpus_paths_added": 10
+    "story_corpus_paths_added": 10,
+    "known_characters": [
+      "Szadek",
+      "Etrata",
+      "Circu",
+      "Lazav"
+    ],
+    "known_mechanics": [
+      "surveil",
+      "transmute"
+    ],
+    "sets_or_story_arcs": [
+      "Guilds of Ravnica",
+      "Dragon's Maze",
+      "Murders at Karlov Manor",
+      "War of the Spark"
+    ]
   },
   "data_quality": {
     "corpus_upgrade": {
@@ -132,9 +283,353 @@
         "house_dimir_claim_0015",
         "house_dimir_claim_0016"
       ]
+    },
+    "raw_enrichment": {
+      "review_date": "2026-05-13T21:14:06.308Z",
+      "source_basis": "data/raw-factions claims.json + sources.json",
+      "key_figures_added": 0,
+      "historical_timeline_entries": 1,
+      "canonical_flavor_text_entries": 1,
+      "relationship_entries": 0,
+      "known_characters": 4,
+      "known_mechanics": 2,
+      "story_arcs": 4
     }
   },
   "research_limitations": [
     "MTG-Stories repository entries are treated as searchable archive copies; official Wizards pages should remain the primary canon authority when available."
-  ]
+  ],
+  "commander_compass": {
+    "schema_version": "1.0.0",
+    "source_research_file": "house_dimir.commander_compass.research.json",
+    "last_reviewed": "2026-05-14",
+    "review_status": "reviewed_not_canonical_lore",
+    "recommendation_philosophy": "Emphasize secrecy, manipulation of the library, and gaining value from information.",
+    "identity_basis": {
+      "owned_themes": [
+        "Mill",
+        "Surveil",
+        "Theft",
+        "Evasion",
+        "Cipher"
+      ],
+      "allowed_phrases": [
+        "Information is power",
+        "We are a whisper",
+        "Secrets found in the dark"
+      ],
+      "avoid_or_contrast_phrases": [
+        "Honesty",
+        "Brute force",
+        "Visible leadership"
+      ],
+      "adjacent_overlap_notes": [
+        "Theft overlap with Grixis",
+        "Mill overlap with Horrors/Zombies"
+      ],
+      "supporting_claim_ids": [
+        "house_dimir_claim_0007",
+        "house_dimir_claim_0008",
+        "house_dimir_claim_0009",
+        "house_dimir_claim_0010",
+        "house_dimir_claim_0011",
+        "house_dimir_claim_0012",
+        "house_dimir_claim_0013",
+        "house_dimir_claim_0014",
+        "house_dimir_claim_0015",
+        "house_dimir_claim_0016"
+      ],
+      "supporting_source_ids": [
+        "src_mtg_stories_episode_3_shadows_of_regret_1b969924",
+        "src_mtg_stories_episode_10_roots_of_decay_955d3d20",
+        "src_mtg_stories_under_the_cover_of_fog_7afe2169",
+        "src_mtg_stories_episode_6_explosions_of_genius_9db78723",
+        "src_mtg_stories_episode_8_gods_of_chaos_a773d3bd",
+        "src_mtg_stories_episode_2_monsters_we_became_e6ec05b7",
+        "src_mtg_stories_last_day_94047f8e",
+        "src_mtg_stories_desperate_operatives_6c6a580b",
+        "src_mtg_stories_operation_desperation_e6d285ea",
+        "src_mtg_stories_episode_9_beauty_in_destruction_8206653c"
+      ]
+    },
+    "native_fit_commanders": [
+      {
+        "exact_card_name": "Lazav, Dimir Mastermind",
+        "display_name": "Lazav, Dimir Mastermind",
+        "scryfall_uri": "https://scryfall.com/card/znc/92/lazav-dimir-mastermind",
+        "edhrec_uri": "https://edhrec.com/commanders/lazav-dimir-mastermind",
+        "color_identity": [
+          "B",
+          "U"
+        ],
+        "commander_legal": true,
+        "recommendation_type": "Native Fit",
+        "archetype_tags": [
+          "Clones",
+          "Mill",
+          "Voltron"
+        ],
+        "why_this_fits": "The quintessence of Dimir; he is everyone and no one, stealing identities from the graveyard.",
+        "skip_if": "Opponents have very few creatures or use a lot of 'exile' based removal.",
+        "gameplay_summary": "Becomes a copy of any creature card put into an opponent's graveyard from anywhere.",
+        "faction_identity_terms": [
+          "Mastermind",
+          "Shapeshifter",
+          "Duskmantle"
+        ],
+        "source_basis": {
+          "card_data": [
+            "Lazav, Dimir Mastermind"
+          ],
+          "lore_or_identity": [
+            "Guildmaster of House Dimir"
+          ],
+          "commander_product_relevance": [
+            "High popularity for Mill/Clone archetypes"
+          ],
+          "existing_repo_claim_ids": [
+            "house_dimir_claim_004",
+            "house_dimir_claim_0008",
+            "house_dimir_claim_0009",
+            "house_dimir_claim_0013",
+            "house_dimir_claim_0014",
+            "house_dimir_claim_0015"
+          ],
+          "existing_repo_source_ids": [
+            "src_wotc_flavorful_guide_guilds_ravnica_2018",
+            "src_mtg_stories_episode_10_roots_of_decay_955d3d20",
+            "src_mtg_stories_under_the_cover_of_fog_7afe2169",
+            "src_mtg_stories_last_day_94047f8e",
+            "src_mtg_stories_desperate_operatives_6c6a580b",
+            "src_mtg_stories_operation_desperation_e6d285ea"
+          ]
+        },
+        "confidence": "High",
+        "caution_notes": [],
+        "type_line": "Legendary Creature — Shapeshifter"
+      }
+    ],
+    "weird_stretch_commanders": [
+      {
+        "exact_card_name": "Etrata, the Silencer",
+        "display_name": "Etrata, the Silencer",
+        "scryfall_uri": "https://scryfall.com/card/grn/170/etrata-the-silencer",
+        "edhrec_uri": "https://edhrec.com/commanders/etrata-the-silencer",
+        "color_identity": [
+          "B",
+          "U"
+        ],
+        "commander_legal": true,
+        "recommendation_type": "Weird Stretch",
+        "archetype_tags": [
+          "Alternate Win-Con",
+          "Assassin"
+        ],
+        "why_this_fits": "Captures the 'Assassination' side of the guild with a literal countdown to victory.",
+        "skip_if": "You don't want to shuffle your commander back into your library constantly.",
+        "gameplay_summary": "Wins the game if she exiles three creatures with hit counters.",
+        "faction_identity_terms": [
+          "Assassin",
+          "Silencer"
+        ],
+        "source_basis": {
+          "card_data": [
+            "Etrata, the Silencer"
+          ],
+          "lore_or_identity": [
+            "Dimir Assassin"
+          ],
+          "commander_product_relevance": [
+            "Niche win-con commander"
+          ],
+          "existing_repo_claim_ids": [
+            "house_dimir_claim_0007",
+            "house_dimir_claim_0008",
+            "house_dimir_claim_0010",
+            "house_dimir_claim_0011",
+            "house_dimir_claim_0012",
+            "house_dimir_claim_0016"
+          ],
+          "existing_repo_source_ids": [
+            "src_mtg_stories_episode_3_shadows_of_regret_1b969924",
+            "src_mtg_stories_episode_10_roots_of_decay_955d3d20",
+            "src_mtg_stories_episode_6_explosions_of_genius_9db78723",
+            "src_mtg_stories_episode_8_gods_of_chaos_a773d3bd",
+            "src_mtg_stories_episode_2_monsters_we_became_e6ec05b7",
+            "src_mtg_stories_episode_9_beauty_in_destruction_8206653c"
+          ]
+        },
+        "confidence": "Medium",
+        "caution_notes": [
+          "Mechanically difficult to pilot as a commander."
+        ],
+        "type_line": "Legendary Creature — Vampire Assassin"
+      }
+    ],
+    "budget_friendly_commanders": [
+      {
+        "exact_card_name": "Anowon, the Ruin Thief",
+        "display_name": "Anowon, the Ruin Thief",
+        "scryfall_uri": "https://scryfall.com/card/znc/1/anowon-the-ruin-thief",
+        "edhrec_uri": "https://edhrec.com/commanders/anowon-the-ruin-thief",
+        "color_identity": [
+          "B",
+          "U"
+        ],
+        "commander_legal": true,
+        "recommendation_type": "Budget Friendly",
+        "archetype_tags": [
+          "Rogues",
+          "Tribal",
+          "Mill"
+        ],
+        "why_this_fits": "Though from Zendikar, he perfectly supports the 'Dimir Rogue' archetype common in Ravnica sets.",
+        "skip_if": "You don't want to play a creature-heavy tribal strategy.",
+        "gameplay_summary": "Buffs Rogues and mills opponents when they deal damage, often drawing you cards in the process.",
+        "faction_identity_terms": [
+          "Thief",
+          "Infiltration"
+        ],
+        "source_basis": {
+          "card_data": [
+            "Anowon, the Ruin Thief"
+          ],
+          "lore_or_identity": [
+            "Zendikar flavor"
+          ],
+          "commander_product_relevance": [
+            "Highly popular pre-constructed deck leader"
+          ],
+          "existing_repo_claim_ids": [
+            "house_dimir_claim_0007",
+            "house_dimir_claim_0008",
+            "house_dimir_claim_0009",
+            "house_dimir_claim_0010",
+            "house_dimir_claim_0011",
+            "house_dimir_claim_0012",
+            "house_dimir_claim_0013",
+            "house_dimir_claim_0014",
+            "house_dimir_claim_0015",
+            "house_dimir_claim_0016"
+          ],
+          "existing_repo_source_ids": [
+            "src_mtg_stories_episode_3_shadows_of_regret_1b969924",
+            "src_mtg_stories_episode_10_roots_of_decay_955d3d20",
+            "src_mtg_stories_under_the_cover_of_fog_7afe2169",
+            "src_mtg_stories_episode_6_explosions_of_genius_9db78723",
+            "src_mtg_stories_episode_8_gods_of_chaos_a773d3bd",
+            "src_mtg_stories_episode_2_monsters_we_became_e6ec05b7",
+            "src_mtg_stories_last_day_94047f8e",
+            "src_mtg_stories_desperate_operatives_6c6a580b",
+            "src_mtg_stories_operation_desperation_e6d285ea",
+            "src_mtg_stories_episode_9_beauty_in_destruction_8206653c"
+          ]
+        },
+        "confidence": "High",
+        "caution_notes": [
+          "Flavor mismatch with Ravnica."
+        ],
+        "type_line": "Legendary Creature — Vampire Rogue"
+      }
+    ],
+    "advanced_complexity_commanders": [
+      {
+        "exact_card_name": "Yuriko, the Tiger's Shadow",
+        "display_name": "Yuriko, the Tiger's Shadow",
+        "scryfall_uri": "https://scryfall.com/card/cmm/364/yuriko-the-tigers-shadow",
+        "edhrec_uri": "https://edhrec.com/commanders/yuriko-the-tigers-shadow",
+        "color_identity": [
+          "B",
+          "U"
+        ],
+        "commander_legal": true,
+        "recommendation_type": "Advanced",
+        "archetype_tags": [
+          "Ninjas",
+          "Burn",
+          "Top Deck"
+        ],
+        "why_this_fits": "Not Dimir lore, but a strong advanced product fit for players who want stealth, evasive attacks, top-deck manipulation, and sudden information-as-damage payoffs.",
+        "skip_if": "You want a fair game; she is often perceived as oppressive due to 'Commander Ninjutsu'.",
+        "gameplay_summary": "Cheats the commander tax and burns opponents based on the mana value of the top card of your library.",
+        "faction_identity_terms": [
+          "Infiltration",
+          "Shadow"
+        ],
+        "source_basis": {
+          "card_data": [
+            "Yuriko, the Tiger's Shadow"
+          ],
+          "lore_or_identity": [
+            "Ninja flavor"
+          ],
+          "commander_product_relevance": [
+            "Tier 1 popularity in Dimir"
+          ],
+          "existing_repo_claim_ids": [
+            "house_dimir_claim_0007",
+            "house_dimir_claim_0008",
+            "house_dimir_claim_0009",
+            "house_dimir_claim_0010",
+            "house_dimir_claim_0011",
+            "house_dimir_claim_0012",
+            "house_dimir_claim_0013",
+            "house_dimir_claim_0014",
+            "house_dimir_claim_0015",
+            "house_dimir_claim_0016"
+          ],
+          "existing_repo_source_ids": [
+            "src_mtg_stories_episode_3_shadows_of_regret_1b969924",
+            "src_mtg_stories_episode_10_roots_of_decay_955d3d20",
+            "src_mtg_stories_under_the_cover_of_fog_7afe2169",
+            "src_mtg_stories_episode_6_explosions_of_genius_9db78723",
+            "src_mtg_stories_episode_8_gods_of_chaos_a773d3bd",
+            "src_mtg_stories_episode_2_monsters_we_became_e6ec05b7",
+            "src_mtg_stories_last_day_94047f8e",
+            "src_mtg_stories_desperate_operatives_6c6a580b",
+            "src_mtg_stories_operation_desperation_e6d285ea",
+            "src_mtg_stories_episode_9_beauty_in_destruction_8206653c"
+          ]
+        },
+        "confidence": "High",
+        "caution_notes": [
+          "Often targeted early in games due to power.",
+          "Kamigawa character; not a Ravnica or Dimir lore-forward recommendation."
+        ],
+        "type_line": "Legendary Creature — Human Ninja"
+      }
+    ],
+    "iconic_lore_forward_commanders": [],
+    "not_recommended_or_deprioritized": [],
+    "archetype_lanes": [
+      {
+        "lane_name": "Mill-Control",
+        "description": "Winning by emptying the library while controlling the board.",
+        "recommended_for": "Phenax, God of Deception",
+        "skip_if": "Playing against graveyard-centric decks like Golgari.",
+        "example_commanders": [
+          "Phenax, God of Deception",
+          "Mirko Vosk, Mind Drinker"
+        ],
+        "supporting_identity_terms": [
+          "Glimpse",
+          "Mind"
+        ],
+        "complexity": "Medium",
+        "budget_friendliness": "Medium"
+      }
+    ],
+    "link_targets": {
+      "edhrec_commander_index": "https://edhrec.com/commanders/ub",
+      "mtgdecks_color_identity": "https://mtgdecks.net/Commander/Dimir",
+      "scryfall_commander_search": "https://scryfall.com/search?q=is%3Acommander+identity%3AUB",
+      "archidekt_color_search": "https://www.archidekt.com/search/decks?colors=2%2C4"
+    },
+    "merge_notes": {
+      "product_guidance_not_canon": true,
+      "commander_legality_validated": true,
+      "scryfall_card_pages_validated": true,
+      "do_not_use_as_claim_source": true
+    }
+  }
 }

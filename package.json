@@ -2,6 +2,11 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "build:factions": "node research/build-faction-artifacts.mjs",
+    "audit:factions": "node research/enrich-faction-data.mjs --audit",
+    "dossier:audit": "node research/audit-dossiers.mjs",
+    "dossier:snapshots": "node research/generate-dossier-snapshots.mjs",
+    "enrich:factions": "node research/enrich-faction-data.mjs --apply",
     "test": "node research/run-tests.js",
     "test:builder": "node research/research-builder-tests.js",
     "test:bias": "node assets/js/quick-reading-bias.js",

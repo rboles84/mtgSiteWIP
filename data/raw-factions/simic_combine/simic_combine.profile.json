@@ -8,7 +8,7 @@
     "green",
     "blue"
   ],
-  "last_updated": "2026-05-09",
+  "last_updated": "2026-05-13T21:14:06.308Z",
   "profile": {
     "overview": "Simic Combine is a green-blue guild associated with Ravnica.",
     "philosophy": "Life is a system that can adapt, heal, and improve when studied deeply enough.",
@@ -88,8 +88,113 @@
     ]
   },
   "historical_timeline": [],
-  "key_figures": [],
-  "canonical_flavor_text": [],
+  "key_figures": [
+    {
+      "character_id": "char_momir_vig",
+      "name": "Momir Vig",
+      "role": "Prominent Simic founder-era figure.",
+      "relationship_to_faction": "Appears in source-backed evidence for this faction.",
+      "claim_ids": [
+        "simic_combine_claim_0008",
+        "simic_combine_claim_0009"
+      ],
+      "source_ids": [
+        "src_mtg_stories_the_principles_of_unnatural_selection_8a6586c5",
+        "src_mtg_stories_the_fathom_edict_740e71e8"
+      ],
+      "confidence": "Medium",
+      "notes": ""
+    },
+    {
+      "character_id": "char_vannifar",
+      "name": "Vannifar",
+      "role": "Prominent Simic figure.",
+      "relationship_to_faction": "Appears in source-backed evidence for this faction.",
+      "claim_ids": [
+        "simic_combine_claim_005",
+        "simic_combine_claim_0008",
+        "simic_combine_claim_0010",
+        "simic_combine_claim_0011",
+        "simic_combine_claim_0012",
+        "simic_combine_claim_0013",
+        "simic_combine_claim_0014"
+      ],
+      "source_ids": [
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_mtg_stories_the_principles_of_unnatural_selection_8a6586c5",
+        "src_mtg_stories_operation_desperation_e6d285ea",
+        "src_mtg_stories_rallying_the_reluctant_d21b8009",
+        "src_mtg_stories_episode_2_monsters_we_became_e6ec05b7",
+        "src_mtg_stories_episode_3_shadows_of_regret_1b969924",
+        "src_mtg_stories_episode_8_gods_of_chaos_a773d3bd"
+      ],
+      "confidence": "High",
+      "notes": ""
+    },
+    {
+      "character_id": "char_prime_speaker_zegana",
+      "name": "Prime Speaker Zegana",
+      "role": "Prime Speaker and prominent Simic leader.",
+      "relationship_to_faction": "Appears in source-backed evidence for this faction.",
+      "claim_ids": [
+        "simic_combine_claim_0009"
+      ],
+      "source_ids": [
+        "src_mtg_stories_the_fathom_edict_740e71e8"
+      ],
+      "confidence": "Medium",
+      "notes": ""
+    },
+    {
+      "character_id": "char_vorel",
+      "name": "Vorel",
+      "role": "Prominent Simic figure.",
+      "relationship_to_faction": "Appears in source-backed evidence for this faction.",
+      "claim_ids": [
+        "simic_combine_claim_0010",
+        "simic_combine_claim_0011",
+        "simic_combine_claim_0015"
+      ],
+      "source_ids": [
+        "src_mtg_stories_operation_desperation_e6d285ea",
+        "src_mtg_stories_rallying_the_reluctant_d21b8009",
+        "src_mtg_stories_the_path_to_opulent_2807430f"
+      ],
+      "confidence": "Medium",
+      "notes": ""
+    }
+  ],
+  "canonical_flavor_text": [
+    {
+      "card_name": "Simic Combine dossier anchor",
+      "set": "Ravnica",
+      "short_excerpt_or_summary": "Life is a system that can adapt, heal, and improve when studied deeply enough.",
+      "is_exact_excerpt": false,
+      "claim_ids": [
+        "simic_combine_claim_0008",
+        "simic_combine_claim_0009",
+        "simic_combine_claim_0010",
+        "simic_combine_claim_0011",
+        "simic_combine_claim_0012",
+        "simic_combine_claim_0013",
+        "simic_combine_claim_0014",
+        "simic_combine_claim_0015"
+      ],
+      "source_ids": [
+        "src_mtg_stories_the_principles_of_unnatural_selection_8a6586c5",
+        "src_mtg_stories_the_fathom_edict_740e71e8",
+        "src_mtg_stories_operation_desperation_e6d285ea",
+        "src_mtg_stories_rallying_the_reluctant_d21b8009",
+        "src_mtg_stories_episode_2_monsters_we_became_e6ec05b7",
+        "src_mtg_stories_episode_3_shadows_of_regret_1b969924",
+        "src_mtg_stories_episode_8_gods_of_chaos_a773d3bd",
+        "src_mtg_stories_the_path_to_opulent_2807430f",
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_ravnica_allegiance_mechanics_2018"
+      ],
+      "notes": "Derived from the faction's raw dossier copy so the flavor layer stays evidence-backed and reusable for Commander Compass."
+    }
+  ],
   "views_on_other_factions": [],
   "mechanics": {
     "summary": "Adapt expresses biological improvement by letting creatures grow when conditions and resources allow.",
@@ -114,9 +219,36 @@
       "Prime Speaker Zegana",
       "biomancy",
       "Vorel",
+      "evolve",
+      "Ravnica",
+      "Guilds of Ravnica",
+      "Ravnica Allegiance",
+      "Dragon's Maze",
+      "Gatecrash",
+      "War of the Spark",
+      "Murders at Karlov Manor",
+      "March of the Machine"
+    ],
+    "story_corpus_paths_added": 10,
+    "known_characters": [
+      "Momir Vig",
+      "Vannifar",
+      "Prime Speaker Zegana",
+      "Vorel"
+    ],
+    "known_mechanics": [
+      "adapt",
       "evolve"
     ],
-    "story_corpus_paths_added": 10
+    "sets_or_story_arcs": [
+      "Guilds of Ravnica",
+      "Ravnica Allegiance",
+      "Dragon's Maze",
+      "Gatecrash",
+      "War of the Spark",
+      "Murders at Karlov Manor",
+      "March of the Machine"
+    ]
   },
   "data_quality": {
     "corpus_upgrade": {
@@ -134,9 +266,521 @@
         "simic_combine_claim_0016",
         "simic_combine_claim_0017"
       ]
+    },
+    "raw_enrichment": {
+      "review_date": "2026-05-13T21:14:06.308Z",
+      "source_basis": "data/raw-factions claims.json + sources.json",
+      "key_figures_added": 0,
+      "historical_timeline_entries": 0,
+      "canonical_flavor_text_entries": 1,
+      "relationship_entries": 0,
+      "known_characters": 4,
+      "known_mechanics": 2,
+      "story_arcs": 7
     }
   },
   "research_limitations": [
     "MTG-Stories repository entries are treated as searchable archive copies; official Wizards pages should remain the primary canon authority when available."
-  ]
+  ],
+  "commander_compass": {
+    "schema_version": "1.0.0",
+    "source_research_file": "simic_combine.commander_compass.research.json",
+    "last_reviewed": "2026-05-14",
+    "review_status": "reviewed_not_canonical_lore",
+    "recommendation_philosophy": "Favor commanders that make creatures change, scale, or climb an evolutionary chain. Simic recommendations should feel like guided adaptation: counters, pod lines, card-draw from creature size, and experimental growth engines.",
+    "identity_basis": {
+      "owned_themes": [
+        "biomancy and adaptation",
+        "Holdfast and Upwelling",
+        "clades and zonots",
+        "+1/+1 counters",
+        "evolve/adapt/graft",
+        "creature improvement",
+        "scientific isolation",
+        "Prime Speakers Zegana and Vannifar",
+        "Momir Vig and cytoplast legacy"
+      ],
+      "allowed_phrases": [
+        "improve upon nature",
+        "adaptation engine",
+        "counter laboratory",
+        "evolutionary ladder",
+        "biomantic growth",
+        "creatures as experiments"
+      ],
+      "avoid_or_contrast_phrases": [
+        "generic Simic goodstuff with no experiment identity",
+        "pure landfall without adaptation framing",
+        "canon proof from Commander popularity",
+        "planeswalker commander without permission"
+      ],
+      "adjacent_overlap_notes": [
+        "Landfall/ramp and generic UG value are Commander-relevant but should be marked adjacent unless tied back to growth, resource flow, or adaptation. Native Simic should emphasize counters, evolving creatures, and biomantic experimentation."
+      ],
+      "supporting_claim_ids": [
+        "simic_combine_claim_0008",
+        "simic_combine_claim_0009",
+        "simic_combine_claim_0010",
+        "simic_combine_claim_0011",
+        "simic_combine_claim_0012",
+        "simic_combine_claim_0013",
+        "simic_combine_claim_0014",
+        "simic_combine_claim_0015"
+      ],
+      "supporting_source_ids": [
+        "src_mtg_stories_the_principles_of_unnatural_selection_8a6586c5",
+        "src_mtg_stories_the_fathom_edict_740e71e8",
+        "src_mtg_stories_operation_desperation_e6d285ea",
+        "src_mtg_stories_rallying_the_reluctant_d21b8009",
+        "src_mtg_stories_episode_2_monsters_we_became_e6ec05b7",
+        "src_mtg_stories_episode_3_shadows_of_regret_1b969924",
+        "src_mtg_stories_episode_8_gods_of_chaos_a773d3bd",
+        "src_mtg_stories_the_path_to_opulent_2807430f"
+      ]
+    },
+    "native_fit_commanders": [
+      {
+        "exact_card_name": "Prime Speaker Zegana",
+        "display_name": "Prime Speaker Zegana",
+        "scryfall_uri": "https://scryfall.com/card/fdn/664/prime-speaker-zegana",
+        "edhrec_uri": "https://edhrec.com/commanders/prime-speaker-zegana",
+        "color_identity": [
+          "G",
+          "U"
+        ],
+        "commander_legal": true,
+        "recommendation_type": "Native Fit",
+        "archetype_tags": [
+          "Big Creatures",
+          "Card Draw",
+          "Counters"
+        ],
+        "why_this_fits": "Zegana is a native Simic leader whose gameplay converts improved creature size into knowledge and momentum.",
+        "skip_if": "Skip if you want a low-curve commander or a deck that does not rely on having another large creature first.",
+        "gameplay_summary": "A six-mana Merfolk Wizard that enters with counters based on your greatest creature power and draws cards equal to her power.",
+        "faction_identity_terms": [
+          "Prime Speaker",
+          "adaptation",
+          "creature growth",
+          "knowledge"
+        ],
+        "source_basis": {
+          "card_data": [
+            "https://scryfall.com/search?as=grid&order=name&q=%21%22Prime%20Speaker%20Zegana%22&unique=cards"
+          ],
+          "lore_or_identity": [
+            "https://magic.wizards.com/en/news/feature/flavorful-guide-guilds-ravnica-allegiance-2019-02-07",
+            "https://magic.wizards.com/en/news/feature/commanding-ravnica-allegiance-2019-01-17",
+            "https://magic.wizards.com/en/news/feature/ravnica-allegiance-mechanics"
+          ],
+          "commander_product_relevance": [
+            "https://edhrec.com/commanders/prime-speaker-zegana",
+            "https://edhrec.com/commanders/simic"
+          ],
+          "existing_repo_claim_ids": [
+            "simic_combine_claim_0009"
+          ],
+          "existing_repo_source_ids": [
+            "src_mtg_stories_the_fathom_edict_740e71e8"
+          ]
+        },
+        "confidence": "High",
+        "caution_notes": [],
+        "type_line": "Legendary Creature — Merfolk Wizard"
+      },
+      {
+        "exact_card_name": "Zegana, Utopian Speaker",
+        "display_name": "Zegana, Utopian Speaker",
+        "scryfall_uri": "https://scryfall.com/card/lcc/298/zegana-utopian-speaker",
+        "edhrec_uri": "https://edhrec.com/commanders/zegana-utopian-speaker",
+        "color_identity": [
+          "G",
+          "U"
+        ],
+        "commander_legal": true,
+        "recommendation_type": "Native Fit",
+        "archetype_tags": [
+          "+1/+1 Counters",
+          "Adapt",
+          "Trample"
+        ],
+        "why_this_fits": "This Zegana version is a direct adapt-era Simic fit: she checks for +1/+1 counters, draws cards, and helps counter-bearing creatures end games.",
+        "skip_if": "Skip if you want a commander that creates counters without support or if your deck lacks enough counter density.",
+        "gameplay_summary": "A four-mana Merfolk Wizard that rewards creatures with +1/+1 counters, can adapt, and gives counter-bearing creatures trample.",
+        "faction_identity_terms": [
+          "Zegana",
+          "adapt",
+          "+1/+1 counters",
+          "Utopian",
+          "growth"
+        ],
+        "source_basis": {
+          "card_data": [
+            "https://scryfall.com/search?as=grid&order=name&q=%21%22Zegana%2C%20Utopian%20Speaker%22&unique=cards"
+          ],
+          "lore_or_identity": [
+            "https://magic.wizards.com/en/news/feature/flavorful-guide-guilds-ravnica-allegiance-2019-02-07",
+            "https://magic.wizards.com/en/news/feature/commanding-ravnica-allegiance-2019-01-17",
+            "https://magic.wizards.com/en/news/feature/ravnica-allegiance-mechanics"
+          ],
+          "commander_product_relevance": [
+            "https://edhrec.com/commanders/zegana-utopian-speaker",
+            "https://edhrec.com/commanders/simic"
+          ],
+          "existing_repo_claim_ids": [
+            "simic_combine_claim_0009"
+          ],
+          "existing_repo_source_ids": [
+            "src_mtg_stories_the_fathom_edict_740e71e8"
+          ]
+        },
+        "confidence": "High",
+        "caution_notes": [],
+        "type_line": "Legendary Creature — Merfolk Wizard"
+      }
+    ],
+    "weird_stretch_commanders": [
+      {
+        "exact_card_name": "Tatyova, Benthic Druid",
+        "display_name": "Tatyova, Benthic Druid",
+        "scryfall_uri": "https://scryfall.com/card/fdn/247/tatyova-benthic-druid",
+        "edhrec_uri": "https://edhrec.com/commanders/tatyova-benthic-druid",
+        "color_identity": [
+          "G",
+          "U"
+        ],
+        "commander_legal": true,
+        "recommendation_type": "Weird Stretch",
+        "archetype_tags": [
+          "Landfall",
+          "Ramp",
+          "Card Draw"
+        ],
+        "why_this_fits": "Tatyova is not a Simic Combine lore card, but landfall can be framed as Upwelling-style resource flow: every land drop renews the ecosystem and draws knowledge.",
+        "skip_if": "Skip if you want biomancy, counters, or strict Ravnica flavor.",
+        "gameplay_summary": "A five-mana Merfolk Druid that gains life and draws a card whenever a land enters under your control.",
+        "faction_identity_terms": [
+          "Upwelling",
+          "renewal",
+          "resource flow",
+          "growth"
+        ],
+        "source_basis": {
+          "card_data": [
+            "https://scryfall.com/search?as=grid&order=name&q=%21%22Tatyova%2C%20Benthic%20Druid%22&unique=cards"
+          ],
+          "lore_or_identity": [
+            "https://magic.wizards.com/en/news/feature/flavorful-guide-guilds-ravnica-allegiance-2019-02-07",
+            "https://magic.wizards.com/en/news/feature/commanding-ravnica-allegiance-2019-01-17"
+          ],
+          "commander_product_relevance": [
+            "https://edhrec.com/commanders/tatyova-benthic-druid",
+            "https://edhrec.com/commanders/simic"
+          ],
+          "existing_repo_claim_ids": [
+            "simic_combine_claim_0008",
+            "simic_combine_claim_0009",
+            "simic_combine_claim_0010",
+            "simic_combine_claim_0011",
+            "simic_combine_claim_0012",
+            "simic_combine_claim_0013",
+            "simic_combine_claim_0014",
+            "simic_combine_claim_0015"
+          ],
+          "existing_repo_source_ids": [
+            "src_mtg_stories_the_principles_of_unnatural_selection_8a6586c5",
+            "src_mtg_stories_the_fathom_edict_740e71e8",
+            "src_mtg_stories_operation_desperation_e6d285ea",
+            "src_mtg_stories_rallying_the_reluctant_d21b8009",
+            "src_mtg_stories_episode_2_monsters_we_became_e6ec05b7",
+            "src_mtg_stories_episode_3_shadows_of_regret_1b969924",
+            "src_mtg_stories_episode_8_gods_of_chaos_a773d3bd",
+            "src_mtg_stories_the_path_to_opulent_2807430f"
+          ]
+        },
+        "confidence": "Medium",
+        "caution_notes": [
+          "Strong UG Commander product fit, but only adjacent to Simic faction identity."
+        ],
+        "type_line": "Legendary Creature — Merfolk Druid"
+      }
+    ],
+    "budget_friendly_commanders": [
+      {
+        "exact_card_name": "Vorel of the Hull Clade",
+        "display_name": "Vorel of the Hull Clade",
+        "scryfall_uri": "https://scryfall.com/card/lcc/294/vorel-of-the-hull-clade",
+        "edhrec_uri": "https://edhrec.com/commanders/vorel-of-the-hull-clade",
+        "color_identity": [
+          "G",
+          "U"
+        ],
+        "commander_legal": true,
+        "recommendation_type": "Budget Friendly",
+        "archetype_tags": [
+          "+1/+1 Counters",
+          "Counter Doubling",
+          "Artifacts"
+        ],
+        "why_this_fits": "Vorel is a clean budget Simic bridge: a named clade representative who turns counters into repeatable biological improvement.",
+        "skip_if": "Skip if you want card advantage in the command zone or dislike activated-ability setup turns.",
+        "gameplay_summary": "A three-mana Human Merfolk that taps to double counters on an artifact, creature, or land.",
+        "faction_identity_terms": [
+          "Hull Clade",
+          "counters",
+          "graft/adapt adjacency",
+          "biomancy"
+        ],
+        "source_basis": {
+          "card_data": [
+            "https://scryfall.com/search?as=grid&order=name&q=%21%22Vorel%20of%20the%20Hull%20Clade%22&unique=cards"
+          ],
+          "lore_or_identity": [
+            "https://magic.wizards.com/en/news/feature/flavorful-guide-guilds-ravnica-allegiance-2019-02-07",
+            "https://magic.wizards.com/en/news/feature/commanding-ravnica-allegiance-2019-01-17",
+            "https://magic.wizards.com/en/news/feature/ravnica-allegiance-mechanics"
+          ],
+          "commander_product_relevance": [
+            "https://edhrec.com/commanders/vorel-of-the-hull-clade",
+            "https://edhrec.com/commanders/simic"
+          ],
+          "existing_repo_claim_ids": [
+            "simic_combine_claim_0010",
+            "simic_combine_claim_0011",
+            "simic_combine_claim_0015"
+          ],
+          "existing_repo_source_ids": [
+            "src_mtg_stories_operation_desperation_e6d285ea",
+            "src_mtg_stories_rallying_the_reluctant_d21b8009",
+            "src_mtg_stories_the_path_to_opulent_2807430f"
+          ]
+        },
+        "confidence": "High",
+        "caution_notes": [],
+        "type_line": "Legendary Creature — Human Merfolk"
+      }
+    ],
+    "advanced_complexity_commanders": [
+      {
+        "exact_card_name": "Prime Speaker Vannifar",
+        "display_name": "Prime Speaker Vannifar",
+        "scryfall_uri": "https://scryfall.com/card/rna/195/prime-speaker-vannifar",
+        "edhrec_uri": "https://edhrec.com/commanders/prime-speaker-vannifar",
+        "color_identity": [
+          "G",
+          "U"
+        ],
+        "commander_legal": true,
+        "recommendation_type": "Advanced",
+        "archetype_tags": [
+          "Pod",
+          "Toolbox",
+          "Creature Combo"
+        ],
+        "why_this_fits": "Vannifar expresses Simic evolution as a biological ladder: each creature becomes raw material for the next, more specialized organism.",
+        "skip_if": "Skip if your group dislikes Birthing Pod-style chains, tutor density, or combo toolboxes.",
+        "gameplay_summary": "A four-mana Elf Ooze Wizard that taps and sacrifices a creature to search a creature with mana value one higher directly onto the battlefield.",
+        "faction_identity_terms": [
+          "Prime Speaker",
+          "adaptationist",
+          "evolutionary ladder",
+          "biomancy"
+        ],
+        "source_basis": {
+          "card_data": [
+            "https://scryfall.com/search?as=grid&order=name&q=%21%22Prime%20Speaker%20Vannifar%22&unique=cards"
+          ],
+          "lore_or_identity": [
+            "https://magic.wizards.com/en/news/feature/flavorful-guide-guilds-ravnica-allegiance-2019-02-07",
+            "https://magic.wizards.com/en/news/feature/commanding-ravnica-allegiance-2019-01-17",
+            "https://magic.wizards.com/en/news/feature/ravnica-allegiance-mechanics"
+          ],
+          "commander_product_relevance": [
+            "https://edhrec.com/commanders/prime-speaker-vannifar",
+            "https://edhrec.com/commanders/simic"
+          ],
+          "existing_repo_claim_ids": [
+            "simic_combine_claim_005",
+            "simic_combine_claim_0008",
+            "simic_combine_claim_0010",
+            "simic_combine_claim_0011",
+            "simic_combine_claim_0012",
+            "simic_combine_claim_0013",
+            "simic_combine_claim_0014"
+          ],
+          "existing_repo_source_ids": [
+            "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+            "src_mtg_stories_the_principles_of_unnatural_selection_8a6586c5",
+            "src_mtg_stories_operation_desperation_e6d285ea",
+            "src_mtg_stories_rallying_the_reluctant_d21b8009",
+            "src_mtg_stories_episode_2_monsters_we_became_e6ec05b7",
+            "src_mtg_stories_episode_3_shadows_of_regret_1b969924",
+            "src_mtg_stories_episode_8_gods_of_chaos_a773d3bd"
+          ]
+        },
+        "confidence": "High",
+        "caution_notes": [
+          "Can become deterministic and combo-heavy if tuned."
+        ],
+        "type_line": "Legendary Creature — Elf Ooze Wizard"
+      }
+    ],
+    "iconic_lore_forward_commanders": [
+      {
+        "exact_card_name": "Momir Vig, Simic Visionary",
+        "display_name": "Momir Vig, Simic Visionary",
+        "scryfall_uri": "https://scryfall.com/card/dis/118/momir-vig-simic-visionary",
+        "edhrec_uri": "https://edhrec.com/commanders/momir-vig-simic-visionary",
+        "color_identity": [
+          "G",
+          "U"
+        ],
+        "commander_legal": true,
+        "recommendation_type": "Iconic Lore-Forward",
+        "archetype_tags": [
+          "Creature Tutors",
+          "Combo",
+          "Value"
+        ],
+        "why_this_fits": "Momir Vig is iconic old-Simic lore: visionary biomancy, dangerous improvement, and creature-search precision all in one commander.",
+        "skip_if": "Skip if you want modern counter mechanics or if repeated tutoring slows your games.",
+        "gameplay_summary": "A five-mana Elf Wizard that manipulates the top of the library and finds creatures when you cast green and/or blue creature spells.",
+        "faction_identity_terms": [
+          "Momir Vig",
+          "cytoplast",
+          "biomancy",
+          "visionary",
+          "old Simic"
+        ],
+        "source_basis": {
+          "card_data": [
+            "https://scryfall.com/search?as=grid&order=name&q=%21%22Momir%20Vig%2C%20Simic%20Visionary%22&unique=cards"
+          ],
+          "lore_or_identity": [
+            "https://magic.wizards.com/en/news/feature/flavorful-guide-guilds-ravnica-allegiance-2019-02-07",
+            "https://github.com/polarkac/MTG-Stories"
+          ],
+          "commander_product_relevance": [
+            "https://edhrec.com/commanders/momir-vig-simic-visionary",
+            "https://edhrec.com/commanders/simic"
+          ],
+          "existing_repo_claim_ids": [
+            "simic_combine_claim_0008",
+            "simic_combine_claim_0009"
+          ],
+          "existing_repo_source_ids": [
+            "src_mtg_stories_the_principles_of_unnatural_selection_8a6586c5",
+            "src_mtg_stories_the_fathom_edict_740e71e8"
+          ]
+        },
+        "confidence": "High",
+        "caution_notes": [
+          "Tutor-heavy builds can become repetitive."
+        ],
+        "type_line": "Legendary Creature — Elf Wizard"
+      }
+    ],
+    "not_recommended_or_deprioritized": [
+      {
+        "name": "Kinnan, Bonder Prodigy",
+        "reason": "Commander-legal and powerful, but often reads as generic Simic/cEDH mana-value rather than factional Simic identity.",
+        "could_still_be_used_if": "Use in a power-forward adjacent path, not as default Simic Combine recommendation.",
+        "confidence": "Medium"
+      },
+      {
+        "name": "Kiora, Behemoth Beckoner",
+        "reason": "Planeswalker card without commander permission; not a commander candidate.",
+        "could_still_be_used_if": "Use in the 99 if legal and mechanically appropriate.",
+        "confidence": "High"
+      },
+      {
+        "name": "Experiment Kraj",
+        "reason": "Lore-relevant and Commander-legal, but high mana and clunky as a first recommendation compared with Vorel/Zegana/Vannifar.",
+        "could_still_be_used_if": "Use for old-Simic flavor-first counter decks.",
+        "confidence": "Medium"
+      }
+    ],
+    "archetype_lanes": [
+      {
+        "lane_name": "+1/+1 Counter Laboratory",
+        "description": "Grow creatures through counters, then exploit trample, doubling, or counter payoffs.",
+        "recommended_for": "Players who want classic Simic adaptation on board.",
+        "skip_if": "Avoid if your meta has frequent counter-removal or heavy board wipes.",
+        "example_commanders": [
+          "Vorel of the Hull Clade",
+          "Zegana, Utopian Speaker"
+        ],
+        "supporting_identity_terms": [
+          "+1/+1 counters",
+          "adapt",
+          "graft",
+          "biomancy"
+        ],
+        "complexity": "Medium",
+        "budget_friendliness": "High"
+      },
+      {
+        "lane_name": "Evolutionary Toolbox",
+        "description": "Use creature chains, sacrifice, and tutoring as an evolution ladder.",
+        "recommended_for": "Players who like puzzles, creature silver bullets, and precise sequencing.",
+        "skip_if": "Avoid if tutor-heavy combo is unwelcome.",
+        "example_commanders": [
+          "Prime Speaker Vannifar",
+          "Momir Vig, Simic Visionary"
+        ],
+        "supporting_identity_terms": [
+          "evolution",
+          "clades",
+          "experimentation"
+        ],
+        "complexity": "High",
+        "budget_friendliness": "Medium"
+      },
+      {
+        "lane_name": "Big Creature Knowledge",
+        "description": "Make large or improved creatures, then turn size into cards.",
+        "recommended_for": "Players who want Simic midrange rather than pure combo.",
+        "skip_if": "Avoid if you want very low curves.",
+        "example_commanders": [
+          "Prime Speaker Zegana",
+          "Zegana, Utopian Speaker"
+        ],
+        "supporting_identity_terms": [
+          "growth",
+          "knowledge",
+          "Utopian"
+        ],
+        "complexity": "Medium",
+        "budget_friendliness": "Variable"
+      },
+      {
+        "lane_name": "Resource Renewal Adjacent",
+        "description": "Use lands and resource flow as a softer ecological expression of Simic renewal.",
+        "recommended_for": "Players who like UG value but still want a factional explanation.",
+        "skip_if": "Avoid if you need explicit biomancy or Ravnica-native cards.",
+        "example_commanders": [
+          "Tatyova, Benthic Druid"
+        ],
+        "supporting_identity_terms": [
+          "Upwelling",
+          "renewal",
+          "growth"
+        ],
+        "complexity": "Low",
+        "budget_friendliness": "High"
+      }
+    ],
+    "link_targets": {
+      "edhrec_commander_index": "https://edhrec.com/commanders/simic",
+      "mtgdecks_color_identity": "https://mtgdecks.net/Commander/simic",
+      "scryfall_commander_search": "https://scryfall.com/search?as=grid&order=edhrec&q=is%3Acommander+legal%3Acommander+ci%3Dug&unique=cards",
+      "archidekt_color_search": "https://archidekt.com/search/decks?formats=3&colors=U%2CG"
+    },
+    "merge_notes": {
+      "product_guidance_not_canon": true,
+      "commander_legality_validated": true,
+      "scryfall_card_pages_validated": true,
+      "do_not_use_as_claim_source": true
+    }
+  }
 }

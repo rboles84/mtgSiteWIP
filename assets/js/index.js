@@ -10,32 +10,20 @@ import {
   selectNextAdaptiveQuestion,
   shouldFinishAdaptiveReading,
 } from "./adaptive-placement.js";
+import {
+  buildCommanderDossier,
+  createArchidektTagCatalog,
+  getColorIdentity,
+  getServiceChipMeta,
+} from "./commander-dossier.js";
 
 const SESSION = VM_SESSION;
 const COLOR_META = {
   W: { label: "White", fill: "#ede8d4" },
   U: { label: "Blue", fill: "#2a7ac8" },
-  B: { label: "Black", fill: "#17120f" },
+  B: { label: "Black", fill: "linear-gradient(90deg,#08060b 0%,#291b3d 48%,#0f0c12 100%)" },
   R: { label: "Red", fill: "#d04030" },
   G: { label: "Green", fill: "#2a8a30" },
-};
-
-const STARTER_OPTIONS = {
-  format_interest: [
-    { value: "modern", label: "Modern" },
-    { value: "pioneer", label: "Pioneer" },
-    { value: "commander", label: "Commander" },
-  ],
-  budget_band: [
-    { value: "budget", label: "Budget" },
-    { value: "mid", label: "Mid-range" },
-    { value: "premium", label: "Premium" },
-  ],
-  experience_level: [
-    { value: "first-deck", label: "First deck" },
-    { value: "returning", label: "Returning" },
-    { value: "tuned", label: "Already tuned" },
-  ],
 };
 
 const APP_STATE = {
@@ -52,7 +40,33 @@ const APP_STATE = {
   returnSection: null,
   interviewState: "idle",
   starterProfile: { ...DEFAULT_STARTER_PROFILE },
+  deckTagCatalog: null,
 };
+
+/**
+ * Returns true when the Scrying Terminal should be shown and wired up.
+ *
+ * @returns {boolean} True when the terminal is enabled.
+ */
+function isScryingTerminalEnabled() {
+  return globalThis.VM_SITE_FLAGS?.SCRYING_TERMINAL_ENABLED === true;
+}
+
+/**
+ * Applies the feature flag to terminal-only UI already in the DOM.
+ */
+function applyTerminalVisibility() {
+  const enabled = isScryingTerminalEnabled();
+
+  document.querySelectorAll("[data-vm-terminal-only]").forEach((node) => {
+    node.hidden = !enabled;
+  });
+
+  const interviewSection = document.getElementById("interview");
+  if (interviewSection) {
+    interviewSection.hidden = !enabled;
+  }
+}
 
 /**
  * Loads the canonical faction data file used by both quick mode and result rendering.
@@ -84,6 +98,20 @@ async function loadPlacementModel() {
 }
 
 /**
+ * Loads the expanded Archidekt tag catalog used to build validated deck searches.
+ *
+ * @returns {Promise<object>} Resolved tag catalog.
+ */
+async function loadDeckTagCatalog() {
+  const response = await fetch("/data/deck-tags_expanded.json");
+  if (!response.ok) {
+    throw new Error("Could not load Commander deck tags.");
+  }
+  APP_STATE.deckTagCatalog = createArchidektTagCatalog(await response.json());
+  return APP_STATE.deckTagCatalog;
+}
+
+/**
  * Returns the canonical faction entry for a given key.
  *
  * @param {string} key Faction key.
@@ -109,6 +137,10 @@ function getInstitutionLabel(faction) {
  * @param {string} id Section id to reveal.
  */
 function showSection(id) {
+  if (id === "interview" && !isScryingTerminalEnabled()) {
+    id = "landing";
+  }
+
   ["landing", "quick", "interview", "result"].forEach((sectionId) => {
     const node = document.getElementById(sectionId);
     if (node) {
@@ -116,37 +148,6 @@ function showSection(id) {
     }
   });
   window.scrollTo(0, 0);
-}
-
-/**
- * Builds the starter-profile chip controls on the landing page.
- */
-function renderStarterProfileControls() {
-  Object.keys(STARTER_OPTIONS).forEach((field) => {
-    const container = document.getElementById(field.replace("_interest", "") + "-chips")
-      || document.getElementById(field.replace("_band", "") + "-chips")
-      || document.getElementById(field.replace("_level", "") + "-chips");
-
-    if (!container) {
-      return;
-    }
-
-    container.innerHTML = STARTER_OPTIONS[field]
-      .map((option) => {
-        const active = APP_STATE.starterProfile[field] === option.value ? "active" : "";
-        return `<button class="chip-btn ${active}" type="button" data-field="${field}" data-value="${option.value}">${option.label}</button>`;
-      })
-      .join("");
-  });
-
-  document.querySelectorAll(".chip-btn[data-field]").forEach((button) => {
-    button.addEventListener("click", () => {
-      const field = button.getAttribute("data-field");
-      const value = button.getAttribute("data-value");
-      APP_STATE.starterProfile[field] = value;
-      renderStarterProfileControls();
-    });
-  });
 }
 
 /**
@@ -277,6 +278,11 @@ function startQuickFlow() {
  * Starts the deep interview flow using the current starter-profile preferences.
  */
 async function startInterviewFlow() {
+  if (!isScryingTerminalEnabled()) {
+    showSection("landing");
+    return;
+  }
+
   showSection("interview");
   resetInterviewDossier();
   await beginInterview();
@@ -469,6 +475,11 @@ function resetInterviewDossier() {
  * @returns {Promise<void>} Resolves once the opening prompt is rendered.
  */
 async function beginInterview() {
+  if (!isScryingTerminalEnabled()) {
+    showSection("landing");
+    return;
+  }
+
   resetInterviewDossier();
   updateInterviewControls("loading", 1);
   const loader = appendTerminalMessage("recruiter", "The scrying glass hums.", true);
@@ -496,6 +507,11 @@ async function beginInterview() {
  * @returns {Promise<void>} Resolves once the response is rendered.
  */
 async function submitInterview() {
+  if (!isScryingTerminalEnabled()) {
+    showSection("landing");
+    return;
+  }
+
   const input = document.getElementById("terminal-input");
   const text = input.value.trim();
   if (text.length < 3 || APP_STATE.interviewState === "loading" || APP_STATE.interviewState === "decided") {
@@ -627,59 +643,27 @@ async function handleSavePlacement() {
 }
 
 /**
- * Formats a starter-profile enum value into readable title case.
- *
- * @param {string} value Raw enum value.
- * @returns {string} Human-readable label.
- */
-function formatEnumLabel(value) {
-  return String(value || "")
-    .split("-")
-    .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
-    .join(" ");
-}
-
-/**
- * Chooses the deck entry that best matches the user's requested starting format.
- *
- * @param {object} faction Canonical faction data.
- * @param {object} starterProfile Normalized starter profile.
- * @returns {object|null} Recommended deck entry.
- */
-function pickRecommendedDeck(faction, starterProfile) {
-  if (!faction?.deck_links?.length) {
-    return null;
-  }
-
-  const desired = (starterProfile?.format_interest || "commander").toLowerCase();
-  const direct = faction.deck_links.find((deck) => deck.fmt.toLowerCase() === desired);
-  return direct || faction.deck_links[0];
-}
-
-/**
  * Builds the external deck-link buttons for a deck card.
  *
- * @param {object} deck Deck entry from canonical faction data.
- * @param {string} factionKey Faction key used for filtered searches.
- * @returns {string} Deck-link HTML.
+ * @param {object[]} links Link descriptors.
+ * @param {string=} className Additional anchor class.
+ * @returns {string} Link button HTML.
  */
-function buildDeckLinks(deck, factionKey) {
-  const links = [];
-  const formatPath = encodeURIComponent(deck.fmt);
-  const archidektUrl =
-    deck.fmt === "Commander"
-      ? `https://archidekt.com/search/decks?colors=${factionKey}&format=commander`
-      : `https://archidekt.com/search/decks?colors=${factionKey}`;
-
-  if (deck.mtgg) {
-    links.push(`<a class="deck-link" href="${deck.mtgg}" target="_blank" rel="noopener">MTGGoldfish -></a>`);
-  }
-  if (deck.edhrec) {
-    links.push(`<a class="deck-link" href="${deck.edhrec}" target="_blank" rel="noopener">EDHREC -></a>`);
-  }
-  links.push(`<a class="deck-link deck-link-mtgd" href="https://mtgdecks.net/${formatPath}?colors=${factionKey}" target="_blank" rel="noopener">MTGDecks -></a>`);
-  links.push(`<a class="deck-link deck-link-arch" href="${archidektUrl}" target="_blank" rel="noopener">Archidekt -></a>`);
-  return links.join("");
+function buildLinkButtons(links, className = "") {
+  return (links || [])
+    .map((link) => {
+      const service = getServiceChipMeta(link);
+      const classes = ["deck-link", "service-chip", `service-${service.key}`, className].filter(Boolean).join(" ");
+      return `
+        <a class="${classes}" href="${link.url}" target="_blank" rel="noopener" data-service="${service.key}" style="--service-color:${service.color};--service-glow:${service.glow}">
+          <span class="service-mark" aria-hidden="true">${service.mark}</span>
+          <span class="service-copy">
+            <span class="service-name">${service.label}</span>
+            <span class="service-label">${link.label}</span>
+          </span>
+        </a>`;
+    })
+    .join("");
 }
 
 /**
@@ -703,12 +687,13 @@ function renderResult(viewKey) {
   const context = getActiveResultContext();
   const result = context.result;
   const activeKey = viewKey || context.viewKey;
+  const terminalEnabled = isScryingTerminalEnabled();
 
   if (!result || !activeKey) {
     document.getElementById("result-inner").innerHTML = `
       <div class="empty-state">
         <h2>No reading yet.</h2>
-        <p>Start with the quick path or the Scrying Terminal, then come back here for the full dossier.</p>
+        <p>Start with the quick path, then come back here for the full dossier.</p>
         <div class="landing-actions" style="justify-content:center;margin-top:1.5rem">
           <button class="btn-primary" type="button" onclick="showSection('landing')">Go to landing</button>
         </div>
@@ -718,29 +703,33 @@ function renderResult(viewKey) {
     return;
   }
 
-  const faction = getFaction(activeKey);
-  const institutionLabel = getInstitutionLabel(faction);
-  const activeMatch =
-    result.top_matches.find((match) => match.faction === activeKey) ||
-    result.adjacent_matches.find((match) => match.faction === activeKey) ||
-    {
-      faction: activeKey,
-      faction_name: faction.name,
-      institution_type: faction.institution_type,
-      world: faction.world,
-      reason: "",
-    };
-
-  const isPrimary = activeKey === result.faction;
   const starterProfile = result.starter_profile || getStarterProfile();
-  const recommendedDeck = pickRecommendedDeck(faction, starterProfile);
-  const scoreBarsHtml = MANA_ORDER.map((color) => {
-    const value = result.mana_scores?.[color] || 1;
+  const dossier = buildCommanderDossier({
+    factions: APP_STATE.factions,
+    placementModel: APP_STATE.placementModel,
+    deckTagCatalog: APP_STATE.deckTagCatalog,
+    placementResult: result,
+    targetFactionKey: activeKey,
+    starterProfile,
+  });
+  const faction = dossier.faction.record;
+  const institutionLabel = getInstitutionLabel(faction);
+  const isPrimary = dossier.isPrimary;
+  const archidektSearchLinks = dossier.links.archidekt || [];
+  const commanderLane = dossier.commanderLane;
+  const packageLinks = {
+    maze: dossier.links.maze || [],
+    scryfall: dossier.links.scryfall || [],
+  };
+  const commanderDirectoryLinks = dossier.links.commanderStart || [];
+  const commanderPreviewCandidates = dossier.commanderRecommendations || [];
+  const landRecommendations = dossier.landRecommendations || {};
+  const scoreBarsHtml = dossier.manaAlignment.map(({ color, value }) => {
     const target = Math.min(100, value * 10);
-    return `<div class="score-row"><span class="score-label">${COLOR_META[color].label}</span><div class="score-track"><div class="score-fill" style="width:0;background:${COLOR_META[color].fill}" data-target="${target}"></div></div><span class="score-val">${value}</span></div>`;
+    return `<div class="score-row score-row-${color}"><span class="score-label">${COLOR_META[color].label}</span><div class="score-track"><div class="score-fill score-fill-${color}" style="width:0;background:${COLOR_META[color].fill}" data-target="${target}"></div></div><span class="score-val">${value}</span></div>`;
   }).join("");
 
-  const archetypeHtml = (faction.archetypes || [])
+  const archetypeHtml = (dossier.archetypes || [])
     .map((item) => `<div class="arch-card"><div class="arch-name">${item.name}</div><div class="arch-desc">${item.desc}</div></div>`)
     .join("");
 
@@ -762,72 +751,82 @@ function renderResult(viewKey) {
       .join("");
   }
 
-  const starterCardHtml = recommendedDeck
-    ? `
-      <div class="starter-card">
-        <div class="starter-title">Start Here</div>
-        <div class="starter-copy">${recommendedDeck.name}</div>
-        <div class="starter-copy" style="margin-top:0.4rem">${recommendedDeck.desc}</div>
-        <div class="starter-links">${buildDeckLinks(recommendedDeck, faction.key)}</div>
-      </div>`
-    : "";
+  function commanderPreviewSlots(items) {
+    return (items || [])
+      .map((candidate, index) => {
+        const id = `cmd_${index}`;
+        return `
+          <div class="commander-preview-card" data-commander-card>
+            <div class="commander-art-shell">
+              <div class="commander-placeholder" id="${id}">${candidate.name}</div>
+            </div>
+            <div class="commander-preview-body">
+              <div class="commander-name">${candidate.name}</div>
+              <div class="commander-desc">${candidate.desc}</div>
+            </div>
+          </div>`;
+      })
+      .join("");
+  }
 
-  const adjacentMatches = result.adjacent_matches || [];
+  const commanderFallbackClass = commanderPreviewCandidates.length ? "" : " is-visible";
+  const commanderPreviewHtml = `
+    <div class="commander-preview-block">
+      <div class="commander-preview-label">Commander starting points</div>
+      ${commanderPreviewCandidates.length ? `<div class="commander-preview-grid" id="commander-preview-grid">${commanderPreviewSlots(commanderPreviewCandidates)}</div>` : ""}
+      <div class="commander-preview-fallback${commanderFallbackClass}" id="commander-preview-fallback">
+        ${buildLinkButtons(commanderDirectoryLinks)}
+      </div>
+    </div>`;
+
+  const adjacentMatches = dossier.adjacentFits || [];
   const adjacentHtml = adjacentMatches.length
     ? adjacentMatches
-        .map((match) => {
-          const matchFaction = getFaction(match.faction);
-          if (!matchFaction) {
-            return "";
-          }
+        .map((fit) => {
           return `
-            <div class="adjacent-card ${match.faction === activeKey ? "active" : ""}">
-              <div class="adjacent-label">${matchFaction.world}</div>
-              <div class="adjacent-name">${matchFaction.name}</div>
-              <div class="adjacent-copy">${match.reason || matchFaction.tagline}</div>
+            <div class="adjacent-card ${fit.factionKey === activeKey ? "active" : ""}">
+              <div class="adjacent-label">${fit.world}</div>
+              <div class="adjacent-name">${fit.name}</div>
+              <div class="adjacent-copy">${fit.reason || fit.tagline}</div>
               <div class="adjacent-actions">
-                <button class="adjacent-btn" type="button" onclick="switchAdjacentView('${match.faction}')">View this fit</button>
+                <button class="adjacent-btn" type="button" onclick="switchAdjacentView('${fit.factionKey}')">View this fit</button>
               </div>
             </div>`;
         })
         .join("")
-    : `<div class="adjacent-card"><div class="adjacent-name">No adjacent fits saved yet.</div><div class="adjacent-copy">Retake or use the Scrying Terminal to generate a fuller read.</div></div>`;
+    : terminalEnabled
+      ? `<div class="adjacent-card"><div class="adjacent-name">No adjacent fits saved yet.</div><div class="adjacent-copy">Retake or use the Scrying Terminal to generate a fuller read.</div></div>`
+      : `<div class="adjacent-card"><div class="adjacent-name">No adjacent fits saved yet.</div><div class="adjacent-copy">Retake the quick reading to generate a fuller read.</div></div>`;
 
   const saveButtonLabel = SESSION.username ? "Save this reading" : "Save with Google";
   const returnToTerminalButton =
-    APP_STATE.resultSource === "interview"
+    terminalEnabled && APP_STATE.resultSource === "interview"
       ? `<button class="btn-secondary" type="button" onclick="returnToInterviewSource()">Return to the Terminal</button>`
       : "";
-  const resultStatus = isPrimary
-    ? `This is your primary ${institutionLabel.toLowerCase()} fit.`
-    : `You are viewing an adjacent fit built from the same reading.`;
-  const decreeCopy = isPrimary
-    ? result.decree
-    : activeMatch.reason || `${faction.name} stays close to your saved reading and offers a second lane worth exploring.`;
-  const evidenceTrail = result.evidence_trail || [];
-  const evidenceHtml = evidenceTrail.length
-    ? evidenceTrail
-        .slice(-4)
-        .map((entry) => {
-          const positive = (entry.deltas || [])
-            .filter((delta) => delta.delta > 0)
-            .sort((left, right) => right.delta - left.delta)
-            .slice(0, 2)
-            .map((delta) => getFaction(delta.faction)?.name || delta.faction)
-            .join(", ");
-          return `
-            <div class="starter-card">
-              <div class="starter-title">${getStageLabel(entry.stage)} - ${entry.answer_title}</div>
-              <div class="starter-copy">${entry.signal}${positive ? ` reinforced ${positive}.` : "."}</div>
-            </div>`;
-        })
+  const resultStatus = dossier.resultStatus;
+  const decreeCopy = dossier.decreeCopy;
+  const readingOmens = dossier.readingOmens || [];
+  const manaSectionLabel = isPrimary
+    ? "Mana Alignment"
+    : `Reading Mana Alignment · Commander Color Identity: ${dossier.faction.colorIdentity || getColorIdentity(faction.colors)}`;
+  const evidenceHtml = readingOmens.length
+    ? readingOmens
+        .map((omen) => `
+          <div class="starter-card omen-card">
+            <div class="omen-index">${omen.title}</div>
+            <div class="starter-title">${omen.answerTitle}</div>
+            <div class="starter-copy">${omen.copy}</div>
+          </div>`)
         .join("")
     : "";
 
   const pipsHtml = (faction.colors || []).map((color) => `<div class="pip pip-${color}"></div>`).join("");
-  const decksHtml = (faction.deck_links || [])
-    .map((deck) => `<div class="deck-card"><div class="deck-format">${deck.fmt}</div><div class="deck-name">${deck.name}</div><div class="deck-desc">${deck.desc}</div><div class="deck-links">${buildDeckLinks(deck, faction.key)}</div></div>`)
-    .join("");
+  const archidektHtml = archidektSearchLinks.length
+    ? `<div class="deck-card"><div class="deck-format">Archidekt</div><div class="deck-name">Validated Searches</div><div class="deck-desc">One color-identity lane plus up to three catalog-matched archetype lanes for your first deck browse.</div><div class="deck-links">${buildLinkButtons(archidektSearchLinks)}</div></div>`
+    : "";
+  const mazePackageHtml = `<div class="deck-card"><div class="deck-format">Maze</div><div class="deck-name">Package Searches</div><div class="deck-desc">Open the Implicit Maze with starter queries for commanders, ramp, draw, interaction, lands, and win conditions.</div><div class="deck-links">${buildLinkButtons(packageLinks.maze)}</div></div>`;
+  const scryfallPackageHtml = `<div class="deck-card"><div class="deck-format">Scryfall</div><div class="deck-name">Direct Card Searches</div><div class="deck-desc">Jump straight to Scryfall for the same Commander package lanes in ${getColorIdentity(faction.colors)} colors.</div><div class="deck-links">${buildLinkButtons(packageLinks.scryfall)}</div></div>`;
+  const decksHtml = `${archidektHtml}${mazePackageHtml}${scryfallPackageHtml}`;
 
   document.getElementById("result-inner").innerHTML = `
     <div class="guild-banner" style="background:${faction.banner}">
@@ -845,28 +844,32 @@ function renderResult(viewKey) {
     </div>
 
     <div class="scores-section">
-      <div class="section-label">Mana Alignment</div>
+      <div class="section-label">${manaSectionLabel}</div>
       <div class="score-bars">${scoreBarsHtml}</div>
     </div>
 
     ${evidenceHtml ? `
       <div class="starter-section">
-        <div class="section-label">Evidence Trail</div>
+        <div class="section-label">Reading Omens</div>
         <div class="starter-grid">${evidenceHtml}</div>
       </div>` : ""}
 
     <div class="starter-section">
-      <div class="section-label">Where to Start Planning</div>
-      <div class="starter-grid">
-        <div class="starter-card">
-          <div class="starter-title">Your planning lane</div>
-          <div class="starter-meta">
-            <div class="starter-meta-line"><strong>Format</strong>${formatEnumLabel(starterProfile.format_interest)}</div>
-            <div class="starter-meta-line"><strong>Budget</strong>${formatEnumLabel(starterProfile.budget_band)}</div>
-            <div class="starter-meta-line"><strong>Experience</strong>${formatEnumLabel(starterProfile.experience_level)}</div>
+      <div class="section-label">Start Here</div>
+      <div class="starter-grid starter-grid-start">
+        <div class="starter-card starter-card-wide">
+          <div class="starter-title">${commanderLane.title}</div>
+          <div class="starter-copy">${commanderLane.copy}</div>
+          <div class="starter-notes">
+            ${commanderLane.details.map((detail) => `
+              <div class="starter-note">
+                <div class="starter-note-label">${detail.label}</div>
+                <div class="starter-copy">${detail.copy}</div>
+              </div>`).join("")}
           </div>
+          <div class="starter-links">${buildLinkButtons(commanderDirectoryLinks)}</div>
+          ${commanderPreviewHtml}
         </div>
-        ${starterCardHtml}
       </div>
     </div>
 
@@ -881,56 +884,65 @@ function renderResult(viewKey) {
     </div>
 
     <div class="staples-section">
-      <div class="section-label">${institutionLabel} Staple Cards</div>
+      <div class="section-label">${institutionLabel} Starter Card References</div>
       <div class="staples-category">
         <div class="staple-cat-label">Creatures</div>
-        <div class="staple-row">${cardSlots(faction.staples?.creatures, "sc", "staple-placeholder", "staple-img")}</div>
+        <div class="staple-row">${cardSlots(dossier.starterCards?.creatures, "sc", "staple-placeholder", "staple-img")}</div>
       </div>
       <div class="staples-category">
         <div class="staple-cat-label">Instants and Sorceries</div>
-        <div class="staple-row">${cardSlots(faction.staples?.spells, "ss", "staple-placeholder", "staple-img")}</div>
+        <div class="staple-row">${cardSlots(dossier.starterCards?.spells, "ss", "staple-placeholder", "staple-img")}</div>
       </div>
       <div class="staples-category">
         <div class="staple-cat-label">Enchantments and Artifacts</div>
-        <div class="staple-row">${cardSlots(faction.staples?.permanents, "sp", "staple-placeholder", "staple-img")}</div>
+        <div class="staple-row">${cardSlots(dossier.starterCards?.permanents, "sp", "staple-placeholder", "staple-img")}</div>
       </div>
     </div>
 
     <div class="lands-section">
-      <div class="section-label">${institutionLabel} Land Base</div>
+      <div class="section-label">${institutionLabel} Starter Land References</div>
       <div class="lands-tiers">
         <div class="land-tier tier-premium">
           <div class="land-tier-label">Premium</div>
-          <div class="land-cards-row">${landSlots(faction.land_base?.premium, "lp")}</div>
+          <div class="land-cards-row">${landSlots(landRecommendations.premium, "lp")}</div>
         </div>
         <div class="land-tier tier-midrange">
           <div class="land-tier-label">Mid-range</div>
-          <div class="land-cards-row">${landSlots(faction.land_base?.midrange, "lm")}</div>
+          <div class="land-cards-row">${landSlots(landRecommendations.midrange, "lm")}</div>
         </div>
         <div class="land-tier tier-budget">
           <div class="land-tier-label">Budget</div>
-          <div class="land-cards-row">${landSlots(faction.land_base?.budget, "lb")}</div>
+          <div class="land-cards-row">${landSlots(landRecommendations.budget, "lb")}</div>
+        </div>
+        <div class="land-tier tier-utility">
+          <div class="land-tier-label">Utility</div>
+          <div class="land-cards-row">${landSlots(landRecommendations.utility, "lu")}</div>
         </div>
       </div>
       <div class="lands-guide">
-        <div class="guide-row"><span class="guide-tier guide-tier-p">Optimal</span><span class="guide-text">${faction.land_base?.optimal || ""}</span></div>
-        <div class="guide-row"><span class="guide-tier guide-tier-m">Mid</span><span class="guide-text">${faction.land_base?.mid || ""}</span></div>
-        <div class="guide-row"><span class="guide-tier guide-tier-b">Budget</span><span class="guide-text">${faction.land_base?.budget_line || ""}</span></div>
-        <div class="guide-row"><span class="guide-tier guide-tier-u">Utility</span><span class="guide-text">${faction.land_base?.utility || ""}</span></div>
+        <div class="guide-row"><span class="guide-tier guide-tier-p">Premium picks</span><span class="guide-text">${(landRecommendations.premium || []).join(" / ")}</span></div>
+        <div class="guide-row"><span class="guide-tier guide-tier-m">Midrange picks</span><span class="guide-text">${(landRecommendations.midrange || []).join(" / ")}</span></div>
+        <div class="guide-row"><span class="guide-tier guide-tier-b">Budget picks</span><span class="guide-text">${(landRecommendations.budget || []).join(" / ")}</span></div>
+        <div class="guide-row"><span class="guide-tier guide-tier-u">Utility picks</span><span class="guide-text">${(landRecommendations.utility || []).join(" / ")}</span></div>
+        <div class="guide-row"><span class="guide-tier guide-tier-u">Basic land guidance</span><span class="guide-text">${landRecommendations.basicGuidance || ""}</span></div>
       </div>
     </div>
 
     <div class="decks-section">
-      <div class="section-label">Deck-start Links</div>
+      <div class="section-label">Commander Deck-start Links</div>
       <div class="decks-grid">${decksHtml}</div>
     </div>
 
+    <p class="decree-footer">
+      The atlas is still opening: fifteen paths are lit now — ten Ravnican guilds and five Strixhaven colleges. Wedges, families, and stranger color-shapes wait beyond the next veil.
+    </p>
+
     <div class="footer-actions">
-      <div class="footer-note">Card and land images via Scryfall API. Deck links route out to MTGGoldfish, MTGDecks, Archidekt, and EDHREC.</div>
+      <div class="footer-note">Card and land images via Scryfall API. Starter references are curated from faction data; deck links route out to MTGDecks, Archidekt, EDHREC, Maze, and Scryfall.</div>
       <div class="footer-button-row">
         <button class="btn-primary" type="button" onclick="saveCurrentResult()">${saveButtonLabel}</button>
         ${returnToTerminalButton}
-        <button class="btn-secondary" type="button" onclick="startInterviewFlow()">Try the deeper reading</button>
+        ${terminalEnabled ? `<button class="btn-secondary" type="button" data-vm-terminal-only onclick="startInterviewFlow()">Try the deeper reading</button>` : ""}
         <button class="btn-secondary" type="button" onclick="handleRetake()">Begin Again</button>
       </div>
     </div>`;
@@ -938,9 +950,10 @@ function renderResult(viewKey) {
   APP_STATE.activeResult = result;
   APP_STATE.activeViewKey = activeKey;
   showSection("result");
+  applyTerminalVisibility();
   updateTopbar();
   animateScoreBars();
-  loadResultCardArt(faction);
+  loadResultCardArt(faction, commanderPreviewCandidates, dossier.starterCards, landRecommendations);
 }
 
 /**
@@ -967,19 +980,32 @@ function animateScoreBars() {
 }
 
 /**
- * Loads Scryfall images for staples and lands after the result HTML has rendered.
+ * Loads Scryfall images for Commander previews, staples, and lands after the result HTML has rendered.
  *
  * @param {object} faction Canonical faction record being displayed.
+ * @param {object[]=} commanderCandidates Commander preview candidates to verify.
+ * @param {object=} starterCards Dossier starter card groups.
+ * @param {object=} landRecommendations Dossier land recommendation tiers.
  * @returns {Promise<void>} Resolves after all visible slots have been attempted.
  */
-async function loadResultCardArt(faction) {
+async function loadResultCardArt(faction, commanderCandidates = [], starterCards = {}, landRecommendations = {}) {
+  const factionIdentity = new Set(faction?.colors || []);
+  let verifiedCommanders = 0;
+  const commanderCards = (commanderCandidates || []).map((candidate, index) => ({
+    ...candidate,
+    id: `cmd_${index}`,
+    imageClass: "commander-img",
+    commanderPreview: true,
+  }));
   const allCards = [
-    ...(faction.staples?.creatures || []).map((name, index) => ({ name, id: `sc_${index}`, imageClass: "staple-img" })),
-    ...(faction.staples?.spells || []).map((name, index) => ({ name, id: `ss_${index}`, imageClass: "staple-img" })),
-    ...(faction.staples?.permanents || []).map((name, index) => ({ name, id: `sp_${index}`, imageClass: "staple-img" })),
-    ...(faction.land_base?.premium || []).map((name, index) => ({ name, id: `lp_${index}`, imageClass: "land-img" })),
-    ...(faction.land_base?.midrange || []).map((name, index) => ({ name, id: `lm_${index}`, imageClass: "land-img" })),
-    ...(faction.land_base?.budget || []).map((name, index) => ({ name, id: `lb_${index}`, imageClass: "land-img" })),
+    ...commanderCards,
+    ...(starterCards.creatures || []).map((name, index) => ({ name, id: `sc_${index}`, imageClass: "staple-img" })),
+    ...(starterCards.spells || []).map((name, index) => ({ name, id: `ss_${index}`, imageClass: "staple-img" })),
+    ...(starterCards.permanents || []).map((name, index) => ({ name, id: `sp_${index}`, imageClass: "staple-img" })),
+    ...(landRecommendations.premium || []).map((name, index) => ({ name, id: `lp_${index}`, imageClass: "land-img" })),
+    ...(landRecommendations.midrange || []).map((name, index) => ({ name, id: `lm_${index}`, imageClass: "land-img" })),
+    ...(landRecommendations.budget || []).map((name, index) => ({ name, id: `lb_${index}`, imageClass: "land-img" })),
+    ...(landRecommendations.utility || []).map((name, index) => ({ name, id: `lu_${index}`, imageClass: "land-img" })),
   ];
 
   for (const card of allCards) {
@@ -996,20 +1022,51 @@ async function loadResultCardArt(faction) {
         data.card_faces?.[0]?.image_uris?.normal ||
         null;
       const linkUrl = data.scryfall_uri || "#";
+      const typeLine = [
+        data.type_line || "",
+        ...(data.card_faces || []).map((face) => face.type_line || ""),
+      ].join(" ");
+      const cardIdentity = data.color_identity || [];
+      const identityFits = cardIdentity.every((color) => factionIdentity.has(color));
+      const isCommanderCreature =
+        /legendary/i.test(typeLine) &&
+        /creature/i.test(typeLine) &&
+        data.legalities?.commander === "legal" &&
+        identityFits;
+
+      if (card.commanderPreview && !isCommanderCreature) {
+        slot.closest("[data-commander-card]")?.remove();
+        continue;
+      }
 
       if (imageUrl) {
+        slot.closest("[data-commander-card]")?.classList.add("is-verified");
         slot.outerHTML = `<a href="${linkUrl}" target="_blank" rel="noopener"><img class="${card.imageClass}" src="${imageUrl}" alt="${data.name}" loading="lazy"></a>`;
+        if (card.commanderPreview) {
+          verifiedCommanders += 1;
+        }
+      } else if (card.commanderPreview) {
+        slot.closest("[data-commander-card]")?.remove();
       } else {
         slot.textContent = card.name;
       }
     } catch (_) {
       const fallback = document.getElementById(card.id);
-      if (fallback) {
+      if (card.commanderPreview) {
+        fallback?.closest("[data-commander-card]")?.remove();
+      } else if (fallback) {
         fallback.textContent = card.name;
       }
     }
 
     await new Promise((resolve) => setTimeout(resolve, 90));
+  }
+
+  const previewGrid = document.getElementById("commander-preview-grid");
+  const fallback = document.getElementById("commander-preview-fallback");
+  if (commanderCandidates.length && verifiedCommanders < 1) {
+    previewGrid?.remove();
+    fallback?.classList.add("is-visible");
   }
 }
 
@@ -1120,12 +1177,13 @@ document.addEventListener("DOMContentLoaded", async () => {
   try {
     await loadFactionData();
     await loadPlacementModel();
+    await loadDeckTagCatalog();
   } catch (error) {
     document.body.innerHTML = `<div class="section"><div class="empty-state"><h2>Placement data missing.</h2><p>${error.message}</p></div></div>`;
     return;
   }
 
-  renderStarterProfileControls();
+  applyTerminalVisibility();
 
   const input = document.getElementById("terminal-input");
   input.addEventListener("input", () => {

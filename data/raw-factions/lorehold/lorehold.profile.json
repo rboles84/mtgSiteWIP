@@ -13,7 +13,7 @@
   "source_review_date": "2026-05-09",
   "last_full_review": "2026-05-09",
   "last_incremental_review": "2026-05-09",
-  "last_updated": "2026-05-09",
+  "last_updated": "2026-05-13T21:14:06.308Z",
   "site_surface": {
     "display_name": "Lorehold",
     "short_summary": "Lorehold is Strixhaven's red-white College of Archaeomancy: a history-and-fieldwork college built around ruins, relics, spirits, scrolls, artifacts, living history, and the order-versus-chaos tension of preserving the past while chasing discovery.",
@@ -900,7 +900,10 @@
       "The Rousing",
       "Spirit mentors",
       "Artifact restoration",
-      "Fields of Strife research"
+      "Fields of Strife research",
+      "mentor",
+      "ward",
+      "lesson"
     ],
     "known_characters": [
       "Velomachus Lorehold",
@@ -913,7 +916,9 @@
       "Excava",
       "Hofri Ghostforge",
       "Asterion",
-      "Soovril"
+      "Soovril",
+      "Excava, Risen Past",
+      "Soovril, Patient Antiquarian"
     ],
     "known_locations": [
       "Pillardrop",
@@ -984,7 +989,33 @@
       "scroll",
       "learn",
       "relic",
-      "artifact"
+      "artifact",
+      "Arcavios (Strixhaven)",
+      "Quintorius Kand",
+      "Kirol",
+      "Mica",
+      "Aziza",
+      "Excava",
+      "Hofri Ghostforge",
+      "Asterion",
+      "Soovril",
+      "Excava, Risen Past",
+      "Soovril, Patient Antiquarian",
+      "Magecraft",
+      "Learn",
+      "Lessons",
+      "Spirit tokens",
+      "Lorehold Command",
+      "Spirit mentors",
+      "Artifact restoration",
+      "Fields of Strife research",
+      "mentor",
+      "ward",
+      "magecraft",
+      "Strixhaven: School of Mages",
+      "Secrets of Strixhaven",
+      "March of the Machine",
+      "lesson"
     ],
     "story_corpus_paths_added": 6
   },
@@ -1016,6 +1047,17 @@
         "lorehold_claim_0026",
         "lorehold_claim_0027"
       ]
+    },
+    "raw_enrichment": {
+      "review_date": "2026-05-13T21:14:06.308Z",
+      "source_basis": "data/raw-factions claims.json + sources.json",
+      "key_figures_added": 0,
+      "historical_timeline_entries": 8,
+      "canonical_flavor_text_entries": 4,
+      "relationship_entries": 0,
+      "known_characters": 13,
+      "known_mechanics": 13,
+      "story_arcs": 3
     }
   },
   "research_limitations": [
@@ -1067,5 +1109,247 @@
       "notes": "Placement logic includes explicit do-not-overweight guidance."
     },
     "MTG-Stories repository entries are treated as searchable archive copies; official Wizards pages should remain the primary canon authority when available."
-  ]
+  ],
+  "commander_compass": {
+    "schema_version": "1.0.0",
+    "source_research_file": "lorehold.commander_compass.research.json",
+    "last_reviewed": "2026-05-14",
+    "review_status": "reviewed_not_canonical_lore",
+    "recommendation_philosophy": "Priority given to 2026 Elder Dragons as flagship 'Native Fit' options, with 2021 staples as 'Iconic' or 'Advanced' pivots.",
+    "identity_basis": {
+      "owned_themes": [
+        "Lorehold focuses on archaeomancy—the magic of history. It utilizes the graveyard not as a place of death, but as a library of the past, emphasizing spirits, artifacts, and 'leaving the graveyard' triggers."
+      ],
+      "allowed_phrases": [
+        "lorehold college",
+        "lorehold mage"
+      ],
+      "avoid_or_contrast_phrases": [
+        "Ravnica guilds",
+        "generic mana"
+      ],
+      "adjacent_overlap_notes": [
+        "Shares spell-focused identity with Prismari/Quandrix but with different mechanical execution."
+      ],
+      "supporting_claim_ids": [
+        "lorehold_claim_0022",
+        "lorehold_claim_0023",
+        "lorehold_claim_0024",
+        "lorehold_claim_0025",
+        "lorehold_claim_0026",
+        "lorehold_claim_0027"
+      ],
+      "supporting_source_ids": [
+        "src_mtg_stories_episode_1_penmanship_practice_f245144d",
+        "src_mtg_stories_a_silent_voice_calls_36854b19",
+        "src_mtg_stories_arcavios_a_radiant_heart_311b0936",
+        "src_mtg_stories_off_the_record_2ea68353",
+        "src_mtg_stories_episode_3_extracurriculars_39c7efc0",
+        "src_mtg_stories_a_living_flame_92d3419c"
+      ]
+    },
+    "native_fit_commanders": [
+      {
+        "exact_card_name": "Lorehold, the Historian",
+        "display_name": "Lorehold, the Historian",
+        "scryfall_uri": "https://scryfall.com/card/sos/201/lorehold-the-historian",
+        "edhrec_uri": "https://edhrec.com/commanders/lorehold-the-historian",
+        "color_identity": [
+          "R",
+          "W"
+        ],
+        "commander_legal": true,
+        "recommendation_type": "Native Fit",
+        "archetype_tags": [
+          "Miracle",
+          "Spellslinger",
+          "Card Draw"
+        ],
+        "why_this_fits": "Directly embodies the 'Eureka' moment of discovery by granting Miracle to all instants and sorceries in hand.",
+        "skip_if": "Your deck is primarily permanent-based (artifacts/creatures) rather than instants and sorceries.",
+        "gameplay_summary": "A 5/5 flyer that provides card filtering on every opponent's turn and massive mana discounts via Miracle.",
+        "faction_identity_terms": [
+          "Archaeomancy",
+          "Eureka",
+          "History"
+        ],
+        "source_basis": {
+          "card_data": [
+            "Scryfall SOS #201"
+          ],
+          "lore_or_identity": [
+            "The Legends of Secrets of Strixhaven"
+          ],
+          "commander_product_relevance": [
+            "EDHREC Lorehold Deck Tech"
+          ],
+          "existing_repo_claim_ids": [
+            "claim_lorehold_figure_0001",
+            "claim_lorehold_figure_0002",
+            "claim_lorehold_figure_0003",
+            "claim_lorehold_figure_0004",
+            "claim_lorehold_mechanic_0011",
+            "claim_lorehold_mechanic_0012"
+          ],
+          "existing_repo_source_ids": [
+            "src_lorehold_0009",
+            "src_lorehold_0002",
+            "src_lorehold_0005"
+          ]
+        },
+        "confidence": "High",
+        "caution_notes": [
+          "Requires specific top-deck manipulation (Scroll Rack, Sensei's Divining Top) to maximize Miracle."
+        ],
+        "type_line": "Legendary Creature — Elder Dragon"
+      }
+    ],
+    "weird_stretch_commanders": [],
+    "budget_friendly_commanders": [
+      {
+        "exact_card_name": "Quintorius, History Chaser",
+        "display_name": "Quintorius, History Chaser",
+        "scryfall_uri": "https://scryfall.com/card/soc/7/quintorius-history-chaser",
+        "edhrec_uri": "https://edhrec.com/commanders/quintorius-history-chaser",
+        "color_identity": [
+          "R",
+          "W"
+        ],
+        "commander_legal": true,
+        "recommendation_type": "Budget Friendly",
+        "archetype_tags": [
+          "Spirit Tribal",
+          "Recursion"
+        ],
+        "why_this_fits": "Represent's the college's main protagonist in his 2026 iteration, focusing on the spirit-driven historical research.",
+        "skip_if": "You are building a high-power non-creature storm deck.",
+        "gameplay_summary": "A planeswalker with explicit Oracle permission to be your commander; rewards cards leaving your graveyard by making Spirits, then supports rummage, milling, and Spirit combat bursts.",
+        "faction_identity_terms": [
+          "Loxodon",
+          "Spirit",
+          "Archaeology"
+        ],
+        "source_basis": {
+          "card_data": [
+            "Secrets of Strixhaven Commander Decklists"
+          ],
+          "lore_or_identity": [
+            "The Legends of Secrets of Strixhaven"
+          ],
+          "commander_product_relevance": [],
+          "existing_repo_claim_ids": [
+            "claim_lorehold_figure_0005",
+            "claim_lorehold_figure_0006",
+            "claim_lorehold_figure_0007",
+            "claim_lorehold_location_0006",
+            "claim_lorehold_timeline_0006",
+            "claim_lorehold_figure_0021",
+            "claim_lorehold_figure_0015"
+          ],
+          "existing_repo_source_ids": [
+            "src_lorehold_0009",
+            "src_lorehold_0010",
+            "src_lorehold_0008",
+            "src_lorehold_0006",
+            "src_lorehold_0007",
+            "src_lorehold_0013"
+          ]
+        },
+        "confidence": "High",
+        "caution_notes": [
+          "Commander eligibility comes from explicit Oracle text, not from the planeswalker type line alone."
+        ],
+        "type_line": "Legendary Planeswalker — Quintorius"
+      }
+    ],
+    "advanced_complexity_commanders": [],
+    "iconic_lore_forward_commanders": [
+      {
+        "exact_card_name": "Velomachus Lorehold",
+        "display_name": "Velomachus Lorehold",
+        "scryfall_uri": "https://scryfall.com/card/tdc/309/velomachus-lorehold",
+        "edhrec_uri": "https://edhrec.com/commanders/velomachus-lorehold",
+        "color_identity": [
+          "R",
+          "W"
+        ],
+        "commander_legal": true,
+        "recommendation_type": "Iconic Lore-Forward",
+        "archetype_tags": [
+          "Spellslinger",
+          "Attack Triggers"
+        ],
+        "why_this_fits": "The founder of the college and the original face of Lorehold's spellslinger-aggro identity.",
+        "skip_if": "You want a lower mana-value commander; 7 mana is a steep investment in Boros.",
+        "gameplay_summary": "A heavy hitter that digs for powerful spells upon attacking, providing free casting value.",
+        "faction_identity_terms": [
+          "Founder",
+          "Elder Dragon"
+        ],
+        "source_basis": {
+          "card_data": [
+            "Scryfall STX #245"
+          ],
+          "lore_or_identity": [
+            "Strixhaven: School of Mages Lore"
+          ],
+          "commander_product_relevance": [],
+          "existing_repo_claim_ids": [
+            "claim_lorehold_figure_0001",
+            "claim_lorehold_figure_0002",
+            "claim_lorehold_figure_0003",
+            "claim_lorehold_figure_0004",
+            "claim_lorehold_mechanic_0011",
+            "claim_lorehold_mechanic_0012"
+          ],
+          "existing_repo_source_ids": [
+            "src_lorehold_0009",
+            "src_lorehold_0002",
+            "src_lorehold_0005"
+          ]
+        },
+        "confidence": "High",
+        "caution_notes": [],
+        "type_line": "Legendary Creature — Elder Dragon"
+      }
+    ],
+    "not_recommended_or_deprioritized": [
+      {
+        "name": "Zimone and Dina",
+        "reason": "Off-color (Sultai) for pure Lorehold College (UG/BG).",
+        "could_still_be_used_if": "Building a multi-faction theme deck.",
+        "confidence": "High"
+      }
+    ],
+    "archetype_lanes": [
+      {
+        "lane_name": "Archaeological Recursion",
+        "description": "Utilizing the graveyard as a resource to generate value and board presence.",
+        "recommended_for": "Players who enjoy midrange value and artifact/spirit synergies.",
+        "skip_if": "You prefer proactive aggro with no reliance on the graveyard.",
+        "example_commanders": [
+          "Quintorius, History Chaser",
+          "Hofri Ghostforge"
+        ],
+        "supporting_identity_terms": [
+          "Leave-the-graveyard",
+          "Spirit"
+        ],
+        "complexity": "Medium",
+        "budget_friendliness": "High"
+      }
+    ],
+    "link_targets": {
+      "edhrec_commander_index": "https://edhrec.com/commanders/lorehold",
+      "mtgdecks_color_identity": "https://mtgdecks.net/Commander/WR",
+      "scryfall_commander_search": "https://scryfall.com/search?q=is%3Acommander+color%3DWR",
+      "archidekt_color_search": "https://archidekt.com/search/decks?colors=WR"
+    },
+    "merge_notes": {
+      "product_guidance_not_canon": true,
+      "commander_legality_validated": true,
+      "scryfall_card_pages_validated": true,
+      "do_not_use_as_claim_source": true
+    }
+  }
 }

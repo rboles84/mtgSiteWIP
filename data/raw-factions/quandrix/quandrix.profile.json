@@ -8,7 +8,7 @@
     "green",
     "blue"
   ],
-  "last_updated": "2026-05-09",
+  "last_updated": "2026-05-13T21:14:06.308Z",
   "profile": {
     "overview": "Quandrix College is a green-blue college associated with Arcavios / Strixhaven.",
     "philosophy": "Reality has deep mathematical structure, and understanding that structure lets a mage reveal, model, and reshape what exists.",
@@ -87,8 +87,142 @@
     ]
   },
   "historical_timeline": [],
-  "key_figures": [],
-  "canonical_flavor_text": [],
+  "key_figures": [
+    {
+      "character_id": "char_kianne",
+      "name": "Kianne",
+      "role": "Named Quandrix figure in archive evidence.",
+      "relationship_to_faction": "Appears in source-backed evidence for this faction.",
+      "claim_ids": [
+        "quandrix_claim_0007",
+        "quandrix_claim_0008",
+        "quandrix_claim_0009",
+        "quandrix_claim_0016"
+      ],
+      "source_ids": [
+        "src_mtg_stories_blue_green_ribbons_2e2606a8",
+        "src_mtg_stories_episode_4_put_to_the_test_8c6b8d55",
+        "src_mtg_stories_the_math_of_more_cf5ab994",
+        "src_mtg_stories_episode_4_dont_give_up_9afd9037"
+      ],
+      "confidence": "Medium",
+      "notes": ""
+    },
+    {
+      "character_id": "char_imbraham",
+      "name": "Imbraham",
+      "role": "Named Quandrix figure in archive evidence.",
+      "relationship_to_faction": "Appears in source-backed evidence for this faction.",
+      "claim_ids": [
+        "quandrix_claim_0007",
+        "quandrix_claim_0008"
+      ],
+      "source_ids": [
+        "src_mtg_stories_blue_green_ribbons_2e2606a8",
+        "src_mtg_stories_episode_4_put_to_the_test_8c6b8d55"
+      ],
+      "confidence": "Medium",
+      "notes": ""
+    },
+    {
+      "character_id": "char_zimone",
+      "name": "Zimone",
+      "role": "Named Quandrix figure in archive evidence.",
+      "relationship_to_faction": "Appears in source-backed evidence for this faction.",
+      "claim_ids": [
+        "quandrix_claim_0007",
+        "quandrix_claim_0009",
+        "quandrix_claim_0014",
+        "quandrix_claim_0016"
+      ],
+      "source_ids": [
+        "src_mtg_stories_blue_green_ribbons_2e2606a8",
+        "src_mtg_stories_the_math_of_more_cf5ab994",
+        "src_mtg_stories_episode_1_dont_go_past_the_old_dark_house_f3b78342",
+        "src_mtg_stories_episode_4_dont_give_up_9afd9037"
+      ],
+      "confidence": "Medium",
+      "notes": ""
+    },
+    {
+      "character_id": "char_nev",
+      "name": "Nev",
+      "role": "Named Quandrix figure in archive evidence.",
+      "relationship_to_faction": "Appears in source-backed evidence for this faction.",
+      "claim_ids": [
+        "quandrix_claim_0007",
+        "quandrix_claim_0008",
+        "quandrix_claim_0009",
+        "quandrix_claim_0010",
+        "quandrix_claim_0011",
+        "quandrix_claim_0012",
+        "quandrix_claim_0013",
+        "quandrix_claim_0014",
+        "quandrix_claim_0015",
+        "quandrix_claim_0016"
+      ],
+      "source_ids": [
+        "src_mtg_stories_blue_green_ribbons_2e2606a8",
+        "src_mtg_stories_episode_4_put_to_the_test_8c6b8d55",
+        "src_mtg_stories_the_math_of_more_cf5ab994",
+        "src_mtg_stories_episode_1_penmanship_practice_f245144d",
+        "src_mtg_stories_episode_4_something_to_offer_8ebeacb3",
+        "src_mtg_stories_off_the_record_2ea68353",
+        "src_mtg_stories_the_chains_that_bind_5673ab04",
+        "src_mtg_stories_episode_1_dont_go_past_the_old_dark_house_f3b78342",
+        "src_mtg_stories_field_studies_in_a_future_tense_ef0865a7",
+        "src_mtg_stories_episode_4_dont_give_up_9afd9037"
+      ],
+      "confidence": "Medium",
+      "notes": ""
+    },
+    {
+      "character_id": "char_adrix",
+      "name": "Adrix",
+      "role": "Named Quandrix figure in archive evidence.",
+      "relationship_to_faction": "Appears in source-backed evidence for this faction.",
+      "claim_ids": [
+        "quandrix_claim_0012"
+      ],
+      "source_ids": [
+        "src_mtg_stories_off_the_record_2ea68353"
+      ],
+      "confidence": "Medium",
+      "notes": ""
+    }
+  ],
+  "canonical_flavor_text": [
+    {
+      "card_name": "Quandrix College dossier anchor",
+      "set": "Arcavios / Strixhaven",
+      "short_excerpt_or_summary": "Reality has deep mathematical structure, and understanding that structure lets a mage reveal, model, and reshape what exists.",
+      "is_exact_excerpt": false,
+      "claim_ids": [
+        "quandrix_claim_0007",
+        "quandrix_claim_0008",
+        "quandrix_claim_0009",
+        "quandrix_claim_0010",
+        "quandrix_claim_0011",
+        "quandrix_claim_0012",
+        "quandrix_claim_0013",
+        "quandrix_claim_0014"
+      ],
+      "source_ids": [
+        "src_mtg_stories_blue_green_ribbons_2e2606a8",
+        "src_mtg_stories_episode_4_put_to_the_test_8c6b8d55",
+        "src_mtg_stories_the_math_of_more_cf5ab994",
+        "src_mtg_stories_episode_1_penmanship_practice_f245144d",
+        "src_mtg_stories_episode_4_something_to_offer_8ebeacb3",
+        "src_mtg_stories_off_the_record_2ea68353",
+        "src_mtg_stories_the_chains_that_bind_5673ab04",
+        "src_mtg_stories_episode_1_dont_go_past_the_old_dark_house_f3b78342",
+        "src_wotc_planeswalkers_guide_strixhaven_2021",
+        "src_wotc_strixhaven_product_page_2021",
+        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026"
+      ],
+      "notes": "Derived from the faction's raw dossier copy so the flavor layer stays evidence-backed and reusable for Commander Compass."
+    }
+  ],
   "views_on_other_factions": [],
   "mechanics": {
     "summary": "Quandrix's gameplay identity clusters around mana, counters, fractal tokens, scaling, doubling, and pattern-based growth.",
@@ -111,9 +245,26 @@
       "patterns",
       "theory",
       "learn",
+      "Adrix",
+      "Arcavios / Strixhaven",
+      "Strixhaven: School of Mages",
+      "Secrets of Strixhaven",
+      "Duskmourn: House of Horror"
+    ],
+    "story_corpus_paths_added": 10,
+    "known_characters": [
+      "Kianne",
+      "Imbraham",
+      "Zimone",
+      "Nev",
       "Adrix"
     ],
-    "story_corpus_paths_added": 10
+    "known_mechanics": [],
+    "sets_or_story_arcs": [
+      "Strixhaven: School of Mages",
+      "Secrets of Strixhaven",
+      "Duskmourn: House of Horror"
+    ]
   },
   "data_quality": {
     "corpus_upgrade": {
@@ -131,9 +282,232 @@
         "quandrix_claim_0015",
         "quandrix_claim_0016"
       ]
+    },
+    "raw_enrichment": {
+      "review_date": "2026-05-13T21:14:06.308Z",
+      "source_basis": "data/raw-factions claims.json + sources.json",
+      "key_figures_added": 0,
+      "historical_timeline_entries": 0,
+      "canonical_flavor_text_entries": 1,
+      "relationship_entries": 0,
+      "known_characters": 5,
+      "known_mechanics": 0,
+      "story_arcs": 3
     }
   },
   "research_limitations": [
     "MTG-Stories repository entries are treated as searchable archive copies; official Wizards pages should remain the primary canon authority when available."
-  ]
+  ],
+  "commander_compass": {
+    "schema_version": "1.0.0",
+    "source_research_file": "quandrix.commander_compass.research.json",
+    "last_reviewed": "2026-05-14",
+    "review_status": "reviewed_not_canonical_lore",
+    "recommendation_philosophy": "Priority given to 2026 Elder Dragons as flagship 'Native Fit' options, with 2021 staples as 'Iconic' or 'Advanced' pivots.",
+    "identity_basis": {
+      "owned_themes": [
+        "Quandrix is the college of numeromancy. They use math to manipulate the physical world, focusing on +1/+1 counters, token doubling (Fractals), and land-based synergies."
+      ],
+      "allowed_phrases": [
+        "quandrix college",
+        "quandrix mage"
+      ],
+      "avoid_or_contrast_phrases": [
+        "Ravnica guilds",
+        "generic mana"
+      ],
+      "adjacent_overlap_notes": [
+        "Shares spell-focused identity with Prismari/Quandrix but with different mechanical execution."
+      ],
+      "supporting_claim_ids": [
+        "quandrix_claim_0007",
+        "quandrix_claim_0008",
+        "quandrix_claim_0009",
+        "quandrix_claim_0010",
+        "quandrix_claim_0011",
+        "quandrix_claim_0012",
+        "quandrix_claim_0013",
+        "quandrix_claim_0014",
+        "quandrix_claim_0015",
+        "quandrix_claim_0016"
+      ],
+      "supporting_source_ids": [
+        "src_mtg_stories_blue_green_ribbons_2e2606a8",
+        "src_mtg_stories_episode_4_put_to_the_test_8c6b8d55",
+        "src_mtg_stories_the_math_of_more_cf5ab994",
+        "src_mtg_stories_episode_1_penmanship_practice_f245144d",
+        "src_mtg_stories_episode_4_something_to_offer_8ebeacb3",
+        "src_mtg_stories_off_the_record_2ea68353",
+        "src_mtg_stories_the_chains_that_bind_5673ab04",
+        "src_mtg_stories_episode_1_dont_go_past_the_old_dark_house_f3b78342",
+        "src_mtg_stories_field_studies_in_a_future_tense_ef0865a7",
+        "src_mtg_stories_episode_4_dont_give_up_9afd9037"
+      ]
+    },
+    "native_fit_commanders": [
+      {
+        "exact_card_name": "Quandrix, the Proof",
+        "display_name": "Quandrix, the Proof",
+        "scryfall_uri": "https://scryfall.com/card/sos/218/quandrix-the-proof",
+        "edhrec_uri": "https://edhrec.com/commanders/quandrix-the-proof",
+        "color_identity": [
+          "G",
+          "U"
+        ],
+        "commander_legal": true,
+        "recommendation_type": "Native Fit",
+        "archetype_tags": [
+          "Cascade",
+          "Value",
+          "Spellslinger"
+        ],
+        "why_this_fits": "Translates mathematical recursion into cascade/value chaining, letting each spell reveal the next pattern without implying a documented combo loop.",
+        "skip_if": "You want to focus on a specific token-doubling strategy rather than generic value.",
+        "gameplay_summary": "A 6/6 flyer with trample whose own cascade and hand-wide cascade for instants and sorceries create layered value chains.",
+        "faction_identity_terms": [
+          "Numeromancy",
+          "Proof",
+          "Recursion"
+        ],
+        "source_basis": {
+          "card_data": [
+            "TCGplayer Quandrix Guide"
+          ],
+          "lore_or_identity": [
+            "The Legends of Secrets of Strixhaven"
+          ],
+          "commander_product_relevance": [],
+          "existing_repo_claim_ids": [
+            "quandrix_claim_0007",
+            "quandrix_claim_0008",
+            "quandrix_claim_0009",
+            "quandrix_claim_0010",
+            "quandrix_claim_0011",
+            "quandrix_claim_0012",
+            "quandrix_claim_0013",
+            "quandrix_claim_0014",
+            "quandrix_claim_0015",
+            "quandrix_claim_0016"
+          ],
+          "existing_repo_source_ids": [
+            "src_mtg_stories_blue_green_ribbons_2e2606a8",
+            "src_mtg_stories_episode_4_put_to_the_test_8c6b8d55",
+            "src_mtg_stories_the_math_of_more_cf5ab994",
+            "src_mtg_stories_episode_1_penmanship_practice_f245144d",
+            "src_mtg_stories_episode_4_something_to_offer_8ebeacb3",
+            "src_mtg_stories_off_the_record_2ea68353",
+            "src_mtg_stories_the_chains_that_bind_5673ab04",
+            "src_mtg_stories_episode_1_dont_go_past_the_old_dark_house_f3b78342",
+            "src_mtg_stories_field_studies_in_a_future_tense_ef0865a7",
+            "src_mtg_stories_episode_4_dont_give_up_9afd9037"
+          ]
+        },
+        "confidence": "High",
+        "caution_notes": [],
+        "type_line": "Legendary Creature — Elder Dragon"
+      }
+    ],
+    "weird_stretch_commanders": [],
+    "budget_friendly_commanders": [],
+    "advanced_complexity_commanders": [],
+    "iconic_lore_forward_commanders": [
+      {
+        "exact_card_name": "Adrix and Nev, Twincasters",
+        "display_name": "Adrix and Nev, Twincasters",
+        "scryfall_uri": "https://scryfall.com/card/mkc/198/adrix-and-nev-twincasters",
+        "edhrec_uri": "https://edhrec.com/commanders/adrix-and-nev-twincasters",
+        "color_identity": [
+          "G",
+          "U"
+        ],
+        "commander_legal": true,
+        "recommendation_type": "Iconic Lore-Forward",
+        "archetype_tags": [
+          "Tokens",
+          "Doubling"
+        ],
+        "why_this_fits": "The premier Quandrix commander for anything involving Fractal tokens or cloning.",
+        "skip_if": "You find token management (dice/physical tokens) tedious.",
+        "gameplay_summary": "Doubles every creature token you create, leading to exponential board growth.",
+        "faction_identity_terms": [
+          "Fractal",
+          "Symmetry"
+        ],
+        "source_basis": {
+          "card_data": [
+            "Scryfall C21 #9"
+          ],
+          "commander_product_relevance": [
+            "EDHREC Top Simic Commanders"
+          ],
+          "lore_or_identity": [],
+          "existing_repo_claim_ids": [
+            "quandrix_claim_0007",
+            "quandrix_claim_0008",
+            "quandrix_claim_0009",
+            "quandrix_claim_0010",
+            "quandrix_claim_0011",
+            "quandrix_claim_0012",
+            "quandrix_claim_0013",
+            "quandrix_claim_0014",
+            "quandrix_claim_0015",
+            "quandrix_claim_0016"
+          ],
+          "existing_repo_source_ids": [
+            "src_mtg_stories_blue_green_ribbons_2e2606a8",
+            "src_mtg_stories_episode_4_put_to_the_test_8c6b8d55",
+            "src_mtg_stories_the_math_of_more_cf5ab994",
+            "src_mtg_stories_episode_1_penmanship_practice_f245144d",
+            "src_mtg_stories_episode_4_something_to_offer_8ebeacb3",
+            "src_mtg_stories_off_the_record_2ea68353",
+            "src_mtg_stories_the_chains_that_bind_5673ab04",
+            "src_mtg_stories_episode_1_dont_go_past_the_old_dark_house_f3b78342",
+            "src_mtg_stories_field_studies_in_a_future_tense_ef0865a7",
+            "src_mtg_stories_episode_4_dont_give_up_9afd9037"
+          ]
+        },
+        "confidence": "High",
+        "caution_notes": [],
+        "type_line": "Legendary Creature — Merfolk Wizard"
+      }
+    ],
+    "not_recommended_or_deprioritized": [
+      {
+        "name": "Zimone and Dina",
+        "reason": "Off-color (Sultai) for pure Quandrix College (UG/BG).",
+        "could_still_be_used_if": "Building a multi-faction theme deck.",
+        "confidence": "High"
+      }
+    ],
+    "archetype_lanes": [
+      {
+        "lane_name": "Fractal Expansion",
+        "description": "Creating and doubling tokens that grow based on mana spent or damage dealt.",
+        "recommended_for": "Players who love 'going wide' and 'going tall' simultaneously.",
+        "skip_if": "You prefer tall, single-creature Voltron builds.",
+        "example_commanders": [
+          "Adrix and Nev, Twincasters",
+          "Primo, the Unbounded"
+        ],
+        "supporting_identity_terms": [
+          "Fractal",
+          "Double"
+        ],
+        "complexity": "Medium",
+        "budget_friendliness": "Medium"
+      }
+    ],
+    "link_targets": {
+      "edhrec_commander_index": "https://edhrec.com/commanders/quandrix",
+      "mtgdecks_color_identity": "https://mtgdecks.net/Commander/UG",
+      "scryfall_commander_search": "https://scryfall.com/search?q=is%3Acommander+color%3DUG",
+      "archidekt_color_search": "https://archidekt.com/search/decks?colors=UG"
+    },
+    "merge_notes": {
+      "product_guidance_not_canon": true,
+      "commander_legality_validated": true,
+      "scryfall_card_pages_validated": true,
+      "do_not_use_as_claim_source": true
+    }
+  }
 }

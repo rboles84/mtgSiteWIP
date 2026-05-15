@@ -56,12 +56,13 @@ This is the Javadoc-equivalent inventory for the current working tree. It focuse
 
 | Line | Symbol | Scope | Purpose |
 |---:|---|---|---|
+| 44 | `isScryingTerminalEnabled()` | Internal | Reads the shared terminal feature flag. |
+| 51 | `applyTerminalVisibility()` | Internal | Applies the shared flag to terminal-only UI already in the DOM. |
 | 62 | `loadFactionData()` | Internal | Fetches `/data/factions.json` and stores canonical faction map. |
 | 77 | `loadPlacementModel()` | Internal | Fetches `/data/placement-model.json`. |
 | 92 | `getFaction(key)` | Internal | Reads one display faction by key. |
 | 102 | `getInstitutionLabel(faction)` | Internal | Converts faction type to display label. |
-| 111 | `showSection(id)` | Window | Reveals one Archscry section and hides the others. |
-| 124 | `renderStarterProfileControls()` | Internal | Builds format, budget, and experience chips. |
+| 111 | `showSection(id)` | Window | Reveals one Archscry section and hides the others, rerouting disabled terminal views to landing. |
 | 155 | `updateTopbar()` | Internal | Syncs signed-in identity and saved placement controls. |
 | 192 | `openResearch()` | Window | Navigates to `/maze.html`. |
 | 199 | `openLibrary()` | Window | Navigates to `/library/`. |
@@ -69,7 +70,7 @@ This is the Javadoc-equivalent inventory for the current working tree. It focuse
 | 236 | `handleRetake()` | Window | Clears saved placement and returns to landing. |
 | 248 | `handleSignOut()` | Window | Signs out and resets view. |
 | 258 | `startQuickFlow()` | Window | Starts adaptive quick reading. |
-| 279 | `startInterviewFlow()` | Window | Opens Scrying Terminal flow. |
+| 279 | `startInterviewFlow()` | Window | Opens Scrying Terminal flow when enabled. |
 | 288 | `goBackQuickQuestion()` | Window | Rewinds one quick-reading selection. |
 | 311 | `renderQuickQuestion()` | Internal | Renders current adaptive question and answers. |
 | 353 | `answerQuickQuestion(answerIndex)` | Window | Applies selected answer and advances/finalizes. |
@@ -78,8 +79,8 @@ This is the Javadoc-equivalent inventory for the current working tree. It focuse
 | 423 | `updateInterviewControls(state, turn)` | Internal | Enables/disables terminal controls and status text. |
 | 444 | `appendTerminalMessage(role, content, loading)` | Internal | Adds terminal transcript messages. |
 | 457 | `resetInterviewDossier()` | Internal | Clears decree/dossier UI before a new interview. |
-| 471 | `beginInterview()` | Internal | Starts edge-function interview with opening prompt. |
-| 498 | `submitInterview()` | Window | Sends user response to interview endpoint. |
+| 471 | `beginInterview()` | Internal | Starts edge-function interview with opening prompt when enabled. |
+| 498 | `submitInterview()` | Window | Sends user response to interview endpoint when enabled. |
 | 538 | `revealDecree(result)` | Internal | Renders final interview decree before dossier. |
 | 569 | `openInterviewDossier()` | Window | Opens full dossier from interview result. |
 | 584 | `returnToInterviewSource()` | Window | Navigates result view back to interview source. |
@@ -98,6 +99,12 @@ This is the Javadoc-equivalent inventory for the current working tree. It focuse
 | 1052 | `restoreInitialView(savedFromOAuth)` | Internal | Restores saved/cached result or landing on load. |
 
 Window handlers exposed by `Object.assign(window, ...)`: `answerQuickQuestion`, `goBackQuickQuestion`, `handleRetake`, `handleSavePlacement`, `handleSignOut`, `openInterviewDossier`, `openLibrary`, `openResearch`, `returnToInterviewSource`, `saveCurrentResult`, `showSection`, `startInterviewFlow`, `startQuickFlow`, `submitInterview`, and `switchAdjacentView`.
+
+### `assets/js/site-flags.js`
+
+| Line | Symbol | Scope | Purpose |
+|---:|---|---|---|
+| 8 | `VM_SITE_FLAGS` | Global | Shared checked-in feature flags for hiding or revealing the archived terminal. |
 
 ### `assets/js/shared.js`
 
@@ -120,8 +127,8 @@ Window handlers exposed by `Object.assign(window, ...)`: `answerQuickQuestion`, 
 | 286 | `vm_getCachedPlacementResult()` | Global | Reads cached placement result. |
 | 296 | `syncSessionState(authSession, profileRow)` | Global | Updates `VM_SESSION` from auth/profile. |
 | 318 | `VM_SESSION` | Global | Shared browser session/profile/interview state object. |
-| 383 | `vm_startInterview(context)` | Global | Starts Scrying Terminal with opening message. |
-| 400 | `vm_conductInterview(userMessage)` | Global | Sends one interview message to edge function. |
+| 383 | `vm_startInterview(context)` | Global | Starts Scrying Terminal with opening message when enabled. |
+| 400 | `vm_conductInterview(userMessage)` | Global | Sends one interview message to edge function when enabled. |
 | 449 | `vm_resetInterview()` | Global | Clears local interview state. |
 | 463 | `vm_savePlacementResult(result)` | Global | Saves normalized result to Supabase profile. |
 | 538 | `vm_saveWithGoogle(result)` | Global | Starts OAuth flow after caching pending result. |

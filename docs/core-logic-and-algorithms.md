@@ -53,14 +53,14 @@ Flow:
 3. Resume Supabase/session state and pending OAuth saves.
 4. Show a saved/cached result or the landing state.
 5. Quick path creates adaptive state, renders answer cards, applies selections, and finalizes.
-6. Interview path calls `vm_startInterview` and `vm_conductInterview`.
+6. The Scrying Terminal remains behind a feature flag and is hidden by default.
 7. Result rendering switches between primary and adjacent fits, renders deck/source guidance, loads Scryfall card art, and exposes save actions.
 
 ## Scrying Terminal Backend
 
 Files: `assets/js/shared.js`, `supabase/functions/guild-recruiter/index.ts`, `supabase/functions/guild-recruiter/faction-context.ts`.
 
-Frontend helpers in `shared.js` keep interview history and call the edge function. The edge function sanitizes input, enforces simple in-memory rate limiting, builds a prompt from generated faction context, calls Anthropic, parses JSON, and normalizes a decision result before returning it.
+Frontend helpers in `shared.js` keep interview history and call the edge function only when the terminal feature flag is enabled. The edge function is retained for the archived terminal path: it sanitizes input, enforces simple in-memory rate limiting, builds a prompt from generated faction context, calls Anthropic, parses JSON, and normalizes a decision result before returning it.
 
 Important constraints:
 
@@ -78,7 +78,7 @@ Failure handling:
 - Non-POST returns `405`.
 - Rate-limit overflow returns `429`.
 - Invalid model output falls back to a safe recovery question.
-- Missing Anthropic key or service failures return a JSON error.
+- Missing Anthropic key or service failures return a JSON error when the archived terminal path is active.
 
 ## Persistence And Resume
 

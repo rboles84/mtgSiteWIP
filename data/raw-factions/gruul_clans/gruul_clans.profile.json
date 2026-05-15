@@ -13,7 +13,7 @@
   "source_review_date": "2026-05-09",
   "last_full_review": "2026-05-09",
   "last_incremental_review": "2026-05-09",
-  "last_updated": "2026-05-09",
+  "last_updated": "2026-05-13T21:14:06.308Z",
   "site_surface": {
     "display_name": "Gruul Clans",
     "short_summary": "A loose red-green alliance of Ravnican clans rooted in the Rubblebelt, the Gruul are former stewards of the wild who became anti-civilization raiders after their lands and role were crushed by the city.",
@@ -638,7 +638,41 @@
       "notes": "Use full name for Clans & Legions; avoid assuming details beyond inspected sources."
     }
   ],
-  "canonical_flavor_text": [],
+  "canonical_flavor_text": [
+    {
+      "card_name": "Gruul Clans dossier anchor",
+      "set": "Ravnica",
+      "short_excerpt_or_summary": "Break the city so the wild can breathe.",
+      "is_exact_excerpt": false,
+      "claim_ids": [
+        "claim_gruul_clans_core_identity_0002",
+        "claim_gruul_clans_core_identity_0003",
+        "claim_gruul_clans_philosophy_0004",
+        "claim_gruul_clans_structure_0005",
+        "claim_gruul_clans_philosophy_0010",
+        "claim_gruul_clans_philosophy_0033",
+        "claim_gruul_clans_philosophy_0041",
+        "claim_gruul_clans_philosophy_0050"
+      ],
+      "source_ids": [
+        "src_gruul_clans_0001",
+        "src_gruul_clans_0002",
+        "src_gruul_clans_0003",
+        "src_gruul_clans_0004",
+        "src_gruul_clans_0008",
+        "src_gruul_clans_0014",
+        "src_gruul_clans_0013",
+        "src_gruul_clans_0015",
+        "src_mtg_stories_the_gathering_storm_chapter_12_a8fc6d84",
+        "src_mtg_stories_in_praise_of_the_worldsoul_part_3_bc6ed8e9",
+        "src_mtg_stories_rage_of_the_unsung_d54f4c35",
+        "src_mtg_stories_desperate_operatives_6c6a580b",
+        "src_mtg_stories_the_gathering_storm_chapter_10_ed55e8dd",
+        "src_mtg_stories_rallying_the_reluctant_d21b8009"
+      ],
+      "notes": "Derived from the faction's raw dossier copy so the flavor layer stays evidence-backed and reusable for Commander Compass."
+    }
+  ],
   "views_on_other_factions": [
     {
       "relationship_id": "rel_gruul_clans_other_guilds_0001",
@@ -782,7 +816,10 @@
     ],
     "known_mechanics": [
       "riot",
-      "bloodrush"
+      "bloodrush",
+      "surveil",
+      "adapt",
+      "bloodthirst"
     ],
     "known_characters": [
       "Borborygmos",
@@ -818,7 +855,9 @@
       "Ravnica Remastered",
       "Gatecrash: Gruul Ingenuity",
       "Guilds of Ravnica: Clans & Legions",
-      "Ravnica Allegiance: Rage of the Unsung"
+      "Ravnica Allegiance: Rage of the Unsung",
+      "Guilds of Ravnica",
+      "Return to Ravnica"
     ],
     "tags": [
       "red-green",
@@ -868,7 +907,22 @@
       "The Old Ways",
       "bloodthirst",
       "Skarrg",
-      "riot"
+      "riot",
+      "Ravnica",
+      "Ruric Thar",
+      "Gan Shokta",
+      "Baas",
+      "Durri",
+      "Brazer",
+      "bloodrush",
+      "surveil",
+      "adapt",
+      "Gatecrash",
+      "Guilds of Ravnica",
+      "Ravnica Allegiance",
+      "Dragon's Maze",
+      "War of the Spark",
+      "Return to Ravnica"
     ],
     "story_corpus_paths_added": 6
   },
@@ -903,6 +957,17 @@
         "gruul_clans_claim_0078",
         "gruul_clans_claim_0079"
       ]
+    },
+    "raw_enrichment": {
+      "review_date": "2026-05-13T21:14:06.308Z",
+      "source_basis": "data/raw-factions claims.json + sources.json",
+      "key_figures_added": 0,
+      "historical_timeline_entries": 8,
+      "canonical_flavor_text_entries": 1,
+      "relationship_entries": 6,
+      "known_characters": 12,
+      "known_mechanics": 5,
+      "story_arcs": 6
     }
   },
   "research_limitations": [
@@ -948,5 +1013,294 @@
       "notes": "Recommended future pass: clone the repository locally or use GitHub code search/API to confirm every requested term across all archived stories."
     },
     "MTG-Stories repository entries are treated as searchable archive copies; official Wizards pages should remain the primary canon authority when available."
-  ]
+  ],
+  "commander_compass": {
+    "schema_version": "1.0.0",
+    "source_research_file": "gruul_clans.commander_compass.research.json",
+    "last_reviewed": "2026-05-14",
+    "review_status": "reviewed_not_canonical_lore",
+    "recommendation_philosophy": "Prioritize high-power creatures and decks that punish the 'civilized' mechanics of other players.",
+    "identity_basis": {
+      "owned_themes": [
+        "Stompy",
+        "Lands Matters",
+        "Enrage",
+        "Riot",
+        "Bloodthirst"
+      ],
+      "allowed_phrases": [
+        "Not for you!",
+        "Crush them!",
+        "The wild reclaims all"
+      ],
+      "avoid_or_contrast_phrases": [
+        "Order",
+        "Civilization",
+        "Complicated plans"
+      ],
+      "adjacent_overlap_notes": [
+        "Aggro overlap with Boros",
+        "Land overlap with Golgari"
+      ],
+      "supporting_claim_ids": [
+        "gruul_clans_claim_0074",
+        "gruul_clans_claim_0075",
+        "gruul_clans_claim_0076",
+        "gruul_clans_claim_0077",
+        "gruul_clans_claim_0078",
+        "gruul_clans_claim_0079"
+      ],
+      "supporting_source_ids": [
+        "src_mtg_stories_the_gathering_storm_chapter_12_a8fc6d84",
+        "src_mtg_stories_in_praise_of_the_worldsoul_part_3_bc6ed8e9",
+        "src_mtg_stories_rage_of_the_unsung_d54f4c35",
+        "src_mtg_stories_desperate_operatives_6c6a580b",
+        "src_mtg_stories_the_gathering_storm_chapter_10_ed55e8dd",
+        "src_mtg_stories_rallying_the_reluctant_d21b8009"
+      ]
+    },
+    "native_fit_commanders": [
+      {
+        "exact_card_name": "Borborygmos Enraged",
+        "display_name": "Borborygmos Enraged",
+        "scryfall_uri": "https://scryfall.com/card/rvr/167/borborygmos-enraged",
+        "edhrec_uri": "https://edhrec.com/commanders/borborygmos-enraged",
+        "color_identity": [
+          "G",
+          "R"
+        ],
+        "commander_legal": true,
+        "recommendation_type": "Native Fit",
+        "archetype_tags": [
+          "Lands",
+          "Discard",
+          "Big Stompy"
+        ],
+        "why_this_fits": "The face of the Burning-Tree clan, he uses the land itself as a weapon to smash opponents.",
+        "skip_if": "You don't want to play an 8-mana commander.",
+        "gameplay_summary": "Turns discarded lands into 3-damage bolts, allowing you to weaponize your mana base.",
+        "faction_identity_terms": [
+          "Rubblebelt",
+          "Crush",
+          "Enraged"
+        ],
+        "source_basis": {
+          "card_data": [
+            "Borborygmos Enraged"
+          ],
+          "lore_or_identity": [
+            "Guildmaster of the Gruul"
+          ],
+          "commander_product_relevance": [
+            "Classic Gruul lands-matter leader"
+          ],
+          "existing_repo_claim_ids": [
+            "claim_gruul_clans_key_figure_0012",
+            "claim_gruul_clans_key_figure_0013",
+            "claim_gruul_clans_key_figure_0035",
+            "claim_gruul_clans_key_figure_0036",
+            "claim_gruul_clans_key_figure_0046"
+          ],
+          "existing_repo_source_ids": [
+            "src_gruul_clans_0002",
+            "src_gruul_clans_0003",
+            "src_gruul_clans_0009"
+          ]
+        },
+        "confidence": "High",
+        "caution_notes": [],
+        "type_line": "Legendary Creature — Cyclops"
+      }
+    ],
+    "weird_stretch_commanders": [
+      {
+        "exact_card_name": "Hallar, the Firefletcher",
+        "display_name": "Hallar, the Firefletcher",
+        "scryfall_uri": "https://scryfall.com/card/dom/196/hallar-the-firefletcher",
+        "edhrec_uri": "https://edhrec.com/commanders/hallar-the-firefletcher",
+        "color_identity": [
+          "G",
+          "R"
+        ],
+        "commander_legal": true,
+        "recommendation_type": "Weird Stretch",
+        "archetype_tags": [
+          "Kicker",
+          "Counters"
+        ],
+        "why_this_fits": "Captures the 'destructive growth' of Gruul through the Kicker mechanic.",
+        "skip_if": "You want a deck that plays generic good creatures rather than specific kicker spells.",
+        "gameplay_summary": "Deals damage to each opponent whenever you cast a kicked spell, scaling with the +1/+1 counters on Hallar.",
+        "faction_identity_terms": [
+          "Fire",
+          "Fletching"
+        ],
+        "source_basis": {
+          "card_data": [
+            "Hallar, the Firefletcher"
+          ],
+          "lore_or_identity": [
+            "Dominaria flavor"
+          ],
+          "commander_product_relevance": [
+            "Niche but effective budget build"
+          ],
+          "existing_repo_claim_ids": [
+            "gruul_clans_claim_0074",
+            "gruul_clans_claim_0075",
+            "gruul_clans_claim_0076",
+            "gruul_clans_claim_0077",
+            "gruul_clans_claim_0078",
+            "gruul_clans_claim_0079"
+          ],
+          "existing_repo_source_ids": [
+            "src_mtg_stories_the_gathering_storm_chapter_12_a8fc6d84",
+            "src_mtg_stories_in_praise_of_the_worldsoul_part_3_bc6ed8e9",
+            "src_mtg_stories_rage_of_the_unsung_d54f4c35",
+            "src_mtg_stories_desperate_operatives_6c6a580b",
+            "src_mtg_stories_the_gathering_storm_chapter_10_ed55e8dd",
+            "src_mtg_stories_rallying_the_reluctant_d21b8009"
+          ]
+        },
+        "confidence": "Medium",
+        "caution_notes": [],
+        "type_line": "Legendary Creature — Elf Archer"
+      }
+    ],
+    "budget_friendly_commanders": [
+      {
+        "exact_card_name": "Nikya of the Old Ways",
+        "display_name": "Nikya of the Old Ways",
+        "scryfall_uri": "https://scryfall.com/card/rna/193/nikya-of-the-old-ways",
+        "edhrec_uri": "https://edhrec.com/commanders/nikya-of-the-old-ways",
+        "color_identity": [
+          "G",
+          "R"
+        ],
+        "commander_legal": true,
+        "recommendation_type": "Budget Friendly",
+        "archetype_tags": [
+          "Creatures Only",
+          "Big Mana"
+        ],
+        "why_this_fits": "She forces you to abandon 'civilized' noncreature spells in exchange for massive mana for monsters.",
+        "skip_if": "You like playing instants, sorceries, or artifacts.",
+        "gameplay_summary": "Doubles the mana your lands produce but prevents you from casting noncreature spells.",
+        "faction_identity_terms": [
+          "Old Ways",
+          "Zhur-Taa"
+        ],
+        "source_basis": {
+          "card_data": [
+            "Nikya of the Old Ways"
+          ],
+          "lore_or_identity": [
+            "Zhur-Taa Druid"
+          ],
+          "commander_product_relevance": [
+            "Popular 'Creature-Only' challenge commander"
+          ],
+          "existing_repo_claim_ids": [
+            "claim_gruul_clans_key_figure_0023",
+            "claim_gruul_clans_structure_0021",
+            "claim_gruul_clans_philosophy_0022"
+          ],
+          "existing_repo_source_ids": [
+            "src_gruul_clans_0002"
+          ]
+        },
+        "confidence": "High",
+        "caution_notes": [
+          "Requires a very specific deck composition."
+        ],
+        "type_line": "Legendary Creature — Centaur Druid"
+      }
+    ],
+    "advanced_complexity_commanders": [],
+    "iconic_lore_forward_commanders": [
+      {
+        "exact_card_name": "Ruric Thar, the Unbowed",
+        "display_name": "Ruric Thar, the Unbowed",
+        "scryfall_uri": "https://scryfall.com/card/2x2/271/ruric-thar-the-unbowed",
+        "edhrec_uri": "https://edhrec.com/commanders/ruric-thar-the-unbowed",
+        "color_identity": [
+          "G",
+          "R"
+        ],
+        "commander_legal": true,
+        "recommendation_type": "Iconic Lore-Forward",
+        "archetype_tags": [
+          "Hatebears",
+          "Punisher",
+          "Stompy"
+        ],
+        "why_this_fits": "A severe Gruul pressure piece against noncreature spell plans; creature-first tables punish players who try to solve everything with spells.",
+        "skip_if": "You want to play a deck with more than 5-10 noncreature spells.",
+        "gameplay_summary": "Deals 6 damage to any player who casts a noncreature spell.",
+        "faction_identity_terms": [
+          "Unbowed",
+          "Clan-Leader"
+        ],
+        "source_basis": {
+          "card_data": [
+            "Ruric Thar, the Unbowed"
+          ],
+          "lore_or_identity": [
+            "Challenger to Borborygmos"
+          ],
+          "commander_product_relevance": [
+            "High popularity for punishing control decks"
+          ],
+          "existing_repo_claim_ids": [
+            "claim_gruul_clans_key_figure_0016",
+            "claim_gruul_clans_structure_0017"
+          ],
+          "existing_repo_source_ids": [
+            "src_gruul_clans_0002"
+          ]
+        },
+        "confidence": "High",
+        "caution_notes": [],
+        "type_line": "Legendary Creature — Ogre Warrior"
+      }
+    ],
+    "not_recommended_or_deprioritized": [
+      {
+        "name": "Domri, Anarch of Bolas",
+        "reason": "Planeswalker that cannot be your commander.",
+        "could_still_be_used_if": "In the 99 or Rule 0.",
+        "confidence": "High"
+      }
+    ],
+    "archetype_lanes": [
+      {
+        "lane_name": "Enrage / Dino-Stompy",
+        "description": "Using damage to trigger your own creatures' abilities.",
+        "recommended_for": "Neyith of the Dire Hunt",
+        "skip_if": "You aren't running enough 'Fight' effects.",
+        "example_commanders": [
+          "Neyith of the Dire Hunt",
+          "Atla Palani, Nest Tender"
+        ],
+        "supporting_identity_terms": [
+          "Fight",
+          "Primal"
+        ],
+        "complexity": "Low",
+        "budget_friendliness": "High"
+      }
+    ],
+    "link_targets": {
+      "edhrec_commander_index": "https://edhrec.com/commanders/rg",
+      "mtgdecks_color_identity": "https://mtgdecks.net/Commander/Gruul",
+      "scryfall_commander_search": "https://scryfall.com/search?q=is%3Acommander+identity%3ARG",
+      "archidekt_color_search": "https://www.archidekt.com/search/decks?colors=3%2C5"
+    },
+    "merge_notes": {
+      "product_guidance_not_canon": true,
+      "commander_legality_validated": true,
+      "scryfall_card_pages_validated": true,
+      "do_not_use_as_claim_source": true
+    }
+  }
 }

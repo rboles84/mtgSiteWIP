@@ -85,15 +85,13 @@ li:last-child { margin-bottom: 0; }
 @media (max-width: 640px) { .doc-stamp { margin-top: var(--s-6); } }
 </style>
 </head>
-<body data-page="terms" data-vm-current="terms" data-bg="heavy">
+<body data-page="terms" data-vm-current="terms" data-bg="heavy" data-bg-clean="true">
 
 <div class="vm-bg" aria-hidden="true">
   <picture class="vm-bg__picture">
-    <source type="image/avif" srcset="/assets/img/vox-mana-hero-768w.avif 768w, /assets/img/vox-mana-hero-1280w.avif 1280w, /assets/img/vox-mana-hero-2560w.avif 2560w" sizes="100vw">
-    <source type="image/webp" srcset="/assets/img/vox-mana-hero-768w.webp 768w, /assets/img/vox-mana-hero-1280w.webp 1280w, /assets/img/vox-mana-hero-2560w.webp 2560w" sizes="100vw">
-    <img src="/assets/img/vox-mana-hero-1280w.jpg" alt="" decoding="async">
+    <source type="image/webp" srcset="/assets/img/backgrounds/background-apocrypha-library-clean-01.webp 2560w" sizes="100vw">
+    <img src="/assets/img/backgrounds/background-apocrypha-library-clean-01.webp" alt="" decoding="async">
   </picture>
-  <div class="vm-bg__nebula"></div>
 </div>
 
 <header class="vm-topbar" role="banner">
@@ -214,8 +212,7 @@ li:last-child { margin-bottom: 0; }
 
 </main>
 
-<link rel="stylesheet" href="/assets/css/topbar.css" />
 <script src="/assets/js/reduce-motion.js" defer></script>
-<script src="/assets/js/atmosphere.js" defer></script>
+<script src="/assets/js/vm-topbar.js" defer></script>
 </body>
 </html>

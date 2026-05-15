@@ -8,7 +8,7 @@
     "white",
     "blue"
   ],
-  "last_updated": "2026-05-09",
+  "last_updated": "2026-05-13T21:14:06.308Z",
   "profile": {
     "overview": "Azorius Senate is a white-blue guild associated with Ravnica.",
     "philosophy": "Civilization survives when law, precedent, procedure, and enforcement create a structure that can outlast individual impulse.",
@@ -87,9 +87,164 @@
       "azorius_senate_claim_0012"
     ]
   },
-  "historical_timeline": [],
-  "key_figures": [],
-  "canonical_flavor_text": [],
+  "historical_timeline": [
+    {
+      "event_id": "event_azorius_senate_azorius_senate_claim_004",
+      "event": "The guide identifies Azor I, a sphinx lawmage, as the founder of the Azorius Senate and the author of the original Guildpact.",
+      "date_or_era": "Founding era",
+      "claim_ids": [
+        "azorius_senate_claim_004"
+      ],
+      "confidence": "High",
+      "notes": "Canon-supported claim used for raw enrichment."
+    }
+  ],
+  "key_figures": [
+    {
+      "character_id": "char_azor",
+      "name": "Azor",
+      "role": "Founder of the Azorius Senate and author of the original Guildpact.",
+      "relationship_to_faction": "Appears in source-backed evidence for this faction.",
+      "claim_ids": [
+        "azorius_senate_claim_001",
+        "azorius_senate_claim_002",
+        "azorius_senate_claim_003",
+        "azorius_senate_claim_004",
+        "azorius_senate_claim_005",
+        "azorius_senate_claim_006",
+        "azorius_senate_claim_007",
+        "azorius_senate_claim_0008",
+        "azorius_senate_claim_0009",
+        "azorius_senate_claim_0010",
+        "azorius_senate_claim_0011",
+        "azorius_senate_claim_0012",
+        "azorius_senate_claim_0013",
+        "azorius_senate_claim_0014",
+        "azorius_senate_claim_0015",
+        "azorius_senate_claim_0016",
+        "azorius_senate_claim_0017"
+      ],
+      "source_ids": [
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_ravnica_allegiance_mechanics_2018",
+        "src_mtg_stories_the_gathering_storm_chapter_3_c2a81b82",
+        "src_mtg_stories_rallying_the_reluctant_d21b8009",
+        "src_mtg_stories_ashes_6ede4fea",
+        "src_mtg_stories_the_illusions_of_childs_play_a33a5af6",
+        "src_mtg_stories_the_ascension_of_reza_0f733278",
+        "src_mtg_stories_desperate_operatives_6c6a580b",
+        "src_mtg_stories_operation_desperation_e6d285ea",
+        "src_mtg_stories_episode_1_ghosts_of_our_past_3c1a1077",
+        "src_mtg_stories_fblthp_e26059d7",
+        "src_mtg_stories_expectations_56e0f1dc"
+      ],
+      "confidence": "High",
+      "notes": ""
+    },
+    {
+      "character_id": "char_isperia",
+      "name": "Isperia",
+      "role": "Azorius sphinx lawmage and Senate leader.",
+      "relationship_to_faction": "Appears in source-backed evidence for this faction.",
+      "claim_ids": [
+        "azorius_senate_claim_005",
+        "azorius_senate_claim_0008",
+        "azorius_senate_claim_0009",
+        "azorius_senate_claim_0010",
+        "azorius_senate_claim_0013",
+        "azorius_senate_claim_0016"
+      ],
+      "source_ids": [
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_mtg_stories_the_gathering_storm_chapter_3_c2a81b82",
+        "src_mtg_stories_rallying_the_reluctant_d21b8009",
+        "src_mtg_stories_ashes_6ede4fea",
+        "src_mtg_stories_desperate_operatives_6c6a580b",
+        "src_mtg_stories_fblthp_e26059d7"
+      ],
+      "confidence": "High",
+      "notes": ""
+    },
+    {
+      "character_id": "char_dovin_baan",
+      "name": "Dovin Baan",
+      "role": "Grand Arbiter.",
+      "relationship_to_faction": "Appears in source-backed evidence for this faction.",
+      "claim_ids": [
+        "azorius_senate_claim_005",
+        "azorius_senate_claim_0008",
+        "azorius_senate_claim_0009",
+        "azorius_senate_claim_0010",
+        "azorius_senate_claim_0011",
+        "azorius_senate_claim_0013",
+        "azorius_senate_claim_0014"
+      ],
+      "source_ids": [
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_mtg_stories_the_gathering_storm_chapter_3_c2a81b82",
+        "src_mtg_stories_rallying_the_reluctant_d21b8009",
+        "src_mtg_stories_ashes_6ede4fea",
+        "src_mtg_stories_the_illusions_of_childs_play_a33a5af6",
+        "src_mtg_stories_desperate_operatives_6c6a580b",
+        "src_mtg_stories_operation_desperation_e6d285ea"
+      ],
+      "confidence": "High",
+      "notes": ""
+    },
+    {
+      "character_id": "char_lavinia",
+      "name": "Lavinia",
+      "role": "Notable Azorius lawmage.",
+      "relationship_to_faction": "Appears in source-backed evidence for this faction.",
+      "claim_ids": [
+        "azorius_senate_claim_0008",
+        "azorius_senate_claim_0009",
+        "azorius_senate_claim_0010",
+        "azorius_senate_claim_0014",
+        "azorius_senate_claim_0015"
+      ],
+      "source_ids": [
+        "src_mtg_stories_the_gathering_storm_chapter_3_c2a81b82",
+        "src_mtg_stories_rallying_the_reluctant_d21b8009",
+        "src_mtg_stories_ashes_6ede4fea",
+        "src_mtg_stories_operation_desperation_e6d285ea",
+        "src_mtg_stories_episode_1_ghosts_of_our_past_3c1a1077"
+      ],
+      "confidence": "Medium",
+      "notes": ""
+    }
+  ],
+  "canonical_flavor_text": [
+    {
+      "card_name": "Azorius Senate dossier anchor",
+      "set": "Ravnica",
+      "short_excerpt_or_summary": "Civilization survives when law, precedent, procedure, and enforcement create a structure that can outlast individual impulse.",
+      "is_exact_excerpt": false,
+      "claim_ids": [
+        "azorius_senate_claim_0008",
+        "azorius_senate_claim_0009",
+        "azorius_senate_claim_0010",
+        "azorius_senate_claim_0011",
+        "azorius_senate_claim_0012",
+        "azorius_senate_claim_0013",
+        "azorius_senate_claim_0014",
+        "azorius_senate_claim_0015"
+      ],
+      "source_ids": [
+        "src_mtg_stories_the_gathering_storm_chapter_3_c2a81b82",
+        "src_mtg_stories_rallying_the_reluctant_d21b8009",
+        "src_mtg_stories_ashes_6ede4fea",
+        "src_mtg_stories_the_illusions_of_childs_play_a33a5af6",
+        "src_mtg_stories_the_ascension_of_reza_0f733278",
+        "src_mtg_stories_desperate_operatives_6c6a580b",
+        "src_mtg_stories_operation_desperation_e6d285ea",
+        "src_mtg_stories_episode_1_ghosts_of_our_past_3c1a1077",
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_ravnica_allegiance_mechanics_2018"
+      ],
+      "notes": "Derived from the faction's raw dossier copy so the flavor layer stays evidence-backed and reusable for Commander Compass."
+    }
+  ],
   "views_on_other_factions": [],
   "mechanics": {
     "summary": "Addendum rewards casting spells during the controller's main phase, expressing Azorius order, timing, and procedural discipline.",
@@ -111,9 +266,35 @@
       "Azorius",
       "Prahv",
       "New Prahv",
+      "detain",
+      "Ravnica",
+      "addendum",
+      "Guilds of Ravnica",
+      "Ravnica Allegiance",
+      "Dragon's Maze",
+      "War of the Spark",
+      "Murders at Karlov Manor",
+      "Gatecrash"
+    ],
+    "story_corpus_paths_added": 10,
+    "known_characters": [
+      "Azor",
+      "Isperia",
+      "Dovin Baan",
+      "Lavinia"
+    ],
+    "known_mechanics": [
+      "addendum",
       "detain"
     ],
-    "story_corpus_paths_added": 10
+    "sets_or_story_arcs": [
+      "Guilds of Ravnica",
+      "Ravnica Allegiance",
+      "Dragon's Maze",
+      "War of the Spark",
+      "Murders at Karlov Manor",
+      "Gatecrash"
+    ]
   },
   "data_quality": {
     "corpus_upgrade": {
@@ -131,9 +312,314 @@
         "azorius_senate_claim_0016",
         "azorius_senate_claim_0017"
       ]
+    },
+    "raw_enrichment": {
+      "review_date": "2026-05-13T21:14:06.308Z",
+      "source_basis": "data/raw-factions claims.json + sources.json",
+      "key_figures_added": 0,
+      "historical_timeline_entries": 1,
+      "canonical_flavor_text_entries": 1,
+      "relationship_entries": 0,
+      "known_characters": 4,
+      "known_mechanics": 2,
+      "story_arcs": 6
     }
   },
   "research_limitations": [
     "MTG-Stories repository entries are treated as searchable archive copies; official Wizards pages should remain the primary canon authority when available."
-  ]
+  ],
+  "commander_compass": {
+    "schema_version": "1.0.0",
+    "source_research_file": "azorius_senate.commander_compass.research.json",
+    "last_reviewed": "2026-05-14",
+    "review_status": "reviewed_not_canonical_lore",
+    "recommendation_philosophy": "Focus on legislative control and the 'Addendum' or 'Forecast' mechanical feel of pausing the game to enforce rules.",
+    "identity_basis": {
+      "owned_themes": [
+        "Stax",
+        "Control",
+        "Blink",
+        "Rules Enforcement",
+        "Detain"
+      ],
+      "allowed_phrases": [
+        "The law is absolute",
+        "Order through governance",
+        "Legislative control"
+      ],
+      "avoid_or_contrast_phrases": [
+        "Chaos",
+        "Anarchy",
+        "Impulsive action"
+      ],
+      "adjacent_overlap_notes": [
+        "Shares 'Blink' themes with Selesnya occasionally",
+        "Shares 'Artifact' themes with Esper/Dimir"
+      ],
+      "supporting_claim_ids": [
+        "azorius_senate_claim_001",
+        "azorius_senate_claim_002",
+        "azorius_senate_claim_006",
+        "azorius_senate_claim_007"
+      ],
+      "supporting_source_ids": [
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_ravnica_allegiance_mechanics_2018"
+      ]
+    },
+    "native_fit_commanders": [
+      {
+        "exact_card_name": "Isperia, Supreme Judge",
+        "display_name": "Isperia, Supreme Judge",
+        "scryfall_uri": "https://scryfall.com/card/c20/217/isperia-supreme-judge",
+        "edhrec_uri": "https://edhrec.com/commanders/isperia-supreme-judge",
+        "color_identity": [
+          "U",
+          "W"
+        ],
+        "commander_legal": true,
+        "recommendation_type": "Native Fit",
+        "archetype_tags": [
+          "Control",
+          "Card Draw",
+          "Pillowfort"
+        ],
+        "why_this_fits": "Directly represents the guild's leadership and punishes those who dare attack the law (you).",
+        "skip_if": "You prefer a proactive, aggressive strategy rather than reactive defense.",
+        "gameplay_summary": "Discourages opponents from attacking you by rewarding you with cards for every creature coming your way.",
+        "faction_identity_terms": [
+          "Law",
+          "Order",
+          "Governance"
+        ],
+        "source_basis": {
+          "card_data": [
+            "Isperia, Supreme Judge"
+          ],
+          "lore_or_identity": [
+            "Guildmaster of the Azorius"
+          ],
+          "commander_product_relevance": [
+            "Mid-tier popularity in defensive Azorius builds"
+          ],
+          "existing_repo_claim_ids": [
+            "azorius_senate_claim_005",
+            "azorius_senate_claim_0008",
+            "azorius_senate_claim_0009",
+            "azorius_senate_claim_0010",
+            "azorius_senate_claim_0013",
+            "azorius_senate_claim_0016"
+          ],
+          "existing_repo_source_ids": [
+            "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+            "src_mtg_stories_the_gathering_storm_chapter_3_c2a81b82",
+            "src_mtg_stories_rallying_the_reluctant_d21b8009",
+            "src_mtg_stories_ashes_6ede4fea",
+            "src_mtg_stories_desperate_operatives_6c6a580b",
+            "src_mtg_stories_fblthp_e26059d7"
+          ]
+        },
+        "confidence": "High",
+        "caution_notes": [],
+        "type_line": "Legendary Creature — Sphinx"
+      }
+    ],
+    "weird_stretch_commanders": [
+      {
+        "exact_card_name": "Kwain, Itinerant Meddler",
+        "display_name": "Kwain, Itinerant Meddler",
+        "scryfall_uri": "https://scryfall.com/card/cmr/284/kwain-itinerant-meddler",
+        "edhrec_uri": "https://edhrec.com/commanders/kwain-itinerant-meddler",
+        "color_identity": [
+          "U",
+          "W"
+        ],
+        "commander_legal": true,
+        "recommendation_type": "Weird Stretch",
+        "archetype_tags": [
+          "Group Hug",
+          "Draw Matters"
+        ],
+        "why_this_fits": "Represents the 'peaceful' side of Azorius bureaucracy where everyone gets a turn, but the House always wins.",
+        "skip_if": "You dislike giving opponents resources (cards/life).",
+        "gameplay_summary": "A 'Group Hug' piece that accelerates the game while you search for your specific win conditions.",
+        "faction_identity_terms": [
+          "Meddler",
+          "Bureaucracy"
+        ],
+        "source_basis": {
+          "card_data": [
+            "Kwain, Itinerant Meddler"
+          ],
+          "lore_or_identity": [
+            "Non-Ravnican but fits the Azorius 'Rules' vibe"
+          ],
+          "commander_product_relevance": [
+            "High popularity for casual UW decks"
+          ],
+          "existing_repo_claim_ids": [
+            "azorius_senate_claim_001",
+            "azorius_senate_claim_002",
+            "azorius_senate_claim_006",
+            "azorius_senate_claim_007"
+          ],
+          "existing_repo_source_ids": [
+            "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+            "src_wotc_ravnica_allegiance_mechanics_2018"
+          ]
+        },
+        "confidence": "Medium",
+        "caution_notes": [
+          "Not a Ravnica character.",
+          "Product/thematic fit only; not a Ravnica or Azorius canon character."
+        ],
+        "type_line": "Legendary Creature — Rabbit Wizard"
+      }
+    ],
+    "budget_friendly_commanders": [],
+    "advanced_complexity_commanders": [
+      {
+        "exact_card_name": "Grand Arbiter Augustin IV",
+        "display_name": "Grand Arbiter Augustin IV",
+        "scryfall_uri": "https://scryfall.com/card/2x2/221/grand-arbiter-augustin-iv",
+        "edhrec_uri": "https://edhrec.com/commanders/grand-arbiter-augustin-iv",
+        "color_identity": [
+          "U",
+          "W"
+        ],
+        "commander_legal": true,
+        "recommendation_type": "Advanced",
+        "archetype_tags": [
+          "Stax",
+          "Taxing",
+          "Control"
+        ],
+        "why_this_fits": "The ultimate expression of Azorius tax-based gameplay; he slows the game down to a crawl.",
+        "skip_if": "Your playgroup dislikes 'Stax' or games that take 3+ hours.",
+        "gameplay_summary": "Reduces your costs while increasing everyone else's, effectively 'detaining' their mana.",
+        "faction_identity_terms": [
+          "Tax",
+          "Arbiter",
+          "Senate"
+        ],
+        "source_basis": {
+          "card_data": [
+            "Grand Arbiter Augustin IV"
+          ],
+          "lore_or_identity": [
+            "Former Guildmaster"
+          ],
+          "commander_product_relevance": [
+            "High power level, socially sensitive"
+          ],
+          "existing_repo_claim_ids": [
+            "azorius_senate_claim_001",
+            "azorius_senate_claim_002",
+            "azorius_senate_claim_006",
+            "azorius_senate_claim_007"
+          ],
+          "existing_repo_source_ids": [
+            "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+            "src_wotc_ravnica_allegiance_mechanics_2018"
+          ]
+        },
+        "confidence": "High",
+        "caution_notes": [
+          "High salt score on EDHREC. Use with caution."
+        ],
+        "type_line": "Legendary Creature — Human Advisor"
+      }
+    ],
+    "iconic_lore_forward_commanders": [
+      {
+        "exact_card_name": "Lavinia, Azorius Renegade",
+        "display_name": "Lavinia, Azorius Renegade",
+        "scryfall_uri": "https://scryfall.com/card/rvr/195/lavinia-azorius-renegade",
+        "edhrec_uri": "https://edhrec.com/commanders/lavinia-azorius-renegade",
+        "color_identity": [
+          "U",
+          "W"
+        ],
+        "commander_legal": true,
+        "recommendation_type": "Iconic Lore-Forward",
+        "archetype_tags": [
+          "Hatebears",
+          "Anti-Combo"
+        ],
+        "why_this_fits": "A major modern Azorius figure whose gameplay keeps opponents from bypassing normal spell costs and mana constraints.",
+        "skip_if": "You are playing in a casual meta where players don't rely on mana rocks or free spells.",
+        "gameplay_summary": "Stops players from 'cheating' spells into play, maintaining the integrity of the game's cost-benefit ratio.",
+        "faction_identity_terms": [
+          "Renegade",
+          "Law-Enforcement"
+        ],
+        "source_basis": {
+          "card_data": [
+            "Lavinia, Azorius Renegade"
+          ],
+          "lore_or_identity": [
+            "Key figure in the Dragon's Maze and War of the Spark"
+          ],
+          "commander_product_relevance": [
+            "Competitive staple in certain formats"
+          ],
+          "existing_repo_claim_ids": [
+            "azorius_senate_claim_0008",
+            "azorius_senate_claim_0009",
+            "azorius_senate_claim_0010",
+            "azorius_senate_claim_0014",
+            "azorius_senate_claim_0015"
+          ],
+          "existing_repo_source_ids": [
+            "src_mtg_stories_the_gathering_storm_chapter_3_c2a81b82",
+            "src_mtg_stories_rallying_the_reluctant_d21b8009",
+            "src_mtg_stories_ashes_6ede4fea",
+            "src_mtg_stories_operation_desperation_e6d285ea",
+            "src_mtg_stories_episode_1_ghosts_of_our_past_3c1a1077"
+          ]
+        },
+        "confidence": "High",
+        "caution_notes": [],
+        "type_line": "Legendary Creature — Human Soldier"
+      }
+    ],
+    "not_recommended_or_deprioritized": [
+      {
+        "name": "Dovin, Grand Arbiter",
+        "reason": "Planeswalker that cannot legally be a commander.",
+        "could_still_be_used_if": "Included in the 99 or if playing Rule 0.",
+        "confidence": "High"
+      }
+    ],
+    "archetype_lanes": [
+      {
+        "lane_name": "Blink/Flicker",
+        "description": "Utilizing ETB triggers to gain value and stall opponents.",
+        "recommended_for": "Brago, King Eternal",
+        "skip_if": "You dislike repetitive game states.",
+        "example_commanders": [
+          "Brago, King Eternal",
+          "Yorion, Sky Nomad"
+        ],
+        "supporting_identity_terms": [
+          "Addendum",
+          "Presence"
+        ],
+        "complexity": "Medium",
+        "budget_friendliness": "High"
+      }
+    ],
+    "link_targets": {
+      "edhrec_commander_index": "https://edhrec.com/commanders/wu",
+      "mtgdecks_color_identity": "https://mtgdecks.net/Commander/Azorius",
+      "scryfall_commander_search": "https://scryfall.com/search?q=is%3Acommander+identity%3AWU",
+      "archidekt_color_search": "https://www.archidekt.com/search/decks?colors=1%2C4"
+    },
+    "merge_notes": {
+      "product_guidance_not_canon": true,
+      "commander_legality_validated": true,
+      "scryfall_card_pages_validated": true,
+      "do_not_use_as_claim_source": true
+    }
+  }
 }

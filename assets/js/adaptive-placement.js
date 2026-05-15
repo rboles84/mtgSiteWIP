@@ -572,8 +572,8 @@ function buildAdaptiveDecree(top, runnerUp, state, model, starterProfile) {
     ? `Your answers repeatedly expressed ${signals.slice(0, 2).join(" and ")}.`
     : "Your answers formed a consistent evidence pattern.";
   const runnerLine = runnerUp
-    ? `${runnerUp.faction_name} stayed near the reading, but ${top.faction_name} carried the stronger posterior.`
-    : `${top.faction_name} carried the strongest posterior.`;
+    ? `${runnerUp.faction_name} stayed near the reading, but ${top.faction_name} was the stronger match.`
+    : `${top.faction_name} was the strongest match.`;
 
   return `${top.faction_name} recognizes the shape of your game as ${expression}. ${signalLine} ${runnerLine} This is a Vox Mana interpretive placement for a ${starterProfile.format_interest} start, not an objective diagnosis or official canon.`;
 }

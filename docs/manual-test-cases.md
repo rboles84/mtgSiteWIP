@@ -3,7 +3,7 @@
 ## Setup
 
 1. Deploy the updated static files.
-2. Deploy the updated `guild-recruiter` edge function.
+2. If you are testing the optional terminal path, deploy the updated `guild-recruiter` edge function.
 3. Run the SQL in `docs/supabase-profile-update.sql`.
 4. Confirm `data/factions.json` is present at the site root under `/data/factions.json`.
 5. Confirm `data/placement-model.json` is present at the site root under `/data/placement-model.json`.
@@ -36,18 +36,26 @@
 5. Run `node assets/js/quick-reading-bias.js --runs=100`.
 6. Confirm no faction is listed under `Never selected` and no single faction dominates the report.
 
-## Happy path - deep interview
+## Archived terminal path
 
-1. Return to the landing page.
-2. Start the Scrying Terminal path.
-3. Confirm the terminal opens with the recruiter prompt.
-4. Provide 3-5 answers.
-5. Confirm the terminal reaches a decision.
-6. Confirm `Open Full Dossier` shows the same style of result page used by the quick path.
+1. Confirm `SCRYING_TERMINAL_ENABLED` is set to `false`.
+2. Open the site in a fresh browser session.
+3. Confirm the landing page and Archscry result view do not show any terminal CTA.
+4. Confirm direct navigation or inline calls to the terminal route do not open a chat flow.
+
+## Optional terminal path
+
+1. Set `SCRYING_TERMINAL_ENABLED` to `true`.
+2. Return to the landing page.
+3. Start the Scrying Terminal path.
+4. Confirm the terminal opens with the recruiter prompt.
+5. Provide 3-5 answers.
+6. Confirm the terminal reaches a decision.
+7. Confirm `Open Full Dossier` shows the same style of result page used by the quick path.
 
 ## Save with Google
 
-1. From a quick or interview result, click the save action.
+1. From a quick reading or terminal result, click the save action.
 2. If not already signed in, confirm Google OAuth begins.
 3. Finish the Google login flow.
 4. Confirm the site returns to the exact same saved result.
@@ -101,13 +109,14 @@
 2. Attempt to save a result.
 3. Confirm the user receives a clear message pointing to the schema update.
 
-### Failed interview response
-1. Break the edge function or Anthropic configuration.
-2. Start the Scrying Terminal.
-3. Confirm the terminal shows a graceful error and does not crash the page.
+### Archived terminal response
+1. With `SCRYING_TERMINAL_ENABLED` set to `false`, confirm the terminal remains hidden.
+2. With the flag enabled, break the edge function or Anthropic configuration.
+3. Start the Scrying Terminal.
+4. Confirm the terminal shows a graceful error and does not crash the page.
 
 ### Rate limiting
-1. Rapidly submit interview requests until the limit is hit.
+1. With the terminal enabled, rapidly submit interview requests until the limit is hit.
 2. Confirm the endpoint returns a throttling message instead of continuing indefinitely.
 
 ## Mobile sanity pass

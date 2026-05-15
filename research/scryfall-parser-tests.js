@@ -52,7 +52,8 @@ const cases = [
     // Tests mapping generic concepts (removal) to specific Oracle text strings
     name: "blue removal",
     input: "blue removal",
-    expectedIncludes: ["c:u", "destroy target", "exile target"]
+    expectedIncludes: ["c:u", "otag:removal"],
+    expectedAlternativeIncludes: ["destroy target", "exile target"]
   },
   {
     // Tests mapping slang (ETB) to official game terms (enters)
@@ -96,7 +97,9 @@ const cases = [
     name: "exact named card lookup",
     input: "card named Lightning Bolt",
     expectedMode: "exact_name",
-    expected: "Lightning Bolt"
+    expected: "Lightning Bolt",
+    expectedApi: { endpoint: "/cards/named" },
+    expectedApiAbsent: ["unique", "order", "dir"]
   },
   {
     // Tests format legality and rarity constraints common in Pauper
@@ -300,7 +303,7 @@ const cases = [
     // Tests "Restricted Logic": finding cards that are legal in one format but banned in another
     name: "format crossover",
     input: "cards legal in legacy but banned in modern",
-    expected: "f:legacy b:modern"
+    expected: "f:legacy banned:modern"
   },
   {
     // Tests "Complex Cost Symbols": identifying specific mana requirements like Phyrexian or Hybrid
@@ -330,7 +333,8 @@ const cases = [
     // Tests "Language/Region": finding specific localized versions
     name: "japanese alt art",
     input: "japanese language cards with alternate art",
-    expected: "lang:ja is:alt-art"
+    // Scryfall resolves is:alternate narrowly for Japanese alternate-art printings; is:alt-art remains broader.
+    expected: "lang:ja is:alternate"
   },
   {
     // Tests "Nested Logic": complex parenthetical grouping for specific triggers
@@ -376,7 +380,8 @@ const cases = [
     // Tests fuzzy budget shorthand without a precise dollar amount
     name: "cheap commander removal",
     input: "cheap commander removal",
-    expectedIncludes: ["f:commander", "usd<=1", "destroy target"],
+    expectedIncludes: ["f:commander", "usd<=1", "otag:removal"],
+    expectedAlternativeIncludes: ["destroy target"],
     expectedRecognized: ["price: cheap"]
   },
   {
@@ -390,6 +395,168 @@ const cases = [
     name: "spellslinger payoff",
     input: "izzet spellslinger payoffs",
     expected: "c:ur (o:instant OR o:sorcery)"
+  },
+  {
+    name: "banned in modern",
+    input: "banned in modern",
+    expected: "banned:modern"
+  },
+  {
+    name: "restricted in vintage",
+    input: "restricted in vintage",
+    expected: "restricted:vintage"
+  },
+  {
+    name: "board wipe functional tag",
+    input: "board wipes",
+    expected: "otag:board-wipe",
+    expectedAlternativeIncludes: ["destroy all creatures"]
+  },
+  {
+    name: "mana rock functional tag",
+    input: "mana rocks",
+    expected: "otag:mana-rock",
+    expectedAlternativeIncludes: ["t:artifact", "produces:any"]
+  },
+  {
+    name: "free sacrifice outlet functional tag",
+    input: "free sacrifice outlet",
+    expected: "otag:free-sacrifice-outlet",
+    expectedAlternativeIncludes: ["otag:sacrifice-outlet"]
+  },
+  {
+    name: "exclude digital",
+    input: "exclude digital cards",
+    expected: "not:digital"
+  },
+  {
+    name: "paper cards",
+    input: "paper cards",
+    expected: "game:paper"
+  },
+  {
+    name: "art search",
+    input: "art: goblin warrior",
+    expected: "art:\"goblin warrior\"",
+    minConfidence: 0.4
+  },
+  {
+    name: "flavor text search",
+    input: "flavor text to be",
+    expected: "ft:\"to be\"",
+    minConfidence: 0.4
+  },
+  {
+    name: "artist search",
+    input: "artist Magali Villeneuve",
+    expected: "a:\"Magali Villeneuve\"",
+    minConfidence: 0.4
+  },
+  {
+    name: "a search",
+    input: "a: Magali Villeneuve",
+    expected: "a:\"Magali Villeneuve\"",
+    minConfidence: 0.4
+  },
+  {
+    name: "set search",
+    input: "set stx",
+    expected: "s:stx",
+    minConfidence: 0.4
+  },
+  {
+    name: "s search",
+    input: "s:fin",
+    expected: "s:fin",
+    minConfidence: 0.4
+  },
+  {
+    name: "produces mana",
+    input: "produces mana",
+    expected: "produces:any"
+  },
+  {
+    name: "produces red green mana",
+    input: "produces red and green mana",
+    expected: "produces:rg"
+  },
+  {
+    name: "unique cards metadata",
+    input: "unique cards",
+    expected: "*",
+    expectedApi: { unique: "cards" },
+    minConfidence: 0.4
+  },
+  {
+    name: "include extras",
+    input: "include extras",
+    expected: "include:extras"
+  },
+  {
+    name: "prefer newest",
+    input: "prefer newest",
+    expected: "prefer:newest",
+    expectedApi: { order: "name" }
+  },
+  {
+    name: "prefer old",
+    input: "prefer old",
+    expected: "prefer:oldest"
+  },
+  {
+    name: "newest cards sorting metadata",
+    input: "newest cards",
+    expected: "*",
+    expectedApi: { order: "released", dir: "desc" },
+    minConfidence: 0.4
+  },
+  {
+    name: "is commander",
+    input: "is commander",
+    expected: "is:commander"
+  },
+  {
+    name: "commander legal",
+    input: "commander legal",
+    expected: "f:commander",
+    minConfidence: 0.45
+  },
+  {
+    name: "power 2 or less",
+    input: "power 2 or less",
+    expected: "pow<=2"
+  },
+  {
+    name: "toughness 3 or less",
+    input: "toughness 3 or less",
+    expected: "tou<=3"
+  },
+  {
+    name: "power less than strict",
+    input: "power < 3",
+    expected: "pow<3"
+  },
+  {
+    name: "power greater than strict",
+    input: "power > 4",
+    expected: "pow>4"
+  },
+  {
+    name: "toughness explicit less or equal",
+    input: "toughness <= 3",
+    expected: "tou<=3"
+  },
+  {
+    name: "toughness explicit greater or equal",
+    input: "toughness >= 5",
+    expected: "tou>=5"
+  },
+  {
+    name: "no duplicate oracle or terms",
+    input: "draw or draw cards",
+    expected: "o:draw",
+    expectedNotIncludes: ["(o:draw)"],
+    minConfidence: 0.4
   },
   {
     // Tests lifegain payoff phrasing
@@ -439,6 +606,21 @@ for (const testCase of cases) {
     if (testCase.expectedIncludes) {
       for (const expected of testCase.expectedIncludes) {
         assert.ok(result.query.includes(expected), `${testCase.name}: missing ${expected} in ${result.query}`);
+      }
+    }
+    if (testCase.expectedNotIncludes) {
+      for (const expected of testCase.expectedNotIncludes) {
+        assert.ok(!result.query.includes(expected), `${testCase.name}: unexpected ${expected} in ${result.query}`);
+      }
+    }
+    if (testCase.expectedApi) {
+      for (const [key, expected] of Object.entries(testCase.expectedApi)) {
+        assert.equal(result.api?.[key], expected, `${testCase.name}: expected api.${key} ${expected}, got ${result.api?.[key]}`);
+      }
+    }
+    if (testCase.expectedApiAbsent) {
+      for (const key of testCase.expectedApiAbsent) {
+        assert.ok(!Object.prototype.hasOwnProperty.call(result.api || {}, key), `${testCase.name}: unexpected api.${key} ${result.api?.[key]}`);
       }
     }
     if (testCase.expectedAlternatives) assert.equal(result.alternatives.length, testCase.expectedAlternatives);

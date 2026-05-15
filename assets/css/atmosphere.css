@@ -301,3 +301,40 @@ body[data-bg] .vm-topbar__nav a[aria-current="page"] {
 }
 /* If glossed item is near right edge, allow tooltip to anchor right */
 .vm-gloss--right::after { left: auto; right: 0; }
+
+/* Clean background mode used by interior pages that should show their art
+   directly, without the old fog, masks, stars, or color wash. */
+body[data-bg-clean="true"] .vm-bg {
+  background: #000;
+}
+
+body[data-bg-clean="true"] .vm-bg::before,
+body[data-bg-clean="true"] .vm-bg::after,
+body[data-bg-clean="true"] .vm-bg__nebula,
+body[data-bg-clean="true"] .vm-bg__stars {
+  display: none !important;
+}
+
+body[data-bg-clean="true"]::before {
+  display: none !important;
+}
+
+body[data-bg-clean="true"] .vm-bg__picture img {
+  opacity: 1;
+  filter: none !important;
+  mix-blend-mode: normal;
+  -webkit-mask-image: none;
+          mask-image: none;
+  animation: none;
+  transform: none;
+}
+
+body[data-bg-clean="true"] .vm-topbar {
+  background:
+    linear-gradient(180deg, rgba(4, 4, 4, 0.9), rgba(4, 4, 4, 0.48) 70%, transparent);
+  border-bottom: 0;
+}
+
+body[data-bg-clean="true"] .vm-topbar::after {
+  opacity: 0.34;
+}

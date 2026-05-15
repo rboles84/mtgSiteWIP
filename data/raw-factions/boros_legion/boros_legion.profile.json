@@ -8,7 +8,7 @@
     "white",
     "red"
   ],
-  "last_updated": "2026-05-10T02:24:27.430Z",
+  "last_updated": "2026-05-13T21:14:06.308Z",
   "profile": {
     "overview": "The Boros Legion is the militant fist of Ravnican justice, serving as both a police force and a standing army.",
     "philosophy": "Justice must be defended in public. Boros philosophy merges white structural order with red moral conviction, creating a peacekeeping ideal where immediate action is favored over procedural delay.",
@@ -88,11 +88,142 @@
     ]
   },
   "key_figures": [
-    "Aurelia",
-    "Razia",
-    "Tajic",
-    "Feather",
-    "Agrus Kos"
+    {
+      "character_id": "char_aurelia",
+      "name": "Aurelia",
+      "role": "Guildmaster and battle-first Boros leader.",
+      "relationship_to_faction": "Appears in source-backed evidence for this faction.",
+      "claim_ids": [
+        "boros_legion_claim_004",
+        "boros_legion_claim_009",
+        "boros_legion_claim_011",
+        "boros_legion_claim_013",
+        "boros_legion_claim_015",
+        "boros_legion_claim_016",
+        "boros_legion_claim_017",
+        "boros_legion_claim_018",
+        "boros_legion_claim_019",
+        "boros_legion_claim_020",
+        "boros_legion_claim_021",
+        "boros_legion_claim_022",
+        "boros_legion_claim_023",
+        "boros_legion_claim_024"
+      ],
+      "source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_ravnica_novel_2005",
+        "src_wotc_gatecrash_boros_lore_2013",
+        "src_wotc_legends_karlov_manor_2024",
+        "src_mtg_stories_003_clans_legions_de2e9b38",
+        "src_mtg_stories_006_the_gathering_storm_chapter_12_a8fc6d84",
+        "src_mtg_stories_006_the_greater_good_a536bab3",
+        "src_mtg_stories_011_battle_for_the_ninth_4fb87675",
+        "src_mtg_stories_009_the_gathering_storm_chapter_3_c2a81b82",
+        "src_mtg_stories_006_ashes_6ede4fea",
+        "src_mtg_stories_004_episode_4_justice_before_mercy_57b8ab88",
+        "src_mtg_stories_007_episode_7_rot_before_recovery_aff91fb1",
+        "src_mtg_stories_008_episode_8_gods_of_chaos_a773d3bd",
+        "src_mtg_stories_002_episode_2_monsters_we_became_e6ec05b7",
+        "src_mtg_stories_006_episode_6_explosions_of_genius_9db78723"
+      ],
+      "confidence": "High",
+      "notes": ""
+    },
+    {
+      "character_id": "char_razia",
+      "name": "Razia",
+      "role": "Original founder and first leader of the Boros Legion.",
+      "relationship_to_faction": "Appears in source-backed evidence for this faction.",
+      "claim_ids": [
+        "boros_legion_claim_005",
+        "boros_legion_claim_009",
+        "boros_legion_claim_013",
+        "boros_legion_claim_014"
+      ],
+      "source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_ravnica_novel_2005",
+        "src_wotc_gatecrash_boros_lore_2013",
+        "src_mtg_stories_003_clans_legions_de2e9b38",
+        "src_mtg_stories_003_the_absolution_of_the_guildpact_4e863503"
+      ],
+      "confidence": "High",
+      "notes": ""
+    },
+    {
+      "character_id": "char_tajic",
+      "name": "Tajic",
+      "role": "Legion commander.",
+      "relationship_to_faction": "Appears in source-backed evidence for this faction.",
+      "claim_ids": [
+        "boros_legion_claim_011",
+        "boros_legion_claim_013",
+        "boros_legion_claim_017"
+      ],
+      "source_ids": [
+        "src_ravnica_novel_2005",
+        "src_wotc_legends_karlov_manor_2024",
+        "src_mtg_stories_003_clans_legions_de2e9b38",
+        "src_mtg_stories_011_battle_for_the_ninth_4fb87675"
+      ],
+      "confidence": "High",
+      "notes": ""
+    },
+    {
+      "character_id": "char_feather",
+      "name": "Feather",
+      "role": "Leadership transition figure after Razia.",
+      "relationship_to_faction": "Appears in source-backed evidence for this faction.",
+      "claim_ids": [
+        "boros_legion_claim_009",
+        "boros_legion_claim_013",
+        "boros_legion_claim_015",
+        "boros_legion_claim_018",
+        "boros_legion_claim_021",
+        "boros_legion_claim_022",
+        "boros_legion_claim_023"
+      ],
+      "source_ids": [
+        "src_ravnica_novel_2005",
+        "src_wotc_gatecrash_boros_lore_2013",
+        "src_mtg_stories_003_clans_legions_de2e9b38",
+        "src_mtg_stories_006_the_gathering_storm_chapter_12_a8fc6d84",
+        "src_mtg_stories_009_the_gathering_storm_chapter_3_c2a81b82",
+        "src_mtg_stories_007_episode_7_rot_before_recovery_aff91fb1",
+        "src_mtg_stories_008_episode_8_gods_of_chaos_a773d3bd",
+        "src_mtg_stories_002_episode_2_monsters_we_became_e6ec05b7"
+      ],
+      "confidence": "High",
+      "notes": ""
+    },
+    {
+      "character_id": "char_agrus_kos",
+      "name": "Agrus Kos",
+      "role": "Wojek investigator.",
+      "relationship_to_faction": "Appears in source-backed evidence for this faction.",
+      "claim_ids": [
+        "boros_legion_claim_005",
+        "boros_legion_claim_008",
+        "boros_legion_claim_009",
+        "boros_legion_claim_011",
+        "boros_legion_claim_014",
+        "boros_legion_claim_020",
+        "boros_legion_claim_021",
+        "boros_legion_claim_024"
+      ],
+      "source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_ravnica_novel_2005",
+        "src_wotc_gatecrash_boros_lore_2013",
+        "src_wotc_legends_karlov_manor_2024",
+        "src_mtg_stories_003_the_absolution_of_the_guildpact_4e863503",
+        "src_mtg_stories_004_episode_4_justice_before_mercy_57b8ab88",
+        "src_mtg_stories_007_episode_7_rot_before_recovery_aff91fb1",
+        "src_mtg_stories_006_episode_6_explosions_of_genius_9db78723"
+      ],
+      "confidence": "High",
+      "notes": ""
+    }
   ],
   "search_and_filter_metadata": {
     "faction_tags": [
@@ -107,12 +238,415 @@
       "intervention",
       "zeal",
       "teamwork"
+    ],
+    "known_characters": [
+      "Aurelia",
+      "Razia",
+      "Tajic",
+      "Feather",
+      "Agrus Kos"
+    ],
+    "known_mechanics": [
+      "mentor",
+      "battalion"
+    ],
+    "sets_or_story_arcs": [
+      "Guilds of Ravnica"
+    ],
+    "search_keywords": [
+      "Boros Legion",
+      "Ravnica",
+      "WR",
+      "Boros",
+      "justice",
+      "protection",
+      "military",
+      "intervention",
+      "zeal",
+      "teamwork",
+      "Aurelia",
+      "Razia",
+      "Tajic",
+      "Feather",
+      "Agrus Kos",
+      "mentor",
+      "battalion",
+      "Guilds of Ravnica"
     ]
   },
   "data_quality": {
     "corpus_enrichment_status": "complete_for_current_prompt_rows",
     "source_count": 17,
     "claim_count": 24,
-    "last_corpus_pass": "2026-05-10T02:24:27.430Z"
+    "last_corpus_pass": "2026-05-10T02:24:27.430Z",
+    "raw_enrichment": {
+      "review_date": "2026-05-13T21:14:06.308Z",
+      "source_basis": "data/raw-factions claims.json + sources.json",
+      "key_figures_added": 0,
+      "historical_timeline_entries": 2,
+      "canonical_flavor_text_entries": 1,
+      "relationship_entries": 0,
+      "known_characters": 5,
+      "known_mechanics": 2,
+      "story_arcs": 1
+    }
+  },
+  "historical_timeline": [
+    {
+      "event_id": "event_boros_legion_boros_legion_claim_005",
+      "event": "The parun Razia is the original founder and first leader of the Boros Legion.",
+      "date_or_era": "Founding era",
+      "claim_ids": [
+        "boros_legion_claim_005"
+      ],
+      "confidence": "High",
+      "notes": "Canon-supported claim used for raw enrichment."
+    },
+    {
+      "event_id": "event_boros_legion_boros_legion_claim_009",
+      "event": "Leadership transitioned from Razia to the angel Feather (Pierakor), and later to Aurelia.",
+      "date_or_era": "Leadership transition era",
+      "claim_ids": [
+        "boros_legion_claim_009"
+      ],
+      "confidence": "High",
+      "notes": "Canon-supported claim used for raw enrichment."
+    }
+  ],
+  "canonical_flavor_text": [
+    {
+      "card_name": "Boros Legion dossier anchor",
+      "set": "Ravnica",
+      "short_excerpt_or_summary": "Boros is the faction of immediate protection, martial solidarity, righteous intervention, and the dangerous conviction that justice sometimes has to move before procedure catches up.",
+      "is_exact_excerpt": false,
+      "claim_ids": [
+        "boros_legion_claim_001",
+        "boros_legion_claim_002",
+        "boros_legion_claim_003",
+        "boros_legion_claim_004",
+        "boros_legion_claim_005",
+        "boros_legion_claim_006",
+        "boros_legion_claim_007",
+        "boros_legion_claim_008"
+      ],
+      "source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_ravnica_novel_2005",
+        "src_wotc_guilds_ravnica_mechanics_2018",
+        "src_wotc_gatecrash_boros_lore_2013",
+        "src_wotc_legends_karlov_manor_2024"
+      ],
+      "notes": "Derived from the faction's raw dossier copy so the flavor layer stays evidence-backed and reusable for Commander Compass."
+    }
+  ],
+  "views_on_other_factions": [],
+  "commander_compass": {
+    "schema_version": "1.0.0",
+    "source_research_file": "boros_legion.commander_compass.research.json",
+    "last_reviewed": "2026-05-14",
+    "review_status": "reviewed_not_canonical_lore",
+    "recommendation_philosophy": "Prioritize aggressive, combat-oriented commanders that reward building a board presence or enhancing a single hero.",
+    "identity_basis": {
+      "owned_themes": [
+        "Aggro",
+        "Equipment",
+        "Extra Combats",
+        "Tokens",
+        "Battalion"
+      ],
+      "allowed_phrases": [
+        "Justice through fire",
+        "The righteous blade",
+        "Tactical superiority"
+      ],
+      "avoid_or_contrast_phrases": [
+        "Passive defense",
+        "Cowardice",
+        "Hesitation"
+      ],
+      "adjacent_overlap_notes": [
+        "Artifact overlap with Lorehold/Osgir",
+        "Aggro overlap with Gruul"
+      ],
+      "supporting_claim_ids": [
+        "boros_legion_claim_001",
+        "boros_legion_claim_002",
+        "boros_legion_claim_003",
+        "boros_legion_claim_004",
+        "boros_legion_claim_005",
+        "boros_legion_claim_006",
+        "boros_legion_claim_007",
+        "boros_legion_claim_008"
+      ],
+      "supporting_source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_ravnica_novel_2005",
+        "src_wotc_guilds_ravnica_mechanics_2018",
+        "src_wotc_gatecrash_boros_lore_2013"
+      ]
+    },
+    "native_fit_commanders": [
+      {
+        "exact_card_name": "Aurelia, the Warleader",
+        "display_name": "Aurelia, the Warleader",
+        "scryfall_uri": "https://scryfall.com/card/fdn/651/aurelia-the-warleader",
+        "edhrec_uri": "https://edhrec.com/commanders/aurelia-the-warleader",
+        "color_identity": [
+          "R",
+          "W"
+        ],
+        "commander_legal": true,
+        "recommendation_type": "Native Fit",
+        "archetype_tags": [
+          "Extra Combats",
+          "Aggro"
+        ],
+        "why_this_fits": "She is the definitive Boros Guildmaster, focused on overwhelming the opponent through sheer military force.",
+        "skip_if": "You prefer a slow, reactive deck or don't enjoy the combat phase.",
+        "gameplay_summary": "Grants an additional combat phase every turn she attacks, doubling your impact.",
+        "faction_identity_terms": [
+          "Warleader",
+          "Aggression",
+          "Commander"
+        ],
+        "source_basis": {
+          "card_data": [
+            "Aurelia, the Warleader"
+          ],
+          "lore_or_identity": [
+            "Guildmaster of the Boros"
+          ],
+          "commander_product_relevance": [
+            "Iconic Boros commander"
+          ],
+          "existing_repo_claim_ids": [
+            "boros_legion_claim_004",
+            "boros_legion_claim_009",
+            "boros_legion_claim_011",
+            "boros_legion_claim_013",
+            "boros_legion_claim_015",
+            "boros_legion_claim_016",
+            "boros_legion_claim_017",
+            "boros_legion_claim_018"
+          ],
+          "existing_repo_source_ids": [
+            "src_wotc_flavorful_guide_guilds_ravnica_2018",
+            "src_ravnica_novel_2005",
+            "src_wotc_gatecrash_boros_lore_2013",
+            "src_wotc_legends_karlov_manor_2024",
+            "src_mtg_stories_003_clans_legions_de2e9b38",
+            "src_mtg_stories_006_the_gathering_storm_chapter_12_a8fc6d84",
+            "src_mtg_stories_006_the_greater_good_a536bab3",
+            "src_mtg_stories_011_battle_for_the_ninth_4fb87675",
+            "src_mtg_stories_009_the_gathering_storm_chapter_3_c2a81b82"
+          ]
+        },
+        "confidence": "High",
+        "caution_notes": [],
+        "type_line": "Legendary Creature — Angel"
+      }
+    ],
+    "weird_stretch_commanders": [
+      {
+        "exact_card_name": "Osgir, the Reconstructor",
+        "display_name": "Osgir, the Reconstructor",
+        "scryfall_uri": "https://scryfall.com/card/c21/8/osgir-the-reconstructor",
+        "edhrec_uri": "https://edhrec.com/commanders/osgir-the-reconstructor",
+        "color_identity": [
+          "R",
+          "W"
+        ],
+        "commander_legal": true,
+        "recommendation_type": "Weird Stretch",
+        "archetype_tags": [
+          "Artifacts",
+          "Value",
+          "Graveyard"
+        ],
+        "why_this_fits": "While Lorehold-branded, he fits the Boros color identity and provides a unique resource-management style often missing in Ravnica Boros.",
+        "skip_if": "You want a purely 'combat-first' Ravnica flavor.",
+        "gameplay_summary": "Exiles artifacts from the graveyard to create token copies, generating massive value.",
+        "faction_identity_terms": [
+          "Reconstruction",
+          "Tactical"
+        ],
+        "source_basis": {
+          "card_data": [
+            "Osgir, the Reconstructor"
+          ],
+          "lore_or_identity": [
+            "Strixhaven Lorehold character"
+          ],
+          "commander_product_relevance": [
+            "Extremely popular Boros commander"
+          ],
+          "existing_repo_claim_ids": [
+            "boros_legion_claim_001",
+            "boros_legion_claim_002",
+            "boros_legion_claim_003",
+            "boros_legion_claim_004",
+            "boros_legion_claim_005",
+            "boros_legion_claim_006",
+            "boros_legion_claim_007",
+            "boros_legion_claim_008"
+          ],
+          "existing_repo_source_ids": [
+            "src_wotc_flavorful_guide_guilds_ravnica_2018",
+            "src_ravnica_novel_2005",
+            "src_wotc_guilds_ravnica_mechanics_2018",
+            "src_wotc_gatecrash_boros_lore_2013"
+          ]
+        },
+        "confidence": "High",
+        "caution_notes": [
+          "Flavor mismatch with Ravnica Legion.",
+          "Lorehold-branded card; keep as a cross-faction product stretch rather than native Boros lore."
+        ],
+        "type_line": "Legendary Creature — Giant Artificer"
+      }
+    ],
+    "budget_friendly_commanders": [
+      {
+        "exact_card_name": "Tajic, Legion's Edge",
+        "display_name": "Tajic, Legion's Edge",
+        "scryfall_uri": "https://scryfall.com/card/rvr/231/tajic-legions-edge",
+        "edhrec_uri": "https://edhrec.com/commanders/tajic-legions-edge",
+        "color_identity": [
+          "R",
+          "W"
+        ],
+        "commander_legal": true,
+        "recommendation_type": "Budget Friendly",
+        "archetype_tags": [
+          "Aggro",
+          "Protection",
+          "Mentor"
+        ],
+        "why_this_fits": "A low-cost commander that protects your team from damage and encourages offensive growth.",
+        "skip_if": "You are playing against decks with lots of targeted 'destroy' effects rather than 'damage' effects.",
+        "gameplay_summary": "Prevents all noncombat damage to other creatures you control, protecting from board wipes like Blasphemous Act.",
+        "faction_identity_terms": [
+          "Wojek",
+          "Mentor",
+          "Shield"
+        ],
+        "source_basis": {
+          "card_data": [
+            "Tajic, Legion's Edge"
+          ],
+          "lore_or_identity": [
+            "Leader of the Wojek investigators"
+          ],
+          "commander_product_relevance": [
+            "Affordable entry-point commander"
+          ],
+          "existing_repo_claim_ids": [
+            "boros_legion_claim_011",
+            "boros_legion_claim_013",
+            "boros_legion_claim_017"
+          ],
+          "existing_repo_source_ids": [
+            "src_ravnica_novel_2005",
+            "src_wotc_legends_karlov_manor_2024",
+            "src_mtg_stories_003_clans_legions_de2e9b38",
+            "src_mtg_stories_011_battle_for_the_ninth_4fb87675"
+          ]
+        },
+        "confidence": "High",
+        "caution_notes": [],
+        "type_line": "Legendary Creature — Human Soldier"
+      }
+    ],
+    "advanced_complexity_commanders": [
+      {
+        "exact_card_name": "Feather, the Redeemed",
+        "display_name": "Feather, the Redeemed",
+        "scryfall_uri": "https://scryfall.com/card/war/197/feather-the-redeemed",
+        "edhrec_uri": "https://edhrec.com/commanders/feather-the-redeemed",
+        "color_identity": [
+          "R",
+          "W"
+        ],
+        "commander_legal": true,
+        "recommendation_type": "Advanced",
+        "archetype_tags": [
+          "Spellslinger",
+          "Voltron"
+        ],
+        "why_this_fits": "A unique Boros 'spellslinger' engine that turns single-target buffs into recurring value.",
+        "skip_if": "You dislike tracking many triggers per turn.",
+        "gameplay_summary": "Whenever you cast a spell targeting your own creature, it returns to your hand at end of turn.",
+        "faction_identity_terms": [
+          "Redemption",
+          "Angel",
+          "Parhelion"
+        ],
+        "source_basis": {
+          "card_data": [
+            "Feather, the Redeemed"
+          ],
+          "lore_or_identity": [
+            "Former Guildmaster in exile"
+          ],
+          "commander_product_relevance": [
+            "One of the most unique WR playstyles"
+          ],
+          "existing_repo_claim_ids": [
+            "boros_legion_claim_009",
+            "boros_legion_claim_013",
+            "boros_legion_claim_015",
+            "boros_legion_claim_018",
+            "boros_legion_claim_021",
+            "boros_legion_claim_022",
+            "boros_legion_claim_023"
+          ],
+          "existing_repo_source_ids": [
+            "src_ravnica_novel_2005",
+            "src_wotc_gatecrash_boros_lore_2013",
+            "src_mtg_stories_003_clans_legions_de2e9b38",
+            "src_mtg_stories_006_the_gathering_storm_chapter_12_a8fc6d84",
+            "src_mtg_stories_009_the_gathering_storm_chapter_3_c2a81b82",
+            "src_mtg_stories_007_episode_7_rot_before_recovery_aff91fb1",
+            "src_mtg_stories_008_episode_8_gods_of_chaos_a773d3bd",
+            "src_mtg_stories_002_episode_2_monsters_we_became_e6ec05b7"
+          ]
+        },
+        "confidence": "High",
+        "caution_notes": [],
+        "type_line": "Legendary Creature — Angel"
+      }
+    ],
+    "iconic_lore_forward_commanders": [],
+    "not_recommended_or_deprioritized": [],
+    "archetype_lanes": [
+      {
+        "lane_name": "Equipment / Voltron",
+        "description": "Supting up a single creature with artifacts.",
+        "recommended_for": "Aurelia, the Warleader",
+        "skip_if": "The meta has high artifact removal.",
+        "example_commanders": [
+          "Wyleth, Soul of Steel",
+          "Akiri, Fearless Voyager"
+        ],
+        "supporting_identity_terms": [
+          "Sunhome",
+          "Artifact"
+        ],
+        "complexity": "Low",
+        "budget_friendliness": "Medium"
+      }
+    ],
+    "link_targets": {
+      "edhrec_commander_index": "https://edhrec.com/commanders/wr",
+      "mtgdecks_color_identity": "https://mtgdecks.net/Commander/Boros",
+      "scryfall_commander_search": "https://scryfall.com/search?q=is%3Acommander+identity%3AWR",
+      "archidekt_color_search": "https://www.archidekt.com/search/decks?colors=1%2C5"
+    },
+    "merge_notes": {
+      "product_guidance_not_canon": true,
+      "commander_legality_validated": true,
+      "scryfall_card_pages_validated": true,
+      "do_not_use_as_claim_source": true
+    }
   }
 }

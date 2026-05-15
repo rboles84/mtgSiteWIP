@@ -8,7 +8,7 @@ The Mermaid files are the editable diagram sources. The SVG files are static com
 | Route map | [route-map.mmd](diagrams/route-map.mmd) | [route-map.svg](diagrams/route-map.svg) |
 | Data pipeline | [data-pipeline.mmd](diagrams/data-pipeline.mmd) | [data-pipeline.svg](diagrams/data-pipeline.svg) |
 | Archscry quick flow | [archscry-quick-flow.mmd](diagrams/archscry-quick-flow.mmd) | [archscry-quick-flow.svg](diagrams/archscry-quick-flow.svg) |
-| Scrying Terminal flow | [scrying-terminal-flow.mmd](diagrams/scrying-terminal-flow.mmd) | [scrying-terminal-flow.svg](diagrams/scrying-terminal-flow.svg) |
+| Archived Scrying Terminal flow | [scrying-terminal-flow.mmd](diagrams/scrying-terminal-flow.mmd) | [scrying-terminal-flow.svg](diagrams/scrying-terminal-flow.svg) |
 | Maze Scryfall flow | [maze-scryfall-flow.mmd](diagrams/maze-scryfall-flow.mmd) | [maze-scryfall-flow.svg](diagrams/maze-scryfall-flow.svg) |
 | Persistence and auth flow | [persistence-auth-flow.mmd](diagrams/persistence-auth-flow.mmd) | [persistence-auth-flow.svg](diagrams/persistence-auth-flow.svg) |
 | Command panel flow | [command-panel-flow.mmd](diagrams/command-panel-flow.mmd) | [command-panel-flow.svg](diagrams/command-panel-flow.svg) |
@@ -29,9 +29,9 @@ The Mermaid files are the editable diagram sources. The SVG files are static com
 
 ![Archscry quick flow](diagrams/archscry-quick-flow.svg)
 
-## Scrying Terminal Flow
+## Archived Scrying Terminal Flow
 
-![Scrying Terminal flow](diagrams/scrying-terminal-flow.svg)
+![Archived Scrying Terminal flow](diagrams/scrying-terminal-flow.svg)
 
 ## Maze Scryfall Flow
 

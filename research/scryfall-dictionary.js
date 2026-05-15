@@ -168,7 +168,7 @@ export const DEFAULT_DICTIONARY = {
     { label: "ETB", triggers: ["etb", "enters the battlefield", "enters", "when this enters"], query: "o:enters" },
     { label: "Treasure", triggers: ["treasure", "treasures", "make treasure", "creates treasure", "create treasure"], query: "o:treasure" },
     { label: "Card draw", triggers: ["draw cards", "draw a card", "card draw", "draw"], query: "o:draw" },
-    { label: "Removal", triggers: ["removal", "kill spell", "answer", "answers"], query: "(o:\"destroy target\" OR o:\"exile target\" OR o:\"return target\" OR o:\"tap target\" OR o:\"counter target\")" },
+    { label: "Removal", triggers: ["removal", "kill spell", "answer", "answers"], query: "otag:removal" },
     { label: "Destroy target creature", triggers: ["destroy target creature", "kill a creature", "kills a creature"], query: "o:\"destroy target creature\"" },
     { label: "Exile target creature", triggers: ["exile target creature", "exiles a creature"], query: "o:\"exile target creature\"" },
     { label: "+1/+1 counters", triggers: ["+1/+1 counter", "+1/+1 counters", "plus one plus one counter", "plus one plus one counters", "counter synergy"], query: "o:/\\+1\\/\\+1 counter/" },
@@ -177,7 +177,10 @@ export const DEFAULT_DICTIONARY = {
     { label: "Counterspell", triggers: ["counterspell", "counter target spell", "counter spells", "counters spells"], query: "o:\"counter target spell\"" },
     { label: "Tokens", triggers: ["make tokens", "create tokens", "token maker", "tokens"], query: "o:token" },
     { label: "Lifegain", triggers: ["gain life", "lifegain", "life gain"], query: "o:\"gain life\"" },
-    { label: "Ramp", triggers: ["ramp", "land search", "search for lands"], query: "(o:\"search your library for a land\" OR o:\"search your library for a basic land\" OR o:\"add {\")" },
+    { label: "Ramp", triggers: ["ramp", "land search", "search for lands"], query: "otag:mana-ramp" },
+    { label: "Tutor", triggers: ["tutor", "tutors"], query: "otag:tutor" },
+    { label: "Card advantage", triggers: ["card advantage"], query: "otag:card-advantage" },
+    { label: "Draw engine", triggers: ["draw engine", "draw engines"], query: "otag:draw-engine" },
     { label: "Graveyard", triggers: ["graveyard", "from graveyard", "reanimate", "reanimation"], query: "o:graveyard" }
   ],
   formats: {
@@ -208,9 +211,23 @@ export const DEFAULT_DICTIONARY = {
     popular: "order:edhrec",
     edhrec: "order:edhrec",
     newest: "order:released",
+    "newest cards": "order:released direction:desc",
     expensive: "order:usd",
     name: "order:name"
-  }
+  },
+  queryPhrases: [
+    { label: "Banned in Modern", triggers: ["banned in modern", "banned:modern"], query: "banned:modern" },
+    { label: "Restricted in Vintage", triggers: ["restricted in vintage", "restricted:vintage"], query: "restricted:vintage" },
+    { label: "Commander candidate", triggers: ["is commander", "is a commander", "can be my commander", "is:commander"], query: "is:commander" },
+    { label: "Paper cards", triggers: ["paper cards", "paper cards only", "game paper", "game:paper"], query: "game:paper" },
+    { label: "Exclude digital", triggers: ["not digital", "exclude digital", "without digital", "not:digital"], query: "not:digital" },
+    { label: "Include extras", triggers: ["include extras", "include tokens", "include tokens planes schemes", "include:extras"], query: "include:extras" },
+    { label: "Prefer newest", triggers: ["prefer newest", "newest printing", "prefer:newest"], query: "prefer:newest" },
+    { label: "Prefer oldest", triggers: ["prefer old", "prefer oldest", "oldest printing", "prefer:oldest"], query: "prefer:oldest" },
+    { label: "Unique cards", triggers: ["unique cards", "one result per card", "unique:cards"], query: "unique:cards" },
+    { label: "Unique art", triggers: ["unique art", "unique:art"], query: "unique:art" },
+    { label: "All printings", triggers: ["all printings", "unique prints", "unique:prints"], query: "unique:prints" }
+  ]
 };
 
 /**
@@ -253,6 +270,14 @@ export function createDictionaryFromSeed(seed) {
       triggers.forEach((trigger) => addMapEntry(dictionary.rarities, trigger, output));
     } else if (type === "price") {
       triggers.forEach((trigger) => addMapEntry(dictionary.pricePhrases, trigger, output));
+    } else if (type === "sorting") {
+      triggers.forEach((trigger) => addMapEntry(dictionary.sorting, trigger, output));
+    } else if (shouldBecomeQueryPhrase(type, output)) {
+      dictionary.queryPhrases.push({
+        label: row["Data Point"] || triggers[0],
+        triggers,
+        query: output
+      });
     } else if (shouldBecomeOraclePhrase(type, output)) {
       dictionary.oraclePhrases.push({
         label: row["Data Point"] || triggers[0],
@@ -263,6 +288,7 @@ export function createDictionaryFromSeed(seed) {
   });
 
   dictionary.oraclePhrases = dedupePhraseRows(dictionary.oraclePhrases);
+  dictionary.queryPhrases = dedupePhraseRows(dictionary.queryPhrases);
   return dictionary;
 }
 
@@ -310,11 +336,39 @@ function normalizeTrigger(value) {
  * @returns {string} Runtime query term.
  */
 function normalizeSeedOutput(value) {
-  const output = String(value).trim();
+  let output = String(value).trim();
   if (!output || output === "implicit AND" || output === "OR" || output === "( )") {
     return "";
   }
+  output = output
+    .replace(/\bb:modern\b/g, "banned:modern")
+    .replace(/\botag:wrath\b/g, "otag:board-wipe")
+    .replace(/\botag:ramp-mana-rock\b/g, "otag:mana-rock")
+    .replace(/\bis:alt-?art\b/g, "is:alternate");
   return output;
+}
+
+/**
+ * Decides whether a seed row is a generic phrase-to-query row.
+ * @param {string} type - Normalized seed row type.
+ * @param {string} output - Runtime query output.
+ * @returns {boolean} True when the row should be matched as a query phrase.
+ */
+function shouldBecomeQueryPhrase(type, output) {
+  if (!output) return false;
+  return [
+    "status",
+    "treatment",
+    "finish",
+    "frame",
+    "availability",
+    "extras",
+    "display",
+    "preference",
+    "set metadata",
+    "card structure",
+    "face type"
+  ].some((knownType) => type.includes(knownType));
 }
 
 /**
@@ -325,7 +379,7 @@ function normalizeSeedOutput(value) {
  */
 function shouldBecomeOraclePhrase(type, output) {
   if (!output) return false;
-  if (output.startsWith("o:") || output.startsWith("fo:") || output.includes("o:\"")) return true;
+  if (output.startsWith("o:") || output.startsWith("fo:") || output.startsWith("otag:") || output.includes("o:\"")) return true;
   return [
     "removal",
     "ramp",

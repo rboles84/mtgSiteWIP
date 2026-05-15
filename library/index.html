@@ -84,18 +84,14 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 }
 </style>
 </head>
-<body data-page="apocrypha" data-vm-current="apocrypha" data-bg="medium">
+<body data-page="apocrypha" data-vm-current="apocrypha" data-bg="medium" data-bg-clean="true">
 
 <div class="vm-bg" aria-hidden="true">
   <picture class="vm-bg__picture">
-    <source type="image/avif" srcset="/assets/img/vox-mana-hero-768w.avif 768w, /assets/img/vox-mana-hero-1280w.avif 1280w, /assets/img/vox-mana-hero-2560w.avif 2560w" sizes="100vw">
-    <source type="image/webp" srcset="/assets/img/vox-mana-hero-768w.webp 768w, /assets/img/vox-mana-hero-1280w.webp 1280w, /assets/img/vox-mana-hero-2560w.webp 2560w" sizes="100vw">
-    <img src="/assets/img/vox-mana-hero-1280w.jpg" alt="" decoding="async">
+    <source type="image/webp" srcset="/assets/img/backgrounds/background-apocrypha-library-clean-01.webp 2560w" sizes="100vw">
+    <img src="/assets/img/backgrounds/background-apocrypha-library-clean-01.webp" alt="" decoding="async">
   </picture>
-  <div class="vm-bg__nebula"></div>
 </div>
-
-<div class="page">
 
 <header class="vm-topbar" role="banner">
   <a class="vm-brand" href="/" aria-label="Vox Mana — home">
@@ -146,6 +142,8 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
     </div>
   </div>
 </header>
+
+<div class="page">
 
   <!-- HERO -->
   <div class="hero">
@@ -309,6 +307,5 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 </div>
 <script src="/assets/js/reduce-motion.js" defer></script>
 <script src="/assets/js/vm-topbar.js" defer></script>
-<script src="/assets/js/atmosphere.js" defer></script>
 </body>
 </html>

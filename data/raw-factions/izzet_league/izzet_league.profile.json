@@ -13,7 +13,7 @@
   "source_review_date": "2026-05-09",
   "last_full_review": "2026-05-09",
   "last_incremental_review": "2026-05-09",
-  "last_updated": "2026-05-09",
+  "last_updated": "2026-05-13T21:14:06.308Z",
   "site_surface": {
     "display_name": "Izzet League",
     "short_summary": "Blue-red Ravnican guild of elemental science, civic engineering, volatile invention, and crisis-scale experimentation under the long shadow of Niv-Mizzet and Ral Zarek.",
@@ -813,7 +813,37 @@
       "notes": "No broader Mizzix biography is inferred from this pass."
     }
   ],
-  "canonical_flavor_text": [],
+  "canonical_flavor_text": [
+    {
+      "card_name": "Izzet League dossier anchor",
+      "set": "Ravnica",
+      "short_excerpt_or_summary": "Invent first. Stabilize later.",
+      "is_exact_excerpt": false,
+      "claim_ids": [
+        "claim_izzet_league_0001",
+        "claim_izzet_league_0003",
+        "claim_izzet_league_0004",
+        "claim_izzet_league_0005",
+        "claim_izzet_league_0006",
+        "claim_izzet_league_0030",
+        "claim_izzet_league_0031",
+        "claim_izzet_league_0032"
+      ],
+      "source_ids": [
+        "src_izzet_league_0001",
+        "src_izzet_league_0005",
+        "src_izzet_league_0007",
+        "src_izzet_league_0002",
+        "src_izzet_league_0003",
+        "src_izzet_league_0006",
+        "src_izzet_league_0017",
+        "src_izzet_league_0022",
+        "src_izzet_league_0023",
+        "src_izzet_league_0025"
+      ],
+      "notes": "Derived from the faction's raw dossier copy so the flavor layer stays evidence-backed and reusable for Commander Compass."
+    }
+  ],
   "views_on_other_factions": [
     {
       "relationship_id": "rel_izzet_league_azorius_senate_0001",
@@ -993,7 +1023,8 @@
     "known_mechanics": [
       "Replicate",
       "Overload",
-      "Jump-start"
+      "Jump-start",
+      "ward"
     ],
     "known_characters": [
       "Niv-Mizzet",
@@ -1073,7 +1104,25 @@
       "Weirds",
       "Mizzium",
       "blue red",
-      "dragon"
+      "dragon",
+      "Ravnica",
+      "Chamberlain Maree",
+      "Trenz",
+      "Madarrak",
+      "Castan",
+      "Yzaak",
+      "Chamberlain Pelener",
+      "Erno Zslod",
+      "Leighbet",
+      "Dax Foley",
+      "Tamsyn Sweene",
+      "Gullifen",
+      "Replicate",
+      "Overload",
+      "Jump-start",
+      "ward",
+      "Guilds of Ravnica",
+      "War of the Spark"
     ]
   },
   "data_quality": {
@@ -1094,7 +1143,18 @@
       "Melek and Mizzix coverage is intentionally narrow and limited to reviewed Project Lightning Bug evidence plus existing official/card-source coverage."
     ],
     "needs_review": false,
-    "notes": "Incremental GitHub MTG-Stories search pass expanded story-local coverage while preserving official sources as higher authority."
+    "notes": "Incremental GitHub MTG-Stories search pass expanded story-local coverage while preserving official sources as higher authority.",
+    "raw_enrichment": {
+      "review_date": "2026-05-13T21:14:06.308Z",
+      "source_basis": "data/raw-factions claims.json + sources.json",
+      "key_figures_added": 0,
+      "historical_timeline_entries": 15,
+      "canonical_flavor_text_entries": 1,
+      "relationship_entries": 6,
+      "known_characters": 15,
+      "known_mechanics": 4,
+      "story_arcs": 2
+    }
   },
   "research_limitations": [
     {
@@ -1134,5 +1194,505 @@
       ],
       "notes": "Future updates should replace archive source IDs with official page source IDs only after inspecting the official pages."
     }
-  ]
+  ],
+  "commander_compass": {
+    "schema_version": "1.0.0",
+    "source_research_file": "izzet_league.commander_compass.research.json",
+    "last_reviewed": "2026-05-14",
+    "review_status": "reviewed_not_canonical_lore",
+    "recommendation_philosophy": "Favor commanders that turn casting, copying, drawing, and sequencing spells into visible momentum. Native Izzet should feel like a lab experiment that might become a controlled masterpiece or a spectacular explosion; weird stretches are allowed only when they preserve the spell-experiment gameplay loop.",
+    "identity_basis": {
+      "owned_themes": [
+        "reckless invention",
+        "public works and infrastructure",
+        "experimentation",
+        "instants and sorceries",
+        "spell copying",
+        "card draw engines",
+        "big explosive turns",
+        "mizzium/chemister aesthetics",
+        "Niv-Mizzet and the Firemind"
+      ],
+      "allowed_phrases": [
+        "spellslinger laboratory",
+        "reckless research engine",
+        "draw-burn dragon control",
+        "copy the experiment",
+        "mana-fueled invention",
+        "explosive spell sequence"
+      ],
+      "avoid_or_contrast_phrases": [
+        "law-and-order control without chaos",
+        "pure artifact combo with no spell identity",
+        "generic blue-red goodstuff with no experiment hook",
+        "canon proof of deck preference"
+      ],
+      "adjacent_overlap_notes": [
+        "Artifact/invention decks can be Izzet-adjacent, but the strongest guild signal is still instant/sorcery sequencing and experimental payoff. Non-Ravnican spell commanders can be used as product-adjacent weird stretches, not lore claims."
+      ],
+      "supporting_claim_ids": [
+        "claim_izzet_league_0008",
+        "claim_izzet_league_0009",
+        "claim_izzet_league_0025",
+        "claim_izzet_league_0036",
+        "claim_izzet_league_0037",
+        "claim_izzet_league_0039",
+        "claim_izzet_league_0045"
+      ],
+      "supporting_source_ids": [
+        "src_izzet_league_0002",
+        "src_izzet_league_0003",
+        "src_izzet_league_0012",
+        "src_izzet_league_0010",
+        "src_izzet_league_0011"
+      ]
+    },
+    "native_fit_commanders": [
+      {
+        "exact_card_name": "Niv-Mizzet, Parun",
+        "display_name": "Niv-Mizzet, Parun",
+        "scryfall_uri": "https://scryfall.com/card/otc/235/niv-mizzet-parun",
+        "edhrec_uri": "https://edhrec.com/commanders/niv-mizzet-parun",
+        "color_identity": [
+          "R",
+          "U"
+        ],
+        "commander_legal": true,
+        "recommendation_type": "Native Fit",
+        "archetype_tags": [
+          "Spellslinger",
+          "Draw-Burn",
+          "Control",
+          "Combo"
+        ],
+        "why_this_fits": "He is the cleanest native Izzet bridge: a Ravnican Izzet leader whose gameplay rewards instant/sorcery exchanges with cards and turns card draw into precise damage.",
+        "skip_if": "Skip if your table dislikes compact draw-damage combos, repeated triggers, or commanders that become the whole deck plan.",
+        "gameplay_summary": "Draws cards whenever any player casts an instant or sorcery, then converts each card you draw into 1 damage to any target.",
+        "faction_identity_terms": [
+          "experimentation",
+          "Firemind",
+          "card draw",
+          "spell mastery",
+          "Niv-Mizzet"
+        ],
+        "source_basis": {
+          "card_data": [
+            "https://scryfall.com/search?as=grid&order=name&q=%21%22Niv-Mizzet%2C%20Parun%22&unique=cards"
+          ],
+          "lore_or_identity": [
+            "https://magic.wizards.com/en/news/feature/flavorful-guide-guilds-ravnica-2018-10-03",
+            "https://magic.wizards.com/en/news/feature/commanding-guilds-ravnica-2018-10-18",
+            "https://magic.wizards.com/en/news/feature/guilds-ravnica-mechanics-2018-09-04"
+          ],
+          "commander_product_relevance": [
+            "https://edhrec.com/commanders/niv-mizzet-parun",
+            "https://edhrec.com/commanders/izzet"
+          ],
+          "existing_repo_claim_ids": [
+            "claim_izzet_league_0008",
+            "claim_izzet_league_0009",
+            "claim_izzet_league_0025",
+            "claim_izzet_league_0036",
+            "claim_izzet_league_0037",
+            "claim_izzet_league_0039",
+            "claim_izzet_league_0045"
+          ],
+          "existing_repo_source_ids": [
+            "src_izzet_league_0002",
+            "src_izzet_league_0003",
+            "src_izzet_league_0012",
+            "src_izzet_league_0010",
+            "src_izzet_league_0011"
+          ]
+        },
+        "confidence": "High",
+        "caution_notes": [],
+        "type_line": "Legendary Creature — Dragon Wizard"
+      },
+      {
+        "exact_card_name": "Melek, Izzet Paragon",
+        "display_name": "Melek, Izzet Paragon",
+        "scryfall_uri": "https://scryfall.com/card/cmm/345/melek-izzet-paragon",
+        "edhrec_uri": "https://edhrec.com/commanders/melek-izzet-paragon",
+        "color_identity": [
+          "R",
+          "U"
+        ],
+        "commander_legal": true,
+        "recommendation_type": "Native Fit",
+        "archetype_tags": [
+          "Spellslinger",
+          "Spell Copy",
+          "Topdeck"
+        ],
+        "why_this_fits": "Melek preserves the lab-chaos feel without defaulting to the dragon. Revealing the top card and copying spells feels like an unstable experiment becoming repeatable technique.",
+        "skip_if": "Skip if you want a low-curve commander or dislike playing with the top of your library revealed.",
+        "gameplay_summary": "A six-mana spell-copy commander that turns the top of the library into an extension of your hand for instant and sorcery chains.",
+        "faction_identity_terms": [
+          "experiment",
+          "weird",
+          "spell copying",
+          "laboratory"
+        ],
+        "source_basis": {
+          "card_data": [
+            "https://scryfall.com/search?as=grid&order=name&q=%21%22Melek%2C%20Izzet%20Paragon%22&unique=cards"
+          ],
+          "lore_or_identity": [
+            "https://magic.wizards.com/en/news/feature/commanding-guilds-ravnica-2018-10-18",
+            "https://github.com/polarkac/MTG-Stories"
+          ],
+          "commander_product_relevance": [
+            "https://edhrec.com/commanders/melek-izzet-paragon",
+            "https://edhrec.com/commanders/izzet"
+          ],
+          "existing_repo_claim_ids": [
+            "claim_izzet_league_0101"
+          ],
+          "existing_repo_source_ids": [
+            "src_izzet_league_0014"
+          ]
+        },
+        "confidence": "Medium",
+        "caution_notes": [],
+        "type_line": "Legendary Creature — Weird Wizard"
+      }
+    ],
+    "weird_stretch_commanders": [
+      {
+        "exact_card_name": "Ovika, Enigma Goliath",
+        "display_name": "Ovika, Enigma Goliath",
+        "scryfall_uri": "https://scryfall.com/card/fdn/663/ovika-enigma-goliath",
+        "edhrec_uri": "https://edhrec.com/commanders/ovika-enigma-goliath",
+        "color_identity": [
+          "R",
+          "U"
+        ],
+        "commander_legal": true,
+        "recommendation_type": "Weird Stretch",
+        "archetype_tags": [
+          "Noncreature Spells",
+          "Tokens",
+          "Big Mana"
+        ],
+        "why_this_fits": "Ovika is not a Ravnica lore fit, but the gameplay is a strong Izzet product stretch: noncreature spells become a chaotic engineered creature swarm.",
+        "skip_if": "Skip if you want a lore-forward Ravnican commander, a fast commander, or a deck that avoids board-token bookkeeping.",
+        "gameplay_summary": "A high-cost spell payoff that turns every noncreature spell into hasty Phyrexian Goblins, rewarding big spells and protection.",
+        "faction_identity_terms": [
+          "experiment",
+          "spell output",
+          "chaotic creation",
+          "engineered swarm"
+        ],
+        "source_basis": {
+          "card_data": [
+            "https://scryfall.com/search?as=grid&order=name&q=%21%22Ovika%2C%20Enigma%20Goliath%22&unique=cards"
+          ],
+          "lore_or_identity": [
+            "https://magic.wizards.com/en/news/feature/commanding-guilds-ravnica-2018-10-18",
+            "https://magic.wizards.com/en/news/feature/guilds-ravnica-mechanics-2018-09-04"
+          ],
+          "commander_product_relevance": [
+            "https://edhrec.com/commanders/ovika-enigma-goliath",
+            "https://edhrec.com/commanders/izzet"
+          ],
+          "existing_repo_claim_ids": [
+            "claim_izzet_league_0008",
+            "claim_izzet_league_0009",
+            "claim_izzet_league_0025",
+            "claim_izzet_league_0036",
+            "claim_izzet_league_0037",
+            "claim_izzet_league_0039",
+            "claim_izzet_league_0045"
+          ],
+          "existing_repo_source_ids": [
+            "src_izzet_league_0002",
+            "src_izzet_league_0003",
+            "src_izzet_league_0012",
+            "src_izzet_league_0010",
+            "src_izzet_league_0011"
+          ]
+        },
+        "confidence": "Medium",
+        "caution_notes": [
+          "Product guidance only; not an Izzet/Ravnica lore claim."
+        ],
+        "type_line": "Legendary Creature — Phyrexian Nightmare"
+      }
+    ],
+    "budget_friendly_commanders": [
+      {
+        "exact_card_name": "Vadrik, Astral Archmage",
+        "display_name": "Vadrik, Astral Archmage",
+        "scryfall_uri": "https://scryfall.com/card/mid/248/vadrik-astral-archmage",
+        "edhrec_uri": "https://edhrec.com/commanders/vadrik-astral-archmage",
+        "color_identity": [
+          "R",
+          "U"
+        ],
+        "commander_legal": true,
+        "recommendation_type": "Budget Friendly",
+        "archetype_tags": [
+          "Spellslinger",
+          "Cost Reduction",
+          "Storm-Adjacent"
+        ],
+        "why_this_fits": "Vadrik offers a lower-cost way to experience the Izzet spell-chain fantasy: grow the commander, then turn spell costs into fuel for bigger turns.",
+        "skip_if": "Skip if you want official Izzet characters, Ravnica flavor, or dislike day/night tracking and power-based cost math.",
+        "gameplay_summary": "A small commander that discounts instants and sorceries based on power, enabling explosive turns without requiring a premium legend.",
+        "faction_identity_terms": [
+          "spell sequencing",
+          "mana efficiency",
+          "experiment scaling"
+        ],
+        "source_basis": {
+          "card_data": [
+            "https://scryfall.com/search?as=grid&order=name&q=%21%22Vadrik%2C%20Astral%20Archmage%22&unique=cards"
+          ],
+          "lore_or_identity": [
+            "https://magic.wizards.com/en/news/feature/commanding-guilds-ravnica-2018-10-18",
+            "https://magic.wizards.com/en/news/feature/guilds-ravnica-mechanics-2018-09-04"
+          ],
+          "commander_product_relevance": [
+            "https://edhrec.com/commanders/vadrik-astral-archmage",
+            "https://edhrec.com/commanders/izzet"
+          ],
+          "existing_repo_claim_ids": [
+            "claim_izzet_league_0008",
+            "claim_izzet_league_0009",
+            "claim_izzet_league_0025",
+            "claim_izzet_league_0036",
+            "claim_izzet_league_0037",
+            "claim_izzet_league_0039",
+            "claim_izzet_league_0045"
+          ],
+          "existing_repo_source_ids": [
+            "src_izzet_league_0002",
+            "src_izzet_league_0003",
+            "src_izzet_league_0012",
+            "src_izzet_league_0010",
+            "src_izzet_league_0011"
+          ]
+        },
+        "confidence": "Medium",
+        "caution_notes": [
+          "Not Ravnica-native; recommend as budget gameplay adjacency only."
+        ],
+        "type_line": "Legendary Creature — Human Wizard"
+      }
+    ],
+    "advanced_complexity_commanders": [
+      {
+        "exact_card_name": "Mizzix of the Izmagnus",
+        "display_name": "Mizzix of the Izmagnus",
+        "scryfall_uri": "https://scryfall.com/card/cmm/348/mizzix-of-the-izmagnus",
+        "edhrec_uri": "https://edhrec.com/commanders/mizzix-of-the-izmagnus",
+        "color_identity": [
+          "R",
+          "U"
+        ],
+        "commander_legal": true,
+        "recommendation_type": "Advanced",
+        "archetype_tags": [
+          "Experience Counters",
+          "Spellslinger",
+          "Combo"
+        ],
+        "why_this_fits": "Mizzix captures the escalating experiment: every correctly sequenced spell makes the next experiment cheaper and more dangerous.",
+        "skip_if": "Skip if your group dislikes storm turns, long sequencing, or commanders that snowball from cost reduction.",
+        "gameplay_summary": "An experience-counter commander that discounts instants and sorceries, rewarding careful curve construction and spell-stack planning.",
+        "faction_identity_terms": [
+          "experiment scaling",
+          "cost reduction",
+          "spell mastery",
+          "combo engineering"
+        ],
+        "source_basis": {
+          "card_data": [
+            "https://scryfall.com/search?as=grid&order=name&q=%21%22Mizzix%20of%20the%20Izmagnus%22&unique=cards"
+          ],
+          "lore_or_identity": [
+            "https://magic.wizards.com/en/news/feature/commanding-guilds-ravnica-2018-10-18",
+            "https://magic.wizards.com/en/news/feature/guilds-ravnica-mechanics-2018-09-04",
+            "https://github.com/polarkac/MTG-Stories"
+          ],
+          "commander_product_relevance": [
+            "https://edhrec.com/commanders/mizzix-of-the-izmagnus",
+            "https://edhrec.com/commanders/izzet"
+          ],
+          "existing_repo_claim_ids": [
+            "claim_izzet_league_0102"
+          ],
+          "existing_repo_source_ids": [
+            "src_izzet_league_0014"
+          ]
+        },
+        "confidence": "High",
+        "caution_notes": [
+          "Can drift into high-power combo if tuned aggressively."
+        ],
+        "type_line": "Legendary Creature — Goblin Wizard"
+      }
+    ],
+    "iconic_lore_forward_commanders": [
+      {
+        "exact_card_name": "Niv-Mizzet, Dracogenius",
+        "display_name": "Niv-Mizzet, Dracogenius",
+        "scryfall_uri": "https://scryfall.com/card/c17/184/niv-mizzet-dracogenius",
+        "edhrec_uri": "https://edhrec.com/commanders/niv-mizzet-dracogenius",
+        "color_identity": [
+          "R",
+          "U"
+        ],
+        "commander_legal": true,
+        "recommendation_type": "Iconic Lore-Forward",
+        "archetype_tags": [
+          "Dragon",
+          "Card Draw",
+          "Ping Damage"
+        ],
+        "why_this_fits": "This is a slower, more table-readable way to center Niv-Mizzet as Izzet identity: intellect, fire, and repeatable resource conversion.",
+        "skip_if": "Skip if you need modern efficiency or want the strongest Niv-Mizzet Commander option.",
+        "gameplay_summary": "A classic Izzet dragon commander that converts mana and combat damage into card draw and damage, emphasizing Niv-Mizzet as guild icon.",
+        "faction_identity_terms": [
+          "Niv-Mizzet",
+          "Firemind",
+          "dragon",
+          "invention",
+          "card draw"
+        ],
+        "source_basis": {
+          "card_data": [
+            "https://scryfall.com/search?as=grid&order=name&q=%21%22Niv-Mizzet%2C%20Dracogenius%22&unique=cards"
+          ],
+          "lore_or_identity": [
+            "https://magic.wizards.com/en/news/feature/flavorful-guide-guilds-ravnica-2018-10-03",
+            "https://github.com/polarkac/MTG-Stories"
+          ],
+          "commander_product_relevance": [
+            "https://edhrec.com/commanders/niv-mizzet-dracogenius",
+            "https://edhrec.com/commanders/izzet"
+          ],
+          "existing_repo_claim_ids": [
+            "claim_izzet_league_0008",
+            "claim_izzet_league_0009",
+            "claim_izzet_league_0025",
+            "claim_izzet_league_0036",
+            "claim_izzet_league_0037",
+            "claim_izzet_league_0039",
+            "claim_izzet_league_0045"
+          ],
+          "existing_repo_source_ids": [
+            "src_izzet_league_0002",
+            "src_izzet_league_0003",
+            "src_izzet_league_0012",
+            "src_izzet_league_0010",
+            "src_izzet_league_0011"
+          ]
+        },
+        "confidence": "Medium",
+        "caution_notes": [],
+        "type_line": "Legendary Creature — Dragon Wizard"
+      }
+    ],
+    "not_recommended_or_deprioritized": [
+      {
+        "name": "Ral Zarek",
+        "reason": "Planeswalker card without commander permission; do not recommend as a commander.",
+        "could_still_be_used_if": "Could be included in the 99 of an Izzet deck if legal for the format.",
+        "confidence": "High"
+      },
+      {
+        "name": "Niv-Mizzet Reborn",
+        "reason": "Five-color identity; off-color for a strict UR Izzet Commander Compass result.",
+        "could_still_be_used_if": "Could appear in an adjacent five-color Ravnica/guilds experience, not this UR lane.",
+        "confidence": "High"
+      },
+      {
+        "name": "Niv-Mizzet, Supreme",
+        "reason": "Five-color identity; not appropriate for strict Izzet color filtering.",
+        "could_still_be_used_if": "Use only in a five-color spells/guildpact product path.",
+        "confidence": "High"
+      }
+    ],
+    "archetype_lanes": [
+      {
+        "lane_name": "Draw-Burn Spellslinger",
+        "description": "Use cantrips, wheels, and instant/sorcery triggers to convert card draw into damage and control.",
+        "recommended_for": "Players who want the most recognizable Izzet commander experience.",
+        "skip_if": "Avoid if compact combos or repeated triggers are unwelcome.",
+        "example_commanders": [
+          "Niv-Mizzet, Parun",
+          "Niv-Mizzet, Dracogenius"
+        ],
+        "supporting_identity_terms": [
+          "Firemind",
+          "card draw",
+          "spell mastery"
+        ],
+        "complexity": "High",
+        "budget_friendliness": "Variable"
+      },
+      {
+        "lane_name": "Spell-Copy Laboratory",
+        "description": "Cast from unusual zones, copy spells, and turn the top of the deck or the stack into a lab bench.",
+        "recommended_for": "Players who enjoy sequencing and visible spellcraft.",
+        "skip_if": "Avoid if you dislike topdeck management or stack complexity.",
+        "example_commanders": [
+          "Melek, Izzet Paragon",
+          "Mizzix of the Izmagnus"
+        ],
+        "supporting_identity_terms": [
+          "experiment",
+          "copy",
+          "laboratory"
+        ],
+        "complexity": "High",
+        "budget_friendliness": "Medium"
+      },
+      {
+        "lane_name": "Noncreature Spell Output",
+        "description": "Treat spells as production signals that create tokens or board presence.",
+        "recommended_for": "Players who want Izzet to end with a battlefield, not just a combo finish.",
+        "skip_if": "Avoid if token volume slows your table.",
+        "example_commanders": [
+          "Ovika, Enigma Goliath"
+        ],
+        "supporting_identity_terms": [
+          "engineered swarm",
+          "experiment output"
+        ],
+        "complexity": "Medium",
+        "budget_friendliness": "High"
+      },
+      {
+        "lane_name": "Cost-Reduction Engine",
+        "description": "Build around spell discounts and escalating turns.",
+        "recommended_for": "Players who like storm-adjacent math and resource optimization.",
+        "skip_if": "Avoid if long solitaire turns are a table concern.",
+        "example_commanders": [
+          "Mizzix of the Izmagnus",
+          "Vadrik, Astral Archmage"
+        ],
+        "supporting_identity_terms": [
+          "cost reduction",
+          "mana mastery"
+        ],
+        "complexity": "High",
+        "budget_friendliness": "Medium"
+      }
+    ],
+    "link_targets": {
+      "edhrec_commander_index": "https://edhrec.com/commanders/izzet",
+      "mtgdecks_color_identity": "https://mtgdecks.net/Commander/izzet",
+      "scryfall_commander_search": "https://scryfall.com/search?as=grid&order=edhrec&q=is%3Acommander+legal%3Acommander+ci%3Dur&unique=cards",
+      "archidekt_color_search": "https://archidekt.com/search/decks?formats=3&colors=U%2CR"
+    },
+    "merge_notes": {
+      "product_guidance_not_canon": true,
+      "commander_legality_validated": true,
+      "scryfall_card_pages_validated": true,
+      "do_not_use_as_claim_source": true
+    }
+  }
 }

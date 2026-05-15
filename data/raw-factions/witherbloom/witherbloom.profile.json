@@ -8,7 +8,7 @@
     "black",
     "green"
   ],
-  "last_updated": "2026-05-09",
+  "last_updated": "2026-05-13T21:14:06.308Z",
   "profile": {
     "overview": "Witherbloom College is a black-green college associated with Arcavios / Strixhaven.",
     "philosophy": "Life and death are living essences to study, brew, heal with, bargain with, and weaponize.",
@@ -87,8 +87,116 @@
     ]
   },
   "historical_timeline": [],
-  "key_figures": [],
-  "canonical_flavor_text": [],
+  "key_figures": [
+    {
+      "character_id": "char_dina",
+      "name": "Dina",
+      "role": "Named Witherbloom figure in archive evidence.",
+      "relationship_to_faction": "Appears in source-backed evidence for this faction.",
+      "claim_ids": [
+        "witherbloom_claim_0007",
+        "witherbloom_claim_0009",
+        "witherbloom_claim_0010",
+        "witherbloom_claim_0012",
+        "witherbloom_claim_0013",
+        "witherbloom_claim_0014",
+        "witherbloom_claim_0015",
+        "witherbloom_claim_0016"
+      ],
+      "source_ids": [
+        "src_mtg_stories_the_chains_that_bind_5673ab04",
+        "src_mtg_stories_episode_4_put_to_the_test_8c6b8d55",
+        "src_mtg_stories_down_to_the_lake_alone_520df369",
+        "src_mtg_stories_episode_3_extracurriculars_39c7efc0",
+        "src_mtg_stories_a_silent_voice_calls_36854b19",
+        "src_mtg_stories_episode_1_penmanship_practice_f245144d",
+        "src_mtg_stories_episode_1_out_of_this_wood_200b2e5d",
+        "src_mtg_stories_homecoming_ce00b8af"
+      ],
+      "confidence": "Medium",
+      "notes": ""
+    },
+    {
+      "character_id": "char_lisette",
+      "name": "Lisette",
+      "role": "Named Witherbloom figure in archive evidence.",
+      "relationship_to_faction": "Appears in source-backed evidence for this faction.",
+      "claim_ids": [
+        "witherbloom_claim_0007",
+        "witherbloom_claim_0008",
+        "witherbloom_claim_0011"
+      ],
+      "source_ids": [
+        "src_mtg_stories_the_chains_that_bind_5673ab04",
+        "src_mtg_stories_episode_2_lessons_988edeb7",
+        "src_mtg_stories_episode_1_class_is_in_session_bd3caf13"
+      ],
+      "confidence": "Medium",
+      "notes": ""
+    },
+    {
+      "character_id": "char_valentin",
+      "name": "Valentin",
+      "role": "Named Witherbloom figure in archive evidence.",
+      "relationship_to_faction": "Appears in source-backed evidence for this faction.",
+      "claim_ids": [
+        "witherbloom_claim_0007",
+        "witherbloom_claim_0008"
+      ],
+      "source_ids": [
+        "src_mtg_stories_the_chains_that_bind_5673ab04",
+        "src_mtg_stories_episode_2_lessons_988edeb7"
+      ],
+      "confidence": "Medium",
+      "notes": ""
+    },
+    {
+      "character_id": "char_beledros_witherbloom",
+      "name": "Beledros Witherbloom",
+      "role": "Named Witherbloom figure in archive evidence.",
+      "relationship_to_faction": "Appears in source-backed evidence for this faction.",
+      "claim_ids": [
+        "witherbloom_claim_0008"
+      ],
+      "source_ids": [
+        "src_mtg_stories_episode_2_lessons_988edeb7"
+      ],
+      "confidence": "Medium",
+      "notes": ""
+    }
+  ],
+  "canonical_flavor_text": [
+    {
+      "card_name": "Witherbloom College dossier anchor",
+      "set": "Arcavios / Strixhaven",
+      "short_excerpt_or_summary": "Life and death are living essences to study, brew, heal with, bargain with, and weaponize.",
+      "is_exact_excerpt": false,
+      "claim_ids": [
+        "witherbloom_claim_0007",
+        "witherbloom_claim_0008",
+        "witherbloom_claim_0009",
+        "witherbloom_claim_0010",
+        "witherbloom_claim_0011",
+        "witherbloom_claim_0012",
+        "witherbloom_claim_0013",
+        "witherbloom_claim_0014"
+      ],
+      "source_ids": [
+        "src_mtg_stories_the_chains_that_bind_5673ab04",
+        "src_mtg_stories_episode_2_lessons_988edeb7",
+        "src_mtg_stories_episode_4_put_to_the_test_8c6b8d55",
+        "src_mtg_stories_down_to_the_lake_alone_520df369",
+        "src_mtg_stories_episode_1_class_is_in_session_bd3caf13",
+        "src_mtg_stories_episode_3_extracurriculars_39c7efc0",
+        "src_mtg_stories_a_silent_voice_calls_36854b19",
+        "src_mtg_stories_episode_1_penmanship_practice_f245144d",
+        "src_wotc_planeswalkers_guide_strixhaven_2021",
+        "src_wotc_strixhaven_product_page_2021",
+        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026"
+      ],
+      "notes": "Derived from the faction's raw dossier copy so the flavor layer stays evidence-backed and reusable for Commander Compass."
+    }
+  ],
   "views_on_other_factions": [],
   "mechanics": {
     "summary": "Witherbloom identity centers on life gain, pests, sacrifice, healing, harm, and biological exchange.",
@@ -113,9 +221,32 @@
       "growth",
       "learn",
       "Beledros Witherbloom",
-      "death magic"
+      "death magic",
+      "Arcavios / Strixhaven",
+      "exploit",
+      "lesson",
+      "Strixhaven: School of Mages",
+      "Secrets of Strixhaven",
+      "Lorwyn Eclipsed",
+      "Dominaria United"
     ],
-    "story_corpus_paths_added": 10
+    "story_corpus_paths_added": 10,
+    "known_characters": [
+      "Dina",
+      "Lisette",
+      "Valentin",
+      "Beledros Witherbloom"
+    ],
+    "known_mechanics": [
+      "exploit",
+      "lesson"
+    ],
+    "sets_or_story_arcs": [
+      "Strixhaven: School of Mages",
+      "Secrets of Strixhaven",
+      "Lorwyn Eclipsed",
+      "Dominaria United"
+    ]
   },
   "data_quality": {
     "corpus_upgrade": {
@@ -133,9 +264,230 @@
         "witherbloom_claim_0015",
         "witherbloom_claim_0016"
       ]
+    },
+    "raw_enrichment": {
+      "review_date": "2026-05-13T21:14:06.308Z",
+      "source_basis": "data/raw-factions claims.json + sources.json",
+      "key_figures_added": 0,
+      "historical_timeline_entries": 0,
+      "canonical_flavor_text_entries": 1,
+      "relationship_entries": 0,
+      "known_characters": 4,
+      "known_mechanics": 2,
+      "story_arcs": 4
     }
   },
   "research_limitations": [
     "MTG-Stories repository entries are treated as searchable archive copies; official Wizards pages should remain the primary canon authority when available."
-  ]
+  ],
+  "commander_compass": {
+    "schema_version": "1.0.0",
+    "source_research_file": "witherbloom.commander_compass.research.json",
+    "last_reviewed": "2026-05-14",
+    "review_status": "reviewed_not_canonical_lore",
+    "recommendation_philosophy": "Priority given to 2026 Elder Dragons as flagship 'Native Fit' options, with 2021 staples as 'Iconic' or 'Advanced' pivots.",
+    "identity_basis": {
+      "owned_themes": [
+        "Witherbloom is the college of essence studies. They study the cycle of life and death, often utilizing 'Pest' creatures, life-gain/drain mechanics, and sacrificing permanents for growth."
+      ],
+      "allowed_phrases": [
+        "witherbloom college",
+        "witherbloom mage"
+      ],
+      "avoid_or_contrast_phrases": [
+        "Ravnica guilds",
+        "generic mana"
+      ],
+      "adjacent_overlap_notes": [
+        "Shares spell-focused identity with Prismari/Quandrix but with different mechanical execution."
+      ],
+      "supporting_claim_ids": [
+        "witherbloom_claim_0007",
+        "witherbloom_claim_0008",
+        "witherbloom_claim_0009",
+        "witherbloom_claim_0010",
+        "witherbloom_claim_0011",
+        "witherbloom_claim_0012",
+        "witherbloom_claim_0013",
+        "witherbloom_claim_0014",
+        "witherbloom_claim_0015",
+        "witherbloom_claim_0016"
+      ],
+      "supporting_source_ids": [
+        "src_mtg_stories_the_chains_that_bind_5673ab04",
+        "src_mtg_stories_episode_2_lessons_988edeb7",
+        "src_mtg_stories_episode_4_put_to_the_test_8c6b8d55",
+        "src_mtg_stories_down_to_the_lake_alone_520df369",
+        "src_mtg_stories_episode_1_class_is_in_session_bd3caf13",
+        "src_mtg_stories_episode_3_extracurriculars_39c7efc0",
+        "src_mtg_stories_a_silent_voice_calls_36854b19",
+        "src_mtg_stories_episode_1_penmanship_practice_f245144d",
+        "src_mtg_stories_episode_1_out_of_this_wood_200b2e5d",
+        "src_mtg_stories_homecoming_ce00b8af"
+      ]
+    },
+    "native_fit_commanders": [
+      {
+        "exact_card_name": "Witherbloom, the Balancer",
+        "display_name": "Witherbloom, the Balancer",
+        "scryfall_uri": "https://scryfall.com/card/sos/245/witherbloom-the-balancer",
+        "edhrec_uri": "https://edhrec.com/commanders/witherbloom-the-balancer",
+        "color_identity": [
+          "B",
+          "G"
+        ],
+        "commander_legal": true,
+        "recommendation_type": "Native Fit",
+        "archetype_tags": [
+          "Affinity",
+          "Aristocrats",
+          "Tokens"
+        ],
+        "why_this_fits": "Balances the college's 'wide' board (Pests) with powerful 'tall' spells via the Affinity for Creatures mechanic.",
+        "skip_if": "Your deck does not generate a high volume of small creature tokens.",
+        "gameplay_summary": "An 8-mana dragon that becomes very cheap with a board of Pests, then makes all your spells similarly affordable.",
+        "faction_identity_terms": [
+          "Essence Studies",
+          "Balance",
+          "Affinity"
+        ],
+        "source_basis": {
+          "card_data": [
+            "TCGplayer Witherbloom Guide"
+          ],
+          "lore_or_identity": [
+            "Planeswalker's Guide to Secrets of Strixhaven"
+          ],
+          "commander_product_relevance": [],
+          "existing_repo_claim_ids": [
+            "witherbloom_claim_0007",
+            "witherbloom_claim_0008",
+            "witherbloom_claim_0009",
+            "witherbloom_claim_0010",
+            "witherbloom_claim_0011",
+            "witherbloom_claim_0012",
+            "witherbloom_claim_0013",
+            "witherbloom_claim_0014",
+            "witherbloom_claim_0015",
+            "witherbloom_claim_0016"
+          ],
+          "existing_repo_source_ids": [
+            "src_mtg_stories_the_chains_that_bind_5673ab04",
+            "src_mtg_stories_episode_2_lessons_988edeb7",
+            "src_mtg_stories_episode_4_put_to_the_test_8c6b8d55",
+            "src_mtg_stories_down_to_the_lake_alone_520df369",
+            "src_mtg_stories_episode_1_class_is_in_session_bd3caf13",
+            "src_mtg_stories_episode_3_extracurriculars_39c7efc0",
+            "src_mtg_stories_a_silent_voice_calls_36854b19",
+            "src_mtg_stories_episode_1_penmanship_practice_f245144d",
+            "src_mtg_stories_episode_1_out_of_this_wood_200b2e5d",
+            "src_mtg_stories_homecoming_ce00b8af"
+          ]
+        },
+        "confidence": "High",
+        "caution_notes": [],
+        "type_line": "Legendary Creature — Elder Dragon"
+      }
+    ],
+    "weird_stretch_commanders": [],
+    "budget_friendly_commanders": [
+      {
+        "exact_card_name": "Dina, Essence Brewer",
+        "display_name": "Dina, Essence Brewer",
+        "scryfall_uri": "https://scryfall.com/card/soc/1/dina-essence-brewer",
+        "edhrec_uri": "https://edhrec.com/commanders/dina-essence-brewer",
+        "color_identity": [
+          "B",
+          "G"
+        ],
+        "commander_legal": true,
+        "recommendation_type": "Budget Friendly",
+        "archetype_tags": [
+          "Life Gain",
+          "Aristocrats",
+          "Counters",
+          "Card Draw"
+        ],
+        "why_this_fits": "A 2026 upgrade to one of the college's most recognizable students, linking Witherbloom sacrifice to cards, life gain, and growth counters.",
+        "skip_if": "You want a high-impact combat commander; Dina is a value/combo engine.",
+        "gameplay_summary": "Rewards creature sacrifice with once-per-turn card draw, then turns another sacrificed creature into life gain and +1/+1 counters.",
+        "faction_identity_terms": [
+          "Essence Brewer",
+          "Pest"
+        ],
+        "source_basis": {
+          "card_data": [
+            "Secrets of Strixhaven Commander Decklists"
+          ],
+          "commander_product_relevance": [
+            "EDHREC Witherbloom Pestilence Guide"
+          ],
+          "lore_or_identity": [],
+          "existing_repo_claim_ids": [
+            "witherbloom_claim_0007",
+            "witherbloom_claim_0009",
+            "witherbloom_claim_0010",
+            "witherbloom_claim_0012",
+            "witherbloom_claim_0013",
+            "witherbloom_claim_0014",
+            "witherbloom_claim_0015",
+            "witherbloom_claim_0016"
+          ],
+          "existing_repo_source_ids": [
+            "src_mtg_stories_the_chains_that_bind_5673ab04",
+            "src_mtg_stories_episode_4_put_to_the_test_8c6b8d55",
+            "src_mtg_stories_down_to_the_lake_alone_520df369",
+            "src_mtg_stories_episode_3_extracurriculars_39c7efc0",
+            "src_mtg_stories_a_silent_voice_calls_36854b19",
+            "src_mtg_stories_episode_1_penmanship_practice_f245144d",
+            "src_mtg_stories_episode_1_out_of_this_wood_200b2e5d",
+            "src_mtg_stories_homecoming_ce00b8af"
+          ]
+        },
+        "confidence": "High",
+        "caution_notes": [],
+        "type_line": "Legendary Creature — Dryad Druid"
+      }
+    ],
+    "advanced_complexity_commanders": [],
+    "iconic_lore_forward_commanders": [],
+    "not_recommended_or_deprioritized": [
+      {
+        "name": "Zimone and Dina",
+        "reason": "Off-color (Sultai) for pure Witherbloom College (UG/BG).",
+        "could_still_be_used_if": "Building a multi-faction theme deck.",
+        "confidence": "High"
+      }
+    ],
+    "archetype_lanes": [
+      {
+        "lane_name": "Pestilential Sacrifice",
+        "description": "Generating a swarm of Pests and sacrificing creatures for card draw, life gain, counters, and attrition value.",
+        "recommended_for": "Players who enjoy 'death by a thousand cuts' and sacrifice engines.",
+        "skip_if": "You dislike token management or slow attrition wins.",
+        "example_commanders": [
+          "Dina, Essence Brewer",
+          "Beledros Witherbloom"
+        ],
+        "supporting_identity_terms": [
+          "Pest",
+          "Sacrifice"
+        ],
+        "complexity": "Medium",
+        "budget_friendliness": "High"
+      }
+    ],
+    "link_targets": {
+      "edhrec_commander_index": "https://edhrec.com/commanders/witherbloom",
+      "mtgdecks_color_identity": "https://mtgdecks.net/Commander/BG",
+      "scryfall_commander_search": "https://scryfall.com/search?q=is%3Acommander+color%3DBG",
+      "archidekt_color_search": "https://archidekt.com/search/decks?colors=BG"
+    },
+    "merge_notes": {
+      "product_guidance_not_canon": true,
+      "commander_legality_validated": true,
+      "scryfall_card_pages_validated": true,
+      "do_not_use_as_claim_source": true
+    }
+  }
 }

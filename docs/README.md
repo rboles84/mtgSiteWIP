@@ -5,8 +5,8 @@ This folder is the developer map for the current Vox Mana working tree. It docum
 ## Start Here
 
 - [Project Atlas](project-atlas.md) - product shape, route map, entrypoints, runtime layers, external services, scripts, and generated artifacts.
-- [Core Logic And Algorithms](core-logic-and-algorithms.md) - adaptive placement, legacy quick scoring, Scryfall parsing, visual builder, persistence, interview, rate limiting, and build logic.
-- [Data Flow Map](data-flow-map.md) - raw faction data, generated models, browser storage, Supabase profile storage, Scryfall calls, Anthropic calls, and command-panel state.
+- [Core Logic And Algorithms](core-logic-and-algorithms.md) - adaptive placement, legacy quick scoring, Scryfall parsing, visual builder, persistence, archived terminal, rate limiting, and build logic.
+- [Data Flow Map](data-flow-map.md) - raw faction data, generated models, browser storage, Supabase profile storage, Scryfall calls, archived terminal calls, and command-panel state.
 - [Method Reference](method-reference.md) - Javadoc-equivalent inventory of named functions, exported constants, globals, handlers, and endpoint surfaces.
 - [Diagrams](diagrams.md) - editable Mermaid sources and static SVG companions.
 - [Spec Index](spec-index.md) - map of existing project specs and how they relate.
