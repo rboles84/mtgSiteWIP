@@ -19,6 +19,7 @@ Cards live in the matching status folders under `docs/kanban/`:
 - [VM-015 - Returning User Commander Fit Check](backlog/VM-015-returning-user-commander-fit-check.md)
 - [VM-016 - Archscry Profile Return QR](backlog/VM-016-archscry-profile-return-qr.md)
 - [VM-017 - Main Index Gateway Mockup Set](backlog/VM-017-main-index-gateway-mockup-set.md)
+- [VM-018 - Commander Table Fit and Rule Zero Card](backlog/VM-018-commander-table-fit-rule-zero-card.md)
 
 ## Ready
 
