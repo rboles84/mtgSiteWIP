@@ -1200,6 +1200,16 @@ export function getExternalDeckRoutingAlias(source) {
   };
 }
 
+export function buildMtgDecksCommanderUrl(name) {
+  const slug = String(name || "")
+    .toLowerCase()
+    .normalize("NFKD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+  return `https://mtgdecks.net/Commander/${slug}`;
+}
+
 /**
  * Builds an Archidekt deck search URL using URLSearchParams.
  *
@@ -1552,7 +1562,7 @@ export function buildCommanderPackageLinks(faction) {
       pathType: entry.key,
       operatorQuery: query,
       plainReadingQuery: entry.plain(identity),
-      mazeUrl: `/maze.html?q=${encodeURIComponent(query)}`,
+      mazeUrl: `/maze/?q=${encodeURIComponent(query)}`,
       scryfallUrl: `https://scryfall.com/search?q=${encodeURIComponent(query)}`,
     };
   });

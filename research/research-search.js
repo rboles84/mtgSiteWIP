@@ -7,8 +7,18 @@
 export async function scryfallSearch(query, opts = {}) {
   try {
     const url = buildScryfallApiSearchUrl(query, opts);
-    const response = await fetch(url);
-    return await response.json();
+    const cached = readScryfallCache(url);
+    if (cached) return cached;
+    return await withInFlightDedupe(url, async () => {
+      const cachedNow = readScryfallCache(url);
+      if (cachedNow) return cachedNow;
+      const response = await fetch(url);
+      const data = await response.json();
+      if (response.ok && data?.object === "list") {
+        writeScryfallCache(url, data);
+      }
+      return data;
+    });
   } catch (error) {
     return { object: "error", details: error.message };
   }
@@ -42,8 +52,19 @@ export function buildScryfallApiSearchUrl(query, opts = {}) {
  */
 export async function scryfallExact(name) {
   try {
-    const response = await fetch(`https://api.scryfall.com/cards/named?fuzzy=${encodeURIComponent(name)}`);
-    return await response.json();
+    const url = `https://api.scryfall.com/cards/named?fuzzy=${encodeURIComponent(name)}`;
+    const cached = readScryfallCache(url);
+    if (cached) return cached;
+    return await withInFlightDedupe(url, async () => {
+      const cachedNow = readScryfallCache(url);
+      if (cachedNow) return cachedNow;
+      const response = await fetch(url);
+      const data = await response.json();
+      if (response.ok && data?.name) {
+        writeScryfallCache(url, data);
+      }
+      return data;
+    });
   } catch (error) {
     return { error: true, details: error.message };
   }
@@ -62,4 +83,49 @@ export async function scryfallRandom(query = "") {
   } catch (error) {
     return { object: "error", details: error.message };
   }
+}
+
+const SCRYFALL_CACHE_PREFIX = "vm_scryfall_api_v1:";
+const SCRYFALL_IN_FLIGHT_REQUESTS = new Map();
+
+function getScryfallStorage() {
+  try {
+    return typeof localStorage === "undefined" ? null : localStorage;
+  } catch (_) {
+    return null;
+  }
+}
+
+function readScryfallCache(url) {
+  const storage = getScryfallStorage();
+  if (!storage) return null;
+  try {
+    const raw = storage.getItem(`${SCRYFALL_CACHE_PREFIX}${url}`);
+    return raw ? JSON.parse(raw) : null;
+  } catch (_) {
+    return null;
+  }
+}
+
+function writeScryfallCache(url, data) {
+  const storage = getScryfallStorage();
+  if (!storage) return;
+  try {
+    storage.setItem(`${SCRYFALL_CACHE_PREFIX}${url}`, JSON.stringify(data));
+  } catch (_) {}
+}
+
+function withInFlightDedupe(cacheKey, fetcher) {
+  if (SCRYFALL_IN_FLIGHT_REQUESTS.has(cacheKey)) {
+    return SCRYFALL_IN_FLIGHT_REQUESTS.get(cacheKey);
+  }
+
+  const request = Promise.resolve()
+    .then(fetcher)
+    .finally(() => {
+      SCRYFALL_IN_FLIGHT_REQUESTS.delete(cacheKey);
+    });
+
+  SCRYFALL_IN_FLIGHT_REQUESTS.set(cacheKey, request);
+  return request;
 }

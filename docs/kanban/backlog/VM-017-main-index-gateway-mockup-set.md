@@ -82,3 +82,5 @@ Yes - this is a product-shaping homepage visual direction decision.
 ## Notes
 
 Keep this scoped to the home gateway. The result should be a premium front door for Vox Mana, not a full page system rewrite.
+
+2026-05-15 update: `VM-019` added a disposable root-level first-visit sandbox for local review. The full VM-017 mockup-set scope remains open because returning-user and dedicated mobile frames were intentionally excluded from that lightweight pass.

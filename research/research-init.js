@@ -736,25 +736,6 @@ function isStandaloneWordAt(value, index, word) {
 }
 
 /**
- * Shows keyword suggestions for the Visual Builder keyword field.
- * @param {string} value - Current input value.
- */
-function showKwSuggestions(value) {
-  const list = document.getElementById("kw-suggestions");
-  if (!value || value.length < 2) {
-    list.classList.add("hidden");
-    return;
-  }
-  const matches = KEYWORDS.filter((keyword) => keyword.startsWith(value.toLowerCase()) && !bFilters.keywords.includes(keyword));
-  if (!matches.length) {
-    list.classList.add("hidden");
-    return;
-  }
-  list.innerHTML = matches.slice(0, 8).map((keyword) => `<div class="kw-sug" onclick="addKeyword('${keyword}')">${keyword}</div>`).join("");
-  list.classList.remove("hidden");
-}
-
-/**
  * Handles Enter in the keyword suggestion field.
  * @param {KeyboardEvent} event - Keyboard event.
  */

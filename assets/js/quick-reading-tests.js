@@ -18,6 +18,7 @@ import {
   auditCommanderDossier,
   buildCommanderDossier,
   buildCommanderDirectoryLinks,
+  buildMtgDecksCommanderUrl,
   buildCommanderStartingLane,
   buildReadingOmens,
   collectCommanderPreviewCandidates,
@@ -213,6 +214,15 @@ collegeDirectoryCases.forEach(([faction, edhrecUrl, mtgDecksUrl]) => {
   assert.equal(links.find((link) => link.service === "mtgdecks")?.url, mtgDecksUrl);
 });
 
+assert.equal(
+  buildMtgDecksCommanderUrl("Veyran, Voice of Duality"),
+  "https://mtgdecks.net/Commander/veyran-voice-of-duality"
+);
+assert.equal(
+  buildMtgDecksCommanderUrl("Prismari, the Inspiration"),
+  "https://mtgdecks.net/Commander/prismari-the-inspiration"
+);
+
 [
   [factions.WU, "https://edhrec.com/commanders/azorius", "https://mtgdecks.net/Commander/azorius-commanders"],
   [factions.BG, "https://edhrec.com/commanders/golgari", "https://mtgdecks.net/Commander/golgari-commanders"],
@@ -225,7 +235,7 @@ collegeDirectoryCases.forEach(([faction, edhrecUrl, mtgDecksUrl]) => {
 const packageLinks = buildCommanderPackageLinks(factions.WU);
 assert.equal(packageLinks.maze.length, 6);
 assert.equal(packageLinks.scryfall.length, 6);
-assert.ok(packageLinks.maze.every((link) => link.url.startsWith("/maze.html?q=")));
+assert.ok(packageLinks.maze.every((link) => link.url.startsWith("/maze/?q=")));
 assert.ok(packageLinks.scryfall.every((link) => link.url.startsWith("https://scryfall.com/search?q=")));
 assert.ok(packageLinks.maze.every((link) => link.service === "maze"));
 assert.ok(packageLinks.scryfall.every((link) => link.service === "scryfall"));

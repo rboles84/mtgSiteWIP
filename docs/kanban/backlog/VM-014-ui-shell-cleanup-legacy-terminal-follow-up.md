@@ -35,8 +35,8 @@ Group the remaining presentation-shell follow-up in one place: page background a
 ## Files Likely Impacted
 
 - `index.html`
-- `maze.html`
-- `library/index.html`
+- `maze/index.html`
+- `apocrypha/index.html`
 - `assets/img/backgrounds/*.webp`
 - `assets/img/overlays/*.svg`
 - `docs/implementation-notes.md`

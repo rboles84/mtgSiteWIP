@@ -17,7 +17,7 @@ Track the next Apocrypha step as a browse-first source atlas: a relationship-awa
 - `C:\\dev\\projectFiles\\obsidianDocs\\vox-mana-docs\\06-apocrypha-library\\curated-atlas-recommendation.md` - reframes the library as a browse-first curated knowledge graph with source cards, the relationship layer, Crossings, and reading routes.
 - `C:\\dev\\projectFiles\\obsidianDocs\\vox-mana-docs\\06-apocrypha-library\\interactive-lore-library-framework.md` - explores guild-specific source organization and source-card UX patterns.
 - `C:\\dev\\projectFiles\\obsidianDocs\\vox-mana-docs\\06-apocrypha-library\\_index.md` - describes Apocrypha as the browse-first source library and lore/research reference page.
-- `docs/project-atlas.md` and `docs/implementation-notes.md` - identify `/library/` as the Apocrypha surface and note that the page assets and components are still being finalized.
+- `docs/project-atlas.md` and `docs/implementation-notes.md` - identify `/apocrypha/` as the Apocrypha surface and note that the page assets and components are still being finalized.
 
 ## Acceptance Criteria
 
@@ -34,7 +34,7 @@ Track the next Apocrypha step as a browse-first source atlas: a relationship-awa
 
 ## Files Likely Impacted
 
-- `library/index.html`
+- `apocrypha/index.html`
 - `assets/js/shared.js`
 - `assets/css/components.css`
 - `assets/img/backgrounds/background-apocrypha-library-clean-01.webp`

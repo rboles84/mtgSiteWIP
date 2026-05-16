@@ -8,8 +8,8 @@ Vox Mana is an unofficial Magic: The Gathering fan site that combines a themed s
 |---|---|---|---|
 | `/` | `index.html` | Home gateway with destination cards and cached-reading resume chip. | `assets/js/home.js`, `assets/js/vm-topbar.js`, `assets/js/atmosphere.js` |
 | `/archscry/` | `archscry/index.html` | Placement experience: landing, quick adaptive reading, dossier result, archived Scrying Terminal. | `assets/js/index.js`, `assets/js/shared.js`, `assets/js/adaptive-placement.js` |
-| `/maze.html` | `maze.html` | The Implicit Maze Scryfall query explorer. | `research/research-init.js` and imported research modules |
-| `/library/` | `library/index.html` | Apocrypha source library and lore/research reference page. | Shared topbar and atmosphere scripts |
+| `/maze/` | `maze/index.html` | The Implicit Maze Scryfall query explorer. | `research/research-init.js` and imported research modules |
+| `/apocrypha/` | `apocrypha/index.html` | Apocrypha source library and lore/research reference page. | Shared topbar and atmosphere scripts |
 | `/privacy/` | `privacy/index.html` | Privacy policy with project-specific glossary text. | Shared topbar and atmosphere scripts |
 | `/terms/` | `terms/index.html` | Terms of service with project-specific glossary text. | Shared topbar and atmosphere scripts |
 | `http://127.0.0.1:4783/` | External tools workspace | Local command and source-review queue panel. | `C:\dev\projectFiles\voxmana-tools` |
@@ -18,12 +18,12 @@ Vox Mana is an unofficial Magic: The Gathering fan site that combines a themed s
 
 | Layer | Files | Responsibility |
 |---|---|---|
-| Static shells | `index.html`, `archscry/index.html`, `maze.html`, `library/index.html`, policy pages | Define route-specific DOM, preload assets, script entrypoints, and inline handler hooks. |
+| Static shells | `index.html`, `archscry/index.html`, `maze/index.html`, `apocrypha/index.html`, policy pages | Define route-specific DOM, preload assets, script entrypoints, and inline handler hooks. |
 | Shared visual system | `assets/css/tokens.css`, `assets/css/fonts.css`, `assets/css/topbar.css`, `assets/css/atmosphere.css`, `assets/css/components.css` | Site tokens, fonts, topbar, atmospheric canvas, and reusable panels/buttons/chips/progress treatments. |
 | Home gateway | `assets/js/home.js` | Resume-chip detection and subtle gateway motion. |
 | Placement frontend | `assets/js/index.js`, `assets/js/adaptive-placement.js`, `assets/js/shared.js` | Loads data, runs quick adaptive reading, renders narrative dossiers, saves/resumes results, preserves adjacent-fit context, builds alias-routed Commander directory links, and keeps the terminal dormant behind the shared site flag. |
 | Site flags | `assets/js/site-flags.js` | Single checked-in switch that hides or reveals the archived terminal UI and browser guards. |
-| Research workspace | `research/*.js`, `maze.html` | Smart Search, raw syntax, Visual Builder, Scryfall search/rendering, reading-aware paths, Archscry return banners with dismissal persistence, no-results handling, and card modal UI. |
+| Research workspace | `research/*.js`, `maze/index.html` | Smart Search, raw syntax, Visual Builder, Scryfall search/rendering, reading-aware paths, Archscry return banners with dismissal persistence, no-results handling, and card modal UI. |
 | Scryfall card-expression indexes | `scripts/download-scryfall-bulk.mjs`, `scripts/build-scryfall-indexes.mjs`, `data/scryfall/indexes/*.json`, `data/taxonomy/vox-mana-tags.json` | Ignored local oracle bulk data, lightweight derived indexes, categorized tags, Commander candidates, and flavor echo samples. |
 | External data build tools | `C:\dev\projectFiles\voxmana-tools` | Generate placement artifacts, Supabase faction context, schema, and local-only asset/reference sources. |
 | External command panel | `C:\dev\projectFiles\voxmana-tools` | Runs allowlisted commands, reads external Apocrypha manifest data, and tracks panel state outside the site repo. |
@@ -35,7 +35,7 @@ Vox Mana is an unofficial Magic: The Gathering fan site that combines a themed s
 |---|---|---|
 | `assets/js/index.js` | ES module loaded by `archscry/index.html` | Imports `adaptive-placement.js`, exposes inline HTML handlers onto `window`, then initializes on `DOMContentLoaded`. |
 | `assets/js/shared.js` | Classic script loaded before placement modules | Creates global session helpers, Supabase client access, storage helpers, interview calls, save/resume/sign-out flows. |
-| `research/research-init.js` | ES module loaded by `maze.html` | Imports parser, dictionary, builder, search, mode, and UI modules; exposes inline handlers onto `window`. |
+| `research/research-init.js` | ES module loaded by `maze/index.html` | Imports parser, dictionary, builder, search, mode, and UI modules; exposes inline handlers onto `window`. |
 | `supabase/functions/guild-recruiter/index.ts` | Deno edge function | Handles `OPTIONS` and `POST`, enforces request limits, calls Anthropic, and normalizes model output for the archived terminal path. |
 | External command panel server | Node CLI in `C:\dev\projectFiles\voxmana-tools` | Serves the command panel, state, run logs, item APIs, and command execution APIs. |
 | External faction artifact builder | Node CLI in `C:\dev\projectFiles\voxmana-tools` | Regenerates display metadata, adaptive model, schema, and Supabase faction context. |

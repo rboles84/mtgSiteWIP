@@ -8,12 +8,17 @@ Cards live in the matching status folders under `docs/kanban/`:
 ## Backlog
 
 - [VM-006 - Archscry / Maze Verification and Repeat-Visit Polish](backlog/VM-006-archscry-maze-verification-repeat-visit-polish.md)
+- [VM-021 - Archscry Results UX Consolidation Pass](backlog/VM-021-archscry-results-ux-consolidation-pass.md)
+- [VM-021A - Archscry Dossier QA Corrections](backlog/VM-021A-archscry-dossier-qa-corrections.md)
+- [VM-021B - Surgical Fix: Adjacent Fits Top Placement + Return Anchor](backlog/VM-021B-surgical-fix-adjacent-fits-top-placement-return-anchor.md)
+- [VM-021C - Add In-Flight Request Dedupe for Scryfall Calls](backlog/VM-021C-add-in-flight-request-dedupe-for-scryfall-calls.md)
 - [VM-007 - Commander Dossier Quality and Link Follow-Up](backlog/VM-007-commander-dossier-quality-link-follow-up.md)
 - [VM-008 - Commander Compass V1.5 Archetype-Guided Recommendations](backlog/VM-008-commander-compass-v1-5-archetype-guided-recommendations.md)
 - [VM-009 - 32-Deck Challenge, Saved Taste Profile, and Deck Import Later](backlog/VM-009-32-deck-challenge-saved-taste-profile-deck-import-later.md)
 - [VM-010 - The Loom Commander Finder Mode and Graph/Query Layer](backlog/VM-010-the-loom-commander-finder-mode-graph-query-layer.md)
 - [VM-011 - Apocrypha Source Atlas and Source Bridge](backlog/VM-011-apocrypha-source-atlas-source-bridge.md)
 - [VM-012 - Scryfall Parser Expansion and Diagnostics](backlog/VM-012-scryfall-parser-expansion-diagnostics.md)
+- [VM-022 - Maze Core Extraction](backlog/VM-022-maze-core-extraction.md)
 - [VM-013 - Placement Domains Architecture and Post-V1 Faction Expansion](backlog/VM-013-placement-domains-architecture-post-v1-faction-expansion.md)
 - [VM-014 - UI Shell Cleanup and Legacy Terminal Follow-Up](backlog/VM-014-ui-shell-cleanup-legacy-terminal-follow-up.md)
 - [VM-015 - Returning User Commander Fit Check](backlog/VM-015-returning-user-commander-fit-check.md)
@@ -36,6 +41,8 @@ Cards live in the matching status folders under `docs/kanban/`:
 ## Done
 
 - [VM-005 - Archscry / Maze UX Continuity + Link Reliability](done/VM-005-archscry-maze-ux-continuity-link-reliability.md)
+- [VM-019 - Lightweight Mock Home Sandbox](done/VM-019-lightweight-mock-home-sandbox.md)
+- [VM-020 - Route Architecture Normalization](done/VM-020-route-architecture-normalization.md)
 - [VM-004 - Archscry Result Narrative + UX Polish](done/VM-004-archscry-result-narrative-ux-polish.md)
 - [VM-003 - Scryfall Discovery Foundation](done/VM-003-scryfall-discovery-foundation.md)
 - [VM-002 - Cleanup And Push Batch 1 Foundation](done/VM-002-cleanup-batch-1-foundation.md)

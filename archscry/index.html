@@ -437,10 +437,14 @@ body::before{
   justify-content:space-between;
   gap:1rem;
   border:1px solid var(--border-t);
-  background:rgba(26,170,150,0.07);
+  background:rgba(26,170,150,0.14);
   color:var(--text-dim);
   margin-bottom:1.1rem;
   padding:0.8rem 0.95rem;
+  position:sticky;
+  top:0;
+  z-index:11;
+  backdrop-filter:blur(6px);
 }
 .context-copy{font-size:0.9rem;line-height:1.45}
 .context-actions{display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end}
@@ -895,8 +899,8 @@ body::before{
     <nav class="vm-nav" aria-label="Primary">
       <a class="vm-nav-link" href="/" data-vm-nav="home">Home</a>
       <a class="vm-nav-link" href="/archscry/" data-vm-nav="archscry">Archscry</a>
-      <a class="vm-nav-link" href="/maze.html" data-vm-nav="maze">The Implicit Maze</a>
-      <a class="vm-nav-link" href="/library/" data-vm-nav="apocrypha">Apocrypha</a>
+      <a class="vm-nav-link" href="/maze/" data-vm-nav="maze">The Implicit Maze</a>
+      <a class="vm-nav-link" href="/apocrypha/" data-vm-nav="apocrypha">Apocrypha</a>
     </nav>
 
     <div class="vm-utility">

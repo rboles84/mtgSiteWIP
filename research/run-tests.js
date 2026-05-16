@@ -7,3 +7,4 @@ await import("./research-builder-tests.js");
 await import("./research-syntax-language-tests.js");
 await import("./research-mode-tests.js");
 await import("./maze-search-tests.js");
+await import("./scryfall-request-dedupe-tests.js");

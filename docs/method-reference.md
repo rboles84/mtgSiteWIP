@@ -64,8 +64,8 @@ This is the Javadoc-equivalent inventory for the current working tree. It focuse
 | 102 | `getInstitutionLabel(faction)` | Internal | Converts faction type to display label. |
 | 111 | `showSection(id)` | Window | Reveals one Archscry section and hides the others, rerouting disabled terminal views to landing. |
 | 155 | `updateTopbar()` | Internal | Syncs signed-in identity and saved placement controls. |
-| 192 | `openResearch()` | Window | Navigates to `/maze.html`. |
-| 199 | `openLibrary()` | Window | Navigates to `/library/`. |
+| 192 | `openResearch()` | Window | Navigates to `/maze/`. |
+| 199 | `openLibrary()` | Window | Navigates to `/apocrypha/`. |
 | 206 | `resetLocalFlow()` | Internal | Clears local quick/interview/result state. |
 | 236 | `handleRetake()` | Window | Clears saved placement and returns to landing. |
 | 248 | `handleSignOut()` | Window | Signs out and resets view. |

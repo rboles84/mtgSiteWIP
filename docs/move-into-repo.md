@@ -5,7 +5,7 @@ Copy these files into `C:\dev\mtgSiteWIP` and replace the existing versions ther
 - `index.html`
 - `shared.js`
 - `README.md`
-- `maze.html`
+- `maze/index.html`
 - `data/factions.json`
 - `data/placement-model.json`
 - `data/placement-model.schema.json`

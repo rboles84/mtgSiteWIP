@@ -126,7 +126,7 @@ Design notes:
 
 ## Maze Research Workspace
 
-Files: `maze.html`, `research/research-init.js`, `research/research-builder.js`, `research/research-mode.js`, `research/research-ui.js`, `research/research-search.js`.
+Files: `maze/index.html`, `research/research-init.js`, `research/research-builder.js`, `research/research-mode.js`, `research/research-ui.js`, `research/research-search.js`.
 
 The Maze has three modes:
 

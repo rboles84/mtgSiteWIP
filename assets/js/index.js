@@ -13,6 +13,7 @@ import {
 import {
   buildCommanderDossier,
   createArchidektTagCatalog,
+  buildMtgDecksCommanderUrl,
   getExternalDeckRoutingAlias,
   getColorIdentity,
   getCommanderFactionGuidance,
@@ -52,6 +53,7 @@ const APP_STATE = {
   scryfallMechanicThemeIndex: null,
   previousViewKey: null,
   mazeReturnUrl: "",
+  mazeReturnAnchor: "",
 };
 
 const ARCHSCRY_MAZE_HANDOFF_KEY = "vm_archscry_maze_handoff_v1";
@@ -620,29 +622,7 @@ function buildLoreToMechanicCardHtml(faction) {
 }
 
 function buildAdjacentContextHtml({ dossier, result }) {
-  const primaryFaction = getFaction(dossier.primaryFactionKey);
-  const previous = APP_STATE.previousViewKey && APP_STATE.previousViewKey !== dossier.targetFactionKey
-    ? getFaction(APP_STATE.previousViewKey)
-    : null;
-  const mazeReturnUrl = APP_STATE.mazeReturnUrl || "";
-
-  if (dossier.isPrimary && !mazeReturnUrl) {
-    return "";
-  }
-
-  return `
-    <div class="result-context-bar">
-      <div class="context-copy">
-        ${dossier.isPrimary
-          ? `Returned to your primary ${primaryFaction?.name || "dossier"} reading.`
-          : `This is an adjacent reading from your original ${primaryFaction?.name || "primary"} result.`}
-      </div>
-      <div class="context-actions">
-        ${!dossier.isPrimary ? `<button class="adjacent-btn" type="button" onclick="switchAdjacentView('${result.faction}')">Return to primary ${escapeHtml(primaryFaction?.name || "dossier")}</button>` : ""}
-        ${previous ? `<button class="adjacent-btn" type="button" onclick="switchAdjacentView('${previous.key}')">Return to ${escapeHtml(previous.name)}</button>` : ""}
-        ${mazeReturnUrl ? `<a class="adjacent-btn" href="${escapeHtml(mazeReturnUrl)}">Back to Maze</a>` : ""}
-      </div>
-    </div>`;
+  return "";
 }
 
 /**
@@ -705,14 +685,14 @@ function updateTopbar() {
  * Opens the research page.
  */
 function openResearch() {
-  window.location = "/maze.html";
+  window.location = "/maze/";
 }
 
 /**
- * Opens The Implicit Maze library.
+ * Opens Apocrypha.
  */
 function openLibrary() {
-  window.location = "/library/";
+  window.location = "/apocrypha/";
 }
 
 /**
@@ -1168,8 +1148,9 @@ function buildLinkButtons(links, className = "") {
     .map((link) => {
       const service = getServiceChipMeta(link);
       const classes = ["deck-link", "service-chip", `service-${service.key}`, className].filter(Boolean).join(" ");
+      const targetAttrs = service.key === "maze" ? "" : ' target="_blank" rel="noopener"';
       return `
-        <a class="${classes}" href="${escapeHtml(link.url)}" target="_blank" rel="noopener" data-service="${service.key}" style="--service-color:${service.color};--service-glow:${service.glow}">
+        <a class="${classes}" href="${escapeHtml(link.url)}"${targetAttrs} data-service="${service.key}" style="--service-color:${service.color};--service-glow:${service.glow}">
           <span class="service-mark" aria-hidden="true">${service.mark}</span>
           <span class="service-copy">
             <span class="service-name">${service.label}</span>
@@ -1215,6 +1196,9 @@ function buildCommanderSpecificLinks(candidates = [], service) {
     if (service === "edhrec") {
       return { service, label: name, url: `https://edhrec.com/commanders/${searchSlug(name)}` };
     }
+    if (service === "mtgdecks") {
+      return { service, label: name, url: buildMtgDecksCommanderUrl(name) };
+    }
     return { service, label: name, url: siteSearchUrl(service, `${name} Commander`) };
   }).filter(Boolean);
 }
@@ -1223,8 +1207,6 @@ function buildDeckDiscoveryGroups({
   faction,
   archidektLinks,
   commanderDirectoryLinks,
-  packageLinks,
-  mazePersonalLinks,
   commanderCandidates,
   tagRefs,
 }) {
@@ -1232,7 +1214,6 @@ function buildDeckDiscoveryGroups({
   const identityLabel = `${identity} Commander`;
   const topTag = uniqueTagRefs(tagRefs)[0];
   const tagEntry = topTag ? taxonomyEntry(topTag.category, topTag.tag) : null;
-  const themeQuery = tagEntry ? `${identity} Commander ${tagEntry.display_name}` : identityLabel;
   const routingAlias = getExternalDeckRoutingAlias(faction);
 
   return [
@@ -1244,16 +1225,6 @@ function buildDeckDiscoveryGroups({
         ...commanderDirectoryLinks.filter((link) => getServiceChipMeta(link).key === "edhrec"),
         { service: "edhrec", label: `${routingAlias.label} commanders`, url: routingAlias.edhrecUrl },
         ...buildCommanderSpecificLinks(commanderCandidates, "edhrec"),
-      ]).slice(0, 4),
-    },
-    {
-      service: "moxfield",
-      name: "Moxfield",
-      desc: "Use public deck search for real player lists; start broad, then narrow by commander or theme.",
-      links: dedupeLinks([
-        { service: "moxfield", label: `${identity} Commander decks`, url: siteSearchUrl("moxfield", identityLabel) },
-        { service: "moxfield", label: tagEntry ? tagEntry.display_name : "theme lane", url: siteSearchUrl("moxfield", themeQuery) },
-        ...buildCommanderSpecificLinks(commanderCandidates, "moxfield"),
       ]).slice(0, 4),
     },
     {
@@ -1270,18 +1241,6 @@ function buildDeckDiscoveryGroups({
         ...commanderDirectoryLinks.filter((link) => getServiceChipMeta(link).key === "mtgdecks"),
         ...buildCommanderSpecificLinks(commanderCandidates, "mtgdecks"),
       ]).slice(0, 4),
-    },
-    {
-      service: "scryfall",
-      name: "Scryfall",
-      desc: "Search card roles directly: commanders, ramp, draw, interaction, lands, and win conditions.",
-      links: dedupeLinks(packageLinks.scryfall).slice(0, 6),
-    },
-    {
-      service: "maze",
-      name: "Maze",
-      desc: "Open personalized Vox Mana searches with a return path back to this dossier.",
-      links: dedupeLinks([...(mazePersonalLinks || []), ...(packageLinks.maze || [])]).slice(0, 6),
     },
   ].filter((group) => group.links.length);
 }
@@ -1319,7 +1278,7 @@ function appendUrlParams(url, params) {
 
 function buildArchscryMazeContext({ result, dossier, faction }) {
   const readingId = readingIdForResult(result);
-  const returnUrl = `/archscry/?from=maze&view=${encodeURIComponent(dossier.targetFactionKey)}&readingId=${encodeURIComponent(readingId)}`;
+  const returnUrl = `/archscry/?from=maze&view=${encodeURIComponent(dossier.targetFactionKey)}&readingId=${encodeURIComponent(readingId)}#maze-discovery-paths`;
   return {
     from: "archscry",
     readingId,
@@ -1353,7 +1312,7 @@ function pathTypeForMazeLink(link = {}) {
 
 function withArchscryMazeContext(links = [], context) {
   return (links || []).map((link) => {
-    const isMaze = getServiceChipMeta(link).key === "maze" || String(link?.url || "").startsWith("/maze.html");
+    const isMaze = getServiceChipMeta(link).key === "maze" || String(link?.url || "").startsWith("/maze/");
     if (!isMaze) return link;
     const operatorQuery = queryFromMazeLink(link);
     const pathType = pathTypeForMazeLink(link);
@@ -1406,6 +1365,9 @@ function requestedDossierViewKey() {
 function captureMazeReturnUrl() {
   const params = new URLSearchParams(window.location.search);
   APP_STATE.mazeReturnUrl = params.get("mazeReturnUrl") || "";
+  APP_STATE.mazeReturnAnchor = params.get("from") === "maze" && window.location.hash === "#maze-discovery-paths"
+    ? "maze-discovery-paths"
+    : "";
 }
 
 function escapeHtml(value) {
@@ -1631,7 +1593,7 @@ function mazeSearchLink(label, query, service = "maze", pathType = "", plainRead
     pathType: pathType || pathTypeForMazeLink({ label }),
     plainReadingQuery: plainReadingQuery || label,
     operatorQuery: query,
-    url: `/maze.html?q=${encodeURIComponent(query)}`,
+    url: `/maze/?q=${encodeURIComponent(query)}`,
   };
 }
 
@@ -1769,7 +1731,7 @@ function buildMazeDiscoveryHtml(paths = []) {
   if (!paths.length) return "";
   const title = stablePhrase("mazeTitle", paths.map((path) => path.pathType || path.label).join("|"));
   return `
-    <div class="starter-section">
+    <div class="starter-section" id="maze-discovery-paths">
       <div class="section-label">Maze Discovery Paths</div>
       <div class="starter-grid">
         <div class="starter-card starter-card-wide">
@@ -1779,6 +1741,20 @@ function buildMazeDiscoveryHtml(paths = []) {
         </div>
       </div>
     </div>`;
+}
+
+function scrollToAnchorOnce(anchor) {
+  const hash = anchor || APP_STATE.mazeReturnAnchor;
+  if (!hash) return;
+  const target = document.getElementById(hash);
+  if (!target) return;
+
+  window.requestAnimationFrame(() => {
+    const rect = target.getBoundingClientRect();
+    const top = window.scrollY + rect.top - 16;
+    window.scrollTo({ top: Math.max(0, top), behavior: "auto" });
+    history.replaceState({}, "", `${window.location.pathname}${window.location.search}`);
+  });
 }
 
 function buildApocryphaHtml(faction) {
@@ -1854,10 +1830,6 @@ function renderResult(viewKey) {
   const flavorEchoes = selectFlavorEchoes({ faction, tagRefs: readingTagRefs });
   const mazeContext = buildArchscryMazeContext({ result, dossier, faction });
   writeArchscryDossierHandoff(result, mazeContext);
-  const packageLinks = {
-    maze: withArchscryMazeContext(dossier.links.maze || [], mazeContext),
-    scryfall: dossier.links.scryfall || [],
-  };
   const personalizedMazePaths = withArchscryMazeContext(
     buildPersonalizedMazePaths({ faction, tagRefs: readingTagRefs, flavorEchoes }),
     mazeContext
@@ -1947,6 +1919,18 @@ function renderResult(viewKey) {
     : terminalEnabled
       ? `<div class="adjacent-card"><div class="adjacent-name">No adjacent fits saved yet.</div><div class="adjacent-copy">Retake or use the Scrying Terminal to generate a fuller read.</div></div>`
       : `<div class="adjacent-card"><div class="adjacent-name">No adjacent fits saved yet.</div><div class="adjacent-copy">Retake the quick reading to generate a fuller read.</div></div>`;
+  const adjacentSectionHtml = `
+    <div class="adjacent-section" id="adjacent-fits">
+      <div class="section-label">Adjacent Fits</div>
+      <div class="adjacent-grid">${adjacentHtml}</div>
+    </div>`;
+  const primaryPlacementHtml = isPrimary
+    ? adjacentSectionHtml
+    : `
+      <div class="result-status">
+        <strong>${resultStatus}</strong>
+        ${SESSION.username ? ` Saved under ${SESSION.username}.` : ""}
+      </div>`;
 
   const saveButtonLabel = SESSION.username ? "Save this reading" : "Save with Google";
   const returnToTerminalButton =
@@ -1975,8 +1959,6 @@ function renderResult(viewKey) {
     faction,
     archidektLinks: archidektSearchLinks,
     commanderDirectoryLinks,
-    packageLinks,
-    mazePersonalLinks: personalizedMazePaths,
     commanderCandidates: commanderPreviewCandidates,
     tagRefs: readingTagRefs,
   }));
@@ -1987,6 +1969,14 @@ function renderResult(viewKey) {
     utility: "Adds Commander flexibility beyond color fixing.",
   };
   const basicLandCopy = basicLandGuidanceCopy(faction.colors || []);
+  const utilityTierHtml = (landRecommendations.utility || []).length
+    ? `
+        <div class="land-tier tier-utility">
+          <div class="land-tier-label">Utility</div>
+          <div class="land-tier-copy">${landLaneCopy.utility}</div>
+          <div class="land-cards-row">${landSlots(landRecommendations.utility, "lu")}</div>
+        </div>`
+    : "";
 
   document.getElementById("result-inner").innerHTML = `
     ${adjacentContextHtml}
@@ -2000,10 +1990,7 @@ function renderResult(viewKey) {
       <div class="guild-lore-summary">${faction.philosophy}</div>
     </div>
 
-    <div class="result-status">
-      <strong>${resultStatus}</strong>
-      ${SESSION.username ? ` Saved under ${SESSION.username}.` : ""}
-    </div>
+    ${primaryPlacementHtml}
 
     <div class="scores-section">
       <div class="section-label">${manaSectionLabel}</div>
@@ -2012,13 +1999,15 @@ function renderResult(viewKey) {
 
     ${discoverySummaryHtml}
 
+    ${dossierInterpretationHtml}
+
     ${evidenceHtml ? `
       <div class="starter-section">
         <div class="section-label">Reading Omens</div>
         <div class="starter-grid">${evidenceHtml}</div>
       </div>` : ""}
 
-    ${dossierInterpretationHtml}
+    ${!isPrimary ? adjacentSectionHtml : ""}
 
     <div class="starter-section">
       <div class="section-label">Start Here</div>
@@ -2040,19 +2029,14 @@ function renderResult(viewKey) {
     </div>
 
     ${flavorEchoesHtml}
-    ${mazeDiscoveryHtml}
-    ${apocryphaHtml}
-
-    <div class="adjacent-section">
-      <div class="section-label">Adjacent Fits</div>
-      <div class="adjacent-grid">${adjacentHtml}</div>
+    <div class="decks-section">
+      <div class="section-label">Commander Deck Starts</div>
+      <div class="decks-grid">${decksHtml}</div>
     </div>
-
     <div class="archetypes-section">
       <div class="section-label">Playstyle Archetypes</div>
       <div class="archetypes-grid">${archetypeHtml}</div>
     </div>
-
     <div class="staples-section">
       <div class="section-label">${institutionLabel} Starter Card References</div>
       <div class="staples-category">
@@ -2068,7 +2052,6 @@ function renderResult(viewKey) {
         <div class="staple-row">${cardSlots(dossier.starterCards?.permanents, "sp", "staple-placeholder", "staple-img")}</div>
       </div>
     </div>
-
     <div class="lands-section">
       <div class="section-label">Mana Base Starting Map</div>
       <div class="lands-tiers">
@@ -2091,25 +2074,19 @@ function renderResult(viewKey) {
           <div class="land-tier-copy">${landLaneCopy.budget}</div>
           <div class="land-cards-row">${landSlots(landRecommendations.budget, "lb")}</div>
         </div>
-        <div class="land-tier tier-utility">
-          <div class="land-tier-label">Utility</div>
-          <div class="land-tier-copy">${landLaneCopy.utility}</div>
-          <div class="land-cards-row">${landSlots(landRecommendations.utility, "lu")}</div>
-        </div>
+        ${utilityTierHtml}
       </div>
     </div>
 
-    <div class="decks-section">
-      <div class="section-label">Commander Deck-start Links</div>
-      <div class="decks-grid">${decksHtml}</div>
-    </div>
+    ${mazeDiscoveryHtml}
+    ${apocryphaHtml}
 
     <p class="decree-footer">
       The atlas is still opening: fifteen paths are lit now — ten Ravnican guilds and five Strixhaven colleges. Wedges, families, and stranger color-shapes wait beyond the next veil.
     </p>
 
     <div class="footer-actions">
-      <div class="footer-note">Card and land images via Scryfall API. Starter references are curated from faction data; deck links route out to EDHREC, Moxfield, Archidekt, MTGDecks, Maze, and Scryfall.</div>
+      <div class="footer-note">Card and land images via Scryfall API. Starter references are curated from faction data; deck links route out to EDHREC, Archidekt, and MTGDecks, while Maze stays inside the reading flow.</div>
       <div class="footer-button-row">
         <button class="btn-primary" type="button" onclick="saveCurrentResult()">${saveButtonLabel}</button>
         ${returnToTerminalButton}
@@ -2187,8 +2164,7 @@ async function loadResultCardArt(faction, commanderCandidates = [], starterCards
     }
 
     try {
-      const response = await fetch(`https://api.scryfall.com/cards/named?fuzzy=${encodeURIComponent(card.name)}`);
-      const data = await response.json();
+      const data = await loadCachedScryfallNamedCard(card.name);
       const imageUrl =
         data.image_uris?.normal ||
         data.card_faces?.[0]?.image_uris?.normal ||
@@ -2242,6 +2218,66 @@ async function loadResultCardArt(faction, commanderCandidates = [], starterCards
   }
 }
 
+export async function loadCachedScryfallNamedCard(name) {
+  const url = `https://api.scryfall.com/cards/named?fuzzy=${encodeURIComponent(name)}`;
+  const storage = getScryfallNamedCardStorage();
+  if (storage) {
+    try {
+      const cached = storage.getItem(`vm_scryfall_named_v1:${url}`);
+      if (cached) {
+        return JSON.parse(cached);
+      }
+    } catch (_) {}
+  }
+
+  return await withNamedCardInFlightDedupe(url, async () => {
+    const cachedNow = storage ? readScryfallNamedCardCache(storage, url) : null;
+    if (cachedNow) return cachedNow;
+    const response = await fetch(url);
+    const data = await response.json();
+    if (response.ok && data?.name && storage) {
+      try {
+        storage.setItem(`vm_scryfall_named_v1:${url}`, JSON.stringify(data));
+      } catch (_) {}
+    }
+    return data;
+  });
+}
+
+function getScryfallNamedCardStorage() {
+  try {
+    return typeof localStorage === "undefined" ? null : localStorage;
+  } catch (_) {
+    return null;
+  }
+}
+
+function readScryfallNamedCardCache(storage, url) {
+  try {
+    const cached = storage.getItem(`vm_scryfall_named_v1:${url}`);
+    return cached ? JSON.parse(cached) : null;
+  } catch (_) {
+    return null;
+  }
+}
+
+const ScryfallNamedCardInFlightRequests = new Map();
+
+function withNamedCardInFlightDedupe(cacheKey, fetcher) {
+  if (ScryfallNamedCardInFlightRequests.has(cacheKey)) {
+    return ScryfallNamedCardInFlightRequests.get(cacheKey);
+  }
+
+  const request = Promise.resolve()
+    .then(fetcher)
+    .finally(() => {
+      ScryfallNamedCardInFlightRequests.delete(cacheKey);
+    });
+
+  ScryfallNamedCardInFlightRequests.set(cacheKey, request);
+  return request;
+}
+
 /**
  * Saves the current active result through Google OAuth or a live signed-in session.
  *
@@ -2286,6 +2322,8 @@ function restoreInitialView(savedFromOAuth) {
   const requestedView = requestedDossierViewKey();
   const viewKey = requestedView && APP_STATE.factions[requestedView] ? requestedView : result?.faction;
   captureMazeReturnUrl();
+  const mazeReturnAnchor = APP_STATE.mazeReturnAnchor;
+  APP_STATE.mazeReturnAnchor = "";
 
   if (savedFromOAuth && result) {
     APP_STATE.activeResult = result;
@@ -2293,6 +2331,9 @@ function restoreInitialView(savedFromOAuth) {
     APP_STATE.resultSource = "saved";
     APP_STATE.returnSection = null;
     renderResult(viewKey);
+    if (mazeReturnAnchor) {
+      scrollToAnchorOnce(mazeReturnAnchor);
+    }
     return;
   }
 
@@ -2303,6 +2344,9 @@ function restoreInitialView(savedFromOAuth) {
     APP_STATE.returnSection = null;
     vm_cachePlacementResult(result);
     renderResult(viewKey);
+    if (mazeReturnAnchor) {
+      scrollToAnchorOnce(mazeReturnAnchor);
+    }
     return;
   }
 

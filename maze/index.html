@@ -167,8 +167,11 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
   gap:1rem;
   padding:0.75rem 1.25rem;
   border-bottom:1px solid var(--border-t);
-  background:rgba(26,170,150,0.08);
+  background:rgba(26,170,150,0.16);
   color:var(--text-dim);
+  position:sticky;
+  top:0;
+  z-index:12;
 }
 .maze-return-banner.is-visible{display:flex}
 .maze-return-actions{display:flex;align-items:center;gap:0.55rem;flex-wrap:wrap;justify-content:flex-end}
@@ -179,13 +182,15 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
   font-size:0.58rem;
   letter-spacing:0.12em;
   text-transform:uppercase;
-  color:var(--gold);
+  color:var(--bg1);
   text-decoration:none;
   border:1px solid var(--border-s);
   padding:0.38rem 0.72rem;
   white-space:nowrap;
+  background:var(--gold);
+  box-shadow:0 0 0 1px rgba(0,0,0,0.08) inset;
 }
-.maze-return-link:hover{background:rgba(184,149,74,0.08);color:var(--gold-l)}
+.maze-return-link:hover{background:var(--gold-l);color:var(--bg1)}
 .maze-return-dismiss{
   width:30px;
   height:30px;
@@ -344,8 +349,8 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
   <nav class="vm-nav" aria-label="Primary">
     <a class="vm-nav-link" href="/" data-vm-nav="home">Home</a>
     <a class="vm-nav-link" href="/archscry/" data-vm-nav="archscry">Archscry</a>
-    <a class="vm-nav-link" href="/maze.html" data-vm-nav="maze">The Implicit Maze</a>
-    <a class="vm-nav-link" href="/library/" data-vm-nav="apocrypha">Apocrypha</a>
+    <a class="vm-nav-link" href="/maze/" data-vm-nav="maze">The Implicit Maze</a>
+    <a class="vm-nav-link" href="/apocrypha/" data-vm-nav="apocrypha">Apocrypha</a>
   </nav>
 
   <div class="vm-utility">
@@ -587,7 +592,7 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
   </div>
 </div>
 </div><!-- .page -->
-<script type="module" src="research/research-init.js"></script>
+<script type="module" src="/research/research-init.js"></script>
 <script src="/assets/js/reduce-motion.js" defer></script>
 <script src="/assets/js/vm-topbar.js" defer></script>
 </body>

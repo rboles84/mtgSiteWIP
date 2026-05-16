@@ -236,11 +236,55 @@ export const DEFAULT_DICTIONARY = {
  * @returns {Promise<object>} A normalized parser dictionary.
  */
 export async function loadDictionaryFromSeedUrl(url) {
-  const response = await fetch(url, { cache: "no-store" });
+  const storage = getScryfallParserStorage();
+  const cached = readScryfallParserCache(storage);
+  if (cached) {
+    return cached;
+  }
+
+  const response = await fetch(resolveSeedUrl(url), { cache: "no-store" });
   if (!response.ok) {
     throw new Error(`Could not load parser seed: ${response.status}`);
   }
-  return createDictionaryFromSeed(await response.json());
+  const dictionary = createDictionaryFromSeed(await response.json());
+  writeScryfallParserCache(storage, dictionary);
+  return dictionary;
+}
+
+const SCRYFALL_PARSER_CACHE_KEY = "vm_scryfall_parser_dictionary_v1";
+
+function resolveSeedUrl(url) {
+  const value = String(url || "");
+  if (/^https?:\/\//i.test(value) || value.startsWith("/")) {
+    return value;
+  }
+  return `/${value.replace(/^\/+/, "")}`;
+}
+
+function getScryfallParserStorage() {
+  try {
+    return typeof localStorage === "undefined" ? null : localStorage;
+  } catch (_) {
+    return null;
+  }
+}
+
+function readScryfallParserCache(storage) {
+  if (!storage) return null;
+  try {
+    const raw = storage.getItem(SCRYFALL_PARSER_CACHE_KEY);
+    if (!raw) return null;
+    return JSON.parse(raw);
+  } catch (_) {
+    return null;
+  }
+}
+
+function writeScryfallParserCache(storage, dictionary) {
+  if (!storage) return;
+  try {
+    storage.setItem(SCRYFALL_PARSER_CACHE_KEY, JSON.stringify(dictionary));
+  } catch (_) {}
 }
 
 /**
