@@ -24,7 +24,7 @@ The authoritative edit path is raw/display data first, then `npm run build:facti
 | Interview session bucket | `assets/js/shared.js` | `sessionStorage` key `vm_interview_session_id` | Stable client throttle/session id for edge function calls. |
 | Reduce motion | `assets/js/reduce-motion.js`, `assets/js/vm-topbar.js` | `localStorage` key `vm_reduce_motion` | Shared motion preference. |
 | Home resume chip | `assets/js/home.js` | Reads several legacy/current local storage keys | Displays cached faction resume affordance when available. |
-| Archscry-to-Maze handoff | `assets/js/index.js`, `research/research-init.js` | `localStorage` key `vm_archscry_maze_handoff_v1` plus Maze query params | Preserves originating dossier, active fit, return URL, and personalized reading context when opening Maze paths. |
+| Archscry-to-Maze handoff | `assets/js/index.js`, `research/research-init.js` | `localStorage` key `vm_archscry_maze_handoff_v1` plus Maze query params | Preserves originating dossier, active fit, return URL, `plainReadingQuery`, executable `operatorQuery`, stable `pathType`, and return-banner dismissal state when opening Maze paths. |
 | Maze card stash | `research/research-init.js` | `localStorage` key `vm_maze_card_stash_v1` | Lightweight local card stash with Commander Ideas, support cards, and maybe finds. |
 | Command panel filters | External command panel | `localStorage` keys `cp.*` | Local panel lane/status/search/page preferences. |
 
@@ -85,7 +85,7 @@ Legacy rows with `guild` and `scores` but no `placement_result` are converted by
 | `oracle-cards.json` plus `data/taxonomy/vox-mana-tags.json` | `scripts/build-scryfall-indexes.mjs` emits categorized tags, lore tones, Commander candidates, color summaries, and mechanic summaries. | `data/scryfall/indexes/*.json` |
 | `card-flavor-index.json` | Archscry result helpers select short flavor echoes by color identity, reading tags, and lore-tone fit. | Flavor Echoes result section with Scryfall links and "why it echoes" copy. |
 | `commander-index.json` | Archscry Commander preview enrichment checks local metadata after curated Commander Compass candidates are selected. | Commander type/color/tag metadata beside preview cards. |
-| Placement cache/profile result or Archscry handoff | Maze reading-path builder derives optional query seeds. | `From Your Reading` sidebar paths and return-to-dossier banner only when placement context exists. |
+| Placement cache/profile result or Archscry handoff | Maze reading-path builder derives optional query seeds. Archscry-originated links seed Plain Reading display text from `plainReadingQuery` while executing `operatorQuery`. | `From Your Reading` sidebar paths, live Scryfall search results, copy/mode continuity, and a dismissible return-to-dossier banner only when placement context exists. |
 
 ## Command Panel Data
 

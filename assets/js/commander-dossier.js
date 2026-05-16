@@ -7,12 +7,45 @@ const COLOR_IDENTITY_SLUGS = new Map([
   ["UB", "dimir"],
   ["BR", "rakdos"],
   ["RG", "gruul"],
+  ["GW", "selesnya"],
   ["WG", "selesnya"],
   ["WB", "orzhov"],
   ["UR", "izzet"],
   ["BG", "golgari"],
+  ["UG", "simic"],
   ["GU", "simic"],
   ["WR", "boros"],
+]);
+
+const EXTERNAL_ROUTING_ALIASES = new Map([
+  ["WU", { guild: "azorius", colorIdentity: "WU", label: "Azorius" }],
+  ["AZORIUS", { guild: "azorius", colorIdentity: "WU", label: "Azorius" }],
+  ["UB", { guild: "dimir", colorIdentity: "UB", label: "Dimir" }],
+  ["DIMIR", { guild: "dimir", colorIdentity: "UB", label: "Dimir" }],
+  ["BR", { guild: "rakdos", colorIdentity: "BR", label: "Rakdos" }],
+  ["RAKDOS", { guild: "rakdos", colorIdentity: "BR", label: "Rakdos" }],
+  ["RG", { guild: "gruul", colorIdentity: "RG", label: "Gruul" }],
+  ["GRUUL", { guild: "gruul", colorIdentity: "RG", label: "Gruul" }],
+  ["WG", { guild: "selesnya", colorIdentity: "WG", label: "Selesnya" }],
+  ["GW", { guild: "selesnya", colorIdentity: "WG", label: "Selesnya" }],
+  ["SELESNYA", { guild: "selesnya", colorIdentity: "WG", label: "Selesnya" }],
+  ["WB", { guild: "orzhov", colorIdentity: "WB", label: "Orzhov" }],
+  ["ORZHOV", { guild: "orzhov", colorIdentity: "WB", label: "Orzhov" }],
+  ["UR", { guild: "izzet", colorIdentity: "UR", label: "Izzet" }],
+  ["IZZET", { guild: "izzet", colorIdentity: "UR", label: "Izzet" }],
+  ["BG", { guild: "golgari", colorIdentity: "BG", label: "Golgari" }],
+  ["GOLGARI", { guild: "golgari", colorIdentity: "BG", label: "Golgari" }],
+  ["UG", { guild: "simic", colorIdentity: "UG", label: "Simic" }],
+  ["GU", { guild: "simic", colorIdentity: "UG", label: "Simic" }],
+  ["SIMIC", { guild: "simic", colorIdentity: "UG", label: "Simic" }],
+  ["WR", { guild: "boros", colorIdentity: "WR", label: "Boros" }],
+  ["RW", { guild: "boros", colorIdentity: "WR", label: "Boros" }],
+  ["BOROS", { guild: "boros", colorIdentity: "WR", label: "Boros" }],
+  ["LOREHOLD", { guild: "boros", colorIdentity: "WR", label: "Boros" }],
+  ["PRISMARI", { guild: "izzet", colorIdentity: "UR", label: "Izzet" }],
+  ["QUANDRIX", { guild: "simic", colorIdentity: "UG", label: "Simic" }],
+  ["SILVERQUILL", { guild: "orzhov", colorIdentity: "WB", label: "Orzhov" }],
+  ["WITHERBLOOM", { guild: "golgari", colorIdentity: "BG", label: "Golgari" }],
 ]);
 
 export const SERVICE_CHIP_META = {
@@ -50,13 +83,6 @@ export const SERVICE_CHIP_META = {
     mark: "D",
     color: "#7fb8ff",
     glow: "rgba(127,184,255,0.32)",
-  },
-  mtggoldfish: {
-    key: "mtggoldfish",
-    label: "MTGGoldfish",
-    mark: "G",
-    color: "#f4c34f",
-    glow: "rgba(244,195,79,0.34)",
   },
   scryfall: {
     key: "scryfall",
@@ -257,33 +283,39 @@ const COMMANDER_PREVIEW_DEDUPE_ALIASES = new Map([
 
 const PACKAGE_QUERIES = [
   {
-    key: "commanders",
+    key: "commanders-that-fit",
     label: "commanders",
+    plain: (identity) => `${identity.toUpperCase()} commanders that fit this reading`,
     query: (identity) => `(t:legendary t:creature) id<=${identity} f:commander`,
   },
   {
     key: "ramp",
     label: "ramp",
+    plain: (identity) => `${identity.toUpperCase()} ramp for this Commander path`,
     query: (identity) => `id<=${identity} f:commander (o:"search your library for a land" OR o:"add {")`,
   },
   {
     key: "draw",
     label: "draw",
+    plain: (identity) => `${identity.toUpperCase()} card draw for this Commander path`,
     query: (identity) => `id<=${identity} f:commander o:draw`,
   },
   {
     key: "interaction",
     label: "interaction",
+    plain: (identity) => `${identity.toUpperCase()} interaction for this Commander path`,
     query: (identity) => `id<=${identity} f:commander (o:"destroy target" OR o:"exile target" OR o:"counter target" OR o:"return target")`,
   },
   {
     key: "lands",
     label: "lands",
+    plain: (identity) => `${identity.toUpperCase()} lands for this Commander path`,
     query: (identity) => `id<=${identity} f:commander t:land`,
   },
   {
-    key: "win",
+    key: "win-conditions",
     label: "win conditions",
+    plain: (identity) => `${identity.toUpperCase()} win conditions for this Commander path`,
     query: (identity) => `id<=${identity} f:commander (o:"you win the game" OR o:"each opponent loses" OR o:"combat damage")`,
   },
 ];
@@ -1121,6 +1153,53 @@ export function getColorIdentity(colors) {
   return MANA_ORDER.filter((color) => colorSet.has(color)).join("");
 }
 
+function normalizeRoutingKey(value) {
+  return String(value || "")
+    .toUpperCase()
+    .replace(/\b(COLLEGE|GUILD|SENATE|HOUSE|CULT|CLANS|LEGION|SWARM|COMBINE|CONCLAVE)\b/g, "")
+    .replace(/[^A-Z0-9]+/g, "")
+    .trim();
+}
+
+function routingAliasFromColors(colors) {
+  const identity = getColorIdentity(colors);
+  const slug = COLOR_IDENTITY_SLUGS.get(identity) || identity.toLowerCase();
+  return {
+    guild: slug,
+    colorIdentity: identity,
+    label: slug ? slug.charAt(0).toUpperCase() + slug.slice(1) : identity,
+  };
+}
+
+/**
+ * Resolves the reliable guild/color-pair alias used by external Commander directories.
+ *
+ * @param {object|string|string[]} source Faction record, faction key, or colors.
+ * @returns {{guild:string,colorIdentity:string,label:string,edhrecUrl:string,mtgDecksUrl:string}} Alias routing metadata.
+ */
+export function getExternalDeckRoutingAlias(source) {
+  const keyCandidates = [];
+  if (source && typeof source === "object" && !Array.isArray(source)) {
+    keyCandidates.push(source.key, source.name, source.research_links?.edhrec_slug);
+  } else {
+    keyCandidates.push(source);
+  }
+
+  const matched = keyCandidates
+    .map(normalizeRoutingKey)
+    .map((key) => EXTERNAL_ROUTING_ALIASES.get(key))
+    .find(Boolean);
+  const alias = matched || routingAliasFromColors(
+    source && typeof source === "object" && !Array.isArray(source) ? (source.colors || source.key) : source
+  );
+
+  return {
+    ...alias,
+    edhrecUrl: `https://edhrec.com/commanders/${alias.guild}`,
+    mtgDecksUrl: `https://mtgdecks.net/Commander/${alias.guild}-commanders`,
+  };
+}
+
 /**
  * Builds an Archidekt deck search URL using URLSearchParams.
  *
@@ -1159,10 +1238,7 @@ export function buildArchidektDeckSearchUrl({
  * @returns {string} MTGDecks URL.
  */
 export function buildMtgDecksUrl(deck, colors) {
-  const base = deck?.mtgd || `https://mtgdecks.net/${encodeURIComponent(deck?.fmt || "Commander")}`;
-  const url = new URL(base);
-  url.searchParams.set("colors", getColorIdentity(colors));
-  return url.toString();
+  return getExternalDeckRoutingAlias(colors || deck?.colors || deck?.name || deck?.fmt || "Commander").mtgDecksUrl;
 }
 
 /**
@@ -1174,8 +1250,7 @@ export function buildMtgDecksUrl(deck, colors) {
 export function getServiceChipMeta(link) {
   const text = `${link?.service || ""} ${link?.kind || ""} ${link?.label || ""} ${link?.url || ""}`.toLowerCase();
   const key = Object.keys(SERVICE_CHIP_META).find((serviceKey) => serviceKey !== "generic" && text.includes(serviceKey)) ||
-    (text.includes("mtgdecks") ? "mtgdecks" : "") ||
-    (text.includes("mtggoldfish") ? "mtggoldfish" : "");
+    (text.includes("mtgdecks") ? "mtgdecks" : "");
   return SERVICE_CHIP_META[key] || SERVICE_CHIP_META.generic;
 }
 
@@ -1186,27 +1261,19 @@ export function getServiceChipMeta(link) {
  * @returns {object[]} EDHREC and MTGDecks links for Commander discovery.
  */
 export function buildCommanderDirectoryLinks(faction) {
-  const colors = faction?.colors || faction?.key || "";
-  const commanderDeck = (faction?.deck_links || []).find((deck) => deck.fmt === "Commander") || {
-    fmt: "Commander",
-    name: `${faction?.name || getColorIdentity(colors)} Commanders`,
-    edhrec: faction?.research_links?.edhrec_slug ? `https://edhrec.com/commanders/${faction.research_links.edhrec_slug}` : null,
-    mtgd: "https://mtgdecks.net/Commander",
-  };
+  const alias = getExternalDeckRoutingAlias(faction);
   const links = [];
 
-  if (commanderDeck.edhrec) {
-    links.push({
-      service: "edhrec",
-      label: `${faction?.name || getColorIdentity(colors)} commanders`,
-      url: commanderDeck.edhrec,
-    });
-  }
+  links.push({
+    service: "edhrec",
+    label: `${alias.label} commanders`,
+    url: alias.edhrecUrl,
+  });
 
   links.push({
     service: "mtgdecks",
-    label: `${getColorIdentity(colors)} Commander decks`,
-    url: buildMtgDecksUrl(commanderDeck, colors),
+    label: `${alias.label} Commander decks`,
+    url: alias.mtgDecksUrl,
   });
 
   return dedupeLinks(links);
@@ -1482,6 +1549,9 @@ export function buildCommanderPackageLinks(faction) {
       key: entry.key,
       label: entry.label,
       query,
+      pathType: entry.key,
+      operatorQuery: query,
+      plainReadingQuery: entry.plain(identity),
       mazeUrl: `/maze.html?q=${encodeURIComponent(query)}`,
       scryfallUrl: `https://scryfall.com/search?q=${encodeURIComponent(query)}`,
     };
@@ -1491,6 +1561,9 @@ export function buildCommanderPackageLinks(faction) {
     maze: links.map((link) => ({
       service: "maze",
       label: link.label,
+      pathType: link.pathType,
+      plainReadingQuery: link.plainReadingQuery,
+      operatorQuery: link.operatorQuery,
       url: link.mazeUrl,
     })).filter((link, index, all) => all.findIndex((item) => item.url === link.url) === index),
     scryfall: links.map((link) => ({

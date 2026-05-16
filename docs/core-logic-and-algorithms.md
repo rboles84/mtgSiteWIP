@@ -55,7 +55,8 @@ Flow:
 5. Quick path creates adaptive state, renders answer cards, applies selections, and finalizes.
 6. The Scrying Terminal remains behind a feature flag and is hidden by default.
 7. Result rendering switches between primary and adjacent fits, translates raw placement signals into a faction-native presenter layer, renders deck/source guidance, loads Scryfall card art, and exposes save actions.
-8. Maze links carry an Archscry handoff through query parameters and `localStorage` so Maze can show a return banner back to the originating dossier.
+8. Maze links carry an Archscry handoff through query parameters and `localStorage` so Maze can show a return banner back to the originating dossier. VM-005 links include a visible `plainReadingQuery`, executable `operatorQuery`, stable `pathType`, and return URL.
+9. External Commander directory links use a presenter-layer alias router: Strixhaven colleges map through their guild/color pair analogs before building EDHREC or MTGDecks directory URLs.
 
 ## Scrying Terminal Backend
 
@@ -135,12 +136,16 @@ The Maze has three modes:
 
 The UI keeps mode state, filter state, search results, pagination, recent searches, keyword suggestions, query inspector content, and modal state in module-local variables. It exposes handlers for existing inline attributes after module load.
 
+When Maze opens from Archscry, it stays in Plain Reading and displays the authored `plainReadingQuery`, while executing the stored `operatorQuery` against live Scryfall search. `lastSmartInput` and `lastSmartQuery` are seeded from that handoff so mode switching and copy behavior preserve the human phrase in Plain Reading and raw syntax in Operator's Hand.
+
 Maze also has two discovery layers that do not replace search:
 
 1. General Discovery Paths are static query seeds for fresh users.
 2. From Your Reading paths are rendered only when a saved or cached placement result exists.
 
 The lightweight stash uses `localStorage` key `vm_maze_card_stash_v1`. Saved cards keep normalized Scryfall identifiers, name, set, collector number, type line, color identity, URI, image URI, soft stash section, and source query. It is intentionally not a deckbuilder: there is no legality validation, mana curve, land advice, account sync, or direct Moxfield/Archidekt export.
+
+The Archscry return banner reads `vm_archscry_maze_handoff_v1`, shows the faction, reading title, and path label when present, and can be dismissed by storing `returnBannerDismissed` without clearing the return URL.
 
 ## Scryfall Bulk Indexing
 

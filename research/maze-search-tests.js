@@ -108,6 +108,21 @@ async function runMazeDomMetadataCases() {
   window.copyQuery();
   assert.equal(dom.getCopiedText(), "otag:mana-rock");
   assert.doesNotMatch(dom.getCopiedText(), /\b(?:order|direction|dir|unique):/);
+
+  const input = document.getElementById("search-input");
+  window.setMode("ai");
+  input.value = "red instants in commander";
+  await window.doSearch();
+  await waitForFetchCount(dom.fetchUrls, 5);
+  const smartUrl = latestFetchUrl(dom.fetchUrls);
+  assert.ok(smartUrl.searchParams.get("q"), "expected Plain Reading to execute a compiled query");
+  window.copyQuery();
+  assert.equal(dom.getCopiedText(), "red instants in commander");
+
+  window.setMode("raw");
+  assert.equal(input.value, smartUrl.searchParams.get("q"));
+  window.copyQuery();
+  assert.equal(dom.getCopiedText(), smartUrl.searchParams.get("q"));
 }
 
 function latestFetchUrl(fetchUrls) {

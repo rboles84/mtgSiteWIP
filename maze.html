@@ -171,6 +171,7 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
   color:var(--text-dim);
 }
 .maze-return-banner.is-visible{display:flex}
+.maze-return-actions{display:flex;align-items:center;gap:0.55rem;flex-wrap:wrap;justify-content:flex-end}
 .maze-return-copy{font-size:0.88rem;line-height:1.4}
 .maze-return-copy strong{color:var(--teal-l);font-weight:500}
 .maze-return-link{
@@ -185,20 +186,28 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
   white-space:nowrap;
 }
 .maze-return-link:hover{background:rgba(184,149,74,0.08);color:var(--gold-l)}
+.maze-return-dismiss{
+  width:30px;
+  height:30px;
+  border:1px solid rgba(184,149,74,0.26);
+  background:rgba(12,11,10,0.55);
+  color:var(--text-muted);
+  font-family:'IBM Plex Mono',monospace;
+  cursor:pointer;
+}
+.maze-return-dismiss:hover{border-color:var(--border-s);color:var(--text);background:rgba(184,149,74,0.08)}
 .res-count{font-family:'Cinzel',serif;font-size:0.72rem;letter-spacing:0.1em;color:var(--text-dim);flex:1}
 .res-count strong{color:var(--text);font-weight:500}
 .res-order{background:var(--bg3);border:1px solid var(--border);color:var(--text-dim);font-family:'Cinzel',serif;font-size:0.62rem;letter-spacing:0.1em;padding:0.35rem 0.6rem;cursor:pointer;outline:none;text-transform:uppercase}
-.card-grid{padding:1.25rem;display:grid;grid-template-columns:repeat(auto-fill,minmax(152px,1fr));gap:14px;flex:1;background:linear-gradient(180deg,rgba(12,11,10,0.34),rgba(12,11,10,0.72))}
-.card-item{cursor:pointer;position:relative;overflow:hidden;border-radius:4.5%}
-.card-item img{width:100%;display:block;border-radius:4.5%;border:1px solid var(--border);transition:transform 0.2s,border-color 0.2s}
+.card-grid{padding:1.25rem;display:grid;grid-template-columns:repeat(auto-fill,minmax(152px,176px));justify-content:start;align-items:start;gap:16px;flex:1;background:linear-gradient(180deg,rgba(12,11,10,0.34),rgba(12,11,10,0.72))}
+.card-item{cursor:pointer;position:relative;overflow:visible;border-radius:4.5%;display:grid;grid-template-columns:minmax(0,1fr) 34px;gap:6px;align-items:center}
+.card-item img{grid-column:1/-1;width:100%;display:block;border-radius:4.5%;border:1px solid var(--border);transition:transform 0.2s,border-color 0.2s}
 .card-item:hover img{transform:translateY(-3px) scale(1.02);border-color:var(--border-s)}
 .card-stash-btn{
-  position:absolute;
-  top:7px;
-  right:7px;
+  position:static;
   z-index:3;
-  min-width:30px;
-  height:28px;
+  width:32px;
+  height:30px;
   border:1px solid rgba(26,170,150,0.35);
   background:rgba(12,11,10,0.84);
   color:var(--teal-l);
@@ -208,8 +217,8 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
   transition:background 0.15s,border-color 0.15s,color 0.15s;
 }
 .card-stash-btn:hover,.card-stash-btn.on{background:var(--teal-bg);border-color:var(--border-ts);color:var(--text)}
-.card-skeleton{width:100%;aspect-ratio:63/88;background:var(--bg3);border:1px solid var(--border);border-radius:4.5%;background-image:linear-gradient(90deg,var(--bg3) 0%,var(--bg4) 50%,var(--bg3) 100%);background-size:400px;animation:shimmer 1.4s ease-in-out infinite}
-.card-item-name{font-size:0.72rem;color:var(--text-muted);text-align:center;margin-top:5px;line-height:1.3}
+.card-skeleton{grid-column:1/-1;width:100%;aspect-ratio:63/88;background:var(--bg3);border:1px solid var(--border);border-radius:4.5%;background-image:linear-gradient(90deg,var(--bg3) 0%,var(--bg4) 50%,var(--bg3) 100%);background-size:400px;animation:shimmer 1.4s ease-in-out infinite}
+.card-item-name{font-size:0.72rem;color:var(--text-muted);text-align:left;margin-top:0;line-height:1.3;min-width:0}
 .results-footer{padding:1rem 1.25rem;border-top:1px solid var(--border);display:flex;align-items:center;justify-content:center;gap:12px;flex-shrink:0}
 .btn-more{font-family:'Cinzel',serif;font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;background:transparent;border:1px solid var(--border-s);color:var(--text-dim);padding:0.6rem 2rem;cursor:pointer;transition:color 0.15s,border-color 0.15s,background 0.15s}
 .btn-more:hover{color:var(--text);border-color:var(--gold);background:rgba(184,149,74,0.04)}
@@ -300,12 +309,13 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 @media(max-width:780px){
   .r-sidebar{display:none}
   .maze-return-banner{align-items:flex-start;flex-direction:column}
+  .maze-return-actions{justify-content:flex-start}
   .stash-panel{position:static;width:auto;max-height:none;margin:0.85rem;border-left:none;border-right:none}
   .modal{flex-direction:column}
   .modal-img-col{width:100%;padding:1rem;display:flex;justify-content:center}
   .modal-img{max-width:220px}
   .modal-detail-col{border-left:none;border-top:1px solid var(--border)}
-  .card-grid{grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:8px;padding:0.85rem}
+  .card-grid{grid-template-columns:repeat(auto-fill,minmax(132px,1fr));gap:14px;padding:0.85rem}
   .empty-archive{grid-template-columns:1fr;text-align:center;justify-items:center}
 }
 @media(max-width:560px){
@@ -518,7 +528,10 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
   <main class="r-main" id="r-main">
     <div class="maze-return-banner" id="maze-return-banner">
       <div class="maze-return-copy" id="maze-return-copy"></div>
-      <a class="maze-return-link" id="maze-return-link" href="/archscry/">Return to dossier</a>
+      <div class="maze-return-actions">
+        <a class="maze-return-link" id="maze-return-link" href="/archscry/">Return to dossier</a>
+        <button class="maze-return-dismiss" id="maze-return-dismiss" type="button" aria-label="Dismiss return banner">×</button>
+      </div>
     </div>
     <div class="state-panel" id="state-panel">
       <svg width="48" height="48" viewBox="0 0 48 48" fill="none" style="opacity:.2">

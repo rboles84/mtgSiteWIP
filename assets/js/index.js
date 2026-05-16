@@ -13,6 +13,7 @@ import {
 import {
   buildCommanderDossier,
   createArchidektTagCatalog,
+  getExternalDeckRoutingAlias,
   getColorIdentity,
   getCommanderFactionGuidance,
   getServiceChipMeta,
@@ -54,6 +55,42 @@ const APP_STATE = {
 };
 
 const ARCHSCRY_MAZE_HANDOFF_KEY = "vm_archscry_maze_handoff_v1";
+const MAZE_PATH_LABELS = {
+  "commanders-that-fit": "Commanders That Fit",
+  "support-cards": "Support Cards",
+  "flavor-echoes": "Flavor Echoes",
+  "weird-stretch-commanders": "Weird Stretch Commanders",
+  ramp: "Ramp",
+  draw: "Draw",
+  interaction: "Interaction",
+  lands: "Lands",
+  "win-conditions": "Win Conditions",
+};
+const HELPER_COPY_VARIANTS = {
+  flavorLead: [
+    "Why it echoes",
+    "Where it resonates",
+    "What it carries forward",
+  ],
+  mazeTitle: [
+    "Live paths through the Maze",
+    "Threads to follow in the Maze",
+    "Searchable echoes from this reading",
+  ],
+};
+function systemCopyPattern(words, flags = "gi") {
+  return new RegExp(`\\b${words.join("\\s+")}\\b`, flags);
+}
+const SYSTEM_COPY_REPLACEMENTS = [
+  { pattern: systemCopyPattern(["product", "fit"]), replacement: "deck fit" },
+  { pattern: systemCopyPattern(["model", "fit"]), replacement: "reading fit" },
+  { pattern: systemCopyPattern(["generated", "candidate"]), replacement: "candidate" },
+  { pattern: systemCopyPattern(["scored", "result"]), replacement: "reading result" },
+  { pattern: systemCopyPattern(["confidence", "signal"]), replacement: "reading signal" },
+  { pattern: systemCopyPattern(["specific", "grievance"]), replacement: "specific pressure" },
+  { pattern: /\bCI\s+([WUBRG]{1,5})\b/g, replacement: "Color Identity: $1" },
+  { pattern: systemCopyPattern(["Read", "In", "Apocrypha"], "g"), replacement: "Read in the source library" },
+];
 const MANA_SYMBOL_NAMES = {
   W: "White",
   U: "Blue",
@@ -556,19 +593,24 @@ function buildReadingSignalCopy({ dossier, faction, result }) {
   return `${faction.name} led with a ${band} signal. The reading was not one-note; ${adjacentFaction?.name || adjacent.faction_name} remained nearby, which suggests your answers carried both ${presentation.closeReason} and ${adjacentPresentation.closeReason}. The deciding difference was motion: this result chose the path that ${presentation.direction}.`;
 }
 
-function buildTableIdentityHtml(faction) {
+function buildTableIdentityCardHtml(faction) {
   const presentation = presentationForFaction(faction);
   return `
     <div class="starter-card">
-      <div class="starter-title">Table Identity</div>
+      <div class="starter-title">How The Deck Sits At The Table</div>
       <div class="table-identity-list">
         <div><span>Role</span>${escapeHtml(presentation.tableRole)}</div>
         <div><span>How opponents read it</span>${escapeHtml(presentation.opponentRead)}</div>
         <div><span>Emotional pressure</span>${escapeHtml(presentation.emotionalPressure)}</div>
       </div>
-    </div>
+    </div>`;
+}
+
+function buildLoreToMechanicCardHtml(faction) {
+  const presentation = presentationForFaction(faction);
+  return `
     <div class="starter-card">
-      <div class="starter-title">Lore To Mechanic</div>
+      <div class="starter-title">How The Lore Becomes Play</div>
       <div class="table-identity-list">
         <div><span>Lore role</span>${escapeHtml(presentation.loreRole)}</div>
         <div><span>Mechanical expression</span>${escapeHtml(presentation.mechanics)}</div>
@@ -1156,7 +1198,6 @@ function siteSearchUrl(service, query) {
   const encoded = encodeURIComponent(query);
   // Source search patterns are intentionally conservative where stable deep links are uncertain.
   if (service === "moxfield") return `https://www.moxfield.com/decks/public/advanced?format=commander&filter=${encoded}`;
-  if (service === "mtggoldfish") return `https://www.mtggoldfish.com/search?query=${encoded}`;
   if (service === "mtgdecks") return `https://mtgdecks.net/Commander?search=${encoded}`;
   return `https://www.google.com/search?q=${encoded}`;
 }
@@ -1192,7 +1233,7 @@ function buildDeckDiscoveryGroups({
   const topTag = uniqueTagRefs(tagRefs)[0];
   const tagEntry = topTag ? taxonomyEntry(topTag.category, topTag.tag) : null;
   const themeQuery = tagEntry ? `${identity} Commander ${tagEntry.display_name}` : identityLabel;
-  const edhrecSlug = faction?.research_links?.edhrec_slug || searchSlug(faction?.name || identity);
+  const routingAlias = getExternalDeckRoutingAlias(faction);
 
   return [
     {
@@ -1201,7 +1242,7 @@ function buildDeckDiscoveryGroups({
       desc: "Browse commanders and theme pages by color identity, then compare common packages before choosing a list.",
       links: dedupeLinks([
         ...commanderDirectoryLinks.filter((link) => getServiceChipMeta(link).key === "edhrec"),
-        { service: "edhrec", label: `${faction?.name || identity} commanders`, url: `https://edhrec.com/commanders/${edhrecSlug}` },
+        { service: "edhrec", label: `${routingAlias.label} commanders`, url: routingAlias.edhrecUrl },
         ...buildCommanderSpecificLinks(commanderCandidates, "edhrec"),
       ]).slice(0, 4),
     },
@@ -1220,16 +1261,6 @@ function buildDeckDiscoveryGroups({
       name: "Archidekt",
       desc: "Use color and catalog-tag lanes when you want deckbuilder-native filtering.",
       links: dedupeLinks(archidektLinks).slice(0, 4),
-    },
-    {
-      service: "mtggoldfish",
-      name: "MTGGoldfish",
-      desc: "Use broad search when exact Commander deck routes vary; commander names are the safest anchor.",
-      links: dedupeLinks([
-        { service: "mtggoldfish", label: `${identity} Commander`, url: siteSearchUrl("mtggoldfish", identityLabel) },
-        ...buildCommanderSpecificLinks(commanderCandidates, "mtggoldfish"),
-        { service: "mtggoldfish", label: tagEntry ? tagEntry.display_name : "theme lane", url: siteSearchUrl("mtggoldfish", themeQuery) },
-      ]).slice(0, 4),
     },
     {
       service: "mtgdecks",
@@ -1296,22 +1327,52 @@ function buildArchscryMazeContext({ result, dossier, faction }) {
     fit: dossier.targetFactionKey,
     factionName: faction?.name || factionDisplayName(dossier.targetFactionKey),
     readingTitle: `${faction?.name || "Vox Mana"} dossier`,
+    pathType: "",
+    plainReadingQuery: "",
+    operatorQuery: "",
     returnUrl,
   };
+}
+
+function queryFromMazeLink(link = {}) {
+  if (link.operatorQuery) return link.operatorQuery;
+  try {
+    const parsed = new URL(link.url || "", window.location.origin);
+    return parsed.searchParams.get("operatorQuery") || parsed.searchParams.get("q") || "";
+  } catch (_) {
+    return "";
+  }
+}
+
+function pathTypeForMazeLink(link = {}) {
+  return link.pathType || String(link.label || "maze-path")
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-|-$/g, "");
 }
 
 function withArchscryMazeContext(links = [], context) {
   return (links || []).map((link) => {
     const isMaze = getServiceChipMeta(link).key === "maze" || String(link?.url || "").startsWith("/maze.html");
     if (!isMaze) return link;
+    const operatorQuery = queryFromMazeLink(link);
+    const pathType = pathTypeForMazeLink(link);
+    const plainReadingQuery = link.plainReadingQuery || `${link.label || MAZE_PATH_LABELS[pathType] || "Maze path"} from ${context.factionName}`;
     return {
       ...link,
+      pathType,
+      plainReadingQuery,
+      operatorQuery,
       url: appendUrlParams(link.url, {
         from: "archscry",
         readingId: context.readingId,
         guild: context.guild,
         fit: context.fit,
+        factionName: context.factionName,
         readingTitle: context.readingTitle,
+        pathType,
+        plainReadingQuery,
+        operatorQuery,
         returnUrl: context.returnUrl,
       }),
     };
@@ -1348,12 +1409,19 @@ function captureMazeReturnUrl() {
 }
 
 function escapeHtml(value) {
-  return String(value ?? "")
+  return sanitizeUserFacingCopy(value)
     .replace(/&/g, "&amp;")
     .replace(/</g, "&lt;")
     .replace(/>/g, "&gt;")
     .replace(/"/g, "&quot;")
     .replace(/'/g, "&#039;");
+}
+
+function sanitizeUserFacingCopy(value) {
+  return SYSTEM_COPY_REPLACEMENTS.reduce(
+    (copy, rule) => copy.replace(rule.pattern, rule.replacement),
+    String(value ?? "")
+  );
 }
 
 function normalizeCardName(value) {
@@ -1498,6 +1566,15 @@ function wordExcerpt(value, maxWords = 18) {
   return `${words.slice(0, maxWords).join(" ")}...`;
 }
 
+function stablePhrase(kind, key) {
+  const variants = HELPER_COPY_VARIANTS[kind] || [];
+  if (!variants.length) return "";
+  const hash = String(key || kind)
+    .split("")
+    .reduce((total, char) => total + char.charCodeAt(0), 0);
+  return variants[hash % variants.length];
+}
+
 function flavorExcerptForCard(card) {
   return card.flavor_excerpt || (card.card_faces || []).find((face) => face.flavor_excerpt)?.flavor_excerpt || "";
 }
@@ -1547,10 +1624,13 @@ function groupedOr(terms = []) {
   return terms.length ? `(${terms.join(" OR ")})` : "";
 }
 
-function mazeSearchLink(label, query, service = "maze") {
+function mazeSearchLink(label, query, service = "maze", pathType = "", plainReadingQuery = "") {
   return {
     service,
     label,
+    pathType: pathType || pathTypeForMazeLink({ label }),
+    plainReadingQuery: plainReadingQuery || label,
+    operatorQuery: query,
     url: `/maze.html?q=${encodeURIComponent(query)}`,
   };
 }
@@ -1565,10 +1645,34 @@ function buildPersonalizedMazePaths({ faction, tagRefs, flavorEchoes }) {
   const flavorGroup = flavorTerms || "(ft:death OR ft:secret OR ft:fire OR ft:growth OR ft:law)";
 
   return [
-    mazeSearchLink("commanders that fit", `ci<=${identity} t:legendary t:creature f:commander ${supportGroup}`),
-    mazeSearchLink("cards that support this shape", `ci<=${identity} f:commander -t:legendary ${supportGroup}`),
-    mazeSearchLink("flavor echoes", `ci<=${identity} ${flavorGroup}`),
-    mazeSearchLink("weird stretch commanders", `f:commander t:legendary t:creature -ci<=${identity} ${supportGroup}`),
+    mazeSearchLink(
+      "commanders that fit",
+      `ci<=${identity} t:legendary t:creature f:commander ${supportGroup}`,
+      "maze",
+      "commanders-that-fit",
+      `${faction?.name || "this reading"} commanders that fit the same table identity`
+    ),
+    mazeSearchLink(
+      "cards that support this shape",
+      `ci<=${identity} f:commander -t:legendary ${supportGroup}`,
+      "maze",
+      "support-cards",
+      `${faction?.name || "this reading"} support cards for the deck shape`
+    ),
+    mazeSearchLink(
+      "flavor echoes",
+      `ci<=${identity} ${flavorGroup}`,
+      "maze",
+      "flavor-echoes",
+      `${faction?.name || "this reading"} flavor echoes and story motifs`
+    ),
+    mazeSearchLink(
+      "weird stretch commanders",
+      `f:commander t:legendary t:creature -ci<=${identity} ${supportGroup}`,
+      "maze",
+      "weird-stretch-commanders",
+      `strange commanders that echo ${faction?.name || "this reading"} from outside the color identity`
+    ),
   ];
 }
 
@@ -1576,9 +1680,6 @@ function buildDiscoverySummaryHtml({ dossier, faction, result, tagRefs }) {
   const adjacent = adjacentMatchForSummary(result, dossier.targetFactionKey);
   const adjacentFaction = adjacent?.faction ? getFaction(adjacent.faction) : null;
   const signalCopy = buildReadingSignalCopy({ dossier, faction, result });
-  const contrastCopy = adjacentFaction
-    ? buildContrastCopy(dossier.isPrimary ? faction : getFaction(dossier.primaryFactionKey), dossier.isPrimary ? adjacentFaction : faction)
-    : "";
 
   return `
     <div class="starter-section">
@@ -1589,9 +1690,37 @@ function buildDiscoverySummaryHtml({ dossier, faction, result, tagRefs }) {
           <div class="starter-copy">${escapeHtml(signalCopy)}</div>
           <div class="signal-technical">${escapeHtml(technicalSignalCopy(result, dossier.targetFactionKey))}</div>
         </div>
-        ${contrastCopy ? `<div class="starter-card starter-card-wide"><div class="starter-title">Faction Fork</div><div class="starter-copy">${escapeHtml(contrastCopy)}</div></div>` : ""}
-        ${buildTableIdentityHtml(faction)}
       </div>
+    </div>`;
+}
+
+function buildDossierInterpretationHtml({ dossier, faction, result, tagRefs }) {
+  const adjacent = adjacentMatchForSummary(result, dossier.targetFactionKey);
+  const adjacentFaction = adjacent?.faction ? getFaction(adjacent.faction) : null;
+  const contrastCopy = adjacentFaction
+    ? buildContrastCopy(dossier.isPrimary ? faction : getFaction(dossier.primaryFactionKey), dossier.isPrimary ? adjacentFaction : faction)
+    : "";
+  const forkHtml = contrastCopy
+    ? `<div class="starter-section">
+        <div class="section-label">Faction Fork</div>
+        <div class="starter-grid">
+          <div class="starter-card starter-card-wide">
+            <div class="starter-title">Where This Path Divides</div>
+            <div class="starter-copy">${escapeHtml(contrastCopy)}</div>
+          </div>
+        </div>
+      </div>`
+    : "";
+
+  return `
+    ${forkHtml}
+    <div class="starter-section">
+      <div class="section-label">Table Identity</div>
+      <div class="starter-grid">${buildTableIdentityCardHtml(faction)}</div>
+    </div>
+    <div class="starter-section">
+      <div class="section-label">Lore To Mechanic</div>
+      <div class="starter-grid">${buildLoreToMechanicCardHtml(faction)}</div>
     </div>
     <div class="starter-section">
       <div class="section-label">Why This Fits You</div>
@@ -1603,10 +1732,11 @@ function buildFlavorEchoWhy({ card, tagMatches, faction }) {
   const presentation = presentationForFaction(faction);
   const bestRef = tagMatches.find((ref) => ref.category === "identity" || ref.category === "lore-tone") || tagMatches[0];
   const entry = bestRef ? taxonomyEntry(bestRef.category, bestRef.tag) : null;
+  const lead = stablePhrase("flavorLead", `${faction?.key || faction?.name}:${card?.name}:${bestRef?.tag || ""}`);
   if (entry) {
-    return `Why it echoes: ${entry.vox_mana_interpretation} Here, that card moment supports ${presentation.shortName}'s ${presentation.tableExperience}.`;
+    return `${lead}: ${entry.vox_mana_interpretation} Here, that card moment supports ${presentation.shortName}'s ${presentation.tableExperience}.`;
   }
-  return `Why it echoes: this card belongs to the same emotional shape as the reading: ${presentation.tableExperience}.`;
+  return `${lead}: this card belongs to the same emotional shape as the reading: ${presentation.tableExperience}.`;
 }
 
 function buildFlavorEchoesHtml(flavorEchoes = [], faction = {}) {
@@ -1637,13 +1767,14 @@ function buildFlavorEchoesHtml(flavorEchoes = [], faction = {}) {
 
 function buildMazeDiscoveryHtml(paths = []) {
   if (!paths.length) return "";
+  const title = stablePhrase("mazeTitle", paths.map((path) => path.pathType || path.label).join("|"));
   return `
     <div class="starter-section">
-      <div class="section-label">Explore In Maze</div>
+      <div class="section-label">Maze Discovery Paths</div>
       <div class="starter-grid">
         <div class="starter-card starter-card-wide">
-          <div class="starter-title">Personal discovery paths</div>
-          <div class="starter-copy">Open the Implicit Maze with searches shaped by this reading. The Maze still runs live Scryfall search when you arrive.</div>
+          <div class="starter-title">${escapeHtml(title)}</div>
+          <div class="starter-copy">Open live searchable paths shaped by this dossier. Each thread keeps a way back here, so discoveries can wander through Scryfall without losing the reading that began them.</div>
           <div class="starter-links">${buildLinkButtons(paths)}</div>
         </div>
       </div>
@@ -1660,12 +1791,8 @@ function indexedCommanderForCandidate(candidate) {
 
 function commanderMetaHtml(indexed) {
   if (!indexed) return "";
-  const colors = (indexed.color_identity || []).length
-    ? colorIdentityNames(indexed.color_identity)
-    : "Colorless";
   return [
     indexed.type_line ? `<span>${escapeHtml(indexed.type_line)}</span>` : "",
-    `<span>Color Identity: ${escapeHtml(colors)}</span>`,
   ].filter(Boolean).join("");
 }
 
@@ -1736,6 +1863,7 @@ function renderResult(viewKey) {
     mazeContext
   );
   const discoverySummaryHtml = buildDiscoverySummaryHtml({ dossier, faction, result, tagRefs: readingTagRefs });
+  const dossierInterpretationHtml = buildDossierInterpretationHtml({ dossier, faction, result, tagRefs: readingTagRefs });
   const flavorEchoesHtml = buildFlavorEchoesHtml(flavorEchoes, faction);
   const mazeDiscoveryHtml = buildMazeDiscoveryHtml(personalizedMazePaths);
   const apocryphaHtml = buildApocryphaHtml(faction);
@@ -1890,6 +2018,8 @@ function renderResult(viewKey) {
         <div class="starter-grid">${evidenceHtml}</div>
       </div>` : ""}
 
+    ${dossierInterpretationHtml}
+
     <div class="starter-section">
       <div class="section-label">Start Here</div>
       <div class="starter-grid starter-grid-start">
@@ -1942,6 +2072,10 @@ function renderResult(viewKey) {
     <div class="lands-section">
       <div class="section-label">Mana Base Starting Map</div>
       <div class="lands-tiers">
+        <div class="land-tier tier-basics">
+          <div class="land-tier-label">Basics</div>
+          <div class="land-tier-copy">${basicLandCopy}</div>
+        </div>
         <div class="land-tier tier-premium">
           <div class="land-tier-label">Premium</div>
           <div class="land-tier-copy">${landLaneCopy.premium}</div>
@@ -1963,9 +2097,6 @@ function renderResult(viewKey) {
           <div class="land-cards-row">${landSlots(landRecommendations.utility, "lu")}</div>
         </div>
       </div>
-      <div class="lands-guide">
-        <div class="guide-row"><span class="guide-tier guide-tier-u">Basics</span><span class="guide-text">${basicLandCopy}</span></div>
-      </div>
     </div>
 
     <div class="decks-section">
@@ -1978,7 +2109,7 @@ function renderResult(viewKey) {
     </p>
 
     <div class="footer-actions">
-      <div class="footer-note">Card and land images via Scryfall API. Starter references are curated from faction data; deck links route out to EDHREC, Moxfield, Archidekt, MTGGoldfish, MTGDecks, Maze, and Scryfall.</div>
+      <div class="footer-note">Card and land images via Scryfall API. Starter references are curated from faction data; deck links route out to EDHREC, Moxfield, Archidekt, MTGDecks, Maze, and Scryfall.</div>
       <div class="footer-button-row">
         <button class="btn-primary" type="button" onclick="saveCurrentResult()">${saveButtonLabel}</button>
         ${returnToTerminalButton}

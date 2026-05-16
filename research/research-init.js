@@ -26,6 +26,17 @@ let activeModalCard = null;
 const PAGE_SIZE = 24;
 const STASH_KEY = "vm_maze_card_stash_v1";
 const ARCHSCRY_MAZE_HANDOFF_KEY = "vm_archscry_maze_handoff_v1";
+const ARCHSCRY_PATH_LABELS = {
+  "commanders-that-fit": "Commanders That Fit",
+  "support-cards": "Support Cards",
+  "flavor-echoes": "Flavor Echoes",
+  "weird-stretch-commanders": "Weird Stretch Commanders",
+  ramp: "Ramp",
+  draw: "Draw",
+  interaction: "Interaction",
+  lands: "Lands",
+  "win-conditions": "Win Conditions"
+};
 const STASH_SECTIONS = [
   { id: "commander", label: "Commander Ideas", exportHeading: "Commander" },
   { id: "support", label: "Cards That Support This Shape", exportHeading: "Deck" },
@@ -135,7 +146,20 @@ async function initializeResearchArchives() {
   setMode("ai");
 
   const urlQ = urlParams.get("q");
-  if (urlQ) {
+  const operatorQuery = urlParams.get("operatorQuery") || urlQ;
+  const plainReadingQuery = urlParams.get("plainReadingQuery") || "";
+  if (urlParams.get("from") === "archscry" && operatorQuery) {
+    const input = document.getElementById("search-input");
+    input.value = plainReadingQuery || operatorQuery;
+    lastSmartInput = input.value;
+    lastSmartQuery = operatorQuery;
+    setMode("ai");
+    triggerSearch(operatorQuery, {
+      order: urlParams.get("order") || currentOrder,
+      unique: urlParams.get("unique") || currentUnique,
+      dir: normalizeSortDirection(urlParams.get("dir")) || currentDir
+    });
+  } else if (urlQ) {
     document.getElementById("search-input").value = urlQ;
     setMode("raw");
     triggerSearch(urlQ, {
@@ -406,7 +430,7 @@ function makeCardEl(card) {
   const stashButton = document.createElement("button");
   stashButton.type = "button";
   stashButton.className = `card-stash-btn${isCardStashed(card) ? " on" : ""}`;
-  stashButton.textContent = isCardStashed(card) ? "Saved" : "+";
+  stashButton.textContent = isCardStashed(card) ? "✓-" : "+";
   stashButton.title = isCardStashed(card) ? "Remove from stash" : "Add to stash";
   stashButton.setAttribute("aria-label", stashButton.title);
   stashButton.addEventListener("click", (event) => {
@@ -821,34 +845,51 @@ function writeArchscryMazeHandoff(handoff) {
 function initializeArchscryMazeHandoff(urlParams) {
   if (urlParams.get("from") !== "archscry") {
     const existing = readArchscryMazeHandoff();
-    if (existing?.returnUrl) {
+    if (existing?.returnUrl && !existing.returnBannerDismissed) {
       renderArchscryReturnBanner(existing);
     }
     return;
   }
 
   const existing = readArchscryMazeHandoff() || {};
+  const readingId = urlParams.get("readingId") || existing.readingId || "";
+  const fit = urlParams.get("fit") || existing.fit || "";
+  const pathType = urlParams.get("pathType") || existing.pathType || "";
+  const previousIdentity = [existing.readingId, existing.fit, existing.pathType].filter(Boolean).join(":");
+  const nextIdentity = [readingId, fit, pathType].filter(Boolean).join(":");
   const handoff = {
     ...existing,
     from: "archscry",
-    readingId: urlParams.get("readingId") || existing.readingId || "",
+    readingId,
     guild: urlParams.get("guild") || existing.guild || "",
-    fit: urlParams.get("fit") || existing.fit || "",
+    fit,
+    factionName: urlParams.get("factionName") || existing.factionName || "",
     readingTitle: urlParams.get("readingTitle") || existing.readingTitle || "your Vox Mana reading",
+    pathType,
+    plainReadingQuery: urlParams.get("plainReadingQuery") || existing.plainReadingQuery || "",
+    operatorQuery: urlParams.get("operatorQuery") || urlParams.get("q") || existing.operatorQuery || "",
+    returnBannerDismissed: previousIdentity && previousIdentity === nextIdentity
+      ? existing.returnBannerDismissed === true
+      : false,
     returnUrl: urlParams.get("returnUrl") || existing.returnUrl || "/archscry/"
   };
   writeArchscryMazeHandoff(handoff);
-  renderArchscryReturnBanner(handoff);
+  if (!handoff.returnBannerDismissed) {
+    renderArchscryReturnBanner(handoff);
+  }
 }
 
 function renderArchscryReturnBanner(handoff) {
   const banner = document.getElementById("maze-return-banner");
   const copy = document.getElementById("maze-return-copy");
   const link = document.getElementById("maze-return-link");
+  const dismiss = document.getElementById("maze-return-dismiss");
   if (!banner || !copy || !link || !handoff?.returnUrl) return;
 
   const title = handoff.readingTitle || "your Vox Mana reading";
   const fit = handoff.fit || handoff.guild || "";
+  const factionName = handoff.factionName || handoff.guild || "your reading";
+  const pathLabel = ARCHSCRY_PATH_LABELS[handoff.pathType] || "";
   const returnUrl = appendReturnUrlParams(handoff.returnUrl, {
     from: "maze",
     view: fit,
@@ -856,10 +897,24 @@ function renderArchscryReturnBanner(handoff) {
     mazeReturnUrl: `${location.pathname}${location.search}`
   });
 
-  copy.innerHTML = `Viewing paths from <strong>${escapeHtml(title)}</strong>.`;
+  copy.innerHTML = `Following <strong>${escapeHtml(factionName)}</strong> from ${escapeHtml(title)}${pathLabel ? ` through ${escapeHtml(pathLabel)}` : ""}.`;
   link.href = returnUrl;
   link.textContent = `Return to My ${handoff.factionName || handoff.guild || "Reading"} Dossier`;
+  if (dismiss) {
+    dismiss.onclick = () => dismissArchscryReturnBanner();
+  }
   banner.classList.add("is-visible");
+}
+
+function dismissArchscryReturnBanner() {
+  const handoff = readArchscryMazeHandoff();
+  if (handoff) {
+    writeArchscryMazeHandoff({
+      ...handoff,
+      returnBannerDismissed: true
+    });
+  }
+  document.getElementById("maze-return-banner")?.classList.remove("is-visible");
 }
 
 function appendReturnUrlParams(url, params) {
@@ -1091,7 +1146,11 @@ function showQueryInspector(query, reason, parserResult = null, api = null) {
  * Copies the current query to the clipboard.
  */
 function copyQuery() {
-  navigator.clipboard.writeText(currentQuery).then(() => showToast("Query copied"));
+  const inputValue = document.getElementById("search-input")?.value.trim() || "";
+  const copyText = currentMode === "ai"
+    ? (inputValue || lastSmartInput || currentQuery)
+    : currentQuery;
+  navigator.clipboard.writeText(copyText).then(() => showToast(currentMode === "ai" ? "Plain reading copied" : "Query copied"));
 }
 
 /**
@@ -1398,7 +1457,7 @@ function refreshStashButtons() {
     if (!key || !button) return;
     const saved = cardStash.some((item) => cardStashKey(item) === key);
     button.classList.toggle("on", saved);
-    button.textContent = saved ? "Saved" : "+";
+    button.textContent = saved ? "✓-" : "+";
     button.title = saved ? "Remove from stash" : "Add to stash";
     button.setAttribute("aria-label", button.title);
   });

@@ -17,12 +17,14 @@ import {
   buildArchidektSearchLinks,
   auditCommanderDossier,
   buildCommanderDossier,
+  buildCommanderDirectoryLinks,
   buildCommanderStartingLane,
   buildReadingOmens,
   collectCommanderPreviewCandidates,
   buildCommanderPackageLinks,
   createArchidektTagCatalog,
   explainAdjacentFit,
+  getExternalDeckRoutingAlias,
   getColorIdentity,
   renderCommanderDossierText,
   resolveArchidektTagName,
@@ -193,6 +195,33 @@ const prismariTags = prismariLinks.map((link) => link.tagName).filter(Boolean);
 assert.ok(prismariTags.includes("Budget"));
 assert.ok(prismariTags.includes("Spellslinger"));
 
+const prismariAlias = getExternalDeckRoutingAlias(factions.PRISMARI);
+assert.equal(prismariAlias.guild, "izzet");
+assert.equal(prismariAlias.colorIdentity, "UR");
+
+const collegeDirectoryCases = [
+  [factions.PRISMARI, "https://edhrec.com/commanders/izzet", "https://mtgdecks.net/Commander/izzet-commanders"],
+  [factions.LOREHOLD, "https://edhrec.com/commanders/boros", "https://mtgdecks.net/Commander/boros-commanders"],
+  [factions.QUANDRIX, "https://edhrec.com/commanders/simic", "https://mtgdecks.net/Commander/simic-commanders"],
+  [factions.SILVERQUILL, "https://edhrec.com/commanders/orzhov", "https://mtgdecks.net/Commander/orzhov-commanders"],
+  [factions.WITHERBLOOM, "https://edhrec.com/commanders/golgari", "https://mtgdecks.net/Commander/golgari-commanders"],
+];
+
+collegeDirectoryCases.forEach(([faction, edhrecUrl, mtgDecksUrl]) => {
+  const links = buildCommanderDirectoryLinks(faction);
+  assert.equal(links.find((link) => link.service === "edhrec")?.url, edhrecUrl);
+  assert.equal(links.find((link) => link.service === "mtgdecks")?.url, mtgDecksUrl);
+});
+
+[
+  [factions.WU, "https://edhrec.com/commanders/azorius", "https://mtgdecks.net/Commander/azorius-commanders"],
+  [factions.BG, "https://edhrec.com/commanders/golgari", "https://mtgdecks.net/Commander/golgari-commanders"],
+].forEach(([faction, edhrecUrl, mtgDecksUrl]) => {
+  const links = buildCommanderDirectoryLinks(faction);
+  assert.equal(links.find((link) => link.service === "edhrec")?.url, edhrecUrl);
+  assert.equal(links.find((link) => link.service === "mtgdecks")?.url, mtgDecksUrl);
+});
+
 const packageLinks = buildCommanderPackageLinks(factions.WU);
 assert.equal(packageLinks.maze.length, 6);
 assert.equal(packageLinks.scryfall.length, 6);
@@ -200,6 +229,11 @@ assert.ok(packageLinks.maze.every((link) => link.url.startsWith("/maze.html?q=")
 assert.ok(packageLinks.scryfall.every((link) => link.url.startsWith("https://scryfall.com/search?q=")));
 assert.ok(packageLinks.maze.every((link) => link.service === "maze"));
 assert.ok(packageLinks.scryfall.every((link) => link.service === "scryfall"));
+assert.deepEqual(
+  packageLinks.maze.map((link) => link.pathType),
+  ["commanders-that-fit", "ramp", "draw", "interaction", "lands", "win-conditions"]
+);
+assert.ok(packageLinks.maze.every((link) => link.operatorQuery && link.plainReadingQuery));
 
 const dimirCommanderLane = buildCommanderStartingLane({
   faction: factions.UB,
