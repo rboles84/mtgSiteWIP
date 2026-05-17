@@ -84,6 +84,11 @@ The repository had already been reorganized, but several live docs still pointed
 - Moved and renamed docs with PowerShell file operations.
 - No runtime tests were needed for this documentation-only pass.
 
+## Commit / Push Status
+
+- Local commit created: `e743b1c` (`Normalize docs paths after color-pie reorg`).
+- No remote push was performed in this turn.
+
 ## Not Touched
 
 - No runtime code, generated data, or build scripts were changed.
