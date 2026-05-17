@@ -1,7 +1,7 @@
 # Agent Handoff: Codex - Normalize Docs Paths After Reorg
 
 Date: 2026-05-17 01:38
-Related Card: VM-023
+Related Card: VM-024
 Related Plan: Normalize Docs Paths After Reorg
 Status: Complete
 
@@ -43,7 +43,7 @@ Implement the documentation-path normalization plan after the color-pie document
 - `docs/architecture/project-atlas.md`
 - `docs/diagrams/data-pipeline.mmd`
 - `docs/kanban/board.md`
-- `docs/kanban/backlog/VM-023-normalize-docs-paths-after-reorg.md`
+- `docs/kanban/backlog/VM-024-normalize-docs-paths-after-reorg.md`
 - `docs/handoffs/HANDOFF_INDEX.md`
 - `docs/handoffs/2026-05-17-0138-codex-normalize-docs-paths-after-reorg.md`
 - `docs/analysis/master-comparison-table.md`
@@ -58,7 +58,8 @@ Implement the documentation-path normalization plan after the color-pie document
 - Updated the live docs hub links so `docs/reference/README.md` and `docs/reference/spec-index.md` point to the canonical architecture, reference, design, and diagrams folders.
 - Normalized atlas and data-flow references to the new doc tree.
 - Refreshed the migration note so its file list matches the current folder taxonomy.
-- Added VM-023 to the Kanban backlog and documented the task there.
+- Renumbered the docs cleanup card from VM-023 to VM-024 so VM-023 remains available for mono identity-layer planning.
+- Added the docs cleanup card to the Kanban backlog and documented the task there.
 - Moved the color audit reports into `docs/analysis/color-audits/`.
 - Renamed `master-comparison-table.md` to match the current analysis naming convention.
 
@@ -106,7 +107,7 @@ Documentation Steward or Kanban Steward
 
 ## Related Kanban Card, Docs, Or Plans
 
-- `docs/kanban/backlog/VM-023-normalize-docs-paths-after-reorg.md`
+- `docs/kanban/backlog/VM-024-normalize-docs-paths-after-reorg.md`
 - `docs/kanban/board.md`
 - `docs/handoffs/HANDOFF_INDEX.md`
 - `docs/reference/README.md`

@@ -1,6 +1,6 @@
-# VM-023 - Normalize Docs Paths After Reorg
+# VM-024 - Normalize Docs Paths After Reorg
 
-ID: VM-023
+ID: VM-024
 Title: Normalize Docs Paths After Reorg
 Status: backlog
 Type: Documentation

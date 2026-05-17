@@ -4,7 +4,7 @@ This index tracks agent work across planning, board updates, documentation, JSON
 
 | Date | Agent | Task | Related Card | Status | Handoff |
 |---|---|---|---|---|---|
-| 2026-05-17 01:38 | Codex | Normalize Docs Paths After Reorg | VM-023 | Complete | [2026-05-17-0138-codex-normalize-docs-paths-after-reorg.md](2026-05-17-0138-codex-normalize-docs-paths-after-reorg.md) |
+| 2026-05-17 01:38 | Codex | Normalize Docs Paths After Reorg | VM-024 | Complete | [2026-05-17-0138-codex-normalize-docs-paths-after-reorg.md](2026-05-17-0138-codex-normalize-docs-paths-after-reorg.md) |
 | 2026-05-17 01:30 | Codex | VM-012 checkpoint save before VM-022 | VM-012 | Complete | [2026-05-17-0130-codex-vm012-checkpoint-save-before-vm022.md](2026-05-17-0130-codex-vm012-checkpoint-save-before-vm022.md) |
 | 2026-05-17 01:26 | Codex | Adjacent fit click repair + return path | VM-021B | Complete | [2026-05-17-0126-codex-vm021b-adjacent-fit-click-repair-return-path.md](2026-05-17-0126-codex-vm021b-adjacent-fit-click-repair-return-path.md) |
 | 2026-05-17 01:21 | Codex | Plain Reading / Operator's Hand Translation Tests | VM-012 | Complete | [2026-05-17-0121-codex-plain-reading-operator-hand-translation-tests.md](2026-05-17-0121-codex-plain-reading-operator-hand-translation-tests.md) |
