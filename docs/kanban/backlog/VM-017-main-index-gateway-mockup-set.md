@@ -1,4 +1,4 @@
-# VM-017 - Main Index Gateway Mockup Set
+﻿# VM-017 - Main Index Gateway Mockup Set
 
 ID: VM-017
 Title: Main Index Gateway Mockup Set
@@ -17,8 +17,8 @@ Create the approved mockup set for the Vox Mana home gateway at `/index.html`. T
 - `index.html` - the current three-door gateway shell already establishes the home layout, topbar, destination cards, quote rail, and resume chip.
 - `assets/css/home.css` - the current home-specific layout language already contains the gateway, side cards, and return-state alignment pass.
 - `assets/js/home.js` - resume-chip detection already exists and is the current returning-user hook.
-- `docs/asset-manifest.md` - lists the seeded gateway and page-specific background candidates and the mockup-quality gate.
-- `docs/visual-style-guide.md` - defines the dark arcane archive language, black stone, bronze trim, teal/gold light, and architectural UI treatment.
+- `docs/design/asset-manifest.md` - lists the seeded gateway and page-specific background candidates and the mockup-quality gate.
+- `docs/design/visual-style-guide.md` - defines the dark arcane archive language, black stone, bronze trim, teal/gold light, and architectural UI treatment.
 - `C:\\dev\\projectFiles\\mtgSite\\UI Files\\redesign Images\\background samples` - current gateway background and home reference material.
 - `C:\\dev\\projectFiles\\mtgSite\\UI Files\\redesign Images\\site pages` - current mockup inspiration set, including the home, Archscry, Maze, and Apocrypha references.
 
@@ -84,3 +84,4 @@ Yes - this is a product-shaping homepage visual direction decision.
 Keep this scoped to the home gateway. The result should be a premium front door for Vox Mana, not a full page system rewrite.
 
 2026-05-15 update: `VM-019` added a disposable root-level first-visit sandbox for local review. The full VM-017 mockup-set scope remains open because returning-user and dedicated mobile frames were intentionally excluded from that lightweight pass.
+

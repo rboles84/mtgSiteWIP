@@ -1,4 +1,4 @@
-# Agent Handoff: Codex - VM-022 Maze Core Extraction Backlog Card
+﻿# Agent Handoff: Codex - VM-022 Maze Core Extraction Backlog Card
 
 Date: 2026-05-16 16:37
 Related Card: VM-022
@@ -19,8 +19,8 @@ Create a new backlog card for Maze Core Extraction only. Do not implement runtim
 - `docs/kanban/board.md`
 - `docs/kanban/backlog/VM-010-the-loom-commander-finder-mode-graph-query-layer.md`
 - `docs/kanban/backlog/VM-012-scryfall-parser-expansion-diagnostics.md`
-- `docs/project-atlas.md`
-- `docs/data-flow-map.md`
+- `docs/architecture/project-atlas.md`
+- `docs/architecture/data-flow-map.md`
 
 ## Files Changed
 
@@ -73,5 +73,6 @@ Planning Architect
 
 - `docs/kanban/backlog/VM-022-maze-core-extraction.md`
 - `docs/kanban/board.md`
-- `docs/project-atlas.md`
-- `docs/data-flow-map.md`
+- `docs/architecture/project-atlas.md`
+- `docs/architecture/data-flow-map.md`
+

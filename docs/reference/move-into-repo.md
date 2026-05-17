@@ -4,21 +4,21 @@ Copy these files into `C:\dev\mtgSiteWIP` and replace the existing versions ther
 
 - `index.html`
 - `shared.js`
-- `README.md`
+- `docs/reference/README.md`
 - `maze/index.html`
 - `data/factions.json`
 - `data/placement-model.json`
 - `data/placement-model.schema.json`
 - `data/raw-factions/`
-- `docs/data-contracts.md`
-- `docs/manual-test-cases.md`
+- `docs/reference/data-contracts.md`
+- `docs/reference/manual-test-cases.md`
 - `docs/supabase-profile-update.sql`
 - `supabase/functions/guild-recruiter/index.ts`
 - `supabase/functions/guild-recruiter/faction-context.ts`
 
 Keep these existing repo files:
 
-- `docs/workflow.md`
+- `docs/reference/workflow.md`
 - `.github/ISSUE_TEMPLATE/task.yml`
 - `.github/pull_request_template.md`
 

@@ -1,4 +1,4 @@
-# VM-007 - Commander Dossier Quality and Link Follow-Up
+﻿# VM-007 - Commander Dossier Quality and Link Follow-Up
 
 ID: VM-007
 Title: Commander Dossier Quality and Link Follow-Up
@@ -16,7 +16,7 @@ Track the remaining Commander dossier quality work that the current audit still 
 
 - `docs/handoffs/2026-05-14-2243-codex-cleanup-batch-1-foundation.md` - notes that `npm run dossier:audit` still reported 47 warnings and that the warnings remain a future content-quality review item.
 - `docs/reference/commander-faction-guidance.md` - includes copy and bleed warnings that should keep commander-facing language grounded.
-- `docs/project-atlas.md` - states that Commander deck-link routing is presenter-layer logic and that Strixhaven colleges map to guild/color analogs for directory links.
+- `docs/architecture/project-atlas.md` - states that Commander deck-link routing is presenter-layer logic and that Strixhaven colleges map to guild/color analogs for directory links.
 - `C:\\dev\\projectFiles\\obsidianDocs\\vox-mana-docs\\02-archscry\\commander-compass\\_index.md` - lists V1.5 archetype-guided recommendations and the 32-Deck Challenge as the next Commander Compass tracks.
 - `C:\\dev\\projectFiles\\obsidianDocs\\vox-mana-docs\\01-project-and-strategy\\business-overview-and-pitch.md` - describes Commander Compass as the bridge from placement to commander directions, with honest fit and exploration language.
 
@@ -64,3 +64,4 @@ Yes - the remaining work depends on editorial judgment and live link behavior.
 ## Notes
 
 This is intentionally broader than a single warning-fix ticket so future dossier cleanup can be grouped instead of scattered.
+

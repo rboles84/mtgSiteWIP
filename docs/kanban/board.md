@@ -17,6 +17,7 @@ Cards live in the matching status folders under `docs/kanban/`:
 - [VM-010 - The Loom Commander Finder Mode and Graph/Query Layer](backlog/VM-010-the-loom-commander-finder-mode-graph-query-layer.md)
 - [VM-011 - Apocrypha Source Atlas and Source Bridge](backlog/VM-011-apocrypha-source-atlas-source-bridge.md)
 - [VM-022 - Maze Core Extraction](backlog/VM-022-maze-core-extraction.md)
+- [VM-023 - Normalize Docs Paths After Reorg](backlog/VM-023-normalize-docs-paths-after-reorg.md)
 - [VM-013 - Placement Domains Architecture and Post-V1 Faction Expansion](backlog/VM-013-placement-domains-architecture-post-v1-faction-expansion.md)
 - [VM-014 - UI Shell Cleanup and Legacy Terminal Follow-Up](backlog/VM-014-ui-shell-cleanup-legacy-terminal-follow-up.md)
 - [VM-015 - Returning User Commander Fit Check](backlog/VM-015-returning-user-commander-fit-check.md)

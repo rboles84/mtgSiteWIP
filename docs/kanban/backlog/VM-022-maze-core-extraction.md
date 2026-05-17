@@ -1,4 +1,4 @@
-# VM-022 - Maze Core Extraction
+﻿# VM-022 - Maze Core Extraction
 
 ID: VM-022
 Title: Maze Core Extraction
@@ -16,8 +16,8 @@ This card is intentionally a sibling to VM-010 and VM-012, not a rename of eithe
 
 ## Source
 
-- `docs/project-atlas.md` - current route and runtime map for Maze and Archscry.
-- `docs/data-flow-map.md` - documents current Maze handoff, parser, and discovery data flow.
+- `docs/architecture/project-atlas.md` - current route and runtime map for Maze and Archscry.
+- `docs/architecture/data-flow-map.md` - documents current Maze handoff, parser, and discovery data flow.
 - `docs/kanban/backlog/VM-010-the-loom-commander-finder-mode-graph-query-layer.md` - existing Commander Finder and graph/query story.
 - `docs/kanban/backlog/VM-012-scryfall-parser-expansion-diagnostics.md` - existing parser expansion and diagnostics story.
 - `docs/kanban/backlog/VM-006-archscry-maze-verification-repeat-visit-polish.md` - repeat-visit continuity follow-up.
@@ -76,3 +76,4 @@ Yes - this is an architecture and product-direction story that should be confirm
 ## Notes
 
 Keep the first pass focused on the shared core contract and the browser-safe translation layer. Do not fold this into VM-010; that story remains focused on Maze mode / graph-query behavior.
+

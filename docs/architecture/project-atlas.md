@@ -45,7 +45,7 @@ Vox Mana is an unofficial Magic: The Gathering fan site that combines a themed s
 
 | Surface | Where | Shape |
 |---|---|---|
-| Placement result | `docs/data-contracts.md`, `assets/js/adaptive-placement.js`, `assets/js/shared.js`, edge function | Versioned object with `faction`, `decree`, confidence, mana scores, matches, starter profile, evidence, and stage history. |
+| Placement result | `docs/reference/data-contracts.md`, `assets/js/adaptive-placement.js`, `assets/js/shared.js`, edge function | Versioned object with `faction`, `decree`, confidence, mana scores, matches, starter profile, evidence, and stage history. |
 | Browser globals | `assets/js/shared.js`, `assets/js/index.js`, `research/research-init.js` | Inline handler functions, `VM_SESSION`, `vm_*` helpers, and research handlers. |
 | Supabase profile row | `assets/js/shared.js` | Compatibility fields plus richer `placement_result` source of truth. |
 | Scryfall API calls | `research/research-search.js`, `assets/js/index.js` | Search/exact/random endpoints for Maze and card-art enrichment. |

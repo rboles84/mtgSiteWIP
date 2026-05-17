@@ -1,4 +1,4 @@
-# VM-014 - UI Shell Cleanup and Legacy Terminal Follow-Up
+﻿# VM-014 - UI Shell Cleanup and Legacy Terminal Follow-Up
 
 ID: VM-014
 Title: UI Shell Cleanup and Legacy Terminal Follow-Up
@@ -14,8 +14,8 @@ Group the remaining presentation-shell follow-up in one place: page background a
 
 ## Source
 
-- `docs/implementation-notes.md` - says the seeded backgrounds are placeholders, the page-specific backgrounds should be regenerated, and icons are still a future committed icon pack.
-- `docs/project-atlas.md` - says `supabase/functions/guild-recruiter/index.ts` is retained for the archived terminal path and future deterministic replacement work.
+- `docs/design/implementation-notes.md` - says the seeded backgrounds are placeholders, the page-specific backgrounds should be regenerated, and icons are still a future committed icon pack.
+- `docs/architecture/project-atlas.md` - says `supabase/functions/guild-recruiter/index.ts` is retained for the archived terminal path and future deterministic replacement work.
 - `C:\\dev\\projectFiles\\obsidianDocs\\vox-mana-docs\\08-technical-atlas\\visual-style-guide.md` - reinforces the current UI system for buttons, cards, and icon treatment.
 - `C:\\dev\\projectFiles\\obsidianDocs\\vox-mana-docs\\01-project-and-strategy\\business-overview-and-pitch.md` - frames the product as a layered experience with future-facing surfaces that should stay honest about what is shipped today.
 
@@ -39,8 +39,8 @@ Group the remaining presentation-shell follow-up in one place: page background a
 - `apocrypha/index.html`
 - `assets/img/backgrounds/*.webp`
 - `assets/img/overlays/*.svg`
-- `docs/implementation-notes.md`
-- `docs/project-atlas.md`
+- `docs/design/implementation-notes.md`
+- `docs/architecture/project-atlas.md`
 - `supabase/functions/guild-recruiter/index.ts`
 
 ## Risks / Uncertainties
@@ -66,3 +66,4 @@ Yes - the card mixes visual cleanup with a future architecture path, so it needs
 ## Notes
 
 This is the right place for the lingering presentation polish that should not be mistaken for shipped product behavior.
+

@@ -1,4 +1,4 @@
-# Agent Handoff: Codex - VM-017 Main Index Gateway Mockup Set
+﻿# Agent Handoff: Codex - VM-017 Main Index Gateway Mockup Set
 
 Date: 2026-05-15 20:16
 Related Card: VM-017
@@ -27,11 +27,11 @@ Review the current mockup inspiration under `C:\dev\projectFiles\mtgSite\UI File
 - `index.html`
 - `assets/css/home.css`
 - `assets/js/home.js`
-- `docs/asset-manifest.md`
-- `docs/visual-style-guide.md`
-- `docs/project-atlas.md`
-- `docs/data-flow-map.md`
-- `docs/manual-test-cases.md`
+- `docs/design/asset-manifest.md`
+- `docs/design/visual-style-guide.md`
+- `docs/architecture/project-atlas.md`
+- `docs/architecture/data-flow-map.md`
+- `docs/reference/manual-test-cases.md`
 - `C:\\dev\\projectFiles\\mtgSite\\UI Files\\redesign Images\\background samples\\mockUI.png`
 - `C:\\dev\\projectFiles\\mtgSite\\UI Files\\redesign Images\\site pages\\finalMockupLandingPageMainPage.png`
 - `C:\\dev\\projectFiles\\mtgSite\\UI Files\\redesign Images\\site pages\\archscry\\Final Mockup\\finalMockupFirstLandingArchscry.png`
@@ -91,7 +91,7 @@ The current `index.html` shell already has the right structural idea, but the ma
 
 - When the mockup set is approved, translate the chosen home direction into `index.html`, `assets/css/home.css`, and `assets/js/home.js`.
 - If the mockup set is turned into actual image comps later, keep the 1440 desktop and 390 mobile frames separate and labeled.
-- Revisit `docs/asset-manifest.md` only if the approved gateway composition requires a new background pass.
+- Revisit `docs/design/asset-manifest.md` only if the approved gateway composition requires a new background pass.
 
 ## Next Suggested Agent
 
@@ -103,5 +103,6 @@ Planning Architect or UI Implementer
 - `docs/kanban/board.md`
 - `docs/handoffs/HANDOFF_INDEX.md`
 - `docs/mockups/homepage-gateway-mockup-set.md`
-- `docs/asset-manifest.md`
-- `docs/visual-style-guide.md`
+- `docs/design/asset-manifest.md`
+- `docs/design/visual-style-guide.md`
+

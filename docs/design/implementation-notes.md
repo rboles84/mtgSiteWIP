@@ -55,7 +55,7 @@ For new pages or refactors, the simplest pattern is:
 
 ## Raster Generation
 
-The seeded background files are useful placeholders, but only `background-vox-gateway-clean-01.webp` is close to final direction. The page-specific backgrounds should be regenerated from the prompts in `/docs/asset-manifest.md`, reviewed against the quality gate, then saved over their target filenames or as `-02`, `-03`, etc.
+The seeded background files are useful placeholders, but only `background-vox-gateway-clean-01.webp` is close to final direction. The page-specific backgrounds should be regenerated from the prompts in `/docs/design/asset-manifest.md`, reviewed against the quality gate, then saved over their target filenames or as `-02`, `-03`, etc.
 
 Do not generate UI screenshots as assets. Generate only environments, materials, atmosphere, and isolated decorative architecture.
 

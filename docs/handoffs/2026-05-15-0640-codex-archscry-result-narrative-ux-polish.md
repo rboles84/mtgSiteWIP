@@ -1,4 +1,4 @@
-# Agent Handoff: Codex - Archscry Result Narrative + UX Polish
+﻿# Agent Handoff: Codex - Archscry Result Narrative + UX Polish
 
 Date: 2026-05-15 06:40
 Related Card: VM-004
@@ -21,11 +21,11 @@ Upgrade Archscry result pages so they read like Vox Mana dossiers instead of dia
 - `docs/kanban/done/VM-003-scryfall-discovery-foundation.md`
 - `docs/VOX_MANA_TAG_TAXONOMY.md`
 - `docs/SCRYFALL_DATA_PIPELINE.md`
-- `docs/project-atlas.md`
-- `docs/data-flow-map.md`
-- `docs/core-logic-and-algorithms.md`
+- `docs/architecture/project-atlas.md`
+- `docs/architecture/data-flow-map.md`
+- `docs/architecture/core-logic-and-algorithms.md`
 - `docs/reference/commander-faction-guidance.md`
-- `docs/manual-test-cases.md`
+- `docs/reference/manual-test-cases.md`
 - `assets/js/index.js`
 - `assets/js/commander-dossier.js`
 - `archscry/index.html`
@@ -39,9 +39,9 @@ Upgrade Archscry result pages so they read like Vox Mana dossiers instead of dia
 - `archscry/index.html`
 - `maze.html`
 - `research/research-init.js`
-- `docs/core-logic-and-algorithms.md`
-- `docs/data-flow-map.md`
-- `docs/project-atlas.md`
+- `docs/architecture/core-logic-and-algorithms.md`
+- `docs/architecture/data-flow-map.md`
+- `docs/architecture/project-atlas.md`
 - `docs/kanban/board.md`
 - `docs/kanban/done/VM-004-archscry-result-narrative-ux-polish.md`
 - `docs/handoffs/HANDOFF_INDEX.md`
@@ -111,7 +111,8 @@ Test Strategist
 ## Related Kanban Card, Docs, Or Plans
 
 - `docs/kanban/done/VM-004-archscry-result-narrative-ux-polish.md`
-- `docs/core-logic-and-algorithms.md`
-- `docs/data-flow-map.md`
-- `docs/project-atlas.md`
+- `docs/architecture/core-logic-and-algorithms.md`
+- `docs/architecture/data-flow-map.md`
+- `docs/architecture/project-atlas.md`
 - User-provided VM-004 prompt
+

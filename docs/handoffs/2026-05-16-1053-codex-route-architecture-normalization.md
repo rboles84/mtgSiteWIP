@@ -1,4 +1,4 @@
-# Agent Handoff: Codex - Route Architecture Normalization
+﻿# Agent Handoff: Codex - Route Architecture Normalization
 
 Date: 2026-05-16 10:53
 Related Card: VM-020
@@ -22,9 +22,9 @@ Perform a route and navigation migration so Vox Mana uses folder-based canonical
 - `docs/kanban/board.md`
 - `docs/kanban/backlog/VM-011-apocrypha-source-atlas-source-bridge.md`
 - `docs/kanban/backlog/VM-014-ui-shell-cleanup-legacy-terminal-follow-up.md`
-- `docs/project-atlas.md`
-- `docs/method-reference.md`
-- `docs/core-logic-and-algorithms.md`
+- `docs/architecture/project-atlas.md`
+- `docs/reference/method-reference.md`
+- `docs/architecture/core-logic-and-algorithms.md`
 - `docs/diagrams/route-map.mmd`
 - `docs/diagrams/project-architecture.mmd`
 - `index.html`
@@ -45,9 +45,9 @@ Perform a route and navigation migration so Vox Mana uses folder-based canonical
 - `assets/js/index.js`
 - `assets/js/commander-dossier.js`
 - `assets/js/quick-reading-tests.js`
-- `docs/project-atlas.md`
-- `docs/method-reference.md`
-- `docs/core-logic-and-algorithms.md`
+- `docs/architecture/project-atlas.md`
+- `docs/reference/method-reference.md`
+- `docs/architecture/core-logic-and-algorithms.md`
 - `docs/move-into-repo.md`
 - `docs/diagrams/route-map.mmd`
 - `docs/diagrams/project-architecture.mmd`
@@ -113,6 +113,7 @@ Test Strategist or UI Implementer
 
 - `docs/kanban/done/VM-020-route-architecture-normalization.md`
 - `docs/kanban/board.md`
-- `docs/project-atlas.md`
+- `docs/architecture/project-atlas.md`
 - `docs/diagrams/route-map.mmd`
 - `docs/diagrams/project-architecture.mmd`
+

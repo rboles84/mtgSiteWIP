@@ -1,4 +1,4 @@
-# Agent Handoff: Codex - Scryfall Discovery Foundation
+﻿# Agent Handoff: Codex - Scryfall Discovery Foundation
 
 Date: 2026-05-15 00:38
 Related Card: VM-003
@@ -21,11 +21,11 @@ Use `AGENTS.md`, run preflight first, then implement the hybrid Scryfall bulk/in
 - `docs/kanban/board.md`
 - `docs/kanban/done/VM-001-agent-coordination-scaffold.md`
 - `docs/kanban/done/VM-002-cleanup-batch-1-foundation.md`
-- `docs/workflow.md`
-- `docs/project-atlas.md`
-- `docs/data-flow-map.md`
-- `docs/core-logic-and-algorithms.md`
-- `docs/data-contracts.md`
+- `docs/reference/workflow.md`
+- `docs/architecture/project-atlas.md`
+- `docs/architecture/data-flow-map.md`
+- `docs/architecture/core-logic-and-algorithms.md`
+- `docs/reference/data-contracts.md`
 - `.gitignore`
 - `package.json`
 - `maze.html`
@@ -55,9 +55,9 @@ Use `AGENTS.md`, run preflight first, then implement the hybrid Scryfall bulk/in
 - `data/taxonomy/vox-mana-tags.json`
 - `docs/SCRYFALL_DATA_PIPELINE.md`
 - `docs/VOX_MANA_TAG_TAXONOMY.md`
-- `docs/project-atlas.md`
-- `docs/data-flow-map.md`
-- `docs/core-logic-and-algorithms.md`
+- `docs/architecture/project-atlas.md`
+- `docs/architecture/data-flow-map.md`
+- `docs/architecture/core-logic-and-algorithms.md`
 - `archscry/index.html`
 - `assets/js/index.js`
 - `maze.html`
@@ -137,3 +137,4 @@ Vox Mana needed a hybrid discovery foundation: bulk data for slow card-expressio
 - `docs/SCRYFALL_DATA_PIPELINE.md`
 - `docs/VOX_MANA_TAG_TAXONOMY.md`
 - User-provided Vox Mana Scryfall + Discovery Experience Plan
+

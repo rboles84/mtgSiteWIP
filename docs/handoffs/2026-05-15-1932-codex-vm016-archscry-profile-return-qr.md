@@ -1,4 +1,4 @@
-# Agent Handoff: Codex - VM-016 Archscry Profile Return QR
+﻿# Agent Handoff: Codex - VM-016 Archscry Profile Return QR
 
 Date: 2026-05-15 19:32
 Related Card: VM-016
@@ -24,11 +24,11 @@ Create a new backlog card for the Archscry Profile Return QR enhancement, update
 - `docs/handoffs/2026-05-15-1926-codex-vm015-returning-user-commander-fit-check.md`
 - `docs/handoffs/2026-05-15-0914-codex-vm005-archscry-maze-continuity.md`
 - `docs/handoffs/2026-05-15-0640-codex-archscry-result-narrative-ux-polish.md`
-- `docs/project-atlas.md`
-- `docs/data-flow-map.md`
-- `docs/core-logic-and-algorithms.md`
-- `docs/data-contracts.md`
-- `docs/manual-test-cases.md`
+- `docs/architecture/project-atlas.md`
+- `docs/architecture/data-flow-map.md`
+- `docs/architecture/core-logic-and-algorithms.md`
+- `docs/reference/data-contracts.md`
+- `docs/reference/manual-test-cases.md`
 
 ## Files Changed
 
@@ -89,7 +89,8 @@ Planning Architect
 - `docs/kanban/backlog/VM-016-archscry-profile-return-qr.md`
 - `docs/kanban/board.md`
 - `docs/handoffs/HANDOFF_INDEX.md`
-- `docs/project-atlas.md`
-- `docs/data-flow-map.md`
-- `docs/core-logic-and-algorithms.md`
-- `docs/data-contracts.md`
+- `docs/architecture/project-atlas.md`
+- `docs/architecture/data-flow-map.md`
+- `docs/architecture/core-logic-and-algorithms.md`
+- `docs/reference/data-contracts.md`
+

@@ -1,4 +1,4 @@
-# VM-020 - Route Architecture Normalization
+﻿# VM-020 - Route Architecture Normalization
 
 ID: VM-020
 Title: Route Architecture Normalization
@@ -14,7 +14,7 @@ Normalize Vox Mana to route folders with `index.html` default documents so the p
 
 ## Source Evidence
 
-- `docs/project-atlas.md` - current route map and runtime layer definitions describe the canonical folder-based layout.
+- `docs/architecture/project-atlas.md` - current route map and runtime layer definitions describe the canonical folder-based layout.
 - `docs/diagrams/route-map.mmd` - route diagram now speaks the canonical folder-based paths.
 - `index.html`, `archscry/index.html`, `maze/index.html`, `apocrypha/index.html` - the current public entry points follow the folder-based route model.
 
@@ -46,7 +46,7 @@ Canonical routes become:
 - `assets/js/quick-reading-tests.js`
 - `maze/index.html`
 - `apocrypha/index.html`
-- `docs/project-atlas.md`
+- `docs/architecture/project-atlas.md`
 - `docs/diagrams/route-map.mmd`
 
 ## Risks / Uncertainties
@@ -73,3 +73,4 @@ Yes - this is a structural route migration and should be reviewed before and aft
 ## Notes
 
 Keep the migration narrow and avoid unrelated presentation cleanup during the route move.
+

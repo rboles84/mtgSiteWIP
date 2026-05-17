@@ -1,4 +1,4 @@
-# VM-011 - Apocrypha Source Atlas and Source Bridge
+﻿# VM-011 - Apocrypha Source Atlas and Source Bridge
 
 ID: VM-011
 Title: Apocrypha Source Atlas and Source Bridge
@@ -17,7 +17,7 @@ Track the next Apocrypha step as a browse-first source atlas: a relationship-awa
 - `C:\\dev\\projectFiles\\obsidianDocs\\vox-mana-docs\\06-apocrypha-library\\curated-atlas-recommendation.md` - reframes the library as a browse-first curated knowledge graph with source cards, the relationship layer, Crossings, and reading routes.
 - `C:\\dev\\projectFiles\\obsidianDocs\\vox-mana-docs\\06-apocrypha-library\\interactive-lore-library-framework.md` - explores guild-specific source organization and source-card UX patterns.
 - `C:\\dev\\projectFiles\\obsidianDocs\\vox-mana-docs\\06-apocrypha-library\\_index.md` - describes Apocrypha as the browse-first source library and lore/research reference page.
-- `docs/project-atlas.md` and `docs/implementation-notes.md` - identify `/apocrypha/` as the Apocrypha surface and note that the page assets and components are still being finalized.
+- `docs/architecture/project-atlas.md` and `docs/design/implementation-notes.md` - identify `/apocrypha/` as the Apocrypha surface and note that the page assets and components are still being finalized.
 
 ## Acceptance Criteria
 
@@ -39,8 +39,8 @@ Track the next Apocrypha step as a browse-first source atlas: a relationship-awa
 - `assets/css/components.css`
 - `assets/img/backgrounds/background-apocrypha-library-clean-01.webp`
 - `assets/img/overlays/overlay-library-warm-light-01.svg`
-- `docs/project-atlas.md`
-- `docs/implementation-notes.md`
+- `docs/architecture/project-atlas.md`
+- `docs/design/implementation-notes.md`
 
 ## Risks / Uncertainties
 
@@ -65,3 +65,4 @@ Yes - this is a product and content-architecture story that should be reviewed b
 ## Notes
 
 Keep this broad enough to cover the library structure and the source-trail concept together.
+

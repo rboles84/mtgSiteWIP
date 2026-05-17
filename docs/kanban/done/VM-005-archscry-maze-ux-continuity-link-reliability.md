@@ -1,4 +1,4 @@
-# VM-005 - Archscry / Maze UX Continuity + Link Reliability
+﻿# VM-005 - Archscry / Maze UX Continuity + Link Reliability
 
 ID: VM-005
 Title: Archscry / Maze UX Continuity + Link Reliability
@@ -42,9 +42,9 @@ User-provided "VM-005 Archscry / Maze UX Continuity Plan" prompt in Codex thread
 - `research/research-mode.js` if needed
 - `maze.html`
 - `archscry/index.html`
-- `docs/core-logic-and-algorithms.md`
-- `docs/data-flow-map.md`
-- `docs/project-atlas.md`
+- `docs/architecture/core-logic-and-algorithms.md`
+- `docs/architecture/data-flow-map.md`
+- `docs/architecture/project-atlas.md`
 - `docs/kanban/board.md`
 - `docs/handoffs/HANDOFF_INDEX.md`
 - `docs/handoffs/*.md`
@@ -65,3 +65,4 @@ Implement the VM-005 UX continuity and link reliability pass as a scoped present
 - Use presenter/render-level copy sanitation; do not edit generated faction JSON for this pass.
 - MTGGoldfish is intentionally removed from active UI integrations.
 - Completed with scoped presenter/UI changes only; generated faction data, raw lore, placement scoring, Supabase logic, Scryfall index builders, and Commander ranking logic were not touched.
+

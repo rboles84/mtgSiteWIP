@@ -1,4 +1,4 @@
-# Agent Handoff: Codex - VM-018 Commander Table Fit and Rule Zero Card
+﻿# Agent Handoff: Codex - VM-018 Commander Table Fit and Rule Zero Card
 
 Date: 2026-05-15 21:06
 Related Card: VM-018
@@ -25,11 +25,11 @@ Review the current project trail, then create the right backlog card and board e
 - `docs/kanban/backlog/VM-008-commander-compass-v1-5-archetype-guided-recommendations.md`
 - `docs/kanban/backlog/VM-010-the-loom-commander-finder-mode-graph-query-layer.md`
 - `docs/kanban/backlog/VM-015-returning-user-commander-fit-check.md`
-- `docs/project-atlas.md`
-- `docs/data-flow-map.md`
-- `docs/data-contracts.md`
-- `docs/core-logic-and-algorithms.md`
-- `docs/manual-test-cases.md`
+- `docs/architecture/project-atlas.md`
+- `docs/architecture/data-flow-map.md`
+- `docs/reference/data-contracts.md`
+- `docs/architecture/core-logic-and-algorithms.md`
+- `docs/reference/manual-test-cases.md`
 
 ## Files Changed
 
@@ -93,8 +93,9 @@ Planning Architect / Kanban Steward
 - `docs/kanban/backlog/VM-010-the-loom-commander-finder-mode-graph-query-layer.md`
 - `docs/kanban/backlog/VM-015-returning-user-commander-fit-check.md`
 - `docs/kanban/backlog/VM-006-archscry-maze-verification-repeat-visit-polish.md`
-- `docs/project-atlas.md`
-- `docs/data-flow-map.md`
-- `docs/data-contracts.md`
-- `docs/core-logic-and-algorithms.md`
-- `docs/manual-test-cases.md`
+- `docs/architecture/project-atlas.md`
+- `docs/architecture/data-flow-map.md`
+- `docs/reference/data-contracts.md`
+- `docs/architecture/core-logic-and-algorithms.md`
+- `docs/reference/manual-test-cases.md`
+

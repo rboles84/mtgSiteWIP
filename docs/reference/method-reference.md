@@ -578,4 +578,4 @@ Endpoint behavior: `OPTIONS` returns CORS ok, non-`POST` returns `405`, empty me
 | External command manifest | Command manifest data. |
 | External command-panel CSS | Command-panel styling. |
 | `research/scryfall-parser-seed-2026.json` | Parser seed data. |
-| `data/*.json` and `data/raw-factions/**` | Runtime/generated/source data, documented in [Data Flow Map](data-flow-map.md). |
+| `data/*.json` and `data/raw-factions/**` | Runtime/generated/source data, documented in [Data Flow Map](../architecture/data-flow-map.md). |

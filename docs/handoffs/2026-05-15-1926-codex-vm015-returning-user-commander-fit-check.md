@@ -1,4 +1,4 @@
-# Agent Handoff: Codex - VM-015 Returning User Commander Fit Check
+﻿# Agent Handoff: Codex - VM-015 Returning User Commander Fit Check
 
 Date: 2026-05-15 19:26
 Related Card: VM-015
@@ -22,10 +22,10 @@ Use the repo's preflight sources, then add a backlog enhancement card and board 
 - `docs/kanban/board.md`
 - `docs/kanban/backlog/VM-008-commander-compass-v1-5-archetype-guided-recommendations.md`
 - `docs/kanban/backlog/VM-009-32-deck-challenge-saved-taste-profile-deck-import-later.md`
-- `docs/project-atlas.md`
-- `docs/data-flow-map.md`
-- `docs/manual-test-cases.md`
-- `docs/core-logic-and-algorithms.md`
+- `docs/architecture/project-atlas.md`
+- `docs/architecture/data-flow-map.md`
+- `docs/reference/manual-test-cases.md`
+- `docs/architecture/core-logic-and-algorithms.md`
 - `assets/js/shared.js`
 - `assets/js/index.js`
 - `assets/js/commander-dossier.js`
@@ -69,7 +69,7 @@ The repo already stores saved placement data and already has Commander Compass r
 
 - Preflight board, handoff, and backlog review completed.
 - Verified the current board run ends at `VM-014`, leaving `VM-015` as the next sequence slot.
-- Verified the returning-user and legacy-fallback QA language already exists in `docs/manual-test-cases.md`.
+- Verified the returning-user and legacy-fallback QA language already exists in `docs/reference/manual-test-cases.md`.
 - Verified the saved-result plumbing exists in `assets/js/shared.js` and `assets/js/index.js`.
 
 ## Not Touched
@@ -92,7 +92,8 @@ Planning Architect / Kanban Steward
 - `docs/kanban/backlog/VM-015-returning-user-commander-fit-check.md`
 - `docs/kanban/board.md`
 - `docs/handoffs/HANDOFF_INDEX.md`
-- `docs/manual-test-cases.md`
-- `docs/project-atlas.md`
-- `docs/data-flow-map.md`
-- `docs/core-logic-and-algorithms.md`
+- `docs/reference/manual-test-cases.md`
+- `docs/architecture/project-atlas.md`
+- `docs/architecture/data-flow-map.md`
+- `docs/architecture/core-logic-and-algorithms.md`
+

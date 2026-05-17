@@ -1,4 +1,4 @@
-# Agent Handoff: Codex - Agent Coordination Scaffold
+﻿# Agent Handoff: Codex - Agent Coordination Scaffold
 
 Date: 2026-05-14 21:50
 Related Card: VM-001
@@ -14,7 +14,7 @@ Implement the accepted documentation-only scaffold fixes for AGENTS.md, file-bas
 - `AGENTS.md`
 - `docs/handoffs/HANDOFF_INDEX.md`
 - `docs/kanban/board.md`
-- `docs/workflow.md`
+- `docs/reference/workflow.md`
 - `.codex/prompts/plan.md`
 - `.codex/prompts/board.md`
 - `.codex/prompts/docs.md`
@@ -27,7 +27,7 @@ Implement the accepted documentation-only scaffold fixes for AGENTS.md, file-bas
 - `AGENTS.md`
 - `docs/kanban/board.md`
 - `docs/kanban/done/VM-001-agent-coordination-scaffold.md`
-- `docs/workflow.md`
+- `docs/reference/workflow.md`
 - `.codex/prompts/plan.md`
 - `.codex/prompts/board.md`
 - `.codex/prompts/docs.md`
@@ -41,7 +41,7 @@ Implement the accepted documentation-only scaffold fixes for AGENTS.md, file-bas
 
 - Closed the unfinished `AGENTS.md` bash code fence.
 - Documented the `docs/kanban/` status folder layout in the board.
-- Rewrote `docs/workflow.md` around local file-based Kanban as source of truth.
+- Rewrote `docs/reference/workflow.md` around local file-based Kanban as source of truth.
 - Clarified that prompt roles may create required handoffs and update the handoff index.
 - Removed the undefined Release Captain role from the handoff template.
 - Added the first completed Kanban card and handoff index entry for this scaffold cleanup.
@@ -83,5 +83,6 @@ The scaffold existed but had small contradictions and missing links that would m
 ## Related Kanban Card, Docs, Or Plans
 
 - `docs/kanban/done/VM-001-agent-coordination-scaffold.md`
-- `docs/workflow.md`
+- `docs/reference/workflow.md`
 - `AGENTS.md`
+

@@ -1,4 +1,4 @@
-# VM-015 - Returning User Commander Fit Check
+﻿# VM-015 - Returning User Commander Fit Check
 
 ID: VM-015
 Title: Returning User Commander Fit Check
@@ -14,10 +14,10 @@ Give returning users who already have a saved Archscry placement a simple questi
 
 ## Source Evidence
 
-- `docs/project-atlas.md` - saved-return flow already keys off `VM_SESSION.profile.placementResult`, and Commander Compass is the presenter-layer bridge from placement to commander discovery.
-- `docs/data-flow-map.md` - `placement_result` is the saved-return source of truth, and `VM_SESSION` carries the auth/session profile state.
-- `docs/manual-test-cases.md` - the Returning user and Legacy fallback cases already define the saved-result and no-`placement_result` behavior this story should respect.
-- `docs/core-logic-and-algorithms.md` - `vm_resumeSession()` restores the existing profile/result contract and `vm_savePlacementResult()` persists the normalized placement result.
+- `docs/architecture/project-atlas.md` - saved-return flow already keys off `VM_SESSION.profile.placementResult`, and Commander Compass is the presenter-layer bridge from placement to commander discovery.
+- `docs/architecture/data-flow-map.md` - `placement_result` is the saved-return source of truth, and `VM_SESSION` carries the auth/session profile state.
+- `docs/reference/manual-test-cases.md` - the Returning user and Legacy fallback cases already define the saved-result and no-`placement_result` behavior this story should respect.
+- `docs/architecture/core-logic-and-algorithms.md` - `vm_resumeSession()` restores the existing profile/result contract and `vm_savePlacementResult()` persists the normalized placement result.
 - `C:\\dev\\projectFiles\\obsidianDocs\\vox-mana-docs\\02-archscry\\commander-compass\\01-current-state.md` - Commander Compass is already an implemented recommendation layer with Native Fit and Weird Stretch lanes.
 - `C:\\dev\\projectFiles\\obsidianDocs\\vox-mana-docs\\02-archscry\\commander-compass\\02-v1-product-spec.md` - V1 defines Commander Compass as a commander-direction layer with fit / skip style guidance and explicitly avoids account-required saving or deck import.
 - `C:\\dev\\projectFiles\\obsidianDocs\\vox-mana-docs\\01-project-and-strategy\\business-overview-and-pitch.md` - frames the precon problem, saved taste profiles, and Commander Compass as the bridge from placement to commander exploration.
@@ -55,7 +55,7 @@ A returning user can name a commander or precon and get a concise, evidence-back
 
 ## Testing Notes
 
-- Future implementation should add or extend manual QA coverage for the saved-result returning-user path and the no-profile fallback path in `docs/manual-test-cases.md`.
+- Future implementation should add or extend manual QA coverage for the saved-result returning-user path and the no-profile fallback path in `docs/reference/manual-test-cases.md`.
 - Future tests should cover named commander/precon input, short fit verdict output, and graceful fallback when the commander is unknown.
 - This backlog card itself should not require runtime tests or schema checks.
 
@@ -73,3 +73,4 @@ Yes - this is a product-shaping Commander Compass story and needs a human to con
 ## Notes
 
 Keep this broad and Commander-facing. Use existing placement/profile data rather than inventing a new taste model.
+

@@ -42,7 +42,7 @@ flowchart LR
   Save --> Resume["Saved-return behavior"]
 ```
 
-All result-producing paths should converge on the versioned placement shape documented in [Data Contracts](data-contracts.md).
+All result-producing paths should converge on the versioned placement shape documented in [Data Contracts](../reference/data-contracts.md).
 
 ## External Services
 

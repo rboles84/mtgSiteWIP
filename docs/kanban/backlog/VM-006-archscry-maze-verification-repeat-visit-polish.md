@@ -1,4 +1,4 @@
-# VM-006 - Archscry / Maze Verification and Repeat-Visit Polish
+﻿# VM-006 - Archscry / Maze Verification and Repeat-Visit Polish
 
 ID: VM-006
 Title: Archscry / Maze Verification and Repeat-Visit Polish
@@ -16,7 +16,7 @@ Harden the Archscry-to-Maze experience with a real-browser verification pass, re
 
 - `docs/handoffs/2026-05-15-0914-codex-vm005-archscry-maze-continuity.md` - notes that browser visual verification was limited and recommends a real browser pass for mobile wrapping and Maze continuity.
 - `docs/handoffs/2026-05-15-0038-codex-scryfall-discovery-foundation.md` - calls out future lazy-loading of local discovery data when opening a result.
-- `docs/data-flow-map.md` and `docs/project-atlas.md` - document the current Archscry, Maze, and Scryfall data flow.
+- `docs/architecture/data-flow-map.md` and `docs/architecture/project-atlas.md` - document the current Archscry, Maze, and Scryfall data flow.
 - `C:\\dev\\projectFiles\\obsidianDocs\\vox-mana-docs\\04-the-implicit-maze\\_index.md` - clarifies that the shipped Loom tab is v0 and that Maze mode naming still needs careful handling.
 
 ## Acceptance Criteria
@@ -39,8 +39,8 @@ Harden the Archscry-to-Maze experience with a real-browser verification pass, re
 - `assets/js/index.js`
 - `research/research-init.js`
 - `research/maze-search-tests.js`
-- `docs/data-flow-map.md`
-- `docs/project-atlas.md`
+- `docs/architecture/data-flow-map.md`
+- `docs/architecture/project-atlas.md`
 
 ## Risks / Uncertainties
 
@@ -65,3 +65,4 @@ Yes - this is a UX and verification follow-up that depends on live browser behav
 ## Notes
 
 Broad follow-up card. Keep it focused on verification and continuity, not on rewriting the current Maze parser or changing the placement model.
+

@@ -1,4 +1,4 @@
-# Agent Handoff: Codex - Backlog Seeding from Repo and Obsidian Stories
+﻿# Agent Handoff: Codex - Backlog Seeding from Repo and Obsidian Stories
 
 Date: 2026-05-15 17:23
 Related Card: VM-006 through VM-014
@@ -27,10 +27,10 @@ Review the repo backlog signals together with the Obsidian vault docs, then crea
 - `docs/kanban/done/VM-003-scryfall-discovery-foundation.md`
 - `docs/kanban/done/VM-004-archscry-result-narrative-ux-polish.md`
 - `docs/kanban/done/VM-005-archscry-maze-ux-continuity-link-reliability.md`
-- `docs/project-atlas.md`
-- `docs/implementation-notes.md`
-- `docs/data-flow-map.md`
-- `docs/core-logic-and-algorithms.md`
+- `docs/architecture/project-atlas.md`
+- `docs/design/implementation-notes.md`
+- `docs/architecture/data-flow-map.md`
+- `docs/architecture/core-logic-and-algorithms.md`
 - `docs/reference/commander-faction-guidance.md`
 - `docs/SCRYFALL_DATA_PIPELINE.md`
 - `C:\\dev\\projectFiles\\obsidianDocs\\README.md`
@@ -118,3 +118,4 @@ Planning Architect / Kanban Steward
 - `docs/kanban/board.md`
 - `docs/handoffs/HANDOFF_INDEX.md`
 - User-approved "Backlog Seeding Plan for Repo + Obsidian Stories"
+

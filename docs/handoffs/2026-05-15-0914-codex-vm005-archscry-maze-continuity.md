@@ -1,4 +1,4 @@
-# Agent Handoff: Codex - VM-005 Archscry / Maze Continuity
+﻿# Agent Handoff: Codex - VM-005 Archscry / Maze Continuity
 
 Date: 2026-05-15 09:14
 Related Card: VM-005
@@ -21,9 +21,9 @@ Implement VM-005 as a scoped presenter/UI reliability pass over Archscry dossier
 - `docs/kanban/board.md`
 - `docs/kanban/done/VM-004-archscry-result-narrative-ux-polish.md`
 - `docs/kanban/done/VM-003-scryfall-discovery-foundation.md`
-- `docs/core-logic-and-algorithms.md`
-- `docs/data-flow-map.md`
-- `docs/project-atlas.md`
+- `docs/architecture/core-logic-and-algorithms.md`
+- `docs/architecture/data-flow-map.md`
+- `docs/architecture/project-atlas.md`
 - `assets/js/index.js`
 - `assets/js/commander-dossier.js`
 - `assets/js/quick-reading-tests.js`
@@ -42,9 +42,9 @@ Implement VM-005 as a scoped presenter/UI reliability pass over Archscry dossier
 - `maze.html`
 - `research/research-init.js`
 - `research/maze-search-tests.js`
-- `docs/core-logic-and-algorithms.md`
-- `docs/data-flow-map.md`
-- `docs/project-atlas.md`
+- `docs/architecture/core-logic-and-algorithms.md`
+- `docs/architecture/data-flow-map.md`
+- `docs/architecture/project-atlas.md`
 - `docs/kanban/board.md`
 - `docs/kanban/done/VM-005-archscry-maze-ux-continuity-link-reliability.md`
 - `docs/handoffs/HANDOFF_INDEX.md`
@@ -119,7 +119,8 @@ Test Strategist
 ## Related Kanban Card, Docs, Or Plans
 
 - `docs/kanban/done/VM-005-archscry-maze-ux-continuity-link-reliability.md`
-- `docs/core-logic-and-algorithms.md`
-- `docs/data-flow-map.md`
-- `docs/project-atlas.md`
+- `docs/architecture/core-logic-and-algorithms.md`
+- `docs/architecture/data-flow-map.md`
+- `docs/architecture/project-atlas.md`
 - User-provided VM-005 prompt
+

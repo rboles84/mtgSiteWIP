@@ -1,4 +1,4 @@
-# VM-010 - The Loom Commander Finder Mode and Graph/Query Layer
+﻿# VM-010 - The Loom Commander Finder Mode and Graph/Query Layer
 
 ID: VM-010
 Title: The Loom Commander Finder Mode and Graph/Query Layer
@@ -17,7 +17,7 @@ Hold the future Loom work as one story: a Commander Finder mode inside Maze, a c
 - `C:\\dev\\projectFiles\\obsidianDocs\\vox-mana-docs\\05-the-loom\\_index.md` - says The Loom is still TBD and lives inside The Implicit Maze as a search mode.
 - `C:\\dev\\projectFiles\\obsidianDocs\\vox-mana-docs\\05-the-loom\\loom-master-implementation-plan.md` - defines The Loom as an adapter-driven evidence graph across card mechanics, search intent, and identity evidence.
 - `C:\\dev\\projectFiles\\obsidianDocs\\vox-mana-docs\\04-the-implicit-maze\\_index.md` - notes that the shipped Loom tab is only a flat Visual Builder (Loom v0) and the full node-graph Loom is separate future work.
-- `docs/data-flow-map.md` and `docs/project-atlas.md` - show the current Maze architecture and parser wiring that the Loom would build on.
+- `docs/architecture/data-flow-map.md` and `docs/architecture/project-atlas.md` - show the current Maze architecture and parser wiring that the Loom would build on.
 
 ## Acceptance Criteria
 
@@ -40,7 +40,7 @@ Hold the future Loom work as one story: a Commander Finder mode inside Maze, a c
 - `research/research-mode.js`
 - `research/research-search.js`
 - `assets/js/index.js`
-- `docs/data-flow-map.md`
+- `docs/architecture/data-flow-map.md`
 
 ## Risks / Uncertainties
 
@@ -65,3 +65,4 @@ Yes - the Loom is a major product and architecture story that should be reviewed
 ## Notes
 
 Keep the story focused on query interpretation and evidence layers, not on a cosmetic re-skin of Maze.
+

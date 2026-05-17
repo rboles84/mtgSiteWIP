@@ -1,4 +1,4 @@
-# VM-013 - Placement Domains Architecture and Post-V1 Faction Expansion
+﻿# VM-013 - Placement Domains Architecture and Post-V1 Faction Expansion
 
 ID: VM-013
 Title: Placement Domains Architecture and Post-V1 Faction Expansion
@@ -17,7 +17,7 @@ Keep the future faction-expansion work together as one story: a domain-aware pla
 - `C:\\dev\\projectFiles\\obsidianDocs\\vox-mana-docs\\02-archscry\\commander-compass\\faction-expansion-khans-capenna.md` - explicitly marks Khans wedges and New Capenna families as post-v1 work that depends on a domains-aware architecture.
 - `C:\\dev\\projectFiles\\obsidianDocs\\vox-mana-docs\\02-archscry\\commander-compass\\03-data-architecture.md` - describes the current Commander Compass data architecture and what a recommendation needs.
 - `C:\\dev\\projectFiles\\obsidianDocs\\vox-mana-docs\\02-archscry\\commander-compass\\_index.md` - keeps the canonical Commander Compass set and its future expansions in one place.
-- `docs/core-logic-and-algorithms.md` and `docs/data-flow-map.md` - show the current placement model, scoring, and generated-data boundaries.
+- `docs/architecture/core-logic-and-algorithms.md` and `docs/architecture/data-flow-map.md` - show the current placement model, scoring, and generated-data boundaries.
 
 ## Acceptance Criteria
 
@@ -37,8 +37,8 @@ Keep the future faction-expansion work together as one story: a domain-aware pla
 - `data/raw-factions/*`
 - `data/placement-model.json`
 - `assets/js/adaptive-placement.js`
-- `docs/core-logic-and-algorithms.md`
-- `docs/data-flow-map.md`
+- `docs/architecture/core-logic-and-algorithms.md`
+- `docs/architecture/data-flow-map.md`
 
 ## Risks / Uncertainties
 
@@ -63,3 +63,4 @@ Yes - this is a major architecture and product-roadmap story that needs human re
 ## Notes
 
 This should remain a future-facing architecture card, not a prompt to expand the shipped faction set immediately.
+

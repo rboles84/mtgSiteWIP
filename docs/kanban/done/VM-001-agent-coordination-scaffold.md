@@ -1,4 +1,4 @@
-# VM-001 - Fix Agent Coordination Scaffold
+﻿# VM-001 - Fix Agent Coordination Scaffold
 
 ID: VM-001
 Title: Fix Agent Coordination Scaffold
@@ -20,14 +20,14 @@ User-requested implementation plan in Codex thread.
 
 - `AGENTS.md` closes the common commands code fence.
 - `docs/kanban/board.md` identifies the file-based status folders.
-- `docs/workflow.md` treats `docs/kanban/` as the local source of truth.
+- `docs/reference/workflow.md` treats `docs/kanban/` as the local source of truth.
 - `.codex/prompts/` role files allow required handoff and index updates.
 - Handoff template references only roles defined in `AGENTS.md`.
 
 ## Files Likely Impacted
 
 - `AGENTS.md`
-- `docs/workflow.md`
+- `docs/reference/workflow.md`
 - `docs/kanban/board.md`
 - `.codex/prompts/*.md`
 - `docs/handoffs/templates/agent-handoff-template.md`
@@ -43,3 +43,4 @@ Apply the accepted scaffold fixes as documentation-only changes. Do not modify r
 ## Notes
 
 - Completed as documentation-only scaffold cleanup.
+

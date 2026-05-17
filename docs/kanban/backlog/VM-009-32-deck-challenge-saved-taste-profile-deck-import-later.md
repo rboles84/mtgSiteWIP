@@ -1,4 +1,4 @@
-# VM-009 - 32-Deck Challenge, Saved Taste Profile, and Deck Import Later
+﻿# VM-009 - 32-Deck Challenge, Saved Taste Profile, and Deck Import Later
 
 ID: VM-009
 Title: 32-Deck Challenge, Saved Taste Profile, and Deck Import Later
@@ -17,7 +17,7 @@ Preserve the future account-bound Commander challenge work as one backlog item s
 - `C:\\dev\\projectFiles\\obsidianDocs\\vox-mana-docs\\02-archscry\\commander-compass\\04-roadmap.md` - marks the 32-Deck Challenge and account/save behavior as future enhancements.
 - `C:\\dev\\projectFiles\\obsidianDocs\\vox-mana-docs\\01-project-and-strategy\\business-overview-and-pitch.md` - places saved taste profiles and the 32-Deck Challenge in the later roadmap.
 - `C:\\dev\\projectFiles\\obsidianDocs\\vox-mana-docs\\_archive\\commander-compass-master-plan.md` - documents the original tracker concept and the saved profile relationship.
-- `docs/project-atlas.md` - shows the current site still treats Commander Compass as a presenter-layer bridge, not a persistent account product.
+- `docs/architecture/project-atlas.md` - shows the current site still treats Commander Compass as a presenter-layer bridge, not a persistent account product.
 
 ## Acceptance Criteria
 
@@ -37,8 +37,8 @@ Preserve the future account-bound Commander challenge work as one backlog item s
 - `supabase/functions/guild-recruiter/index.ts`
 - `assets/js/shared.js`
 - `assets/js/index.js`
-- `docs/data-contracts.md`
-- `docs/project-atlas.md`
+- `docs/reference/data-contracts.md`
+- `docs/architecture/project-atlas.md`
 
 ## Risks / Uncertainties
 
@@ -63,3 +63,4 @@ Yes - this is a roadmap-level persistence story and needs product review before 
 ## Notes
 
 This should stay broad. Split it only if the profile storage and challenge UI become separate projects.
+
