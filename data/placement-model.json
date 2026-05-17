@@ -4,11 +4,34 @@
     "result_version": "2026-05-10",
     "source": "data/raw-factions plus data/factions.json display surface",
     "framing": "Biological expression placement model; Vox Mana interpretive taxonomy, not official canon.",
-    "faction_count": 15
+    "faction_count": 20,
+    "identity_layer_version": "2026-05-17",
+    "active_expression_keys": [
+      "WU",
+      "WR",
+      "BR",
+      "BG",
+      "RG",
+      "UB",
+      "UR",
+      "LOREHOLD",
+      "WB",
+      "PRISMARI",
+      "QUANDRIX",
+      "WG",
+      "SILVERQUILL",
+      "UG",
+      "WITHERBLOOM",
+      "W",
+      "U",
+      "B",
+      "R",
+      "G"
+    ]
   },
   "scoring_rules": {
     "prior": "equal",
-    "prior_log_probability": -2.70805020110221,
+    "prior_log_probability": -2.995732273553991,
     "likelihood_to_delta": {
       "0.95": 1.45,
       "0.90": 1.2,
@@ -69,6 +92,22 @@
         "central_tension": "Azorius believes rules protect society, but the guild can become so invested in restraint, delay, and perfect procedure that law hardens into paralysis.",
         "display_tagline": "Civilization survives when law, precedent, procedure, and enforcement create a structure that can outlast individual impulse.",
         "mechanics": "Addendum rewards casting spells during the controller's main phase, expressing Azorius order, timing, and procedural discipline."
+      },
+      "layered_identity": {
+        "core_color": "W",
+        "secondary_colors": [
+          "U"
+        ],
+        "secondary_color": "U",
+        "expression_key": "WU",
+        "expression_name": "Azorius Senate",
+        "expression_kind": "guild",
+        "purity": null,
+        "routing": {
+          "edhrec_slug": "azorius",
+          "mtgdecks_slug": "azorius",
+          "label": "Azorius"
+        }
       },
       "biological_expression": {
         "archetype": "The Institutional Stabilizer",
@@ -259,6 +298,22 @@
         "display_tagline": "Righteous fury is still fury. It still wins.",
         "mechanics": "Mechanics like Battalion and Mentor emphasize unit cohesion; individuals are strengthened by the presence of their allies on the field."
       },
+      "layered_identity": {
+        "core_color": "W",
+        "secondary_colors": [
+          "R"
+        ],
+        "secondary_color": "R",
+        "expression_key": "WR",
+        "expression_name": "Boros Legion",
+        "expression_kind": "guild",
+        "purity": null,
+        "routing": {
+          "edhrec_slug": "boros",
+          "mtgdecks_slug": "boros",
+          "label": "Boros"
+        }
+      },
       "biological_expression": {
         "archetype": "The Protective Intervener",
         "primary_foundation": "Care",
@@ -398,6 +453,22 @@
         "central_tension": "Rakdos is both a social pressure valve and a dangerous cult of spectacle, violence, hedonism, and anti-authoritarian expression.",
         "display_tagline": "Life is short, authority is mockable, and performance can expose truths politeness hides.",
         "mechanics": "Spectacle rewards action after an opponent has lost life, expressing Rakdos's taste for consequence, audience, and escalation."
+      },
+      "layered_identity": {
+        "core_color": "B",
+        "secondary_colors": [
+          "R"
+        ],
+        "secondary_color": "R",
+        "expression_key": "BR",
+        "expression_name": "Cult of Rakdos",
+        "expression_kind": "guild",
+        "purity": null,
+        "routing": {
+          "edhrec_slug": "rakdos",
+          "mtgdecks_slug": "rakdos",
+          "label": "Rakdos"
+        }
       },
       "biological_expression": {
         "archetype": "The Transgressive Performer",
@@ -547,6 +618,22 @@
         "display_tagline": "Death, decay, survival, and renewal are one cycle, not separate moral categories.",
         "mechanics": "Undergrowth expresses Golgari's ability to turn dead creatures in graveyards into present power."
       },
+      "layered_identity": {
+        "core_color": "B",
+        "secondary_colors": [
+          "G"
+        ],
+        "secondary_color": "G",
+        "expression_key": "BG",
+        "expression_name": "Golgari Swarm",
+        "expression_kind": "guild",
+        "purity": null,
+        "routing": {
+          "edhrec_slug": "golgari",
+          "mtgdecks_slug": "golgari",
+          "label": "Golgari"
+        }
+      },
       "biological_expression": {
         "archetype": "The Resilient Reclaimer",
         "primary_foundation": "Sanctity",
@@ -693,6 +780,22 @@
         "central_tension": "A legitimate historical grievance that has curdled into something that cannot be reasoned with. The wild places are gone. Their role was taken. None of it can be undone, and the Gruul are not interested in compromise.",
         "display_tagline": "Break the city so the wild can breathe.",
         "mechanics": ""
+      },
+      "layered_identity": {
+        "core_color": "R",
+        "secondary_colors": [
+          "G"
+        ],
+        "secondary_color": "G",
+        "expression_key": "RG",
+        "expression_name": "Gruul Clans",
+        "expression_kind": "guild",
+        "purity": null,
+        "routing": {
+          "edhrec_slug": "gruul",
+          "mtgdecks_slug": "gruul",
+          "label": "Gruul"
+        }
       },
       "biological_expression": {
         "archetype": "The Primal Liberator",
@@ -1046,6 +1149,22 @@
         "display_tagline": "Information is power, and power is safest when others cannot see its shape.",
         "mechanics": "Surveil expresses Dimir information control by filtering future draws and feeding graveyard resources."
       },
+      "layered_identity": {
+        "core_color": "U",
+        "secondary_colors": [
+          "B"
+        ],
+        "secondary_color": "B",
+        "expression_key": "UB",
+        "expression_name": "House Dimir",
+        "expression_kind": "guild",
+        "purity": null,
+        "routing": {
+          "edhrec_slug": "dimir",
+          "mtgdecks_slug": "dimir",
+          "label": "Dimir"
+        }
+      },
       "biological_expression": {
         "archetype": "The Hidden Information Operator",
         "primary_foundation": "Liberty",
@@ -1238,6 +1357,22 @@
         "central_tension": "The guild is built around a single dragon's ego and intellect. Under Ral Zarek, the Izzet are being asked to be useful rather than merely brilliant. Many find this an intolerable constraint.",
         "display_tagline": "Invent first. Stabilize later.",
         "mechanics": ""
+      },
+      "layered_identity": {
+        "core_color": "U",
+        "secondary_colors": [
+          "R"
+        ],
+        "secondary_color": "R",
+        "expression_key": "UR",
+        "expression_name": "Izzet League",
+        "expression_kind": "guild",
+        "purity": null,
+        "routing": {
+          "edhrec_slug": "izzet",
+          "mtgdecks_slug": "izzet",
+          "label": "Izzet"
+        }
       },
       "biological_expression": {
         "archetype": "The Experimental Spark",
@@ -1672,6 +1807,22 @@
         "display_tagline": "Leave no stone unturned.",
         "mechanics": ""
       },
+      "layered_identity": {
+        "core_color": "W",
+        "secondary_colors": [
+          "R"
+        ],
+        "secondary_color": "R",
+        "expression_key": "LOREHOLD",
+        "expression_name": "Lorehold College",
+        "expression_kind": "college",
+        "purity": null,
+        "routing": {
+          "edhrec_slug": "boros",
+          "mtgdecks_slug": "boros",
+          "label": "Boros"
+        }
+      },
       "biological_expression": {
         "archetype": "The Historical Field Investigator",
         "primary_foundation": "Authority",
@@ -2050,6 +2201,22 @@
         "display_tagline": "Obligation, guilt, hierarchy, debt, and legitimacy can become the same instrument of power.",
         "mechanics": "Afterlife expresses Orzhov's refusal to let death fully end utility or obligation."
       },
+      "layered_identity": {
+        "core_color": "W",
+        "secondary_colors": [
+          "B"
+        ],
+        "secondary_color": "B",
+        "expression_key": "WB",
+        "expression_name": "Orzhov Syndicate",
+        "expression_kind": "guild",
+        "purity": null,
+        "routing": {
+          "edhrec_slug": "orzhov",
+          "mtgdecks_slug": "orzhov",
+          "label": "Orzhov"
+        }
+      },
       "biological_expression": {
         "archetype": "The Obligation Architect",
         "primary_foundation": "Authority",
@@ -2243,6 +2410,22 @@
         "display_tagline": "Magic and art are the same act when craft, emotion, spectacle, and elemental force become expression.",
         "mechanics": "Prismari's mechanical and thematic identity centers on spells, elemental scale, performance, and expressive payoff."
       },
+      "layered_identity": {
+        "core_color": "U",
+        "secondary_colors": [
+          "R"
+        ],
+        "secondary_color": "R",
+        "expression_key": "PRISMARI",
+        "expression_name": "Prismari College",
+        "expression_kind": "college",
+        "purity": null,
+        "routing": {
+          "edhrec_slug": "izzet",
+          "mtgdecks_slug": "izzet",
+          "label": "Izzet"
+        }
+      },
       "biological_expression": {
         "archetype": "The Elemental Expressionist",
         "primary_foundation": "Liberty",
@@ -2381,8 +2564,8 @@
       "institution_type": "college",
       "world": "Strixhaven",
       "colors": [
-        "G",
-        "U"
+        "U",
+        "G"
       ],
       "identity": {
         "summary": "Quandrix College is a green-blue college associated with Arcavios / Strixhaven.",
@@ -2390,6 +2573,22 @@
         "central_tension": "Quandrix balances green's discovery of natural patterns with blue's construction of abstract models, raising the question of whether math is found in reality or made by minds.",
         "display_tagline": "Reality has deep mathematical structure, and understanding that structure lets a mage reveal, model, and reshape what exists.",
         "mechanics": "Quandrix's gameplay identity clusters around mana, counters, fractal tokens, scaling, doubling, and pattern-based growth."
+      },
+      "layered_identity": {
+        "core_color": "U",
+        "secondary_colors": [
+          "G"
+        ],
+        "secondary_color": "G",
+        "expression_key": "QUANDRIX",
+        "expression_name": "Quandrix College",
+        "expression_kind": "college",
+        "purity": null,
+        "routing": {
+          "edhrec_slug": "simic",
+          "mtgdecks_slug": "simic",
+          "label": "Simic"
+        }
       },
       "biological_expression": {
         "archetype": "The Pattern Theorist",
@@ -2584,6 +2783,22 @@
         "display_tagline": "The self finds peace by becoming part of a greater living community.",
         "mechanics": "Convoke expresses Selesnya solidarity by allowing a community of creatures to help cast spells."
       },
+      "layered_identity": {
+        "core_color": "W",
+        "secondary_colors": [
+          "G"
+        ],
+        "secondary_color": "G",
+        "expression_key": "WG",
+        "expression_name": "Selesnya Conclave",
+        "expression_kind": "guild",
+        "purity": null,
+        "routing": {
+          "edhrec_slug": "selesnya",
+          "mtgdecks_slug": "selesnya",
+          "label": "Selesnya"
+        }
+      },
       "biological_expression": {
         "archetype": "The Communal Harmonizer",
         "primary_foundation": "Loyalty",
@@ -2776,6 +2991,22 @@
         "central_tension": "Silverquill argues over whether eloquence should uplift others or advance personal dominance.",
         "display_tagline": "Language is power: it can inspire, expose, command, wound, defend, and transform identity.",
         "mechanics": "Silverquill's mechanical identity is tied to word-magic, leadership, morale, criticism, and black-white pressure."
+      },
+      "layered_identity": {
+        "core_color": "W",
+        "secondary_colors": [
+          "B"
+        ],
+        "secondary_color": "B",
+        "expression_key": "SILVERQUILL",
+        "expression_name": "Silverquill College",
+        "expression_kind": "college",
+        "purity": null,
+        "routing": {
+          "edhrec_slug": "orzhov",
+          "mtgdecks_slug": "orzhov",
+          "label": "Orzhov"
+        }
       },
       "biological_expression": {
         "archetype": "The Rhetorical Status Shaper",
@@ -2971,6 +3202,22 @@
         "display_tagline": "Life is a system that can adapt, heal, and improve when studied deeply enough.",
         "mechanics": "Adapt expresses biological improvement by letting creatures grow when conditions and resources allow."
       },
+      "layered_identity": {
+        "core_color": "U",
+        "secondary_colors": [
+          "G"
+        ],
+        "secondary_color": "G",
+        "expression_key": "UG",
+        "expression_name": "Simic Combine",
+        "expression_kind": "guild",
+        "purity": null,
+        "routing": {
+          "edhrec_slug": "simic",
+          "mtgdecks_slug": "simic",
+          "label": "Simic"
+        }
+      },
       "biological_expression": {
         "archetype": "The Adaptive Biodesigner",
         "primary_foundation": "Care",
@@ -3164,6 +3411,22 @@
         "display_tagline": "Life and death are living essences to study, brew, heal with, bargain with, and weaponize.",
         "mechanics": "Witherbloom identity centers on life gain, pests, sacrifice, healing, harm, and biological exchange."
       },
+      "layered_identity": {
+        "core_color": "B",
+        "secondary_colors": [
+          "G"
+        ],
+        "secondary_color": "G",
+        "expression_key": "WITHERBLOOM",
+        "expression_name": "Witherbloom College",
+        "expression_kind": "college",
+        "purity": null,
+        "routing": {
+          "edhrec_slug": "golgari",
+          "mtgdecks_slug": "golgari",
+          "label": "Golgari"
+        }
+      },
       "biological_expression": {
         "archetype": "The Vitality Ecologist",
         "primary_foundation": "Sanctity",
@@ -3340,6 +3603,916 @@
         "source_review_date": "2026-05-09",
         "claim_count": 6
       }
+    },
+    "W": {
+      "key": "W",
+      "raw_id": "W",
+      "name": "White",
+      "institution_type": "color",
+      "world": "The Color Pie",
+      "colors": [
+        "W"
+      ],
+      "identity": {
+        "summary": "White does not seek order for its own sake. It builds order because order lets vulnerable people survive chaos, selfishness, and the failures of impulse.",
+        "philosophy": "White believes peace is not a mood. It is a structure: rules that hold, shelter that lasts, and obligations people can trust under pressure.",
+        "central_tension": "White protects through standards and systems, but its virtue can harden into over-control when safety becomes more important than listening.",
+        "display_tagline": "Safety is built, not assumed.",
+        "mechanics": "board wipes, token generation, protection effects, tax and rule-setting effects"
+      },
+      "layered_identity": {
+        "core_color": "W",
+        "secondary_colors": [],
+        "secondary_color": null,
+        "expression_key": "W",
+        "expression_name": "White",
+        "expression_kind": "color",
+        "purity": 1,
+        "routing": {
+          "edhrec_slug": "mono-white",
+          "mtgdecks_slug": "mono-white",
+          "label": "White"
+        }
+      },
+      "biological_expression": {
+        "archetype": "The Shelter Architect",
+        "primary_foundation": "Care",
+        "secondary_foundation": "Authority",
+        "risk_signal": "low risk",
+        "inhibitor_trigger": "Treats every shared rule as illegitimate, even when the alternative leaves the vulnerable exposed."
+      },
+      "placement_axes": {
+        "required_positive_evidence_terms": [
+          "safety",
+          "protection",
+          "fairness",
+          "duty",
+          "shelter",
+          "shared rules",
+          "responsibility",
+          "structure"
+        ],
+        "required_positive_min_hits": 2,
+        "strengthens_when_user_centers": [
+          "safety through structure",
+          "shared duty",
+          "protect the vulnerable",
+          "fairness through standards"
+        ],
+        "suppress_when_user_centers": [
+          "private leverage",
+          "chaotic expression",
+          "knowledge for its own sake",
+          "wild autonomy"
+        ],
+        "false_positive_guardrail": "Do not award for generic niceness, generic order, or generic heroism without clear protection-through-structure language.",
+        "broad_match_penalty": 0.12
+      },
+      "good_fit_indicators": [
+        "builds safety before pursuing advantage",
+        "trusts shared standards more than private exceptions",
+        "protects the vulnerable through structure and follow-through"
+      ],
+      "poor_fit_indicators": [
+        "treats every rule as oppression by default",
+        "prefers personal advantage even when it leaves others exposed",
+        "confuses care with passive good intentions"
+      ],
+      "inhibitor_traps": [
+        "Treats every shared rule as illegitimate, even when the alternative leaves the vulnerable exposed.",
+        "treats every rule as oppression by default",
+        "prefers personal advantage even when it leaves others exposed",
+        "confuses care with passive good intentions"
+      ],
+      "discriminator_questions": [
+        {
+          "id": "white_q1",
+          "prompt": "What matters most when goodwill fails and people still need to be safe?",
+          "purpose": "Separates White's shelter-and-standards logic from more private or expressive forms of care.",
+          "supports": "The answer prioritizes reliable structure, shelter, or duty that protects more than one person at once.",
+          "weakens": "The answer rejects structure altogether or treats shared standards as inherently corrupt.",
+          "collision_targets": [
+            "WU",
+            "WR",
+            "WG"
+          ],
+          "evidence_claim_ids": [],
+          "confidence": "Medium"
+        },
+        {
+          "id": "white_q2",
+          "prompt": "When protection and freedom pull apart, what must hold first?",
+          "purpose": "Separates White from Red-aligned urgency and Blue-aligned procedural distance.",
+          "supports": "The answer accepts limits, duties, or standards as the price of protecting the vulnerable.",
+          "weakens": "The answer treats all limits as suspect regardless of who is left exposed.",
+          "collision_targets": [
+            "WR",
+            "WU"
+          ],
+          "evidence_claim_ids": [],
+          "confidence": "Medium"
+        }
+      ],
+      "lateral_inhibition_targets": [
+        "WB",
+        "WU",
+        "WR",
+        "WG"
+      ],
+      "collision_guidance": [
+        {
+          "collision_id": "collision_white_azorius",
+          "against": "WU",
+          "separator": "White builds shelter and standards; Azorius further prioritizes procedure, precedent, and legitimacy.",
+          "ask": "If the system protects people but the paperwork is clumsy, do you repair the shelter or refine the procedure first?"
+        },
+        {
+          "collision_id": "collision_white_boros",
+          "against": "WR",
+          "separator": "White wants durable protection; Boros is faster to act when harm is already happening.",
+          "ask": "Is the first responsibility to build a structure that lasts, or to intervene before the next blow lands?"
+        }
+      ],
+      "chatbot_guidance": {
+        "how_to_recognize_match": [
+          "builds safety before pursuing advantage",
+          "trusts shared standards more than private exceptions",
+          "protects the vulnerable through structure and follow-through"
+        ],
+        "how_to_recognize_mismatch": [
+          "treats every rule as oppression by default",
+          "prefers personal advantage even when it leaves others exposed",
+          "confuses care with passive good intentions"
+        ],
+        "questions_to_ask_when_uncertain": [
+          "What structure keeps people safe when goodwill is not enough?",
+          "When protection and freedom pull apart, what must hold first?"
+        ],
+        "never_claim_as_canon": [
+          "Psychological placement categories are Vox Mana interpretation, not official Wizards canon.",
+          "Do not state that a user's personality is objectively determined by a color or expression.",
+          "Placement scoring is a Vox Mana interpretation, not official Wizards canon."
+        ],
+        "calibration_note": "White should require explicit safety, protection, duty, shelter, or fairness-through-structure language. Keep it adjacent when the answer only contains generic kindness or generic order.",
+        "scoring_guardrail": "Do not award for generic niceness, generic order, or generic heroism without clear protection-through-structure language."
+      },
+      "canon_guardrails": {
+        "never_claim_as_canon": [
+          "Psychological placement categories are Vox Mana interpretation, not official Wizards canon.",
+          "Do not state that a user's personality is objectively determined by a color or expression.",
+          "Placement scoring is a Vox Mana interpretation, not official Wizards canon."
+        ]
+      },
+      "source_metadata": {
+        "profile_version": "2026-05-17",
+        "placement_model_version": "",
+        "source_review_date": "",
+        "claim_count": 0
+      }
+    },
+    "U": {
+      "key": "U",
+      "raw_id": "U",
+      "name": "Blue",
+      "institution_type": "color",
+      "world": "The Color Pie",
+      "colors": [
+        "U"
+      ],
+      "identity": {
+        "summary": "Blue does not act from impulse. It studies the variables, preserves options, and reshapes the future once the hidden structure is clear.",
+        "philosophy": "Blue believes no one is finished by default. Knowledge, practice, and precise systems let people and worlds become more than their starting shape.",
+        "central_tension": "Blue protects possibility through understanding, but its virtue can harden into paralysis when perfect information matters more than timely action.",
+        "display_tagline": "Possibility opens when the pattern is understood.",
+        "mechanics": "card draw, counterspells, selection and manipulation, copy and transformation"
+      },
+      "layered_identity": {
+        "core_color": "U",
+        "secondary_colors": [],
+        "secondary_color": null,
+        "expression_key": "U",
+        "expression_name": "Blue",
+        "expression_kind": "color",
+        "purity": 1,
+        "routing": {
+          "edhrec_slug": "mono-blue",
+          "mtgdecks_slug": "mono-blue",
+          "label": "Blue"
+        }
+      },
+      "biological_expression": {
+        "archetype": "The Possibility Architect",
+        "primary_foundation": "Fairness",
+        "secondary_foundation": "Authority",
+        "risk_signal": "low-medium risk",
+        "inhibitor_trigger": "Treats knowledge, planning, or education as sterile delay when careful understanding would prevent avoidable harm."
+      },
+      "placement_axes": {
+        "required_positive_evidence_terms": [
+          "knowledge",
+          "information",
+          "understanding",
+          "study",
+          "optimization",
+          "prediction",
+          "control",
+          "card draw",
+          "counterspell",
+          "tempo",
+          "copy",
+          "possibility"
+        ],
+        "required_positive_min_hits": 2,
+        "strengthens_when_user_centers": [
+          "information as resource",
+          "act after understanding",
+          "optimize through knowledge",
+          "control through prediction",
+          "improve the system"
+        ],
+        "suppress_when_user_centers": [
+          "immediate emotional release",
+          "destiny over improvement",
+          "natural role acceptance",
+          "power without a model"
+        ],
+        "false_positive_guardrail": "Do not award for generic intelligence, generic control, or indecision without clear knowledge, options, optimization, or patience-before-action language.",
+        "broad_match_penalty": 0.12
+      },
+      "good_fit_indicators": [
+        "waits to understand before committing",
+        "treats knowledge, cards, and options as resources",
+        "improves systems through study, iteration, and precise control"
+      ],
+      "poor_fit_indicators": [
+        "needs immediate motion before the problem is understood",
+        "treats nature, fate, or first instinct as final",
+        "rejects planning, patience, or information as sterile delay"
+      ],
+      "inhibitor_traps": [
+        "Treats knowledge, planning, or education as sterile delay when careful understanding would prevent avoidable harm.",
+        "needs immediate motion before the problem is understood",
+        "treats nature, fate, or first instinct as final",
+        "rejects planning, patience, or information as sterile delay"
+      ],
+      "discriminator_questions": [
+        {
+          "id": "blue_q1",
+          "prompt": "When the situation is unstable and everyone wants movement, what has to happen before you act?",
+          "purpose": "Separates Blue's knowledge-first patience from adjacent procedure, secrecy, experimentation, or adaptation.",
+          "supports": "The answer prioritizes mapping variables, preserving options, and acting once the structure is understood.",
+          "weakens": "The answer rushes to institution, leverage, impulse, or biology before understanding the system.",
+          "collision_targets": [
+            "WU",
+            "UB",
+            "UR",
+            "UG"
+          ],
+          "evidence_claim_ids": [],
+          "confidence": "Medium"
+        },
+        {
+          "id": "blue_q2",
+          "prompt": "What makes progress trustworthy instead of merely lucky?",
+          "purpose": "Separates Blue's optimization-through-knowledge logic from pair expressions that route progress through law, secrecy, experiment, or organism.",
+          "supports": "The answer centers education, repeatable models, controlled iteration, or information that makes future choices better.",
+          "weakens": "The answer treats procedure, hidden leverage, volatile testing, or natural adaptation as sufficient without understanding.",
+          "collision_targets": [
+            "WU",
+            "UB",
+            "UR",
+            "UG"
+          ],
+          "evidence_claim_ids": [],
+          "confidence": "Medium"
+        }
+      ],
+      "lateral_inhibition_targets": [
+        "WU",
+        "UB",
+        "UR",
+        "UG"
+      ],
+      "collision_guidance": [
+        {
+          "collision_id": "collision_blue_azorius",
+          "against": "WU",
+          "separator": "Blue seeks understanding and possibility; Azorius turns understanding into public procedure, precedent, and legitimacy.",
+          "ask": "If the model is clear but the rulebook is not, do you refine the knowledge first or formalize the procedure first?"
+        },
+        {
+          "collision_id": "collision_blue_dimir",
+          "against": "UB",
+          "separator": "Blue studies to expand possible futures; Dimir keeps information hidden so leverage arrives at the safest moment.",
+          "ask": "Do you want the truth because understanding improves the system, or because secrecy makes the next move safer?"
+        },
+        {
+          "collision_id": "collision_blue_izzet",
+          "against": "UR",
+          "separator": "Blue tests patiently until the pattern is clear; Izzet accelerates discovery through volatile experiment and creative risk.",
+          "ask": "Do you wait for the model to become reliable, or build the experiment and let the spark teach you?"
+        },
+        {
+          "collision_id": "collision_blue_simic",
+          "against": "UG",
+          "separator": "Blue believes possibility can be engineered; Simic applies that improvement through living adaptation and biological change.",
+          "ask": "Is the first change to the plan, tool, and model, or to the organism that must survive the future?"
+        }
+      ],
+      "chatbot_guidance": {
+        "how_to_recognize_match": [
+          "waits to understand before committing",
+          "treats knowledge, cards, and options as resources",
+          "improves systems through study, iteration, and precise control"
+        ],
+        "how_to_recognize_mismatch": [
+          "needs immediate motion before the problem is understood",
+          "treats nature, fate, or first instinct as final",
+          "rejects planning, patience, or information as sterile delay"
+        ],
+        "questions_to_ask_when_uncertain": [
+          "What becomes possible once the hidden pattern is understood?",
+          "When information and action pull apart, what must happen before you move?"
+        ],
+        "never_claim_as_canon": [
+          "Psychological placement categories are Vox Mana interpretation, not official Wizards canon.",
+          "Do not state that a user's personality is objectively determined by a color or expression.",
+          "Placement scoring is a Vox Mana interpretation, not official Wizards canon."
+        ],
+        "calibration_note": "Blue should require explicit knowledge, information, options, prediction, or optimization language. Keep it adjacent when the answer only contains generic intelligence or generic caution.",
+        "scoring_guardrail": "Do not award for generic intelligence, generic control, or indecision without clear knowledge, options, optimization, or patience-before-action language."
+      },
+      "canon_guardrails": {
+        "never_claim_as_canon": [
+          "Psychological placement categories are Vox Mana interpretation, not official Wizards canon.",
+          "Do not state that a user's personality is objectively determined by a color or expression.",
+          "Placement scoring is a Vox Mana interpretation, not official Wizards canon."
+        ]
+      },
+      "source_metadata": {
+        "profile_version": "2026-05-17",
+        "placement_model_version": "",
+        "source_review_date": "",
+        "claim_count": 0
+      }
+    },
+    "B": {
+      "key": "B",
+      "raw_id": "B",
+      "name": "Black",
+      "institution_type": "color",
+      "world": "The Color Pie",
+      "colors": [
+        "B"
+      ],
+      "identity": {
+        "summary": "Black does not confuse self-preservation with cruelty. It asks what must be paid, what can be converted, and what leverage keeps its fate from belonging to someone else.",
+        "philosophy": "Black believes the world offers no guaranteed fairness. It secures agency by treating life, death, loyalty, and resources as costs that can be paid for control.",
+        "central_tension": "Black protects the self through power and leverage, but its clarity can harden into isolation when every bond becomes a liability.",
+        "display_tagline": "Power is protection when no one is coming to save you.",
+        "mechanics": "life payment, tutors, reanimation, sacrifice engines, removal"
+      },
+      "layered_identity": {
+        "core_color": "B",
+        "secondary_colors": [],
+        "secondary_color": null,
+        "expression_key": "B",
+        "expression_name": "Black",
+        "expression_kind": "color",
+        "purity": 1,
+        "routing": {
+          "edhrec_slug": "mono-black",
+          "mtgdecks_slug": "mono-black",
+          "label": "Black"
+        }
+      },
+      "biological_expression": {
+        "archetype": "The Self-Sovereign Operator",
+        "primary_foundation": "Liberty",
+        "secondary_foundation": "Authority",
+        "risk_signal": "high agency risk",
+        "inhibitor_trigger": "Outsources survival to systems or promises that may not protect them when the cost arrives."
+      },
+      "placement_axes": {
+        "required_positive_evidence_terms": [
+          "power",
+          "cost",
+          "agency",
+          "leverage",
+          "survival",
+          "self-preservation",
+          "resource conversion",
+          "graveyard",
+          "sacrifice",
+          "pay life"
+        ],
+        "required_positive_min_hits": 2,
+        "strengthens_when_user_centers": [
+          "power at a cost",
+          "personal agency",
+          "graveyard as resource",
+          "resource conversion",
+          "self-preservation"
+        ],
+        "suppress_when_user_centers": [
+          "group safety over self",
+          "procedure above leverage",
+          "wild immediate expression",
+          "acceptance of natural role"
+        ],
+        "false_positive_guardrail": "Do not award for generic ambition, generic darkness, or cruelty without clear cost, agency, survival, or resource-conversion language.",
+        "broad_match_penalty": 0.12
+      },
+      "good_fit_indicators": [
+        "treats cost as a tool instead of only a warning sign",
+        "protects agency through leverage and self-sufficiency",
+        "turns loss, death, or spent resources into future advantage"
+      ],
+      "poor_fit_indicators": [
+        "needs power to feel morally clean before using it",
+        "expects fairness to protect them without leverage",
+        "rejects cost, ambition, or self-prioritization as inherently corrupt"
+      ],
+      "inhibitor_traps": [
+        "Outsources survival to systems or promises that may not protect them when the cost arrives.",
+        "needs power to feel morally clean before using it",
+        "expects fairness to protect them without leverage",
+        "rejects cost, ambition, or self-prioritization as inherently corrupt"
+      ],
+      "discriminator_questions": [
+        {
+          "id": "black_q1",
+          "prompt": "What do you trust when fairness fails and no one is coming to save you?",
+          "purpose": "Separates Black's self-preservation logic from pair expressions that route power through secrecy, spectacle, cycle, or debt.",
+          "supports": "The answer prioritizes personal agency, paid costs, leverage, or resource conversion that keeps fate self-owned.",
+          "weakens": "The answer waits for an institution, group bond, natural role, or emotional release to solve the danger first.",
+          "collision_targets": [
+            "UB",
+            "BR",
+            "BG",
+            "WB"
+          ],
+          "evidence_claim_ids": [],
+          "confidence": "Medium"
+        },
+        {
+          "id": "black_q2",
+          "prompt": "When something valuable must be sacrificed to keep control, what makes the cost acceptable?",
+          "purpose": "Separates Black's transactional cost logic from adjacent expressions that moralize, ritualize, or dramatize the exchange.",
+          "supports": "The answer treats the cost as a deliberate exchange for survival, control, cards, access, or durable leverage.",
+          "weakens": "The answer treats sacrifice as unacceptable unless it serves group duty, natural renewal, or public catharsis.",
+          "collision_targets": [
+            "WB",
+            "BG",
+            "BR"
+          ],
+          "evidence_claim_ids": [],
+          "confidence": "Medium"
+        }
+      ],
+      "lateral_inhibition_targets": [
+        "UB",
+        "BR",
+        "BG",
+        "WB"
+      ],
+      "collision_guidance": [
+        {
+          "collision_id": "collision_black_dimir",
+          "against": "UB",
+          "separator": "Black secures agency by paying costs directly; Dimir turns power through secrecy, timing, and information advantage.",
+          "ask": "If the price must be paid now, do you buy control directly or wait until hidden information makes the move safer?"
+        },
+        {
+          "collision_id": "collision_black_rakdos",
+          "against": "BR",
+          "separator": "Black spends resources for survival and control; Rakdos spends restraint for release, appetite, and spectacle.",
+          "ask": "Is the cost acceptable because it keeps your fate yours, or because it finally lets the pressure out?"
+        },
+        {
+          "collision_id": "collision_black_golgari",
+          "against": "BG",
+          "separator": "Black treats death as an asset for personal leverage; Golgari treats death as a cycle of survival and renewal.",
+          "ask": "Does the graveyard matter because it belongs to your plan, or because decay feeds the next life?"
+        },
+        {
+          "collision_id": "collision_black_orzhov",
+          "against": "WB",
+          "separator": "Black protects self-sovereignty; Orzhov makes power durable through debt, hierarchy, and obligation.",
+          "ask": "Would you rather own the leverage privately, or bind it into an obligation no one can escape?"
+        }
+      ],
+      "chatbot_guidance": {
+        "how_to_recognize_match": [
+          "treats cost as a tool instead of only a warning sign",
+          "protects agency through leverage and self-sufficiency",
+          "turns loss, death, or spent resources into future advantage"
+        ],
+        "how_to_recognize_mismatch": [
+          "needs power to feel morally clean before using it",
+          "expects fairness to protect them without leverage",
+          "rejects cost, ambition, or self-prioritization as inherently corrupt"
+        ],
+        "questions_to_ask_when_uncertain": [
+          "What are you willing to pay so your fate stays yours?",
+          "When fairness fails, what resource do you convert first?"
+        ],
+        "never_claim_as_canon": [
+          "Psychological placement categories are Vox Mana interpretation, not official Wizards canon.",
+          "Do not state that a user's personality is objectively determined by a color or expression.",
+          "Placement scoring is a Vox Mana interpretation, not official Wizards canon."
+        ],
+        "calibration_note": "Black should require explicit cost, agency, leverage, survival, sacrifice, or resource-conversion language. Keep it adjacent when the answer only contains generic ambition or villain-coded aesthetics.",
+        "scoring_guardrail": "Do not award for generic ambition, generic darkness, or cruelty without clear cost, agency, survival, or resource-conversion language."
+      },
+      "canon_guardrails": {
+        "never_claim_as_canon": [
+          "Psychological placement categories are Vox Mana interpretation, not official Wizards canon.",
+          "Do not state that a user's personality is objectively determined by a color or expression.",
+          "Placement scoring is a Vox Mana interpretation, not official Wizards canon."
+        ]
+      },
+      "source_metadata": {
+        "profile_version": "2026-05-17",
+        "placement_model_version": "",
+        "source_review_date": "",
+        "claim_count": 0
+      }
+    },
+    "R": {
+      "key": "R",
+      "raw_id": "R",
+      "name": "Red",
+      "institution_type": "color",
+      "world": "The Color Pie",
+      "colors": [
+        "R"
+      ],
+      "identity": {
+        "summary": "Red does not need cruelty, theater, primal belonging, or technical performance to prove itself. It trusts the present moment, ignites the next action, and lets emotion reveal what matters.",
+        "philosophy": "Red believes feeling is a form of truth. Freedom becomes real when the impulse is allowed to move now, before fear, permission, or overthinking can smother it.",
+        "central_tension": "Red protects aliveness through immediacy and freedom, but its virtue can burn out when every delay feels like a cage.",
+        "display_tagline": "The honest spark moves before the cage closes.",
+        "mechanics": "direct damage, haste, impulse draw, temporary bursts"
+      },
+      "layered_identity": {
+        "core_color": "R",
+        "secondary_colors": [],
+        "secondary_color": null,
+        "expression_key": "R",
+        "expression_name": "Red",
+        "expression_kind": "color",
+        "purity": 1,
+        "routing": {
+          "edhrec_slug": "mono-red",
+          "mtgdecks_slug": "mono-red",
+          "label": "Red"
+        }
+      },
+      "biological_expression": {
+        "archetype": "The Ignition Heart",
+        "primary_foundation": "Liberty",
+        "secondary_foundation": "Care",
+        "risk_signal": "volatile immediacy risk",
+        "inhibitor_trigger": "Waits for permission, perfect certainty, or social approval until the honest moment goes cold."
+      },
+      "placement_axes": {
+        "required_positive_evidence_terms": [
+          "immediacy",
+          "freedom",
+          "impulse",
+          "emotion",
+          "spark",
+          "ignition",
+          "direct action",
+          "haste",
+          "burn",
+          "momentum"
+        ],
+        "required_positive_min_hits": 2,
+        "strengthens_when_user_centers": [
+          "act now",
+          "honest impulse",
+          "freedom through motion",
+          "emotion as truth",
+          "direct pressure"
+        ],
+        "suppress_when_user_centers": [
+          "pain as spectacle",
+          "sacrifice for value",
+          "primal belonging",
+          "crafted experiment",
+          "technique before feeling"
+        ],
+        "false_positive_guardrail": "Do not award for generic chaos, generic aggression, cruelty, wildness, spectacle, or spell technique without clear immediacy, freedom, impulse, emotion, ignition, or direct-action language.",
+        "broad_match_penalty": 0.12
+      },
+      "good_fit_indicators": [
+        "acts before paralysis can turn feeling into theory",
+        "protects freedom through direct motion and honest impulse",
+        "uses temporary openings, damage, speed, or momentum while they are alive"
+      ],
+      "poor_fit_indicators": [
+        "needs every feeling justified before it can move",
+        "turns impulse into cruelty, performance, or technique before answering it",
+        "confuses freedom with domination, primal belonging, or hidden leverage"
+      ],
+      "inhibitor_traps": [
+        "Waits for permission, perfect certainty, or social approval until the honest moment goes cold.",
+        "needs every feeling justified before it can move",
+        "turns impulse into cruelty, performance, or technique before answering it",
+        "confuses freedom with domination, primal belonging, or hidden leverage"
+      ],
+      "discriminator_questions": [
+        {
+          "id": "red_q1",
+          "prompt": "What has to move now because the feeling is already true?",
+          "purpose": "Separates Red's immediate emotional action from adjacent expressions that route urgency through protection, cruelty, wild belonging, or technique.",
+          "supports": "The answer centers honest impulse, freedom, ignition, or direct action before permission or perfect certainty.",
+          "weakens": "The answer requires the impulse to become protection, transgression, primal belonging, or experiment before it can matter.",
+          "collision_targets": [
+            "WR",
+            "UR",
+            "BR",
+            "RG"
+          ],
+          "evidence_claim_ids": [],
+          "confidence": "Medium"
+        },
+        {
+          "id": "red_q2",
+          "prompt": "If the door is closing, what kind of action keeps the moment alive?",
+          "purpose": "Separates mono-Red's ignition and present-tense freedom from pair expressions with more specific moral, technical, cruel, or primal commitments.",
+          "supports": "The answer favors direct motion, haste, damage, temporary momentum, or emotional honesty in the present tense.",
+          "weakens": "The answer centers rescuing someone, crafting an experiment, making pain public, or returning to wild belonging.",
+          "collision_targets": [
+            "WR",
+            "UR",
+            "BR",
+            "RG"
+          ],
+          "evidence_claim_ids": [],
+          "confidence": "Medium"
+        }
+      ],
+      "lateral_inhibition_targets": [
+        "WR",
+        "UR",
+        "BR",
+        "RG"
+      ],
+      "collision_guidance": [
+        {
+          "collision_id": "collision_red_boros",
+          "against": "WR",
+          "separator": "Red moves because the feeling is true now; Boros turns urgency toward protection, conviction, and intervening against harm.",
+          "ask": "Is the first action about freeing the honest impulse, or about protecting someone from the next blow?"
+        },
+        {
+          "collision_id": "collision_red_izzet",
+          "against": "UR",
+          "separator": "Red trusts the spark before technique; Izzet builds the prototype, experiment, or spellcraft that lets the spark teach.",
+          "ask": "Do you act because the feeling already knows, or because the test needs to reveal what is possible?"
+        },
+        {
+          "collision_id": "collision_red_rakdos",
+          "against": "BR",
+          "separator": "Red wants freedom and direct release; Rakdos pushes release toward transgression, appetite, pain, and public rupture.",
+          "ask": "Does the action matter because it lets you breathe, or because it breaks restraint loudly enough to unsettle the room?"
+        },
+        {
+          "collision_id": "collision_red_gruul",
+          "against": "RG",
+          "separator": "Red follows emotion in the present; Gruul grounds that freedom in wildness, instinct, bodily force, and primal belonging.",
+          "ask": "Is the impulse true because you feel it now, or because the wild body and its kin already know the path?"
+        }
+      ],
+      "chatbot_guidance": {
+        "how_to_recognize_match": [
+          "acts before paralysis can turn feeling into theory",
+          "protects freedom through direct motion and honest impulse",
+          "uses temporary openings, damage, speed, or momentum while they are alive"
+        ],
+        "how_to_recognize_mismatch": [
+          "needs every feeling justified before it can move",
+          "turns impulse into cruelty, performance, or technique before answering it",
+          "confuses freedom with domination, primal belonging, or hidden leverage"
+        ],
+        "questions_to_ask_when_uncertain": [
+          "What has to move now because the feeling is already true?",
+          "If no one gave permission, what honest action would still need to happen?"
+        ],
+        "never_claim_as_canon": [
+          "Psychological placement categories are Vox Mana interpretation, not official Wizards canon.",
+          "Do not state that a user's personality is objectively determined by a color or expression.",
+          "Placement scoring is a Vox Mana interpretation, not official Wizards canon."
+        ],
+        "calibration_note": "Red should require explicit immediacy, freedom, impulse, emotion, ignition, direct action, damage, haste, or temporary momentum language. Keep it adjacent when the answer centers cruelty, transgression, primal belonging, experiment, or performance craft.",
+        "scoring_guardrail": "Do not award for generic chaos, generic aggression, cruelty, wildness, spectacle, or spell technique without clear immediacy, freedom, impulse, emotion, ignition, or direct-action language."
+      },
+      "canon_guardrails": {
+        "never_claim_as_canon": [
+          "Psychological placement categories are Vox Mana interpretation, not official Wizards canon.",
+          "Do not state that a user's personality is objectively determined by a color or expression.",
+          "Placement scoring is a Vox Mana interpretation, not official Wizards canon."
+        ]
+      },
+      "source_metadata": {
+        "profile_version": "2026-05-17",
+        "placement_model_version": "",
+        "source_review_date": "",
+        "claim_count": 0
+      }
+    },
+    "G": {
+      "key": "G",
+      "raw_id": "G",
+      "name": "Green",
+      "institution_type": "color",
+      "world": "The Color Pie",
+      "colors": [
+        "G"
+      ],
+      "identity": {
+        "summary": "Green listens for the old pattern beneath the noise: land, instinct, kinship with living systems, patient growth, and the quiet confidence to become what the world has already made possible.",
+        "philosophy": "Green believes the world is not an unsolved machine. It is a living order already holding each creature's place, and strength comes from accepting nature, rooting deeply, and letting time reveal what was always in the seed.",
+        "central_tension": "Green protects flourishing through acceptance and interdependence, but its virtue can harden into stagnation when every necessary change is dismissed as unnatural.",
+        "display_tagline": "The seed remembers what it is becoming.",
+        "mechanics": "mana ramp, large creatures, counters and growth, recursion through life cycles"
+      },
+      "layered_identity": {
+        "core_color": "G",
+        "secondary_colors": [],
+        "secondary_color": null,
+        "expression_key": "G",
+        "expression_name": "Green",
+        "expression_kind": "color",
+        "purity": 1,
+        "routing": {
+          "edhrec_slug": "mono-green",
+          "mtgdecks_slug": "mono-green",
+          "label": "Green"
+        }
+      },
+      "biological_expression": {
+        "archetype": "The Rooted Becoming",
+        "primary_foundation": "Sanctity",
+        "secondary_foundation": "Loyalty",
+        "risk_signal": "stagnation risk",
+        "inhibitor_trigger": "Rejects natural limits, inherited strengths, or patient growth unless life can be redesigned into a preferred shape."
+      },
+      "placement_axes": {
+        "required_positive_evidence_terms": [
+          "organic growth",
+          "natural order",
+          "acceptance",
+          "patience",
+          "instinct",
+          "land",
+          "roots",
+          "flourishing",
+          "creatures",
+          "ramp",
+          "big mana",
+          "becoming",
+          "natural belonging"
+        ],
+        "required_positive_min_hits": 2,
+        "strengthens_when_user_centers": [
+          "become what you are",
+          "organic growth",
+          "accept natural role",
+          "patience through roots",
+          "instinct and land",
+          "natural flourishing"
+        ],
+        "suppress_when_user_centers": [
+          "communal mobilization",
+          "engineered adaptation",
+          "mathematical optimization",
+          "rot and reclamation economy",
+          "rage and smash pressure",
+          "sacrifice for value"
+        ],
+        "false_positive_guardrail": "Do not award mono-Green for generic community, token mobilization, engineered adaptation, mathematical scaling, decay economy, reclamation loops, rage, smash, or raw pressure without clear organic growth, acceptance, patience, instinct, land, roots, creatures, or natural flourishing language.",
+        "broad_match_penalty": 0.12
+      },
+      "good_fit_indicators": [
+        "trusts organic growth and natural pace before forced reinvention",
+        "roots strength in land, creatures, instinct, and embodied belonging",
+        "lets patience reveal what was already possible in the living system"
+      ],
+      "poor_fit_indicators": [
+        "needs every limit redesigned before any growth can be trusted",
+        "turns life into a resource economy instead of a living order",
+        "confuses instinct with rage, spectacle, domination, or anti-civilization force"
+      ],
+      "inhibitor_traps": [
+        "Rejects natural limits, inherited strengths, or patient growth unless life can be redesigned into a preferred shape.",
+        "needs every limit redesigned before any growth can be trusted",
+        "turns life into a resource economy instead of a living order",
+        "confuses instinct with rage, spectacle, domination, or anti-civilization force"
+      ],
+      "discriminator_questions": [
+        {
+          "id": "green_q1",
+          "prompt": "When life is strained before its roots are deep, what does honest care trust first?",
+          "purpose": "Separates mono-Green's organic pace and natural role from Selesnya community, Simic adaptation, Golgari reclamation, and Gruul wild force.",
+          "supports": "The answer centers roots, patience, instinct, land, and becoming what was already present in the living system.",
+          "weakens": "The answer turns first to communal identity, engineered change, decay economy, or forceful rupture.",
+          "collision_targets": [
+            "WG",
+            "UG",
+            "BG",
+            "RG"
+          ],
+          "evidence_claim_ids": [],
+          "confidence": "Medium"
+        },
+        {
+          "id": "green_q2",
+          "prompt": "What makes strength feel real over time?",
+          "purpose": "Separates Green's patient natural flourishing from adjacent pair expressions that need community, adaptation, reclamation, or wild refusal to explain strength.",
+          "supports": "The answer favors land, creatures, roots, instinct, and patient growth that unfolds from inherent nature.",
+          "weakens": "The answer centers group mobilization, biological redesign, using remains as economy, or rage against constraint.",
+          "collision_targets": [
+            "WG",
+            "UG",
+            "BG",
+            "RG"
+          ],
+          "evidence_claim_ids": [],
+          "confidence": "Medium"
+        }
+      ],
+      "lateral_inhibition_targets": [
+        "WG",
+        "UG",
+        "BG",
+        "RG"
+      ],
+      "collision_guidance": [
+        {
+          "collision_id": "collision_green_selesnya",
+          "against": "WG",
+          "separator": "Green trusts natural place, organic pace, and living interdependence; Selesnya turns belonging into shared community identity and collective care.",
+          "ask": "Is the first truth the organism finding its natural place, or the community choosing to hold itself together?"
+        },
+        {
+          "collision_id": "collision_green_simic",
+          "against": "UG",
+          "separator": "Green lets inherent nature unfold; Simic changes the living form so it can meet a future the old body cannot survive.",
+          "ask": "Does the life need time to become what it already is, or deliberate adaptation to become fit for what comes next?"
+        },
+        {
+          "collision_id": "collision_green_golgari",
+          "against": "BG",
+          "separator": "Green accepts living cycles and natural flourishing; Golgari makes survival from decay, discard, and reclamation.",
+          "ask": "Is the answer rooted in living growth, or in what can be reclaimed after collapse?"
+        },
+        {
+          "collision_id": "collision_green_gruul",
+          "against": "RG",
+          "separator": "Green follows instinct toward patient flourishing; Gruul turns instinct into wild refusal, bodily force, and resistance to domestication.",
+          "ask": "Does instinct ask you to root and grow, or to break the constraint that cages the wild body?"
+        }
+      ],
+      "chatbot_guidance": {
+        "how_to_recognize_match": [
+          "trusts organic growth and natural pace before forced reinvention",
+          "roots strength in land, creatures, instinct, and embodied belonging",
+          "lets patience reveal what was already possible in the living system"
+        ],
+        "how_to_recognize_mismatch": [
+          "needs every limit redesigned before any growth can be trusted",
+          "turns life into a resource economy instead of a living order",
+          "confuses instinct with rage, spectacle, domination, or anti-civilization force"
+        ],
+        "questions_to_ask_when_uncertain": [
+          "What are you already becoming when you stop fighting your nature?",
+          "Does the answer need to be redesigned, or does it need time, roots, and trust?"
+        ],
+        "never_claim_as_canon": [
+          "Psychological placement categories are Vox Mana interpretation, not official Wizards canon.",
+          "Do not state that a user's personality is objectively determined by a color or expression.",
+          "Placement scoring is a Vox Mana interpretation, not official Wizards canon."
+        ],
+        "calibration_note": "Green should require explicit organic growth, natural order, acceptance, patience, instinct, land, roots, creatures, ramp, or natural flourishing language. Keep it adjacent when the answer centers community/token mobilization, engineered adaptation, math/pattern abstraction, decay/reclamation economy, or wild-force pressure.",
+        "scoring_guardrail": "Do not award mono-Green for generic community, generic growth, biomancy, equations, rot, reclamation, rage, smash, or pressure without clear organic growth, acceptance, patience, instinct, land, roots, creatures, or natural flourishing language."
+      },
+      "canon_guardrails": {
+        "never_claim_as_canon": [
+          "Psychological placement categories are Vox Mana interpretation, not official Wizards canon.",
+          "Do not state that a user's personality is objectively determined by a color or expression.",
+          "Placement scoring is a Vox Mana interpretation, not official Wizards canon."
+        ]
+      },
+      "source_metadata": {
+        "profile_version": "2026-05-17",
+        "placement_model_version": "",
+        "source_review_date": "",
+        "claim_count": 0
+      }
     }
   },
   "question_bank": {
@@ -3355,6 +4528,7 @@
             "copy": "Clear rules, shared limits, and a path that does not depend on anyone's mood.",
             "signal": "procedure as protection",
             "likelihoods": {
+              "W": 0.75,
               "WU": 0.9,
               "WB": 0.6,
               "WG": 0.55
@@ -3369,6 +4543,7 @@
             "copy": "If someone is in danger, the right first move is to step between them and harm.",
             "signal": "protective intervention",
             "likelihoods": {
+              "W": 0.85,
               "WR": 0.9,
               "LOREHOLD": 0.55,
               "WG": 0.5
@@ -3383,9 +4558,11 @@
             "copy": "Read the room, hold your position, and act when the hidden structure is visible.",
             "signal": "hidden information",
             "likelihoods": {
+              "U": 0.95,
               "UB": 0.9,
+              "B": 0.75,
               "WB": 0.65,
-              "QUANDRIX": 0.55
+              "QUANDRIX": 0.25
             },
             "suppresses": {
               "WR": 0.3,
@@ -3421,6 +4598,38 @@
               "UB": 0.25,
               "BR": 0.25
             }
+          },
+          {
+            "title": "The first honest motion",
+            "copy": "Move before the feeling gets trapped under permission, fear, or overthinking.",
+            "signal": "immediate ignition",
+            "likelihoods": {
+              "R": 0.95,
+              "WR": 0.55,
+              "UR": 0.5,
+              "BR": 0.45,
+              "RG": 0.45
+            },
+            "suppresses": {
+              "WU": 0.35,
+              "U": 0.25
+            }
+          },
+          {
+            "title": "The older living pattern",
+            "copy": "Root, observe, and let the answer follow the life already carrying the strain.",
+            "signal": "natural order under strain",
+            "likelihoods": {
+              "G": 0.95,
+              "WG": 0.5,
+              "UG": 0.5,
+              "BG": 0.5,
+              "RG": 0.5
+            },
+            "suppresses": {
+              "U": 0.25,
+              "WU": 0.25
+            }
           }
         ]
       },
@@ -3435,6 +4644,7 @@
             "copy": "Authority should be legible, answerable, and bound by a standard beyond itself.",
             "signal": "accountable authority",
             "likelihoods": {
+              "W": 0.9,
               "WU": 0.8,
               "WR": 0.7,
               "SILVERQUILL": 0.55
@@ -3464,6 +4674,7 @@
             "signal": "invisible leverage",
             "likelihoods": {
               "UB": 0.9,
+              "B": 0.75,
               "WB": 0.6
             },
             "suppresses": {
@@ -3477,6 +4688,7 @@
             "signal": "adaptive transformation",
             "likelihoods": {
               "UG": 0.85,
+              "U": 0.55,
               "WITHERBLOOM": 0.65,
               "QUANDRIX": 0.6,
               "UR": 0.5
@@ -3499,6 +4711,38 @@
               "WU": 0.35,
               "QUANDRIX": 0.25
             }
+          },
+          {
+            "title": "Power that ignites action",
+            "copy": "The cleanest power is the spark that gets the honest thing moving now.",
+            "signal": "freedom through motion",
+            "likelihoods": {
+              "R": 0.95,
+              "WR": 0.5,
+              "UR": 0.45,
+              "BR": 0.45,
+              "RG": 0.45
+            },
+            "suppresses": {
+              "WU": 0.3,
+              "B": 0.2
+            }
+          },
+          {
+            "title": "Power that grows from roots",
+            "copy": "Strength is cleanest when it rises from land, creatures, time, and the shape life already holds.",
+            "signal": "rooted growth",
+            "likelihoods": {
+              "G": 0.95,
+              "WG": 0.5,
+              "UG": 0.5,
+              "BG": 0.5,
+              "RG": 0.5
+            },
+            "suppresses": {
+              "U": 0.25,
+              "WU": 0.25
+            }
           }
         ]
       },
@@ -3513,6 +4757,7 @@
             "copy": "What happened before, what was promised, and what the record proves.",
             "signal": "historical evidence",
             "likelihoods": {
+              "W": 0.75,
               "LOREHOLD": 0.9,
               "WU": 0.65,
               "WB": 0.55
@@ -3535,6 +4780,20 @@
             "suppresses": {
               "BR": 0.25,
               "WR": 0.2
+            }
+          },
+          {
+            "title": "The leverage",
+            "copy": "What can still be converted, what price is worth paying, and who controls the next move.",
+            "signal": "personal leverage",
+            "likelihoods": {
+              "B": 0.85,
+              "UB": 0.55,
+              "WB": 0.5
+            },
+            "suppresses": {
+              "W": 0.25,
+              "WG": 0.25
             }
           },
           {
@@ -3578,6 +4837,38 @@
               "UG": 0.25,
               "QUANDRIX": 0.25
             }
+          },
+          {
+            "title": "The next impulse",
+            "copy": "What wants to happen before analysis, respectability, or habit talks it down.",
+            "signal": "honest impulse",
+            "likelihoods": {
+              "R": 0.95,
+              "WR": 0.45,
+              "UR": 0.45,
+              "BR": 0.4,
+              "RG": 0.4
+            },
+            "suppresses": {
+              "WU": 0.3,
+              "U": 0.25
+            }
+          },
+          {
+            "title": "The natural role",
+            "copy": "What is trying to grow, what pace it needs, and where it belongs in the living order.",
+            "signal": "natural role",
+            "likelihoods": {
+              "G": 0.95,
+              "WG": 0.5,
+              "UG": 0.5,
+              "BG": 0.5,
+              "RG": 0.5
+            },
+            "suppresses": {
+              "U": 0.25,
+              "WU": 0.2
+            }
           }
         ]
       },
@@ -3607,6 +4898,7 @@
             "signal": "experimental construction",
             "likelihoods": {
               "UR": 0.9,
+              "U": 0.55,
               "UG": 0.65,
               "QUANDRIX": 0.55,
               "PRISMARI": 0.45
@@ -3635,6 +4927,7 @@
             "copy": "Something that outlasts mood: law, lineage, contracts, record, or remembered duty.",
             "signal": "durable legacy",
             "likelihoods": {
+              "W": 0.85,
               "WB": 0.85,
               "LOREHOLD": 0.75,
               "WU": 0.6
@@ -3650,6 +4943,7 @@
             "signal": "reclamation",
             "likelihoods": {
               "BG": 0.9,
+              "B": 0.75,
               "WITHERBLOOM": 0.7,
               "RG": 0.45
             },
@@ -3657,11 +4951,674 @@
               "WU": 0.25,
               "PRISMARI": 0.2
             }
+          },
+          {
+            "title": "A chance to live the spark",
+            "copy": "A place where the feeling can become action before the moment goes cold.",
+            "signal": "present-tense freedom",
+            "likelihoods": {
+              "R": 0.95,
+              "WR": 0.4,
+              "UR": 0.4,
+              "BR": 0.4,
+              "RG": 0.4
+            },
+            "suppresses": {
+              "WU": 0.25,
+              "WB": 0.2
+            }
+          },
+          {
+            "title": "A place to grow as you are",
+            "copy": "A living order where roots deepen, instincts return, and patient strength unfolds.",
+            "signal": "rooted belonging",
+            "likelihoods": {
+              "G": 0.95,
+              "WG": 0.55,
+              "UG": 0.5,
+              "BG": 0.5,
+              "RG": 0.5
+            },
+            "suppresses": {
+              "U": 0.25,
+              "WU": 0.2
+            }
           }
         ]
       }
     ],
     "hall": [
+      {
+        "id": "hall_W_shelter",
+        "stage": "hall",
+        "faction": "W",
+        "eyebrow": "Hall - White",
+        "prompt": "A frightened group needs protection before trust has time to grow. What response feels most dependable?",
+        "answers": [
+          {
+            "title": "Build the shelter",
+            "copy": "Set the standard, make the boundary clear, and give people something reliable to stand inside.",
+            "signal": "shelter through structure",
+            "likelihoods": {
+              "W": 0.95,
+              "WG": 0.65,
+              "WU": 0.6,
+              "WR": 0.55
+            },
+            "suppresses": {
+              "UB": 0.35,
+              "BR": 0.35
+            }
+          },
+          {
+            "title": "Write the procedure",
+            "copy": "Protection lasts when the process is explicit enough to survive mood.",
+            "signal": "procedure first",
+            "likelihoods": {
+              "WU": 0.85
+            },
+            "suppresses": {
+              "W": 0.35
+            }
+          },
+          {
+            "title": "Intervene immediately",
+            "copy": "The first duty is to put yourself between the danger and the vulnerable person.",
+            "signal": "urgent guardianship",
+            "likelihoods": {
+              "WR": 0.85
+            },
+            "suppresses": {
+              "W": 0.25
+            }
+          },
+          {
+            "title": "Restore belonging",
+            "copy": "People trust protection more when they feel held by the whole group.",
+            "signal": "belonging as shelter",
+            "likelihoods": {
+              "WG": 0.8
+            },
+            "suppresses": {
+              "W": 0.25
+            }
+          }
+        ]
+      },
+      {
+        "id": "hall_W_duty",
+        "stage": "hall",
+        "faction": "W",
+        "eyebrow": "Hall - White",
+        "prompt": "A structure is imperfect, but it still keeps more people safe than improvisation. What matters most?",
+        "answers": [
+          {
+            "title": "Strengthen what protects",
+            "copy": "If the shelter holds, improve it and keep faith with the people relying on it.",
+            "signal": "duty to maintain shelter",
+            "likelihoods": {
+              "W": 0.95,
+              "WU": 0.65,
+              "WG": 0.6,
+              "WR": 0.55
+            },
+            "suppresses": {
+              "BR": 0.35,
+              "RG": 0.35
+            }
+          },
+          {
+            "title": "Refine the procedure",
+            "copy": "The system matters most when its rules are precise enough to remain fair under pressure.",
+            "signal": "airtight procedure",
+            "likelihoods": {
+              "WU": 0.85
+            },
+            "suppresses": {
+              "W": 0.3
+            }
+          },
+          {
+            "title": "Choose the urgent case",
+            "copy": "A structure that hesitates in the face of harm must be overruled by action.",
+            "signal": "case-first intervention",
+            "likelihoods": {
+              "WR": 0.85
+            },
+            "suppresses": {
+              "W": 0.25
+            }
+          },
+          {
+            "title": "Heal the bond",
+            "copy": "Protection is real when people want to carry it together, not just receive it.",
+            "signal": "shared care",
+            "likelihoods": {
+              "WG": 0.8
+            },
+            "suppresses": {
+              "W": 0.25
+            }
+          }
+        ]
+      },
+      {
+        "id": "hall_B_cost",
+        "stage": "hall",
+        "faction": "B",
+        "eyebrow": "Hall - Black",
+        "prompt": "A choice will cost life, comfort, or loyalty, but it keeps your fate from belonging to someone else. What makes the exchange honest?",
+        "answers": [
+          {
+            "title": "Pay the cost",
+            "copy": "If the price buys agency, the cost is part of the plan rather than a warning to stop.",
+            "signal": "power at a cost",
+            "likelihoods": {
+              "B": 0.95,
+              "UB": 0.6,
+              "BR": 0.55,
+              "WB": 0.55
+            },
+            "suppresses": {
+              "U": 0.35,
+              "W": 0.35,
+              "WG": 0.35
+            }
+          },
+          {
+            "title": "Hide the leverage",
+            "copy": "Control is safest when no one knows which resource you are holding.",
+            "signal": "secret leverage",
+            "likelihoods": {
+              "UB": 0.85
+            },
+            "suppresses": {
+              "B": 0.3
+            }
+          },
+          {
+            "title": "Make it a debt",
+            "copy": "A cost matters most when it becomes an obligation someone must answer.",
+            "signal": "binding debt",
+            "likelihoods": {
+              "WB": 0.85
+            },
+            "suppresses": {
+              "B": 0.25
+            }
+          },
+          {
+            "title": "Spend the restraint",
+            "copy": "The release itself is the point; the price proves the appetite is real.",
+            "signal": "unrestrained appetite",
+            "likelihoods": {
+              "BR": 0.85
+            },
+            "suppresses": {
+              "B": 0.25
+            }
+          }
+        ]
+      },
+      {
+        "id": "hall_B_graveyard",
+        "stage": "hall",
+        "faction": "B",
+        "eyebrow": "Hall - Black",
+        "prompt": "Something useful has died, failed, or been spent. What should happen to it now?",
+        "answers": [
+          {
+            "title": "Reclaim it as leverage",
+            "copy": "The graveyard is not a memorial. It is a resource line waiting to be used.",
+            "signal": "graveyard as resource",
+            "likelihoods": {
+              "B": 0.95,
+              "BG": 0.65,
+              "UB": 0.55,
+              "WB": 0.5
+            },
+            "suppresses": {
+              "U": 0.35,
+              "W": 0.35,
+              "WG": 0.3
+            }
+          },
+          {
+            "title": "Feed the cycle",
+            "copy": "Decay matters because it makes the next life possible.",
+            "signal": "cycle of decay",
+            "likelihoods": {
+              "BG": 0.85,
+              "WITHERBLOOM": 0.75
+            },
+            "suppresses": {
+              "B": 0.3
+            }
+          },
+          {
+            "title": "Protect the record",
+            "copy": "What is gone should become duty, precedent, or warning.",
+            "signal": "memorial duty",
+            "likelihoods": {
+              "W": 0.65,
+              "LOREHOLD": 0.6
+            },
+            "suppresses": {
+              "B": 0.25
+            }
+          },
+          {
+            "title": "Turn it into pressure",
+            "copy": "The loss should make everyone else feel what the exchange is worth.",
+            "signal": "public pressure",
+            "likelihoods": {
+              "BR": 0.75,
+              "SILVERQUILL": 0.65
+            },
+            "suppresses": {
+              "B": 0.25
+            }
+          }
+        ]
+      },
+      {
+        "id": "hall_U_understanding",
+        "stage": "hall",
+        "faction": "U",
+        "eyebrow": "Hall - Blue",
+        "prompt": "The room wants action before the variables are clear. What response feels most responsible?",
+        "answers": [
+          {
+            "title": "Map the variables",
+            "copy": "Preserve options, gather the missing information, and move once the structure can be understood.",
+            "signal": "act after understanding",
+            "likelihoods": {
+              "U": 0.95,
+              "WU": 0.6,
+              "UB": 0.55,
+              "UR": 0.5
+            },
+            "suppresses": {
+              "B": 0.65,
+              "WB": 0.65,
+              "BR": 0.35,
+              "RG": 0.35
+            }
+          },
+          {
+            "title": "Codify the process",
+            "copy": "The answer should become a rule everyone can trust.",
+            "signal": "formal procedure",
+            "likelihoods": {
+              "WU": 0.85
+            },
+            "suppresses": {
+              "U": 0.25
+            }
+          },
+          {
+            "title": "Keep the secret",
+            "copy": "The safest move is to know more than the table knows you know.",
+            "signal": "hidden leverage",
+            "likelihoods": {
+              "UB": 0.85
+            },
+            "suppresses": {
+              "U": 0.25
+            }
+          },
+          {
+            "title": "Run the experiment",
+            "copy": "Build the test and let the result teach you in motion.",
+            "signal": "volatile experiment",
+            "likelihoods": {
+              "UR": 0.85
+            },
+            "suppresses": {
+              "U": 0.25
+            }
+          }
+        ]
+      },
+      {
+        "id": "hall_U_possibility",
+        "stage": "hall",
+        "faction": "U",
+        "eyebrow": "Hall - Blue",
+        "prompt": "A person or system seems limited by its current shape. What makes progress trustworthy?",
+        "answers": [
+          {
+            "title": "Improve the model",
+            "copy": "Education, tools, and repeatable practice can turn a current limit into a solvable problem.",
+            "signal": "optimization through knowledge",
+            "likelihoods": {
+              "U": 0.95,
+              "UG": 0.6,
+              "UR": 0.55,
+              "WU": 0.5
+            },
+            "suppresses": {
+              "B": 0.65,
+              "WB": 0.65,
+              "RG": 0.3,
+              "BR": 0.25
+            }
+          },
+          {
+            "title": "Adapt the organism",
+            "copy": "The living form should change so it can survive what comes next.",
+            "signal": "biological adaptation",
+            "likelihoods": {
+              "UG": 0.85
+            },
+            "suppresses": {
+              "U": 0.25
+            }
+          },
+          {
+            "title": "Accelerate the prototype",
+            "copy": "The breakthrough arrives when the experiment is pushed hard enough to reveal itself.",
+            "signal": "rapid experimentation",
+            "likelihoods": {
+              "UR": 0.85
+            },
+            "suppresses": {
+              "U": 0.25
+            }
+          },
+          {
+            "title": "Secure the leverage",
+            "copy": "Improvement matters most when the knowledge becomes power no one can take.",
+            "signal": "knowledge as leverage",
+            "likelihoods": {
+              "UB": 0.8
+            },
+            "suppresses": {
+              "U": 0.25
+            }
+          }
+        ]
+      },
+      {
+        "id": "hall_R_ignition",
+        "stage": "hall",
+        "faction": "R",
+        "eyebrow": "Hall - Red",
+        "prompt": "A feeling arrives before anyone has given permission. What makes the next move honest?",
+        "answers": [
+          {
+            "title": "Move with the spark",
+            "copy": "The feeling is already information. Act while it is alive enough to matter.",
+            "signal": "emotion into action",
+            "likelihoods": {
+              "R": 0.95,
+              "WR": 0.55,
+              "UR": 0.5,
+              "BR": 0.45,
+              "RG": 0.45
+            },
+            "suppresses": {
+              "WU": 0.45,
+              "U": 0.35,
+              "WB": 0.25
+            }
+          },
+          {
+            "title": "Protect someone now",
+            "copy": "The urgency matters because a vulnerable person needs an intervening body.",
+            "signal": "urgent protection",
+            "likelihoods": {
+              "WR": 0.85
+            },
+            "suppresses": {
+              "R": 0.25
+            }
+          },
+          {
+            "title": "Make it a test",
+            "copy": "Build the experiment and let the result teach you what the spark means.",
+            "signal": "experimental technique",
+            "likelihoods": {
+              "UR": 0.85
+            },
+            "suppresses": {
+              "R": 0.25
+            }
+          },
+          {
+            "title": "Break restraint publicly",
+            "copy": "The rupture matters because the room has to feel what restraint was hiding.",
+            "signal": "transgressive release",
+            "likelihoods": {
+              "BR": 0.85
+            },
+            "suppresses": {
+              "R": 0.3
+            }
+          },
+          {
+            "title": "Trust the wild body",
+            "copy": "The answer is in instinct, muscle, and the old belonging underneath the cage.",
+            "signal": "primal instinct",
+            "likelihoods": {
+              "RG": 0.85
+            },
+            "suppresses": {
+              "R": 0.3
+            }
+          }
+        ]
+      },
+      {
+        "id": "hall_R_freedom",
+        "stage": "hall",
+        "faction": "R",
+        "eyebrow": "Hall - Red",
+        "prompt": "The door is closing and the safe plan will arrive too late. What kind of action keeps the moment alive?",
+        "answers": [
+          {
+            "title": "Take the direct line",
+            "copy": "Choose the motion that frees breath now, even if it only opens a temporary window.",
+            "signal": "direct action",
+            "likelihoods": {
+              "R": 0.95,
+              "WR": 0.55,
+              "UR": 0.45,
+              "BR": 0.45,
+              "RG": 0.45
+            },
+            "suppresses": {
+              "WU": 0.45,
+              "U": 0.35,
+              "WB": 0.25
+            }
+          },
+          {
+            "title": "Charge for the vulnerable",
+            "copy": "The line matters because it gets between harm and the person in front of you.",
+            "signal": "protective charge",
+            "likelihoods": {
+              "WR": 0.85
+            },
+            "suppresses": {
+              "R": 0.25
+            }
+          },
+          {
+            "title": "Prototype the way out",
+            "copy": "A risky build can reveal the door no one could map in advance.",
+            "signal": "rapid prototype",
+            "likelihoods": {
+              "UR": 0.85
+            },
+            "suppresses": {
+              "R": 0.25
+            }
+          },
+          {
+            "title": "Make pain visible",
+            "copy": "The point is to make the hidden wound impossible for the room to ignore.",
+            "signal": "pain as spectacle",
+            "likelihoods": {
+              "BR": 0.85
+            },
+            "suppresses": {
+              "R": 0.35
+            }
+          },
+          {
+            "title": "Return to the pack",
+            "copy": "Freedom starts by refusing the cage and trusting the living force that was already yours.",
+            "signal": "wild belonging",
+            "likelihoods": {
+              "RG": 0.85
+            },
+            "suppresses": {
+              "R": 0.35
+            }
+          }
+        ]
+      },
+      {
+        "id": "hall_G_growth",
+        "stage": "hall",
+        "faction": "G",
+        "eyebrow": "Hall - Green",
+        "prompt": "A living thing is strained before its roots are deep. What care feels honest?",
+        "answers": [
+          {
+            "title": "Let the roots deepen",
+            "copy": "Give it time, land, and trust so it can become what it already is.",
+            "signal": "organic growth",
+            "likelihoods": {
+              "G": 0.95,
+              "WG": 0.55,
+              "UG": 0.5,
+              "BG": 0.5,
+              "RG": 0.5
+            },
+            "suppresses": {
+              "U": 0.35,
+              "WU": 0.25
+            }
+          },
+          {
+            "title": "Gather the circle",
+            "copy": "The answer starts when people choose to carry care together.",
+            "signal": "communal care",
+            "likelihoods": {
+              "WG": 0.85
+            },
+            "suppresses": {
+              "G": 0.25
+            }
+          },
+          {
+            "title": "Alter the form",
+            "copy": "Change the living body so it can survive the future.",
+            "signal": "engineered adaptation",
+            "likelihoods": {
+              "UG": 0.85
+            },
+            "suppresses": {
+              "G": 0.3
+            }
+          },
+          {
+            "title": "Use what fell away",
+            "copy": "The discarded material can still become survival.",
+            "signal": "reclamation economy",
+            "likelihoods": {
+              "BG": 0.85,
+              "WITHERBLOOM": 0.65
+            },
+            "suppresses": {
+              "G": 0.3
+            }
+          },
+          {
+            "title": "Break the fence",
+            "copy": "The old body knows what constraint tried to cage.",
+            "signal": "wild force",
+            "likelihoods": {
+              "RG": 0.85
+            },
+            "suppresses": {
+              "G": 0.3
+            }
+          }
+        ]
+      },
+      {
+        "id": "hall_G_natural_order",
+        "stage": "hall",
+        "faction": "G",
+        "eyebrow": "Hall - Green",
+        "prompt": "The world is slow to answer, but the old pattern still seems alive. What do you follow?",
+        "answers": [
+          {
+            "title": "Trust the natural pace",
+            "copy": "Follow instinct, land, and season until the living shape becomes visible.",
+            "signal": "natural patience",
+            "likelihoods": {
+              "G": 0.95,
+              "WG": 0.5,
+              "UG": 0.5,
+              "BG": 0.5,
+              "RG": 0.5
+            },
+            "suppresses": {
+              "U": 0.35,
+              "WU": 0.25
+            }
+          },
+          {
+            "title": "Improve the organism",
+            "copy": "A body that cannot meet the future should be deliberately adapted.",
+            "signal": "purposeful adaptation",
+            "likelihoods": {
+              "UG": 0.85
+            },
+            "suppresses": {
+              "G": 0.3
+            }
+          },
+          {
+            "title": "Move as a community",
+            "copy": "The bond matters most when everyone chooses to belong together.",
+            "signal": "shared community",
+            "likelihoods": {
+              "WG": 0.85
+            },
+            "suppresses": {
+              "G": 0.25
+            }
+          },
+          {
+            "title": "Reclaim the remains",
+            "copy": "What collapsed should feed the next survival engine.",
+            "signal": "decay reclamation",
+            "likelihoods": {
+              "BG": 0.85,
+              "WITHERBLOOM": 0.65
+            },
+            "suppresses": {
+              "G": 0.3
+            }
+          },
+          {
+            "title": "Refuse the cage",
+            "copy": "Instinct becomes true when it will not be domesticated.",
+            "signal": "wild refusal",
+            "likelihoods": {
+              "RG": 0.85
+            },
+            "suppresses": {
+              "G": 0.3
+            }
+          }
+        ]
+      },
       {
         "id": "hall_WU_process",
         "stage": "hall",
@@ -4478,6 +6435,652 @@
       }
     ],
     "crucible": [
+      {
+        "id": "crucible_W_WU",
+        "stage": "crucible",
+        "pair": [
+          "W",
+          "WU"
+        ],
+        "eyebrow": "Crucible - Shelter or Procedure",
+        "prompt": "Does dependable protection begin with a shelter people can trust, or a process nobody can bend?",
+        "answers": [
+          {
+            "title": "Shelter first",
+            "copy": "The structure matters because it keeps people safe.",
+            "signal": "shelter before procedure",
+            "likelihoods": {
+              "W": 0.95
+            },
+            "suppresses": {
+              "WU": 0.95
+            }
+          },
+          {
+            "title": "Process first",
+            "copy": "Protection lasts when the rule survives every exception.",
+            "signal": "procedure before shelter",
+            "likelihoods": {
+              "WU": 0.95
+            },
+            "suppresses": {
+              "W": 0.95
+            }
+          }
+        ]
+      },
+      {
+        "id": "crucible_W_WR",
+        "stage": "crucible",
+        "pair": [
+          "W",
+          "WR"
+        ],
+        "eyebrow": "Crucible - Structure or Intervention",
+        "prompt": "When people are unsafe, is the first duty to build the standard or step in right now?",
+        "answers": [
+          {
+            "title": "Build the standard",
+            "copy": "Protection has to become reliable, not only brave.",
+            "signal": "reliable protection",
+            "likelihoods": {
+              "W": 0.95
+            },
+            "suppresses": {
+              "WR": 0.95
+            }
+          },
+          {
+            "title": "Step in right now",
+            "copy": "Protection that waits for structure can arrive too late.",
+            "signal": "immediate duty",
+            "likelihoods": {
+              "WR": 0.95
+            },
+            "suppresses": {
+              "W": 0.95
+            }
+          }
+        ]
+      },
+      {
+        "id": "crucible_W_WG",
+        "stage": "crucible",
+        "pair": [
+          "W",
+          "WG"
+        ],
+        "eyebrow": "Crucible - Standard or Belonging",
+        "prompt": "Does safety begin with shared standards, or with a community that already knows how to hold each other?",
+        "answers": [
+          {
+            "title": "Shared standards",
+            "copy": "The structure protects even before trust matures.",
+            "signal": "standards before belonging",
+            "likelihoods": {
+              "W": 0.95
+            },
+            "suppresses": {
+              "WG": 0.95
+            }
+          },
+          {
+            "title": "Shared belonging",
+            "copy": "People protect what they already feel part of together.",
+            "signal": "belonging before standards",
+            "likelihoods": {
+              "WG": 0.95
+            },
+            "suppresses": {
+              "W": 0.95
+            }
+          }
+        ]
+      },
+      {
+        "id": "crucible_U_WU",
+        "stage": "crucible",
+        "pair": [
+          "U",
+          "WU"
+        ],
+        "eyebrow": "Crucible - Model or Procedure",
+        "prompt": "Does trust begin with understanding the system, or with a rule no one can bend?",
+        "answers": [
+          {
+            "title": "Understand the system",
+            "copy": "The rule matters after the model is clear.",
+            "signal": "model before procedure",
+            "likelihoods": {
+              "U": 0.95
+            },
+            "suppresses": {
+              "WU": 0.95
+            }
+          },
+          {
+            "title": "Bind the rule",
+            "copy": "Understanding matters when it becomes fair process.",
+            "signal": "procedure before model",
+            "likelihoods": {
+              "WU": 0.95
+            },
+            "suppresses": {
+              "U": 0.95
+            }
+          }
+        ]
+      },
+      {
+        "id": "crucible_U_UB",
+        "stage": "crucible",
+        "pair": [
+          "U",
+          "UB"
+        ],
+        "eyebrow": "Crucible - Understanding or Secret",
+        "prompt": "Does information matter because it improves the future, or because no one knows you have it?",
+        "answers": [
+          {
+            "title": "Improve the future",
+            "copy": "Knowledge expands what can be done next.",
+            "signal": "knowledge as possibility",
+            "likelihoods": {
+              "U": 0.95
+            },
+            "suppresses": {
+              "UB": 0.95
+            }
+          },
+          {
+            "title": "Keep it unseen",
+            "copy": "Information is strongest when it becomes hidden leverage.",
+            "signal": "knowledge as secrecy",
+            "likelihoods": {
+              "UB": 0.95
+            },
+            "suppresses": {
+              "U": 0.95
+            }
+          }
+        ]
+      },
+      {
+        "id": "crucible_U_UR",
+        "stage": "crucible",
+        "pair": [
+          "U",
+          "UR"
+        ],
+        "eyebrow": "Crucible - Prediction or Spark",
+        "prompt": "When the idea is promising but unstable, do you wait for the model or fire the prototype?",
+        "answers": [
+          {
+            "title": "Wait for the model",
+            "copy": "A better prediction prevents a wasted breakthrough.",
+            "signal": "predictive patience",
+            "likelihoods": {
+              "U": 0.95
+            },
+            "suppresses": {
+              "UR": 0.95
+            }
+          },
+          {
+            "title": "Fire the prototype",
+            "copy": "The experiment has to move before the answer appears.",
+            "signal": "experimental spark",
+            "likelihoods": {
+              "UR": 0.95
+            },
+            "suppresses": {
+              "U": 0.95
+            }
+          }
+        ]
+      },
+      {
+        "id": "crucible_U_UG",
+        "stage": "crucible",
+        "pair": [
+          "U",
+          "UG"
+        ],
+        "eyebrow": "Crucible - Possibility or Adaptation",
+        "prompt": "Should the next change refine the model, or alter the living thing that must survive?",
+        "answers": [
+          {
+            "title": "Refine the model",
+            "copy": "Improve the tool, plan, and knowledge before changing the body.",
+            "signal": "engineered possibility",
+            "likelihoods": {
+              "U": 0.95
+            },
+            "suppresses": {
+              "UG": 0.95
+            }
+          },
+          {
+            "title": "Alter the organism",
+            "copy": "The living form must adapt to meet the future.",
+            "signal": "living adaptation",
+            "likelihoods": {
+              "UG": 0.95
+            },
+            "suppresses": {
+              "U": 0.95
+            }
+          }
+        ]
+      },
+      {
+        "id": "crucible_B_UB",
+        "stage": "crucible",
+        "pair": [
+          "B",
+          "UB"
+        ],
+        "eyebrow": "Crucible - Cost or Secret",
+        "prompt": "When power is available, do you pay the cost directly or wait until hidden information makes the move safer?",
+        "answers": [
+          {
+            "title": "Pay directly",
+            "copy": "Agency is worth the price when the price keeps your fate yours.",
+            "signal": "direct cost",
+            "likelihoods": {
+              "B": 0.95
+            },
+            "suppresses": {
+              "UB": 0.95
+            }
+          },
+          {
+            "title": "Wait in secret",
+            "copy": "Leverage is strongest when no one sees the hand move.",
+            "signal": "hidden timing",
+            "likelihoods": {
+              "UB": 0.95
+            },
+            "suppresses": {
+              "B": 0.95
+            }
+          }
+        ]
+      },
+      {
+        "id": "crucible_B_BR",
+        "stage": "crucible",
+        "pair": [
+          "B",
+          "BR"
+        ],
+        "eyebrow": "Crucible - Control or Release",
+        "prompt": "Is the cost worth paying because it keeps control, or because it finally releases restraint?",
+        "answers": [
+          {
+            "title": "Keep control",
+            "copy": "The sacrifice matters because it secures agency.",
+            "signal": "controlled cost",
+            "likelihoods": {
+              "B": 0.95
+            },
+            "suppresses": {
+              "BR": 0.95
+            }
+          },
+          {
+            "title": "Release restraint",
+            "copy": "The rupture matters because the pressure has to become real.",
+            "signal": "unrestrained release",
+            "likelihoods": {
+              "BR": 0.95
+            },
+            "suppresses": {
+              "B": 0.95
+            }
+          }
+        ]
+      },
+      {
+        "id": "crucible_B_BG",
+        "stage": "crucible",
+        "pair": [
+          "B",
+          "BG"
+        ],
+        "eyebrow": "Crucible - Asset or Cycle",
+        "prompt": "Does the graveyard matter because it belongs to your plan, or because decay feeds the next life?",
+        "answers": [
+          {
+            "title": "It belongs to the plan",
+            "copy": "Death is another resource to convert.",
+            "signal": "graveyard leverage",
+            "likelihoods": {
+              "B": 0.95
+            },
+            "suppresses": {
+              "BG": 0.95
+            }
+          },
+          {
+            "title": "It feeds the cycle",
+            "copy": "Death matters because survival keeps returning through decay.",
+            "signal": "predatory cycle",
+            "likelihoods": {
+              "BG": 0.95
+            },
+            "suppresses": {
+              "B": 0.95
+            }
+          }
+        ]
+      },
+      {
+        "id": "crucible_B_WB",
+        "stage": "crucible",
+        "pair": [
+          "B",
+          "WB"
+        ],
+        "eyebrow": "Crucible - Sovereignty or Debt",
+        "prompt": "Would you rather own the leverage privately, or bind it into an obligation no one can escape?",
+        "answers": [
+          {
+            "title": "Own the leverage",
+            "copy": "Power protects best when it answers to the self.",
+            "signal": "private sovereignty",
+            "likelihoods": {
+              "B": 0.95
+            },
+            "suppresses": {
+              "WB": 0.95
+            }
+          },
+          {
+            "title": "Bind the obligation",
+            "copy": "Power lasts when the debt becomes public and enforceable.",
+            "signal": "binding obligation",
+            "likelihoods": {
+              "WB": 0.95
+            },
+            "suppresses": {
+              "B": 0.95
+            }
+          }
+        ]
+      },
+      {
+        "id": "crucible_R_WR",
+        "stage": "crucible",
+        "pair": [
+          "R",
+          "WR"
+        ],
+        "eyebrow": "Crucible - Spark or Shield",
+        "prompt": "Is the urgent action about freeing the honest impulse, or protecting someone from the next blow?",
+        "answers": [
+          {
+            "title": "Free the impulse",
+            "copy": "The action matters because the feeling is true now.",
+            "signal": "honest spark",
+            "likelihoods": {
+              "R": 0.95
+            },
+            "suppresses": {
+              "WR": 0.95
+            }
+          },
+          {
+            "title": "Protect the person",
+            "copy": "The action matters because harm is already moving toward someone.",
+            "signal": "protective intervention",
+            "likelihoods": {
+              "WR": 0.95
+            },
+            "suppresses": {
+              "R": 0.95
+            }
+          }
+        ]
+      },
+      {
+        "id": "crucible_R_UR",
+        "stage": "crucible",
+        "pair": [
+          "R",
+          "UR"
+        ],
+        "eyebrow": "Crucible - Impulse or Prototype",
+        "prompt": "When the spark arrives, do you trust the feeling now or build the test that teaches what it can become?",
+        "answers": [
+          {
+            "title": "Trust the feeling now",
+            "copy": "The first motion is the truth you can act on.",
+            "signal": "present impulse",
+            "likelihoods": {
+              "R": 0.95
+            },
+            "suppresses": {
+              "UR": 0.95
+            }
+          },
+          {
+            "title": "Build the test",
+            "copy": "The spark becomes useful when the experiment reveals its shape.",
+            "signal": "crafted experiment",
+            "likelihoods": {
+              "UR": 0.95
+            },
+            "suppresses": {
+              "R": 0.95
+            }
+          }
+        ]
+      },
+      {
+        "id": "crucible_R_BR",
+        "stage": "crucible",
+        "pair": [
+          "R",
+          "BR"
+        ],
+        "eyebrow": "Crucible - Freedom or Transgression",
+        "prompt": "Does release matter because it lets you breathe, or because breaking restraint must unsettle the room?",
+        "answers": [
+          {
+            "title": "Let me breathe",
+            "copy": "Freedom is the point; the action does not need pain to prove it.",
+            "signal": "freedom without cruelty",
+            "likelihoods": {
+              "R": 0.95
+            },
+            "suppresses": {
+              "BR": 0.95
+            }
+          },
+          {
+            "title": "Unsettle the room",
+            "copy": "The rupture matters when appetite, taboo, or pain becomes impossible to ignore.",
+            "signal": "transgressive spectacle",
+            "likelihoods": {
+              "BR": 0.95
+            },
+            "suppresses": {
+              "R": 0.95
+            }
+          }
+        ]
+      },
+      {
+        "id": "crucible_R_RG",
+        "stage": "crucible",
+        "pair": [
+          "R",
+          "RG"
+        ],
+        "eyebrow": "Crucible - Feeling or Wild",
+        "prompt": "Is the impulse true because you feel it now, or because the wild body already knows the path?",
+        "answers": [
+          {
+            "title": "Because I feel it now",
+            "copy": "The present feeling is enough to move.",
+            "signal": "emotion as truth",
+            "likelihoods": {
+              "R": 0.95
+            },
+            "suppresses": {
+              "RG": 0.95
+            }
+          },
+          {
+            "title": "Because the wild knows",
+            "copy": "Instinct, force, and primal belonging know before permission arrives.",
+            "signal": "wild instinct",
+            "likelihoods": {
+              "RG": 0.95
+            },
+            "suppresses": {
+              "R": 0.95
+            }
+          }
+        ]
+      },
+      {
+        "id": "crucible_G_WG",
+        "stage": "crucible",
+        "pair": [
+          "G",
+          "WG"
+        ],
+        "eyebrow": "Crucible - Natural Place or Community",
+        "prompt": "Does belonging begin with accepting natural place, or with a community choosing to hold together?",
+        "answers": [
+          {
+            "title": "Natural place",
+            "copy": "The living thing belongs by becoming what it already is.",
+            "signal": "natural belonging",
+            "likelihoods": {
+              "G": 0.95
+            },
+            "suppresses": {
+              "WG": 0.95
+            }
+          },
+          {
+            "title": "Shared community",
+            "copy": "Belonging becomes real when the group chooses care together.",
+            "signal": "communal belonging",
+            "likelihoods": {
+              "WG": 0.95
+            },
+            "suppresses": {
+              "G": 0.95
+            }
+          }
+        ]
+      },
+      {
+        "id": "crucible_G_UG",
+        "stage": "crucible",
+        "pair": [
+          "G",
+          "UG"
+        ],
+        "eyebrow": "Crucible - Unfolding or Adaptation",
+        "prompt": "Should growth unfold from inherent nature, or should the living form be deliberately adapted?",
+        "answers": [
+          {
+            "title": "Let it unfold",
+            "copy": "The seed already knows its shape; give it roots and time.",
+            "signal": "inherent growth",
+            "likelihoods": {
+              "G": 0.95
+            },
+            "suppresses": {
+              "UG": 0.95
+            }
+          },
+          {
+            "title": "Adapt the organism",
+            "copy": "Survival may require changing the living form.",
+            "signal": "living adaptation",
+            "likelihoods": {
+              "UG": 0.95
+            },
+            "suppresses": {
+              "G": 0.95
+            }
+          }
+        ]
+      },
+      {
+        "id": "crucible_G_BG",
+        "stage": "crucible",
+        "pair": [
+          "G",
+          "BG"
+        ],
+        "eyebrow": "Crucible - Living Season or Reclamation",
+        "prompt": "Does the cycle matter because life grows in season, or because the discarded can be reclaimed?",
+        "answers": [
+          {
+            "title": "Trust the living season",
+            "copy": "Flourishing returns through roots, pace, and natural renewal.",
+            "signal": "life cycle without extraction",
+            "likelihoods": {
+              "G": 0.95
+            },
+            "suppresses": {
+              "BG": 0.95
+            }
+          },
+          {
+            "title": "Reclaim the remains",
+            "copy": "Survival starts with what collapse left behind.",
+            "signal": "reclamation first",
+            "likelihoods": {
+              "BG": 0.95
+            },
+            "suppresses": {
+              "G": 0.95
+            }
+          }
+        ]
+      },
+      {
+        "id": "crucible_G_RG",
+        "stage": "crucible",
+        "pair": [
+          "G",
+          "RG"
+        ],
+        "eyebrow": "Crucible - Root or Wild Refusal",
+        "prompt": "Does instinct ask for patient flourishing, or for wild refusal against the cage?",
+        "answers": [
+          {
+            "title": "Root and grow",
+            "copy": "Instinct is old enough to wait, deepen, and become strong.",
+            "signal": "patient instinct",
+            "likelihoods": {
+              "G": 0.95
+            },
+            "suppresses": {
+              "RG": 0.95
+            }
+          },
+          {
+            "title": "Break the cage",
+            "copy": "The wild body knows constraint must be thrown off.",
+            "signal": "wild force",
+            "likelihoods": {
+              "RG": 0.95
+            },
+            "suppresses": {
+              "G": 0.95
+            }
+          }
+        ]
+      },
       {
         "id": "crucible_WU_WG",
         "stage": "crucible",

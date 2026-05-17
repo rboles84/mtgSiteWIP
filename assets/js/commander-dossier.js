@@ -1,8 +1,19 @@
 export const ARCHIDEKT_SEARCH_BASE = "https://archidekt.com/search/decks";
+import {
+  getExpressionKindLabel,
+  getExpressionKindLabelLower,
+  normalizeLayeredIdentity,
+} from "./identity-layers.js";
+
 export const DEFAULT_COMMANDER_DECK_FORMAT = 3;
 
 const MANA_ORDER = ["W", "U", "B", "R", "G"];
 const COLOR_IDENTITY_SLUGS = new Map([
+  ["W", "white"],
+  ["U", "blue"],
+  ["B", "black"],
+  ["R", "red"],
+  ["G", "green"],
   ["WU", "azorius"],
   ["UB", "dimir"],
   ["BR", "rakdos"],
@@ -18,6 +29,16 @@ const COLOR_IDENTITY_SLUGS = new Map([
 ]);
 
 const EXTERNAL_ROUTING_ALIASES = new Map([
+  ["W", { guild: "white", colorIdentity: "W", label: "White" }],
+  ["WHITE", { guild: "white", colorIdentity: "W", label: "White" }],
+  ["U", { guild: "blue", colorIdentity: "U", label: "Blue" }],
+  ["BLUE", { guild: "blue", colorIdentity: "U", label: "Blue" }],
+  ["B", { guild: "black", colorIdentity: "B", label: "Black" }],
+  ["BLACK", { guild: "black", colorIdentity: "B", label: "Black" }],
+  ["R", { guild: "red", colorIdentity: "R", label: "Red" }],
+  ["RED", { guild: "red", colorIdentity: "R", label: "Red" }],
+  ["G", { guild: "green", colorIdentity: "G", label: "Green" }],
+  ["GREEN", { guild: "green", colorIdentity: "G", label: "Green" }],
   ["WU", { guild: "azorius", colorIdentity: "WU", label: "Azorius" }],
   ["AZORIUS", { guild: "azorius", colorIdentity: "WU", label: "Azorius" }],
   ["UB", { guild: "dimir", colorIdentity: "UB", label: "Dimir" }],
@@ -355,6 +376,76 @@ const CARD_DISPLAY_TEXT_OVERRIDES = [
 ];
 
 export const COMMANDER_FACTION_GUIDANCE = {
+  W: {
+    key: "W",
+    shortName: "White",
+    ownedThemes: ["safety", "structure", "protection", "duty", "shared standards", "shelter", "collective defense"],
+    allowedPhrases: ["safety through structure", "shared duty", "protect the vulnerable", "fairness through standards"],
+    bannedPhrases: ["private leverage", "chaotic spectacle", "reckless self-prioritization"],
+    bleedWarningTerms: ["airtight procedure", "urgent intervention", "shared belonging without standards", "private debt"],
+    bleedWarnings: ["avoid collapsing White into Azorius procedure, Boros urgency, or Selesnya belonging"],
+    preferredArchetypeTags: ["Tokens", "Stax", "Equipment"],
+    commanderPlan: "builds protection into the table state: widen the board, defend the key piece, and let structure turn survival into pressure",
+    spellcraftIdentity: "Token makers, protection spells, taxes, clean removal, and equipment lines that make safety feel enforceable instead of decorative.",
+    tableCautionText: "Protect the engine, keep the standards clear, and do not spend your last shield before the table commits its real threat.",
+    tableCautionReviewRule: "If the text sounds purely procedural, check whether it should be Azorius instead of White.",
+  },
+  U: {
+    key: "U",
+    shortName: "Blue",
+    ownedThemes: ["knowledge", "information", "card draw", "counterspells", "tempo", "bounce", "copy", "clones", "artifacts", "options", "control", "spellslinger"],
+    allowedPhrases: ["information as resource", "act after understanding", "optimize through knowledge", "control through prediction"],
+    bannedPhrases: ["reckless spectacle", "natural destiny above improvement", "power without a model"],
+    bleedWarningTerms: ["airtight procedure", "hidden leverage", "volatile experiment", "biological adaptation"],
+    bleedWarnings: ["avoid collapsing Blue into Azorius procedure, Dimir secrecy, Izzet volatility, or Simic biology"],
+    preferredArchetypeTags: ["Control", "Spellslinger", "Artifacts"],
+    commanderPlan: "turns knowledge into control: draw cards, preserve options, answer key spells, and let information become inevitability",
+    spellcraftIdentity: "Card draw, counterspells, bounce, copy effects, artifact engines, and spellslinger lines that make every option feel planned.",
+    tableCautionText: "Hold mana for the important spell, draw before committing, and keep one clean answer for the table's real threat.",
+    tableCautionReviewRule: "If text sounds like secrecy alone, check whether it should be Dimir instead of Blue.",
+  },
+  B: {
+    key: "B",
+    shortName: "Black",
+    ownedThemes: ["cost", "agency", "life payment", "sacrifice", "graveyard", "resource conversion", "leverage", "reanimation", "aristocrats"],
+    allowedPhrases: ["power at a cost", "life as a resource", "graveyard as resource", "self-preservation through agency"],
+    bannedPhrases: ["shared duty above self", "procedure above leverage", "wild release for its own sake"],
+    bleedWarningTerms: ["airtight procedure", "public spectacle", "cycle of renewal", "binding obligation"],
+    bleedWarnings: ["avoid collapsing Black into Dimir secrecy, Rakdos release, Golgari cycle, or Orzhov debt"],
+    preferredArchetypeTags: ["Aristocrats", "Reanimator", "Control"],
+    commanderPlan: "turns cost into agency: spend life, cash in creatures, and make the graveyard or hand become a resource engine before the table can stabilize",
+    spellcraftIdentity: "Life payment, tutors, sacrifice outlets, removal, reanimation, and graveyard recursion that make every spent resource feel recoverable.",
+    tableCautionText: "Hold a sacrifice outlet, spend life deliberately, and rebuild from the graveyard before the engine runs dry.",
+    tableCautionReviewRule: "If text sounds like secrecy alone, check whether it should be Dimir instead of Black.",
+  },
+  R: {
+    key: "R",
+    shortName: "Red",
+    ownedThemes: ["immediacy", "freedom", "impulse", "emotion", "spark", "ignition", "direct action", "haste", "burn", "damage", "temporary momentum", "treasures"],
+    allowedPhrases: ["emotion into action", "freedom through motion", "direct pressure", "act while the spark is alive"],
+    bannedPhrases: ["sacrifice for value", "crafted experiment", "primal belonging", "pain as spectacle"],
+    bleedWarningTerms: ["transgressive spectacle", "wild belonging", "spell technique", "pain spectacle"],
+    bleedWarnings: ["avoid collapsing Red into Rakdos transgression, Gruul wildness, Izzet technique, or Prismari performance"],
+    preferredArchetypeTags: ["Burn", "Aggro", "Treasures"],
+    commanderPlan: "turns impulse into damage and momentum: commit early, keep mana and cards moving, and let the next spark become direct pressure before the table settles",
+    spellcraftIdentity: "Burn spells, haste threats, impulse draw, treasure bursts, and temporary damage windows that make action feel immediate instead of ornamental.",
+    tableCautionText: "Sequence the burst while it matters, remove the piece that changes combat, and keep one reload spell for the turn after the table answers.",
+    tableCautionReviewRule: "If text needs cruelty, wild belonging, or crafted technique to make sense, check whether it should be Rakdos, Gruul, Izzet, or Prismari instead of Red.",
+  },
+  G: {
+    key: "G",
+    shortName: "Green",
+    ownedThemes: ["organic growth", "natural order", "acceptance", "patience", "instinct", "land", "roots", "ramp", "big mana", "creatures", "natural flourishing"],
+    allowedPhrases: ["organic growth", "accept natural role", "patience through roots", "natural flourishing"],
+    bannedPhrases: ["communal token mobilization", "engineered adaptation", "mathematical optimization", "rot reclamation", "rage and smash"],
+    bleedWarningTerms: ["community identity", "biological adaptation", "mathematical pattern", "decay economy", "wild refusal", "pressure through force"],
+    bleedWarnings: ["avoid collapsing Green into Selesnya community, Simic or Quandrix optimization, Golgari or Witherbloom decay economy, or Gruul wild pressure"],
+    preferredArchetypeTags: ["Ramp", "Big Mana", "Lands"],
+    commanderPlan: "turns patience into natural scale: develop lands, keep the creature engine alive, and let organic growth become too large for the table to ignore",
+    spellcraftIdentity: "Ramp spells, landfall engines, creature-based card draw, protection, trample, and big mana lines that make natural flourishing feel inevitable.",
+    tableCautionText: "Develop mana first, protect the living engine, and commit the largest creature after the table spends its clean answer.",
+    tableCautionReviewRule: "If text sounds like community mobilization, engineered adaptation, decay economy, or wild-force pressure, check Selesnya, Simic, Golgari, Witherbloom, or Gruul before Green.",
+  },
   WU: {
     key: "WU",
     shortName: "Azorius",
@@ -1179,10 +1270,26 @@ function routingAliasFromColors(colors) {
  */
 export function getExternalDeckRoutingAlias(source) {
   const keyCandidates = [];
+  let routedIdentity = null;
   if (source && typeof source === "object" && !Array.isArray(source)) {
     keyCandidates.push(source.key, source.name, source.research_links?.edhrec_slug);
+    routedIdentity = source.identity?.routing || source.layered_identity?.routing || null;
   } else {
     keyCandidates.push(source);
+  }
+
+  if (routedIdentity?.edhrec_slug || routedIdentity?.mtgdecks_slug) {
+    const guild = routedIdentity.edhrec_slug || routedIdentity.mtgdecks_slug;
+    const colorIdentity = getColorIdentity(
+      source && typeof source === "object" && !Array.isArray(source) ? (source.colors || source.key) : source
+    );
+    return {
+      guild,
+      colorIdentity,
+      label: routedIdentity.label || guild,
+      edhrecUrl: `https://edhrec.com/commanders/${routedIdentity.edhrec_slug || guild}`,
+      mtgDecksUrl: `https://mtgdecks.net/Commander/${routedIdentity.mtgdecks_slug || guild}-commanders`,
+    };
   }
 
   const matched = keyCandidates
@@ -1637,7 +1744,7 @@ export function buildCommanderStartingLane({
   const budget = starterProfile?.budget_band || "mid";
   const experience = starterProfile?.experience_level || "returning";
   const guidance = getCommanderFactionGuidance(faction);
-  const institutionWord = faction?.institution_type === "college" ? "College" : "Guild";
+  const institutionWord = getExpressionKindLabel(faction);
   const deckCenter = archetypes.length
     ? `Start with ${archetypes.join(" or ")}`
     : `Start with the ${colorIdentity || "chosen"} color identity`;
@@ -1898,7 +2005,7 @@ export function buildCommanderDossier({
   const spellcraft = commanderLaneDetail(commanderLane.details, /spellcraft|gameplay/i);
   const tableCautionText = commanderLaneDetail(commanderLane.details, /^Table caution$/i) || guidance?.tableCautionText || "";
   const resultStatus = isPrimary
-    ? `This is your primary ${faction.institution_type === "college" ? "college" : "guild"} fit.`
+    ? `This is your primary ${getExpressionKindLabelLower(faction)} fit.`
     : "You are viewing an adjacent fit built from the same reading.";
   const reasonItStayedClose = isPrimary
     ? ""
@@ -1931,7 +2038,7 @@ export function buildCommanderDossier({
     isPrimary,
     primaryFactionKey: primaryKey,
     targetFactionKey: activeKey,
-    adjacentLabel: isPrimary ? "" : `Adjacent ${faction.institution_type === "college" ? "College" : "Guild"} Fit`,
+    adjacentLabel: isPrimary ? "" : `Adjacent ${getExpressionKindLabel(faction)} Fit`,
     faction: {
       key: activeKey,
       name: faction.name,
@@ -1943,6 +2050,16 @@ export function buildCommanderDossier({
       accent: faction.accent || "",
       banner: faction.banner || "",
       philosophy: faction.philosophy || "",
+      identity: normalizeLayeredIdentity(
+        activeMatch?.identity || placementResult?.identity || faction.identity || {},
+        {
+          key: activeKey,
+          name: faction.name,
+          institution_type: faction.institution_type,
+          colors: faction.colors || [],
+          expression_kind: faction.identity?.expression_kind || faction.institution_type,
+        }
+      ),
       record: faction,
     },
     primaryFaction: primaryFaction
@@ -1952,6 +2069,14 @@ export function buildCommanderDossier({
           tagline: primaryFaction.tagline,
           institutionType: primaryFaction.institution_type,
           world: primaryFaction.world,
+          identity: normalizeLayeredIdentity(
+            primaryFaction.identity || placementResult?.identity || {},
+            {
+              key: primaryKey,
+              name: primaryFaction.name,
+              institution_type: primaryFaction.institution_type,
+            }
+          ),
         }
       : null,
     resultStatus,
@@ -2060,7 +2185,7 @@ export function renderCommanderDossierText(dossier) {
   return [
     `# ${faction.name} Commander Dossier`,
     dossier.isPrimary ? "**Dossier type:** Primary" : `**Dossier type:** Adjacent\n**Adjacent label:** ${dossier.adjacentLabel}\n**Primary result:** ${dossier.primaryFaction?.name || dossier.primaryFactionKey}\n**Reason it stayed close:** ${dossier.reasonItStayedClose}`,
-    `**Faction/college name:** ${faction.name}`,
+    `**Expression name:** ${faction.name}`,
     `**Tagline:** ${faction.tagline}`,
     `**${manaLabel}:** ${mana}`,
     dossier.isPrimary ? "" : `**Commander color identity:** ${faction.colorIdentity || getColorIdentity(faction.colors || faction.key || "")}`,
@@ -2203,7 +2328,7 @@ function auditRequiredSections(dossier, failures) {
   const starterCards = dossier.starterCards || {};
   const lands = dossier.landRecommendations || {};
   const required = [
-    ["faction/college name", dossier.faction?.name],
+    ["expression name", dossier.faction?.name],
     ["tagline", dossier.faction?.tagline],
     ["mana alignment", dossier.manaAlignment?.length],
     ["reading omens", dossier.readingOmens?.length],
@@ -2223,8 +2348,8 @@ function auditRequiredSections(dossier, failures) {
     required.push(["adjacent fits where configured", Array.isArray(dossier.adjacentFits)]);
   } else {
     required.push(["adjacent label", dossier.adjacentLabel]);
-    required.push(["target faction/college name", dossier.faction?.name]);
-    required.push(["target faction/college tagline", dossier.faction?.tagline]);
+    required.push(["target expression name", dossier.faction?.name]);
+    required.push(["target expression tagline", dossier.faction?.tagline]);
     required.push(["reason it stayed close", dossier.reasonItStayedClose]);
   }
 

@@ -21,11 +21,11 @@ Vox Mana is an unofficial Magic: The Gathering fan site that combines a themed s
 | Static shells | `index.html`, `archscry/index.html`, `maze/index.html`, `apocrypha/index.html`, policy pages | Define route-specific DOM, preload assets, script entrypoints, and inline handler hooks. |
 | Shared visual system | `assets/css/tokens.css`, `assets/css/fonts.css`, `assets/css/topbar.css`, `assets/css/atmosphere.css`, `assets/css/components.css` | Site tokens, fonts, topbar, atmospheric canvas, and reusable panels/buttons/chips/progress treatments. |
 | Home gateway | `assets/js/home.js` | Resume-chip detection and subtle gateway motion. |
-| Placement frontend | `assets/js/index.js`, `assets/js/adaptive-placement.js`, `assets/js/shared.js` | Loads data, runs quick adaptive reading, renders narrative dossiers, saves/resumes results, preserves adjacent-fit context, builds alias-routed Commander directory links, and keeps the terminal dormant behind the shared site flag. |
+| Placement frontend | `assets/js/index.js`, `assets/js/adaptive-placement.js`, `assets/js/shared.js`, `assets/js/identity-layers.js` | Loads data, runs quick adaptive reading, normalizes layered identity metadata, renders narrative dossiers, saves/resumes results, preserves adjacent-fit context, builds alias-routed Commander directory links, and keeps the terminal dormant behind the shared site flag. |
 | Site flags | `assets/js/site-flags.js` | Single checked-in switch that hides or reveals the archived terminal UI and browser guards. |
 | Research workspace | `research/*.js`, `maze/index.html` | Smart Search, raw syntax, Visual Builder, Scryfall search/rendering, reading-aware paths, Archscry return banners with dismissal persistence, no-results handling, and card modal UI. |
 | Scryfall card-expression indexes | `scripts/download-scryfall-bulk.mjs`, `scripts/build-scryfall-indexes.mjs`, `data/scryfall/indexes/*.json`, `data/taxonomy/vox-mana-tags.json` | Ignored local oracle bulk data, lightweight derived indexes, categorized tags, Commander candidates, and flavor echo samples. |
-| External data build tools | `C:\dev\projectFiles\voxmana-tools` | Generate placement artifacts, Supabase faction context, schema, and local-only asset/reference sources. |
+| Identity layer catalog | `data/identity-layers.json`, `data/identity-layers.schema.json` | Canonical mono-aware identity data for colors, expressions, routing aliases, and shared dossier language. |
 | External command panel | `C:\dev\projectFiles\voxmana-tools` | Runs allowlisted commands, reads external Apocrypha manifest data, and tracks panel state outside the site repo. |
 | Backend interview | `supabase/functions/guild-recruiter/index.ts` | Deno edge function retained for the archived terminal path and future deterministic replacement work. |
 
@@ -38,14 +38,14 @@ Vox Mana is an unofficial Magic: The Gathering fan site that combines a themed s
 | `research/research-init.js` | ES module loaded by `maze/index.html` | Imports parser, dictionary, builder, search, mode, and UI modules; exposes inline handlers onto `window`. |
 | `supabase/functions/guild-recruiter/index.ts` | Deno edge function | Handles `OPTIONS` and `POST`, enforces request limits, calls Anthropic, and normalizes model output for the archived terminal path. |
 | External command panel server | Node CLI in `C:\dev\projectFiles\voxmana-tools` | Serves the command panel, state, run logs, item APIs, and command execution APIs. |
-| External faction artifact builder | Node CLI in `C:\dev\projectFiles\voxmana-tools` | Regenerates display metadata, adaptive model, schema, and Supabase faction context. |
+| Faction artifact builder | `research/build-faction-artifacts.mjs` | Regenerates display metadata, adaptive model, schema, and Supabase faction context from raw factions plus identity layers. |
 | External asset-source generator | Node CLI in `C:\dev\projectFiles\voxmana-tools` | Regenerates deterministic local-only SVG source assets. |
 
 ## Public Surfaces
 
 | Surface | Where | Shape |
 |---|---|---|
-| Placement result | `docs/reference/data-contracts.md`, `assets/js/adaptive-placement.js`, `assets/js/shared.js`, edge function | Versioned object with `faction`, `decree`, confidence, mana scores, matches, starter profile, evidence, and stage history. |
+| Placement result | `docs/reference/data-contracts.md`, `assets/js/adaptive-placement.js`, `assets/js/shared.js`, edge function | Versioned object with legacy faction fields plus layered `identity`, confidence, mana scores, matches, starter profile, evidence, and stage history. |
 | Browser globals | `assets/js/shared.js`, `assets/js/index.js`, `research/research-init.js` | Inline handler functions, `VM_SESSION`, `vm_*` helpers, and research handlers. |
 | Supabase profile row | `assets/js/shared.js` | Compatibility fields plus richer `placement_result` source of truth. |
 | Scryfall API calls | `research/research-search.js`, `assets/js/index.js` | Search/exact/random endpoints for Maze and card-art enrichment. |
@@ -61,6 +61,8 @@ Vox Mana is an unofficial Magic: The Gathering fan site that combines a themed s
 | `data/placement-model.json` | External faction artifact builder | Quick adaptive placement engine. |
 | `data/placement-model.schema.json` | External faction artifact builder | Contract check for generated placement model shape. |
 | `supabase/functions/guild-recruiter/faction-context.ts` | External faction artifact builder | Edge function prompt context. |
+| `data/identity-layers.json` | Hand-authored identity catalog | Mono-aware routing, shared color language, and generated layered identity metadata. |
+| `data/identity-layers.schema.json` | Hand-authored schema | Contract check for the identity catalog. |
 | `data/raw-factions/*` | Curated source, profile, placement, claims, changelog files | Placement model and generated context. |
 | `data/taxonomy/vox-mana-tags.json` | Hand-authored Vox Mana tag dictionary | Scryfall index builder, Archscry tag explanations, Maze/future discovery copy. |
 | `data/scryfall/raw/oracle-cards.json` | `npm run scryfall:download` | Local-only ignored Scryfall oracle bulk source. |
@@ -86,5 +88,6 @@ Vox Mana is an unofficial Magic: The Gathering fan site that combines a themed s
 - Static files are the deployable site surface; no bundler is currently present.
 - Runtime modules lean on browser globals where existing inline HTML handlers require it.
 - Generated faction artifacts must be treated as outputs; edit raw/display sources first, then regenerate.
+- Mono-aware identity metadata originates in `data/identity-layers.json`; do not hand-edit generated `layered_identity` blocks downstream.
 - Docs should describe current dirty working-tree behavior, not only `main` or the last committed state.
 - External Commander directory links are presenter-layer routes. Strixhaven colleges intentionally map to their guild/color analogs for EDHREC and MTGDecks directories.

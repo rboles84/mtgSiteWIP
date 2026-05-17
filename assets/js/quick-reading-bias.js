@@ -83,7 +83,7 @@ async function loadRuntimeData() {
 function summarizePlacements(placements, factions) {
   const total = placements.length;
   const counts = {};
-  const guildVsCollege = { guild: 0, college: 0 };
+  const expressionKinds = { guild: 0, college: 0, color: 0 };
 
   Object.keys(factions).forEach((key) => {
     counts[key] = {
@@ -97,7 +97,11 @@ function summarizePlacements(placements, factions) {
 
   placements.forEach((placement) => {
     counts[placement.faction].count += 1;
-    guildVsCollege[placement.institution_type] += 1;
+    const institutionType = placement.institution_type;
+    if (!Object.hasOwn(expressionKinds, institutionType)) {
+      expressionKinds[institutionType] = 0;
+    }
+    expressionKinds[institutionType] += 1;
   });
 
   Object.values(counts).forEach((entry) => {
@@ -120,10 +124,12 @@ function summarizePlacements(placements, factions) {
     least_selected: ordered[ordered.length - 1] || null,
     never_selected: ordered.filter((entry) => entry.count === 0),
     guild_vs_college: {
-      guild: guildVsCollege.guild,
-      college: guildVsCollege.college,
-      guild_percentage: total ? Number(((guildVsCollege.guild / total) * 100).toFixed(2)) : 0,
-      college_percentage: total ? Number(((guildVsCollege.college / total) * 100).toFixed(2)) : 0,
+      guild: expressionKinds.guild,
+      college: expressionKinds.college,
+      color: expressionKinds.color,
+      guild_percentage: total ? Number(((expressionKinds.guild / total) * 100).toFixed(2)) : 0,
+      college_percentage: total ? Number(((expressionKinds.college / total) * 100).toFixed(2)) : 0,
+      color_percentage: total ? Number(((expressionKinds.color / total) * 100).toFixed(2)) : 0,
     },
   };
 }
@@ -242,6 +248,7 @@ function printSummary(output) {
   console.log(`Never selected: ${output.never_selected.map((entry) => entry.faction_name).join(", ") || "none"}`);
   console.log(`Guilds: ${output.guild_vs_college.guild} (${output.guild_vs_college.guild_percentage}%)`);
   console.log(`Colleges: ${output.guild_vs_college.college} (${output.guild_vs_college.college_percentage}%)`);
+  console.log(`Colors: ${output.guild_vs_college.color} (${output.guild_vs_college.color_percentage}%)`);
   console.table(output.ordered.map((entry) => ({
     faction: entry.faction,
     name: entry.faction_name,

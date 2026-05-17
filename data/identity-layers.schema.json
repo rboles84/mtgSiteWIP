@@ -1,0 +1,76 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Vox Mana Identity Layers",
+  "type": "object",
+  "required": [
+    "_meta",
+    "colors",
+    "expressions"
+  ],
+  "properties": {
+    "_meta": {
+      "type": "object",
+      "required": [
+        "version"
+      ]
+    },
+    "colors": {
+      "type": "object",
+      "required": [
+        "W",
+        "U",
+        "B",
+        "R",
+        "G"
+      ],
+      "additionalProperties": {
+        "type": "object",
+        "required": [
+          "key",
+          "name",
+          "slug",
+          "philosophy",
+          "emotional_tone",
+          "mechanics",
+          "taste_signals",
+          "commander_pulls",
+          "lore"
+        ]
+      }
+    },
+    "expressions": {
+      "type": "object",
+      "required": [
+        "W",
+        "WU",
+        "UB",
+        "BR",
+        "RG",
+        "WG",
+        "WB",
+        "UR",
+        "BG",
+        "UG",
+        "WR",
+        "LOREHOLD",
+        "PRISMARI",
+        "QUANDRIX",
+        "SILVERQUILL",
+        "WITHERBLOOM"
+      ],
+      "additionalProperties": {
+        "type": "object",
+        "required": [
+          "key",
+          "active",
+          "kind",
+          "colors",
+          "core_color",
+          "secondary_colors",
+          "routing",
+          "identity_blend"
+        ]
+      }
+    }
+  }
+}

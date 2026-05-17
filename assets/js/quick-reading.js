@@ -1,3 +1,5 @@
+import { normalizeLayeredIdentity } from "./identity-layers.js";
+
 export const RESULT_VERSION = "2026-05-05";
 export const MANA_ORDER = ["W", "U", "B", "R", "G"];
 
@@ -248,16 +250,18 @@ export function scoreQuickReading(answers, factions) {
 
   const ranked = Object.values(factions)
     .map((faction) => {
-      const [primary, secondary] = faction.colors;
+      const colorAffinityScore = (faction.colors || [])
+        .map((color, index) => (manaTotals[color] || 0) * (index === 0 ? 1.35 : 1.05))
+        .reduce((total, value) => total + value, 0);
       const score =
         (factionTotals[faction.key] || 0) +
-        (manaTotals[primary] || 0) * 1.35 +
-        (manaTotals[secondary] || 0) * 1.05;
+        colorAffinityScore;
       return {
         faction: faction.key,
         faction_name: faction.name,
         institution_type: faction.institution_type,
         world: faction.world,
+        identity: normalizeLayeredIdentity(faction.identity || faction.layered_identity || {}, faction),
         score,
         confidence: score,
         reason: buildQuickReason(answers, faction),
@@ -341,6 +345,7 @@ export function buildQuickPlacementResult({
     faction_name: top.faction_name,
     institution_type: top.institution_type,
     world: top.world,
+    identity: top.identity || null,
     decree: buildQuickDecree(answers, topFaction, runnerUp?.faction_name || "", starterProfile),
     confidence: Number(confidenceBase.toFixed(2)),
     mana_scores: scored.manaScores,
@@ -412,7 +417,7 @@ export function summarizePlacementBias(placements, factions) {
   const counts = {};
   const topMatchCounts = {};
   const bestRanks = {};
-  const guildVsCollege = { guild: 0, college: 0 };
+  const expressionKinds = { guild: 0, college: 0, color: 0 };
 
   Object.keys(factions).forEach((key) => {
     counts[key] = {
@@ -434,7 +439,11 @@ export function summarizePlacementBias(placements, factions) {
 
   placements.forEach((placement) => {
     counts[placement.faction].count += 1;
-    guildVsCollege[placement.institution_type] += 1;
+    const institutionType = placement.institution_type;
+    if (!Object.hasOwn(expressionKinds, institutionType)) {
+      expressionKinds[institutionType] = 0;
+    }
+    expressionKinds[institutionType] += 1;
     placement.top_matches.forEach((match) => {
       topMatchCounts[match.faction].count += 1;
       bestRanks[match.faction] =
@@ -476,10 +485,12 @@ export function summarizePlacementBias(placements, factions) {
     best_ranks: bestRanks,
     never_in_top_matches: Object.values(topMatchCounts).filter((entry) => entry.count === 0),
     guild_vs_college: {
-      guild: guildVsCollege.guild,
-      college: guildVsCollege.college,
-      guild_percentage: total ? Number(((guildVsCollege.guild / total) * 100).toFixed(2)) : 0,
-      college_percentage: total ? Number(((guildVsCollege.college / total) * 100).toFixed(2)) : 0,
+      guild: expressionKinds.guild,
+      college: expressionKinds.college,
+      color: expressionKinds.color,
+      guild_percentage: total ? Number(((expressionKinds.guild / total) * 100).toFixed(2)) : 0,
+      college_percentage: total ? Number(((expressionKinds.college / total) * 100).toFixed(2)) : 0,
+      color_percentage: total ? Number(((expressionKinds.color / total) * 100).toFixed(2)) : 0,
     },
   };
 }

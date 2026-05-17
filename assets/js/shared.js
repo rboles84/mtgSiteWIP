@@ -167,6 +167,7 @@ function normalizeMatch(match, index) {
     faction_name: match?.faction_name || match?.name || null,
     institution_type: match?.institution_type || null,
     world: match?.world || null,
+    identity: match?.identity || null,
     confidence:
       typeof match?.confidence === "number"
         ? match.confidence
@@ -207,6 +208,8 @@ function normalizePlacementResult(result, fallbackProfile) {
     faction_name: source.faction_name || source.guild_name || null,
     institution_type: source.institution_type || null,
     world: source.world || null,
+    color_weights: source.color_weights || null,
+    identity: source.identity || topMatches[0]?.identity || null,
     decree: source.decree || "",
     confidence:
       typeof source.confidence === "number" ? source.confidence : 0.66,
@@ -226,6 +229,7 @@ function normalizePlacementResult(result, fallbackProfile) {
           faction_name: normalized.faction_name,
           institution_type: normalized.institution_type,
           world: normalized.world,
+          identity: normalized.identity,
           score: normalized.confidence,
           confidence: normalized.confidence,
           reason: "Restored from a saved Vox Mana placement.",

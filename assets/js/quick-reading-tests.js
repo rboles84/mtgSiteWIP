@@ -26,6 +26,7 @@ import {
   createArchidektTagCatalog,
   explainAdjacentFit,
   getExternalDeckRoutingAlias,
+  getCommanderFactionGuidance,
   getColorIdentity,
   renderCommanderDossierText,
   resolveArchidektTagName,
@@ -44,12 +45,139 @@ const placementSchema = JSON.parse(
 const deckTagData = JSON.parse(
   await readFile(new URL("../../data/deck-tags_expanded.json", import.meta.url), "utf8")
 );
+const taxonomyData = JSON.parse(
+  await readFile(new URL("../../data/taxonomy/vox-mana-tags.json", import.meta.url), "utf8")
+);
 
 const factions = factionData.factions;
 const factionKeys = Object.keys(factions);
 const modelFactionKeys = Object.keys(placementModel.factions);
 const deckTagCatalog = createArchidektTagCatalog(deckTagData);
 const deckTagNames = new Set(deckTagCatalog.tagNames);
+const taxonomyTags = taxonomyData.tags || [];
+const MONO_BOUNDARY_TARGETS = Object.freeze({
+  W: ["WU", "WB", "WG", "WR"],
+  U: ["WU", "UB", "UR", "UG"],
+  B: ["UB", "WB", "BG", "BR"],
+  R: ["WR", "UR", "BR", "RG"],
+  G: ["WG", "UG", "BG", "RG"],
+});
+
+function normalizeTaxonomyMatchText(value) {
+  return String(value || "")
+    .toLowerCase()
+    .normalize("NFKD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/[^a-z0-9]+/g, " ")
+    .trim();
+}
+
+function taxonomyTextIncludesTag(text, entry) {
+  const haystack = normalizeTaxonomyMatchText(text);
+  const paddedHaystack = haystack ? ` ${haystack} ` : "";
+  return [entry.tag, entry.display_name, ...(entry.aliases || [])]
+    .map(normalizeTaxonomyMatchText)
+    .filter(Boolean)
+    .some((needle) => haystack === needle || paddedHaystack.includes(` ${needle} `));
+}
+
+function uniqueTagRefs(refs = []) {
+  const seen = new Set();
+  return refs.filter((ref) => {
+    const key = `${ref.category}:${ref.tag}`;
+    if (seen.has(key)) {
+      return false;
+    }
+    seen.add(key);
+    return true;
+  });
+}
+
+function taxonomyEntry(category, tag) {
+  return taxonomyTags.find((entry) => entry.category === category && entry.tag === tag) || null;
+}
+
+function queryTerm(value, field = "o") {
+  const cleaned = String(value || "").trim().toLowerCase();
+  if (!cleaned) return "";
+  return /[^a-z0-9-]/i.test(cleaned) ? `${field}:"${cleaned.replace(/"/g, "")}"` : `${field}:${cleaned}`;
+}
+
+function queryTermsForTags(tagRefs = [], field = "o") {
+  const terms = [];
+  uniqueTagRefs(tagRefs).slice(0, 4).forEach((ref) => {
+    const entry = taxonomyEntry(ref.category, ref.tag);
+    if (!entry) return;
+    terms.push(queryTerm(entry.tag, field));
+    (entry.aliases || []).slice(0, 1).forEach((alias) => terms.push(queryTerm(alias, field)));
+  });
+  return [...new Set(terms)].filter(Boolean);
+}
+
+function groupedOr(terms = []) {
+  return terms.length ? `(${terms.join(" OR ")})` : "";
+}
+
+function sortedStrings(values = []) {
+  return [...values].map((value) => String(value || "")).sort();
+}
+
+function assertMonoBoundaryState(key, placementResult) {
+  const expectedTargets = MONO_BOUNDARY_TARGETS[key];
+  assert.ok(expectedTargets, `Missing mono boundary target set for ${key}.`);
+  assert.deepEqual(
+    sortedStrings(placementModel.factions[key]?.lateral_inhibition_targets || []),
+    sortedStrings(expectedTargets),
+    `${key} should keep the four mono-adjacent boundary expressions wired into the model.`
+  );
+  assert.ok(
+    (placementResult?.adjacent_matches || []).every((match) => expectedTargets.includes(match.faction)),
+    `${key} adjacent matches should remain inside ${expectedTargets.join(", ")}.`
+  );
+}
+
+function assertMonoCommanderOwnership(key, dossier) {
+  const factionGuidance = getCommanderFactionGuidance(factions[key]);
+  assert.equal(factionGuidance?.key, key, `${key} should resolve mono guidance ownership.`);
+  assert.equal(dossier?.commanderPath?.guidance?.key, key, `${key} dossier should keep mono-owned guidance.`);
+  assert.equal(
+    dossier?.commanderRecommendationSource,
+    "commander_compass (3)",
+    `${key} dossier should keep authored mono Commander Compass ownership.`
+  );
+}
+
+function deriveReadingTagRefsForTest({ dossier, faction, result }) {
+  const evidenceText = (result?.evidence_trail || [])
+    .flatMap((entry) => [entry.signal, entry.answer_title, entry.prompt])
+    .filter(Boolean)
+    .join(" ");
+  const text = [
+    dossier?.decreeCopy,
+    dossier?.commanderPath?.copy,
+    dossier?.commanderPath?.spellcraft,
+    faction?.tagline,
+    faction?.philosophy,
+    ...(dossier?.archetypes || []).flatMap((item) => [item.name, item.desc]),
+    evidenceText,
+  ].filter(Boolean).join(" ");
+
+  const categoryOrder = new Map([
+    ["mechanical", 0],
+    ["playstyle", 1],
+    ["identity", 2],
+    ["lore-tone", 3],
+  ]);
+
+  return uniqueTagRefs((taxonomyTags || [])
+    .filter((entry) => taxonomyTextIncludesTag(text, entry))
+    .map((entry) => ({ category: entry.category, tag: entry.tag })))
+    .sort((left, right) =>
+      (categoryOrder.get(left.category) ?? 9) - (categoryOrder.get(right.category) ?? 9) ||
+      left.tag.localeCompare(right.tag)
+    )
+    .slice(0, 9);
+}
 
 /**
  * Validates the normalized placement result generated by the adaptive engine.
@@ -61,7 +189,7 @@ function assertValidPlacement(placement) {
   assert.equal(placement.model_version, placementModel._meta.model_version);
   assert.ok(factionKeys.includes(placement.faction), `Unknown faction ${placement.faction}`);
   assert.equal(placement.faction_name, factions[placement.faction].name);
-  assert.match(placement.institution_type, /^(guild|college)$/);
+  assert.match(placement.institution_type, /^(guild|college|color)$/);
   assert.ok(placement.world, "Placement should include world.");
   assert.ok(placement.decree.length > 80, "Placement should include a meaningful decree.");
   assert.ok(placement.confidence >= 0 && placement.confidence <= 1);
@@ -70,6 +198,9 @@ function assertValidPlacement(placement) {
   assert.equal(placement.adjacent_matches.length, 2);
   assert.ok(placement.evidence_trail.length >= 2, "Placement should include an evidence trail.");
   assert.ok(placement.stage_history.length >= 2, "Placement should include stage history.");
+  assert.ok(placement.identity, "Placement should include layered identity metadata.");
+  assert.equal(placement.identity.expression_key, placement.faction);
+  assert.equal(placement.identity.expression_name, placement.faction_name);
 
   MANA_ORDER.forEach((color) => {
     assert.equal(typeof placement.mana_scores[color], "number", `Missing mana score for ${color}`);
@@ -79,6 +210,8 @@ function assertValidPlacement(placement) {
   placement.top_matches.forEach((match, index) => {
     assert.ok(factionKeys.includes(match.faction), `Unknown top match ${match.faction}`);
     assert.equal(match.rank, index + 1);
+    assert.ok(match.identity, `Top match ${match.faction} should include layered identity metadata.`);
+    assert.equal(match.identity.expression_key, match.faction);
     assert.ok(match.confidence >= 0 && match.confidence <= 1);
     assert.ok(match.reason.length > 20);
   });
@@ -91,8 +224,8 @@ function assertValidPlacement(placement) {
 
 assert.equal(placementSchema.title, "Vox Mana Adaptive Placement Model");
 assert.equal(placementModel._meta.model_version, "vox-mana-adaptive-placement-v1");
-assert.equal(placementModel._meta.faction_count, 15);
-assert.equal(factionKeys.length, 15);
+assert.equal(placementModel._meta.faction_count, modelFactionKeys.length);
+assert.equal(factionKeys.length, modelFactionKeys.length);
 assert.deepEqual(modelFactionKeys.sort(), factionKeys.slice().sort());
 
 const tagValidation = validateDeckTagData(deckTagData);
@@ -200,6 +333,25 @@ const prismariAlias = getExternalDeckRoutingAlias(factions.PRISMARI);
 assert.equal(prismariAlias.guild, "izzet");
 assert.equal(prismariAlias.colorIdentity, "UR");
 
+const whiteAlias = getExternalDeckRoutingAlias(factions.W);
+assert.equal(whiteAlias.guild, "mono-white");
+assert.equal(whiteAlias.colorIdentity, "W");
+
+const blueAlias = getExternalDeckRoutingAlias(factions.U);
+assert.equal(blueAlias.guild, "mono-blue");
+assert.equal(blueAlias.colorIdentity, "U");
+
+const blackAlias = getExternalDeckRoutingAlias(factions.B);
+assert.equal(blackAlias.guild, "mono-black");
+assert.equal(blackAlias.colorIdentity, "B");
+
+const redAlias = getExternalDeckRoutingAlias(factions.R);
+assert.equal(redAlias.guild, "mono-red");
+assert.equal(redAlias.colorIdentity, "R");
+const greenAlias = getExternalDeckRoutingAlias(factions.G);
+assert.equal(greenAlias.guild, "mono-green");
+assert.equal(greenAlias.colorIdentity, "G");
+
 const collegeDirectoryCases = [
   [factions.PRISMARI, "https://edhrec.com/commanders/izzet", "https://mtgdecks.net/Commander/izzet-commanders"],
   [factions.LOREHOLD, "https://edhrec.com/commanders/boros", "https://mtgdecks.net/Commander/boros-commanders"],
@@ -224,6 +376,11 @@ assert.equal(
 );
 
 [
+  [factions.W, "https://edhrec.com/commanders/mono-white", "https://mtgdecks.net/Commander/mono-white-commanders"],
+  [factions.U, "https://edhrec.com/commanders/mono-blue", "https://mtgdecks.net/Commander/mono-blue-commanders"],
+  [factions.B, "https://edhrec.com/commanders/mono-black", "https://mtgdecks.net/Commander/mono-black-commanders"],
+  [factions.R, "https://edhrec.com/commanders/mono-red", "https://mtgdecks.net/Commander/mono-red-commanders"],
+  [factions.G, "https://edhrec.com/commanders/mono-green", "https://mtgdecks.net/Commander/mono-green-commanders"],
   [factions.WU, "https://edhrec.com/commanders/azorius", "https://mtgdecks.net/Commander/azorius-commanders"],
   [factions.BG, "https://edhrec.com/commanders/golgari", "https://mtgdecks.net/Commander/golgari-commanders"],
 ].forEach(([faction, edhrecUrl, mtgDecksUrl]) => {
@@ -539,6 +696,271 @@ const selected = new Set(goldenResults.map((result) => result.faction));
 
 const ranked = rankAdaptiveFactions(sample.state, placementModel);
 assert.equal(ranked[0].faction, "WU");
+
+const whiteGolden = runAdaptiveGoldenPath({
+  model: placementModel,
+  factions,
+  targetFaction: "W",
+}).result;
+assertValidPlacement(whiteGolden);
+assert.equal(whiteGolden.identity.expression_kind, "color");
+assert.equal(whiteGolden.identity.purity, 1);
+assert.ok(
+  whiteGolden.adjacent_matches.some((match) => ["WU", "WR", "WG"].includes(match.faction)),
+  "White should keep at least one white-adjacent pair expression nearby."
+);
+const whiteDossier = buildCommanderDossier({
+  factions,
+  placementModel,
+  deckTagCatalog,
+  placementResult: whiteGolden,
+});
+const decayEntry = taxonomyEntry("identity", "decay");
+assert.ok(decayEntry, "Decay taxonomy entry should exist.");
+assert.equal(
+  taxonomyTextIncludesTag("protection", decayEntry),
+  false,
+  'Decay alias "rot" should not match inside "protection".'
+);
+assert.equal(
+  taxonomyTextIncludesTag("slow rot and reclaimed timber", decayEntry),
+  true,
+  'Decay alias "rot" should still match when rot appears as a real token.'
+);
+const whiteFlavorTagRefs = deriveReadingTagRefsForTest({
+  dossier: whiteDossier,
+  faction: factions.W,
+  result: whiteGolden,
+});
+const whiteFlavorGroup = groupedOr(queryTermsForTags(
+  whiteFlavorTagRefs.filter((ref) => ref.category === "identity" || ref.category === "lore-tone"),
+  "ft"
+));
+const whiteFlavorQuery = `ci<=w ${whiteFlavorGroup}`;
+assert.equal(whiteFlavorQuery, 'ci<=w (ft:order OR ft:structure OR ft:communal OR ft:shared)');
+assert.doesNotMatch(whiteFlavorQuery, /\bdecay\b|\brot\b/i);
+assert.match(whiteDossier.resultStatus, /primary color fit/i);
+assert.equal(whiteDossier.faction.identity.expression_kind, "color");
+assertMonoBoundaryState("W", whiteGolden);
+assertMonoCommanderOwnership("W", whiteDossier);
+assert.match(whiteDossier.commanderPath.copy, /protect|structure|board|shield/i);
+assert.ok(
+  placementModel.question_bank.hall.some((question) => question.id === "hall_W_shelter"),
+  "White should have authored Hall support for shelter/protection evidence."
+);
+assert.ok(
+  placementModel.question_bank.hall.some((question) => question.id === "hall_W_duty"),
+  "White should have authored Hall support for duty/standards evidence."
+);
+
+const blueGolden = runAdaptiveGoldenPath({
+  model: placementModel,
+  factions,
+  targetFaction: "U",
+}).result;
+assertValidPlacement(blueGolden);
+assert.equal(blueGolden.faction, "U");
+assert.equal(factions.U.institution_type, "color");
+assert.equal(placementModel.factions.U.institution_type, "color");
+assert.ok(placementModel.factions.U.biological_expression?.archetype, "Blue should include biological expression.");
+assert.equal(blueGolden.identity.expression_kind, "color");
+assert.equal(blueGolden.identity.purity, 1);
+assertMonoBoundaryState("U", blueGolden);
+assert.ok(
+  placementModel.question_bank.hall.some((question) => question.id === "hall_U_understanding"),
+  "Blue should have authored Hall support for understanding-first evidence."
+);
+assert.ok(
+  placementModel.question_bank.hall.some((question) => question.id === "hall_U_possibility"),
+  "Blue should have authored Hall support for possibility/optimization evidence."
+);
+["crucible_U_WU", "crucible_U_UB", "crucible_U_UR", "crucible_U_UG"].forEach((questionId) => {
+  assert.ok(
+    placementModel.question_bank.crucible.some((question) => question.id === questionId),
+    `Blue should include ${questionId}.`
+  );
+});
+const blueDossier = buildCommanderDossier({
+  factions,
+  placementModel,
+  deckTagCatalog,
+  placementResult: blueGolden,
+});
+assert.match(blueDossier.resultStatus, /primary color fit/i);
+assert.equal(blueDossier.faction.identity.expression_kind, "color");
+assertMonoCommanderOwnership("U", blueDossier);
+assert.match(blueDossier.commanderPath.copy, /knowledge|information|draw|options|control/i);
+assert.deepEqual(
+  collectCommanderPreviewCandidates(factions.U).map((candidate) => candidate.name),
+  ["Talrand, Sky Summoner", "Azami, Lady of Scrolls", "Minn, Wily Illusionist"]
+);
+
+const blackGolden = runAdaptiveGoldenPath({
+  model: placementModel,
+  factions,
+  targetFaction: "B",
+}).result;
+assertValidPlacement(blackGolden);
+assert.equal(blackGolden.faction, "B");
+assert.equal(blackGolden.identity.expression_kind, "color");
+assert.equal(blackGolden.identity.purity, 1);
+assertMonoBoundaryState("B", blackGolden);
+assert.ok(
+  placementModel.question_bank.hall.some((question) => question.id === "hall_B_cost"),
+  "Black should have authored Hall support for cost/payment evidence."
+);
+assert.ok(
+  placementModel.question_bank.hall.some((question) => question.id === "hall_B_graveyard"),
+  "Black should have authored Hall support for graveyard/resource evidence."
+);
+["crucible_B_UB", "crucible_B_BR", "crucible_B_BG", "crucible_B_WB"].forEach((questionId) => {
+  assert.ok(
+    placementModel.question_bank.crucible.some((question) => question.id === questionId),
+    `Black should include ${questionId}.`
+  );
+});
+const blackDossier = buildCommanderDossier({
+  factions,
+  placementModel,
+  deckTagCatalog,
+  placementResult: blackGolden,
+});
+assert.match(blackDossier.resultStatus, /primary color fit/i);
+assert.equal(blackDossier.faction.identity.expression_kind, "color");
+assertMonoCommanderOwnership("B", blackDossier);
+assert.match(blackDossier.commanderPath.copy, /life|sacrifice|graveyard|resource|cost|shadow/i);
+assert.deepEqual(
+  collectCommanderPreviewCandidates(factions.B).map((candidate) => candidate.name),
+  ["K'rrik, Son of Yawgmoth", "Ayara, First of Locthwain", "Chainer, Dementia Master"]
+);
+
+const redGolden = runAdaptiveGoldenPath({
+  model: placementModel,
+  factions,
+  targetFaction: "R",
+}).result;
+assertValidPlacement(redGolden);
+assert.equal(redGolden.faction, "R");
+assert.equal(factions.R.institution_type, "color");
+assert.equal(placementModel.factions.R.institution_type, "color");
+assert.ok(placementModel.factions.R.biological_expression?.archetype, "Red should include biological expression.");
+assert.equal(redGolden.identity.expression_kind, "color");
+assert.equal(redGolden.identity.purity, 1);
+assertMonoBoundaryState("R", redGolden);
+assert.ok(
+  placementModel.question_bank.hall.some((question) => question.id === "hall_R_ignition"),
+  "Red should have authored Hall support for ignition/immediacy evidence."
+);
+assert.ok(
+  placementModel.question_bank.hall.some((question) => question.id === "hall_R_freedom"),
+  "Red should have authored Hall support for freedom/direct-action evidence."
+);
+["crucible_R_WR", "crucible_R_UR", "crucible_R_BR", "crucible_R_RG"].forEach((questionId) => {
+  assert.ok(
+    placementModel.question_bank.crucible.some((question) => question.id === questionId),
+    `Red should include ${questionId}.`
+  );
+});
+const redDossier = buildCommanderDossier({
+  factions,
+  placementModel,
+  deckTagCatalog,
+  placementResult: redGolden,
+});
+assert.match(redDossier.resultStatus, /primary color fit/i);
+assert.equal(redDossier.faction.identity.expression_kind, "color");
+assertMonoCommanderOwnership("R", redDossier);
+assert.match(redDossier.commanderPath.copy, /damage|burn|haste|impulse|treasure|action|pressure/i);
+assert.deepEqual(
+  collectCommanderPreviewCandidates(factions.R).map((candidate) => candidate.name),
+  ["Torbran, Thane of Red Fell", "Krenko, Mob Boss", "Magda, Brazen Outlaw"]
+);
+
+const greenGolden = runAdaptiveGoldenPath({
+  model: placementModel,
+  factions,
+  targetFaction: "G",
+}).result;
+assertValidPlacement(greenGolden);
+assert.equal(greenGolden.faction, "G");
+assert.equal(factions.G.institution_type, "color");
+assert.equal(placementModel.factions.G.institution_type, "color");
+assert.ok(placementModel.factions.G.biological_expression?.archetype, "Green should include biological expression.");
+assert.equal(greenGolden.identity.expression_kind, "color");
+assert.equal(greenGolden.identity.purity, 1);
+assertMonoBoundaryState("G", greenGolden);
+assert.ok(
+  placementModel.question_bank.hall.some((question) => question.id === "hall_G_growth"),
+  "Green should have authored Hall support for organic growth evidence."
+);
+assert.ok(
+  placementModel.question_bank.hall.some((question) => question.id === "hall_G_natural_order"),
+  "Green should have authored Hall support for natural-order evidence."
+);
+["crucible_G_WG", "crucible_G_UG", "crucible_G_BG", "crucible_G_RG"].forEach((questionId) => {
+  assert.ok(
+    placementModel.question_bank.crucible.some((question) => question.id === questionId),
+    `Green should include ${questionId}.`
+  );
+});
+const greenPositiveAnswers = [
+  ...placementModel.question_bank.gate,
+  ...placementModel.question_bank.hall,
+  ...placementModel.question_bank.crucible,
+].flatMap((question) =>
+  (question.answers || []).filter((answer) => Number(answer?.likelihoods?.G || 0) >= 0.9)
+);
+const greenCoreEvidenceText = [
+  ...(placementModel.factions.G.placement_axes.required_positive_evidence_terms || []),
+  ...(placementModel.factions.G.placement_axes.strengthens_when_user_centers || []),
+  ...greenPositiveAnswers.flatMap((answer) => [answer.title, answer.copy, answer.signal]),
+].join(" ");
+assert.doesNotMatch(
+  greenCoreEvidenceText,
+  /\b(tokens?|community|communal|collective|convoke|anthem)\b/i,
+  "Green core evidence should not absorb Selesnya token/community language."
+);
+assert.doesNotMatch(
+  greenCoreEvidenceText,
+  /\b(optimization|mathematical|math|equation|experiment|prototype|engineered|adaptation)\b/i,
+  "Green core evidence should not use Simic/Quandrix optimization or engineered-adaptation language."
+);
+assert.doesNotMatch(
+  greenCoreEvidenceText,
+  /\b(decay|rot|reclamation|graveyard|sacrifice)\b/i,
+  "Green core evidence should not rely on Golgari/Witherbloom decay or reclamation economy."
+);
+assert.doesNotMatch(
+  greenCoreEvidenceText,
+  /\b(rage|smash|pressure|wild force|wild refusal|domestication)\b/i,
+  "Green core evidence should not default to Gruul rage, smash, or wild-pressure language."
+);
+const greenDossier = buildCommanderDossier({
+  factions,
+  placementModel,
+  deckTagCatalog,
+  placementResult: greenGolden,
+});
+assert.match(greenDossier.resultStatus, /primary color fit/i);
+assert.equal(greenDossier.faction.identity.expression_kind, "color");
+assertMonoCommanderOwnership("G", greenDossier);
+assert.match(greenDossier.commanderPath.copy, /organic growth|natural scale|ramp|creature/i);
+assert.deepEqual(
+  collectCommanderPreviewCandidates(factions.G).map((candidate) => candidate.name),
+  ["Azusa, Lost but Seeking", "Selvala, Heart of the Wilds", "Goreclaw, Terror of Qal Sisma"]
+);
+
+Object.entries({
+  W: whiteGolden,
+  U: blueGolden,
+  B: blackGolden,
+  R: redGolden,
+  G: greenGolden,
+}).forEach(([key, result]) => {
+  assert.equal(result.faction, key, `${key} mono golden path should remain preserved in the full rollout sweep.`);
+  assert.equal(result.identity?.expression_kind, "color", `${key} should remain a mono color expression.`);
+  assert.equal(result.identity?.purity, 1, `${key} should remain a pure mono result.`);
+});
 
 const directPlacement = buildAdaptivePlacementResult({
   state: sample.state,

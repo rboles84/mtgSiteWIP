@@ -4,6 +4,14 @@ This index tracks agent work across planning, board updates, documentation, JSON
 
 | Date | Agent | Task | Related Card | Status | Handoff |
 |---|---|---|---|---|---|
+| 2026-05-17 15:53 | Codex | Mono rollout complete checkpoint | VM-030 | Complete | [2026-05-17-1553-codex-mono-rollout-complete-checkpoint.md](2026-05-17-1553-codex-mono-rollout-complete-checkpoint.md) |
+| 2026-05-17 15:04 | Codex | Green mono authoring pass | VM-030 | Complete | [2026-05-17-1504-codex-vm030-green-mono-authoring-pass.md](2026-05-17-1504-codex-vm030-green-mono-authoring-pass.md) |
+| 2026-05-17 14:45 | Codex | Red mono authoring pass | VM-029 | Complete | [2026-05-17-1445-codex-vm029-red-mono-authoring-pass.md](2026-05-17-1445-codex-vm029-red-mono-authoring-pass.md) |
+| 2026-05-17 13:42 | Codex | Blue mono authoring pass | VM-028 | Complete | [2026-05-17-1342-codex-vm028-blue-mono-authoring-pass.md](2026-05-17-1342-codex-vm028-blue-mono-authoring-pass.md) |
+| 2026-05-17 13:05 | Codex | Black mono authoring pass | VM-027 | Complete | [2026-05-17-1305-codex-vm027-black-mono-authoring-pass.md](2026-05-17-1305-codex-vm027-black-mono-authoring-pass.md) |
+| 2026-05-17 12:01 | Codex | White mono stabilization pass | VM-026 | Complete | [2026-05-17-1201-codex-vm026-white-mono-stabilization-pass.md](2026-05-17-1201-codex-vm026-white-mono-stabilization-pass.md) |
+| 2026-05-17 11:36 | Codex | Add Combo Discovery placement backlog card and board update | VM-025 | Complete | [2026-05-17-1136-codex-vm025-combo-discovery-placement-section.md](2026-05-17-1136-codex-vm025-combo-discovery-placement-section.md) |
+| 2026-05-17 02:29 | Codex | Mono identity layer refactor + White pilot | VM-023 | Complete | [2026-05-17-0229-codex-vm023-mono-identity-layer-refactor-white-pilot.md](2026-05-17-0229-codex-vm023-mono-identity-layer-refactor-white-pilot.md) |
 | 2026-05-17 01:38 | Codex | Normalize Docs Paths After Reorg | VM-024 | Complete | [2026-05-17-0138-codex-normalize-docs-paths-after-reorg.md](2026-05-17-0138-codex-normalize-docs-paths-after-reorg.md) |
 | 2026-05-17 01:30 | Codex | VM-012 checkpoint save before VM-022 | VM-012 | Complete | [2026-05-17-0130-codex-vm012-checkpoint-save-before-vm022.md](2026-05-17-0130-codex-vm012-checkpoint-save-before-vm022.md) |
 | 2026-05-17 01:26 | Codex | Adjacent fit click repair + return path | VM-021B | Complete | [2026-05-17-0126-codex-vm021b-adjacent-fit-click-repair-return-path.md](2026-05-17-0126-codex-vm021b-adjacent-fit-click-repair-return-path.md) |

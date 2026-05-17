@@ -30,11 +30,29 @@
 ## Adaptive placement sanity
 
 1. Run `node assets/js/quick-reading-tests.js`.
-2. Confirm all 15 golden paths pass.
+2. Confirm all 20 golden paths pass.
 3. Run `node assets/js/quick-reading-bias.js --all`.
 4. Confirm no faction is listed under `Never selected`.
 5. Run `node assets/js/quick-reading-bias.js --runs=100`.
 6. Confirm no faction is listed under `Never selected` and no single faction dominates the report.
+
+## Mono rollout acceptance sweep
+
+1. Run `npm run test:placement`.
+2. Confirm the suite reports `20 factions, 20 golden paths`.
+3. Confirm mono routing checks still pass for `mono-white`, `mono-blue`, `mono-black`, `mono-red`, and `mono-green`.
+4. Confirm mono adjacent-fit boundary checks stay inside the expected pair shells:
+   - `W` vs `WU` / `WB` / `WG` / `WR`
+   - `U` vs `WU` / `UB` / `UR` / `UG`
+   - `B` vs `UB` / `WB` / `BG` / `BR`
+   - `R` vs `WR` / `UR` / `BR` / `RG`
+   - `G` vs `WG` / `UG` / `BG` / `RG`
+5. Confirm mono dossiers still report authored mono recommendation ownership/guidance, not just generic Commander Compass presence.
+6. Run `npm run dossier:audit`.
+7. Confirm the audit has `failures: 0`.
+8. Record the sweep outcome as one of:
+   - `PASS with triage notes`
+   - `FAIL with follow-up cards`
 
 ## Archived terminal path
 

@@ -93,8 +93,9 @@ export function generateDossierCases({ factions, placementModel, deckTagCatalog 
     throw new Error(`Missing supported factions in data/factions.json: ${missing.join(", ")}`);
   }
 
-  if (factionKeys.length !== 15) {
-    throw new Error(`Expected 15 supported factions/schools, found ${factionKeys.length}.`);
+  const expectedCount = Number(placementModel?._meta?.faction_count || factionKeys.length);
+  if (factionKeys.length !== expectedCount) {
+    throw new Error(`Expected ${expectedCount} supported expressions, found ${factionKeys.length}.`);
   }
 
   const goldenResults = new Map();

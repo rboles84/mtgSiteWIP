@@ -11,6 +11,22 @@ export const FACTION_CONTEXT = {
       "W",
       "U"
     ],
+    "layered_identity": {
+      "core_color": "W",
+      "secondary_colors": [
+        "U"
+      ],
+      "secondary_color": "U",
+      "expression_key": "WU",
+      "expression_name": "Azorius Senate",
+      "expression_kind": "guild",
+      "purity": null,
+      "routing": {
+        "edhrec_slug": "azorius",
+        "mtgdecks_slug": "azorius",
+        "label": "Azorius"
+      }
+    },
     "tagline": "Order is not a constraint. It is civilization itself.",
     "philosophy": "The Senate holds that clear, enforceable rules protect everyone equally. Without structure there is only chaos; without understanding, only fear. The Azorius believe their legislation is the only thing standing between civilization and collapse - and they are not entirely wrong.",
     "core_tension": "The gap between their legislative output and actual enforcement is immense. The Senate responds to this by inventing more laws. They are not sure whether to acknowledge this.",
@@ -198,6 +214,22 @@ export const FACTION_CONTEXT = {
       "W",
       "R"
     ],
+    "layered_identity": {
+      "core_color": "W",
+      "secondary_colors": [
+        "R"
+      ],
+      "secondary_color": "R",
+      "expression_key": "WR",
+      "expression_name": "Boros Legion",
+      "expression_kind": "guild",
+      "purity": null,
+      "routing": {
+        "edhrec_slug": "boros",
+        "mtgdecks_slug": "boros",
+        "label": "Boros"
+      }
+    },
     "tagline": "Righteous fury is still fury. It still wins.",
     "philosophy": "The Boros Legion believes in a higher law - one in which righteousness is fire and justice is the light that shines from it. They act when institutions fail. They protect when others deliberate. They burn bright so others can see and choose to stand with them.",
     "core_tension": "They believe their cause is righteous. That belief is both their greatest strength and their greatest danger. The line between justice and zealotry is thinner than any Boros soldier admits.",
@@ -355,6 +387,22 @@ export const FACTION_CONTEXT = {
       "B",
       "R"
     ],
+    "layered_identity": {
+      "core_color": "B",
+      "secondary_colors": [
+        "R"
+      ],
+      "secondary_color": "R",
+      "expression_key": "BR",
+      "expression_name": "Cult of Rakdos",
+      "expression_kind": "guild",
+      "purity": null,
+      "routing": {
+        "edhrec_slug": "rakdos",
+        "mtgdecks_slug": "rakdos",
+        "label": "Rakdos"
+      }
+    },
     "tagline": "Pain is entertainment. Death is the final punchline.",
     "philosophy": "An ancient demon of incalculable power was given a guild to keep him occupied. The result is a circus of sadomasochism, assassination, and genuinely dangerous performance art. The Cult believes that polite restraint is a form of lying - that spectacle reveals what civility conceals.",
     "core_tension": "Their entire identity is organized around earning approval from a demon who has seen everything and outlasted every trend. The challenge of impressing something genuinely immortal and genuinely bored makes the Cult ruthlessly innovative.",
@@ -520,6 +568,22 @@ export const FACTION_CONTEXT = {
       "B",
       "G"
     ],
+    "layered_identity": {
+      "core_color": "B",
+      "secondary_colors": [
+        "G"
+      ],
+      "secondary_color": "G",
+      "expression_key": "BG",
+      "expression_name": "Golgari Swarm",
+      "expression_kind": "guild",
+      "purity": null,
+      "routing": {
+        "edhrec_slug": "golgari",
+        "mtgdecks_slug": "golgari",
+        "label": "Golgari"
+      }
+    },
     "tagline": "Nothing is wasted. Everything feeds something else.",
     "philosophy": "The most honest guild on Ravnica. It does not pretend death is bad or decay is shameful - it has built an entire civilization around the truth that everything dies, rot is not failure but the first act of the next life, and a city that ignores its dead is a city that doesn't understand itself.",
     "core_tension": "The most philosophically consistent guild on Ravnica and the most politically unstable. Their philosophy says all things die and from death comes new life. Their internal politics demonstrate this constantly - every guildmaster is eventually betrayed, every faction eventually overthrows the last.",
@@ -684,6 +748,22 @@ export const FACTION_CONTEXT = {
       "R",
       "G"
     ],
+    "layered_identity": {
+      "core_color": "R",
+      "secondary_colors": [
+        "G"
+      ],
+      "secondary_color": "G",
+      "expression_key": "RG",
+      "expression_name": "Gruul Clans",
+      "expression_kind": "guild",
+      "purity": null,
+      "routing": {
+        "edhrec_slug": "gruul",
+        "mtgdecks_slug": "gruul",
+        "label": "Gruul"
+      }
+    },
     "tagline": "Civilization is a cage. Nature is freedom.",
     "philosophy": "The Gruul were a proud people charged with maintaining Ravnica's wild places. Then the other guilds expanded, paved over every wilderness, and left the Gruul with nothing. They did not recover politely. What looks like rage is grief that has nowhere else to go.",
     "core_tension": "A legitimate historical grievance that has curdled into something that cannot be reasoned with. The wild places are gone. Their role was taken. None of it can be undone, and the Gruul are not interested in compromise.",
@@ -961,6 +1041,22 @@ export const FACTION_CONTEXT = {
       "U",
       "B"
     ],
+    "layered_identity": {
+      "core_color": "U",
+      "secondary_colors": [
+        "B"
+      ],
+      "secondary_color": "B",
+      "expression_key": "UB",
+      "expression_name": "House Dimir",
+      "expression_kind": "guild",
+      "purity": null,
+      "routing": {
+        "edhrec_slug": "dimir",
+        "mtgdecks_slug": "dimir",
+        "label": "Dimir"
+      }
+    },
     "tagline": "Information is the only currency that never devalues.",
     "philosophy": "For ten thousand years, most Ravnicans didn't believe Dimir existed. That fiction was the greatest intelligence operation in history. Dimir holds that information is the ultimate power - and that the most dangerous knowledge is the knowledge that you know.",
     "core_tension": "A guild that trades in knowledge, yet whose greatest weapon is ensuring others do not have it. They are now openly acknowledged but still operationally invisible. Known existence versus unknown operation.",
@@ -1158,6 +1254,22 @@ export const FACTION_CONTEXT = {
       "U",
       "R"
     ],
+    "layered_identity": {
+      "core_color": "U",
+      "secondary_colors": [
+        "R"
+      ],
+      "secondary_color": "R",
+      "expression_key": "UR",
+      "expression_name": "Izzet League",
+      "expression_kind": "guild",
+      "purity": null,
+      "routing": {
+        "edhrec_slug": "izzet",
+        "mtgdecks_slug": "izzet",
+        "label": "Izzet"
+      }
+    },
     "tagline": "The question isn't whether it will explode. It's whether the explosion is interesting.",
     "philosophy": "Ravnica's civic infrastructure department, weapons laboratory, and mad science collective - all run by a 16,000-year-old dragon whose ego is so complete he named the guild after himself. Izzet members are obsessive, brilliant, creative, and constitutionally incapable of finishing things because there is always something more interesting to start.",
     "core_tension": "The guild is built around a single dragon's ego and intellect. Under Ral Zarek, the Izzet are being asked to be useful rather than merely brilliant. Many find this an intolerable constraint.",
@@ -1448,6 +1560,22 @@ export const FACTION_CONTEXT = {
       "W",
       "R"
     ],
+    "layered_identity": {
+      "core_color": "W",
+      "secondary_colors": [
+        "R"
+      ],
+      "secondary_color": "R",
+      "expression_key": "LOREHOLD",
+      "expression_name": "Lorehold College",
+      "expression_kind": "college",
+      "purity": null,
+      "routing": {
+        "edhrec_slug": "boros",
+        "mtgdecks_slug": "boros",
+        "label": "Boros"
+      }
+    },
     "tagline": "Leave no stone unturned.",
     "philosophy": "The College of Archaeomancy believes the past is not merely interesting but essential. Understanding history is how you predict the future. Every ruin contains a lesson. The dead are not silent if you know how to ask. Lorehold scholars are simultaneously the most scholarly and most physically reckless people in any room.",
     "core_tension": "Does history belong to order or to chaos? To careful systematic analysis or dangerous fieldwork? The college needs both traditions. Every student must choose - and then watch the choice shape everything afterward.",
@@ -1726,6 +1854,22 @@ export const FACTION_CONTEXT = {
       "W",
       "B"
     ],
+    "layered_identity": {
+      "core_color": "W",
+      "secondary_colors": [
+        "B"
+      ],
+      "secondary_color": "B",
+      "expression_key": "WB",
+      "expression_name": "Orzhov Syndicate",
+      "expression_kind": "guild",
+      "purity": null,
+      "routing": {
+        "edhrec_slug": "orzhov",
+        "mtgdecks_slug": "orzhov",
+        "label": "Orzhov"
+      }
+    },
     "tagline": "The living serve the Syndicate. So do the dead.",
     "philosophy": "An amalgam of religion, banking, and organized crime. The Orzhov preaches that sin is debt and debt is sin, lends at crushing interest, and ensures that death is not an escape from obligation. After ten thousand years, the religious function and the financial function became indistinguishable - and the Syndicate no longer sees a difference.",
     "core_tension": "The gap between what the Orzhov says it is (a church) and what it actually is (a criminal financial empire with ghost shareholders) is not a contradiction they are embarrassed by. It is their product.",
@@ -1923,6 +2067,22 @@ export const FACTION_CONTEXT = {
       "U",
       "R"
     ],
+    "layered_identity": {
+      "core_color": "U",
+      "secondary_colors": [
+        "R"
+      ],
+      "secondary_color": "R",
+      "expression_key": "PRISMARI",
+      "expression_name": "Prismari College",
+      "expression_kind": "college",
+      "purity": null,
+      "routing": {
+        "edhrec_slug": "izzet",
+        "mtgdecks_slug": "izzet",
+        "label": "Izzet"
+      }
+    },
     "tagline": "Express yourself with the elements.",
     "philosophy": "The College of Elemental Arts holds that there is no difference between magic and art. Casting a spell is a performance, a canvas, a composition. Any elemental force can be a muse and a medium. The oldest argument in Prismari - technique versus expression - has never been resolved and never will be.",
     "core_tension": "Does mastery of the medium precede authentic expression, or does authentic expression make technique meaningful? Both traditions are right. The tension between them is where the actual art lives.",
@@ -2085,9 +2245,25 @@ export const FACTION_CONTEXT = {
     "institution_type": "college",
     "world": "Strixhaven",
     "colors": [
-      "G",
-      "U"
+      "U",
+      "G"
     ],
+    "layered_identity": {
+      "core_color": "U",
+      "secondary_colors": [
+        "G"
+      ],
+      "secondary_color": "G",
+      "expression_key": "QUANDRIX",
+      "expression_name": "Quandrix College",
+      "expression_kind": "college",
+      "purity": null,
+      "routing": {
+        "edhrec_slug": "simic",
+        "mtgdecks_slug": "simic",
+        "label": "Simic"
+      }
+    },
     "tagline": "Math is magic.",
     "philosophy": "The College of Numeromancy holds that mathematics and magic are the same thing - that the patterns underlying nature are not descriptions of reality but reality itself. Anyone who understands them deeply enough can reshape what exists. Esix, a mathematical accident that now exists independently, is their most honest mascot.",
     "core_tension": "Does math exist in the world, or in the mind? Are equations forces of nature waiting to be discovered, or frameworks constructed by minds? The College's most honest answer is that Esix exists and they're not entirely sure why.",
@@ -2285,6 +2461,22 @@ export const FACTION_CONTEXT = {
       "W",
       "G"
     ],
+    "layered_identity": {
+      "core_color": "W",
+      "secondary_colors": [
+        "G"
+      ],
+      "secondary_color": "G",
+      "expression_key": "WG",
+      "expression_name": "Selesnya Conclave",
+      "expression_kind": "guild",
+      "purity": null,
+      "routing": {
+        "edhrec_slug": "selesnya",
+        "mtgdecks_slug": "selesnya",
+        "label": "Selesnya"
+      }
+    },
     "tagline": "The whole is greater than the sum of its parts.",
     "philosophy": "Either a selfless nurturing spiritual community or a brainwashing nature cult that systematically erases individual identity in service of the Worldmind. Both interpretations are accurate. The Conclave does not consider this a contradiction - it considers individual ego the source of most suffering.",
     "core_tension": "Everything the Conclave offers comes at the price of individual selfhood. The peace of belonging they describe is real. So is what you give up for it.",
@@ -2482,6 +2674,22 @@ export const FACTION_CONTEXT = {
       "W",
       "B"
     ],
+    "layered_identity": {
+      "core_color": "W",
+      "secondary_colors": [
+        "B"
+      ],
+      "secondary_color": "B",
+      "expression_key": "SILVERQUILL",
+      "expression_name": "Silverquill College",
+      "expression_kind": "college",
+      "purity": null,
+      "routing": {
+        "edhrec_slug": "orzhov",
+        "mtgdecks_slug": "orzhov",
+        "label": "Orzhov"
+      }
+    },
     "tagline": "Sharp style. Sharper wit.",
     "philosophy": "The College of Eloquence holds that words are not merely descriptions of power but power itself. Silverquill mages wield language as weapon and beacon - battle poetry, biting arcane precision, shadow magic conjured from ink. They are the most visible people in every room and they are aware of this.",
     "core_tension": "Is eloquence a tool of service or self-advancement? The Radiance tradition holds that language is most powerful when it uplifts. The Shadow tradition holds that language flows toward individual power and pretending otherwise is the most dishonest thing a Silverquill mage can do. Both are right. The tension is the curriculum.",
@@ -2680,6 +2888,22 @@ export const FACTION_CONTEXT = {
       "U",
       "G"
     ],
+    "layered_identity": {
+      "core_color": "U",
+      "secondary_colors": [
+        "G"
+      ],
+      "secondary_color": "G",
+      "expression_key": "UG",
+      "expression_name": "Simic Combine",
+      "expression_kind": "guild",
+      "purity": null,
+      "routing": {
+        "edhrec_slug": "simic",
+        "mtgdecks_slug": "simic",
+        "label": "Simic"
+      }
+    },
     "tagline": "The natural world is a first draft. We are the revision.",
     "philosophy": "Founded to preserve nature, currently preparing for war by fusing citizens with crabs. The Simic have asked 'what if this organism were better?' so many times and in so many directions that the question of what stewardship means has become genuinely unresolved.",
     "core_tension": "What does stewardship mean? Preservation? Forced improvement? Balance? Militarized adaptation? Each answer superseded the last, each driven by someone who found the previous answer insufficiently ambitious.",
@@ -2877,6 +3101,22 @@ export const FACTION_CONTEXT = {
       "B",
       "G"
     ],
+    "layered_identity": {
+      "core_color": "B",
+      "secondary_colors": [
+        "G"
+      ],
+      "secondary_color": "G",
+      "expression_key": "WITHERBLOOM",
+      "expression_name": "Witherbloom College",
+      "expression_kind": "college",
+      "purity": null,
+      "routing": {
+        "edhrec_slug": "golgari",
+        "mtgdecks_slug": "golgari",
+        "label": "Golgari"
+      }
+    },
     "tagline": "Get your hands dirty.",
     "philosophy": "The College of Essence Studies asks where life ends and death begins - and keeps not finding a clean answer. Witherbloom scholars study biology at the level where the two become indistinguishable. Their question is not whether life and death are good or bad but what they fundamentally are.",
     "core_tension": "Is life sacred because it creates and nourishes, or productive precisely because it ends? Both Lisette and Valentin are right about different aspects of the same process. Witherbloom students learn to hold both simultaneously.",
@@ -3066,6 +3306,878 @@ export const FACTION_CONTEXT = {
         "Placement scoring is a Vox Mana interpretation, not official Wizards canon."
       ]
     }
+  },
+  "W": {
+    "name": "White",
+    "institution_type": "color",
+    "world": "The Color Pie",
+    "colors": [
+      "W"
+    ],
+    "layered_identity": {
+      "core_color": "W",
+      "secondary_colors": [],
+      "secondary_color": null,
+      "expression_key": "W",
+      "expression_name": "White",
+      "expression_kind": "color",
+      "purity": 1,
+      "routing": {
+        "edhrec_slug": "mono-white",
+        "mtgdecks_slug": "mono-white",
+        "label": "White"
+      }
+    },
+    "tagline": "Safety is built, not assumed.",
+    "philosophy": "White believes peace is not a mood. It is a structure: rules that hold, shelter that lasts, and obligations people can trust under pressure.",
+    "core_tension": "White protects through standards and systems, but its virtue can harden into over-control when safety becomes more important than listening.",
+    "affinity": {
+      "drawn_to": [
+        "Shared standards that protect the vulnerable",
+        "Fairness enforced through process",
+        "Structures that outlast individual moods",
+        "Group safety over private advantage"
+      ],
+      "repelled_by": [
+        "Treating every rule as oppression by default",
+        "Power that answers only to itself",
+        "Impulsive decisions that endanger others",
+        "Private exceptions that quietly become precedent"
+      ],
+      "core_question": "What structure keeps people safe when goodwill is not enough?",
+      "interview_tells": [
+        "Frames care as duty, not only feeling",
+        "Talks about fairness in terms of standards and accountability",
+        "Wants clear expectations before conflict escalates",
+        "Sees systems as tools for shelter, not merely control"
+      ],
+      "not_to_be_confused_with": "Azorius trusts procedure above all; Boros acts faster in the face of harm; Selesnya anchors protection in belonging."
+    },
+    "decree_voice": {
+      "tone": "Steady, protective, and exacting without cruelty.",
+      "speaks_like": "A guardian who believes consistency is a form of mercy.",
+      "example_opening": "The reading turns toward shelter, standards, and the work of making safety real.",
+      "example_decree": "The reading turns toward shelter, standards, and the work of making safety real. White does not ask you to flatten every difference. It asks whether the structure holds when generosity fails. You protect by building something people can rely on, then standing beside it when the strain arrives."
+    },
+    "biological_expression": {
+      "archetype": "The Shelter Architect",
+      "primary_foundation": "Care",
+      "secondary_foundation": "Authority",
+      "risk_signal": "low risk",
+      "inhibitor_trigger": "Treats every shared rule as illegitimate, even when the alternative leaves the vulnerable exposed."
+    },
+    "placement_axes": {
+      "required_positive_evidence_terms": [
+        "safety",
+        "protection",
+        "fairness",
+        "duty",
+        "shelter",
+        "shared rules",
+        "responsibility",
+        "structure"
+      ],
+      "required_positive_min_hits": 2,
+      "strengthens_when_user_centers": [
+        "safety through structure",
+        "shared duty",
+        "protect the vulnerable",
+        "fairness through standards"
+      ],
+      "suppress_when_user_centers": [
+        "private leverage",
+        "chaotic expression",
+        "knowledge for its own sake",
+        "wild autonomy"
+      ],
+      "false_positive_guardrail": "Do not award for generic niceness, generic order, or generic heroism without clear protection-through-structure language.",
+      "broad_match_penalty": 0.12
+    },
+    "good_fit_indicators": [
+      "builds safety before pursuing advantage",
+      "trusts shared standards more than private exceptions",
+      "protects the vulnerable through structure and follow-through"
+    ],
+    "poor_fit_indicators": [
+      "treats every rule as oppression by default",
+      "prefers personal advantage even when it leaves others exposed",
+      "confuses care with passive good intentions"
+    ],
+    "inhibitor_traps": [
+      "Treats every shared rule as illegitimate, even when the alternative leaves the vulnerable exposed.",
+      "treats every rule as oppression by default",
+      "prefers personal advantage even when it leaves others exposed",
+      "confuses care with passive good intentions"
+    ],
+    "lateral_inhibition_targets": [
+      "WB",
+      "WU",
+      "WR",
+      "WG"
+    ],
+    "discriminator_questions": [
+      {
+        "id": "white_q1",
+        "prompt": "What matters most when goodwill fails and people still need to be safe?",
+        "purpose": "Separates White's shelter-and-standards logic from more private or expressive forms of care.",
+        "supports": "The answer prioritizes reliable structure, shelter, or duty that protects more than one person at once.",
+        "weakens": "The answer rejects structure altogether or treats shared standards as inherently corrupt.",
+        "collision_targets": [
+          "WU",
+          "WR",
+          "WG"
+        ],
+        "evidence_claim_ids": [],
+        "confidence": "Medium"
+      },
+      {
+        "id": "white_q2",
+        "prompt": "When protection and freedom pull apart, what must hold first?",
+        "purpose": "Separates White from Red-aligned urgency and Blue-aligned procedural distance.",
+        "supports": "The answer accepts limits, duties, or standards as the price of protecting the vulnerable.",
+        "weakens": "The answer treats all limits as suspect regardless of who is left exposed.",
+        "collision_targets": [
+          "WR",
+          "WU"
+        ],
+        "evidence_claim_ids": [],
+        "confidence": "Medium"
+      }
+    ],
+    "chatbot_guidance": {
+      "how_to_recognize_match": [
+        "builds safety before pursuing advantage",
+        "trusts shared standards more than private exceptions",
+        "protects the vulnerable through structure and follow-through"
+      ],
+      "how_to_recognize_mismatch": [
+        "treats every rule as oppression by default",
+        "prefers personal advantage even when it leaves others exposed",
+        "confuses care with passive good intentions"
+      ],
+      "questions_to_ask_when_uncertain": [
+        "What structure keeps people safe when goodwill is not enough?",
+        "When protection and freedom pull apart, what must hold first?"
+      ],
+      "never_claim_as_canon": [
+        "Psychological placement categories are Vox Mana interpretation, not official Wizards canon.",
+        "Do not state that a user's personality is objectively determined by a color or expression.",
+        "Placement scoring is a Vox Mana interpretation, not official Wizards canon."
+      ],
+      "calibration_note": "White should require explicit safety, protection, duty, shelter, or fairness-through-structure language. Keep it adjacent when the answer only contains generic kindness or generic order.",
+      "scoring_guardrail": "Do not award for generic niceness, generic order, or generic heroism without clear protection-through-structure language."
+    },
+    "canon_guardrails": {
+      "never_claim_as_canon": [
+        "Psychological placement categories are Vox Mana interpretation, not official Wizards canon.",
+        "Do not state that a user's personality is objectively determined by a color or expression.",
+        "Placement scoring is a Vox Mana interpretation, not official Wizards canon."
+      ]
+    }
+  },
+  "U": {
+    "name": "Blue",
+    "institution_type": "color",
+    "world": "The Color Pie",
+    "colors": [
+      "U"
+    ],
+    "layered_identity": {
+      "core_color": "U",
+      "secondary_colors": [],
+      "secondary_color": null,
+      "expression_key": "U",
+      "expression_name": "Blue",
+      "expression_kind": "color",
+      "purity": 1,
+      "routing": {
+        "edhrec_slug": "mono-blue",
+        "mtgdecks_slug": "mono-blue",
+        "label": "Blue"
+      }
+    },
+    "tagline": "Possibility opens when the pattern is understood.",
+    "philosophy": "Blue believes no one is finished by default. Knowledge, practice, and precise systems let people and worlds become more than their starting shape.",
+    "core_tension": "Blue protects possibility through understanding, but its virtue can harden into paralysis when perfect information matters more than timely action.",
+    "affinity": {
+      "drawn_to": [
+        "Information treated as the first resource",
+        "Systems that improve through study and iteration",
+        "Patience before commitment",
+        "Tools, education, and planning that expand possible futures"
+      ],
+      "repelled_by": [
+        "Acting before the shape of the problem is understood",
+        "Treating nature, fate, or first instincts as final",
+        "Discarding options for the relief of immediate motion",
+        "Using power without a model of what happens next"
+      ],
+      "core_question": "What becomes possible once the hidden pattern is understood?",
+      "interview_tells": [
+        "Waits for information before committing",
+        "Talks about options, systems, models, or repeatable improvement",
+        "Frames control as preparation rather than domination",
+        "Sees education, tools, and practice as liberation from default limits"
+      ],
+      "not_to_be_confused_with": "Azorius turns understanding into formal procedure; Dimir hides information as leverage; Izzet accelerates discovery into volatile testing; Simic applies improvement to living adaptation."
+    },
+    "decree_voice": {
+      "tone": "Precise, patient, curious, and cool without contempt.",
+      "speaks_like": "A strategist who believes every outcome has a structure waiting to be learned.",
+      "example_opening": "The reading turns toward knowledge, options, and the discipline of acting after understanding.",
+      "example_decree": "The reading turns toward knowledge, options, and the discipline of acting after understanding. Blue does not ask you to freeze forever. It asks you to map the hidden variables, keep the future open, and move when the pattern can be shaped instead of merely endured."
+    },
+    "biological_expression": {
+      "archetype": "The Possibility Architect",
+      "primary_foundation": "Fairness",
+      "secondary_foundation": "Authority",
+      "risk_signal": "low-medium risk",
+      "inhibitor_trigger": "Treats knowledge, planning, or education as sterile delay when careful understanding would prevent avoidable harm."
+    },
+    "placement_axes": {
+      "required_positive_evidence_terms": [
+        "knowledge",
+        "information",
+        "understanding",
+        "study",
+        "optimization",
+        "prediction",
+        "control",
+        "card draw",
+        "counterspell",
+        "tempo",
+        "copy",
+        "possibility"
+      ],
+      "required_positive_min_hits": 2,
+      "strengthens_when_user_centers": [
+        "information as resource",
+        "act after understanding",
+        "optimize through knowledge",
+        "control through prediction",
+        "improve the system"
+      ],
+      "suppress_when_user_centers": [
+        "immediate emotional release",
+        "destiny over improvement",
+        "natural role acceptance",
+        "power without a model"
+      ],
+      "false_positive_guardrail": "Do not award for generic intelligence, generic control, or indecision without clear knowledge, options, optimization, or patience-before-action language.",
+      "broad_match_penalty": 0.12
+    },
+    "good_fit_indicators": [
+      "waits to understand before committing",
+      "treats knowledge, cards, and options as resources",
+      "improves systems through study, iteration, and precise control"
+    ],
+    "poor_fit_indicators": [
+      "needs immediate motion before the problem is understood",
+      "treats nature, fate, or first instinct as final",
+      "rejects planning, patience, or information as sterile delay"
+    ],
+    "inhibitor_traps": [
+      "Treats knowledge, planning, or education as sterile delay when careful understanding would prevent avoidable harm.",
+      "needs immediate motion before the problem is understood",
+      "treats nature, fate, or first instinct as final",
+      "rejects planning, patience, or information as sterile delay"
+    ],
+    "lateral_inhibition_targets": [
+      "WU",
+      "UB",
+      "UR",
+      "UG"
+    ],
+    "discriminator_questions": [
+      {
+        "id": "blue_q1",
+        "prompt": "When the situation is unstable and everyone wants movement, what has to happen before you act?",
+        "purpose": "Separates Blue's knowledge-first patience from adjacent procedure, secrecy, experimentation, or adaptation.",
+        "supports": "The answer prioritizes mapping variables, preserving options, and acting once the structure is understood.",
+        "weakens": "The answer rushes to institution, leverage, impulse, or biology before understanding the system.",
+        "collision_targets": [
+          "WU",
+          "UB",
+          "UR",
+          "UG"
+        ],
+        "evidence_claim_ids": [],
+        "confidence": "Medium"
+      },
+      {
+        "id": "blue_q2",
+        "prompt": "What makes progress trustworthy instead of merely lucky?",
+        "purpose": "Separates Blue's optimization-through-knowledge logic from pair expressions that route progress through law, secrecy, experiment, or organism.",
+        "supports": "The answer centers education, repeatable models, controlled iteration, or information that makes future choices better.",
+        "weakens": "The answer treats procedure, hidden leverage, volatile testing, or natural adaptation as sufficient without understanding.",
+        "collision_targets": [
+          "WU",
+          "UB",
+          "UR",
+          "UG"
+        ],
+        "evidence_claim_ids": [],
+        "confidence": "Medium"
+      }
+    ],
+    "chatbot_guidance": {
+      "how_to_recognize_match": [
+        "waits to understand before committing",
+        "treats knowledge, cards, and options as resources",
+        "improves systems through study, iteration, and precise control"
+      ],
+      "how_to_recognize_mismatch": [
+        "needs immediate motion before the problem is understood",
+        "treats nature, fate, or first instinct as final",
+        "rejects planning, patience, or information as sterile delay"
+      ],
+      "questions_to_ask_when_uncertain": [
+        "What becomes possible once the hidden pattern is understood?",
+        "When information and action pull apart, what must happen before you move?"
+      ],
+      "never_claim_as_canon": [
+        "Psychological placement categories are Vox Mana interpretation, not official Wizards canon.",
+        "Do not state that a user's personality is objectively determined by a color or expression.",
+        "Placement scoring is a Vox Mana interpretation, not official Wizards canon."
+      ],
+      "calibration_note": "Blue should require explicit knowledge, information, options, prediction, or optimization language. Keep it adjacent when the answer only contains generic intelligence or generic caution.",
+      "scoring_guardrail": "Do not award for generic intelligence, generic control, or indecision without clear knowledge, options, optimization, or patience-before-action language."
+    },
+    "canon_guardrails": {
+      "never_claim_as_canon": [
+        "Psychological placement categories are Vox Mana interpretation, not official Wizards canon.",
+        "Do not state that a user's personality is objectively determined by a color or expression.",
+        "Placement scoring is a Vox Mana interpretation, not official Wizards canon."
+      ]
+    }
+  },
+  "B": {
+    "name": "Black",
+    "institution_type": "color",
+    "world": "The Color Pie",
+    "colors": [
+      "B"
+    ],
+    "layered_identity": {
+      "core_color": "B",
+      "secondary_colors": [],
+      "secondary_color": null,
+      "expression_key": "B",
+      "expression_name": "Black",
+      "expression_kind": "color",
+      "purity": 1,
+      "routing": {
+        "edhrec_slug": "mono-black",
+        "mtgdecks_slug": "mono-black",
+        "label": "Black"
+      }
+    },
+    "tagline": "Power is protection when no one is coming to save you.",
+    "philosophy": "Black believes the world offers no guaranteed fairness. It secures agency by treating life, death, loyalty, and resources as costs that can be paid for control.",
+    "core_tension": "Black protects the self through power and leverage, but its clarity can harden into isolation when every bond becomes a liability.",
+    "affinity": {
+      "drawn_to": [
+        "Self-determination when the world offers no guarantees",
+        "Power gained by paying costs others avoid",
+        "Resources converted into durable leverage",
+        "Death, loss, and sacrifice turned back into advantage"
+      ],
+      "repelled_by": [
+        "Waiting for fairness to arrive on its own",
+        "Moral purity that leaves people powerless",
+        "Dependence disguised as virtue",
+        "Systems that demand sacrifice without returning agency"
+      ],
+      "core_question": "What are you willing to pay so your fate stays yours?",
+      "interview_tells": [
+        "Frames survival as a personal responsibility",
+        "Talks about costs, leverage, and agency without apology",
+        "Treats loss as material that can still be converted",
+        "Distrusts fairness when it is not backed by power"
+      ],
+      "not_to_be_confused_with": "Dimir hides leverage behind knowledge; Rakdos spends restraint in public intensity; Golgari turns death into ecosystem and cycle; Orzhov makes power visible through debt and obligation."
+    },
+    "decree_voice": {
+      "tone": "Clear-eyed, unsentimental, and empowering without glamorizing cruelty.",
+      "speaks_like": "A survivor who knows every bargain has a price and every price can become leverage.",
+      "example_opening": "The reading turns toward cost, agency, and the refusal to remain powerless.",
+      "example_decree": "The reading turns toward cost, agency, and the refusal to remain powerless. Black does not ask whether the world is fair before it acts. It asks what can be paid, what can be reclaimed, and what power will keep your fate from being signed away by someone else."
+    },
+    "biological_expression": {
+      "archetype": "The Self-Sovereign Operator",
+      "primary_foundation": "Liberty",
+      "secondary_foundation": "Authority",
+      "risk_signal": "high agency risk",
+      "inhibitor_trigger": "Outsources survival to systems or promises that may not protect them when the cost arrives."
+    },
+    "placement_axes": {
+      "required_positive_evidence_terms": [
+        "power",
+        "cost",
+        "agency",
+        "leverage",
+        "survival",
+        "self-preservation",
+        "resource conversion",
+        "graveyard",
+        "sacrifice",
+        "pay life"
+      ],
+      "required_positive_min_hits": 2,
+      "strengthens_when_user_centers": [
+        "power at a cost",
+        "personal agency",
+        "graveyard as resource",
+        "resource conversion",
+        "self-preservation"
+      ],
+      "suppress_when_user_centers": [
+        "group safety over self",
+        "procedure above leverage",
+        "wild immediate expression",
+        "acceptance of natural role"
+      ],
+      "false_positive_guardrail": "Do not award for generic ambition, generic darkness, or cruelty without clear cost, agency, survival, or resource-conversion language.",
+      "broad_match_penalty": 0.12
+    },
+    "good_fit_indicators": [
+      "treats cost as a tool instead of only a warning sign",
+      "protects agency through leverage and self-sufficiency",
+      "turns loss, death, or spent resources into future advantage"
+    ],
+    "poor_fit_indicators": [
+      "needs power to feel morally clean before using it",
+      "expects fairness to protect them without leverage",
+      "rejects cost, ambition, or self-prioritization as inherently corrupt"
+    ],
+    "inhibitor_traps": [
+      "Outsources survival to systems or promises that may not protect them when the cost arrives.",
+      "needs power to feel morally clean before using it",
+      "expects fairness to protect them without leverage",
+      "rejects cost, ambition, or self-prioritization as inherently corrupt"
+    ],
+    "lateral_inhibition_targets": [
+      "UB",
+      "BR",
+      "BG",
+      "WB"
+    ],
+    "discriminator_questions": [
+      {
+        "id": "black_q1",
+        "prompt": "What do you trust when fairness fails and no one is coming to save you?",
+        "purpose": "Separates Black's self-preservation logic from pair expressions that route power through secrecy, spectacle, cycle, or debt.",
+        "supports": "The answer prioritizes personal agency, paid costs, leverage, or resource conversion that keeps fate self-owned.",
+        "weakens": "The answer waits for an institution, group bond, natural role, or emotional release to solve the danger first.",
+        "collision_targets": [
+          "UB",
+          "BR",
+          "BG",
+          "WB"
+        ],
+        "evidence_claim_ids": [],
+        "confidence": "Medium"
+      },
+      {
+        "id": "black_q2",
+        "prompt": "When something valuable must be sacrificed to keep control, what makes the cost acceptable?",
+        "purpose": "Separates Black's transactional cost logic from adjacent expressions that moralize, ritualize, or dramatize the exchange.",
+        "supports": "The answer treats the cost as a deliberate exchange for survival, control, cards, access, or durable leverage.",
+        "weakens": "The answer treats sacrifice as unacceptable unless it serves group duty, natural renewal, or public catharsis.",
+        "collision_targets": [
+          "WB",
+          "BG",
+          "BR"
+        ],
+        "evidence_claim_ids": [],
+        "confidence": "Medium"
+      }
+    ],
+    "chatbot_guidance": {
+      "how_to_recognize_match": [
+        "treats cost as a tool instead of only a warning sign",
+        "protects agency through leverage and self-sufficiency",
+        "turns loss, death, or spent resources into future advantage"
+      ],
+      "how_to_recognize_mismatch": [
+        "needs power to feel morally clean before using it",
+        "expects fairness to protect them without leverage",
+        "rejects cost, ambition, or self-prioritization as inherently corrupt"
+      ],
+      "questions_to_ask_when_uncertain": [
+        "What are you willing to pay so your fate stays yours?",
+        "When fairness fails, what resource do you convert first?"
+      ],
+      "never_claim_as_canon": [
+        "Psychological placement categories are Vox Mana interpretation, not official Wizards canon.",
+        "Do not state that a user's personality is objectively determined by a color or expression.",
+        "Placement scoring is a Vox Mana interpretation, not official Wizards canon."
+      ],
+      "calibration_note": "Black should require explicit cost, agency, leverage, survival, sacrifice, or resource-conversion language. Keep it adjacent when the answer only contains generic ambition or villain-coded aesthetics.",
+      "scoring_guardrail": "Do not award for generic ambition, generic darkness, or cruelty without clear cost, agency, survival, or resource-conversion language."
+    },
+    "canon_guardrails": {
+      "never_claim_as_canon": [
+        "Psychological placement categories are Vox Mana interpretation, not official Wizards canon.",
+        "Do not state that a user's personality is objectively determined by a color or expression.",
+        "Placement scoring is a Vox Mana interpretation, not official Wizards canon."
+      ]
+    }
+  },
+  "R": {
+    "name": "Red",
+    "institution_type": "color",
+    "world": "The Color Pie",
+    "colors": [
+      "R"
+    ],
+    "layered_identity": {
+      "core_color": "R",
+      "secondary_colors": [],
+      "secondary_color": null,
+      "expression_key": "R",
+      "expression_name": "Red",
+      "expression_kind": "color",
+      "purity": 1,
+      "routing": {
+        "edhrec_slug": "mono-red",
+        "mtgdecks_slug": "mono-red",
+        "label": "Red"
+      }
+    },
+    "tagline": "The honest spark moves before the cage closes.",
+    "philosophy": "Red believes feeling is a form of truth. Freedom becomes real when the impulse is allowed to move now, before fear, permission, or overthinking can smother it.",
+    "core_tension": "Red protects aliveness through immediacy and freedom, but its virtue can burn out when every delay feels like a cage.",
+    "affinity": {
+      "drawn_to": [
+        "Immediate action before paralysis settles in",
+        "Freedom from permission and artificial restraint",
+        "Emotion trusted as honest information",
+        "Direct damage, haste, impulse draw, and temporary momentum"
+      ],
+      "repelled_by": [
+        "Waiting until every variable is approved",
+        "Rules that smother feeling before anyone is harmed",
+        "Turning every impulse into performance, cruelty, or theory",
+        "Plans that preserve safety while the living moment goes cold"
+      ],
+      "core_question": "What has to move now because the feeling is already true?",
+      "interview_tells": [
+        "Names the honest first action before naming the perfect plan",
+        "Frames freedom as breath, motion, and self-expression",
+        "Prefers direct pressure to hidden leverage or slow permission",
+        "Treats emotion as a signal to answer, not a flaw to suppress"
+      ],
+      "not_to_be_confused_with": "Boros turns urgency toward protection and conviction; Izzet turns impulse into experiment and technique; Rakdos turns release toward transgression and pain-as-spectacle; Gruul roots freedom in wildness, instinct, and primal belonging."
+    },
+    "decree_voice": {
+      "tone": "Kinetic, warm, and immediate without cruelty or performance-posturing.",
+      "speaks_like": "A spark that wants the true thing said, chosen, or done before life goes numb.",
+      "example_opening": "The reading turns toward impulse, freedom, and the honest action that refuses to wait.",
+      "example_decree": "The reading turns toward impulse, freedom, and the honest action that refuses to wait. Red does not ask you to make the feeling respectable first. It asks what wants to move now, what cage has become too small, and what spark will keep the moment alive."
+    },
+    "biological_expression": {
+      "archetype": "The Ignition Heart",
+      "primary_foundation": "Liberty",
+      "secondary_foundation": "Care",
+      "risk_signal": "volatile immediacy risk",
+      "inhibitor_trigger": "Waits for permission, perfect certainty, or social approval until the honest moment goes cold."
+    },
+    "placement_axes": {
+      "required_positive_evidence_terms": [
+        "immediacy",
+        "freedom",
+        "impulse",
+        "emotion",
+        "spark",
+        "ignition",
+        "direct action",
+        "haste",
+        "burn",
+        "momentum"
+      ],
+      "required_positive_min_hits": 2,
+      "strengthens_when_user_centers": [
+        "act now",
+        "honest impulse",
+        "freedom through motion",
+        "emotion as truth",
+        "direct pressure"
+      ],
+      "suppress_when_user_centers": [
+        "pain as spectacle",
+        "sacrifice for value",
+        "primal belonging",
+        "crafted experiment",
+        "technique before feeling"
+      ],
+      "false_positive_guardrail": "Do not award for generic chaos, generic aggression, cruelty, wildness, spectacle, or spell technique without clear immediacy, freedom, impulse, emotion, ignition, or direct-action language.",
+      "broad_match_penalty": 0.12
+    },
+    "good_fit_indicators": [
+      "acts before paralysis can turn feeling into theory",
+      "protects freedom through direct motion and honest impulse",
+      "uses temporary openings, damage, speed, or momentum while they are alive"
+    ],
+    "poor_fit_indicators": [
+      "needs every feeling justified before it can move",
+      "turns impulse into cruelty, performance, or technique before answering it",
+      "confuses freedom with domination, primal belonging, or hidden leverage"
+    ],
+    "inhibitor_traps": [
+      "Waits for permission, perfect certainty, or social approval until the honest moment goes cold.",
+      "needs every feeling justified before it can move",
+      "turns impulse into cruelty, performance, or technique before answering it",
+      "confuses freedom with domination, primal belonging, or hidden leverage"
+    ],
+    "lateral_inhibition_targets": [
+      "WR",
+      "UR",
+      "BR",
+      "RG"
+    ],
+    "discriminator_questions": [
+      {
+        "id": "red_q1",
+        "prompt": "What has to move now because the feeling is already true?",
+        "purpose": "Separates Red's immediate emotional action from adjacent expressions that route urgency through protection, cruelty, wild belonging, or technique.",
+        "supports": "The answer centers honest impulse, freedom, ignition, or direct action before permission or perfect certainty.",
+        "weakens": "The answer requires the impulse to become protection, transgression, primal belonging, or experiment before it can matter.",
+        "collision_targets": [
+          "WR",
+          "UR",
+          "BR",
+          "RG"
+        ],
+        "evidence_claim_ids": [],
+        "confidence": "Medium"
+      },
+      {
+        "id": "red_q2",
+        "prompt": "If the door is closing, what kind of action keeps the moment alive?",
+        "purpose": "Separates mono-Red's ignition and present-tense freedom from pair expressions with more specific moral, technical, cruel, or primal commitments.",
+        "supports": "The answer favors direct motion, haste, damage, temporary momentum, or emotional honesty in the present tense.",
+        "weakens": "The answer centers rescuing someone, crafting an experiment, making pain public, or returning to wild belonging.",
+        "collision_targets": [
+          "WR",
+          "UR",
+          "BR",
+          "RG"
+        ],
+        "evidence_claim_ids": [],
+        "confidence": "Medium"
+      }
+    ],
+    "chatbot_guidance": {
+      "how_to_recognize_match": [
+        "acts before paralysis can turn feeling into theory",
+        "protects freedom through direct motion and honest impulse",
+        "uses temporary openings, damage, speed, or momentum while they are alive"
+      ],
+      "how_to_recognize_mismatch": [
+        "needs every feeling justified before it can move",
+        "turns impulse into cruelty, performance, or technique before answering it",
+        "confuses freedom with domination, primal belonging, or hidden leverage"
+      ],
+      "questions_to_ask_when_uncertain": [
+        "What has to move now because the feeling is already true?",
+        "If no one gave permission, what honest action would still need to happen?"
+      ],
+      "never_claim_as_canon": [
+        "Psychological placement categories are Vox Mana interpretation, not official Wizards canon.",
+        "Do not state that a user's personality is objectively determined by a color or expression.",
+        "Placement scoring is a Vox Mana interpretation, not official Wizards canon."
+      ],
+      "calibration_note": "Red should require explicit immediacy, freedom, impulse, emotion, ignition, direct action, damage, haste, or temporary momentum language. Keep it adjacent when the answer centers cruelty, transgression, primal belonging, experiment, or performance craft.",
+      "scoring_guardrail": "Do not award for generic chaos, generic aggression, cruelty, wildness, spectacle, or spell technique without clear immediacy, freedom, impulse, emotion, ignition, or direct-action language."
+    },
+    "canon_guardrails": {
+      "never_claim_as_canon": [
+        "Psychological placement categories are Vox Mana interpretation, not official Wizards canon.",
+        "Do not state that a user's personality is objectively determined by a color or expression.",
+        "Placement scoring is a Vox Mana interpretation, not official Wizards canon."
+      ]
+    }
+  },
+  "G": {
+    "name": "Green",
+    "institution_type": "color",
+    "world": "The Color Pie",
+    "colors": [
+      "G"
+    ],
+    "layered_identity": {
+      "core_color": "G",
+      "secondary_colors": [],
+      "secondary_color": null,
+      "expression_key": "G",
+      "expression_name": "Green",
+      "expression_kind": "color",
+      "purity": 1,
+      "routing": {
+        "edhrec_slug": "mono-green",
+        "mtgdecks_slug": "mono-green",
+        "label": "Green"
+      }
+    },
+    "tagline": "The seed remembers what it is becoming.",
+    "philosophy": "Green believes the world is not an unsolved machine. It is a living order already holding each creature's place, and strength comes from accepting nature, rooting deeply, and letting time reveal what was always in the seed.",
+    "core_tension": "Green protects flourishing through acceptance and interdependence, but its virtue can harden into stagnation when every necessary change is dismissed as unnatural.",
+    "affinity": {
+      "drawn_to": [
+        "Organic growth that follows the shape of life",
+        "Natural order, instinct, and old patterns that still hold",
+        "Land, creatures, ramp, and patient resource abundance",
+        "Belonging to the living world without needing to redesign it"
+      ],
+      "repelled_by": [
+        "Forcing every limit into an engineered improvement project",
+        "Treating life, land, or kinship as disposable fuel",
+        "Mistaking domination, rage, or spectacle for instinct",
+        "Calling patience weakness when roots are still deepening"
+      ],
+      "core_question": "What are you already becoming when you stop fighting your nature?",
+      "interview_tells": [
+        "Talks about growth as an unfolding, not a reinvention",
+        "Trusts instinct, seasons, and embodied knowledge before abstract redesign",
+        "Finds strength in land, creatures, roots, and living interdependence",
+        "Prefers patient inevitability to frantic correction"
+      ],
+      "not_to_be_confused_with": "Selesnya turns belonging into shared community; Simic and Quandrix route growth through adaptation, optimization, or pattern logic; Golgari and Witherbloom center decay, reclamation, and life-death exchange; Gruul turns instinct into wild refusal and force."
+    },
+    "decree_voice": {
+      "tone": "Grounded, patient, and quietly immense without becoming passive.",
+      "speaks_like": "An old forest that trusts the roots before it answers the storm.",
+      "example_opening": "The reading turns toward roots, instinct, and the life that keeps becoming itself.",
+      "example_decree": "The reading turns toward roots, instinct, and the life that keeps becoming itself. Green does not ask you to outthink the seed. It asks what already knows how to grow, what pace will let strength become real, and what old belonging returns when the living world is trusted again."
+    },
+    "biological_expression": {
+      "archetype": "The Rooted Becoming",
+      "primary_foundation": "Sanctity",
+      "secondary_foundation": "Loyalty",
+      "risk_signal": "stagnation risk",
+      "inhibitor_trigger": "Rejects natural limits, inherited strengths, or patient growth unless life can be redesigned into a preferred shape."
+    },
+    "placement_axes": {
+      "required_positive_evidence_terms": [
+        "organic growth",
+        "natural order",
+        "acceptance",
+        "patience",
+        "instinct",
+        "land",
+        "roots",
+        "flourishing",
+        "creatures",
+        "ramp",
+        "big mana",
+        "becoming",
+        "natural belonging"
+      ],
+      "required_positive_min_hits": 2,
+      "strengthens_when_user_centers": [
+        "become what you are",
+        "organic growth",
+        "accept natural role",
+        "patience through roots",
+        "instinct and land",
+        "natural flourishing"
+      ],
+      "suppress_when_user_centers": [
+        "communal mobilization",
+        "engineered adaptation",
+        "mathematical optimization",
+        "rot and reclamation economy",
+        "rage and smash pressure",
+        "sacrifice for value"
+      ],
+      "false_positive_guardrail": "Do not award mono-Green for generic community, token mobilization, engineered adaptation, mathematical scaling, decay economy, reclamation loops, rage, smash, or raw pressure without clear organic growth, acceptance, patience, instinct, land, roots, creatures, or natural flourishing language.",
+      "broad_match_penalty": 0.12
+    },
+    "good_fit_indicators": [
+      "trusts organic growth and natural pace before forced reinvention",
+      "roots strength in land, creatures, instinct, and embodied belonging",
+      "lets patience reveal what was already possible in the living system"
+    ],
+    "poor_fit_indicators": [
+      "needs every limit redesigned before any growth can be trusted",
+      "turns life into a resource economy instead of a living order",
+      "confuses instinct with rage, spectacle, domination, or anti-civilization force"
+    ],
+    "inhibitor_traps": [
+      "Rejects natural limits, inherited strengths, or patient growth unless life can be redesigned into a preferred shape.",
+      "needs every limit redesigned before any growth can be trusted",
+      "turns life into a resource economy instead of a living order",
+      "confuses instinct with rage, spectacle, domination, or anti-civilization force"
+    ],
+    "lateral_inhibition_targets": [
+      "WG",
+      "UG",
+      "BG",
+      "RG"
+    ],
+    "discriminator_questions": [
+      {
+        "id": "green_q1",
+        "prompt": "When life is strained before its roots are deep, what does honest care trust first?",
+        "purpose": "Separates mono-Green's organic pace and natural role from Selesnya community, Simic adaptation, Golgari reclamation, and Gruul wild force.",
+        "supports": "The answer centers roots, patience, instinct, land, and becoming what was already present in the living system.",
+        "weakens": "The answer turns first to communal identity, engineered change, decay economy, or forceful rupture.",
+        "collision_targets": [
+          "WG",
+          "UG",
+          "BG",
+          "RG"
+        ],
+        "evidence_claim_ids": [],
+        "confidence": "Medium"
+      },
+      {
+        "id": "green_q2",
+        "prompt": "What makes strength feel real over time?",
+        "purpose": "Separates Green's patient natural flourishing from adjacent pair expressions that need community, adaptation, reclamation, or wild refusal to explain strength.",
+        "supports": "The answer favors land, creatures, roots, instinct, and patient growth that unfolds from inherent nature.",
+        "weakens": "The answer centers group mobilization, biological redesign, using remains as economy, or rage against constraint.",
+        "collision_targets": [
+          "WG",
+          "UG",
+          "BG",
+          "RG"
+        ],
+        "evidence_claim_ids": [],
+        "confidence": "Medium"
+      }
+    ],
+    "chatbot_guidance": {
+      "how_to_recognize_match": [
+        "trusts organic growth and natural pace before forced reinvention",
+        "roots strength in land, creatures, instinct, and embodied belonging",
+        "lets patience reveal what was already possible in the living system"
+      ],
+      "how_to_recognize_mismatch": [
+        "needs every limit redesigned before any growth can be trusted",
+        "turns life into a resource economy instead of a living order",
+        "confuses instinct with rage, spectacle, domination, or anti-civilization force"
+      ],
+      "questions_to_ask_when_uncertain": [
+        "What are you already becoming when you stop fighting your nature?",
+        "Does the answer need to be redesigned, or does it need time, roots, and trust?"
+      ],
+      "never_claim_as_canon": [
+        "Psychological placement categories are Vox Mana interpretation, not official Wizards canon.",
+        "Do not state that a user's personality is objectively determined by a color or expression.",
+        "Placement scoring is a Vox Mana interpretation, not official Wizards canon."
+      ],
+      "calibration_note": "Green should require explicit organic growth, natural order, acceptance, patience, instinct, land, roots, creatures, ramp, or natural flourishing language. Keep it adjacent when the answer centers community/token mobilization, engineered adaptation, math/pattern abstraction, decay/reclamation economy, or wild-force pressure.",
+      "scoring_guardrail": "Do not award mono-Green for generic community, generic growth, biomancy, equations, rot, reclamation, rage, smash, or pressure without clear organic growth, acceptance, patience, instinct, land, roots, creatures, or natural flourishing language."
+    },
+    "canon_guardrails": {
+      "never_claim_as_canon": [
+        "Psychological placement categories are Vox Mana interpretation, not official Wizards canon.",
+        "Do not state that a user's personality is objectively determined by a color or expression.",
+        "Placement scoring is a Vox Mana interpretation, not official Wizards canon."
+      ]
+    }
   }
 } as const;
 
@@ -3074,5 +4186,28 @@ export const PLACEMENT_MODEL_META = {
   "result_version": "2026-05-10",
   "source": "data/raw-factions plus data/factions.json display surface",
   "framing": "Biological expression placement model; Vox Mana interpretive taxonomy, not official canon.",
-  "faction_count": 15
+  "faction_count": 20,
+  "identity_layer_version": "2026-05-17",
+  "active_expression_keys": [
+    "WU",
+    "WR",
+    "BR",
+    "BG",
+    "RG",
+    "UB",
+    "UR",
+    "LOREHOLD",
+    "WB",
+    "PRISMARI",
+    "QUANDRIX",
+    "WG",
+    "SILVERQUILL",
+    "UG",
+    "WITHERBLOOM",
+    "W",
+    "U",
+    "B",
+    "R",
+    "G"
+  ]
 } as const;

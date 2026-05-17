@@ -2,9 +2,10 @@
   "_meta": {
     "version": "2026-05-05",
     "source": "Merged from Vox Mana display data and Factions_Lore.json",
-    "factions": 15,
+    "factions": 20,
     "placement_model_version": "vox-mana-adaptive-placement-v1",
-    "raw_source": "data/raw-factions"
+    "raw_source": "data/raw-factions",
+    "identity_layer_version": "2026-05-17"
   },
   "factions": {
     "WU": {
@@ -635,7 +636,24 @@
           "scryfall_card_pages_validated": true,
           "do_not_use_as_claim_source": true
         }
-      }
+      },
+      "identity": {
+        "core_color": "W",
+        "secondary_colors": [
+          "U"
+        ],
+        "secondary_color": "U",
+        "expression_key": "WU",
+        "expression_name": "Azorius Senate",
+        "expression_kind": "guild",
+        "purity": null,
+        "routing": {
+          "edhrec_slug": "azorius",
+          "mtgdecks_slug": "azorius",
+          "label": "Azorius"
+        }
+      },
+      "identity_blend": "White structure sharpened by Blue procedure."
     },
     "UB": {
       "key": "UB",
@@ -1275,7 +1293,24 @@
           "scryfall_card_pages_validated": true,
           "do_not_use_as_claim_source": true
         }
-      }
+      },
+      "identity": {
+        "core_color": "U",
+        "secondary_colors": [
+          "B"
+        ],
+        "secondary_color": "B",
+        "expression_key": "UB",
+        "expression_name": "House Dimir",
+        "expression_kind": "guild",
+        "purity": null,
+        "routing": {
+          "edhrec_slug": "dimir",
+          "mtgdecks_slug": "dimir",
+          "label": "Dimir"
+        }
+      },
+      "identity_blend": "Blue patience weaponized by Black leverage."
     },
     "BR": {
       "key": "BR",
@@ -2120,7 +2155,24 @@
           "scryfall_card_pages_validated": true,
           "do_not_use_as_claim_source": true
         }
-      }
+      },
+      "identity": {
+        "core_color": "B",
+        "secondary_colors": [
+          "R"
+        ],
+        "secondary_color": "R",
+        "expression_key": "BR",
+        "expression_name": "Cult of Rakdos",
+        "expression_kind": "guild",
+        "purity": null,
+        "routing": {
+          "edhrec_slug": "rakdos",
+          "mtgdecks_slug": "rakdos",
+          "label": "Rakdos"
+        }
+      },
+      "identity_blend": "Black appetite turned public through Red spectacle."
     },
     "RG": {
       "key": "RG",
@@ -3014,7 +3066,24 @@
           "scryfall_card_pages_validated": true,
           "do_not_use_as_claim_source": true
         }
-      }
+      },
+      "identity": {
+        "core_color": "R",
+        "secondary_colors": [
+          "G"
+        ],
+        "secondary_color": "G",
+        "expression_key": "RG",
+        "expression_name": "Gruul Clans",
+        "expression_kind": "guild",
+        "purity": null,
+        "routing": {
+          "edhrec_slug": "gruul",
+          "mtgdecks_slug": "gruul",
+          "label": "Gruul"
+        }
+      },
+      "identity_blend": "Red force returned to Green instinct and wild refusal."
     },
     "WG": {
       "key": "WG",
@@ -3854,7 +3923,24 @@
           "scryfall_card_pages_validated": true,
           "do_not_use_as_claim_source": true
         }
-      }
+      },
+      "identity": {
+        "core_color": "W",
+        "secondary_colors": [
+          "G"
+        ],
+        "secondary_color": "G",
+        "expression_key": "WG",
+        "expression_name": "Selesnya Conclave",
+        "expression_kind": "guild",
+        "purity": null,
+        "routing": {
+          "edhrec_slug": "selesnya",
+          "mtgdecks_slug": "selesnya",
+          "label": "Selesnya"
+        }
+      },
+      "identity_blend": "White protection rooted in Green belonging and communal growth."
     },
     "WB": {
       "key": "WB",
@@ -4747,7 +4833,24 @@
           "scryfall_card_pages_validated": true,
           "do_not_use_as_claim_source": true
         }
-      }
+      },
+      "identity": {
+        "core_color": "W",
+        "secondary_colors": [
+          "B"
+        ],
+        "secondary_color": "B",
+        "expression_key": "WB",
+        "expression_name": "Orzhov Syndicate",
+        "expression_kind": "guild",
+        "purity": null,
+        "routing": {
+          "edhrec_slug": "orzhov",
+          "mtgdecks_slug": "orzhov",
+          "label": "Orzhov"
+        }
+      },
+      "identity_blend": "White structure hardened into Black obligation and collected debt."
     },
     "UR": {
       "key": "UR",
@@ -6004,7 +6107,24 @@
           "scryfall_card_pages_validated": true,
           "do_not_use_as_claim_source": true
         }
-      }
+      },
+      "identity": {
+        "core_color": "U",
+        "secondary_colors": [
+          "R"
+        ],
+        "secondary_color": "R",
+        "expression_key": "UR",
+        "expression_name": "Izzet League",
+        "expression_kind": "guild",
+        "purity": null,
+        "routing": {
+          "edhrec_slug": "izzet",
+          "mtgdecks_slug": "izzet",
+          "label": "Izzet"
+        }
+      },
+      "identity_blend": "Blue curiosity accelerated by Red experimentation."
     },
     "BG": {
       "key": "BG",
@@ -6578,7 +6698,24 @@
           "scryfall_card_pages_validated": true,
           "do_not_use_as_claim_source": true
         }
-      }
+      },
+      "identity": {
+        "core_color": "B",
+        "secondary_colors": [
+          "G"
+        ],
+        "secondary_color": "G",
+        "expression_key": "BG",
+        "expression_name": "Golgari Swarm",
+        "expression_kind": "guild",
+        "purity": null,
+        "routing": {
+          "edhrec_slug": "golgari",
+          "mtgdecks_slug": "golgari",
+          "label": "Golgari"
+        }
+      },
+      "identity_blend": "Black survival stabilized by Green cycles of decay and renewal."
     },
     "UG": {
       "key": "UG",
@@ -7369,7 +7506,24 @@
           "scryfall_card_pages_validated": true,
           "do_not_use_as_claim_source": true
         }
-      }
+      },
+      "identity": {
+        "core_color": "U",
+        "secondary_colors": [
+          "G"
+        ],
+        "secondary_color": "G",
+        "expression_key": "UG",
+        "expression_name": "Simic Combine",
+        "expression_kind": "guild",
+        "purity": null,
+        "routing": {
+          "edhrec_slug": "simic",
+          "mtgdecks_slug": "simic",
+          "label": "Simic"
+        }
+      },
+      "identity_blend": "Blue improvement grown through Green adaptation."
     },
     "WR": {
       "key": "WR",
@@ -8050,7 +8204,24 @@
           "scryfall_card_pages_validated": true,
           "do_not_use_as_claim_source": true
         }
-      }
+      },
+      "identity": {
+        "core_color": "W",
+        "secondary_colors": [
+          "R"
+        ],
+        "secondary_color": "R",
+        "expression_key": "WR",
+        "expression_name": "Boros Legion",
+        "expression_kind": "guild",
+        "purity": null,
+        "routing": {
+          "edhrec_slug": "boros",
+          "mtgdecks_slug": "boros",
+          "label": "Boros"
+        }
+      },
+      "identity_blend": "White duty carried into action by Red conviction."
     },
     "LOREHOLD": {
       "key": "LOREHOLD",
@@ -8172,7 +8343,7 @@
         }
       ],
       "research_links": {
-        "edhrec_slug": "lorehold"
+        "edhrec_slug": "boros"
       },
       "commander_compass": {
         "schema_version": "1.0.0",
@@ -8415,7 +8586,24 @@
           "scryfall_card_pages_validated": true,
           "do_not_use_as_claim_source": true
         }
-      }
+      },
+      "identity": {
+        "core_color": "W",
+        "secondary_colors": [
+          "R"
+        ],
+        "secondary_color": "R",
+        "expression_key": "LOREHOLD",
+        "expression_name": "Lorehold College",
+        "expression_kind": "college",
+        "purity": null,
+        "routing": {
+          "edhrec_slug": "boros",
+          "mtgdecks_slug": "boros",
+          "label": "Boros"
+        }
+      },
+      "identity_blend": "White duty and Red action turned toward memory, history, and excavation."
     },
     "PRISMARI": {
       "key": "PRISMARI",
@@ -8537,7 +8725,7 @@
         }
       ],
       "research_links": {
-        "edhrec_slug": "prismari"
+        "edhrec_slug": "izzet"
       },
       "raw_enrichment": {
         "historical_timeline": [],
@@ -8863,7 +9051,24 @@
           "scryfall_card_pages_validated": true,
           "do_not_use_as_claim_source": true
         }
-      }
+      },
+      "identity": {
+        "core_color": "U",
+        "secondary_colors": [
+          "R"
+        ],
+        "secondary_color": "R",
+        "expression_key": "PRISMARI",
+        "expression_name": "Prismari College",
+        "expression_kind": "college",
+        "purity": null,
+        "routing": {
+          "edhrec_slug": "izzet",
+          "mtgdecks_slug": "izzet",
+          "label": "Izzet"
+        }
+      },
+      "identity_blend": "Blue spellcraft widened into Red performance and spectacle."
     },
     "WITHERBLOOM": {
       "key": "WITHERBLOOM",
@@ -8985,7 +9190,7 @@
         }
       ],
       "research_links": {
-        "edhrec_slug": "witherbloom"
+        "edhrec_slug": "golgari"
       },
       "raw_enrichment": {
         "historical_timeline": [],
@@ -9362,7 +9567,24 @@
           "scryfall_card_pages_validated": true,
           "do_not_use_as_claim_source": true
         }
-      }
+      },
+      "identity": {
+        "core_color": "B",
+        "secondary_colors": [
+          "G"
+        ],
+        "secondary_color": "G",
+        "expression_key": "WITHERBLOOM",
+        "expression_name": "Witherbloom College",
+        "expression_kind": "college",
+        "purity": null,
+        "routing": {
+          "edhrec_slug": "golgari",
+          "mtgdecks_slug": "golgari",
+          "label": "Golgari"
+        }
+      },
+      "identity_blend": "Black appetite and Green cycle studied through vitality, biology, and exchange."
     },
     "QUANDRIX": {
       "key": "QUANDRIX",
@@ -9484,7 +9706,7 @@
         }
       ],
       "research_links": {
-        "edhrec_slug": "quandrix"
+        "edhrec_slug": "simic"
       },
       "raw_enrichment": {
         "historical_timeline": [],
@@ -9881,7 +10103,24 @@
           "scryfall_card_pages_validated": true,
           "do_not_use_as_claim_source": true
         }
-      }
+      },
+      "identity": {
+        "core_color": "U",
+        "secondary_colors": [
+          "G"
+        ],
+        "secondary_color": "G",
+        "expression_key": "QUANDRIX",
+        "expression_name": "Quandrix College",
+        "expression_kind": "college",
+        "purity": null,
+        "routing": {
+          "edhrec_slug": "simic",
+          "mtgdecks_slug": "simic",
+          "label": "Simic"
+        }
+      },
+      "identity_blend": "Blue abstraction rooted in Green growth and scale."
     },
     "SILVERQUILL": {
       "key": "SILVERQUILL",
@@ -10003,7 +10242,7 @@
         }
       ],
       "research_links": {
-        "edhrec_slug": "silverquill"
+        "edhrec_slug": "orzhov"
       },
       "raw_enrichment": {
         "historical_timeline": [],
@@ -10349,6 +10588,3564 @@
           "commander_legality_validated": true,
           "scryfall_card_pages_validated": true,
           "do_not_use_as_claim_source": true
+        }
+      },
+      "identity": {
+        "core_color": "W",
+        "secondary_colors": [
+          "B"
+        ],
+        "secondary_color": "B",
+        "expression_key": "SILVERQUILL",
+        "expression_name": "Silverquill College",
+        "expression_kind": "college",
+        "purity": null,
+        "routing": {
+          "edhrec_slug": "orzhov",
+          "mtgdecks_slug": "orzhov",
+          "label": "Orzhov"
+        }
+      },
+      "identity_blend": "White standards articulated through Black pressure, rhetoric, and status."
+    },
+    "W": {
+      "key": "W",
+      "name": "White",
+      "institution_type": "color",
+      "world": "The Color Pie",
+      "colors": [
+        "W"
+      ],
+      "accent": "#ede8d4",
+      "banner": "linear-gradient(160deg,rgba(237,232,212,0.42) 0%,rgba(69,63,44,0.16) 58%,rgba(12,11,10,0.08) 100%)",
+      "tagline": "Safety is built, not assumed.",
+      "philosophy": "White believes peace is not a mood. It is a structure: rules that hold, shelter that lasts, and obligations people can trust under pressure.",
+      "lore_summary": "White does not seek order for its own sake. It builds order because order lets vulnerable people survive chaos, selfishness, and the failures of impulse.",
+      "core_tension": "White protects through standards and systems, but its virtue can harden into over-control when safety becomes more important than listening.",
+      "affinity": {
+        "drawn_to": [
+          "Shared standards that protect the vulnerable",
+          "Fairness enforced through process",
+          "Structures that outlast individual moods",
+          "Group safety over private advantage"
+        ],
+        "repelled_by": [
+          "Treating every rule as oppression by default",
+          "Power that answers only to itself",
+          "Impulsive decisions that endanger others",
+          "Private exceptions that quietly become precedent"
+        ],
+        "core_question": "What structure keeps people safe when goodwill is not enough?",
+        "interview_tells": [
+          "Frames care as duty, not only feeling",
+          "Talks about fairness in terms of standards and accountability",
+          "Wants clear expectations before conflict escalates",
+          "Sees systems as tools for shelter, not merely control"
+        ],
+        "not_to_be_confused_with": "Azorius trusts procedure above all; Boros acts faster in the face of harm; Selesnya anchors protection in belonging."
+      },
+      "decree_voice": {
+        "tone": "Steady, protective, and exacting without cruelty.",
+        "speaks_like": "A guardian who believes consistency is a form of mercy.",
+        "example_opening": "The reading turns toward shelter, standards, and the work of making safety real.",
+        "example_decree": "The reading turns toward shelter, standards, and the work of making safety real. White does not ask you to flatten every difference. It asks whether the structure holds when generosity fails. You protect by building something people can rely on, then standing beside it when the strain arrives."
+      },
+      "archetypes": [
+        {
+          "name": "Protective Tokens",
+          "desc": "Build a resilient board, widen the field, and make combat answer shared protection."
+        },
+        {
+          "name": "Taxes and Rules",
+          "desc": "Set costs, slow greedy lines, and force the table to play through standards."
+        },
+        {
+          "name": "Equipment and Guardians",
+          "desc": "Suit up one clean threat, protect it, and turn structure into pressure."
+        }
+      ],
+      "staples": {
+        "creatures": [
+          "Esper Sentinel",
+          "Grand Abolisher",
+          "Selfless Spirit"
+        ],
+        "spells": [
+          "Swords to Plowshares",
+          "Wrath of God",
+          "Teferi's Protection"
+        ],
+        "permanents": [
+          "Smothering Tithe",
+          "Authority of the Consuls"
+        ]
+      },
+      "land_base": {
+        "premium": [
+          "Emeria's Call // Emeria, Shattered Skyclave",
+          "War Room"
+        ],
+        "midrange": [
+          "Windbrisk Heights",
+          "Eiganjo, Seat of the Empire"
+        ],
+        "budget": [
+          "Secluded Steppe",
+          "Myriad Landscape"
+        ],
+        "utility": [
+          "Rogue's Passage",
+          "Mistveil Plains"
+        ],
+        "optimal": "War Room / Eiganjo, Seat of the Empire / Emeria's Call // Emeria, Shattered Skyclave / Mistveil Plains / Myriad Landscape",
+        "mid": "Eiganjo, Seat of the Empire / War Room / Windbrisk Heights / Myriad Landscape / Secluded Steppe",
+        "budget_line": "Secluded Steppe / Myriad Landscape / Windbrisk Heights / Mistveil Plains / Plains",
+        "utility_line": "Mistveil Plains / Rogue's Passage / War Room / Myriad Landscape"
+      },
+      "deck_links": [
+        {
+          "fmt": "Commander",
+          "name": "White Commanders",
+          "desc": "Tokens, taxes, equipment, and protective control lines for mono-white Commander starts.",
+          "mtgg": null,
+          "edhrec": "https://edhrec.com/commanders/mono-white",
+          "mtgd": "https://mtgdecks.net/Commander/mono-white-commanders"
+        }
+      ],
+      "research_links": {
+        "edhrec_slug": "mono-white"
+      },
+      "commander_compass": {
+        "native_fit_commanders": [
+          {
+            "exact_card_name": "Giada, Font of Hope",
+            "display_name": "Giada, Font of Hope",
+            "scryfall_uri": "https://scryfall.com/card/snc/14/giada-font-of-hope",
+            "edhrec_uri": "https://edhrec.com/commanders/giada-font-of-hope",
+            "color_identity": [
+              "W"
+            ],
+            "commander_legal": true,
+            "recommendation_type": "Native Fit",
+            "archetype_tags": [
+              "Counters",
+              "Flying"
+            ],
+            "why_this_fits": "Turns shared protection and ordered growth into a clean mono-white board plan.",
+            "skip_if": "You want the deck to center taxes or equipment instead of a creature board.",
+            "gameplay_summary": "Grows your angel board quickly and rewards a steady curve of protective, airborne threats."
+          },
+          {
+            "exact_card_name": "Adeline, Resplendent Cathar",
+            "display_name": "Adeline, Resplendent Cathar",
+            "scryfall_uri": "https://scryfall.com/card/mid/1/adeline-resplendent-cathar",
+            "edhrec_uri": "https://edhrec.com/commanders/adeline-resplendent-cathar",
+            "color_identity": [
+              "W"
+            ],
+            "commander_legal": true,
+            "recommendation_type": "Native Fit",
+            "archetype_tags": [
+              "Tokens",
+              "Aggro"
+            ],
+            "why_this_fits": "Makes White's belief in collective pressure visible immediately through bodies and combat.",
+            "skip_if": "You want a slower rules-and-taxes shell instead of a combat-focused table plan.",
+            "gameplay_summary": "Creates attackers every combat and turns wide-board pressure into fast, disciplined damage."
+          },
+          {
+            "exact_card_name": "Balan, Wandering Knight",
+            "display_name": "Balan, Wandering Knight",
+            "scryfall_uri": "https://scryfall.com/card/c17/57/balan-wandering-knight",
+            "edhrec_uri": "https://edhrec.com/commanders/balan-wandering-knight",
+            "color_identity": [
+              "W"
+            ],
+            "commander_legal": true,
+            "recommendation_type": "Native Fit",
+            "archetype_tags": [
+              "Equipment",
+              "Voltron"
+            ],
+            "why_this_fits": "Channels White's disciplined protection into a single armored line that ends games cleanly.",
+            "skip_if": "You prefer broad board control to a focused equipment threat.",
+            "gameplay_summary": "Loads equipment onto one resilient attacker and punishes opponents who cannot answer it on time."
+          }
+        ],
+        "weird_stretch_commanders": [
+          {
+            "exact_card_name": "Eight-and-a-Half-Tails",
+            "display_name": "Eight-and-a-Half-Tails",
+            "scryfall_uri": "https://scryfall.com/card/mh1/5/eight-and-a-half-tails",
+            "edhrec_uri": "https://edhrec.com/commanders/eight-and-a-half-tails",
+            "color_identity": [
+              "W"
+            ],
+            "commander_legal": true,
+            "recommendation_type": "Weird Stretch",
+            "archetype_tags": [
+              "Protection",
+              "Control"
+            ],
+            "why_this_fits": "Pushes White's protective instincts into a fiddlier rules-control shell where safety is created one layer at a time.",
+            "skip_if": "You want your White deck to end games quickly instead of grinding through timing tricks.",
+            "gameplay_summary": "Protects your board and disrupts interaction by turning color and protection into a constant rules puzzle."
+          }
+        ],
+        "advanced_complexity_commanders": [
+          {
+            "exact_card_name": "Elesh Norn, Mother of Machines",
+            "display_name": "Elesh Norn, Mother of Machines",
+            "scryfall_uri": "https://scryfall.com/card/one/10/elesh-norn-mother-of-machines",
+            "edhrec_uri": "https://edhrec.com/commanders/elesh-norn-mother-of-machines",
+            "color_identity": [
+              "W"
+            ],
+            "commander_legal": true,
+            "recommendation_type": "Advanced",
+            "archetype_tags": [
+              "Blink",
+              "Value"
+            ],
+            "why_this_fits": "Transforms White's structure-and-protection logic into a high-value engine that rewards careful sequencing.",
+            "skip_if": "You want a simpler starting shell than trigger management and table-wide rules pressure.",
+            "gameplay_summary": "Doubles your enters-the-battlefield value while constraining opposing triggers, letting patient sequencing become inevitability."
+          }
+        ],
+        "archetype_lanes": [
+          {
+            "lane_name": "Protective Tokens",
+            "description": "Go wide, protect the board, and turn collective structure into combat pressure.",
+            "recommended_for": "Adeline, Resplendent Cathar",
+            "skip_if": "You want a narrower equipment or taxes plan.",
+            "example_commanders": [
+              "Adeline, Resplendent Cathar",
+              "Myrel, Shield of Argive"
+            ],
+            "supporting_identity_terms": [
+              "shelter",
+              "duty",
+              "collective strength"
+            ],
+            "complexity": "Low",
+            "budget_friendliness": "Medium"
+          }
+        ]
+      },
+      "identity": {
+        "core_color": "W",
+        "secondary_colors": [],
+        "secondary_color": null,
+        "expression_key": "W",
+        "expression_name": "White",
+        "expression_kind": "color",
+        "purity": 1,
+        "routing": {
+          "edhrec_slug": "mono-white",
+          "mtgdecks_slug": "mono-white",
+          "label": "White"
+        }
+      },
+      "identity_blend": "White expressed without a secondary color."
+    },
+    "B": {
+      "key": "B",
+      "name": "Black",
+      "institution_type": "color",
+      "world": "The Color Pie",
+      "colors": [
+        "B"
+      ],
+      "accent": "#9a7a96",
+      "banner": "linear-gradient(160deg,rgba(154,122,150,0.34) 0%,rgba(33,24,34,0.28) 58%,rgba(9,8,10,0.12) 100%)",
+      "tagline": "Power is protection when no one is coming to save you.",
+      "philosophy": "Black believes the world offers no guaranteed fairness. It secures agency by treating life, death, loyalty, and resources as costs that can be paid for control.",
+      "lore_summary": "Black does not confuse self-preservation with cruelty. It asks what must be paid, what can be converted, and what leverage keeps its fate from belonging to someone else.",
+      "core_tension": "Black protects the self through power and leverage, but its clarity can harden into isolation when every bond becomes a liability.",
+      "affinity": {
+        "drawn_to": [
+          "Self-determination when the world offers no guarantees",
+          "Power gained by paying costs others avoid",
+          "Resources converted into durable leverage",
+          "Death, loss, and sacrifice turned back into advantage"
+        ],
+        "repelled_by": [
+          "Waiting for fairness to arrive on its own",
+          "Moral purity that leaves people powerless",
+          "Dependence disguised as virtue",
+          "Systems that demand sacrifice without returning agency"
+        ],
+        "core_question": "What are you willing to pay so your fate stays yours?",
+        "interview_tells": [
+          "Frames survival as a personal responsibility",
+          "Talks about costs, leverage, and agency without apology",
+          "Treats loss as material that can still be converted",
+          "Distrusts fairness when it is not backed by power"
+        ],
+        "not_to_be_confused_with": "Dimir hides leverage behind knowledge; Rakdos spends restraint in public intensity; Golgari turns death into ecosystem and cycle; Orzhov makes power visible through debt and obligation."
+      },
+      "decree_voice": {
+        "tone": "Clear-eyed, unsentimental, and empowering without glamorizing cruelty.",
+        "speaks_like": "A survivor who knows every bargain has a price and every price can become leverage.",
+        "example_opening": "The reading turns toward cost, agency, and the refusal to remain powerless.",
+        "example_decree": "The reading turns toward cost, agency, and the refusal to remain powerless. Black does not ask whether the world is fair before it acts. It asks what can be paid, what can be reclaimed, and what power will keep your fate from being signed away by someone else."
+      },
+      "archetypes": [
+        {
+          "name": "Life Payment Engines",
+          "desc": "Spend life as fuel, draw deeper than the table expects, and convert risk into reach."
+        },
+        {
+          "name": "Aristocrats and Sacrifice",
+          "desc": "Turn creatures into cards, drain, removal, and inevitability through repeated exchange."
+        },
+        {
+          "name": "Reanimator Control",
+          "desc": "Treat the graveyard as a second resource line and make death feel temporary."
+        }
+      ],
+      "staples": {
+        "creatures": [
+          "Yawgmoth, Thran Physician",
+          "Ayara, First of Locthwain",
+          "Dauthi Voidwalker"
+        ],
+        "spells": [
+          "Demonic Tutor",
+          "Reanimate",
+          "Toxic Deluge"
+        ],
+        "permanents": [
+          "Necropotence",
+          "Phyrexian Arena",
+          "Bolas's Citadel"
+        ]
+      },
+      "land_base": {
+        "premium": [
+          "Cabal Coffers",
+          "Urborg, Tomb of Yawgmoth"
+        ],
+        "midrange": [
+          "Takenuma, Abandoned Mire",
+          "Castle Locthwain"
+        ],
+        "budget": [
+          "Barren Moor",
+          "Myriad Landscape"
+        ],
+        "utility": [
+          "Bojuka Bog",
+          "War Room"
+        ],
+        "optimal": "Cabal Coffers / Urborg, Tomb of Yawgmoth / Takenuma, Abandoned Mire / Nykthos, Shrine to Nyx / Bojuka Bog",
+        "mid": "Takenuma, Abandoned Mire / Castle Locthwain / War Room / Bojuka Bog / Myriad Landscape",
+        "budget_line": "Barren Moor / Myriad Landscape / Bojuka Bog / Witch's Cottage / Swamp",
+        "utility_line": "Bojuka Bog / War Room / Castle Locthwain / Takenuma, Abandoned Mire"
+      },
+      "deck_links": [
+        {
+          "fmt": "Commander",
+          "name": "Black Commanders",
+          "desc": "Life payment, sacrifice, reanimator, and control lines for mono-black Commander starts.",
+          "mtgg": null,
+          "edhrec": "https://edhrec.com/commanders/mono-black",
+          "mtgd": "https://mtgdecks.net/Commander/mono-black-commanders"
+        }
+      ],
+      "research_links": {
+        "edhrec_slug": "mono-black"
+      },
+      "commander_compass": {
+        "native_fit_commanders": [
+          {
+            "exact_card_name": "K'rrik, Son of Yawgmoth",
+            "display_name": "K'rrik, Son of Yawgmoth",
+            "scryfall_uri": "https://scryfall.com/card/mh3/274/krrik-son-of-yawgmoth",
+            "edhrec_uri": "https://edhrec.com/commanders/krrik-son-of-yawgmoth",
+            "color_identity": [
+              "B"
+            ],
+            "commander_legal": true,
+            "recommendation_type": "Native Fit",
+            "archetype_tags": [
+              "Life Gain",
+              "Combo"
+            ],
+            "why_this_fits": "Makes Black's life-as-resource principle literal by turning life into black mana and momentum.",
+            "skip_if": "You want a slower control shell instead of a high-risk engine deck.",
+            "gameplay_summary": "Pays life for black costs, grows from black spells, and rewards tight sequencing around risk."
+          },
+          {
+            "exact_card_name": "Ayara, First of Locthwain",
+            "display_name": "Ayara, First of Locthwain",
+            "scryfall_uri": "https://scryfall.com/card/eld/75/ayara-first-of-locthwain",
+            "edhrec_uri": "https://edhrec.com/commanders/ayara-first-of-locthwain",
+            "color_identity": [
+              "B"
+            ],
+            "commander_legal": true,
+            "recommendation_type": "Native Fit",
+            "archetype_tags": [
+              "Aristocrats",
+              "Lifegain"
+            ],
+            "why_this_fits": "Turns bodies into drain, cards, and repeatable exchange without leaving mono-black's center.",
+            "skip_if": "You dislike creature loops or sacrifice-based value engines.",
+            "gameplay_summary": "Rewards black creatures entering, drains each opponent, and converts extra creatures into cards."
+          },
+          {
+            "exact_card_name": "Chainer, Dementia Master",
+            "display_name": "Chainer, Dementia Master",
+            "scryfall_uri": "https://scryfall.com/card/cmm/144/chainer-dementia-master",
+            "edhrec_uri": "https://edhrec.com/commanders/chainer-dementia-master",
+            "color_identity": [
+              "B"
+            ],
+            "commander_legal": true,
+            "recommendation_type": "Native Fit",
+            "archetype_tags": [
+              "Reanimator",
+              "Control"
+            ],
+            "why_this_fits": "Uses life and mana to turn graveyards into an active board resource.",
+            "skip_if": "You want a low-maintenance creature deck rather than graveyard management.",
+            "gameplay_summary": "Reanimates creatures from graveyards and makes death a resource line the table must respect."
+          }
+        ],
+        "weird_stretch_commanders": [
+          {
+            "exact_card_name": "Toshiro Umezawa",
+            "display_name": "Toshiro Umezawa",
+            "scryfall_uri": "https://scryfall.com/card/bok/89/toshiro-umezawa",
+            "edhrec_uri": "https://edhrec.com/commanders/toshiro-umezawa",
+            "color_identity": [
+              "B"
+            ],
+            "commander_legal": true,
+            "recommendation_type": "Weird Stretch",
+            "archetype_tags": [
+              "Control",
+              "Spellslinger"
+            ],
+            "why_this_fits": "Pulls Black toward an unusual instant-recursion control shell where every opposing death opens a line.",
+            "skip_if": "You want Black's sacrifice or reanimation plan to be obvious from the command zone.",
+            "gameplay_summary": "Turns opposing creature deaths into windows for recasting instants from your graveyard."
+          }
+        ],
+        "advanced_complexity_commanders": [
+          {
+            "exact_card_name": "Yawgmoth, Thran Physician",
+            "display_name": "Yawgmoth, Thran Physician",
+            "scryfall_uri": "https://scryfall.com/card/dmr/110/yawgmoth-thran-physician",
+            "edhrec_uri": "https://edhrec.com/commanders/yawgmoth-thran-physician",
+            "color_identity": [
+              "B"
+            ],
+            "commander_legal": true,
+            "recommendation_type": "Advanced",
+            "archetype_tags": [
+              "Aristocrats",
+              "Counters"
+            ],
+            "why_this_fits": "Compresses life payment, sacrifice, cards, counters, and control into one demanding engine.",
+            "skip_if": "You want a straightforward first mono-black deck rather than a sequencing-heavy sacrifice deck.",
+            "gameplay_summary": "Pays life and sacrifices creatures to draw cards, weaken creatures, and assemble recursive engines."
+          }
+        ],
+        "archetype_lanes": [
+          {
+            "lane_name": "Life Payment Engines",
+            "description": "Spend life and creatures as fuel, then convert the risk into cards, mana, and inevitability.",
+            "recommended_for": "K'rrik, Son of Yawgmoth",
+            "skip_if": "You want a deck that protects its life total before spending it.",
+            "example_commanders": [
+              "K'rrik, Son of Yawgmoth",
+              "Vito, Thorn of the Dusk Rose"
+            ],
+            "supporting_identity_terms": [
+              "cost",
+              "agency",
+              "power at a price"
+            ],
+            "complexity": "Medium",
+            "budget_friendliness": "Medium"
+          }
+        ]
+      },
+      "identity": {
+        "core_color": "B",
+        "secondary_colors": [],
+        "secondary_color": null,
+        "expression_key": "B",
+        "expression_name": "Black",
+        "expression_kind": "color",
+        "purity": 1,
+        "routing": {
+          "edhrec_slug": "mono-black",
+          "mtgdecks_slug": "mono-black",
+          "label": "Black"
+        }
+      },
+      "identity_blend": "Black expressed without a secondary color."
+    },
+    "U": {
+      "key": "U",
+      "name": "Blue",
+      "institution_type": "color",
+      "world": "The Color Pie",
+      "colors": [
+        "U"
+      ],
+      "accent": "#5f8fd4",
+      "banner": "linear-gradient(160deg,rgba(95,143,212,0.36) 0%,rgba(24,43,72,0.24) 58%,rgba(7,10,18,0.12) 100%)",
+      "tagline": "Possibility opens when the pattern is understood.",
+      "philosophy": "Blue believes no one is finished by default. Knowledge, practice, and precise systems let people and worlds become more than their starting shape.",
+      "lore_summary": "Blue does not act from impulse. It studies the variables, preserves options, and reshapes the future once the hidden structure is clear.",
+      "core_tension": "Blue protects possibility through understanding, but its virtue can harden into paralysis when perfect information matters more than timely action.",
+      "affinity": {
+        "drawn_to": [
+          "Information treated as the first resource",
+          "Systems that improve through study and iteration",
+          "Patience before commitment",
+          "Tools, education, and planning that expand possible futures"
+        ],
+        "repelled_by": [
+          "Acting before the shape of the problem is understood",
+          "Treating nature, fate, or first instincts as final",
+          "Discarding options for the relief of immediate motion",
+          "Using power without a model of what happens next"
+        ],
+        "core_question": "What becomes possible once the hidden pattern is understood?",
+        "interview_tells": [
+          "Waits for information before committing",
+          "Talks about options, systems, models, or repeatable improvement",
+          "Frames control as preparation rather than domination",
+          "Sees education, tools, and practice as liberation from default limits"
+        ],
+        "not_to_be_confused_with": "Azorius turns understanding into formal procedure; Dimir hides information as leverage; Izzet accelerates discovery into volatile testing; Simic applies improvement to living adaptation."
+      },
+      "decree_voice": {
+        "tone": "Precise, patient, curious, and cool without contempt.",
+        "speaks_like": "A strategist who believes every outcome has a structure waiting to be learned.",
+        "example_opening": "The reading turns toward knowledge, options, and the discipline of acting after understanding.",
+        "example_decree": "The reading turns toward knowledge, options, and the discipline of acting after understanding. Blue does not ask you to freeze forever. It asks you to map the hidden variables, keep the future open, and move when the pattern can be shaped instead of merely endured."
+      },
+      "archetypes": [
+        {
+          "name": "Draw-Go Control",
+          "desc": "Hold mana, gather cards, answer threats on the stack, and win once the table runs out of clean openings."
+        },
+        {
+          "name": "Spellslinger Tokens",
+          "desc": "Turn instants and sorceries into repeatable pressure while keeping interaction available."
+        },
+        {
+          "name": "Artifacts and Clones",
+          "desc": "Use tools, copies, and engines to turn observed structures into your own advantage."
+        }
+      ],
+      "staples": {
+        "creatures": [
+          "Baral, Chief of Compliance",
+          "Talrand, Sky Summoner",
+          "Consecrated Sphinx"
+        ],
+        "spells": [
+          "Counterspell",
+          "Cyclonic Rift",
+          "Ponder"
+        ],
+        "permanents": [
+          "Rhystic Study",
+          "Mystic Remora",
+          "Thassa, Deep-Dwelling"
+        ]
+      },
+      "land_base": {
+        "premium": [
+          "Otawara, Soaring City",
+          "Minamo, School at Water's Edge"
+        ],
+        "midrange": [
+          "Mystic Sanctuary",
+          "Castle Vantress"
+        ],
+        "budget": [
+          "Lonely Sandbar",
+          "Myriad Landscape"
+        ],
+        "utility": [
+          "Reliquary Tower",
+          "War Room"
+        ],
+        "optimal": "Otawara, Soaring City / Minamo, School at Water's Edge / Mystic Sanctuary / Reliquary Tower / War Room",
+        "mid": "Otawara, Soaring City / Mystic Sanctuary / Castle Vantress / Reliquary Tower / Myriad Landscape",
+        "budget_line": "Lonely Sandbar / Myriad Landscape / Reliquary Tower / Mystic Sanctuary / Island",
+        "utility_line": "Reliquary Tower / War Room / Minamo, School at Water's Edge / Castle Vantress"
+      },
+      "deck_links": [
+        {
+          "fmt": "Commander",
+          "name": "Blue Commanders",
+          "desc": "Control, spellslinger, card-draw, clone, and artifact-engine lines for mono-blue Commander starts.",
+          "mtgg": null,
+          "edhrec": "https://edhrec.com/commanders/mono-blue",
+          "mtgd": "https://mtgdecks.net/Commander/mono-blue-commanders"
+        }
+      ],
+      "research_links": {
+        "edhrec_slug": "mono-blue"
+      },
+      "commander_compass": {
+        "native_fit_commanders": [
+          {
+            "exact_card_name": "Talrand, Sky Summoner",
+            "display_name": "Talrand, Sky Summoner",
+            "scryfall_uri": "https://scryfall.com/card/otc/116/talrand-sky-summoner",
+            "edhrec_uri": "https://edhrec.com/commanders/talrand-sky-summoner",
+            "color_identity": [
+              "U"
+            ],
+            "commander_legal": true,
+            "recommendation_type": "Native Fit",
+            "archetype_tags": [
+              "Spellslinger",
+              "Tokens"
+            ],
+            "why_this_fits": "Turns Blue's patient instant-speed posture into a visible board of evasive threats.",
+            "skip_if": "You want hard artifact engines or wizard tribal more than spell-based token pressure.",
+            "gameplay_summary": "Rewards each instant and sorcery with a flying Drake while leaving mana open for interaction."
+          },
+          {
+            "exact_card_name": "Azami, Lady of Scrolls",
+            "display_name": "Azami, Lady of Scrolls",
+            "scryfall_uri": "https://scryfall.com/card/cmm/74/azami-lady-of-scrolls",
+            "edhrec_uri": "https://edhrec.com/commanders/azami-lady-of-scrolls",
+            "color_identity": [
+              "U"
+            ],
+            "commander_legal": true,
+            "recommendation_type": "Native Fit",
+            "archetype_tags": [
+              "Wizards",
+              "Card Draw"
+            ],
+            "why_this_fits": "Makes Blue's information advantage literal by turning a wizard board into cards.",
+            "skip_if": "You dislike tribal shells or want a lower-maintenance control commander.",
+            "gameplay_summary": "Taps Wizards to draw cards, letting the deck convert board development into a growing hand."
+          },
+          {
+            "exact_card_name": "Minn, Wily Illusionist",
+            "display_name": "Minn, Wily Illusionist",
+            "scryfall_uri": "https://scryfall.com/card/afc/16/minn-wily-illusionist",
+            "edhrec_uri": "https://edhrec.com/commanders/minn-wily-illusionist",
+            "color_identity": [
+              "U"
+            ],
+            "commander_legal": true,
+            "recommendation_type": "Native Fit",
+            "archetype_tags": [
+              "Card Draw",
+              "Tokens"
+            ],
+            "why_this_fits": "Rewards Blue's habit of drawing extra cards by turning information flow into board presence.",
+            "skip_if": "You want a classic counterspell deck instead of a draw-trigger creature plan.",
+            "gameplay_summary": "Creates Illusions on second draws and turns those Illusions into permanents when they die."
+          }
+        ],
+        "weird_stretch_commanders": [
+          {
+            "exact_card_name": "Orvar, the All-Form",
+            "display_name": "Orvar, the All-Form",
+            "scryfall_uri": "https://scryfall.com/card/khm/70/orvar-the-all-form",
+            "edhrec_uri": "https://edhrec.com/commanders/orvar-the-all-form",
+            "color_identity": [
+              "U"
+            ],
+            "commander_legal": true,
+            "recommendation_type": "Weird Stretch",
+            "archetype_tags": [
+              "Clones",
+              "Spellslinger"
+            ],
+            "why_this_fits": "Pushes Blue's copy-and-replication instinct into a strange targeting puzzle.",
+            "skip_if": "You want straightforward draw-go control rather than rules-dense sequencing.",
+            "gameplay_summary": "Copies your permanents when targeted by your spells, rewarding careful setup and exact timing."
+          }
+        ],
+        "advanced_complexity_commanders": [
+          {
+            "exact_card_name": "Urza, Lord High Artificer",
+            "display_name": "Urza, Lord High Artificer",
+            "scryfall_uri": "https://scryfall.com/card/cmm/130/urza-lord-high-artificer",
+            "edhrec_uri": "https://edhrec.com/commanders/urza-lord-high-artificer",
+            "color_identity": [
+              "U"
+            ],
+            "commander_legal": true,
+            "recommendation_type": "Advanced",
+            "archetype_tags": [
+              "Artifacts",
+              "Control"
+            ],
+            "why_this_fits": "Compresses Blue's tools, artifacts, mana, and inevitability into one demanding engine.",
+            "skip_if": "You want a friendly first mono-blue table experience rather than a high-power artifact shell.",
+            "gameplay_summary": "Turns artifacts into mana, creates a scaling Construct, and converts excess mana into spell access."
+          }
+        ],
+        "archetype_lanes": [
+          {
+            "lane_name": "Knowledge Engines",
+            "description": "Draw cards, hold interaction, and let accumulated options become inevitability.",
+            "recommended_for": "Azami, Lady of Scrolls",
+            "skip_if": "You want pressure on board before your hand is full.",
+            "example_commanders": [
+              "Azami, Lady of Scrolls",
+              "Minn, Wily Illusionist"
+            ],
+            "supporting_identity_terms": [
+              "knowledge",
+              "options",
+              "information advantage"
+            ],
+            "complexity": "Medium",
+            "budget_friendliness": "Medium"
+          }
+        ]
+      },
+      "identity": {
+        "core_color": "U",
+        "secondary_colors": [],
+        "secondary_color": null,
+        "expression_key": "U",
+        "expression_name": "Blue",
+        "expression_kind": "color",
+        "purity": 1,
+        "routing": {
+          "edhrec_slug": "mono-blue",
+          "mtgdecks_slug": "mono-blue",
+          "label": "Blue"
+        }
+      },
+      "identity_blend": "Blue expressed without a secondary color."
+    },
+    "R": {
+      "key": "R",
+      "name": "Red",
+      "institution_type": "color",
+      "world": "The Color Pie",
+      "colors": [
+        "R"
+      ],
+      "accent": "#e15b36",
+      "banner": "linear-gradient(160deg,rgba(225,91,54,0.38) 0%,rgba(84,29,20,0.24) 58%,rgba(14,7,5,0.12) 100%)",
+      "tagline": "The honest spark moves before the cage closes.",
+      "philosophy": "Red believes feeling is a form of truth. Freedom becomes real when the impulse is allowed to move now, before fear, permission, or overthinking can smother it.",
+      "lore_summary": "Red does not need cruelty, theater, primal belonging, or technical performance to prove itself. It trusts the present moment, ignites the next action, and lets emotion reveal what matters.",
+      "core_tension": "Red protects aliveness through immediacy and freedom, but its virtue can burn out when every delay feels like a cage.",
+      "affinity": {
+        "drawn_to": [
+          "Immediate action before paralysis settles in",
+          "Freedom from permission and artificial restraint",
+          "Emotion trusted as honest information",
+          "Direct damage, haste, impulse draw, and temporary momentum"
+        ],
+        "repelled_by": [
+          "Waiting until every variable is approved",
+          "Rules that smother feeling before anyone is harmed",
+          "Turning every impulse into performance, cruelty, or theory",
+          "Plans that preserve safety while the living moment goes cold"
+        ],
+        "core_question": "What has to move now because the feeling is already true?",
+        "interview_tells": [
+          "Names the honest first action before naming the perfect plan",
+          "Frames freedom as breath, motion, and self-expression",
+          "Prefers direct pressure to hidden leverage or slow permission",
+          "Treats emotion as a signal to answer, not a flaw to suppress"
+        ],
+        "not_to_be_confused_with": "Boros turns urgency toward protection and conviction; Izzet turns impulse into experiment and technique; Rakdos turns release toward transgression and pain-as-spectacle; Gruul roots freedom in wildness, instinct, and primal belonging."
+      },
+      "decree_voice": {
+        "tone": "Kinetic, warm, and immediate without cruelty or performance-posturing.",
+        "speaks_like": "A spark that wants the true thing said, chosen, or done before life goes numb.",
+        "example_opening": "The reading turns toward impulse, freedom, and the honest action that refuses to wait.",
+        "example_decree": "The reading turns toward impulse, freedom, and the honest action that refuses to wait. Red does not ask you to make the feeling respectable first. It asks what wants to move now, what cage has become too small, and what spark will keep the moment alive."
+      },
+      "archetypes": [
+        {
+          "name": "Burn and Damage",
+          "desc": "Turn feeling into direct pressure with clean damage, fast clocks, and threat math the table cannot ignore."
+        },
+        {
+          "name": "Haste Aggro",
+          "desc": "Commit quickly, attack before the table stabilizes, and make the first honest move matter."
+        },
+        {
+          "name": "Impulse Draw and Treasures",
+          "desc": "Use cards and mana in the moment, converting temporary windows into explosive Commander turns."
+        }
+      ],
+      "staples": {
+        "creatures": [
+          "Torbran, Thane of Red Fell",
+          "Krenko, Mob Boss",
+          "Professional Face-Breaker"
+        ],
+        "spells": [
+          "Jeska's Will",
+          "Blasphemous Act",
+          "Chaos Warp"
+        ],
+        "permanents": [
+          "Impact Tremors",
+          "Outpost Siege",
+          "Fiery Emancipation"
+        ]
+      },
+      "land_base": {
+        "premium": [
+          "Valakut, the Molten Pinnacle",
+          "Sokenzan, Crucible of Defiance"
+        ],
+        "midrange": [
+          "Den of the Bugbear",
+          "Castle Embereth"
+        ],
+        "budget": [
+          "Forgotten Cave",
+          "Myriad Landscape"
+        ],
+        "utility": [
+          "Hanweir Battlements",
+          "War Room"
+        ],
+        "optimal": "Valakut, the Molten Pinnacle / Sokenzan, Crucible of Defiance / Den of the Bugbear / War Room / Hanweir Battlements",
+        "mid": "Sokenzan, Crucible of Defiance / Den of the Bugbear / Castle Embereth / War Room / Myriad Landscape",
+        "budget_line": "Forgotten Cave / Myriad Landscape / Castle Embereth / Hanweir Battlements / Mountain",
+        "utility_line": "Hanweir Battlements / War Room / Den of the Bugbear / Sokenzan, Crucible of Defiance"
+      },
+      "deck_links": [
+        {
+          "fmt": "Commander",
+          "name": "Red Commanders",
+          "desc": "Burn, haste, impulse draw, treasures, and direct-action lines for mono-red Commander starts.",
+          "mtgg": null,
+          "edhrec": "https://edhrec.com/commanders/mono-red",
+          "mtgd": "https://mtgdecks.net/Commander/mono-red-commanders"
+        }
+      ],
+      "research_links": {
+        "edhrec_slug": "mono-red"
+      },
+      "commander_compass": {
+        "native_fit_commanders": [
+          {
+            "exact_card_name": "Torbran, Thane of Red Fell",
+            "display_name": "Torbran, Thane of Red Fell",
+            "scryfall_uri": "https://scryfall.com/card/eld/147/torbran-thane-of-red-fell",
+            "edhrec_uri": "https://edhrec.com/commanders/torbran-thane-of-red-fell",
+            "color_identity": [
+              "R"
+            ],
+            "commander_legal": true,
+            "recommendation_type": "Native Fit",
+            "archetype_tags": [
+              "Burn",
+              "Damage"
+            ],
+            "why_this_fits": "Makes Red's direct-action philosophy literal by turning every red damage source into a louder spark.",
+            "skip_if": "You want creature swarms or treasure engines more than damage math.",
+            "gameplay_summary": "Amplifies red damage, pressures life totals quickly, and rewards a deck built to turn small sparks into decisive hits."
+          },
+          {
+            "exact_card_name": "Krenko, Mob Boss",
+            "display_name": "Krenko, Mob Boss",
+            "scryfall_uri": "https://scryfall.com/card/fdn/204/krenko-mob-boss",
+            "edhrec_uri": "https://edhrec.com/commanders/krenko-mob-boss",
+            "color_identity": [
+              "R"
+            ],
+            "commander_legal": true,
+            "recommendation_type": "Native Fit",
+            "archetype_tags": [
+              "Tokens",
+              "Aggro"
+            ],
+            "why_this_fits": "Turns one quick opening into a table-wide rush, keeping Red centered on momentum and immediate pressure.",
+            "skip_if": "You dislike creature combat or decks that announce their pressure early.",
+            "gameplay_summary": "Multiplies Goblins, snowballs through combat, and asks the table to answer the board before it doubles again."
+          },
+          {
+            "exact_card_name": "Magda, Brazen Outlaw",
+            "display_name": "Magda, Brazen Outlaw",
+            "scryfall_uri": "https://scryfall.com/card/khm/142/magda-brazen-outlaw",
+            "edhrec_uri": "https://edhrec.com/commanders/magda-brazen-outlaw",
+            "color_identity": [
+              "R"
+            ],
+            "commander_legal": true,
+            "recommendation_type": "Native Fit",
+            "archetype_tags": [
+              "Treasures",
+              "Artifacts"
+            ],
+            "why_this_fits": "Converts attack steps into temporary mana and immediate access without leaving mono-Red's action-first center.",
+            "skip_if": "You want a pure burn deck instead of a treasure-driven pressure engine.",
+            "gameplay_summary": "Makes Treasures as Dwarves tap, then cashes those Treasures into artifacts or Dragons when the opening appears."
+          }
+        ],
+        "weird_stretch_commanders": [
+          {
+            "exact_card_name": "Feldon of the Third Path",
+            "display_name": "Feldon of the Third Path",
+            "scryfall_uri": "https://scryfall.com/card/moc/277/feldon-of-the-third-path",
+            "edhrec_uri": "https://edhrec.com/commanders/feldon-of-the-third-path",
+            "color_identity": [
+              "R"
+            ],
+            "commander_legal": true,
+            "recommendation_type": "Weird Stretch",
+            "archetype_tags": [
+              "Artifacts",
+              "Reanimator"
+            ],
+            "why_this_fits": "Shows Red's impermanence from an unusual angle: bring the feeling back for one turn and let that moment matter.",
+            "skip_if": "You want Red's pressure to be immediate combat damage rather than temporary graveyard copies.",
+            "gameplay_summary": "Creates hasty artifact copies of creatures in the graveyard, turning memory into one urgent attack window."
+          }
+        ],
+        "advanced_complexity_commanders": [
+          {
+            "exact_card_name": "Neheb, the Eternal",
+            "display_name": "Neheb, the Eternal",
+            "scryfall_uri": "https://scryfall.com/card/mkc/158/neheb-the-eternal",
+            "edhrec_uri": "https://edhrec.com/commanders/neheb-the-eternal",
+            "color_identity": [
+              "R"
+            ],
+            "commander_legal": true,
+            "recommendation_type": "Advanced",
+            "archetype_tags": [
+              "Big Mana",
+              "Burn"
+            ],
+            "why_this_fits": "Turns damage already dealt into a second burst of red mana, rewarding Red's love of the present tense.",
+            "skip_if": "You want a low-sequencing aggro deck instead of a second-main-phase mana engine.",
+            "gameplay_summary": "Converts opponents' lost life into red mana after combat, enabling explosive follow-up turns."
+          }
+        ],
+        "archetype_lanes": [
+          {
+            "lane_name": "Immediate Damage",
+            "description": "Aim the deck at fast pressure, clean damage, and impulse-fueled turns that make the first spark count.",
+            "recommended_for": "Torbran, Thane of Red Fell",
+            "skip_if": "You want Red to win through a slower artifact or graveyard puzzle.",
+            "example_commanders": [
+              "Torbran, Thane of Red Fell",
+              "Neheb, the Eternal"
+            ],
+            "supporting_identity_terms": [
+              "immediacy",
+              "freedom",
+              "direct action"
+            ],
+            "complexity": "Medium",
+            "budget_friendliness": "Medium"
+          }
+        ]
+      },
+      "identity": {
+        "core_color": "R",
+        "secondary_colors": [],
+        "secondary_color": null,
+        "expression_key": "R",
+        "expression_name": "Red",
+        "expression_kind": "color",
+        "purity": 1,
+        "routing": {
+          "edhrec_slug": "mono-red",
+          "mtgdecks_slug": "mono-red",
+          "label": "Red"
+        }
+      },
+      "identity_blend": "Red expressed without a secondary color."
+    },
+    "G": {
+      "key": "G",
+      "name": "Green",
+      "institution_type": "color",
+      "world": "The Color Pie",
+      "colors": [
+        "G"
+      ],
+      "accent": "#5f9f55",
+      "banner": "linear-gradient(160deg,rgba(95,159,85,0.36) 0%,rgba(38,72,39,0.24) 58%,rgba(7,14,8,0.12) 100%)",
+      "tagline": "The seed remembers what it is becoming.",
+      "philosophy": "Green believes the world is not an unsolved machine. It is a living order already holding each creature's place, and strength comes from accepting nature, rooting deeply, and letting time reveal what was always in the seed.",
+      "lore_summary": "Green listens for the old pattern beneath the noise: land, instinct, kinship with living systems, patient growth, and the quiet confidence to become what the world has already made possible.",
+      "core_tension": "Green protects flourishing through acceptance and interdependence, but its virtue can harden into stagnation when every necessary change is dismissed as unnatural.",
+      "affinity": {
+        "drawn_to": [
+          "Organic growth that follows the shape of life",
+          "Natural order, instinct, and old patterns that still hold",
+          "Land, creatures, ramp, and patient resource abundance",
+          "Belonging to the living world without needing to redesign it"
+        ],
+        "repelled_by": [
+          "Forcing every limit into an engineered improvement project",
+          "Treating life, land, or kinship as disposable fuel",
+          "Mistaking domination, rage, or spectacle for instinct",
+          "Calling patience weakness when roots are still deepening"
+        ],
+        "core_question": "What are you already becoming when you stop fighting your nature?",
+        "interview_tells": [
+          "Talks about growth as an unfolding, not a reinvention",
+          "Trusts instinct, seasons, and embodied knowledge before abstract redesign",
+          "Finds strength in land, creatures, roots, and living interdependence",
+          "Prefers patient inevitability to frantic correction"
+        ],
+        "not_to_be_confused_with": "Selesnya turns belonging into shared community; Simic and Quandrix route growth through adaptation, optimization, or pattern logic; Golgari and Witherbloom center decay, reclamation, and life-death exchange; Gruul turns instinct into wild refusal and force."
+      },
+      "decree_voice": {
+        "tone": "Grounded, patient, and quietly immense without becoming passive.",
+        "speaks_like": "An old forest that trusts the roots before it answers the storm.",
+        "example_opening": "The reading turns toward roots, instinct, and the life that keeps becoming itself.",
+        "example_decree": "The reading turns toward roots, instinct, and the life that keeps becoming itself. Green does not ask you to outthink the seed. It asks what already knows how to grow, what pace will let strength become real, and what old belonging returns when the living world is trusted again."
+      },
+      "archetypes": [
+        {
+          "name": "Ramp and Big Mana",
+          "desc": "Root into lands, widen your resource base, and let patience become overwhelming scale."
+        },
+        {
+          "name": "Apex Creatures",
+          "desc": "Cast massive living threats, trample through stalled boards, and make physical presence answer the table."
+        },
+        {
+          "name": "Landfall and Creature Value",
+          "desc": "Treat land drops and creatures as a living engine that draws cards, grows boards, and keeps flourishing."
+        }
+      ],
+      "staples": {
+        "creatures": [
+          "Azusa, Lost but Seeking",
+          "Selvala, Heart of the Wilds",
+          "Eternal Witness"
+        ],
+        "spells": [
+          "Cultivate",
+          "Kodama's Reach",
+          "Heroic Intervention"
+        ],
+        "permanents": [
+          "The Great Henge",
+          "Guardian Project",
+          "Zendikar Resurgent"
+        ]
+      },
+      "land_base": {
+        "premium": [
+          "Gaea's Cradle",
+          "Boseiju, Who Endures"
+        ],
+        "midrange": [
+          "Nykthos, Shrine to Nyx",
+          "Yavimaya, Cradle of Growth"
+        ],
+        "budget": [
+          "Tranquil Thicket",
+          "Myriad Landscape"
+        ],
+        "utility": [
+          "Mosswort Bridge",
+          "War Room"
+        ],
+        "optimal": "Gaea's Cradle / Boseiju, Who Endures / Nykthos, Shrine to Nyx / Yavimaya, Cradle of Growth / Mosswort Bridge",
+        "mid": "Boseiju, Who Endures / Nykthos, Shrine to Nyx / Yavimaya, Cradle of Growth / War Room / Myriad Landscape",
+        "budget_line": "Tranquil Thicket / Myriad Landscape / Mosswort Bridge / War Room / Forest",
+        "utility_line": "Mosswort Bridge / War Room / Boseiju, Who Endures / Yavimaya, Cradle of Growth"
+      },
+      "deck_links": [
+        {
+          "fmt": "Commander",
+          "name": "Green Commanders",
+          "desc": "Ramp, big mana, lands, creature value, and natural flourishing lines for mono-green Commander starts.",
+          "mtgg": null,
+          "edhrec": "https://edhrec.com/commanders/mono-green",
+          "mtgd": "https://mtgdecks.net/Commander/mono-green-commanders"
+        }
+      ],
+      "research_links": {
+        "edhrec_slug": "mono-green"
+      },
+      "commander_compass": {
+        "native_fit_commanders": [
+          {
+            "exact_card_name": "Azusa, Lost but Seeking",
+            "display_name": "Azusa, Lost but Seeking",
+            "scryfall_uri": "https://scryfall.com/card/cmm/274/azusa-lost-but-seeking",
+            "edhrec_uri": "https://edhrec.com/commanders/azusa-lost-but-seeking",
+            "color_identity": [
+              "G"
+            ],
+            "commander_legal": true,
+            "recommendation_type": "Native Fit",
+            "archetype_tags": [
+              "Lands",
+              "Ramp"
+            ],
+            "why_this_fits": "Makes Green's patience literal by turning extra land drops into steady, natural acceleration.",
+            "skip_if": "You want creature combat to be the first identity signal rather than lands and resource growth.",
+            "gameplay_summary": "Plays additional lands each turn, letting the deck root early and reach large green spells ahead of the table."
+          },
+          {
+            "exact_card_name": "Selvala, Heart of the Wilds",
+            "display_name": "Selvala, Heart of the Wilds",
+            "scryfall_uri": "https://scryfall.com/card/ecc/116/selvala-heart-of-the-wilds",
+            "edhrec_uri": "https://edhrec.com/commanders/selvala-heart-of-the-wilds",
+            "color_identity": [
+              "G"
+            ],
+            "commander_legal": true,
+            "recommendation_type": "Native Fit",
+            "archetype_tags": [
+              "Ramp",
+              "Big Mana"
+            ],
+            "why_this_fits": "Converts creature size into mana and cards, letting living scale become the resource engine.",
+            "skip_if": "You dislike decks that can become high-power mana engines quickly.",
+            "gameplay_summary": "Rewards large creatures with cards and taps for mana based on the greatest power among creatures."
+          },
+          {
+            "exact_card_name": "Goreclaw, Terror of Qal Sisma",
+            "display_name": "Goreclaw, Terror of Qal Sisma",
+            "scryfall_uri": "https://scryfall.com/card/cmm/293/goreclaw-terror-of-qal-sisma",
+            "edhrec_uri": "https://edhrec.com/commanders/goreclaw-terror-of-qal-sisma",
+            "color_identity": [
+              "G"
+            ],
+            "commander_legal": true,
+            "recommendation_type": "Native Fit",
+            "archetype_tags": [
+              "Big Creatures",
+              "Trample"
+            ],
+            "why_this_fits": "Keeps mono-Green centered on apex creatures, natural scale, and combat that follows from size.",
+            "skip_if": "You want landfall or card-draw engines more than creature-cost reduction and attacks.",
+            "gameplay_summary": "Discounts large creatures, then gives your high-power attackers trample and a temporary boost in combat."
+          }
+        ],
+        "weird_stretch_commanders": [
+          {
+            "exact_card_name": "Yeva, Nature's Herald",
+            "display_name": "Yeva, Nature's Herald",
+            "scryfall_uri": "https://scryfall.com/card/rvr/162/yeva-natures-herald",
+            "edhrec_uri": "https://edhrec.com/commanders/yeva-natures-herald",
+            "color_identity": [
+              "G"
+            ],
+            "commander_legal": true,
+            "recommendation_type": "Weird Stretch",
+            "archetype_tags": [
+              "Flash",
+              "Creature Value"
+            ],
+            "why_this_fits": "Shows Green's patience from a timing angle: hold still, then let the living answer arrive at the right moment.",
+            "skip_if": "You want a straightforward tap-out ramp deck instead of reactive creature sequencing.",
+            "gameplay_summary": "Gives green creatures flash, letting the deck keep mana open and develop its board on other turns."
+          }
+        ],
+        "advanced_complexity_commanders": [
+          {
+            "exact_card_name": "Ashaya, Soul of the Wild",
+            "display_name": "Ashaya, Soul of the Wild",
+            "scryfall_uri": "https://scryfall.com/card/dsc/170/ashaya-soul-of-the-wild",
+            "edhrec_uri": "https://edhrec.com/commanders/ashaya-soul-of-the-wild",
+            "color_identity": [
+              "G"
+            ],
+            "commander_legal": true,
+            "recommendation_type": "Advanced",
+            "archetype_tags": [
+              "Lands",
+              "Combo"
+            ],
+            "why_this_fits": "Turns creatures into Forests, making Green's land-creature interdependence powerful and rules-dense.",
+            "skip_if": "You want your first mono-Green deck to avoid layered permanent-type interactions.",
+            "gameplay_summary": "Makes nontoken creatures you control into Forest lands in addition to their other types, opening intricate land and creature synergies."
+          }
+        ],
+        "archetype_lanes": [
+          {
+            "lane_name": "Rooted Growth",
+            "description": "Ramp through lands and creatures, keep the board alive, and let natural scale become inevitability.",
+            "recommended_for": "Azusa, Lost but Seeking",
+            "skip_if": "You want Green to be mainly a timing puzzle or a single massive attacker.",
+            "example_commanders": [
+              "Azusa, Lost but Seeking",
+              "Selvala, Heart of the Wilds"
+            ],
+            "supporting_identity_terms": [
+              "organic growth",
+              "patience",
+              "natural flourishing"
+            ],
+            "complexity": "Medium",
+            "budget_friendliness": "Medium"
+          }
+        ]
+      },
+      "identity": {
+        "core_color": "G",
+        "secondary_colors": [],
+        "secondary_color": null,
+        "expression_key": "G",
+        "expression_name": "Green",
+        "expression_kind": "color",
+        "purity": 1,
+        "routing": {
+          "edhrec_slug": "mono-green",
+          "mtgdecks_slug": "mono-green",
+          "label": "Green"
+        }
+      },
+      "identity_blend": "Green expressed without a secondary color."
+    }
+  },
+  "identity_layers": {
+    "version": "2026-05-17",
+    "colors": {
+      "W": {
+        "key": "W",
+        "name": "White",
+        "slug": "white",
+        "philosophy": "White builds safety through structure, shared duty, and enforceable fairness.",
+        "emotional_tone": [
+          "duty",
+          "responsibility",
+          "restraint",
+          "protection"
+        ],
+        "mechanics": [
+          "board wipes",
+          "token generation",
+          "protection effects",
+          "tax and rule-setting effects"
+        ],
+        "taste_signals": [
+          "safety through structure",
+          "fairness through process",
+          "collective protection",
+          "shared obligations"
+        ],
+        "commander_pulls": [
+          "tokens",
+          "control",
+          "equipment",
+          "taxes"
+        ],
+        "lore": {
+          "summary": "White believes peace must be built and defended through systems people can trust.",
+          "narrative": "White does not trust chaos to become kindness on its own. It makes shelter, standards, and promises that can outlast mood."
+        }
+      },
+      "U": {
+        "key": "U",
+        "name": "Blue",
+        "slug": "blue",
+        "philosophy": "Blue seeks improvement through knowledge, patience, and deliberate refinement.",
+        "emotional_tone": [
+          "curiosity",
+          "distance",
+          "precision",
+          "composure"
+        ],
+        "mechanics": [
+          "card draw",
+          "counterspells",
+          "selection and manipulation",
+          "copy and transformation"
+        ],
+        "taste_signals": [
+          "understanding before action",
+          "optimization",
+          "perfect information",
+          "careful timing"
+        ],
+        "commander_pulls": [
+          "control",
+          "spellslinger",
+          "artifacts",
+          "tempo"
+        ],
+        "lore": {
+          "summary": "Blue believes the world can be improved if it is understood deeply enough.",
+          "narrative": "Blue prefers the patient hand and the well-timed answer. It trusts preparation more than force."
+        }
+      },
+      "B": {
+        "key": "B",
+        "name": "Black",
+        "slug": "black",
+        "philosophy": "Black protects agency through cost, leverage, and refusal to remain powerless.",
+        "emotional_tone": [
+          "ambition",
+          "pragmatic clarity",
+          "ruthlessness",
+          "self-protection"
+        ],
+        "mechanics": [
+          "life payment",
+          "tutors",
+          "reanimation",
+          "sacrifice engines",
+          "removal"
+        ],
+        "taste_signals": [
+          "power at a cost",
+          "resource conversion",
+          "graveyard as resource",
+          "deterministic access"
+        ],
+        "commander_pulls": [
+          "aristocrats",
+          "reanimator",
+          "control",
+          "combo"
+        ],
+        "lore": {
+          "summary": "Black trusts self-determination over fairness and treats power as protection.",
+          "narrative": "Black does not wait for permission or rescue. It pays what must be paid and claims room to survive."
+        }
+      },
+      "R": {
+        "key": "R",
+        "name": "Red",
+        "slug": "red",
+        "philosophy": "Red values freedom, honesty of feeling, and motion before paralysis.",
+        "emotional_tone": [
+          "passion",
+          "urgency",
+          "defiance",
+          "volatility"
+        ],
+        "mechanics": [
+          "direct damage",
+          "haste",
+          "impulse draw",
+          "temporary bursts"
+        ],
+        "taste_signals": [
+          "emotion over hesitation",
+          "immediate action",
+          "authentic expression",
+          "risk for momentum"
+        ],
+        "commander_pulls": [
+          "aggro",
+          "spellslinger",
+          "chaos",
+          "artifact sacrifice"
+        ],
+        "lore": {
+          "summary": "Red trusts the living truth of the moment more than restraint or polish.",
+          "narrative": "Red would rather burn honestly than calcify politely. It moves because waiting changes the soul."
+        }
+      },
+      "G": {
+        "key": "G",
+        "name": "Green",
+        "slug": "green",
+        "philosophy": "Green values harmony, instinct, and growth that respects the shape of life.",
+        "emotional_tone": [
+          "groundedness",
+          "patience",
+          "instinct",
+          "acceptance"
+        ],
+        "mechanics": [
+          "mana ramp",
+          "large creatures",
+          "counters and growth",
+          "recursion through life cycles"
+        ],
+        "taste_signals": [
+          "growth over force",
+          "instinct over artifice",
+          "belonging to a larger whole",
+          "inevitability through time"
+        ],
+        "commander_pulls": [
+          "ramp",
+          "big mana",
+          "counters",
+          "creature value"
+        ],
+        "lore": {
+          "summary": "Green trusts the organism, the cycle, and the long memory of living systems.",
+          "narrative": "Green does not need to conquer time. It grows with it, and asks what the world already knows."
+        }
+      }
+    },
+    "expressions": {
+      "W": {
+        "key": "W",
+        "active": true,
+        "kind": "color",
+        "name": "White",
+        "world": "The Color Pie",
+        "colors": [
+          "W"
+        ],
+        "core_color": "W",
+        "secondary_colors": [],
+        "routing": {
+          "edhrec_slug": "mono-white",
+          "mtgdecks_slug": "mono-white",
+          "label": "White"
+        },
+        "identity_blend": "White expressed without a secondary color.",
+        "display": {
+          "key": "W",
+          "name": "White",
+          "institution_type": "color",
+          "world": "The Color Pie",
+          "colors": [
+            "W"
+          ],
+          "accent": "#ede8d4",
+          "banner": "linear-gradient(160deg,rgba(237,232,212,0.42) 0%,rgba(69,63,44,0.16) 58%,rgba(12,11,10,0.08) 100%)",
+          "tagline": "Safety is built, not assumed.",
+          "philosophy": "White believes peace is not a mood. It is a structure: rules that hold, shelter that lasts, and obligations people can trust under pressure.",
+          "lore_summary": "White does not seek order for its own sake. It builds order because order lets vulnerable people survive chaos, selfishness, and the failures of impulse.",
+          "core_tension": "White protects through standards and systems, but its virtue can harden into over-control when safety becomes more important than listening.",
+          "affinity": {
+            "drawn_to": [
+              "Shared standards that protect the vulnerable",
+              "Fairness enforced through process",
+              "Structures that outlast individual moods",
+              "Group safety over private advantage"
+            ],
+            "repelled_by": [
+              "Treating every rule as oppression by default",
+              "Power that answers only to itself",
+              "Impulsive decisions that endanger others",
+              "Private exceptions that quietly become precedent"
+            ],
+            "core_question": "What structure keeps people safe when goodwill is not enough?",
+            "interview_tells": [
+              "Frames care as duty, not only feeling",
+              "Talks about fairness in terms of standards and accountability",
+              "Wants clear expectations before conflict escalates",
+              "Sees systems as tools for shelter, not merely control"
+            ],
+            "not_to_be_confused_with": "Azorius trusts procedure above all; Boros acts faster in the face of harm; Selesnya anchors protection in belonging."
+          },
+          "decree_voice": {
+            "tone": "Steady, protective, and exacting without cruelty.",
+            "speaks_like": "A guardian who believes consistency is a form of mercy.",
+            "example_opening": "The reading turns toward shelter, standards, and the work of making safety real.",
+            "example_decree": "The reading turns toward shelter, standards, and the work of making safety real. White does not ask you to flatten every difference. It asks whether the structure holds when generosity fails. You protect by building something people can rely on, then standing beside it when the strain arrives."
+          },
+          "archetypes": [
+            {
+              "name": "Protective Tokens",
+              "desc": "Build a resilient board, widen the field, and make combat answer shared protection."
+            },
+            {
+              "name": "Taxes and Rules",
+              "desc": "Set costs, slow greedy lines, and force the table to play through standards."
+            },
+            {
+              "name": "Equipment and Guardians",
+              "desc": "Suit up one clean threat, protect it, and turn structure into pressure."
+            }
+          ],
+          "staples": {
+            "creatures": [
+              "Esper Sentinel",
+              "Grand Abolisher",
+              "Selfless Spirit"
+            ],
+            "spells": [
+              "Swords to Plowshares",
+              "Wrath of God",
+              "Teferi's Protection"
+            ],
+            "permanents": [
+              "Smothering Tithe",
+              "Authority of the Consuls"
+            ]
+          },
+          "land_base": {
+            "premium": [
+              "Emeria's Call // Emeria, Shattered Skyclave",
+              "War Room"
+            ],
+            "midrange": [
+              "Windbrisk Heights",
+              "Eiganjo, Seat of the Empire"
+            ],
+            "budget": [
+              "Secluded Steppe",
+              "Myriad Landscape"
+            ],
+            "utility": [
+              "Rogue's Passage",
+              "Mistveil Plains"
+            ],
+            "optimal": "War Room / Eiganjo, Seat of the Empire / Emeria's Call // Emeria, Shattered Skyclave / Mistveil Plains / Myriad Landscape",
+            "mid": "Eiganjo, Seat of the Empire / War Room / Windbrisk Heights / Myriad Landscape / Secluded Steppe",
+            "budget_line": "Secluded Steppe / Myriad Landscape / Windbrisk Heights / Mistveil Plains / Plains",
+            "utility_line": "Mistveil Plains / Rogue's Passage / War Room / Myriad Landscape"
+          },
+          "deck_links": [
+            {
+              "fmt": "Commander",
+              "name": "White Commanders",
+              "desc": "Tokens, taxes, equipment, and protective control lines for mono-white Commander starts.",
+              "mtgg": null,
+              "edhrec": "https://edhrec.com/commanders/mono-white",
+              "mtgd": "https://mtgdecks.net/Commander/mono-white-commanders"
+            }
+          ],
+          "research_links": {
+            "edhrec_slug": "mono-white"
+          },
+          "commander_compass": {
+            "native_fit_commanders": [
+              {
+                "exact_card_name": "Giada, Font of Hope",
+                "display_name": "Giada, Font of Hope",
+                "scryfall_uri": "https://scryfall.com/card/snc/14/giada-font-of-hope",
+                "edhrec_uri": "https://edhrec.com/commanders/giada-font-of-hope",
+                "color_identity": [
+                  "W"
+                ],
+                "commander_legal": true,
+                "recommendation_type": "Native Fit",
+                "archetype_tags": [
+                  "Counters",
+                  "Flying"
+                ],
+                "why_this_fits": "Turns shared protection and ordered growth into a clean mono-white board plan.",
+                "skip_if": "You want the deck to center taxes or equipment instead of a creature board.",
+                "gameplay_summary": "Grows your angel board quickly and rewards a steady curve of protective, airborne threats."
+              },
+              {
+                "exact_card_name": "Adeline, Resplendent Cathar",
+                "display_name": "Adeline, Resplendent Cathar",
+                "scryfall_uri": "https://scryfall.com/card/mid/1/adeline-resplendent-cathar",
+                "edhrec_uri": "https://edhrec.com/commanders/adeline-resplendent-cathar",
+                "color_identity": [
+                  "W"
+                ],
+                "commander_legal": true,
+                "recommendation_type": "Native Fit",
+                "archetype_tags": [
+                  "Tokens",
+                  "Aggro"
+                ],
+                "why_this_fits": "Makes White's belief in collective pressure visible immediately through bodies and combat.",
+                "skip_if": "You want a slower rules-and-taxes shell instead of a combat-focused table plan.",
+                "gameplay_summary": "Creates attackers every combat and turns wide-board pressure into fast, disciplined damage."
+              },
+              {
+                "exact_card_name": "Balan, Wandering Knight",
+                "display_name": "Balan, Wandering Knight",
+                "scryfall_uri": "https://scryfall.com/card/c17/57/balan-wandering-knight",
+                "edhrec_uri": "https://edhrec.com/commanders/balan-wandering-knight",
+                "color_identity": [
+                  "W"
+                ],
+                "commander_legal": true,
+                "recommendation_type": "Native Fit",
+                "archetype_tags": [
+                  "Equipment",
+                  "Voltron"
+                ],
+                "why_this_fits": "Channels White's disciplined protection into a single armored line that ends games cleanly.",
+                "skip_if": "You prefer broad board control to a focused equipment threat.",
+                "gameplay_summary": "Loads equipment onto one resilient attacker and punishes opponents who cannot answer it on time."
+              }
+            ],
+            "weird_stretch_commanders": [
+              {
+                "exact_card_name": "Eight-and-a-Half-Tails",
+                "display_name": "Eight-and-a-Half-Tails",
+                "scryfall_uri": "https://scryfall.com/card/mh1/5/eight-and-a-half-tails",
+                "edhrec_uri": "https://edhrec.com/commanders/eight-and-a-half-tails",
+                "color_identity": [
+                  "W"
+                ],
+                "commander_legal": true,
+                "recommendation_type": "Weird Stretch",
+                "archetype_tags": [
+                  "Protection",
+                  "Control"
+                ],
+                "why_this_fits": "Pushes White's protective instincts into a fiddlier rules-control shell where safety is created one layer at a time.",
+                "skip_if": "You want your White deck to end games quickly instead of grinding through timing tricks.",
+                "gameplay_summary": "Protects your board and disrupts interaction by turning color and protection into a constant rules puzzle."
+              }
+            ],
+            "advanced_complexity_commanders": [
+              {
+                "exact_card_name": "Elesh Norn, Mother of Machines",
+                "display_name": "Elesh Norn, Mother of Machines",
+                "scryfall_uri": "https://scryfall.com/card/one/10/elesh-norn-mother-of-machines",
+                "edhrec_uri": "https://edhrec.com/commanders/elesh-norn-mother-of-machines",
+                "color_identity": [
+                  "W"
+                ],
+                "commander_legal": true,
+                "recommendation_type": "Advanced",
+                "archetype_tags": [
+                  "Blink",
+                  "Value"
+                ],
+                "why_this_fits": "Transforms White's structure-and-protection logic into a high-value engine that rewards careful sequencing.",
+                "skip_if": "You want a simpler starting shell than trigger management and table-wide rules pressure.",
+                "gameplay_summary": "Doubles your enters-the-battlefield value while constraining opposing triggers, letting patient sequencing become inevitability."
+              }
+            ],
+            "archetype_lanes": [
+              {
+                "lane_name": "Protective Tokens",
+                "description": "Go wide, protect the board, and turn collective structure into combat pressure.",
+                "recommended_for": "Adeline, Resplendent Cathar",
+                "skip_if": "You want a narrower equipment or taxes plan.",
+                "example_commanders": [
+                  "Adeline, Resplendent Cathar",
+                  "Myrel, Shield of Argive"
+                ],
+                "supporting_identity_terms": [
+                  "shelter",
+                  "duty",
+                  "collective strength"
+                ],
+                "complexity": "Low",
+                "budget_friendliness": "Medium"
+              }
+            ]
+          }
+        },
+        "biological_expression": {
+          "archetype": "The Shelter Architect",
+          "primary_foundation": "Care",
+          "secondary_foundation": "Authority",
+          "risk_signal": "low risk",
+          "inhibitor_trigger": "Treats every shared rule as illegitimate, even when the alternative leaves the vulnerable exposed."
+        },
+        "placement": {
+          "good_fit_indicators": [
+            "builds safety before pursuing advantage",
+            "trusts shared standards more than private exceptions",
+            "protects the vulnerable through structure and follow-through"
+          ],
+          "poor_fit_indicators": [
+            "treats every rule as oppression by default",
+            "prefers personal advantage even when it leaves others exposed",
+            "confuses care with passive good intentions"
+          ],
+          "inhibitor_traps": [
+            "rejects shared obligations",
+            "treats protection as weakness",
+            "frames fairness only as personal freedom"
+          ],
+          "placement_axes": {
+            "required_positive_evidence_terms": [
+              "safety",
+              "protection",
+              "fairness",
+              "duty",
+              "shelter",
+              "shared rules",
+              "responsibility",
+              "structure"
+            ],
+            "required_positive_min_hits": 2,
+            "strengthen_when_user_centers": [
+              "safety through structure",
+              "shared duty",
+              "protect the vulnerable",
+              "fairness through standards"
+            ],
+            "suppress_when_user_centers": [
+              "private leverage",
+              "chaotic expression",
+              "knowledge for its own sake",
+              "wild autonomy"
+            ],
+            "false_positive_guardrail": "Do not award for generic niceness, generic order, or generic heroism without clear protection-through-structure language.",
+            "broad_match_penalty": 0.12
+          },
+          "chatbot_guidance": {
+            "how_to_recognize_match": [
+              "builds safety before pursuing advantage",
+              "trusts shared standards more than private exceptions",
+              "protects the vulnerable through structure and follow-through"
+            ],
+            "how_to_recognize_mismatch": [
+              "treats every rule as oppression by default",
+              "prefers personal advantage even when it leaves others exposed",
+              "confuses care with passive good intentions"
+            ],
+            "questions_to_ask_when_uncertain": [
+              "What structure keeps people safe when goodwill is not enough?",
+              "When protection and freedom pull apart, what must hold first?"
+            ],
+            "never_claim_as_canon": [
+              "Psychological placement categories are Vox Mana interpretation, not official Wizards canon.",
+              "Do not state that a user's personality is objectively determined by a color or expression.",
+              "Placement scoring is a Vox Mana interpretation, not official Wizards canon."
+            ],
+            "calibration_note": "White should require explicit safety, protection, duty, shelter, or fairness-through-structure language. Keep it adjacent when the answer only contains generic kindness or generic order.",
+            "scoring_guardrail": "Do not award for generic niceness, generic order, or generic heroism without clear protection-through-structure language."
+          },
+          "discriminator_questions": [
+            {
+              "question_id": "white_q1",
+              "question": "What matters most when goodwill fails and people still need to be safe?",
+              "purpose": "Separates White's shelter-and-standards logic from more private or expressive forms of care.",
+              "answer_pattern_that_supports_this_faction": "The answer prioritizes reliable structure, shelter, or duty that protects more than one person at once.",
+              "answer_pattern_that_weakens_this_faction": "The answer rejects structure altogether or treats shared standards as inherently corrupt.",
+              "collision_targets": [
+                "WU",
+                "WR",
+                "WG"
+              ],
+              "confidence": "Medium"
+            },
+            {
+              "question_id": "white_q2",
+              "question": "When protection and freedom pull apart, what must hold first?",
+              "purpose": "Separates White from Red-aligned urgency and Blue-aligned procedural distance.",
+              "answer_pattern_that_supports_this_faction": "The answer accepts limits, duties, or standards as the price of protecting the vulnerable.",
+              "answer_pattern_that_weakens_this_faction": "The answer treats all limits as suspect regardless of who is left exposed.",
+              "collision_targets": [
+                "WR",
+                "WU"
+              ],
+              "confidence": "Medium"
+            }
+          ],
+          "collision_guidance": [
+            {
+              "collision_id": "collision_white_azorius",
+              "against": "WU",
+              "separator": "White builds shelter and standards; Azorius further prioritizes procedure, precedent, and legitimacy.",
+              "ask": "If the system protects people but the paperwork is clumsy, do you repair the shelter or refine the procedure first?"
+            },
+            {
+              "collision_id": "collision_white_boros",
+              "against": "WR",
+              "separator": "White wants durable protection; Boros is faster to act when harm is already happening.",
+              "ask": "Is the first responsibility to build a structure that lasts, or to intervene before the next blow lands?"
+            }
+          ]
+        }
+      },
+      "WU": {
+        "key": "WU",
+        "active": true,
+        "kind": "guild",
+        "colors": [
+          "W",
+          "U"
+        ],
+        "core_color": "W",
+        "secondary_colors": [
+          "U"
+        ],
+        "routing": {
+          "edhrec_slug": "azorius",
+          "mtgdecks_slug": "azorius",
+          "label": "Azorius"
+        },
+        "identity_blend": "White structure sharpened by Blue procedure."
+      },
+      "UB": {
+        "key": "UB",
+        "active": true,
+        "kind": "guild",
+        "colors": [
+          "U",
+          "B"
+        ],
+        "core_color": "U",
+        "secondary_colors": [
+          "B"
+        ],
+        "routing": {
+          "edhrec_slug": "dimir",
+          "mtgdecks_slug": "dimir",
+          "label": "Dimir"
+        },
+        "identity_blend": "Blue patience weaponized by Black leverage."
+      },
+      "BR": {
+        "key": "BR",
+        "active": true,
+        "kind": "guild",
+        "colors": [
+          "B",
+          "R"
+        ],
+        "core_color": "B",
+        "secondary_colors": [
+          "R"
+        ],
+        "routing": {
+          "edhrec_slug": "rakdos",
+          "mtgdecks_slug": "rakdos",
+          "label": "Rakdos"
+        },
+        "identity_blend": "Black appetite turned public through Red spectacle."
+      },
+      "RG": {
+        "key": "RG",
+        "active": true,
+        "kind": "guild",
+        "colors": [
+          "R",
+          "G"
+        ],
+        "core_color": "R",
+        "secondary_colors": [
+          "G"
+        ],
+        "routing": {
+          "edhrec_slug": "gruul",
+          "mtgdecks_slug": "gruul",
+          "label": "Gruul"
+        },
+        "identity_blend": "Red force returned to Green instinct and wild refusal."
+      },
+      "WG": {
+        "key": "WG",
+        "active": true,
+        "kind": "guild",
+        "colors": [
+          "W",
+          "G"
+        ],
+        "core_color": "W",
+        "secondary_colors": [
+          "G"
+        ],
+        "routing": {
+          "edhrec_slug": "selesnya",
+          "mtgdecks_slug": "selesnya",
+          "label": "Selesnya"
+        },
+        "identity_blend": "White protection rooted in Green belonging and communal growth."
+      },
+      "WB": {
+        "key": "WB",
+        "active": true,
+        "kind": "guild",
+        "colors": [
+          "W",
+          "B"
+        ],
+        "core_color": "W",
+        "secondary_colors": [
+          "B"
+        ],
+        "routing": {
+          "edhrec_slug": "orzhov",
+          "mtgdecks_slug": "orzhov",
+          "label": "Orzhov"
+        },
+        "identity_blend": "White structure hardened into Black obligation and collected debt."
+      },
+      "UR": {
+        "key": "UR",
+        "active": true,
+        "kind": "guild",
+        "colors": [
+          "U",
+          "R"
+        ],
+        "core_color": "U",
+        "secondary_colors": [
+          "R"
+        ],
+        "routing": {
+          "edhrec_slug": "izzet",
+          "mtgdecks_slug": "izzet",
+          "label": "Izzet"
+        },
+        "identity_blend": "Blue curiosity accelerated by Red experimentation."
+      },
+      "BG": {
+        "key": "BG",
+        "active": true,
+        "kind": "guild",
+        "colors": [
+          "B",
+          "G"
+        ],
+        "core_color": "B",
+        "secondary_colors": [
+          "G"
+        ],
+        "routing": {
+          "edhrec_slug": "golgari",
+          "mtgdecks_slug": "golgari",
+          "label": "Golgari"
+        },
+        "identity_blend": "Black survival stabilized by Green cycles of decay and renewal."
+      },
+      "UG": {
+        "key": "UG",
+        "active": true,
+        "kind": "guild",
+        "colors": [
+          "U",
+          "G"
+        ],
+        "core_color": "U",
+        "secondary_colors": [
+          "G"
+        ],
+        "routing": {
+          "edhrec_slug": "simic",
+          "mtgdecks_slug": "simic",
+          "label": "Simic"
+        },
+        "identity_blend": "Blue improvement grown through Green adaptation."
+      },
+      "WR": {
+        "key": "WR",
+        "active": true,
+        "kind": "guild",
+        "colors": [
+          "W",
+          "R"
+        ],
+        "core_color": "W",
+        "secondary_colors": [
+          "R"
+        ],
+        "routing": {
+          "edhrec_slug": "boros",
+          "mtgdecks_slug": "boros",
+          "label": "Boros"
+        },
+        "identity_blend": "White duty carried into action by Red conviction."
+      },
+      "LOREHOLD": {
+        "key": "LOREHOLD",
+        "active": true,
+        "kind": "college",
+        "colors": [
+          "W",
+          "R"
+        ],
+        "core_color": "W",
+        "secondary_colors": [
+          "R"
+        ],
+        "routing": {
+          "edhrec_slug": "boros",
+          "mtgdecks_slug": "boros",
+          "label": "Boros"
+        },
+        "identity_blend": "White duty and Red action turned toward memory, history, and excavation."
+      },
+      "PRISMARI": {
+        "key": "PRISMARI",
+        "active": true,
+        "kind": "college",
+        "colors": [
+          "U",
+          "R"
+        ],
+        "core_color": "U",
+        "secondary_colors": [
+          "R"
+        ],
+        "routing": {
+          "edhrec_slug": "izzet",
+          "mtgdecks_slug": "izzet",
+          "label": "Izzet"
+        },
+        "identity_blend": "Blue spellcraft widened into Red performance and spectacle."
+      },
+      "QUANDRIX": {
+        "key": "QUANDRIX",
+        "active": true,
+        "kind": "college",
+        "colors": [
+          "U",
+          "G"
+        ],
+        "core_color": "U",
+        "secondary_colors": [
+          "G"
+        ],
+        "routing": {
+          "edhrec_slug": "simic",
+          "mtgdecks_slug": "simic",
+          "label": "Simic"
+        },
+        "identity_blend": "Blue abstraction rooted in Green growth and scale."
+      },
+      "SILVERQUILL": {
+        "key": "SILVERQUILL",
+        "active": true,
+        "kind": "college",
+        "colors": [
+          "W",
+          "B"
+        ],
+        "core_color": "W",
+        "secondary_colors": [
+          "B"
+        ],
+        "routing": {
+          "edhrec_slug": "orzhov",
+          "mtgdecks_slug": "orzhov",
+          "label": "Orzhov"
+        },
+        "identity_blend": "White standards articulated through Black pressure, rhetoric, and status."
+      },
+      "WITHERBLOOM": {
+        "key": "WITHERBLOOM",
+        "active": true,
+        "kind": "college",
+        "colors": [
+          "B",
+          "G"
+        ],
+        "core_color": "B",
+        "secondary_colors": [
+          "G"
+        ],
+        "routing": {
+          "edhrec_slug": "golgari",
+          "mtgdecks_slug": "golgari",
+          "label": "Golgari"
+        },
+        "identity_blend": "Black appetite and Green cycle studied through vitality, biology, and exchange."
+      },
+      "U": {
+        "key": "U",
+        "active": true,
+        "kind": "color",
+        "name": "Blue",
+        "world": "The Color Pie",
+        "colors": [
+          "U"
+        ],
+        "core_color": "U",
+        "secondary_colors": [],
+        "routing": {
+          "edhrec_slug": "mono-blue",
+          "mtgdecks_slug": "mono-blue",
+          "label": "Blue"
+        },
+        "identity_blend": "Blue expressed without a secondary color.",
+        "display": {
+          "key": "U",
+          "name": "Blue",
+          "institution_type": "color",
+          "world": "The Color Pie",
+          "colors": [
+            "U"
+          ],
+          "accent": "#5f8fd4",
+          "banner": "linear-gradient(160deg,rgba(95,143,212,0.36) 0%,rgba(24,43,72,0.24) 58%,rgba(7,10,18,0.12) 100%)",
+          "tagline": "Possibility opens when the pattern is understood.",
+          "philosophy": "Blue believes no one is finished by default. Knowledge, practice, and precise systems let people and worlds become more than their starting shape.",
+          "lore_summary": "Blue does not act from impulse. It studies the variables, preserves options, and reshapes the future once the hidden structure is clear.",
+          "core_tension": "Blue protects possibility through understanding, but its virtue can harden into paralysis when perfect information matters more than timely action.",
+          "affinity": {
+            "drawn_to": [
+              "Information treated as the first resource",
+              "Systems that improve through study and iteration",
+              "Patience before commitment",
+              "Tools, education, and planning that expand possible futures"
+            ],
+            "repelled_by": [
+              "Acting before the shape of the problem is understood",
+              "Treating nature, fate, or first instincts as final",
+              "Discarding options for the relief of immediate motion",
+              "Using power without a model of what happens next"
+            ],
+            "core_question": "What becomes possible once the hidden pattern is understood?",
+            "interview_tells": [
+              "Waits for information before committing",
+              "Talks about options, systems, models, or repeatable improvement",
+              "Frames control as preparation rather than domination",
+              "Sees education, tools, and practice as liberation from default limits"
+            ],
+            "not_to_be_confused_with": "Azorius turns understanding into formal procedure; Dimir hides information as leverage; Izzet accelerates discovery into volatile testing; Simic applies improvement to living adaptation."
+          },
+          "decree_voice": {
+            "tone": "Precise, patient, curious, and cool without contempt.",
+            "speaks_like": "A strategist who believes every outcome has a structure waiting to be learned.",
+            "example_opening": "The reading turns toward knowledge, options, and the discipline of acting after understanding.",
+            "example_decree": "The reading turns toward knowledge, options, and the discipline of acting after understanding. Blue does not ask you to freeze forever. It asks you to map the hidden variables, keep the future open, and move when the pattern can be shaped instead of merely endured."
+          },
+          "archetypes": [
+            {
+              "name": "Draw-Go Control",
+              "desc": "Hold mana, gather cards, answer threats on the stack, and win once the table runs out of clean openings."
+            },
+            {
+              "name": "Spellslinger Tokens",
+              "desc": "Turn instants and sorceries into repeatable pressure while keeping interaction available."
+            },
+            {
+              "name": "Artifacts and Clones",
+              "desc": "Use tools, copies, and engines to turn observed structures into your own advantage."
+            }
+          ],
+          "staples": {
+            "creatures": [
+              "Baral, Chief of Compliance",
+              "Talrand, Sky Summoner",
+              "Consecrated Sphinx"
+            ],
+            "spells": [
+              "Counterspell",
+              "Cyclonic Rift",
+              "Ponder"
+            ],
+            "permanents": [
+              "Rhystic Study",
+              "Mystic Remora",
+              "Thassa, Deep-Dwelling"
+            ]
+          },
+          "land_base": {
+            "premium": [
+              "Otawara, Soaring City",
+              "Minamo, School at Water's Edge"
+            ],
+            "midrange": [
+              "Mystic Sanctuary",
+              "Castle Vantress"
+            ],
+            "budget": [
+              "Lonely Sandbar",
+              "Myriad Landscape"
+            ],
+            "utility": [
+              "Reliquary Tower",
+              "War Room"
+            ],
+            "optimal": "Otawara, Soaring City / Minamo, School at Water's Edge / Mystic Sanctuary / Reliquary Tower / War Room",
+            "mid": "Otawara, Soaring City / Mystic Sanctuary / Castle Vantress / Reliquary Tower / Myriad Landscape",
+            "budget_line": "Lonely Sandbar / Myriad Landscape / Reliquary Tower / Mystic Sanctuary / Island",
+            "utility_line": "Reliquary Tower / War Room / Minamo, School at Water's Edge / Castle Vantress"
+          },
+          "deck_links": [
+            {
+              "fmt": "Commander",
+              "name": "Blue Commanders",
+              "desc": "Control, spellslinger, card-draw, clone, and artifact-engine lines for mono-blue Commander starts.",
+              "mtgg": null,
+              "edhrec": "https://edhrec.com/commanders/mono-blue",
+              "mtgd": "https://mtgdecks.net/Commander/mono-blue-commanders"
+            }
+          ],
+          "research_links": {
+            "edhrec_slug": "mono-blue"
+          },
+          "commander_compass": {
+            "native_fit_commanders": [
+              {
+                "exact_card_name": "Talrand, Sky Summoner",
+                "display_name": "Talrand, Sky Summoner",
+                "scryfall_uri": "https://scryfall.com/card/otc/116/talrand-sky-summoner",
+                "edhrec_uri": "https://edhrec.com/commanders/talrand-sky-summoner",
+                "color_identity": [
+                  "U"
+                ],
+                "commander_legal": true,
+                "recommendation_type": "Native Fit",
+                "archetype_tags": [
+                  "Spellslinger",
+                  "Tokens"
+                ],
+                "why_this_fits": "Turns Blue's patient instant-speed posture into a visible board of evasive threats.",
+                "skip_if": "You want hard artifact engines or wizard tribal more than spell-based token pressure.",
+                "gameplay_summary": "Rewards each instant and sorcery with a flying Drake while leaving mana open for interaction."
+              },
+              {
+                "exact_card_name": "Azami, Lady of Scrolls",
+                "display_name": "Azami, Lady of Scrolls",
+                "scryfall_uri": "https://scryfall.com/card/cmm/74/azami-lady-of-scrolls",
+                "edhrec_uri": "https://edhrec.com/commanders/azami-lady-of-scrolls",
+                "color_identity": [
+                  "U"
+                ],
+                "commander_legal": true,
+                "recommendation_type": "Native Fit",
+                "archetype_tags": [
+                  "Wizards",
+                  "Card Draw"
+                ],
+                "why_this_fits": "Makes Blue's information advantage literal by turning a wizard board into cards.",
+                "skip_if": "You dislike tribal shells or want a lower-maintenance control commander.",
+                "gameplay_summary": "Taps Wizards to draw cards, letting the deck convert board development into a growing hand."
+              },
+              {
+                "exact_card_name": "Minn, Wily Illusionist",
+                "display_name": "Minn, Wily Illusionist",
+                "scryfall_uri": "https://scryfall.com/card/afc/16/minn-wily-illusionist",
+                "edhrec_uri": "https://edhrec.com/commanders/minn-wily-illusionist",
+                "color_identity": [
+                  "U"
+                ],
+                "commander_legal": true,
+                "recommendation_type": "Native Fit",
+                "archetype_tags": [
+                  "Card Draw",
+                  "Tokens"
+                ],
+                "why_this_fits": "Rewards Blue's habit of drawing extra cards by turning information flow into board presence.",
+                "skip_if": "You want a classic counterspell deck instead of a draw-trigger creature plan.",
+                "gameplay_summary": "Creates Illusions on second draws and turns those Illusions into permanents when they die."
+              }
+            ],
+            "weird_stretch_commanders": [
+              {
+                "exact_card_name": "Orvar, the All-Form",
+                "display_name": "Orvar, the All-Form",
+                "scryfall_uri": "https://scryfall.com/card/khm/70/orvar-the-all-form",
+                "edhrec_uri": "https://edhrec.com/commanders/orvar-the-all-form",
+                "color_identity": [
+                  "U"
+                ],
+                "commander_legal": true,
+                "recommendation_type": "Weird Stretch",
+                "archetype_tags": [
+                  "Clones",
+                  "Spellslinger"
+                ],
+                "why_this_fits": "Pushes Blue's copy-and-replication instinct into a strange targeting puzzle.",
+                "skip_if": "You want straightforward draw-go control rather than rules-dense sequencing.",
+                "gameplay_summary": "Copies your permanents when targeted by your spells, rewarding careful setup and exact timing."
+              }
+            ],
+            "advanced_complexity_commanders": [
+              {
+                "exact_card_name": "Urza, Lord High Artificer",
+                "display_name": "Urza, Lord High Artificer",
+                "scryfall_uri": "https://scryfall.com/card/cmm/130/urza-lord-high-artificer",
+                "edhrec_uri": "https://edhrec.com/commanders/urza-lord-high-artificer",
+                "color_identity": [
+                  "U"
+                ],
+                "commander_legal": true,
+                "recommendation_type": "Advanced",
+                "archetype_tags": [
+                  "Artifacts",
+                  "Control"
+                ],
+                "why_this_fits": "Compresses Blue's tools, artifacts, mana, and inevitability into one demanding engine.",
+                "skip_if": "You want a friendly first mono-blue table experience rather than a high-power artifact shell.",
+                "gameplay_summary": "Turns artifacts into mana, creates a scaling Construct, and converts excess mana into spell access."
+              }
+            ],
+            "archetype_lanes": [
+              {
+                "lane_name": "Knowledge Engines",
+                "description": "Draw cards, hold interaction, and let accumulated options become inevitability.",
+                "recommended_for": "Azami, Lady of Scrolls",
+                "skip_if": "You want pressure on board before your hand is full.",
+                "example_commanders": [
+                  "Azami, Lady of Scrolls",
+                  "Minn, Wily Illusionist"
+                ],
+                "supporting_identity_terms": [
+                  "knowledge",
+                  "options",
+                  "information advantage"
+                ],
+                "complexity": "Medium",
+                "budget_friendliness": "Medium"
+              }
+            ]
+          }
+        },
+        "biological_expression": {
+          "archetype": "The Possibility Architect",
+          "primary_foundation": "Fairness",
+          "secondary_foundation": "Authority",
+          "risk_signal": "low-medium risk",
+          "inhibitor_trigger": "Treats knowledge, planning, or education as sterile delay when careful understanding would prevent avoidable harm."
+        },
+        "placement": {
+          "good_fit_indicators": [
+            "waits to understand before committing",
+            "treats knowledge, cards, and options as resources",
+            "improves systems through study, iteration, and precise control"
+          ],
+          "poor_fit_indicators": [
+            "needs immediate motion before the problem is understood",
+            "treats nature, fate, or first instinct as final",
+            "rejects planning, patience, or information as sterile delay"
+          ],
+          "inhibitor_traps": [
+            "acts on impulse before mapping the variables",
+            "treats ignorance as authenticity",
+            "accepts fixed destiny over learnable possibility"
+          ],
+          "placement_axes": {
+            "required_positive_evidence_terms": [
+              "knowledge",
+              "information",
+              "understanding",
+              "study",
+              "optimization",
+              "prediction",
+              "control",
+              "card draw",
+              "counterspell",
+              "tempo",
+              "copy",
+              "possibility"
+            ],
+            "required_positive_min_hits": 2,
+            "strengthen_when_user_centers": [
+              "information as resource",
+              "act after understanding",
+              "optimize through knowledge",
+              "control through prediction",
+              "improve the system"
+            ],
+            "suppress_when_user_centers": [
+              "immediate emotional release",
+              "destiny over improvement",
+              "natural role acceptance",
+              "power without a model"
+            ],
+            "false_positive_guardrail": "Do not award for generic intelligence, generic control, or indecision without clear knowledge, options, optimization, or patience-before-action language.",
+            "broad_match_penalty": 0.12
+          },
+          "chatbot_guidance": {
+            "how_to_recognize_match": [
+              "waits to understand before committing",
+              "treats knowledge, cards, and options as resources",
+              "improves systems through study, iteration, and precise control"
+            ],
+            "how_to_recognize_mismatch": [
+              "needs immediate motion before the problem is understood",
+              "treats nature, fate, or first instinct as final",
+              "rejects planning, patience, or information as sterile delay"
+            ],
+            "questions_to_ask_when_uncertain": [
+              "What becomes possible once the hidden pattern is understood?",
+              "When information and action pull apart, what must happen before you move?"
+            ],
+            "never_claim_as_canon": [
+              "Psychological placement categories are Vox Mana interpretation, not official Wizards canon.",
+              "Do not state that a user's personality is objectively determined by a color or expression.",
+              "Placement scoring is a Vox Mana interpretation, not official Wizards canon."
+            ],
+            "calibration_note": "Blue should require explicit knowledge, information, options, prediction, or optimization language. Keep it adjacent when the answer only contains generic intelligence or generic caution.",
+            "scoring_guardrail": "Do not award for generic intelligence, generic control, or indecision without clear knowledge, options, optimization, or patience-before-action language."
+          },
+          "discriminator_questions": [
+            {
+              "question_id": "blue_q1",
+              "question": "When the situation is unstable and everyone wants movement, what has to happen before you act?",
+              "purpose": "Separates Blue's knowledge-first patience from adjacent procedure, secrecy, experimentation, or adaptation.",
+              "answer_pattern_that_supports_this_faction": "The answer prioritizes mapping variables, preserving options, and acting once the structure is understood.",
+              "answer_pattern_that_weakens_this_faction": "The answer rushes to institution, leverage, impulse, or biology before understanding the system.",
+              "collision_targets": [
+                "WU",
+                "UB",
+                "UR",
+                "UG"
+              ],
+              "confidence": "Medium"
+            },
+            {
+              "question_id": "blue_q2",
+              "question": "What makes progress trustworthy instead of merely lucky?",
+              "purpose": "Separates Blue's optimization-through-knowledge logic from pair expressions that route progress through law, secrecy, experiment, or organism.",
+              "answer_pattern_that_supports_this_faction": "The answer centers education, repeatable models, controlled iteration, or information that makes future choices better.",
+              "answer_pattern_that_weakens_this_faction": "The answer treats procedure, hidden leverage, volatile testing, or natural adaptation as sufficient without understanding.",
+              "collision_targets": [
+                "WU",
+                "UB",
+                "UR",
+                "UG"
+              ],
+              "confidence": "Medium"
+            }
+          ],
+          "collision_guidance": [
+            {
+              "collision_id": "collision_blue_azorius",
+              "against": "WU",
+              "separator": "Blue seeks understanding and possibility; Azorius turns understanding into public procedure, precedent, and legitimacy.",
+              "ask": "If the model is clear but the rulebook is not, do you refine the knowledge first or formalize the procedure first?"
+            },
+            {
+              "collision_id": "collision_blue_dimir",
+              "against": "UB",
+              "separator": "Blue studies to expand possible futures; Dimir keeps information hidden so leverage arrives at the safest moment.",
+              "ask": "Do you want the truth because understanding improves the system, or because secrecy makes the next move safer?"
+            },
+            {
+              "collision_id": "collision_blue_izzet",
+              "against": "UR",
+              "separator": "Blue tests patiently until the pattern is clear; Izzet accelerates discovery through volatile experiment and creative risk.",
+              "ask": "Do you wait for the model to become reliable, or build the experiment and let the spark teach you?"
+            },
+            {
+              "collision_id": "collision_blue_simic",
+              "against": "UG",
+              "separator": "Blue believes possibility can be engineered; Simic applies that improvement through living adaptation and biological change.",
+              "ask": "Is the first change to the plan, tool, and model, or to the organism that must survive the future?"
+            }
+          ]
+        }
+      },
+      "B": {
+        "key": "B",
+        "active": true,
+        "kind": "color",
+        "name": "Black",
+        "world": "The Color Pie",
+        "colors": [
+          "B"
+        ],
+        "core_color": "B",
+        "secondary_colors": [],
+        "routing": {
+          "edhrec_slug": "mono-black",
+          "mtgdecks_slug": "mono-black",
+          "label": "Black"
+        },
+        "identity_blend": "Black expressed without a secondary color.",
+        "display": {
+          "key": "B",
+          "name": "Black",
+          "institution_type": "color",
+          "world": "The Color Pie",
+          "colors": [
+            "B"
+          ],
+          "accent": "#9a7a96",
+          "banner": "linear-gradient(160deg,rgba(154,122,150,0.34) 0%,rgba(33,24,34,0.28) 58%,rgba(9,8,10,0.12) 100%)",
+          "tagline": "Power is protection when no one is coming to save you.",
+          "philosophy": "Black believes the world offers no guaranteed fairness. It secures agency by treating life, death, loyalty, and resources as costs that can be paid for control.",
+          "lore_summary": "Black does not confuse self-preservation with cruelty. It asks what must be paid, what can be converted, and what leverage keeps its fate from belonging to someone else.",
+          "core_tension": "Black protects the self through power and leverage, but its clarity can harden into isolation when every bond becomes a liability.",
+          "affinity": {
+            "drawn_to": [
+              "Self-determination when the world offers no guarantees",
+              "Power gained by paying costs others avoid",
+              "Resources converted into durable leverage",
+              "Death, loss, and sacrifice turned back into advantage"
+            ],
+            "repelled_by": [
+              "Waiting for fairness to arrive on its own",
+              "Moral purity that leaves people powerless",
+              "Dependence disguised as virtue",
+              "Systems that demand sacrifice without returning agency"
+            ],
+            "core_question": "What are you willing to pay so your fate stays yours?",
+            "interview_tells": [
+              "Frames survival as a personal responsibility",
+              "Talks about costs, leverage, and agency without apology",
+              "Treats loss as material that can still be converted",
+              "Distrusts fairness when it is not backed by power"
+            ],
+            "not_to_be_confused_with": "Dimir hides leverage behind knowledge; Rakdos spends restraint in public intensity; Golgari turns death into ecosystem and cycle; Orzhov makes power visible through debt and obligation."
+          },
+          "decree_voice": {
+            "tone": "Clear-eyed, unsentimental, and empowering without glamorizing cruelty.",
+            "speaks_like": "A survivor who knows every bargain has a price and every price can become leverage.",
+            "example_opening": "The reading turns toward cost, agency, and the refusal to remain powerless.",
+            "example_decree": "The reading turns toward cost, agency, and the refusal to remain powerless. Black does not ask whether the world is fair before it acts. It asks what can be paid, what can be reclaimed, and what power will keep your fate from being signed away by someone else."
+          },
+          "archetypes": [
+            {
+              "name": "Life Payment Engines",
+              "desc": "Spend life as fuel, draw deeper than the table expects, and convert risk into reach."
+            },
+            {
+              "name": "Aristocrats and Sacrifice",
+              "desc": "Turn creatures into cards, drain, removal, and inevitability through repeated exchange."
+            },
+            {
+              "name": "Reanimator Control",
+              "desc": "Treat the graveyard as a second resource line and make death feel temporary."
+            }
+          ],
+          "staples": {
+            "creatures": [
+              "Yawgmoth, Thran Physician",
+              "Ayara, First of Locthwain",
+              "Dauthi Voidwalker"
+            ],
+            "spells": [
+              "Demonic Tutor",
+              "Reanimate",
+              "Toxic Deluge"
+            ],
+            "permanents": [
+              "Necropotence",
+              "Phyrexian Arena",
+              "Bolas's Citadel"
+            ]
+          },
+          "land_base": {
+            "premium": [
+              "Cabal Coffers",
+              "Urborg, Tomb of Yawgmoth"
+            ],
+            "midrange": [
+              "Takenuma, Abandoned Mire",
+              "Castle Locthwain"
+            ],
+            "budget": [
+              "Barren Moor",
+              "Myriad Landscape"
+            ],
+            "utility": [
+              "Bojuka Bog",
+              "War Room"
+            ],
+            "optimal": "Cabal Coffers / Urborg, Tomb of Yawgmoth / Takenuma, Abandoned Mire / Nykthos, Shrine to Nyx / Bojuka Bog",
+            "mid": "Takenuma, Abandoned Mire / Castle Locthwain / War Room / Bojuka Bog / Myriad Landscape",
+            "budget_line": "Barren Moor / Myriad Landscape / Bojuka Bog / Witch's Cottage / Swamp",
+            "utility_line": "Bojuka Bog / War Room / Castle Locthwain / Takenuma, Abandoned Mire"
+          },
+          "deck_links": [
+            {
+              "fmt": "Commander",
+              "name": "Black Commanders",
+              "desc": "Life payment, sacrifice, reanimator, and control lines for mono-black Commander starts.",
+              "mtgg": null,
+              "edhrec": "https://edhrec.com/commanders/mono-black",
+              "mtgd": "https://mtgdecks.net/Commander/mono-black-commanders"
+            }
+          ],
+          "research_links": {
+            "edhrec_slug": "mono-black"
+          },
+          "commander_compass": {
+            "native_fit_commanders": [
+              {
+                "exact_card_name": "K'rrik, Son of Yawgmoth",
+                "display_name": "K'rrik, Son of Yawgmoth",
+                "scryfall_uri": "https://scryfall.com/card/mh3/274/krrik-son-of-yawgmoth",
+                "edhrec_uri": "https://edhrec.com/commanders/krrik-son-of-yawgmoth",
+                "color_identity": [
+                  "B"
+                ],
+                "commander_legal": true,
+                "recommendation_type": "Native Fit",
+                "archetype_tags": [
+                  "Life Gain",
+                  "Combo"
+                ],
+                "why_this_fits": "Makes Black's life-as-resource principle literal by turning life into black mana and momentum.",
+                "skip_if": "You want a slower control shell instead of a high-risk engine deck.",
+                "gameplay_summary": "Pays life for black costs, grows from black spells, and rewards tight sequencing around risk."
+              },
+              {
+                "exact_card_name": "Ayara, First of Locthwain",
+                "display_name": "Ayara, First of Locthwain",
+                "scryfall_uri": "https://scryfall.com/card/eld/75/ayara-first-of-locthwain",
+                "edhrec_uri": "https://edhrec.com/commanders/ayara-first-of-locthwain",
+                "color_identity": [
+                  "B"
+                ],
+                "commander_legal": true,
+                "recommendation_type": "Native Fit",
+                "archetype_tags": [
+                  "Aristocrats",
+                  "Lifegain"
+                ],
+                "why_this_fits": "Turns bodies into drain, cards, and repeatable exchange without leaving mono-black's center.",
+                "skip_if": "You dislike creature loops or sacrifice-based value engines.",
+                "gameplay_summary": "Rewards black creatures entering, drains each opponent, and converts extra creatures into cards."
+              },
+              {
+                "exact_card_name": "Chainer, Dementia Master",
+                "display_name": "Chainer, Dementia Master",
+                "scryfall_uri": "https://scryfall.com/card/cmm/144/chainer-dementia-master",
+                "edhrec_uri": "https://edhrec.com/commanders/chainer-dementia-master",
+                "color_identity": [
+                  "B"
+                ],
+                "commander_legal": true,
+                "recommendation_type": "Native Fit",
+                "archetype_tags": [
+                  "Reanimator",
+                  "Control"
+                ],
+                "why_this_fits": "Uses life and mana to turn graveyards into an active board resource.",
+                "skip_if": "You want a low-maintenance creature deck rather than graveyard management.",
+                "gameplay_summary": "Reanimates creatures from graveyards and makes death a resource line the table must respect."
+              }
+            ],
+            "weird_stretch_commanders": [
+              {
+                "exact_card_name": "Toshiro Umezawa",
+                "display_name": "Toshiro Umezawa",
+                "scryfall_uri": "https://scryfall.com/card/bok/89/toshiro-umezawa",
+                "edhrec_uri": "https://edhrec.com/commanders/toshiro-umezawa",
+                "color_identity": [
+                  "B"
+                ],
+                "commander_legal": true,
+                "recommendation_type": "Weird Stretch",
+                "archetype_tags": [
+                  "Control",
+                  "Spellslinger"
+                ],
+                "why_this_fits": "Pulls Black toward an unusual instant-recursion control shell where every opposing death opens a line.",
+                "skip_if": "You want Black's sacrifice or reanimation plan to be obvious from the command zone.",
+                "gameplay_summary": "Turns opposing creature deaths into windows for recasting instants from your graveyard."
+              }
+            ],
+            "advanced_complexity_commanders": [
+              {
+                "exact_card_name": "Yawgmoth, Thran Physician",
+                "display_name": "Yawgmoth, Thran Physician",
+                "scryfall_uri": "https://scryfall.com/card/dmr/110/yawgmoth-thran-physician",
+                "edhrec_uri": "https://edhrec.com/commanders/yawgmoth-thran-physician",
+                "color_identity": [
+                  "B"
+                ],
+                "commander_legal": true,
+                "recommendation_type": "Advanced",
+                "archetype_tags": [
+                  "Aristocrats",
+                  "Counters"
+                ],
+                "why_this_fits": "Compresses life payment, sacrifice, cards, counters, and control into one demanding engine.",
+                "skip_if": "You want a straightforward first mono-black deck rather than a sequencing-heavy sacrifice deck.",
+                "gameplay_summary": "Pays life and sacrifices creatures to draw cards, weaken creatures, and assemble recursive engines."
+              }
+            ],
+            "archetype_lanes": [
+              {
+                "lane_name": "Life Payment Engines",
+                "description": "Spend life and creatures as fuel, then convert the risk into cards, mana, and inevitability.",
+                "recommended_for": "K'rrik, Son of Yawgmoth",
+                "skip_if": "You want a deck that protects its life total before spending it.",
+                "example_commanders": [
+                  "K'rrik, Son of Yawgmoth",
+                  "Vito, Thorn of the Dusk Rose"
+                ],
+                "supporting_identity_terms": [
+                  "cost",
+                  "agency",
+                  "power at a price"
+                ],
+                "complexity": "Medium",
+                "budget_friendliness": "Medium"
+              }
+            ]
+          }
+        },
+        "biological_expression": {
+          "archetype": "The Self-Sovereign Operator",
+          "primary_foundation": "Liberty",
+          "secondary_foundation": "Authority",
+          "risk_signal": "high agency risk",
+          "inhibitor_trigger": "Outsources survival to systems or promises that may not protect them when the cost arrives."
+        },
+        "placement": {
+          "good_fit_indicators": [
+            "treats cost as a tool instead of only a warning sign",
+            "protects agency through leverage and self-sufficiency",
+            "turns loss, death, or spent resources into future advantage"
+          ],
+          "poor_fit_indicators": [
+            "needs power to feel morally clean before using it",
+            "expects fairness to protect them without leverage",
+            "rejects cost, ambition, or self-prioritization as inherently corrupt"
+          ],
+          "inhibitor_traps": [
+            "outsources survival to systems that may not protect them",
+            "confuses self-interest with cruelty by default",
+            "refuses asymmetrical advantage even when threatened"
+          ],
+          "placement_axes": {
+            "required_positive_evidence_terms": [
+              "power",
+              "cost",
+              "agency",
+              "leverage",
+              "survival",
+              "self-preservation",
+              "resource conversion",
+              "graveyard",
+              "sacrifice",
+              "pay life"
+            ],
+            "required_positive_min_hits": 2,
+            "strengthen_when_user_centers": [
+              "power at a cost",
+              "personal agency",
+              "graveyard as resource",
+              "resource conversion",
+              "self-preservation"
+            ],
+            "suppress_when_user_centers": [
+              "group safety over self",
+              "procedure above leverage",
+              "wild immediate expression",
+              "acceptance of natural role"
+            ],
+            "false_positive_guardrail": "Do not award for generic ambition, generic darkness, or cruelty without clear cost, agency, survival, or resource-conversion language.",
+            "broad_match_penalty": 0.12
+          },
+          "chatbot_guidance": {
+            "how_to_recognize_match": [
+              "treats cost as a tool instead of only a warning sign",
+              "protects agency through leverage and self-sufficiency",
+              "turns loss, death, or spent resources into future advantage"
+            ],
+            "how_to_recognize_mismatch": [
+              "needs power to feel morally clean before using it",
+              "expects fairness to protect them without leverage",
+              "rejects cost, ambition, or self-prioritization as inherently corrupt"
+            ],
+            "questions_to_ask_when_uncertain": [
+              "What are you willing to pay so your fate stays yours?",
+              "When fairness fails, what resource do you convert first?"
+            ],
+            "never_claim_as_canon": [
+              "Psychological placement categories are Vox Mana interpretation, not official Wizards canon.",
+              "Do not state that a user's personality is objectively determined by a color or expression.",
+              "Placement scoring is a Vox Mana interpretation, not official Wizards canon."
+            ],
+            "calibration_note": "Black should require explicit cost, agency, leverage, survival, sacrifice, or resource-conversion language. Keep it adjacent when the answer only contains generic ambition or villain-coded aesthetics.",
+            "scoring_guardrail": "Do not award for generic ambition, generic darkness, or cruelty without clear cost, agency, survival, or resource-conversion language."
+          },
+          "discriminator_questions": [
+            {
+              "question_id": "black_q1",
+              "question": "What do you trust when fairness fails and no one is coming to save you?",
+              "purpose": "Separates Black's self-preservation logic from pair expressions that route power through secrecy, spectacle, cycle, or debt.",
+              "answer_pattern_that_supports_this_faction": "The answer prioritizes personal agency, paid costs, leverage, or resource conversion that keeps fate self-owned.",
+              "answer_pattern_that_weakens_this_faction": "The answer waits for an institution, group bond, natural role, or emotional release to solve the danger first.",
+              "collision_targets": [
+                "UB",
+                "BR",
+                "BG",
+                "WB"
+              ],
+              "confidence": "Medium"
+            },
+            {
+              "question_id": "black_q2",
+              "question": "When something valuable must be sacrificed to keep control, what makes the cost acceptable?",
+              "purpose": "Separates Black's transactional cost logic from adjacent expressions that moralize, ritualize, or dramatize the exchange.",
+              "answer_pattern_that_supports_this_faction": "The answer treats the cost as a deliberate exchange for survival, control, cards, access, or durable leverage.",
+              "answer_pattern_that_weakens_this_faction": "The answer treats sacrifice as unacceptable unless it serves group duty, natural renewal, or public catharsis.",
+              "collision_targets": [
+                "WB",
+                "BG",
+                "BR"
+              ],
+              "confidence": "Medium"
+            }
+          ],
+          "collision_guidance": [
+            {
+              "collision_id": "collision_black_dimir",
+              "against": "UB",
+              "separator": "Black secures agency by paying costs directly; Dimir turns power through secrecy, timing, and information advantage.",
+              "ask": "If the price must be paid now, do you buy control directly or wait until hidden information makes the move safer?"
+            },
+            {
+              "collision_id": "collision_black_rakdos",
+              "against": "BR",
+              "separator": "Black spends resources for survival and control; Rakdos spends restraint for release, appetite, and spectacle.",
+              "ask": "Is the cost acceptable because it keeps your fate yours, or because it finally lets the pressure out?"
+            },
+            {
+              "collision_id": "collision_black_golgari",
+              "against": "BG",
+              "separator": "Black treats death as an asset for personal leverage; Golgari treats death as a cycle of survival and renewal.",
+              "ask": "Does the graveyard matter because it belongs to your plan, or because decay feeds the next life?"
+            },
+            {
+              "collision_id": "collision_black_orzhov",
+              "against": "WB",
+              "separator": "Black protects self-sovereignty; Orzhov makes power durable through debt, hierarchy, and obligation.",
+              "ask": "Would you rather own the leverage privately, or bind it into an obligation no one can escape?"
+            }
+          ]
+        }
+      },
+      "R": {
+        "key": "R",
+        "active": true,
+        "kind": "color",
+        "name": "Red",
+        "world": "The Color Pie",
+        "colors": [
+          "R"
+        ],
+        "core_color": "R",
+        "secondary_colors": [],
+        "routing": {
+          "edhrec_slug": "mono-red",
+          "mtgdecks_slug": "mono-red",
+          "label": "Red"
+        },
+        "identity_blend": "Red expressed without a secondary color.",
+        "display": {
+          "key": "R",
+          "name": "Red",
+          "institution_type": "color",
+          "world": "The Color Pie",
+          "colors": [
+            "R"
+          ],
+          "accent": "#e15b36",
+          "banner": "linear-gradient(160deg,rgba(225,91,54,0.38) 0%,rgba(84,29,20,0.24) 58%,rgba(14,7,5,0.12) 100%)",
+          "tagline": "The honest spark moves before the cage closes.",
+          "philosophy": "Red believes feeling is a form of truth. Freedom becomes real when the impulse is allowed to move now, before fear, permission, or overthinking can smother it.",
+          "lore_summary": "Red does not need cruelty, theater, primal belonging, or technical performance to prove itself. It trusts the present moment, ignites the next action, and lets emotion reveal what matters.",
+          "core_tension": "Red protects aliveness through immediacy and freedom, but its virtue can burn out when every delay feels like a cage.",
+          "affinity": {
+            "drawn_to": [
+              "Immediate action before paralysis settles in",
+              "Freedom from permission and artificial restraint",
+              "Emotion trusted as honest information",
+              "Direct damage, haste, impulse draw, and temporary momentum"
+            ],
+            "repelled_by": [
+              "Waiting until every variable is approved",
+              "Rules that smother feeling before anyone is harmed",
+              "Turning every impulse into performance, cruelty, or theory",
+              "Plans that preserve safety while the living moment goes cold"
+            ],
+            "core_question": "What has to move now because the feeling is already true?",
+            "interview_tells": [
+              "Names the honest first action before naming the perfect plan",
+              "Frames freedom as breath, motion, and self-expression",
+              "Prefers direct pressure to hidden leverage or slow permission",
+              "Treats emotion as a signal to answer, not a flaw to suppress"
+            ],
+            "not_to_be_confused_with": "Boros turns urgency toward protection and conviction; Izzet turns impulse into experiment and technique; Rakdos turns release toward transgression and pain-as-spectacle; Gruul roots freedom in wildness, instinct, and primal belonging."
+          },
+          "decree_voice": {
+            "tone": "Kinetic, warm, and immediate without cruelty or performance-posturing.",
+            "speaks_like": "A spark that wants the true thing said, chosen, or done before life goes numb.",
+            "example_opening": "The reading turns toward impulse, freedom, and the honest action that refuses to wait.",
+            "example_decree": "The reading turns toward impulse, freedom, and the honest action that refuses to wait. Red does not ask you to make the feeling respectable first. It asks what wants to move now, what cage has become too small, and what spark will keep the moment alive."
+          },
+          "archetypes": [
+            {
+              "name": "Burn and Damage",
+              "desc": "Turn feeling into direct pressure with clean damage, fast clocks, and threat math the table cannot ignore."
+            },
+            {
+              "name": "Haste Aggro",
+              "desc": "Commit quickly, attack before the table stabilizes, and make the first honest move matter."
+            },
+            {
+              "name": "Impulse Draw and Treasures",
+              "desc": "Use cards and mana in the moment, converting temporary windows into explosive Commander turns."
+            }
+          ],
+          "staples": {
+            "creatures": [
+              "Torbran, Thane of Red Fell",
+              "Krenko, Mob Boss",
+              "Professional Face-Breaker"
+            ],
+            "spells": [
+              "Jeska's Will",
+              "Blasphemous Act",
+              "Chaos Warp"
+            ],
+            "permanents": [
+              "Impact Tremors",
+              "Outpost Siege",
+              "Fiery Emancipation"
+            ]
+          },
+          "land_base": {
+            "premium": [
+              "Valakut, the Molten Pinnacle",
+              "Sokenzan, Crucible of Defiance"
+            ],
+            "midrange": [
+              "Den of the Bugbear",
+              "Castle Embereth"
+            ],
+            "budget": [
+              "Forgotten Cave",
+              "Myriad Landscape"
+            ],
+            "utility": [
+              "Hanweir Battlements",
+              "War Room"
+            ],
+            "optimal": "Valakut, the Molten Pinnacle / Sokenzan, Crucible of Defiance / Den of the Bugbear / War Room / Hanweir Battlements",
+            "mid": "Sokenzan, Crucible of Defiance / Den of the Bugbear / Castle Embereth / War Room / Myriad Landscape",
+            "budget_line": "Forgotten Cave / Myriad Landscape / Castle Embereth / Hanweir Battlements / Mountain",
+            "utility_line": "Hanweir Battlements / War Room / Den of the Bugbear / Sokenzan, Crucible of Defiance"
+          },
+          "deck_links": [
+            {
+              "fmt": "Commander",
+              "name": "Red Commanders",
+              "desc": "Burn, haste, impulse draw, treasures, and direct-action lines for mono-red Commander starts.",
+              "mtgg": null,
+              "edhrec": "https://edhrec.com/commanders/mono-red",
+              "mtgd": "https://mtgdecks.net/Commander/mono-red-commanders"
+            }
+          ],
+          "research_links": {
+            "edhrec_slug": "mono-red"
+          },
+          "commander_compass": {
+            "native_fit_commanders": [
+              {
+                "exact_card_name": "Torbran, Thane of Red Fell",
+                "display_name": "Torbran, Thane of Red Fell",
+                "scryfall_uri": "https://scryfall.com/card/eld/147/torbran-thane-of-red-fell",
+                "edhrec_uri": "https://edhrec.com/commanders/torbran-thane-of-red-fell",
+                "color_identity": [
+                  "R"
+                ],
+                "commander_legal": true,
+                "recommendation_type": "Native Fit",
+                "archetype_tags": [
+                  "Burn",
+                  "Damage"
+                ],
+                "why_this_fits": "Makes Red's direct-action philosophy literal by turning every red damage source into a louder spark.",
+                "skip_if": "You want creature swarms or treasure engines more than damage math.",
+                "gameplay_summary": "Amplifies red damage, pressures life totals quickly, and rewards a deck built to turn small sparks into decisive hits."
+              },
+              {
+                "exact_card_name": "Krenko, Mob Boss",
+                "display_name": "Krenko, Mob Boss",
+                "scryfall_uri": "https://scryfall.com/card/fdn/204/krenko-mob-boss",
+                "edhrec_uri": "https://edhrec.com/commanders/krenko-mob-boss",
+                "color_identity": [
+                  "R"
+                ],
+                "commander_legal": true,
+                "recommendation_type": "Native Fit",
+                "archetype_tags": [
+                  "Tokens",
+                  "Aggro"
+                ],
+                "why_this_fits": "Turns one quick opening into a table-wide rush, keeping Red centered on momentum and immediate pressure.",
+                "skip_if": "You dislike creature combat or decks that announce their pressure early.",
+                "gameplay_summary": "Multiplies Goblins, snowballs through combat, and asks the table to answer the board before it doubles again."
+              },
+              {
+                "exact_card_name": "Magda, Brazen Outlaw",
+                "display_name": "Magda, Brazen Outlaw",
+                "scryfall_uri": "https://scryfall.com/card/khm/142/magda-brazen-outlaw",
+                "edhrec_uri": "https://edhrec.com/commanders/magda-brazen-outlaw",
+                "color_identity": [
+                  "R"
+                ],
+                "commander_legal": true,
+                "recommendation_type": "Native Fit",
+                "archetype_tags": [
+                  "Treasures",
+                  "Artifacts"
+                ],
+                "why_this_fits": "Converts attack steps into temporary mana and immediate access without leaving mono-Red's action-first center.",
+                "skip_if": "You want a pure burn deck instead of a treasure-driven pressure engine.",
+                "gameplay_summary": "Makes Treasures as Dwarves tap, then cashes those Treasures into artifacts or Dragons when the opening appears."
+              }
+            ],
+            "weird_stretch_commanders": [
+              {
+                "exact_card_name": "Feldon of the Third Path",
+                "display_name": "Feldon of the Third Path",
+                "scryfall_uri": "https://scryfall.com/card/moc/277/feldon-of-the-third-path",
+                "edhrec_uri": "https://edhrec.com/commanders/feldon-of-the-third-path",
+                "color_identity": [
+                  "R"
+                ],
+                "commander_legal": true,
+                "recommendation_type": "Weird Stretch",
+                "archetype_tags": [
+                  "Artifacts",
+                  "Reanimator"
+                ],
+                "why_this_fits": "Shows Red's impermanence from an unusual angle: bring the feeling back for one turn and let that moment matter.",
+                "skip_if": "You want Red's pressure to be immediate combat damage rather than temporary graveyard copies.",
+                "gameplay_summary": "Creates hasty artifact copies of creatures in the graveyard, turning memory into one urgent attack window."
+              }
+            ],
+            "advanced_complexity_commanders": [
+              {
+                "exact_card_name": "Neheb, the Eternal",
+                "display_name": "Neheb, the Eternal",
+                "scryfall_uri": "https://scryfall.com/card/mkc/158/neheb-the-eternal",
+                "edhrec_uri": "https://edhrec.com/commanders/neheb-the-eternal",
+                "color_identity": [
+                  "R"
+                ],
+                "commander_legal": true,
+                "recommendation_type": "Advanced",
+                "archetype_tags": [
+                  "Big Mana",
+                  "Burn"
+                ],
+                "why_this_fits": "Turns damage already dealt into a second burst of red mana, rewarding Red's love of the present tense.",
+                "skip_if": "You want a low-sequencing aggro deck instead of a second-main-phase mana engine.",
+                "gameplay_summary": "Converts opponents' lost life into red mana after combat, enabling explosive follow-up turns."
+              }
+            ],
+            "archetype_lanes": [
+              {
+                "lane_name": "Immediate Damage",
+                "description": "Aim the deck at fast pressure, clean damage, and impulse-fueled turns that make the first spark count.",
+                "recommended_for": "Torbran, Thane of Red Fell",
+                "skip_if": "You want Red to win through a slower artifact or graveyard puzzle.",
+                "example_commanders": [
+                  "Torbran, Thane of Red Fell",
+                  "Neheb, the Eternal"
+                ],
+                "supporting_identity_terms": [
+                  "immediacy",
+                  "freedom",
+                  "direct action"
+                ],
+                "complexity": "Medium",
+                "budget_friendliness": "Medium"
+              }
+            ]
+          }
+        },
+        "biological_expression": {
+          "archetype": "The Ignition Heart",
+          "primary_foundation": "Liberty",
+          "secondary_foundation": "Care",
+          "risk_signal": "volatile immediacy risk",
+          "inhibitor_trigger": "Waits for permission, perfect certainty, or social approval until the honest moment goes cold."
+        },
+        "placement": {
+          "good_fit_indicators": [
+            "acts before paralysis can turn feeling into theory",
+            "protects freedom through direct motion and honest impulse",
+            "uses temporary openings, damage, speed, or momentum while they are alive"
+          ],
+          "poor_fit_indicators": [
+            "needs every feeling justified before it can move",
+            "turns impulse into cruelty, performance, or technique before answering it",
+            "confuses freedom with domination, primal belonging, or hidden leverage"
+          ],
+          "inhibitor_traps": [
+            "waits for permission until the moment passes",
+            "mistakes direct feeling for immaturity by default",
+            "needs impulse to become art, experiment, or spectacle before trusting it"
+          ],
+          "placement_axes": {
+            "required_positive_evidence_terms": [
+              "immediacy",
+              "freedom",
+              "impulse",
+              "emotion",
+              "spark",
+              "ignition",
+              "direct action",
+              "haste",
+              "burn",
+              "momentum"
+            ],
+            "required_positive_min_hits": 2,
+            "strengthen_when_user_centers": [
+              "act now",
+              "honest impulse",
+              "freedom through motion",
+              "emotion as truth",
+              "direct pressure"
+            ],
+            "suppress_when_user_centers": [
+              "pain as spectacle",
+              "sacrifice for value",
+              "primal belonging",
+              "crafted experiment",
+              "technique before feeling"
+            ],
+            "false_positive_guardrail": "Do not award for generic chaos, generic aggression, cruelty, wildness, spectacle, or spell technique without clear immediacy, freedom, impulse, emotion, ignition, or direct-action language.",
+            "broad_match_penalty": 0.12
+          },
+          "chatbot_guidance": {
+            "how_to_recognize_match": [
+              "acts before paralysis can turn feeling into theory",
+              "protects freedom through direct motion and honest impulse",
+              "uses temporary openings, damage, speed, or momentum while they are alive"
+            ],
+            "how_to_recognize_mismatch": [
+              "needs every feeling justified before it can move",
+              "turns impulse into cruelty, performance, or technique before answering it",
+              "confuses freedom with domination, primal belonging, or hidden leverage"
+            ],
+            "questions_to_ask_when_uncertain": [
+              "What has to move now because the feeling is already true?",
+              "If no one gave permission, what honest action would still need to happen?"
+            ],
+            "never_claim_as_canon": [
+              "Psychological placement categories are Vox Mana interpretation, not official Wizards canon.",
+              "Do not state that a user's personality is objectively determined by a color or expression.",
+              "Placement scoring is a Vox Mana interpretation, not official Wizards canon."
+            ],
+            "calibration_note": "Red should require explicit immediacy, freedom, impulse, emotion, ignition, direct action, damage, haste, or temporary momentum language. Keep it adjacent when the answer centers cruelty, transgression, primal belonging, experiment, or performance craft.",
+            "scoring_guardrail": "Do not award for generic chaos, generic aggression, cruelty, wildness, spectacle, or spell technique without clear immediacy, freedom, impulse, emotion, ignition, or direct-action language."
+          },
+          "discriminator_questions": [
+            {
+              "question_id": "red_q1",
+              "question": "What has to move now because the feeling is already true?",
+              "purpose": "Separates Red's immediate emotional action from adjacent expressions that route urgency through protection, cruelty, wild belonging, or technique.",
+              "answer_pattern_that_supports_this_faction": "The answer centers honest impulse, freedom, ignition, or direct action before permission or perfect certainty.",
+              "answer_pattern_that_weakens_this_faction": "The answer requires the impulse to become protection, transgression, primal belonging, or experiment before it can matter.",
+              "collision_targets": [
+                "WR",
+                "UR",
+                "BR",
+                "RG"
+              ],
+              "confidence": "Medium"
+            },
+            {
+              "question_id": "red_q2",
+              "question": "If the door is closing, what kind of action keeps the moment alive?",
+              "purpose": "Separates mono-Red's ignition and present-tense freedom from pair expressions with more specific moral, technical, cruel, or primal commitments.",
+              "answer_pattern_that_supports_this_faction": "The answer favors direct motion, haste, damage, temporary momentum, or emotional honesty in the present tense.",
+              "answer_pattern_that_weakens_this_faction": "The answer centers rescuing someone, crafting an experiment, making pain public, or returning to wild belonging.",
+              "collision_targets": [
+                "WR",
+                "UR",
+                "BR",
+                "RG"
+              ],
+              "confidence": "Medium"
+            }
+          ],
+          "collision_guidance": [
+            {
+              "collision_id": "collision_red_boros",
+              "against": "WR",
+              "separator": "Red moves because the feeling is true now; Boros turns urgency toward protection, conviction, and intervening against harm.",
+              "ask": "Is the first action about freeing the honest impulse, or about protecting someone from the next blow?"
+            },
+            {
+              "collision_id": "collision_red_izzet",
+              "against": "UR",
+              "separator": "Red trusts the spark before technique; Izzet builds the prototype, experiment, or spellcraft that lets the spark teach.",
+              "ask": "Do you act because the feeling already knows, or because the test needs to reveal what is possible?"
+            },
+            {
+              "collision_id": "collision_red_rakdos",
+              "against": "BR",
+              "separator": "Red wants freedom and direct release; Rakdos pushes release toward transgression, appetite, pain, and public rupture.",
+              "ask": "Does the action matter because it lets you breathe, or because it breaks restraint loudly enough to unsettle the room?"
+            },
+            {
+              "collision_id": "collision_red_gruul",
+              "against": "RG",
+              "separator": "Red follows emotion in the present; Gruul grounds that freedom in wildness, instinct, bodily force, and primal belonging.",
+              "ask": "Is the impulse true because you feel it now, or because the wild body and its kin already know the path?"
+            }
+          ]
+        }
+      },
+      "G": {
+        "key": "G",
+        "active": true,
+        "kind": "color",
+        "name": "Green",
+        "world": "The Color Pie",
+        "colors": [
+          "G"
+        ],
+        "core_color": "G",
+        "secondary_colors": [],
+        "routing": {
+          "edhrec_slug": "mono-green",
+          "mtgdecks_slug": "mono-green",
+          "label": "Green"
+        },
+        "identity_blend": "Green expressed without a secondary color.",
+        "display": {
+          "key": "G",
+          "name": "Green",
+          "institution_type": "color",
+          "world": "The Color Pie",
+          "colors": [
+            "G"
+          ],
+          "accent": "#5f9f55",
+          "banner": "linear-gradient(160deg,rgba(95,159,85,0.36) 0%,rgba(38,72,39,0.24) 58%,rgba(7,14,8,0.12) 100%)",
+          "tagline": "The seed remembers what it is becoming.",
+          "philosophy": "Green believes the world is not an unsolved machine. It is a living order already holding each creature's place, and strength comes from accepting nature, rooting deeply, and letting time reveal what was always in the seed.",
+          "lore_summary": "Green listens for the old pattern beneath the noise: land, instinct, kinship with living systems, patient growth, and the quiet confidence to become what the world has already made possible.",
+          "core_tension": "Green protects flourishing through acceptance and interdependence, but its virtue can harden into stagnation when every necessary change is dismissed as unnatural.",
+          "affinity": {
+            "drawn_to": [
+              "Organic growth that follows the shape of life",
+              "Natural order, instinct, and old patterns that still hold",
+              "Land, creatures, ramp, and patient resource abundance",
+              "Belonging to the living world without needing to redesign it"
+            ],
+            "repelled_by": [
+              "Forcing every limit into an engineered improvement project",
+              "Treating life, land, or kinship as disposable fuel",
+              "Mistaking domination, rage, or spectacle for instinct",
+              "Calling patience weakness when roots are still deepening"
+            ],
+            "core_question": "What are you already becoming when you stop fighting your nature?",
+            "interview_tells": [
+              "Talks about growth as an unfolding, not a reinvention",
+              "Trusts instinct, seasons, and embodied knowledge before abstract redesign",
+              "Finds strength in land, creatures, roots, and living interdependence",
+              "Prefers patient inevitability to frantic correction"
+            ],
+            "not_to_be_confused_with": "Selesnya turns belonging into shared community; Simic and Quandrix route growth through adaptation, optimization, or pattern logic; Golgari and Witherbloom center decay, reclamation, and life-death exchange; Gruul turns instinct into wild refusal and force."
+          },
+          "decree_voice": {
+            "tone": "Grounded, patient, and quietly immense without becoming passive.",
+            "speaks_like": "An old forest that trusts the roots before it answers the storm.",
+            "example_opening": "The reading turns toward roots, instinct, and the life that keeps becoming itself.",
+            "example_decree": "The reading turns toward roots, instinct, and the life that keeps becoming itself. Green does not ask you to outthink the seed. It asks what already knows how to grow, what pace will let strength become real, and what old belonging returns when the living world is trusted again."
+          },
+          "archetypes": [
+            {
+              "name": "Ramp and Big Mana",
+              "desc": "Root into lands, widen your resource base, and let patience become overwhelming scale."
+            },
+            {
+              "name": "Apex Creatures",
+              "desc": "Cast massive living threats, trample through stalled boards, and make physical presence answer the table."
+            },
+            {
+              "name": "Landfall and Creature Value",
+              "desc": "Treat land drops and creatures as a living engine that draws cards, grows boards, and keeps flourishing."
+            }
+          ],
+          "staples": {
+            "creatures": [
+              "Azusa, Lost but Seeking",
+              "Selvala, Heart of the Wilds",
+              "Eternal Witness"
+            ],
+            "spells": [
+              "Cultivate",
+              "Kodama's Reach",
+              "Heroic Intervention"
+            ],
+            "permanents": [
+              "The Great Henge",
+              "Guardian Project",
+              "Zendikar Resurgent"
+            ]
+          },
+          "land_base": {
+            "premium": [
+              "Gaea's Cradle",
+              "Boseiju, Who Endures"
+            ],
+            "midrange": [
+              "Nykthos, Shrine to Nyx",
+              "Yavimaya, Cradle of Growth"
+            ],
+            "budget": [
+              "Tranquil Thicket",
+              "Myriad Landscape"
+            ],
+            "utility": [
+              "Mosswort Bridge",
+              "War Room"
+            ],
+            "optimal": "Gaea's Cradle / Boseiju, Who Endures / Nykthos, Shrine to Nyx / Yavimaya, Cradle of Growth / Mosswort Bridge",
+            "mid": "Boseiju, Who Endures / Nykthos, Shrine to Nyx / Yavimaya, Cradle of Growth / War Room / Myriad Landscape",
+            "budget_line": "Tranquil Thicket / Myriad Landscape / Mosswort Bridge / War Room / Forest",
+            "utility_line": "Mosswort Bridge / War Room / Boseiju, Who Endures / Yavimaya, Cradle of Growth"
+          },
+          "deck_links": [
+            {
+              "fmt": "Commander",
+              "name": "Green Commanders",
+              "desc": "Ramp, big mana, lands, creature value, and natural flourishing lines for mono-green Commander starts.",
+              "mtgg": null,
+              "edhrec": "https://edhrec.com/commanders/mono-green",
+              "mtgd": "https://mtgdecks.net/Commander/mono-green-commanders"
+            }
+          ],
+          "research_links": {
+            "edhrec_slug": "mono-green"
+          },
+          "commander_compass": {
+            "native_fit_commanders": [
+              {
+                "exact_card_name": "Azusa, Lost but Seeking",
+                "display_name": "Azusa, Lost but Seeking",
+                "scryfall_uri": "https://scryfall.com/card/cmm/274/azusa-lost-but-seeking",
+                "edhrec_uri": "https://edhrec.com/commanders/azusa-lost-but-seeking",
+                "color_identity": [
+                  "G"
+                ],
+                "commander_legal": true,
+                "recommendation_type": "Native Fit",
+                "archetype_tags": [
+                  "Lands",
+                  "Ramp"
+                ],
+                "why_this_fits": "Makes Green's patience literal by turning extra land drops into steady, natural acceleration.",
+                "skip_if": "You want creature combat to be the first identity signal rather than lands and resource growth.",
+                "gameplay_summary": "Plays additional lands each turn, letting the deck root early and reach large green spells ahead of the table."
+              },
+              {
+                "exact_card_name": "Selvala, Heart of the Wilds",
+                "display_name": "Selvala, Heart of the Wilds",
+                "scryfall_uri": "https://scryfall.com/card/ecc/116/selvala-heart-of-the-wilds",
+                "edhrec_uri": "https://edhrec.com/commanders/selvala-heart-of-the-wilds",
+                "color_identity": [
+                  "G"
+                ],
+                "commander_legal": true,
+                "recommendation_type": "Native Fit",
+                "archetype_tags": [
+                  "Ramp",
+                  "Big Mana"
+                ],
+                "why_this_fits": "Converts creature size into mana and cards, letting living scale become the resource engine.",
+                "skip_if": "You dislike decks that can become high-power mana engines quickly.",
+                "gameplay_summary": "Rewards large creatures with cards and taps for mana based on the greatest power among creatures."
+              },
+              {
+                "exact_card_name": "Goreclaw, Terror of Qal Sisma",
+                "display_name": "Goreclaw, Terror of Qal Sisma",
+                "scryfall_uri": "https://scryfall.com/card/cmm/293/goreclaw-terror-of-qal-sisma",
+                "edhrec_uri": "https://edhrec.com/commanders/goreclaw-terror-of-qal-sisma",
+                "color_identity": [
+                  "G"
+                ],
+                "commander_legal": true,
+                "recommendation_type": "Native Fit",
+                "archetype_tags": [
+                  "Big Creatures",
+                  "Trample"
+                ],
+                "why_this_fits": "Keeps mono-Green centered on apex creatures, natural scale, and combat that follows from size.",
+                "skip_if": "You want landfall or card-draw engines more than creature-cost reduction and attacks.",
+                "gameplay_summary": "Discounts large creatures, then gives your high-power attackers trample and a temporary boost in combat."
+              }
+            ],
+            "weird_stretch_commanders": [
+              {
+                "exact_card_name": "Yeva, Nature's Herald",
+                "display_name": "Yeva, Nature's Herald",
+                "scryfall_uri": "https://scryfall.com/card/rvr/162/yeva-natures-herald",
+                "edhrec_uri": "https://edhrec.com/commanders/yeva-natures-herald",
+                "color_identity": [
+                  "G"
+                ],
+                "commander_legal": true,
+                "recommendation_type": "Weird Stretch",
+                "archetype_tags": [
+                  "Flash",
+                  "Creature Value"
+                ],
+                "why_this_fits": "Shows Green's patience from a timing angle: hold still, then let the living answer arrive at the right moment.",
+                "skip_if": "You want a straightforward tap-out ramp deck instead of reactive creature sequencing.",
+                "gameplay_summary": "Gives green creatures flash, letting the deck keep mana open and develop its board on other turns."
+              }
+            ],
+            "advanced_complexity_commanders": [
+              {
+                "exact_card_name": "Ashaya, Soul of the Wild",
+                "display_name": "Ashaya, Soul of the Wild",
+                "scryfall_uri": "https://scryfall.com/card/dsc/170/ashaya-soul-of-the-wild",
+                "edhrec_uri": "https://edhrec.com/commanders/ashaya-soul-of-the-wild",
+                "color_identity": [
+                  "G"
+                ],
+                "commander_legal": true,
+                "recommendation_type": "Advanced",
+                "archetype_tags": [
+                  "Lands",
+                  "Combo"
+                ],
+                "why_this_fits": "Turns creatures into Forests, making Green's land-creature interdependence powerful and rules-dense.",
+                "skip_if": "You want your first mono-Green deck to avoid layered permanent-type interactions.",
+                "gameplay_summary": "Makes nontoken creatures you control into Forest lands in addition to their other types, opening intricate land and creature synergies."
+              }
+            ],
+            "archetype_lanes": [
+              {
+                "lane_name": "Rooted Growth",
+                "description": "Ramp through lands and creatures, keep the board alive, and let natural scale become inevitability.",
+                "recommended_for": "Azusa, Lost but Seeking",
+                "skip_if": "You want Green to be mainly a timing puzzle or a single massive attacker.",
+                "example_commanders": [
+                  "Azusa, Lost but Seeking",
+                  "Selvala, Heart of the Wilds"
+                ],
+                "supporting_identity_terms": [
+                  "organic growth",
+                  "patience",
+                  "natural flourishing"
+                ],
+                "complexity": "Medium",
+                "budget_friendliness": "Medium"
+              }
+            ]
+          }
+        },
+        "biological_expression": {
+          "archetype": "The Rooted Becoming",
+          "primary_foundation": "Sanctity",
+          "secondary_foundation": "Loyalty",
+          "risk_signal": "stagnation risk",
+          "inhibitor_trigger": "Rejects natural limits, inherited strengths, or patient growth unless life can be redesigned into a preferred shape."
+        },
+        "placement": {
+          "good_fit_indicators": [
+            "trusts organic growth and natural pace before forced reinvention",
+            "roots strength in land, creatures, instinct, and embodied belonging",
+            "lets patience reveal what was already possible in the living system"
+          ],
+          "poor_fit_indicators": [
+            "needs every limit redesigned before any growth can be trusted",
+            "turns life into a resource economy instead of a living order",
+            "confuses instinct with rage, spectacle, domination, or anti-civilization force"
+          ],
+          "inhibitor_traps": [
+            "treats acceptance as failure by default",
+            "rejects inherited nature whenever it cannot be optimized",
+            "mistakes patience and rootedness for passivity"
+          ],
+          "placement_axes": {
+            "required_positive_evidence_terms": [
+              "organic growth",
+              "natural order",
+              "acceptance",
+              "patience",
+              "instinct",
+              "land",
+              "roots",
+              "flourishing",
+              "creatures",
+              "ramp",
+              "big mana",
+              "becoming",
+              "natural belonging"
+            ],
+            "required_positive_min_hits": 2,
+            "strengthen_when_user_centers": [
+              "become what you are",
+              "organic growth",
+              "accept natural role",
+              "patience through roots",
+              "instinct and land",
+              "natural flourishing"
+            ],
+            "suppress_when_user_centers": [
+              "communal mobilization",
+              "engineered adaptation",
+              "mathematical optimization",
+              "rot and reclamation economy",
+              "rage and smash pressure",
+              "sacrifice for value"
+            ],
+            "false_positive_guardrail": "Do not award mono-Green for generic community, token mobilization, engineered adaptation, mathematical scaling, decay economy, reclamation loops, rage, smash, or raw pressure without clear organic growth, acceptance, patience, instinct, land, roots, creatures, or natural flourishing language.",
+            "broad_match_penalty": 0.12
+          },
+          "chatbot_guidance": {
+            "how_to_recognize_match": [
+              "trusts organic growth and natural pace before forced reinvention",
+              "roots strength in land, creatures, instinct, and embodied belonging",
+              "lets patience reveal what was already possible in the living system"
+            ],
+            "how_to_recognize_mismatch": [
+              "needs every limit redesigned before any growth can be trusted",
+              "turns life into a resource economy instead of a living order",
+              "confuses instinct with rage, spectacle, domination, or anti-civilization force"
+            ],
+            "questions_to_ask_when_uncertain": [
+              "What are you already becoming when you stop fighting your nature?",
+              "Does the answer need to be redesigned, or does it need time, roots, and trust?"
+            ],
+            "never_claim_as_canon": [
+              "Psychological placement categories are Vox Mana interpretation, not official Wizards canon.",
+              "Do not state that a user's personality is objectively determined by a color or expression.",
+              "Placement scoring is a Vox Mana interpretation, not official Wizards canon."
+            ],
+            "calibration_note": "Green should require explicit organic growth, natural order, acceptance, patience, instinct, land, roots, creatures, ramp, or natural flourishing language. Keep it adjacent when the answer centers community/token mobilization, engineered adaptation, math/pattern abstraction, decay/reclamation economy, or wild-force pressure.",
+            "scoring_guardrail": "Do not award mono-Green for generic community, generic growth, biomancy, equations, rot, reclamation, rage, smash, or pressure without clear organic growth, acceptance, patience, instinct, land, roots, creatures, or natural flourishing language."
+          },
+          "discriminator_questions": [
+            {
+              "question_id": "green_q1",
+              "question": "When life is strained before its roots are deep, what does honest care trust first?",
+              "purpose": "Separates mono-Green's organic pace and natural role from Selesnya community, Simic adaptation, Golgari reclamation, and Gruul wild force.",
+              "answer_pattern_that_supports_this_faction": "The answer centers roots, patience, instinct, land, and becoming what was already present in the living system.",
+              "answer_pattern_that_weakens_this_faction": "The answer turns first to communal identity, engineered change, decay economy, or forceful rupture.",
+              "collision_targets": [
+                "WG",
+                "UG",
+                "BG",
+                "RG"
+              ],
+              "confidence": "Medium"
+            },
+            {
+              "question_id": "green_q2",
+              "question": "What makes strength feel real over time?",
+              "purpose": "Separates Green's patient natural flourishing from adjacent pair expressions that need community, adaptation, reclamation, or wild refusal to explain strength.",
+              "answer_pattern_that_supports_this_faction": "The answer favors land, creatures, roots, instinct, and patient growth that unfolds from inherent nature.",
+              "answer_pattern_that_weakens_this_faction": "The answer centers group mobilization, biological redesign, using remains as economy, or rage against constraint.",
+              "collision_targets": [
+                "WG",
+                "UG",
+                "BG",
+                "RG"
+              ],
+              "confidence": "Medium"
+            }
+          ],
+          "collision_guidance": [
+            {
+              "collision_id": "collision_green_selesnya",
+              "against": "WG",
+              "separator": "Green trusts natural place, organic pace, and living interdependence; Selesnya turns belonging into shared community identity and collective care.",
+              "ask": "Is the first truth the organism finding its natural place, or the community choosing to hold itself together?"
+            },
+            {
+              "collision_id": "collision_green_simic",
+              "against": "UG",
+              "separator": "Green lets inherent nature unfold; Simic changes the living form so it can meet a future the old body cannot survive.",
+              "ask": "Does the life need time to become what it already is, or deliberate adaptation to become fit for what comes next?"
+            },
+            {
+              "collision_id": "collision_green_golgari",
+              "against": "BG",
+              "separator": "Green accepts living cycles and natural flourishing; Golgari makes survival from decay, discard, and reclamation.",
+              "ask": "Is the answer rooted in living growth, or in what can be reclaimed after collapse?"
+            },
+            {
+              "collision_id": "collision_green_gruul",
+              "against": "RG",
+              "separator": "Green follows instinct toward patient flourishing; Gruul turns instinct into wild refusal, bodily force, and resistance to domestication.",
+              "ask": "Does instinct ask you to root and grow, or to break the constraint that cages the wild body?"
+            }
+          ]
         }
       }
     }

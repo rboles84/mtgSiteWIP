@@ -6,10 +6,11 @@ This document traces the main Vox Mana data paths from source content through ge
 
 | Source | Transform | Output | Consumer |
 |---|---|---|---|
+| `data/identity-layers.json` | Local faction artifact builder validates color and expression metadata, then merges it into runtime identity blocks. | `data/factions.json`, `data/placement-model.json`, `data/placement-model.schema.json`, Supabase `faction-context.ts` | Dossier rendering, adaptive reading, and archived terminal prompt context. |
 | `data/raw-factions/*/*.profile.json` | Local faction artifact builder reads faction identity, profile, source, and claim metadata. | `data/placement-model.json`, Supabase `faction-context.ts` | Adaptive reading and the archived Scrying Terminal prompt context. |
 | `data/raw-factions/*/*.placement.json` | Build script normalizes calibration, good/poor indicators, discriminator questions, and lateral inhibition targets. | `data/placement-model.json` | `assets/js/adaptive-placement.js`. |
 | `data/factions.json` | Build script enriches `_meta` while preserving display data. | `data/factions.json` | `assets/js/index.js` dossier rendering. |
-| Build-time constants in the external faction artifact builder | Raw ids map to runtime keys, biological priors, known inhibition, question bank, schema. | `data/placement-model.json`, `data/placement-model.schema.json`, `supabase/functions/guild-recruiter/faction-context.ts` | Frontend and edge function. |
+| Build-time constants in `research/build-faction-artifacts.mjs` | Raw ids map to runtime keys, biological priors, known inhibition, question bank, schema. | `data/placement-model.json`, `data/placement-model.schema.json`, `supabase/functions/guild-recruiter/faction-context.ts` | Frontend and edge function. |
 
 The authoritative edit path is raw/display data first, then `npm run build:factions` from this repo. Generated artifacts should not be hand-edited unless explicitly repairing generated output.
 
@@ -17,7 +18,7 @@ The authoritative edit path is raw/display data first, then `npm run build:facti
 
 | Data | Owner | Storage | Purpose |
 |---|---|---|---|
-| `APP_STATE` | `assets/js/index.js` | In-memory only | Current factions, model, quick answers, adaptive state, active result, active view, interview state, starter profile. Terminal UI state stays dormant unless the feature flag is enabled. |
+| `APP_STATE` | `assets/js/index.js` | In-memory only | Current factions, model, identity-layer catalog, quick answers, adaptive state, active result, active view, interview state, starter profile. Terminal UI state stays dormant unless the feature flag is enabled. |
 | `VM_SESSION` | `assets/js/shared.js` | In-memory plus session storage | Auth/session profile, username, avatar, current interview history/result, saved profile result. Interview state stays dormant unless the feature flag is enabled. |
 | Cached placement result | `assets/js/shared.js` | `sessionStorage` key `vm_cached_result` | Guest and post-OAuth result recovery. |
 | Pending OAuth save | `assets/js/shared.js` | `sessionStorage` key `vm_pending_result` | Holds result while Google OAuth redirect completes. |
@@ -43,6 +44,8 @@ flowchart LR
 ```
 
 All result-producing paths should converge on the versioned placement shape documented in [Data Contracts](../reference/data-contracts.md).
+
+The mono foundation pass adds layered `identity` blocks to primary and adjacent matches. `color_weights` remains optional until scoring can produce it without approximation.
 
 ## External Services
 

@@ -18,6 +18,7 @@ Cards live in the matching status folders under `docs/kanban/`:
 - [VM-011 - Apocrypha Source Atlas and Source Bridge](backlog/VM-011-apocrypha-source-atlas-source-bridge.md)
 - [VM-022 - Maze Core Extraction](backlog/VM-022-maze-core-extraction.md)
 - [VM-024 - Normalize Docs Paths After Reorg](backlog/VM-024-normalize-docs-paths-after-reorg.md)
+- [VM-025 - Combo Discovery Placement Section](backlog/VM-025-combo-discovery-placement-section.md)
 - [VM-013 - Placement Domains Architecture and Post-V1 Faction Expansion](backlog/VM-013-placement-domains-architecture-post-v1-faction-expansion.md)
 - [VM-014 - UI Shell Cleanup and Legacy Terminal Follow-Up](backlog/VM-014-ui-shell-cleanup-legacy-terminal-follow-up.md)
 - [VM-015 - Returning User Commander Fit Check](backlog/VM-015-returning-user-commander-fit-check.md)
@@ -39,6 +40,12 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 ## Done
 
+- [VM-030 - Green Mono Authoring Pass](done/VM-030-green-mono-authoring-pass.md)
+- [VM-029 - Red Mono Authoring Pass](done/VM-029-red-mono-authoring-pass.md)
+- [VM-028 - Blue Mono Authoring Pass](done/VM-028-blue-mono-authoring-pass.md)
+- [VM-027 - Black Mono Authoring Pass](done/VM-027-black-mono-authoring-pass.md)
+- [VM-026 - White Mono Stabilization Pass](done/VM-026-white-mono-stabilization-pass.md)
+- [VM-023 - Mono Identity Layer Refactor + White Pilot](done/VM-023-mono-identity-layer-refactor-white-pilot.md)
 - [VM-021B - Surgical Fix: Adjacent Fits Top Placement + Return Anchor](done/VM-021B-surgical-fix-adjacent-fits-top-placement-return-anchor.md)
 - [VM-005 - Archscry / Maze UX Continuity + Link Reliability](done/VM-005-archscry-maze-ux-continuity-link-reliability.md)
 - [VM-019 - Lightweight Mock Home Sandbox](done/VM-019-lightweight-mock-home-sandbox.md)

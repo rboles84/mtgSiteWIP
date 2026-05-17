@@ -6,6 +6,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const repoRoot = path.resolve(__dirname, "..");
 const rawRoot = path.join(repoRoot, "data", "raw-factions");
 const displayPath = path.join(repoRoot, "data", "factions.json");
+const identityLayersPath = path.join(repoRoot, "data", "identity-layers.json");
 const placementModelPath = path.join(repoRoot, "data", "placement-model.json");
 const placementSchemaPath = path.join(repoRoot, "data", "placement-model.schema.json");
 const factionContextPath = path.join(repoRoot, "supabase", "functions", "guild-recruiter", "faction-context.ts");
@@ -34,6 +35,46 @@ const RAW_TO_KEY = {
 const KEY_TO_RAW = Object.fromEntries(Object.entries(RAW_TO_KEY).map(([raw, key]) => [key, raw]));
 
 const BIOLOGICAL_PRIORS = {
+  W: {
+    archetype: "The Shelter Architect",
+    primary_foundation: "Care",
+    secondary_foundation: "Authority",
+    risk_signal: "low risk",
+    inhibitor_trigger:
+      "Treats every shared rule as illegitimate, even when the alternative leaves the vulnerable exposed.",
+  },
+  U: {
+    archetype: "The Possibility Architect",
+    primary_foundation: "Fairness",
+    secondary_foundation: "Authority",
+    risk_signal: "low-medium risk",
+    inhibitor_trigger:
+      "Treats knowledge, planning, or education as sterile delay when careful understanding would prevent avoidable harm.",
+  },
+  B: {
+    archetype: "The Self-Sovereign Operator",
+    primary_foundation: "Liberty",
+    secondary_foundation: "Authority",
+    risk_signal: "high agency risk",
+    inhibitor_trigger:
+      "Outsources survival to systems or promises that may not protect them when the cost arrives.",
+  },
+  R: {
+    archetype: "The Ignition Heart",
+    primary_foundation: "Liberty",
+    secondary_foundation: "Care",
+    risk_signal: "volatile immediacy risk",
+    inhibitor_trigger:
+      "Waits for permission, perfect certainty, or social approval until the honest moment goes cold.",
+  },
+  G: {
+    archetype: "The Rooted Becoming",
+    primary_foundation: "Sanctity",
+    secondary_foundation: "Loyalty",
+    risk_signal: "stagnation risk",
+    inhibitor_trigger:
+      "Rejects natural limits, inherited strengths, or patient growth unless life can be redesigned into a preferred shape.",
+  },
   WU: {
     archetype: "The Institutional Stabilizer",
     primary_foundation: "Authority",
@@ -157,6 +198,11 @@ const BIOLOGICAL_PRIORS = {
 };
 
 const KNOWN_LATERAL_INHIBITION = {
+  W: ["WB"],
+  U: ["WU", "UB", "UR", "UG"],
+  B: ["UB", "BR", "BG", "WB"],
+  R: ["WR", "UR", "BR", "RG"],
+  G: ["WG", "UG", "BG", "RG"],
   WU: ["WG", "WR", "WB", "SILVERQUILL"],
   WG: ["WU", "WR", "WITHERBLOOM"],
   WR: ["WU", "LOREHOLD", "WG"],
@@ -186,21 +232,21 @@ const QUESTION_BANK = {
           title: "A process that binds everyone",
           copy: "Clear rules, shared limits, and a path that does not depend on anyone's mood.",
           signal: "procedure as protection",
-          likelihoods: { WU: 0.9, WB: 0.6, WG: 0.55 },
+          likelihoods: { W: 0.75, WU: 0.9, WB: 0.6, WG: 0.55 },
           suppresses: { BR: 0.45, RG: 0.35 },
         },
         {
           title: "Immediate protection",
           copy: "If someone is in danger, the right first move is to step between them and harm.",
           signal: "protective intervention",
-          likelihoods: { WR: 0.9, LOREHOLD: 0.55, WG: 0.5 },
+          likelihoods: { W: 0.85, WR: 0.9, LOREHOLD: 0.55, WG: 0.5 },
           suppresses: { WU: 0.35, UB: 0.25 },
         },
         {
           title: "Information advantage",
           copy: "Read the room, hold your position, and act when the hidden structure is visible.",
           signal: "hidden information",
-          likelihoods: { UB: 0.9, WB: 0.65, QUANDRIX: 0.55 },
+          likelihoods: { U: 0.95, UB: 0.9, B: 0.75, WB: 0.65, QUANDRIX: 0.25 },
           suppresses: { WR: 0.3, BR: 0.25 },
         },
         {
@@ -217,6 +263,20 @@ const QUESTION_BANK = {
           likelihoods: { WITHERBLOOM: 0.85, UG: 0.8, BG: 0.75, WG: 0.6 },
           suppresses: { UB: 0.25, BR: 0.25 },
         },
+        {
+          title: "The first honest motion",
+          copy: "Move before the feeling gets trapped under permission, fear, or overthinking.",
+          signal: "immediate ignition",
+          likelihoods: { R: 0.95, WR: 0.55, UR: 0.5, BR: 0.45, RG: 0.45 },
+          suppresses: { WU: 0.35, U: 0.25 },
+        },
+        {
+          title: "The older living pattern",
+          copy: "Root, observe, and let the answer follow the life already carrying the strain.",
+          signal: "natural order under strain",
+          likelihoods: { G: 0.95, WG: 0.5, UG: 0.5, BG: 0.5, RG: 0.5 },
+          suppresses: { U: 0.25, WU: 0.25 },
+        },
       ],
     },
     {
@@ -229,7 +289,7 @@ const QUESTION_BANK = {
           title: "Power that is accountable",
           copy: "Authority should be legible, answerable, and bound by a standard beyond itself.",
           signal: "accountable authority",
-          likelihoods: { WU: 0.8, WR: 0.7, SILVERQUILL: 0.55 },
+          likelihoods: { W: 0.9, WU: 0.8, WR: 0.7, SILVERQUILL: 0.55 },
           suppresses: { UB: 0.3, BR: 0.25 },
         },
         {
@@ -243,14 +303,14 @@ const QUESTION_BANK = {
           title: "Power that stays unseen",
           copy: "The cleanest leverage is the kind people do not know you have.",
           signal: "invisible leverage",
-          likelihoods: { UB: 0.9, WB: 0.6 },
+          likelihoods: { UB: 0.9, B: 0.75, WB: 0.6 },
           suppresses: { SILVERQUILL: 0.35, WR: 0.35 },
         },
         {
           title: "Power that transforms",
           copy: "The best strength changes the organism, the system, or the self into a better fit.",
           signal: "adaptive transformation",
-          likelihoods: { UG: 0.85, WITHERBLOOM: 0.65, QUANDRIX: 0.6, UR: 0.5 },
+          likelihoods: { UG: 0.85, U: 0.55, WITHERBLOOM: 0.65, QUANDRIX: 0.6, UR: 0.5 },
           suppresses: { WU: 0.25 },
         },
         {
@@ -259,6 +319,20 @@ const QUESTION_BANK = {
           signal: "expressive force",
           likelihoods: { PRISMARI: 0.9, BR: 0.75, SILVERQUILL: 0.7, UR: 0.55 },
           suppresses: { WU: 0.35, QUANDRIX: 0.25 },
+        },
+        {
+          title: "Power that ignites action",
+          copy: "The cleanest power is the spark that gets the honest thing moving now.",
+          signal: "freedom through motion",
+          likelihoods: { R: 0.95, WR: 0.5, UR: 0.45, BR: 0.45, RG: 0.45 },
+          suppresses: { WU: 0.3, B: 0.2 },
+        },
+        {
+          title: "Power that grows from roots",
+          copy: "Strength is cleanest when it rises from land, creatures, time, and the shape life already holds.",
+          signal: "rooted growth",
+          likelihoods: { G: 0.95, WG: 0.5, UG: 0.5, BG: 0.5, RG: 0.5 },
+          suppresses: { U: 0.25, WU: 0.25 },
         },
       ],
     },
@@ -272,7 +346,7 @@ const QUESTION_BANK = {
           title: "The precedent",
           copy: "What happened before, what was promised, and what the record proves.",
           signal: "historical evidence",
-          likelihoods: { LOREHOLD: 0.9, WU: 0.65, WB: 0.55 },
+          likelihoods: { W: 0.75, LOREHOLD: 0.9, WU: 0.65, WB: 0.55 },
           suppresses: { BR: 0.25, RG: 0.25 },
         },
         {
@@ -281,6 +355,13 @@ const QUESTION_BANK = {
           signal: "abstract pattern",
           likelihoods: { QUANDRIX: 0.9, UR: 0.65, UG: 0.55, UB: 0.45 },
           suppresses: { BR: 0.25, WR: 0.2 },
+        },
+        {
+          title: "The leverage",
+          copy: "What can still be converted, what price is worth paying, and who controls the next move.",
+          signal: "personal leverage",
+          likelihoods: { B: 0.85, UB: 0.55, WB: 0.5 },
+          suppresses: { W: 0.25, WG: 0.25 },
         },
         {
           title: "The body of the system",
@@ -303,6 +384,20 @@ const QUESTION_BANK = {
           likelihoods: { SILVERQUILL: 0.85, PRISMARI: 0.7, BR: 0.55 },
           suppresses: { UG: 0.25, QUANDRIX: 0.25 },
         },
+        {
+          title: "The next impulse",
+          copy: "What wants to happen before analysis, respectability, or habit talks it down.",
+          signal: "honest impulse",
+          likelihoods: { R: 0.95, WR: 0.45, UR: 0.45, BR: 0.4, RG: 0.4 },
+          suppresses: { WU: 0.3, U: 0.25 },
+        },
+        {
+          title: "The natural role",
+          copy: "What is trying to grow, what pace it needs, and where it belongs in the living order.",
+          signal: "natural role",
+          likelihoods: { G: 0.95, WG: 0.5, UG: 0.5, BG: 0.5, RG: 0.5 },
+          suppresses: { U: 0.25, WU: 0.2 },
+        },
       ],
     },
     {
@@ -322,7 +417,7 @@ const QUESTION_BANK = {
           title: "A chance to build and test",
           copy: "A lab, a workshop, or a problem strange enough to justify the risk.",
           signal: "experimental construction",
-          likelihoods: { UR: 0.9, UG: 0.65, QUANDRIX: 0.55, PRISMARI: 0.45 },
+          likelihoods: { UR: 0.9, U: 0.55, UG: 0.65, QUANDRIX: 0.55, PRISMARI: 0.45 },
           suppresses: { WU: 0.25, WG: 0.25 },
         },
         {
@@ -336,20 +431,432 @@ const QUESTION_BANK = {
           title: "A durable legacy",
           copy: "Something that outlasts mood: law, lineage, contracts, record, or remembered duty.",
           signal: "durable legacy",
-          likelihoods: { WB: 0.85, LOREHOLD: 0.75, WU: 0.6 },
+          likelihoods: { W: 0.85, WB: 0.85, LOREHOLD: 0.75, WU: 0.6 },
           suppresses: { BR: 0.25, RG: 0.25 },
         },
         {
           title: "A place that uses what others discard",
           copy: "Waste, failure, rot, grief, and leftovers become the start of the next structure.",
           signal: "reclamation",
-          likelihoods: { BG: 0.9, WITHERBLOOM: 0.7, RG: 0.45 },
+          likelihoods: { BG: 0.9, B: 0.75, WITHERBLOOM: 0.7, RG: 0.45 },
           suppresses: { WU: 0.25, PRISMARI: 0.2 },
+        },
+        {
+          title: "A chance to live the spark",
+          copy: "A place where the feeling can become action before the moment goes cold.",
+          signal: "present-tense freedom",
+          likelihoods: { R: 0.95, WR: 0.4, UR: 0.4, BR: 0.4, RG: 0.4 },
+          suppresses: { WU: 0.25, WB: 0.2 },
+        },
+        {
+          title: "A place to grow as you are",
+          copy: "A living order where roots deepen, instincts return, and patient strength unfolds.",
+          signal: "rooted belonging",
+          likelihoods: { G: 0.95, WG: 0.55, UG: 0.5, BG: 0.5, RG: 0.5 },
+          suppresses: { U: 0.25, WU: 0.2 },
         },
       ],
     },
   ],
   hall: [
+    {
+      id: "hall_W_shelter",
+      stage: "hall",
+      faction: "W",
+      eyebrow: "Hall - White",
+      prompt: "A frightened group needs protection before trust has time to grow. What response feels most dependable?",
+      answers: [
+        {
+          title: "Build the shelter",
+          copy: "Set the standard, make the boundary clear, and give people something reliable to stand inside.",
+          signal: "shelter through structure",
+          likelihoods: { W: 0.95, WG: 0.65, WU: 0.6, WR: 0.55 },
+          suppresses: { UB: 0.35, BR: 0.35 }
+        },
+        {
+          title: "Write the procedure",
+          copy: "Protection lasts when the process is explicit enough to survive mood.",
+          signal: "procedure first",
+          likelihoods: { WU: 0.85 },
+          suppresses: { W: 0.35 }
+        },
+        {
+          title: "Intervene immediately",
+          copy: "The first duty is to put yourself between the danger and the vulnerable person.",
+          signal: "urgent guardianship",
+          likelihoods: { WR: 0.85 },
+          suppresses: { W: 0.25 }
+        },
+        {
+          title: "Restore belonging",
+          copy: "People trust protection more when they feel held by the whole group.",
+          signal: "belonging as shelter",
+          likelihoods: { WG: 0.8 },
+          suppresses: { W: 0.25 }
+        }
+      ]
+    },
+    {
+      id: "hall_W_duty",
+      stage: "hall",
+      faction: "W",
+      eyebrow: "Hall - White",
+      prompt: "A structure is imperfect, but it still keeps more people safe than improvisation. What matters most?",
+      answers: [
+        {
+          title: "Strengthen what protects",
+          copy: "If the shelter holds, improve it and keep faith with the people relying on it.",
+          signal: "duty to maintain shelter",
+          likelihoods: { W: 0.95, WU: 0.65, WG: 0.6, WR: 0.55 },
+          suppresses: { BR: 0.35, RG: 0.35 }
+        },
+        {
+          title: "Refine the procedure",
+          copy: "The system matters most when its rules are precise enough to remain fair under pressure.",
+          signal: "airtight procedure",
+          likelihoods: { WU: 0.85 },
+          suppresses: { W: 0.3 }
+        },
+        {
+          title: "Choose the urgent case",
+          copy: "A structure that hesitates in the face of harm must be overruled by action.",
+          signal: "case-first intervention",
+          likelihoods: { WR: 0.85 },
+          suppresses: { W: 0.25 }
+        },
+        {
+          title: "Heal the bond",
+          copy: "Protection is real when people want to carry it together, not just receive it.",
+          signal: "shared care",
+          likelihoods: { WG: 0.8 },
+          suppresses: { W: 0.25 }
+        }
+      ]
+    },
+    {
+      id: "hall_B_cost",
+      stage: "hall",
+      faction: "B",
+      eyebrow: "Hall - Black",
+      prompt: "A choice will cost life, comfort, or loyalty, but it keeps your fate from belonging to someone else. What makes the exchange honest?",
+      answers: [
+        {
+          title: "Pay the cost",
+          copy: "If the price buys agency, the cost is part of the plan rather than a warning to stop.",
+          signal: "power at a cost",
+          likelihoods: { B: 0.95, UB: 0.6, BR: 0.55, WB: 0.55 },
+          suppresses: { U: 0.35, W: 0.35, WG: 0.35 }
+        },
+        {
+          title: "Hide the leverage",
+          copy: "Control is safest when no one knows which resource you are holding.",
+          signal: "secret leverage",
+          likelihoods: { UB: 0.85 },
+          suppresses: { B: 0.3 }
+        },
+        {
+          title: "Make it a debt",
+          copy: "A cost matters most when it becomes an obligation someone must answer.",
+          signal: "binding debt",
+          likelihoods: { WB: 0.85 },
+          suppresses: { B: 0.25 }
+        },
+        {
+          title: "Spend the restraint",
+          copy: "The release itself is the point; the price proves the appetite is real.",
+          signal: "unrestrained appetite",
+          likelihoods: { BR: 0.85 },
+          suppresses: { B: 0.25 }
+        }
+      ]
+    },
+    {
+      id: "hall_B_graveyard",
+      stage: "hall",
+      faction: "B",
+      eyebrow: "Hall - Black",
+      prompt: "Something useful has died, failed, or been spent. What should happen to it now?",
+      answers: [
+        {
+          title: "Reclaim it as leverage",
+          copy: "The graveyard is not a memorial. It is a resource line waiting to be used.",
+          signal: "graveyard as resource",
+          likelihoods: { B: 0.95, BG: 0.65, UB: 0.55, WB: 0.5 },
+          suppresses: { U: 0.35, W: 0.35, WG: 0.3 }
+        },
+        {
+          title: "Feed the cycle",
+          copy: "Decay matters because it makes the next life possible.",
+          signal: "cycle of decay",
+          likelihoods: { BG: 0.85, WITHERBLOOM: 0.75 },
+          suppresses: { B: 0.3 }
+        },
+        {
+          title: "Protect the record",
+          copy: "What is gone should become duty, precedent, or warning.",
+          signal: "memorial duty",
+          likelihoods: { W: 0.65, LOREHOLD: 0.6 },
+          suppresses: { B: 0.25 }
+        },
+        {
+          title: "Turn it into pressure",
+          copy: "The loss should make everyone else feel what the exchange is worth.",
+          signal: "public pressure",
+          likelihoods: { BR: 0.75, SILVERQUILL: 0.65 },
+          suppresses: { B: 0.25 }
+        }
+      ]
+    },
+    {
+      id: "hall_U_understanding",
+      stage: "hall",
+      faction: "U",
+      eyebrow: "Hall - Blue",
+      prompt: "The room wants action before the variables are clear. What response feels most responsible?",
+      answers: [
+        {
+          title: "Map the variables",
+          copy: "Preserve options, gather the missing information, and move once the structure can be understood.",
+          signal: "act after understanding",
+          likelihoods: { U: 0.95, WU: 0.6, UB: 0.55, UR: 0.5 },
+          suppresses: { B: 0.65, WB: 0.65, BR: 0.35, RG: 0.35 }
+        },
+        {
+          title: "Codify the process",
+          copy: "The answer should become a rule everyone can trust.",
+          signal: "formal procedure",
+          likelihoods: { WU: 0.85 },
+          suppresses: { U: 0.25 }
+        },
+        {
+          title: "Keep the secret",
+          copy: "The safest move is to know more than the table knows you know.",
+          signal: "hidden leverage",
+          likelihoods: { UB: 0.85 },
+          suppresses: { U: 0.25 }
+        },
+        {
+          title: "Run the experiment",
+          copy: "Build the test and let the result teach you in motion.",
+          signal: "volatile experiment",
+          likelihoods: { UR: 0.85 },
+          suppresses: { U: 0.25 }
+        }
+      ]
+    },
+    {
+      id: "hall_U_possibility",
+      stage: "hall",
+      faction: "U",
+      eyebrow: "Hall - Blue",
+      prompt: "A person or system seems limited by its current shape. What makes progress trustworthy?",
+      answers: [
+        {
+          title: "Improve the model",
+          copy: "Education, tools, and repeatable practice can turn a current limit into a solvable problem.",
+          signal: "optimization through knowledge",
+          likelihoods: { U: 0.95, UG: 0.6, UR: 0.55, WU: 0.5 },
+          suppresses: { B: 0.65, WB: 0.65, RG: 0.3, BR: 0.25 }
+        },
+        {
+          title: "Adapt the organism",
+          copy: "The living form should change so it can survive what comes next.",
+          signal: "biological adaptation",
+          likelihoods: { UG: 0.85 },
+          suppresses: { U: 0.25 }
+        },
+        {
+          title: "Accelerate the prototype",
+          copy: "The breakthrough arrives when the experiment is pushed hard enough to reveal itself.",
+          signal: "rapid experimentation",
+          likelihoods: { UR: 0.85 },
+          suppresses: { U: 0.25 }
+        },
+        {
+          title: "Secure the leverage",
+          copy: "Improvement matters most when the knowledge becomes power no one can take.",
+          signal: "knowledge as leverage",
+          likelihoods: { UB: 0.8 },
+          suppresses: { U: 0.25 }
+        }
+      ]
+    },
+    {
+      id: "hall_R_ignition",
+      stage: "hall",
+      faction: "R",
+      eyebrow: "Hall - Red",
+      prompt: "A feeling arrives before anyone has given permission. What makes the next move honest?",
+      answers: [
+        {
+          title: "Move with the spark",
+          copy: "The feeling is already information. Act while it is alive enough to matter.",
+          signal: "emotion into action",
+          likelihoods: { R: 0.95, WR: 0.55, UR: 0.5, BR: 0.45, RG: 0.45 },
+          suppresses: { WU: 0.45, U: 0.35, WB: 0.25 }
+        },
+        {
+          title: "Protect someone now",
+          copy: "The urgency matters because a vulnerable person needs an intervening body.",
+          signal: "urgent protection",
+          likelihoods: { WR: 0.85 },
+          suppresses: { R: 0.25 }
+        },
+        {
+          title: "Make it a test",
+          copy: "Build the experiment and let the result teach you what the spark means.",
+          signal: "experimental technique",
+          likelihoods: { UR: 0.85 },
+          suppresses: { R: 0.25 }
+        },
+        {
+          title: "Break restraint publicly",
+          copy: "The rupture matters because the room has to feel what restraint was hiding.",
+          signal: "transgressive release",
+          likelihoods: { BR: 0.85 },
+          suppresses: { R: 0.3 }
+        },
+        {
+          title: "Trust the wild body",
+          copy: "The answer is in instinct, muscle, and the old belonging underneath the cage.",
+          signal: "primal instinct",
+          likelihoods: { RG: 0.85 },
+          suppresses: { R: 0.3 }
+        }
+      ]
+    },
+    {
+      id: "hall_R_freedom",
+      stage: "hall",
+      faction: "R",
+      eyebrow: "Hall - Red",
+      prompt: "The door is closing and the safe plan will arrive too late. What kind of action keeps the moment alive?",
+      answers: [
+        {
+          title: "Take the direct line",
+          copy: "Choose the motion that frees breath now, even if it only opens a temporary window.",
+          signal: "direct action",
+          likelihoods: { R: 0.95, WR: 0.55, UR: 0.45, BR: 0.45, RG: 0.45 },
+          suppresses: { WU: 0.45, U: 0.35, WB: 0.25 }
+        },
+        {
+          title: "Charge for the vulnerable",
+          copy: "The line matters because it gets between harm and the person in front of you.",
+          signal: "protective charge",
+          likelihoods: { WR: 0.85 },
+          suppresses: { R: 0.25 }
+        },
+        {
+          title: "Prototype the way out",
+          copy: "A risky build can reveal the door no one could map in advance.",
+          signal: "rapid prototype",
+          likelihoods: { UR: 0.85 },
+          suppresses: { R: 0.25 }
+        },
+        {
+          title: "Make pain visible",
+          copy: "The point is to make the hidden wound impossible for the room to ignore.",
+          signal: "pain as spectacle",
+          likelihoods: { BR: 0.85 },
+          suppresses: { R: 0.35 }
+        },
+        {
+          title: "Return to the pack",
+          copy: "Freedom starts by refusing the cage and trusting the living force that was already yours.",
+          signal: "wild belonging",
+          likelihoods: { RG: 0.85 },
+          suppresses: { R: 0.35 }
+        }
+      ]
+    },
+    {
+      id: "hall_G_growth",
+      stage: "hall",
+      faction: "G",
+      eyebrow: "Hall - Green",
+      prompt: "A living thing is strained before its roots are deep. What care feels honest?",
+      answers: [
+        {
+          title: "Let the roots deepen",
+          copy: "Give it time, land, and trust so it can become what it already is.",
+          signal: "organic growth",
+          likelihoods: { G: 0.95, WG: 0.55, UG: 0.5, BG: 0.5, RG: 0.5 },
+          suppresses: { U: 0.35, WU: 0.25 }
+        },
+        {
+          title: "Gather the circle",
+          copy: "The answer starts when people choose to carry care together.",
+          signal: "communal care",
+          likelihoods: { WG: 0.85 },
+          suppresses: { G: 0.25 }
+        },
+        {
+          title: "Alter the form",
+          copy: "Change the living body so it can survive the future.",
+          signal: "engineered adaptation",
+          likelihoods: { UG: 0.85 },
+          suppresses: { G: 0.3 }
+        },
+        {
+          title: "Use what fell away",
+          copy: "The discarded material can still become survival.",
+          signal: "reclamation economy",
+          likelihoods: { BG: 0.85, WITHERBLOOM: 0.65 },
+          suppresses: { G: 0.3 }
+        },
+        {
+          title: "Break the fence",
+          copy: "The old body knows what constraint tried to cage.",
+          signal: "wild force",
+          likelihoods: { RG: 0.85 },
+          suppresses: { G: 0.3 }
+        }
+      ]
+    },
+    {
+      id: "hall_G_natural_order",
+      stage: "hall",
+      faction: "G",
+      eyebrow: "Hall - Green",
+      prompt: "The world is slow to answer, but the old pattern still seems alive. What do you follow?",
+      answers: [
+        {
+          title: "Trust the natural pace",
+          copy: "Follow instinct, land, and season until the living shape becomes visible.",
+          signal: "natural patience",
+          likelihoods: { G: 0.95, WG: 0.5, UG: 0.5, BG: 0.5, RG: 0.5 },
+          suppresses: { U: 0.35, WU: 0.25 }
+        },
+        {
+          title: "Improve the organism",
+          copy: "A body that cannot meet the future should be deliberately adapted.",
+          signal: "purposeful adaptation",
+          likelihoods: { UG: 0.85 },
+          suppresses: { G: 0.3 }
+        },
+        {
+          title: "Move as a community",
+          copy: "The bond matters most when everyone chooses to belong together.",
+          signal: "shared community",
+          likelihoods: { WG: 0.85 },
+          suppresses: { G: 0.25 }
+        },
+        {
+          title: "Reclaim the remains",
+          copy: "What collapsed should feed the next survival engine.",
+          signal: "decay reclamation",
+          likelihoods: { BG: 0.85, WITHERBLOOM: 0.65 },
+          suppresses: { G: 0.3 }
+        },
+        {
+          title: "Refuse the cage",
+          copy: "Instinct becomes true when it will not be domesticated.",
+          signal: "wild refusal",
+          likelihoods: { RG: 0.85 },
+          suppresses: { G: 0.3 }
+        }
+      ]
+    },
     {
       id: "hall_WU_process",
       stage: "hall",
@@ -908,6 +1415,215 @@ const QUESTION_BANK = {
   ],
   crucible: [
     {
+      id: "crucible_W_WU",
+      stage: "crucible",
+      pair: ["W", "WU"],
+      eyebrow: "Crucible - Shelter or Procedure",
+      prompt: "Does dependable protection begin with a shelter people can trust, or a process nobody can bend?",
+      answers: [
+        { title: "Shelter first", copy: "The structure matters because it keeps people safe.", signal: "shelter before procedure", likelihoods: { W: 0.95 }, suppresses: { WU: 0.95 } },
+        { title: "Process first", copy: "Protection lasts when the rule survives every exception.", signal: "procedure before shelter", likelihoods: { WU: 0.95 }, suppresses: { W: 0.95 } }
+      ]
+    },
+    {
+      id: "crucible_W_WR",
+      stage: "crucible",
+      pair: ["W", "WR"],
+      eyebrow: "Crucible - Structure or Intervention",
+      prompt: "When people are unsafe, is the first duty to build the standard or step in right now?",
+      answers: [
+        { title: "Build the standard", copy: "Protection has to become reliable, not only brave.", signal: "reliable protection", likelihoods: { W: 0.95 }, suppresses: { WR: 0.95 } },
+        { title: "Step in right now", copy: "Protection that waits for structure can arrive too late.", signal: "immediate duty", likelihoods: { WR: 0.95 }, suppresses: { W: 0.95 } }
+      ]
+    },
+    {
+      id: "crucible_W_WG",
+      stage: "crucible",
+      pair: ["W", "WG"],
+      eyebrow: "Crucible - Standard or Belonging",
+      prompt: "Does safety begin with shared standards, or with a community that already knows how to hold each other?",
+      answers: [
+        { title: "Shared standards", copy: "The structure protects even before trust matures.", signal: "standards before belonging", likelihoods: { W: 0.95 }, suppresses: { WG: 0.95 } },
+        { title: "Shared belonging", copy: "People protect what they already feel part of together.", signal: "belonging before standards", likelihoods: { WG: 0.95 }, suppresses: { W: 0.95 } }
+      ]
+    },
+    {
+      id: "crucible_U_WU",
+      stage: "crucible",
+      pair: ["U", "WU"],
+      eyebrow: "Crucible - Model or Procedure",
+      prompt: "Does trust begin with understanding the system, or with a rule no one can bend?",
+      answers: [
+        { title: "Understand the system", copy: "The rule matters after the model is clear.", signal: "model before procedure", likelihoods: { U: 0.95 }, suppresses: { WU: 0.95 } },
+        { title: "Bind the rule", copy: "Understanding matters when it becomes fair process.", signal: "procedure before model", likelihoods: { WU: 0.95 }, suppresses: { U: 0.95 } }
+      ]
+    },
+    {
+      id: "crucible_U_UB",
+      stage: "crucible",
+      pair: ["U", "UB"],
+      eyebrow: "Crucible - Understanding or Secret",
+      prompt: "Does information matter because it improves the future, or because no one knows you have it?",
+      answers: [
+        { title: "Improve the future", copy: "Knowledge expands what can be done next.", signal: "knowledge as possibility", likelihoods: { U: 0.95 }, suppresses: { UB: 0.95 } },
+        { title: "Keep it unseen", copy: "Information is strongest when it becomes hidden leverage.", signal: "knowledge as secrecy", likelihoods: { UB: 0.95 }, suppresses: { U: 0.95 } }
+      ]
+    },
+    {
+      id: "crucible_U_UR",
+      stage: "crucible",
+      pair: ["U", "UR"],
+      eyebrow: "Crucible - Prediction or Spark",
+      prompt: "When the idea is promising but unstable, do you wait for the model or fire the prototype?",
+      answers: [
+        { title: "Wait for the model", copy: "A better prediction prevents a wasted breakthrough.", signal: "predictive patience", likelihoods: { U: 0.95 }, suppresses: { UR: 0.95 } },
+        { title: "Fire the prototype", copy: "The experiment has to move before the answer appears.", signal: "experimental spark", likelihoods: { UR: 0.95 }, suppresses: { U: 0.95 } }
+      ]
+    },
+    {
+      id: "crucible_U_UG",
+      stage: "crucible",
+      pair: ["U", "UG"],
+      eyebrow: "Crucible - Possibility or Adaptation",
+      prompt: "Should the next change refine the model, or alter the living thing that must survive?",
+      answers: [
+        { title: "Refine the model", copy: "Improve the tool, plan, and knowledge before changing the body.", signal: "engineered possibility", likelihoods: { U: 0.95 }, suppresses: { UG: 0.95 } },
+        { title: "Alter the organism", copy: "The living form must adapt to meet the future.", signal: "living adaptation", likelihoods: { UG: 0.95 }, suppresses: { U: 0.95 } }
+      ]
+    },
+    {
+      id: "crucible_B_UB",
+      stage: "crucible",
+      pair: ["B", "UB"],
+      eyebrow: "Crucible - Cost or Secret",
+      prompt: "When power is available, do you pay the cost directly or wait until hidden information makes the move safer?",
+      answers: [
+        { title: "Pay directly", copy: "Agency is worth the price when the price keeps your fate yours.", signal: "direct cost", likelihoods: { B: 0.95 }, suppresses: { UB: 0.95 } },
+        { title: "Wait in secret", copy: "Leverage is strongest when no one sees the hand move.", signal: "hidden timing", likelihoods: { UB: 0.95 }, suppresses: { B: 0.95 } }
+      ]
+    },
+    {
+      id: "crucible_B_BR",
+      stage: "crucible",
+      pair: ["B", "BR"],
+      eyebrow: "Crucible - Control or Release",
+      prompt: "Is the cost worth paying because it keeps control, or because it finally releases restraint?",
+      answers: [
+        { title: "Keep control", copy: "The sacrifice matters because it secures agency.", signal: "controlled cost", likelihoods: { B: 0.95 }, suppresses: { BR: 0.95 } },
+        { title: "Release restraint", copy: "The rupture matters because the pressure has to become real.", signal: "unrestrained release", likelihoods: { BR: 0.95 }, suppresses: { B: 0.95 } }
+      ]
+    },
+    {
+      id: "crucible_B_BG",
+      stage: "crucible",
+      pair: ["B", "BG"],
+      eyebrow: "Crucible - Asset or Cycle",
+      prompt: "Does the graveyard matter because it belongs to your plan, or because decay feeds the next life?",
+      answers: [
+        { title: "It belongs to the plan", copy: "Death is another resource to convert.", signal: "graveyard leverage", likelihoods: { B: 0.95 }, suppresses: { BG: 0.95 } },
+        { title: "It feeds the cycle", copy: "Death matters because survival keeps returning through decay.", signal: "predatory cycle", likelihoods: { BG: 0.95 }, suppresses: { B: 0.95 } }
+      ]
+    },
+    {
+      id: "crucible_B_WB",
+      stage: "crucible",
+      pair: ["B", "WB"],
+      eyebrow: "Crucible - Sovereignty or Debt",
+      prompt: "Would you rather own the leverage privately, or bind it into an obligation no one can escape?",
+      answers: [
+        { title: "Own the leverage", copy: "Power protects best when it answers to the self.", signal: "private sovereignty", likelihoods: { B: 0.95 }, suppresses: { WB: 0.95 } },
+        { title: "Bind the obligation", copy: "Power lasts when the debt becomes public and enforceable.", signal: "binding obligation", likelihoods: { WB: 0.95 }, suppresses: { B: 0.95 } }
+      ]
+    },
+    {
+      id: "crucible_R_WR",
+      stage: "crucible",
+      pair: ["R", "WR"],
+      eyebrow: "Crucible - Spark or Shield",
+      prompt: "Is the urgent action about freeing the honest impulse, or protecting someone from the next blow?",
+      answers: [
+        { title: "Free the impulse", copy: "The action matters because the feeling is true now.", signal: "honest spark", likelihoods: { R: 0.95 }, suppresses: { WR: 0.95 } },
+        { title: "Protect the person", copy: "The action matters because harm is already moving toward someone.", signal: "protective intervention", likelihoods: { WR: 0.95 }, suppresses: { R: 0.95 } }
+      ]
+    },
+    {
+      id: "crucible_R_UR",
+      stage: "crucible",
+      pair: ["R", "UR"],
+      eyebrow: "Crucible - Impulse or Prototype",
+      prompt: "When the spark arrives, do you trust the feeling now or build the test that teaches what it can become?",
+      answers: [
+        { title: "Trust the feeling now", copy: "The first motion is the truth you can act on.", signal: "present impulse", likelihoods: { R: 0.95 }, suppresses: { UR: 0.95 } },
+        { title: "Build the test", copy: "The spark becomes useful when the experiment reveals its shape.", signal: "crafted experiment", likelihoods: { UR: 0.95 }, suppresses: { R: 0.95 } }
+      ]
+    },
+    {
+      id: "crucible_R_BR",
+      stage: "crucible",
+      pair: ["R", "BR"],
+      eyebrow: "Crucible - Freedom or Transgression",
+      prompt: "Does release matter because it lets you breathe, or because breaking restraint must unsettle the room?",
+      answers: [
+        { title: "Let me breathe", copy: "Freedom is the point; the action does not need pain to prove it.", signal: "freedom without cruelty", likelihoods: { R: 0.95 }, suppresses: { BR: 0.95 } },
+        { title: "Unsettle the room", copy: "The rupture matters when appetite, taboo, or pain becomes impossible to ignore.", signal: "transgressive spectacle", likelihoods: { BR: 0.95 }, suppresses: { R: 0.95 } }
+      ]
+    },
+    {
+      id: "crucible_R_RG",
+      stage: "crucible",
+      pair: ["R", "RG"],
+      eyebrow: "Crucible - Feeling or Wild",
+      prompt: "Is the impulse true because you feel it now, or because the wild body already knows the path?",
+      answers: [
+        { title: "Because I feel it now", copy: "The present feeling is enough to move.", signal: "emotion as truth", likelihoods: { R: 0.95 }, suppresses: { RG: 0.95 } },
+        { title: "Because the wild knows", copy: "Instinct, force, and primal belonging know before permission arrives.", signal: "wild instinct", likelihoods: { RG: 0.95 }, suppresses: { R: 0.95 } }
+      ]
+    },
+    {
+      id: "crucible_G_WG",
+      stage: "crucible",
+      pair: ["G", "WG"],
+      eyebrow: "Crucible - Natural Place or Community",
+      prompt: "Does belonging begin with accepting natural place, or with a community choosing to hold together?",
+      answers: [
+        { title: "Natural place", copy: "The living thing belongs by becoming what it already is.", signal: "natural belonging", likelihoods: { G: 0.95 }, suppresses: { WG: 0.95 } },
+        { title: "Shared community", copy: "Belonging becomes real when the group chooses care together.", signal: "communal belonging", likelihoods: { WG: 0.95 }, suppresses: { G: 0.95 } }
+      ]
+    },
+    {
+      id: "crucible_G_UG",
+      stage: "crucible",
+      pair: ["G", "UG"],
+      eyebrow: "Crucible - Unfolding or Adaptation",
+      prompt: "Should growth unfold from inherent nature, or should the living form be deliberately adapted?",
+      answers: [
+        { title: "Let it unfold", copy: "The seed already knows its shape; give it roots and time.", signal: "inherent growth", likelihoods: { G: 0.95 }, suppresses: { UG: 0.95 } },
+        { title: "Adapt the organism", copy: "Survival may require changing the living form.", signal: "living adaptation", likelihoods: { UG: 0.95 }, suppresses: { G: 0.95 } }
+      ]
+    },
+    {
+      id: "crucible_G_BG",
+      stage: "crucible",
+      pair: ["G", "BG"],
+      eyebrow: "Crucible - Living Season or Reclamation",
+      prompt: "Does the cycle matter because life grows in season, or because the discarded can be reclaimed?",
+      answers: [
+        { title: "Trust the living season", copy: "Flourishing returns through roots, pace, and natural renewal.", signal: "life cycle without extraction", likelihoods: { G: 0.95 }, suppresses: { BG: 0.95 } },
+        { title: "Reclaim the remains", copy: "Survival starts with what collapse left behind.", signal: "reclamation first", likelihoods: { BG: 0.95 }, suppresses: { G: 0.95 } }
+      ]
+    },
+    {
+      id: "crucible_G_RG",
+      stage: "crucible",
+      pair: ["G", "RG"],
+      eyebrow: "Crucible - Root or Wild Refusal",
+      prompt: "Does instinct ask for patient flourishing, or for wild refusal against the cage?",
+      answers: [
+        { title: "Root and grow", copy: "Instinct is old enough to wait, deepen, and become strong.", signal: "patient instinct", likelihoods: { G: 0.95 }, suppresses: { RG: 0.95 } },
+        { title: "Break the cage", copy: "The wild body knows constraint must be thrown off.", signal: "wild force", likelihoods: { RG: 0.95 }, suppresses: { G: 0.95 } }
+      ]
+    },
+    {
       id: "crucible_WU_WG",
       stage: "crucible",
       pair: ["WU", "WG"],
@@ -1034,7 +1750,7 @@ const PLACEMENT_SCHEMA = {
     stages: { type: "object" },
     factions: {
       type: "object",
-      minProperties: 15,
+      minProperties: 1,
       additionalProperties: {
         type: "object",
         required: [
@@ -1045,6 +1761,7 @@ const PLACEMENT_SCHEMA = {
           "world",
           "colors",
           "biological_expression",
+          "layered_identity",
           "placement_axes",
           "good_fit_indicators",
           "poor_fit_indicators",
@@ -1099,6 +1816,9 @@ function normalizeTarget(rawTarget) {
   if (!rawTarget) {
     return null;
   }
+  if (["W", "U", "B", "R", "G"].includes(String(rawTarget).toUpperCase())) {
+    return String(rawTarget).toUpperCase();
+  }
   if (RAW_TO_KEY[rawTarget]) {
     return RAW_TO_KEY[rawTarget];
   }
@@ -1132,6 +1852,80 @@ function normalizeQuestion(rawQuestion, fallbackFactionKey, index) {
 
 function unique(values) {
   return [...new Set(values.filter(Boolean))];
+}
+
+function activeExpressionEntries(identityLayers = {}) {
+  return Object.entries(identityLayers.expressions || {}).filter(([, entry]) => entry?.active !== false);
+}
+
+function monoExpressionEntries(identityLayers = {}) {
+  return activeExpressionEntries(identityLayers)
+    .filter(([, entry]) => String(entry?.kind || "").toLowerCase() === "color");
+}
+
+function expressionMetaFor(identityLayers = {}, key) {
+  return identityLayers.expressions?.[key] || null;
+}
+
+function colorLayerFor(identityLayers = {}, code) {
+  return identityLayers.colors?.[normalizeColor(code)] || null;
+}
+
+function buildLayeredIdentity({ key, name, expressionMeta }) {
+  const colors = (expressionMeta?.colors || []).map(normalizeColor).filter(Boolean);
+  const secondaryColors = (expressionMeta?.secondary_colors || []).map(normalizeColor).filter(Boolean);
+  const purity = colors.length === 1 ? 1 : null;
+  return {
+    core_color: normalizeColor(expressionMeta?.core_color || colors[0] || ""),
+    secondary_colors: secondaryColors,
+    secondary_color: secondaryColors[0] || null,
+    expression_key: key,
+    expression_name: expressionMeta?.name || name,
+    expression_kind: expressionMeta?.kind || "expression",
+    purity,
+    routing: expressionMeta?.routing || {},
+  };
+}
+
+function buildMonoExpressionInput(key, expressionMeta, identityLayers) {
+  const display = structuredClone(expressionMeta?.display || {});
+  const placement = structuredClone(expressionMeta?.placement || {});
+  const profile = {
+    faction_name: display.name || expressionMeta?.name || key,
+    faction_type: display.institution_type || expressionMeta?.kind || "color",
+    plane_or_setting: display.world || expressionMeta?.world || "The Color Pie",
+    color_identity: (expressionMeta?.colors || []).map(normalizeColor),
+    profile: {
+      overview: display.lore_summary || display.philosophy || "",
+      philosophy: display.philosophy || "",
+      core_tension: display.core_tension || "",
+      mechanics_and_play_pattern: colorLayerFor(identityLayers, expressionMeta?.core_color)?.mechanics?.join(", ") || "",
+    },
+    core_identity: {
+      summary: display.lore_summary || display.philosophy || "",
+      philosophy: display.philosophy || "",
+      central_tension: display.core_tension || "",
+    },
+    site_surface: {
+      tagline: display.tagline || "",
+    },
+    profile_version: identityLayers?._meta?.version || "",
+  };
+
+  return {
+    display,
+    placement: {
+      color_identity: profile.color_identity,
+      good_fit_indicators: placement.good_fit_indicators || [],
+      poor_fit_indicators: placement.poor_fit_indicators || [],
+      discriminator_questions: placement.discriminator_questions || [],
+      collision_guidance: placement.collision_guidance || [],
+      chatbot_guidance: placement.chatbot_guidance || {},
+      calibration_tuning: placement.placement_axes || {},
+      inhibitor_traits: placement.inhibitor_traps || [],
+    },
+    profile,
+  };
 }
 
 const COMMANDER_COMPASS_CANDIDATE_CATEGORIES = [
@@ -1240,7 +2034,7 @@ function attachCommanderCompass(displayData, rawRecords) {
   });
 }
 
-function buildFactionRecord({ key, rawId, placement, profile, display }) {
+function buildFactionRecord({ key, rawId, placement, profile, display, expressionMeta = null }) {
   const calibration = placement.calibration_tuning || {};
   const rawQuestions = placement.discriminator_questions || [];
   const collisionTargets = [
@@ -1252,14 +2046,28 @@ function buildFactionRecord({ key, rawId, placement, profile, display }) {
     placement.good_fit_indicators || placement.ideal_fit_indicators || []
   );
   const poorFit = normalizeIndicatorList(placement.poor_fit_indicators || []);
+  const layeredIdentity = buildLayeredIdentity({
+    key,
+    name: display?.name || placement.faction_name || profile.faction_name,
+    expressionMeta,
+  });
+  const factionColors = unique(
+    (expressionMeta?.colors || display?.colors || placement.color_identity || profile.color_identity || [])
+      .map(normalizeColor)
+      .filter(Boolean)
+  );
 
   return {
     key,
     raw_id: rawId,
-    name: display?.name || placement.faction_name || profile.faction_name,
-    institution_type: display?.institution_type || profile.faction_type?.toLowerCase() || "guild",
-    world: display?.world || profile.plane_or_setting || "Ravnica",
-    colors: display?.colors || (placement.color_identity || profile.color_identity || []).map(normalizeColor),
+    name: display?.name || expressionMeta?.name || placement.faction_name || profile.faction_name,
+    institution_type:
+      display?.institution_type ||
+      expressionMeta?.kind ||
+      profile.faction_type?.toLowerCase() ||
+      "guild",
+    world: display?.world || expressionMeta?.world || profile.plane_or_setting || "Ravnica",
+    colors: factionColors,
     identity: {
       summary: profile.core_identity?.summary || profile.profile?.overview || display?.lore_summary || "",
       philosophy: profile.core_identity?.philosophy || profile.profile?.philosophy || display?.philosophy || "",
@@ -1271,6 +2079,7 @@ function buildFactionRecord({ key, rawId, placement, profile, display }) {
       display_tagline: profile.site_surface?.tagline || display?.tagline || "",
       mechanics: profile.mechanics?.summary || profile.profile?.mechanics_and_play_pattern || "",
     },
+    layered_identity: layeredIdentity,
     biological_expression: BIOLOGICAL_PRIORS[key],
     placement_axes: {
       required_positive_evidence_terms: calibration.required_positive_evidence_terms || [],
@@ -1322,7 +2131,7 @@ async function loadRawFaction(rawId) {
   };
 }
 
-function buildPlacementModel(displayData, rawRecords) {
+function buildPlacementModel(displayData, rawRecords, identityLayers) {
   const factions = {};
   for (const rawId of Object.keys(RAW_TO_KEY)) {
     const key = RAW_TO_KEY[rawId];
@@ -1333,8 +2142,24 @@ function buildPlacementModel(displayData, rawRecords) {
       placement: raw.placement,
       profile: raw.profile,
       display: displayData.factions[key],
+      expressionMeta: expressionMetaFor(identityLayers, key),
     });
   }
+
+  monoExpressionEntries(identityLayers).forEach(([key, expressionMeta]) => {
+    if (factions[key]) {
+      return;
+    }
+    const monoInput = buildMonoExpressionInput(key, expressionMeta, identityLayers);
+    factions[key] = buildFactionRecord({
+      key,
+      rawId: key,
+      placement: monoInput.placement,
+      profile: monoInput.profile,
+      display: monoInput.display,
+      expressionMeta,
+    });
+  });
 
   return {
     _meta: {
@@ -1343,6 +2168,8 @@ function buildPlacementModel(displayData, rawRecords) {
       source: "data/raw-factions plus data/factions.json display surface",
       framing: "Biological expression placement model; Vox Mana interpretive taxonomy, not official canon.",
       faction_count: Object.keys(factions).length,
+      identity_layer_version: identityLayers?._meta?.version || "",
+      active_expression_keys: Object.keys(factions),
     },
     scoring_rules: {
       prior: "equal",
@@ -1392,6 +2219,7 @@ function buildFactionContext(model, displayData) {
       institution_type: faction.institution_type,
       world: faction.world,
       colors: faction.colors,
+      layered_identity: faction.layered_identity,
       tagline: display.tagline || faction.identity.display_tagline,
       philosophy: display.philosophy || faction.identity.philosophy,
       core_tension: display.core_tension || faction.identity.central_tension,
@@ -1423,10 +2251,12 @@ async function main() {
   }
 
   const displayData = await readJson(displayPath);
+  const identityLayers = await readJson(identityLayersPath);
   displayData._meta = {
     ...(displayData._meta || {}),
     placement_model_version: MODEL_VERSION,
     raw_source: "data/raw-factions",
+    identity_layer_version: identityLayers?._meta?.version || "",
   };
 
   const rawRecords = {};
@@ -1435,7 +2265,37 @@ async function main() {
   }
 
   attachCommanderCompass(displayData, rawRecords);
-  const model = buildPlacementModel(displayData, rawRecords);
+  const model = buildPlacementModel(displayData, rawRecords, identityLayers);
+
+  displayData.identity_layers = {
+    version: identityLayers?._meta?.version || "",
+    colors: identityLayers.colors || {},
+    expressions: Object.fromEntries(
+      Object.entries(identityLayers.expressions || {}).filter(([key]) =>
+        Object.prototype.hasOwnProperty.call(model.factions, key)
+      )
+    ),
+  };
+
+  Object.entries(model.factions).forEach(([key, faction]) => {
+    const expressionMeta = expressionMetaFor(identityLayers, key);
+    const displayBase = displayData.factions[key] || structuredClone(expressionMeta?.display || {});
+    displayData.factions[key] = {
+      ...displayBase,
+      key,
+      name: displayBase.name || faction.name,
+      institution_type: displayBase.institution_type || faction.institution_type,
+      world: displayBase.world || faction.world,
+      colors: displayBase.colors || faction.colors,
+      research_links: {
+        ...(displayBase.research_links || {}),
+        ...(expressionMeta?.routing?.edhrec_slug ? { edhrec_slug: expressionMeta.routing.edhrec_slug } : {}),
+      },
+      identity: faction.layered_identity,
+      identity_blend: expressionMeta?.identity_blend || "",
+    };
+  });
+  displayData._meta.factions = Object.keys(model.factions).length;
   const factionContext = buildFactionContext(model, displayData);
 
   await writeJson(displayPath, displayData);

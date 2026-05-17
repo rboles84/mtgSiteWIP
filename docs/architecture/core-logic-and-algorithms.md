@@ -15,7 +15,7 @@ Main flow:
 3. `applyAdaptiveAnswer` clones state, records the question/answer, applies deltas, suppression, broad-match penalties, pruning, and evidence trail entries.
 4. `rankAdaptiveFactions` calls `softmaxScores` and sorts ranked matches.
 5. `shouldFinishAdaptiveReading` finishes when stage limits, confidence gap, or question limits are satisfied.
-6. `buildAdaptivePlacementResult` emits the shared result contract used by save/resume and dossier rendering.
+6. `buildAdaptivePlacementResult` emits the shared result contract used by save/resume and dossier rendering, including layered `identity` metadata for primary and adjacent fits.
 
 Key ideas:
 
@@ -25,6 +25,7 @@ Key ideas:
 - Lateral inhibition prevents a broad answer from rewarding every same-color or similar-expression faction.
 - Pruned factions are assigned probability zero during softmax.
 - Evidence trail and stage history make the result explainable.
+- Phase 0 mono support keeps `color_weights` optional; the engine does not invent or approximate them until scoring can derive them accurately.
 
 ## Legacy Quick Reading
 
@@ -48,7 +49,7 @@ Files: `archscry/index.html`, `assets/js/index.js`, `assets/js/shared.js`.
 
 Flow:
 
-1. Load `/data/factions.json`, `/data/placement-model.json`, deck tags, and optional Scryfall discovery indexes.
+1. Load `/data/factions.json`, `/data/placement-model.json`, `/data/identity-layers.json`, deck tags, and optional Scryfall discovery indexes.
 2. Render starter profile chips.
 3. Resume Supabase/session state and pending OAuth saves.
 4. Show a saved/cached result or the landing state.
@@ -194,13 +195,14 @@ It does not generate painterly WEBP backgrounds; those are tracked in the asset 
 
 ## Faction Artifact Build
 
-File: external faction artifact builder in `C:\dev\projectFiles\voxmana-tools`.
+File: `research/build-faction-artifacts.mjs`.
 
-This script reads every raw faction folder, validates expected ids, normalizes placement/profile data, builds faction records, builds the adaptive model, writes the JSON schema, and emits the edge-function TypeScript context.
+This script reads `data/identity-layers.json` plus every raw faction folder, validates expected ids, normalizes placement/profile data, builds faction records, builds the adaptive model, writes the JSON schema, and emits the edge-function TypeScript context.
 
 Important transforms:
 
 - Raw folder ids are converted to runtime faction keys.
+- Identity-layer metadata is merged into runtime display factions, placement model entries, and generated context.
 - Biological priors and known lateral inhibition targets are merged into placement records.
 - Discriminator questions are normalized with fallback ids and collision targets.
 - Good/poor indicators and inhibitor traps are flattened to plain lists.

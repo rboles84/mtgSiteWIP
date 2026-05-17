@@ -604,6 +604,7 @@ export function buildAdaptivePlacementResult({
       institution_type: display.institution_type || match.institution_type,
       world: display.world || match.world,
       colors: display.colors || match.colors,
+      identity: display.identity || model.factions?.[match.faction]?.layered_identity || null,
     };
   });
   const top = ranked[0];
@@ -620,6 +621,7 @@ export function buildAdaptivePlacementResult({
     faction_name: match.faction_name,
     institution_type: match.institution_type,
     world: match.world,
+    identity: match.identity || null,
     score: match.score,
     confidence: Number(match.confidence.toFixed(3)),
     reason: buildAdaptiveReason(match, state, model),
@@ -633,6 +635,7 @@ export function buildAdaptivePlacementResult({
     faction_name: top.faction_name,
     institution_type: top.institution_type,
     world: top.world,
+    identity: top.identity || null,
     decree: buildAdaptiveDecree(top, runnerUp, state, model, starter),
     confidence: Number(top.confidence.toFixed(3)),
     confidence_gap: runnerUp ? Number((top.confidence - runnerUp.confidence).toFixed(3)) : 1,

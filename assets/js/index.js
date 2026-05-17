@@ -25,6 +25,12 @@ import {
   resolveMazePathType,
   resolveMazePlainReadingQuery,
 } from "./maze-handoff.js";
+import {
+  formatPurity,
+  getColorName,
+  getExpressionKindLabel,
+  normalizeLayeredIdentity,
+} from "./identity-layers.js";
 
 const SESSION = VM_SESSION;
 const COLOR_META = {
@@ -50,6 +56,7 @@ const APP_STATE = {
   interviewState: "idle",
   starterProfile: { ...DEFAULT_STARTER_PROFILE },
   deckTagCatalog: null,
+  identityLayers: null,
   tagTaxonomy: null,
   tagTaxonomyByKey: new Map(),
   scryfallFlavorIndex: null,
@@ -109,6 +116,19 @@ const MANA_SYMBOL_NAMES = {
 };
 
 const FACTION_PRESENTATION = {
+  W: {
+    shortName: "White",
+    tableRole: "The shelter-builder",
+    opponentRead: "Opponents feel the deck as a standard made tangible: removal, protection, and board presence all answer the same question of safety.",
+    emotionalPressure: "Pressure through protection, structure, and the feeling that someone thought about what happens after the hit lands.",
+    loreRole: "shelter, duty, standards, and collective protection",
+    mechanics: "Board wipes, token makers, protection spells, taxes, and equipment that turns safety into enforceable tempo",
+    tableExperience: "reliable protection, disciplined pressure, and structure that keeps returning to the board",
+    thesis: "White read you as someone who does not confuse kindness with drift. It wants protection to become structure, and structure to remain trustworthy when the room gets dangerous.",
+    closeReason: "safety, duty, and standards that hold under pressure",
+    forkQuestion: "What structure still protects people when goodwill is not enough?",
+    direction: "moves upward into shelter and enforceable duty",
+  },
   WU: {
     shortName: "Azorius",
     tableRole: "The arbiter",
@@ -374,6 +394,15 @@ async function loadDeckTagCatalog() {
   return APP_STATE.deckTagCatalog;
 }
 
+async function loadIdentityLayerData() {
+  const response = await fetch("/data/identity-layers.json");
+  if (!response.ok) {
+    throw new Error("Could not load identity layers.");
+  }
+  APP_STATE.identityLayers = await response.json();
+  return APP_STATE.identityLayers;
+}
+
 /**
  * Loads optional discovery indexes used to enrich Archscry results.
  *
@@ -449,10 +478,10 @@ function getFaction(key) {
  * Returns the user-facing label for a faction's institution type.
  *
  * @param {object} faction Faction record.
- * @returns {string} "Guild" or "College".
+ * @returns {string} "Guild", "College", or "Color".
  */
 function getInstitutionLabel(faction) {
-  return faction?.institution_type === "college" ? "College" : "Guild";
+  return getExpressionKindLabel(faction);
 }
 
 function colorIdentityNames(colors) {
@@ -490,6 +519,88 @@ function basicLandGuidanceCopy(colors) {
   const firstColor = (MANA_SYMBOL_NAMES[colorSymbols[0]] || basics[0]).toLowerCase();
   const secondColor = (MANA_SYMBOL_NAMES[colorSymbols[1]] || basics[1]).toLowerCase();
   return `After choosing your nonbasic lands, fill the rest with ${basics.join(" and ")} based on your early colored mana needs. If most early spells need ${firstColor}, lean ${basics[0]}. If your early interaction needs ${secondColor}, lean ${basics[1]}.`;
+}
+
+function identityColorEntry(code) {
+  return APP_STATE.identityLayers?.colors?.[String(code || "").toUpperCase()] || null;
+}
+
+function identityExpressionEntry(key) {
+  return APP_STATE.identityLayers?.expressions?.[String(key || "").toUpperCase()] || null;
+}
+
+function layeredIdentityForDisplay(faction, resultIdentity = null) {
+  return normalizeLayeredIdentity(resultIdentity || faction?.identity || {}, {
+    key: faction?.key,
+    name: faction?.name,
+    institution_type: faction?.institution_type,
+    colors: faction?.colors || [],
+    expression_kind: faction?.identity?.expression_kind || faction?.institution_type,
+  });
+}
+
+function buildIdentityDetailCard({ title, headline, copy, meta = "" }) {
+  return `
+    <div class="starter-card">
+      <div class="starter-title">${escapeHtml(title)}</div>
+      <div class="starter-copy"><strong>${escapeHtml(headline)}</strong></div>
+      <div class="starter-copy">${escapeHtml(copy)}</div>
+      ${meta ? `<div class="signal-technical">${escapeHtml(meta)}</div>` : ""}
+    </div>`;
+}
+
+function buildLayeredIdentityHtml({ dossier, faction }) {
+  const identity = layeredIdentityForDisplay(faction, dossier?.faction?.identity);
+  const coreEntry = identityColorEntry(identity.core_color);
+  const secondaryEntry = identityColorEntry(identity.secondary_color);
+  const expressionEntry = identityExpressionEntry(identity.expression_key);
+
+  const coreCard = buildIdentityDetailCard({
+    title: "Core Identity",
+    headline: coreEntry?.name || getColorName(identity.core_color || ""),
+    copy: coreEntry?.philosophy || "This reading's core color is not yet annotated.",
+    meta: (coreEntry?.taste_signals || []).slice(0, 3).join(" | "),
+  });
+
+  const secondaryCard = buildIdentityDetailCard({
+    title: "Secondary Influence",
+    headline: secondaryEntry?.name || (identity.secondary_color ? getColorName(identity.secondary_color) : "None active"),
+    copy: secondaryEntry?.philosophy || "This expression is currently centered on a single color without a secondary influence.",
+    meta: (secondaryEntry?.taste_signals || []).slice(0, 3).join(" | "),
+  });
+
+  const expressionKind = getInstitutionLabel({
+    institution_type: identity.expression_kind,
+    identity: { expression_kind: identity.expression_kind },
+  });
+  const expressionCard = buildIdentityDetailCard({
+    title: "Expression",
+    headline: identity.expression_name || faction?.name || "Unknown expression",
+    copy: expressionEntry?.identity_blend || faction?.identity_blend || "This expression blends the foundational color logic into a named Commander-facing surface.",
+    meta: `${expressionKind}${identity.expression_key ? ` | ${identity.expression_key}` : ""}`,
+  });
+
+  const purityCard = buildIdentityDetailCard({
+    title: "Purity",
+    headline: formatPurity(identity.purity),
+    copy: typeof identity.purity === "number"
+      ? "This purity value is calibrated from the expression itself."
+      : "Color-weight purity is intentionally withheld until the scoring model can derive it without approximation.",
+    meta: identity.secondary_color
+      ? `Core ${getColorName(identity.core_color)} | Secondary ${getColorName(identity.secondary_color)}`
+      : `Core ${getColorName(identity.core_color)}`,
+  });
+
+  return `
+    <div class="starter-section">
+      <div class="section-label">Layered Identity</div>
+      <div class="starter-grid">
+        ${coreCard}
+        ${secondaryCard}
+        ${expressionCard}
+        ${purityCard}
+      </div>
+    </div>`;
 }
 
 function presentationForFaction(factionOrKey) {
@@ -1419,10 +1530,12 @@ function uniqueTagRefs(refs = []) {
 }
 
 function textIncludesTag(text, entry) {
-  const haystack = String(text || "").toLowerCase();
+  const haystack = normalizeCardName(text);
+  const paddedHaystack = haystack ? ` ${haystack} ` : "";
   return [entry.tag, entry.display_name, ...(entry.aliases || [])]
+    .map(normalizeCardName)
     .filter(Boolean)
-    .some((needle) => haystack.includes(String(needle).toLowerCase()));
+    .some((needle) => haystack === needle || paddedHaystack.includes(` ${needle} `));
 }
 
 function selectReadingTagRefs({ dossier, faction, result }) {
@@ -1669,6 +1782,7 @@ function buildDossierInterpretationHtml({ dossier, faction, result, tagRefs }) {
 
   return `
     ${forkHtml}
+    ${buildLayeredIdentityHtml({ dossier, faction })}
     <div class="starter-section">
       <div class="section-label">Table Identity</div>
       <div class="starter-grid">${buildTableIdentityCardHtml(faction)}</div>
@@ -1834,6 +1948,17 @@ function renderResult(viewKey) {
   const apocryphaHtml = buildApocryphaHtml(faction);
   const heroNarrative = buildHeroNarrative({ dossier, faction, result });
   const adjacentContextHtml = buildAdjacentContextHtml({ dossier, result });
+  const activeExpressionEntries = Object.values(APP_STATE.identityLayers?.expressions || {})
+    .filter((entry) => entry?.active !== false);
+  const activeExpressionCount = activeExpressionEntries.length || Object.keys(APP_STATE.factions || {}).length || 15;
+  const activeMonoCount = activeExpressionEntries
+    .filter((entry) => String(entry?.kind || "").toLowerCase() === "color")
+    .length;
+  const atlasFrontierCopy = activeMonoCount === 1
+    ? `The atlas is still opening: ${activeExpressionCount} expressions are lit now - ten Ravnican guilds, five Strixhaven colleges, and one mono color path. Wedges, families, and stranger color-shapes wait beyond the next veil.`
+    : activeMonoCount > 1
+      ? `The atlas is still opening: ${activeExpressionCount} expressions are lit now - ten Ravnican guilds, five Strixhaven colleges, and ${activeMonoCount} mono color paths. Wedges, families, and stranger color-shapes wait beyond the next veil.`
+      : `The atlas is still opening: ${activeExpressionCount} expressions are lit now - ten Ravnican guilds and five Strixhaven colleges. Wedges, families, and stranger color-shapes wait beyond the next veil.`;
   const scoreBarsHtml = dossier.manaAlignment.map(({ color, value }) => {
     const target = Math.min(100, value * 10);
     return `<div class="score-row score-row-${color}"><span class="score-label">${COLOR_META[color].label}</span><div class="score-track"><div class="score-fill score-fill-${color}" style="width:0;background:${COLOR_META[color].fill}" data-target="${target}"></div></div><span class="score-val">${value}</span></div>`;
@@ -2079,7 +2204,7 @@ function renderResult(viewKey) {
     ${apocryphaHtml}
 
     <p class="decree-footer">
-      The atlas is still opening: fifteen paths are lit now — ten Ravnican guilds and five Strixhaven colleges. Wedges, families, and stranger color-shapes wait beyond the next veil.
+      ${atlasFrontierCopy}
     </p>
 
     <div class="footer-actions">
@@ -2410,6 +2535,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     await loadFactionData();
     await loadPlacementModel();
     await loadDeckTagCatalog();
+    await loadIdentityLayerData();
     await loadDiscoveryData();
   } catch (error) {
     document.body.innerHTML = `<div class="section"><div class="empty-state"><h2>Placement data missing.</h2><p>${error.message}</p></div></div>`;

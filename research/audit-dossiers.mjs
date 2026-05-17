@@ -18,13 +18,14 @@ const primaryCount = cases.filter((entry) => entry.dossier.isPrimary).length;
 const adjacentCount = cases.filter((entry) => !entry.dossier.isPrimary).length;
 const failing = auditResults.filter((result) => result.failures.length);
 const warnings = auditResults.filter((result) => !result.failures.length && result.warnings.length);
+const expectedPrimaryCount = Number(inputs.placementModel?._meta?.faction_count || primaryCount);
 
 console.log(`Audited ${primaryCount} primary Commander dossiers and ${adjacentCount} adjacent dossiers.`);
 console.log(`Pass: ${auditResults.length - failing.length - warnings.length}; warnings: ${warnings.length}; failures: ${failing.length}.`);
 console.log("Wrote artifacts/dossier-snapshots/dossier-audit-report.md.");
 
-if (primaryCount !== 15) {
-  throw new Error(`Expected 15 primary dossiers, generated ${primaryCount}.`);
+if (primaryCount !== expectedPrimaryCount) {
+  throw new Error(`Expected ${expectedPrimaryCount} primary dossiers, generated ${primaryCount}.`);
 }
 
 if (failing.length) {
