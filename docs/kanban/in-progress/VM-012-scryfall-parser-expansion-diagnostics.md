@@ -2,7 +2,7 @@
 
 ID: VM-012
 Title: Scryfall Parser Expansion and Diagnostics
-Status: backlog
+Status: in-progress
 Type: Data / Research
 Area: Scryfall Data, Maze
 Priority: low

@@ -69,6 +69,7 @@
 3. Confirm the saved result appears first instead of the landing page.
 4. Confirm the adjacent fits are still present.
 5. Switch into each adjacent fit and confirm the dossier updates cleanly.
+6. Confirm `Back to Primary Reading` returns you to the original saved result.
 
 ## Retake flow
 

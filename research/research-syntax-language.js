@@ -122,7 +122,7 @@ function parseSimpleTerm(term) {
 
   const oracle = value.match(/^o:(.+)$/i);
   if (oracle) {
-    return { kind: "oracle", text: `mentioning ${unquote(oracle[1])}` };
+    return describeOracleTerm(oracle[1], negated);
   }
 
   return null;
@@ -148,6 +148,111 @@ function parseColorTerm(value, negated) {
 }
 
 /**
+ * Describes a positive or negated Oracle text term in plain English.
+ * @param {string} rawValue - Raw Oracle value.
+ * @param {boolean} negated - Whether the term was negated.
+ * @returns {{kind: string, text: string}} Normalized translation bucket entry.
+ */
+function describeOracleTerm(rawValue, negated) {
+  const phrase = describeOraclePhrase(rawValue);
+  return {
+    kind: negated ? "exclusions" : "oracle",
+    text: negated ? `excluding ${phrase}` : phrase
+  };
+}
+
+/**
+ * Describes Oracle text or regex text in plain English.
+ * @param {string} rawValue - Raw Oracle payload.
+ * @returns {string} Human-readable Oracle description.
+ */
+function describeOraclePhrase(rawValue) {
+  const value = unquote(String(rawValue || "").trim());
+  if (!value) return "oracle text";
+  if (/^\/.+\/$/.test(value)) return describeOracleRegexPhrase(value.slice(1, -1));
+  return describeOraclePlainPhrase(value);
+}
+
+/**
+ * Describes literal Oracle text in plain English.
+ * @param {string} value - Literal Oracle text.
+ * @returns {string} Human-readable Oracle description.
+ */
+function describeOraclePlainPhrase(value) {
+  const clean = cleanOracleSnippet(value);
+  if (!clean) return "oracle text";
+  return `oracle text containing ${clean}`;
+}
+
+/**
+ * Describes Oracle regex in plain English.
+ * @param {string} pattern - Regex body without slashes.
+ * @returns {string} Human-readable Oracle regex description.
+ */
+function describeOracleRegexPhrase(pattern) {
+  const body = String(pattern || "");
+  const normalized = body.toLowerCase();
+
+  if (/\bnamed\s+\(\?!lands\)/i.test(body)) {
+    return "Oracle text matching named cards while avoiding lands";
+  }
+  if (/search your\s+\(hand\|library\)/i.test(body)) {
+    return "Oracle text matching search your hand or library";
+  }
+  if (/destroy.*creature/i.test(body)) {
+    return "Oracle text matching destroy creature";
+  }
+  if (/^draft$/i.test(cleanOracleSnippet(body))) {
+    return "oracle text containing draft";
+  }
+  if (/a deck can have/i.test(body)) {
+    return "oracle text matching deck-construction exception wording";
+  }
+  if (/named ~ in your graveyard/i.test(body)) {
+    return "oracle text matching named-card graveyard loops";
+  }
+  if (/creatures named .*can't attack or block/i.test(body)) {
+    return "oracle text matching named-creature attack or block restrictions";
+  }
+  if (/named/.test(normalized) && /\|/.test(body)) {
+    return "oracle text matching common named-card false positives";
+  }
+  if (/search your/.test(normalized) && /\|/.test(body)) {
+    return "oracle text matching search your hand or library";
+  }
+
+  const clean = cleanOracleSnippet(body);
+  return clean ? `oracle text matching ${clean}` : "oracle text matching a regex";
+}
+
+/**
+ * Normalizes Oracle text snippets for readable prose.
+ * @param {string} value - Raw text or regex body.
+ * @returns {string} Cleaned text.
+ */
+function cleanOracleSnippet(value) {
+  return String(value || "")
+    .replace(/\(\?!lands\)/gi, " avoiding lands ")
+    .replace(/\(\?:/g, "(")
+    .replace(/\|/g, " or ")
+    .replace(/\.\*/g, " any text ")
+    .replace(/\\\//g, "/")
+    .replace(/\\\(/g, "(")
+    .replace(/\\\)/g, ")")
+    .replace(/\\\?/g, "?")
+    .replace(/\\\./g, ".")
+    .replace(/\\\+/g, "+")
+    .replace(/\\x20/g, " ")
+    .replace(/[{}[\]^$]/g, " ")
+    .replace(/[:]/g, " ")
+    .replace(/[<>=]/g, " ")
+    .replace(/[^A-Za-z0-9'’/+-]+/g, " ")
+    .replace(/\bcan t\b/gi, "can't")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+/**
  * Assembles translated phrase buckets into one readable query.
  * @param {object} parts - Phrase buckets.
  * @param {string[]} unhandled - Terms that could not be translated.
@@ -156,15 +261,15 @@ function parseColorTerm(value, negated) {
 function assemblePhrase(parts, unhandled) {
   const segments = [];
   if (parts.colors.length) segments.push(joinHuman(parts.colors));
-  if (parts.exclusions.length) segments.push(joinHuman(parts.exclusions));
   if (parts.types.length) segments.push(joinHuman(parts.types));
+  if (parts.oracle.length) segments.push(joinHuman(parts.oracle));
+  if (parts.exclusions.length) segments.push(joinHuman(parts.exclusions));
   if (parts.formats.length) segments.push(joinHuman(parts.formats));
   if (parts.rarities.length) segments.push(joinHuman(parts.rarities));
   if (parts.mana.length) segments.push(joinHuman(parts.mana));
   if (parts.keywords.length) segments.push(`with ${joinHuman(parts.keywords)}`);
-  if (parts.oracle.length) segments.push(joinHuman(parts.oracle));
   if (!segments.length && unhandled.length) return "";
-  if (unhandled.length) segments.push(`plus ${unhandled.join(" ")}`);
+  if (unhandled.length) segments.push(`plus ${unhandled.map(describeUnhandledTerm).join(" ")}`);
   return segments.join(" ").replace(/\s+/g, " ").trim();
 }
 
@@ -177,12 +282,40 @@ function splitTopLevelTerms(query) {
   const terms = [];
   let current = "";
   let inQuote = false;
+  let inRegex = false;
+  let regexEscaped = false;
   let depth = 0;
+  let regexStartsField = false;
 
   for (const char of String(query || "").trim()) {
+    if (inRegex) {
+      current += char;
+      if (regexEscaped) {
+        regexEscaped = false;
+        continue;
+      }
+      if (char === "\\") {
+        regexEscaped = true;
+        continue;
+      }
+      if (char === "/") {
+        inRegex = false;
+        regexStartsField = false;
+      }
+      continue;
+    }
+
     if (char === '"') inQuote = !inQuote;
     if (!inQuote && char === "(") depth += 1;
     if (!inQuote && char === ")") depth = Math.max(depth - 1, 0);
+
+    if (!inQuote && depth === 0 && char === "/" && /:$/.test(current)) {
+      inRegex = true;
+      regexEscaped = false;
+      regexStartsField = true;
+      current += char;
+      continue;
+    }
 
     if (!inQuote && depth === 0 && /\s/.test(char)) {
       if (current.trim()) terms.push(current.trim());
@@ -276,4 +409,21 @@ function joinOrHuman(values) {
   if (clean.length <= 1) return clean[0] || "";
   if (clean.length === 2) return `${clean[0]} or ${clean[1]}`;
   return `${clean.slice(0, -1).join(", ")}, or ${clean.at(-1)}`;
+}
+
+/**
+ * Describes unhandled syntax fragments in a cleaner fallback form.
+ * @param {string} term - Unhandled query term.
+ * @returns {string} Human-readable fallback text.
+ */
+function describeUnhandledTerm(term) {
+  const clean = String(term || "").trim();
+  if (!clean) return "";
+  if (/^-?o:/i.test(clean)) {
+    return describeOraclePhrase(clean.replace(/^-?o:/i, "")).replace(/^oracle text /i, "");
+  }
+  return clean
+    .replace(/[:/|()*?\\^$]/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
 }

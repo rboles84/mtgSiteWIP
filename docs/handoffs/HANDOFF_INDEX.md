@@ -4,6 +4,12 @@ This index tracks agent work across planning, board updates, documentation, JSON
 
 | Date | Agent | Task | Related Card | Status | Handoff |
 |---|---|---|---|---|---|
+| 2026-05-17 01:30 | Codex | VM-012 checkpoint save before VM-022 | VM-012 | Complete | [2026-05-17-0130-codex-vm012-checkpoint-save-before-vm022.md](2026-05-17-0130-codex-vm012-checkpoint-save-before-vm022.md) |
+| 2026-05-17 01:26 | Codex | Adjacent fit click repair + return path | VM-021B | Complete | [2026-05-17-0126-codex-vm021b-adjacent-fit-click-repair-return-path.md](2026-05-17-0126-codex-vm021b-adjacent-fit-click-repair-return-path.md) |
+| 2026-05-17 01:21 | Codex | Plain Reading / Operator's Hand Translation Tests | VM-012 | Complete | [2026-05-17-0121-codex-plain-reading-operator-hand-translation-tests.md](2026-05-17-0121-codex-plain-reading-operator-hand-translation-tests.md) |
+| 2026-05-17 00:43 | Codex | VM-012 shared Maze query handoff helper | VM-012 | Complete | [2026-05-17-0043-codex-vm012-shared-maze-query-handoff-helper.md](2026-05-17-0043-codex-vm012-shared-maze-query-handoff-helper.md) |
+| 2026-05-17 00:40 | Codex | VM-012 showKwSuggestions blocker fix | VM-012 | Complete | [2026-05-17-0040-codex-vm012-showkwsuggestions-blocker-fix.md](2026-05-17-0040-codex-vm012-showkwsuggestions-blocker-fix.md) |
+| 2026-05-17 00:21 | Codex | Scryfall dictionary robustness expansion | VM-012 | Complete | [2026-05-17-0021-codex-scryfall-dictionary-robustness-expansion.md](2026-05-17-0021-codex-scryfall-dictionary-robustness-expansion.md) |
 | 2026-05-16 16:43 | Codex | Git status, commit, and push bundle | N/A | Complete | [2026-05-16-1643-codex-git-status-commit-push-bundle.md](2026-05-16-1643-codex-git-status-commit-push-bundle.md) |
 | 2026-05-16 16:37 | Codex | Add Maze Core Extraction backlog card; corrected an accidental implementation drift back to backlog-only | VM-022 | Complete | [2026-05-16-1637-codex-vm022-maze-core-extraction.md](2026-05-16-1637-codex-vm022-maze-core-extraction.md) |
 | 2026-05-16 13:45 | Codex | Add in-flight request dedupe for Scryfall calls | VM-021C | Complete | [2026-05-16-1345-codex-vm021c-add-in-flight-request-dedupe-for-scryfall-calls.md](2026-05-16-1345-codex-vm021c-add-in-flight-request-dedupe-for-scryfall-calls.md) |

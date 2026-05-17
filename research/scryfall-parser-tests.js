@@ -397,6 +397,115 @@ const cases = [
     expected: "c:ur (o:instant OR o:sorcery)"
   },
   {
+    // Tests Commander-first cEDH shorthand with sort metadata
+    name: "cedh commander deck",
+    input: "cedh commander deck",
+    expectedIncludes: ["f:commander"],
+    expectedApi: { order: "edhrec" },
+    expectedRecognized: ["filter: cEDH"]
+  },
+  {
+    // Tests Pauper Commander shorthand from the corpus
+    name: "pauper commander deck",
+    input: "pauper commander deck",
+    expectedIncludes: ["f:paupercommander"],
+    expectedRecognized: ["filter: Pauper Commander"],
+    minConfidence: 0.4
+  },
+  {
+    // Tests Historic Brawl vs Standard Brawl separation
+    name: "historic brawl deck",
+    input: "historic brawl deck",
+    expectedIncludes: ["f:brawl", "-f:standard"],
+    minConfidence: 0.4
+  },
+  {
+    // Tests Standard Brawl phrasing
+    name: "standard brawl deck",
+    input: "standard brawl deck",
+    expectedIncludes: ["f:standard", "f:brawl"],
+    minConfidence: 0.4
+  },
+  {
+    // Tests four-color nickname support
+    name: "chaos commander deck",
+    input: "chaos commander deck",
+    expectedIncludes: ["id<=ubrg", "f:commander"],
+    minConfidence: 0.44
+  },
+  {
+    // Tests common commander alias support
+    name: "white blue commander deck",
+    input: "white blue commander deck",
+    expectedIncludes: ["id<=wu", "f:commander"],
+    minConfidence: 0.44
+  },
+  {
+    // Tests color-pie break coverage from the corpus
+    name: "green counterspells",
+    input: "green counterspells",
+    expected: "c:g o:/counter.*spell/",
+    minConfidence: 0.5
+  },
+  {
+    // Tests color-pie break coverage from the corpus
+    name: "red lifegain",
+    input: "red lifegain",
+    expected: "c:r o:\"gain life\"",
+    minConfidence: 0.5
+  },
+  {
+    // Tests white removal corpus coverage
+    name: "white creature removal",
+    input: "white creature removal",
+    expected: "c:w (o:/destroy.*creature/ OR o:/exile.*creature/)",
+    minConfidence: 0.5
+  },
+  {
+    // Tests graveyard hate phrasing from the corpus
+    name: "graveyard hate",
+    input: "graveyard hate",
+    expected: "o:/exile.*graveyard/"
+  },
+  {
+    // Tests ETB creature phrasing from the corpus
+    name: "enters the battlefield creatures",
+    input: "enters the battlefield creatures",
+    expected: "is:etb t:creature"
+  },
+  {
+    // Tests spellslinger payoff phrasing from the corpus
+    name: "instant and sorcery payoffs",
+    input: "instant and sorcery payoffs",
+    expected: "o:whenever o:cast (o:instant OR o:sorcery)"
+  },
+  {
+    // Tests the common counterspell role search
+    name: "counterspells",
+    input: "counterspells",
+    expected: "otag:counterspell",
+    minConfidence: 0.5
+  },
+  {
+    // Tests common tutor phrasing from the corpus
+    name: "search your library tutor",
+    input: "search your library for a land",
+    expected: "otag:tutor t:land"
+  },
+  {
+    // Tests common card-draw shorthand from the corpus
+    name: "one mana cantrips",
+    input: "one mana cantrips",
+    expected: "mv=1 o:draw",
+    minConfidence: 0.35
+  },
+  {
+    // Tests common mana dork shorthand from the corpus
+    name: "mana dorks shorthand",
+    input: "mana dorks",
+    expected: "t:creature o:\"{T}: add\""
+  },
+  {
     name: "banned in modern",
     input: "banned in modern",
     expected: "banned:modern"
@@ -554,15 +663,16 @@ const cases = [
   {
     name: "no duplicate oracle or terms",
     input: "draw or draw cards",
-    expected: "o:draw",
-    expectedNotIncludes: ["(o:draw)"],
+    expected: "otag:draw",
+    expectedNotIncludes: ["(otag:draw)"],
     minConfidence: 0.4
   },
   {
     // Tests lifegain payoff phrasing
     name: "lifegain payoff",
     input: "white black cards whenever I gain life",
-    expected: "c:wb o:\"gain life\""
+    expected: "c:wb o:\"gain life\"",
+    minConfidence: 0.4
   },
   {
     // Tests total nonsense should not pretend to be a confident query

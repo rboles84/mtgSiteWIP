@@ -2,7 +2,7 @@
 
 ID: VM-021B
 Title: Surgical Fix: Adjacent Fits Top Placement + Return Anchor
-Status: backlog
+Status: done
 Type: UX / reliability
 Area: Archscry, Maze
 Priority: high
@@ -25,4 +25,4 @@ Apply the last surgical QA correction from VM-021A: remove the redundant primary
 
 ## Notes
 
-Keep this as a one-block render correction only. No redesign, no scoring changes, no route changes, no QR work.
+Implemented as a one-block render correction only. No redesign, no scoring changes, no route changes, no QR work.

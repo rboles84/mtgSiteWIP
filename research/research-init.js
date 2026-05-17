@@ -4,6 +4,7 @@ import { buildVisualBuilderQuery, parseKeywordInput } from "./research-builder.j
 import { resolveModeInputValue } from "./research-mode.js";
 import * as ResearchSearch from "./research-search.js";
 import { renderQueryInspector } from "./research-ui.js";
+import { resolveMazeLaunchState } from "../assets/js/maze-handoff.js";
 
 let currentMode = "ai";
 let currentQuery = "";
@@ -145,24 +146,22 @@ async function initializeResearchArchives() {
   bindSearchInputSelectOnFocus();
   setMode("ai");
 
-  const urlQ = urlParams.get("q");
-  const operatorQuery = urlParams.get("operatorQuery") || urlQ;
-  const plainReadingQuery = urlParams.get("plainReadingQuery") || "";
-  if (urlParams.get("from") === "archscry" && operatorQuery) {
+  const launch = resolveMazeLaunchState(urlParams, readArchscryMazeHandoff() || {});
+  if (launch.from === "archscry" && launch.operatorQuery) {
     const input = document.getElementById("search-input");
-    input.value = plainReadingQuery || operatorQuery;
+    input.value = launch.plainReadingQuery || launch.operatorQuery;
     lastSmartInput = input.value;
-    lastSmartQuery = operatorQuery;
+    lastSmartQuery = launch.operatorQuery;
     setMode("ai");
-    triggerSearch(operatorQuery, {
+    triggerSearch(launch.operatorQuery, {
       order: urlParams.get("order") || currentOrder,
       unique: urlParams.get("unique") || currentUnique,
       dir: normalizeSortDirection(urlParams.get("dir")) || currentDir
     });
-  } else if (urlQ) {
-    document.getElementById("search-input").value = urlQ;
+  } else if (launch.urlQ) {
+    document.getElementById("search-input").value = launch.urlQ;
     setMode("raw");
-    triggerSearch(urlQ, {
+    triggerSearch(launch.urlQ, {
       order: urlParams.get("order") || currentOrder,
       unique: urlParams.get("unique") || currentUnique,
       dir: normalizeSortDirection(urlParams.get("dir")) || currentDir
@@ -745,6 +744,42 @@ function handleKwKey(event) {
     const value = event.target.value.trim().toLowerCase();
     if (value) addKeyword(value);
   }
+}
+
+/**
+ * Shows keyword autocomplete suggestions for the builder input.
+ * @param {string} value - Current keyword input.
+ */
+function showKwSuggestions(value) {
+  const input = String(value || "").trim().toLowerCase();
+  const box = document.getElementById("kw-suggestions");
+  if (!box) return;
+
+  if (!input) {
+    box.innerHTML = "";
+    box.classList.add("hidden");
+    return;
+  }
+
+  const matches = KEYWORDS
+    .filter((keyword) => keyword.includes(input))
+    .sort((a, b) => {
+      const aPrefix = a.startsWith(input) ? 0 : 1;
+      const bPrefix = b.startsWith(input) ? 0 : 1;
+      return aPrefix - bPrefix || a.localeCompare(b);
+    })
+    .slice(0, 8);
+
+  if (!matches.length) {
+    box.innerHTML = "";
+    box.classList.add("hidden");
+    return;
+  }
+
+  box.innerHTML = matches.map((keyword) =>
+    `<div class="kw-sug" onclick="addKeyword('${escapeAttribute(keyword)}')">${keyword}</div>`
+  ).join("");
+  box.classList.remove("hidden");
 }
 
 /**

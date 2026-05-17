@@ -19,6 +19,12 @@ import {
   getCommanderFactionGuidance,
   getServiceChipMeta,
 } from "./commander-dossier.js";
+import {
+  mazeSearchLink as buildMazeSearchLink,
+  resolveMazeOperatorQuery,
+  resolveMazePathType,
+  resolveMazePlainReadingQuery,
+} from "./maze-handoff.js";
 
 const SESSION = VM_SESSION;
 const COLOR_META = {
@@ -1294,20 +1300,11 @@ function buildArchscryMazeContext({ result, dossier, faction }) {
 }
 
 function queryFromMazeLink(link = {}) {
-  if (link.operatorQuery) return link.operatorQuery;
-  try {
-    const parsed = new URL(link.url || "", window.location.origin);
-    return parsed.searchParams.get("operatorQuery") || parsed.searchParams.get("q") || "";
-  } catch (_) {
-    return "";
-  }
+  return resolveMazeOperatorQuery(link, window.location.origin);
 }
 
 function pathTypeForMazeLink(link = {}) {
-  return link.pathType || String(link.label || "maze-path")
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, "-")
-    .replace(/^-|-$/g, "");
+  return resolveMazePathType(link);
 }
 
 function withArchscryMazeContext(links = [], context) {
@@ -1316,7 +1313,10 @@ function withArchscryMazeContext(links = [], context) {
     if (!isMaze) return link;
     const operatorQuery = queryFromMazeLink(link);
     const pathType = pathTypeForMazeLink(link);
-    const plainReadingQuery = link.plainReadingQuery || `${link.label || MAZE_PATH_LABELS[pathType] || "Maze path"} from ${context.factionName}`;
+    const plainReadingQuery = resolveMazePlainReadingQuery(link, {
+      factionName: context.factionName,
+      pathLabel: MAZE_PATH_LABELS[pathType] || "Maze path",
+    });
     return {
       ...link,
       pathType,
@@ -1587,14 +1587,7 @@ function groupedOr(terms = []) {
 }
 
 function mazeSearchLink(label, query, service = "maze", pathType = "", plainReadingQuery = "") {
-  return {
-    service,
-    label,
-    pathType: pathType || pathTypeForMazeLink({ label }),
-    plainReadingQuery: plainReadingQuery || label,
-    operatorQuery: query,
-    url: `/maze/?q=${encodeURIComponent(query)}`,
-  };
+  return buildMazeSearchLink({ label, query, service, pathType, plainReadingQuery });
 }
 
 function buildPersonalizedMazePaths({ faction, tagRefs, flavorEchoes }) {
@@ -1924,6 +1917,10 @@ function renderResult(viewKey) {
       <div class="section-label">Adjacent Fits</div>
       <div class="adjacent-grid">${adjacentHtml}</div>
     </div>`;
+  const resultStatus = dossier.resultStatus;
+  const returnToPrimaryButton = !isPrimary
+    ? `<div class="footer-button-row"><button class="btn-secondary" type="button" onclick="returnToPrimaryReading()">Back to Primary Reading</button></div>`
+    : "";
   const primaryPlacementHtml = isPrimary
     ? adjacentSectionHtml
     : `
@@ -1937,7 +1934,6 @@ function renderResult(viewKey) {
     terminalEnabled && APP_STATE.resultSource === "interview"
       ? `<button class="btn-secondary" type="button" onclick="returnToInterviewSource()">Return to the Terminal</button>`
       : "";
-  const resultStatus = dossier.resultStatus;
   const decreeCopy = dossier.decreeCopy;
   const readingOmens = dossier.readingOmens || [];
   const manaSectionLabel = isPrimary
@@ -1991,6 +1987,7 @@ function renderResult(viewKey) {
     </div>
 
     ${primaryPlacementHtml}
+    ${returnToPrimaryButton}
 
     <div class="scores-section">
       <div class="section-label">${manaSectionLabel}</div>
@@ -2110,9 +2107,22 @@ function renderResult(viewKey) {
  * @param {string} factionKey Adjacent faction key to render.
  */
 function switchAdjacentView(factionKey) {
-  APP_STATE.previousViewKey = APP_STATE.activeViewKey;
+  APP_STATE.previousViewKey = APP_STATE.activeResult?.faction || APP_STATE.activeViewKey;
   APP_STATE.activeViewKey = factionKey;
   renderResult(factionKey);
+}
+
+/**
+ * Returns from an adjacent fit to the original primary reading.
+ */
+function returnToPrimaryReading() {
+  const primaryViewKey = APP_STATE.activeResult?.faction || APP_STATE.previousViewKey;
+  if (!primaryViewKey) {
+    return;
+  }
+
+  APP_STATE.activeViewKey = primaryViewKey;
+  renderResult(primaryViewKey);
 }
 
 /**
@@ -2386,6 +2396,7 @@ Object.assign(window, {
   openLibrary,
   openResearch,
   returnToInterviewSource,
+  returnToPrimaryReading,
   saveCurrentResult,
   showSection,
   startInterviewFlow,

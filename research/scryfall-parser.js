@@ -4,6 +4,8 @@ let activeDictionary = DEFAULT_DICTIONARY;
 
 const STOP_WORDS = new Set([
   "a", "an", "and", "any", "are", "also", "but", "card", "cards", "exactly", "for", "from",
+  "deck", "decks", "deckbuilding", "decklist", "build", "builds", "list", "lists",
+  "payoff", "payoffs", "search", "library", "libraries",
   "give", "gives", "have", "has", "in", "into", "is", "just", "legal", "me", "my", "of",
   "only", "or", "that", "the", "to", "with", "without", "which", "who", "your", "under"
 ]);
@@ -276,6 +278,8 @@ function normalizeInput(input) {
     .toLowerCase()
     .replace(/[\u2018\u2019]/g, "'")
     .replace(/[\u201c\u201d]/g, "\"")
+    .replace(/([a-z])[-–—]([a-z])/g, "$1 $2")
+    .replace(/([a-z])\/([a-z])/g, "$1 $2")
     .replace(/\baso\b/g, "also")
     .replace(/\bgren\b/g, "green")
     .replace(/\bcreaturs\b/g, "creatures")
@@ -401,8 +405,30 @@ function detectFormats(state) {
  */
 function detectIdentities(state, commanderIntent) {
   const exactColorIntent = hasExactColorIntent(state.normalized);
+  const matchedCanonical = new Set();
+
+  Object.entries(activeDictionary.identityAliases || {})
+    .sort((a, b) => b[0].length - a[0].length)
+    .forEach(([alias, canonical]) => {
+      if (!hasPhrase(state.normalized, alias) || isConsumed(state, alias)) return;
+      const identity = activeDictionary.identities[canonical];
+      if (!identity || matchedCanonical.has(canonical)) return;
+      const colorQuery = exactColorIntent ? `c=${sortColors(identity.colors)}` : `c:${sortColors(identity.colors)}`;
+      const query = commanderIntent ? `id<=${identity.colors}` : colorQuery;
+      addTerm(state, query, `${identity.label} identity`, "identity", alias);
+      consumePhrase(state, alias);
+      consumeAliasColorWords(state, alias);
+      matchedCanonical.add(canonical);
+      if (exactColorIntent && !commanderIntent) consumeExactColorWords(state);
+      state.assumptions.push(commanderIntent
+        ? `Interpreted ${identity.label} as Commander color identity.`
+        : exactColorIntent
+          ? `Interpreted ${identity.label} as exact card colors.`
+          : `Interpreted ${identity.label} as actual card color.`);
+    });
+
   Object.entries(activeDictionary.identities).forEach(([key, identity]) => {
-    if (!hasPhrase(state.normalized, key)) return;
+    if (matchedCanonical.has(key) || !hasPhrase(state.normalized, key)) return;
     const colorQuery = exactColorIntent ? `c=${sortColors(identity.colors)}` : `c:${sortColors(identity.colors)}`;
     const query = commanderIntent ? `id<=${identity.colors}` : colorQuery;
     addTerm(state, query, `${identity.label} identity`, "identity", key);
@@ -1087,6 +1113,20 @@ function consumeExactColorWords(state) {
   ["only", "exactly", "just", "no other color", "no other colors"].forEach((phrase) => {
     if (hasPhrase(state.normalized, phrase)) consumePhrase(state, phrase);
   });
+}
+
+/**
+ * Consumes the color words embedded inside a color alias phrase.
+ * @param {object} state - Mutable parse state.
+ * @param {string} alias - Color alias phrase.
+ */
+function consumeAliasColorWords(state, alias) {
+  String(alias || "")
+    .split(/[^a-z]+/i)
+    .filter(Boolean)
+    .forEach((word) => {
+      if (activeDictionary.colors?.[word]) consumePhrase(state, word);
+    });
 }
 
 /**

@@ -2,6 +2,13 @@ import assert from "node:assert/strict";
 import { stripApiMetadataFromQuery } from "./scryfall-parser.js";
 import { buildScryfallApiSearchUrl } from "./research-search.js";
 import { buildScryfallWebSearchUrl, parseAlternativeApi, renderQueryInspector, serializeAlternativeApi } from "./research-ui.js";
+import {
+  mazeSearchLink,
+  resolveMazeLaunchState,
+  resolveMazeOperatorQuery,
+  resolveMazePathType,
+  resolveMazePlainReadingQuery,
+} from "../assets/js/maze-handoff.js";
 
 const apiUrl = new URL(buildScryfallApiSearchUrl("otag:mana-rock", {
   unique: "art",
@@ -16,6 +23,27 @@ assert.equal(apiUrl.searchParams.get("dir"), "desc");
 
 const pageUrl = "https://api.scryfall.com/cards/search?q=otag%3Amana-rock&unique=art&order=released&dir=desc&page=2";
 assert.equal(buildScryfallApiSearchUrl("ignored", { page: pageUrl, order: "name", dir: "asc" }), pageUrl);
+
+assert.equal(resolveMazeOperatorQuery({ url: "/maze/?q=otag%3Aboard-wipe" }, "https://example.com"), "otag:board-wipe");
+assert.equal(resolveMazePathType({ label: "Weird Stretch Commanders" }), "weird-stretch-commanders");
+assert.equal(resolveMazePlainReadingQuery({}, { label: "Maze path", factionName: "Azorius" }), "Maze path from Azorius");
+assert.deepEqual(
+  resolveMazeLaunchState(new URLSearchParams("from=archscry&operatorQuery=c%3Au&q=ignored&plainReadingQuery=Blue+cards&pathType=support-cards"), { returnUrl: "/archscry/" }),
+  {
+    from: "archscry",
+    urlQ: "ignored",
+    operatorQuery: "c:u",
+    plainReadingQuery: "Blue cards",
+    pathType: "support-cards",
+    returnUrl: "/archscry/"
+  }
+);
+
+const mazeLink = mazeSearchLink({ label: "Board Wipes", query: "otag:board-wipe" });
+assert.equal(mazeLink.pathType, "board-wipes");
+assert.equal(mazeLink.plainReadingQuery, "Board Wipes");
+assert.equal(mazeLink.operatorQuery, "otag:board-wipe");
+assert.equal(mazeLink.url, "/maze/?q=otag%3Aboard-wipe");
 
 const inspectorUrl = new URL(buildScryfallWebSearchUrl("banned:modern", {
   unique: "cards",

@@ -36,6 +36,20 @@ const cases = [
     expected: { value: "red or green with no outside colors with deathtouch", changed: true }
   },
   {
+    name: "raw syntax complex translation is clean",
+    state: {
+      previousMode: "raw",
+      nextMode: "ai",
+      currentValue: "t:creature o:/destroy.*creature/ -o:/search your (hand|library)/",
+      lastSmartInput: "creatures that remove creatures",
+      lastSmartQuery: "c:u o:draw"
+    },
+    expected: {
+      value: "creature cards Oracle text matching destroy creature excluding Oracle text matching search your hand or library",
+      changed: true
+    }
+  },
+  {
     name: "unsent smart text is not overwritten by stale query",
     state: {
       previousMode: "ai",

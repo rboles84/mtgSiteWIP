@@ -28,6 +28,32 @@ const cases = [
     expected: "black and red commander identity creature cards mana value 2 or less"
   },
   {
+    name: "operator hand fixture",
+    query: "t:creature o:/named (?!lands)/ -o:/search your (hand|library)/ -o:draft -o:/(spells|another card|token( with .*)?|returns? (a|all|target) card(s)?|exiled with cards|differently|noted for cards|not|lands? you control|reveal a card you own|cycled a card|choose a) named/ -o:meld -o:/a deck can have/ -o:/named ~ in your graveyard/ -o:/creatures named .* can't attack or block/",
+    expectedIncludes: [
+      "creature cards",
+      "Oracle text matching named cards while avoiding lands",
+      "excluding Oracle text matching search your hand or library",
+      "excluding oracle text containing draft",
+      "excluding oracle text matching common named-card false positives",
+      "excluding oracle text containing meld",
+      "excluding oracle text matching deck-construction exception wording",
+      "excluding oracle text matching named-card graveyard loops",
+      "excluding oracle text matching named-creature attack or block restrictions"
+    ],
+    assertSanitized: true
+  },
+  {
+    name: "negated oracle and regex",
+    query: "t:creature o:/destroy.*creature/ -o:/search your (hand|library)/",
+    expected: "creature cards Oracle text matching destroy creature excluding Oracle text matching search your hand or library"
+  },
+  {
+    name: "commander identity format rarity and mana",
+    query: "id<=br t:creature mv<=2 r:c f:commander",
+    expected: "black and red commander identity creature cards commander legal common mana value 2 or less"
+  },
+  {
     name: "unhandled raw syntax is preserved",
     query: "name:/^ajani/",
     expected: "name:/^ajani/",
@@ -40,7 +66,17 @@ let failures = 0;
 for (const testCase of cases) {
   try {
     const result = translateScryfallSyntaxToPlainText(testCase.query);
-    assert.equal(result.text, testCase.expected);
+    if (testCase.expectedIncludes) {
+      for (const expected of testCase.expectedIncludes) {
+        assert.ok(result.text.includes(expected), `${testCase.name}: missing "${expected}"`);
+      }
+    }
+    if (testCase.expected) {
+      assert.equal(result.text, testCase.expected);
+    }
+    if (testCase.assertSanitized) {
+      assertPlainTextSanitized(result.text, testCase.name);
+    }
     if (Object.prototype.hasOwnProperty.call(testCase, "translated")) {
       assert.equal(result.translated, testCase.translated);
     } else {
@@ -58,4 +94,11 @@ if (failures) {
   process.exitCode = 1;
 } else {
   console.log(`\n${cases.length} syntax translation cases passed.`);
+}
+
+function assertPlainTextSanitized(text, name) {
+  assert.equal(text, text.trim(), `${name}: output should be trimmed`);
+  assert.equal(/\s{2,}/.test(text), false, `${name}: output should not contain double spaces`);
+  assert.equal(/[\/\\|()[\]{}]/.test(text), false, `${name}: output should not leak syntax punctuation`);
+  assert.equal(/\b(?:c|o|kw|mv|id|r|f|t|order|unique|dir|banned|restricted):/i.test(text), false, `${name}: output should not leak operator prefixes`);
 }
