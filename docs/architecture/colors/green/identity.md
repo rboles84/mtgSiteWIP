@@ -1,6 +1,6 @@
-# Green: The Guardian of Nature
+# Green - The Guardian of Nature
 
-### The Spiritual Connection
+## Identity Overview
 
 Green experiences the world as something to be felt, not analyzed.
 
@@ -10,7 +10,7 @@ It requires presence.
 
 Through stillness, observation, and connection to nature, Green understands its place in the world.
 
-## Core Philosophy
+## Core Drive
 
 Green is defined by the unwavering belief that **the natural order is complete**. Every being has an inherent role in the cosmic ecosystem, shaped by your nature and place within the world and evolutionary history. True fulfillment comes not from resisting or transforming this natural identity, but from accepting it fully and growing into one's predetermined potential. You grow into what you already are within the world.
 
@@ -48,11 +48,11 @@ Fulfillment is not created.
 
 It is uncovered.
 
-### Vox Mana Read (Foundational Psychic Axiom)
+## Vox Mana Read (Core Axiom)
 
 > **"You do not force the world to change — you grow into what it becomes."**
 
-## The Philosophy of Biological Determinism
+## Philosophical Foundations
 
 ### Core Belief Structure
 
@@ -92,7 +92,7 @@ Green operates on several interconnected principles:
 (Unfolding into massive physical dominance)
 ```
 
-## The Acceptance of Natural Limits
+### The Acceptance of Natural Limits
 
 ### Destiny vs. Choice
 
@@ -118,7 +118,7 @@ Green sees this **not as limitation but as liberation**:
 - Comparing yourself to others' nature causes suffering
 - Finding your true place brings peace
 
-## The Rejection of Artifice
+### The Rejection of Artifice
 
 ### Nature vs. Technology
 
@@ -144,7 +144,7 @@ To Green, certain things are inherently wrong:
 - **Gene manipulation**: Forcing beings against their nature is violation
 - **Urban sprawl**: Concrete smothering life is destruction
 
-## Ludological Execution
+## Mechanical Identity
 
 ### Core Structural Analysis
 
@@ -155,7 +155,7 @@ To Green, certain things are inherently wrong:
 | **Playstyle** | Ramp, big creatures, recursion, synergy | Employs land acceleration, massive biological threats, and creature-based card draw |
 | **Emotional Tone** | Patience, strength, inevitability | Operates with calm confidence, knowing time naturally favors organic scaling |
 
-## The Mechanics of Natural Progression
+### The Mechanics of Natural Progression
 
 Green's mechanical identity revolves around **patient accumulation and overwhelming physical presence**.
 
@@ -342,7 +342,7 @@ Green historically lacked answers to certain threats:
 - Limited enchantment removal despite needing it
 - Cannot deal with graveyard strategies easily
 
-## Allied Color Relationships
+## Color Relationships
 
 ### Green-White: Natural Order & Community
 - **Shared value**: Peaceful coexistence within established hierarchy
@@ -364,7 +364,7 @@ Green historically lacked answers to certain threats:
 - **Combined approach**: Raw power unleashed without hesitation
 - **Mechanical overlap**: Large creatures, mana acceleration, destruction
 
-## Enemy Color Conflicts
+### Enemy Color Conflicts
 
 ### Green vs. Blue: Nature vs. Artifice
 
@@ -386,7 +386,9 @@ Green historically lacked answers to certain threats:
 
 **The Fundamental Divide**: Green sees life as interconnected ecosystem; Black sees life as resource to exploit for personal gain.
 
-## The Dark Side of Green
+## Color-Specific Notes
+
+### The Dark Side of Green
 
 ### Fascism and Biological Determinism
 
@@ -410,7 +412,7 @@ Green's philosophy, taken to extremes, becomes dangerous:
 - Progressive social movements are "against nature"
 - Used to justify status quo and resist necessary reform
 
-## Modern Evolution: Green's Dominance
+## Modern Evolution
 
 ### Commander Format Advantage
 
@@ -437,7 +439,7 @@ Green has become arguably **too strong** in modern design:
 - Increasingly good removal options
 - Fewer weaknesses than historically
 
-## Summary Table: Green at a Glance
+## System Mapping (Canonical)
 
 | Aspect | Description |
 |--------|-------------|
@@ -450,9 +452,28 @@ Green has become arguably **too strong** in modern design:
 | **Enemy Colors** | Blue (artifice) and Black (exploitation) |
 | **Allied Colors** | White (community) and Red (instinct) |
 
+## Operator Translation Signals (Maze / Scryfall)
+
+Green-aligned queries often include:
+
+- ramp
+- large creatures
+- land synergy
+- creature-based card advantage
+- recursion and anti-destruction
+- tokens
+- fight mechanics
+
+### Pattern Recognition
+
+- Natural progression
+- Creature scale
+- Land connection
+- Patient inevitability
+
 ---
 
-## Key Takeaways
+## Summary
 
 1. **Natural Order is Perfect**: Evolution and natural selection have optimized life; artificial changes degrade this perfection
 

@@ -4,6 +4,7 @@ This index tracks agent work across planning, board updates, documentation, JSON
 
 | Date | Agent | Task | Related Card | Status | Handoff |
 |---|---|---|---|---|---|
+| 2026-05-17 19:52 | Codex | VM-034 mono identity/metaphysics markdown schema normalization | VM-034 | Complete | [2026-05-17-1952-codex-vm034-mono-markdown-schema-normalization.md](2026-05-17-1952-codex-vm034-mono-markdown-schema-normalization.md) |
 | 2026-05-17 15:53 | Codex | Mono rollout complete checkpoint | VM-030 | Complete | [2026-05-17-1553-codex-mono-rollout-complete-checkpoint.md](2026-05-17-1553-codex-mono-rollout-complete-checkpoint.md) |
 | 2026-05-17 15:04 | Codex | Green mono authoring pass | VM-030 | Complete | [2026-05-17-1504-codex-vm030-green-mono-authoring-pass.md](2026-05-17-1504-codex-vm030-green-mono-authoring-pass.md) |
 | 2026-05-17 14:45 | Codex | Red mono authoring pass | VM-029 | Complete | [2026-05-17-1445-codex-vm029-red-mono-authoring-pass.md](2026-05-17-1445-codex-vm029-red-mono-authoring-pass.md) |

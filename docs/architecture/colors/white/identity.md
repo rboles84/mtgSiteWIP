@@ -1,4 +1,4 @@
-# White — The Architect of Safety
+# White - The Architect of Safety
 
 ---
 
@@ -40,7 +40,7 @@ Safety is the motive.
 
 ---
 
-## The Safety Principle
+## Philosophical Foundations
 
 White begins from a foundational belief:
 
@@ -73,7 +73,7 @@ Therefore, systems must exist not just to guide behavior—
 
 but to correct it.
 
-## The Reality Principle
+### The Reality Principle
 
 White believes the world **tends toward chaos if left unchecked**.
 
@@ -87,7 +87,7 @@ So it creates systems that ensure they must.
 
 ---
 
-## The Collective Doctrine
+### The Collective Doctrine
 
 White views the individual as part of a greater whole.
 
@@ -101,7 +101,7 @@ Where other colors prioritize self, expression, or growth—
 
 ---
 
-## Philosophical Framework
+### Philosophical Framework
 
 ### Incentive Enforcement
 
@@ -241,25 +241,21 @@ White wins by:
 
 ### Allies
 
-**Blue (Structure + Optimization)**
+#### Blue (Structure + Optimization)
 - Builds efficient, controlled systems  
 
----
-
-**Green (Community + Harmony)**
+#### Green (Community + Harmony)
 - Reinforces group cohesion  
 
 ---
 
 ### Enemies
 
-**Black (Self vs Collective)**
+#### Black (Self vs Collective)
 - White protects the group  
 - Black protects itself  
 
----
-
-**Red (Structure vs Freedom)**
+#### Red (Structure vs Freedom)
 - White enforces rules  
 - Red rejects them  
 

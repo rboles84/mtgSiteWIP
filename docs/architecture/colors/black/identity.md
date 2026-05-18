@@ -1,4 +1,4 @@
-# Black — The Sovereign of Self-Preservation
+# Black - The Sovereign of Self-Preservation
 
 ---
 
@@ -44,7 +44,7 @@ Relying on yourself is certainty.
 
 ---
 
-## The Self-Preservation Principle
+## Philosophical Foundations
 
 Black begins from a foundational belief:
 
@@ -62,7 +62,7 @@ This is self-prioritization.
 
 ---
 
-## The Reality Principle
+### The Reality Principle
 
 Black is the only color that fully accepts the world **as it is**, not as it should be.
 
@@ -78,7 +78,7 @@ It learns them, accepts them, and uses them.
 
 ---
 
-## The Empowerment Doctrine
+### The Empowerment Doctrine
 
 Black is not the philosophy of evil.
 
@@ -96,7 +96,7 @@ Where other colors offer comfort, structure, or meaning—
 
 ---
 
-## Philosophical Framework
+### Philosophical Framework
 
 ### Absolute Self-Interest
 
@@ -224,13 +224,11 @@ Black wins by:
 
 ### Allies
 
-**Blue (Knowledge without Ethics)**
+#### Blue (Knowledge without Ethics)
 - Shared value: capability over morality  
 - Blue provides knowledge, Black provides execution  
 
----
-
-**Red (Freedom through Action)**
+#### Red (Freedom through Action)
 - Shared value: rejection of restraint  
 - Red acts, Black ensures survival  
 
@@ -238,13 +236,11 @@ Black wins by:
 
 ### Enemies
 
-**White (Altruism vs Self-Interest)**
+#### White (Altruism vs Self-Interest)
 - White: protect the group  
 - Black: protect the self  
 
----
-
-**Green (Acceptance vs Control)**
+#### Green (Acceptance vs Control)
 - Green: accept your role  
 - Black: define your fate  
 

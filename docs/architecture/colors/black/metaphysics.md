@@ -1,6 +1,6 @@
-# The Metaphysics of WUBRG: Black — The Sovereign of Self-Preservation
+# Black Metaphysics - The Sovereign of Self-Preservation
 
-### The Role of Power
+## Metaphysical Thesis
 
 Black does not pursue power as an end goal.
 
@@ -13,7 +13,7 @@ Power is not the objective.
 
 Survival is.
 
-## 1. Philosophical Foundations & Pragmatic Realism
+## Philosophical Foundations
 Black represents the pure, unvarnished reality of the individual self operating in an indifferent, chaotic universe. It is the ultimate expression of **existential autonomy**, hyper-pragmatism, and unchecked self-determination. Black looks out at the world and sees no guaranteed protection, fairness, or external justice for "right" or "wrong"—there is only **power**, and the necessity of claiming it to ensure your survival and autonomy.
 
 ### The Subjugation of Morality
@@ -25,12 +25,12 @@ To Black, morality is an artificial construct invented by the weak (White) to re
 
 ---
 
-## 2. Vox Mana Read
+## Vox Mana Read
 > *“You are willing to pay any cost… because you possess the rare clarity to understand that survival belongs only to those who refuse to be powerless. You do not beg the world for permission, nor do you surrender your fate to it.”*
 
 ---
 
-## 3. Structural & Mechanical Architecture
+## Structural & Mechanical Architecture
 Mechanically, Black treats the entire game layout as a liquid asset sheet. It breaks down traditional mechanical boundaries, converting alternative life metrics into transactional currencies.
 
 ### Strategic Pillar A: The Subversion of Death (Graveyard Recursion)
@@ -47,7 +47,7 @@ Black despises the inherent randomness of a shuffled deck. Tutors (*Demonic Tuto
 
 ---
 
-## 4. Ludological Matrix Mapping
+## Ludological Matrix Mapping
 * **Control Rating:** 7/10 (Dominated by devastating creature removal and aggressive hand disruption)
 * **Aggression Rating:** 6/10 (Calculated and opportunistic; can strike hard but prefers asymmetric bleeding)
 * **Synergy Rating:** 8/10 (Intense internal loops tracking entering and exiting death triggers)

@@ -1,6 +1,6 @@
-# The Metaphysics of WUBRG: Blue — The Seeker of Possibility
+# Blue Metaphysics - The Seeker of Possibility
 
-### The System-Building Principle
+## Metaphysical Thesis
 
 Blue does not only seek to improve itself.
 
@@ -10,7 +10,7 @@ A better individual is good.
 
 A better system is exponential.
 
-## 1. Philosophical Foundations & Epistemology
+## Philosophical Foundations
 Blue represents the manifestation of pure, unadulterated intelligence, informational dominance, and technological evolution. It approaches reality not as a collection of fixed truths, but as a boundless sea of malleable **possibilities** waiting to be deciphered, cataloged, and completely re-engineered.
 
 ### The Axiom of Blank Slate (Tabula Rasa)
@@ -22,12 +22,12 @@ Blue rejects the notion of a fixed destiny, natural boundaries, or spiritual pre
 
 ---
 
-## 2. Vox Mana Read
+## Vox Mana Read
 > *“You do not act until you completely understand. You sit at the nexus of causality, mapping every branching path, every hidden variable. And once the pattern is clear, you do not merely influence the world—you shape its outcomes.”*
 
 ---
 
-## 3. Structural & Mechanical Architecture
+## Structural & Mechanical Architecture
 In the ludological ecosystem of Magic, Blue functions as the arbiter of time, sequence, and informational access. It operates almost exclusively on the hidden axis of the game.
 
 ### Strategic Pillar A: The Architecture of Information (Card Draw Engines)
@@ -44,7 +44,7 @@ Blue acknowledges that it does not need to waste resources creating original phy
 
 ---
 
-## 4. Ludological Matrix Mapping
+## Ludological Matrix Mapping
 * **Control Rating:** 10/10 (The absolute baseline standard for causal negation and stack management)
 * **Aggression Rating:** 2/10 (Minimal proactive violence; relies on gradual, suffocating inevitability)
 * **Synergy Rating:** 7/10 (Highly integrated with instant and sorcery velocity systems)

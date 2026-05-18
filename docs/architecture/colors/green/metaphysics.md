@@ -1,6 +1,6 @@
-# The Metaphysics of WUBRG: Green — The Voice of Growth
+# Green Metaphysics - The Voice of Growth
 
-## 1. Philosophical Foundations & Organic Determinism
+## Philosophical Foundations
 Green stands as the ancient, unshakeable bedrock of the color pie—the voice of **natural harmony**, biological destiny, material interconnection, and patient, inevitable growth. While other colors constantly stress about altering, dominating, or escaping the nature of the world, Green understands that the world is already complete exactly as it is.
 
 ### The Philosophy of Acceptance
@@ -12,12 +12,12 @@ Green's worldview is anchored in profound biological humility and acceptance. It
 
 ---
 
-## 2. Vox Mana Read
+## Vox Mana Read
 > *“You do not force the world to bend to your design—you possess the deep, quiet wisdom to grow into what the world becomes. You understand that the loudest storm must eventually pass, while the silent forest expands forever.”*
 
 ---
 
-## 3. Structural & Mechanical Architecture
+## Structural & Mechanical Architecture
 In game terms, Green operates as a massive, unstoppable flywheel ecosystem. It focuses heavily on maximizing the raw physical laws of the battlefield.
 
 ### Strategic Pillar A: Ecosystem Acceleration (Mana Ramp)
@@ -34,7 +34,7 @@ Green does not interface with the abstract mind or human spirits; it targets art
 
 ---
 
-## 4. Ludological Matrix Mapping
+## Ludological Matrix Mapping
 * **Control Rating:** 3/10 (Minimal interactive disruption; relies almost entirely on proactively out-scaling the opponent's limits)
 * **Aggression Rating:** 8/10 (Mid-to-late game aggression that manifests as an explosive, crushing wave of massive physical weight)
 * **Synergy Rating:** 7/10 (Strong tribal and creature-to-mana production networks)

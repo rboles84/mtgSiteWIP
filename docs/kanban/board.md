@@ -40,6 +40,7 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 ## Done
 
+- [VM-034 - Mono Identity Metaphysics Markdown Schema Normalization](done/VM-034-mono-identity-metaphysics-markdown-schema-normalization.md)
 - [VM-030 - Green Mono Authoring Pass](done/VM-030-green-mono-authoring-pass.md)
 - [VM-029 - Red Mono Authoring Pass](done/VM-029-red-mono-authoring-pass.md)
 - [VM-028 - Blue Mono Authoring Pass](done/VM-028-blue-mono-authoring-pass.md)

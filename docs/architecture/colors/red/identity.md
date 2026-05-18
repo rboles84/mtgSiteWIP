@@ -1,16 +1,20 @@
-# Red: The Champion of Freedom
+# Red - The Champion of Freedom
 
-## Core Philosophy
+## Identity Overview
 
 Red is defined by the absolute conviction that **freedom is the highest value**, and that authentic existence requires living completely in the present moment, guided by passion, emotion, and immediate experience. Red believes that thought without feeling is empty, that planning stifles spontaneity, and that true meaning emerges only through uninhibited action.
 
 In Red's worldview, **Emotion reveals what matters**. Feelings are not obstacles to overcome but direct connections to reality. Logic and planning are forms of self-imprisonment that prevent genuine living. The only authentic life is one lived impulsively, passionately, and without hesitation.
 
-### Vox Mana Read (Foundational Psychic Axiom)
+## Core Drive
+
+Fulfillment through emotional freedom and immediate action.
+
+## Vox Mana Read (Core Axiom)
 
 > **"You act because you feel. And in that moment, you are unstoppable."**
 
-## The Philosophy of Fulfillment Through Action
+## Philosophical Foundations
 
 ### Core Belief Structure
 
@@ -106,7 +110,7 @@ Freedom is not about rejecting meaning.
 
 It is about creating a life that feels meaningful to you through action and experience.
 
-## Ludological Execution
+## Mechanical Identity
 
 ### Core Structural Analysis
 
@@ -117,7 +121,7 @@ It is about creating a life that feels meaningful to you through action and expe
 | **Playstyle** | Aggro, direct damage, chaos, temporary effects | Operates at maximum speed with minimal regard for future turns |
 | **Emotional Tone** | Passion, joy, anger, immediacy | Experiences the emotional highs and lows of volatile gameplay |
 
-## The Mechanics of Immediate Action
+### The Mechanics of Immediate Action
 
 Red's mechanical identity revolves around **speed, directness, and living in the moment**.
 
@@ -275,7 +279,7 @@ Red historically struggled with:
 - **Long games**: Runs out of resources and can't rebuild
 - **Defensive options**: All offense, minimal protection
 
-## Allied Color Relationships
+## Color Relationships
 
 ### Red-White: Conviction & Ideological Passion
 - **Shared value**: Passionate belief in a righteous cause
@@ -297,7 +301,7 @@ Red historically struggled with:
 - **Combined approach**: Raw, unrestrained power and authentic existence
 - **Mechanical overlap**: Large creatures, destruction effects, mana acceleration
 
-## Enemy Color Conflicts
+### Enemy Color Conflicts
 
 ### Red vs. Blue: Passion vs. Logic
 
@@ -319,7 +323,7 @@ Red historically struggled with:
 
 **The Fundamental Divide**: Red sees White's order as imprisonment; White sees Red's freedom as selfish chaos that creates suffering.
 
-## Modern Evolution: Commander Format Impact
+## Modern Evolution
 
 ### The Multiplayer Deficit
 
@@ -379,7 +383,7 @@ Commander Multiplayer Shift:
 (Resource dominance normalized)
 ```
 
-## The Paradox of Red
+### The Paradox of Red
 
 ### Freedom Requires Others
 
@@ -397,7 +401,7 @@ Red's embrace of emotion means:
 - Living fully means feeling deeply, including pain
 - Authenticity requires vulnerability
 
-## Summary Table: Red at a Glance
+## System Mapping (Canonical)
 
 | Aspect | Description |
 |--------|-------------|
@@ -410,9 +414,27 @@ Red's embrace of emotion means:
 | **Enemy Colors** | Blue (overthinking) and White (restriction) |
 | **Allied Colors** | Black (ruthlessness) and Green (instinct) |
 
+## Operator Translation Signals (Maze / Scryfall)
+
+Red-aligned queries often include:
+
+- direct damage
+- haste
+- temporary effects
+- impulse draw
+- random or chaotic effects
+- artifact or land destruction
+
+### Pattern Recognition
+
+- Immediate action
+- Emotional authenticity
+- Explosive pressure
+- Rule-breaking volatility
+
 ---
 
-## Key Takeaways
+## Summary
 
 1. **Emotion as Truth**: Feelings aren't obstacles—they're direct connections to authentic reality
 

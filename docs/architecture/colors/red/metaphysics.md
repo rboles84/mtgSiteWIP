@@ -1,6 +1,6 @@
-# The Metaphysics of WUBRG: Red — The Force of Impulse
+# Red Metaphysics - The Force of Impulse
 
-## 1. Philosophical Foundations & Emotional Authenticity
+## Philosophical Foundations
 Red is the raw, uncontainable engine of the color pie—the embodiment of **absolute freedom**, untamed emotion, creative passion, and chaotic immediacy. It approaches existence not as a problem to be solved, solved mathematically, or managed bureaupocratically, but as a burning fire to be experienced entirely in the present moment.
 
 ### The Rejection of Control
@@ -12,12 +12,12 @@ Red fundamentally believes that intellectual hyper-analysis (Blue) and rigid soc
 
 ---
 
-## 2. Vox Mana Read
+## Vox Mana Read
 > *“You act because you feel. You do not waste precious vitality calculating the trajectory of the wind or reading the texts of old laws. You throw yourself into the current of your own lightning, and in that incandescent moment, you are utterly unstoppable.”*
 
 ---
 
-## 3. Structural & Mechanical Architecture
+## Structural & Mechanical Architecture
 Ludologically, Red is designed to break down long-term strategic planning. It introduces volatility, compresses timelines, and forces the game state into a state of hyper-velocity.
 
 ### Strategic Pillar A: Direct Kinetic Expression (Burn Mechanics)
@@ -34,7 +34,7 @@ When faced with intricate, locked-down board states, Red releases pure entropy. 
 
 ---
 
-## 4. Ludological Matrix Mapping
+## Ludological Matrix Mapping
 * **Control Rating:** 2/10 (Lacks stack interactions or long-term lockdown mechanics; relies on destroying threats reactively)
 * **Aggression Rating:** 10/10 (The absolute undisputed gold standard for hyper-velocity combat and early-game pressure)
 * **Synergy Rating:** 4/10 (Focuses primarily on raw, independent kinetic output rather than delicate structural networks)

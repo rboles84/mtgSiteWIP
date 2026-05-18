@@ -1,12 +1,12 @@
-# Blue: The Seeker of Possibility
+# Blue - The Seeker of Possibility
 
-## Core Philosophy
+## Identity Overview
 
 Blue is defined by the core belief that **every individual is born a tabula rasa—a blank slate possessing infinite potential**. The purpose of existence is not to accept a predetermined role, but to actively discover, optimize, and perfect both the self and the surrounding environment through the systematic acquisition of knowledge.
 
 Blue treats **information as the ultimate resource**, utilizing education, logical analysis, and technological advancement to transcend biological and systemic limitations.
 
-### The Self-Improvement Imperative
+## Core Drive
 
 Blue believes the purpose of life is to become the best version of yourself.
 
@@ -19,11 +19,11 @@ Perfection is not given.
 
 It is built.
 
-### Vox Mana Read (Foundational Psychic Axiom)
+## Vox Mana Read (Core Axiom)
 
 > **"You do not act until you understand. And once you do, you shape what comes next."**
 
-## The Tabula Rasa: Infinite Potential
+## Philosophical Foundations
 
 ### Core Belief Structure
 
@@ -51,7 +51,7 @@ Unlike Green's acceptance of biological boundaries, Blue views:
 (Reshaping environment for perfection)
 ```
 
-## The Evolution of Blue's Domain
+### The Evolution of Blue's Domain
 
 ### Historical Scope: Isolated Intellectualism
 
@@ -71,7 +71,7 @@ Contemporary design has expanded Blue's aesthetic and philosophical sphere to en
 
 This evolution establishes Blue as a direct counter-narrative to Green's biological determinism, proposing that **artificiality and intelligence surpass natural selection**.
 
-## Ludological Execution
+## Mechanical Identity
 
 ### Core Structural Analysis
 
@@ -82,7 +82,7 @@ This evolution establishes Blue as a direct counter-narrative to Green's biologi
 | **Playstyle** | Draw, counterspells, manipulation, tempo | Disrupts enemy actions on the stack and bounces permanents to reset momentum |
 | **Emotional Tone** | Curiosity, detachment, precision | Operates with cold, logical execution, completely free of emotional or impulsive bias |
 
-## The Mechanics of Information Dominance
+### The Mechanics of Information Dominance
 
 Blue asserts control through **absolute information dominance**, manipulating the flow of time and the stack to ensure that no actions are taken without its implicit consent.
 
@@ -222,7 +222,7 @@ Blue requires specific resources to function:
 - **Time to draw cards**: Needs multiple turns to accumulate advantage
 - **Hand size for options**: Disruption of hand severely limits capabilities
 
-## Allied Color Relationships
+## Color Relationships
 
 ### Blue-White: Systemic Progress & Authority
 - **Shared value**: Structured, systematic improvement of society
@@ -244,7 +244,7 @@ Blue requires specific resources to function:
 - **Combined approach**: Natural development accelerated by understanding
 - **Mechanical overlap**: Card advantage through creatures and growth mechanics
 
-## Enemy Color Conflicts
+### Enemy Color Conflicts
 
 ### Blue vs. Red: Calculation vs. Passion
 
@@ -266,7 +266,7 @@ Blue requires specific resources to function:
 
 **The Fundamental Divide**: Blue sees potential as limitless; Green sees it as predetermined by nature.
 
-## Modern Evolution: The City as Blue's Domain
+## Modern Evolution
 
 ### From Tower to Metropolis
 
@@ -286,7 +286,7 @@ Blue's aesthetic evolution reflects a philosophical maturation:
 
 This shift represents Blue's recognition that **individual perfection extends to societal perfection**—that the same principles of optimization apply to cities and civilizations as to the self.
 
-## Summary Table: Blue at a Glance
+## System Mapping (Canonical)
 
 | Aspect | Description |
 |--------|-------------|
@@ -299,9 +299,27 @@ This shift represents Blue's recognition that **individual perfection extends to
 | **Enemy Colors** | Red (passion) and Green (nature) |
 | **Allied Colors** | White (order) and Black (ambition) |
 
+## Operator Translation Signals (Maze / Scryfall)
+
+Blue-aligned queries often include:
+
+- card draw
+- counterspells
+- bounce and tempo
+- scrying or deck manipulation
+- cloning and copying
+- theft or information advantage
+
+### Pattern Recognition
+
+- Information dominance
+- Stack interaction
+- System optimization
+- Technological or urban civilization
+
 ---
 
-## Key Takeaways
+## Summary
 
 1. **Infinite Potential**: Blue rejects destiny, asserting that anyone can become anything through education
 
