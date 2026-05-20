@@ -1,0 +1,521 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Vox Mana — Flame Orb Logo Mark</title>
+<style>
+  html,body{min-height:100%}
+
+  body.vm-logo-demo-page{
+    margin:0;
+    min-height:100vh;
+    display:grid;
+    place-items:center;
+    padding:28px;
+    background:
+      radial-gradient(circle at 50% 36%, rgba(20,92,88,.24), transparent 34%),
+      radial-gradient(circle at 50% 68%, rgba(194,138,47,.12), transparent 32%),
+      linear-gradient(180deg, #050606 0%, #010101 100%);
+    color:rgba(237,226,194,.95);
+    font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  }
+
+  .vox-mana-logo,
+  .vox-mana-logo *{
+    box-sizing:border-box;
+  }
+
+  .vox-mana-logo{
+    --vm-logo-gold-1:#f0d38a;
+    --vm-logo-gold-2:#c28a2f;
+    --vm-logo-text:rgba(237,226,194,.95);
+    --vm-logo-panel-border:rgba(240,211,138,.12);
+    --vm-logo-panel-border-2:rgba(240,211,138,.055);
+    width:min(540px, 92vw);
+    aspect-ratio:1/1;
+    display:grid;
+    place-items:center;
+  }
+
+  .vm-logo-stage{
+    position:relative;
+    display:grid;
+    place-items:center;
+    width:100%;
+    border:1px solid var(--vm-logo-panel-border);
+    border-radius:24px;
+    background:
+      linear-gradient(180deg, rgba(255,255,255,.025), rgba(255,255,255,.006)),
+      radial-gradient(circle at 50% 42%, rgba(15,74,72,.18), transparent 48%);
+    box-shadow:0 34px 90px rgba(0,0,0,.72), inset 0 0 0 1px rgba(255,255,255,.025);
+    overflow:hidden;
+  }
+
+  .vm-logo-stage::before{
+    content:"";
+    position:absolute;
+    inset:18px;
+    border:1px solid var(--vm-logo-panel-border-2);
+    border-radius:18px;
+    pointer-events:none;
+  }
+
+  .vm-logo-svg{
+    width:100%;
+    height:auto;
+    display:block;
+    aspect-ratio:1/1;
+  }
+
+  /* Header-size helper. Add this class to the logo wrapper for nav/header placement. */
+  .vox-mana-logo--header{
+    width:clamp(84px, 10vw, 148px);
+  }
+
+  /* Plain mode removes the card/frame around the mark. */
+  .vox-mana-logo--plain .vm-logo-stage{
+    border:0;
+    border-radius:0;
+    background:transparent;
+    box-shadow:none;
+  }
+
+  .vox-mana-logo--plain .vm-logo-stage::before{display:none}
+
+  @media (prefers-reduced-motion: reduce){
+    .vox-mana-logo animate,
+    .vox-mana-logo animateTransform,
+    .vox-mana-logo animateMotion{display:none}
+  }
+</style>
+</head>
+<body class="vm-logo-demo-page">
+  <main class="vox-mana-logo" aria-label="Vox Mana logo preview">
+    <section class="vm-logo-stage" aria-label="Vox Mana V mana sigil logo">
+      <svg class="vm-logo-svg" viewBox="0 0 1200 1200" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="sigilTitle sigilDesc">
+        <title id="sigilTitle">Vox Mana V Flame-Orb Mana Sigil Logo</title>
+        <desc id="sigilDesc">A stylized Vox Mana V logo with sacred geometry, orbiting five-color flame-orb mana sigils, layered plasma accents, gold filigree, and the exact shared spiralS glyph path.</desc>
+
+        <defs>
+          <radialGradient id="bgMist" cx="50%" cy="45%" r="64%">
+            <stop offset="0" stop-color="rgba(15,74,72,.24)"/>
+            <stop offset=".55" stop-color="rgba(3,4,4,.05)"/>
+            <stop offset="1" stop-color="rgba(0,0,0,0)"/>
+          </radialGradient>
+
+          <linearGradient id="vFill" x1="300" y1="240" x2="900" y2="1080" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#071010"/>
+            <stop offset=".48" stop-color="#0a322f"/>
+            <stop offset="1" stop-color="#020303"/>
+          </linearGradient>
+
+          <linearGradient id="goldStroke" x1="280" y1="180" x2="920" y2="1080" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#f2d994"/>
+            <stop offset=".34" stop-color="#b87a24"/>
+            <stop offset=".68" stop-color="#f0d38a"/>
+            <stop offset="1" stop-color="#7a501a"/>
+          </linearGradient>
+
+          <linearGradient id="bladeEdge" x1="0" x2="1">
+            <stop offset="0" stop-color="rgba(255,255,255,.34)"/>
+            <stop offset=".35" stop-color="rgba(255,255,255,.04)"/>
+            <stop offset=".72" stop-color="rgba(240,211,138,.18)"/>
+            <stop offset="1" stop-color="rgba(255,255,255,.02)"/>
+          </linearGradient>
+
+          <linearGradient id="shimmerBand" x1="0" x2="1">
+            <stop offset="0" stop-color="rgba(255,255,255,0)"/>
+            <stop offset=".43" stop-color="rgba(255,255,255,0)"/>
+            <stop offset=".50" stop-color="rgba(255,255,255,.30)"/>
+            <stop offset=".56" stop-color="rgba(240,211,138,.12)"/>
+            <stop offset="1" stop-color="rgba(255,255,255,0)"/>
+          </linearGradient>
+
+          <mask id="vOnlyShimmerMask">
+            <rect width="1200" height="1200" fill="black"/>
+            <rect id="shimmerSweep" x="-760" y="0" width="620" height="1200" fill="url(#shimmerBand)" transform="skewX(-16)"/>
+          </mask>
+
+          <clipPath id="vClip">
+            <path d="M232 226 C294 150 388 156 452 246 C500 314 528 416 550 532 C570 638 586 750 600 866 C614 750 630 638 650 532 C672 416 700 314 748 246 C812 156 906 150 968 226 L880 284 C850 306 832 346 816 414 C790 526 760 650 724 772 C696 868 660 966 626 1040 L600 1110 L574 1040 C540 966 504 868 476 772 C440 650 410 526 384 414 C368 346 350 306 320 284 Z"/>
+          </clipPath>
+
+          <filter id="softVGlow" x="-50%" y="-50%" width="200%" height="200%">
+            <feGaussianBlur stdDeviation="8" result="blur"/>
+            <feColorMatrix in="blur" type="matrix" values="0 0 0 0 0.82  0 0 0 0 0.55  0 0 0 0 0.18  0 0 0 .55 0" result="goldBlur"/>
+            <feMerge><feMergeNode in="goldBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
+          </filter>
+
+          <filter id="glyphGlow" x="-120%" y="-120%" width="340%" height="340%">
+            <feGaussianBlur stdDeviation="5" result="g"/>
+            <feMerge><feMergeNode in="g"/><feMergeNode in="SourceGraphic"/></feMerge>
+          </filter>
+
+          <filter id="elementalFireFilter" x="-150%" y="-150%" width="400%" height="400%" color-interpolation-filters="sRGB">
+            <feTurbulence type="fractalNoise" baseFrequency="0.045" numOctaves="4" result="flameNoise" />
+            <feDisplacementMap in="SourceGraphic" in2="flameNoise" scale="24" xChannelSelector="R" yChannelSelector="G" result="blazingOutlines" />
+            <feGaussianBlur in="blazingOutlines" stdDeviation="6" result="coreHeatGlow"/>
+            <feGaussianBlur in="blazingOutlines" stdDeviation="16" result="ambientThermalBleed"/>
+            <feMerge>
+              <feMergeNode in="ambientThermalBleed"/>
+              <feMergeNode in="coreHeatGlow"/>
+              <feMergeNode in="blazingOutlines"/>
+            </feMerge>
+          </filter>
+
+          <filter id="plasmaCoreGlow" x="-100%" y="-100%" width="300%" height="300%" color-interpolation-filters="sRGB">
+            <feGaussianBlur stdDeviation="3" result="b1"/>
+            <feGaussianBlur stdDeviation="9" result="b2"/>
+            <feMerge>
+              <feMergeNode in="b2"/>
+              <feMergeNode in="b1"/>
+              <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+          </filter>
+
+          <filter id="blackManaGlow" x="-160%" y="-160%" width="420%" height="420%">
+            <feDropShadow dx="0" dy="0" stdDeviation="2.5" flood-color="#8f86a8" flood-opacity=".72"/>
+            <feDropShadow dx="0" dy="0" stdDeviation="7" flood-color="#211b2f" flood-opacity=".95"/>
+            <feDropShadow dx="0" dy="0" stdDeviation="14" flood-color="#c28a2f" flood-opacity=".18"/>
+          </filter>
+
+          <filter id="deepShadow" x="-60%" y="-60%" width="220%" height="220%">
+            <feDropShadow dx="0" dy="18" stdDeviation="18" flood-color="#000" flood-opacity=".70"/>
+          </filter>
+
+          <linearGradient id="whiteStroke" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#fff8d8"/>
+            <stop offset=".55" stop-color="#f5e8b4"/>
+            <stop offset="1" stop-color="#b98e3e"/>
+          </linearGradient>
+          <linearGradient id="blueStroke" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#98ebff"/>
+            <stop offset=".5" stop-color="#1687d9"/>
+            <stop offset="1" stop-color="#06284c"/>
+          </linearGradient>
+          <linearGradient id="blackStroke" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#8f86a8"/>
+            <stop offset=".22" stop-color="#2a2636"/>
+            <stop offset=".58" stop-color="#08080d"/>
+            <stop offset="1" stop-color="#000000"/>
+          </linearGradient>
+          <linearGradient id="redStroke" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#ffc07f"/>
+            <stop offset=".48" stop-color="#d13224"/>
+            <stop offset="1" stop-color="#4b0907"/>
+          </linearGradient>
+          <linearGradient id="greenStroke" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#cbff9d"/>
+            <stop offset=".48" stop-color="#42b85a"/>
+            <stop offset="1" stop-color="#082914"/>
+          </linearGradient>
+
+
+          <radialGradient id="whiteOrb" cx="50%" cy="45%" r="62%">
+            <stop offset="0" stop-color="#fff8d8" stop-opacity=".42"/>
+            <stop offset=".48" stop-color="#f0d38a" stop-opacity=".18"/>
+            <stop offset="1" stop-color="#f0d38a" stop-opacity="0"/>
+          </radialGradient>
+          <radialGradient id="blueOrb" cx="50%" cy="45%" r="62%">
+            <stop offset="0" stop-color="#98ebff" stop-opacity=".42"/>
+            <stop offset=".48" stop-color="#1687d9" stop-opacity=".18"/>
+            <stop offset="1" stop-color="#1687d9" stop-opacity="0"/>
+          </radialGradient>
+          <radialGradient id="blackOrb" cx="50%" cy="45%" r="62%">
+            <stop offset="0" stop-color="#b0a8c8" stop-opacity=".42"/>
+            <stop offset=".50" stop-color="#2a2636" stop-opacity=".24"/>
+            <stop offset="1" stop-color="#08080d" stop-opacity="0"/>
+          </radialGradient>
+          <radialGradient id="redOrb" cx="50%" cy="45%" r="62%">
+            <stop offset="0" stop-color="#ffc07f" stop-opacity=".42"/>
+            <stop offset=".48" stop-color="#d13224" stop-opacity=".20"/>
+            <stop offset="1" stop-color="#d13224" stop-opacity="0"/>
+          </radialGradient>
+          <radialGradient id="greenOrb" cx="50%" cy="45%" r="62%">
+            <stop offset="0" stop-color="#cbff9d" stop-opacity=".42"/>
+            <stop offset=".48" stop-color="#42b85a" stop-opacity=".19"/>
+            <stop offset="1" stop-color="#42b85a" stop-opacity="0"/>
+          </radialGradient>
+
+          <style><![CDATA[
+            .hairline{stroke:rgba(237,226,194,.075);stroke-width:1.15;fill:none;vector-effect:non-scaling-stroke;}
+            .hairline-dim{stroke:rgba(237,226,194,.04);stroke-width:.9;fill:none;vector-effect:non-scaling-stroke;}
+            .gold-line{stroke:rgba(240,211,138,.12);stroke-width:1.4;fill:none;vector-effect:non-scaling-stroke;}
+            .filigree{stroke:rgba(240,211,138,.18);stroke-width:3;fill:none;stroke-linecap:round;stroke-linejoin:round;vector-effect:non-scaling-stroke;}
+            .filigree-soft{stroke:rgba(240,211,138,.11);stroke-width:2;fill:none;stroke-linecap:round;stroke-linejoin:round;vector-effect:non-scaling-stroke;}
+            .rosette{stroke:rgba(240,211,138,.14);stroke-width:2.2;fill:none;vector-effect:non-scaling-stroke;}
+            .mana-orb-shell{opacity:.30;filter:url(#plasmaCoreGlow);mix-blend-mode:screen;}
+            .mana-orb-shell--white{fill:url(#whiteOrb);}
+            .mana-orb-shell--blue{fill:url(#blueOrb);}
+            .mana-orb-shell--black{fill:url(#blackOrb);opacity:.42;}
+            .mana-orb-shell--red{fill:url(#redOrb);}
+            .mana-orb-shell--green{fill:url(#greenOrb);}
+            .mana-orb-rim{fill:none;stroke:rgba(255,255,255,.18);stroke-width:1.15;filter:url(#plasmaCoreGlow);opacity:.55;}
+            .spiral{fill:none;stroke-width:11;stroke-linecap:round;stroke-linejoin:round;filter:url(#elementalFireFilter);}
+            .spiral-accent{fill:none;stroke:rgba(255,255,255,.85);stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;filter:url(#plasmaCoreGlow);}
+            .spiral-core{fill:#ffffff;stroke:rgba(240,211,138,.40);stroke-width:1.5;filter:url(#plasmaCoreGlow);}
+            .black-hot-accent{stroke:rgba(226,220,255,.90);}
+            .black-core{fill:#fbf8ff;stroke:rgba(143,134,168,.62);}
+            .trail{fill:none;stroke-width:5;stroke-linecap:round;stroke-dasharray:12 24;opacity:.52;}
+            .white{stroke:url(#whiteStroke)}
+            .blue{stroke:url(#blueStroke)}
+            .black{stroke:url(#blackStroke)}
+            .red{stroke:url(#redStroke)}
+            .green{stroke:url(#greenStroke)}
+            .trail.black{stroke:#5b526f;opacity:.68;filter:url(#blackManaGlow);}
+            .black-mana-rim{stroke:#8f86a8;stroke-width:10;opacity:.68;filter:url(#blackManaGlow);}
+            .black-mana-core{stroke:#020204;stroke-width:6.2;opacity:1;}
+            .black-mana-echo-rim{stroke:#6f6684;stroke-width:7;opacity:.62;filter:url(#blackManaGlow);}
+            .black-mana-echo-core{stroke:#050509;stroke-width:4.4;opacity:.98;}
+            .black-mana-accent{stroke:#b0a8c8;stroke-width:2.4;opacity:.88;filter:url(#blackManaGlow);}
+            .black-mana-core-dot{fill:#020204;stroke:#8f86a8;stroke-width:1.8;filter:url(#blackManaGlow);}
+
+            .blade-flair{fill:none;stroke:url(#goldStroke);stroke-width:10;stroke-linecap:round;stroke-linejoin:round;filter:url(#softVGlow);}
+            .blade-flair-soft{fill:none;stroke:rgba(240,211,138,.22);stroke-width:4;stroke-linecap:round;stroke-linejoin:round;vector-effect:non-scaling-stroke;}
+            .armor-panel{fill:rgba(5,20,19,.55);stroke:rgba(240,211,138,.22);stroke-width:2.5;stroke-linejoin:round;}
+            .edge-cut{fill:none;stroke:rgba(255,248,216,.34);stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round;}
+            .shadow-cut{fill:none;stroke:rgba(0,0,0,.58);stroke-width:5;stroke-linecap:round;stroke-linejoin:round;}
+            .v-jewel{fill:#0ca7b7;stroke:url(#goldStroke);stroke-width:5;filter:url(#glyphGlow);}
+            .v-spike{fill:url(#goldStroke);stroke:rgba(0,0,0,.62);stroke-width:3;stroke-linejoin:round;filter:url(#softVGlow);}
+
+          ]]></style>
+
+          <path id="spiralS" d="M -38 -39 C -16 -56 26 -42 34 -8 C 42 26 8 54 -28 42 C -58 32 -56 -4 -28 4 C -6 10 18 4 20 -14 C 22 -35 -25 -35 -37 -40" />
+          <g id="spiralWhite">
+            <circle class="mana-orb-shell mana-orb-shell--white" cx="-4" cy="2" r="34"/>
+            <circle class="mana-orb-rim" cx="-4" cy="2" r="27"/>
+            <path class="spiral white" d="M -38 -39 C -16 -56 26 -42 34 -8 C 42 26 8 54 -28 42 C -58 32 -56 -4 -28 4 C -6 10 18 4 20 -14 C 22 -35 -25 -35 -37 -40"/>
+            <path class="spiral-accent" d="M -38 -39 C -16 -56 26 -42 34 -8 C 42 26 8 54 -28 42 C -58 32 -56 -4 -28 4 C -6 10 18 4 20 -14 C 22 -35 -25 -35 -37 -40"/>
+            <circle class="spiral-core" cx="-4" cy="2" r="6"/>
+          </g>
+          <g id="spiralBlue">
+            <circle class="mana-orb-shell mana-orb-shell--blue" cx="-4" cy="2" r="34"/>
+            <circle class="mana-orb-rim" cx="-4" cy="2" r="27"/>
+            <path class="spiral blue" d="M -38 -39 C -16 -56 26 -42 34 -8 C 42 26 8 54 -28 42 C -58 32 -56 -4 -28 4 C -6 10 18 4 20 -14 C 22 -35 -25 -35 -37 -40"/>
+            <path class="spiral-accent" d="M -38 -39 C -16 -56 26 -42 34 -8 C 42 26 8 54 -28 42 C -58 32 -56 -4 -28 4 C -6 10 18 4 20 -14 C 22 -35 -25 -35 -37 -40"/>
+            <circle class="spiral-core" cx="-4" cy="2" r="6"/>
+          </g>
+          <g id="spiralBlack">
+            <circle class="mana-orb-shell mana-orb-shell--black" cx="-4" cy="2" r="36"/>
+            <circle class="mana-orb-rim" cx="-4" cy="2" r="28"/>
+            <path class="spiral black" d="M -38 -39 C -16 -56 26 -42 34 -8 C 42 26 8 54 -28 42 C -58 32 -56 -4 -28 4 C -6 10 18 4 20 -14 C 22 -35 -25 -35 -37 -40"/>
+            <path class="spiral-accent black-hot-accent" d="M -38 -39 C -16 -56 26 -42 34 -8 C 42 26 8 54 -28 42 C -58 32 -56 -4 -28 4 C -6 10 18 4 20 -14 C 22 -35 -25 -35 -37 -40"/>
+            <circle class="spiral-core black-core" cx="-4" cy="2" r="6"/>
+          </g>
+          <g id="spiralRed">
+            <circle class="mana-orb-shell mana-orb-shell--red" cx="-4" cy="2" r="34"/>
+            <circle class="mana-orb-rim" cx="-4" cy="2" r="27"/>
+            <path class="spiral red" d="M -38 -39 C -16 -56 26 -42 34 -8 C 42 26 8 54 -28 42 C -58 32 -56 -4 -28 4 C -6 10 18 4 20 -14 C 22 -35 -25 -35 -37 -40"/>
+            <path class="spiral-accent" d="M -38 -39 C -16 -56 26 -42 34 -8 C 42 26 8 54 -28 42 C -58 32 -56 -4 -28 4 C -6 10 18 4 20 -14 C 22 -35 -25 -35 -37 -40"/>
+            <circle class="spiral-core" cx="-4" cy="2" r="6"/>
+          </g>
+          <g id="spiralGreen">
+            <circle class="mana-orb-shell mana-orb-shell--green" cx="-4" cy="2" r="34"/>
+            <circle class="mana-orb-rim" cx="-4" cy="2" r="27"/>
+            <path class="spiral green" d="M -38 -39 C -16 -56 26 -42 34 -8 C 42 26 8 54 -28 42 C -58 32 -56 -4 -28 4 C -6 10 18 4 20 -14 C 22 -35 -25 -35 -37 -40"/>
+            <path class="spiral-accent" d="M -38 -39 C -16 -56 26 -42 34 -8 C 42 26 8 54 -28 42 C -58 32 -56 -4 -28 4 C -6 10 18 4 20 -14 C 22 -35 -25 -35 -37 -40"/>
+            <circle class="spiral-core" cx="-4" cy="2" r="6"/>
+          </g>
+        </defs>
+
+        <rect width="1200" height="1200" fill="#030404"/>
+        <rect width="1200" height="1200" fill="url(#bgMist)"/>
+
+        <!-- Outer geometry field -->
+        <g transform="translate(600 600)">
+          <g class="hairline-dim">
+            <circle r="504"/>
+            <circle r="438"/>
+            <circle r="356"/>
+            <circle r="284"/>
+            <circle r="208"/>
+            <circle r="132"/>
+          </g>
+          <g class="hairline">
+            <polygon points="0,-420 400,-130 247,340 -247,340 -400,-130"/>
+            <path d="M0,-420 L247,340 L-400,-130 L400,-130 L-247,340 Z"/>
+            <polygon points="0,-324 308,-100 190,262 -190,262 -308,-100"/>
+            <path d="M0,-324 L190,262 L-308,-100 L308,-100 L-190,262 Z"/>
+          </g>
+          <g class="hairline-dim" opacity=".8">
+            <path d="M-500 0 H500 M0 -500 V500"/>
+            <path d="M-354 -354 L354 354 M354 -354 L-354 354"/>
+            <path d="M-438 -128 L438 -128 M-438 128 L438 128"/>
+            <path d="M-128 -438 L-128 438 M128 -438 L128 438"/>
+            <path d="M-284 -284 L284 -284 L284 284 L-284 284 Z"/>
+          </g>
+        </g>
+
+        <!-- Wackier sacred halo / spirograph field -->
+        <g transform="translate(600 600)" opacity=".46">
+          <g class="gold-line">
+            <path d="M0 -454 C92 -406 178 -400 262 -436 C226 -350 232 -262 286 -188 C194 -200 114 -172 44 -102 C38 -194 -4 -274 -78 -342 C-50 -398 -24 -426 0 -454 Z"/>
+            <path d="M0 -454 C-92 -406 -178 -400 -262 -436 C-226 -350 -232 -262 -286 -188 C-194 -200 -114 -172 -44 -102 C-38 -194 4 -274 78 -342 C50 -398 24 -426 0 -454 Z"/>
+            <circle r="460" stroke-dasharray="4 18" opacity=".42">
+              <animate attributeName="stroke-dashoffset" from="0" to="220" dur="12s" repeatCount="indefinite"/>
+            </circle>
+          </g>
+          <g class="hairline-dim" opacity=".8">
+            <path d="M-232 -432 C-154 -324 -132 -228 -134 -142 C-136 -44 -166 48 -196 128"/>
+            <path d="M232 -432 C154 -324 132 -228 134 -142 C136 -44 166 48 196 128"/>
+            <path d="M-258 326 C-142 286 -48 280 0 322 C48 280 142 286 258 326"/>
+          </g>
+        </g>
+
+        <!-- Sacred geometry / filigree V -->
+        <g filter="url(#deepShadow)">
+          <path d="M232 226 C294 150 388 156 452 246 C500 314 528 416 550 532 C570 638 586 750 600 866 C614 750 630 638 650 532 C672 416 700 314 748 246 C812 156 906 150 968 226 L880 284 C850 306 832 346 816 414 C790 526 760 650 724 772 C696 868 660 966 626 1040 L600 1110 L574 1040 C540 966 504 868 476 772 C440 650 410 526 384 414 C368 346 350 306 320 284 Z"
+                fill="none" stroke="rgba(240,211,138,.22)" stroke-width="52" stroke-linejoin="round" stroke-linecap="round"/>
+
+          <path d="M232 226 C294 150 388 156 452 246 C500 314 528 416 550 532 C570 638 586 750 600 866 C614 750 630 638 650 532 C672 416 700 314 748 246 C812 156 906 150 968 226 L880 284 C850 306 832 346 816 414 C790 526 760 650 724 772 C696 868 660 966 626 1040 L600 1110 L574 1040 C540 966 504 868 476 772 C440 650 410 526 384 414 C368 346 350 306 320 284 Z"
+                fill="none" stroke="url(#goldStroke)" stroke-width="31" stroke-linejoin="round" stroke-linecap="round" filter="url(#softVGlow)"/>
+
+          <path id="vBody" d="M232 226 C294 150 388 156 452 246 C500 314 528 416 550 532 C570 638 586 750 600 866 C614 750 630 638 650 532 C672 416 700 314 748 246 C812 156 906 150 968 226 L880 284 C850 306 832 346 816 414 C790 526 760 650 724 772 C696 868 660 966 626 1040 L600 1110 L574 1040 C540 966 504 868 476 772 C440 650 410 526 384 414 C368 346 350 306 320 284 Z"
+                fill="url(#vFill)" stroke="rgba(0,0,0,.85)" stroke-width="6" stroke-linejoin="round"/>
+
+          <path d="M388 306 C432 236 502 260 540 348 C562 400 578 474 588 558 C594 614 598 674 600 744 C602 674 606 614 612 558 C622 474 638 400 660 348 C698 260 768 236 812 306 L754 340 C728 370 712 428 698 500 C680 594 658 704 632 808 C622 850 612 890 600 930 C588 890 578 850 568 808 C542 704 520 594 502 500 C488 428 472 370 446 340 Z"
+                fill="none" stroke="rgba(240,211,138,.16)" stroke-width="5" stroke-linejoin="round"/>
+          <path d="M517 405 L600 650 L683 405 L600 535 Z" fill="url(#bladeEdge)" opacity=".70"/>
+          <path d="M540 890 L600 1036 L660 890 L600 982 Z" fill="rgba(240,211,138,.13)"/>
+
+          <!-- Badass armored V details: built onto the V shape, not just inside it -->
+          <path class="armor-panel" d="M314 250 C360 196 416 204 454 262 C426 260 392 276 362 314 C340 286 326 266 314 250 Z"/>
+          <path class="armor-panel" d="M886 250 C840 196 784 204 746 262 C774 260 808 276 838 314 C860 286 874 266 886 250 Z"/>
+          <path class="armor-panel" d="M470 390 C502 474 530 600 552 736 C520 648 492 540 470 390 Z"/>
+          <path class="armor-panel" d="M730 390 C698 474 670 600 648 736 C680 648 708 540 730 390 Z"/>
+          <path class="edge-cut" d="M330 276 C374 226 418 232 450 276"/>
+          <path class="edge-cut" d="M870 276 C826 226 782 232 750 276"/>
+          <path class="edge-cut" d="M474 398 C508 516 540 660 566 810"/>
+          <path class="edge-cut" d="M726 398 C692 516 660 660 634 810"/>
+          <path class="shadow-cut" d="M397 348 C424 442 456 584 500 732"/>
+          <path class="shadow-cut" d="M803 348 C776 442 744 584 700 732"/>
+          <polygon class="v-spike" points="600,858 628,930 600,1110 572,930"/>
+          <polygon class="v-jewel" points="600,942 622,984 600,1028 578,984"/>
+        </g>
+
+        <!-- Extra silhouette flair outside the main V: shoulders, fins, and spear points -->
+        <g filter="url(#deepShadow)" opacity=".98">
+          <path class="blade-flair" d="M238 222 C318 116 430 142 510 292"/>
+          <path class="blade-flair" d="M962 222 C882 116 770 142 690 292"/>
+          <path class="blade-flair-soft" d="M238 222 C304 252 358 302 392 372"/>
+          <path class="blade-flair-soft" d="M962 222 C896 252 842 302 808 372"/>
+          <path class="blade-flair-soft" d="M322 430 C366 448 396 474 420 512"/>
+          <path class="blade-flair-soft" d="M878 430 C834 448 804 474 780 512"/>
+          <polygon class="v-spike" points="224,224 292,202 250,270"/>
+          <polygon class="v-spike" points="976,224 908,202 950,270"/>
+          <polygon class="v-spike" points="310,438 366,426 326,486"/>
+          <polygon class="v-spike" points="890,438 834,426 874,486"/>
+          <polygon class="v-spike" points="600,1110 622,1160 600,1190 578,1160"/>
+        </g>
+
+        <!-- Internal sacred geometry clipped into the V -->
+        <g clip-path="url(#vClip)">
+          <g transform="translate(600 600)">
+            <g class="rosette">
+              <circle r="80"/>
+              <circle r="120"/>
+              <circle r="160"/>
+              <circle r="200"/>
+              <circle r="240"/>
+              <circle r="280"/>
+              <g opacity=".95">
+                <circle cx="0" cy="-110" r="110"/>
+                <circle cx="95" cy="-55" r="110"/>
+                <circle cx="95" cy="55" r="110"/>
+                <circle cx="0" cy="110" r="110"/>
+                <circle cx="-95" cy="55" r="110"/>
+                <circle cx="-95" cy="-55" r="110"/>
+              </g>
+            </g>
+            <g class="filigree-soft">
+              <path d="M-168 -262 C-100 -210 -78 -124 -88 -28 C-96 64 -128 158 -132 252"/>
+              <path d="M168 -262 C100 -210 78 -124 88 -28 C96 64 128 158 132 252"/>
+              <path d="M-208 -66 C-150 -40 -122 6 -120 54 C-118 108 -140 146 -172 178"/>
+              <path d="M208 -66 C150 -40 122 6 120 54 C118 108 140 146 172 178"/>
+              <path d="M-122 268 C-86 246 -58 238 -18 240 C24 242 58 254 94 278"/>
+            </g>
+            <g class="filigree">
+              <path d="M-120 -270 C-72 -218 -44 -152 -34 -74 C-24 0 -32 78 -60 160 C-78 210 -92 238 -110 262"/>
+              <path d="M120 -270 C72 -218 44 -152 34 -74 C24 0 32 78 60 160 C78 210 92 238 110 262"/>
+              <path d="M-96 -220 C-44 -166 -16 -98 -10 -26 C-4 50 -20 110 -48 170"/>
+              <path d="M96 -220 C44 -166 16 -98 10 -26 C4 50 20 110 48 170"/>
+              <path d="M-32 320 C-8 300 8 300 32 320"/>
+              <path d="M-52 366 C-18 334 18 334 52 366"/>
+              <path d="M-74 414 C-28 372 28 372 74 414"/>
+              <path d="M0 -126 C44 -120 76 -86 78 -44 C80 -2 46 32 0 40 C-46 32 -80 -2 -78 -44 C-76 -86 -44 -120 0 -126 Z"/>
+            </g>
+          </g>
+        </g>
+
+        <!-- Outer contour filigree hugging the V silhouette -->
+        <g filter="url(#deepShadow)" opacity=".95">
+          <path class="filigree" d="M232 232 C294 132 420 140 506 302 C548 382 570 514 592 700"/>
+          <path class="filigree" d="M968 232 C906 132 780 140 694 302 C652 382 630 514 608 700"/>
+          <path class="filigree-soft" d="M286 252 C348 188 430 208 476 316 C514 406 544 566 574 820"/>
+          <path class="filigree-soft" d="M914 252 C852 188 770 208 724 316 C686 406 656 566 626 820"/>
+          <path class="filigree" d="M520 968 C552 996 578 1038 600 1110 C622 1038 648 996 680 968"/>
+          <path class="filigree-soft" d="M270 216 C314 164 366 144 424 158 C394 182 374 214 364 254"/>
+          <path class="filigree-soft" d="M930 216 C886 164 834 144 776 158 C806 182 826 214 836 254"/>
+          <path class="filigree-soft" d="M396 522 C430 590 470 690 524 828"/>
+          <path class="filigree-soft" d="M804 522 C770 590 730 690 676 828"/>
+          <circle class="rosette" cx="364" cy="210" r="31"/>
+          <circle class="rosette" cx="836" cy="210" r="31"/>
+          <circle class="rosette" cx="600" cy="1042" r="24"/>
+        </g>
+
+        <!-- Shimmer over V -->
+        <g mask="url(#vOnlyShimmerMask)">
+          <path d="M232 226 C294 150 388 156 452 246 C500 314 528 416 550 532 C570 638 586 750 600 866 C614 750 630 638 650 532 C672 416 700 314 748 246 C812 156 906 150 968 226 L880 284 C850 306 832 346 816 414 C790 526 760 650 724 772 C696 868 660 966 626 1040 L600 1110 L574 1040 C540 966 504 868 476 772 C440 650 410 526 384 414 C368 346 350 306 320 284 Z" fill="rgba(255,255,255,.13)"/>
+          <path d="M232 226 C294 150 388 156 452 246 C500 314 528 416 550 532 C570 638 586 750 600 866 C614 750 630 638 650 532 C672 416 700 314 748 246 C812 156 906 150 968 226 L880 284 C850 306 832 346 816 414 C790 526 760 650 724 772 C696 868 660 966 626 1040 L600 1110 L574 1040 C540 966 504 868 476 772 C440 650 410 526 384 414 C368 346 350 306 320 284 Z" fill="none" stroke="rgba(255,255,255,.22)" stroke-width="12" stroke-linejoin="round"/>
+        </g>
+        <animate href="#shimmerSweep" attributeName="x" from="-900" to="2100" dur="4.8s" repeatCount="indefinite"/>
+
+        <!-- Static logo motion: editor removed; orbit mode remains baked into the mark. -->
+        <g id="vmLogoModeOrbit" class="vm-logo-orbit" transform="translate(600 600)">
+          <g opacity=".62">
+            <circle class="gold-line" r="420" stroke-dasharray="16 24">
+              <animate attributeName="stroke-dashoffset" from="0" to="-320" dur="9s" repeatCount="indefinite"/>
+            </circle>
+            <circle class="gold-line" r="384" opacity=".44" stroke-dasharray="8 34">
+              <animate attributeName="stroke-dashoffset" from="0" to="260" dur="7s" repeatCount="indefinite"/>
+            </circle>
+          </g>
+
+          <g transform="rotate(0)">
+            <animateTransform attributeName="transform" type="rotate" from="0 0 0" to="360 0 0" dur="26s" repeatCount="indefinite"/>
+            <path class="trail white" d="M-84 -411 A420 420 0 0 1 84 -411"/>
+            <g transform="translate(0 -420)"><use href="#spiralWhite"/></g>
+          </g>
+          <g transform="rotate(72)">
+            <animateTransform attributeName="transform" type="rotate" from="72 0 0" to="432 0 0" dur="26s" repeatCount="indefinite"/>
+            <path class="trail blue" d="M-84 -411 A420 420 0 0 1 84 -411"/>
+            <g transform="translate(0 -420) rotate(18)"><use href="#spiralBlue"/></g>
+          </g>
+          <g transform="rotate(144)">
+            <animateTransform attributeName="transform" type="rotate" from="144 0 0" to="504 0 0" dur="26s" repeatCount="indefinite"/>
+            <path class="trail black" d="M-84 -411 A420 420 0 0 1 84 -411"/>
+            <g transform="translate(0 -420) rotate(38)"><use href="#spiralBlack"/></g>
+          </g>
+          <g transform="rotate(216)">
+            <animateTransform attributeName="transform" type="rotate" from="216 0 0" to="576 0 0" dur="26s" repeatCount="indefinite"/>
+            <path class="trail red" d="M-84 -411 A420 420 0 0 1 84 -411"/>
+            <g transform="translate(0 -420) rotate(-28)"><use href="#spiralRed"/></g>
+          </g>
+          <g transform="rotate(288)">
+            <animateTransform attributeName="transform" type="rotate" from="288 0 0" to="648 0 0" dur="26s" repeatCount="indefinite"/>
+            <path class="trail green" d="M-84 -411 A420 420 0 0 1 84 -411"/>
+            <g transform="translate(0 -420) rotate(-16)"><use href="#spiralGreen"/></g>
+          </g>
+        </g>
+
+        
+
+        
+
+        
+      </svg>
+    </section>
+  </main>
+</body>
+</html>

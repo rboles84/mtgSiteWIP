@@ -1,0 +1,171 @@
+{
+  "schema_version": "vox-mana-animation-spec-v1",
+  "faction": "Orzhov Syndicate",
+  "identity": {
+    "color_pair": "white-black",
+    "core_motion": "motion is contract-bound, debt-accruing, hierarchically gated, spiritually persistent, and paid for after it appears to end",
+    "visual_language": "black marble, white-gold ledgers, church spires, wax seals, ghost chains, coin halos, contract ribbons, masked nobility, thrull labor, and pale spirit afterimages",
+    "tone": "elegant, oppressive, sacred-but-transactional, patient, aristocratic, legalistic, ghostly, quietly predatory",
+    "avoid": [
+      "generic white-black morality language without debt or hierarchy",
+      "mono-white public justice without profit motive",
+      "mono-black raw ambition without institutional ritual",
+      "Azorius neutral law/civic bureaucracy without money, guilt, or afterlife obligation",
+      "Rakdos spectacle or Dimir spy language as primary metaphor"
+    ]
+  },
+  "animation_layers": [
+    {
+      "layer": "contract_writ",
+      "purpose": "establish the Orzhov result as a signed obligation rather than a simple answer",
+      "motion": "a black-white contract ribbon unfurls behind the card or panel, then folds into a wax-sealed underline",
+      "timing": "0ms-420ms",
+      "easing": "easeOutCubic"
+    },
+    {
+      "layer": "coin_tithe",
+      "purpose": "represent extort, taxation, and payment triggers",
+      "motion": "small white-gold coins pulse from opposing nodes toward the Orzhov seal whenever an action resolves",
+      "timing": "220ms-780ms",
+      "easing": "easeInOutSine"
+    },
+    {
+      "layer": "spirit_afterimage",
+      "purpose": "represent haunt, afterlife, death triggers, and persistent obligation",
+      "motion": "a pale spirit silhouette rises from a fading creature/card and remains briefly as a second outline",
+      "timing": "430ms-980ms",
+      "easing": "easeOutQuad"
+    },
+    {
+      "layer": "ledger_accretion",
+      "purpose": "represent life gain/drain, debt compounding, recursion, and aristocrat engines",
+      "motion": "thin ledger lines stack beside the result, each line converting a black loss mark into a white life mark",
+      "timing": "700ms-1240ms",
+      "easing": "easeOutExpo"
+    },
+    {
+      "layer": "hierarchy_gate",
+      "purpose": "represent controlled access, rank, compliance, and prison/pillowfort effects",
+      "motion": "arched gates close halfway around the panel; approved elements pass through as others dim or tap downward",
+      "timing": "900ms-1380ms",
+      "easing": "easeInOutQuad"
+    },
+    {
+      "layer": "final_stamp",
+      "purpose": "finish with a verdict/foreclosure beat",
+      "motion": "a wax seal stamps once, leaving a faint black-gold emblem and a ghostly echo ring",
+      "timing": "1200ms-1580ms",
+      "easing": "easeOutBack"
+    }
+  ],
+  "state_machines": {
+    "extort": [
+      "spell_cast",
+      "tithe_prompt",
+      "opponent_life_loss",
+      "controller_life_gain",
+      "ledger_entry"
+    ],
+    "haunt": [
+      "body_resolves",
+      "death_event",
+      "spirit_attachment",
+      "second_collection"
+    ],
+    "afterlife": [
+      "creature_expires",
+      "spirit_claim_created",
+      "obligation_persists"
+    ],
+    "tax": [
+      "opponent_action",
+      "fee_calculated",
+      "pay_or_suffer",
+      "treasure_or_drain_accrues"
+    ],
+    "aristocrats": [
+      "asset_sacrificed",
+      "death_trigger_multiplied",
+      "life_swing_or_card_gain",
+      "board_rebalanced"
+    ],
+    "recursion": [
+      "graveyard_audit",
+      "asset_reclaimed",
+      "debt_reassigned",
+      "engine_continues"
+    ]
+  },
+  "function_to_animation": {
+    "Detain": {
+      "primary_layers": [
+        "contract_writ",
+        "hierarchy_gate",
+        "final_stamp"
+      ],
+      "microcopy": "Bound by clause, not by force.",
+      "use_for": [
+        "removal",
+        "pacifism effects",
+        "tapped/locked creatures",
+        "combat punishment",
+        "sanctioned execution"
+      ]
+    },
+    "Override": {
+      "primary_layers": [
+        "contract_writ",
+        "final_stamp",
+        "spirit_afterimage"
+      ],
+      "microcopy": "The contract rewrites ownership.",
+      "use_for": [
+        "exile from hand/graveyard",
+        "mass exile",
+        "edict effects",
+        "board wipes",
+        "Kaya-style ghost severance"
+      ]
+    },
+    "ConstraintField": {
+      "primary_layers": [
+        "hierarchy_gate",
+        "coin_tithe",
+        "ledger_accretion"
+      ],
+      "microcopy": "Every action passes through the fee schedule.",
+      "use_for": [
+        "taxes",
+        "pillowfort",
+        "debuffs",
+        "attack penalties",
+        "protected hierarchy"
+      ]
+    },
+    "AccretionEngine": {
+      "primary_layers": [
+        "coin_tithe",
+        "spirit_afterimage",
+        "ledger_accretion"
+      ],
+      "microcopy": "Debt compounds after death.",
+      "use_for": [
+        "extort",
+        "lifegain/drain",
+        "afterlife",
+        "haunt",
+        "recursion",
+        "aristocrats",
+        "treasure/tithe engines"
+      ]
+    }
+  },
+  "ui_tokens": {
+    "background_gradient": "deep charcoal marble to parchment-white glow",
+    "accent_primary": "antique gold",
+    "accent_secondary": "cold bone white",
+    "shadow_color": "ink black with violet-brown undertone",
+    "particle_shape": "coins, wax flecks, spirit motes, ledger lines",
+    "border_style": "cathedral arch plus legal document filigree"
+  }
+}

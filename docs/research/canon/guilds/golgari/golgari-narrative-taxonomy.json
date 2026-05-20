@@ -1,0 +1,239 @@
+{
+  "schema_version": "vox-mana-narrative-taxonomy-v1",
+  "identity": "golgari",
+  "core_axiom": "Nothing is wasted; endings are inventory.",
+  "identity_compression": "Golgari is survival ecology: the dead feed the living, the discarded become infrastructure, and the undercity wins because it knows nothing is truly waste.",
+  "primary_tension": "survival through reclamation, not purity",
+  "axes": [
+    {
+      "id": "graveyard-as-resource",
+      "question": "What remains useful after ending?",
+      "mechanics": [
+        "dredge",
+        "recursion",
+        "self-mill",
+        "reanimation"
+      ],
+      "copy_signal": "inventory below the surface"
+    },
+    {
+      "id": "rot-growth-loop",
+      "question": "What grows because something decayed?",
+      "mechanics": [
+        "Saprolings",
+        "+1/+1 counters",
+        "Deathsprout-style removal-ramp"
+      ],
+      "copy_signal": "grave to garden"
+    },
+    {
+      "id": "sacrifice-metabolism",
+      "question": "What can be spent and reused?",
+      "mechanics": [
+        "sacrifice outlets",
+        "death triggers",
+        "fodder tokens"
+      ],
+      "copy_signal": "bodies as civic fuel"
+    },
+    {
+      "id": "inheritance",
+      "question": "What strength transfers forward?",
+      "mechanics": [
+        "scavenge",
+        "+1/+1 counters",
+        "Corpsejack effects"
+      ],
+      "copy_signal": "the dead teach the living"
+    },
+    {
+      "id": "swarm-emergence",
+      "question": "When do many small bodies become one force?",
+      "mechanics": [
+        "tokens",
+        "insects",
+        "saprolings",
+        "aristocrats"
+      ],
+      "copy_signal": "many mouths, one hunger"
+    },
+    {
+      "id": "attrition-inevitability",
+      "question": "What happens when clean answers run out?",
+      "mechanics": [
+        "repeat removal",
+        "recursion loops",
+        "value engines"
+      ],
+      "copy_signal": "patient pressure"
+    },
+    {
+      "id": "undercity-sovereignty",
+      "question": "Who gains power from what the surface rejects?",
+      "mechanics": [
+        "Vraska",
+        "Jarad",
+        "Savra",
+        "Findbroker"
+      ],
+      "copy_signal": "the throne below"
+    }
+  ],
+  "archetypes": [
+    {
+      "id": "rot-farmer",
+      "drive": "cultivate value from what others discard",
+      "cards": [
+        "Golgari Rot Farm",
+        "Deathsprout",
+        "Life from the Loam",
+        "Glowspore Shaman"
+      ],
+      "narrative_line": "The ground is not empty. It is working."
+    },
+    {
+      "id": "grave-keeper",
+      "drive": "preserve the dead as future options",
+      "cards": [
+        "Jarad's Orders",
+        "Golgari Findbroker",
+        "Deadbridge Chant",
+        "Meren of Clan Nel Toth"
+      ],
+      "narrative_line": "Nothing buried is necessarily gone."
+    },
+    {
+      "id": "scar-inheritor",
+      "drive": "turn dead bodies into living strength",
+      "cards": [
+        "Varolz, the Scar-Striped",
+        "Dreg Mangler",
+        "Deadbridge Goliath",
+        "Corpsejack Menace",
+        "Shambling Shell"
+      ],
+      "narrative_line": "Power is inherited through wounds."
+    },
+    {
+      "id": "swarm-mother",
+      "drive": "transform death into many bodies",
+      "cards": [
+        "Izoni, Thousand-Eyed",
+        "Golgari Germination",
+        "Korozda Guildmage",
+        "Hatchery Spider"
+      ],
+      "narrative_line": "A grave is a nursery if the swarm owns it."
+    },
+    {
+      "id": "undercity-regent",
+      "drive": "rule from beneath through survival knowledge",
+      "cards": [
+        "Vraska, Golgari Queen",
+        "Savra, Queen of the Golgari",
+        "Jarad, Golgari Lich Lord",
+        "Sisters of Stone Death"
+      ],
+      "narrative_line": "The throne belongs to whoever can make the dead useful."
+    },
+    {
+      "id": "patient-infection",
+      "drive": "win by erosion, not spectacle",
+      "cards": [
+        "Darkblast",
+        "Putrefy",
+        "Abrupt Decay",
+        "Assassin's Trophy",
+        "Necrotic Wound"
+      ],
+      "narrative_line": "Decay wins by proving everything can be broken down."
+    },
+    {
+      "id": "lich-accountant",
+      "drive": "count the dead and cash them in",
+      "cards": [
+        "Underrealm Lich",
+        "Lotleth Giant",
+        "Svogthos, the Restless Tomb",
+        "Old Stickfingers"
+      ],
+      "narrative_line": "The graveyard is a ledger with teeth."
+    }
+  ],
+  "progression_model": [
+    "surface_loss",
+    "burial_intake",
+    "composting_conversion",
+    "accretion",
+    "emergence",
+    "inevitability"
+  ],
+  "maze_search_families": [
+    {
+      "family": "graveyard-engines",
+      "seed": "ci=golgari o:graveyard o:return"
+    },
+    {
+      "family": "sacrifice-recursion",
+      "seed": "ci=golgari o:sacrifice o:dies o:return"
+    },
+    {
+      "family": "scavenge-inheritance",
+      "seed": "ci=golgari o:\"+1/+1 counter\" o:graveyard"
+    },
+    {
+      "family": "undergrowth-payoffs",
+      "seed": "ci=golgari o:\"creature cards in your graveyard\""
+    },
+    {
+      "family": "rot-growth",
+      "seed": "ci=golgari (o:Saproling OR o:land) o:destroy"
+    },
+    {
+      "family": "attrition-removal",
+      "seed": "ci=golgari (o:destroy OR o:\"-X/-X\")"
+    },
+    {
+      "family": "swarm-bodies",
+      "seed": "ci=golgari (t:insect OR o:Saproling OR o:token)"
+    }
+  ],
+  "guardrails": [
+    "Do not flatten Golgari into generic death, zombies, or evil necromancy.",
+    "Do not drift into Selesnya harmony; Golgari growth is fed by rot, scarcity, and survival.",
+    "Do not drift into Dimir secrets; the graveyard is a public resource ledger, not just hidden information.",
+    "Do not drift into Orzhov debt; Golgari inheritance is ecological and material, not contractual.",
+    "Do not drift into Simic improvement; Golgari adapts by reclaiming what dies, not optimizing from a lab."
+  ],
+  "voice_tokens": {
+    "preferred": [
+      "undergrowth",
+      "loam",
+      "rot",
+      "compost",
+      "roots",
+      "spore",
+      "tomb",
+      "hatchery",
+      "swarm",
+      "reclaimed",
+      "buried",
+      "returned",
+      "counted",
+      "accreted",
+      "patient",
+      "useful",
+      "surviving"
+    ],
+    "avoid": [
+      "evil",
+      "death cult",
+      "zombie horde",
+      "gross",
+      "toxic",
+      "plague",
+      "decay for decay’s sake",
+      "nihilism"
+    ]
+  }
+}

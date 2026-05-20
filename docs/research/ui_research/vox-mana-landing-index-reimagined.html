@@ -1,0 +1,781 @@
+<!doctype html>
+<html lang="en" data-theme="vox-mana">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="color-scheme" content="dark" />
+  <title>Vox Mana — Landing Index (Reimagined Concept)</title>
+  <meta name="description" content="Standalone Vox Mana landing index concept. Demo shell only: dark mystical archive, gold accents, mana attunement, dossier preview, and deckways." />
+
+  <style>
+    /* ============================================================
+      VOX MANA — LANDING INDEX (REIMAGINED CONCEPT)
+      Standalone demo shell only. No scoring logic. No external deps.
+      Design: dark mystical archive + gold accents + mana signal UI
+      Innovation: "Archive Console" landing with attunement + live dossier preview
+    ============================================================ */
+
+    :root{
+      color-scheme: dark;
+
+      /* Core palette */
+      --bg0:#020308;
+      --bg1:#060a14;
+      --bg2:#0b1220;
+      --panel: rgba(10, 14, 24, 0.72);
+      --panel-2: rgba(7, 10, 18, 0.86);
+      --stroke: rgba(239, 207, 131, 0.20);
+      --stroke-2: rgba(239, 207, 131, 0.36);
+
+      --gold:#efcf83;
+      --gold2:#b8842f;
+      --gold3:#ffdf9a;
+
+      --text:#f6eddc;
+      --muted: rgba(246, 237, 220, 0.72);
+      --dim: rgba(246, 237, 220, 0.48);
+
+      /* Mana accents (for atmosphere only) */
+      --w:#fff1c6;
+      --u:#66c7ff;
+      --b:#b494ff;
+      --r:#ff745f;
+      --g:#70ff9e;
+
+      --accent: var(--gold);
+      --accent-rgb: 239, 207, 131;
+
+      /* Layout */
+      --max: 1240px;
+      --pad: clamp(18px, 4vw, 38px);
+
+      /* Radius / shadow */
+      --r-xl: 34px;
+      --r-lg: 22px;
+      --r-md: 16px;
+      --r-sm: 12px;
+      --shadow: 0 26px 80px rgba(0,0,0,0.58);
+      --shadow-soft: 0 18px 52px rgba(0,0,0,0.34);
+
+      /* Type */
+      --font-ui: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Inter, Arial, sans-serif;
+      --font-display: ui-serif, Georgia, "Times New Roman", serif;
+      --font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+
+      /* Motion */
+      --ease: cubic-bezier(.18,.84,.22,1);
+    }
+
+    /* Theme switches (atmosphere only) */
+    body[data-mana="gold"] { --accent: var(--gold); --accent-rgb: 239, 207, 131; }
+    body[data-mana="w"]    { --accent: var(--w);    --accent-rgb: 255, 241, 198; }
+    body[data-mana="u"]    { --accent: var(--u);    --accent-rgb: 102, 199, 255; }
+    body[data-mana="b"]    { --accent: var(--b);    --accent-rgb: 180, 148, 255; }
+    body[data-mana="r"]    { --accent: var(--r);    --accent-rgb: 255, 116, 95; }
+    body[data-mana="g"]    { --accent: var(--g);    --accent-rgb: 112, 255, 158; }
+
+    *{ box-sizing:border-box; }
+    html{ background:#000; scroll-behavior:smooth; }
+    body{
+      margin:0;
+      min-height:100vh;
+      font-family:var(--font-ui);
+      color:var(--text);
+      overflow-x:hidden;
+      background:
+        radial-gradient(circle at 50% 22%, rgba(var(--accent-rgb), 0.18), transparent 28rem),
+        radial-gradient(circle at 18% 14%, rgba(102, 199, 255, 0.10), transparent 24rem),
+        radial-gradient(circle at 82% 16%, rgba(180, 148, 255, 0.10), transparent 24rem),
+        radial-gradient(circle at 52% 90%, rgba(239, 207, 131, 0.12), transparent 34rem),
+        linear-gradient(180deg, var(--bg0), var(--bg1) 42%, #030409 100%);
+    }
+
+    /* Subtle grid / archive texture */
+    body::before{
+      content:"";
+      position:fixed; inset:0; z-index:-6;
+      pointer-events:none;
+      background:
+        linear-gradient(rgba(255,255,255,0.045) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px),
+        radial-gradient(circle, rgba(var(--accent-rgb),0.16) 0 1px, transparent 1.5px);
+      background-size: 78px 78px, 78px 78px, 42px 42px;
+      mask-image: radial-gradient(ellipse at 50% 26%, #000 0 44%, transparent 82%);
+      opacity:0.28;
+      mix-blend-mode:screen;
+    }
+    body::after{
+      content:"";
+      position:fixed; inset:0; z-index:-5;
+      pointer-events:none;
+      background:
+        linear-gradient(90deg, rgba(0,0,0,0.88), transparent 18%, transparent 82%, rgba(0,0,0,0.90)),
+        radial-gradient(ellipse at 50% 0%, transparent 0 34%, rgba(0,0,0,0.62) 80%),
+        radial-gradient(ellipse at 50% 100%, rgba(0,0,0,0.76), transparent 60%);
+    }
+
+    a{ color:inherit; text-decoration:none; }
+    button{ font:inherit; color:inherit; }
+    ::selection{ background: rgba(var(--accent-rgb),0.32); color:#fff; }
+    :focus-visible{ outline:2px solid var(--accent); outline-offset:4px; }
+
+    .wrap{ width:min(var(--max), calc(100% - (var(--pad) * 2))); margin-inline:auto; }
+
+    /* NAV */
+    .skip-link{
+      position:fixed; left:16px; top:16px; z-index:999;
+      padding:10px 14px; border-radius:999px;
+      background: var(--gold); color:#050505;
+      transform: translateY(-160%);
+      transition: transform 0.2s ease;
+    }
+    .skip-link:focus{ transform: translateY(0); }
+
+    header.topbar{
+      position:fixed; z-index:50;
+      top:18px; left:50%; transform:translateX(-50%);
+      width:min(var(--max), calc(100% - 30px));
+      display:grid;
+      grid-template-columns: auto 1fr auto;
+      gap:18px;
+      align-items:center;
+      padding:10px 12px 10px 16px;
+      border:1px solid rgba(var(--accent-rgb),0.26);
+      border-radius:999px;
+      background: linear-gradient(180deg, rgba(10,14,24,0.76), rgba(4,6,10,0.42));
+      box-shadow: 0 18px 60px rgba(0,0,0,0.42), inset 0 0 0 1px rgba(255,255,255,0.035);
+      backdrop-filter: blur(18px) saturate(1.12);
+    }
+    .brand{ display:inline-flex; align-items:center; gap:12px; min-width:0; }
+    .brand-mark{
+      width:42px; height:42px; border-radius:50%;
+      display:grid; place-items:center;
+      border:1px solid rgba(var(--accent-rgb),0.32);
+      background:
+        radial-gradient(circle at 50% 35%, rgba(var(--accent-rgb),0.34), transparent 55%),
+        linear-gradient(180deg, rgba(255,255,255,0.08), rgba(0,0,0,0.28));
+      box-shadow: 0 0 28px rgba(var(--accent-rgb),0.22);
+    }
+    .brand-title{ display:grid; line-height:1.05; }
+    .brand-title strong{
+      font-family: var(--font-display);
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      font-size: 0.94rem;
+    }
+    .brand-title span{
+      font-family: var(--font-mono);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-size: 0.65rem;
+      color: var(--dim);
+    }
+    .nav-links{
+      display:flex; justify-content:center;
+      gap: clamp(10px, 2vw, 22px);
+      font-family: var(--font-mono);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-size: 0.72rem;
+      color: var(--muted);
+    }
+    .nav-links a{ transition: color 0.2s ease; }
+    .nav-links a:hover{ color: var(--accent); }
+    .nav-actions{ display:flex; gap:8px; align-items:center; }
+
+    /* Buttons / cards */
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center; gap:9px;
+      min-height:42px; padding:11px 16px;
+      border-radius:999px;
+      border:1px solid rgba(var(--accent-rgb),0.36);
+      cursor:pointer;
+      background:
+        radial-gradient(circle at 50% 0%, rgba(var(--accent-rgb),0.20), transparent 60%),
+        linear-gradient(180deg, rgba(255,255,255,0.07), rgba(255,255,255,0.02));
+      box-shadow: 0 12px 30px rgba(0,0,0,0.24);
+      transition: transform .18s var(--ease), border-color .18s ease, background .18s ease;
+      white-space:nowrap;
+    }
+    .btn:hover{
+      transform: translateY(-2px);
+      border-color: rgba(var(--accent-rgb),0.68);
+      background:
+        radial-gradient(circle at 50% 0%, rgba(var(--accent-rgb),0.28), transparent 62%),
+        linear-gradient(180deg, rgba(255,255,255,0.10), rgba(255,255,255,0.03));
+    }
+    .btn.primary{
+      color:#060606;
+      font-weight: 800;
+      border-color: rgba(255,224,154,0.82);
+      background: linear-gradient(135deg, var(--gold3), var(--gold), var(--gold2));
+      box-shadow: 0 18px 48px rgba(var(--accent-rgb),0.24);
+    }
+    .btn.ghost{ background: rgba(255,255,255,0.035); color: var(--muted); }
+
+    .card{
+      position:relative;
+      overflow:hidden;
+      border:1px solid rgba(239, 207, 131, 0.20);
+      border-radius: 22px;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.055), rgba(255,255,255,0.02)),
+        rgba(10, 14, 24, 0.72);
+      box-shadow: 0 18px 52px rgba(0,0,0,0.34);
+    }
+    .card::before{
+      content:"";
+      position:absolute; inset:0; pointer-events:none;
+      background:
+        radial-gradient(circle at 12% 0%, rgba(var(--accent-rgb),0.16), transparent 36%),
+        linear-gradient(135deg, rgba(255,255,255,0.05), transparent 40%);
+      opacity:0.70;
+    }
+    .card > *{ position:relative; z-index:1; }
+
+    h1,h2,h3{ margin:0; font-family: var(--font-display); font-weight:700; line-height:0.98; }
+    p{ margin:0; color: var(--muted); line-height:1.65; }
+    .eyebrow{ font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.17em; font-size: 0.72rem; color: var(--accent); }
+
+    canvas#veil{ position:fixed; inset:0; z-index:-4; width:100%; height:100%; pointer-events:none; opacity:0.78; mix-blend-mode: screen; }
+
+    section{ padding-block: clamp(56px, 8vw, 110px); }
+
+    .hero{ min-height: 100svh; display:grid; align-items:center; padding: 132px 0 68px; }
+    .hero-grid{ display:grid; grid-template-columns: minmax(0, 1.1fr) minmax(340px, 0.9fr); gap: clamp(22px, 5vw, 64px); align-items:center; }
+    .hero-copy{ display:grid; gap:22px; }
+
+    .kicker{
+      width:fit-content;
+      display:inline-flex; align-items:center; gap:10px;
+      padding: 9px 12px;
+      border-radius:999px;
+      border:1px solid rgba(var(--accent-rgb),0.24);
+      background: rgba(255,255,255,0.045);
+      color: var(--muted);
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+    .pulse-dot{ width:8px; height:8px; border-radius:50%; background: var(--accent); box-shadow: 0 0 18px rgba(var(--accent-rgb),0.8); animation: pulse 1.9s ease-in-out infinite; }
+    @keyframes pulse{ 0%,100%{ transform:scale(0.85); opacity:0.55; } 50%{ transform:scale(1.28); opacity:1; } }
+
+    .hero-title{ font-size: clamp(3.3rem, 10vw, 8.6rem); letter-spacing: -0.07em; }
+    .hero-title .soft{ color: rgba(246,237,220,0.58); display:block; }
+    .hero-title .glow{ display:block; color: var(--text); text-shadow: 0 0 26px rgba(var(--accent-rgb),0.22), 0 0 76px rgba(var(--accent-rgb),0.14); }
+
+    .lede{ font-size: clamp(1.02rem, 1.65vw, 1.28rem); color: rgba(246,237,220,0.74); max-width: 760px; }
+    .hero-actions{ display:flex; flex-wrap:wrap; gap:12px; margin-top: 2px; }
+
+    .proof{ display:grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap:10px; max-width: 760px; margin-top: 10px; }
+    .proof-tile{ border:1px solid rgba(239,207,131,0.14); border-radius: 18px; background: rgba(255,255,255,0.035); padding: 16px; min-height: 104px; }
+    .proof-tile strong{ display:block; color: var(--text); font-size: 1.45rem; line-height: 1.1; }
+    .proof-tile span{ display:block; margin-top:7px; color: var(--dim); font-size: 0.78rem; line-height: 1.45; }
+
+    .console{ padding: clamp(18px, 3.5vw, 30px); border-radius: 34px; display:grid; gap: 16px; }
+    .console-head{ display:flex; align-items:flex-start; justify-content:space-between; gap:12px; padding-bottom: 10px; border-bottom: 1px solid rgba(var(--accent-rgb), 0.18); }
+    .console-head h2{ font-size: clamp(1.55rem, 2.8vw, 2.35rem); letter-spacing: -0.04em; }
+    .console-head p{ margin-top: 8px; font-size: 0.92rem; color: rgba(246,237,220,0.48); max-width: 44ch; }
+
+    .attune{ display:grid; gap:12px; }
+    .attune-row{ display:grid; grid-template-columns: repeat(5, minmax(0,1fr)); gap: 10px; }
+
+    .pip{ border-radius: 16px; border: 1px solid rgba(255,255,255,0.14); background: radial-gradient(circle at 50% 24%, rgba(255,255,255,0.10), transparent 56%), rgba(7,10,18,0.72); padding: 12px 10px; text-align:center; cursor:pointer; transition: transform .18s var(--ease), border-color .18s ease, box-shadow .18s ease; }
+    .pip:hover{ transform: translateY(-2px); border-color: rgba(var(--accent-rgb),0.52); box-shadow: 0 0 30px rgba(var(--accent-rgb),0.16); }
+    .pip[aria-pressed="true"]{ border-color: rgba(var(--accent-rgb),0.78); box-shadow: 0 0 34px rgba(var(--accent-rgb),0.20); }
+    .pip strong{ display:block; font-family: var(--font-display); font-size: 1.25rem; letter-spacing: 0.02em; color: var(--text); }
+    .pip span{ display:block; margin-top: 4px; font-family: var(--font-mono); font-size: 0.66rem; letter-spacing: 0.10em; text-transform: uppercase; color: rgba(246,237,220,0.48); }
+    .pip.w{ color: var(--w); }
+    .pip.u{ color: var(--u); }
+    .pip.b{ color: var(--b); }
+    .pip.r{ color: var(--r); }
+    .pip.g{ color: var(--g); }
+    .pip.w strong, .pip.u strong, .pip.b strong, .pip.r strong, .pip.g strong{ color: currentColor; text-shadow: 0 0 18px currentColor; }
+
+    .preview{ border:1px solid rgba(239,207,131,0.16); border-radius: 20px; background: rgba(255,255,255,0.03); overflow:hidden; }
+    .preview-top{ display:flex; align-items:center; justify-content:space-between; gap:12px; padding: 14px 16px; background: rgba(255,255,255,0.04); border-bottom: 1px solid rgba(239,207,131,0.12); }
+    .preview-top .label{ font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.14em; font-size: 0.68rem; color: rgba(246,237,220,0.48); }
+
+    .badge{ display:inline-flex; align-items:center; gap:8px; padding: 6px 10px; border-radius: 999px; border: 1px solid rgba(var(--accent-rgb),0.24); background: rgba(0,0,0,0.22); font-family: var(--font-mono); font-size: 0.68rem; letter-spacing: 0.12em; color: rgba(246,237,220,0.72); white-space: nowrap; }
+    .badge .dot{ width: 7px; height: 7px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 14px rgba(var(--accent-rgb),0.7); }
+
+    .preview-body{ padding: 16px; display:grid; gap: 12px; }
+    .result-row{ display:grid; grid-template-columns: auto 1fr auto; gap: 12px; align-items:center; padding: 12px; border-radius: 16px; border: 1px solid rgba(239,207,131,0.14); background: rgba(255,255,255,0.03); }
+    .orb{ width: 42px; height: 42px; border-radius: 50%; border: 1px solid rgba(var(--accent-rgb),0.34); background: radial-gradient(circle at 50% 32%, rgba(255,255,255,0.18), transparent 40%), radial-gradient(circle, rgba(var(--accent-rgb),0.38), rgba(0,0,0,0.62)); box-shadow: 0 0 26px rgba(var(--accent-rgb),0.14); }
+    .result-row strong{ display:block; margin-bottom: 4px; }
+    .result-row small{ color: rgba(246,237,220,0.48); line-height: 1.4; }
+
+    .meter{ width: 110px; height: 8px; border-radius: 999px; overflow:hidden; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.08); }
+    .meter span{ display:block; height: 100%; width: var(--w); background: linear-gradient(90deg, var(--accent), var(--gold3)); }
+
+    .preview-note{ margin-top: 4px; font-size: 0.82rem; color: rgba(246,237,220,0.48); line-height: 1.5; }
+
+    .strip{ padding: 18px; margin-top: -42px; position:relative; z-index: 3; border-radius: 34px; }
+    .steps{ display:grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 12px; }
+    .step{ border: 1px solid rgba(239,207,131,0.16); border-radius: 20px; background: rgba(255,255,255,0.035); padding: 18px; min-height: 142px; display:grid; gap: 10px; align-content:start; }
+    .step .num{ width: 32px; height:32px; display:grid; place-items:center; border-radius: 50%; background: var(--accent); color:#050505; font-family: var(--font-mono); font-weight: 900; font-size: 0.82rem; }
+    .step strong{ font-family: var(--font-display); font-size: 1.12rem; letter-spacing: -0.02em; }
+    .step span{ color: rgba(246,237,220,0.72); font-size: 0.92rem; line-height: 1.5; }
+
+    .split{ display:grid; grid-template-columns: minmax(0, 0.95fr) minmax(320px, 1.05fr); gap: clamp(22px, 4vw, 46px); align-items:start; }
+    .section-heading{ display:grid; gap: 10px; max-width: 820px; margin-bottom: 26px; }
+    .section-heading h2{ font-size: clamp(2.05rem, 5vw, 4.6rem); letter-spacing: -0.05em; }
+
+    .feature-grid{ display:grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 16px; }
+    .feature{ padding: 22px; min-height: 260px; display:grid; gap: 14px; align-content:start; }
+    .icon{ width: 48px; height:48px; border-radius: 16px; display:grid; place-items:center; border: 1px solid rgba(var(--accent-rgb), 0.28); background: rgba(var(--accent-rgb), 0.08); color: var(--accent); font-family: var(--font-display); font-size: 1.45rem; }
+
+    .index-panel{ padding: 22px; display:grid; gap: 14px; }
+    .chip-row{ display:flex; flex-wrap:wrap; gap: 8px; }
+    .chip{ display:inline-flex; align-items:center; gap: 7px; min-height: 30px; padding: 6px 10px; border-radius: 999px; border: 1px solid rgba(239,207,131,0.18); background: rgba(255,255,255,0.035); color: rgba(246,237,220,0.72); font-size: 0.78rem; }
+    .chip button{ border:0; background: transparent; cursor:pointer; color: inherit; padding: 0; }
+
+    .shelf{ display:grid; gap: 10px; }
+    .shelf-row{ display:grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+    .shelf-card{ border: 1px solid rgba(239,207,131,0.14); border-radius: 18px; background: rgba(255,255,255,0.03); padding: 14px; min-height: 112px; display:grid; gap: 6px; }
+    .shelf-card strong{ font-family: var(--font-display); letter-spacing: -0.02em; }
+    .shelf-card small{ color: rgba(246,237,220,0.48); line-height: 1.4; }
+
+    .rail{ display:grid; gap: 12px; }
+    .rail-head{ display:flex; align-items:flex-end; justify-content:space-between; gap: 16px; }
+    .rail-head h3{ font-size: clamp(1.25rem, 2.2vw, 1.75rem); letter-spacing: -0.025em; }
+    .scroller{ display:grid; grid-auto-flow: column; grid-auto-columns: minmax(260px, 1fr); gap: 12px; overflow:auto; padding-bottom: 8px; scroll-snap-type: x mandatory; }
+    .scroller::-webkit-scrollbar{ height: 10px; }
+    .scroller::-webkit-scrollbar-thumb{ background: rgba(var(--accent-rgb),0.22); border-radius: 999px; border: 1px solid rgba(var(--accent-rgb),0.22); }
+
+    .dossier-card{ scroll-snap-align: start; padding: 18px; border-radius: 20px; border: 1px solid rgba(239,207,131,0.14); background: rgba(255,255,255,0.03); display:grid; gap: 10px; min-height: 210px; }
+    .dossier-card .top{ display:flex; align-items:center; justify-content:space-between; gap:12px; }
+    .dossier-card .pill{ font-family: var(--font-mono); font-size: 0.66rem; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(246,237,220,0.48); border: 1px solid rgba(var(--accent-rgb),0.18); background: rgba(0,0,0,0.16); padding: 6px 10px; border-radius: 999px; white-space:nowrap; }
+    .dossier-card p{ font-size: 0.95rem; }
+
+    .matrix{ padding: 22px; display:grid; gap: 14px; }
+    .matrix-grid{ display:grid; grid-template-columns: repeat(5, minmax(0,1fr)); gap: 10px; }
+    .node{ min-height: 132px; border-radius: 18px; border: 1px solid rgba(239,207,131,0.14); background: radial-gradient(circle at 50% 0%, rgba(var(--accent-rgb),0.12), transparent 60%), rgba(255,255,255,0.03); padding: 12px; display:grid; place-items:center; text-align:center; color: rgba(246,237,220,0.72); font-size: 0.82rem; }
+    .node strong{ display:block; color: var(--text); font-family: var(--font-display); font-size: 1.12rem; margin-bottom: 4px; }
+
+    footer{ border-top: 1px solid rgba(239,207,131,0.12); padding: 34px 0 52px; color: rgba(246,237,220,0.48); }
+    .footer-grid{ display:grid; grid-template-columns: 1fr auto; gap: 22px; align-items:center; }
+    .footer-links{ display:flex; flex-wrap:wrap; gap: 14px; font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; }
+
+    .reveal{ opacity:0; transform: translateY(22px); transition: opacity .7s var(--ease), transform .7s var(--ease); }
+    .reveal.is-visible{ opacity:1; transform: translateY(0); }
+
+    @media (max-width: 980px){
+      header.topbar{ grid-template-columns: 1fr auto; }
+      .nav-links{ display:none; }
+      .hero-grid, .split, .footer-grid{ grid-template-columns: 1fr; }
+      .hero{ padding-top: 112px; }
+      .steps{ grid-template-columns: repeat(2, minmax(0,1fr)); }
+      .feature-grid{ grid-template-columns: repeat(2, minmax(0,1fr)); }
+      .shelf-row{ grid-template-columns: repeat(2, minmax(0,1fr)); }
+      .matrix-grid{ grid-template-columns: repeat(2, minmax(0,1fr)); }
+    }
+    @media (max-width: 660px){
+      .brand-title span, .nav-actions .ghost{ display:none; }
+      header.topbar{ border-radius: 24px; }
+      .hero-title{ font-size: clamp(3.05rem, 18vw, 5.1rem); }
+      .proof, .steps, .feature-grid, .shelf-row, .matrix-grid{ grid-template-columns: 1fr; }
+      .attune-row{ grid-template-columns: repeat(3, minmax(0,1fr)); }
+      .result-row{ grid-template-columns: auto 1fr; }
+      .meter{ grid-column: 1 / -1; width: 100%; }
+    }
+    @media (prefers-reduced-motion: reduce){
+      *, *::before, *::after{ animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; scroll-behavior: auto !important; }
+    }
+  </style>
+</head>
+
+<body data-mana="gold">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <canvas id="veil" aria-hidden="true"></canvas>
+
+  <header class="topbar" aria-label="Vox Mana navigation">
+    <a class="brand" href="#top" aria-label="Vox Mana home">
+      <span class="brand-mark" aria-hidden="true">
+        <svg width="26" height="26" viewBox="0 0 26 26" fill="none" aria-hidden="true">
+          <path d="M13 2 C16 6 20 9 19 14 C18 19 14 23 13 24 C12 23 8 19 7 14 C6 9 10 6 13 2Z" stroke="currentColor" stroke-width="1.8" opacity="0.9"/>
+          <circle cx="13" cy="14" r="2.2" fill="currentColor" opacity="0.9"/>
+        </svg>
+      </span>
+      <span class="brand-title">
+        <strong>Vox Mana</strong>
+        <span>Landing index (concept)</span>
+      </span>
+    </a>
+
+    <nav class="nav-links" aria-label="Primary">
+      <a href="#engine">Engine</a>
+      <a href="#archive">Archive</a>
+      <a href="#library">Dossiers</a>
+      <a href="#deckways">Deckways</a>
+    </nav>
+
+    <div class="nav-actions">
+      <a class="btn ghost" href="#archive">Browse</a>
+      <a class="btn primary" href="#start">Begin</a>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero wrap" id="top">
+      <div class="hero-grid">
+        <div class="hero-copy reveal">
+          <div class="kicker"><span class="pulse-dot" aria-hidden="true"></span>A reading, not a quiz</div>
+          <h1 class="hero-title" aria-label="Vox Mana headline">
+            <span class="soft">Open the</span>
+            <span class="glow">archive console</span>
+            <span class="soft">and see your pattern.</span>
+          </h1>
+          <p class="lede">
+            Vox Mana translates playstyle, philosophy, and pressure response into a placement dossier:
+            a clear “final reading,” near matches, and deck paths — without dumping users into raw model language.
+          </p>
+          <div class="hero-actions" id="start" aria-label="Primary actions">
+            <a class="btn primary" href="#engine">Start the reading</a>
+            <a class="btn" href="#library">Preview dossiers</a>
+            <a class="btn ghost" href="#deckways">Jump to deckways</a>
+          </div>
+          <div class="proof" aria-label="High level capabilities (placeholders)">
+            <div class="proof-tile"><strong>5 signals</strong><span>White / Blue / Black / Red / Green attunements (atmosphere preview).</span></div>
+            <div class="proof-tile"><strong>Explainable</strong><span>Every placement comes with “why this fit” and “what was weakened.”</span></div>
+            <div class="proof-tile"><strong>Deckways</strong><span>Commanders, staples, lands, combos, and lore echoes — as a path, not a dump.</span></div>
+          </div>
+        </div>
+
+        <aside class="card console reveal" aria-label="Archive console: attunement and live dossier preview">
+          <div class="console-head">
+            <div>
+              <span class="eyebrow">Archive console</span>
+              <h2>Attune the veil</h2>
+              <p>Pick a mana lens to shift the atmosphere and preview dossier language. Demo-only.</p>
+            </div>
+            <span class="badge" title="Demo status"><span class="dot" aria-hidden="true"></span>No scoring active</span>
+          </div>
+
+          <div class="attune" aria-label="Mana attunement controls">
+            <div class="attune-row" role="group" aria-label="Select mana atmosphere">
+              <button class="pip w" type="button" data-mana="w" aria-pressed="false"><strong>W</strong><span>Order</span></button>
+              <button class="pip u" type="button" data-mana="u" aria-pressed="false"><strong>U</strong><span>Insight</span></button>
+              <button class="pip b" type="button" data-mana="b" aria-pressed="false"><strong>B</strong><span>Ambition</span></button>
+              <button class="pip r" type="button" data-mana="r" aria-pressed="false"><strong>R</strong><span>Impulse</span></button>
+              <button class="pip g" type="button" data-mana="g" aria-pressed="false"><strong>G</strong><span>Adapt</span></button>
+            </div>
+
+            <div class="preview" aria-label="Live dossier preview (placeholder)">
+              <div class="preview-top">
+                <span class="label">Dossier preview</span>
+                <span class="badge" id="previewBadge"><span class="dot" aria-hidden="true"></span>Lens: Gold (neutral)</span>
+              </div>
+              <div class="preview-body" id="previewBody">
+                <article class="result-row" aria-label="Primary placement preview">
+                  <span class="orb" aria-hidden="true"></span>
+                  <div><strong>Placeholder Placement</strong><small>78% confidence · Placeholder World · Placeholder Institution</small></div>
+                  <div class="meter" aria-hidden="true"><span style="--w:78%"></span></div>
+                </article>
+                <article class="result-row" aria-label="Near match preview">
+                  <span class="orb" aria-hidden="true"></span>
+                  <div><strong>Placeholder Match One</strong><small>Close because it shares the same pressure response, but differs in motive.</small></div>
+                  <div class="meter" aria-hidden="true"><span style="--w:64%"></span></div>
+                </article>
+                <p class="preview-note" id="previewNote">Placeholder reading line: “The archive names the shape you repeat under pressure.”</p>
+              </div>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="wrap card strip reveal" aria-label="How Vox Mana works (high level)">
+      <div class="steps">
+        <article class="step"><span class="num">01</span><strong>Collect signals</strong><span>Placeholder prompts capture values, tactics, and stress response — not just vibes.</span></article>
+        <article class="step"><span class="num">02</span><strong>Weigh & compare</strong><span>Placeholder conversion into candidate ranking, near matches, and weakened factions.</span></article>
+        <article class="step"><span class="num">03</span><strong>Deliver a decree</strong><span>A final reading that feels like opening a sealed file — with plain-English why.</span></article>
+        <article class="step"><span class="num">04</span><strong>Open deckways</strong><span>Commanders, staples, lands, combos, and lore echoes follow from identity.</span></article>
+      </div>
+    </section>
+
+    <section class="wrap split" id="engine" aria-label="Engine section">
+      <div class="section-heading reveal">
+        <span class="eyebrow">The engine</span>
+        <h2>Competitors give labels. Vox Mana gives receipts.</h2>
+        <p>Placeholder positioning copy: the differentiator is the dossier. Not “you are X,” but “X won because these signals stacked, these rivals were close, and these mismatches weakened them.”</p>
+        <div class="hero-actions" aria-label="Engine actions">
+          <a class="btn" href="#library">See dossier formats</a>
+          <a class="btn ghost" href="#archive">Browse the archive index</a>
+        </div>
+      </div>
+      <div class="feature-grid reveal" aria-label="Feature highlights">
+        <article class="card feature"><span class="icon" aria-hidden="true">✦</span><h3>Explainable placement</h3><p>Primary result, near matches, weakened candidates, and an evidence trail — all readable.</p><div class="chip-row" aria-label="Tags"><span class="chip">Decree</span><span class="chip">Evidence</span><span class="chip">Ranking</span></div></article>
+        <article class="card feature"><span class="icon" aria-hidden="true">◈</span><h3>Identity dossier</h3><p>Philosophy, tensions, gameplay feel, strengths/weaknesses, and “how it differs.”</p><div class="chip-row" aria-label="Tags"><span class="chip">Why this fit</span><span class="chip">Near matches</span><span class="chip">Indicators</span></div></article>
+        <article class="card feature"><span class="icon" aria-hidden="true">⌁</span><h3>Deckways bridge</h3><p>Builders, commanders, staples, lands, combos, lore echoes — surfaced as a guided path.</p><div class="chip-row" aria-label="Tags"><span class="chip">Commanders</span><span class="chip">Staples</span><span class="chip">Combos</span></div></article>
+      </div>
+    </section>
+
+    <section class="wrap" id="archive" aria-label="Archive index section">
+      <div class="section-heading reveal">
+        <span class="eyebrow">The archive</span>
+        <h2>A landing page that feels like a catalog, not a funnel.</h2>
+        <p>Placeholder copy: visitors can explore structures (worlds, institutions, tensions, deckways) immediately — then choose to start a reading when ready.</p>
+      </div>
+
+      <div class="card index-panel reveal" aria-label="Archive index panel (placeholder)">
+        <div class="chip-row" aria-label="Archive filters (placeholder)">
+          <span class="chip"><button type="button" data-filter="all">All shelves</button></span>
+          <span class="chip"><button type="button" data-filter="worlds">Worlds</button></span>
+          <span class="chip"><button type="button" data-filter="institutions">Institutions</button></span>
+          <span class="chip"><button type="button" data-filter="factions">Factions</button></span>
+          <span class="chip"><button type="button" data-filter="deckways">Deckways</button></span>
+        </div>
+
+        <div class="shelf" id="shelf" aria-label="Archive shelf results (placeholder)">
+          <div class="shelf-row" data-shelf="worlds">
+            <article class="shelf-card"><strong>Placeholder World Index</strong><small>Browse worlds by tone, conflict, and mana pressure (placeholder).</small></article>
+            <article class="shelf-card"><strong>Placeholder Region Ledger</strong><small>Geography-inspired identity cues and lore echoes (placeholder).</small></article>
+            <article class="shelf-card"><strong>Placeholder Myth Stack</strong><small>Motifs, symbols, and archetypal repeats (placeholder).</small></article>
+          </div>
+
+          <div class="shelf-row" data-shelf="institutions">
+            <article class="shelf-card"><strong>Placeholder Institution Types</strong><small>Orders, guilds, schools, cults, courts — and what they reward (placeholder).</small></article>
+            <article class="shelf-card"><strong>Placeholder Oaths & Methods</strong><small>How different groups “justify” their actions (placeholder).</small></article>
+            <article class="shelf-card"><strong>Placeholder Roles</strong><small>Builders, breakers, planners, hunters, gardeners… (placeholder).</small></article>
+          </div>
+
+          <div class="shelf-row" data-shelf="factions">
+            <article class="shelf-card"><strong>Placeholder Faction Catalog</strong><small>Browse factions by shared tension, then compare adjacent matches (placeholder).</small></article>
+            <article class="shelf-card"><strong>Placeholder Color Tensions</strong><small>How priorities collide and resolve (placeholder).</small></article>
+            <article class="shelf-card"><strong>Placeholder “Lookalikes”</strong><small>Lateral inhibition: similar vibe, different motive (placeholder).</small></article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="wrap" id="library" aria-label="Dossier library preview section">
+      <div class="section-heading reveal">
+        <span class="eyebrow">Dossier library</span>
+        <h2>Preview the format before you commit to the reading.</h2>
+        <p>Placeholder copy: users can inspect dossier sections (decree, ranking, evidence trail, deckways) and decide if the approach resonates.</p>
+      </div>
+
+      <div class="card index-panel reveal rail" aria-label="Dossier preview rail">
+        <div class="rail-head">
+          <div><span class="eyebrow">Sample dossiers</span><h3>Scroll to inspect (placeholders)</h3></div>
+          <div class="hero-actions" aria-label="Rail actions">
+            <a class="btn primary" href="#start">Begin reading</a>
+            <a class="btn" href="#deckways">See deckways</a>
+          </div>
+        </div>
+
+        <div class="scroller" aria-label="Dossier cards scroller">
+          <article class="dossier-card"><div class="top"><strong>Placeholder Placement</strong><span class="pill">78% confidence</span></div><p>Decree preview: “Placeholder decree text goes here.”</p><p class="dim">Near matches: Placeholder Match One · Two · Three</p><a class="btn ghost" href="#engine">View dossier sections</a></article>
+          <article class="dossier-card"><div class="top"><strong>Placeholder Match One</strong><span class="pill">64% near</span></div><p>Why close: shares tactics under pressure, diverges in motive (placeholder).</p><p class="dim">Diff preview: “Different emotional center” (placeholder).</p><a class="btn ghost" href="#archive">Compare near matches</a></article>
+          <article class="dossier-card"><div class="top"><strong>Placeholder Evidence Trail</strong><span class="pill">Readable</span></div><p>“How Archscry Reached This” (label only): gates, boosts, suppressors, pruning (placeholder).</p><p class="dim">No raw model language shown by default (placeholder).</p><a class="btn ghost" href="#archive">Open archive shelf</a></article>
+          <article class="dossier-card"><div class="top"><strong>Placeholder Deck Bridge</strong><span class="pill">Deckways</span></div><p>Commanders, staples, lands, combos, lore echoes (placeholder).</p><p class="dim">Builder links appear after the identity is legible (placeholder).</p><a class="btn ghost" href="#deckways">Browse deckways</a></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="wrap" id="deckways" aria-label="Deckways section">
+      <div class="section-heading reveal">
+        <span class="eyebrow">Deckways</span>
+        <h2>Identity becomes a build path — cleanly.</h2>
+        <p>Placeholder copy: the landing page can communicate that deck-building guidance is part of the result, not a separate product.</p>
+      </div>
+
+      <div class="card matrix reveal" aria-label="Deckways matrix panel (placeholder)">
+        <div class="matrix-grid" aria-label="Deckway categories (placeholder)">
+          <div class="node"><span><strong>Commanders</strong>Placeholder leaders that fit the reading.</span></div>
+          <div class="node"><span><strong>Staples</strong>Ramp, removal, draw, recursion, finishers.</span></div>
+          <div class="node"><span><strong>Lands</strong>Premium, midrange, budget, basics guidance.</span></div>
+          <div class="node"><span><strong>Combos</strong>Popular, budget, exact identity, theme loops.</span></div>
+          <div class="node"><span><strong>Lore echoes</strong>Related motifs and “why it fits” panels.</span></div>
+        </div>
+
+        <details>
+          <summary class="btn ghost" style="display:inline-flex; margin-top: 6px;">FAQ (placeholder)</summary>
+          <div style="padding-top: 12px; color: rgba(246,237,220,0.72); line-height:1.65;">
+            <p><strong style="font-family:var(--font-display); color:var(--text);">Is this a quiz?</strong><br />Placeholder answer: it behaves like a reading with explanations, near matches, and evidence trail.</p>
+            <p style="margin-top: 10px;"><strong style="font-family:var(--font-display); color:var(--text);">Does it store data?</strong><br />Placeholder answer: the landing page stores nothing; the final app may optionally store saved results.</p>
+          </div>
+        </details>
+      </div>
+    </section>
+  </main>
+
+  <footer aria-label="Footer">
+    <div class="wrap footer-grid">
+      <div class="brand" aria-label="Vox Mana footer brand">
+        <span class="brand-mark" aria-hidden="true">
+          <svg width="26" height="26" viewBox="0 0 26 26" fill="none" aria-hidden="true">
+            <path d="M13 2 C16 6 20 9 19 14 C18 19 14 23 13 24 C12 23 8 19 7 14 C6 9 10 6 13 2Z" stroke="currentColor" stroke-width="1.8" opacity="0.9"/>
+            <circle cx="13" cy="14" r="2.2" fill="currentColor" opacity="0.9"/>
+          </svg>
+        </span>
+        <span class="brand-title"><strong>Vox Mana</strong><span>Landing index (reimagined)</span></span>
+      </div>
+      <nav class="footer-links" aria-label="Footer links">
+        <a href="#top">Top</a>
+        <a href="#engine">Engine</a>
+        <a href="#archive">Archive</a>
+        <a href="#library">Dossiers</a>
+        <a href="#deckways">Deckways</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script>
+    // Reveal-on-scroll
+    (function(){
+      const revealObserver = new IntersectionObserver((entries) => {
+        for (const entry of entries){
+          if (entry.isIntersecting){
+            entry.target.classList.add("is-visible");
+            revealObserver.unobserve(entry.target);
+          }
+        }
+      }, { threshold: 0.14 });
+      document.querySelectorAll(".reveal").forEach(el => revealObserver.observe(el));
+    })();
+
+    // Attunement theme + copy
+    (function(){
+      const body = document.body;
+      const buttons = Array.from(document.querySelectorAll(".pip[data-mana]"));
+      const badge = document.getElementById("previewBadge");
+      const note  = document.getElementById("previewNote");
+
+      const lensCopy = {
+        gold: { name: "Gold (neutral)", line: "Placeholder reading line: “The archive names the shape you repeat under pressure.”" },
+        w:    { name: "W — Order",      line: "Placeholder reading line: “You stabilize chaos by establishing rules that others can trust.”" },
+        u:    { name: "U — Insight",    line: "Placeholder reading line: “You seek leverage through understanding and optionality.”" },
+        b:    { name: "B — Ambition",   line: "Placeholder reading line: “You prioritize agency — you’d rather pay a cost than be constrained.”" },
+        r:    { name: "R — Impulse",    line: "Placeholder reading line: “You value honesty of action; the moment is a kind of truth.”" },
+        g:    { name: "G — Adapt",      line: "Placeholder reading line: “You trust what grows; you choose the path with roots.”" }
+      };
+
+      function setPressed(active){
+        for (const btn of buttons){
+          btn.setAttribute("aria-pressed", String(btn.dataset.mana === active));
+        }
+      }
+
+      function setLens(manaKey){
+        body.dataset.mana = manaKey;
+        const data = lensCopy[manaKey] || lensCopy.gold;
+        badge.innerHTML = '<span class="dot" aria-hidden="true"></span>' + 'Lens: ' + data.name;
+        note.textContent = data.line;
+        setPressed(manaKey);
+      }
+
+      setLens("gold");
+      for (const btn of buttons){
+        btn.addEventListener("click", () => setLens(btn.dataset.mana));
+      }
+    })();
+
+    // Archive filter (demo)
+    (function(){
+      const shelf = document.getElementById("shelf");
+      const filterButtons = Array.from(document.querySelectorAll("[data-filter]"));
+
+      function applyFilter(key){
+        const rows = Array.from(shelf.querySelectorAll("[data-shelf]"));
+        for (const row of rows){
+          const show = (key === "all") || (row.getAttribute("data-shelf") === key);
+          row.style.display = show ? "grid" : "none";
+        }
+      }
+
+      applyFilter("all");
+      for (const b of filterButtons){
+        b.addEventListener("click", () => applyFilter(b.getAttribute("data-filter")));
+      }
+    })();
+
+    // Canvas veil (lightweight)
+    (function(){
+      const canvas = document.getElementById("veil");
+      const ctx = canvas.getContext("2d", { alpha: true });
+
+      let w = 0, h = 0, dpr = 1;
+      let particles = [];
+
+      const manaColors = {
+        gold: [239, 207, 131],
+        w:    [255, 241, 198],
+        u:    [102, 199, 255],
+        b:    [180, 148, 255],
+        r:    [255, 116, 95],
+        g:    [112, 255, 158]
+      };
+
+      function resize(){
+        dpr = Math.min(window.devicePixelRatio || 1, 2);
+        w = window.innerWidth;
+        h = window.innerHeight;
+        canvas.width = Math.floor(w * dpr);
+        canvas.height = Math.floor(h * dpr);
+        canvas.style.width = w + "px";
+        canvas.style.height = h + "px";
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+        const count = Math.min(92, Math.max(44, Math.floor((w * h) / 26000)));
+        particles = Array.from({ length: count }, () => ({
+          x: Math.random() * w,
+          y: Math.random() * h,
+          r: Math.random() * 1.8 + 0.45,
+          vx: (Math.random() - 0.5) * 0.18,
+          vy: (Math.random() - 0.5) * 0.18,
+          a: Math.random() * 0.42 + 0.10
+        }));
+      }
+
+      function getAccent(){
+        const key = document.body.dataset.mana || "gold";
+        return manaColors[key] || manaColors.gold;
+      }
+
+      function tick(){
+        ctx.clearRect(0,0,w,h);
+        const c = getAccent();
+        const r = c[0], g = c[1], b = c[2];
+
+        for (const p of particles){
+          p.x += p.vx; p.y += p.vy;
+          if (p.x < -20) p.x = w + 20;
+          if (p.x > w + 20) p.x = -20;
+          if (p.y < -20) p.y = h + 20;
+          if (p.y > h + 20) p.y = -20;
+
+          ctx.beginPath();
+          ctx.fillStyle = "rgba(" + r + "," + g + "," + b + "," + p.a + ")";
+          ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+          ctx.fill();
+        }
+
+        for (let i=0; i<particles.length; i++){
+          for (let j=i+1; j<particles.length; j++){
+            const a = particles[i], b2 = particles[j];
+            const dx = a.x - b2.x, dy = a.y - b2.y;
+            const dist = Math.sqrt(dx*dx + dy*dy);
+            if (dist < 118){
+              const alpha = (1 - dist/118) * 0.07;
+              ctx.beginPath();
+              ctx.strokeStyle = "rgba(" + r + "," + g + "," + b + "," + alpha + ")";
+              ctx.lineWidth = 1;
+              ctx.moveTo(a.x, a.y);
+              ctx.lineTo(b2.x, b2.y);
+              ctx.stroke();
+            }
+          }
+        }
+        requestAnimationFrame(tick);
+      }
+
+      resize();
+      tick();
+      window.addEventListener("resize", resize);
+    })();
+  </script>
+</body>
+</html>

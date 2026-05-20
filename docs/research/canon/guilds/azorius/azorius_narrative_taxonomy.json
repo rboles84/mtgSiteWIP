@@ -1,0 +1,184 @@
+{
+  "schema_version": "vox-mana-narrative-taxonomy-v1",
+  "faction": "Azorius Senate",
+  "core_axiom": "Nothing should move faster than the law can understand, classify, and permit.",
+  "identity_frame": {
+    "not_generic": "not merely white-blue control",
+    "primary_read": "order as a civic machine",
+    "white_component": "safety through structure",
+    "blue_component": "perfection through knowledge",
+    "azorius_synthesis": "governed possibility through law, review, enforcement, and precedent"
+  },
+  "axes": [
+    {
+      "name": "Legislation",
+      "meaning": "Rules are written before action is allowed",
+      "signals": [
+        "addendum",
+        "forecast",
+        "cost setting",
+        "alternate win by counters"
+      ]
+    },
+    {
+      "name": "Enforcement",
+      "meaning": "Offenders lose agency",
+      "signals": [
+        "detain",
+        "tap",
+        "bounce",
+        "exile",
+        "pacifism"
+      ]
+    },
+    {
+      "name": "Adjudication",
+      "meaning": "Actions are accepted, denied, or replaced",
+      "signals": [
+        "counterspells",
+        "verdicts",
+        "vetoes",
+        "modal answers"
+      ]
+    },
+    {
+      "name": "Bureaucracy",
+      "meaning": "Friction becomes power",
+      "signals": [
+        "taxes",
+        "activated ability denial",
+        "permission checks"
+      ]
+    },
+    {
+      "name": "Surveillance",
+      "meaning": "The city is watched before it acts",
+      "signals": [
+        "precognition",
+        "draw",
+        "filter",
+        "Dovin-style review"
+      ]
+    },
+    {
+      "name": "Precedent",
+      "meaning": "Records accumulate into inevitability",
+      "signals": [
+        "draw",
+        "life",
+        "counters",
+        "mana infrastructure",
+        "filibuster"
+      ]
+    },
+    {
+      "name": "Sky Authority",
+      "meaning": "Law watches from above",
+      "signals": [
+        "sphinxes",
+        "griffins",
+        "flying",
+        "vigilance"
+      ]
+    },
+    {
+      "name": "Civic Protection",
+      "meaning": "Stability is preserved through formation",
+      "signals": [
+        "lifegain",
+        "vigilance",
+        "indestructible",
+        "defensive posture"
+      ]
+    }
+  ],
+  "function_map": {
+    "Detain": {
+      "purpose": "deny immediate agency",
+      "representative_cards": [
+        "Azorius Arrester",
+        "Lyev Skyknight",
+        "Deputy of Detention",
+        "Detention Sphere",
+        "Lawmage's Binding",
+        "Inaction Injunction",
+        "Warrant // Warden"
+      ]
+    },
+    "Override": {
+      "purpose": "issue a ruling that supersedes an attempted action",
+      "representative_cards": [
+        "Absorb",
+        "Dovin's Veto",
+        "Supreme Verdict",
+        "Fall of the Gavel",
+        "Render Silent",
+        "Emergency Powers",
+        "Overrule"
+      ]
+    },
+    "ConstraintField": {
+      "purpose": "make the environment itself lawful",
+      "representative_cards": [
+        "Grand Arbiter Augustin IV",
+        "Lavinia, Azorius Renegade",
+        "Forbidding Spirit",
+        "Azorius Guildmage",
+        "Minister of Impediments",
+        "High Alert",
+        "Sphinx of New Prahv"
+      ]
+    },
+    "AccretionEngine": {
+      "purpose": "turn records into inevitability",
+      "representative_cards": [
+        "Azor's Elocutors",
+        "Sphinx's Revelation",
+        "Dovin's Acuity",
+        "Sphinx's Insight",
+        "Precognitive Perception",
+        "Azorius Locket",
+        "Azorius Chancery",
+        "Sky Hussar"
+      ]
+    }
+  },
+  "voice": {
+    "use": [
+      "precise",
+      "formal",
+      "calm",
+      "procedural",
+      "civic",
+      "legible",
+      "quietly intimidating"
+    ],
+    "avoid": [
+      "chaotic spellcraft",
+      "emotional impulsiveness",
+      "pure holiness",
+      "generic control without law framing"
+    ]
+  },
+  "shadow_expression": [
+    "rigidity",
+    "over-control",
+    "excessive process",
+    "procedural cruelty",
+    "mistaking compliance for justice"
+  ],
+  "healthy_expression": [
+    "impartiality",
+    "protection",
+    "accountable rules",
+    "calm intervention",
+    "systems that prevent harm before harm escalates"
+  ],
+  "ux_copy_seeds": [
+    "You do not need to be the loudest force at the table. You need the clearest rules.",
+    "Azorius does not always destroy the threat. It files it, binds it, delays it, taxes it, or declares it inadmissible.",
+    "Your power grows when the game is forced to move at the speed of procedure.",
+    "The battlefield becomes a courtroom. Every action asks permission.",
+    "The law is not a wall. It is a machine."
+  ]
+}

@@ -40,6 +40,20 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 ## Done
 
+- [VM-076 - Cleanup And Push Preview / Archive Batch](done/VM-076-cleanup-and-push-preview-archive-batch.md)
+- [VM-075 - newIndex2 Atmosphere Tuning Notes](done/VM-075-newindex2-atmosphere-tuning-notes.md)
+- [VM-074 - newIndex2 Star Canvas Body Promotion](done/VM-074-newindex2-star-canvas-body-promotion.md)
+- [VM-073 - newIndex2 Star Root Stacking Fix](done/VM-073-newindex2-star-root-stacking-fix.md)
+- [VM-072 - newIndex2 Star Visibility Fix](done/VM-072-newindex2-star-visibility-fix.md)
+- [VM-071 - newIndex2 Layered Stars And Orbs](done/VM-071-newindex2-layered-stars-and-orbs.md)
+- [VM-070 - Keep Stars, Remove Only Home Bubble Layers](done/VM-070-keep-stars-remove-only-home-bubble-layers.md)
+- [VM-069 - Remove Bubble Atmosphere From newIndex2](done/VM-069-remove-bubble-atmosphere-newindex2.md)
+- [VM-068 - Preview Home Link Retarget To newIndex2](done/VM-068-preview-home-link-retarget-to-newindex2.md)
+- [VM-067 - Preview Home Link Target Fix](done/VM-067-preview-home-link-target-fix.md)
+- [VM-066 - newIndex2 Self-Contained Wiring](done/VM-066-newindex2-self-contained-wiring.md)
+- [VM-065 - newIndex Chart.js Repair Retry](done/VM-065-newindex-chartjs-repair-retry.md)
+- [VM-064 - newIndex Chart.js Preview Repair](done/VM-064-newindex-chartjs-preview-repair.md)
+- [VM-063 - Homepage Preview + Portable Identity Radar](done/VM-063-homepage-preview-portable-identity-radar.md)
 - [VM-062 - Expression Schema Tuning Pass](done/VM-062-expression-schema-tuning-pass.md)
 - [VM-061 - Silverquill Metaphysics](done/VM-061-silverquill-metaphysics.md)
 - [VM-059 - Simic Identity Metaphysics](done/VM-059-simic-identity-metaphysics.md)

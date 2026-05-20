@@ -1,0 +1,430 @@
+"""
+simic_translation.py
+====================
+Translation-layer module for the Simic Animation Specification.
+Maps animation spec concepts to engine-callable functions with full
+docstrings, parameter validation, and example usage.
+
+Sources:
+  - Card data: Scryfall (https://scryfall.com) / Gatherer (https://gatherer.wizards.com)
+  - Animation spec: simic_animation_spec.json (this project)
+  - Simic lore: Magic: The Gathering official releases (Wizards of the Coast)
+
+License:
+  Card data used under Wizards of the Coast Fan Content Policy.
+  Code in this file is original and released under MIT License.
+"""
+
+from __future__ import annotations
+
+import json
+import math
+import time
+from dataclasses import dataclass, field
+from typing import Any, Callable, Dict, List, Optional, Tuple
+
+
+# ---------------------------------------------------------------------------
+# Data Structures
+# ---------------------------------------------------------------------------
+
+@dataclass
+class AnimationFrame:
+    """A single keyframe in an animation sequence."""
+    t: float                     # Normalized time [0.0, 1.0]
+    properties: Dict[str, Any]   # CSS-style property dict for this frame
+
+    def lerp_to(self, other: "AnimationFrame", alpha: float) -> Dict[str, Any]:
+        """Linearly interpolate numeric properties toward *other* at *alpha* ∈ [0,1]."""
+        result: Dict[str, Any] = {}
+        for key, val in self.properties.items():
+            other_val = other.properties.get(key, val)
+            if isinstance(val, (int, float)) and isinstance(other_val, (int, float)):
+                result[key] = val + (other_val - val) * alpha
+            else:
+                result[key] = val if alpha < 0.5 else other_val
+        return result
+
+
+@dataclass
+class ConstraintField:
+    """
+    Represents a constraint boundary within the Simic animation engine.
+
+    A ConstraintField defines the allowable envelope of an animation parameter
+    (e.g., counter count, X value, morph intensity). Values outside the field
+    are clamped or rejected, preventing visual overflow artifacts.
+
+    Parameters
+    ----------
+    name : str
+        Human-readable name of the constraint (e.g., 'counter_count', 'x_value').
+    min_val : float
+        Minimum allowable value. Default 0.
+    max_val : float
+        Maximum allowable value. Default 100.
+    clamp : bool
+        If True, silently clamp out-of-range values. If False, raise ValueError.
+
+    Examples
+    --------
+    >>> cf = ConstraintField(name="x_value", min_val=1, max_val=20)
+    >>> cf.validate(15)
+    15
+    >>> cf.validate(25)   # clamped because clamp=True by default
+    20
+    """
+    name: str
+    min_val: float = 0.0
+    max_val: float = 100.0
+    clamp: bool = True
+
+    def validate(self, value: float) -> float:
+        """
+        Validate and optionally clamp *value* to [min_val, max_val].
+
+        Returns the (possibly clamped) value.
+        Raises ValueError if clamp is False and value is out of range.
+        """
+        if self.clamp:
+            return max(self.min_val, min(self.max_val, value))
+        if not (self.min_val <= value <= self.max_val):
+            raise ValueError(
+                f"ConstraintField '{self.name}': value {value} out of range "
+                f"[{self.min_val}, {self.max_val}]"
+            )
+        return value
+
+
+@dataclass
+class AccretionEngine:
+    """
+    Drives the accumulation of +1/+1 (and other) counters and the
+    corresponding animation morphs over time.
+
+    The AccretionEngine tracks a running counter total for a card and
+    fires the registered morph callbacks whenever the counter threshold
+    is crossed or a new batch of counters is added.
+
+    Parameters
+    ----------
+    card_name : str
+        Name of the card this engine is attached to.
+    initial_counters : int
+        Starting counter total (default 0).
+    morph_callbacks : list of callable
+        Functions called with (counter_delta: int, total: int) whenever
+        counters are added.
+    constraint : ConstraintField, optional
+        Applied to each incoming counter delta. Defaults to [0, 50].
+
+    Examples
+    --------
+    >>> def my_morph(delta, total):
+    ...     print(f"+{delta} counters → total {total}")
+    >>> engine = AccretionEngine(
+    ...     card_name="Hydroid Krasis",
+    ...     morph_callbacks=[my_morph]
+    ... )
+    >>> engine.add_counters(5)
+    +5 counters → total 5
+    >>> engine.add_counters(3)
+    +3 counters → total 8
+    """
+    card_name: str
+    initial_counters: int = 0
+    morph_callbacks: List[Callable[[int, int], None]] = field(default_factory=list)
+    constraint: ConstraintField = field(
+        default_factory=lambda: ConstraintField("counter_delta", 0, 50)
+    )
+
+    def __post_init__(self):
+        self._total: int = self.initial_counters
+
+    @property
+    def total(self) -> int:
+        """Current counter total."""
+        return self._total
+
+    def add_counters(self, delta: int) -> int:
+        """
+        Add *delta* counters, validate against constraint, fire morph callbacks.
+
+        Parameters
+        ----------
+        delta : int
+            Number of counters to add. Must be ≥ 0.
+
+        Returns
+        -------
+        int
+            Updated counter total.
+        """
+        delta = int(self.constraint.validate(delta))
+        if delta <= 0:
+            return self._total
+        self._total += delta
+        for cb in self.morph_callbacks:
+            cb(delta, self._total)
+        return self._total
+
+    def reset(self) -> None:
+        """Reset the counter total to initial_counters."""
+        self._total = self.initial_counters
+
+
+# ---------------------------------------------------------------------------
+# Core Translation Functions
+# ---------------------------------------------------------------------------
+
+def Detain(
+    card_name: str,
+    trigger: str,
+    animation_spec: Dict[str, Any],
+    *,
+    params: Optional[Dict[str, Any]] = None,
+    dry_run: bool = False,
+) -> Dict[str, Any]:
+    """
+    Resolve and 'detain' (lock in) an animation sequence for a given card and trigger.
+
+    'Detain' in the Simic translation layer means: look up the animation spec for
+    *card_name* + *trigger*, apply any runtime *params*, and return a fully-resolved
+    animation payload ready for the rendering engine. This mirrors the Simic guild
+    mechanic concept of locking something in place — here, the animation state.
+
+    Parameters
+    ----------
+    card_name : str
+        Name of the card (must match a key in animation_spec['card_animation_sequences']).
+    trigger : str
+        Trigger type string (e.g., 'on_cast', 'on_etb', 'on_adapt').
+    animation_spec : dict
+        The loaded simic_animation_spec.json as a Python dict.
+    params : dict, optional
+        Runtime parameter overrides (e.g., {'orb_count': 7}).
+    dry_run : bool
+        If True, return the resolved payload without side effects (no engine calls).
+
+    Returns
+    -------
+    dict
+        Resolved animation payload with keys:
+          - card_name, trigger, animation_type, duration_ms, keyframes, params, dry_run
+
+    Raises
+    ------
+    KeyError
+        If card_name or trigger is not found in the spec.
+
+    Examples
+    --------
+    >>> import json
+    >>> spec = json.load(open("simic_animation_spec.json"))
+    >>> payload = Detain("Hydroid Krasis", "on_cast", spec, params={"x_value": 7})
+    >>> payload["animation_type"]
+    'shimmer_entrance'
+    >>> payload["params"]["x_value"]
+    7
+    """
+    sequences = animation_spec.get("card_animation_sequences", {})
+    if card_name not in sequences:
+        raise KeyError(f"Detain: card '{card_name}' not found in animation spec.")
+
+    card_seqs = sequences[card_name]["sequences"]
+    matches = [s for s in card_seqs if s["trigger"] == trigger]
+    if not matches:
+        raise KeyError(
+            f"Detain: trigger '{trigger}' not found for card '{card_name}'."
+        )
+
+    # Use first match (primary sequence for this trigger)
+    seq = matches[0]
+    anim_type = seq["animation"]
+    anim_def = animation_spec.get("animation_types", {}).get(anim_type, {})
+
+    merged_params = dict(seq.get("params", {}))
+    if params:
+        merged_params.update(params)
+
+    payload = {
+        "card_name": card_name,
+        "trigger": trigger,
+        "animation_type": anim_type,
+        "duration_ms": seq.get("duration_ms", animation_spec["global_settings"]["default_duration_ms"]),
+        "description": seq.get("description", ""),
+        "keyframes": anim_def.get("keyframes", []),
+        "easing": anim_def.get("easing", "ease-in-out-cubic"),
+        "params": merged_params,
+        "dry_run": dry_run,
+    }
+    return payload
+
+
+def Override(
+    payload: Dict[str, Any],
+    overrides: Dict[str, Any],
+    *,
+    constraint_fields: Optional[List[ConstraintField]] = None,
+) -> Dict[str, Any]:
+    """
+    Apply runtime overrides to a detained animation payload.
+
+    Use Override to patch properties of a resolved animation payload — for
+    example, to change duration, swap easing, or inject runtime param values
+    (such as the X value for Hydroid Krasis). Constraints are applied after
+    override to prevent out-of-range values from reaching the renderer.
+
+    Parameters
+    ----------
+    payload : dict
+        A payload dict as returned by Detain().
+    overrides : dict
+        Key-value pairs to merge into the payload. Nested keys under 'params'
+        are merged into payload['params'] rather than replacing it.
+    constraint_fields : list of ConstraintField, optional
+        Constraints applied to numeric values in payload['params'] after override.
+
+    Returns
+    -------
+    dict
+        Updated payload (mutated in-place and returned).
+
+    Examples
+    --------
+    >>> payload = Detain("Hydroid Krasis", "on_etb", spec)
+    >>> payload = Override(payload, {"duration_ms": 1500, "params": {"orb_count": 10}})
+    >>> payload["duration_ms"]
+    1500
+    >>> payload["params"]["orb_count"]
+    10
+    """
+    for key, val in overrides.items():
+        if key == "params" and isinstance(val, dict):
+            payload.setdefault("params", {}).update(val)
+        else:
+            payload[key] = val
+
+    # Apply constraints to params
+    if constraint_fields:
+        for cf in constraint_fields:
+            if cf.name in payload.get("params", {}):
+                payload["params"][cf.name] = cf.validate(payload["params"][cf.name])
+
+    return payload
+
+
+# ---------------------------------------------------------------------------
+# Utility helpers
+# ---------------------------------------------------------------------------
+
+def load_spec(path: str = "simic_animation_spec.json") -> Dict[str, Any]:
+    """Load and return the animation spec JSON from *path*."""
+    with open(path, "r", encoding="utf-8") as f:
+        return json.load(f)
+
+
+def get_all_card_names(spec: Dict[str, Any]) -> List[str]:
+    """Return all card names registered in the animation spec."""
+    return list(spec.get("card_animation_sequences", {}).keys())
+
+
+def build_counter_engine(
+    card_name: str,
+    spec: Dict[str, Any],
+    initial: int = 0,
+) -> AccretionEngine:
+    """
+    Factory: build an AccretionEngine for *card_name* with a default
+    morph callback that resolves the on_counter_added animation.
+
+    Parameters
+    ----------
+    card_name : str
+        Name of the card.
+    spec : dict
+        Loaded animation spec.
+    initial : int
+        Starting counter value.
+
+    Returns
+    -------
+    AccretionEngine
+
+    Examples
+    --------
+    >>> spec = load_spec()
+    >>> engine = build_counter_engine("Simic Ascendancy", spec)
+    >>> engine.add_counters(7)
+    7
+    """
+    def _morph_cb(delta: int, total: int) -> None:
+        try:
+            payload = Detain(card_name, "on_counter_added", spec,
+                             params={"counter_delta": delta, "total": total})
+            print(f"[AccretionEngine] {card_name}: +{delta} counters (total={total}) "
+                  f"→ {payload['animation_type']} ({payload['duration_ms']}ms)")
+        except KeyError:
+            pass  # card has no on_counter_added sequence; silently skip
+
+    return AccretionEngine(
+        card_name=card_name,
+        initial_counters=initial,
+        morph_callbacks=[_morph_cb],
+    )
+
+
+# ---------------------------------------------------------------------------
+# Example Usage
+# ---------------------------------------------------------------------------
+
+if __name__ == "__main__":
+    print("=" * 60)
+    print("Simic Translation Layer — Example Usage")
+    print("=" * 60)
+
+    # 1. Load spec
+    spec = load_spec("simic_animation_spec.json")
+    print(f"\n[1] Spec loaded. Cards in spec: {get_all_card_names(spec)}\n")
+
+    # 2. Detain: resolve on_cast for Hydroid Krasis with X=8
+    print("[2] Detain — Hydroid Krasis on_cast, X=8")
+    payload = Detain("Hydroid Krasis", "on_cast", spec, params={"x_value": 8})
+    print(f"    animation_type : {payload['animation_type']}")
+    print(f"    duration_ms    : {payload['duration_ms']}")
+    print(f"    params         : {payload['params']}\n")
+
+    # 3. Override — extend duration and change easing
+    print("[3] Override — extend duration to 1200ms, swap easing")
+    payload = Override(payload, {"duration_ms": 1200, "easing": "spring-bounce"})
+    print(f"    duration_ms    : {payload['duration_ms']}")
+    print(f"    easing         : {payload['easing']}\n")
+
+    # 4. ConstraintField — validate X values
+    print("[4] ConstraintField — validate X value ∈ [1, 20]")
+    cf_x = ConstraintField("x_value", min_val=1, max_val=20)
+    print(f"    validate(15)   : {cf_x.validate(15)}")
+    print(f"    validate(25)   : {cf_x.validate(25)}  (clamped)\n")
+
+    # 5. AccretionEngine — Simic Ascendancy counter accumulation
+    print("[5] AccretionEngine — Simic Ascendancy, adding counters toward 20")
+    engine = build_counter_engine("Simic Ascendancy", spec)
+    for batch in [3, 5, 4, 6, 2]:
+        engine.add_counters(batch)
+    print(f"    Final total    : {engine.total}\n")
+
+    # 6. Scuttling Sentinel adapt sequence
+    print("[6] Detain — Scuttling Sentinel on_adapt")
+    sentinel_payload = Detain("Scuttling Sentinel", "on_adapt", spec)
+    print(f"    animation_type : {sentinel_payload['animation_type']}")
+    print(f"    description    : {sentinel_payload['description']}\n")
+
+    # 7. Lonis Cryptozoologist token creation
+    print("[7] Detain — Lonis, Cryptozoologist on_cast (token creation)")
+    lonis_payload = Detain("Lonis Cryptozoologist", "on_cast", spec)
+    print(f"    animation_type : {lonis_payload['animation_type']}")
+    print(f"    phase          : {lonis_payload.get('phase', 'primary')}")
+    print(f"    params         : {lonis_payload['params']}\n")
+
+    print("=" * 60)
+    print("Translation layer complete.")

@@ -1,0 +1,163 @@
+{
+  "schema_version": "vox-mana-animation-spec-v1",
+  "faction": "Azorius Senate",
+  "identity": {
+    "color_pair": "white-blue",
+    "core_motion": "motion is permitted, paused, reviewed, or converted by law",
+    "visual_language": "marble halls, blue-white law sigils, transparent grids, suspended motion, archive pages, restrained light",
+    "tone": "cool, judicial, formal, precise, authoritative, sometimes oppressive",
+    "avoid": [
+      "pure mono-white holiness",
+      "pure mono-blue curiosity",
+      "generic control without civic/legal flavor",
+      "chaotic lightning or expressive red-blue performance language"
+    ]
+  },
+  "animation_layers": [
+    {
+      "layer": "civic_grid",
+      "purpose": "establish jurisdiction",
+      "motion": "thin geometric lines draw a courthouse-like grid over the card/result panel",
+      "timing": "0ms-350ms",
+      "easing": "easeOutCubic"
+    },
+    {
+      "layer": "docket_stamp",
+      "purpose": "mark the ruling or status",
+      "motion": "small seal stamps: FILED, DETAINED, OVERRULED, WARRANTED, CLEARED",
+      "timing": "250ms-520ms",
+      "easing": "easeOutBack"
+    },
+    {
+      "layer": "constraint_bars",
+      "purpose": "represent detain/tax/binding effects",
+      "motion": "vertical translucent law bars slide over target areas, then fade to a thin outline",
+      "timing": "380ms-820ms",
+      "easing": "easeInOutQuad"
+    },
+    {
+      "layer": "precedent_accretion",
+      "purpose": "represent records, card draw, lifegain, repeated advantage",
+      "motion": "paper/scroll lines stack into a controlled archive column",
+      "timing": "600ms-1100ms",
+      "easing": "easeOutQuart"
+    },
+    {
+      "layer": "sky_patrol",
+      "purpose": "represent Azorius fliers and aerial authority",
+      "motion": "subtle wing-shaped light arcs sweep across the top edge",
+      "timing": "900ms-1300ms",
+      "easing": "linear"
+    }
+  ],
+  "state_machines": {
+    "idle": {
+      "description": "low-energy jurisdiction field",
+      "effects": [
+        "slow grid shimmer",
+        "small floating statute glyphs"
+      ]
+    },
+    "detain_triggered": {
+      "description": "target loses immediate agency",
+      "effects": [
+        "bars descend",
+        "DETENTION stamp",
+        "motion blur freezes"
+      ]
+    },
+    "override_triggered": {
+      "description": "spell/action is countered, vetoed, or replaced",
+      "effects": [
+        "gavel flash",
+        "denial seal",
+        "spell trail collapses into paperwork"
+      ]
+    },
+    "constraint_field_active": {
+      "description": "rules/taxes/bindings persist",
+      "effects": [
+        "tax rings pulse",
+        "boundary lines remain anchored"
+      ]
+    },
+    "accretion_active": {
+      "description": "institutional advantage compounds",
+      "effects": [
+        "archive pages stack",
+        "counter pips tick upward",
+        "soft life/draw glint"
+      ]
+    }
+  },
+  "function_to_animation": {
+    "Detain": {
+      "primary": "constraint_bars",
+      "secondary": [
+        "docket_stamp",
+        "civic_grid"
+      ],
+      "tokens": [
+        "detained",
+        "paused",
+        "held",
+        "arrested",
+        "exiled",
+        "bounced"
+      ]
+    },
+    "Override": {
+      "primary": "docket_stamp",
+      "secondary": [
+        "civic_grid",
+        "precedent_accretion"
+      ],
+      "tokens": [
+        "countered",
+        "vetoed",
+        "overruled",
+        "reset",
+        "judged"
+      ]
+    },
+    "ConstraintField": {
+      "primary": "civic_grid",
+      "secondary": [
+        "constraint_bars"
+      ],
+      "tokens": [
+        "taxed",
+        "bound",
+        "limited",
+        "protected",
+        "fair-play"
+      ]
+    },
+    "AccretionEngine": {
+      "primary": "precedent_accretion",
+      "secondary": [
+        "docket_stamp",
+        "sky_patrol"
+      ],
+      "tokens": [
+        "draw",
+        "life",
+        "mana",
+        "records",
+        "precedent",
+        "counters"
+      ]
+    }
+  },
+  "css_design_tokens": {
+    "azorius_white": "#F6F4EA",
+    "azorius_blue": "#6EA9D7",
+    "azorius_deep_blue": "#1E4F73",
+    "azorius_marble": "#D8DDE2",
+    "azorius_gold_trim": "#BFA76A",
+    "azorius_ink": "#10212F",
+    "grid_opacity_idle": 0.18,
+    "grid_opacity_active": 0.42,
+    "motion_intensity_default": 0.6
+  }
+}

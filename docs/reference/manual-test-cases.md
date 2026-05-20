@@ -36,21 +36,31 @@
 5. Run `node assets/js/quick-reading-bias.js --runs=100`.
 6. Confirm no faction is listed under `Never selected` and no single faction dominates the report.
 
+## Presentation snapshot harness
+
+1. Run `npm.cmd run presentation:snapshots`.
+2. Confirm `artifacts/presentation-snapshots/presentation-snapshots.json` exists and includes `schema_version: "presentation-snapshot-v1"`.
+3. Confirm `artifacts/presentation-snapshots/presentation-snapshots.csv` has one row per fixed case.
+4. Confirm `artifacts/presentation-snapshots/presentation-snapshots.md` includes at least one mono case and one pair case with primary result, adjacent fits, Commander recommendations, external links, and Maze plain/operator paths.
+5. Run `npm.cmd run test:presentation-snapshots`.
+6. Confirm raw adjacent labels are preserved while any pair-family grouping appears only as debug metadata.
+
 ## Mono rollout acceptance sweep
 
 1. Run `npm run test:placement`.
 2. Confirm the suite reports `20 factions, 20 golden paths`.
 3. Confirm mono routing checks still pass for `mono-white`, `mono-blue`, `mono-black`, `mono-red`, and `mono-green`.
 4. Confirm mono adjacent-fit boundary checks stay inside the expected pair shells:
-   - `W` vs `WU` / `WB` / `WG` / `WR`
-   - `U` vs `WU` / `UB` / `UR` / `UG`
-   - `B` vs `UB` / `WB` / `BG` / `BR`
-   - `R` vs `WR` / `UR` / `BR` / `RG`
-   - `G` vs `WG` / `UG` / `BG` / `RG`
-5. Confirm mono dossiers still report authored mono recommendation ownership/guidance, not just generic Commander Compass presence.
-6. Run `npm run dossier:audit`.
-7. Confirm the audit has `failures: 0`.
-8. Record the sweep outcome as one of:
+   - `W` vs `WU`-family / `WB`-family / `WG`-family / `WR`-family
+   - `U` vs `WU`-family / `UB`-family / `UR`-family / `UG`-family
+   - `B` vs `UB`-family / `WB`-family / `BG`-family / `BR`-family
+   - `R` vs `WR`-family / `UR`-family / `BR`-family / `RG`-family
+   - `G` vs `WG`-family / `UG`-family / `BG`-family / `RG`-family
+5. Confirm valid guild/college analogs are accepted inside those pair families, for example mono White accepting `LOREHOLD` as a valid `WR`-family adjacent without collapsing the displayed identity label.
+6. Confirm mono dossiers still report authored mono recommendation ownership/guidance, not just generic Commander Compass presence.
+7. Run `npm run dossier:audit`.
+8. Confirm the audit has `failures: 0`.
+9. Record the sweep outcome as one of:
    - `PASS with triage notes`
    - `FAIL with follow-up cards`
 

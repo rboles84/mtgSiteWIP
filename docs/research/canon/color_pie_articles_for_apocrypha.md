@@ -1,0 +1,42 @@
+# Mark Rosewater - Color Pie Articles
+
+- The Great White Way - https://magic.wizards.com/en/news/making-magic/great-white-way-2003-02-03
+- True Blue - https://magic.wizards.com/en/news/making-magic/true-blue-2003-08-11
+- In the Black - https://magic.wizards.com/en/news/making-magic/black-2004-03-08
+- Seeing Red - https://magic.wizards.com/en/news/making-magic/seeing-red-2004-07-26
+- It's Not Easy Being Green - https://magic.wizards.com/en/news/making-magic/its-not-easy-being-green-2002-10-21
+- White Revisited - https://magic.wizards.com/en/news/making-magic/white-revisited-2015-07-13
+- Blue Revisited - https://magic.wizards.com/en/news/making-magic/blue-revisited-2015-07-20
+- Black Revisited - https://magic.wizards.com/en/news/making-magic/black-revisited-2015-07-27
+- Red Revisited - https://magic.wizards.com/en/news/making-magic/red-revisited-2015-08-03
+- Green Revisited - https://magic.wizards.com/en/news/making-magic/green-revisited-2015-08-10
+- Pie Fights - https://magic.wizards.com/en/news/making-magic/pie-fights-2016-05-30
+- The Great White Way Revisited - https://magic.wizards.com/en/news/making-magic/great-white-way-revisited-2021-07-19
+- True Blue Revisited - https://magic.wizards.com/en/news/making-magic/true-blue-revisited-2021-07-26
+- In the Black Revisited - https://magic.wizards.com/en/news/making-magic/black-revisited-2021-08-02
+- Seeing Red Revisited - https://magic.wizards.com/en/news/making-magic/seeing-red-revisited-2021-08-09
+- It's Not Easy Being Green Revisited - https://magic.wizards.com/en/news/making-magic/its-not-easy-being-green-revisited-2021-08-16
+- Design 102: Card Codes - https://magic.wizards.com/en/news/making-magic/design-102-card-codes-2003-11-10
+- Selesnya: Order of the Day - https://magic.wizards.com/en/news/making-magic/order-day-2005-09-26
+- Golgari: Dynamic Duo - https://magic.wizards.com/en/news/making-magic/dynamic-duo-2005-10-17
+- Dimir: Designing the Dark - https://magic.wizards.com/en/news/making-magic/designing-dark-2005-10-31
+- Boros: Up Your Alley - https://magic.wizards.com/en/news/making-magic/your-alley-2005-11-07
+- Izzet: Creative Differences - https://magic.wizards.com/en/news/making-magic/creative-differences-2006-01-30
+- Gruul: Power to the Guild - https://magic.wizards.com/en/news/making-magic/power-guild-2006-02-13
+- Orzhov: Deal or No Deal - https://magic.wizards.com/en/news/making-magic/deal-or-no-deal-2006-02-27
+- Simic: Mix & Match - https://magic.wizards.com/en/news/making-magic/mix-match-2006-04-10
+- Rakdos: Funfest - https://magic.wizards.com/en/news/making-magic/funfest-2006-04-24
+- Azorius: Choosing Your Guild - https://magic.wizards.com/en/news/making-magic/choosing-your-guild-2006-05-08
+- Guilded Age - https://magic.wizards.com/en/news/making-magic/guilded-age-2012-08-27
+- Return to the Guilded Age - https://magic.wizards.com/en/news/making-magic/return-guilded-age-2018-11-05
+- Bant: On the Waterfront - https://magic.wizards.com/en/news/making-magic/waterfront-2008-09-29
+- Esper: Designing of the Shard - https://magic.wizards.com/en/news/making-magic/designing-shard-2008-10-13
+- Grixis: Into the Black - https://magic.wizards.com/en/news/making-magic/black-2008-10-27
+- Jund: Blood of the Shard - https://magic.wizards.com/en/news/making-magic/blood-shard-2008-11-10
+- Naya: Beastly Designs - https://magic.wizards.com/en/news/making-magic/beastly-designs-2008-11-24
+- Whatever Happened to Shard City? - https://magic.wizards.com/en/news/making-magic/whatever-happened-shard-city-2009-02-09
+- Kahn Do Attitude - https://magic.wizards.com/en/news/making-magic/khan-do-attitude-2014-09-01
+- Designing for Attunement - https://magic.wizards.com/en/news/making-magic/designing-attunement-2020-04-13
+- The Color Pie Philosophy - https://magic.wizards.com/en/news/making-magic/color-pie-philosophy-2005-02-07
+- The Mechanical Color Pie 2017 - https://magic.wizards.com/en/news/making-magic/mechanical-color-pie-2017-2017-06-05
+- The Mechanical Color Pie 2021 - https://magic.wizards.com/en/news/making-magic/mechanical-color-pie-2021-changes-2021-10-18

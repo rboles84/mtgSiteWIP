@@ -1,0 +1,207 @@
+{
+  "faction": "Simic Combine",
+  "version": "simic-narrative-taxonomy-v1",
+  "core_thesis": "Life is not a fixed state. Knowledge becomes ethical when it helps the organism, the city, or the ecosystem adapt before collapse arrives.",
+  "primary_conflict": "Simic wants harmony with life, but pursues it through experimental optimization that can become cold, invasive, or unbounded.",
+  "taxa": [
+    {
+      "id": "SIMIC-TAX-001",
+      "name": "The Biomancer",
+      "role": "Researcher who treats biology as editable language.",
+      "signals": [
+        "experiments",
+        "mutation",
+        "laboratory ethics",
+        "creature tutoring",
+        "card selection"
+      ],
+      "gameplay_mapping": [
+        "Master Biomancer",
+        "Prime Speaker Vannifar",
+        "Momir Vig, Simic Visionary"
+      ],
+      "ux_mapping": "Use for explanations of how a placement turns observation into practical deckbuilding choices."
+    },
+    {
+      "id": "SIMIC-TAX-002",
+      "name": "The Krasis",
+      "role": "Hybrid creature expressing multiple traits at once.",
+      "signals": [
+        "hybrid body",
+        "evasion plus mass",
+        "X-scaling",
+        "strange creature types"
+      ],
+      "gameplay_mapping": [
+        "Hydroid Krasis",
+        "Sharktocrab",
+        "Drakewing Krasis",
+        "Elusive Krasis"
+      ],
+      "ux_mapping": "Use for cards or suggestions that combine two deck goals in one package."
+    },
+    {
+      "id": "SIMIC-TAX-003",
+      "name": "The Cytoplast Network",
+      "role": "Portable growth markers that move between hosts.",
+      "signals": [
+        "+1/+1 counters",
+        "graft",
+        "counter movement",
+        "counter payoff"
+      ],
+      "gameplay_mapping": [
+        "Simic Guildmage",
+        "Bioshift",
+        "Vigean Hydropon",
+        "Cytoplast Root-Kin"
+      ],
+      "ux_mapping": "Use for any result section explaining accumulative stat growth or modular improvement."
+    },
+    {
+      "id": "SIMIC-TAX-004",
+      "name": "The Evolve Ladder",
+      "role": "Creatures become better because better creatures arrive later.",
+      "signals": [
+        "sequencing",
+        "creature curve",
+        "early scalers",
+        "larger bodies"
+      ],
+      "gameplay_mapping": [
+        "Cloudfin Raptor",
+        "Experiment One",
+        "Fathom Mage",
+        "Gyre Sage"
+      ],
+      "ux_mapping": "Use for deck pathing that rewards sequencing and creature-density planning."
+    },
+    {
+      "id": "SIMIC-TAX-005",
+      "name": "The Adapt Threshold",
+      "role": "Mana turns a stable organism into a second-stage form.",
+      "signals": [
+        "activated growth",
+        "mana sink",
+        "late-game scaling",
+        "payoff after setup"
+      ],
+      "gameplay_mapping": [
+        "Aeromunculus",
+        "Incubation Druid",
+        "Zegana, Utopian Speaker",
+        "Growth-Chamber Guardian"
+      ],
+      "ux_mapping": "Use where the UI needs to show delayed payoff or upgrade thresholds."
+    },
+    {
+      "id": "SIMIC-TAX-006",
+      "name": "The Zonot",
+      "role": "Deep habitat where hidden adaptation surfaces.",
+      "signals": [
+        "deepwater",
+        "emergence",
+        "secret clade",
+        "sudden flash creature",
+        "benthic imagery"
+      ],
+      "gameplay_mapping": [
+        "Mesmerizing Benthid",
+        "Merfolk of the Depths",
+        "Novijen, Heart of Progress"
+      ],
+      "ux_mapping": "Use as the visual/narrative container for panels that reveal deeper identity layers."
+    },
+    {
+      "id": "SIMIC-TAX-007",
+      "name": "The Speaker",
+      "role": "Authority justified by interpreting the health of the ecosystem.",
+      "signals": [
+        "Prime Speaker",
+        "leadership",
+        "knowledge from growth",
+        "guild doctrine"
+      ],
+      "gameplay_mapping": [
+        "Prime Speaker Zegana",
+        "Zegana, Utopian Speaker",
+        "Prime Speaker Vannifar"
+      ],
+      "ux_mapping": "Use for final placement summary voice: authoritative, calm, analytical, organic."
+    },
+    {
+      "id": "SIMIC-TAX-008",
+      "name": "The Growth Engine",
+      "role": "Small inputs compound into cards, mana, counters, and bodies.",
+      "signals": [
+        "draw plus land",
+        "mana dorks",
+        "tokens",
+        "resource loops"
+      ],
+      "gameplay_mapping": [
+        "Growth Spiral",
+        "Urban Evolution",
+        "Biogenic Ooze",
+        "Gyre Sage"
+      ],
+      "ux_mapping": "Use for deck links that explain “this becomes more if you keep feeding it.”"
+    },
+    {
+      "id": "SIMIC-TAX-009",
+      "name": "The Protective Membrane",
+      "role": "Adaptation as defense against targeting and collapse.",
+      "signals": [
+        "hexproof-like protection",
+        "flash shield",
+        "regeneration",
+        "combat prevention"
+      ],
+      "gameplay_mapping": [
+        "Plaxcaster Frogling",
+        "Plaxmanta",
+        "Shielding Plax",
+        "Hindervines"
+      ],
+      "ux_mapping": "Use for resilience recommendations and warnings about overextending into board wipes."
+    },
+    {
+      "id": "SIMIC-TAX-010",
+      "name": "The Ethical Fault Line",
+      "role": "The point where improvement becomes control.",
+      "signals": [
+        "theft",
+        "forced transformation",
+        "ownership rewrite",
+        "experiment without consent"
+      ],
+      "gameplay_mapping": [
+        "Cytoplast Manipulator",
+        "Mass Manipulation",
+        "Rapid Hybridization",
+        "Omnibian"
+      ],
+      "ux_mapping": "Use to keep Simic from reading as harmless nature-only; it has invasive control shadows."
+    }
+  ],
+  "voice_rules": {
+    "tone": "curious, clinical, calm, slightly uncanny, optimistic but not naive",
+    "sentence_shape": "Prefer cause-effect language: observe → adapt → compound → emerge.",
+    "avoid": [
+      "random slime jokes only",
+      "generic nature harmony without science",
+      "pure blue control framing",
+      "pure green instinct framing"
+    ],
+    "sample_lines": [
+      "You do not force the future; you culture it until it grows teeth.",
+      "Every answer is a specimen. Every specimen can become an engine.",
+      "The body is a question the ecosystem keeps revising."
+    ]
+  },
+  "source_anchors": {
+    "scryfall_watermark_search": "https://scryfall.com/search?q=watermark%3Asimic",
+    "wizards_designing_simic": "https://magic.wizards.com/en/news/making-magic/designing-simic-2013-02-18",
+    "mtg_wiki_summary": "https://mtg.fandom.com/wiki/Simic_Combine"
+  }
+}

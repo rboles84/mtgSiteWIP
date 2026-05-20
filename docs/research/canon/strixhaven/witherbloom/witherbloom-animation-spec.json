@@ -1,0 +1,174 @@
+{
+  "schema_version": "vox-mana-animation-spec-v1",
+  "generated_at": "2026-05-18",
+  "identity": "witherbloom",
+  "mana": [
+    "B",
+    "G"
+  ],
+  "motion_thesis": "An ecosystem doing accounting: one thing pays, another grows.",
+  "tokens": {
+    "css": {
+      "--witherbloom-black": "#11100d",
+      "--witherbloom-bog": "#1d2618",
+      "--witherbloom-moss": "#506b34",
+      "--witherbloom-venom": "#95b957",
+      "--witherbloom-pest-glow": "#c8e06d",
+      "--witherbloom-bone": "#d7ccb2",
+      "--witherbloom-bloodsap": "#6b261f",
+      "--witherbloom-fog": "rgba(210, 224, 174, 0.16)",
+      "--witherbloom-shadow": "rgba(4, 8, 4, 0.72)"
+    }
+  },
+  "layers": [
+    {
+      "name": "bog_base",
+      "purpose": "living ground",
+      "motion": "slow parallax drift",
+      "duration_seconds": [
+        80,
+        120
+      ]
+    },
+    {
+      "name": "root_lattice",
+      "purpose": "life/death exchange graph",
+      "motion": "root lines creep outward then recede",
+      "duration_seconds": [
+        18,
+        34
+      ]
+    },
+    {
+      "name": "pest_motes",
+      "purpose": "mascot/familiar signal",
+      "motion": "clustered jitter + flocking",
+      "duration_seconds": [
+        6,
+        14
+      ]
+    },
+    {
+      "name": "cauldron_vapor",
+      "purpose": "witchcraft/brewing",
+      "motion": "curl, dissolve, reform",
+      "duration_seconds": [
+        4,
+        9
+      ]
+    },
+    {
+      "name": "drain_pulse",
+      "purpose": "life-gain/drain payoff",
+      "motion": "radial or path pulse",
+      "duration_ms": [
+        520,
+        760
+      ]
+    },
+    {
+      "name": "spore_bloom",
+      "purpose": "result reveal",
+      "motion": "organic bloom settling into moss",
+      "duration_ms": [
+        900,
+        1200
+      ]
+    }
+  ],
+  "states": {
+    "idle": [
+      "bog breathing",
+      "faint pest motes",
+      "low contrast root lattice"
+    ],
+    "hover": [
+      "local moss glow",
+      "root line connects hovered item to metadata",
+      "one or two motes approach"
+    ],
+    "select": [
+      "drain pulse",
+      "bioluminescent ring",
+      "temporary root thickening"
+    ],
+    "result_reveal": [
+      "darken background",
+      "cauldron vapor",
+      "spore bloom",
+      "mote orbit",
+      "settle to lattice"
+    ],
+    "link_out": [
+      "specimen jar compression",
+      "glowing seed/vial path to target"
+    ]
+  },
+  "reduced_motion": {
+    "strategy": "opacity transitions only; static moss/cauldron treatment; no swarm motion",
+    "disable": [
+      "pest_motes_flocking",
+      "root_lattice_creep",
+      "spore_bloom_scale"
+    ]
+  },
+  "anti_patterns": [
+    "generic skull smoke",
+    "clean forest-only magic",
+    "Golgari-only graveyard imagery",
+    "constant bug crawling",
+    "high-contrast flicker"
+  ],
+  "sources": {
+    "wotc_planeswalkers_guide": {
+      "label": "Wizards — Planeswalker's Guide to Strixhaven",
+      "url": "https://magic.wizards.com/en/news/feature/planeswalkers-guide-strixhaven-2021-04-01",
+      "supports": "Witherbloom as College of Essence Studies; life/death, natural components, healing/harming, raising/entreating dead; black and green expressions."
+    },
+    "wotc_strixhaven_part_2": {
+      "label": "Wizards — In the Strixhaven, Part 2",
+      "url": "https://magic.wizards.com/en/news/making-magic/strixhaven-part-2-2021-04-05",
+      "supports": "Witherbloom magecraft effects tend to revolve around life."
+    },
+    "wotc_release_notes_2021": {
+      "label": "Wizards — Strixhaven and Commander 2021 Release Notes",
+      "url": "https://magic.wizards.com/en/news/feature/strixhaven-school-mages-and-commander-2021-edition-release-notes-2021-04-16",
+      "supports": "Card-level text examples such as Blex, Vexing Pest and Blood Researcher; life-gain triggers; Pest support."
+    },
+    "wotc_tokens_2021": {
+      "label": "Wizards — Tokens of Strixhaven and Commander 2021",
+      "url": "https://magic.wizards.com/en/news/card-preview/tokens-stx-and-c21-2021-04-15",
+      "supports": "Witherbloom Witchcraft token package: Food, Pest, Saproling, Demon, Fungus Beast."
+    },
+    "wotc_bog_times": {
+      "label": "Wizards — Bog Times at Witherbloom College",
+      "url": "https://magic.wizards.com/en/news/card-preview/bog-times-witherbloom-college-2021-04-02",
+      "supports": "Dina as a life/death engine and incremental life-gain/drain strategy."
+    },
+    "wotc_secrets_commander_2026": {
+      "label": "Wizards — Secrets of Strixhaven Commander Decklists",
+      "url": "https://magic.wizards.com/en/news/announcements/secrets-of-strixhaven-commander-decklists",
+      "supports": "Witherbloom Pestilence deck name, black-green identity, face/featured commanders, reprints, tokens."
+    },
+    "wotc_secrets_guide_2026": {
+      "label": "Wizards — Secrets of Strixhaven Prerelease Guide",
+      "url": "https://magic.wizards.com/en/news/feature/secrets-of-strixhaven-prerelease-guide",
+      "supports": "2026 Witherbloom description: infusion cares about life gain; Pest tokens enable pressure and life-gain triggers."
+    },
+    "wotc_secrets_design_2026": {
+      "label": "Wizards — Secrets of Strixhaven Vision Design Handoff, Part 1",
+      "url": "https://magic.wizards.com/en/news/making-magic/secrets-of-strixhaven-vision-design-handoff-part-1",
+      "supports": "Pest tokens and Witherbloom biology/life connection; proactive use of life-linked tokens."
+    },
+    "wotc_products_2026": {
+      "label": "Wizards — Secrets of Strixhaven Product Page",
+      "url": "https://magic.wizards.com/en/products/secrets-of-strixhaven",
+      "supports": "Witherbloom as College of Life and Death; essence of living beings; natural world give-and-take."
+    },
+    "scryfall": {
+      "label": "Scryfall title lookup",
+      "url": "https://scryfall.com",
+      "supports": "Card-title lookup links generated per row."
+    }
+  }
+}

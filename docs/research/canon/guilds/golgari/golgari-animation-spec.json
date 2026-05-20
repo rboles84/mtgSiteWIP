@@ -1,0 +1,81 @@
+{
+  "schema_version": "vox-mana-animation-spec-v1",
+  "identity": "golgari",
+  "motion_thesis": "Decay is not stillness; it is slow, layered, useful motion.",
+  "core_axiom": "Nothing is wasted; endings become inventory.",
+  "palette": {
+    "soil": "#14110d",
+    "black_rot": "#090b08",
+    "moss": "#4e6b37",
+    "spore": "#9fb46b",
+    "fungal_gold": "#b89f5d",
+    "bone": "#d8d1b0",
+    "bruise": "#3b2d46",
+    "sap": "#6e7f2c",
+    "glow_soft": "rgba(159, 180, 107, 0.22)",
+    "glow_hard": "rgba(184, 159, 93, 0.32)",
+    "shadow_root": "rgba(3, 5, 3, 0.72)"
+  },
+  "timing": {
+    "spore": "420ms",
+    "root": "720ms",
+    "compost": "960ms",
+    "undergrowth": "1400ms",
+    "ease_root": "cubic-bezier(0.19, 1, 0.22, 1)",
+    "ease_decay": "cubic-bezier(0.45, 0.05, 0.25, 1)",
+    "ease_swarm": "cubic-bezier(0.16, 0.84, 0.44, 1)"
+  },
+  "keyframes": [
+    {
+      "name": "vm-golgari-spore-drift",
+      "purpose": "ambient particle drift for undergrowth/loading"
+    },
+    {
+      "name": "vm-golgari-root-pulse",
+      "purpose": "low-frequency selected-card breathing pulse"
+    },
+    {
+      "name": "vm-golgari-compost-bloom",
+      "purpose": "panel/card entrance from below"
+    },
+    {
+      "name": "vm-golgari-understory-reveal",
+      "purpose": "background texture reveal"
+    },
+    {
+      "name": "vm-golgari-swarm-gather",
+      "purpose": "badge/chip gathering motion"
+    }
+  ],
+  "component_states": {
+    "placement_card": {
+      "entrance": "vm-golgari-compost-bloom",
+      "idle_primary": "vm-golgari-root-pulse",
+      "hover": "brighten moss/spore edge; max translateY(-1px)",
+      "active": "root pulse plus fungal gold detail"
+    },
+    "info_panel": {
+      "entrance": "title first, root divider, paragraph cascade",
+      "exit": "collapse downward into compost seed"
+    },
+    "maze_link": {
+      "hover": "fungal light under bark",
+      "copy_style": "trail / undergrowth / return flow"
+    },
+    "error_state": {
+      "visual": "bruise-violet fade",
+      "motion": "no shake",
+      "copy": "This path has no living root yet."
+    }
+  },
+  "accessibility": {
+    "prefers_reduced_motion": "disable all looping and particle animations",
+    "avoid": [
+      "fast particle storms",
+      "horror flicker",
+      "alert-like pulsing",
+      "saturated slime green",
+      "skull overload"
+    ]
+  }
+}

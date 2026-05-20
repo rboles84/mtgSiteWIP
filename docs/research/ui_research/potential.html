@@ -1,0 +1,1377 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="vox-mana">
+<head>
+  <meta charset="UTF-8" />
+  <title>Vox Mana — Three Doors. Three Ways In.</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- System fonts here; swap to your repo fonts later -->
+  <style>
+    :root {
+      --vm-bg: #050406;
+      --vm-bg-elevated: #0b090f;
+      --vm-gold: #d2b47a;
+      --vm-gold-soft: rgba(210, 180, 122, 0.35);
+      --vm-teal: #4fd1c5;
+      --vm-teal-soft: rgba(79, 209, 197, 0.35);
+      --vm-parchment: #f3e6c8;
+      --vm-parchment-soft: rgba(243, 230, 200, 0.08);
+      --vm-border-subtle: rgba(255, 255, 255, 0.06);
+      --vm-border-strong: rgba(255, 255, 255, 0.18);
+      --vm-text-main: #f7f3ea;
+      --vm-text-muted: #b0a79a;
+      --vm-text-soft: #8b8377;
+      --vm-danger: #f56565;
+
+      --vm-radius-lg: 24px;
+      --vm-radius-md: 16px;
+      --vm-radius-pill: 999px;
+
+      --vm-shadow-soft: 0 24px 80px rgba(0, 0, 0, 0.85);
+      --vm-shadow-door: 0 32px 120px rgba(0, 0, 0, 0.95);
+
+      --vm-glass-bg: rgba(8, 6, 12, 0.82);
+      --vm-glass-border: rgba(255, 255, 255, 0.08);
+      --vm-glass-highlight: rgba(255, 255, 255, 0.18);
+
+      --vm-transition-fast: 160ms ease-out;
+      --vm-transition-med: 260ms ease-out;
+      --vm-transition-slow: 420ms ease-out;
+
+      --vm-door-height: 320px;
+      --vm-door-height-lg: 360px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      background: radial-gradient(circle at top, #15121f 0, #050406 55%, #020104 100%);
+      color: var(--vm-text-main);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      text-rendering: geometricPrecision;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body {
+      overflow-x: hidden;
+    }
+
+    body[data-reduce-motion="true"] * {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+
+    /* Atmospheric layers */
+    .vm-atmosphere {
+      position: fixed;
+      inset: 0;
+      overflow: hidden;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .vm-atmosphere__fog {
+      position: absolute;
+      inset: -20%;
+      background:
+        radial-gradient(circle at 10% 0%, rgba(79, 209, 197, 0.08), transparent 55%),
+        radial-gradient(circle at 90% 10%, rgba(210, 180, 122, 0.12), transparent 60%),
+        radial-gradient(circle at 50% 100%, rgba(79, 209, 197, 0.08), transparent 55%);
+      mix-blend-mode: screen;
+      opacity: 0.9;
+      filter: blur(10px);
+      animation: vmFogDrift 60s linear infinite alternate;
+    }
+
+    .vm-atmosphere__vignette {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at top, transparent 0, rgba(0, 0, 0, 0.4) 55%, rgba(0, 0, 0, 0.9) 100%);
+      pointer-events: none;
+    }
+
+    .vm-atmosphere__grain {
+      position: absolute;
+      inset: -10%;
+      opacity: 0.18;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 160 160' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.2' numOctaves='3' stitchTiles='noStitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.9'/%3E%3C/svg%3E");
+      mix-blend-mode: soft-light;
+    }
+
+    @keyframes vmFogDrift {
+      0% { transform: translate3d(-2%, 0, 0) scale(1.02); }
+      50% { transform: translate3d(2%, -1%, 0) scale(1.04); }
+      100% { transform: translate3d(-1%, 1%, 0) scale(1.03); }
+    }
+
+    /* Layout shell */
+    .vm-shell {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      z-index: 1;
+    }
+
+    .vm-shell__inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 20px 20px 32px;
+    }
+
+    @media (min-width: 960px) {
+      .vm-shell__inner {
+        padding: 28px 32px 40px;
+      }
+    }
+
+    /* Topbar / chrome */
+    .vm-topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 10px 14px;
+      border-radius: var(--vm-radius-pill);
+      border: 1px solid var(--vm-border-subtle);
+      background: linear-gradient(
+        135deg,
+        rgba(10, 8, 16, 0.92),
+        rgba(8, 6, 12, 0.96)
+      );
+      box-shadow: 0 18px 60px rgba(0, 0, 0, 0.9);
+      backdrop-filter: blur(22px) saturate(130%);
+      position: sticky;
+      top: 12px;
+      z-index: 10;
+    }
+
+    .vm-topbar__left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .vm-topbar__glyph {
+      width: 26px;
+      height: 26px;
+      border-radius: 999px;
+      border: 1px solid rgba(210, 180, 122, 0.6);
+      background:
+        radial-gradient(circle at 30% 20%, rgba(255, 255, 255, 0.18), transparent 55%),
+        radial-gradient(circle at 70% 80%, rgba(79, 209, 197, 0.35), transparent 60%),
+        radial-gradient(circle at 50% 50%, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 1));
+      box-shadow:
+        0 0 0 1px rgba(0, 0, 0, 0.9),
+        0 0 18px rgba(79, 209, 197, 0.4);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .vm-topbar__glyph::before {
+      content: "";
+      position: absolute;
+      inset: 18%;
+      border-radius: inherit;
+      border: 1px solid rgba(243, 230, 200, 0.4);
+      opacity: 0.9;
+    }
+
+    .vm-topbar__title {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .vm-topbar__title-main {
+      font-size: 13px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--vm-gold);
+    }
+
+    .vm-topbar__title-sub {
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--vm-text-soft);
+    }
+
+    .vm-topbar__right {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .vm-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 10px;
+      border-radius: var(--vm-radius-pill);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      background: radial-gradient(circle at top, rgba(243, 230, 200, 0.12), rgba(8, 6, 12, 0.96));
+      color: var(--vm-text-muted);
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .vm-chip__dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 20%, #ffffff, #4fd1c5);
+      box-shadow: 0 0 10px rgba(79, 209, 197, 0.9);
+    }
+
+    .vm-toggle {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 8px;
+      border-radius: var(--vm-radius-pill);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      background: radial-gradient(circle at top, rgba(79, 209, 197, 0.12), rgba(8, 6, 12, 0.96));
+      color: var(--vm-text-muted);
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .vm-toggle__pill {
+      width: 22px;
+      height: 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      background: rgba(0, 0, 0, 0.7);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .vm-toggle__thumb {
+      position: absolute;
+      top: 1px;
+      left: 1px;
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 20%, #ffffff, #4fd1c5);
+      box-shadow: 0 0 8px rgba(79, 209, 197, 0.8);
+      transition: transform var(--vm-transition-fast);
+    }
+
+    .vm-toggle[data-active="true"] .vm-toggle__thumb {
+      transform: translateX(10px);
+    }
+
+    /* Main content */
+    .vm-main {
+      margin-top: 22px;
+      margin-bottom: 32px;
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.1fr);
+      gap: 24px;
+      align-items: flex-start;
+    }
+
+    @media (max-width: 880px) {
+      .vm-main {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .vm-panel {
+      border-radius: var(--vm-radius-lg);
+      border: 1px solid var(--vm-glass-border);
+      background:
+        linear-gradient(145deg, rgba(243, 230, 200, 0.06), rgba(8, 6, 12, 0.96)),
+        radial-gradient(circle at top, rgba(79, 209, 197, 0.08), transparent 60%);
+      box-shadow: var(--vm-shadow-soft);
+      backdrop-filter: blur(26px) saturate(140%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .vm-panel::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      border: 1px solid rgba(255, 255, 255, 0.04);
+      pointer-events: none;
+      mix-blend-mode: soft-light;
+    }
+
+    .vm-panel__inner {
+      padding: 20px 18px 18px;
+    }
+
+    @media (min-width: 960px) {
+      .vm-panel__inner {
+        padding: 24px 22px 20px;
+      }
+    }
+
+    .vm-panel__label {
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--vm-text-soft);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+
+    .vm-panel__label::before,
+    .vm-panel__label::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(
+        to right,
+        rgba(210, 180, 122, 0.0),
+        rgba(210, 180, 122, 0.4),
+        rgba(210, 180, 122, 0.0)
+      );
+      opacity: 0.7;
+    }
+
+    .vm-panel__title {
+      font-size: 26px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--vm-gold);
+      margin-bottom: 8px;
+    }
+
+    .vm-panel__subtitle {
+      font-size: 13px;
+      color: var(--vm-text-muted);
+      max-width: 32rem;
+      line-height: 1.6;
+      margin-bottom: 18px;
+    }
+
+    .vm-panel__actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 18px;
+    }
+
+    .vm-button {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 9px 16px;
+      border-radius: var(--vm-radius-pill);
+      border: 1px solid rgba(210, 180, 122, 0.6);
+      background:
+        radial-gradient(circle at top, rgba(243, 230, 200, 0.18), rgba(8, 6, 12, 0.96));
+      color: var(--vm-text-main);
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      cursor: pointer;
+      overflow: hidden;
+      transition:
+        transform var(--vm-transition-fast),
+        box-shadow var(--vm-transition-fast),
+        border-color var(--vm-transition-fast),
+        background var(--vm-transition-fast);
+      box-shadow:
+        0 0 0 1px rgba(0, 0, 0, 0.9),
+        0 18px 40px rgba(0, 0, 0, 0.9);
+    }
+
+    .vm-button::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 10% 0%, rgba(255, 255, 255, 0.22), transparent 55%);
+      opacity: 0;
+      transition: opacity var(--vm-transition-med);
+      pointer-events: none;
+    }
+
+    .vm-button:hover {
+      transform: translateY(-1px);
+      box-shadow:
+        0 0 0 1px rgba(0, 0, 0, 0.9),
+        0 22px 60px rgba(0, 0, 0, 0.95);
+      border-color: rgba(210, 180, 122, 0.9);
+    }
+
+    .vm-button:hover::before {
+      opacity: 1;
+    }
+
+    .vm-button__glyph {
+      width: 14px;
+      height: 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(210, 180, 122, 0.7);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 9px;
+      color: var(--vm-gold);
+    }
+
+    .vm-button--ghost {
+      border-color: rgba(255, 255, 255, 0.18);
+      background: radial-gradient(circle at top, rgba(79, 209, 197, 0.12), rgba(8, 6, 12, 0.96));
+      color: var(--vm-text-muted);
+    }
+
+    .vm-button--ghost .vm-button__glyph {
+      border-color: rgba(79, 209, 197, 0.7);
+      color: var(--vm-teal);
+    }
+
+    .vm-panel__resume {
+      margin-top: 4px;
+      padding-top: 10px;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .vm-resume-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 12px;
+      border-radius: var(--vm-radius-pill);
+      border: 1px solid rgba(79, 209, 197, 0.6);
+      background:
+        radial-gradient(circle at top, rgba(79, 209, 197, 0.18), rgba(8, 6, 12, 0.96));
+      color: var(--vm-teal);
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .vm-resume-chip::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 0 0, rgba(255, 255, 255, 0.25), transparent 55%);
+      opacity: 0;
+      transition: opacity var(--vm-transition-med);
+    }
+
+    .vm-resume-chip:hover::before {
+      opacity: 1;
+    }
+
+    .vm-resume-chip__icon {
+      width: 14px;
+      height: 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(79, 209, 197, 0.7);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 9px;
+    }
+
+    .vm-resume-chip__meta {
+      font-size: 10px;
+      color: var(--vm-text-soft);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .vm-resume-chip__meta span {
+      color: var(--vm-teal);
+    }
+
+    /* WUBRG wheel + doors */
+    .vm-right {
+      position: relative;
+      min-height: 320px;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .vm-wheel-shell {
+      position: relative;
+      border-radius: var(--vm-radius-lg);
+      border: 1px solid var(--vm-glass-border);
+      background:
+        radial-gradient(circle at top, rgba(79, 209, 197, 0.12), rgba(8, 6, 12, 0.96));
+      box-shadow: var(--vm-shadow-soft);
+      backdrop-filter: blur(26px) saturate(140%);
+      overflow: hidden;
+    }
+
+    .vm-wheel-shell__inner {
+      padding: 18px 16px 16px;
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+      gap: 12px;
+      align-items: center;
+    }
+
+    @media (max-width: 880px) {
+      .vm-wheel-shell__inner {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .vm-wheel-meta {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .vm-wheel-meta__label {
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--vm-text-soft);
+    }
+
+    .vm-wheel-meta__title {
+      font-size: 14px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--vm-gold);
+    }
+
+    .vm-wheel-meta__desc {
+      font-size: 12px;
+      color: var(--vm-text-muted);
+      line-height: 1.6;
+    }
+
+    .vm-wheel-meta__hint {
+      font-size: 11px;
+      color: var(--vm-text-soft);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-top: 4px;
+    }
+
+    .vm-wheel {
+      position: relative;
+      width: 160px;
+      height: 160px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    @media (min-width: 960px) {
+      .vm-wheel {
+        width: 190px;
+        height: 190px;
+      }
+    }
+
+    .vm-wheel__halo {
+      position: absolute;
+      inset: 0;
+      border-radius: 999px;
+      background:
+        radial-gradient(circle at 50% 0%, rgba(243, 230, 200, 0.18), transparent 60%),
+        radial-gradient(circle at 50% 100%, rgba(79, 209, 197, 0.18), transparent 60%);
+      opacity: 0.8;
+      filter: blur(2px);
+    }
+
+    .vm-wheel__ring {
+      position: absolute;
+      inset: 12%;
+      border-radius: 999px;
+      border: 1px solid rgba(243, 230, 200, 0.4);
+      box-shadow:
+        0 0 0 1px rgba(0, 0, 0, 0.9),
+        0 0 22px rgba(79, 209, 197, 0.5);
+      background:
+        radial-gradient(circle at 30% 20%, rgba(255, 255, 255, 0.18), transparent 55%),
+        radial-gradient(circle at 70% 80%, rgba(79, 209, 197, 0.35), transparent 60%),
+        radial-gradient(circle at 50% 50%, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 1));
+      transform-origin: center;
+      transition: transform var(--vm-transition-slow);
+    }
+
+    .vm-wheel[data-mode="archscry"] .vm-wheel__ring {
+      transform: rotate(0deg);
+    }
+
+    .vm-wheel[data-mode="maze"] .vm-wheel__ring {
+      transform: rotate(18deg);
+    }
+
+    .vm-wheel[data-mode="apocrypha"] .vm-wheel__ring {
+      transform: rotate(-18deg);
+    }
+
+    .vm-wheel__glyph {
+      position: absolute;
+      inset: 32%;
+      border-radius: 999px;
+      border: 1px solid rgba(243, 230, 200, 0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--vm-text-soft);
+      background: radial-gradient(circle at 50% 0%, rgba(243, 230, 200, 0.12), rgba(8, 6, 12, 0.96));
+    }
+
+    .vm-wheel__node {
+      position: absolute;
+      width: 18px;
+      height: 18px;
+      border-radius: 999px;
+      border: 1px solid rgba(243, 230, 200, 0.7);
+      background: radial-gradient(circle at 30% 20%, #ffffff, #f3e6c8);
+      box-shadow: 0 0 16px rgba(243, 230, 200, 0.9);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 9px;
+      color: #1a1410;
+      cursor: pointer;
+      transition:
+        transform var(--vm-transition-fast),
+        box-shadow var(--vm-transition-fast),
+        border-color var(--vm-transition-fast),
+        background var(--vm-transition-fast);
+    }
+
+    .vm-wheel__node[data-color="w"] { top: -2px; left: 50%; transform: translate(-50%, 0); }
+    .vm-wheel__node[data-color="u"] { top: 26%; right: -4px; transform: translate(0, -50%); }
+    .vm-wheel__node[data-color="b"] { bottom: 18%; right: 4px; transform: translate(0, 50%); }
+    .vm-wheel__node[data-color="r"] { bottom: 18%; left: 4px; transform: translate(0, 50%); }
+    .vm-wheel__node[data-color="g"] { top: 26%; left: -4px; transform: translate(0, -50%); }
+
+    .vm-wheel__node:hover {
+      transform: translate(-50%, 0) scale(1.05);
+      box-shadow: 0 0 22px rgba(243, 230, 200, 1);
+    }
+
+    .vm-wheel__node[data-active="true"] {
+      border-color: rgba(79, 209, 197, 0.9);
+      background: radial-gradient(circle at 30% 20%, #ffffff, #4fd1c5);
+      box-shadow:
+        0 0 0 1px rgba(0, 0, 0, 0.9),
+        0 0 26px rgba(79, 209, 197, 1);
+    }
+
+    .vm-wheel__node-label {
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translate(-50%, 4px);
+      font-size: 9px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--vm-text-soft);
+      white-space: nowrap;
+    }
+
+    /* Doors */
+    .vm-doors {
+      margin-top: 16px;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      gap: 12px;
+    }
+
+    @media (min-width: 960px) {
+      .vm-doors {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
+
+    .vm-door {
+      position: relative;
+      border-radius: var(--vm-radius-md);
+      border: 1px solid var(--vm-border-subtle);
+      background:
+        radial-gradient(circle at top, rgba(243, 230, 200, 0.08), rgba(8, 6, 12, 0.98));
+      box-shadow: var(--vm-shadow-door);
+      overflow: hidden;
+      cursor: pointer;
+      min-height: var(--vm-door-height);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 14px 14px 12px;
+      transition:
+        transform var(--vm-transition-med),
+        box-shadow var(--vm-transition-med),
+        border-color var(--vm-transition-med),
+        background var(--vm-transition-med);
+    }
+
+    @media (min-width: 960px) {
+      .vm-door {
+        min-height: var(--vm-door-height-lg);
+        padding: 16px 16px 14px;
+      }
+    }
+
+    .vm-door::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 50% 0%, rgba(243, 230, 200, 0.18), transparent 60%),
+        radial-gradient(circle at 50% 100%, rgba(79, 209, 197, 0.18), transparent 60%);
+      opacity: 0;
+      transition: opacity var(--vm-transition-med);
+      pointer-events: none;
+    }
+
+    .vm-door:hover {
+      transform: translateY(-4px);
+      border-color: rgba(210, 180, 122, 0.9);
+      box-shadow:
+        0 0 0 1px rgba(0, 0, 0, 0.9),
+        0 32px 90px rgba(0, 0, 0, 0.98);
+    }
+
+    .vm-door:hover::before {
+      opacity: 1;
+    }
+
+    .vm-door__header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      margin-bottom: 10px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .vm-door__label {
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--vm-text-soft);
+    }
+
+    .vm-door__tag {
+      font-size: 10px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--vm-text-soft);
+      padding: 3px 8px;
+      border-radius: var(--vm-radius-pill);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      background: rgba(0, 0, 0, 0.6);
+    }
+
+    .vm-door__title {
+      font-size: 15px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--vm-gold);
+      margin-bottom: 6px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .vm-door__subtitle {
+      font-size: 12px;
+      color: var(--vm-text-muted);
+      line-height: 1.6;
+      margin-bottom: 10px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .vm-door__meta {
+      font-size: 11px;
+      color: var(--vm-text-soft);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      position: relative;
+      z-index: 1;
+    }
+
+    .vm-door__meta span {
+      color: var(--vm-teal);
+    }
+
+    .vm-door__mandala {
+      position: absolute;
+      inset: 18% 10% 10%;
+      border-radius: 999px;
+      border: 1px solid rgba(243, 230, 200, 0.18);
+      opacity: 0.7;
+      mix-blend-mode: screen;
+      pointer-events: none;
+      transform-origin: center;
+      animation: vmMandalaSpin 40s linear infinite;
+    }
+
+    .vm-door__mandala::before,
+    .vm-door__mandala::after {
+      content: "";
+      position: absolute;
+      inset: 18%;
+      border-radius: inherit;
+      border: 1px dashed rgba(243, 230, 200, 0.25);
+    }
+
+    .vm-door__mandala::after {
+      inset: 32%;
+      border-style: solid;
+      border-color: rgba(79, 209, 197, 0.35);
+    }
+
+    .vm-door--archscry .vm-door__mandala {
+      border-color: rgba(210, 180, 122, 0.35);
+    }
+
+    .vm-door--maze .vm-door__mandala {
+      border-color: rgba(79, 209, 197, 0.35);
+    }
+
+    .vm-door--apocrypha .vm-door__mandala {
+      border-color: rgba(243, 230, 200, 0.35);
+    }
+
+    .vm-door__footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      margin-top: 8px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .vm-door__cta {
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--vm-teal);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .vm-door__cta-icon {
+      width: 14px;
+      height: 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(79, 209, 197, 0.7);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 9px;
+    }
+
+    .vm-door__hint {
+      font-size: 10px;
+      color: var(--vm-text-soft);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    @keyframes vmMandalaSpin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    /* Particle canvas */
+    .vm-mana-field {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      opacity: 0.7;
+    }
+
+    /* Status strip */
+    .vm-status {
+      margin-top: 18px;
+      padding: 10px 14px;
+      border-radius: var(--vm-radius-pill);
+      border: 1px solid var(--vm-border-subtle);
+      background: radial-gradient(circle at top, rgba(243, 230, 200, 0.08), rgba(8, 6, 12, 0.96));
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 11px;
+      color: var(--vm-text-soft);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .vm-status__left,
+    .vm-status__right {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .vm-status__pill {
+      padding: 3px 8px;
+      border-radius: var(--vm-radius-pill);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      background: rgba(0, 0, 0, 0.6);
+    }
+
+    .vm-status__pill span {
+      color: var(--vm-teal);
+    }
+
+    .vm-status__legal {
+      opacity: 0.7;
+    }
+
+    /* Mobile tweaks */
+    @media (max-width: 600px) {
+      .vm-topbar {
+        padding-inline: 10px;
+      }
+      .vm-panel__title {
+        font-size: 22px;
+      }
+      .vm-door {
+        min-height: 260px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Mana flare field -->
+  <canvas class="vm-mana-field" id="vmManaField"></canvas>
+
+  <!-- Atmosphere -->
+  <div class="vm-atmosphere">
+    <div class="vm-atmosphere__fog"></div>
+    <div class="vm-atmosphere__grain"></div>
+    <div class="vm-atmosphere__vignette"></div>
+  </div>
+
+  <!-- Shell -->
+  <div class="vm-shell">
+    <div class="vm-shell__inner">
+      <!-- Topbar / chrome -->
+      <header class="vm-topbar">
+        <div class="vm-topbar__left">
+          <div class="vm-topbar__glyph" aria-hidden="true"></div>
+          <div class="vm-topbar__title">
+            <div class="vm-topbar__title-main">Vox Mana</div>
+            <div class="vm-topbar__title-sub">Archive Interface · Threshold</div>
+          </div>
+        </div>
+        <div class="vm-topbar__right">
+          <div class="vm-chip" id="vmStatusChip">
+            <span class="vm-chip__dot"></span>
+            <span>Archive Online</span>
+          </div>
+          <button class="vm-toggle" id="vmMotionToggle" type="button" aria-pressed="false">
+            <span class="vm-toggle__pill">
+              <span class="vm-toggle__thumb"></span>
+            </span>
+            <span>Stillness Mode</span>
+          </button>
+        </div>
+      </header>
+
+      <!-- Main -->
+      <main class="vm-main">
+        <!-- Left: Threshold copy + resume -->
+        <section class="vm-panel" aria-label="Threshold">
+          <div class="vm-panel__inner">
+            <div class="vm-panel__label">The Threshold</div>
+            <h1 class="vm-panel__title">Three doors. Three ways in.</h1>
+            <p class="vm-panel__subtitle">
+              You are not browsing content. You are entering a system that reads, indexes, remembers, and reveals.
+              A mythic archive for identity, cards, and lore—quietly listening for your next question.
+            </p>
+
+            <div class="vm-panel__actions">
+              <button class="vm-button" data-gate="archscry">
+                <span class="vm-button__glyph">◎</span>
+                <span>Begin your reading</span>
+              </button>
+              <button class="vm-button vm-button--ghost" data-gate="maze">
+                <span class="vm-button__glyph">◇</span>
+                <span>Walk the Maze</span>
+              </button>
+              <button class="vm-button vm-button--ghost" data-gate="apocrypha">
+                <span class="vm-button__glyph">✶</span>
+                <span>Enter the Vault</span>
+              </button>
+            </div>
+
+            <div class="vm-panel__resume" id="vmResumeRegion" hidden>
+              <button class="vm-resume-chip" id="vmResumeChip" type="button">
+                <span class="vm-resume-chip__icon">↺</span>
+                <span>Resume your reading</span>
+              </button>
+              <div class="vm-resume-chip__meta" id="vmResumeMeta">
+                Last gate: <span>Archscry</span> · Pattern: <span>W/U</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Right: Wheel + doors -->
+        <section class="vm-right" aria-label="Gates">
+          <section class="vm-wheel-shell" aria-label="Mana signal wheel">
+            <div class="vm-wheel-shell__inner">
+              <div class="vm-wheel-meta">
+                <div class="vm-wheel-meta__label">Mana Signal</div>
+                <div class="vm-wheel-meta__title">Choose a gate.</div>
+                <p class="vm-wheel-meta__desc" id="vmWheelDesc">
+                  Archscry reads the pattern of who you are. The Implicit Maze walks the card universe.
+                  Apocrypha opens the forbidden research stacks.
+                </p>
+                <div class="vm-wheel-meta__hint">
+                  Hover to awaken. Click to commit.
+                </div>
+              </div>
+              <div class="vm-wheel" id="vmWheel" data-mode="archscry">
+                <div class="vm-wheel__halo"></div>
+                <div class="vm-wheel__ring"></div>
+                <div class="vm-wheel__glyph">Gate · 03</div>
+
+                <button class="vm-wheel__node" data-color="w" data-active="true" type="button">
+                  <span>W</span>
+                  <span class="vm-wheel__node-label">Light</span>
+                </button>
+                <button class="vm-wheel__node" data-color="u" type="button">
+                  <span>U</span>
+                  <span class="vm-wheel__node-label">Pattern</span>
+                </button>
+                <button class="vm-wheel__node" data-color="b" type="button">
+                  <span>B</span>
+                  <span class="vm-wheel__node-label">Depth</span>
+                </button>
+                <button class="vm-wheel__node" data-color="r" type="button">
+                  <span>R</span>
+                  <span class="vm-wheel__node-label">Impulse</span>
+                </button>
+                <button class="vm-wheel__node" data-color="g" type="button">
+                  <span>G</span>
+                  <span class="vm-wheel__node-label">Growth</span>
+                </button>
+              </div>
+            </div>
+          </section>
+
+          <section class="vm-doors" aria-label="Three doors">
+            <!-- Archscry -->
+            <article class="vm-door vm-door--archscry" data-gate="archscry">
+              <div class="vm-door__mandala" aria-hidden="true"></div>
+              <div class="vm-door__header">
+                <div class="vm-door__label">Gate I · Archscry</div>
+                <div class="vm-door__tag">Identity Reading</div>
+              </div>
+              <h2 class="vm-door__title">Who are you in the pattern?</h2>
+              <p class="vm-door__subtitle">
+                Discover your color identity, guild, college, shard, clan, or family. Archscry reads your answers
+                and returns a living dossier of how you express mana.
+              </p>
+              <div class="vm-door__meta">
+                Mode: <span>Placement · Semiotics · Reflection</span>
+              </div>
+              <div class="vm-door__footer">
+                <div class="vm-door__cta">
+                  <span class="vm-door__cta-icon">◎</span>
+                  <span>Begin your reading</span>
+                </div>
+                <div class="vm-door__hint">The archive remembers your last result.</div>
+              </div>
+            </article>
+
+            <!-- Maze -->
+            <article class="vm-door vm-door--maze" data-gate="maze">
+              <div class="vm-door__mandala" aria-hidden="true"></div>
+              <div class="vm-door__header">
+                <div class="vm-door__label">Gate II · The Implicit Maze</div>
+                <div class="vm-door__tag">Card Discovery</div>
+              </div>
+              <h2 class="vm-door__title">Walk the database.</h2>
+              <p class="vm-door__subtitle">
+                Plain language, syntax, and composed queries over the card universe. Ask for patterns, engines,
+                archetypes, or edge cases—and let the Maze surface what you didn’t know to ask for.
+              </p>
+              <div class="vm-door__meta">
+                Mode: <span>Search · Scryfall · Pattern Index</span>
+              </div>
+              <div class="vm-door__footer">
+                <div class="vm-door__cta">
+                  <span class="vm-door__cta-icon">◇</span>
+                  <span>Walk the Maze</span>
+                </div>
+                <div class="vm-door__hint">The answers are here. You need only ask.</div>
+              </div>
+            </article>
+
+            <!-- Apocrypha -->
+            <article class="vm-door vm-door--apocrypha" data-gate="apocrypha">
+              <div class="vm-door__mandala" aria-hidden="true"></div>
+              <div class="vm-door__header">
+                <div class="vm-door__label">Gate III · Apocrypha</div>
+                <div class="vm-door__tag">Lore Vault</div>
+              </div>
+              <h2 class="vm-door__title">Enter the hidden stacks.</h2>
+              <p class="vm-door__subtitle">
+                A curated research library for Capenna, Alara, Tarkir, Strixhaven, color philosophy, factions,
+                planes, mechanics, and the growing corpus of Vox Mana lore.
+              </p>
+              <div class="vm-door__meta">
+                Mode: <span>Research · Essays · Worldbuilding</span>
+              </div>
+              <div class="vm-door__footer">
+                <div class="vm-door__cta">
+                  <span class="vm-door__cta-icon">✶</span>
+                  <span>Open the Apocrypha</span>
+                </div>
+                <div class="vm-door__hint">Some doors only open for the patient.</div>
+              </div>
+            </article>
+          </section>
+        </section>
+      </main>
+
+      <!-- Status strip -->
+      <footer class="vm-status" aria-label="Archive status">
+        <div class="vm-status__left">
+          <div class="vm-status__pill">
+            Archive Indexed: <span>Identity · Cards · Lore</span>
+          </div>
+          <div class="vm-status__pill">
+            Open Gates: <span>03</span>
+          </div>
+          <div class="vm-status__pill">
+            Last Scry: <span id="vmLastScry">—</span>
+          </div>
+        </div>
+        <div class="vm-status__right">
+          <div class="vm-status__legal">
+            Unofficial fan project · Not affiliated with Wizards of the Coast.
+          </div>
+        </div>
+      </footer>
+    </div>
+  </div>
+
+  <script>
+    // --- Reduce motion / stillness mode ---
+    (function () {
+      const motionToggle = document.getElementById("vmMotionToggle");
+      const manaField = document.getElementById("vmManaField");
+      const prefersReduced = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      const stored = localStorage.getItem("voxmana:stillness");
+      const initialStillness = stored === "true" || prefersReduced;
+
+      function applyStillness(on) {
+        document.body.dataset.reduceMotion = on ? "true" : "false";
+        motionToggle.setAttribute("data-active", on ? "true" : "false");
+        motionToggle.setAttribute("aria-pressed", on ? "true" : "false");
+        manaField.style.opacity = on ? "0.25" : "0.7";
+      }
+
+      applyStillness(initialStillness);
+
+      motionToggle.addEventListener("click", () => {
+        const active = motionToggle.getAttribute("data-active") === "true";
+        const next = !active;
+        applyStillness(next);
+        localStorage.setItem("voxmana:stillness", String(next));
+      });
+    })();
+
+    // --- Resume reading chip (placeholder wiring) ---
+    (function () {
+      const resumeRegion = document.getElementById("vmResumeRegion");
+      const resumeChip = document.getElementById("vmResumeChip");
+      const resumeMeta = document.getElementById("vmResumeMeta");
+      const lastScry = document.getElementById("vmLastScry");
+
+      // Example: your real app would write this from Archscry
+      const cached = JSON.parse(localStorage.getItem("voxmana:placement") || "null");
+
+      if (cached && cached.gate && cached.pattern) {
+        resumeRegion.hidden = false;
+        resumeMeta.innerHTML =
+          "Last gate: <span>" + cached.gate + "</span> · Pattern: <span>" + cached.pattern + "</span>";
+        lastScry.textContent = cached.timestamp || "Recently";
+      } else {
+        // For demo, show a gentle fake state
+        resumeRegion.hidden = false;
+        resumeMeta.innerHTML = "Last gate: <span>Archscry</span> · Pattern: <span>W/U</span>";
+        lastScry.textContent = "Awaiting first reading";
+      }
+
+      resumeChip.addEventListener("click", () => {
+        // In your real app, route to Archscry with cached state
+        console.log("Resume reading clicked");
+      });
+    })();
+
+    // --- Wheel + doors interaction ---
+    (function () {
+      const wheel = document.getElementById("vmWheel");
+      const wheelDesc = document.getElementById("vmWheelDesc");
+      const nodes = Array.from(wheel.querySelectorAll(".vm-wheel__node"));
+      const doors = Array.from(document.querySelectorAll(".vm-door"));
+      const buttons = Array.from(document.querySelectorAll(".vm-button[data-gate]"));
+
+      const gateCopy = {
+        archscry: "Archscry reads the pattern of who you are. Begin a placement reading and let the archive remember your result.",
+        maze: "The Implicit Maze walks the card universe. Ask in plain language or syntax and follow the patterns it reveals.",
+        apocrypha: "Apocrypha opens the hidden stacks. Essays, research, and lore for when you want to sit with the archive."
+      };
+
+      function setGate(gate) {
+        wheel.dataset.mode = gate;
+        wheelDesc.textContent = gateCopy[gate] || wheelDesc.textContent;
+
+        doors.forEach(d => {
+          const isActive = d.dataset.gate === gate;
+          d.style.borderColor = isActive ? "rgba(210, 180, 122, 0.9)" : "var(--vm-border-subtle)";
+          d.style.transform = isActive ? "translateY(-4px)" : "translateY(0)";
+        });
+      }
+
+      doors.forEach(door => {
+        door.addEventListener("mouseenter", () => {
+          setGate(door.dataset.gate);
+        });
+        door.addEventListener("click", () => {
+          console.log("Gate commit:", door.dataset.gate);
+        });
+      });
+
+      buttons.forEach(btn => {
+        btn.addEventListener("mouseenter", () => {
+          setGate(btn.dataset.gate);
+        });
+        btn.addEventListener("click", () => {
+          console.log("Gate commit:", btn.dataset.gate);
+        });
+      });
+
+      nodes.forEach(node => {
+        node.addEventListener("click", () => {
+          nodes.forEach(n => n.dataset.active = "false");
+          node.dataset.active = "true";
+          // In your real app, you might bias the mana field here
+        });
+      });
+
+      setGate("archscry");
+    })();
+
+    // --- Mana flare particle field (lightweight) ---
+    (function () {
+      const canvas = document.getElementById("vmManaField");
+      const ctx = canvas.getContext("2d");
+      let width = canvas.width = window.innerWidth;
+      let height = canvas.height = window.innerHeight;
+
+      const colors = [
+        { id: "w", color: "rgba(243, 230, 200, 0.9)" },
+        { id: "u", color: "rgba(144, 205, 244, 0.9)" },
+        { id: "b", color: "rgba(160, 174, 192, 0.9)" },
+        { id: "r", color: "rgba(248, 150, 112, 0.9)" },
+        { id: "g", color: "rgba(154, 230, 180, 0.9)" }
+      ];
+
+      const particles = [];
+      const maxParticles = 90;
+
+      function createParticle() {
+        const c = colors[Math.floor(Math.random() * colors.length)];
+        return {
+          x: Math.random() * width,
+          y: Math.random() * height,
+          vx: (Math.random() - 0.5) * 0.25,
+          vy: (Math.random() - 0.5) * 0.25,
+          r: 0.6 + Math.random() * 1.4,
+          color: c.color,
+          life: 0,
+          maxLife: 600 + Math.random() * 600
+        };
+      }
+
+      for (let i = 0; i < maxParticles; i++) {
+        particles.push(createParticle());
+      }
+
+      function resize() {
+        width = canvas.width = window.innerWidth;
+        height = canvas.height = window.innerHeight;
+      }
+
+      window.addEventListener("resize", resize);
+
+      function step() {
+        const reduce = document.body.dataset.reduceMotion === "true";
+        ctx.clearRect(0, 0, width, height);
+
+        ctx.globalCompositeOperation = "screen";
+
+        particles.forEach(p => {
+          p.life++;
+          if (p.life > p.maxLife) {
+            Object.assign(p, createParticle());
+          }
+
+          if (!reduce) {
+            p.x += p.vx;
+            p.y += p.vy;
+          }
+
+          if (p.x < -20) p.x = width + 20;
+          if (p.x > width + 20) p.x = -20;
+          if (p.y < -20) p.y = height + 20;
+          if (p.y > height + 20) p.y = -20;
+
+          const alpha = 0.08 + 0.12 * Math.sin(p.life / p.maxLife * Math.PI);
+          ctx.beginPath();
+          ctx.fillStyle = p.color.replace("0.9", alpha.toFixed(2));
+          ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+          ctx.fill();
+        });
+
+        requestAnimationFrame(step);
+      }
+
+      step();
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,96 @@
+{
+  "schema_version": "vox-mana-translation-layer-v1",
+  "faction": "Orzhov Syndicate",
+  "functions": {
+    "Detain": {
+      "orzhov_definition": "Bind, punish, remove, or immobilize through sanctioned clause rather than raw force.",
+      "best_for": [
+        "Mortify-style removal",
+        "Pillory/One Thousand Lashes lockdown",
+        "Final Payment",
+        "Executioner's Swing",
+        "deathtouch enforcement"
+      ],
+      "animation_layers": [
+        "contract_writ",
+        "hierarchy_gate",
+        "final_stamp"
+      ],
+      "voice": "The target is not merely stopped; it is obligated into stillness."
+    },
+    "Override": {
+      "orzhov_definition": "Rewrite ownership, permissions, hand contents, graveyard access, or afterlife obligations through superior authority.",
+      "best_for": [
+        "Castigate",
+        "Sin Collector",
+        "Merciless Eviction",
+        "Kaya effects",
+        "graveyard exile",
+        "mass wipe/exile"
+      ],
+      "animation_layers": [
+        "contract_writ",
+        "final_stamp",
+        "spirit_afterimage"
+      ],
+      "voice": "The contract supersedes the prior state."
+    },
+    "ConstraintField": {
+      "orzhov_definition": "Create a fee schedule or rank-based battlefield rule that makes action costly, asymmetric, or undesirable.",
+      "best_for": [
+        "taxes",
+        "attack penalties",
+        "pillowfort",
+        "debuffs",
+        "hierarchy guards",
+        "lifelink blockers"
+      ],
+      "animation_layers": [
+        "hierarchy_gate",
+        "coin_tithe",
+        "ledger_accretion"
+      ],
+      "voice": "You may act, but you will pay for the privilege."
+    },
+    "AccretionEngine": {
+      "orzhov_definition": "Compound small payments, deaths, triggers, lifegain/drain, and spirit continuations into inevitability.",
+      "best_for": [
+        "extort",
+        "haunt",
+        "afterlife",
+        "lifegain/drain",
+        "aristocrats",
+        "recursion",
+        "treasure/tithe engines"
+      ],
+      "animation_layers": [
+        "coin_tithe",
+        "spirit_afterimage",
+        "ledger_accretion"
+      ],
+      "voice": "Debt compounds after death."
+    }
+  },
+  "routing_rules": [
+    {
+      "condition": "mechanic contains extort, drain, lifegain, lifelink, tithe, or recurring payment",
+      "route_to": "AccretionEngine"
+    },
+    {
+      "condition": "mechanic contains haunt, afterlife, death trigger, sacrifice payoff, or spirit creation",
+      "route_to": "AccretionEngine"
+    },
+    {
+      "condition": "mechanic contains tax, tapdown, attack penalty, defender, pillowfort, or debuff",
+      "route_to": "ConstraintField"
+    },
+    {
+      "condition": "mechanic contains destroy, pacify, lockdown, combat punishment, or sanctioned execution",
+      "route_to": "Detain"
+    },
+    {
+      "condition": "mechanic contains exile, discard, board wipe, ownership reset, graveyard severance, or Kaya/Obzedat authority",
+      "route_to": "Override"
+    }
+  ]
+}

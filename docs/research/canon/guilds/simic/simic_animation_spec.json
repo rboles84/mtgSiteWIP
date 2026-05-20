@@ -1,0 +1,94 @@
+{
+  "faction": "Simic Combine",
+  "version": "simic-animation-spec-v1",
+  "visual_identity": {
+    "palette_names": [
+      "zonot teal",
+      "cytoplast green",
+      "deepwater blue",
+      "bioluminescent cyan",
+      "kelp shadow"
+    ],
+    "motion_language": "slow biological pulses that accelerate into branching growth; ripple, divide, mutate, bloom",
+    "texture_language": [
+      "water refraction",
+      "cell membrane shimmer",
+      "cytoplast beads",
+      "kelp-vein branching",
+      "glass-lab condensation"
+    ],
+    "avoid": [
+      "generic tech HUD only",
+      "Izzet lightning chaos",
+      "Golgari rot decay emphasis",
+      "pure Azorius gridlock"
+    ]
+  },
+  "states": [
+    {
+      "state": "idle",
+      "description": "A dim zonot pool breathes with faint green-blue bioluminescence; small cytoplast particles drift in parallax.",
+      "duration_ms": 4200,
+      "easing": "sine-in-out"
+    },
+    {
+      "state": "hover",
+      "description": "Cells divide softly around the cursor; nearby filaments connect into a temporary lattice.",
+      "duration_ms": 900,
+      "easing": "ease-out"
+    },
+    {
+      "state": "selected",
+      "description": "A growth spiral rises from the card edge; +1/+1 counter motes orbit once before settling into the frame.",
+      "duration_ms": 1400,
+      "easing": "cubic-bezier(0.18,0.72,0.24,1)"
+    },
+    {
+      "state": "active_growth",
+      "description": "The frame expands by mitosis: nodes split, reconnect, and brighten as the placement confidence increases.",
+      "duration_ms": 1800,
+      "easing": "spring-soft"
+    },
+    {
+      "state": "transition_in",
+      "description": "A deepwater ripple wipes in from lower left; the text appears as if revealed by moving lab light.",
+      "duration_ms": 1100,
+      "easing": "ease-out"
+    },
+    {
+      "state": "transition_out",
+      "description": "The lattice folds back into a single cytoplast bead that sinks beneath the surface.",
+      "duration_ms": 800,
+      "easing": "ease-in"
+    }
+  ],
+  "components": {
+    "placement_card": {
+      "background": "radial deepwater gradient with translucent cellular overlays",
+      "border": "organic rounded membrane, not hard geometry",
+      "accent": "small animated cytoplast nodes at section dividers",
+      "microcopy_reveal": "line-by-line like a research specimen being annotated"
+    },
+    "matrix_row": {
+      "hover": "subtle pulse on structural_axis and narrative_tags",
+      "selected": "counter mote travels from card_name to vox_mana_read",
+      "filter_active": "branches prune away nonmatching rows with a soft dissolve"
+    },
+    "taxonomy_panel": {
+      "category_icon_style": "simple biological glyphs: helix, fin, shell, eye, spiral, root",
+      "section_transition": "zonot accordion: panel opens like a membrane expanding"
+    }
+  },
+  "animation_tokens": {
+    "simic_cytoplast_pulse": "scale(1) -> scale(1.035) -> scale(1); opacity 0.55 -> 0.9 -> 0.55",
+    "simic_zonot_ripple": "blurred radial ring expanding 0 to 64px while fading",
+    "simic_growth_branch": "stroke-dashoffset draw with slight curve jitter",
+    "simic_mitosis_split": "one dot divides into two with damped spring separation",
+    "simic_adapt_flash": "brief cyan edge-light after a counter/growth event"
+  },
+  "accessibility": {
+    "reduced_motion": "replace mitosis and ripple motion with static glow and 150ms opacity transitions",
+    "contrast_note": "ensure cyan text is never placed directly on bright green glow; keep body copy on dark deepwater base",
+    "semantic_note": "do not rely on motion alone to show adapt/evolve state; include text badges"
+  }
+}

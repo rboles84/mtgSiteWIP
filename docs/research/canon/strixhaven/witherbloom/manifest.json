@@ -1,0 +1,72 @@
+{
+  "bundle": "witherbloom_vox_mana_bundle",
+  "generated_at": "2026-05-18",
+  "identity": "witherbloom",
+  "mana": [
+    "B",
+    "G"
+  ],
+  "files": [
+    {
+      "path": "witherbloom-structural-matrix.csv",
+      "type": "text/csv",
+      "records": 56
+    },
+    {
+      "path": "witherbloom-structural-matrix.json",
+      "type": "application/json",
+      "records": 56
+    },
+    {
+      "path": "witherbloom-animation-spec.md",
+      "type": "text/markdown"
+    },
+    {
+      "path": "witherbloom-animation-spec.json",
+      "type": "application/json"
+    },
+    {
+      "path": "witherbloom-translation-layer.js",
+      "type": "text/javascript",
+      "exports": [
+        "Detain",
+        "Override",
+        "ConstraintField",
+        "AccretionEngine"
+      ]
+    },
+    {
+      "path": "witherbloom-narrative-taxonomy.md",
+      "type": "text/markdown"
+    },
+    {
+      "path": "witherbloom-narrative-taxonomy.json",
+      "type": "application/json"
+    },
+    {
+      "path": "SOURCES.md",
+      "type": "text/markdown"
+    },
+    {
+      "path": "README.md",
+      "type": "text/markdown"
+    }
+  ],
+  "source_keys": [
+    "wotc_planeswalkers_guide",
+    "wotc_strixhaven_part_2",
+    "wotc_release_notes_2021",
+    "wotc_tokens_2021",
+    "wotc_bog_times",
+    "wotc_secrets_commander_2026",
+    "wotc_secrets_guide_2026",
+    "wotc_secrets_design_2026",
+    "wotc_products_2026",
+    "scryfall"
+  ],
+  "guardrails": [
+    "Do not flatten Witherbloom into generic Golgari.",
+    "Always keep life/death exchange, biology, Pests, brewing, or bodily cost visible.",
+    "Use graveyard as compost/return when possible, not generic undead horror."
+  ]
+}

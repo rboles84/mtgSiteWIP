@@ -1,0 +1,172 @@
+{
+  "schema_version": "vox-mana-animation-spec-v1",
+  "faction": "House Dimir",
+  "identity": {
+    "color_pair": "blue-black",
+    "core_motion": "motion is hidden, redirected, encoded, erased, or exploited before opponents understand what moved",
+    "visual_language": "shadowed archives, surveillance eyes, cipher trails, ink-black water, stolen masks, library pages dissolving into smoke, blue psychic glints inside black corridors",
+    "tone": "quiet, conspiratorial, surgical, elegant, predatory, paranoid, controlled",
+    "avoid": [
+      "generic blue-black control without spy/secret flavor",
+      "pure mono-blue curiosity or public scholarship",
+      "pure mono-black brutality without information architecture",
+      "Azorius civic law language such as courts, warrants, public statutes, and marble bureaucracy",
+      "Izzet lightning/spectacle or Rakdos open performance language"
+    ]
+  },
+  "animation_layers": [
+    {
+      "layer": "surveillance_eye",
+      "purpose": "establish that the panel is being watched before it is acted upon",
+      "motion": "a small blue-black eye glyph opens in the corner, scans the card/result panel, then collapses into a thin underline",
+      "timing": "0ms-360ms",
+      "easing": "easeOutCubic"
+    },
+    {
+      "layer": "cipher_thread",
+      "purpose": "represent encoded action carried by agents or combat lines",
+      "motion": "thin glyph strings wrap around the selected item and travel along an invisible route before disappearing into a shadow mark",
+      "timing": "220ms-760ms",
+      "easing": "easeInOutSine"
+    },
+    {
+      "layer": "memory_erase",
+      "purpose": "represent discard, mill, name removal, or library denial",
+      "motion": "text fragments and card silhouettes desaturate, blur, and sink into dark water or an archive gap",
+      "timing": "420ms-900ms",
+      "easing": "easeInQuad"
+    },
+    {
+      "layer": "mask_shift",
+      "purpose": "represent Lazav-style copying, stolen identity, and adaptive cover",
+      "motion": "a translucent mask crosses the portrait area, briefly reflecting another profile before locking into a new outline",
+      "timing": "560ms-1040ms",
+      "easing": "easeOutExpo"
+    },
+    {
+      "layer": "graveyard_accretion",
+      "purpose": "represent slow advantage from surveil, mill, recursion, and stolen resources",
+      "motion": "small archive cards drift from library to graveyard, then connect to payoff nodes with blue-black thread",
+      "timing": "760ms-1300ms",
+      "easing": "easeOutCubic"
+    },
+    {
+      "layer": "agent_exit",
+      "purpose": "finish with hidden agency rather than a loud victory beat",
+      "motion": "the active glyph fades last, leaving a faint footstep/cursor trail that vanishes behind the panel edge",
+      "timing": "1100ms-1500ms",
+      "easing": "easeInOutQuad"
+    }
+  ],
+  "state_machines": {
+    "surveil": [
+      "observe",
+      "select",
+      "bury_or_keep",
+      "report"
+    ],
+    "cipher": [
+      "encode",
+      "carry",
+      "connect",
+      "repeat"
+    ],
+    "transmute": [
+      "discard_cover",
+      "search_exact_tool",
+      "reassemble_plan"
+    ],
+    "mill": [
+      "breach_memory",
+      "strip_pages",
+      "feed_payoff"
+    ],
+    "assassination": [
+      "identify",
+      "approach_unseen",
+      "silence",
+      "erase_record"
+    ],
+    "theft": [
+      "mark_asset",
+      "extract",
+      "recast_under_dimir_authority"
+    ]
+  },
+  "function_to_animation": {
+    "Detain": {
+      "primary_layers": [
+        "cipher_thread",
+        "memory_erase",
+        "agent_exit"
+      ],
+      "microcopy": "Silenced before the room knew it spoke.",
+      "use_for": [
+        "assassination",
+        "bounce-discard",
+        "tap/freeze",
+        "exile",
+        "unblockable hit counters",
+        "removal"
+      ]
+    },
+    "Override": {
+      "primary_layers": [
+        "surveillance_eye",
+        "memory_erase",
+        "mask_shift"
+      ],
+      "microcopy": "The plan was rewritten upstream.",
+      "use_for": [
+        "counterspells",
+        "discard before casting",
+        "name/exile effects",
+        "copy/theft",
+        "library denial"
+      ]
+    },
+    "ConstraintField": {
+      "primary_layers": [
+        "surveillance_eye",
+        "cipher_thread",
+        "graveyard_accretion"
+      ],
+      "microcopy": "The network narrows every safe route.",
+      "use_for": [
+        "surveillance",
+        "unblockable routing",
+        "topdeck control",
+        "ransom/control",
+        "defensive walls",
+        "hexproof/deathtouch bodies"
+      ]
+    },
+    "AccretionEngine": {
+      "primary_layers": [
+        "surveillance_eye",
+        "graveyard_accretion",
+        "mask_shift"
+      ],
+      "microcopy": "Every secret becomes leverage.",
+      "use_for": [
+        "surveil engines",
+        "mill payoffs",
+        "draw/discard engines",
+        "graveyard recursion",
+        "stolen cards",
+        "mana infrastructure"
+      ]
+    }
+  },
+  "css_design_tokens": {
+    "color.dim_blue": "#14213d",
+    "color.deep_black": "#06070a",
+    "color.psychic_ink": "#3b5bdb",
+    "color.memory_smoke": "rgba(20, 24, 36, 0.72)",
+    "color.cipher_teal": "#2dd4bf",
+    "shadow.panel": "0 18px 45px rgba(0, 0, 0, 0.45)",
+    "blur.secret": "10px",
+    "radius.panel": "18px",
+    "font.motion_note": "Inter, system-ui, sans-serif"
+  }
+}

@@ -6,6 +6,7 @@
     "audit:factions": "node research/enrich-faction-data.mjs --audit",
     "dossier:audit": "node research/audit-dossiers.mjs",
     "dossier:snapshots": "node research/generate-dossier-snapshots.mjs",
+    "presentation:snapshots": "node research/generate-presentation-snapshots.mjs",
     "enrich:factions": "node research/enrich-faction-data.mjs --apply",
     "scryfall:download": "node scripts/download-scryfall-bulk.mjs",
     "scryfall:index": "node scripts/build-scryfall-indexes.mjs",
@@ -18,6 +19,7 @@
     "test:mode": "node research/research-mode-tests.js",
     "test:parser": "node research/scryfall-parser-tests.js",
     "test:placement": "node assets/js/quick-reading-tests.js",
+    "test:presentation-snapshots": "node research/presentation-snapshot-tests.js",
     "test:syntax": "node research/research-syntax-language-tests.js",
     "test:watch": "node --watch research/run-tests.js"
   }

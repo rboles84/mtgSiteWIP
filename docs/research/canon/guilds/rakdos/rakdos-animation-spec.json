@@ -1,0 +1,92 @@
+{
+  "schema_version": "vox-mana-animation-spec-v0.1",
+  "faction": "rakdos",
+  "motion_thesis": [
+    "invitation",
+    "transgression",
+    "impact",
+    "afterimage",
+    "encore"
+  ],
+  "tokens": {
+    "colors": {
+      "black": "#090506",
+      "ink": "#15080b",
+      "blood": "#8f101c",
+      "crimson": "#c51f2f",
+      "ember": "#ff4b26",
+      "sick_gold": "#c08a2d",
+      "ash": "#b9aaa3"
+    },
+    "easing": {
+      "cut": "cubic-bezier(.2, .9, .1, 1)",
+      "lurch": "cubic-bezier(.7, -.35, .2, 1.35)",
+      "smoke": "cubic-bezier(.16, 1, .3, 1)"
+    }
+  },
+  "hooks": {
+    "stage-collapse": {
+      "duration_ms": 360,
+      "intensity": "high",
+      "use": "catastrophic sacrifice"
+    },
+    "bloodlight-gate": {
+      "duration_ms": 420,
+      "intensity": "medium",
+      "use": "life-loss gate / access"
+    },
+    "curtain-fire": {
+      "duration_ms": 380,
+      "intensity": "high",
+      "use": "showstopper reveal"
+    },
+    "solo-spotlight": {
+      "duration_ms": 300,
+      "intensity": "medium",
+      "use": "diva / performance commander"
+    },
+    "counter-spark": {
+      "duration_ms": 260,
+      "intensity": "medium",
+      "use": "unleash / counters"
+    },
+    "hand-ash-fall": {
+      "duration_ms": 460,
+      "intensity": "medium",
+      "use": "discard / hellbent"
+    },
+    "knife-cut": {
+      "duration_ms": 140,
+      "intensity": "high",
+      "use": "removal"
+    },
+    "spark-chain": {
+      "duration_ms": 220,
+      "intensity": "medium",
+      "use": "sacrifice triggers"
+    },
+    "stage-lamp-pop": {
+      "duration_ms": 180,
+      "intensity": "medium",
+      "use": "impulse draw / spectacle"
+    },
+    "gate-glow": {
+      "duration_ms": 900,
+      "intensity": "low",
+      "use": "mana base / breadcrumbs"
+    }
+  },
+  "reduced_motion": {
+    "disable": [
+      "particles",
+      "shake",
+      "lurch",
+      "infinite ember loops"
+    ],
+    "replace_with": [
+      "opacity",
+      "border glow",
+      "focus outline"
+    ]
+  }
+}

@@ -1,0 +1,233 @@
+# Orzhov Syndicate — Animation Specification
+**Version:** 1.0.0  
+**Author:** Copilot Design System  
+**Theme:** Black-White Duality · Debt · Sanctity · Hierarchy · Extortion  
+
+---
+
+## 1. Overview
+
+This document defines the complete animation system for Orzhov Syndicate UI components and card interactions. Every motion decision reflects the Orzhov aesthetic: deliberate, oppressive grandeur — gold-trimmed marble halls, flickering spirit-light, the slow weight of ecclesiastical authority. Animations are purposefully measured rather than snappy; they carry moral weight.
+
+---
+
+## 2. Visual Motifs
+
+| Motif | Description | Application |
+|---|---|---|
+| **Debt Counter Pulse** | Slow crimson pulse radiating outward from counter token | Applied to debt counter icons at 1.6s cycle |
+| **Gold Filigree Trace** | Thin gold lines drawing themselves along card borders | Card reveal, zone entry animations |
+| **Spirit Ascension** | Upward drift of translucent white silhouettes | Triggered abilities, life-gain events |
+| **Ink Bleed** | Black ink bleeding outward from text glyphs | Spell cast, removal animations |
+| **Marble Crack** | Thin fracture lines spreading across white surfaces | Creature destruction |
+| **Candle Flicker** | Warm amber light oscillation | Ambient/idle state |
+| **Coin Drop** | Stylized golden coin falling and spinning | Extort triggers, life-loss drain events |
+
+---
+
+## 3. Color Palette
+
+### Primary Palette
+
+| Token | Hex | Usage |
+|---|---|---|
+| `orzhov-white` | `#F5F0E8` | Base card background, light glow |
+| `orzhov-bone` | `#D9D0BF` | Secondary surface, parchment tones |
+| `orzhov-black` | `#0D0D0D` | Shadow fills, death-state overlays |
+| `orzhov-shadow` | `#1A1320` | Deep background, border frames |
+| `orzhov-gold` | `#C9A84C` | Filigree, borders, highlights |
+| `orzhov-gold-pale` | `#E8D49A` | Glow halos, shimmer effects |
+| `orzhov-crimson` | `#8B1A1A` | Debt counters, life-loss indicators |
+| `orzhov-spirit` | `#C0CFEF` | Spirit silhouettes, ghost trails |
+
+### Glow & Particle Colors
+
+| Token | Hex | Usage |
+|---|---|---|
+| `glow-lifelink` | `#FFFFFF` | White nova burst on life-gain |
+| `glow-death` | `#3D003A` | Dark violet corona on death events |
+| `glow-extort` | `#C9A84C` | Gold ring pulse on extort triggers |
+| `glow-exile` | `#A0A0FF` | Blue-white shimmer for exile zone |
+
+---
+
+## 4. Animation States
+
+### 4.1 Card States
+
+#### **Idle State**
+- Subtle ambient candle-flicker: `orzhov-gold` border shimmer oscillates at **0.4 opacity → 0.7 opacity** over **2.4s** (`ease-in-out`, looping).
+- Faint marble texture depth: a soft drop shadow at `0 4px 12px rgba(0,0,0,0.5)` pulses at **0.3 opacity → 0.5 opacity** over **3s** (`ease-in-out`, looping).
+
+#### **Hover State**
+- Duration: `200ms`
+- Easing: `cubic-bezier(0.25, 0.46, 0.45, 0.94)`
+- Effects:
+  - Card lifts: `translateY(-4px)`, `scale(1.02)`
+  - Gold border brightness: `brightness(1.3)` 
+  - Gold filigree trace animation starts from top-left corner, tracing border clockwise: `250ms` stroke-dash animation
+  - Drop shadow increases to `0 12px 28px rgba(0,0,0,0.7)`
+
+#### **Selected / Targeted State**
+- Pulsing crimson ring: `0 0 0 2px #8B1A1A`, pulsing to `0 0 0 6px rgba(139,26,26,0.5)` at **800ms** cycle.
+- Overlay: thin semi-transparent crimson veil at `rgba(139,26,26,0.1)`.
+- Gold corners glow at `#E8D49A` with `blur(4px)`.
+
+#### **Tapped / Exhausted State**
+- Rotate `90deg` over `160ms`, `ease-out`.
+- Apply `brightness(0.85)` and `sepia(0.15)` filter to indicate spent status.
+- Subtle dust-mote particle trail emitted from bottom of card (10 particles, downward drift, **1.2s** lifespan).
+
+#### **Graveyard / Death State**
+- Duration: `600ms`
+- Marble crack lines animate outward from card center using SVG path stroke-dash (4 crack paths, staggered by 80ms each).
+- Card fades: `opacity 1 → 0.2`, `scale(0.95)`.
+- Dark violet glow corona `glow-death` expands from center: `0 0 0px` → `0 0 30px rgba(61,0,58,0.8)` over `400ms`.
+- Silhouette spirit rises: translucent white card-shaped ghost drifts upward `translateY(-60px)` and fades over `800ms`.
+
+#### **Exile State**
+- Card shatters into 8–12 blue-white shards, each flying radially outward (`translateX` ± random 40–80px, `translateY` ± random 40–60px), rotating `±180deg` over `500ms`, fading to `opacity 0`.
+- Easing per shard: `cubic-bezier(0.17, 0.67, 0.83, 0.67)` (ease-out-back).
+- Blue-white shimmer halo (`glow-exile`) expands and fades over `600ms`.
+
+---
+
+### 4.2 Ability / Trigger States
+
+#### **Extort Trigger**
+1. Gold coin icon spawns at card center: `scale(0) → scale(1)` over `120ms`.
+2. Coin rotates and arcs toward each opponent's life total display (`700ms`, `cubic-bezier(0.4, 0, 0.2, 1)`).
+3. Life total display flashes crimson (`#8B1A1A`) for `200ms`.
+4. Player's own life total flashes white-gold (`#E8D49A`) for `200ms`.
+5. Gold ring pulse expands from player portrait: `glow-extort`, radius `0 → 60px`, fades over `400ms`.
+
+#### **Life Gain**
+- White nova burst: radial gradient `rgba(255,255,255,0.9) → transparent`, expands `0 → 100px` diameter over `300ms`.
+- Spirit silhouette ascends from life-total widget over `600ms`.
+- Life total counter increments with bounce: `scale(1 → 1.2 → 1)` over `250ms`.
+
+#### **Life Loss / Drain**
+- Crimson droplet particles (6–10) emit downward from opponent life total, fall `40px`, fade over `400ms`.
+- Life total counter decrements with shake: `translateX(0 → -4px → 4px → -2px → 0)` over `200ms`.
+- Brief `orzhov-crimson` tint overlay on opponent's board zone: `opacity 0 → 0.15 → 0` over `300ms`.
+
+#### **Debt Counter Applied**
+- Counter token spins into place: `rotateZ(0 → 360deg)` + `scale(0 → 1)` over `300ms`.
+- Pulsing crimson glow on counter for **1.6s** loop.
+- Stacked counters stagger by `60ms` each.
+
+#### **Spell Cast**
+- Ink-bleed effect: black ink radiates from card text area outward in all directions, filling `40px radius` within `250ms`, then recedes.
+- Card briefly pops forward: `scale(1 → 1.06 → 1)` over `200ms`.
+- Mana cost icons animate out sequentially (left-to-right), each fading with `translateY(-8px)` over `80ms` staggered by `40ms`.
+
+---
+
+## 5. Particle Systems
+
+### 5.1 Ambient Particles (Board Idle)
+- **Type:** Floating motes (circle, 2–4px radius)
+- **Color:** Alternating `orzhov-gold-pale` and `orzhov-spirit` at 30–60% opacity
+- **Count:** 20–30 active at once per board zone
+- **Behavior:** Spawn at random board positions, drift upward at `4–8px/s`, fade in over `600ms`, fade out over `800ms`, lifespan `4–8s`
+- **Spawn rate:** 3 per second per zone
+
+### 5.2 Extort Coin Particle
+- **Type:** Stylized hexagonal gold coin sprite, 16×16px
+- **Color:** `orzhov-gold` with `orzhov-gold-pale` rim highlight
+- **Count:** 1 per opponent per trigger
+- **Behavior:** Bezier arc trajectory from source card to opponent life total
+- **Physics:** `cubic-bezier(0.4, 0, 0.2, 1)`, slight tumble `rotateZ(0 → 180deg)` in flight
+
+### 5.3 Spirit Trail (Flying Creatures)
+- **Type:** Translucent white teardrop shapes, 6×10px
+- **Color:** `orzhov-spirit` at 20–50% opacity
+- **Count:** 4–8 trailing particles
+- **Behavior:** Emit from creature card trailing edge during movement, drift upward and fade, lifespan `600ms`
+- **Easing:** `ease-out` for fade
+
+### 5.4 Death Motes
+- **Type:** Black square fragments, 3–6px, randomly rotated
+- **Count:** 12–20 per death event
+- **Color:** `orzhov-black` to `orzhov-shadow`
+- **Behavior:** Burst radially from card center, gravity-affected (`translateY +30px` over lifespan), fade over `800ms`
+
+### 5.5 Crack Propagation (Marble Fracture)
+- **Type:** SVG `<path>` stroke animation
+- **Color:** `orzhov-shadow` at 80% opacity
+- **Count:** 4 main cracks with 2–3 secondary branches each
+- **Behavior:** `stroke-dashoffset` animation from full offset to 0 over `300–500ms` per crack, staggered by `80ms`
+
+---
+
+## 6. Transitions
+
+### 6.1 Zone Transitions
+
+| Transition | Duration | Easing | Description |
+|---|---|---|---|
+| Hand → Battlefield | 400ms | `ease-out-back` | Card scales up from hand size, gold filigree traces border |
+| Battlefield → Graveyard | 600ms | `ease-in` | Marble crack + spirit ascension (see Death State) |
+| Battlefield → Exile | 500ms | `ease-out` | Shard scatter (see Exile State) |
+| Library → Hand (Draw) | 200ms | `ease-out` | Card slides from deck position into hand slot |
+| Graveyard → Battlefield (Reanimate) | 700ms | `ease-out-back` | Reverse spirit descent — silhouette descends and solidifies, ink-bleed reveals card |
+
+### 6.2 Phase Transitions (Turn Phases)
+- Active-player indicator: slow gold sweep across top bar, `800ms`, `linear`.
+- Phase label: cross-fade text, `150ms`, `ease-in-out`.
+- Upkeep triggers: soft white pulse on relevant cards, `300ms`.
+
+### 6.3 Stack Resolution
+- Stack items resolve bottom-up: each resolves with a `100ms` delay after previous.
+- Stack panel slides out to the left on empty: `translateX(0 → -100%)`, `250ms`, `ease-in`.
+
+---
+
+## 7. Timing Reference
+
+| Event | Duration | Notes |
+|---|---|---|
+| Hover enter | 200ms | Fast to feel responsive |
+| Hover exit | 150ms | Slightly faster than enter |
+| Card play | 400ms | Deliberate; conveys weight |
+| Trigger resolution | 300ms per trigger | Stagger multiple triggers by 120ms |
+| Life total change | 250ms | Bounce then settle |
+| Death animation | 600ms | Marble crack full sequence |
+| Exile animation | 500ms | Shard scatter |
+| Extort arc | 700ms | Coin travel time |
+| Turn phase change | 800ms | Slow gold sweep |
+| Zone slide (draw) | 200ms | Snappy feel for draw |
+| Reanimation | 700ms | Full spirit descend + solidify |
+
+---
+
+## 8. Typography Animation
+
+- **Card name reveal:** Characters appear letter-by-letter, each `translateY(8px → 0)` + `opacity(0 → 1)`, staggered by `20ms`, serif typeface (Cinzel or Cormorant Garamond recommended).
+- **Mana cost:** Icons pop in `scale(0 → 1.1 → 1)` staggered by `30ms`.
+- **Rules text:** Fade in as one block after card art settles, `200ms` delay, `150ms` fade.
+- **Flavor text:** Italicized, fades in last at `350ms` delay, `200ms` fade.
+
+---
+
+## 9. Accessibility Notes
+
+- All animations **must** respect `prefers-reduced-motion: reduce` media query.
+  - When reduced motion is active: replace all transform/particle animations with **simple opacity cross-fades** (max `200ms`).
+  - Coin arc collapses to an instant opacity flash at destination.
+  - Marble crack collapses to an instant overlay rather than progressive stroke-dash.
+- Color coding is always **paired with iconography** (never color-only) to support color vision deficiencies.
+- Life total changes must update `aria-live="polite"` region for screen reader announcement.
+- Particle systems must not exceed 60 simultaneous DOM elements to avoid performance degradation on lower-end devices.
+- All animations are GPU-composited using only `transform` and `opacity` where possible (`will-change: transform, opacity`).
+- Frame budget target: **16.67ms per frame** (60fps). Particle counts should auto-scale down on devices reporting `navigator.hardwareConcurrency < 4`.
+
+---
+
+## 10. Implementation Notes
+
+- Animation library recommendation: **GSAP** (GreenSock) for complex sequences; **CSS custom properties** for simple looping states.
+- SVG crack paths must be pre-authored and animated via `stroke-dasharray` / `stroke-dashoffset`.
+- Particle system should use a **canvas overlay** (not DOM nodes) for performance when particle count exceeds 20.
+- Stagger utilities: use GSAP `stagger` or a custom `delay = index * staggerMs` pattern.
+- Gold filigree trace uses SVG `<path>` with `stroke-dashoffset` driven by `IntersectionObserver` entry.

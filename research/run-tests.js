@@ -9,3 +9,4 @@ await import("./research-mode-tests.js");
 await import("./maze-search-tests.js");
 await import("./scryfall-request-dedupe-tests.js");
 await import("./archscry-adjacent-navigation-tests.js");
+await import("./presentation-snapshot-tests.js");

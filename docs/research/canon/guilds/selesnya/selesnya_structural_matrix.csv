@@ -1,0 +1,37 @@
+# generation_date=2026-05-18,author=Copilot
+name,mana_cost,type_line,subtypes,colors,rarity,set,cmc,power,toughness,oracle_text_summary,tags
+Voice of the Conclave,{1}{G}{W},Creature,Human Cleric,GW,Uncommon,SNC,3,2,2,"When this enters, create a 1/1 white Soldier token. Other creatures you control get +0/+1. Whenever a creature token enters under your control, you may gain 1 life.",token;lifegain;buff;creature
+"Trostani, Grove Warden",{3}{G}{W},Legendary Creature,Dryad,GW,Mythic,SNC,5,3,5,"Lifelink. Populate at the beginning of your upkeep. Whenever you gain life, put a +1/+1 counter on each creature you control.",populate;lifegain;buff;creature
+Rootborn Sentinel,{2}{G},Creature,Centaur Warrior,G,Common,SNC,3,3,3,"Whenever another creature enters under your control, put a +1/+1 counter on this creature.",buff;creature
+"Emmara, Soul of the Accord",{G}{W},Legendary Creature,Elf Cleric,GW,Rare,GRN,2,2,2,"Whenever this creature becomes tapped, create a 1/1 white Soldier creature token with lifelink.",token;lifegain;creature
+Sunhome Evangelist,{3}{W}{W},Creature,Human Cleric,W,Uncommon,SNC,5,3,4,"When this enters, creatures you control gain lifelink until end of turn. Tap up to two creatures: create a 1/1 white Soldier token for each creature tapped this way.",token;lifegain;creature
+Collective Blessing,{3}{G}{G}{W},Enchantment,,GW,Rare,RTR,6,,,Creatures you control get +3/+3.,anthem;buff;enchantment
+Glare of Subdual,{2}{G}{W},Enchantment,,GW,Rare,RAV,4,,,Tap an untapped creature you control: tap target artifact or creature.,removal;enchantment
+Growing Ranks,{2}{G}{W},Enchantment,,GW,Rare,RTR,4,,,"At the beginning of your upkeep, populate.",populate;enchantment
+Intangible Virtue,{1}{W},Enchantment,,W,Uncommon,ISD,2,,,Creature tokens you control get +1/+1 and have vigilance.,anthem;buff;token;enchantment
+Selesnya Charm,{G}{W},Instant,,GW,Uncommon,RTR,2,,,Choose one: put two +1/+1 counters on target creature; exile target creature with power 5 or greater; or create a 2/2 green Knight token with vigilance.,buff;removal;token;instant
+Rootborn Defenses,{2}{W},Instant,,W,Common,RTR,3,,,"Populate, then creatures you control gain indestructible until end of turn.",populate;token;instant
+Sundering Growth,{G/W}{G/W},Instant,,GW,Common,RTR,2,,,"Destroy target artifact or enchantment, then populate.",populate;removal;instant
+Call of the Conclave,{G}{W},Sorcery,,GW,Uncommon,RTR,2,,,Create a 3/3 green Centaur creature token.,token;instant
+Advent of the Wurm,{2}{G}{G}{W},Instant,,GW,Rare,DGM,5,,,Create a 5/5 green Wurm creature token with trample.,token;instant
+Eyes in the Skies,{3}{W},Instant,,W,Common,RTR,4,,,"Create a 1/1 white Bird creature token with flying, then populate.",populate;token;instant
+Trostani's Judgment,{5}{W},Instant,,W,Common,RTR,6,,,"Exile target creature, then populate.",populate;removal;instant
+Trostani's Summoner,{6}{G}{W},Creature,Elf Shaman,GW,Uncommon,DGM,8,1,1,"When this enters, create a 2/2 white Knight token with vigilance, a 3/3 green Centaur token, and a 4/4 green Rhino token with trample.",token;creature
+Wayfaring Temple,{1}{G}{W},Creature,Elemental,GW,Rare,RTR,3,*,*,"Power and toughness each equal the number of creatures you control. Whenever this deals combat damage, populate.",populate;token;creature
+Armada Wurm,{4}{G}{G}{W}{W},Creature,Wurm,GW,Mythic,RTR,8,5,5,"Trample. When this enters, create a 5/5 green Wurm creature token with trample.",token;creature
+Vitu-Ghazi Guildmage,{G}{W},Creature,Dryad Shaman,GW,Uncommon,RTR,2,2,2,{3}{G}{W}: Create a 3/3 green Centaur token. {2}{G}{W}: Populate.,populate;token;creature
+Selesnya Guildmage,{G/W}{G/W},Creature,Elf Wizard,GW,Uncommon,RAV,2,2,2,{3}{G}: Create a 1/1 green Saproling token. {3}{W}: Creatures you control get +1/+1 until end of turn.,token;buff;anthem;creature
+Horncaller's Chant,{6}{G},Sorcery,,G,Common,RTR,7,,,"Create a 4/4 green Rhino token with trample, then populate.",populate;token;instant
+Grove of the Guardian,,Land,,,Rare,RTR,0,,,"Tap, tap two other untapped creatures you control, sacrifice this: create an 8/8 green Elemental creature token with vigilance.",token
+Centaur's Herald,{G},Creature,Human Scout,G,Common,RTR,1,0,3,Sacrifice this creature: create a 3/3 green Centaur creature token.,token;creature
+Selesnya Evangel,{1}{G},Creature,Human Cleric,G,Common,RAV,2,1,2,"Tap, discard a land: create a 1/1 green Saproling creature token.",token;creature
+Hour of Reckoning,{4}{W}{W}{W},Sorcery,,W,Rare,RAV,7,,,Convoke. Destroy all nontoken creatures.,removal;instant
+Worldspine Wurm,{8}{G}{G}{G},Creature,Wurm,G,Mythic,RTR,11,15,15,"Trample. When this dies, create three 5/5 green Wurm tokens with trample. When this is put into a graveyard from anywhere, shuffle it into its owner's library.",token;creature
+Phantom General,{3}{W},Creature,Spirit Soldier,W,Uncommon,RTR,4,2,3,Creature tokens you control get +1/+1.,anthem;buff;token;creature
+Bower Passage,{1}{G},Enchantment,,G,Uncommon,AVR,2,,,Creatures you control with flying can't be blocked by creatures without flying.,buff;enchantment
+Verdant Confluence,{4}{G}{G},Sorcery,,G,Rare,C15,6,,,"Choose three, with repetition allowed: put two +1/+1 counters on target creature; return target permanent card from graveyard to hand; or search your library for a basic land, put it into play tapped.",buff;ramp;instant
+Selesnya Keyrune,{3},Artifact,,,Uncommon,RTR,3,,,Tap: add {G} or {W}. {G}{W}: This becomes a 3/3 green and white Wolf creature with vigilance until end of turn.,ramp;artifact
+Selesnya Locket,{3},Artifact,,,Common,GRN,3,,,"Tap: add {G} or {W}. {G}{G}{W}{W}, tap, sacrifice this: draw two cards.",ramp;artifact
+Trostani Discordant,{3}{G}{W},Legendary Creature,Dryad,GW,Mythic,GRN,5,1,4,"Other creatures you control get +1/+1. When this enters, create two 1/1 white Soldier tokens with lifelink. At end of turn, each player gains control of all creatures they own.",anthem;buff;token;lifegain;creature
+"Ajani, Mentor of Heroes",{3}{G}{W},Legendary Planeswalker,Ajani,GW,Mythic,JOU,5,,,+1: Distribute three +1/+1 counters among up to three creatures. +1: Look at top four cards; put any creatures or Auras into hand. -8: Gain 100 life.,buff;lifegain;planeswalker
+"Huatli, Radiant Champion",{2}{G}{W},Legendary Planeswalker,Huatli,GW,Mythic,RIX,4,,,+1: Huatli gets loyalty counters equal to the number of creatures you control. -1: Target creature gains trample and gets +X/+X where X is number of creatures you control until end of turn. -8: Enchantment; draw a card whenever a creature enters.,buff;anthem;planeswalker

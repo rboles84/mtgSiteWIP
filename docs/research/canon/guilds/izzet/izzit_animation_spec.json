@@ -1,0 +1,726 @@
+{
+  "schema_version": "1.0.0",
+  "system": "Izzit",
+  "document": "Animation Specification",
+  "description": "Defines every named animation preset used by the Izzit structural matrix, plus system-level animation rules for phase transitions, constraint events, detainment, override resolution, and accretion milestones.",
+
+  "global_settings": {
+    "frame_rate":          60,
+    "time_unit":           "milliseconds",
+    "coordinate_system":   "card-local (origin at card center)",
+    "easing_library":      "Izzit-Ease v1 (cubic-bezier definitions below)",
+    "layer_order":         ["background", "constraint_field", "card_body", "token", "overlay", "text"],
+    "z_index_policy":      "higher override_priority cards render above lower; ties broken by card_id ascending",
+    "color_space":         "sRGB",
+    "alpha_range":         [0.0, 1.0],
+    "default_duration_ms": 300
+  },
+
+  "easing_functions": {
+    "ease-izzit-snap":     [0.87, 0.00, 0.13, 1.00],
+    "ease-izzit-settle":   [0.34, 1.56, 0.64, 1.00],
+    "ease-izzit-dissolve": [0.00, 0.00, 1.00, 1.00],
+    "ease-izzit-bloom":    [0.17, 0.89, 0.32, 1.28],
+    "ease-izzit-ripple":   [0.25, 0.46, 0.45, 0.94],
+    "ease-izzit-freeze":   [0.00, 0.00, 0.58, 1.00],
+    "ease-izzit-burst":    [0.68, -0.55, 0.27, 1.55],
+    "ease-izzit-linear":   [0.00, 0.00, 1.00, 1.00]
+  },
+
+  "animation_presets": {
+    "settle": {
+      "description": "Card drops into its grid position with a confident, heavy thud. Used by Anchor cards.",
+      "trigger": "on_play",
+      "duration_ms": 420,
+      "easing": "ease-izzit-settle",
+      "keyframes": [
+        {"t": 0,    "scale": [1.0, 0.6], "opacity": 0.8, "translate_y": -40, "shadow_blur": 0},
+        {"t": 0.6,  "scale": [1.05, 0.95], "opacity": 1.0, "translate_y": 4,  "shadow_blur": 18},
+        {"t": 0.8,  "scale": [0.98, 1.02], "translate_y": -1},
+        {"t": 1.0,  "scale": [1.0, 1.0],  "translate_y": 0, "shadow_blur": 8}
+      ],
+      "particle_emitter": null,
+      "sound_cue": "thud_low"
+    },
+
+    "dissolve": {
+      "description": "Card fades out and its space collapses inward. Used by Null cards on resolution.",
+      "trigger": "on_resolve",
+      "duration_ms": 500,
+      "easing": "ease-izzit-dissolve",
+      "keyframes": [
+        {"t": 0,   "opacity": 1.0, "scale": [1.0, 1.0], "blur": 0},
+        {"t": 0.4, "opacity": 0.6, "scale": [1.0, 1.0], "blur": 2},
+        {"t": 1.0, "opacity": 0.0, "scale": [0.7, 0.7], "blur": 10}
+      ],
+      "particle_emitter": {
+        "type": "scatter",
+        "count": 12,
+        "color": "#c0c0c0",
+        "size_range": [2, 6],
+        "velocity_range": [20, 60],
+        "lifetime_ms": 400,
+        "fade_out": true
+      },
+      "sound_cue": "silence_whoosh"
+    },
+
+    "snap": {
+      "description": "Card slams into place with an authority crack. Used by Override cards.",
+      "trigger": "on_play",
+      "duration_ms": 180,
+      "easing": "ease-izzit-snap",
+      "keyframes": [
+        {"t": 0,    "scale": [1.2, 1.2], "opacity": 0.0, "rotate_deg": -3},
+        {"t": 0.15, "scale": [1.05, 1.05], "opacity": 1.0, "rotate_deg": 1},
+        {"t": 1.0,  "scale": [1.0, 1.0], "rotate_deg": 0}
+      ],
+      "screen_shake": {"intensity": 3, "duration_ms": 120, "falloff": "linear"},
+      "particle_emitter": null,
+      "sound_cue": "authority_snap"
+    },
+
+    "freeze": {
+      "description": "Target card crystallizes with an icy overlay. Used by Detain cards.",
+      "trigger": "on_detain_apply",
+      "duration_ms": 600,
+      "easing": "ease-izzit-freeze",
+      "keyframes": [
+        {"t": 0,    "overlay_color": "rgba(160,220,255,0)", "overlay_opacity": 0.0, "scale": [1.0, 1.0]},
+        {"t": 0.3,  "overlay_color": "rgba(160,220,255,0.5)", "scale": [1.03, 1.03]},
+        {"t": 0.7,  "overlay_color": "rgba(200,235,255,0.8)", "scale": [1.01, 1.01]},
+        {"t": 1.0,  "overlay_color": "rgba(200,235,255,0.9)", "overlay_opacity": 0.9, "scale": [1.0, 1.0]}
+      ],
+      "particle_emitter": {
+        "type": "crystal_shards",
+        "count": 20,
+        "color": "#b8e8ff",
+        "size_range": [3, 10],
+        "velocity_range": [30, 80],
+        "lifetime_ms": 500,
+        "fade_out": true,
+        "gravity": 50
+      },
+      "sound_cue": "ice_crack"
+    },
+
+    "ripple": {
+      "description": "Concentric rings expand outward from the card center. Used by Flux cards.",
+      "trigger": "on_play",
+      "duration_ms": 700,
+      "easing": "ease-izzit-ripple",
+      "keyframes": [
+        {"t": 0,   "ring_radius": 0,   "ring_opacity": 0.8, "ring_width": 3},
+        {"t": 0.5, "ring_radius": 80,  "ring_opacity": 0.4, "ring_width": 2},
+        {"t": 1.0, "ring_radius": 160, "ring_opacity": 0.0, "ring_width": 1}
+      ],
+      "ring_count": 3,
+      "ring_delay_ms": 150,
+      "ring_color": "#7ec8e3",
+      "particle_emitter": null,
+      "sound_cue": "wave_out"
+    },
+
+    "pulse": {
+      "description": "Card emits a slow, steady glow pulse. Used by Constraint Field cards while active.",
+      "trigger": "on_active_idle",
+      "duration_ms": 1200,
+      "loop": true,
+      "easing": "ease-izzit-linear",
+      "keyframes": [
+        {"t": 0,   "glow_radius": 6,  "glow_opacity": 0.4},
+        {"t": 0.5, "glow_radius": 18, "glow_opacity": 0.9},
+        {"t": 1.0, "glow_radius": 6,  "glow_opacity": 0.4}
+      ],
+      "glow_color": "#ffcc44",
+      "particle_emitter": null,
+      "sound_cue": null
+    },
+
+    "grow": {
+      "description": "Card visually swells each round as accretion weight increases. Used by Accretion Node.",
+      "trigger": "on_accretion_tick",
+      "duration_ms": 400,
+      "easing": "ease-izzit-bloom",
+      "keyframes": [
+        {"t": 0,   "scale": [1.0, 1.0], "border_width": 2},
+        {"t": 0.5, "scale": [1.08, 1.08], "border_width": 4},
+        {"t": 1.0, "scale_delta": 0.04,  "border_width_delta": 1}
+      ],
+      "note": "scale_delta and border_width_delta are cumulative per tick, not absolute keyframe values.",
+      "particle_emitter": {
+        "type": "orbit",
+        "count": 6,
+        "color": "#88ffcc",
+        "size_range": [4, 8],
+        "orbit_radius": 40,
+        "speed_rpm": 30,
+        "fade_out": false
+      },
+      "sound_cue": "low_rumble_grow"
+    },
+
+    "shimmer": {
+      "description": "Card edge shimmers with translucent light, suggesting porousness. Used by Liminal Gate.",
+      "trigger": "on_active_idle",
+      "duration_ms": 900,
+      "loop": true,
+      "easing": "ease-izzit-ripple",
+      "keyframes": [
+        {"t": 0,    "edge_shimmer_offset": 0,   "edge_shimmer_opacity": 0.3},
+        {"t": 0.45, "edge_shimmer_offset": 12,  "edge_shimmer_opacity": 0.9},
+        {"t": 1.0,  "edge_shimmer_offset": 24,  "edge_shimmer_opacity": 0.3}
+      ],
+      "shimmer_color": "#e8e0ff",
+      "particle_emitter": null,
+      "sound_cue": null
+    },
+
+    "reflect": {
+      "description": "A mirrored ghost of the source card materializes briefly. Used by Echo.",
+      "trigger": "on_play",
+      "duration_ms": 550,
+      "easing": "ease-izzit-ripple",
+      "ghost": {
+        "offset_x": 12,
+        "offset_y": 12,
+        "opacity_start": 0.6,
+        "opacity_end": 0.0,
+        "scale": [0.85, 0.85],
+        "color_tint": "#aaaaff",
+        "duration_ms": 550
+      },
+      "keyframes": [
+        {"t": 0,   "opacity": 0.0},
+        {"t": 0.2, "opacity": 1.0},
+        {"t": 1.0, "opacity": 1.0}
+      ],
+      "particle_emitter": null,
+      "sound_cue": "echo_soft"
+    },
+
+    "burst": {
+      "description": "Explosive radial discharge. Used by Void Surge on resolution.",
+      "trigger": "on_resolve",
+      "duration_ms": 350,
+      "easing": "ease-izzit-burst",
+      "keyframes": [
+        {"t": 0,    "scale": [1.0, 1.0], "opacity": 1.0},
+        {"t": 0.2,  "scale": [1.4, 1.4], "opacity": 1.0},
+        {"t": 0.5,  "scale": [2.0, 2.0], "opacity": 0.5},
+        {"t": 1.0,  "scale": [3.0, 3.0], "opacity": 0.0}
+      ],
+      "screen_shake": {"intensity": 8, "duration_ms": 300, "falloff": "exponential"},
+      "particle_emitter": {
+        "type": "radial_explosion",
+        "count": 40,
+        "color_palette": ["#ffffff", "#ccccff", "#8888ff"],
+        "size_range": [4, 16],
+        "velocity_range": [80, 240],
+        "lifetime_ms": 600,
+        "fade_out": true,
+        "gravity": 30
+      },
+      "sound_cue": "void_explosion"
+    },
+
+    "throb": {
+      "description": "Rhythmic scale throb mimicking a heartbeat. Used by Somatic Pulse.",
+      "trigger": "on_active_idle",
+      "duration_ms": 800,
+      "loop": true,
+      "easing": "ease-izzit-settle",
+      "keyframes": [
+        {"t": 0,    "scale": [1.0, 1.0]},
+        {"t": 0.12, "scale": [1.07, 1.07]},
+        {"t": 0.24, "scale": [1.0, 1.0]},
+        {"t": 0.36, "scale": [1.05, 1.05]},
+        {"t": 0.5,  "scale": [1.0, 1.0]},
+        {"t": 1.0,  "scale": [1.0, 1.0]}
+      ],
+      "particle_emitter": null,
+      "sound_cue": null
+    },
+
+    "bloom": {
+      "description": "Warm radial gradient expands from center then settles. Used by Affective Bloom.",
+      "trigger": "on_play",
+      "duration_ms": 600,
+      "easing": "ease-izzit-bloom",
+      "keyframes": [
+        {"t": 0,   "radial_radius": 0,   "radial_opacity": 0.0, "hue_shift": 0},
+        {"t": 0.5, "radial_radius": 120, "radial_opacity": 0.8, "hue_shift": 15},
+        {"t": 1.0, "radial_radius": 200, "radial_opacity": 0.0, "hue_shift": 0}
+      ],
+      "radial_color": "#ffaacc",
+      "particle_emitter": {
+        "type": "petal_scatter",
+        "count": 18,
+        "color_palette": ["#ffaacc", "#ffddaa", "#ffccff"],
+        "size_range": [6, 14],
+        "velocity_range": [20, 50],
+        "lifetime_ms": 700,
+        "fade_out": true,
+        "gravity": -10
+      },
+      "sound_cue": "soft_chord"
+    },
+
+    "clamp": {
+      "description": "A hard horizontal bar slams down from the top of the zone. Used by Hard Ceiling.",
+      "trigger": "on_play",
+      "duration_ms": 300,
+      "easing": "ease-izzit-snap",
+      "keyframes": [
+        {"t": 0,   "bar_y": -200, "bar_opacity": 0.0},
+        {"t": 0.6, "bar_y": 0,   "bar_opacity": 1.0},
+        {"t": 0.8, "bar_y": 5,   "bar_opacity": 1.0},
+        {"t": 1.0, "bar_y": 0,   "bar_opacity": 1.0}
+      ],
+      "bar_color": "#cc4444",
+      "bar_height_px": 6,
+      "screen_shake": {"intensity": 5, "duration_ms": 150, "falloff": "linear"},
+      "sound_cue": "metal_clang"
+    },
+
+    "weave": {
+      "description": "A thread draws between two linked cards. Used by Social Weave.",
+      "trigger": "on_link_create",
+      "duration_ms": 500,
+      "easing": "ease-izzit-ripple",
+      "keyframes": [
+        {"t": 0,   "thread_progress": 0.0, "thread_opacity": 0.0},
+        {"t": 0.1, "thread_opacity": 1.0},
+        {"t": 1.0, "thread_progress": 1.0, "thread_opacity": 1.0}
+      ],
+      "thread_color": "#88ddaa",
+      "thread_width": 2,
+      "thread_dash_pattern": [6, 4],
+      "particle_emitter": null,
+      "sound_cue": "string_pluck"
+    },
+
+    "trail": {
+      "description": "A directional arrow trail forms between cause card and effect card. Used by Causal Thread.",
+      "trigger": "on_link_create",
+      "duration_ms": 400,
+      "easing": "ease-izzit-ripple",
+      "keyframes": [
+        {"t": 0,   "trail_progress": 0.0, "arrow_opacity": 0.0},
+        {"t": 1.0, "trail_progress": 1.0, "arrow_opacity": 1.0}
+      ],
+      "trail_color": "#eecc88",
+      "trail_width": 2,
+      "arrowhead_size": 8,
+      "particle_emitter": null,
+      "sound_cue": "tick_forward"
+    },
+
+    "shatter": {
+      "description": "Card fractures into fragments that scatter outward. Used by Material Shard on destruction.",
+      "trigger": "on_destroy",
+      "duration_ms": 500,
+      "easing": "ease-izzit-burst",
+      "keyframes": [
+        {"t": 0,   "opacity": 1.0, "scale": [1.0, 1.0]},
+        {"t": 0.1, "opacity": 1.0, "scale": [1.05, 1.05]},
+        {"t": 1.0, "opacity": 0.0, "scale": [0.0, 0.0]}
+      ],
+      "particle_emitter": {
+        "type": "polygon_fragments",
+        "count": 24,
+        "color_palette": ["#aaaaaa", "#888888", "#cccccc"],
+        "size_range": [8, 20],
+        "velocity_range": [60, 180],
+        "lifetime_ms": 600,
+        "fade_out": true,
+        "gravity": 80,
+        "rotation": true
+      },
+      "sound_cue": "glass_shatter"
+    },
+
+    "ice": {
+      "description": "Zone-wide deep freeze effect radiating from Temporal Lock. Extended version of freeze.",
+      "trigger": "on_play",
+      "duration_ms": 900,
+      "easing": "ease-izzit-freeze",
+      "keyframes": [
+        {"t": 0,   "zone_frost_radius": 0,   "zone_frost_opacity": 0.0},
+        {"t": 0.5, "zone_frost_radius": 200, "zone_frost_opacity": 0.7},
+        {"t": 1.0, "zone_frost_radius": 400, "zone_frost_opacity": 0.5}
+      ],
+      "frost_color": "#cceeff",
+      "particle_emitter": {
+        "type": "snowflake_drift",
+        "count": 30,
+        "color": "#ffffff",
+        "size_range": [4, 12],
+        "velocity_range": [10, 30],
+        "lifetime_ms": 1200,
+        "fade_out": true,
+        "gravity": 15,
+        "drift_amplitude": 10
+      },
+      "sound_cue": "deep_freeze"
+    },
+
+    "grid": {
+      "description": "A lattice pattern overlays the zone, drawing logical connections. Used by Cognitive Lattice.",
+      "trigger": "on_play",
+      "duration_ms": 600,
+      "easing": "ease-izzit-ripple",
+      "keyframes": [
+        {"t": 0,   "grid_opacity": 0.0, "grid_scale": 0.8},
+        {"t": 0.6, "grid_opacity": 0.8, "grid_scale": 1.05},
+        {"t": 1.0, "grid_opacity": 0.6, "grid_scale": 1.0}
+      ],
+      "grid_color": "#88aaff",
+      "grid_cell_size_px": 32,
+      "grid_line_width": 1,
+      "particle_emitter": null,
+      "sound_cue": "digital_build"
+    },
+
+    "flash": {
+      "description": "Single brief bright flash then gone. Used by Elemental Spark.",
+      "trigger": "on_play",
+      "duration_ms": 200,
+      "easing": "ease-izzit-snap",
+      "keyframes": [
+        {"t": 0,    "opacity": 0.0, "scale": [0.5, 0.5], "glow_radius": 0},
+        {"t": 0.25, "opacity": 1.0, "scale": [1.2, 1.2], "glow_radius": 40},
+        {"t": 0.5,  "opacity": 1.0, "scale": [1.0, 1.0], "glow_radius": 20},
+        {"t": 1.0,  "opacity": 0.0, "scale": [0.0, 0.0], "glow_radius": 0}
+      ],
+      "glow_color": "#ffffaa",
+      "particle_emitter": {
+        "type": "spark_spray",
+        "count": 10,
+        "color": "#ffff88",
+        "size_range": [2, 6],
+        "velocity_range": [40, 120],
+        "lifetime_ms": 300,
+        "fade_out": true
+      },
+      "sound_cue": "spark_pop"
+    },
+
+    "cascade": {
+      "description": "Override ripples outward card-by-card in phase order. Used by Override Cascade.",
+      "trigger": "on_play",
+      "duration_ms": 800,
+      "easing": "ease-izzit-ripple",
+      "per_card_delay_ms": 80,
+      "keyframes": [
+        {"t": 0,   "ring_radius": 0,   "ring_opacity": 1.0},
+        {"t": 1.0, "ring_radius": 600, "ring_opacity": 0.0}
+      ],
+      "ring_color": "#ff8844",
+      "ring_width": 4,
+      "particle_emitter": null,
+      "sound_cue": "cascade_wave"
+    },
+
+    "flatline": {
+      "description": "All motion in the zone snaps to stillness. Used by Null Boundary on placement.",
+      "trigger": "on_play",
+      "duration_ms": 250,
+      "easing": "ease-izzit-snap",
+      "keyframes": [
+        {"t": 0,   "zone_motion_scale": 1.0, "bar_opacity": 0.0},
+        {"t": 0.3, "zone_motion_scale": 0.2, "bar_opacity": 1.0},
+        {"t": 1.0, "zone_motion_scale": 0.0, "bar_opacity": 1.0}
+      ],
+      "bar_color": "#222222",
+      "particle_emitter": null,
+      "sound_cue": "flatline_hum"
+    },
+
+    "scan": {
+      "description": "A horizontal scan line sweeps down the zone, recording activity. Used by The Witness.",
+      "trigger": "on_active_idle",
+      "duration_ms": 1500,
+      "loop": true,
+      "easing": "ease-izzit-linear",
+      "keyframes": [
+        {"t": 0,   "scan_y": -100, "scan_opacity": 0.6},
+        {"t": 1.0, "scan_y": 300,  "scan_opacity": 0.6}
+      ],
+      "scan_color": "#44ff88",
+      "scan_width": 2,
+      "particle_emitter": null,
+      "sound_cue": null
+    },
+
+    "thicken": {
+      "description": "Card gains a visible material border layer. Used by Accretion Shell per application.",
+      "trigger": "on_accretion_apply",
+      "duration_ms": 400,
+      "easing": "ease-izzit-bloom",
+      "keyframes": [
+        {"t": 0,   "border_width": 0, "border_opacity": 0.0},
+        {"t": 0.6, "border_width": 6, "border_opacity": 1.0},
+        {"t": 1.0, "border_width_delta": 3, "border_opacity": 1.0}
+      ],
+      "border_color": "#aa8866",
+      "particle_emitter": null,
+      "sound_cue": "layer_add"
+    },
+
+    "sink": {
+      "description": "Card visually depresses into the grid as if pinned. Used by Deep Detain.",
+      "trigger": "on_detain_apply",
+      "duration_ms": 700,
+      "easing": "ease-izzit-settle",
+      "keyframes": [
+        {"t": 0,   "translate_z": 0,   "shadow_blur": 8,  "shadow_opacity": 0.4, "scale": [1.0, 1.0]},
+        {"t": 0.5, "translate_z": -20, "shadow_blur": 2,  "shadow_opacity": 0.8, "scale": [0.97, 0.97]},
+        {"t": 1.0, "translate_z": -15, "shadow_blur": 1,  "shadow_opacity": 1.0, "scale": [0.95, 0.95]}
+      ],
+      "overlay_color": "rgba(20,20,80,0.5)",
+      "particle_emitter": null,
+      "sound_cue": "heavy_press"
+    },
+
+    "fold": {
+      "description": "Card folds away from its current position and unfolds at destination. Used by Liminal Fold.",
+      "trigger": "on_play",
+      "duration_ms": 600,
+      "easing": "ease-izzit-ripple",
+      "phase_exit": {
+        "keyframes": [
+          {"t": 0,   "scale_x": 1.0, "opacity": 1.0},
+          {"t": 0.5, "scale_x": 0.0, "opacity": 0.5},
+          {"t": 0.5, "opacity": 0.0}
+        ]
+      },
+      "phase_enter": {
+        "keyframes": [
+          {"t": 0.5, "scale_x": 0.0, "opacity": 0.0},
+          {"t": 0.75, "scale_x": 0.0, "opacity": 0.5},
+          {"t": 1.0,  "scale_x": 1.0, "opacity": 1.0}
+        ]
+      },
+      "particle_emitter": null,
+      "sound_cue": "paper_fold"
+    },
+
+    "loop": {
+      "description": "Two orbiting ghost trails cycle between the two linked cards. Used by Resonance Loop.",
+      "trigger": "on_link_create",
+      "duration_ms": 800,
+      "loop": true,
+      "loop_count": 3,
+      "on_loop_end": "collapse_to_null",
+      "easing": "ease-izzit-linear",
+      "ghost_trail": {
+        "count": 2,
+        "color": "#aaaaff",
+        "width": 3,
+        "opacity": 0.6,
+        "travel_time_ms": 800
+      },
+      "particle_emitter": null,
+      "sound_cue": "resonance_hum"
+    },
+
+    "lace": {
+      "description": "Multiple threads form a woven mesh across linked Social cards. Used by Constraint Weave.",
+      "trigger": "on_play",
+      "duration_ms": 600,
+      "easing": "ease-izzit-ripple",
+      "keyframes": [
+        {"t": 0,   "thread_progress": 0.0, "thread_opacity": 0.0},
+        {"t": 0.2, "thread_opacity": 1.0},
+        {"t": 1.0, "thread_progress": 1.0, "thread_opacity": 1.0}
+      ],
+      "thread_count": 4,
+      "thread_color": "#ffaa44",
+      "thread_width": 1.5,
+      "cross_pattern": true,
+      "particle_emitter": null,
+      "sound_cue": "lace_draw"
+    },
+
+    "invert": {
+      "description": "Zone color inverts momentarily, signaling field polarity flip. Used by Field Inversion.",
+      "trigger": "on_play",
+      "duration_ms": 400,
+      "easing": "ease-izzit-snap",
+      "keyframes": [
+        {"t": 0,    "filter_invert": 0.0, "filter_hue_rotate": 0},
+        {"t": 0.15, "filter_invert": 1.0, "filter_hue_rotate": 180},
+        {"t": 0.6,  "filter_invert": 1.0, "filter_hue_rotate": 180},
+        {"t": 1.0,  "filter_invert": 0.0, "filter_hue_rotate": 0}
+      ],
+      "screen_flash": {"color": "#ffffff", "opacity": 0.4, "duration_ms": 100},
+      "particle_emitter": null,
+      "sound_cue": "polarity_flip"
+    },
+
+    "plant": {
+      "description": "Card grows roots into the grid below it. Used by Somatic Anchor.",
+      "trigger": "on_play",
+      "duration_ms": 700,
+      "easing": "ease-izzit-settle",
+      "keyframes": [
+        {"t": 0,   "root_length": 0,  "root_opacity": 0.0, "scale": [1.0, 1.0]},
+        {"t": 0.5, "root_length": 30, "root_opacity": 0.8, "scale": [1.03, 1.03]},
+        {"t": 1.0, "root_length": 20, "root_opacity": 1.0, "scale": [1.0, 1.0]}
+      ],
+      "root_color": "#886644",
+      "root_branches": 5,
+      "particle_emitter": null,
+      "sound_cue": "root_creak"
+    },
+
+    "rewrite": {
+      "description": "Text on the target card scrolls through a rapid re-render then resolves to new rule. Used by Cognitive Override.",
+      "trigger": "on_play",
+      "duration_ms": 500,
+      "easing": "ease-izzit-ripple",
+      "text_scramble": {
+        "enabled": true,
+        "scramble_chars": "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789",
+        "duration_ms": 400,
+        "settle_duration_ms": 100
+      },
+      "keyframes": [
+        {"t": 0,   "overlay_opacity": 0.0},
+        {"t": 0.2, "overlay_opacity": 0.5},
+        {"t": 0.8, "overlay_opacity": 0.5},
+        {"t": 1.0, "overlay_opacity": 0.0}
+      ],
+      "overlay_color": "#8888ff",
+      "particle_emitter": null,
+      "sound_cue": "data_write"
+    },
+
+    "numb": {
+      "description": "Card desaturates and a soft gray film descends over it. Used by Affective Detain.",
+      "trigger": "on_detain_apply",
+      "duration_ms": 500,
+      "easing": "ease-izzit-freeze",
+      "keyframes": [
+        {"t": 0,   "filter_saturate": 1.0, "overlay_opacity": 0.0},
+        {"t": 1.0, "filter_saturate": 0.1, "overlay_opacity": 0.5}
+      ],
+      "overlay_color": "rgba(128,128,128,0.5)",
+      "particle_emitter": null,
+      "sound_cue": "muffled_tone"
+    },
+
+    "implode": {
+      "description": "All zone cards collapse into the Singularity point in sequence, then board resets. Used by The Singularity.",
+      "trigger": "on_resolve",
+      "duration_ms": 1200,
+      "easing": "ease-izzit-burst",
+      "per_card_delay_ms": 60,
+      "phase_collapse": {
+        "keyframes": [
+          {"t": 0,   "scale": [1.0, 1.0], "opacity": 1.0},
+          {"t": 0.5, "scale": [0.5, 0.5], "opacity": 0.8},
+          {"t": 1.0, "scale": [0.0, 0.0], "opacity": 0.0, "translate_to": "singularity_center"}
+        ]
+      },
+      "phase_reset": {
+        "start_after_ms": 1200,
+        "flash_color": "#ffffff",
+        "flash_opacity": 1.0,
+        "flash_duration_ms": 300,
+        "fade_to_baseline_ms": 600
+      },
+      "screen_shake": {"intensity": 12, "duration_ms": 800, "falloff": "exponential"},
+      "particle_emitter": {
+        "type": "singularity_pull",
+        "count": 80,
+        "color_palette": ["#ffffff", "#8888ff", "#ffaacc", "#88ffcc"],
+        "size_range": [4, 20],
+        "velocity_range": [100, 400],
+        "direction": "inward",
+        "lifetime_ms": 1000,
+        "fade_out": true
+      },
+      "sound_cue": "singularity_collapse"
+    }
+  },
+
+  "system_events": {
+    "phase_transition": {
+      "description": "Played between every phase. All active card overlays flash briefly, then fade.",
+      "duration_ms": 200,
+      "flash_color": "#ffffff",
+      "flash_opacity": 0.15,
+      "sound_cue": "phase_tick"
+    },
+    "detain_lift": {
+      "description": "Removes the freeze/numb/sink overlay from a newly released card.",
+      "duration_ms": 400,
+      "keyframes": [
+        {"t": 0,   "overlay_opacity": 0.9},
+        {"t": 1.0, "overlay_opacity": 0.0}
+      ],
+      "sound_cue": "release_chime"
+    },
+    "accretion_threshold": {
+      "description": "Triggered when any card hits accretion_weight ≥ 5.0. Pulsing golden halo appears.",
+      "duration_ms": 800,
+      "loop": false,
+      "halo_color": "#ffdd44",
+      "halo_radius": 60,
+      "sound_cue": "threshold_bell"
+    },
+    "override_conflict": {
+      "description": "Two Override-class cards of equal priority clash. Both shake simultaneously.",
+      "duration_ms": 300,
+      "screen_shake": {"intensity": 6, "duration_ms": 300, "falloff": "linear"},
+      "sound_cue": "conflict_buzz"
+    },
+    "board_reset": {
+      "description": "Post-Singularity board fade-in from white.",
+      "duration_ms": 800,
+      "keyframes": [
+        {"t": 0,   "opacity": 0.0},
+        {"t": 1.0, "opacity": 1.0}
+      ],
+      "sound_cue": "new_game_tone"
+    }
+  },
+
+  "sound_cue_registry": {
+    "thud_low":          {"file": "sfx/thud_low.wav",         "volume": 0.7},
+    "silence_whoosh":    {"file": "sfx/silence_whoosh.wav",   "volume": 0.5},
+    "authority_snap":    {"file": "sfx/authority_snap.wav",   "volume": 0.8},
+    "ice_crack":         {"file": "sfx/ice_crack.wav",        "volume": 0.7},
+    "wave_out":          {"file": "sfx/wave_out.wav",         "volume": 0.5},
+    "low_rumble_grow":   {"file": "sfx/low_rumble_grow.wav",  "volume": 0.4},
+    "echo_soft":         {"file": "sfx/echo_soft.wav",        "volume": 0.5},
+    "void_explosion":    {"file": "sfx/void_explosion.wav",   "volume": 1.0},
+    "soft_chord":        {"file": "sfx/soft_chord.wav",       "volume": 0.6},
+    "metal_clang":       {"file": "sfx/metal_clang.wav",      "volume": 0.8},
+    "string_pluck":      {"file": "sfx/string_pluck.wav",     "volume": 0.5},
+    "tick_forward":      {"file": "sfx/tick_forward.wav",     "volume": 0.4},
+    "glass_shatter":     {"file": "sfx/glass_shatter.wav",    "volume": 0.8},
+    "deep_freeze":       {"file": "sfx/deep_freeze.wav",      "volume": 0.7},
+    "digital_build":     {"file": "sfx/digital_build.wav",    "volume": 0.5},
+    "spark_pop":         {"file": "sfx/spark_pop.wav",        "volume": 0.6},
+    "cascade_wave":      {"file": "sfx/cascade_wave.wav",     "volume": 0.8},
+    "flatline_hum":      {"file": "sfx/flatline_hum.wav",     "volume": 0.5},
+    "layer_add":         {"file": "sfx/layer_add.wav",        "volume": 0.4},
+    "heavy_press":       {"file": "sfx/heavy_press.wav",      "volume": 0.7},
+    "paper_fold":        {"file": "sfx/paper_fold.wav",       "volume": 0.4},
+    "resonance_hum":     {"file": "sfx/resonance_hum.wav",   "volume": 0.5},
+    "lace_draw":         {"file": "sfx/lace_draw.wav",        "volume": 0.4},
+    "polarity_flip":     {"file": "sfx/polarity_flip.wav",   "volume": 0.7},
+    "root_creak":        {"file": "sfx/root_creak.wav",       "volume": 0.5},
+    "data_write":        {"file": "sfx/data_write.wav",       "volume": 0.5},
+    "muffled_tone":      {"file": "sfx/muffled_tone.wav",    "volume": 0.4},
+    "singularity_collapse": {"file": "sfx/singularity_collapse.wav", "volume": 1.0},
+    "phase_tick":        {"file": "sfx/phase_tick.wav",       "volume": 0.3},
+    "release_chime":     {"file": "sfx/release_chime.wav",   "volume": 0.5},
+    "threshold_bell":    {"file": "sfx/threshold_bell.wav",  "volume": 0.7},
+    "conflict_buzz":     {"file": "sfx/conflict_buzz.wav",   "volume": 0.6},
+    "new_game_tone":     {"file": "sfx/new_game_tone.wav",   "volume": 0.6}
+  }
+}

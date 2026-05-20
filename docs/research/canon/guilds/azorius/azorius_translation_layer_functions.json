@@ -1,0 +1,115 @@
+{
+  "schema_version": "vox-mana-translation-layer-v1",
+  "faction": "Azorius Senate",
+  "purpose": "Map gameplay/card signals into Azorius-flavored Vox Mana interaction functions.",
+  "functions": {
+    "Detain": {
+      "definition": "Pause or remove a target's immediate agency through arrest, bounce, exile, tap, pacifism, or formal delay.",
+      "inputs": [
+        "target",
+        "duration",
+        "authority",
+        "evidence",
+        "public_reason"
+      ],
+      "outputs": [
+        "status:detained",
+        "agency_delta:-",
+        "tempo_delta:+",
+        "flavor:injunction"
+      ],
+      "best_for": [
+        "detain",
+        "bounce",
+        "tap",
+        "pacifism",
+        "exile",
+        "warrant",
+        "arrest"
+      ],
+      "azorius_read": "The target is not destroyed first; it is processed, held, delayed, or classified as temporarily unlawful."
+    },
+    "Override": {
+      "definition": "Reject, counter, veto, reset, or replace an action with an official ruling.",
+      "inputs": [
+        "action",
+        "rule_basis",
+        "appeal_allowed",
+        "replacement_effect"
+      ],
+      "outputs": [
+        "status:overruled",
+        "stack_delta:-",
+        "stability_delta:+",
+        "flavor:verdict"
+      ],
+      "best_for": [
+        "counterspell",
+        "board wipe",
+        "veto",
+        "silence",
+        "modal judgment",
+        "emergency powers"
+      ],
+      "azorius_read": "The action attempted to enter the public system; Azorius issues a ruling that supersedes it."
+    },
+    "ConstraintField": {
+      "definition": "Create persistent rules, taxes, bindings, protection, or fair-play restrictions that shape what can happen next.",
+      "inputs": [
+        "scope",
+        "constraint_type",
+        "cost",
+        "protected_entity",
+        "duration"
+      ],
+      "outputs": [
+        "status:regulated",
+        "option_space:narrowed",
+        "opponent_friction:+",
+        "flavor:statute"
+      ],
+      "best_for": [
+        "tax",
+        "activated ability denial",
+        "attack tax",
+        "protection",
+        "binding",
+        "vigilance",
+        "defensive posture"
+      ],
+      "azorius_read": "The strongest Azorius play is often not a single answer; it is a rule environment where only lawful actions remain efficient."
+    },
+    "AccretionEngine": {
+      "definition": "Compound advantage through archives, precedent, draw, life, mana infrastructure, counters, tokens, or repeated session timing.",
+      "inputs": [
+        "record_source",
+        "increment",
+        "threshold",
+        "payoff",
+        "review_cycle"
+      ],
+      "outputs": [
+        "status:recorded",
+        "resources:+",
+        "precedent:+",
+        "flavor:archive"
+      ],
+      "best_for": [
+        "card draw",
+        "lifegain",
+        "addendum",
+        "forecast",
+        "mana rocks",
+        "alternate win counters",
+        "recursion"
+      ],
+      "azorius_read": "Azorius wins by making every legal filing matter: records become resources, resources become rulings, rulings become inevitability."
+    }
+  },
+  "signal_router": {
+    "detain|arrest|warrant|binding|injunction|exile|bounce|tap": "Detain",
+    "counter|veto|verdict|judgment|overrule|silence|reset": "Override",
+    "tax|fair|law|rule|protection|vigilance|defender|can't|cost": "ConstraintField",
+    "draw|life|archive|forecast|addendum|mana|counter|token|precedent|filibuster": "AccretionEngine"
+  }
+}

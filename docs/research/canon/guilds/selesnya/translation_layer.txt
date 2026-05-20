@@ -1,0 +1,519 @@
+"""
+translation_layer.py
+====================
+Selesnya Package — Python 3.11 Translation Layer
+Author: Copilot
+Generation Date: 2026-05-18
+
+Provides four reusable constructs for Selesnya-themed game-logic orchestration:
+
+  - Detain(duration_seconds, on_release)  : context manager that temporarily blocks actions
+  - Override(priority)                    : decorator / context manager for prioritised rule overrides
+  - ConstraintField(schema)              : validator class with rich error messages
+  - AccretionEngine()                    : aggregator for stacking effects over time
+
+All imports are from the Python standard library only.
+Requires Python 3.11+.
+"""
+
+from __future__ import annotations
+
+import contextlib
+import functools
+import threading
+import time
+from collections.abc import Callable
+from types import TracebackType
+from typing import Any, Generator
+
+# ---------------------------------------------------------------------------
+# Detain
+# ---------------------------------------------------------------------------
+
+class Detain:
+    """Context manager that temporarily prevents actions for a given duration.
+
+    While the context is active any call to ``is_detained()`` returns True.
+    On exit (either by reaching the timeout or by leaving the ``with`` block)
+    an optional *on_release* callback is invoked.
+
+    Args:
+        duration_seconds: How many seconds the detain period lasts.  The
+            context manager will block for this duration when used as a plain
+            context manager (i.e. ``with Detain(2) as d``).
+        on_release: Optional zero-argument callable executed when the detain
+            period ends.
+
+    Returns:
+        A context manager.  The ``__enter__`` value is the Detain instance
+        itself so callers can query ``is_detained()`` inside the block.
+
+    Example::
+
+        >>> def freed():
+        ...     print("Released!")
+        >>> with Detain(duration_seconds=1, on_release=freed) as d:
+        ...     print(d.is_detained())   # True
+        ...     # ... game logic that must be blocked ...
+        True
+        Released!
+
+        # Use as a stand-alone guard without blocking:
+        >>> guard = Detain(duration_seconds=5)
+        >>> guard.__enter__()
+        >>> guard.is_detained()
+        True
+        >>> guard.__exit__(None, None, None)
+        False
+    """
+
+    def __init__(
+        self,
+        duration_seconds: int,
+        on_release: Callable[[], None] | None = None,
+    ) -> None:
+        if duration_seconds < 0:
+            raise ValueError(f"duration_seconds must be >= 0, got {duration_seconds!r}")
+        self._duration: int = duration_seconds
+        self._on_release: Callable[[], None] | None = on_release
+        self._detained: bool = False
+        self._lock: threading.Lock = threading.Lock()
+
+    # ------------------------------------------------------------------
+    # Context-manager protocol
+    # ------------------------------------------------------------------
+
+    def __enter__(self) -> "Detain":
+        with self._lock:
+            self._detained = True
+        return self
+
+    def __exit__(
+        self,
+        exc_type: type[BaseException] | None,
+        exc_val: BaseException | None,
+        exc_tb: TracebackType | None,
+    ) -> bool:
+        # Block for the configured duration (simulating detain period).
+        if self._duration > 0:
+            time.sleep(self._duration)
+        with self._lock:
+            self._detained = False
+        if self._on_release is not None:
+            self._on_release()
+        return False  # Do not suppress exceptions.
+
+    # ------------------------------------------------------------------
+    # Public API
+    # ------------------------------------------------------------------
+
+    def is_detained(self) -> bool:
+        """Return True while the detain period is active."""
+        with self._lock:
+            return self._detained
+
+    def release_early(self) -> None:
+        """Immediately end the detain period and fire the on_release callback.
+
+        Safe to call from any thread.  Subsequent calls are no-ops.
+        """
+        with self._lock:
+            if not self._detained:
+                return
+            self._detained = False
+        if self._on_release is not None:
+            self._on_release()
+
+
+# ---------------------------------------------------------------------------
+# Override
+# ---------------------------------------------------------------------------
+
+class Override:
+    """Prioritised rule-override decorator and context manager.
+
+    Can be used in two ways:
+
+    1. **Decorator** — wraps a callable so that it runs under the override
+       priority.  The wrapped function receives ``_override_priority`` as a
+       keyword argument if it accepts it.
+    2. **Context manager** — activates the override for the duration of a
+       ``with`` block and safely restores the previous priority on exit.
+
+    When multiple ``Override`` instances are active, the one with the highest
+    *priority* integer wins.  The class maintains a process-wide stack so that
+    nested overrides compose correctly.
+
+    Args:
+        priority: Integer priority level (higher = more authoritative).
+
+    Example::
+
+        # As a decorator:
+        >>> @Override(priority=10)
+        ... def apply_buff(target: str, **kwargs) -> str:
+        ...     p = kwargs.get("_override_priority", 0)
+        ...     return f"Buffing {target!r} at priority {p}"
+        >>> apply_buff("Rootborn Sentinel")
+        "Buffing 'Rootborn Sentinel' at priority 10"
+
+        # As a context manager:
+        >>> with Override(priority=5):
+        ...     # high-priority rules are in effect
+        ...     print(Override.current_priority())
+        5
+    """
+
+    _stack: list[int] = []
+    _stack_lock: threading.Lock = threading.Lock()
+
+    def __init__(self, priority: int) -> None:
+        self._priority: int = priority
+
+    # ------------------------------------------------------------------
+    # Decorator protocol
+    # ------------------------------------------------------------------
+
+    def __call__(self, func: Callable[..., Any]) -> Callable[..., Any]:
+        @functools.wraps(func)
+        def wrapper(*args: Any, **kwargs: Any) -> Any:
+            with self:
+                try:
+                    return func(*args, _override_priority=self._priority, **kwargs)
+                except TypeError:
+                    # Function does not accept _override_priority; call without it.
+                    return func(*args, **kwargs)
+        return wrapper
+
+    # ------------------------------------------------------------------
+    # Context-manager protocol
+    # ------------------------------------------------------------------
+
+    def __enter__(self) -> "Override":
+        with Override._stack_lock:
+            Override._stack.append(self._priority)
+        return self
+
+    def __exit__(
+        self,
+        exc_type: type[BaseException] | None,
+        exc_val: BaseException | None,
+        exc_tb: TracebackType | None,
+    ) -> bool:
+        with Override._stack_lock:
+            try:
+                Override._stack.remove(self._priority)
+            except ValueError:
+                pass  # Safe fallback: already removed.
+        return False
+
+    # ------------------------------------------------------------------
+    # Class-level helpers
+    # ------------------------------------------------------------------
+
+    @classmethod
+    def current_priority(cls) -> int:
+        """Return the highest active override priority, or 0 if none."""
+        with cls._stack_lock:
+            return max(cls._stack, default=0)
+
+    @classmethod
+    def is_active(cls) -> bool:
+        """Return True if any Override is currently in effect."""
+        with cls._stack_lock:
+            return bool(cls._stack)
+
+
+# ---------------------------------------------------------------------------
+# ConstraintField
+# ---------------------------------------------------------------------------
+
+class ConstraintField:
+    """Schema-driven validator with detailed error reporting.
+
+    The *schema* dict supports the following keys (all optional):
+
+    .. code-block:: python
+
+        {
+            "type":         str | type | list[type],   # expected Python type(s)
+            "required":     bool,                       # field must be present / non-None
+            "min":          int | float,                # numeric lower bound (inclusive)
+            "max":          int | float,                # numeric upper bound (inclusive)
+            "min_length":   int,                        # minimum str/list length
+            "max_length":   int,                        # maximum str/list length
+            "pattern":      str,                        # regex pattern (strings only)
+            "enum":         list,                       # value must be one of these
+            "custom":       Callable[[Any], bool],      # additional predicate; True = valid
+            "custom_msg":   str,                        # message when custom predicate fails
+        }
+
+    Args:
+        schema: Dict describing the validation rules.
+
+    Example::
+
+        >>> cf = ConstraintField({
+        ...     "type": int,
+        ...     "required": True,
+        ...     "min": 1,
+        ...     "max": 10,
+        ... })
+        >>> cf.validate(5)
+        True
+        >>> cf.validate(15)
+        False
+        >>> cf.errors
+        ["Value 15 exceeds maximum of 10"]
+    """
+
+    def __init__(self, schema: dict[str, Any]) -> None:
+        self._schema: dict[str, Any] = schema
+        self.errors: list[str] = []
+
+    # ------------------------------------------------------------------
+    # Public API
+    # ------------------------------------------------------------------
+
+    def validate(self, data: Any) -> bool:
+        """Validate *data* against the schema.
+
+        Returns True if valid.  On failure, populates ``self.errors`` with
+        human-readable messages and returns False.
+        """
+        import re
+
+        self.errors = []
+        schema = self._schema
+
+        # Required check
+        if schema.get("required", False) and data is None:
+            self.errors.append("Field is required but received None.")
+            return False
+
+        if data is None:
+            return True  # Non-required None passes remaining checks.
+
+        # Type check
+        expected_type = schema.get("type")
+        if expected_type is not None:
+            types = (
+                tuple(expected_type)
+                if isinstance(expected_type, list)
+                else (expected_type,)
+            )
+            if not isinstance(data, types):
+                type_names = " | ".join(
+                    t.__name__ if isinstance(t, type) else str(t) for t in types
+                )
+                self.errors.append(
+                    f"Expected type {type_names!r}, got {type(data).__name__!r}."
+                )
+
+        # Numeric bounds
+        if isinstance(data, (int, float)):
+            min_val = schema.get("min")
+            max_val = schema.get("max")
+            if min_val is not None and data < min_val:
+                self.errors.append(f"Value {data} is below minimum of {min_val}.")
+            if max_val is not None and data > max_val:
+                self.errors.append(f"Value {data} exceeds maximum of {max_val}.")
+
+        # Length bounds (strings and sequences)
+        if isinstance(data, (str, list, tuple)):
+            min_len = schema.get("min_length")
+            max_len = schema.get("max_length")
+            if min_len is not None and len(data) < min_len:
+                self.errors.append(
+                    f"Length {len(data)} is below minimum length {min_len}."
+                )
+            if max_len is not None and len(data) > max_len:
+                self.errors.append(
+                    f"Length {len(data)} exceeds maximum length {max_len}."
+                )
+
+        # Regex pattern (strings only)
+        pattern = schema.get("pattern")
+        if pattern is not None and isinstance(data, str):
+            if not re.fullmatch(pattern, data):
+                self.errors.append(
+                    f"Value {data!r} does not match required pattern {pattern!r}."
+                )
+
+        # Enum membership
+        enum_vals = schema.get("enum")
+        if enum_vals is not None and data not in enum_vals:
+            self.errors.append(
+                f"Value {data!r} is not one of the allowed values: {enum_vals}."
+            )
+
+        # Custom predicate
+        custom_fn = schema.get("custom")
+        if custom_fn is not None:
+            try:
+                result = custom_fn(data)
+            except Exception as exc:
+                self.errors.append(f"Custom validator raised an exception: {exc}")
+                result = False
+            if not result:
+                msg = schema.get("custom_msg", "Custom validation failed.")
+                self.errors.append(msg)
+
+        return len(self.errors) == 0
+
+    def error_summary(self) -> str:
+        """Return all errors as a single newline-joined string."""
+        return "\n".join(self.errors) if self.errors else "No errors."
+
+
+# ---------------------------------------------------------------------------
+# AccretionEngine
+# ---------------------------------------------------------------------------
+
+class AccretionEngine:
+    """Aggregator that collects and resolves stacking effects over time.
+
+    Selesnya cards frequently stack multiple simultaneous effects (anthem
+    buffs, +1/+1 counters, lifelink from multiple sources).  This engine
+    provides a minimal framework for accumulating those effects and resolving
+    them in a single pass.
+
+    Effects are plain dicts with at minimum a ``"type"`` key.  The engine
+    tracks elapsed time and can conditionally expire effects with a
+    ``"duration_seconds"`` field.
+
+    Args:
+        (none)
+
+    Example::
+
+        >>> engine = AccretionEngine()
+        >>> engine.add({"type": "buff", "power": 2, "toughness": 2})
+        >>> engine.add({"type": "lifelink", "source": "Emmara"})
+        >>> engine.add({"type": "buff", "power": 1, "toughness": 1, "duration_seconds": 3})
+        >>> engine.tick(1.5)
+        >>> resolved = engine.resolve()
+        >>> resolved["total_power_buff"]
+        3
+        >>> resolved["total_toughness_buff"]
+        3
+        >>> resolved["lifelink_active"]
+        True
+    """
+
+    def __init__(self) -> None:
+        self._effects: list[dict[str, Any]] = []
+        self._elapsed: float = 0.0
+
+    # ------------------------------------------------------------------
+    # Public API
+    # ------------------------------------------------------------------
+
+    def add(self, effect: dict[str, Any]) -> None:
+        """Register a new effect.
+
+        Args:
+            effect: Dict describing the effect.  Must contain a ``"type"``
+                key.  Optional ``"duration_seconds"`` causes the effect to
+                expire after that many simulated seconds.
+
+        Raises:
+            ValueError: If *effect* is missing the ``"type"`` key.
+        """
+        if "type" not in effect:
+            raise ValueError("Effect dict must contain a 'type' key.")
+        entry = dict(effect)
+        entry["_added_at"] = self._elapsed
+        self._effects.append(entry)
+
+    def tick(self, delta_seconds: float) -> None:
+        """Advance the engine clock by *delta_seconds*.
+
+        Expired effects (those whose ``duration_seconds`` has elapsed) are
+        automatically pruned.
+
+        Args:
+            delta_seconds: Simulated time advance in seconds.  Must be >= 0.
+        """
+        if delta_seconds < 0:
+            raise ValueError(f"delta_seconds must be >= 0, got {delta_seconds!r}")
+        self._elapsed += delta_seconds
+        self._prune_expired()
+
+    def resolve(self) -> dict[str, Any]:
+        """Aggregate all active effects into a summary dict.
+
+        Returns:
+            A dict summarising the combined state::
+
+                {
+                    "total_power_buff":     int,
+                    "total_toughness_buff": int,
+                    "lifelink_active":      bool,
+                    "vigilance_active":     bool,
+                    "trample_active":       bool,
+                    "token_count_bonus":    int,
+                    "life_gain_bonus":      int,
+                    "populate_triggers":    int,
+                    "raw_effects":          list[dict],
+                    "elapsed_seconds":      float,
+                }
+        """
+        self._prune_expired()
+        summary: dict[str, Any] = {
+            "total_power_buff":     0,
+            "total_toughness_buff": 0,
+            "lifelink_active":      False,
+            "vigilance_active":     False,
+            "trample_active":       False,
+            "token_count_bonus":    0,
+            "life_gain_bonus":      0,
+            "populate_triggers":    0,
+            "raw_effects":          list(self._effects),
+            "elapsed_seconds":      self._elapsed,
+        }
+        for effect in self._effects:
+            etype = effect.get("type", "")
+            match etype:
+                case "buff":
+                    summary["total_power_buff"]     += effect.get("power", 0)
+                    summary["total_toughness_buff"] += effect.get("toughness", 0)
+                case "lifelink":
+                    summary["lifelink_active"] = True
+                    summary["life_gain_bonus"] += effect.get("life", 0)
+                case "vigilance":
+                    summary["vigilance_active"] = True
+                case "trample":
+                    summary["trample_active"] = True
+                case "token":
+                    summary["token_count_bonus"] += effect.get("count", 1)
+                case "populate":
+                    summary["populate_triggers"] += effect.get("count", 1)
+                case _:
+                    pass  # Unknown effect types are preserved in raw_effects only.
+        return summary
+
+    def clear(self) -> None:
+        """Remove all effects and reset the clock."""
+        self._effects.clear()
+        self._elapsed = 0.0
+
+    def effect_count(self) -> int:
+        """Return the number of currently active effects."""
+        return len(self._effects)
+
+    # ------------------------------------------------------------------
+    # Private helpers
+    # ------------------------------------------------------------------
+
+    def _prune_expired(self) -> None:
+        """Remove effects whose duration has been exceeded."""
+        active: list[dict[str, Any]] = []
+        for effect in self._effects:
+            duration = effect.get("duration_seconds")
+            if duration is not None:
+                added_at = effect.get("_added_at", 0.0)
+                if self._elapsed - added_at >= duration:
+                    continue  # Expired — drop it.
+            active.append(effect)
+        self._effects = active

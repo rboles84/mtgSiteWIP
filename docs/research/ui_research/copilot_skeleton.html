@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Vox Mana — Landing</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&display=swap" rel="stylesheet">
+
+<style>
+/* GLOBAL */
+body {
+  background: radial-gradient(circle at center, #0a0a0f, #000);
+  color: #fff;
+  font-family: 'Cinzel', serif;
+  margin: 0;
+  padding: 0;
+}
+
+.vm-landing {
+  max-width: 900px;
+  margin: auto;
+  padding: 2rem;
+}
+
+/* HERO */
+.vm-hero {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.vm-hero h1 {
+  font-size: 3rem;
+  letter-spacing: 2px;
+  text-shadow: 0 0 12px rgba(255,255,255,0.3);
+}
+
+.vm-subtitle {
+  font-size: 1.3rem;
+  opacity: 0.9;
+}
+
+.vm-description {
+  margin-top: 1rem;
+  opacity: 0.8;
+}
+
+/* PATHWAYS */
+.vm-pathways {
+  display: grid;
+  gap: 1.5rem;
+  margin: 3rem 0;
+}
+
+.vm-path {
+  padding: 1.5rem;
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.25s ease;
+  background: rgba(255,255,255,0.03);
+}
+
+.vm-path:hover {
+  background: rgba(255,255,255,0.1);
+  transform: translateY(-3px);
+}
+
+/* SEMIOTICS */
+.vm-semiotics h2 {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.vm-semiotics-intro {
+  opacity: 0.85;
+  margin-bottom: 2rem;
+}
+
+/* COLOR SELECTORS */
+.vm-colors {
+  display: flex;
+  justify-content: space-between;
+  margin: 2rem 0;
+}
+
+.vm-color {
+  padding: 0.8rem 1rem;
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.2s ease;
+  text-align: center;
+  flex: 1;
+  margin: 0 0.3rem;
+}
+
+.vm-color:hover,
+.vm-color.active {
+  background: rgba(255,255,255,0.15);
+}
+
+/* COLOR DESCRIPTION */
+.vm-color-description {
+  margin-bottom: 2rem;
+  padding: 1rem;
+  background: rgba(255,255,255,0.05);
+  border-radius: 8px;
+}
+
+/* RADAR */
+.vm-radar-wrapper {
+  width: 500px;
+  max-width: 100%;
+  margin: auto;
+}
+
+#vmRadar {
+  filter: drop-shadow(0 0 12px rgba(255,255,255,0.25));
+}
+</style>
+</head>
+
+<body>
+<div class="vm-landing">
+
+  <!-- HERO INTRO -->
+  <section class="vm-hero">
+    <h1>Vox Mana</h1>
+    <p class="vm-subtitle">
+      A metaphysical interface for exploring identity, intuition, and the color‑coded logic of the Multiverse.
+    </p>
+    <p class="vm-description">
+      Choose your path: discover your placement through the Archscry Quiz, navigate the Implicit Maze to search the
+      multiverse, or enter the Apocrypha — a living library of metaphysical lore.
+    </p>
+  </section>
+
+  <!-- THREE PATHWAYS -->
+  <section class="vm-pathways">
+    <div class="vm-path" onclick="location.href='archscry.html'">
+      <h2>Archscry Quiz</h2>
+      <p>Reveal your metaphysical placement through a guided interpretive test.</p>
+    </div>
+
+    <div class="vm-path" onclick="location.href='maze.html'">
+      <h2>Implicit Maze</h2>
+      <p>Search Scryfall through a symbolic interface that responds to intuition.</p>
+    </div>
+
+    <div class="vm-path" onclick="location.href='apocrypha.html'">
+      <h2>Apocrypha</h2>
+      <p>A curated library of metaphysical essays, codices, and planar analyses.</p>
+    </div>
+  </section>
+
+  <!-- SEMIOTICS OF THE COLOR PIE -->
+  <section class="vm-semiotics">
+    <h2>The Semiotics of the Color Pie</h2>
+    <p class="vm-semiotics-intro">
+      The five colors of the WUBRG wheel represent incompatible belief systems at constant odds with one another.
+      Rather than cosmetic themes, they function as an ideological closed-loop, utilizing tailored gameplay mechanics
+      to enforce their respective philosophies upon the platform.
+    </p>
+
+    <!-- COLOR SELECTORS -->
+    <div class="vm-colors">
+      <div class="vm-color active" data-color="W">☀️ White (W)</div>
+      <div class="vm-color" data-color="U">💧 Blue (U)</div>
+      <div class="vm-color" data-color="B">💀 Black (B)</div>
+      <div class="vm-color" data-color="R">🔥 Red (R)</div>
+      <div class="vm-color" data-color="G">🌳 Green (G)</div>
+    </div>
+
+    <!-- COLOR DESCRIPTION -->
+    <div class="vm-color-description">
+      <h3 id="vm-color-title">White (W): Peace through Order</h3>
+      <p id="vm-color-text">
+        White values organization, community, and structure, believing that individual desires must be sacrificed to
+        eradicate suffering.
+      </p>
+      <p id="vm-color-raw"><strong>Raw Potential State:</strong> Manifest and Manifest Dread strip cards of identity.</p>
+      <p id="vm-color-commander"><strong>Commander Catalyst:</strong> Zimone, Mystery Unraveler.</p>
+    </div>
+
+    <!-- RADAR CHART -->
+    <div class="vm-radar-wrapper">
+      <canvas id="vmRadar"></canvas>
+    </div>
+  </section>
+
+</div>
+
+<!-- JS -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+// Color data
+const colorInfo = {
+  W: {
+    title: "White (W): Peace through Order",
+    text: "White values organization, community, and structure, believing that individual desires must be sacrificed to eradicate suffering.",
+    raw: "Manifest and Manifest Dread strip cards of identity.",
+    commander: "Zimone, Mystery Unraveler.",
+    values: [70, 60, 85],
+    color: "#ffffff"
+  },
+  U: {
+    title: "Blue (U): Perfection through Knowledge",
+    text: "Blue views life as a process of constant discovery and optimization, treating the mind as a blank slate that must be carefully developed.",
+    raw: "Manifest and Manifest Dread strip cards of identity.",
+    commander: "Zimone, Mystery Unraveler.",
+    values: [95, 80, 90],
+    color: "#66ccff"
+  },
+  B: {
+    title: "Black (B): Power through Opportunity",
+    text: "Black prioritizes ambition, pragmatism, and self-interest, believing that power is seized by those willing to claim it.",
+    raw: "Identity is a resource to be exploited.",
+    commander: "Gonti, Lord of Luxury.",
+    values: [85, 75, 95],
+    color: "#b300b3"
+  },
+  R: {
+    title: "Red (R): Freedom through Action",
+    text: "Red values emotion, spontaneity, and authenticity, believing that truth emerges from unfiltered expression.",
+    raw: "Chaos reveals true identity.",
+    commander: "Toralf, God of Fury.",
+    values: [60, 90, 70],
+    color: "#ff6666"
+  },
+  G: {
+    title: "Green (G): Growth through Acceptance",
+    text: "Green respects natural order and interdependence, believing that identity emerges from one's place in the world.",
+    raw: "Identity emerges from nature.",
+    commander: "Azusa, Lost but Seeking.",
+    values: [80, 85, 60],
+    color: "#66ff99"
+  }
+};
+
+// Radar chart
+const ctx = document.getElementById('vmRadar');
+let radar = new Chart(ctx, {
+  type: 'radar',
+  data: {
+    labels: ['Cosmic Aspects', 'Physical Footprint', 'Autonomy Disruption'],
+    datasets: [{
+      label: "White (W)",
+      data: colorInfo.W.values,
+      borderColor: colorInfo.W.color,
+      backgroundColor: colorInfo.W.color + "33",
+      borderWidth: 2
+    }]
+  },
+  options: {
+    scales: {
+      r: {
+        min: 0,
+        max: 100,
+        ticks: { display: false },
+        grid: { color: 'rgba(255,255,255,0.15)' },
+        angleLines: { color: 'rgba(255,255,255,0.25)' },
+        pointLabels: { color: '#fff' }
+      }
+    }
+  }
+});
+
+// Click behavior
+document.querySelectorAll('.vm-color').forEach(el => {
+  el.addEventListener('click', () => {
+    const c = el.dataset.color;
+    const info = colorInfo[c];
+
+    // Update text
+    document.getElementById('vm-color-title').innerText = info.title;
+    document.getElementById('vm-color-text').innerText = info.text;
+    document.getElementById('vm-color-raw').innerHTML = "<strong>Raw Potential State:</strong> " + info.raw;
+    document.getElementById('vm-color-commander').innerHTML = "<strong>Commander Catalyst:</strong> " + info.commander;
+
+    // Update chart
+    radar.data.datasets[0].label = info.title;
+    radar.data.datasets[0].data = info.values;
+    radar.data.datasets[0].borderColor = info.color;
+    radar.data.datasets[0].backgroundColor = info.color + "33";
+    radar.update();
+
+    // Active state
+    document.querySelectorAll('.vm-color').forEach(i => i.classList.remove('active'));
+    el.classList.add('active');
+  });
+});
+</script>
+
+</body>
+</html>

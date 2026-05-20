@@ -1,0 +1,87 @@
+{
+  "faction": "Simic Combine",
+  "version": "simic-translation-layer-v1",
+  "design_note": "The shared function names are preserved for Vox Mana cross-faction compatibility. Their Simic behavior translates control/constraint concepts into biomantic adaptation language.",
+  "functions": [
+    {
+      "name": "Detain",
+      "simic_interpretation": "Hold an unstable variable in a specimen state long enough to observe and redirect it.",
+      "input_contract": {
+        "target": "card | mechanic | narrative signal",
+        "reason": "why the signal needs temporary containment"
+      },
+      "output_contract": {
+        "status": "observed | stabilized | released",
+        "simic_read": "plain-language explanation of the contained variable"
+      },
+      "pseudo": "Detain(target, reason) => StabilizedSpecimen({ target, reason, observation_window, release_condition })",
+      "example": "Detain(opponent_threat, \"too large for current ecosystem\") -> freeze as research object until adaptation catches up."
+    },
+    {
+      "name": "Override",
+      "simic_interpretation": "Rewrite the operating pattern of a card, trait, or narrative signal into a more adaptive biological form.",
+      "input_contract": {
+        "signal": "source behavior",
+        "desired_trait": "growth, evasion, protection, draw, ramp, or control"
+      },
+      "output_contract": {
+        "rewritten_signal": "Simic-flavored behavior",
+        "mutation_cost": "what must be spent or risked"
+      },
+      "pseudo": "Override(signal, desired_trait) => MutatedPattern({ original: signal, trait: desired_trait, cost, side_effect })",
+      "example": "Override(removal, \"biomancy\") -> transform the creature instead of simply destroying it."
+    },
+    {
+      "name": "ConstraintField",
+      "simic_interpretation": "Define the environment that pressures adaptation: mana limits, board size, available counters, and threat ecology.",
+      "input_contract": {
+        "environment": "game state or UX state",
+        "constraints": [
+          "mana",
+          "threats",
+          "available hosts",
+          "counter density",
+          "card flow"
+        ]
+      },
+      "output_contract": {
+        "field_model": "what adaptation is rewarded",
+        "risk": "where the ecosystem collapses"
+      },
+      "pseudo": "ConstraintField(environment, constraints) => EvolutionaryPressureMap({ rewarded_traits, blocked_paths, risk })",
+      "example": "ConstraintField(board, [\"few counters\", \"large opposing flyers\"]) -> prioritize reach, evasion, or counter acceleration."
+    },
+    {
+      "name": "AccretionEngine",
+      "simic_interpretation": "Compound small advantages into visible evolution: counters, cards, mana, bodies, and abilities accumulating over time.",
+      "input_contract": {
+        "seed": "initial signal or card",
+        "growth_vectors": [
+          "+1/+1 counters",
+          "draw",
+          "ramp",
+          "tokens",
+          "ability reuse"
+        ]
+      },
+      "output_contract": {
+        "engine_loop": "repeatable growth cycle",
+        "threshold_payoff": "what happens when enough growth accumulates"
+      },
+      "pseudo": "AccretionEngine(seed, growth_vectors) => GrowthLoop({ seed, vector_stack, trigger, threshold_payoff })",
+      "example": "AccretionEngine(Cloudfin Raptor, [\"larger creatures\", \"+1/+1 counters\", \"evasion payoff\"]) -> early threat becomes scaling aerial clock."
+    }
+  ],
+  "shared_terms": {
+    "specimen": "a card, mechanic, or user signal being observed",
+    "host": "the card or UX element receiving counters/adaptation",
+    "cytoplast": "portable growth marker; usually represented as +1/+1 counters or animated motes",
+    "zonot": "deep context layer; a place where hidden structure emerges into the UI",
+    "krasis": "hybrid synthesis of two or more traits into one new expression"
+  },
+  "source_anchors": {
+    "scryfall_watermark_search": "https://scryfall.com/search?q=watermark%3Asimic",
+    "wizards_designing_simic": "https://magic.wizards.com/en/news/making-magic/designing-simic-2013-02-18",
+    "mtg_wiki_summary": "https://mtg.fandom.com/wiki/Simic_Combine"
+  }
+}

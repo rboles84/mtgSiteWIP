@@ -1,0 +1,147 @@
+{
+  "schema_version": "vox-mana-animation-spec-v1",
+  "school": "Lorehold",
+  "core_motion_sentence": "A dust-covered relic line is traced in white, then red sparks break the seal and the past rises as a Spirit, construct, or restored action.",
+  "identity_tags": [
+    "archaeomancy",
+    "relics",
+    "Spirit statues",
+    "gravebreak",
+    "reconstruction",
+    "field history",
+    "order versus chaos",
+    "battle memory"
+  ],
+  "palette": {
+    "archive_ivory": "#F4E8CF",
+    "sunlit_parchment": "#DDBF7A",
+    "ruin_gold": "#B8843B",
+    "terracotta_red": "#B5472D",
+    "ember_orange": "#E86A32",
+    "stone_shadow": "#4A4036",
+    "spirit_white": "#F8F3E7",
+    "antique_bronze": "#7A5835"
+  },
+  "texture_language": [
+    "dust motes",
+    "carved stone grooves",
+    "parchment fibers",
+    "bronze patina",
+    "excavation grid lines",
+    "spirit-statue silhouettes",
+    "cracked monument edges",
+    "field-map annotations"
+  ],
+  "timing": {
+    "default_enter_ms": 460,
+    "excavation_reveal_ms": 900,
+    "spirit_rise_ms": 720,
+    "artifact_rebuild_ms": 980,
+    "hover_response_ms": 190,
+    "reduced_motion_fallback": "static parchment reveal + icon swap; no dust swirl, no parallax, no pulsing spirits"
+  },
+  "motion_primitives": [
+    {
+      "name": "ArchiveTrace",
+      "description": "A thin ivory line traces a relic outline or card border like a conservator marking a find.",
+      "easing": "cubic-bezier(.16, .84, .32, 1)"
+    },
+    {
+      "name": "RedSealBreak",
+      "description": "A red-orange crack crosses the trace, implying the dangerous thrill of discovery.",
+      "easing": "cubic-bezier(.22, 1, .36, 1)"
+    },
+    {
+      "name": "DustLift",
+      "description": "Dust motes rise from a concealed layer, revealing title text or card metadata beneath.",
+      "easing": "ease-out"
+    },
+    {
+      "name": "SpiritStatueRise",
+      "description": "A pale spirit silhouette lifts out of a statue or grave layer, then locks into a readable icon.",
+      "easing": "cubic-bezier(.19, 1, .22, 1)"
+    },
+    {
+      "name": "RelicRebuild",
+      "description": "Broken bronze fragments snap into a doubled artifact outline.",
+      "easing": "cubic-bezier(.16, .84, .32, 1)"
+    },
+    {
+      "name": "PrecedentStamp",
+      "description": "A soft white/gold seal stamps a decision point, implying order, precedent, and recorded truth.",
+      "easing": "ease-out"
+    }
+  ],
+  "component_specs": {
+    "placement_card": {
+      "enter_sequence": [
+        "ArchiveTrace",
+        "DustLift",
+        "SpiritStatueRise"
+      ],
+      "hover_sequence": [
+        "RedSealBreak",
+        "PrecedentStamp"
+      ],
+      "copy_tone": "Use language of discovery, witness, relic, precedent, and revived action."
+    },
+    "matrix_row": {
+      "enter_sequence": [
+        "DustLift"
+      ],
+      "hover_sequence": [
+        "ArchiveTrace",
+        "RelicRebuild"
+      ],
+      "data_glyphs": [
+        "relic",
+        "spirit",
+        "excavation",
+        "precedent",
+        "reconstruction"
+      ]
+    },
+    "taxonomy_panel": {
+      "enter_sequence": [
+        "PrecedentStamp",
+        "DustLift"
+      ],
+      "hover_sequence": [
+        "SpiritStatueRise"
+      ],
+      "section_transition": "page-turn + dust wipe"
+    },
+    "maze_link": {
+      "enter_sequence": [
+        "ArchiveTrace"
+      ],
+      "hover_sequence": [
+        "RedSealBreak",
+        "RelicRebuild"
+      ],
+      "button_microcopy": "Excavate matching commanders"
+    }
+  },
+  "css_custom_properties": {
+    "--vm-lorehold-archive-ivory": "#F4E8CF",
+    "--vm-lorehold-parchment": "#DDBF7A",
+    "--vm-lorehold-ruin-gold": "#B8843B",
+    "--vm-lorehold-terracotta": "#B5472D",
+    "--vm-lorehold-ember": "#E86A32",
+    "--vm-lorehold-stone-shadow": "#4A4036",
+    "--vm-lorehold-spirit-white": "#F8F3E7",
+    "--vm-lorehold-bronze": "#7A5835"
+  },
+  "accessibility_rules": [
+    "Dust and spirit particles must be decorative and hidden from assistive tech.",
+    "Do not use motion alone to communicate graveyard/relic/spirit state; include text or icon labels.",
+    "Honor prefers-reduced-motion by replacing particle movement with opacity and static state badges.",
+    "Maintain contrast between parchment backgrounds and bronze/red text; do not rely on pale gold for body copy."
+  ],
+  "implementation_notes": [
+    "Lorehold should feel older, dustier, and more archaeological than Boros; avoid military-police visuals.",
+    "Red motion should read as discovery/adventure, not rage alone.",
+    "White motion should read as preservation/precedent, not bureaucracy alone.",
+    "The most distinctive Lorehold UI loop is: uncover -> classify -> revive -> act."
+  ]
+}

@@ -1,0 +1,68 @@
+{
+  "schema_version": "vox-mana-translation-layer-v1",
+  "school": "Prismari",
+  "functions": {
+    "Detain": {
+      "prismari_meaning": "A rehearsal pause: freeze the expressive motif, outline its technique, then release it as a cleaner copied gesture.",
+      "primary_inputs": [
+        "motifs",
+        "tags",
+        "mechanical_signal"
+      ],
+      "output_intent": "hold_for_rehearsal",
+      "best_cards": [
+        "Rootha, Mercurial Artist",
+        "Teach by Example",
+        "Inspiring Refrain",
+        "Practical Research"
+      ]
+    },
+    "Override": {
+      "prismari_meaning": "Emotional truth breaks the sterile plan and restages the moment as performance.",
+      "primary_inputs": [
+        "red_signal",
+        "emotion",
+        "improvisation_signal"
+      ],
+      "output_intent": "emotional_breakthrough",
+      "best_cards": [
+        "Creative Outburst",
+        "Reinterpret",
+        "Prismari Apprentice",
+        "Splatter Technique"
+      ]
+    },
+    "ConstraintField": {
+      "prismari_meaning": "A visible stage boundary that makes improvisation legible instead of random.",
+      "primary_inputs": [
+        "constraints",
+        "modes",
+        "axes"
+      ],
+      "output_intent": "compose_the_stage",
+      "best_cards": [
+        "Magma Opus",
+        "Prismari Command",
+        "Multiple Choice",
+        "Visionary's Dance"
+      ]
+    },
+    "AccretionEngine": {
+      "prismari_meaning": "Every spell, copy, treasure, or beat adds charge until the performance earns a crescendo.",
+      "primary_inputs": [
+        "events",
+        "spells",
+        "beats",
+        "elemental_signal"
+      ],
+      "output_intent": "build_to_crescendo",
+      "best_cards": [
+        "Galazeth Prismari",
+        "Zaffai, Thunder Conductor",
+        "Veyran, Voice of Duality",
+        "Storm-Kiln Artist",
+        "Elemental Masterpiece"
+      ]
+    }
+  }
+}

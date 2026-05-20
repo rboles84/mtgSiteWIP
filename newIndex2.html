@@ -1,0 +1,2471 @@
+<!-- DOCTYPE: Tells the browser to render this as modern HTML5 instead of older quirks mode. Keep this as the first real document declaration. -->
+<!DOCTYPE html>
+<!-- HTML ROOT: Starts the page document. lang="en" tells browsers and assistive technology that the page content is English. -->
+<html lang="en">
+<!-- HEAD: Browser-only setup area for metadata, title, fonts, external libraries, and page-level CSS. Nothing inside <head> is visible as normal page content. -->
+<head>
+<!-- META CHARSET: Allows the page to correctly display modern characters like arrows, em dashes, curly quotes, and mana-style symbols. -->
+<meta charset="UTF-8" />
+<!-- VIEWPORT: Makes the layout scale correctly on phones/tablets instead of rendering as a zoomed-out desktop page. -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<!-- TITLE: Text shown in the browser tab and used by bookmarks/search previews. -->
+<title>Vox Mana</title>
+<!-- Archscry assets inserted here (background, canvas, web component).
+  See docs/handoffs/2026-05-19-1505-copilot-archscry-extract.md for details. -->
+
+<!-- FONT LOAD: Imports the Cinzel typeface from Google Fonts so the page has the fantasy/lore typography. -->
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&display=swap" rel="stylesheet" />
+<!-- CHART.JS: Loads the external Chart.js library. The radar chart later depends on this script being loaded before your custom chart code runs. -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<!-- STYLE BLOCK: All CSS in this file lives here. CSS controls the look, layout, animation, and responsive behavior. -->
+<style>
+/* CSS VARIABLES: Global design tokens. These custom properties centralize colors, glow values, panel colors, and mana colors so the rest of the CSS can reuse them with var(...). */
+:root {
+  --bg: #050508;
+  --panel: rgba(255, 255, 255, 0.06);
+  --panel-strong: rgba(255, 255, 255, 0.10);
+  --line: rgba(255, 255, 255, 0.16);
+  --text: #ffffff;
+  --muted: rgba(255, 255, 255, 0.72);
+  --accent: #d8c27a;
+
+  --ink: #f5ead2;
+  --dim: #756954;
+  --gold: #d7a23c;
+  --gold-2: #f7d784;
+  --line-bright: rgba(247, 215, 132, 0.72);
+  --theme-glow: rgba(88, 186, 255, 0.28);
+  --bg-image: url('assets/bg-archscry.webp');
+
+  --mana-white: #f7f0d0;
+  --mana-blue: #58b8ff;
+  --mana-black: #a46bea;
+  --mana-red: #ff6b55;
+  --mana-green: #63e58d;
+}
+
+/* UNIVERSAL RESET: Applies border-box sizing to everything so width/height calculations include padding and borders, making layouts easier to control. */
+* {
+  box-sizing: border-box;
+}
+
+/* HTML SCROLLING: Enables smooth animated movement when clicking anchor links like #basics or #top. */
+html {
+  scroll-behavior: smooth;
+}
+
+/* BODY BASE: Removes default browser margin, sets the layered page background, default text color, and default font. */
+body {
+  margin: 0;
+  background:
+    radial-gradient(circle at 20% 10%, rgba(88, 184, 255, 0.12), transparent 24rem),
+    radial-gradient(circle at 80% 0%, rgba(164, 107, 234, 0.10), transparent 24rem),
+    linear-gradient(180deg, #080812, #000);
+  color: var(--text);
+  font-family: 'Cinzel', serif;
+}
+
+/* BODY BACKGROUND LAYER: Adds a fixed full-screen background image behind the page using a pseudo-element. */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  /* Keep the duplicate body image behind the decorative vm-bg stack so the star canvas stays visible. */
+  z-index: -11;
+  background-image: var(--bg-image);
+  background-size: cover;
+  background-position: center;
+  transform: scale(1.03);
+  /* BACKGROUND FILTER KNOBS:
+     - Increase brightness(...) to lighten the far-back image.
+     - Increase contrast(...) for harsher light/dark separation.
+     - Increase saturate(...) for richer color; lower it for a flatter painted look. */
+  filter: saturate(1.04) contrast(1.08) brightness(0.72);
+}
+
+/* BODY OVERLAY LAYER: Adds dark edge vignettes, mouse-follow glow via --mx/--my, gold lower glow, and final darkening overlay. */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -4;
+  pointer-events: none;
+  /* OVERLAY KNOBS:
+     - The first linear-gradient controls dark edge framing. Higher alpha = stronger vignette.
+     - The radial-gradient using --mx/--my controls the mouse-follow glow size.
+     - The lower ellipse controls the gold floor glow. Raise its alpha for more warmth.
+     - The final vertical gradient controls overall darkness from top to bottom. */
+  background:
+    linear-gradient(90deg, rgba(0,0,0,0.93), rgba(0,0,0,0.18) 22%, rgba(0,0,0,0.14) 76%, rgba(0,0,0,0.92)),
+    radial-gradient(circle at var(--mx, 50%) var(--my, 40%), var(--theme-glow), transparent 28rem),
+    radial-gradient(ellipse at 50% 100%, rgba(215,162,60,0.14), transparent 44rem),
+    linear-gradient(180deg, rgba(0,0,0,0.35), rgba(0,0,0,0.72));
+  mix-blend-mode: normal;
+}
+
+/* CSS SECTION: Decorative fixed background image, nebula gradients, and animated star canvas. */
+/* BACKGROUND */
+/* BACKGROUND CONTAINER: Fixed decorative layer behind content. pointer-events:none prevents it from blocking clicks. */
+.vm-bg {
+  position: fixed;
+  inset: 0;
+  z-index: -10;
+  pointer-events: none;
+}
+
+/* BACKGROUND PICTURE WRAPPER: Makes the <picture> element fill the fixed background container. */
+.vm-bg__picture {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* BACKGROUND IMAGE: Forces the image to cover the screen and applies cinematic color/brightness filtering. */
+.vm-bg__picture img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* FOREGROUND IMAGE FILTER KNOBS:
+     - This is the brighter visible painted layer inside .vm-bg.
+     - Lower brightness(...) if the art feels washed out or stars feel overpowered.
+     - Raise brightness(...) if the page feels too muddy after a dark overlay change. */
+  filter: saturate(1.04) contrast(1.08) brightness(1.52);
+}
+
+/* NEBULA OVERLAY: Adds soft blue/purple radial gradients over the background image. */
+.vm-bg__nebula {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 20% 10%, rgba(88, 184, 255, 0.12), transparent 24rem),
+    radial-gradient(circle at 80% 0%, rgba(164, 107, 234, 0.10), transparent 24rem);
+}
+
+/* STARS CANVAS: The JavaScript particle animation draws into this full-screen canvas. */
+.vm-bg__stars {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  /* Let the star canvas sit above the darker body overlay while staying behind page content. */
+  z-index: -3;
+  /* CANVAS KNOBS:
+     - Raise opacity for stronger stars/orbs overall.
+     - Lower opacity if the atmosphere starts competing with text and cards. */
+  opacity: 1;
+  pointer-events: none;
+}
+
+/* BUBBLE EFFECT REMOVAL: Hides the decorative nebula only, while keeping the star canvas visible. */
+.vm-bg__nebula {
+  display: none !important;
+}
+
+/* LINK DEFAULTS: Makes links inherit surrounding text color and removes default underlines. */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* CSS SECTION: Sticky top navigation and shared button styles. */
+/* NAV */
+/* NAV BAR: Sticky top navigation with blur and dark translucent background so it stays readable while scrolling. */
+.vm-nav {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.85rem clamp(1rem, 4vw, 2rem);
+  background: rgba(0, 0, 0, 0.72);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--line);
+}
+
+/* BRAND LINK: Styles the Vox Mana wordmark in the nav. */
+.vm-brand {
+  font-weight: 700;
+  letter-spacing: 0.12em;
+}
+
+/* NAV LINKS WRAPPER: Places nav links in a horizontal row with spacing. */
+.vm-nav-links {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 0.85rem;
+}
+
+/* NAV LINK NORMAL STATE: Slightly dims nav links until hover. */
+.vm-nav-links a {
+  opacity: 0.78;
+}
+
+/* NAV LINK HOVER: Brightens link and shifts color to the accent gold when the user points at it. */
+.vm-nav-links a:hover {
+  opacity: 1;
+  color: var(--accent);
+}
+
+/* BUTTON BASE: Shared pill button styling used for CTAs and the back-to-top button. */
+.vm-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 0.7rem 1rem;
+  background: var(--panel);
+  transition: 0.2s ease;
+}
+
+/* BUTTON HOVER: Raises buttons slightly and strengthens the background to feel interactive. */
+.vm-button:hover {
+  transform: translateY(-2px);
+  background: var(--panel-strong);
+}
+
+/* PRIMARY BUTTON: Gold gradient version of the shared button for the strongest action. */
+.vm-button.primary {
+  background: linear-gradient(135deg, #fff2b0, #a9842f);
+  color: #111;
+  border: none;
+  font-weight: 700;
+}
+
+/* CSS SECTION: Global page shell, section spacing, and reusable intro text styles. */
+/* LAYOUT */
+/* PAGE SHELL: Centers content and caps the max width so sections do not stretch too wide on large screens. */
+.vm-shell {
+  width: min(1080px, calc(100% - 2rem));
+  margin: 0 auto;
+}
+
+/* SECTION ANCHOR OFFSET: Keeps anchor jumps from hiding section headings under the sticky nav. */
+section {
+  scroll-margin-top: 90px;
+}
+
+/* SECTION SPACING: Adds vertical padding to standard content sections. */
+.vm-section {
+  padding: 1rem 0;
+}
+
+/* SECTION HEADINGS: Centers major section titles and makes their size responsive with clamp(). */
+.vm-section h2 {
+  margin: 0 0 0.75rem;
+  text-align: center;
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+}
+
+/* SECTION INTRO COPY: Limits paragraph width, centers it, and uses muted text for explanatory copy. */
+.vm-section-intro {
+  max-width: 720px;
+  margin: 0 auto 2rem;
+  text-align: center;
+  color: var(--muted);
+  line-height: 1.65;
+}
+
+/* CSS SECTION: Top hero/landing introduction styling. */
+/* HERO */
+/* HERO SECTION: Main first impression area; grid centering places the title block in the middle. */
+.vm-hero {
+  min-height: 8vh;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  padding: 5rem 0 3rem;
+}
+
+/* HERO EYEBROW: Small uppercase label above the main title. */
+.vm-eyebrow {
+  color: var(--accent);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-size: 0.78rem;
+}
+
+/* HERO TITLE: Large responsive Vox Mana title with tight line-height and soft glow. */
+.vm-hero h1 {
+  margin: 0.5rem 0;
+  font-size: clamp(3.5rem, 10vw, 7rem);
+  line-height: 0.9;
+  text-shadow: 0 0 30px rgba(255, 255, 255, 0.22);
+}
+
+/* HERO PARAGRAPHS: Readable intro text with max width and responsive font size. */
+.vm-hero p {
+  max-width: 780px;
+  margin: 1rem auto;
+  color: var(--muted);
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  line-height: 1.65;
+}
+
+/* HERO ACTION ROW: Button container that can wrap on smaller screens. The HTML using it is currently commented out. */
+.vm-actions {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  margin-top: 1.5rem;
+}
+
+/* CSS SECTION: Reusable card grid, glass panels, hover effects, and CTA text. */
+/* CARDS */
+/* CARD GRID: Three-column layout for path cards and library preview cards. */
+.vm-card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-top: -1rem;
+}
+
+/* CARD/PANEL SHARED SURFACE: Common glass-panel styling for clickable cards and static content panels. */
+.vm-card,
+.vm-panel {
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  padding: 1.25rem;
+  background: linear-gradient(180deg, rgba(255,255,255,0.075), rgba(255,255,255,0.035));
+  box-shadow: 0 22px 70px rgba(0,0,0,0.38);
+}
+
+/* CARD TRANSITION: Makes cards animate smoothly when hover styles apply. */
+.vm-card {
+  transition: 0.2s ease;
+}
+
+/* CARD HOVER: Lifts the card and brightens its border to show it is clickable. */
+.vm-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(255,255,255,0.32);
+}
+
+/* CARD/PANEL TITLES: Shared heading spacing and font size inside card-like surfaces. */
+.vm-card h3,
+.vm-panel h3 {
+  margin: 0 0 0.5rem;
+  font-size: 1.35rem;
+}
+
+/* CARD/PANEL BODY COPY: Muted readable paragraph styling inside card-like surfaces. */
+.vm-card p,
+.vm-panel p {
+  margin: 0 0 1rem;
+  color: var(--muted);
+  line-height: 1.55;
+}
+
+/* CARD CTA TEXT: Gold small call-to-action line at the bottom of clickable cards. */
+.vm-cta {
+  color: var(--accent);
+  font-size: 0.86rem;
+}
+
+/* CSS SECTION: Two-column explanatory area and small list cards. */
+/* SIMPLE EXPLAINER */
+/* TWO-COLUMN LAYOUT: Splits the “What is Vox Mana?” section into two equal columns. */
+.vm-two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+/* MINI LIST WRAPPER: Vertically stacks the feature list items. */
+.vm-list {
+  display: grid;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+/* MINI LIST ITEM: Each “Discover/Search/Read” row gets its own subtle glass box. */
+.vm-list-item {
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 0.9rem;
+  background: rgba(255,255,255,0.04);
+}
+
+/* MINI LIST EMPHASIS: Highlights the lead verb in each list item with the accent color. */
+.vm-list-item strong {
+  color: var(--accent);
+}
+
+/* CSS SECTION: Topic tabs, reveal animation, and Color Matrix wrapper. */
+/* MAGIC BASICS */
+/* BASICS TABS WRAPPER: Horizontal/wrapping row for the Magic Basics topic buttons. */
+.vm-tabs {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  margin-bottom: 1rem;
+}
+
+/* BASICS TAB BUTTON: Styles each topic selector button. JavaScript reads data-topic from these buttons. */
+.vm-tab {
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 0.7rem 0.9rem;
+  background: var(--panel);
+  color: var(--text);
+  font-family: inherit;
+  cursor: pointer;
+}
+
+/* ACTIVE/HOVER TAB: Shows which Magic Basics tab is active and gives hover feedback. */
+.vm-tab.active,
+.vm-tab:hover {
+  background: var(--panel-strong);
+  border-color: rgba(255,255,255,0.34);
+}
+
+/* REVEAL INITIAL STATE: Elements start slightly lower and invisible; JS adds .is-visible when they enter the viewport. */
+.reveal,
+/* BASICS REVEAL BOX: The dynamic text area populated by JavaScript when a basics tab is clicked. */
+.vm-reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 420ms ease, transform 420ms ease;
+  will-change: opacity, transform;
+}
+
+/* REVEAL VISIBLE STATE: Final position/opacity after scroll reveal animation activates. */
+.reveal.is-visible,
+.vm-reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal,
+.vm-reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 420ms ease, transform 420ms ease;
+  will-change: opacity, transform;
+}
+
+.reveal.is-visible,
+.vm-reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.vm-reveal {
+  max-width: 780px;
+  margin: 0 auto;
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  padding: 1.25rem;
+  background: rgba(255,255,255,0.045);
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+/* INLINE ACTION SPACING: Adds top margin to the “Show the five colors” button inside the dynamic basics text. */
+.vm-reveal .vm-inline-action {
+  margin-top: 1rem;
+}
+
+/* COLOR MATRIX WRAPPER: Container for the optional interactive radar/selector preview under Color Pie. */
+.vm-color-matrix-wrap {
+  margin-top: 1.5rem;
+}
+
+/* HIDDEN COLOR MATRIX: Ensures the Color Matrix completely disappears when the hidden attribute is present. */
+.vm-color-matrix-wrap[hidden] {
+  display: none;
+}
+
+/* COLOR MATRIX HEADING: Centers the title and intro above the interactive matrix. */
+.vm-color-matrix-heading {
+  max-width: 780px;
+  margin: 0 auto 1rem;
+  text-align: center;
+}
+
+/* COLOR MATRIX TITLE: Responsive heading for the Color Matrix module. */
+.vm-color-matrix-heading h3 {
+  margin: 0 0 0.45rem;
+  font-size: clamp(1.35rem, 3vw, 2rem);
+}
+
+/* COLOR MATRIX DESCRIPTION: Muted supporting copy under the Color Matrix title. */
+.vm-color-matrix-heading p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+/* CSS SECTION: Identity selector, selected-card display, score bars, Chart.js radar card, and dataset pills. */
+/* COLOR MATRIX + RADAR */
+/* LAB PANEL: Adds responsive internal padding around the Color Matrix content. */
+.vm-lab-panel {
+  padding: clamp(1rem, 3vw, 1.5rem);
+}
+
+/* LAB TWO-COLUMN GRID: Left side is selector/details; right side is the radar chart card. */
+.vm-lab-layout {
+  display: grid;
+  grid-template-columns: minmax(300px, 0.9fr) minmax(360px, 1.1fr);
+  gap: 1.25rem;
+  align-items: stretch;
+}
+
+/* SELECTOR PANEL: Vertical stack for mode tabs, identity buttons, selected card, axis list, and note. */
+.vm-selector-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* SELECTOR TITLE ROW: Places “Mana Lens” and version label on one row with a bottom divider. */
+.vm-selector-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 0.8rem;
+}
+
+/* SELECTOR TITLE TEXT: Removes default heading margin for tighter alignment. */
+.vm-selector-title h3 {
+  margin: 0;
+}
+
+/* SELECTOR VERSION LABEL: Muted small text for “Identity Selector v4”. */
+.vm-selector-title span {
+  color: var(--muted);
+  font-size: 0.78rem;
+}
+
+/* LENS TABS: Shared flex wrapping for main selector tabs and guild subtabs. */
+.vm-lens-tabs,
+/* GUILD SUBTABS HIDDEN BY DEFAULT: Allied/Enemy buttons stay hidden unless Guilds mode is selected. */
+.vm-lens-subtabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+}
+
+.vm-lens-subtabs {
+  display: none;
+}
+
+/* GUILD SUBTABS VISIBLE: JavaScript adds .show when Guilds mode is active. */
+.vm-lens-subtabs.show {
+  display: flex;
+}
+
+/* LENS BUTTONS: Shared pill styling for Mono/Guilds/Colleges and Allied/Enemy buttons. */
+.vm-lens-tab,
+.vm-lens-subtab {
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 0.65rem 0.85rem;
+  background: rgba(255,255,255,0.045);
+  color: var(--text);
+  font-family: inherit;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+/* RADAR CONTROLS ROW: Holds checkboxes that toggle component and synthesis datasets. */
+.vm-controls {
+  display: flex;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+  margin: 0.8rem 0;
+}
+
+/* CHECKBOX LABEL: Aligns each checkbox with its label and uses muted text. */
+.vm-toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  color: var(--muted);
+  font-size: 0.86rem;
+}
+
+/* LENS BUTTON ACTIVE/HOVER: Visual feedback when a lens tab is hovered or selected. */
+.vm-lens-tab:hover,
+.vm-lens-subtab:hover,
+/* ACTIVE LENS TEXT: Gold text marks the selected mode/submode. */
+.vm-lens-tab.active,
+.vm-lens-subtab.active {
+  background: var(--panel-strong);
+  border-color: rgba(255,255,255,0.36);
+  transform: translateY(-2px);
+}
+
+.vm-lens-tab.active,
+.vm-lens-subtab.active {
+  color: var(--accent);
+}
+
+/* IDENTITY GRID: Two-column grid that JS fills with identity choice buttons. */
+.vm-lens-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.65rem;
+}
+
+/* MONO GRID VARIANT: Five columns for the five single-color options. */
+.vm-lens-grid.mono {
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+
+/* IDENTITY CHOICE CARD: Button card for a color/guild/college option; contains symbols, name, and mini description. */
+.vm-lens-choice {
+  position: relative;
+  min-height: 72px;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  padding: 0.8rem;
+  background:
+    linear-gradient(135deg, rgba(255,255,255,0.075), rgba(255,255,255,0.03));
+  color: var(--text);
+  cursor: pointer;
+  font-family: inherit;
+  text-align: left;
+  overflow: hidden;
+  transition: 0.22s ease;
+}
+
+/* IDENTITY CHOICE GLOW LAYER: Uses --choice-glow set by JS to paint a soft color blend behind the card. */
+.vm-lens-choice::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  background: var(--choice-glow, transparent);
+  opacity: 0.18;
+  transition: 0.22s ease;
+}
+
+/* IDENTITY CHOICE HOVER: Lifts the option and brightens its border. */
+.vm-lens-choice:hover {
+  transform: translateY(-3px);
+  border-color: rgba(255,255,255,0.35);
+}
+
+/* IDENTITY CHOICE GLOW ACTIVE/HOVER: Stronger glow when hovered or selected. */
+.vm-lens-choice:hover::before,
+.vm-lens-choice.active::before {
+  opacity: 0.36;
+}
+
+/* SELECTED IDENTITY CHOICE: Gold outline shows the currently selected profile. */
+.vm-lens-choice.active {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-color: rgba(255,255,255,0.42);
+}
+
+/* IDENTITY CHOICE CONTENT STACKING: Keeps text above the ::before glow layer. */
+.vm-lens-choice > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* MANA SYMBOL LINE: Small gold line showing codes like {W}{U}. */
+.vm-lens-symbols {
+  display: block;
+  color: var(--accent);
+  font-size: 0.76rem;
+  letter-spacing: 0.04em;
+  margin-bottom: 0.18rem;
+}
+
+/* IDENTITY NAME: Bold visible name such as White, Azorius, or Prismari. */
+.vm-lens-name {
+  display: block;
+  font-size: 0.96rem;
+  font-weight: 700;
+}
+
+/* IDENTITY MINI TEXT: Small muted helper line showing component colors or “Core color profile”. */
+.vm-lens-mini {
+  display: block;
+  margin-top: 0.18rem;
+  color: var(--muted);
+  font-size: 0.72rem;
+  line-height: 1.35;
+}
+
+/* SELECTED CARD: Displays the currently chosen identity title, description, and component overlay. */
+.vm-selected-card {
+  position: relative;
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  padding: 1rem;
+  background:
+    radial-gradient(circle at top right, rgba(216,194,122,0.12), transparent 12rem),
+    rgba(255,255,255,0.045);
+  overflow: hidden;
+}
+
+/* SELECTED CARD GLOW: Uses --selected-glow set by JS to tint the selected profile card. */
+.vm-selected-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--selected-glow, transparent);
+  opacity: 0.2;
+  filter: blur(18px);
+  pointer-events: none;
+}
+
+/* SELECTED CARD CONTENT STACKING: Keeps selected-card text above the glow pseudo-element. */
+.vm-selected-card > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* SELECTED CARD KICKER: Small uppercase label that changes between profile and synthesis. */
+.vm-selected-kicker {
+  color: var(--accent);
+  font-size: 0.75rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  margin-bottom: 0.4rem;
+}
+
+/* SELECTED CARD TITLE: Responsive title for the active identity. */
+.vm-selected-card h3 {
+  margin: 0 0 0.5rem;
+  font-size: clamp(1.35rem, 3vw, 1.95rem);
+}
+
+/* SELECTED CARD DESCRIPTION: Muted readable description for the active identity. */
+.vm-selected-card p {
+  margin: 0.35rem 0;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+/* OVERLAY LINE: Inline row showing component colors and synthesized identity. */
+.vm-overlay-line {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  align-items: center;
+  margin-top: 0.65rem;
+  color: var(--muted);
+  font-size: 0.82rem;
+}
+
+/* OVERLAY PILL: Small pill used for component color names and final identity name. */
+.vm-overlay-dot {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 0.3rem 0.5rem;
+  background: rgba(0,0,0,0.18);
+}
+
+/* AXIS LIST: Vertical list of Order/Knowledge/Ambition/Freedom/Growth bars. */
+.vm-axis-list {
+  display: grid;
+  gap: 0.55rem;
+  margin-top: 1rem;
+}
+
+/* AXIS ROW: Three columns: label, horizontal bar, and score/tier text. */
+.vm-axis {
+  display: grid;
+  grid-template-columns: 90px 1fr 42px;
+  gap: 0.65rem;
+  align-items: center;
+  font-size: 0.82rem;
+  color: var(--muted);
+}
+
+/* AXIS BAR TRACK: Dark rounded background behind each score bar. */
+.vm-axis-bar {
+  height: 8px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.10);
+  overflow: hidden;
+}
+
+/* AXIS BAR FILL: Colored width is set inline by JS based on the selected identity score. */
+.vm-axis-fill {
+  display: block;
+  height: 100%;
+  width: 0;
+  border-radius: inherit;
+  background: var(--accent);
+  transition: width 0.45s ease, background 0.25s ease;
+}
+
+/* CHART WRAPPER: Holds the radar glow and canvas while clipping overflow to rounded corners. */
+.vm-chart-wrap {
+  position: relative;
+  min-height: 460px;
+  overflow: hidden;
+  border-radius: 28px;
+}
+
+/* RADAR GLOW: Absolute glow behind the radar chart; JS updates the background gradient by selected identity. */
+.vm-radar-glow {
+  position: absolute;
+  inset: 0;
+  opacity: 0.34;
+  filter: blur(28px);
+  pointer-events: none;
+  transition: 0.35s ease;
+  border-radius: 28px;
+}
+
+/* RADAR CARD: Glass panel around the chart, controls, caption, and dataset pills. */
+.vm-radar-card {
+  position: relative;
+  min-height: 540px;
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  background:
+    radial-gradient(circle at 50% 48%, rgba(255,255,255,0.07), rgba(255,255,255,0.025) 60%, rgba(0,0,0,0.08)),
+    rgba(0,0,0,0.18);
+  overflow: hidden;
+  padding: 1rem;
+}
+
+.vm-radar-glow {
+  position: absolute;
+  inset: 0;
+  opacity: 0.34;
+  filter: blur(28px);
+  pointer-events: none;
+  transition: 0.35s ease;
+}
+
+/* RADAR CANVAS SIZE BOX: Gives Chart.js a fixed-height responsive area to draw into. */
+.vm-radar-wrap {
+  position: relative;
+  z-index: 2;
+  height: 450px;
+}
+
+/* RADAR CANVAS: Forces Chart.js canvas to fill its parent width/height. */
+#vmRadar {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+/* VOID CANVAS: A fixed full-screen canvas style from the Archscry extract. There is no matching element in this file right now. */
+#void-canvas {
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  width: 100%;
+  height: 100%;
+  opacity: 0.78;
+  pointer-events: none;
+  mix-blend-mode: screen;
+}
+
+/* RADAR CAPTION: Text below the chart showing the current profile name. */
+.vm-radar-caption {
+  position: relative;
+  z-index: 2;
+  margin: 0.75rem 0 0;
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.82rem;
+}
+
+/* DATASET PILLS WRAPPER: Holds labels for each dataset currently visible in the radar chart. */
+.vm-dataset-pills {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin-top: 0.7rem;
+}
+
+/* DATASET PILL: Small label for each active chart dataset. */
+.vm-pill {
+  position: relative;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 0.35rem 0.55rem;
+  background: rgba(255,255,255,0.05);
+  color: var(--muted);
+  font-size: 0.75rem;
+  transition: background 0.25s ease, box-shadow 0.25s ease, color 0.25s ease, transform 0.25s ease;
+}
+
+/* ACTIVE DATASET PILL: Highlights the synthesized/final identity dataset. */
+.vm-pill.active {
+  background: rgba(255, 255, 255, 0.22);
+  color: #ffffff;
+  transform: translateY(-1px);
+  box-shadow: 0 0 24px rgba(216, 194, 122, 0.35), 0 0 10px rgba(255, 255, 255, 0.18);
+}
+
+/* DATASET PILL WITH ARROW SPACING: Adds room for the arrow after the last component pill. */
+.vm-pill.has-arrow {
+  margin-right: 0.85rem;
+  padding-right: 1rem;
+}
+
+/* DATASET PILL ARROW: Adds an arrow showing component colors synthesize into the final identity. */
+.vm-pill.has-arrow::after {
+  content: "➜";
+  position: absolute;
+  top: 50%;
+  left: calc(100% + 0.25rem);
+  transform: translateY(-50%);
+  font-size: 0.95rem;
+  color: var(--accent);
+  opacity: 0.92;
+}
+
+/* RAKDOS SPECIAL CASE: Custom active pill glow/color for the Rakdos dataset. */
+.vm-pill[data-label="Rakdos"].active {
+  background: rgba(216, 110, 154, 0.24);
+  border-color: #d86e9a;
+  box-shadow: 0 0 28px rgba(216, 110, 154, 0.5), 0 0 12px rgba(255, 255, 255, 0.16);
+}
+
+/* RAKDOS ARROW COLOR: Matches the synthesis arrow to the Rakdos highlight color. */
+.vm-pill[data-label="Rakdos"].active::after {
+  color: #d86e9a;
+}
+
+/* PLACEHOLDER NOTE: Dashed informational box explaining this Color Matrix is only a preview. */
+.vm-placeholder-note {
+  margin-top: 1rem;
+  padding: 0.85rem;
+  border: 1px dashed rgba(255,255,255,0.22);
+  border-radius: 16px;
+  color: var(--muted);
+}
+/* CSS SECTION: Footer and fixed back-to-top button. */
+/* FOOTER */
+/* FOOTER: Bottom site summary and repeated navigation links. */
+.vm-footer {
+  border-top: 1px solid var(--line);
+  padding: 2rem 0;
+  color: var(--muted);
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  font-size: 0.9rem;
+}
+
+/* BACK TO TOP BUTTON: Fixed lower-right button starts hidden and non-clickable. */
+.vm-backtop {
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* BACK TO TOP VISIBLE: JS toggles this class after scrolling down. */
+.vm-backtop.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* CSS SECTION: Media queries that adapt layout for tablets and phones. */
+/* RESPONSIVE */
+/* RESPONSIVE <= 940px: Collapses the Color Matrix layout from two columns to one and shortens the radar area. */
+@media (max-width: 940px) {
+  .vm-lab-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .vm-radar-card {
+    min-height: 460px;
+  }
+
+  .vm-radar-wrap {
+    height: 380px;
+  }
+}
+
+/* RESPONSIVE <= 820px: Stacks nav and page grids for tablet/mobile widths. */
+@media (max-width: 820px) {
+  .vm-nav {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .vm-nav-links {
+    width: 100%;
+    overflow-x: auto;
+    padding-bottom: 0.25rem;
+  }
+
+  .vm-card-grid,
+  .vm-two-col {
+    grid-template-columns: 1fr;
+  }
+
+  .vm-hero {
+    min-height: auto;
+  }
+}
+
+/* RESPONSIVE <= 560px: Simplifies identity grids and radar sizing for small phones. */
+@media (max-width: 560px) {
+  .vm-lens-grid,
+  .vm-lens-grid.mono {
+    grid-template-columns: 1fr;
+  }
+
+  .vm-axis {
+    grid-template-columns: 76px 1fr 36px;
+  }
+
+  .vm-radar-wrap {
+    height: 320px;
+  }
+}
+</style>
+</head>
+
+<!-- BODY: Visible page starts here. This contains the background layers, navigation, main content, footer, and JavaScript. -->
+<body>
+  <!-- Background with image and sparkling stars -->
+  <!-- DECORATIVE BACKGROUND: aria-hidden="true" means screen readers ignore this because it is visual decoration only. -->
+  <div class="vm-bg" aria-hidden="true">
+    <!-- RESPONSIVE BACKGROUND IMAGE: <picture> can serve modern image formats; here it points to the WebP background. -->
+    <picture class="vm-bg__picture">
+      <!-- BACKGROUND SOURCE: Browser can choose this WebP image; sizes="100vw" says it is intended to span the full viewport width. -->
+      <source type="image/webp" srcset="./assets/img/backgrounds/background-vox-gateway-clean-13.webp 2560w" sizes="100vw">
+      <!-- BACKGROUND FALLBACK IMG: The visible background image. Empty alt text is correct here because the image is decorative. -->
+      <img src="./assets/img/backgrounds/background-vox-gateway-clean-13.webp" alt="" decoding="async" fetchpriority="high">
+    </picture>
+    <!-- NEBULA LAYER: Empty div used only for CSS radial-gradient atmosphere. -->
+    <div class="vm-bg__nebula"></div>
+    <!-- STAR CANVAS: Empty drawing surface. JavaScript later animates tiny gold particles on it. -->
+    <canvas class="vm-bg__stars" aria-hidden="true"></canvas>
+  </div>
+
+<!-- NAVIGATION: Sticky top menu. href="#..." links jump to sections on this page; .html links open other pages. -->
+<nav class="vm-nav">
+  <!-- BRAND ANCHOR: Clicking the Vox Mana name jumps back to the top/main shell. -->
+  <a class="vm-brand" href="#top">Vox Mana</a>
+
+  <!-- NAV LINK GROUP: Main navigation destinations shown across the sticky header. -->
+  <div class="vm-nav-links">
+    <!-- PLACEHOLDER NAV LINKS: Future page destinations stay visually clickable without navigating yet. -->
+    <a href="#" data-vm-placeholder-link>What is this?</a>
+    <a href="#" data-vm-placeholder-link>Magic Basics</a>
+    <!-- <a href="/archscry/">Archscry</a>
+    <a href="/maze/">Implicit Maze</a> -->
+    <a class="vm-nav-link" href="/archscry/" data-vm-nav="archscry">Archscry</a>
+    <a class="vm-nav-link" href="/maze/" data-vm-nav="maze">The Implicit Maze</a>
+    <a class="vm-nav-link" href="/apocrypha/" data-vm-nav="apocrypha">Apocrypha</a>
+  </div>
+</nav>
+
+<!-- MAIN CONTENT SHELL: id="top" is the anchor target for Back to top. vm-shell keeps content centered and width-limited. -->
+<main id="top" class="vm-shell">
+
+  <!-- HERO -->
+  <!-- HERO SECTION: First visible content block. reveal class lets JS animate it into view. -->
+  <section class="vm-hero reveal">
+    <div>
+      <!-- EYEBROW TEXT: Small context label above the main title. -->
+      <div class="vm-eyebrow">Color philosophy, identity, and lore</div>
+      <!-- MAIN PAGE TITLE: The largest heading and brand statement on the page. -->
+      <h1>Vox Mana</h1>
+      <p>
+        A simple starting point for exploring Magic: The Gathering through color philosophy,
+        personal placement, symbolic card meaning, and curated lore research.
+      </p>
+      <p>
+        Start with Archscry, learn the color system, or open the library when you are ready to go deeper.
+      </p>
+
+      <!-- COMMENTED-OUT ACTIONS: This block is intentionally disabled right now; the button HTML remains here for later reuse. -->
+      <!-- <div class="vm-actions">
+        <a class="vm-button primary" href="/archscry/">Start Archscry</a>
+        <a class="vm-button" href="#library">Explore the Library</a>
+      </div> -->
+    </div>
+  </section>
+
+  <!-- PATHS -->
+  <!-- PATHS SECTION: Three primary cards guiding users into the major site areas. -->
+  <section id="paths" class="vm-section">
+    <h2>Choose a Path</h2>
+    <p class="vm-section-intro">
+      Three simple doors into the site. Choose the path that matches what you came here to do.
+    </p>
+
+    <!-- CARD GRID: Reusable 3-column grid for clickable feature cards. -->
+    <div class="vm-card-grid">
+      <!-- PATH CARD - ARCHSCRY: Clickable card that sends users to the placement/identity experience. -->
+      <a class="vm-card reveal" href="/archscry/">
+        <h3>Archscry</h3>
+        <p><strong>Find yourself.</strong> Take the placement quiz and discover the colors, guilds, schools, or factions that match your identity.</p>
+        <span class="vm-cta">Start Archscry →</span>
+      </a>
+
+      <!-- PATH CARD - IMPLICIT MAZE: Clickable card that sends users to symbolic/card-meaning search. -->
+      <a class="vm-card reveal" href="/maze/">
+        <h3>Implicit Maze</h3>
+        <p><strong>Search meaning.</strong> Explore cards through symbolic meaning, color logic, and hidden relationships.</p>
+        <span class="vm-cta">Open the maze →</span>
+      </a>
+
+      <!-- PATH CARD - APOCRYPHA: Clickable card that sends users to the lore/library area. -->
+      <a class="vm-card reveal" href="/apocrypha/">
+        <h3>Apocrypha</h3>
+        <p><strong>Read the lore.</strong> Browse curated lore, dossiers, essays, and research about Magic’s worlds and philosophies.</p>
+        <span class="vm-cta">Enter the library →</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- WHAT IS VOX MANA -->
+  <!-- WHAT SECTION: Explains the site purpose in plain language. -->
+  <section id="what" class="vm-section">
+    <h2>What is Vox Mana?</h2>
+    <p class="vm-section-intro">
+      Vox Mana connects identity, color philosophy, placement, symbolic search, and curated research into one simple landing experience.
+    </p>
+
+    <!-- TWO-COLUMN CONTENT: Left side explains the idea; right side lists what users can do. -->
+    <div class="vm-two-col">
+      <div class="vm-panel">
+        <h3>The Simple Idea</h3>
+        <p>
+          Magic’s colors are more than game mechanics. They are philosophies: different ways of seeing power,
+          freedom, order, knowledge, growth, conflict, and belonging.
+        </p>
+        <p>
+          Vox Mana turns those ideas into tools for discovery, search, and research.
+        </p>
+      </div>
+
+      <div class="vm-panel">
+        <h3>What You Can Do Here</h3>
+        <div class="vm-list">
+          <div class="vm-list-item"><strong>Discover</strong> your color identity through Archscry.</div>
+          <div class="vm-list-item"><strong>Search</strong> cards through symbolic relationships.</div>
+          <div class="vm-list-item"><strong>Read</strong> curated lore and faction research.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MAGIC BASICS -->
+  <!-- MAGIC BASICS SECTION: Interactive learning area controlled by the tab buttons and JavaScript below. -->
+  <section id="basics" class="vm-section">
+    <h2>Magic the Gathering Basics</h2>
+    <p class="vm-section-intro">
+      New to Magic? Start here. Magic is a strategy card game built around five colors of mana.
+      Each color represents a philosophy, a way of solving problems, and a style of play.
+    </p>
+
+    <!-- TOPIC TABS: Buttons with data-topic values. JS reads data-topic and swaps the basics text. -->
+    <div class="vm-tabs">
+      <!-- DEFAULT ACTIVE TAB: Starts on Color Pie because it has class="active" and JS initializes topic "pie". -->
+      <button class="vm-tab active" data-topic="pie">Color Pie</button>
+      <!-- BASICS TAB: data-topic="mana" maps to basics.mana in the JavaScript object. -->
+      <button class="vm-tab" data-topic="mana">Mana</button>
+      <!-- BASICS TAB: data-topic="decks" maps to basics.decks in the JavaScript object. -->
+      <button class="vm-tab" data-topic="decks">Decks</button>
+      <!-- BASICS TAB: data-topic="lore" maps to basics.lore in the JavaScript object. -->
+      <button class="vm-tab" data-topic="lore">Lore</button>
+      <!-- BASICS TAB: data-topic="gameplay" maps to basics.gameplay in the JavaScript object. -->
+      <button class="vm-tab" data-topic="gameplay">Gameplay</button>
+    </div>
+
+    <!-- DYNAMIC BASICS OUTPUT: Empty at load; JS inserts the selected tab explanation into this div. -->
+    <div class="vm-reveal" id="basicsReveal"></div>
+
+    <!-- COLOR MATRIX MODULE: Hidden by default. JS removes hidden when the user clicks “Show the five colors”. -->
+    <div id="colorMatrixWrap" class="vm-color-matrix-wrap" hidden>
+      <div class="vm-color-matrix-heading">
+        <h3>Color Matrix</h3>
+        <p>
+          A lightweight preview of the color identity model. The deeper placement experience belongs in Archscry.
+        </p>
+      </div>
+    <!-- COLOR MATRIX PANEL: Glass container holding the selector and radar chart. -->
+    <div class="vm-panel vm-lab-panel">
+      <!-- COLOR MATRIX LAYOUT: Two columns: identity selector on the left, radar visualization on the right. -->
+      <div class="vm-lab-layout">
+
+        <!-- SELECTOR PANEL: User chooses mono colors, guilds, or colleges here. -->
+        <div class="vm-selector-panel">
+          <!-- SELECTOR HEADER: Shows the module name and a small version label. -->
+          <div class="vm-selector-title">
+            <h3>Mana Lens</h3>
+            <span>Identity Selector v4</span>
+          </div>
+
+          <!-- LENS MODE TABS: JS switches between Mono, Guilds, and Colleges using data-mode. -->
+          <div class="vm-lens-tabs" id="lensTabs">
+            <!-- LENS MODE BUTTON: Starts selected; shows the five single-color profiles. -->
+            <button class="vm-lens-tab active" data-mode="mono">Mono</button>
+            <!-- LENS MODE BUTTON: Shows two-color guild identities and reveals Allied/Enemy subtabs. -->
+            <button class="vm-lens-tab" data-mode="guilds">Guilds</button>
+            <!-- LENS MODE BUTTON: Shows Strixhaven-style college identities. -->
+            <button class="vm-lens-tab" data-mode="colleges">Colleges</button>
+          </div>
+
+          <!-- GUILD SUBTABS: Only shown in Guilds mode; JS switches between allied and enemy groups. -->
+          <div class="vm-lens-subtabs" id="guildSubtabs">
+            <!-- GUILD FILTER BUTTON: Shows allied guilds when active. -->
+            <button class="vm-lens-subtab active" data-guild-group="allied">Allied</button>
+            <!-- GUILD FILTER BUTTON: Shows enemy guilds when active. -->
+            <button class="vm-lens-subtab" data-guild-group="enemy">Enemy</button>
+          </div>
+
+          <!-- IDENTITY GRID OUTPUT: JS builds the clickable identity buttons and inserts them here. -->
+          <div class="vm-lens-grid mono" id="identityGrid"></div>
+
+          <!-- SELECTED IDENTITY CARD: JS updates this with the active profile title, text, and overlay line. -->
+          <div class="vm-selected-card" id="selectedCard">
+            <!-- SELECTED KICKER: JS changes this between “Selected Profile” and “Selected Synthesis”. -->
+            <div class="vm-selected-kicker" id="selectedKicker">Selected Profile</div>
+            <!-- SELECTED TITLE OUTPUT: JS replaces this with the active identity title. -->
+            <h3 id="colorTitle">White — Peace through Order</h3>
+            <!-- SELECTED DESCRIPTION OUTPUT: JS replaces this with the active identity description. -->
+            <p id="colorText">
+              White values structure, protection, community, duty, and shared stability. It asks how life can be made safer through order.
+            </p>
+            <!-- OVERLAY LINE OUTPUT: JS fills this with component color pills and synthesis labels. -->
+            <div class="vm-overlay-line" id="overlayLine"></div>
+          </div>
+
+          <!-- AXIS SCORE OUTPUT: JS builds the horizontal Order/Knowledge/Ambition/Freedom/Growth bars here. -->
+          <div class="vm-axis-list" id="axisList"></div>
+
+          <!-- PREVIEW NOTE: Static reminder that this matrix is a lightweight preview, not the full Archscry placement flow. -->
+          <div class="vm-placeholder-note">
+            Color Matrix note: this preview shows how Magic colors can be read as identity patterns. Deeper placement belongs in Archscry.
+          </div>
+        </div>
+
+        <!-- RADAR CARD: Right-side visualization panel using Chart.js. -->
+        <div class="vm-radar-card">
+          <!-- RADAR CONTROLS: Checkboxes let the user show/hide component datasets and final synthesis dataset. -->
+          <div class="vm-controls">
+            <!-- COMPONENT TOGGLE: When checked, multi-color choices show their individual color profiles as dashed chart overlays. -->
+            <label class="vm-toggle"><input id="componentToggle" type="checkbox" checked /> show component colors</label>
+            <!-- SYNTHESIS TOGGLE: When checked, the final combined identity is shown on the radar chart. -->
+            <label class="vm-toggle"><input id="compositeToggle" type="checkbox" checked /> show synthesis</label>
+          </div>
+          <!-- CHART WRAPPER: Contains the glow layer and the actual Chart.js canvas. -->
+          <div class="vm-chart-wrap">
+            <!-- RADAR GLOW OUTPUT: JS updates this div background to match the selected identity colors. -->
+            <div class="vm-radar-glow" id="radarGlow"></div>
+            <div class="vm-radar-wrap">
+              <!-- RADAR CANVAS: Chart.js draws the actual radar chart into this canvas. -->
+              <canvas id="vmRadar" aria-label="Vox Mana color philosophy radar chart"></canvas>
+            </div>
+          </div>
+          <!-- RADAR CAPTION OUTPUT: JS updates this with the current selected profile name. -->
+          <p class="vm-radar-caption" id="radarCaption">
+            Current profile: White
+          </p>
+          <!-- DATASET PILLS OUTPUT: JS creates labels for each currently visible radar dataset. -->
+          <div class="vm-dataset-pills" id="datasetPills"></div>
+        </div>
+
+      </div>
+    </div>
+    </div>
+  </section>
+
+  <!-- LIBRARY PREVIEW -->
+  <!-- LIBRARY PREVIEW SECTION: Three cards previewing the Apocrypha/library side of the site. -->
+  <section id="library" class="vm-section">
+    <h2>Library Preview</h2>
+    <p class="vm-section-intro">
+      Apocrypha is the research side of Vox Mana: curated notes, faction dossiers, world lore, and deeper symbolic readings.
+    </p>
+
+    <div class="vm-card-grid">
+      <a class="vm-card reveal" href="/apocrypha/">
+        <h3>Lore Dossiers</h3>
+        <p>Curated research on planes, factions, characters, and worldbuilding patterns.</p>
+        <span class="vm-cta">Browse dossiers →</span>
+      </a>
+
+      <a class="vm-card reveal" href="/apocrypha/">
+        <h3>Faction Research</h3>
+        <p>Guilds, schools, clans, families, and other color expressions gathered into readable references.</p>
+        <span class="vm-cta">Explore factions →</span>
+      </a>
+
+      <a class="vm-card reveal" href="/apocrypha/">
+        <h3>Color Philosophy Notes</h3>
+        <p>Short essays connecting color philosophy, mechanics, identity, and symbolic interpretation.</p>
+        <span class="vm-cta">Read notes →</span>
+      </a>
+    </div>
+  </section>
+</main>
+
+<!-- FOOTER: Final navigation and short site summary. -->
+<footer class="vm-shell vm-footer">
+  <span>Vox Mana — color philosophy, identity, and lore.</span>
+  <span>
+    <a href="#top">Back to top</a> ·
+    <a href="#what">What is this?</a> ·
+    <a href="#basics">Magic Basics</a> ·
+    <a href="/archscry/">Archscry</a> ·
+    <a href="/maze/">Maze</a> ·
+    <a href="/apocrypha/">Library</a> ·
+    <a href="/privacy/">Privacy</a> ·
+    <a href="/terms/">Terms</a>
+  </span>
+</footer>
+
+<!-- BACK TO TOP BUTTON: Fixed-position anchor. JS shows it after the user scrolls down. -->
+<a class="vm-button vm-backtop" id="backTop" href="#top">↑</a>
+
+<!-- SCRIPT BLOCK: All JavaScript behavior lives here: tabs, Color Matrix data, radar chart, particles, reveal animations, and back-to-top visibility. -->
+<script>
+// BASICS CONTENT DATA: Maps each tab key to the text that should appear in the basicsReveal box.
+const basics = {
+  pie: `The Color Pie is Magic’s philosophical engine. White seeks order, Blue seeks knowledge, Black seeks power, Red seeks freedom, and Green seeks growth.<br><button class="vm-button vm-inline-action" type="button" data-show-color-matrix>Show the five colors</button>`,
+  mana: "Mana is the energy used to cast spells. In Vox Mana, mana also works as a symbolic language for values, instincts, and identity.",
+  decks: "A deck is a collection of cards used to play. Its colors and mechanics often reveal a style of thinking or problem-solving.",
+  lore: "Magic lore is the story layer: worlds, characters, factions, conflicts, gods, monsters, schools, guilds, and histories.",
+  gameplay: "Gameplay turns philosophy into action: rules, costs, risks, tempo, sacrifice, growth, control, combat, discovery, and chaos."
+};
+
+// DOM REFERENCES: Store important page elements once so functions can reuse them without searching the document repeatedly.
+const basicsReveal = document.getElementById("basicsReveal");
+const colorMatrixWrap = document.getElementById("colorMatrixWrap");
+
+// LOCAL STORAGE READ: Checks whether the user previously left the Color Matrix open.
+function getStoredMatrixPreference() {
+  return localStorage.getItem("vmColorMatrixVisible") === "1";
+}
+
+// COLOR MATRIX VISIBILITY SETTER: Shows/hides the Color Matrix, saves the preference, and updates the button label.
+function setColorMatrixVisible(visible) {
+  colorMatrixWrap.hidden = !visible;
+  localStorage.setItem("vmColorMatrixVisible", visible ? "1" : "0");
+  updateMatrixButtonText();
+}
+
+// BUTTON LABEL SYNC: Keeps the inline button text accurate based on whether the matrix is currently hidden.
+function updateMatrixButtonText() {
+  const button = basicsReveal.querySelector("[data-show-color-matrix]");
+  if (!button) return;
+  button.textContent = colorMatrixWrap.hidden ? "Show the five colors" : "Hide the five colors";
+}
+
+// COLOR MATRIX TOGGLE: Flips the hidden state; when opening, scrolls to the matrix and resizes the chart.
+function toggleColorMatrix() {
+  const isCurrentlyVisible = !colorMatrixWrap.hidden;
+  setColorMatrixVisible(!isCurrentlyVisible);
+
+  if (!isCurrentlyVisible) {
+    colorMatrixWrap.scrollIntoView({ behavior: "smooth", block: "start" });
+
+    window.setTimeout(() => {
+      if (typeof radarChart !== "undefined") {
+        radarChart.resize();
+        radarChart.update();
+      }
+    }, 80);
+  }
+}
+
+// BASICS TAB CONTENT SWITCHER: Replaces the basics text for the selected tab and handles matrix visibility rules.
+function setBasicsTopic(topic) {
+  basicsReveal.innerHTML = basics[topic] || basics.pie;
+
+  if (topic !== "pie") {
+    colorMatrixWrap.hidden = true;
+  } else {
+    setColorMatrixVisible(getStoredMatrixPreference());
+  }
+}
+
+// BASICS TAB CLICK HANDLERS: Makes each Magic Basics tab activate itself and load its matching content.
+document.querySelectorAll(".vm-tab").forEach(tab => {
+  tab.addEventListener("click", () => {
+    document.querySelectorAll(".vm-tab").forEach(t => t.classList.remove("active"));
+    tab.classList.add("active");
+    setBasicsTopic(tab.dataset.topic);
+  });
+});
+
+// DELEGATED MATRIX BUTTON CLICK: Listens inside dynamic basics content for the Show/Hide button.
+basicsReveal.addEventListener("click", event => {
+  if (event.target.matches("[data-show-color-matrix]")) {
+    toggleColorMatrix();
+  }
+});
+
+// INITIAL BASICS STATE: Loads the Color Pie tab content when the page first opens.
+setBasicsTopic("pie");
+
+// SINGLE-COLOR PROFILE DATA: Source data for W/U/B/R/G, including title, descriptive text, chart color, and five axis scores.
+const colorProfiles = {
+  W: {
+    key: "W",
+    name: "White",
+    title: "White — Peace through Order",
+    text: "White values structure, protection, community, duty, and shared stability. It asks how life can be made safer through order.",
+    hex: "#f7f0d0",
+    data: [96, 42, 24, 30, 58]
+  },
+  U: {
+    key: "U",
+    name: "Blue",
+    title: "Blue — Perfection through Knowledge",
+    text: "Blue values learning, patience, improvement, planning, and possibility. It asks what life could become with enough understanding.",
+    hex: "#58b8ff",
+    data: [38, 98, 36, 34, 54]
+  },
+  B: {
+    key: "B",
+    name: "Black",
+    title: "Black — Power through Opportunity",
+    text: "Black values ambition, self-definition, pragmatism, and survival. It asks what you are willing to do to claim agency.",
+    hex: "#a46bea",
+    data: [30, 56, 98, 62, 42]
+  },
+  R: {
+    key: "R",
+    name: "Red",
+    title: "Red — Freedom through Action",
+    text: "Red values emotion, impulse, authenticity, passion, and expression. It asks what is true when you stop pretending.",
+    hex: "#ff6b55",
+    data: [36, 34, 58, 98, 62]
+  },
+  G: {
+    key: "G",
+    name: "Green",
+    title: "Green — Growth through Acceptance",
+    text: "Green values nature, instinct, tradition, interdependence, and belonging. It asks what you already are beneath the noise.",
+    hex: "#63e58d",
+    data: [62, 48, 38, 58, 98]
+  }
+};
+
+// IDENTITY DATASET: Combined list of selectable profiles. It starts with mono colors, then adds guilds and colleges.
+const identities = [
+  ...Object.values(colorProfiles).map(color => ({
+    id: color.key,
+    type: "mono",
+    group: "mono",
+    code: color.key,
+    name: color.name,
+    title: color.title,
+    text: color.text,
+    components: [color.key],
+    data: color.data,
+    hex: color.hex
+  })),
+
+  // Two-Color - Allied Guilds
+  {
+    id: "azorius",
+    group: "allied",
+    code: "WU",
+    name: "Azorius",
+    title: "Azorius — Law through Knowledge",
+    text: "Azorius blends White order with Blue planning. It seeks peace through systems, procedure, control, and carefully managed improvement.",
+    components: ["W", "U"],
+    data: [82, 78, 28, 26, 54],
+    hex: "#a8d9f5"
+  },
+  {
+    id: "dimir",
+    group: "allied",
+    code: "UB",
+    name: "Dimir",
+    title: "Dimir — Secrets through Control",
+    text: "Dimir blends Blue knowledge with Black ambition. It favors hidden information, memory, leverage, deception, and quiet control.",
+    components: ["U", "B"],
+    data: [34, 86, 76, 48, 46],
+    hex: "#7f93f2"
+  },
+  {
+    id: "rakdos",
+    group: "allied",
+    code: "BR",
+    name: "Rakdos",
+    title: "Rakdos — Appetite through Expression",
+    text: "Rakdos blends Black ambition with Red freedom. It turns desire, spectacle, indulgence, danger, and provocation into identity.",
+    components: ["B", "R"],
+    data: [32, 48, 84, 88, 48],
+    hex: "#d86e9a"
+  },
+  {
+    id: "gruul",
+    group: "allied",
+    code: "RG",
+    name: "Gruul",
+    title: "Gruul — Instinct through Action",
+    text: "Gruul blends Red freedom with Green instinct. It values impulse, survival, body-truth, terrain, revolt, and the wild beyond civilization.",
+    components: ["R", "G"],
+    data: [44, 38, 48, 86, 84],
+    hex: "#c7a96a"
+  },
+  {
+    id: "selesnya",
+    group: "allied",
+    code: "GW",
+    name: "Selesnya",
+    title: "Selesnya — Harmony through Belonging",
+    text: "Selesnya blends Green growth with White order. It seeks harmony, stewardship, collective purpose, shared life, and belonging.",
+    components: ["G", "W"],
+    data: [86, 44, 30, 42, 84],
+    hex: "#cde9a4"
+  },
+
+  // Two-Color - Enemy Guilds
+  {
+    id: "orzhov",
+    group: "enemy",
+    code: "WB",
+    name: "Orzhov",
+    title: "Orzhov — Obligation through Power",
+    text: "Orzhov blends White structure with Black ambition. It frames duty, debt, hierarchy, devotion, sacrifice, and power as binding systems.",
+    components: ["W", "B"],
+    data: [78, 48, 78, 42, 50],
+    hex: "#d3aedc"
+  },
+  {
+    id: "izzet",
+    group: "enemy",
+    code: "UR",
+    name: "Izzet",
+    title: "Izzet — Discovery through Impulse",
+    text: "Izzet blends Blue knowledge with Red freedom. It favors experiment, inspiration, volatility, invention, and sudden impossible insight.",
+    components: ["U", "R"],
+    data: [36, 86, 46, 82, 54],
+    hex: "#88a9d6"
+  },
+  {
+    id: "golgari",
+    group: "enemy",
+    code: "BG",
+    name: "Golgari",
+    title: "Golgari — Survival through Recursion",
+    text: "Golgari blends Black ambition with Green growth. It sees decay, hunger, grave-soil, renewal, inevitability, and survival as one cycle.",
+    components: ["B", "G"],
+    data: [42, 52, 82, 58, 82],
+    hex: "#84b68b"
+  },
+  {
+    id: "boros",
+    group: "enemy",
+    code: "RW",
+    name: "Boros",
+    title: "Boros — Conviction through Action",
+    text: "Boros blends Red freedom with White order. It channels courage, discipline, justice, coordinated force, and immediate moral action.",
+    components: ["R", "W"],
+    data: [84, 38, 46, 82, 62],
+    hex: "#efad84"
+  },
+  {
+    id: "simic",
+    group: "enemy",
+    code: "GU",
+    name: "Simic",
+    title: "Simic — Adaptation through Knowledge",
+    text: "Simic blends Green growth with Blue knowledge. It values mutation, research, guided evolution, optimization, and becoming.",
+    components: ["G", "U"],
+    data: [52, 84, 38, 46, 88],
+    hex: "#67d8c5"
+  },
+
+  // Two-Color - Strixhaven Colleges
+  {
+    id: "silverquill",
+    group: "strixhaven",
+    code: "WB",
+    name: "Silverquill",
+    title: "Silverquill — Language through Pressure",
+    text: "Silverquill overlays White structure and Black ambition through rhetoric, charisma, status, moral pressure, sharp critique, and words as weapons.",
+    components: ["W", "B"],
+    data: [82, 54, 74, 52, 42],
+    hex: "#efe2ff"
+  },
+  {
+    id: "prismari",
+    group: "strixhaven",
+    code: "UR",
+    name: "Prismari",
+    title: "Prismari — Art through Volatility",
+    text: "Prismari overlays Blue knowledge and Red freedom through elemental art, spectacle, inspiration, creativity, and expressive mastery.",
+    components: ["U", "R"],
+    data: [34, 78, 42, 88, 58],
+    hex: "#8bd0ff"
+  },
+  {
+    id: "witherbloom",
+    group: "strixhaven",
+    code: "BG",
+    name: "Witherbloom",
+    title: "Witherbloom — Life through Exchange",
+    text: "Witherbloom overlays Black ambition and Green growth through life-death craft, medicine, decay, nourishment, pests, and resource exchange.",
+    components: ["B", "G"],
+    data: [38, 46, 78, 58, 88],
+    hex: "#9bd36d"
+  },
+  {
+    id: "lorehold",
+    group: "strixhaven",
+    code: "RW",
+    name: "Lorehold",
+    title: "Lorehold — History through Action",
+    text: "Lorehold overlays Red freedom and White order through history, artifacts, memory, rhetoric, spirits, and action through legacy.",
+    components: ["R", "W"],
+    data: [78, 48, 42, 82, 64],
+    hex: "#ffce84"
+  },
+  {
+    id: "quandrix",
+    group: "strixhaven",
+    code: "GU",
+    name: "Quandrix",
+    title: "Quandrix — Pattern through Growth",
+    text: "Quandrix overlays Green growth and Blue knowledge through mathematics, pattern, scale, nature as equation, and impossible geometry.",
+    components: ["G", "U"],
+    data: [48, 88, 34, 46, 84],
+    hex: "#78e6ca"
+  }
+];
+
+// RADAR AXES: Labels used both by the radar chart and the horizontal score list.
+const axisLabels = ["Order", "Knowledge", "Ambition", "Freedom", "Growth"];
+
+// SCORE TIERS: Converts numeric scores into friendlier labels like Dormant, Aligned, Resonant, and Dominant.
+const resonanceTiers = [
+  { max: 20, label: "Dormant" },
+  { max: 40, label: "Stirring" },
+  { max: 60, label: "Aligned" },
+  { max: 80, label: "Resonant" },
+  { max: 100, label: "Dominant" }
+];
+
+// SCORE-TO-TIER HELPER: Finds the first tier whose max value contains the given score.
+function valueToResonanceTier(value) {
+  const tier = resonanceTiers.find(t => value <= t.max);
+  return tier ? tier.label : "";
+}
+
+// COLOR HELPER: Converts hex colors like #ff6b55 into rgba(...) strings with transparency.
+function hexToRgba(hex, alpha) {
+  const clean = hex.replace("#", "");
+  const r = parseInt(clean.substring(0, 2), 16);
+  const g = parseInt(clean.substring(2, 4), 16);
+  const b = parseInt(clean.substring(4, 6), 16);
+  return `rgba(${r}, ${g}, ${b}, ${alpha})`;
+}
+
+// GLOW GRADIENT HELPER: Builds CSS radial-gradient strings for one or more component colors.
+function blendGradient(hexes) {
+  if (!hexes || !hexes.length) {
+    return `radial-gradient(circle at center, rgba(255,255,255,0.2), transparent 62%)`;
+  }
+
+  if (hexes.length === 1) {
+    return `radial-gradient(circle at center, ${hexToRgba(hexes[0], 0.35)}, transparent 62%)`;
+  }
+
+  const stops = hexes.map((hex, index) => {
+    const position = ["35% 38%", "65% 62%", "50% 50%"][index] || "50% 50%";
+    return `radial-gradient(circle at ${position}, ${hexToRgba(hex, 0.35 / (index + 1))}, transparent 62%)`;
+  });
+
+  return [
+    ...stops,
+    `radial-gradient(circle at center, ${hexToRgba(hexes[0], 0.18)}, transparent 68%)`
+  ].join(",");
+}
+
+// CHART FILL HELPER: Creates a radial canvas gradient used as the radar dataset fill color.
+function radialFill(chart, hexes) {
+  if (!chart || !chart.chartArea) {
+    return hexToRgba(hexes?.[0] || "#ffffff", 0.12);
+  }
+
+  const { left, right, top, bottom } = chart.chartArea;
+  const cx = (left + right) / 2;
+  const cy = (top + bottom) / 2;
+  const radius = Math.max(right - left, bottom - top) / 2;
+  const gradient = chart.ctx.createRadialGradient(cx, cy, 0, cx, cy, radius);
+  const stops = Math.max(2, hexes.length);
+
+  hexes.forEach((hex, index) => {
+    gradient.addColorStop(index / (stops - 1), hexToRgba(hex, 0.22));
+  });
+
+  gradient.addColorStop(1, "rgba(0,0,0,0)");
+  return gradient;
+}
+
+// SYMBOL FORMATTER: Turns codes like WU into display text like {W}{U}.
+function manaSymbols(code) {
+  return code.split("").map(symbol => `{${symbol}}`).join("");
+}
+
+// IDENTITY LOOKUP: Finds the selected identity by id/key from the identities array.
+function findIdentity(id) {
+  return identities.find(identity => identity.id === id || identity.key === id);
+}
+
+// AXIS LIST RENDERER: Builds the horizontal bar rows under the selected card from the identity score data.
+function renderAxisList(identity) {
+  const axisList = document.getElementById("axisList");
+  axisList.innerHTML = axisLabels.map((label, index) => {
+    const value = identity.data[index];
+    return `
+      <div class="vm-axis">
+        <span>${label}</span>
+        <span class="vm-axis-bar">
+          <span class="vm-axis-fill" style="width:${value}%; background:${identity.hex};"></span>
+        </span>
+        <span>${value} — ${valueToResonanceTier(value)}</span>
+      </div>
+    `;
+  }).join("");
+}
+
+// RADAR CANVAS SETUP: Gets the canvas and its 2D drawing context so Chart.js can render into it.
+const radarCanvas = document.getElementById("vmRadar");
+const radarContext = radarCanvas.getContext("2d");
+
+// CHART.JS PLUGIN - GLOW: Temporarily adds canvas shadow/glow while each radar dataset is drawn.
+const vmGlow = {
+  id: "vmGlow",
+  beforeDatasetDraw(chart, args) {
+    const ds = chart.data.datasets[args.index];
+    const ctx = chart.ctx;
+    ctx.save();
+    ctx.globalCompositeOperation = "lighter";
+    ctx.shadowColor = ds.borderColor || "rgba(255,255,255,0.6)";
+    ctx.shadowBlur = ds._vmGlowBlur ?? 18;
+    ctx.shadowOffsetX = 0;
+    ctx.shadowOffsetY = 0;
+  },
+  afterDatasetDraw(chart) {
+    chart.ctx.restore();
+  }
+};
+
+// CHART.JS PLUGIN - HALO: Paints a subtle radial halo behind the radar chart before datasets are drawn.
+const vmHalo = {
+  id: "vmHalo",
+  beforeDraw(chart) {
+    const { ctx, chartArea } = chart;
+    if (!chartArea) return;
+    const cx = (chartArea.left + chartArea.right) / 2;
+    const cy = (chartArea.top + chartArea.bottom) / 2;
+    const radius = Math.max(chartArea.right - chartArea.left, chartArea.bottom - chartArea.top) / 2;
+    const gradient = ctx.createRadialGradient(cx, cy, 0, cx, cy, radius);
+    gradient.addColorStop(0, "rgba(216,194,122,0.035)");
+    gradient.addColorStop(0.6, "rgba(216,194,122,0.02)");
+    gradient.addColorStop(1, "rgba(0,0,0,0)");
+    ctx.save();
+    ctx.globalCompositeOperation = "destination-over";
+    ctx.fillStyle = gradient;
+    ctx.fillRect(chartArea.left, chartArea.top, chartArea.right - chartArea.left, chartArea.bottom - chartArea.top);
+    ctx.restore();
+  }
+};
+
+// CHART.JS PLUGIN - TIER LABELS: Writes words like Resonant/Dominant near radar points for the synthesis dataset.
+const vmTierLabels = {
+  id: "vmTierLabels",
+  afterDatasetDraw(chart, args) {
+    const dataset = chart.data.datasets[args.index];
+    if (!dataset.tierLabels) return;
+
+    const ctx = chart.ctx;
+    const meta = chart.getDatasetMeta(args.index);
+    const centerY = (chart.chartArea.top + chart.chartArea.bottom) / 2;
+
+    ctx.save();
+    ctx.fillStyle = "rgba(255,255,255,0.9)";
+    ctx.font = "500 11px Cinzel";
+    ctx.textAlign = "center";
+
+    meta.data.forEach((point, index) => {
+      const axis = chart.data.labels[index];
+      if (axis === "Order") return;
+
+      const value = dataset.data[index];
+      const tier = valueToResonanceTier(Number(value));
+      if (!tier) return;
+
+      const x = point.x;
+      const y = point.y;
+      const offsetY = y < centerY ? -10 : 16;
+      const offsetX = x < chart.chartArea.left + 20 ? 14 : x > chart.chartArea.right - 20 ? -14 : 0;
+
+      ctx.fillText(tier, x + offsetX, y + offsetY);
+    });
+
+    ctx.restore();
+  }
+};
+
+// RADAR CHART INSTANCE: Creates the Chart.js radar chart and defines labels, plugins, animation, tooltips, and scale styling.
+const radarChart = new Chart(radarContext, {
+  plugins: [vmHalo, vmGlow, vmTierLabels],
+  type: "radar",
+  data: {
+    labels: axisLabels,
+    datasets: []
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    animation: {
+      duration: 850,
+      easing: "easeInOutQuart"
+    },
+    interaction: {
+      mode: "nearest",
+      intersect: false
+    },
+    plugins: {
+      legend: {
+        position: "bottom",
+        labels: {
+          color: "rgba(255,255,255,0.84)",
+          padding: 14,
+          font: {
+            size: 12,
+            family: "Cinzel"
+          }
+        }
+      },
+      tooltip: {
+        callbacks: {
+          label: context => {
+            const value = context.raw ?? context.parsed?.r ?? context.formattedValue;
+            const tier = valueToResonanceTier(Number(value));
+            return `${context.dataset.label}: ${context.formattedValue}${tier ? ` — ${tier}` : ""}`;
+          }
+        }
+      }
+    },
+    scales: {
+      r: {
+        min: 0,
+        max: 100,
+        ticks: {
+          color: "rgba(255,255,255,0.55)",
+          backdropColor: "transparent",
+          stepSize: 20,
+          callback: value => {
+            const ringLabels = {
+            };
+            return ringLabels[value] || "";
+          }
+        },
+        angleLines: {
+          color: "rgba(240, 197, 106, 0.25)"
+        },
+        grid: {
+          color: "rgba(240, 197, 106, 0.22)"
+        },
+        pointLabels: {
+          color: "#ffffff",
+          font: {
+            size: 14,
+            weight: "700"
+          }
+        }
+      }
+    }
+  }
+});
+
+// DATASET BUILDER: Decides which datasets should be visible based on selected identity and checkbox states.
+function buildDatasets(identity) {
+  const datasets = [];
+  const compOn = document.getElementById("componentToggle")?.checked ?? true;
+  const synOn = document.getElementById("compositeToggle")?.checked ?? true;
+
+  if (identity.components.length > 1 && compOn) {
+    identity.components.forEach(componentKey => {
+      const component = colorProfiles[componentKey];
+      datasets.push({
+        label: component.name,
+        data: component.data,
+        backgroundColor: hexToRgba(component.hex, 0.05),
+        borderColor: hexToRgba(component.hex, 0.82),
+        borderWidth: 2,
+        borderDash: [6, 5],
+        pointBackgroundColor: component.hex,
+        pointBorderColor: "#ffffff",
+        pointBorderWidth: 1,
+        pointRadius: 4,
+        pointHoverRadius: 8,
+        pointHoverBorderWidth: 3,
+        tension: 0.22,
+        _vmGlowBlur: 12
+      });
+    });
+  }
+
+  if (synOn || identity.components.length === 1) {
+    datasets.push({
+      label: identity.name,
+      data: identity.data,
+      backgroundColor: identity.components.length > 1
+        ? radialFill(radarChart, identity.components.map(key => colorProfiles[key].hex))
+        : hexToRgba(identity.hex, 0.22),
+      borderColor: identity.hex,
+      borderWidth: 3,
+      pointBackgroundColor: identity.hex,
+      pointBorderColor: "#ffffff",
+      pointBorderWidth: 2,
+      pointRadius: 6,
+      pointHoverRadius: 11,
+      pointHoverBorderWidth: 4,
+      tension: 0.22,
+      tierLabels: true,
+      _vmGlowBlur: 26
+    });
+  }
+
+  return datasets;
+}
+
+// RADAR GLOW UPDATER: Changes the glow behind the chart to match the selected profile colors.
+function updateGlow(identity) {
+  const glowHexes = identity.components.length > 1
+    ? identity.components.map(key => colorProfiles[key].hex)
+    : [identity.hex];
+
+  document.getElementById("radarGlow").style.background = blendGradient(glowHexes);
+}
+
+// UI STATE OBJECT: Tracks current selector mode, current guild subgroup, and selected identity id.
+const lensState = {
+  mode: "mono",
+  guildGroup: "allied",
+  selectedId: "W"
+};
+
+// CHOICE GLOW BUILDER: Creates the per-card background glow for mono or two-color identities.
+function blendChoiceGlow(identity) {
+  if (identity.components.length === 1) {
+    return `radial-gradient(circle at top right, ${hexToRgba(identity.hex, 0.38)}, transparent 70%)`;
+  }
+
+  const first = colorProfiles[identity.components[0]].hex;
+  const second = colorProfiles[identity.components[1]].hex;
+
+  return `
+    radial-gradient(circle at 20% 20%, ${hexToRgba(first, 0.34)}, transparent 55%),
+    radial-gradient(circle at 80% 80%, ${hexToRgba(second, 0.34)}, transparent 55%)
+  `;
+}
+
+// VISIBLE IDENTITY FILTER: Returns only the identities that should appear for the current lens mode/submode.
+function getVisibleIdentities() {
+  if (lensState.mode === "mono") {
+    return identities.filter(identity => identity.group === "mono");
+  }
+
+  if (lensState.mode === "guilds") {
+    return identities.filter(identity => identity.group === lensState.guildGroup);
+  }
+
+  return identities.filter(identity => identity.group === "strixhaven");
+}
+
+// IDENTITY GRID RENDERER: Builds clickable identity buttons from visible identity data and wires their click handlers.
+function renderIdentityGrid() {
+  const grid = document.getElementById("identityGrid");
+  const visibleIdentities = getVisibleIdentities();
+
+  grid.classList.toggle("mono", lensState.mode === "mono");
+
+  grid.innerHTML = visibleIdentities.map(identity => `
+    <button
+      class="vm-lens-choice ${identity.id === lensState.selectedId ? "active" : ""}"
+      data-id="${identity.id}"
+      style="--choice-glow:${blendChoiceGlow(identity).replace(/\n/g, " ")}"
+    >
+      <span class="vm-lens-symbols">${manaSymbols(identity.code)}</span>
+      <span class="vm-lens-name">${identity.name}</span>
+      <span class="vm-lens-mini">${identity.components.length > 1 ? identity.components.map(key => colorProfiles[key].name).join(" + ") : "Core color profile"}</span>
+    </button>
+  `).join("");
+
+  document.querySelectorAll(".vm-lens-choice").forEach(choice => {
+    choice.addEventListener("click", () => updateRadar(choice.dataset.id));
+  });
+}
+
+// LENS MODE SWITCHER: Changes Mono/Guilds/Colleges mode, updates active tabs, and refreshes the selected identity if needed.
+function setLensMode(mode) {
+  lensState.mode = mode;
+
+  // LENS TAB EVENTS: Clicking Mono/Guilds/Colleges changes the visible identity set.
+  document.querySelectorAll(".vm-lens-tab").forEach(tab => {
+    tab.classList.toggle("active", tab.dataset.mode === mode);
+  });
+
+  document.getElementById("guildSubtabs").classList.toggle("show", mode === "guilds");
+
+  const visibleIdentities = getVisibleIdentities();
+  const currentlyVisible = visibleIdentities.some(identity => identity.id === lensState.selectedId);
+
+  if (!currentlyVisible && visibleIdentities.length) {
+    lensState.selectedId = visibleIdentities[0].id;
+  }
+
+  // INITIAL COLOR MATRIX RENDER: Builds the initial identity buttons before selecting the default profile.
+  renderIdentityGrid();
+  updateRadar(lensState.selectedId, false);
+}
+
+// GUILD GROUP SWITCHER: Changes Allied/Enemy subgroup, selects the first visible identity, and refreshes the grid/chart.
+function setGuildGroup(group) {
+  lensState.guildGroup = group;
+
+  // GUILD SUBTAB EVENTS: Clicking Allied/Enemy changes the guild subgroup.
+  document.querySelectorAll(".vm-lens-subtab").forEach(tab => {
+    tab.classList.toggle("active", tab.dataset.guildGroup === group);
+  });
+
+  const visibleIdentities = getVisibleIdentities();
+  lensState.selectedId = visibleIdentities[0].id;
+
+  renderIdentityGrid();
+  updateRadar(lensState.selectedId, false);
+}
+
+// SELECTED CARD UPDATER: Rewrites the selected profile card with title, description, glow, and component overlay pills.
+function updateSelectedCard(identity) {
+  document.getElementById("selectedKicker").textContent =
+    identity.components.length > 1 ? "Selected Synthesis" : "Selected Profile";
+
+  document.getElementById("colorTitle").textContent = identity.title;
+  document.getElementById("colorText").textContent = identity.text;
+
+  const selectedCard = document.getElementById("selectedCard");
+  selectedCard.style.setProperty("--selected-glow", blendChoiceGlow(identity));
+
+  const overlayLine = document.getElementById("overlayLine");
+
+  if (identity.components.length === 1) {
+    overlayLine.innerHTML = `
+      <span>Profile:</span>
+      <span class="vm-overlay-dot" style="border-color:${identity.hex};">${identity.name}</span>
+    `;
+    return;
+  }
+
+  const componentDots = identity.components.map(key => {
+    const component = colorProfiles[key];
+    return `<span class="vm-overlay-dot" style="border-color:${component.hex};">${component.name}</span>`;
+  }).join("");
+
+  overlayLine.innerHTML = `
+    <span>Overlay:</span>
+    ${componentDots}
+    <span>→</span>
+    <span class="vm-overlay-dot" style="border-color:${identity.hex}; color:${identity.hex};">${identity.name}</span>
+  `;
+}
+
+// ACTIVE CHOICE SYNC: Updates lensState and toggles the active class on the matching identity button.
+function updateActiveLensChoice(identity) {
+  lensState.selectedId = identity.id;
+
+  document.querySelectorAll(".vm-lens-choice").forEach(choice => {
+    choice.classList.toggle("active", choice.dataset.id === identity.id);
+  });
+}
+
+// DATASET PILL RENDERER: Creates pill labels below the chart for each visible Chart.js dataset.
+function updateDatasetPills(datasets, identity) {
+  document.getElementById("datasetPills").innerHTML = datasets.map(dataset => {
+    const isActive = identity && dataset.label === identity.name;
+    const lastComponentName = identity && identity.components.length > 1
+      ? colorProfiles[identity.components[identity.components.length - 1]].name
+      : null;
+    const showArrow = identity && identity.components.length > 1 && dataset.label === lastComponentName;
+    return `
+      <span class="vm-pill${isActive ? " active" : ""}${showArrow ? " has-arrow" : ""}" data-label="${dataset.label}" style="border-color:${dataset.borderColor};">${dataset.label}</span>
+    `;
+  }).join("");
+}
+
+// MAIN COLOR MATRIX UPDATE: Central function that refreshes chart data, caption, bars, glow, card text, active button, and pills.
+function updateRadar(identityId, refreshGrid = true) {
+  const identity = findIdentity(identityId);
+  if (!identity) return;
+
+  const datasets = buildDatasets(identity);
+
+  document.getElementById("radarCaption").textContent =
+    `Current profile: ${identity.name}`;
+
+  radarChart.data.datasets = datasets;
+  radarChart.update();
+
+  renderAxisList(identity);
+  updateGlow(identity);
+  updateSelectedCard(identity);
+  updateActiveLensChoice(identity);
+  updateDatasetPills(datasets, identity);
+
+  if (refreshGrid) {
+    renderIdentityGrid();
+  }
+}
+
+// RADAR CHECKBOX EVENTS: Rebuilds chart datasets when component/synthesis toggles change without rebuilding the identity grid.
+document.getElementById("componentToggle").addEventListener("change", () => updateRadar(lensState.selectedId, false));
+document.getElementById("compositeToggle").addEventListener("change", () => updateRadar(lensState.selectedId, false));
+
+document.querySelectorAll(".vm-lens-tab").forEach(tab => {
+  tab.addEventListener("click", () => setLensMode(tab.dataset.mode));
+});
+
+document.querySelectorAll(".vm-lens-subtab").forEach(tab => {
+  tab.addEventListener("click", () => setGuildGroup(tab.dataset.guildGroup));
+});
+
+// ATMOSPHERE FEATURE FLAG: Keeps the star-particle atmosphere enabled for this home skeleton.
+const ARCHSCRY_ENABLED = true;
+// ATMOSPHERE INITIALIZER: Sets up animated star particles, responsive canvas sizing, mouse glow coordinates, and reduced-motion safety.
+function initArchscryAtmosphere() {
+  if (!ARCHSCRY_ENABLED) return;
+
+  const canvas = document.querySelector('.vm-bg__stars');
+  if (!canvas) return;
+  // ROOT CANVAS LAYER: Move the existing decorative canvas to the body so it can render outside the lower vm-bg stack.
+  if (canvas.parentElement !== document.body) {
+    document.body.appendChild(canvas);
+  }
+  const ctx = canvas.getContext('2d');
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let stars = [];
+  let orbs = [];
+  let tick = 0;
+  let animationFrame = null;
+  let isHidden = document.hidden;
+
+  canvas.width = window.innerWidth * devicePixelRatio;
+  canvas.height = window.innerHeight * devicePixelRatio;
+  ctx.setTransform(devicePixelRatio, 0, 0, devicePixelRatio, 0, 0);
+
+  // STAR RESET: Builds the fixed star layer that mostly stays in place and twinkles.
+  function resetStars() {
+    // STAR COUNT KNOB: Lower the max/min for a cleaner sky; raise them for a denser celestial field.
+    const count = Math.min(165, Math.max(72, Math.floor(window.innerWidth / 8)));
+    stars = Array.from({ length: count }, () => ({
+      x: Math.random() * window.innerWidth,
+      y: Math.random() * window.innerHeight,
+      // STAR SIZE KNOB: Raise this range for chunkier stars; lower it for finer dust.
+      r: Math.random() * 1.25 + 0.35,
+      // STAR BRIGHTNESS KNOBS:
+      // - baseAlpha sets the resting brightness.
+      // - pulse controls how dramatic the twinkle swing feels.
+      baseAlpha: Math.random() * 0.34 + 0.12,
+      pulse: Math.random() * 0.28 + 0.10,
+      // STAR TWINKLE SPEED: Raise for more active shimmer, lower for calmer stars.
+      speed: Math.random() * 0.015 + 0.005,
+      phase: Math.random() * Math.PI * 2,
+      // BURST CHANCE: Raise for more frequent cross-flash glints.
+      burstChance: Math.random() * 0.004 + 0.001
+    }));
+  }
+
+  // ORB RESET: Builds the softer floating orb layer that drifts upward above the stars.
+  function resetOrbs() {
+    // ORB COUNT KNOB: Keep this lower than stars so the orbs stay secondary.
+    const count = Math.min(32, Math.max(14, Math.floor(window.innerWidth / 44)));
+    orbs = Array.from({ length: count }, () => ({
+      x: Math.random() * window.innerWidth,
+      y: Math.random() * window.innerHeight,
+      // ORB SIZE KNOB: Raise for dreamy lantern-like orbs; lower for subtle dust motes.
+      r: Math.random() * 2.2 + 1.25,
+      // ORB SPEED KNOB: Raise v for faster upward motion, lower it for lazier drift.
+      v: Math.random() * 0.12 + 0.028,
+      // ORB BRIGHTNESS KNOB: Raise alpha for stronger magical haze; lower it if stars should dominate.
+      alpha: Math.random() * 0.08 + 0.02,
+      // ORB SIDE-DRIFT KNOB: Raise drift for more wandering motion left/right.
+      drift: Math.random() * 0.24 + 0.05,
+      phase: Math.random() * Math.PI * 2
+    }));
+  }
+
+  // CANVAS RESIZE: Keeps the particle canvas sharp and sized correctly when the browser window changes.
+  function resizeCanvas() {
+    canvas.width = window.innerWidth * devicePixelRatio;
+    canvas.height = window.innerHeight * devicePixelRatio;
+    canvas.style.width = `${window.innerWidth}px`;
+    canvas.style.height = `${window.innerHeight}px`;
+    ctx.setTransform(devicePixelRatio, 0, 0, devicePixelRatio, 0, 0);
+    resetStars();
+    resetOrbs();
+    drawStaticAtmosphere();
+  }
+
+  // STAR DRAW: Draws the distant star field first so it sits behind the floating orbs.
+  function drawStars() {
+    for (const star of stars) {
+      const twinkle = star.baseAlpha + Math.sin(tick * star.speed + star.phase) * star.pulse;
+      // STAR ALPHA CLAMP:
+      // - Raise the first number if the dimmest stars disappear too much.
+      // - Lower the second number if the brightest stars feel too sharp.
+      const alpha = Math.max(0.08, Math.min(0.95, twinkle));
+      const isBursting = alpha > 0.56 && star.r > 0.8 && Math.random() < star.burstChance;
+
+      ctx.beginPath();
+      ctx.arc(star.x, star.y, star.r, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(247, 215, 132, ${alpha})`;
+      ctx.fill();
+
+      if (star.r > 0.95 && alpha > 0.62) {
+        ctx.beginPath();
+        // HALO SIZE KNOB: Raise 2.6 for a larger glow bloom around bright stars.
+        ctx.arc(star.x, star.y, star.r * 2.6, 0, Math.PI * 2);
+        // HALO STRENGTH KNOB: Raise 0.12 for more glow, lower it for crisp pinpoints.
+        ctx.fillStyle = `rgba(247, 215, 132, ${alpha * 0.12})`;
+        ctx.fill();
+      }
+
+      if (isBursting) {
+        ctx.save();
+        ctx.globalAlpha = Math.min(0.45, alpha + 0.12);
+        ctx.strokeStyle = "rgba(247, 215, 132, 0.72)";
+        ctx.lineWidth = 0.45;
+        ctx.beginPath();
+        ctx.moveTo(star.x - star.r * 3.2, star.y);
+        ctx.lineTo(star.x + star.r * 3.2, star.y);
+        ctx.moveTo(star.x, star.y - star.r * 3.2);
+        ctx.lineTo(star.x, star.y + star.r * 3.2);
+        ctx.stroke();
+        ctx.restore();
+      }
+    }
+  }
+
+  // ORB DRAW: Draws larger magical orbs after the stars so they feel closer to the viewer.
+  function drawOrbs(animate = true) {
+    for (const orb of orbs) {
+      if (animate) {
+        orb.y -= orb.v;
+        orb.x += Math.sin(tick * 0.006 + orb.phase) * orb.drift * 0.035;
+
+        if (orb.y < -14) {
+          orb.y = window.innerHeight + 14;
+          orb.x = Math.random() * window.innerWidth;
+        }
+      }
+
+      const glow = ctx.createRadialGradient(orb.x, orb.y, 0, orb.x, orb.y, orb.r * 5);
+      // ORB GLOW KNOBS:
+      // - The center stop controls the visible core.
+      // - The middle stop controls the warm haze around it.
+      // - Raise orb.r * 5 for wider softer blooms; lower it for tighter orbs.
+      glow.addColorStop(0, `rgba(247, 215, 132, ${orb.alpha})`);
+      glow.addColorStop(0.42, `rgba(216, 162, 60, ${orb.alpha * 0.38})`);
+      glow.addColorStop(1, "rgba(216, 162, 60, 0)");
+
+      ctx.beginPath();
+      ctx.fillStyle = glow;
+      ctx.arc(orb.x, orb.y, orb.r * 5, 0, Math.PI * 2);
+      ctx.fill();
+    }
+  }
+
+  // STATIC DRAW: Paints one still frame so the atmosphere remains visible without motion.
+  function drawStaticAtmosphere() {
+    ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
+    drawStars();
+    drawOrbs(false);
+  }
+
+  // ATMOSPHERE DRAW LOOP: Runs both background layers on one canvas to keep newIndex2.html self-contained.
+  function drawAtmosphere() {
+    if (document.body.classList.contains('still') || prefersReducedMotion || isHidden) {
+      drawStaticAtmosphere();
+      animationFrame = requestAnimationFrame(drawAtmosphere);
+      return;
+    }
+
+    tick += 1;
+
+    ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
+    drawStars();
+    drawOrbs(true);
+
+    animationFrame = requestAnimationFrame(drawAtmosphere);
+  }
+
+  // RESIZE LISTENER: Recalculates the canvas and particle positions when the viewport size changes.
+  window.addEventListener('resize', resizeCanvas, { passive: true });
+  // VISIBILITY LISTENER: Pauses particle movement when the tab/document is hidden.
+  document.addEventListener('visibilitychange', () => {
+    isHidden = document.hidden;
+  });
+
+  // POINTER MOVE LISTENER: Updates CSS variables for mouse-follow glow and card hover hotspots.
+  document.addEventListener('pointermove', event => {
+    document.body.style.setProperty('--mx', `${event.clientX}px`);
+    document.body.style.setProperty('--my', `${event.clientY}px`);
+    document.querySelectorAll('.vm-card, .vm-panel, .vm-lens-choice').forEach(el => {
+      const rect = el.getBoundingClientRect();
+      if (rect.width <= 0 || rect.height <= 0) return;
+      const x = ((event.clientX - rect.left) / rect.width) * 100;
+      const y = ((event.clientY - rect.top) / rect.height) * 100;
+      el.style.setProperty('--x', `${Math.max(0, Math.min(100, x))}%`);
+      el.style.setProperty('--y', `${Math.max(0, Math.min(100, y))}%`);
+    });
+  }, { passive: true });
+
+  // ATMOSPHERE STARTUP: Size the canvas first, then begin the animation loop.
+  resizeCanvas();
+  drawAtmosphere();
+}
+
+// START ATMOSPHERE: Runs the particle/mouse-glow initializer once after it is defined.
+initArchscryAtmosphere();
+
+// REVEAL OBSERVER INITIALIZER: Uses IntersectionObserver to add .is-visible when reveal elements enter the viewport.
+function initRevealObserver() {
+  const reveals = document.querySelectorAll(".reveal, .vm-reveal");
+  if (!reveals.length) return;
+
+  const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (prefersReducedMotion) {
+    reveals.forEach(el => el.classList.add("is-visible"));
+    return;
+  }
+
+  const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("is-visible");
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+
+  reveals.forEach(el => {
+    el.addEventListener("focusin", () => el.classList.add("is-visible"));
+    observer.observe(el);
+  });
+}
+
+// WEB COMPONENT: Defines a reusable <vm-dossier-card> custom element with its own Shadow DOM styling and click event.
+class VMDossierCard extends HTMLElement {
+  // WEB COMPONENT CONSTRUCTOR: Creates a shadow root so this component can own isolated markup/styles.
+  constructor() {
+    super();
+    this.attachShadow({ mode: 'open' });
+  }
+
+  // WEB COMPONENT MOUNT: Runs when <vm-dossier-card> is added to the page; reads attributes and renders internal HTML.
+  connectedCallback() {
+    const title = this.getAttribute('title') || 'Placeholder Dossier';
+    const kind = this.getAttribute('kind') || 'Placeholder Type';
+    const tone = this.getAttribute('tone') || 'Placeholder Tone';
+    const signal = this.getAttribute('signal') || 'Placeholder signal';
+    const details = this.getAttribute('details') || 'Placeholder details.';
+    const bullets = (this.getAttribute('bullets') || 'Evidence one|Evidence two|Evidence three').split('|');
+    this.setAttribute('tabindex', '0');
+    this.setAttribute('role', 'button');
+    this.setAttribute('aria-label', `${title}: ${signal}`);
+    this.shadowRoot.innerHTML = `
+      <style>
+        :host{ display:block; container-type:inline-size; }
+        .card{ min-height:230px; height:100%; padding:1.1rem; position:relative; overflow:hidden; color:#f5ead2; background:linear-gradient(180deg, rgba(7,10,14,.92), rgba(3,4,6,.72)); border:1px solid rgba(215,162,60,.34); box-shadow:0 24px 70px rgba(0,0,0,.42); clip-path:polygon(14px 0, calc(100% - 14px) 0, 100% 14px, 100% calc(100% - 14px), calc(100% - 14px) 100%, 14px 100%, 0 calc(100% - 14px), 0 14px); transition:transform .28s ease, border-color .28s ease, box-shadow .28s ease; transform-style:preserve-3d; }
+        .card::before{ content:""; position:absolute; inset:-30%; background:radial-gradient(circle at var(--x,50%) var(--y,10%), rgba(247,215,132,.2), transparent 16rem); opacity:.8; mix-blend-mode:screen; }
+        .card:hover,.card:focus-within{ transform:translateY(-5px) rotateX(3deg) rotateY(-2deg); border-color:rgba(247,215,132,.82); box-shadow:0 32px 90px rgba(0,0,0,.5),0 0 32px rgba(215,162,60,.2); }
+        button{ all:unset; display:block; width:100%; height:100%; position:relative; z-index:2; }
+        .kind{ font-family:ui-monospace,Menlo,monospace; color:#d7a23c; letter-spacing:.16rem; text-transform:uppercase; font-size:.68rem; }
+        h3{ font-family:Georgia,serif; font-weight:400; color:#f7d784; font-size:1.65rem; letter-spacing:.07em; margin:.75rem 0 .35rem; }
+        p{ color:#a89b84; line-height:1.6; margin:.4rem 0; }
+        .tone{ color:#58baff; font-family:ui-monospace,Menlo,monospace; font-size:.75rem; text-transform:uppercase; letter-spacing:.12rem; }
+        ul{ margin:.7rem 0 0; padding-left:1rem; color:#cdbf9e; line-height:1.45; }
+        @container (max-width:260px){ h3{font-size:1.25rem}.card{min-height:190px} }
+      </style>
+      <div class="card">
+        <button type="button">
+          <div class="kind">${kind}</div><h3>${title}</h3><div class="tone">${tone}</div><p>${signal}</p><ul>${bullets.map(b => `<li>${b}</li>`).join('')}</ul>
+        </button>
+      </div>`;
+    this.shadowRoot.querySelector('button').addEventListener('click', () => this.select(title, kind, details, bullets));
+    this.addEventListener('keydown', e => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        this.select(title, kind, details, bullets);
+      }
+    });
+    this.shadowRoot.querySelector('.card').addEventListener('mousemove', e => {
+      const r = e.currentTarget.getBoundingClientRect();
+      e.currentTarget.style.setProperty('--x', `${((e.clientX - r.left) / r.width * 100)}%`);
+      e.currentTarget.style.setProperty('--y', `${((e.clientY - r.top) / r.height * 100)}%`);
+    });
+  }
+
+  // WEB COMPONENT SELECT EVENT: Emits a custom event so outer page code can react to a dossier card selection.
+  select(title, kind, details, bullets) {
+    this.dispatchEvent(new CustomEvent('dossier-select', { bubbles: true, detail: { title, kind, details, bullets } }));
+  }
+}
+// CUSTOM ELEMENT REGISTRATION: Tells the browser that <vm-dossier-card> should use the VMDossierCard class.
+customElements.define('vm-dossier-card', VMDossierCard);
+
+// REDUCED MOTION CHECK: Reads the user/browser setting. This variable is currently declared but not used later.
+const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+// SECOND REVEAL OBSERVER: Another scroll reveal observer for .reveal and .hero-card elements from the Archscry extract.
+const archscryRevealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('is-visible');
+      archscryRevealObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.15, rootMargin: '0px 0px -8% 0px' });
+// REGISTER REVEAL TARGETS: Starts observing elements that should animate into view.
+document.querySelectorAll('.reveal, .hero-card').forEach(el => archscryRevealObserver.observe(el));
+
+renderIdentityGrid();
+// INITIAL RADAR RENDER: Selects White as the default profile and draws the first radar/chart state.
+updateRadar("W", false);
+// START MAIN REVEAL OBSERVER: Enables the reveal animation behavior.
+initRevealObserver();
+
+// PLACEHOLDER NAV GUARD: Keeps future-page placeholder nav links visually clickable without scrolling or navigating yet.
+document.querySelectorAll("[data-vm-placeholder-link]").forEach(link => {
+  link.addEventListener("click", event => {
+    event.preventDefault();
+  });
+});
+
+// BACK-TO-TOP SETUP: Stores the button and toggles its visibility based on scroll distance.
+const backTop = document.getElementById("backTop");
+// SCROLL LISTENER: Shows the back-to-top button only after the page has been scrolled down 500px.
+window.addEventListener("scroll", () => {
+  backTop.classList.toggle("show", window.scrollY > 500);
+});
+</script>
+</body>
+</html>

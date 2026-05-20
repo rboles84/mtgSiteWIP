@@ -1,0 +1,207 @@
+{
+  "schema_version": "vox-mana-narrative-taxonomy-v1",
+  "school": "Lorehold",
+  "core_axiom": "Lorehold believes the past is not behind us; it is buried power waiting to be interpreted, preserved, and revived.",
+  "primary_question": "Do you meet history as a rule to preserve, a ruin to explore, a witness to summon, or a relic to rebuild into action?",
+  "taxonomy": [
+    {
+      "id": "founder_axiom",
+      "label": "Founder Axiom",
+      "summary": "Velomachus/Lorehold-style identity: the founder turns attack, memory, and archive into immediate present action.",
+      "signals": [
+        "founder dragon",
+        "attack excavation",
+        "historic spell",
+        "revived precedent"
+      ],
+      "cards": [
+        "Velomachus Lorehold",
+        "Lorehold, the Historian"
+      ],
+      "ui_panel_copy": "You do not study the past to escape the present. You study it because the right recovered truth can change the present immediately."
+    },
+    {
+      "id": "order_vs_chaos",
+      "label": "Order vs. Chaos",
+      "summary": "White wants history preserved and classified; red wants to experience the dangerous, emotional truth of the find.",
+      "signals": [
+        "deans",
+        "rules and guardrails",
+        "reckless discovery",
+        "field risk"
+      ],
+      "cards": [
+        "Augusta, Dean of Order // Plargg, Dean of Chaos",
+        "Augusta, Order Returned",
+        "Plargg, Dean of Chaos"
+      ],
+      "ui_panel_copy": "Your reading sits between the archive and the cliff edge: preserve enough to understand it, but move close enough to feel it."
+    },
+    {
+      "id": "reconstruction_loop",
+      "label": "Reconstruction Loop",
+      "summary": "Relics are not static trophies. They can be rebuilt, copied, sacrificed, and returned as tools.",
+      "signals": [
+        "artifact recursion",
+        "graveyard artifacts",
+        "token copies",
+        "rebuild from ruins"
+      ],
+      "cards": [
+        "Osgir, the Reconstructor",
+        "Reconstruct History",
+        "Wake the Past",
+        "Alibou, Ancient Witness"
+      ],
+      "ui_panel_copy": "Broken does not mean finished. Lorehold asks what the ruin can become when rebuilt with purpose."
+    },
+    {
+      "id": "spirit_conscripting",
+      "label": "Spirit Witnesses",
+      "summary": "The dead are witnesses, teachers, soldiers, and memory-bearers rather than generic graveyard fuel.",
+      "signals": [
+        "Spirit tokens",
+        "Spirit buffs",
+        "afterlife service",
+        "statue bodies"
+      ],
+      "cards": [
+        "Hofri Ghostforge",
+        "Spirit Summoning",
+        "Returned Pastcaller",
+        "Illustrious Historian // Archive Haunt"
+      ],
+      "ui_panel_copy": "The past still has a voice. Sometimes it whispers from a scroll; sometimes it stands beside you in stone and light."
+    },
+    {
+      "id": "gravebreak_engine",
+      "label": "Gravebreak Engine",
+      "summary": "Lorehold often cares when cards leave the graveyard, making excavation itself the trigger.",
+      "signals": [
+        "cards leave graveyard",
+        "graveyard exile",
+        "Spirit creation",
+        "damage/growth from disturbed history"
+      ],
+      "cards": [
+        "Quintorius, Field Historian",
+        "Stonebinder's Familiar",
+        "Fuming Effigy",
+        "Tome Shredder"
+      ],
+      "ui_panel_copy": "Your graveyard is not a tomb. It is a dig layer. Every removed piece reveals pressure, evidence, or a witness."
+    },
+    {
+      "id": "archival_method",
+      "label": "Archival Method",
+      "summary": "Maps, scrolls, classifications, and campus sites turn chaotic discovery into reliable knowledge.",
+      "signals": [
+        "maps",
+        "scrying",
+        "classification",
+        "field routes",
+        "lessons"
+      ],
+      "cards": [
+        "Archaeomancer's Map",
+        "Lorehold Campus",
+        "Study Break",
+        "Lorehold Command"
+      ],
+      "ui_panel_copy": "The map matters because the ruins are dangerous. Method is how Lorehold keeps discovery from becoming disaster."
+    },
+    {
+      "id": "reckless_discovery",
+      "label": "Reckless Discovery",
+      "summary": "Red Lorehold is boots-on-cliffs adventure: crack the seal, chase the anecdote, and accept that truth may be messy.",
+      "signals": [
+        "discard/draw",
+        "risk",
+        "seal breaking",
+        "impulsive exploration"
+      ],
+      "cards": [
+        "Thrilling Discovery",
+        "Antiquities on the Loose",
+        "Laelia, the Blade Reforged",
+        "Audacious Reshapers"
+      ],
+      "ui_panel_copy": "Some discoveries do not wait politely in a catalog. You may have to break the seal and run toward the dust cloud."
+    },
+    {
+      "id": "war_memory",
+      "label": "War Memory",
+      "summary": "Lorehold combat is not generic aggression; it is battle doctrine, memorial force, and ancestral example.",
+      "signals": [
+        "battle history",
+        "double strike",
+        "combat recursion",
+        "war songs"
+      ],
+      "cards": [
+        "Blade Historian",
+        "Venerable Warsinger",
+        "Spectacular Showdown",
+        "Velomachus Lorehold"
+      ],
+      "ui_panel_copy": "You fight with more than muscle. You fight with every remembered tactic, every memorialized mistake, and every story that refused to die."
+    },
+    {
+      "id": "site_restoration",
+      "label": "Site Restoration",
+      "summary": "Some history must be cleared, rescued, protected, or stabilized before it can teach.",
+      "signals": [
+        "rescue",
+        "exile threats",
+        "defensive guardians",
+        "ruin cleanup"
+      ],
+      "cards": [
+        "Angel of the Ruins",
+        "Pillardrop Rescuer",
+        "Pillardrop Warden",
+        "Rip Apart"
+      ],
+      "ui_panel_copy": "Not every ruin is ready to be opened. First secure the site; then ask what it has been trying to say."
+    },
+    {
+      "id": "relic_body",
+      "label": "Relic Bodies",
+      "summary": "Lorehold often gives history a body: construct, statue, machine, sloth, angel, or artifact companion.",
+      "signals": [
+        "artifact creatures",
+        "statue spirits",
+        "constructs",
+        "bronze guardians"
+      ],
+      "cards": [
+        "Bronze Guardian",
+        "Relic Sloth",
+        "Digsite Engineer",
+        "Losheel, Clockwork Scholar"
+      ],
+      "ui_panel_copy": "History is not only written. Sometimes it walks, guards, attacks, and asks to be repaired."
+    }
+  ],
+  "false_positive_guardrails": [
+    "Do not classify ordinary red-white aggro as Lorehold unless it carries history, relic, spirit, graveyard, or precedent signals.",
+    "Do not classify every artifact deck as Lorehold. Lorehold artifacts should read as relics, maps, monuments, dig tools, or recovered evidence.",
+    "Do not classify generic reanimation as Lorehold unless it feels like excavation, witness-calling, Spirit-statue work, or reconstruction.",
+    "Keep Lorehold distinct from Boros: less army-command justice, more archaeology, archive tension, and history made active."
+  ],
+  "ux_mapping": {
+    "placement_result_title": "Lorehold — The Relic Historian",
+    "short_read": "You do not leave the past behind. You excavate it, test it, preserve what matters, and rebuild the useful pieces into action now.",
+    "maze_search_seed": "ci=rw (o:artifact OR o:graveyard OR o:Spirit OR o:\"exile\" OR o:\"return\" OR o:\"historic\")",
+    "deckbuilder_tags": [
+      "artifacts",
+      "artifact recursion",
+      "Spirits",
+      "graveyard leaves",
+      "historic matters",
+      "equipment/relics",
+      "combat recursion",
+      "Boros value"
+    ]
+  }
+}

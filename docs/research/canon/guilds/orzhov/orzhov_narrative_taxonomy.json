@@ -1,0 +1,214 @@
+{
+  "schema_version": "vox-mana-narrative-taxonomy-v1",
+  "faction": "Orzhov Syndicate",
+  "core_thesis": "Orzhov is white-black power expressed as obligation: social order, spiritual authority, and personal ambition fused into contracts that outlive the body.",
+  "primary_axes": [
+    {
+      "axis": "Debt as Social Gravity",
+      "definition": "Every action creates obligation; every obligation can become control.",
+      "signals": [
+        "extort",
+        "tithe",
+        "tax",
+        "payment",
+        "treasure",
+        "life drain",
+        "contract"
+      ],
+      "representative_cards": [
+        "Blind Obedience",
+        "Syndic of Tithes",
+        "Smothering Tithe",
+        "Debt to the Deathless"
+      ]
+    },
+    {
+      "axis": "Afterlife as Labor System",
+      "definition": "Death is not freedom; it is a second phase of service, haunting, or collection.",
+      "signals": [
+        "haunt",
+        "afterlife",
+        "spirits",
+        "ghost council",
+        "death triggers"
+      ],
+      "representative_cards": [
+        "Belfry Spirit",
+        "Blind Hunter",
+        "Ministrant of Obligation",
+        "Teysa Karlov"
+      ]
+    },
+    {
+      "axis": "Hierarchy as Identity",
+      "definition": "Rank, title, office, and wealth determine personhood and permission.",
+      "signals": [
+        "pontiff",
+        "oligarch",
+        "advokist",
+        "knight",
+        "basilica",
+        "guildgate",
+        "church"
+      ],
+      "representative_cards": [
+        "Teysa, Orzhov Scion",
+        "Ghost Council of Orzhova",
+        "Imperious Oligarch",
+        "Syndicate Guildmage"
+      ]
+    },
+    {
+      "axis": "Guilt as Weapon",
+      "definition": "Confession, sin, penance, and absolution are spiritual tools used to extract leverage.",
+      "signals": [
+        "castigate",
+        "confessor",
+        "penance",
+        "absolution",
+        "sin collector",
+        "punishment"
+      ],
+      "representative_cards": [
+        "Castigate",
+        "High Priest of Penance",
+        "Vizkopa Confessor",
+        "Ethereal Absolution"
+      ]
+    },
+    {
+      "axis": "Life Ledger Conversion",
+      "definition": "Life is an account balance; their loss and your gain are paired transactions.",
+      "signals": [
+        "lifelink",
+        "drain",
+        "life gain",
+        "vampire",
+        "Vizkopa",
+        "extort"
+      ],
+      "representative_cards": [
+        "Vizkopa Guildmage",
+        "Tithe Drinker",
+        "Blood Baron of Vizkopa",
+        "Grasping Thrull"
+      ]
+    },
+    {
+      "axis": "Aristocrats and Asset Sacrifice",
+      "definition": "Expendable bodies are converted into cards, mana, protection, spirit labor, or tablewide drain.",
+      "signals": [
+        "sacrifice",
+        "thrulls",
+        "tokens",
+        "aristocrat",
+        "death triggers",
+        "Teysa"
+      ],
+      "representative_cards": [
+        "Cartel Aristocrat",
+        "Priest of Forgotten Gods",
+        "Maw of the Obzedat",
+        "Vindictive Vampire"
+      ]
+    }
+  ],
+  "archetypal_roles": [
+    {
+      "role": "The Advokist",
+      "description": "Turns wording, procedure, and technicality into power.",
+      "cards": [
+        "Teysa Karlov",
+        "Teysa, Orzhov Scion",
+        "Teysa, Envoy of Ghosts"
+      ]
+    },
+    {
+      "role": "The Pontiff",
+      "description": "Speaks sacred authority that blesses insiders and diminishes outsiders.",
+      "cards": [
+        "Orzhov Pontiff",
+        "Pontiff of Blight",
+        "Pitiless Pontiff"
+      ]
+    },
+    {
+      "role": "The Collector",
+      "description": "Extracts repeated small payments until the table is exhausted.",
+      "cards": [
+        "Syndic of Tithes",
+        "Basilica Screecher",
+        "Smothering Tithe"
+      ]
+    },
+    {
+      "role": "The Deathless Executive",
+      "description": "Uses wealth and undeath to preserve authority beyond accountability.",
+      "cards": [
+        "Ghost Council of Orzhova",
+        "Obzedat, Ghost Council",
+        "Debtors' Knell"
+      ]
+    },
+    {
+      "role": "The Enforcer",
+      "description": "Makes the contract physical when soft power fails.",
+      "cards": [
+        "Orzhov Enforcer",
+        "Syndicate Enforcer",
+        "Executioner's Swing"
+      ]
+    },
+    {
+      "role": "The Spirit Laborer",
+      "description": "Continues service after death as a token, haunting, or recurring asset.",
+      "cards": [
+        "Ministrant of Obligation",
+        "Debtors' Transport",
+        "Belfry Spirit"
+      ]
+    }
+  ],
+  "mechanical_taxonomy": {
+    "haunt": "Past action attaches to future death, making consequence linger beyond the first body.",
+    "extort": "Every spell becomes a tithe event: small payments compound into inevitability.",
+    "afterlife": "Death produces spirit labor; the board keeps an echo of the original asset.",
+    "lifegain_drain": "White preservation and black extraction become a single accounting loop.",
+    "aristocrats": "Sacrifice is not waste; it is conversion of low-status assets into high-status advantage.",
+    "tax_prison": "Players retain agency but must pay through tempo, life, mana, or opportunity cost.",
+    "recursion": "The graveyard is an estate registry where useful assets can be reclaimed."
+  },
+  "voice_guidelines": {
+    "use": [
+      "contract",
+      "debt",
+      "tithe",
+      "ledger",
+      "obligation",
+      "absolution",
+      "penance",
+      "estate",
+      "inheritance",
+      "rank",
+      "church",
+      "deal",
+      "ghost",
+      "spirit labor"
+    ],
+    "avoid": [
+      "neutral justice",
+      "pure civic law",
+      "heroic charity",
+      "random death magic",
+      "generic vampires",
+      "public democracy",
+      "pure spycraft"
+    ],
+    "sentence_shape": "Elegant sentence, then a knife of transaction: “The blessing is real; so is the invoice.”"
+  },
+  "placement_read_template": {
+    "opening": "You do not see power as chaos; you see it as obligation with architecture.",
+    "middle": "Where others see death, guilt, status, and payment as separate forces, Orzhov turns them into one durable machine.",
+    "closing": "Your magic does not merely win the moment. It makes the moment owe you interest."
+  }
+}

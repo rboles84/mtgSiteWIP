@@ -1,0 +1,139 @@
+{
+  "schema_version": "vox-mana-animation-spec-v1",
+  "school": "Prismari",
+  "core_motion_sentence": "A precise blue gesture frames the scene, then red heat ruptures the frame into elemental performance.",
+  "identity_tags": [
+    "elemental arts",
+    "performance",
+    "big spells",
+    "copy echoes",
+    "treasure-as-cadence",
+    "technique versus emotion",
+    "stagecraft"
+  ],
+  "palette": {
+    "ink_blue": "#1E4FFF",
+    "deep_blue_shadow": "#071B3D",
+    "flame_red": "#F0442E",
+    "magma_orange": "#FF8A2A",
+    "electric_cyan": "#47D7FF",
+    "spotlight_gold": "#FFD76A",
+    "smoke_violet": "#3B254F",
+    "paper_warm": "#F6E7C9"
+  },
+  "texture_language": [
+    "brushstroke edges",
+    "stage-light cones",
+    "music-staff lines",
+    "lava and steam overlays",
+    "wet pigment bloom",
+    "crackling glyph echoes",
+    "treasure sparks as beat markers"
+  ],
+  "timing": {
+    "default_enter_ms": 420,
+    "big_spell_crescendo_ms": 1100,
+    "copy_echo_delay_ms": 90,
+    "hover_response_ms": 180,
+    "reduced_motion_fallback": "fade + static stroke underline; no pulsing, no parallax, no fireworks"
+  },
+  "motion_primitives": [
+    {
+      "name": "BlueFrame",
+      "description": "A thin blue geometric outline draws first, implying training and composition.",
+      "easing": "cubic-bezier(.16, .84, .32, 1)"
+    },
+    {
+      "name": "RedRupture",
+      "description": "A red-orange brush burst breaks through the blue frame, implying emotional release.",
+      "easing": "cubic-bezier(.22, 1, .36, 1)"
+    },
+    {
+      "name": "ElementalBloom",
+      "description": "Particles cohere into a temporary elemental silhouette before dissolving.",
+      "easing": "cubic-bezier(.19, 1, .22, 1)"
+    },
+    {
+      "name": "CopyEcho",
+      "description": "A glyph duplicates with a slight delay, offset, and opacity drop.",
+      "easing": "ease-out"
+    },
+    {
+      "name": "TreasureBeat",
+      "description": "Small gold sparks appear on rhythm to show spell-to-resource conversion.",
+      "easing": "steps(2, jump-none)"
+    },
+    {
+      "name": "StageSweep",
+      "description": "A wide light cone sweeps across a card or panel during reveal.",
+      "easing": "ease-in-out"
+    }
+  ],
+  "component_specs": {
+    "placement_card": {
+      "enter": [
+        "BlueFrame",
+        "StageSweep",
+        "RedRupture"
+      ],
+      "hover": [
+        "TreasureBeat",
+        "CopyEcho"
+      ],
+      "selected": [
+        "ElementalBloom"
+      ],
+      "content_rule": "The title should feel like a show poster, but explanatory text stays readable and grounded."
+    },
+    "matrix_row": {
+      "enter": [
+        "BlueFrame"
+      ],
+      "hover": [
+        "small CopyEcho on translation_hook badge"
+      ],
+      "sort_change": [
+        "StageSweep"
+      ],
+      "content_rule": "Animation should clarify the structural signal, not overwhelm row scanning."
+    },
+    "taxonomy_node": {
+      "enter": [
+        "ink ripple"
+      ],
+      "expand": [
+        "RedRupture"
+      ],
+      "collapse": [
+        "BlueFrame retract"
+      ],
+      "content_rule": "Nodes should feel like rehearsal cards on a studio wall."
+    },
+    "function_demo": {
+      "Detain": "Freeze a motif in a blue frame before releasing it as a copied gesture.",
+      "Override": "Let red emotional force replace the current plan with a stronger expressive route.",
+      "ConstraintField": "Create a visible stage boundary so improvisation has legible shape.",
+      "AccretionEngine": "Every spell/action adds sparks until a crescendo threshold fires."
+    }
+  },
+  "css_custom_properties": {
+    "--vm-prismari-blue": "#1E4FFF",
+    "--vm-prismari-red": "#F0442E",
+    "--vm-prismari-cyan": "#47D7FF",
+    "--vm-prismari-gold": "#FFD76A",
+    "--vm-prismari-shadow": "#071B3D",
+    "--vm-prismari-enter-ms": "420ms",
+    "--vm-prismari-crescendo-ms": "1100ms"
+  },
+  "accessibility_rules": [
+    "Never require color alone to distinguish blue technique from red emotion; pair color with shape or motion.",
+    "Respect prefers-reduced-motion by replacing bursts with static accents.",
+    "Keep text panels still while decorative elements move around the perimeter.",
+    "Avoid rapid strobing fireworks; use one to three large bursts instead of many small flashes."
+  ],
+  "implementation_notes": [
+    "Use Prismari animations on result reveal, card hover, and taxonomy expansion only; do not animate every paragraph.",
+    "Prefer CSS transforms and opacity over layout-changing animation.",
+    "Keep particle counts low on mobile; Prismari should feel alive, not expensive."
+  ]
+}

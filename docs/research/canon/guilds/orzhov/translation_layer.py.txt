@@ -1,0 +1,546 @@
+# -*- coding: utf-8 -*-
+"""
+translation_layer.py
+====================
+Orzhov Design System — Translation Layer
+-----------------------------------------
+This module implements the four core translation functions for the Orzhov
+design system: Detain, Override, ConstraintField, and AccretionEngine.
+
+Each function translates abstract game-rule semantics into structured data
+payloads used by the rendering and animation layers.
+
+Author:  Orzhov Design System / Copilot
+Version: 1.0.0
+Theme:   Orzhov Syndicate (Black-White · Debt · Hierarchy · Sanctity)
+"""
+
+from __future__ import annotations
+
+import time
+from dataclasses import dataclass, field
+from typing import Any, Callable, Dict, List, Optional, Tuple
+
+
+# ---------------------------------------------------------------------------
+# Shared data structures
+# ---------------------------------------------------------------------------
+
+
+@dataclass
+class EffectPayload:
+    """
+    Unified payload returned by all four translation functions.
+
+    Attributes
+    ----------
+    effect_type : str
+        Canonical name of the translated effect (e.g. 'detain', 'override').
+    source_id : str
+        Identifier of the card or ability that generated this effect.
+    targets : list of str
+        Target identifiers (card IDs, player IDs, zone labels, etc.).
+    parameters : dict
+        Arbitrary key-value data specific to the effect type.
+    animation_hint : str
+        Animation state key defined in Orzhov_animation_spec.md.
+    timestamp : float
+        Unix epoch timestamp of effect creation (for ordering resolution).
+    metadata : dict
+        Optional free-form metadata for logging / debugging.
+    """
+
+    effect_type: str
+    source_id: str
+    targets: List[str]
+    parameters: Dict[str, Any]
+    animation_hint: str
+    timestamp: float = field(default_factory=time.time)
+    metadata: Dict[str, Any] = field(default_factory=dict)
+
+    def to_dict(self) -> Dict[str, Any]:
+        """Serialize the payload to a plain dictionary for JSON export."""
+        return {
+            "effect_type": self.effect_type,
+            "source_id": self.source_id,
+            "targets": self.targets,
+            "parameters": self.parameters,
+            "animation_hint": self.animation_hint,
+            "timestamp": self.timestamp,
+            "metadata": self.metadata,
+        }
+
+
+# ---------------------------------------------------------------------------
+# 1. Detain()
+# ---------------------------------------------------------------------------
+
+
+def Detain(
+    source_id: str,
+    target_ids: List[str],
+    duration_phases: int = 1,
+    tap_on_detain: bool = True,
+    restrict_abilities: bool = True,
+    metadata: Optional[Dict[str, Any]] = None,
+) -> EffectPayload:
+    """
+    Translate a Detain effect into a structured EffectPayload.
+
+    Detain locks a permanent (typically an opponent's creature or artifact),
+    preventing it from attacking, blocking, or activating non-mana abilities
+    for the specified number of phases. Optionally taps the permanent
+    immediately upon application.
+
+    This mirrors the Orzhov Syndicate's enforcement aesthetic: a bureaucratic
+    lock applied with cold authority.
+
+    Parameters
+    ----------
+    source_id : str
+        ID of the card or ability applying the Detain effect.
+    target_ids : list of str
+        One or more permanent IDs to be detained.
+    duration_phases : int, optional
+        Number of game phases the detain persists. Defaults to 1 (until end
+        of the controller's next turn, represented as 1 phase cycle).
+    tap_on_detain : bool, optional
+        If True, the target permanent is immediately tapped. Default True.
+    restrict_abilities : bool, optional
+        If True, non-mana activated abilities of detained permanents are
+        suppressed. Default True.
+    metadata : dict, optional
+        Arbitrary extra data for logging or downstream processing.
+
+    Returns
+    -------
+    EffectPayload
+        Structured payload describing the detain effect, ready for the
+        animation and rules layers to consume.
+
+    Examples
+    --------
+    >>> payload = Detain(
+    ...     source_id="card_sanctum_arbitrator",
+    ...     target_ids=["card_forest_guardian", "card_iron_sentinel"],
+    ...     duration_phases=1,
+    ...     tap_on_detain=True,
+    ... )
+    >>> payload.effect_type
+    'detain'
+    >>> payload.animation_hint
+    'targeted_state'
+    >>> len(payload.targets)
+    2
+    """
+    if not target_ids:
+        raise ValueError("Detain requires at least one target_id.")
+    if duration_phases < 1:
+        raise ValueError("duration_phases must be >= 1.")
+
+    return EffectPayload(
+        effect_type="detain",
+        source_id=source_id,
+        targets=list(target_ids),
+        parameters={
+            "duration_phases": duration_phases,
+            "tap_on_detain": tap_on_detain,
+            "restrict_abilities": restrict_abilities,
+            "restrictions": ["attack", "block"] + (["activate"] if restrict_abilities else []),
+        },
+        animation_hint="targeted_state",
+        metadata=metadata or {},
+    )
+
+
+# ---------------------------------------------------------------------------
+# 2. Override()
+# ---------------------------------------------------------------------------
+
+
+def Override(
+    source_id: str,
+    target_effect_id: str,
+    override_mode: str = "counter",
+    life_cost: int = 0,
+    replacement_effect: Optional[Dict[str, Any]] = None,
+    conditional: Optional[Callable[[Dict[str, Any]], bool]] = None,
+    metadata: Optional[Dict[str, Any]] = None,
+) -> EffectPayload:
+    """
+    Translate an Override effect into a structured EffectPayload.
+
+    Override intercepts an in-flight effect or triggered ability on the
+    stack and either counters it outright or replaces it with a different
+    outcome. Orzhov authority expressed as rule-of-law: what the Syndicate
+    permits may proceed; what it does not is revoked.
+
+    Parameters
+    ----------
+    source_id : str
+        ID of the card or ability applying the Override.
+    target_effect_id : str
+        Stack ID of the effect or triggered ability being overridden.
+    override_mode : str, optional
+        How the override is applied:
+          - ``'counter'``  : Target effect is countered and removed.
+          - ``'replace'``  : Target effect is replaced by ``replacement_effect``.
+          - ``'redirect'`` : Target effect's targets are changed.
+        Defaults to ``'counter'``.
+    life_cost : int, optional
+        Life points deducted from the overriding player. Defaults to 0.
+    replacement_effect : dict, optional
+        When ``override_mode='replace'``, describes the substitute effect.
+        Ignored for other modes.
+    conditional : callable, optional
+        Optional guard function taking the current game-state dict and
+        returning bool. If provided the Override only applies when
+        ``conditional(state)`` is True.
+    metadata : dict, optional
+        Arbitrary extra data.
+
+    Returns
+    -------
+    EffectPayload
+        Structured payload describing the override interaction.
+
+    Raises
+    ------
+    ValueError
+        If ``override_mode`` is not one of the accepted values, or if
+        ``override_mode='replace'`` but ``replacement_effect`` is None.
+
+    Examples
+    --------
+    >>> payload = Override(
+    ...     source_id="card_revocation_writ",
+    ...     target_effect_id="stack_item_42",
+    ...     override_mode="counter",
+    ...     life_cost=3,
+    ... )
+    >>> payload.parameters["override_mode"]
+    'counter'
+    >>> payload.parameters["life_cost"]
+    3
+    """
+    valid_modes = {"counter", "replace", "redirect"}
+    if override_mode not in valid_modes:
+        raise ValueError(f"override_mode must be one of {valid_modes}; got '{override_mode}'.")
+    if override_mode == "replace" and replacement_effect is None:
+        raise ValueError("replacement_effect must be provided when override_mode='replace'.")
+
+    return EffectPayload(
+        effect_type="override",
+        source_id=source_id,
+        targets=[target_effect_id],
+        parameters={
+            "override_mode": override_mode,
+            "life_cost": life_cost,
+            "replacement_effect": replacement_effect,
+            "has_conditional": conditional is not None,
+        },
+        animation_hint="ink_bleed",
+        metadata=metadata or {},
+    )
+
+
+# ---------------------------------------------------------------------------
+# 3. ConstraintField()
+# ---------------------------------------------------------------------------
+
+
+def ConstraintField(
+    source_id: str,
+    field_type: str,
+    affected_zone: str,
+    affected_players: List[str],
+    constraint_rules: Dict[str, Any],
+    mana_tax: int = 0,
+    life_tax: int = 0,
+    expiry: Optional[str] = None,
+    metadata: Optional[Dict[str, Any]] = None,
+) -> EffectPayload:
+    """
+    Translate a ConstraintField effect into a structured EffectPayload.
+
+    ConstraintField represents a persistent taxation or limitation layer
+    applied to a zone or set of players. This is the architectural backbone
+    of the Orzhov stax/taxation subtheme: rules that silently drain and
+    restrict without direct confrontation.
+
+    Parameters
+    ----------
+    source_id : str
+        ID of the enchantment, artifact, or ability generating the field.
+    field_type : str
+        Category of constraint. Accepted values:
+          - ``'tax'``         : Additional mana cost imposed on player actions.
+          - ``'speed_lock'``  : Limits the number of spells/actions per phase.
+          - ``'ability_lock'``: Suppresses certain ability types.
+          - ``'entry_tax'``   : Cost for permanents to enter the battlefield.
+          - ``'draw_tax'``    : Additional cost imposed each time a player draws.
+    affected_zone : str
+        Game zone the field applies to (e.g. ``'stack'``, ``'battlefield'``,
+        ``'hand'``, ``'global'``).
+    affected_players : list of str
+        Player IDs subject to the constraint. Pass ``['all']`` for global.
+    constraint_rules : dict
+        Arbitrary key-value data describing the specific constraint logic.
+        Example: ``{"max_spells_per_turn": 1}`` for a speed lock.
+    mana_tax : int, optional
+        Additional generic mana cost imposed by this field. Default 0.
+    life_tax : int, optional
+        Life points paid per constraint trigger. Default 0.
+    expiry : str, optional
+        Phase/turn string when the field expires (e.g. ``'end_of_turn'``,
+        ``'next_upkeep'``, ``'permanent'``). Defaults to ``'permanent'``.
+    metadata : dict, optional
+        Arbitrary extra data.
+
+    Returns
+    -------
+    EffectPayload
+        Structured payload describing the constraint field.
+
+    Examples
+    --------
+    >>> payload = ConstraintField(
+    ...     source_id="card_archon_of_silent_pact",
+    ...     field_type="speed_lock",
+    ...     affected_zone="stack",
+    ...     affected_players=["opponent_1", "opponent_2"],
+    ...     constraint_rules={"max_spells_per_turn": 1},
+    ...     life_tax=4,
+    ...     expiry="permanent",
+    ... )
+    >>> payload.parameters["field_type"]
+    'speed_lock'
+    >>> payload.parameters["life_tax"]
+    4
+    """
+    valid_field_types = {"tax", "speed_lock", "ability_lock", "entry_tax", "draw_tax"}
+    if field_type not in valid_field_types:
+        raise ValueError(f"field_type must be one of {valid_field_types}; got '{field_type}'.")
+    if not affected_players:
+        raise ValueError("affected_players must contain at least one player ID.")
+
+    return EffectPayload(
+        effect_type="constraint_field",
+        source_id=source_id,
+        targets=list(affected_players),
+        parameters={
+            "field_type": field_type,
+            "affected_zone": affected_zone,
+            "constraint_rules": constraint_rules,
+            "mana_tax": mana_tax,
+            "life_tax": life_tax,
+            "expiry": expiry or "permanent",
+        },
+        animation_hint="candle_flicker",
+        metadata=metadata or {},
+    )
+
+
+# ---------------------------------------------------------------------------
+# 4. AccretionEngine()
+# ---------------------------------------------------------------------------
+
+
+def AccretionEngine(
+    source_id: str,
+    resource_type: str,
+    accrual_triggers: List[Dict[str, Any]],
+    accrual_rate: int = 1,
+    max_accrual: Optional[int] = None,
+    conversion_table: Optional[Dict[str, Any]] = None,
+    drain_on_threshold: Optional[Tuple[int, int]] = None,
+    metadata: Optional[Dict[str, Any]] = None,
+) -> EffectPayload:
+    """
+    Translate an AccretionEngine effect into a structured EffectPayload.
+
+    AccretionEngine models the Orzhov debt/tribute accumulation loop: a
+    system that passively accrues a resource (life, counters, advantage) and
+    converts it into tangible effects once thresholds are reached. This
+    generalizes the debt-counter and extort systems into a reusable engine.
+
+    Parameters
+    ----------
+    source_id : str
+        ID of the card or permanent driving the accretion.
+    resource_type : str
+        What is being accrued. Examples: ``'debt_counter'``, ``'life'``,
+        ``'loyalty'``, ``'mana'``, ``'card_advantage'``.
+    accrual_triggers : list of dict
+        List of trigger definitions, each with keys:
+          - ``'event'`` (str): Game event that causes accrual (e.g.
+            ``'upkeep'``, ``'spell_cast'``, ``'life_loss'``).
+          - ``'source_filter'`` (str, optional): Filter restricting which
+            sources of that event qualify.
+          - ``'amount'`` (int): How much to accrue per trigger.
+    accrual_rate : int, optional
+        Multiplier applied to each accrual amount. Default 1.
+    max_accrual : int, optional
+        Hard cap on the total accrued resource. None means uncapped.
+    conversion_table : dict, optional
+        Maps accrued-resource thresholds to conversion effects. Each key is
+        a stringified integer threshold and the value is an effect descriptor.
+        Example: ``{"3": {"effect": "drain", "amount": 2}}``.
+    drain_on_threshold : tuple of (int, int), optional
+        Convenience shorthand: ``(threshold, drain_amount)`` causing an
+        automatic life-drain effect when the threshold is reached. Overrides
+        ``conversion_table`` drain entries for that threshold only.
+    metadata : dict, optional
+        Arbitrary extra data.
+
+    Returns
+    -------
+    EffectPayload
+        Structured payload describing the accretion engine configuration.
+
+    Examples
+    --------
+    >>> payload = AccretionEngine(
+    ...     source_id="card_ossuary_ledger",
+    ...     resource_type="debt_counter",
+    ...     accrual_triggers=[{"event": "upkeep", "amount": 1}],
+    ...     max_accrual=5,
+    ...     drain_on_threshold=(3, 2),
+    ... )
+    >>> payload.parameters["resource_type"]
+    'debt_counter'
+    >>> payload.parameters["drain_on_threshold"]
+    (3, 2)
+    """
+    if not accrual_triggers:
+        raise ValueError("AccretionEngine requires at least one accrual_trigger.")
+    if accrual_rate < 1:
+        raise ValueError("accrual_rate must be >= 1.")
+    if max_accrual is not None and max_accrual < 1:
+        raise ValueError("max_accrual must be >= 1 or None (uncapped).")
+
+    # Validate each trigger entry
+    for i, trigger in enumerate(accrual_triggers):
+        if "event" not in trigger:
+            raise ValueError(f"accrual_triggers[{i}] is missing required key 'event'.")
+        if "amount" not in trigger:
+            raise ValueError(f"accrual_triggers[{i}] is missing required key 'amount'.")
+        if not isinstance(trigger["amount"], int) or trigger["amount"] < 0:
+            raise ValueError(f"accrual_triggers[{i}]['amount'] must be a non-negative integer.")
+
+    return EffectPayload(
+        effect_type="accretion_engine",
+        source_id=source_id,
+        targets=[],  # Accretion engines are self-referential; targets resolved at runtime
+        parameters={
+            "resource_type": resource_type,
+            "accrual_triggers": accrual_triggers,
+            "accrual_rate": accrual_rate,
+            "max_accrual": max_accrual,
+            "conversion_table": conversion_table or {},
+            "drain_on_threshold": drain_on_threshold,
+        },
+        animation_hint="debt_counter_pulse",
+        metadata=metadata or {},
+    )
+
+
+# ---------------------------------------------------------------------------
+# Unit-testable helpers
+# ---------------------------------------------------------------------------
+
+
+def validate_payload(payload: EffectPayload) -> bool:
+    """
+    Validate a completed EffectPayload for required fields.
+
+    Parameters
+    ----------
+    payload : EffectPayload
+        The payload to validate.
+
+    Returns
+    -------
+    bool
+        True if valid, False otherwise.
+
+    Examples
+    --------
+    >>> p = Detain("src", ["tgt"])
+    >>> validate_payload(p)
+    True
+    """
+    required_fields = ["effect_type", "source_id", "animation_hint"]
+    for f in required_fields:
+        if not getattr(payload, f, None):
+            return False
+    return True
+
+
+# ---------------------------------------------------------------------------
+# Example usage (run as __main__)
+# ---------------------------------------------------------------------------
+
+if __name__ == "__main__":
+    import json
+
+    print("=== Orzhov Translation Layer — Example Outputs ===\n")
+
+    # --- Detain ---
+    detain_payload = Detain(
+        source_id="card_sanctum_arbitrator",
+        target_ids=["card_forest_guardian", "card_iron_sentinel"],
+        duration_phases=1,
+        tap_on_detain=True,
+    )
+    print("1. Detain:")
+    print(json.dumps(detain_payload.to_dict(), indent=2, default=str))
+
+    # --- Override ---
+    override_payload = Override(
+        source_id="card_revocation_writ",
+        target_effect_id="stack_item_42",
+        override_mode="counter",
+        life_cost=3,
+    )
+    print("\n2. Override:")
+    print(json.dumps(override_payload.to_dict(), indent=2, default=str))
+
+    # --- ConstraintField ---
+    constraint_payload = ConstraintField(
+        source_id="card_archon_of_silent_pact",
+        field_type="speed_lock",
+        affected_zone="stack",
+        affected_players=["opponent_1", "opponent_2"],
+        constraint_rules={"max_spells_per_turn": 1},
+        life_tax=4,
+        expiry="permanent",
+    )
+    print("\n3. ConstraintField:")
+    print(json.dumps(constraint_payload.to_dict(), indent=2, default=str))
+
+    # --- AccretionEngine ---
+    accretion_payload = AccretionEngine(
+        source_id="card_ossuary_ledger",
+        resource_type="debt_counter",
+        accrual_triggers=[
+            {"event": "upkeep", "amount": 1},
+            {"event": "spell_cast", "source_filter": "opponent", "amount": 0},
+        ],
+        accrual_rate=1,
+        max_accrual=5,
+        conversion_table={"3": {"effect": "drain", "amount": 2}},
+        drain_on_threshold=(3, 2),
+    )
+    print("\n4. AccretionEngine:")
+    print(json.dumps(accretion_payload.to_dict(), indent=2, default=str))
+
+    # --- Validate ---
+    print("\n5. Validate all payloads:")
+    for name, p in [
+        ("Detain", detain_payload),
+        ("Override", override_payload),
+        ("ConstraintField", constraint_payload),
+        ("AccretionEngine", accretion_payload),
+    ]:
+        print(f"   {name}: valid={validate_payload(p)}")

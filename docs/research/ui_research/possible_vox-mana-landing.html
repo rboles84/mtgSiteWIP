@@ -1,0 +1,1113 @@
+<!doctype html>
+<html lang="en" data-mana="blue" data-glyph-mode="leyline">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="color-scheme" content="dark" />
+<title>Vox Mana — Signal Sanctum Landing</title>
+<meta name="description" content="Fresh 2026 Vox Mana landing-page prototype with centered flame-orb logo, interactive mana glyphs, and advanced HTML/CSS/JS effects." />
+<style>
+/*
+  Vox Mana — Signal Sanctum Landing Prototype
+  Purpose: Landing page only. Fresh direction, not the legacy index/three-doors layout.
+  No external dependencies. Uses inline CSS, JS, Canvas, Web Components, Shadow DOM,
+  IntersectionObserver, localStorage, data attributes, and accessible controls.
+*/
+:root {
+  color-scheme: dark;
+  --void-0:#020304;
+  --void-1:#05080d;
+  --void-2:#081018;
+  --ink:#f7edd4;
+  --muted:rgba(247,237,212,.66);
+  --muted-2:rgba(247,237,212,.42);
+  --gold:#d89c37;
+  --gold-2:#f2d38a;
+  --gold-soft:rgba(216,156,55,.22);
+  --teal:#38e1d2;
+  --blue:#58b6ff;
+  --violet:#b985ff;
+  --green:#61e38b;
+  --red:#ff765c;
+  --white:#f7eed6;
+  --black:#bfa7ff;
+  --active:var(--blue);
+  --active-rgb:88,182,255;
+  --active-2:var(--teal);
+  --panel:rgba(4,8,14,.60);
+  --panel-strong:rgba(4,8,14,.82);
+  --border:rgba(242,211,138,.20);
+  --border-strong:rgba(242,211,138,.42);
+  --radius:28px;
+  --radius-sm:18px;
+  --ease:cubic-bezier(.18,.84,.23,1);
+  --font-display: Georgia, 'Times New Roman', serif;
+  --font-ui: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, 'Fira Code', monospace;
+}
+html[data-mana="white"] { --active:var(--white); --active-rgb:247,238,214; --active-2:#f2d38a; }
+html[data-mana="blue"]  { --active:var(--blue);  --active-rgb:88,182,255; --active-2:#38e1d2; }
+html[data-mana="black"] { --active:var(--black); --active-rgb:191,167,255; --active-2:#8f86a8; }
+html[data-mana="red"]   { --active:var(--red);   --active-rgb:255,118,92; --active-2:#f2a365; }
+html[data-mana="green"] { --active:var(--green); --active-rgb:97,227,139; --active-2:#6df6d6; }
+* { box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body {
+  margin:0;
+  min-height:100svh;
+  font-family:var(--font-ui);
+  color:var(--ink);
+  background:
+    radial-gradient(circle at 50% 36%, rgba(var(--active-rgb),.18), transparent 34rem),
+    radial-gradient(circle at 12% 10%, rgba(216,156,55,.14), transparent 36rem),
+    radial-gradient(circle at 86% 78%, rgba(56,225,210,.10), transparent 34rem),
+    linear-gradient(135deg, #010203 0%, #05080d 45%, #020304 100%);
+  overflow-x:hidden;
+}
+body::before {
+  content:"";
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  z-index:-5;
+  background:
+    linear-gradient(rgba(242,211,138,.055) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(242,211,138,.035) 1px, transparent 1px),
+    radial-gradient(circle, rgba(242,211,138,.26) 0 1px, transparent 1.5px);
+  background-size:7.5rem 7.5rem, 7.5rem 7.5rem, 3.6rem 3.6rem;
+  mask-image:radial-gradient(circle at 50% 50%, black 20%, transparent 76%);
+  opacity:.46;
+  mix-blend-mode:screen;
+}
+body::after {
+  content:"";
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  z-index:-2;
+  background:
+    radial-gradient(ellipse at 50% 15%, transparent 0 36%, rgba(0,0,0,.38) 67%, rgba(0,0,0,.78) 100%),
+    linear-gradient(90deg, rgba(0,0,0,.84), transparent 22%, transparent 78%, rgba(0,0,0,.84));
+}
+a { color:inherit; text-decoration:none; }
+button { font:inherit; }
+:focus-visible { outline:2px solid var(--active); outline-offset:4px; }
+::selection { background:rgba(var(--active-rgb),.32); color:white; }
+#mana-canvas {
+  position:fixed;
+  inset:0;
+  z-index:-6;
+  opacity:.68;
+  pointer-events:none;
+}
+.custom-cursor {
+  position:fixed;
+  left:0;
+  top:0;
+  width:18px;
+  height:18px;
+  border:1px solid rgba(var(--active-rgb),.75);
+  border-radius:50%;
+  pointer-events:none;
+  z-index:200;
+  opacity:.0;
+  transform:translate(-50%,-50%);
+  box-shadow:0 0 18px rgba(var(--active-rgb),.35), inset 0 0 14px rgba(var(--active-rgb),.12);
+  transition:width .16s var(--ease), height .16s var(--ease), opacity .2s var(--ease), border-color .2s var(--ease);
+  mix-blend-mode:screen;
+}
+.has-pointer .custom-cursor { opacity:.88; }
+.has-pointer .custom-cursor.is-hot { width:42px; height:42px; border-color:rgba(242,211,138,.82); }
+.background-logo {
+  position:fixed;
+  left:50%;
+  top:50%;
+  width:min(92vmin, 920px);
+  height:min(92vmin, 920px);
+  transform:translate(-50%, -50%);
+  z-index:-4;
+  pointer-events:none;
+  opacity:.24;
+  filter: drop-shadow(0 0 58px rgba(var(--active-rgb),.20)) saturate(1.05);
+  mix-blend-mode:screen;
+}
+.background-logo::after {
+  content:"";
+  position:absolute;
+  inset:9%;
+  border:1px solid rgba(242,211,138,.08);
+  border-radius:50%;
+  box-shadow:0 0 90px rgba(var(--active-rgb),.12), inset 0 0 80px rgba(0,0,0,.35);
+}
+.topbar {
+  position:fixed;
+  top:0;
+  left:0;
+  right:0;
+  z-index:80;
+  border-bottom:1px solid rgba(242,211,138,.12);
+  background:linear-gradient(180deg, rgba(2,3,4,.76), rgba(2,3,4,.36));
+  backdrop-filter:blur(18px);
+}
+.topbar-inner {
+  width:min(1480px, calc(100% - 32px));
+  margin:0 auto;
+  min-height:76px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:18px;
+}
+.brand {
+  display:flex;
+  align-items:center;
+  gap:14px;
+  min-width:0;
+}
+.brand-mark {
+  width:48px;
+  height:48px;
+  display:grid;
+  place-items:center;
+  border:1px solid rgba(242,211,138,.18);
+  border-radius:16px;
+  background:radial-gradient(circle, rgba(var(--active-rgb),.14), transparent 62%);
+  box-shadow:0 0 28px rgba(var(--active-rgb),.12), inset 0 0 18px rgba(242,211,138,.05);
+  overflow:visible;
+}
+.brand-mark vox-flame-logo { width:64px; height:64px; }
+.brand-copy { display:grid; gap:2px; }
+.brand-copy strong {
+  font-family:var(--font-display);
+  letter-spacing:.42em;
+  font-weight:700;
+  color:var(--gold-2);
+  text-transform:uppercase;
+  font-size:1rem;
+  line-height:1;
+}
+.brand-copy span {
+  font-family:var(--font-mono);
+  text-transform:uppercase;
+  letter-spacing:.18em;
+  color:var(--muted-2);
+  font-size:.68rem;
+}
+.nav {
+  display:flex;
+  align-items:center;
+  gap:clamp(10px, 2vw, 26px);
+  font-family:var(--font-mono);
+  text-transform:uppercase;
+  letter-spacing:.16em;
+  font-size:.72rem;
+  color:rgba(247,237,212,.68);
+}
+.nav a { position:relative; padding:10px 0; }
+.nav a::after {
+  content:"";
+  position:absolute;
+  left:50%;
+  bottom:5px;
+  width:0;
+  height:1px;
+  transform:translateX(-50%);
+  background:linear-gradient(90deg, transparent, var(--active), var(--gold-2), transparent);
+  transition:width .2s var(--ease);
+}
+.nav a:hover, .nav a:focus-visible { color:var(--gold-2); }
+.nav a:hover::after, .nav a:focus-visible::after { width:100%; }
+.nav-action {
+  min-height:42px;
+  padding:0 16px;
+  border-radius:999px;
+  border:1px solid rgba(242,211,138,.24);
+  color:var(--gold-2);
+  background:rgba(0,0,0,.18);
+  cursor:pointer;
+  box-shadow:inset 0 0 18px rgba(242,211,138,.05);
+}
+.nav-action:hover { border-color:rgba(var(--active-rgb),.55); box-shadow:0 0 24px rgba(var(--active-rgb),.16); }
+.page {
+  scroll-snap-type:y proximity;
+}
+.hero {
+  min-height:100svh;
+  display:grid;
+  align-items:center;
+  padding:110px 0 54px;
+  scroll-snap-align:start;
+  position:relative;
+}
+.wrap { width:min(1480px, calc(100% - 32px)); margin:0 auto; }
+.hero-grid {
+  display:grid;
+  grid-template-columns:minmax(0, 1.04fr) minmax(360px, .72fr);
+  gap:clamp(28px, 6vw, 86px);
+  align-items:center;
+}
+.eyebrow {
+  display:inline-flex;
+  align-items:center;
+  gap:12px;
+  color:var(--gold-2);
+  font-family:var(--font-mono);
+  letter-spacing:.28em;
+  text-transform:uppercase;
+  font-size:.72rem;
+  font-weight:800;
+}
+.eyebrow::before, .eyebrow::after {
+  content:"";
+  width:38px;
+  height:1px;
+  background:linear-gradient(90deg, transparent, var(--gold-2), transparent);
+}
+h1 {
+  margin:24px 0 18px;
+  max-width:850px;
+  font-family:var(--font-display);
+  font-size:clamp(4rem, 8vw, 9.8rem);
+  line-height:.82;
+  letter-spacing:-.045em;
+  font-weight:700;
+  color:var(--ink);
+  text-shadow:0 0 35px rgba(var(--active-rgb),.15), 0 8px 60px rgba(0,0,0,.65);
+}
+.hero-word {
+  display:inline-block;
+  background:linear-gradient(115deg, #fff8e8, var(--gold-2) 32%, rgba(var(--active-rgb),.94) 60%, #fff8e8 88%);
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+  filter:drop-shadow(0 0 22px rgba(var(--active-rgb),.10));
+}
+.hero-copy {
+  max-width:680px;
+  margin:0;
+  color:var(--muted);
+  line-height:1.8;
+  font-size:clamp(1.04rem, 1.45vw, 1.22rem);
+}
+.hero-actions {
+  margin-top:34px;
+  display:flex;
+  flex-wrap:wrap;
+  gap:14px;
+}
+.btn {
+  min-height:54px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:12px;
+  padding:0 20px;
+  border:1px solid rgba(242,211,138,.28);
+  border-radius:18px;
+  color:var(--gold-2);
+  background:linear-gradient(180deg, rgba(255,255,255,.045), rgba(0,0,0,.20));
+  cursor:pointer;
+  text-transform:uppercase;
+  font-family:var(--font-mono);
+  letter-spacing:.16em;
+  font-size:.74rem;
+  font-weight:900;
+  box-shadow:inset 0 0 28px rgba(242,211,138,.04);
+  transition:transform .18s var(--ease), box-shadow .18s var(--ease), border-color .18s var(--ease), background .18s var(--ease);
+}
+.btn:hover, .btn:focus-visible {
+  transform:translateY(-2px);
+  border-color:rgba(var(--active-rgb),.62);
+  box-shadow:0 0 34px rgba(var(--active-rgb),.18), inset 0 0 30px rgba(242,211,138,.06);
+}
+.btn.primary {
+  color:#140d05;
+  border-color:rgba(255,235,184,.78);
+  background:linear-gradient(180deg, #ffe2a0, #d89c37 58%, #8b5a17);
+  box-shadow:0 0 34px rgba(216,156,55,.32), inset 0 1px 0 rgba(255,255,255,.42);
+}
+.btn.primary:hover { box-shadow:0 0 48px rgba(216,156,55,.42), 0 0 70px rgba(var(--active-rgb),.10); }
+.btn .arrow { transition:transform .18s var(--ease); }
+.btn:hover .arrow { transform:translateX(4px); }
+.signal-card {
+  position:relative;
+  border:1px solid rgba(242,211,138,.20);
+  border-radius:34px;
+  background:
+    radial-gradient(circle at 50% 0%, rgba(var(--active-rgb),.22), transparent 28rem),
+    linear-gradient(180deg, rgba(255,255,255,.055), rgba(255,255,255,.015)),
+    rgba(4,8,14,.62);
+  box-shadow:0 34px 90px rgba(0,0,0,.52), inset 0 0 0 1px rgba(255,255,255,.035);
+  overflow:hidden;
+  min-height:610px;
+  padding:26px;
+  container-type:inline-size;
+}
+.signal-card::before {
+  content:"";
+  position:absolute;
+  inset:-2px;
+  background:
+    radial-gradient(circle at var(--mx,50%) var(--my,50%), rgba(var(--active-rgb),.24), transparent 22rem),
+    linear-gradient(130deg, transparent 0 38%, rgba(255,255,255,.12) 48%, transparent 58%);
+  opacity:.72;
+  mix-blend-mode:screen;
+  pointer-events:none;
+}
+.signal-card::after {
+  content:"";
+  position:absolute;
+  inset:18px;
+  border:1px solid rgba(242,211,138,.14);
+  border-radius:26px;
+  pointer-events:none;
+  clip-path:polygon(0 10%, 7% 0, 93% 0, 100% 10%, 100% 90%, 93% 100%, 7% 100%, 0 90%);
+}
+.signal-inner { position:relative; z-index:2; display:grid; gap:22px; }
+.panel-heading {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:14px;
+}
+.panel-heading h2 {
+  margin:0;
+  font-family:var(--font-display);
+  font-size:clamp(1.8rem, 3vw, 3rem);
+  line-height:1;
+  color:var(--gold-2);
+}
+.status-pill {
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:8px 11px;
+  border:1px solid rgba(var(--active-rgb),.32);
+  border-radius:999px;
+  background:rgba(0,0,0,.24);
+  font-family:var(--font-mono);
+  font-size:.68rem;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:var(--muted);
+}
+.status-dot { width:8px; height:8px; border-radius:50%; background:var(--active); box-shadow:0 0 16px rgba(var(--active-rgb),.75); }
+.signal-orbit {
+  position:relative;
+  display:grid;
+  place-items:center;
+  aspect-ratio:1/1;
+  width:min(100%, 440px);
+  margin:0 auto;
+}
+.orbit-ring {
+  position:absolute;
+  inset:5%;
+  border-radius:50%;
+  border:1px solid rgba(242,211,138,.18);
+  box-shadow:0 0 70px rgba(var(--active-rgb),.12), inset 0 0 70px rgba(0,0,0,.30);
+}
+.orbit-ring:nth-child(2) { inset:14%; border-color:rgba(var(--active-rgb),.18); animation:spin 24s linear infinite reverse; }
+.orbit-ring:nth-child(3) { inset:25%; border-style:dashed; border-color:rgba(242,211,138,.15); animation:spin 18s linear infinite; }
+.orbit-core {
+  width:44%;
+  aspect-ratio:1/1;
+  display:grid;
+  place-items:center;
+  border-radius:50%;
+  border:1px solid rgba(242,211,138,.20);
+  background:radial-gradient(circle, rgba(var(--active-rgb),.22), transparent 60%);
+  box-shadow:0 0 48px rgba(var(--active-rgb),.14), inset 0 0 42px rgba(242,211,138,.04);
+}
+.orbit-core vox-flame-logo { width:150%; height:150%; opacity:.9; }
+@keyframes spin { to { transform:rotate(360deg); } }
+.mana-toolbar {
+  display:grid;
+  gap:14px;
+  border:1px solid rgba(242,211,138,.12);
+  border-radius:24px;
+  background:rgba(0,0,0,.18);
+  padding:16px;
+}
+.toolbar-row { display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap; }
+.toolbar-label {
+  font-family:var(--font-mono);
+  text-transform:uppercase;
+  letter-spacing:.17em;
+  font-size:.72rem;
+  color:var(--muted-2);
+}
+.mode-toggle {
+  display:flex;
+  gap:8px;
+  padding:5px;
+  border:1px solid rgba(242,211,138,.13);
+  border-radius:999px;
+  background:rgba(0,0,0,.18);
+}
+.mode-toggle button {
+  border:0;
+  border-radius:999px;
+  padding:8px 10px;
+  background:transparent;
+  color:var(--muted-2);
+  font-family:var(--font-mono);
+  text-transform:uppercase;
+  letter-spacing:.12em;
+  font-size:.64rem;
+  cursor:pointer;
+}
+html[data-glyph-mode="leyline"] [data-mode="leyline"], html[data-glyph-mode="orbs"] [data-mode="orbs"] {
+  color:#07100f;
+  background:linear-gradient(180deg, var(--gold-2), var(--gold));
+}
+.mana-grid { display:grid; grid-template-columns:repeat(5, minmax(0,1fr)); gap:10px; }
+.mana-button {
+  position:relative;
+  min-height:74px;
+  border:1px solid rgba(242,211,138,.18);
+  border-radius:20px;
+  background:
+    radial-gradient(circle at 50% 34%, rgba(var(--btn-rgb),.22), transparent 64%),
+    linear-gradient(180deg, rgba(255,255,255,.035), rgba(0,0,0,.22));
+  cursor:pointer;
+  overflow:hidden;
+  display:grid;
+  place-items:center;
+  transition:transform .18s var(--ease), box-shadow .18s var(--ease), border-color .18s var(--ease), background .18s var(--ease);
+}
+.mana-button:hover, .mana-button:focus-visible {
+  transform:translateY(-2px) scale(1.02);
+  border-color:rgba(var(--btn-rgb),.58);
+  box-shadow:0 0 26px rgba(var(--btn-rgb),.26), inset 0 0 24px rgba(var(--btn-rgb),.08);
+}
+.mana-button[aria-pressed="true"] {
+  border-color:rgba(var(--btn-rgb),.86);
+  box-shadow:0 0 34px rgba(var(--btn-rgb),.38), inset 0 0 28px rgba(var(--btn-rgb),.12);
+}
+.mana-button[data-mana="white"] { --btn-rgb:247,238,214; }
+.mana-button[data-mana="blue"] { --btn-rgb:88,182,255; }
+.mana-button[data-mana="black"] { --btn-rgb:191,167,255; }
+.mana-button[data-mana="red"] { --btn-rgb:255,118,92; }
+.mana-button[data-mana="green"] { --btn-rgb:97,227,139; }
+.glyph { width:44px; height:44px; color:rgb(var(--btn-rgb)); filter:drop-shadow(0 0 12px rgba(var(--btn-rgb),.38)); }
+.glyph .stroke { fill:none; stroke:currentColor; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; vector-effect:non-scaling-stroke; }
+.glyph .thin { fill:none; stroke:currentColor; stroke-width:1; opacity:.55; vector-effect:non-scaling-stroke; }
+.glyph .fill { fill:currentColor; opacity:.22; }
+.glyph-orb { display:none; }
+html[data-glyph-mode="orbs"] .glyph-leyline { display:none; }
+html[data-glyph-mode="orbs"] .glyph-orb { display:block; }
+.orb-sigil { animation:orbBreathe 3.8s ease-in-out infinite; transform-origin:center; }
+@keyframes orbBreathe { 0%,100% { transform:scale(.94); opacity:.72; } 50% { transform:scale(1.04); opacity:1; } }
+.signal-readout {
+  display:grid;
+  grid-template-columns:1fr auto;
+  gap:18px;
+  align-items:center;
+  padding:16px;
+  border:1px solid rgba(var(--active-rgb),.18);
+  border-radius:24px;
+  background:linear-gradient(90deg, rgba(var(--active-rgb),.12), rgba(0,0,0,.18));
+}
+.signal-readout strong { display:block; color:var(--gold-2); font-family:var(--font-display); font-size:1.15rem; }
+.signal-readout span { color:var(--muted); line-height:1.5; font-size:.94rem; }
+.signal-index {
+  font-family:var(--font-mono);
+  color:var(--active);
+  font-size:1.1rem;
+  letter-spacing:.18em;
+  text-shadow:0 0 18px rgba(var(--active-rgb),.45);
+}
+.scroll-cue {
+  position:absolute;
+  left:50%;
+  bottom:20px;
+  transform:translateX(-50%);
+  color:var(--muted-2);
+  font-family:var(--font-mono);
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  font-size:.64rem;
+  display:grid;
+  place-items:center;
+  gap:8px;
+}
+.scroll-cue::after {
+  content:"";
+  width:1px;
+  height:34px;
+  background:linear-gradient(180deg, var(--gold-2), transparent);
+}
+.section {
+  min-height:100svh;
+  display:grid;
+  align-items:center;
+  scroll-snap-align:start;
+  padding:104px 0 70px;
+  position:relative;
+}
+.section-header { max-width:760px; margin-bottom:28px; }
+.section-header h2 {
+  margin:14px 0 10px;
+  font-family:var(--font-display);
+  font-size:clamp(2.2rem, 4.8vw, 5.6rem);
+  line-height:.9;
+  letter-spacing:-.035em;
+}
+.section-header p { margin:0; color:var(--muted); line-height:1.75; font-size:1.04rem; }
+.module-grid {
+  display:grid;
+  grid-template-columns:repeat(12, 1fr);
+  gap:18px;
+}
+.module-card {
+  grid-column:span 4;
+  min-height:310px;
+  border:1px solid rgba(242,211,138,.17);
+  border-radius:30px;
+  background:
+    radial-gradient(circle at var(--mx,50%) var(--my,20%), rgba(var(--active-rgb),.16), transparent 18rem),
+    linear-gradient(180deg, rgba(255,255,255,.045), rgba(0,0,0,.22)),
+    rgba(4,8,14,.56);
+  position:relative;
+  overflow:hidden;
+  padding:22px;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  transform-style:preserve-3d;
+  transition:transform .22s var(--ease), box-shadow .22s var(--ease), border-color .22s var(--ease);
+  isolation:isolate;
+}
+.module-card.large { grid-column:span 6; min-height:350px; }
+.module-card.wide { grid-column:span 8; }
+.module-card.small { grid-column:span 4; }
+.module-card::before {
+  content:"";
+  position:absolute;
+  inset:16px;
+  border:1px solid rgba(242,211,138,.09);
+  border-radius:22px;
+  pointer-events:none;
+  clip-path:polygon(0 12%, 10% 0, 90% 0, 100% 12%, 100% 88%, 90% 100%, 10% 100%, 0 88%);
+}
+.module-card::after {
+  content:"";
+  position:absolute;
+  inset:-40%;
+  background:conic-gradient(from 90deg, transparent, rgba(var(--active-rgb),.13), transparent, rgba(242,211,138,.11), transparent);
+  opacity:.36;
+  z-index:-1;
+  animation:spin 18s linear infinite;
+}
+.module-card:hover, .module-card:focus-within {
+  transform:translateY(-6px) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg));
+  border-color:rgba(var(--active-rgb),.46);
+  box-shadow:0 34px 90px rgba(0,0,0,.45), 0 0 42px rgba(var(--active-rgb),.14);
+}
+.module-card h3 {
+  margin:0;
+  font-family:var(--font-display);
+  font-size:clamp(1.7rem, 2.5vw, 2.4rem);
+  color:var(--gold-2);
+  line-height:1;
+}
+.module-card p { color:var(--muted); line-height:1.65; margin:14px 0 0; }
+.module-meta {
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin-top:16px;
+}
+.chip {
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  border:1px solid rgba(242,211,138,.13);
+  border-radius:999px;
+  padding:8px 10px;
+  color:var(--muted);
+  background:rgba(0,0,0,.18);
+  font-family:var(--font-mono);
+  text-transform:uppercase;
+  letter-spacing:.11em;
+  font-size:.63rem;
+}
+.chip-dot { width:7px; height:7px; border-radius:50%; background:var(--active); box-shadow:0 0 13px rgba(var(--active-rgb),.75); }
+.card-link {
+  align-self:flex-start;
+  margin-top:20px;
+  color:var(--gold-2);
+  font-family:var(--font-mono);
+  text-transform:uppercase;
+  letter-spacing:.14em;
+  font-size:.7rem;
+  border-bottom:1px solid rgba(242,211,138,.28);
+  padding-bottom:5px;
+}
+.nexus-panel {
+  border:1px solid rgba(242,211,138,.17);
+  border-radius:32px;
+  background:rgba(4,8,14,.54);
+  overflow:hidden;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  min-height:520px;
+}
+.nexus-copy { padding:clamp(24px,4vw,48px); display:flex; flex-direction:column; justify-content:center; }
+.nexus-copy h3 { font-family:var(--font-display); font-size:clamp(2rem,4vw,4rem); line-height:.92; margin:0 0 18px; }
+.nexus-copy p { color:var(--muted); line-height:1.76; }
+.nexus-visual {
+  min-height:420px;
+  position:relative;
+  display:grid;
+  place-items:center;
+  background:
+    radial-gradient(circle at 50% 50%, rgba(var(--active-rgb),.20), transparent 38%),
+    linear-gradient(135deg, rgba(255,255,255,.035), transparent 45%);
+  overflow:hidden;
+}
+.nexus-visual vox-flame-logo { width:min(92%, 520px); height:auto; opacity:.82; filter:drop-shadow(0 0 44px rgba(var(--active-rgb),.18)); }
+.leyline-map { position:absolute; inset:0; pointer-events:none; opacity:.52; mix-blend-mode:screen; }
+.leyline-map path { stroke:var(--active); stroke-width:1; fill:none; stroke-dasharray:10 16; animation:dash 12s linear infinite; }
+.leyline-map circle { fill:var(--gold-2); opacity:.65; filter:drop-shadow(0 0 8px var(--gold)); }
+@keyframes dash { to { stroke-dashoffset:-260; } }
+.metric-strip {
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:12px;
+  margin-top:20px;
+}
+.metric { border:1px solid rgba(242,211,138,.13); border-radius:20px; padding:16px; background:rgba(0,0,0,.18); }
+.metric strong { display:block; font-family:var(--font-display); color:var(--gold-2); font-size:1.7rem; }
+.metric span { font-family:var(--font-mono); text-transform:uppercase; letter-spacing:.12em; font-size:.64rem; color:var(--muted-2); }
+.final-cta {
+  text-align:center;
+  max-width:880px;
+  margin:0 auto;
+  display:grid;
+  justify-items:center;
+  gap:22px;
+}
+.final-cta h2 {
+  font-family:var(--font-display);
+  margin:0;
+  font-size:clamp(3rem, 7vw, 8rem);
+  line-height:.82;
+  letter-spacing:-.05em;
+}
+.final-cta p { margin:0; color:var(--muted); line-height:1.8; font-size:1.08rem; }
+.footer {
+  border-top:1px solid rgba(242,211,138,.12);
+  padding:34px 0;
+  color:var(--muted-2);
+  font-family:var(--font-mono);
+  text-transform:uppercase;
+  letter-spacing:.12em;
+  font-size:.68rem;
+}
+.footer .wrap { display:flex; justify-content:space-between; gap:18px; flex-wrap:wrap; }
+[data-reveal] {
+  opacity:0;
+  transform:translateY(22px) scale(.985);
+  filter:blur(8px) brightness(.92);
+  transition:opacity .8s var(--ease), transform .8s var(--ease), filter .8s var(--ease);
+  transition-delay:var(--delay,0ms);
+}
+[data-reveal].in { opacity:1; transform:translateY(0) scale(1); filter:blur(0) brightness(1); }
+@supports (animation-timeline: scroll()) {
+  .background-logo {
+    animation:bgLogoDrift linear both;
+    animation-timeline:scroll(root);
+    animation-range:0% 100%;
+  }
+  @keyframes bgLogoDrift {
+    from { transform:translate(-50%, -50%) scale(1); opacity:.24; }
+    to { transform:translate(-50%, -54%) scale(.88) rotate(8deg); opacity:.15; }
+  }
+}
+@container (max-width: 460px) {
+  .signal-readout { grid-template-columns:1fr; }
+  .mana-grid { grid-template-columns:repeat(5, 1fr); gap:6px; }
+  .mana-button { min-height:62px; }
+}
+@media (max-width: 1100px) {
+  .hero-grid, .nexus-panel { grid-template-columns:1fr; }
+  .signal-card { min-height:auto; }
+  .module-card, .module-card.large, .module-card.wide, .module-card.small { grid-column:span 6; }
+  h1 { font-size:clamp(3.4rem, 12vw, 7rem); }
+}
+@media (max-width: 720px) {
+  .nav { display:none; }
+  .topbar-inner { min-height:68px; }
+  .brand-copy strong { letter-spacing:.26em; }
+  .brand-copy span { display:none; }
+  .hero { padding-top:96px; }
+  .module-card, .module-card.large, .module-card.wide, .module-card.small { grid-column:1 / -1; }
+  .metric-strip { grid-template-columns:1fr 1fr; }
+  .signal-card { border-radius:24px; padding:18px; }
+  .background-logo { width:min(120vmin, 700px); opacity:.16; }
+  .mana-grid { gap:7px; }
+  .glyph { width:34px; height:34px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior:auto; }
+  *, *::before, *::after { animation-duration:.001ms !important; animation-iteration-count:1 !important; transition:none !important; }
+  [data-reveal] { opacity:1; transform:none; filter:none; }
+  .custom-cursor { display:none; }
+}
+</style>
+</head>
+<body>
+<canvas id="mana-canvas" aria-hidden="true"></canvas>
+<div class="custom-cursor" aria-hidden="true"></div>
+<vox-flame-logo class="background-logo" decorative="true"></vox-flame-logo>
+
+<header class="topbar" role="banner">
+  <div class="topbar-inner">
+    <a class="brand" href="#top" aria-label="Vox Mana home">
+      <span class="brand-mark" aria-hidden="true"><vox-flame-logo decorative="true"></vox-flame-logo></span>
+      <span class="brand-copy"><strong>Vox Mana</strong><span>Mana signal engine</span></span>
+    </a>
+    <nav class="nav" aria-label="Primary">
+      <a href="#signal">Signal</a>
+      <a href="#modules">Systems</a>
+      <a href="#nexus">Nexus</a>
+      <a href="#begin">Begin</a>
+    </nav>
+    <button class="nav-action" type="button" id="soundToggle" aria-pressed="false">Sound off</button>
+  </div>
+</header>
+
+<main id="top" class="page">
+  <section class="hero" id="signal" aria-labelledby="hero-title">
+    <div class="wrap hero-grid">
+      <div data-reveal>
+        <span class="eyebrow">A living archive for color identity</span>
+        <h1 id="hero-title"><span class="hero-word">Find the signal</span> beneath your deck.</h1>
+        <p class="hero-copy">Vox Mana is a landing point for players who want more than a quiz result. It turns preference, strategy, lore, and deck-building instinct into a readable mana profile — then gives you useful paths into cards, archetypes, factions, and deeper research.</p>
+        <div class="hero-actions">
+          <a class="btn primary" href="#begin">Start the reading <span class="arrow">→</span></a>
+          <a class="btn" href="#modules">See the engine</a>
+        </div>
+      </div>
+
+      <aside class="signal-card" aria-label="Interactive mana signal selector" data-reveal style="--delay:120ms">
+        <div class="signal-inner">
+          <div class="panel-heading">
+            <h2>Signal Dial</h2>
+            <span class="status-pill"><span class="status-dot"></span><span id="statusText">Blue tuned</span></span>
+          </div>
+
+          <div class="signal-orbit" aria-hidden="true">
+            <span class="orbit-ring"></span>
+            <span class="orbit-ring"></span>
+            <span class="orbit-ring"></span>
+            <div class="orbit-core"><vox-flame-logo decorative="true"></vox-flame-logo></div>
+          </div>
+
+          <div class="mana-toolbar">
+            <div class="toolbar-row">
+              <span class="toolbar-label">Choose a mana current</span>
+              <span class="mode-toggle" role="group" aria-label="Glyph style">
+                <button type="button" data-mode="leyline">Leylines</button>
+                <button type="button" data-mode="orbs">Flame orbs</button>
+              </span>
+            </div>
+            <div class="mana-grid" role="group" aria-label="Mana color controls">
+              <button class="mana-button" type="button" data-mana="white" aria-label="White" aria-pressed="false"><svg class="glyph glyph-leyline" viewBox="0 0 64 64" aria-hidden="true"><circle class="thin" cx="32" cy="32" r="24"/><circle class="thin" cx="32" cy="32" r="14"/><path class="stroke" d="M32 5v14M32 45v14M5 32h14M45 32h14M13 13l10 10M41 41l10 10M51 13 41 23M23 41 13 51"/><path class="fill" d="M32 23 41 32 32 41 23 32Z"/></svg><svg class="glyph glyph-orb" viewBox="0 0 64 64" aria-hidden="true"><g class="orb-sigil"><circle class="thin" cx="32" cy="32" r="25"/><path class="stroke" d="M17 18C27 7 45 14 47 29c2 15-12 25-27 18-11-5-9-20 3-17 8 2 17 0 17-8 0-9-18-9-23-4"/><circle class="fill" cx="32" cy="32" r="8"/></g></svg></button>
+              <button class="mana-button" type="button" data-mana="blue" aria-label="Blue" aria-pressed="true"><svg class="glyph glyph-leyline" viewBox="0 0 64 64" aria-hidden="true"><path class="thin" d="M32 5C45 18 52 29 52 39c0 11-9 19-20 19s-20-8-20-19C12 29 19 18 32 5Z"/><path class="stroke" d="M20 38c8-9 16-9 24 0M23 28c6-7 12-7 18 0M32 5v53"/><circle class="fill" cx="32" cy="40" r="8"/></svg><svg class="glyph glyph-orb" viewBox="0 0 64 64" aria-hidden="true"><g class="orb-sigil"><circle class="thin" cx="32" cy="32" r="25"/><path class="stroke" d="M16 19c12-12 35-3 34 15-1 16-18 24-31 14-9-7-4-20 8-15 7 3 16-1 15-9-1-9-19-10-26-5"/><path class="thin" d="M17 43c11 4 21 4 30 0"/></g></svg></button>
+              <button class="mana-button" type="button" data-mana="black" aria-label="Black" aria-pressed="false"><svg class="glyph glyph-leyline" viewBox="0 0 64 64" aria-hidden="true"><path class="thin" d="M32 6 51 17v22L32 58 13 39V17Z"/><path class="stroke" d="M32 6v52M13 17l38 22M51 17 13 39"/><path class="stroke" d="M24 27c0-8 16-8 16 0 0 10-16 10-16 0Z"/><path class="fill" d="M32 22 40 32 32 42 24 32Z"/></svg><svg class="glyph glyph-orb" viewBox="0 0 64 64" aria-hidden="true"><g class="orb-sigil"><circle class="thin" cx="32" cy="32" r="25"/><path class="stroke" d="M17 19c9-12 33-8 34 10 1 17-18 25-31 15-10-8-4-21 8-16 8 3 17-1 17-10 0-8-20-6-28 1"/><circle class="fill" cx="32" cy="32" r="10"/></g></svg></button>
+              <button class="mana-button" type="button" data-mana="red" aria-label="Red" aria-pressed="false"><svg class="glyph glyph-leyline" viewBox="0 0 64 64" aria-hidden="true"><path class="thin" d="M34 5 53 35 35 59 11 40Z"/><path class="stroke" d="M34 5 30 31 53 35M30 31 35 59M30 31 11 40"/><path class="stroke" d="M25 43c8-15 10-20 6-31 12 12 16 24 5 38"/><path class="fill" d="M32 25 41 40 32 52 22 41Z"/></svg><svg class="glyph glyph-orb" viewBox="0 0 64 64" aria-hidden="true"><g class="orb-sigil"><circle class="thin" cx="32" cy="32" r="25"/><path class="stroke" d="M16 20c10-11 30-8 34 8 4 17-13 28-28 20-11-6-9-20 4-18 10 2 17-2 15-11-2-9-18-7-25 1"/><path class="thin" d="M28 13c8 9 11 18 5 28"/></g></svg></button>
+              <button class="mana-button" type="button" data-mana="green" aria-label="Green" aria-pressed="false"><svg class="glyph glyph-leyline" viewBox="0 0 64 64" aria-hidden="true"><path class="thin" d="M32 6C18 13 10 25 12 38c2 13 13 21 27 19 12-2 20-12 20-27C47 33 39 25 32 6Z"/><path class="stroke" d="M32 6v52M32 38c-9-10-16-15-20-15M32 43c9-12 17-17 27-17M20 45c8 1 14-1 18-7"/><path class="fill" d="M32 31c7 4 10 10 8 18-7-1-13-5-17-13Z"/></svg><svg class="glyph glyph-orb" viewBox="0 0 64 64" aria-hidden="true"><g class="orb-sigil"><circle class="thin" cx="32" cy="32" r="25"/><path class="stroke" d="M17 19c12-12 34-4 34 14 0 16-18 24-31 14-10-7-4-21 8-15 8 4 17-1 16-10-1-9-20-9-27-3"/><path class="thin" d="M24 47c9-7 15-17 17-31"/></g></svg></button>
+            </div>
+          </div>
+
+          <div class="signal-readout" aria-live="polite">
+            <div>
+              <strong id="manaTitle">Blue: The Pattern Seeker</strong>
+              <span id="manaCopy">Read the room, map the hidden structure, then act when the answer becomes visible.</span>
+            </div>
+            <span class="signal-index" id="manaIndex">02 / 05</span>
+          </div>
+        </div>
+      </aside>
+    </div>
+    <div class="scroll-cue" aria-hidden="true">Scroll</div>
+  </section>
+
+  <section class="section" id="modules" aria-labelledby="modules-title">
+    <div class="wrap">
+      <div class="section-header" data-reveal>
+        <span class="eyebrow">No old three-door layout</span>
+        <h2 id="modules-title">A new landing surface.</h2>
+        <p>This is a more modern entry point: cinematic, interactive, and centered on the logo as the gravitational artifact. The page leads users toward the reading, but also shows the larger Vox Mana ecosystem without looking like a simple portal menu.</p>
+      </div>
+      <div class="module-grid">
+        <article class="module-card large" tabindex="0" data-reveal style="--delay:80ms" data-tilt>
+          <div>
+            <span class="chip"><span class="chip-dot"></span>Primary path</span>
+            <h3>Archscry Reading</h3>
+            <p>A guided route into faction identity, mana alignment, adjacent fits, and deck-start guidance. The landing page sells the promise; the reading page handles the actual interaction.</p>
+          </div>
+          <a class="card-link" href="#begin">Begin reading →</a>
+        </article>
+        <article class="module-card small" tabindex="0" data-reveal style="--delay:150ms" data-tilt>
+          <div>
+            <span class="chip"><span class="chip-dot"></span>Research layer</span>
+            <h3>Maze Queries</h3>
+            <p>Plain-language discovery, syntax-backed searches, and deck-building routes that can branch from the user's eventual placement.</p>
+          </div>
+          <a class="card-link" href="#nexus">Preview system →</a>
+        </article>
+        <article class="module-card small" tabindex="0" data-reveal style="--delay:220ms" data-tilt>
+          <div>
+            <span class="chip"><span class="chip-dot"></span>Lore archive</span>
+            <h3>Color Codex</h3>
+            <p>Identity, metaphysics, faction notes, and interpretive dossiers presented as a real archive instead of a wall of text.</p>
+          </div>
+          <a class="card-link" href="#nexus">Open codex →</a>
+        </article>
+        <article class="module-card wide" tabindex="0" data-reveal style="--delay:290ms" data-tilt>
+          <div>
+            <span class="chip"><span class="chip-dot"></span>2026 UI system</span>
+            <h3>Reactive Mana Theme</h3>
+            <p>The five mana controls are not decorative only: they change global CSS variables, canvas particle color, focus rings, hover glows, component states, and the centered background logo treatment.</p>
+          </div>
+          <a class="card-link" href="#signal">Retune signal →</a>
+        </article>
+        <article class="module-card small" tabindex="0" data-reveal style="--delay:360ms" data-tilt>
+          <div>
+            <span class="chip"><span class="chip-dot"></span>Saved state</span>
+            <h3>Local Memory</h3>
+            <p>The prototype remembers the user's selected mana current and glyph mode locally, so the page feels alive on reload.</p>
+          </div>
+          <a class="card-link" href="#begin">Continue →</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="nexus" aria-labelledby="nexus-title">
+    <div class="wrap">
+      <div class="nexus-panel" data-reveal>
+        <div class="nexus-copy">
+          <span class="eyebrow">Logo as engine</span>
+          <h3 id="nexus-title">The mark becomes the map.</h3>
+          <p>The flame-orb V sits dead center in the viewport as the background artifact. The foreground moves around it. That keeps the landing page from feeling like a static brochure and makes the brand mark feel like the machine powering the experience.</p>
+          <div class="metric-strip" aria-label="Prototype capabilities">
+            <div class="metric"><strong>01</strong><span>Shadow DOM logo</span></div>
+            <div class="metric"><strong>05</strong><span>Mana currents</span></div>
+            <div class="metric"><strong>02</strong><span>Glyph modes</span></div>
+            <div class="metric"><strong>∞</strong><span>Canvas drift</span></div>
+          </div>
+        </div>
+        <div class="nexus-visual" aria-hidden="true">
+          <svg class="leyline-map" viewBox="0 0 800 600" preserveAspectRatio="none">
+            <path d="M80 420 C220 260 300 520 430 300 S620 120 740 230" />
+            <path d="M80 160 C210 240 240 80 360 180 S560 420 740 330" />
+            <path d="M145 520 C210 420 270 420 330 500 S530 560 690 450" />
+            <circle cx="80" cy="420" r="4"/><circle cx="430" cy="300" r="4"/><circle cx="740" cy="230" r="4"/>
+            <circle cx="80" cy="160" r="4"/><circle cx="360" cy="180" r="4"/><circle cx="740" cy="330" r="4"/>
+            <circle cx="145" cy="520" r="4"/><circle cx="330" cy="500" r="4"/><circle cx="690" cy="450" r="4"/>
+          </svg>
+          <vox-flame-logo decorative="true"></vox-flame-logo>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="begin" aria-labelledby="begin-title">
+    <div class="wrap final-cta" data-reveal>
+      <span class="eyebrow">The archive listens</span>
+      <h2 id="begin-title">Start where the signal moves.</h2>
+      <p>This landing page is built to point forward: first into the reading, then into dossiers, Maze searches, deck-start links, and lore-rich identity pages. The design can stay cinematic while still being practical.</p>
+      <div class="hero-actions">
+        <a class="btn primary" href="#">Launch Archscry <span class="arrow">→</span></a>
+        <a class="btn" href="#signal">Retune mana</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <span>Vox Mana · Signal Sanctum Prototype</span>
+    <span>Landing page only · No scoring logic wired</span>
+  </div>
+</footer>
+
+<script>
+const LOGO_SVG = "<svg class=\"vm-logo-svg\" viewBox=\"0 0 1200 1200\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-labelledby=\"sigilTitle sigilDesc\">\n        <title id=\"sigilTitle\">Vox Mana V Flame-Orb Mana Sigil Logo</title>\n        <desc id=\"sigilDesc\">A stylized Vox Mana V logo with sacred geometry, orbiting five-color flame-orb mana sigils, layered plasma accents, gold filigree, and the exact shared spiralS glyph path.</desc>\n\n        <defs>\n          <radialGradient id=\"bgMist\" cx=\"50%\" cy=\"45%\" r=\"64%\">\n            <stop offset=\"0\" stop-color=\"rgba(15,74,72,.24)\"/>\n            <stop offset=\".55\" stop-color=\"rgba(3,4,4,.05)\"/>\n            <stop offset=\"1\" stop-color=\"rgba(0,0,0,0)\"/>\n          </radialGradient>\n\n          <linearGradient id=\"vFill\" x1=\"300\" y1=\"240\" x2=\"900\" y2=\"1080\" gradientUnits=\"userSpaceOnUse\">\n            <stop offset=\"0\" stop-color=\"#071010\"/>\n            <stop offset=\".48\" stop-color=\"#0a322f\"/>\n            <stop offset=\"1\" stop-color=\"#020303\"/>\n          </linearGradient>\n\n          <linearGradient id=\"goldStroke\" x1=\"280\" y1=\"180\" x2=\"920\" y2=\"1080\" gradientUnits=\"userSpaceOnUse\">\n            <stop offset=\"0\" stop-color=\"#f2d994\"/>\n            <stop offset=\".34\" stop-color=\"#b87a24\"/>\n            <stop offset=\".68\" stop-color=\"#f0d38a\"/>\n            <stop offset=\"1\" stop-color=\"#7a501a\"/>\n          </linearGradient>\n\n          <linearGradient id=\"bladeEdge\" x1=\"0\" x2=\"1\">\n            <stop offset=\"0\" stop-color=\"rgba(255,255,255,.34)\"/>\n            <stop offset=\".35\" stop-color=\"rgba(255,255,255,.04)\"/>\n            <stop offset=\".72\" stop-color=\"rgba(240,211,138,.18)\"/>\n            <stop offset=\"1\" stop-color=\"rgba(255,255,255,.02)\"/>\n          </linearGradient>\n\n          <linearGradient id=\"shimmerBand\" x1=\"0\" x2=\"1\">\n            <stop offset=\"0\" stop-color=\"rgba(255,255,255,0)\"/>\n            <stop offset=\".43\" stop-color=\"rgba(255,255,255,0)\"/>\n            <stop offset=\".50\" stop-color=\"rgba(255,255,255,.30)\"/>\n            <stop offset=\".56\" stop-color=\"rgba(240,211,138,.12)\"/>\n            <stop offset=\"1\" stop-color=\"rgba(255,255,255,0)\"/>\n          </linearGradient>\n\n          <mask id=\"vOnlyShimmerMask\">\n            <rect width=\"1200\" height=\"1200\" fill=\"black\"/>\n            <rect id=\"shimmerSweep\" x=\"-760\" y=\"0\" width=\"620\" height=\"1200\" fill=\"url(#shimmerBand)\" transform=\"skewX(-16)\"/>\n          </mask>\n\n          <clipPath id=\"vClip\">\n            <path d=\"M232 226 C294 150 388 156 452 246 C500 314 528 416 550 532 C570 638 586 750 600 866 C614 750 630 638 650 532 C672 416 700 314 748 246 C812 156 906 150 968 226 L880 284 C850 306 832 346 816 414 C790 526 760 650 724 772 C696 868 660 966 626 1040 L600 1110 L574 1040 C540 966 504 868 476 772 C440 650 410 526 384 414 C368 346 350 306 320 284 Z\"/>\n          </clipPath>\n\n          <filter id=\"softVGlow\" x=\"-50%\" y=\"-50%\" width=\"200%\" height=\"200%\">\n            <feGaussianBlur stdDeviation=\"8\" result=\"blur\"/>\n            <feColorMatrix in=\"blur\" type=\"matrix\" values=\"0 0 0 0 0.82  0 0 0 0 0.55  0 0 0 0 0.18  0 0 0 .55 0\" result=\"goldBlur\"/>\n            <feMerge><feMergeNode in=\"goldBlur\"/><feMergeNode in=\"SourceGraphic\"/></feMerge>\n          </filter>\n\n          <filter id=\"glyphGlow\" x=\"-120%\" y=\"-120%\" width=\"340%\" height=\"340%\">\n            <feGaussianBlur stdDeviation=\"5\" result=\"g\"/>\n            <feMerge><feMergeNode in=\"g\"/><feMergeNode in=\"SourceGraphic\"/></feMerge>\n          </filter>\n\n          <filter id=\"elementalFireFilter\" x=\"-150%\" y=\"-150%\" width=\"400%\" height=\"400%\" color-interpolation-filters=\"sRGB\">\n            <feTurbulence type=\"fractalNoise\" baseFrequency=\"0.045\" numOctaves=\"4\" result=\"flameNoise\" />\n            <feDisplacementMap in=\"SourceGraphic\" in2=\"flameNoise\" scale=\"24\" xChannelSelector=\"R\" yChannelSelector=\"G\" result=\"blazingOutlines\" />\n            <feGaussianBlur in=\"blazingOutlines\" stdDeviation=\"6\" result=\"coreHeatGlow\"/>\n            <feGaussianBlur in=\"blazingOutlines\" stdDeviation=\"16\" result=\"ambientThermalBleed\"/>\n            <feMerge>\n              <feMergeNode in=\"ambientThermalBleed\"/>\n              <feMergeNode in=\"coreHeatGlow\"/>\n              <feMergeNode in=\"blazingOutlines\"/>\n            </feMerge>\n          </filter>\n\n          <filter id=\"plasmaCoreGlow\" x=\"-100%\" y=\"-100%\" width=\"300%\" height=\"300%\" color-interpolation-filters=\"sRGB\">\n            <feGaussianBlur stdDeviation=\"3\" result=\"b1\"/>\n            <feGaussianBlur stdDeviation=\"9\" result=\"b2\"/>\n            <feMerge>\n              <feMergeNode in=\"b2\"/>\n              <feMergeNode in=\"b1\"/>\n              <feMergeNode in=\"SourceGraphic\"/>\n            </feMerge>\n          </filter>\n\n          <filter id=\"blackManaGlow\" x=\"-160%\" y=\"-160%\" width=\"420%\" height=\"420%\">\n            <feDropShadow dx=\"0\" dy=\"0\" stdDeviation=\"2.5\" flood-color=\"#8f86a8\" flood-opacity=\".72\"/>\n            <feDropShadow dx=\"0\" dy=\"0\" stdDeviation=\"7\" flood-color=\"#211b2f\" flood-opacity=\".95\"/>\n            <feDropShadow dx=\"0\" dy=\"0\" stdDeviation=\"14\" flood-color=\"#c28a2f\" flood-opacity=\".18\"/>\n          </filter>\n\n          <filter id=\"deepShadow\" x=\"-60%\" y=\"-60%\" width=\"220%\" height=\"220%\">\n            <feDropShadow dx=\"0\" dy=\"18\" stdDeviation=\"18\" flood-color=\"#000\" flood-opacity=\".70\"/>\n          </filter>\n\n          <linearGradient id=\"whiteStroke\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n            <stop offset=\"0\" stop-color=\"#fff8d8\"/>\n            <stop offset=\".55\" stop-color=\"#f5e8b4\"/>\n            <stop offset=\"1\" stop-color=\"#b98e3e\"/>\n          </linearGradient>\n          <linearGradient id=\"blueStroke\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n            <stop offset=\"0\" stop-color=\"#98ebff\"/>\n            <stop offset=\".5\" stop-color=\"#1687d9\"/>\n            <stop offset=\"1\" stop-color=\"#06284c\"/>\n          </linearGradient>\n          <linearGradient id=\"blackStroke\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n            <stop offset=\"0\" stop-color=\"#8f86a8\"/>\n            <stop offset=\".22\" stop-color=\"#2a2636\"/>\n            <stop offset=\".58\" stop-color=\"#08080d\"/>\n            <stop offset=\"1\" stop-color=\"#000000\"/>\n          </linearGradient>\n          <linearGradient id=\"redStroke\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n            <stop offset=\"0\" stop-color=\"#ffc07f\"/>\n            <stop offset=\".48\" stop-color=\"#d13224\"/>\n            <stop offset=\"1\" stop-color=\"#4b0907\"/>\n          </linearGradient>\n          <linearGradient id=\"greenStroke\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n            <stop offset=\"0\" stop-color=\"#cbff9d\"/>\n            <stop offset=\".48\" stop-color=\"#42b85a\"/>\n            <stop offset=\"1\" stop-color=\"#082914\"/>\n          </linearGradient>\n\n\n          <radialGradient id=\"whiteOrb\" cx=\"50%\" cy=\"45%\" r=\"62%\">\n            <stop offset=\"0\" stop-color=\"#fff8d8\" stop-opacity=\".42\"/>\n            <stop offset=\".48\" stop-color=\"#f0d38a\" stop-opacity=\".18\"/>\n            <stop offset=\"1\" stop-color=\"#f0d38a\" stop-opacity=\"0\"/>\n          </radialGradient>\n          <radialGradient id=\"blueOrb\" cx=\"50%\" cy=\"45%\" r=\"62%\">\n            <stop offset=\"0\" stop-color=\"#98ebff\" stop-opacity=\".42\"/>\n            <stop offset=\".48\" stop-color=\"#1687d9\" stop-opacity=\".18\"/>\n            <stop offset=\"1\" stop-color=\"#1687d9\" stop-opacity=\"0\"/>\n          </radialGradient>\n          <radialGradient id=\"blackOrb\" cx=\"50%\" cy=\"45%\" r=\"62%\">\n            <stop offset=\"0\" stop-color=\"#b0a8c8\" stop-opacity=\".42\"/>\n            <stop offset=\".50\" stop-color=\"#2a2636\" stop-opacity=\".24\"/>\n            <stop offset=\"1\" stop-color=\"#08080d\" stop-opacity=\"0\"/>\n          </radialGradient>\n          <radialGradient id=\"redOrb\" cx=\"50%\" cy=\"45%\" r=\"62%\">\n            <stop offset=\"0\" stop-color=\"#ffc07f\" stop-opacity=\".42\"/>\n            <stop offset=\".48\" stop-color=\"#d13224\" stop-opacity=\".20\"/>\n            <stop offset=\"1\" stop-color=\"#d13224\" stop-opacity=\"0\"/>\n          </radialGradient>\n          <radialGradient id=\"greenOrb\" cx=\"50%\" cy=\"45%\" r=\"62%\">\n            <stop offset=\"0\" stop-color=\"#cbff9d\" stop-opacity=\".42\"/>\n            <stop offset=\".48\" stop-color=\"#42b85a\" stop-opacity=\".19\"/>\n            <stop offset=\"1\" stop-color=\"#42b85a\" stop-opacity=\"0\"/>\n          </radialGradient>\n\n          <style><![CDATA[\n            .hairline{stroke:rgba(237,226,194,.075);stroke-width:1.15;fill:none;vector-effect:non-scaling-stroke;}\n            .hairline-dim{stroke:rgba(237,226,194,.04);stroke-width:.9;fill:none;vector-effect:non-scaling-stroke;}\n            .gold-line{stroke:rgba(240,211,138,.12);stroke-width:1.4;fill:none;vector-effect:non-scaling-stroke;}\n            .filigree{stroke:rgba(240,211,138,.18);stroke-width:3;fill:none;stroke-linecap:round;stroke-linejoin:round;vector-effect:non-scaling-stroke;}\n            .filigree-soft{stroke:rgba(240,211,138,.11);stroke-width:2;fill:none;stroke-linecap:round;stroke-linejoin:round;vector-effect:non-scaling-stroke;}\n            .rosette{stroke:rgba(240,211,138,.14);stroke-width:2.2;fill:none;vector-effect:non-scaling-stroke;}\n            .mana-orb-shell{opacity:.30;filter:url(#plasmaCoreGlow);mix-blend-mode:screen;}\n            .mana-orb-shell--white{fill:url(#whiteOrb);}\n            .mana-orb-shell--blue{fill:url(#blueOrb);}\n            .mana-orb-shell--black{fill:url(#blackOrb);opacity:.42;}\n            .mana-orb-shell--red{fill:url(#redOrb);}\n            .mana-orb-shell--green{fill:url(#greenOrb);}\n            .mana-orb-rim{fill:none;stroke:rgba(255,255,255,.18);stroke-width:1.15;filter:url(#plasmaCoreGlow);opacity:.55;}\n            .spiral{fill:none;stroke-width:11;stroke-linecap:round;stroke-linejoin:round;filter:url(#elementalFireFilter);}\n            .spiral-accent{fill:none;stroke:rgba(255,255,255,.85);stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;filter:url(#plasmaCoreGlow);}\n            .spiral-core{fill:#ffffff;stroke:rgba(240,211,138,.40);stroke-width:1.5;filter:url(#plasmaCoreGlow);}\n            .black-hot-accent{stroke:rgba(226,220,255,.90);}\n            .black-core{fill:#fbf8ff;stroke:rgba(143,134,168,.62);}\n            .trail{fill:none;stroke-width:5;stroke-linecap:round;stroke-dasharray:12 24;opacity:.52;}\n            .white{stroke:url(#whiteStroke)}\n            .blue{stroke:url(#blueStroke)}\n            .black{stroke:url(#blackStroke)}\n            .red{stroke:url(#redStroke)}\n            .green{stroke:url(#greenStroke)}\n            .trail.black{stroke:#5b526f;opacity:.68;filter:url(#blackManaGlow);}\n            .black-mana-rim{stroke:#8f86a8;stroke-width:10;opacity:.68;filter:url(#blackManaGlow);}\n            .black-mana-core{stroke:#020204;stroke-width:6.2;opacity:1;}\n            .black-mana-echo-rim{stroke:#6f6684;stroke-width:7;opacity:.62;filter:url(#blackManaGlow);}\n            .black-mana-echo-core{stroke:#050509;stroke-width:4.4;opacity:.98;}\n            .black-mana-accent{stroke:#b0a8c8;stroke-width:2.4;opacity:.88;filter:url(#blackManaGlow);}\n            .black-mana-core-dot{fill:#020204;stroke:#8f86a8;stroke-width:1.8;filter:url(#blackManaGlow);}\n\n            .blade-flair{fill:none;stroke:url(#goldStroke);stroke-width:10;stroke-linecap:round;stroke-linejoin:round;filter:url(#softVGlow);}\n            .blade-flair-soft{fill:none;stroke:rgba(240,211,138,.22);stroke-width:4;stroke-linecap:round;stroke-linejoin:round;vector-effect:non-scaling-stroke;}\n            .armor-panel{fill:rgba(5,20,19,.55);stroke:rgba(240,211,138,.22);stroke-width:2.5;stroke-linejoin:round;}\n            .edge-cut{fill:none;stroke:rgba(255,248,216,.34);stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round;}\n            .shadow-cut{fill:none;stroke:rgba(0,0,0,.58);stroke-width:5;stroke-linecap:round;stroke-linejoin:round;}\n            .v-jewel{fill:#0ca7b7;stroke:url(#goldStroke);stroke-width:5;filter:url(#glyphGlow);}\n            .v-spike{fill:url(#goldStroke);stroke:rgba(0,0,0,.62);stroke-width:3;stroke-linejoin:round;filter:url(#softVGlow);}\n\n          ]]></style>\n\n          <path id=\"spiralS\" d=\"M -38 -39 C -16 -56 26 -42 34 -8 C 42 26 8 54 -28 42 C -58 32 -56 -4 -28 4 C -6 10 18 4 20 -14 C 22 -35 -25 -35 -37 -40\" />\n          <g id=\"spiralWhite\">\n            <circle class=\"mana-orb-shell mana-orb-shell--white\" cx=\"-4\" cy=\"2\" r=\"34\"/>\n            <circle class=\"mana-orb-rim\" cx=\"-4\" cy=\"2\" r=\"27\"/>\n            <path class=\"spiral white\" d=\"M -38 -39 C -16 -56 26 -42 34 -8 C 42 26 8 54 -28 42 C -58 32 -56 -4 -28 4 C -6 10 18 4 20 -14 C 22 -35 -25 -35 -37 -40\"/>\n            <path class=\"spiral-accent\" d=\"M -38 -39 C -16 -56 26 -42 34 -8 C 42 26 8 54 -28 42 C -58 32 -56 -4 -28 4 C -6 10 18 4 20 -14 C 22 -35 -25 -35 -37 -40\"/>\n            <circle class=\"spiral-core\" cx=\"-4\" cy=\"2\" r=\"6\"/>\n          </g>\n          <g id=\"spiralBlue\">\n            <circle class=\"mana-orb-shell mana-orb-shell--blue\" cx=\"-4\" cy=\"2\" r=\"34\"/>\n            <circle class=\"mana-orb-rim\" cx=\"-4\" cy=\"2\" r=\"27\"/>\n            <path class=\"spiral blue\" d=\"M -38 -39 C -16 -56 26 -42 34 -8 C 42 26 8 54 -28 42 C -58 32 -56 -4 -28 4 C -6 10 18 4 20 -14 C 22 -35 -25 -35 -37 -40\"/>\n            <path class=\"spiral-accent\" d=\"M -38 -39 C -16 -56 26 -42 34 -8 C 42 26 8 54 -28 42 C -58 32 -56 -4 -28 4 C -6 10 18 4 20 -14 C 22 -35 -25 -35 -37 -40\"/>\n            <circle class=\"spiral-core\" cx=\"-4\" cy=\"2\" r=\"6\"/>\n          </g>\n          <g id=\"spiralBlack\">\n            <circle class=\"mana-orb-shell mana-orb-shell--black\" cx=\"-4\" cy=\"2\" r=\"36\"/>\n            <circle class=\"mana-orb-rim\" cx=\"-4\" cy=\"2\" r=\"28\"/>\n            <path class=\"spiral black\" d=\"M -38 -39 C -16 -56 26 -42 34 -8 C 42 26 8 54 -28 42 C -58 32 -56 -4 -28 4 C -6 10 18 4 20 -14 C 22 -35 -25 -35 -37 -40\"/>\n            <path class=\"spiral-accent black-hot-accent\" d=\"M -38 -39 C -16 -56 26 -42 34 -8 C 42 26 8 54 -28 42 C -58 32 -56 -4 -28 4 C -6 10 18 4 20 -14 C 22 -35 -25 -35 -37 -40\"/>\n            <circle class=\"spiral-core black-core\" cx=\"-4\" cy=\"2\" r=\"6\"/>\n          </g>\n          <g id=\"spiralRed\">\n            <circle class=\"mana-orb-shell mana-orb-shell--red\" cx=\"-4\" cy=\"2\" r=\"34\"/>\n            <circle class=\"mana-orb-rim\" cx=\"-4\" cy=\"2\" r=\"27\"/>\n            <path class=\"spiral red\" d=\"M -38 -39 C -16 -56 26 -42 34 -8 C 42 26 8 54 -28 42 C -58 32 -56 -4 -28 4 C -6 10 18 4 20 -14 C 22 -35 -25 -35 -37 -40\"/>\n            <path class=\"spiral-accent\" d=\"M -38 -39 C -16 -56 26 -42 34 -8 C 42 26 8 54 -28 42 C -58 32 -56 -4 -28 4 C -6 10 18 4 20 -14 C 22 -35 -25 -35 -37 -40\"/>\n            <circle class=\"spiral-core\" cx=\"-4\" cy=\"2\" r=\"6\"/>\n          </g>\n          <g id=\"spiralGreen\">\n            <circle class=\"mana-orb-shell mana-orb-shell--green\" cx=\"-4\" cy=\"2\" r=\"34\"/>\n            <circle class=\"mana-orb-rim\" cx=\"-4\" cy=\"2\" r=\"27\"/>\n            <path class=\"spiral green\" d=\"M -38 -39 C -16 -56 26 -42 34 -8 C 42 26 8 54 -28 42 C -58 32 -56 -4 -28 4 C -6 10 18 4 20 -14 C 22 -35 -25 -35 -37 -40\"/>\n            <path class=\"spiral-accent\" d=\"M -38 -39 C -16 -56 26 -42 34 -8 C 42 26 8 54 -28 42 C -58 32 -56 -4 -28 4 C -6 10 18 4 20 -14 C 22 -35 -25 -35 -37 -40\"/>\n            <circle class=\"spiral-core\" cx=\"-4\" cy=\"2\" r=\"6\"/>\n          </g>\n        </defs>\n\n        <rect width=\"1200\" height=\"1200\" fill=\"#030404\"/>\n        <rect width=\"1200\" height=\"1200\" fill=\"url(#bgMist)\"/>\n\n        <!-- Outer geometry field -->\n        <g transform=\"translate(600 600)\">\n          <g class=\"hairline-dim\">\n            <circle r=\"504\"/>\n            <circle r=\"438\"/>\n            <circle r=\"356\"/>\n            <circle r=\"284\"/>\n            <circle r=\"208\"/>\n            <circle r=\"132\"/>\n          </g>\n          <g class=\"hairline\">\n            <polygon points=\"0,-420 400,-130 247,340 -247,340 -400,-130\"/>\n            <path d=\"M0,-420 L247,340 L-400,-130 L400,-130 L-247,340 Z\"/>\n            <polygon points=\"0,-324 308,-100 190,262 -190,262 -308,-100\"/>\n            <path d=\"M0,-324 L190,262 L-308,-100 L308,-100 L-190,262 Z\"/>\n          </g>\n          <g class=\"hairline-dim\" opacity=\".8\">\n            <path d=\"M-500 0 H500 M0 -500 V500\"/>\n            <path d=\"M-354 -354 L354 354 M354 -354 L-354 354\"/>\n            <path d=\"M-438 -128 L438 -128 M-438 128 L438 128\"/>\n            <path d=\"M-128 -438 L-128 438 M128 -438 L128 438\"/>\n            <path d=\"M-284 -284 L284 -284 L284 284 L-284 284 Z\"/>\n          </g>\n        </g>\n\n        <!-- Wackier sacred halo / spirograph field -->\n        <g transform=\"translate(600 600)\" opacity=\".46\">\n          <g class=\"gold-line\">\n            <path d=\"M0 -454 C92 -406 178 -400 262 -436 C226 -350 232 -262 286 -188 C194 -200 114 -172 44 -102 C38 -194 -4 -274 -78 -342 C-50 -398 -24 -426 0 -454 Z\"/>\n            <path d=\"M0 -454 C-92 -406 -178 -400 -262 -436 C-226 -350 -232 -262 -286 -188 C-194 -200 -114 -172 -44 -102 C-38 -194 4 -274 78 -342 C50 -398 24 -426 0 -454 Z\"/>\n            <circle r=\"460\" stroke-dasharray=\"4 18\" opacity=\".42\">\n              <animate attributeName=\"stroke-dashoffset\" from=\"0\" to=\"220\" dur=\"12s\" repeatCount=\"indefinite\"/>\n            </circle>\n          </g>\n          <g class=\"hairline-dim\" opacity=\".8\">\n            <path d=\"M-232 -432 C-154 -324 -132 -228 -134 -142 C-136 -44 -166 48 -196 128\"/>\n            <path d=\"M232 -432 C154 -324 132 -228 134 -142 C136 -44 166 48 196 128\"/>\n            <path d=\"M-258 326 C-142 286 -48 280 0 322 C48 280 142 286 258 326\"/>\n          </g>\n        </g>\n\n        <!-- Sacred geometry / filigree V -->\n        <g filter=\"url(#deepShadow)\">\n          <path d=\"M232 226 C294 150 388 156 452 246 C500 314 528 416 550 532 C570 638 586 750 600 866 C614 750 630 638 650 532 C672 416 700 314 748 246 C812 156 906 150 968 226 L880 284 C850 306 832 346 816 414 C790 526 760 650 724 772 C696 868 660 966 626 1040 L600 1110 L574 1040 C540 966 504 868 476 772 C440 650 410 526 384 414 C368 346 350 306 320 284 Z\"\n                fill=\"none\" stroke=\"rgba(240,211,138,.22)\" stroke-width=\"52\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/>\n\n          <path d=\"M232 226 C294 150 388 156 452 246 C500 314 528 416 550 532 C570 638 586 750 600 866 C614 750 630 638 650 532 C672 416 700 314 748 246 C812 156 906 150 968 226 L880 284 C850 306 832 346 816 414 C790 526 760 650 724 772 C696 868 660 966 626 1040 L600 1110 L574 1040 C540 966 504 868 476 772 C440 650 410 526 384 414 C368 346 350 306 320 284 Z\"\n                fill=\"none\" stroke=\"url(#goldStroke)\" stroke-width=\"31\" stroke-linejoin=\"round\" stroke-linecap=\"round\" filter=\"url(#softVGlow)\"/>\n\n          <path id=\"vBody\" d=\"M232 226 C294 150 388 156 452 246 C500 314 528 416 550 532 C570 638 586 750 600 866 C614 750 630 638 650 532 C672 416 700 314 748 246 C812 156 906 150 968 226 L880 284 C850 306 832 346 816 414 C790 526 760 650 724 772 C696 868 660 966 626 1040 L600 1110 L574 1040 C540 966 504 868 476 772 C440 650 410 526 384 414 C368 346 350 306 320 284 Z\"\n                fill=\"url(#vFill)\" stroke=\"rgba(0,0,0,.85)\" stroke-width=\"6\" stroke-linejoin=\"round\"/>\n\n          <path d=\"M388 306 C432 236 502 260 540 348 C562 400 578 474 588 558 C594 614 598 674 600 744 C602 674 606 614 612 558 C622 474 638 400 660 348 C698 260 768 236 812 306 L754 340 C728 370 712 428 698 500 C680 594 658 704 632 808 C622 850 612 890 600 930 C588 890 578 850 568 808 C542 704 520 594 502 500 C488 428 472 370 446 340 Z\"\n                fill=\"none\" stroke=\"rgba(240,211,138,.16)\" stroke-width=\"5\" stroke-linejoin=\"round\"/>\n          <path d=\"M517 405 L600 650 L683 405 L600 535 Z\" fill=\"url(#bladeEdge)\" opacity=\".70\"/>\n          <path d=\"M540 890 L600 1036 L660 890 L600 982 Z\" fill=\"rgba(240,211,138,.13)\"/>\n\n          <!-- Badass armored V details: built onto the V shape, not just inside it -->\n          <path class=\"armor-panel\" d=\"M314 250 C360 196 416 204 454 262 C426 260 392 276 362 314 C340 286 326 266 314 250 Z\"/>\n          <path class=\"armor-panel\" d=\"M886 250 C840 196 784 204 746 262 C774 260 808 276 838 314 C860 286 874 266 886 250 Z\"/>\n          <path class=\"armor-panel\" d=\"M470 390 C502 474 530 600 552 736 C520 648 492 540 470 390 Z\"/>\n          <path class=\"armor-panel\" d=\"M730 390 C698 474 670 600 648 736 C680 648 708 540 730 390 Z\"/>\n          <path class=\"edge-cut\" d=\"M330 276 C374 226 418 232 450 276\"/>\n          <path class=\"edge-cut\" d=\"M870 276 C826 226 782 232 750 276\"/>\n          <path class=\"edge-cut\" d=\"M474 398 C508 516 540 660 566 810\"/>\n          <path class=\"edge-cut\" d=\"M726 398 C692 516 660 660 634 810\"/>\n          <path class=\"shadow-cut\" d=\"M397 348 C424 442 456 584 500 732\"/>\n          <path class=\"shadow-cut\" d=\"M803 348 C776 442 744 584 700 732\"/>\n          <polygon class=\"v-spike\" points=\"600,858 628,930 600,1110 572,930\"/>\n          <polygon class=\"v-jewel\" points=\"600,942 622,984 600,1028 578,984\"/>\n        </g>\n\n        <!-- Extra silhouette flair outside the main V: shoulders, fins, and spear points -->\n        <g filter=\"url(#deepShadow)\" opacity=\".98\">\n          <path class=\"blade-flair\" d=\"M238 222 C318 116 430 142 510 292\"/>\n          <path class=\"blade-flair\" d=\"M962 222 C882 116 770 142 690 292\"/>\n          <path class=\"blade-flair-soft\" d=\"M238 222 C304 252 358 302 392 372\"/>\n          <path class=\"blade-flair-soft\" d=\"M962 222 C896 252 842 302 808 372\"/>\n          <path class=\"blade-flair-soft\" d=\"M322 430 C366 448 396 474 420 512\"/>\n          <path class=\"blade-flair-soft\" d=\"M878 430 C834 448 804 474 780 512\"/>\n          <polygon class=\"v-spike\" points=\"224,224 292,202 250,270\"/>\n          <polygon class=\"v-spike\" points=\"976,224 908,202 950,270\"/>\n          <polygon class=\"v-spike\" points=\"310,438 366,426 326,486\"/>\n          <polygon class=\"v-spike\" points=\"890,438 834,426 874,486\"/>\n          <polygon class=\"v-spike\" points=\"600,1110 622,1160 600,1190 578,1160\"/>\n        </g>\n\n        <!-- Internal sacred geometry clipped into the V -->\n        <g clip-path=\"url(#vClip)\">\n          <g transform=\"translate(600 600)\">\n            <g class=\"rosette\">\n              <circle r=\"80\"/>\n              <circle r=\"120\"/>\n              <circle r=\"160\"/>\n              <circle r=\"200\"/>\n              <circle r=\"240\"/>\n              <circle r=\"280\"/>\n              <g opacity=\".95\">\n                <circle cx=\"0\" cy=\"-110\" r=\"110\"/>\n                <circle cx=\"95\" cy=\"-55\" r=\"110\"/>\n                <circle cx=\"95\" cy=\"55\" r=\"110\"/>\n                <circle cx=\"0\" cy=\"110\" r=\"110\"/>\n                <circle cx=\"-95\" cy=\"55\" r=\"110\"/>\n                <circle cx=\"-95\" cy=\"-55\" r=\"110\"/>\n              </g>\n            </g>\n            <g class=\"filigree-soft\">\n              <path d=\"M-168 -262 C-100 -210 -78 -124 -88 -28 C-96 64 -128 158 -132 252\"/>\n              <path d=\"M168 -262 C100 -210 78 -124 88 -28 C96 64 128 158 132 252\"/>\n              <path d=\"M-208 -66 C-150 -40 -122 6 -120 54 C-118 108 -140 146 -172 178\"/>\n              <path d=\"M208 -66 C150 -40 122 6 120 54 C118 108 140 146 172 178\"/>\n              <path d=\"M-122 268 C-86 246 -58 238 -18 240 C24 242 58 254 94 278\"/>\n            </g>\n            <g class=\"filigree\">\n              <path d=\"M-120 -270 C-72 -218 -44 -152 -34 -74 C-24 0 -32 78 -60 160 C-78 210 -92 238 -110 262\"/>\n              <path d=\"M120 -270 C72 -218 44 -152 34 -74 C24 0 32 78 60 160 C78 210 92 238 110 262\"/>\n              <path d=\"M-96 -220 C-44 -166 -16 -98 -10 -26 C-4 50 -20 110 -48 170\"/>\n              <path d=\"M96 -220 C44 -166 16 -98 10 -26 C4 50 20 110 48 170\"/>\n              <path d=\"M-32 320 C-8 300 8 300 32 320\"/>\n              <path d=\"M-52 366 C-18 334 18 334 52 366\"/>\n              <path d=\"M-74 414 C-28 372 28 372 74 414\"/>\n              <path d=\"M0 -126 C44 -120 76 -86 78 -44 C80 -2 46 32 0 40 C-46 32 -80 -2 -78 -44 C-76 -86 -44 -120 0 -126 Z\"/>\n            </g>\n          </g>\n        </g>\n\n        <!-- Outer contour filigree hugging the V silhouette -->\n        <g filter=\"url(#deepShadow)\" opacity=\".95\">\n          <path class=\"filigree\" d=\"M232 232 C294 132 420 140 506 302 C548 382 570 514 592 700\"/>\n          <path class=\"filigree\" d=\"M968 232 C906 132 780 140 694 302 C652 382 630 514 608 700\"/>\n          <path class=\"filigree-soft\" d=\"M286 252 C348 188 430 208 476 316 C514 406 544 566 574 820\"/>\n          <path class=\"filigree-soft\" d=\"M914 252 C852 188 770 208 724 316 C686 406 656 566 626 820\"/>\n          <path class=\"filigree\" d=\"M520 968 C552 996 578 1038 600 1110 C622 1038 648 996 680 968\"/>\n          <path class=\"filigree-soft\" d=\"M270 216 C314 164 366 144 424 158 C394 182 374 214 364 254\"/>\n          <path class=\"filigree-soft\" d=\"M930 216 C886 164 834 144 776 158 C806 182 826 214 836 254\"/>\n          <path class=\"filigree-soft\" d=\"M396 522 C430 590 470 690 524 828\"/>\n          <path class=\"filigree-soft\" d=\"M804 522 C770 590 730 690 676 828\"/>\n          <circle class=\"rosette\" cx=\"364\" cy=\"210\" r=\"31\"/>\n          <circle class=\"rosette\" cx=\"836\" cy=\"210\" r=\"31\"/>\n          <circle class=\"rosette\" cx=\"600\" cy=\"1042\" r=\"24\"/>\n        </g>\n\n        <!-- Shimmer over V -->\n        <g mask=\"url(#vOnlyShimmerMask)\">\n          <path d=\"M232 226 C294 150 388 156 452 246 C500 314 528 416 550 532 C570 638 586 750 600 866 C614 750 630 638 650 532 C672 416 700 314 748 246 C812 156 906 150 968 226 L880 284 C850 306 832 346 816 414 C790 526 760 650 724 772 C696 868 660 966 626 1040 L600 1110 L574 1040 C540 966 504 868 476 772 C440 650 410 526 384 414 C368 346 350 306 320 284 Z\" fill=\"rgba(255,255,255,.13)\"/>\n          <path d=\"M232 226 C294 150 388 156 452 246 C500 314 528 416 550 532 C570 638 586 750 600 866 C614 750 630 638 650 532 C672 416 700 314 748 246 C812 156 906 150 968 226 L880 284 C850 306 832 346 816 414 C790 526 760 650 724 772 C696 868 660 966 626 1040 L600 1110 L574 1040 C540 966 504 868 476 772 C440 650 410 526 384 414 C368 346 350 306 320 284 Z\" fill=\"none\" stroke=\"rgba(255,255,255,.22)\" stroke-width=\"12\" stroke-linejoin=\"round\"/>\n        </g>\n        <animate href=\"#shimmerSweep\" attributeName=\"x\" from=\"-900\" to=\"2100\" dur=\"4.8s\" repeatCount=\"indefinite\"/>\n\n        <!-- Static logo motion: editor removed; orbit mode remains baked into the mark. -->\n        <g id=\"vmLogoModeOrbit\" class=\"vm-logo-orbit\" transform=\"translate(600 600)\">\n          <g opacity=\".62\">\n            <circle class=\"gold-line\" r=\"420\" stroke-dasharray=\"16 24\">\n              <animate attributeName=\"stroke-dashoffset\" from=\"0\" to=\"-320\" dur=\"9s\" repeatCount=\"indefinite\"/>\n            </circle>\n            <circle class=\"gold-line\" r=\"384\" opacity=\".44\" stroke-dasharray=\"8 34\">\n              <animate attributeName=\"stroke-dashoffset\" from=\"0\" to=\"260\" dur=\"7s\" repeatCount=\"indefinite\"/>\n            </circle>\n          </g>\n\n          <g transform=\"rotate(0)\">\n            <animateTransform attributeName=\"transform\" type=\"rotate\" from=\"0 0 0\" to=\"360 0 0\" dur=\"26s\" repeatCount=\"indefinite\"/>\n            <path class=\"trail white\" d=\"M-84 -411 A420 420 0 0 1 84 -411\"/>\n            <g transform=\"translate(0 -420)\"><use href=\"#spiralWhite\"/></g>\n          </g>\n          <g transform=\"rotate(72)\">\n            <animateTransform attributeName=\"transform\" type=\"rotate\" from=\"72 0 0\" to=\"432 0 0\" dur=\"26s\" repeatCount=\"indefinite\"/>\n            <path class=\"trail blue\" d=\"M-84 -411 A420 420 0 0 1 84 -411\"/>\n            <g transform=\"translate(0 -420) rotate(18)\"><use href=\"#spiralBlue\"/></g>\n          </g>\n          <g transform=\"rotate(144)\">\n            <animateTransform attributeName=\"transform\" type=\"rotate\" from=\"144 0 0\" to=\"504 0 0\" dur=\"26s\" repeatCount=\"indefinite\"/>\n            <path class=\"trail black\" d=\"M-84 -411 A420 420 0 0 1 84 -411\"/>\n            <g transform=\"translate(0 -420) rotate(38)\"><use href=\"#spiralBlack\"/></g>\n          </g>\n          <g transform=\"rotate(216)\">\n            <animateTransform attributeName=\"transform\" type=\"rotate\" from=\"216 0 0\" to=\"576 0 0\" dur=\"26s\" repeatCount=\"indefinite\"/>\n            <path class=\"trail red\" d=\"M-84 -411 A420 420 0 0 1 84 -411\"/>\n            <g transform=\"translate(0 -420) rotate(-28)\"><use href=\"#spiralRed\"/></g>\n          </g>\n          <g transform=\"rotate(288)\">\n            <animateTransform attributeName=\"transform\" type=\"rotate\" from=\"288 0 0\" to=\"648 0 0\" dur=\"26s\" repeatCount=\"indefinite\"/>\n            <path class=\"trail green\" d=\"M-84 -411 A420 420 0 0 1 84 -411\"/>\n            <g transform=\"translate(0 -420) rotate(-16)\"><use href=\"#spiralGreen\"/></g>\n          </g>\n        </g>\n\n        \n\n        \n\n        \n      </svg>";
+
+class VoxFlameLogo extends HTMLElement {
+  constructor() {
+    super();
+    const root = this.attachShadow({mode:'open'});
+    const decorative = this.hasAttribute('decorative');
+    root.innerHTML = `
+      <style>
+        :host { display:block; width:100%; height:100%; contain:layout style; }
+        svg { display:block; width:100%; height:100%; overflow:visible; }
+        :host([decorative]) svg { pointer-events:none; }
+        @media (prefers-reduced-motion: reduce) {
+          svg animate, svg animateTransform, svg animateMotion { display:none; }
+        }
+      </style>
+      ${LOGO_SVG.replace('<svg ', decorative ? '<svg aria-hidden="true" focusable="false" ' : '<svg ')}
+    `;
+  }
+}
+customElements.define('vox-flame-logo', VoxFlameLogo);
+
+const MANA = {
+  white: { title:'White: The Covenant Builder', copy:'Turn chaos into shared structure. Protect the table, define the rule, make the path legible.', index:'01 / 05' },
+  blue:  { title:'Blue: The Pattern Seeker', copy:'Read the room, map the hidden structure, then act when the answer becomes visible.', index:'02 / 05' },
+  black: { title:'Black: The Cost Reader', copy:'See the leverage, name the price, and refuse to pretend power is neutral.', index:'03 / 05' },
+  red:   { title:'Red: The Spark Mover', copy:'Break paralysis with motion, risk, style, and a finish people feel coming.', index:'04 / 05' },
+  green: { title:'Green: The Living System', copy:'Listen for what is growing, adapting, decaying, or asking to become whole again.', index:'05 / 05' }
+};
+
+const html = document.documentElement;
+const manaButtons = [...document.querySelectorAll('.mana-button')];
+const modeButtons = [...document.querySelectorAll('[data-mode]')];
+const title = document.getElementById('manaTitle');
+const copy = document.getElementById('manaCopy');
+const index = document.getElementById('manaIndex');
+const statusText = document.getElementById('statusText');
+const cursor = document.querySelector('.custom-cursor');
+const soundToggle = document.getElementById('soundToggle');
+let audioEnabled = false;
+let audioCtx;
+
+function setMana(mana, persist = true) {
+  if (!MANA[mana]) mana = 'blue';
+  html.dataset.mana = mana;
+  title.textContent = MANA[mana].title;
+  copy.textContent = MANA[mana].copy;
+  index.textContent = MANA[mana].index;
+  statusText.textContent = `${mana[0].toUpperCase()+mana.slice(1)} tuned`;
+  manaButtons.forEach(btn => btn.setAttribute('aria-pressed', String(btn.dataset.mana === mana)));
+  if (persist) localStorage.setItem('voxManaLandingMana', mana);
+  ping(mana);
+}
+function setMode(mode, persist = true) {
+  html.dataset.glyphMode = mode === 'orbs' ? 'orbs' : 'leyline';
+  if (persist) localStorage.setItem('voxManaGlyphMode', html.dataset.glyphMode);
+}
+manaButtons.forEach(btn => btn.addEventListener('click', () => setMana(btn.dataset.mana)));
+modeButtons.forEach(btn => btn.addEventListener('click', () => setMode(btn.dataset.mode)));
+setMana(localStorage.getItem('voxManaLandingMana') || 'blue', false);
+setMode(localStorage.getItem('voxManaGlyphMode') || 'leyline', false);
+
+soundToggle.addEventListener('click', () => {
+  audioEnabled = !audioEnabled;
+  soundToggle.setAttribute('aria-pressed', String(audioEnabled));
+  soundToggle.textContent = audioEnabled ? 'Sound on' : 'Sound off';
+  if (audioEnabled) ping(html.dataset.mana || 'blue');
+});
+function ping(mana) {
+  if (!audioEnabled) return;
+  audioCtx ||= new (window.AudioContext || window.webkitAudioContext)();
+  const notes = {white:523.25, blue:659.25, black:392, red:587.33, green:440};
+  const osc = audioCtx.createOscillator();
+  const gain = audioCtx.createGain();
+  osc.type = 'sine';
+  osc.frequency.value = notes[mana] || 440;
+  gain.gain.setValueAtTime(0.0001, audioCtx.currentTime);
+  gain.gain.exponentialRampToValueAtTime(0.045, audioCtx.currentTime + 0.018);
+  gain.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + 0.22);
+  osc.connect(gain).connect(audioCtx.destination);
+  osc.start();
+  osc.stop(audioCtx.currentTime + 0.24);
+}
+
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('in'); });
+}, { threshold:.18, rootMargin:'0px 0px -8% 0px' });
+document.querySelectorAll('[data-reveal]').forEach(el => io.observe(el));
+
+document.querySelectorAll('[data-tilt], .signal-card').forEach(card => {
+  card.addEventListener('pointermove', (e) => {
+    const r = card.getBoundingClientRect();
+    const x = (e.clientX - r.left) / r.width;
+    const y = (e.clientY - r.top) / r.height;
+    card.style.setProperty('--mx', `${x*100}%`);
+    card.style.setProperty('--my', `${y*100}%`);
+    card.style.setProperty('--ry', `${(x-.5)*-6}deg`);
+    card.style.setProperty('--rx', `${(y-.5)*5}deg`);
+  });
+  card.addEventListener('pointerleave', () => {
+    card.style.removeProperty('--rx');
+    card.style.removeProperty('--ry');
+  });
+});
+
+if (matchMedia('(pointer:fine)').matches && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  document.body.classList.add('has-pointer');
+  window.addEventListener('pointermove', (e) => {
+    cursor.style.transform = `translate(${e.clientX}px, ${e.clientY}px) translate(-50%, -50%)`;
+  });
+  document.querySelectorAll('a,button,[tabindex]').forEach(el => {
+    el.addEventListener('pointerenter', () => cursor.classList.add('is-hot'));
+    el.addEventListener('pointerleave', () => cursor.classList.remove('is-hot'));
+  });
+}
+
+const canvas = document.getElementById('mana-canvas');
+const ctx = canvas.getContext('2d');
+let particles = [];
+let pointer = {x:0, y:0, active:false};
+function resize() {
+  const dpr = Math.min(devicePixelRatio || 1, 2);
+  canvas.width = innerWidth * dpr;
+  canvas.height = innerHeight * dpr;
+  canvas.style.width = innerWidth + 'px';
+  canvas.style.height = innerHeight + 'px';
+  ctx.setTransform(dpr,0,0,dpr,0,0);
+  const count = Math.min(120, Math.max(52, Math.floor(innerWidth * innerHeight / 19000)));
+  particles = Array.from({length:count}, (_,i) => ({
+    x:Math.random()*innerWidth,
+    y:Math.random()*innerHeight,
+    vx:(Math.random()-.5)*.24,
+    vy:(Math.random()-.5)*.24,
+    r:Math.random()*1.4+.35,
+    phase:Math.random()*Math.PI*2
+  }));
+}
+function activeRGB() {
+  return getComputedStyle(document.documentElement).getPropertyValue('--active-rgb').trim() || '88,182,255';
+}
+function animate(t=0) {
+  ctx.clearRect(0,0,innerWidth,innerHeight);
+  const rgb = activeRGB();
+  for (const p of particles) {
+    p.x += p.vx + Math.sin(t/2400 + p.phase)*.05;
+    p.y += p.vy + Math.cos(t/2600 + p.phase)*.05;
+    if (p.x < -20) p.x = innerWidth+20; if (p.x > innerWidth+20) p.x = -20;
+    if (p.y < -20) p.y = innerHeight+20; if (p.y > innerHeight+20) p.y = -20;
+    ctx.beginPath();
+    ctx.fillStyle = `rgba(${rgb},${0.18 + Math.sin(t/900+p.phase)*0.06})`;
+    ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+    ctx.fill();
+  }
+  for (let i=0;i<particles.length;i++) {
+    for (let j=i+1;j<particles.length;j++) {
+      const a=particles[i], b=particles[j];
+      const dx=a.x-b.x, dy=a.y-b.y;
+      const d=Math.hypot(dx,dy);
+      if (d < 110) {
+        ctx.strokeStyle = `rgba(${rgb},${(1-d/110)*.08})`;
+        ctx.lineWidth = 1;
+        ctx.beginPath(); ctx.moveTo(a.x,a.y); ctx.lineTo(b.x,b.y); ctx.stroke();
+      }
+    }
+  }
+  requestAnimationFrame(animate);
+}
+resize();
+addEventListener('resize', resize);
+requestAnimationFrame(animate);
+</script>
+</body>
+</html>

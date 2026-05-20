@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="boros-sigil" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="400" height="400">
+  <!-- White core -->
+  <circle id="core" cx="100" cy="100" r="28" fill="#ffffff" stroke="#e6e6e6" stroke-width="2"/>
+  <!-- Concentric rings -->
+  <circle id="ring1" cx="100" cy="100" r="44" fill="none" stroke="#f7f0ee" stroke-width="6" opacity="0.6"/>
+  <circle id="ring2" cx="100" cy="100" r="68" fill="none" stroke="#f2e6e3" stroke-width="4" opacity="0.35"/>
+  <!-- Four red radiating spokes -->
+  <g id="spokes" stroke="#d93b2b" stroke-linecap="round" stroke-width="8" stroke-linejoin="round" fill="none">
+    <line id="spoke1" x1="100" y1="12" x2="100" y2="60" opacity="0.9"/>
+    <line id="spoke2" x1="188" y1="100" x2="140" y2="100" opacity="0.9"/>
+    <line id="spoke3" x1="100" y1="188" x2="100" y2="140" opacity="0.9"/>
+    <line id="spoke4" x1="12" y1="100" x2="60" y2="100" opacity="0.9"/>
+  </g>
+  <!-- Shield overlay for hardiness -->
+  <g id="shieldOverlay" opacity="0">
+    <path d="M100 40 L130 70 L120 120 L80 120 L70 70 Z" fill="#ffffff" stroke="#ffd9d0" stroke-width="2" />
+  </g>
+  <!-- Decorative ember -->
+  <g id="ember" transform="translate(100,100)">
+    <circle cx="0" cy="-90" r="6" fill="#ff8a4d" opacity="0.0" id="emberGlow"/>
+  </g>
+</svg>

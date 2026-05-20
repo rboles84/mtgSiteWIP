@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Vox Mana — Planar-Chaotic Mana Storm</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+    }
+
+    body {
+      display: grid;
+      place-items: center;
+      background:
+        radial-gradient(circle at 50% 36%, rgba(20,92,88,.24), transparent 34%),
+        radial-gradient(circle at 50% 68%, rgba(194,138,47,.12), transparent 32%),
+        linear-gradient(180deg, #050606 0%, #010101 100%);
+      color: rgba(237,226,194,.95);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    .vm-shell {
+      width: min(540px, 92vw);
+      aspect-ratio: 1 / 1;
+      display: grid;
+      place-items: center;
+      border-radius: 24px;
+      border: 1px solid rgba(240,211,138,.12);
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.025), rgba(255,255,255,.006)),
+        radial-gradient(circle at 50% 42%, rgba(15,74,72,.18), transparent 48%);
+      box-shadow: 0 34px 90px rgba(0,0,0,.72), inset 0 0 0 1px rgba(255,255,255,.025);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .vm-shell::before {
+      content: "";
+      position: absolute;
+      inset: 18px;
+      border-radius: 18px;
+      border: 1px solid rgba(240,211,138,.055);
+      pointer-events: none;
+    }
+
+    /* ORBIT CONTAINER */
+    .vm-hero-orbit {
+      position: relative;
+      width: 260px;
+      height: 260px;
+      margin: 0 auto;
+    }
+
+    /* DEBUG ORBIT LINES — planar-chaotic shapes */
+    .vm-orbit::before {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: calc(var(--radius) * 2);
+      height: calc(var(--radius) * 2);
+      transform: translate(-50%, -50%) rotate(var(--tilt)) scale(var(--sx), var(--sy));
+      border-radius: 40% 60% 55% 45% / 60% 40% 60% 40%;
+      border: 1px dashed rgba(255,255,255,0.25);
+      pointer-events: none;
+      animation: morphOrbit var(--morphSpeed) ease-in-out infinite;
+    }
+
+    /* ORBIT LAYER — no animation here */
+    .vm-orbit {
+      position: absolute;
+      inset: 0;
+    }
+
+    /* GLYPH — chaotic drift */
+    .vm-orbit .glyph {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 2.4rem;
+      height: 2.4rem;
+      display: grid;
+      place-items: center;
+      transform: translate(-50%, -50%) translateX(var(--radius));
+      animation: drift var(--speed) linear infinite;
+      font-size: 1.6rem;
+    }
+
+    /* CHAOTIC DRIFT ANIMATION */
+    @keyframes drift {
+      0%   { transform: translate(-50%, -50%) rotate(var(--start)) translateX(var(--radius)) rotate(var(--tilt)); }
+      25%  { transform: translate(-50%, -50%) rotate(calc(var(--start) + 90deg)) translateX(calc(var(--radius) * 0.85)) rotate(var(--tilt)); }
+      50%  { transform: translate(-50%, -50%) rotate(calc(var(--start) + 180deg)) translateX(calc(var(--radius) * 1.15)) rotate(var(--tilt)); }
+      75%  { transform: translate(-50%, -50%) rotate(calc(var(--start) + 270deg)) translateX(calc(var(--radius) * 0.9)) rotate(var(--tilt)); }
+      100% { transform: translate(-50%, -50%) rotate(calc(var(--start) + 360deg)) translateX(var(--radius)) rotate(var(--tilt)); }
+    }
+
+    /* ORBIT MORPHING — planar-chaotic wobble */
+    @keyframes morphOrbit {
+      0%   { border-radius: 40% 60% 55% 45% / 60% 40% 60% 40%; }
+      50%  { border-radius: 55% 45% 60% 40% / 45% 55% 40% 60%; }
+      100% { border-radius: 40% 60% 55% 45% / 60% 40% 60% 40%; }
+    }
+
+    /* PER‑GLYPH CHAOTIC VALUES */
+    .w-orbit { --radius: 110px; --speed: 18s; --start: 12deg;  --tilt: 18deg; --sx: 1.25; --sy: 0.85; --morphSpeed: 9s; }
+    .u-orbit { --radius: 120px; --speed: 23s; --start: 87deg;  --tilt: -32deg; --sx: 1.35; --sy: 0.75; --morphSpeed: 11s; }
+    .b-orbit { --radius: 100px; --speed: 16s; --start: 201deg; --tilt: 44deg; --sx: 1.15; --sy: 0.95; --morphSpeed: 8s; }
+    .r-orbit { --radius: 130px; --speed: 21s; --start: 278deg; --tilt: -58deg; --sx: 1.45; --sy: 0.65; --morphSpeed: 10s; }
+    .g-orbit { --radius: 115px; --speed: 26s; --start: 333deg; --tilt: 27deg; --sx: 1.20; --sy: 0.90; --morphSpeed: 12s; }
+
+    .vm-core {
+      position: absolute;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      pointer-events: none;
+      text-align: center;
+    }
+
+    .vm-core-orb {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 30% 20%, #ffffff33, transparent 55%),
+                  radial-gradient(circle at 70% 80%, #f0d38a33, transparent 60%),
+                  radial-gradient(circle, #050607, #020304 70%, #000000 100%);
+      box-shadow:
+        0 0 40px rgba(0,0,0,.9),
+        0 0 60px rgba(240,211,138,.25);
+    }
+
+    .vm-core-label {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .vm-core-label h1 {
+      margin: 0;
+      font-size: 1.2rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    .vm-core-label p {
+      margin: 6px 0 0;
+      font-size: 0.7rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      opacity: 0.78;
+    }
+  </style>
+</head>
+<body>
+  <main class="vm-shell" aria-label="Vox Mana planar-chaotic mana storm">
+    <div class="vm-hero-orbit">
+      <!-- Orbits -->
+      <div class="vm-orbit w-orbit"><div class="glyph">☀️</div></div>
+      <div class="vm-orbit u-orbit"><div class="glyph">💧</div></div>
+      <div class="vm-orbit b-orbit"><div class="glyph">💀</div></div>
+      <div class="vm-orbit r-orbit"><div class="glyph">🔥</div></div>
+      <div class="vm-orbit g-orbit"><div class="glyph">🌳</div></div>
+
+      <!-- Core orb -->
+      <div class="vm-core">
+        <div class="vm-core-orb"></div>
+        <div class="vm-core-label">
+          <h1>VOX MANA</h1>
+          <p>SIGNAL ENGINE · WUBRG</p>
+        </div>
+      </div>
+    </div>
+  </main>
+</body>
+</html>

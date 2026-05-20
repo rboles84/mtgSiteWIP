@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vox Mana — Three doors. Three ways in.</title>
+<meta name="description" content="An independent MTG identity archive. Three ways in: Archscry, the Implicit Maze, the Apocrypha.">
+
+<link rel="stylesheet" href="/assets/css/tokens.css">
+<link rel="stylesheet" href="/assets/css/fonts.css">
+<link rel="stylesheet" href="/assets/css/topbar.css">
+<link rel="stylesheet" href="/assets/css/atmosphere.css">
+<link rel="stylesheet" href="/assets/css/components.css">
+<link rel="stylesheet" href="/assets/css/home.css">
+
+<link rel="preload" as="image"
+      href="/assets/img/backgrounds/background-vox-gateway-clean-13.webp"
+      type="image/webp"
+      fetchpriority="high">
+</head>
+<body data-page="home" data-vm-current="home" data-bg="light">
+
+<!-- Painted backdrop, fixed, behind everything -->
+<div class="vm-bg" aria-hidden="true">
+  <picture class="vm-bg__picture">
+    <source type="image/webp"
+            srcset="/assets/img/backgrounds/background-vox-gateway-clean-13.webp 2560w"
+            sizes="100vw">
+    <img src="/assets/img/backgrounds/background-vox-gateway-clean-13.webp"
+         alt=""
+         decoding="async"
+         fetchpriority="high">
+  </picture>
+  <div class="vm-bg__nebula"></div>
+  <!-- Star canvas appended here by atmosphere.js -->
+</div>
+
+<header class="vm-topbar" role="banner">
+  <a class="vm-brand" href="/" aria-label="Vox Mana — home">
+    <span class="vm-brand-mark" aria-hidden="true"></span>
+    <span class="vm-brand-text">Vox Mana</span>
+  </a>
+
+  <nav class="vm-nav" aria-label="Primary">
+    <a class="vm-nav-link" href="/" data-vm-nav="home">Home</a>
+    <a class="vm-nav-link" href="/archscry/" data-vm-nav="archscry">Archscry</a>
+    <a class="vm-nav-link" href="/maze/" data-vm-nav="maze">The Implicit Maze</a>
+    <a class="vm-nav-link" href="/apocrypha/" data-vm-nav="apocrypha">Apocrypha</a>
+  </nav>
+
+  <div class="vm-utility">
+    <button
+      type="button"
+      class="vm-menu-button"
+      aria-label="Open menu"
+      aria-expanded="false"
+      aria-haspopup="true"
+      aria-controls="vm-menu-panel"
+      data-vm-menu-trigger
+    >
+      <span class="vm-menu-dots" aria-hidden="true">
+        <span></span><span></span><span></span>
+      </span>
+    </button>
+
+    <div
+      id="vm-menu-panel"
+      class="vm-menu-panel"
+      role="menu"
+      data-open="false"
+      data-vm-menu-panel
+    >
+      <button
+        type="button"
+        class="vm-menu-item"
+        role="menuitem"
+        data-vm-toggle="reduce-motion"
+        data-vm-tooltip-on="Stillness · on"
+        data-vm-tooltip-off="Quiet the motion"
+      >
+        <span>Reduce motion</span>
+        <span class="vm-menu-item-status" data-vm-status>Off</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main class="vm-home">
+
+  <!-- Hero block: top-left -->
+  <section class="vm-home__hero">
+    <p class="vm-home__eyebrow">An independent MTG archive</p>
+    <h1 class="vm-home__title">Three doors.<br>Three ways in.</h1>
+    <p class="vm-home__lede">An archive of lore, strategy, and discovery for seekers of deeper understanding.</p>
+    <a href="/archscry/" class="vm-home__cta">Begin your journey</a>
+  </section>
+
+  <!-- Decorative rail (vertical line + diamond markers) on the left -->
+  <div class="vm-home__rail" aria-hidden="true">
+    <span class="vm-home__rail-marker vm-home__rail-marker--top"></span>
+    <span class="vm-home__rail-marker vm-home__rail-marker--mid"></span>
+    <span class="vm-home__rail-marker vm-home__rail-marker--bottom"></span>
+  </div>
+
+  <!-- MAZE — centerpiece, wrapped by the eclipse mandala -->
+  <a class="vm-card vm-card--maze" href="/maze/" aria-label="Enter the Implicit Maze">
+    <!-- Eclipse mandala (decorative SVG) -->
+    <svg class="vm-card__mandala" viewBox="0 0 600 600" fill="none" stroke="currentColor" aria-hidden="true">
+      <circle cx="300" cy="300" r="290" stroke-width="0.5" opacity="0.3"/>
+      <circle cx="300" cy="300" r="260" stroke-width="1" opacity="0.7"/>
+      <circle cx="300" cy="300" r="240" stroke-width="0.5" opacity="0.4"/>
+      <g fill="currentColor">
+        <polygon points="300,30 305,40 300,50 295,40" opacity="0.9"/>
+        <polygon points="560,300 568,305 560,310 552,305" opacity="0.7"/>
+        <polygon points="300,570 295,560 300,550 305,560" opacity="0.7"/>
+        <polygon points="40,300 32,305 40,310 48,305" opacity="0.7"/>
+      </g>
+      <line x1="300" y1="50" x2="300" y2="240" stroke-width="0.4" opacity="0.5"/>
+      <line x1="300" y1="50" x2="300" y2="240" stroke-width="1.2" opacity="0.15" stroke-linecap="round"/>
+      <g stroke-width="0.6" opacity="0.3">
+        <line x1="484" y1="116" x2="490" y2="110"/>
+        <line x1="484" y1="484" x2="490" y2="490"/>
+        <line x1="116" y1="484" x2="110" y2="490"/>
+        <line x1="116" y1="116" x2="110" y2="110"/>
+      </g>
+    </svg>
+
+    <div class="vm-card__inner">
+    <!-- Maze sigil -->
+    <svg class="vm-card__sigil" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <circle cx="24" cy="24" r="20"/>
+      <circle cx="24" cy="24" r="14" stroke-width="1" opacity="0.7"/>
+      <circle cx="24" cy="24" r="8" stroke-width="0.9" opacity="0.55"/>
+      <g stroke-width="1.5">
+        <line x1="24" y1="4"  x2="24" y2="10"/>
+        <line x1="24" y1="38" x2="24" y2="44"/>
+        <line x1="4"  y1="24" x2="10" y2="24"/>
+        <line x1="38" y1="24" x2="44" y2="24"/>
+      </g>
+      <circle cx="24" cy="24" r="2" fill="currentColor" stroke="none"/>
+    </svg>
+
+    <span class="vm-card__eyebrow">The Implicit Maze</span>
+    <h2 class="vm-card__title">Maze</h2>
+    <p class="vm-card__desc">Walk the cards. Search the database in plain language, syntax, or by composing the query yourself — every card, every printing, every detail.</p>
+    <span class="vm-card__cta">Enter the Maze</span>
+    </div>
+  </a>
+
+  <!-- ARCHSCRY — bottom-left, with painted scene slot -->
+  <a class="vm-card vm-card--side vm-card--archscry vm-bracket" href="/archscry/" aria-label="Begin a reading at Archscry">
+    <span class="vm-bracket__tick vm-bracket__tick--tr" aria-hidden="true"></span>
+    <span class="vm-bracket__tick vm-bracket__tick--bl" aria-hidden="true"></span>
+
+    <div class="vm-card__inner">
+    <div class="vm-card__body">
+      <svg class="vm-card__sigil" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <polygon points="24,6 42,38 6,38"/>
+        <polygon points="24,16 35,34 13,34" stroke-width="0.9" opacity="0.7"/>
+        <line x1="13" y1="34" x2="35" y2="34" stroke-width="1.2"/>
+        <circle cx="24" cy="28" r="2" fill="currentColor" stroke="none"/>
+        <line x1="24" y1="2" x2="24" y2="6"/>
+        <line x1="22" y1="4" x2="26" y2="4"/>
+      </svg>
+      <span class="vm-card__eyebrow">The Threshold</span>
+      <h2 class="vm-card__title">Archscry</h2>
+      <p class="vm-card__desc">A guided reading gateway that finds the guild or college that fits how you actually play. Start with the quick path and come back for the dossier.</p>
+      <span class="vm-card__cta">Begin a reading</span>
+    </div>
+
+    <div class="vm-card__scene vm-card__scene--archscry" aria-hidden="true"></div>
+    </div>
+  </a>
+
+  <!-- APOCRYPHA — bottom-right, with painted scene slot -->
+  <a class="vm-card vm-card--side vm-card--apocrypha vm-bracket" href="/apocrypha/" aria-label="Open the Apocrypha">
+    <span class="vm-bracket__tick vm-bracket__tick--tr" aria-hidden="true"></span>
+    <span class="vm-bracket__tick vm-bracket__tick--bl" aria-hidden="true"></span>
+
+    <div class="vm-card__inner">
+      <div class="vm-card__body">
+        <svg class="vm-card__sigil" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <polygon points="24,4 42,14 42,34 24,44 6,34 6,14"/>
+          <polygon points="24,12 36,18 36,30 24,36 12,30 12,18" stroke-width="0.9" opacity="0.6"/>
+          <circle cx="24" cy="24" r="3" stroke-width="1"/>
+          <line x1="24" y1="8"  x2="24" y2="14"/>
+          <line x1="24" y1="34" x2="24" y2="40"/>
+        </svg>
+        <span class="vm-card__eyebrow">The Hidden Vault</span>
+        <h2 class="vm-card__title">Apocrypha</h2>
+        <p class="vm-card__desc">Rare writings, fragments, and forbidden notes. A vault of fringes and footnotes for those who seek what others overlook.</p>
+        <span class="vm-card__cta">Enter the Vault</span>
+      </div>
+
+      <div class="vm-card__scene vm-card__scene--apocrypha" aria-hidden="true"></div>
+    </div>
+  </a>
+
+  <!-- Right-edge sidebar: quote / orrery / gates -->
+  <aside class="vm-home__side" aria-hidden="false">
+    <blockquote class="vm-home__quote">
+      The answers are here. You need only ask.
+      <cite class="vm-home__quote-attr">— The Scribe</cite>
+    </blockquote>
+
+    <svg class="vm-home__orrery" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="0.6" aria-hidden="true">
+      <circle cx="50" cy="50" r="46" opacity="0.6"/>
+      <circle cx="50" cy="50" r="38" opacity="0.4" stroke-width="0.4"/>
+      <line x1="4" y1="50" x2="96" y2="50" opacity="0.3" stroke-width="0.4" stroke-dasharray="2 3"/>
+      <g fill="currentColor" stroke="none" opacity="0.7">
+        <circle cx="50" cy="4"  r="1.2"/>
+        <circle cx="96" cy="50" r="1"/>
+        <circle cx="50" cy="96" r="1"/>
+        <circle cx="4"  cy="50" r="1"/>
+      </g>
+      <g class="vm-orrery__planet">
+        <circle cx="50" cy="50" r="14" fill="rgba(0,0,0,0.5)" stroke="currentColor" stroke-width="0.8"/>
+        <circle cx="55" cy="46" r="6" fill="currentColor" opacity="0.6" stroke="none"/>
+        <circle cx="48" cy="52" r="1" fill="rgba(0,0,0,0.4)" stroke="none"/>
+        <circle cx="52" cy="56" r="0.6" fill="rgba(0,0,0,0.4)" stroke="none"/>
+      </g>
+    </svg>
+
+    <div>
+      <span class="vm-home__gates">03</span>
+      <span class="vm-home__gates-label">Gates</span>
+    </div>
+  </aside>
+
+  <!-- Resume chip (only shows if localStorage has cached reading) -->
+  <div class="vm-resume" data-vm-resume hidden>
+    <a class="vm-resume__chip" href="/archscry/?resume=1">
+      <span class="vm-resume__chip-mark">↻</span>
+      <span>Resume your reading · <span data-vm-resume-faction>your guild</span></span>
+    </a>
+  </div>
+
+  <!-- Bottom status bar -->
+  <footer class="vm-home__status">
+    <div class="vm-home__status-item">
+      <span class="vm-home__status-label">Last updated</span>
+      <span class="vm-home__status-value" data-vm-last-updated>May 2026</span>
+    </div>
+    <div class="vm-home__status-item">
+      <a href="/privacy/" class="vm-home__status-value">Privacy</a>
+      <span class="vm-home__status-label">·</span>
+      <a href="/terms/" class="vm-home__status-value">Terms</a>
+    </div>
+    <div class="vm-home__status-item">
+      <span class="vm-home__status-label">An unofficial fan project</span>
+    </div>
+  </footer>
+
+</main>
+
+<script src="/assets/js/reduce-motion.js" defer></script>
+<script src="/assets/js/vm-topbar.js" defer></script>
+<script src="/assets/js/atmosphere.js" defer></script>
+<script src="/assets/js/site-flags.js" defer></script>
+<script src="/assets/js/home.js" defer></script>
+</body>
+</html>

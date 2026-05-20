@@ -1,0 +1,1342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Vox Mana — Landing (Dark Glass · Prestige)</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root {
+      --vm-bg: #03040a;
+      --vm-bg-elevated: #070816;
+      --vm-border-subtle: rgba(255,255,255,0.08);
+      --vm-text: #f7f7ff;
+      --vm-muted: #a5a7c4;
+      --vm-faint: #7b7da0;
+      --vm-white: #f7e7a5;
+      --vm-blue: #7fc7ff;
+      --vm-black: #a89ab8;
+      --vm-red: #ff766a;
+      --vm-green: #7ee0a1;
+      --vm-accent: #f7e7a5;
+      --vm-radius-lg: 32px;
+      --vm-radius-md: 24px;
+      --vm-radius-pill: 999px;
+      --vm-shadow-soft: 0 30px 90px rgba(0,0,0,0.65);
+      --vm-glass: rgba(8, 9, 20, 0.86);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      min-height: 100%;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
+        "Segoe UI", sans-serif;
+      color: var(--vm-text);
+      background:
+        radial-gradient(circle at 18% 20%, rgba(247, 231, 165, 0.14), transparent 26%),
+        radial-gradient(circle at 82% 18%, rgba(127, 199, 255, 0.13), transparent 28%),
+        radial-gradient(circle at 78% 78%, rgba(255, 118, 106, 0.13), transparent 30%),
+        radial-gradient(circle at 22% 80%, rgba(126, 224, 161, 0.12), transparent 30%),
+        linear-gradient(135deg, #060713 0%, #111225 48%, #05050b 100%);
+      background-attachment: fixed;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+    }
+
+    .vm-page-shell {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 2.5rem clamp(1.5rem, 4vw, 3rem) 4rem;
+    }
+
+    header.vm-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .vm-logo-lockup {
+      display: flex;
+      align-items: center;
+      gap: 0.9rem;
+    }
+
+    .vm-logo-glyph {
+      width: 2.4rem;
+      height: 2.4rem;
+      border-radius: 24px;
+      background:
+        radial-gradient(circle at 35% 30%, rgba(255,255,255,0.42), transparent 26%),
+        conic-gradient(
+          from 210deg,
+          rgba(247, 231, 165, 0.7),
+          rgba(127, 199, 255, 0.7),
+          rgba(168, 154, 184, 0.7),
+          rgba(255, 118, 106, 0.7),
+          rgba(126, 224, 161, 0.7),
+          rgba(247, 231, 165, 0.7)
+        );
+      box-shadow:
+        0 0 32px rgba(247, 231, 165, 0.55),
+        inset 0 1px 0 rgba(255,255,255,0.4);
+      display: grid;
+      place-items: center;
+      font-weight: 800;
+      font-size: 1.1rem;
+      color: #05060f;
+    }
+
+    .vm-logo-text h1 {
+      margin: 0;
+      font-size: 1.05rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--vm-accent);
+    }
+
+    .vm-logo-text span {
+      display: block;
+      margin-top: 0.15rem;
+      font-size: 0.8rem;
+      color: var(--vm-muted);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .vm-header-cta {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: 0.82rem;
+      color: var(--vm-muted);
+    }
+
+    .vm-header-cta a {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.55rem 0.9rem;
+      border-radius: var(--vm-radius-pill);
+      border: 1px solid rgba(255,255,255,0.16);
+      background: rgba(8, 9, 20, 0.82);
+      color: var(--vm-text);
+      text-decoration: none;
+      font-size: 0.8rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      box-shadow:
+        0 18px 40px rgba(0,0,0,0.55),
+        inset 0 1px 0 rgba(255,255,255,0.16);
+    }
+
+    .vm-header-cta a span {
+      font-size: 1rem;
+    }
+
+    /* Prestige hero */
+
+    .vm-hero {
+      position: relative;
+      margin-bottom: 3.2rem;
+      padding: 2.2rem 2rem 2.4rem;
+      border-radius: var(--vm-radius-lg);
+      border: 1px solid rgba(255,255,255,0.12);
+      background:
+        radial-gradient(circle at top left, rgba(247, 231, 165, 0.16), transparent 55%),
+        radial-gradient(circle at bottom right, rgba(127, 199, 255, 0.12), transparent 55%),
+        var(--vm-glass);
+      box-shadow:
+        var(--vm-shadow-soft),
+        inset 0 1px 0 rgba(255,255,255,0.08);
+      overflow: hidden;
+      isolation: isolate;
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(260px, 0.9fr);
+      gap: 2.4rem;
+      align-items: center;
+    }
+
+    .vm-hero::before {
+      content: "";
+      position: absolute;
+      inset: -2px;
+      z-index: -2;
+      background:
+        conic-gradient(
+          from 210deg,
+          rgba(247, 231, 165, 0.36),
+          rgba(127, 199, 255, 0.34),
+          rgba(168, 154, 184, 0.34),
+          rgba(255, 118, 106, 0.35),
+          rgba(126, 224, 161, 0.35),
+          rgba(247, 231, 165, 0.36)
+        );
+      filter: blur(40px);
+      opacity: 0.55;
+    }
+
+    .vm-hero-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+      padding: 0.4rem 0.8rem;
+      border-radius: var(--vm-radius-pill);
+      border: 1px solid rgba(255,255,255,0.16);
+      background: rgba(8, 9, 20, 0.82);
+      color: var(--vm-faint);
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      margin-bottom: 1.1rem;
+    }
+
+    .vm-hero-kicker::before {
+      content: "";
+      width: 0.55rem;
+      height: 0.55rem;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--vm-white), var(--vm-blue), var(--vm-red), var(--vm-green));
+      box-shadow: 0 0 18px rgba(247, 231, 165, 0.55);
+    }
+
+    .vm-hero h2 {
+      margin: 0 0 1rem;
+      font-size: clamp(2.4rem, 5vw, 3.6rem);
+      line-height: 0.98;
+      letter-spacing: -0.06em;
+      text-wrap: balance;
+    }
+
+    .vm-hero h2 span {
+      display: block;
+      background: linear-gradient(90deg, var(--vm-white), var(--vm-blue), var(--vm-black), var(--vm-red), var(--vm-green));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      filter: drop-shadow(0 0 18px rgba(127, 199, 255, 0.16));
+    }
+
+    .vm-hero p {
+      margin: 0 0 1.4rem;
+      max-width: 34rem;
+      color: var(--vm-muted);
+      font-size: 1rem;
+      line-height: 1.8;
+    }
+
+    .vm-hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      align-items: center;
+    }
+
+    .vm-hero-actions a {
+      text-decoration: none;
+      font-size: 0.86rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      border-radius: var(--vm-radius-pill);
+      padding: 0.7rem 1.2rem;
+      border: 1px solid rgba(255,255,255,0.16);
+      background: rgba(8, 9, 20, 0.9);
+      color: var(--vm-text);
+      box-shadow:
+        0 18px 40px rgba(0,0,0,0.6),
+        inset 0 1px 0 rgba(255,255,255,0.16);
+    }
+
+    .vm-hero-actions a.vm-hero-secondary {
+      background: transparent;
+      border-style: dashed;
+      color: var(--vm-muted);
+      box-shadow: none;
+    }
+
+/* DEBUG ORBIT LINES — planar-chaotic shapes */
+.vm-orbit::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: calc(var(--radius) * 2);
+  height: calc(var(--radius) * 2);
+  transform: translate(-50%, -50%) rotate(var(--tilt)) scale(var(--sx), var(--sy));
+  border-radius: 40% 60% 55% 45% / 60% 40% 60% 40%;
+  border: 1px dashed rgba(255,255,255,0.25);
+  pointer-events: none;
+  animation: morphOrbit var(--morphSpeed) ease-in-out infinite;
+}
+
+/* ORBIT CONTAINER */
+.vm-hero-orbit {
+  position: relative;
+  width: 260px;
+  height: 260px;
+  margin: 0 auto;
+}
+
+/* ORBIT LAYER — no animation here */
+.vm-orbit {
+  position: absolute;
+  inset: 0;
+}
+
+/* GLYPH — chaotic drift */
+.vm-orbit .glyph {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 2.4rem;
+  height: 2.4rem;
+  display: grid;
+  place-items: center;
+  transform: translate(-50%, -50%) translateX(var(--radius));
+  animation: drift var(--speed) linear infinite;
+}
+
+
+/* CHAOTIC DRIFT ANIMATION */
+@keyframes drift {
+  0%   { transform: translate(-50%, -50%) rotate(var(--start)) translateX(var(--radius)) rotate(var(--tilt)); }
+  25%  { transform: translate(-50%, -50%) rotate(calc(var(--start) + 90deg)) translateX(calc(var(--radius) * 0.85)) rotate(var(--tilt)); }
+  50%  { transform: translate(-50%, -50%) rotate(calc(var(--start) + 180deg)) translateX(calc(var(--radius) * 1.15)) rotate(var(--tilt)); }
+  75%  { transform: translate(-50%, -50%) rotate(calc(var(--start) + 270deg)) translateX(calc(var(--radius) * 0.9)) rotate(var(--tilt)); }
+  100% { transform: translate(-50%, -50%) rotate(calc(var(--start) + 360deg)) translateX(var(--radius)) rotate(var(--tilt)); }
+}
+
+/* ORBIT MORPHING — planar-chaotic wobble */
+@keyframes morphOrbit {
+  0%   { border-radius: 40% 60% 55% 45% / 60% 40% 60% 40%; }
+  50%  { border-radius: 55% 45% 60% 40% / 45% 55% 40% 60%; }
+  100% { border-radius: 40% 60% 55% 45% / 60% 40% 60% 40%; }
+}
+
+/* PER‑GLYPH CHAOTIC VALUES */
+.w-orbit { --radius: 110px; --speed: 18s; --start: 12deg;  --tilt: 18deg; --sx: 1.25; --sy: 0.85; --morphSpeed: 9s; }
+.u-orbit { --radius: 120px; --speed: 23s; --start: 87deg;  --tilt: -32deg; --sx: 1.35; --sy: 0.75; --morphSpeed: 11s; }
+.b-orbit { --radius: 100px; --speed: 16s; --start: 201deg; --tilt: 44deg; --sx: 1.15; --sy: 0.95; --morphSpeed: 8s; }
+.r-orbit { --radius: 130px; --speed: 21s; --start: 278deg; --tilt: -58deg; --sx: 1.45; --sy: 0.65; --morphSpeed: 10s; }
+.g-orbit { --radius: 115px; --speed: 26s; --start: 333deg; --tilt: 27deg; --sx: 1.20; --sy: 0.90; --morphSpeed: 12s; }
+
+.w-orbit::before { left: 51%; top: 49%; }
+.u-orbit::before { left: 48%; top: 52%; }
+.b-orbit::before { left: 50%; top: 47%; }
+.r-orbit::before { left: 53%; top: 50%; }
+.g-orbit::before { left: 47%; top: 51%; }
+
+
+
+
+    .vm-hero-orbit-core {
+      width: 210px;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      background:
+        radial-gradient(circle at 35% 30%, rgba(255,255,255,0.32), transparent 26%),
+        radial-gradient(circle at center, rgba(8, 9, 20, 0.9), rgba(3, 4, 10, 0.98));
+      border: 1px solid rgba(255,255,255,0.16);
+      box-shadow:
+        0 0 40px rgba(0,0,0,0.8),
+        inset 0 0 40px rgba(0,0,0,0.8);
+      display: grid;
+      place-items: center;
+    }
+
+    .vm-hero-orbit-core strong {
+      font-size: 1.1rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+    }
+
+    .vm-hero-orbit-core span {
+      display: block;
+      margin-top: 0.25rem;
+      font-size: 0.78rem;
+      color: var(--vm-faint);
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .vm-hero-orbit-ring {
+      position: absolute;
+      inset: 6%;
+      border-radius: 50%;
+      border: 1px dashed rgba(255,255,255,0.16);
+      opacity: 0.7;
+      animation: vm-rotate 32s linear infinite;
+    }
+
+    .vm-hero-orbit-glyph {
+      position: absolute;
+      width: 2.4rem;
+      height: 2.4rem;
+      border-radius: 999px;
+      display: grid;
+      place-items: center;
+      font-size: 1.1rem;
+      background:
+        radial-gradient(circle at 35% 25%, rgba(255,255,255,0.42), transparent 24%),
+        rgba(8, 9, 20, 0.96);
+      border: 1px solid rgba(255,255,255,0.24);
+      box-shadow:
+        0 0 26px rgba(0,0,0,0.8),
+        inset 0 1px 0 rgba(255,255,255,0.24);
+    }
+
+    /* Three doors */
+
+    .vm-doors {
+      margin-bottom: 3rem;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.4rem;
+    }
+
+    .vm-door {
+      position: relative;
+      padding: 1.4rem 1.3rem 1.5rem;
+      border-radius: var(--vm-radius-md);
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(8, 9, 20, 0.9);
+      box-shadow:
+        0 22px 60px rgba(0,0,0,0.7),
+        inset 0 1px 0 rgba(255,255,255,0.08);
+      display: grid;
+      gap: 0.55rem;
+    }
+
+    .vm-door-kicker {
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--vm-faint);
+    }
+
+    .vm-door h3 {
+      margin: 0;
+      font-size: 1.05rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .vm-door p {
+      margin: 0;
+      font-size: 0.9rem;
+      color: var(--vm-muted);
+      line-height: 1.6;
+    }
+
+    .vm-door a {
+      margin-top: 0.6rem;
+      font-size: 0.8rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: var(--vm-accent);
+    }
+
+    /* Semiotics block (your upgraded module) */
+
+    .vm-semiotics {
+      position: relative;
+      margin-top: 3rem;
+      padding: 1.8rem 1.8rem 2rem;
+      border-radius: 30px;
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      background:
+        radial-gradient(circle at 18% 20%, rgba(247, 231, 165, 0.14), transparent 26%),
+        radial-gradient(circle at 82% 18%, rgba(127, 199, 255, 0.13), transparent 28%),
+        radial-gradient(circle at 78% 78%, rgba(255, 118, 106, 0.13), transparent 30%),
+        radial-gradient(circle at 22% 80%, rgba(126, 224, 161, 0.12), transparent 30%),
+        linear-gradient(135deg, #060713 0%, #111225 48%, #05050b 100%);
+      box-shadow:
+        0 30px 90px rgba(0, 0, 0, 0.55),
+        inset 0 1px 0 rgba(255, 255, 255, 0.08);
+      isolation: isolate;
+    }
+
+    .vm-semiotics::before {
+      content: "";
+      position: absolute;
+      inset: -2px;
+      z-index: -2;
+      background:
+        conic-gradient(
+          from 210deg,
+          rgba(247, 231, 165, 0.36),
+          rgba(127, 199, 255, 0.34),
+          rgba(168, 154, 184, 0.34),
+          rgba(255, 118, 106, 0.35),
+          rgba(126, 224, 161, 0.35),
+          rgba(247, 231, 165, 0.36)
+        );
+      filter: blur(34px);
+      opacity: 0.55;
+    }
+
+    .vm-semiotics::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px);
+      background-size: 42px 42px;
+      mask-image: radial-gradient(circle at center, black, transparent 78%);
+      opacity: 0.35;
+    }
+
+    .vm-semiotics-shell {
+      display: grid;
+      grid-template-columns: minmax(0, 1.08fr) minmax(280px, 0.92fr);
+      gap: clamp(2rem, 5vw, 4rem);
+      align-items: center;
+    }
+
+    .vm-semiotics-kicker {
+      display: inline-flex;
+      gap: 0.55rem;
+      align-items: center;
+      width: fit-content;
+      margin-bottom: 1rem;
+      padding: 0.45rem 0.75rem;
+      border: 1px solid rgba(255,255,255,0.13);
+      border-radius: 999px;
+      color: var(--vm-muted);
+      background: rgba(255,255,255,0.045);
+      backdrop-filter: blur(14px);
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    .vm-semiotics-kicker::before {
+      content: "";
+      width: 0.55rem;
+      height: 0.55rem;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--vm-white), var(--vm-blue), var(--vm-red), var(--vm-green));
+      box-shadow: 0 0 18px rgba(247, 231, 165, 0.55);
+    }
+
+    .vm-semiotics h3 {
+      margin: 0 0 1rem;
+      max-width: 820px;
+      font-size: clamp(2rem, 5vw, 4.6rem);
+      line-height: 0.95;
+      letter-spacing: -0.065em;
+      text-wrap: balance;
+    }
+
+    .vm-semiotics h3 span {
+      display: block;
+      background: linear-gradient(90deg, var(--vm-white), var(--vm-blue), var(--vm-black), var(--vm-red), var(--vm-green));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      filter: drop-shadow(0 0 18px rgba(127, 199, 255, 0.16));
+    }
+
+    .vm-semiotics p {
+      max-width: 780px;
+      color: var(--vm-muted);
+      font-size: clamp(1rem, 1.4vw, 1.12rem);
+      line-height: 1.78;
+    }
+
+    .vm-semiotics-lede {
+      margin-top: 0;
+    }
+
+    .vm-semiotics-text {
+      position: relative;
+    }
+
+    .vm-color-list {
+      display: grid;
+      gap: 0.78rem;
+      margin: 1.8rem 0;
+    }
+
+    .vm-color-item {
+      --accent: var(--vm-white);
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      gap: 0.85rem;
+      align-items: center;
+      position: relative;
+      padding: 1rem 1rem 1rem 0.9rem;
+      border: 1px solid rgba(255,255,255,0.105);
+      border-radius: 22px;
+      cursor: pointer;
+      background:
+        linear-gradient(90deg, color-mix(in srgb, var(--accent) 16%, transparent), transparent 45%),
+        rgba(255,255,255,0.045);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.06);
+      transition:
+        transform 180ms ease,
+        border-color 180ms ease,
+        background 180ms ease,
+        box-shadow 180ms ease;
+    }
+
+    .vm-color-item::after {
+      content: "select";
+      color: var(--vm-faint);
+      font-size: 0.66rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      opacity: 0;
+      transform: translateX(-4px);
+      transition: opacity 180ms ease, transform 180ms ease;
+    }
+
+    .vm-color-item:hover,
+    .vm-color-item.is-active {
+      transform: translateY(-2px);
+      border-color: color-mix(in srgb, var(--accent) 42%, rgba(255,255,255,0.18));
+      box-shadow:
+        0 18px 42px rgba(0,0,0,0.28),
+        0 0 32px color-mix(in srgb, var(--accent) 20%, transparent),
+        inset 0 1px 0 rgba(255,255,255,0.12);
+    }
+
+    .vm-color-item:hover::after,
+    .vm-color-item.is-active::after {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .vm-color-item.is-active {
+      background:
+        linear-gradient(90deg, color-mix(in srgb, var(--accent) 24%, transparent), transparent 56%),
+        rgba(255,255,255,0.065);
+    }
+
+    .vm-color-item[data-color="W"] { --accent: var(--vm-white); }
+    .vm-color-item[data-color="U"] { --accent: var(--vm-blue); }
+    .vm-color-item[data-color="B"] { --accent: var(--vm-black); }
+    .vm-color-item[data-color="R"] { --accent: var(--vm-red); }
+    .vm-color-item[data-color="G"] { --accent: var(--vm-green); }
+
+    .vm-color-glyph {
+      display: grid;
+      place-items: center;
+      width: 2.7rem;
+      height: 2.7rem;
+      border-radius: 18px;
+      background:
+        radial-gradient(circle at 35% 30%, rgba(255,255,255,0.38), transparent 30%),
+        color-mix(in srgb, var(--accent) 22%, rgba(0,0,0,0.62));
+      box-shadow:
+        0 0 22px color-mix(in srgb, var(--accent) 26%, transparent),
+        inset 0 1px 0 rgba(255,255,255,0.18);
+      font-size: 1.24rem;
+    }
+
+    .vm-color-label strong {
+      display: block;
+      margin-bottom: 0.22rem;
+      color: color-mix(in srgb, var(--accent) 72%, var(--vm-text));
+      font-size: 0.98rem;
+      letter-spacing: 0.02em;
+    }
+
+    .vm-color-label span {
+      display: block;
+      color: var(--vm-muted);
+      font-size: 0.92rem;
+      line-height: 1.45;
+    }
+
+    .vm-ideology-block {
+      position: relative;
+      overflow: hidden;
+      margin-top: 1.5rem;
+      padding: 1.4rem;
+      border: 1px solid color-mix(in srgb, var(--active-color, var(--vm-white)) 38%, rgba(255,255,255,0.12));
+      border-radius: 26px;
+      background:
+        radial-gradient(circle at top left, color-mix(in srgb, var(--active-color, var(--vm-white)) 18%, transparent), transparent 44%),
+        rgba(0,0,0,0.25);
+      box-shadow:
+        0 18px 56px rgba(0,0,0,0.28),
+        inset 0 1px 0 rgba(255,255,255,0.08);
+    }
+
+    .vm-ideology-block::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, transparent, color-mix(in srgb, var(--active-color, var(--vm-white)) 16%, transparent), transparent);
+      transform: translateX(-100%);
+      animation: vm-scan 5.5s ease-in-out infinite;
+      opacity: 0.8;
+    }
+
+    .vm-ideology-block h4,
+    .vm-ideology-block p {
+      position: relative;
+      z-index: 1;
+    }
+
+    .vm-ideology-block h4 {
+      margin: 0 0 0.55rem;
+      color: color-mix(in srgb, var(--active-color, var(--vm-white)) 74%, var(--vm-text));
+      font-size: 1.05rem;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+    }
+
+    .vm-ideology-block p {
+      margin: 0;
+    }
+
+    .vm-what {
+      margin-top: 1rem;
+      padding: 1.2rem;
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 26px;
+      background: rgba(255,255,255,0.045);
+    }
+
+    .vm-what h4 {
+      margin: 0 0 0.9rem;
+      font-size: 0.9rem;
+      color: var(--vm-text);
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .vm-what ol {
+      display: grid;
+      gap: 0.72rem;
+      margin: 0;
+      padding: 0;
+      counter-reset: vm-step;
+      list-style: none;
+    }
+
+    .vm-what li {
+      counter-increment: vm-step;
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.75rem;
+      align-items: start;
+      color: var(--vm-muted);
+      line-height: 1.45;
+    }
+
+    .vm-what li::before {
+      content: counter(vm-step);
+      display: grid;
+      place-items: center;
+      width: 1.65rem;
+      height: 1.65rem;
+      border-radius: 999px;
+      color: #070812;
+      background: linear-gradient(135deg, var(--vm-white), var(--vm-blue), var(--vm-red), var(--vm-green));
+      font-size: 0.78rem;
+      font-weight: 800;
+    }
+
+    .vm-semiotics-oracle {
+      position: relative;
+      min-height: 520px;
+      display: grid;
+      place-items: center;
+    }
+
+    .vm-sigil {
+      position: relative;
+      width: min(100%, 470px);
+      aspect-ratio: 1;
+      border-radius: 50%;
+      background:
+        radial-gradient(circle, rgba(255,255,255,0.08) 0 2px, transparent 3px),
+        radial-gradient(circle at center, rgba(255,255,255,0.08), transparent 36%),
+        conic-gradient(
+          from -18deg,
+          rgba(247,231,165,0.28),
+          rgba(127,199,255,0.24),
+          rgba(168,154,184,0.22),
+          rgba(255,118,106,0.26),
+          rgba(126,224,161,0.24),
+          rgba(247,231,165,0.28)
+        );
+      box-shadow:
+        0 0 80px rgba(127, 199, 255, 0.12),
+        inset 0 0 70px rgba(0,0,0,0.6);
+    }
+
+    .vm-sigil::before,
+    .vm-sigil::after {
+      content: "";
+      position: absolute;
+      inset: 9%;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,0.13);
+    }
+
+    .vm-sigil::after {
+      inset: 21%;
+      border-style: dashed;
+      opacity: 0.72;
+      animation: vm-rotate 28s linear infinite;
+    }
+
+    .vm-sigil-core {
+      position: absolute;
+      inset: 30%;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(255,255,255,0.16);
+      border-radius: 50%;
+      background:
+        radial-gradient(circle at 40% 28%, rgba(255,255,255,0.18), transparent 26%),
+        rgba(5, 6, 14, 0.72);
+      box-shadow:
+        0 0 46px rgba(255,255,255,0.08),
+        inset 0 0 40px rgba(0,0,0,0.66);
+      backdrop-filter: blur(16px);
+    }
+
+    .vm-sigil-core strong {
+      display: block;
+      font-size: clamp(1.8rem, 5vw, 3.2rem);
+      letter-spacing: -0.08em;
+      background: linear-gradient(90deg, var(--vm-white), var(--vm-blue), var(--vm-black), var(--vm-red), var(--vm-green));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .vm-sigil-core span {
+      display: block;
+      margin-top: 0.15rem;
+      color: var(--vm-faint);
+      font-size: 0.7rem;
+      letter-spacing: 0.22em;
+      text-align: center;
+      text-transform: uppercase;
+    }
+
+    .vm-orb {
+      --orb: var(--vm-white);
+      position: absolute;
+      display: grid;
+      place-items: center;
+      width: 4.35rem;
+      height: 4.35rem;
+      border: 1px solid color-mix(in srgb, var(--orb) 48%, rgba(255,255,255,0.14));
+      border-radius: 50%;
+      color: var(--vm-text);
+      background:
+        radial-gradient(circle at 35% 25%, rgba(255,255,255,0.42), transparent 24%),
+        radial-gradient(circle, color-mix(in srgb, var(--orb) 34%, #080914), #080914 68%);
+      box-shadow:
+        0 0 36px color-mix(in srgb, var(--orb) 32%, transparent),
+        inset 0 1px 0 rgba(255,255,255,0.18);
+      font-size: 1.35rem;
+      font-weight: 900;
+      cursor: pointer;
+      transition: transform 180ms ease, box-shadow 180ms ease;
+    }
+
+    .vm-orb:hover,
+    .vm-orb.is-active {
+      transform: scale(1.08);
+      box-shadow:
+        0 0 54px color-mix(in srgb, var(--orb) 54%, transparent),
+        inset 0 1px 0 rgba(255,255,255,0.28);
+    }
+
+    .vm-orb[data-color="W"] {
+      --orb: var(--vm-white);
+      top: 3%;
+      left: 50%;
+      translate: -50% 0;
+    }
+
+    .vm-orb[data-color="U"] {
+      --orb: var(--vm-blue);
+      top: 33%;
+      right: 2%;
+    }
+
+    .vm-orb[data-color="B"] {
+      --orb: var(--vm-black);
+      right: 15%;
+      bottom: 5%;
+    }
+
+    .vm-orb[data-color="R"] {
+      --orb: var(--vm-red);
+      left: 15%;
+      bottom: 5%;
+    }
+
+    .vm-orb[data-color="G"] {
+      --orb: var(--vm-green);
+      top: 33%;
+      left: 2%;
+    }
+
+    .vm-signal-card {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      max-width: 260px;
+      padding: 1rem;
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 22px;
+      background: rgba(5, 6, 14, 0.64);
+      backdrop-filter: blur(18px);
+      box-shadow: 0 22px 54px rgba(0,0,0,0.34);
+    }
+
+    .vm-signal-card strong {
+      display: block;
+      margin-bottom: 0.35rem;
+      color: var(--vm-text);
+      font-size: 0.78rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .vm-signal-card span {
+      display: block;
+      color: var(--vm-muted);
+      font-size: 0.88rem;
+      line-height: 1.45;
+    }
+
+    /* Footer */
+
+    footer.vm-footer {
+      margin-top: 3rem;
+      padding-top: 1.8rem;
+      border-top: 1px solid rgba(255,255,255,0.12);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.8rem;
+      color: var(--vm-faint);
+    }
+
+    .vm-footer-wubrg {
+      display: inline-flex;
+      gap: 0.4rem;
+      align-items: center;
+    }
+
+    .vm-footer-wubrg span {
+      width: 1.6rem;
+      height: 1.6rem;
+      border-radius: 999px;
+      display: grid;
+      place-items: center;
+      font-size: 0.9rem;
+      background: rgba(8, 9, 20, 0.9);
+      border: 1px solid rgba(255,255,255,0.16);
+    }
+
+    .vm-footer-wubrg span[data-color="W"] { color: var(--vm-white); }
+    .vm-footer-wubrg span[data-color="U"] { color: var(--vm-blue); }
+    .vm-footer-wubrg span[data-color="B"] { color: var(--vm-black); }
+    .vm-footer-wubrg span[data-color="R"] { color: var(--vm-red); }
+    .vm-footer-wubrg span[data-color="G"] { color: var(--vm-green); }
+
+    @keyframes vm-rotate {
+      to { transform: rotate(360deg); }
+    }
+
+    @keyframes vm-scan {
+      0%, 42% { transform: translateX(-120%); }
+      58%, 100% { transform: translateX(120%); }
+    }
+
+    @media (max-width: 920px) {
+      .vm-hero {
+        grid-template-columns: 1fr;
+      }
+
+      .vm-hero-orbit {
+        order: -1;
+        min-height: 230px;
+      }
+
+      .vm-hero {
+        padding: 1.8rem 1.6rem 2rem;
+      }
+
+      .vm-semiotics-shell {
+        grid-template-columns: 1fr;
+      }
+
+      .vm-semiotics-oracle {
+        min-height: 430px;
+        order: -1;
+      }
+
+      .vm-sigil {
+        width: min(88vw, 420px);
+      }
+
+      .vm-doors {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .vm-page-shell {
+        padding-inline: 1.2rem;
+      }
+
+      .vm-hero {
+        padding: 1.6rem 1.4rem 1.8rem;
+        border-radius: 26px;
+      }
+
+      .vm-semiotics {
+        padding: 1.4rem;
+        border-radius: 26px;
+      }
+
+      .vm-color-item {
+        grid-template-columns: auto 1fr;
+      }
+
+      .vm-color-item::after {
+        display: none;
+      }
+
+      .vm-orb {
+        width: 3.45rem;
+        height: 3.45rem;
+        font-size: 1rem;
+      }
+
+      .vm-signal-card {
+        position: relative;
+        margin-top: 1rem;
+        max-width: none;
+      }
+
+      header.vm-header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .vm-sigil::after,
+      .vm-ideology-block::before {
+        animation: none;
+      }
+
+      .vm-color-item,
+      .vm-orb,
+      .vm-hero-orbit-ring {
+        transition: none;
+        animation: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="vm-page-shell">
+    <header class="vm-header">
+      <div class="vm-logo-lockup">
+        <div class="vm-logo-glyph">VM</div>
+        <div class="vm-logo-text">
+          <h1>Vox Mana</h1>
+          <span>The Mana-Native Identity Engine</span>
+        </div>
+      </div>
+      <div class="vm-header-cta">
+        <span>Prototype build · Planar-Tech · Prestige</span>
+        <a href="#vm-semiotics-title">
+          <span>◎</span>
+          VIEW SEMIOTICS
+        </a>
+      </div>
+    </header>
+
+    <section class="vm-hero" aria-labelledby="vm-hero-title">
+      <div>
+        <div class="vm-hero-kicker">Three doors. Three ways in.</div>
+        <h2 id="vm-hero-title">
+          The mana-native
+          <span>identity engine</span>
+        </h2>
+        <p>
+          Vox Mana reads your answers as color-weighted signals across the WUBRG spectrum, then resolves them
+          into philosophy, mechanics, lore, and deckbuilding direction. It’s not a quiz — it’s a planar
+          diagnostic.
+        </p>
+        <div class="vm-hero-actions">
+          <a href="#vm-doors">ENTER THE ENGINE</a>
+          <a href="#vm-semiotics-title" class="vm-hero-secondary">READ THE SEMIOTICS</a>
+        </div>
+      </div>
+<div class="vm-hero-orbit">
+
+    <div class="vm-hero-orbit-core">
+        <strong>VOX MANA</strong>
+        <span>Signal engine · WUBRG</span>
+    </div>
+
+    <div class="vm-orbit w-orbit">
+        <div class="glyph">☀️</div>
+    </div>
+
+    <div class="vm-orbit u-orbit">
+        <div class="glyph">💧</div>
+    </div>
+
+    <div class="vm-orbit b-orbit">
+        <div class="glyph">💀</div>
+    </div>
+
+    <div class="vm-orbit r-orbit">
+        <div class="glyph">🔥</div>
+    </div>
+
+    <div class="vm-orbit g-orbit">
+        <div class="glyph">🌳</div>
+    </div>
+
+</div>
+
+    </section>
+
+    <section class="vm-doors" id="vm-doors" aria-label="Three ways into Vox Mana">
+      <article class="vm-door">
+        <div class="vm-door-kicker">Door I · Archscry</div>
+        <h3>Interactive placement dossier</h3>
+        <p>
+          Answer a sequence of color-weighted prompts. Vox Mana resolves your profile into mono, guild, shard,
+          wedge, school, or colorless identity — then maps it to lore, mechanics, and deckbuilding.
+        </p>
+        <a href="#">Begin Archscry →</a>
+      </article>
+
+      <article class="vm-door">
+        <div class="vm-door-kicker">Door II · Implicit Maze</div>
+        <h3>Symbolic signal pathways</h3>
+        <p>
+          Navigate an implicit maze of choices, archetypes, and tensions. Your route through the maze becomes a
+          WUBRG signal trace, revealing how you resolve conflict under pressure.
+        </p>
+        <a href="#">Walk the Maze →</a>
+      </article>
+
+      <article class="vm-door">
+        <div class="vm-door-kicker">Door III · Apocrypha</div>
+        <h3>Metaphysical codex</h3>
+        <p>
+          Explore essays, diagrams, and codices on the metaphysics of WUBRG, color philosophy, and mana-native
+          identity. Designed as a reference layer for designers, writers, and deckbuilders.
+        </p>
+        <a href="#">Open the Codex →</a>
+      </article>
+    </section>
+
+    <!-- Upgraded Semiotics module -->
+    <section class="vm-semiotics" aria-labelledby="vm-semiotics-title">
+      <div class="vm-semiotics-shell">
+        <div class="vm-semiotics-text">
+          <div class="vm-semiotics-kicker">Signal Engine / Color Philosophy</div>
+
+          <h3 id="vm-semiotics-title">
+            The Semiotics of
+            <span>the Color Pie</span>
+          </h3>
+
+          <p class="vm-semiotics-lede">
+            The five colors of the WUBRG wheel represent incompatible belief systems held in constant tension.
+            They are not cosmetic themes, but an ideological closed-loop: each color enforces its philosophy
+            through distinct mechanics, constraints, and freedoms.
+          </p>
+
+          <p>
+            When these forces are condensed face-down, they represent raw potential — a blank slate — before
+            resolving into defined, colored identity.
+          </p>
+
+          <div class="vm-color-list" aria-label="WUBRG color ideologies">
+            <button class="vm-color-item is-active" type="button" data-color="W">
+              <div class="vm-color-glyph vm-color-glyph--white">☀️</div>
+              <div class="vm-color-label">
+                <strong>White (W)</strong>
+                <span>Peace through order. Sacrifices individual agency to eradicate collective suffering.</span>
+              </div>
+            </button>
+
+            <button class="vm-color-item" type="button" data-color="U">
+              <div class="vm-color-glyph vm-color-glyph--blue">💧</div>
+              <div class="vm-color-label">
+                <strong>Blue (U)</strong>
+                <span>Perfection through knowledge. Life as an optimization process.</span>
+              </div>
+            </button>
+
+            <button class="vm-color-item" type="button" data-color="B">
+              <div class="vm-color-glyph vm-color-glyph--black">💀</div>
+              <div class="vm-color-label">
+                <strong>Black (B)</strong>
+                <span>Power through opportunity. Prioritizes individual free will and pragmatism.</span>
+              </div>
+            </button>
+
+            <button class="vm-color-item" type="button" data-color="R">
+              <div class="vm-color-glyph vm-color-glyph--red">🔥</div>
+              <div class="vm-color-label">
+                <strong>Red (R)</strong>
+                <span>Freedom through action. Values emotional authenticity and spontaneity.</span>
+              </div>
+            </button>
+
+            <button class="vm-color-item" type="button" data-color="G">
+              <div class="vm-color-glyph vm-color-glyph--green">🌳</div>
+              <div class="vm-color-label">
+                <strong>Green (G)</strong>
+                <span>Growth through acceptance. Identity emerges from nature, inheritance, and place.</span>
+              </div>
+            </button>
+          </div>
+
+          <div class="vm-ideology-block" id="vm-ideology-block">
+            <h4 id="vm-ideology-title">Selected Ideology: White (W)</h4>
+
+            <p id="vm-ideology-body">
+              White values organization, community, and structure, believing that individual desires must be
+              sacrificed to eradicate suffering. It seeks peace through order, codifying behavior and building
+              systems that minimize harm — even at the cost of personal freedom.
+            </p>
+          </div>
+
+          <div class="vm-what">
+            <h4>What Vox Mana does</h4>
+            <ol>
+              <li>Reads your answers as color-weighted signals across the WUBRG spectrum.</li>
+              <li>Translates those signals into mono, guild, shard, wedge, school, family, or colorless identity.</li>
+              <li>Connects the result to lore, mechanics, deckbuilding, and symbolic search pathways.</li>
+            </ol>
+          </div>
+        </div>
+
+        <div class="vm-semiotics-oracle" aria-hidden="true">
+          <div class="vm-sigil">
+            <button class="vm-orb is-active" type="button" data-color="W">W</button>
+            <button class="vm-orb" type="button" data-color="U">U</button>
+            <button class="vm-orb" type="button" data-color="B">B</button>
+            <button class="vm-orb" type="button" data-color="R">R</button>
+            <button class="vm-orb" type="button" data-color="G">G</button>
+
+            <div class="vm-sigil-core">
+              <div>
+                <strong>WUBRG</strong>
+                <span>Identity before form</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="vm-signal-card">
+            <strong>Face-down potential</strong>
+            <span>Raw answers enter as signal. Vox Mana resolves them into philosophy, mechanics, lore, and deckbuilding direction.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="vm-footer">
+      <div>© Vox Mana · Prototype build · For personal and design exploration only.</div>
+      <div class="vm-footer-wubrg" aria-label="WUBRG glyphs">
+        <span data-color="W">W</span>
+        <span data-color="U">U</span>
+        <span data-color="B">B</span>
+        <span data-color="R">R</span>
+        <span data-color="G">G</span>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    (() => {
+      const root = document.querySelector(".vm-semiotics");
+      if (!root) return;
+
+      const ideology = {
+        W: {
+          color: "#f7e7a5",
+          title: "Selected Ideology: White (W)",
+          body: "White values organization, community, and structure, believing that individual desires must be sacrificed to eradicate suffering. It seeks peace through order, codifying behavior and building systems that minimize harm — even at the cost of personal freedom."
+        },
+        U: {
+          color: "#7fc7ff",
+          title: "Selected Ideology: Blue (U)",
+          body: "Blue values knowledge, precision, and improvement. It treats life as an unfinished system: something to study, refine, optimize, and perfect through discipline, memory, technology, and careful control."
+        },
+        B: {
+          color: "#a89ab8",
+          title: "Selected Ideology: Black (B)",
+          body: "Black values agency, ambition, and self-determination. It refuses comforting illusions, accepts cost as part of power, and believes survival belongs to those willing to act without apology."
+        },
+        R: {
+          color: "#ff766a",
+          title: "Selected Ideology: Red (R)",
+          body: "Red values freedom, emotion, impulse, and authentic action. It rejects systems that cage the self, choosing passion, instinct, art, risk, love, rage, and movement over sterile control."
+        },
+        G: {
+          color: "#7ee0a1",
+          title: "Selected Ideology: Green (G)",
+          body: "Green values nature, continuity, and belonging. It believes identity is discovered through inheritance, instinct, ecology, ancestry, and place — not invented in isolation."
+        }
+      };
+
+      const title = root.querySelector("#vm-ideology-title");
+      const body = root.querySelector("#vm-ideology-body");
+      const block = root.querySelector("#vm-ideology-block");
+      const triggers = root.querySelectorAll("[data-color]");
+
+      function selectColor(colorKey) {
+        const selected = ideology[colorKey];
+        if (!selected) return;
+
+        title.textContent = selected.title;
+        body.textContent = selected.body;
+        block.style.setProperty("--active-color", selected.color);
+
+        triggers.forEach((trigger) => {
+          trigger.classList.toggle("is-active", trigger.dataset.color === colorKey);
+        });
+      }
+
+      triggers.forEach((trigger) => {
+        trigger.addEventListener("click", () => selectColor(trigger.dataset.color));
+      });
+
+      selectColor("W");
+    })();
+  </script>
+</body>
+</html>

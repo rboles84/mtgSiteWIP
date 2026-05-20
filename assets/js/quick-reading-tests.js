@@ -122,6 +122,12 @@ function sortedStrings(values = []) {
   return [...values].map((value) => String(value || "")).sort();
 }
 
+function normalizedAdjacentFamily(keyOrFaction) {
+  return getExternalDeckRoutingAlias(
+    typeof keyOrFaction === "string" ? (factions[keyOrFaction] || keyOrFaction) : keyOrFaction
+  ).colorIdentity;
+}
+
 function assertMonoBoundaryState(key, placementResult) {
   const expectedTargets = MONO_BOUNDARY_TARGETS[key];
   assert.ok(expectedTargets, `Missing mono boundary target set for ${key}.`);
@@ -130,9 +136,10 @@ function assertMonoBoundaryState(key, placementResult) {
     sortedStrings(expectedTargets),
     `${key} should keep the four mono-adjacent boundary expressions wired into the model.`
   );
+  const expectedFamilies = new Set(expectedTargets.map(normalizedAdjacentFamily));
   assert.ok(
-    (placementResult?.adjacent_matches || []).every((match) => expectedTargets.includes(match.faction)),
-    `${key} adjacent matches should remain inside ${expectedTargets.join(", ")}.`
+    (placementResult?.adjacent_matches || []).every((match) => expectedFamilies.has(normalizedAdjacentFamily(match.faction))),
+    `${key} adjacent matches should remain inside the ${expectedTargets.join(", ")} pair families.`
   );
 }
 

@@ -1,0 +1,261 @@
+{
+  "taxonomy_version": "1.0.0",
+  "theme": "Orzhov Syndicate",
+  "organizing_principles": [
+    "black-white duality",
+    "debt and obligation",
+    "ecclesiastical hierarchy",
+    "extortion as law",
+    "sanctity as performance",
+    "legacy and inheritance",
+    "life as currency"
+  ],
+  "themes": {
+    "debt": {
+      "description": "The central moral engine of Orzhov society. Debt is not merely financial — it is spiritual, political, and generational. The Syndicate ensures no debt is ever truly settled.",
+      "sub_themes": [
+        "ancestral debt passed through bloodlines",
+        "spiritual obligation to the Obzedat",
+        "contractual tithe and tribute systems",
+        "debt as identity and social station",
+        "the illusion of absolution"
+      ],
+      "narrative_tension": "Characters believe they can earn freedom by repaying; the system is designed so they never can.",
+      "sample_hooks": [
+        "A stonemason's grandson discovers his family owes three generations of back-tithe to the Syndicate.",
+        "A ghost refuses to pass on, bound by a clause in her death contract she cannot read.",
+        "A clerk uncovers a ledger proving the high prelate himself is deeply in debt — to no one living."
+      ]
+    },
+    "hierarchy": {
+      "description": "Power in the Orzhov is inherited, purchased, or extorted — never earned through merit. The hierarchy is vertical, rigid, and self-reinforcing.",
+      "sub_themes": [
+        "the Obzedat ghost council as pinnacle authority",
+        "tiered clergy ranks and their privileges",
+        "enforcer caste versus scribal caste",
+        "rank as performance — robes, seals, liturgical rights",
+        "rebellion against hierarchy as heresy"
+      ],
+      "narrative_tension": "The hierarchy promises reward for loyalty but guarantees stasis.",
+      "sample_hooks": [
+        "A young prelate realizes promotion is blocked by a ghost elder who died before giving way.",
+        "An enforcer is ordered to collect tithe from her own family.",
+        "A scribe discovers that the rank above hers has been vacant for forty years — intentionally."
+      ]
+    },
+    "law": {
+      "description": "Orzhov law is not justice. It is a codified mechanism for control, authored by those with the most to gain from its provisions.",
+      "sub_themes": [
+        "contracts written in language designed to entrap",
+        "selective enforcement as punishment",
+        "the legal personhood of the dead",
+        "exoneration as a purchasable outcome",
+        "the distinction between lawful and right"
+      ],
+      "narrative_tension": "The law is always technically obeyed; justice is never served.",
+      "sample_hooks": [
+        "A defendant wins her case but learns the legal fees have exceeded her estate.",
+        "A ghost successfully sues a living heir for breach of posthumous contract.",
+        "An investigator proves fraud — and is immediately arrested for accessing sealed records."
+      ]
+    },
+    "extortion": {
+      "description": "The Syndicate monetizes every human vulnerability: grief, hope, fear of death, love of family. Extortion is not aberrant — it is the product offered.",
+      "sub_themes": [
+        "tithe as protection racket",
+        "absolution sold at premium rates",
+        "resurrection as a service with recurring fees",
+        "leverage through confessional knowledge",
+        "the smile behind the demand"
+      ],
+      "narrative_tension": "The victim must remain grateful to their extortioner.",
+      "sample_hooks": [
+        "A merchant pays for guaranteed safe passage — then learns the threats were always from the Syndicate itself.",
+        "A widow's husband is resurrected and now owes a ten-year labor contract.",
+        "A child is offered a scholarship to the Syndicate's academy; the fine print assigns her future earnings."
+      ]
+    },
+    "sanctity": {
+      "description": "The Orzhov wraps all of the above in the language of the sacred. Ritual, vestment, and ceremony lend moral weight to systems of exploitation.",
+      "sub_themes": [
+        "liturgy as legal enforcement",
+        "sacred spaces as property",
+        "the performance of holiness as branding",
+        "the dead as saints — and assets",
+        "blasphemy as contract breach"
+      ],
+      "narrative_tension": "Genuine faith exists inside the structure and is weaponized against the faithful.",
+      "sample_hooks": [
+        "A novice monk discovers the sacred relic he prays before is an IOU signed by the original donor.",
+        "A parishioner is excommunicated for missing a single tithe payment during illness.",
+        "A reformist priest attempts to hold mass for free — and is charged with unlicensed religious practice."
+      ]
+    },
+    "legacy": {
+      "description": "The Orzhov are obsessed with legacy: what is owed, what is owned, and what endures beyond death. Ghosts are not memories — they are stakeholders.",
+      "sub_themes": [
+        "inheritance as trap",
+        "the dead outvoting the living",
+        "dynasties spanning centuries",
+        "legacy documents as weapons",
+        "the cost of being remembered"
+      ],
+      "narrative_tension": "The living serve the dead, and the dead serve the Syndicate.",
+      "sample_hooks": [
+        "A family's patriarch has been dead for eighty years but still holds the deed to the house.",
+        "Two branches of a guild go to war over a will that may have been forged.",
+        "A ghost discovers that dying did not end her obligations — it added interest."
+      ]
+    }
+  },
+  "archetypes": {
+    "the_creditor": {
+      "description": "The one who holds the debt. May be living, dead, or institutional. Outwardly generous, structurally predatory.",
+      "traits": ["patient", "courteous", "implacable", "well-dressed", "excellent record-keeper"],
+      "motivation": "Ensure the debt is never fully repaid; extract maximum value indefinitely.",
+      "narrative_role": "Antagonist or false mentor",
+      "sample_names": ["Guildmaster Ashvorn", "Pontifex Varentha", "Magistrate Coldgrave"]
+    },
+    "the_debtor": {
+      "description": "The one who owes. Often inherited the debt rather than incurred it. Struggles between compliance and defiance.",
+      "traits": ["resourceful", "exhausted", "morally compromised", "intermittently hopeful"],
+      "motivation": "Find a path to freedom within a system designed to prevent it.",
+      "narrative_role": "Protagonist or tragic figure",
+      "sample_names": ["Tailor Wessen", "Clerk Pira Salthorn", "Novice Aldric"]
+    },
+    "the_enforcer": {
+      "description": "The instrument of the Syndicate's will. Believes in the law — or has stopped believing in anything.",
+      "traits": ["disciplined", "compartmentalized", "physically imposing", "quietly doubting"],
+      "motivation": "Execute orders and avoid becoming a cautionary tale.",
+      "narrative_role": "Foil, antagonist, or reluctant ally",
+      "sample_names": ["Parish Enforcer Solen", "Warden Duskmore", "Knight-Arbiter Vessa"]
+    },
+    "the_ghost_elder": {
+      "description": "A Syndicate patriarch or matriarch who refused to let death interrupt business. Powerful, ancient, increasingly detached from the living.",
+      "traits": ["ancient", "cold", "institutionally brilliant", "contemptuous of urgency"],
+      "motivation": "Preserve the Syndicate's power and their own relevance past death.",
+      "narrative_role": "Shadow authority, true antagonist",
+      "sample_names": ["Obzedat Councilor Vrath", "Revenant Prelate Osswyn", "Shade-Matriarch Irenne"]
+    },
+    "the_reformist": {
+      "description": "One who believes the system can be changed from within. Usually wrong. Sometimes right in ways they never intended.",
+      "traits": ["idealistic", "politically naive", "morally courageous", "underestimated"],
+      "motivation": "Introduce genuine justice into a system that treats justice as overhead.",
+      "narrative_role": "Protagonist, catalyst, or martyr",
+      "sample_names": ["Cleric Orvyn Fairmark", "Scribe Tessara Wend", "Inquisitor Valdris"]
+    },
+    "the_convert": {
+      "description": "Someone who joined the Syndicate willingly, seduced by its power, beauty, or promises — and now questions everything.",
+      "traits": ["intelligent", "self-aware", "ashamed", "calculating exits"],
+      "motivation": "Find a way out without becoming another asset.",
+      "narrative_role": "Ambiguous ally, inside informant",
+      "sample_names": ["Advisor Maris", "Hierarch Brennok", "Prelate-Designate Ulva"]
+    }
+  },
+  "narrative_beats": {
+    "inciting_incidents": [
+      "A debt notice arrives with a name the protagonist does not recognize.",
+      "A family member dies and their ghost immediately begins demanding payment.",
+      "The Syndicate offers to solve a problem — and the protagonist accepts.",
+      "An enforcer is dispatched to collect from someone they love.",
+      "A reformist publishes a sermon that accidentally quotes a sealed Syndicate ledger."
+    ],
+    "midpoint_reversals": [
+      "The protagonist discovers the debt they are trying to repay is structured to compound faster than payment.",
+      "An ally is revealed to be a Syndicate informant — but so conflicted they tip off the protagonist first.",
+      "The ghost the protagonist has been helping turns out to be the original creditor in disguise.",
+      "The legal loophole found to escape the contract creates a larger obligation.",
+      "The reformist's movement is co-opted and re-branded as a Syndicate charity."
+    ],
+    "climax_types": [
+      "Expose the fraudulent ledger at the public reading of wills, forcing the Syndicate to acknowledge the debt is void.",
+      "Convince a ghost elder to release the debt in exchange for something only the protagonist can offer.",
+      "Burn the contract — knowing the Syndicate will retaliate but that the act itself is worth it.",
+      "Become a ghost voluntarily to gain standing in the Obzedat court and vote down the debt clause.",
+      "Discover the ghost council is itself bound by a contract no living person remembers signing."
+    ],
+    "resolution_types": [
+      "Pyrrhic freedom: debt cancelled but protagonist loses everything else.",
+      "Compromise: partial relief, ongoing obligation, but survivable.",
+      "Tragic: protagonist becomes what they fought — a creditor.",
+      "Ambiguous: the contract is missing, the debt may be void, no one dares test it.",
+      "Triumphant: the system is exposed, the ghost council dissolves, but a new one forms within a generation."
+    ]
+  },
+  "character_roles": {
+    "protagonist_templates": [
+      {
+        "label": "The Heir",
+        "summary": "Inherits debt they did not incur; must decide whether to honor it or contest it.",
+        "default_archetype": "the_debtor"
+      },
+      {
+        "label": "The Apostate",
+        "summary": "Former Syndicate member who knows too much and fled — until the debt finds them.",
+        "default_archetype": "the_convert"
+      },
+      {
+        "label": "The Investigator",
+        "summary": "Hired to audit a Syndicate ledger; discovers systematic fraud that implicates everyone.",
+        "default_archetype": "the_reformist"
+      }
+    ],
+    "antagonist_templates": [
+      {
+        "label": "The Patient Patriarch",
+        "summary": "A ghost elder who has been waiting centuries for this exact leverage.",
+        "default_archetype": "the_ghost_elder"
+      },
+      {
+        "label": "The Smiling Prelate",
+        "summary": "A living Syndicate leader who genuinely believes the system is just.",
+        "default_archetype": "the_creditor"
+      },
+      {
+        "label": "The Reluctant Enforcer",
+        "summary": "Does not want to do this — but will.",
+        "default_archetype": "the_enforcer"
+      }
+    ],
+    "supporting_templates": [
+      {
+        "label": "The Loyal Scribe",
+        "summary": "Knows where the bodies (and the ledgers) are buried.",
+        "default_archetype": "the_debtor"
+      },
+      {
+        "label": "The Grieving Ghost",
+        "summary": "A recently deceased NPC still entangled in the system, able to provide insider access.",
+        "default_archetype": "the_debtor"
+      }
+    ]
+  },
+  "tone_registers": {
+    "gothic_horror": "Emphasize the physical weight of obligation: crumbling estates, ledgers written in blood, ghosts who cannot leave because the contract still binds them.",
+    "political_thriller": "Focus on leverage, information asymmetry, and the slow exposure of institutional corruption.",
+    "dark_comedy": "Play the bureaucratic absurdity straight — the ghost suing over a broken vase, the clerk who needs three forms to approve her own funeral.",
+    "tragedy": "A character who genuinely believes in Orzhov values and discovers the institution they love is incapable of believing in them back.",
+    "heist": "What would it take to steal, forge, or destroy the one document that could free an entire family? Who inside the Syndicate can be turned?"
+  },
+  "world_building_anchors": {
+    "institutions": [
+      "The Obzedat — the ghost council of dead patriarchs who still hold board seats",
+      "The Hall of Tithe — where all debts are registered and witnessed",
+      "The Pale Sanctum — the Syndicate's cathedral and financial headquarters",
+      "The Ossuary Vaults — archives of every contract ever written, guarded by spectral archivists",
+      "The Prelature — governing body of living clergy, technically subordinate to the Obzedat"
+    ],
+    "artifacts_of_power": [
+      "The Ledger of Last Resort — a tome that holds the master record of every outstanding debt",
+      "The Writ of Eternal Tithe — a self-replicating contract that adds new signatories automatically",
+      "The Coin of Absolution — redeemable for one act of forgiveness; there is only one, and it is never sold",
+      "The Ghost Bell — rung to summon a debtor's spirit back to testify against their heirs"
+    ],
+    "geography": [
+      "The Cloisters — residential towers for Syndicate clergy, hierarchically arranged by floor",
+      "Debtor's Row — the district where those who cannot pay are assigned labor contracts",
+      "The White Bridge — the formal border between civilian Ravnica and Orzhov territory, where tolls are collected",
+      "The Undercroft — sub-levels of the Pale Sanctum where enforcement operations are planned"
+    ]
+  }
+}

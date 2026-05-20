@@ -52,6 +52,25 @@ This is the Javadoc-equivalent inventory for the current working tree. It focuse
 | 665 | `runAdaptiveReadingWithStrategy(options)` | Export | Simulation runner over adaptive questions. |
 | 705 | `runAdaptiveGoldenPath(options)` | Export | Simulation runner targeting one faction. |
 
+### `assets/js/archscry-presentation.js`
+
+| Line | Symbol | Scope | Purpose |
+|---:|---|---|---|
+| 12 | `MAZE_PATH_LABELS` | Export | Stable labels for Archscry-to-Maze path types. |
+| 24 | `FACTION_PRESENTATION` | Export | Shared presentation copy used by UI and non-UI snapshots. |
+| 292 | `presentationForFaction(factionOrKey)` | Export | Resolves a faction's presentation voice and fallback guidance. |
+| 323 | `matchForFaction(result, factionKey)` | Export | Finds a top or adjacent match in a placement result. |
+| 332 | `adjacentMatchForSummary(result, activeKey)` | Export | Selects the nearby match used by result summaries. |
+| 344 | `buildContrastCopy(primaryFaction, adjacentFaction)` | Export | Builds faction fork / adjacent contrast copy. |
+| 356 | `buildHeroNarrative(options)` | Export | Builds the top dossier thesis text. |
+| 376 | `technicalSignalCopy(result, activeKey)` | Export | Formats displayed signal strength. |
+| 381 | `buildReadingSignalCopy(options)` | Export | Builds the "Why X Rose First" or adjacent-fit explanation copy. |
+| 401 | `selectReadingTagRefs(options)` | Export | Selects deterministic taxonomy tags from dossier and evidence text. |
+| 433 | `buildTagExplanationSummaries(options)` | Export | Builds non-HTML tag reasoning summaries. |
+| 482 | `buildArchscryMazeContext(options)` | Export | Builds Archscry return context for Maze paths. |
+| 499 | `withArchscryMazeContext(links, context, origin)` | Export | Adds plain/operator query and return metadata to Maze links. |
+| 530 | `buildPersonalizedMazePaths(options)` | Export | Builds deterministic dossier-facing Maze discovery path payloads. |
+
 ### `assets/js/index.js`
 
 | Line | Symbol | Scope | Purpose |
@@ -171,6 +190,19 @@ Window handlers exposed by `Object.assign(window, ...)`: `answerQuickQuestion`, 
 | 160 | `runSeededPlacements(options)` | CLI | Runs random adaptive placements. |
 | 196 | `buildOutput(placements, factions, options, mode)` | CLI | Serializes report payload. |
 | 234 | `printSummary(output)` | CLI | Writes human-readable report summary. |
+
+### `research/presentation-snapshot-runner.mjs`
+
+| Line | Symbol | Scope | Purpose |
+|---:|---|---|---|
+| 30 | `SNAPSHOT_SCHEMA_VERSION` | Export | Structured JSON snapshot schema id. |
+| 65 | `loadPresentationSnapshotInputs()` | Export | Loads faction, model, deck tag, taxonomy, and fixture data. |
+| 99 | `replayFixedAnswers(options)` | Export | Replays a named fixed answer set through the adaptive flow. |
+| 264 | `buildPresentationSnapshotPayload(inputs)` | Export | Builds the full deterministic JSON snapshot payload. |
+| 285 | `flattenSnapshotCase(entry)` | Export | Flattens one JSON case to the CSV row contract. |
+| 326 | `renderPresentationSnapshotCsv(payload)` | Export | Renders flat CSV output. |
+| 378 | `renderPresentationSnapshotMarkdown(payload)` | Export | Renders human-readable Markdown output. |
+| 391 | `writePresentationSnapshotFiles(payload)` | Export | Writes JSON, CSV, and Markdown files under `artifacts/presentation-snapshots/`. |
 
 ### `assets/js/quick-reading-tests.js`
 

@@ -1,0 +1,158 @@
+{
+  "schema_version": "vox-mana-translation-layer-v1",
+  "faction": "House Dimir",
+  "purpose": "Map gameplay/card signals into Dimir-flavored Vox Mana interaction functions.",
+  "functions": {
+    "Detain": {
+      "definition": "Silence, freeze, remove, displace, assassinate, or otherwise make a target temporarily or permanently unable to participate on open terms.",
+      "inputs": [
+        "target",
+        "method",
+        "visibility",
+        "duration",
+        "cover_story"
+      ],
+      "outputs": [
+        "status:silenced_or_removed",
+        "agency_delta:-",
+        "visibility_delta:-",
+        "flavor:disappearance"
+      ],
+      "best_for": [
+        "assassination",
+        "exile",
+        "bounce-discard",
+        "tap/freeze",
+        "removal",
+        "unblockable hit counters",
+        "cipher restraint"
+      ],
+      "dimir_read": "The target is not publicly judged; it is quietly made absent, locked, compromised, or forgotten."
+    },
+    "Override": {
+      "definition": "Rewrite the opponent plan before or during execution through counterspells, discard, theft, copying, name exile, or identity replacement.",
+      "inputs": [
+        "action",
+        "known_information",
+        "replacement_identity",
+        "extraction_method"
+      ],
+      "outputs": [
+        "status:rewritten",
+        "plan_delta:-",
+        "information_delta:+",
+        "flavor:counterintelligence"
+      ],
+      "best_for": [
+        "counterspell",
+        "discard",
+        "name/exile",
+        "copy",
+        "theft",
+        "library denial",
+        "transmute precision"
+      ],
+      "dimir_read": "The action fails because its premise was stolen, rewritten, counterfeited, or erased before it became public."
+    },
+    "ConstraintField": {
+      "definition": "Create a surveillance, coercion, evasion, or hidden-route environment where opponents have fewer safe choices and agents have cleaner access.",
+      "inputs": [
+        "field",
+        "watched_zones",
+        "entry_route",
+        "coercive_pressure"
+      ],
+      "outputs": [
+        "status:compromised",
+        "safe_routes_delta:-",
+        "agent_access_delta:+",
+        "flavor:surveillance_net"
+      ],
+      "best_for": [
+        "surveil setup",
+        "unblockable routing",
+        "ransom/control",
+        "topdeck manipulation",
+        "hexproof/deathtouch blockers",
+        "defensive walls"
+      ],
+      "dimir_read": "Dimir does not need to stop every option; it makes every option observable, exploitable, or unsafe."
+    },
+    "AccretionEngine": {
+      "definition": "Compound advantage from surveil, mill, draw/discard, graveyard setup, stolen cards, encoded repeats, and covert infrastructure.",
+      "inputs": [
+        "secret_source",
+        "repeat_trigger",
+        "graveyard_or_exile_feed",
+        "payoff"
+      ],
+      "outputs": [
+        "status:leveraged",
+        "information_delta:+",
+        "resource_delta:+",
+        "threat_delta:+",
+        "flavor:secrets_become_power"
+      ],
+      "best_for": [
+        "surveil engines",
+        "mill payoffs",
+        "cipher repeats",
+        "draw/discard engines",
+        "graveyard recursion",
+        "stolen card access",
+        "mana rocks"
+      ],
+      "dimir_read": "Every observed secret becomes a stored asset; enough assets become inevitability."
+    }
+  },
+  "signal_router": {
+    "Detain": [
+      "assassin",
+      "silence",
+      "exile",
+      "bounce",
+      "tap",
+      "freeze",
+      "destroy",
+      "kill",
+      "ransom",
+      "hit counter",
+      "voidwalk"
+    ],
+    "Override": [
+      "counter",
+      "discard",
+      "steal",
+      "copy",
+      "name",
+      "exile from library",
+      "transmute",
+      "doppelganger",
+      "unmoored",
+      "sabotage"
+    ],
+    "ConstraintField": [
+      "surveillance",
+      "unblockable",
+      "hexproof",
+      "deathtouch",
+      "defender",
+      "top card",
+      "control",
+      "coerce",
+      "route"
+    ],
+    "AccretionEngine": [
+      "surveil",
+      "mill",
+      "draw",
+      "cipher",
+      "graveyard",
+      "reanimate",
+      "cast from exile",
+      "pay life",
+      "engine",
+      "guild artifact"
+    ]
+  }
+}

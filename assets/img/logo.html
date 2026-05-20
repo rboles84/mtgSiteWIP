@@ -1,0 +1,2171 @@
+<!--
+  File: placement-dossier-example.html
+  Vox Mana only) for Vox Mana." />  Vox Mana — Placement Dossier / Result Page (DEMO SKELETON)
+
+  <style>
+    /* =========================
+      0) DESIGN TOKENS (CSS VARS)
+    ========================== */
+    :root{
+      --bg0:#05060a;
+      --bg1:#0a0d14;
+      --panel: rgba(10,13,20,.72);
+      --panel2: rgba(10,13,20,.88);
+      --ink:#f3e8cf;
+      --muted:#cdbf9d;
+      --muted2:#a89872;
+      --line: rgba(219, 177, 86, .26);
+      --line2: rgba(219, 177, 86, .14);
+      --gold:#dbb156;
+      --gold2:#f2d188;
+      --teal:#35e0d6;
+      --focus:#7dd3fc;
+
+      /* Mana palette (placeholder) */
+      --W:#f0e6d2;
+      --U:#58b6ff;
+      --B:#a77bff;
+      --R:#ff6b5c;
+      --G:#45e07a;
+
+      --shadow: 0 24px 70px rgba(0,0,0,.55);
+      --shadow2: 0 10px 28px rgba(0,0,0,.45);
+      --radius: 18px;
+
+      --easing: cubic-bezier(.2,.8,.2,1);
+      --dur: 700ms;
+
+      --max: 1200px;
+      --pad: clamp(16px, 4vw, 32px);
+      --gap: clamp(14px, 2.4vw, 22px);
+
+      --u-1: 4px;  --u-2: 8px;  --u-3: 12px; --u-4: 16px; --u-5: 20px; --u-6: 24px; --u-8: 32px; --u-10: 40px;
+
+      /* Watermark strength (soft by default) */
+      --wm-op: .085;
+      --wm-blur: .2px;
+    }
+
+    html[data-vm-theme="parchment"]{
+      --bg0:#0b0a07;
+      --bg1:#13110c;
+      --panel: rgba(18,16,10,.74);
+      --panel2: rgba(18,16,10,.88);
+      --ink:#f7efd9;
+      --muted:#d5c6a0;
+      --muted2:#aa986e;
+      --line: rgba(242, 209, 136, .22);
+      --line2: rgba(242, 209, 136, .12);
+      --gold:#f2d188;
+      --gold2:#ffe5b3;
+    }
+
+    html[data-vm-watermark="off"]{ --wm-op: 0; }
+    html[data-vm-watermark="soft"]{ --wm-op: .085; }
+    html[data-vm-watermark="strong"]{ --wm-op: .15; --wm-blur: .0px; }
+
+    /* =========================
+      1) BASE / RESET
+    ========================== */
+    *{ box-sizing:border-box; }
+    html{ scroll-behavior:smooth; }
+    body{
+      margin:0;
+      min-height:100svh;
+      color: var(--ink);
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial, sans-serif;
+      background:
+        radial-gradient(80rem 40rem at 20% 10%, rgba(88,182,255,.10), transparent 60%),
+        radial-gradient(70rem 40rem at 80% 20%, rgba(167,123,255,.10), transparent 60%),
+        radial-gradient(60rem 35rem at 50% 95%, rgba(219,177,86,.12), transparent 60%),
+        linear-gradient(180deg, var(--bg0), var(--bg1));
+      overflow-x:hidden;
+    }
+
+    /* Subtle archive grid overlay (blend + mask) */
+    body::before{
+      content:"";
+      position:fixed;
+      inset:0;
+      pointer-events:none;
+      background:
+        linear-gradient(rgba(219,177,86,.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(219,177,86,.035) 1px, transparent 1px),
+        radial-gradient(circle, rgba(242,209,136,.22) 0 1px, transparent 1.5px);
+      background-size: 7rem 7rem, 7rem 7rem, 3.2rem 3.2rem;
+      mask-image: radial-gradient(circle at 50% 35%, #000 35%, transparent 78%);
+      opacity:.55;
+      mix-blend-mode: screen;
+      z-index:-3;
+    }
+
+    /* Optional debug grid overlay (toggle) */
+    html[data-vm-grid="on"] body::before{
+      opacity:.8;
+      mask-image: radial-gradient(circle at 50% 40%, #000 55%, transparent 88%);
+    }
+
+    /* Vignette */
+    body::after{
+      content:"";
+      position:fixed;
+      inset:0;
+      pointer-events:none;
+      background:
+        radial-gradient(ellipse at 50% 20%, rgba(0,0,0,.18), transparent 55%),
+        radial-gradient(ellipse at 50% 100%, rgba(0,0,0,.62), transparent 60%),
+        linear-gradient(90deg, rgba(0,0,0,.70), transparent 15%, transparent 85%, rgba(0,0,0,.70));
+      z-index:-2;
+    }
+
+    a{ color:inherit; text-decoration:none; }
+    button{ font:inherit; }
+    :focus-visible{ outline: 2px solid var(--focus); outline-offset: 3px; }
+
+    /* Optional cursor (toggle) */
+    html[data-vm-cursor="arcane"] body{ cursor: crosshair; }
+
+    /* =========================
+      2) LAYOUT PRIMITIVES
+    ========================== */
+    .wrap{ width:min(var(--max), calc(100% - 2*var(--pad))); margin:0 auto; }
+    .stack{ display:grid; gap:var(--gap); }
+
+    .grid-2{
+      display:grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap: var(--gap);
+      align-items:start;
+    }
+    .grid-3{
+      display:grid;
+      grid-template-columns: repeat(3, minmax(0,1fr));
+      gap: var(--gap);
+    }
+    @media (max-width: 980px){
+      .grid-2{ grid-template-columns: 1fr; }
+      .grid-3{ grid-template-columns: 1fr; }
+    }
+
+    /* Scroll snapping “codex pages” (toggle) */
+    html[data-vm-snap="on"] main{
+      scroll-snap-type: y proximity;
+    }
+    html[data-vm-snap="on"] main > section,
+    html[data-vm-snap="on"] main > footer{
+      scroll-snap-align: start;
+      scroll-margin-top: 90px;
+    }
+
+    /* =========================
+      3) “TAILWIND-LIKE” UTILS
+    ========================== */
+    .u-flex{ display:flex; }
+    .u-items-center{ align-items:center; }
+    .u-justify-between{ justify-content:space-between; }
+    .u-gap-2{ gap: var(--u-2); }
+    .u-gap-3{ gap: var(--u-3); }
+    .u-gap-4{ gap: var(--u-4); }
+    .u-wrap{ flex-wrap:wrap; }
+    .u-mono{ font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Fira Code", monospace; }
+    .u-upper{ text-transform:uppercase; letter-spacing:.16rem; }
+    .u-small{ font-size:.86rem; }
+    .u-tiny{ font-size:.74rem; }
+    .u-muted{ color: var(--muted); }
+    .u-muted2{ color: var(--muted2); }
+    .u-pill{
+      display:inline-flex; align-items:center; gap:.45rem;
+      padding:.35rem .6rem;
+      border: 1px solid var(--line2);
+      background: rgba(0,0,0,.22);
+      border-radius: 999px;
+    }
+
+    /* =========================
+      4) PANELS / CARDS
+    ========================== */
+    .panel{
+      border: 1px solid var(--line);
+      background: linear-gradient(180deg, rgba(255,255,255,.03), rgba(0,0,0,.18)), var(--panel);
+      box-shadow: var(--shadow2);
+      border-radius: var(--radius);
+      position:relative;
+      overflow:hidden;
+    }
+    .panel.torn{
+      clip-path: polygon(
+        0% 1.5%, 6% 0%, 16% 1%, 26% 0%, 36% 1.3%, 50% 0%, 64% 1.5%, 74% 0%, 86% 1%, 94% 0%, 100% 1.8%,
+        100% 98.2%, 94% 100%, 86% 98.9%, 74% 100%, 64% 98.6%, 50% 100%, 36% 98.7%, 26% 100%, 16% 98.9%, 6% 100%, 0% 98.5%
+      );
+    }
+    .panel::before{
+      content:"";
+      position:absolute;
+      inset:-1px;
+      background:
+        radial-gradient(40rem 20rem at 10% 0%, rgba(219,177,86,.10), transparent 50%),
+        radial-gradient(30rem 18rem at 90% 10%, rgba(53,224,214,.08), transparent 55%),
+        linear-gradient(90deg, rgba(219,177,86,.10), transparent 25%, transparent 75%, rgba(219,177,86,.08));
+      opacity:.55;
+      pointer-events:none;
+      filter: blur(8px) brightness(1.05);
+      mix-blend-mode: screen;
+    }
+    .panel > .inner{ position:relative; padding: clamp(14px, 2.4vw, 20px); }
+    .panel h2, .panel h3{
+      font-family: ui-serif, Georgia, "Times New Roman", serif;
+      font-weight: 600;
+      margin:0;
+      color: var(--gold2);
+      letter-spacing:.04rem;
+    }
+
+    .kicker{
+      display:inline-flex; align-items:center; gap:.6rem;
+      color: var(--gold2);
+      font-weight: 900;
+      letter-spacing:.22rem;
+      text-transform:uppercase;
+      font-size:.72rem;
+      opacity:.92;
+    }
+    .kicker::before{
+      content:"";
+      width: 34px; height:1px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+      opacity:.9;
+    }
+
+    /* =========================
+      5) TOPBAR
+    ========================== */
+    .topbar{
+      position:sticky;
+      top:0;
+      z-index:60;
+      backdrop-filter: blur(14px);
+      background: rgba(5,6,10,.72);
+      border-bottom: 1px solid var(--line);
+    }
+    .topbar .row{
+      padding: 12px var(--pad);
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 14px;
+    }
+    .brand{
+      display:flex; align-items:center; gap:12px;
+      letter-spacing:.36rem; text-transform:uppercase;
+      color: var(--gold2);
+      white-space:nowrap;
+    }
+    .brand-mark{
+      width: 38px; height:38px;
+      border: 1px solid rgba(242,209,136,.55);
+      background:
+        radial-gradient(circle at 30% 30%, rgba(255,255,255,.16), transparent 55%),
+        radial-gradient(circle at 60% 60%, rgba(219,177,86,.18), transparent 60%),
+        rgba(0,0,0,.25);
+      clip-path: polygon(50% 0, 100% 30%, 82% 100%, 18% 100%, 0 30%);
+      display:grid; place-items:center;
+      box-shadow: 0 0 26px rgba(219,177,86,.20);
+    }
+    .brand-mark span{
+      font-family: ui-serif, Georgia, serif;
+      font-weight: 900;
+      color: var(--gold2);
+      text-shadow: 0 0 16px rgba(242,209,136,.45);
+    }
+
+    .nav{
+      display:flex; gap: 18px; align-items:center;
+      color: var(--muted);
+      font-size:.82rem;
+      letter-spacing:.14rem;
+      text-transform:uppercase;
+    }
+    .nav a{ padding:8px 10px; border-radius: 999px; border: 1px solid transparent; }
+    .nav a:hover{ color: var(--gold2); border-color: var(--line2); background: rgba(0,0,0,.18); }
+
+    .actions{
+      display:flex; align-items:center; gap:10px; flex-wrap:wrap;
+    }
+
+    /* Logo in upper-right: transparent mark (no black box) */
+    .topbarLogo{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      padding-right: 2px;
+    }
+    .topbarLogo .logoMark{
+      width: 44px;
+      height: 44px;
+      display:block;
+      opacity:.92;
+      filter: drop-shadow(0 0 18px rgba(219,177,86,.18));
+    }
+    .topbarLogo .logoMark svg{
+      width:100%; height:100%;
+      display:block;
+    }
+    @media (max-width: 520px){
+      .topbarLogo .logoMark{ width: 38px; height: 38px; }
+      .nav{ display:none; }
+    }
+
+    /* =========================
+      6) BUTTONS
+    ========================== */
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center; gap:.6rem;
+      padding: .78rem 1.05rem;
+      border-radius: 12px;
+      border: 1px solid var(--line);
+      background: rgba(0,0,0,.22);
+      color: var(--gold2);
+      cursor:pointer;
+      transition: transform 160ms var(--easing), box-shadow 160ms var(--easing), background 160ms var(--easing);
+      min-height: 44px;
+      box-shadow: inset 0 0 22px rgba(219,177,86,.06);
+    }
+    .btn:hover{
+      transform: translateY(-1px);
+      background: rgba(0,0,0,.28);
+      box-shadow: 0 0 24px rgba(219,177,86,.14), inset 0 0 26px rgba(219,177,86,.08);
+    }
+    .btn.primary{
+      color:#140f07;
+      background: linear-gradient(180deg, rgba(242,209,136,.96), rgba(219,177,86,.86));
+      border-color: rgba(255,235,184,.85);
+      box-shadow: 0 0 28px rgba(219,177,86,.22), inset 0 0 16px rgba(255,255,255,.12);
+    }
+    .btn.primary:hover{ box-shadow: 0 0 38px rgba(219,177,86,.32), inset 0 0 18px rgba(255,255,255,.14); }
+    .btn.ghost{ color: var(--muted); border-color: var(--line2); }
+    .btn.ghost:hover{ color: var(--gold2); }
+
+    /* =========================
+      7) HERO
+    ========================== */
+    .hero{
+      position:relative;
+      padding: clamp(22px, 5vw, 46px) 0 0;
+    }
+    .heroGrid{
+      display:grid;
+      grid-template-columns: 1.25fr .75fr;
+      gap: var(--gap);
+      align-items:start;
+    }
+    @media (max-width: 980px){ .heroGrid{ grid-template-columns: 1fr; } }
+
+    .heroTitle{
+      margin:.8rem 0 .6rem;
+      font-family: ui-serif, Georgia, serif;
+      font-weight: 700;
+      letter-spacing:.03rem;
+      line-height:.95;
+      font-size: clamp(2.2rem, 5vw, 4rem);
+      color: var(--gold2);
+      text-shadow: 0 0 22px rgba(219,177,86,.20);
+    }
+    .heroSub{
+      margin:0;
+      max-width: 62ch;
+      color: var(--muted);
+      line-height:1.7;
+      font-size: 1.02rem;
+    }
+
+    .metaGrid{
+      margin-top: 14px;
+      display:grid;
+      grid-template-columns: repeat(2, minmax(0,1fr));
+      gap: 10px;
+    }
+    @media (max-width: 560px){ .metaGrid{ grid-template-columns: 1fr; } }
+
+    .metaItem{
+      border: 1px solid var(--line2);
+      background: rgba(0,0,0,.18);
+      border-radius: 14px;
+      padding: 10px 12px;
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap: 10px;
+    }
+    .metaItem .label{
+      color: var(--muted2);
+      font-size:.72rem;
+      text-transform:uppercase;
+      letter-spacing:.14rem;
+      margin:0 0 6px;
+    }
+    .metaItem .value{
+      margin:0;
+      color: var(--ink);
+      font-weight:700;
+      letter-spacing:.02rem;
+    }
+    .metaItem .mono{
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size:.86rem;
+      color: var(--gold2);
+    }
+
+    .meter{
+      margin-top: 10px;
+      height: 12px;
+      border: 1px solid var(--line2);
+      border-radius: 999px;
+      background: rgba(0,0,0,.28);
+      overflow:hidden;
+    }
+    .meter > span{
+      display:block;
+      height:100%;
+      width: 78%;
+      background: linear-gradient(90deg, rgba(53,224,214,.85), rgba(242,209,136,.95));
+      box-shadow: 0 0 18px rgba(242,209,136,.25);
+      transform-origin: left center;
+    }
+
+    /* Scroll-linked mana thread */
+    .manaThread{
+      margin-top: 14px;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, rgba(242,209,136,.25), transparent);
+      position:relative;
+      overflow:hidden;
+      border-radius: 999px;
+    }
+    .manaThread::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background: linear-gradient(90deg, rgba(88,182,255,.0), rgba(88,182,255,.45), rgba(167,123,255,.45), rgba(255,107,92,.45), rgba(69,224,122,.45));
+      opacity:.75;
+      transform: translateX(-70%);
+      filter: blur(.2px);
+    }
+    @supports (animation-timeline: scroll()){
+      .manaThread::after{
+        animation: threadSlide 1s linear both;
+        animation-timeline: scroll(root);
+        animation-range: 0% 35%;
+      }
+      @keyframes threadSlide{ from{ transform: translateX(-75%);} to{ transform: translateX(0%);} }
+    }
+
+    /* =========================
+      8) REVEAL ANIMATIONS (IntersectionObserver)
+    ========================== */
+    [data-reveal]{
+      opacity: 0;
+      transform: translateY(14px);
+      filter: blur(4px) brightness(.98);
+      transition: opacity var(--dur) var(--easing), transform var(--dur) var(--easing), filter var(--dur) var(--easing);
+      will-change: opacity, transform, filter;
+    }
+    .is-visible{
+      opacity: 1;
+      transform: translateY(0);
+      filter: blur(0) brightness(1);
+    }
+
+    @media (prefers-reduced-motion: reduce){
+      html{ scroll-behavior:auto; }
+      [data-reveal]{ opacity:1; transform:none; filter:none; transition:none; }
+      .manaThread::after{ animation:none !important; }
+    }
+
+    /* =========================
+      9) LISTS / CHIPS
+    ========================== */
+    ul{ margin: 10px 0 0; padding-left: 18px; }
+    li{ margin: 6px 0; color: var(--muted); line-height:1.55; }
+    .chipRow{ display:flex; flex-wrap:wrap; gap: 8px; margin-top: 10px; }
+    .chip{
+      display:inline-flex; align-items:center; gap: 8px;
+      padding: 8px 10px;
+      border: 1px solid var(--line2);
+      background: rgba(0,0,0,.20);
+      border-radius: 999px;
+      font-size:.86rem;
+      color: var(--muted);
+    }
+    .dot{ width:10px; height:10px; border-radius:999px; background: var(--gold); box-shadow: 0 0 14px rgba(219,177,86,.20); }
+
+    /* =========================
+      10) TABLES
+    ========================== */
+    table{
+      width:100%;
+      border-collapse: collapse;
+      font-size:.92rem;
+      color: var(--muted);
+    }
+    th, td{
+      padding: 10px 10px;
+      border-bottom: 1px solid rgba(242,209,136,.10);
+      vertical-align: top;
+    }
+    th{
+      text-transform:uppercase;
+      letter-spacing:.12rem;
+      font-size:.74rem;
+      color: var(--muted2);
+    }
+    .tableWrap{
+      overflow:auto;
+      border: 1px solid var(--line2);
+      border-radius: 14px;
+      background: rgba(0,0,0,.16);
+    }
+
+    /* =========================
+      11) PLACEHOLDER CARD ART BOXES
+    ========================== */
+    .cardArt{
+      aspect-ratio: 5 / 7;
+      border-radius: 14px;
+      border: 1px solid rgba(242,209,136,.22);
+      background:
+        linear-gradient(140deg, rgba(242,209,136,.08), transparent 45%),
+        radial-gradient(circle at 30% 20%, rgba(88,182,255,.10), transparent 50%),
+        radial-gradient(circle at 70% 80%, rgba(255,107,92,.08), transparent 55%),
+        rgba(0,0,0,.28);
+      box-shadow: inset 0 0 40px rgba(0,0,0,.40);
+      position:relative;
+      overflow:hidden;
+    }
+    .cardArt::after{
+      content:"Placeholder Card Art";
+      position:absolute;
+      inset:auto 12px 12px 12px;
+      font-size:.74rem;
+      color: rgba(205,191,157,.82);
+      letter-spacing:.12rem;
+      text-transform:uppercase;
+    }
+
+    /* =========================
+      12) CANVAS BACKDROP
+    ========================== */
+    .bgCanvas{
+      position:fixed;
+      inset:0;
+      z-index:-5;
+      pointer-events:none;
+      opacity:.55;
+      filter: blur(.2px) saturate(1.05);
+    }
+
+    /* =========================
+      13) WATERMARK (transparent mark, no black box)
+    ========================== */
+    .vmLogoWatermark{
+      position: fixed;
+      inset: auto -14vmax -18vmax auto;
+      width: min(62vmax, 760px);
+      height: auto;
+      z-index: -4;
+      opacity: var(--wm-op);
+      pointer-events: none;
+      filter: blur(var(--wm-blur)) saturate(1.05);
+      mix-blend-mode: screen;
+    }
+
+    /* =========================
+      14) DETAILS/SUMMARY
+    ========================== */
+    details{
+      border: 1px solid var(--line2);
+      border-radius: var(--radius);
+      background: rgba(0,0,0,.16);
+      overflow:hidden;
+    }
+    details > summary{
+      list-style:none;
+      cursor:pointer;
+      padding: 14px 16px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 12px;
+      user-select:none;
+    }
+    details > summary::-webkit-details-marker{ display:none; }
+    .summaryTitle{
+      display:flex;
+      align-items:center;
+      gap: 10px;
+      color: var(--gold2);
+      font-family: ui-serif, Georgia, serif;
+      font-weight: 650;
+      letter-spacing:.02rem;
+    }
+    .chev{
+      width: 10px; height: 10px;
+      border-right: 2px solid rgba(242,209,136,.65);
+      border-bottom: 2px solid rgba(242,209,136,.65);
+      transform: rotate(45deg);
+      transition: transform 200ms var(--easing);
+      opacity:.85;
+    }
+    details[open] .chev{ transform: rotate(225deg); }
+    details .body{ padding: 0 16px 16px; }
+
+    /* =========================
+      15) SIGIL (demo)
+    ========================== */
+    .sigilWrap{
+      display:grid;
+      place-items:center;
+      padding: 14px;
+      border: 1px solid var(--line2);
+      border-radius: 16px;
+      background: rgba(0,0,0,.18);
+      position:relative;
+      overflow:hidden;
+    }
+    .sigilWrap::before{
+      content:"";
+      position:absolute;
+      inset:-40px;
+      background: radial-gradient(circle at 50% 50%, rgba(242,209,136,.16), transparent 60%);
+      opacity:.7;
+      filter: blur(10px);
+      mix-blend-mode: screen;
+      pointer-events:none;
+    }
+    svg.sigil{
+      width: 140px;
+      height: 140px;
+      color: rgba(242,209,136,.92);
+      filter: drop-shadow(0 0 16px rgba(219,177,86,.25));
+    }
+    .sigil path{
+      stroke-dasharray: 520;
+      stroke-dashoffset: 520;
+      animation: draw 1300ms var(--easing) both;
+    }
+    .sigil circle{
+      opacity:.6;
+      animation: pulse 2400ms var(--easing) infinite;
+    }
+    @keyframes draw{ to{ stroke-dashoffset: 0; } }
+    @keyframes pulse{ 0%,100%{ transform: scale(.98); opacity:.55; } 50%{ transform: scale(1.03); opacity:.9; } }
+
+    /* =========================
+      16) SIDE DOCK + SLIDE PANEL (“Codex Bars”)
+    ========================== */
+    .sideDock{
+      position: fixed;
+      right: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 70;
+      display:flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .dockBtn{
+      width: 44px; height: 44px;
+      border-radius: 14px;
+      border: 1px solid var(--line2);
+      background: rgba(0,0,0,.26);
+      color: var(--gold2);
+      display:grid;
+      place-items:center;
+      cursor:pointer;
+      box-shadow: 0 10px 24px rgba(0,0,0,.35), inset 0 0 22px rgba(219,177,86,.06);
+      transition: transform 160ms var(--easing), background 160ms var(--easing), border-color 160ms var(--easing);
+    }
+    .dockBtn:hover{ transform: translateY(-1px); background: rgba(0,0,0,.32); border-color: rgba(242,209,136,.22); }
+    .dockBtn[aria-pressed="true"]{ border-color: rgba(242,209,136,.42); box-shadow: 0 0 26px rgba(242,209,136,.14), inset 0 0 22px rgba(219,177,86,.10); }
+    .dockIcon{ width: 18px; height: 18px; opacity:.9; }
+
+    .sidePanel{
+      position: fixed;
+      right: 0;
+      top: 0;
+      height: 100svh;
+      width: min(360px, 92vw);
+      z-index: 80;
+      background: rgba(5,6,10,.78);
+      backdrop-filter: blur(16px);
+      border-left: 1px solid var(--line);
+      transform: translateX(110%);
+      transition: transform 260ms var(--easing);
+      box-shadow: -30px 0 80px rgba(0,0,0,.55);
+      display:flex;
+      flex-direction: column;
+    }
+    .sidePanel[data-open="true"]{ transform: translateX(0); }
+    .sidePanelHeader{
+      padding: 14px 14px;
+      border-bottom: 1px solid rgba(242,209,136,.12);
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 10px;
+    }
+    .sidePanelTitle{
+      color: var(--gold2);
+      font-family: ui-serif, Georgia, serif;
+      font-weight: 750;
+      letter-spacing:.02rem;
+    }
+    .sidePanelBody{
+      padding: 14px;
+      overflow:auto;
+    }
+    .sidePanelGroup{
+      border: 1px solid rgba(242,209,136,.12);
+      border-radius: 16px;
+      background: rgba(0,0,0,.18);
+      padding: 12px;
+      margin-bottom: 12px;
+    }
+    .sidePanelGroup .label{
+      color: var(--muted2);
+      font: 800 10px ui-monospace, Menlo, Consolas, monospace;
+      letter-spacing:.12rem;
+      text-transform:uppercase;
+      margin-bottom: 10px;
+    }
+    .toggleRow{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 12px;
+      padding: 10px 10px;
+      border: 1px solid rgba(242,209,136,.10);
+      background: rgba(0,0,0,.18);
+      border-radius: 14px;
+      margin: 8px 0;
+    }
+    .toggleRow .name{
+      color: var(--muted);
+      font-size:.92rem;
+      line-height:1.35;
+    }
+    .toggleRow .hint{
+      color: var(--muted2);
+      font-size:.74rem;
+      letter-spacing:.08rem;
+      text-transform:uppercase;
+      margin-top: 4px;
+    }
+    .mini{
+      display:flex;
+      align-items:center;
+      gap: 8px;
+    }
+    .switch{
+      width: 46px;
+      height: 26px;
+      border-radius: 999px;
+      border: 1px solid rgba(242,209,136,.18);
+      background: rgba(0,0,0,.26);
+      position: relative;
+      cursor:pointer;
+      flex: 0 0 auto;
+    }
+    .switch::after{
+      content:"";
+      position:absolute;
+      top: 50%;
+      left: 3px;
+      width: 20px;
+      height: 20px;
+      border-radius: 999px;
+      background: linear-gradient(180deg, rgba(242,209,136,.92), rgba(219,177,86,.82));
+      transform: translateY(-50%);
+      transition: left 200ms var(--easing);
+      box-shadow: 0 0 16px rgba(219,177,86,.18);
+    }
+    .switch[data-on="true"]::after{ left: 23px; }
+    .select{
+      width: 100%;
+      border-radius: 12px;
+      border: 1px solid rgba(242,209,136,.14);
+      background: rgba(0,0,0,.22);
+      color: var(--muted);
+      padding: 10px 10px;
+      outline:none;
+    }
+
+    .scrollSpy{
+      display:flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .spyLink{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 10px;
+      padding: 10px 10px;
+      border-radius: 14px;
+      border: 1px solid rgba(242,209,136,.10);
+      background: rgba(0,0,0,.16);
+      color: var(--muted);
+      font-size:.92rem;
+      transition: background 160ms var(--easing), border-color 160ms var(--easing);
+    }
+    .spyLink:hover{ background: rgba(0,0,0,.22); border-color: rgba(242,209,136,.18); }
+    .spyLink[data-active="true"]{
+      background: rgba(242,209,136,.08);
+      border-color: rgba(242,209,136,.28);
+      color: var(--gold2);
+    }
+    .spyDot{
+      width: 8px; height: 8px; border-radius: 999px;
+      background: rgba(242,209,136,.30);
+      box-shadow: 0 0 14px rgba(242,209,136,.12);
+      flex:0 0 auto;
+    }
+    .spyLink[data-active="true"] .spyDot{ background: rgba(53,224,214,.65); box-shadow: 0 0 16px rgba(53,224,214,.18); }
+
+    @media (max-width: 520px){
+      .sideDock{ right: 8px; gap: 8px; }
+      .dockBtn{ width: 42px; height: 42px; border-radius: 14px; }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Ambient canvas backdrop -->
+  <canvas class="bgCanvas" id="vmBgCanvas" aria-hidden="true"></canvas>
+
+  <!-- =========================================================
+    Embedded Flame-Orb Logo MARK (transparent background)
+    - Derived from [vox-mana-logo-flame-orb-final.html](https://onedrive.live.com?cid=7E854616D9872705&id=7E854616D9872705!s6f7cbfa855c6473a83864b0b57121935&EntityRepresentationId=724d7715-d1a4-4f89-b5fe-18d15e224e28)
+    - Background rects removed to avoid black-box rendering. [1](https://onedrive.live.com/?id=6f7cbfa8-55c6-473a-8386-4b0b57121935&cid=7e854616d9872705&web=1)[2](https://onedrive.live.com?cid=7E854616D9872705&id=7E854616D9872705!s2708969a0df145f7b6f56a8fe89521b6)
+  ========================================================== -->
+  <svg width="0" height="0" style="position:absolute; left:-9999px; top:-9999px;" aria-hidden="true" focusable="false">
+    <defs>
+      <linearGradient id="vm_goldStroke" x1="280" y1="180" x2="920" y2="1080" gradientUnits="userSpaceOnUse">
+        <stop offset="0" stop-color="#f2d994"/>
+        <stop offset=".34" stop-color="#b87a24"/>
+        <stop offset=".68" stop-color="#f0d38a"/>
+        <stop offset="1" stop-color="#7a501a"/>
+      </linearGradient>
+      <linearGradient id="vm_vFill" x1="300" y1="240" x2="900" y2="1080" gradientUnits="userSpaceOnUse">
+        <stop offset="0" stop-color="#071010"/>
+        <stop offset=".48" stop-color="#0a322f"/>
+        <stop offset="1" stop-color="#020303"/>
+      </linearGradient>
+
+      <filter id="vm_softVGlow" x="-50%" y="-50%" width="200%" height="200%">
+        <feGaussianBlur stdDeviation="8" result="blur"/>
+        <feColorMatrix in="blur" type="matrix"
+          values="0 0 0 0 0.82  0 0 0 0 0.55  0 0 0 0 0.18  0 0 0 .55 0" result="goldBlur"/>
+        <feMerge><feMergeNode in="goldBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
+      </filter>
+
+      <filter id="vm_deepShadow" x="-60%" y="-60%" width="220%" height="220%">
+        <feDropShadow dx="0" dy="18" stdDeviation="18" flood-color="#000" flood-opacity=".70"/>
+      </filter>
+
+      <filter id="vm_plasmaCoreGlow" x="-100%" y="-100%" width="300%" height="300%" color-interpolation-filters="sRGB">
+        <feGaussianBlur stdDeviation="3" result="b1"/>
+        <feGaussianBlur stdDeviation="9" result="b2"/>
+        <feMerge><feMergeNode in="b2"/><feMergeNode in="b1"/><feMergeNode in="SourceGraphic"/></feMerge>
+      </filter>
+
+      <filter id="vm_elementalFireFilter" x="-150%" y="-150%" width="400%" height="400%" color-interpolation-filters="sRGB">
+        <feTurbulence type="fractalNoise" baseFrequency="0.045" numOctaves="4" result="flameNoise" />
+        <feDisplacementMap in="SourceGraphic" in2="flameNoise" scale="24" xChannelSelector="R" yChannelSelector="G" result="blazingOutlines" />
+        <feGaussianBlur in="blazingOutlines" stdDeviation="6" result="coreHeatGlow"/>
+        <feGaussianBlur in="blazingOutlines" stdDeviation="16" result="ambientThermalBleed"/>
+        <feMerge><feMergeNode in="ambientThermalBleed"/><feMergeNode in="coreHeatGlow"/><feMergeNode in="blazingOutlines"/></feMerge>
+      </filter>
+
+      <linearGradient id="vm_whiteStroke" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#fff8d8"/>
+        <stop offset=".55" stop-color="#f5e8b4"/>
+        <stop offset="1" stop-color="#b98e3e"/>
+      </linearGradient>
+      <linearGradient id="vm_blueStroke" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#98ebff"/>
+        <stop offset=".5" stop-color="#1687d9"/>
+        <stop offset="1" stop-color="#06284c"/>
+      </linearGradient>
+      <linearGradient id="vm_blackStroke" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#8f86a8"/>
+        <stop offset=".22" stop-color="#2a2636"/>
+        <stop offset=".58" stop-color="#08080d"/>
+        <stop offset="1" stop-color="#000000"/>
+      </linearGradient>
+      <linearGradient id="vm_redStroke" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#ffc07f"/>
+        <stop offset=".48" stop-color="#d13224"/>
+        <stop offset="1" stop-color="#4b0907"/>
+      </linearGradient>
+      <linearGradient id="vm_greenStroke" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#cbff9d"/>
+        <stop offset=".48" stop-color="#42b85a"/>
+        <stop offset="1" stop-color="#082914"/>
+      </linearGradient>
+
+      <radialGradient id="vm_whiteOrb" cx="50%" cy="45%" r="62%">
+        <stop offset="0" stop-color="#fff8d8" stop-opacity=".42"/>
+        <stop offset=".48" stop-color="#f0d38a" stop-opacity=".18"/>
+        <stop offset="1" stop-color="#f0d38a" stop-opacity="0"/>
+      </radialGradient>
+      <radialGradient id="vm_blueOrb" cx="50%" cy="45%" r="62%">
+        <stop offset="0" stop-color="#98ebff" stop-opacity=".42"/>
+        <stop offset=".48" stop-color="#1687d9" stop-opacity=".18"/>
+        <stop offset="1" stop-color="#1687d9" stop-opacity="0"/>
+      </radialGradient>
+      <radialGradient id="vm_blackOrb" cx="50%" cy="45%" r="62%">
+        <stop offset="0" stop-color="#b0a8c8" stop-opacity=".42"/>
+        <stop offset=".50" stop-color="#2a2636" stop-opacity=".24"/>
+        <stop offset="1" stop-color="#08080d" stop-opacity="0"/>
+      </radialGradient>
+      <radialGradient id="vm_redOrb" cx="50%" cy="45%" r="62%">
+        <stop offset="0" stop-color="#ffc07f" stop-opacity=".42"/>
+        <stop offset=".48" stop-color="#d13224" stop-opacity=".20"/>
+        <stop offset="1" stop-color="#d13224" stop-opacity="0"/>
+      </radialGradient>
+      <radialGradient id="vm_greenOrb" cx="50%" cy="45%" r="62%">
+        <stop offset="0" stop-color="#cbff9d" stop-opacity=".42"/>
+        <stop offset=".48" stop-color="#42b85a" stop-opacity=".19"/>
+        <stop offset="1" stop-color="#42b85a" stop-opacity="0"/>
+      </radialGradient>
+
+      <style><![CDATA[
+        .vm-gold-line{stroke:rgba(240,211,138,.12);stroke-width:1.4;fill:none;vector-effect:non-scaling-stroke;}
+        .vm-mana-orb-shell{opacity:.30;filter:url(#vm_plasmaCoreGlow);mix-blend-mode:screen;}
+        .vm-mana-orb-shell--white{fill:url(#vm_whiteOrb);}
+        .vm-mana-orb-shell--blue{fill:url(#vm_blueOrb);}
+        .vm-mana-orb-shell--black{fill:url(#vm_blackOrb);opacity:.42;}
+        .vm-mana-orb-shell--red{fill:url(#vm_redOrb);}
+        .vm-mana-orb-shell--green{fill:url(#vm_greenOrb);}
+        .vm-mana-orb-rim{fill:none;stroke:rgba(255,255,255,.18);stroke-width:1.15;filter:url(#vm_plasmaCoreGlow);opacity:.55;}
+        .vm-spiral{fill:none;stroke-width:11;stroke-linecap:round;stroke-linejoin:round;filter:url(#vm_elementalFireFilter);}
+        .vm-spiral-accent{fill:none;stroke:rgba(255,255,255,.85);stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;filter:url(#vm_plasmaCoreGlow);}
+        .vm-spiral-core{fill:#ffffff;stroke:rgba(240,211,138,.40);stroke-width:1.5;filter:url(#vm_plasmaCoreGlow);}
+        .vm-black-hot-accent{stroke:rgba(226,220,255,.90);}
+        .vm-black-core{fill:#fbf8ff;stroke:rgba(143,134,168,.62);}
+        .vm-trail{fill:none;stroke-width:5;stroke-linecap:round;stroke-dasharray:12 24;opacity:.52;}
+        .vm-white{stroke:url(#vm_whiteStroke)}
+        .vm-blue{stroke:url(#vm_blueStroke)}
+        .vm-black{stroke:url(#vm_blackStroke)}
+        .vm-red{stroke:url(#vm_redStroke)}
+        .vm-green{stroke:url(#vm_greenStroke)}
+      ]]></style>
+
+      <path id="vm_spiralS" d="M -38 -39 C -16 -56 26 -42 34 -8 C 42 26 8 54 -28 42 C -58 32 -56 -4 -28 4 C -6 10 18 4 20 -14 C 22 -35 -25 -35 -37 -40" />
+
+      <g id="vm_spiralWhite">
+        <circle class="vm-mana-orb-shell vm-mana-orb-shell--white" cx="-4" cy="2" r="34"/>
+        <circle class="vm-mana-orb-rim" cx="-4" cy="2" r="27"/>
+        <path class="vm-spiral vm-white" d="M -38 -39 C -16 -56 26 -42 34 -8 C 42 26 8 54 -28 42 C -58 32 -56 -4 -28 4 C -6 10 18 4 20 -14 C 22 -35 -25 -35 -37 -40"/>
+        <path class="vm-spiral-accent" d="M -38 -39 C -16 -56 26 -42 34 -8 C 42 26 8 54 -28 42 C -58 32 -56 -4 -28 4 C -6 10 18 4 20 -14 C 22 -35 -25 -35 -37 -40"/>
+        <circle class="vm-spiral-core" cx="-4" cy="2" r="6"/>
+      </g>
+      <g id="vm_spiralBlue">
+        <circle class="vm-mana-orb-shell vm-mana-orb-shell--blue" cx="-4" cy="2" r="34"/>
+        <circle class="vm-mana-orb-rim" cx="-4" cy="2" r="27"/>
+        <path class="vm-spiral vm-blue" d="M -38 -39 C -16 -56 26 -42 34 -8 C 42 26 8 54 -28 42 C -58 32 -56 -4 -28 4 C -6 10 18 4 20 -14 C 22 -35 -25 -35 -37 -40"/>
+        <path class="vm-spiral-accent" d="M -38 -39 C -16 -56 26 -42 34 -8 C 42 26 8 54 -28 42 C -58 32 -56 -4 -28 4 C -6 10 18 4 20 -14 C 22 -35 -25 -35 -37 -40"/>
+        <circle class="vm-spiral-core" cx="-4" cy="2" r="6"/>
+      </g>
+      <g id="vm_spiralBlack">
+        <circle class="vm-mana-orb-shell vm-mana-orb-shell--black" cx="-4" cy="2" r="36"/>
+        <circle class="vm-mana-orb-rim" cx="-4" cy="2" r="28"/>
+        <path class="vm-spiral vm-black" d="M -38 -39 C -16 -56 26 -42 34 -8 C 42 26 8 54 -28 42 C -58 32 -56 -4 -28 4 C -6 10 18 4 20 -14 C 22 -35 -25 -35 -37 -40"/>
+        <path class="vm-spiral-accent vm-black-hot-accent" d="M -38 -39 C -16 -56 26 -42 34 -8 C 42 26 8 54 -28 42 C -58 32 -56 -4 -28 4 C -6 10 18 4 20 -14 C 22 -35 -25 -35 -37 -40"/>
+        <circle class="vm-spiral-core vm-black-core" cx="-4" cy="2" r="6"/>
+      </g>
+      <g id="vm_spiralRed">
+        <circle class="vm-mana-orb-shell vm-mana-orb-shell--red" cx="-4" cy="2" r="34"/>
+        <circle class="vm-mana-orb-rim" cx="-4" cy="2" r="27"/>
+        <path class="vm-spiral vm-red" d="M -38 -39 C -16 -56 26 -42 34 -8 C 42 26 8 54 -28 42 C -58 32 -56 -4 -28 4 C -6 10 18 4 20 -14 C 22 -35 -25 -35 -37 -40"/>
+        <path class="vm-spiral-accent" d="M -38 -39 C -16 -56 26 -42 34 -8 C 42 26 8 54 -28 42 C -58 32 -56 -4 -28 4 C -6 10 18 4 20 -14 C 22 -35 -25 -35 -37 -40"/>
+        <circle class="vm-spiral-core" cx="-4" cy="2" r="6"/>
+      </g>
+      <g id="vm_spiralGreen">
+        <circle class="vm-mana-orb-shell vm-mana-orb-shell--green" cx="-4" cy="2" r="34"/>
+        <circle class="vm-mana-orb-rim" cx="-4" cy="2" r="27"/>
+        <path class="vm-spiral vm-green" d="M -38 -39 C -16 -56 26 -42 34 -8 C 42 26 8 54 -28 42 C -58 32 -56 -4 -28 4 C -6 10 18 4 20 -14 C 22 -35 -25 -35 -37 -40"/>
+        <path class="vm-spiral-accent" d="M -38 -39 C -16 -56 26 -42 34 -8 C 42 26 8 54 -28 42 C -58 32 -56 -4 -28 4 C -6 10 18 4 20 -14 C 22 -35 -25 -35 -37 -40"/>
+        <circle class="vm-spiral-core" cx="-4" cy="2" r="6"/>
+      </g>
+    </defs>
+
+    <symbol id="vm-flame-orb-mark" viewBox="0 0 1200 1200">
+      <!-- No background rects: transparent by design (fixes black-box issue). [1](https://onedrive.live.com/?id=6f7cbfa8-55c6-473a-8386-4b0b57121935&cid=7e854616d9872705&web=1)[2](https://onedrive.live.com?cid=7E854616D9872705&id=7E854616D9872705!s2708969a0df145f7b6f56a8fe89521b6) -->
+
+      <!-- Compact orbit rings (subtle) -->
+      <g transform="translate(600 600)" opacity=".62">
+        <circle class="vm-gold-line" r="420" stroke-dasharray="16 24">
+          <animate attributeName="stroke-dashoffset" from="0" to="-320" dur="9s" repeatCount="indefinite"/>
+        </circle>
+        <circle class="vm-gold-line" r="384" opacity=".44" stroke-dasharray="8 34">
+          <animate attributeName="stroke-dashoffset" from="0" to="260" dur="7s" repeatCount="indefinite"/>
+        </circle>
+      </g>
+
+      <!-- V core (kept) -->
+      <g filter="url(#vm_deepShadow)">
+        <path d="M232 226 C294 150 388 156 452 246 C500 314 528 416 550 532 C570 638 586 750 600 866 C614 750 630 638 650 532 C672 416 700 314 748 246 C812 156 906 150 968 226 L880 284 C850 306 832 346 816 414 C790 526 760 650 724 772 C696 868 660 966 626 1040 L600 1110 L574 1040 C540 966 504 868 476 772 C440 650 410 526 384 414 C368 346 350 306 320 284 Z"
+          fill="none" stroke="rgba(240,211,138,.22)" stroke-width="52" stroke-linejoin="round" stroke-linecap="round"/>
+        <path d="M232 226 C294 150 388 156 452 246 C500 314 528 416 550 532 C570 638 586 750 600 866 C614 750 630 638 650 532 C672 416 700 314 748 246 C812 156 906 150 968 226 L880 284 C850 306 832 346 816 414 C790 526 760 650 724 772 C696 868 660 966 626 1040 L600 1110 L574 1040 C540 966 504 868 476 772 C440 650 410 526 384 414 C368 346 350 306 320 284 Z"
+          fill="none" stroke="url(#vm_goldStroke)" stroke-width="31" stroke-linejoin="round" stroke-linecap="round" filter="url(#vm_softVGlow)"/>
+        <path d="M232 226 C294 150 388 156 452 246 C500 314 528 416 550 532 C570 638 586 750 600 866 C614 750 630 638 650 532 C672 416 700 314 748 246 C812 156 906 150 968 226 L880 284 C850 306 832 346 816 414 C790 526 760 650 724 772 C696 868 660 966 626 1040 L600 1110 L574 1040 C540 966 504 868 476 772 C440 650 410 526 384 414 C368 346 350 306 320 284 Z"
+          fill="url(#vm_vFill)" stroke="rgba(0,0,0,.85)" stroke-width="6" stroke-linejoin="round"/>
+      </g>
+
+      <!-- Orbiting five spiral-orbs (kept) -->
+      <g transform="translate(600 600)" class="vm-logo-orbit">
+        <g transform="rotate(0)">
+          <animateTransform attributeName="transform" type="rotate" from="0 0 0" to="360 0 0" dur="26s" repeatCount="indefinite"/>
+          <path class="vm-trail vm-white" d="M-84 -411 A420 420 0 0 1 84 -411"/>
+          <g transform="translate(0 -420)"><use href="#vm_spiralWhite"/></g>
+        </g>
+        <g transform="rotate(72)">
+          <animateTransform attributeName="transform" type="rotate" from="72 0 0" to="432 0 0" dur="26s" repeatCount="indefinite"/>
+          <path class="vm-trail vm-blue" d="M-84 -411 A420 420 0 0 1 84 -411"/>
+          <g transform="translate(0 -420) rotate(18)"><use href="#vm_spiralBlue"/></g>
+        </g>
+        <g transform="rotate(144)">
+          <animateTransform attributeName="transform" type="rotate" from="144 0 0" to="504 0 0" dur="26s" repeatCount="indefinite"/>
+          <path class="vm-trail vm-black" d="M-84 -411 A420 420 0 0 1 84 -411"/>
+          <g transform="translate(0 -420) rotate(38)"><use href="#vm_spiralBlack"/></g>
+        </g>
+        <g transform="rotate(216)">
+          <animateTransform attributeName="transform" type="rotate" from="216 0 0" to="576 0 0" dur="26s" repeatCount="indefinite"/>
+          <path class="vm-trail vm-red" d="M-84 -411 A420 420 0 0 1 84 -411"/>
+          <g transform="translate(0 -420) rotate(-28)"><use href="#vm_spiralRed"/></g>
+        </g>
+        <g transform="rotate(288)">
+          <animateTransform attributeName="transform" type="rotate" from="288 0 0" to="648 0 0" dur="26s" repeatCount="indefinite"/>
+          <path class="vm-trail vm-green" d="M-84 -411 A420 420 0 0 1 84 -411"/>
+          <g transform="translate(0 -420) rotate(-16)"><use href="#vm_spiralGreen"/></g>
+        </g>
+      </g>
+    </symbol>
+  </svg>
+
+  <!-- Watermark instance (transparent mark + blend) -->
+  <svg class="vmLogoWatermark" viewBox="0 0 1200 1200" aria-hidden="true" focusable="false">
+    <use href="#vm-flame-orb-mark"></use>
+  </svg>
+
+  <!-- Side Dock (“Codex Bars”) -->
+  <aside class="sideDock" aria-label="Codex Bars">
+    <button class="dockBtn" type="button" data-dock="panel" aria-label="Open Codex Panel" aria-pressed="false">
+      <svg class="dockIcon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+    </button>
+
+    <button class="dockBtn" type="button" data-dock="save" aria-label="Save Result" aria-pressed="false">
+      <svg class="dockIcon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M12 3v12m0 0l4-4m-4 4l-4-4M5 21h14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </button>
+
+    <button class="dockBtn" type="button" data-dock="top" aria-label="Back to Top" aria-pressed="false">
+      <svg class="dockIcon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M12 5l-6 6m6-6l6 6M12 5v14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </button>
+  </aside>
+
+  <!-- Slide-out Codex Panel -->
+  <aside class="sidePanel" id="vmSidePanel" data-open="false" aria-label="Codex Control Panel">
+    <div class="sidePanelHeader">
+      <div class="sidePanelTitle">Codex Controls</div>
+      <button class="btn ghost u-mono u-tiny" type="button" data-action="panel-close" aria-label="Close panel">Close</button>
+    </div>
+
+    <div class="sidePanelBody">
+      <!-- Feature toggles -->
+      <div class="sidePanelGroup" aria-label="Feature toggles">
+        <div class="label">Advanced Features</div>
+
+        <div class="toggleRow">
+          <div>
+            <div class="name">Theme: Void / Parchment</div>
+            <div class="hint">css variables</div>
+          </div>
+          <div class="switch" role="switch" aria-checked="false" tabindex="0" data-toggle="theme" data-on="false"></div>
+        </div>
+
+        <div class="toggleRow">
+          <div>
+            <div class="name">Arcane Cursor</div>
+            <div class="hint">cursor mode</div>
+          </div>
+          <div class="switch" role="switch" aria-checked="false" tabindex="0" data-toggle="cursor" data-on="false"></div>
+        </div>
+
+        <div class="toggleRow">
+          <div>
+            <div class="name">Scroll-Snap Codex Pages</div>
+            <div class="hint">scroll snapping</div>
+          </div>
+          <div class="switch" role="switch" aria-checked="false" tabindex="0" data-toggle="snap" data-on="false"></div>
+        </div>
+
+        <div class="toggleRow">
+          <div>
+            <div class="name">Grid Overlay</div>
+            <div class="hint">blend + mask</div>
+          </div>
+          <div class="switch" role="switch" aria-checked="false" tabindex="0" data-toggle="grid" data-on="false"></div>
+        </div>
+
+        <div class="toggleRow">
+          <div>
+            <div class="name">Watermark Strength</div>
+            <div class="hint">soft/strong/off</div>
+          </div>
+          <select class="select" data-select="watermark" aria-label="Watermark strength">
+            <option value="soft">Soft</option>
+            <option value="strong">Strong</option>
+            <option value="off">Off</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- ScrollSpy -->
+      <div class="sidePanelGroup" aria-label="Section navigator">
+        <div class="label">Navigator</div>
+        <nav class="scrollSpy" aria-label="Dossier sections">
+          <a class="spyLink" href="#decree" data-spy="decree"><span class="mini"><span class="spyDot"></span>Decree</span><span class="u-mono u-tiny u-muted2">§</span></a>
+          <a class="spyLink" href="#result-summary" data-spy="result-summary"><span class="mini"><span class="spyDot"></span>Result Summary</span><span class="u-mono u-tiny u-muted2">§</span></a>
+          <a class="spyLink" href="#identity-dossier" data-spy="identity-dossier"><span class="mini"><span class="spyDot"></span>Identity Dossier</span><span class="u-mono u-tiny u-muted2">§</span></a>
+          <a class="spyLink" href="#refine" data-spy="refine"><span class="mini"><span class="spyDot"></span>Refine</span><span class="u-mono u-tiny u-muted2">§</span></a>
+          <a class="spyLink" href="#deck-builder-links" data-spy="deck-builder-links"><span class="mini"><span class="spyDot"></span>Builder Links</span><span class="u-mono u-tiny u-muted2">§</span></a>
+          <a class="spyLink" href="#footer-actions" data-spy="footer-actions"><span class="mini"><span class="spyDot"></span>Actions</span><span class="u-mono u-tiny u-muted2">§</span></a>
+        </nav>
+      </div>
+
+      <div class="sidePanelGroup" aria-label="Notes">
+        <div class="label">Notes</div>
+        <p class="u-muted u-small" style="margin:0; line-height:1.7;">
+          This panel is demo UI only. Feature toggles persist via localStorage.
+        </p>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Topbar -->
+  <header class="topbar" role="banner" aria-label="Vox Mana dossier header">
+    <div class="row wrap">
+      <a class="brand" href="#top" aria-label="Vox Mana home">
+        <span class="brand-mark" aria-hidden="true"><span>✦</span></span>
+        <span>Vox Mana</span>
+      </a>
+
+      <nav class="nav" aria-label="Primary navigation">
+        <a href="#result-summary">Result Summary</a>
+        <a href="#identity-dossier">Identity Dossier</a>
+        <a href="#deck-builder-links">Builder Links</a>
+        <a href="#footer-actions">Actions</a>
+      </nav>
+
+      <div class="actions">
+        <!-- Upper-right logo mark (transparent, blends) -->
+        <div class="topbarLogo" aria-label="Vox Mana flame-orb mark">
+          <a href="#top" class="logoMark" aria-label="Vox Mana home">
+            <svg viewBox="0 0 1200 1200" role="img" aria-label="Vox Mana flame-orb logo mark">
+              <use href="#vm-flame-orb-mark"></use>
+            </svg>
+          </a>
+        </div>
+
+        <button class="btn ghost u-mono u-tiny" type="button" data-action="panel-open" aria-label="Open Codex Panel">
+          Menu <span class="u-muted2">·</span> Bars
+        </button>
+
+        <a class="btn" href="#refine">Refine</a>
+        <button class="btn primary" type="button" data-action="save-result" aria-label="Save this result">
+          Save Result <span class="u-mono u-tiny" aria-hidden="true">↧</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="top" class="wrap stack" style="padding-bottom: 44px;">
+    <!-- PLACEMENT HERO -->
+    <section class="hero" aria-label="Placement hero" data-reveal data-spy-target="top">
+      <div class="heroGrid">
+        <div class="stack">
+          <div class="kicker">Placement Dossier</div>
+          <h1 class="heroTitle">Placeholder Placement</h1>
+          <p class="heroSub">
+            Tagline: Placeholder tagline that feels like a final ruling from a mystic archive.
+            This is a short identity summary: “Placeholder short identity summary goes here.”
+          </p>
+
+          <div class="metaGrid" aria-label="Placement metadata grid">
+            <div class="metaItem">
+              <div>
+                <p class="label">Placement Key</p>
+                <p class="value mono">PLACEHOLDER_KEY</p>
+              </div>
+              <span class="u-pill u-mono u-tiny" aria-label="Demo label">DEMO</span>
+            </div>
+
+            <div class="metaItem">
+              <div>
+                <p class="label">World</p>
+                <p class="value">Placeholder World</p>
+              </div>
+              <span class="u-pill u-tiny">Archive</span>
+            </div>
+
+            <div class="metaItem">
+              <div>
+                <p class="label">Institution Type</p>
+                <p class="value">Placeholder Institution</p>
+              </div>
+              <span class="u-pill u-tiny">Codex</span>
+            </div>
+
+            <div class="metaItem">
+              <div>
+                <p class="label">Colors</p>
+                <p class="value">Placeholder Colors</p>
+              </div>
+              <vm-mana-pips colors="W U B R G" aria-label="Mana pips: placeholder WUBRG"></vm-mana-pips>
+            </div>
+          </div>
+
+          <div aria-label="Confidence" class="panel torn">
+            <div class="inner">
+              <div class="u-flex u-items-center u-justify-between u-gap-3 u-wrap">
+                <div>
+                  <div class="u-mono u-upper u-tiny u-muted2">Confidence / Probability</div>
+                  <div style="display:flex; align-items:baseline; gap:10px;">
+                    <div style="font-size: 1.6rem; color: var(--gold2); font-weight: 900; letter-spacing:.02rem;">78%</div>
+                    <div class="u-muted u-small">Placeholder probability text (demo only).</div>
+                  </div>
+                </div>
+                <div class="u-pill u-mono u-tiny" aria-label="Confidence label">High-ish</div>
+              </div>
+
+              <div class="meter" role="img" aria-label="Confidence meter set to 78 percent">
+                <span style="width:78%"></span>
+              </div>
+
+              <div class="manaThread" aria-hidden="true"></div>
+              <p class="u-muted u-small" style="margin: 10px 0 0; line-height:1.65;">
+                Note: This page is a visual skeleton. Scores and calculations are placeholders and not connected to the real model.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right hero panel -->
+        <aside class="stack" aria-label="Hero side panel">
+          <div class="panel" data-reveal>
+            <div class="inner">
+              <div class="kicker">Arcane Sigil</div>
+              <div class="sigilWrap" aria-label="Animated placeholder sigil">
+                <svg class="sigil" viewBox="0 0 100 100" fill="none" aria-hidden="true">
+                  <circle cx="50" cy="50" r="42" stroke="currentColor" stroke-width="1.2" opacity=".55"/>
+                  <circle cx="50" cy="50" r="30" stroke="currentColor" stroke-width="1" opacity=".35"/>
+                  <path d="M50 14 L80 34 L72 76 L28 76 L20 34 Z" stroke="currentColor" stroke-width="1.6" />
+                  <path d="M50 26 L68 38 L63 64 L37 64 L32 38 Z" stroke="currentColor" stroke-width="1.2" opacity=".8"/>
+                  <path d="M50 18 V82" stroke="currentColor" stroke-width="1" opacity=".35"/>
+                  <path d="M18 50 H82" stroke="currentColor" stroke-width="1" opacity=".35"/>
+                </svg>
+              </div>
+
+              <div style="margin-top: 12px;">
+                <div class="u-mono u-upper u-tiny u-muted2">Short Identity Summary</div>
+                <div style="margin-top:6px; color: var(--muted); line-height:1.6;">
+                  Placeholder short identity summary: “A pragmatic mystic who seeks structure, tests boundaries, and adapts under pressure.”
+                </div>
+              </div>
+
+              <div class="chipRow" aria-label="Behavioral pattern chips (placeholder)">
+                <span class="chip"><span class="dot" style="background:var(--U)"></span>Placeholder Pattern Chip</span>
+                <span class="chip"><span class="dot" style="background:var(--B)"></span>Placeholder Pattern Chip</span>
+                <span class="chip"><span class="dot" style="background:var(--G)"></span>Placeholder Pattern Chip</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="panel torn" data-reveal>
+            <div class="inner">
+              <div class="kicker">Quick Actions</div>
+              <div class="u-flex u-gap-3 u-wrap" style="margin-top: 10px;">
+                <button class="btn primary" type="button" data-action="save-result">Save Result</button>
+                <button class="btn" type="button" data-action="retake">Retake</button>
+                <a class="btn" href="#result-summary">Resume Reading</a>
+              </div>
+              <p class="u-muted u-small" style="margin: 12px 0 0; line-height: 1.65;">
+                Ambient audio hooks are present (disabled by default). Hover/click can trigger sound if you add sources later.
+              </p>
+              <audio id="vm-audio-whisper" preload="none"></audio>
+              <audio id="vm-audio-clink" preload="none"></audio>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- DECREE -->
+    <section class="panel torn" id="decree" aria-label="Decree / Final Reading" data-reveal data-spy-target="decree">
+      <div class="inner">
+        <div class="u-flex u-justify-between u-items-center u-gap-4 u-wrap">
+          <div class="stack" style="gap:10px;">
+            <div class="kicker">Decree / Final Reading</div>
+            <h2>Placeholder Decree Title</h2>
+          </div>
+          <div class="u-flex u-gap-3 u-wrap">
+            <button class="btn primary" type="button" data-action="save-result">Save Result</button>
+            <button class="btn" type="button" data-action="retake">Retake</button>
+          </div>
+        </div>
+
+        <p style="margin: 10px 0 0; color: var(--muted); line-height:1.75;">
+          Decree: Placeholder decree text goes here. This is the final reading text block that feels authoritative,
+          readable, and grounded in the Vox Mana archive tone. (All placeholder content.)
+        </p>
+
+        <aside aria-label="Runner/interpreter note" style="margin-top: 12px; border-left: 2px solid rgba(242,209,136,.35); padding-left: 12px;">
+          <div class="u-mono u-upper u-tiny u-muted2">Runner / Interpreter Note</div>
+          <p style="margin: 8px 0 0; color: var(--muted); line-height:1.7;">
+            Placeholder interpreter note: “This placement is a best-fit synthesis, not a label. Near matches remain valid perspectives.”
+          </p>
+        </aside>
+      </div>
+    </section>
+
+    <!-- RESULT SUMMARY -->
+    <section id="result-summary" class="grid-2" aria-label="Result summary area" data-reveal data-spy-target="result-summary">
+      <div class="stack">
+        <section class="panel" aria-label="Mana Score Panel">
+          <div class="inner">
+            <div class="u-flex u-justify-between u-items-center u-gap-3 u-wrap">
+              <div>
+                <div class="kicker">Mana Score Panel</div>
+                <h2>Placeholder Mana Vector</h2>
+              </div>
+              <div class="u-pill u-mono u-tiny" aria-label="Display mode">Bars</div>
+            </div>
+            <vm-score-bars w="62" u="71" b="55" r="34" g="48" aria-label="Placeholder mana scores with visual bars"></vm-score-bars>
+            <p class="u-muted u-small" style="margin: 10px 0 0; line-height: 1.65;">
+              Visual bars are demo-only. The final model will provide real values and confidence intervals.
+            </p>
+          </div>
+        </section>
+
+        <section class="panel torn" aria-label="Why This Fit">
+          <div class="inner">
+            <div class="kicker">Why This Fit</div>
+            <h2>Positive Evidence & Good Fit Indicators</h2>
+
+            <div class="grid-2" style="margin-top: 12px;">
+              <div aria-label="Positive evidence list">
+                <div class="u-mono u-upper u-tiny u-muted2">Positive Evidence List</div>
+                <ul>
+                  <li>Placeholder evidence item: “You repeatedly favored structured lines under pressure.”</li>
+                  <li>Placeholder evidence item: “You chose value-over-flash in ambiguous moments.”</li>
+                  <li>Placeholder evidence item: “You returned to stability after experimentation.”</li>
+                  <li>Placeholder evidence item: “You prioritized prevention over recovery.”</li>
+                </ul>
+              </div>
+
+              <div aria-label="Good fit indicator list">
+                <div class="u-mono u-upper u-tiny u-muted2">Good Fit Indicator List</div>
+                <ul>
+                  <li>Placeholder indicator: “Prefers legible board states.”</li>
+                  <li>Placeholder indicator: “Enjoys planning windows and timing.”</li>
+                  <li>Placeholder indicator: “Finds satisfaction in inevitability.”</li>
+                  <li>Placeholder indicator: “Uses constraints as tools.”</li>
+                </ul>
+              </div>
+            </div>
+
+            <div style="margin-top: 12px;">
+              <div class="u-mono u-upper u-tiny u-muted2">Placeholder quiz-answer signal examples</div>
+              <div class="tableWrap" style="margin-top: 10px;">
+                <table aria-label="Placeholder signals table">
+                  <thead>
+                    <tr><th>Signal</th><th>Example Answer / Behavior</th><th>Interpretation</th></tr>
+                  </thead>
+                  <tbody>
+                    <tr><td>Placeholder gate signal</td><td>“Placeholder answer text goes here.”</td><td>“This suggests a preference for structured choices.”</td></tr>
+                    <tr><td>Placeholder hall signal</td><td>“Placeholder answer text goes here.”</td><td>“This suggests mid-game planning and adaptation.”</td></tr>
+                    <tr><td>Placeholder crucible signal</td><td>“Placeholder answer text goes here.”</td><td>“This suggests willingness to trade tempo for position.”</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="panel" aria-label="What Was Weakened">
+          <div class="inner">
+            <div class="kicker">What Was Weakened</div>
+            <h2>Suppressors & Pruned Candidates</h2>
+
+            <div class="grid-2" style="margin-top: 12px;">
+              <div aria-label="Suppressor list">
+                <div class="u-mono u-upper u-tiny u-muted2">Suppressor List</div>
+                <ul>
+                  <li>Placeholder suppressor: “High-variance preference reduced stability-aligned factions.”</li>
+                  <li>Placeholder suppressor: “Low appetite for risk weakened impulse-heavy factions.”</li>
+                  <li>Placeholder suppressor: “Low tolerance for chaos reduced randomization-heavy factions.”</li>
+                </ul>
+              </div>
+
+              <div aria-label="Pruned candidate list">
+                <div class="u-mono u-upper u-tiny u-muted2">Pruned Candidate List</div>
+                <ul>
+                  <li>Placeholder pruning note: “Candidate A pruned due to weak alignment.”</li>
+                  <li>Placeholder pruning note: “Candidate B pruned due to poor fit indicators.”</li>
+                  <li>Placeholder pruning note: “Candidate C pruned after discriminator checks.”</li>
+                </ul>
+              </div>
+            </div>
+
+            <p class="u-muted u-small" style="margin: 10px 0 0; line-height:1.65;">
+              Friendly explanation: Some factions were weakened because they were poorer fits for your expressed preferences.
+              This does not mean they are “bad” — only less aligned with your demonstrated signals in this reading.
+            </p>
+          </div>
+        </section>
+      </div>
+
+      <div class="stack">
+        <section class="panel torn" aria-label="Probability / Candidate Ranking">
+          <div class="inner">
+            <div class="kicker">Probability / Candidate Ranking</div>
+            <h2>Top Placement & Near Candidates</h2>
+
+            <div class="panel" style="margin-top: 12px; background: var(--panel2); border-color: rgba(242,209,136,.28);">
+              <div class="inner">
+                <div class="u-flex u-justify-between u-items-center u-gap-3 u-wrap">
+                  <div>
+                    <div class="u-mono u-upper u-tiny u-muted2">Top Placement Card</div>
+                    <div style="margin-top:6px; font-weight: 900; color: var(--gold2); font-size: 1.25rem;">Placeholder Placement</div>
+                    <div class="u-muted u-small" style="margin-top:4px;">
+                      “Why this ranked here” (placeholder): This candidate stabilized across multiple sections with consistent evidence.
+                    </div>
+                  </div>
+                  <div class="u-pill u-mono u-tiny">78%</div>
+                </div>
+
+                <div class="u-flex u-gap-3 u-wrap" style="margin-top: 12px;">
+                  <div class="u-pill u-mono u-tiny">PLACEHOLDER_KEY</div>
+                  <div class="u-pill u-tiny">Placeholder World</div>
+                  <div class="u-pill u-tiny">Placeholder Institution</div>
+                </div>
+              </div>
+            </div>
+
+            <div style="margin-top: 12px;" aria-label="Near candidates list">
+              <div class="u-mono u-upper u-tiny u-muted2">Near Candidate List</div>
+              <ul>
+                <li>Placeholder Match One — 64% — placeholder “why close” text.</li>
+                <li>Placeholder Match Two — 61% — placeholder “why close” text.</li>
+                <li>Placeholder Match Three — 58% — placeholder “why close” text.</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section class="panel" aria-label="Near Matches / Adjacent Factions">
+          <div class="inner">
+            <div class="kicker">Near Matches / Adjacent Factions</div>
+            <h2>Adjacent Faction Cards</h2>
+
+            <div class="grid-3" style="margin-top: 12px;">
+              <vm-faction-card name="Placeholder Adjacent One" whyclose="Placeholder why it was close." differs="Placeholder how it differs from the main placement." colors="U B" data-guild="adjacent-one" data-color="UB"></vm-faction-card>
+              <vm-faction-card name="Placeholder Adjacent Two" whyclose="Placeholder why it was close." differs="Placeholder how it differs from the main placement." colors="W U" data-guild="adjacent-two" data-color="WU"></vm-faction-card>
+              <vm-faction-card name="Placeholder Adjacent Three" whyclose="Placeholder why it was close." differs="Placeholder how it differs from the main placement." colors="B G" data-guild="adjacent-three" data-color="BG"></vm-faction-card>
+            </div>
+          </div>
+        </section>
+      </div>
+    </section>
+
+    <!-- IDENTITY DOSSIER -->
+    <section class="panel torn" id="identity-dossier" aria-label="Identity Dossier" data-reveal data-spy-target="identity-dossier">
+      <div class="inner">
+        <div class="kicker">Identity Dossier</div>
+        <h2>Placeholder Placement — Deep Profile</h2>
+
+        <div class="grid-2" style="margin-top: 14px;">
+          <section aria-label="Identity summary and philosophy" class="stack" style="gap:12px;">
+            <div>
+              <div class="u-mono u-upper u-tiny u-muted2">Identity Summary</div>
+              <p style="margin: 8px 0 0; color: var(--muted); line-height:1.75;">
+                Placeholder identity summary goes here. This paragraph should feel like a readable dossier excerpt.
+              </p>
+            </div>
+            <div>
+              <div class="u-mono u-upper u-tiny u-muted2">Philosophy Summary</div>
+              <p style="margin: 8px 0 0; color: var(--muted); line-height:1.75;">
+                Placeholder philosophy summary goes here. Explain what the placement believes, values, and rejects.
+              </p>
+            </div>
+            <div>
+              <div class="u-mono u-upper u-tiny u-muted2">Central Tension</div>
+              <p style="margin: 8px 0 0; color: var(--muted); line-height:1.75;">
+                Placeholder central tension: “Order vs freedom,” “certainty vs possibility,” or any meaningful axis (placeholder text).
+              </p>
+            </div>
+          </section>
+
+          <section aria-label="Mechanical identity and play feel" class="stack" style="gap:12px;">
+            <div>
+              <div class="u-mono u-upper u-tiny u-muted2">Mechanical Identity</div>
+              <p style="margin: 8px 0 0; color: var(--muted); line-height:1.75;">
+                Placeholder mechanical identity: keywords, patterns, and gameplay mechanics that reflect the placement (placeholder).
+              </p>
+            </div>
+            <div>
+              <div class="u-mono u-upper u-tiny u-muted2">Gameplay Feel</div>
+              <p style="margin: 8px 0 0; color: var(--muted); line-height:1.75;">
+                Placeholder gameplay feel: pacing, decision texture, interaction style, risk profile (placeholder).
+              </p>
+            </div>
+
+            <div class="grid-2">
+              <div>
+                <div class="u-mono u-upper u-tiny u-muted2">Strengths</div>
+                <ul>
+                  <li>Placeholder strength</li><li>Placeholder strength</li><li>Placeholder strength</li><li>Placeholder strength</li>
+                </ul>
+              </div>
+              <div>
+                <div class="u-mono u-upper u-tiny u-muted2">Weaknesses</div>
+                <ul>
+                  <li>Placeholder weakness</li><li>Placeholder weakness</li><li>Placeholder weakness</li><li>Placeholder weakness</li>
+                </ul>
+              </div>
+            </div>
+
+            <div>
+              <div class="u-mono u-upper u-tiny u-muted2">Color Relationship Summary</div>
+              <p style="margin: 8px 0 0; color: var(--muted); line-height:1.75;">
+                Placeholder color relationship summary: alliances, tensions, and trade-offs between the colors (placeholder).
+              </p>
+            </div>
+          </section>
+        </div>
+      </div>
+    </section>
+
+    <!-- REFINE -->
+    <section class="panel" id="refine" aria-label="Refine Result / Discriminator Questions" data-reveal data-spy-target="refine">
+      <div class="inner">
+        <div class="u-flex u-justify-between u-items-center u-gap-4 u-wrap">
+          <div>
+            <div class="kicker">Refine Result / Discriminator Questions</div>
+            <h2>Optional follow-up questions (placeholder)</h2>
+          </div>
+          <div class="u-flex u-gap-3 u-wrap">
+            <button class="btn primary" type="button" data-action="refine">Refine Result</button>
+            <button class="btn" type="button" data-action="compare">Compare Near Matches</button>
+          </div>
+        </div>
+
+        <div class="grid-3" style="margin-top: 12px;">
+          <vm-question-card q="Placeholder question: Which feels better — preventing problems early or recovering after setbacks?"
+            a="Placeholder answers: (A) Prevent early (B) Recover later (C) Depends on table."></vm-question-card>
+          <vm-question-card q="Placeholder question: Do you enjoy holding interaction or deploying your own engine first?"
+            a="Placeholder answers: (A) Hold interaction (B) Deploy engine (C) Balanced."></vm-question-card>
+          <vm-question-card q="Placeholder question: Does your fun increase when the plan is legible or when it’s surprising?"
+            a="Placeholder answers: (A) Legible (B) Surprising (C) Both."></vm-question-card>
+        </div>
+      </div>
+    </section>
+
+    <!-- EVIDENCE TRAIL -->
+    <section aria-label="How Archscry Reached This (Evidence Trail)" data-reveal>
+      <details>
+        <summary>
+          <span class="summaryTitle"><span class="dot" style="background: rgba(53,224,214,.75)"></span>How Archscry Reached This (Evidence Trail)</span>
+          <span class="chev" aria-hidden="true"></span>
+        </summary>
+        <div class="body">
+          <p class="u-muted u-small" style="margin: 0 0 12px; line-height:1.7;">
+            This section is intentionally lower on the page and labeled for humans. It contains placeholder tables only.
+          </p>
+          <div class="tableWrap">
+            <table aria-label="Probability conversion summary table (placeholder)">
+              <thead><tr><th>Stage</th><th>Input</th><th>Output</th><th>Notes</th></tr></thead>
+              <tbody>
+                <tr><td>Boost trail</td><td>Placeholder boost</td><td>Placeholder delta</td><td>Placeholder explanation</td></tr>
+                <tr><td>Suppression trail</td><td>Placeholder suppressor</td><td>Placeholder delta</td><td>Placeholder explanation</td></tr>
+                <tr><td>Probability conversion</td><td>Placeholder vector</td><td>78%</td><td>Placeholder conversion summary (demo only)</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </details>
+    </section>
+
+    <!-- BUILDER LINKS -->
+    <section class="panel torn" id="deck-builder-links" aria-label="Deck / Maze / Builder Links" data-reveal data-spy-target="deck-builder-links">
+      <div class="inner">
+        <div class="kicker">Deck / Maze / Builder Links</div>
+        <h2>External References (placeholders)</h2>
+        <div class="grid-3" style="margin-top: 12px;">
+          <a class="btn" href="#!" aria-label="EDHREC placeholder link">EDHREC (placeholder)</a>
+          <a class="btn" href="#!" aria-label="Maze placeholder link">Maze (placeholder)</a>
+          <a class="btn" href="#!" aria-label="Scryfall placeholder link">Scryfall (placeholder)</a>
+          <a class="btn" href="#!" aria-label="Moxfield placeholder link">Moxfield (placeholder)</a>
+          <a class="btn" href="#!" aria-label="Archidekt placeholder link">Archidekt (placeholder)</a>
+          <a class="btn" href="#!" aria-label="MTGGoldfish placeholder link">MTGGoldfish (placeholder)</a>
+          <a class="btn" href="#!" aria-label="Commander Spellbook placeholder link">Commander Spellbook (placeholder)</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER ACTIONS -->
+    <footer class="panel torn" id="footer-actions" aria-label="Actions / Footer" data-reveal data-spy-target="footer-actions">
+      <div class="inner">
+        <div class="u-flex u-justify-between u-items-center u-gap-4 u-wrap">
+          <div>
+            <div class="kicker">Actions</div>
+            <h2>Placeholder Placement — next steps</h2>
+            <p class="u-muted u-small" style="margin: 10px 0 0; line-height:1.7;">
+              This footer is a complete action hub for the final dossier page. (All placeholder.)
+            </p>
+          </div>
+
+          <div class="u-flex u-gap-3 u-wrap">
+            <button class="btn primary" type="button" data-action="save-result">Save Result</button>
+            <button class="btn" type="button" data-action="share">Share Result</button>
+            <button class="btn" type="button" data-action="retake">Retake</button>
+            <a class="btn" href="#top">Resume Reading</a>
+            <a class="btn" href="#!" aria-label="Back to Archscry placeholder">Back to Archscry</a>
+            <a class="btn" href="#!" aria-label="Back to Maze placeholder">Back to Maze</a>
+          </div>
+        </div>
+
+        <div class="u-flex u-justify-between u-items-center u-gap-4 u-wrap" style="margin-top: 14px; border-top: 1px solid rgba(242,209,136,.12); padding-top: 12px;">
+          <div class="u-mono u-tiny u-muted2">Standalone example page · Placeholder content · No scoring logic</div>
+          <div class="u-mono u-tiny u-muted2"><span data-save-status>Not saved</span></div>
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <script>
+    /* =========================================================
+      Web Components + Shadow DOM (UI skeleton only)
+    ========================================================== */
+    class VMManaPips extends HTMLElement {
+      constructor(){ super(); this.attachShadow({mode:'open'}); }
+      connectedCallback(){
+        const colors = (this.getAttribute('colors') || '').trim().split(/\s+/).filter(Boolean);
+        const style = `
+          <style>
+            :host{ display:inline-flex; align-items:center; gap:6px; flex-wrap:wrap; }
+            .pip{
+              width: 26px; height: 26px; border-radius: 999px;
+              border: 1px solid rgba(242,209,136,.22);
+              display:grid; place-items:center;
+              font: 800 12px ui-monospace, Menlo, Consolas, monospace;
+              color: rgba(0,0,0,.75);
+              box-shadow: 0 0 14px rgba(242,209,136,.10), inset 0 0 18px rgba(255,255,255,.10);
+              background: var(--c, rgba(255,255,255,.2));
+            }
+            .pip[data-c="W"]{ --c: var(--W); }
+            .pip[data-c="U"]{ --c: var(--U); }
+            .pip[data-c="B"]{ --c: var(--B); }
+            .pip[data-c="R"]{ --c: var(--R); }
+            .pip[data-c="G"]{ --c: var(--G); }
+          </style>
+        `;
+        const pips = colors.map(c => `<span class="pip" data-c="${c}" aria-hidden="true">${c}</span>`).join('');
+        this.shadowRoot.innerHTML = `${style}<div>${pips}</div>`;
+      }
+    }
+    customElements.define('vm-mana-pips', VMManaPips);
+
+    class VMScoreBars extends HTMLElement {
+      constructor(){ super(); this.attachShadow({mode:'open'}); }
+      connectedCallback(){
+        const get = (k, d) => {
+          const v = parseInt(this.getAttribute(k) || d, 10);
+          return Number.isFinite(v) ? Math.max(0, Math.min(100, v)) : d;
+        };
+        const data = [
+          {k:'w', name:'White', c:'W', v:get('w', 50)},
+          {k:'u', name:'Blue',  c:'U', v:get('u', 50)},
+          {k:'b', name:'Black', c:'B', v:get('b', 50)},
+          {k:'r', name:'Red',   c:'R', v:get('r', 50)},
+          {k:'g', name:'Green', c:'G', v:get('g', 50)},
+        ];
+
+        const style = `
+          <style>
+            :host{ display:block; margin-top: 12px; }
+            .row{ display:grid; grid-template-columns: 86px 1fr 52px; gap: 10px; align-items:center; margin: 10px 0; }
+            .label{ color: var(--muted); font: 800 11px ui-monospace, Menlo, Consolas, monospace; letter-spacing:.12rem; text-transform:uppercase; display:flex; align-items:center; gap:8px;}
+            .dot{ width:10px; height:10px; border-radius:999px; background: var(--c); box-shadow: 0 0 16px color-mix(in srgb, var(--c), transparent 70%); }
+            .track{ height: 10px; border-radius: 999px; border: 1px solid rgba(242,209,136,.14); background: rgba(0,0,0,.28); overflow:hidden; }
+            .fill{ height:100%; width: 0%; border-radius: 999px; background: linear-gradient(90deg, color-mix(in srgb, var(--c), white 6%), color-mix(in srgb, var(--c), transparent 10%)); box-shadow: 0 0 18px color-mix(in srgb, var(--c), transparent 70%); transform-origin: left center; transition: width 700ms cubic-bezier(.2,.8,.2,1); }
+            .pct{ color: var(--gold2); font: 900 12px ui-monospace, Menlo, Consolas, monospace; text-align:right; }
+            .hint{ color: var(--muted2); font: 700 10px ui-monospace, Menlo, Consolas, monospace; letter-spacing:.14rem; text-transform:uppercase; margin-top: 10px; }
+          </style>
+        `;
+        const rows = data.map(d => `
+          <div class="row">
+            <div class="label"><span class="dot" style="--c: var(--${d.c})"></span>${d.name}</div>
+            <div class="track" aria-hidden="true"><div class="fill" style="--c: var(--${d.c}); width:${d.v}%"></div></div>
+            <div class="pct">${d.v}%</div>
+          </div>
+        `).join('');
+
+        this.shadowRoot.innerHTML = `${style}<div class="hint">Placeholder values</div>${rows}`;
+      }
+    }
+    customElements.define('vm-score-bars', VMScoreBars);
+
+    class VMFactionCard extends HTMLElement {
+      constructor(){ super(); this.attachShadow({mode:'open'}); }
+      connectedCallback(){
+        const name = this.getAttribute('name') || 'Placeholder Adjacent';
+        const whyclose = this.getAttribute('whyclose') || 'Placeholder why close.';
+        const differs = this.getAttribute('differs') || 'Placeholder difference.';
+        const colors = (this.getAttribute('colors') || 'W U').trim();
+
+        const style = `
+          <style>
+            :host{ display:block; }
+            .card{
+              border: 1px solid rgba(242,209,136,.18);
+              background: rgba(0,0,0,.16);
+              border-radius: 16px;
+              padding: 14px;
+              box-shadow: 0 14px 40px rgba(0,0,0,.38);
+              position:relative;
+              overflow:hidden;
+              transition: transform 240ms cubic-bezier(.2,.8,.2,1), border-color 240ms cubic-bezier(.2,.8,.2,1);
+            }
+            .card:hover{ transform: translateY(-2px); border-color: rgba(242,209,136,.28); }
+            .top{ display:flex; align-items:start; justify-content:space-between; gap:10px; }
+            .name{ font-family: ui-serif, Georgia, serif; color: var(--gold2); font-weight: 700; letter-spacing:.02rem; }
+            .meta{ color: var(--muted2); font: 700 10px ui-monospace, Menlo, Consolas, monospace; letter-spacing:.12rem; text-transform:uppercase; }
+            .text{ margin-top: 10px; color: var(--muted); line-height:1.65; font-size: .92rem; }
+            .btnRow{ margin-top: 12px; display:flex; flex-wrap:wrap; gap: 8px; }
+            button{
+              appearance:none;
+              border: 1px solid rgba(242,209,136,.16);
+              background: rgba(0,0,0,.20);
+              color: var(--gold2);
+              padding: 10px 12px;
+              border-radius: 12px;
+              cursor:pointer;
+              font: 900 11px ui-monospace, Menlo, Consolas, monospace;
+              letter-spacing:.12rem;
+              text-transform:uppercase;
+              transition: transform 160ms cubic-bezier(.2,.8,.2,1), background 160ms cubic-bezier(.2,.8,.2,1);
+            }
+            button:hover{ transform: translateY(-1px); background: rgba(0,0,0,.28); }
+          </style>
+        `;
+
+        this.shadowRoot.innerHTML = `${style}
+          <article class="card" aria-label="Adjacent faction card">
+            <div class="top">
+              <div>
+                <div class="meta">Adjacent Faction</div>
+                <div class="name">${this._e(name)}</div>
+              </div>
+              <div class="meta">${this._e(colors)}</div>
+            </div>
+            <div style="margin-top:10px;"><vm-mana-pips colors="${this._e(colors)}"></vm-mana-pips></div>
+            <div class="text">
+              <div><span class="meta">Why close:</span> ${this._e(whyclose)}</div>
+              <div style="margin-top:8px;"><span class="meta">How it differs:</span> ${this._e(differs)}</div>
+            </div>
+            <div class="btnRow"><button type="button">View dossier</button></div>
+          </article>
+        `;
+      }
+      _e(s){ return String(s).replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;').replaceAll("'","&#39;"); }
+    }
+    customElements.define('vm-faction-card', VMFactionCard);
+
+    class VMQuestionCard extends HTMLElement {
+      constructor(){ super(); this.attachShadow({mode:'open'}); }
+      connectedCallback(){
+        const q = this.getAttribute('q') || 'Placeholder question';
+        const a = this.getAttribute('a') || 'Placeholder answers';
+        const style = `
+          <style>
+            :host{ display:block; }
+            .card{
+              border: 1px solid rgba(242,209,136,.18);
+              background: rgba(0,0,0,.16);
+              border-radius: 16px;
+              padding: 14px;
+              box-shadow: 0 14px 40px rgba(0,0,0,.34);
+            }
+            .k{ color: var(--muted2); font: 800 10px ui-monospace, Menlo, Consolas, monospace; letter-spacing:.12rem; text-transform:uppercase; }
+            .q{ margin-top: 8px; color: var(--gold2); font-family: ui-serif, Georgia, serif; font-weight: 650; line-height:1.35; }
+            .a{ margin-top: 10px; color: var(--muted); line-height:1.7; font-size:.92rem; }
+          </style>
+        `;
+        this.shadowRoot.innerHTML = `${style}
+          <div class="card" role="group" aria-label="Discriminator question">
+            <div class="k">Question</div>
+            <div class="q">${this._e(q)}</div>
+            <div class="a"><span class="k">Answers:</span> ${this._e(a)}</div>
+          </div>
+        `;
+      }
+      _e(s){ return String(s).replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;'); }
+    }
+    customElements.define('vm-question-card', VMQuestionCard);
+
+    /* =========================================================
+      IntersectionObserver: reveal + scrollspy
+    ========================================================== */
+    (function initReveals(){
+      const els = document.querySelectorAll('[data-reveal]');
+      if (!('IntersectionObserver' in window)) {
+        els.forEach(el => el.classList.add('is-visible'));
+        return;
+      }
+      const obs = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+          if (e.isIntersecting) {
+            e.target.classList.add('is-visible');
+            obs.unobserve(e.target);
+          }
+        });
+      }, { threshold: 0.14, rootMargin: '0px 0px -10% 0px' });
+
+      els.forEach(el => obs.observe(el));
+    })();
+
+    (function initScrollSpy(){
+      const targets = Array.from(document.querySelectorAll('[data-spy-target]'));
+      const links = Array.from(document.querySelectorAll('.spyLink[data-spy]'));
+      const map = new Map(links.map(a => [a.getAttribute('data-spy'), a]));
+
+      function setActive(id){
+        links.forEach(a => a.setAttribute('data-active', String(a.getAttribute('data-spy') === id)));
+      }
+
+      if (!('IntersectionObserver' in window)) return;
+      const obs = new IntersectionObserver((entries) => {
+        // pick the most visible entry
+        const visible = entries
+          .filter(e => e.isIntersecting)
+          .sort((a,b) => b.intersectionRatio - a.intersectionRatio)[0];
+        if (!visible) return;
+        const id = visible.target.getAttribute('data-spy-target');
+        if (map.has(id)) setActive(id);
+      }, { threshold: [0.18, 0.32, 0.5], rootMargin: '-10% 0px -60% 0px' });
+
+      targets.forEach(t => obs.observe(t));
+    })();
+
+    /* =========================================================
+      LocalStorage feature toggles
+    ========================================================== */
+    const LS = {
+      theme: 'vm_demo_theme',
+      cursor: 'vm_demo_cursor',
+      snap: 'vm_demo_snap',
+      grid: 'vm_demo_grid',
+      watermark: 'vm_demo_watermark',
+      saved: 'vm_demo_saved_result'
+    };
+
+    const html = document.documentElement;
+    const panel = document.getElementById('vmSidePanel');
+
+    function setAttr(key, val){
+      html.setAttribute(key, val);
+    }
+    function getAttr(key){ return html.getAttribute(key); }
+
+    function setSwitch(el, on){
+      el.setAttribute('data-on', String(on));
+      el.setAttribute('aria-checked', String(on));
+    }
+
+    function applyFromStorage(){
+      const theme = localStorage.getItem(LS.theme) || 'void';
+      const cursor = localStorage.getItem(LS.cursor) || '';
+      const snap = localStorage.getItem(LS.snap) || 'off';
+      const grid = localStorage.getItem(LS.grid) || 'off';
+      const wm = localStorage.getItem(LS.watermark) || 'soft';
+
+      setAttr('data-vm-theme', theme);
+      setAttr('data-vm-cursor', cursor);
+      setAttr('data-vm-snap', snap);
+      setAttr('data-vm-grid', grid);
+      setAttr('data-vm-watermark', wm);
+
+      const swTheme = document.querySelector('[data-toggle="theme"]');
+      const swCursor = document.querySelector('[data-toggle="cursor"]');
+      const swSnap = document.querySelector('[data-toggle="snap"]');
+      const swGrid = document.querySelector('[data-toggle="grid"]');
+      const selWm = document.querySelector('[data-select="watermark"]');
+
+      if (swTheme) setSwitch(swTheme, theme === 'parchment');
+      if (swCursor) setSwitch(swCursor, cursor === 'arcane');
+      if (swSnap) setSwitch(swSnap, snap === 'on');
+      if (swGrid) setSwitch(swGrid, grid === 'on');
+      if (selWm) selWm.value = wm;
+    }
+
+    function toggleTheme(){
+      const next = getAttr('data-vm-theme') === 'parchment' ? 'void' : 'parchment';
+      setAttr('data-vm-theme', next);
+      localStorage.setItem(LS.theme, next);
+      applyFromStorage();
+    }
+    function toggleCursor(){
+      const next = getAttr('data-vm-cursor') === 'arcane' ? '' : 'arcane';
+      setAttr('data-vm-cursor', next);
+      localStorage.setItem(LS.cursor, next);
+      applyFromStorage();
+    }
+    function toggleSnap(){
+      const next = getAttr('data-vm-snap') === 'on' ? 'off' : 'on';
+      setAttr('data-vm-snap', next);
+      localStorage.setItem(LS.snap, next);
+      applyFromStorage();
+    }
+    function toggleGrid(){
+      const next = getAttr('data-vm-grid') === 'on' ? 'off' : 'on';
+      setAttr('data-vm-grid', next);
+      localStorage.setItem(LS.grid, next);
+      applyFromStorage();
+    }
+    function setWatermark(val){
+      setAttr('data-vm-watermark', val);
+      localStorage.setItem(LS.watermark, val);
+      applyFromStorage();
+    }
+
+    function openPanel(){
+      panel.setAttribute('data-open', 'true');
+      const dock = document.querySelector('[data-dock="panel"]');
+      if (dock) dock.setAttribute('aria-pressed','true');
+    }
+    function closePanel(){
+      panel.setAttribute('data-open', 'false');
+      const dock = document.querySelector('[data-dock="panel"]');
+      if (dock) dock.setAttribute('aria-pressed','false');
+    }
+
+    /* Save / share / retake demo */
+    const saveStatusEl = document.querySelector('[data-save-status]');
+    function setSaveStatus(text){ if (saveStatusEl) saveStatusEl.textContent = text; }
+
+    function saveResult(){
+      const payload = {
+        placementName: 'Placeholder Placement',
+        placementKey: 'PLACEHOLDER_KEY',
+        world: 'Placeholder World',
+        institutionType: 'Placeholder Institution',
+        colors: html.getAttribute('data-vm-colors') || 'Placeholder Colors',
+        confidence: '78%',
+        savedAtISO: new Date().toISOString()
+      };
+      try{
+        localStorage.setItem(LS.saved, JSON.stringify(payload));
+        setSaveStatus('Saved (demo) · ' + payload.savedAtISO);
+      }catch(err){
+        setSaveStatus('Save failed (demo)');
+      }
+    }
+
+    function shareResult(){
+      const text = 'Vox Mana (demo): Placeholder Placement — PLACEHOLDER_KEY — 78%';
+      if (navigator.share){
+        navigator.share({ title:'Vox Mana (demo)', text }).catch(() => {});
+      } else if (navigator.clipboard){
+        navigator.clipboard.writeText(text).then(() => setSaveStatus('Share text copied')).catch(() => setSaveStatus('Share not available'));
+      } else {
+        setSaveStatus('Share not available');
+      }
+    }
+
+    function retake(){
+      setSaveStatus('Retake requested (demo)');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    /* Bindings */
+    document.addEventListener('click', (e) => {
+      const actionBtn = e.target.closest('[data-action]');
+      if (actionBtn){
+        const a = actionBtn.getAttribute('data-action');
+        if (a === 'save-result') saveResult();
+        if (a === 'share') shareResult();
+        if (a === 'retake') retake();
+        if (a === 'panel-open') openPanel();
+        if (a === 'panel-close') closePanel();
+        if (a === 'refine') setSaveStatus('Refine requested (demo)');
+        if (a === 'compare') setSaveStatus('Compare requested (demo)');
+      }
+
+      const dockBtn = e.target.closest('[data-dock]');
+      if (dockBtn){
+        const d = dockBtn.getAttribute('data-dock');
+        if (d === 'panel'){
+          const isOpen = panel.getAttribute('data-open') === 'true';
+          isOpen ? closePanel() : openPanel();
+        }
+        if (d === 'save') saveResult();
+        if (d === 'top') window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    });
+
+    function onSwitchActivate(el){
+      const key = el.getAttribute('data-toggle');
+      if (key === 'theme') toggleTheme();
+      if (key === 'cursor') toggleCursor();
+      if (key === 'snap') toggleSnap();
+      if (key === 'grid') toggleGrid();
+    }
+
+    document.addEventListener('keydown', (e) => {
+      const sw = e.target.closest('.switch[data-toggle]');
+      if (!sw) return;
+      if (e.key === 'Enter' || e.key === ' '){
+        e.preventDefault();
+        onSwitchActivate(sw);
+      }
+    });
+
+    document.addEventListener('click', (e) => {
+      const sw = e.target.closest('.switch[data-toggle]');
+      if (sw) onSwitchActivate(sw);
+    });
+
+    document.addEventListener('change', (e) => {
+      const sel = e.target.closest('[data-select="watermark"]');
+      if (sel) setWatermark(sel.value);
+    });
+
+    /* Restore saved status + feature toggles */
+    (function initStorage(){
+      applyFromStorage();
+      try{
+        const raw = localStorage.getItem(LS.saved);
+        if (!raw) return;
+        const obj = JSON.parse(raw);
+        if (obj && obj.savedAtISO) setSaveStatus('Saved (demo) · ' + obj.savedAtISO);
+      }catch(_){}
+    })();
+
+    /* Close panel on ESC */
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closePanel();
+    });
+
+    /* =========================================================
+      Canvas particle drift (modest)
+    ========================================================== */
+    (function bgCanvas(){
+      const c = document.getElementById('vmBgCanvas');
+      if (!c) return;
+
+      const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const ctx = c.getContext('2d', { alpha:true });
+
+      let w=0,h=0, dpr=1;
+      const dots = [];
+      const DOTS = reduce ? 0 : 70;
+
+      function resize(){
+        dpr = Math.min(2, window.devicePixelRatio || 1);
+        w = Math.floor(window.innerWidth * dpr);
+        h = Math.floor(window.innerHeight * dpr);
+        c.width = w; c.height = h;
+        c.style.width = window.innerWidth + 'px';
+        c.style.height = window.innerHeight + 'px';
+      }
+
+      function seed(){
+        dots.length = 0;
+        const palette = [
+          {r:240,g:230,b:210,a:.22},
+          {r:88,g:182,b:255,a:.22},
+          {r:167,g:123,b:255,a:.20},
+          {r:255,g:107,b:92,a:.20},
+          {r:69,g:224,b:122,a:.20},
+          {r:242,g:209,b:136,a:.18},
+        ];
+        for (let i=0;i<DOTS;i++){
+          const p = palette[i % palette.length];
+          dots.push({
+            x: Math.random()*w,
+            y: Math.random()*h,
+            r: (Math.random()*1.8 + 0.8) * dpr,
+            vx: (Math.random()*0.10 + 0.03) * dpr,
+            vy: (Math.random()*0.08 + 0.02) * dpr,
+            a: p.a, cr: p.r, cg: p.g, cb: p.b,
+          });
+        }
+      }
+
+      function tick(){
+        if (reduce) return;
+        ctx.clearRect(0,0,w,h);
+        ctx.globalCompositeOperation = 'lighter';
+        for (const d of dots){
+          d.x += d.vx;
+          d.y += d.vy;
+          if (d.x > w+20) d.x = -20;
+          if (d.y > h+20) d.y = -20;
+
+          const g = ctx.createRadialGradient(d.x, d.y, 0, d.x, d.y, d.r*10);
+          g.addColorStop(0, `rgba(${d.cr},${d.cg},${d.cb},${d.a})`);
+          g.addColorStop(1, `rgba(${d.cr},${d.cg},${d.cb},0)`);
+          ctx.fillStyle = g;
+          ctx.beginPath();
+          ctx.arc(d.x, d.y, d.r*10, 0, Math.PI*2);
+          ctx.fill();
+        }
+        ctx.globalCompositeOperation = 'source-over';
+        requestAnimationFrame(tick);
+      }
+
+      resize(); seed(); tick();
+      window.addEventListener('resize', () => { resize(); seed(); }, { passive:true });
+    })();
+  </script>
+</body>
+</html>
+
+  Fixes in this version:
+  - Flame-orb logo no longer draws a black box: removed background rects from the embedded SVG mark. [1](https://onedrive.live.com/?id=6f7cbfa8-55c6-473a-8386-4b0b57121935&cid=7e854616d9872705&web=1)[2](https://onedrive.live.com?cid=7E854616D9872705&id=7E854616D9872705!s2708969a0df145f7b6f56a8fe89521b6)
+  - Added a right-side “Codex Bars” dock + slide-out panel using advanced UI features:
+    - IntersectionObserver scrollspy + reveal
+    - LocalStorage feature toggles (theme, cursor, scroll-snap, grid overlay, watermark strength)
+    - CSS variables + blend modes + masking-ish torn edges
+    - Optional reduced motion respect
+
+  IMPORTANT:
+  - Standalone example shell with placeholder content ONLY.
+  - No scoring logic, no production wiring.
+-->
+
+<!doctype html>
+<html lang="en" data-vm-theme="void" data-vm-colors="Placeholder Colors" data-vm-cursor="" data-vm-grid="off" data-vm-snap="off" data-vm-watermark="soft">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="dark" />
+  <title>Vox Mana — Placement Dossier (Example)</title>

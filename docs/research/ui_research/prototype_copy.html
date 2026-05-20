@@ -1,0 +1,1817 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Vox Mana</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&display=swap" rel="stylesheet" />
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<style>
+:root {
+  --bg: #050508;
+  --panel: rgba(255, 255, 255, 0.06);
+  --panel-strong: rgba(255, 255, 255, 0.10);
+  --line: rgba(255, 255, 255, 0.16);
+  --text: #ffffff;
+  --muted: rgba(255, 255, 255, 0.72);
+  --accent: #d8c27a;
+
+  --mana-white: #f7f0d0;
+  --mana-blue: #58b8ff;
+  --mana-black: #a46bea;
+  --mana-red: #ff6b55;
+  --mana-green: #63e58d;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(circle at 20% 10%, rgba(88, 184, 255, 0.12), transparent 24rem),
+    radial-gradient(circle at 80% 0%, rgba(164, 107, 234, 0.10), transparent 24rem),
+    linear-gradient(180deg, #080812, #000);
+  color: var(--text);
+  font-family: 'Cinzel', serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* NAV */
+.vm-nav {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.85rem clamp(1rem, 4vw, 2rem);
+  background: rgba(0, 0, 0, 0.72);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--line);
+}
+
+.vm-brand {
+  font-weight: 700;
+  letter-spacing: 0.12em;
+}
+
+.vm-nav-links {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 0.85rem;
+}
+
+.vm-nav-links a {
+  opacity: 0.78;
+}
+
+.vm-nav-links a:hover {
+  opacity: 1;
+  color: var(--accent);
+}
+
+.vm-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 0.7rem 1rem;
+  background: var(--panel);
+  transition: 0.2s ease;
+}
+
+.vm-button:hover {
+  transform: translateY(-2px);
+  background: var(--panel-strong);
+}
+
+.vm-button.primary {
+  background: linear-gradient(135deg, #fff2b0, #a9842f);
+  color: #111;
+  border: none;
+  font-weight: 700;
+}
+
+/* LAYOUT */
+.vm-shell {
+  width: min(1080px, calc(100% - 2rem));
+  margin: 0 auto;
+}
+
+section {
+  scroll-margin-top: 90px;
+}
+
+.vm-section {
+  padding: 4rem 0;
+}
+
+.vm-section h2 {
+  margin: 0 0 0.75rem;
+  text-align: center;
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+}
+
+.vm-section-intro {
+  max-width: 720px;
+  margin: 0 auto 2rem;
+  text-align: center;
+  color: var(--muted);
+  line-height: 1.65;
+}
+
+/* HERO */
+.vm-hero {
+  min-height: 58vh;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  padding: 5rem 0 3rem;
+}
+
+.vm-eyebrow {
+  color: var(--accent);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-size: 0.78rem;
+}
+
+.vm-hero h1 {
+  margin: 0.5rem 0;
+  font-size: clamp(3.5rem, 10vw, 7rem);
+  line-height: 0.9;
+  text-shadow: 0 0 30px rgba(255, 255, 255, 0.22);
+}
+
+.vm-hero p {
+  max-width: 780px;
+  margin: 1rem auto;
+  color: var(--muted);
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  line-height: 1.65;
+}
+
+.vm-actions {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  margin-top: 1.5rem;
+}
+
+/* CARDS */
+.vm-card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-top: -1rem;
+}
+
+.vm-card,
+.vm-panel {
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  padding: 1.25rem;
+  background: linear-gradient(180deg, rgba(255,255,255,0.075), rgba(255,255,255,0.035));
+  box-shadow: 0 22px 70px rgba(0,0,0,0.38);
+}
+
+.vm-card {
+  transition: 0.2s ease;
+}
+
+.vm-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(255,255,255,0.32);
+}
+
+.vm-card h3,
+.vm-panel h3 {
+  margin: 0 0 0.5rem;
+  font-size: 1.35rem;
+}
+
+.vm-card p,
+.vm-panel p {
+  margin: 0 0 1rem;
+  color: var(--muted);
+  line-height: 1.55;
+}
+
+.vm-cta {
+  color: var(--accent);
+  font-size: 0.86rem;
+}
+
+/* SIMPLE EXPLAINER */
+.vm-two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.vm-list {
+  display: grid;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.vm-list-item {
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 0.9rem;
+  background: rgba(255,255,255,0.04);
+}
+
+.vm-list-item strong {
+  color: var(--accent);
+}
+
+/* MAGIC BASICS */
+.vm-tabs {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  margin-bottom: 1rem;
+}
+
+.vm-tab {
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 0.7rem 0.9rem;
+  background: var(--panel);
+  color: var(--text);
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.vm-tab.active,
+.vm-tab:hover {
+  background: var(--panel-strong);
+  border-color: rgba(255,255,255,0.34);
+}
+
+.reveal,
+.vm-reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 420ms ease, transform 420ms ease;
+  will-change: opacity, transform;
+}
+
+.reveal.is-visible,
+.vm-reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.vm-reveal {
+  max-width: 780px;
+  margin: 0 auto;
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  padding: 1.25rem;
+  background: rgba(255,255,255,0.045);
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.vm-reveal .vm-inline-action {
+  margin-top: 1rem;
+}
+
+.vm-color-matrix-wrap {
+  margin-top: 1.5rem;
+}
+
+.vm-color-matrix-wrap[hidden] {
+  display: none;
+}
+
+.vm-color-matrix-heading {
+  max-width: 780px;
+  margin: 0 auto 1rem;
+  text-align: center;
+}
+
+.vm-color-matrix-heading h3 {
+  margin: 0 0 0.45rem;
+  font-size: clamp(1.35rem, 3vw, 2rem);
+}
+
+.vm-color-matrix-heading p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+/* COLOR MATRIX + RADAR */
+.vm-lab-panel {
+  padding: clamp(1rem, 3vw, 1.5rem);
+}
+
+.vm-lab-layout {
+  display: grid;
+  grid-template-columns: minmax(300px, 0.9fr) minmax(360px, 1.1fr);
+  gap: 1.25rem;
+  align-items: stretch;
+}
+
+.vm-selector-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.vm-selector-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 0.8rem;
+}
+
+.vm-selector-title h3 {
+  margin: 0;
+}
+
+.vm-selector-title span {
+  color: var(--muted);
+  font-size: 0.78rem;
+}
+
+.vm-lens-tabs,
+.vm-lens-subtabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+}
+
+.vm-lens-subtabs {
+  display: none;
+}
+
+.vm-lens-subtabs.show {
+  display: flex;
+}
+
+.vm-lens-tab,
+.vm-lens-subtab {
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 0.65rem 0.85rem;
+  background: rgba(255,255,255,0.045);
+  color: var(--text);
+  font-family: inherit;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.vm-controls {
+  display: flex;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+  margin: 0.8rem 0;
+}
+
+.vm-toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  color: var(--muted);
+  font-size: 0.86rem;
+}
+
+.vm-lens-tab:hover,
+.vm-lens-subtab:hover,
+.vm-lens-tab.active,
+.vm-lens-subtab.active {
+  background: var(--panel-strong);
+  border-color: rgba(255,255,255,0.36);
+  transform: translateY(-2px);
+}
+
+.vm-lens-tab.active,
+.vm-lens-subtab.active {
+  color: var(--accent);
+}
+
+.vm-lens-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.65rem;
+}
+
+.vm-lens-grid.mono {
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+
+.vm-lens-choice {
+  position: relative;
+  min-height: 72px;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  padding: 0.8rem;
+  background:
+    linear-gradient(135deg, rgba(255,255,255,0.075), rgba(255,255,255,0.03));
+  color: var(--text);
+  cursor: pointer;
+  font-family: inherit;
+  text-align: left;
+  overflow: hidden;
+  transition: 0.22s ease;
+}
+
+.vm-lens-choice::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  background: var(--choice-glow, transparent);
+  opacity: 0.18;
+  transition: 0.22s ease;
+}
+
+.vm-lens-choice:hover {
+  transform: translateY(-3px);
+  border-color: rgba(255,255,255,0.35);
+}
+
+.vm-lens-choice:hover::before,
+.vm-lens-choice.active::before {
+  opacity: 0.36;
+}
+
+.vm-lens-choice.active {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-color: rgba(255,255,255,0.42);
+}
+
+.vm-lens-choice > * {
+  position: relative;
+  z-index: 1;
+}
+
+.vm-lens-symbols {
+  display: block;
+  color: var(--accent);
+  font-size: 0.76rem;
+  letter-spacing: 0.04em;
+  margin-bottom: 0.18rem;
+}
+
+.vm-lens-name {
+  display: block;
+  font-size: 0.96rem;
+  font-weight: 700;
+}
+
+.vm-lens-mini {
+  display: block;
+  margin-top: 0.18rem;
+  color: var(--muted);
+  font-size: 0.72rem;
+  line-height: 1.35;
+}
+
+.vm-selected-card {
+  position: relative;
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  padding: 1rem;
+  background:
+    radial-gradient(circle at top right, rgba(216,194,122,0.12), transparent 12rem),
+    rgba(255,255,255,0.045);
+  overflow: hidden;
+}
+
+.vm-selected-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--selected-glow, transparent);
+  opacity: 0.2;
+  filter: blur(18px);
+  pointer-events: none;
+}
+
+.vm-selected-card > * {
+  position: relative;
+  z-index: 1;
+}
+
+.vm-selected-kicker {
+  color: var(--accent);
+  font-size: 0.75rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  margin-bottom: 0.4rem;
+}
+
+.vm-selected-card h3 {
+  margin: 0 0 0.5rem;
+  font-size: clamp(1.35rem, 3vw, 1.95rem);
+}
+
+.vm-selected-card p {
+  margin: 0.35rem 0;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.vm-overlay-line {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  align-items: center;
+  margin-top: 0.65rem;
+  color: var(--muted);
+  font-size: 0.82rem;
+}
+
+.vm-overlay-dot {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 0.3rem 0.5rem;
+  background: rgba(0,0,0,0.18);
+}
+
+.vm-axis-list {
+  display: grid;
+  gap: 0.55rem;
+  margin-top: 1rem;
+}
+
+.vm-axis {
+  display: grid;
+  grid-template-columns: 90px 1fr 42px;
+  gap: 0.65rem;
+  align-items: center;
+  font-size: 0.82rem;
+  color: var(--muted);
+}
+
+.vm-axis-bar {
+  height: 8px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.10);
+  overflow: hidden;
+}
+
+.vm-axis-fill {
+  display: block;
+  height: 100%;
+  width: 0;
+  border-radius: inherit;
+  background: var(--accent);
+  transition: width 0.45s ease, background 0.25s ease;
+}
+
+.vm-chart-wrap {
+  position: relative;
+  min-height: 460px;
+  overflow: hidden;
+  border-radius: 28px;
+}
+
+.vm-radar-glow {
+  position: absolute;
+  inset: 0;
+  opacity: 0.34;
+  filter: blur(28px);
+  pointer-events: none;
+  transition: 0.35s ease;
+  border-radius: 28px;
+}
+
+.vm-radar-card {
+  position: relative;
+  min-height: 540px;
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  background:
+    radial-gradient(circle at 50% 48%, rgba(255,255,255,0.07), rgba(255,255,255,0.025) 60%, rgba(0,0,0,0.08)),
+    rgba(0,0,0,0.18);
+  overflow: hidden;
+  padding: 1rem;
+}
+
+.vm-radar-glow {
+  position: absolute;
+  inset: 0;
+  opacity: 0.34;
+  filter: blur(28px);
+  pointer-events: none;
+  transition: 0.35s ease;
+}
+
+.vm-radar-wrap {
+  position: relative;
+  z-index: 2;
+  height: 450px;
+}
+
+#vmRadar {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.vm-radar-caption {
+  position: relative;
+  z-index: 2;
+  margin: 0.75rem 0 0;
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.82rem;
+}
+
+.vm-dataset-pills {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin-top: 0.7rem;
+}
+
+.vm-pill {
+  position: relative;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 0.35rem 0.55rem;
+  background: rgba(255,255,255,0.05);
+  color: var(--muted);
+  font-size: 0.75rem;
+  transition: background 0.25s ease, box-shadow 0.25s ease, color 0.25s ease, transform 0.25s ease;
+}
+
+.vm-pill.active {
+  background: rgba(255, 255, 255, 0.22);
+  color: #ffffff;
+  transform: translateY(-1px);
+  box-shadow: 0 0 24px rgba(216, 194, 122, 0.35), 0 0 10px rgba(255, 255, 255, 0.18);
+}
+
+.vm-pill.has-arrow {
+  margin-right: 0.85rem;
+  padding-right: 1rem;
+}
+
+.vm-pill.has-arrow::after {
+  content: "➜";
+  position: absolute;
+  top: 50%;
+  left: calc(100% + 0.25rem);
+  transform: translateY(-50%);
+  font-size: 0.95rem;
+  color: var(--accent);
+  opacity: 0.92;
+}
+
+.vm-pill[data-label="Rakdos"].active {
+  background: rgba(216, 110, 154, 0.24);
+  border-color: #d86e9a;
+  box-shadow: 0 0 28px rgba(216, 110, 154, 0.5), 0 0 12px rgba(255, 255, 255, 0.16);
+}
+
+.vm-pill[data-label="Rakdos"].active::after {
+  color: #d86e9a;
+}
+
+.vm-placeholder-note {
+  margin-top: 1rem;
+  padding: 0.85rem;
+  border: 1px dashed rgba(255,255,255,0.22);
+  border-radius: 16px;
+  color: var(--muted);
+}
+/* FOOTER */
+.vm-footer {
+  border-top: 1px solid var(--line);
+  padding: 2rem 0;
+  color: var(--muted);
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  font-size: 0.9rem;
+}
+
+.vm-backtop {
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.vm-backtop.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* RESPONSIVE */
+@media (max-width: 940px) {
+  .vm-lab-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .vm-radar-card {
+    min-height: 460px;
+  }
+
+  .vm-radar-wrap {
+    height: 380px;
+  }
+}
+
+@media (max-width: 820px) {
+  .vm-nav {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .vm-nav-links {
+    width: 100%;
+    overflow-x: auto;
+    padding-bottom: 0.25rem;
+  }
+
+  .vm-card-grid,
+  .vm-two-col {
+    grid-template-columns: 1fr;
+  }
+
+  .vm-hero {
+    min-height: auto;
+  }
+}
+
+@media (max-width: 560px) {
+  .vm-lens-grid,
+  .vm-lens-grid.mono {
+    grid-template-columns: 1fr;
+  }
+
+  .vm-axis {
+    grid-template-columns: 76px 1fr 36px;
+  }
+
+  .vm-radar-wrap {
+    height: 320px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<nav class="vm-nav">
+  <a class="vm-brand" href="#top">Vox Mana</a>
+
+  <div class="vm-nav-links">
+    <a href="#what">What is this?</a>
+    <a href="#basics">Magic Basics</a>
+    <a href="archscry.html">Archscry</a>
+    <a href="maze.html">Implicit Maze</a>
+    <a href="#library">Library</a>
+  </div>
+</nav>
+
+<main id="top" class="vm-shell">
+
+  <!-- HERO -->
+  <section class="vm-hero reveal">
+    <div>
+      <div class="vm-eyebrow">Color philosophy, identity, and lore</div>
+      <h1>Vox Mana</h1>
+      <p>
+        A simple starting point for exploring Magic: The Gathering through color philosophy,
+        personal placement, symbolic card meaning, and curated lore research.
+      </p>
+      <p>
+        Start with Archscry, learn the color system, or open the library when you are ready to go deeper.
+      </p>
+
+      <div class="vm-actions">
+        <a class="vm-button primary" href="archscry.html">Start Archscry</a>
+        <a class="vm-button" href="#library">Explore the Library</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PATHS -->
+  <section id="paths" class="vm-section">
+    <h2>Choose a Path</h2>
+    <p class="vm-section-intro">
+      Three simple doors into the site. Choose the path that matches what you came here to do.
+    </p>
+
+    <div class="vm-card-grid">
+      <a class="vm-card reveal" href="archscry.html">
+        <h3>Archscry</h3>
+        <p><strong>Find yourself.</strong> Take the placement quiz and discover the colors, guilds, schools, or factions that match your identity.</p>
+        <span class="vm-cta">Start Archscry →</span>
+      </a>
+
+      <a class="vm-card reveal" href="maze.html">
+        <h3>Implicit Maze</h3>
+        <p><strong>Search meaning.</strong> Explore cards through symbolic meaning, color logic, and hidden relationships.</p>
+        <span class="vm-cta">Open the maze →</span>
+      </a>
+
+      <a class="vm-card reveal" href="apocrypha.html">
+        <h3>Apocrypha</h3>
+        <p><strong>Read the lore.</strong> Browse curated lore, dossiers, essays, and research about Magic’s worlds and philosophies.</p>
+        <span class="vm-cta">Enter the library →</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- MAGIC BASICS -->
+  <section id="basics" class="vm-section">
+    <h2>Magic Basics</h2>
+    <p class="vm-section-intro">
+      New to Magic? Start here. Magic is a strategy card game built around five colors of mana.
+      Each color represents a philosophy, a way of solving problems, and a style of play.
+    </p>
+
+    <div class="vm-tabs">
+      <button class="vm-tab active" data-topic="pie">Color Pie</button>
+      <button class="vm-tab" data-topic="mana">Mana</button>
+      <button class="vm-tab" data-topic="decks">Decks</button>
+      <button class="vm-tab" data-topic="lore">Lore</button>
+      <button class="vm-tab" data-topic="gameplay">Gameplay</button>
+    </div>
+
+    <div class="vm-reveal" id="basicsReveal"></div>
+
+    <div id="colorMatrixWrap" class="vm-color-matrix-wrap" hidden>
+      <div class="vm-color-matrix-heading">
+        <h3>Color Matrix</h3>
+        <p>
+          A lightweight preview of the color identity model. The deeper placement experience belongs in Archscry.
+        </p>
+      </div>
+    <div class="vm-panel vm-lab-panel">
+      <div class="vm-lab-layout">
+
+        <div class="vm-selector-panel">
+          <div class="vm-selector-title">
+            <h3>Mana Lens</h3>
+            <span>Identity Selector v4</span>
+          </div>
+
+          <div class="vm-lens-tabs" id="lensTabs">
+            <button class="vm-lens-tab active" data-mode="mono">Mono</button>
+            <button class="vm-lens-tab" data-mode="guilds">Guilds</button>
+            <button class="vm-lens-tab" data-mode="colleges">Colleges</button>
+          </div>
+
+          <div class="vm-lens-subtabs" id="guildSubtabs">
+            <button class="vm-lens-subtab active" data-guild-group="allied">Allied</button>
+            <button class="vm-lens-subtab" data-guild-group="enemy">Enemy</button>
+          </div>
+
+          <div class="vm-lens-grid mono" id="identityGrid"></div>
+
+          <div class="vm-selected-card" id="selectedCard">
+            <div class="vm-selected-kicker" id="selectedKicker">Selected Profile</div>
+            <h3 id="colorTitle">White — Peace through Order</h3>
+            <p id="colorText">
+              White values structure, protection, community, duty, and shared stability. It asks how life can be made safer through order.
+            </p>
+            <div class="vm-overlay-line" id="overlayLine"></div>
+          </div>
+
+          <div class="vm-axis-list" id="axisList"></div>
+
+          <div class="vm-placeholder-note">
+            Color Matrix note: this preview shows how Magic colors can be read as identity patterns. Deeper placement belongs in Archscry.
+          </div>
+        </div>
+
+        <div class="vm-radar-card">
+          <div class="vm-controls">
+            <label class="vm-toggle"><input id="componentToggle" type="checkbox" checked /> show component colors</label>
+            <label class="vm-toggle"><input id="compositeToggle" type="checkbox" checked /> show synthesis</label>
+          </div>
+          <div class="vm-chart-wrap">
+            <div class="vm-radar-glow" id="radarGlow"></div>
+            <div class="vm-radar-wrap">
+              <canvas id="vmRadar" aria-label="Vox Mana color philosophy radar chart"></canvas>
+            </div>
+          </div>
+          <p class="vm-radar-caption" id="radarCaption">
+            Current profile: White
+          </p>
+          <div class="vm-dataset-pills" id="datasetPills"></div>
+        </div>
+
+      </div>
+    </div>
+    </div>
+  </section>
+
+  <!-- WHAT IS VOX MANA -->
+  <section id="what" class="vm-section">
+    <h2>What is Vox Mana?</h2>
+    <p class="vm-section-intro">
+      Vox Mana connects identity, color philosophy, placement, symbolic search, and curated research into one simple landing experience.
+    </p>
+
+    <div class="vm-two-col">
+      <div class="vm-panel">
+        <h3>The Simple Idea</h3>
+        <p>
+          Magic’s colors are more than game mechanics. They are philosophies: different ways of seeing power,
+          freedom, order, knowledge, growth, conflict, and belonging.
+        </p>
+        <p>
+          Vox Mana turns those ideas into tools for discovery, search, and research.
+        </p>
+      </div>
+
+      <div class="vm-panel">
+        <h3>What You Can Do Here</h3>
+        <div class="vm-list">
+          <div class="vm-list-item"><strong>Discover</strong> your color identity through Archscry.</div>
+          <div class="vm-list-item"><strong>Search</strong> cards through symbolic relationships.</div>
+          <div class="vm-list-item"><strong>Read</strong> curated lore and faction research.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- LIBRARY PREVIEW -->
+  <section id="library" class="vm-section">
+    <h2>Library Preview</h2>
+    <p class="vm-section-intro">
+      Apocrypha is the research side of Vox Mana: curated notes, faction dossiers, world lore, and deeper symbolic readings.
+    </p>
+
+    <div class="vm-card-grid">
+      <a class="vm-card reveal" href="apocrypha.html">
+        <h3>Lore Dossiers</h3>
+        <p>Curated research on planes, factions, characters, and worldbuilding patterns.</p>
+        <span class="vm-cta">Browse dossiers →</span>
+      </a>
+
+      <a class="vm-card reveal" href="apocrypha.html">
+        <h3>Faction Research</h3>
+        <p>Guilds, schools, clans, families, and other color expressions gathered into readable references.</p>
+        <span class="vm-cta">Explore factions →</span>
+      </a>
+
+      <a class="vm-card reveal" href="apocrypha.html">
+        <h3>Color Philosophy Notes</h3>
+        <p>Short essays connecting color philosophy, mechanics, identity, and symbolic interpretation.</p>
+        <span class="vm-cta">Read notes →</span>
+      </a>
+    </div>
+  </section>
+
+</main>
+
+<footer class="vm-shell vm-footer">
+  <span>Vox Mana — color philosophy, identity, and lore.</span>
+  <span>
+    <a href="#top">Back to top</a> ·
+    <a href="#what">What is this?</a> ·
+    <a href="#basics">Magic Basics</a> ·
+    <a href="archscry.html">Archscry</a> ·
+    <a href="maze.html">Maze</a> ·
+    <a href="apocrypha.html">Library</a>
+  </span>
+</footer>
+
+<a class="vm-button vm-backtop" id="backTop" href="#top">↑</a>
+
+<script>
+const basics = {
+  pie: `The Color Pie is Magic’s philosophical engine. White seeks order, Blue seeks knowledge, Black seeks power, Red seeks freedom, and Green seeks growth.<br><button class="vm-button vm-inline-action" type="button" data-show-color-matrix>Show the five colors</button>`,
+  mana: "Mana is the energy used to cast spells. In Vox Mana, mana also works as a symbolic language for values, instincts, and identity.",
+  decks: "A deck is a collection of cards used to play. Its colors and mechanics often reveal a style of thinking or problem-solving.",
+  lore: "Magic lore is the story layer: worlds, characters, factions, conflicts, gods, monsters, schools, guilds, and histories.",
+  gameplay: "Gameplay turns philosophy into action: rules, costs, risks, tempo, sacrifice, growth, control, combat, discovery, and chaos."
+};
+
+const basicsReveal = document.getElementById("basicsReveal");
+const colorMatrixWrap = document.getElementById("colorMatrixWrap");
+
+function getStoredMatrixPreference() {
+  return localStorage.getItem("vmColorMatrixVisible") === "1";
+}
+
+function setColorMatrixVisible(visible) {
+  colorMatrixWrap.hidden = !visible;
+  localStorage.setItem("vmColorMatrixVisible", visible ? "1" : "0");
+  updateMatrixButtonText();
+}
+
+function updateMatrixButtonText() {
+  const button = basicsReveal.querySelector("[data-show-color-matrix]");
+  if (!button) return;
+  button.textContent = colorMatrixWrap.hidden ? "Show the five colors" : "Hide the five colors";
+}
+
+function toggleColorMatrix() {
+  const isCurrentlyVisible = !colorMatrixWrap.hidden;
+  setColorMatrixVisible(!isCurrentlyVisible);
+
+  if (!isCurrentlyVisible) {
+    colorMatrixWrap.scrollIntoView({ behavior: "smooth", block: "start" });
+
+    window.setTimeout(() => {
+      if (typeof radarChart !== "undefined") {
+        radarChart.resize();
+        radarChart.update();
+      }
+    }, 80);
+  }
+}
+
+function setBasicsTopic(topic) {
+  basicsReveal.innerHTML = basics[topic] || basics.pie;
+
+  if (topic !== "pie") {
+    colorMatrixWrap.hidden = true;
+  } else {
+    setColorMatrixVisible(getStoredMatrixPreference());
+  }
+}
+
+document.querySelectorAll(".vm-tab").forEach(tab => {
+  tab.addEventListener("click", () => {
+    document.querySelectorAll(".vm-tab").forEach(t => t.classList.remove("active"));
+    tab.classList.add("active");
+    setBasicsTopic(tab.dataset.topic);
+  });
+});
+
+basicsReveal.addEventListener("click", event => {
+  if (event.target.matches("[data-show-color-matrix]")) {
+    toggleColorMatrix();
+  }
+});
+
+setBasicsTopic("pie");
+
+const colorProfiles = {
+  W: {
+    key: "W",
+    name: "White",
+    title: "White — Peace through Order",
+    text: "White values structure, protection, community, duty, and shared stability. It asks how life can be made safer through order.",
+    hex: "#f7f0d0",
+    data: [96, 42, 24, 30, 58]
+  },
+  U: {
+    key: "U",
+    name: "Blue",
+    title: "Blue — Perfection through Knowledge",
+    text: "Blue values learning, patience, improvement, planning, and possibility. It asks what life could become with enough understanding.",
+    hex: "#58b8ff",
+    data: [38, 98, 36, 34, 54]
+  },
+  B: {
+    key: "B",
+    name: "Black",
+    title: "Black — Power through Opportunity",
+    text: "Black values ambition, self-definition, pragmatism, and survival. It asks what you are willing to do to claim agency.",
+    hex: "#a46bea",
+    data: [30, 56, 98, 62, 42]
+  },
+  R: {
+    key: "R",
+    name: "Red",
+    title: "Red — Freedom through Action",
+    text: "Red values emotion, impulse, authenticity, passion, and expression. It asks what is true when you stop pretending.",
+    hex: "#ff6b55",
+    data: [36, 34, 58, 98, 62]
+  },
+  G: {
+    key: "G",
+    name: "Green",
+    title: "Green — Growth through Acceptance",
+    text: "Green values nature, instinct, tradition, interdependence, and belonging. It asks what you already are beneath the noise.",
+    hex: "#63e58d",
+    data: [62, 48, 38, 58, 98]
+  }
+};
+
+const identities = [
+  ...Object.values(colorProfiles).map(color => ({
+    id: color.key,
+    type: "mono",
+    group: "mono",
+    code: color.key,
+    name: color.name,
+    title: color.title,
+    text: color.text,
+    components: [color.key],
+    data: color.data,
+    hex: color.hex
+  })),
+
+  // Two-Color - Allied Guilds
+  {
+    id: "azorius",
+    group: "allied",
+    code: "WU",
+    name: "Azorius",
+    title: "Azorius — Law through Knowledge",
+    text: "Azorius blends White order with Blue planning. It seeks peace through systems, procedure, control, and carefully managed improvement.",
+    components: ["W", "U"],
+    data: [82, 78, 28, 26, 54],
+    hex: "#a8d9f5"
+  },
+  {
+    id: "dimir",
+    group: "allied",
+    code: "UB",
+    name: "Dimir",
+    title: "Dimir — Secrets through Control",
+    text: "Dimir blends Blue knowledge with Black ambition. It favors hidden information, memory, leverage, deception, and quiet control.",
+    components: ["U", "B"],
+    data: [34, 86, 76, 48, 46],
+    hex: "#7f93f2"
+  },
+  {
+    id: "rakdos",
+    group: "allied",
+    code: "BR",
+    name: "Rakdos",
+    title: "Rakdos — Appetite through Expression",
+    text: "Rakdos blends Black ambition with Red freedom. It turns desire, spectacle, indulgence, danger, and provocation into identity.",
+    components: ["B", "R"],
+    data: [32, 48, 84, 88, 48],
+    hex: "#d86e9a"
+  },
+  {
+    id: "gruul",
+    group: "allied",
+    code: "RG",
+    name: "Gruul",
+    title: "Gruul — Instinct through Action",
+    text: "Gruul blends Red freedom with Green instinct. It values impulse, survival, body-truth, terrain, revolt, and the wild beyond civilization.",
+    components: ["R", "G"],
+    data: [44, 38, 48, 86, 84],
+    hex: "#c7a96a"
+  },
+  {
+    id: "selesnya",
+    group: "allied",
+    code: "GW",
+    name: "Selesnya",
+    title: "Selesnya — Harmony through Belonging",
+    text: "Selesnya blends Green growth with White order. It seeks harmony, stewardship, collective purpose, shared life, and belonging.",
+    components: ["G", "W"],
+    data: [86, 44, 30, 42, 84],
+    hex: "#cde9a4"
+  },
+
+  // Two-Color - Enemy Guilds
+  {
+    id: "orzhov",
+    group: "enemy",
+    code: "WB",
+    name: "Orzhov",
+    title: "Orzhov — Obligation through Power",
+    text: "Orzhov blends White structure with Black ambition. It frames duty, debt, hierarchy, devotion, sacrifice, and power as binding systems.",
+    components: ["W", "B"],
+    data: [78, 48, 78, 42, 50],
+    hex: "#d3aedc"
+  },
+  {
+    id: "izzet",
+    group: "enemy",
+    code: "UR",
+    name: "Izzet",
+    title: "Izzet — Discovery through Impulse",
+    text: "Izzet blends Blue knowledge with Red freedom. It favors experiment, inspiration, volatility, invention, and sudden impossible insight.",
+    components: ["U", "R"],
+    data: [36, 86, 46, 82, 54],
+    hex: "#88a9d6"
+  },
+  {
+    id: "golgari",
+    group: "enemy",
+    code: "BG",
+    name: "Golgari",
+    title: "Golgari — Survival through Recursion",
+    text: "Golgari blends Black ambition with Green growth. It sees decay, hunger, grave-soil, renewal, inevitability, and survival as one cycle.",
+    components: ["B", "G"],
+    data: [42, 52, 82, 58, 82],
+    hex: "#84b68b"
+  },
+  {
+    id: "boros",
+    group: "enemy",
+    code: "RW",
+    name: "Boros",
+    title: "Boros — Conviction through Action",
+    text: "Boros blends Red freedom with White order. It channels courage, discipline, justice, coordinated force, and immediate moral action.",
+    components: ["R", "W"],
+    data: [84, 38, 46, 82, 62],
+    hex: "#efad84"
+  },
+  {
+    id: "simic",
+    group: "enemy",
+    code: "GU",
+    name: "Simic",
+    title: "Simic — Adaptation through Knowledge",
+    text: "Simic blends Green growth with Blue knowledge. It values mutation, research, guided evolution, optimization, and becoming.",
+    components: ["G", "U"],
+    data: [52, 84, 38, 46, 88],
+    hex: "#67d8c5"
+  },
+
+  // Two-Color - Strixhaven Colleges
+  {
+    id: "silverquill",
+    group: "strixhaven",
+    code: "WB",
+    name: "Silverquill",
+    title: "Silverquill — Language through Pressure",
+    text: "Silverquill overlays White structure and Black ambition through rhetoric, charisma, status, moral pressure, sharp critique, and words as weapons.",
+    components: ["W", "B"],
+    data: [82, 54, 74, 52, 42],
+    hex: "#efe2ff"
+  },
+  {
+    id: "prismari",
+    group: "strixhaven",
+    code: "UR",
+    name: "Prismari",
+    title: "Prismari — Art through Volatility",
+    text: "Prismari overlays Blue knowledge and Red freedom through elemental art, spectacle, inspiration, creativity, and expressive mastery.",
+    components: ["U", "R"],
+    data: [34, 78, 42, 88, 58],
+    hex: "#8bd0ff"
+  },
+  {
+    id: "witherbloom",
+    group: "strixhaven",
+    code: "BG",
+    name: "Witherbloom",
+    title: "Witherbloom — Life through Exchange",
+    text: "Witherbloom overlays Black ambition and Green growth through life-death craft, medicine, decay, nourishment, pests, and resource exchange.",
+    components: ["B", "G"],
+    data: [38, 46, 78, 58, 88],
+    hex: "#9bd36d"
+  },
+  {
+    id: "lorehold",
+    group: "strixhaven",
+    code: "RW",
+    name: "Lorehold",
+    title: "Lorehold — History through Action",
+    text: "Lorehold overlays Red freedom and White order through history, artifacts, memory, rhetoric, spirits, and action through legacy.",
+    components: ["R", "W"],
+    data: [78, 48, 42, 82, 64],
+    hex: "#ffce84"
+  },
+  {
+    id: "quandrix",
+    group: "strixhaven",
+    code: "GU",
+    name: "Quandrix",
+    title: "Quandrix — Pattern through Growth",
+    text: "Quandrix overlays Green growth and Blue knowledge through mathematics, pattern, scale, nature as equation, and impossible geometry.",
+    components: ["G", "U"],
+    data: [48, 88, 34, 46, 84],
+    hex: "#78e6ca"
+  }
+];
+
+const axisLabels = ["Order", "Knowledge", "Ambition", "Freedom", "Growth"];
+
+const resonanceTiers = [
+  { max: 20, label: "Dormant" },
+  { max: 40, label: "Stirring" },
+  { max: 60, label: "Aligned" },
+  { max: 80, label: "Resonant" },
+  { max: 100, label: "Dominant" }
+];
+
+function valueToResonanceTier(value) {
+  const tier = resonanceTiers.find(t => value <= t.max);
+  return tier ? tier.label : "";
+}
+
+function hexToRgba(hex, alpha) {
+  const clean = hex.replace("#", "");
+  const r = parseInt(clean.substring(0, 2), 16);
+  const g = parseInt(clean.substring(2, 4), 16);
+  const b = parseInt(clean.substring(4, 6), 16);
+  return `rgba(${r}, ${g}, ${b}, ${alpha})`;
+}
+
+function blendGradient(hexes) {
+  if (!hexes || !hexes.length) {
+    return `radial-gradient(circle at center, rgba(255,255,255,0.2), transparent 62%)`;
+  }
+
+  if (hexes.length === 1) {
+    return `radial-gradient(circle at center, ${hexToRgba(hexes[0], 0.35)}, transparent 62%)`;
+  }
+
+  const stops = hexes.map((hex, index) => {
+    const position = ["35% 38%", "65% 62%", "50% 50%"][index] || "50% 50%";
+    return `radial-gradient(circle at ${position}, ${hexToRgba(hex, 0.35 / (index + 1))}, transparent 62%)`;
+  });
+
+  return [
+    ...stops,
+    `radial-gradient(circle at center, ${hexToRgba(hexes[0], 0.18)}, transparent 68%)`
+  ].join(",");
+}
+
+function radialFill(chart, hexes) {
+  if (!chart || !chart.chartArea) {
+    return hexToRgba(hexes?.[0] || "#ffffff", 0.12);
+  }
+
+  const { left, right, top, bottom } = chart.chartArea;
+  const cx = (left + right) / 2;
+  const cy = (top + bottom) / 2;
+  const radius = Math.max(right - left, bottom - top) / 2;
+  const gradient = chart.ctx.createRadialGradient(cx, cy, 0, cx, cy, radius);
+  const stops = Math.max(2, hexes.length);
+
+  hexes.forEach((hex, index) => {
+    gradient.addColorStop(index / (stops - 1), hexToRgba(hex, 0.22));
+  });
+
+  gradient.addColorStop(1, "rgba(0,0,0,0)");
+  return gradient;
+}
+
+function manaSymbols(code) {
+  return code.split("").map(symbol => `{${symbol}}`).join("");
+}
+
+function findIdentity(id) {
+  return identities.find(identity => identity.id === id || identity.key === id);
+}
+
+function renderAxisList(identity) {
+  const axisList = document.getElementById("axisList");
+  axisList.innerHTML = axisLabels.map((label, index) => {
+    const value = identity.data[index];
+    return `
+      <div class="vm-axis">
+        <span>${label}</span>
+        <span class="vm-axis-bar">
+          <span class="vm-axis-fill" style="width:${value}%; background:${identity.hex};"></span>
+        </span>
+        <span>${value} — ${valueToResonanceTier(value)}</span>
+      </div>
+    `;
+  }).join("");
+}
+
+const radarCanvas = document.getElementById("vmRadar");
+const radarContext = radarCanvas.getContext("2d");
+
+const vmGlow = {
+  id: "vmGlow",
+  beforeDatasetDraw(chart, args) {
+    const ds = chart.data.datasets[args.index];
+    const ctx = chart.ctx;
+    ctx.save();
+    ctx.globalCompositeOperation = "lighter";
+    ctx.shadowColor = ds.borderColor || "rgba(255,255,255,0.6)";
+    ctx.shadowBlur = ds._vmGlowBlur ?? 18;
+    ctx.shadowOffsetX = 0;
+    ctx.shadowOffsetY = 0;
+  },
+  afterDatasetDraw(chart) {
+    chart.ctx.restore();
+  }
+};
+
+const vmHalo = {
+  id: "vmHalo",
+  beforeDraw(chart) {
+    const { ctx, chartArea } = chart;
+    if (!chartArea) return;
+    const cx = (chartArea.left + chartArea.right) / 2;
+    const cy = (chartArea.top + chartArea.bottom) / 2;
+    const radius = Math.max(chartArea.right - chartArea.left, chartArea.bottom - chartArea.top) / 2;
+    const gradient = ctx.createRadialGradient(cx, cy, 0, cx, cy, radius);
+    gradient.addColorStop(0, "rgba(216,194,122,0.035)");
+    gradient.addColorStop(0.6, "rgba(216,194,122,0.02)");
+    gradient.addColorStop(1, "rgba(0,0,0,0)");
+    ctx.save();
+    ctx.globalCompositeOperation = "destination-over";
+    ctx.fillStyle = gradient;
+    ctx.fillRect(chartArea.left, chartArea.top, chartArea.right - chartArea.left, chartArea.bottom - chartArea.top);
+    ctx.restore();
+  }
+};
+
+const vmTierLabels = {
+  id: "vmTierLabels",
+  afterDatasetDraw(chart, args) {
+    const dataset = chart.data.datasets[args.index];
+    if (!dataset.tierLabels) return;
+
+    const ctx = chart.ctx;
+    const meta = chart.getDatasetMeta(args.index);
+    const centerY = (chart.chartArea.top + chart.chartArea.bottom) / 2;
+
+    ctx.save();
+    ctx.fillStyle = "rgba(255,255,255,0.9)";
+    ctx.font = "500 11px Cinzel";
+    ctx.textAlign = "center";
+
+    meta.data.forEach((point, index) => {
+      const axis = chart.data.labels[index];
+      if (axis === "Order") return;
+
+      const value = dataset.data[index];
+      const tier = valueToResonanceTier(Number(value));
+      if (!tier) return;
+
+      const x = point.x;
+      const y = point.y;
+      const offsetY = y < centerY ? -10 : 16;
+      const offsetX = x < chart.chartArea.left + 20 ? 14 : x > chart.chartArea.right - 20 ? -14 : 0;
+
+      ctx.fillText(tier, x + offsetX, y + offsetY);
+    });
+
+    ctx.restore();
+  }
+};
+
+const radarChart = new Chart(radarContext, {
+  plugins: [vmHalo, vmGlow, vmTierLabels],
+  type: "radar",
+  data: {
+    labels: axisLabels,
+    datasets: []
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    animation: {
+      duration: 850,
+      easing: "easeInOutQuart"
+    },
+    interaction: {
+      mode: "nearest",
+      intersect: false
+    },
+    plugins: {
+      legend: {
+        position: "bottom",
+        labels: {
+          color: "rgba(255,255,255,0.84)",
+          padding: 14,
+          font: {
+            size: 12,
+            family: "Cinzel"
+          }
+        }
+      },
+      tooltip: {
+        callbacks: {
+          label: context => {
+            const value = context.raw ?? context.parsed?.r ?? context.formattedValue;
+            const tier = valueToResonanceTier(Number(value));
+            return `${context.dataset.label}: ${context.formattedValue}${tier ? ` — ${tier}` : ""}`;
+          }
+        }
+      }
+    },
+    scales: {
+      r: {
+        min: 0,
+        max: 100,
+        ticks: {
+          color: "rgba(255,255,255,0.55)",
+          backdropColor: "transparent",
+          stepSize: 20,
+          callback: value => {
+            const ringLabels = {
+            };
+            return ringLabels[value] || "";
+          }
+        },
+        angleLines: {
+          color: "rgba(240, 197, 106, 0.25)"
+        },
+        grid: {
+          color: "rgba(240, 197, 106, 0.22)"
+        },
+        pointLabels: {
+          color: "#ffffff",
+          font: {
+            size: 14,
+            weight: "700"
+          }
+        }
+      }
+    }
+  }
+});
+
+function buildDatasets(identity) {
+  const datasets = [];
+  const compOn = document.getElementById("componentToggle")?.checked ?? true;
+  const synOn = document.getElementById("compositeToggle")?.checked ?? true;
+
+  if (identity.components.length > 1 && compOn) {
+    identity.components.forEach(componentKey => {
+      const component = colorProfiles[componentKey];
+      datasets.push({
+        label: component.name,
+        data: component.data,
+        backgroundColor: hexToRgba(component.hex, 0.05),
+        borderColor: hexToRgba(component.hex, 0.82),
+        borderWidth: 2,
+        borderDash: [6, 5],
+        pointBackgroundColor: component.hex,
+        pointBorderColor: "#ffffff",
+        pointBorderWidth: 1,
+        pointRadius: 4,
+        pointHoverRadius: 8,
+        pointHoverBorderWidth: 3,
+        tension: 0.22,
+        _vmGlowBlur: 12
+      });
+    });
+  }
+
+  if (synOn || identity.components.length === 1) {
+    datasets.push({
+      label: identity.name,
+      data: identity.data,
+      backgroundColor: identity.components.length > 1
+        ? radialFill(radarChart, identity.components.map(key => colorProfiles[key].hex))
+        : hexToRgba(identity.hex, 0.22),
+      borderColor: identity.hex,
+      borderWidth: 3,
+      pointBackgroundColor: identity.hex,
+      pointBorderColor: "#ffffff",
+      pointBorderWidth: 2,
+      pointRadius: 6,
+      pointHoverRadius: 11,
+      pointHoverBorderWidth: 4,
+      tension: 0.22,
+      tierLabels: true,
+      _vmGlowBlur: 26
+    });
+  }
+
+  return datasets;
+}
+
+function updateGlow(identity) {
+  const glowHexes = identity.components.length > 1
+    ? identity.components.map(key => colorProfiles[key].hex)
+    : [identity.hex];
+
+  document.getElementById("radarGlow").style.background = blendGradient(glowHexes);
+}
+
+const lensState = {
+  mode: "mono",
+  guildGroup: "allied",
+  selectedId: "W"
+};
+
+function blendChoiceGlow(identity) {
+  if (identity.components.length === 1) {
+    return `radial-gradient(circle at top right, ${hexToRgba(identity.hex, 0.38)}, transparent 70%)`;
+  }
+
+  const first = colorProfiles[identity.components[0]].hex;
+  const second = colorProfiles[identity.components[1]].hex;
+
+  return `
+    radial-gradient(circle at 20% 20%, ${hexToRgba(first, 0.34)}, transparent 55%),
+    radial-gradient(circle at 80% 80%, ${hexToRgba(second, 0.34)}, transparent 55%)
+  `;
+}
+
+function getVisibleIdentities() {
+  if (lensState.mode === "mono") {
+    return identities.filter(identity => identity.group === "mono");
+  }
+
+  if (lensState.mode === "guilds") {
+    return identities.filter(identity => identity.group === lensState.guildGroup);
+  }
+
+  return identities.filter(identity => identity.group === "strixhaven");
+}
+
+function renderIdentityGrid() {
+  const grid = document.getElementById("identityGrid");
+  const visibleIdentities = getVisibleIdentities();
+
+  grid.classList.toggle("mono", lensState.mode === "mono");
+
+  grid.innerHTML = visibleIdentities.map(identity => `
+    <button
+      class="vm-lens-choice ${identity.id === lensState.selectedId ? "active" : ""}"
+      data-id="${identity.id}"
+      style="--choice-glow:${blendChoiceGlow(identity).replace(/\n/g, " ")}"
+    >
+      <span class="vm-lens-symbols">${manaSymbols(identity.code)}</span>
+      <span class="vm-lens-name">${identity.name}</span>
+      <span class="vm-lens-mini">${identity.components.length > 1 ? identity.components.map(key => colorProfiles[key].name).join(" + ") : "Core color profile"}</span>
+    </button>
+  `).join("");
+
+  document.querySelectorAll(".vm-lens-choice").forEach(choice => {
+    choice.addEventListener("click", () => updateRadar(choice.dataset.id));
+  });
+}
+
+function setLensMode(mode) {
+  lensState.mode = mode;
+
+  document.querySelectorAll(".vm-lens-tab").forEach(tab => {
+    tab.classList.toggle("active", tab.dataset.mode === mode);
+  });
+
+  document.getElementById("guildSubtabs").classList.toggle("show", mode === "guilds");
+
+  const visibleIdentities = getVisibleIdentities();
+  const currentlyVisible = visibleIdentities.some(identity => identity.id === lensState.selectedId);
+
+  if (!currentlyVisible && visibleIdentities.length) {
+    lensState.selectedId = visibleIdentities[0].id;
+  }
+
+  renderIdentityGrid();
+  updateRadar(lensState.selectedId, false);
+}
+
+function setGuildGroup(group) {
+  lensState.guildGroup = group;
+
+  document.querySelectorAll(".vm-lens-subtab").forEach(tab => {
+    tab.classList.toggle("active", tab.dataset.guildGroup === group);
+  });
+
+  const visibleIdentities = getVisibleIdentities();
+  lensState.selectedId = visibleIdentities[0].id;
+
+  renderIdentityGrid();
+  updateRadar(lensState.selectedId, false);
+}
+
+function updateSelectedCard(identity) {
+  document.getElementById("selectedKicker").textContent =
+    identity.components.length > 1 ? "Selected Synthesis" : "Selected Profile";
+
+  document.getElementById("colorTitle").textContent = identity.title;
+  document.getElementById("colorText").textContent = identity.text;
+
+  const selectedCard = document.getElementById("selectedCard");
+  selectedCard.style.setProperty("--selected-glow", blendChoiceGlow(identity));
+
+  const overlayLine = document.getElementById("overlayLine");
+
+  if (identity.components.length === 1) {
+    overlayLine.innerHTML = `
+      <span>Profile:</span>
+      <span class="vm-overlay-dot" style="border-color:${identity.hex};">${identity.name}</span>
+    `;
+    return;
+  }
+
+  const componentDots = identity.components.map(key => {
+    const component = colorProfiles[key];
+    return `<span class="vm-overlay-dot" style="border-color:${component.hex};">${component.name}</span>`;
+  }).join("");
+
+  overlayLine.innerHTML = `
+    <span>Overlay:</span>
+    ${componentDots}
+    <span>→</span>
+    <span class="vm-overlay-dot" style="border-color:${identity.hex}; color:${identity.hex};">${identity.name}</span>
+  `;
+}
+
+function updateActiveLensChoice(identity) {
+  lensState.selectedId = identity.id;
+
+  document.querySelectorAll(".vm-lens-choice").forEach(choice => {
+    choice.classList.toggle("active", choice.dataset.id === identity.id);
+  });
+}
+
+function updateDatasetPills(datasets, identity) {
+  document.getElementById("datasetPills").innerHTML = datasets.map(dataset => {
+    const isActive = identity && dataset.label === identity.name;
+    const lastComponentName = identity && identity.components.length > 1
+      ? colorProfiles[identity.components[identity.components.length - 1]].name
+      : null;
+    const showArrow = identity && identity.components.length > 1 && dataset.label === lastComponentName;
+    return `
+      <span class="vm-pill${isActive ? " active" : ""}${showArrow ? " has-arrow" : ""}" data-label="${dataset.label}" style="border-color:${dataset.borderColor};">${dataset.label}</span>
+    `;
+  }).join("");
+}
+
+function updateRadar(identityId, refreshGrid = true) {
+  const identity = findIdentity(identityId);
+  if (!identity) return;
+
+  const datasets = buildDatasets(identity);
+
+  document.getElementById("radarCaption").textContent =
+    `Current profile: ${identity.name}`;
+
+  radarChart.data.datasets = datasets;
+  radarChart.update();
+
+  renderAxisList(identity);
+  updateGlow(identity);
+  updateSelectedCard(identity);
+  updateActiveLensChoice(identity);
+  updateDatasetPills(datasets, identity);
+
+  if (refreshGrid) {
+    renderIdentityGrid();
+  }
+}
+
+document.getElementById("componentToggle").addEventListener("change", () => updateRadar(lensState.selectedId, false));
+document.getElementById("compositeToggle").addEventListener("change", () => updateRadar(lensState.selectedId, false));
+
+document.querySelectorAll(".vm-lens-tab").forEach(tab => {
+  tab.addEventListener("click", () => setLensMode(tab.dataset.mode));
+});
+
+document.querySelectorAll(".vm-lens-subtab").forEach(tab => {
+  tab.addEventListener("click", () => setGuildGroup(tab.dataset.guildGroup));
+});
+
+function initRevealObserver() {
+  const reveals = document.querySelectorAll(".reveal, .vm-reveal");
+  if (!reveals.length) return;
+
+  const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (prefersReducedMotion) {
+    reveals.forEach(el => el.classList.add("is-visible"));
+    return;
+  }
+
+  const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("is-visible");
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+
+  reveals.forEach(el => {
+    el.addEventListener("focusin", () => el.classList.add("is-visible"));
+    observer.observe(el);
+  });
+}
+
+renderIdentityGrid();
+updateRadar("W", false);
+initRevealObserver();
+
+const backTop = document.getElementById("backTop");
+window.addEventListener("scroll", () => {
+  backTop.classList.toggle("show", window.scrollY > 500);
+});
+</script>
+
+</body>
+</html>

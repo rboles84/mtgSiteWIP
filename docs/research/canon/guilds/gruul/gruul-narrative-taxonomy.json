@@ -1,0 +1,216 @@
+{
+  "schema_version": "vox-mana-narrative-taxonomy-v1",
+  "identity": "gruul",
+  "core_axiom": "The body knows before the law finishes speaking.",
+  "primary_tension": "freedom through instinctive force, not planned permission",
+  "high_level_read": [
+    "impulse and instinct are trusted before abstraction",
+    "the body is a source of truth",
+    "terrain, creatures, and emotion are active forces",
+    "obstacles are tested by impact",
+    "growth matters when it becomes motion",
+    "combat is the proof layer"
+  ],
+  "core_axes": [
+    {
+      "axis": "Impulse + Instinct",
+      "question": "What does the body know before thought arrives?",
+      "mechanics": [
+        "haste",
+        "attack triggers",
+        "immediate pressure"
+      ],
+      "ui_signal": "move before the room explains itself"
+    },
+    {
+      "axis": "Riot Choice",
+      "question": "Do you need speed now or size next?",
+      "mechanics": [
+        "riot",
+        "haste",
+        "+1/+1 counters"
+      ],
+      "ui_signal": "hit now / hit harder"
+    },
+    {
+      "axis": "Bloodrush Translation",
+      "question": "Is this card a creature or an impact?",
+      "mechanics": [
+        "bloodrush",
+        "combat tricks",
+        "attack-only pump"
+      ],
+      "ui_signal": "body becomes burst"
+    },
+    {
+      "axis": "Trample Logic",
+      "question": "What happens when blockers stop being enough?",
+      "mechanics": [
+        "trample",
+        "double strike",
+        "forced blocks"
+      ],
+      "ui_signal": "through, not around"
+    },
+    {
+      "axis": "Terrain Muscle",
+      "question": "What if land is not scenery?",
+      "mechanics": [
+        "landfall",
+        "attack-mana",
+        "land animation",
+        "ramp"
+      ],
+      "ui_signal": "the ground joins the charge"
+    },
+    {
+      "axis": "Anti-Obstacle Force",
+      "question": "What breaks law, machinery, control, or delay?",
+      "mechanics": [
+        "artifact/enchantment removal",
+        "anti-countermagic",
+        "noncreature punishment"
+      ],
+      "ui_signal": "break the quiet parts"
+    },
+    {
+      "axis": "Pack Momentum",
+      "question": "When do many bodies become a stampede?",
+      "mechanics": [
+        "creature chains",
+        "anthems",
+        "attack scaling"
+      ],
+      "ui_signal": "one body starts the herd"
+    }
+  ],
+  "archetypes": [
+    {
+      "name": "The Riot Spark",
+      "drive": "force the first move before control stabilizes",
+      "cards": [
+        "Zhur-Taa Goblin",
+        "Gruul Spellbreaker",
+        "Rhythm of the Wild",
+        "Domri, Chaos Bringer"
+      ],
+      "line": "Choose: now or harder."
+    },
+    {
+      "name": "The Bloodrush Translator",
+      "drive": "turn a creature card into a combat event",
+      "cards": [
+        "Ghor-Clan Rampager",
+        "Rubblehulk",
+        "Wrecking Ogre",
+        "Wasteland Viper",
+        "Slaughterhorn"
+      ],
+      "line": "The body does not have to enter the battlefield to hit."
+    },
+    {
+      "name": "The Stomping Ground",
+      "drive": "make terrain part of the attack",
+      "cards": [
+        "Stomping Ground",
+        "Gruul Turf",
+        "Skarrg, the Rage Pits",
+        "Mina and Denn, Wildborn",
+        "Omnath, Locus of Rage"
+      ],
+      "line": "The land is not passive under Gruul feet."
+    },
+    {
+      "name": "The Anti-Machine",
+      "drive": "punish delicate systems, control shells, and engineered delay",
+      "cards": [
+        "Cindervines",
+        "Burning-Tree Shaman",
+        "Ruric Thar, the Unbowed",
+        "Rhythm of the Wild"
+      ],
+      "line": "Every clever lever has thorns."
+    },
+    {
+      "name": "The Apex Charge",
+      "drive": "make one threat large enough to collapse the problem",
+      "cards": [
+        "Xenagos, God of Revels",
+        "Atarka, World Render",
+        "Dragonlord Atarka",
+        "Ghalta, Primal Hunger",
+        "Goreclaw, Terror of Qal Sisma"
+      ],
+      "line": "One body can become the whole stampede."
+    },
+    {
+      "name": "The Combat Accountant",
+      "drive": "count only what survives contact",
+      "cards": [
+        "Neyith of the Dire Hunt",
+        "Domri Rade",
+        "Domri, Anarch of Bolas",
+        "Clan Defiance"
+      ],
+      "line": "The fight is the report."
+    },
+    {
+      "name": "The Pack Engine",
+      "drive": "let one creature make the next creature more dangerous",
+      "cards": [
+        "Burning-Tree Emissary",
+        "Rubblebelt Raiders",
+        "Gruul War Chant",
+        "Raggadragga, Goreguts Boss",
+        "Savage Ventmaw"
+      ],
+      "line": "The herd becomes a resource."
+    }
+  ],
+  "progression": [
+    "Pressure Builds",
+    "Body Signal",
+    "Riot Choice",
+    "Impact Translation",
+    "Aftershock",
+    "Uncontained Motion"
+  ],
+  "maze_search_families": [
+    {
+      "family": "Riot Pressure",
+      "seed": "ci=gruul (o:riot OR o:haste OR o:\"+1/+1 counter\")"
+    },
+    {
+      "family": "Bloodrush Combat",
+      "seed": "ci<=gruul o:bloodrush"
+    },
+    {
+      "family": "Trample Finishers",
+      "seed": "ci=gruul o:trample pow>=5"
+    },
+    {
+      "family": "Fight/Hunt Removal",
+      "seed": "ci=gruul (o:fight OR o:\"deals damage to target creature\")"
+    },
+    {
+      "family": "Anti-Control Bodies",
+      "seed": "ci=gruul (o:noncreature OR o:\"can't be countered\" OR o:countered)"
+    },
+    {
+      "family": "Land to Impact",
+      "seed": "ci=gruul (o:landfall OR o:land OR o:add) (o:damage OR o:trample OR o:creature)"
+    },
+    {
+      "family": "Pack Momentum",
+      "seed": "ci=gruul (o:attacks OR o:\"creatures you control\" OR o:haste)"
+    }
+  ],
+  "drift_guardrails": {
+    "rakdos": "Remove performance language. Add land, body, impact, trample, or anti-obstacle pressure.",
+    "golgari": "Replace burial/rot language with stomp, charge, land, bloodrush, riot, or aftershock.",
+    "selesnya": "Make the group physical and untamed, not peaceful or moralized.",
+    "simic": "Remove laboratory/perfection language. Add instinctive size, territory, and collision.",
+    "boros": "Remove duty, formation, and justice. Add impulse, wildness, and physical consequence."
+  },
+  "compression_line": "If it blocks life, hit it with life."
+}

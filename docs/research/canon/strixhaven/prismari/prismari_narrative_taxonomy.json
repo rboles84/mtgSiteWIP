@@ -1,0 +1,204 @@
+{
+  "schema_version": "vox-mana-narrative-taxonomy-v1",
+  "school": "Prismari",
+  "core_axiom": "Prismari believes magic is most true when it becomes art in motion.",
+  "primary_question": "Is the self expressed through disciplined technique, emotional release, or the charged collision between them?",
+  "taxonomy": [
+    {
+      "id": "founder_axiom",
+      "label": "Founder Axiom",
+      "summary": "Galazeth/Prismari-style identity: elemental force becomes art and art becomes operational power.",
+      "signals": [
+        "founder dragon",
+        "elder inspiration",
+        "resource conversion",
+        "storm-like copying"
+      ],
+      "cards": [
+        "Galazeth Prismari",
+        "Prismari, the Inspiration"
+      ],
+      "ui_panel_copy": "Your spellcraft wants to be seen, but not merely as display. It wants the display to do work."
+    },
+    {
+      "id": "technique_vs_emotion",
+      "label": "Technique vs. Emotion",
+      "summary": "Blue frames the craft; red supplies the courage, heat, and immediacy.",
+      "signals": [
+        "training",
+        "copying",
+        "rehearsal",
+        "breakthrough",
+        "risk"
+      ],
+      "cards": [
+        "Teach by Example",
+        "Practical Research",
+        "Prismari Apprentice",
+        "Expressive Iteration"
+      ],
+      "ui_panel_copy": "You are not choosing between control and passion; you are looking for the moment where they intensify each other."
+    },
+    {
+      "id": "spectacle_as_truth",
+      "label": "Spectacle as Truth",
+      "summary": "The huge spell is not excess; it is the honest scale of the feeling or idea.",
+      "signals": [
+        "big spells",
+        "expensive spells matter",
+        "damage + draw",
+        "stage reveal"
+      ],
+      "cards": [
+        "Magma Opus",
+        "Creative Outburst",
+        "Spectacle Mage",
+        "Zaffai, Thunder Conductor"
+      ],
+      "ui_panel_copy": "Some truths are too large for a quiet answer. Prismari lets the answer arrive as a performance."
+    },
+    {
+      "id": "elemental_medium",
+      "label": "Elemental Medium",
+      "summary": "Fire, water, wind, ice, magma, lightning, and color are not effects; they are the materials of expression.",
+      "signals": [
+        "Elemental tokens",
+        "elemental transformation",
+        "living artwork",
+        "weather and color"
+      ],
+      "cards": [
+        "Elemental Masterpiece",
+        "Resculpt",
+        "Colorstorm Stallion",
+        "Scorched Geyser"
+      ],
+      "ui_panel_copy": "Your medium is not paint or ink alone. The weather, the floor, the heat in the room\u2014everything can become part of the spell."
+    },
+    {
+      "id": "performed_research",
+      "label": "Performed Research",
+      "summary": "Study is not hidden in a notebook. It happens through practice, revision, and public experiment.",
+      "signals": [
+        "card selection",
+        "modal questions",
+        "study as motion",
+        "revision loops"
+      ],
+      "cards": [
+        "Multiple Choice",
+        "Practical Research",
+        "Expressive Iteration",
+        "Rootha, Mercurial Artist"
+      ],
+      "ui_panel_copy": "You learn by staging the experiment, watching what changes, and then restaging it with more intention."
+    },
+    {
+      "id": "improvised_breakthrough",
+      "label": "Improvised Breakthrough",
+      "summary": "The best moment may be the one the plan could not predict, but the craft can still carry it.",
+      "signals": [
+        "reinterpretation",
+        "free casting",
+        "demonstrate",
+        "red rupture"
+      ],
+      "cards": [
+        "Reinterpret",
+        "Creative Technique",
+        "Muse Vortex",
+        "Splatter Technique"
+      ],
+      "ui_panel_copy": "The plan is useful until it becomes a cage. Then Prismari breaks it with style."
+    },
+    {
+      "id": "rhythmic_study",
+      "label": "Rhythmic Study",
+      "summary": "Some Prismari patterns arrive like music: suspend, refrain, countdown, repetition, and release.",
+      "signals": [
+        "suspend",
+        "recurring cadence",
+        "music",
+        "countdown"
+      ],
+      "cards": [
+        "Inspiring Refrain",
+        "Rousing Refrain",
+        "Prismari Pianist"
+      ],
+      "ui_panel_copy": "A delayed spell is not waiting; it is keeping time. The payoff lands on the downbeat."
+    },
+    {
+      "id": "duality_amplifier",
+      "label": "Duality Amplifier",
+      "summary": "Prismari doubles the event: one spell becomes two triggers, one voice becomes an echo, one performance becomes a room-wide reaction.",
+      "signals": [
+        "magecraft",
+        "copy",
+        "trigger doubling",
+        "echo"
+      ],
+      "cards": [
+        "Veyran, Voice of Duality",
+        "Rootha, Mercurial Artist",
+        "Teach by Example"
+      ],
+      "ui_panel_copy": "The point is not more for its own sake. The echo reveals what the first cast could not say alone."
+    },
+    {
+      "id": "resource_residue",
+      "label": "Resource Residue",
+      "summary": "Every spell leaves something behind: treasure, counters, graveyard material, or future charge.",
+      "signals": [
+        "treasure",
+        "graveyard fuel",
+        "spell count",
+        "accretion"
+      ],
+      "cards": [
+        "Storm-Kiln Artist",
+        "Tome Shredder",
+        "Elementalist's Palette",
+        "Galazeth Prismari"
+      ],
+      "ui_panel_copy": "Prismari does not waste expression. Even the sparks become fuel for the next impossible thing."
+    },
+    {
+      "id": "kinetic_technique",
+      "label": "Kinetic Technique",
+      "summary": "Dance, attack, gesture, and bodily motion shape the spell as much as words or formulas.",
+      "signals": [
+        "attack triggers",
+        "dance",
+        "choreography",
+        "combat copies"
+      ],
+      "cards": [
+        "Maelstrom Muse",
+        "Rionya, Fire Dancer",
+        "Visionary's Dance",
+        "Surge to Victory"
+      ],
+      "ui_panel_copy": "The body is part of the spell diagram. Motion is the syntax."
+    }
+  ],
+  "false_positive_guardrails": [
+    "Do not classify generic blue-red artifact science as Prismari unless it has performance, elemental art, or big-spell expression.",
+    "Do not over-index on chaos. Prismari expression is often rehearsed, choreographed, or framed.",
+    "Do not reduce Prismari to 'spellslinger'. Its distinctive Strixhaven expression is big, elemental, artistic, and theatrical."
+  ],
+  "ux_mapping": {
+    "placement_result_title": "Prismari \u2014 The Elemental Performer",
+    "short_read": "You turn pressure into expression. You want ideas to move, emotions to take form, and the final answer to feel earned enough to deserve a stage.",
+    "maze_search_seed": "ci=ur (o:copy OR o:magecraft OR o:treasure OR o:Elemental OR o:\"instant or sorcery\")",
+    "deckbuilder_tags": [
+      "big spells",
+      "copy spells",
+      "magecraft",
+      "treasure",
+      "Elementals",
+      "spellslinger",
+      "X spells"
+    ]
+  }
+}

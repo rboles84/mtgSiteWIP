@@ -1,0 +1,199 @@
+{
+  "version": "1.0.0",
+  "author": "Copilot",
+  "generation_date": "2026-05-18",
+  "palette": {
+    "grove_canopy":       { "hex": "#3A7D44", "role": "Primary Green — nature accents, leaf particles" },
+    "conclave_ivory":     { "hex": "#F5F0E1", "role": "Primary White — light bursts, lifelink glows" },
+    "sun_dappled_gold":   { "hex": "#D4A843", "role": "Accent Gold — anthem halos, token borders" },
+    "elder_oak":          { "hex": "#1E4D2B", "role": "Deep Forest — shadows, grounding elements" },
+    "understory_sage":    { "hex": "#7BAE7F", "role": "Soft Sage — mid-tone fills, mana pips" },
+    "bark_scroll":        { "hex": "#C8B89A", "role": "Warm Parchment — card backgrounds, UI panels" },
+    "vitality_pink":      { "hex": "#D98C8C", "role": "Life Pulse — lifegain flare, heartbeat pulses" },
+    "spirit_opalescent":  { "hex": "#C9E8F5", "role": "Token Shimmer — token summoning glows" }
+  },
+  "typography_motion": {
+    "card_name":   { "animation": "fade_up", "distance_px": 8, "duration_ms": 300, "easing": "ease_out_cubic" },
+    "mana_cost":   { "animation": "sequential_pop", "stagger_ms": 40, "scale_from": 0.7, "scale_to": 1.0 },
+    "oracle_text": { "animation": "line_reveal", "line_offset_ms": 20, "duration_ms": 180, "opacity_from": 0, "opacity_to": 1 }
+  },
+  "timing": {
+    "instant":     120,
+    "fast":        240,
+    "normal":      400,
+    "slow":        700,
+    "epic":        1200,
+    "loop_breath": 2800
+  },
+  "easing": {
+    "organic_rise":   { "bezier": [0.22, 1.0, 0.36, 1.0],          "use": "Creature summons, entering tokens" },
+    "gentle_settle":  { "bezier": [0.25, 0.46, 0.45, 0.94],         "use": "Buff applications, counter placements" },
+    "snap_emphasis":  { "bezier": [0.68, -0.55, 0.27, 1.55],        "use": "Anthem burst, populate flash" },
+    "slow_breathe":   { "bezier": [0.45, 0.05, 0.55, 0.95],         "use": "Idle loops, life-gain pulses" },
+    "linear_decay":   { "bezier": [0.0, 0.0, 1.0, 1.0],             "use": "Particle fade-outs, damage overlays" }
+  },
+  "frame_sizes": [
+    { "format": "Card Face (Standard)", "width": 744,  "height": 1039, "fps": 60 },
+    { "format": "Token Card",           "width": 744,  "height": 1039, "fps": 60 },
+    { "format": "Battlefield Icon",     "width": 128,  "height": 128,  "fps": 30 },
+    { "format": "Ability Overlay",      "width": 480,  "height": 270,  "fps": 60 },
+    { "format": "Effect Banner",        "width": 1920, "height": 200,  "fps": 60 }
+  ],
+  "particle_presets": {
+    "summon_leaves": {
+      "emitter": "ring_burst",
+      "count_range": [24, 48],
+      "shape": "stylized_leaf_5pt",
+      "size_px_range": [6, 14],
+      "colors": ["#3A7D44", "#1E4D2B"],
+      "lifetime_ms_range": [600, 900],
+      "velocity_radial_px_s": [80, 160],
+      "gravity_bias_y_px_s2": -30,
+      "rotation_deg_range": [-360, 360],
+      "opacity_curve": { "fade_start_pct": 70, "opacity_from": 1.0, "opacity_to": 0.0 }
+    },
+    "lifelink_pulse": {
+      "emitter": "point_on_damage",
+      "count": { "primary_pulse": 1, "sparklets": 8 },
+      "shape": "soft_radial_gradient_circle",
+      "colors": ["#D98C8C", "#F5F0E1"],
+      "lifetime_ms": { "pulse": 480, "sparklets": 300 },
+      "velocity_y_drift_px_s": 20,
+      "scale_keyframes": [1.0, 2.4, 0.0],
+      "easing": "organic_rise"
+    },
+    "populate_fractal": {
+      "emitter": "source_token_center",
+      "ghost_opacity": 0.8,
+      "travel_distance_px": 60,
+      "total_duration_ms": 700,
+      "travel_ms": 400,
+      "materialize_ms": 300,
+      "accompanying_motes": 16,
+      "mote_color": "#3A7D44"
+    },
+    "anthem_halo": {
+      "emitter": "global_per_creature",
+      "shape": "expanding_ring",
+      "colors": ["#D4A843"],
+      "opacity": 0.7,
+      "expand_duration_ms": 600,
+      "expand_pct_of_card_width": 120,
+      "fade_duration_ms": 600,
+      "stagger_per_creature_ms": 50
+    },
+    "token_summoning_motes": {
+      "emitter": "target_battlefield_slot",
+      "count": 32,
+      "colors": ["#C9E8F5", "#F5F0E1"],
+      "converge_radius_px": 200,
+      "converge_duration_ms": 500,
+      "burst_on_arrival": true
+    }
+  },
+  "state_machine": {
+    "states": ["IDLE", "SUMMON_ENTER", "ACTIVE_IDLE", "BUFF_FLASH", "ANTHEM_GLOW", "POPULATE_CLONE", "LIFELINK_PULSE", "TAPPED", "DEATH_DISSOLVE", "REMOVED"],
+    "transitions": [
+      { "from": "IDLE",          "to": "SUMMON_ENTER",    "trigger": "summon_event",       "duration_ms": 400,  "easing": "organic_rise",  "particle": "summon_leaves" },
+      { "from": "SUMMON_ENTER",  "to": "ACTIVE_IDLE",     "trigger": "on_complete",         "duration_ms": 0 },
+      { "from": "ACTIVE_IDLE",   "to": "BUFF_FLASH",       "trigger": "buff_applied",        "duration_ms": 240,  "easing": "snap_emphasis" },
+      { "from": "ACTIVE_IDLE",   "to": "ANTHEM_GLOW",      "trigger": "anthem_resolved",     "duration_ms": 1200, "easing": "slow_breathe",  "particle": "anthem_halo" },
+      { "from": "ACTIVE_IDLE",   "to": "POPULATE_CLONE",   "trigger": "populate_trigger",    "duration_ms": 700,  "particle": "populate_fractal" },
+      { "from": "ACTIVE_IDLE",   "to": "LIFELINK_PULSE",   "trigger": "lifelink_damage",     "duration_ms": 480,  "particle": "lifelink_pulse" },
+      { "from": "ACTIVE_IDLE",   "to": "TAPPED",           "trigger": "tap_action",          "duration_ms": 240,  "easing": "gentle_settle", "rotation_deg": 90 },
+      { "from": "TAPPED",        "to": "ACTIVE_IDLE",      "trigger": "untap",               "duration_ms": 240,  "easing": "gentle_settle" },
+      { "from": "ACTIVE_IDLE",   "to": "DEATH_DISSOLVE",   "trigger": "death",               "duration_ms": 700,  "easing": "linear_decay",  "particle": "summon_leaves" },
+      { "from": "BUFF_FLASH",    "to": "ACTIVE_IDLE",      "trigger": "on_complete" },
+      { "from": "ANTHEM_GLOW",   "to": "ACTIVE_IDLE",      "trigger": "on_complete" },
+      { "from": "POPULATE_CLONE","to": "ACTIVE_IDLE",      "trigger": "on_complete" },
+      { "from": "LIFELINK_PULSE","to": "ACTIVE_IDLE",      "trigger": "on_complete" },
+      { "from": "DEATH_DISSOLVE","to": "REMOVED",          "trigger": "on_complete" }
+    ],
+    "convoke_interaction": {
+      "thread_particle_duration_ms": 600,
+      "thread_stagger_ms": 80,
+      "thread_color": "#D4A843",
+      "convergence_event": "anthem_halo",
+      "tapped_state_on_complete": true
+    }
+  },
+  "example_sequences": {
+    "creature_summon": [
+      { "t_ms": 0,   "action": "slide_in_from_bottom", "distance_px": 200, "duration_ms": 400, "easing": "organic_rise" },
+      { "t_ms": 0,   "action": "emit_particles",        "preset": "summon_leaves" },
+      { "t_ms": 200, "action": "art_fade_in",            "opacity_from": 0.4, "opacity_to": 1.0, "duration_ms": 300 },
+      { "t_ms": 400, "action": "pt_badge_pop",           "scale_from": 0.5, "scale_overshoot": 1.05, "scale_to": 1.0, "easing": "snap_emphasis", "duration_ms": 240 },
+      { "t_ms": 640, "action": "begin_idle_loop",        "preset": "slow_breathe" }
+    ],
+    "populate_resolution": [
+      { "t_ms": 0,   "action": "emit_ghost_copy",        "preset": "populate_fractal" },
+      { "t_ms": 0,   "action": "emit_particles",         "preset": "summon_leaves", "count": 16 },
+      { "t_ms": 400, "action": "ghost_arrives",           "opacity": 0.8 },
+      { "t_ms": 400, "action": "emit_particles",         "preset": "token_summoning_motes" },
+      { "t_ms": 700, "action": "token_materialize",       "opacity_to": 1.0 },
+      { "t_ms": 700, "action": "leaf_burst_at_destination" },
+      { "t_ms": 800, "action": "begin_idle_loop",         "preset": "slow_breathe" }
+    ],
+    "anthem_buff": [
+      { "t_ms": 0,   "action": "global_overlay_activate" },
+      { "t_ms": 0,   "action": "emit_anthem_halos_staggered", "stagger_ms": 50 },
+      { "t_ms": 600, "action": "halos_at_full_expansion" },
+      { "t_ms": 600, "action": "halos_fade",               "duration_ms": 600 },
+      { "t_ms": 1200,"action": "pt_tick_up_staggered",      "stagger_ms": 50, "easing": "snap_emphasis" },
+      { "t_ms": 1500,"action": "all_creatures_idle_loop" }
+    ]
+  },
+  "lottie_stubs": {
+    "summon_leaves_layer": {
+      "nm": "SummonLeaves", "ty": 1,
+      "ef": [{ "ty": 22, "nm": "ParticleBurst", "en": 1,
+        "ef": [
+          { "ty": 0, "nm": "ParticleCount", "v": { "k": 36 } },
+          { "ty": 2, "nm": "Color1",        "v": { "k": [0.227, 0.490, 0.267, 1] } },
+          { "ty": 2, "nm": "Color2",        "v": { "k": [0.118, 0.302, 0.169, 1] } },
+          { "ty": 0, "nm": "Lifetime",      "v": { "k": 0.75 } },
+          { "ty": 0, "nm": "Speed",         "v": { "k": 120 } }
+        ]
+      }],
+      "ks": { "o": { "k": 100 }, "r": { "k": 0 }, "p": { "k": [372, 519] }, "s": { "k": [100, 100] } }
+    },
+    "anthem_halo_layer": {
+      "nm": "AnthemHalo", "ty": 4,
+      "shapes": [
+        { "ty": "el", "nm": "Ring",
+          "s": { "a": 1, "k": [
+            { "t": 0,  "s": [0, 0],     "e": [744, 744] },
+            { "t": 36, "s": [744, 744] }
+          ]},
+          "p": { "k": [372, 519] }
+        },
+        { "ty": "st", "nm": "Stroke",
+          "c": { "k": [0.831, 0.659, 0.263, 1] },
+          "w": { "k": 6 },
+          "o": { "a": 1, "k": [
+            { "t": 0,  "s": [70] },
+            { "t": 18, "s": [70] },
+            { "t": 36, "s": [0] }
+          ]}
+        }
+      ]
+    }
+  },
+  "accessibility": {
+    "reduced_motion": {
+      "disable_particles": true,
+      "transition_duration_multiplier": 0.5,
+      "transition_type": "cross_fade",
+      "max_scale_transform": 1.05,
+      "halo_replacement": "static_border_highlight_1000ms"
+    },
+    "color_contrast": {
+      "standard": "WCAG AA",
+      "min_ratio": 4.5,
+      "background": "#C8B89A"
+    },
+    "flicker_safety": { "max_hz": 3 },
+    "screen_reader": { "aria_live_on_state_change": true, "description": "plain_language_game_event" },
+    "alternative_indicators": { "buff_state": ["color", "iconographic_badge"] }
+  }
+}

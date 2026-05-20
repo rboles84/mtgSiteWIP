@@ -1,0 +1,452 @@
+"""
+tests_translation_layer.py
+==========================
+Selesnya Package — pytest stubs for translation_layer.py
+Author: Copilot
+Generation Date: 2026-05-18
+
+Run with:
+    pytest tests_translation_layer.py -v
+
+All tests are written in pytest style using only the standard library.
+No external dependencies required beyond pytest itself.
+"""
+
+from __future__ import annotations
+
+import threading
+import time
+from typing import Any
+
+import pytest
+
+from translation_layer import (
+    AccretionEngine,
+    ConstraintField,
+    Detain,
+    Override,
+)
+
+
+# ===========================================================================
+# Detain tests
+# ===========================================================================
+
+class TestDetain:
+    """Tests for the Detain context manager."""
+
+    def test_is_detained_true_inside_context(self) -> None:
+        """is_detained() returns True while inside the with-block."""
+        d = Detain(duration_seconds=0)
+        with d as ctx:
+            assert ctx.is_detained() is True
+
+    def test_is_detained_false_after_exit(self) -> None:
+        """is_detained() returns False after the context exits."""
+        d = Detain(duration_seconds=0)
+        with d:
+            pass
+        assert d.is_detained() is False
+
+    def test_on_release_called(self) -> None:
+        """on_release callback is invoked when the context exits."""
+        released: list[bool] = []
+        with Detain(duration_seconds=0, on_release=lambda: released.append(True)):
+            pass
+        assert released == [True]
+
+    def test_on_release_not_called_before_exit(self) -> None:
+        """on_release is NOT called while still inside the context."""
+        released: list[bool] = []
+        with Detain(duration_seconds=0, on_release=lambda: released.append(True)):
+            assert released == []
+
+    def test_release_early_ends_detention(self) -> None:
+        """release_early() immediately clears the detained flag."""
+        d = Detain(duration_seconds=0)
+        d.__enter__()
+        assert d.is_detained() is True
+        d.release_early()
+        assert d.is_detained() is False
+        d.__exit__(None, None, None)  # Should be a no-op at this point.
+
+    def test_release_early_triggers_callback(self) -> None:
+        """release_early() fires the on_release callback."""
+        fired: list[int] = []
+        d = Detain(duration_seconds=0, on_release=lambda: fired.append(1))
+        d.__enter__()
+        d.release_early()
+        assert fired == [1]
+
+    def test_release_early_idempotent(self) -> None:
+        """Calling release_early() twice does not fire callback twice."""
+        fired: list[int] = []
+        d = Detain(duration_seconds=0, on_release=lambda: fired.append(1))
+        d.__enter__()
+        d.release_early()
+        d.release_early()
+        assert fired == [1]
+
+    def test_negative_duration_raises(self) -> None:
+        """Negative duration_seconds raises ValueError."""
+        with pytest.raises(ValueError, match="duration_seconds must be >= 0"):
+            Detain(duration_seconds=-1)
+
+    def test_no_callback_does_not_raise(self) -> None:
+        """Omitting on_release does not raise on exit."""
+        with Detain(duration_seconds=0):
+            pass  # Should not raise.
+
+    def test_exceptions_not_suppressed(self) -> None:
+        """Detain does not suppress exceptions raised inside the block."""
+        with pytest.raises(RuntimeError, match="test error"):
+            with Detain(duration_seconds=0):
+                raise RuntimeError("test error")
+
+    def test_thread_safety_basic(self) -> None:
+        """Detain is_detained() is consistent across threads."""
+        d = Detain(duration_seconds=0)
+        results: list[bool] = []
+
+        def reader() -> None:
+            results.append(d.is_detained())
+
+        d.__enter__()
+        t = threading.Thread(target=reader)
+        t.start()
+        t.join()
+        d.__exit__(None, None, None)
+        assert results == [True]
+
+
+# ===========================================================================
+# Override tests
+# ===========================================================================
+
+class TestOverride:
+    """Tests for the Override decorator / context manager."""
+
+    def setup_method(self) -> None:
+        """Clear the global priority stack before each test."""
+        with Override._stack_lock:
+            Override._stack.clear()
+
+    def test_current_priority_default_zero(self) -> None:
+        """current_priority() returns 0 when no Override is active."""
+        assert Override.current_priority() == 0
+
+    def test_context_manager_sets_priority(self) -> None:
+        """Priority is set correctly inside the context."""
+        with Override(priority=7):
+            assert Override.current_priority() == 7
+
+    def test_context_manager_restores_after_exit(self) -> None:
+        """Priority returns to 0 after leaving the context."""
+        with Override(priority=7):
+            pass
+        assert Override.current_priority() == 0
+
+    def test_nested_overrides_highest_wins(self) -> None:
+        """Nested Override blocks: highest priority dominates."""
+        with Override(priority=3):
+            with Override(priority=9):
+                assert Override.current_priority() == 9
+            assert Override.current_priority() == 3
+        assert Override.current_priority() == 0
+
+    def test_is_active_false_outside(self) -> None:
+        """is_active() returns False outside any Override block."""
+        assert Override.is_active() is False
+
+    def test_is_active_true_inside(self) -> None:
+        """is_active() returns True inside an Override block."""
+        with Override(priority=1):
+            assert Override.is_active() is True
+
+    def test_decorator_passes_priority(self) -> None:
+        """Decorated function receives _override_priority keyword argument."""
+        received: list[int] = []
+
+        @Override(priority=5)
+        def my_func(**kwargs: Any) -> None:
+            received.append(kwargs.get("_override_priority", -1))
+
+        my_func()
+        assert received == [5]
+
+    def test_decorator_works_without_kwarg_acceptance(self) -> None:
+        """Decorated function that doesn't accept _override_priority still runs."""
+        called: list[bool] = []
+
+        @Override(priority=5)
+        def simple_func() -> None:
+            called.append(True)
+
+        simple_func()
+        assert called == [True]
+
+    def test_exception_in_context_restores_stack(self) -> None:
+        """Stack is restored even when an exception is raised inside the block."""
+        with pytest.raises(ValueError):
+            with Override(priority=42):
+                raise ValueError("boom")
+        assert Override.current_priority() == 0
+
+    def test_priority_zero_override(self) -> None:
+        """Override with priority=0 is valid and still registers."""
+        with Override(priority=0):
+            assert Override.is_active() is True
+
+
+# ===========================================================================
+# ConstraintField tests
+# ===========================================================================
+
+class TestConstraintField:
+    """Tests for the ConstraintField validator."""
+
+    def test_valid_int_in_range(self) -> None:
+        """Integer within bounds passes validation."""
+        cf = ConstraintField({"type": int, "min": 1, "max": 10})
+        assert cf.validate(5) is True
+        assert cf.errors == []
+
+    def test_int_below_min(self) -> None:
+        """Integer below minimum fails."""
+        cf = ConstraintField({"type": int, "min": 5})
+        assert cf.validate(3) is False
+        assert any("below minimum" in e for e in cf.errors)
+
+    def test_int_above_max(self) -> None:
+        """Integer above maximum fails."""
+        cf = ConstraintField({"type": int, "max": 10})
+        assert cf.validate(15) is False
+        assert any("exceeds maximum" in e for e in cf.errors)
+
+    def test_required_none_fails(self) -> None:
+        """None value fails when required=True."""
+        cf = ConstraintField({"required": True})
+        assert cf.validate(None) is False
+        assert any("required" in e.lower() for e in cf.errors)
+
+    def test_optional_none_passes(self) -> None:
+        """None value passes when required is not set."""
+        cf = ConstraintField({"type": int})
+        assert cf.validate(None) is True
+
+    def test_wrong_type_fails(self) -> None:
+        """Value of wrong type fails."""
+        cf = ConstraintField({"type": int})
+        assert cf.validate("hello") is False
+        assert any("Expected type" in e for e in cf.errors)
+
+    def test_multiple_types_accepted(self) -> None:
+        """Multiple types in a list are all accepted."""
+        cf = ConstraintField({"type": [int, float]})
+        assert cf.validate(3) is True
+        assert cf.validate(3.14) is True
+        assert cf.validate("x") is False
+
+    def test_min_length_string(self) -> None:
+        """String shorter than min_length fails."""
+        cf = ConstraintField({"type": str, "min_length": 5})
+        assert cf.validate("hi") is False
+
+    def test_max_length_string(self) -> None:
+        """String longer than max_length fails."""
+        cf = ConstraintField({"type": str, "max_length": 3})
+        assert cf.validate("toolong") is False
+
+    def test_enum_valid(self) -> None:
+        """Value in enum list passes."""
+        cf = ConstraintField({"enum": ["populate", "anthem", "token"]})
+        assert cf.validate("anthem") is True
+
+    def test_enum_invalid(self) -> None:
+        """Value not in enum list fails."""
+        cf = ConstraintField({"enum": ["populate", "anthem", "token"]})
+        assert cf.validate("removal") is False
+
+    def test_pattern_valid(self) -> None:
+        """String matching pattern passes."""
+        cf = ConstraintField({"type": str, "pattern": r"[A-Z][a-z]+"})
+        assert cf.validate("Grove") is True
+
+    def test_pattern_invalid(self) -> None:
+        """String not matching pattern fails."""
+        cf = ConstraintField({"type": str, "pattern": r"[A-Z][a-z]+"})
+        assert cf.validate("grove") is False
+
+    def test_custom_validator_pass(self) -> None:
+        """Custom predicate returning True passes."""
+        cf = ConstraintField({"custom": lambda x: x % 2 == 0, "custom_msg": "Must be even."})
+        assert cf.validate(4) is True
+
+    def test_custom_validator_fail(self) -> None:
+        """Custom predicate returning False fails with custom message."""
+        cf = ConstraintField({"custom": lambda x: x % 2 == 0, "custom_msg": "Must be even."})
+        assert cf.validate(3) is False
+        assert "Must be even." in cf.errors
+
+    def test_custom_validator_exception(self) -> None:
+        """Custom predicate raising an exception results in failure."""
+        def bad(x: Any) -> bool:
+            raise RuntimeError("validator exploded")
+
+        cf = ConstraintField({"custom": bad})
+        assert cf.validate(1) is False
+        assert any("exception" in e.lower() for e in cf.errors)
+
+    def test_error_summary_no_errors(self) -> None:
+        """error_summary returns 'No errors.' when validation passes."""
+        cf = ConstraintField({"type": int})
+        cf.validate(5)
+        assert cf.error_summary() == "No errors."
+
+    def test_error_summary_with_errors(self) -> None:
+        """error_summary returns a non-empty string when errors exist."""
+        cf = ConstraintField({"type": int, "max": 3})
+        cf.validate(10)
+        summary = cf.error_summary()
+        assert "exceeds maximum" in summary
+
+    def test_multiple_errors_accumulated(self) -> None:
+        """Multiple constraint violations are all reported."""
+        cf = ConstraintField({"type": int, "min": 5, "max": 3})  # Impossible range.
+        cf.validate(4)
+        assert len(cf.errors) >= 1  # At least one error reported.
+
+
+# ===========================================================================
+# AccretionEngine tests
+# ===========================================================================
+
+class TestAccretionEngine:
+    """Tests for the AccretionEngine effect aggregator."""
+
+    def test_initial_state_empty(self) -> None:
+        """Newly created engine has no effects."""
+        engine = AccretionEngine()
+        assert engine.effect_count() == 0
+
+    def test_add_effect(self) -> None:
+        """add() increases effect count."""
+        engine = AccretionEngine()
+        engine.add({"type": "buff", "power": 1, "toughness": 1})
+        assert engine.effect_count() == 1
+
+    def test_add_without_type_raises(self) -> None:
+        """add() raises ValueError if 'type' key is missing."""
+        engine = AccretionEngine()
+        with pytest.raises(ValueError, match="'type' key"):
+            engine.add({"power": 1})
+
+    def test_resolve_buff_totals(self) -> None:
+        """resolve() correctly sums power and toughness buffs."""
+        engine = AccretionEngine()
+        engine.add({"type": "buff", "power": 2, "toughness": 2})
+        engine.add({"type": "buff", "power": 1, "toughness": 1})
+        result = engine.resolve()
+        assert result["total_power_buff"] == 3
+        assert result["total_toughness_buff"] == 3
+
+    def test_resolve_lifelink(self) -> None:
+        """resolve() sets lifelink_active when a lifelink effect is present."""
+        engine = AccretionEngine()
+        engine.add({"type": "lifelink", "source": "Emmara"})
+        result = engine.resolve()
+        assert result["lifelink_active"] is True
+
+    def test_resolve_no_lifelink(self) -> None:
+        """resolve() lifelink_active is False with no lifelink effect."""
+        engine = AccretionEngine()
+        engine.add({"type": "buff", "power": 1, "toughness": 1})
+        result = engine.resolve()
+        assert result["lifelink_active"] is False
+
+    def test_resolve_vigilance_trample(self) -> None:
+        """resolve() tracks vigilance and trample correctly."""
+        engine = AccretionEngine()
+        engine.add({"type": "vigilance"})
+        engine.add({"type": "trample"})
+        result = engine.resolve()
+        assert result["vigilance_active"] is True
+        assert result["trample_active"] is True
+
+    def test_resolve_token_bonus(self) -> None:
+        """resolve() sums token count bonuses."""
+        engine = AccretionEngine()
+        engine.add({"type": "token", "count": 2})
+        engine.add({"type": "token", "count": 1})
+        result = engine.resolve()
+        assert result["token_count_bonus"] == 3
+
+    def test_resolve_populate_triggers(self) -> None:
+        """resolve() counts populate triggers."""
+        engine = AccretionEngine()
+        engine.add({"type": "populate", "count": 2})
+        result = engine.resolve()
+        assert result["populate_triggers"] == 2
+
+    def test_tick_advances_elapsed(self) -> None:
+        """tick() advances the elapsed time counter."""
+        engine = AccretionEngine()
+        engine.tick(1.5)
+        result = engine.resolve()
+        assert result["elapsed_seconds"] == pytest.approx(1.5)
+
+    def test_effect_expires_after_duration(self) -> None:
+        """Effect with duration_seconds is removed after its duration elapses."""
+        engine = AccretionEngine()
+        engine.add({"type": "buff", "power": 3, "toughness": 3, "duration_seconds": 2})
+        engine.tick(1.0)
+        assert engine.effect_count() == 1  # Still active.
+        engine.tick(1.5)
+        assert engine.effect_count() == 0  # Expired.
+
+    def test_permanent_effect_never_expires(self) -> None:
+        """Effect without duration_seconds persists indefinitely."""
+        engine = AccretionEngine()
+        engine.add({"type": "buff", "power": 1, "toughness": 1})
+        engine.tick(999.0)
+        assert engine.effect_count() == 1
+
+    def test_tick_negative_raises(self) -> None:
+        """tick() raises ValueError for negative delta."""
+        engine = AccretionEngine()
+        with pytest.raises(ValueError, match="delta_seconds must be >= 0"):
+            engine.tick(-1.0)
+
+    def test_clear_resets_engine(self) -> None:
+        """clear() removes all effects and resets elapsed time."""
+        engine = AccretionEngine()
+        engine.add({"type": "buff", "power": 1, "toughness": 1})
+        engine.tick(5.0)
+        engine.clear()
+        assert engine.effect_count() == 0
+        result = engine.resolve()
+        assert result["elapsed_seconds"] == pytest.approx(0.0)
+
+    def test_resolve_raw_effects_included(self) -> None:
+        """resolve() includes raw_effects list in output."""
+        engine = AccretionEngine()
+        engine.add({"type": "buff", "power": 1, "toughness": 0})
+        result = engine.resolve()
+        assert len(result["raw_effects"]) == 1
+
+    def test_resolve_unknown_effect_type_not_crash(self) -> None:
+        """Unknown effect types are preserved in raw_effects without crashing."""
+        engine = AccretionEngine()
+        engine.add({"type": "convoke_reduction", "amount": 2})
+        result = engine.resolve()
+        assert len(result["raw_effects"]) == 1
+
+    def test_multiple_expiry_mixed(self) -> None:
+        """Mix of expiring and permanent effects handled correctly."""
+        engine = AccretionEngine()
+        engine.add({"type": "buff", "power": 2, "toughness": 2, "duration_seconds": 1})
+        engine.add({"type": "lifelink"})
+        engine.tick(2.0)
+        result = engine.resolve()
+        assert result["total_power_buff"] == 0   # Temporary buff expired.
+        assert result["lifelink_active"] is True  # Permanent effect remains.

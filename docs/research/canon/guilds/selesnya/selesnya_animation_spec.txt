@@ -1,0 +1,252 @@
+# Selesnya Animation Specification
+**Version:** 1.0.0  
+**Author:** Copilot  
+**Generation Date:** 2026-05-18  
+
+---
+
+## 1. Overview
+
+This document defines the visual language, motion system, and animation parameters for Selesnya-themed card interactions. The Selesnya Conclave's identity is rooted in communal growth, natural harmony, and collective strength. Animations reflect organic, living, interconnected systems — not mechanical or abrupt motion.
+
+---
+
+## 2. Color Palette
+
+| Role              | Name                | Hex       | Usage                                      |
+|-------------------|---------------------|-----------|--------------------------------------------|
+| Primary Green     | Grove Canopy        | `#3A7D44` | Main nature accents, leaf particles        |
+| Primary White     | Conclave Ivory      | `#F5F0E1` | Light bursts, lifelink glows               |
+| Accent Gold       | Sun-Dappled Gold    | `#D4A843` | Anthem halos, token borders, rarity shimmer |
+| Deep Forest       | Elder Oak           | `#1E4D2B` | Shadows, depth, grounding elements         |
+| Soft Sage         | Understory Sage     | `#7BAE7F` | Mid-tone fills, mana pips                  |
+| Warm Parchment    | Bark Scroll         | `#C8B89A` | Card backgrounds, UI panels                |
+| Life Pulse        | Vitality Pink       | `#D98C8C` | Lifegain flare, heart-beat pulses          |
+| Token Shimmer     | Spirit Opalescent   | `#C9E8F5` | Token summoning glows                      |
+
+---
+
+## 3. Typography Motion
+
+- **Card Name:** Fade-in with a gentle upward drift (8 px over 300 ms, ease-out-cubic).
+- **Mana Cost:** Each pip pops in sequentially with a 40 ms stagger, scale 0.7 → 1.0.
+- **Oracle Text:** Reveal line-by-line with 20 ms per line offset, opacity 0 → 1 over 180 ms.
+
+---
+
+## 4. Motion System
+
+### 4.1 Easing Curves
+
+| Curve Name       | CSS / Bezier                        | Use Case                                     |
+|------------------|--------------------------------------|----------------------------------------------|
+| Organic Rise     | `cubic-bezier(0.22, 1.0, 0.36, 1.0)` | Creature summons, entering tokens            |
+| Gentle Settle    | `cubic-bezier(0.25, 0.46, 0.45, 0.94)` | Buff applications, counter placements        |
+| Snap Emphasis    | `cubic-bezier(0.68, -0.55, 0.27, 1.55)` | Anthem burst, populate flash                 |
+| Slow Breathe     | `cubic-bezier(0.45, 0.05, 0.55, 0.95)` | Idle loops, life-gain pulses                 |
+| Linear Decay     | `linear`                             | Particle fade-outs, damage overlays          |
+
+### 4.2 Timing Scale (ms)
+
+| Token         | Duration |
+|---------------|----------|
+| `instant`     | 120 ms   |
+| `fast`        | 240 ms   |
+| `normal`      | 400 ms   |
+| `slow`        | 700 ms   |
+| `epic`        | 1200 ms  |
+| `loop-breath` | 2800 ms  |
+
+### 4.3 Frame Sizes
+
+| Format              | Width | Height | FPS |
+|---------------------|-------|--------|-----|
+| Card Face (Standard)| 744   | 1039   | 60  |
+| Token Card          | 744   | 1039   | 60  |
+| Battlefield Icon    | 128   | 128    | 30  |
+| Ability Overlay     | 480   | 270    | 60  |
+| Effect Banner       | 1920  | 200    | 60  |
+
+---
+
+## 5. Particle Systems
+
+### 5.1 Summon Leaves
+- **Emitter:** Ring burst centered on card art origin.  
+- **Count:** 24–48 particles.  
+- **Shape:** Stylized 5-pointed leaf, 6–14 px.  
+- **Colors:** Grove Canopy → Elder Oak gradient.  
+- **Lifetime:** 600–900 ms.  
+- **Velocity:** Radial outward 80–160 px/s, with -Y gravity bias (-30 px/s²).  
+- **Rotation:** ±360° random spin.  
+- **Opacity:** 1.0 → 0.0 over last 30% of lifetime.
+
+### 5.2 Lifelink Pulse
+- **Emitter:** Point at creature center, fires on damage-dealt event.  
+- **Count:** 1 large pulse + 8 sparklets.  
+- **Shape:** Soft radial gradient circle.  
+- **Colors:** Vitality Pink → Conclave Ivory.  
+- **Lifetime:** 480 ms pulse, 300 ms sparklets.  
+- **Velocity:** Upward drift 20 px/s.  
+- **Scale:** 1.0 → 2.4 → 0.0 (Organic Rise easing).
+
+### 5.3 Populate Fractal
+- **Emitter:** Center of source token.  
+- **Behavior:** Ghosted copy of token art fades in at 80% opacity, drifts 60 px to a target slot.  
+- **Duration:** 700 ms total (400 ms travel + 300 ms materialize at destination).  
+- **Particles:** 16 small leaf motes accompany the ghost image.
+
+### 5.4 Anthem Halo
+- **Emitter:** Global overlay across all friendly creatures.  
+- **Shape:** Expanding ring per creature.  
+- **Colors:** Sun-Dappled Gold, 70% opacity.  
+- **Expansion:** 0 → 120% card width over 600 ms, then fade 600 ms.  
+- **Stagger:** 50 ms per creature in play order.
+
+### 5.5 Token Summoning Motes
+- **Emitter:** Battlefield target slot.  
+- **Count:** 32 motes.  
+- **Colors:** Spirit Opalescent → Conclave Ivory.  
+- **Behavior:** Converge inward to center from radius 200 px over 500 ms, then burst outward as token art renders.
+
+---
+
+## 6. State Machine — Common Selesnya Actions
+
+```
+[IDLE]
+  │  trigger: summon_event
+  ▼
+[SUMMON_ENTER]  — Organic Rise, 400 ms, leaf particles
+  │  on_complete
+  ▼
+[ACTIVE_IDLE]  — Slow Breathe loop (scale 1.00 ↔ 1.02, 2800 ms)
+  │
+  ├─ trigger: buff_applied  ──▶ [BUFF_FLASH]  — Snap Emphasis 240 ms, +1/+1 counter pop
+  │                               └─ on_complete ──▶ [ACTIVE_IDLE]
+  │
+  ├─ trigger: anthem_resolved ──▶ [ANTHEM_GLOW]  — Gold halo ring 1200 ms
+  │                                └─ on_complete ──▶ [ACTIVE_IDLE]
+  │
+  ├─ trigger: populate_trigger ──▶ [POPULATE_CLONE]  — Ghost copy drift 700 ms
+  │                                 └─ on_complete ──▶ [ACTIVE_IDLE]
+  │
+  ├─ trigger: lifelink_damage ──▶ [LIFELINK_PULSE]  — Pink pulse 480 ms
+  │                                └─ on_complete ──▶ [ACTIVE_IDLE]
+  │
+  ├─ trigger: tap_action ──▶ [TAPPED]  — 90° clockwise rotate, 240 ms, Gentle Settle
+  │                            └─ trigger: untap ──▶ [ACTIVE_IDLE]
+  │
+  └─ trigger: death ──▶ [DEATH_DISSOLVE]  — Leaf scatter outward 700 ms, opacity 1→0
+                          └─ on_complete ──▶ [REMOVED]
+```
+
+### Convoke-like Interaction
+When multiple creatures tap together for a convoke cost:
+1. Each tapping creature emits a golden thread particle toward the casting card (staggered 80 ms each).
+2. Threads converge at the casting card's center over 600 ms.
+3. Casting card pulses with Anthem Halo on convergence.
+4. All tapping creatures immediately enter [TAPPED] state.
+
+---
+
+## 7. Example Animation Sequences
+
+### Sequence A: Creature Summon (e.g., Rootborn Sentinel)
+```
+T+0ms    Card slides in from bottom edge (Y: +200px → 0, Organic Rise, 400ms)
+T+0ms    Leaf particles burst (summon_leaves preset)
+T+200ms  Card art fades from white flash → full color (opacity 0.4→1.0, 300ms)
+T+400ms  P/T badge pops in (scale 0.5→1.05→1.0, Snap Emphasis, 240ms)
+T+640ms  [ACTIVE_IDLE] loop begins
+```
+
+### Sequence B: Populate Resolution
+```
+T+0ms    Source token emits fractal ghost copy
+T+0ms    16 leaf motes accompany ghost
+T+400ms  Ghost arrives at destination slot, opacity reaches 80%
+T+400ms  Token motes converge inward at destination (Spirit Opalescent)
+T+700ms  Token fully materializes; leaf burst at destination
+T+800ms  All elements settle into [ACTIVE_IDLE]
+```
+
+### Sequence C: Anthem Buff (+1/+1 to all)
+```
+T+0ms    Global overlay activates
+T+0ms    Staggered gold rings expand per creature (50ms stagger)
+T+600ms  All rings reach full expansion
+T+600ms  Rings fade over 600ms
+T+1200ms P/T values tick up with Snap Emphasis per creature (50ms stagger)
+T+1500ms All creatures return to [ACTIVE_IDLE]
+```
+
+---
+
+## 8. Accessibility Notes
+
+- **Reduced Motion Mode:** When system `prefers-reduced-motion` is active:
+  - All particle systems are disabled.
+  - Transitions collapse to simple cross-fades at 50% of normal duration.
+  - Halo rings replaced by a static border highlight for 1 second.
+  - No scale transforms above 1.05.
+- **Color Contrast:** All UI text on Bark Scroll background meets WCAG AA (4.5:1 minimum).
+- **Timing Safety:** No animation loop exceeds 3 Hz flicker rate (safe for photosensitivity).
+- **Screen Reader:** All animation state changes emit aria-live region updates describing the game event in plain language.
+- **Alternative Indicators:** Buff/anthem states use both color and iconographic badge (not color alone).
+
+---
+
+## 9. Export Parameters
+
+### Lottie-Friendly JSON Snippets
+
+**Summon Leaves Emitter (Lottie-compatible layer stub):**
+```json
+{
+  "nm": "SummonLeaves",
+  "ty": 1,
+  "ef": [
+    {"ty": 22, "nm": "ParticleBurst", "en": 1,
+     "ef": [
+       {"ty": 0, "nm": "ParticleCount", "v": {"k": 36}},
+       {"ty": 2, "nm": "Color1", "v": {"k": [0.227, 0.490, 0.267, 1]}},
+       {"ty": 2, "nm": "Color2", "v": {"k": [0.118, 0.302, 0.169, 1]}},
+       {"ty": 0, "nm": "Lifetime", "v": {"k": 0.75}},
+       {"ty": 0, "nm": "Speed", "v": {"k": 120}}
+     ]
+    }
+  ],
+  "ks": {"o": {"k": 100}, "r": {"k": 0}, "p": {"k": [372, 519]}, "s": {"k": [100, 100]}}
+}
+```
+
+**Anthem Halo Ring (Lottie-compatible shape layer stub):**
+```json
+{
+  "nm": "AnthemHalo",
+  "ty": 4,
+  "shapes": [
+    {"ty": "el", "nm": "Ring",
+     "s": {"a": 1, "k": [
+       {"t": 0,  "s": [0, 0],   "e": [744, 744]},
+       {"t": 36, "s": [744, 744]}
+     ]},
+     "p": {"k": [372, 519]}
+    },
+    {"ty": "st", "nm": "Stroke",
+     "c": {"k": [0.831, 0.659, 0.263, 1]},
+     "w": {"k": 6},
+     "o": {"a": 1, "k": [
+       {"t": 0,  "s": [70]},
+       {"t": 18, "s": [70]},
+       {"t": 36, "s": [0]}
+     ]}
+    }
+  ]
+}
+```
+
+---
+
+*All animation parameters are original design specifications intended for implementation reference. No proprietary game engine assets are included.*

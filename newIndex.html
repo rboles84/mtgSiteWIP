@@ -1,0 +1,949 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Vox Mana - Homepage Preview</title>
+  <meta
+    name="description"
+    content="Non-destructive Vox Mana homepage preview with a portable identity radar for home, dossier, and result surfaces."
+  >
+
+  <link rel="stylesheet" href="./assets/css/tokens.css">
+  <link rel="stylesheet" href="./assets/css/fonts.css">
+  <link rel="stylesheet" href="./assets/css/topbar.css">
+  <link rel="stylesheet" href="./assets/css/atmosphere.css">
+  <link rel="stylesheet" href="./assets/css/components.css">
+  <link rel="stylesheet" href="./assets/css/home-preview.css">
+  <style>
+    #basics {
+      padding: clamp(3rem, 6vw, 4.5rem) 0;
+      scroll-margin-top: 90px;
+    }
+
+    #basics > h2 {
+      margin: 0 0 0.75rem;
+      text-align: center;
+      font-size: clamp(2rem, 4vw, 2.8rem);
+    }
+
+    #basics .vm-section-intro {
+      max-width: 760px;
+      margin: 0 auto 1.5rem;
+      text-align: center;
+      color: rgba(235, 229, 218, 0.78);
+      line-height: 1.7;
+    }
+
+    #basics .vm-tab.active {
+      background: rgba(255, 255, 255, 0.14);
+      border-color: rgba(255, 255, 255, 0.34);
+    }
+
+    #basics .vm-reveal {
+      max-width: 780px;
+      margin: 0 auto;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: 22px;
+      padding: 1.25rem;
+      background: rgba(9, 12, 18, 0.58);
+      color: rgba(235, 229, 218, 0.82);
+      line-height: 1.7;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 420ms ease, transform 420ms ease;
+    }
+
+    #basics .vm-reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    #basics .vm-inline-action {
+      margin-top: 1rem;
+    }
+
+    #basics .vm-color-matrix-wrap {
+      margin-top: 1.5rem;
+    }
+
+    #basics .vm-color-matrix-heading {
+      max-width: 780px;
+      margin: 0 auto 1rem;
+      text-align: center;
+    }
+
+    #basics .vm-color-matrix-heading h3 {
+      margin: 0 0 0.45rem;
+      font-size: clamp(1.35rem, 3vw, 2rem);
+    }
+
+    #basics .vm-color-matrix-heading p {
+      margin: 0;
+      color: rgba(235, 229, 218, 0.72);
+      line-height: 1.6;
+    }
+
+    #basics .vm-lab-panel {
+      padding: clamp(1rem, 3vw, 1.5rem);
+    }
+
+    #basics .vm-lab-layout {
+      display: grid;
+      grid-template-columns: minmax(300px, 0.95fr) minmax(360px, 1.05fr);
+      gap: 1.25rem;
+      align-items: stretch;
+    }
+
+    #basics .vm-selector-panel,
+    #basics .vm-radar-card {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    #basics .vm-selector-title {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 1rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+      padding-bottom: 0.8rem;
+    }
+
+    #basics .vm-selector-title h3 {
+      margin: 0;
+    }
+
+    #basics .vm-selector-title span,
+    #basics .vm-placeholder-note,
+    #basics .vm-toggle,
+    #basics .vm-radar-caption,
+    #basics .vm-selected-kicker {
+      color: rgba(235, 229, 218, 0.68);
+    }
+
+    #basics .vm-lens-tabs,
+    #basics .vm-lens-subtabs,
+    #basics .vm-controls,
+    #basics .vm-dataset-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.55rem;
+    }
+
+    #basics .vm-lens-subtabs {
+      display: none;
+    }
+
+    #basics .vm-lens-subtabs.show {
+      display: flex;
+    }
+
+    #basics .vm-lens-tab,
+    #basics .vm-lens-subtab,
+    #basics .vm-lens-choice {
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      color: inherit;
+      font: inherit;
+      cursor: pointer;
+      transition: 0.2s ease;
+    }
+
+    #basics .vm-lens-tab,
+    #basics .vm-lens-subtab {
+      border-radius: 999px;
+      padding: 0.65rem 0.85rem;
+      background: rgba(255, 255, 255, 0.045);
+    }
+
+    #basics .vm-lens-tab:hover,
+    #basics .vm-lens-subtab:hover,
+    #basics .vm-lens-tab.active,
+    #basics .vm-lens-subtab.active {
+      background: rgba(255, 255, 255, 0.12);
+      border-color: rgba(255, 255, 255, 0.34);
+      transform: translateY(-2px);
+    }
+
+    #basics .vm-lens-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.65rem;
+    }
+
+    #basics .vm-lens-grid.mono {
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+    }
+
+    #basics .vm-lens-choice {
+      position: relative;
+      min-height: 72px;
+      border-radius: 18px;
+      padding: 0.8rem;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.075), rgba(255, 255, 255, 0.03));
+      text-align: left;
+      overflow: hidden;
+    }
+
+    #basics .vm-lens-choice.active {
+      outline: 2px solid rgba(216, 162, 60, 0.9);
+      outline-offset: 3px;
+      border-color: rgba(255, 255, 255, 0.42);
+    }
+
+    #basics .vm-lens-symbols,
+    #basics .vm-lens-name,
+    #basics .vm-lens-mini {
+      position: relative;
+      display: block;
+      z-index: 1;
+    }
+
+    #basics .vm-lens-symbols {
+      margin-bottom: 0.35rem;
+      color: rgba(247, 215, 132, 0.86);
+      font-size: 0.9rem;
+    }
+
+    #basics .vm-lens-name {
+      font-weight: 700;
+    }
+
+    #basics .vm-lens-mini {
+      margin-top: 0.3rem;
+      color: rgba(235, 229, 218, 0.68);
+      font-size: 0.78rem;
+    }
+
+    #basics .vm-selected-card,
+    #basics .vm-placeholder-note,
+    #basics .vm-chart-wrap {
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.04);
+    }
+
+    #basics .vm-selected-card {
+      padding: 1rem;
+    }
+
+    #basics .vm-selected-card h3,
+    #basics .vm-radar-card h3 {
+      margin: 0;
+    }
+
+    #basics .vm-selected-card p {
+      margin: 0.65rem 0 0;
+      color: rgba(235, 229, 218, 0.78);
+      line-height: 1.6;
+    }
+
+    #basics .vm-overlay-line {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 0.9rem;
+      font-size: 0.82rem;
+    }
+
+    #basics .vm-overlay-dot,
+    #basics .vm-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      border: 1px solid currentColor;
+      border-radius: 999px;
+      padding: 0.35rem 0.7rem;
+      font-size: 0.78rem;
+    }
+
+    #basics .vm-axis-list {
+      display: grid;
+      gap: 0.65rem;
+    }
+
+    #basics .vm-axis {
+      display: grid;
+      grid-template-columns: minmax(74px, auto) 1fr auto;
+      gap: 0.65rem;
+      align-items: center;
+      color: rgba(235, 229, 218, 0.78);
+      font-size: 0.82rem;
+    }
+
+    #basics .vm-axis-bar {
+      display: block;
+      height: 8px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.08);
+      overflow: hidden;
+    }
+
+    #basics .vm-axis-fill {
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+    }
+
+    #basics .vm-placeholder-note {
+      padding: 0.9rem 1rem;
+      line-height: 1.6;
+    }
+
+    #basics .vm-chart-wrap {
+      position: relative;
+      min-height: 360px;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 50% 40%, rgba(216, 162, 60, 0.08), transparent 32%),
+        rgba(8, 11, 16, 0.62);
+    }
+
+    #basics .vm-radar-glow,
+    #basics .vm-radar-glow::before,
+    #basics .vm-radar-glow::after {
+      background: none !important;
+      filter: none !important;
+      opacity: 0 !important;
+      box-shadow: none !important;
+    }
+
+
+    #basics .vm-radar-glow {
+      position: absolute;
+      inset: 12% 18%;
+      border-radius: 999px;
+      background: radial-gradient(circle, rgba(216, 162, 60, 0.2), transparent 68%);
+      filter: blur(28px);
+      opacity: 0.9;
+      pointer-events: none;
+    }
+
+    #basics .vm-radar-wrap {
+      position: relative;
+      min-height: 360px;
+      padding: 1rem;
+    }
+
+    #basics #vmRadar {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+
+    #basics .vm-radar-caption {
+      margin: 0;
+      text-align: center;
+      line-height: 1.6;
+    }
+
+    #basics .vm-pill.active {
+      background: rgba(216, 162, 60, 0.12);
+      color: rgba(247, 215, 132, 0.92);
+    }
+
+    #basics .vm-pill.has-arrow::after {
+      content: " ->";
+    }
+
+    @media (max-width: 900px) {
+      #basics .vm-lab-layout {
+        grid-template-columns: 1fr;
+      }
+
+      #basics .vm-lens-grid,
+      #basics .vm-lens-grid.mono {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 640px) {
+      #basics .vm-axis {
+        grid-template-columns: 1fr;
+      }
+    }
+
+/* Remove bubble-causing layers */
+.vm-bg::before,
+.vm-bg::after,
+.vm-bg__nebula {
+  display: none !important;
+}
+
+/* Soft, modern vignette (lighter than before) */
+.vm-bg::before {
+  display: block !important;
+  background: radial-gradient(circle at center,
+    rgba(0,0,0,0) 55%,
+    rgba(0,0,0,0.32) 100%);
+  mix-blend-mode: normal !important;
+  opacity: 1 !important;
+}
+
+/* Gentle sci-fi depth (lighter, no haze) */
+.vm-bg::after {
+  display: block !important;
+  background: linear-gradient(180deg,
+    rgba(0,0,0,0.06),
+    rgba(0,0,0,0.22));
+  opacity: 0.28 !important;
+  mix-blend-mode: normal !important;
+}
+
+/* Slight enhancement to the background image */
+.vm-bg__picture img {
+  filter: brightness(0.88) contrast(1.08) saturate(1.04) !important;
+  -webkit-mask-image: none !important;
+          mask-image: none !important;
+}
+
+
+
+
+  </style>
+
+  <link
+    rel="preload"
+    as="image"
+    href="./assets/img/backgrounds/background-vox-gateway-clean-13.webp"
+    type="image/webp"
+    fetchpriority="high"
+  >
+</head>
+<body data-page="home-preview" data-vm-current="home" data-bg="light">
+  <div class="vm-bg" aria-hidden="true">
+    <picture class="vm-bg__picture">
+      <source
+        type="image/webp"
+        srcset="./assets/img/backgrounds/background-vox-gateway-clean-13.webp 2560w"
+        sizes="100vw"
+      >
+      <img
+        src="./assets/img/backgrounds/background-vox-gateway-clean-13.webp"
+        alt=""
+        decoding="async"
+        fetchpriority="high"
+      >
+    </picture>
+    <div class="vm-bg__nebula"></div>
+  </div>
+
+  <header class="vm-topbar" role="banner">
+    <a class="vm-brand" href="./newIndex2.html" aria-label="Vox Mana - preview home">
+      <span class="vm-brand-mark" aria-hidden="true"></span>
+      <span class="vm-brand-text">Vox Mana</span>
+    </a>
+
+    <nav class="vm-nav" aria-label="Primary">
+      <a class="vm-nav-link" href="./newIndex2.html" data-vm-nav="home">Preview Home</a>
+      <a class="vm-nav-link" href="./archscry/" data-vm-nav="archscry">Archscry</a>
+      <a class="vm-nav-link" href="./maze/" data-vm-nav="maze">The Implicit Maze</a>
+      <a class="vm-nav-link" href="./apocrypha/" data-vm-nav="apocrypha">Apocrypha</a>
+    </nav>
+
+    <div class="vm-utility">
+      <button
+        type="button"
+        class="vm-menu-button"
+        aria-label="Open menu"
+        aria-expanded="false"
+        aria-haspopup="true"
+        aria-controls="vm-menu-panel"
+        data-vm-menu-trigger
+      >
+        <span class="vm-menu-dots" aria-hidden="true">
+          <span></span><span></span><span></span>
+        </span>
+      </button>
+
+      <div
+        id="vm-menu-panel"
+        class="vm-menu-panel"
+        role="menu"
+        data-open="false"
+        data-vm-menu-panel
+      >
+        <button
+          type="button"
+          class="vm-menu-item"
+          role="menuitem"
+          data-vm-toggle="reduce-motion"
+          data-vm-tooltip-on="Stillness - on"
+          data-vm-tooltip-off="Quiet the motion"
+        >
+          <span>Reduce motion</span>
+          <span class="vm-menu-item-status" data-vm-status>Off</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="vm-preview-main">
+    <div class="vm-preview-content">
+      <section id="threshold" class="vm-preview-hero vm-preview-section" data-rail-section data-reveal>
+        <div class="vm-preview-copy">
+          <p class="vm-preview-kicker">Commander-first MTG discovery</p>
+          <h1 class="vm-preview-title">Three doors. One living archive.</h1>
+          <p class="vm-preview-lede">
+            This homepage preview keeps the Vox Mana threshold intact: Archscry reads the player,
+            the Maze reads the card universe, and Apocrypha holds the longer memory.
+          </p>
+
+          <div class="vm-preview-actions">
+            <a class="vm-button vm-button--primary" href="./archscry/">Begin a reading</a>
+            <a class="vm-button" href="#basics">Open the Color Matrix</a>
+          </div>
+
+          <div class="vm-preview-proof-grid" aria-label="Preview proof points">
+            <article class="vm-preview-proof" data-reveal>
+              <span class="vm-preview-proof__value">Explainable</span>
+              <p>Readings keep the why, not only the label.</p>
+            </article>
+            <article class="vm-preview-proof" data-reveal>
+              <span class="vm-preview-proof__value">Portable</span>
+              <p>The radar is designed to move into dossier and result views cleanly.</p>
+            </article>
+            <article class="vm-preview-proof" data-reveal>
+              <span class="vm-preview-proof__value">Commander-first</span>
+              <p>Deckways, land guidance, and adjacent fits stay in frame from the start.</p>
+            </article>
+          </div>
+
+          <aside class="vm-preview-callout vm-panel vm-panel--stone" data-reveal>
+            <div class="vm-preview-callout__meta">
+              <span class="vm-chip">Preview only</span>
+              <span class="vm-status-label">Live home untouched</span>
+            </div>
+            <blockquote class="vm-preview-quote">
+              The threshold should feel ceremonial, but still usable on the first question.
+            </blockquote>
+            <p class="vm-preview-callout__copy">
+              This pass keeps the redesign isolated in <code>newIndex.html</code> while the shared
+              radar helper is written to be ready for Archscry result wiring later.
+            </p>
+          </aside>
+        </div>
+
+        <div class="vm-preview-gateway" aria-label="Vox Mana gateway">
+          <a class="vm-preview-door vm-preview-door--archscry vm-bracket" href="./archscry/" data-reveal>
+            <span class="vm-bracket__tick vm-bracket__tick--tr" aria-hidden="true"></span>
+            <span class="vm-bracket__tick vm-bracket__tick--bl" aria-hidden="true"></span>
+            <div class="vm-preview-door__head">
+              <span class="vm-preview-door__eyebrow">Reading path</span>
+              <svg class="vm-preview-door__sigil" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polygon points="24,6 42,38 6,38"></polygon>
+                <polygon points="24,16 35,34 13,34" opacity="0.7"></polygon>
+                <circle cx="24" cy="28" r="2" fill="currentColor" stroke="none"></circle>
+              </svg>
+            </div>
+            <h2>Archscry</h2>
+            <p>Fast identity reading first, dossier depth second, with a clear return path into the archive.</p>
+            <ul class="vm-preview-door__list" aria-label="Archscry highlights">
+              <li>Quick path into a saved result</li>
+              <li>Why this fit and what weakened</li>
+              <li>Commander-first follow-through</li>
+            </ul>
+          </a>
+
+          <a class="vm-preview-door vm-preview-door--maze" href="./maze/" data-reveal>
+            <div class="vm-preview-door__orbit" aria-hidden="true"></div>
+            <div class="vm-preview-door__head">
+              <span class="vm-preview-door__eyebrow">Search path</span>
+              <svg class="vm-preview-door__sigil" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="24" cy="24" r="20"></circle>
+                <circle cx="24" cy="24" r="14" opacity="0.72"></circle>
+                <circle cx="24" cy="24" r="8" opacity="0.54"></circle>
+                <line x1="24" y1="4" x2="24" y2="10"></line>
+                <line x1="24" y1="38" x2="24" y2="44"></line>
+                <line x1="4" y1="24" x2="10" y2="24"></line>
+                <line x1="38" y1="24" x2="44" y2="24"></line>
+                <circle cx="24" cy="24" r="2" fill="currentColor" stroke="none"></circle>
+              </svg>
+            </div>
+            <h2>The Implicit Maze</h2>
+            <p>
+              Keep the ceremonial center mass, but let the copy speak plainly: ask by syntax, by strategy,
+              or by the pattern you are chasing.
+            </p>
+            <div class="vm-preview-door__meta">
+              <span class="vm-chip">Central gate</span>
+              <span class="vm-chip">Plain language ready</span>
+            </div>
+          </a>
+
+          <a class="vm-preview-door vm-preview-door--apocrypha vm-bracket" href="./apocrypha/" data-reveal>
+            <span class="vm-bracket__tick vm-bracket__tick--tr" aria-hidden="true"></span>
+            <span class="vm-bracket__tick vm-bracket__tick--bl" aria-hidden="true"></span>
+            <div class="vm-preview-door__head">
+              <span class="vm-preview-door__eyebrow">Archive path</span>
+              <svg class="vm-preview-door__sigil" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polygon points="24,4 42,14 42,34 24,44 6,34 6,14"></polygon>
+                <polygon points="24,12 36,18 36,30 24,36 12,30 12,18" opacity="0.62"></polygon>
+                <circle cx="24" cy="24" r="3"></circle>
+              </svg>
+            </div>
+            <h2>Apocrypha</h2>
+            <p>Research shelves, lore fragments, and source-rich notes stay visibly published instead of hiding behind the reading flow.</p>
+            <ul class="vm-preview-door__list" aria-label="Apocrypha highlights">
+              <li>Longform shelves and source trails</li>
+              <li>Faction and plane deep dives</li>
+              <li>Dossier-adjacent context later</li>
+            </ul>
+          </a>
+        </div>
+      </section>
+
+      <!-- MAGIC BASICS -->
+      <section id="basics" class="vm-section">
+        <h2>Magic Basics</h2>
+        <p class="vm-section-intro">
+          New to Magic? Start here. Magic is a strategy card game built around five colors of mana.
+          Each color represents a philosophy, a way of solving problems, and a style of play.
+        </p>
+
+        <div class="vm-tabs">
+          <button class="vm-tab active" data-topic="pie">Color Pie</button>
+          <button class="vm-tab" data-topic="mana">Mana</button>
+          <button class="vm-tab" data-topic="decks">Decks</button>
+          <button class="vm-tab" data-topic="lore">Lore</button>
+          <button class="vm-tab" data-topic="gameplay">Gameplay</button>
+        </div>
+
+        <div class="vm-reveal" id="basicsReveal"></div>
+
+        <div id="colorMatrixWrap" class="vm-color-matrix-wrap" hidden>
+          <div class="vm-color-matrix-heading">
+            <h3>Color Matrix</h3>
+            <p>
+              A lightweight preview of the color identity model. The deeper placement experience belongs in Archscry.
+            </p>
+          </div>
+          <div class="vm-panel vm-lab-panel">
+            <div class="vm-lab-layout">
+              <div class="vm-selector-panel">
+                <div class="vm-selector-title">
+                  <h3>Mana Lens</h3>
+                  <span>Identity Selector v4</span>
+                </div>
+
+                <div class="vm-lens-tabs" id="lensTabs">
+                  <button class="vm-lens-tab active" data-mode="mono">Mono</button>
+                  <button class="vm-lens-tab" data-mode="guilds">Guilds</button>
+                  <button class="vm-lens-tab" data-mode="colleges">Colleges</button>
+                </div>
+
+                <div class="vm-lens-subtabs" id="guildSubtabs">
+                  <button class="vm-lens-subtab active" data-guild-group="allied">Allied</button>
+                  <button class="vm-lens-subtab" data-guild-group="enemy">Enemy</button>
+                </div>
+
+                <div class="vm-lens-grid mono" id="identityGrid"></div>
+
+                <div class="vm-selected-card" id="selectedCard">
+                  <div class="vm-selected-kicker" id="selectedKicker">Selected Profile</div>
+                  <h3 id="colorTitle">White - Peace through Order</h3>
+                  <p id="colorText">
+                    White values structure, protection, community, duty, and shared stability. It asks how life can be made safer through order.
+                  </p>
+                  <div class="vm-overlay-line" id="overlayLine"></div>
+                </div>
+
+                <div class="vm-axis-list" id="axisList"></div>
+
+                <div class="vm-placeholder-note">
+                  Color Matrix note: this preview shows how Magic colors can be read as identity patterns. Deeper placement belongs in Archscry.
+                </div>
+              </div>
+
+              <div class="vm-radar-card">
+                <div class="vm-controls">
+                  <label class="vm-toggle"><input id="componentToggle" type="checkbox" checked> show component colors</label>
+                  <label class="vm-toggle"><input id="compositeToggle" type="checkbox" checked> show synthesis</label>
+                </div>
+                <div class="vm-chart-wrap">
+                  <div class="vm-radar-glow" id="radarGlow"></div>
+                  <div class="vm-radar-wrap">
+                    <canvas id="vmRadar" aria-label="Vox Mana color philosophy radar chart"></canvas>
+                  </div>
+                </div>
+                <p class="vm-radar-caption" id="radarCaption">
+                  Current profile: White
+                </p>
+                <div class="vm-dataset-pills" id="datasetPills"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="dossier" class="vm-preview-dossier vm-preview-section" data-rail-section>
+        <div class="vm-preview-section-head" data-reveal>
+          <div>
+            <p class="vm-preview-kicker">Dossier and Deckways</p>
+            <h2 class="vm-preview-section-title">The homepage can preview the archive without turning into a dashboard.</h2>
+          </div>
+          <p class="vm-preview-section-copy">
+            These modules borrow the dossier rail language from the research set, but keep the content compressed,
+            legible, and gateway-oriented.
+          </p>
+        </div>
+
+        <div class="vm-preview-dossier-grid">
+          <article class="vm-preview-dossier-card" data-reveal>
+            <span class="vm-chip">Decree</span>
+            <h3>Why this fit rose first</h3>
+            <p>Keep the home aware of the result structure without dumping the full dossier onto the landing surface.</p>
+          </article>
+          <article class="vm-preview-dossier-card" data-reveal>
+            <span class="vm-chip">Adjacent fits</span>
+            <h3>Near matches stay readable</h3>
+            <p>Adjacent comparisons can preview tension and overlap before the user commits to the deeper read.</p>
+          </article>
+          <article class="vm-preview-dossier-card" data-reveal>
+            <span class="vm-chip">Evidence trail</span>
+            <h3>Receipts, not mystification</h3>
+            <p>Signal notes, weakened candidates, and reading omens remain explainable from the first touchpoint.</p>
+          </article>
+          <article class="vm-preview-dossier-card" data-reveal>
+            <span class="vm-chip">Maze return</span>
+            <h3>Deck discovery keeps a way back</h3>
+            <p>Search and build paths can leave the home surface and still remember the reading that started them.</p>
+          </article>
+        </div>
+
+        <div class="vm-preview-deckways" data-reveal>
+          <article class="vm-preview-deckways-card">
+            <p class="vm-preview-control-label">Commander lane</p>
+            <h3>Starter commanders with actual personality</h3>
+            <p>Lead with readable archetype framing, not a blind card dump.</p>
+          </article>
+          <article class="vm-preview-deckways-card">
+            <p class="vm-preview-control-label">Staples</p>
+            <h3>Role-based card starts</h3>
+            <p>Ramp, removal, draw, and finishers can appear as coherent lanes after identity becomes legible.</p>
+          </article>
+          <article class="vm-preview-deckways-card">
+            <p class="vm-preview-control-label">Land guidance</p>
+            <h3>Premium, midrange, budget, utility</h3>
+            <p>Mana base guidance should read like progression, not a pile of links.</p>
+          </article>
+          <article class="vm-preview-deckways-card">
+            <p class="vm-preview-control-label">Lore echo</p>
+            <h3>Apocrypha stays inside the same story world</h3>
+            <p>The gateway should make the research shelves feel adjacent to the read, not like a detached library.</p>
+          </article>
+        </div>
+      </section>
+
+      <footer class="vm-preview-footer vm-status-strip">
+        <div>
+          <span class="vm-status-label">Preview status</span>
+          <div class="vm-preview-footer__value">Isolated homepage redesign surface</div>
+        </div>
+        <div>
+          <span class="vm-status-label">Routes preserved</span>
+          <div class="vm-preview-footer__value">/archscry/ - /maze/ - /apocrypha/</div>
+        </div>
+        <div>
+          <span class="vm-status-label">Shared component</span>
+          <div class="vm-preview-footer__value">Portable identity radar ready for dossier wiring</div>
+        </div>
+      </footer>
+    </div>
+
+    <nav class="vm-preview-rail" aria-label="Preview section rail">
+      <a href="#threshold" data-rail-link="threshold">Threshold</a>
+      <a href="#basics" data-rail-link="basics">Magic Basics</a>
+      <a href="#dossier" data-rail-link="dossier">Dossier</a>
+    </nav>
+  </main>
+
+  <script src="./assets/js/reduce-motion.js" defer></script>
+  <script src="./assets/js/vm-topbar.js" defer></script>
+  <script src="./assets/js/atmosphere.js" defer></script>
+  <!-- TODO: Replace this Chart.js CDN with ./vendor/chart.umd.min.js when the vendor copy lands. -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
+  <script src="./assets/js/color-matrix-radar.js" defer></script>
+  <script src="./assets/js/newindex-color-matrix.js" defer></script>
+  <script>
+    (function () {
+      "use strict";
+
+      const basics = {
+        pie: 'The Color Pie is Magic\'s philosophical engine. White seeks order, Blue seeks knowledge, Black seeks power, Red seeks freedom, and Green seeks growth.<br><button class="vm-button vm-inline-action" type="button" data-show-color-matrix>Show the five colors</button>',
+        mana: "Mana is the energy used to cast spells. In Vox Mana, mana also works as a symbolic language for values, instincts, and identity.",
+        decks: "A deck is a collection of cards used to play. Its colors and mechanics often reveal a style of thinking or problem-solving.",
+        lore: "Magic lore is the story layer: worlds, characters, factions, conflicts, gods, monsters, schools, guilds, and histories.",
+        gameplay: "Gameplay turns philosophy into action: rules, costs, risks, tempo, sacrifice, growth, control, combat, discovery, and chaos."
+      };
+
+      function reducedMotionEnabled() {
+        return (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) ||
+          document.documentElement.getAttribute("data-reduce-motion") === "true";
+      }
+
+      function getStoredMatrixPreference() {
+        try {
+          return window.localStorage.getItem("vmColorMatrixVisible") === "1";
+        } catch (error) {
+          return false;
+        }
+      }
+
+      function storeMatrixPreference(visible) {
+        try {
+          window.localStorage.setItem("vmColorMatrixVisible", visible ? "1" : "0");
+        } catch (error) {
+          return;
+        }
+      }
+
+      function initBasicsSection() {
+        const basicsReveal = document.getElementById("basicsReveal");
+        const colorMatrixWrap = document.getElementById("colorMatrixWrap");
+        const tabs = Array.from(document.querySelectorAll("#basics .vm-tab"));
+
+        if (!basicsReveal || !colorMatrixWrap || !tabs.length) {
+          return;
+        }
+
+        function updateMatrixButtonText() {
+          const button = basicsReveal.querySelector("[data-show-color-matrix]");
+          if (!button) {
+            return;
+          }
+          button.textContent = colorMatrixWrap.hidden ? "Show the five colors" : "Hide the five colors";
+        }
+
+        function setColorMatrixVisible(visible) {
+          colorMatrixWrap.hidden = !visible;
+          storeMatrixPreference(visible);
+          updateMatrixButtonText();
+        }
+
+        function setBasicsTopic(topic) {
+          basicsReveal.innerHTML = basics[topic] || basics.pie;
+
+          if (topic !== "pie") {
+            colorMatrixWrap.hidden = true;
+            updateMatrixButtonText();
+            return;
+          }
+
+          setColorMatrixVisible(getStoredMatrixPreference());
+        }
+
+        function toggleColorMatrix() {
+          const isCurrentlyVisible = !colorMatrixWrap.hidden;
+          setColorMatrixVisible(!isCurrentlyVisible);
+
+          if (!isCurrentlyVisible) {
+            colorMatrixWrap.scrollIntoView({
+              behavior: reducedMotionEnabled() ? "auto" : "smooth",
+              block: "start"
+            });
+          }
+        }
+
+        tabs.forEach(function (tab) {
+          tab.addEventListener("click", function () {
+            tabs.forEach(function (candidate) {
+              candidate.classList.remove("active");
+            });
+            tab.classList.add("active");
+            setBasicsTopic(tab.dataset.topic);
+          });
+        });
+
+        basicsReveal.addEventListener("click", function (event) {
+          if (event.target.matches("[data-show-color-matrix]")) {
+            toggleColorMatrix();
+          }
+        });
+
+        setBasicsTopic("pie");
+      }
+
+      function initRevealObserver() {
+        const nodes = document.querySelectorAll("[data-reveal], .vm-reveal");
+        if (!nodes.length) {
+          return;
+        }
+
+        if (reducedMotionEnabled() || !window.IntersectionObserver) {
+          nodes.forEach(function (node) {
+            node.classList.add("is-visible");
+          });
+          return;
+        }
+
+        const observer = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (!entry.isIntersecting) {
+              return;
+            }
+            entry.target.classList.add("is-visible");
+            observer.unobserve(entry.target);
+          });
+        }, {
+          threshold: 0.16,
+          rootMargin: "0px 0px -8% 0px"
+        });
+
+        nodes.forEach(function (node) {
+          observer.observe(node);
+        });
+      }
+
+      function initSectionRail() {
+        const links = Array.from(document.querySelectorAll(".vm-preview-rail a[href^='#']"));
+        const sections = links.map(function (link) {
+          return document.querySelector(link.getAttribute("href"));
+        }).filter(Boolean);
+
+        if (!links.length || !sections.length) {
+          return;
+        }
+
+        if (!window.IntersectionObserver) {
+          links[0].setAttribute("aria-current", "true");
+          return;
+        }
+
+        const observer = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (!entry.isIntersecting) {
+              return;
+            }
+
+            links.forEach(function (link) {
+              const active = link.getAttribute("href") === "#" + entry.target.id;
+              link.setAttribute("aria-current", active ? "true" : "false");
+            });
+          });
+        }, {
+          threshold: 0.42,
+          rootMargin: "-10% 0px -48% 0px"
+        });
+
+        sections.forEach(function (section) {
+          observer.observe(section);
+        });
+      }
+
+      function init() {
+        initBasicsSection();
+        initRevealObserver();
+        initSectionRail();
+      }
+
+      if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", init);
+      } else {
+        init();
+      }
+    })();
+  </script>
+</body>
+</html>

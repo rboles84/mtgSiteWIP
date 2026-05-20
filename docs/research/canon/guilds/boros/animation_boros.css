@@ -1,0 +1,40 @@
+:root{
+  --pulse-duration: 220ms;
+  --trail-decay: 600ms;
+  --glow-base: 0.4;
+  --glow-battalion: 1.0;
+  --ease-in-out: cubic-bezier(.4,0,.2,1);
+}
+
+/* spoke pulse */
+.spoke-pulse {
+  transition: stroke-opacity var(--pulse-duration) var(--ease-in-out), filter var(--pulse-duration) var(--ease-in-out);
+  stroke-opacity: 1;
+  filter: drop-shadow(0 0 calc(6px * var(--glow-base)) rgba(217,59,43,0.6));
+}
+
+/* battalion full glow */
+.battalion-glow {
+  transition: filter 180ms var(--ease-in-out), stroke-opacity 180ms var(--ease-in-out);
+  filter: drop-shadow(0 0 calc(12px * var(--glow-battalion)) rgba(217,59,43,0.9));
+  stroke-opacity: 1;
+}
+
+/* ember trail */
+.ember-trail {
+  transition: opacity var(--trail-decay) linear;
+  opacity: 1;
+}
+
+/* hardiness flash */
+.hardiness-flash {
+  transition: opacity 160ms ease-in-out;
+  opacity: 0.95;
+  transform-origin: center;
+  animation: hardiness-fade 600ms forwards;
+}
+
+@keyframes hardiness-fade {
+  0% { opacity: 0.95; transform: scale(1.02); }
+  100% { opacity: 0; transform: scale(1); }
+}

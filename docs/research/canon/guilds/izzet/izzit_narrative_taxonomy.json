@@ -1,0 +1,399 @@
+{
+  "schema_version": "1.0.0",
+  "system": "Izzit",
+  "document": "Narrative Taxonomy",
+  "description": "Defines the complete narrative grammar of the Izzit system: story roles, arc structures, domain mythologies, tension axes, and the semantic mapping between card mechanics and narrative function. Use this taxonomy to author lore, design scenarios, or generate story content aligned with Izzit conventions.",
+
+  "overview": {
+    "principle": "In Izzit, every mechanical event is simultaneously a narrative event. Cards are not merely game pieces — they are agents in an ongoing structural story about constraint, freedom, accumulation, and dissolution. The taxonomy below provides the vocabulary, grammar, and archetypes for that story.",
+    "narrative_register": "Izzit narratives operate in three registers simultaneously: Mechanical (what the card does), Structural (what role it plays in the system), and Mythic (what it means in the world of Izzit).",
+    "primary_tension": "The foundational tension of every Izzit narrative is between Constraint and Dissolution — the forces that bind versus the forces that end."
+  },
+
+  "narrative_roles": {
+    "Foundation": {
+      "description": "The unmovable premise. The thing that was always there before the story began. Foundation cards are never protagonists — they are the ground the story stands on.",
+      "story_function": "Establishes the setting's inviolable rules. Cannot be the subject of change, only the context of it.",
+      "canonical_cards": ["IZ-001", "IZ-029"],
+      "archetype": "The Law",
+      "voice_quality": "Declarative, impersonal, ancient",
+      "example_sentence": "The mountain was there before anyone named it, and it will be there long after the last name is forgotten.",
+      "tension_with": ["Disruptor", "Vacuum"],
+      "allied_with":  ["Boundary", "Limiter"]
+    },
+    "Vacuum": {
+      "description": "The necessary absence. The silence between notes. Vacuum cards hold the space that makes other things possible but contribute nothing of their own.",
+      "story_function": "Creates dramatic pause, absorbs consequences, enables transitions between story beats.",
+      "canonical_cards": ["IZ-002", "IZ-021"],
+      "archetype": "The Void",
+      "voice_quality": "Absent, implied, negative space",
+      "example_sentence": "She left the room and took the argument with her. What remained was easier to breathe.",
+      "tension_with": ["Accumulator", "Amplifier"],
+      "allied_with":  ["Foundation", "Threshold"]
+    },
+    "Disruptor": {
+      "description": "The force of change. The card that arrives and makes everything different. Disruptors are not villains — they are the engine of plot.",
+      "story_function": "Introduces the inciting incident, escalates tension, breaks established equilibria, forces other characters to respond.",
+      "canonical_cards": ["IZ-003", "IZ-010", "IZ-020", "IZ-028"],
+      "archetype": "The Catalyst",
+      "voice_quality": "Sharp, declarative, present-tense urgency",
+      "example_sentence": "The announcement came without warning and unmade three years of careful arrangement in under a minute.",
+      "tension_with": ["Foundation", "Limiter"],
+      "allied_with":  ["Initiator", "Mirror"]
+    },
+    "Arrester": {
+      "description": "The force of stasis. The card that holds something in place — for protection, for punishment, or simply because movement is dangerous right now.",
+      "story_function": "Creates narrative holds: the held breath before revelation, the frozen moment, the suspended consequence.",
+      "canonical_cards": ["IZ-004", "IZ-017", "IZ-024", "IZ-031"],
+      "archetype": "The Warden",
+      "voice_quality": "Deliberate, measured, weighted with authority",
+      "example_sentence": "He was not imprisoned. He was kept — held in the particular amber of a decision that had not yet been made.",
+      "tension_with": ["Disruptor", "Catalyst"],
+      "allied_with":  ["Boundary", "Foundation"]
+    },
+    "Catalyst": {
+      "description": "The accelerant. The card that speeds up what was already going to happen. Catalysts do not create — they compress time.",
+      "story_function": "Advances timeline, triggers dormant causal chains, intensifies emotional states already in motion.",
+      "canonical_cards": ["IZ-005"],
+      "archetype": "The Accelerant",
+      "voice_quality": "Energetic, forward-leaning, impatient",
+      "example_sentence": "The letter arrived three days early and collapsed a month's worth of anxious waiting into a single afternoon.",
+      "tension_with": ["Arrester", "Limiter"],
+      "allied_with":  ["Initiator", "Accumulator"]
+    },
+    "Boundary": {
+      "description": "The edge of the possible. The card that defines what is inside and what is outside a given situation. Boundaries are not obstacles — they are definitions.",
+      "story_function": "Establishes what a scene contains, who belongs in a relationship, what a character is capable of, what a world permits.",
+      "canonical_cards": ["IZ-006", "IZ-013", "IZ-027"],
+      "archetype": "The Perimeter",
+      "voice_quality": "Clear, spatial, geometric",
+      "example_sentence": "The agreement was simple: what happened in this room stayed in this room. The walls themselves seemed to understand.",
+      "tension_with": ["Disruptor", "Threshold"],
+      "allied_with":  ["Foundation", "Limiter"]
+    },
+    "Accumulator": {
+      "description": "The patient builder. The card that gains without spending, that grows in silence, that arrives at consequence by accumulation rather than intention.",
+      "story_function": "Tracks slow-burn narrative pressure: unspoken resentments, compounding advantages, the weight of everything left unsaid.",
+      "canonical_cards": ["IZ-007", "IZ-023"],
+      "archetype": "The Collector",
+      "voice_quality": "Slow, recursive, dense with history",
+      "example_sentence": "She had been keeping score for eleven years. By the time she spoke, the numbers were impossible.",
+      "tension_with": ["Vacuum", "Disruptor"],
+      "allied_with":  ["Catalyst", "Sequencer"]
+    },
+    "Threshold": {
+      "description": "The point of passage. The card that sits between states, between worlds, between what was and what might be. Thresholds do not decide — they allow.",
+      "story_function": "Manages transitions: scene changes, character transformations, domain crossings, revelations.",
+      "canonical_cards": ["IZ-008", "IZ-025"],
+      "archetype": "The Gate",
+      "voice_quality": "Liminal, ambiguous, both/and",
+      "example_sentence": "Standing at the door, she was still both things: the person who didn't know yet and the person who was about to.",
+      "tension_with": ["Boundary", "Foundation"],
+      "allied_with":  ["Mirror", "Vacuum"]
+    },
+    "Mirror": {
+      "description": "The reflection. The card that copies, echoes, or resonates — showing something what it already is, but from the outside.",
+      "story_function": "Creates dramatic irony, reveals character through repetition, surfaces patterns the original did not intend.",
+      "canonical_cards": ["IZ-009", "IZ-026"],
+      "archetype": "The Echo",
+      "voice_quality": "Slightly delayed, imitative, revelatory",
+      "example_sentence": "The second argument was almost word-for-word the first one. Neither of them noticed. The room did.",
+      "tension_with": ["Disruptor", "Arrester"],
+      "allied_with":  ["Observer", "Threshold"]
+    },
+    "Signal": {
+      "description": "The message. The card that propagates something outward — a sensation, a fact, an impulse — without interpreting it. Signals carry without meaning.",
+      "story_function": "Information delivery, sensation propagation, triggering chains of response without being the cause of what follows.",
+      "canonical_cards": ["IZ-011"],
+      "archetype": "The Messenger",
+      "voice_quality": "Neutral, direct, carrier not content",
+      "example_sentence": "The phone rang. That was all. But in that ring, somehow, she already knew.",
+      "tension_with": ["Vacuum", "Limiter"],
+      "allied_with":  ["Catalyst", "Sequencer"]
+    },
+    "Amplifier": {
+      "description": "The intensifier. The card that makes everything more of what it already is — emotions louder, effects stronger, fields wider.",
+      "story_function": "Escalates existing narrative conditions without introducing new ones. Amplifiers make climaxes possible.",
+      "canonical_cards": ["IZ-012"],
+      "archetype": "The Resonance",
+      "voice_quality": "Rich, full, superlative",
+      "example_sentence": "Everyone felt it. The joy in that room was not polite — it was structural, a kind of pressure.",
+      "tension_with": ["Vacuum", "Limiter"],
+      "allied_with":  ["Catalyst", "Accumulator"]
+    },
+    "Limiter": {
+      "description": "The ceiling. The card that establishes the maximum — preventing excess, containing escalation, defining what is too much.",
+      "story_function": "Creates dramatic compression by capping what is possible, forcing resolution within constraints.",
+      "canonical_cards": ["IZ-013"],
+      "archetype": "The Ceiling",
+      "voice_quality": "Firm, final, non-negotiable",
+      "example_sentence": "There was only so much the structure could hold. Everyone had known it for months. No one had said it.",
+      "tension_with": ["Disruptor", "Amplifier"],
+      "allied_with":  ["Foundation", "Boundary"]
+    },
+    "Connector": {
+      "description": "The bond. The card that links things, making what happens to one happen to the other. Connectors create shared fate.",
+      "story_function": "Establishes relationships, responsibilities, and co-dependencies that drive plot through entanglement.",
+      "canonical_cards": ["IZ-014"],
+      "archetype": "The Bond",
+      "voice_quality": "Warm, bilateral, relational",
+      "example_sentence": "They had never agreed to be responsible for each other. At some point they simply were.",
+      "tension_with": ["Vacuum", "Arrester"],
+      "allied_with":  ["Signal", "Sequencer"]
+    },
+    "Sequencer": {
+      "description": "The order-keeper. The card that says: this first, then that. Sequencers enforce causality and narrative logic.",
+      "story_function": "Establishes plot dependencies, enforces genre conventions, creates the expectation that events must follow a shape.",
+      "canonical_cards": ["IZ-015"],
+      "archetype": "The Thread",
+      "voice_quality": "Logical, ordered, conditional",
+      "example_sentence": "He could only forgive her after she had asked. She could only ask after she understood. She could only understand after she stopped defending.",
+      "tension_with": ["Disruptor", "Threshold"],
+      "allied_with":  ["Connector", "Foundation"]
+    },
+    "Fragment": {
+      "description": "The piece. The partial thing that implies a whole. Fragments accumulate into meaning or scatter into noise depending on what surrounds them.",
+      "story_function": "Carries isolated detail, tactile specificity, the material residue of events. Often used in world-building and sensory grounding.",
+      "canonical_cards": ["IZ-016"],
+      "archetype": "The Shard",
+      "voice_quality": "Concrete, sensory, incomplete",
+      "example_sentence": "One shoe. A coffee cup still warm. The particular angle of afternoon light on a table nobody had sat at.",
+      "tension_with": ["Apex", "Vacuum"],
+      "allied_with":  ["Accumulator", "Observer"]
+    },
+    "Framework": {
+      "description": "The logical skeleton. The card that imposes structure on how other things must relate — not by force but by definition.",
+      "story_function": "Creates the genre, the rules of the world, the social contracts that characters operate within.",
+      "canonical_cards": ["IZ-018"],
+      "archetype": "The Schema",
+      "voice_quality": "Systematic, architectural, self-referential",
+      "example_sentence": "The rules of the institution were not written down. They did not need to be. Everyone already knew what happened when they were broken.",
+      "tension_with": ["Disruptor", "Threshold"],
+      "allied_with":  ["Sequencer", "Boundary"]
+    },
+    "Initiator": {
+      "description": "The first cause. The card that starts things without remaining in them. Initiators fire and vanish, leaving everything changed.",
+      "story_function": "Delivers inciting incidents, opening images, the moment before the story properly begins.",
+      "canonical_cards": ["IZ-019"],
+      "archetype": "The Spark",
+      "voice_quality": "Brief, electric, unrepeatable",
+      "example_sentence": "It began with a single sentence. Everything else was consequence.",
+      "tension_with": ["Arrester", "Vacuum"],
+      "allied_with":  ["Catalyst", "Disruptor"]
+    },
+    "Observer": {
+      "description": "The witness. The card that records without acting, knows without intervening, holds the history of everything that happened.",
+      "story_function": "Provides narrative perspective, holds the record against which characters' self-delusions can be measured.",
+      "canonical_cards": ["IZ-022"],
+      "archetype": "The Witness",
+      "voice_quality": "Passive, archival, gently omniscient",
+      "example_sentence": "She remembered everything — not as accusation but as archive. The facts existed whether anyone else believed them or not.",
+      "tension_with": ["Disruptor", "Initiator"],
+      "allied_with":  ["Mirror", "Framework"]
+    },
+    "Apex": {
+      "description": "The end of all accumulation. The point at which everything resolves into one thing and the system resets. The Apex is not a victory or a defeat — it is a conclusion.",
+      "story_function": "Delivers the final beat. The moment after the Apex, the story is over and something entirely new is possible.",
+      "canonical_cards": ["IZ-032"],
+      "archetype": "The Singularity",
+      "voice_quality": "Total, final, quietly enormous",
+      "example_sentence": "And then everything that had been held apart for so long collapsed into a single instant, and the instant passed, and there was morning.",
+      "tension_with": ["Foundation", "Vacuum"],
+      "allied_with":  ["Accumulator", "Disruptor"]
+    }
+  },
+
+  "domain_mythologies": {
+    "Spatial": {
+      "mythology": "The domain of place, position, and the rights of territory. In Izzit lore, the Spatial domain governs the primordial question: who is allowed to be where? Spatial cards are the oldest cards in the canon — they preceded language, because space exists before the things that occupy it.",
+      "narrative_mood": "Ancient, geometric, territorial",
+      "primary_conflict": "Presence vs. Absence — the right to occupy versus the right to remain empty",
+      "associated_roles": ["Foundation", "Boundary", "Threshold"]
+    },
+    "Temporal": {
+      "mythology": "Time in Izzit is not linear — it is a series of phases that can be frozen, skipped, accelerated, or looped. The Temporal domain governs not what happens but when, and the cards within it have an uneasy relationship with causality.",
+      "narrative_mood": "Urgent, recursive, slightly unstable",
+      "primary_conflict": "Momentum vs. Stasis — the drive to advance versus the imperative to hold",
+      "associated_roles": ["Catalyst", "Arrester", "Threshold"]
+    },
+    "Causal": {
+      "mythology": "The domain of consequence. Causal cards believe that everything that exists was caused, and everything that is caused will produce an effect. The Override cards belong here because their deepest function is to break causal chains — to say 'this will not lead where it was going.'",
+      "narrative_mood": "Logical, pressurized, morally weighted",
+      "primary_conflict": "Determination vs. Agency — the chain of cause versus the freedom to disrupt it",
+      "associated_roles": ["Sequencer", "Disruptor", "Limiter"]
+    },
+    "Semantic": {
+      "mythology": "The domain of meaning. Semantic cards govern the gap between what is said and what is meant, what is recorded and what is true. The Echo and Witness are semantic cards because language repeats and witnesses hold records.",
+      "narrative_mood": "Reflective, layered, slightly unreliable",
+      "primary_conflict": "Meaning vs. Repetition — the attempt to mean something original versus the way meaning echoes back changed",
+      "associated_roles": ["Mirror", "Observer", "Fragment"]
+    },
+    "Somatic": {
+      "mythology": "The domain of the body — sensation, impulse, physical response. Somatic cards carry the weight of felt experience that cannot be reduced to logic. They are the oldest signals in the system.",
+      "narrative_mood": "Immediate, sensory, pre-linguistic",
+      "primary_conflict": "Sensation vs. Containment — the raw signal versus the social requirement to suppress it",
+      "associated_roles": ["Signal", "Foundation", "Arrester"]
+    },
+    "Affective": {
+      "mythology": "The emotional field. Affective cards carry states that spread between people — joy, grief, anger, longing. The Bloom is an affective card because emotion does not stay where it originates.",
+      "narrative_mood": "Warm, contagious, non-rational",
+      "primary_conflict": "Amplification vs. Suppression — the natural tendency of feeling to spread versus the social mandate to contain it",
+      "associated_roles": ["Amplifier", "Arrester", "Signal"]
+    },
+    "Social": {
+      "mythology": "The domain of relationship, obligation, and shared fate. Social cards are the most political cards in the system — they govern who is bound to whom and what that binding costs.",
+      "narrative_mood": "Complex, relational, ethically charged",
+      "primary_conflict": "Connection vs. Isolation — the need to belong versus the cost of being bound",
+      "associated_roles": ["Connector", "Arrester", "Boundary"]
+    },
+    "Material": {
+      "mythology": "The domain of objects, substance, and physical accumulation. Material cards carry the specificity of things — the weight, texture, and fragility of the physical world. They shatter and they coat.",
+      "narrative_mood": "Concrete, tactile, transient",
+      "primary_conflict": "Accumulation vs. Fragmentation — the building of material weight versus its inevitable dispersal",
+      "associated_roles": ["Fragment", "Accumulator", "Initiator"]
+    },
+    "Cognitive": {
+      "mythology": "The domain of logic, pattern, and the frameworks through which minds organize experience. Cognitive cards are the closest thing Izzit has to meta-cards — they govern the rules of how other things are interpreted.",
+      "narrative_mood": "Structural, recursive, slightly cold",
+      "primary_conflict": "Pattern vs. Exception — the system's claim to universality versus the event that does not fit",
+      "associated_roles": ["Framework", "Disruptor", "Observer"]
+    },
+    "Elemental": {
+      "mythology": "The domain of origin — the simplest, most fundamental forces. Elemental cards are uncomplicated; they fire once and are done. They are the sparks from which everything else begins.",
+      "narrative_mood": "Simple, primal, unrepeatable",
+      "primary_conflict": "Origin vs. Continuation — the pure first moment versus the messy persistence of what it causes",
+      "associated_roles": ["Initiator", "Catalyst", "Fragment"]
+    },
+    "Void": {
+      "mythology": "The domain of non-being. The Void is not evil — it is the canvas. Void cards reset, absorb, and dissolve. They are terrifying only to systems that have confused their own persistence with meaning.",
+      "narrative_mood": "Vast, impersonal, final",
+      "primary_conflict": "Existence vs. Non-existence — the everything that wants to persist versus the nothing that will eventually have it",
+      "associated_roles": ["Vacuum", "Apex", "Disruptor"]
+    }
+  },
+
+  "arc_structures": {
+    "The Accretion Arc": {
+      "description": "A slow-burn structure in which pressure accumulates invisibly until it reaches a threshold and transforms everything. The canonical Izzit arc.",
+      "phases": [
+        {"name": "Seeding",      "mechanic": "Accretion Node enters play. Low-weight. Unremarkable.", "narrative": "Something small begins. Nobody notices."},
+        {"name": "Growth",       "mechanic": "AccretionEngine ticks. Weight increases each phase.",    "narrative": "The thing grows. Some people notice but do not name it."},
+        {"name": "Threshold",    "mechanic": "Weight crosses 5.0. Accretion threshold event fires.",   "narrative": "The weight becomes impossible to ignore. A reckoning is approaching."},
+        {"name": "Singularity",  "mechanic": "Weight reaches 10.0. Card transforms to IZ-032.",       "narrative": "Everything resolves at once. The old system collapses. Something entirely new is now possible."}
+      ],
+      "canonical_cards": ["IZ-007", "IZ-023", "IZ-032"],
+      "dominant_domain": "Cognitive, Material",
+      "narrative_mood": "Slow, inevitable, enormous"
+    },
+    "The Override Arc": {
+      "description": "Authority arrives and changes something that was fixed. The story of disruption and what survives it.",
+      "phases": [
+        {"name": "Equilibrium", "mechanic": "Board is stable. Constraints in place.",               "narrative": "Everything is fine the way it is. Or so everyone believes."},
+        {"name": "Authority",   "mechanic": "Override card enters. Priority conflict resolved.",    "narrative": "Something with authority arrives and says: no, actually."},
+        {"name": "Cascade",     "mechanic": "Override Cascade or secondary overrides fire.",       "narrative": "The first change triggers others. What was stable becomes fluid."},
+        {"name": "Resolution",  "mechanic": "Board settles into new configuration.",               "narrative": "The story finds its new ground. Some things did not survive the change."}
+      ],
+      "canonical_cards": ["IZ-003", "IZ-020", "IZ-028", "IZ-030"],
+      "dominant_domain": "Causal, Social",
+      "narrative_mood": "Sharp, political, transformative"
+    },
+    "The Detain Arc": {
+      "description": "Something is held. The story of what stasis costs, and what it protects.",
+      "phases": [
+        {"name": "Motion",        "mechanic": "Target card is active and propagating.",            "narrative": "The character acts, moves, causes effects."},
+        {"name": "Arrest",        "mechanic": "Detain token applied. Target enters detained state.", "narrative": "Something stops them — law, love, injury, obligation, fear."},
+        {"name": "Stasis",        "mechanic": "Detained card holds. Game continues around it.",    "narrative": "Life continues around the arrested thing. The held question persists."},
+        {"name": "Liberation",    "mechanic": "Detain.lift() called. Card returns to active.",     "narrative": "The hold breaks. What is released is not the same thing that was detained."}
+      ],
+      "canonical_cards": ["IZ-004", "IZ-017", "IZ-024", "IZ-031"],
+      "dominant_domain": "Social, Temporal",
+      "narrative_mood": "Heavy, suspended, morally complex"
+    },
+    "The Void Arc": {
+      "description": "Everything is destroyed and the board resets. The story of what survives dissolution.",
+      "phases": [
+        {"name": "Saturation",    "mechanic": "Zone is dense with tokens, constraints, fields.", "narrative": "The world has become too full. Every space is occupied."},
+        {"name": "Surge",         "mechanic": "Void Surge (IZ-010) fires. Soft tokens cleared.",  "narrative": "The clearing arrives without warning. It takes everything with it."},
+        {"name": "Silence",       "mechanic": "Board is sparse. Only Hard cards remain.",        "narrative": "After the clearing, only the essential remains. The rest is gone."},
+        {"name": "Beginning",     "mechanic": "New cards enter. New game state forms.",           "narrative": "What grows back knows what happened."}
+      ],
+      "canonical_cards": ["IZ-002", "IZ-010", "IZ-021", "IZ-032"],
+      "dominant_domain": "Void, Spatial",
+      "narrative_mood": "Apocalyptic, clarifying, generative"
+    },
+    "The Echo Arc": {
+      "description": "A pattern repeats until it transforms — or destroys itself through repetition.",
+      "phases": [
+        {"name": "First Occurrence", "mechanic": "Original event resolves.",                       "narrative": "Something happens for the first time."},
+        {"name": "Echo",             "mechanic": "The Echo (IZ-009) duplicates at half magnitude.", "narrative": "It happens again. Almost the same."},
+        {"name": "Loop",             "mechanic": "Resonance Loop (IZ-026) activates. Three iterations.", "narrative": "It becomes a pattern. The participants stop noticing."},
+        {"name": "Collapse",         "mechanic": "Loop collapses to Null state after three cycles.",    "narrative": "The pattern exhausts itself and stops. Now everyone notices."}
+      ],
+      "canonical_cards": ["IZ-009", "IZ-022", "IZ-026"],
+      "dominant_domain": "Semantic",
+      "narrative_mood": "Recursive, hypnotic, slightly uncanny"
+    }
+  },
+
+  "tension_axes": {
+    "Constraint vs. Freedom": {
+      "pole_a": "Hard constraint cards: The Anchor, Hard Ceiling, Null Boundary, Temporal Lock, Deep Detain",
+      "pole_b": "Override and Flux cards: The Override, Override Cascade, Liminal Gate, Liminal Fold",
+      "dramatic_question": "How much can be held before something breaks — and what does the breaking cost?"
+    },
+    "Accumulation vs. Dissolution": {
+      "pole_a": "Accretion cards: Accretion Node, Accretion Shell",
+      "pole_b": "Void cards: Void Surge, The Null Vessel, Null Boundary, The Singularity",
+      "dramatic_question": "What survives when everything you have built is returned to nothing?"
+    },
+    "Pattern vs. Exception": {
+      "pole_a": "Framework and Sequencer cards: Cognitive Lattice, Causal Thread",
+      "pole_b": "Disruptor cards: The Override, Field Inversion, Void Surge",
+      "dramatic_question": "When the system meets the thing it cannot account for, which one changes?"
+    },
+    "Signal vs. Silence": {
+      "pole_a": "Propagation cards: Somatic Pulse, Affective Bloom, Social Weave, Resonance Loop",
+      "pole_b": "Absorption cards: The Null Vessel, Null Boundary, Affective Detain",
+      "dramatic_question": "Who gets to speak, and who is required to absorb what they cannot say?"
+    },
+    "Presence vs. Absence": {
+      "pole_a": "Foundation and Anchor cards: The Anchor, Somatic Anchor",
+      "pole_b": "Liminal and Void cards: Liminal Gate, Liminal Fold, Void Surge",
+      "dramatic_question": "What does it mean to be somewhere, and what does it cost to leave?"
+    }
+  },
+
+  "lexicon": {
+    "Accretion":      "The process of gaining weight, density, or consequence over time through accumulation rather than intention.",
+    "Active Zone":    "The current spatial or temporal region in which cards are interacting. Defined by the outermost constraint field.",
+    "Apex State":     "The terminal narrative condition reached by The Singularity (IZ-032). Everything resolves; the story ends and restarts.",
+    "Arrest":         "The act of applying a detainment token. To arrest is to suspend without destroying.",
+    "Constraint":     "A rule imposed on the behavior of cards within a zone. Hard constraints cannot be Overridden below their tier.",
+    "Detained":       "The state of a card held by a detainment token. Detained cards cannot move, trigger, or propagate.",
+    "Domain":         "The categorical domain of experience a card belongs to (Spatial, Temporal, Causal, etc.). Cards from different domains can interact via Liminal cards.",
+    "Field":          "The zone of influence projected by a card's field_strength. Field edges are where most constraint violations occur.",
+    "Hard Constraint":"A constraint immune to soft Override. Can only be broken by a matching-tier or higher Override, or a Void Surge.",
+    "Liminal Space":  "The space between domains. Cards passing through a Liminal Gate exist in no domain until they exit.",
+    "Override":       "The act of superseding an active constraint or behavioral rule. Overrides resolve before standard phase actions.",
+    "Phase":          "A discrete unit of game/story time. Cards tick, accrete, and resolve within phases.",
+    "Propagation":    "The spreading of a card's effect to adjacent cards or zone positions via its field_strength.",
+    "Singularity":    "The terminal accretion state (IZ-032). In narrative terms: the moment when everything that has been accumulating resolves into a single event.",
+    "Soft Constraint":"A constraint susceptible to Override or Void Surge. Most non-Anchor, non-Null cards carry Soft constraints.",
+    "Tier":           "The power level of a card (I–IV). Tier determines which operations can affect a card and which it can initiate.",
+    "Token":          "A marker placed on a card to indicate a temporary state (detainment, constraint flag, accretion shell layer).",
+    "Void":           "The absence of constraint, content, and field. Not nothing — the possibility of everything. Void cards reset systems.",
+    "Weight":         "The accretion_weight of a card. As weight increases, the card's influence grows until it reaches a threshold."
+  },
+
+  "writing_conventions": {
+    "card_references": "Card names in narrative prose are always capitalized (The Anchor, Void Surge). Card IDs are used in technical contexts only.",
+    "domain_names": "Domain names are capitalized when used as proper nouns (the Temporal domain, a Somatic card) and lowercase when used adjectivally (a temporal freeze, somatic signals).",
+    "tense": "Izzit narratives use present tense for active card states and past tense for resolved events. The Singularity is always written in the present perfect: 'The Singularity has arrived.'",
+    "detain_vs_detainment": "'Detain' is the action. 'Detainment' is the state. 'The Detain' (capitalized) is the specific card IZ-004.",
+    "void_handling": "The Void is treated as a domain, not a condition. Do not write 'the card was voided' — write 'the card entered the Void state' or 'it was nullified.'",
+    "override_voice": "Override events are written in the declarative: 'The Override supersedes.' Not 'The Override tried to supersede.' Overrides either succeed completely or fail completely.",
+    "accretion_metaphors": "Accretion is described through material accumulation: sediment, snow, debt, scar tissue, sleep deprivation. Avoid explosive or sudden metaphors — accretion is always slow.",
+    "narrative_register_shift": "When a card crosses a tier boundary (e.g., Accretion Node transforms to Singularity), the prose register should shift — from close/personal to distant/cosmic.",
+    "echo_and_resonance": "Echo events are always described as 'at half magnitude' in mechanical prose and 'almost the same' in narrative prose. Resonance Loops are described as patterns noticed too late."
+  }
+}

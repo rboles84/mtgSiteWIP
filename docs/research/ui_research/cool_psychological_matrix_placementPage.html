@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Architecture of Mana: A Psychological Infographic</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Inter:wght@300;400;600;800&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0f172a;
+            color: #f8fafc;
+        }
+        h1, h2, h3, .mtg-font {
+            font-family: 'Cinzel', serif;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 400px;
+            max-height: 500px;
+        }
+        @media (max-width: 768px) {
+            .chart-container {
+                height: 300px;
+            }
+        }
+        .mana-card {
+            transition: transform 0.2s;
+        }
+        .mana-card:hover {
+            transform: translateY(-5px);
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-indigo-500 selection:text-white">
+
+    <!-- 
+        Chosen Palette: Vibrant Dark Mode (Background #0f172a, Text #f8fafc, Vibrant MTG Accents: White #f8fafc, Blue #3b82f6, Black #8b5cf6, Red #ef4444, Green #22c55e)
+        Application Structure Plan: Linear scrollable infographic. Starts with a strong thematic hero, moves into a comparative Radar Chart showing the psychological dimensions of each color, then details each identity through stylized cards, and concludes with a quantitative grouped Bar Chart mapping philosophies to actual gameplay mechanics.
+        Visualization & Content Choices:
+        1. Psychological Matrix -> Radar Chart (Compare) -> Shows how the 5 colors align on abstract concepts. Canvas-based Chart.js.
+        2. Core Philosophies -> CSS Grid Cards (Organize) -> Displays the text heavy qualitative data cleanly.
+        3. Mechanical Manifestation -> Grouped Bar Chart (Compare/Relationships) -> Translates abstract drives into concrete gameplay actions. Canvas-based Chart.js.
+        CONFIRMATION: NEITHER Mermaid JS NOR SVG were used anywhere in the output.
+    -->
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        
+        <header class="text-center py-16 mb-12 border-b border-slate-800">
+            <h1 class="text-5xl md:text-7xl font-bold mb-6 tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-yellow-100 via-blue-400 to-green-500 mtg-font">
+                The Architecture of Mana
+            </h1>
+            <p class="text-xl md:text-2xl text-slate-400 max-w-3xl mx-auto font-light leading-relaxed">
+                A definitive analysis of the five psychological archetypes, their core beliefs, and how their emotional frameworks dictate their mechanical playstyles.
+            </p>
+        </header>
+
+        <section class="mb-24">
+            <div class="text-center mb-10">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 mtg-font text-slate-100">The Psychological Matrix</h2>
+                <p class="text-slate-400 max-w-2xl mx-auto">
+                    The five colors are not merely magical elements; they are distinct psychological profiles. This visualization maps their driving forces across five core human impulses. White seeks structure, Red demands emotion, while Black ruthlessly pursues autonomy.
+                </p>
+            </div>
+            
+            <div class="bg-slate-800 rounded-2xl p-6 md:p-10 shadow-2xl border border-slate-700">
+                <div class="chart-container">
+                    <canvas id="psychRadarChart"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-24">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 mtg-font text-slate-100">Core Philosophies</h2>
+                <p class="text-slate-400 max-w-2xl mx-auto">
+                    Understanding the "Vox Mana Read"—the inner voice and absolute truth that guides each identity. Morality is subjective depending on the mana you channel.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <div class="bg-slate-800 rounded-xl p-8 border-t-4 border-slate-200 shadow-lg mana-card">
+                    <div class="text-4xl mb-4 text-slate-200">☀</div>
+                    <h3 class="text-2xl font-bold mb-1 mtg-font text-slate-200">White</h3>
+                    <p class="text-sm font-semibold text-slate-400 uppercase tracking-widest mb-4">The Architect of Order</p>
+                    <div class="mb-6">
+                        <p class="text-lg italic text-slate-300 border-l-2 border-slate-500 pl-4 py-1">
+                            "You seek to shape the world into something fair, predictable, and protected."
+                        </p>
+                    </div>
+                    <ul class="space-y-3 text-sm text-slate-400">
+                        <li><strong class="text-slate-200">Drive:</strong> Stability, structure, protection</li>
+                        <li><strong class="text-slate-200">Belief:</strong> The world works best when rules are followed</li>
+                        <li><strong class="text-slate-200">Emotion:</strong> Duty, responsibility, restraint</li>
+                        <li><strong class="text-slate-200">Playstyle:</strong> Control, tokens, protection, symmetry</li>
+                    </ul>
+                </div>
+
+                <div class="bg-slate-800 rounded-xl p-8 border-t-4 border-blue-500 shadow-lg mana-card">
+                    <div class="text-4xl mb-4 text-blue-500">💧</div>
+                    <h3 class="text-2xl font-bold mb-1 mtg-font text-blue-500">Blue</h3>
+                    <p class="text-sm font-semibold text-blue-400 uppercase tracking-widest mb-4">The Seeker of Possibility</p>
+                    <div class="mb-6">
+                        <p class="text-lg italic text-blue-200 border-l-2 border-blue-600 pl-4 py-1">
+                            "You do not act until you understand. And once you do, you control everything."
+                        </p>
+                    </div>
+                    <ul class="space-y-3 text-sm text-slate-400">
+                        <li><strong class="text-slate-200">Drive:</strong> Knowledge, control through understanding</li>
+                        <li><strong class="text-slate-200">Belief:</strong> Everything can be optimized or predicted</li>
+                        <li><strong class="text-slate-200">Emotion:</strong> Curiosity, detachment, precision</li>
+                        <li><strong class="text-slate-200">Playstyle:</strong> Draw, counterspells, manipulation</li>
+                    </ul>
+                </div>
+
+                <div class="bg-slate-800 rounded-xl p-8 border-t-4 border-violet-500 shadow-lg mana-card">
+                    <div class="text-4xl mb-4 text-violet-500">💀</div>
+                    <h3 class="text-2xl font-bold mb-1 mtg-font text-violet-500">Black</h3>
+                    <p class="text-sm font-semibold text-violet-400 uppercase tracking-widest mb-4">The Wielder of Power</p>
+                    <div class="mb-6">
+                        <p class="text-lg italic text-violet-200 border-l-2 border-violet-600 pl-4 py-1">
+                            "You are willing to pay any cost… because you understand that everything has one."
+                        </p>
+                    </div>
+                    <ul class="space-y-3 text-sm text-slate-400">
+                        <li><strong class="text-slate-200">Drive:</strong> Power, autonomy, self-determination</li>
+                        <li><strong class="text-slate-200">Belief:</strong> You take what you need — morality is optional</li>
+                        <li><strong class="text-slate-200">Emotion:</strong> Ambition, ruthlessness, inevitability</li>
+                        <li><strong class="text-slate-200">Playstyle:</strong> Sacrifice, recursion, drain, tutors</li>
+                    </ul>
+                </div>
+
+                <div class="bg-slate-800 rounded-xl p-8 border-t-4 border-red-500 shadow-lg mana-card lg:col-start-1 lg:col-end-3 xl:col-start-auto xl:col-end-auto">
+                    <div class="text-4xl mb-4 text-red-500">🔥</div>
+                    <h3 class="text-2xl font-bold mb-1 mtg-font text-red-500">Red</h3>
+                    <p class="text-sm font-semibold text-red-400 uppercase tracking-widest mb-4">The Force of Impulse</p>
+                    <div class="mb-6">
+                        <p class="text-lg italic text-red-200 border-l-2 border-red-600 pl-4 py-1">
+                            "You act because you feel. And in that moment, you are unstoppable."
+                        </p>
+                    </div>
+                    <ul class="space-y-3 text-sm text-slate-400">
+                        <li><strong class="text-slate-200">Drive:</strong> Freedom, expression, emotion</li>
+                        <li><strong class="text-slate-200">Belief:</strong> Life is meant to be lived now, not calculated</li>
+                        <li><strong class="text-slate-200">Emotion:</strong> Passion, chaos, immediacy</li>
+                        <li><strong class="text-slate-200">Playstyle:</strong> Burn, haste, randomness, aggression</li>
+                    </ul>
+                </div>
+
+                <div class="bg-slate-800 rounded-xl p-8 border-t-4 border-green-500 shadow-lg mana-card lg:col-start-2 lg:col-end-4 xl:col-start-auto xl:col-end-auto">
+                    <div class="text-4xl mb-4 text-green-500">🌳</div>
+                    <h3 class="text-2xl font-bold mb-1 mtg-font text-green-500">Green</h3>
+                    <p class="text-sm font-semibold text-green-400 uppercase tracking-widest mb-4">The Voice of Growth</p>
+                    <div class="mb-6">
+                        <p class="text-lg italic text-green-200 border-l-2 border-green-600 pl-4 py-1">
+                            "You do not force the world to change — you grow into what it becomes."
+                        </p>
+                    </div>
+                    <ul class="space-y-3 text-sm text-slate-400">
+                        <li><strong class="text-slate-200">Drive:</strong> Harmony, growth, natural order</li>
+                        <li><strong class="text-slate-200">Belief:</strong> Everything unfolds as it should</li>
+                        <li><strong class="text-slate-200">Emotion:</strong> Patience, strength, inevitability</li>
+                        <li><strong class="text-slate-200">Playstyle:</strong> Ramp, big creatures, natural synergy</li>
+                    </ul>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="mb-24">
+            <div class="bg-slate-800 rounded-2xl p-6 md:p-10 shadow-2xl border border-slate-700">
+                <div class="text-center mb-10">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4 mtg-font text-slate-100">Mechanical Manifestation</h2>
+                    <p class="text-slate-400 max-w-2xl mx-auto">
+                        Philosophy directly dictates game mechanics. This chart illustrates how each identity leverages specific game actions—like generating resources, managing tempo, or interacting with the board—to achieve its ultimate goal.
+                    </p>
+                </div>
+                
+                <div class="chart-container">
+                    <canvas id="mechanicsBarChart"></canvas>
+                </div>
+                
+                <div class="mt-10 grid grid-cols-2 md:grid-cols-5 gap-4 text-center">
+                    <div class="bg-slate-900 p-4 rounded-lg border border-slate-700">
+                        <h4 class="text-slate-200 font-bold mb-2">White</h4>
+                        <p class="text-xs text-slate-400">Board Wipes<br>Protection<br>Token Armies</p>
+                    </div>
+                    <div class="bg-slate-900 p-4 rounded-lg border border-slate-700">
+                        <h4 class="text-blue-400 font-bold mb-2">Blue</h4>
+                        <p class="text-xs text-slate-400">Card Draw<br>Stack Control<br>Bounce</p>
+                    </div>
+                    <div class="bg-slate-900 p-4 rounded-lg border border-slate-700">
+                        <h4 class="text-violet-400 font-bold mb-2">Black</h4>
+                        <p class="text-xs text-slate-400">Graveyard<br>Life Cost<br>Sacrifice</p>
+                    </div>
+                    <div class="bg-slate-900 p-4 rounded-lg border border-slate-700">
+                        <h4 class="text-red-400 font-bold mb-2">Red</h4>
+                        <p class="text-xs text-slate-400">Direct Damage<br>Impulse Draw<br>Haste</p>
+                    </div>
+                    <div class="bg-slate-900 p-4 rounded-lg border border-slate-700 col-span-2 md:col-span-1">
+                        <h4 class="text-green-400 font-bold mb-2">Green</h4>
+                        <p class="text-xs text-slate-400">Mana Ramp<br>Large Behemoths<br>Synergy</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer class="text-center py-8 border-t border-slate-800">
+            <p class="text-slate-600 text-sm font-semibold uppercase tracking-wider">
+                Interactive SPA Infographic • Data Visualization Study
+            </p>
+        </footer>
+
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            
+            const psychLabels = [
+                'Absolute Structure', 
+                ['Relentless', 'Knowledge'], 
+                ['Desire for', 'Autonomy'], 
+                'Raw Emotion', 
+                'Natural Harmony'
+            ];
+
+            const radarCtx = document.getElementById('psychRadarChart').getContext('2d');
+            new Chart(radarCtx, {
+                type: 'radar',
+                data: {
+                    labels: psychLabels,
+                    datasets: [
+                        {
+                            label: 'White',
+                            data: [10, 5, 2, 2, 7],
+                            backgroundColor: 'rgba(248, 250, 252, 0.2)',
+                            borderColor: 'rgba(248, 250, 252, 1)',
+                            borderWidth: 2,
+                            pointBackgroundColor: 'rgba(248, 250, 252, 1)',
+                            hidden: false
+                        },
+                        {
+                            label: 'Blue',
+                            data: [7, 10, 6, 1, 3],
+                            backgroundColor: 'rgba(59, 130, 246, 0.2)',
+                            borderColor: 'rgba(59, 130, 246, 1)',
+                            borderWidth: 2,
+                            pointBackgroundColor: 'rgba(59, 130, 246, 1)',
+                            hidden: false
+                        },
+                        {
+                            label: 'Black',
+                            data: [4, 6, 10, 5, 1],
+                            backgroundColor: 'rgba(139, 92, 246, 0.2)',
+                            borderColor: 'rgba(139, 92, 246, 1)',
+                            borderWidth: 2,
+                            pointBackgroundColor: 'rgba(139, 92, 246, 1)',
+                            hidden: true
+                        },
+                        {
+                            label: 'Red',
+                            data: [1, 2, 8, 10, 3],
+                            backgroundColor: 'rgba(239, 68, 68, 0.2)',
+                            borderColor: 'rgba(239, 68, 68, 1)',
+                            borderWidth: 2,
+                            pointBackgroundColor: 'rgba(239, 68, 68, 1)',
+                            hidden: true
+                        },
+                        {
+                            label: 'Green',
+                            data: [3, 4, 5, 6, 10],
+                            backgroundColor: 'rgba(34, 197, 94, 0.2)',
+                            borderColor: 'rgba(34, 197, 94, 1)',
+                            borderWidth: 2,
+                            pointBackgroundColor: 'rgba(34, 197, 94, 1)',
+                            hidden: true
+                        }
+                    ]
+                },
+                options: {
+                    maintainAspectRatio: false,
+                    responsive: true,
+                    scales: {
+                        r: {
+                            angleLines: { color: 'rgba(255, 255, 255, 0.1)' },
+                            grid: { color: 'rgba(255, 255, 255, 0.1)' },
+                            pointLabels: {
+                                color: '#94a3b8',
+                                font: { size: 13, family: 'Inter', weight: '600' }
+                            },
+                            ticks: { display: false, min: 0, max: 10 }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            position: 'top',
+                            labels: { color: '#f8fafc', font: { family: 'Inter' } }
+                        },
+                        tooltip: {
+                            backgroundColor: 'rgba(15, 23, 42, 0.9)',
+                            titleColor: '#f8fafc',
+                            bodyColor: '#cbd5e1',
+                            borderColor: 'rgba(255,255,255,0.1)',
+                            borderWidth: 1,
+                            callbacks: {
+                                title: function(tooltipItems) {
+                                    const item = tooltipItems[0];
+                                    let label = item.chart.data.labels[item.dataIndex];
+                                    if (Array.isArray(label)) {
+                                        return label.join(' ');
+                                    } else {
+                                        return label;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+
+            const mechanicsLabels = [
+                'Board Presence',
+                ['Resource', 'Generation'],
+                ['Stack', 'Interaction'],
+                'Aggression Speed'
+            ];
+
+            const barCtx = document.getElementById('mechanicsBarChart').getContext('2d');
+            new Chart(barCtx, {
+                type: 'bar',
+                data: {
+                    labels: mechanicsLabels,
+                    datasets: [
+                        { label: 'White', data: [9, 4, 8, 5], backgroundColor: 'rgba(248, 250, 252, 0.8)' },
+                        { label: 'Blue', data: [3, 7, 10, 2], backgroundColor: 'rgba(59, 130, 246, 0.8)' },
+                        { label: 'Black', data: [5, 8, 7, 4], backgroundColor: 'rgba(139, 92, 246, 0.8)' },
+                        { label: 'Red', data: [6, 3, 6, 10], backgroundColor: 'rgba(239, 68, 68, 0.8)' },
+                        { label: 'Green', data: [10, 10, 4, 6], backgroundColor: 'rgba(34, 197, 94, 0.8)' }
+                    ]
+                },
+                options: {
+                    maintainAspectRatio: false,
+                    responsive: true,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            max: 10,
+                            grid: { color: 'rgba(255, 255, 255, 0.05)' },
+                            ticks: { color: '#64748b' }
+                        },
+                        x: {
+                            grid: { display: false },
+                            ticks: { color: '#94a3b8', font: { family: 'Inter', weight: '600' } }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            position: 'bottom',
+                            labels: { color: '#f8fafc', padding: 20, font: { family: 'Inter' } }
+                        },
+                        tooltip: {
+                            backgroundColor: 'rgba(15, 23, 42, 0.9)',
+                            titleColor: '#f8fafc',
+                            bodyColor: '#cbd5e1',
+                            borderColor: 'rgba(255,255,255,0.1)',
+                            borderWidth: 1,
+                            callbacks: {
+                                title: function(tooltipItems) {
+                                    const item = tooltipItems[0];
+                                    let label = item.chart.data.labels[item.dataIndex];
+                                    if (Array.isArray(label)) {
+                                        return label.join(' ');
+                                    } else {
+                                        return label;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>

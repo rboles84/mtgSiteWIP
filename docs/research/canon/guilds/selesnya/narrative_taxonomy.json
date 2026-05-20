@@ -1,0 +1,288 @@
+{
+  "version": "1.0.0",
+  "author": "Copilot",
+  "generation_date": "2026-05-18",
+  "description": "Hierarchical narrative taxonomy for the Selesnya Conclave. Maps thematic pillars, archetypes, story beats, and card tags to the selesnya_structural_matrix dataset.",
+
+  "themes": {
+    "community": {
+      "label": "Community",
+      "description": "The Selesnya Conclave prizes collective action above individual glory. Every voice joins the chorus; every hand strengthens the grove.",
+      "sub_themes": {
+        "unity": {
+          "label": "Unity in Action",
+          "description": "Creatures working in concert — tapping together, triggering on allies entering, or sharing keyword abilities.",
+          "tags": ["anthem", "token", "buff"],
+          "example_cards": ["Voice of the Conclave", "Selesnya Guildmage", "Phantom General"]
+        },
+        "shared_purpose": {
+          "label": "Shared Purpose",
+          "description": "Mechanics that reward having many creatures or creature types on the battlefield simultaneously.",
+          "tags": ["populate", "token", "anthem"],
+          "example_cards": ["Wayfaring Temple", "Growing Ranks", "Trostani Discordant"]
+        },
+        "convocation": {
+          "label": "Convocation",
+          "description": "Drawing upon the tapped power of allies to achieve a common goal — analogous to the convoke mechanic.",
+          "tags": ["token", "anthem"],
+          "example_cards": ["Hour of Reckoning", "Sunhome Evangelist"]
+        }
+      }
+    },
+    "growth": {
+      "label": "Growth",
+      "description": "Life expands naturally outward — creatures grow with counters, tokens multiply, and resources accumulate over time.",
+      "sub_themes": {
+        "proliferation": {
+          "label": "Proliferation of Life",
+          "description": "Mechanics that add +1/+1 counters, produce tokens repeatedly, or scale with the number of permanents in play.",
+          "tags": ["buff", "populate", "token"],
+          "example_cards": ["Rootborn Sentinel", "Trostani, Grove Warden", "Verdant Confluence"]
+        },
+        "resource_expansion": {
+          "label": "Resource Expansion",
+          "description": "Ramp effects, mana rocks, and card draw that accelerate the natural engine of the Conclave.",
+          "tags": ["ramp", "artifact"],
+          "example_cards": ["Selesnya Keyrune", "Selesnya Locket"]
+        },
+        "token_multiplication": {
+          "label": "Token Multiplication",
+          "description": "Generating creature tokens from spells, abilities, or triggers — the fungal spreading of the grove.",
+          "tags": ["token", "populate"],
+          "example_cards": ["Call of the Conclave", "Trostani's Summoner", "Eyes in the Skies", "Armada Wurm"]
+        }
+      }
+    },
+    "harmony": {
+      "label": "Harmony",
+      "description": "White's order and Green's wildness resolve into a balanced whole — neither dominates. Harmony manifests as synergistic interactions and dual-color mechanics.",
+      "sub_themes": {
+        "dual_colour_synergy": {
+          "label": "Dual-Colour Synergy",
+          "description": "Effects requiring both green and white mana, rewarding colour commitment.",
+          "tags": ["creature", "instant", "enchantment"],
+          "example_cards": ["Selesnya Charm", "Emmara, Soul of the Accord", "Vitu-Ghazi Guildmage"]
+        },
+        "life_as_resource": {
+          "label": "Life as Resource",
+          "description": "Lifegain that triggers secondary effects, converting vitality into board advantage.",
+          "tags": ["lifegain", "buff"],
+          "example_cards": ["Trostani, Grove Warden", "Sunhome Evangelist", "Ajani, Mentor of Heroes"]
+        },
+        "protection_and_resilience": {
+          "label": "Protection and Resilience",
+          "description": "Instants and enchantments that safeguard the board state, echoing White's protective instinct filtered through Green's endurance.",
+          "tags": ["instant", "enchantment", "removal"],
+          "example_cards": ["Rootborn Defenses", "Bower Passage", "Glare of Subdual"]
+        }
+      }
+    },
+    "stewardship": {
+      "label": "Stewardship",
+      "description": "The Conclave tends the land, the sacred grove, and the creatures under its care. Stewardship appears as artifact utility, land interaction, and creature care.",
+      "sub_themes": {
+        "land_tending": {
+          "label": "Land Tending",
+          "description": "Abilities tied to the grove itself — land-based token generation, sacrifice outlets, and mana diversification.",
+          "tags": ["ramp", "token"],
+          "example_cards": ["Grove of the Guardian", "Selesnya Keyrune"]
+        },
+        "artifact_care": {
+          "label": "Artifact Care",
+          "description": "Artifacts that serve the community — mana sources that can be spent for the greater good.",
+          "tags": ["artifact", "ramp"],
+          "example_cards": ["Selesnya Locket", "Selesnya Keyrune"]
+        },
+        "creature_welfare": {
+          "label": "Creature Welfare",
+          "description": "Abilities that keep creatures healthy — indestructible grants, stat buffs, and lifelink bestowals.",
+          "tags": ["buff", "lifegain", "enchantment"],
+          "example_cards": ["Collective Blessing", "Intangible Virtue", "Trostani Discordant"]
+        }
+      }
+    }
+  },
+
+  "archetypes": {
+    "Leader": {
+      "label": "Leader",
+      "description": "Legendary or rare commanders who direct the Conclave's strategy. They grant wide-reaching buffs, generate multiple tokens on entry, or possess unique activated abilities that shape the board.",
+      "traits": ["legendary", "anthem_effect", "multiple_token_generation", "unique_activated_ability"],
+      "tags": ["anthem", "token", "buff", "planeswalker"],
+      "example_cards": [
+        "Trostani, Grove Warden",
+        "Trostani Discordant",
+        "Emmara, Soul of the Accord",
+        "Ajani, Mentor of Heroes",
+        "Huatli, Radiant Champion"
+      ]
+    },
+    "Steward": {
+      "label": "Steward",
+      "description": "Mid-range permanents that sustain the engine — ramp artifacts, mana sources, and enchantments that produce value over multiple turns.",
+      "traits": ["persistent_value", "ramp", "enchantment_or_artifact"],
+      "tags": ["ramp", "enchantment", "artifact", "lifegain"],
+      "example_cards": [
+        "Growing Ranks",
+        "Intangible Virtue",
+        "Collective Blessing",
+        "Selesnya Keyrune",
+        "Selesnya Locket",
+        "Bower Passage"
+      ]
+    },
+    "Vanguard": {
+      "label": "Vanguard",
+      "description": "Aggressive or efficient creatures that represent the Conclave's martial front — high-power bodies, tramplers, and combat-focused keyword bearers.",
+      "traits": ["high_power_or_toughness", "combat_keyword", "evasion"],
+      "tags": ["creature", "buff"],
+      "example_cards": [
+        "Rootborn Sentinel",
+        "Wayfaring Temple",
+        "Worldspine Wurm",
+        "Armada Wurm",
+        "Trostani's Summoner"
+      ]
+    },
+    "Chorus": {
+      "label": "Chorus",
+      "description": "The rank-and-file — common and uncommon creatures and instants that individually seem small but synergise explosively in multiples. The heartbeat of any Selesnya board.",
+      "traits": ["low_cmc", "token_generation_on_trigger", "synergy_dependent"],
+      "tags": ["token", "populate", "instant", "creature"],
+      "example_cards": [
+        "Centaur's Herald",
+        "Selesnya Evangel",
+        "Vitu-Ghazi Guildmage",
+        "Selesnya Guildmage",
+        "Selesnya Charm",
+        "Rootborn Defenses",
+        "Sundering Growth",
+        "Eyes in the Skies",
+        "Call of the Conclave"
+      ]
+    }
+  },
+
+  "story_beats": [
+    {
+      "id": "SB-01",
+      "title": "The Grove Stirs",
+      "description": "Opening phase. The grove awakens — early mana and low-cost creatures establish board presence. Sets the foundation for the Conclave's engine.",
+      "phase": "early",
+      "themes": ["growth", "community"],
+      "archetype_focus": "Chorus",
+      "associated_tags": ["ramp", "creature", "token"],
+      "example_cards": ["Centaur's Herald", "Selesnya Evangel", "Selesnya Keyrune", "Selesnya Locket", "Emmara, Soul of the Accord"]
+    },
+    {
+      "id": "SB-02",
+      "title": "Roots Run Deep",
+      "description": "Mid-game consolidation. Enchantments and key creatures lock in ongoing value generation. Populate begins.",
+      "phase": "mid",
+      "themes": ["stewardship", "growth"],
+      "archetype_focus": "Steward",
+      "associated_tags": ["enchantment", "populate", "token", "lifegain"],
+      "example_cards": ["Growing Ranks", "Intangible Virtue", "Glare of Subdual", "Vitu-Ghazi Guildmage", "Trostani, Grove Warden"]
+    },
+    {
+      "id": "SB-03",
+      "title": "The Chorus Rises",
+      "description": "Token flood peaks. The board swells with creature tokens. Anthem effects transform the swarm into a lethal force.",
+      "phase": "mid",
+      "themes": ["community", "harmony"],
+      "archetype_focus": "Chorus",
+      "associated_tags": ["token", "anthem", "buff", "populate"],
+      "example_cards": ["Phantom General", "Collective Blessing", "Trostani Discordant", "Wayfaring Temple", "Selesnya Guildmage"]
+    },
+    {
+      "id": "SB-04",
+      "title": "The Vanguard Marches",
+      "description": "Finisher phase. Large threats and combat keywords close out the game. Tramplers punch through token blockers.",
+      "phase": "late",
+      "themes": ["growth", "stewardship"],
+      "archetype_focus": "Vanguard",
+      "associated_tags": ["creature", "buff", "token"],
+      "example_cards": ["Armada Wurm", "Worldspine Wurm", "Trostani's Summoner", "Grove of the Guardian"]
+    },
+    {
+      "id": "SB-05",
+      "title": "Nature's Verdict",
+      "description": "Reactive phase. Instants answer threats, exile problem permanents, and protect the board on the opponent's turn.",
+      "phase": "reactive",
+      "themes": ["harmony", "stewardship"],
+      "archetype_focus": "Chorus",
+      "associated_tags": ["instant", "removal", "populate"],
+      "example_cards": ["Selesnya Charm", "Rootborn Defenses", "Sundering Growth", "Trostani's Judgment", "Advent of the Wurm"]
+    },
+    {
+      "id": "SB-06",
+      "title": "The Leader Speaks",
+      "description": "Legendary or planeswalker resolution. A singular powerful permanent reshapes the game and inspires the Chorus.",
+      "phase": "pivotal",
+      "themes": ["community", "harmony"],
+      "archetype_focus": "Leader",
+      "associated_tags": ["planeswalker", "anthem", "lifegain", "buff"],
+      "example_cards": ["Ajani, Mentor of Heroes", "Huatli, Radiant Champion", "Emmara, Soul of the Accord", "Trostani, Grove Warden"]
+    }
+  ],
+
+  "tag_definitions": {
+    "populate":     "Mechanic that creates a copy of a creature token you control.",
+    "anthem":       "Effect that grants +N/+N (or similar stat boost) to all or most creatures you control.",
+    "token":        "Creates one or more creature tokens, or relates primarily to creature tokens.",
+    "lifegain":     "Causes the controller to gain life points.",
+    "buff":         "Grants a permanent or temporary stat increase (+1/+1 counters, keyword abilities) to one or more creatures.",
+    "removal":      "Destroys, exiles, bounces, or otherwise removes an opponent's permanent.",
+    "ramp":         "Provides additional mana resources (land fetching, mana rocks, cost reduction).",
+    "creature":     "Permanent type — creature card or token-producing creature.",
+    "enchantment":  "Permanent type — enchantment card.",
+    "instant":      "Spell type — instant or sorcery (used for both in this taxonomy for filtering convenience).",
+    "artifact":     "Permanent type — artifact card.",
+    "planeswalker": "Permanent type — legendary planeswalker card."
+  },
+
+  "tag_to_story_beat_map": {
+    "populate":     ["SB-02", "SB-03", "SB-05"],
+    "anthem":       ["SB-03", "SB-06"],
+    "token":        ["SB-01", "SB-02", "SB-03", "SB-04", "SB-05"],
+    "lifegain":     ["SB-02", "SB-06"],
+    "buff":         ["SB-03", "SB-04", "SB-06"],
+    "removal":      ["SB-05"],
+    "ramp":         ["SB-01"],
+    "creature":     ["SB-01", "SB-04"],
+    "enchantment":  ["SB-02"],
+    "instant":      ["SB-05"],
+    "artifact":     ["SB-01"],
+    "planeswalker": ["SB-06"]
+  },
+
+  "tag_to_theme_map": {
+    "populate":     ["growth", "community"],
+    "anthem":       ["community", "harmony"],
+    "token":        ["growth", "community"],
+    "lifegain":     ["harmony", "stewardship"],
+    "buff":         ["growth", "community"],
+    "removal":      ["harmony", "stewardship"],
+    "ramp":         ["growth", "stewardship"],
+    "creature":     ["community", "growth"],
+    "enchantment":  ["stewardship", "harmony"],
+    "instant":      ["harmony"],
+    "artifact":     ["stewardship"],
+    "planeswalker": ["community", "harmony"]
+  },
+
+  "tag_to_archetype_map": {
+    "populate":     ["Chorus", "Steward"],
+    "anthem":       ["Leader", "Steward"],
+    "token":        ["Chorus", "Leader"],
+    "lifegain":     ["Steward", "Leader"],
+    "buff":         ["Leader", "Vanguard"],
+    "removal":      ["Chorus"],
+    "ramp":         ["Steward"],
+    "creature":     ["Vanguard", "Chorus"],
+    "enchantment":  ["Steward"],
+    "instant":      ["Chorus"],
+    "artifact":     ["Steward"],
+    "planeswalker": ["Leader"]
+  }
+}

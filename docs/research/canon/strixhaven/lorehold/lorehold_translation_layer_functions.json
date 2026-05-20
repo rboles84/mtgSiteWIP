@@ -1,0 +1,72 @@
+{
+  "schema_version": "vox-mana-translation-layer-v1",
+  "school": "Lorehold",
+  "functions": {
+    "Detain": {
+      "lorehold_meaning": "A conservation hold: pause the scene, protect the find, cite the precedent, and decide what may safely be revived.",
+      "primary_inputs": [
+        "motifs",
+        "tags",
+        "mechanical_signal",
+        "graveyard_state"
+      ],
+      "output_intent": "preserve_and_classify",
+      "best_cards": [
+        "Study Break",
+        "Returned Pastcaller",
+        "Losheel, Clockwork Scholar",
+        "Angel of the Ruins"
+      ]
+    },
+    "Override": {
+      "lorehold_meaning": "The red field-scholar breaks the sealed archive when discovery, danger, or lived history matters more than procedure.",
+      "primary_inputs": [
+        "red_signal",
+        "excavation_signal",
+        "risk",
+        "discovery_pressure"
+      ],
+      "output_intent": "break_seal_for_discovery",
+      "best_cards": [
+        "Plargg, Dean of Chaos",
+        "Thrilling Discovery",
+        "Antiquities on the Loose",
+        "Rip Apart"
+      ]
+    },
+    "ConstraintField": {
+      "lorehold_meaning": "An excavation grid, archive rule, or historical precedent that keeps dangerous history legible and ethically usable.",
+      "primary_inputs": [
+        "constraints",
+        "axes",
+        "site_rules",
+        "precedent"
+      ],
+      "output_intent": "establish_excavation_grid",
+      "best_cards": [
+        "Lorehold Campus",
+        "Lorehold Command",
+        "Bronze Guardian",
+        "Archaeomancer's Map"
+      ]
+    },
+    "AccretionEngine": {
+      "lorehold_meaning": "Every relic, graveyard card, Spirit, map note, or artifact copy adds historical charge until the past can act again.",
+      "primary_inputs": [
+        "events",
+        "relics",
+        "spirits",
+        "graveyard_exits",
+        "artifact_count"
+      ],
+      "output_intent": "revive_history_into_action",
+      "best_cards": [
+        "Osgir, the Reconstructor",
+        "Quintorius, Field Historian",
+        "Reconstruct History",
+        "Wake the Past",
+        "Velomachus Lorehold"
+      ]
+    }
+  }
+}

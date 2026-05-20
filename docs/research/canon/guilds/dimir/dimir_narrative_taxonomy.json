@@ -1,0 +1,127 @@
+{
+  "schema_version": "vox-mana-narrative-taxonomy-v1",
+  "faction": "House Dimir",
+  "core_axiom": "Information is power only after it has been hidden, stolen, reshaped, and used before anyone knows who moved it.",
+  "identity_frame": {
+    "not_generic": "not merely blue-black control",
+    "primary_read": "secret governance through surveillance and leverage",
+    "blue_component": "perfection through knowledge, planning, and hidden access",
+    "black_component": "survival and dominance through agency, ambition, and exploitation",
+    "dimir_synthesis": "power through controlled information asymmetry: know more, reveal less, move unseen, and make opponents pay for incomplete reality"
+  },
+  "axes": [
+    {
+      "name": "Secrecy",
+      "meaning": "The true structure is hidden from outsiders and often from insiders",
+      "signals": [
+        "hidden information",
+        "covert agents",
+        "need-to-know networks",
+        "face-down or encoded action"
+      ]
+    },
+    {
+      "name": "Surveillance",
+      "meaning": "The field is watched before it is acted upon",
+      "signals": [
+        "surveil",
+        "top-card control",
+        "informants",
+        "spy agents",
+        "reconnaissance fliers"
+      ]
+    },
+    {
+      "name": "Infiltration",
+      "meaning": "Agents bypass normal defenses and carry encoded value",
+      "signals": [
+        "unblockable",
+        "evasion",
+        "cipher",
+        "saboteur damage triggers",
+        "assassins"
+      ]
+    },
+    {
+      "name": "Memory Erasure",
+      "meaning": "Opponent options are stripped from library, hand, graveyard, or name",
+      "signals": [
+        "mill",
+        "discard",
+        "name/exile",
+        "lobotomy effects",
+        "psychic drain"
+      ]
+    },
+    {
+      "name": "Identity Theft",
+      "meaning": "Enemy resources, faces, and futures are copied or stolen",
+      "signals": [
+        "copy",
+        "cast from exile",
+        "graveyard copy",
+        "Doppelganger/Lazav effects",
+        "Thief/Specter effects"
+      ]
+    },
+    {
+      "name": "Counterintelligence",
+      "meaning": "Actions fail because Dimir knows the plan first",
+      "signals": [
+        "counterspells",
+        "discard before casting",
+        "sabotage",
+        "Shadow of Doubt",
+        "Thought Erasure"
+      ]
+    },
+    {
+      "name": "Covert Accretion",
+      "meaning": "Small secrets become engines, payoffs, and inevitability",
+      "signals": [
+        "surveil payoffs",
+        "mill payoffs",
+        "recursive enchantments",
+        "graveyard setup",
+        "mana infrastructure"
+      ]
+    }
+  ],
+  "function_map": {
+    "Detain": "disappear, freeze, assassinate, displace, or silence what should not remain visible",
+    "Override": "rewrite a plan through counterintelligence, theft, discard, name erasure, copying, or exact-tool substitution",
+    "ConstraintField": "turn the board into a watched environment where safe routes narrow and agent routes open",
+    "AccretionEngine": "convert secrets, surveil choices, milled cards, encoded hits, and stolen resources into compounding advantage"
+  },
+  "voice": {
+    "tone_words": [
+      "quiet",
+      "precise",
+      "paranoid",
+      "elegant",
+      "predatory",
+      "coded",
+      "surgical",
+      "untraceable"
+    ],
+    "sample_lines": [
+      "You do not need to be faster than the table if you know what it will do before it does it.",
+      "Dimir power feels like the missing page, the locked door, the helpful stranger, and the plan that was never yours.",
+      "Every secret is a resource. Every resource is a route. Every route belongs to the House once it has been mapped."
+    ]
+  },
+  "shadow_expression": {
+    "risk": "paranoia, manipulation for its own sake, isolation, over-control, and winning by making trust impossible",
+    "failure_mode": "The network becomes so hidden and self-protective that it cannot distinguish strategy from fear."
+  },
+  "healthy_expression": {
+    "strength": "strategic patience, privacy, careful reading, resourcefulness, and the ability to solve danger before it becomes public damage",
+    "integration": "Healthy Dimir uses secrecy as stewardship of fragile information, not merely as domination."
+  },
+  "ux_copy_seeds": {
+    "placement_title": "House Dimir — The Hidden Hand",
+    "short_description": "You read the room by watching what others miss, keeping your own motives private, and turning information into leverage.",
+    "maze_prompt": "Find commanders that reward surveil, mill, discard, theft, evasive agents, graveyard setup, or hidden-route control.",
+    "deck_prompt": "Start with a covert engine: cheap interaction, surveillance/filtering, evasive carriers, graveyard or exile payoffs, then a quiet finisher."
+  }
+}

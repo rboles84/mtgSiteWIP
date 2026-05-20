@@ -1,0 +1,281 @@
+{
+  "schema_version": "vox-mana-narrative-taxonomy-v1",
+  "generated_at": "2026-05-18",
+  "identity": "witherbloom",
+  "mana": [
+    "B",
+    "G"
+  ],
+  "core": {
+    "one_sentence": "Witherbloom is the school of life and death as a practical exchange system.",
+    "core_axiom": "Life is not sacred because it is untouched; it is powerful because it can be spent, brewed, fed, healed, harvested, and returned.",
+    "player_fantasy": "I understand the messy living system better than you do, and I will turn every gain, death, body, and bargain into pressure.",
+    "emotional_texture": [
+      "earthy",
+      "loyal",
+      "grimly funny",
+      "practical",
+      "hungry",
+      "protective",
+      "gross-but-warm"
+    ],
+    "shadow": "When unbalanced, Witherbloom becomes exploitative: everything alive is just fuel."
+  },
+  "narrative_axes": [
+    {
+      "axis": "Life ↔ Death",
+      "question": "Is death an ending or a conversion event?",
+      "mechanical_hooks": [
+        "life gain",
+        "drain",
+        "recursion",
+        "death triggers"
+      ]
+    },
+    {
+      "axis": "Care ↔ Exploitation",
+      "question": "Is the ecosystem being tended or harvested?",
+      "mechanical_hooks": [
+        "Pests",
+        "Food",
+        "sacrifice",
+        "protection"
+      ]
+    },
+    {
+      "axis": "Body ↔ Resource",
+      "question": "When does a creature stop being a person and become material?",
+      "mechanical_hooks": [
+        "sacrifice outlets",
+        "Pest tokens",
+        "dies triggers"
+      ]
+    },
+    {
+      "axis": "Bog ↔ Classroom",
+      "question": "Is this witchcraft folk knowledge, academic biology, or both?",
+      "mechanical_hooks": [
+        "Lesson",
+        "magecraft",
+        "cauldron",
+        "field study"
+      ]
+    },
+    {
+      "axis": "Loyalty ↔ Hunger",
+      "question": "What will Witherbloom protect, and what will it consume?",
+      "mechanical_hooks": [
+        "team growth",
+        "life gain",
+        "large creatures",
+        "sacrifice"
+      ]
+    }
+  ],
+  "archetype_families": [
+    {
+      "name": "Life-Drain Witchcraft",
+      "summary": "Life gain becomes opponent pressure.",
+      "signature_cards": [
+        "Dina, Soul Steeper",
+        "Witherbloom Apprentice",
+        "Blood Artist",
+        "Zulaport Cutthroat",
+        "Mortality Spear"
+      ],
+      "ui_language": "vitality turns into pressure",
+      "animation_cue": "drain-pulse"
+    },
+    {
+      "name": "Pest Economy",
+      "summary": "Small bodies matter because they attack, block, die, feed sacrifice outlets, and trigger life gain.",
+      "signature_cards": [
+        "Hunt for Specimens",
+        "Pest Summoning",
+        "Tend the Pests",
+        "Sedgemoor Witch",
+        "Pest Infestation"
+      ],
+      "ui_language": "tiny bodies become living currency",
+      "animation_cue": "pest-mote-swarm"
+    },
+    {
+      "name": "Body Ledger Aristocrats",
+      "summary": "Creature death is not a failure state; it is the engine.",
+      "signature_cards": [
+        "Plumb the Forbidden",
+        "Deadly Brew",
+        "Viscera Seer",
+        "Moldervine Reclamation",
+        "Mazirek, Kraul Death Priest"
+      ],
+      "ui_language": "every death enters the ledger",
+      "animation_cue": "sacrifice-flicker"
+    },
+    {
+      "name": "Cauldron Biology",
+      "summary": "Food, potions, herbs, Pests, and bodily essence make the deck feel like field science and folk magic.",
+      "signature_cards": [
+        "Gyome, Master Chef",
+        "Pestilent Cauldron",
+        "Accomplished Alchemist",
+        "Infuse with Vitality",
+        "Essence Infusion"
+      ],
+      "ui_language": "the lab is alive",
+      "animation_cue": "cauldron-vapor"
+    },
+    {
+      "name": "Growth from Life Change",
+      "summary": "Life-total movement becomes counters, bodies, and combat pressure.",
+      "signature_cards": [
+        "Blood Researcher",
+        "Lisette, Dean of the Root",
+        "Willowdusk, Essence Seer",
+        "Blossoming Bogbeast",
+        "Trudge Garden"
+      ],
+      "ui_language": "life movement becomes mass",
+      "animation_cue": "spore-bloom"
+    },
+    {
+      "name": "Compost Recursion",
+      "summary": "The graveyard is not just death; it is soil, memory, and future material.",
+      "signature_cards": [
+        "Blex, Vexing Pest",
+        "Search for Blex",
+        "Veinwitch Coven",
+        "Yedora, Grave Gardener",
+        "Sproutback Trudge"
+      ],
+      "ui_language": "the grave feeds the next organism",
+      "animation_cue": "root-lattice"
+    }
+  ],
+  "motif_dictionary": {
+    "visual": [
+      "bog",
+      "roots",
+      "moss",
+      "spores",
+      "cauldron",
+      "herbarium labels",
+      "glowing Pests",
+      "bone-white field notes",
+      "bloodsap"
+    ],
+    "verbs": [
+      "brew",
+      "steep",
+      "tend",
+      "feed",
+      "harvest",
+      "cull",
+      "infuse",
+      "plumb",
+      "trudge",
+      "reclaim",
+      "fester",
+      "blossom"
+    ],
+    "nouns": [
+      "essence",
+      "Pest",
+      "cauldron",
+      "bog",
+      "specimen",
+      "tincture",
+      "root",
+      "fungus",
+      "blood",
+      "compost",
+      "ledger"
+    ],
+    "avoid": [
+      "clean forest druid only",
+      "generic undead necromancy",
+      "generic Golgari rot",
+      "cartoon gross-out",
+      "villain-only interpretation"
+    ]
+  },
+  "placement_copy_blocks": {
+    "short": "You read as Witherbloom: practical, loyal, earthy, and dangerous when life starts moving.",
+    "medium": "Witherbloom treats life and death as one messy exchange system. You look for what is being fed, what is being spent, and what can grow from the cost.",
+    "deep": "This placement is not just black-green recursion. It is biology as strategy: Pests, potions, life gain, sacrifice, rot, protection, and pressure. Witherbloom sees the battlefield as an ecosystem where every body has a future use."
+  },
+  "maze_query_templates": [
+    {
+      "name": "Life Drain",
+      "query": "ci:bg (o:\"gain life\" OR o:\"each opponent loses\" OR o:\"whenever you gain life\")"
+    },
+    {
+      "name": "Pest Economy",
+      "query": "ci:bg (t:pest OR o:pest OR o:token) (o:dies OR o:sacrifice OR o:\"gain life\")"
+    },
+    {
+      "name": "Body Ledger",
+      "query": "ci:bg (o:sacrifice OR o:dies) (o:draw OR o:\"gain life\" OR o:\"each opponent loses\")"
+    },
+    {
+      "name": "Cauldron / Food",
+      "query": "ci:bg (o:food OR o:cauldron OR o:lifegain OR o:\"gain life\")"
+    },
+    {
+      "name": "Compost Recursion",
+      "query": "ci:bg (o:graveyard OR o:return) (o:creature OR o:permanent)"
+    }
+  ],
+  "sources": {
+    "wotc_planeswalkers_guide": {
+      "label": "Wizards — Planeswalker's Guide to Strixhaven",
+      "url": "https://magic.wizards.com/en/news/feature/planeswalkers-guide-strixhaven-2021-04-01",
+      "supports": "Witherbloom as College of Essence Studies; life/death, natural components, healing/harming, raising/entreating dead; black and green expressions."
+    },
+    "wotc_strixhaven_part_2": {
+      "label": "Wizards — In the Strixhaven, Part 2",
+      "url": "https://magic.wizards.com/en/news/making-magic/strixhaven-part-2-2021-04-05",
+      "supports": "Witherbloom magecraft effects tend to revolve around life."
+    },
+    "wotc_release_notes_2021": {
+      "label": "Wizards — Strixhaven and Commander 2021 Release Notes",
+      "url": "https://magic.wizards.com/en/news/feature/strixhaven-school-mages-and-commander-2021-edition-release-notes-2021-04-16",
+      "supports": "Card-level text examples such as Blex, Vexing Pest and Blood Researcher; life-gain triggers; Pest support."
+    },
+    "wotc_tokens_2021": {
+      "label": "Wizards — Tokens of Strixhaven and Commander 2021",
+      "url": "https://magic.wizards.com/en/news/card-preview/tokens-stx-and-c21-2021-04-15",
+      "supports": "Witherbloom Witchcraft token package: Food, Pest, Saproling, Demon, Fungus Beast."
+    },
+    "wotc_bog_times": {
+      "label": "Wizards — Bog Times at Witherbloom College",
+      "url": "https://magic.wizards.com/en/news/card-preview/bog-times-witherbloom-college-2021-04-02",
+      "supports": "Dina as a life/death engine and incremental life-gain/drain strategy."
+    },
+    "wotc_secrets_commander_2026": {
+      "label": "Wizards — Secrets of Strixhaven Commander Decklists",
+      "url": "https://magic.wizards.com/en/news/announcements/secrets-of-strixhaven-commander-decklists",
+      "supports": "Witherbloom Pestilence deck name, black-green identity, face/featured commanders, reprints, tokens."
+    },
+    "wotc_secrets_guide_2026": {
+      "label": "Wizards — Secrets of Strixhaven Prerelease Guide",
+      "url": "https://magic.wizards.com/en/news/feature/secrets-of-strixhaven-prerelease-guide",
+      "supports": "2026 Witherbloom description: infusion cares about life gain; Pest tokens enable pressure and life-gain triggers."
+    },
+    "wotc_secrets_design_2026": {
+      "label": "Wizards — Secrets of Strixhaven Vision Design Handoff, Part 1",
+      "url": "https://magic.wizards.com/en/news/making-magic/secrets-of-strixhaven-vision-design-handoff-part-1",
+      "supports": "Pest tokens and Witherbloom biology/life connection; proactive use of life-linked tokens."
+    },
+    "wotc_products_2026": {
+      "label": "Wizards — Secrets of Strixhaven Product Page",
+      "url": "https://magic.wizards.com/en/products/secrets-of-strixhaven",
+      "supports": "Witherbloom as College of Life and Death; essence of living beings; natural world give-and-take."
+    },
+    "scryfall": {
+      "label": "Scryfall title lookup",
+      "url": "https://scryfall.com",
+      "supports": "Card-title lookup links generated per row."
+    }
+  }
+}

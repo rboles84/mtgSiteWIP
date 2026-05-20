@@ -1,0 +1,94 @@
+{
+  "schema_version": "vox-mana-animation-spec-v1",
+  "identity": "gruul",
+  "motion_thesis": "Impulse becomes impact before the room can overthink it.",
+  "core_axiom": "The body knows before the law finishes speaking.",
+  "motion_model": "spark -> stomp -> riot choice -> impact -> aftershock",
+  "palette": {
+    "ash": "#120d09",
+    "bark": "#24160d",
+    "charcoal": "#080604",
+    "blood": "#8f2416",
+    "ember": "#d96129",
+    "rage_gold": "#e0a84b",
+    "moss": "#566b2f",
+    "wild_green": "#879d4b",
+    "bone": "#ead8b8",
+    "dust": "#b78b5a",
+    "glow_ember": "rgba(217, 97, 41, 0.34)",
+    "glow_moss": "rgba(135, 157, 75, 0.24)",
+    "shadow_stomp": "rgba(4, 2, 1, 0.76)"
+  },
+  "timing": {
+    "spark": "180ms",
+    "lunge": "320ms",
+    "stomp": "520ms",
+    "aftershock": "900ms",
+    "stampede": "1200ms",
+    "ease_impact": "cubic-bezier(0.18, 0.89, 0.32, 1.28)",
+    "ease_stomp": "cubic-bezier(0.2, 0.82, 0.26, 1)",
+    "ease_aftershock": "cubic-bezier(0.16, 0.84, 0.44, 1)"
+  },
+  "keyframes": [
+    {
+      "name": "vm-gruul-stomp-in",
+      "purpose": "grounded result-card entrance"
+    },
+    {
+      "name": "vm-gruul-ember-lunge",
+      "purpose": "short-lived spark/streak motion for attack path"
+    },
+    {
+      "name": "vm-gruul-riot-choice",
+      "purpose": "branching speed-or-size interaction"
+    },
+    {
+      "name": "vm-gruul-ground-crack",
+      "purpose": "divider/panel reveal as terrain splitting"
+    },
+    {
+      "name": "vm-gruul-aftershock-pulse",
+      "purpose": "low-frequency selected-state pulse"
+    },
+    {
+      "name": "vm-gruul-pack-surge",
+      "purpose": "chip/card cascade motion"
+    }
+  ],
+  "component_states": {
+    "placement_card": {
+      "entrance": "vm-gruul-stomp-in",
+      "idle_primary": "vm-gruul-aftershock-pulse",
+      "hover": "compress by 1px; brighten ember edge; add moss underglow",
+      "active": "aftershock pulse plus rage-gold details"
+    },
+    "riot_choice": {
+      "haste_path": "ember streak, immediate CTA, shorter copy",
+      "counter_path": "moss/gold weight, larger chip, build-into-impact CTA"
+    },
+    "info_panel": {
+      "entrance": "title lands first, crack divider, body block cascade",
+      "exit": "dust trail and impact compression"
+    },
+    "maze_link": {
+      "hover": "footstep near coals; compression and ember edge",
+      "copy_style": "break / charge / trail / impact"
+    },
+    "error_state": {
+      "visual": "cracked surface",
+      "motion": "no alarm flash; no long shake",
+      "copy": "That path hit stone."
+    }
+  },
+  "accessibility": {
+    "prefers_reduced_motion": "disable looping, particle, crack, and stomp animations",
+    "avoid": [
+      "long screen shake",
+      "flashing embers",
+      "generic fire wall",
+      "Rakdos circus palette",
+      "peaceful forest palette",
+      "reading-layer parallax"
+    ]
+  }
+}
