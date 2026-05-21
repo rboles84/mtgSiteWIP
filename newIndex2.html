@@ -15,8 +15,8 @@
 
 <!-- FONT LOAD: Imports the Cinzel typeface from Google Fonts so the page has the fantasy/lore typography. -->
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&display=swap" rel="stylesheet" />
-<!-- CHART.JS: Loads the external Chart.js library. The radar chart later depends on this script being loaded before your custom chart code runs. -->
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<!-- CHART.JS: Loads the local Chart.js runtime before the hero and Color Matrix radar charts initialize. -->
+<script src="assets/js/graph.js"></script>
 
 <!-- STYLE BLOCK: All CSS in this file lives here. CSS controls the look, layout, animation, and responsive behavior. -->
 <style>
@@ -41,6 +41,7 @@
   --mana-white: #f7f0d0;
   --mana-blue: #58b8ff;
   --mana-black: #a46bea;
+  --mana-colorless: #111111;
   --mana-red: #ff6b55;
   --mana-green: #63e58d;
 }
@@ -240,7 +241,7 @@ a {
 /* LAYOUT */
 /* PAGE SHELL: Centers content and caps the max width so sections do not stretch too wide on large screens. */
 .vm-shell {
-  width: min(1080px, calc(100% - 2rem));
+  width: min(1180px, calc(100% - 2rem));
   margin: 0 auto;
 }
 
@@ -251,7 +252,7 @@ section {
 
 /* SECTION SPACING: Adds vertical padding to standard content sections. */
 .vm-section {
-  padding: 1rem 0;
+  padding: 3rem 0;
 }
 
 /* SECTION HEADINGS: Centers major section titles and makes their size responsive with clamp(). */
@@ -274,11 +275,11 @@ section {
 /* HERO */
 /* HERO SECTION: Main first impression area; grid centering places the title block in the middle. */
 .vm-hero {
-  min-height: 8vh;
+  min-height: calc(100vh - 76px);
   display: grid;
-  place-items: center;
-  text-align: center;
-  padding: 5rem 0 3rem;
+  align-items: center;
+  text-align: left;
+  padding: 4rem 0 5rem;
 }
 
 /* HERO EYEBROW: Small uppercase label above the main title. */
@@ -292,27 +293,245 @@ section {
 /* HERO TITLE: Large responsive Vox Mana title with tight line-height and soft glow. */
 .vm-hero h1 {
   margin: 0.5rem 0;
-  font-size: clamp(3.5rem, 10vw, 7rem);
-  line-height: 0.9;
+  font-size: clamp(3.4rem, 7vw, 6.4rem);
+  line-height: 0.94;
   text-shadow: 0 0 30px rgba(255, 255, 255, 0.22);
 }
 
 /* HERO PARAGRAPHS: Readable intro text with max width and responsive font size. */
 .vm-hero p {
   max-width: 780px;
-  margin: 1rem auto;
+  margin: 1rem 0;
   color: var(--muted);
   font-size: clamp(1rem, 2vw, 1.2rem);
   line-height: 1.65;
 }
 
-/* HERO ACTION ROW: Button container that can wrap on smaller screens. The HTML using it is currently commented out. */
+/* HERO ACTION ROW: Button container that can wrap on smaller screens. */
 .vm-actions {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   flex-wrap: wrap;
   gap: 0.8rem;
   margin-top: 1.5rem;
+}
+
+/* LIVING INDEX HERO: Two-zone promise + preview layout with intent choices below. */
+.vm-hero-stack {
+  width: 100%;
+  display: grid;
+  gap: clamp(1rem, 3vw, 1.45rem);
+}
+
+.vm-hero-grid {
+  width: 100%;
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(340px, 0.78fr);
+  gap: clamp(1rem, 3vw, 2rem);
+  align-items: center;
+}
+
+.vm-hero-copy {
+  min-width: 0;
+}
+
+.vm-hero-copy p:first-of-type {
+  color: rgba(255,255,255,0.86);
+  font-size: clamp(1.05rem, 2vw, 1.26rem);
+}
+
+.vm-status-strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin-top: 1.2rem;
+}
+
+.vm-status-strip span,
+.vm-mini-badge {
+  border: 1px solid rgba(247, 215, 132, 0.26);
+  border-radius: 999px;
+  padding: 0.35rem 0.55rem;
+  background: rgba(0,0,0,0.24);
+  color: rgba(245,234,210,0.76);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.vm-hero-mana {
+  position: relative;
+  align-self: stretch;
+  display: grid;
+  gap: 0.85rem;
+  overflow: visible;
+  min-height: 0;
+}
+
+.vm-hero-mana::before {
+  content: "";
+  position: absolute;
+  inset: -28% -18% auto;
+  height: 58%;
+  background:
+    radial-gradient(circle at 28% 34%, rgba(247,215,132,0.18), transparent 34%),
+    radial-gradient(circle at 72% 44%, rgba(88,184,255,0.16), transparent 38%);
+  filter: blur(18px);
+  pointer-events: none;
+}
+
+.vm-hero-mana:focus-visible {
+  outline: 1px solid rgba(247,215,132,0.5);
+  outline-offset: 4px;
+}
+
+.vm-hero-mana-head,
+.vm-hero-mana-caption,
+.vm-hero-mana-datasets {
+  position: relative;
+  z-index: 1;
+}
+
+.vm-hero-mana-head h2 {
+  margin: 0.25rem 0 0.35rem;
+  font-size: clamp(1.35rem, 2.6vw, 1.9rem);
+  text-align: left;
+}
+
+.vm-hero-mana-head p {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.vm-hero-mana-chart {
+  position: relative;
+  height: clamp(230px, 25vw, 330px);
+  min-height: 230px;
+  isolation: isolate;
+}
+
+.vm-hero-mana-glow {
+  position: absolute;
+  inset: 8%;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(247,215,132,0.2), rgba(88,184,255,0.12) 42%, transparent 72%);
+  filter: blur(18px);
+  opacity: 0.72;
+  pointer-events: none;
+  transition: background 0.25s ease, opacity 0.25s ease;
+}
+
+#vmHeroManaChart {
+  position: relative;
+  z-index: 1;
+  width: 100% !important;
+  height: 100% !important;
+  filter: drop-shadow(0 0 18px rgba(88,184,255,0.18));
+}
+
+.vm-hero-mana-caption {
+  border: 1px solid rgba(247,215,132,0.18);
+  border-radius: 16px;
+  padding: 0.85rem;
+  background: rgba(0,0,0,0.2);
+}
+
+.vm-hero-mana-caption strong {
+  display: block;
+  color: var(--gold-2);
+  font-size: 0.98rem;
+}
+
+.vm-hero-mana-caption span {
+  display: block;
+  color: var(--muted);
+  font-size: 0.84rem;
+  line-height: 1.45;
+  margin-top: 0.35rem;
+}
+
+.vm-hero-mana-datasets {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  align-items: center;
+  color: rgba(245,234,210,0.68);
+  font-size: 0.76rem;
+  letter-spacing: 0.03em;
+}
+
+.vm-hero-mana-datasets > span:first-child {
+  color: rgba(245,234,210,0.58);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 0.68rem;
+}
+
+.vm-hero-mana-dataset-pill {
+  border: 1px solid var(--dataset-color, rgba(247,215,132,0.42));
+  border-radius: 999px;
+  padding: 0.28rem 0.5rem;
+  background: rgba(0,0,0,0.22);
+  color: var(--ink);
+  box-shadow: 0 0 16px rgba(247,215,132,0.12);
+}
+
+.vm-hero-mana-dataset-join {
+  color: rgba(245,234,210,0.56);
+}
+
+.vm-intent-panel {
+  align-self: stretch;
+}
+
+.vm-intent-band {
+  display: grid;
+  gap: 1rem;
+}
+
+.vm-intent-panel h2 {
+  margin: 0 0 1rem;
+  font-size: clamp(1.45rem, 3vw, 2rem);
+  text-align: left;
+}
+
+.vm-intent-band h2 {
+  margin-bottom: 0;
+}
+
+.vm-intent-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+.vm-intent-row {
+  display: block;
+  border: 1px solid rgba(255,255,255,0.13);
+  border-radius: 14px;
+  padding: 0.9rem;
+  background: rgba(0,0,0,0.18);
+  transition: 0.2s ease;
+}
+
+.vm-intent-row:hover {
+  transform: translateX(4px);
+  border-color: rgba(247,215,132,0.48);
+  background: rgba(255,255,255,0.06);
+}
+
+.vm-intent-row strong {
+  display: block;
+  color: var(--ink);
+  margin: 0.28rem 0;
+}
+
+.vm-intent-row span:last-child {
+  display: block;
+  color: var(--muted);
+  font-size: 0.84rem;
+  line-height: 1.45;
 }
 
 /* CSS SECTION: Reusable card grid, glass panels, hover effects, and CTA text. */
@@ -369,7 +588,7 @@ section {
 
 /* CSS SECTION: Two-column explanatory area and small list cards. */
 /* SIMPLE EXPLAINER */
-/* TWO-COLUMN LAYOUT: Splits the “What is Vox Mana?” section into two equal columns. */
+/* TWO-COLUMN LAYOUT: Splits explanatory sections into two equal columns. */
 .vm-two-col {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -394,6 +613,122 @@ section {
 /* MINI LIST EMPHASIS: Highlights the lead verb in each list item with the accent color. */
 .vm-list-item strong {
   color: var(--accent);
+}
+
+/* LIVING INDEX MODULES: Rich horizontal product modules and system explainer blocks. */
+.vm-module-stack {
+  display: grid;
+  gap: 1rem;
+}
+
+.vm-module {
+  display: grid;
+  grid-template-columns: minmax(150px, 0.32fr) minmax(0, 1fr) minmax(190px, 0.38fr);
+  gap: 1rem;
+  align-items: center;
+  min-height: 170px;
+}
+
+.vm-module h3 {
+  font-size: clamp(1.55rem, 3vw, 2.15rem);
+}
+
+.vm-module p {
+  margin-bottom: 0.65rem;
+}
+
+.vm-module-meta {
+  display: grid;
+  gap: 0.55rem;
+}
+
+.vm-module-preview {
+  border-left: 1px solid rgba(247,215,132,0.28);
+  padding-left: 1rem;
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.vm-module:hover .vm-module-preview,
+.vm-module:focus-visible .vm-module-preview {
+  color: rgba(255,255,255,0.86);
+}
+
+.vm-flow {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.vm-flow-step {
+  position: relative;
+  min-height: 210px;
+}
+
+.vm-flow-number {
+  display: inline-grid;
+  place-items: center;
+  width: 2.2rem;
+  height: 2.2rem;
+  border-radius: 50%;
+  margin-bottom: 1rem;
+  background: rgba(247,215,132,0.12);
+  border: 1px solid rgba(247,215,132,0.42);
+  color: var(--gold-2);
+}
+
+.vm-philosophy-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 0.8rem;
+}
+
+.vm-philosophy-card {
+  min-height: 190px;
+}
+
+.vm-philosophy-symbol {
+  display: inline-grid;
+  place-items: center;
+  width: 2.35rem;
+  height: 2.35rem;
+  border-radius: 50%;
+  border: 1px solid var(--philosophy-color);
+  color: var(--philosophy-color);
+  margin-bottom: 0.75rem;
+}
+
+.vm-start-grid {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.vm-start-row {
+  display: grid;
+  grid-template-columns: minmax(180px, 0.5fr) minmax(0, 1fr) auto;
+  gap: 1rem;
+  align-items: center;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 0.95rem;
+  background: rgba(0,0,0,0.2);
+  transition: 0.2s ease;
+}
+
+.vm-start-row:hover {
+  transform: translateY(-2px);
+  border-color: rgba(247,215,132,0.44);
+  background: rgba(255,255,255,0.055);
+}
+
+.vm-start-row strong {
+  color: var(--ink);
+}
+
+.vm-start-row span {
+  color: var(--muted);
+  line-height: 1.45;
 }
 
 /* CSS SECTION: Topic tabs, reveal animation, and Color Matrix wrapper. */
@@ -984,6 +1319,19 @@ section {
 /* RESPONSIVE */
 /* RESPONSIVE <= 940px: Collapses the Color Matrix layout from two columns to one and shortens the radar area. */
 @media (max-width: 940px) {
+  .vm-hero-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .vm-hero-mana {
+    min-height: auto;
+    order: 3;
+  }
+
+  .vm-intent-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .vm-lab-layout {
     grid-template-columns: 1fr;
   }
@@ -1011,12 +1359,27 @@ section {
   }
 
   .vm-card-grid,
-  .vm-two-col {
+  .vm-two-col,
+  .vm-flow,
+  .vm-philosophy-grid {
     grid-template-columns: 1fr;
+  }
+
+  .vm-module,
+  .vm-start-row {
+    grid-template-columns: 1fr;
+  }
+
+  .vm-module-preview {
+    border-left: none;
+    border-top: 1px solid rgba(247,215,132,0.28);
+    padding-left: 0;
+    padding-top: 1rem;
   }
 
   .vm-hero {
     min-height: auto;
+    padding-top: 3rem;
   }
 }
 
@@ -1033,6 +1396,20 @@ section {
 
   .vm-radar-wrap {
     height: 320px;
+  }
+
+  .vm-hero-mana-chart {
+    height: 250px;
+  }
+
+  .vm-intent-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .vm-intent-row,
+  .vm-start-row,
+  .vm-module {
+    border-radius: 12px;
   }
 }
 </style>
@@ -1063,14 +1440,12 @@ section {
 
   <!-- NAV LINK GROUP: Main navigation destinations shown across the sticky header. -->
   <div class="vm-nav-links">
-    <!-- PLACEHOLDER NAV LINKS: Future page destinations stay visually clickable without navigating yet. -->
-    <a href="#" data-vm-placeholder-link>What is this?</a>
-    <a href="#" data-vm-placeholder-link>Magic Basics</a>
-    <!-- <a href="/archscry/">Archscry</a>
-    <a href="/maze/">Implicit Maze</a> -->
-    <a class="vm-nav-link" href="/archscry/" data-vm-nav="archscry">Archscry</a>
-    <a class="vm-nav-link" href="/maze/" data-vm-nav="maze">The Implicit Maze</a>
-    <a class="vm-nav-link" href="/apocrypha/" data-vm-nav="apocrypha">Apocrypha</a>
+    <!-- ANCHOR NAV LINKS: Jump to explanatory sections within this living index page. -->
+    <a href="#what">What is this?</a>
+    <a href="#basics">Magic Basics</a>
+    <a class="vm-nav-link" href="./archscry/" data-vm-nav="archscry">Archscry</a>
+    <a class="vm-nav-link" href="./maze/" data-vm-nav="maze">The Implicit Maze</a>
+    <a class="vm-nav-link" href="./apocrypha/" data-vm-nav="apocrypha">Apocrypha</a>
   </div>
 </nav>
 
@@ -1080,88 +1455,238 @@ section {
   <!-- HERO -->
   <!-- HERO SECTION: First visible content block. reveal class lets JS animate it into view. -->
   <section class="vm-hero reveal">
-    <div>
-      <!-- EYEBROW TEXT: Small context label above the main title. -->
-      <div class="vm-eyebrow">Color philosophy, identity, and lore</div>
-      <!-- MAIN PAGE TITLE: The largest heading and brand statement on the page. -->
-      <h1>Vox Mana</h1>
-      <p>
-        A simple starting point for exploring Magic: The Gathering through color philosophy,
-        personal placement, symbolic card meaning, and curated lore research.
-      </p>
-      <p>
-        Start with Archscry, learn the color system, or open the library when you are ready to go deeper.
-      </p>
+    <div class="vm-hero-stack">
+      <div class="vm-hero-grid">
+        <div class="vm-hero-copy">
+          <!-- EYEBROW TEXT: Small context label above the main title. -->
+          <div class="vm-eyebrow">Vox Mana - Living Index</div>
+          <!-- MAIN PAGE TITLE: The largest heading and promise on the page. -->
+          <h1>Find your place in the color pie.</h1>
+          <p>
+            Vox Mana connects Commander identity, color philosophy, symbolic card search, and curated lore research into one living Magic archive.
+          </p>
+          <p>
+            Start with a reading, search by meaning, or explore the sources behind the system.
+          </p>
 
-      <!-- COMMENTED-OUT ACTIONS: This block is intentionally disabled right now; the button HTML remains here for later reuse. -->
-      <!-- <div class="vm-actions">
-        <a class="vm-button primary" href="/archscry/">Start Archscry</a>
-        <a class="vm-button" href="#library">Explore the Library</a>
-      </div> -->
-    </div>
-  </section>
+          <!-- HERO ACTIONS: Primary routes into the three main Vox Mana areas. -->
+          <div class="vm-actions">
+            <a class="vm-button primary" href="./archscry/">Start Archscry</a>
+            <a class="vm-button" href="./maze/">Explore the Maze</a>
+            <a class="vm-button" href="./apocrypha/">Read Apocrypha</a>
+          </div>
 
-  <!-- PATHS -->
-  <!-- PATHS SECTION: Three primary cards guiding users into the major site areas. -->
-  <section id="paths" class="vm-section">
-    <h2>Choose a Path</h2>
-    <p class="vm-section-intro">
-      Three simple doors into the site. Choose the path that matches what you came here to do.
-    </p>
+          <div class="vm-status-strip" aria-label="Vox Mana system signals">
+            <span>Identity</span>
+            <span>Search</span>
+            <span>Lore</span>
+            <span>Color</span>
+            <span>Commander</span>
+          </div>
+        </div>
 
-    <!-- CARD GRID: Reusable 3-column grid for clickable feature cards. -->
-    <div class="vm-card-grid">
-      <!-- PATH CARD - ARCHSCRY: Clickable card that sends users to the placement/identity experience. -->
-      <a class="vm-card reveal" href="/archscry/">
-        <h3>Archscry</h3>
-        <p><strong>Find yourself.</strong> Take the placement quiz and discover the colors, guilds, schools, or factions that match your identity.</p>
-        <span class="vm-cta">Start Archscry →</span>
-      </a>
-
-      <!-- PATH CARD - IMPLICIT MAZE: Clickable card that sends users to symbolic/card-meaning search. -->
-      <a class="vm-card reveal" href="/maze/">
-        <h3>Implicit Maze</h3>
-        <p><strong>Search meaning.</strong> Explore cards through symbolic meaning, color logic, and hidden relationships.</p>
-        <span class="vm-cta">Open the maze →</span>
-      </a>
-
-      <!-- PATH CARD - APOCRYPHA: Clickable card that sends users to the lore/library area. -->
-      <a class="vm-card reveal" href="/apocrypha/">
-        <h3>Apocrypha</h3>
-        <p><strong>Read the lore.</strong> Browse curated lore, dossiers, essays, and research about Magic’s worlds and philosophies.</p>
-        <span class="vm-cta">Enter the library →</span>
-      </a>
-    </div>
-  </section>
-
-  <!-- WHAT IS VOX MANA -->
-  <!-- WHAT SECTION: Explains the site purpose in plain language. -->
-  <section id="what" class="vm-section">
-    <h2>What is Vox Mana?</h2>
-    <p class="vm-section-intro">
-      Vox Mana connects identity, color philosophy, placement, symbolic search, and curated research into one simple landing experience.
-    </p>
-
-    <!-- TWO-COLUMN CONTENT: Left side explains the idea; right side lists what users can do. -->
-    <div class="vm-two-col">
-      <div class="vm-panel">
-        <h3>The Simple Idea</h3>
-        <p>
-          Magic’s colors are more than game mechanics. They are philosophies: different ways of seeing power,
-          freedom, order, knowledge, growth, conflict, and belonging.
-        </p>
-        <p>
-          Vox Mana turns those ideas into tools for discovery, search, and research.
-        </p>
+        <div class="vm-panel vm-hero-mana" tabindex="0" aria-label="Mana Lens preview">
+          <div class="vm-hero-mana-head">
+            <span class="vm-eyebrow">Mana Lens</span>
+            <h2>Preview the color system.</h2>
+            <p>A preview of the colors, guilds, and colleges.</p>
+          </div>
+          <div class="vm-hero-mana-chart">
+            <div class="vm-hero-mana-glow" id="heroManaGlow" aria-hidden="true"></div>
+            <canvas id="vmHeroManaChart" aria-label="Vox Mana hero mana basics radar chart"></canvas>
+          </div>
+          <div class="vm-hero-mana-caption">
+            <strong id="heroManaTitle">White - Peace through Order</strong>
+            <span id="heroManaText">White values structure, protection, community, duty, and shared stability.</span>
+          </div>
+          <div class="vm-hero-mana-datasets" id="heroManaDatasetPills" aria-label="Visible mana datasets"></div>
+        </div>
       </div>
 
-      <div class="vm-panel">
-        <h3>What You Can Do Here</h3>
-        <div class="vm-list">
-          <div class="vm-list-item"><strong>Discover</strong> your color identity through Archscry.</div>
-          <div class="vm-list-item"><strong>Search</strong> cards through symbolic relationships.</div>
-          <div class="vm-list-item"><strong>Read</strong> curated lore and faction research.</div>
+      <div class="vm-panel vm-intent-panel vm-intent-band">
+        <h2>What are you here to do?</h2>
+        <div class="vm-intent-grid">
+          <a class="vm-intent-row" href="./archscry/">
+            <span class="vm-mini-badge">Reading</span>
+            <strong>Discover my Commander identity</strong>
+            <span>Take the Archscry reading and receive a color/playstyle dossier.</span>
+          </a>
+          <a class="vm-intent-row" href="./maze/">
+            <span class="vm-mini-badge">Search</span>
+            <strong>Search cards by meaning or theme</strong>
+            <span>Explore commanders, mechanics, themes, and symbolic connections.</span>
+          </a>
+          <a class="vm-intent-row" href="./apocrypha/">
+            <span class="vm-mini-badge">Archive</span>
+            <strong>Read lore and research</strong>
+            <span>Open curated notes, factions, sources, essays, and worldbuilding context.</span>
+          </a>
+          <a class="vm-intent-row" href="./archscry/">
+            <span class="vm-mini-badge">Return</span>
+            <strong>Resume where I left off</strong>
+            <span>Return to Archscry when you have a saved reading or want a fresh one.</span>
+          </a>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT CAN YOU DO HERE -->
+  <!-- MODULES SECTION: Three product modules that explain the main site areas. -->
+  <section id="what" class="vm-section">
+    <span id="paths"></span>
+    <h2 id="main-areas">What can you do here?</h2>
+    <p class="vm-section-intro">
+      Vox Mana is a Magic identity and meaning engine: a way to read yourself, search cards by symbolism, and follow the research trail.
+    </p>
+
+    <div class="vm-module-stack">
+      <a class="vm-card vm-module reveal" href="./archscry/">
+        <div class="vm-module-meta">
+          <span class="vm-mini-badge">Guided Reading</span>
+          <h3>Archscry</h3>
+          <span class="vm-cta">Start the Reading -></span>
+        </div>
+        <p>
+          Archscry reads how you prefer to play Commander: your pace, risk tolerance, resource instincts, conflict style, and preferred forms of advantage.
+        </p>
+        <div class="vm-module-preview">
+          For players who want a color identity and a dossier they can actually use.
+        </div>
+      </a>
+
+      <a class="vm-card vm-module reveal" href="./maze/">
+        <div class="vm-module-meta">
+          <span class="vm-mini-badge">Symbolic Search</span>
+          <h3>The Implicit Maze</h3>
+          <span class="vm-cta">Search the Maze -></span>
+        </div>
+        <p>
+          The Maze lets you search Magic through meaning, mechanics, color philosophy, themes, and strange relationships.
+        </p>
+        <div class="vm-module-preview">
+          Use it when you know the feeling of what you want, but not the exact card name.
+        </div>
+      </a>
+
+      <a class="vm-card vm-module reveal" href="./apocrypha/">
+        <div class="vm-module-meta">
+          <span class="vm-mini-badge">Curated Archive</span>
+          <h3>Apocrypha</h3>
+          <span class="vm-cta">Open Apocrypha -></span>
+        </div>
+        <p>
+          Apocrypha collects lore notes, faction research, symbolic readings, curated references, essays, and fragments that support Vox Mana.
+        </p>
+        <div class="vm-module-preview">
+          For studying planes, factions, sources, and the deeper structure behind the readings.
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- HOW VOX MANA CONNECTS -->
+  <!-- CONNECTS SECTION: Shows how the homepage areas relate without changing JavaScript behavior. -->
+  <section id="connects" class="vm-section">
+    <h2>How the system connects</h2>
+    <p class="vm-section-intro">
+      Vox Mana works because identity, color philosophy, card discovery, and lore all point back to the same map.
+    </p>
+
+    <div class="vm-flow">
+      <div class="vm-panel vm-flow-step reveal">
+        <span class="vm-flow-number">1</span>
+        <h3>Read your pattern</h3>
+        <p>Archscry identifies your Commander instincts.</p>
+      </div>
+
+      <div class="vm-panel vm-flow-step reveal">
+        <span class="vm-flow-number">2</span>
+        <h3>Name your colors</h3>
+        <p>Your answers resolve into color identity, factions, and playstyle language.</p>
+      </div>
+
+      <div class="vm-panel vm-flow-step reveal">
+        <span class="vm-flow-number">3</span>
+        <h3>Search from meaning</h3>
+        <p>The Maze turns that identity into card, commander, and theme exploration.</p>
+      </div>
+
+      <div class="vm-panel vm-flow-step reveal">
+        <span class="vm-flow-number">4</span>
+        <h3>Follow the sources</h3>
+        <p>Apocrypha gives lore, context, and research trails.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- COLOR PHILOSOPHY -->
+  <!-- PHILOSOPHY SECTION: Explains why the color system matters before the interactive basics module. -->
+  <section id="philosophy" class="vm-section">
+    <h2>Color philosophy, not just card text</h2>
+    <p class="vm-section-intro">
+      Vox Mana treats Magic's colors as living philosophies, then maps them to Commander behavior, card search, faction identity, and lore.
+    </p>
+
+    <div class="vm-philosophy-grid">
+      <div class="vm-panel vm-philosophy-card reveal" style="--philosophy-color: var(--mana-white);">
+        <span class="vm-philosophy-symbol">W</span>
+        <h3>White</h3>
+        <p>Seeks peace through structure.</p>
+      </div>
+      <div class="vm-panel vm-philosophy-card reveal" style="--philosophy-color: var(--mana-blue);">
+        <span class="vm-philosophy-symbol">U</span>
+        <h3>Blue</h3>
+        <p>Seeks perfection through knowledge.</p>
+      </div>
+      <div class="vm-panel vm-philosophy-card reveal" style="--philosophy-color: var(--mana-black);">
+        <span class="vm-philosophy-symbol">B</span>
+        <h3>Black</h3>
+        <p>Seeks agency through power.</p>
+      </div>
+      <div class="vm-panel vm-philosophy-card reveal" style="--philosophy-color: var(--mana-red);">
+        <span class="vm-philosophy-symbol">R</span>
+        <h3>Red</h3>
+        <p>Seeks freedom through action.</p>
+      </div>
+      <div class="vm-panel vm-philosophy-card reveal" style="--philosophy-color: var(--mana-green);">
+        <span class="vm-philosophy-symbol">G</span>
+        <h3>Green</h3>
+        <p>Seeks truth through belonging.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- START BASED ON INTENT -->
+  <!-- START SECTION: Practical chooser for first-time visitors. -->
+  <section id="start" class="vm-section">
+    <h2>Start based on what you came for</h2>
+    <p class="vm-section-intro">
+      The homepage is an orientation layer: pick the job, then follow the part of the system built for it.
+    </p>
+
+    <div class="vm-panel">
+      <div class="vm-start-grid">
+        <a class="vm-start-row" href="./archscry/">
+          <strong>Find your colors</strong>
+          <span>Take a reading and name your Commander identity.</span>
+          <span class="vm-cta">Archscry -></span>
+        </a>
+        <a class="vm-start-row" href="./maze/">
+          <strong>Build around a feeling</strong>
+          <span>Search for cards through theme, meaning, and mechanical texture.</span>
+          <span class="vm-cta">Maze -></span>
+        </a>
+        <a class="vm-start-row" href="./apocrypha/">
+          <strong>Understand a faction or plane</strong>
+          <span>Read lore notes, source trails, and symbolic research.</span>
+          <span class="vm-cta">Apocrypha -></span>
+        </a>
+        <a class="vm-start-row" href="./archscry/">
+          <strong>Explore Commander identity</strong>
+          <span>Start with Archscry, then carry the result into Maze exploration.</span>
+          <span class="vm-cta">Archscry -> Maze</span>
+        </a>
       </div>
     </div>
   </section>
@@ -1297,19 +1822,19 @@ section {
     </p>
 
     <div class="vm-card-grid">
-      <a class="vm-card reveal" href="/apocrypha/">
+      <a class="vm-card reveal" href="./apocrypha/">
         <h3>Lore Dossiers</h3>
         <p>Curated research on planes, factions, characters, and worldbuilding patterns.</p>
         <span class="vm-cta">Browse dossiers →</span>
       </a>
 
-      <a class="vm-card reveal" href="/apocrypha/">
+      <a class="vm-card reveal" href="./apocrypha/">
         <h3>Faction Research</h3>
         <p>Guilds, schools, clans, families, and other color expressions gathered into readable references.</p>
         <span class="vm-cta">Explore factions →</span>
       </a>
 
-      <a class="vm-card reveal" href="/apocrypha/">
+      <a class="vm-card reveal" href="./apocrypha/">
         <h3>Color Philosophy Notes</h3>
         <p>Short essays connecting color philosophy, mechanics, identity, and symbolic interpretation.</p>
         <span class="vm-cta">Read notes →</span>
@@ -1325,11 +1850,11 @@ section {
     <a href="#top">Back to top</a> ·
     <a href="#what">What is this?</a> ·
     <a href="#basics">Magic Basics</a> ·
-    <a href="/archscry/">Archscry</a> ·
-    <a href="/maze/">Maze</a> ·
-    <a href="/apocrypha/">Library</a> ·
-    <a href="/privacy/">Privacy</a> ·
-    <a href="/terms/">Terms</a>
+    <a href="./archscry/">Archscry</a> ·
+    <a href="./maze/">Maze</a> ·
+    <a href="./apocrypha/">Library</a> ·
+    <a href="./privacy/">Privacy</a> ·
+    <a href="./terms/">Terms</a>
   </span>
 </footer>
 
@@ -1440,7 +1965,7 @@ const colorProfiles = {
     name: "Black",
     title: "Black — Power through Opportunity",
     text: "Black values ambition, self-definition, pragmatism, and survival. It asks what you are willing to do to claim agency.",
-    hex: "#a46bea",
+    hex: "#222222",
     data: [30, 56, 98, 62, 42]
   },
   R: {
@@ -1725,6 +2250,260 @@ function manaSymbols(code) {
 // IDENTITY LOOKUP: Finds the selected identity by id/key from the identities array.
 function findIdentity(id) {
   return identities.find(identity => identity.id === id || identity.key === id);
+}
+
+// HERO MANA PREVIEW: Small, independent radar preview for the homepage hero.
+let heroManaChart = null;
+let heroManaCycleInterval = null;
+let heroManaCycleIndex = 0;
+let heroManaCycleIdentities = [];
+let heroManaReducedMotion = false;
+let heroManaPausedByReader = false;
+let heroManaHoverPaused = false;
+let heroManaFocusPaused = false;
+
+// HERO CYCLE TIMING: Bigger number = slower identity cycle; smaller number = faster cycle.
+const heroManaCycleMs = 6000;
+
+function buildHeroManaDataset(identity) {
+  const componentHexes = identity.components.map(key => colorProfiles[key].hex);
+  const datasets = [];
+
+  if (identity.components.length > 1) {
+    identity.components.forEach(componentKey => {
+      const component = colorProfiles[componentKey];
+      datasets.push({
+        label: component.name,
+        data: component.data,
+        backgroundColor: hexToRgba(component.hex, 0.045),
+        borderColor: hexToRgba(component.hex, 0.82),
+        borderWidth: 1.8,
+        borderDash: [6, 5],
+        pointBackgroundColor: component.hex,
+        pointBorderColor: "rgba(255,255,255,0.62)",
+        pointRadius: 2,
+        pointHoverRadius: 4,
+        tension: 0.22
+      });
+    });
+  }
+
+  datasets.push({
+    label: identity.name,
+    data: identity.data,
+    borderColor: identity.hex,
+    backgroundColor: identity.components.length > 1
+      ? radialFill(heroManaChart, componentHexes)
+      : hexToRgba(identity.hex, 0.22),
+    pointBackgroundColor: identity.hex,
+    pointBorderColor: "rgba(255,255,255,0.72)",
+    pointRadius: identity.components.length > 1 ? 3 : 2.5,
+    pointHoverRadius: 5,
+    borderWidth: identity.components.length > 1 ? 2.7 : 2.2,
+    tension: 0.22
+  });
+
+  return datasets;
+}
+
+function setHeroManaGlow(identity) {
+  const glow = document.getElementById("heroManaGlow");
+  if (!glow) return;
+
+  const componentHexes = identity.components.map(key => colorProfiles[key].hex);
+  glow.style.background = blendGradient(componentHexes);
+}
+
+function updateHeroManaPreview(identityId) {
+  const identity = findIdentity(identityId);
+  const title = document.getElementById("heroManaTitle");
+  const text = document.getElementById("heroManaText");
+  if (!identity || !title || !text) return;
+
+  title.textContent = identity.title;
+  text.textContent = identity.text;
+  setHeroManaGlow(identity);
+  updateHeroManaDatasetPills(identity);
+
+  if (!heroManaChart) return;
+  heroManaChart.data.datasets = buildHeroManaDataset(identity);
+  heroManaChart.update();
+}
+
+function updateHeroManaDatasetPills(identity) {
+  const root = document.getElementById("heroManaDatasetPills");
+  if (!root) return;
+
+  if (identity.components.length === 1) {
+    root.innerHTML = `
+      <span>Profile:</span>
+      <span class="vm-hero-mana-dataset-pill" style="--dataset-color:${identity.hex};">${identity.name}</span>
+    `;
+    return;
+  }
+
+  const componentPills = identity.components.map(key => {
+    const component = colorProfiles[key];
+    return `<span class="vm-hero-mana-dataset-pill" style="--dataset-color:${component.hex};">${component.name}</span>`;
+  }).join(`<span class="vm-hero-mana-dataset-join"> + </span>`);
+
+  root.innerHTML = `
+    <span>Overlay:</span>
+    ${componentPills}
+    <span class="vm-hero-mana-dataset-join"> -> </span>
+    <span class="vm-hero-mana-dataset-pill" style="--dataset-color:${identity.hex};">${identity.name}</span>
+  `;
+}
+
+function buildHeroManaCycleIdentities() {
+  return [
+    ...identities.filter(identity => identity.group === "mono"),
+    ...identities.filter(identity => identity.group === "allied"),
+    ...identities.filter(identity => identity.group === "enemy"),
+    ...identities.filter(identity => identity.group === "strixhaven")
+  ];
+}
+
+function isHeroManaReaderActive() {
+  const heroManaPanel = document.querySelector(".vm-hero-mana");
+  return Boolean(heroManaPanel && (heroManaPanel.matches(":hover") || heroManaPanel.contains(document.activeElement)));
+}
+
+function advanceHeroManaCycle() {
+  if (!heroManaCycleIdentities.length) return;
+  if (isHeroManaReaderActive()) {
+    heroManaPausedByReader = true;
+    stopHeroManaCycle();
+    return;
+  }
+
+  heroManaCycleIndex = (heroManaCycleIndex + 1) % heroManaCycleIdentities.length;
+  updateHeroManaPreview(heroManaCycleIdentities[heroManaCycleIndex].id);
+}
+
+function stopHeroManaCycle() {
+  window.clearInterval(heroManaCycleInterval);
+  heroManaCycleInterval = null;
+}
+
+function startHeroManaCycle() {
+  if (heroManaReducedMotion || document.hidden || heroManaPausedByReader || isHeroManaReaderActive() || heroManaCycleInterval) return;
+  heroManaCycleInterval = window.setInterval(advanceHeroManaCycle, heroManaCycleMs);
+}
+
+function pauseHeroManaCycleForReader() {
+  heroManaPausedByReader = heroManaHoverPaused || heroManaFocusPaused;
+  if (heroManaPausedByReader) {
+    stopHeroManaCycle();
+  }
+}
+
+function resumeHeroManaCycleForReader() {
+  heroManaPausedByReader = heroManaHoverPaused || heroManaFocusPaused;
+  if (!heroManaPausedByReader) {
+    startHeroManaCycle();
+  }
+}
+
+function setHeroManaHoverPause(paused) {
+  heroManaHoverPaused = paused;
+  if (paused) {
+    pauseHeroManaCycleForReader();
+    return;
+  }
+
+  resumeHeroManaCycleForReader();
+}
+
+function setHeroManaFocusPause(paused) {
+  heroManaFocusPaused = paused;
+  if (paused) {
+    pauseHeroManaCycleForReader();
+    return;
+  }
+
+  resumeHeroManaCycleForReader();
+}
+
+function initHeroManaPreview() {
+  const heroCanvas = document.getElementById("vmHeroManaChart");
+  if (!heroCanvas || !window.Chart) return;
+  const heroManaPanel = document.querySelector(".vm-hero-mana");
+  heroManaReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  heroManaCycleIdentities = buildHeroManaCycleIdentities();
+
+  heroManaChart = new Chart(heroCanvas.getContext("2d"), {
+    type: "radar",
+    data: {
+      labels: axisLabels,
+      datasets: []
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      animation: {
+        duration: heroManaReducedMotion ? 0 : 1000,
+        easing: "easeInOutQuart"
+      },
+      plugins: {
+        legend: { display: false },
+        tooltip: { enabled: false }
+      },
+      scales: {
+        r: {
+          min: 0,
+          max: 100,
+          ticks: { display: false },
+          grid: { color: "rgba(216, 194, 122, 0.16)" },
+          angleLines: { color: "rgba(88, 184, 255, 0.14)" },
+          pointLabels: {
+            color: "rgba(255,255,255,0.68)",
+            font: { size: 11, family: "Cinzel" }
+          }
+        }
+      }
+    }
+  });
+
+  updateHeroManaPreview(heroManaCycleIdentities[heroManaCycleIndex]?.id || "W");
+
+  heroManaPanel?.addEventListener("pointerenter", () => setHeroManaHoverPause(true));
+  heroManaPanel?.addEventListener("mouseenter", () => setHeroManaHoverPause(true));
+  heroManaPanel?.addEventListener("pointerleave", () => setHeroManaHoverPause(false));
+  heroManaPanel?.addEventListener("mouseleave", () => setHeroManaHoverPause(false));
+  heroManaPanel?.addEventListener("focus", () => setHeroManaFocusPause(true));
+  heroManaPanel?.addEventListener("blur", () => setHeroManaFocusPause(false));
+  heroManaPanel?.addEventListener("focusin", () => setHeroManaFocusPause(true));
+
+  heroManaPanel?.addEventListener("focusout", event => {
+    if (heroManaPanel.contains(event.relatedTarget)) return;
+    setHeroManaFocusPause(false);
+  });
+
+  document.addEventListener("pointerdown", event => {
+    if (!heroManaPanel || heroManaPanel.contains(event.target)) return;
+    heroManaHoverPaused = false;
+    heroManaFocusPaused = false;
+    resumeHeroManaCycleForReader();
+  });
+
+  document.addEventListener("focusin", event => {
+    if (!heroManaPanel || heroManaPanel.contains(event.target)) return;
+    heroManaFocusPaused = false;
+    resumeHeroManaCycleForReader();
+  });
+
+  document.addEventListener("visibilitychange", () => {
+    if (document.hidden) {
+      stopHeroManaCycle();
+      return;
+    }
+
+    startHeroManaCycle();
+  });
+
+  window.addEventListener("beforeunload", stopHeroManaCycle);
+  startHeroManaCycle();
 }
 
 // AXIS LIST RENDERER: Builds the horizontal bar rows under the selected card from the identity score data.
@@ -2447,6 +3226,7 @@ const archscryRevealObserver = new IntersectionObserver((entries) => {
 // REGISTER REVEAL TARGETS: Starts observing elements that should animate into view.
 document.querySelectorAll('.reveal, .hero-card').forEach(el => archscryRevealObserver.observe(el));
 
+initHeroManaPreview();
 renderIdentityGrid();
 // INITIAL RADAR RENDER: Selects White as the default profile and draws the first radar/chart state.
 updateRadar("W", false);

@@ -18,7 +18,9 @@
 6. Confirm the result page renders:
    - primary guild or college
    - decree text
-   - mana bars
+   - `Mana Alignment Matrix`
+   - working radar chart on the dossier page
+   - selected synthesis card and philosophical axis bars
    - archetypes
    - staple cards
    - land base
@@ -26,6 +28,7 @@
    - deck-start links
 7. Confirm two adjacent fits are shown.
 8. Confirm the result page includes an evidence trail when the adaptive quick path produced one.
+9. Confirm a multicolor result shows component and synthesis datasets, and a mono result shows only a single synthesis dataset without component toggle UI.
 
 ## Adaptive placement sanity
 
@@ -89,6 +92,7 @@
 4. Confirm the site returns to the exact same saved result.
 5. Confirm the topbar shows the signed-in name.
 6. Confirm the result no longer asks you to recover a lost reading.
+7. Confirm the restored dossier immediately shows the `Mana Alignment Matrix` radar without requiring another render action.
 
 ## Returning user
 
@@ -98,6 +102,7 @@
 4. Confirm the adjacent fits are still present.
 5. Switch into each adjacent fit and confirm the dossier updates cleanly.
 6. Confirm `Back to Primary Reading` returns you to the original saved result.
+7. Confirm adjacent-fit switching does not duplicate or break the radar chart.
 
 ## Retake flow
 
@@ -106,6 +111,7 @@
 3. Confirm the old saved result is no longer shown automatically.
 4. Run a new quick reading and save it.
 5. Confirm the new result replaces the old one on the next visit.
+6. Confirm the previous dossier radar instance is replaced cleanly by the new result.
 
 ## Sign-out flow
 
@@ -133,6 +139,12 @@
 2. Open the site.
 3. Confirm the page fails with a clear placement-data message.
 
+### Chart runtime unavailable
+1. Block, rename, or remove `/assets/js/graph.js`.
+2. Complete a quick reading.
+3. Confirm the left-side Identity Matrix card and axis bars still render.
+4. Confirm the right-side radar panel shows a non-breaking fallback message instead of crashing the dossier.
+
 ### Failed save
 1. Break the Supabase profile schema by omitting the new columns.
 2. Attempt to save a result.
@@ -155,3 +167,34 @@
 3. Confirm answer cards, result sections, and adjacent-fit cards remain readable.
 4. Repeat the Google save flow.
 5. Confirm the return-to-saved-result path still works on mobile.
+6. Confirm the `Mana Alignment Matrix` collapses to one column and the radar area remains readable.
+
+## Shell continuity pass
+
+1. Open `/archscry/`.
+2. Confirm the route uses the shared chamber background, `vm-bg` atmosphere, and newer topbar shell instead of the older flat page skin.
+3. Confirm the landing hero, quick-reading card, interview shell, decree state, and dossier sections feel like one continuous Archscry surface system.
+4. Complete a quick reading and confirm the `Mana Alignment Matrix`, adjacent fits, and lower dossier sections still render inside the refreshed shell.
+5. Restore a saved result and confirm the refreshed shell is still present without changing result behavior.
+
+## Atlas preview smoke pass
+
+1. Open `/archscry/index2.html`.
+2. Complete a quick reading and confirm the quiz flow still reaches a working dossier result.
+3. Confirm the result reuses the real dossier content but rearranges it into the alternate atlas composition instead of the live `archscry/index.html` order.
+4. Confirm the `Mana Alignment Matrix` radar still renders inside the preview layout.
+5. Confirm the preview shares the same refreshed Archscry shell and surface language as the live route.
+6. Switch into adjacent fits and confirm the atlas composition reapplies cleanly after each rerender.
+7. Click `Back to Primary Reading` and confirm the primary dossier returns without duplicate panels.
+8. Click `Begin Again`, complete a new reading, and confirm the preview still rebuilds the atlas layout around the fresh result.
+
+## Local file route smoke pass
+
+1. Open `newIndex2.html` directly via `file://`.
+2. Click `Start Archscry` and confirm `archscry/index.html` opens instead of a file-not-found page.
+3. Use the top navigation on the preview home and confirm `Archscry`, `The Implicit Maze`, and `Apocrypha` all open successfully under `file://`.
+4. From `/archscry/`, confirm the topbar `Home`, `The Implicit Maze`, and `Apocrypha` links all resolve correctly.
+5. Complete a quick Archscry reading and confirm the dossier still renders, including the `Mana Alignment Matrix`.
+6. From the dossier, open one of the Maze discovery links and confirm the Maze page opens with query context intact.
+7. Confirm the Maze route topbar can return to `Home`, `Archscry`, and `Apocrypha` without file-not-found errors.
+8. Open the footer `Privacy` and `Terms` links from `newIndex2.html` and confirm those pages load their styling and topbar correctly under `file://`.

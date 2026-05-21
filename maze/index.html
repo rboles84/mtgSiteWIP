@@ -5,16 +5,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Vox Mana — The Implicit Maze</title>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
-<script src="/assets/js/shared.js"></script>
+<script src="../assets/js/shared.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Crimson+Pro:ital,wght@0,300;0,400;1,300;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 
 <!-- Vox Mana shared design system (Batch 1) -->
-<link rel="stylesheet" href="/assets/css/fonts.css">
-<link rel="stylesheet" href="/assets/css/tokens.css">
-<link rel="stylesheet" href="/assets/css/topbar.css">
-<link rel="stylesheet" href="/assets/css/atmosphere.css">
-<link rel="stylesheet" href="/assets/css/components.css">
+<link rel="stylesheet" href="../assets/css/fonts.css">
+<link rel="stylesheet" href="../assets/css/tokens.css">
+<link rel="stylesheet" href="../assets/css/topbar.css">
+<link rel="stylesheet" href="../assets/css/atmosphere.css">
+<link rel="stylesheet" href="../assets/css/components.css">
 <style>
 /* Page-local aliases. Values aligned with /assets/css/tokens.css (Batch 1 locked).
    Variable names kept legacy (--bg2 not --bg-2) so the inline CSS below still resolves.
@@ -334,23 +334,23 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 
 <div class="vm-bg" aria-hidden="true">
   <picture class="vm-bg__picture">
-    <source type="image/webp" srcset="/assets/img/backgrounds/background-maze-chamber-clean-01.webp 2560w" sizes="100vw">
-    <img src="/assets/img/backgrounds/background-maze-chamber-clean-01.webp" alt="" decoding="async">
+    <source type="image/webp" srcset="../assets/img/backgrounds/background-maze-chamber-clean-01.webp 2560w" sizes="100vw">
+    <img src="../assets/img/backgrounds/background-maze-chamber-clean-01.webp" alt="" decoding="async">
   </picture>
 </div>
 
 <!-- ── HEADER ─── -->
 <header class="vm-topbar" role="banner">
-  <a class="vm-brand" href="/newIndex2.html" aria-label="Vox Mana — home">
+  <a class="vm-brand" href="../newIndex2.html" aria-label="Vox Mana — home">
     <span class="vm-brand-mark" aria-hidden="true"></span>
     <span class="vm-brand-text">Vox Mana</span>
   </a>
 
   <nav class="vm-nav" aria-label="Primary">
-    <a class="vm-nav-link" href="/newIndex2.html" data-vm-nav="home">Home</a>
-    <a class="vm-nav-link" href="/archscry/" data-vm-nav="archscry">Archscry</a>
-    <a class="vm-nav-link" href="/maze/" data-vm-nav="maze">The Implicit Maze</a>
-    <a class="vm-nav-link" href="/apocrypha/" data-vm-nav="apocrypha">Apocrypha</a>
+    <a class="vm-nav-link" href="../newIndex2.html" data-vm-nav="home">Home</a>
+    <a class="vm-nav-link" href="../archscry/" data-vm-nav="archscry">Archscry</a>
+    <a class="vm-nav-link" href="./" data-vm-nav="maze">The Implicit Maze</a>
+    <a class="vm-nav-link" href="../apocrypha/" data-vm-nav="apocrypha">Apocrypha</a>
   </nav>
 
   <div class="vm-utility">
@@ -593,7 +593,7 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 </div>
 </div><!-- .page -->
 <script type="module" src="/research/research-init.js"></script>
-<script src="/assets/js/reduce-motion.js" defer></script>
-<script src="/assets/js/vm-topbar.js" defer></script>
+<script src="../assets/js/reduce-motion.js" defer></script>
+<script src="../assets/js/vm-topbar.js" defer></script>
 </body>
 </html>

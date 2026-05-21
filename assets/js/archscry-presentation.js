@@ -467,21 +467,39 @@ function readingIdForResult(result) {
   ].filter(Boolean).join("-").toLowerCase();
 }
 
+function normalizeUrlBase(base = "http://localhost") {
+  if (!base || base === "null") {
+    return "http://localhost/";
+  }
+  return /^https?:\/\/[^/]+$/i.test(base) ? `${base}/` : base;
+}
+
 function appendUrlParams(url, params, origin = "http://localhost") {
-  const parsed = new URL(url, origin);
+  const base = normalizeUrlBase(
+    typeof window !== "undefined" ? window.location.href : origin
+  );
+  const parsed = new URL(url, base);
   Object.entries(params).forEach(([key, value]) => {
     if (value !== null && value !== undefined && value !== "") {
       parsed.searchParams.set(key, value);
     }
   });
-  return parsed.origin === origin
+  if (parsed.protocol === "file:") {
+    return parsed.href;
+  }
+  const baseUrl = new URL(base);
+  return parsed.origin === baseUrl.origin
     ? `${parsed.pathname}${parsed.search}${parsed.hash}`
     : parsed.toString();
 }
 
 export function buildArchscryMazeContext({ result, dossier, faction }) {
   const readingId = readingIdForResult(result);
-  const returnUrl = `/archscry/?from=maze&view=${encodeURIComponent(dossier.targetFactionKey)}&readingId=${encodeURIComponent(readingId)}#maze-discovery-paths`;
+  const isAtlasPreview =
+    typeof window !== "undefined" &&
+    /\/index2\.html$/i.test(window.location.pathname || "");
+  const returnBase = isAtlasPreview ? "../archscry/index2.html" : "../archscry/";
+  const returnUrl = `${returnBase}?from=maze&view=${encodeURIComponent(dossier.targetFactionKey)}&readingId=${encodeURIComponent(readingId)}#maze-discovery-paths`;
   return {
     from: "archscry",
     readingId,
@@ -498,9 +516,14 @@ export function buildArchscryMazeContext({ result, dossier, faction }) {
 
 export function withArchscryMazeContext(links = [], context, origin = "http://localhost") {
   return (links || []).map((link) => {
-    const isMaze = link?.service === "maze" || String(link?.url || "").startsWith("/maze/");
+    const rawUrl = String(link?.url || "");
+    const mazeUrl = rawUrl.replace(/^\/maze\//, "../maze/");
+    const isMaze =
+      link?.service === "maze" ||
+      rawUrl.startsWith("/maze/") ||
+      rawUrl.startsWith("../maze/");
     if (!isMaze) return link;
-    const operatorQuery = resolveMazeOperatorQuery(link, origin);
+    const operatorQuery = resolveMazeOperatorQuery({ ...link, url: mazeUrl }, origin);
     const pathType = resolveMazePathType(link);
     const plainReadingQuery = resolveMazePlainReadingQuery(link, {
       factionName: context.factionName,
@@ -511,7 +534,7 @@ export function withArchscryMazeContext(links = [], context, origin = "http://lo
       pathType,
       plainReadingQuery,
       operatorQuery,
-      url: appendUrlParams(link.url, {
+      url: appendUrlParams(mazeUrl, {
         from: "archscry",
         readingId: context.readingId,
         guild: context.guild,

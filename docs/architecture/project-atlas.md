@@ -9,7 +9,8 @@ Vox Mana is an unofficial Magic: The Gathering fan site that combines a themed s
 | `/` | `index.html` | Home gateway with destination cards and cached-reading resume chip. | `assets/js/home.js`, `assets/js/vm-topbar.js`, `assets/js/atmosphere.js` |
 | `/archscry/` | `archscry/index.html` | Placement experience: landing, quick adaptive reading, dossier result, archived Scrying Terminal. | `assets/js/index.js`, `assets/js/shared.js`, `assets/js/adaptive-placement.js` |
 | `/maze/` | `maze/index.html` | The Implicit Maze Scryfall query explorer. | `research/research-init.js` and imported research modules |
-| `/apocrypha/` | `apocrypha/index.html` | Apocrypha source library and lore/research reference page. | Shared topbar and atmosphere scripts |
+| `/apocrypha/` | `apocrypha/index.html` | Canonical Apocrypha Archive Console and public provenance page. | Shared topbar, reduce-motion, and Apocrypha archive scripts |
+| `/library/` | `library/index.html` | Legacy compatibility alias that forwards to `/apocrypha/`. | Inline redirect shell |
 | `/privacy/` | `privacy/index.html` | Privacy policy with project-specific glossary text. | Shared topbar and atmosphere scripts |
 | `/terms/` | `terms/index.html` | Terms of service with project-specific glossary text. | Shared topbar and atmosphere scripts |
 | `http://127.0.0.1:4783/` | External tools workspace | Local command and source-review queue panel. | `C:\dev\projectFiles\voxmana-tools` |
@@ -18,7 +19,7 @@ Vox Mana is an unofficial Magic: The Gathering fan site that combines a themed s
 
 | Layer | Files | Responsibility |
 |---|---|---|
-| Static shells | `index.html`, `archscry/index.html`, `maze/index.html`, `apocrypha/index.html`, policy pages | Define route-specific DOM, preload assets, script entrypoints, and inline handler hooks. |
+| Static shells | `index.html`, `archscry/index.html`, `maze/index.html`, `apocrypha/index.html`, `library/index.html`, policy pages | Define route-specific DOM, preload assets, script entrypoints, and inline handler hooks. |
 | Shared visual system | `assets/css/tokens.css`, `assets/css/fonts.css`, `assets/css/topbar.css`, `assets/css/atmosphere.css`, `assets/css/components.css` | Site tokens, fonts, topbar, atmospheric canvas, and reusable panels/buttons/chips/progress treatments. |
 | Home gateway | `assets/js/home.js` | Resume-chip detection and subtle gateway motion. |
 | Placement frontend | `assets/js/index.js`, `assets/js/adaptive-placement.js`, `assets/js/shared.js`, `assets/js/identity-layers.js` | Loads data, runs quick adaptive reading, normalizes layered identity metadata, renders narrative dossiers, saves/resumes results, preserves adjacent-fit context, builds alias-routed Commander directory links, and keeps the terminal dormant behind the shared site flag. |

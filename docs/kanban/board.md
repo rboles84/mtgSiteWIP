@@ -15,7 +15,6 @@ Cards live in the matching status folders under `docs/kanban/`:
 - [VM-008 - Commander Compass V1.5 Archetype-Guided Recommendations](backlog/VM-008-commander-compass-v1-5-archetype-guided-recommendations.md)
 - [VM-009 - 32-Deck Challenge, Saved Taste Profile, and Deck Import Later](backlog/VM-009-32-deck-challenge-saved-taste-profile-deck-import-later.md)
 - [VM-010 - The Loom Commander Finder Mode and Graph/Query Layer](backlog/VM-010-the-loom-commander-finder-mode-graph-query-layer.md)
-- [VM-011 - Apocrypha Source Atlas and Source Bridge](backlog/VM-011-apocrypha-source-atlas-source-bridge.md)
 - [VM-022 - Maze Core Extraction](backlog/VM-022-maze-core-extraction.md)
 - [VM-024 - Normalize Docs Paths After Reorg](backlog/VM-024-normalize-docs-paths-after-reorg.md)
 - [VM-025 - Combo Discovery Placement Section](backlog/VM-025-combo-discovery-placement-section.md)
@@ -33,6 +32,8 @@ Cards live in the matching status folders under `docs/kanban/`:
 ## In Progress
 
 - [VM-012 - Scryfall Parser Expansion and Diagnostics](in-progress/VM-012-scryfall-parser-expansion-diagnostics.md)
+- [VM-088 - newIndex2 Auto-Cycling Mana Lens Showcase](in-progress/VM-088-newindex2-auto-cycling-mana-lens-showcase.md)
+- [VM-090 - Split Homepage And Basics Experience](in-progress/VM-090-split-homepage-and-basics-experience.md)
 
 ## Blocked
 
@@ -40,6 +41,20 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 ## Done
 
+- [VM-091 - Safe Backup Push For UI Refactor Exploration](done/VM-091-safe-backup-push-ui-refactor-exploration.md)
+- [VM-089 - Local File Route Compatibility Sweep](done/VM-089-local-file-route-compatibility-sweep.md)
+- [VM-087 - Archscry Shell Modernization](done/VM-087-archscry-shell-modernization.md)
+- [VM-086 - newIndex2 Hero Mana Lens Composite + Flow Cleanup](done/VM-086-newindex2-hero-mana-lens-composite-flow-cleanup.md)
+- [VM-085 - newIndex2 Hero Mana Basics Graph Preview](done/VM-085-newindex2-hero-mana-basics-graph-preview.md)
+- [VM-011 - Apocrypha Source Atlas and Source Bridge](done/VM-011-apocrypha-source-atlas-source-bridge.md)
+- [VM-084 - newIndex2 Amoeba Identity Signal Morph](done/VM-084-newindex2-amoeba-identity-signal-morph.md)
+- [VM-083 - newIndex2 Signal-Only Fluid Randomizer](done/VM-083-newindex2-signal-only-fluid-randomizer.md)
+- [VM-082 - Archscry Placement Atlas Preview](done/VM-082-archscry-placement-atlas-preview.md)
+- [VM-081 - newIndex2 Interactive Identity Signal Showcase](done/VM-081-newindex2-interactive-identity-signal-showcase.md)
+- [VM-080 - newIndex2 Ambient Identity Signal Radar](done/VM-080-newindex2-ambient-identity-signal-radar.md)
+- [VM-079 - newIndex2 Living Index Visual Hierarchy](done/VM-079-newindex2-living-index-visual-hierarchy.md)
+- [VM-078 - Archscry Dossier Identity Matrix Radar](done/VM-078-archscry-dossier-identity-matrix-radar.md)
+- [VM-077 - newIndex2 Living Index Rearrangement](done/VM-077-newindex2-living-index-rearrangement.md)
 - [VM-076 - Cleanup And Push Preview / Archive Batch](done/VM-076-cleanup-and-push-preview-archive-batch.md)
 - [VM-075 - newIndex2 Atmosphere Tuning Notes](done/VM-075-newindex2-atmosphere-tuning-notes.md)
 - [VM-074 - newIndex2 Star Canvas Body Promotion](done/VM-074-newindex2-star-canvas-body-promotion.md)

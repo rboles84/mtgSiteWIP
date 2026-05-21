@@ -6,15 +6,15 @@
 <title>Vox Mana — Three doors. Three ways in.</title>
 <meta name="description" content="An independent MTG identity archive. Three ways in: Archscry, the Implicit Maze, the Apocrypha.">
 
-<link rel="stylesheet" href="/assets/css/tokens.css">
-<link rel="stylesheet" href="/assets/css/fonts.css">
-<link rel="stylesheet" href="/assets/css/topbar.css">
-<link rel="stylesheet" href="/assets/css/atmosphere.css">
-<link rel="stylesheet" href="/assets/css/components.css">
-<link rel="stylesheet" href="/assets/css/home.css">
+<link rel="stylesheet" href="./assets/css/tokens.css">
+<link rel="stylesheet" href="./assets/css/fonts.css">
+<link rel="stylesheet" href="./assets/css/topbar.css">
+<link rel="stylesheet" href="./assets/css/atmosphere.css">
+<link rel="stylesheet" href="./assets/css/components.css">
+<link rel="stylesheet" href="./assets/css/home.css">
 
 <link rel="preload" as="image"
-      href="/assets/img/backgrounds/background-vox-gateway-clean-13.webp"
+      href="./assets/img/backgrounds/background-vox-gateway-clean-13.webp"
       type="image/webp"
       fetchpriority="high">
 </head>
@@ -24,9 +24,9 @@
 <div class="vm-bg" aria-hidden="true">
   <picture class="vm-bg__picture">
     <source type="image/webp"
-            srcset="/assets/img/backgrounds/background-vox-gateway-clean-13.webp 2560w"
+            srcset="./assets/img/backgrounds/background-vox-gateway-clean-13.webp 2560w"
             sizes="100vw">
-    <img src="/assets/img/backgrounds/background-vox-gateway-clean-13.webp"
+    <img src="./assets/img/backgrounds/background-vox-gateway-clean-13.webp"
          alt=""
          decoding="async"
          fetchpriority="high">
@@ -36,16 +36,16 @@
 </div>
 
 <header class="vm-topbar" role="banner">
-  <a class="vm-brand" href="/" aria-label="Vox Mana — home">
+  <a class="vm-brand" href="./index.html" aria-label="Vox Mana — home">
     <span class="vm-brand-mark" aria-hidden="true"></span>
     <span class="vm-brand-text">Vox Mana</span>
   </a>
 
   <nav class="vm-nav" aria-label="Primary">
-    <a class="vm-nav-link" href="/" data-vm-nav="home">Home</a>
-    <a class="vm-nav-link" href="/archscry/" data-vm-nav="archscry">Archscry</a>
-    <a class="vm-nav-link" href="/maze/" data-vm-nav="maze">The Implicit Maze</a>
-    <a class="vm-nav-link" href="/apocrypha/" data-vm-nav="apocrypha">Apocrypha</a>
+    <a class="vm-nav-link" href="./index.html" data-vm-nav="home">Home</a>
+    <a class="vm-nav-link" href="./archscry/" data-vm-nav="archscry">Archscry</a>
+    <a class="vm-nav-link" href="./maze/" data-vm-nav="maze">The Implicit Maze</a>
+    <a class="vm-nav-link" href="./apocrypha/" data-vm-nav="apocrypha">Apocrypha</a>
   </nav>
 
   <div class="vm-utility">
@@ -92,7 +92,7 @@
     <p class="vm-home__eyebrow">An independent MTG archive</p>
     <h1 class="vm-home__title">Three doors.<br>Three ways in.</h1>
     <p class="vm-home__lede">An archive of lore, strategy, and discovery for seekers of deeper understanding.</p>
-    <a href="/archscry/" class="vm-home__cta">Begin your journey</a>
+    <a href="./archscry/" class="vm-home__cta">Begin your journey</a>
   </section>
 
   <!-- Decorative rail (vertical line + diamond markers) on the left -->
@@ -103,7 +103,7 @@
   </div>
 
   <!-- MAZE — centerpiece, wrapped by the eclipse mandala -->
-  <a class="vm-card vm-card--maze" href="/maze/" aria-label="Enter the Implicit Maze">
+  <a class="vm-card vm-card--maze" href="./maze/" aria-label="Enter the Implicit Maze">
     <!-- Eclipse mandala (decorative SVG) -->
     <svg class="vm-card__mandala" viewBox="0 0 600 600" fill="none" stroke="currentColor" aria-hidden="true">
       <circle cx="300" cy="300" r="290" stroke-width="0.5" opacity="0.3"/>
@@ -148,7 +148,7 @@
   </a>
 
   <!-- ARCHSCRY — bottom-left, with painted scene slot -->
-  <a class="vm-card vm-card--side vm-card--archscry vm-bracket" href="/archscry/" aria-label="Begin a reading at Archscry">
+  <a class="vm-card vm-card--side vm-card--archscry vm-bracket" href="./archscry/" aria-label="Begin a reading at Archscry">
     <span class="vm-bracket__tick vm-bracket__tick--tr" aria-hidden="true"></span>
     <span class="vm-bracket__tick vm-bracket__tick--bl" aria-hidden="true"></span>
 
@@ -173,7 +173,7 @@
   </a>
 
   <!-- APOCRYPHA — bottom-right, with painted scene slot -->
-  <a class="vm-card vm-card--side vm-card--apocrypha vm-bracket" href="/apocrypha/" aria-label="Open the Apocrypha">
+  <a class="vm-card vm-card--side vm-card--apocrypha vm-bracket" href="./apocrypha/" aria-label="Open the Apocrypha">
     <span class="vm-bracket__tick vm-bracket__tick--tr" aria-hidden="true"></span>
     <span class="vm-bracket__tick vm-bracket__tick--bl" aria-hidden="true"></span>
 
@@ -229,7 +229,7 @@
 
   <!-- Resume chip (only shows if localStorage has cached reading) -->
   <div class="vm-resume" data-vm-resume hidden>
-    <a class="vm-resume__chip" href="/archscry/?resume=1">
+    <a class="vm-resume__chip" href="./archscry/?resume=1">
       <span class="vm-resume__chip-mark">↻</span>
       <span>Resume your reading · <span data-vm-resume-faction>your guild</span></span>
     </a>
@@ -242,9 +242,9 @@
       <span class="vm-home__status-value" data-vm-last-updated>May 2026</span>
     </div>
     <div class="vm-home__status-item">
-      <a href="/privacy/" class="vm-home__status-value">Privacy</a>
+      <a href="./privacy/" class="vm-home__status-value">Privacy</a>
       <span class="vm-home__status-label">·</span>
-      <a href="/terms/" class="vm-home__status-value">Terms</a>
+      <a href="./terms/" class="vm-home__status-value">Terms</a>
     </div>
     <div class="vm-home__status-item">
       <span class="vm-home__status-label">An unofficial fan project</span>
@@ -253,10 +253,10 @@
 
 </main>
 
-<script src="/assets/js/reduce-motion.js" defer></script>
-<script src="/assets/js/vm-topbar.js" defer></script>
-<script src="/assets/js/atmosphere.js" defer></script>
-<script src="/assets/js/site-flags.js" defer></script>
-<script src="/assets/js/home.js" defer></script>
+<script src="./assets/js/reduce-motion.js" defer></script>
+<script src="./assets/js/vm-topbar.js" defer></script>
+<script src="./assets/js/atmosphere.js" defer></script>
+<script src="./assets/js/site-flags.js" defer></script>
+<script src="./assets/js/home.js" defer></script>
 </body>
 </html>

@@ -1,4 +1,4 @@
-import {
+﻿import {
   DEFAULT_STARTER_PROFILE,
   MANA_ORDER,
   RESULT_VERSION,
@@ -38,15 +38,14 @@ import {
   getExpressionKindLabel,
   normalizeLayeredIdentity,
 } from "./identity-layers.js";
+import {
+  destroyDossierManaRadar,
+  getDossierRadarProfile,
+  initDossierManaRadar,
+  renderDossierRadarSection,
+} from "./dossier-radar.js";
 
 const SESSION = VM_SESSION;
-const COLOR_META = {
-  W: { label: "White", fill: "#ede8d4" },
-  U: { label: "Blue", fill: "#2a7ac8" },
-  B: { label: "Black", fill: "linear-gradient(90deg,#08060b 0%,#291b3d 48%,#0f0c12 100%)" },
-  R: { label: "Red", fill: "#d04030" },
-  G: { label: "Green", fill: "#2a8a30" },
-};
 
 const APP_STATE = {
   factions: {},
@@ -478,20 +477,21 @@ function updateTopbar() {
  * Opens the research page.
  */
 function openResearch() {
-  window.location = "/maze/";
+  window.location = "../maze/";
 }
 
 /**
  * Opens Apocrypha.
  */
 function openLibrary() {
-  window.location = "/apocrypha/";
+  window.location = "../apocrypha/";
 }
 
 /**
  * Resets local quick-path state and interview UI back to a neutral state.
  */
 function resetLocalFlow() {
+  destroyDossierManaRadar();
   APP_STATE.quickIndex = 0;
   APP_STATE.quickAnswers = [];
   APP_STATE.quickSelections = [];
@@ -1378,6 +1378,7 @@ function renderResult(viewKey) {
   const result = context.result;
   const activeKey = viewKey || context.viewKey;
   const terminalEnabled = isScryingTerminalEnabled();
+  destroyDossierManaRadar();
 
   if (!result || !activeKey) {
     document.getElementById("result-inner").innerHTML = `
@@ -1422,7 +1423,7 @@ function renderResult(viewKey) {
   const personalizedMazePaths = withArchscryMazeContext(
     buildPersonalizedMazePaths({ faction, tagRefs: readingTagRefs, taxonomy: APP_STATE.tagTaxonomy }),
     mazeContext,
-    window.location.origin
+    window.location.href
   );
   const discoverySummaryHtml = buildDiscoverySummaryHtml({ dossier, faction, result, tagRefs: readingTagRefs });
   const dossierInterpretationHtml = buildDossierInterpretationHtml({ dossier, faction, result, tagRefs: readingTagRefs });
@@ -1442,11 +1443,6 @@ function renderResult(viewKey) {
     : activeMonoCount > 1
       ? `The atlas is still opening: ${activeExpressionCount} expressions are lit now - ten Ravnican guilds, five Strixhaven colleges, and ${activeMonoCount} mono color paths. Wedges, families, and stranger color-shapes wait beyond the next veil.`
       : `The atlas is still opening: ${activeExpressionCount} expressions are lit now - ten Ravnican guilds and five Strixhaven colleges. Wedges, families, and stranger color-shapes wait beyond the next veil.`;
-  const scoreBarsHtml = dossier.manaAlignment.map(({ color, value }) => {
-    const target = Math.min(100, value * 10);
-    return `<div class="score-row score-row-${color}"><span class="score-label">${COLOR_META[color].label}</span><div class="score-track"><div class="score-fill score-fill-${color}" style="width:0;background:${COLOR_META[color].fill}" data-target="${target}"></div></div><span class="score-val">${value}</span></div>`;
-  }).join("");
-
   const archetypeHtml = (dossier.archetypes || [])
     .map((item) => `<div class="arch-card"><div class="arch-name">${item.name}</div><div class="arch-desc">${item.desc}</div></div>`)
     .join("");
@@ -1544,9 +1540,6 @@ function renderResult(viewKey) {
       : "";
   const decreeCopy = dossier.decreeCopy;
   const readingOmens = dossier.readingOmens || [];
-  const manaSectionLabel = isPrimary
-    ? "Mana Alignment"
-    : `Reading Mana Alignment - Commander Colors: ${colorIdentityNames(faction.colors || dossier.faction.colorIdentity || getColorIdentity(faction.colors))}`;
   const evidenceHtml = readingOmens.length
     ? readingOmens
         .map((omen) => `
@@ -1597,10 +1590,7 @@ function renderResult(viewKey) {
     ${primaryPlacementHtml}
     ${returnToPrimaryButton}
 
-    <div class="scores-section">
-      <div class="section-label">${manaSectionLabel}</div>
-      <div class="score-bars">${scoreBarsHtml}</div>
-    </div>
+    ${renderDossierRadarSection({ result, faction, dossier })}
 
     ${discoverySummaryHtml}
 
@@ -1705,7 +1695,7 @@ function renderResult(viewKey) {
   showSection("result");
   applyTerminalVisibility();
   updateTopbar();
-  animateScoreBars();
+  initDossierManaRadar({ result, faction, profile: getDossierRadarProfile(result, faction) });
   loadResultCardArt(faction, commanderPreviewCandidates, dossier.starterCards, landRecommendations);
 }
 
@@ -1731,19 +1721,6 @@ function returnToPrimaryReading() {
 
   APP_STATE.activeViewKey = primaryViewKey;
   renderResult(primaryViewKey);
-}
-
-/**
- * Animates the mana bars after the result page has been injected.
- */
-function animateScoreBars() {
-  requestAnimationFrame(() => {
-    document.querySelectorAll(".score-fill[data-target]").forEach((node) => {
-      setTimeout(() => {
-        node.style.width = `${node.getAttribute("data-target")}%`;
-      }, 180);
-    });
-  });
 }
 
 /**
