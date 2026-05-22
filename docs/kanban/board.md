@@ -33,7 +33,6 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 - [VM-012 - Scryfall Parser Expansion and Diagnostics](in-progress/VM-012-scryfall-parser-expansion-diagnostics.md)
 - [VM-088 - newIndex2 Auto-Cycling Mana Lens Showcase](in-progress/VM-088-newindex2-auto-cycling-mana-lens-showcase.md)
-- [VM-090 - Split Homepage And Basics Experience](in-progress/VM-090-split-homepage-and-basics-experience.md)
 
 ## Blocked
 
@@ -41,7 +40,15 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 ## Done
 
+- [VM-098 - Safe Backup Push For UI Refactor Exploration 2](done/VM-098-safe-backup-push-ui-refactor-exploration-2.md)
+- [VM-097 - Homepage Radar Presentation Lift From Archscry](done/VM-097-homepage-radar-presentation-lift-from-archscry.md)
+- [VM-096 - Black Component Glow Repair](done/VM-096-black-component-glow-repair.md)
+- [VM-094 - Identity Signal Caption + Pills Repair](done/VM-094-identity-signal-caption-pills-repair.md)
+- [VM-093 - Identity Signal Three-Layer Repair](done/VM-093-identity-signal-three-layer-repair.md)
+- [VM-095 - Archscry Background Parity With Gateway 09](done/VM-095-archscry-background-parity-gateway-09.md)
+- [VM-092 - Homepage Compression + Ambient Signal Polish](done/VM-092-homepage-compression-ambient-signal-polish.md)
 - [VM-091 - Safe Backup Push For UI Refactor Exploration](done/VM-091-safe-backup-push-ui-refactor-exploration.md)
+- [VM-090 - Split Homepage And Basics Experience](done/VM-090-split-homepage-and-basics-experience.md)
 - [VM-089 - Local File Route Compatibility Sweep](done/VM-089-local-file-route-compatibility-sweep.md)
 - [VM-087 - Archscry Shell Modernization](done/VM-087-archscry-shell-modernization.md)
 - [VM-086 - newIndex2 Hero Mana Lens Composite + Flow Cleanup](done/VM-086-newindex2-hero-mana-lens-composite-flow-cleanup.md)

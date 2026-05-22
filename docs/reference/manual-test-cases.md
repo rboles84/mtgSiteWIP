@@ -172,9 +172,9 @@
 ## Shell continuity pass
 
 1. Open `/archscry/`.
-2. Confirm the route uses the shared chamber background, `vm-bg` atmosphere, and newer topbar shell instead of the older flat page skin.
+2. Confirm the route uses `background-vox-gateway-clean-09.webp` with the `newIndex2`-style `vm-bg` atmosphere stack, star canvas, and painted overlay treatment instead of the older chamber image.
 3. Confirm the landing hero, quick-reading card, interview shell, decree state, and dossier sections feel like one continuous Archscry surface system.
-4. Complete a quick reading and confirm the `Mana Alignment Matrix`, adjacent fits, and lower dossier sections still render inside the refreshed shell.
+4. Complete a quick reading and confirm the `Mana Alignment Matrix`, adjacent fits, and lower dossier sections still render inside the refreshed shell without changing their behavior.
 5. Restore a saved result and confirm the refreshed shell is still present without changing result behavior.
 
 ## Atlas preview smoke pass
@@ -183,7 +183,7 @@
 2. Complete a quick reading and confirm the quiz flow still reaches a working dossier result.
 3. Confirm the result reuses the real dossier content but rearranges it into the alternate atlas composition instead of the live `archscry/index.html` order.
 4. Confirm the `Mana Alignment Matrix` radar still renders inside the preview layout.
-5. Confirm the preview shares the same refreshed Archscry shell and surface language as the live route.
+5. Confirm the preview shares the same `background-vox-gateway-clean-09.webp` atmosphere and refreshed Archscry shell language as the live route.
 6. Switch into adjacent fits and confirm the atlas composition reapplies cleanly after each rerender.
 7. Click `Back to Primary Reading` and confirm the primary dossier returns without duplicate panels.
 8. Click `Begin Again`, complete a new reading, and confirm the preview still rebuilds the atlas layout around the fresh result.

@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vox Mana: Four-Color Identity Dossier</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<style>
+.chart-container {
+    position: relative;
+    width: 100%;
+    max-width: 450px;
+    margin-left: auto;
+    margin-right: auto;
+    height: 350px;
+    max-height: 400px;
+}
+@media (min-width: 768px) {
+    .chart-container {
+        height: 400px;
+    }
+}
+body {
+    background-color: #f9f8f6;
+    color: #2c2925;
+}
+.mana-sym {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 9999px;
+    font-weight: bold;
+    font-size: 0.875rem;
+    color: #111;
+}
+.mana-w { background-color: #f8f6d8; border: 1px solid #dcd7ba; }
+.mana-u { background-color: #c1d8e9; border: 1px solid #9dbcd4; }
+.mana-b { background-color: #b0a9a7; border: 1px solid #7a7371; color: #fff;}
+.mana-r { background-color: #f2b2a8; border: 1px solid #d48b81; }
+.mana-g { background-color: #c4d3b4; border: 1px solid #9caf88; }
+</style>
+</head>
+<body class="antialiased font-sans flex flex-col md:flex-row min-h-screen">
+
+<!-- Chosen Palette: Vox Mana Neutral Parchment (Light cream background #f9f8f6, slate text #2c2925, muted WUBRG accents) -->
+<!-- Application Structure Plan: A responsive, dashboard-style Single Page Application. A persistent sidebar (or top nav on mobile) allows users to seamlessly navigate between the overarching context and specific deep-dive dossiers for each four-color identity. Each identity dossier features a dynamic radar chart visualizing the "missing color" pressure matrix alongside structured textual analysis. This ensures users can instantly grasp the shape of the color identity visually before diving into the dense, mythic text. -->
+<!-- Visualization & Content Choices: The core visualization is a Chart.js Radar Chart representing the 5-point MTG color pie. Goal: Show the exact mechanical and philosophical "hole" in each identity. Interaction: The chart dynamically renders upon selecting an identity, animating the void. Justification: A radar chart is the optimal, universally understood metaphor for the circular color pie, strictly avoiding SVG by relying on Canvas. Tabular matrices and styled text blocks are used for the lore synthesis. -->
+<!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+
+<nav class="w-full md:w-64 bg-[#e8e4db] p-6 shadow-md md:h-screen md:sticky md:top-0 md:overflow-y-auto shrink-0 border-r border-[#d5d0c6]">
+    <div class="mb-8">
+        <h1 class="text-2xl font-bold tracking-tight text-[#1a1816]">Vox Mana</h1>
+        <p class="text-sm text-[#5c564d] mt-1 font-serif italic">Four-Color Identity Dossier</p>
+    </div>
+    <ul class="space-y-2">
+        <li><button class="nav-btn w-full text-left px-3 py-2 rounded transition-colors bg-[#d5d0c6] font-bold" data-target="exec">Executive Summary</button></li>
+        <li><button class="nav-btn w-full text-left px-3 py-2 rounded transition-colors hover:bg-[#d5d0c6]" data-target="context">Lore Context</button></li>
+        <li class="pt-4 pb-1"><span class="text-xs font-bold uppercase tracking-wider text-[#7a7371]">Identities</span></li>
+        <li><button class="nav-btn w-full text-left px-3 py-2 rounded transition-colors hover:bg-[#d5d0c6] flex items-center justify-between" data-target="yore"><span>Artifice / Yore</span> <span class="text-xs bg-white px-1 rounded border">-G</span></button></li>
+        <li><button class="nav-btn w-full text-left px-3 py-2 rounded transition-colors hover:bg-[#d5d0c6] flex items-center justify-between" data-target="glint"><span>Chaos / Glint</span> <span class="text-xs bg-white px-1 rounded border">-W</span></button></li>
+        <li><button class="nav-btn w-full text-left px-3 py-2 rounded transition-colors hover:bg-[#d5d0c6] flex items-center justify-between" data-target="dune"><span>Aggression / Dune</span> <span class="text-xs bg-white px-1 rounded border">-U</span></button></li>
+        <li><button class="nav-btn w-full text-left px-3 py-2 rounded transition-colors hover:bg-[#d5d0c6] flex items-center justify-between" data-target="ink"><span>Altruism / Ink</span> <span class="text-xs bg-white px-1 rounded border">-B</span></button></li>
+        <li><button class="nav-btn w-full text-left px-3 py-2 rounded transition-colors hover:bg-[#d5d0c6] flex items-center justify-between" data-target="witch"><span>Growth / Witch</span> <span class="text-xs bg-white px-1 rounded border">-R</span></button></li>
+        <li class="pt-4 pb-1"><span class="text-xs font-bold uppercase tracking-wider text-[#7a7371]">Synthesis</span></li>
+        <li><button class="nav-btn w-full text-left px-3 py-2 rounded transition-colors hover:bg-[#d5d0c6]" data-target="cross">Cross-Identity Dynamics</button></li>
+        <li><button class="nav-btn w-full text-left px-3 py-2 rounded transition-colors hover:bg-[#d5d0c6]" data-target="glossary">Glossary & Uncertainties</button></li>
+    </ul>
+</nav>
+
+<main class="flex-1 p-6 md:p-12 max-w-5xl mx-auto w-full">
+
+    <div id="view-exec" class="view-section">
+        <h2 class="text-4xl font-serif font-bold mb-6 border-b-2 border-[#d5d0c6] pb-2">Executive Summary</h2>
+        <p class="text-lg mb-6 leading-relaxed font-semibold">This section introduces the foundational concepts of Magic: The Gathering's four-color identities. It provides context on how these identities operate philosophically and mathematically within the color pie, guiding the user on how to read the subsequent deep-dive dossiers.</p>
+        
+        <div class="space-y-6 text-[#4a453e]">
+            <p>Four-color identity is structurally unique within the Magic: The Gathering color pie. Unlike two-color guilds or three-color shards/wedges, which are defined by what they combine, four-color identities are defined primarily by <strong>what they lack</strong>. They represent a reality, a philosophy, or a psychological profile where exactly one fundamental force of the universe is missing.</p>
+            
+            <p>The anchor points for these identities are the Nephilim—five ancient, mythic entities from the Guildpact set. While the Nephilim are not fully documented civilizations, they serve as the canonical mechanical and symbolic blueprints for these specific mana configurations. By examining what the Nephilim do, and cross-referencing that with the absence of the missing color, we construct a comprehensive worldview for each identity.</p>
+
+            <div class="bg-white p-6 rounded shadow-sm border border-[#e8e4db] mt-8">
+                <h3 class="text-xl font-bold mb-4">How to Use This Dossier</h3>
+                <ul class="list-disc pl-5 space-y-2">
+                    <li><strong>Lore Readers & Worldbuilders:</strong> Utilize the mechanical breakdowns and philosophical tensions to understand how a faction or character lacking a specific color would behave.</li>
+                    <li><strong>Color-Pie Analysts:</strong> Explore the "Color Pressure Matrices" to see how the four present colors mutate to fill the vacuum left by the missing color.</li>
+                    <li><strong>Vox Mana Identity Modeling:</strong> Apply the "Vox Synthesis" sections to map human psychological profiles, organizational structures, or behavioral archetypes into the four-color system.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div id="view-context" class="view-section hidden">
+        <h2 class="text-4xl font-serif font-bold mb-6 border-b-2 border-[#d5d0c6] pb-2">Four-Color Identity Context</h2>
+        <p class="text-lg mb-6 leading-relaxed font-semibold">This section explores the underlying mechanics of the color pie itself, specifically explaining the immense philosophical weight of a "missing color" and establishing the canonical boundaries of the Nephilim as our primary references.</p>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
+            <div>
+                <h3 class="text-2xl font-bold mb-3">The Color Pie as Structure</h3>
+                <p class="mb-4">The color pie is the core metaphysical engine of Magic. It categorizes ideology, mechanics, and magic into five distinct colors: White (Peace/Order), Blue (Knowledge/Logic), Black (Power/Self-Interest), Red (Freedom/Emotion), and Green (Harmony/Instinct).</p>
+                <h3 class="text-2xl font-bold mb-3 mt-8">The Nephilim as Anchor Cards</h3>
+                <p>The five Nephilim cards (Yore-Tiller, Glint-Eye, Dune-Brood, Ink-Treader, Witch-Maw) represent rare incursions of four-color mana. They are ancient horrors awakening in Ravnica. They are not guilds; they are raw expressions of missing-color pressure systems.</p>
+            </div>
+            <div>
+                <h3 class="text-2xl font-bold mb-3">Four-Color and the Missing Color</h3>
+                <p class="mb-4">In a four-color entity, the missing color acts as a negative space that defines the whole shape. It is not merely that they "forgot" the color; the entity is intrinsically incapable of processing that color's philosophy. This creates a hyper-concentration of the remaining four colors, often leading to extreme philosophical shadows and blind spots.</p>
+                <h3 class="text-2xl font-bold mb-3 mt-8">Canon Limits & Uncertainties</h3>
+                <p>We strictly adhere to canon facts derived from cards and official color philosophy. We do not invent civilizations for the Nephilim. Where canon stops, we use explicit "Vox Mana Synthesis" to model these identities psychologically.</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="view-yore" class="view-section hidden">
+        <h2 class="text-4xl font-serif font-bold mb-2">Artifice / Yore</h2>
+        <div class="flex items-center gap-2 mb-6 border-b-2 border-[#d5d0c6] pb-2">
+            <span class="mana-sym mana-w">W</span><span class="mana-sym mana-u">U</span><span class="mana-sym mana-b">B</span><span class="mana-sym mana-r">R</span>
+            <span class="text-sm font-bold text-[#7a7371] ml-2">Missing: Green</span>
+        </div>
+        <p class="text-lg mb-6 leading-relaxed font-semibold">This section breaks down the Yore identity. By interacting with the visual radar chart, users can see the complete absence of Green mana. The text below explains how a world built without acceptance of nature relies entirely on memory, artifice, and ambition.</p>
+
+        <div class="chart-container mb-8">
+            <canvas id="chart-yore"></canvas>
+        </div>
+
+        <div class="space-y-8">
+            <section>
+                <h3 class="text-2xl font-bold mb-3">1. Snapshot</h3>
+                <p><strong>Concept Label:</strong> Artifice / Yore<br>
+                <strong>Anchor Card:</strong> Yore-Tiller Nephilim<br>
+                <strong>Flavor Text:</strong> <em>"When it awoke, the worms of the earth hissed in a chorus of beckoning."</em><br>
+                <strong>Surface Identity:</strong> Structure without nature. Memory, machinery, recursion, and passion without organic acceptance.<br>
+                <strong>Shadow Function:</strong> Refusal to let the dead rest; inability to accept finality.<br>
+                <strong>Thesis:</strong> Yore is the supreme triumph of the artificial, the constructed, and the resurrected over the natural order.</p>
+            </section>
+
+            <section>
+                <h3 class="text-2xl font-bold mb-3">2. Canon Facts</h3>
+                <ul class="list-disc pl-5">
+                    <li><strong>Type line:</strong> Creature — Nephilim</li>
+                    <li><strong>Rules text:</strong> Whenever Yore-Tiller Nephilim attacks, return target creature card from your graveyard to the battlefield tapped and attacking.</li>
+                    <li><strong>Set context:</strong> Guildpact (Ravnica). Ancient beings pre-dating the guilds.</li>
+                </ul>
+            </section>
+
+            <section>
+                <h3 class="text-2xl font-bold mb-3">3. Missing-Color Analysis (-Green)</h3>
+                <p>Without Green, this identity lacks the concept of destiny, natural cycles, and acceptance of what is. Green says "let it grow" and "let it die." The WUBR combination rejects this. White provides law, Blue provides technology, Black provides ambition, and Red provides passion. Together, they refuse to accept the world as it is given, insisting instead on building, altering, or resurrecting it according to their own designs.</p>
+            </section>
+
+            <section>
+                <h3 class="text-2xl font-bold mb-3">4. Philosophy & Vox Synthesis</h3>
+                <p><strong>Core Axiom:</strong> The natural world is merely raw material for our history and our future.<br>
+                <strong>Strength:</strong> Unmatched capacity for progress, preservation, and reinvention.<br>
+                <strong>Shadow:</strong> Alienation from reality; a sterile existence trapped in loops of memory and machinery.<br>
+                <strong>Key Question:</strong> When does mastery over history become refusal to let the dead rest?</p>
+            </section>
+        </div>
+    </div>
+
+    <div id="view-glint" class="view-section hidden">
+        <h2 class="text-4xl font-serif font-bold mb-2">Chaos / Glint</h2>
+        <div class="flex items-center gap-2 mb-6 border-b-2 border-[#d5d0c6] pb-2">
+            <span class="mana-sym mana-u">U</span><span class="mana-sym mana-b">B</span><span class="mana-sym mana-r">R</span><span class="mana-sym mana-g">G</span>
+            <span class="text-sm font-bold text-[#7a7371] ml-2">Missing: White</span>
+        </div>
+        <p class="text-lg mb-6 leading-relaxed font-semibold">This section analyzes the Glint identity. The visual chart highlights the void of White mana. The text reveals how intellect, ambition, emotion, and instinct combine into a state of pure appetite and chaotic evolution without the constraints of law.</p>
+
+        <div class="chart-container mb-8">
+            <canvas id="chart-glint"></canvas>
+        </div>
+
+        <div class="space-y-8">
+            <section>
+                <h3 class="text-2xl font-bold mb-3">1. Snapshot</h3>
+                <p><strong>Concept Label:</strong> Chaos / Glint<br>
+                <strong>Anchor Card:</strong> Glint-Eye Nephilim<br>
+                <strong>Flavor Text:</strong> <em>"When it awoke, it shook the plane with the thunder of its craving."</em><br>
+                <strong>Surface Identity:</strong> Appetite without law. Knowledge, hunger, impulse, and survival without shared order.<br>
+                <strong>Thesis:</strong> Glint is craving as an engine; the conversion of pure experience into evolutionary momentum.</p>
+            </section>
+
+            <section>
+                <h3 class="text-2xl font-bold mb-3">2. Anchor Card Interpretation</h3>
+                <p>Glint-Eye Nephilim grows larger when you discard cards (converting lost knowledge into physical mass) and draws cards when it deals damage (converting physical impact into knowledge). It represents a closed, terrifying loop of learning and consuming, entirely focused on the self and its immediate stimuli.</p>
+            </section>
+
+            <section>
+                <h3 class="text-2xl font-bold mb-3">3. Missing-Color Analysis (-White)</h3>
+                <p>White is the color of morality, structure, peace, and the collective good. Without it, UBRG acts with zero regard for collateral damage or societal rules. It is not "evil" purely in the Black sense, because it also possesses Green's natural instinct, Red's emotional joy, and Blue's curiosity. It is simply apex evolution unshackled from consequence.</p>
+            </section>
+            
+            <section>
+                <h3 class="text-2xl font-bold mb-3">4. Philosophy & Vox Synthesis</h3>
+                <p><strong>Core Axiom:</strong> The universe is meant to be consumed, understood, and felt, right now.<br>
+                <strong>Key Question:</strong> When does freedom from order become endless hunger?</p>
+            </section>
+        </div>
+    </div>
+
+    <div id="view-dune" class="view-section hidden">
+        <h2 class="text-4xl font-serif font-bold mb-2">Aggression / Dune</h2>
+        <div class="flex items-center gap-2 mb-6 border-b-2 border-[#d5d0c6] pb-2">
+            <span class="mana-sym mana-b">B</span><span class="mana-sym mana-r">R</span><span class="mana-sym mana-g">G</span><span class="mana-sym mana-w">W</span>
+            <span class="text-sm font-bold text-[#7a7371] ml-2">Missing: Blue</span>
+        </div>
+        <p class="text-lg mb-6 leading-relaxed font-semibold">This section details the Dune identity. The interactive chart illustrates the absence of Blue mana. The accompanying text demonstrates how an existence devoid of reflection and logic naturally defaults to physical conquest, swarm tactics, and aggressive multiplication.</p>
+
+        <div class="chart-container mb-8">
+            <canvas id="chart-dune"></canvas>
+        </div>
+
+        <div class="space-y-8">
+            <section>
+                <h3 class="text-2xl font-bold mb-3">1. Snapshot</h3>
+                <p><strong>Concept Label:</strong> Aggression / Dune<br>
+                <strong>Anchor Card:</strong> Dune-Brood Nephilim<br>
+                <strong>Flavor Text:</strong> <em>"When it awoke, it spawned nameless thousands to herald its arrival."</em><br>
+                <strong>Surface Identity:</strong> Force without reflection. Conquest, territory, and sheer physical multiplication.<br>
+                <strong>Thesis:</strong> Dune is the overwhelming weight of biology and belief acting in physical unison.</p>
+            </section>
+
+            <section>
+                <h3 class="text-2xl font-bold mb-3">2. Missing-Color Analysis (-Blue)</h3>
+                <p>Blue provides pause, analysis, subtlety, and illusion. BRGW lacks any desire to think before acting. It is brutally honest and physical. White brings the army, Green brings the natural reproduction, Red brings the fervor, and Black brings the ruthlessness. The result is the ultimate swarm.</p>
+            </section>
+            
+            <section>
+                <h3 class="text-2xl font-bold mb-3">3. Philosophy & Vox Synthesis</h3>
+                <p><strong>Core Axiom:</strong> We are many, we are here, and we will take the ground.<br>
+                <strong>Key Question:</strong> When does life become conquest through sheer multiplication?</p>
+            </section>
+        </div>
+    </div>
+
+    <div id="view-ink" class="view-section hidden">
+        <h2 class="text-4xl font-serif font-bold mb-2">Altruism / Ink</h2>
+        <div class="flex items-center gap-2 mb-6 border-b-2 border-[#d5d0c6] pb-2">
+            <span class="mana-sym mana-r">R</span><span class="mana-sym mana-g">G</span><span class="mana-sym mana-w">W</span><span class="mana-sym mana-u">U</span>
+            <span class="text-sm font-bold text-[#7a7371] ml-2">Missing: Black</span>
+        </div>
+        <p class="text-lg mb-6 leading-relaxed font-semibold">This section explores the Ink identity. The visualization explicitly removes Black mana. The analysis defines how removing self-interest and paranoia creates a state of radical, sometimes dangerous, interconnectedness and collective consequence.</p>
+
+        <div class="chart-container mb-8">
+            <canvas id="chart-ink"></canvas>
+        </div>
+
+        <div class="space-y-8">
+            <section>
+                <h3 class="text-2xl font-bold mb-3">1. Snapshot</h3>
+                <p><strong>Concept Label:</strong> Altruism / Ink<br>
+                <strong>Anchor Card:</strong> Ink-Treader Nephilim<br>
+                <strong>Flavor Text:</strong> <em>"When it awoke, the mirrors of the world reflected only darkness."</em><br>
+                <strong>Surface Identity:</strong> Shared transformation without self-interest. Community, empathy, and collective resonance.<br>
+                <strong>Thesis:</strong> Ink is the self dissolved into the collective, where what happens to one happens to all.</p>
+            </section>
+
+            <section>
+                <h3 class="text-2xl font-bold mb-3">2. Anchor Card Interpretation</h3>
+                <p>Mechanically, whenever a player casts an instant or sorcery that targets only Ink-Treader Nephilim, they copy that spell for every other creature it could target. Ink-Treader acts as a prism. It does not hoard magic; it distributes it forcibly to everything around it.</p>
+            </section>
+
+            <section>
+                <h3 class="text-2xl font-bold mb-3">3. Philosophy & Vox Synthesis</h3>
+                <p><strong>Core Axiom:</strong> The boundary between the self and the world is an illusion.<br>
+                <strong>Key Question:</strong> When does connection erase the individual?</p>
+            </section>
+        </div>
+    </div>
+
+    <div id="view-witch" class="view-section hidden">
+        <h2 class="text-4xl font-serif font-bold mb-2">Growth / Witch</h2>
+        <div class="flex items-center gap-2 mb-6 border-b-2 border-[#d5d0c6] pb-2">
+            <span class="mana-sym mana-g">G</span><span class="mana-sym mana-w">W</span><span class="mana-sym mana-u">U</span><span class="mana-sym mana-b">B</span>
+            <span class="text-sm font-bold text-[#7a7371] ml-2">Missing: Red</span>
+        </div>
+        <p class="text-lg mb-6 leading-relaxed font-semibold">This section dissects the Witch identity. The chart visualizes the void of Red mana. The text interprets how the absence of impulse and emotion leads to a terrifyingly patient, calculated, and inevitable expansion.</p>
+
+        <div class="chart-container mb-8">
+            <canvas id="chart-witch"></canvas>
+        </div>
+
+        <div class="space-y-8">
+            <section>
+                <h3 class="text-2xl font-bold mb-3">1. Snapshot</h3>
+                <p><strong>Concept Label:</strong> Growth / Witch<br>
+                <strong>Anchor Card:</strong> Witch-Maw Nephilim<br>
+                <strong>Flavor Text:</strong> <em>"When it awoke, it shattered the hillsides to make way for its passage."</em><br>
+                <strong>Surface Identity:</strong> Expansion without impulse. Patient, relentless inevitability.<br>
+                <strong>Thesis:</strong> Witch is the cold, calculated accumulation of mass and power over time.</p>
+            </section>
+
+            <section>
+                <h3 class="text-2xl font-bold mb-3">2. Missing-Color Analysis (-Red)</h3>
+                <p>Without Red, there is no rush, no anger, no spontaneous joy, and no hesitation. GWUB acts with terrifying calculation. It grows, it learns, it structures, and it kills, all with the slow inevitability of a glacier.</p>
+            </section>
+            
+            <section>
+                <h3 class="text-2xl font-bold mb-3">3. Philosophy & Vox Synthesis</h3>
+                <p><strong>Core Axiom:</strong> All things take time, and all time belongs to us.<br>
+                <strong>Key Question:</strong> When does growth become a hunger too controlled to stop?</p>
+            </section>
+        </div>
+    </div>
+
+    <div id="view-cross" class="view-section hidden">
+        <h2 class="text-4xl font-serif font-bold mb-6 border-b-2 border-[#d5d0c6] pb-2">Cross-Identity Dynamics</h2>
+        <p class="text-lg mb-6 leading-relaxed font-semibold">This section offers a comparative view of all five identities. The interactive matrix below allows users to cross-reference the missing colors with their core drives, providing a holistic understanding of the four-color system.</p>
+
+        <div class="overflow-x-auto bg-white rounded shadow-sm border border-[#e8e4db]">
+            <table class="w-full text-left border-collapse">
+                <thead>
+                    <tr class="bg-[#d5d0c6]">
+                        <th class="p-3 border-b border-[#c2bbae]">Identity</th>
+                        <th class="p-3 border-b border-[#c2bbae]">Missing Color</th>
+                        <th class="p-3 border-b border-[#c2bbae]">Anchor Card</th>
+                        <th class="p-3 border-b border-[#c2bbae]">Surface Identity</th>
+                        <th class="p-3 border-b border-[#c2bbae]">Primary Tension</th>
+                    </tr>
+                </thead>
+                <tbody class="text-sm">
+                    <tr class="hover:bg-[#f9f8f6] transition-colors cursor-pointer" onclick="showView('yore')">
+                        <td class="p-3 border-b border-[#e8e4db] font-bold">Artifice / Yore</td>
+                        <td class="p-3 border-b border-[#e8e4db]">Green</td>
+                        <td class="p-3 border-b border-[#e8e4db]">Yore-Tiller Nephilim</td>
+                        <td class="p-3 border-b border-[#e8e4db]">Structure without nature</td>
+                        <td class="p-3 border-b border-[#e8e4db]">Mastery vs. Letting the dead rest</td>
+                    </tr>
+                    <tr class="hover:bg-[#f9f8f6] transition-colors cursor-pointer" onclick="showView('glint')">
+                        <td class="p-3 border-b border-[#e8e4db] font-bold">Chaos / Glint</td>
+                        <td class="p-3 border-b border-[#e8e4db]">White</td>
+                        <td class="p-3 border-b border-[#e8e4db]">Glint-Eye Nephilim</td>
+                        <td class="p-3 border-b border-[#e8e4db]">Appetite without law</td>
+                        <td class="p-3 border-b border-[#e8e4db]">Freedom vs. Endless hunger</td>
+                    </tr>
+                    <tr class="hover:bg-[#f9f8f6] transition-colors cursor-pointer" onclick="showView('dune')">
+                        <td class="p-3 border-b border-[#e8e4db] font-bold">Aggression / Dune</td>
+                        <td class="p-3 border-b border-[#e8e4db]">Blue</td>
+                        <td class="p-3 border-b border-[#e8e4db]">Dune-Brood Nephilim</td>
+                        <td class="p-3 border-b border-[#e8e4db]">Force without reflection</td>
+                        <td class="p-3 border-b border-[#e8e4db]">Life vs. Mindless conquest</td>
+                    </tr>
+                    <tr class="hover:bg-[#f9f8f6] transition-colors cursor-pointer" onclick="showView('ink')">
+                        <td class="p-3 border-b border-[#e8e4db] font-bold">Altruism / Ink</td>
+                        <td class="p-3 border-b border-[#e8e4db]">Black</td>
+                        <td class="p-3 border-b border-[#e8e4db]">Ink-Treader Nephilim</td>
+                        <td class="p-3 border-b border-[#e8e4db]">Shared transformation</td>
+                        <td class="p-3 border-b border-[#e8e4db]">Connection vs. Erasing the individual</td>
+                    </tr>
+                    <tr class="hover:bg-[#f9f8f6] transition-colors cursor-pointer" onclick="showView('witch')">
+                        <td class="p-3 border-b border-[#e8e4db] font-bold">Growth / Witch</td>
+                        <td class="p-3 border-b border-[#e8e4db]">Red</td>
+                        <td class="p-3 border-b border-[#e8e4db]">Witch-Maw Nephilim</td>
+                        <td class="p-3 border-b border-[#e8e4db]">Expansion without impulse</td>
+                        <td class="p-3 border-b border-[#e8e4db]">Growth vs. Unstoppable hunger</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div id="view-glossary" class="view-section hidden">
+        <h2 class="text-4xl font-serif font-bold mb-6 border-b-2 border-[#d5d0c6] pb-2">Glossary & Uncertainties</h2>
+        <p class="text-lg mb-6 leading-relaxed font-semibold">This concluding section outlines the strict boundaries of this research. It clearly defines the terminology used and transparently declares the limits of official canon versus interpretative synthesis.</p>
+
+        <div class="space-y-6">
+            <div>
+                <h3 class="text-2xl font-bold mb-3 text-red-800">Conflicts & Uncertainties (Mandatory Read)</h3>
+                <div class="bg-red-50 p-4 border border-red-200 rounded">
+                    <ul class="list-disc pl-5 space-y-2 text-sm text-red-900">
+                        <li><strong>Known Canon Gaps:</strong> There are no official four-color factions outside of Commander sets and the specific Nephilim. The Nephilim are beasts, not political structures.</li>
+                        <li><strong>Vox Mana Synthesis Boundaries:</strong> Claims mapping four-color identities to human psychology or broad philosophies are explicit synthesis extrapolations based on mechanical design, NOT explicit story canon.</li>
+                        <li><strong>Source Limitations:</strong> Much of the deep analysis relies on Tier 2 sources (Flavor Text, Rules Text mechanics) combined with Tier 1 color-pie philosophy (Mark Rosewater's design articles) rather than explicit narrative text.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div>
+                <h3 class="text-2xl font-bold mb-3">Glossary</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm bg-white p-4 border border-[#e8e4db] rounded">
+                    <div><strong>Color Pie:</strong> The foundational philosophy of MTG, dividing magic into five distinct worldviews.</div>
+                    <div><strong>Missing Color:</strong> The single color absent in a 4-color identity, which heavily defines its blind spots.</div>
+                    <div><strong>Nephilim:</strong> Five ancient creatures from Ravnica (Guildpact), the mechanical anchors for 4-color.</div>
+                    <div><strong>Vox Mana Synthesis:</strong> Interpretative modeling applying MTG color theory to broader psychological profiles.</div>
+                </div>
+            </div>
+
+            <div>
+                <h3 class="text-2xl font-bold mb-3 mt-8">Sources / Bibliography</h3>
+                <ul class="text-xs space-y-1 text-[#5c564d] list-decimal pl-5">
+                    <li>Mark Rosewater, "Missing the Point", Magic: The Gathering Design Articles — Tier 1 — (Four-color design philosophy)</li>
+                    <li>Official Gatherer Database, "Guildpact: Nephilim" — Tier 2 — (Mechanical rules text, typelines)</li>
+                    <li>Magic Story, "Guildpact Set Release Notes" — Tier 1 — (Ravnica historical context)</li>
+                    <li>Mark Rosewater, "The Color Pie", Drive to Work Podcast — Tier 1 — (Philosophical definitions of WUBRG)</li>
+                    <li>Flavor Text Archive, Scryfall — Tier 2 — (Quotes used to extrapolate Nephilim thematic behavior)</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+</main>
+
+<script>
+    // Interaction Logic & State Management
+    const views = document.querySelectorAll('.view-section');
+    const navBtns = document.querySelectorAll('.nav-btn');
+    const charts = {}; // Store chart instances
+
+    // Data structure for the Color Pressure Radars
+    // Order: White, Blue, Black, Red, Green
+    const chartData = {
+        yore:  { data: [100, 100, 100, 100, 0], color: '#d4cfc9' },
+        glint: { data: [0, 100, 100, 100, 100], color: '#d3202a' },
+        dune:  { data: [100, 0, 100, 100, 100], color: '#150b00' },
+        ink:   { data: [100, 100, 0, 100, 100], color: '#0e68ab' },
+        witch: { data: [100, 100, 100, 0, 100], color: '#00733e' }
+    };
+
+    function initChart(id) {
+        const ctx = document.getElementById('chart-' + id);
+        if (!ctx) return;
+        
+        if (charts[id]) {
+            charts[id].destroy();
+        }
+
+        charts[id] = new Chart(ctx, {
+            type: 'radar',
+            data: {
+                labels: ['White', 'Blue', 'Black', 'Red', 'Green'],
+                datasets: [{
+                    label: 'Mana Pressure',
+                    data: chartData[id].data,
+                    backgroundColor: chartData[id].color + '40', // add transparency
+                    borderColor: chartData[id].color,
+                    pointBackgroundColor: chartData[id].color,
+                    borderWidth: 2,
+                    pointRadius: 4
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    r: {
+                        angleLines: { color: '#d5d0c6' },
+                        grid: { color: '#e8e4db' },
+                        pointLabels: {
+                            font: { size: 14, family: 'sans-serif', weight: 'bold' },
+                            color: '#2c2925'
+                        },
+                        ticks: { display: false, max: 100, min: 0 }
+                    }
+                },
+                plugins: {
+                    legend: { display: false },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                return context.raw === 0 ? ' MISSING COLOR (0%)' : ' Present (100%)';
+                            }
+                        }
+                    }
+                }
+            }
+        });
+    }
+
+    function showView(targetId) {
+        views.forEach(v => v.classList.add('hidden'));
+        navBtns.forEach(btn => {
+            btn.classList.remove('bg-[#d5d0c6]', 'font-bold');
+            if (btn.dataset.target === targetId) {
+                btn.classList.add('bg-[#d5d0c6]', 'font-bold');
+            }
+        });
+
+        const activeView = document.getElementById('view-' + targetId);
+        if (activeView) {
+            activeView.classList.remove('hidden');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            
+            if (chartData[targetId]) {
+                setTimeout(() => initChart(targetId), 50);
+            }
+        }
+    }
+
+    navBtns.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            const target = e.currentTarget.dataset.target;
+            showView(target);
+        });
+    });
+
+</script>
+</body>
+</html>

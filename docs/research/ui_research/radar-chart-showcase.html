@@ -1,0 +1,1153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Radar Chart Showcase — Visually Stunning Examples</title>
+<meta name="description" content="Advanced radar chart demonstrations with Chart.js showing stunning visual effects, gradients, animations, and creative styling." />
+<style>
+/* ============================================================
+   RADAR CHART SHOWCASE — PUSHING VISUAL BOUNDARIES
+   ============================================================ */
+
+:root {
+  color-scheme: dark;
+  
+  /* OKLCH colors */
+  --void: oklch(8% 0.02 260);
+  --void-2: oklch(12% 0.02 260);
+  --void-3: oklch(16% 0.02 260);
+  --glass: oklch(12% 0.02 260 / 0.54);
+  --glass-strong: oklch(10% 0.02 260 / 0.80);
+  
+  --text: oklch(94% 0.04 75);
+  --text-soft: oklch(82% 0.03 70);
+  --text-dim: oklch(65% 0.02 65);
+  
+  /* Mana colors */
+  --white: oklch(94% 0.04 75);
+  --blue: oklch(72% 0.18 240);
+  --black: oklch(62% 0.22 290);
+  --red: oklch(68% 0.20 25);
+  --green: oklch(76% 0.18 145);
+  --gold: oklch(76% 0.14 75);
+  
+  --line: color-mix(in oklch, var(--gold) 22%, transparent);
+  --shadow: 0 28px 90px oklch(0% 0 0 / 0.62);
+  
+  --font-display: ui-serif, Georgia, "Times New Roman", serif;
+  --font-text: Inter, ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "SFMono-Regular", Consolas, monospace;
+  
+  --ease: cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at 18% 18%, color-mix(in oklch, var(--blue) 10%, transparent), transparent 34rem),
+    radial-gradient(circle at 82% 22%, color-mix(in oklch, var(--black) 8%, transparent), transparent 28rem),
+    radial-gradient(circle at 50% 88%, color-mix(in oklch, var(--gold) 12%, transparent), transparent 38rem),
+    linear-gradient(180deg, oklch(8% 0.02 260) 0%, oklch(10% 0.02 260) 46%, oklch(8% 0.02 260) 100%);
+  color: var(--text);
+  font-family: var(--font-text);
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -5;
+  pointer-events: none;
+  background:
+    linear-gradient(var(--line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--line) 1px, transparent 1px);
+  background-size: 72px 72px;
+  mask-image: radial-gradient(ellipse at center, black 0 42%, transparent 82%);
+  opacity: 0.28;
+  mix-blend-mode: screen;
+}
+
+.container {
+  width: min(1440px, calc(100% - 4rem));
+  margin: 0 auto;
+  padding: 2rem 0;
+}
+
+/* Header */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--line);
+  background: color-mix(in oklch, var(--void) 72%, transparent);
+}
+
+.site-header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.5rem 0;
+}
+
+.logo {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  text-decoration: none;
+}
+
+/* Hero */
+.hero {
+  padding: clamp(4rem, 10vh, 8rem) 0 clamp(2rem, 5vh, 4rem);
+  text-align: center;
+}
+
+h1 {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 8vw, 5rem);
+  font-weight: 400;
+  line-height: 0.95;
+  letter-spacing: 0.02em;
+  margin: 0 0 1.5rem;
+  text-transform: uppercase;
+  background: linear-gradient(135deg, var(--gold), var(--blue));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.subtitle {
+  font-size: clamp(1rem, 2.5vw, 1.3rem);
+  color: var(--text-soft);
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+/* Chart Sections */
+.chart-section {
+  padding: clamp(3rem, 6vh, 6rem) 0;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  font-weight: 400;
+  margin: 0 0 1rem;
+  color: var(--text);
+}
+
+.section-label {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--gold);
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.section-label::before,
+.section-label::after {
+  content: "✦";
+  margin: 0 1rem;
+  color: var(--gold);
+}
+
+.section-desc {
+  color: var(--text-soft);
+  max-width: 600px;
+  margin: 0 auto;
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+/* Chart Containers */
+.chart-showcase {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 3rem;
+  margin-top: 3rem;
+}
+
+@media (max-width: 768px) {
+  .chart-showcase {
+    grid-template-columns: 1fr;
+  }
+}
+
+.chart-container {
+  position: relative;
+  background: var(--glass);
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  padding: 2.5rem;
+  transition: all 0.4s var(--ease);
+  overflow: hidden;
+}
+
+.chart-container::before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  background: linear-gradient(135deg, var(--gold), var(--blue));
+  border-radius: 24px;
+  opacity: 0;
+  transition: opacity 0.4s var(--ease);
+  z-index: -1;
+  filter: blur(20px);
+}
+
+.chart-container:hover {
+  border-color: var(--gold);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow);
+}
+
+.chart-container:hover::before {
+  opacity: 0.3;
+}
+
+.chart-title {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  margin: 0 0 0.5rem;
+  color: var(--gold);
+  text-align: center;
+}
+
+.chart-subtitle {
+  font-size: 0.875rem;
+  color: var(--text-dim);
+  text-align: center;
+  margin: 0 0 2rem;
+  font-style: italic;
+}
+
+.chart-wrapper {
+  position: relative;
+  height: 400px;
+  margin: 0 auto;
+  max-width: 500px;
+}
+
+/* Special Effects */
+.glow-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.glow-white {
+  background: radial-gradient(circle at 50% 50%, color-mix(in oklch, var(--white) 30%, transparent), transparent 40%);
+  animation: pulse-white 4s ease-in-out infinite;
+}
+
+.glow-blue {
+  background: radial-gradient(circle at 50% 50%, color-mix(in oklch, var(--blue) 30%, transparent), transparent 40%);
+  animation: pulse-blue 4s ease-in-out infinite 0.5s;
+}
+
+.glow-black {
+  background: radial-gradient(circle at 50% 50%, color-mix(in oklch, var(--black) 30%, transparent), transparent 40%);
+  animation: pulse-black 4s ease-in-out infinite 1s;
+}
+
+.glow-red {
+  background: radial-gradient(circle at 50% 50%, color-mix(in oklch, var(--red) 30%, transparent), transparent 40%);
+  animation: pulse-red 4s ease-in-out infinite 1.5s;
+}
+
+.glow-green {
+  background: radial-gradient(circle at 50% 50%, color-mix(in oklch, var(--green) 30%, transparent), transparent 40%);
+  animation: pulse-green 4s ease-in-out infinite 2s;
+}
+
+@keyframes pulse-white {
+  0%, 100% { opacity: 0.3; transform: scale(1); }
+  50% { opacity: 0.6; transform: scale(1.05); }
+}
+
+@keyframes pulse-blue {
+  0%, 100% { opacity: 0.3; transform: scale(1); }
+  50% { opacity: 0.6; transform: scale(1.05); }
+}
+
+@keyframes pulse-black {
+  0%, 100% { opacity: 0.3; transform: scale(1); }
+  50% { opacity: 0.6; transform: scale(1.05); }
+}
+
+@keyframes pulse-red {
+  0%, 100% { opacity: 0.3; transform: scale(1); }
+  50% { opacity: 0.6; transform: scale(1.05); }
+}
+
+@keyframes pulse-green {
+  0%, 100% { opacity: 0.3; transform: scale(1); }
+  50% { opacity: 0.6; transform: scale(1.05); }
+}
+
+/* Large Featured Chart */
+.featured-chart {
+  max-width: 900px;
+  margin: 4rem auto;
+  padding: 4rem;
+  background: var(--glass-strong);
+  border: 2px solid var(--gold);
+  border-radius: 32px;
+  position: relative;
+  overflow: hidden;
+}
+
+.featured-chart::before {
+  content: "";
+  position: absolute;
+  inset: -100px;
+  background: 
+    radial-gradient(circle at 20% 20%, color-mix(in oklch, var(--white) 15%, transparent), transparent 30%),
+    radial-gradient(circle at 80% 20%, color-mix(in oklch, var(--blue) 15%, transparent), transparent 30%),
+    radial-gradient(circle at 50% 50%, color-mix(in oklch, var(--black) 15%, transparent), transparent 30%),
+    radial-gradient(circle at 20% 80%, color-mix(in oklch, var(--red) 15%, transparent), transparent 30%),
+    radial-gradient(circle at 80% 80%, color-mix(in oklch, var(--green) 15%, transparent), transparent 30%);
+  animation: rotate-gradient 20s linear infinite;
+  opacity: 0.6;
+  z-index: -1;
+}
+
+@keyframes rotate-gradient {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.featured-chart .chart-wrapper {
+  height: 600px;
+  max-width: 100%;
+}
+
+/* Stats Display */
+.chart-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: 1rem;
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--line);
+}
+
+.stat-item {
+  text-align: center;
+}
+
+.stat-label {
+  font-size: 0.75rem;
+  color: var(--text-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 0.5rem;
+}
+
+.stat-value {
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--gold);
+}
+
+/* Comparison Grid */
+.comparison-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  margin: 3rem 0;
+}
+
+@media (max-width: 1024px) {
+  .comparison-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Code Display */
+.code-block {
+  background: var(--void-2);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 1.5rem;
+  margin-top: 1.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  color: var(--blue);
+  overflow-x: auto;
+}
+
+.code-label {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--gold);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+/* Footer */
+.site-footer {
+  padding: 4rem 0 2rem;
+  text-align: center;
+  border-top: 1px solid var(--line);
+  margin-top: 6rem;
+}
+
+.footer-content {
+  color: var(--text-dim);
+  font-size: 0.875rem;
+}
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<header class="site-header">
+  <div class="container">
+    <a href="#" class="logo">Radar Chart Showcase</a>
+  </div>
+</header>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="container">
+    <h1>Visually Stunning<br>Radar Charts</h1>
+    <p class="subtitle">
+      Pushing the boundaries of Chart.js radar visualizations with gradients, animations, 
+      overlays, and creative styling techniques.
+    </p>
+  </div>
+</section>
+
+<!-- Featured: Ultimate Mana Profile -->
+<section class="chart-section">
+  <div class="container">
+    <div class="featured-chart">
+      <h2 class="chart-title" style="font-size: 2.5rem; margin-bottom: 0.5rem;">Ultimate Mana Profile</h2>
+      <p class="chart-subtitle" style="font-size: 1rem; margin-bottom: 3rem;">
+        All five colors with animated gradients and pulsing overlays
+      </p>
+      <div class="chart-wrapper">
+        <div class="glow-overlay glow-white"></div>
+        <div class="glow-overlay glow-blue"></div>
+        <div class="glow-overlay glow-black"></div>
+        <div class="glow-overlay glow-red"></div>
+        <div class="glow-overlay glow-green"></div>
+        <canvas id="ultimateChart"></canvas>
+      </div>
+      <div class="chart-stats">
+        <div class="stat-item">
+          <div class="stat-label">White</div>
+          <div class="stat-value" style="color: var(--white);">85</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-label">Blue</div>
+          <div class="stat-value" style="color: var(--blue);">92</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-label">Black</div>
+          <div class="stat-value" style="color: var(--black);">78</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-label">Red</div>
+          <div class="stat-value" style="color: var(--red);">65</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-label">Green</div>
+          <div class="stat-value" style="color: var(--green);">88</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Multi-Dataset Comparison -->
+<section class="chart-section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">Style 01</span>
+      <h2 class="section-title">Multi-Dataset Overlays</h2>
+      <p class="section-desc">
+        Compare multiple profiles with transparency blending and gradient fills
+      </p>
+    </div>
+    
+    <div class="comparison-grid">
+      <div class="chart-container">
+        <h3 class="chart-title">Guild Comparison</h3>
+        <p class="chart-subtitle">Azorius vs Dimir vs Rakdos</p>
+        <div class="chart-wrapper">
+          <canvas id="guildComparison"></canvas>
+        </div>
+        <div class="code-block">
+          <span class="code-label">Key Features:</span>
+          • Multiple overlapping datasets<br>
+          • Transparent fills (0.2-0.3 alpha)<br>
+          • Distinct border colors<br>
+          • Point hover animations
+        </div>
+      </div>
+      
+      <div class="chart-container">
+        <h3 class="chart-title">Planeswalker Alignment</h3>
+        <p class="chart-subtitle">Three distinct color identities</p>
+        <div class="chart-wrapper">
+          <canvas id="planeswalkerChart"></canvas>
+        </div>
+        <div class="code-block">
+          <span class="code-label">Technique:</span>
+          • Gradient backgrounds<br>
+          • Custom point styles<br>
+          • Thicker borders (3px)<br>
+          • High contrast colors
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Gradient Techniques -->
+<section class="chart-section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">Style 02</span>
+      <h2 class="section-title">Gradient Mastery</h2>
+      <p class="section-desc">
+        Radial and linear gradients for depth and visual interest
+      </p>
+    </div>
+    
+    <div class="chart-showcase">
+      <div class="chart-container">
+        <h3 class="chart-title">Radial Gradient Fill</h3>
+        <p class="chart-subtitle">Center-out color transitions</p>
+        <div class="chart-wrapper">
+          <canvas id="radialGradient"></canvas>
+        </div>
+      </div>
+      
+      <div class="chart-container">
+        <h3 class="chart-title">Multi-Stop Gradient</h3>
+        <p class="chart-subtitle">Complex color transitions</p>
+        <div class="chart-wrapper">
+          <canvas id="multiGradient"></canvas>
+        </div>
+      </div>
+      
+      <div class="chart-container">
+        <h3 class="chart-title">Dual Gradient Overlay</h3>
+        <p class="chart-subtitle">Two datasets with opposing gradients</p>
+        <div class="chart-wrapper">
+          <canvas id="dualGradient"></canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Point & Line Styling -->
+<section class="chart-section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">Style 03</span>
+      <h2 class="section-title">Point & Line Variations</h2>
+      <p class="section-desc">
+        Creative approaches to points, lines, and node emphasis
+      </p>
+    </div>
+    
+    <div class="chart-showcase">
+      <div class="chart-container">
+        <h3 class="chart-title">Glowing Points</h3>
+        <p class="chart-subtitle">Large points with glow effects</p>
+        <div class="chart-wrapper">
+          <canvas id="glowingPoints"></canvas>
+        </div>
+      </div>
+      
+      <div class="chart-container">
+        <h3 class="chart-title">Minimal Line Focus</h3>
+        <p class="chart-subtitle">Emphasized borders, minimal fill</p>
+        <div class="chart-wrapper">
+          <canvas id="minimalLine"></canvas>
+        </div>
+      </div>
+      
+      <div class="chart-container">
+        <h3 class="chart-title">Dashed & Dotted</h3>
+        <p class="chart-subtitle">Alternative line patterns</p>
+        <div class="chart-wrapper">
+          <canvas id="dashedLines"></canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Extreme Styling -->
+<section class="chart-section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">Style 04</span>
+      <h2 class="section-title">Extreme Visual Effects</h2>
+      <p class="section-desc">
+        Pushing boundaries with unconventional techniques
+      </p>
+    </div>
+    
+    <div class="chart-showcase">
+      <div class="chart-container" style="background: linear-gradient(135deg, oklch(12% 0.08 290), oklch(10% 0.06 240));">
+        <h3 class="chart-title">Neon Glow</h3>
+        <p class="chart-subtitle">High saturation with glow</p>
+        <div class="chart-wrapper">
+          <canvas id="neonGlow"></canvas>
+        </div>
+      </div>
+      
+      <div class="chart-container" style="background: radial-gradient(circle, oklch(14% 0.04 75), oklch(8% 0.02 260));">
+        <h3 class="chart-title">Golden Halo</h3>
+        <p class="chart-subtitle">Metallic gradient effect</p>
+        <div class="chart-wrapper">
+          <canvas id="goldenHalo"></canvas>
+        </div>
+      </div>
+      
+      <div class="chart-container" style="background: linear-gradient(135deg, oklch(8% 0.02 260), oklch(12% 0.06 145), oklch(8% 0.02 260));">
+        <h3 class="chart-title">Ethereal Mist</h3>
+        <p class="chart-subtitle">Soft, dreamy aesthetic</p>
+        <div class="chart-wrapper">
+          <canvas id="etherealMist"></canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Animation Examples -->
+<section class="chart-section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">Style 05</span>
+      <h2 class="section-title">Animation & Interaction</h2>
+      <p class="section-desc">
+        Hover effects, transitions, and dynamic updates
+      </p>
+    </div>
+    
+    <div class="comparison-grid">
+      <div class="chart-container">
+        <h3 class="chart-title">Hover Emphasis</h3>
+        <p class="chart-subtitle">Points grow and glow on hover</p>
+        <div class="chart-wrapper">
+          <canvas id="hoverEmphasis"></canvas>
+        </div>
+        <div class="code-block">
+          <span class="code-label">Config:</span>
+          pointHoverRadius: 12<br>
+          pointHoverBorderWidth: 4<br>
+          pointHoverBackgroundColor: 'glow'
+        </div>
+      </div>
+      
+      <div class="chart-container">
+        <h3 class="chart-title">Animated Entry</h3>
+        <p class="chart-subtitle">Smooth animation on load</p>
+        <div class="chart-wrapper">
+          <canvas id="animatedEntry"></canvas>
+        </div>
+        <div class="code-block">
+          <span class="code-label">Animation:</span>
+          duration: 2000ms<br>
+          easing: 'easeInOutQuart'<br>
+          delay: (ctx) => ctx.dataIndex * 150
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-content">
+      <p>
+        All examples use Chart.js with custom gradients, animations, and styling.<br>
+        Combine with CSS overlays for maximum visual impact.
+      </p>
+      <p style="margin-top: 1rem; opacity: 0.6;">
+        Chart.js • Canvas Gradients • CSS Animations • OKLCH Colors
+      </p>
+    </div>
+  </div>
+</footer>
+
+<!-- Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2"></script>
+<script>
+// Helper: Create gradient
+function createRadialGradient(ctx, centerX, centerY, innerRadius, outerRadius, colorStops) {
+  const gradient = ctx.createRadialGradient(centerX, centerY, innerRadius, centerX, centerY, outerRadius);
+  colorStops.forEach(stop => gradient.addColorStop(stop.offset, stop.color));
+  return gradient;
+}
+
+// Common config
+const commonOptions = {
+  responsive: true,
+  maintainAspectRatio: true,
+  plugins: {
+    legend: {
+      display: true,
+      position: 'bottom',
+      labels: {
+        color: 'oklch(94% 0.04 75)',
+        font: { size: 12, family: 'Inter, sans-serif' },
+        padding: 20
+      }
+    },
+    datalabels: {
+      display: false
+    }
+  },
+  scales: {
+    r: {
+      angleLines: { color: 'rgba(241, 199, 111, 0.22)' },
+      grid: { color: 'rgba(241, 199, 111, 0.22)' },
+      pointLabels: {
+        color: 'oklch(94% 0.04 75)',
+        font: { size: 13, family: 'Inter, sans-serif', weight: '600' }
+      },
+      ticks: {
+        color: 'oklch(65% 0.02 65)',
+        backdropColor: 'transparent',
+        font: { size: 10 }
+      },
+      min: 0,
+      max: 100
+    }
+  }
+};
+
+// 1. ULTIMATE CHART
+const ultimateCtx = document.getElementById('ultimateChart').getContext('2d');
+const ultimateGradient = createRadialGradient(ultimateCtx, 250, 250, 0, 250, [
+  { offset: 0, color: 'rgba(240, 197, 106, 0.4)' },
+  { offset: 0.5, color: 'rgba(95, 184, 255, 0.3)' },
+  { offset: 1, color: 'rgba(155, 132, 216, 0.2)' }
+]);
+
+new Chart(ultimateCtx, {
+  type: 'radar',
+  data: {
+    labels: ['White', 'Blue', 'Black', 'Red', 'Green'],
+    datasets: [{
+      label: 'Mana Profile',
+      data: [85, 92, 78, 65, 88],
+      backgroundColor: ultimateGradient,
+      borderColor: 'oklch(76% 0.14 75)',
+      borderWidth: 3,
+      pointBackgroundColor: 'oklch(86% 0.12 80)',
+      pointBorderColor: '#fff',
+      pointBorderWidth: 2,
+      pointRadius: 8,
+      pointHoverRadius: 12,
+      pointHoverBorderWidth: 3
+    }]
+  },
+  options: {
+    ...commonOptions,
+    animation: {
+      duration: 2000,
+      easing: 'easeInOutQuart'
+    }
+  }
+});
+
+// 2. GUILD COMPARISON
+const guildCtx = document.getElementById('guildComparison').getContext('2d');
+new Chart(guildCtx, {
+  type: 'radar',
+  data: {
+    labels: ['Control', 'Aggression', 'Synergy', 'Versatility', 'Power'],
+    datasets: [
+      {
+        label: 'Azorius (WU)',
+        data: [95, 35, 70, 65, 60],
+        backgroundColor: 'rgba(95, 184, 255, 0.2)',
+        borderColor: 'oklch(72% 0.18 240)',
+        borderWidth: 2,
+        pointBackgroundColor: 'oklch(72% 0.18 240)',
+        pointRadius: 5
+      },
+      {
+        label: 'Dimir (UB)',
+        data: [85, 45, 90, 75, 70],
+        backgroundColor: 'rgba(155, 132, 216, 0.2)',
+        borderColor: 'oklch(62% 0.22 290)',
+        borderWidth: 2,
+        pointBackgroundColor: 'oklch(62% 0.22 290)',
+        pointRadius: 5
+      },
+      {
+        label: 'Rakdos (BR)',
+        data: [25, 95, 60, 55, 85],
+        backgroundColor: 'rgba(255, 114, 95, 0.2)',
+        borderColor: 'oklch(68% 0.20 25)',
+        borderWidth: 2,
+        pointBackgroundColor: 'oklch(68% 0.20 25)',
+        pointRadius: 5
+      }
+    ]
+  },
+  options: commonOptions
+});
+
+// 3. PLANESWALKER CHART
+const planeswalkerCtx = document.getElementById('planeswalkerChart').getContext('2d');
+new Chart(planeswalkerCtx, {
+  type: 'radar',
+  data: {
+    labels: ['Loyalty', 'Influence', 'Knowledge', 'Combat', 'Mysticism', 'Wisdom'],
+    datasets: [
+      {
+        label: 'Jace',
+        data: [70, 85, 95, 40, 90, 75],
+        backgroundColor: 'rgba(95, 184, 255, 0.25)',
+        borderColor: 'oklch(82% 0.18 240)',
+        borderWidth: 3,
+        pointBackgroundColor: 'oklch(82% 0.18 240)',
+        pointBorderColor: '#fff',
+        pointRadius: 6
+      },
+      {
+        label: 'Liliana',
+        data: [60, 75, 80, 70, 95, 65],
+        backgroundColor: 'rgba(155, 132, 216, 0.25)',
+        borderColor: 'oklch(72% 0.22 290)',
+        borderWidth: 3,
+        pointBackgroundColor: 'oklch(72% 0.22 290)',
+        pointBorderColor: '#fff',
+        pointRadius: 6
+      },
+      {
+        label: 'Chandra',
+        data: [85, 70, 50, 95, 60, 55],
+        backgroundColor: 'rgba(255, 114, 95, 0.25)',
+        borderColor: 'oklch(78% 0.20 25)',
+        borderWidth: 3,
+        pointBackgroundColor: 'oklch(78% 0.20 25)',
+        pointBorderColor: '#fff',
+        pointRadius: 6
+      }
+    ]
+  },
+  options: commonOptions
+});
+
+// 4. RADIAL GRADIENT
+const radialCtx = document.getElementById('radialGradient').getContext('2d');
+const radialGrad = createRadialGradient(radialCtx, 200, 200, 0, 200, [
+  { offset: 0, color: 'rgba(240, 197, 106, 0.6)' },
+  { offset: 0.5, color: 'rgba(240, 197, 106, 0.3)' },
+  { offset: 1, color: 'rgba(240, 197, 106, 0.05)' }
+]);
+
+new Chart(radialCtx, {
+  type: 'radar',
+  data: {
+    labels: ['W', 'U', 'B', 'R', 'G'],
+    datasets: [{
+      data: [80, 75, 70, 85, 90],
+      backgroundColor: radialGrad,
+      borderColor: 'oklch(86% 0.12 80)',
+      borderWidth: 3,
+      pointBackgroundColor: 'oklch(86% 0.12 80)',
+      pointBorderColor: '#fff',
+      pointBorderWidth: 2,
+      pointRadius: 7
+    }]
+  },
+  options: { ...commonOptions, plugins: { ...commonOptions.plugins, legend: { display: false } } }
+});
+
+// 5. MULTI-STOP GRADIENT
+const multiCtx = document.getElementById('multiGradient').getContext('2d');
+const multiGrad = createRadialGradient(multiCtx, 200, 200, 0, 200, [
+  { offset: 0, color: 'rgba(255, 242, 201, 0.5)' },
+  { offset: 0.25, color: 'rgba(95, 184, 255, 0.4)' },
+  { offset: 0.5, color: 'rgba(155, 132, 216, 0.3)' },
+  { offset: 0.75, color: 'rgba(255, 114, 95, 0.2)' },
+  { offset: 1, color: 'rgba(102, 255, 155, 0.1)' }
+]);
+
+new Chart(multiCtx, {
+  type: 'radar',
+  data: {
+    labels: ['White', 'Blue', 'Black', 'Red', 'Green'],
+    datasets: [{
+      data: [88, 82, 76, 84, 90],
+      backgroundColor: multiGrad,
+      borderColor: 'oklch(86% 0.12 80)',
+      borderWidth: 2,
+      pointBackgroundColor: 'oklch(86% 0.12 80)',
+      pointRadius: 6
+    }]
+  },
+  options: { ...commonOptions, plugins: { ...commonOptions.plugins, legend: { display: false } } }
+});
+
+// 6. DUAL GRADIENT OVERLAY
+const dualCtx = document.getElementById('dualGradient').getContext('2d');
+const dualGrad1 = createRadialGradient(dualCtx, 200, 200, 0, 200, [
+  { offset: 0, color: 'rgba(95, 184, 255, 0.4)' },
+  { offset: 1, color: 'rgba(95, 184, 255, 0.1)' }
+]);
+const dualGrad2 = createRadialGradient(dualCtx, 200, 200, 0, 200, [
+  { offset: 0, color: 'rgba(255, 114, 95, 0.4)' },
+  { offset: 1, color: 'rgba(255, 114, 95, 0.1)' }
+]);
+
+new Chart(dualCtx, {
+  type: 'radar',
+  data: {
+    labels: ['Aspect A', 'Aspect B', 'Aspect C', 'Aspect D', 'Aspect E'],
+    datasets: [
+      {
+        label: 'Profile 1',
+        data: [85, 65, 90, 70, 80],
+        backgroundColor: dualGrad1,
+        borderColor: 'oklch(82% 0.18 240)',
+        borderWidth: 2,
+        pointBackgroundColor: 'oklch(82% 0.18 240)',
+        pointRadius: 5
+      },
+      {
+        label: 'Profile 2',
+        data: [70, 90, 60, 85, 75],
+        backgroundColor: dualGrad2,
+        borderColor: 'oklch(78% 0.20 25)',
+        borderWidth: 2,
+        pointBackgroundColor: 'oklch(78% 0.20 25)',
+        pointRadius: 5
+      }
+    ]
+  },
+  options: commonOptions
+});
+
+// 7. GLOWING POINTS
+const glowCtx = document.getElementById('glowingPoints').getContext('2d');
+new Chart(glowCtx, {
+  type: 'radar',
+  data: {
+    labels: ['W', 'U', 'B', 'R', 'G'],
+    datasets: [{
+      data: [75, 85, 70, 80, 90],
+      backgroundColor: 'rgba(240, 197, 106, 0.15)',
+      borderColor: 'oklch(76% 0.14 75)',
+      borderWidth: 2,
+      pointBackgroundColor: 'oklch(86% 0.12 80)',
+      pointBorderColor: 'oklch(86% 0.12 80)',
+      pointBorderWidth: 8,
+      pointRadius: 10,
+      pointHoverRadius: 14,
+      pointHoverBorderWidth: 10
+    }]
+  },
+  options: { ...commonOptions, plugins: { ...commonOptions.plugins, legend: { display: false } } }
+});
+
+// 8. MINIMAL LINE
+const minimalCtx = document.getElementById('minimalLine').getContext('2d');
+new Chart(minimalCtx, {
+  type: 'radar',
+  data: {
+    labels: ['White', 'Blue', 'Black', 'Red', 'Green'],
+    datasets: [{
+      data: [80, 70, 85, 75, 90],
+      backgroundColor: 'rgba(95, 184, 255, 0.05)',
+      borderColor: 'oklch(82% 0.18 240)',
+      borderWidth: 4,
+      pointBackgroundColor: 'oklch(82% 0.18 240)',
+      pointBorderColor: '#fff',
+      pointBorderWidth: 2,
+      pointRadius: 8
+    }]
+  },
+  options: { ...commonOptions, plugins: { ...commonOptions.plugins, legend: { display: false } } }
+});
+
+// 9. DASHED LINES
+const dashedCtx = document.getElementById('dashedLines').getContext('2d');
+new Chart(dashedCtx, {
+  type: 'radar',
+  data: {
+    labels: ['Metric 1', 'Metric 2', 'Metric 3', 'Metric 4', 'Metric 5'],
+    datasets: [{
+      data: [70, 85, 75, 90, 65],
+      backgroundColor: 'rgba(155, 132, 216, 0.2)',
+      borderColor: 'oklch(72% 0.22 290)',
+      borderWidth: 3,
+      borderDash: [10, 5],
+      pointBackgroundColor: 'oklch(72% 0.22 290)',
+      pointRadius: 7
+    }]
+  },
+  options: { ...commonOptions, plugins: { ...commonOptions.plugins, legend: { display: false } } }
+});
+
+// 10. NEON GLOW
+const neonCtx = document.getElementById('neonGlow').getContext('2d');
+new Chart(neonCtx, {
+  type: 'radar',
+  data: {
+    labels: ['A', 'B', 'C', 'D', 'E'],
+    datasets: [{
+      data: [85, 90, 80, 95, 88],
+      backgroundColor: 'rgba(93, 247, 255, 0.3)',
+      borderColor: 'oklch(92% 0.16 195)',
+      borderWidth: 4,
+      pointBackgroundColor: 'oklch(92% 0.16 195)',
+      pointBorderColor: '#fff',
+      pointBorderWidth: 3,
+      pointRadius: 9
+    }]
+  },
+  options: { ...commonOptions, plugins: { ...commonOptions.plugins, legend: { display: false } } }
+});
+
+// 11. GOLDEN HALO
+const goldenCtx = document.getElementById('goldenHalo').getContext('2d');
+const goldenGrad = createRadialGradient(goldenCtx, 200, 200, 0, 200, [
+  { offset: 0, color: 'rgba(247, 215, 132, 0.6)' },
+  { offset: 0.5, color: 'rgba(240, 197, 106, 0.4)' },
+  { offset: 1, color: 'rgba(214, 168, 78, 0.1)' }
+]);
+
+new Chart(goldenCtx, {
+  type: 'radar',
+  data: {
+    labels: ['Wealth', 'Power', 'Influence', 'Wisdom', 'Legacy'],
+    datasets: [{
+      data: [95, 88, 92, 85, 90],
+      backgroundColor: goldenGrad,
+      borderColor: 'oklch(96% 0.12 80)',
+      borderWidth: 3,
+      pointBackgroundColor: 'oklch(96% 0.12 80)',
+      pointBorderColor: 'oklch(76% 0.14 75)',
+      pointBorderWidth: 3,
+      pointRadius: 8
+    }]
+  },
+  options: { ...commonOptions, plugins: { ...commonOptions.plugins, legend: { display: false } } }
+});
+
+// 12. ETHEREAL MIST
+const etherealCtx = document.getElementById('etherealMist').getContext('2d');
+const etherealGrad = createRadialGradient(etherealCtx, 200, 200, 0, 200, [
+  { offset: 0, color: 'rgba(102, 255, 155, 0.4)' },
+  { offset: 0.5, color: 'rgba(102, 255, 155, 0.2)' },
+  { offset: 1, color: 'rgba(102, 255, 155, 0.05)' }
+]);
+
+new Chart(etherealCtx, {
+  type: 'radar',
+  data: {
+    labels: ['Nature', 'Growth', 'Life', 'Harmony', 'Renewal'],
+    datasets: [{
+      data: [88, 92, 85, 90, 95],
+      backgroundColor: etherealGrad,
+      borderColor: 'oklch(86% 0.18 145)',
+      borderWidth: 2,
+      pointBackgroundColor: 'oklch(86% 0.18 145)',
+      pointBorderColor: 'oklch(96% 0.04 145)',
+      pointBorderWidth: 2,
+      pointRadius: 6
+    }]
+  },
+  options: { ...commonOptions, plugins: { ...commonOptions.plugins, legend: { display: false } } }
+});
+
+// 13. HOVER EMPHASIS
+const hoverCtx = document.getElementById('hoverEmphasis').getContext('2d');
+new Chart(hoverCtx, {
+  type: 'radar',
+  data: {
+    labels: ['Stat 1', 'Stat 2', 'Stat 3', 'Stat 4', 'Stat 5'],
+    datasets: [{
+      data: [75, 85, 70, 90, 80],
+      backgroundColor: 'rgba(240, 197, 106, 0.2)',
+      borderColor: 'oklch(76% 0.14 75)',
+      borderWidth: 2,
+      pointBackgroundColor: 'oklch(76% 0.14 75)',
+      pointBorderColor: '#fff',
+      pointBorderWidth: 2,
+      pointRadius: 6,
+      pointHoverRadius: 12,
+      pointHoverBorderWidth: 4,
+      pointHoverBackgroundColor: 'oklch(96% 0.12 80)',
+      pointHoverBorderColor: 'oklch(96% 0.12 80)'
+    }]
+  },
+  options: { ...commonOptions, plugins: { ...commonOptions.plugins, legend: { display: false } } }
+});
+
+// 14. ANIMATED ENTRY
+const animatedCtx = document.getElementById('animatedEntry').getContext('2d');
+new Chart(animatedCtx, {
+  type: 'radar',
+  data: {
+    labels: ['Alpha', 'Beta', 'Gamma', 'Delta', 'Epsilon'],
+    datasets: [{
+      data: [70, 85, 75, 90, 80],
+      backgroundColor: 'rgba(155, 132, 216, 0.25)',
+      borderColor: 'oklch(72% 0.22 290)',
+      borderWidth: 3,
+      pointBackgroundColor: 'oklch(72% 0.22 290)',
+      pointRadius: 7
+    }]
+  },
+  options: {
+    ...commonOptions,
+    animation: {
+      duration: 2000,
+      easing: 'easeInOutQuart',
+      delay: (context) => {
+        return context.dataIndex * 150;
+      }
+    },
+    plugins: { ...commonOptions.plugins, legend: { display: false } }
+  }
+});
+</script>
+
+</body>
+</html>

@@ -8,10 +8,11 @@ Area: Apocrypha
 Priority: medium
 Created: 2026-05-15
 Completed: 2026-05-20
+Updated: 2026-05-21
 
 ## Summary
 
-Rebuild Apocrypha as a browse-first archive console with wing-based source organization, public-safe methodology framing, featured dossier previews, and a compatibility route that preserves the legacy `/library/` entrypoint.
+Rebuild Apocrypha as a browse-first archive console, then refine it into a calmer source-group-first archive page with public-safe methodology framing, featured dossier previews, and a compatibility route that preserves the legacy `/library/` entrypoint.
 
 ## Source Evidence
 
@@ -21,6 +22,7 @@ Rebuild Apocrypha as a browse-first archive console with wing-based source organ
 - `docs/design/visual-style-guide.md`
 - `docs/architecture/project-atlas.md`
 - `apocrypha/index.html`
+- `docs/handoffs/2026-05-21-1356-codex-vm011-apocrypha-source-group-simplification.md`
 - User-provided Apocrypha archive-console implementation plan
 
 ## Problem
@@ -49,6 +51,8 @@ The earlier Apocrypha page was still a compact source list. It exposed valid lin
 - `/apocrypha/` remains the canonical public route.
 - `/library/` is now a documented compatibility alias, not a missing page.
 - Local research files remain summarized rather than exposed as public links until their own routes are intentionally published.
+- 2026-05-21 refinement: Source Groups now appear above Public Sources, the archive status block uses `10 public sources`, `5 source groups`, and `2 private method areas`, and the page copy is simplified to read as a research archive instead of a secret-system briefing.
+- 2026-05-21 visitor-first retarget: Apocrypha now centers the public reference library, groups all 10 live public links by type with visible `Used for:` notes, and demotes the old internal archive-browser framing in favor of a simpler reference-room flow.
 
 ## Human Review
 

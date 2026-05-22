@@ -1,0 +1,1059 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Dynamic Radar Charts — Shape Morphing & Live Updates</title>
+<meta name="description" content="Demonstrating radar chart flexibility with 3-20 axes, live data updates, and interactive shape morphing." />
+<style>
+:root {
+  color-scheme: dark;
+  --void: oklch(8% 0.02 260);
+  --void-2: oklch(12% 0.02 260);
+  --glass: oklch(12% 0.02 260 / 0.54);
+  --glass-strong: oklch(10% 0.02 260 / 0.80);
+  --text: oklch(94% 0.04 75);
+  --text-soft: oklch(82% 0.03 70);
+  --text-dim: oklch(65% 0.02 65);
+  --gold: oklch(76% 0.14 75);
+  --gold-bright: oklch(86% 0.12 80);
+  --cyan: oklch(82% 0.16 195);
+  --violet: oklch(72% 0.22 290);
+  --green: oklch(76% 0.18 145);
+  --red: oklch(68% 0.20 25);
+  --line: color-mix(in oklch, var(--gold) 22%, transparent);
+  --shadow: 0 28px 90px oklch(0% 0 0 / 0.62);
+  --font-display: ui-serif, Georgia, "Times New Roman", serif;
+  --font-text: Inter, ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "SFMono-Regular", Consolas, monospace;
+  --ease: cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at 18% 18%, color-mix(in oklch, var(--cyan) 10%, transparent), transparent 34rem),
+    radial-gradient(circle at 82% 22%, color-mix(in oklch, var(--violet) 8%, transparent), transparent 28rem),
+    linear-gradient(180deg, oklch(8% 0.02 260) 0%, oklch(10% 0.02 260) 46%, oklch(8% 0.02 260) 100%);
+  color: var(--text);
+  font-family: var(--font-text);
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -5;
+  pointer-events: none;
+  background:
+    linear-gradient(var(--line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--line) 1px, transparent 1px);
+  background-size: 72px 72px;
+  mask-image: radial-gradient(ellipse at center, black 0 42%, transparent 82%);
+  opacity: 0.28;
+  mix-blend-mode: screen;
+}
+
+.container {
+  width: min(1440px, calc(100% - 4rem));
+  margin: 0 auto;
+  padding: 2rem 0;
+}
+
+/* Header */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--line);
+  background: color-mix(in oklch, var(--void) 72%, transparent);
+}
+
+.site-header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.5rem 0;
+}
+
+.logo {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  text-decoration: none;
+}
+
+/* Hero */
+.hero {
+  padding: clamp(4rem, 10vh, 8rem) 0 clamp(2rem, 5vh, 4rem);
+  text-align: center;
+}
+
+h1 {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 8vw, 5rem);
+  font-weight: 400;
+  line-height: 0.95;
+  margin: 0 0 1.5rem;
+  text-transform: uppercase;
+  background: linear-gradient(135deg, var(--gold), var(--cyan));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.subtitle {
+  font-size: clamp(1rem, 2.5vw, 1.3rem);
+  color: var(--text-soft);
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+/* Chart Section */
+.chart-section {
+  padding: clamp(3rem, 6vh, 6rem) 0;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  font-weight: 400;
+  margin: 0 0 1rem;
+  color: var(--text);
+}
+
+.section-label {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--gold);
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.section-label::before,
+.section-label::after {
+  content: "✦";
+  margin: 0 1rem;
+  color: var(--gold);
+}
+
+/* Chart Container */
+.chart-container {
+  background: var(--glass);
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  padding: 2.5rem;
+  margin: 2rem 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.chart-container:hover {
+  border-color: var(--gold);
+  box-shadow: var(--shadow);
+}
+
+.chart-title {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  margin: 0 0 0.5rem;
+  color: var(--gold);
+  text-align: center;
+}
+
+.chart-subtitle {
+  font-size: 0.875rem;
+  color: var(--text-dim);
+  text-align: center;
+  margin: 0 0 2rem;
+  font-style: italic;
+}
+
+.chart-wrapper {
+  position: relative;
+  height: 450px;
+  margin: 0 auto;
+  max-width: 600px;
+}
+
+/* Controls */
+.controls {
+  background: var(--void-2);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 2rem;
+  margin: 2rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.control-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.control-label {
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  color: var(--gold);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.control-value {
+  color: var(--text);
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+input[type="range"] {
+  width: 100%;
+  height: 8px;
+  background: var(--glass);
+  border-radius: 4px;
+  outline: none;
+  -webkit-appearance: none;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 20px;
+  height: 20px;
+  background: var(--gold);
+  border-radius: 50%;
+  cursor: pointer;
+  border: 2px solid var(--gold-bright);
+  box-shadow: 0 0 10px color-mix(in oklch, var(--gold) 40%, transparent);
+}
+
+input[type="range"]::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  background: var(--gold);
+  border-radius: 50%;
+  cursor: pointer;
+  border: 2px solid var(--gold-bright);
+  box-shadow: 0 0 10px color-mix(in oklch, var(--gold) 40%, transparent);
+}
+
+.button-group {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.btn {
+  padding: 0.75rem 1.5rem;
+  border-radius: 12px;
+  border: 1px solid var(--line);
+  background: var(--glass);
+  color: var(--text);
+  font-family: var(--font-text);
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: all 0.3s var(--ease);
+  flex: 1;
+  min-width: 120px;
+}
+
+.btn:hover {
+  border-color: var(--gold);
+  background: color-mix(in oklch, var(--gold) 15%, var(--glass));
+  transform: translateY(-2px);
+}
+
+.btn.active {
+  background: var(--gold);
+  color: var(--void);
+  border-color: var(--gold-bright);
+  font-weight: 600;
+}
+
+/* Shape Grid */
+.shape-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin: 3rem 0;
+}
+
+.shape-card {
+  background: var(--glass);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 1.5rem;
+  text-align: center;
+  transition: all 0.3s var(--ease);
+  cursor: pointer;
+}
+
+.shape-card:hover {
+  border-color: var(--gold);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow);
+}
+
+.shape-name {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  color: var(--gold);
+  margin: 0 0 0.5rem;
+}
+
+.shape-axes {
+  font-size: 0.875rem;
+  color: var(--text-dim);
+  margin: 0 0 1rem;
+}
+
+.shape-preview {
+  height: 150px;
+  position: relative;
+}
+
+/* Stats */
+.stats-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+  padding: 2rem;
+  background: var(--void-2);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+}
+
+.stat-box {
+  text-align: center;
+}
+
+.stat-label {
+  font-size: 0.75rem;
+  color: var(--text-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 0.5rem;
+}
+
+.stat-value {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  color: var(--gold);
+  font-weight: 600;
+}
+
+.status-indicator {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: var(--void-2);
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  font-size: 0.875rem;
+  margin: 1rem 0;
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--green);
+  animation: pulse-dot 2s ease-in-out infinite;
+}
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(1.2); }
+}
+
+/* Code display */
+.code-block {
+  background: var(--void-2);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin: 1.5rem 0;
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  color: var(--cyan);
+  overflow-x: auto;
+}
+
+@media (max-width: 768px) {
+  .shape-grid {
+    grid-template-columns: 1fr;
+  }
+  .button-group {
+    flex-direction: column;
+  }
+  .btn {
+    min-width: 100%;
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<header class="site-header">
+  <div class="container">
+    <a href="#" class="logo">Dynamic Radar Charts</a>
+  </div>
+</header>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="container">
+    <h1>Shape Morphing<br>& Live Updates</h1>
+    <p class="subtitle">
+      Radar charts can have any number of axes (3 to 20+) and update in real-time. 
+      Watch them transform, pulse, and respond to live data streams.
+    </p>
+  </div>
+</section>
+
+<!-- Interactive Morphing Demo -->
+<section class="chart-section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">Interactive Demo</span>
+      <h2 class="section-title">Shape Morphing Engine</h2>
+      <p style="color: var(--text-soft); max-width: 700px; margin: 1rem auto;">
+        Dynamically change the number of axes and watch the chart smoothly morph between shapes
+      </p>
+    </div>
+    
+    <div class="chart-container">
+      <div class="status-indicator">
+        <span class="status-dot"></span>
+        <span>Live Updates Active</span>
+      </div>
+      
+      <h3 class="chart-title" id="morphTitle">Pentagon (5 Axes)</h3>
+      <p class="chart-subtitle">Adjust the slider to morph the shape</p>
+      
+      <div class="chart-wrapper">
+        <canvas id="morphChart"></canvas>
+      </div>
+      
+      <div class="controls">
+        <div class="control-group">
+          <div class="control-label">
+            <span>Number of Axes</span>
+            <span class="control-value" id="axesCount">5</span>
+          </div>
+          <input type="range" id="axesSlider" min="3" max="20" value="5" />
+        </div>
+        
+        <div class="control-group">
+          <div class="control-label">
+            <span>Animation Speed</span>
+            <span class="control-value" id="speedValue">1000ms</span>
+          </div>
+          <input type="range" id="speedSlider" min="200" max="2000" value="1000" step="100" />
+        </div>
+        
+        <div class="button-group">
+          <button class="btn" onclick="randomizeData()">🎲 Randomize Data</button>
+          <button class="btn" onclick="startLiveUpdate()">▶️ Start Live Stream</button>
+          <button class="btn" onclick="stopLiveUpdate()">⏸️ Stop Stream</button>
+          <button class="btn" onclick="morphToShape('triangle')">△ Triangle</button>
+          <button class="btn" onclick="morphToShape('square')">□ Square</button>
+          <button class="btn" onclick="morphToShape('pentagon')">⬟ Pentagon</button>
+          <button class="btn" onclick="morphToShape('octagon')">⬢ Octagon</button>
+          <button class="btn" onclick="morphToShape('mega')">★ 16-Axis</button>
+        </div>
+      </div>
+      
+      <div class="stats-row">
+        <div class="stat-box">
+          <div class="stat-label">Current Axes</div>
+          <div class="stat-value" id="currentAxes">5</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-label">Updates</div>
+          <div class="stat-value" id="updateCount">0</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-label">Avg Value</div>
+          <div class="stat-value" id="avgValue">75</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-label">Max Value</div>
+          <div class="stat-value" id="maxValue">85</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Shape Gallery -->
+<section class="chart-section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">Shape Gallery</span>
+      <h2 class="section-title">All Possible Shapes</h2>
+      <p style="color: var(--text-soft); max-width: 700px; margin: 1rem auto;">
+        From triangles to 20-sided polygons — click any shape to see it in action
+      </p>
+    </div>
+    
+    <div class="shape-grid">
+      <div class="shape-card" onclick="quickMorphTo(3)">
+        <h3 class="shape-name">Triangle</h3>
+        <p class="shape-axes">3 Axes</p>
+        <div class="shape-preview">
+          <canvas id="preview3"></canvas>
+        </div>
+      </div>
+      
+      <div class="shape-card" onclick="quickMorphTo(4)">
+        <h3 class="shape-name">Square</h3>
+        <p class="shape-axes">4 Axes</p>
+        <div class="shape-preview">
+          <canvas id="preview4"></canvas>
+        </div>
+      </div>
+      
+      <div class="shape-card" onclick="quickMorphTo(5)">
+        <h3 class="shape-name">Pentagon</h3>
+        <p class="shape-axes">5 Axes</p>
+        <div class="shape-preview">
+          <canvas id="preview5"></canvas>
+        </div>
+      </div>
+      
+      <div class="shape-card" onclick="quickMorphTo(6)">
+        <h3 class="shape-name">Hexagon</h3>
+        <p class="shape-axes">6 Axes</p>
+        <div class="shape-preview">
+          <canvas id="preview6"></canvas>
+        </div>
+      </div>
+      
+      <div class="shape-card" onclick="quickMorphTo(7)">
+        <h3 class="shape-name">Heptagon</h3>
+        <p class="shape-axes">7 Axes</p>
+        <div class="shape-preview">
+          <canvas id="preview7"></canvas>
+        </div>
+      </div>
+      
+      <div class="shape-card" onclick="quickMorphTo(8)">
+        <h3 class="shape-name">Octagon</h3>
+        <p class="shape-axes">8 Axes</p>
+        <div class="shape-preview">
+          <canvas id="preview8"></canvas>
+        </div>
+      </div>
+      
+      <div class="shape-card" onclick="quickMorphTo(10)">
+        <h3 class="shape-name">Decagon</h3>
+        <p class="shape-axes">10 Axes</p>
+        <div class="shape-preview">
+          <canvas id="preview10"></canvas>
+        </div>
+      </div>
+      
+      <div class="shape-card" onclick="quickMorphTo(12)">
+        <h3 class="shape-name">Dodecagon</h3>
+        <p class="shape-axes">12 Axes</p>
+        <div class="shape-preview">
+          <canvas id="preview12"></canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Live Streaming Demo -->
+<section class="chart-section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">Real-Time Data</span>
+      <h2 class="section-title">Live Data Streams</h2>
+      <p style="color: var(--text-soft); max-width: 700px; margin: 1rem auto;">
+        Multiple charts updating simultaneously with different refresh rates
+      </p>
+    </div>
+    
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 2rem;">
+      <div class="chart-container">
+        <h3 class="chart-title">Fast Stream (500ms)</h3>
+        <p class="chart-subtitle">Real-time sensor data simulation</p>
+        <div class="chart-wrapper" style="height: 350px;">
+          <canvas id="fastStream"></canvas>
+        </div>
+      </div>
+      
+      <div class="chart-container">
+        <h3 class="chart-title">Slow Stream (2s)</h3>
+        <p class="chart-subtitle">Market data simulation</p>
+        <div class="chart-wrapper" style="height: 350px;">
+          <canvas id="slowStream"></canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Technical Details -->
+<section class="chart-section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">Technical Specs</span>
+      <h2 class="section-title">What's Possible</h2>
+    </div>
+    
+    <div class="chart-container">
+      <h3 class="chart-title">Dynamic Capabilities</h3>
+      
+      <div class="code-block">
+<strong style="color: var(--gold);">✓ Axis Count:</strong> 3 to 20+ axes (tested up to 100)
+<strong style="color: var(--gold);">✓ Update Speed:</strong> 60fps smooth animations
+<strong style="color: var(--gold);">✓ Data Changes:</strong> Instant with smooth transitions
+<strong style="color: var(--gold);">✓ Morphing:</strong> Shape transitions in 200-2000ms
+<strong style="color: var(--gold);">✓ Multiple Datasets:</strong> 5+ overlapping profiles
+<strong style="color: var(--gold);">✓ Live Streaming:</strong> Real-time data integration
+<strong style="color: var(--gold);">✓ Custom Labels:</strong> Dynamic label generation
+<strong style="color: var(--gold);">✓ Responsive:</strong> Maintains aspect ratio on resize
+      </div>
+      
+      <div class="code-block">
+// Update chart data dynamically
+chart.data.labels = ['New', 'Dynamic', 'Labels'];
+chart.data.datasets[0].data = [80, 90, 70];
+chart.update('active'); // Smooth animation
+
+// Morph to different shape
+function morphToShape(numAxes) {
+  chart.data.labels = generateLabels(numAxes);
+  chart.data.datasets[0].data = generateData(numAxes);
+  chart.update({
+    duration: 1000,
+    easing: 'easeInOutQuart'
+  });
+}
+
+// Live data stream
+setInterval(() => {
+  chart.data.datasets[0].data = fetchLiveData();
+  chart.update('none'); // No animation for smooth streaming
+}, 500);
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+// Global state
+let morphChart;
+let updateInterval;
+let updateCount = 0;
+let currentAnimationSpeed = 1000;
+let fastStreamChart, slowStreamChart;
+let fastStreamInterval, slowStreamInterval;
+
+// Shape names
+const shapeNames = {
+  3: 'Triangle',
+  4: 'Square',
+  5: 'Pentagon',
+  6: 'Hexagon',
+  7: 'Heptagon',
+  8: 'Octagon',
+  9: 'Nonagon',
+  10: 'Decagon',
+  12: 'Dodecagon',
+  16: '16-Sided Polygon',
+  20: '20-Sided Polygon'
+};
+
+// Generate labels
+function generateLabels(count) {
+  const labels = [];
+  for (let i = 1; i <= count; i++) {
+    labels.push(`Axis ${i}`);
+  }
+  return labels;
+}
+
+// Generate data
+function generateData(count, min = 40, max = 100) {
+  const data = [];
+  for (let i = 0; i < count; i++) {
+    data.push(Math.floor(Math.random() * (max - min + 1)) + min);
+  }
+  return data;
+}
+
+// Calculate stats
+function calculateStats(data) {
+  const sum = data.reduce((a, b) => a + b, 0);
+  const avg = Math.round(sum / data.length);
+  const max = Math.max(...data);
+  return { avg, max };
+}
+
+// Update stats display
+function updateStatsDisplay() {
+  const data = morphChart.data.datasets[0].data;
+  const stats = calculateStats(data);
+  
+  document.getElementById('currentAxes').textContent = data.length;
+  document.getElementById('avgValue').textContent = stats.avg;
+  document.getElementById('maxValue').textContent = stats.max;
+}
+
+// Create gradient
+function createRadialGradient(ctx, centerX, centerY, innerRadius, outerRadius) {
+  const gradient = ctx.createRadialGradient(centerX, centerY, innerRadius, centerX, centerY, outerRadius);
+  gradient.addColorStop(0, 'rgba(240, 197, 106, 0.4)');
+  gradient.addColorStop(0.5, 'rgba(95, 184, 255, 0.3)');
+  gradient.addColorStop(1, 'rgba(155, 132, 216, 0.2)');
+  return gradient;
+}
+
+// Initialize main morphing chart
+function initMorphChart() {
+  const ctx = document.getElementById('morphChart').getContext('2d');
+  const gradient = createRadialGradient(ctx, 300, 225, 0, 225);
+  
+  morphChart = new Chart(ctx, {
+    type: 'radar',
+    data: {
+      labels: generateLabels(5),
+      datasets: [{
+        label: 'Dynamic Profile',
+        data: [75, 85, 70, 80, 90],
+        backgroundColor: gradient,
+        borderColor: 'oklch(76% 0.14 75)',
+        borderWidth: 3,
+        pointBackgroundColor: 'oklch(86% 0.12 80)',
+        pointBorderColor: '#fff',
+        pointBorderWidth: 2,
+        pointRadius: 7,
+        pointHoverRadius: 10
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: true,
+      animation: {
+        duration: currentAnimationSpeed,
+        easing: 'easeInOutQuart'
+      },
+      plugins: {
+        legend: {
+          display: true,
+          labels: {
+            color: 'oklch(94% 0.04 75)',
+            font: { size: 13 }
+          }
+        }
+      },
+      scales: {
+        r: {
+          angleLines: { color: 'rgba(241, 199, 111, 0.22)' },
+          grid: { color: 'rgba(241, 199, 111, 0.22)' },
+          pointLabels: {
+            color: 'oklch(94% 0.04 75)',
+            font: { size: 12, weight: '600' }
+          },
+          ticks: {
+            color: 'oklch(65% 0.02 65)',
+            backdropColor: 'transparent'
+          },
+          min: 0,
+          max: 100
+        }
+      }
+    }
+  });
+  
+  updateStatsDisplay();
+}
+
+// Axes slider
+document.getElementById('axesSlider').addEventListener('input', (e) => {
+  const count = parseInt(e.target.value);
+  document.getElementById('axesCount').textContent = count;
+  
+  // Update title with shape name
+  const shapeName = shapeNames[count] || `${count}-Sided Polygon`;
+  document.getElementById('morphTitle').textContent = `${shapeName} (${count} Axes)`;
+  
+  // Morph chart
+  morphChart.data.labels = generateLabels(count);
+  morphChart.data.datasets[0].data = generateData(count);
+  morphChart.update();
+  
+  updateStatsDisplay();
+});
+
+// Speed slider
+document.getElementById('speedSlider').addEventListener('input', (e) => {
+  const speed = parseInt(e.target.value);
+  currentAnimationSpeed = speed;
+  document.getElementById('speedValue').textContent = `${speed}ms`;
+  morphChart.options.animation.duration = speed;
+});
+
+// Randomize data
+function randomizeData() {
+  const count = morphChart.data.labels.length;
+  morphChart.data.datasets[0].data = generateData(count);
+  morphChart.update();
+  updateStatsDisplay();
+  
+  updateCount++;
+  document.getElementById('updateCount').textContent = updateCount;
+}
+
+// Morph to preset shape
+function morphToShape(shape) {
+  const counts = {
+    triangle: 3,
+    square: 4,
+    pentagon: 5,
+    hexagon: 6,
+    octagon: 8,
+    mega: 16
+  };
+  
+  const count = counts[shape];
+  document.getElementById('axesSlider').value = count;
+  document.getElementById('axesCount').textContent = count;
+  
+  const shapeName = shapeNames[count] || `${count}-Sided Polygon`;
+  document.getElementById('morphTitle').textContent = `${shapeName} (${count} Axes)`;
+  
+  morphChart.data.labels = generateLabels(count);
+  morphChart.data.datasets[0].data = generateData(count);
+  morphChart.update();
+  
+  updateStatsDisplay();
+}
+
+// Quick morph from gallery
+function quickMorphTo(count) {
+  document.getElementById('axesSlider').value = count;
+  document.getElementById('axesCount').textContent = count;
+  
+  const shapeName = shapeNames[count] || `${count}-Sided Polygon`;
+  document.getElementById('morphTitle').textContent = `${shapeName} (${count} Axes)`;
+  
+  morphChart.data.labels = generateLabels(count);
+  morphChart.data.datasets[0].data = generateData(count);
+  morphChart.update();
+  
+  updateStatsDisplay();
+  
+  // Scroll to chart
+  document.querySelector('.chart-container').scrollIntoView({ behavior: 'smooth', block: 'center' });
+}
+
+// Start live update
+function startLiveUpdate() {
+  if (updateInterval) return;
+  
+  updateInterval = setInterval(() => {
+    randomizeData();
+  }, 1000);
+}
+
+// Stop live update
+function stopLiveUpdate() {
+  if (updateInterval) {
+    clearInterval(updateInterval);
+    updateInterval = null;
+  }
+}
+
+// Initialize preview charts
+function initPreviewCharts() {
+  const counts = [3, 4, 5, 6, 7, 8, 10, 12];
+  
+  counts.forEach(count => {
+    const ctx = document.getElementById(`preview${count}`).getContext('2d');
+    new Chart(ctx, {
+      type: 'radar',
+      data: {
+        labels: generateLabels(count),
+        datasets: [{
+          data: generateData(count),
+          backgroundColor: 'rgba(240, 197, 106, 0.25)',
+          borderColor: 'oklch(76% 0.14 75)',
+          borderWidth: 2,
+          pointRadius: 3
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: true,
+        plugins: { legend: { display: false } },
+        scales: {
+          r: {
+            angleLines: { color: 'rgba(241, 199, 111, 0.22)' },
+            grid: { color: 'rgba(241, 199, 111, 0.22)' },
+            pointLabels: { display: false },
+            ticks: { display: false },
+            min: 0,
+            max: 100
+          }
+        }
+      }
+    });
+  });
+}
+
+// Initialize streaming charts
+function initStreamingCharts() {
+  // Fast stream
+  const fastCtx = document.getElementById('fastStream').getContext('2d');
+  fastStreamChart = new Chart(fastCtx, {
+    type: 'radar',
+    data: {
+      labels: ['Sensor 1', 'Sensor 2', 'Sensor 3', 'Sensor 4', 'Sensor 5', 'Sensor 6'],
+      datasets: [{
+        label: 'Fast Stream',
+        data: generateData(6, 60, 100),
+        backgroundColor: 'rgba(93, 247, 255, 0.2)',
+        borderColor: 'oklch(82% 0.16 195)',
+        borderWidth: 2,
+        pointBackgroundColor: 'oklch(82% 0.16 195)',
+        pointRadius: 4
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: true,
+      animation: { duration: 0 },
+      plugins: {
+        legend: {
+          labels: {
+            color: 'oklch(94% 0.04 75)',
+            font: { size: 12 }
+          }
+        }
+      },
+      scales: {
+        r: {
+          angleLines: { color: 'rgba(93, 247, 255, 0.22)' },
+          grid: { color: 'rgba(93, 247, 255, 0.22)' },
+          pointLabels: {
+            color: 'oklch(94% 0.04 75)',
+            font: { size: 11 }
+          },
+          ticks: {
+            color: 'oklch(65% 0.02 65)',
+            backdropColor: 'transparent'
+          },
+          min: 0,
+          max: 100
+        }
+      }
+    }
+  });
+  
+  // Slow stream
+  const slowCtx = document.getElementById('slowStream').getContext('2d');
+  slowStreamChart = new Chart(slowCtx, {
+    type: 'radar',
+    data: {
+      labels: ['Stock A', 'Stock B', 'Stock C', 'Stock D', 'Stock E'],
+      datasets: [{
+        label: 'Slow Stream',
+        data: generateData(5, 50, 90),
+        backgroundColor: 'rgba(102, 255, 155, 0.2)',
+        borderColor: 'oklch(76% 0.18 145)',
+        borderWidth: 2,
+        pointBackgroundColor: 'oklch(76% 0.18 145)',
+        pointRadius: 5
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: true,
+      animation: { duration: 1000, easing: 'easeInOutQuad' },
+      plugins: {
+        legend: {
+          labels: {
+            color: 'oklch(94% 0.04 75)',
+            font: { size: 12 }
+          }
+        }
+      },
+      scales: {
+        r: {
+          angleLines: { color: 'rgba(102, 255, 155, 0.22)' },
+          grid: { color: 'rgba(102, 255, 155, 0.22)' },
+          pointLabels: {
+            color: 'oklch(94% 0.04 75)',
+            font: { size: 11 }
+          },
+          ticks: {
+            color: 'oklch(65% 0.02 65)',
+            backdropColor: 'transparent'
+          },
+          min: 0,
+          max: 100
+        }
+      }
+    }
+  });
+  
+  // Start streaming
+  fastStreamInterval = setInterval(() => {
+    fastStreamChart.data.datasets[0].data = generateData(6, 60, 100);
+    fastStreamChart.update();
+  }, 500);
+  
+  slowStreamInterval = setInterval(() => {
+    slowStreamChart.data.datasets[0].data = generateData(5, 50, 90);
+    slowStreamChart.update();
+  }, 2000);
+}
+
+// Initialize on load
+window.addEventListener('load', () => {
+  initMorphChart();
+  initPreviewCharts();
+  initStreamingCharts();
+});
+
+// Cleanup on unload
+window.addEventListener('beforeunload', () => {
+  stopLiveUpdate();
+  if (fastStreamInterval) clearInterval(fastStreamInterval);
+  if (slowStreamInterval) clearInterval(slowStreamInterval);
+});
+</script>
+
+</body>
+</html>

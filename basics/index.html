@@ -15,8 +15,8 @@
 
 <!-- FONT LOAD: Imports the Cinzel typeface from Google Fonts so the page has the fantasy/lore typography. -->
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&display=swap" rel="stylesheet" />
-<!-- CHART.JS: Loads the local Chart.js runtime before the hero identity signal initializes. -->
-<script src="assets/js/graph.js"></script>
+<!-- CHART.JS: Loads the local Chart.js runtime before the hero and Color Matrix radar charts initialize. -->
+<script src="../assets/js/graph.js"></script>
 
 <!-- STYLE BLOCK: All CSS in this file lives here. CSS controls the look, layout, animation, and responsive behavior. -->
 <style>
@@ -36,11 +36,11 @@
   --gold-2: #f7d784;
   --line-bright: rgba(247, 215, 132, 0.72);
   --theme-glow: rgba(88, 186, 255, 0.28);
-  --bg-image: url('./assets/img/backgrounds/background-vox-gateway-clean-13.webp');
+  --bg-image: url('../assets/img/backgrounds/background-vox-gateway-clean-13.webp');
 
   --mana-white: #f7f0d0;
   --mana-blue: #58b8ff;
-  --mana-black: #230a41;
+  --mana-black: #a46bea;
   --mana-colorless: #111111;
   --mana-red: #ff6b55;
   --mana-green: #63e58d;
@@ -252,7 +252,7 @@ section {
 
 /* SECTION SPACING: Adds vertical padding to standard content sections. */
 .vm-section {
-  padding: 2.35rem 0;
+  padding: 3rem 0;
 }
 
 /* SECTION HEADINGS: Centers major section titles and makes their size responsive with clamp(). */
@@ -363,13 +363,9 @@ section {
   position: relative;
   align-self: stretch;
   display: grid;
-  gap: 0.55rem;
+  gap: 0.85rem;
   overflow: visible;
   min-height: 0;
-}
-
-.vm-panel.vm-hero-mana {
-  padding: 1rem;
 }
 
 .vm-hero-mana::before {
@@ -397,15 +393,15 @@ section {
 }
 
 .vm-hero-mana-head h2 {
-  margin: 0.16rem 0 0.24rem;
-  font-size: clamp(1.15rem, 2vw, 1.45rem);
+  margin: 0.25rem 0 0.35rem;
+  font-size: clamp(1.35rem, 2.6vw, 1.9rem);
   text-align: left;
 }
 
 .vm-hero-mana-head p {
   margin: 0;
-  font-size: 0.8rem;
-  line-height: 1.35;
+  font-size: 0.9rem;
+  line-height: 1.5;
 }
 
 .vm-hero-mana-chart {
@@ -436,37 +432,36 @@ section {
 
 .vm-hero-mana-caption {
   border: 1px solid rgba(247,215,132,0.18);
-  border-radius: 14px;
-  padding: 0.62rem 0.7rem;
+  border-radius: 16px;
+  padding: 0.85rem;
   background: rgba(0,0,0,0.2);
 }
 
 .vm-hero-mana-caption strong {
   display: block;
   color: var(--gold-2);
-  font-size: 0.86rem;
+  font-size: 0.98rem;
 }
 
 .vm-hero-mana-caption span {
   display: block;
   color: var(--muted);
-  font-size: 0.73rem;
-  line-height: 1.28;
-  margin-top: 0.2rem;
+  font-size: 0.84rem;
+  line-height: 1.45;
+  margin-top: 0.35rem;
 }
 
 .vm-hero-mana-datasets {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.25rem;
+  gap: 0.35rem;
   align-items: center;
   color: rgba(245,234,210,0.68);
-  font-size: 0.68rem;
+  font-size: 0.76rem;
   letter-spacing: 0.03em;
-  margin-top: 0.42rem;
 }
 
-.vm-hero-mana-dataset-label {
+.vm-hero-mana-datasets > span:first-child {
   color: rgba(245,234,210,0.58);
   text-transform: uppercase;
   letter-spacing: 0.1em;
@@ -476,7 +471,7 @@ section {
 .vm-hero-mana-dataset-pill {
   border: 1px solid var(--dataset-color, rgba(247,215,132,0.42));
   border-radius: 999px;
-  padding: 0.2rem 0.38rem;
+  padding: 0.28rem 0.5rem;
   background: rgba(0,0,0,0.22);
   color: var(--ink);
   box-shadow: 0 0 16px rgba(247,215,132,0.12);
@@ -484,50 +479,6 @@ section {
 
 .vm-hero-mana-dataset-join {
   color: rgba(245,234,210,0.56);
-}
-
-.vm-radar-card.vm-hero-radar-card {
-  min-height: 0;
-  padding: 0.45rem;
-  border-color: rgba(247,215,132,0.18);
-  border-radius: 18px;
-  background:
-    radial-gradient(circle at 52% 44%, rgba(255,255,255,0.08), rgba(255,255,255,0.026) 55%, rgba(0,0,0,0.22)),
-    linear-gradient(180deg, rgba(8,10,18,0.74), rgba(2,3,9,0.58));
-  box-shadow:
-    inset 0 0 34px rgba(247,215,132,0.055),
-    0 18px 42px rgba(0,0,0,0.25);
-}
-
-.vm-chart-wrap.vm-hero-chart-wrap {
-  min-height: 0;
-  height: clamp(155px, 15.5vw, 255px);
-  border-radius: 18px;
-}
-
-.vm-radar-card.vm-hero-radar-card .vm-radar-glow {
-  inset: -10%;
-  opacity: 0.46;
-  filter: blur(24px);
-}
-
-.vm-radar-wrap.vm-hero-radar-wrap {
-  height: clamp(145px, 14vw, 185px);
-}
-
-.vm-radar-card.vm-hero-radar-card .vm-radar-caption {
-  margin-top: 0.25rem;
-  font-size: 0.68rem;
-}
-
-.vm-dataset-pills.vm-hero-dataset-pills {
-  margin-top: 0.28rem;
-  gap: 0.24rem;
-}
-
-.vm-dataset-pills.vm-hero-dataset-pills .vm-pill {
-  padding: 0.2rem 0.38rem;
-  font-size: 0.64rem;
 }
 
 .vm-intent-panel {
@@ -588,9 +539,9 @@ section {
 /* CARD GRID: Three-column layout for path cards and library preview cards. */
 .vm-card-grid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 1rem;
-  margin-top: 0;
+  margin-top: -1rem;
 }
 
 /* CARD/PANEL SHARED SURFACE: Common glass-panel styling for clickable cards and static content panels. */
@@ -653,8 +604,6 @@ section {
 
 /* MINI LIST ITEM: Each “Discover/Search/Read” row gets its own subtle glass box. */
 .vm-list-item {
-  display: grid;
-  gap: 0.25rem;
   border: 1px solid var(--line);
   border-radius: 16px;
   padding: 0.9rem;
@@ -663,14 +612,7 @@ section {
 
 /* MINI LIST EMPHASIS: Highlights the lead verb in each list item with the accent color. */
 .vm-list-item strong {
-  display: block;
   color: var(--accent);
-}
-
-.vm-list-item span {
-  display: block;
-  color: var(--muted);
-  line-height: 1.45;
 }
 
 /* LIVING INDEX MODULES: Rich horizontal product modules and system explainer blocks. */
@@ -1247,6 +1189,12 @@ section {
   height: 450px;
 }
 
+/* RADAR CANVAS: Forces Chart.js canvas to fill its parent width/height. */
+#vmRadar {
+  width: 100% !important;
+  height: 100% !important;
+}
+
 /* VOID CANVAS: A fixed full-screen canvas style from the Archscry extract. There is no matching element in this file right now. */
 #void-canvas {
   position: fixed;
@@ -1308,7 +1256,7 @@ section {
 
 /* DATASET PILL ARROW: Adds an arrow showing component colors synthesize into the final identity. */
 .vm-pill.has-arrow::after {
-  content: "\2192";
+  content: "➜";
   position: absolute;
   top: 50%;
   left: calc(100% + 0.25rem);
@@ -1395,18 +1343,6 @@ section {
   .vm-radar-wrap {
     height: 380px;
   }
-
-  .vm-hero-radar-card {
-    min-height: 0;
-  }
-
-  .vm-hero-chart-wrap {
-    height: clamp(230px, 42vw, 310px);
-  }
-
-  .vm-hero-radar-wrap {
-    height: clamp(205px, 38vw, 275px);
-  }
 }
 
 /* RESPONSIVE <= 820px: Stacks nav and page grids for tablet/mobile widths. */
@@ -1466,14 +1402,6 @@ section {
     height: 250px;
   }
 
-  .vm-hero-chart-wrap {
-    height: 260px;
-  }
-
-  .vm-hero-radar-wrap {
-    height: 228px;
-  }
-
   .vm-intent-grid {
     grid-template-columns: 1fr;
   }
@@ -1495,9 +1423,9 @@ section {
     <!-- RESPONSIVE BACKGROUND IMAGE: <picture> can serve modern image formats; here it points to the WebP background. -->
     <picture class="vm-bg__picture">
       <!-- BACKGROUND SOURCE: Browser can choose this WebP image; sizes="100vw" says it is intended to span the full viewport width. -->
-      <source type="image/webp" srcset="./assets/img/backgrounds/background-vox-gateway-clean-13.webp 2560w" sizes="100vw">
+      <source type="image/webp" srcset="../assets/img/backgrounds/background-vox-gateway-clean-13.webp 2560w" sizes="100vw">
       <!-- BACKGROUND FALLBACK IMG: The visible background image. Empty alt text is correct here because the image is decorative. -->
-      <img src="./assets/img/backgrounds/background-vox-gateway-clean-13.webp" alt="" decoding="async" fetchpriority="high">
+      <img src="../assets/img/backgrounds/background-vox-gateway-clean-13.webp" alt="" decoding="async" fetchpriority="high">
     </picture>
     <!-- NEBULA LAYER: Empty div used only for CSS radial-gradient atmosphere. -->
     <div class="vm-bg__nebula"></div>
@@ -1507,167 +1435,273 @@ section {
 
 <!-- NAVIGATION: Sticky top menu. -->
 <nav class="vm-nav">
-  <a class="vm-brand" href="#top">Vox Mana</a>
+  <a class="vm-brand" href="../newIndex2.html">Vox Mana</a>
 
   <div class="vm-nav-links">
-    <a href="#top">Home</a>
-    <a class="vm-nav-link" href="./archscry/" data-vm-nav="archscry">Archscry</a>
-    <a class="vm-nav-link" href="./maze/" data-vm-nav="maze">The Implicit Maze</a>
-    <a class="vm-nav-link" href="./apocrypha/" data-vm-nav="apocrypha">Apocrypha</a>
-    <a class="vm-nav-link" href="./basics/" data-vm-nav="basics">Basics</a>
+    <a href="../newIndex2.html">Home</a>
+    <a class="vm-nav-link" href="../archscry/" data-vm-nav="archscry">Archscry</a>
+    <a class="vm-nav-link" href="../maze/" data-vm-nav="maze">The Implicit Maze</a>
+    <a class="vm-nav-link" href="../apocrypha/" data-vm-nav="apocrypha">Apocrypha</a>
+    <a href="#basics">Basics</a>
   </div>
 </nav>
 
 <!-- MAIN CONTENT SHELL: id="top" is the anchor target for Back to top. vm-shell keeps content centered and width-limited. -->
 <main id="top" class="vm-shell">
-  <!-- HERO -->
+  <!-- BASICS HERO -->
   <section class="vm-hero reveal">
-    <div class="vm-hero-stack">
-      <div class="vm-hero-grid">
-        <div class="vm-hero-copy">
-          <div class="vm-eyebrow">Vox Mana - Living Index</div>
-          <h1>Find your place in the color pie.</h1>
-          <p>
-            Vox Mana connects Commander identity, symbolic card search, and curated lore research into one living Magic archive.
-          </p>
-
-          <div class="vm-actions">
-            <a class="vm-button primary" href="./archscry/">Start Archscry</a>
-            <a class="vm-button" href="./maze/">Explore the Maze</a>
-            <a class="vm-button" href="./apocrypha/">Read Apocrypha</a>
-          </div>
-        </div>
-
-        <div class="vm-panel vm-hero-mana" tabindex="0" aria-label="Passive Vox Mana identity signal">
-          <div class="vm-hero-mana-head">
-            <span class="vm-eyebrow">Identity Signal</span>
-            <h2>Preview the color system</h2>
-            <p>A passive preview of colors, guilds, and colleges.</p>
-            <div class="vm-hero-mana-datasets" id="heroManaDatasetPills" aria-label="Current identity signal overlay">
-              <span class="vm-hero-mana-dataset-label">Profile:</span>
-              <span class="vm-hero-mana-dataset-pill" style="--dataset-color:#f7f0d0;">White</span>
-            </div>
-          </div>
-          <div class="vm-radar-card vm-hero-radar-card">
-            <div class="vm-chart-wrap vm-hero-chart-wrap">
-              <div class="vm-radar-glow" id="heroManaGlow" aria-hidden="true"></div>
-              <div class="vm-radar-wrap vm-hero-radar-wrap">
-                <canvas id="vmHeroManaChart" aria-label="Passive Vox Mana identity signal radar chart"></canvas>
-              </div>
-              <p class="vm-radar-caption" id="heroManaRadarCaption">Current signal: White</p>
-              <div class="vm-dataset-pills vm-hero-dataset-pills" id="heroManaRadarPills" aria-label="Current radar datasets"></div>
-            </div>
-          </div>
-          <div class="vm-hero-mana-caption">
-            <strong id="heroManaTitle">White - Peace through Order</strong>
-            <span id="heroManaText">White values structure, protection, community, duty, and shared stability. It asks how life can be made safer through order.</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="vm-panel vm-intent-panel vm-intent-band">
-        <h2>What are you here to do?</h2>
-        <div class="vm-intent-grid">
-          <a class="vm-intent-row" href="./archscry/">
-            <span class="vm-mini-badge">Reading</span>
-            <strong>Discover my Commander identity</strong>
-            <span>Take the Archscry reading and receive a color/playstyle dossier.</span>
-          </a>
-          <a class="vm-intent-row" href="./maze/">
-            <span class="vm-mini-badge">Search</span>
-            <strong>Search cards by meaning or theme</strong>
-            <span>Explore commanders, mechanics, themes, and symbolic connections.</span>
-          </a>
-          <a class="vm-intent-row" href="./basics/">
-            <span class="vm-mini-badge">Basics</span>
-            <strong>Learn Magic basics</strong>
-            <span>Understand colors, mana, decks, lore, gameplay, and the Color Matrix.</span>
-          </a>
-          <a class="vm-intent-row" href="./apocrypha/">
-            <span class="vm-mini-badge">Archive</span>
-            <strong>Read lore and research</strong>
-            <span>Open curated notes, factions, sources, essays, and worldbuilding context.</span>
-          </a>
-        </div>
+    <div class="vm-hero-copy">
+      <div class="vm-eyebrow">Vox Mana Basics</div>
+      <h1>Learn the color system.</h1>
+      <p>
+        Magic's colors are philosophies, play patterns, and story languages. This page keeps the full Basics and Color Matrix experience in one place.
+      </p>
+      <div class="vm-actions">
+        <a class="vm-button primary" href="../archscry/">Start Archscry</a>
+        <a class="vm-button" href="../newIndex2.html">Back to Home</a>
       </div>
     </div>
   </section>
 
-  <!-- ORIENTATION -->
-  <section id="what" class="vm-section">
-    <h2>Vox Mana is a living index.</h2>
+  <!-- MAGIC BASICS -->
+  <!-- MAGIC BASICS SECTION: Interactive learning area controlled by the tab buttons and JavaScript below. -->
+  <section id="basics" class="vm-section">
+    <h2>Magic the Gathering Basics</h2>
     <p class="vm-section-intro">
-      Four ways into one color philosophy system.
+      New to Magic? Start here. Magic is a strategy card game built around five colors of mana.
+      Each color represents a philosophy, a way of solving problems, and a style of play.
     </p>
 
-    <div class="vm-card-grid">
-      <a class="vm-card reveal" href="./archscry/">
-        <span class="vm-mini-badge">Identity</span>
-        <h3>Archscry</h3>
-        <p>Turn Commander instincts into color identity.</p>
-        <span class="vm-cta">Start Archscry -></span>
-      </a>
+    <!-- TOPIC TABS: Buttons with data-topic values. JS reads data-topic and swaps the basics text. -->
+    <div class="vm-tabs">
+      <!-- DEFAULT ACTIVE TAB: Starts on Color Pie because it has class="active" and JS initializes topic "pie". -->
+      <button class="vm-tab active" data-topic="pie">Color Pie</button>
+      <!-- BASICS TAB: data-topic="mana" maps to basics.mana in the JavaScript object. -->
+      <button class="vm-tab" data-topic="mana">Mana</button>
+      <!-- BASICS TAB: data-topic="decks" maps to basics.decks in the JavaScript object. -->
+      <button class="vm-tab" data-topic="decks">Decks</button>
+      <!-- BASICS TAB: data-topic="lore" maps to basics.lore in the JavaScript object. -->
+      <button class="vm-tab" data-topic="lore">Lore</button>
+      <!-- BASICS TAB: data-topic="gameplay" maps to basics.gameplay in the JavaScript object. -->
+      <button class="vm-tab" data-topic="gameplay">Gameplay</button>
+    </div>
 
-      <a class="vm-card reveal" href="./maze/">
-        <span class="vm-mini-badge">Search</span>
-        <h3>The Implicit Maze</h3>
-        <p>Search cards through theme, mechanics, symbolism, and color philosophy.</p>
-        <span class="vm-cta">Explore the Maze -></span>
-      </a>
+    <!-- DYNAMIC BASICS OUTPUT: Empty at load; JS inserts the selected tab explanation into this div. -->
+    <div class="vm-reveal" id="basicsReveal"></div>
 
-      <a class="vm-card reveal" href="./basics/">
-        <span class="vm-mini-badge">Basics</span>
-        <h3>Basics</h3>
-        <p>Learn mana, color philosophy, gameplay, and the Color Matrix.</p>
-        <span class="vm-cta">Learn Basics -></span>
-      </a>
+    <!-- COLOR MATRIX MODULE: Hidden by default. JS removes hidden when the user clicks “Show the five colors”. -->
+    <div id="colorMatrixWrap" class="vm-color-matrix-wrap" hidden>
+      <div class="vm-color-matrix-heading">
+        <h3>Color Matrix</h3>
+        <p>
+          A lightweight preview of the color identity model. The deeper placement experience belongs in Archscry.
+        </p>
+      </div>
+    <!-- COLOR MATRIX PANEL: Glass container holding the selector and radar chart. -->
+    <div class="vm-panel vm-lab-panel">
+      <!-- COLOR MATRIX LAYOUT: Two columns: identity selector on the left, radar visualization on the right. -->
+      <div class="vm-lab-layout">
 
-      <a class="vm-card reveal" href="./apocrypha/">
-        <span class="vm-mini-badge">Archive</span>
-        <h3>Apocrypha</h3>
-        <p>Read lore notes, faction research, source trails, and symbolic fragments.</p>
-        <span class="vm-cta">Open Apocrypha -></span>
-      </a>
+        <!-- SELECTOR PANEL: User chooses mono colors, guilds, or colleges here. -->
+        <div class="vm-selector-panel">
+          <!-- SELECTOR HEADER: Shows the module name and a small version label. -->
+          <div class="vm-selector-title">
+            <h3>Mana Lens</h3>
+            <span>Identity Selector v4</span>
+          </div>
+
+          <!-- LENS MODE TABS: JS switches between Mono, Guilds, and Colleges using data-mode. -->
+          <div class="vm-lens-tabs" id="lensTabs">
+            <!-- LENS MODE BUTTON: Starts selected; shows the five single-color profiles. -->
+            <button class="vm-lens-tab active" data-mode="mono">Mono</button>
+            <!-- LENS MODE BUTTON: Shows two-color guild identities and reveals Allied/Enemy subtabs. -->
+            <button class="vm-lens-tab" data-mode="guilds">Guilds</button>
+            <!-- LENS MODE BUTTON: Shows Strixhaven-style college identities. -->
+            <button class="vm-lens-tab" data-mode="colleges">Colleges</button>
+          </div>
+
+          <!-- GUILD SUBTABS: Only shown in Guilds mode; JS switches between allied and enemy groups. -->
+          <div class="vm-lens-subtabs" id="guildSubtabs">
+            <!-- GUILD FILTER BUTTON: Shows allied guilds when active. -->
+            <button class="vm-lens-subtab active" data-guild-group="allied">Allied</button>
+            <!-- GUILD FILTER BUTTON: Shows enemy guilds when active. -->
+            <button class="vm-lens-subtab" data-guild-group="enemy">Enemy</button>
+          </div>
+
+          <!-- IDENTITY GRID OUTPUT: JS builds the clickable identity buttons and inserts them here. -->
+          <div class="vm-lens-grid mono" id="identityGrid"></div>
+
+          <!-- SELECTED IDENTITY CARD: JS updates this with the active profile title, text, and overlay line. -->
+          <div class="vm-selected-card" id="selectedCard">
+            <!-- SELECTED KICKER: JS changes this between “Selected Profile” and “Selected Synthesis”. -->
+            <div class="vm-selected-kicker" id="selectedKicker">Selected Profile</div>
+            <!-- SELECTED TITLE OUTPUT: JS replaces this with the active identity title. -->
+            <h3 id="colorTitle">White — Peace through Order</h3>
+            <!-- SELECTED DESCRIPTION OUTPUT: JS replaces this with the active identity description. -->
+            <p id="colorText">
+              White values structure, protection, community, duty, and shared stability. It asks how life can be made safer through order.
+            </p>
+            <!-- OVERLAY LINE OUTPUT: JS fills this with component color pills and synthesis labels. -->
+            <div class="vm-overlay-line" id="overlayLine"></div>
+          </div>
+
+          <!-- AXIS SCORE OUTPUT: JS builds the horizontal Order/Knowledge/Ambition/Freedom/Growth bars here. -->
+          <div class="vm-axis-list" id="axisList"></div>
+
+          <!-- PREVIEW NOTE: Static reminder that this matrix is a lightweight preview, not the full Archscry placement flow. -->
+          <div class="vm-placeholder-note">
+            Color Matrix note: this preview shows how Magic colors can be read as identity patterns. Deeper placement belongs in Archscry.
+          </div>
+        </div>
+
+        <!-- RADAR CARD: Right-side visualization panel using Chart.js. -->
+        <div class="vm-radar-card">
+          <!-- RADAR CONTROLS: Checkboxes let the user show/hide component datasets and final synthesis dataset. -->
+          <div class="vm-controls">
+            <!-- COMPONENT TOGGLE: When checked, multi-color choices show their individual color profiles as dashed chart overlays. -->
+            <label class="vm-toggle"><input id="componentToggle" type="checkbox" checked /> show component colors</label>
+            <!-- SYNTHESIS TOGGLE: When checked, the final combined identity is shown on the radar chart. -->
+            <label class="vm-toggle"><input id="compositeToggle" type="checkbox" checked /> show synthesis</label>
+          </div>
+          <!-- CHART WRAPPER: Contains the glow layer and the actual Chart.js canvas. -->
+          <div class="vm-chart-wrap">
+            <!-- RADAR GLOW OUTPUT: JS updates this div background to match the selected identity colors. -->
+            <div class="vm-radar-glow" id="radarGlow"></div>
+            <div class="vm-radar-wrap">
+              <!-- RADAR CANVAS: Chart.js draws the actual radar chart into this canvas. -->
+              <canvas id="vmRadar" aria-label="Vox Mana color philosophy radar chart"></canvas>
+            </div>
+          </div>
+          <!-- RADAR CAPTION OUTPUT: JS updates this with the current selected profile name. -->
+          <p class="vm-radar-caption" id="radarCaption">
+            Current profile: White
+          </p>
+          <!-- DATASET PILLS OUTPUT: JS creates labels for each currently visible radar dataset. -->
+          <div class="vm-dataset-pills" id="datasetPills"></div>
+        </div>
+
+      </div>
+    </div>
     </div>
   </section>
 
-  <!-- HOW VOX MANA CONNECTS -->
-  <section id="connects" class="vm-section">
+
+  <!-- ARCHSCRY CTA -->
+  <section class="vm-section">
     <div class="vm-panel vm-two-col">
       <div>
-        <span class="vm-eyebrow">How Vox Mana Connects</span>
-        <h2>One map, four ways in.</h2>
+        <span class="vm-eyebrow">Next Step</span>
+        <h2>Turn color language into a Commander identity.</h2>
+        <p class="vm-section-intro">When the basics click, Archscry turns those instincts into a readable color/playstyle dossier.</p>
       </div>
-      <ul class="vm-list">
-        <li class="vm-list-item"><strong>Archscry</strong><span>reads.</span></li>
-        <li class="vm-list-item"><strong>Basics</strong><span>teaches.</span></li>
-        <li class="vm-list-item"><strong>Maze</strong><span>discovers.</span></li>
-        <li class="vm-list-item"><strong>Apocrypha</strong><span>remembers.</span></li>
-      </ul>
+      <div class="vm-actions">
+        <a class="vm-button primary" href="../archscry/">Start Archscry</a>
+        <a class="vm-button" href="../maze/">Explore the Maze</a>
+      </div>
     </div>
   </section>
 </main>
 
 <!-- FOOTER: Final navigation and short site summary. -->
 <footer class="vm-shell vm-footer">
-  <span>Vox Mana - color philosophy, identity, and lore.</span>
+  <span>Vox Mana - Magic basics, color philosophy, and identity.</span>
   <span>
     <a href="#top">Back to top</a> ·
-    <a href="./basics/">Basics</a> ·
-    <a href="./archscry/">Archscry</a> ·
-    <a href="./maze/">Maze</a> ·
-    <a href="./apocrypha/">Apocrypha</a> ·
-    <a href="./privacy/">Privacy</a> ·
-    <a href="./terms/">Terms</a>
+    <a href="../newIndex2.html">Home</a> ·
+    <a href="#basics">Basics</a> ·
+    <a href="../archscry/">Archscry</a> ·
+    <a href="../maze/">Maze</a> ·
+    <a href="../apocrypha/">Apocrypha</a> ·
+    <a href="../privacy/">Privacy</a> ·
+    <a href="../terms/">Terms</a>
   </span>
 </footer>
 
 <!-- BACK TO TOP BUTTON: Fixed-position anchor. JS shows it after the user scrolls down. -->
 <a class="vm-button vm-backtop" id="backTop" href="#top">↑</a>
 
-<!-- SCRIPT BLOCK: Homepage behavior for the identity signal, atmosphere, reveals, and back-to-top visibility. -->
+<!-- SCRIPT BLOCK: All JavaScript behavior lives here: tabs, Color Matrix data, radar chart, particles, reveal animations, and back-to-top visibility. -->
 <script>
-// SINGLE-COLOR PROFILE DATA: Source data for W/U/B/R/G, including title, descriptive text, chart color, and five axis scores. Preview the color system colors.
+// BASICS CONTENT DATA: Maps each tab key to the text that should appear in the basicsReveal box.
+const basics = {
+  pie: `The Color Pie is Magic’s philosophical engine. White seeks order, Blue seeks knowledge, Black seeks power, Red seeks freedom, and Green seeks growth.<br><button class="vm-button vm-inline-action" type="button" data-show-color-matrix>Show the five colors</button>`,
+  mana: "Mana is the energy used to cast spells. In Vox Mana, mana also works as a symbolic language for values, instincts, and identity.",
+  decks: "A deck is a collection of cards used to play. Its colors and mechanics often reveal a style of thinking or problem-solving.",
+  lore: "Magic lore is the story layer: worlds, characters, factions, conflicts, gods, monsters, schools, guilds, and histories.",
+  gameplay: "Gameplay turns philosophy into action: rules, costs, risks, tempo, sacrifice, growth, control, combat, discovery, and chaos."
+};
+
+// DOM REFERENCES: Store important page elements once so functions can reuse them without searching the document repeatedly.
+const basicsReveal = document.getElementById("basicsReveal");
+const colorMatrixWrap = document.getElementById("colorMatrixWrap");
+
+// LOCAL STORAGE READ: Checks whether the user previously left the Color Matrix open.
+function getStoredMatrixPreference() {
+  return localStorage.getItem("vmColorMatrixVisible") === "1";
+}
+
+// COLOR MATRIX VISIBILITY SETTER: Shows/hides the Color Matrix, saves the preference, and updates the button label.
+function setColorMatrixVisible(visible) {
+  colorMatrixWrap.hidden = !visible;
+  localStorage.setItem("vmColorMatrixVisible", visible ? "1" : "0");
+  updateMatrixButtonText();
+}
+
+// BUTTON LABEL SYNC: Keeps the inline button text accurate based on whether the matrix is currently hidden.
+function updateMatrixButtonText() {
+  const button = basicsReveal.querySelector("[data-show-color-matrix]");
+  if (!button) return;
+  button.textContent = colorMatrixWrap.hidden ? "Show the five colors" : "Hide the five colors";
+}
+
+// COLOR MATRIX TOGGLE: Flips the hidden state; when opening, scrolls to the matrix and resizes the chart.
+function toggleColorMatrix() {
+  const isCurrentlyVisible = !colorMatrixWrap.hidden;
+  setColorMatrixVisible(!isCurrentlyVisible);
+
+  if (!isCurrentlyVisible) {
+    colorMatrixWrap.scrollIntoView({ behavior: "smooth", block: "start" });
+
+    window.setTimeout(() => {
+      if (typeof radarChart !== "undefined") {
+        radarChart.resize();
+        radarChart.update();
+      }
+    }, 80);
+  }
+}
+
+// BASICS TAB CONTENT SWITCHER: Replaces the basics text for the selected tab and handles matrix visibility rules.
+function setBasicsTopic(topic) {
+  basicsReveal.innerHTML = basics[topic] || basics.pie;
+
+  if (topic !== "pie") {
+    colorMatrixWrap.hidden = true;
+  } else {
+    setColorMatrixVisible(getStoredMatrixPreference());
+  }
+}
+
+// BASICS TAB CLICK HANDLERS: Makes each Magic Basics tab activate itself and load its matching content.
+document.querySelectorAll(".vm-tab").forEach(tab => {
+  tab.addEventListener("click", () => {
+    document.querySelectorAll(".vm-tab").forEach(t => t.classList.remove("active"));
+    tab.classList.add("active");
+    setBasicsTopic(tab.dataset.topic);
+  });
+});
+
+// DELEGATED MATRIX BUTTON CLICK: Listens inside dynamic basics content for the Show/Hide button.
+basicsReveal.addEventListener("click", event => {
+  if (event.target.matches("[data-show-color-matrix]")) {
+    toggleColorMatrix();
+  }
+});
+
+// INITIAL BASICS STATE: Loads the Color Pie tab content when the page first opens.
+setBasicsTopic("pie");
+
+// SINGLE-COLOR PROFILE DATA: Source data for W/U/B/R/G, including title, descriptive text, chart color, and five axis scores.
 const colorProfiles = {
   W: {
     key: "W",
@@ -1690,7 +1724,7 @@ const colorProfiles = {
     name: "Black",
     title: "Black — Power through Opportunity",
     text: "Black values ambition, self-definition, pragmatism, and survival. It asks what you are willing to do to claim agency.",
-    hex: "#230a41",
+    hex: "#222222",
     data: [30, 56, 98, 62, 42]
   },
   R: {
@@ -1901,6 +1935,21 @@ const identities = [
 // RADAR AXES: Labels used both by the radar chart and the horizontal score list.
 const axisLabels = ["Order", "Knowledge", "Ambition", "Freedom", "Growth"];
 
+// SCORE TIERS: Converts numeric scores into friendlier labels like Dormant, Aligned, Resonant, and Dominant.
+const resonanceTiers = [
+  { max: 20, label: "Dormant" },
+  { max: 40, label: "Stirring" },
+  { max: 60, label: "Aligned" },
+  { max: 80, label: "Resonant" },
+  { max: 100, label: "Dominant" }
+];
+
+// SCORE-TO-TIER HELPER: Finds the first tier whose max value contains the given score.
+function valueToResonanceTier(value) {
+  const tier = resonanceTiers.find(t => value <= t.max);
+  return tier ? tier.label : "";
+}
+
 // COLOR HELPER: Converts hex colors like #ff6b55 into rgba(...) strings with transparency.
 function hexToRgba(hex, alpha) {
   const clean = hex.replace("#", "");
@@ -1952,6 +2001,11 @@ function radialFill(chart, hexes) {
   return gradient;
 }
 
+// SYMBOL FORMATTER: Turns codes like WU into display text like {W}{U}.
+function manaSymbols(code) {
+  return code.split("").map(symbol => `{${symbol}}`).join("");
+}
+
 // IDENTITY LOOKUP: Finds the selected identity by id/key from the identities array.
 function findIdentity(id) {
   return identities.find(identity => identity.id === id || identity.key === id);
@@ -1969,145 +2023,43 @@ let heroManaFocusPaused = false;
 
 // HERO CYCLE TIMING: Bigger number = slower identity cycle; smaller number = faster cycle.
 const heroManaCycleMs = 6000;
-const heroManaBlackDisplayHex = "#a46bea";
-
-function heroManaComponentHex(componentKey) {
-  return componentKey === "B" ? heroManaBlackDisplayHex : colorProfiles[componentKey].hex;
-}
-
-function heroManaIdentityHex(identity) {
-  return identity.components.length === 1 && identity.components[0] === "B"
-    ? heroManaBlackDisplayHex
-    : identity.hex;
-}
-
-function heroManaTierLabel(value) {
-  if (value <= 20) return "Dormant";
-  if (value <= 40) return "Stirring";
-  if (value <= 60) return "Aligned";
-  if (value <= 80) return "Resonant";
-  return "Dominant";
-}
-
-const heroManaGlowPlugin = {
-  id: "heroManaGlowPlugin",
-  beforeDatasetDraw(chart, args) {
-    const dataset = chart.data.datasets[args.index];
-    if (dataset?._vmGlowBlur === false) return;
-
-    const ctx = chart.ctx;
-    ctx.save();
-    ctx.globalCompositeOperation = "lighter";
-    ctx.shadowColor = dataset._vmGlowColor || dataset.borderColor || "rgba(255,255,255,0.6)";
-    ctx.shadowBlur = dataset._vmGlowBlur ?? 18;
-    ctx.shadowOffsetX = 0;
-    ctx.shadowOffsetY = 0;
-  },
-  afterDatasetDraw(chart, args) {
-    const dataset = chart.data.datasets[args.index];
-    if (dataset?._vmGlowBlur === false) return;
-    chart.ctx.restore();
-  }
-};
-
-const heroManaHaloPlugin = {
-  id: "heroManaHaloPlugin",
-  beforeDraw(chart) {
-    const { ctx, chartArea } = chart;
-    if (!chartArea) return;
-
-    const cx = (chartArea.left + chartArea.right) / 2;
-    const cy = (chartArea.top + chartArea.bottom) / 2;
-    const radius = Math.max(chartArea.right - chartArea.left, chartArea.bottom - chartArea.top) / 2;
-    const gradient = ctx.createRadialGradient(cx, cy, 0, cx, cy, radius);
-    gradient.addColorStop(0, "rgba(216,194,122,0.042)");
-    gradient.addColorStop(0.58, "rgba(88,184,255,0.025)");
-    gradient.addColorStop(1, "rgba(0,0,0,0)");
-
-    ctx.save();
-    ctx.globalCompositeOperation = "destination-over";
-    ctx.fillStyle = gradient;
-    ctx.fillRect(chartArea.left, chartArea.top, chartArea.right - chartArea.left, chartArea.bottom - chartArea.top);
-    ctx.restore();
-  }
-};
-
-const heroManaTierLabelPlugin = {
-  id: "heroManaTierLabelPlugin",
-  afterDatasetDraw(chart, args) {
-    const dataset = chart.data.datasets[args.index];
-    if (!dataset?.tierLabels || chart.width < 360) return;
-
-    const ctx = chart.ctx;
-    const meta = chart.getDatasetMeta(args.index);
-    const centerY = (chart.chartArea.top + chart.chartArea.bottom) / 2;
-
-    ctx.save();
-    ctx.fillStyle = "rgba(255,255,255,0.82)";
-    ctx.font = "500 10px Cinzel";
-    ctx.textAlign = "center";
-
-    meta.data.forEach((point, index) => {
-      const axis = chart.data.labels[index];
-      if (axis === "Order") return;
-
-      const tier = heroManaTierLabel(Number(dataset.data[index]));
-      const offsetY = point.y < centerY ? -9 : 14;
-      const offsetX = point.x < chart.chartArea.left + 18 ? 12 : point.x > chart.chartArea.right - 18 ? -12 : 0;
-      ctx.fillText(tier, point.x + offsetX, point.y + offsetY);
-    });
-
-    ctx.restore();
-  }
-};
 
 function buildHeroManaDataset(identity) {
+  const componentHexes = identity.components.map(key => colorProfiles[key].hex);
   const datasets = [];
-  const componentHexes = identity.components.map(key => heroManaComponentHex(key));
 
   if (identity.components.length > 1) {
     identity.components.forEach(componentKey => {
       const component = colorProfiles[componentKey];
-      const componentHex = heroManaComponentHex(componentKey);
       datasets.push({
         label: component.name,
         data: component.data,
-        backgroundColor: hexToRgba(componentHex, 0.05),
-        borderColor: hexToRgba(componentHex, 0.82),
-        borderWidth: 2,
+        backgroundColor: hexToRgba(component.hex, 0.045),
+        borderColor: hexToRgba(component.hex, 0.82),
+        borderWidth: 1.8,
         borderDash: [6, 5],
-        pointBackgroundColor: componentHex,
-        pointBorderColor: "#ffffff",
-        pointBorderWidth: 1,
-        pointRadius: 4,
-        pointHoverRadius: 8,
-        pointHoverBorderWidth: 3,
-        tension: 0.22,
-        _vmGlowBlur: componentKey === "B" ? 22 : 13,
-        _vmGlowColor: hexToRgba(componentHex, componentKey === "B" ? 0.82 : 0.58)
+        pointBackgroundColor: component.hex,
+        pointBorderColor: "rgba(255,255,255,0.62)",
+        pointRadius: 2,
+        pointHoverRadius: 4,
+        tension: 0.22
       });
     });
   }
 
-  const identityHex = heroManaIdentityHex(identity);
   datasets.push({
     label: identity.name,
     data: identity.data,
+    borderColor: identity.hex,
     backgroundColor: identity.components.length > 1
       ? radialFill(heroManaChart, componentHexes)
-      : hexToRgba(identityHex, 0.22),
-    borderColor: identityHex,
-    borderWidth: identity.components.length > 1 ? 3 : 2.6,
-    pointBackgroundColor: identityHex,
-    pointBorderColor: "#ffffff",
-    pointBorderWidth: 2,
-    pointRadius: identity.components.length > 1 ? 5 : 4.5,
-    pointHoverRadius: 10,
-    pointHoverBorderWidth: 4,
-    tension: 0.22,
-    tierLabels: true,
-    _vmGlowBlur: 26,
-    _vmGlowColor: hexToRgba(identityHex, 0.72)
+      : hexToRgba(identity.hex, 0.22),
+    pointBackgroundColor: identity.hex,
+    pointBorderColor: "rgba(255,255,255,0.72)",
+    pointRadius: identity.components.length > 1 ? 3 : 2.5,
+    pointHoverRadius: 5,
+    borderWidth: identity.components.length > 1 ? 2.7 : 2.2,
+    tension: 0.22
   });
 
   return datasets;
@@ -2117,14 +2069,8 @@ function setHeroManaGlow(identity) {
   const glow = document.getElementById("heroManaGlow");
   if (!glow) return;
 
-  const componentHexes = identity.components.map(key => heroManaComponentHex(key));
+  const componentHexes = identity.components.map(key => colorProfiles[key].hex);
   glow.style.background = blendGradient(componentHexes);
-}
-
-function summarizeHeroManaText(text) {
-  const sentences = text.match(/[^.!?]+[.!?]+/g);
-  if (!sentences) return text;
-  return sentences.slice(0, 2).join(" ").replace(/\s+/g, " ").trim();
 }
 
 function updateHeroManaPreview(identityId) {
@@ -2134,64 +2080,38 @@ function updateHeroManaPreview(identityId) {
   if (!identity || !title || !text) return;
 
   title.textContent = identity.title;
-  text.textContent = summarizeHeroManaText(identity.text);
+  text.textContent = identity.text;
   setHeroManaGlow(identity);
   updateHeroManaDatasetPills(identity);
 
   if (!heroManaChart) return;
-  const datasets = buildHeroManaDataset(identity);
-  heroManaChart.data.datasets = datasets;
+  heroManaChart.data.datasets = buildHeroManaDataset(identity);
   heroManaChart.update();
-  updateHeroManaRadarDetails(identity, datasets);
 }
 
 function updateHeroManaDatasetPills(identity) {
   const root = document.getElementById("heroManaDatasetPills");
-  if (!root || !identity) return;
+  if (!root) return;
 
   if (identity.components.length === 1) {
-    const identityHex = heroManaIdentityHex(identity);
     root.innerHTML = `
-      <span class="vm-hero-mana-dataset-label">Profile:</span>
-      <span class="vm-hero-mana-dataset-pill" style="--dataset-color:${identityHex};">${identity.name}</span>
+      <span>Profile:</span>
+      <span class="vm-hero-mana-dataset-pill" style="--dataset-color:${identity.hex};">${identity.name}</span>
     `;
     return;
   }
 
   const componentPills = identity.components.map(key => {
     const component = colorProfiles[key];
-    return `<span class="vm-hero-mana-dataset-pill" style="--dataset-color:${heroManaComponentHex(key)};">${component.name}</span>`;
+    return `<span class="vm-hero-mana-dataset-pill" style="--dataset-color:${component.hex};">${component.name}</span>`;
   }).join(`<span class="vm-hero-mana-dataset-join"> + </span>`);
 
   root.innerHTML = `
-    <span class="vm-hero-mana-dataset-label">Overlay:</span>
+    <span>Overlay:</span>
     ${componentPills}
     <span class="vm-hero-mana-dataset-join"> -> </span>
-    <span class="vm-hero-mana-dataset-pill" style="--dataset-color:${heroManaIdentityHex(identity)};">${identity.name}</span>
+    <span class="vm-hero-mana-dataset-pill" style="--dataset-color:${identity.hex};">${identity.name}</span>
   `;
-}
-
-function updateHeroManaRadarDetails(identity, datasets) {
-  const caption = document.getElementById("heroManaRadarCaption");
-  const pills = document.getElementById("heroManaRadarPills");
-
-  if (caption) {
-    caption.textContent = `Current signal: ${identity.name}`;
-  }
-
-  if (!pills) return;
-
-  const lastComponentName = identity.components.length > 1
-    ? colorProfiles[identity.components[identity.components.length - 1]].name
-    : null;
-
-  pills.innerHTML = datasets.map(dataset => {
-    const isActive = dataset.label === identity.name;
-    const showArrow = identity.components.length > 1 && dataset.label === lastComponentName;
-    return `
-      <span class="vm-pill${isActive ? " active" : ""}${showArrow ? " has-arrow" : ""}" data-label="${dataset.label}" style="border-color:${dataset.borderColor};">${dataset.label}</span>
-    `;
-  }).join("");
 }
 
 function buildHeroManaCycleIdentities() {
@@ -2201,15 +2121,6 @@ function buildHeroManaCycleIdentities() {
     ...identities.filter(identity => identity.group === "enemy"),
     ...identities.filter(identity => identity.group === "strixhaven")
   ];
-}
-
-function randomizeHeroManaCycleIndex() {
-  if (!heroManaCycleIdentities.length) {
-    heroManaCycleIndex = 0;
-    return;
-  }
-
-  heroManaCycleIndex = Math.floor(Math.random() * heroManaCycleIdentities.length);
 }
 
 function isHeroManaReaderActive() {
@@ -2279,7 +2190,6 @@ function initHeroManaPreview() {
   const heroManaPanel = document.querySelector(".vm-hero-mana");
   heroManaReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   heroManaCycleIdentities = buildHeroManaCycleIdentities();
-  randomizeHeroManaCycleIndex();
 
   heroManaChart = new Chart(heroCanvas.getContext("2d"), {
     type: "radar",
@@ -2302,21 +2212,16 @@ function initHeroManaPreview() {
         r: {
           min: 0,
           max: 100,
-          ticks: {
-            display: false,
-            backdropColor: "transparent",
-            stepSize: 20
-          },
-          grid: { color: "rgba(240, 197, 106, 0.22)" },
-          angleLines: { color: "rgba(240, 197, 106, 0.25)" },
+          ticks: { display: false },
+          grid: { color: "rgba(216, 194, 122, 0.16)" },
+          angleLines: { color: "rgba(88, 184, 255, 0.14)" },
           pointLabels: {
-            color: "#ffffff",
-            font: { size: 12, weight: "700", family: "Cinzel" }
+            color: "rgba(255,255,255,0.68)",
+            font: { size: 11, family: "Cinzel" }
           }
         }
       }
-    },
-    plugins: [heroManaHaloPlugin, heroManaGlowPlugin, heroManaTierLabelPlugin]
+    }
   });
 
   updateHeroManaPreview(heroManaCycleIdentities[heroManaCycleIndex]?.id || "W");
@@ -2359,6 +2264,441 @@ function initHeroManaPreview() {
   window.addEventListener("beforeunload", stopHeroManaCycle);
   startHeroManaCycle();
 }
+
+// AXIS LIST RENDERER: Builds the horizontal bar rows under the selected card from the identity score data.
+function renderAxisList(identity) {
+  const axisList = document.getElementById("axisList");
+  axisList.innerHTML = axisLabels.map((label, index) => {
+    const value = identity.data[index];
+    return `
+      <div class="vm-axis">
+        <span>${label}</span>
+        <span class="vm-axis-bar">
+          <span class="vm-axis-fill" style="width:${value}%; background:${identity.hex};"></span>
+        </span>
+        <span>${value} — ${valueToResonanceTier(value)}</span>
+      </div>
+    `;
+  }).join("");
+}
+
+// RADAR CANVAS SETUP: Gets the canvas and its 2D drawing context so Chart.js can render into it.
+const radarCanvas = document.getElementById("vmRadar");
+const radarContext = radarCanvas.getContext("2d");
+
+function vmDatasetQualifiesForGlow(dataset) {
+  return dataset && dataset._vmGlowBlur !== false;
+}
+
+// CHART.JS PLUGIN - GLOW: Temporarily adds canvas shadow/glow while each radar dataset is drawn.
+const vmGlow = {
+  id: "vmGlow",
+  beforeDatasetDraw(chart, args) {
+    const ds = chart.data.datasets[args.index];
+    if (!vmDatasetQualifiesForGlow(ds)) return;
+
+    const ctx = chart.ctx;
+    ctx.save();
+    ctx.globalCompositeOperation = "lighter";
+    ctx.shadowColor = ds._vmGlowColor || ds.borderColor || "rgba(255,255,255,0.6)";
+    ctx.shadowBlur = ds._vmGlowBlur ?? 18;
+    ctx.shadowOffsetX = 0;
+    ctx.shadowOffsetY = 0;
+  },
+  afterDatasetDraw(chart, args) {
+    const ds = chart.data.datasets[args.index];
+    if (!vmDatasetQualifiesForGlow(ds)) return;
+
+    chart.ctx.restore();
+  }
+};
+
+// CHART.JS PLUGIN - HALO: Paints a subtle radial halo behind the radar chart before datasets are drawn.
+const vmHalo = {
+  id: "vmHalo",
+  beforeDraw(chart) {
+    const { ctx, chartArea } = chart;
+    if (!chartArea) return;
+    const cx = (chartArea.left + chartArea.right) / 2;
+    const cy = (chartArea.top + chartArea.bottom) / 2;
+    const radius = Math.max(chartArea.right - chartArea.left, chartArea.bottom - chartArea.top) / 2;
+    const gradient = ctx.createRadialGradient(cx, cy, 0, cx, cy, radius);
+    gradient.addColorStop(0, "rgba(216,194,122,0.035)");
+    gradient.addColorStop(0.6, "rgba(216,194,122,0.02)");
+    gradient.addColorStop(1, "rgba(0,0,0,0)");
+    ctx.save();
+    ctx.globalCompositeOperation = "destination-over";
+    ctx.fillStyle = gradient;
+    ctx.fillRect(chartArea.left, chartArea.top, chartArea.right - chartArea.left, chartArea.bottom - chartArea.top);
+    ctx.restore();
+  }
+};
+
+// CHART.JS PLUGIN - TIER LABELS: Writes words like Resonant/Dominant near radar points for the synthesis dataset.
+const vmTierLabels = {
+  id: "vmTierLabels",
+  afterDatasetDraw(chart, args) {
+    const dataset = chart.data.datasets[args.index];
+    if (!dataset.tierLabels) return;
+
+    const ctx = chart.ctx;
+    const meta = chart.getDatasetMeta(args.index);
+    const centerY = (chart.chartArea.top + chart.chartArea.bottom) / 2;
+
+    ctx.save();
+    ctx.fillStyle = "rgba(255,255,255,0.9)";
+    ctx.font = "500 11px Cinzel";
+    ctx.textAlign = "center";
+
+    meta.data.forEach((point, index) => {
+      const axis = chart.data.labels[index];
+      if (axis === "Order") return;
+
+      const value = dataset.data[index];
+      const tier = valueToResonanceTier(Number(value));
+      if (!tier) return;
+
+      const x = point.x;
+      const y = point.y;
+      const offsetY = y < centerY ? -10 : 16;
+      const offsetX = x < chart.chartArea.left + 20 ? 14 : x > chart.chartArea.right - 20 ? -14 : 0;
+
+      ctx.fillText(tier, x + offsetX, y + offsetY);
+    });
+
+    ctx.restore();
+  }
+};
+
+// RADAR CHART INSTANCE: Creates the Chart.js radar chart and defines labels, plugins, animation, tooltips, and scale styling.
+const radarChart = new Chart(radarContext, {
+  plugins: [vmHalo, vmGlow, vmTierLabels],
+  type: "radar",
+  data: {
+    labels: axisLabels,
+    datasets: []
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    animation: {
+      duration: 850,
+      easing: "easeInOutQuart"
+    },
+    interaction: {
+      mode: "nearest",
+      intersect: false
+    },
+    plugins: {
+      legend: {
+        position: "bottom",
+        labels: {
+          color: "rgba(255,255,255,0.84)",
+          padding: 14,
+          font: {
+            size: 12,
+            family: "Cinzel"
+          }
+        }
+      },
+      tooltip: {
+        callbacks: {
+          label: context => {
+            const value = context.raw ?? context.parsed?.r ?? context.formattedValue;
+            const tier = valueToResonanceTier(Number(value));
+            return `${context.dataset.label}: ${context.formattedValue}${tier ? ` — ${tier}` : ""}`;
+          }
+        }
+      }
+    },
+    scales: {
+      r: {
+        min: 0,
+        max: 100,
+        ticks: {
+          color: "rgba(255,255,255,0.55)",
+          backdropColor: "transparent",
+          stepSize: 20,
+          callback: value => {
+            const ringLabels = {
+            };
+            return ringLabels[value] || "";
+          }
+        },
+        angleLines: {
+          color: "rgba(240, 197, 106, 0.25)"
+        },
+        grid: {
+          color: "rgba(240, 197, 106, 0.22)"
+        },
+        pointLabels: {
+          color: "#ffffff",
+          font: {
+            size: 14,
+            weight: "700"
+          }
+        }
+      }
+    }
+  }
+});
+
+// DATASET BUILDER: Decides which datasets should be visible based on selected identity and checkbox states.
+function buildDatasets(identity) {
+  const datasets = [];
+  const compOn = document.getElementById("componentToggle")?.checked ?? true;
+  const synOn = document.getElementById("compositeToggle")?.checked ?? true;
+
+  if (identity.components.length > 1 && compOn) {
+    identity.components.forEach(componentKey => {
+      const component = colorProfiles[componentKey];
+      const isBlackComponent = componentKey === "B";
+      datasets.push({
+        label: component.name,
+        data: component.data,
+        backgroundColor: hexToRgba(component.hex, 0.05),
+        borderColor: hexToRgba(component.hex, 0.82),
+        borderWidth: 2,
+        borderDash: [6, 5],
+        pointBackgroundColor: component.hex,
+        pointBorderColor: "#ffffff",
+        pointBorderWidth: 1,
+        pointRadius: 4,
+        pointHoverRadius: 8,
+        pointHoverBorderWidth: 3,
+        tension: 0.22,
+        _vmGlowBlur: isBlackComponent ? 20 : 12,
+        ...(isBlackComponent ? {
+          _vmBlackComponentGlow: true,
+          _vmGlowColor: "rgba(164, 107, 234, 0.78)"
+        } : {})
+      });
+    });
+  }
+
+  if (synOn || identity.components.length === 1) {
+    datasets.push({
+      label: identity.name,
+      data: identity.data,
+      backgroundColor: identity.components.length > 1
+        ? radialFill(radarChart, identity.components.map(key => colorProfiles[key].hex))
+        : hexToRgba(identity.hex, 0.22),
+      borderColor: identity.hex,
+      borderWidth: 3,
+      pointBackgroundColor: identity.hex,
+      pointBorderColor: "#ffffff",
+      pointBorderWidth: 2,
+      pointRadius: 6,
+      pointHoverRadius: 11,
+      pointHoverBorderWidth: 4,
+      tension: 0.22,
+      tierLabels: true,
+      _vmGlowBlur: 26
+    });
+  }
+
+  return datasets;
+}
+
+// RADAR GLOW UPDATER: Changes the glow behind the chart to match the selected profile colors.
+function updateGlow(identity) {
+  const glowHexes = identity.components.length > 1
+    ? identity.components.map(key => colorProfiles[key].hex)
+    : [identity.hex];
+
+  document.getElementById("radarGlow").style.background = blendGradient(glowHexes);
+}
+
+// UI STATE OBJECT: Tracks current selector mode, current guild subgroup, and selected identity id.
+const lensState = {
+  mode: "mono",
+  guildGroup: "allied",
+  selectedId: "W"
+};
+
+// CHOICE GLOW BUILDER: Creates the per-card background glow for mono or two-color identities.
+function blendChoiceGlow(identity) {
+  if (identity.components.length === 1) {
+    return `radial-gradient(circle at top right, ${hexToRgba(identity.hex, 0.38)}, transparent 70%)`;
+  }
+
+  const first = colorProfiles[identity.components[0]].hex;
+  const second = colorProfiles[identity.components[1]].hex;
+
+  return `
+    radial-gradient(circle at 20% 20%, ${hexToRgba(first, 0.34)}, transparent 55%),
+    radial-gradient(circle at 80% 80%, ${hexToRgba(second, 0.34)}, transparent 55%)
+  `;
+}
+
+// VISIBLE IDENTITY FILTER: Returns only the identities that should appear for the current lens mode/submode.
+function getVisibleIdentities() {
+  if (lensState.mode === "mono") {
+    return identities.filter(identity => identity.group === "mono");
+  }
+
+  if (lensState.mode === "guilds") {
+    return identities.filter(identity => identity.group === lensState.guildGroup);
+  }
+
+  return identities.filter(identity => identity.group === "strixhaven");
+}
+
+// IDENTITY GRID RENDERER: Builds clickable identity buttons from visible identity data and wires their click handlers.
+function renderIdentityGrid() {
+  const grid = document.getElementById("identityGrid");
+  const visibleIdentities = getVisibleIdentities();
+
+  grid.classList.toggle("mono", lensState.mode === "mono");
+
+  grid.innerHTML = visibleIdentities.map(identity => `
+    <button
+      class="vm-lens-choice ${identity.id === lensState.selectedId ? "active" : ""}"
+      data-id="${identity.id}"
+      style="--choice-glow:${blendChoiceGlow(identity).replace(/\n/g, " ")}"
+    >
+      <span class="vm-lens-symbols">${manaSymbols(identity.code)}</span>
+      <span class="vm-lens-name">${identity.name}</span>
+      <span class="vm-lens-mini">${identity.components.length > 1 ? identity.components.map(key => colorProfiles[key].name).join(" + ") : "Core color profile"}</span>
+    </button>
+  `).join("");
+
+  document.querySelectorAll(".vm-lens-choice").forEach(choice => {
+    choice.addEventListener("click", () => updateRadar(choice.dataset.id));
+  });
+}
+
+// LENS MODE SWITCHER: Changes Mono/Guilds/Colleges mode, updates active tabs, and refreshes the selected identity if needed.
+function setLensMode(mode) {
+  lensState.mode = mode;
+
+  // LENS TAB EVENTS: Clicking Mono/Guilds/Colleges changes the visible identity set.
+  document.querySelectorAll(".vm-lens-tab").forEach(tab => {
+    tab.classList.toggle("active", tab.dataset.mode === mode);
+  });
+
+  document.getElementById("guildSubtabs").classList.toggle("show", mode === "guilds");
+
+  const visibleIdentities = getVisibleIdentities();
+  const currentlyVisible = visibleIdentities.some(identity => identity.id === lensState.selectedId);
+
+  if (!currentlyVisible && visibleIdentities.length) {
+    lensState.selectedId = visibleIdentities[0].id;
+  }
+
+  // INITIAL COLOR MATRIX RENDER: Builds the initial identity buttons before selecting the default profile.
+  renderIdentityGrid();
+  updateRadar(lensState.selectedId, false);
+}
+
+// GUILD GROUP SWITCHER: Changes Allied/Enemy subgroup, selects the first visible identity, and refreshes the grid/chart.
+function setGuildGroup(group) {
+  lensState.guildGroup = group;
+
+  // GUILD SUBTAB EVENTS: Clicking Allied/Enemy changes the guild subgroup.
+  document.querySelectorAll(".vm-lens-subtab").forEach(tab => {
+    tab.classList.toggle("active", tab.dataset.guildGroup === group);
+  });
+
+  const visibleIdentities = getVisibleIdentities();
+  lensState.selectedId = visibleIdentities[0].id;
+
+  renderIdentityGrid();
+  updateRadar(lensState.selectedId, false);
+}
+
+// SELECTED CARD UPDATER: Rewrites the selected profile card with title, description, glow, and component overlay pills.
+function updateSelectedCard(identity) {
+  document.getElementById("selectedKicker").textContent =
+    identity.components.length > 1 ? "Selected Synthesis" : "Selected Profile";
+
+  document.getElementById("colorTitle").textContent = identity.title;
+  document.getElementById("colorText").textContent = identity.text;
+
+  const selectedCard = document.getElementById("selectedCard");
+  selectedCard.style.setProperty("--selected-glow", blendChoiceGlow(identity));
+
+  const overlayLine = document.getElementById("overlayLine");
+
+  if (identity.components.length === 1) {
+    overlayLine.innerHTML = `
+      <span>Profile:</span>
+      <span class="vm-overlay-dot" style="border-color:${identity.hex};">${identity.name}</span>
+    `;
+    return;
+  }
+
+  const componentDots = identity.components.map(key => {
+    const component = colorProfiles[key];
+    return `<span class="vm-overlay-dot" style="border-color:${component.hex};">${component.name}</span>`;
+  }).join("");
+
+  overlayLine.innerHTML = `
+    <span>Overlay:</span>
+    ${componentDots}
+    <span>→</span>
+    <span class="vm-overlay-dot" style="border-color:${identity.hex}; color:${identity.hex};">${identity.name}</span>
+  `;
+}
+
+// ACTIVE CHOICE SYNC: Updates lensState and toggles the active class on the matching identity button.
+function updateActiveLensChoice(identity) {
+  lensState.selectedId = identity.id;
+
+  document.querySelectorAll(".vm-lens-choice").forEach(choice => {
+    choice.classList.toggle("active", choice.dataset.id === identity.id);
+  });
+}
+
+// DATASET PILL RENDERER: Creates pill labels below the chart for each visible Chart.js dataset.
+function updateDatasetPills(datasets, identity) {
+  document.getElementById("datasetPills").innerHTML = datasets.map(dataset => {
+    const isActive = identity && dataset.label === identity.name;
+    const lastComponentName = identity && identity.components.length > 1
+      ? colorProfiles[identity.components[identity.components.length - 1]].name
+      : null;
+    const showArrow = identity && identity.components.length > 1 && dataset.label === lastComponentName;
+    return `
+      <span class="vm-pill${isActive ? " active" : ""}${showArrow ? " has-arrow" : ""}" data-label="${dataset.label}" style="border-color:${dataset.borderColor};">${dataset.label}</span>
+    `;
+  }).join("");
+}
+
+// MAIN COLOR MATRIX UPDATE: Central function that refreshes chart data, caption, bars, glow, card text, active button, and pills.
+function updateRadar(identityId, refreshGrid = true) {
+  const identity = findIdentity(identityId);
+  if (!identity) return;
+
+  const datasets = buildDatasets(identity);
+
+  document.getElementById("radarCaption").textContent =
+    `Current profile: ${identity.name}`;
+
+  radarChart.data.datasets = datasets;
+  radarChart.update();
+
+  renderAxisList(identity);
+  updateGlow(identity);
+  updateSelectedCard(identity);
+  updateActiveLensChoice(identity);
+  updateDatasetPills(datasets, identity);
+
+  if (refreshGrid) {
+    renderIdentityGrid();
+  }
+}
+
+// RADAR CHECKBOX EVENTS: Rebuilds chart datasets when component/synthesis toggles change without rebuilding the identity grid.
+document.getElementById("componentToggle").addEventListener("change", () => updateRadar(lensState.selectedId, false));
+document.getElementById("compositeToggle").addEventListener("change", () => updateRadar(lensState.selectedId, false));
+
+document.querySelectorAll(".vm-lens-tab").forEach(tab => {
+  tab.addEventListener("click", () => setLensMode(tab.dataset.mode));
+});
+
+document.querySelectorAll(".vm-lens-subtab").forEach(tab => {
+  tab.addEventListener("click", () => setGuildGroup(tab.dataset.guildGroup));
+});
 
 // ATMOSPHERE FEATURE FLAG: Keeps the star-particle atmosphere enabled for this home skeleton.
 const ARCHSCRY_ENABLED = true;
@@ -2541,7 +2881,7 @@ function initArchscryAtmosphere() {
   document.addEventListener('pointermove', event => {
     document.body.style.setProperty('--mx', `${event.clientX}px`);
     document.body.style.setProperty('--my', `${event.clientY}px`);
-    document.querySelectorAll('.vm-card, .vm-panel').forEach(el => {
+    document.querySelectorAll('.vm-card, .vm-panel, .vm-lens-choice').forEach(el => {
       const rect = el.getBoundingClientRect();
       if (rect.width <= 0 || rect.height <= 0) return;
       const x = ((event.clientX - rect.left) / rect.width) * 100;
@@ -2660,6 +3000,9 @@ const archscryRevealObserver = new IntersectionObserver((entries) => {
 document.querySelectorAll('.reveal, .hero-card').forEach(el => archscryRevealObserver.observe(el));
 
 initHeroManaPreview();
+renderIdentityGrid();
+// INITIAL RADAR RENDER: Selects White as the default profile and draws the first radar/chart state.
+updateRadar("W", false);
 // START MAIN REVEAL OBSERVER: Enables the reveal animation behavior.
 initRevealObserver();
 

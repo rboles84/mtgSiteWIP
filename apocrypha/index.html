@@ -6,7 +6,7 @@
 <title>Vox Mana - The Apocrypha</title>
 <meta
   name="description"
-  content="The public archive behind the signal: a five-deck research console of canon, scholarship, media, codex work, and public-safe Vox Mana method notes."
+  content="Public links, lore references, and research trails behind Vox Mana."
 >
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Cinzel+Decorative:wght@400&family=Crimson+Pro:ital,wght@0,300;0,400;1,300;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -16,14 +16,14 @@
 <link rel="stylesheet" href="../assets/css/topbar.css">
 <link rel="stylesheet" href="../assets/css/atmosphere.css">
 <link rel="stylesheet" href="../assets/css/components.css">
-<link rel="stylesheet" href="../assets/css/apocrypha.css?v=20260520b">
+<link rel="stylesheet" href="../assets/css/apocrypha.css?v=20260521b">
 </head>
 <body data-page="apocrypha" data-vm-current="apocrypha" data-bg="medium">
 
 <div class="vm-bg" aria-hidden="true">
   <picture class="vm-bg__picture">
-    <source type="image/webp" srcset="../assets/img/backgrounds/background-apocrypha-library-clean-01.webp 2560w" sizes="100vw">
-    <img src="../assets/img/backgrounds/background-apocrypha-library-clean-01.webp" alt="" decoding="async">
+    <source type="image/webp" srcset="../assets/img/backgrounds/background-vox-gateway-clean-09.webp 2560w" sizes="100vw">
+    <img src="../assets/img/backgrounds/background-vox-gateway-clean-09.webp" alt="" decoding="async">
   </picture>
   <div class="vm-bg__nebula"></div>
   <canvas class="vm-bg__stars" aria-hidden="true"></canvas>
@@ -84,834 +84,337 @@
     <section class="apoc-hero apoc-section" id="top" data-rail-section>
       <div class="apoc-hero__grid">
         <div class="vm-panel apoc-hero__copy" data-reveal>
-          <p class="apoc-kicker">Public Archive Console</p>
+          <p class="apoc-kicker">Why This Page Exists</p>
           <h1>The Apocrypha</h1>
-          <p class="apoc-subtitle">The public archive behind the signal.</p>
+          <p class="apoc-subtitle">Where Vox Mana shows its work.</p>
           <p class="apoc-lede">
-            Vox Mana does not invent lore from nothing. Public readings, discovery trails, and
-            faction notes are grounded in named source families you can scan, open, and review.
+            Vox Mana connects Magic lore, color philosophy, factions, and player-facing themes.
+            Apocrypha is the public reference library behind those interpretations.
           </p>
-          <div class="apoc-status-row" aria-label="Archive coverage">
-            <span class="vm-chip apoc-status apoc-status--gold">Official Sources</span>
-            <span class="vm-chip apoc-status">Community Scholarship</span>
-            <span class="vm-chip apoc-status">Video Lore</span>
-            <span class="vm-chip apoc-status">Internal Notes</span>
-            <span class="vm-chip apoc-status apoc-status--violet">Logic Summaries - Redacted</span>
-          </div>
+          <p class="apoc-note">
+            Use this page to see the websites, videos, archives, GitHub projects, and lore
+            references used while building Vox Mana.
+          </p>
           <div class="apoc-hero__actions">
-            <a class="vm-button vm-button--primary" href="#ledger">Scan live sources</a>
-            <a class="vm-button" href="#decks">Open five decks</a>
+            <a class="vm-button vm-button--primary" href="#ledger">Browse public references</a>
+            <a class="vm-button" href="#decks">Read the quick guide</a>
           </div>
         </div>
 
-        <aside class="vm-panel apoc-hero__signal" data-reveal aria-label="Archive signal summary">
+        <aside class="vm-panel apoc-hero__signal" data-reveal aria-label="Why this page exists">
           <div class="apoc-hero__signal-head">
-            <p class="vm-card-kicker">Archive Status</p>
-            <h2>Public provenance, not a black box.</h2>
-            <p>Follow the shelf families, inspect live sources, and read method notes without exposing the private placement machine.</p>
+            <p class="vm-card-kicker">At A Glance</p>
+            <h2>Public links first.</h2>
+            <p>This page gathers the public references behind Vox Mana in one place so visitors can see the visible research trail without digging through internal notes.</p>
           </div>
-          <div class="apoc-hero__stats">
-            <article>
-              <strong>10</strong>
-              <span>Live public sources</span>
+          <div class="apoc-summary-grid">
+            <article class="apoc-summary-card">
+              <h3>Public references only</h3>
+              <p>The focus here is live public URLs, not a full internal vault.</p>
             </article>
-            <article>
-              <strong>5</strong>
-              <span>Evidence decks</span>
+            <article class="apoc-summary-card">
+              <h3>Grouped for browsing</h3>
+              <p>Official lore, community references, video lore, and project archives are separated so the library is easy to scan.</p>
             </article>
-            <article>
-              <strong>2</strong>
-              <span>Protected summary shelves</span>
+            <article class="apoc-summary-card">
+              <h3>Private work stays private</h3>
+              <p>Unpublished working notes, prompt artifacts, and scoring logic stay off this page.</p>
             </article>
           </div>
-          <ul class="apoc-hero__notes">
-            <li>Canon stays primary.</li>
-            <li>Scholarship and media stay marked as support.</li>
-            <li>Private weights, prompts, and hidden relationships stay withheld.</li>
-          </ul>
         </aside>
       </div>
     </section>
 
     <div class="apoc-layout">
-      <aside class="vm-panel vm-side-rail apoc-rail" data-reveal aria-label="Archive navigation">
+      <aside class="vm-panel vm-side-rail apoc-rail" data-reveal aria-label="Apocrypha navigation">
         <div>
-          <p class="vm-card-kicker">Archive Rail</p>
-          <h2>Move through the console</h2>
+          <p class="vm-card-kicker">Library Rail</p>
+          <h2>Move through the page</h2>
         </div>
 
         <nav class="apoc-rail__links" aria-label="Apocrypha sections">
           <a href="#top" data-rail-link="top" aria-current="false">Top</a>
-          <a href="#ledger" data-rail-link="ledger" aria-current="false">Source Scan</a>
-          <a href="#decks" data-rail-link="decks" aria-current="false">Five Decks</a>
-          <a href="#dossiers" data-rail-link="dossiers" aria-current="false">Dossiers</a>
-          <a href="#method" data-rail-link="method" aria-current="false">Method</a>
-          <a href="#notice" data-rail-link="notice" aria-current="false">Redaction</a>
+          <a href="#decks" data-rail-link="decks" aria-current="false">Quick Guide</a>
+          <a href="#ledger" data-rail-link="ledger" aria-current="false">Reference Library</a>
+          <a href="#method" data-rail-link="method" aria-current="false">How Used</a>
+          <a href="#dossiers" data-rail-link="dossiers" aria-current="false">Phase 2</a>
+          <a href="#notice" data-rail-link="notice" aria-current="false">Not Published</a>
         </nav>
-
-        <div class="apoc-rail__group">
-          <p class="vm-card-kicker">Deck Map</p>
-          <nav class="apoc-rail__deck-links" aria-label="Apocrypha decks">
-            <a href="#deck-canon" data-deck-link="canon" aria-current="false">Canon</a>
-            <a href="#deck-scholarship" data-deck-link="scholarship" aria-current="false">Scholarship</a>
-            <a href="#deck-media" data-deck-link="media" aria-current="false">Media</a>
-            <a href="#deck-codex" data-deck-link="codex" aria-current="false">Codex</a>
-            <a href="#deck-logic" data-deck-link="logic" aria-current="false">Logic</a>
-          </nav>
-        </div>
       </aside>
 
       <div class="apoc-main">
-        <section class="apoc-section" id="ledger" data-rail-section>
-          <div class="apoc-section__head" data-reveal>
-            <p class="apoc-kicker">Live Source Scan</p>
-            <h2>The highest-value public shelf is visible first.</h2>
-            <p>
-              This quick ledger only lists sources already published on Apocrypha today. No invented references,
-              no hidden files, no private-route leakage.
-            </p>
-          </div>
-
-          <div class="apoc-ledger-strip" data-reveal>
-            <article class="vm-panel apoc-ledger-stat">
-              <strong>10</strong>
-              <span>Live public sources</span>
-            </article>
-            <article class="vm-panel apoc-ledger-stat">
-              <strong>Canon / Scholarship / Media</strong>
-              <span>Real public decks with active links</span>
-            </article>
-            <article class="vm-panel apoc-ledger-stat">
-              <strong>Codex / Logic</strong>
-              <span>Summary-only shelves with protected internals</span>
-            </article>
-          </div>
-
-          <div class="vm-panel apoc-ledger" data-reveal>
-            <div class="apoc-ledger__scroll" role="region" aria-label="Apocrypha source ledger">
-              <table>
-                <thead>
-                  <tr>
-                    <th scope="col">Source</th>
-                    <th scope="col">Type</th>
-                    <th scope="col">Coverage</th>
-                    <th scope="col">Trust Level</th>
-                    <th scope="col">Used For</th>
-                    <th scope="col">Exposure</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td data-label="Source">A Flavorful Guide to the Guilds of Ravnica</td>
-                    <td data-label="Type">Feature article</td>
-                    <td data-label="Coverage">All 10 guilds / Ravnica</td>
-                    <td data-label="Trust Level">Primary source</td>
-                    <td data-label="Used For">Guild identity descriptions</td>
-                    <td data-label="Exposure">Public</td>
-                  </tr>
-                  <tr>
-                    <td data-label="Source">MTG Stories - polarkac GitHub Archive</td>
-                    <td data-label="Type">Story archive</td>
-                    <td data-label="Coverage">Ravnica / Strixhaven</td>
-                    <td data-label="Trust Level">Canon archive</td>
-                    <td data-label="Used For">Story beats and faction voice</td>
-                    <td data-label="Exposure">Public</td>
-                  </tr>
-                  <tr>
-                    <td data-label="Source">MTG Stories PDF Archive - r/mtgvorthos</td>
-                    <td data-label="Type">Story archive index</td>
-                    <td data-label="Coverage">All sets</td>
-                    <td data-label="Trust Level">Secondary index</td>
-                    <td data-label="Used For">Story navigation support</td>
-                    <td data-label="Exposure">Public</td>
-                  </tr>
-                  <tr>
-                    <td data-label="Source">MTGLore.com - Chronological Story Index</td>
-                    <td data-label="Type">Chronological lore index</td>
-                    <td data-label="Coverage">Timeline / continuity</td>
-                    <td data-label="Trust Level">Continuity reference</td>
-                    <td data-label="Used For">Set chronology and timeline checks</td>
-                    <td data-label="Exposure">Public</td>
-                  </tr>
-                  <tr>
-                    <td data-label="Source">MTG Fandom Wiki - Ravnican Guilds</td>
-                    <td data-label="Type">Wiki</td>
-                    <td data-label="Coverage">All 10 guilds</td>
-                    <td data-label="Trust Level">Structural reference</td>
-                    <td data-label="Used For">History and guild structure support</td>
-                    <td data-label="Exposure">Public</td>
-                  </tr>
-                  <tr>
-                    <td data-label="Source">Guild Identities - Lore-Wise (r/magicTCG)</td>
-                    <td data-label="Type">Community thread</td>
-                    <td data-label="Coverage">Guild identity</td>
-                    <td data-label="Trust Level">Community interpretation</td>
-                    <td data-label="Used For">Lore-vs-perception disambiguation</td>
-                    <td data-label="Exposure">Public</td>
-                  </tr>
-                  <tr>
-                    <td data-label="Source">MTG Guilds - Draftsim</td>
-                    <td data-label="Type">Strategy and lore guide</td>
-                    <td data-label="Coverage">Guild mechanics / archetypes</td>
-                    <td data-label="Trust Level">Archetype reference</td>
-                    <td data-label="Used For">Playstyle and deck-start framing</td>
-                    <td data-label="Exposure">Public</td>
-                  </tr>
-                  <tr>
-                    <td data-label="Source">The Guilds of Ravnica - Lore Overview</td>
-                    <td data-label="Type">Video essay</td>
-                    <td data-label="Coverage">Ravnica / all guilds</td>
-                    <td data-label="Trust Level">Cross-check</td>
-                    <td data-label="Used For">Narrative gap checking</td>
-                    <td data-label="Exposure">Public</td>
-                  </tr>
-                  <tr>
-                    <td data-label="Source">Ravnica Guild Deep Dive - Part I</td>
-                    <td data-label="Type">Video essay</td>
-                    <td data-label="Coverage">Dimir / Simic / Golgari</td>
-                    <td data-label="Trust Level">Cross-check</td>
-                    <td data-label="Used For">Character and event support</td>
-                    <td data-label="Exposure">Public</td>
-                  </tr>
-                  <tr>
-                    <td data-label="Source">Ravnica Guild Deep Dive - Part II</td>
-                    <td data-label="Type">Video essay</td>
-                    <td data-label="Coverage">Boros / Azorius / Orzhov / Selesnya</td>
-                    <td data-label="Trust Level">Cross-check</td>
-                    <td data-label="Used For">Tension and lore support</td>
-                    <td data-label="Exposure">Public</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </section>
-
         <section class="apoc-section" id="decks" data-rail-section>
           <div class="apoc-section__head" data-reveal>
-            <p class="apoc-kicker">Five Decks</p>
-            <h2>Open one shelf at a time.</h2>
-            <p>
-              Use the deck headers like a five-color spread: open a single shelf, scan five evidence cards,
-              then jump back without losing your place on the page.
-            </p>
+            <p class="apoc-kicker">What Should I Look At?</p>
+            <h2>Start with the shelf that matches your question.</h2>
+            <p>Use this quick guide first if you want the short version, then jump into the public reference library for the individual links.</p>
           </div>
 
-          <div class="apoc-deck-browser">
-            <div class="apoc-deck-nav" aria-label="Apocrypha decks" data-reveal>
-              <a
-                id="deck-canon"
-                class="apoc-deck-trigger"
-                href="#deck-canon"
-                data-deck-trigger="canon"
-                data-deck-tone="canon"
-                aria-controls="deck-panel-canon"
-                aria-expanded="true"
-              >
-                <span class="apoc-deck-trigger__art" data-card-art data-deck-tone="canon" data-art-seed="canon-trigger"></span>
-                <span class="apoc-deck-trigger__badge">4 live sources</span>
-                <strong>Canon</strong>
-                <span>Official story, article, and card-adjacent ground truth.</span>
-              </a>
+          <div class="apoc-guide-grid">
+            <article class="vm-panel apoc-guide-card" data-reveal>
+              <p class="vm-card-kicker">Official Lore</p>
+              <h3>Start here for the strongest lore foundation.</h3>
+              <p>Wizards articles, official story material, and timeline references used as the baseline for faction identity and continuity.</p>
+            </article>
 
-              <a
-                id="deck-scholarship"
-                class="apoc-deck-trigger"
-                href="#deck-scholarship"
-                data-deck-trigger="scholarship"
-                data-deck-tone="scholarship"
-                aria-controls="deck-panel-scholarship"
-                aria-expanded="false"
-              >
-                <span class="apoc-deck-trigger__art" data-card-art data-deck-tone="scholarship" data-art-seed="scholarship-trigger"></span>
-                <span class="apoc-deck-trigger__badge">3 live sources</span>
-                <strong>Scholarship</strong>
-                <span>Community interpretation, structure, and lore clarification.</span>
-              </a>
+            <article class="vm-panel apoc-guide-card" data-reveal>
+              <p class="vm-card-kicker">Community References</p>
+              <h3>Useful for structure and interpretation.</h3>
+              <p>Wiki pages, Reddit discussions, lore guides, and player-facing explanations that help clarify how the lore is commonly understood.</p>
+            </article>
 
-              <a
-                id="deck-media"
-                class="apoc-deck-trigger"
-                href="#deck-media"
-                data-deck-trigger="media"
-                data-deck-tone="media"
-                aria-controls="deck-panel-media"
-                aria-expanded="false"
-              >
-                <span class="apoc-deck-trigger__art" data-card-art data-deck-tone="media" data-art-seed="media-trigger"></span>
-                <span class="apoc-deck-trigger__badge">3 live sources</span>
-                <strong>Media</strong>
-                <span>Video essays and spoken lore used as marked cross-checks.</span>
-              </a>
+            <article class="vm-panel apoc-guide-card" data-reveal>
+              <p class="vm-card-kicker">Video Lore</p>
+              <h3>Helpful for review and cross-checking.</h3>
+              <p>YouTube lore overviews and deep dives used for reminders, comparison, and narrative gap checks.</p>
+            </article>
 
-              <a
-                id="deck-codex"
-                class="apoc-deck-trigger"
-                href="#deck-codex"
-                data-deck-trigger="codex"
-                data-deck-tone="codex"
-                aria-controls="deck-panel-codex"
-                aria-expanded="false"
-              >
-                <span class="apoc-deck-trigger__art" data-card-art data-deck-tone="codex" data-art-seed="codex-trigger"></span>
-                <span class="apoc-deck-trigger__badge">Catalog Pending</span>
-                <strong>Codex</strong>
-                <span>Internal research bundles, dossiers, and working captures.</span>
-              </a>
+            <article class="vm-panel apoc-guide-card" data-reveal>
+              <p class="vm-card-kicker">Project Archives</p>
+              <h3>Useful for navigation and continuity.</h3>
+              <p>GitHub projects, story archives, PDF indexes, and public collections that help trace the research trail and find source material quickly.</p>
+            </article>
 
-              <a
-                id="deck-logic"
-                class="apoc-deck-trigger"
-                href="#deck-logic"
-                data-deck-trigger="logic"
-                data-deck-tone="logic"
-                aria-controls="deck-panel-logic"
-                aria-expanded="false"
-              >
-                <span class="apoc-deck-trigger__art" data-card-art data-deck-tone="logic" data-art-seed="logic-trigger"></span>
-                <span class="apoc-deck-trigger__badge">Summaries Only</span>
-                <strong>Logic</strong>
-                <span>Public-safe method language without hidden scoring internals.</span>
-              </a>
-            </div>
-
-            <div class="apoc-deck-stage">
-              <article class="vm-panel apoc-deck-panel" id="deck-panel-canon" data-deck-panel="canon" data-deck-tone="canon">
-                <div class="apoc-deck-panel__head">
-                  <div>
-                    <p class="vm-card-kicker">Canon Deck</p>
-                    <h3>Official story and worldbuilding are the first pass.</h3>
-                    <p>When Vox Mana names faction identity, canon is the shelf that sets the baseline.</p>
-                  </div>
-                  <div class="apoc-deck-panel__mast" data-card-art data-deck-tone="canon" data-art-seed="canon-mast"></div>
-                </div>
-
-                <div class="apoc-tray-grid">
-                  <article class="apoc-tray-card" data-deck-tone="canon">
-                    <div class="apoc-tray-card__namebar">
-                      <span>Card I</span>
-                      <span>What it is</span>
-                    </div>
-                    <div class="apoc-tray-card__art" data-card-art data-deck-tone="canon" data-art-seed="canon-1"></div>
-                    <div class="apoc-tray-card__body">
-                      <h4>Official canon surface</h4>
-                      <p>Wizards articles, prose archives, story continuity tools, and set-grounded narrative anchors.</p>
-                    </div>
-                  </article>
-
-                  <article class="apoc-tray-card" data-deck-tone="canon">
-                    <div class="apoc-tray-card__namebar">
-                      <span>Card II</span>
-                      <span>Used for</span>
-                    </div>
-                    <div class="apoc-tray-card__art" data-card-art data-deck-tone="canon" data-art-seed="canon-2"></div>
-                    <div class="apoc-tray-card__body">
-                      <h4>Identity and continuity</h4>
-                      <p>Guild philosophy, named lore beats, faction voice, and first-pass continuity checks.</p>
-                    </div>
-                  </article>
-
-                  <article class="apoc-tray-card" data-deck-tone="canon">
-                    <div class="apoc-tray-card__namebar">
-                      <span>Card III</span>
-                      <span>Status</span>
-                    </div>
-                    <div class="apoc-tray-card__art" data-card-art data-deck-tone="canon" data-art-seed="canon-3"></div>
-                    <div class="apoc-tray-card__body">
-                      <h4>Trust lane</h4>
-                      <dl class="apoc-stat-list">
-                        <div><dt>Exposure</dt><dd>Public</dd></div>
-                        <div><dt>Count</dt><dd>4 live sources</dd></div>
-                        <div><dt>Lane</dt><dd>Primary source</dd></div>
-                      </dl>
-                    </div>
-                  </article>
-
-                  <article class="apoc-tray-card" data-deck-tone="canon">
-                    <div class="apoc-tray-card__namebar">
-                      <span>Card IV</span>
-                      <span>Live shelf</span>
-                    </div>
-                    <div class="apoc-tray-card__art" data-card-art data-deck-tone="canon" data-art-seed="canon-4"></div>
-                    <div class="apoc-tray-card__body">
-                      <h4>Current public sources</h4>
-                      <ul class="apoc-source-links">
-                        <li><a href="https://magic.wizards.com/en/news/feature/flavorful-guide-guilds-ravnica-2018-10-03" target="_blank" rel="noopener">A Flavorful Guide to the Guilds of Ravnica</a></li>
-                        <li><a href="https://github.com/polarkac/MTG-Stories/tree/master/stories" target="_blank" rel="noopener">MTG Stories - polarkac GitHub Archive</a></li>
-                        <li><a href="https://www.reddit.com/r/mtgvorthos/comments/14zerhh/pdf_archive_of_mtg_stories_from_magic_origins_to/" target="_blank" rel="noopener">MTG Stories PDF Archive - r/mtgvorthos</a></li>
-                        <li><a href="https://mtglore.com/chronological/" target="_blank" rel="noopener">MTGLore.com - Chronological Story Index</a></li>
-                      </ul>
-                    </div>
-                  </article>
-
-                  <article class="apoc-tray-card" data-deck-tone="canon">
-                    <div class="apoc-tray-card__namebar">
-                      <span>Card V</span>
-                      <span>Boundary</span>
-                    </div>
-                    <div class="apoc-tray-card__art" data-card-art data-deck-tone="canon" data-art-seed="canon-5"></div>
-                    <div class="apoc-tray-card__body">
-                      <h4>What this deck does not do</h4>
-                      <p>Canon does not get replaced by fan shorthand, speculative weighting, or hidden internal scoring.</p>
-                    </div>
-                  </article>
-                </div>
-              </article>
-
-              <article class="vm-panel apoc-deck-panel" id="deck-panel-scholarship" data-deck-panel="scholarship" data-deck-tone="scholarship" hidden>
-                <div class="apoc-deck-panel__head">
-                  <div>
-                    <p class="vm-card-kicker">Scholarship Deck</p>
-                    <h3>Community scholarship clarifies what canon leaves implicit.</h3>
-                    <p>These references help bridge context, structure, and common lore misunderstandings without masquerading as canon.</p>
-                  </div>
-                  <div class="apoc-deck-panel__mast" data-card-art data-deck-tone="scholarship" data-art-seed="scholarship-mast"></div>
-                </div>
-
-                <div class="apoc-tray-grid">
-                  <article class="apoc-tray-card" data-deck-tone="scholarship">
-                    <div class="apoc-tray-card__namebar">
-                      <span>Card I</span>
-                      <span>What it is</span>
-                    </div>
-                    <div class="apoc-tray-card__art" data-card-art data-deck-tone="scholarship" data-art-seed="scholarship-1"></div>
-                    <div class="apoc-tray-card__body">
-                      <h4>Interpretive reference</h4>
-                      <p>Wikis, community synthesis, and discussion threads that map structure, terminology, and player-facing lore readings.</p>
-                    </div>
-                  </article>
-
-                  <article class="apoc-tray-card" data-deck-tone="scholarship">
-                    <div class="apoc-tray-card__namebar">
-                      <span>Card II</span>
-                      <span>Used for</span>
-                    </div>
-                    <div class="apoc-tray-card__art" data-card-art data-deck-tone="scholarship" data-art-seed="scholarship-2"></div>
-                    <div class="apoc-tray-card__body">
-                      <h4>Bridge and disambiguation</h4>
-                      <p>History support, structure notes, and lore-vs-perception cleanup when players compress faction identity too hard.</p>
-                    </div>
-                  </article>
-
-                  <article class="apoc-tray-card" data-deck-tone="scholarship">
-                    <div class="apoc-tray-card__namebar">
-                      <span>Card III</span>
-                      <span>Status</span>
-                    </div>
-                    <div class="apoc-tray-card__art" data-card-art data-deck-tone="scholarship" data-art-seed="scholarship-3"></div>
-                    <div class="apoc-tray-card__body">
-                      <h4>Trust lane</h4>
-                      <dl class="apoc-stat-list">
-                        <div><dt>Exposure</dt><dd>Public</dd></div>
-                        <div><dt>Count</dt><dd>3 live sources</dd></div>
-                        <div><dt>Lane</dt><dd>Marked support</dd></div>
-                      </dl>
-                    </div>
-                  </article>
-
-                  <article class="apoc-tray-card" data-deck-tone="scholarship">
-                    <div class="apoc-tray-card__namebar">
-                      <span>Card IV</span>
-                      <span>Live shelf</span>
-                    </div>
-                    <div class="apoc-tray-card__art" data-card-art data-deck-tone="scholarship" data-art-seed="scholarship-4"></div>
-                    <div class="apoc-tray-card__body">
-                      <h4>Current public sources</h4>
-                      <ul class="apoc-source-links">
-                        <li><a href="https://mtg.fandom.com/wiki/Ravnican_guild" target="_blank" rel="noopener">MTG Fandom Wiki - Ravnican Guilds</a></li>
-                        <li><a href="https://www.reddit.com/r/magicTCG/comments/ack2ij/ravnica_guild_identities_lore_wise/" target="_blank" rel="noopener">Guild Identities - Lore-Wise (r/magicTCG)</a></li>
-                        <li><a href="https://draftsim.com/mtg-guilds/" target="_blank" rel="noopener">MTG Guilds - Draftsim</a></li>
-                      </ul>
-                    </div>
-                  </article>
-
-                  <article class="apoc-tray-card" data-deck-tone="scholarship">
-                    <div class="apoc-tray-card__namebar">
-                      <span>Card V</span>
-                      <span>Boundary</span>
-                    </div>
-                    <div class="apoc-tray-card__art" data-card-art data-deck-tone="scholarship" data-art-seed="scholarship-5"></div>
-                    <div class="apoc-tray-card__body">
-                      <h4>What this deck does not do</h4>
-                      <p>Scholarship can clarify or organize a reading, but it does not outrank the canon shelf or rewrite story facts.</p>
-                    </div>
-                  </article>
-                </div>
-              </article>
-
-              <article class="vm-panel apoc-deck-panel" id="deck-panel-media" data-deck-panel="media" data-deck-tone="media" hidden>
-                <div class="apoc-deck-panel__head">
-                  <div>
-                    <p class="vm-card-kicker">Media Deck</p>
-                    <h3>Video lore surfaces help catch gaps and sharpen the throughline.</h3>
-                    <p>These are visible support layers when spoken walkthroughs help connect details across wider faction narratives.</p>
-                  </div>
-                  <div class="apoc-deck-panel__mast" data-card-art data-deck-tone="media" data-art-seed="media-mast"></div>
-                </div>
-
-                <div class="apoc-tray-grid">
-                  <article class="apoc-tray-card" data-deck-tone="media">
-                    <div class="apoc-tray-card__namebar">
-                      <span>Card I</span>
-                      <span>What it is</span>
-                    </div>
-                    <div class="apoc-tray-card__art" data-card-art data-deck-tone="media" data-art-seed="media-1"></div>
-                    <div class="apoc-tray-card__body">
-                      <h4>Spoken and visual breakdowns</h4>
-                      <p>YouTube deep dives, lore summaries, and visual recaps that support archive review when written sources feel compressed.</p>
-                    </div>
-                  </article>
-
-                  <article class="apoc-tray-card" data-deck-tone="media">
-                    <div class="apoc-tray-card__namebar">
-                      <span>Card II</span>
-                      <span>Used for</span>
-                    </div>
-                    <div class="apoc-tray-card__art" data-card-art data-deck-tone="media" data-art-seed="media-2"></div>
-                    <div class="apoc-tray-card__body">
-                      <h4>Cross-check and emphasis</h4>
-                      <p>Narrative gap checking, faction tone reinforcement, and quick recall for broad guild overviews.</p>
-                    </div>
-                  </article>
-
-                  <article class="apoc-tray-card" data-deck-tone="media">
-                    <div class="apoc-tray-card__namebar">
-                      <span>Card III</span>
-                      <span>Status</span>
-                    </div>
-                    <div class="apoc-tray-card__art" data-card-art data-deck-tone="media" data-art-seed="media-3"></div>
-                    <div class="apoc-tray-card__body">
-                      <h4>Trust lane</h4>
-                      <dl class="apoc-stat-list">
-                        <div><dt>Exposure</dt><dd>Public</dd></div>
-                        <div><dt>Count</dt><dd>3 live sources</dd></div>
-                        <div><dt>Lane</dt><dd>Cross-check</dd></div>
-                      </dl>
-                    </div>
-                  </article>
-
-                  <article class="apoc-tray-card" data-deck-tone="media">
-                    <div class="apoc-tray-card__namebar">
-                      <span>Card IV</span>
-                      <span>Live shelf</span>
-                    </div>
-                    <div class="apoc-tray-card__art" data-card-art data-deck-tone="media" data-art-seed="media-4"></div>
-                    <div class="apoc-tray-card__body">
-                      <h4>Current public sources</h4>
-                      <ul class="apoc-source-links">
-                        <li><a href="https://www.youtube.com/watch?v=a56_7ht2hCI" target="_blank" rel="noopener">The Guilds of Ravnica - Lore Overview</a></li>
-                        <li><a href="https://www.youtube.com/watch?v=ln91iHDBTao" target="_blank" rel="noopener">Ravnica Guild Deep Dive - Part I</a></li>
-                        <li><a href="https://www.youtube.com/watch?v=BTWalpU7Sws" target="_blank" rel="noopener">Ravnica Guild Deep Dive - Part II</a></li>
-                      </ul>
-                    </div>
-                  </article>
-
-                  <article class="apoc-tray-card" data-deck-tone="media">
-                    <div class="apoc-tray-card__namebar">
-                      <span>Card V</span>
-                      <span>Boundary</span>
-                    </div>
-                    <div class="apoc-tray-card__art" data-card-art data-deck-tone="media" data-art-seed="media-5"></div>
-                    <div class="apoc-tray-card__body">
-                      <h4>What this deck does not do</h4>
-                      <p>Media can support a reading, but it stays visibly secondary and never becomes a hidden scoring surface.</p>
-                    </div>
-                  </article>
-                </div>
-              </article>
-
-              <article class="vm-panel apoc-deck-panel" id="deck-panel-codex" data-deck-panel="codex" data-deck-tone="codex" hidden>
-                <div class="apoc-deck-panel__head">
-                  <div>
-                    <p class="vm-card-kicker">Codex Deck</p>
-                    <h3>Internal dossiers and captures exist, but they are not auto-published.</h3>
-                    <p>Apocrypha can name this shelf and summarize its role without dumping private file bundles into the public archive.</p>
-                  </div>
-                  <div class="apoc-deck-panel__mast" data-card-art data-deck-tone="codex" data-art-seed="codex-mast"></div>
-                </div>
-
-                <div class="apoc-tray-grid">
-                  <article class="apoc-tray-card" data-deck-tone="codex">
-                    <div class="apoc-tray-card__namebar">
-                      <span>Card I</span>
-                      <span>What it is</span>
-                    </div>
-                    <div class="apoc-tray-card__art" data-card-art data-deck-tone="codex" data-art-seed="codex-1"></div>
-                    <div class="apoc-tray-card__body">
-                      <h4>Local research shelf</h4>
-                      <p>Markdown, RTF, HTML captures, extracted bundles, and structured faction notes used inside Vox Mana.</p>
-                    </div>
-                  </article>
-
-                  <article class="apoc-tray-card" data-deck-tone="codex">
-                    <div class="apoc-tray-card__namebar">
-                      <span>Card II</span>
-                      <span>Used for</span>
-                    </div>
-                    <div class="apoc-tray-card__art" data-card-art data-deck-tone="codex" data-art-seed="codex-2"></div>
-                    <div class="apoc-tray-card__body">
-                      <h4>Internal curation and route prep</h4>
-                      <p>Research staging, dossier drafting, archive capture, and later public-route curation when publication is safe.</p>
-                    </div>
-                  </article>
-
-                  <article class="apoc-tray-card" data-deck-tone="codex">
-                    <div class="apoc-tray-card__namebar">
-                      <span>Card III</span>
-                      <span>Status</span>
-                    </div>
-                    <div class="apoc-tray-card__art" data-card-art data-deck-tone="codex" data-art-seed="codex-3"></div>
-                    <div class="apoc-tray-card__body">
-                      <h4>Trust lane</h4>
-                      <dl class="apoc-stat-list">
-                        <div><dt>Exposure</dt><dd>Internal</dd></div>
-                        <div><dt>Count</dt><dd>Catalog Pending</dd></div>
-                        <div><dt>Lane</dt><dd>Summary only</dd></div>
-                      </dl>
-                    </div>
-                  </article>
-
-                  <article class="apoc-tray-card" data-deck-tone="codex">
-                    <div class="apoc-tray-card__namebar">
-                      <span>Card IV</span>
-                      <span>Public-safe surface</span>
-                    </div>
-                    <div class="apoc-tray-card__art" data-card-art data-deck-tone="codex" data-art-seed="codex-4"></div>
-                    <div class="apoc-tray-card__body">
-                      <h4>What can be named safely</h4>
-                      <div class="apoc-chip-list">
-                        <span class="vm-chip">Markdown dossiers</span>
-                        <span class="vm-chip">RTF captures</span>
-                        <span class="vm-chip">HTML extracts</span>
-                        <span class="vm-chip">Route prep notes</span>
-                      </div>
-                    </div>
-                  </article>
-
-                  <article class="apoc-tray-card" data-deck-tone="codex">
-                    <div class="apoc-tray-card__namebar">
-                      <span>Card V</span>
-                      <span>Boundary</span>
-                    </div>
-                    <div class="apoc-tray-card__art" data-card-art data-deck-tone="codex" data-art-seed="codex-5"></div>
-                    <div class="apoc-tray-card__body">
-                      <h4>What this deck does not do</h4>
-                      <p>Raw local file paths, unfinished dossiers, and internal bundles do not become public links just because the shelf exists.</p>
-                    </div>
-                  </article>
-                </div>
-              </article>
-
-              <article class="vm-panel apoc-deck-panel" id="deck-panel-logic" data-deck-panel="logic" data-deck-tone="logic" hidden>
-                <div class="apoc-deck-panel__head">
-                  <div>
-                    <p class="vm-card-kicker">Logic Deck</p>
-                    <h3>Method can be explained without exposing the hidden machine.</h3>
-                    <p>Apocrypha shows how source work becomes public reading support, while the private weighting layer stays off the shelf.</p>
-                  </div>
-                  <div class="apoc-deck-panel__mast" data-card-art data-deck-tone="logic" data-art-seed="logic-mast"></div>
-                </div>
-
-                <div class="apoc-tray-grid">
-                  <article class="apoc-tray-card" data-deck-tone="logic">
-                    <div class="apoc-tray-card__namebar">
-                      <span>Card I</span>
-                      <span>What it is</span>
-                    </div>
-                    <div class="apoc-tray-card__art" data-card-art data-deck-tone="logic" data-art-seed="logic-1"></div>
-                    <div class="apoc-tray-card__body">
-                      <h4>Public-safe methodology layer</h4>
-                      <p>Trust framing, source categories, verification language, and archive process notes that can be explained safely.</p>
-                    </div>
-                  </article>
-
-                  <article class="apoc-tray-card" data-deck-tone="logic">
-                    <div class="apoc-tray-card__namebar">
-                      <span>Card II</span>
-                      <span>Used for</span>
-                    </div>
-                    <div class="apoc-tray-card__art" data-card-art data-deck-tone="logic" data-art-seed="logic-2"></div>
-                    <div class="apoc-tray-card__body">
-                      <h4>Grounding explanation</h4>
-                      <p>Showing how public summaries stay tied to evidence without flattening the internal placement engine into raw public logic.</p>
-                    </div>
-                  </article>
-
-                  <article class="apoc-tray-card" data-deck-tone="logic">
-                    <div class="apoc-tray-card__namebar">
-                      <span>Card III</span>
-                      <span>Status</span>
-                    </div>
-                    <div class="apoc-tray-card__art" data-card-art data-deck-tone="logic" data-art-seed="logic-3"></div>
-                    <div class="apoc-tray-card__body">
-                      <h4>Trust lane</h4>
-                      <dl class="apoc-stat-list">
-                        <div><dt>Exposure</dt><dd>Public Summary</dd></div>
-                        <div><dt>Count</dt><dd>Summaries Only</dd></div>
-                        <div><dt>Lane</dt><dd>Method framing</dd></div>
-                      </dl>
-                    </div>
-                  </article>
-
-                  <article class="apoc-tray-card" data-deck-tone="logic">
-                    <div class="apoc-tray-card__namebar">
-                      <span>Card IV</span>
-                      <span>Public-safe surface</span>
-                    </div>
-                    <div class="apoc-tray-card__art" data-card-art data-deck-tone="logic" data-art-seed="logic-4"></div>
-                    <div class="apoc-tray-card__body">
-                      <h4>What can be shown</h4>
-                      <div class="apoc-chip-list">
-                        <span class="vm-chip">Source families</span>
-                        <span class="vm-chip">Trust framing</span>
-                        <span class="vm-chip">Verification flow</span>
-                        <span class="vm-chip">Public summaries</span>
-                      </div>
-                    </div>
-                  </article>
-
-                  <article class="apoc-tray-card" data-deck-tone="logic">
-                    <div class="apoc-tray-card__namebar">
-                      <span>Card V</span>
-                      <span>Boundary</span>
-                    </div>
-                    <div class="apoc-tray-card__art" data-card-art data-deck-tone="logic" data-art-seed="logic-5"></div>
-                    <div class="apoc-tray-card__body">
-                      <h4>What this deck does not do</h4>
-                      <p>Private placement weights, prompt scaffolds, hidden scoring relationships, and raw extraction logic remain intentionally withheld.</p>
-                    </div>
-                  </article>
-                </div>
-              </article>
-            </div>
+            <article class="vm-panel apoc-guide-card" data-reveal>
+              <p class="vm-card-kicker">Phase 2 Research Vault</p>
+              <h3>Later phases can surface deeper files.</h3>
+              <p>Generated notes, PDFs, RTF files, Markdown captures, HTML snapshots, and validated research bundles belong in a later vault once they have a cleaner public design.</p>
+            </article>
           </div>
         </section>
 
-        <section class="apoc-section" id="dossiers" data-rail-section>
+        <section class="apoc-section" id="ledger" data-rail-section>
           <div class="apoc-section__head" data-reveal>
-            <p class="apoc-kicker">Featured Research Dossiers</p>
-            <h2>Recognized archive shelves, not published public routes.</h2>
-            <p>
-              These topics exist in the archive map. They are named here so the public can see the shelf shape,
-              but the route itself is not public yet.
-            </p>
+            <p class="apoc-kicker">Public Reference Library</p>
+            <h2>Public links grouped by type.</h2>
+            <p>These are the public references currently linked from Apocrypha. Every entry stays visible here, with a short note about why it matters.</p>
           </div>
 
-          <div class="apoc-dossier-grid">
-            <article class="vm-panel apoc-dossier-card" data-reveal>
-              <div class="apoc-dossier-card__top">
-                <p class="vm-card-kicker">Ravnica Guilds</p>
-                <span class="apoc-pill apoc-pill--pending">Not Public Yet</span>
+          <div class="apoc-library-grid">
+            <article class="vm-panel apoc-library-group" data-reveal>
+              <div class="apoc-library-group__head">
+                <p class="vm-card-kicker">Official Lore And Story</p>
+                <h3>Primary lore foundations.</h3>
+                <p>Official or near-official story material used to anchor faction identity and set context.</p>
               </div>
-              <h3>Guild philosophy, civic role, and lore tension.</h3>
-              <p>Recognized shelf. No public route is published yet.</p>
+
+              <div class="apoc-reference-list">
+                <article class="apoc-reference-card">
+                  <h4><a href="https://magic.wizards.com/en/news/feature/flavorful-guide-guilds-ravnica-2018-10-03" target="_blank" rel="noopener">A Flavorful Guide to the Guilds of Ravnica</a></h4>
+                  <p><strong>Used for:</strong> Guild identity descriptions.</p>
+                </article>
+              </div>
             </article>
-            <article class="vm-panel apoc-dossier-card" data-reveal>
-              <div class="apoc-dossier-card__top">
-                <p class="vm-card-kicker">Strixhaven Colleges</p>
-                <span class="apoc-pill apoc-pill--pending">Not Public Yet</span>
+
+            <article class="vm-panel apoc-library-group" data-reveal>
+              <div class="apoc-library-group__head">
+                <p class="vm-card-kicker">Story Archives And Indexes</p>
+                <h3>Archives that help trace the story trail.</h3>
+                <p>Public archives and indexes that make story material, continuity, and chronology easier to reach.</p>
               </div>
-              <h3>Academic faction voice and cross-guild analogs.</h3>
-              <p>Recognized shelf. No public route is published yet.</p>
+
+              <div class="apoc-reference-list">
+                <article class="apoc-reference-card">
+                  <h4><a href="https://github.com/polarkac/MTG-Stories/tree/master/stories" target="_blank" rel="noopener">MTG Stories - polarkac GitHub Archive</a></h4>
+                  <p><strong>Used for:</strong> Story beats and faction voice.</p>
+                </article>
+                <article class="apoc-reference-card">
+                  <h4><a href="https://www.reddit.com/r/mtgvorthos/comments/14zerhh/pdf_archive_of_mtg_stories_from_magic_origins_to/" target="_blank" rel="noopener">MTG Stories PDF Archive - r/mtgvorthos</a></h4>
+                  <p><strong>Used for:</strong> Story navigation support.</p>
+                </article>
+                <article class="apoc-reference-card">
+                  <h4><a href="https://mtglore.com/chronological/" target="_blank" rel="noopener">MTGLore.com - Chronological Story Index</a></h4>
+                  <p><strong>Used for:</strong> Set chronology and timeline checks.</p>
+                </article>
+              </div>
             </article>
-            <article class="vm-panel apoc-dossier-card" data-reveal>
-              <div class="apoc-dossier-card__top">
-                <p class="vm-card-kicker">New Capenna Families</p>
-                <span class="apoc-pill apoc-pill--pending">Not Public Yet</span>
+
+            <article class="vm-panel apoc-library-group" data-reveal>
+              <div class="apoc-library-group__head">
+                <p class="vm-card-kicker">Wiki And Community References</p>
+                <h3>Support for structure and interpretation.</h3>
+                <p>Community references that help explain guild structure, player-facing readings, and lore interpretation.</p>
               </div>
-              <h3>Crime-family identity and city pressure map.</h3>
-              <p>Recognized shelf. No public route is published yet.</p>
+
+              <div class="apoc-reference-list">
+                <article class="apoc-reference-card">
+                  <h4><a href="https://mtg.fandom.com/wiki/Ravnican_guild" target="_blank" rel="noopener">MTG Fandom Wiki - Ravnican Guilds</a></h4>
+                  <p><strong>Used for:</strong> History and guild structure support.</p>
+                </article>
+                <article class="apoc-reference-card">
+                  <h4><a href="https://www.reddit.com/r/magicTCG/comments/ack2ij/ravnica_guild_identities_lore_wise/" target="_blank" rel="noopener">Guild Identities - Lore-Wise (r/magicTCG)</a></h4>
+                  <p><strong>Used for:</strong> Lore-vs-perception disambiguation.</p>
+                </article>
+                <article class="apoc-reference-card">
+                  <h4><a href="https://draftsim.com/mtg-guilds/" target="_blank" rel="noopener">MTG Guilds - Draftsim</a></h4>
+                  <p><strong>Used for:</strong> Playstyle and deck-start framing.</p>
+                </article>
+              </div>
             </article>
-            <article class="vm-panel apoc-dossier-card" data-reveal>
-              <div class="apoc-dossier-card__top">
-                <p class="vm-card-kicker">Color Pie / Mana Philosophy</p>
-                <span class="apoc-pill apoc-pill--pending">Not Public Yet</span>
+
+            <article class="vm-panel apoc-library-group" data-reveal>
+              <div class="apoc-library-group__head">
+                <p class="vm-card-kicker">Video Lore And Deep Dives</p>
+                <h3>Review and cross-check surfaces.</h3>
+                <p>Video essays and lore breakdowns used to revisit themes, compare coverage, and catch missing beats.</p>
               </div>
-              <h3>The philosophical engine under every shelf.</h3>
-              <p>Recognized shelf. No public route is published yet.</p>
-            </article>
-            <article class="vm-panel apoc-dossier-card" data-reveal>
-              <div class="apoc-dossier-card__top">
-                <p class="vm-card-kicker">Scryfall Discovery / Flavor Echoes</p>
-                <span class="apoc-pill apoc-pill--pending">Not Public Yet</span>
+
+              <div class="apoc-reference-list">
+                <article class="apoc-reference-card">
+                  <h4><a href="https://www.youtube.com/watch?v=a56_7ht2hCI" target="_blank" rel="noopener">The Guilds of Ravnica - Lore Overview</a></h4>
+                  <p><strong>Used for:</strong> Narrative gap checking.</p>
+                </article>
+                <article class="apoc-reference-card">
+                  <h4><a href="https://www.youtube.com/watch?v=ln91iHDBTao" target="_blank" rel="noopener">Ravnica Guild Deep Dive - Part I</a></h4>
+                  <p><strong>Used for:</strong> Character and event support.</p>
+                </article>
+                <article class="apoc-reference-card">
+                  <h4><a href="https://www.youtube.com/watch?v=BTWalpU7Sws" target="_blank" rel="noopener">Ravnica Guild Deep Dive - Part II</a></h4>
+                  <p><strong>Used for:</strong> Tension and lore support.</p>
+                </article>
               </div>
-              <h3>Search-backed card trails and resonance notes.</h3>
-              <p>Recognized shelf. No public route is published yet.</p>
-            </article>
-            <article class="vm-panel apoc-dossier-card" data-reveal>
-              <div class="apoc-dossier-card__top">
-                <p class="vm-card-kicker">Placement Methodology</p>
-                <span class="apoc-pill apoc-pill--pending">Not Public Yet</span>
-              </div>
-              <h3>Public method language, private scoring withheld.</h3>
-              <p>Recognized shelf. No public route is published yet.</p>
             </article>
           </div>
         </section>
 
         <section class="apoc-section" id="method" data-rail-section>
           <div class="apoc-section__head" data-reveal>
-            <p class="apoc-kicker">Research Method Flow</p>
-            <h2>How source work becomes public reading support.</h2>
-            <p>Enough method to show the shape of the work. Not a private scoring dump.</p>
+            <p class="apoc-kicker">How These References Are Used</p>
+            <h2>How public references support the site.</h2>
+            <p>This is the short version: what each reference type helps with, and where Vox Mana draws the line between public evidence and private drafting work.</p>
           </div>
 
-          <div class="apoc-flow-grid">
-            <article class="vm-panel apoc-flow-card" data-reveal>
-              <span class="apoc-flow-card__step">01</span>
-              <h3>Source Collection</h3>
-              <p>Gather canon, scholarship, media, and local research into named source families.</p>
+          <div class="apoc-use-grid">
+            <article class="vm-panel apoc-use-card" data-reveal>
+              <p class="vm-card-kicker">Official Lore</p>
+              <h3>Baseline authority</h3>
+              <p>Official lore is treated as the strongest foundation for named events, faction voice, and continuity.</p>
             </article>
-            <article class="vm-panel apoc-flow-card" data-reveal>
-              <span class="apoc-flow-card__step">02</span>
-              <h3>Claim Extraction</h3>
-              <p>Pull repeatable faction cues, tensions, identity claims, and deck-facing echoes.</p>
+
+            <article class="vm-panel apoc-use-card" data-reveal>
+              <p class="vm-card-kicker">Community References</p>
+              <h3>Interpretation support</h3>
+              <p>Community references help clarify structure, compare readings, and show how players commonly understand the lore.</p>
             </article>
-            <article class="vm-panel apoc-flow-card" data-reveal>
-              <span class="apoc-flow-card__step">03</span>
-              <h3>Verification</h3>
-              <p>Cross-check against stronger canon, continuity references, and supporting shelves.</p>
+
+            <article class="vm-panel apoc-use-card" data-reveal>
+              <p class="vm-card-kicker">Video Lore</p>
+              <h3>Review and cross-checking</h3>
+              <p>Video sources are used as review surfaces and cross-check aids, not as standalone canon.</p>
             </article>
-            <article class="vm-panel apoc-flow-card" data-reveal>
-              <span class="apoc-flow-card__step">04</span>
-              <h3>Structured Profile</h3>
-              <p>Translate verified patterns into public-safe faction notes, tags, and support language.</p>
+
+            <article class="vm-panel apoc-use-card" data-reveal>
+              <p class="vm-card-kicker">Archives And Indexes</p>
+              <h3>Navigation and continuity</h3>
+              <p>GitHub archives, story indexes, and public collections help track story material and keep continuity easier to follow.</p>
             </article>
-            <article class="vm-panel apoc-flow-card" data-reveal>
-              <span class="apoc-flow-card__step">05</span>
-              <h3>Public Reading Support</h3>
-              <p>Expose the grounded result through Apocrypha and related Vox Mana discovery surfaces.</p>
+          </div>
+
+          <article class="vm-panel apoc-use-note" data-reveal>
+            <p>Internal notes and generated research files help with drafting, but they are not treated as public source authority.</p>
+          </article>
+        </section>
+
+        <section class="apoc-section" id="dossiers" data-rail-section>
+          <div class="apoc-section__head" data-reveal>
+            <p class="apoc-kicker">Phase 2: Research Vault</p>
+            <h2>A later vault can hold the larger working collection.</h2>
+            <p>This page is intentionally focused on public URLs. A later vault can surface or summarize the larger working collection without turning the public reference page into a file dump.</p>
+          </div>
+
+          <article class="vm-panel apoc-vault-overview" data-reveal>
+            <p>Vox Mana also has a broader working research collection: PDFs, RTF files, Markdown notes, HTML captures, generated lore summaries, validation notes, and faction research bundles. Those files are valuable, but they need a separate design so they stay useful instead of overwhelming the main library.</p>
+          </article>
+
+          <div class="apoc-vault-grid">
+            <article class="vm-panel apoc-vault-card" data-reveal>
+              <div class="apoc-vault-card__top">
+                <p class="vm-card-kicker">Lore Bundles</p>
+                <span class="apoc-pill">Phase 2</span>
+              </div>
+              <p>Grouped sets of source material and summaries for a single world, faction, or theme.</p>
+            </article>
+
+            <article class="vm-panel apoc-vault-card" data-reveal>
+              <div class="apoc-vault-card__top">
+                <p class="vm-card-kicker">Faction Files</p>
+                <span class="apoc-pill">Phase 2</span>
+              </div>
+              <p>Working bundles that pull lore, philosophy, and interpretation notes into one faction-focused view.</p>
+            </article>
+
+            <article class="vm-panel apoc-vault-card" data-reveal>
+              <div class="apoc-vault-card__top">
+                <p class="vm-card-kicker">Source Captures</p>
+                <span class="apoc-pill">Phase 2</span>
+              </div>
+              <p>HTML captures, PDFs, and archived source snapshots kept for later verification and reference.</p>
+            </article>
+
+            <article class="vm-panel apoc-vault-card" data-reveal>
+              <div class="apoc-vault-card__top">
+                <p class="vm-card-kicker">Prompt Artifacts</p>
+                <span class="apoc-pill">Phase 2</span>
+              </div>
+              <p>Internal prompt-output traces that would need careful summarizing before any public release.</p>
+            </article>
+
+            <article class="vm-panel apoc-vault-card" data-reveal>
+              <div class="apoc-vault-card__top">
+                <p class="vm-card-kicker">Reference Maps</p>
+                <span class="apoc-pill">Phase 2</span>
+              </div>
+              <p>Maps that connect sources, topics, and related factions so broader research trails stay readable.</p>
+            </article>
+
+            <article class="vm-panel apoc-vault-card" data-reveal>
+              <div class="apoc-vault-card__top">
+                <p class="vm-card-kicker">Generated Summaries</p>
+                <span class="apoc-pill">Phase 2</span>
+              </div>
+              <p>Condensed lore notes and comparison drafts that could later be published as reviewed summaries.</p>
+            </article>
+
+            <article class="vm-panel apoc-vault-card" data-reveal>
+              <div class="apoc-vault-card__top">
+                <p class="vm-card-kicker">Validated Research Notes</p>
+                <span class="apoc-pill">Phase 2</span>
+              </div>
+              <p>Working notes that have been checked against stronger sources and are ready for cleaner public presentation.</p>
             </article>
           </div>
         </section>
 
         <section class="apoc-section" id="notice" data-rail-section>
           <div class="apoc-section__head" data-reveal>
-            <p class="apoc-kicker">Redacted Logic Notice</p>
-            <h2>Some structures are intentionally summarized.</h2>
+            <p class="apoc-kicker">What Is Not Published</p>
+            <h2>Public references are here. Private system details are not.</h2>
+            <p>This page lists public references and explains how they are used. It does not publish the private scoring or drafting machinery behind Vox Mana.</p>
           </div>
 
           <article class="vm-panel apoc-redaction-panel" data-reveal>
             <p class="apoc-redaction-panel__lede">
-              Apocrypha can show provenance, trust framing, and method notes. It does not publish the hidden placement machine.
+              Apocrypha shows public links, reference categories, and short usage notes. It does not publish private scoring logic, prompt internals, or unpublished working notes.
             </p>
             <div class="apoc-redaction-grid">
               <div>
-                <p class="vm-card-kicker">Shown publicly</p>
+                <p class="vm-card-kicker">Public On This Page</p>
                 <div class="apoc-chip-list">
-                  <span class="vm-chip">Source families</span>
-                  <span class="vm-chip">Trust labels</span>
-                  <span class="vm-chip">Public summaries</span>
-                  <span class="vm-chip">Method flow</span>
+                  <span class="vm-chip">Reference groups</span>
+                  <span class="vm-chip">Used for notes</span>
+                  <span class="vm-chip">Public links</span>
+                  <span class="vm-chip">Short trust framing</span>
+                  <span class="vm-chip">Phase 2 preview</span>
                 </div>
               </div>
               <div>
-                <p class="vm-card-kicker">Withheld intentionally</p>
+                <p class="vm-card-kicker">Private Working Material</p>
                 <div class="apoc-chip-list">
-                  <span class="vm-chip">Private weights</span>
+                  <span class="vm-chip">Scoring logic</span>
                   <span class="vm-chip">Prompt internals</span>
-                  <span class="vm-chip">Hidden relationships</span>
-                  <span class="vm-chip">Raw extraction logic</span>
+                  <span class="vm-chip">Hidden weights</span>
+                  <span class="vm-chip">Placement calculations</span>
+                  <span class="vm-chip">Unpublished working notes</span>
                 </div>
               </div>
             </div>
@@ -928,12 +431,12 @@
 </main>
 
 <div class="apoc-return-dock" id="apocReturnDock" aria-label="Return controls">
-  <a class="vm-button apoc-return-link" href="#decks">Back to decks</a>
+  <a class="vm-button apoc-return-link" href="#ledger">Back to references</a>
   <a class="vm-button apoc-return-link" href="#top">Back to top</a>
 </div>
 
 <script src="../assets/js/reduce-motion.js" defer></script>
 <script src="../assets/js/vm-topbar.js" defer></script>
-<script src="../assets/js/apocrypha.js?v=20260520c" defer></script>
+<script src="../assets/js/apocrypha.js?v=20260521b" defer></script>
 </body>
 </html>
