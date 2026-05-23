@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Vox Mana — Terms of Service</title>
+<title>Vox Mana â€” Terms of Service</title>
 
 <link rel="stylesheet" href="../assets/css/tokens.css">
 <link rel="stylesheet" href="../assets/css/fonts.css">
@@ -12,77 +12,236 @@
 <link rel="stylesheet" href="../assets/css/components.css">
 
 <style>
-.page {
+.legal-page {
   position: relative;
   z-index: 1;
-  width: min(720px, 100%);
+  width: min(1180px, calc(100% - clamp(1.5rem, 4vw, 3.5rem)));
   margin: 0 auto;
-  padding: 0 var(--s-5) var(--s-20);
+  padding: clamp(1.25rem, 3vw, 2rem) 0 var(--s-20);
 }
-.doc-stamp {
+
+.legal-hero,
+.summary-card,
+.legal-section {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid color-mix(in srgb, var(--gold) 24%, transparent);
+  border-radius: var(--r-3);
+  background:
+    linear-gradient(180deg, rgba(13, 11, 9, 0.94), rgba(13, 11, 9, 0.8)),
+    radial-gradient(circle at top right, rgba(212, 180, 97, 0.12), transparent 44%),
+    var(--asset-texture-panel);
+  background-size: auto, auto, 420px 420px;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(14px);
+}
+
+.legal-hero {
+  padding: clamp(1.5rem, 3vw, 2.5rem);
+  margin-top: var(--s-8);
+  margin-bottom: var(--s-8);
+}
+
+.legal-hero::after,
+.summary-card::after,
+.legal-section::after {
+  content: "";
+  position: absolute;
+  inset: 0 auto auto 0;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(212, 180, 97, 0.55), rgba(212, 180, 97, 0));
+  pointer-events: none;
+}
+
+.doc-stamp,
+.summary-eyebrow,
+.section-kicker,
+.meta-pill {
   font-family: var(--font-mono);
   font-size: var(--text-xs);
-  letter-spacing: 0.28em;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
+}
+
+.doc-stamp {
   color: var(--gold-quiet);
   margin-bottom: var(--s-3);
-  margin-top: var(--s-12);
 }
-h1 {
+
+.legal-page h1 {
   font-family: var(--font-display);
-  font-size: clamp(2rem, 4vw, 3rem);
+  font-size: clamp(2.3rem, 4vw, 4rem);
+  line-height: 1.05;
   color: var(--gold-l);
-  letter-spacing: 0.02em;
+  letter-spacing: 0.01em;
   margin-bottom: var(--s-4);
   font-variation-settings: "opsz" 96, "wght" 600, "SOFT" 50;
 }
+
 .lede {
+  max-width: 68ch;
+  margin-bottom: var(--s-6);
   color: var(--text);
   font-family: var(--font-text);
-  font-size: 1.18rem;
-  max-width: 60ch;
-  margin-bottom: var(--s-12);
-  line-height: 1.7;
-  font-style: italic;
+  font-size: clamp(1.08rem, 1rem + 0.4vw, 1.26rem);
+  line-height: 1.8;
 }
-section { padding: var(--s-8) 0; border-top: 1px solid var(--border); }
-section:first-of-type { border-top: none; padding-top: 0; }
-h2 {
-  font-family: var(--font-mono);
-  font-size: var(--text-sm);
-  font-weight: 500;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--gold);
+
+.legal-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-3);
+}
+
+.meta-pill {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.1rem;
+  padding: 0 var(--s-4);
+  border: 1px solid color-mix(in srgb, var(--gold) 26%, transparent);
+  border-radius: 999px;
+  color: var(--gold-l);
+  background: color-mix(in srgb, var(--bg-2) 78%, rgba(212, 180, 97, 0.18));
+}
+
+.legal-layout {
+  display: grid;
+  gap: var(--s-6);
+}
+
+.summary-card {
+  padding: var(--s-6);
+}
+
+.summary-eyebrow {
+  margin-bottom: var(--s-3);
+  color: var(--gold-quiet);
+}
+
+.summary-card h2,
+.legal-section h2 {
+  color: var(--text);
+  font-family: var(--font-text);
+  font-size: clamp(1.3rem, 1.1rem + 0.6vw, 1.8rem);
+  line-height: 1.2;
+  letter-spacing: 0.01em;
+}
+
+.summary-card h2 {
+  margin-bottom: var(--s-3);
+}
+
+.summary-card p,
+.legal-content p,
+.legal-content li,
+.summary-list li {
+  color: var(--text);
+  font-family: var(--font-text);
+  font-size: clamp(1rem, 0.97rem + 0.22vw, 1.1rem);
+  line-height: 1.78;
+}
+
+.summary-card p {
   margin-bottom: var(--s-4);
 }
-p {
-  font-family: var(--font-text);
-  font-size: 1.08rem;
-  color: var(--text);
-  margin-bottom: var(--s-3);
-  max-width: 64ch;
-  line-height: 1.75;
+
+.summary-list,
+.legal-content ul {
+  padding-left: 1.2rem;
 }
-p:last-child { margin-bottom: 0; }
-ul { padding-left: var(--s-5); margin: 0; max-width: 64ch; }
-li {
-  font-family: var(--font-text);
-  font-size: 1.08rem;
-  color: var(--text);
-  margin-bottom: var(--s-3);
-  line-height: 1.7;
+
+.summary-list li + li,
+.legal-content li + li {
+  margin-top: var(--s-3);
 }
-li:last-child { margin-bottom: 0; }
+
+.legal-content {
+  display: grid;
+  gap: var(--s-5);
+}
+
+.legal-section {
+  padding: clamp(1.25rem, 2.5vw, 2rem);
+}
+
+.section-kicker {
+  display: inline-flex;
+  margin-bottom: var(--s-3);
+  color: var(--gold-quiet);
+}
+
+.legal-section h2 {
+  margin-bottom: var(--s-4);
+}
+
+.legal-section p + p,
+.legal-section ul,
+.legal-section .callout {
+  margin-top: var(--s-4);
+}
+
+.legal-content p,
+.legal-content li {
+  max-width: 72ch;
+}
+
+.callout {
+  padding: var(--s-4) var(--s-5);
+  border-left: 2px solid var(--gold);
+  border-radius: var(--r-2);
+  background: color-mix(in srgb, var(--bg-2) 82%, rgba(212, 180, 97, 0.14));
+  color: var(--text);
+}
+
 .foot {
-  margin-top: var(--s-12);
-  padding-top: var(--s-6);
+  padding-top: var(--s-4);
   border-top: 1px solid var(--border);
   color: var(--text-muted);
-  font-size: 0.95rem;
   font-style: italic;
 }
-@media (max-width: 640px) { .doc-stamp { margin-top: var(--s-6); } }
+
+@media (min-width: 981px) {
+  .legal-layout {
+    grid-template-columns: minmax(0, 1.65fr) minmax(18rem, 0.95fr);
+    align-items: start;
+  }
+
+  .summary-card {
+    order: 2;
+    position: sticky;
+    top: calc(var(--s-10) + 4.25rem);
+  }
+
+  .legal-content {
+    order: 1;
+  }
+}
+
+@media (max-width: 980px) {
+  .legal-hero,
+  .summary-card,
+  .legal-section {
+    padding-left: clamp(1rem, 3vw, 1.5rem);
+    padding-right: clamp(1rem, 3vw, 1.5rem);
+  }
+}
+
+@media (max-width: 640px) {
+  .legal-page {
+    width: min(100% - 1rem, 1180px);
+    padding-top: var(--s-4);
+    padding-bottom: var(--s-16);
+  }
+
+  .legal-page h1 {
+    font-size: clamp(2rem, 9vw, 2.7rem);
+  }
+
+  .legal-meta {
+    gap: var(--s-2);
+  }
+}
 </style>
 </head>
 <body data-page="terms" data-vm-current="terms" data-bg="heavy" data-bg-clean="true">
@@ -92,10 +251,12 @@ li:last-child { margin-bottom: 0; }
     <source type="image/webp" srcset="../assets/img/backgrounds/background-apocrypha-library-clean-01.webp 2560w" sizes="100vw">
     <img src="../assets/img/backgrounds/background-apocrypha-library-clean-01.webp" alt="" decoding="async">
   </picture>
+  <div class="vm-bg__nebula"></div>
+  <canvas class="vm-bg__stars" aria-hidden="true"></canvas>
 </div>
 
 <header class="vm-topbar" role="banner">
-  <a class="vm-brand" href="../newIndex2.html" aria-label="Vox Mana — home">
+  <a class="vm-brand" href="../newIndex2.html" aria-label="Vox Mana â€” home">
     <span class="vm-brand-mark" aria-hidden="true"></span>
     <span class="vm-brand-text">Vox Mana</span>
   </a>
@@ -134,7 +295,7 @@ li:last-child { margin-bottom: 0; }
         class="vm-menu-item"
         role="menuitem"
         data-vm-toggle="reduce-motion"
-        data-vm-tooltip-on="Stillness · on"
+        data-vm-tooltip-on="Stillness Â· on"
         data-vm-tooltip-off="Quiet the motion"
       >
         <span>Reduce motion</span>
@@ -144,72 +305,124 @@ li:last-child { margin-bottom: 0; }
   </div>
 </header>
 
-<main class="page">
+<main class="legal-page">
+  <header class="legal-hero">
+    <div class="doc-stamp">Archive Record // Terms</div>
+    <h1>Vox Mana Terms of Service</h1>
+    <p class="lede">These terms govern your use of Vox Mana, including <span class="vm-gloss" tabindex="0" data-gloss="Reading without signing in. Your result is held in browser storage; you can save it permanently with Google sign-in.">guest readings</span>, saved placements, and optional Google sign-in.</p>
+    <div class="legal-meta" aria-label="Terms of service highlights">
+      <span class="meta-pill">Effective May 5, 2026</span>
+      <span class="meta-pill">Guest readings supported</span>
+      <span class="meta-pill">Optional Google sign-in</span>
+      <span class="meta-pill">Unofficial MTG fan project</span>
+    </div>
+  </header>
 
-  <div class="doc-stamp">Terms of Service</div>
-  <h1>Vox Mana Terms of Service</h1>
-  <p class="lede">These terms govern your use of Vox Mana, including <span class="vm-gloss" tabindex="0" data-gloss="Reading without signing in. Your result is held in browser storage; you can save it permanently with Google sign-in.">guest readings</span>, saved placements, and optional Google sign-in.</p>
+  <div class="legal-layout">
+    <aside class="summary-card" aria-labelledby="terms-summary-title">
+      <div class="summary-eyebrow">Plain-English Summary</div>
+      <h2 id="terms-summary-title">What these terms cover</h2>
+      <p>These terms explain how Vox Mana may be used, what guest use and saved results mean in practice, and the limits around site availability, outside providers, and reading guidance.</p>
+      <ul class="summary-list">
+        <li>Vox Mana is an informational and entertainment tool for Magic: The Gathering players and fans.</li>
+        <li>Guest readings are available without sign-in, and saved placements are tied to optional Google sign-in.</li>
+        <li>You may not misuse the service, abuse authentication, or disrupt the deeper reading flow.</li>
+        <li>The site depends on third-party providers and may link to outside deck, card, and community resources.</li>
+        <li>Readings, deck links, and card suggestions are for exploration and planning, not a guarantee of outcome.</li>
+      </ul>
+    </aside>
 
-  <section>
-    <h2>Effective Date</h2>
-    <p>Effective May 5, 2026.</p>
-  </section>
+    <article class="legal-content" aria-label="Terms of service content">
+      <section class="legal-section">
+        <div class="section-kicker">01</div>
+        <h2>Effective Date</h2>
+        <p>Effective May 5, 2026.</p>
+      </section>
 
-  <section>
-    <h2>Use of the Service</h2>
-    <p>Vox Mana is provided as an informational and entertainment tool for Magic: The Gathering players and fans. <span class="vm-gloss" tabindex="0" data-gloss="The result of an Archscry session — your matched faction (one of 10 Ravnica guilds or 5 Strixhaven colleges) along with archetypes, staple cards, lands, and deck links.">Faction readings</span> are grounded in a curated lore database compiled from published Magic: The Gathering sources and community research. Readings reflect that research — AI is used to evaluate responses against it, not to invent lore or gameplay content.</p>
-    <p>Vox Mana is an unofficial fan project and is not affiliated with or endorsed by Wizards of the Coast or Hasbro.</p>
-  </section>
+      <section class="legal-section">
+        <div class="section-kicker">02</div>
+        <h2>At a Glance</h2>
+        <p>Vox Mana is provided as an informational and entertainment tool. You can use it as a guest or choose optional Google sign-in for saved results, but use of the service remains subject to availability, provider limits, and the acceptable-use guardrails below.</p>
+      </section>
 
-  <section>
-    <h2>Fan Project &amp; Intellectual Property</h2>
-    <p>Magic: The Gathering, all guild and college names, card names, card artwork, and related intellectual property are owned by <span class="vm-gloss" tabindex="0" data-gloss="The publisher of Magic: The Gathering. A subsidiary of Hasbro, Inc. All MTG-related IP belongs to them.">Wizards of the Coast LLC</span>, a subsidiary of Hasbro, Inc. Vox Mana is an unofficial community fan project created to help players explore the game and is not produced by, affiliated with, or endorsed by Wizards of the Coast or Hasbro.</p>
-    <p>Faction lore, playstyle descriptions, and deck guidance on this site are based on publicly available game materials, official articles, and community sources compiled and interpreted by the site operator. No original Wizards of the Coast content is reproduced for commercial purpose. Card names and deck links are referenced for informational purposes only.</p>
-    <p>Card names, deck archetypes, and lore references are the intellectual property of Wizards of the Coast. This site reproduces none of that content for commercial purpose.</p>
-  </section>
+      <section class="legal-section">
+        <div class="section-kicker">03</div>
+        <h2>Use of the Service</h2>
+        <p>Vox Mana is provided as an informational and entertainment tool for Magic: The Gathering players and fans. <span class="vm-gloss" tabindex="0" data-gloss="The result of an Archscry session - your matched faction (one of 10 Ravnica guilds or 5 Strixhaven colleges) along with archetypes, staple cards, lands, and deck links.">Faction readings</span> are grounded in a curated lore database compiled from published Magic: The Gathering sources and community research. Readings reflect that research - AI is used to evaluate responses against it, not to invent lore or gameplay content.</p>
+        <p>Vox Mana is an unofficial fan project and is not affiliated with or endorsed by Wizards of the Coast or Hasbro.</p>
+      </section>
 
-  <section>
-    <h2>Acceptable Use</h2>
-    <p>You agree not to misuse the service. This includes attempting to disrupt the site, abuse authentication flows, spam the <span class="vm-gloss" tabindex="0" data-gloss="The deeper interview API endpoint at /functions/v1/guild-recruiter, which is rate-limited and may be throttled per session.">interview endpoint</span>, scrape the service in a way that harms availability, or use the service for unlawful activity.</p>
-  </section>
+      <section class="legal-section">
+        <div class="section-kicker">04</div>
+        <h2>Guest Readings and Saved Placements</h2>
+        <p>You may use Vox Mana as a guest or choose to save a reading through Google sign-in. Guest use allows you to access the service without signing in, while saved placements are tied to the optional sign-in flow.</p>
+      </section>
 
-  <section>
-    <h2>Accounts and Saved Results</h2>
-    <p>You may use Vox Mana as a guest or choose to save a reading through Google sign-in. You are responsible for activity associated with your account session and for using a Google account you are authorized to use.</p>
-  </section>
+      <section class="legal-section">
+        <div class="section-kicker">05</div>
+        <h2>Optional Google Sign-In</h2>
+        <p>Google sign-in is optional. If you choose to use it, the sign-in flow is used so Vox Mana can save and restore your reading through the account details made available by that authentication process.</p>
+      </section>
 
-  <section>
-    <h2>Third-Party Services and Links</h2>
-    <p>Vox Mana relies on third-party providers for authentication, hosting, storage, and AI-assisted interview processing. The site may also link to external resources such as deck databases, card references, and community tools. Vox Mana is not responsible for third-party content, availability, or policies.</p>
-  </section>
+      <section class="legal-section">
+        <div class="section-kicker">06</div>
+        <h2>Accounts and Saved Results</h2>
+        <p>You are responsible for activity associated with your account session and for using a Google account you are authorized to use.</p>
+      </section>
 
-  <section>
-    <h2>No Purchase or Gameplay Guarantee</h2>
-    <p>Readings, format suggestions, deck links, <span class="vm-gloss" tabindex="0" data-gloss="Cards typically considered foundational or commonly-played within a given faction or archetype. Suggestions are aggregated from public deck-building resources, not guarantees of competitive viability.">staple cards</span>, and land recommendations are provided for exploration and planning. They are not guarantees of price, performance, card legality, competitiveness, or personal enjoyment.</p>
-  </section>
+      <section class="legal-section">
+        <div class="section-kicker">07</div>
+        <h2>Acceptable Use</h2>
+        <p>You agree not to misuse the service. This includes attempting to disrupt the site, abuse authentication flows, spam the <span class="vm-gloss" tabindex="0" data-gloss="The deeper interview API endpoint at /functions/v1/guild-recruiter, which is rate-limited and may be throttled per session.">interview endpoint</span>, scrape the service in a way that harms availability, or use the service for unlawful activity.</p>
+      </section>
 
-  <section>
-    <h2>Availability and Changes</h2>
-    <p>Vox Mana may change, pause, or remove features at any time, including interview logic, saved-result behavior, faction data, or external link destinations. The service may be unavailable during maintenance, provider outages, or security events.</p>
-  </section>
+      <section class="legal-section">
+        <div class="section-kicker">08</div>
+        <h2>Third-Party Services and Links</h2>
+        <p>Vox Mana relies on third-party providers for authentication, hosting, storage, and AI-assisted interview processing. The site may also link to external resources such as deck databases, card references, and community tools. Vox Mana is not responsible for third-party content, availability, or policies.</p>
+      </section>
 
-  <section>
-    <h2>Termination</h2>
-    <p>Access may be limited or revoked for abusive behavior, attempts to compromise the service, or conduct that creates operational or legal risk.</p>
-  </section>
+      <section class="legal-section">
+        <div class="section-kicker">09</div>
+        <h2>Fan Project and Intellectual Property</h2>
+        <p>Magic: The Gathering, all guild and college names, card names, card artwork, and related intellectual property are owned by <span class="vm-gloss" tabindex="0" data-gloss="The publisher of Magic: The Gathering. A subsidiary of Hasbro, Inc. All MTG-related IP belongs to them.">Wizards of the Coast LLC</span>, a subsidiary of Hasbro, Inc. Vox Mana is an unofficial community fan project created to help players explore the game and is not produced by, affiliated with, or endorsed by Wizards of the Coast or Hasbro.</p>
+        <p>Faction lore, playstyle descriptions, and deck guidance on this site are based on publicly available game materials, official articles, and community sources compiled and interpreted by the site operator. No original Wizards of the Coast content is reproduced for commercial purpose. Card names and deck links are referenced for informational purposes only.</p>
+        <p>Card names, deck archetypes, and lore references are the intellectual property of Wizards of the Coast. This site reproduces none of that content for commercial purpose.</p>
+      </section>
 
-  <section>
-    <h2>Disclaimer</h2>
-    <p>The service is provided on an "as is" and "as available" basis, without warranties of any kind to the extent permitted by law.</p>
-  </section>
+      <section class="legal-section">
+        <div class="section-kicker">10</div>
+        <h2>No Purchase or Gameplay Guarantee</h2>
+        <p>Readings, format suggestions, deck links, <span class="vm-gloss" tabindex="0" data-gloss="Cards typically considered foundational or commonly-played within a given faction or archetype. Suggestions are aggregated from public deck-building resources, not guarantees of competitive viability.">staple cards</span>, and land recommendations are provided for exploration and planning. They are not guarantees of price, performance, card legality, competitiveness, or personal enjoyment.</p>
+        <div class="callout">Readings and recommendations are meant to guide exploration and planning, not guarantee a purchase outcome, gameplay result, or personal fit.</div>
+      </section>
 
-  <section>
-    <h2>Contact</h2>
-    <p>If you have questions about these terms, please open an issue on the project's public source repository or use the contact method listed on the site.</p>
-  </section>
+      <section class="legal-section">
+        <div class="section-kicker">11</div>
+        <h2>Availability and Changes</h2>
+        <p>Vox Mana may change, pause, or remove features at any time, including interview logic, saved-result behavior, faction data, or external link destinations. The service may be unavailable during maintenance, provider outages, or security events.</p>
+      </section>
 
-  <p class="foot">By using Vox Mana, you agree to these terms.</p>
+      <section class="legal-section">
+        <div class="section-kicker">12</div>
+        <h2>Termination</h2>
+        <p>Access may be limited or revoked for abusive behavior, attempts to compromise the service, or conduct that creates operational or legal risk.</p>
+      </section>
 
+      <section class="legal-section">
+        <div class="section-kicker">13</div>
+        <h2>Disclaimer</h2>
+        <p>The service is provided on an "as is" and "as available" basis, without warranties of any kind to the extent permitted by law.</p>
+      </section>
+
+      <section class="legal-section">
+        <div class="section-kicker">14</div>
+        <h2>Contact</h2>
+        <p>If you have questions about these terms, please open an issue on the project's public source repository or use the contact method listed on the site.</p>
+        <p class="foot">By using Vox Mana, you agree to these terms.</p>
+      </section>
+    </article>
+  </div>
 </main>
 
 <script src="../assets/js/reduce-motion.js" defer></script>

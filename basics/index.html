@@ -252,34 +252,39 @@ section {
 
 /* SECTION SPACING: Adds vertical padding to standard content sections. */
 .vm-section {
-  padding: 3rem 0;
+  padding: 2.4rem 0;
 }
 
 /* SECTION HEADINGS: Centers major section titles and makes their size responsive with clamp(). */
 .vm-section h2 {
   margin: 0 0 0.75rem;
   text-align: center;
-  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  font-size: clamp(1.7rem, 3.8vw, 2.55rem);
 }
 
 /* SECTION INTRO COPY: Limits paragraph width, centers it, and uses muted text for explanatory copy. */
 .vm-section-intro {
   max-width: 720px;
-  margin: 0 auto 2rem;
+  margin: 0 auto 1.4rem;
   text-align: center;
   color: var(--muted);
   line-height: 1.65;
+}
+
+.vm-section-tight {
+  padding-top: 1.35rem;
+  padding-bottom: 2rem;
 }
 
 /* CSS SECTION: Top hero/landing introduction styling. */
 /* HERO */
 /* HERO SECTION: Main first impression area; grid centering places the title block in the middle. */
 .vm-hero {
-  min-height: calc(100vh - 76px);
+  min-height: auto;
   display: grid;
-  align-items: center;
+  align-items: start;
   text-align: left;
-  padding: 4rem 0 5rem;
+  padding: 2.4rem 0 1.4rem;
 }
 
 /* HERO EYEBROW: Small uppercase label above the main title. */
@@ -292,18 +297,18 @@ section {
 
 /* HERO TITLE: Large responsive Vox Mana title with tight line-height and soft glow. */
 .vm-hero h1 {
-  margin: 0.5rem 0;
-  font-size: clamp(3.4rem, 7vw, 6.4rem);
-  line-height: 0.94;
+  margin: 0.4rem 0 0;
+  font-size: clamp(2.65rem, 5vw, 4.7rem);
+  line-height: 0.97;
   text-shadow: 0 0 30px rgba(255, 255, 255, 0.22);
 }
 
 /* HERO PARAGRAPHS: Readable intro text with max width and responsive font size. */
 .vm-hero p {
-  max-width: 780px;
-  margin: 1rem 0;
+  max-width: 66ch;
+  margin: 0.85rem 0 0;
   color: var(--muted);
-  font-size: clamp(1rem, 2vw, 1.2rem);
+  font-size: clamp(1rem, 1.75vw, 1.12rem);
   line-height: 1.65;
 }
 
@@ -333,6 +338,8 @@ section {
 
 .vm-hero-copy {
   min-width: 0;
+  display: grid;
+  gap: 0.1rem;
 }
 
 .vm-hero-copy p:first-of-type {
@@ -357,6 +364,58 @@ section {
   font-size: 0.72rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
+}
+
+.vm-guide-panel,
+.vm-next-step {
+  align-items: center;
+}
+
+.vm-guide-panel h2,
+.vm-next-step h2 {
+  text-align: left;
+}
+
+.vm-guide-copy,
+.vm-next-copy {
+  margin: 0 0 0.9rem;
+  color: var(--muted);
+  line-height: 1.65;
+}
+
+.vm-guide-copy:last-of-type,
+.vm-next-copy:last-of-type {
+  margin-bottom: 0;
+}
+
+.vm-guide-rail {
+  display: grid;
+  gap: 0.9rem;
+  padding-left: 1rem;
+  border-left: 1px solid rgba(247,215,132,0.22);
+}
+
+.vm-guide-rail-head {
+  display: grid;
+  gap: 0.35rem;
+}
+
+.vm-guide-sequence {
+  margin: 0;
+  color: rgba(255,255,255,0.9);
+  line-height: 1.55;
+}
+
+.vm-guide-panel .vm-start-grid {
+  gap: 0.7rem;
+}
+
+.vm-guide-panel .vm-start-row {
+  background: rgba(255,255,255,0.035);
+}
+
+.vm-guide-panel .vm-start-row span:last-child {
+  justify-self: end;
 }
 
 .vm-hero-mana {
@@ -595,6 +654,32 @@ section {
   gap: 1rem;
 }
 
+.vm-bridge-panel > .vm-eyebrow {
+  display: block;
+  margin-bottom: 0.45rem;
+}
+
+.vm-bridge-intro {
+  max-width: 760px;
+  margin-bottom: 1.4rem;
+}
+
+.vm-bridge-grid {
+  margin-top: 0.4rem;
+}
+
+.vm-bridge-card {
+  min-height: 0;
+}
+
+.vm-bridge-card h3 {
+  margin-bottom: 0.45rem;
+}
+
+.vm-bridge-card p:last-of-type {
+  margin-bottom: 0;
+}
+
 /* MINI LIST WRAPPER: Vertically stacks the feature list items. */
 .vm-list {
   display: grid;
@@ -735,22 +820,28 @@ section {
 /* MAGIC BASICS */
 /* BASICS TABS WRAPPER: Horizontal/wrapping row for the Magic Basics topic buttons. */
 .vm-tabs {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 0.65rem;
-  margin-bottom: 1rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  gap: 0.8rem;
+  max-width: 1060px;
+  margin: 0 auto 1rem;
 }
 
 /* BASICS TAB BUTTON: Styles each topic selector button. JavaScript reads data-topic from these buttons. */
 .vm-tab {
+  display: grid;
+  align-content: start;
+  gap: 0.35rem;
   border: 1px solid var(--line);
-  border-radius: 999px;
-  padding: 0.7rem 0.9rem;
-  background: var(--panel);
+  border-radius: 20px;
+  min-height: 118px;
+  padding: 1rem;
+  background: linear-gradient(180deg, rgba(255,255,255,0.07), rgba(255,255,255,0.03));
   color: var(--text);
   font-family: inherit;
+  text-align: left;
   cursor: pointer;
+  transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
 }
 
 /* ACTIVE/HOVER TAB: Shows which Magic Basics tab is active and gives hover feedback. */
@@ -758,6 +849,25 @@ section {
 .vm-tab:hover {
   background: var(--panel-strong);
   border-color: rgba(255,255,255,0.34);
+  transform: translateY(-2px);
+  box-shadow: 0 16px 42px rgba(0,0,0,0.24);
+}
+
+.vm-tab-title {
+  color: var(--ink);
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.vm-tab-copy {
+  color: var(--muted);
+  font-size: 0.88rem;
+  line-height: 1.5;
+}
+
+.vm-tab.active .vm-tab-copy,
+.vm-tab:hover .vm-tab-copy {
+  color: rgba(255,255,255,0.84);
 }
 
 /* REVEAL INITIAL STATE: Elements start slightly lower and invisible; JS adds .is-visible when they enter the viewport. */
@@ -792,11 +902,11 @@ section {
 }
 
 .vm-reveal {
-  max-width: 780px;
+  max-width: 900px;
   margin: 0 auto;
   border: 1px solid var(--line);
-  border-radius: 22px;
-  padding: 1.25rem;
+  border-radius: 20px;
+  padding: 1.15rem 1.2rem;
   background: rgba(255,255,255,0.045);
   color: var(--muted);
   line-height: 1.7;
@@ -809,7 +919,7 @@ section {
 
 /* COLOR MATRIX WRAPPER: Container for the optional interactive radar/selector preview under Color Pie. */
 .vm-color-matrix-wrap {
-  margin-top: 1.5rem;
+  margin-top: 1.2rem;
 }
 
 /* HIDDEN COLOR MATRIX: Ensures the Color Matrix completely disappears when the hidden attribute is present. */
@@ -819,8 +929,8 @@ section {
 
 /* COLOR MATRIX HEADING: Centers the title and intro above the interactive matrix. */
 .vm-color-matrix-heading {
-  max-width: 780px;
-  margin: 0 auto 1rem;
+  max-width: 760px;
+  margin: 0 auto 0.9rem;
   text-align: center;
 }
 
@@ -841,7 +951,7 @@ section {
 /* COLOR MATRIX + RADAR */
 /* LAB PANEL: Adds responsive internal padding around the Color Matrix content. */
 .vm-lab-panel {
-  padding: clamp(1rem, 3vw, 1.5rem);
+  padding: clamp(0.95rem, 2.6vw, 1.35rem);
 }
 
 /* LAB TWO-COLUMN GRID: Left side is selector/details; right side is the radar chart card. */
@@ -1280,11 +1390,17 @@ section {
 
 /* PLACEHOLDER NOTE: Dashed informational box explaining this Color Matrix is only a preview. */
 .vm-placeholder-note {
-  margin-top: 1rem;
+  margin-top: 0.75rem;
   padding: 0.85rem;
   border: 1px dashed rgba(255,255,255,0.22);
   border-radius: 16px;
   color: var(--muted);
+}
+
+.vm-next-step .vm-actions {
+  justify-content: flex-end;
+  align-items: center;
+  margin-top: 0;
 }
 /* CSS SECTION: Footer and fixed back-to-top button. */
 /* FOOTER */
@@ -1354,8 +1470,10 @@ section {
 
   .vm-nav-links {
     width: 100%;
-    overflow-x: auto;
-    padding-bottom: 0.25rem;
+    overflow-x: visible;
+    flex-wrap: wrap;
+    gap: 0.5rem 0.85rem;
+    padding-bottom: 0;
   }
 
   .vm-card-grid,
@@ -1378,8 +1496,18 @@ section {
   }
 
   .vm-hero {
-    min-height: auto;
-    padding-top: 3rem;
+    padding-top: 2rem;
+  }
+
+  .vm-guide-rail {
+    border-left: none;
+    border-top: 1px solid rgba(247,215,132,0.22);
+    padding-left: 0;
+    padding-top: 1rem;
+  }
+
+  .vm-next-step .vm-actions {
+    justify-content: flex-start;
   }
 }
 
@@ -1454,11 +1582,63 @@ section {
       <div class="vm-eyebrow">Vox Mana Basics</div>
       <h1>Learn the color system.</h1>
       <p>
-        Magic's colors are philosophies, play patterns, and story languages. This page keeps the full Basics and Color Matrix experience in one place.
+        Magic's colors explain more than what a deck can cast. This page teaches them as philosophy, play pattern, and story language, then points that lesson toward Commander identity.
       </p>
-      <div class="vm-actions">
-        <a class="vm-button primary" href="../archscry/">Start Archscry</a>
-        <a class="vm-button" href="../newIndex2.html">Back to Home</a>
+      <div class="vm-status-strip" aria-label="Basics field guide topics">
+        <span>Color Pie</span>
+        <span>Mana</span>
+        <span>Commander Identity</span>
+      </div>
+    </div>
+  </section>
+  <section class="vm-section vm-section-tight">
+    <div class="vm-panel vm-two-col vm-guide-panel reveal">
+      <div>
+        <span class="vm-eyebrow">Commander Focused</span>
+        <h2>Survive your first Commander table with confidence!</h2>
+        <p class="vm-guide-copy">
+          Break the ice and boost your confidence! Take your learning here to your local TCG store, your friend group, or your next online game.
+        </p>
+        <p class="vm-guide-copy">
+          TODO: Add more data here that is relevant to this section
+        </p>
+      </div>
+    </div>
+  </section>
+  <section class="vm-section vm-section-tight">
+    <div class="vm-panel vm-two-col vm-guide-panel reveal">
+      <div>
+        <span class="vm-eyebrow">Start Here</span>
+        <h2>Read Magic like a field guide.</h2>
+        <p class="vm-guide-copy">
+          Magic is a strategy card game where lands create mana, mana casts spells, and every card choice becomes a decision about pressure, timing, and risk.
+        </p>
+        <p class="vm-guide-copy">
+          The five mana colors are not only resources. They are philosophies, play patterns, and story languages that explain how decks behave, what worlds value, and why Commander identities feel different from one another.
+        </p>
+      </div>
+      <div class="vm-guide-rail">
+        <div class="vm-guide-rail-head">
+          <span class="vm-eyebrow">How to use this page</span>
+          <p class="vm-guide-sequence">Read the basics -&gt; open the Color Matrix -&gt; start Archscry</p>
+        </div>
+        <div class="vm-start-grid">
+          <div class="vm-start-row">
+            <strong>Read the basics</strong>
+            <span>Use the topic cards to learn the core ideas before opening the live color model.</span>
+            <span class="vm-mini-badge">1</span>
+          </div>
+          <div class="vm-start-row">
+            <strong>Open the Color Matrix</strong>
+            <span>Compare mono colors, guilds, and colleges as identity overlays and synthesis profiles.</span>
+            <span class="vm-mini-badge">2</span>
+          </div>
+          <div class="vm-start-row">
+            <strong>Start Archscry</strong>
+            <span>Carry the lesson into the full Commander reading flow once the language starts to click.</span>
+            <span class="vm-mini-badge">3</span>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -1466,24 +1646,38 @@ section {
   <!-- MAGIC BASICS -->
   <!-- MAGIC BASICS SECTION: Interactive learning area controlled by the tab buttons and JavaScript below. -->
   <section id="basics" class="vm-section">
-    <h2>Magic the Gathering Basics</h2>
+    <h2>The Basics Console</h2>
     <p class="vm-section-intro">
-      New to Magic? Start here. Magic is a strategy card game built around five colors of mana.
-      Each color represents a philosophy, a way of solving problems, and a style of play.
+      Start with the five layers below. Together they explain how Magic's color system moves from raw mana to strategy, worldbuilding, and Commander identity.
     </p>
 
     <!-- TOPIC TABS: Buttons with data-topic values. JS reads data-topic and swaps the basics text. -->
     <div class="vm-tabs">
       <!-- DEFAULT ACTIVE TAB: Starts on Color Pie because it has class="active" and JS initializes topic "pie". -->
-      <button class="vm-tab active" data-topic="pie">Color Pie</button>
+      <button class="vm-tab active" data-topic="pie">
+        <span class="vm-tab-title">Color Pie</span>
+        <span class="vm-tab-copy">the five-color philosophy map</span>
+      </button>
       <!-- BASICS TAB: data-topic="mana" maps to basics.mana in the JavaScript object. -->
-      <button class="vm-tab" data-topic="mana">Mana</button>
+      <button class="vm-tab" data-topic="mana">
+        <span class="vm-tab-title">Mana</span>
+        <span class="vm-tab-copy">the resource system behind spells</span>
+      </button>
       <!-- BASICS TAB: data-topic="decks" maps to basics.decks in the JavaScript object. -->
-      <button class="vm-tab" data-topic="decks">Decks</button>
+      <button class="vm-tab" data-topic="decks">
+        <span class="vm-tab-title">Decks</span>
+        <span class="vm-tab-copy">how choices become a strategy</span>
+      </button>
       <!-- BASICS TAB: data-topic="lore" maps to basics.lore in the JavaScript object. -->
-      <button class="vm-tab" data-topic="lore">Lore</button>
+      <button class="vm-tab" data-topic="lore">
+        <span class="vm-tab-title">Lore</span>
+        <span class="vm-tab-copy">how colors become factions and worlds</span>
+      </button>
       <!-- BASICS TAB: data-topic="gameplay" maps to basics.gameplay in the JavaScript object. -->
-      <button class="vm-tab" data-topic="gameplay">Gameplay</button>
+      <button class="vm-tab" data-topic="gameplay">
+        <span class="vm-tab-title">Gameplay</span>
+        <span class="vm-tab-copy">how philosophy becomes action</span>
+      </button>
     </div>
 
     <!-- DYNAMIC BASICS OUTPUT: Empty at load; JS inserts the selected tab explanation into this div. -->
@@ -1494,7 +1688,7 @@ section {
       <div class="vm-color-matrix-heading">
         <h3>Color Matrix</h3>
         <p>
-          A lightweight preview of the color identity model. The deeper placement experience belongs in Archscry.
+          Use the field-guide version of the Mana Lens to compare colors as philosophies, overlays, and identity patterns before you step into Archscry.
         </p>
       </div>
     <!-- COLOR MATRIX PANEL: Glass container holding the selector and radar chart. -->
@@ -1550,7 +1744,7 @@ section {
 
           <!-- PREVIEW NOTE: Static reminder that this matrix is a lightweight preview, not the full Archscry placement flow. -->
           <div class="vm-placeholder-note">
-            Color Matrix note: this preview shows how Magic colors can be read as identity patterns. Deeper placement belongs in Archscry.
+            Color Matrix note: this field-guide preview shows how Magic colors combine into identity patterns. Deeper placement belongs in Archscry.
           </div>
         </div>
 
@@ -1585,14 +1779,55 @@ section {
     </div>
   </section>
 
+  <section class="vm-section vm-section-tight">
+    <div class="vm-panel vm-bridge-panel reveal">
+      <span class="vm-eyebrow">Color Philosophy Bridge</span>
+      <h2>From mana to mindset.</h2>
+      <p class="vm-section-intro vm-bridge-intro">A color is not just what your deck can cast. It is how your deck thinks.</p>
+      <div class="vm-philosophy-grid vm-bridge-grid">
+        <article class="vm-card vm-philosophy-card vm-bridge-card">
+          <span class="vm-philosophy-symbol" style="--philosophy-color:#f7f0d0;">W</span>
+          <h3>White</h3>
+          <p>White asks how life can be made safer through order, duty, and shared structure.</p>
+          <p>That mindset becomes protective decks, organized factions, and Commander identities that read as guardians, planners, or coalition builders.</p>
+        </article>
+        <article class="vm-card vm-philosophy-card vm-bridge-card">
+          <span class="vm-philosophy-symbol" style="--philosophy-color:#58b8ff;">U</span>
+          <h3>Blue</h3>
+          <p>Blue believes improvement comes through study, patience, and precise control of outcomes.</p>
+          <p>That mindset becomes draw, manipulation, and lore centered on scholars, inventors, and identities that want optionality more than speed.</p>
+        </article>
+        <article class="vm-card vm-philosophy-card vm-bridge-card">
+          <span class="vm-philosophy-symbol" style="--philosophy-color:#a46bea;">B</span>
+          <h3>Black</h3>
+          <p>Black asks what power costs and whether ambition is worth paying for.</p>
+          <p>That mindset becomes sacrifice, recursion, ruthless efficiency, and stories or Commander reads built around self-determination and leverage.</p>
+        </article>
+        <article class="vm-card vm-philosophy-card vm-bridge-card">
+          <span class="vm-philosophy-symbol" style="--philosophy-color:#ff8f5a;">R</span>
+          <h3>Red</h3>
+          <p>Red trusts emotion, impulse, and the need to act while the moment is alive.</p>
+          <p>That mindset becomes explosive tempo, combat pressure, passionate factions, and Commander identities that feel immediate, expressive, and volatile.</p>
+        </article>
+        <article class="vm-card vm-philosophy-card vm-bridge-card">
+          <span class="vm-philosophy-symbol" style="--philosophy-color:#67d879;">G</span>
+          <h3>Green</h3>
+          <p>Green believes growth, instinct, and interdependence matter more than forced perfection.</p>
+          <p>That mindset becomes ramp, resilience, world-rooted lore, and Commander identities that read as natural, patient, and overpowering with time.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
 
   <!-- ARCHSCRY CTA -->
-  <section class="vm-section">
-    <div class="vm-panel vm-two-col">
+  <section class="vm-section vm-section-tight">
+    <div class="vm-panel vm-two-col vm-next-step">
       <div>
         <span class="vm-eyebrow">Next Step</span>
-        <h2>Turn color language into a Commander identity.</h2>
-        <p class="vm-section-intro">When the basics click, Archscry turns those instincts into a readable color/playstyle dossier.</p>
+        <h2>Take the lesson into a Commander read.</h2>
+        <p class="vm-next-copy">When the color language starts to click, Archscry turns those instincts into a readable Commander identity dossier.</p>
+        <p class="vm-next-copy">If you want a broader philosophy map first, the Maze is still there as the larger constellation around these basics.</p>
       </div>
       <div class="vm-actions">
         <a class="vm-button primary" href="../archscry/">Start Archscry</a>
@@ -1624,11 +1859,11 @@ section {
 <script>
 // BASICS CONTENT DATA: Maps each tab key to the text that should appear in the basicsReveal box.
 const basics = {
-  pie: `The Color Pie is Magic’s philosophical engine. White seeks order, Blue seeks knowledge, Black seeks power, Red seeks freedom, and Green seeks growth.<br><button class="vm-button vm-inline-action" type="button" data-show-color-matrix>Show the five colors</button>`,
-  mana: "Mana is the energy used to cast spells. In Vox Mana, mana also works as a symbolic language for values, instincts, and identity.",
-  decks: "A deck is a collection of cards used to play. Its colors and mechanics often reveal a style of thinking or problem-solving.",
-  lore: "Magic lore is the story layer: worlds, characters, factions, conflicts, gods, monsters, schools, guilds, and histories.",
-  gameplay: "Gameplay turns philosophy into action: rules, costs, risks, tempo, sacrifice, growth, control, combat, discovery, and chaos."
+  pie: `The Color Pie is Magic's map of motives. White seeks order, Blue seeks knowledge, Black seeks ambition, Red seeks freedom, and Green seeks growth. Together they explain why decks solve the same problem in very different ways.<br><button class="vm-button vm-inline-action" type="button" data-show-color-matrix>Show the five colors</button>`,
+  mana: "Mana is the resource that turns lands into spells, but it also hints at how a deck wants to operate. When you learn a color's mana, you start to see its pace, risks, and preferred answers.",
+  decks: "A deck is strategy made visible. Its colors, mechanics, and win conditions reveal whether it wants to protect, race, manipulate, outlast, or overwhelm.",
+  lore: "Lore turns color philosophy into culture and setting. Guilds, colleges, planes, gods, monsters, and factions all show what those colors believe when they become worlds.",
+  gameplay: "Gameplay is where philosophy becomes action. Tempo, removal, combat, sacrifice, recursion, ramp, and card draw are all ways colors translate beliefs into live decisions."
 };
 
 // DOM REFERENCES: Store important page elements once so functions can reuse them without searching the document repeatedly.

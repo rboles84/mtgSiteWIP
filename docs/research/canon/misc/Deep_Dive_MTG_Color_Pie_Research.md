@@ -277,3 +277,5 @@ As the game continues to evolve and incorporate external intellectual properties
 24. My Words: Green \- Magic: The Gathering, accessed May 16, 2026, [https://magic.wizards.com/en/news/making-magic/my-words-green](https://magic.wizards.com/en/news/making-magic/my-words-green)  
 25. What we dislike about the pie : r/colorpie \- Reddit, accessed May 16, 2026, [https://www.reddit.com/r/colorpie/comments/1i08583/what\_we\_dislike\_about\_the\_pie/](https://www.reddit.com/r/colorpie/comments/1i08583/what_we_dislike_about_the_pie/)  
 26. The Council of Colors, Revisited \- Magic: The Gathering, accessed May 16, 2026, [https://magic.wizards.com/en/news/making-magic/the-council-of-colors-revisited](https://magic.wizards.com/en/news/making-magic/the-council-of-colors-revisited)
+
+

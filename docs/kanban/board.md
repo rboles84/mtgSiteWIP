@@ -31,6 +31,7 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 ## In Progress
 
+- [VM-100 - Privacy / Terms Archive Document Refresh](in-progress/VM-100-privacy-terms-archive-document-refresh.md)
 - [VM-012 - Scryfall Parser Expansion and Diagnostics](in-progress/VM-012-scryfall-parser-expansion-diagnostics.md)
 - [VM-088 - newIndex2 Auto-Cycling Mana Lens Showcase](in-progress/VM-088-newindex2-auto-cycling-mana-lens-showcase.md)
 
@@ -40,6 +41,12 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 ## Done
 
+- [VM-105 - Archscry Doorway Watermark Backout](done/VM-105-archscry-doorway-watermark-backout.md)
+- [VM-104 - Archscry Doorway Watermark](done/VM-104-archscry-doorway-watermark.md)
+- [VM-103 - Grey-Glow No-Dot Spiral Variant](done/VM-103-grey-glow-no-dot-spiral-variant.md)
+- [VM-102 - Neutral-Ash Black Spiral Tuning](done/VM-102-neutral-ash-black-spiral-tuning.md)
+- [VM-101 - Golden-Copy Logo Preview Merge](done/VM-101-golden-copy-logo-preview-merge.md)
+- [VM-099 - Basics Page Field Guide Cleanup](done/VM-099-basics-page-field-guide-cleanup.md)
 - [VM-098 - Safe Backup Push For UI Refactor Exploration 2](done/VM-098-safe-backup-push-ui-refactor-exploration-2.md)
 - [VM-097 - Homepage Radar Presentation Lift From Archscry](done/VM-097-homepage-radar-presentation-lift-from-archscry.md)
 - [VM-096 - Black Component Glow Repair](done/VM-096-black-component-glow-repair.md)

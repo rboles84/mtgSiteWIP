@@ -282,6 +282,15 @@ section {
   padding: 4rem 0 5rem;
 }
 
+.vm-home-hero {
+  min-height: auto;
+  padding: clamp(2.5rem, 5vw, 4rem) 0 clamp(1.1rem, 2vw, 1.75rem);
+}
+
+#what.vm-home-index {
+  padding-top: clamp(1rem, 2vw, 1.5rem);
+}
+
 /* HERO EYEBROW: Small uppercase label above the main title. */
 .vm-eyebrow {
   color: var(--accent);
@@ -314,6 +323,24 @@ section {
   flex-wrap: wrap;
   gap: 0.8rem;
   margin-top: 1.5rem;
+}
+
+.vm-hero-helper {
+  margin: 0.9rem 0 0;
+  color: rgba(245,234,210,0.7);
+  font-size: 0.88rem;
+}
+
+.vm-hero-helper a {
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(247,215,132,0.36);
+}
+
+.vm-hero-helper a:hover,
+.vm-hero-helper a:focus-visible {
+  color: var(--accent-2);
+  border-bottom-color: rgba(104,214,184,0.5);
 }
 
 /* LIVING INDEX HERO: Two-zone promise + preview layout with intent choices below. */
@@ -351,7 +378,7 @@ section {
 .vm-mini-badge {
   border: 1px solid rgba(247, 215, 132, 0.26);
   border-radius: 999px;
-  padding: 0.35rem 0.55rem;
+  padding: 0.25rem 0.55rem;
   background: rgba(0,0,0,0.24);
   color: rgba(245,234,210,0.76);
   font-size: 0.72rem;
@@ -363,13 +390,13 @@ section {
   position: relative;
   align-self: stretch;
   display: grid;
-  gap: 0.55rem;
+  gap: 0.85rem;
   overflow: visible;
   min-height: 0;
 }
 
 .vm-panel.vm-hero-mana {
-  padding: 1rem;
+  padding: clamp(1rem, 2vw, 1.25rem);
 }
 
 .vm-hero-mana::before {
@@ -444,14 +471,14 @@ section {
 .vm-hero-mana-caption strong {
   display: block;
   color: var(--gold-2);
-  font-size: 0.86rem;
+  font-size: 0.95rem;
 }
 
 .vm-hero-mana-caption span {
   display: block;
   color: var(--muted);
   font-size: 0.73rem;
-  line-height: 1.28;
+  line-height: 1.38;
   margin-top: 0.2rem;
 }
 
@@ -501,18 +528,18 @@ section {
 
 .vm-chart-wrap.vm-hero-chart-wrap {
   min-height: 0;
-  height: clamp(155px, 15.5vw, 255px);
+  height: clamp(220px, 22vw, 300px);
   border-radius: 18px;
+}
+
+.vm-radar-wrap.vm-hero-radar-wrap {
+  height: clamp(190px, 19vw, 250px);
 }
 
 .vm-radar-card.vm-hero-radar-card .vm-radar-glow {
   inset: -10%;
   opacity: 0.46;
   filter: blur(24px);
-}
-
-.vm-radar-wrap.vm-hero-radar-wrap {
-  height: clamp(145px, 14vw, 185px);
 }
 
 .vm-radar-card.vm-hero-radar-card .vm-radar-caption {
@@ -528,59 +555,6 @@ section {
 .vm-dataset-pills.vm-hero-dataset-pills .vm-pill {
   padding: 0.2rem 0.38rem;
   font-size: 0.64rem;
-}
-
-.vm-intent-panel {
-  align-self: stretch;
-}
-
-.vm-intent-band {
-  display: grid;
-  gap: 1rem;
-}
-
-.vm-intent-panel h2 {
-  margin: 0 0 1rem;
-  font-size: clamp(1.45rem, 3vw, 2rem);
-  text-align: left;
-}
-
-.vm-intent-band h2 {
-  margin-bottom: 0;
-}
-
-.vm-intent-grid {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 0.75rem;
-}
-
-.vm-intent-row {
-  display: block;
-  border: 1px solid rgba(255,255,255,0.13);
-  border-radius: 14px;
-  padding: 0.9rem;
-  background: rgba(0,0,0,0.18);
-  transition: 0.2s ease;
-}
-
-.vm-intent-row:hover {
-  transform: translateX(4px);
-  border-color: rgba(247,215,132,0.48);
-  background: rgba(255,255,255,0.06);
-}
-
-.vm-intent-row strong {
-  display: block;
-  color: var(--ink);
-  margin: 0.28rem 0;
-}
-
-.vm-intent-row span:last-child {
-  display: block;
-  color: var(--muted);
-  font-size: 0.84rem;
-  line-height: 1.45;
 }
 
 /* CSS SECTION: Reusable card grid, glass panels, hover effects, and CTA text. */
@@ -1380,10 +1354,6 @@ section {
     order: 3;
   }
 
-  .vm-intent-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
   .vm-lab-layout {
     grid-template-columns: 1fr;
   }
@@ -1474,11 +1444,6 @@ section {
     height: 228px;
   }
 
-  .vm-intent-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .vm-intent-row,
   .vm-start-row,
   .vm-module {
     border-radius: 12px;
@@ -1521,14 +1486,14 @@ section {
 <!-- MAIN CONTENT SHELL: id="top" is the anchor target for Back to top. vm-shell keeps content centered and width-limited. -->
 <main id="top" class="vm-shell">
   <!-- HERO -->
-  <section class="vm-hero reveal">
+  <section class="vm-hero vm-home-hero reveal">
     <div class="vm-hero-stack">
       <div class="vm-hero-grid">
         <div class="vm-hero-copy">
-          <div class="vm-eyebrow">Vox Mana - Living Index</div>
+          <div class="vm-eyebrow">Vox Mana</div>
           <h1>Find your place in the color pie.</h1>
           <p>
-            Vox Mana connects Commander identity, symbolic card search, and curated lore research into one living Magic archive.
+            Vox Mana connects Commander identity, symbolic card search, Magic basics, and curated lore research through one color philosophy system.
           </p>
 
           <div class="vm-actions">
@@ -1536,6 +1501,7 @@ section {
             <a class="vm-button" href="./maze/">Explore the Maze</a>
             <a class="vm-button" href="./apocrypha/">Read Apocrypha</a>
           </div>
+          <p class="vm-hero-helper">New to Magic or color philosophy? <a href="./basics/">Learn Basics -&gt;</a></p>
         </div>
 
         <div class="vm-panel vm-hero-mana" tabindex="0" aria-label="Passive Vox Mana identity signal">
@@ -1554,8 +1520,6 @@ section {
               <div class="vm-radar-wrap vm-hero-radar-wrap">
                 <canvas id="vmHeroManaChart" aria-label="Passive Vox Mana identity signal radar chart"></canvas>
               </div>
-              <p class="vm-radar-caption" id="heroManaRadarCaption">Current signal: White</p>
-              <div class="vm-dataset-pills vm-hero-dataset-pills" id="heroManaRadarPills" aria-label="Current radar datasets"></div>
             </div>
           </div>
           <div class="vm-hero-mana-caption">
@@ -1565,60 +1529,35 @@ section {
         </div>
       </div>
 
-      <div class="vm-panel vm-intent-panel vm-intent-band">
-        <h2>What are you here to do?</h2>
-        <div class="vm-intent-grid">
-          <a class="vm-intent-row" href="./archscry/">
-            <span class="vm-mini-badge">Reading</span>
-            <strong>Discover my Commander identity</strong>
-            <span>Take the Archscry reading and receive a color/playstyle dossier.</span>
-          </a>
-          <a class="vm-intent-row" href="./maze/">
-            <span class="vm-mini-badge">Search</span>
-            <strong>Search cards by meaning or theme</strong>
-            <span>Explore commanders, mechanics, themes, and symbolic connections.</span>
-          </a>
-          <a class="vm-intent-row" href="./basics/">
-            <span class="vm-mini-badge">Basics</span>
-            <strong>Learn Magic basics</strong>
-            <span>Understand colors, mana, decks, lore, gameplay, and the Color Matrix.</span>
-          </a>
-          <a class="vm-intent-row" href="./apocrypha/">
-            <span class="vm-mini-badge">Archive</span>
-            <strong>Read lore and research</strong>
-            <span>Open curated notes, factions, sources, essays, and worldbuilding context.</span>
-          </a>
-        </div>
-      </div>
     </div>
   </section>
 
   <!-- ORIENTATION -->
-  <section id="what" class="vm-section">
+  <section id="what" class="vm-section vm-home-index">
     <h2>Vox Mana is a living index.</h2>
     <p class="vm-section-intro">
-      Four ways into one color philosophy system.
+      Four focused paths through one color philosophy system.
     </p>
 
     <div class="vm-card-grid">
       <a class="vm-card reveal" href="./archscry/">
         <span class="vm-mini-badge">Identity</span>
         <h3>Archscry</h3>
-        <p>Turn Commander instincts into color identity.</p>
+        <p>Turn Commander instincts into color identity, table presence, and playstyle.</p>
         <span class="vm-cta">Start Archscry -></span>
       </a>
 
       <a class="vm-card reveal" href="./maze/">
         <span class="vm-mini-badge">Search</span>
         <h3>The Implicit Maze</h3>
-        <p>Search cards through theme, mechanics, symbolism, and color philosophy.</p>
+        <p>Search cards through theme, mechanics, symbolism, flavor, and color philosophy.</p>
         <span class="vm-cta">Explore the Maze -></span>
       </a>
 
       <a class="vm-card reveal" href="./basics/">
-        <span class="vm-mini-badge">Basics</span>
+        <span class="vm-mini-badge">Primer</span>
         <h3>Basics</h3>
-        <p>Learn mana, color philosophy, gameplay, and the Color Matrix.</p>
+        <p>A quick primer for Commander, mana, color identity, precons, and table confidence.</p>
         <span class="vm-cta">Learn Basics -></span>
       </a>
 
@@ -1631,26 +1570,11 @@ section {
     </div>
   </section>
 
-  <!-- HOW VOX MANA CONNECTS -->
-  <section id="connects" class="vm-section">
-    <div class="vm-panel vm-two-col">
-      <div>
-        <span class="vm-eyebrow">How Vox Mana Connects</span>
-        <h2>One map, four ways in.</h2>
-      </div>
-      <ul class="vm-list">
-        <li class="vm-list-item"><strong>Archscry</strong><span>reads.</span></li>
-        <li class="vm-list-item"><strong>Basics</strong><span>teaches.</span></li>
-        <li class="vm-list-item"><strong>Maze</strong><span>discovers.</span></li>
-        <li class="vm-list-item"><strong>Apocrypha</strong><span>remembers.</span></li>
-      </ul>
-    </div>
-  </section>
 </main>
 
 <!-- FOOTER: Final navigation and short site summary. -->
 <footer class="vm-shell vm-footer">
-  <span>Vox Mana - color philosophy, identity, and lore.</span>
+  <span>Vox Mana — color philosophy, Commander identity, symbolic search, and lore research.</span>
   <span>
     <a href="#top">Back to top</a> ·
     <a href="./basics/">Basics</a> ·
@@ -2176,22 +2100,12 @@ function updateHeroManaRadarDetails(identity, datasets) {
   const pills = document.getElementById("heroManaRadarPills");
 
   if (caption) {
-    caption.textContent = `Current signal: ${identity.name}`;
+    caption.textContent = "";
   }
 
   if (!pills) return;
 
-  const lastComponentName = identity.components.length > 1
-    ? colorProfiles[identity.components[identity.components.length - 1]].name
-    : null;
-
-  pills.innerHTML = datasets.map(dataset => {
-    const isActive = dataset.label === identity.name;
-    const showArrow = identity.components.length > 1 && dataset.label === lastComponentName;
-    return `
-      <span class="vm-pill${isActive ? " active" : ""}${showArrow ? " has-arrow" : ""}" data-label="${dataset.label}" style="border-color:${dataset.borderColor};">${dataset.label}</span>
-    `;
-  }).join("");
+  pills.innerHTML = "";
 }
 
 function buildHeroManaCycleIdentities() {
