@@ -4,6 +4,7 @@ This index tracks agent work across planning, board updates, documentation, JSON
 
 | Date | Agent | Task | Related Card | Status | Handoff |
 |---|---|---|---|---|---|
+| 2026-05-22 22:29 | Codex | Commit the completed VM-106 hardening branch and fast-forward merge it back into `feature/ui-refactor-exploration` while preserving the unrelated `newIndex2.html` local edit | VM-106 | Complete | [2026-05-22-2229-codex-merge-vm106-back-into-ui-branch.md](2026-05-22-2229-codex-merge-vm106-back-into-ui-branch.md) |
 | 2026-05-22 21:46 | Codex | Implement the frontend hardening phase for Maze and Archscry, add local validators, and verify the touched routes and modal behavior | VM-106 | Complete | [2026-05-22-2146-codex-vm106-frontend-hardening-phase-1-security-accessibility.md](2026-05-22-2146-codex-vm106-frontend-hardening-phase-1-security-accessibility.md) |
 | 2026-05-22 19:45 | Codex | Resolve the `privacy/index.html` merge on `feature/ui-refactor-exploration`, complete the pull, close out VM-100, and prepare the focused hardening branch | VM-100 | Complete | [2026-05-22-1945-codex-vm100-privacy-merge-resolution-and-hardening-branch.md](2026-05-22-1945-codex-vm100-privacy-merge-resolution-and-hardening-branch.md) |
 | 2026-05-22 19:28 | Codex | Fully back out the live homepage Archscry doorway watermark experiment while preserving preview artifacts and historical docs | VM-105 | Complete | [2026-05-22-1928-codex-vm105-archscry-doorway-watermark-backout.md](2026-05-22-1928-codex-vm105-archscry-doorway-watermark-backout.md) |
