@@ -23,10 +23,19 @@ let toastTimeout;
 let selectAutoFilledInputOnFocus = false;
 let cardStash = [];
 let activeModalCard = null;
+let modalReturnFocusEl = null;
 
 const PAGE_SIZE = 24;
 const STASH_KEY = "vm_maze_card_stash_v1";
 const ARCHSCRY_MAZE_HANDOFF_KEY = "vm_archscry_maze_handoff_v1";
+const MODAL_FOCUS_SELECTOR = [
+  "a[href]",
+  "button:not([disabled])",
+  "input:not([disabled])",
+  "select:not([disabled])",
+  "textarea:not([disabled])",
+  '[tabindex]:not([tabindex="-1"])'
+].join(",");
 const ARCHSCRY_PATH_LABELS = {
   "commanders-that-fit": "Commanders That Fit",
   "support-cards": "Support Cards",
@@ -107,6 +116,180 @@ const KEYWORDS = [
 const TYPES = ["Creature", "Instant", "Sorcery", "Enchantment", "Artifact", "Planeswalker", "Land", "Battle"];
 const RARITIES = [{ v: "c", l: "Common" }, { v: "u", l: "Uncommon" }, { v: "r", l: "Rare" }, { v: "m", l: "Mythic" }];
 
+function clearNode(node) {
+  if (!node) return;
+  if (typeof node.replaceChildren === "function") {
+    node.replaceChildren();
+    return;
+  }
+  if ("innerHTML" in node) {
+    node.innerHTML = "";
+    return;
+  }
+  while (node.firstChild) {
+    node.removeChild(node.firstChild);
+  }
+}
+
+function applyDataset(node, dataset = {}) {
+  Object.entries(dataset).forEach(([key, value]) => {
+    if (value === undefined || value === null || value === "") return;
+    node.dataset[key] = String(value);
+  });
+  return node;
+}
+
+function appendContent(node, ...items) {
+  items.forEach((item) => {
+    if (item === undefined || item === null) return;
+    if (typeof item === "string") {
+      if (typeof document.createTextNode === "function") {
+        node.appendChild(document.createTextNode(item));
+      } else if ("textContent" in node) {
+        node.textContent += item;
+      }
+      return;
+    }
+    node.appendChild(item);
+  });
+  return node;
+}
+
+function isDomNode(value) {
+  return Boolean(value && typeof value === "object" && ("nodeType" in value || "tagName" in value));
+}
+
+function createActionButton({
+  className = "",
+  text = "",
+  action = "",
+  dataset = {},
+  title = "",
+  ariaLabel = "",
+  type = "button"
+} = {}) {
+  const button = document.createElement("button");
+  button.type = type;
+  if (className) button.className = className;
+  if (action) button.dataset.action = action;
+  applyDataset(button, dataset);
+  if (title) button.title = title;
+  if (ariaLabel) button.setAttribute("aria-label", ariaLabel);
+  button.textContent = text;
+  return button;
+}
+
+function createLink({
+  className = "",
+  href = "#",
+  text = "",
+  target = "",
+  rel = "",
+  title = ""
+} = {}) {
+  const link = document.createElement("a");
+  if (className) link.className = className;
+  link.href = href;
+  link.textContent = text;
+  if (target) link.target = target;
+  if (rel) link.rel = rel;
+  if (title) link.title = title;
+  return link;
+}
+
+function createCardPlaceholder() {
+  const placeholder = document.createElement("div");
+  placeholder.style.aspectRatio = "63/88";
+  placeholder.style.background = "var(--bg3)";
+  placeholder.style.borderRadius = "4.5%";
+  return placeholder;
+}
+
+function appendTextWithBreaks(node, text) {
+  String(text || "").split("\n").forEach((line, index) => {
+    if (index > 0) node.appendChild(document.createElement("br"));
+    node.appendChild(document.createTextNode(line));
+  });
+}
+
+function createMetaRow(label, value) {
+  const row = document.createElement("div");
+  row.className = "m-meta-row";
+  const key = document.createElement("span");
+  key.className = "m-meta-k";
+  key.textContent = label;
+  const valueNode = document.createElement("span");
+  valueNode.className = "m-meta-v";
+  if (isDomNode(value)) valueNode.appendChild(value);
+  else valueNode.textContent = String(value ?? "-");
+  appendContent(row, key, valueNode);
+  return row;
+}
+
+function createManaCostNodes(cost) {
+  const fragment = document.createDocumentFragment();
+  parseManaSymbols(cost).forEach((symbol) => {
+    const chip = document.createElement("span");
+    chip.className = `mana-symbol ${getManaSymbolClass(symbol)}`;
+    const label = getManaSymbolLabel(symbol);
+    chip.title = label;
+    chip.setAttribute("aria-label", label);
+    chip.textContent = symbol;
+    fragment.appendChild(chip);
+  });
+  return fragment;
+}
+
+function getModalElements() {
+  return {
+    backdrop: document.getElementById("modal-bg"),
+    wrap: document.getElementById("modal-wrap"),
+    inner: document.getElementById("modal-inner"),
+    close: document.getElementById("modal-close")
+  };
+}
+
+function isModalOpen() {
+  const { backdrop } = getModalElements();
+  return Boolean(backdrop && !backdrop.classList.contains("hidden"));
+}
+
+function getModalFocusableElements() {
+  const { wrap } = getModalElements();
+  if (!wrap) return [];
+  return Array.from(wrap.querySelectorAll(MODAL_FOCUS_SELECTOR)).filter((node) => {
+    if (!(node instanceof HTMLElement)) return false;
+    if (node.hasAttribute("hidden")) return false;
+    return node.offsetParent !== null || node === document.activeElement;
+  });
+}
+
+function focusModalEntry() {
+  const { wrap } = getModalElements();
+  const [firstFocusable] = getModalFocusableElements();
+  (firstFocusable || wrap)?.focus();
+}
+
+function trapModalFocus(event) {
+  const focusable = getModalFocusableElements();
+  const { wrap } = getModalElements();
+  if (!focusable.length) {
+    event.preventDefault();
+    wrap?.focus();
+    return;
+  }
+
+  const first = focusable[0];
+  const last = focusable[focusable.length - 1];
+  if (event.shiftKey && document.activeElement === first) {
+    event.preventDefault();
+    last.focus();
+  } else if (!event.shiftKey && document.activeElement === last) {
+    event.preventDefault();
+    first.focus();
+  }
+}
+
 /**
  * Loads the checked-in parser seed so Smart Search uses the curated ruleset.
  */
@@ -143,6 +326,7 @@ async function initializeResearchArchives() {
   buildColorGrid();
   buildTypeChecks();
   buildRarityChecks();
+  bindMazeControls();
   bindSearchInputSelectOnFocus();
   setMode("ai");
 
@@ -396,10 +580,19 @@ function renderResults(append = false) {
   const end = start + PAGE_SIZE;
   const pageCards = allResults.slice(start, end);
   const grid = document.getElementById("card-grid");
-  if (!append) grid.innerHTML = "";
+  if (!append) clearNode(grid);
 
-  document.getElementById("res-count").innerHTML =
-    `Showing <strong>${Math.min((displayPage + 1) * PAGE_SIZE, allResults.length)}</strong> of <strong>${totalCards.toLocaleString()}</strong> cards`;
+  const count = document.getElementById("res-count");
+  clearNode(count);
+  appendContent(count, "Showing ");
+  const showingStrong = document.createElement("strong");
+  showingStrong.textContent = String(Math.min((displayPage + 1) * PAGE_SIZE, allResults.length));
+  count.appendChild(showingStrong);
+  appendContent(count, " of ");
+  const totalStrong = document.createElement("strong");
+  totalStrong.textContent = totalCards.toLocaleString();
+  count.appendChild(totalStrong);
+  appendContent(count, " cards");
 
   pageCards.forEach((card) => grid.appendChild(makeCardEl(card)));
 
@@ -420,24 +613,45 @@ function renderResults(append = false) {
 function makeCardEl(card) {
   const wrap = document.createElement("div");
   wrap.className = "card-item";
+  wrap.dataset.action = "open-card";
   wrap.dataset.stashKey = cardStashKey(card);
+  wrap.__cardData = card;
+  wrap.tabIndex = 0;
+  wrap.setAttribute("role", "button");
+  wrap.setAttribute("aria-label", `Open details for ${card.name || "this card"}`);
   const img = card.image_uris?.normal || card.card_faces?.[0]?.image_uris?.normal;
-  wrap.innerHTML = img
-    ? `<img src="${escapeHtml(img)}" alt="${escapeHtml(card.name)}" loading="lazy"/>`
-    : `<div class="card-skeleton"></div>`;
-  wrap.innerHTML += `<div class="card-item-name">${escapeHtml(card.name)}</div>`;
-  const stashButton = document.createElement("button");
-  stashButton.type = "button";
-  stashButton.className = `card-stash-btn${isCardStashed(card) ? " on" : ""}`;
-  stashButton.textContent = isCardStashed(card) ? "✓-" : "+";
-  stashButton.title = isCardStashed(card) ? "Remove from stash" : "Add to stash";
-  stashButton.setAttribute("aria-label", stashButton.title);
-  stashButton.addEventListener("click", (event) => {
-    event.stopPropagation();
-    toggleCardStash(card, isCardStashed(card) ? null : "maybe");
+  if (img) {
+    const image = document.createElement("img");
+    image.src = img;
+    image.alt = card.name || "Card";
+    image.loading = "lazy";
+    wrap.appendChild(image);
+  } else {
+    const skeleton = document.createElement("div");
+    skeleton.className = "card-skeleton";
+    wrap.appendChild(skeleton);
+  }
+
+  const name = document.createElement("div");
+  name.className = "card-item-name";
+  name.textContent = card.name || "Unknown card";
+  wrap.appendChild(name);
+
+  const stashed = isCardStashed(card);
+  const stashButton = createActionButton({
+    className: `card-stash-btn${stashed ? " on" : ""}`,
+    text: stashed ? "✓-" : "+",
+    action: "toggle-card-stash",
+    title: stashed ? "Remove from stash" : "Add to stash",
+    ariaLabel: stashed ? "Remove from stash" : "Add to stash"
   });
+  stashButton.__cardData = card;
   wrap.appendChild(stashButton);
-  wrap.onclick = () => openModal(card);
+  wrap.addEventListener("keydown", (event) => {
+    if (event.key !== "Enter" && event.key !== " ") return;
+    event.preventDefault();
+    openModal(card, wrap);
+  });
   return wrap;
 }
 
@@ -445,86 +659,165 @@ function makeCardEl(card) {
  * Opens the full card detail modal for a Scryfall result.
  * @param {object} card - Scryfall card object.
  */
-function openModal(card) {
+function openModal(card, opener = document.activeElement) {
   activeModalCard = card;
+  modalReturnFocusEl = opener instanceof HTMLElement ? opener : (document.activeElement instanceof HTMLElement ? document.activeElement : null);
   const faces = card.card_faces;
-  const imageUris = card.image_uris;
-  const imgHtml = buildModalImageHtml(card);
-  const manaCostHtml = renderManaCost(card.mana_cost || faces?.[0]?.mana_cost || "");
   const oracle = (card.oracle_text || faces?.map((face) => `${face.name}\n${face.oracle_text || ""}`).join("\n\n--------\n\n") || "").trim();
   const flavor = card.flavor_text || faces?.[0]?.flavor_text || "";
-  const priceHtml = card.prices?.usd ? `<span class="m-price">$${card.prices.usd}</span>` : '<span style="color:var(--text-muted)">-</span>';
   const rarity = (card.rarity || "-").charAt(0).toUpperCase() + (card.rarity || "").slice(1);
   const legalities = card.legalities || {};
-  const formatBadges = ["commander", "modern", "pioneer", "standard", "legacy", "pauper"]
-    .filter((format) => legalities[format] === "legal")
-    .map((format) => `<span style="font-size:0.72rem;padding:0.15rem 0.5rem;border:1px solid var(--border);color:var(--text-muted);margin-right:3px">${format}</span>`)
-    .join("");
   const primaryType = (card.type_line || "").split(" - ")[0].split(" ").pop()?.toLowerCase() || "card";
   const similarQ = `id<=${(card.color_identity || []).join("").toLowerCase() || "c"} t:${primaryType}`;
+  const { backdrop, inner } = getModalElements();
+  if (!backdrop || !inner) return;
 
-  document.getElementById("modal-inner").innerHTML = `
-    <div class="modal-img-col">${imgHtml}</div>
-    <div class="modal-detail-col">
-      <div class="m-name">${escapeHtml(card.name)}</div>
-      ${manaCostHtml ? `<div class="m-cost" aria-label="Mana cost ${escapeHtml(card.mana_cost || faces?.[0]?.mana_cost || "")}">${manaCostHtml}</div>` : ""}
-      <div class="m-type">${escapeHtml(card.type_line || "")}</div>
-      ${oracle ? `<div class="m-oracle">${escapeHtml(oracle).replace(/\n/g, "<br>")}</div>` : ""}
-      ${flavor ? `<div class="m-flavor">${escapeHtml(flavor)}</div>` : ""}
-      <div class="m-meta">
-        <div class="m-meta-row"><span class="m-meta-k">Set</span><span class="m-meta-v">${escapeHtml(card.set_name || "-")} (${escapeHtml(card.set?.toUpperCase() || "")})</span></div>
-        <div class="m-meta-row"><span class="m-meta-k">Rarity</span><span class="m-meta-v">${escapeHtml(rarity)}</span></div>
-        <div class="m-meta-row"><span class="m-meta-k">Mana Value</span><span class="m-meta-v">${card.cmc ?? "-"}</span></div>
-        <div class="m-meta-row"><span class="m-meta-k">Paper Price</span><span class="m-meta-v">${priceHtml}</span></div>
-      </div>
-      ${formatBadges ? `<div style="margin-bottom:1rem">${formatBadges}</div>` : ""}
-      <div class="m-actions">
-        <a class="m-btn m-btn-gold" href="${escapeHtml(card.scryfall_uri || "#")}" target="_blank" rel="noopener">View on Scryfall</a>
-        <button class="m-btn m-btn-teal" id="find-similar-btn">Find Similar</button>
-        ${card.prices?.usd ? `<a class="m-btn m-btn-gold" href="https://www.tcgplayer.com/search/magic/product?q=${encodeURIComponent(card.name)}" target="_blank" rel="noopener">TCGPlayer</a>` : ""}
-      </div>
-      <div class="m-stash-actions">
-        ${STASH_SECTIONS.map((section) => `<button class="m-btn m-btn-teal" onclick="toggleCardStashFromModal('${section.id}')">${section.label}</button>`).join("")}
-      </div>
-    </div>`;
+  clearNode(inner);
 
-  document.getElementById("find-similar-btn")?.addEventListener("click", () => {
-    closeModal();
-    runQuickSearch(similarQ);
+  const imageCol = document.createElement("div");
+  imageCol.className = "modal-img-col";
+  imageCol.appendChild(createModalImageContent(card));
+
+  const detailCol = document.createElement("div");
+  detailCol.className = "modal-detail-col";
+
+  const name = document.createElement("div");
+  name.className = "m-name";
+  name.id = "modal-title";
+  name.textContent = card.name || "Unknown card";
+  detailCol.appendChild(name);
+
+  const manaCost = card.mana_cost || faces?.[0]?.mana_cost || "";
+  if (manaCost) {
+    const cost = document.createElement("div");
+    cost.className = "m-cost";
+    cost.setAttribute("aria-label", `Mana cost ${manaCost}`);
+    cost.appendChild(createManaCostNodes(manaCost));
+    detailCol.appendChild(cost);
+  }
+
+  const type = document.createElement("div");
+  type.className = "m-type";
+  type.textContent = card.type_line || "";
+  detailCol.appendChild(type);
+
+  if (oracle) {
+    const oracleNode = document.createElement("div");
+    oracleNode.className = "m-oracle";
+    appendTextWithBreaks(oracleNode, oracle);
+    detailCol.appendChild(oracleNode);
+  }
+
+  if (flavor) {
+    const flavorNode = document.createElement("div");
+    flavorNode.className = "m-flavor";
+    flavorNode.textContent = flavor;
+    detailCol.appendChild(flavorNode);
+  }
+
+  const meta = document.createElement("div");
+  meta.className = "m-meta";
+  meta.appendChild(createMetaRow("Set", `${card.set_name || "-"} (${String(card.set || "").toUpperCase()})`));
+  meta.appendChild(createMetaRow("Rarity", rarity));
+  meta.appendChild(createMetaRow("Mana Value", card.cmc ?? "-"));
+  const priceValue = document.createElement("span");
+  if (card.prices?.usd) {
+    priceValue.className = "m-price";
+    priceValue.textContent = `$${card.prices.usd}`;
+  } else {
+    priceValue.style.color = "var(--text-muted)";
+    priceValue.textContent = "-";
+  }
+  meta.appendChild(createMetaRow("Paper Price", priceValue));
+  detailCol.appendChild(meta);
+
+  const legalFormats = ["commander", "modern", "pioneer", "standard", "legacy", "pauper"]
+    .filter((format) => legalities[format] === "legal");
+  if (legalFormats.length) {
+    const badges = document.createElement("div");
+    badges.style.marginBottom = "1rem";
+    legalFormats.forEach((format) => {
+      const badge = document.createElement("span");
+      badge.style.cssText = "font-size:0.72rem;padding:0.15rem 0.5rem;border:1px solid var(--border);color:var(--text-muted);margin-right:3px";
+      badge.textContent = format;
+      badges.appendChild(badge);
+    });
+    detailCol.appendChild(badges);
+  }
+
+  const actions = document.createElement("div");
+  actions.className = "m-actions";
+  actions.appendChild(createLink({
+    className: "m-btn m-btn-gold",
+    href: card.scryfall_uri || "#",
+    text: "View on Scryfall",
+    target: "_blank",
+    rel: "noopener"
+  }));
+  actions.appendChild(createActionButton({
+    className: "m-btn m-btn-teal",
+    text: "Find Similar",
+    action: "quick-search",
+    dataset: { query: similarQ }
+  }));
+  if (card.prices?.usd) {
+    actions.appendChild(createLink({
+      className: "m-btn m-btn-gold",
+      href: `https://www.tcgplayer.com/search/magic/product?q=${encodeURIComponent(card.name || "")}`,
+      text: "TCGPlayer",
+      target: "_blank",
+      rel: "noopener"
+    }));
+  }
+  detailCol.appendChild(actions);
+
+  const stashActions = document.createElement("div");
+  stashActions.className = "m-stash-actions";
+  STASH_SECTIONS.forEach((section) => {
+    stashActions.appendChild(createActionButton({
+      className: "m-btn m-btn-teal",
+      text: section.label,
+      action: "modal-stash",
+      dataset: { section: section.id }
+    }));
   });
-  document.getElementById("modal-bg").classList.remove("hidden");
+  detailCol.appendChild(stashActions);
+
+  appendContent(inner, imageCol, detailCol);
+  backdrop.classList.remove("hidden");
   document.body.style.overflow = "hidden";
+  requestAnimationFrame(() => focusModalEntry());
 }
 
-/**
- * Builds modal image markup for normal and double-faced cards.
- * @param {object} card - Scryfall card object.
- * @returns {string} Image HTML.
- */
-function buildModalImageHtml(card) {
+function createModalImageContent(card) {
   if (card.card_faces && !card.image_uris) {
-    return `<div class="modal-img-dfc">${card.card_faces.map((face) => face.image_uris?.normal
-      ? `<img class="modal-img" src="${escapeHtml(face.image_uris.normal)}" alt="${escapeHtml(face.name)}" loading="lazy" tabindex="0"/>`
-      : `<div style="aspect-ratio:63/88;background:var(--bg3);border-radius:4.5%"></div>`
-    ).join("")}</div>`;
+    const wrap = document.createElement("div");
+    wrap.className = "modal-img-dfc";
+    card.card_faces.forEach((face) => {
+      if (face.image_uris?.normal) {
+        const image = document.createElement("img");
+        image.className = "modal-img";
+        image.src = face.image_uris.normal;
+        image.alt = face.name || card.name || "Card face";
+        image.loading = "lazy";
+        image.tabIndex = 0;
+        wrap.appendChild(image);
+      } else {
+        wrap.appendChild(createCardPlaceholder());
+      }
+    });
+    return wrap;
   }
   if (card.image_uris?.normal) {
-    return `<img class="modal-img" src="${escapeHtml(card.image_uris.normal)}" alt="${escapeHtml(card.name)}" loading="lazy" tabindex="0"/>`;
+    const image = document.createElement("img");
+    image.className = "modal-img";
+    image.src = card.image_uris.normal;
+    image.alt = card.name || "Card";
+    image.loading = "lazy";
+    image.tabIndex = 0;
+    return image;
   }
-  return `<div style="aspect-ratio:63/88;background:var(--bg3);border-radius:4.5%"></div>`;
-}
-
-/**
- * Converts raw Scryfall mana-cost text into styled mana symbol chips.
- * @param {string} cost - Raw Scryfall mana cost, such as {2}{B}.
- * @returns {string} HTML for visual mana symbols.
- */
-function renderManaCost(cost) {
-  return parseManaSymbols(cost).map((symbol) => {
-    const className = getManaSymbolClass(symbol);
-    const label = getManaSymbolLabel(symbol);
-    return `<span class="mana-symbol ${className}" title="${escapeHtml(label)}" aria-label="${escapeHtml(label)}">${escapeHtml(symbol)}</span>`;
-  }).join("");
+  return createCardPlaceholder();
 }
 
 /**
@@ -566,8 +859,14 @@ function getManaSymbolLabel(symbol) {
  * Closes the card detail modal.
  */
 function closeModal() {
-  document.getElementById("modal-bg").classList.add("hidden");
+  const { backdrop, inner } = getModalElements();
+  backdrop?.classList.add("hidden");
+  clearNode(inner);
   document.body.style.overflow = "";
+  activeModalCard = null;
+  const returnFocus = modalReturnFocusEl;
+  modalReturnFocusEl = null;
+  returnFocus?.focus?.();
 }
 
 /**
@@ -575,10 +874,20 @@ function closeModal() {
  */
 function buildTypeChecks() {
   const el = document.getElementById("type-checks");
-  el.innerHTML = TYPES.map((type) => {
+  if (!el) return;
+  clearNode(el);
+  TYPES.forEach((type) => {
     const value = type.toLowerCase();
-    return `<label class="cb-label" id="cb-type-${value}" onclick="toggleType('${value}',this)"><span>${type}</span></label>`;
-  }).join("");
+    const button = createActionButton({
+      className: "cb-label",
+      text: type,
+      action: "toggle-type",
+      dataset: { value }
+    });
+    button.id = `cb-type-${value}`;
+    button.classList.toggle("checked", bFilters.types.includes(value));
+    el.appendChild(button);
+  });
 }
 
 /**
@@ -586,9 +895,19 @@ function buildTypeChecks() {
  */
 function buildRarityChecks() {
   const el = document.getElementById("rarity-checks");
-  el.innerHTML = RARITIES.map((rarity) =>
-    `<label class="cb-label" id="cb-rar-${rarity.v}" onclick="toggleRarity('${rarity.v}',this)"><span>${rarity.l}</span></label>`
-  ).join("");
+  if (!el) return;
+  clearNode(el);
+  RARITIES.forEach((rarity) => {
+    const button = createActionButton({
+      className: "cb-label",
+      text: rarity.l,
+      action: "toggle-rarity",
+      dataset: { value: rarity.v }
+    });
+    button.id = `cb-rar-${rarity.v}`;
+    button.classList.toggle("checked", bFilters.rarities.includes(rarity.v));
+    el.appendChild(button);
+  });
 }
 
 /**
@@ -610,7 +929,7 @@ function toggleColor(color) {
  * @param {string} value - Scryfall type value.
  * @param {HTMLElement} label - Clicked label element.
  */
-function toggleType(value, label) {
+function toggleType(value, label = document.getElementById(`cb-type-${value}`)) {
   const index = bFilters.types.indexOf(value);
   if (index >= 0) bFilters.types.splice(index, 1);
   else bFilters.types.push(value);
@@ -623,7 +942,7 @@ function toggleType(value, label) {
  * @param {string} value - Scryfall rarity value.
  * @param {HTMLElement} label - Clicked label element.
  */
-function toggleRarity(value, label) {
+function toggleRarity(value, label = document.getElementById(`cb-rar-${value}`)) {
   const index = bFilters.rarities.indexOf(value);
   if (index >= 0) bFilters.rarities.splice(index, 1);
   else bFilters.rarities.push(value);
@@ -756,7 +1075,7 @@ function showKwSuggestions(value) {
   if (!box) return;
 
   if (!input) {
-    box.innerHTML = "";
+    clearNode(box);
     box.classList.add("hidden");
     return;
   }
@@ -771,14 +1090,20 @@ function showKwSuggestions(value) {
     .slice(0, 8);
 
   if (!matches.length) {
-    box.innerHTML = "";
+    clearNode(box);
     box.classList.add("hidden");
     return;
   }
 
-  box.innerHTML = matches.map((keyword) =>
-    `<div class="kw-sug" onclick="addKeyword('${escapeAttribute(keyword)}')">${keyword}</div>`
-  ).join("");
+  clearNode(box);
+  matches.forEach((keyword) => {
+    box.appendChild(createActionButton({
+      className: "kw-sug",
+      text: keyword,
+      action: "add-keyword",
+      dataset: { keyword }
+    }));
+  });
   box.classList.remove("hidden");
 }
 
@@ -810,9 +1135,18 @@ function removeKeyword(keyword) {
  * Renders active keyword chips.
  */
 function renderKwChips() {
-  document.getElementById("kw-chips").innerHTML = bFilters.keywords.map((keyword) =>
-    `<span class="kw-chip" onclick="removeKeyword('${keyword}')">${keyword} x</span>`
-  ).join("");
+  const chips = document.getElementById("kw-chips");
+  if (!chips) return;
+  clearNode(chips);
+  bFilters.keywords.forEach((keyword) => {
+    chips.appendChild(createActionButton({
+      className: "kw-chip",
+      text: `${keyword} x`,
+      action: "remove-keyword",
+      dataset: { keyword },
+      ariaLabel: `Remove keyword ${keyword}`
+    }));
+  });
 }
 
 /**
@@ -820,11 +1154,20 @@ function renderKwChips() {
  */
 function buildQuickSearches() {
   const el = document.getElementById("quick-search-list");
-  el.innerHTML = QUICK_SEARCHES.map((quickSearch) => `
-    <button class="sb-btn" onclick="runQuickSearch('${escapeAttribute(quickSearch.q)}')">
-      ${quickSearch.label}
-      <span>${quickSearch.hint}</span>
-    </button>`).join("");
+  if (!el) return;
+  clearNode(el);
+  QUICK_SEARCHES.forEach((quickSearch) => {
+    const button = createActionButton({
+      className: "sb-btn",
+      text: quickSearch.label,
+      action: "quick-search",
+      dataset: { query: quickSearch.q }
+    });
+    const hint = document.createElement("span");
+    hint.textContent = quickSearch.hint;
+    button.appendChild(hint);
+    el.appendChild(button);
+  });
 }
 
 /**
@@ -833,11 +1176,19 @@ function buildQuickSearches() {
 function buildDiscoveryPaths() {
   const el = document.getElementById("discovery-path-list");
   if (!el) return;
-  el.innerHTML = DISCOVERY_PATHS.map((path) => `
-    <button class="sb-btn" onclick="runQuickSearch('${escapeAttribute(path.q)}')">
-      ${path.label}
-      <span>${path.hint}</span>
-    </button>`).join("");
+  clearNode(el);
+  DISCOVERY_PATHS.forEach((path) => {
+    const button = createActionButton({
+      className: "sb-btn",
+      text: path.label,
+      action: "quick-search",
+      dataset: { query: path.q }
+    });
+    const hint = document.createElement("span");
+    hint.textContent = path.hint;
+    button.appendChild(hint);
+    el.appendChild(button);
+  });
 }
 
 function readArchscryMazeHandoff() {
@@ -887,7 +1238,7 @@ function initializeArchscryMazeHandoff(urlParams) {
     returnBannerDismissed: previousIdentity && previousIdentity === nextIdentity
       ? existing.returnBannerDismissed === true
       : false,
-    returnUrl: urlParams.get("returnUrl") || existing.returnUrl || "/archscry/"
+    returnUrl: urlParams.get("returnUrl") || existing.returnUrl || "../archscry/"
   };
   writeArchscryMazeHandoff(handoff);
   if (!handoff.returnBannerDismissed) {
@@ -899,7 +1250,6 @@ function renderArchscryReturnBanner(handoff) {
   const banner = document.getElementById("maze-return-banner");
   const copy = document.getElementById("maze-return-copy");
   const link = document.getElementById("maze-return-link");
-  const dismiss = document.getElementById("maze-return-dismiss");
   if (!banner || !copy || !link || !handoff?.returnUrl) return;
 
   const title = handoff.readingTitle || "your Vox Mana reading";
@@ -913,12 +1263,16 @@ function renderArchscryReturnBanner(handoff) {
     mazeReturnUrl: `${location.pathname}${location.search}`
   });
 
-  copy.innerHTML = `Following <strong>${escapeHtml(factionName)}</strong> from ${escapeHtml(title)}${pathLabel ? ` through ${escapeHtml(pathLabel)}` : ""}.`;
+  clearNode(copy);
+  appendContent(copy, "Following ");
+  const strong = document.createElement("strong");
+  strong.textContent = factionName;
+  copy.appendChild(strong);
+  appendContent(copy, ` from ${title}`);
+  if (pathLabel) appendContent(copy, ` through ${pathLabel}`);
+  appendContent(copy, ".");
   link.href = returnUrl;
   link.textContent = `Return to My ${handoff.factionName || handoff.guild || "Reading"} Dossier`;
-  if (dismiss) {
-    dismiss.onclick = () => dismissArchscryReturnBanner();
-  }
   banner.classList.add("is-visible");
 }
 
@@ -934,10 +1288,13 @@ function dismissArchscryReturnBanner() {
 }
 
 function appendReturnUrlParams(url, params) {
-  const parsed = new URL(url, location.origin);
+  const parsed = new URL(url, location.href);
   Object.entries(params).forEach(([key, value]) => {
     if (value) parsed.searchParams.set(key, value);
   });
+  if (parsed.protocol === "file:") {
+    return parsed.toString();
+  }
   return parsed.origin === location.origin
     ? `${parsed.pathname}${parsed.search}${parsed.hash}`
     : parsed.toString();
@@ -955,16 +1312,24 @@ function buildReadingPaths() {
   const paths = result ? createReadingPaths(result) : [];
   if (!paths.length) {
     section.style.display = "none";
-    list.innerHTML = "";
+    clearNode(list);
     return;
   }
 
   section.style.display = "";
-  list.innerHTML = paths.map((path) => `
-    <button class="sb-btn is-reading" onclick="runQuickSearch('${escapeAttribute(path.q)}')">
-      ${path.label}
-      <span>${path.hint}</span>
-    </button>`).join("");
+  clearNode(list);
+  paths.forEach((path) => {
+    const button = createActionButton({
+      className: "sb-btn is-reading",
+      text: path.label,
+      action: "quick-search",
+      dataset: { query: path.q }
+    });
+    const hint = document.createElement("span");
+    hint.textContent = path.hint;
+    button.appendChild(hint);
+    list.appendChild(button);
+  });
 }
 
 function getStoredPlacementResult() {
@@ -1061,9 +1426,18 @@ function queryTerm(value, field) {
  */
 function buildColorGrid() {
   const el = document.getElementById("color-grid");
-  el.innerHTML = COLOR_LABELS.map((color) => `
-    <button class="color-sb-btn" onclick="runQuickSearch('${escapeAttribute(color.q)}')" title="${escapeHtml(color.label)}">${color.c}</button>
-  `).join("");
+  if (!el) return;
+  clearNode(el);
+  COLOR_LABELS.forEach((color) => {
+    el.appendChild(createActionButton({
+      className: "color-sb-btn",
+      text: color.c,
+      action: "quick-search",
+      dataset: { query: color.q },
+      title: color.label,
+      ariaLabel: color.label
+    }));
+  });
 }
 
 /**
@@ -1141,10 +1515,17 @@ function changeOrder(order, dir = undefined) {
 function addRecent(query) {
   recentSearches = [query, ...recentSearches.filter((item) => item !== query)].slice(0, 8);
   const el = document.getElementById("recent-list");
-  el.innerHTML = recentSearches.map((recent) => `
-    <div class="recent-item" onclick="runQuickSearch('${escapeAttribute(recent)}')">
-      ${escapeHtml(recent.length > 40 ? `${recent.slice(0, 40)}...` : recent)}
-    </div>`).join("");
+  if (!el) return;
+  clearNode(el);
+  recentSearches.forEach((recent) => {
+    el.appendChild(createActionButton({
+      className: "recent-item",
+      text: recent.length > 40 ? `${recent.slice(0, 40)}...` : recent,
+      action: "quick-search",
+      dataset: { query: recent },
+      title: recent
+    }));
+  });
   document.getElementById("recent-section").style.display = recentSearches.length ? "" : "none";
 }
 
@@ -1202,7 +1583,7 @@ function resetSearchResults() {
   nextPageUrl = null;
   totalCards = 0;
 
-  document.getElementById("card-grid").innerHTML = "";
+  clearNode(document.getElementById("card-grid"));
   document.getElementById("card-grid").classList.add("hidden");
   document.getElementById("results-header").classList.add("hidden");
   document.getElementById("results-footer").classList.add("hidden");
@@ -1286,7 +1667,8 @@ async function showNoResultsState(query) {
   document.getElementById("results-footer").classList.add("hidden");
 
   const panel = document.getElementById("state-panel");
-  panel.innerHTML = buildNoResultsHtml(query);
+  panel.innerHTML = buildNoResultsHtml();
+  document.getElementById("empty-query").textContent = query;
   panel.classList.add("empty-result-active");
   panel.style.display = "flex";
 
@@ -1296,10 +1678,9 @@ async function showNoResultsState(query) {
 
 /**
  * Builds the empty-results panel HTML.
- * @param {string} query - Query that returned no cards.
  * @returns {string} Empty-results HTML.
  */
-function buildNoResultsHtml(query) {
+function buildNoResultsHtml() {
   return `
     <div class="empty-archive">
       <a class="empty-card-link" id="empty-card-link" href="https://scryfall.com/card/rna/81/pestilent-spirit" target="_blank" rel="noopener">
@@ -1311,7 +1692,7 @@ function buildNoResultsHtml(query) {
         <div class="empty-copy">
           No cards matched this exact spellwork. Try loosening a color, removing one keyword, or switching an AND into an OR.
         </div>
-        <div class="empty-query">${escapeHtml(query)}</div>
+        <div class="empty-query" id="empty-query"></div>
         <div class="empty-card-lore hidden" id="empty-card-lore">
           <div class="empty-card-name" id="empty-card-name"></div>
           <div class="empty-card-flavor hidden" id="empty-card-flavor"></div>
@@ -1336,7 +1717,12 @@ function renderNoResultsCard(card) {
   const image = card.image_uris?.normal || card.card_faces?.[0]?.image_uris?.normal;
   if (!frame || !image) return;
 
-  frame.innerHTML = `<img src="${escapeHtml(image)}" alt="${escapeHtml(card.name)}" loading="lazy">`;
+  clearNode(frame);
+  const imageNode = document.createElement("img");
+  imageNode.src = image;
+  imageNode.alt = card.name || "Deathtouch specimen";
+  imageNode.loading = "lazy";
+  frame.appendChild(imageNode);
   if (link && card.scryfall_uri) link.href = card.scryfall_uri;
 
   const flavor = getCardFlavorText(card);
@@ -1444,26 +1830,62 @@ function renderStash() {
   if (!countEl || !body) return;
 
   countEl.textContent = String(cardStash.length);
+  clearNode(body);
   if (!cardStash.length) {
-    body.innerHTML = `<div class="stash-empty">No cards saved yet.</div>`;
+    const empty = document.createElement("div");
+    empty.className = "stash-empty";
+    empty.textContent = "No cards saved yet.";
+    body.appendChild(empty);
     return;
   }
 
-  body.innerHTML = STASH_SECTIONS.map((section) => {
+  const renderedGroups = STASH_SECTIONS.map((section) => {
     const items = cardStash.filter((item) => item.stash_section === section.id);
-    if (!items.length) return "";
-    return `
-      <div class="stash-group">
-        <div class="stash-section-title">${section.label}</div>
-        <div class="stash-list">
-          ${items.map((item) => `
-            <div class="stash-item">
-              <a class="stash-name" href="${escapeHtml(item.scryfall_uri || "#")}" target="_blank" rel="noopener">${escapeHtml(item.name)}</a>
-              <button class="stash-remove" type="button" onclick="removeStashCard('${escapeAttribute(cardStashKey(item))}')">x</button>
-            </div>`).join("")}
-        </div>
-      </div>`;
-  }).join("") || `<div class="stash-empty">No cards saved yet.</div>`;
+    if (!items.length) return null;
+
+    const group = document.createElement("div");
+    group.className = "stash-group";
+    const title = document.createElement("div");
+    title.className = "stash-section-title";
+    title.textContent = section.label;
+    const list = document.createElement("div");
+    list.className = "stash-list";
+
+    items.forEach((item) => {
+      const row = document.createElement("div");
+      row.className = "stash-item";
+
+      const name = createLink({
+        className: "stash-name",
+        href: item.scryfall_uri || "#",
+        text: item.name || "Unknown card",
+        target: "_blank",
+        rel: "noopener"
+      });
+      const remove = createActionButton({
+        className: "stash-remove",
+        text: "x",
+        action: "remove-stash-card",
+        dataset: { stashKey: cardStashKey(item) },
+        ariaLabel: `Remove ${item.name || "card"} from stash`
+      });
+      appendContent(row, name, remove);
+      list.appendChild(row);
+    });
+
+    appendContent(group, title, list);
+    return group;
+  }).filter(Boolean);
+
+  if (!renderedGroups.length) {
+    const empty = document.createElement("div");
+    empty.className = "stash-empty";
+    empty.textContent = "No cards saved yet.";
+    body.appendChild(empty);
+    return;
+  }
+
+  renderedGroups.forEach((group) => body.appendChild(group));
 }
 
 function refreshStashButtons() {
@@ -1502,6 +1924,126 @@ function copyStashExport() {
     return;
   }
   navigator.clipboard.writeText(text).then(() => showToast("Export copied"));
+}
+
+function bindMazeControls() {
+  document.querySelector(".page")?.addEventListener("click", handleMazeActionClick);
+  document.addEventListener("keydown", handleMazeGlobalKeydown);
+  document.addEventListener("click", handleMazeDocumentClick);
+
+  document.getElementById("search-input")?.addEventListener("keydown", (event) => {
+    if (event.key !== "Enter") return;
+    event.preventDefault();
+    doSearch();
+  });
+  document.getElementById("color-op")?.addEventListener("change", rebuildFromFilters);
+  document.getElementById("bld-format")?.addEventListener("change", rebuildFromFilters);
+  document.getElementById("cmc-min")?.addEventListener("input", rebuildFromFilters);
+  document.getElementById("cmc-max")?.addEventListener("input", rebuildFromFilters);
+  document.getElementById("kw-input")?.addEventListener("input", (event) => {
+    showKwSuggestions(event.target.value);
+  });
+  document.getElementById("kw-input")?.addEventListener("keydown", handleKwKey);
+  document.getElementById("sb-format")?.addEventListener("change", (event) => {
+    applyFormatFilter(event.target.value);
+  });
+  document.getElementById("res-order")?.addEventListener("change", (event) => {
+    changeOrder(event.target.value, event.target.selectedOptions[0]?.dataset.dir);
+  });
+  document.getElementById("maze-return-dismiss")?.addEventListener("click", dismissArchscryReturnBanner);
+  document.getElementById("modal-bg")?.addEventListener("click", (event) => {
+    if (event.target === event.currentTarget) closeModal();
+  });
+}
+
+function handleMazeActionClick(event) {
+  const actionNode = event.target.closest("[data-action]");
+  if (!(actionNode instanceof HTMLElement)) return;
+
+  switch (actionNode.dataset.action) {
+    case "set-mode":
+      setMode(actionNode.dataset.mode || "ai");
+      return;
+    case "search":
+      doSearch();
+      return;
+    case "clear-search":
+      clearSearchInput();
+      return;
+    case "copy-query":
+      copyQuery();
+      return;
+    case "toggle-color":
+      toggleColor(actionNode.dataset.color || "");
+      return;
+    case "toggle-type":
+      toggleType(actionNode.dataset.value || "", actionNode);
+      return;
+    case "toggle-rarity":
+      toggleRarity(actionNode.dataset.value || "", actionNode);
+      return;
+    case "add-keyword":
+      addKeyword(actionNode.dataset.keyword || "");
+      return;
+    case "remove-keyword":
+      removeKeyword(actionNode.dataset.keyword || "");
+      return;
+    case "quick-search":
+      if (actionNode.closest("#modal-wrap")) closeModal();
+      runQuickSearch(actionNode.dataset.query || "", {
+        order: actionNode.dataset.order || undefined,
+        unique: actionNode.dataset.unique || undefined,
+        dir: actionNode.dataset.dir || undefined
+      });
+      return;
+    case "load-more":
+      loadMore();
+      return;
+    case "copy-stash-export":
+      copyStashExport();
+      return;
+    case "clear-stash":
+      clearStash();
+      return;
+    case "toggle-card-stash": {
+      event.stopPropagation();
+      const card = actionNode.__cardData;
+      if (!card) return;
+      toggleCardStash(card, isCardStashed(card) ? null : "maybe");
+      return;
+    }
+    case "open-card":
+      openModal(actionNode.__cardData, actionNode);
+      return;
+    case "close-modal":
+      closeModal();
+      return;
+    case "modal-stash":
+      toggleCardStashFromModal(actionNode.dataset.section || "maybe");
+      return;
+    case "remove-stash-card":
+      removeStashCard(actionNode.dataset.stashKey || "");
+      return;
+    default:
+  }
+}
+
+function handleMazeGlobalKeydown(event) {
+  if (!isModalOpen()) return;
+  if (event.key === "Escape") {
+    event.preventDefault();
+    closeModal();
+    return;
+  }
+  if (event.key === "Tab") {
+    trapModalFocus(event);
+  }
+}
+
+function handleMazeDocumentClick(event) {
+  if (!document.getElementById("kw-wrap")?.contains(event.target)) {
+    document.getElementById("kw-suggestions")?.classList.add("hidden");
+  }
 }
 
 /**
@@ -1564,70 +2106,22 @@ function showToast(message) {
 }
 
 /**
- * Escapes HTML text for template rendering.
- * @param {string} value - Raw value.
- * @returns {string} Safe HTML text.
- */
-function escapeHtml(value) {
-  return String(value ?? "")
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;")
-    .replace(/"/g, "&quot;")
-    .replace(/'/g, "&#039;");
-}
-
-/**
- * Escapes a string for use inside an inline handler attribute.
- * @param {string} value - Raw value.
- * @returns {string} Attribute-safe text.
- */
-function escapeAttribute(value) {
-  return String(value ?? "")
-    .replace(/&/g, "&amp;")
-    .replace(/\\/g, "\\\\")
-    .replace(/"/g, "&quot;")
-    .replace(/'/g, "\\'")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;");
-}
-
-/**
- * Exposes module-scoped handlers for existing inline HTML event attributes.
+ * Exposes a small compatibility surface for tests and Query Inspector fallbacks.
  */
 function exposeWindowHandlers() {
   Object.assign(window, {
     setMode,
     doSearch,
-    clearSearchInput,
-    loadMore,
-    openModal,
-    closeModal,
-    toggleColor,
-    toggleType,
-    toggleRarity,
-    rebuildFromFilters,
-    showKwSuggestions,
-    handleKwKey,
-    addKeyword,
-    removeKeyword,
     runQuickSearch,
     runQueryAlternative,
-    applyFormatFilter,
     changeOrder,
     copyQuery,
-    toggleCardStashFromModal,
-    removeStashCard,
-    clearStash,
-    copyStashExport
+    clearSearchInput,
+    applyFormatFilter,
+    openModal,
+    closeModal
   });
 }
 
-document.addEventListener("keydown", (event) => { if (event.key === "Escape") closeModal(); });
-document.addEventListener("click", (event) => {
-  if (!document.getElementById("kw-wrap")?.contains(event.target)) {
-    document.getElementById("kw-suggestions")?.classList.add("hidden");
-  }
-});
 window.addEventListener("load", initializeResearchArchives);
 exposeWindowHandlers();

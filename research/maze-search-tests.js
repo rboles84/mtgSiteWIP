@@ -119,7 +119,7 @@ async function runMazeDomMetadataCases() {
 
   const alternative = document.querySelectorAll(".qi-alt")[0];
   assert.ok(alternative, "expected Query Inspector to render an alternative button");
-  alternative.onclick();
+  alternative.onclick?.();
   await waitForFetchCount(dom.fetchUrls, 4);
   lastUrl = latestFetchUrl(dom.fetchUrls);
   assert.equal(lastUrl.searchParams.get("q"), "otag:mana-rock");

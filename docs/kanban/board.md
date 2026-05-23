@@ -40,6 +40,7 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 ## Done
 
+- [VM-106 - Frontend Hardening Phase 1 Security Accessibility](done/VM-106-frontend-hardening-phase-1-security-accessibility.md)
 - [VM-100 - Privacy / Terms Archive Document Refresh](done/VM-100-privacy-terms-archive-document-refresh.md)
 - [VM-105 - Archscry Doorway Watermark Backout](done/VM-105-archscry-doorway-watermark-backout.md)
 - [VM-104 - Archscry Doorway Watermark](done/VM-104-archscry-doorway-watermark.md)

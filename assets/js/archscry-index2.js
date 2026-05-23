@@ -67,7 +67,7 @@
         sections.status = node;
         return;
       }
-      if (node.classList.contains("footer-button-row") && node.querySelector('[onclick="returnToPrimaryReading()"]')) {
+      if (node.classList.contains("footer-button-row") && node.querySelector('[data-action="return-primary-reading"]')) {
         sections.returnButton = node;
         return;
       }

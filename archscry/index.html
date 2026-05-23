@@ -90,6 +90,20 @@ body::before{
 }
 .btn-secondary:hover{color:var(--text);border-color:var(--border-s);background:rgba(184,149,74,0.04)}
 .btn-secondary:disabled{opacity:0.5;cursor:not-allowed}
+.btn-primary:focus-visible,.btn-secondary:focus-visible,.tb-btn:focus-visible,.answer-card button:focus-visible,.adjacent-btn:focus-visible,#terminal-submit:focus-visible,#terminal-input:focus-visible{
+  outline:2px solid color-mix(in srgb, var(--gold-l) 68%, white 32%);
+  outline-offset:2px;
+  box-shadow:0 0 0 3px rgba(12,11,10,0.92),0 0 0 5px rgba(26,170,150,0.28);
+}
+
+@media (prefers-reduced-motion: reduce){
+  .btn-primary,.btn-secondary,.answer-card,.adjacent-btn,.progress-fill{
+    transition:none !important;
+  }
+  .btn-primary:hover,.answer-card:hover{
+    transform:none !important;
+  }
+}
 
 /* Auth identity elements — shown by index.js after sign-in */
 .tb-identity{display:flex;align-items:center;gap:12px;min-width:0}
@@ -1187,8 +1201,8 @@ body::before{
           <div class="tb-placement" id="tb-placement"></div>
         </div>
       </div>
-      <button class="tb-btn hidden" id="tb-retake" type="button" onclick="handleRetake()">Begin Again</button>
-      <button class="tb-btn hidden" id="tb-signout" type="button" onclick="handleSignOut()">Sign Out</button>
+      <button class="tb-btn hidden" id="tb-retake" type="button" data-action="retake">Begin Again</button>
+      <button class="tb-btn hidden" id="tb-signout" type="button" data-action="sign-out">Sign Out</button>
 
       <button
         type="button"
@@ -1242,8 +1256,8 @@ body::before{
           explore adjacent fits, or start over later.
         </p>
         <div class="landing-actions">
-          <button class="btn-primary" type="button" onclick="startQuickFlow()">Start the Quick Reading</button>
-          <button class="btn-secondary" type="button" data-vm-terminal-only hidden onclick="startInterviewFlow()">Use the Scrying Terminal</button>
+          <button class="btn-primary" type="button" data-action="start-quick-flow">Start the Quick Reading</button>
+          <button class="btn-secondary" type="button" data-vm-terminal-only hidden data-action="start-interview-flow">Use the Scrying Terminal</button>
         </div>
       </div>
     </div>
@@ -1272,9 +1286,9 @@ body::before{
       </div>
 
       <div class="quick-footer">
-        <button class="btn-secondary" type="button" id="quick-back-btn" onclick="goBackQuickQuestion()">Back</button>
-        <button class="btn-secondary" type="button" data-vm-terminal-only hidden onclick="startInterviewFlow()">Switch to the Scrying Terminal</button>
-        <button class="btn-secondary" type="button" onclick="showSection('landing')">Return to landing</button>
+        <button class="btn-secondary" type="button" id="quick-back-btn" data-action="quick-back">Back</button>
+        <button class="btn-secondary" type="button" data-vm-terminal-only hidden data-action="start-interview-flow">Switch to the Scrying Terminal</button>
+        <button class="btn-secondary" type="button" data-action="show-section" data-section="landing">Return to landing</button>
       </div>
     </div>
   </section>
@@ -1298,7 +1312,7 @@ body::before{
       <div id="terminal-output"></div>
       <div id="terminal-input-row">
         <input id="terminal-input" type="text" placeholder="Enter your response..." autocomplete="off">
-        <button id="terminal-submit" type="button" onclick="submitInterview()">Transmit</button>
+        <button id="terminal-submit" type="button" data-action="submit-interview">Transmit</button>
       </div>
       <div id="terminal-status"></div>
       <div id="terminal-error"></div>
@@ -1310,9 +1324,9 @@ body::before{
         <div class="decree-text" id="decree-text"></div>
         <div class="decree-runner" id="decree-runner"></div>
         <div class="decree-actions">
-          <button class="btn-primary" type="button" onclick="openInterviewDossier()">Open Full Dossier</button>
-          <button class="btn-secondary" type="button" id="save-placement-btn" onclick="handleSavePlacement()">Save with Google</button>
-          <button class="btn-secondary" type="button" onclick="handleRetake()">Begin Again</button>
+          <button class="btn-primary" type="button" data-action="open-interview-dossier">Open Full Dossier</button>
+          <button class="btn-secondary" type="button" id="save-placement-btn" data-action="save-placement">Save with Google</button>
+          <button class="btn-secondary" type="button" data-action="retake">Begin Again</button>
         </div>
       </div>
     </div>

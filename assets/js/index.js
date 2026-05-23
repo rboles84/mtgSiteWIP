@@ -466,10 +466,17 @@ function updateTopbar() {
   name.textContent = SESSION.username;
   placement.textContent = faction ? `${faction.name}` : "Signed in";
 
+  clearNode(avatar);
   if (SESSION.avatarUrl) {
-    avatar.innerHTML = `<img src="${SESSION.avatarUrl}" alt="${SESSION.username}">`;
+    const image = document.createElement("img");
+    image.src = SESSION.avatarUrl;
+    image.alt = SESSION.username || "Signed-in user";
+    avatar.appendChild(image);
   } else {
-    avatar.innerHTML = `<span class="tb-avatar-fallback">${(SESSION.username[0] || "?").toUpperCase()}</span>`;
+    const fallback = document.createElement("span");
+    fallback.className = "tb-avatar-fallback";
+    fallback.textContent = (SESSION.username[0] || "?").toUpperCase();
+    avatar.appendChild(fallback);
   }
 }
 
@@ -625,7 +632,7 @@ function renderQuickQuestion() {
     .map((answer, index) => {
       return `
         <div class="answer-card">
-          <button type="button" onclick="answerQuickQuestion(${index})">
+          <button type="button" ${buildActionAttrs("answer-quick-question", { answerIndex: index })}>
             <div class="answer-title">${answer.title}</div>
             <div class="answer-copy">${answer.copy}</div>
           </button>
@@ -1080,6 +1087,39 @@ function captureMazeReturnUrl() {
     : "";
 }
 
+function clearNode(node) {
+  if (!node) return;
+  if (typeof node.replaceChildren === "function") {
+    node.replaceChildren();
+    return;
+  }
+  if ("innerHTML" in node) {
+    node.innerHTML = "";
+    return;
+  }
+  while (node.firstChild) {
+    node.removeChild(node.firstChild);
+  }
+}
+
+function escapeAttributeValue(value) {
+  return String(value ?? "")
+    .replace(/&/g, "&amp;")
+    .replace(/"/g, "&quot;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;");
+}
+
+function buildActionAttrs(action, dataset = {}) {
+  const attrs = [`data-action="${escapeAttributeValue(action)}"`];
+  Object.entries(dataset).forEach(([key, value]) => {
+    if (value === undefined || value === null || value === "") return;
+    const attrKey = `data-${key.replace(/[A-Z]/g, (match) => `-${match.toLowerCase()}`)}`;
+    attrs.push(`${attrKey}="${escapeAttributeValue(value)}"`);
+  });
+  return attrs.join(" ");
+}
+
 function escapeHtml(value) {
   return sanitizeUserFacingCopy(value)
     .replace(/&/g, "&amp;")
@@ -1386,7 +1426,7 @@ function renderResult(viewKey) {
         <h2>No reading yet.</h2>
         <p>Start with the quick path, then come back here for the full dossier.</p>
         <div class="landing-actions" style="justify-content:center;margin-top:1.5rem">
-          <button class="btn-primary" type="button" onclick="showSection('landing')">Go to landing</button>
+          <button class="btn-primary" type="button" ${buildActionAttrs("show-section", { section: "landing" })}>Go to landing</button>
         </div>
       </div>`;
     showSection("result");
@@ -1508,7 +1548,7 @@ function renderResult(viewKey) {
               <div class="adjacent-name">${fit.name}</div>
               <div class="adjacent-copy">${fit.reason || fit.tagline}</div>
               <div class="adjacent-actions">
-                <button class="adjacent-btn" type="button" onclick="switchAdjacentView('${fit.factionKey}')">View this fit</button>
+                <button class="adjacent-btn" type="button" ${buildActionAttrs("switch-adjacent-view", { viewKey: fit.factionKey })}>View this fit</button>
               </div>
             </div>`;
         })
@@ -1523,7 +1563,7 @@ function renderResult(viewKey) {
     </div>`;
   const resultStatus = dossier.resultStatus;
   const returnToPrimaryButton = !isPrimary
-    ? `<div class="footer-button-row"><button class="btn-secondary" type="button" onclick="returnToPrimaryReading()">Back to Primary Reading</button></div>`
+    ? `<div class="footer-button-row"><button class="btn-secondary" type="button" ${buildActionAttrs("return-primary-reading")}>Back to Primary Reading</button></div>`
     : "";
   const primaryPlacementHtml = isPrimary
     ? adjacentSectionHtml
@@ -1536,7 +1576,7 @@ function renderResult(viewKey) {
   const saveButtonLabel = SESSION.username ? "Save this reading" : "Save with Google";
   const returnToTerminalButton =
     terminalEnabled && APP_STATE.resultSource === "interview"
-      ? `<button class="btn-secondary" type="button" onclick="returnToInterviewSource()">Return to the Terminal</button>`
+      ? `<button class="btn-secondary" type="button" ${buildActionAttrs("return-interview-source")}>Return to the Terminal</button>`
       : "";
   const decreeCopy = dossier.decreeCopy;
   const readingOmens = dossier.readingOmens || [];
@@ -1683,10 +1723,10 @@ function renderResult(viewKey) {
     <div class="footer-actions">
       <div class="footer-note">Card and land images via Scryfall API. Starter references are curated from faction data; deck links route out to EDHREC, Archidekt, and MTGDecks, while Maze stays inside the reading flow.</div>
       <div class="footer-button-row">
-        <button class="btn-primary" type="button" onclick="saveCurrentResult()">${saveButtonLabel}</button>
+        <button class="btn-primary" type="button" ${buildActionAttrs("save-current-result")}>${saveButtonLabel}</button>
         ${returnToTerminalButton}
-        ${terminalEnabled ? `<button class="btn-secondary" type="button" data-vm-terminal-only onclick="startInterviewFlow()">Try the deeper reading</button>` : ""}
-        <button class="btn-secondary" type="button" onclick="handleRetake()">Begin Again</button>
+        ${terminalEnabled ? `<button class="btn-secondary" type="button" data-vm-terminal-only ${buildActionAttrs("start-interview-flow")}>Try the deeper reading</button>` : ""}
+        <button class="btn-secondary" type="button" ${buildActionAttrs("retake")}>Begin Again</button>
       </div>
     </div>`;
 
@@ -1904,6 +1944,78 @@ async function saveCurrentResult() {
   }
 }
 
+function bindArchscryControls() {
+  document.querySelector(".app")?.addEventListener("click", (event) => {
+    void handleArchscryActionClick(event);
+  });
+}
+
+async function handleArchscryActionClick(event) {
+  const actionNode = event.target.closest("[data-action]");
+  if (!(actionNode instanceof HTMLElement)) return;
+
+  switch (actionNode.dataset.action) {
+    case "retake":
+      await handleRetake();
+      return;
+    case "sign-out":
+      await handleSignOut();
+      return;
+    case "start-quick-flow":
+      startQuickFlow();
+      return;
+    case "start-interview-flow":
+      await startInterviewFlow();
+      return;
+    case "quick-back":
+      goBackQuickQuestion();
+      return;
+    case "show-section":
+      showSection(actionNode.dataset.section || "landing");
+      return;
+    case "submit-interview":
+      await submitInterview();
+      return;
+    case "open-interview-dossier":
+      openInterviewDossier();
+      return;
+    case "save-placement":
+      await handleSavePlacement();
+      return;
+    case "answer-quick-question":
+      answerQuickQuestion(Number(actionNode.dataset.answerIndex));
+      return;
+    case "switch-adjacent-view":
+      switchAdjacentView(actionNode.dataset.viewKey || "");
+      return;
+    case "return-primary-reading":
+      returnToPrimaryReading();
+      return;
+    case "return-interview-source":
+      returnToInterviewSource();
+      return;
+    case "save-current-result":
+      await saveCurrentResult();
+      return;
+    default:
+  }
+}
+
+function renderInitializationError(error) {
+  clearNode(document.body);
+  const section = document.createElement("div");
+  section.className = "section";
+  const empty = document.createElement("div");
+  empty.className = "empty-state";
+  const heading = document.createElement("h2");
+  heading.textContent = "Placement data missing.";
+  const copy = document.createElement("p");
+  copy.textContent = error?.message || "The Archscry data bundle could not be loaded.";
+  empty.append(heading, copy);
+  section.appendChild(empty);
+  document.body.appendChild(section);
+}
+
 /**
  * Restores the best available placement view after page load.
  *
@@ -1968,8 +2080,8 @@ window.addEventListener("popstate", () => {
 });
 
 /**
- * Exposes page handlers used by existing inline HTML buttons after moving this file
- * to an ES module.
+ * Exposes a small compatibility surface while surrounding runtime hooks move to
+ * delegated data-action handlers.
  */
 Object.assign(window, {
   answerQuickQuestion,
@@ -1991,6 +2103,7 @@ Object.assign(window, {
 });
 
 document.addEventListener("DOMContentLoaded", async () => {
+  bindArchscryControls();
   try {
     await loadFactionData();
     await loadPlacementModel();
@@ -1998,7 +2111,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     await loadIdentityLayerData();
     await loadDiscoveryData();
   } catch (error) {
-    document.body.innerHTML = `<div class="section"><div class="empty-state"><h2>Placement data missing.</h2><p>${error.message}</p></div></div>`;
+    renderInitializationError(error);
     return;
   }
 

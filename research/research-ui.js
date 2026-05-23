@@ -120,7 +120,7 @@ function renderAlternatives(alternatives = []) {
  */
 function bindAlternativeButtons() {
   document.querySelectorAll(".qi-alt").forEach((button) => {
-    button.onclick = () => {
+    button.addEventListener("click", () => {
       const query = button.dataset.query || "";
       if (!query) return;
       const api = parseAlternativeApi(button.dataset.api || "");
@@ -132,7 +132,7 @@ function bindAlternativeButtons() {
       const input = document.getElementById("search-input");
       if (input) input.value = query;
       window.doSearch?.();
-    };
+    });
   });
 }
 

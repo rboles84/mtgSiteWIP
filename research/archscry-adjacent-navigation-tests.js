@@ -25,6 +25,6 @@ assert.match(
 );
 assert.match(
   indexSource,
-  /onclick="returnToPrimaryReading\(\)"/,
-  "expected the return control to call the helper"
+  /buildActionAttrs\("return-primary-reading"\)/,
+  "expected the return control to expose the delegated action hook"
 );

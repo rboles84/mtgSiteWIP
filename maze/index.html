@@ -118,7 +118,7 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 .cpip-C{background:#888;color:#f0f0f0}
 .color-op{background:var(--bg3);border:1px solid var(--border);color:var(--text-dim);font-family:'Cinzel',serif;font-size:0.65rem;padding:0.3rem 0.55rem;cursor:pointer;outline:none}
 .type-checks,.rarity-checks{display:flex;gap:6px;flex-wrap:wrap}
-.cb-label{display:flex;align-items:center;gap:4px;cursor:pointer;font-size:0.85rem;color:var(--text-dim);padding:0.2rem 0.55rem;border:1px solid var(--border);transition:color 0.12s,border-color 0.12s,background 0.12s}
+.cb-label{display:flex;align-items:center;gap:4px;cursor:pointer;font-size:0.85rem;color:var(--text-dim);padding:0.2rem 0.55rem;border:1px solid var(--border);transition:color 0.12s,border-color 0.12s,background 0.12s;background:transparent;font-family:'Crimson Pro',serif}
 .cb-label input{display:none}
 .cb-label.checked{color:var(--text);border-color:var(--border-s);background:rgba(184,149,74,0.06)}
 .bld-select{background:var(--bg3);border:1px solid var(--border);color:var(--text-dim);font-family:'Crimson Pro',serif;font-size:0.9rem;padding:0.35rem 0.6rem;cursor:pointer;outline:none;min-width:110px}
@@ -129,10 +129,10 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 .kw-input{width:100%;background:var(--bg3);border:1px solid var(--border);color:var(--text);font-family:'Crimson Pro',serif;font-size:0.9rem;padding:0.35rem 0.6rem;outline:none;transition:border-color 0.15s}
 .kw-input:focus{border-color:var(--border-s)}
 .kw-suggestions{position:absolute;top:100%;left:0;right:0;background:var(--bg3);border:1px solid var(--border-s);z-index:50;max-height:160px;overflow-y:auto}
-.kw-sug{padding:0.4rem 0.7rem;cursor:pointer;font-size:0.9rem;transition:background 0.1s}
+.kw-sug{display:block;width:100%;padding:0.4rem 0.7rem;cursor:pointer;font-size:0.9rem;transition:background 0.1s;background:transparent;border:none;color:var(--text);text-align:left;font-family:'Crimson Pro',serif}
 .kw-sug:hover{background:rgba(184,149,74,0.06)}
 .kw-active-chips{display:flex;gap:4px;flex-wrap:wrap}
-.kw-chip{font-size:0.75rem;padding:0.2rem 0.5rem;background:rgba(26,170,150,0.1);border:1px solid var(--border-t);color:var(--teal-l);cursor:pointer;display:flex;align-items:center;gap:4px}
+.kw-chip{font-size:0.75rem;padding:0.2rem 0.5rem;background:rgba(26,170,150,0.1);border:1px solid var(--border-t);color:var(--teal-l);cursor:pointer;display:flex;align-items:center;gap:4px;font-family:'IBM Plex Mono',monospace}
 .kw-chip:hover{background:rgba(176,48,48,0.1);border-color:rgba(176,48,48,0.3);color:#e08080}
 
 /* ── BODY ─────────────────────────────── */
@@ -154,7 +154,7 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 .sb-select{width:100%;background:var(--bg3);border:1px solid var(--border);color:var(--text-dim);font-family:'Crimson Pro',serif;font-size:0.9rem;padding:0.4rem 0.6rem;cursor:pointer;outline:none;transition:border-color 0.15s}
 .sb-select:focus{border-color:var(--border-s)}
 .recent-list{display:flex;flex-direction:column;gap:3px}
-.recent-item{font-family:'IBM Plex Mono',monospace;font-size:0.72rem;color:var(--teal-l);padding:0.35rem 0.5rem;cursor:pointer;border:1px solid transparent;transition:background 0.12s,border-color 0.12s;word-break:break-all;line-height:1.4}
+.recent-item{width:100%;background:transparent;text-align:left;font-family:'IBM Plex Mono',monospace;font-size:0.72rem;color:var(--teal-l);padding:0.35rem 0.5rem;cursor:pointer;border:1px solid transparent;transition:background 0.12s,border-color 0.12s;word-break:break-all;line-height:1.4}
 .recent-item:hover{background:var(--teal-bg);border-color:var(--border-t)}
 
 /* ── RESULTS ──────────────────────────── */
@@ -311,6 +311,30 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 .stash-copy{font-family:'Cinzel',serif;font-size:0.58rem;letter-spacing:0.1em;text-transform:uppercase;border:1px solid var(--border-t);background:transparent;color:var(--teal);padding:0.35rem 0.7rem;cursor:pointer}
 .stash-copy:hover{background:var(--teal-bg)}
 
+.mode-btn:focus-visible,.mode-help:focus-visible,.s-input:focus-visible,.btn-search:focus-visible,.btn-clear:focus-visible,.qi-btn:focus-visible,.cpip:focus-visible,.color-op:focus-visible,.bld-select:focus-visible,.cmc-input:focus-visible,.cb-label:focus-visible,.kw-sug:focus-visible,.kw-chip:focus-visible,.sb-btn:focus-visible,.color-sb-btn:focus-visible,.sb-select:focus-visible,.recent-item:focus-visible,.maze-return-link:focus-visible,.maze-return-dismiss:focus-visible,.res-order:focus-visible,.card-item:focus-visible,.card-stash-btn:focus-visible,.btn-more:focus-visible,.stash-copy:focus-visible,.stash-remove:focus-visible,.modal-close:focus-visible,.m-btn:focus-visible,.modal-img:focus-visible{
+  outline:2px solid color-mix(in srgb, var(--gold-l) 68%, white 32%);
+  outline-offset:2px;
+  box-shadow:0 0 0 3px rgba(12,11,10,0.92),0 0 0 5px rgba(26,170,150,0.3);
+}
+.card-item:focus-visible img{transform:translateY(-3px) scale(1.02);border-color:var(--border-s)}
+.card-item:focus-visible .card-item-name{color:var(--text)}
+
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto}
+  .card-item img,.card-stash-btn,.mode-btn,.cpip,.sb-btn,.color-sb-btn,.btn-more,.m-btn,.modal-close,.modal-img{
+    transition:none !important;
+  }
+  .card-item:hover img,.card-item:focus-visible img,.modal-img:hover,.modal-img:focus-visible,.cpip:hover,.cpip.on{
+    transform:none !important;
+  }
+  .card-skeleton,.state-spinner{
+    animation:none !important;
+  }
+  .modal{
+    animation:none !important;
+  }
+}
+
 @media(max-width:780px){
   .r-sidebar{display:none}
   .maze-return-banner{align-items:flex-start;flex-direction:column}
@@ -400,9 +424,9 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 <!-- ── SEARCH ZONE ─── -->
 <div class="r-search-zone">
   <div class="mode-row">
-    <button class="mode-btn on" id="mode-ai" onclick="setMode('ai')">The Plain Reading</button>
-    <button class="mode-btn" id="mode-raw" onclick="setMode('raw')">The Operator's Hand</button>
-    <button class="mode-btn" id="mode-builder" onclick="setMode('builder')">The Loom</button>
+    <button class="mode-btn on" id="mode-ai" type="button" data-action="set-mode" data-mode="ai">The Plain Reading</button>
+    <button class="mode-btn" id="mode-raw" type="button" data-action="set-mode" data-mode="raw">The Operator's Hand</button>
+    <button class="mode-btn" id="mode-builder" type="button" data-action="set-mode" data-mode="builder">The Loom</button>
     <div class="mode-help-wrap">
       <button class="mode-help" type="button" aria-label="Search help" aria-describedby="mode-help-popover">?</button>
       <div class="mode-help-popover" id="mode-help-popover" role="tooltip">
@@ -417,18 +441,17 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
     <div class="search-wrap">
       <span class="search-icon" id="search-icon">✦</span>
       <input type="text" class="s-input" id="search-input"
-        placeholder="e.g. 'red and black orcs', 'green haste', 'blue removal'"
-        onkeydown="if(event.key==='Enter')doSearch()">
+        placeholder="e.g. 'red and black orcs', 'green haste', 'blue removal'">
     </div>
-    <button class="btn-search" id="search-btn" onclick="doSearch()">Search</button>
-    <button class="btn-clear" id="clear-search-btn" onclick="clearSearchInput()">Clear</button>
+    <button class="btn-search" id="search-btn" type="button" data-action="search">Search</button>
+    <button class="btn-clear" id="clear-search-btn" type="button" data-action="clear-search">Clear</button>
   </div>
   <div class="query-inspector hidden" id="query-inspector">
     <span class="qi-label">Query</span>
     <span class="qi-query" id="qi-query"></span>
     <span class="qi-reason hidden" id="qi-reason"></span>
     <div class="qi-actions">
-      <button class="qi-btn" onclick="copyQuery()">Copy</button>
+      <button class="qi-btn" type="button" data-action="copy-query">Copy</button>
       <a class="qi-btn" id="qi-scryfall" href="#" target="_blank" rel="noopener">Open in Scryfall ↗</a>
     </div>
   </div>
@@ -438,14 +461,14 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
     <div class="builder-row">
       <span class="bl">Colors</span>
       <div class="color-pips" id="color-pips">
-        <button class="cpip cpip-W" data-c="W" onclick="toggleColor('W')">W</button>
-        <button class="cpip cpip-U" data-c="U" onclick="toggleColor('U')">U</button>
-        <button class="cpip cpip-B" data-c="B" onclick="toggleColor('B')">B</button>
-        <button class="cpip cpip-R" data-c="R" onclick="toggleColor('R')">R</button>
-        <button class="cpip cpip-G" data-c="G" onclick="toggleColor('G')">G</button>
-        <button class="cpip cpip-C" data-c="C" onclick="toggleColor('C')">C</button>
+        <button class="cpip cpip-W" type="button" data-c="W" data-action="toggle-color" data-color="W">W</button>
+        <button class="cpip cpip-U" type="button" data-c="U" data-action="toggle-color" data-color="U">U</button>
+        <button class="cpip cpip-B" type="button" data-c="B" data-action="toggle-color" data-color="B">B</button>
+        <button class="cpip cpip-R" type="button" data-c="R" data-action="toggle-color" data-color="R">R</button>
+        <button class="cpip cpip-G" type="button" data-c="G" data-action="toggle-color" data-color="G">G</button>
+        <button class="cpip cpip-C" type="button" data-c="C" data-action="toggle-color" data-color="C">C</button>
       </div>
-      <select class="color-op" id="color-op" onchange="rebuildFromFilters()">
+      <select class="color-op" id="color-op">
         <option value="c">exactly</option>
         <option value="c>=">at least (includes)</option>
         <option value="c<=">at most</option>
@@ -458,7 +481,7 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
     </div>
     <div class="builder-row">
       <span class="bl">Format</span>
-      <select class="bld-select" id="bld-format" onchange="rebuildFromFilters()">
+      <select class="bld-select" id="bld-format">
         <option value="">Any format</option>
         <option value="standard">Standard</option>
         <option value="pioneer">Pioneer</option>
@@ -474,14 +497,13 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
     <div class="builder-row">
       <span class="bl">CMC</span>
       <div class="cmc-inputs">
-        <input class="cmc-input" id="cmc-min" type="number" min="0" max="20" placeholder="min" oninput="rebuildFromFilters()">
+        <input class="cmc-input" id="cmc-min" type="number" min="0" max="20" placeholder="min">
         <span style="color:var(--text-muted);font-size:0.85rem">to</span>
-        <input class="cmc-input" id="cmc-max" type="number" min="0" max="20" placeholder="max" oninput="rebuildFromFilters()">
+        <input class="cmc-input" id="cmc-max" type="number" min="0" max="20" placeholder="max">
       </div>
       <span class="bl" style="margin-left:12px">Keywords</span>
       <div class="kw-wrap" id="kw-wrap">
-        <input class="kw-input" id="kw-input" type="text" placeholder="shroud, flying, lifelink..."
-          oninput="showKwSuggestions(this.value)" onkeydown="handleKwKey(event)">
+        <input class="kw-input" id="kw-input" type="text" placeholder="shroud, flying, lifelink...">
         <div class="kw-suggestions hidden" id="kw-suggestions"></div>
       </div>
       <div class="kw-active-chips" id="kw-chips"></div>
@@ -512,7 +534,7 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
     </div>
     <div class="sb-section">
       <div class="sb-label">Format</div>
-      <select class="sb-select" id="sb-format" onchange="applyFormatFilter(this.value)">
+      <select class="sb-select" id="sb-format">
         <option value="">Any format</option>
         <option value="commander">Commander</option>
         <option value="modern">Modern</option>
@@ -534,7 +556,7 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
     <div class="maze-return-banner" id="maze-return-banner">
       <div class="maze-return-copy" id="maze-return-copy"></div>
       <div class="maze-return-actions">
-        <a class="maze-return-link" id="maze-return-link" href="/archscry/">Return to dossier</a>
+        <a class="maze-return-link" id="maze-return-link" href="../archscry/">Return to dossier</a>
         <button class="maze-return-dismiss" id="maze-return-dismiss" type="button" aria-label="Dismiss return banner">×</button>
       </div>
     </div>
@@ -553,7 +575,7 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
     <div class="err-msg hidden" id="err-msg"></div>
     <div class="results-header hidden" id="results-header">
       <span class="res-count" id="res-count"></span>
-      <select class="res-order" onchange="changeOrder(this.value,this.selectedOptions[0]?.dataset.dir)">
+      <select class="res-order" id="res-order">
         <option value="name">A–Z</option>
         <option value="edhrec">EDHREC popularity</option>
         <option value="usd">Price (low)</option>
@@ -566,7 +588,7 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
     </div>
     <div class="card-grid hidden" id="card-grid"></div>
     <div class="results-footer hidden" id="results-footer">
-      <button class="btn-more" id="btn-more" onclick="loadMore()" disabled>Load More</button>
+      <button class="btn-more" id="btn-more" type="button" data-action="load-more" disabled>Load More</button>
       <span class="more-count" id="more-count"></span>
     </div>
   </main>
@@ -579,20 +601,20 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
   </div>
   <div class="stash-body" id="stash-body"></div>
   <div class="stash-actions">
-    <button class="stash-copy" type="button" onclick="copyStashExport()">Copy export</button>
-    <button class="stash-copy" type="button" onclick="clearStash()">Clear</button>
+    <button class="stash-copy" type="button" data-action="copy-stash-export">Copy export</button>
+    <button class="stash-copy" type="button" data-action="clear-stash">Clear</button>
   </div>
 </section>
 
 <!-- ── MODAL ─── -->
-<div class="modal-bg hidden" id="modal-bg" onclick="if(event.target===this)closeModal()">
-  <div class="modal-wrap">
-    <button class="modal-close" onclick="closeModal()">×</button>
+<div class="modal-bg hidden" id="modal-bg" role="presentation">
+  <div class="modal-wrap" id="modal-wrap" role="dialog" aria-modal="true" aria-labelledby="modal-title" tabindex="-1">
+    <button class="modal-close" id="modal-close" type="button" data-action="close-modal" aria-label="Close card details">×</button>
     <div class="modal" id="modal-inner"></div>
   </div>
 </div>
 </div><!-- .page -->
-<script type="module" src="/research/research-init.js"></script>
+<script type="module" src="../research/research-init.js"></script>
 <script src="../assets/js/reduce-motion.js" defer></script>
 <script src="../assets/js/vm-topbar.js" defer></script>
 </body>
