@@ -4,6 +4,7 @@ This index tracks agent work across planning, board updates, documentation, JSON
 
 | Date | Agent | Task | Related Card | Status | Handoff |
 |---|---|---|---|---|---|
+| 2026-05-22 19:45 | Codex | Resolve the `privacy/index.html` merge on `feature/ui-refactor-exploration`, complete the pull, close out VM-100, and prepare the focused hardening branch | VM-100 | Complete | [2026-05-22-1945-codex-vm100-privacy-merge-resolution-and-hardening-branch.md](2026-05-22-1945-codex-vm100-privacy-merge-resolution-and-hardening-branch.md) |
 | 2026-05-22 19:28 | Codex | Fully back out the live homepage Archscry doorway watermark experiment while preserving preview artifacts and historical docs | VM-105 | Complete | [2026-05-22-1928-codex-vm105-archscry-doorway-watermark-backout.md](2026-05-22-1928-codex-vm105-archscry-doorway-watermark-backout.md) |
 | 2026-05-22 19:17 | Codex | Add the approved V-plus-spirals sigil to the homepage Archscry doorway scene as a rollback-friendly watermark, without touching the topbar or Identity Signal surfaces | VM-104 | Complete | [2026-05-22-1917-codex-vm104-archscry-doorway-watermark.md](2026-05-22-1917-codex-vm104-archscry-doorway-watermark.md) |
 | 2026-05-22 16:34 | Codex | Create a sibling variant of the black-ash logo preview with a slightly stronger neutral-grey black glow and no visible spiral center dots | VM-103 | Complete | [2026-05-22-1634-codex-vm103-grey-glow-no-dot-spiral-variant.md](2026-05-22-1634-codex-vm103-grey-glow-no-dot-spiral-variant.md) |

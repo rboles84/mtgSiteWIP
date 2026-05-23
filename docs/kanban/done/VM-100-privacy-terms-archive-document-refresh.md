@@ -2,11 +2,12 @@
 
 ID: VM-100
 Title: Privacy / Terms Archive Document Refresh
-Status: in-progress
+Status: done
 Type: Frontend / Archive Document Refresh
 Area: Privacy, Terms
 Priority: high
 Created: 2026-05-22
+Completed: 2026-05-22
 
 ## Summary
 
@@ -36,3 +37,20 @@ Refresh `privacy/index.html` and `terms/index.html` into stronger, more legible 
 - Privacy preserves all listed data-use and fan-project coverage without policy expansion.
 - Terms preserves all listed service-use and disclaimer coverage without policy expansion.
 - Static checks, browser verification, and `npm.cmd test` pass.
+
+## Completion Notes
+
+- Refreshed `privacy/index.html` and `terms/index.html` into matching archive-document legal pages while preserving the shared topbar shell, route compatibility, and conservative legal meaning.
+- Kept the apocrypha-library background treatment and the route-local CSS/JS imports intact.
+- Resolved a later merge conflict on `feature/ui-refactor-exploration` by keeping the newer VM-100 privacy-page archive-document version over the earlier remote readability pass, since the later local file already subsumed that intent with broader structure and copy coverage.
+
+## Tests Run
+
+- `git -c safe.directory=C:/dev/mtgSiteWIP diff --check -- privacy/index.html`
+- `rg -n "background-apocrypha-library-clean-01|legal-page|summary-card|vm-gloss|reduce-motion.js|vm-topbar.js|No sale of personal information|At a Glance" privacy/index.html`
+- `npm.cmd test`
+
+## Handoff
+
+- `docs/handoffs/2026-05-22-0751-codex-vm100-privacy-terms-archive-document-refresh.md`
+- `docs/handoffs/2026-05-22-1945-codex-vm100-privacy-merge-resolution-and-hardening-branch.md`
