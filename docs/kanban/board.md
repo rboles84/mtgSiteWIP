@@ -40,6 +40,7 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 ## Done
 
+- [VM-114 - P0 Shared CSS Foundation Pass](done/VM-114-p0-shared-css-foundation-pass.md)
 - [VM-113 - Topbar Sigil, Local Route, and Archscry Quick Flow Repair](done/VM-113-topbar-sigil-local-route-archscry-quick-flow-repair.md)
 - [VM-112B - Strategium Rename](done/VM-112B-strategium-rename.md)
 - [VM-112A - Floating Topbar Redesign](done/VM-112A-floating-topbar-redesign.md)

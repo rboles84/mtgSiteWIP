@@ -268,6 +268,19 @@
   height: 100%;
 }
 
+footer.apoc-footer,
+footer.vm-home__status {
+  content-visibility: auto;
+}
+
+footer.apoc-footer {
+  contain-intrinsic-size: auto 180px;
+}
+
+footer.vm-home__status {
+  contain-intrinsic-size: auto 72px;
+}
+
 @media (max-width: 720px) {
   .vm-search {
     grid-template-columns: 1fr;

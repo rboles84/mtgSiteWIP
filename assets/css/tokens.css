@@ -4,6 +4,9 @@
    Drop into /assets/css/tokens.css and link from <head>.
    ============================================================ */
 
+@layer reset, tokens, base, motion, components, pages, overrides;
+@import url("./animations.css");
+
 :root {
   /* ── BACKGROUNDS ── warm-black layering, never pure #000 */
   --bg:        #0c0b0a;
@@ -80,6 +83,11 @@
   --s-16: 64px;
   --s-20: 80px;
   --s-24: 96px;
+  --space-fluid-xs: clamp(0.5rem, 0.35rem + 0.5vw, 1rem);
+  --space-fluid-sm: clamp(1rem, 0.75rem + 1vw, 2rem);
+  --space-fluid-md: clamp(2rem, 1.5rem + 2vw, 4rem);
+  --space-fluid-lg: clamp(4rem, 3rem + 4vw, 8rem);
+  --space-fluid-xl: clamp(8rem, 6rem + 8vw, 16rem);
 
   /* ── RADII ── */
   --r-0: 0;

@@ -71,11 +71,6 @@
   will-change: transform;
 }
 
-@keyframes vm-bg-burns {
-  from { transform: scale(1)     translate3d(0, 0, 0); }
-  to   { transform: scale(1.035) translate3d(0.5%, -0.4%, 0); }
-}
-
 /* ── PER-PAGE MASK TREATMENTS ──
    data-bg="light"   → home: light center-fade, image at full presence
    data-bg="medium"  → archscry, apocrypha: medium vignette
