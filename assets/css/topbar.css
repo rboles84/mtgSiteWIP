@@ -4,13 +4,6 @@
    Depends on: tokens.css, fonts.css
    --------------------------------------------------------------- */
 
-:root {
-  --vm-topbar-h: 92px;
-  --vm-topbar-h-mobile: 74px;
-  --vm-topbar-pad-x: clamp(18px, 4vw, 56px);
-  --vm-topbar-gap: clamp(12px, 2vw, 22px);
-}
-
 .vm-topbar {
   position: sticky;
   top: 0;

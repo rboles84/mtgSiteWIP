@@ -1,9 +1,35 @@
 /* ============================================================
-   Vox Mana â€” Shared Animation Stub
-   Temporary shared-motion bridge imported from tokens.css.
+   Vox Mana - Shared Animations
+   Canonical live keyframes imported through tokens.css.
    ============================================================ */
 
 @keyframes vm-bg-burns {
   from { transform: scale(1) translate3d(0, 0, 0); }
   to { transform: scale(1.035) translate3d(0.5%, -0.4%, 0); }
+}
+
+@keyframes vm-nebula-drift {
+  0% { transform: translate3d(0, 0, 0) scale(1); opacity: 0.85; }
+  50% { opacity: 1; }
+  100% { transform: translate3d(-3%, 1.5%, 0) scale(1.05); opacity: 0.85; }
+}
+
+@keyframes vm-mandala-rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes vm-card-bob {
+  from { transform: translate3d(0, 0, 0) rotate(0deg); }
+  to { transform: translate3d(0, -10px, 0) rotate(0.22deg); }
+}
+
+@keyframes vm-orrery-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes vm-home-ripple {
+  from { opacity: 0.85; width: 12px; height: 12px; }
+  to { opacity: 0; width: 82px; height: 82px; }
 }

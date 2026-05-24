@@ -1,0 +1,57 @@
+/* ============================================================
+   Vox Mana - Shared Layout Layer
+   Safe shared structural rules extracted from route/component CSS.
+   ============================================================ */
+
+@layer layout {
+  :root {
+    --vm-topbar-h: 92px;
+    --vm-topbar-h-mobile: 74px;
+    --vm-topbar-pad-x: clamp(18px, 4vw, 56px);
+    --vm-topbar-gap: clamp(12px, 2vw, 22px);
+  }
+
+  .vm-page-shell {
+    position: relative;
+    min-height: 100vh;
+    isolation: isolate;
+    background:
+      linear-gradient(180deg, rgba(12, 11, 10, 0.82), rgba(12, 11, 10, 0.48)),
+      var(--vm-page-bg, var(--asset-bg-home));
+    background-size: cover;
+    background-position: var(--vm-page-bg-position, center);
+  }
+
+  .vm-page-shell::before,
+  .vm-page-shell::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: var(--z-atmosphere);
+  }
+
+  .vm-page-shell::before {
+    background-image: var(--asset-overlay-vignette);
+    background-size: cover;
+  }
+
+  .vm-page-shell::after {
+    background:
+      var(--asset-overlay-fog) center / cover no-repeat,
+      var(--asset-overlay-teal-glow) center / cover no-repeat;
+    opacity: var(--vm-page-atmosphere-opacity, 0.72);
+    mix-blend-mode: screen;
+  }
+
+  .vm-page-content {
+    position: relative;
+    z-index: var(--z-content);
+  }
+
+  .vm-home {
+    max-width: 1600px;
+    margin: 0 auto;
+    width: 100%;
+  }
+}

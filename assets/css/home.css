@@ -29,9 +29,6 @@
   column-gap: var(--space-fluid-md);
   row-gap: var(--space-fluid-lg);
   padding: var(--space-fluid-xl) var(--space-fluid-lg) var(--space-fluid-md);
-  max-width: 1600px;
-  margin: 0 auto;
-  width: 100%;
   transform: translate3d(var(--vm-home-parallax-x, 0), var(--vm-home-parallax-y, 0), 0);
   transition: transform 180ms var(--ease-out);
   will-change: transform;
@@ -188,10 +185,6 @@
   animation: vm-mandala-rotate 240s linear infinite;
   will-change: transform;
 }
-@keyframes vm-mandala-rotate {
-  from { transform: rotate(0deg); }
-  to   { transform: rotate(360deg); }
-}
 @media (prefers-reduced-motion: reduce) {
   .vm-card--maze .vm-card__mandala { animation: none; }
 }
@@ -299,11 +292,6 @@
 
 .vm-card--archscry { grid-area: left;  align-self: end; transform-origin: 50% 100%; animation-delay: 0s; }
 .vm-card--apocrypha { grid-area: right; align-self: end; transform-origin: 50% 100%; animation-delay: -2.5s; }
-
-@keyframes vm-card-bob {
-  from { transform: translate3d(0, 0, 0) rotate(0deg); }
-  to   { transform: translate3d(0, -10px, 0) rotate(0.22deg); }
-}
 @media (prefers-reduced-motion: reduce) {
   .vm-card--side { animation: none; }
 }
@@ -483,10 +471,6 @@
   transform-origin: 50px 50px;
   animation: vm-orrery-spin 180s linear infinite;
 }
-@keyframes vm-orrery-spin {
-  from { transform: rotate(0deg); }
-  to   { transform: rotate(360deg); }
-}
 @media (prefers-reduced-motion: reduce) {
   .vm-home__orrery .vm-orrery__planet { animation: none; }
 }
@@ -590,10 +574,6 @@
   z-index: 40;
   transform: translate(-50%, -50%);
   animation: vm-home-ripple 650ms var(--ease-out) forwards;
-}
-@keyframes vm-home-ripple {
-  from { opacity: 0.85; width: 12px; height: 12px; }
-  to { opacity: 0; width: 82px; height: 82px; }
 }
 @media (prefers-reduced-motion: reduce) {
   .vm-home__click-ripple { display: none; }

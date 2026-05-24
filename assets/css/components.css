@@ -3,43 +3,7 @@
    Shared CSS-only components for turning mockup chrome into DOM.
    ============================================================ */
 
-.vm-page-shell {
-  position: relative;
-  min-height: 100vh;
-  isolation: isolate;
-  background:
-    linear-gradient(180deg, rgba(12, 11, 10, 0.82), rgba(12, 11, 10, 0.48)),
-    var(--vm-page-bg, var(--asset-bg-home));
-  background-size: cover;
-  background-position: var(--vm-page-bg-position, center);
-}
-
-.vm-page-shell::before,
-.vm-page-shell::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  z-index: var(--z-atmosphere);
-}
-
-.vm-page-shell::before {
-  background-image: var(--asset-overlay-vignette);
-  background-size: cover;
-}
-
-.vm-page-shell::after {
-  background:
-    var(--asset-overlay-fog) center / cover no-repeat,
-    var(--asset-overlay-teal-glow) center / cover no-repeat;
-  opacity: var(--vm-page-atmosphere-opacity, 0.72);
-  mix-blend-mode: screen;
-}
-
-.vm-page-content {
-  position: relative;
-  z-index: var(--z-content);
-}
+@layer components {
 
 .vm-panel {
   position: relative;
@@ -292,4 +256,5 @@ footer.vm-home__status {
     padding-left: 0;
     padding-top: var(--space-fluid-md);
   }
+}
 }
