@@ -26,9 +26,9 @@
     "hero   maze    side"
     "left   .       right"
     "status status  status";
-  column-gap: var(--s-6);
-  row-gap: var(--s-8);
-  padding: var(--s-12) var(--s-8) var(--s-6);
+  column-gap: var(--space-fluid-md);
+  row-gap: var(--space-fluid-lg);
+  padding: var(--space-fluid-xl) var(--space-fluid-lg) var(--space-fluid-md);
   max-width: 1600px;
   margin: 0 auto;
   width: 100%;
@@ -45,7 +45,7 @@
 .vm-home__hero {
   grid-area: hero;
   align-self: start;
-  padding-top: var(--s-6);
+  padding-top: var(--space-fluid-md);
   max-width: 540px;
 }
 
@@ -55,7 +55,7 @@
   letter-spacing: 0.32em;
   text-transform: uppercase;
   color: var(--text-muted);
-  margin-bottom: var(--s-5);
+  margin-bottom: var(--space-fluid-md);
 }
 .vm-home__eyebrow::before { content: "✦  "; color: var(--gold-quiet); }
 .vm-home__eyebrow::after  { content: "  ✦"; color: var(--gold-quiet); }
@@ -76,10 +76,10 @@
   font-size: var(--text-base);
   color: var(--text-dim);
   line-height: 1.7;
-  margin-bottom: var(--s-8);
+  margin-bottom: var(--space-fluid-lg);
   max-width: 420px;
   position: relative;
-  padding-left: var(--s-4);
+  padding-left: var(--space-fluid-sm);
 }
 .vm-home__lede::before {
   content: "";
@@ -101,8 +101,8 @@
   text-decoration: none;
   display: inline-flex;
   align-items: center;
-  gap: var(--s-3);
-  padding: var(--s-3) 0;
+  gap: var(--space-fluid-sm);
+  padding: var(--space-fluid-sm) 0;
   border-bottom: 1px solid var(--gold-quiet);
   transition: color var(--dur-fast) var(--ease-out),
               border-color var(--dur-fast) var(--ease-out);
@@ -169,7 +169,7 @@
   text-align: center;
   text-decoration: none;
   color: inherit;
-  padding: var(--s-12) var(--s-8);
+  padding: var(--space-fluid-xl) var(--space-fluid-lg);
   isolation: isolate;
 }
 
@@ -365,7 +365,7 @@
 
 /* Body section — sigil, eyebrow, title, desc, cta */
 .vm-card__body {
-  padding: var(--s-8) var(--s-6);
+  padding: var(--space-fluid-lg) var(--space-fluid-md);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -437,8 +437,8 @@
   flex-direction: column;
   align-items: flex-end;
   text-align: right;
-  padding-top: var(--s-12);
-  gap: var(--s-10);
+  padding-top: var(--space-fluid-xl);
+  gap: var(--space-fluid-lg);
 }
 
 .vm-home__quote {
@@ -518,8 +518,8 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: var(--s-6);
-  padding-top: var(--s-6);
+  gap: var(--space-fluid-md);
+  padding-top: var(--space-fluid-md);
   border-top: 1px solid var(--border);
   font-family: var(--font-mono);
   font-size: var(--text-xs);
@@ -531,7 +531,7 @@
 .vm-home__status-item {
   display: flex;
   align-items: center;
-  gap: var(--s-3);
+  gap: var(--space-fluid-sm);
 }
 .vm-home__status-label {
   color: var(--text-muted);
@@ -543,7 +543,7 @@
 /* ── RESUME CHIP (carries from earlier batches) ── */
 .vm-resume {
   grid-area: status;
-  margin-bottom: var(--s-3);
+  margin-bottom: var(--space-fluid-sm);
   text-align: center;
 }
 .vm-resume[hidden] { display: none; }
@@ -609,7 +609,7 @@
       "left"
       "right"
       "status";
-    padding: var(--s-8) var(--s-4) var(--s-6);
+    padding: var(--space-fluid-lg) var(--space-fluid-md) var(--space-fluid-md);
   }
   .vm-home__hero { max-width: none; padding-top: 0; }
   .vm-home__rail { display: none; }
@@ -619,9 +619,9 @@
     justify-content: space-between;
     text-align: left;
     padding-top: 0;
-    gap: var(--s-5);
+    gap: var(--space-fluid-md);
   }
-  .vm-home__quote { max-width: none; flex: 1; padding-right: 0; padding-left: var(--s-4); }
+  .vm-home__quote { max-width: none; flex: 1; padding-right: 0; padding-left: var(--space-fluid-sm); }
   .vm-home__quote::before { left: -0.2em; right: auto; }
   .vm-card--side {
     grid-template-columns: 1fr;
@@ -638,14 +638,14 @@
   .vm-card--maze {
     aspect-ratio: auto;
     min-height: 500px;
-    padding: var(--s-10) var(--s-5);
+    padding: var(--space-fluid-lg) var(--space-fluid-md);
   }
   .vm-card--maze .vm-card__mandala { inset: -4%; width: 108%; height: 108%; }
   .vm-card--maze .vm-card__title { font-size: 2.2rem; }
   .vm-home__status {
     flex-direction: column;
     align-items: flex-start;
-    gap: var(--s-3);
+    gap: var(--space-fluid-sm);
   }
 }
 

@@ -69,7 +69,7 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: var(--s-2);
+  gap: var(--space-fluid-xs);
   min-height: 40px;
   border: 1px solid var(--border-s);
   background: rgba(12, 11, 10, 0.66);
@@ -88,7 +88,7 @@
 }
 
 .vm-button {
-  padding: var(--s-3) var(--s-5);
+  padding: var(--space-fluid-sm) var(--space-fluid-md);
   clip-path: polygon(8px 0, 100% 0, calc(100% - 8px) 100%, 0 100%);
 }
 
@@ -123,7 +123,7 @@
 .vm-search {
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;
-  gap: var(--s-3);
+  gap: var(--space-fluid-sm);
   align-items: stretch;
 }
 
@@ -135,7 +135,7 @@
   color: var(--text);
   font-family: var(--font-text);
   font-size: var(--text-base);
-  padding: var(--s-3) var(--s-4);
+  padding: var(--space-fluid-sm) var(--space-fluid-md);
   outline: none;
   transition: border-color var(--dur-fast) var(--ease-out), box-shadow var(--dur-fast) var(--ease-out);
 }
@@ -148,7 +148,7 @@
 .vm-tabs {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--s-2);
+  gap: var(--space-fluid-xs);
 }
 
 .vm-tab {
@@ -159,7 +159,7 @@
   font-size: var(--text-xs);
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  padding: var(--s-2) var(--s-4);
+  padding: var(--space-fluid-xs) var(--space-fluid-md);
   cursor: pointer;
 }
 
@@ -175,8 +175,8 @@
 .vm-result-card,
 .vm-source-card {
   display: grid;
-  gap: var(--s-3);
-  padding: var(--s-5);
+  gap: var(--space-fluid-sm);
+  padding: var(--space-fluid-md);
   border: 1px solid var(--border);
   background: rgba(12, 11, 10, 0.72);
   transition:
@@ -210,7 +210,7 @@
   display: inline-flex;
   align-items: center;
   min-height: 26px;
-  padding: 0 var(--s-3);
+  padding: 0 var(--space-fluid-sm);
   border: 1px solid var(--border-t);
   color: var(--teal-l);
   background: var(--teal-bg);
@@ -219,9 +219,9 @@
 .vm-side-rail {
   display: grid;
   align-content: start;
-  gap: var(--s-4);
+  gap: var(--space-fluid-md);
   border-left: 1px solid var(--border);
-  padding-left: var(--s-5);
+  padding-left: var(--space-fluid-md);
 }
 
 .vm-status-strip {
@@ -229,8 +229,8 @@
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  gap: var(--s-4);
-  padding: var(--s-4) 0;
+  gap: var(--space-fluid-md);
+  padding: var(--space-fluid-md) 0;
   border-top: 1px solid var(--border);
   color: var(--text-dim);
 }
@@ -290,6 +290,6 @@ footer.vm-home__status {
     border-left: 0;
     border-top: 1px solid var(--border);
     padding-left: 0;
-    padding-top: var(--s-5);
+    padding-top: var(--space-fluid-md);
   }
 }

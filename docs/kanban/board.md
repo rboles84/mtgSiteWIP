@@ -40,6 +40,7 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 ## Done
 
+- [VM-115 - Shared Token Follow-Up: OKLCH, Fluid Spacing, and Monotonic Type](done/VM-115-shared-token-follow-up-oklch-fluid-type.md)
 - [VM-114 - P0 Shared CSS Foundation Pass](done/VM-114-p0-shared-css-foundation-pass.md)
 - [VM-113 - Topbar Sigil, Local Route, and Archscry Quick Flow Repair](done/VM-113-topbar-sigil-local-route-archscry-quick-flow-repair.md)
 - [VM-112B - Strategium Rename](done/VM-112B-strategium-rename.md)

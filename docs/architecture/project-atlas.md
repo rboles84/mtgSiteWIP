@@ -21,7 +21,7 @@ Vox Mana is an unofficial Magic: The Gathering fan site that combines a themed s
 | Layer | Files | Responsibility |
 |---|---|---|
 | Static shells | `index.html`, `archscry/index.html`, `maze/index.html`, `apocrypha/index.html`, `library/index.html`, policy pages | Define route-specific DOM, preload assets, script entrypoints, and inline handler hooks. |
-| Shared visual system | `assets/css/tokens.css`, `assets/css/fonts.css`, `assets/css/animations.css`, `assets/css/topbar.css`, `assets/css/atmosphere.css`, `assets/css/components.css` | Site tokens, shared font loading, imported shared keyframes, topbar, atmospheric canvas, and reusable panels/buttons/chips/progress treatments. |
+| Shared visual system | `assets/css/tokens.css`, `assets/css/fonts.css`, `assets/css/animations.css`, `assets/css/topbar.css`, `assets/css/atmosphere.css`, `assets/css/components.css` | Site tokens, progressive OKLCH fallbacks, teal-only Display P3 accent overrides, a conservative fluid spacing/type pilot, shared font loading, imported shared keyframes, topbar, atmospheric canvas, and reusable panels/buttons/chips/progress treatments. |
 | Home gateway | `assets/js/home.js` | Resume-chip detection and subtle gateway motion. |
 | Placement frontend | `assets/js/index.js`, `assets/js/adaptive-placement.js`, `assets/js/shared.js`, `assets/js/identity-layers.js` | Loads data, runs quick adaptive reading, normalizes layered identity metadata, renders narrative dossiers, saves/resumes results, preserves adjacent-fit context, builds alias-routed Commander directory links, and keeps the terminal dormant behind the shared site flag. |
 | Site flags | `assets/js/site-flags.js` | Single checked-in switch that hides or reveals the archived terminal UI and browser guards. |

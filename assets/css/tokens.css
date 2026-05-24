@@ -1,5 +1,5 @@
 /* ============================================================
-   Vox Mana — Design Tokens
+   Vox Mana - Design Tokens
    Single source of truth for colors, typography, spacing.
    Drop into /assets/css/tokens.css and link from <head>.
    ============================================================ */
@@ -8,69 +8,98 @@
 @import url("./animations.css");
 
 :root {
-  /* ── BACKGROUNDS ── warm-black layering, never pure #000 */
+  /* Tier 1 = current hex/RGBA fallbacks.
+     Tier 2 = sRGB-equivalent OKLCH values for perceptual token math.
+     Tier 3 = selective Display P3 accent overrides in the @supports block below. */
+
+  /* BACKGROUNDS - warm-black layering, never pure #000 */
   --bg:        #0c0b0a;
+  --bg:        oklch(15.039% 0.00272 67.55);
   --bg-2:      #11100e;
+  --bg-2:      oklch(17.342% 0.00437 84.593);
   --bg-3:      #15120c;
+  --bg-3:      oklch(18.366% 0.01265 84.475);
   --bg-4:      #1a1816;
+  --bg-4:      oklch(21.055% 0.00501 67.551);
   --bg-paper:  #e8e1cf;  /* parchment near-white, for inverted moments */
+  --bg-paper:  oklch(91.042% 0.02521 89.22);
 
-  /* ── GOLD ── patina dominates, polish punctuates */
-  --gold:        #b8954a;  /* body-scale accent (was c9a84c — softer 2026) */
+  /* GOLD - patina dominates, polish punctuates */
+  --gold:        #b8954a;  /* body-scale accent (was c9a84c - softer 2026) */
+  --gold:        oklch(68.69% 0.10262 84.43);
   --gold-l:      #d4b461;  /* hover/active only */
+  --gold-l:      oklch(78.085% 0.109 88.704);
   --gold-d:      #7a5c14;  /* deep, used in dividers */
+  --gold-d:      oklch(49.299% 0.09302 84.1);
   --gold-quiet:  #8a6f3a;  /* muted variant for secondary chrome */
+  --gold-quiet:  oklch(55.629% 0.07877 82.741);
 
-  /* ── COOL COUNTER ── for shadows, quotes, off-blacks */
+  /* COOL COUNTER - for shadows, quotes, off-blacks */
   --graphite:  #1a1f24;
+  --graphite:  oklch(23.639% 0.01216 248.341);
 
-  /* ── TEAL ACCENT ── kept as your link/interactive color */
+  /* TEAL ACCENT - kept as your link/interactive color */
   --teal:      #1aaa96;
+  --teal:      oklch(66.351% 0.11582 180.079);
   --teal-l:    #28d4bc;
+  --teal-l:    oklch(78.29% 0.13513 180.296);
   --teal-d:    #0d6e60;
+  --teal-d:    oklch(48.373% 0.08472 179.548);
   --teal-bg:   rgba(26, 170, 150, 0.07);
+  --teal-bg:   oklch(66.351% 0.11582 180.079 / 0.07);
 
-  /* ── TEXT ── */
+  /* TEXT */
   --text:        #d4c9b8;
+  --text:        oklch(84.022% 0.02623 78.895);
   --text-dim:    #8a7c68;  /* slightly warmer than the old 7a6e5e */
+  --text-dim:    oklch(59.345% 0.03396 76.746);
   --text-muted:  #5a5042;
+  --text-muted:  oklch(43.691% 0.02579 76.21);
 
-  /* ── BORDERS ── consistent across all pages now */
+  /* BORDERS - consistent across all pages now */
   --border:     rgba(184, 149, 74, 0.10);
-  --border-s:   rgba(184, 149, 74, 0.22);  /* "strong" — for hover states */
+  --border:     oklch(68.69% 0.10262 84.43 / 0.10);
+  --border-s:   rgba(184, 149, 74, 0.22);  /* strong - for hover states */
+  --border-s:   oklch(68.69% 0.10262 84.43 / 0.22);
   --border-t:   rgba(26, 170, 150, 0.20);
+  --border-t:   oklch(66.351% 0.11582 180.079 / 0.20);
   --border-ts:  rgba(26, 170, 150, 0.40);
+  --border-ts:  oklch(66.351% 0.11582 180.079 / 0.40);
 
-  /* ── DANGER / SUCCESS ── */
+  /* DANGER / SUCCESS */
   --danger:    #b03030;
+  --danger:    oklch(50.694% 0.16486 25.286);
   --danger-bg: rgba(176, 48, 48, 0.10);
+  --danger-bg: oklch(50.694% 0.16486 25.286 / 0.10);
   --success:   #2a8a50;
+  --success:   oklch(56.323% 0.12581 152.776);
   --success-bg: rgba(42, 138, 80, 0.12);
+  --success-bg: oklch(56.323% 0.12581 152.776 / 0.12);
 
-  /* ── TYPOGRAPHY ──
+  /* TYPOGRAPHY
      Display = Fraunces Variable (rare, ceremonial)
      Text    = Source Serif 4 Variable (body)
      Mono    = IBM Plex Mono (labels, taxonomy, terminal voice)
 
-     System fallbacks ship if the WOFF2s aren't loaded yet.
+     System fallbacks ship if the WOFF2s are not loaded yet.
      The site stays readable with zero swap shift.
   */
   --font-display:  'Fraunces', 'Cinzel', Georgia, 'Times New Roman', serif;
   --font-text:     'Source Serif 4', 'Crimson Pro', Georgia, 'Times New Roman', serif;
   --font-mono:     'IBM Plex Mono', 'Menlo', 'Monaco', 'Courier New', monospace;
 
-  /* ── TYPE SCALE ──
-     Body up at 17–19 px on desktop, 16 px floor on mobile. */
+  /* TYPE SCALE
+     Body up at 17-19 px on desktop, 16 px floor on mobile. */
   --text-xs:   0.72rem;   /* eyebrow microcopy, mono labels */
   --text-sm:   0.82rem;   /* small headers */
-  --text-base: 1.05rem;   /* body */
-  --text-lg:   1.18rem;   /* lede / standout body */
-  --text-xl:   1.4rem;
-  --text-2xl:  clamp(1.6rem, 3.5vw, 2.4rem);   /* h1 */
+  --text-base: clamp(1rem, 0.964rem + 0.179vw, 1.125rem);   /* body */
+  --text-lg:   clamp(1.25rem, 1.205rem + 0.223vw, 1.406rem);   /* lede / standout body */
+  --text-xl:   clamp(1.563rem, 1.507rem + 0.279vw, 1.758rem);
+  --text-2xl:  clamp(1.8rem, 3.5vw, 2.4rem);   /* h1 */
   --text-3xl:  clamp(2rem, 4.5vw, 3.4rem);     /* hero display */
   --text-4xl:  clamp(2.6rem, 6vw, 4.4rem);     /* rare ceremonial */
 
-  /* ── SPACING ── 4 px base unit */
+  /* SPACING - 4 px base unit plus a conservative fluid pilot */
   --s-1:  4px;
   --s-2:  8px;
   --s-3:  12px;
@@ -83,19 +112,19 @@
   --s-16: 64px;
   --s-20: 80px;
   --s-24: 96px;
-  --space-fluid-xs: clamp(0.5rem, 0.35rem + 0.5vw, 1rem);
-  --space-fluid-sm: clamp(1rem, 0.75rem + 1vw, 2rem);
-  --space-fluid-md: clamp(2rem, 1.5rem + 2vw, 4rem);
-  --space-fluid-lg: clamp(4rem, 3rem + 4vw, 8rem);
-  --space-fluid-xl: clamp(8rem, 6rem + 8vw, 16rem);
+  --space-fluid-xs: clamp(0.5rem, calc(0.4286rem + 0.3571vw), 0.75rem);
+  --space-fluid-sm: clamp(0.75rem, calc(0.6786rem + 0.3571vw), 1rem);
+  --space-fluid-md: clamp(1rem, calc(0.8571rem + 0.7143vw), 1.5rem);
+  --space-fluid-lg: clamp(1.5rem, calc(1.3571rem + 0.7143vw), 2rem);
+  --space-fluid-xl: clamp(2rem, calc(1.7143rem + 1.4286vw), 3rem);
 
-  /* ── RADII ── */
+  /* RADII */
   --r-0: 0;
   --r-1: 4px;
   --r-2: 8px;
   --r-3: 16px;
 
-  /* ---- ASSET PATHS -------------------------------------------------
+  /* Asset paths
      Production image references. Page CSS can consume these directly,
      while the current <picture> pattern can keep responsive sources. */
   --asset-bg-home: url("/assets/img/backgrounds/background-vox-gateway-clean-13.webp");
@@ -120,7 +149,7 @@
   --z-content: 1;
   --z-topbar: 100;
 
-  /* ── MOTION ── shared timing for consistency */
+  /* MOTION - shared timing for consistency */
   --ease-out:    cubic-bezier(0.2, 0.8, 0.2, 1);
   --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
   --dur-fast:    150ms;
@@ -129,7 +158,16 @@
   --dur-reveal:  900ms;
 }
 
-/* ── REDUCE MOTION RESPECT ──
+@supports (color: color(display-p3 1 1 1)) {
+  :root {
+    /* Tier 3: teal-only gamut expansion for wide-gamut displays. */
+    --teal:      color(display-p3 0.2403 0.6684 0.5919);
+    --teal-l:    color(display-p3 0.3036 0.835 0.7422);
+    --teal-d:    color(display-p3 0.139 0.4333 0.379);
+  }
+}
+
+/* REDUCE MOTION RESPECT
    Two layers: OS preference, and the user's explicit toggle (Batch 1).
    Anything inside [data-reduce-motion="true"] gets the no-motion treatment.
 */
@@ -152,8 +190,10 @@
   transition-duration: 0.01ms !important;
 }
 
-/* ── BASE RESET — minimal, additive ── */
-*, *::before, *::after {
+/* BASE RESET - minimal, additive */
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -176,9 +216,9 @@ body {
   font-variation-settings: "opsz" 16;
 }
 
-/* ── GLOBAL GRAIN TEXTURE ──
+/* GLOBAL GRAIN TEXTURE
    Single SVG turbulence layer, rendered once, composited under content.
-   GPU-cheap, gives the site its "archival" feel.
+   GPU-cheap, gives the site its archival feel.
 */
 body::before {
   content: '';
@@ -189,30 +229,38 @@ body::before {
   z-index: 0;
 }
 
-/* ── LINKS ── */
+/* LINKS */
 a {
   color: var(--teal-l);
   text-decoration: none;
   transition: color var(--dur-fast) var(--ease-out);
 }
+
 a:hover {
   color: var(--teal);
 }
+
 a:focus-visible {
   outline: 2px solid var(--gold-l);
   outline-offset: 2px;
 }
 
-/* ── HEADINGS — defaults; pages override for context ── */
-h1, h2, h3, h4 {
+/* HEADINGS - defaults; pages override for context */
+h1,
+h2,
+h3,
+h4 {
   font-family: var(--font-display);
   font-weight: 600;
   line-height: 1.2;
   font-variation-settings: "opsz" 32, "wght" 600, "SOFT" 50;
 }
 
-/* ── UTILITY ── */
-.hidden { display: none !important; }
+/* UTILITY */
+.hidden {
+  display: none !important;
+}
+
 .visually-hidden {
   position: absolute;
   width: 1px;
