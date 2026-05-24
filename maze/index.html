@@ -365,16 +365,19 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 
 <!-- ── HEADER ─── -->
 <header class="vm-topbar" role="banner">
-  <a class="vm-brand" href="../newIndex2.html" aria-label="Vox Mana — home">
-    <span class="vm-brand-mark" aria-hidden="true"></span>
+  <a class="vm-brand" href="../newIndex2.html" aria-label="Vox Mana home">
+    <span class="vm-brand-mark" aria-hidden="true">
+      <img src="../assets/img/vox-mana-header-logo.svg" alt="" width="44" height="44">
+    </span>
     <span class="vm-brand-text">Vox Mana</span>
   </a>
 
   <nav class="vm-nav" aria-label="Primary">
     <a class="vm-nav-link" href="../newIndex2.html" data-vm-nav="home">Home</a>
-    <a class="vm-nav-link" href="../archscry/" data-vm-nav="archscry">Archscry</a>
-    <a class="vm-nav-link" href="./" data-vm-nav="maze">The Implicit Maze</a>
-    <a class="vm-nav-link" href="../apocrypha/" data-vm-nav="apocrypha">Apocrypha</a>
+    <a class="vm-nav-link" href="../archscry/index.html" data-vm-nav="archscry">Archscry</a>
+    <a class="vm-nav-link" href="./index.html" data-vm-nav="maze">The Implicit Maze</a>
+    <a class="vm-nav-link" href="../apocrypha/index.html" data-vm-nav="apocrypha">Apocrypha</a>
+    <a class="vm-nav-link" href="../strategium/index.html" data-vm-nav="strategium">Strategium</a>
   </nav>
 
   <div class="vm-utility">
@@ -399,12 +402,13 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
       data-open="false"
       data-vm-menu-panel
     >
+      <div class="vm-menu-nav" data-vm-menu-nav></div>
       <button
         type="button"
         class="vm-menu-item"
         role="menuitem"
         data-vm-toggle="reduce-motion"
-        data-vm-tooltip-on="Stillness · on"
+        data-vm-tooltip-on="Stillness - on"
         data-vm-tooltip-off="Quiet the motion"
       >
         <span>Reduce motion</span>
@@ -556,7 +560,7 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
     <div class="maze-return-banner" id="maze-return-banner">
       <div class="maze-return-copy" id="maze-return-copy"></div>
       <div class="maze-return-actions">
-        <a class="maze-return-link" id="maze-return-link" href="../archscry/">Return to dossier</a>
+        <a class="maze-return-link" id="maze-return-link" href="../archscry/index.html">Return to dossier</a>
         <button class="maze-return-dismiss" id="maze-return-dismiss" type="button" aria-label="Dismiss return banner">×</button>
       </div>
     </div>

@@ -9,12 +9,14 @@
 <!-- VIEWPORT: Makes the layout scale correctly on phones/tablets instead of rendering as a zoomed-out desktop page. -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <!-- TITLE: Text shown in the browser tab and used by bookmarks/search previews. -->
-<title>Vox Mana</title>
+<title>Vox Mana - Strategium</title>
 <!-- Archscry assets inserted here (background, canvas, web component).
   See docs/handoffs/2026-05-19-1505-copilot-archscry-extract.md for details. -->
 
 <!-- FONT LOAD: Imports the Cinzel typeface from Google Fonts so the page has the fantasy/lore typography. -->
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../assets/css/tokens.css" />
+<link rel="stylesheet" href="../assets/css/fonts.css" />
 <!-- CHART.JS: Loads the local Chart.js runtime before the hero and Color Matrix radar charts initialize. -->
 <script src="../assets/js/graph.js"></script>
 
@@ -1541,10 +1543,11 @@ section {
   }
 }
 </style>
+<link rel="stylesheet" href="../assets/css/topbar.css" />
 </head>
 
 <!-- BODY: Visible page starts here. This contains the background layers, navigation, main content, footer, and JavaScript. -->
-<body>
+<body data-page="strategium" data-vm-current="strategium" data-bg="medium">
   <!-- Background with image and sparkling stars -->
   <!-- DECORATIVE BACKGROUND: aria-hidden="true" means screen readers ignore this because it is visual decoration only. -->
   <div class="vm-bg" aria-hidden="true">
@@ -1561,30 +1564,72 @@ section {
     <canvas class="vm-bg__stars" aria-hidden="true"></canvas>
   </div>
 
-<!-- NAVIGATION: Sticky top menu. -->
-<nav class="vm-nav">
-  <a class="vm-brand" href="../newIndex2.html">Vox Mana</a>
+<!-- NAVIGATION: Shared topbar contract for the Strategium route. -->
+<header class="vm-topbar" role="banner">
+  <a class="vm-brand" href="../newIndex2.html" aria-label="Vox Mana - home">
+    <span class="vm-brand-mark" aria-hidden="true">
+      <img src="../assets/img/vox-mana-header-logo.svg" alt="" width="44" height="44">
+    </span>
+    <span class="vm-brand-text">Vox Mana</span>
+  </a>
 
-  <div class="vm-nav-links">
-    <a href="../newIndex2.html">Home</a>
-    <a class="vm-nav-link" href="../archscry/" data-vm-nav="archscry">Archscry</a>
-    <a class="vm-nav-link" href="../maze/" data-vm-nav="maze">The Implicit Maze</a>
-    <a class="vm-nav-link" href="../apocrypha/" data-vm-nav="apocrypha">Apocrypha</a>
-    <a href="#basics">Basics</a>
+  <nav class="vm-nav" aria-label="Primary">
+    <a class="vm-nav-link" href="../newIndex2.html" data-vm-nav="home">Home</a>
+    <a class="vm-nav-link" href="../archscry/index.html" data-vm-nav="archscry">Archscry</a>
+    <a class="vm-nav-link" href="../maze/index.html" data-vm-nav="maze">The Implicit Maze</a>
+    <a class="vm-nav-link" href="../apocrypha/index.html" data-vm-nav="apocrypha">Apocrypha</a>
+    <a class="vm-nav-link" href="#strategium" data-vm-nav="strategium">Strategium</a>
+  </nav>
+
+  <div class="vm-utility">
+    <button
+      type="button"
+      class="vm-menu-button"
+      aria-label="Open menu"
+      aria-expanded="false"
+      aria-haspopup="true"
+      aria-controls="vm-menu-panel"
+      data-vm-menu-trigger
+    >
+      <span class="vm-menu-dots" aria-hidden="true">
+        <span></span><span></span><span></span>
+      </span>
+    </button>
+
+    <div
+      id="vm-menu-panel"
+      class="vm-menu-panel"
+      role="menu"
+      data-open="false"
+      data-vm-menu-panel
+    >
+      <div class="vm-menu-nav" data-vm-menu-nav></div>
+      <button
+        type="button"
+        class="vm-menu-item"
+        role="menuitem"
+        data-vm-toggle="reduce-motion"
+        data-vm-tooltip-on="Stillness - on"
+        data-vm-tooltip-off="Quiet the motion"
+      >
+        <span>Reduce motion</span>
+        <span class="vm-menu-item-status" data-vm-status>Off</span>
+      </button>
+    </div>
   </div>
-</nav>
+</header>
 
 <!-- MAIN CONTENT SHELL: id="top" is the anchor target for Back to top. vm-shell keeps content centered and width-limited. -->
 <main id="top" class="vm-shell">
   <!-- BASICS HERO -->
   <section class="vm-hero reveal">
     <div class="vm-hero-copy">
-      <div class="vm-eyebrow">Vox Mana Basics</div>
+      <div class="vm-eyebrow">Vox Mana Strategium</div>
       <h1>Learn the color system.</h1>
       <p>
         Magic's colors explain more than what a deck can cast. This page teaches them as philosophy, play pattern, and story language, then points that lesson toward Commander identity.
       </p>
-      <div class="vm-status-strip" aria-label="Basics field guide topics">
+      <div class="vm-status-strip" aria-label="Strategium field guide topics">
         <span>Color Pie</span>
         <span>Mana</span>
         <span>Commander Identity</span>
@@ -1620,11 +1665,11 @@ section {
       <div class="vm-guide-rail">
         <div class="vm-guide-rail-head">
           <span class="vm-eyebrow">How to use this page</span>
-          <p class="vm-guide-sequence">Read the basics -&gt; open the Color Matrix -&gt; start Archscry</p>
+          <p class="vm-guide-sequence">Read Strategium -&gt; open the Color Matrix -&gt; start Archscry</p>
         </div>
         <div class="vm-start-grid">
           <div class="vm-start-row">
-            <strong>Read the basics</strong>
+            <strong>Read Strategium</strong>
             <span>Use the topic cards to learn the core ideas before opening the live color model.</span>
             <span class="vm-mini-badge">1</span>
           </div>
@@ -1645,8 +1690,8 @@ section {
 
   <!-- MAGIC BASICS -->
   <!-- MAGIC BASICS SECTION: Interactive learning area controlled by the tab buttons and JavaScript below. -->
-  <section id="basics" class="vm-section">
-    <h2>The Basics Console</h2>
+  <section id="strategium" class="vm-section">
+    <h2>The Strategium Console</h2>
     <p class="vm-section-intro">
       Start with the five layers below. Together they explain how Magic's color system moves from raw mana to strategy, worldbuilding, and Commander identity.
     </p>
@@ -1827,11 +1872,11 @@ section {
         <span class="vm-eyebrow">Next Step</span>
         <h2>Take the lesson into a Commander read.</h2>
         <p class="vm-next-copy">When the color language starts to click, Archscry turns those instincts into a readable Commander identity dossier.</p>
-        <p class="vm-next-copy">If you want a broader philosophy map first, the Maze is still there as the larger constellation around these basics.</p>
+        <p class="vm-next-copy">If you want a broader philosophy map first, the Maze is still there as the larger constellation around Strategium.</p>
       </div>
       <div class="vm-actions">
-        <a class="vm-button primary" href="../archscry/">Start Archscry</a>
-        <a class="vm-button" href="../maze/">Explore the Maze</a>
+        <a class="vm-button primary" href="../archscry/index.html">Start Archscry</a>
+        <a class="vm-button" href="../maze/index.html">Explore the Maze</a>
       </div>
     </div>
   </section>
@@ -1839,16 +1884,16 @@ section {
 
 <!-- FOOTER: Final navigation and short site summary. -->
 <footer class="vm-shell vm-footer">
-  <span>Vox Mana - Magic basics, color philosophy, and identity.</span>
+  <span>Vox Mana - Strategium, color philosophy, and identity.</span>
   <span>
     <a href="#top">Back to top</a> ·
     <a href="../newIndex2.html">Home</a> ·
-    <a href="#basics">Basics</a> ·
-    <a href="../archscry/">Archscry</a> ·
-    <a href="../maze/">Maze</a> ·
-    <a href="../apocrypha/">Apocrypha</a> ·
-    <a href="../privacy/">Privacy</a> ·
-    <a href="../terms/">Terms</a>
+    <a href="#strategium">Strategium</a> ·
+    <a href="../archscry/index.html">Archscry</a> ·
+    <a href="../maze/index.html">Maze</a> ·
+    <a href="../apocrypha/index.html">Apocrypha</a> ·
+    <a href="../privacy/index.html">Privacy</a> ·
+    <a href="../terms/index.html">Terms</a>
   </span>
 </footer>
 
@@ -3255,5 +3300,7 @@ window.addEventListener("scroll", () => {
   backTop.classList.toggle("show", window.scrollY > 500);
 });
 </script>
+<script src="../assets/js/reduce-motion.js" defer></script>
+<script src="../assets/js/vm-topbar.js" defer></script>
 </body>
 </html>

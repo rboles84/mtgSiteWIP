@@ -498,7 +498,7 @@ export function buildArchscryMazeContext({ result, dossier, faction }) {
   const isAtlasPreview =
     typeof window !== "undefined" &&
     /\/index2\.html$/i.test(window.location.pathname || "");
-  const returnBase = isAtlasPreview ? "../archscry/index2.html" : "../archscry/";
+  const returnBase = isAtlasPreview ? "../archscry/index2.html" : "../archscry/index.html";
   const returnUrl = `${returnBase}?from=maze&view=${encodeURIComponent(dossier.targetFactionKey)}&readingId=${encodeURIComponent(readingId)}#maze-discovery-paths`;
   return {
     from: "archscry",
@@ -517,7 +517,7 @@ export function buildArchscryMazeContext({ result, dossier, faction }) {
 export function withArchscryMazeContext(links = [], context, origin = "http://localhost") {
   return (links || []).map((link) => {
     const rawUrl = String(link?.url || "");
-    const mazeUrl = rawUrl.replace(/^\/maze\//, "../maze/");
+    const mazeUrl = rawUrl.replace(/^\/maze\//, "../maze/index.html");
     const isMaze =
       link?.service === "maze" ||
       rawUrl.startsWith("/maze/") ||

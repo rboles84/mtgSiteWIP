@@ -13,7 +13,7 @@
 1. Open the site in a fresh browser session.
 2. Confirm the landing page appears without any login prompt.
 3. Change format, budget, and experience chips on the landing page.
-4. Start the quick reading.
+4. Start the quick reading and confirm the page visibly lands on the first quiz question instead of appearing to stay on the landing hero.
 5. Complete the adaptive Gate -> Hall -> Crucible reading.
 6. Confirm the result page renders:
    - primary guild or college
@@ -188,13 +188,41 @@
 7. Click `Back to Primary Reading` and confirm the primary dossier returns without duplicate panels.
 8. Click `Begin Again`, complete a new reading, and confirm the preview still rebuilds the atlas layout around the fresh result.
 
+## Shared topbar smoke pass
+
+1. Open each public page:
+   - `newIndex2.html`
+   - `index.html`
+   - `/archscry/`
+   - `/maze/`
+   - `/apocrypha/`
+   - `/strategium/`
+   - `/privacy/`
+   - `/terms/`
+2. Confirm the header uses the shared Vox Mana topbar shell with the committed `vox-mana-header-logo.svg` mark rather than a CSS-only placeholder.
+3. Confirm the current page link is highlighted in the desktop nav.
+4. Reduce the viewport to the mobile breakpoint and open the menu.
+5. Confirm the mobile panel mirrors the real route links for that page instead of showing a partial or hard-coded subset.
+6. Confirm the mobile menu updates `aria-expanded`, closes on outside click, closes on `Escape`, and returns focus to the menu trigger after close.
+7. If the page exposes `Reduce motion`, confirm the mobile menu reflects the same on/off state and toggles the same shared state rather than a second independent control.
+8. Confirm the header does not clip, wrap awkwardly, or introduce horizontal overflow at desktop or mobile widths.
+9. Confirm `Strategium` is now the live label and `/strategium/` is the live route.
+10. Confirm Home-link semantics remain unchanged:
+   - `index.html` brand and Home link stay self-targeted
+   - non-home routes return to `newIndex2.html`
+   - `newIndex2.html` still self-targets the page top
+
 ## Local file route smoke pass
 
 1. Open `newIndex2.html` directly via `file://`.
-2. Click `Start Archscry` and confirm `archscry/index.html` opens instead of a file-not-found page.
-3. Use the top navigation on the preview home and confirm `Archscry`, `The Implicit Maze`, and `Apocrypha` all open successfully under `file://`.
-4. From `/archscry/`, confirm the topbar `Home`, `The Implicit Maze`, and `Apocrypha` links all resolve correctly.
-5. Complete a quick Archscry reading and confirm the dossier still renders, including the `Mana Alignment Matrix`.
-6. From the dossier, open one of the Maze discovery links and confirm the Maze page opens with query context intact.
-7. Confirm the Maze route topbar can return to `Home`, `Archscry`, and `Apocrypha` without file-not-found errors.
-8. Open the footer `Privacy` and `Terms` links from `newIndex2.html` and confirm those pages load their styling and topbar correctly under `file://`.
+2. Confirm the shared header logo loads correctly under `file://` and still reads cleanly as the committed Vox Mana sigil in the topbar brand pill.
+3. Open the mobile menu and confirm the mirrored route links appear and the menu still opens and closes correctly without a dev server.
+4. Click `Start Archscry` and confirm `archscry/index.html` opens instead of a file-not-found page.
+5. Use the top navigation on the preview home and confirm `Archscry`, `The Implicit Maze`, `Apocrypha`, and `Strategium` all open successfully under `file://`.
+6. From `/archscry/`, confirm the topbar `Home`, `The Implicit Maze`, `Apocrypha`, and `Strategium` links all resolve correctly.
+7. Complete a quick Archscry reading and confirm the dossier still renders, including the `Mana Alignment Matrix`.
+8. From the dossier, open one of the Maze discovery links and confirm the Maze page opens with query context intact.
+9. Confirm the Maze route topbar can return to `Home`, `Archscry`, `Apocrypha`, and `Strategium` without file-not-found errors.
+10. Click the Strategium nav, card, and footer links from `newIndex2.html` and confirm they resolve to the renamed local route.
+11. Confirm no live local-file path still points to `basics/index.html`.
+12. Open the footer `Privacy` and `Terms` links from `newIndex2.html` and confirm those pages load their styling and topbar correctly under `file://`.

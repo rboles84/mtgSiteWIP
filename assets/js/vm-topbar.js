@@ -1,41 +1,80 @@
 /* ---------------------------------------------------------------
-   Vox Mana Topbar — Batch 3
-   - Sets aria-current on the active nav link based on body's
-     data-vm-current attribute.
-   - Dropdown menu open/close with focus management and Esc/outside
-     click dismissal.
-   - The reduce-motion toggle inside the menu syncs with the
-     existing reduce-motion.js localStorage state.
-   - Keep this script idempotent: safe to load on every page.
+   Vox Mana shared topbar
+   - Sets aria-current on shared desktop/mobile nav links.
+   - Mirrors the real page nav into the mobile menu panel.
+   - Keeps the menu open/close and focus behavior accessible.
+   - Reuses the shared reduce-motion state path when available.
    --------------------------------------------------------------- */
 
 (function () {
   "use strict";
 
-  // ---- 1. mark the active nav link --------------------------------
+  function getMenuPanel() {
+    return document.querySelector("[data-vm-menu-panel]");
+  }
+
+  function getMenuTrigger() {
+    return document.querySelector("[data-vm-menu-trigger]");
+  }
+
+  function getDesktopNav() {
+    return document.querySelector(".vm-topbar .vm-nav");
+  }
+
+  function getMenuNavHost() {
+    return document.querySelector("[data-vm-menu-nav]");
+  }
+
+  function getFocusableItems(root) {
+    return root.querySelectorAll(
+      'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])'
+    );
+  }
+
   function highlightCurrentPage() {
     var current = document.body.dataset.vmCurrent;
     if (!current) return;
-    var link = document.querySelector(
-      '.vm-nav-link[data-vm-nav="' + current + '"]'
-    );
-    if (link) link.setAttribute("aria-current", "page");
+
+    var matches = document.querySelectorAll('[data-vm-nav="' + current + '"]');
+    for (var i = 0; i < matches.length; i++) {
+      matches[i].setAttribute("aria-current", "page");
+    }
   }
 
-  // ---- 2. dropdown menu -------------------------------------------
+  function syncMenuNav() {
+    var desktopNav = getDesktopNav();
+    var menuNavHost = getMenuNavHost();
+    if (!desktopNav || !menuNavHost) return;
+
+    var desktopLinks = desktopNav.querySelectorAll(".vm-nav-link");
+    menuNavHost.innerHTML = "";
+
+    for (var i = 0; i < desktopLinks.length; i++) {
+      var clone = desktopLinks[i].cloneNode(true);
+      clone.classList.add("vm-menu-link");
+      clone.setAttribute("role", "menuitem");
+      menuNavHost.appendChild(clone);
+    }
+  }
+
   function setupMenu() {
-    var trigger = document.querySelector("[data-vm-menu-trigger]");
-    var panel = document.querySelector("[data-vm-menu-panel]");
+    var trigger = getMenuTrigger();
+    var panel = getMenuPanel();
     if (!trigger || !panel) return;
+
+    function focusFirstItem() {
+      var items = getFocusableItems(panel);
+      if (items.length) items[0].focus();
+    }
+
+    function queueFocusFirstItem() {
+      window.setTimeout(focusFirstItem, 180);
+    }
 
     function open() {
       trigger.setAttribute("aria-expanded", "true");
       panel.dataset.open = "true";
-      // Move focus to the first interactive item in the panel.
-      var firstItem = panel.querySelector(
-        'button, [href], [tabindex]:not([tabindex="-1"])'
-      );
-      if (firstItem) firstItem.focus();
+      queueFocusFirstItem();
     }
 
     function close(returnFocus) {
@@ -45,31 +84,32 @@
     }
 
     trigger.addEventListener("click", function (e) {
+      e.preventDefault();
       e.stopPropagation();
       var isOpen = trigger.getAttribute("aria-expanded") === "true";
       if (isOpen) close(false);
       else open();
     });
 
-    // Close on outside click
     document.addEventListener("click", function (e) {
       if (panel.dataset.open !== "true") return;
       if (panel.contains(e.target) || trigger.contains(e.target)) return;
       close(false);
     });
 
-    // Close on Esc
     document.addEventListener("keydown", function (e) {
       if (e.key === "Escape" && panel.dataset.open === "true") {
         close(true);
       }
     });
+
+    panel.addEventListener("click", function (e) {
+      var menuLink = e.target.closest(".vm-menu-link");
+      if (!menuLink) return;
+      close(false);
+    });
   }
 
-  // ---- 3. reduce-motion toggle inside the menu --------------------
-  // Mirrors the behavior of reduce-motion.js so the menu item stays
-  // in sync with the rest of the site. The localStorage key is
-  // vm_reduce_motion per the master reference (Batch 1).
   function setupReduceMotionToggle() {
     var STORAGE_KEY = "vm_reduce_motion";
     var btn = document.querySelector('[data-vm-toggle="reduce-motion"]');
@@ -78,24 +118,45 @@
     var statusEl = btn.querySelector("[data-vm-status]");
 
     function readState() {
+      if (
+        window.vmReduceMotion &&
+        typeof window.vmReduceMotion.get === "function"
+      ) {
+        return !!window.vmReduceMotion.get();
+      }
+
       try {
         return localStorage.getItem(STORAGE_KEY) === "true";
       } catch (_) {
-        return false;
+        return (
+          document.documentElement.getAttribute("data-reduce-motion") === "true"
+        );
       }
     }
 
     function writeState(on) {
+      if (
+        window.vmReduceMotion &&
+        typeof window.vmReduceMotion.set === "function"
+      ) {
+        window.vmReduceMotion.set(on);
+        return;
+      }
+
       try {
         localStorage.setItem(STORAGE_KEY, on ? "true" : "false");
       } catch (_) {}
+
+      document.documentElement.setAttribute(
+        "data-reduce-motion",
+        on ? "true" : "false"
+      );
+      if (document.body) {
+        document.body.setAttribute("data-reduce-motion", on ? "true" : "false");
+      }
     }
 
     function applyState(on) {
-      // Match the existing pattern: data attribute on <html> and <body>
-      document.documentElement.dataset.vmReduceMotion = on ? "true" : "false";
-      document.body.dataset.vmReduceMotion = on ? "true" : "false";
-
       btn.dataset.active = on ? "true" : "false";
       btn.setAttribute("aria-pressed", on ? "true" : "false");
 
@@ -103,16 +164,11 @@
         statusEl.textContent = on ? "On" : "Off";
       }
 
-      var tooltip = on
-        ? btn.dataset.vmTooltipOn
-        : btn.dataset.vmTooltipOff;
+      var tooltip = on ? btn.dataset.vmTooltipOn : btn.dataset.vmTooltipOff;
       if (tooltip) btn.setAttribute("data-vm-tooltip", tooltip);
     }
 
-    // Initialise from localStorage. If reduce-motion.js already ran,
-    // it will have written the same value — this is just a safety net.
-    var current = readState();
-    applyState(current);
+    applyState(readState());
 
     btn.addEventListener("click", function () {
       var next = !(btn.dataset.active === "true");
@@ -120,15 +176,19 @@
       applyState(next);
     });
 
-    // Listen for cross-tab changes
+    window.addEventListener("vm:reduce-motion-change", function (e) {
+      if (!e.detail) return;
+      applyState(!!e.detail.value);
+    });
+
     window.addEventListener("storage", function (e) {
       if (e.key === STORAGE_KEY) applyState(e.newValue === "true");
     });
   }
 
-  // ---- boot --------------------------------------------------------
   function init() {
     highlightCurrentPage();
+    syncMenuNav();
     setupMenu();
     setupReduceMotionToggle();
   }

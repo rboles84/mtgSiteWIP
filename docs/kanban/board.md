@@ -40,6 +40,14 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 ## Done
 
+- [VM-113 - Topbar Sigil, Local Route, and Archscry Quick Flow Repair](done/VM-113-topbar-sigil-local-route-archscry-quick-flow-repair.md)
+- [VM-112B - Strategium Rename](done/VM-112B-strategium-rename.md)
+- [VM-112A - Floating Topbar Redesign](done/VM-112A-floating-topbar-redesign.md)
+- [VM-111 - Shared Non-Maze Logo + Topbar Rollout](done/VM-111-shared-non-maze-logo-topbar-rollout.md)
+- [VM-110 - Identity Signal Hold Note Readability + Cycle Timing](done/VM-110-identity-signal-hold-note-readability-cycle-timing.md)
+- [VM-109 - Identity Signal Lore Note + No-Shift Hold](done/VM-109-identity-signal-lore-note-no-shift-hold.md)
+- [VM-108 - Identity Signal Hold + Details](done/VM-108-identity-signal-hold-details.md)
+- [VM-107 - Homepage Hero Shape Concept](done/VM-107-homepage-hero-shape-concept.md)
 - [VM-106 - Frontend Hardening Phase 1 Security Accessibility](done/VM-106-frontend-hardening-phase-1-security-accessibility.md)
 - [VM-100 - Privacy / Terms Archive Document Refresh](done/VM-100-privacy-terms-archive-document-refresh.md)
 - [VM-105 - Archscry Doorway Watermark Backout](done/VM-105-archscry-doorway-watermark-backout.md)

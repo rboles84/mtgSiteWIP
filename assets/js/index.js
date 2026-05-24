@@ -484,14 +484,14 @@ function updateTopbar() {
  * Opens the research page.
  */
 function openResearch() {
-  window.location = "../maze/";
+  window.location = "../maze/index.html";
 }
 
 /**
  * Opens Apocrypha.
  */
 function openLibrary() {
-  window.location = "../apocrypha/";
+  window.location = "../apocrypha/index.html";
 }
 
 /**
@@ -566,6 +566,9 @@ function startQuickFlow() {
   APP_STATE.quickIndex = 0;
   showSection("quick");
   renderQuickQuestion();
+  window.setTimeout(() => {
+    document.getElementById("quick")?.scrollIntoView({ block: "start", inline: "nearest" });
+  }, 0);
 }
 
 /**
@@ -603,6 +606,9 @@ function goBackQuickQuestion() {
   );
   APP_STATE.quickIndex = APP_STATE.quickSelections.length;
   renderQuickQuestion();
+  window.setTimeout(() => {
+    document.getElementById("quick")?.scrollIntoView({ block: "start", inline: "nearest" });
+  }, 0);
 }
 
 /**

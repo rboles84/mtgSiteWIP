@@ -10,6 +10,7 @@ Vox Mana is an unofficial Magic: The Gathering fan site that combines a themed s
 | `/archscry/` | `archscry/index.html` | Placement experience: landing, quick adaptive reading, dossier result, archived Scrying Terminal. | `assets/js/index.js`, `assets/js/shared.js`, `assets/js/adaptive-placement.js` |
 | `/maze/` | `maze/index.html` | The Implicit Maze Scryfall query explorer. | `research/research-init.js` and imported research modules |
 | `/apocrypha/` | `apocrypha/index.html` | Canonical Apocrypha Archive Console and public provenance page. | Shared topbar, reduce-motion, and Apocrypha archive scripts |
+| `/strategium/` | `strategium/index.html` | Commander field guide and color-matrix learning console. | Local `graph.js` runtime and Strategium page scripts |
 | `/library/` | `library/index.html` | Legacy compatibility alias that forwards to `/apocrypha/`. | Inline redirect shell |
 | `/privacy/` | `privacy/index.html` | Privacy policy with project-specific glossary text. | Shared topbar and atmosphere scripts |
 | `/terms/` | `terms/index.html` | Terms of service with project-specific glossary text. | Shared topbar and atmosphere scripts |

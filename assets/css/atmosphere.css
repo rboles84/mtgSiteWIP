@@ -157,12 +157,9 @@
    On any page with a bg image, give the topbar a soft dark backing so
    nav links stay readable. Subtle gradient feathered at the bottom. */
 body[data-bg] .vm-topbar {
-  background: linear-gradient(180deg,
-    rgba(12, 11, 10, 0.85) 0%,
-    rgba(12, 11, 10, 0.55) 60%,
-    rgba(12, 11, 10, 0) 100%);
-  -webkit-backdrop-filter: blur(6px) saturate(115%);
-          backdrop-filter: blur(6px) saturate(115%);
+  background: none;
+  -webkit-backdrop-filter: none;
+          backdrop-filter: none;
 }
 
 /* Nav buttons get a slightly darker surface beneath them so the painting
@@ -330,8 +327,7 @@ body[data-bg-clean="true"] .vm-bg__picture img {
 }
 
 body[data-bg-clean="true"] .vm-topbar {
-  background:
-    linear-gradient(180deg, rgba(4, 4, 4, 0.9), rgba(4, 4, 4, 0.48) 70%, transparent);
+  background: none;
   border-bottom: 0;
 }
 

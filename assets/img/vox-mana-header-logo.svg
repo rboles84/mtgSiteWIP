@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 44 44" role="img" aria-labelledby="title desc">
+  <title id="title">Vox Mana header sigil</title>
+  <desc id="desc">A refined gold Vox Mana compass sigil with a central star and subtle teal aura.</desc>
+  <defs>
+    <linearGradient id="vm-sigil-gold" x1="10" y1="8" x2="34" y2="36" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff1c9"/>
+      <stop offset="0.35" stop-color="#f0cf82"/>
+      <stop offset="0.72" stop-color="#c99643"/>
+      <stop offset="1" stop-color="#7b531f"/>
+    </linearGradient>
+    <linearGradient id="vm-sigil-gold-soft" x1="22" y1="5" x2="22" y2="39" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff6de"/>
+      <stop offset="0.55" stop-color="#e8c97c"/>
+      <stop offset="1" stop-color="#9d6a28"/>
+    </linearGradient>
+    <radialGradient id="vm-sigil-core" cx="50%" cy="46%" r="60%">
+      <stop offset="0" stop-color="#12333a" stop-opacity="0.95"/>
+      <stop offset="0.55" stop-color="#0a1b21" stop-opacity="0.78"/>
+      <stop offset="1" stop-color="#050b0f" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="vm-sigil-glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow dx="0" dy="0" stdDeviation="0.7" flood-color="#f1d899" flood-opacity="0.55"/>
+      <feDropShadow dx="0" dy="0" stdDeviation="1.8" flood-color="#3ba7a2" flood-opacity="0.18"/>
+    </filter>
+    <path id="vm-sigil-long-blade" d="M22 7.2L24.55 15.1L22 17.6L19.45 15.1Z"/>
+    <path id="vm-sigil-short-blade" d="M22 10.45L23.75 15.25L22 16.9L20.25 15.25Z"/>
+    <path id="vm-sigil-arc" d="M22 8.35C24.55 8.85 26.55 10.85 27.15 13.4"/>
+  </defs>
+
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="22" cy="22" r="17.6" stroke="url(#vm-sigil-gold-soft)" stroke-width="1.05" opacity="0.82"/>
+    <circle cx="22" cy="22" r="13.95" stroke="url(#vm-sigil-gold)" stroke-width="0.72" opacity="0.54"/>
+    <circle cx="22" cy="22" r="8.8" fill="url(#vm-sigil-core)" opacity="0.82"/>
+
+    <g filter="url(#vm-sigil-glow)">
+      <g fill="url(#vm-sigil-gold)" stroke="rgba(255,241,201,0.65)" stroke-width="0.28">
+        <use href="#vm-sigil-long-blade"/>
+        <use href="#vm-sigil-long-blade" transform="rotate(90 22 22)"/>
+        <use href="#vm-sigil-long-blade" transform="rotate(180 22 22)"/>
+        <use href="#vm-sigil-long-blade" transform="rotate(270 22 22)"/>
+      </g>
+
+      <g fill="url(#vm-sigil-gold-soft)" stroke="rgba(255,246,222,0.56)" stroke-width="0.24" opacity="0.95">
+        <use href="#vm-sigil-short-blade" transform="rotate(45 22 22)"/>
+        <use href="#vm-sigil-short-blade" transform="rotate(135 22 22)"/>
+        <use href="#vm-sigil-short-blade" transform="rotate(225 22 22)"/>
+        <use href="#vm-sigil-short-blade" transform="rotate(315 22 22)"/>
+      </g>
+
+      <g stroke="url(#vm-sigil-gold-soft)" stroke-width="0.92" opacity="0.76">
+        <use href="#vm-sigil-arc"/>
+        <use href="#vm-sigil-arc" transform="rotate(90 22 22)"/>
+        <use href="#vm-sigil-arc" transform="rotate(180 22 22)"/>
+        <use href="#vm-sigil-arc" transform="rotate(270 22 22)"/>
+      </g>
+
+      <path
+        d="M22 15.15L24.95 22L22 28.85L19.05 22Z"
+        fill="url(#vm-sigil-gold-soft)"
+        stroke="rgba(255,246,222,0.72)"
+        stroke-width="0.34"
+      />
+      <path
+        d="M22 17.65L23.8 22L22 26.35L20.2 22Z"
+        fill="#0a161d"
+        stroke="url(#vm-sigil-gold)"
+        stroke-width="0.38"
+        opacity="0.96"
+      />
+      <circle cx="22" cy="22" r="1.18" fill="#fff6de" opacity="0.88"/>
+    </g>
+  </g>
+</svg>
