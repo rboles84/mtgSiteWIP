@@ -101,8 +101,9 @@
 3. Confirm the saved result appears first instead of the landing page.
 4. Confirm the adjacent fits are still present.
 5. Switch into each adjacent fit and confirm the dossier updates cleanly.
-6. Confirm `Back to Primary Reading` returns you to the original saved result.
-7. Confirm adjacent-fit switching does not duplicate or break the radar chart.
+6. Confirm the `Mana Alignment Matrix` title/text, pills, axis bars, caption, and radar shape switch to the adjacent faction instead of staying on the original primary placement.
+7. Confirm `Back to Primary Reading` returns the Identity Matrix to the original saved result.
+8. Confirm adjacent-fit switching does not duplicate or break the radar chart.
 
 ## Retake flow
 

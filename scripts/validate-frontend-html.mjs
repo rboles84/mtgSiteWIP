@@ -1,8 +1,12 @@
 import { readFile } from "node:fs/promises";
 
-const files = {
+const publicPages = {
+  home: "index.html",
+  homePreview: "newIndex2.html",
   maze: "maze/index.html",
   archscry: "archscry/index.html",
+  strategium: "strategium/index.html",
+  apocrypha: "apocrypha/index.html",
   library: "library/index.html",
   privacy: "privacy/index.html",
   terms: "terms/index.html",
@@ -10,7 +14,7 @@ const files = {
 
 const sources = Object.fromEntries(
   await Promise.all(
-    Object.entries(files).map(async ([key, file]) => [key, await readFile(file, "utf8")])
+    Object.entries(publicPages).map(async ([key, file]) => [key, await readFile(file, "utf8")])
   )
 );
 
@@ -22,6 +26,38 @@ function expect(condition, message) {
 
 function expectAbsent(source, pattern, label) {
   expect(!pattern.test(source), label);
+}
+
+function getExternalScriptTags(source) {
+  return [...source.matchAll(/<script\b[^>]*\bsrc="[^"]+"[^>]*>/gi)].map(match => match[0]);
+}
+
+function getImageTags(source) {
+  return [...source.matchAll(/<img\b[^>]*>/gi)].map(match => match[0]);
+}
+
+function scriptIsDeferred(tag) {
+  return /\btype\s*=\s*"module"/i.test(tag) || /\bdefer\b/i.test(tag);
+}
+
+function imageHasIntrinsicSize(tag) {
+  return /\bwidth\s*=\s*"\d+"/i.test(tag) && /\bheight\s*=\s*"\d+"/i.test(tag);
+}
+
+for (const [key, source] of Object.entries(sources)) {
+  for (const tag of getExternalScriptTags(source)) {
+    expect(
+      scriptIsDeferred(tag),
+      `${publicPages[key]} should mark external scripts as type="module" or defer: ${tag}`
+    );
+  }
+
+  for (const tag of getImageTags(source)) {
+    expect(
+      imageHasIntrinsicSize(tag),
+      `${publicPages[key]} should give every <img> explicit width and height: ${tag}`
+    );
+  }
 }
 
 expectAbsent(
@@ -58,14 +94,27 @@ expectAbsent(
   /href="\/assets\/|src="\/assets\/|content="0; url=\/apocrypha\/"|window\.location\.replace\("\/apocrypha\/"\)/,
   "library/index.html should avoid root-absolute alias assets and redirects"
 );
-expect(
-  sources.privacy.includes('href="../maze/"') && sources.terms.includes('href="../maze/"'),
-  "legal pages should keep their Maze navigation links"
-);
+
+const legalNavTargets = [
+  'href="../newIndex2.html"',
+  'href="../archscry/index.html"',
+  'href="../maze/index.html"',
+  'href="../apocrypha/index.html"',
+  'href="../strategium/index.html"',
+];
+
+for (const href of legalNavTargets) {
+  expect(
+    sources.privacy.includes(href) && sources.terms.includes(href),
+    `privacy/index.html and terms/index.html should keep the current shared-shell nav target ${href}`
+  );
+}
 
 if (failures.length) {
   process.stderr.write(`${failures.join("\n")}\n`);
   process.exit(1);
 }
 
-console.log("Frontend HTML validation passed for Maze, Archscry, Library, Privacy, and Terms.");
+console.log(
+  "Frontend HTML validation passed for public script deferral, intrinsic image sizing, Maze, Archscry, Library, Privacy, and Terms."
+);

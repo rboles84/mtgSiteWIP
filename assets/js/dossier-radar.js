@@ -302,6 +302,14 @@ function dossierRadialFill(chart, hexes) {
   return gradient;
 }
 
+function resolveActiveDossierFactionKey(result, faction) {
+  return String(faction?.key || result?.faction || "").toUpperCase();
+}
+
+function resolveActiveDossierFactionName(result, faction) {
+  return faction?.name || faction?.key || result?.faction || "Identity";
+}
+
 function buildDossierFallbackProfile(result, faction) {
   const components = Array.isArray(faction?.colors) && faction.colors.length
     ? [...faction.colors]
@@ -314,9 +322,9 @@ function buildDossierFallbackProfile(result, faction) {
     const sum = values.reduce((total, value) => total + value, 0);
     return Math.round(sum / Math.max(values.length, 1));
   });
-  const titleName = faction?.name || result?.faction || "Identity";
+  const titleName = resolveActiveDossierFactionName(result, faction);
   return {
-    key: String(result?.faction || faction?.key || "UNKNOWN").toUpperCase(),
+    key: resolveActiveDossierFactionKey(result, faction) || "UNKNOWN",
     name: titleName,
     title: `${titleName} — Composite Reading`,
     text: "This synthesis blends the active color pressures in the reading into one previewable identity shape.",
@@ -337,7 +345,7 @@ function normalizeProfileComponents(profile, faction) {
 }
 
 function getDossierRadarProfile(result, faction) {
-  const factionKey = String(result?.faction || faction?.key || "").toUpperCase();
+  const factionKey = resolveActiveDossierFactionKey(result, faction);
   const direct = DOSSIER_RADAR_PROFILES[factionKey];
   if (!direct) {
     return buildDossierFallbackProfile(result, faction);

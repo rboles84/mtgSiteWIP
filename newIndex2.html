@@ -18,7 +18,7 @@
 <link rel="stylesheet" href="./assets/css/tokens.css" />
 <link rel="stylesheet" href="./assets/css/fonts.css" />
 <!-- CHART.JS: Loads the local Chart.js runtime before the hero identity signal initializes. -->
-<script src="assets/js/graph.js"></script>
+<script src="assets/js/graph.js" defer></script>
 
 <!-- STYLE BLOCK: All CSS in this file lives here. CSS controls the look, layout, animation, and responsive behavior. -->
 <style>
@@ -1965,7 +1965,7 @@ section {
       <!-- BACKGROUND SOURCE: Browser can choose this WebP image; sizes="100vw" says it is intended to span the full viewport width. -->
       <source type="image/webp" srcset="./assets/img/backgrounds/background-vox-gateway-clean-13.webp 2560w" sizes="100vw">
       <!-- BACKGROUND FALLBACK IMG: The visible background image. Empty alt text is correct here because the image is decorative. -->
-      <img src="./assets/img/backgrounds/background-vox-gateway-clean-13.webp" alt="" decoding="async" fetchpriority="high">
+      <img src="./assets/img/backgrounds/background-vox-gateway-clean-13.webp" alt="" width="1672" height="941" decoding="async" fetchpriority="high">
     </picture>
     <!-- NEBULA LAYER: Empty div used only for CSS radial-gradient atmosphere. -->
     <div class="vm-bg__nebula"></div>
@@ -2703,7 +2703,7 @@ section {
   </section>
 
   <!-- ORIENTATION -->
-  <section id="what" class="vm-section vm-home-index">
+  <section id="what" class="vm-section vm-home-index section-lazy-render">
     <h2>Vox Mana is a living index.</h2>
     <p class="vm-section-intro">
       Four focused paths through one color philosophy system.
@@ -2746,7 +2746,7 @@ section {
 </main>
 
 <!-- FOOTER: Final navigation and short site summary. -->
-<footer class="vm-shell vm-footer">
+<footer class="vm-shell vm-footer section-lazy-render">
   <span>Vox Mana — color philosophy, Commander identity, symbolic search, and lore research.</span>
   <span>
     <a href="#top">Back to top</a> ·
@@ -3808,9 +3808,6 @@ function initArchscryAtmosphere() {
   drawAtmosphere();
 }
 
-// START ATMOSPHERE: Runs the particle/mouse-glow initializer once after it is defined.
-initArchscryAtmosphere();
-
 // REVEAL OBSERVER INITIALIZER: Uses IntersectionObserver to add .is-visible when reveal elements enter the viewport.
 function initRevealObserver() {
   const reveals = document.querySelectorAll(".reveal, .vm-reveal");
@@ -3908,25 +3905,26 @@ const archscryRevealObserver = new IntersectionObserver((entries) => {
     }
   });
 }, { threshold: 0.15, rootMargin: '0px 0px -8% 0px' });
-// REGISTER REVEAL TARGETS: Starts observing elements that should animate into view.
-document.querySelectorAll('.reveal, .hero-card').forEach(el => archscryRevealObserver.observe(el));
+// PAGE BOOTSTRAP: Waits for deferred head scripts like graph.js, then starts page behavior.
+document.addEventListener("DOMContentLoaded", () => {
+  initArchscryAtmosphere();
+  document.querySelectorAll('.reveal, .hero-card').forEach(el => archscryRevealObserver.observe(el));
+  initHeroManaPreview();
+  initRevealObserver();
 
-initHeroManaPreview();
-// START MAIN REVEAL OBSERVER: Enables the reveal animation behavior.
-initRevealObserver();
-
-// PLACEHOLDER NAV GUARD: Keeps future-page placeholder nav links visually clickable without scrolling or navigating yet.
-document.querySelectorAll("[data-vm-placeholder-link]").forEach(link => {
-  link.addEventListener("click", event => {
-    event.preventDefault();
+  // PLACEHOLDER NAV GUARD: Keeps future-page placeholder nav links visually clickable without scrolling or navigating yet.
+  document.querySelectorAll("[data-vm-placeholder-link]").forEach(link => {
+    link.addEventListener("click", event => {
+      event.preventDefault();
+    });
   });
-});
 
-// BACK-TO-TOP SETUP: Stores the button and toggles its visibility based on scroll distance.
-const backTop = document.getElementById("backTop");
-// SCROLL LISTENER: Shows the back-to-top button only after the page has been scrolled down 500px.
-window.addEventListener("scroll", () => {
-  backTop.classList.toggle("show", window.scrollY > 500);
+  // BACK-TO-TOP SETUP: Stores the button and toggles its visibility based on scroll distance.
+  const backTop = document.getElementById("backTop");
+  // SCROLL LISTENER: Shows the back-to-top button only after the page has been scrolled down 500px.
+  window.addEventListener("scroll", () => {
+    backTop.classList.toggle("show", window.scrollY > 500);
+  });
 });
 </script>
 <script src="./assets/js/reduce-motion.js" defer></script>

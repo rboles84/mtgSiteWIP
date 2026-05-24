@@ -279,4 +279,9 @@
     white-space: nowrap;
     border: 0;
   }
+
+  .section-lazy-render {
+    content-visibility: auto;
+    contain-intrinsic-size: 1px 600px;
+  }
 }

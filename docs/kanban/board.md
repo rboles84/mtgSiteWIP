@@ -40,6 +40,8 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 ## Done
 
+- [VM-117 - Phase 7 Performance Pass: Script Deferral, CLS Hints, and Lighthouse QA](done/VM-117-phase-7-performance-pass-script-deferral-cls-lighthouse.md)
+- [VM-118 - Archscry Adjacent Identity Matrix Sync Repair](done/VM-118-archscry-adjacent-identity-matrix-sync-repair.md)
 - [VM-116 - CSS Architecture Phase 2: Layout Layer + Animation Consolidation](done/VM-116-css-architecture-phase-2-layout-layer-animation-consolidation.md)
 - [VM-115 - Shared Token Follow-Up: OKLCH, Fluid Spacing, and Monotonic Type](done/VM-115-shared-token-follow-up-oklch-fluid-type.md)
 - [VM-114 - P0 Shared CSS Foundation Pass](done/VM-114-p0-shared-css-foundation-pass.md)
