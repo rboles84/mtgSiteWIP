@@ -46,6 +46,7 @@ import {
 } from "./dossier-radar.js";
 
 const SESSION = VM_SESSION;
+const DATA_BASE_URL = new URL("../../data/", import.meta.url);
 
 const APP_STATE = {
   factions: {},
@@ -119,6 +120,10 @@ function isScryingTerminalEnabled() {
   return globalThis.VM_SITE_FLAGS?.SCRYING_TERMINAL_ENABLED === true;
 }
 
+function resolveDataUrl(path) {
+  return new URL(path, DATA_BASE_URL).href;
+}
+
 /**
  * Applies the feature flag to terminal-only UI already in the DOM.
  */
@@ -141,7 +146,7 @@ function applyTerminalVisibility() {
  * @returns {Promise<object>} Canonical faction map keyed by faction code.
  */
 async function loadFactionData() {
-  const response = await fetch("/data/factions.json");
+  const response = await fetch(resolveDataUrl("factions.json"));
   if (!response.ok) {
     throw new Error("Could not load faction data.");
   }
@@ -156,7 +161,7 @@ async function loadFactionData() {
  * @returns {Promise<object>} Generated placement model.
  */
 async function loadPlacementModel() {
-  const response = await fetch("/data/placement-model.json");
+  const response = await fetch(resolveDataUrl("placement-model.json"));
   if (!response.ok) {
     throw new Error("Could not load placement model.");
   }
@@ -170,7 +175,7 @@ async function loadPlacementModel() {
  * @returns {Promise<object>} Resolved tag catalog.
  */
 async function loadDeckTagCatalog() {
-  const response = await fetch("/data/deck-tags_expanded.json");
+  const response = await fetch(resolveDataUrl("deck-tags_expanded.json"));
   if (!response.ok) {
     throw new Error("Could not load Commander deck tags.");
   }
@@ -179,7 +184,7 @@ async function loadDeckTagCatalog() {
 }
 
 async function loadIdentityLayerData() {
-  const response = await fetch("/data/identity-layers.json");
+  const response = await fetch(resolveDataUrl("identity-layers.json"));
   if (!response.ok) {
     throw new Error("Could not load identity layers.");
   }
@@ -202,11 +207,11 @@ async function loadDiscoveryData() {
     colorThemeIndex,
     mechanicThemeIndex,
   ] = await Promise.all([
-    loadOptionalJson("/data/taxonomy/vox-mana-tags.json", "tag taxonomy"),
-    loadOptionalJson("/data/scryfall/indexes/card-flavor-index.json", "Scryfall flavor index"),
-    loadOptionalJson("/data/scryfall/indexes/commander-index.json", "Scryfall commander index"),
-    loadOptionalJson("/data/scryfall/indexes/color-theme-index.json", "Scryfall color theme index"),
-    loadOptionalJson("/data/scryfall/indexes/mechanic-theme-index.json", "Scryfall mechanic theme index"),
+    loadOptionalJson(resolveDataUrl("taxonomy/vox-mana-tags.json"), "tag taxonomy"),
+    loadOptionalJson(resolveDataUrl("scryfall/indexes/card-flavor-index.json"), "Scryfall flavor index"),
+    loadOptionalJson(resolveDataUrl("scryfall/indexes/commander-index.json"), "Scryfall commander index"),
+    loadOptionalJson(resolveDataUrl("scryfall/indexes/color-theme-index.json"), "Scryfall color theme index"),
+    loadOptionalJson(resolveDataUrl("scryfall/indexes/mechanic-theme-index.json"), "Scryfall mechanic theme index"),
   ]);
 
   APP_STATE.tagTaxonomy = taxonomy;
@@ -1414,6 +1419,10 @@ function getActiveResultContext() {
   };
 }
 
+function shouldDisableResultCardArt() {
+  return globalThis.__vmVisualRegressionDisableCardArt === true;
+}
+
 /**
  * Renders the main dossier view for the active placement result.
  *
@@ -1742,7 +1751,9 @@ function renderResult(viewKey) {
   applyTerminalVisibility();
   updateTopbar();
   initDossierManaRadar({ result, faction, profile: getDossierRadarProfile(result, faction) });
-  loadResultCardArt(faction, commanderPreviewCandidates, dossier.starterCards, landRecommendations);
+  if (!shouldDisableResultCardArt()) {
+    loadResultCardArt(faction, commanderPreviewCandidates, dossier.starterCards, landRecommendations);
+  }
 }
 
 /**

@@ -40,6 +40,12 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 ## Done
 
+- [VM-127 - Phase 4 Archscry Index Extraction](done/VM-127-phase-4-archscry-index-extraction.md)
+- [VM-126 - Strategium Archetype Signal Intent-Friendly Copy Pass](done/VM-126-strategium-archetype-signal-intent-friendly-copy-pass.md)
+- [VM-125 - Strategium Archetype Signal Searchable Library](done/VM-125-strategium-archetype-signal-searchable-library.md)
+- [VM-124 - Strategium Targeted Commander Portal Lift](done/VM-124-strategium-targeted-commander-portal-lift.md)
+- [VM-123 - Archscry Quick Reading Local-File Boot Repair](done/VM-123-archscry-quick-reading-local-file-boot-repair.md)
+- [VM-122 - Strategium Commander Learning Console Redesign](done/VM-122-strategium-commander-learning-console-redesign.md)
 - [VM-121 - Phase 4 newIndex2.html Extraction](done/VM-121-phase-4-newindex2-extraction.md)
 - [VM-120 - Phase 6 Container Queries + Subgrid](done/VM-120-phase-6-container-queries-subgrid.md)
 - [VM-119 - Semantic HTML + ARIA Audit](done/VM-119-semantic-html-aria-audit.md)

@@ -35,6 +35,7 @@ for (const check of routeChecks) {
 
 const mazeSource = await readFile(path.resolve(root, "maze/index.html"), "utf8");
 const archscrySource = await readFile(path.resolve(root, "archscry/index.html"), "utf8");
+const archscryRuntimeSource = await readFile(path.resolve(root, "assets/js/index.js"), "utf8");
 
 if (!mazeSource.includes('id="modal-wrap" role="dialog"')) {
   failures.push("Maze modal smoke check failed: dialog wrapper semantics are missing");
@@ -56,6 +57,9 @@ if (!archscrySource.includes('<main id="archscry-main"')) {
 }
 if (!archscrySource.includes('<footer class="app-footer"')) {
   failures.push("Archscry smoke check failed: footer landmark is missing");
+}
+if (/["'`]\/data\//.test(archscryRuntimeSource)) {
+  failures.push("Archscry smoke check failed: runtime still contains root-relative /data/ references");
 }
 if (mazeSource.includes('role="menu"') || archscrySource.includes('role="menu"')) {
   failures.push("Shared topbar smoke check failed: site navigation should not use application menu roles");

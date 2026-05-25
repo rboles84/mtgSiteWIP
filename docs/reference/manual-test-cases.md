@@ -17,6 +17,20 @@
 5. Confirm each viewport stays within the mismatch budget and the run reports no new console or page errors beyond `console-baseline.json`.
 6. If the harness fails, review the generated diff PNGs before accepting any visual change.
 
+## `archscry/index.html` visual regression harness
+
+1. Before changing `archscry/index.html` or `assets/css/archscry.css`, run `npm.cmd run test:visual:archscry:baseline`.
+2. Confirm baseline screenshots exist under `artifacts/visual-regression/archscry/baseline/` for:
+   - `landing-mobile.png`
+   - `landing-desktop.png`
+   - `dossier-mobile.png`
+   - `dossier-tablet.png`
+   - `dossier-desktop.png`
+3. After the extraction or route-local refactor, run `npm.cmd run test:visual:archscry`.
+4. Confirm the compare run writes current and diff artifacts under `artifacts/visual-regression/archscry/current/` and `artifacts/visual-regression/archscry/diff/`.
+5. Confirm each capture stays within the mismatch budget and the run reports no new Archscry console or page errors beyond `console-baseline.json`.
+6. If the harness fails, review the generated diff PNGs before accepting any visual change.
+
 ## Happy path - quick reading
 
 1. Open the site in a fresh browser session.
@@ -239,10 +253,25 @@
 
 1. Open `index.html`, `/strategium/`, `/archscry/`, and `/apocrypha/`.
 2. On the homepage, confirm the `Archscry` and `Apocrypha` doorway cards stay split when their card width is generous and stack scene plus body based on card width when narrowed, even after the overall page shell has already collapsed to one column.
-3. On `/strategium/`, narrow and widen the `Start Here` panel; confirm each start row switches between multi-column and single-column based on panel width rather than only viewport width.
-4. On `/strategium/`, confirm the `Color Philosophy Bridge` cards align symbol, heading, and paragraph rhythm across the multi-column row and still collapse cleanly without clipping when the bridge panel narrows.
-5. On `/archscry/`, complete a reading, then narrow the dossier area; confirm `lands-tiers`, `commander-preview-grid`, and `flavor-echo-card` layouts respond to their wrapper width without text overlap, clipped art, or broken card spacing.
-6. On `/apocrypha/`, confirm the archive cards and footer show no visual regression after the shared responsive pass.
+3. On `/strategium/`, confirm the `Commander Focused` cards, entry-point rows, and `Choose your next move` cards reflow cleanly from desktop to mobile without clipped text, broken spacing, or horizontal overflow.
+4. On `/strategium/`, switch through every Strategium Console tab and confirm the Commander-specific content swaps cleanly with no dead buttons or console errors.
+5. On `/strategium/`, toggle several `Commander Readiness Checklist` items by mouse and keyboard; confirm the summary text updates and every touched control keeps a visible focus state.
+6. On `/archscry/`, complete a reading, then narrow the dossier area; confirm `lands-tiers`, `commander-preview-grid`, and `flavor-echo-card` layouts respond to their wrapper width without text overlap, clipped art, or broken card spacing.
+7. On `/apocrypha/`, confirm the archive cards and footer show no visual regression after the shared responsive pass.
+
+## Strategium targeted portal lift
+
+1. Open `/strategium/` and switch to the `Pod Readiness` tab; confirm `Recommended Pre-Game Script` appears only in that panel with three script cards and bracket language framed as an estimated social shortcut rather than an official rating.
+2. Switch to `Threat Reading` and confirm `The cognitive checklist` renders five numbered prompts with no dead controls, clipped text, or browser console errors.
+3. Switch to `Archetype Signal` and confirm the searchable archetype library appears inside the console panel instead of becoming a separate page section.
+4. Confirm `Core` is the default scope, then search `lands` and confirm `Ramp`, `Lands Matter`, and `Landfall` surface as separate matches.
+5. Search `go wide` and confirm alias matching surfaces `Tokens` and related matching themes.
+6. Search `prison` with `Core` active and confirm the empty state suggests widening the scope; switch to `All` or `Advanced` and confirm `Stax / Lockout`, `Hatebears`, or `Pillow Fort` can surface.
+7. Filter by `Spells` and confirm `Spellslinger` and `Storm` behave as separate themes.
+8. Filter by `Salt Risk` and confirm socially polarizing themes narrow correctly without introducing power or bracket labels.
+9. Switch away from `Archetype Signal` and back; confirm the search and chip state persists until page reload.
+10. Toggle multiple `Commander Readiness Checklist` items by mouse and keyboard; confirm the percent label, progress bar, overall summary, `Conversation status`, and `Table kit status` all update together.
+11. Narrow `/strategium/` to tablet and mobile widths; confirm the new script cards, archetype search controls, archetype cards, and readiness status cards stack cleanly with no horizontal overflow or broken spacing.
 
 ## Local file route smoke pass
 
@@ -252,9 +281,11 @@
 4. Click `Start Archscry` and confirm `archscry/index.html` opens instead of a file-not-found page.
 5. Use the top navigation on the preview home and confirm `Archscry`, `The Implicit Maze`, `Apocrypha`, and `Strategium` all open successfully under `file://`.
 6. From `/archscry/`, confirm the topbar `Home`, `The Implicit Maze`, `Apocrypha`, and `Strategium` links all resolve correctly.
-7. Complete a quick Archscry reading and confirm the dossier still renders, including the `Mana Alignment Matrix`.
-8. From the dossier, open one of the Maze discovery links and confirm the Maze page opens with query context intact.
-9. Confirm the Maze route topbar can return to `Home`, `Archscry`, `Apocrypha`, and `Strategium` without file-not-found errors.
-10. Click the Strategium nav, card, and footer links from `newIndex2.html` and confirm they resolve to the renamed local route.
-11. Confirm no live local-file path still points to `basics/index.html`.
-12. Open the footer `Privacy` and `Terms` links from `newIndex2.html` and confirm those pages load their styling and topbar correctly under `file://`.
+7. Confirm `/archscry/` does not fall back to the `Placement data missing.` error state when opened directly under `file://`.
+8. Click `Start the Quick Reading` and confirm the Archscry view opens Gate 1 instead of appearing stuck on the landing state.
+9. Complete a quick Archscry reading and confirm the dossier still renders, including the `Mana Alignment Matrix`.
+10. From the dossier, open one of the Maze discovery links and confirm the Maze page opens with query context intact.
+11. Confirm the Maze route topbar can return to `Home`, `Archscry`, `Apocrypha`, and `Strategium` without file-not-found errors.
+12. Click the Strategium nav, card, and footer links from `newIndex2.html` and confirm they resolve to the renamed local route.
+13. Confirm no live local-file path still points to `basics/index.html`.
+14. Open the footer `Privacy` and `Terms` links from `newIndex2.html` and confirm those pages load their styling and topbar correctly under `file://`.

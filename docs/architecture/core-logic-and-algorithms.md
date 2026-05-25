@@ -49,7 +49,7 @@ Files: `archscry/index.html`, `assets/js/index.js`, `assets/js/shared.js`.
 
 Flow:
 
-1. Load `/data/factions.json`, `/data/placement-model.json`, `/data/identity-layers.json`, deck tags, and optional Scryfall discovery indexes.
+1. Load `data/` JSON through module-resolved URLs derived from `import.meta.url`, so `factions`, `placement-model`, `identity-layers`, deck tags, and optional Scryfall discovery indexes all work under both hosted routes and direct `file://` use.
 2. Render starter profile chips.
 3. Resume Supabase/session state and pending OAuth saves.
 4. Show a saved/cached result or the landing state.

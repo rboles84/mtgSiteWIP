@@ -19,6 +19,8 @@
     "test:bias": "node assets/js/quick-reading-bias.js",
     "test:bias:all": "node assets/js/quick-reading-bias.js --all",
     "test:frontend-smoke": "node scripts/frontend-smoke.mjs",
+    "test:visual:archscry": "node scripts/visual-regression-archscry.mjs --mode=compare",
+    "test:visual:archscry:baseline": "node scripts/visual-regression-archscry.mjs --mode=baseline",
     "test:lighthouse:newindex2": "node scripts/lighthouse-newindex2.mjs",
     "test:mode": "node research/research-mode-tests.js",
     "test:parser": "node research/scryfall-parser-tests.js",

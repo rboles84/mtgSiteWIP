@@ -171,6 +171,15 @@ expectAbsent(
   "archscry/index.html should not ship inline event attributes"
 );
 expect(
+  sources.archscry.includes('<link rel="stylesheet" href="../assets/css/archscry.css">'),
+  'archscry/index.html should load "../assets/css/archscry.css"'
+);
+expectAbsent(
+  sources.archscry,
+  /<style\b[^>]*>/i,
+  "archscry/index.html should not ship inline <style> blocks"
+);
+expect(
   sources.homePreview.includes('<link rel="stylesheet" href="./assets/css/newindex2.css" />'),
   'newIndex2.html should load "./assets/css/newindex2.css"'
 );
@@ -193,6 +202,15 @@ const newindexRouteCssIndex = sources.homePreview.indexOf('./assets/css/newindex
 expect(
   newindexTopbarLinkIndex !== -1 && newindexRouteCssIndex !== -1 && newindexTopbarLinkIndex < newindexRouteCssIndex,
   "newIndex2.html should load topbar.css before newindex2.css"
+);
+
+const archscryLastStylesheetTagIndex = sources.archscry.lastIndexOf('<link rel="stylesheet"');
+const archscryRouteCssIndex = sources.archscry.lastIndexOf('../assets/css/archscry.css');
+expect(
+  archscryLastStylesheetTagIndex !== -1 &&
+    archscryRouteCssIndex !== -1 &&
+    archscryRouteCssIndex > archscryLastStylesheetTagIndex,
+  "archscry/index.html should keep archscry.css as the last stylesheet in the head"
 );
 
 expect(
