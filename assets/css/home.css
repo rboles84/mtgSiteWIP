@@ -1097,27 +1097,6 @@ body[data-page="home"] .vm-home__status-value {
     justify-self: center;
   }
 
-  body[data-page="home"] .vm-card--side {
-    grid-template-columns: 1fr;
-    grid-template-rows: minmax(230px, auto) auto;
-  }
-
-  body[data-page="home"] .vm-card--side .vm-card__scene,
-  body[data-page="home"] .vm-card--apocrypha .vm-card__scene {
-    order: 1;
-    min-height: 250px;
-  }
-
-  body[data-page="home"] .vm-card--side .vm-card__body,
-  body[data-page="home"] .vm-card--apocrypha .vm-card__body {
-    order: 2;
-  }
-
-  body[data-page="home"] .vm-card__scene::after {
-    border-left: 0;
-    border-top: 1px solid rgba(184, 149, 74, 0.22);
-  }
-
   body[data-page="home"] .vm-home__side {
     flex-direction: row;
     align-items: center;
@@ -1239,6 +1218,7 @@ body[data-page="home"] .vm-card--side {
   overflow: visible;
   margin-top: 0;
   transform: none;
+  container-type: inline-size;
 }
 
 body[data-page="home"] .vm-card--side:hover,
@@ -1270,8 +1250,8 @@ body[data-page="home"] .vm-card--side .vm-card__inner {
   position: relative;
   z-index: 1;
   display: grid;
-  grid-template-columns: inherit;
-  grid-template-rows: inherit;
+  grid-template-columns: minmax(230px, 0.78fr) minmax(260px, 1fr);
+  grid-template-rows: auto;
   grid-column: 1 / -1;
   grid-row: 1 / -1;
   width: 100%;
@@ -1345,6 +1325,33 @@ body[data-page="home"] .vm-card--side .vm-card__inner::after {
     inset 0 0 0 1px rgba(212, 180, 97, 0.12),
     inset 0 0 28px rgba(0, 0, 0, 0.38),
     0 0 18px rgba(184, 149, 74, 0.14);
+}
+
+body[data-page="home"] .vm-card--side .vm-card__body {
+  padding: 38px 34px;
+}
+
+/* Doorway card internals should react to card width rather than the viewport. */
+@container (max-width: 40rem) {
+  body[data-page="home"] .vm-card--side .vm-card__inner {
+    grid-template-columns: 1fr;
+    grid-template-rows: minmax(230px, auto) auto;
+  }
+
+  body[data-page="home"] .vm-card--side .vm-card__scene {
+    order: 1;
+    min-height: 250px;
+  }
+
+  body[data-page="home"] .vm-card--side .vm-card__body {
+    order: 2;
+    padding: 30px 24px;
+  }
+
+  body[data-page="home"] .vm-card--side .vm-card__scene::after {
+    border-left: 0;
+    border-top: 1px solid rgba(184, 149, 74, 0.22);
+  }
 }
 
 @media (max-width: 1180px) {

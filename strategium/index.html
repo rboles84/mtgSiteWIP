@@ -410,6 +410,7 @@ section {
 
 .vm-guide-panel .vm-start-grid {
   gap: 0.7rem;
+  container-type: inline-size;
 }
 
 .vm-guide-panel .vm-start-row {
@@ -670,6 +671,10 @@ section {
   margin-top: 0.4rem;
 }
 
+.vm-bridge-panel {
+  container-type: inline-size;
+}
+
 .vm-bridge-card {
   min-height: 0;
 }
@@ -769,9 +774,11 @@ section {
   display: grid;
   grid-template-columns: repeat(5, minmax(0, 1fr));
   gap: 0.8rem;
+  align-items: stretch;
 }
 
 .vm-philosophy-card {
+  display: block;
   min-height: 190px;
 }
 
@@ -816,6 +823,48 @@ section {
 .vm-start-row span {
   color: var(--muted);
   line-height: 1.45;
+}
+
+@container (max-width: 40rem) {
+  .vm-start-row {
+    grid-template-columns: 1fr;
+  }
+
+  .vm-guide-panel .vm-start-row span:last-child {
+    justify-self: start;
+  }
+}
+
+@container (max-width: 52rem) {
+  .vm-philosophy-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .vm-philosophy-card {
+    display: block;
+  }
+}
+
+@container (min-width: 52.01rem) {
+  .vm-philosophy-grid {
+    grid-template-rows: auto auto auto 1fr;
+  }
+
+  .vm-philosophy-card {
+    display: grid;
+    grid-template-rows: subgrid;
+    grid-row: span 4;
+    align-content: start;
+  }
+
+  .vm-philosophy-card > * {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  .vm-philosophy-symbol {
+    margin-bottom: 0;
+  }
 }
 
 /* CSS SECTION: Topic tabs, reveal animation, and Color Matrix wrapper. */
@@ -1480,13 +1529,11 @@ section {
 
   .vm-card-grid,
   .vm-two-col,
-  .vm-flow,
-  .vm-philosophy-grid {
+  .vm-flow {
     grid-template-columns: 1fr;
   }
 
-  .vm-module,
-  .vm-start-row {
+  .vm-module {
     grid-template-columns: 1fr;
   }
 

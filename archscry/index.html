@@ -1137,17 +1137,14 @@ body::before{
 
 @media(max-width:900px){
   .landing-wrap{width:100%}
-  .lands-tiers{grid-template-columns:repeat(2,minmax(0,1fr))}
 }
 @media(max-width:700px){
   #landing,#quick,#interview{padding-top:5rem}
   .answer-grid{grid-template-columns:1fr}
   .result-context-bar{align-items:flex-start;flex-direction:column}
   .context-actions{justify-content:flex-start}
-  .lands-tiers{grid-template-columns:1fr}
   .land-wrap{width:80px}
   .staple-wrap{width:92px}
-  .commander-preview-grid{grid-template-columns:1fr}
   .commander-img:hover,.staple-img:hover,.land-img:hover{transform:scale(1.7)}
   .service-chip{width:100%;justify-content:flex-start}
   .tb-placement{display:none}
@@ -1170,6 +1167,27 @@ body::before{
   }
   .vm-dossier-matrix-section .vm-radar-wrap{
     height:380px;
+  }
+}
+
+@container (max-width:34rem){
+  .lands-tiers{grid-template-columns:1fr}
+}
+
+@container (max-width:30rem){
+  .commander-preview-grid{grid-template-columns:1fr}
+}
+
+@container (max-width:36rem){
+  .flavor-echo-card{
+    grid-template-columns:1fr;
+    min-height:0;
+  }
+
+  .flavor-echo-card img{
+    width:min(120px,100%);
+    height:auto;
+    justify-self:start;
   }
 }
 </style>

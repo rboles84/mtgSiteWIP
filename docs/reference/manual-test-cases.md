@@ -226,6 +226,15 @@
 8. Tab through the shared topbar, mobile panel, Maze controls, and any touched shared components; confirm every focused control has a visible gold or teal focus indicator.
 9. NVDA pass is optional for this card, but if available, confirm the three named routes announce their landmarks and section names clearly.
 
+## Container query / subgrid responsive pass
+
+1. Open `index.html`, `/strategium/`, `/archscry/`, and `/apocrypha/`.
+2. On the homepage, confirm the `Archscry` and `Apocrypha` doorway cards stay split when their card width is generous and stack scene plus body based on card width when narrowed, even after the overall page shell has already collapsed to one column.
+3. On `/strategium/`, narrow and widen the `Start Here` panel; confirm each start row switches between multi-column and single-column based on panel width rather than only viewport width.
+4. On `/strategium/`, confirm the `Color Philosophy Bridge` cards align symbol, heading, and paragraph rhythm across the multi-column row and still collapse cleanly without clipping when the bridge panel narrows.
+5. On `/archscry/`, complete a reading, then narrow the dossier area; confirm `lands-tiers`, `commander-preview-grid`, and `flavor-echo-card` layouts respond to their wrapper width without text overlap, clipped art, or broken card spacing.
+6. On `/apocrypha/`, confirm the archive cards and footer show no visual regression after the shared responsive pass.
+
 ## Local file route smoke pass
 
 1. Open `newIndex2.html` directly via `file://`.

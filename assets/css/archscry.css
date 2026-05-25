@@ -487,6 +487,15 @@ body.vm-archscry-route :is(.archetypes-grid, .decks-grid, .adjacent-grid, .start
   background: none;
 }
 
+body.vm-archscry-route :is(.archetypes-section, .decks-section, .adjacent-section, .starter-section, .lands-section) {
+  container-type: inline-size;
+}
+
+body.vm-archscry-route .commander-preview-block,
+body.vm-archscry-route .flavor-echo-grid {
+  container-type: inline-size;
+}
+
 body.vm-archscry-route :is(.arch-card, .deck-card, .adjacent-card, .starter-card, .starter-note, .tag-explainer-card, .tag-interpretation, .omen-card, .commander-preview-card, .land-tier, .lands-guide, .staples-category) {
   border: 1px solid rgba(184, 149, 74, 0.14);
   border-radius: 20px;
