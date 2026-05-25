@@ -17,6 +17,11 @@ const sources = Object.fromEntries(
     Object.entries(publicPages).map(async ([key, file]) => [key, await readFile(file, "utf8")])
   )
 );
+const scriptSources = {
+  topbar: await readFile("assets/js/vm-topbar.js", "utf8"),
+  maze: await readFile("research/research-init.js", "utf8"),
+};
+const livePublicPageKeys = Object.keys(publicPages).filter(key => key !== "library");
 
 const failures = [];
 
@@ -44,6 +49,20 @@ function imageHasIntrinsicSize(tag) {
   return /\bwidth\s*=\s*"\d+"/i.test(tag) && /\bheight\s*=\s*"\d+"/i.test(tag);
 }
 
+function countMatches(source, pattern) {
+  return [...source.matchAll(pattern)].length;
+}
+
+function getSectionTags(source) {
+  return [...source.matchAll(/<section\b[^>]*>/gi)].map(match => match[0]);
+}
+
+function getAriaLabelledbyValues(tag) {
+  const match = tag.match(/\baria-labelledby\s*=\s*"([^"]+)"/i);
+  if (!match) return [];
+  return match[1].trim().split(/\s+/).filter(Boolean);
+}
+
 for (const [key, source] of Object.entries(sources)) {
   for (const tag of getExternalScriptTags(source)) {
     expect(
@@ -59,6 +78,63 @@ for (const [key, source] of Object.entries(sources)) {
     );
   }
 }
+
+for (const key of livePublicPageKeys) {
+  const source = sources[key];
+  const file = publicPages[key];
+
+  expect(
+    countMatches(source, /role\s*=\s*"banner"/gi) === 1,
+    `${file} should expose exactly one banner landmark`
+  );
+  expect(
+    countMatches(source, /<main\b/gi) === 1,
+    `${file} should expose exactly one <main> landmark`
+  );
+  expect(
+    countMatches(source, /<footer\b/gi) === 1,
+    `${file} should expose exactly one <footer> landmark`
+  );
+  expect(
+    source.includes('aria-label="Main Navigation"'),
+    `${file} should label the shared topbar nav as Main Navigation`
+  );
+  expect(
+    source.includes('class="vm-menu-nav" aria-label="Mobile Navigation" data-vm-menu-nav'),
+    `${file} should expose the mirrored mobile links as mobile navigation`
+  );
+  expectAbsent(
+    source,
+    /role\s*=\s*"menu(item)?"/i,
+    `${file} should not use application menu roles for site navigation`
+  );
+
+  for (const sectionTag of getSectionTags(source)) {
+    const labelledby = getAriaLabelledbyValues(sectionTag);
+    expect(
+      labelledby.length > 0,
+      `${file} should give every <section> an aria-labelledby name: ${sectionTag}`
+    );
+    for (const id of labelledby) {
+      expect(
+        source.includes(`id="${id}"`),
+        `${file} section aria-labelledby target should exist: ${id}`
+      );
+    }
+  }
+}
+
+expectAbsent(
+  scriptSources.topbar,
+  /setAttribute\(\s*["']role["']\s*,\s*["']menuitem["']\s*\)/i,
+  "assets/js/vm-topbar.js should keep mirrored mobile links as plain links"
+);
+expect(
+  scriptSources.maze.includes('const MODAL_BACKGROUND_SELECTOR = "[data-maze-modal-background]"') &&
+    scriptSources.maze.includes("setModalBackgroundInert(true)") &&
+    scriptSources.maze.includes("setModalBackgroundInert(false)"),
+  "research/research-init.js should toggle inert background content for the Maze modal"
+);
 
 expectAbsent(
   sources.maze,
@@ -116,5 +192,5 @@ if (failures.length) {
 }
 
 console.log(
-  "Frontend HTML validation passed for public script deferral, intrinsic image sizing, Maze, Archscry, Library, Privacy, and Terms."
+  "Frontend HTML validation passed for public script deferral, intrinsic image sizing, landmarks, navigation semantics, Maze, Archscry, Library, Privacy, and Terms."
 );

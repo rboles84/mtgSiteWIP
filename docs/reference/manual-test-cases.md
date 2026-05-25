@@ -205,13 +205,26 @@
 4. Reduce the viewport to the mobile breakpoint and open the menu.
 5. Confirm the mobile panel mirrors the real route links for that page instead of showing a partial or hard-coded subset.
 6. Confirm the mobile menu updates `aria-expanded`, closes on outside click, closes on `Escape`, and returns focus to the menu trigger after close.
-7. If the page exposes `Reduce motion`, confirm the mobile menu reflects the same on/off state and toggles the same shared state rather than a second independent control.
-8. Confirm the header does not clip, wrap awkwardly, or introduce horizontal overflow at desktop or mobile widths.
-9. Confirm `Strategium` is now the live label and `/strategium/` is the live route.
-10. Confirm Home-link semantics remain unchanged:
+7. Confirm the desktop nav exposes `Main Navigation`, and the mirrored mobile links expose `Mobile Navigation` rather than application `menu` / `menuitem` roles.
+8. If the page exposes `Reduce motion`, confirm the mobile menu reflects the same on/off state and toggles the same shared state rather than a second independent control.
+9. Confirm the header does not clip, wrap awkwardly, or introduce horizontal overflow at desktop or mobile widths.
+10. Confirm `Strategium` is now the live label and `/strategium/` is the live route.
+11. Confirm Home-link semantics remain unchanged:
    - `index.html` brand and Home link stay self-targeted
    - non-home routes return to `newIndex2.html`
    - `newIndex2.html` still self-targets the page top
+
+## Semantic HTML / ARIA audit pass
+
+1. Open `newIndex2.html`, `/archscry/`, and `/maze/` in a browser with the accessibility tree or inspector open.
+2. Confirm each page exposes one `banner`, one `main`, and one `contentinfo` / footer landmark.
+3. Confirm the major page sections are named from visible headings through `aria-labelledby`.
+4. On `/archscry/`, confirm the landing, quick reading, Scrying Terminal, and result regions are inside the main landmark and have meaningful names.
+5. On `/maze/`, open a card detail modal and confirm the page background targets have `inert` while the modal is open.
+6. While the Maze modal is open, confirm Tab stays inside the modal, `Escape` closes it, outside click closes it, and focus returns to the opener.
+7. Close the Maze modal and confirm the background targets no longer have `inert`.
+8. Tab through the shared topbar, mobile panel, Maze controls, and any touched shared components; confirm every focused control has a visible gold or teal focus indicator.
+9. NVDA pass is optional for this card, but if available, confirm the three named routes announce their landmarks and section names clearly.
 
 ## Local file route smoke pass
 

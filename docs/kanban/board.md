@@ -40,6 +40,7 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 ## Done
 
+- [VM-119 - Semantic HTML + ARIA Audit](done/VM-119-semantic-html-aria-audit.md)
 - [VM-117 - Phase 7 Performance Pass: Script Deferral, CLS Hints, and Lighthouse QA](done/VM-117-phase-7-performance-pass-script-deferral-cls-lighthouse.md)
 - [VM-118 - Archscry Adjacent Identity Matrix Sync Repair](done/VM-118-archscry-adjacent-identity-matrix-sync-repair.md)
 - [VM-116 - CSS Architecture Phase 2: Layout Layer + Animation Consolidation](done/VM-116-css-architecture-phase-2-layout-layer-animation-consolidation.md)

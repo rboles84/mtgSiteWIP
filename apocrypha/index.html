@@ -38,7 +38,7 @@
     <span class="vm-brand-text">Vox Mana</span>
   </a>
 
-  <nav class="vm-nav" aria-label="Primary">
+  <nav class="vm-nav" aria-label="Main Navigation">
     <a class="vm-nav-link" href="../newIndex2.html" data-vm-nav="home">Home</a>
     <a class="vm-nav-link" href="../archscry/index.html" data-vm-nav="archscry">Archscry</a>
     <a class="vm-nav-link" href="../maze/index.html" data-vm-nav="maze">The Implicit Maze</a>
@@ -64,15 +64,13 @@
     <div
       id="vm-menu-panel"
       class="vm-menu-panel"
-      role="menu"
       data-open="false"
       data-vm-menu-panel
     >
-      <div class="vm-menu-nav" data-vm-menu-nav></div>
+      <nav class="vm-menu-nav" aria-label="Mobile Navigation" data-vm-menu-nav></nav>
       <button
         type="button"
         class="vm-menu-item"
-        role="menuitem"
         data-vm-toggle="reduce-motion"
         data-vm-tooltip-on="Stillness - on"
         data-vm-tooltip-off="Quiet the motion"
@@ -86,11 +84,11 @@
 
 <main class="vm-page-shell apoc-shell">
   <div class="vm-page-content apoc-page">
-    <section class="apoc-hero apoc-section" id="top" data-rail-section>
+    <section class="apoc-hero apoc-section" id="top" data-rail-section aria-labelledby="apocrypha-title">
       <div class="apoc-hero__grid">
         <div class="vm-panel apoc-hero__copy" data-reveal>
           <p class="apoc-kicker">Why This Page Exists</p>
-          <h1>The Apocrypha</h1>
+          <h1 id="apocrypha-title">The Apocrypha</h1>
           <p class="apoc-subtitle">Where Vox Mana shows its work.</p>
           <p class="apoc-lede">
             Vox Mana connects Magic lore, color philosophy, factions, and player-facing themes.
@@ -148,10 +146,10 @@
       </aside>
 
       <div class="apoc-main">
-        <section class="apoc-section" id="decks" data-rail-section>
+        <section class="apoc-section" id="decks" data-rail-section aria-labelledby="apocrypha-decks-title">
           <div class="apoc-section__head" data-reveal>
             <p class="apoc-kicker">What Should I Look At?</p>
-            <h2>Start with the shelf that matches your question.</h2>
+            <h2 id="apocrypha-decks-title">Start with the shelf that matches your question.</h2>
             <p>Use this quick guide first if you want the short version, then jump into the public reference library for the individual links.</p>
           </div>
 
@@ -188,10 +186,10 @@
           </div>
         </section>
 
-        <section class="apoc-section" id="ledger" data-rail-section>
+        <section class="apoc-section" id="ledger" data-rail-section aria-labelledby="apocrypha-ledger-title">
           <div class="apoc-section__head" data-reveal>
             <p class="apoc-kicker">Public Reference Library</p>
-            <h2>Public links grouped by type.</h2>
+            <h2 id="apocrypha-ledger-title">Public links grouped by type.</h2>
             <p>These are the public references currently linked from Apocrypha. Every entry stays visible here, with a short note about why it matters.</p>
           </div>
 
@@ -282,10 +280,10 @@
           </div>
         </section>
 
-        <section class="apoc-section" id="method" data-rail-section>
+        <section class="apoc-section" id="method" data-rail-section aria-labelledby="apocrypha-method-title">
           <div class="apoc-section__head" data-reveal>
             <p class="apoc-kicker">How These References Are Used</p>
-            <h2>How public references support the site.</h2>
+            <h2 id="apocrypha-method-title">How public references support the site.</h2>
             <p>This is the short version: what each reference type helps with, and where Vox Mana draws the line between public evidence and private drafting work.</p>
           </div>
 
@@ -320,10 +318,10 @@
           </article>
         </section>
 
-        <section class="apoc-section" id="dossiers" data-rail-section>
+        <section class="apoc-section" id="dossiers" data-rail-section aria-labelledby="apocrypha-dossiers-title">
           <div class="apoc-section__head" data-reveal>
             <p class="apoc-kicker">Phase 2: Research Vault</p>
-            <h2>A later vault can hold the larger working collection.</h2>
+            <h2 id="apocrypha-dossiers-title">A later vault can hold the larger working collection.</h2>
             <p>This page is intentionally focused on public URLs. A later vault can surface or summarize the larger working collection without turning the public reference page into a file dump.</p>
           </div>
 
@@ -390,10 +388,10 @@
           </div>
         </section>
 
-        <section class="apoc-section" id="notice" data-rail-section>
+        <section class="apoc-section" id="notice" data-rail-section aria-labelledby="apocrypha-notice-title">
           <div class="apoc-section__head" data-reveal>
             <p class="apoc-kicker">What Is Not Published</p>
-            <h2>Public references are here. Private system details are not.</h2>
+            <h2 id="apocrypha-notice-title">Public references are here. Private system details are not.</h2>
             <p>This page lists public references and explains how they are used. It does not publish the private scoring or drafting machinery behind Vox Mana.</p>
           </div>
 

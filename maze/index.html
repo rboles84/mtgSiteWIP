@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -35,6 +35,9 @@ html{scroll-behavior:smooth;height:100%}
 body{background:var(--bg);color:var(--text);font-family:'Crimson Pro',Georgia,serif;min-height:100vh;overflow-x:hidden;line-height:1.6}
 body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23n)' opacity='0.015'/%3E%3C/svg%3E");pointer-events:none;z-index:0}
 .page{position:relative;z-index:1;display:flex;flex-direction:column;min-height:100vh}
+.maze-footer{position:relative;z-index:1;padding:0.85rem 1.25rem;border-top:1px solid var(--border);color:var(--text-muted);font-family:'IBM Plex Mono',monospace;font-size:0.72rem;letter-spacing:0.04em;text-align:center;background:rgba(12,11,10,0.72)}
+.maze-footer a{color:var(--gold);text-decoration:none}
+.maze-footer a:hover,.maze-footer a:focus-visible{color:var(--gold-l)}
 .hidden{display:none!important}
 @keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
 @keyframes spin{to{transform:rotate(360deg)}}
@@ -365,7 +368,7 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 </div>
 
 <!-- ── HEADER ─── -->
-<header class="vm-topbar" role="banner">
+<header class="vm-topbar" role="banner" data-maze-modal-background>
   <a class="vm-brand" href="../newIndex2.html" aria-label="Vox Mana home">
     <span class="vm-brand-mark" aria-hidden="true">
       <img src="../assets/img/vox-mana-header-logo.svg" alt="" width="44" height="44">
@@ -373,7 +376,7 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
     <span class="vm-brand-text">Vox Mana</span>
   </a>
 
-  <nav class="vm-nav" aria-label="Primary">
+  <nav class="vm-nav" aria-label="Main Navigation">
     <a class="vm-nav-link" href="../newIndex2.html" data-vm-nav="home">Home</a>
     <a class="vm-nav-link" href="../archscry/index.html" data-vm-nav="archscry">Archscry</a>
     <a class="vm-nav-link" href="./index.html" data-vm-nav="maze">The Implicit Maze</a>
@@ -399,15 +402,13 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
     <div
       id="vm-menu-panel"
       class="vm-menu-panel"
-      role="menu"
       data-open="false"
       data-vm-menu-panel
     >
-      <div class="vm-menu-nav" data-vm-menu-nav></div>
+      <nav class="vm-menu-nav" aria-label="Mobile Navigation" data-vm-menu-nav></nav>
       <button
         type="button"
         class="vm-menu-item"
-        role="menuitem"
         data-vm-toggle="reduce-motion"
         data-vm-tooltip-on="Stillness - on"
         data-vm-tooltip-off="Quiet the motion"
@@ -419,12 +420,12 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
   </div>
 </header>
 
-<div class="page">
+<main class="page" id="maze-page-shell" aria-labelledby="maze-page-title" data-maze-modal-background>
 
-<header class="r-header">
-  <div class="r-title">The Implicit Maze <span>— Scryfall query explorer</span></div>
+<div class="r-header" aria-labelledby="maze-page-title">
+  <div class="r-title" id="maze-page-title">The Implicit Maze <span>— Scryfall query explorer</span></div>
   <span id="r-user-badge" style="font-family:'Cinzel',serif;font-size:0.65rem;letter-spacing:0.1em;color:var(--text-dim);display:none"></span>
-</header>
+</div>
 
 <!-- ── SEARCH ZONE ─── -->
 <div class="r-search-zone">
@@ -557,7 +558,8 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
   </aside>
 
   <!-- Results -->
-  <main class="r-main" id="r-main">
+  <section class="r-main" id="r-main" aria-labelledby="maze-results-title">
+    <h2 class="visually-hidden" id="maze-results-title">Maze search results</h2>
     <div class="maze-return-banner" id="maze-return-banner">
       <div class="maze-return-copy" id="maze-return-copy"></div>
       <div class="maze-return-actions">
@@ -596,12 +598,12 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
       <button class="btn-more" id="btn-more" type="button" data-action="load-more" disabled>Load More</button>
       <span class="more-count" id="more-count"></span>
     </div>
-  </main>
+  </section>
 </div>
 
-<section class="stash-panel" id="stash-panel" aria-label="Maze stash">
+<section class="stash-panel" id="stash-panel" aria-labelledby="maze-stash-title">
   <div class="stash-head">
-    <div class="stash-title">Stash</div>
+    <div class="stash-title" id="maze-stash-title">Stash</div>
     <div class="stash-count" id="stash-count">0</div>
   </div>
   <div class="stash-body" id="stash-body"></div>
@@ -610,6 +612,12 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
     <button class="stash-copy" type="button" data-action="clear-stash">Clear</button>
   </div>
 </section>
+</main><!-- .page -->
+
+<footer class="maze-footer" aria-labelledby="maze-footer-title" data-maze-modal-background>
+  <h2 class="visually-hidden" id="maze-footer-title">Maze footer</h2>
+  <p>Vox Mana is an unofficial fan project. Magic: The Gathering is &copy; Wizards of the Coast LLC.</p>
+</footer>
 
 <!-- ── MODAL ─── -->
 <div class="modal-bg hidden" id="modal-bg" role="presentation">
@@ -618,7 +626,6 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
     <div class="modal" id="modal-inner"></div>
   </div>
 </div>
-</div><!-- .page -->
 <script type="module" src="../research/research-init.js"></script>
 <script src="../assets/js/reduce-motion.js" defer></script>
 <script src="../assets/js/vm-topbar.js" defer></script>

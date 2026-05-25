@@ -36,6 +36,7 @@ const MODAL_FOCUS_SELECTOR = [
   "textarea:not([disabled])",
   '[tabindex]:not([tabindex="-1"])'
 ].join(",");
+const MODAL_BACKGROUND_SELECTOR = "[data-maze-modal-background]";
 const ARCHSCRY_PATH_LABELS = {
   "commanders-that-fit": "Commanders That Fit",
   "support-cards": "Support Cards",
@@ -252,6 +253,19 @@ function getModalElements() {
 function isModalOpen() {
   const { backdrop } = getModalElements();
   return Boolean(backdrop && !backdrop.classList.contains("hidden"));
+}
+
+function setModalBackgroundInert(isInert) {
+  document.querySelectorAll(MODAL_BACKGROUND_SELECTOR).forEach((node) => {
+    if (!(node instanceof HTMLElement)) return;
+    if (isInert) {
+      node.setAttribute("inert", "");
+      node.setAttribute("aria-hidden", "true");
+    } else {
+      node.removeAttribute("inert");
+      node.removeAttribute("aria-hidden");
+    }
+  });
 }
 
 function getModalFocusableElements() {
@@ -786,6 +800,7 @@ function openModal(card, opener = document.activeElement) {
   appendContent(inner, imageCol, detailCol);
   backdrop.classList.remove("hidden");
   document.body.style.overflow = "hidden";
+  setModalBackgroundInert(true);
   requestAnimationFrame(() => focusModalEntry());
 }
 
@@ -863,6 +878,7 @@ function closeModal() {
   backdrop?.classList.add("hidden");
   clearNode(inner);
   document.body.style.overflow = "";
+  setModalBackgroundInert(false);
   activeModalCard = null;
   const returnFocus = modalReturnFocusEl;
   modalReturnFocusEl = null;

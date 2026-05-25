@@ -55,6 +55,18 @@ body::before{
   z-index:0;
 }
 .app{position:relative;z-index:1}
+.app-main{position:relative;z-index:1}
+.app-footer{
+  position:relative;
+  z-index:1;
+  padding:1.25rem 1.5rem 2rem;
+  border-top:1px solid var(--border);
+  color:var(--text-muted);
+  font-family:"IBM Plex Mono","Courier New",monospace;
+  font-size:0.76rem;
+  letter-spacing:0.04em;
+  text-align:center;
+}
 .hidden{display:none!important}
 .section{
   min-height:100vh;
@@ -1188,7 +1200,7 @@ body::before{
       <span class="vm-brand-text">Vox Mana</span>
     </a>
 
-    <nav class="vm-nav" aria-label="Primary">
+    <nav class="vm-nav" aria-label="Main Navigation">
       <a class="vm-nav-link" href="../newIndex2.html" data-vm-nav="home">Home</a>
       <a class="vm-nav-link" href="./index.html" data-vm-nav="archscry">Archscry</a>
       <a class="vm-nav-link" href="../maze/index.html" data-vm-nav="maze">The Implicit Maze</a>
@@ -1225,15 +1237,13 @@ body::before{
       <div
         id="vm-menu-panel"
         class="vm-menu-panel"
-        role="menu"
         data-open="false"
         data-vm-menu-panel
       >
-        <div class="vm-menu-nav" data-vm-menu-nav></div>
+        <nav class="vm-menu-nav" aria-label="Mobile Navigation" data-vm-menu-nav></nav>
         <button
           type="button"
           class="vm-menu-item"
-          role="menuitem"
           data-vm-toggle="reduce-motion"
           data-vm-tooltip-on="Stillness - on"
           data-vm-tooltip-off="Quiet the motion"
@@ -1245,14 +1255,15 @@ body::before{
     </div>
   </header>
 
+  <main id="archscry-main" class="app-main" aria-labelledby="archscry-landing-title">
   <!-- ============================================================
        LANDING
        ============================================================ -->
-  <section class="section" id="landing">
+  <section class="section" id="landing" aria-labelledby="archscry-landing-title">
     <div class="landing-wrap">
       <div class="hero-band">
         <div class="eyebrow">A modern Magic reading</div>
-        <h1 class="landing-title">Find the guild or college that actually fits how you play.</h1>
+        <h1 class="landing-title" id="archscry-landing-title">Find the guild or college that actually fits how you play.</h1>
         <p class="landing-sub">
           Vox Mana pairs a fast personal reading with a polished dossier that turns your result into mana alignment, staple cards, land guidance, and Commander deck-start links you can use.
         </p>
@@ -1271,11 +1282,11 @@ body::before{
   <!-- ============================================================
        QUICK READING
        ============================================================ -->
-  <section class="section hidden" id="quick">
+  <section class="section hidden" id="quick" aria-labelledby="archscry-quick-title">
     <div class="quick-shell">
       <div class="quick-header">
         <div class="eyebrow">Quick Reading</div>
-        <div class="quick-title">A modern read on your faction identity.</div>
+        <h2 class="quick-title" id="archscry-quick-title">A modern read on your faction identity.</h2>
         <div class="quick-sub">Answer a handful of table moments. Archscry listens for color, tempo, appetite for risk, and how you want a game of Magic to feel, then opens the guild or college that answers back.</div>
       </div>
 
@@ -1301,12 +1312,12 @@ body::before{
   <!-- ============================================================
        SCRYING TERMINAL
        ============================================================ -->
-  <section class="section hidden" id="interview" data-vm-terminal-only hidden>
+  <section class="section hidden" id="interview" data-vm-terminal-only hidden aria-labelledby="archscry-interview-title">
     <div class="interview-shell">
       <div class="interview-header">
         <div>
           <div class="eyebrow">Scrying Terminal</div>
-          <div class="interview-title">A deeper reading.</div>
+          <h2 class="interview-title" id="archscry-interview-title">A deeper reading.</h2>
         </div>
         <div class="interview-copy">
           The terminal uses your starter preferences, asks one question at a time,
@@ -1340,9 +1351,16 @@ body::before{
   <!-- ============================================================
        RESULT / DOSSIER
        ============================================================ -->
-  <section class="section hidden" id="result">
+  <section class="section hidden" id="result" aria-labelledby="archscry-result-title">
+    <h2 class="visually-hidden" id="archscry-result-title">Archscry result dossier</h2>
     <div class="result-inner" id="result-inner"></div>
   </section>
+  </main>
+
+  <footer class="app-footer" aria-labelledby="archscry-footer-title">
+    <h2 class="visually-hidden" id="archscry-footer-title">Archscry footer</h2>
+    <p>Vox Mana is an unofficial fan project. Magic: The Gathering is &copy; Wizards of the Coast LLC.</p>
+  </footer>
 
 </div><!-- .app -->
 

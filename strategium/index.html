@@ -1574,7 +1574,7 @@ section {
     <span class="vm-brand-text">Vox Mana</span>
   </a>
 
-  <nav class="vm-nav" aria-label="Primary">
+  <nav class="vm-nav" aria-label="Main Navigation">
     <a class="vm-nav-link" href="../newIndex2.html" data-vm-nav="home">Home</a>
     <a class="vm-nav-link" href="../archscry/index.html" data-vm-nav="archscry">Archscry</a>
     <a class="vm-nav-link" href="../maze/index.html" data-vm-nav="maze">The Implicit Maze</a>
@@ -1600,15 +1600,13 @@ section {
     <div
       id="vm-menu-panel"
       class="vm-menu-panel"
-      role="menu"
       data-open="false"
       data-vm-menu-panel
     >
-      <div class="vm-menu-nav" data-vm-menu-nav></div>
+      <nav class="vm-menu-nav" aria-label="Mobile Navigation" data-vm-menu-nav></nav>
       <button
         type="button"
         class="vm-menu-item"
-        role="menuitem"
         data-vm-toggle="reduce-motion"
         data-vm-tooltip-on="Stillness - on"
         data-vm-tooltip-off="Quiet the motion"
@@ -1623,10 +1621,10 @@ section {
 <!-- MAIN CONTENT SHELL: id="top" is the anchor target for Back to top. vm-shell keeps content centered and width-limited. -->
 <main id="top" class="vm-shell">
   <!-- BASICS HERO -->
-  <section class="vm-hero reveal">
+  <section class="vm-hero reveal" aria-labelledby="strategium-hero-title">
     <div class="vm-hero-copy">
       <div class="vm-eyebrow">Vox Mana Strategium</div>
-      <h1>Learn the color system.</h1>
+      <h1 id="strategium-hero-title">Learn the color system.</h1>
       <p>
         Magic's colors explain more than what a deck can cast. This page teaches them as philosophy, play pattern, and story language, then points that lesson toward Commander identity.
       </p>
@@ -1637,11 +1635,11 @@ section {
       </div>
     </div>
   </section>
-  <section class="vm-section vm-section-tight">
+  <section class="vm-section vm-section-tight" aria-labelledby="strategium-commander-title">
     <div class="vm-panel vm-two-col vm-guide-panel reveal">
       <div>
         <span class="vm-eyebrow">Commander Focused</span>
-        <h2>Survive your first Commander table with confidence!</h2>
+        <h2 id="strategium-commander-title">Survive your first Commander table with confidence!</h2>
         <p class="vm-guide-copy">
           Break the ice and boost your confidence! Take your learning here to your local TCG store, your friend group, or your next online game.
         </p>
@@ -1651,11 +1649,11 @@ section {
       </div>
     </div>
   </section>
-  <section class="vm-section vm-section-tight">
+  <section class="vm-section vm-section-tight" aria-labelledby="strategium-field-guide-title">
     <div class="vm-panel vm-two-col vm-guide-panel reveal">
       <div>
         <span class="vm-eyebrow">Start Here</span>
-        <h2>Read Magic like a field guide.</h2>
+        <h2 id="strategium-field-guide-title">Read Magic like a field guide.</h2>
         <p class="vm-guide-copy">
           Magic is a strategy card game where lands create mana, mana casts spells, and every card choice becomes a decision about pressure, timing, and risk.
         </p>
@@ -1691,8 +1689,8 @@ section {
 
   <!-- MAGIC BASICS -->
   <!-- MAGIC BASICS SECTION: Interactive learning area controlled by the tab buttons and JavaScript below. -->
-  <section id="strategium" class="vm-section">
-    <h2>The Strategium Console</h2>
+  <section id="strategium" class="vm-section" aria-labelledby="strategium-console-title">
+    <h2 id="strategium-console-title">The Strategium Console</h2>
     <p class="vm-section-intro">
       Start with the five layers below. Together they explain how Magic's color system moves from raw mana to strategy, worldbuilding, and Commander identity.
     </p>
@@ -1825,10 +1823,10 @@ section {
     </div>
   </section>
 
-  <section class="vm-section vm-section-tight">
+  <section class="vm-section vm-section-tight" aria-labelledby="strategium-bridge-title">
     <div class="vm-panel vm-bridge-panel reveal">
       <span class="vm-eyebrow">Color Philosophy Bridge</span>
-      <h2>From mana to mindset.</h2>
+      <h2 id="strategium-bridge-title">From mana to mindset.</h2>
       <p class="vm-section-intro vm-bridge-intro">A color is not just what your deck can cast. It is how your deck thinks.</p>
       <div class="vm-philosophy-grid vm-bridge-grid">
         <article class="vm-card vm-philosophy-card vm-bridge-card">
@@ -1867,11 +1865,11 @@ section {
 
 
   <!-- ARCHSCRY CTA -->
-  <section class="vm-section vm-section-tight">
+  <section class="vm-section vm-section-tight" aria-labelledby="strategium-next-title">
     <div class="vm-panel vm-two-col vm-next-step">
       <div>
         <span class="vm-eyebrow">Next Step</span>
-        <h2>Take the lesson into a Commander read.</h2>
+        <h2 id="strategium-next-title">Take the lesson into a Commander read.</h2>
         <p class="vm-next-copy">When the color language starts to click, Archscry turns those instincts into a readable Commander identity dossier.</p>
         <p class="vm-next-copy">If you want a broader philosophy map first, the Maze is still there as the larger constellation around Strategium.</p>
       </div>

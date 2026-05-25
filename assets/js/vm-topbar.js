@@ -1,9 +1,10 @@
 /* ---------------------------------------------------------------
    Vox Mana shared topbar
-   - Sets aria-current on shared desktop/mobile nav links.
-   - Mirrors the real page nav into the mobile menu panel.
-   - Keeps the menu open/close and focus behavior accessible.
-   - Reuses the shared reduce-motion state path when available.
+  - Sets aria-current on shared desktop/mobile nav links.
+  - Mirrors the real page nav into the mobile menu panel.
+  - Keeps the menu open/close and focus behavior accessible.
+  - Keeps mobile links as site navigation, not application menu items.
+  - Reuses the shared reduce-motion state path when available.
    --------------------------------------------------------------- */
 
 (function () {
@@ -52,7 +53,6 @@
     for (var i = 0; i < desktopLinks.length; i++) {
       var clone = desktopLinks[i].cloneNode(true);
       clone.classList.add("vm-menu-link");
-      clone.setAttribute("role", "menuitem");
       menuNavHost.appendChild(clone);
     }
   }

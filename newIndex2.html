@@ -1982,7 +1982,7 @@ section {
     <span class="vm-brand-text">Vox Mana</span>
   </a>
 
-  <nav class="vm-nav" aria-label="Primary">
+  <nav class="vm-nav" aria-label="Main Navigation">
     <a class="vm-nav-link" href="#top" data-vm-nav="home">Home</a>
     <a class="vm-nav-link" href="./archscry/index.html" data-vm-nav="archscry">Archscry</a>
     <a class="vm-nav-link" href="./maze/index.html" data-vm-nav="maze">The Implicit Maze</a>
@@ -2008,15 +2008,13 @@ section {
     <div
       id="vm-menu-panel"
       class="vm-menu-panel"
-      role="menu"
       data-open="false"
       data-vm-menu-panel
     >
-      <div class="vm-menu-nav" data-vm-menu-nav></div>
+      <nav class="vm-menu-nav" aria-label="Mobile Navigation" data-vm-menu-nav></nav>
       <button
         type="button"
         class="vm-menu-item"
-        role="menuitem"
         data-vm-toggle="reduce-motion"
         data-vm-tooltip-on="Stillness - on"
         data-vm-tooltip-off="Quiet the motion"
@@ -2031,12 +2029,12 @@ section {
 <!-- MAIN CONTENT SHELL: id="top" is the anchor target for Back to top. vm-shell keeps content centered and width-limited. -->
 <main id="top" class="vm-shell">
   <!-- HERO -->
-  <section class="vm-hero vm-home-hero reveal">
+  <section class="vm-hero vm-home-hero reveal" aria-labelledby="home-preview-title">
     <div class="vm-hero-stack">
       <div class="vm-hero-grid">
         <div class="vm-hero-copy">
           <div class="vm-eyebrow">VOX MANA</div>
-          <h1 class="vm-hero-title">
+          <h1 class="vm-hero-title" id="home-preview-title">
             <span>Your colors</span>
             <span>have a</span>
             <span>shape.</span>
@@ -2703,8 +2701,8 @@ section {
   </section>
 
   <!-- ORIENTATION -->
-  <section id="what" class="vm-section vm-home-index section-lazy-render">
-    <h2>Vox Mana is a living index.</h2>
+  <section id="what" class="vm-section vm-home-index section-lazy-render" aria-labelledby="home-preview-index-title">
+    <h2 id="home-preview-index-title">Vox Mana is a living index.</h2>
     <p class="vm-section-intro">
       Four focused paths through one color philosophy system.
     </p>
