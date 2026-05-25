@@ -4,6 +4,7 @@ import { readFile } from "node:fs/promises";
 const files = [
   "assets/js/index.js",
   "assets/js/newindex2.js",
+  "assets/js/strategium.js",
   "assets/js/archscry-index2.js",
   "research/research-init.js",
   "research/research-ui.js",

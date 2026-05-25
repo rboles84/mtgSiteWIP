@@ -37,6 +37,19 @@ function getExternalScriptTags(source) {
   return [...source.matchAll(/<script\b[^>]*\bsrc="[^"]+"[^>]*>/gi)].map(match => match[0]);
 }
 
+function getHeadSource(source) {
+  const match = source.match(/<head\b[^>]*>([\s\S]*?)<\/head>/i);
+  return match ? match[1] : "";
+}
+
+function getStylesheetHrefs(source) {
+  return [...getHeadSource(source).matchAll(/<link\b[^>]*>/gi)]
+    .map(match => match[0])
+    .filter(tag => /\brel\s*=\s*["']stylesheet["']/i.test(tag))
+    .map(tag => tag.match(/\bhref\s*=\s*["']([^"']+)["']/i)?.[1] ?? "")
+    .filter(Boolean);
+}
+
 function getScriptTags(source) {
   return [...source.matchAll(/<script\b([^>]*)>([\s\S]*?)<\/script>/gi)].map(match => ({
     attrs: match[1] ?? "",
@@ -197,6 +210,24 @@ expect(
   "newIndex2.html should not ship executable inline <script> blocks"
 );
 
+expect(
+  sources.strategium.includes('<link rel="stylesheet" href="../assets/css/strategium.css" />'),
+  'strategium/index.html should load "../assets/css/strategium.css"'
+);
+expect(
+  sources.strategium.includes('<script src="../assets/js/strategium.js" defer></script>'),
+  'strategium/index.html should load "../assets/js/strategium.js" as a deferred external script'
+);
+expectAbsent(
+  sources.strategium,
+  /<style\b[^>]*>/i,
+  "strategium/index.html should not ship inline <style> blocks"
+);
+expect(
+  !getScriptTags(sources.strategium).some(inlineScriptIsExecutable),
+  "strategium/index.html should not ship executable inline <script> blocks"
+);
+
 const newindexTopbarLinkIndex = sources.homePreview.indexOf('./assets/css/topbar.css');
 const newindexRouteCssIndex = sources.homePreview.indexOf('./assets/css/newindex2.css');
 expect(
@@ -211,6 +242,12 @@ expect(
     archscryRouteCssIndex !== -1 &&
     archscryRouteCssIndex > archscryLastStylesheetTagIndex,
   "archscry/index.html should keep archscry.css as the last stylesheet in the head"
+);
+
+const strategiumStylesheetHrefs = getStylesheetHrefs(sources.strategium);
+expect(
+  strategiumStylesheetHrefs[strategiumStylesheetHrefs.length - 1] === "../assets/css/strategium.css",
+  "strategium/index.html should keep strategium.css as the last stylesheet in the head"
 );
 
 expect(
@@ -258,5 +295,5 @@ if (failures.length) {
 }
 
 console.log(
-  "Frontend HTML validation passed for public script deferral, intrinsic image sizing, landmarks, navigation semantics, Maze, Archscry, Library, Privacy, and Terms."
+  "Frontend HTML validation passed for public script deferral, intrinsic image sizing, landmarks, navigation semantics, Maze, Archscry, Strategium, Library, Privacy, and Terms."
 );

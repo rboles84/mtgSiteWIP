@@ -40,6 +40,7 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 ## Done
 
+- [VM-128 - Phase 4 Strategium Index Extraction](done/VM-128-phase-4-strategium-index-extraction.md)
 - [VM-127 - Phase 4 Archscry Index Extraction](done/VM-127-phase-4-archscry-index-extraction.md)
 - [VM-126 - Strategium Archetype Signal Intent-Friendly Copy Pass](done/VM-126-strategium-archetype-signal-intent-friendly-copy-pass.md)
 - [VM-125 - Strategium Archetype Signal Searchable Library](done/VM-125-strategium-archetype-signal-searchable-library.md)

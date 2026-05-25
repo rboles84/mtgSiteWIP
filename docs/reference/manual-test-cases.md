@@ -31,6 +31,19 @@
 5. Confirm each capture stays within the mismatch budget and the run reports no new Archscry console or page errors beyond `console-baseline.json`.
 6. If the harness fails, review the generated diff PNGs before accepting any visual change.
 
+## `strategium/index.html` visual regression harness
+
+1. Before changing `strategium/index.html`, `assets/css/strategium.css`, or `assets/js/strategium.js`, run `npm.cmd run test:visual:strategium:baseline`.
+2. Confirm baseline screenshots exist under `artifacts/visual-regression/strategium/baseline/` for:
+   - `landing-desktop.png`
+   - `landing-mobile.png`
+   - `console-pod-readiness.png`
+   - `library-search.png`
+3. After the extraction or route-local refactor, run `npm.cmd run test:visual:strategium`.
+4. Confirm the compare run writes current and diff artifacts under `artifacts/visual-regression/strategium/current/` and `artifacts/visual-regression/strategium/diff/`.
+5. Confirm each capture stays within the mismatch budget and the run reports no new Strategium console or page errors beyond `console-baseline.json`.
+6. If the harness fails, review the generated diff PNGs before accepting any visual change.
+
 ## Happy path - quick reading
 
 1. Open the site in a fresh browser session.
@@ -264,7 +277,7 @@
 1. Open `/strategium/` and switch to the `Pod Readiness` tab; confirm `Recommended Pre-Game Script` appears only in that panel with three script cards and bracket language framed as an estimated social shortcut rather than an official rating.
 2. Switch to `Threat Reading` and confirm `The cognitive checklist` renders five numbered prompts with no dead controls, clipped text, or browser console errors.
 3. Switch to `Archetype Signal` and confirm the searchable archetype library appears inside the console panel instead of becoming a separate page section.
-4. Confirm `Core` is the default scope, then search `lands` and confirm `Ramp`, `Lands Matter`, and `Landfall` surface as separate matches.
+4. Confirm `Common` is the default starting point, then search `lands` and confirm `Ramp`, `Lands Matter`, and `Landfall` surface as separate matches.
 5. Search `go wide` and confirm alias matching surfaces `Tokens` and related matching themes.
 6. Search `prison` with `Core` active and confirm the empty state suggests widening the scope; switch to `All` or `Advanced` and confirm `Stax / Lockout`, `Hatebears`, or `Pillow Fort` can surface.
 7. Filter by `Spells` and confirm `Spellslinger` and `Storm` behave as separate themes.
