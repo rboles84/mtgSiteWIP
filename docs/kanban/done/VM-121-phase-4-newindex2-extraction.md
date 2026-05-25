@@ -2,11 +2,12 @@
 
 ID: VM-121
 Title: Phase 4 newIndex2.html Extraction
-Status: ready
+Status: done
 Type: Frontend / CSS Architecture / JS Extraction
 Area: Homepage Preview, Shared Home Assets, Visual Regression QA
 Priority: high
 Created: 2026-05-24
+Completed: 2026-05-24
 
 ## Summary
 
@@ -69,7 +70,19 @@ Externalize the inline CSS and JS in `newIndex2.html` into maintained asset file
 - `npm.cmd test` passes.
 - `git -c safe.directory=C:/dev/mtgSiteWIP diff --check` passes.
 - `index.html` still renders and behaves correctly if shared home assets were touched as part of extraction.
-- `newIndex2_Old.html` remains untouched.
+- `newIndex2_Old.html` is removed as obsolete archive content and stays out of live routing.
+
+## Implementation Summary
+
+- Extracted the large page-local inline stylesheet, the SVG-local `.cag-spiral*` rules, the spiral boot snippet, and the main runtime block out of `newIndex2.html`.
+- Added route-local assets `assets/css/newindex2.css` and `assets/js/newindex2.js`, and wired them after `topbar.css` and before `reduce-motion.js` respectively.
+- Removed `newIndex2_Old.html` as obsolete archive content after confirming it had no runtime references.
+- Preserved the existing `graph.js` load order and `DOMContentLoaded` bootstrap so the hero radar still initializes against deferred Chart.js.
+- Added `scripts/visual-regression-newindex2.mjs` plus `test:visual:newindex2:baseline` and `test:visual:newindex2` npm scripts.
+- Hardened the visual harness so it proves the background canvas exists, proves the hero radar renders visible pixels, hides both canvas layers during screenshot compare to avoid GPU-noise false positives, and filters environment-only `fonts.googleapis.com` / `favicon.ico` console noise out of the saved contract.
+- Extended the frontend HTML validator and JS lint pass so `newIndex2.html` must keep the extracted assets and may no longer reintroduce inline `<style>` or `<script>` blocks.
+- Updated living docs to capture the new preview asset ownership and the manual visual-regression workflow.
+- Follow-up pre-commit hardening added capture-time transition suppression, friendly missing-baseline guidance, a deterministic `boros` visual-regression identity hook, a null-safe back-to-top listener, executable-inline-script detection, and cleanup for the extracted SVG tail rules.
 
 ## Non-Goals
 
@@ -100,6 +113,25 @@ Externalize the inline CSS and JS in `newIndex2.html` into maintained asset file
 - `scripts/frontend-smoke.mjs`
 - `docs/reference/manual-test-cases.md`
 - `docs/architecture/project-atlas.md`
+
+## Files Changed
+
+- `newIndex2.html`
+- `newIndex2_Old.html`
+- `assets/css/newindex2.css`
+- `assets/js/newindex2.js`
+- `scripts/visual-regression-newindex2.mjs`
+- `scripts/lint-frontend-js.mjs`
+- `scripts/validate-frontend-html.mjs`
+- `package.json`
+- `package-lock.json`
+- `docs/reference/manual-test-cases.md`
+- `docs/architecture/project-atlas.md`
+- `docs/kanban/board.md`
+- `docs/kanban/done/VM-121-phase-4-newindex2-extraction.md`
+- `docs/handoffs/HANDOFF_INDEX.md`
+- `docs/handoffs/2026-05-24-2226-codex-vm121-newindex2-extraction-implementation.md`
+- `docs/handoffs/2026-05-24-2315-codex-vm121-precommit-hardening.md`
 
 ## Risks / Uncertainties
 
@@ -136,3 +168,15 @@ Yes - this pass changes the largest remaining inline front-door file and should 
 
 - The repo script name is `npm.cmd run test:frontend-smoke`, not `test:smoke`.
 - If screenshot automation requires a one-off local helper, keep it deterministic, store outputs under a local artifact path, and document the exact command in the handoff.
+- VM-122 should handle the analogous `strategium/index.html` extraction as a follow-up so its Shadow DOM readiness guard can be debugged separately from the new preview harness.
+
+## Verification
+
+- `npm.cmd run test:visual:newindex2:baseline`
+- `npm.cmd run test:visual:newindex2`
+- Negative-path compare check with one baseline PNG temporarily hidden, confirming the friendly `Run npm.cmd run test:visual:newindex2:baseline first.` guidance
+- `npm.cmd run lint:js`
+- `npm.cmd run lint:html`
+- `npm.cmd run test:frontend-smoke`
+- `npm.cmd test`
+- `git -c safe.directory=C:/dev/mtgSiteWIP diff --check`

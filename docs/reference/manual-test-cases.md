@@ -8,6 +8,15 @@
 4. Confirm `data/factions.json` is present at the site root under `/data/factions.json`.
 5. Confirm `data/placement-model.json` is present at the site root under `/data/placement-model.json`.
 
+## `newIndex2.html` visual regression harness
+
+1. Before changing `newIndex2.html`, run `npm.cmd run test:visual:newindex2:baseline`.
+2. Confirm baseline screenshots exist under `artifacts/visual-regression/newindex2/baseline/` for `mobile.png`, `tablet.png`, and `desktop.png`.
+3. After the extraction or route-local refactor, run `npm.cmd run test:visual:newindex2`.
+4. Confirm the compare run writes current and diff artifacts under `artifacts/visual-regression/newindex2/current/` and `artifacts/visual-regression/newindex2/diff/`.
+5. Confirm each viewport stays within the mismatch budget and the run reports no new console or page errors beyond `console-baseline.json`.
+6. If the harness fails, review the generated diff PNGs before accepting any visual change.
+
 ## Happy path - quick reading
 
 1. Open the site in a fresh browser session.

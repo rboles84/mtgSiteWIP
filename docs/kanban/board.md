@@ -27,7 +27,7 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 ## Ready
 
-- [VM-121 - Phase 4 newIndex2.html Extraction](ready/VM-121-phase-4-newindex2-extraction.md)
+- No cards currently ready.
 
 ## In Progress
 
@@ -40,6 +40,7 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 ## Done
 
+- [VM-121 - Phase 4 newIndex2.html Extraction](done/VM-121-phase-4-newindex2-extraction.md)
 - [VM-120 - Phase 6 Container Queries + Subgrid](done/VM-120-phase-6-container-queries-subgrid.md)
 - [VM-119 - Semantic HTML + ARIA Audit](done/VM-119-semantic-html-aria-audit.md)
 - [VM-117 - Phase 7 Performance Pass: Script Deferral, CLS Hints, and Lighthouse QA](done/VM-117-phase-7-performance-pass-script-deferral-cls-lighthouse.md)

@@ -24,10 +24,16 @@
     "test:parser": "node research/scryfall-parser-tests.js",
     "test:placement": "node assets/js/quick-reading-tests.js",
     "test:presentation-snapshots": "node research/presentation-snapshot-tests.js",
+    "test:visual:newindex2": "node scripts/visual-regression-newindex2.mjs --mode=compare",
+    "test:visual:newindex2:baseline": "node scripts/visual-regression-newindex2.mjs --mode=baseline",
     "test:syntax": "node research/research-syntax-language-tests.js",
     "test:watch": "node --watch research/run-tests.js"
   },
   "devDependencies": {
-    "lighthouse": "^13.3.0"
+    "chrome-launcher": "^1.2.1",
+    "lighthouse": "^13.3.0",
+    "pixelmatch": "^7.2.0",
+    "pngjs": "^7.0.0",
+    "puppeteer-core": "^25.0.4"
   }
 }

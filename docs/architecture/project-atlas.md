@@ -7,6 +7,7 @@ Vox Mana is an unofficial Magic: The Gathering fan site that combines a themed s
 | Route | File | Purpose | Primary runtime |
 |---|---|---|---|
 | `/` | `index.html` | Home gateway with destination cards and cached-reading resume chip. | `assets/js/home.js`, `assets/js/vm-topbar.js`, `assets/js/atmosphere.js` |
+| `/newIndex2.html` | `newIndex2.html` | Preview home gateway and VM-121 extraction target. | `assets/js/graph.js`, `assets/js/newindex2.js`, `assets/js/reduce-motion.js`, `assets/js/vm-topbar.js` |
 | `/archscry/` | `archscry/index.html` | Placement experience: landing, quick adaptive reading, dossier result, archived Scrying Terminal. | `assets/js/index.js`, `assets/js/shared.js`, `assets/js/adaptive-placement.js` |
 | `/maze/` | `maze/index.html` | The Implicit Maze Scryfall query explorer. | `research/research-init.js` and imported research modules |
 | `/apocrypha/` | `apocrypha/index.html` | Canonical Apocrypha Archive Console and public provenance page. | Shared topbar, reduce-motion, and Apocrypha archive scripts |
@@ -23,6 +24,7 @@ Vox Mana is an unofficial Magic: The Gathering fan site that combines a themed s
 | Static shells | `index.html`, `archscry/index.html`, `maze/index.html`, `apocrypha/index.html`, `library/index.html`, policy pages | Define route-specific DOM, preload assets, script entrypoints, and inline handler hooks. |
 | Shared visual system | `assets/css/tokens.css`, `assets/css/fonts.css`, `assets/css/layout.css`, `assets/css/animations.css`, `assets/css/topbar.css`, `assets/css/atmosphere.css`, `assets/css/components.css` | Site tokens, progressive OKLCH fallbacks, teal-only Display P3 accent overrides, a conservative fluid spacing/type pilot, a layered shared layout bridge, canonical imported live keyframes, shared font loading, topbar, atmospheric canvas, and reusable panels/buttons/chips/progress treatments. |
 | Home gateway | `assets/js/home.js` | Resume-chip detection and subtle gateway motion. |
+| Home preview | `assets/css/newindex2.css`, `assets/js/newindex2.js`, `newIndex2.html` | Route-local preview shell styling and behavior extracted from the former inline `newIndex2.html` CSS/JS while still reusing shared tokens, layout, topbar, and local `graph.js`. |
 | Placement frontend | `assets/js/index.js`, `assets/js/adaptive-placement.js`, `assets/js/shared.js`, `assets/js/identity-layers.js` | Loads data, runs quick adaptive reading, normalizes layered identity metadata, renders narrative dossiers, saves/resumes results, preserves adjacent-fit context, builds alias-routed Commander directory links, and keeps the terminal dormant behind the shared site flag. |
 | Site flags | `assets/js/site-flags.js` | Single checked-in switch that hides or reveals the archived terminal UI and browser guards. |
 | Research workspace | `research/*.js`, `maze/index.html` | Smart Search, raw syntax, Visual Builder, Scryfall search/rendering, reading-aware paths, Archscry return banners with dismissal persistence, no-results handling, and card modal UI. |
@@ -82,6 +84,7 @@ Vox Mana is an unofficial Magic: The Gathering fan site that combines a themed s
 | Test suite | `npm test` | Runs parser, builder, mode, syntax, and placement checks. |
 | Placement tests | `npm run test:placement` | Runs adaptive placement model/golden-path assertions. |
 | Bias simulation | `npm run test:bias` / `npm run test:bias:all` | Writes quick-reading bias reports under `test-results/`. |
+| Preview visual regression | `npm run test:visual:newindex2:baseline` / `npm run test:visual:newindex2` | Captures deterministic `newIndex2.html` baseline/current screenshots plus console contracts and compares them with a small pixel-diff budget. |
 | Scryfall download | `npm run scryfall:download` | Downloads ignored `oracle_cards` bulk JSON and a raw manifest. |
 | Scryfall indexes | `npm run scryfall:index` / `npm run scryfall:inspect` | Builds and verifies derived Scryfall indexes. |
 

@@ -37,12 +37,36 @@ function getExternalScriptTags(source) {
   return [...source.matchAll(/<script\b[^>]*\bsrc="[^"]+"[^>]*>/gi)].map(match => match[0]);
 }
 
+function getScriptTags(source) {
+  return [...source.matchAll(/<script\b([^>]*)>([\s\S]*?)<\/script>/gi)].map(match => ({
+    attrs: match[1] ?? "",
+    body: match[2] ?? "",
+    tag: match[0],
+  }));
+}
+
 function getImageTags(source) {
   return [...source.matchAll(/<img\b[^>]*>/gi)].map(match => match[0]);
 }
 
 function scriptIsDeferred(tag) {
   return /\btype\s*=\s*"module"/i.test(tag) || /\bdefer\b/i.test(tag);
+}
+
+function inlineScriptIsExecutable(scriptTag) {
+  if (/\bsrc\s*=/i.test(scriptTag.attrs)) return false;
+
+  const typeMatch = scriptTag.attrs.match(/\btype\s*=\s*["']([^"']+)["']/i);
+  const type = typeMatch ? typeMatch[1].trim().toLowerCase() : "";
+
+  return (
+    type === "" ||
+    type === "text/javascript" ||
+    type === "application/javascript" ||
+    type === "text/ecmascript" ||
+    type === "application/ecmascript" ||
+    type === "module"
+  );
 }
 
 function imageHasIntrinsicSize(tag) {
@@ -145,6 +169,30 @@ expectAbsent(
   sources.archscry,
   /\son(?:click|input|change|keydown)=/i,
   "archscry/index.html should not ship inline event attributes"
+);
+expect(
+  sources.homePreview.includes('<link rel="stylesheet" href="./assets/css/newindex2.css" />'),
+  'newIndex2.html should load "./assets/css/newindex2.css"'
+);
+expect(
+  sources.homePreview.includes('<script src="./assets/js/newindex2.js" defer></script>'),
+  'newIndex2.html should load "./assets/js/newindex2.js" as a deferred external script'
+);
+expectAbsent(
+  sources.homePreview,
+  /<style\b[^>]*>/i,
+  "newIndex2.html should not ship inline <style> blocks"
+);
+expect(
+  !getScriptTags(sources.homePreview).some(inlineScriptIsExecutable),
+  "newIndex2.html should not ship executable inline <script> blocks"
+);
+
+const newindexTopbarLinkIndex = sources.homePreview.indexOf('./assets/css/topbar.css');
+const newindexRouteCssIndex = sources.homePreview.indexOf('./assets/css/newindex2.css');
+expect(
+  newindexTopbarLinkIndex !== -1 && newindexRouteCssIndex !== -1 && newindexTopbarLinkIndex < newindexRouteCssIndex,
+  "newIndex2.html should load topbar.css before newindex2.css"
 );
 
 expect(
