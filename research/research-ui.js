@@ -10,7 +10,12 @@ export function renderQueryInspector({ query, reason = "", parserResult = null, 
   const inspector = document.getElementById("query-inspector");
   if (!inspector) return;
   const searchApi = parserResult?.api || api || {};
+  const mode = document.body?.dataset?.mazeMode || "ai";
+  inspector.dataset.mode = mode;
 
+  const labelEl = document.getElementById("qi-label")
+    || (typeof inspector.querySelector === "function" ? inspector.querySelector(".qi-label") : null);
+  if (labelEl) labelEl.textContent = getInspectorLabel(mode);
   document.getElementById("qi-query").textContent = query;
   const reasonEl = document.getElementById("qi-reason");
   const finalReason = parserResult?.reason || reason;
@@ -24,6 +29,12 @@ export function renderQueryInspector({ query, reason = "", parserResult = null, 
   document.getElementById("qi-scryfall").href = buildScryfallWebSearchUrl(query, searchApi);
   renderDiagnostics(inspector, parserResult, searchApi);
   inspector.classList.remove("hidden");
+}
+
+function getInspectorLabel(mode) {
+  if (mode === "raw") return "Syntax active";
+  if (mode === "builder") return "Visual filters generated";
+  return "Maze translated";
 }
 
 /**

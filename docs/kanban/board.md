@@ -40,6 +40,8 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 ## Done
 
+- [VM-129B - Correct Maze Visual Alignment And Responsive Layout](done/VM-129B-correct-maze-visual-alignment-responsive-layout.md)
+- [VM-129 - Redesign The Implicit Maze Search Console](done/VM-129-redesign-implicit-maze-search-console.md)
 - [VM-128 - Phase 4 Strategium Index Extraction](done/VM-128-phase-4-strategium-index-extraction.md)
 - [VM-127 - Phase 4 Archscry Index Extraction](done/VM-127-phase-4-archscry-index-extraction.md)
 - [VM-126 - Strategium Archetype Signal Intent-Friendly Copy Pass](done/VM-126-strategium-archetype-signal-intent-friendly-copy-pass.md)

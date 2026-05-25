@@ -44,6 +44,22 @@
 5. Confirm each capture stays within the mismatch budget and the run reports no new Strategium console or page errors beyond `console-baseline.json`.
 6. If the harness fails, review the generated diff PNGs before accepting any visual change.
 
+## The Implicit Maze VM-129 console pass
+
+1. Open `/maze/` and confirm the shared floating topbar marks `The Implicit Maze` as the active route.
+2. Confirm the command deck shows the `The Implicit Maze` eyebrow, `Search Magic by instinct, syntax, or shape.` headline, three mode cards, and a single usable search input.
+3. Search Plain Reading for `red vampires that sacrifice creatures`; confirm the query inspector shows the plain input, translated syntax, reason text, Copy, and Open in Scryfall.
+4. Switch to Operator's Hand and search `ci<=br t:creature o:sacrifice f:commander`; confirm raw syntax remains visible and the Scryfall link points at the same normalized query.
+5. Switch to The Loom, select two colors, creature type, Commander format, and a keyword; confirm the generated syntax remains visible when switching back to Operator's Hand.
+6. Click one item each from Helper Searches, Discovery Paths, By Color, Format, and Recent Searches; confirm Helper Searches remain present and separate from Recent Searches.
+7. Open `/maze/?from=archscry&readingId=test&guild=izzet&fit=UR&readingTitle=Test%20Reading&returnUrl=/archscry/` and confirm the Archscry return banner appears with a working return link.
+8. Open `/maze/?q=ci%3C%3Dur%20t%3Alegendary%20t%3Acreature%20f%3Acommander` and confirm the page lands with the query context intact.
+9. Add a card to the stash from the result grid, open a modal, add a card to Commander Ideas from the modal, then confirm remove actions update the count.
+10. Copy the stash export and confirm the text preserves `Commander` and `Deck` headings, then clear the stash.
+11. Paginate with Load More, open and close a card modal by button, outside click, and Escape, and confirm focus returns to the opener.
+12. At mobile width, confirm the stash does not cover search/results and the mode/search/path panels do not introduce horizontal overflow.
+13. Enable reduced motion and confirm animated Maze atmosphere/effects are disabled or materially reduced.
+
 ## Happy path - quick reading
 
 1. Open the site in a fresh browser session.

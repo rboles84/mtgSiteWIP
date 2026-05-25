@@ -116,6 +116,7 @@ const KEYWORDS = [
 
 const TYPES = ["Creature", "Instant", "Sorcery", "Enchantment", "Artifact", "Planeswalker", "Land", "Battle"];
 const RARITIES = [{ v: "c", l: "Common" }, { v: "u", l: "Uncommon" }, { v: "r", l: "Rare" }, { v: "m", l: "Mythic" }];
+const MODE_IDS = ["ai", "raw", "builder"];
 
 function clearNode(node) {
   if (!node) return;
@@ -178,6 +179,12 @@ function createActionButton({
   if (ariaLabel) button.setAttribute("aria-label", ariaLabel);
   button.textContent = text;
   return button;
+}
+
+function setAriaPressed(node, active) {
+  if (node && typeof node.setAttribute === "function") {
+    node.setAttribute("aria-pressed", String(active));
+  }
 }
 
 function createLink({
@@ -374,15 +381,19 @@ async function initializeResearchArchives() {
 function setMode(mode) {
   const previousMode = currentMode;
   currentMode = mode;
-  ["ai", "raw", "builder"].forEach((id) => {
+  document.body.dataset.mazeMode = mode;
+  MODE_IDS.forEach((id) => {
     const btn = document.getElementById(`mode-${id}`);
+    if (!btn) return;
     btn.classList.toggle("on", id === mode);
     btn.classList.remove("teal-mode");
+    setAriaPressed(btn, id === mode);
   });
 
   const input = document.getElementById("search-input");
   const icon = document.getElementById("search-icon");
   const builder = document.getElementById("builder-panel");
+  if (!input || !icon || !builder) return;
   if (mode === "ai") {
     input.className = "s-input";
     input.placeholder = "e.g. red and black orcs, green haste, blue removal";
@@ -562,7 +573,8 @@ async function loadMore() {
   }
 
   if (hasMore && displayPage >= Math.ceil(allResults.length / PAGE_SIZE) - 1) {
-    document.getElementById("btn-more").disabled = true;
+    const moreButton = document.getElementById("btn-more");
+    moreButton.disabled = true;
     const data = await ResearchSearch.scryfallSearch(currentQuery, {
       page: nextPageUrl,
       order: currentOrder,
@@ -575,8 +587,9 @@ async function loadMore() {
       nextPageUrl = data.next_page || null;
       displayPage++;
       renderResults(true);
+    } else {
+      moreButton.disabled = false;
     }
-    document.getElementById("btn-more").disabled = false;
   }
 }
 
@@ -902,6 +915,7 @@ function buildTypeChecks() {
     });
     button.id = `cb-type-${value}`;
     button.classList.toggle("checked", bFilters.types.includes(value));
+    setAriaPressed(button, bFilters.types.includes(value));
     el.appendChild(button);
   });
 }
@@ -922,6 +936,7 @@ function buildRarityChecks() {
     });
     button.id = `cb-rar-${rarity.v}`;
     button.classList.toggle("checked", bFilters.rarities.includes(rarity.v));
+    setAriaPressed(button, bFilters.rarities.includes(rarity.v));
     el.appendChild(button);
   });
 }
@@ -935,7 +950,9 @@ function toggleColor(color) {
   if (index >= 0) bFilters.colors.splice(index, 1);
   else bFilters.colors.push(color);
   document.querySelectorAll(".cpip").forEach((pip) => {
-    pip.classList.toggle("on", bFilters.colors.includes(pip.dataset.c));
+    const active = bFilters.colors.includes(pip.dataset.c);
+    pip.classList.toggle("on", active);
+    setAriaPressed(pip, active);
   });
   rebuildFromFilters();
 }
@@ -949,7 +966,9 @@ function toggleType(value, label = document.getElementById(`cb-type-${value}`)) 
   const index = bFilters.types.indexOf(value);
   if (index >= 0) bFilters.types.splice(index, 1);
   else bFilters.types.push(value);
-  label.classList.toggle("checked", bFilters.types.includes(value));
+  const active = bFilters.types.includes(value);
+  label.classList.toggle("checked", active);
+  setAriaPressed(label, active);
   rebuildFromFilters();
 }
 
@@ -962,7 +981,9 @@ function toggleRarity(value, label = document.getElementById(`cb-rar-${value}`))
   const index = bFilters.rarities.indexOf(value);
   if (index >= 0) bFilters.rarities.splice(index, 1);
   else bFilters.rarities.push(value);
-  label.classList.toggle("checked", bFilters.rarities.includes(value));
+  const active = bFilters.rarities.includes(value);
+  label.classList.toggle("checked", active);
+  setAriaPressed(label, active);
   rebuildFromFilters();
 }
 
@@ -974,8 +995,10 @@ function rebuildFromFilters() {
   bFilters.format = document.getElementById("bld-format")?.value || "";
   bFilters.cmcMin = document.getElementById("cmc-min")?.value || "";
   bFilters.cmcMax = document.getElementById("cmc-max")?.value || "";
+  const query = buildFilterQuery();
   const input = document.getElementById("search-input");
-  if (input) input.value = buildFilterQuery();
+  if (input) input.value = query;
+  updateBuilderOutput(query);
 }
 
 /**
@@ -984,6 +1007,29 @@ function rebuildFromFilters() {
  */
 function buildFilterQuery() {
   return buildVisualBuilderQuery(bFilters);
+}
+
+function updateBuilderOutput(query = buildFilterQuery()) {
+  const queryEl = document.getElementById("builder-generated-query");
+  const summaryEl = document.getElementById("builder-summary");
+  if (queryEl) queryEl.textContent = query || "Select filters to build a query.";
+  if (summaryEl) summaryEl.textContent = formatBuilderSummary();
+}
+
+function formatBuilderSummary() {
+  const parts = [];
+  if (bFilters.colors.length) {
+    const colorMode = document.getElementById("color-op")?.selectedOptions?.[0]?.textContent || bFilters.colorOp;
+    parts.push(`Colors: ${bFilters.colors.join("")} (${colorMode})`);
+  }
+  if (bFilters.types.length) parts.push(`Types: ${bFilters.types.join(", ")}`);
+  if (bFilters.format) parts.push(`Format: ${bFilters.format}`);
+  if (bFilters.rarities.length) parts.push(`Rarity: ${bFilters.rarities.join(", ")}`);
+  if (bFilters.cmcMin || bFilters.cmcMax) {
+    parts.push(`Mana value: ${bFilters.cmcMin || "0"} to ${bFilters.cmcMax || "any"}`);
+  }
+  if (bFilters.keywords.length) parts.push(`Keywords: ${bFilters.keywords.join(", ")}`);
+  return parts.length ? parts.join(" | ") : "No visual filters selected yet.";
 }
 
 /**
@@ -1563,7 +1609,7 @@ function copyQuery() {
   const copyText = currentMode === "ai"
     ? (inputValue || lastSmartInput || currentQuery)
     : currentQuery;
-  navigator.clipboard.writeText(copyText).then(() => showToast(currentMode === "ai" ? "Plain reading copied" : "Query copied"));
+  copyTextToClipboard(copyText, currentMode === "ai" ? "Plain reading copied" : "Query copied");
 }
 
 /**
@@ -1939,11 +1985,46 @@ function copyStashExport() {
     showToast("Stash is empty");
     return;
   }
-  navigator.clipboard.writeText(text).then(() => showToast("Export copied"));
+  copyTextToClipboard(text, "Export copied");
+}
+
+function copyTextToClipboard(text, successMessage) {
+  const value = String(text || "");
+  if (!value) {
+    showToast("Nothing to copy");
+    return;
+  }
+
+  if (typeof navigator !== "undefined" && navigator.clipboard?.writeText) {
+    navigator.clipboard.writeText(value)
+      .then(() => showToast(successMessage))
+      .catch(() => fallbackCopyText(value, successMessage));
+    return;
+  }
+
+  fallbackCopyText(value, successMessage);
+}
+
+function fallbackCopyText(text, successMessage) {
+  const textarea = document.createElement("textarea");
+  textarea.value = text;
+  textarea.setAttribute("readonly", "");
+  textarea.style.cssText = "position:fixed;left:-9999px;top:0;opacity:0";
+  document.body.appendChild(textarea);
+  textarea.select();
+  try {
+    const copied = document.execCommand?.("copy");
+    showToast(copied ? successMessage : "Copy unavailable");
+  } catch (_) {
+    showToast("Copy unavailable");
+  } finally {
+    textarea.remove();
+  }
 }
 
 function bindMazeControls() {
   document.querySelector(".page")?.addEventListener("click", handleMazeActionClick);
+  document.getElementById("modal-bg")?.addEventListener("click", handleMazeActionClick);
   document.addEventListener("keydown", handleMazeGlobalKeydown);
   document.addEventListener("click", handleMazeDocumentClick);
 
