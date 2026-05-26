@@ -1,4 +1,5 @@
 import assert from "node:assert/strict";
+import { readFileSync } from "node:fs";
 import { stripApiMetadataFromQuery } from "./scryfall-parser.js";
 import { buildScryfallApiSearchUrl } from "./research-search.js";
 import { buildScryfallWebSearchUrl, parseAlternativeApi, renderQueryInspector, serializeAlternativeApi } from "./research-ui.js";
@@ -9,6 +10,16 @@ import {
   resolveMazePathType,
   resolveMazePlainReadingQuery,
 } from "../assets/js/maze-handoff.js";
+
+const mazeHtml = readFileSync(new URL("../maze/index.html", import.meta.url), "utf8");
+assert.doesNotMatch(mazeHtml, /id="mode-help-btn"/);
+assert.doesNotMatch(mazeHtml, /id="mode-help-popover"/);
+assert.match(mazeHtml, /<textarea\b[^>]*id="search-input"[^>]*rows="2"[\s\S]*?<\/textarea>/);
+assert.doesNotMatch(mazeHtml, /<input\b[^>]*id="search-input"/);
+assert.match(mazeHtml, /id="search-copy-btn"[^>]*data-action="copy-query"/);
+assert.match(mazeHtml, /id="search-scryfall-link"[^>]*aria-disabled="true"/);
+assert.match(mazeHtml, /<details class="sb-section sb-section-recent" id="recent-section"/);
+assert.match(mazeHtml, /<details class="sb-section sb-section-color">[\s\S]*id="color-grid"/);
 
 const apiUrl = new URL(buildScryfallApiSearchUrl("otag:mana-rock", {
   unique: "art",
@@ -78,6 +89,10 @@ async function runMazeDomMetadataCases() {
   assert.equal(lastUrl.searchParams.get("order"), "name");
   assert.equal(lastUrl.searchParams.get("unique"), "cards");
   assert.equal(lastUrl.searchParams.get("dir"), null);
+  assert.equal(document.getElementById("recent-section").open, true);
+  assert.equal(document.getElementById("search-copy-btn").disabled, false);
+  assert.equal(document.getElementById("search-scryfall-link").getAttribute("aria-disabled"), "false");
+  assert.equal(new URL(document.getElementById("search-scryfall-link").href).searchParams.get("q"), "otag:board-wipe");
 
   window.changeOrder("usd", "desc");
   await waitForFetchCount(dom.fetchUrls, 2);
@@ -145,12 +160,151 @@ async function runMazeDomMetadataCases() {
   const smartUrl = latestFetchUrl(dom.fetchUrls);
   assert.ok(smartUrl.searchParams.get("q"), "expected Plain Reading to execute a compiled query");
   window.copyQuery();
-  assert.equal(dom.getCopiedText(), "red instants in commander");
+  assert.equal(dom.getCopiedText(), smartUrl.searchParams.get("q"));
 
   window.setMode("raw");
   assert.equal(input.value, smartUrl.searchParams.get("q"));
   window.copyQuery();
   assert.equal(dom.getCopiedText(), smartUrl.searchParams.get("q"));
+
+  document.getElementById("sb-format").value = "commander";
+  document.getElementById("bld-format").value = "commander";
+  input.value = "c:r";
+  await window.doSearch();
+  await waitForFetchCount(dom.fetchUrls, 6);
+  lastUrl = latestFetchUrl(dom.fetchUrls);
+  assert.equal(lastUrl.searchParams.get("q"), "c:r f:commander");
+
+  input.value = "c:u f:modern";
+  await window.doSearch();
+  await waitForFetchCount(dom.fetchUrls, 7);
+  lastUrl = latestFetchUrl(dom.fetchUrls);
+  assert.equal(lastUrl.searchParams.get("q"), "c:u f:modern");
+
+  window.clearSearchInput();
+  assert.equal(document.body.dataset.mazeMode, "raw");
+  assert.equal(input.value, "");
+  assert.equal(document.getElementById("search-copy-btn").disabled, true);
+  assert.equal(document.getElementById("search-scryfall-link").getAttribute("aria-disabled"), "true");
+
+  window.setMode("builder");
+  document.getElementById("bld-format").value = "modern";
+  input.value = "f:modern";
+  window.clearSearchInput();
+  assert.equal(document.body.dataset.mazeMode, "builder");
+  assert.equal(document.getElementById("bld-format").value, "commander");
+  assert.equal(input.value, "f:commander");
+
+  document.getElementById("bld-format").value = "modern";
+  window.resetBuilderFilters();
+  assert.equal(document.body.dataset.mazeMode, "builder");
+  assert.equal(document.getElementById("bld-format").value, "commander");
+  assert.equal(input.value, "f:commander");
+  assert.equal(document.getElementById("builder-generated-query").textContent, "f:commander");
+
+  window.setMode("raw");
+  renderQueryInspector({
+    query: "c:r f:commander",
+    inputValue: "c:r f:commander",
+    api: { unique: "cards", order: "name" }
+  });
+  assert.ok(document.getElementById("query-inspector").classList.contains("hidden"));
+
+  renderQueryInspector({
+    query: "c:r f:commander",
+    inputValue: "c:r",
+    normalized: true,
+    reason: "Applied Commander format.",
+    api: { unique: "cards", order: "name" }
+  });
+  assert.equal(document.getElementById("qi-label").textContent, "Normalized syntax");
+  assert.equal(document.getElementById("qi-query").textContent, "c:r f:commander");
+  assert.equal(document.getElementById("query-inspector").classList.contains("hidden"), false);
+
+  window.setMode("ai");
+  renderQueryInspector({
+    query: "c:r t:vampire f:commander",
+    inputValue: "red vampires",
+    reason: "Translated a plain-language phrase.",
+    api: { unique: "cards", order: "name" }
+  });
+  assert.equal(document.getElementById("qi-input").textContent, "red vampires");
+  assert.equal(document.getElementById("qi-query").textContent, "c:r t:vampire f:commander");
+
+  window.setMode("builder");
+  renderQueryInspector({
+    query: "c:ur t:creature f:commander",
+    api: { unique: "cards", order: "name" }
+  });
+  assert.ok(document.getElementById("query-inspector").classList.contains("hidden"));
+
+  document.getElementById("sb-format").value = "";
+  window.setMode("raw");
+  input.value = "c:r\nkw:haste";
+  await window.doSearch();
+  await waitForFetchCount(dom.fetchUrls, 8);
+  lastUrl = latestFetchUrl(dom.fetchUrls);
+  assert.equal(lastUrl.searchParams.get("q"), "c:r kw:haste");
+
+  let prevented = false;
+  window.handleSearchInputKeydown({
+    key: "Enter",
+    shiftKey: true,
+    preventDefault() {
+      prevented = true;
+    }
+  });
+  assert.equal(prevented, false);
+
+  const localPageStart = dom.fetchUrls.length;
+  dom.setFetchResponses([{
+    object: "list",
+    total_cards: 30,
+    data: makeTestCards(30, "Local"),
+    has_more: false
+  }]);
+  window.runQuickSearch("t:creature", { useFormatDefault: false });
+  await waitForFetchCount(dom.fetchUrls, localPageStart + 1);
+  assert.equal(document.getElementById("card-grid").children.length, 24);
+  await window.loadMore();
+  assert.equal(dom.fetchUrls.length, localPageStart + 1);
+  assert.equal(document.getElementById("card-grid").children.length, 30);
+
+  const nextPageUrl = "https://api.scryfall.com/cards/search?page=2&q=t%3Ainstant";
+  const remotePageStart = dom.fetchUrls.length;
+  dom.setFetchResponses([
+    {
+      object: "list",
+      total_cards: 34,
+      data: makeTestCards(24, "Remote"),
+      has_more: true,
+      next_page: nextPageUrl
+    },
+    {
+      object: "list",
+      total_cards: 34,
+      data: makeTestCards(10, "Remote More"),
+      has_more: false
+    }
+  ]);
+  window.runQuickSearch("t:instant", { useFormatDefault: false });
+  await waitForFetchCount(dom.fetchUrls, remotePageStart + 1);
+  await window.loadMore();
+  await waitForFetchCount(dom.fetchUrls, remotePageStart + 2);
+  assert.equal(dom.fetchUrls.at(-1), nextPageUrl);
+  assert.equal(document.getElementById("card-grid").children.length, 34);
+}
+
+function makeTestCards(count, prefix) {
+  return Array.from({ length: count }, (_, index) => ({
+    id: `${prefix}-${index}`,
+    name: `${prefix} Card ${index + 1}`,
+    type_line: "Creature",
+    color_identity: [],
+    scryfall_uri: "https://scryfall.com/card/test",
+    set: "tst",
+    collector_number: String(index + 1)
+  }));
 }
 
 function latestFetchUrl(fetchUrls) {
@@ -166,7 +320,9 @@ async function waitForFetchCount(fetchUrls, count) {
 
 function installMazeDomHarness() {
   const elements = new Map();
+  const allElements = [];
   const fetchUrls = [];
+  let fetchResponses = [];
   let copiedText = "";
   let altButtons = [];
 
@@ -211,13 +367,34 @@ function installMazeDomHarness() {
       this.value = "";
       this.href = "";
       this.disabled = false;
+      this.open = false;
       this.onclick = null;
       this._innerHTML = "";
-      this.className = "";
+      this._className = "";
+      this.attributes = new Map();
+      this.nodeType = 1;
+    }
+
+    set className(value) {
+      this._className = String(value || "");
+      this.classList.values = new Set(this._className.split(/\s+/).filter(Boolean));
+    }
+
+    get className() {
+      return this._className;
+    }
+
+    get firstChild() {
+      return this.children[0] || null;
+    }
+
+    get selectedOptions() {
+      return [{ textContent: this.value || "" }];
     }
 
     set innerHTML(value) {
       this._innerHTML = String(value ?? "");
+      this.children = [];
       if (this.id === "qi-diagnostics") {
         altButtons = parseAlternativeButtons(this._innerHTML);
       }
@@ -234,8 +411,62 @@ function installMazeDomHarness() {
       return child;
     }
 
+    replaceChildren(...children) {
+      this.children = [];
+      this.textContent = "";
+      children.forEach((child) => this.appendChild(child));
+      this._innerHTML = "";
+    }
+
+    removeChild(child) {
+      this.children = this.children.filter((item) => item !== child);
+      child.parentNode = null;
+      return child;
+    }
+
+    remove() {
+      this.parentNode?.removeChild(this);
+    }
+
     addEventListener(event, handler) {
       this[`on${event}`] = handler;
+    }
+
+    setAttribute(name, value) {
+      this.attributes.set(name, String(value));
+      if (name === "id") {
+        this.id = String(value);
+        elements.set(this.id, this);
+      }
+      if (name === "class") this.className = value;
+      if (name === "href") this.href = String(value);
+      if (name.startsWith("data-")) {
+        const key = name.slice(5).replace(/-([a-z])/g, (_, letter) => letter.toUpperCase());
+        this.dataset[key] = String(value);
+      }
+    }
+
+    getAttribute(name) {
+      return this.attributes.get(name) || null;
+    }
+
+    removeAttribute(name) {
+      this.attributes.delete(name);
+    }
+
+    toggleAttribute(name, force) {
+      const shouldSet = force ?? !this.attributes.has(name);
+      if (shouldSet) this.setAttribute(name, "");
+      else this.removeAttribute(name);
+      return shouldSet;
+    }
+
+    querySelector(selector) {
+      return queryAllFrom(this.children, selector)[0] || null;
+    }
+
+    querySelectorAll(selector) {
+      return queryAllFrom(this.children, selector);
     }
 
     contains(target) {
@@ -250,7 +481,26 @@ function installMazeDomHarness() {
   function createElement(tagName, id = "") {
     const element = new FakeElement(tagName, id);
     if (id) elements.set(id, element);
+    allElements.push(element);
     return element;
+  }
+
+  function queryAllFrom(nodes, selector) {
+    const results = [];
+    nodes.forEach((node) => {
+      if (matchesSelector(node, selector)) results.push(node);
+      results.push(...queryAllFrom(node.children || [], selector));
+    });
+    return results;
+  }
+
+  function matchesSelector(node, selector) {
+    if (!node) return false;
+    if (selector.startsWith("#")) return node.id === selector.slice(1);
+    if (selector.startsWith(".")) return node.classList.contains(selector.slice(1));
+    if (selector === "[data-stash-toggle-count]") return Object.hasOwn(node.dataset, "stashToggleCount");
+    if (selector === "[data-action]") return Boolean(node.dataset.action);
+    return false;
   }
 
   function parseAlternativeButtons(html) {
@@ -289,8 +539,12 @@ function installMazeDomHarness() {
     getElementById(id) {
       return elements.get(id) || null;
     },
+    querySelector(selector) {
+      return selector === "body" ? body : allElements.find((node) => matchesSelector(node, selector)) || null;
+    },
     querySelectorAll(selector) {
-      return selector === ".qi-alt" ? altButtons : [];
+      if (selector === ".qi-alt") return altButtons;
+      return allElements.filter((node) => matchesSelector(node, selector));
     },
     addEventListener() {}
   };
@@ -298,10 +552,23 @@ function installMazeDomHarness() {
   [
     "search-input", "search-btn", "state-panel", "card-grid", "results-header",
     "results-footer", "err-msg", "recent-list", "recent-section", "query-inspector",
-    "qi-query", "qi-reason", "qi-scryfall", "res-count", "btn-more", "more-count",
+    "qi-input-wrap", "qi-input-label", "qi-input", "qi-label", "qi-query", "qi-reason",
+    "qi-scryfall", "res-count", "btn-more", "more-count", "stash-count", "stash-body",
     "mode-ai", "mode-raw", "mode-builder", "search-icon", "builder-panel", "kw-wrap",
-    "kw-suggestions", "modal-inner", "modal-bg"
-  ].forEach((id) => body.appendChild(createElement(id === "qi-scryfall" ? "a" : "div", id)));
+    "kw-input", "kw-suggestions", "kw-chips", "builder-generated-query", "builder-summary",
+    "color-op", "bld-format", "cmc-min", "cmc-max", "sb-format", "modal-inner", "modal-bg",
+    "maze-mode-context-label", "maze-mode-context-copy",
+    "stash-drawer-toggle", "search-copy-btn", "search-scryfall-link"
+  ].forEach((id) => {
+    const tagName = ["qi-scryfall", "search-scryfall-link"].includes(id)
+      ? "a"
+      : id === "search-input"
+        ? "textarea"
+        : "div";
+    body.appendChild(createElement(tagName, id));
+  });
+
+  documentStub.getElementById("stash-drawer-toggle").dataset.stashToggleCount = "true";
 
   const windowStub = {
     document: documentStub,
@@ -312,6 +579,7 @@ function installMazeDomHarness() {
   Object.defineProperty(globalThis, "document", { value: documentStub, configurable: true });
   Object.defineProperty(globalThis, "window", { value: windowStub, configurable: true });
   Object.defineProperty(globalThis, "location", { value: windowStub.location, configurable: true });
+  Object.defineProperty(globalThis, "HTMLElement", { value: FakeElement, configurable: true });
   Object.defineProperty(globalThis, "navigator", {
     value: {
       clipboard: {
@@ -326,9 +594,13 @@ function installMazeDomHarness() {
   Object.defineProperty(globalThis, "fetch", {
     value: async (url) => {
       fetchUrls.push(String(url));
+      const data = fetchResponses.length
+        ? fetchResponses.shift()
+        : { object: "list", total_cards: 0, data: [], has_more: false };
       return {
+        ok: data?.object === "list",
         async json() {
-          return { object: "list", total_cards: 0, data: [], has_more: false };
+          return data;
         }
       };
     },
@@ -337,6 +609,9 @@ function installMazeDomHarness() {
 
   return {
     fetchUrls,
+    setFetchResponses(responses) {
+      fetchResponses = [...responses];
+    },
     getCopiedText: () => copiedText
   };
 }

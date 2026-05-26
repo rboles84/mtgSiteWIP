@@ -398,20 +398,28 @@ export function buildReadingSignalCopy({ dossier, faction, result, factions = {}
   return `${faction.name} led with a ${band} signal. The reading was not one-note; ${adjacentFaction?.name || adjacent.faction_name} remained nearby, which suggests your answers carried both ${presentation.closeReason} and ${adjacentPresentation.closeReason}. The deciding difference was motion: this result chose the path that ${presentation.direction}.`;
 }
 
-export function selectReadingTagRefs({ dossier, faction, result, taxonomy }) {
+export function selectReadingTagRefs({ dossier, result, taxonomy, modelMechanics = "" }) {
   const evidenceText = (result?.evidence_trail || [])
     .flatMap((entry) => [entry.signal, entry.answer_title, entry.prompt])
     .filter(Boolean)
     .join(" ");
-  const text = [
-    dossier?.decreeCopy,
+  const commanderText = [
     dossier?.commanderPath?.copy,
     dossier?.commanderPath?.spellcraft,
-    faction?.tagline,
-    faction?.philosophy,
-    ...(dossier?.archetypes || []).flatMap((item) => [item.name, item.desc]),
-    evidenceText,
+    dossier?.commanderPath?.deckFooting,
+    dossier?.commanderPath?.tableCautionText,
   ].filter(Boolean).join(" ");
+  const archetypeText = (dossier?.archetypes || [])
+    .flatMap((item) => [item.name, item.desc])
+    .filter(Boolean)
+    .join(" ");
+  const mechanicsText = [modelMechanics].filter(Boolean).join(" ");
+  const sourceTexts = {
+    evidence: evidenceText,
+    commander: commanderText,
+    archetype: archetypeText,
+    mechanics: mechanicsText,
+  };
 
   const categoryOrder = new Map([
     ["mechanical", 0],
@@ -421,8 +429,18 @@ export function selectReadingTagRefs({ dossier, faction, result, taxonomy }) {
   ]);
 
   return uniqueTagRefs((taxonomy?.tags || [])
-    .filter((entry) => textIncludesTag(text, entry))
-    .map((entry) => ({ category: entry.category, tag: entry.tag })))
+    .map((entry) => {
+      const matchedSources = Object.entries(sourceTexts)
+        .filter(([, text]) => text && textIncludesTag(text, entry))
+        .map(([source]) => source);
+      if (!matchedSources.length) return null;
+
+      const include = matchedSources.includes("evidence") || matchedSources.length >= 2;
+      if (!include) return null;
+
+      return { category: entry.category, tag: entry.tag };
+    })
+    .filter(Boolean))
     .sort((left, right) =>
       (categoryOrder.get(left.category) ?? 9) - (categoryOrder.get(right.category) ?? 9) ||
       left.tag.localeCompare(right.tag)
@@ -437,7 +455,7 @@ export function buildTagExplanationSummaries({ tagRefs = [], faction, taxonomy, 
     return [{
       title: `${presentation.shortName} pressure`,
       meaning: presentation.tableExperience,
-      copy: "This reading was driven by faction identity and Commander table role more than a single mechanical tag.",
+      copy: "This reading points more clearly to a Commander table role and first deck plan than to one repeated mechanical tag.",
       helper: "",
     }];
   }
@@ -446,13 +464,15 @@ export function buildTagExplanationSummaries({ tagRefs = [], faction, taxonomy, 
     const entry = taxonomyEntry(taxonomy, ref.category, ref.tag);
     if (!entry) return null;
     const actions = (entry.typical_actions || []).slice(0, 2).join(" and ");
-    const actionCopy = actions ? ` In deck terms, that often means ${actions}.` : "";
+    const actionCopy = actions ? ` One common deck expression here is to ${actions}.` : "";
+    const groundingCopy = entry.table_feel || entry.player_fantasy || entry.canonical_definition || entry.vox_mana_interpretation;
+    const groundedSentence = /[.!?]$/.test(groundingCopy) ? groundingCopy : `${groundingCopy}.`;
     return {
       category: ref.category,
       tag: ref.tag,
       title: entry.display_name,
       meaning: entry.vox_mana_interpretation,
-      copy: `${entry.table_feel || entry.player_fantasy || entry.vox_mana_interpretation} In this ${presentation.shortName} reading, it points toward ${presentation.tableExperience}.${actionCopy}`,
+      copy: `${groundedSentence} In this ${presentation.shortName} reading, the result leans toward ${presentation.tableExperience}.${actionCopy}`,
       helper: entry.new_player_note || "",
     };
   }).filter(Boolean);

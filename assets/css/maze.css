@@ -1,24 +1,24 @@
 /* ============================================================
    Vox Mana - The Implicit Maze route styles
-   VM-129B visual alignment correction.
+   VM-129C atmosphere and route-family convergence.
    ============================================================ */
 
 body.vm-maze-route {
   --maze-bg-image: url("../img/backgrounds/background-vox-gateway-clean-13.webp");
-  --maze-panel: rgba(255, 255, 255, 0.052);
-  --maze-panel-strong: rgba(0, 0, 0, 0.34);
-  --maze-panel-deep: rgba(0, 0, 0, 0.52);
+  --maze-panel: rgba(255, 255, 255, 0.075);
+  --maze-panel-strong: rgba(255, 255, 255, 0.12);
+  --maze-panel-deep: rgba(0, 0, 0, 0.30);
   --maze-line: rgba(255, 255, 255, 0.16);
   --maze-line-strong: rgba(247, 215, 132, 0.28);
   --maze-line-soft: rgba(255, 255, 255, 0.09);
-  --maze-teal-line: rgba(88, 224, 211, 0.28);
+  --maze-teal-line: rgba(247, 215, 132, 0.30);
   --maze-text: #fffaf0;
   --maze-ink: #f5ead2;
   --maze-muted: rgba(255, 255, 255, 0.74);
   --maze-faint: rgba(255, 255, 255, 0.54);
   --maze-gold: #d7a23c;
   --maze-gold-2: #f7d784;
-  --maze-teal: #2dd1bb;
+  --maze-teal: #f7d784;
   --maze-radius-lg: 24px;
   --maze-radius-md: 18px;
   --maze-radius-sm: 14px;
@@ -31,7 +31,7 @@ body.vm-maze-route {
     radial-gradient(circle at 80% 0%, rgba(164, 107, 234, 0.10), transparent 24rem),
     linear-gradient(180deg, #080812, #000);
   color: var(--maze-text);
-  font-family: var(--font-text, "Crimson Pro", Georgia, serif);
+  font-family: "Cinzel", var(--font-display, serif);
   line-height: 1.6;
 }
 
@@ -56,10 +56,10 @@ body.vm-maze-route::after {
   z-index: -4;
   pointer-events: none;
   background:
-    linear-gradient(90deg, rgba(0, 0, 0, 0.93), rgba(0, 0, 0, 0.18) 22%, rgba(0, 0, 0, 0.14) 76%, rgba(0, 0, 0, 0.92)),
-    radial-gradient(circle at var(--mx, 50%) var(--my, 40%), rgba(88, 186, 255, 0.26), transparent 28rem),
-    radial-gradient(ellipse at 50% 100%, rgba(215, 162, 60, 0.10), transparent 44rem),
-    linear-gradient(180deg, rgba(0, 0, 0, 0.28), rgba(0, 0, 0, 0.72));
+    linear-gradient(90deg, rgba(0, 0, 0, 0.72), rgba(0, 0, 0, 0.08) 24%, rgba(0, 0, 0, 0.08) 76%, rgba(0, 0, 0, 0.72)),
+    radial-gradient(circle at var(--mx, 50%) var(--my, 40%), rgba(88, 186, 255, 0.20), transparent 28rem),
+    radial-gradient(ellipse at 50% 100%, rgba(215, 162, 60, 0.08), transparent 44rem),
+    linear-gradient(180deg, rgba(0, 0, 0, 0.16), rgba(0, 0, 0, 0.48));
 }
 
 body.vm-maze-route .vm-bg {
@@ -130,20 +130,13 @@ body.vm-maze-route select {
 body.vm-maze-route .page {
   position: relative;
   z-index: 1;
-  width: min(1540px, calc(100% - clamp(1rem, 4vw, 4rem)));
+  width: min(1640px, calc(100% - clamp(1rem, 4vw, 4rem)));
   min-height: calc(100vh - var(--vm-topbar-h, 92px));
   margin: 0 auto;
   padding: clamp(1.35rem, 3vw, 2.5rem) 0 clamp(1.5rem, 4vw, 3.5rem);
   display: grid;
   grid-template-columns: minmax(0, 1fr);
   gap: clamp(1rem, 2vw, 1.35rem);
-}
-
-@media (min-width: 1380px) {
-  body.vm-maze-route .page {
-    grid-template-columns: minmax(0, 1fr) minmax(260px, 300px);
-    align-items: start;
-  }
 }
 
 .hidden {
@@ -202,12 +195,12 @@ body.vm-maze-route :focus-visible {
   border: 1px solid var(--maze-line);
   border-radius: var(--maze-radius-lg);
   background:
-    radial-gradient(circle at var(--x, 50%) var(--y, 0%), rgba(88, 224, 211, 0.055), transparent 18rem),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.078), rgba(255, 255, 255, 0.032)),
-    rgba(2, 5, 8, 0.58);
-  box-shadow: 0 24px 72px rgba(0, 0, 0, 0.38);
-  -webkit-backdrop-filter: blur(13px) saturate(112%);
-          backdrop-filter: blur(13px) saturate(112%);
+    radial-gradient(circle at var(--x, 50%) var(--y, 0%), rgba(247, 215, 132, 0.035), transparent 18rem),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.055), rgba(255, 255, 255, 0.018)),
+    rgba(2, 5, 8, 0.17);
+  box-shadow: 0 24px 72px rgba(0, 0, 0, 0.28);
+  -webkit-backdrop-filter: blur(11px) saturate(112%);
+          backdrop-filter: blur(11px) saturate(112%);
 }
 
 .maze-command-deck {
@@ -218,7 +211,7 @@ body.vm-maze-route :focus-visible {
   gap: clamp(1rem, 2vw, 1.35rem);
   align-items: center;
   padding: clamp(1.1rem, 2vw, 1.65rem);
-  overflow: hidden;
+  overflow: visible;
 }
 
 .maze-command-copy {
@@ -243,8 +236,8 @@ body.vm-maze-route :focus-visible {
 .stash-copy,
 .btn-search,
 .btn-clear,
+.query-action-btn,
 .btn-more,
-.mode-help-title,
 .maze-return-link,
 .res-order {
   font-family: var(--font-mono, "IBM Plex Mono", monospace);
@@ -258,19 +251,19 @@ body.vm-maze-route :focus-visible {
 }
 
 .maze-command-copy h1 {
-  max-width: 15ch;
+  max-width: 16ch;
   margin: 0;
   color: var(--maze-text);
   font-family: var(--font-display, "Cinzel", serif);
   font-size: clamp(2rem, 3.2vw, 3.35rem);
-  line-height: 0.98;
+  line-height: 1.08;
   font-variation-settings: "opsz" 40, "wght" 620, "SOFT" 55;
   text-shadow: 0 0 30px rgba(255, 255, 255, 0.2);
 }
 
 .maze-command-copy p {
   max-width: 46ch;
-  margin: 0;
+  margin: 0.15rem 0 0;
   color: var(--maze-muted);
   font-size: clamp(1rem, 1.2vw, 1.1rem);
 }
@@ -328,9 +321,9 @@ body.vm-maze-route :focus-visible {
 }
 
 .mode-card.on.teal-mode {
-  border-color: rgba(88, 224, 211, 0.5);
+  border-color: rgba(247, 215, 132, 0.5);
   background:
-    radial-gradient(circle at top right, rgba(88, 224, 211, 0.11), transparent 12rem),
+    radial-gradient(circle at top right, rgba(247, 215, 132, 0.11), transparent 12rem),
     rgba(0, 0, 0, 0.28);
 }
 
@@ -369,8 +362,76 @@ body.vm-maze-route :focus-visible {
   gap: 0.8rem;
 }
 
+.maze-mode-context {
+  display: grid;
+  gap: 0.22rem;
+  padding: 0.8rem 0.9rem;
+  border: 1px solid var(--maze-line-soft);
+  border-radius: var(--maze-radius-md);
+  background:
+    linear-gradient(90deg, rgba(247, 215, 132, 0.095), rgba(255, 255, 255, 0.035)),
+    rgba(0, 0, 0, 0.18);
+}
+
+.maze-mode-context span {
+  color: var(--maze-gold-2);
+  font-family: var(--font-mono, "IBM Plex Mono", monospace);
+  font-size: 0.68rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.maze-mode-context p {
+  margin: 0;
+  color: var(--maze-muted);
+  font-size: 0.94rem;
+  line-height: 1.45;
+}
+
+body.vm-maze-route[data-maze-mode="raw"] .maze-mode-context {
+  background:
+    linear-gradient(90deg, rgba(255, 255, 255, 0.11), rgba(247, 215, 132, 0.045)),
+    rgba(0, 0, 0, 0.20);
+}
+
+body.vm-maze-route[data-maze-mode="builder"] .maze-command-deck {
+  grid-template-columns: 1fr;
+  align-items: stretch;
+}
+
+body.vm-maze-route[data-maze-mode="builder"] .maze-command-copy {
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  grid-template-areas:
+    "eyebrow eyebrow"
+    "title copy"
+    "badge badge";
+  gap: clamp(1rem, 3vw, 2rem);
+  align-items: start;
+}
+
+body.vm-maze-route[data-maze-mode="builder"] .maze-eyebrow {
+  grid-area: eyebrow;
+}
+
+body.vm-maze-route[data-maze-mode="builder"] .maze-command-copy h1 {
+  grid-area: title;
+  max-width: 18ch;
+}
+
+body.vm-maze-route[data-maze-mode="builder"] .maze-command-copy p {
+  grid-area: copy;
+  max-width: 44ch;
+  align-self: start;
+  margin-top: 0;
+}
+
+body.vm-maze-route[data-maze-mode="builder"] .maze-user-badge {
+  grid-area: badge;
+}
+
 .search-input-row {
   display: flex;
+  flex-wrap: wrap;
   gap: 0.65rem;
   align-items: stretch;
   font-size: 0;
@@ -380,15 +441,14 @@ body.vm-maze-route :focus-visible {
 .search-wrap {
   position: relative;
   min-width: 0;
-  flex: 1 1 auto;
-  height: 52px;
+  flex: 1 1 780px;
+  min-height: 88px;
 }
 
 .search-icon {
   position: absolute;
   left: 0.95rem;
-  top: 50%;
-  transform: translateY(-50%);
+  top: 1.12rem;
   color: var(--maze-gold-2);
   font-family: var(--font-mono, "IBM Plex Mono", monospace);
   font-size: 0.88rem;
@@ -396,29 +456,34 @@ body.vm-maze-route :focus-visible {
 }
 
 .s-input {
+  display: block;
   width: 100%;
-  min-height: 52px;
+  min-height: 88px;
+  max-height: 220px;
   border: 1px solid var(--maze-line-soft);
   border-radius: var(--maze-radius-sm);
   background: rgba(0, 0, 0, 0.48);
   color: var(--maze-text);
   font-family: var(--font-text, "Crimson Pro", Georgia, serif);
-  font-size: 1.05rem;
-  padding: 0.78rem 1rem 0.78rem 2.45rem;
+  font-size: 1.12rem;
+  line-height: 1.48;
+  padding: 1rem 1rem 1rem 2.55rem;
   outline: none;
+  overflow: auto;
+  resize: vertical;
   transition: border-color 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
 }
 
 .s-input.mono {
   color: var(--maze-teal);
   font-family: var(--font-mono, "IBM Plex Mono", monospace);
-  font-size: 0.9rem;
+  font-size: 0.95rem;
 }
 
 .s-input:focus {
   border-color: var(--maze-teal-line);
   background: rgba(0, 0, 0, 0.62);
-  box-shadow: 0 0 0 3px rgba(88, 224, 211, 0.08);
+  box-shadow: 0 0 0 3px rgba(247, 215, 132, 0.08);
 }
 
 .s-input::placeholder {
@@ -427,8 +492,8 @@ body.vm-maze-route :focus-visible {
 
 .btn-search,
 .btn-clear,
-.mode-help,
 .qi-btn,
+.query-action-btn,
 .btn-more,
 .m-btn,
 .stash-copy {
@@ -436,7 +501,7 @@ body.vm-maze-route :focus-visible {
   align-items: center;
   justify-content: center;
   min-height: 42px;
-  height: 52px;
+  height: 60px;
   border: 1px solid var(--maze-line-strong);
   border-radius: var(--maze-radius-sm);
   background: rgba(0, 0, 0, 0.18);
@@ -449,8 +514,26 @@ body.vm-maze-route :focus-visible {
   transition: transform 0.18s ease, border-color 0.18s ease, background 0.18s ease, color 0.18s ease;
 }
 
+.query-action-btn {
+  width: max-content;
+  max-width: 100%;
+  min-width: fit-content;
+  white-space: normal;
+  border-color: var(--maze-teal-line);
+  color: var(--maze-teal);
+}
+
+.query-action-btn.is-disabled,
+.query-action-btn:disabled,
+.search-scryfall-link[aria-disabled="true"] {
+  opacity: 0.46;
+  cursor: not-allowed;
+  pointer-events: none;
+  transform: none;
+}
+
 .btn-search {
-  min-width: 116px;
+  min-width: 112px;
   border-color: rgba(247, 215, 132, 0.8);
   background: linear-gradient(180deg, var(--maze-gold-2), var(--maze-gold));
   color: #080705;
@@ -463,13 +546,13 @@ body.vm-maze-route :focus-visible {
 }
 
 .btn-clear {
-  min-width: 86px;
+  min-width: 78px;
 }
 
 .btn-search:hover,
 .btn-clear:hover,
-.mode-help:hover,
 .qi-btn:hover,
+.query-action-btn:hover,
 .btn-more:hover,
 .m-btn:hover,
 .stash-copy:hover {
@@ -485,84 +568,34 @@ body.vm-maze-route :focus-visible {
   transform: none;
 }
 
-.mode-help-wrap {
-  position: relative;
-  height: 52px;
-}
-
-.mode-help {
-  flex: 0 0 auto;
-  width: 52px;
-  height: 52px;
-  padding-inline: 0;
-  border-color: var(--maze-teal-line);
-  color: var(--maze-teal);
-}
-
-.mode-help-popover {
-  display: none;
-  position: absolute;
-  right: 0;
-  top: calc(100% + 0.55rem);
-  width: min(390px, calc(100vw - 2rem));
-  z-index: 30;
-  padding: 1rem;
-  border: 1px solid var(--maze-teal-line);
-  border-radius: var(--maze-radius-md);
-  background: rgba(0, 0, 0, 0.78);
-  color: var(--maze-muted);
-  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.48);
-  -webkit-backdrop-filter: blur(14px) saturate(112%);
-          backdrop-filter: blur(14px) saturate(112%);
-}
-
-.mode-help-wrap:hover .mode-help-popover,
-.mode-help-wrap:focus-within .mode-help-popover {
-  display: block;
-  animation: maze-fade-up 0.18s ease;
-}
-
-.mode-help-popover p {
-  margin: 0 0 0.55rem;
-}
-
-.mode-help-popover p:last-child {
-  margin-bottom: 0;
-}
-
-.mode-help-popover strong {
-  color: var(--maze-text);
-}
-
-.mode-help-popover code,
 .state-sub code,
 .empty-query,
 .builder-output code {
-  border: 1px solid rgba(88, 224, 211, 0.2);
+  border: 1px solid rgba(247, 215, 132, 0.22);
   border-radius: 0.45rem;
-  background: rgba(88, 224, 211, 0.08);
+  background: rgba(247, 215, 132, 0.08);
   color: var(--maze-teal);
   font-family: var(--font-mono, "IBM Plex Mono", monospace);
 }
 
-.mode-help-popover code,
 .state-sub code {
   padding: 0.05rem 0.32rem;
 }
 
 .query-inspector {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(180px, 0.55fr) auto;
+  grid-template-columns: minmax(0, 0.78fr) minmax(0, 1fr) auto;
   gap: 0.85rem;
   align-items: stretch;
   padding: 0.85rem;
   border: 1px solid var(--maze-teal-line);
   border-radius: var(--maze-radius-md);
   background:
-    radial-gradient(circle at top left, rgba(88, 224, 211, 0.09), transparent 16rem),
-    rgba(0, 0, 0, 0.34);
+    radial-gradient(circle at top left, rgba(247, 215, 132, 0.08), transparent 16rem),
+    rgba(0, 0, 0, 0.24);
 }
 
+.qi-input-wrap,
 .qi-primary,
 .qi-reason {
   min-width: 0;
@@ -588,6 +621,15 @@ body.vm-maze-route :focus-visible {
   word-break: break-word;
 }
 
+.qi-input {
+  display: block;
+  color: var(--maze-muted);
+  font-family: var(--font-text, "Crimson Pro", Georgia, serif);
+  font-size: 0.98rem;
+  line-height: 1.45;
+  word-break: break-word;
+}
+
 .qi-reason {
   color: var(--maze-muted);
   font-size: 0.9rem;
@@ -596,11 +638,65 @@ body.vm-maze-route :focus-visible {
 }
 
 .qi-actions {
-  display: flex;
+  display: none;
   flex-wrap: wrap;
   gap: 0.45rem;
   align-content: center;
   justify-content: flex-end;
+}
+
+.qi-label,
+.qi-btn,
+.query-action-btn,
+.mode-card-kicker,
+.mode-card-title {
+  width: max-content;
+  max-width: 100%;
+  white-space: normal;
+  overflow: visible;
+}
+
+.qi-primary,
+.qi-input-wrap,
+.qi-reason {
+  overflow: visible;
+}
+
+.query-inspector[data-mode="raw"] {
+  grid-template-columns: minmax(0, 1fr) auto;
+}
+
+.query-inspector[data-mode="raw"] .qi-input-wrap {
+  display: none;
+}
+
+.query-inspector[data-mode="raw"].is-compact .qi-primary {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 0.8rem;
+  border-color: transparent;
+  background: transparent;
+  padding-inline: 0.2rem;
+}
+
+.query-inspector[data-mode="raw"].is-compact .qi-label {
+  margin: 0;
+}
+
+.query-inspector[data-mode="raw"].is-compact .qi-query {
+  color: var(--maze-faint);
+  font-family: var(--font-text, "Crimson Pro", Georgia, serif);
+  font-size: 0.9rem;
+}
+
+.query-inspector[data-mode="builder"] {
+  grid-template-columns: minmax(0, 1fr) auto;
+}
+
+.query-inspector[data-mode="builder"] .qi-input-wrap,
+.query-inspector[data-mode="builder"] .qi-primary {
+  display: none;
 }
 
 .qi-btn {
@@ -673,7 +769,7 @@ body.vm-maze-route :focus-visible {
   padding: 0.5rem 0.65rem;
   border: 1px solid var(--maze-teal-line);
   border-radius: var(--maze-radius-sm);
-  background: rgba(88, 224, 211, 0.07);
+  background: rgba(247, 215, 132, 0.07);
   color: var(--maze-teal);
   text-align: left;
   cursor: pointer;
@@ -707,6 +803,12 @@ body.vm-maze-route :focus-visible {
   border-bottom: 1px solid var(--maze-line-soft);
 }
 
+.builder-head-actions {
+  display: grid;
+  gap: 0.65rem;
+  justify-items: end;
+}
+
 .builder-head h2 {
   margin: 0.18rem 0 0;
   color: var(--maze-text);
@@ -717,6 +819,26 @@ body.vm-maze-route :focus-visible {
 .builder-head p {
   margin: 0;
   color: var(--maze-muted);
+}
+
+.builder-reset-btn {
+  min-height: 36px;
+  padding: 0.45rem 0.72rem;
+  border: 1px solid var(--maze-line-strong);
+  border-radius: var(--maze-radius-sm);
+  background: rgba(0, 0, 0, 0.18);
+  color: var(--maze-gold-2);
+  font-family: var(--font-mono, "IBM Plex Mono", monospace);
+  font-size: 0.64rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.builder-reset-btn:hover,
+.builder-reset-btn:focus-visible {
+  border-color: rgba(247, 215, 132, 0.52);
+  background: rgba(247, 215, 132, 0.10);
 }
 
 .builder-kicker {
@@ -804,7 +926,7 @@ body.vm-maze-route :focus-visible {
 .sb-select:focus,
 .res-order:focus {
   border-color: var(--maze-teal-line);
-  box-shadow: 0 0 0 3px rgba(88, 224, 211, 0.08);
+  box-shadow: 0 0 0 3px rgba(247, 215, 132, 0.08);
 }
 
 .cb-label {
@@ -876,7 +998,7 @@ body.vm-maze-route :focus-visible {
 
 .kw-sug:hover,
 .kw-sug:focus-visible {
-  background: rgba(88, 224, 211, 0.1);
+  background: rgba(247, 215, 132, 0.1);
   color: var(--maze-text);
 }
 
@@ -888,7 +1010,7 @@ body.vm-maze-route :focus-visible {
   padding: 0.3rem 0.6rem;
   border: 1px solid var(--maze-teal-line);
   border-radius: 999px;
-  background: rgba(88, 224, 211, 0.08);
+  background: rgba(247, 215, 132, 0.08);
   color: var(--maze-teal);
   font-family: var(--font-mono, "IBM Plex Mono", monospace);
   font-size: 0.72rem;
@@ -901,7 +1023,7 @@ body.vm-maze-route :focus-visible {
   padding: 0.85rem;
   border: 1px solid var(--maze-teal-line);
   border-radius: var(--maze-radius-md);
-  background: rgba(88, 224, 211, 0.07);
+  background: rgba(247, 215, 132, 0.07);
 }
 
 .builder-output span {
@@ -926,7 +1048,7 @@ body.vm-maze-route :focus-visible {
 .r-body {
   grid-column: 1;
   display: grid;
-  grid-template-columns: minmax(230px, 280px) minmax(0, 1fr);
+  grid-template-columns: minmax(240px, 300px) minmax(0, 1fr);
   gap: clamp(0.85rem, 1.6vw, 1.1rem);
   align-items: start;
   min-width: 0;
@@ -953,18 +1075,50 @@ body.vm-maze-route :focus-visible {
   padding: 0.75rem;
   border: 1px solid var(--maze-line-soft);
   border-radius: var(--maze-radius-md);
-  background: rgba(0, 0, 0, 0.16);
+  background: rgba(0, 0, 0, 0.12);
 }
 
 .sb-section-dossier {
   border-color: var(--maze-teal-line);
-  background: rgba(88, 224, 211, 0.07);
+  background: rgba(247, 215, 132, 0.07);
 }
 
 .sb-label {
   margin-bottom: 0.25rem;
   color: var(--maze-gold-2);
   font-size: 0.64rem;
+}
+
+.sb-summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.65rem;
+  list-style: none;
+  cursor: pointer;
+}
+
+.sb-summary::-webkit-details-marker {
+  display: none;
+}
+
+.sb-summary::after {
+  content: "+";
+  color: var(--maze-gold-2);
+  font-family: var(--font-mono, "IBM Plex Mono", monospace);
+  font-size: 0.9rem;
+}
+
+.sb-section-helper[open] .sb-summary::after,
+.sb-section-recent[open] .sb-summary::after,
+.sb-section-color[open] .sb-summary::after {
+  content: "-";
+}
+
+.sb-section-helper[open] #quick-search-list,
+.sb-section-recent[open] #recent-list,
+.sb-section-color[open] #color-grid {
+  padding-top: 0.2rem;
 }
 
 .sb-btn,
@@ -1009,7 +1163,7 @@ body.vm-maze-route :focus-visible {
 
 .sb-btn.is-reading:hover,
 .sb-btn.is-reading:focus-visible {
-  background: rgba(88, 224, 211, 0.1);
+  background: rgba(247, 215, 132, 0.1);
 }
 
 .color-grid {
@@ -1058,7 +1212,7 @@ body.vm-maze-route :focus-visible {
   gap: 0.85rem;
   padding: 0.85rem 1rem;
   border-bottom: 1px solid var(--maze-teal-line);
-  background: rgba(88, 224, 211, 0.08);
+  background: rgba(247, 215, 132, 0.08);
   color: var(--maze-muted);
 }
 
@@ -1139,7 +1293,7 @@ body.vm-maze-route :focus-visible {
   color: var(--maze-muted);
   text-align: center;
   background:
-    radial-gradient(circle at 50% 44%, rgba(88, 224, 211, 0.06), transparent 19rem),
+    radial-gradient(circle at 50% 44%, rgba(247, 215, 132, 0.07), transparent 19rem),
     linear-gradient(180deg, rgba(255, 255, 255, 0.018), rgba(0, 0, 0, 0.12));
 }
 
@@ -1200,7 +1354,7 @@ body.vm-maze-route :focus-visible {
   gap: 0.75rem;
   align-items: center;
   padding: 0.85rem 1rem;
-  background: rgba(0, 0, 0, 0.18);
+  background: rgba(0, 0, 0, 0.14);
 }
 
 .results-header {
@@ -1215,8 +1369,11 @@ body.vm-maze-route :focus-visible {
 .res-count {
   flex: 1;
   min-width: min(100%, 18rem);
-  color: var(--maze-muted);
-  font-size: 0.72rem;
+  color: var(--maze-ink);
+  font-family: var(--font-text, "Crimson Pro", Georgia, serif);
+  font-size: 1rem;
+  letter-spacing: 0.02em;
+  text-transform: none;
 }
 
 .res-count strong {
@@ -1279,7 +1436,7 @@ body.vm-maze-route :focus-visible {
   height: 32px;
   border: 1px solid var(--maze-teal-line);
   border-radius: 50%;
-  background: rgba(88, 224, 211, 0.08);
+  background: rgba(247, 215, 132, 0.08);
   color: var(--maze-teal);
   font-family: var(--font-mono, "IBM Plex Mono", monospace);
   cursor: pointer;
@@ -1287,8 +1444,8 @@ body.vm-maze-route :focus-visible {
 
 .card-stash-btn:hover,
 .card-stash-btn.on {
-  border-color: rgba(88, 224, 211, 0.5);
-  background: rgba(88, 224, 211, 0.14);
+  border-color: rgba(247, 215, 132, 0.5);
+  background: rgba(247, 215, 132, 0.14);
   color: var(--maze-text);
 }
 
@@ -1396,23 +1553,78 @@ body.vm-maze-route :focus-visible {
 }
 
 .stash-panel {
-  grid-column: 1;
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  position: static;
-  width: auto;
-  max-height: none;
+  position: fixed;
+  top: calc(var(--vm-topbar-h, 92px) + 1rem);
+  right: clamp(0.75rem, 2vw, 1.5rem);
+  z-index: 360;
+  width: min(380px, calc(100vw - 1.25rem));
+  max-height: calc(100vh - var(--vm-topbar-h, 92px) - 2rem);
+  transform: translateX(calc(100% + 2rem));
+  opacity: 0;
+  pointer-events: none;
+  transition: transform 0.22s ease, opacity 0.22s ease;
 }
 
-@media (min-width: 1380px) {
-  .stash-panel {
-    grid-column: 2;
-    grid-row: 1 / span 2;
-    position: sticky;
-    top: calc(var(--vm-topbar-h, 92px) + 1.25rem);
-    max-height: calc(100vh - var(--vm-topbar-h, 92px) - 2.5rem);
-  }
+body.vm-maze-route[data-stash-open="true"] .stash-panel {
+  transform: translateX(0);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.stash-drawer-toggle {
+  position: fixed;
+  right: clamp(0.75rem, 2vw, 1.5rem);
+  top: calc(var(--vm-topbar-h, 92px) + 1rem);
+  z-index: 340;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  min-height: 42px;
+  padding: 0.55rem 0.75rem;
+  border: 1px solid var(--maze-line-strong);
+  border-radius: 999px;
+  background: rgba(2, 5, 8, 0.38);
+  color: var(--maze-gold-2);
+  font-family: var(--font-mono, "IBM Plex Mono", monospace);
+  font-size: 0.64rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  cursor: pointer;
+  -webkit-backdrop-filter: blur(14px) saturate(112%);
+          backdrop-filter: blur(14px) saturate(112%);
+}
+
+.stash-drawer-toggle:hover,
+.stash-drawer-toggle:focus-visible {
+  border-color: rgba(247, 215, 132, 0.52);
+  background: rgba(247, 215, 132, 0.10);
+}
+
+.stash-drawer-count {
+  min-width: 1.8rem;
+  min-height: 1.55rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--maze-teal-line);
+  border-radius: 999px;
+  color: var(--maze-text);
+}
+
+.stash-drawer-close {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border: 1px solid var(--maze-line-soft);
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.2);
+  color: var(--maze-muted);
+  cursor: pointer;
 }
 
 .stash-head {
@@ -1712,10 +1924,22 @@ body.vm-maze-route :focus-visible {
     padding-top: 0.9rem;
   }
 
-  .maze-command-deck,
   .builder-head,
   .query-inspector {
     grid-template-columns: 1fr;
+  }
+
+  .maze-command-deck,
+  body.vm-maze-route[data-maze-mode="builder"] .maze-command-copy {
+    grid-template-columns: 1fr;
+  }
+
+  body.vm-maze-route[data-maze-mode="builder"] .maze-command-copy {
+    grid-template-areas:
+      "eyebrow"
+      "title"
+      "copy"
+      "badge";
   }
 
   .maze-command-copy h1 {
@@ -1736,7 +1960,33 @@ body.vm-maze-route :focus-visible {
   }
 
   .stash-panel {
-    grid-column: 1;
+    top: auto;
+    right: 0.75rem;
+    bottom: 0.75rem;
+    width: min(460px, calc(100vw - 1.5rem));
+    max-height: min(72vh, 620px);
+    transform: translateY(calc(100% + 2rem));
+  }
+
+  body.vm-maze-route[data-stash-open="true"] .stash-panel {
+    transform: translateY(0);
+  }
+
+  .stash-drawer-toggle {
+    top: auto;
+    bottom: 0.85rem;
+  }
+}
+
+@media (max-width: 1050px) {
+  .search-wrap {
+    flex-basis: 100%;
+  }
+
+  .btn-search,
+  .btn-clear,
+  .query-action-btn {
+    flex: 1 1 10rem;
   }
 }
 
@@ -1755,8 +2005,7 @@ body.vm-maze-route :focus-visible {
     align-items: stretch;
   }
 
-  .search-wrap,
-  .mode-help-wrap {
+  .search-wrap {
     width: 100%;
   }
 
@@ -1766,8 +2015,12 @@ body.vm-maze-route :focus-visible {
 
   .btn-search,
   .btn-clear,
-  .mode-help {
+  .query-action-btn {
     width: 100%;
+  }
+
+  .builder-head-actions {
+    justify-items: start;
   }
 
   .r-main {
@@ -1825,7 +2078,6 @@ body.vm-maze-route :focus-visible {
   .stash-panel,
   .btn-search,
   .btn-clear,
-  .mode-help,
   .qi-btn,
   .btn-more,
   .m-btn,
@@ -1844,11 +2096,12 @@ body.vm-maze-route :focus-visible {
 [data-reduce-motion="true"] .stash-panel,
 [data-reduce-motion="true"] .btn-search,
 [data-reduce-motion="true"] .btn-clear,
-[data-reduce-motion="true"] .mode-help,
 [data-reduce-motion="true"] .qi-btn,
 [data-reduce-motion="true"] .btn-more,
 [data-reduce-motion="true"] .m-btn,
 [data-reduce-motion="true"] .stash-copy,
+[data-reduce-motion="true"] .stash-drawer-toggle,
+[data-reduce-motion="true"] .stash-panel,
 [data-reduce-motion="true"] .state-spinner,
 [data-reduce-motion="true"] .card-skeleton {
   animation: none !important;

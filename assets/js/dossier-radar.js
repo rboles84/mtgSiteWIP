@@ -1,13 +1,5 @@
 const DOSSIER_RADAR_AXES = ["Order", "Knowledge", "Ambition", "Freedom", "Growth"];
 
-const DOSSIER_RESONANCE_TIERS = [
-  { max: 20, label: "Dormant" },
-  { max: 40, label: "Stirring" },
-  { max: 60, label: "Aligned" },
-  { max: 80, label: "Resonant" },
-  { max: 100, label: "Dominant" },
-];
-
 const DOSSIER_COLOR_PROFILES = {
   W: {
     key: "W",
@@ -245,11 +237,6 @@ function escapeDossierHtml(value) {
     .replace(/'/g, "&#39;");
 }
 
-function dossierTierLabel(value) {
-  const tier = DOSSIER_RESONANCE_TIERS.find((entry) => value <= entry.max);
-  return tier ? tier.label : "";
-}
-
 function dossierHexToRgba(hex, alpha) {
   const clean = String(hex || "").replace("#", "");
   const r = Number.parseInt(clean.slice(0, 2), 16);
@@ -360,14 +347,13 @@ function getDossierRadarProfile(result, faction) {
 function renderDossierAxisList(profile) {
   return DOSSIER_RADAR_AXES.map((label, index) => {
     const value = Number(profile.data[index] || 0);
-    const tier = dossierTierLabel(value);
     return `
       <div class="vm-axis">
         <span>${escapeDossierHtml(label)}</span>
         <span class="vm-axis-bar">
           <span class="vm-axis-fill" style="width:${value}%; background:${escapeDossierHtml(profile.hex)};"></span>
         </span>
-        <span>${value} — ${escapeDossierHtml(tier)}</span>
+        <span>${value}</span>
       </div>`;
   }).join("");
 }
@@ -390,28 +376,28 @@ function renderDossierOverlayLine(profile) {
     <span class="vm-overlay-dot vm-overlay-dot-final" style="border-color:${escapeDossierHtml(profile.hex)};">${escapeDossierHtml(profile.name)}</span>`;
 }
 
-function renderDossierDatasetPills(profile, showComponents, showComposite) {
-  const pills = [];
-  const multiColor = (profile.components || []).length > 1;
-
-  if (multiColor && showComponents) {
-    profile.components.forEach((componentKey, index) => {
-      const component = DOSSIER_COLOR_PROFILES[componentKey];
-      const hasArrow = showComposite && index === profile.components.length - 1;
-      pills.push(`
-        <span class="vm-pill${hasArrow ? " has-arrow" : ""}" data-label="${escapeDossierHtml(component.name)}" style="border-color:${escapeDossierHtml(component.hex)};">${escapeDossierHtml(component.name)}</span>`);
-    });
-  }
-
-  if (showComposite || !multiColor) {
-    pills.push(`
-      <span class="vm-pill active" data-label="${escapeDossierHtml(profile.name)}" style="border-color:${escapeDossierHtml(profile.hex)};">${escapeDossierHtml(profile.name)}</span>`);
-  }
-
-  return pills.join("");
+function renderDossierCardVoicesPanel(snippets = []) {
+  const items = (snippets || [])
+    .filter((snippet) => snippet?.card_name && snippet?.flavor_excerpt && snippet?.scryfall_uri)
+    .slice(0, 3);
+  if (items.length < 2) return "";
+  return `
+    <div class="vm-card-voice-panel" data-archscry-card-voices>
+      <div class="vm-card-voice-heading">
+        <span>Cards That Sound Like This</span>
+        <p>Short source-grounded card voices that echo the reading's feel. They are examples, not required pickups.</p>
+      </div>
+      <div class="vm-card-voice-list">
+        ${items.map((snippet) => `
+          <a class="vm-card-voice" href="${escapeDossierHtml(snippet.scryfall_uri)}" target="_blank" rel="noopener">
+            <span class="vm-card-voice-name">${escapeDossierHtml(snippet.card_name)}</span>
+            <span class="vm-card-voice-text">${escapeDossierHtml(snippet.flavor_excerpt)}</span>
+          </a>`).join("")}
+      </div>
+    </div>`;
 }
 
-function renderDossierRadarSection({ result, faction }) {
+function renderDossierRadarSection({ result, faction, flavorSnippets = [] }) {
   const profile = getDossierRadarProfile(result, faction);
   const multiColor = (profile.components || []).length > 1;
   const controlsHtml = multiColor
@@ -445,7 +431,7 @@ function renderDossierRadarSection({ result, faction }) {
               <div class="vm-overlay-line" id="dossierOverlayLine">${renderDossierOverlayLine(profile)}</div>
             </div>
             <div class="vm-axis-list" id="dossierAxisList">${renderDossierAxisList(profile)}</div>
-            <div class="vm-placeholder-note">Mana alignment translates your placement into philosophical pressure: Order, Knowledge, Ambition, Freedom, and Growth.</div>
+            <div class="vm-placeholder-note">This authored identity matrix summarizes how the active placement expresses Order, Knowledge, Ambition, Freedom, and Growth. It is a readable profile for the chosen fit, not a raw mana-score ledger.</div>
           </div>
           <div class="vm-radar-card">
             ${controlsHtml}
@@ -455,8 +441,7 @@ function renderDossierRadarSection({ result, faction }) {
                 <canvas id="dossierManaRadar" aria-label="Vox Mana placement radar chart"></canvas>
                 <div class="vm-radar-fallback" data-dossier-radar-fallback hidden></div>
               </div>
-              <p class="vm-radar-caption" id="dossierRadarCaption">Current profile: ${escapeDossierHtml(profile.name)}</p>
-              <div class="vm-dataset-pills" id="dossierDatasetPills">${renderDossierDatasetPills(profile, multiColor, true)}</div>
+              ${renderDossierCardVoicesPanel(flavorSnippets)}
             </div>
           </div>
         </div>
@@ -513,7 +498,6 @@ function buildDossierRadarDatasets(profile, showComponents, showComposite) {
       pointHoverRadius: 11,
       pointHoverBorderWidth: 4,
       tension: 0.22,
-      tierLabels: true,
       _vmGlowBlur: 26,
     });
   }
@@ -525,8 +509,6 @@ function initDossierManaRadar({ result, faction, profile }) {
   const resolvedProfile = profile || getDossierRadarProfile(result, faction);
   const card = document.getElementById("dossierSelectedCard");
   const glow = document.getElementById("dossierRadarGlow");
-  const caption = document.getElementById("dossierRadarCaption");
-  const pills = document.getElementById("dossierDatasetPills");
   const fallback = document.querySelector("[data-dossier-radar-fallback]");
   const canvas = document.getElementById("dossierManaRadar");
   const componentToggle = document.getElementById("dossierComponentToggle");
@@ -535,7 +517,7 @@ function initDossierManaRadar({ result, faction, profile }) {
 
   destroyDossierManaRadar();
 
-  if (!card || !glow || !caption || !pills || !canvas) {
+  if (!card || !glow || !canvas) {
     return;
   }
 
@@ -545,14 +527,9 @@ function initDossierManaRadar({ result, faction, profile }) {
       .map((component) => DOSSIER_COLOR_PROFILES[component]?.hex)
       .filter(Boolean)
   );
-  caption.textContent = `Current profile: ${resolvedProfile.name}`;
 
   let showComponents = (resolvedProfile.components || []).length > 1;
   let showComposite = true;
-
-  const updatePills = () => {
-    pills.innerHTML = renderDossierDatasetPills(resolvedProfile, showComponents, showComposite);
-  };
 
   const fallbackMessage = "Radar preview unavailable right now. The placement synthesis details still appear at left.";
   const ChartCtor = globalThis.Chart;
@@ -567,8 +544,6 @@ function initDossierManaRadar({ result, faction, profile }) {
         input.disabled = true;
       });
     }
-    caption.textContent = "Current profile: placement details only";
-    updatePills();
     return;
   }
 
@@ -621,47 +596,6 @@ function initDossierManaRadar({ result, faction, profile }) {
     },
   };
 
-  const dossierTierLabelsPlugin = {
-    id: "dossierTierLabels",
-    afterDatasetDraw(chart, args) {
-      const dataset = chart.data.datasets[args.index];
-      if (!dataset?.tierLabels) {
-        return;
-      }
-
-      const ctx = chart.ctx;
-      const meta = chart.getDatasetMeta(args.index);
-      const centerY = (chart.chartArea.top + chart.chartArea.bottom) / 2;
-
-      ctx.save();
-      ctx.fillStyle = "rgba(255,255,255,0.9)";
-      ctx.font = "500 11px Cinzel";
-      ctx.textAlign = "center";
-
-      meta.data.forEach((point, index) => {
-        const axis = chart.data.labels[index];
-        if (axis === "Order") {
-          return;
-        }
-
-        const value = dataset.data[index];
-        const tier = dossierTierLabel(Number(value));
-        if (!tier) {
-          return;
-        }
-
-        const x = point.x;
-        const y = point.y;
-        const offsetY = y < centerY ? -10 : 16;
-        const offsetX = x < chart.chartArea.left + 20 ? 14 : x > chart.chartArea.right - 20 ? -14 : 0;
-
-        ctx.fillText(tier, x + offsetX, y + offsetY);
-      });
-
-      ctx.restore();
-    },
-  };
-
   const syncDatasets = () => {
     if (componentToggle && compositeToggle && !componentToggle.checked && !compositeToggle.checked) {
       compositeToggle.checked = true;
@@ -672,11 +606,10 @@ function initDossierManaRadar({ result, faction, profile }) {
 
     dossierManaRadarChart.data.datasets = buildDossierRadarDatasets(resolvedProfile, showComponents, showComposite);
     dossierManaRadarChart.update();
-    updatePills();
   };
 
   dossierManaRadarChart = new ChartCtor(canvas.getContext("2d"), {
-    plugins: [dossierHaloPlugin, dossierGlowPlugin, dossierTierLabelsPlugin],
+    plugins: [dossierHaloPlugin, dossierGlowPlugin],
     type: "radar",
     data: {
       labels: DOSSIER_RADAR_AXES,
@@ -700,9 +633,7 @@ function initDossierManaRadar({ result, faction, profile }) {
         tooltip: {
           callbacks: {
             label(context) {
-              const value = context.raw ?? context.parsed?.r ?? context.formattedValue;
-              const tier = dossierTierLabel(Number(value));
-              return `${context.dataset.label}: ${context.formattedValue}${tier ? ` — ${tier}` : ""}`;
+              return `${context.dataset.label}: ${context.formattedValue}`;
             },
           },
         },
@@ -744,8 +675,6 @@ function initDossierManaRadar({ result, faction, profile }) {
   if (compositeToggle) {
     compositeToggle.addEventListener("change", syncDatasets);
   }
-
-  updatePills();
 }
 
 export {
@@ -754,7 +683,6 @@ export {
   getDossierRadarProfile,
   initDossierManaRadar,
   renderDossierAxisList,
-  renderDossierDatasetPills,
   renderDossierOverlayLine,
   renderDossierRadarSection,
 };

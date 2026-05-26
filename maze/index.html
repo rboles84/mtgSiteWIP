@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Vox Mana — The Implicit Maze</title>
+<title>Vox Mana - The Implicit Maze</title>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js" defer></script>
 <script src="../assets/js/shared.js" defer></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -18,7 +18,7 @@
 <link rel="stylesheet" href="../assets/css/components.css">
 <link rel="stylesheet" href="../assets/css/maze.css">
 </head>
-<body class="vm-maze-route" data-page="maze" data-vm-current="maze" data-bg="medium" data-maze-mode="ai">
+<body class="vm-maze-route" data-page="maze" data-vm-current="maze" data-bg="medium" data-vm-atmosphere="rich" data-maze-mode="ai" data-stash-open="false">
 
 <div class="vm-bg" aria-hidden="true">
   <picture class="vm-bg__picture">
@@ -29,7 +29,7 @@
   <canvas class="vm-bg__stars" aria-hidden="true"></canvas>
 </div>
 
-<!-- ── HEADER ─── -->
+<!-- -- HEADER --- -->
 <header class="vm-topbar" role="banner" data-maze-modal-background>
   <a class="vm-brand" href="../newIndex2.html" aria-label="Vox Mana home">
     <span class="vm-brand-mark" aria-hidden="true">
@@ -104,27 +104,29 @@
     </div>
 
     <div class="maze-search-shell">
+      <div class="maze-mode-context" id="maze-mode-context">
+        <span id="maze-mode-context-label">Plain reading open</span>
+        <p id="maze-mode-context-copy">Describe the card you want in human language. Maze will translate the intent into Scryfall syntax before searching.</p>
+      </div>
+
       <div class="search-input-row">
         <div class="search-wrap">
           <span class="search-icon" id="search-icon">*</span>
-          <input type="text" class="s-input" id="search-input"
+          <textarea class="s-input" id="search-input" rows="2"
             aria-label="Maze search query"
-            placeholder="e.g. red and black orcs, green haste, blue removal">
+            placeholder="e.g. red and black orcs, green haste, blue removal"></textarea>
         </div>
         <button class="btn-search" id="search-btn" type="button" data-action="search">Search</button>
         <button class="btn-clear" id="clear-search-btn" type="button" data-action="clear-search">Clear</button>
-        <div class="mode-help-wrap">
-          <button class="mode-help" type="button" aria-label="Search help" aria-describedby="mode-help-popover">?</button>
-          <div class="mode-help-popover" id="mode-help-popover" role="tooltip">
-            <div class="mode-help-title">Search Help</div>
-            <p><strong>The Plain Reading</strong> accepts phrases like <code>red instant</code> or <code>green haste</code>, then compiles them into Scryfall syntax.</p>
-            <p><strong>The Operator's Hand</strong> is for exact queries like <code>c:rg kw:deathtouch</code>. Paste syntax here, then switch back to The Plain Reading for a readable translation.</p>
-            <p><strong>The Loom</strong> composes filters without memorizing operators. The inspector shows the generated syntax and assumptions.</p>
-          </div>
-        </div>
+        <button class="query-action-btn search-copy-btn is-disabled" id="search-copy-btn" type="button" data-action="copy-query" disabled>Copy</button>
+        <a class="query-action-btn search-scryfall-link is-disabled" id="search-scryfall-link" href="#" target="_blank" rel="noopener" aria-disabled="true" tabindex="-1">Open in Scryfall</a>
       </div>
 
       <div class="query-inspector hidden" id="query-inspector" aria-live="polite">
+        <div class="qi-input-wrap hidden" id="qi-input-wrap">
+          <span class="qi-label" id="qi-input-label">You wrote</span>
+          <span class="qi-input" id="qi-input"></span>
+        </div>
         <div class="qi-primary">
           <span class="qi-label" id="qi-label">Maze translated</span>
           <span class="qi-query" id="qi-query"></span>
@@ -144,7 +146,10 @@
         <span class="builder-kicker">The Loom</span>
         <h2>Visual query board</h2>
       </div>
-      <p>Choose the shape, then search or switch to The Operator's Hand to keep the generated syntax visible.</p>
+      <div class="builder-head-actions">
+        <p>Build constraints with color, type, format, mana value, and keywords, then search or switch to The Operator's Hand to keep the syntax visible.</p>
+        <button class="builder-reset-btn" id="builder-reset-btn" type="button" data-action="reset-builder">Reset board</button>
+      </div>
     </div>
     <div class="builder-row">
       <span class="bl">Colors</span>
@@ -176,7 +181,7 @@
         <option value="modern">Modern</option>
         <option value="legacy">Legacy</option>
         <option value="vintage">Vintage</option>
-        <option value="commander">Commander</option>
+        <option value="commander" selected>Commander</option>
         <option value="pauper">Pauper</option>
       </select>
       <span class="bl" style="margin-left:12px">Rarity</span>
@@ -205,15 +210,11 @@
 </div>
 </section>
 
-<!-- ── MAIN BODY ─── -->
+<!-- -- MAIN BODY --- -->
 <div class="r-body">
 
   <!-- Sidebar -->
   <aside class="r-sidebar" aria-label="Maze search paths">
-    <div class="sb-section sb-section-helper">
-      <div class="sb-label">Helper Searches</div>
-      <div id="quick-search-list"></div>
-    </div>
     <div class="sb-section sb-section-dossier" id="reading-path-section" style="display:none">
       <div class="sb-label">From Your Dossier</div>
       <div id="reading-path-list"></div>
@@ -222,15 +223,23 @@
       <div class="sb-label">Discovery Paths</div>
       <div id="discovery-path-list"></div>
     </div>
-    <div class="sb-section">
-      <div class="sb-label">By Color</div>
+    <details class="sb-section sb-section-recent" id="recent-section" style="display:none">
+      <summary class="sb-summary"><span class="sb-label">Recent Searches</span></summary>
+      <div class="recent-list" id="recent-list"></div>
+    </details>
+    <details class="sb-section sb-section-helper">
+      <summary class="sb-summary"><span class="sb-label">Helper Searches</span></summary>
+      <div id="quick-search-list"></div>
+    </details>
+    <details class="sb-section sb-section-color">
+      <summary class="sb-summary"><span class="sb-label">By Color</span></summary>
       <div class="color-grid" id="color-grid"></div>
-    </div>
+    </details>
     <div class="sb-section">
       <div class="sb-label">Format</div>
       <select class="sb-select" id="sb-format">
         <option value="">Any format</option>
-        <option value="commander">Commander</option>
+        <option value="commander" selected>Commander</option>
         <option value="modern">Modern</option>
         <option value="pioneer">Pioneer</option>
         <option value="standard">Standard</option>
@@ -238,10 +247,6 @@
         <option value="pauper">Pauper</option>
         <option value="vintage">Vintage</option>
       </select>
-    </div>
-    <div class="sb-section" id="recent-section" style="display:none">
-      <div class="sb-label">Recent Searches</div>
-      <div class="recent-list" id="recent-list"></div>
     </div>
   </aside>
 
@@ -252,26 +257,26 @@
       <div class="maze-return-copy" id="maze-return-copy"></div>
       <div class="maze-return-actions">
         <a class="maze-return-link" id="maze-return-link" href="../archscry/index.html">Return to dossier</a>
-        <button class="maze-return-dismiss" id="maze-return-dismiss" type="button" aria-label="Dismiss return banner">×</button>
+        <button class="maze-return-dismiss" id="maze-return-dismiss" type="button" aria-label="Dismiss return banner">&times;</button>
       </div>
     </div>
     <div class="state-panel" id="state-panel">
       <svg width="48" height="48" viewBox="0 0 48 48" fill="none" style="opacity:.2">
         <circle cx="24" cy="24" r="18" stroke="#b8954a" stroke-width="0.8" stroke-dasharray="4 3"/>
-        <circle cx="24" cy="24" r="10" stroke="#1aaa96" stroke-width="0.6" stroke-dasharray="2 4"/>
+        <circle cx="24" cy="24" r="10" stroke="#f7d784" stroke-width="0.6" stroke-dasharray="2 4"/>
         <path d="M18 24 L22 28 L30 18" stroke="#b8954a" stroke-width="1" stroke-linecap="round"/>
       </svg>
       <div class="state-title">The Archives await</div>
       <div class="state-sub">
         Try <code>c:r kw:shroud</code> for red cards with shroud, or use The Plain Reading with natural language.
-        <br><br>Browse the <a href="https://scryfall.com/docs/syntax" target="_blank" style="color:var(--teal)">full Scryfall syntax reference ↗</a>
+        <br><br>Browse the <a href="https://scryfall.com/docs/syntax" target="_blank" style="color:var(--maze-gold-2)">full Scryfall syntax reference &#8599;</a>
       </div>
     </div>
     <div class="err-msg hidden" id="err-msg"></div>
     <div class="results-header hidden" id="results-header">
       <span class="res-count" id="res-count"></span>
       <select class="res-order" id="res-order">
-        <option value="name">A–Z</option>
+        <option value="name">A-Z</option>
         <option value="edhrec">EDHREC popularity</option>
         <option value="usd">Price (low)</option>
         <option value="usd" data-dir="desc">Price (high)</option>
@@ -289,10 +294,16 @@
   </section>
 </div>
 
+<button class="stash-drawer-toggle" id="stash-drawer-toggle" type="button" data-action="toggle-stash-drawer" aria-controls="stash-panel" aria-expanded="false">
+  <span>Deck Scratchpad</span>
+  <span class="stash-drawer-count" data-stash-toggle-count>0</span>
+</button>
+
 <section class="stash-panel" id="stash-panel" aria-labelledby="maze-stash-title">
   <div class="stash-head">
     <div class="stash-title" id="maze-stash-title">Deck Scratchpad</div>
     <div class="stash-count" id="stash-count">0</div>
+    <button class="stash-drawer-close" type="button" data-action="close-stash-drawer" aria-label="Close deck scratchpad">&times;</button>
   </div>
   <div class="stash-body" id="stash-body"></div>
   <div class="stash-actions">
@@ -307,15 +318,15 @@
   <p>Vox Mana is an unofficial fan project. Magic: The Gathering is &copy; Wizards of the Coast LLC.</p>
 </footer>
 
-<!-- ── MODAL ─── -->
+<!-- -- MODAL --- -->
 <div class="modal-bg hidden" id="modal-bg" role="presentation">
   <div class="modal-wrap" id="modal-wrap" role="dialog" aria-modal="true" aria-labelledby="modal-title" tabindex="-1">
-    <button class="modal-close" id="modal-close" type="button" data-action="close-modal" aria-label="Close card details">×</button>
+    <button class="modal-close" id="modal-close" type="button" data-action="close-modal" aria-label="Close card details">&times;</button>
     <div class="modal" id="modal-inner"></div>
   </div>
 </div>
 <script type="module" src="../research/research-init.js"></script>
-<script src="../assets/js/atmosphere.js" defer></script>
+<script src="../assets/js/vm-rich-atmosphere.js" defer></script>
 <script src="../assets/js/reduce-motion.js" defer></script>
 <script src="../assets/js/vm-topbar.js" defer></script>
 </body>

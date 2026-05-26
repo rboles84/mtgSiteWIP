@@ -27,14 +27,13 @@ import {
   buildReadingSignalCopy,
   buildTagExplanationSummaries,
   adjacentMatchForSummary,
+  confidencePercent,
+  matchForFaction,
   presentationForFaction,
   selectReadingTagRefs,
-  technicalSignalCopy,
   withArchscryMazeContext,
 } from "./archscry-presentation.js";
 import {
-  formatPurity,
-  getColorName,
   getExpressionKindLabel,
   normalizeLayeredIdentity,
 } from "./identity-layers.js";
@@ -67,6 +66,7 @@ const APP_STATE = {
   tagTaxonomy: null,
   tagTaxonomyByKey: new Map(),
   scryfallFlavorIndex: null,
+  archscryFlavorSnippets: null,
   scryfallCommanderIndex: null,
   scryfallCommanderByName: new Map(),
   scryfallColorThemeIndex: null,
@@ -74,9 +74,43 @@ const APP_STATE = {
   previousViewKey: null,
   mazeReturnUrl: "",
   mazeReturnAnchor: "",
+  activeDossierPanel: "placement",
+  dossierLayoutMode: "focus",
+  forceDossierPanel: "",
+  dossierSegments: {
+    "starter-cards": "creatures",
+    "mana-base": "basics",
+  },
+  activeDossierRadarFaction: null,
 };
 
 const ARCHSCRY_MAZE_HANDOFF_KEY = "vm_archscry_maze_handoff_v1";
+const DOSSIER_DEFAULT_PANEL_ID = "placement";
+const DOSSIER_DEFAULT_LAYOUT_MODE = "focus";
+const DOSSIER_LAYOUT_MODES = new Set(["focus", "all"]);
+const DOSSIER_PANEL_CONFIG = [
+  { id: "placement", label: "Placement" },
+  { id: "start", label: "Start Here" },
+  { id: "why", label: "Why This Fits" },
+  { id: "adjacent", label: "Adjacent Fits" },
+  { id: "commander-deck-starts", label: "Commander Deck Starts" },
+  { id: "starter-cards", label: "Starter Cards" },
+  { id: "mana-base", label: "Mana Base" },
+  { id: "maze-discovery", label: "Maze Discovery" },
+];
+const DOSSIER_PANEL_IDS = new Set(DOSSIER_PANEL_CONFIG.map((panel) => panel.id));
+const STARTER_CARD_SEGMENTS = [
+  { id: "creatures", label: "Creatures" },
+  { id: "spells", label: "Instants and Sorceries" },
+  { id: "permanents", label: "Enchantments and Artifacts" },
+];
+const MANA_BASE_SEGMENTS = [
+  { id: "basics", label: "Basics" },
+  { id: "premium", label: "Premium" },
+  { id: "midrange", label: "Midrange" },
+  { id: "budget", label: "Budget" },
+  { id: "utility", label: "Utility" },
+];
 const HELPER_COPY_VARIANTS = {
   flavorLead: [
     "Why it echoes",
@@ -202,12 +236,14 @@ async function loadIdentityLayerData() {
 async function loadDiscoveryData() {
   const [
     taxonomy,
+    archscryFlavorSnippets,
     flavorIndex,
     commanderIndex,
     colorThemeIndex,
     mechanicThemeIndex,
   ] = await Promise.all([
     loadOptionalJson(resolveDataUrl("taxonomy/vox-mana-tags.json"), "tag taxonomy"),
+    loadOptionalJson(resolveDataUrl("archscry-flavor-snippets.json"), "Archscry flavor snippets"),
     loadOptionalJson(resolveDataUrl("scryfall/indexes/card-flavor-index.json"), "Scryfall flavor index"),
     loadOptionalJson(resolveDataUrl("scryfall/indexes/commander-index.json"), "Scryfall commander index"),
     loadOptionalJson(resolveDataUrl("scryfall/indexes/color-theme-index.json"), "Scryfall color theme index"),
@@ -215,6 +251,7 @@ async function loadDiscoveryData() {
   ]);
 
   APP_STATE.tagTaxonomy = taxonomy;
+  APP_STATE.archscryFlavorSnippets = archscryFlavorSnippets;
   APP_STATE.tagTaxonomyByKey = buildTaxonomyLookup(taxonomy);
   APP_STATE.scryfallFlavorIndex = flavorIndex;
   APP_STATE.scryfallCommanderIndex = commanderIndex;
@@ -251,6 +288,12 @@ function buildTaxonomyLookup(taxonomy) {
     map.set(`${entry.category}:${entry.tag}`, entry);
   });
   return map;
+}
+
+function flavorSnippetsForFaction(faction) {
+  const snippets = APP_STATE.archscryFlavorSnippets?.snippets || {};
+  const key = faction?.key || faction?.identity?.expression_key || "";
+  return Array.isArray(snippets[key]) ? snippets[key] : [];
 }
 
 /**
@@ -328,66 +371,167 @@ function layeredIdentityForDisplay(faction, resultIdentity = null) {
   });
 }
 
-function buildIdentityDetailCard({ title, headline, copy, meta = "" }) {
+function buildManaPipsHtml(colors = [], className = "") {
+  const symbols = (Array.isArray(colors) ? colors : String(colors || "").split(""))
+    .map((color) => String(color || "").toUpperCase())
+    .filter((color) => MANA_SYMBOL_NAMES[color]);
+  if (!symbols.length) return "";
+  const classAttr = ["mana-pips", className].filter(Boolean).join(" ");
   return `
-    <div class="starter-card">
+    <div class="${classAttr}" aria-hidden="true">
+      ${symbols.map((color) => `<div class="pip pip-${color}"></div>`).join("")}
+    </div>`;
+}
+
+function firstSentence(text) {
+  const normalized = String(text || "").replace(/\s+/g, " ").trim();
+  if (!normalized) return "";
+  const match = normalized.match(/^.*?[.!?](?=\s|$)/);
+  return (match ? match[0] : normalized).trim();
+}
+
+function commanderStartSnapshotCopy({ commanderLane, dossier }) {
+  const sources = [
+    commanderLane?.copy,
+    ...(commanderLane?.details || []).map((detail) => detail.copy),
+    ...(dossier?.archetypes || []).flatMap((item) => [item.desc]),
+  ];
+  const sentence = sources.map(firstSentence).find(Boolean);
+  return sentence || "Open Start Here to turn this placement into a first Commander direction.";
+}
+
+function readingSignalBand(confidence) {
+  const value = Number(confidence || 0);
+  if (value >= 0.6) return "strong";
+  if (value >= 0.3) return "moderate";
+  return "emerging";
+}
+
+function readingSignalMeaning({ band, dossier }) {
+  if (!dossier?.isPrimary) {
+    if (band === "strong") {
+      return "This adjacent view still has enough signal to be worth comparing against the primary reading.";
+    }
+    if (band === "moderate") {
+      return "This adjacent view stays close to the primary result and works best as a neighboring expression, not a replacement.";
+    }
+    return "This adjacent view is a softer branch off the main result. Treat it as a comparison lens while you test the primary path.";
+  }
+
+  if (band === "strong") {
+    return "This reading landed cleanly. Nearby fits can still matter, but the primary placement had a clear edge.";
+  }
+  if (band === "moderate") {
+    return "This reading led, but a neighboring fit stayed visible. Read the fork language as part of the result.";
+  }
+  return "This reading is lighter and more exploratory. Use the nearby fits and Start Here panel as orientation while you test what feels natural.";
+}
+
+function buildSignalStrengthCardHtml({ dossier, result }) {
+  const activeMatch = matchForFaction(result, dossier?.targetFactionKey) || matchForFaction(result, result?.faction) || null;
+  const confidence = Number(activeMatch?.confidence || result?.confidence || 0);
+  const percent = Math.round(confidence * 100);
+  const band = readingSignalBand(confidence);
+  const meterWidth = Math.max(10, Math.min(100, percent || 0));
+  return `
+    <div class="starter-card signal-strength-card" data-signal-band="${escapeAttributeValue(band)}">
+      <div class="starter-title">Signal Strength</div>
+      <div class="signal-strength-readout">
+        <strong>${escapeHtml(band.charAt(0).toUpperCase() + band.slice(1))}</strong>
+        <span>${escapeHtml(confidencePercent(confidence))}</span>
+      </div>
+      <div class="signal-strength-meter" aria-hidden="true">
+        <span style="width:${meterWidth}%"></span>
+      </div>
+      <div class="signal-strength-scale" aria-hidden="true">
+        <span class="${band === "emerging" ? "is-active" : ""}">Emerging</span>
+        <span class="${band === "moderate" ? "is-active" : ""}">Moderate</span>
+        <span class="${band === "strong" ? "is-active" : ""}">Strong</span>
+      </div>
+      <div class="starter-copy">${escapeHtml(readingSignalMeaning({ band, dossier }))}</div>
+    </div>`;
+}
+
+function shortIdentityTension(text) {
+  const sentences = String(text || "")
+    .split(/(?<=[.!?])\s+/)
+    .map((sentence) => sentence.trim())
+    .filter(Boolean);
+  if (!sentences.length) return "";
+  if (sentences[0].length < 72 && sentences[1]?.endsWith("?")) {
+    return `${sentences[0]} ${sentences[1]}`;
+  }
+  return sentences[0];
+}
+
+function resolveIdentityTension(identity, faction) {
+  const expressionEntry = identityExpressionEntry(identity?.expression_key || faction?.key);
+  const colorEntry = identityColorEntry(identity?.core_color);
+  return faction?.core_tension || expressionEntry?.core_tension || colorEntry?.core_tension || "";
+}
+
+function buildSelfCheckCopy(faction) {
+  const presentation = presentationForFaction(faction);
+  const reason = presentation.closeReason || presentation.tableExperience || faction?.tagline || "";
+  if (!reason) {
+    return "This may fit if the values in this reading feel like the kind of deck identity you want to explore.";
+  }
+  return `This may fit if ${reason} feel like values you want a Commander deck to express.`;
+}
+
+function buildIdentityStoryCard({ title, headline, copy, meta = "", className = "" }) {
+  return `
+    <div class="starter-card identity-story-card${className ? ` ${className}` : ""}">
       <div class="starter-title">${escapeHtml(title)}</div>
-      <div class="starter-copy"><strong>${escapeHtml(headline)}</strong></div>
+      <div class="identity-story-headline">${escapeHtml(headline)}</div>
       <div class="starter-copy">${escapeHtml(copy)}</div>
-      ${meta ? `<div class="signal-technical">${escapeHtml(meta)}</div>` : ""}
+      ${meta ? `<div class="identity-story-meta">${meta}</div>` : ""}
     </div>`;
 }
 
 function buildLayeredIdentityHtml({ dossier, faction }) {
   const identity = layeredIdentityForDisplay(faction, dossier?.faction?.identity);
   const coreEntry = identityColorEntry(identity.core_color);
-  const secondaryEntry = identityColorEntry(identity.secondary_color);
-  const expressionEntry = identityExpressionEntry(identity.expression_key);
+  const expressionName = identity.expression_name || faction?.name || colorIdentityNames(identity.colors || faction?.colors || []);
+  const identityColors = (faction?.colors || [identity.core_color, ...(identity.secondary_colors || [])])
+    .filter((color) => MANA_SYMBOL_NAMES[String(color || "").toUpperCase()]);
+  const beliefCopy = faction?.philosophy || coreEntry?.philosophy || "This reading has not yet been annotated with a belief statement.";
+  const tensionCopy = shortIdentityTension(resolveIdentityTension(identity, faction));
+  const tensionTitle = identity.secondary_color ? "Tension" : "Undivided";
+  const identityMeta = [
+    buildManaPipsHtml(identityColors, "mana-pips-inline"),
+    `<span>${escapeHtml(getColorIdentity(identityColors || faction?.key || ""))}</span>`,
+  ].filter(Boolean).join("");
 
-  const coreCard = buildIdentityDetailCard({
-    title: "Core Identity",
-    headline: coreEntry?.name || getColorName(identity.core_color || ""),
-    copy: coreEntry?.philosophy || "This reading's core color is not yet annotated.",
-    meta: (coreEntry?.taste_signals || []).slice(0, 3).join(" | "),
+  const beliefCard = buildIdentityStoryCard({
+    title: "Belief",
+    headline: expressionName,
+    copy: beliefCopy,
+    meta: identityMeta,
+    className: "identity-story-card--belief",
   });
 
-  const secondaryCard = buildIdentityDetailCard({
-    title: "Secondary Influence",
-    headline: secondaryEntry?.name || (identity.secondary_color ? getColorName(identity.secondary_color) : "None active"),
-    copy: secondaryEntry?.philosophy || "This expression is currently centered on a single color without a secondary influence.",
-    meta: (secondaryEntry?.taste_signals || []).slice(0, 3).join(" | "),
+  const tensionCard = buildIdentityStoryCard({
+    title: tensionTitle,
+    headline: identity.secondary_color ? "Where it pulls" : "Clear signal",
+    copy: tensionCopy || "This identity has a clear center; no unsupported tension is added to the reading.",
+    className: "identity-story-card--support",
   });
 
-  const expressionKind = getInstitutionLabel({
-    institution_type: identity.expression_kind,
-    identity: { expression_kind: identity.expression_kind },
-  });
-  const expressionCard = buildIdentityDetailCard({
-    title: "Expression",
-    headline: identity.expression_name || faction?.name || "Unknown expression",
-    copy: expressionEntry?.identity_blend || faction?.identity_blend || "This expression blends the foundational color logic into a named Commander-facing surface.",
-    meta: `${expressionKind}${identity.expression_key ? ` | ${identity.expression_key}` : ""}`,
-  });
-
-  const purityCard = buildIdentityDetailCard({
-    title: "Purity",
-    headline: formatPurity(identity.purity),
-    copy: typeof identity.purity === "number"
-      ? "This purity value is calibrated from the expression itself."
-      : "Color-weight purity is intentionally withheld until the scoring model can derive it without approximation.",
-    meta: identity.secondary_color
-      ? `Core ${getColorName(identity.core_color)} | Secondary ${getColorName(identity.secondary_color)}`
-      : `Core ${getColorName(identity.core_color)}`,
+  const selfCheckCard = buildIdentityStoryCard({
+    title: "Self-Check",
+    headline: "Notice the pull",
+    copy: buildSelfCheckCopy(faction),
+    className: "identity-story-card--support",
   });
 
   return `
     <div class="starter-section">
       <div class="section-label">Layered Identity</div>
-      <div class="starter-grid">
-        ${coreCard}
-        ${secondaryCard}
-        ${expressionCard}
-        ${purityCard}
+      <div class="identity-story-grid">
+        ${beliefCard}
+        ${tensionCard}
+        ${selfCheckCard}
       </div>
     </div>`;
 }
@@ -395,8 +539,8 @@ function buildLayeredIdentityHtml({ dossier, faction }) {
 function buildTableIdentityCardHtml(faction) {
   const presentation = presentationForFaction(faction);
   return `
-    <div class="starter-card">
-      <div class="starter-title">How The Deck Sits At The Table</div>
+    <div class="how-this-plays-block">
+      <div class="how-this-plays-label">At the table</div>
       <div class="table-identity-list">
         <div><span>Role</span>${escapeHtml(presentation.tableRole)}</div>
         <div><span>How opponents read it</span>${escapeHtml(presentation.opponentRead)}</div>
@@ -408,12 +552,23 @@ function buildTableIdentityCardHtml(faction) {
 function buildLoreToMechanicCardHtml(faction) {
   const presentation = presentationForFaction(faction);
   return `
-    <div class="starter-card">
-      <div class="starter-title">How The Lore Becomes Play</div>
+    <div class="how-this-plays-block">
+      <div class="how-this-plays-label">In play</div>
       <div class="table-identity-list">
         <div><span>Lore role</span>${escapeHtml(presentation.loreRole)}</div>
         <div><span>Mechanical expression</span>${escapeHtml(presentation.mechanics)}</div>
         <div><span>Table experience</span>${escapeHtml(presentation.tableExperience)}</div>
+      </div>
+    </div>`;
+}
+
+function buildHowThisPlaysCardHtml(faction) {
+  return `
+    <div class="starter-card starter-card-wide how-this-plays-card">
+      <div class="starter-copy">This is the table-facing bridge between the placement language and the kind of Commander game it usually becomes.</div>
+      <div class="how-this-plays-grid">
+        ${buildTableIdentityCardHtml(faction)}
+        ${buildLoreToMechanicCardHtml(faction)}
       </div>
     </div>`;
 }
@@ -534,6 +689,12 @@ function resetLocalFlow() {
  * Clears the saved placement when needed and returns the app to the landing page.
  */
 async function handleRetake() {
+  const confirmMessage = SESSION.username
+    ? "Begin again? This will clear your saved reading and return you to the gate."
+    : "Begin again? This will leave this reading and return you to the gate.";
+  if (typeof window !== "undefined" && typeof window.confirm === "function" && !window.confirm(confirmMessage)) {
+    return;
+  }
   if (SESSION.username) {
     await vm_clearPlacement();
   }
@@ -1090,6 +1251,46 @@ function requestedDossierViewKey() {
   return (params.get("view") || params.get("fit") || params.get("guild") || "").toUpperCase();
 }
 
+function normalizeDossierPanelId(value) {
+  const panelId = String(value || "").trim().toLowerCase();
+  return DOSSIER_PANEL_IDS.has(panelId) ? panelId : "";
+}
+
+function normalizeDossierLayoutMode(value) {
+  const layoutMode = String(value || "").trim().toLowerCase();
+  return DOSSIER_LAYOUT_MODES.has(layoutMode) ? layoutMode : "";
+}
+
+function resolveDossierConsoleState() {
+  const params = new URLSearchParams(window.location.search);
+  const forcedPanel = normalizeDossierPanelId(APP_STATE.forceDossierPanel);
+  const requestedPanel = normalizeDossierPanelId(params.get("panel"));
+  const requestedLayout = normalizeDossierLayoutMode(params.get("layout"));
+  const activePanel =
+    forcedPanel ||
+    requestedPanel ||
+    normalizeDossierPanelId(APP_STATE.activeDossierPanel) ||
+    DOSSIER_DEFAULT_PANEL_ID;
+  const layoutMode =
+    requestedLayout ||
+    normalizeDossierLayoutMode(APP_STATE.dossierLayoutMode) ||
+    DOSSIER_DEFAULT_LAYOUT_MODE;
+
+  APP_STATE.activeDossierPanel = activePanel;
+  APP_STATE.dossierLayoutMode = layoutMode;
+  APP_STATE.forceDossierPanel = "";
+  return { activePanel, layoutMode };
+}
+
+function updateDossierUrlState({ panel = APP_STATE.activeDossierPanel, layout = APP_STATE.dossierLayoutMode } = {}) {
+  const activePanel = normalizeDossierPanelId(panel) || DOSSIER_DEFAULT_PANEL_ID;
+  const layoutMode = normalizeDossierLayoutMode(layout) || DOSSIER_DEFAULT_LAYOUT_MODE;
+  const url = new URL(window.location.href);
+  url.searchParams.set("panel", activePanel);
+  url.searchParams.set("layout", layoutMode);
+  window.history.replaceState(window.history.state || {}, "", `${url.pathname}${url.search}${url.hash}`);
+}
+
 function captureMazeReturnUrl() {
   const params = new URLSearchParams(window.location.search);
   APP_STATE.mazeReturnUrl = params.get("mazeReturnUrl") || "";
@@ -1145,6 +1346,241 @@ function sanitizeUserFacingCopy(value) {
     (copy, rule) => copy.replace(rule.pattern, rule.replacement),
     String(value ?? "")
   );
+}
+
+function buildDossierTabsHtml(location, activePanel, layoutMode) {
+  const active = normalizeDossierPanelId(activePanel) || DOSSIER_DEFAULT_PANEL_ID;
+  const isAllMode = layoutMode === "all";
+  return DOSSIER_PANEL_CONFIG.map((panel, index) => {
+    const selected = !isAllMode && panel.id === active;
+    return `
+      <button
+        class="vm-tab dossier-tab${selected ? " is-active" : ""}"
+        type="button"
+        id="dossier-tab-${location}-${panel.id}"
+        role="tab"
+        aria-selected="${selected ? "true" : "false"}"
+        aria-controls="dossier-panel-${panel.id}"
+        tabindex="${selected || (!isAllMode && index === 0) ? "0" : "-1"}"
+        data-dossier-tab="${panel.id}"
+        ${buildActionAttrs("set-dossier-panel", { panelId: panel.id })}
+      >${escapeHtml(panel.label)}</button>`;
+  }).join("");
+}
+
+function buildDossierPanelHtml({ id, activePanel, layoutMode, content }) {
+  const active = normalizeDossierPanelId(activePanel) || DOSSIER_DEFAULT_PANEL_ID;
+  const visible = layoutMode === "all" || id === active;
+  return `
+    <section
+      class="vm-panel dossier-panel${id === active ? " is-active" : ""}"
+      id="dossier-panel-${id}"
+      role="tabpanel"
+      aria-labelledby="dossier-tab-rail-${id}"
+      data-dossier-panel="${id}"
+      ${visible ? "" : "hidden"}
+    >
+      ${content}
+    </section>`;
+}
+
+function buildDossierLayoutToggleHtml(layoutMode) {
+  const isAllMode = layoutMode === "all";
+  return `
+    <button
+      class="btn-secondary dossier-view-toggle${isAllMode ? " is-active" : ""}"
+      type="button"
+      aria-pressed="${isAllMode ? "true" : "false"}"
+      ${buildActionAttrs("toggle-dossier-layout", { layout: isAllMode ? "focus" : "all" })}
+    >${isAllMode ? "Focus View" : "View All"}</button>`;
+}
+
+function buildDossierUtilityActionsHtml({ isPrimary, layoutMode }) {
+  const isAllMode = layoutMode === "all";
+  return `
+    <div class="dossier-utility-actions" data-dossier-utility-actions ${isAllMode ? "hidden" : ""}>
+      <button class="btn-secondary dossier-utility-btn" type="button" ${buildActionAttrs("retake")}>Begin Again</button>
+      ${isPrimary ? "" : `<button class="btn-secondary dossier-utility-btn" type="button" ${buildActionAttrs("return-primary-reading")}>Back to Primary Reading</button>`}
+    </div>`;
+}
+
+function buildPlacementSnapshotHtml({ dossier, faction, commanderLane }) {
+  const colorCode = getColorIdentity(faction.colors || faction.key);
+  const colorNames = colorIdentityNames(faction.colors || colorCode);
+  const closestAdjacent = dossier.adjacentFits?.[0]?.name || "No adjacent fit saved";
+  const identityMeta = colorCode ? `${colorNames} · ${colorCode}` : colorNames;
+  const startCopy = commanderStartSnapshotCopy({ commanderLane, dossier });
+  const firstStop = dossier.isPrimary ? "Open Start Here first" : "Open Start Here for this fit";
+
+  return `
+    <div class="dossier-snapshot" aria-label="Placement snapshot">
+      <div class="dossier-snapshot-card dossier-snapshot-card--placement">
+        <span>Current fit</span>
+        <strong>${escapeHtml(faction.name)}</strong>
+        <div class="dossier-snapshot-meta">
+          ${buildManaPipsHtml(faction.colors || [], "mana-pips-inline")}
+          <em>Identity | ${escapeHtml(identityMeta)}</em>
+        </div>
+      </div>
+      <div class="dossier-snapshot-card">
+        <span>Closest adjacent fit</span>
+        <strong>${escapeHtml(closestAdjacent)}</strong>
+      </div>
+      <div class="dossier-snapshot-card dossier-snapshot-card--narrative">
+        <span>How this usually starts</span>
+        <div class="dossier-snapshot-copy">${escapeHtml(startCopy)}</div>
+      </div>
+      <div class="dossier-snapshot-card">
+        <span>First stop</span>
+        <strong>${escapeHtml(firstStop)}</strong>
+      </div>
+    </div>`;
+}
+
+function normalizeDossierSegment(group, segment, segments) {
+  const segmentId = String(segment || "").trim().toLowerCase();
+  return segments.some((item) => item.id === segmentId) ? segmentId : segments[0]?.id || "";
+}
+
+function buildSegmentControlsHtml(group, segments, activeSegment, label) {
+  const active = normalizeDossierSegment(group, activeSegment, segments);
+  return `
+    <div class="dossier-segment-controls" role="group" aria-label="${escapeAttributeValue(label)}">
+      ${segments.map((segment) => `
+        <button
+          class="vm-tab dossier-segment-tab${segment.id === active ? " is-active" : ""}"
+          type="button"
+          aria-pressed="${segment.id === active ? "true" : "false"}"
+          data-dossier-segment="${group}:${segment.id}"
+          ${buildActionAttrs("set-dossier-segment", { segmentGroup: group, segment: segment.id })}
+        >${escapeHtml(segment.label)}</button>`).join("")}
+    </div>`;
+}
+
+function buildSegmentPanelHtml(group, segment, activeSegment, content) {
+  const visible = segment === activeSegment;
+  return `
+    <div class="dossier-segment-panel" data-dossier-segment-panel="${group}:${segment}" ${visible ? "" : "hidden"}>
+      ${content}
+    </div>`;
+}
+
+function applyDossierSegmentState(group) {
+  const segments = group === "mana-base" ? MANA_BASE_SEGMENTS : STARTER_CARD_SEGMENTS;
+  const active = normalizeDossierSegment(group, APP_STATE.dossierSegments[group], segments);
+  APP_STATE.dossierSegments[group] = active;
+
+  document.querySelectorAll(`[data-dossier-segment^="${group}:"]`).forEach((button) => {
+    const isActive = button.getAttribute("data-dossier-segment") === `${group}:${active}`;
+    button.classList.toggle("is-active", isActive);
+    button.setAttribute("aria-pressed", isActive ? "true" : "false");
+  });
+
+  document.querySelectorAll(`[data-dossier-segment-panel^="${group}:"]`).forEach((panel) => {
+    panel.hidden = panel.getAttribute("data-dossier-segment-panel") !== `${group}:${active}`;
+  });
+}
+
+function setDossierSegment(group, segment) {
+  if (group !== "starter-cards" && group !== "mana-base") {
+    return;
+  }
+  const segments = group === "mana-base" ? MANA_BASE_SEGMENTS : STARTER_CARD_SEGMENTS;
+  APP_STATE.dossierSegments[group] = normalizeDossierSegment(group, segment, segments);
+  applyDossierSegmentState(group);
+}
+
+function applyDossierConsoleState() {
+  const activePanel = normalizeDossierPanelId(APP_STATE.activeDossierPanel) || DOSSIER_DEFAULT_PANEL_ID;
+  const layoutMode = normalizeDossierLayoutMode(APP_STATE.dossierLayoutMode) || DOSSIER_DEFAULT_LAYOUT_MODE;
+  const isAllMode = layoutMode === "all";
+  const consoleNode = document.querySelector("[data-dossier-console]");
+
+  APP_STATE.activeDossierPanel = activePanel;
+  APP_STATE.dossierLayoutMode = layoutMode;
+
+  if (consoleNode) {
+    consoleNode.setAttribute("data-dossier-layout", layoutMode);
+  }
+
+  document.querySelectorAll("[data-dossier-panel]").forEach((panel) => {
+    const isActive = panel.getAttribute("data-dossier-panel") === activePanel;
+    panel.hidden = !isAllMode && !isActive;
+    panel.classList.toggle("is-active", isActive);
+  });
+
+  document.querySelectorAll("[data-dossier-tab]").forEach((tab) => {
+    const isActive = tab.getAttribute("data-dossier-tab") === activePanel;
+    tab.classList.toggle("is-active", isActive && !isAllMode);
+    tab.setAttribute("aria-selected", isActive && !isAllMode ? "true" : "false");
+    tab.setAttribute("tabindex", isActive || isAllMode ? "0" : "-1");
+  });
+
+  document.querySelectorAll(".dossier-view-toggle").forEach((button) => {
+    button.classList.toggle("is-active", isAllMode);
+    button.setAttribute("aria-pressed", isAllMode ? "true" : "false");
+    button.textContent = isAllMode ? "Focus View" : "View All";
+    button.dataset.layout = isAllMode ? "focus" : "all";
+  });
+
+  document.querySelectorAll("[data-dossier-utility-actions]").forEach((node) => {
+    node.hidden = isAllMode;
+  });
+
+  applyDossierSegmentState("starter-cards");
+  applyDossierSegmentState("mana-base");
+}
+
+function setDossierPanel(panelId, { updateUrl = true } = {}) {
+  const activePanel = normalizeDossierPanelId(panelId);
+  if (!activePanel) {
+    return;
+  }
+  APP_STATE.activeDossierPanel = activePanel;
+  APP_STATE.dossierLayoutMode = "focus";
+  applyDossierConsoleState();
+  if (updateUrl) {
+    updateDossierUrlState();
+  }
+  initializeDossierRadarIfVisible();
+}
+
+function setDossierLayoutMode(layoutMode, { updateUrl = true } = {}) {
+  const normalized = normalizeDossierLayoutMode(layoutMode) || DOSSIER_DEFAULT_LAYOUT_MODE;
+  APP_STATE.dossierLayoutMode = normalized;
+  applyDossierConsoleState();
+  if (updateUrl) {
+    updateDossierUrlState();
+  }
+  initializeDossierRadarIfVisible();
+}
+
+function isDossierRadarMeasurable() {
+  const canvas = document.getElementById("dossierManaRadar");
+  if (!canvas) return false;
+  const panel = canvas.closest("[data-dossier-panel]");
+  if (panel?.hidden) return false;
+  const parent = canvas.parentElement;
+  const rect = parent?.getBoundingClientRect?.() || canvas.getBoundingClientRect();
+  return rect.width > 0 && rect.height > 0;
+}
+
+function initializeDossierRadarIfVisible(result = APP_STATE.activeResult, faction = APP_STATE.activeDossierRadarFaction) {
+  const radarFaction = faction || getFaction(APP_STATE.activeViewKey) || getFaction(result?.faction);
+  if (!result || !radarFaction || !document.getElementById("dossierManaRadar")) {
+    return;
+  }
+
+  if (!isDossierRadarMeasurable()) {
+    window.requestAnimationFrame(() => {
+      if (isDossierRadarMeasurable()) {
+        initDossierManaRadar({ result, faction: radarFaction, profile: getDossierRadarProfile(result, radarFaction) });
+      }
+    });
+    return;
+  }
+
+  initDossierManaRadar({ result, faction: radarFaction, profile: getDossierRadarProfile(result, radarFaction) });
 }
 
 function normalizeCardName(value) {
@@ -1265,16 +1701,14 @@ function selectFlavorEchoes({ faction, tagRefs }) {
         toneMatches.length * 2 +
         (flavorExcerptForCard(card) ? 1 : 0) +
         ((card.image_uris?.art_crop || card.image_uris?.normal) ? 1 : 0);
-      return { card, refs, tagMatches, score };
+      return { card, refs, tagMatches, score, identityFits };
     })
-    .filter((item) => item.score > 4 && flavorExcerptForCard(item.card))
+    .filter((item) => item.identityFits && item.tagMatches.length && item.score > 6 && flavorExcerptForCard(item.card))
     .sort((left, right) => right.score - left.score || left.card.name.localeCompare(right.card.name))
     .slice(0, 3);
 }
 
-function buildDiscoverySummaryHtml({ dossier, faction, result, tagRefs }) {
-  const adjacent = adjacentMatchForSummary(result, dossier.targetFactionKey);
-  const adjacentFaction = adjacent?.faction ? getFaction(adjacent.faction) : null;
+function buildDiscoverySummaryHtml({ dossier, faction, result }) {
   const signalCopy = buildReadingSignalCopy({ dossier, faction, result, factions: APP_STATE.factions });
 
   return `
@@ -1284,8 +1718,8 @@ function buildDiscoverySummaryHtml({ dossier, faction, result, tagRefs }) {
         <div class="starter-card starter-card-wide">
           <div class="starter-title">${escapeHtml(dossier.isPrimary ? `Why ${faction.name} Rose First` : `${faction.name} As Adjacent Fit`)}</div>
           <div class="starter-copy">${escapeHtml(signalCopy)}</div>
-          <div class="signal-technical">${escapeHtml(technicalSignalCopy(result, dossier.targetFactionKey))}</div>
         </div>
+        ${buildSignalStrengthCardHtml({ dossier, result })}
       </div>
     </div>`;
 }
@@ -1312,46 +1746,48 @@ function buildDossierInterpretationHtml({ dossier, faction, result, tagRefs }) {
     ${forkHtml}
     ${buildLayeredIdentityHtml({ dossier, faction })}
     <div class="starter-section">
-      <div class="section-label">Table Identity</div>
-      <div class="starter-grid">${buildTableIdentityCardHtml(faction)}</div>
-    </div>
-    <div class="starter-section">
-      <div class="section-label">Lore To Mechanic</div>
-      <div class="starter-grid">${buildLoreToMechanicCardHtml(faction)}</div>
+      <div class="section-label">How This Plays</div>
+      <div class="starter-grid">${buildHowThisPlaysCardHtml(faction)}</div>
     </div>
     <div class="starter-section">
       <div class="section-label">Why This Fits You</div>
-      <div class="starter-grid">${buildTagExplanationCards(tagRefs, faction, 4)}</div>
+      <div class="starter-grid">${buildTagExplanationCards(tagRefs, faction, 3)}</div>
     </div>`;
 }
 
-function buildFlavorEchoWhy({ card, tagMatches, faction }) {
+function buildFlavorEchoWhy({ tagMatches, faction }) {
   const presentation = presentationForFaction(faction);
   const bestRef = tagMatches.find((ref) => ref.category === "identity" || ref.category === "lore-tone") || tagMatches[0];
   const entry = bestRef ? taxonomyEntry(bestRef.category, bestRef.tag) : null;
-  const lead = stablePhrase("flavorLead", `${faction?.key || faction?.name}:${card?.name}:${bestRef?.tag || ""}`);
   if (entry) {
-    return `${lead}: ${entry.vox_mana_interpretation} Here, that card moment supports ${presentation.shortName}'s ${presentation.tableExperience}.`;
+    return `This is one example of ${entry.display_name.toLowerCase()} showing up in card form. In this ${presentation.shortName} reading, it points toward ${presentation.tableExperience}.`;
   }
-  return `${lead}: this card belongs to the same emotional shape as the reading: ${presentation.tableExperience}.`;
+  return "";
 }
 
 function buildFlavorEchoesHtml(flavorEchoes = [], faction = {}) {
   if (!flavorEchoes.length) return "";
+  const groundedEchoes = flavorEchoes
+    .map((entry) => ({
+      ...entry,
+      why: buildFlavorEchoWhy({ tagMatches: entry.tagMatches, faction }),
+    }))
+    .filter((entry) => entry.why);
+  if (!groundedEchoes.length) return "";
   return `
     <div class="starter-section">
-      <div class="section-label">Flavor Echoes</div>
+      <div class="section-label">What This Looks Like In Cards</div>
+      <div class="flavor-echo-intro">These are examples of the reading's feel in actual cards, not mandatory pickups.</div>
       <div class="flavor-echo-grid">
-        ${flavorEchoes.map(({ card, tagMatches }) => {
+        ${groundedEchoes.map(({ card, tagMatches, why }) => {
           const excerpt = wordExcerpt(flavorExcerptForCard(card), 18);
           const image = card.image_uris?.art_crop || card.image_uris?.normal || card.card_faces?.[0]?.image_uris?.art_crop || "";
-          const why = buildFlavorEchoWhy({ card, tagMatches, faction });
           return `
             <a class="flavor-echo-card" href="${escapeHtml(card.scryfall_uri || "#")}" target="_blank" rel="noopener">
               ${image ? `<img src="${escapeHtml(image)}" alt="" loading="lazy">` : ""}
               <span class="flavor-echo-body">
                 <span class="flavor-echo-name">${escapeHtml(card.name)}</span>
-                <span class="flavor-echo-kicker">Card moment</span>
+                <span class="flavor-echo-kicker">Example card moment</span>
                 <span class="flavor-echo-text">${escapeHtml(excerpt)}</span>
                 <span class="flavor-echo-why">${escapeHtml(why)}</span>
                 <span class="vm-tag-row">${renderTagChips(tagMatches, 3)}</span>
@@ -1466,11 +1902,12 @@ function renderResult(viewKey) {
   const commanderDirectoryLinks = dossier.links.commanderStart || [];
   const commanderPreviewCandidates = dossier.commanderRecommendations || [];
   const landRecommendations = dossier.landRecommendations || {};
+  const modelMechanics = APP_STATE.placementModel?.factions?.[dossier.targetFactionKey]?.identity?.mechanics || "";
   const readingTagRefs = selectReadingTagRefs({
     dossier,
-    faction,
     result,
     taxonomy: APP_STATE.tagTaxonomy,
+    modelMechanics,
   });
   const flavorEchoes = selectFlavorEchoes({ faction, tagRefs: readingTagRefs });
   const mazeContext = buildArchscryMazeContext({ result, dossier, faction });
@@ -1480,7 +1917,7 @@ function renderResult(viewKey) {
     mazeContext,
     window.location.href
   );
-  const discoverySummaryHtml = buildDiscoverySummaryHtml({ dossier, faction, result, tagRefs: readingTagRefs });
+  const discoverySummaryHtml = buildDiscoverySummaryHtml({ dossier, faction, result });
   const dossierInterpretationHtml = buildDossierInterpretationHtml({ dossier, faction, result, tagRefs: readingTagRefs });
   const flavorEchoesHtml = buildFlavorEchoesHtml(flavorEchoes, faction);
   const mazeDiscoveryHtml = buildMazeDiscoveryHtml(personalizedMazePaths);
@@ -1577,16 +2014,14 @@ function renderResult(viewKey) {
       <div class="adjacent-grid">${adjacentHtml}</div>
     </div>`;
   const resultStatus = dossier.resultStatus;
+  const resultStatusHtml = `
+    <div class="result-status">
+      <strong>${escapeHtml(resultStatus)}</strong>
+      ${SESSION.username ? ` Saved under ${escapeHtml(SESSION.username)}.` : ""}
+    </div>`;
   const returnToPrimaryButton = !isPrimary
     ? `<div class="footer-button-row"><button class="btn-secondary" type="button" ${buildActionAttrs("return-primary-reading")}>Back to Primary Reading</button></div>`
     : "";
-  const primaryPlacementHtml = isPrimary
-    ? adjacentSectionHtml
-    : `
-      <div class="result-status">
-        <strong>${resultStatus}</strong>
-        ${SESSION.username ? ` Saved under ${SESSION.username}.` : ""}
-      </div>`;
 
   const saveButtonLabel = SESSION.username ? "Save this reading" : "Save with Google";
   const returnToTerminalButton =
@@ -1629,36 +2064,37 @@ function renderResult(viewKey) {
           <div class="land-cards-row">${landSlots(landRecommendations.utility, "lu")}</div>
         </div>`
     : "";
-
-  document.getElementById("result-inner").innerHTML = `
+  const { activePanel, layoutMode } = resolveDossierConsoleState();
+  const starterSegment = normalizeDossierSegment(
+    "starter-cards",
+    APP_STATE.dossierSegments["starter-cards"],
+    STARTER_CARD_SEGMENTS
+  );
+  const manaBaseSegment = normalizeDossierSegment(
+    "mana-base",
+    APP_STATE.dossierSegments["mana-base"],
+    MANA_BASE_SEGMENTS
+  );
+  APP_STATE.dossierSegments["starter-cards"] = starterSegment;
+  APP_STATE.dossierSegments["mana-base"] = manaBaseSegment;
+  const placementSnapshotHtml = buildPlacementSnapshotHtml({ dossier, faction, commanderLane });
+  const utilityActionsHtml = buildDossierUtilityActionsHtml({ isPrimary, layoutMode });
+  const placementPanelHtml = `
     ${adjacentContextHtml}
-
-    <div class="guild-banner" style="background:${faction.banner}">
-      <div class="guild-eyebrow">${isPrimary ? `Your ${institutionLabel}` : `Adjacent ${institutionLabel} Fit`}</div>
-      <div class="guild-name" style="color:${faction.accent}">${faction.name}</div>
-      <div class="guild-tagline">${faction.tagline}</div>
-      <div class="mana-pips">${pipsHtml}</div>
-      <div class="guild-philosophy">${escapeHtml(heroNarrative)}</div>
-      <div class="guild-lore-summary">${faction.philosophy}</div>
-    </div>
-
-    ${primaryPlacementHtml}
+    ${resultStatusHtml}
     ${returnToPrimaryButton}
-
-    ${renderDossierRadarSection({ result, faction, dossier })}
-
-    ${discoverySummaryHtml}
-
+    ${renderDossierRadarSection({ result, faction, dossier, flavorSnippets: flavorSnippetsForFaction(faction) })}
+    ${discoverySummaryHtml}`;
+  const whyPanelHtml = `
     ${dossierInterpretationHtml}
-
     ${evidenceHtml ? `
       <div class="starter-section">
-        <div class="section-label">Reading Omens</div>
+        <div class="section-label">Signals From Your Answers</div>
+        <p class="signals-intro">These are answer patterns that kept nudging this placement forward. Use them as a sanity check: if these signals match the Commander game you want to play, the reading is probably pointing in a useful direction.</p>
         <div class="starter-grid">${evidenceHtml}</div>
       </div>` : ""}
-
-    ${!isPrimary ? adjacentSectionHtml : ""}
-
+    ${flavorEchoesHtml}`;
+  const startPanelHtml = `
     <div class="starter-section">
       <div class="section-label">Start Here</div>
       <div class="starter-grid starter-grid-start">
@@ -1676,65 +2112,69 @@ function renderResult(viewKey) {
           ${commanderPreviewHtml}
         </div>
       </div>
-    </div>
-
-    ${flavorEchoesHtml}
+    </div>`;
+  const deckStartsPanelHtml = `
     <div class="decks-section">
       <div class="section-label">Commander Deck Starts</div>
       <div class="decks-grid">${decksHtml}</div>
     </div>
-    <div class="archetypes-section">
-      <div class="section-label">Playstyle Archetypes</div>
-      <div class="archetypes-grid">${archetypeHtml}</div>
-    </div>
+    ${archetypeHtml ? `
+      <div class="archetypes-section">
+        <div class="section-label">Commander Lanes</div>
+        <div class="archetypes-grid">${archetypeHtml}</div>
+      </div>` : ""}`;
+  const starterCardsPanelHtml = `
     <div class="staples-section">
       <div class="section-label">${institutionLabel} Starter Card References</div>
-      <div class="staples-category">
-        <div class="staple-cat-label">Creatures</div>
-        <div class="staple-row">${cardSlots(dossier.starterCards?.creatures, "sc", "staple-placeholder", "staple-img")}</div>
-      </div>
-      <div class="staples-category">
-        <div class="staple-cat-label">Instants and Sorceries</div>
-        <div class="staple-row">${cardSlots(dossier.starterCards?.spells, "ss", "staple-placeholder", "staple-img")}</div>
-      </div>
-      <div class="staples-category">
-        <div class="staple-cat-label">Enchantments and Artifacts</div>
-        <div class="staple-row">${cardSlots(dossier.starterCards?.permanents, "sp", "staple-placeholder", "staple-img")}</div>
-      </div>
-    </div>
+      ${buildSegmentControlsHtml("starter-cards", STARTER_CARD_SEGMENTS, starterSegment, "Starter card groups")}
+      ${buildSegmentPanelHtml("starter-cards", "creatures", starterSegment, `
+        <div class="staples-category">
+          <div class="staple-cat-label">Creatures</div>
+          <div class="staple-row">${cardSlots(dossier.starterCards?.creatures, "sc", "staple-placeholder", "staple-img")}</div>
+        </div>`)}
+      ${buildSegmentPanelHtml("starter-cards", "spells", starterSegment, `
+        <div class="staples-category">
+          <div class="staple-cat-label">Instants and Sorceries</div>
+          <div class="staple-row">${cardSlots(dossier.starterCards?.spells, "ss", "staple-placeholder", "staple-img")}</div>
+        </div>`)}
+      ${buildSegmentPanelHtml("starter-cards", "permanents", starterSegment, `
+        <div class="staples-category">
+          <div class="staple-cat-label">Enchantments and Artifacts</div>
+          <div class="staple-row">${cardSlots(dossier.starterCards?.permanents, "sp", "staple-placeholder", "staple-img")}</div>
+        </div>`)}
+    </div>`;
+  const manaBasePanelHtml = `
     <div class="lands-section">
       <div class="section-label">Mana Base Starting Map</div>
+      ${buildSegmentControlsHtml("mana-base", MANA_BASE_SEGMENTS, manaBaseSegment, "Mana base tiers")}
       <div class="lands-tiers">
-        <div class="land-tier tier-basics">
-          <div class="land-tier-label">Basics</div>
-          <div class="land-tier-copy">${basicLandCopy}</div>
-        </div>
-        <div class="land-tier tier-premium">
-          <div class="land-tier-label">Premium</div>
-          <div class="land-tier-copy">${landLaneCopy.premium}</div>
-          <div class="land-cards-row">${landSlots(landRecommendations.premium, "lp")}</div>
-        </div>
-        <div class="land-tier tier-midrange">
-          <div class="land-tier-label">Midrange</div>
-          <div class="land-tier-copy">${landLaneCopy.midrange}</div>
-          <div class="land-cards-row">${landSlots(landRecommendations.midrange, "lm")}</div>
-        </div>
-        <div class="land-tier tier-budget">
-          <div class="land-tier-label">Budget</div>
-          <div class="land-tier-copy">${landLaneCopy.budget}</div>
-          <div class="land-cards-row">${landSlots(landRecommendations.budget, "lb")}</div>
-        </div>
-        ${utilityTierHtml}
+        ${buildSegmentPanelHtml("mana-base", "basics", manaBaseSegment, `
+          <div class="land-tier tier-basics">
+            <div class="land-tier-label">Basics</div>
+            <div class="land-tier-copy">${basicLandCopy}</div>
+          </div>`)}
+        ${buildSegmentPanelHtml("mana-base", "premium", manaBaseSegment, `
+          <div class="land-tier tier-premium">
+            <div class="land-tier-label">Premium</div>
+            <div class="land-tier-copy">${landLaneCopy.premium}</div>
+            <div class="land-cards-row">${landSlots(landRecommendations.premium, "lp")}</div>
+          </div>`)}
+        ${buildSegmentPanelHtml("mana-base", "midrange", manaBaseSegment, `
+          <div class="land-tier tier-midrange">
+            <div class="land-tier-label">Midrange</div>
+            <div class="land-tier-copy">${landLaneCopy.midrange}</div>
+            <div class="land-cards-row">${landSlots(landRecommendations.midrange, "lm")}</div>
+          </div>`)}
+        ${buildSegmentPanelHtml("mana-base", "budget", manaBaseSegment, `
+          <div class="land-tier tier-budget">
+            <div class="land-tier-label">Budget</div>
+            <div class="land-tier-copy">${landLaneCopy.budget}</div>
+            <div class="land-cards-row">${landSlots(landRecommendations.budget, "lb")}</div>
+          </div>`)}
+        ${buildSegmentPanelHtml("mana-base", "utility", manaBaseSegment, utilityTierHtml)}
       </div>
-    </div>
-
-    ${mazeDiscoveryHtml}
-    ${apocryphaHtml}
-
-    <p class="decree-footer">
-      ${atlasFrontierCopy}
-    </p>
-
+    </div>`;
+  const footerActionsHtml = `
     <div class="footer-actions">
       <div class="footer-note">Card and land images via Scryfall API. Starter references are curated from faction data; deck links route out to EDHREC, Archidekt, and MTGDecks, while Maze stays inside the reading flow.</div>
       <div class="footer-button-row">
@@ -1744,13 +2184,72 @@ function renderResult(viewKey) {
         <button class="btn-secondary" type="button" ${buildActionAttrs("retake")}>Begin Again</button>
       </div>
     </div>`;
+  const mazePanelHtml = `
+    ${mazeDiscoveryHtml}
+    ${apocryphaHtml}
+    <p class="decree-footer">
+      ${atlasFrontierCopy}
+    </p>
+    ${footerActionsHtml}`;
+  const dossierPanelsHtml = [
+    { id: "placement", content: placementPanelHtml },
+    { id: "start", content: startPanelHtml },
+    { id: "why", content: whyPanelHtml },
+    { id: "adjacent", content: `${returnToPrimaryButton}${adjacentSectionHtml}` },
+    { id: "commander-deck-starts", content: deckStartsPanelHtml },
+    { id: "starter-cards", content: starterCardsPanelHtml },
+    { id: "mana-base", content: manaBasePanelHtml },
+    { id: "maze-discovery", content: mazePanelHtml },
+  ].map((panel) => buildDossierPanelHtml({
+    id: panel.id,
+    activePanel,
+    layoutMode,
+    content: panel.content,
+  })).join("");
+
+  document.getElementById("result-inner").innerHTML = `
+    <div class="guild-banner" style="background:${faction.banner}">
+      <div class="guild-eyebrow">${isPrimary ? `Your ${institutionLabel}` : `Adjacent ${institutionLabel} Fit`}</div>
+      <div class="guild-name" style="color:${faction.accent}">${faction.name}</div>
+      <div class="guild-tagline">${faction.tagline}</div>
+      <div class="mana-pips">${pipsHtml}</div>
+      <div class="guild-philosophy">${escapeHtml(heroNarrative)}</div>
+      <div class="guild-lore-summary">${faction.philosophy}</div>
+    </div>
+
+    ${placementSnapshotHtml}
+
+    <div class="dossier-console" data-dossier-console data-dossier-layout="${layoutMode}">
+      <div class="dossier-mobile-nav">
+        <div class="vm-tabs dossier-mobile-tabs" role="tablist" aria-label="Archscry dossier sections">
+          ${buildDossierTabsHtml("mobile", activePanel, layoutMode)}
+        </div>
+        ${buildDossierLayoutToggleHtml(layoutMode)}
+        ${utilityActionsHtml}
+      </div>
+      <div class="dossier-console-grid">
+        <aside class="vm-side-rail dossier-rail" aria-label="Archscry dossier directory">
+          <div class="dossier-rail-label">Dossier Directory</div>
+          <div class="vm-tabs dossier-rail-tabs" role="tablist" aria-label="Archscry dossier sections" aria-orientation="vertical">
+            ${buildDossierTabsHtml("rail", activePanel, layoutMode)}
+          </div>
+          ${buildDossierLayoutToggleHtml(layoutMode)}
+          ${utilityActionsHtml}
+        </aside>
+        <div class="dossier-workspace">
+          ${dossierPanelsHtml}
+        </div>
+      </div>
+    </div>`;
 
   APP_STATE.activeResult = result;
   APP_STATE.activeViewKey = activeKey;
+  APP_STATE.activeDossierRadarFaction = faction;
   showSection("result");
+  applyDossierConsoleState();
   applyTerminalVisibility();
   updateTopbar();
-  initDossierManaRadar({ result, faction, profile: getDossierRadarProfile(result, faction) });
+  initializeDossierRadarIfVisible(result, faction);
   if (!shouldDisableResultCardArt()) {
     loadResultCardArt(faction, commanderPreviewCandidates, dossier.starterCards, landRecommendations);
   }
@@ -1961,10 +2460,130 @@ async function saveCurrentResult() {
   }
 }
 
+let cardPreviewOverlay = null;
+
+function canShowCardPreviewOverlay() {
+  const supportsHover = typeof window.matchMedia !== "function" ||
+    window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+  const allowsMotion = typeof window.matchMedia !== "function" ||
+    !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  return supportsHover && allowsMotion;
+}
+
+function ensureCardPreviewOverlay() {
+  if (cardPreviewOverlay) {
+    return cardPreviewOverlay;
+  }
+  const overlay = document.createElement("div");
+  overlay.className = "card-preview-overlay";
+  overlay.setAttribute("aria-hidden", "true");
+  overlay.innerHTML = `<img alt=""><span></span>`;
+  document.body.appendChild(overlay);
+  cardPreviewOverlay = overlay;
+  return overlay;
+}
+
+function positionCardPreviewOverlay(overlay, source, event = null) {
+  const rect = source.getBoundingClientRect();
+  const width = source.classList.contains("land-img") ? 228 : 252;
+  const height = Math.round(width * 88 / 63);
+  const anchorX = event?.clientX || rect.right;
+  const anchorY = event?.clientY || rect.top + rect.height / 2;
+  const gap = 18;
+  const spaceRight = window.innerWidth - anchorX;
+  const left = spaceRight > width + gap
+    ? anchorX + gap
+    : Math.max(12, anchorX - width - gap);
+  const top = Math.max(12, Math.min(window.innerHeight - height - 12, anchorY - height / 2));
+  overlay.style.width = `${width}px`;
+  overlay.style.left = `${left}px`;
+  overlay.style.top = `${top}px`;
+}
+
+function showCardPreviewOverlay(source, event = null) {
+  if (!canShowCardPreviewOverlay() || !(source instanceof HTMLImageElement)) {
+    return;
+  }
+  const overlay = ensureCardPreviewOverlay();
+  const image = overlay.querySelector("img");
+  const label = overlay.querySelector("span");
+  if (image) {
+    image.src = source.currentSrc || source.src;
+    image.alt = "";
+  }
+  if (label) {
+    label.textContent = source.alt || "Card preview";
+  }
+  positionCardPreviewOverlay(overlay, source, event);
+  overlay.classList.add("is-visible");
+}
+
+function hideCardPreviewOverlay() {
+  cardPreviewOverlay?.classList.remove("is-visible");
+}
+
+function cardPreviewImageFromEvent(event) {
+  const wrap = event.target instanceof Element
+    ? event.target.closest(".staple-wrap, .land-wrap")
+    : null;
+  return wrap?.querySelector("img.staple-img, img.land-img") || null;
+}
+
+function handleCardPreviewPointerOver(event) {
+  const image = cardPreviewImageFromEvent(event);
+  if (image) {
+    showCardPreviewOverlay(image, event);
+  }
+}
+
+function handleCardPreviewPointerMove(event) {
+  if (!cardPreviewOverlay?.classList.contains("is-visible")) {
+    return;
+  }
+  const image = cardPreviewImageFromEvent(event);
+  if (image) {
+    positionCardPreviewOverlay(cardPreviewOverlay, image, event);
+  }
+}
+
+function handleCardPreviewPointerOut(event) {
+  const wrap = event.target instanceof Element
+    ? event.target.closest(".staple-wrap, .land-wrap")
+    : null;
+  const relatedInside = event.relatedTarget instanceof Node && wrap?.contains(event.relatedTarget);
+  if (wrap && !relatedInside) {
+    hideCardPreviewOverlay();
+  }
+}
+
+function handleCardPreviewFocusIn(event) {
+  const image = cardPreviewImageFromEvent(event);
+  if (image) {
+    showCardPreviewOverlay(image);
+  }
+}
+
+function handleCardPreviewFocusOut(event) {
+  const wrap = event.target instanceof Element
+    ? event.target.closest(".staple-wrap, .land-wrap")
+    : null;
+  const relatedInside = event.relatedTarget instanceof Node && wrap?.contains(event.relatedTarget);
+  if (wrap && !relatedInside) {
+    hideCardPreviewOverlay();
+  }
+}
+
 function bindArchscryControls() {
-  document.querySelector(".app")?.addEventListener("click", (event) => {
+  const app = document.querySelector(".app");
+  app?.addEventListener("click", (event) => {
     void handleArchscryActionClick(event);
   });
+  app?.addEventListener("keydown", handleArchscryKeydown);
+  app?.addEventListener("pointerover", handleCardPreviewPointerOver);
+  app?.addEventListener("pointermove", handleCardPreviewPointerMove);
+  app?.addEventListener("pointerout", handleCardPreviewPointerOut);
+  app?.addEventListener("focusin", handleCardPreviewFocusIn);
+  app?.addEventListener("focusout", handleCardPreviewFocusOut);
 }
 
 async function handleArchscryActionClick(event) {
@@ -2014,8 +2633,58 @@ async function handleArchscryActionClick(event) {
     case "save-current-result":
       await saveCurrentResult();
       return;
+    case "set-dossier-panel":
+      setDossierPanel(actionNode.dataset.panelId || "");
+      return;
+    case "toggle-dossier-layout":
+      setDossierLayoutMode(actionNode.dataset.layout || "focus");
+      return;
+    case "set-dossier-segment":
+      setDossierSegment(actionNode.dataset.segmentGroup || "", actionNode.dataset.segment || "");
+      return;
     default:
   }
+}
+
+function handleArchscryKeydown(event) {
+  const tab = event.target.closest("[data-dossier-tab]");
+  if (!(tab instanceof HTMLElement)) return;
+  const tablist = tab.closest('[role="tablist"]');
+  if (!tablist) return;
+  const tabs = Array.from(tablist.querySelectorAll("[data-dossier-tab]"));
+  const currentIndex = tabs.indexOf(tab);
+  if (currentIndex < 0) return;
+
+  let nextIndex = currentIndex;
+  switch (event.key) {
+    case "ArrowRight":
+    case "ArrowDown":
+      nextIndex = (currentIndex + 1) % tabs.length;
+      break;
+    case "ArrowLeft":
+    case "ArrowUp":
+      nextIndex = (currentIndex - 1 + tabs.length) % tabs.length;
+      break;
+    case "Home":
+      nextIndex = 0;
+      break;
+    case "End":
+      nextIndex = tabs.length - 1;
+      break;
+    case "Enter":
+    case " ":
+      event.preventDefault();
+      setDossierPanel(tab.dataset.dossierTab || "");
+      return;
+    default:
+      return;
+  }
+
+  event.preventDefault();
+  const nextTab = tabs[nextIndex];
+  if (!(nextTab instanceof HTMLElement)) return;
+  setDossierPanel(nextTab.dataset.dossierTab || "");
+  nextTab.focus();
 }
 
 function renderInitializationError(error) {
@@ -2048,6 +2717,11 @@ function restoreInitialView(savedFromOAuth) {
   captureMazeReturnUrl();
   const mazeReturnAnchor = APP_STATE.mazeReturnAnchor;
   APP_STATE.mazeReturnAnchor = "";
+  if (mazeReturnAnchor) {
+    APP_STATE.activeDossierPanel = "maze-discovery";
+    APP_STATE.forceDossierPanel = "maze-discovery";
+    APP_STATE.dossierLayoutMode = "focus";
+  }
 
   if (savedFromOAuth && result) {
     APP_STATE.activeResult = result;

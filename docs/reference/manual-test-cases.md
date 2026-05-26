@@ -42,13 +42,27 @@
 3. After the extraction or route-local refactor, run `npm.cmd run test:visual:strategium`.
 4. Confirm the compare run writes current and diff artifacts under `artifacts/visual-regression/strategium/current/` and `artifacts/visual-regression/strategium/diff/`.
 5. Confirm each capture stays within the mismatch budget and the run reports no new Strategium console or page errors beyond `console-baseline.json`.
-6. If the harness fails, review the generated diff PNGs before accepting any visual change.
+6. In a browser, verify `.vm-checklist-button` remains readable in default, hover, `:focus-visible`, and `aria-pressed="true"` states after any Strategium panel-contrast change.
+7. If the harness fails, review the generated diff PNGs before accepting any visual change.
+
+## `apocrypha/index.html` visual regression harness
+
+1. Before changing `apocrypha/index.html`, `assets/css/apocrypha.css`, or `assets/js/apocrypha.js`, run `npm.cmd run test:visual:apocrypha:baseline`.
+2. Confirm baseline screenshots exist under `artifacts/visual-regression/apocrypha/baseline/` for:
+   - `hero-desktop.png`
+   - `hero-mobile.png`
+   - `references-desktop.png`
+3. After the hero or route-local refactor, run `npm.cmd run test:visual:apocrypha`.
+4. Confirm the compare run writes current and diff artifacts under `artifacts/visual-regression/apocrypha/current/` and `artifacts/visual-regression/apocrypha/diff/`.
+5. Confirm each capture stays within the mismatch budget and the run reports no new Apocrypha console or page errors beyond `console-baseline.json`.
+6. Confirm `/library/` still forwards into `/apocrypha/` after any Apocrypha visual pass.
+7. If the harness fails, review the generated diff PNGs before accepting any visual change.
 
 ## The Implicit Maze VM-129 console pass
 
 1. Open `/maze/` and confirm the shared floating topbar marks `The Implicit Maze` as the active route.
 2. Confirm the command deck shows the `The Implicit Maze` eyebrow, `Search Magic by instinct, syntax, or shape.` headline, three mode cards, and a single usable search input.
-3. Search Plain Reading for `red vampires that sacrifice creatures`; confirm the query inspector shows the plain input, translated syntax, reason text, Copy, and Open in Scryfall.
+3. Search Plain Reading for `red vampires that sacrifice creatures`; confirm the query inspector shows the plain input, translated syntax, and reason text, while Copy and Open in Scryfall are available from the search row.
 4. Switch to Operator's Hand and search `ci<=br t:creature o:sacrifice f:commander`; confirm raw syntax remains visible and the Scryfall link points at the same normalized query.
 5. Switch to The Loom, select two colors, creature type, Commander format, and a keyword; confirm the generated syntax remains visible when switching back to Operator's Hand.
 6. Click one item each from Helper Searches, Discovery Paths, By Color, Format, and Recent Searches; confirm Helper Searches remain present and separate from Recent Searches.
@@ -59,6 +73,57 @@
 11. Paginate with Load More, open and close a card modal by button, outside click, and Escape, and confirm focus returns to the opener.
 12. At mobile width, confirm the stash does not cover search/results and the mode/search/path panels do not introduce horizontal overflow.
 13. Enable reduced motion and confirm animated Maze atmosphere/effects are disabled or materially reduced.
+
+## VM-129D Maze mode separation and console usability
+
+1. Open `/maze/` and confirm Plain Reading, Operator's Hand, and The Loom each change the command-deck context copy and visual framing.
+2. Confirm the headline no longer collides and the search input has enough room for long raw syntax.
+3. In Plain Reading, search `red vampires that sacrifice creatures`; confirm the Query Inspector shows the original phrase, translated syntax, and reason/assumptions when available.
+4. In Operator's Hand, search `ci<=br t:creature o:sacrifice f:commander`; confirm redundant inspector chrome stays hidden when normalization did not change the query.
+5. Click the `?` help button in each mode and confirm visible, mode-specific help opens on click and updates `aria-expanded`.
+6. In The Loom, confirm the command deck becomes builder-first, reset board keeps Builder active, restores Commander format, and produces `f:commander`.
+7. Confirm Clear preserves the active mode: Plain Reading stays Plain Reading, Operator's Hand stays Operator's Hand, and Builder keeps its current filters.
+8. Confirm the sidebar order is From Your Dossier, Discovery Paths, Recent Searches, Helper Searches, By Color, and Format; Helper Searches should be collapsed by default.
+9. On a fresh Maze load, confirm the sidebar format and builder format default to Commander, but explicit `f:` tokens in URLs, raw syntax, helper paths, or dossier handoff queries are not overwritten.
+10. Search enough results to enable `Load More`; confirm local pages append immediately and remote `next_page` pagination recovers the button state if a fetch fails.
+11. Open and close the deck scratchpad drawer; confirm `stash-panel` remains mounted, writes to `stash-count` and `stash-body`, and does not cover the command deck while closed.
+12. Add a card from the grid, add a card to Commander Ideas from the modal, copy the stash export, and clear the stash.
+13. Open `/maze/?from=archscry&readingId=test&guild=izzet&fit=UR&readingTitle=Test%20Reading&returnUrl=/archscry/` and confirm the return banner/link still works.
+14. Open `/maze/?q=ci%3C%3Dur%20t%3Alegendary%20t%3Acreature%20f%3Acommander` and confirm it lands in Operator's Hand with the exact query preserved.
+15. At mobile/devtools-width desktop, confirm the drawer and command deck remain usable without horizontal overflow.
+16. Enable reduced motion and confirm Maze transitions and atmosphere effects are disabled or materially reduced.
+
+## VM-129E Maze glass and sidebar disclosures
+
+1. Open `/maze/` and confirm the major panels are more transparent than VM-129D while the text remains readable.
+2. Confirm the rich background art, stars, and glowing orbs read through the command deck, sidebar, results panel, and scratchpad drawer.
+3. Confirm Helper Searches, Recent Searches, and By Color all use the same plus/minus disclosure affordance.
+4. Confirm Recent Searches is hidden when empty, appears in the third sidebar position after a search, and opens automatically once populated.
+5. Confirm By Color defaults collapsed and reveals the existing color shortcut buttons when opened.
+6. Confirm Plain Reading, Operator's Hand, The Loom, stash drawer, and Load More still work after the polish pass.
+
+## VM-129F Maze textarea and inspector space pass
+
+1. Open `/maze/` and confirm `#search-input` is a true multi-line textarea with two visible rows and vertical resize.
+2. Type a long raw query, confirm it wraps across lines without horizontal clipping, then press Enter to search.
+3. Type another query with Shift+Enter line breaks and confirm the submitted Scryfall query normalizes the newlines to spaces.
+4. Search Plain Reading for `red vampires that sacrifice creatures` and confirm Query Inspector remains visible as a translation bridge.
+5. Search unchanged raw syntax and confirm Copy/Open in Scryfall are available in the search row while the redundant inspector stays hidden.
+6. Search raw syntax that receives an added format/default normalization and confirm the inspector appears with the normalized syntax and reason.
+7. Switch to The Loom and confirm the title and supporting copy align as a balanced desktop header, with the builder board full-width below.
+8. Confirm compact labels and action buttons, including Copy/Open and inspector pills, size to their text without clipping at normal zoom.
+9. Confirm no `?` search-help button remains in the command deck.
+10. In The Loom, click Clear and confirm it resets the visual board exactly like Reset board, leaving the generated field at the Commander default.
+
+## VM-129C Maze / Archscry atmosphere convergence
+
+1. Open `/maze/` beside `newIndex2.html` and `/strategium/`; confirm Maze uses the same rich painted-background family with visible stars, glowing orbs, translucent black-glass panels, gold accents, and no teal-forward console wash.
+2. Inspect the Maze `.vm-bg__stars` canvas and confirm it is attached to `body`, sized to the current viewport, and marked by the rich runtime instead of staying at the default `300x150` canvas size.
+3. Narrow the desktop viewport or open devtools and confirm the deck scratchpad drawer remains mounted/off-canvas while closed and does not overlap the command deck, return banner, search input, or results panel.
+4. Open `/archscry/`; confirm stars/orbs are visible again while the route remains darker and more dossier-focused than Home, Strategium, or Maze.
+5. Confirm Archscry no longer has `data-bg-clean="true"` and does have `data-vm-atmosphere="rich"`.
+6. Enable reduced motion and confirm Maze and Archscry render a static atmosphere frame without continuous animation.
+7. Confirm Strategium is unchanged and still uses its existing local atmosphere runtime rather than loading an additional renderer.
 
 ## Happy path - quick reading
 

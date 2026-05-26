@@ -3,7 +3,7 @@ import { normalizeSortDirection, parseScryfallNaturalLanguage, setScryfallDictio
 import { buildVisualBuilderQuery, parseKeywordInput } from "./research-builder.js";
 import { resolveModeInputValue } from "./research-mode.js";
 import * as ResearchSearch from "./research-search.js";
-import { renderQueryInspector } from "./research-ui.js";
+import { buildScryfallWebSearchUrl, renderQueryInspector } from "./research-ui.js";
 import { resolveMazeLaunchState } from "../assets/js/maze-handoff.js";
 
 let currentMode = "ai";
@@ -11,6 +11,7 @@ let currentQuery = "";
 let currentOrder = "name";
 let currentUnique = "cards";
 let currentDir = undefined;
+let currentSearchApi = {};
 let lastSmartInput = "";
 let lastSmartQuery = "";
 let allResults = [];
@@ -26,6 +27,7 @@ let activeModalCard = null;
 let modalReturnFocusEl = null;
 
 const PAGE_SIZE = 24;
+const DEFAULT_FORMAT = "commander";
 const STASH_KEY = "vm_maze_card_stash_v1";
 const ARCHSCRY_MAZE_HANDOFF_KEY = "vm_archscry_maze_handoff_v1";
 const MODAL_FOCUS_SELECTOR = [
@@ -58,11 +60,26 @@ const bFilters = {
   colors: [],
   colorOp: "c",
   types: [],
-  format: "",
+  format: DEFAULT_FORMAT,
   keywords: [],
   cmcMin: "",
   cmcMax: "",
   rarities: []
+};
+
+const MODE_CONTENT = {
+  ai: {
+    label: "Plain reading open",
+    copy: "Describe the card you want in human language. Maze will translate the intent into Scryfall syntax before searching."
+  },
+  raw: {
+    label: "Operator syntax active",
+    copy: "Write exact Scryfall operators. Maze will preserve the syntax, normalize small glue words when needed, and send the query directly."
+  },
+  builder: {
+    label: "Visual builder active",
+    copy: "Build constraints with controls instead of memorizing operators. The generated syntax stays visible as you refine the search."
+  }
 };
 
 const QUICK_SEARCHES = [
@@ -117,6 +134,15 @@ const KEYWORDS = [
 const TYPES = ["Creature", "Instant", "Sorcery", "Enchantment", "Artifact", "Planeswalker", "Land", "Battle"];
 const RARITIES = [{ v: "c", l: "Common" }, { v: "u", l: "Uncommon" }, { v: "r", l: "Rare" }, { v: "m", l: "Mythic" }];
 const MODE_IDS = ["ai", "raw", "builder"];
+
+/**
+ * Normalizes textarea whitespace into a Scryfall-safe single-line query.
+ * @param {string} value - Raw textarea value.
+ * @returns {string} Normalized query/input text.
+ */
+function normalizeSearchInputValue(value) {
+  return String(value || "").replace(/\s+/g, " ").trim();
+}
 
 function clearNode(node) {
   if (!node) return;
@@ -347,9 +373,11 @@ async function initializeResearchArchives() {
   buildColorGrid();
   buildTypeChecks();
   buildRarityChecks();
+  initializeDefaultFormatControls();
   bindMazeControls();
   bindSearchInputSelectOnFocus();
   setMode("ai");
+  updateSearchActions();
 
   const launch = resolveMazeLaunchState(urlParams, readArchscryMazeHandoff() || {});
   if (launch.from === "archscry" && launch.operatorQuery) {
@@ -394,6 +422,7 @@ function setMode(mode) {
   const icon = document.getElementById("search-icon");
   const builder = document.getElementById("builder-panel");
   if (!input || !icon || !builder) return;
+  updateModeContent(mode);
   if (mode === "ai") {
     input.className = "s-input";
     input.placeholder = "e.g. red and black orcs, green haste, blue removal";
@@ -404,20 +433,28 @@ function setMode(mode) {
     input.className = "s-input mono";
     input.placeholder = "e.g. c:r kw:haste mv<=3 f:modern";
     icon.textContent = ">";
-    icon.style.color = "var(--teal)";
+    icon.style.color = "var(--maze-gold-2)";
     document.getElementById("mode-raw").classList.add("teal-mode");
     builder.classList.add("hidden");
   } else {
     input.className = "s-input mono";
-    input.placeholder = "";
+    input.placeholder = "Visual filters generate syntax here";
     icon.textContent = "=";
-    icon.style.color = "var(--teal)";
+    icon.style.color = "var(--maze-gold-2)";
     document.getElementById("mode-builder").classList.add("teal-mode");
     builder.classList.remove("hidden");
     rebuildFromFilters();
   }
 
   syncInputForModeSwitch(input, previousMode, mode);
+}
+
+function updateModeContent(mode) {
+  const content = MODE_CONTENT[mode] || MODE_CONTENT.ai;
+  const contextLabel = document.getElementById("maze-mode-context-label");
+  const contextCopy = document.getElementById("maze-mode-context-copy");
+  if (contextLabel) contextLabel.textContent = content.label;
+  if (contextCopy) contextCopy.textContent = content.copy;
 }
 
 /**
@@ -467,7 +504,7 @@ function bindSearchInputSelectOnFocus() {
  * Runs the active search mode and routes Smart Search through the local parser.
  */
 async function doSearch() {
-  const rawInput = document.getElementById("search-input").value.trim();
+  const rawInput = normalizeSearchInputValue(document.getElementById("search-input")?.value || "");
   if (!rawInput && currentMode !== "builder") return;
 
   setLoading(true);
@@ -484,14 +521,17 @@ async function doSearch() {
       parserResult = parseScryfallNaturalLanguage(rawInput);
       query = parserResult.query;
       lastSmartInput = rawInput;
-      lastSmartQuery = query;
       reason = parserResult.reason || "";
       currentOrder = parserResult.api?.order || currentOrder;
       currentUnique = parserResult.api?.unique || currentUnique;
       currentDir = parserResult.api?.dir || currentDir;
 
       if (parserResult.mode === "exact_name") {
-        showQueryInspector(query, reason, parserResult);
+        lastSmartQuery = query;
+        currentQuery = query;
+        currentSearchApi = parserResult.api || { endpoint: "/cards/search", unique: currentUnique, order: currentOrder };
+        updateSearchActions(query, currentSearchApi);
+        showQueryInspector(query, reason, parserResult, null, { inputValue: rawInput });
         const card = await ResearchSearch.scryfallExact(query);
         setLoading(false);
         hideState();
@@ -502,6 +542,10 @@ async function doSearch() {
         openModal(card);
         return;
       }
+      const formatted = applySelectedFormatToQuery(query);
+      query = formatted.query;
+      lastSmartQuery = query;
+      if (formatted.changed) reason = appendReason(reason, `Applied ${formatLabel(formatted.format)} format.`);
     } else if (currentMode === "builder") {
       query = buildFilterQuery();
       if (!query.trim()) {
@@ -514,11 +558,20 @@ async function doSearch() {
       query = prepared.query;
       reason = prepared.reason;
       parserResult = prepared.diagnostics;
-      if (prepared.changed) document.getElementById("search-input").value = query;
+      const formatted = applySelectedFormatToQuery(query);
+      query = formatted.query;
+      if (formatted.changed) reason = appendReason(reason, `Applied ${formatLabel(formatted.format)} format.`);
+      if (prepared.changed || formatted.changed) document.getElementById("search-input").value = query;
       if (query !== lastSmartQuery) lastSmartQuery = "";
     }
 
-    await triggerSearch(query, { reason, order: currentOrder, parserResult });
+    await triggerSearch(query, {
+      reason,
+      order: currentOrder,
+      parserResult,
+      inputValue: rawInput,
+      normalized: currentMode === "raw" && query !== rawInput
+    });
   } catch (error) {
     showError(`Search failed: ${error.message}`);
   }
@@ -532,7 +585,15 @@ async function doSearch() {
  * @param {object} opts - Search metadata and UI diagnostics.
  */
 async function triggerSearch(query, opts = {}) {
-  const { reason = "", order = currentOrder, unique = currentUnique, dir = currentDir, parserResult = null } = opts;
+  const {
+    reason = "",
+    order = currentOrder,
+    unique = currentUnique,
+    dir = currentDir,
+    parserResult = null,
+    inputValue = "",
+    normalized = false
+  } = opts;
   const searchOrder = parserResult?.api?.order || order || "name";
   const searchUnique = parserResult?.api?.unique || unique || "cards";
   const searchDir = normalizeSortDirection(parserResult?.api?.dir || dir);
@@ -542,8 +603,10 @@ async function triggerSearch(query, opts = {}) {
   currentOrder = searchOrder;
   currentUnique = searchUnique;
   currentDir = searchDir;
+  currentSearchApi = searchApi;
+  updateSearchActions(query, searchApi);
   addRecent(query);
-  showQueryInspector(query, reason, parserResult, searchApi);
+  showQueryInspector(query, reason, parserResult, searchApi, { inputValue, normalized });
 
   const data = await ResearchSearch.scryfallSearch(query, { order: searchOrder, unique: searchUnique, dir: searchDir });
   if (data.object === "error") {
@@ -566,7 +629,7 @@ async function triggerSearch(query, opts = {}) {
  * Loads the next client or Scryfall result page.
  */
 async function loadMore() {
-  if (!hasMore && displayPage < Math.ceil(allResults.length / PAGE_SIZE) - 1) {
+  if (displayPage < Math.ceil(allResults.length / PAGE_SIZE) - 1) {
     displayPage++;
     renderResults(true);
     return;
@@ -574,21 +637,35 @@ async function loadMore() {
 
   if (hasMore && displayPage >= Math.ceil(allResults.length / PAGE_SIZE) - 1) {
     const moreButton = document.getElementById("btn-more");
-    moreButton.disabled = true;
-    const data = await ResearchSearch.scryfallSearch(currentQuery, {
-      page: nextPageUrl,
-      order: currentOrder,
-      unique: currentUnique,
-      dir: currentDir
-    });
-    if (data.data) {
+    const previousText = moreButton?.textContent || "Load More";
+    let loaded = false;
+    try {
+      if (moreButton) {
+        moreButton.disabled = true;
+        moreButton.textContent = "Loading...";
+      }
+      const data = await ResearchSearch.scryfallSearch(currentQuery, {
+        page: nextPageUrl,
+        order: currentOrder,
+        unique: currentUnique,
+        dir: currentDir
+      });
+      if (data?.object === "error") throw new Error(data.details || "Scryfall returned an error.");
+      if (!Array.isArray(data?.data)) throw new Error("Scryfall returned an unexpected page.");
       allResults = [...allResults, ...data.data];
       hasMore = data.has_more;
       nextPageUrl = data.next_page || null;
       displayPage++;
+      loaded = true;
       renderResults(true);
-    } else {
-      moreButton.disabled = false;
+    } catch (error) {
+      showError(`Could not load more results: ${error.message}`);
+      showToast("Load more failed");
+    } finally {
+      if (!loaded && moreButton) {
+        moreButton.disabled = false;
+        moreButton.textContent = previousText;
+      }
     }
   }
 }
@@ -941,6 +1018,52 @@ function buildRarityChecks() {
   });
 }
 
+function initializeDefaultFormatControls() {
+  bFilters.format = DEFAULT_FORMAT;
+  const builderFormat = document.getElementById("bld-format");
+  const sidebarFormat = document.getElementById("sb-format");
+  if (builderFormat && !builderFormat.value) builderFormat.value = DEFAULT_FORMAT;
+  if (sidebarFormat && !sidebarFormat.value) sidebarFormat.value = DEFAULT_FORMAT;
+}
+
+function queryHasFormat(query) {
+  return /(^|\s)(?:f|format):[a-z0-9_-]+\b/i.test(String(query || ""));
+}
+
+function stripFormatFilter(query) {
+  return String(query || "")
+    .replace(/(^|\s)(?:f|format):[a-z0-9_-]+\b/gi, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+function getActiveFormatFilter() {
+  return document.getElementById("sb-format")?.value || "";
+}
+
+function applySelectedFormatToQuery(query, opts = {}) {
+  const useFormatDefault = opts.useFormatDefault !== false;
+  const format = opts.format ?? (useFormatDefault ? getActiveFormatFilter() : "");
+  const cleanQuery = String(query || "").trim();
+  if (!cleanQuery || !format || queryHasFormat(cleanQuery)) {
+    return { query: cleanQuery, changed: false, format: "" };
+  }
+  return {
+    query: `${cleanQuery} f:${format}`.trim(),
+    changed: true,
+    format
+  };
+}
+
+function formatLabel(format) {
+  if (!format) return "selected";
+  return format.charAt(0).toUpperCase() + format.slice(1);
+}
+
+function appendReason(reason, addition) {
+  return [reason, addition].filter(Boolean).join(" ");
+}
+
 /**
  * Toggles one Visual Builder color pip.
  * @param {string} color - Color symbol.
@@ -1014,6 +1137,45 @@ function updateBuilderOutput(query = buildFilterQuery()) {
   const summaryEl = document.getElementById("builder-summary");
   if (queryEl) queryEl.textContent = query || "Select filters to build a query.";
   if (summaryEl) summaryEl.textContent = formatBuilderSummary();
+}
+
+function resetBuilderFilters() {
+  bFilters.colors = [];
+  bFilters.colorOp = "c";
+  bFilters.types = [];
+  bFilters.format = DEFAULT_FORMAT;
+  bFilters.keywords = [];
+  bFilters.cmcMin = "";
+  bFilters.cmcMax = "";
+  bFilters.rarities = [];
+
+  const colorOp = document.getElementById("color-op");
+  const builderFormat = document.getElementById("bld-format");
+  const cmcMin = document.getElementById("cmc-min");
+  const cmcMax = document.getElementById("cmc-max");
+  const keywordInput = document.getElementById("kw-input");
+  if (colorOp) colorOp.value = "c";
+  if (builderFormat) builderFormat.value = DEFAULT_FORMAT;
+  if (cmcMin) cmcMin.value = "";
+  if (cmcMax) cmcMax.value = "";
+  if (keywordInput) keywordInput.value = "";
+
+  document.querySelectorAll(".cpip").forEach((pip) => {
+    pip.classList.toggle("on", false);
+    setAriaPressed(pip, false);
+  });
+  document.querySelectorAll(".cb-label").forEach((chip) => {
+    chip.classList.toggle("checked", false);
+    setAriaPressed(chip, false);
+  });
+  document.getElementById("kw-suggestions")?.classList.add("hidden");
+  renderKwChips();
+  rebuildFromFilters();
+  setMode("builder");
+  clearError();
+  resetSearchResults();
+  document.getElementById("query-inspector")?.classList.add("hidden");
+  showToast("Loom reset");
 }
 
 function formatBuilderSummary() {
@@ -1508,7 +1670,11 @@ function buildColorGrid() {
  */
 function runQuickSearch(query, opts = {}) {
   currentMode = "raw";
-  document.getElementById("search-input").value = query;
+  const formatted = applySelectedFormatToQuery(query, {
+    useFormatDefault: opts.useFormatDefault !== false
+  });
+  const finalQuery = formatted.query;
+  document.getElementById("search-input").value = finalQuery;
   selectAutoFilledInputOnFocus = true;
   lastSmartQuery = "";
   setMode("raw");
@@ -1519,7 +1685,16 @@ function runQuickSearch(query, opts = {}) {
   allResults = [];
   setLoading(true);
   clearError();
-  triggerSearch(query, { order: currentOrder, unique: currentUnique, dir: currentDir }).then(() => setLoading(false));
+  triggerSearch(finalQuery, {
+    reason: formatted.changed ? `Applied ${formatLabel(formatted.format)} format.` : "",
+    order: currentOrder,
+    unique: currentUnique,
+    dir: currentDir,
+    inputValue: query,
+    normalized: formatted.changed
+  })
+    .catch((error) => showError(`Search failed: ${error.message}`))
+    .finally(() => setLoading(false));
 }
 
 /**
@@ -1541,11 +1716,12 @@ function runQueryAlternative(query, api = {}) {
  */
 function applyFormatFilter(format) {
   if (!currentQuery) return;
-  const base = currentQuery.replace(/\s+f:\w+/g, "").trim();
+  const base = stripFormatFilter(currentQuery);
   runQuickSearch((format ? `${base} f:${format}` : base).trim(), {
     order: currentOrder,
     unique: currentUnique,
-    dir: currentDir
+    dir: currentDir,
+    useFormatDefault: false
   });
 }
 
@@ -1588,7 +1764,11 @@ function addRecent(query) {
       title: recent
     }));
   });
-  document.getElementById("recent-section").style.display = recentSearches.length ? "" : "none";
+  const recentSection = document.getElementById("recent-section");
+  if (recentSection) {
+    recentSection.style.display = recentSearches.length ? "" : "none";
+    if (recentSearches.length && "open" in recentSection) recentSection.open = true;
+  }
 }
 
 /**
@@ -1597,26 +1777,72 @@ function addRecent(query) {
  * @param {string} reason - Short explanation.
  * @param {object|null} parserResult - Optional parser diagnostics.
  */
-function showQueryInspector(query, reason, parserResult = null, api = null) {
-  renderQueryInspector({ query, reason, parserResult, api });
+function showQueryInspector(query, reason, parserResult = null, api = null, ui = {}) {
+  renderQueryInspector({
+    query,
+    reason,
+    parserResult,
+    api,
+    inputValue: ui.inputValue || "",
+    normalized: Boolean(ui.normalized)
+  });
+}
+
+/**
+ * Keeps universal query actions in the search row synced with the active query.
+ * @param {string} query - Current Scryfall query.
+ * @param {object} api - Search API/display metadata.
+ */
+function updateSearchActions(query = currentQuery, api = currentSearchApi) {
+  const cleanQuery = String(query || "").trim();
+  const hasQuery = Boolean(cleanQuery);
+  const copyButton = document.getElementById("search-copy-btn");
+  const scryfallLink = document.getElementById("search-scryfall-link");
+  const href = hasQuery ? buildScryfallWebSearchUrl(cleanQuery, api || {}) : "#";
+
+  if (copyButton) {
+    copyButton.disabled = !hasQuery;
+    copyButton.classList.toggle("is-disabled", !hasQuery);
+  }
+
+  if (scryfallLink) {
+    scryfallLink.href = href;
+    scryfallLink.classList.toggle("is-disabled", !hasQuery);
+    scryfallLink.setAttribute("aria-disabled", hasQuery ? "false" : "true");
+    scryfallLink.tabIndex = hasQuery ? 0 : -1;
+  }
 }
 
 /**
  * Copies the current query to the clipboard.
  */
 function copyQuery() {
-  const inputValue = document.getElementById("search-input")?.value.trim() || "";
-  const copyText = currentMode === "ai"
-    ? (inputValue || lastSmartInput || currentQuery)
-    : currentQuery;
-  copyTextToClipboard(copyText, currentMode === "ai" ? "Plain reading copied" : "Query copied");
+  const inputValue = normalizeSearchInputValue(document.getElementById("search-input")?.value || "");
+  const copyText = currentQuery || inputValue || lastSmartInput;
+  copyTextToClipboard(copyText, "Query copied");
 }
 
 /**
- * Clears the search input and returns the search controls to Smart Search mode.
+ * Runs search on Enter while preserving Shift+Enter newline editing in the textarea.
+ * @param {KeyboardEvent} event - Search input key event.
+ */
+function handleSearchInputKeydown(event) {
+  if (event.key !== "Enter" || event.shiftKey || currentMode === "builder") return;
+  event.preventDefault();
+  doSearch();
+}
+
+/**
+ * Clears the search surface without changing the active mode.
  */
 function clearSearchInput() {
   const input = document.getElementById("search-input");
+  if (currentMode === "builder") {
+    resetBuilderFilters();
+    input?.focus();
+    return;
+  }
+
   if (input) {
     input.value = "";
     input.focus();
@@ -1625,7 +1851,7 @@ function clearSearchInput() {
   selectAutoFilledInputOnFocus = false;
   lastSmartInput = "";
   lastSmartQuery = "";
-  setMode("ai");
+  setMode(currentMode);
   clearError();
   resetSearchResults();
   document.getElementById("query-inspector")?.classList.add("hidden");
@@ -1639,6 +1865,8 @@ function resetSearchResults() {
   currentOrder = "name";
   currentUnique = "cards";
   currentDir = undefined;
+  currentSearchApi = {};
+  updateSearchActions("", {});
   allResults = [];
   displayPage = 0;
   hasMore = false;
@@ -1664,13 +1892,13 @@ function buildInitialStateHtml() {
   return `
     <svg width="48" height="48" viewBox="0 0 48 48" fill="none" style="opacity:.2">
       <circle cx="24" cy="24" r="18" stroke="#c9a84c" stroke-width="0.8" stroke-dasharray="4 3"/>
-      <circle cx="24" cy="24" r="10" stroke="#1aaa96" stroke-width="0.6" stroke-dasharray="2 4"/>
+      <circle cx="24" cy="24" r="10" stroke="#f2c55c" stroke-width="0.6" stroke-dasharray="2 4"/>
       <path d="M18 24 L22 28 L30 18" stroke="#c9a84c" stroke-width="1" stroke-linecap="round"/>
     </svg>
     <div class="state-title">The Archives await</div>
     <div class="state-sub">
-      Try <code>c:r kw:shroud</code> for red cards with shroud, or use Smart Search with natural language.
-      <br><br>Browse the <a href="https://scryfall.com/docs/syntax" target="_blank" style="color:var(--teal)">full Scryfall syntax reference &nearr;</a>
+      Try <code>c:r kw:shroud</code> for red cards with shroud, or use The Plain Reading with natural language.
+      <br><br>Browse the <a href="https://scryfall.com/docs/syntax" target="_blank" style="color:var(--maze-gold-2)">full Scryfall syntax reference &nearr;</a>
     </div>
   `;
 }
@@ -1688,7 +1916,7 @@ function setLoading(on) {
     panel.classList.remove("empty-result-active");
     panel.innerHTML = `
       <svg class="state-spinner" width="40" height="40" viewBox="0 0 40 40" fill="none">
-        <circle cx="20" cy="20" r="16" stroke="#1aaa96" stroke-width="0.8" stroke-dasharray="4 2"/>
+        <circle cx="20" cy="20" r="16" stroke="#f2c55c" stroke-width="0.8" stroke-dasharray="4 2"/>
       </svg>
       <div class="state-title">Searching the Archives...</div>`;
     panel.style.display = "flex";
@@ -1892,6 +2120,7 @@ function renderStash() {
   if (!countEl || !body) return;
 
   countEl.textContent = String(cardStash.length);
+  updateStashDrawerCount();
   clearNode(body);
   if (!cardStash.length) {
     const empty = document.createElement("div");
@@ -1948,6 +2177,21 @@ function renderStash() {
   }
 
   renderedGroups.forEach((group) => body.appendChild(group));
+}
+
+function updateStashDrawerCount() {
+  document.querySelectorAll("[data-stash-toggle-count]").forEach((node) => {
+    node.textContent = String(cardStash.length);
+  });
+}
+
+function setStashDrawerOpen(open) {
+  document.body.dataset.stashOpen = open ? "true" : "false";
+  document.getElementById("stash-drawer-toggle")?.setAttribute("aria-expanded", open ? "true" : "false");
+}
+
+function toggleStashDrawer() {
+  setStashDrawerOpen(document.body.dataset.stashOpen !== "true");
 }
 
 function refreshStashButtons() {
@@ -2028,11 +2272,7 @@ function bindMazeControls() {
   document.addEventListener("keydown", handleMazeGlobalKeydown);
   document.addEventListener("click", handleMazeDocumentClick);
 
-  document.getElementById("search-input")?.addEventListener("keydown", (event) => {
-    if (event.key !== "Enter") return;
-    event.preventDefault();
-    doSearch();
-  });
+  document.getElementById("search-input")?.addEventListener("keydown", handleSearchInputKeydown);
   document.getElementById("color-op")?.addEventListener("change", rebuildFromFilters);
   document.getElementById("bld-format")?.addEventListener("change", rebuildFromFilters);
   document.getElementById("cmc-min")?.addEventListener("input", rebuildFromFilters);
@@ -2051,6 +2291,7 @@ function bindMazeControls() {
   document.getElementById("modal-bg")?.addEventListener("click", (event) => {
     if (event.target === event.currentTarget) closeModal();
   });
+
 }
 
 function handleMazeActionClick(event) {
@@ -2067,8 +2308,17 @@ function handleMazeActionClick(event) {
     case "clear-search":
       clearSearchInput();
       return;
+    case "reset-builder":
+      resetBuilderFilters();
+      return;
     case "copy-query":
       copyQuery();
+      return;
+    case "toggle-stash-drawer":
+      toggleStashDrawer();
+      return;
+    case "close-stash-drawer":
+      setStashDrawerOpen(false);
       return;
     case "toggle-color":
       toggleColor(actionNode.dataset.color || "");
@@ -2126,6 +2376,11 @@ function handleMazeActionClick(event) {
 }
 
 function handleMazeGlobalKeydown(event) {
+  if (event.key === "Escape" && document.body.dataset.stashOpen === "true" && !isModalOpen()) {
+    event.preventDefault();
+    setStashDrawerOpen(false);
+    return;
+  }
   if (!isModalOpen()) return;
   if (event.key === "Escape") {
     event.preventDefault();
@@ -2214,7 +2469,12 @@ function exposeWindowHandlers() {
     changeOrder,
     copyQuery,
     clearSearchInput,
+    handleSearchInputKeydown,
+    resetBuilderFilters,
     applyFormatFilter,
+    loadMore,
+    setStashDrawerOpen,
+    toggleStashDrawer,
     openModal,
     closeModal
   });

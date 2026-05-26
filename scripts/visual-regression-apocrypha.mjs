@@ -7,36 +7,20 @@ import pixelmatch from "pixelmatch";
 import { PNG } from "pngjs";
 import puppeteer from "puppeteer-core";
 
-import { runAdaptiveGoldenPath } from "../assets/js/adaptive-placement.js";
-import { loadDossierInputs } from "../research/dossier-runner.mjs";
-
 const root = process.cwd();
 const host = "127.0.0.1";
-const routePath = "/archscry/index.html";
+const routePath = "/apocrypha/index.html";
 const browserCandidates = [
   process.env.LIGHTHOUSE_CHROME_PATH,
   "C:\\Program Files\\Microsoft\\Edge\\Application\\msedge.exe",
   "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe",
 ].filter(Boolean);
 const captureConfigs = [
-  { name: "landing-mobile", width: 375, height: 1400, state: "landing" },
-  { name: "landing-desktop", width: 1440, height: 1400, state: "landing" },
-  { name: "dossier-placement-mobile", width: 375, height: 2200, state: "dossier", panel: "placement", layout: "focus", expectRadar: true, useUrlState: false },
-  { name: "dossier-placement-desktop", width: 1440, height: 2200, state: "dossier", panel: "placement", layout: "focus", expectRadar: true, useUrlState: false },
-  { name: "dossier-why-mobile", width: 375, height: 2400, state: "dossier", panel: "why", layout: "focus" },
-  { name: "dossier-why-desktop", width: 1440, height: 2400, state: "dossier", panel: "why", layout: "focus" },
-  { name: "dossier-start-mobile", width: 375, height: 2200, state: "dossier", panel: "start", layout: "focus" },
-  { name: "dossier-start-desktop", width: 1440, height: 2200, state: "dossier", panel: "start", layout: "focus" },
-  { name: "dossier-commander-deck-starts-mobile", width: 375, height: 2200, state: "dossier", panel: "commander-deck-starts", layout: "focus" },
-  { name: "dossier-commander-deck-starts-desktop", width: 1440, height: 2200, state: "dossier", panel: "commander-deck-starts", layout: "focus" },
-  { name: "dossier-starter-cards-mobile", width: 375, height: 2200, state: "dossier", panel: "starter-cards", layout: "focus" },
-  { name: "dossier-starter-cards-desktop", width: 1440, height: 2200, state: "dossier", panel: "starter-cards", layout: "focus" },
-  { name: "dossier-mana-base-mobile", width: 375, height: 2200, state: "dossier", panel: "mana-base", layout: "focus" },
-  { name: "dossier-mana-base-desktop", width: 1440, height: 2200, state: "dossier", panel: "mana-base", layout: "focus" },
-  { name: "dossier-view-all-mobile", width: 375, height: 3200, state: "dossier", panel: "placement", layout: "all", expectRadar: true },
-  { name: "dossier-view-all-desktop", width: 1440, height: 3200, state: "dossier", panel: "placement", layout: "all", expectRadar: true },
+  { name: "hero-desktop", width: 1440, height: 1150, state: "hero" },
+  { name: "hero-mobile", width: 390, height: 1300, state: "hero" },
+  { name: "references-desktop", width: 1280, height: 1400, state: "references" },
 ];
-const artifactsRoot = path.join(root, "artifacts", "visual-regression", "archscry");
+const artifactsRoot = path.join(root, "artifacts", "visual-regression", "apocrypha");
 const baselineDir = path.join(artifactsRoot, "baseline");
 const currentDir = path.join(artifactsRoot, "current");
 const diffDir = path.join(artifactsRoot, "diff");
@@ -46,22 +30,9 @@ const threshold = 0.1;
 const maxMismatchedPixels = 400;
 const requiredBaselineArtifacts = [
   "console-baseline.json",
-  "landing-mobile.png",
-  "landing-desktop.png",
-  "dossier-placement-mobile.png",
-  "dossier-placement-desktop.png",
-  "dossier-why-mobile.png",
-  "dossier-why-desktop.png",
-  "dossier-start-mobile.png",
-  "dossier-start-desktop.png",
-  "dossier-commander-deck-starts-mobile.png",
-  "dossier-commander-deck-starts-desktop.png",
-  "dossier-starter-cards-mobile.png",
-  "dossier-starter-cards-desktop.png",
-  "dossier-mana-base-mobile.png",
-  "dossier-mana-base-desktop.png",
-  "dossier-view-all-mobile.png",
-  "dossier-view-all-desktop.png",
+  "hero-desktop.png",
+  "hero-mobile.png",
+  "references-desktop.png",
 ];
 const modeArg = process.argv.find((arg) => arg.startsWith("--mode="));
 const mode = modeArg ? modeArg.slice("--mode=".length) : "compare";
@@ -199,59 +170,119 @@ function isIgnorableConsoleError(entry) {
     url.endsWith("/favicon.ico") ||
     url.startsWith("https://fonts.googleapis.com/") ||
     url.startsWith("https://fonts.gstatic.com/") ||
-    url.startsWith("https://cdn.jsdelivr.net/npm/@supabase/supabase-js") ||
     text.includes("fonts.googleapis.com") ||
-    text.includes("fonts.gstatic.com") ||
-    text.includes("@supabase/supabase-js") ||
-    text.includes("cdn.jsdelivr.net/npm/@supabase/supabase-js")
+    text.includes("fonts.gstatic.com")
   );
 }
 
 async function verifyCanvasExists(page, selector, label) {
   await page.waitForSelector(selector);
   const present = await page.evaluate((targetSelector) => {
-    return document.querySelector(targetSelector) instanceof HTMLCanvasElement;
+    const canvas = document.querySelector(targetSelector);
+    return (
+      canvas instanceof HTMLCanvasElement &&
+      canvas.width > 0 &&
+      canvas.height > 0 &&
+      canvas.getBoundingClientRect().width > 0 &&
+      canvas.getBoundingClientRect().height > 0
+    );
   }, selector);
 
   if (!present) {
-    throw new Error(`${label} was not present before capture.`);
+    throw new Error(`${label} was not present and sized before capture.`);
   }
 }
 
-async function verifyCanvasRendered(page, selector, label) {
-  await page.waitForSelector(selector);
-  const rendered = await page.evaluate((targetSelector) => {
-    const canvas = document.querySelector(targetSelector);
-    if (!(canvas instanceof HTMLCanvasElement)) return false;
-    if (canvas.width === 0 || canvas.height === 0) return false;
-    const context = canvas.getContext("2d", { willReadFrequently: true });
-    if (!context) return false;
+async function waitForApocryphaReady(page) {
+  await page.waitForFunction(() => {
+    const title = document.getElementById("apocrypha-title");
+    const references = document.querySelectorAll(".apoc-reference-card a");
+    const rail = document.querySelector(".apoc-rail");
+    const dock = document.getElementById("apocReturnDock");
+    const status = document.querySelector(".apoc-hero__status");
+    const signalItems = document.querySelectorAll(".apoc-signal-item");
 
-    const sampleWidth = Math.max(1, Math.min(canvas.width, 24));
-    const sampleHeight = Math.max(1, Math.min(canvas.height, 24));
-    const xSteps = Math.max(1, Math.min(5, Math.floor(canvas.width / sampleWidth)));
-    const ySteps = Math.max(1, Math.min(5, Math.floor(canvas.height / sampleHeight)));
+    return Boolean(
+      title &&
+      title.textContent?.includes("The Apocrypha") &&
+      references.length === 10 &&
+      rail &&
+      dock &&
+      status &&
+      signalItems.length === 3
+    );
+  });
+  await verifyCanvasExists(page, ".vm-bg__stars", "Background star canvas");
+}
 
-    for (let xIndex = 0; xIndex < xSteps; xIndex += 1) {
-      for (let yIndex = 0; yIndex < ySteps; yIndex += 1) {
-        const maxX = Math.max(0, canvas.width - sampleWidth);
-        const maxY = Math.max(0, canvas.height - sampleHeight);
-        const x = xSteps === 1 ? 0 : Math.round((maxX * xIndex) / (xSteps - 1));
-        const y = ySteps === 1 ? 0 : Math.round((maxY * yIndex) / (ySteps - 1));
-        const image = context.getImageData(x, y, sampleWidth, sampleHeight);
-        for (let index = 3; index < image.data.length; index += 4) {
-          if (image.data[index] > 0) {
-            return true;
-          }
-        }
+async function verifyNoHorizontalOverflow(page, label) {
+  const hasOverflow = await page.evaluate(() => {
+    return document.documentElement.scrollWidth > document.documentElement.clientWidth + 1;
+  });
+
+  if (hasOverflow) {
+    throw new Error(`${label} introduced horizontal overflow.`);
+  }
+}
+
+async function disableMotionForCapture(page) {
+  await page.addStyleTag({
+    content: `
+      html {
+        scroll-behavior: auto !important;
       }
-    }
 
-    return false;
-  }, selector);
+      .vm-bg__stars {
+        visibility: hidden !important;
+      }
 
-  if (!rendered) {
-    throw new Error(`${label} did not render visible pixels before capture.`);
+      *,
+      *::before,
+      *::after {
+        animation: none !important;
+        transition: none !important;
+      }
+    `,
+  });
+}
+
+async function prepareHeroCapture(page) {
+  await page.evaluate(() => {
+    window.scrollTo(0, 0);
+  });
+  await page.waitForFunction(() => window.scrollY === 0);
+}
+
+async function prepareReferencesCapture(page) {
+  await page.evaluate(() => {
+    document.getElementById("ledger")?.scrollIntoView({ block: "start" });
+  });
+  await page.waitForFunction(() => {
+    const current = document.querySelector('[data-rail-link="ledger"]');
+    return current?.getAttribute("aria-current") === "true" || window.scrollY > 0;
+  });
+}
+
+async function prepareCaptureState(page, captureConfig) {
+  if (captureConfig.state === "references") {
+    await prepareReferencesCapture(page);
+  } else {
+    await prepareHeroCapture(page);
+  }
+
+  await page.evaluate(
+    () => new Promise((resolve) => requestAnimationFrame(() => requestAnimationFrame(resolve)))
+  );
+}
+
+async function verifyLibraryAlias(browser, baseUrl) {
+  const page = await browser.newPage();
+
+  try {
+    await page.goto(`${baseUrl}/library/`, { waitUntil: "networkidle0" });
+    await page.waitForFunction(() => location.pathname.includes("/apocrypha/"), { timeout: 5000 });
+  } finally {
+    await page.close();
   }
 }
 
@@ -274,91 +305,12 @@ async function verifyBaselineArtifacts() {
   if (missingArtifacts.length) {
     throw new Error(
       `Missing baseline artifact(s): ${missingArtifacts.join(", ")}. ` +
-      "Run npm.cmd run test:visual:archscry:baseline first."
+      "Run npm.cmd run test:visual:apocrypha:baseline first."
     );
   }
 }
 
-async function buildSeededResult() {
-  const inputs = await loadDossierInputs();
-  return runAdaptiveGoldenPath({
-    model: inputs.placementModel,
-    factions: inputs.factions,
-    targetFaction: "UG",
-  }).result;
-}
-
-async function waitForLanding(page) {
-  await page.waitForFunction(() => {
-    const landing = document.getElementById("landing");
-    const result = document.getElementById("result");
-    const title = document.querySelector(".landing-title");
-    return Boolean(
-      landing &&
-      !landing.classList.contains("hidden") &&
-      result &&
-      result.classList.contains("hidden") &&
-      title &&
-      title.textContent &&
-      title.textContent.trim().length > 0
-    );
-  });
-  await verifyCanvasExists(page, ".vm-bg__stars", "Background star canvas");
-}
-
-async function waitForDossier(page, captureConfig) {
-  const expected = {
-    panel: captureConfig.panel || "placement",
-    layout: captureConfig.layout || "focus",
-  };
-  try {
-    await page.waitForFunction(({ panel, layout }) => {
-      const result = document.getElementById("result");
-      const name = document.querySelector(".guild-name");
-      const consoleNode = document.querySelector("[data-dossier-console]");
-      const snapshot = document.querySelector(".dossier-snapshot");
-      const requestedPanel = document.querySelector(`[data-dossier-panel="${panel}"]`);
-      const visiblePanels = document.querySelectorAll("[data-dossier-panel]:not([hidden])");
-      const activeTab = document.querySelector(`[data-dossier-tab="${panel}"][aria-selected="true"]`);
-      const allMode = layout === "all";
-      return Boolean(
-        result &&
-        !result.classList.contains("hidden") &&
-        name &&
-        name.textContent &&
-        name.textContent.trim().length > 0 &&
-        consoleNode &&
-        consoleNode.getAttribute("data-dossier-layout") === layout &&
-        snapshot &&
-        requestedPanel &&
-        (allMode ? visiblePanels.length >= 8 : (!requestedPanel.hidden && activeTab))
-      );
-    }, {}, expected);
-  } catch (error) {
-    const state = await page.evaluate(({ panel }) => {
-      const result = document.getElementById("result");
-      const requestedPanel = document.querySelector(`[data-dossier-panel="${panel}"]`);
-      return {
-        url: window.location.href,
-        resultClass: result?.className || null,
-        guildName: document.querySelector(".guild-name")?.textContent?.trim() || "",
-        consoleLayout: document.querySelector("[data-dossier-console]")?.getAttribute("data-dossier-layout") || "",
-        hasSnapshot: Boolean(document.querySelector(".dossier-snapshot")),
-        requestedPanelHidden: requestedPanel ? requestedPanel.hidden : null,
-        visiblePanels: document.querySelectorAll("[data-dossier-panel]:not([hidden])").length,
-        activeTabs: Array.from(document.querySelectorAll('[data-dossier-tab][aria-selected="true"]')).map((tab) => tab.getAttribute("data-dossier-tab")),
-        bodyTextStart: document.body.textContent.trim().slice(0, 240),
-      };
-    }, expected);
-    throw new Error(`${captureConfig.name} dossier wait failed: ${error.message}; state=${JSON.stringify(state)}`);
-  }
-  await verifyCanvasExists(page, ".vm-bg__stars", "Background star canvas");
-  if (captureConfig.expectRadar) {
-    await verifyCanvasRendered(page, "#dossierManaRadar", "Dossier radar canvas");
-  }
-}
-
-async function capturePage(browser, url, captureConfig, seededResult) {
+async function capturePage(browser, url, captureConfig) {
   const page = await browser.newPage();
   const consoleErrors = [];
   const pageErrors = [];
@@ -387,37 +339,21 @@ async function capturePage(browser, url, captureConfig, seededResult) {
     deviceScaleFactor: 1,
   });
   await page.emulateMediaFeatures([{ name: "prefers-reduced-motion", value: "reduce" }]);
-  await page.evaluateOnNewDocument(({ seededState, seededPlacementResult }) => {
-    const supabaseStub = {
-      createClient: () => ({
-        auth: {
-          getSession: async () => ({ data: { session: null } }),
-          signInWithOAuth: async () => ({ data: null, error: null }),
-          signOut: async () => ({ error: null }),
-        },
-        from: () => ({
-          select() { return this; },
-          eq() { return this; },
-          update() { return this; },
-          maybeSingle: async () => ({ data: null, error: null }),
-          upsert: async () => ({ error: null }),
-        }),
-        functions: {
-          invoke: async () => ({ data: null, error: null }),
-        },
-      }),
-    };
+  await page.evaluateOnNewDocument((seed) => {
+    const seededRandom = (() => {
+      let state = seed >>> 0;
+      return () => {
+        state = (1664525 * state + 1013904223) >>> 0;
+        return state / 0x100000000;
+      };
+    })();
 
-    Object.defineProperty(window, "supabase", {
+    const originalRandom = Math.random;
+    Math.random = () => seededRandom();
+    Object.defineProperty(window, "__vmOriginalRandom", {
       configurable: true,
       enumerable: false,
-      value: supabaseStub,
-      writable: true,
-    });
-    Object.defineProperty(window, "__vmVisualRegressionDisableCardArt", {
-      configurable: true,
-      enumerable: false,
-      value: true,
+      value: originalRandom,
       writable: false,
     });
 
@@ -425,57 +361,21 @@ async function capturePage(browser, url, captureConfig, seededResult) {
       localStorage.clear();
       sessionStorage.clear();
       localStorage.setItem("vm_reduce_motion", "true");
-      if (seededState === "dossier" && seededPlacementResult) {
-        sessionStorage.setItem("vm_last_result", JSON.stringify(seededPlacementResult));
-      }
     } catch {
       // Ignore storage access failures.
     }
-  }, {
-    seededState: captureConfig.state,
-    seededPlacementResult: seededResult,
-  });
+  }, 134);
 
-  const targetUrl = new URL(url);
-  if (captureConfig.panel && captureConfig.useUrlState !== false) {
-    targetUrl.searchParams.set("panel", captureConfig.panel);
-  }
-  if (captureConfig.layout && captureConfig.useUrlState !== false) {
-    targetUrl.searchParams.set("layout", captureConfig.layout);
-  }
-
-  await page.goto(targetUrl.href, { waitUntil: "domcontentloaded" });
+  await page.goto(url, { waitUntil: "domcontentloaded" });
   await page.waitForFunction(() => document.readyState === "complete");
   await page.waitForFunction(() => Boolean(document.fonts));
   await page.evaluate(async () => {
     await document.fonts.ready;
   });
-
-  if (captureConfig.state === "landing") {
-    await waitForLanding(page);
-  } else {
-    await waitForDossier(page, captureConfig);
-  }
-
-  await page.addStyleTag({
-    content: `
-      .vm-bg__stars,
-      #dossierManaRadar,
-      .vm-radar-glow {
-        visibility: hidden !important;
-      }
-
-      *,
-      *::before,
-      *::after {
-        animation: none !important;
-        transition: none !important;
-      }
-    `,
-  });
-  await page.evaluate(
-    () => new Promise((resolve) => requestAnimationFrame(() => requestAnimationFrame(resolve)))
-  );
+  await waitForApocryphaReady(page);
+  await disableMotionForCapture(page);
+  await prepareCaptureState(page, captureConfig);
+  await verifyNoHorizontalOverflow(page, captureConfig.name);
 
   const screenshotPath = path.join(
     mode === "baseline" ? baselineDir : currentDir,
@@ -529,7 +429,8 @@ if (!address || typeof address === "string") {
   throw new Error("Could not determine the local visual-regression server port.");
 }
 
-const url = `http://${host}:${address.port}${routePath}`;
+const baseUrl = `http://${host}:${address.port}`;
+const url = `${baseUrl}${routePath}`;
 const chromePath = await resolveBrowserPath();
 const chromeFlags = [
   "--headless=new",
@@ -547,7 +448,6 @@ try {
     await verifyBaselineArtifacts();
   }
 
-  const seededResult = await buildSeededResult();
   launchedChrome = await ChromeLauncher.launch({
     chromeFlags,
     chromePath: chromePath ?? undefined,
@@ -559,12 +459,13 @@ try {
     browserURL: `http://${host}:${launchedChrome.port}`,
   });
 
+  await verifyLibraryAlias(browser, baseUrl);
+
   const allConsoleErrors = [];
   const allPageErrors = [];
 
   for (const captureConfig of captureConfigs) {
-    console.log(`Capturing ${captureConfig.name}`);
-    const capture = await capturePage(browser, url, captureConfig, seededResult);
+    const capture = await capturePage(browser, url, captureConfig);
     allConsoleErrors.push(...capture.consoleErrors);
     allPageErrors.push(...capture.pageErrors);
   }

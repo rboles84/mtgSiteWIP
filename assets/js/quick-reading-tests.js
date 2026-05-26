@@ -422,7 +422,7 @@ const dimirLaneText = [
   ...dimirCommanderLane.details.flatMap((detail) => [detail.label, detail.copy]),
 ].join(" ");
 const dimirTableCaution = dimirCommanderLane.details.find((detail) => detail.label === "Table caution");
-assert.equal(dimirCommanderLane.title, "Your First Commander Path");
+assert.equal(dimirCommanderLane.title, "Start With This Commander Plan");
 assert.match(dimirLaneText, /Commander deck/);
 assert.doesNotMatch(dimirLaneText, /placement model|recent evidence|mechanics cue|risk check/i);
 assert.ok(dimirTableCaution, "Dimir lane should include a table caution note.");
@@ -444,6 +444,14 @@ const gruulDossierText = renderCommanderDossierText(gruulDossier);
 assert.match(gruulDossier.commanderPath.copy, /ramp hard|oversized|trampling/i);
 assert.doesNotMatch(gruulDossierText, /turns spell sequencing into spectacle|sculpt the hand|one stack become the story/i);
 assert.doesNotMatch(gruulDossierText, /\b[2-9]x\s+|\bx\s*[2-9]\b/i);
+assert.ok(
+  gruulDossier.archetypes.some((item) => /Ramp/i.test(item.name)),
+  "Gruul should keep Commander-credible ramp lanes"
+);
+assert.ok(
+  !gruulDossier.archetypes.some((item) => /Zoo|Ponza|Land Denial/i.test(`${item.name} ${item.desc}`)),
+  "Gruul should suppress stale 60-card archetype labels in Commander lanes"
+);
 
 const golgariGolden = runAdaptiveGoldenPath({ model: placementModel, factions, targetFaction: "BG" }).result;
 const golgariToSimicDossier = buildCommanderDossier({
@@ -498,7 +506,7 @@ const omens = buildReadingOmens({
   activeFactionKey: "WU",
 });
 const omenText = omens.map((omen) => `${omen.title} ${omen.answerTitle} ${omen.copy}`).join(" ");
-assert.equal(omens[0].title, "Omen 1");
+assert.equal(omens[0].title, "Signal 1");
 assert.match(omenText, /Follow the process/);
 assert.match(omenText, /echoed|answered by/);
 assert.doesNotMatch(omenText, /Gate|Hall|Crucible|fairness through process|graveyard recursion|reinforced/i);

@@ -4,14 +4,19 @@ import { getDossierRadarProfile } from "../assets/js/dossier-radar.js";
 
 const indexSource = await readFile(new URL("../assets/js/index.js", import.meta.url), "utf8");
 
-const resultStatusIndex = indexSource.indexOf("const resultStatus = dossier.resultStatus;");
-const primaryPlacementIndex = indexSource.indexOf("const primaryPlacementHtml =");
+const resultStatusIndex = indexSource.indexOf("const resultStatusHtml =");
+const placementPanelIndex = indexSource.indexOf("const placementPanelHtml =");
+const adjacentPanelIndex = indexSource.indexOf('id: "adjacent", content: `${returnToPrimaryButton}${adjacentSectionHtml}`');
 
-assert.ok(resultStatusIndex >= 0, "expected renderResult to define resultStatus");
-assert.ok(primaryPlacementIndex >= 0, "expected renderResult to define primaryPlacementHtml");
+assert.ok(resultStatusIndex >= 0, "expected renderResult to define resultStatusHtml");
+assert.ok(placementPanelIndex >= 0, "expected renderResult to define placementPanelHtml");
 assert.ok(
-  resultStatusIndex < primaryPlacementIndex,
-  "resultStatus should be declared before primaryPlacementHtml is built"
+  resultStatusIndex < placementPanelIndex,
+  "resultStatusHtml should be declared before the placement panel is built"
+);
+assert.ok(
+  adjacentPanelIndex >= 0,
+  "expected adjacent dossier panel to retain the Back to Primary control"
 );
 
 assert.match(

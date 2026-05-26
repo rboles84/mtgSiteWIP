@@ -1,0 +1,533 @@
+{
+  "_meta": {
+    "generated_by": "research/build-archscry-flavor-snippets.mjs",
+    "source_indexes": [
+      "data/scryfall/indexes/commander-index.json",
+      "data/scryfall/indexes/card-flavor-index.json"
+    ],
+    "text_policy": "Uses committed short flavor excerpts only; no flavor text is invented or paraphrased.",
+    "faction_count": 20
+  },
+  "snippets": {
+    "B": [
+      {
+        "faction_key": "B",
+        "card_name": "Ayara, First of Locthwain",
+        "flavor_excerpt": "Mourning shifts seamlessly to celebration as she chooses her next suitor.",
+        "scryfall_uri": "https://scryfall.com/card/eld/75/ayara-first-of-locthwain?utm_source=api",
+        "source_index": "commander-index",
+        "source_type": "native_commander"
+      },
+      {
+        "faction_key": "B",
+        "card_name": "Jerren, Corrupted Bishop // Ormendahl, the Corrupter",
+        "flavor_excerpt": "\"Ah, Jerren. You've been such a faithful, useful insect.\"",
+        "scryfall_uri": "https://scryfall.com/card/mid/109/jerren-corrupted-bishop-ormendahl-the-corrupter?utm_source=api",
+        "source_index": "commander-index",
+        "source_type": "matched_commander"
+      },
+      {
+        "faction_key": "B",
+        "card_name": "Egon, God of Death // Throne of Death",
+        "flavor_excerpt": "Egon ages backward, his wisdom soured by youthful spite.",
+        "scryfall_uri": "https://scryfall.com/card/khm/92/egon-god-of-death-throne-of-death?utm_source=api",
+        "source_index": "commander-index",
+        "source_type": "matched_commander"
+      }
+    ],
+    "BG": [
+      {
+        "faction_key": "BG",
+        "card_name": "Bloodbond March",
+        "flavor_excerpt": "The Golgari support a vast army because death never ends its soldiers' service.",
+        "scryfall_uri": "https://scryfall.com/card/rav/192/bloodbond-march?utm_source=api",
+        "source_index": "card-flavor-index",
+        "source_type": "matched_card"
+      },
+      {
+        "faction_key": "BG",
+        "card_name": "Contaminated Ground",
+        "flavor_excerpt": "\"No one cares about pollution until they can see it.\" —Gurras, Golgari rot farmer",
+        "scryfall_uri": "https://scryfall.com/card/gtc/59/contaminated-ground?utm_source=api",
+        "source_index": "card-flavor-index",
+        "source_type": "matched_card"
+      },
+      {
+        "faction_key": "BG",
+        "card_name": "Awaken the Erstwhile",
+        "flavor_excerpt": "In preparation for the conflict all foresaw, the Golgari called upon an army that had slept for millennia beneath the...",
+        "scryfall_uri": "https://scryfall.com/card/rna/61/awaken-the-erstwhile?utm_source=api",
+        "source_index": "card-flavor-index",
+        "source_type": "matched_card"
+      }
+    ],
+    "BR": [
+      {
+        "faction_key": "BR",
+        "card_name": "Avatar of Discord",
+        "flavor_excerpt": "Such is the power of Rakdos that even his shadow takes on a cruel life of its own.",
+        "scryfall_uri": "https://scryfall.com/card/arc/79/avatar-of-discord?utm_source=api",
+        "source_index": "card-flavor-index",
+        "source_type": "matched_card"
+      },
+      {
+        "faction_key": "BR",
+        "card_name": "Judith, the Scourge Diva",
+        "flavor_excerpt": "At the end of the show, she stands alone on a stage brilliant with blood.",
+        "scryfall_uri": "https://scryfall.com/card/cmm/341/judith-the-scourge-diva?utm_source=api",
+        "source_index": "commander-index",
+        "source_type": "native_commander"
+      },
+      {
+        "faction_key": "BR",
+        "card_name": "Blightning",
+        "flavor_excerpt": "While the smell of burning flesh is common in Grixis, the odor of smoldering brain matter is a rare treat.",
+        "scryfall_uri": "https://scryfall.com/card/a25/198/blightning?utm_source=api",
+        "source_index": "card-flavor-index",
+        "source_type": "matched_card"
+      }
+    ],
+    "G": [
+      {
+        "faction_key": "G",
+        "card_name": "Azusa, Lost but Seeking",
+        "flavor_excerpt": "\"I do not miss Jukai Forest. It is not my home. My home is Kamigawa, its people my family. Wherever I set my pack and rest my head, I am home.\"",
+        "scryfall_uri": "https://scryfall.com/card/cmm/274/azusa-lost-but-seeking?utm_source=api",
+        "source_index": "commander-index",
+        "source_type": "native_commander"
+      },
+      {
+        "faction_key": "G",
+        "card_name": "Goreclaw, Terror of Qal Sisma",
+        "flavor_excerpt": "You don't want to know how she got that name.",
+        "scryfall_uri": "https://scryfall.com/card/cmm/293/goreclaw-terror-of-qal-sisma?utm_source=api",
+        "source_index": "commander-index",
+        "source_type": "native_commander"
+      },
+      {
+        "faction_key": "G",
+        "card_name": "Ghalta, Primal Hunger",
+        "flavor_excerpt": "The earth walks, strongest of all.",
+        "scryfall_uri": "https://scryfall.com/card/fdn/222/ghalta-primal-hunger?utm_source=api",
+        "source_index": "commander-index",
+        "source_type": "matched_commander"
+      }
+    ],
+    "LOREHOLD": [
+      {
+        "faction_key": "LOREHOLD",
+        "card_name": "Campus Renovation",
+        "flavor_excerpt": "Reconstructing the past is Lorehold's specialty.",
+        "scryfall_uri": "https://scryfall.com/card/mat/27/campus-renovation?utm_source=api",
+        "source_index": "card-flavor-index",
+        "source_type": "matched_card"
+      },
+      {
+        "faction_key": "LOREHOLD",
+        "card_name": "Ancestral Anger",
+        "flavor_excerpt": "An incautious Lorehold student may learn more about the unbound rage of the Blood Age than they wanted to.",
+        "scryfall_uri": "https://scryfall.com/card/sos/106/ancestral-anger?utm_source=api",
+        "source_index": "card-flavor-index",
+        "source_type": "matched_card"
+      },
+      {
+        "faction_key": "LOREHOLD",
+        "card_name": "Arabella, Abandoned Doll",
+        "flavor_excerpt": "Every night, Cori threw the unsettling doll away. Every morning, it was back on the shelf, its eyes following her every move.",
+        "scryfall_uri": "https://scryfall.com/card/dsk/208/arabella-abandoned-doll?utm_source=api",
+        "source_index": "commander-index",
+        "source_type": "matched_commander"
+      }
+    ],
+    "PRISMARI": [
+      {
+        "faction_key": "PRISMARI",
+        "card_name": "Colorstorm Stallion",
+        "flavor_excerpt": "Prismari students are never afraid to let their imaginations run wild.",
+        "scryfall_uri": "https://scryfall.com/card/sos/180/colorstorm-stallion?utm_source=api",
+        "source_index": "card-flavor-index",
+        "source_type": "matched_card"
+      },
+      {
+        "faction_key": "PRISMARI",
+        "card_name": "Coastal Peak",
+        "flavor_excerpt": "Hidden across Arcavios are great sculptures chiseled by the claws of Galazeth Prismari himself.",
+        "scryfall_uri": "https://scryfall.com/card/soc/52/coastal-peak?utm_source=api",
+        "source_index": "card-flavor-index",
+        "source_type": "matched_card"
+      },
+      {
+        "faction_key": "PRISMARI",
+        "card_name": "Alania, Divergent Storm",
+        "flavor_excerpt": "\"Why would I chase the storm? Does a cloud chase the rain? Does the sun chase the light?\"",
+        "scryfall_uri": "https://scryfall.com/card/blb/204/alania-divergent-storm?utm_source=api",
+        "source_index": "commander-index",
+        "source_type": "matched_commander"
+      }
+    ],
+    "QUANDRIX": [
+      {
+        "faction_key": "QUANDRIX",
+        "card_name": "Aether Helix",
+        "flavor_excerpt": "Some Quandrix mages prefer to study at twilight, watching their experimental equations trace glowing trails against t...",
+        "scryfall_uri": "https://scryfall.com/card/stx/162/aether-helix?utm_source=api",
+        "source_index": "card-flavor-index",
+        "source_type": "matched_card"
+      },
+      {
+        "faction_key": "QUANDRIX",
+        "card_name": "Additive Evolution",
+        "flavor_excerpt": "\"Numbers have no limits. Why should nature?\" —Emil, Quandrix fourth-year",
+        "scryfall_uri": "https://scryfall.com/card/sos/139/additive-evolution?utm_source=api",
+        "source_index": "card-flavor-index",
+        "source_type": "matched_card"
+      },
+      {
+        "faction_key": "QUANDRIX",
+        "card_name": "Big Play",
+        "flavor_excerpt": "\"Quandrix is running out of time. If they're going to capture the Witherbloom mascot, they need something big here.\"...",
+        "scryfall_uri": "https://scryfall.com/card/stx/122/big-play?utm_source=api",
+        "source_index": "card-flavor-index",
+        "source_type": "matched_card"
+      }
+    ],
+    "R": [
+      {
+        "faction_key": "R",
+        "card_name": "Torbran, Thane of Red Fell",
+        "flavor_excerpt": "A dwarf's grudge runs deeper than the mountains' roots.",
+        "scryfall_uri": "https://scryfall.com/card/eld/147/torbran-thane-of-red-fell?utm_source=api",
+        "source_index": "commander-index",
+        "source_type": "native_commander"
+      },
+      {
+        "faction_key": "R",
+        "card_name": "Krenko, Mob Boss",
+        "flavor_excerpt": "\"Threats? Extortion? Good sir, you have me all wrong. I am a legitimate businessman; my colleagues and I are simply here to conduct legitimate business.\"",
+        "scryfall_uri": "https://scryfall.com/card/fdn/204/krenko-mob-boss?utm_source=api",
+        "source_index": "commander-index",
+        "source_type": "native_commander"
+      },
+      {
+        "faction_key": "R",
+        "card_name": "General Kreat, the Boltbringer",
+        "flavor_excerpt": "To cross swords with her is a shockingly bad idea.",
+        "scryfall_uri": "https://scryfall.com/card/j25/48/general-kreat-the-boltbringer?utm_source=api",
+        "source_index": "commander-index",
+        "source_type": "matched_commander"
+      }
+    ],
+    "RG": [
+      {
+        "faction_key": "RG",
+        "card_name": "Bolrac-Clan Crusher",
+        "flavor_excerpt": "Jaharg discovered that the shapes and symmetries so pleasing to the sculptor's eye also yielded a well-balanced bludg...",
+        "scryfall_uri": "https://scryfall.com/card/rna/159/bolrac-clan-crusher?utm_source=api",
+        "source_index": "card-flavor-index",
+        "source_type": "matched_card"
+      },
+      {
+        "faction_key": "RG",
+        "card_name": "Burning-Tree Emissary",
+        "flavor_excerpt": "Those who regard the Gruul as savage simpletons underestimate the subtle power of their shamans.",
+        "scryfall_uri": "https://scryfall.com/card/2x2/189/burning-tree-emissary?utm_source=api",
+        "source_index": "card-flavor-index",
+        "source_type": "matched_card"
+      },
+      {
+        "faction_key": "RG",
+        "card_name": "Burning-Tree Shaman",
+        "flavor_excerpt": "Gruul shamans are bent on punishing the civilized. Any act more complex than rubbing sticks together or eating with u...",
+        "scryfall_uri": "https://scryfall.com/card/gpt/105/burning-tree-shaman?utm_source=api",
+        "source_index": "card-flavor-index",
+        "source_type": "matched_card"
+      }
+    ],
+    "SILVERQUILL": [
+      {
+        "faction_key": "SILVERQUILL",
+        "card_name": "Beaming Defiance",
+        "flavor_excerpt": "\"I've lived too long in my father's shadow. It's time to find my own light.\" —Killian, Silverquill mage-student",
+        "scryfall_uri": "https://scryfall.com/card/stx/9/beaming-defiance?utm_source=api",
+        "source_index": "card-flavor-index",
+        "source_type": "matched_card"
+      },
+      {
+        "faction_key": "SILVERQUILL",
+        "card_name": "Elenda, the Dusk Rose",
+        "flavor_excerpt": "Her centuries-long search is ended.",
+        "scryfall_uri": "https://scryfall.com/card/lcc/268/elenda-the-dusk-rose?utm_source=api",
+        "source_index": "commander-index",
+        "source_type": "matched_commander"
+      },
+      {
+        "faction_key": "SILVERQUILL",
+        "card_name": "Baron Bertram Graywater",
+        "flavor_excerpt": "\"Of course the law's on my side. I wrote it.\"",
+        "scryfall_uri": "https://scryfall.com/card/otj/195/baron-bertram-graywater?utm_source=api",
+        "source_index": "commander-index",
+        "source_type": "matched_commander"
+      }
+    ],
+    "U": [
+      {
+        "faction_key": "U",
+        "card_name": "Talrand, Sky Summoner",
+        "flavor_excerpt": "\"The seas are vast, but the skies are even more so. Why be content with one kingdom when I can rule them both?\"",
+        "scryfall_uri": "https://scryfall.com/card/otc/116/talrand-sky-summoner?utm_source=api",
+        "source_index": "commander-index",
+        "source_type": "native_commander"
+      },
+      {
+        "faction_key": "U",
+        "card_name": "Azami, Lady of Scrolls",
+        "flavor_excerpt": "\"Choices belong to those with the luxuries of time and distance. We have neither. I recommend we proceed with the plan to destroy all shrines of the kami.\" —Lady Azami, letter t...",
+        "scryfall_uri": "https://scryfall.com/card/cmm/74/azami-lady-of-scrolls?utm_source=api",
+        "source_index": "commander-index",
+        "source_type": "native_commander"
+      },
+      {
+        "faction_key": "U",
+        "card_name": "April O'Neil, Live on the Scene",
+        "flavor_excerpt": "\"This is great! I must really be onto something hot if they're trying to kill me!\"",
+        "scryfall_uri": "https://scryfall.com/card/tmc/9/april-oneil-live-on-the-scene?utm_source=api",
+        "source_index": "commander-index",
+        "source_type": "matched_commander"
+      }
+    ],
+    "UB": [
+      {
+        "faction_key": "UB",
+        "card_name": "Artful Takedown",
+        "flavor_excerpt": "Dimir assassinations are choreographed like dance routines. Each challenge is anticipated and countered with graceful...",
+        "scryfall_uri": "https://scryfall.com/card/grn/151/artful-takedown?utm_source=api",
+        "source_index": "card-flavor-index",
+        "source_type": "matched_card"
+      },
+      {
+        "faction_key": "UB",
+        "card_name": "Consult the Necrosages",
+        "flavor_excerpt": "Dimir rank and file never see nor hear their guildmaster. All orders are given through mysterious necrosages who appe...",
+        "scryfall_uri": "https://scryfall.com/card/rav/199/consult-the-necrosages?utm_source=api",
+        "source_index": "card-flavor-index",
+        "source_type": "matched_card"
+      },
+      {
+        "faction_key": "UB",
+        "card_name": "Bontu's Last Reckoning",
+        "flavor_excerpt": "To the last, Bontu wanted only to be first among the God-Pharaoh's subjects.",
+        "scryfall_uri": "https://scryfall.com/card/hou/60/bontus-last-reckoning?utm_source=api",
+        "source_index": "card-flavor-index",
+        "source_type": "matched_card"
+      }
+    ],
+    "UG": [
+      {
+        "faction_key": "UG",
+        "card_name": "Assault Zeppelid",
+        "flavor_excerpt": "\"Show them to Razia and then to the Azorius sky marshals. We could create a fine bidding war—enough to fund the final...",
+        "scryfall_uri": "https://scryfall.com/card/dis/103/assault-zeppelid?utm_source=api",
+        "source_index": "card-flavor-index",
+        "source_type": "matched_card"
+      },
+      {
+        "faction_key": "UG",
+        "card_name": "Augmenter Pugilist // Echoing Equation",
+        "flavor_excerpt": "\"Hold still. I have a theory about what's going to happen to your face.\"",
+        "scryfall_uri": "https://scryfall.com/card/stx/147/augmenter-pugilist-echoing-equation?utm_source=api",
+        "source_index": "card-flavor-index",
+        "source_type": "matched_card"
+      },
+      {
+        "faction_key": "UG",
+        "card_name": "Coiling Oracle",
+        "flavor_excerpt": "Snaking remnants of nature directed by a body of thought and progress, the oracles embody all that is Simic.",
+        "scryfall_uri": "https://scryfall.com/card/rvr/172/coiling-oracle?utm_source=api",
+        "source_index": "card-flavor-index",
+        "source_type": "matched_card"
+      }
+    ],
+    "UR": [
+      {
+        "faction_key": "UR",
+        "card_name": "Beamsplitter Mage",
+        "flavor_excerpt": "The Izzet love replicating results.",
+        "scryfall_uri": "https://scryfall.com/card/grn/155/beamsplitter-mage?utm_source=api",
+        "source_index": "card-flavor-index",
+        "source_type": "matched_card"
+      },
+      {
+        "faction_key": "UR",
+        "card_name": "Cloven Casting",
+        "flavor_excerpt": "\"Let us flee to the deep jungle. Our city is no longer safe—and I suspect neither is the fallback retreat.\"",
+        "scryfall_uri": "https://scryfall.com/card/arb/86/cloven-casting?utm_source=api",
+        "source_index": "card-flavor-index",
+        "source_type": "matched_card"
+      },
+      {
+        "faction_key": "UR",
+        "card_name": "Desperate Ravings",
+        "flavor_excerpt": "Her mind was quite gone, yet she spoke nothing but truth.",
+        "scryfall_uri": "https://scryfall.com/card/c19/137/desperate-ravings?utm_source=api",
+        "source_index": "card-flavor-index",
+        "source_type": "matched_card"
+      }
+    ],
+    "W": [
+      {
+        "faction_key": "W",
+        "card_name": "Giada, Font of Hope",
+        "flavor_excerpt": "Now she is New Capenna's greatest hope.",
+        "scryfall_uri": "https://scryfall.com/card/fdn/141/giada-font-of-hope?utm_source=api",
+        "source_index": "commander-index",
+        "source_type": "native_commander"
+      },
+      {
+        "faction_key": "W",
+        "card_name": "Balan, Wandering Knight",
+        "flavor_excerpt": "\"What weapon will you bear against one who's mastered them all?\"",
+        "scryfall_uri": "https://scryfall.com/card/cmm/16/balan-wandering-knight?utm_source=api",
+        "source_index": "commander-index",
+        "source_type": "native_commander"
+      },
+      {
+        "faction_key": "W",
+        "card_name": "Toby, Beastie Befriender",
+        "flavor_excerpt": "\"Sure, I'm pretty small, but Gribble isn't, so I don't get scared.\"",
+        "scryfall_uri": "https://scryfall.com/card/dsk/35/toby-beastie-befriender?utm_source=api",
+        "source_index": "commander-index",
+        "source_type": "matched_commander"
+      }
+    ],
+    "WB": [
+      {
+        "faction_key": "WB",
+        "card_name": "Afterlife Insurance",
+        "flavor_excerpt": "As far as the Orzhov Syndicate is concerned, it is the height of irresponsibility not to have a plan for your own ghost.",
+        "scryfall_uri": "https://scryfall.com/card/clu/23/afterlife-insurance?utm_source=api",
+        "source_index": "card-flavor-index",
+        "source_type": "matched_card"
+      },
+      {
+        "faction_key": "WB",
+        "card_name": "Covetous Elegy",
+        "flavor_excerpt": "Wealthier than ever thanks to exorbitant interest on wartime loans, the Orzhov only grew hungrier for more.",
+        "scryfall_uri": "https://scryfall.com/card/clu/29/covetous-elegy?utm_source=api",
+        "source_index": "card-flavor-index",
+        "source_type": "matched_card"
+      },
+      {
+        "faction_key": "WB",
+        "card_name": "Debt to the Deathless",
+        "flavor_excerpt": "Some of Orzhov's cruelest collectors remember their debtors by taste alone.",
+        "scryfall_uri": "https://scryfall.com/card/rvr/176/debt-to-the-deathless?utm_source=api",
+        "source_index": "card-flavor-index",
+        "source_type": "matched_card"
+      }
+    ],
+    "WG": [
+      {
+        "faction_key": "WG",
+        "card_name": "Camaraderie",
+        "flavor_excerpt": "\"Within the song of Mat'Selesnya, one becomes all.\" —Heruj, Selesnya hierophant",
+        "scryfall_uri": "https://scryfall.com/card/ncc/334/camaraderie?utm_source=api",
+        "source_index": "card-flavor-index",
+        "source_type": "matched_card"
+      },
+      {
+        "faction_key": "WG",
+        "card_name": "Advent of the Wurm",
+        "flavor_excerpt": "The consciousness of Mat'Selesnya does not always spread in peaceful ways.",
+        "scryfall_uri": "https://scryfall.com/card/mm3/147/advent-of-the-wurm?utm_source=api",
+        "source_index": "card-flavor-index",
+        "source_type": "matched_card"
+      },
+      {
+        "faction_key": "WG",
+        "card_name": "Trostani, Selesnya's Voice",
+        "flavor_excerpt": "There are no soloists in the chorus of Selesnya.",
+        "scryfall_uri": "https://scryfall.com/card/c19/204/trostani-selesnyas-voice?utm_source=api",
+        "source_index": "commander-index",
+        "source_type": "native_commander"
+      }
+    ],
+    "WITHERBLOOM": [
+      {
+        "faction_key": "WITHERBLOOM",
+        "card_name": "Blech, Loafing Pest",
+        "flavor_excerpt": "Despite Blex's passing, Witherbloom students still continued the tradition of a yearly search in his honor. His son,...",
+        "scryfall_uri": "https://scryfall.com/card/sos/176/blech-loafing-pest?utm_source=api",
+        "source_index": "card-flavor-index",
+        "source_type": "matched_card"
+      },
+      {
+        "faction_key": "WITHERBLOOM",
+        "card_name": "Blossoming Bogbeast",
+        "flavor_excerpt": "As subtle as a bogbeast —Witherbloom expression meaning \"crude and clumsy\"",
+        "scryfall_uri": "https://scryfall.com/card/soc/264/blossoming-bogbeast?utm_source=api",
+        "source_index": "card-flavor-index",
+        "source_type": "matched_card"
+      },
+      {
+        "faction_key": "WITHERBLOOM",
+        "card_name": "Big Play",
+        "flavor_excerpt": "\"Quandrix is running out of time. If they're going to capture the Witherbloom mascot, they need something big here.\"...",
+        "scryfall_uri": "https://scryfall.com/card/stx/122/big-play?utm_source=api",
+        "source_index": "card-flavor-index",
+        "source_type": "matched_card"
+      }
+    ],
+    "WR": [
+      {
+        "faction_key": "WR",
+        "card_name": "Boros Battleshaper",
+        "flavor_excerpt": "Leaders shape the minds of their allies. It takes a master to shape the minds of enemies.",
+        "scryfall_uri": "https://scryfall.com/card/dgm/58/boros-battleshaper?utm_source=api",
+        "source_index": "card-flavor-index",
+        "source_type": "matched_card"
+      },
+      {
+        "faction_key": "WR",
+        "card_name": "Boros Strike-Captain",
+        "flavor_excerpt": "\"Keep up with me, comrades, or I cannot guarantee you a fair share of the fracas.\"",
+        "scryfall_uri": "https://scryfall.com/card/clu/25/boros-strike-captain?utm_source=api",
+        "source_index": "card-flavor-index",
+        "source_type": "matched_card"
+      },
+      {
+        "faction_key": "WR",
+        "card_name": "Blaze Commando",
+        "flavor_excerpt": "A true Boros commando only calls for reinforcements so they can clean up the mess.",
+        "scryfall_uri": "https://scryfall.com/card/dgm/56/blaze-commando?utm_source=api",
+        "source_index": "card-flavor-index",
+        "source_type": "matched_card"
+      }
+    ],
+    "WU": [
+      {
+        "faction_key": "WU",
+        "card_name": "Azorius Aethermage",
+        "flavor_excerpt": "In her single metasphere are bound the records of every Ætheric transaction since the time of Azor.",
+        "scryfall_uri": "https://scryfall.com/card/dis/104/azorius-aethermage?utm_source=api",
+        "source_index": "card-flavor-index",
+        "source_type": "matched_card"
+      },
+      {
+        "faction_key": "WU",
+        "card_name": "Azorius Cluestone",
+        "flavor_excerpt": "Its three sides represent the Sova, judges and arbitrators; the Jelenn, scribes and elocutors; and the Lyev, lawmages...",
+        "scryfall_uri": "https://scryfall.com/card/dgm/136/azorius-cluestone?utm_source=api",
+        "source_index": "card-flavor-index",
+        "source_type": "matched_card"
+      },
+      {
+        "faction_key": "WU",
+        "card_name": "Azorius Guildgate",
+        "flavor_excerpt": "Enter the Senate, the seat of justice and the foundation of Ravnican society.",
+        "scryfall_uri": "https://scryfall.com/card/fdn/683/azorius-guildgate?utm_source=api",
+        "source_index": "card-flavor-index",
+        "source_type": "matched_card"
+      }
+    ]
+  }
+}

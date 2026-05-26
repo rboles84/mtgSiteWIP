@@ -61,6 +61,29 @@ if (!archscrySource.includes('<footer class="app-footer"')) {
 if (/["'`]\/data\//.test(archscryRuntimeSource)) {
   failures.push("Archscry smoke check failed: runtime still contains root-relative /data/ references");
 }
+if (!archscryRuntimeSource.includes("const DOSSIER_PANEL_CONFIG")) {
+  failures.push("Archscry dossier smoke check failed: panel configuration is missing");
+}
+if (!archscryRuntimeSource.includes('role="tablist"') || !archscryRuntimeSource.includes('role="tabpanel"')) {
+  failures.push("Archscry dossier smoke check failed: accessible tab semantics are missing");
+}
+if (!archscryRuntimeSource.includes('"set-dossier-panel"')) {
+  failures.push("Archscry dossier smoke check failed: panel action hook is missing");
+}
+if (!archscryRuntimeSource.includes('"toggle-dossier-layout"')) {
+  failures.push("Archscry dossier smoke check failed: View All action hook is missing");
+}
+if (!archscryRuntimeSource.includes('"set-dossier-segment"')) {
+  failures.push("Archscry dossier smoke check failed: card/land segment action hook is missing");
+}
+if (!archscryRuntimeSource.includes("history.replaceState(window.history.state")) {
+  failures.push("Archscry dossier smoke check failed: panel URL updates should use replaceState");
+}
+for (const idPrefix of ["cmd_", "sc_", "ss_", "sp_", "lp_", "lm_", "lb_", "lu_"]) {
+  if (!archscryRuntimeSource.includes(idPrefix)) {
+    failures.push(`Archscry dossier smoke check failed: ${idPrefix} card-art ID prefix is missing`);
+  }
+}
 if (mazeSource.includes('role="menu"') || archscrySource.includes('role="menu"')) {
   failures.push("Shared topbar smoke check failed: site navigation should not use application menu roles");
 }

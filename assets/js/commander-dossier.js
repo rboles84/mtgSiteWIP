@@ -839,12 +839,49 @@ function cleanLandPick(value, sourceTier, suppressedQuantities) {
   return BASIC_LANDS.has(normalizeDisplayName(name)) ? "" : name;
 }
 
-function normalizeLandTier(values, sourceTier, suppressedQuantities) {
-  return uniqueByDisplayName(
-    splitLandSource(values)
+function canonicalLandKeys(value) {
+  const displayName = cardDisplayName(value);
+  return unique([
+    normalizeDisplayName(displayName),
+    ...displayName.split(/\s*\/\/\s*/).map((face) => normalizeDisplayName(face)),
+  ]).filter(Boolean);
+}
+
+function addUniqueLandPick({ output, seen, value, sourceTier, suppressedDuplicates }) {
+  const displayName = cardDisplayName(value);
+  const keys = canonicalLandKeys(displayName);
+  if (!displayName || !keys.length) return;
+
+  const duplicateKey = keys.find((key) => seen.has(key));
+  if (duplicateKey) {
+    suppressedDuplicates.push({
+      sourceTier,
+      original: value,
+      renderedName: displayName,
+      duplicateOf: seen.get(duplicateKey),
+    });
+    return;
+  }
+
+  keys.forEach((key) => seen.set(key, displayName));
+  output.push(displayName);
+}
+
+function normalizeLandTierAcrossSources(sources, sourceTier, seen, suppressedQuantities, suppressedDuplicates) {
+  const output = [];
+  (sources || []).forEach((source) => {
+    splitLandSource(source)
       .map((value) => cleanLandPick(value, sourceTier, suppressedQuantities))
       .filter(Boolean)
-  );
+      .forEach((value) => addUniqueLandPick({
+        output,
+        seen,
+        value,
+        sourceTier,
+        suppressedDuplicates,
+      }));
+  });
+  return output;
 }
 
 function basicLandGuidance(colors = []) {
@@ -866,19 +903,36 @@ function basicLandGuidance(colors = []) {
 export function buildCommanderLandRecommendations(faction) {
   const landBase = faction?.land_base || {};
   const suppressedQuantities = [];
-  const premium = uniqueByDisplayName([
-    ...normalizeLandTier(landBase.premium, "premium", suppressedQuantities),
-    ...normalizeLandTier(landBase.optimal, "optimal", suppressedQuantities),
-  ]).slice(0, 5);
-  const midrange = uniqueByDisplayName([
-    ...normalizeLandTier(landBase.midrange, "midrange", suppressedQuantities),
-    ...normalizeLandTier(landBase.mid, "mid", suppressedQuantities),
-  ]).slice(0, 5);
-  const budget = uniqueByDisplayName([
-    ...normalizeLandTier(landBase.budget, "budget", suppressedQuantities),
-    ...normalizeLandTier(landBase.budget_line, "budget_line", suppressedQuantities),
-  ]).slice(0, 5);
-  const utility = normalizeLandTier(landBase.utility, "utility", suppressedQuantities).slice(0, 5);
+  const suppressedDuplicates = [];
+  const seenLandKeys = new Map();
+  const premium = normalizeLandTierAcrossSources(
+    [landBase.premium, landBase.optimal],
+    "premium",
+    seenLandKeys,
+    suppressedQuantities,
+    suppressedDuplicates
+  ).slice(0, 5);
+  const midrange = normalizeLandTierAcrossSources(
+    [landBase.midrange, landBase.mid],
+    "midrange",
+    seenLandKeys,
+    suppressedQuantities,
+    suppressedDuplicates
+  ).slice(0, 5);
+  const budget = normalizeLandTierAcrossSources(
+    [landBase.budget, landBase.budget_line],
+    "budget",
+    seenLandKeys,
+    suppressedQuantities,
+    suppressedDuplicates
+  ).slice(0, 5);
+  const utility = normalizeLandTierAcrossSources(
+    [landBase.utility, landBase.utility_line],
+    "utility",
+    seenLandKeys,
+    suppressedQuantities,
+    suppressedDuplicates
+  ).slice(0, 5);
 
   return {
     premium,
@@ -887,6 +941,7 @@ export function buildCommanderLandRecommendations(faction) {
     utility,
     basicGuidance: basicLandGuidance(faction?.colors || []),
     suppressedQuantities,
+    suppressedDuplicates,
   };
 }
 
@@ -1699,7 +1754,7 @@ export function buildCommanderPackageLinks(faction) {
  * @param {object=} options.factions Faction display records by key.
  * @param {string=} options.activeFactionKey Current faction view.
  * @param {number=} options.limit Maximum omens to return.
- * @returns {{title:string,answerTitle:string,copy:string}[]} Omen cards.
+ * @returns {{title:string,answerTitle:string,copy:string}[]} Signal cards.
  */
 export function buildReadingOmens({
   evidenceTrail = [],
@@ -1717,7 +1772,7 @@ export function buildReadingOmens({
         : "";
 
       return {
-        title: `Omen ${index + 1}`,
+        title: `Signal ${index + 1}`,
         answerTitle,
         copy: `${omenPhraseForEntry(entry)}${echo}`,
       };
@@ -1772,12 +1827,12 @@ export function buildCommanderStartingLane({
   const copy = `${faction?.name || "This path"} wants a Commander deck that ${plan}. ${deckCenter}, then tune the 99 so your best turns feel like your reading did.`;
 
   return {
-    title: "Your First Commander Path",
+    title: "Start With This Commander Plan",
     copy,
     details: [
       {
         label: "Deck footing",
-        copy: `${colorIdentity} Commander, ${budget} budget, ${experience} pilot. ${researchLanes}`,
+        copy: `Budget and experience: ${budget} budget, ${experience} pilot. ${researchLanes}`,
       },
       {
         label: `${institutionWord} spellcraft`,
@@ -1837,8 +1892,20 @@ function buildStarterCards(faction) {
   };
 }
 
+const NON_COMMANDER_ARCHETYPE_RE = /\b(ponza|land denial|zoo|delver|phoenix|company hatebears)\b/i;
+const SIXTY_CARD_ANCHOR_RE = /\b(Wild Nacatl|Bloodbraid Elf|Stone Rain|Collected Company)\b/i;
+
+function isCommanderCredibleArchetype(item) {
+  const text = [item?.name, item?.desc].filter(Boolean).join(" ");
+  if (!text.trim()) {
+    return false;
+  }
+  return !NON_COMMANDER_ARCHETYPE_RE.test(text) && !SIXTY_CARD_ANCHOR_RE.test(text);
+}
+
 function buildArchetypes(faction) {
   return uniqueObjectsBy(faction?.archetypes || [], (item) => normalizeDisplayName(item?.name || ""))
+    .filter((item) => isCommanderCredibleArchetype(item))
     .map((item) => ({
       name: applyCardDisplayNames(item.name),
       desc: applyCardDisplayNames(item.desc || ""),
@@ -2189,7 +2256,7 @@ export function renderCommanderDossierText(dossier) {
     `**Tagline:** ${faction.tagline}`,
     `**${manaLabel}:** ${mana}`,
     dossier.isPrimary ? "" : `**Commander color identity:** ${faction.colorIdentity || getColorIdentity(faction.colors || faction.key || "")}`,
-    "## Reading Omens",
+    "## Signals From Your Answers",
     omens || "- No reading omens were available.",
     "## Commander Path",
     commanderPath.copy || "- Missing Commander path.",
@@ -2400,6 +2467,10 @@ function auditDuplicates(dossier, warnings) {
 
   duplicateValues((dossier.commanderRecommendations || []).map((candidate) => candidate.name)).forEach((name) => {
     warnings.push(`Duplicate commander recommendation: ${name}`);
+  });
+
+  (dossier.landRecommendations?.suppressedDuplicates || []).forEach((entry) => {
+    warnings.push(`Suppressed duplicate land (${entry.sourceTier}): ${entry.original} -> ${entry.duplicateOf}`);
   });
 
   [

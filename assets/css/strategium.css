@@ -1,10 +1,10 @@
 :root {
   --bg: #050508;
-  --panel: rgba(255, 255, 255, 0.06);
-  --panel-strong: rgba(255, 255, 255, 0.10);
-  --line: rgba(255, 255, 255, 0.16);
+  --panel: rgba(12, 16, 25, 0.50);
+  --panel-strong: rgba(18, 23, 35, 0.62);
+  --line: rgba(255, 255, 255, 0.20);
   --text: #ffffff;
-  --muted: rgba(255, 255, 255, 0.72);
+  --muted: rgba(255, 255, 255, 0.78);
   --accent: #d8c27a;
   --ink: #f5ead2;
   --gold: #d7a23c;
@@ -149,9 +149,10 @@ main section {
   border: 1px solid var(--line);
   border-radius: 24px;
   background:
-    radial-gradient(circle at var(--x, 50%) var(--y, 0%), rgba(247, 215, 132, 0.10), transparent 16rem),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.075), rgba(255, 255, 255, 0.035));
-  box-shadow: 0 22px 70px rgba(0, 0, 0, 0.38);
+    radial-gradient(circle at var(--x, 50%) var(--y, 0%), rgba(247, 215, 132, 0.12), transparent 16rem),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.055), rgba(255, 255, 255, 0.018)),
+    linear-gradient(180deg, rgba(12, 16, 25, 0.62), rgba(8, 11, 18, 0.44));
+  box-shadow: 0 24px 72px rgba(0, 0, 0, 0.42);
 }
 
 .vm-hero-panel,
@@ -293,7 +294,9 @@ main section {
   border: 1px solid var(--line);
   border-radius: 18px;
   padding: 1rem 1.05rem;
-  background: rgba(0, 0, 0, 0.18);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.012)),
+    rgba(8, 11, 18, 0.30);
 }
 
 .vm-entry-row strong {
@@ -337,7 +340,9 @@ main section {
   border: 1px solid var(--line);
   border-radius: 20px;
   padding: 1rem;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.07), rgba(255, 255, 255, 0.03));
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.045), rgba(255, 255, 255, 0.018)),
+    linear-gradient(180deg, rgba(12, 16, 25, 0.54), rgba(8, 11, 18, 0.38));
   color: var(--text);
   text-align: left;
   cursor: pointer;
@@ -346,7 +351,7 @@ main section {
 .vm-tab.active {
   background: var(--panel-strong);
   border-color: rgba(255, 255, 255, 0.34);
-  box-shadow: 0 16px 42px rgba(0, 0, 0, 0.24);
+  box-shadow: 0 18px 46px rgba(0, 0, 0, 0.30);
 }
 
 .vm-tab-title {
@@ -388,7 +393,8 @@ main section {
   padding: clamp(1.25rem, 2.8vw, 1.7rem);
   background:
     radial-gradient(circle at top right, rgba(88, 184, 255, 0.10), transparent 18rem),
-    rgba(255, 255, 255, 0.045);
+    linear-gradient(180deg, rgba(255, 255, 255, 0.035), rgba(255, 255, 255, 0.012)),
+    rgba(8, 11, 18, 0.30);
   color: var(--muted);
 }
 
@@ -423,7 +429,7 @@ main section {
   border: 1px solid rgba(247, 215, 132, 0.2);
   border-radius: 18px;
   padding: 0.95rem;
-  background: rgba(0, 0, 0, 0.18);
+  background: rgba(8, 11, 18, 0.28);
 }
 
 .vm-console-note strong {
@@ -440,7 +446,7 @@ main section {
   padding: 1rem;
   background:
     radial-gradient(circle at top right, rgba(164, 107, 234, 0.08), transparent 14rem),
-    rgba(0, 0, 0, 0.2);
+    rgba(8, 11, 18, 0.30);
 }
 
 .vm-console-subpanel h4 {
@@ -587,7 +593,7 @@ main section {
 .vm-readiness-status-card {
   border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 18px;
-  background: rgba(0, 0, 0, 0.2);
+  background: rgba(8, 11, 18, 0.30);
 }
 
 .vm-console-script-card,
@@ -781,7 +787,7 @@ main section {
   padding: 0.95rem 1rem;
   border: 1px solid rgba(247, 215, 132, 0.24);
   border-radius: 18px;
-  background: rgba(0, 0, 0, 0.22);
+  background: rgba(8, 11, 18, 0.32);
 }
 
 .vm-readiness-summary strong {
@@ -802,7 +808,7 @@ main section {
   border-radius: 20px;
   background:
     radial-gradient(circle at top left, rgba(88, 184, 255, 0.08), transparent 16rem),
-    rgba(0, 0, 0, 0.2);
+    rgba(8, 11, 18, 0.30);
 }
 
 .vm-readiness-gauge-head {
@@ -903,11 +909,25 @@ main section {
   line-height: 1.5;
 }
 
+.vm-checklist-button:hover,
+.vm-checklist-button:focus-visible {
+  background:
+    radial-gradient(circle at top right, rgba(247, 215, 132, 0.14), transparent 14rem),
+    linear-gradient(180deg, rgba(18, 23, 35, 0.72), rgba(10, 14, 22, 0.54)),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.055), rgba(255, 255, 255, 0.02));
+}
+
+.vm-checklist-button:hover span,
+.vm-checklist-button:focus-visible span {
+  color: rgba(255, 255, 255, 0.84);
+}
+
 .vm-checklist-button[aria-pressed="true"] {
   border-color: rgba(247, 215, 132, 0.45);
   background:
     radial-gradient(circle at top right, rgba(247, 215, 132, 0.16), transparent 14rem),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.095), rgba(255, 255, 255, 0.045));
+    linear-gradient(180deg, rgba(24, 30, 44, 0.78), rgba(12, 16, 24, 0.60)),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.03));
 }
 
 .vm-checklist-button[aria-pressed="true"]::before {

@@ -165,7 +165,8 @@ function adjacentFamilyGrouping(result, factions) {
 
 function buildPresentationSummary({ result, dossier, factions, taxonomy }) {
   const faction = dossier.faction.record;
-  const tagRefs = selectReadingTagRefs({ dossier, faction, result, taxonomy });
+  const modelMechanics = "";
+  const tagRefs = selectReadingTagRefs({ dossier, result, taxonomy, modelMechanics });
   const tag_explanations = buildTagExplanationSummaries({
     tagRefs,
     faction,

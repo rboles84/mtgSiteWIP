@@ -19,6 +19,8 @@
     "test:bias": "node assets/js/quick-reading-bias.js",
     "test:bias:all": "node assets/js/quick-reading-bias.js --all",
     "test:frontend-smoke": "node scripts/frontend-smoke.mjs",
+    "test:visual:apocrypha": "node scripts/visual-regression-apocrypha.mjs --mode=compare",
+    "test:visual:apocrypha:baseline": "node scripts/visual-regression-apocrypha.mjs --mode=baseline",
     "test:visual:archscry": "node scripts/visual-regression-archscry.mjs --mode=compare",
     "test:visual:archscry:baseline": "node scripts/visual-regression-archscry.mjs --mode=baseline",
     "test:visual:strategium": "node scripts/visual-regression-strategium.mjs --mode=compare",

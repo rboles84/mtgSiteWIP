@@ -40,6 +40,17 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 ## Done
 
+- [VM-135 - Archscry Card Voices, Identity Story, And Land Deduping](done/VM-135-archscry-card-voices-identity-story-land-dedupe.md)
+- [VM-134 - Apocrypha Hero Unification Pass](done/VM-134-apocrypha-hero-unification-pass.md)
+- [VM-129G - Maze Help Removal And Loom Clear Reset](done/VM-129G-maze-help-removal-loom-clear-reset.md)
+- [VM-133 - Strategium Glass Readability Polish](done/VM-133-strategium-glass-readability-polish.md)
+- [VM-132 - Archscry Dossier Navigation, Identity Matrix, And Retake Polish](done/VM-132-archscry-dossier-navigation-identity-matrix-retake-polish.md)
+- [VM-129F - Maze Textarea Inspector Space Pass](done/VM-129F-maze-textarea-inspector-space-pass.md)
+- [VM-129E - Maze Glass Sidebar Help Micro Polish](done/VM-129E-maze-glass-sidebar-help-micro-polish.md)
+- [VM-129D - Maze Mode Separation and Console Usability Pass](done/VM-129D-maze-mode-separation-console-usability-pass.md)
+- [VM-129C - Finish Maze Convergence and Patch the Atmosphere Fault Lines](done/VM-129C-finish-maze-convergence-atmosphere-fault-lines.md)
+- [VM-131 - Archscry Dossier Onboarding Trust And Visual Clarity Pass](done/VM-131-archscry-dossier-onboarding-trust-visual-pass.md)
+- [VM-130 - Archscry Live Dossier Console Redesign](done/VM-130-archscry-live-dossier-console-redesign.md)
 - [VM-129B - Correct Maze Visual Alignment And Responsive Layout](done/VM-129B-correct-maze-visual-alignment-responsive-layout.md)
 - [VM-129 - Redesign The Implicit Maze Search Console](done/VM-129-redesign-implicit-maze-search-console.md)
 - [VM-128 - Phase 4 Strategium Index Extraction](done/VM-128-phase-4-strategium-index-extraction.md)

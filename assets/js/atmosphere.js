@@ -26,13 +26,17 @@
     var bg = document.querySelector('.vm-bg');
     if (!bg) return;
 
-    // Avoid double-init
-    if (bg.querySelector('.vm-bg__stars')) return;
+    var canvas = bg.querySelector('.vm-bg__stars');
+    if (!canvas) {
+      canvas = document.createElement('canvas');
+      canvas.className = 'vm-bg__stars';
+      canvas.setAttribute('aria-hidden', 'true');
+      bg.appendChild(canvas);
+    } else if (canvas.dataset.vmAtmosphere === 'true') {
+      return;
+    }
 
-    var canvas = document.createElement('canvas');
-    canvas.className = 'vm-bg__stars';
-    canvas.setAttribute('aria-hidden', 'true');
-    bg.appendChild(canvas);
+    canvas.dataset.vmAtmosphere = 'true';
 
     var ctx = canvas.getContext('2d');
     if (!ctx) return;

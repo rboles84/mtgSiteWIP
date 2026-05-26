@@ -17,6 +17,7 @@ body.vm-archscry-route {
 
 body.vm-archscry-route::before {
   content: "";
+  display: none;
   position: fixed;
   inset: 0;
   z-index: -11;
@@ -72,7 +73,7 @@ body.vm-archscry-route .vm-bg__picture img {
   opacity: 1;
   -webkit-mask-image: none;
           mask-image: none;
-  filter: saturate(1.04) contrast(1.08) brightness(1.52);
+  filter: none;
 }
 
 body.vm-archscry-route .vm-bg__nebula {
@@ -80,6 +81,7 @@ body.vm-archscry-route .vm-bg__nebula {
 }
 
 body.vm-archscry-route .vm-bg__stars {
+  display: block;
   position: fixed;
   inset: 0;
   width: 100%;
@@ -581,6 +583,233 @@ body.vm-archscry-route .decree-footer {
   max-width: none;
 }
 
+body.vm-archscry-route .dossier-snapshot {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+  margin: -0.6rem 0 1.6rem;
+}
+
+body.vm-archscry-route .dossier-snapshot-card {
+  min-width: 0;
+  min-height: 122px;
+  padding: 0.95rem 1rem;
+  border: 1px solid rgba(184, 149, 74, 0.18);
+  border-radius: 14px;
+  background:
+    linear-gradient(135deg, rgba(26, 170, 150, 0.08), transparent 48%),
+    rgba(11, 10, 13, 0.76);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.02), 0 14px 34px rgba(0, 0, 0, 0.24);
+}
+
+body.vm-archscry-route .dossier-snapshot-card span,
+body.vm-archscry-route .dossier-rail-label {
+  display: block;
+  margin-bottom: 0.45rem;
+  font-family: var(--font-mono);
+  font-size: 0.64rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(236, 217, 153, 0.72);
+}
+
+body.vm-archscry-route .dossier-snapshot-card strong {
+  display: block;
+  overflow-wrap: anywhere;
+  color: rgba(249, 245, 231, 0.94);
+  font-size: 1rem;
+  line-height: 1.32;
+}
+
+body.vm-archscry-route .dossier-snapshot-copy {
+  color: rgba(241, 237, 225, 0.9);
+  font-size: 0.92rem;
+  line-height: 1.55;
+}
+
+body.vm-archscry-route .dossier-snapshot-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.65rem;
+  margin-top: 0.72rem;
+}
+
+body.vm-archscry-route .dossier-snapshot-meta em {
+  color: rgba(226, 217, 193, 0.82);
+  font-family: var(--font-mono);
+  font-size: 0.73rem;
+  font-style: normal;
+  letter-spacing: 0.04em;
+}
+
+body.vm-archscry-route .mana-pips-inline {
+  justify-content: flex-start;
+  gap: 7px;
+  margin: 0;
+}
+
+body.vm-archscry-route .mana-pips-inline .pip {
+  width: 16px;
+  height: 16px;
+}
+
+body.vm-archscry-route .dossier-console {
+  margin-top: 1.25rem;
+}
+
+body.vm-archscry-route .dossier-console-grid {
+  display: grid;
+  grid-template-columns: minmax(190px, 230px) minmax(0, 1fr);
+  gap: clamp(1rem, 2.6vw, 1.6rem);
+  align-items: start;
+}
+
+body.vm-archscry-route .dossier-rail {
+  position: sticky;
+  top: calc(var(--vm-topbar-h) + 1rem);
+  z-index: 8;
+  gap: 0.95rem;
+  padding: 1rem 1.05rem 1.1rem;
+  border: 1px solid rgba(184, 149, 74, 0.16);
+  border-radius: 16px;
+  background: rgba(9, 9, 12, 0.72);
+  box-shadow: 0 18px 44px rgba(0, 0, 0, 0.34);
+  backdrop-filter: blur(12px) saturate(112%);
+}
+
+body.vm-archscry-route .dossier-console[data-dossier-layout="focus"] .dossier-rail {
+  max-height: calc(100vh - var(--vm-topbar-h) - 2rem);
+}
+
+body.vm-archscry-route .dossier-rail-label {
+  margin-bottom: 0.15rem;
+  padding-inline: 0.3rem;
+  text-align: center;
+}
+
+body.vm-archscry-route .dossier-rail-tabs {
+  display: grid;
+  gap: 7px;
+}
+
+body.vm-archscry-route .dossier-tab,
+body.vm-archscry-route .dossier-segment-tab {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 40px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+body.vm-archscry-route .dossier-tab {
+  width: 100%;
+}
+
+body.vm-archscry-route .dossier-tab:focus-visible,
+body.vm-archscry-route .dossier-segment-tab:focus-visible,
+body.vm-archscry-route .dossier-view-toggle:focus-visible {
+  outline: 2px solid rgba(26, 170, 150, 0.92);
+  outline-offset: 2px;
+}
+
+body.vm-archscry-route .dossier-view-toggle {
+  width: 100%;
+  min-height: 42px;
+  justify-content: center;
+}
+
+body.vm-archscry-route .dossier-view-toggle.is-active {
+  border-color: rgba(26, 170, 150, 0.36);
+  color: var(--teal-l);
+  background: rgba(26, 170, 150, 0.1);
+}
+
+body.vm-archscry-route .dossier-utility-actions {
+  display: grid;
+  gap: 8px;
+  margin-top: auto;
+  padding-top: 0.9rem;
+  border-top: 1px solid rgba(184, 149, 74, 0.12);
+}
+
+body.vm-archscry-route .dossier-utility-actions[hidden],
+body.vm-archscry-route .dossier-console[data-dossier-layout="all"] .dossier-utility-actions {
+  display: none !important;
+}
+
+body.vm-archscry-route .dossier-utility-btn {
+  width: 100%;
+  min-height: 40px;
+  justify-content: center;
+  white-space: normal;
+  line-height: 1.25;
+}
+
+body.vm-archscry-route .dossier-workspace {
+  min-width: 0;
+}
+
+body.vm-archscry-route .dossier-panel {
+  min-width: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  scroll-margin-top: calc(var(--vm-topbar-h) + 1rem);
+}
+
+body.vm-archscry-route .dossier-panel[hidden],
+body.vm-archscry-route .dossier-segment-panel[hidden] {
+  display: none !important;
+}
+
+body.vm-archscry-route .dossier-console[data-dossier-layout="all"] .dossier-panel {
+  display: block;
+  margin-bottom: 1.25rem;
+}
+
+body.vm-archscry-route .dossier-panel > :last-child,
+body.vm-archscry-route .dossier-segment-panel > :last-child {
+  margin-bottom: 0;
+}
+
+body.vm-archscry-route .dossier-mobile-nav {
+  display: none;
+}
+
+body.vm-archscry-route .dossier-segment-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 1rem;
+}
+
+body.vm-archscry-route .dossier-segment-tab {
+  width: auto;
+  min-width: 0;
+  padding-inline: 1rem;
+}
+
+body.vm-archscry-route .dossier-segment-tab.is-active,
+body.vm-archscry-route .dossier-segment-tab[aria-pressed="true"] {
+  color: var(--gold-l);
+  border-color: rgba(184, 149, 74, 0.44);
+  background: rgba(184, 149, 74, 0.12);
+}
+
+body.vm-archscry-route .dossier-segment-panel {
+  min-width: 0;
+}
+
+body.vm-archscry-route .lands-tiers .dossier-segment-panel {
+  display: block;
+}
+
+body.vm-archscry-route .lands-tiers .dossier-segment-panel[hidden] {
+  display: none !important;
+}
+
 @media (max-width: 940px) {
   body.vm-archscry-route .hero-band {
     max-width: none;
@@ -588,6 +817,76 @@ body.vm-archscry-route .decree-footer {
 
   body.vm-archscry-route .result-context-bar {
     top: calc(var(--vm-topbar-h-mobile) + 0.65rem);
+  }
+
+  body.vm-archscry-route .dossier-snapshot {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  body.vm-archscry-route .dossier-snapshot-card--narrative {
+    grid-column: 1 / -1;
+  }
+
+  body.vm-archscry-route .dossier-console-grid {
+    display: block;
+  }
+
+  body.vm-archscry-route .dossier-rail {
+    display: none;
+  }
+
+  body.vm-archscry-route .dossier-mobile-nav {
+    position: sticky;
+    top: calc(var(--vm-topbar-h-mobile) + 0.5rem);
+    z-index: 9;
+    display: grid;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+    padding: 0.75rem;
+    border: 1px solid rgba(184, 149, 74, 0.16);
+    border-radius: 16px;
+    background: rgba(9, 9, 12, 0.84);
+    box-shadow: 0 18px 44px rgba(0, 0, 0, 0.34);
+    backdrop-filter: blur(12px) saturate(112%);
+  }
+
+  body.vm-archscry-route .dossier-mobile-tabs {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 8px;
+    overflow-x: auto;
+    padding: 0 0 0.25rem;
+    scroll-snap-type: x proximity;
+    scrollbar-width: none;
+  }
+
+  body.vm-archscry-route .dossier-mobile-tabs::-webkit-scrollbar {
+    display: none;
+  }
+
+  body.vm-archscry-route .dossier-mobile-tabs .dossier-tab {
+    width: auto;
+    min-width: max-content;
+    scroll-snap-align: start;
+    white-space: nowrap;
+  }
+
+  body.vm-archscry-route .dossier-mobile-nav .dossier-view-toggle {
+    width: auto;
+    justify-self: start;
+  }
+
+  body.vm-archscry-route .dossier-mobile-nav .dossier-utility-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 0;
+    padding-top: 0.75rem;
+  }
+
+  body.vm-archscry-route .dossier-mobile-nav .dossier-utility-btn {
+    width: auto;
+    flex: 1 1 190px;
   }
 }
 
@@ -623,6 +922,20 @@ body.vm-archscry-route .decree-footer {
 
   body.vm-archscry-route .result-context-bar {
     border-radius: 18px;
+  }
+
+  body.vm-archscry-route .dossier-snapshot {
+    grid-template-columns: 1fr;
+    margin-top: -0.8rem;
+  }
+
+  body.vm-archscry-route .dossier-snapshot-card--narrative {
+    grid-column: auto;
+  }
+
+  body.vm-archscry-route .dossier-tab,
+  body.vm-archscry-route .dossier-segment-tab {
+    min-height: 44px;
   }
 }
 
@@ -1225,7 +1538,7 @@ body::before{
 }
 .vm-dossier-matrix-section .vm-axis{
   display:grid;
-  grid-template-columns:92px 1fr minmax(110px,auto);
+  grid-template-columns:92px 1fr 42px;
   gap:0.65rem;
   align-items:center;
   font-size:0.82rem;
@@ -1258,14 +1571,14 @@ body::before{
 }
 .vm-dossier-matrix-section .vm-radar-card{
   position:relative;
-  min-height:540px;
+  min-height:640px;
   border:1px solid var(--line);
   border-radius:22px;
   background:
     radial-gradient(circle at 50% 48%,rgba(255,255,255,0.07),rgba(255,255,255,0.025) 60%,rgba(0,0,0,0.08)),
     rgba(0,0,0,0.18);
   overflow:hidden;
-  padding:1rem;
+  padding:1.1rem 1.1rem 1.2rem;
 }
 .vm-dossier-matrix-section .vm-controls{
   display:flex;
@@ -1282,7 +1595,7 @@ body::before{
 }
 .vm-dossier-matrix-section .vm-chart-wrap{
   position:relative;
-  min-height:460px;
+  min-height:570px;
   overflow:hidden;
   border-radius:28px;
 }
@@ -1298,7 +1611,7 @@ body::before{
 .vm-dossier-matrix-section .vm-radar-wrap{
   position:relative;
   z-index:2;
-  height:450px;
+  height:420px;
 }
 #dossierManaRadar{
   width:100% !important;
@@ -1318,70 +1631,139 @@ body::before{
   line-height:1.5;
   text-align:center;
 }
-.vm-dossier-matrix-section .vm-radar-caption{
+.vm-dossier-matrix-section .vm-radar-fallback[hidden]{
+  display:none !important;
+}
+.vm-card-voice-panel{
   position:relative;
-  z-index:2;
-  margin:0.75rem 0 0;
-  text-align:center;
-  color:var(--muted);
-  font-size:0.82rem;
+  z-index:3;
+  display:grid;
+  gap:0.9rem;
+  margin-top:0.85rem;
+  padding:1rem;
+  border:1px solid rgba(230,208,139,0.2);
+  border-radius:14px;
+  background:
+    linear-gradient(135deg,rgba(230,208,139,0.1),rgba(120,160,255,0.06)),
+    rgba(5,5,7,0.54);
 }
-.vm-dossier-matrix-section .vm-dataset-pills{
-  position:relative;
-  z-index:2;
-  display:flex;
-  justify-content:center;
-  flex-wrap:wrap;
-  gap:0.45rem;
-  margin-top:0.7rem;
+.vm-card-voice-heading{
+  display:grid;
+  gap:0.32rem;
 }
-.vm-dossier-matrix-section .vm-pill{
-  position:relative;
-  border:1px solid var(--line);
-  border-radius:999px;
-  padding:0.35rem 0.55rem;
-  background:rgba(255,255,255,0.05);
-  color:var(--muted);
-  font-size:0.75rem;
-  transition:background 0.25s ease,box-shadow 0.25s ease,color 0.25s ease,transform 0.25s ease;
+.vm-card-voice-heading span{
+  color:var(--text);
+  font-size:1rem;
+  font-family:"Cinzel",serif;
+  font-weight:800;
+  line-height:1.2;
 }
-.vm-dossier-matrix-section .vm-pill.active{
-  background:rgba(255,255,255,0.22);
-  color:#ffffff;
-  transform:translateY(-1px);
-  box-shadow:0 0 24px rgba(216,194,122,0.35),0 0 10px rgba(255,255,255,0.18);
+.vm-card-voice-heading p{
+  margin:0;
+  color:rgba(226,217,193,0.78);
+  font-size:0.86rem;
+  line-height:1.45;
 }
-.vm-dossier-matrix-section .vm-pill.has-arrow{
-  margin-right:0.85rem;
-  padding-right:1rem;
+.vm-card-voice-list{
+  display:grid;
+  gap:0.65rem;
 }
-.vm-dossier-matrix-section .vm-pill.has-arrow::after{
-  content:"\2192";
-  position:absolute;
-  top:50%;
-  left:calc(100% + 0.25rem);
-  transform:translateY(-50%);
-  font-size:0.95rem;
-  color:var(--accent);
-  opacity:0.92;
+.vm-card-voice{
+  display:grid;
+  gap:0.28rem;
+  padding:0.72rem 0.78rem;
+  border:1px solid rgba(255,255,255,0.1);
+  border-radius:10px;
+  background:rgba(255,255,255,0.045);
+  color:inherit;
+  text-decoration:none;
 }
-.vm-dossier-matrix-section .vm-pill[data-label="Rakdos"].active{
-  background:rgba(216,110,154,0.24);
-  border-color:#d86e9a;
-  box-shadow:0 0 28px rgba(216,110,154,0.5),0 0 12px rgba(255,255,255,0.16);
+.vm-card-voice:hover,
+.vm-card-voice:focus-visible{
+  border-color:rgba(230,208,139,0.34);
+  background:rgba(230,208,139,0.07);
+}
+.vm-card-voice-name{
+  color:rgba(230,208,139,0.94);
+  font-family:"IBM Plex Mono",monospace;
+  font-size:0.74rem;
+  letter-spacing:0.04em;
+  text-transform:uppercase;
+}
+.vm-card-voice-text{
+  color:rgba(249,244,225,0.92);
+  font-family:"Cinzel",serif;
+  font-size:0.92rem;
+  line-height:1.48;
+}
+
+@media (prefers-reduced-motion: reduce){
+  .card-preview-overlay{
+    animation:none !important;
+    transition:none !important;
+  }
+  .card-preview-overlay{
+    display:none !important;
+  }
 }
 .archetypes-grid,.decks-grid,.adjacent-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1px;background:rgba(184,149,74,0.06)}
 .arch-card,.deck-card,.adjacent-card,.starter-card{background:rgba(12,11,10,0.9);border:1px solid rgba(184,149,74,0.08);padding:1.4rem}
 .arch-name,.starter-title{font-family:"Cinzel",serif;font-size:0.9rem;color:var(--gold);margin-bottom:0.4rem}
 .arch-desc,.starter-copy{font-size:0.9rem;color:var(--text-dim);line-height:1.55}
-.signal-technical{
-  display:inline-flex;
-  margin-top:0.75rem;
-  padding:0.18rem 0.52rem;
-  border:1px solid rgba(184,149,74,0.14);
+.signal-strength-card{
+  display:flex;
+  flex-direction:column;
+  gap:0.8rem;
+  background:
+    linear-gradient(135deg,rgba(26,170,150,0.08),transparent 48%),
+    rgba(12,11,10,0.92);
+}
+.signal-strength-readout{
+  display:flex;
+  align-items:baseline;
+  justify-content:space-between;
+  gap:0.75rem;
+}
+.signal-strength-readout strong{
+  color:var(--text);
+  font-size:1.05rem;
+  line-height:1.2;
+}
+.signal-strength-readout span{
+  color:var(--gold-l);
+  font-family:"IBM Plex Mono",monospace;
+  font-size:0.82rem;
+}
+.signal-strength-meter{
+  height:11px;
+  border-radius:999px;
+  background:rgba(255,255,255,0.08);
+  overflow:hidden;
+}
+.signal-strength-meter span{
+  display:block;
+  height:100%;
+  border-radius:inherit;
+  background:linear-gradient(90deg,rgba(88,184,255,0.55),rgba(184,149,74,0.78),rgba(26,170,150,0.86));
+  box-shadow:0 0 18px rgba(26,170,150,0.28);
+}
+.signal-strength-scale{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:0.5rem;
   color:var(--text-muted);
   font-family:"IBM Plex Mono",monospace;
-  font-size:0.66rem;
+  font-size:0.68rem;
+  letter-spacing:0.06em;
+  text-transform:uppercase;
+}
+.signal-strength-scale span{
+  padding-top:0.1rem;
+  border-top:1px solid rgba(255,255,255,0.12);
+}
+.signal-strength-scale .is-active{
+  color:var(--text);
+  border-top-color:rgba(26,170,150,0.78);
 }
 .vm-tag-row{display:flex;gap:6px;flex-wrap:wrap;margin-top:0.8rem}
 .vm-tag-chip{
@@ -1410,30 +1792,115 @@ body::before{
   margin-bottom:0.2rem;
 }
 .tag-meaning{
-  color:var(--teal-l);
-  font-size:0.86rem;
-  line-height:1.45;
-  margin-bottom:0.55rem;
+  color:#9fe8df;
+  font-size:0.94rem;
+  line-height:1.5;
+  margin-bottom:0.6rem;
 }
 .tag-helper{
-  margin-top:0.65rem;
-  color:var(--text-muted);
-  font-size:0.78rem;
-  line-height:1.4;
-  border-left:2px solid rgba(26,170,150,0.2);
-  padding-left:0.65rem;
+  margin-top:0.72rem;
+  color:rgba(226,233,229,0.9);
+  font-size:0.84rem;
+  line-height:1.5;
+  border-left:2px solid rgba(26,170,150,0.28);
+  padding-left:0.72rem;
 }
-.tag-explainer-card{min-height:180px}
-.table-identity-list{display:flex;flex-direction:column;gap:0.65rem}
-.table-identity-list div{color:var(--text-dim);font-size:0.88rem;line-height:1.45}
+.tag-explainer-card{
+  min-height:200px;
+  background:
+    linear-gradient(135deg,rgba(26,170,150,0.09),transparent 44%),
+    rgba(12,11,10,0.92);
+}
+.identity-story-grid{
+  display:grid;
+  grid-template-columns:minmax(0,1.4fr) repeat(2,minmax(220px,0.8fr));
+  gap:1rem;
+  align-items:stretch;
+}
+.identity-story-card{
+  display:flex;
+  flex-direction:column;
+  gap:0.72rem;
+  min-height:0;
+}
+.identity-story-card--belief{
+  background:
+    linear-gradient(135deg,rgba(230,208,139,0.12),rgba(26,170,150,0.06) 52%,transparent),
+    rgba(12,11,10,0.94);
+}
+.identity-story-card--belief .starter-copy{
+  color:rgba(249,244,225,0.93);
+  font-size:1rem;
+}
+.identity-story-card--support .starter-copy{
+  font-size:0.92rem;
+}
+.identity-story-headline{
+  color:var(--text);
+  font-family:"Cinzel",serif;
+  font-size:1.06rem;
+  line-height:1.28;
+}
+.identity-story-card--belief .identity-story-headline{
+  font-size:1.34rem;
+}
+.identity-story-meta{
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  gap:0.45rem;
+  margin-top:auto;
+  color:rgba(226,217,193,0.82);
+  font-family:"IBM Plex Mono",monospace;
+  font-size:0.74rem;
+  line-height:1.45;
+}
+@media (max-width: 980px){
+  .identity-story-grid{
+    grid-template-columns:1fr;
+  }
+}
+.how-this-plays-card{
+  display:flex;
+  flex-direction:column;
+  gap:0.75rem;
+}
+.how-this-plays-grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:0.9rem;
+}
+.how-this-plays-block{
+  display:grid;
+  gap:0.35rem;
+  padding:0.9rem 1rem;
+  border:1px solid rgba(184,149,74,0.09);
+  background:rgba(8,8,10,0.32);
+}
+.how-this-plays-label{
+  color:var(--gold-l);
+  font-family:"IBM Plex Mono",monospace;
+  font-size:0.74rem;
+  letter-spacing:0.08em;
+  text-transform:uppercase;
+}
+.table-identity-list{display:flex;flex-direction:column;gap:0.42rem}
+.table-identity-list div{color:rgba(236,233,225,0.93);font-size:1rem;line-height:1.48}
 .table-identity-list span{
   display:block;
-  margin-bottom:0.12rem;
+  margin-bottom:0.04rem;
   font-family:"Cinzel",serif;
-  font-size:0.56rem;
-  letter-spacing:0.14em;
+  font-size:0.64rem;
+  letter-spacing:0.08em;
   text-transform:uppercase;
   color:var(--teal-l);
+}
+.signals-intro{
+  margin:-0.15rem 0 0.9rem;
+  max-width:72ch;
+  color:rgba(236,233,225,0.86);
+  font-size:0.95rem;
+  line-height:1.55;
 }
 .omen-index,.commander-preview-label,.starter-note-label{
   font-family:"Cinzel",serif;
@@ -1647,8 +2114,14 @@ body::before{
   text-transform:uppercase;
   color:var(--teal);
 }
+.flavor-echo-intro{
+  margin:-0.2rem 0 0.9rem;
+  color:rgba(236,233,225,0.84);
+  font-size:0.9rem;
+  line-height:1.55;
+}
 .flavor-echo-text{font-size:0.84rem;color:var(--text-dim);font-style:italic;line-height:1.45}
-.flavor-echo-why{font-size:0.82rem;color:var(--text-dim);line-height:1.45}
+.flavor-echo-why{font-size:0.86rem;color:rgba(231,238,234,0.88);line-height:1.55}
 .commander-preview-fallback{display:none;gap:8px;flex-wrap:wrap}
 .commander-preview-fallback.is-visible{display:flex}
 .adjacent-card.active{outline:1px solid var(--border-s)}
@@ -1657,8 +2130,8 @@ body::before{
 .staple-row{display:flex;gap:10px;flex-wrap:wrap}
 .staple-wrap{flex:0 0 auto;width:110px;position:relative;z-index:1}
 .staple-wrap:hover{z-index:200}
-.staple-img{width:100%;border-radius:4.5%;border:1px solid var(--border-s);display:block;transition:transform 0.3s cubic-bezier(0.34,1.4,0.64,1),box-shadow 0.3s ease,border-color 0.15s;transform-origin:center 30%}
-.staple-img:hover{transform:scale(3);border-color:var(--gold);box-shadow:0 24px 64px rgba(0,0,0,0.92),0 0 0 2px rgba(184,149,74,0.4)}
+.staple-img{width:100%;border-radius:4.5%;border:1px solid var(--border-s);display:block;transition:box-shadow 0.2s ease,border-color 0.15s,filter 0.2s ease;transform-origin:center 30%}
+.staple-img:hover{border-color:var(--gold);filter:brightness(1.08);box-shadow:0 12px 28px rgba(0,0,0,0.45),0 0 0 1px rgba(184,149,74,0.35)}
 .staple-placeholder,.land-placeholder{
   width:100%;
   aspect-ratio:63/88;
@@ -1699,13 +2172,46 @@ body::before{
   border-radius:4.5%;
   border:1px solid var(--border-s);
   display:block;
-  transition:transform 0.3s cubic-bezier(0.34,1.4,0.64,1),box-shadow 0.3s ease,border-color 0.15s;
+  transition:box-shadow 0.2s ease,border-color 0.15s,filter 0.2s ease;
   transform-origin:center 30%;
 }
 .land-img:hover{
-  transform:scale(3);
   border-color:var(--gold);
-  box-shadow:0 24px 64px rgba(0,0,0,0.92),0 0 0 2px rgba(184,149,74,0.4);
+  filter:brightness(1.08);
+  box-shadow:0 12px 28px rgba(0,0,0,0.45),0 0 0 1px rgba(184,149,74,0.35);
+}
+.card-preview-overlay{
+  position:fixed;
+  z-index:3000;
+  display:grid;
+  gap:0.45rem;
+  pointer-events:none;
+  opacity:0;
+  transform:translateY(8px) scale(0.96);
+  transition:opacity 0.14s ease,transform 0.14s ease;
+}
+.card-preview-overlay.is-visible{
+  opacity:1;
+  transform:translateY(0) scale(1);
+}
+.card-preview-overlay img{
+  width:100%;
+  border:1px solid rgba(216,194,122,0.58);
+  border-radius:4.5%;
+  box-shadow:0 26px 76px rgba(0,0,0,0.92),0 0 0 1px rgba(184,149,74,0.3);
+}
+.card-preview-overlay span{
+  justify-self:center;
+  max-width:100%;
+  padding:0.28rem 0.58rem;
+  border:1px solid rgba(184,149,74,0.2);
+  border-radius:999px;
+  background:rgba(8,8,10,0.9);
+  color:var(--text);
+  font-family:"IBM Plex Mono",monospace;
+  font-size:0.68rem;
+  line-height:1.2;
+  text-align:center;
 }
 .lands-guide{background:rgba(12,11,10,0.9);border:1px solid var(--border-s);padding:1.1rem 1.25rem}
 .guide-row{display:flex;gap:1rem;padding:0.45rem 0;border-bottom:1px solid rgba(184,149,74,0.05);font-size:0.88rem;align-items:baseline}
@@ -1757,7 +2263,7 @@ body::before{
   .context-actions{justify-content:flex-start}
   .land-wrap{width:80px}
   .staple-wrap{width:92px}
-  .commander-img:hover,.staple-img:hover,.land-img:hover{transform:scale(1.7)}
+  .commander-img:hover{transform:scale(1.7)}
   .service-chip{width:100%;justify-content:flex-start}
   .tb-placement{display:none}
   #terminal-input-row{flex-direction:column}
@@ -1775,10 +2281,10 @@ body::before{
     grid-template-columns:1fr;
   }
   .vm-dossier-matrix-section .vm-radar-card{
-    min-height:460px;
+    min-height:480px;
   }
   .vm-dossier-matrix-section .vm-radar-wrap{
-    height:380px;
+    height:390px;
   }
 }
 
@@ -1788,6 +2294,10 @@ body::before{
 
 @container (max-width:30rem){
   .commander-preview-grid{grid-template-columns:1fr}
+}
+
+@container (max-width:38rem){
+  .how-this-plays-grid{grid-template-columns:1fr}
 }
 
 @container (max-width:36rem){
