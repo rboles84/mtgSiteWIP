@@ -4,6 +4,7 @@ This index tracks agent work across planning, board updates, documentation, JSON
 
 | Date | Agent | Task | Related Card | Status | Handoff |
 |---|---|---|---|---|---|
+| 2026-05-26 23:08 | Codex | Unify The Implicit Maze translucency with Strategium's sharper glass treatment and fix the mobile overflow found during QA | VM-142 | Complete | [2026-05-26-2308-codex-vm142-maze-strategium-glass.md](2026-05-26-2308-codex-vm142-maze-strategium-glass.md) |
 | 2026-05-26 22:47 | Codex | Wrap the completed VM-136 through VM-141 precon recommendation bundle and push it into `feature/ui-refactor-exploration` | VM-136 through VM-141 | Complete | [2026-05-26-2247-codex-vm136-vm141-ui-refactor-push.md](2026-05-26-2247-codex-vm136-vm141-ui-refactor-push.md) |
 | 2026-05-26 22:40 | Codex | Add an in-panel precon reveal control that swaps the first four cards with remaining recommendations without rerendering Archscry or changing Apocrypha/data/schema/ranking behavior | VM-141 | Complete | [2026-05-26-2240-codex-vm141-precon-reveal-swap.md](2026-05-26-2240-codex-vm141-precon-reveal-swap.md) |
 | 2026-05-26 22:20 | Codex | Refine Archscry's Recommended Precon Decks into a compact premium four-card panel using existing VM-137 groups, preserve the full internal pool, avoid Apocrypha/data/schema/ranking changes, and refresh tests/visual baselines | VM-140 | Complete | [2026-05-26-2220-codex-vm140-premium-precon-section.md](2026-05-26-2220-codex-vm140-premium-precon-section.md) |

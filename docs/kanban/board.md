@@ -40,6 +40,7 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 ## Done
 
+- [VM-142 - Maze Strategium Glass Unification](done/VM-142-maze-strategium-glass-unification.md)
 - [VM-141 - Expand Remaining Precon Recommendations In Archscry](done/VM-141-expand-remaining-precon-recommendations-in-archscry.md)
 - [VM-140 - Premium Recommended Precon Decks Section](done/VM-140-premium-recommended-precon-decks-section.md)
 - [VM-139 - Apply Validated Precon Mechanics From Completed XLSX](done/VM-139-import-validated-precon-mechanics.md)

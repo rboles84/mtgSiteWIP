@@ -139,6 +139,16 @@
 5. Confirm By Color defaults collapsed and reveals the existing color shortcut buttons when opened.
 6. Confirm Plain Reading, Operator's Hand, The Loom, stash drawer, and Load More still work after the polish pass.
 
+## VM-142 Maze Strategium glass unification
+
+1. Open `/maze/` beside `/strategium/` and confirm Maze now uses the same sharper translucent-glass feel rather than a heavier frosted blur.
+2. Confirm the command deck is slightly darker than the sidebar and results panel because it carries the primary search information.
+3. Confirm the command deck, mode cards, search input, sidebar, results panel, and empty-state panel keep the background art visible while preserving readable text contrast.
+4. Confirm the search textarea placeholder remains readable over the bright center of the background image.
+5. Inspect the command deck, sidebar, and results panel and confirm their major surfaces do not use `backdrop-filter` blur.
+6. At mobile width around `390px`, confirm the mode-card examples wrap, search actions stack vertically without horizontal overflow, and the compact scratchpad toggle does not cover mode-card text.
+7. Confirm Plain Reading, Operator's Hand, The Loom, stash drawer, Archscry return banner, and Load More still work after the glass tuning.
+
 ## VM-129F Maze textarea and inspector space pass
 
 1. Open `/maze/` and confirm `#search-input` is a true multi-line textarea with two visible rows and vertical resize.
