@@ -1,0 +1,341 @@
+{
+  "_meta": {
+    "version": "vox-mana-precon-themes-v1",
+    "description": "Normalized Commander-precon theme taxonomy for Archscry recommendation matching."
+  },
+  "themes": [
+    {
+      "key": "aggro",
+      "display_name": "Aggro",
+      "family": "core",
+      "aliases": ["aggro", "aggressive combat", "combat-heavy"],
+      "match_terms": ["aggro", "aggressive", "combat damage", "fast pressure", "cheap attackers"],
+      "reading_tags": ["aggro", "combat"],
+      "table_perception": "fast visible pressure"
+    },
+    {
+      "key": "aristocrats",
+      "display_name": "Aristocrats",
+      "family": "specialist",
+      "aliases": ["aristocrats", "death triggers", "aristocrat"],
+      "match_terms": ["aristocrats", "death triggers", "drain on death", "sacrifice payoffs"],
+      "reading_tags": ["aristocrats", "sacrifice", "life drain"],
+      "table_perception": "incremental value through death"
+    },
+    {
+      "key": "artifacts",
+      "display_name": "Artifacts",
+      "family": "core",
+      "aliases": ["artifacts", "artifact matters", "artifact deck"],
+      "match_terms": ["artifacts", "artifact", "treasure", "construct", "noncreature artifact"],
+      "reading_tags": ["artifacts"],
+      "table_perception": "engine pieces accumulating advantage"
+    },
+    {
+      "key": "auras",
+      "display_name": "Auras",
+      "family": "specialist",
+      "aliases": ["auras", "negative auras", "curse auras"],
+      "match_terms": ["auras", "aura", "negative auras", "curse", "attach enchantments"],
+      "reading_tags": ["auras", "enchantments"],
+      "table_perception": "targeted enchantment pressure"
+    },
+    {
+      "key": "big-mana",
+      "display_name": "Big Mana",
+      "family": "core",
+      "aliases": ["big mana", "mana-rich", "mana acceleration"],
+      "match_terms": ["big mana", "mana advantage", "huge mana", "explosive mana"],
+      "reading_tags": ["big mana", "ramp"],
+      "table_perception": "oversized turns fueled by mana"
+    },
+    {
+      "key": "big-spells",
+      "display_name": "Big Spells",
+      "family": "core",
+      "aliases": ["big spells", "expensive instants and sorceries", "high-cost spells", "x-spells"],
+      "match_terms": ["big spells", "expensive spells", "huge spell turns", "x spells", "opus-scale spells"],
+      "reading_tags": ["big spells", "spellslinger"],
+      "table_perception": "telegraphed but dramatic spell turns"
+    },
+    {
+      "key": "blink",
+      "display_name": "Blink",
+      "family": "specialist",
+      "aliases": ["blink", "flicker", "etb looping"],
+      "match_terms": ["blink", "flicker", "etb", "leaves and returns", "enters the battlefield"],
+      "reading_tags": ["blink", "etb"],
+      "table_perception": "repeated value from the same permanent"
+    },
+    {
+      "key": "clones",
+      "display_name": "Clones",
+      "family": "specialist",
+      "aliases": ["clones", "clone creatures", "copy creatures"],
+      "match_terms": ["clones", "clone", "copy creatures", "becomes a copy"],
+      "reading_tags": ["clones", "copy"],
+      "table_perception": "mirrors the strongest thing in play"
+    },
+    {
+      "key": "combat",
+      "display_name": "Combat",
+      "family": "core",
+      "aliases": ["combat", "attack step", "attack-focused"],
+      "match_terms": ["combat", "attack", "attacking", "damage step", "battlefield pressure"],
+      "reading_tags": ["combat", "aggro"],
+      "table_perception": "the board decides the game visibly"
+    },
+    {
+      "key": "control",
+      "display_name": "Control",
+      "family": "core",
+      "aliases": ["control", "draw-go", "removal control"],
+      "match_terms": ["control", "remove threats", "dictate pace", "counterspells", "protect itself"],
+      "reading_tags": ["control"],
+      "table_perception": "answers first, wins later"
+    },
+    {
+      "key": "counters",
+      "display_name": "Counters",
+      "family": "core",
+      "aliases": ["counters", "+1/+1 counters", "counter-focused", "counter matters"],
+      "match_terms": ["counters", "+1/+1 counters", "counter synergies", "proliferate", "ravenous"],
+      "reading_tags": ["counters"],
+      "table_perception": "steady visible scaling"
+    },
+    {
+      "key": "dragons",
+      "display_name": "Dragons",
+      "family": "specialist",
+      "aliases": ["dragons", "dragon tribal"],
+      "match_terms": ["dragons", "dragon tribal", "flying dragon army"],
+      "reading_tags": ["dragons", "tribal"],
+      "table_perception": "huge iconic flyers closing the game"
+    },
+    {
+      "key": "energy",
+      "display_name": "Energy",
+      "family": "specialist",
+      "aliases": ["energy", "energy counters"],
+      "match_terms": ["energy", "energy counters", "pay energy", "gain energy"],
+      "reading_tags": ["energy", "counters"],
+      "table_perception": "resource stockpiling into bursts"
+    },
+    {
+      "key": "enchantments",
+      "display_name": "Enchantments",
+      "family": "core",
+      "aliases": ["enchantments", "enchantment matters"],
+      "match_terms": ["enchantments", "enchantment", "enchantment value", "sagas"],
+      "reading_tags": ["enchantments"],
+      "table_perception": "slow value that sticks to the board"
+    },
+    {
+      "key": "enchantress",
+      "display_name": "Enchantress",
+      "family": "specialist",
+      "aliases": ["enchantress", "enchantress elements"],
+      "match_terms": ["enchantress", "cast enchantments", "draw from enchantments"],
+      "reading_tags": ["enchantress", "enchantments"],
+      "table_perception": "snowballing enchantment draw engine"
+    },
+    {
+      "key": "equipment",
+      "display_name": "Equipment",
+      "family": "specialist",
+      "aliases": ["equipment", "equipment matters", "swords and gear"],
+      "match_terms": ["equipment", "equip", "weapons", "attach equipment"],
+      "reading_tags": ["equipment", "voltron"],
+      "table_perception": "one threat getting sharper every turn"
+    },
+    {
+      "key": "graveyard",
+      "display_name": "Graveyard",
+      "family": "core",
+      "aliases": ["graveyard", "graveyard value", "self-mill"],
+      "match_terms": ["graveyard", "self mill", "cards in graveyard", "graveyard value"],
+      "reading_tags": ["graveyard", "reanimator"],
+      "table_perception": "the discard pile becomes a resource"
+    },
+    {
+      "key": "group-hug",
+      "display_name": "Group Hug",
+      "family": "specialist",
+      "aliases": ["group hug", "everyone draws", "join forces"],
+      "match_terms": ["group hug", "extra cards for everyone", "extra lands for everyone", "join forces"],
+      "reading_tags": ["group hug", "politics"],
+      "table_perception": "gifts that reshape table politics"
+    },
+    {
+      "key": "landfall",
+      "display_name": "Landfall",
+      "family": "specialist",
+      "aliases": ["landfall", "landfall triggers"],
+      "match_terms": ["landfall", "when a land enters", "landfall triggers"],
+      "reading_tags": ["landfall", "lands"],
+      "table_perception": "board growth tied directly to land drops"
+    },
+    {
+      "key": "lands-matter",
+      "display_name": "Lands Matter",
+      "family": "core",
+      "aliases": ["lands matter", "lands", "land recursion"],
+      "match_terms": ["lands matter", "lands", "extra lands", "land recursion", "lands as value"],
+      "reading_tags": ["lands", "ramp"],
+      "table_perception": "mana base doubling as engine"
+    },
+    {
+      "key": "legends",
+      "display_name": "Legends",
+      "family": "specialist",
+      "aliases": ["legendary matters", "legends", "legendary spells"],
+      "match_terms": ["legendary matters", "legendary", "legendary spells", "legends"],
+      "reading_tags": ["legends"],
+      "table_perception": "iconic permanents stacking synergies"
+    },
+    {
+      "key": "lifegain",
+      "display_name": "Lifegain",
+      "family": "core",
+      "aliases": ["lifegain", "life gain", "healing"],
+      "match_terms": ["lifegain", "life gain", "gain life", "healing", "life total cushion"],
+      "reading_tags": ["lifegain"],
+      "table_perception": "durability turning into staying power"
+    },
+    {
+      "key": "life-drain",
+      "display_name": "Life Drain",
+      "family": "specialist",
+      "aliases": ["life drain", "drain", "bleed opponents"],
+      "match_terms": ["life drain", "drain opponents", "each opponent loses life", "bleed the table"],
+      "reading_tags": ["life drain", "aristocrats"],
+      "table_perception": "quiet inevitability through life totals"
+    },
+    {
+      "key": "mill",
+      "display_name": "Mill",
+      "family": "specialist",
+      "aliases": ["mill", "library drain", "self mill payoffs"],
+      "match_terms": ["mill", "put cards from library into graveyard", "library drain"],
+      "reading_tags": ["mill", "graveyard"],
+      "table_perception": "pressure applied to libraries instead of life totals"
+    },
+    {
+      "key": "politics",
+      "display_name": "Politics",
+      "family": "specialist",
+      "aliases": ["politics", "political", "forced attack politics", "table influence"],
+      "match_terms": ["politics", "political", "goad", "table influence", "negotiation", "forced attacks"],
+      "reading_tags": ["politics", "goad"],
+      "table_perception": "the table becomes part of the engine"
+    },
+    {
+      "key": "prison",
+      "display_name": "Prison",
+      "family": "specialist",
+      "aliases": ["prison", "pillow fort", "tax lock"],
+      "match_terms": ["prison", "pillow fort", "taxes", "can't attack", "rule setting"],
+      "reading_tags": ["prison", "control"],
+      "table_perception": "the room slows down around your rules"
+    },
+    {
+      "key": "ramp",
+      "display_name": "Ramp",
+      "family": "core",
+      "aliases": ["ramp", "mana ramp", "land ramp"],
+      "match_terms": ["ramp", "mana ramp", "land ramp", "extra mana", "accelerate mana"],
+      "reading_tags": ["ramp", "big mana"],
+      "table_perception": "faster mana than the table expects"
+    },
+    {
+      "key": "reanimator",
+      "display_name": "Reanimator",
+      "family": "specialist",
+      "aliases": ["reanimator", "reanimation", "bring back creatures"],
+      "match_terms": ["reanimator", "reanimate", "return from graveyard", "bring back creatures"],
+      "reading_tags": ["reanimator", "graveyard"],
+      "table_perception": "threats returning after they should be gone"
+    },
+    {
+      "key": "sacrifice",
+      "display_name": "Sacrifice",
+      "family": "core",
+      "aliases": ["sacrifice", "sac outlets", "sac deck"],
+      "match_terms": ["sacrifice", "sac outlet", "sacrifice synergies", "fodder"],
+      "reading_tags": ["sacrifice", "aristocrats"],
+      "table_perception": "resources turned into immediate value"
+    },
+    {
+      "key": "spellslinger",
+      "display_name": "Spellslinger",
+      "family": "core",
+      "aliases": ["spellslinger", "spells matter", "instants and sorceries matter", "magecraft"],
+      "match_terms": ["spellslinger", "spells matter", "instants matter", "sorceries matter", "magecraft"],
+      "reading_tags": ["spellslinger"],
+      "table_perception": "the stack is where the deck really lives"
+    },
+    {
+      "key": "storm",
+      "display_name": "Storm",
+      "family": "specialist",
+      "aliases": ["storm", "storm-like", "many spells in one turn"],
+      "match_terms": ["storm", "many spells in one turn", "ritual turn", "chain spells"],
+      "reading_tags": ["storm", "spellslinger"],
+      "table_perception": "one explosive turn threatens to end it"
+    },
+    {
+      "key": "theft",
+      "display_name": "Theft / Copy",
+      "family": "specialist",
+      "aliases": ["theft", "steal cards", "cast opponents cards", "copy opponents cards"],
+      "match_terms": ["theft", "stolen cards", "cast from opponents decks", "copy opponents cards"],
+      "reading_tags": ["theft", "copy"],
+      "table_perception": "wins with the table's own tools"
+    },
+    {
+      "key": "tokens",
+      "display_name": "Tokens",
+      "family": "core",
+      "aliases": ["tokens", "token deck", "go wide"],
+      "match_terms": ["tokens", "token makers", "go wide", "wide board", "many bodies"],
+      "reading_tags": ["tokens"],
+      "table_perception": "the board spreads quickly"
+    },
+    {
+      "key": "tribal",
+      "display_name": "Tribal",
+      "family": "specialist",
+      "aliases": ["tribal", "creature type matters", "kindred"],
+      "match_terms": ["tribal", "creature type", "kindred", "shared creature type"],
+      "reading_tags": ["tribal"],
+      "table_perception": "a shared creature type becomes the plan"
+    },
+    {
+      "key": "vehicles",
+      "display_name": "Vehicles",
+      "family": "specialist",
+      "aliases": ["vehicles", "crew", "vehicle deck"],
+      "match_terms": ["vehicles", "crew", "vehicle synergies"],
+      "reading_tags": ["vehicles", "artifacts"],
+      "table_perception": "artifacts waiting to turn sideways"
+    },
+    {
+      "key": "voltron",
+      "display_name": "Voltron",
+      "family": "specialist",
+      "aliases": ["voltron", "single threat", "commander damage"],
+      "match_terms": ["voltron", "single threat", "commander damage", "one creature suited up"],
+      "reading_tags": ["voltron", "equipment", "auras"],
+      "table_perception": "one threat demanding the answer"
+    },
+    {
+      "key": "x-spells",
+      "display_name": "X-Spells",
+      "family": "specialist",
+      "aliases": ["x-spells", "x spells", "variable cost spells"],
+      "match_terms": ["x spells", "x-cost", "variable cost spells", "spells that scale with mana"],
+      "reading_tags": ["x-spells", "big spells", "counters"],
+      "table_perception": "flexible small starts into giant late turns"
+    }
+  ]
+}

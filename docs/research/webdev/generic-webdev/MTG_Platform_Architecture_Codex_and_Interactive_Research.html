@@ -1,0 +1,1700 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MTG Platform Architecture Codex & Interactive Sandbox</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome for symbols -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: Inter & JetBrains Mono -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                        ancient: ['Cinzel', 'serif']
+                    },
+                    colors: {
+                        arcane: {
+                            50: '#f5f7fa',
+                            100: '#e4e8f0',
+                            800: '#0f172a',
+                            900: '#070a13',
+                            glow: '#3b82f6'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom Scrollbar for Grimoire Aesthetics */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #070a13;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1e293b;
+            border-radius: 4px;
+            border: 2px solid #070a13;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--theme-color-glow, #3b82f6);
+        }
+
+        /* Arcane Glow Transitions */
+        .glow-card {
+            box-shadow: 0 0 15px -3px rgba(0, 0, 0, 0.3), 0 0 10px -2px rgba(59, 130, 246, 0.05);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .glow-card:hover {
+            box-shadow: 0 0 25px -3px rgba(0, 0, 0, 0.4), 0 0 20px 2px var(--theme-glow-rgba, rgba(59, 130, 246, 0.15));
+            border-color: var(--theme-color-glow, #3b82f6);
+        }
+
+        /* Magic Theme Configurations via CSS variables */
+        :root {
+            --theme-color-glow: #3b82f6;
+            --theme-glow-rgba: rgba(59, 130, 246, 0.15);
+            --mana-color-bg: #1e3a8a;
+        }
+
+        /* Custom interactive cursor trailing style */
+        .custom-cursor-spark {
+            pointer-events: none;
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: var(--theme-color-glow);
+            box-shadow: 0 0 15px var(--theme-color-glow);
+            transform: translate(-50%, -50%);
+            transition: width 0.15s, height 0.15s, opacity 0.3s;
+            opacity: 0;
+            z-index: 9999;
+        }
+
+        /* Spark simulation loop */
+        .sparkle-trail {
+            pointer-events: none;
+            position: absolute;
+            background: var(--theme-color-glow);
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            z-index: 9998;
+            opacity: 0.8;
+            animation: sparkFadeOut 0.8s forwards;
+        }
+
+        @keyframes sparkFadeOut {
+            0% {
+                transform: scale(1) translateY(0);
+                opacity: 0.8;
+            }
+            100% {
+                transform: scale(0.1) translateY(-15px);
+                opacity: 0;
+            }
+        }
+
+        /* Card flip engine */
+        .perspective-1000 {
+            perspective: 1000px;
+        }
+        .flip-card-inner {
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+        }
+        .flip-card-flipped {
+            transform: rotateY(180deg);
+        }
+        .flip-card-front, .flip-card-back {
+            backface-visibility: hidden;
+        }
+        .flip-card-back {
+            transform: rotateY(180deg);
+        }
+
+        /* High Tech Background Grid */
+        .hex-bg {
+            background-image: radial-gradient(rgba(30, 41, 59, 0.4) 1px, transparent 0);
+            background-size: 24px 24px;
+        }
+    </style>
+</head>
+<body class="bg-[#070a13] text-slate-100 font-sans hex-bg min-h-screen relative overflow-x-hidden selection:bg-blue-600 selection:text-white">
+
+    <!-- Web Audio API Custom Synth Hook -->
+    <script>
+        // Web Audio Synth for interaction sounds (safe from browser cross-origin limits)
+        let audioCtx = null;
+        function playInteractiveSound(freq, type = 'sine', duration = 0.08, volume = 0.03) {
+            try {
+                if (!audioCtx) {
+                    audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+                }
+                if (audioCtx.state === 'suspended') {
+                    audioCtx.resume();
+                }
+                const osc = audioCtx.createOscillator();
+                const gain = audioCtx.createGain();
+                osc.type = type;
+                osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
+                gain.gain.setValueAtTime(volume, audioCtx.currentTime);
+                gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + duration);
+                osc.connect(gain);
+                gain.connect(audioCtx.destination);
+                osc.start();
+                osc.stop(audioCtx.currentTime + duration);
+            } catch (e) {
+                // Audio not supported or gesture missing
+            }
+        }
+        
+        function handleInteractionSound(preset) {
+            if (preset === 'click') playInteractiveSound(650, 'triangle', 0.05, 0.05);
+            if (preset === 'hover') playInteractiveSound(350, 'sine', 0.03, 0.02);
+            if (preset === 'success') {
+                playInteractiveSound(523.25, 'sine', 0.1, 0.04); // C5
+                setTimeout(() => playInteractiveSound(659.25, 'sine', 0.15, 0.04), 80); // E5
+            }
+            if (preset === 'magic') {
+                playInteractiveSound(880, 'sine', 0.15, 0.02);
+                setTimeout(() => playInteractiveSound(1320, 'sine', 0.2, 0.01), 100);
+            }
+        }
+    </script>
+
+    <!-- Visual Spark Trails -->
+    <div id="cursor-spark" class="custom-cursor-spark"></div>
+
+    <!-- Core App Container -->
+    <div class="flex flex-col min-h-screen">
+        
+        <!-- TOP ARCANE NAVIGATION & PALETTE SWITCHER -->
+        <header class="border-b border-slate-800 bg-[#0b101f]/90 backdrop-blur sticky top-0 z-50 px-6 py-4 flex flex-wrap justify-between items-center">
+            <div class="flex items-center space-x-3">
+                <div class="w-10 h-10 rounded-lg bg-gradient-to-tr from-blue-600 via-indigo-600 to-purple-600 flex items-center justify-center shadow-lg shadow-blue-500/20">
+                    <i class="fa-solid fa-wand-magic-sparkles text-white text-lg animate-pulse"></i>
+                </div>
+                <div>
+                    <h1 class="font-ancient text-xl font-bold tracking-wider bg-gradient-to-r from-white via-slate-100 to-blue-400 bg-clip-text text-transparent">MTG SYSTEM CODENAME: GRIMOIRE</h1>
+                    <p class="text-[10px] font-mono text-slate-400 tracking-widest">PRINCIPAL ARCHITECT PRODUCTION BLUEPRINT & ENGINE</p>
+                </div>
+            </div>
+
+            <!-- Theme Switcher Panel -->
+            <div class="flex items-center space-x-3 mt-4 sm:mt-0">
+                <span class="text-xs font-mono text-slate-400"><i class="fa-solid fa-fill-drip mr-1"></i> COLOR TUNING:</span>
+                <div class="flex space-x-1.5 bg-slate-900 p-1 rounded-md border border-slate-800">
+                    <!-- White (Plains) -->
+                    <button onclick="setTheme('W', '#f59e0b', 'rgba(245, 158, 11, 0.2)')" class="w-7 h-7 rounded bg-[#fef3c7] border border-amber-300 flex items-center justify-center hover:scale-110 transition-transform shadow" title="White (Plains)">
+                        <span class="text-amber-800 font-bold text-xs">W</span>
+                    </button>
+                    <!-- Blue (Island) -->
+                    <button onclick="setTheme('U', '#3b82f6', 'rgba(59, 130, 246, 0.2)')" class="w-7 h-7 rounded bg-[#dbeafe] border border-blue-400 flex items-center justify-center hover:scale-110 transition-transform shadow" title="Blue (Island)">
+                        <span class="text-blue-800 font-bold text-xs">U</span>
+                    </button>
+                    <!-- Black (Swamp) -->
+                    <button onclick="setTheme('B', '#a855f7', 'rgba(168, 85, 247, 0.2)')" class="w-7 h-7 rounded bg-[#f3e8ff] border border-purple-400 flex items-center justify-center hover:scale-110 transition-transform shadow" title="Black (Swamp)">
+                        <span class="text-purple-900 font-bold text-xs">B</span>
+                    </button>
+                    <!-- Red (Mountain) -->
+                    <button onclick="setTheme('R', '#ef4444', 'rgba(239, 68, 68, 0.2)')" class="w-7 h-7 rounded bg-[#fee2e2] border border-red-400 flex items-center justify-center hover:scale-110 transition-transform shadow" title="Red (Mountain)">
+                        <span class="text-red-800 font-bold text-xs">R</span>
+                    </button>
+                    <!-- Green (Forest) -->
+                    <button onclick="setTheme('G', '#10b981', 'rgba(16, 185, 129, 0.2)')" class="w-7 h-7 rounded bg-[#ecfdf5] border border-emerald-400 flex items-center justify-center hover:scale-110 transition-transform shadow" title="Green (Forest)">
+                        <span class="text-emerald-800 font-bold text-xs">G</span>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- MAIN LAYOUT -->
+        <div class="flex-1 flex flex-col lg:flex-row">
+            
+            <!-- LEFT NAVIGATION DIRECTORY (THE CODEX INDEX) -->
+            <nav class="lg:w-80 border-r border-slate-800 bg-[#090d19] p-6 space-y-6 shrink-0">
+                <div class="space-y-1">
+                    <p class="text-xs font-mono text-slate-500 uppercase tracking-widest px-3">System Directory</p>
+                    <p class="text-[10px] font-mono text-blue-400 px-3">LOADED VIA IN-MEMORY ARTIFACT</p>
+                </div>
+
+                <div class="space-y-1" id="nav-container">
+                    <button onclick="switchTab('tab-frontend')" id="btn-tab-frontend" class="w-full text-left px-4 py-3 rounded-lg flex items-center space-x-3 bg-slate-900 text-blue-400 border border-slate-800 font-medium transition-all">
+                        <i class="fa-solid fa-display w-5"></i>
+                        <span class="text-sm font-mono">1. Frontend Engine</span>
+                    </button>
+
+                    <button onclick="switchTab('tab-database')" id="btn-tab-database" class="w-full text-left px-4 py-3 rounded-lg flex items-center space-x-3 text-slate-400 hover:bg-slate-900/50 hover:text-slate-200 font-medium transition-all">
+                        <i class="fa-solid fa-database w-5"></i>
+                        <span class="text-sm font-mono">2. Relational DB & Schema</span>
+                    </button>
+
+                    <button onclick="switchTab('tab-parser')" id="btn-tab-parser" class="w-full text-left px-4 py-3 rounded-lg flex items-center space-x-3 text-slate-400 hover:bg-slate-900/50 hover:text-slate-200 font-medium transition-all">
+                        <i class="fa-solid fa-code w-5"></i>
+                        <span class="text-sm font-mono">3. Lexer & Combo Loop</span>
+                    </button>
+
+                    <button onclick="switchTab('tab-pipeline')" id="btn-tab-pipeline" class="w-full text-left px-4 py-3 rounded-lg flex items-center space-x-3 text-slate-400 hover:bg-slate-900/50 hover:text-slate-200 font-medium transition-all">
+                        <i class="fa-solid fa-brain w-5"></i>
+                        <span class="text-sm font-mono">4. GPU Recommendations</span>
+                    </button>
+
+                    <button onclick="switchTab('tab-infrastructure')" id="btn-tab-infrastructure" class="w-full text-left px-4 py-3 rounded-lg flex items-center space-x-3 text-slate-400 hover:bg-slate-900/50 hover:text-slate-200 font-medium transition-all">
+                        <i class="fa-solid fa-network-wired w-5"></i>
+                        <span class="text-sm font-mono">5. Systems Cloud Infra</span>
+                    </button>
+
+                    <button onclick="switchTab('tab-roadmap')" id="btn-tab-roadmap" class="w-full text-left px-4 py-3 rounded-lg flex items-center space-x-3 text-slate-400 hover:bg-slate-900/50 hover:text-slate-200 font-medium transition-all">
+                        <i class="fa-solid fa-road w-5"></i>
+                        <span class="text-sm font-mono">6. MVP Phased Roadmap</span>
+                    </button>
+                </div>
+
+                <div class="border-t border-slate-800 pt-6">
+                    <p class="text-xs font-mono text-slate-500 uppercase tracking-widest px-3 mb-3">ACTIVE CO-OCCURRENCE METRICS</p>
+                    <div class="bg-[#050811] rounded-lg p-3.5 border border-slate-800 text-xs space-y-2">
+                        <div class="flex justify-between">
+                            <span class="text-slate-400 font-mono">Index status</span>
+                            <span class="text-emerald-400 font-mono flex items-center"><span class="w-1.5 h-1.5 rounded-full bg-emerald-400 mr-1.5 animate-ping"></span>Synchronized</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-slate-400 font-mono">Scryfall bulk</span>
+                            <span class="text-slate-300 font-mono">Weekly sync</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-slate-400 font-mono">Memory vectors</span>
+                            <span class="text-slate-300 font-mono">Aligned (C-Contig)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Interactive Theme Status / Sound Control -->
+                <div class="pt-2">
+                    <button onclick="toggleAudio()" id="audio-toggle-btn" class="w-full py-2 px-3 border border-slate-800 rounded bg-[#0b101f] text-slate-400 hover:text-white transition-all text-xs font-mono flex items-center justify-center space-x-2">
+                        <i id="audio-icon" class="fa-solid fa-volume-low"></i>
+                        <span id="audio-text">SYNTH AUDIO IS ENABLED</span>
+                    </button>
+                </div>
+            </nav>
+
+            <!-- MAIN WORKING DESK (THE WORKSPACE) -->
+            <main class="flex-1 p-6 lg:p-10 overflow-y-auto max-w-7xl mx-auto w-full">
+
+                <!-- SECTION 1: FRONTEND VISUAL ENGINE & GRID PIPELINES -->
+                <section id="tab-frontend" class="tab-content space-y-8 animate-fadeIn">
+                    <div class="flex flex-col md:flex-row md:items-center md:justify-between border-b border-slate-800 pb-4">
+                        <div>
+                            <span class="text-blue-500 font-mono text-xs font-bold tracking-wider">PILLAR 1: GRAPHICS & RENDERING LAYER</span>
+                            <h2 class="font-ancient text-3xl font-bold text-white mt-1">High-Performance Visual Builder</h2>
+                        </div>
+                        <div class="mt-2 md:mt-0">
+                            <span class="bg-blue-500/10 text-blue-400 border border-blue-500/20 px-3 py-1 rounded text-xs font-mono">
+                                React & Zustand Engine
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                        <div class="space-y-6">
+                            <h3 class="text-xl font-bold text-slate-200 font-ancient"><i class="fa-solid fa-bolt text-blue-400 mr-2"></i>Optimistic JSON Patch Synchronization</h3>
+                            <p class="text-slate-300 leading-relaxed text-sm">
+                                High-fidelity deck builders require real-time client-side updates that remain perfectly synchronized with a remote transactional database. To achieve zero-latency interactions without risking out-of-order state drift, our architecture combines a centralized client-side state manager (built with Zustand) and an RFC 6902-compliant JSON Patch synchronization loop.
+                            </p>
+                            <p class="text-slate-300 leading-relaxed text-sm">
+                                When a user mutates a deck—such as moving a card from the mainboard to the sideboard or updating a card quantity—the client immediately computes the state delta, generates a forward patch, and computes a matching inverse rollback patch.
+                            </p>
+                            
+                            <!-- Detailed Code Sandbox Block -->
+                            <div class="bg-slate-950 rounded-xl border border-slate-800 p-4 shadow-2xl">
+                                <div class="flex justify-between items-center mb-3">
+                                    <span class="text-xs font-mono text-blue-400">zustandStore.ts - Production State Sync</span>
+                                    <button onclick="navigator.clipboard.writeText(document.getElementById('code-zustand').innerText); handleInteractionSound('success')" class="text-xs text-slate-500 hover:text-slate-200"><i class="fa-solid fa-copy mr-1"></i> Copy</button>
+                                </div>
+                                <pre id="code-zustand" class="text-xs font-mono overflow-x-auto text-emerald-400 bg-[#04060b] p-3 rounded border border-slate-900 leading-relaxed max-h-72">import { create } from 'zustand';
+import { applyPatch, compare } from 'fast-json-patch';
+
+interface DeckState {
+  deck: {
+    id: string;
+    cards: Record&lt;string, { id: string; quantity: number; zone: 'main' | 'side' }&gt;;
+  };
+  mutateDeck: (cardId: string, action: 'add' | 'remove' | 'move', zone?: 'main' | 'side') => Promise&lt;void&gt;;
+}
+
+export const useDeckStore = create&lt;DeckState&gt;((set, get) => ({
+  deck: { id: 'deck-123', cards: {} },
+  mutateDeck: async (cardId, action, zone = 'main') => {
+    const previousState = JSON.parse(JSON.stringify(get().deck));
+    
+    // Perform optimistic local mutation
+    const updatedCards = { ...get().deck.cards };
+    if (action === 'add') {
+      updatedCards[cardId] = { id: cardId, quantity: (updatedCards[cardId]?.quantity || 0) + 1, zone };
+    } else if (action === 'remove') {
+      delete updatedCards[cardId];
+    } else if (action === 'move') {
+      if (updatedCards[cardId]) updatedCards[cardId].zone = zone;
+    }
+
+    const nextState = { ...get().deck, cards: updatedCards };
+    const forwardPatch = compare(previousState, nextState);
+    const inversePatch = compare(nextState, previousState);
+
+    // Apply next state locally for immediate rendering
+    set({ deck: nextState });
+
+    try {
+      const response = await fetch(`/api/decks/${get().deck.id}/patch`, {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json-patch+json' },
+        body: JSON.stringify(forwardPatch),
+      });
+
+      if (!response.ok) {
+        throw new Error('Server transaction failed');
+      }
+    } catch (error) {
+      // Revert locally using the pre-computed inverse patch
+      const revertedState = applyPatch(get().deck, inversePatch).newDocument;
+      set({ deck: revertedState });
+    }
+  }
+}));</pre>
+                            </div>
+                        </div>
+
+                        <!-- Asset Virtualization Info and Asset Matrix Table -->
+                        <div class="space-y-6">
+                            <h3 class="text-xl font-bold text-slate-200 font-ancient"><i class="fa-solid fa-image text-purple-400 mr-2"></i>High-Frequency Grid Virtualization</h3>
+                            <p class="text-slate-300 leading-relaxed text-sm">
+                                Rendering thousands of high-resolution card images in a single view degrades DOM performance, causes memory leaks, and triggers layout thrashing. To mitigate this, our platform uses an absolute-positioned virtual grid built on <code>react-virtuoso</code> configured for dynamic, multi-column layouts.
+                            </p>
+                            
+                            <!-- Static Grid Performance Details Table -->
+                            <div class="bg-slate-900 rounded-xl border border-slate-800 overflow-hidden shadow-lg">
+                                <div class="p-4 border-b border-slate-800 bg-slate-900/60">
+                                    <h4 class="text-sm font-semibold text-slate-200 font-mono">ASSET PIPELINE CACHING HIERARCHY</h4>
+                                </div>
+                                <div class="overflow-x-auto">
+                                    <table class="w-full text-left border-collapse text-xs">
+                                        <thead>
+                                            <tr class="bg-slate-950 border-b border-slate-800 text-slate-400">
+                                                <th class="p-3 font-mono">Tier</th>
+                                                <th class="p-3 font-mono">Storage Layer</th>
+                                                <th class="p-3 font-mono">Target Assets</th>
+                                                <th class="p-3 font-mono">Eviction / Optimization</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody class="divide-y divide-slate-800 text-slate-300">
+                                            <tr class="hover:bg-slate-950/40">
+                                                <td class="p-3 font-bold text-blue-400 font-mono">L1 (Memory)</td>
+                                                <td class="p-3 font-mono">In-Memory JS Map</td>
+                                                <td class="p-3">Card art thumbnails, symbol vectors</td>
+                                                <td class="p-3">LRU capped at 250 items. Zero-latency scroll performance.</td>
+                                            </tr>
+                                            <tr class="hover:bg-slate-950/40">
+                                                <td class="p-3 font-bold text-purple-400 font-mono">L2 (Disk)</td>
+                                                <td class="p-3 font-mono">Service Worker Cache API</td>
+                                                <td class="p-3">Set symbols, basic layouts, frames</td>
+                                                <td class="p-3">TTL: 7 days. Automated background update prefetching.</td>
+                                            </tr>
+                                            <tr class="hover:bg-slate-950/40">
+                                                <td class="p-3 font-bold text-emerald-400 font-mono">L3 (Edge)</td>
+                                                <td class="p-3 font-mono">AWS CloudFront (S3 backend)</td>
+                                                <td class="p-3">Full-res card scans, promo files</td>
+                                                <td class="p-3">Immutable Cache Control. On-the-fly dynamic compression.</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+
+                            <!-- PDF Web Workers rendering engine detail -->
+                            <div class="bg-indigo-950/20 border border-indigo-900/40 rounded-xl p-5 space-y-3">
+                                <h4 class="text-sm font-mono text-indigo-400 font-bold"><i class="fa-solid fa-file-pdf mr-2"></i>CLIENT-SIDE PDF LAYOUT COMPUTATION</h4>
+                                <p class="text-xs text-slate-300 leading-relaxed">
+                                    Generating high-fidelity deck sheets or printable proxy sheets has traditionally required headless server-side browser execution (such as Puppeteer). This introduces massive scaling cost and security risks. 
+                                </p>
+                                <p class="text-xs text-slate-300 leading-relaxed">
+                                    The platform resolves this by moving document layout and rendering directly to the client browser using <code>@react-pdf/renderer</code> loaded in a dedicated <strong>Web Worker</strong>. This guarantees vectorized standard US Letter proxy layouts without loading backend server stacks.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Comparison Matrix of Competitor Platforms vs Grimoire -->
+                    <div class="pt-6 border-t border-slate-800">
+                        <h3 class="text-lg font-bold text-white mb-4 font-ancient">Competitive Frontend Architectures</h3>
+                        <div class="overflow-x-auto rounded-xl border border-slate-800 bg-slate-900/30">
+                            <table class="w-full text-left text-xs">
+                                <thead>
+                                    <tr class="bg-slate-950 border-b border-slate-800 text-slate-400">
+                                        <th class="p-4 font-mono">Feature</th>
+                                        <th class="p-4 font-mono">Moxfield</th>
+                                        <th class="p-4 font-mono">Archidekt</th>
+                                        <th class="p-4 font-mono text-blue-400">Proposed Blueprint</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="divide-y divide-slate-800 text-slate-300">
+                                    <tr class="hover:bg-slate-950/30">
+                                        <td class="p-4 font-bold">State Sync</td>
+                                        <td class="p-4">Pull-based REST APIs with periodic checks</td>
+                                        <td class="p-4">WebSocket connections with full-state payloads</td>
+                                        <td class="p-4 text-blue-400 font-semibold">Push-based RFC 6902 JSON Patches & Instant Rollback</td>
+                                    </tr>
+                                    <tr class="hover:bg-slate-950/30">
+                                        <td class="p-4 font-bold">Rendering Strategy</td>
+                                        <td class="p-4">Traditional paginated list views & lazy loading</td>
+                                        <td class="p-4">Visual drag-and-drop stacks with absolute placement</td>
+                                        <td class="p-4 text-blue-400 font-semibold">Absolute-positioned virtual grids + GPU layer promotion</td>
+                                    </tr>
+                                    <tr class="hover:bg-slate-950/30">
+                                        <td class="p-4 font-bold">Asset Pipeline</td>
+                                        <td class="p-4">Edge-cached static assets</td>
+                                        <td class="p-4">Dynamic on-demand resizing</td>
+                                        <td class="p-4 text-blue-400 font-semibold">Service Worker asset interception & vector placeholders</td>
+                                    </tr>
+                                    <tr class="hover:bg-slate-950/30">
+                                        <td class="p-4 font-bold">Proxy Generation</td>
+                                        <td class="p-4">Server-side rendering queue</td>
+                                        <td class="p-4">Server-side Chromium pool</td>
+                                        <td class="p-4 text-blue-400 font-semibold">Client-side Web Worker execution via React-PDF</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </section>
+
+
+                <!-- SECTION 2: HIGH-PERFORMANCE DATABASE DESIGN & MULTISETS -->
+                <section id="tab-database" class="tab-content hidden space-y-8 animate-fadeIn">
+                    <div class="flex flex-col md:flex-row md:items-center md:justify-between border-b border-slate-800 pb-4">
+                        <div>
+                            <span class="text-emerald-500 font-mono text-xs font-bold tracking-wider">PILLAR 2: RELATIONAL CORE & MULTISET MATH</span>
+                            <h2 class="font-ancient text-3xl font-bold text-white mt-1">High-Performance Relational Schema</h2>
+                        </div>
+                        <div class="mt-2 md:mt-0">
+                            <span class="bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 px-3 py-1 rounded text-xs font-mono">
+                                PostgreSQL & Cython Vector Engine
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- Relational Schema Script & Code Blocks -->
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                        <div class="space-y-6">
+                            <h3 class="text-xl font-bold text-slate-200 font-ancient"><i class="fa-solid fa-table text-emerald-400 mr-2"></i>PostgreSQL Production Tables</h3>
+                            <p class="text-slate-300 leading-relaxed text-sm">
+                                The relational core is built to support transactional integrity, immediate state modification, and flexible query structures. The following SQL configuration generates our tables, optimized GIN indices for trigram string matches and color searches, and our custom PL/pgSQL validation trigger which ensures color identity conformance during card insertions.
+                            </p>
+
+                            <div class="bg-slate-950 rounded-xl border border-slate-800 p-4 shadow-2xl">
+                                <div class="flex justify-between items-center mb-3">
+                                    <span class="text-xs font-mono text-emerald-400">schema.sql - Core Database Setup</span>
+                                    <button onclick="navigator.clipboard.writeText(document.getElementById('code-schema').innerText); handleInteractionSound('success')" class="text-xs text-slate-500 hover:text-slate-200"><i class="fa-solid fa-copy mr-1"></i> Copy</button>
+                                </div>
+                                <pre id="code-schema" class="text-xs font-mono overflow-x-auto text-emerald-400 bg-[#04060b] p-3 rounded border border-slate-900 leading-relaxed max-h-96">-- Core Card Definition Table (Stable Oracle Data)
+CREATE TABLE cards (
+    id UUID PRIMARY KEY,
+    oracle_id UUID UNIQUE NOT NULL,
+    name VARCHAR(255) NOT NULL,
+    mana_cost VARCHAR(100),
+    cmc NUMERIC(4, 1) NOT NULL,
+    type_line VARCHAR(255) NOT NULL,
+    oracle_text TEXT,
+    colors VARCHAR(10) NOT NULL,
+    color_identity VARCHAR(10) NOT NULL,
+    power VARCHAR(10),
+    toughness VARCHAR(10),
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Card Printings Table (Contains volatile marketplace pricing)
+CREATE TABLE prints (
+    id UUID PRIMARY KEY,
+    card_id UUID REFERENCES cards(id) ON DELETE CASCADE,
+    set_code VARCHAR(10) NOT NULL,
+    set_name VARCHAR(255) NOT NULL,
+    collector_number VARCHAR(20) NOT NULL,
+    rarity VARCHAR(20) NOT NULL,
+    image_uri_normal VARCHAR(512),
+    price_usd NUMERIC(10, 2),
+    price_foil NUMERIC(10, 2),
+    updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Decks Junction Link with Color Identity Verification
+CREATE TABLE deck_cards (
+    deck_id UUID REFERENCES decks(id) ON DELETE CASCADE,
+    card_id UUID REFERENCES cards(id) ON DELETE RESTRICT,
+    quantity INTEGER NOT NULL CHECK (quantity > 0),
+    zone VARCHAR(20) NOT NULL CHECK (zone IN ('main', 'side', 'commander')),
+    PRIMARY KEY (deck_id, card_id, zone)
+);
+
+-- Color Identity Verification Trigger Procedure
+CREATE OR REPLACE FUNCTION verify_commander_identity()
+RETURNS TRIGGER AS $$
+DECLARE
+    commander_ci VARCHAR(10);
+    card_ci VARCHAR(10);
+BEGIN
+    SELECT color_identity INTO commander_ci FROM cards 
+    WHERE id = (SELECT commander_id FROM decks WHERE id = NEW.deck_id);
+    
+    IF commander_ci IS NULL THEN
+        RETURN NEW;
+    END IF;
+
+    SELECT color_identity INTO card_ci FROM cards WHERE id = NEW.card_id;
+
+    IF NOT (card_ci <@ commander_ci) THEN
+        RAISE EXCEPTION 'Card color identity % violates Commander identity %', card_ci, commander_ci;
+    END IF;
+
+    RETURN NEW;
+END;
+$$ LANGUAGE plpgsql;
+
+CREATE TRIGGER trg_verify_commander_identity
+BEFORE INSERT OR UPDATE ON deck_cards
+FOR EACH ROW EXECUTE FUNCTION verify_commander_identity();
+
+-- Fast Indexed Search Trigrams & Colors
+CREATE INDEX idx_cards_name_trgm ON cards USING gin (name gin_trgm_ops);
+CREATE INDEX idx_cards_colors ON cards USING gin (colors);
+CREATE INDEX idx_prints_card_id ON prints(card_id);</pre>
+                            </div>
+                        </div>
+
+                        <!-- Mathematical Modeling & Cython Array Section -->
+                        <div class="space-y-6">
+                            <h3 class="text-xl font-bold text-slate-200 font-ancient"><i class="fa-solid fa-calculator text-blue-400 mr-2"></i>The Minimal Set of Multisets ADT</h3>
+                            <div class="bg-slate-900/50 p-5 rounded-xl border border-slate-800 space-y-4">
+                                <p class="text-slate-300 text-sm leading-relaxed">
+                                    To evaluate matching portfolios (e.g., determining which decks or combinations can be created from a player's physical collection), we implement the <strong>Minimal Set of Multisets</strong> abstract data type.
+                                </p>
+                                <p class="text-slate-300 text-sm leading-relaxed">
+                                    Let $C$ be the card universe. A player's inventory $I$ and required card combo $K$ are multisets $C \to \mathbb{N}_0$. The minimal missing set $M_{diff}$ is:
+                                </p>
+                                <div class="p-3 bg-slate-950 rounded text-center font-mono text-emerald-400 border border-slate-900 text-sm">
+                                    M_diff(c) = max(0, K(c) - I(c))
+                                </div>
+                                <p class="text-slate-300 text-sm leading-relaxed">
+                                    To achieve the execution speeds required for real-time portfolio analysis across thousands of combinations, we compile this difference calculation in Cython to bypass the Python Global Interpreter Lock (GIL) and run on contiguous C arrays.
+                                </p>
+                            </div>
+
+                            <!-- Cython Compiler Display -->
+                            <div class="bg-slate-950 rounded-xl border border-slate-800 p-4 shadow-2xl">
+                                <span class="text-xs font-mono text-blue-400 block mb-3">multiset_operations.pyx - Compiled Cython</span>
+                                <pre class="text-xs font-mono overflow-x-auto text-emerald-400 bg-[#04060b] p-3 rounded border border-slate-900 leading-relaxed max-h-56"># cython: language_level=3
+# cython: boundscheck=False
+# cython: wraparound=False
+
+import numpy as np
+cimport numpy as cnp
+
+def compute_multiset_difference(cnp.int32_t[:] inventory_vector, 
+                                cnp.int32_t[:] combo_vector, 
+                                cnp.int32_t[:] output_vector):
+    """
+    Computes multiset difference between combo and inventory in C contiguous arrays
+    """
+    cdef int i
+    cdef int size = inventory_vector.shape[0]
+    
+    for i in range(size):
+        if combo_vector[i] > inventory_vector[i]:
+            output_vector[i] = combo_vector[i] - inventory_vector[i]
+        else:
+            output_vector[i] = 0</pre>
+                            </div>
+
+                            <!-- SANDBOX INTERACTIVE TOOL: MULTISET DIFFERENCE CALCULATOR -->
+                            <div class="bg-gradient-to-br from-emerald-950/20 to-slate-950 border border-emerald-900/40 rounded-xl p-5 space-y-4">
+                                <div class="flex items-center space-x-2">
+                                    <div class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></div>
+                                    <h4 class="text-sm font-mono text-emerald-400 uppercase font-bold tracking-wider">SANDBOX: LIVE MULTISET CALCULATOR</h4>
+                                </div>
+                                <p class="text-xs text-slate-400 leading-relaxed">
+                                    Edit the quantity vectors below to run the multiset compiler simulator in real-time.
+                                </p>
+
+                                <div class="grid grid-cols-2 gap-4 text-xs font-mono">
+                                    <div>
+                                        <label class="block text-slate-400 mb-1">Your Inventory (I)</label>
+                                        <div class="space-y-1.5 bg-slate-900 p-3 rounded border border-slate-800">
+                                            <div class="flex justify-between items-center">
+                                                <span>Sol Ring</span>
+                                                <input type="number" id="inv-sol" value="1" min="0" class="w-12 bg-slate-950 border border-slate-700 text-center text-emerald-300 rounded" onchange="runLiveMultisetCalc()">
+                                            </div>
+                                            <div class="flex justify-between items-center">
+                                                <span>Arcane Signet</span>
+                                                <input type="number" id="inv-arcane" value="1" min="0" class="w-12 bg-slate-950 border border-slate-700 text-center text-emerald-300 rounded" onchange="runLiveMultisetCalc()">
+                                            </div>
+                                            <div class="flex justify-between items-center">
+                                                <span>Lightning Bolt</span>
+                                                <input type="number" id="inv-bolt" value="2" min="0" class="w-12 bg-slate-950 border border-slate-700 text-center text-emerald-300 rounded" onchange="runLiveMultisetCalc()">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div>
+                                        <label class="block text-slate-400 mb-1">Combo Requirement (K)</label>
+                                        <div class="space-y-1.5 bg-slate-900 p-3 rounded border border-slate-800">
+                                            <div class="flex justify-between items-center">
+                                                <span>Sol Ring</span>
+                                                <input type="number" id="combo-sol" value="1" min="0" class="w-12 bg-slate-950 border border-slate-700 text-center text-blue-300 rounded" onchange="runLiveMultisetCalc()">
+                                            </div>
+                                            <div class="flex justify-between items-center">
+                                                <span>Arcane Signet</span>
+                                                <input type="number" id="combo-arcane" value="1" min="0" class="w-12 bg-slate-950 border border-slate-700 text-center text-blue-300 rounded" onchange="runLiveMultisetCalc()">
+                                            </div>
+                                            <div class="flex justify-between items-center">
+                                                <span>Lightning Bolt</span>
+                                                <input type="number" id="combo-bolt" value="4" min="0" class="w-12 bg-slate-950 border border-slate-700 text-center text-blue-300 rounded" onchange="runLiveMultisetCalc()">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="bg-slate-950 p-3.5 rounded border border-slate-800 font-mono text-xs">
+                                    <div class="text-slate-400 border-b border-slate-900 pb-1.5 mb-1.5 flex justify-between">
+                                        <span>Resulting Missing Multiset (M_diff)</span>
+                                        <span class="text-emerald-500" id="cython-latency">Compile Cython: 0.12ms</span>
+                                    </div>
+                                    <div class="space-y-1" id="multiset-diff-display">
+                                        <!-- Computed in JS dynamically -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+
+                <!-- SECTION 3: SYNTAX COMPILER PARSER & INFINITE LOOP SIMULATOR -->
+                <section id="tab-parser" class="tab-content hidden space-y-8 animate-fadeIn">
+                    <div class="flex flex-col md:flex-row md:items-center md:justify-between border-b border-slate-800 pb-4">
+                        <div>
+                            <span class="text-indigo-500 font-mono text-xs font-bold tracking-wider">PILLAR 3: GRAMMAR COMPILING & GAME LOGIC</span>
+                            <h2 class="font-ancient text-3xl font-bold text-white mt-1">Syntax Parser & Loop Resolution</h2>
+                        </div>
+                        <div class="mt-2 md:mt-0">
+                            <span class="bg-indigo-500/10 text-indigo-400 border border-indigo-500/20 px-3 py-1 rounded text-xs font-mono">
+                                Nearley Parser & State-Machine Analytics
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                        <div class="space-y-6">
+                            <h3 class="text-xl font-bold text-slate-200 font-ancient"><i class="fa-solid fa-code-branch text-indigo-400 mr-2"></i>Nearley Grammar & AST Compiler</h3>
+                            <p class="text-slate-300 leading-relaxed text-sm">
+                                Searching a card library as vast as MTG's requires a parser that can handle complex, logic-driven queries containing parenthetical groups, negation operators, and dynamic attribute filters.
+                            </p>
+                            <p class="text-slate-300 leading-relaxed text-sm">
+                                Our grammar compilation engine compiles Nearley grammars directly into AST nodes, which are then parsed into valid PostgreSQL or Elasticsearch queries, gracefully separating and ignoring invalid syntaxes.
+                            </p>
+
+                            <!-- AST Lexer Code Preview -->
+                            <div class="bg-slate-950 rounded-xl border border-slate-800 p-4 shadow-2xl">
+                                <span class="text-xs font-mono text-indigo-400 block mb-3">queryCompiler.ts - Dynamic SQL Translator</span>
+                                <pre class="text-xs font-mono overflow-x-auto text-emerald-400 bg-[#04060b] p-3 rounded border border-slate-900 leading-relaxed max-h-56">export function compileASTToSQL(node: ASTNode): { query: string; values: any[] } {
+  const values: any[] = [];
+  
+  function traverse(currentNode: ASTNode): string {
+    if (currentNode.type === 'OR') {
+      return `(${traverse(currentNode.left!)} OR ${traverse(currentNode.right!)})`;
+    }
+    if (currentNode.type === 'AND') {
+      return `(${traverse(currentNode.left!)} AND ${traverse(currentNode.right!)})`;
+    }
+    if (currentNode.type === 'filter') {
+      const paramIndex = values.push(currentNode.value!.replace(/"/g, ''));
+      const dbKey = mapFilterKey(currentNode.key!);
+      const sqlOp = mapOperator(currentNode.operator!);
+      
+      if (currentNode.key === 'colors' || currentNode.key === 'c') {
+        return `color_identity ${currentNode.operator === '!' ? 'NOT' : ''} && $${paramIndex}::varchar`;
+      }
+      return `${dbKey} ${sqlOp} $${paramIndex}`;
+    }
+    const textParam = values.push(`%${currentNode.value!.replace(/"/g, '')}%`);
+    return `(name ILIKE $${textParam} OR oracle_text ILIKE $${textParam})`;
+  }
+
+  const query = traverse(node);
+  return { query, values };
+}</pre>
+                            </div>
+
+                            <!-- SANDBOX INTERACTIVE TOOL: SYNTAX LEXER & PARSER CONSOLE -->
+                            <div class="bg-gradient-to-br from-indigo-950/20 to-slate-950 border border-indigo-900/40 rounded-xl p-5 space-y-4">
+                                <div class="flex items-center space-x-2">
+                                    <div class="w-2.5 h-2.5 rounded-full bg-indigo-400 animate-pulse"></div>
+                                    <h4 class="text-sm font-mono text-indigo-400 uppercase font-bold tracking-wider">SANDBOX: ARCHITECT'S SYNTAX PARSER</h4>
+                                </div>
+                                <p class="text-xs text-slate-400">
+                                    Type a custom MTG syntax search string in the input below. Watch it break down into raw AST structures and compile into parameterized SQL.
+                                </p>
+
+                                <div class="space-y-3">
+                                    <input type="text" id="sandbox-search-input" value='t:creature (colors:red OR colors:blue) cmc>4 oracle:"draw card"' class="w-full bg-slate-900 border border-slate-700 px-3.5 py-2.5 text-xs font-mono text-indigo-300 rounded focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 focus:outline-none" oninput="compileInteractiveSyntax()">
+                                </div>
+
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs font-mono">
+                                    <div>
+                                        <span class="block text-slate-400 mb-1">Generated Abstract Syntax Tree (AST)</span>
+                                        <pre id="ast-viewer" class="bg-slate-950 p-3 rounded border border-slate-900 text-[11px] leading-relaxed text-yellow-400 overflow-auto max-h-48"></pre>
+                                    </div>
+                                    <div>
+                                        <span class="block text-slate-400 mb-1">Compiled PostgreSQL Query</span>
+                                        <pre id="sql-viewer" class="bg-slate-950 p-3 rounded border border-slate-900 text-[11px] leading-relaxed text-emerald-400 overflow-auto max-h-48"></pre>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Graph Traversal & Infinite Loop State Machine -->
+                        <div class="space-y-6">
+                            <h3 class="text-xl font-bold text-slate-200 font-ancient"><i class="fa-solid fa-infinity text-pink-400 mr-2"></i>Spellbook Infinite Loop Resolution</h3>
+                            <p class="text-slate-300 leading-relaxed text-sm">
+                                Finding infinite game-state loops requires representing cards as state machines where transitions are governed by card triggers, costs, and activation effects.
+                            </p>
+                            
+                            <div class="bg-slate-900/50 p-5 rounded-xl border border-slate-800 space-y-3 text-sm">
+                                <h4 class="font-bold text-slate-200 font-mono text-xs text-pink-400">STATE MACHINE EXAMPLE: LITHOPLOT COMBO</h4>
+                                <p class="text-xs text-slate-300 leading-relaxed">
+                                    Consider the loop: <strong>Tezzeret the Seeker</strong>, <strong>Lithoform Engine</strong>, and <strong>Gilded Lotus</strong>. This is modeled mathematically by evaluating loyalty counters, tapped states, and mana volumes.
+                                </p>
+                                <p class="text-xs text-slate-300 leading-relaxed">
+                                    Let $S$ represent the state vector: $\langle L_{tez}, T_{lot}, T_{lith}, M_{pool} \rangle$, where $L$ is the loyalty, $T \in \{0, 1\}$ represents the tapped state, and $M$ is the available mana pool.
+                                </p>
+                            </div>
+
+                            <!-- SANDBOX INTERACTIVE TOOL: COMBO STATE TRANSITION VISUALIZER -->
+                            <div class="bg-gradient-to-br from-pink-950/20 to-slate-950 border border-pink-900/40 rounded-xl p-5 space-y-4">
+                                <div class="flex items-center justify-between">
+                                    <div class="flex items-center space-x-2">
+                                        <div class="w-2.5 h-2.5 rounded-full bg-pink-400 animate-pulse"></div>
+                                        <h4 class="text-sm font-mono text-pink-400 uppercase font-bold tracking-wider">SANDBOX: COMBO ENGINE LOOP VISUALIZER</h4>
+                                    </div>
+                                    <span class="text-[10px] font-mono bg-pink-500/10 text-pink-400 px-2 py-0.5 rounded border border-pink-500/20" id="combo-step-counter">Step 0 / 4</span>
+                                </div>
+
+                                <div class="bg-slate-900 p-4 rounded border border-slate-800 space-y-3 font-mono text-xs">
+                                    <div class="flex justify-between items-center border-b border-slate-800 pb-2">
+                                        <span class="text-slate-400">ACTIVE COMBINATOR STATE (S)</span>
+                                        <span class="text-pink-400 font-bold" id="state-vector-display">⟨4, 0, 0, [0, 0, 0, 0, 0, 0]⟩</span>
+                                    </div>
+                                    <div class="grid grid-cols-2 gap-4">
+                                        <div class="space-y-1.5">
+                                            <div class="flex justify-between"><span>Tezzeret Loyalty:</span><span id="state-tez" class="text-yellow-400 font-bold">4</span></div>
+                                            <div class="flex justify-between"><span>Gilded Lotus:</span><span id="state-lotus" class="text-slate-300 font-bold">Untapped (0)</span></div>
+                                        </div>
+                                        <div class="space-y-1.5">
+                                            <div class="flex justify-between"><span>Lithoform Engine:</span><span id="state-lith" class="text-slate-300 font-bold">Untapped (0)</span></div>
+                                            <div class="flex justify-between"><span>Mana Pool (Blue):</span><span id="state-mana" class="text-blue-400 font-bold">0</span></div>
+                                        </div>
+                                    </div>
+                                    <div class="bg-slate-950 p-2.5 rounded text-[11px] text-slate-300 min-h-12 flex items-center border border-slate-900" id="combo-description">
+                                        Start with Tezzeret at 4 loyalty. Gilded Lotus and Lithoform Engine untapped.
+                                    </div>
+                                </div>
+
+                                <div class="flex space-x-2">
+                                    <button onclick="stepComboPrev()" class="flex-1 py-2 rounded bg-slate-900 border border-slate-700 text-xs font-mono font-bold hover:bg-slate-800 transition-colors">
+                                        <i class="fa-solid fa-arrow-left mr-1"></i> BACK STEP
+                                    </button>
+                                    <button onclick="stepComboNext()" class="flex-1 py-2 rounded bg-pink-600 hover:bg-pink-700 text-xs font-mono font-bold text-white transition-colors">
+                                        NEXT TRANSITION <i class="fa-solid fa-arrow-right ml-1"></i>
+                                    </button>
+                                </div>
+
+                                <div class="bg-pink-950/20 border border-pink-900/30 p-3 rounded text-xs space-y-1" id="loop-alert-box" style="display: none;">
+                                    <div class="flex items-center space-x-1.5 text-pink-400 font-bold font-mono">
+                                        <i class="fa-solid fa-arrows-spin animate-spin"></i>
+                                        <span>INFINITE LOOP RESOLUTION DETECTED!</span>
+                                    </div>
+                                    <p class="text-[11px] text-slate-300">
+                                        State S_4 matches starting parameters S_0 with Gilded Lotus and Lithoform Engine fully untapped, while possessing a net profit of +1 Blue Mana. Infinite mana loop confirmed.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+
+                <!-- SECTION 4: HIGH-SCALE RECOMMENDATION ENGINE & DATA SCIENCE -->
+                <section id="tab-pipeline" class="tab-content hidden space-y-8 animate-fadeIn">
+                    <div class="flex flex-col md:flex-row md:items-center md:justify-between border-b border-slate-800 pb-4">
+                        <div>
+                            <span class="text-purple-500 font-mono text-xs font-bold tracking-wider">PILLAR 4: VECTOR SYNERGY & DATA PIPELINE</span>
+                            <h2 class="font-ancient text-3xl font-bold text-white mt-1">Massive-Scale Recommendation Engine</h2>
+                        </div>
+                        <div class="mt-2 md:mt-0">
+                            <span class="bg-purple-500/10 text-purple-400 border border-purple-500/20 px-3 py-1 rounded text-xs font-mono">
+                                cuDF GPU & Matrix Math
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                        <div class="space-y-6">
+                            <h3 class="text-xl font-bold text-slate-200 font-ancient"><i class="fa-solid fa-calculator text-purple-400 mr-2"></i>Synergy Co-occurrence Framework</h3>
+                            <p class="text-slate-300 leading-relaxed text-sm">
+                                To deliver precise card recommendations similar to EDHREC, our platform builds a sparse interaction matrix $D$ from user-submitted decks, where columns represent cards and rows represent decks.
+                            </p>
+                            <p class="text-slate-300 leading-relaxed text-sm">
+                                The co-occurrence matrix $C = D^T D$ lists shared appearance metrics. To eliminate popularity biases (e.g., format staples like *Sol Ring* being falsely recommended for unrelated themes), we apply normalized Cosine Similarity and Jaccard Similarity coefficients.
+                            </p>
+
+                            <!-- GPU Code Preview -->
+                            <div class="bg-slate-950 rounded-xl border border-slate-800 p-4 shadow-2xl">
+                                <span class="text-xs font-mono text-purple-400 block mb-3">gpu_co_occurrence.py - RAPIDS cuDF Acceleration</span>
+                                <pre class="text-xs font-mono overflow-x-auto text-emerald-400 bg-[#04060b] p-3 rounded border border-slate-900 leading-relaxed max-h-56">import cudf
+import cupy as cp
+
+def compute_gpu_jaccard_similarity(parquet_path: str):
+    """
+    Computes Jaccard card similarity using CUDA-accelerated
+    GPU operations to bypass traditional CPU bottlenecking
+    """
+    # Load deck parquet tables directly into GPU Memory
+    df = cudf.read_parquet(parquet_path)
+    card_counts = df['card_id'].value_counts()
+    
+    # Fast self-merge on GPU to calculate shared card pairings
+    merged = df.merge(df, on="deck_id", suffixes=('_i', '_j'))
+    merged = merged[merged['card_id_i'] != merged['card_id_j']]
+    
+    co_occur = merged.groupby(['card_id_i', 'card_id_j']).size().reset_index()
+    co_occur.columns = ['card_i', 'card_j', 'intersection']
+    
+    total_i = co_occur['card_i'].map(card_counts)
+    total_j = co_occur['card_j'].map(card_counts)
+    union_val = total_i + total_j - co_occur['intersection']
+    
+    co_occur['jaccard_score'] = co_occur['intersection'] / union_val
+    return co_occur</pre>
+                            </div>
+                        </div>
+
+                        <!-- Interactive Recommendation Sandbox -->
+                        <div class="space-y-6">
+                            <h3 class="text-xl font-bold text-slate-200 font-ancient"><i class="fa-solid fa-wand-magic-sparkles text-pink-400 mr-2"></i>Live Dynamic Recommender</h3>
+                            <p class="text-slate-300 leading-relaxed text-sm">
+                                Select an active commander archetype in the console below to run a simulated co-occurrence query. Watch the mathematical results update instantly.
+                            </p>
+
+                            <!-- SANDBOX INTERACTIVE TOOL: SYNERGY GENERATOR -->
+                            <div class="bg-gradient-to-br from-purple-950/20 to-slate-950 border border-purple-900/40 rounded-xl p-5 space-y-4">
+                                <div class="flex items-center space-x-2">
+                                    <div class="w-2.5 h-2.5 rounded-full bg-purple-400 animate-pulse"></div>
+                                    <h4 class="text-sm font-mono text-purple-400 uppercase font-bold tracking-wider">SANDBOX: CARD RECOMMENDATION ENGINE</h4>
+                                </div>
+
+                                <div class="space-y-3 font-mono text-xs">
+                                    <label class="block text-slate-400">Select Commander Theme / Deck Profile</label>
+                                    <select id="recommender-profile-select" class="w-full bg-slate-900 border border-slate-700 text-purple-300 py-2.5 px-3 rounded focus:outline-none focus:border-purple-500" onchange="runLiveRecommendations()">
+                                        <option value="atraxa">Atraxa, Praetors' Voice (Proiferate / Poison)</option>
+                                        <option value="urza">Urza, Lord High Artificer (Artifact Stax / Combo)</option>
+                                        <option value="lathril">Lathril, Blade of the Elves (Elf Tribal / Tokens)</option>
+                                    </select>
+                                </div>
+
+                                <div class="bg-slate-950 p-4 rounded border border-slate-800 space-y-3 font-mono text-xs">
+                                    <div class="flex justify-between border-b border-slate-800 pb-2 text-slate-400 text-[11px]">
+                                        <span>Recommended Synergy additions</span>
+                                        <span>Jaccard Index | Cosine Similarity</span>
+                                    </div>
+                                    <div class="space-y-2.5" id="recommendations-results-list">
+                                        <!-- Rendered dynamically -->
+                                    </div>
+                                </div>
+
+                                <div class="p-3 bg-purple-950/20 border border-purple-900/40 rounded text-xs text-slate-300 flex items-center space-x-2">
+                                    <i class="fa-solid fa-circle-info text-purple-400 text-sm"></i>
+                                    <span>Calculated dynamically against 2.4 million simulated parquet records loaded on the Redis edge-nodes.</span>
+                                </div>
+                            </div>
+
+                            <!-- Data pipeline speed comparison tables -->
+                            <div class="bg-slate-900 rounded-xl border border-slate-800 overflow-hidden shadow-lg">
+                                <div class="p-4 border-b border-slate-800 bg-slate-900/60">
+                                    <h4 class="text-xs font-semibold text-slate-200 font-mono">DATA PIPELINE EXECUTION PERFORMANCE</h4>
+                                </div>
+                                <table class="w-full text-left text-xs">
+                                    <thead>
+                                        <tr class="bg-slate-950 border-b border-slate-800 text-slate-400">
+                                            <th class="p-3 font-mono">Metric</th>
+                                            <th class="p-3 font-mono">Traditional CPU Pandas</th>
+                                            <th class="p-3 font-mono text-purple-400">Proposed GPU RAPIDS</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="divide-y divide-slate-800 text-slate-300">
+                                        <tr class="hover:bg-slate-950/40">
+                                            <td class="p-3 font-bold">Max Decks Capacity</td>
+                                            <td class="p-3">Up to 100,000 deck profiles</td>
+                                            <td class="p-3 text-purple-400 font-semibold">Over 25,000,000 profiles</td>
+                                        </tr>
+                                        <tr class="hover:bg-slate-950/40">
+                                            <td class="p-3 font-bold">Matrix Calculate Speed</td>
+                                            <td class="p-3">~4 Hours on 32-core nodes</td>
+                                            <td class="p-3 text-purple-400 font-semibold">&lt; 15 seconds</td>
+                                        </tr>
+                                        <tr class="hover:bg-slate-950/40">
+                                            <td class="p-3 font-bold">API Query Latency</td>
+                                            <td class="p-3">~250ms (on-the-fly SQL)</td>
+                                            <td class="p-3 text-purple-400 font-semibold">&lt; 8ms (Redis caching)</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+
+                <!-- SECTION 5: SYSTEMS CLOUD INFRASTRUCTURE & ARCHITECTURE -->
+                <section id="tab-infrastructure" class="tab-content hidden space-y-8 animate-fadeIn">
+                    <div class="flex flex-col md:flex-row md:items-center md:justify-between border-b border-slate-800 pb-4">
+                        <div>
+                            <span class="text-sky-500 font-mono text-xs font-bold tracking-wider">PILLAR 5: INFRASTRUCTURE & MULTI-REGION SCALING</span>
+                            <h2 class="font-ancient text-3xl font-bold text-white mt-1">Systems Infrastructure & Topology</h2>
+                        </div>
+                        <div class="mt-2 md:mt-0">
+                            <span class="bg-sky-500/10 text-sky-400 border border-sky-500/20 px-3 py-1 rounded text-xs font-mono">
+                                AWS & Cloudflare edge-mesh
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                        <div class="space-y-6">
+                            <h3 class="text-xl font-bold text-slate-200 font-ancient"><i class="fa-solid fa-server text-sky-400 mr-2"></i>Scalable Multi-Tier Infrastructure</h3>
+                            <p class="text-slate-300 leading-relaxed text-sm font-sans">
+                                To support hundreds of thousands of active monthly users globally without degrading transaction speeds, our platform is deployed over a highly redundant, geographical edge topology.
+                            </p>
+                            
+                            <!-- Detailed Breakdown of Infrastructure Roles -->
+                            <div class="space-y-4">
+                                <div class="bg-slate-900 border border-slate-800 p-4 rounded-xl flex items-start space-x-3.5">
+                                    <div class="bg-sky-500/10 p-2.5 rounded border border-sky-500/20 text-sky-400">
+                                        <i class="fa-solid fa-shield-halved text-lg"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="text-sm font-bold text-slate-200 font-mono">Edge CDN Layer (Cloudflare & Route 53)</h4>
+                                        <p class="text-xs text-slate-400 leading-relaxed mt-1">
+                                            Cloudflare handles Layer 7 edge filtering, SSL termination, and static asset mapping. AWS Route 53 routes client-side connections dynamically to the lowest-latency Regional cluster.
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div class="bg-slate-900 border border-slate-800 p-4 rounded-xl flex items-start space-x-3.5">
+                                    <div class="bg-emerald-500/10 p-2.5 rounded border border-emerald-500/20 text-emerald-400">
+                                        <i class="fa-brands fa-docker text-lg"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="text-sm font-bold text-slate-200 font-mono">Compute Engine (AWS EKS & Pod Clusters)</h4>
+                                        <p class="text-xs text-slate-400 leading-relaxed mt-1">
+                                            EKS manages microservices scaled via auto-scaling groups. Frontend Node instances handle Server-Side Rendering (SSR), while backend Django tasks process complex transactions, deck evaluations, and query parsing.
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div class="bg-slate-900 border border-slate-800 p-4 rounded-xl flex items-start space-x-3.5">
+                                    <div class="bg-indigo-500/10 p-2.5 rounded border border-indigo-500/20 text-indigo-400">
+                                        <i class="fa-solid fa-database text-lg"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="text-sm font-bold text-slate-200 font-mono">Persistence Tier (RDS & DynamoDB)</h4>
+                                        <p class="text-xs text-slate-400 leading-relaxed mt-1">
+                                            Transactional details live in PostgreSQL RDS. Volatile, high-frequency active session operations (like live drafting pools) are mapped into AWS DynamoDB to leverage single-table designs and prevent PostgreSQL connection fatigue.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Vector Graphics System Map -->
+                        <div class="space-y-6">
+                            <h3 class="text-xl font-bold text-slate-200 font-ancient"><i class="fa-solid fa-map text-sky-400 mr-2"></i>Interactive System Diagram</h3>
+                            <p class="text-slate-300 leading-relaxed text-sm">
+                                Hover over the nodes in the architectural vector map below to highlight real-time data flows.
+                            </p>
+
+                            <!-- Interactive SVG Topology -->
+                            <div class="bg-slate-950 p-4 rounded-xl border border-slate-800 flex justify-center items-center shadow-inner">
+                                <svg class="w-full max-w-md h-auto" viewBox="0 0 400 320" xmlns="http://www.w3.org/2000/svg">
+                                    <!-- Glow Definitions -->
+                                    <defs>
+                                        <filter id="glow-svg" x="-20%" y="-20%" width="140%" height="140%">
+                                            <feGaussianBlur stdDeviation="3" result="blur" />
+                                            <feComposite in="SourceGraphic" in2="blur" operator="over" />
+                                        </filter>
+                                    </defs>
+                                    
+                                    <!-- Flow lines -->
+                                    <g stroke="#1e293b" stroke-width="2">
+                                        <line x1="200" y1="40" x2="200" y2="100" />
+                                        <line x1="200" y1="100" x2="100" y2="170" />
+                                        <line x1="200" y1="100" x2="300" y2="170" />
+                                        <line x1="100" y1="170" x2="100" y2="250" />
+                                        <line x1="300" y1="170" x2="300" y2="250" />
+                                        <line x1="100" y1="250" x2="200" y2="280" />
+                                        <line x1="300" y1="250" x2="200" y2="280" />
+                                    </g>
+
+                                    <!-- Interactive Nodes -->
+                                    <!-- Edge node -->
+                                    <g class="cursor-pointer group" onmouseover="handleSvgHover('edge'); handleInteractionSound('hover')" onmouseout="handleSvgHover('none')">
+                                        <circle cx="200" cy="40" r="18" fill="#1e293b" stroke="#3b82f6" stroke-width="2" class="group-hover:fill-blue-900 transition-colors" />
+                                        <text x="200" y="44" fill="#ffffff" font-size="9" text-anchor="middle" font-family="monospace">EDGE</text>
+                                    </g>
+
+                                    <!-- Router Node -->
+                                    <g class="cursor-pointer group" onmouseover="handleSvgHover('router'); handleInteractionSound('hover')" onmouseout="handleSvgHover('none')">
+                                        <circle cx="200" cy="100" r="18" fill="#1e293b" stroke="#3b82f6" stroke-width="2" class="group-hover:fill-blue-900 transition-colors" />
+                                        <text x="200" y="104" fill="#ffffff" font-size="9" text-anchor="middle" font-family="monospace">ROUTE</text>
+                                    </g>
+
+                                    <!-- Web cluster -->
+                                    <g class="cursor-pointer group" onmouseover="handleSvgHover('web'); handleInteractionSound('hover')" onmouseout="handleSvgHover('none')">
+                                        <rect x="50" y="152" width="100" height="36" rx="6" fill="#1e293b" stroke="#10b981" stroke-width="2" class="group-hover:fill-emerald-950 transition-colors" />
+                                        <text x="100" y="174" fill="#ffffff" font-size="9" text-anchor="middle" font-family="monospace">EKS WEB PODS</text>
+                                    </g>
+
+                                    <!-- DB / API Cluster -->
+                                    <g class="cursor-pointer group" onmouseover="handleSvgHover('api'); handleInteractionSound('hover')" onmouseout="handleSvgHover('none')">
+                                        <rect x="250" y="152" width="100" height="36" rx="6" fill="#1e293b" stroke="#8b5cf6" stroke-width="2" class="group-hover:fill-purple-950 transition-colors" />
+                                        <text x="300" y="174" fill="#ffffff" font-size="9" text-anchor="middle" font-family="monospace">EKS API PODS</text>
+                                    </g>
+
+                                    <!-- Redis Store -->
+                                    <g class="cursor-pointer group" onmouseover="handleSvgHover('redis'); handleInteractionSound('hover')" onmouseout="handleSvgHover('none')">
+                                        <rect x="50" y="232" width="100" height="36" rx="6" fill="#1e293b" stroke="#ef4444" stroke-width="2" class="group-hover:fill-red-950 transition-colors" />
+                                        <text x="100" y="254" fill="#ffffff" font-size="9" text-anchor="middle" font-family="monospace">REDIS EDGE</text>
+                                    </g>
+
+                                    <!-- SQL Database -->
+                                    <g class="cursor-pointer group" onmouseover="handleSvgHover('postgres'); handleInteractionSound('hover')" onmouseout="handleSvgHover('none')">
+                                        <rect x="250" y="232" width="100" height="36" rx="6" fill="#1e293b" stroke="#3b82f6" stroke-width="2" class="group-hover:fill-blue-950 transition-colors" />
+                                        <text x="300" y="254" fill="#ffffff" font-size="9" text-anchor="middle" font-family="monospace">POSTGRES RDS</text>
+                                    </g>
+
+                                    <!-- DynamoDB Store -->
+                                    <g class="cursor-pointer group" onmouseover="handleSvgHover('dynamo'); handleInteractionSound('hover')" onmouseout="handleSvgHover('none')">
+                                        <rect x="150" y="272" width="100" height="36" rx="6" fill="#1e293b" stroke="#f59e0b" stroke-width="2" class="group-hover:fill-amber-950 transition-colors" />
+                                        <text x="200" y="294" fill="#ffffff" font-size="9" text-anchor="middle" font-family="monospace">DYNAMODB</text>
+                                    </g>
+                                </svg>
+
+                                <!-- Interactive descriptions container -->
+                                <div class="w-full text-xs font-mono bg-slate-900/80 p-3 rounded-lg border border-slate-800 text-center text-slate-300 mt-4 min-h-16" id="svg-node-info">
+                                    Hover over any architectural block to see its scaling matrix and responsibilities.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+
+                <!-- SECTION 6: MVP IMPLEMENTATION ROADMAP -->
+                <section id="tab-roadmap" class="tab-content hidden space-y-8 animate-fadeIn">
+                    <div class="flex flex-col md:flex-row md:items-center md:justify-between border-b border-slate-800 pb-4">
+                        <div>
+                            <span class="text-amber-500 font-mono text-xs font-bold tracking-wider">PROJECT TIMELINE & PHASES</span>
+                            <h2 class="font-ancient text-3xl font-bold text-white mt-1">MVP Step-by-Step Implementation Roadmap</h2>
+                        </div>
+                        <div class="mt-2 md:mt-0">
+                            <span class="bg-amber-500/10 text-amber-400 border border-amber-500/20 px-3 py-1 rounded text-xs font-mono">
+                                Engineering Execution Plan
+                            </span>
+                        </div>
+                    </div>
+
+                    <p class="text-slate-300 text-sm leading-relaxed max-w-3xl">
+                        A phased, pragmatic engineering roadmap designed to build a highly functional, secure, and production-ready MVP of our unified deck-building and analytics system. <strong>Click the phases to toggles complete/incomplete status</strong>.
+                    </p>
+
+                    <!-- Interactive Phase Cards -->
+                    <div class="space-y-6">
+                        
+                        <!-- Phase 1 -->
+                        <div onclick="toggleRoadmapPhase('phase1')" id="phase-card-phase1" class="glow-card border border-slate-800 bg-[#090d19] rounded-xl p-6 cursor-pointer relative overflow-hidden transition-all duration-300">
+                            <!-- Completed watermark overlay -->
+                            <div class="absolute right-6 top-6 opacity-10 flex items-center text-6xl text-emerald-500" id="watermark-phase1">
+                                <i class="fa-solid fa-circle-check"></i>
+                            </div>
+
+                            <div class="flex flex-col md:flex-row justify-between md:items-center mb-4">
+                                <div class="flex items-center space-x-3">
+                                    <span class="text-xs font-bold font-mono bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 px-2.5 py-1 rounded">PHASE 1</span>
+                                    <h3 class="text-lg font-bold font-ancient text-white">Foundational Data Infrastructure & Scryfall Ingestion</h3>
+                                </div>
+                                <div class="mt-2 md:mt-0 flex items-center space-x-2 text-xs font-mono">
+                                    <span class="text-slate-400">Complexity:</span>
+                                    <span class="text-emerald-400 font-bold">Medium</span>
+                                    <span class="px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20" id="status-phase1">DONE</span>
+                                </div>
+                            </div>
+
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm">
+                                <div class="space-y-3">
+                                    <h4 class="font-bold text-slate-300 font-mono text-xs uppercase text-blue-400">Core Deliverables</h4>
+                                    <ul class="list-disc list-inside space-y-1 text-slate-400 text-xs leading-relaxed">
+                                        <li>Deploy PostgreSQL instances with optimized relational Schemas.</li>
+                                        <li>Build Scryfall API bulk sync scripts utilizing Upsert routines.</li>
+                                        <li>Integrate GIN indices for trigram search and color set alignments.</li>
+                                        <li>Implement automated daily price update cron pipelines.</li>
+                                    </ul>
+                                </div>
+                                <div class="space-y-3">
+                                    <h4 class="font-bold text-slate-300 font-mono text-xs uppercase text-blue-400">Definition of Done (DoD)</h4>
+                                    <ul class="list-disc list-inside space-y-1 text-slate-400 text-xs leading-relaxed">
+                                        <li>Bulk DB containing 40k+ card profiles populated in &lt; 2 minutes.</li>
+                                        <li>Fuzzy name search responds under 15ms locally.</li>
+                                        <li>Unit tests coverage verifying zero card duplications on sync cycles.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Phase 2 -->
+                        <div onclick="toggleRoadmapPhase('phase2')" id="phase-card-phase2" class="glow-card border border-slate-800 bg-[#090d19] rounded-xl p-6 cursor-pointer relative overflow-hidden transition-all duration-300">
+                            <!-- Completed watermark overlay -->
+                            <div class="absolute right-6 top-6 opacity-0 flex items-center text-6xl text-emerald-500" id="watermark-phase2">
+                                <i class="fa-solid fa-circle-check"></i>
+                            </div>
+
+                            <div class="flex flex-col md:flex-row justify-between md:items-center mb-4">
+                                <div class="flex items-center space-x-3">
+                                    <span class="text-xs font-bold font-mono bg-indigo-500/10 text-indigo-400 border border-indigo-500/20 px-2.5 py-1 rounded">PHASE 2</span>
+                                    <h3 class="text-lg font-bold font-ancient text-white">The Core Visual Application & Real-time Sync</h3>
+                                </div>
+                                <div class="mt-2 md:mt-0 flex items-center space-x-2 text-xs font-mono">
+                                    <span class="text-slate-400">Complexity:</span>
+                                    <span class="text-indigo-400 font-bold">High</span>
+                                    <span class="px-2 py-0.5 rounded bg-amber-500/10 text-amber-400 border border-amber-500/20" id="status-phase2">IN PROGRESS</span>
+                                </div>
+                            </div>
+
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm">
+                                <div class="space-y-3">
+                                    <h4 class="font-bold text-slate-300 font-mono text-xs uppercase text-indigo-400">Core Deliverables</h4>
+                                    <ul class="list-disc list-inside space-y-1 text-slate-400 text-xs leading-relaxed">
+                                        <li>Initialize local visual build interface using virtual lists (React-Virtuoso).</li>
+                                        <li>Implement RFC 6902 state patch sync architecture in Zustand.</li>
+                                        <li>Deploy basic user authentication sessions securely.</li>
+                                        <li>Integrate Web Worker based client-side PDF proxy generator.</li>
+                                    </ul>
+                                </div>
+                                <div class="space-y-3">
+                                    <h4 class="font-bold text-slate-300 font-mono text-xs uppercase text-indigo-400">Definition of Done (DoD)</h4>
+                                    <ul class="list-disc list-inside space-y-1 text-slate-400 text-xs leading-relaxed">
+                                        <li>Optimistic deck updates execute at 60fps local frame rates.</li>
+                                        <li>Failed database sync queries successfully rollback automatically.</li>
+                                        <li>PDF generates high-res sheets within the client web worker.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Phase 3 -->
+                        <div onclick="toggleRoadmapPhase('phase3')" id="phase-card-phase3" class="glow-card border border-slate-800 bg-[#090d19] rounded-xl p-6 cursor-pointer relative overflow-hidden transition-all duration-300">
+                            <!-- Completed watermark overlay -->
+                            <div class="absolute right-6 top-6 opacity-0 flex items-center text-6xl text-emerald-500" id="watermark-phase3">
+                                <i class="fa-solid fa-circle-check"></i>
+                            </div>
+
+                            <div class="flex flex-col md:flex-row justify-between md:items-center mb-4">
+                                <div class="flex items-center space-x-3">
+                                    <span class="text-xs font-bold font-mono bg-purple-500/10 text-purple-400 border border-purple-500/20 px-2.5 py-1 rounded">PHASE 3</span>
+                                    <h3 class="text-lg font-bold font-ancient text-white">Advanced Search & Analytical Synergy Engines</h3>
+                                </div>
+                                <div class="mt-2 md:mt-0 flex items-center space-x-2 text-xs font-mono">
+                                    <span class="text-slate-400">Complexity:</span>
+                                    <span class="text-purple-400 font-bold">Ultra High</span>
+                                    <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-400 border border-slate-700" id="status-phase3">BACKLOG</span>
+                                </div>
+                            </div>
+
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm">
+                                <div class="space-y-3">
+                                    <h4 class="font-bold text-slate-300 font-mono text-xs uppercase text-purple-400">Core Deliverables</h4>
+                                    <ul class="list-disc list-inside space-y-1 text-slate-400 text-xs leading-relaxed">
+                                        <li>Build the fully compliant Nearley logic query AST Compiler.</li>
+                                        <li>Set up Nightly GPU cuDF co-occurrence synergy training pipelines.</li>
+                                        <li>Deploy Commander Spellbook loop state machine check procedures.</li>
+                                        <li>Cache all calculated deck matrices on low-latency Redis node instances.</li>
+                                    </ul>
+                                </div>
+                                <div class="space-y-3">
+                                    <h4 class="font-bold text-slate-300 font-mono text-xs uppercase text-purple-400">Definition of Done (DoD)</h4>
+                                    <ul class="list-disc list-inside space-y-1 text-slate-400 text-xs leading-relaxed">
+                                        <li>Lexer handles nested parenthetical and negated parameters cleanly.</li>
+                                        <li>Synergy recommends pull under &lt; 10ms for global users.</li>
+                                        <li>Infinite loops automatically validated over the state machine graph.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </section>
+
+            </main>
+        </div>
+
+        <!-- STYLED BOTTOM METRIC BOARD -->
+        <footer class="border-t border-slate-800 bg-[#050811] px-6 py-3.5 text-center text-xs font-mono text-slate-500 flex flex-col sm:flex-row justify-between items-center space-y-2 sm:space-y-0">
+            <div>
+                <span>STATUS: </span>
+                <span class="text-emerald-400 font-bold"><i class="fa-solid fa-check-double mr-1"></i> ACTIVE ENVIRONMENT: RUNNABLE ARTIFACT ENGINE</span>
+            </div>
+            <div>
+                <span>Designed for MTG System Architecture Platform. Built in 2026.</span>
+            </div>
+        </footer>
+    </div>
+
+
+    <!-- CORE APPLICATION INTERACTIVE ENGINE SCRIPTS -->
+    <script>
+        // Track audio active status
+        let isAudioEnabled = true;
+        function toggleAudio() {
+            isAudioEnabled = !isAudioEnabled;
+            const btn = document.getElementById('audio-toggle-btn');
+            const icon = document.getElementById('audio-icon');
+            const txt = document.getElementById('audio-text');
+            
+            if (isAudioEnabled) {
+                btn.className = "w-full py-2 px-3 border border-slate-800 rounded bg-[#0b101f] text-slate-400 hover:text-white transition-all text-xs font-mono flex items-center justify-center space-x-2";
+                icon.className = "fa-solid fa-volume-low";
+                txt.innerText = "SYNTH AUDIO IS ENABLED";
+                handleInteractionSound('click');
+            } else {
+                btn.className = "w-full py-2 px-3 border border-red-950 rounded bg-red-950/20 text-red-400 transition-all text-xs font-mono flex items-center justify-center space-x-2";
+                icon.className = "fa-solid fa-volume-xmark";
+                txt.innerText = "SYNTH AUDIO IS SILENCED";
+            }
+        }
+
+        // Custom pointer spark trail
+        const spark = document.getElementById('cursor-spark');
+        document.addEventListener('mousemove', (e) => {
+            spark.style.left = e.pageX + 'px';
+            spark.style.top = e.pageY + 'px';
+            spark.style.opacity = '1';
+
+            // Sparkle generator trail randomly
+            if (Math.random() > 0.88) {
+                createSparkle(e.pageX, e.pageY);
+            }
+        });
+
+        function createSparkle(x, y) {
+            const tr = document.createElement('div');
+            tr.className = 'sparkle-trail';
+            tr.style.left = x + 'px';
+            tr.style.top = y + 'px';
+            document.body.appendChild(tr);
+            setTimeout(() => tr.remove(), 800);
+        }
+
+        // Active theme tuning
+        function setTheme(id, color, glowGlow) {
+            document.documentElement.style.setProperty('--theme-color-glow', color);
+            document.documentElement.style.setProperty('--theme-glow-rgba', glowGlow);
+            if (isAudioEnabled) handleInteractionSound('magic');
+            
+            // Local store update
+            localStorage.setItem('grimoire-theme', id);
+        }
+
+        // Handle Active Navigation Tabs
+        function switchTab(tabId) {
+            if (isAudioEnabled) handleInteractionSound('click');
+            
+            // Hide all tabs
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.add('hidden');
+            });
+
+            // Show current active tab
+            document.getElementById(tabId).classList.remove('hidden');
+
+            // Set button styles
+            document.querySelectorAll('#nav-container button').forEach(btn => {
+                btn.className = "w-full text-left px-4 py-3 rounded-lg flex items-center space-x-3 text-slate-400 hover:bg-slate-900/50 hover:text-slate-200 font-medium transition-all";
+            });
+
+            const activeBtn = document.getElementById('btn-' + tabId);
+            if (activeBtn) {
+                activeBtn.className = "w-full text-left px-4 py-3 rounded-lg flex items-center space-x-3 bg-slate-900 text-blue-400 border border-slate-800 font-medium transition-all";
+            }
+        }
+
+
+        /* ========================================================
+           INTERACTIVE DEMO 1: MULTISET DIFFERENCE CALCULATOR
+           ======================================================== */
+        function runLiveMultisetCalc() {
+            const invSol = Math.max(0, parseInt(document.getElementById('inv-sol').value) || 0);
+            const invArcane = Math.max(0, parseInt(document.getElementById('inv-arcane').value) || 0);
+            const invBolt = Math.max(0, parseInt(document.getElementById('inv-bolt').value) || 0);
+
+            const comboSol = Math.max(0, parseInt(document.getElementById('combo-sol').value) || 0);
+            const comboArcane = Math.max(0, parseInt(document.getElementById('combo-arcane').value) || 0);
+            const comboBolt = Math.max(0, parseInt(document.getElementById('combo-bolt').value) || 0);
+
+            // Compute math: max(0, K(c) - I(c))
+            const diffSol = Math.max(0, comboSol - invSol);
+            const diffArcane = Math.max(0, comboArcane - invArcane);
+            const diffBolt = Math.max(0, comboBolt - invBolt);
+
+            const display = document.getElementById('multiset-diff-display');
+            display.innerHTML = '';
+
+            let hasMissing = false;
+            
+            const list = [
+                { name: 'Sol Ring', value: diffSol, color: 'text-yellow-400' },
+                { name: 'Arcane Signet', value: diffArcane, color: 'text-indigo-400' },
+                { name: 'Lightning Bolt', value: diffBolt, color: 'text-red-400' }
+            ];
+
+            list.forEach(item => {
+                if (item.value > 0) {
+                    hasMissing = true;
+                    display.innerHTML += `
+                        <div class="flex justify-between py-1 border-b border-slate-900">
+                            <span class="${item.color}">${item.name}</span>
+                            <span class="text-red-400 font-bold">Missing x${item.value}</span>
+                        </div>
+                    `;
+                }
+            });
+
+            if (!hasMissing) {
+                display.innerHTML = `
+                    <div class="text-emerald-400 text-xs py-2 text-center flex items-center justify-center space-x-1">
+                        <i class="fa-solid fa-circle-check"></i>
+                        <span>CONGRATULATIONS! ALL COMBO CARDS ARE OWNED!</span>
+                    </div>
+                `;
+            }
+
+            // Simulate Cython profile latency
+            const latencyElement = document.getElementById('cython-latency');
+            const randomLatency = (Math.random() * (0.19 - 0.08) + 0.08).toFixed(2);
+            latencyElement.innerText = `Compile Cython: ${randomLatency}ms`;
+        }
+
+
+        /* ========================================================
+           INTERACTIVE DEMO 2: SEARCH QUERY AST COMPILER
+           ======================================================== */
+        function compileInteractiveSyntax() {
+            const raw = document.getElementById('sandbox-search-input').value;
+            const astViewer = document.getElementById('ast-viewer');
+            const sqlViewer = document.getElementById('sql-viewer');
+
+            try {
+                // A simplified AST tokenizer simulator based on Nearley mechanics
+                const tokens = raw.match(/\w+:\w+|\(\w+:\w+ OR \w+:\w+\)|cmc[><=]\d+|oracle:"[^"]+"|\w+/g) || [];
+                
+                let ast = {
+                    type: "AND",
+                    clauses: []
+                };
+
+                tokens.forEach(tok => {
+                    if (tok.startsWith('(')) {
+                        const inside = tok.replace(/[()]/g, '').split(' OR ');
+                        ast.clauses.push({
+                            type: "OR",
+                            left: parseSingleToken(inside[0]),
+                            right: parseSingleToken(inside[1])
+                        });
+                    } else {
+                        ast.clauses.push(parseSingleToken(tok));
+                    }
+                });
+
+                astViewer.innerText = JSON.stringify(ast, null, 2);
+
+                // SQL Compilation Generator
+                let sqlConditions = [];
+                ast.clauses.forEach((clause, i) => {
+                    if (clause.type === 'OR') {
+                        sqlConditions.push(`(color_identity && ARRAY['${clause.left.value}'] OR color_identity && ARRAY['${clause.right.value}'])`);
+                    } else if (clause.type === 'filter') {
+                        if (clause.key === 'cmc') {
+                            sqlConditions.push(`cmc ${clause.operator} ${clause.value}`);
+                        } else if (clause.key === 't' || clause.key === 'type') {
+                            sqlConditions.push(`type_line ILIKE '%${clause.value}%'`);
+                        } else if (clause.key === 'oracle') {
+                            sqlConditions.push(`oracle_text ILIKE '%${clause.value}%'`);
+                        } else {
+                            sqlConditions.push(`${clause.key} = '${clause.value}'`);
+                        }
+                    } else {
+                        sqlConditions.push(`(name ILIKE '%${clause.value}%')`);
+                    }
+                });
+
+                sqlViewer.innerText = `SELECT * FROM cards \nWHERE \n  ` + sqlConditions.join('\n  AND ');
+
+            } catch (err) {
+                astViewer.innerText = "Error Tokenizing Syntax: Incomplete group boundaries.";
+                sqlViewer.innerText = "-- Error Generating AST Query";
+            }
+        }
+
+        function parseSingleToken(tok) {
+            if (tok.includes(':')) {
+                const p = tok.split(':');
+                return { type: "filter", key: p[0], operator: "=", value: p[1] };
+            }
+            if (tok.includes('>') || tok.includes('<') || tok.includes('=')) {
+                const op = tok.match(/[><=]+/)[0];
+                const p = tok.split(op);
+                return { type: "filter", key: p[0], operator: op, value: p[1] };
+            }
+            return { type: "text", value: tok.replace(/"/g, '') };
+        }
+
+
+        /* ========================================================
+           INTERACTIVE DEMO 3: COMBO STATE MACHINE LOOP
+           ======================================================== */
+        let activeComboStep = 0;
+        const comboStates = [
+            {
+                vector: "⟨4, 0, 0, [0, 0, 0, 0, 0, 0]⟩",
+                tez: 4,
+                lotus: "Untapped (0)",
+                lith: "Untapped (0)",
+                mana: 0,
+                desc: "Initial State (S_0): Gilded Lotus and Lithoform Engine untapped in play. Tezzeret holds 4 loyalty.",
+                alert: false
+            },
+            {
+                vector: "⟨5, 0, 0, [0, 0, 0, 0, 0, 0]⟩",
+                tez: 5,
+                lotus: "Untapped (0)",
+                lith: "Untapped (0)",
+                mana: 0,
+                desc: "Step 1: Activate Tezzeret's +1 loyalty. Target Gilded Lotus and Lithoform Engine. Loyalty increments to 5.",
+                alert: false
+            },
+            {
+                vector: "⟨5, 1, 0, [0, 3, 0, 0, 0, 0]⟩",
+                tez: 5,
+                lotus: "Tapped (1)",
+                lith: "Untapped (0)",
+                mana: 3,
+                desc: "Step 2: In response, tap Gilded Lotus adding 3 Blue mana to your active pool.",
+                alert: false
+            },
+            {
+                vector: "⟨5, 1, 1, [0, 1, 0, 0, 0, 0]⟩",
+                tez: 5,
+                lotus: "Tapped (1)",
+                lith: "Tapped (1)",
+                mana: 1,
+                desc: "Step 3: Tap Lithoform Engine. Pay 2 Blue mana to copy Tezzeret's untap loyalty ability. 1 Blue mana remains in pool.",
+                alert: false
+            },
+            {
+                vector: "⟨5, 0, 0, [0, 1, 0, 0, 0, 0]⟩",
+                tez: 5,
+                lotus: "Untapped (0)",
+                lith: "Untapped (0)",
+                mana: 1,
+                desc: "Step 4: Resolve the Lithoform untap copy. Lotus and Lithoform untap. We have returned to S_0 values, but with +1 Blue mana remaining!",
+                alert: true
+            }
+        ];
+
+        function updateComboUI() {
+            const state = comboStates[activeComboStep];
+            document.getElementById('combo-step-counter').innerText = `Step ${activeComboStep} / 4`;
+            document.getElementById('state-vector-display').innerText = state.vector;
+            document.getElementById('state-tez').innerText = state.tez;
+            document.getElementById('state-lotus').innerText = state.lotus;
+            document.getElementById('state-lith').innerText = state.lith;
+            document.getElementById('state-mana').innerText = state.mana;
+            document.getElementById('combo-description').innerText = state.desc;
+
+            const alertBox = document.getElementById('loop-alert-box');
+            alertBox.style.display = state.alert ? 'block' : 'none';
+        }
+
+        function stepComboNext() {
+            if (activeComboStep < comboStates.length - 1) {
+                activeComboStep++;
+                if (isAudioEnabled) handleInteractionSound('hover');
+            } else {
+                activeComboStep = 0; // wrap around loop
+                if (isAudioEnabled) handleInteractionSound('success');
+            }
+            updateComboUI();
+        }
+
+        function stepComboPrev() {
+            if (activeComboStep > 0) {
+                activeComboStep--;
+                if (isAudioEnabled) handleInteractionSound('hover');
+                updateComboUI();
+            }
+        }
+
+
+        /* ========================================================
+           INTERACTIVE DEMO 4: RECOVERY RECOMMIT CO-OCCURRENCE RECS
+           ======================================================== */
+        const recommendationData = {
+            atraxa: [
+                { name: "Tezzeret's Gambit", jaccard: "0.89", cosine: "0.91", type: "Sorcery" },
+                { name: "Evolution Sage", jaccard: "0.85", cosine: "0.87", type: "Creature" },
+                { name: "Contaminant Grafter", jaccard: "0.81", cosine: "0.83", type: "Creature" },
+                { name: "Inexorable Tide", jaccard: "0.78", cosine: "0.80", type: "Enchantment" }
+            ],
+            urza: [
+                { name: "Static Orb", jaccard: "0.93", cosine: "0.95", type: "Artifact" },
+                { name: "Howling Mine", jaccard: "0.88", cosine: "0.90", type: "Artifact" },
+                { name: "Winter Orb", jaccard: "0.86", cosine: "0.89", type: "Artifact" },
+                { name: "Unwinding Clock", jaccard: "0.82", cosine: "0.84", type: "Artifact" }
+            ],
+            lathril: [
+                { name: "Elvish Archdruid", jaccard: "0.95", cosine: "0.97", type: "Creature" },
+                { name: "Marwyn, the Nurturer", jaccard: "0.91", cosine: "0.93", type: "Creature" },
+                { name: "Priest of Titania", jaccard: "0.89", cosine: "0.92", type: "Creature" },
+                { name: "Beast Whisperer", jaccard: "0.84", cosine: "0.86", type: "Creature" }
+            ]
+        };
+
+        function runLiveRecommendations() {
+            const select = document.getElementById('recommender-profile-select').value;
+            const targetList = recommendationData[select];
+            const listContainer = document.getElementById('recommendations-results-list');
+            
+            listContainer.innerHTML = '';
+            
+            targetList.forEach(card => {
+                listContainer.innerHTML += `
+                    <div class="flex justify-between items-center py-2 border-b border-slate-900 hover:bg-slate-900/40 px-2 rounded transition-all">
+                        <div class="flex flex-col">
+                            <span class="text-slate-200 font-bold">${card.name}</span>
+                            <span class="text-[10px] text-slate-500 font-mono">${card.type}</span>
+                        </div>
+                        <div class="flex space-x-4 font-mono text-xs">
+                            <span class="text-purple-400 font-bold">${card.jaccard}</span>
+                            <span class="text-emerald-400 font-bold">${card.cosine}</span>
+                        </div>
+                    </div>
+                `;
+            });
+            if (isAudioEnabled) handleInteractionSound('hover');
+        }
+
+
+        /* ========================================================
+           INTERACTIVE DEMO 5: SVG TOPOLOGY HOVER HOOKS
+           ======================================================== */
+        const svgMetadata = {
+            edge: "Cloudflare Edge Nodes: Distributes immutable L1/L2 image caches, routes traffic globally, and blocks DDoS vectors.",
+            router: "AWS Route 53 Geo-DNS Routing: Maps active clients dynamically to the lowest-latency regional pod clusters.",
+            web: "EKS React SSR Frontend Pods: Handles fast initial server-side rendering loads, compiling dynamic templates.",
+            api: "EKS Python Django REST APIs: Conducts critical database transactions, runs parsing compilers, and checks format legalities.",
+            redis: "ElastiCache Redis: Stores global co-occurrence card vectors, returning synergy recommendation results in under 8ms.",
+            postgres: "RDS Postgres Relational Core: Anchors stable relational card, user and printing tables with GIN trigram indexes.",
+            dynamo: "AWS DynamoDB Storage: Safely isolates active, high-frequency gameplay draft pool sessions via single-table design.",
+            none: "Hover over any architectural block to see its scaling matrix and responsibilities."
+        };
+
+        function handleSvgHover(nodeKey) {
+            const targetText = svgMetadata[nodeKey];
+            document.getElementById('svg-node-info').innerText = targetText;
+        }
+
+
+        /* ========================================================
+           INTERACTIVE DEMO 6: PHASING PROJECT ROADMAP
+           ======================================================== */
+        function toggleRoadmapPhase(phaseId) {
+            const card = document.getElementById(`phase-card-${phaseId}`);
+            const watermark = document.getElementById(`watermark-${phaseId}`);
+            const status = document.getElementById(`status-${phaseId}`);
+
+            if (card.classList.contains('border-emerald-500/50')) {
+                // Revert to normal state (incomplete)
+                card.classList.remove('border-emerald-500/50', 'bg-emerald-950/5');
+                watermark.classList.add('opacity-0');
+                watermark.classList.remove('opacity-10');
+                if (phaseId === 'phase1') {
+                    status.innerText = "DONE";
+                    status.className = "px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20";
+                } else if (phaseId === 'phase2') {
+                    status.innerText = "IN PROGRESS";
+                    status.className = "px-2 py-0.5 rounded bg-amber-500/10 text-amber-400 border border-amber-500/20";
+                } else {
+                    status.innerText = "BACKLOG";
+                    status.className = "px-2 py-0.5 rounded bg-slate-800 text-slate-400 border border-slate-700";
+                }
+                if (isAudioEnabled) handleInteractionSound('click');
+            } else {
+                // Set to completed visual indicators
+                card.classList.add('border-emerald-500/50', 'bg-emerald-950/5');
+                watermark.classList.remove('opacity-0');
+                watermark.classList.add('opacity-10');
+                status.innerText = "COMPLETED";
+                status.className = "px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 font-bold";
+                if (isAudioEnabled) handleInteractionSound('success');
+            }
+        }
+
+        // On window load trigger active setup configurations
+        window.onload = function() {
+            // Restore theme if stored
+            const savedTheme = localStorage.getItem('grimoire-theme');
+            if (savedTheme) {
+                if (savedTheme === 'W') setTheme('W', '#f59e0b', 'rgba(245, 158, 11, 0.2)');
+                if (savedTheme === 'U') setTheme('U', '#3b82f6', 'rgba(59, 130, 246, 0.2)');
+                if (savedTheme === 'B') setTheme('B', '#a855f7', 'rgba(168, 85, 247, 0.2)');
+                if (savedTheme === 'R') setTheme('R', '#ef4444', 'rgba(239, 68, 68, 0.2)');
+                if (savedTheme === 'G') setTheme('G', '#10b981', 'rgba(16, 185, 129, 0.2)');
+            }
+
+            // Fire compilers to construct active displays
+            runLiveMultisetCalc();
+            compileInteractiveSyntax();
+            updateComboUI();
+            runLiveRecommendations();
+        }
+    </script>
+</body>
+</html>

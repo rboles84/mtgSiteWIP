@@ -1,0 +1,435 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Vox Mana Precon Catalog",
+  "type": "object",
+  "required": [
+    "_meta",
+    "precons"
+  ],
+  "properties": {
+    "_meta": {
+      "type": "object",
+      "required": [
+        "schema_version",
+        "generated_by",
+        "source_schema_version",
+        "theme_taxonomy_version",
+        "record_count"
+      ]
+    },
+    "precons": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/precon"
+      }
+    }
+  },
+  "$defs": {
+    "normalizedTheme": {
+      "type": "object",
+      "required": [
+        "key",
+        "displayName",
+        "family",
+        "tablePerception",
+        "sourceText",
+        "matched"
+      ],
+      "properties": {
+        "key": {
+          "type": "string"
+        },
+        "displayName": {
+          "type": "string"
+        },
+        "family": {
+          "type": "string",
+          "enum": [
+            "core",
+            "specialist"
+          ]
+        },
+        "tablePerception": {
+          "type": "string"
+        },
+        "sourceText": {
+          "type": "string"
+        },
+        "matched": {
+          "type": "boolean"
+        }
+      },
+      "additionalProperties": false
+    },
+    "scoreSet": {
+      "type": "object",
+      "required": [
+        "beginnerFriendly",
+        "complexity",
+        "politicalSocialPlay",
+        "combatFocus",
+        "comboPotential",
+        "graveyardFocus",
+        "tokenFocus",
+        "artifactFocus",
+        "enchantmentFocus",
+        "spellslingerFocus",
+        "rampFocus",
+        "controlFocus",
+        "aggression",
+        "valueEngine"
+      ],
+      "properties": {
+        "beginnerFriendly": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 5
+        },
+        "complexity": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 5
+        },
+        "politicalSocialPlay": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 5
+        },
+        "combatFocus": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 5
+        },
+        "comboPotential": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 5
+        },
+        "graveyardFocus": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 5
+        },
+        "tokenFocus": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 5
+        },
+        "artifactFocus": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 5
+        },
+        "enchantmentFocus": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 5
+        },
+        "spellslingerFocus": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 5
+        },
+        "rampFocus": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 5
+        },
+        "controlFocus": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 5
+        },
+        "aggression": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 5
+        },
+        "valueEngine": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 5
+        }
+      },
+      "additionalProperties": false
+    },
+    "recommendationProfile": {
+      "type": "object",
+      "required": [
+        "recommendedFor",
+        "notRecommendedFor",
+        "voxManaPlacementFit"
+      ],
+      "properties": {
+        "recommendedFor": {
+          "type": "string"
+        },
+        "notRecommendedFor": {
+          "type": "string"
+        },
+        "voxManaPlacementFit": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "learningProfile": {
+      "type": "object",
+      "required": [
+        "colorPhilosophySummary",
+        "whatThisDeckTeachesAboutItsColors",
+        "beginnerLesson",
+        "strategyLesson",
+        "voxManaBasicsPageUse",
+        "relatedArchetypes",
+        "relatedMechanics"
+      ],
+      "properties": {
+        "colorPhilosophySummary": {
+          "type": "string"
+        },
+        "whatThisDeckTeachesAboutItsColors": {
+          "type": "string"
+        },
+        "beginnerLesson": {
+          "type": "string"
+        },
+        "strategyLesson": {
+          "type": "string"
+        },
+        "voxManaBasicsPageUse": {
+          "type": "string"
+        },
+        "relatedArchetypes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "relatedMechanics": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "precon": {
+      "type": "object",
+      "required": [
+        "slug",
+        "sourceIndex",
+        "sourcePage",
+        "productSection",
+        "deckName",
+        "deckSearchQuery",
+        "mainCommander",
+        "commanderSearchQuery",
+        "secondaryCommanders",
+        "factionRefs",
+        "colors",
+        "colorIdentityKey",
+        "colorCount",
+        "rawTheme",
+        "rawPrimaryTheme",
+        "rawSecondaryTheme",
+        "normalizedThemes",
+        "deckDescription",
+        "mainStrategy",
+        "notesMechanicsMentioned",
+        "iconicCards",
+        "playstyleTags",
+        "mechanics",
+        "creatureTypeFocus",
+        "scores",
+        "recommendationProfile",
+        "learningProfile",
+        "matchTerms",
+        "matchWords",
+        "searchTerms"
+      ],
+      "properties": {
+        "slug": {
+          "type": "string"
+        },
+        "sourceIndex": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "sourcePage": {
+          "type": "string"
+        },
+        "productSection": {
+          "type": "string"
+        },
+        "deckName": {
+          "type": "string"
+        },
+        "deckSearchQuery": {
+          "type": "string"
+        },
+        "mainCommander": {
+          "type": "string"
+        },
+        "commanderSearchQuery": {
+          "type": "string"
+        },
+        "secondaryCommanders": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "factionRefs": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "W",
+              "U",
+              "B",
+              "R",
+              "G",
+              "WU",
+              "UB",
+              "BR",
+              "RG",
+              "WG",
+              "WB",
+              "UR",
+              "BG",
+              "UG",
+              "WR",
+              "LOREHOLD",
+              "PRISMARI",
+              "QUANDRIX",
+              "SILVERQUILL",
+              "WITHERBLOOM"
+            ]
+          }
+        },
+        "colors": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "enum": [
+              "White",
+              "Blue",
+              "Black",
+              "Red",
+              "Green",
+              "Colorless"
+            ]
+          }
+        },
+        "colorIdentityKey": {
+          "type": "string"
+        },
+        "colorCount": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "rawTheme": {
+          "type": "string"
+        },
+        "rawPrimaryTheme": {
+          "type": "string"
+        },
+        "rawSecondaryTheme": {
+          "type": "string"
+        },
+        "normalizedThemes": {
+          "type": "object",
+          "required": [
+            "primary",
+            "secondary"
+          ],
+          "properties": {
+            "primary": {
+              "$ref": "#/$defs/normalizedTheme"
+            },
+            "secondary": {
+              "anyOf": [
+                {
+                  "$ref": "#/$defs/normalizedTheme"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            }
+          },
+          "additionalProperties": false
+        },
+        "deckDescription": {
+          "type": "string"
+        },
+        "mainStrategy": {
+          "type": "string"
+        },
+        "notesMechanicsMentioned": {
+          "type": "string"
+        },
+        "iconicCards": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "playstyleTags": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "mechanics": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "creatureTypeFocus": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "scores": {
+          "$ref": "#/$defs/scoreSet"
+        },
+        "recommendationProfile": {
+          "$ref": "#/$defs/recommendationProfile"
+        },
+        "learningProfile": {
+          "$ref": "#/$defs/learningProfile"
+        },
+        "matchTerms": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "matchWords": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "searchTerms": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

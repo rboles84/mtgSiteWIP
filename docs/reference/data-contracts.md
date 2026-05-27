@@ -6,6 +6,12 @@ Vox Mana now uses a raw-plus-generated data flow:
 
 - `data/identity-layers.json` is the canonical identity-layer source for mono colors, expression routing, and shared color language.
 - `data/identity-layers.schema.json` describes the identity-layer contract.
+- `data/precons/vox-mana-precons.source.json` is the canonical precon source catalog for Archscry dossier recommendations.
+- `data/precons/vox-mana-precons.source.schema.json` describes the hand-authored precon source contract.
+- `data/taxonomy/vox-mana-precon-themes.json` is the hand-authored precon theme taxonomy used to normalize theme language.
+- `data/taxonomy/vox-mana-precon-themes.schema.json` describes the hand-authored precon theme taxonomy shape.
+- `data/precons/vox-mana-precon-catalog.json` is the generated runtime precon catalog used by dossier rendering.
+- `data/precons/vox-mana-precon-catalog.schema.json` describes the generated precon catalog shape.
 - `data/raw-factions/` keeps the raw faction folders, claims, placement guidance, and source metadata for provenance.
 - `data/factions.json` is the generated display surface used by dossier rendering.
 - `data/placement-model.json` is the generated adaptive placement model used by Archscry.
@@ -13,6 +19,8 @@ Vox Mana now uses a raw-plus-generated data flow:
 - `supabase/functions/guild-recruiter/faction-context.ts` is the generated server-side Scrying Terminal context.
 
 After changing identity layers, raw faction data, or display data, run `npm run build:factions` from `C:\dev\mtgSiteWIP`.
+
+After changing the precon source catalog or precon theme taxonomy, run `npm run build:precons` from `C:\dev\mtgSiteWIP`.
 
 Each faction entry contains:
 
@@ -39,6 +47,47 @@ Each faction entry contains:
 The frontend dossier renders from this file.
 
 The edge function imports `supabase/functions/guild-recruiter/faction-context.ts`, which is a condensed artifact generated from the same raw and display content.
+
+## Precon recommendation artifacts
+
+The Archscry precon layer uses its own raw-plus-generated lane:
+
+- `data/precons/vox-mana-precons.source.json` keeps the checked-in authoring source for curated Commander precons.
+- `data/taxonomy/vox-mana-precon-themes.json` keeps the normalized Commander theme language used for ranking and presentation.
+- `research/build-precon-artifacts.mjs` validates both source files, normalizes color identity and theme metadata, and emits the runtime artifact.
+- `research/import-precon-mechanics-validation.mjs` is a Node-only staging importer for the completed XLSX mechanics workbook. It updates canonical source JSON only, and the workbook is never browser/runtime input.
+- `data/precons/vox-mana-precon-catalog.json` is the browser-loaded runtime surface for dossier precon cards.
+- Precon source text is expected to stay UTF-8 clean. The builder now fails on `U+FFFD` replacement characters so corrupted commander names do not silently ship into rendered cards or outbound links.
+- VM-139 imported the completed 155-row mechanics validation workbook. All 155 rows were marked safe for placement dossier use; the workbook provenance notes 130 rows where mechanics changed, while the importer reports actual changed/unchanged counts from normalized source comparison.
+- Source and generated precon contracts now require `creatureTypeFocus` as `string | null`. Blank, `None`, `N/A`, non-tribal, role-agnostic, and other non-typal workbook values become `null`; runtime search/match terms omit `null` instead of stringifying it.
+- The mechanics MVP rule is 3-6 source-supported gameplay tags per deck. `Typal synergy`, `unclear from source`, `none`, and `n/a` are not valid mechanic tags. Typal focus requires a real validated axis; generic `Typal synergy` is not allowed.
+- VM-139 did not modify `secondaryCommanders` and did not implement the future `secondCommanderRecommendation` v3 schema.
+
+Each generated precon entry contains:
+
+- `slug`
+- `sourceIndex`
+- `sourcePage`
+- `productSection`
+- `deckName`
+- `mainCommander`
+- `secondaryCommanders`
+- `factionRefs`
+- `colors`
+- `colorIdentityKey`
+- `normalizedThemes`
+- `scores`
+- `recommendationProfile`
+- `learningProfile`
+- `mechanics`
+- `creatureTypeFocus`
+- `matchTerms`
+- `matchWords`
+- `searchTerms`
+
+`factionRefs` uses current Vox Mana expression keys from the active 20-expression atlas. It lets the dossier distinguish faction-native decks such as `SILVERQUILL` or `UG` from generic same-color alternatives.
+
+The dossier presenter layer decides `nativeExact`, `otherExact`, and `stretch` lanes at runtime from the active dossier view. That grouping result is not stored back into the generated catalog.
 
 ## Adaptive placement model
 

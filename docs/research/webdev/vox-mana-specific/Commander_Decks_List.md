@@ -1,0 +1,126 @@
+# Comprehensive List of Commander Preconstructed Decks
+
+## Commander Decks 2022–2023
+| Deck                        | Commander                                        | Colors   | Set                       |
+|:----------------------------|:-------------------------------------------------|:---------|:--------------------------|
+| Veloci-Ramp-Tor             | Pantlaza, Sun-Favored                            | WRG      | Lost Caverns of Ixalan    |
+| Blood Rites                 | Clavileño, First of the Blessed                  | WB       | Lost Caverns of Ixalan    |
+| Ahoy Mateys                 | Admiral Brass, Unsinkable                        | UBR      | Lost Caverns of Ixalan    |
+| Explorers of the Deep       | Hakbal of the Surging Soul                       | UG       | Lost Caverns of Ixalan    |
+| Blast From the Past         | The Fourth Doctor / Sarah Jane Smith             | WUG      | Doctor Who                |
+| Timey-Wimey                 | The Tenth Doctor / Rose Tyler                    | WUR      | Doctor Who                |
+| Paradox Power               | The Thirteenth Doctor / Yasmin Khan              | URG      | Doctor Who                |
+| Masters of Evil             | Davros, Dalek Creator                            | UBR      | Doctor Who                |
+| Virtue and Valor            | Ellivere of the Wild Court                       | GW       | Wilds of Eldraine         |
+| Fae Dominion                | Tegwyll, Duke of Splendor                        | UB       | Wilds of Eldraine         |
+| Sliver Swarm                | Sliver Gravemother                               | WUBRG    | Commander Masters         |
+| Planeswalker Party          | Commodore Guff                                   | WUR      | Commander Masters         |
+| Enduring Enchantments       | Anikthea, Hand of Erebos                         | WBG      | Commander Masters         |
+| Eldrazi Unbound             | Zhulodok, Void Gorger                            | C        | Commander Masters         |
+| Food and Fellowship         | Frodo, Adventurous Hobbit / Sam, Loyal Attendant | WBG      | Lord of the Rings         |
+| Elven Council               | Galadriel, Elven Queen                           | UG       | Lord of the Rings         |
+| Riders of Rohan             | Eowyn, Shieldmaiden                              | WUR      | Lord of the Rings         |
+| The Hosts of Mordor         | Sauron, Lord of the Rings                        | UBR      | Lord of the Rings         |
+| Growing Threat              | Brimaz, Blight of Oreskos                        | WB       | March of the Machine      |
+| Cavalry Charge              | Sidar Jabari of Zhalfir                          | WUB      | March of the Machine      |
+| Call for Backup             | Bright-Palm, Soul Awakener                       | WRG      | March of the Machine      |
+| Divine Convocation          | Kasla, the Broken Halo                           | WUR      | March of the Machine      |
+| Tinker Time                 | Gimbal, Gremlin Prodigy                          | URG      | March of the Machine      |
+| Corrupting Influence        | Ixhel, Scion of Atraxa                           | WBG      | Phyrexia: All Will Be One |
+| Rebellion Rising            | Neyali Sun’s Vanguard                            | WR       | Phyrexia: All Will Be One |
+| First Flight                | Isperia, Supreme Judge                           | WU       | Starter Commander         |
+| Grave Danger                | Gisa and Geralf                                  | UB       | Starter Commander         |
+| Chaos Incarnate             | Kardur, Doomscourge                              | BR       | Starter Commander         |
+| Draconic Destruction        | Atarka, World Render                             | RG       | Starter Commander         |
+| Token Triumph               | Emmara, Soul of the Accord                       | GW       | Starter Commander         |
+| Urza’s Iron Alliance        | Urza, Chief Artificer                            | WUB      | The Brothers' War         |
+| Mishra’s Burnished Banner   | Mishra, Eminent One                              | UBR      | The Brothers' War         |
+| The Ruinous Powers          | Abaddon the Despoiler                            | UBR      | Warhammer 40k             |
+| Tyranid Swarm               | The Swarmlord                                    | URG      | Warhammer 40k             |
+| Forces of the Imperium      | Inquisitor Greyfax                               | WUB      | Warhammer 40k             |
+| Necron Dynasties            | Szarekh, the Silent King                         | B        | Warhammer 40k             |
+| Painbow                     | Jared Carthalion                                 | WUBRG    | Dominaria United          |
+| Legends’ Legacy             | Dihada, Binder of Wills                          | WBR      | Dominaria United          |
+| Party Time                  | Nalia de’Arnise                                  | WB       | Battle for Baldur's Gate  |
+| Mind Flayarrrs              | Captain N’ghathrod                               | UB       | Battle for Baldur's Gate  |
+| Draconic Dissent            | Firkraag, Cunning Instigator                     | UR       | Battle for Baldur's Gate  |
+| Exit From Exile             | Faldorn, Dread Wolf Herald                       | RG       | Battle for Baldur's Gate  |
+| Obscura Operation           | Kamiz, Obscura Oculus                            | WUB      | New Capenna               |
+| Maestros Massacre           | Anhelo, the Painter                              | UBR      | New Capenna               |
+| Riveteers Rampage           | Henzie “Toolbox” Torre                           | BRG      | New Capenna               |
+| Cabaretti Cacophony         | Kitt Kanto, Mayhem Diva                          | WRG      | New Capenna               |
+| Bedecked Brokers            | Perrie, the Pulverizer                           | WUG      | New Capenna               |
+| Buckle Up                   | Kotori, Pilot Prodigy                            | WU       | Kamigawa: Neon Dynasty    |
+| Upgrades Unleashed          | Chishiro, the Shattered Blade                    | RG       | Kamigawa: Neon Dynasty    |
+| Heads I Win, Tails You Lose | Zndrsplt / Okaun                                 | UR       | Secret Lair               |
+
+## Commander Decks 2020–2021
+| Deck                   | Commander                    | Colors   | Set               |
+|:-----------------------|:-----------------------------|:---------|:------------------|
+| Vampiric Bloodline     | Strefan, Maurer Progenitor   | BR       | Crimson Vow       |
+| Spirit Squadron        | Millicent, Restless Revenant | WU       | Crimson Vow       |
+| Undead Unleashed       | Wilhelt, the Rotcleaver      | UB       | Midnight Hunt     |
+| Coven Counters         | Leinore, Autumn Sovereign    | WG       | Midnight Hunt     |
+| Aura of Courage        | Galea, Kindler of Hope       | WUG      | Forgotten Realms  |
+| Draconic Rage          | Vrondiss, Rage of Ancients   | RG       | Forgotten Realms  |
+| Dungeons of Death      | Sefris of the Hidden Ways    | WUB      | Forgotten Realms  |
+| Planar Portal          | Prosper, Tome-Bound          | BR       | Forgotten Realms  |
+| Lorehold Legacies      | Osgir, the Reconstructor     | WR       | Strixhaven        |
+| Silverquill Statement  | Breena, the Demagogue        | WB       | Strixhaven        |
+| Witherbloom Witchcraft | Willowdusk, Essence Seer     | BG       | Strixhaven        |
+| Quantum Quandrix       | Adrix and Nev, Twincasters   | UG       | Strixhaven        |
+| Prismari Performance   | Zaffai, Thunder Conductor    | UR       | Strixhaven        |
+| Phantom Premonition    | Ranar, the Ever-Watchful     | WU       | Kaldheim          |
+| Elven Empire           | Lathril, Blade of the Elves  | BG       | Kaldheim          |
+| Reap the Tides         | Aesi, Tyrant of Gyre Strait  | UG       | Commander Legends |
+| Arm for Battle         | Wyleth, Soul of Steel        | WR       | Commander Legends |
+| Land's Wrath           | Obuun, Mul Daya Ancestor     | WRG      | Zendikar Rising   |
+| Sneak Attack           | Anowon, the Ruin Thief       | UB       | Zendikar Rising   |
+| Ruthless Regiment      | Jirina Kudro                 | WBR      | Ikoria            |
+| Arcane Maelstrom       | Kalamax, the Stormsire       | URG      | Ikoria            |
+| Symbiotic Swarm        | Kathril, Aspect Warper       | WBG      | Ikoria            |
+| Timeless Wisdom        | Gavi, Nest Warden            | WUR      | Ikoria            |
+| Enhanced Evolution     | Otrimi, the Ever-Playful     | UBG      | Ikoria            |
+
+## Commander Decks 2011–2019
+| Deck                 | Commander                    | Colors   | Set            |
+|:---------------------|:-----------------------------|:---------|:---------------|
+| Faceless Menace      | Kadena, Slinking Sorcerer    | UBG      | Commander 2019 |
+| Mystic Intellect     | Sevinne, the Chronoclasm     | WUR      | Commander 2019 |
+| Primal Genesis       | Ghired, Conclave Exile       | WRG      | Commander 2019 |
+| Merciless Rage       | Anje Falkenrath              | BR       | Commander 2019 |
+| Exquisite Invention  | Saheeli, the Gifted          | UR       | Commander 2018 |
+| Nature's Vengeance   | Lord Windgrace               | BRG      | Commander 2018 |
+| Adaptive Enchantment | Estrid, the Masked           | WUG      | Commander 2018 |
+| Subjective Reality   | Aminatou, the Fateshifter    | WUB      | Commander 2018 |
+| Draconic Domination  | The Ur-Dragon                | WUBRG    | Commander 2017 |
+| Feline Ferocity      | Arahbo, Roar of the World    | WG       | Commander 2017 |
+| Vampiric Bloodlust   | Edgar Markov                 | WBR      | Commander 2017 |
+| Arcane Wizardry      | Inalla, Archmage Ritualist   | UBR      | Commander 2017 |
+| Entropic Uprising    | Yidris, Maelstrom Wielder    | UBRG     | Commander 2016 |
+| Open Hostility       | Saskia the Unyielding        | WBRG     | Commander 2016 |
+| Stalwart Unity       | Kynaios and Tiro of Meletis  | WURG     | Commander 2016 |
+| Breed Lethality      | Atraxa, Praetors' Voice      | WUBG     | Commander 2016 |
+| Invent Superiority   | Breya, Etherium Shaper       | WUBR     | Commander 2016 |
+| Call the Spirits     | Daxos the Returned           | WB       | Commander 2015 |
+| Seize Control        | Mizzix of the Izmagnus       | UR       | Commander 2015 |
+| Plunder the Graves   | Meren of Clan Nel Toth       | BG       | Commander 2015 |
+| Wade Into Battle     | Kalemne, Disciple of Iroas   | WR       | Commander 2015 |
+| Swell the Host       | Ezuri, Claw of Progress      | UG       | Commander 2015 |
+| Forged in Stone      | Nahiri, the Lithomancer      | W        | Commander 2014 |
+| Peer Through Time    | Teferi, Temporal Archmage    | U        | Commander 2014 |
+| Sworn to Darkness    | Ob Nixilis of the Black Oath | B        | Commander 2014 |
+| Built from Scratch   | Daretti, Scrap Savant        | R        | Commander 2014 |
+| Guided by Nature     | Freyalise, Llanowar's Fury   | G        | Commander 2014 |
+| Evasive Maneuvers    | Derevi, Empyrial Tactician   | WUG      | Commander 2013 |
+| Eternal Bargain      | Oloro, Ageless Ascetic       | WUB      | Commander 2013 |
+| Mind Seize           | Jeleva, Nephalia's Scourge   | UBR      | Commander 2013 |
+| Power Hungry         | Prossh, Skyraider of Kher    | BRG      | Commander 2013 |
+| Nature of the Beast  | Marath, Will of the Wild     | WRG      | Commander 2013 |
+| Commander's Arsenal  | N/A                          | N/A      | 2012           |
+| Heavenly Inferno     | Kaalia of the Vast           | WBR      | Commander 2011 |
+| Mirror Mastery       | Riku of Two Reflections      | URG      | Commander 2011 |
+| Counterpunch         | Ghave, Guru of Spores        | WBG      | Commander 2011 |
+| Political Puppets    | Zedruu the Greathearted      | WUR      | Commander 2011 |
+| Devour for Power     | The Mimeoplasm               | UBG      | Commander 2011 |
+

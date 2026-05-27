@@ -12,12 +12,14 @@
 } from "./adaptive-placement.js";
 import {
   buildCommanderDossier,
+  buildPreconRecommendations,
   createArchidektTagCatalog,
   buildMtgDecksCommanderUrl,
   getExternalDeckRoutingAlias,
   getColorIdentity,
   getCommanderFactionGuidance,
   getServiceChipMeta,
+  selectPreconPreviewRecommendations,
 } from "./commander-dossier.js";
 import {
   buildArchscryMazeContext,
@@ -67,6 +69,8 @@ const APP_STATE = {
   tagTaxonomyByKey: new Map(),
   scryfallFlavorIndex: null,
   archscryFlavorSnippets: null,
+  preconCatalog: null,
+  preconThemeTaxonomy: null,
   scryfallCommanderIndex: null,
   scryfallCommanderByName: new Map(),
   scryfallColorThemeIndex: null,
@@ -237,6 +241,8 @@ async function loadDiscoveryData() {
   const [
     taxonomy,
     archscryFlavorSnippets,
+    preconCatalog,
+    preconThemeTaxonomy,
     flavorIndex,
     commanderIndex,
     colorThemeIndex,
@@ -244,6 +250,8 @@ async function loadDiscoveryData() {
   ] = await Promise.all([
     loadOptionalJson(resolveDataUrl("taxonomy/vox-mana-tags.json"), "tag taxonomy"),
     loadOptionalJson(resolveDataUrl("archscry-flavor-snippets.json"), "Archscry flavor snippets"),
+    loadOptionalJson(resolveDataUrl("precons/vox-mana-precon-catalog.json"), "precon catalog"),
+    loadOptionalJson(resolveDataUrl("taxonomy/vox-mana-precon-themes.json"), "precon theme taxonomy"),
     loadOptionalJson(resolveDataUrl("scryfall/indexes/card-flavor-index.json"), "Scryfall flavor index"),
     loadOptionalJson(resolveDataUrl("scryfall/indexes/commander-index.json"), "Scryfall commander index"),
     loadOptionalJson(resolveDataUrl("scryfall/indexes/color-theme-index.json"), "Scryfall color theme index"),
@@ -252,6 +260,8 @@ async function loadDiscoveryData() {
 
   APP_STATE.tagTaxonomy = taxonomy;
   APP_STATE.archscryFlavorSnippets = archscryFlavorSnippets;
+  APP_STATE.preconCatalog = preconCatalog;
+  APP_STATE.preconThemeTaxonomy = preconThemeTaxonomy;
   APP_STATE.tagTaxonomyByKey = buildTaxonomyLookup(taxonomy);
   APP_STATE.scryfallFlavorIndex = flavorIndex;
   APP_STATE.scryfallCommanderIndex = commanderIndex;
@@ -1227,6 +1237,151 @@ function buildDeckDiscoveryHtml(groups = []) {
     </div>`).join("");
 }
 
+function buildScryfallCommanderUrl(name) {
+  return `https://scryfall.com/search?q=${encodeURIComponent(`!"${name}"`)}`;
+}
+
+function buildPreconLinks(precon) {
+  return dedupeLinks([
+    {
+      service: "scryfall",
+      label: "Research commander",
+      url: buildScryfallCommanderUrl(precon.mainCommander),
+    },
+    {
+      service: "mtgdecks",
+      label: "Find decklists",
+      url: buildMtgDecksCommanderUrl(precon.mainCommander),
+    },
+  ]);
+}
+
+const PRECON_BADGE_META = {
+  nativeExact: {
+    label: "Native fit",
+    className: "is-native",
+    description: "Shares the active faction reference and exact color identity.",
+  },
+  otherExact: {
+    label: "Exact-color fit",
+    className: "is-exact",
+    description: "Shares the exact color identity without the active native faction reference.",
+  },
+  stretch: {
+    label: "Stretch fit",
+    className: "is-stretch",
+    description: "Adds one nearby color while staying close to the reading pressure.",
+  },
+};
+
+function compactPreconChip(value) {
+  const text = String(value ?? "").replace(/\s+/g, " ").trim();
+  if (!text || /^(null|undefined|n\/a|none|unclear from source)$/i.test(text)) {
+    return "";
+  }
+  return wordExcerpt(text, 5);
+}
+
+function preconPreviewChips(precon) {
+  const candidates = [
+    ...(Array.isArray(precon?.mechanics) ? precon.mechanics : []),
+    precon?.normalizedThemes?.primary?.displayName || precon?.rawPrimaryTheme || "",
+    precon?.normalizedThemes?.secondary?.displayName || precon?.rawSecondaryTheme || "",
+    precon?.creatureTypeFocus || "",
+  ];
+  const seen = new Set();
+  const chips = [];
+
+  candidates.forEach((candidate) => {
+    const chip = compactPreconChip(candidate);
+    const key = chip.toLowerCase();
+    if (!chip || seen.has(key) || chips.length >= 3) {
+      return;
+    }
+    seen.add(key);
+    chips.push(chip);
+  });
+
+  return chips;
+}
+
+function buildPreconCardHtml(precon) {
+  const previewGroup = precon?.previewGroup || precon?.group || (precon?.lane === "stretch" ? "stretch" : "otherExact");
+  const badge = PRECON_BADGE_META[previewGroup] || PRECON_BADGE_META.otherExact;
+  const fitSummary = wordExcerpt(precon?.fitSummary || precon?.tablePerception || "", 24);
+  const bestFor = wordExcerpt(precon?.recommendationProfile?.recommendedFor || "", 18);
+  const chips = preconPreviewChips(precon);
+
+  return `
+    <div class="precon-card is-compact" data-precon-card data-precon-group="${escapeHtml(previewGroup)}">
+      <div class="precon-topline">
+        <span class="precon-badge ${escapeHtml(badge.className)}" title="${escapeHtml(badge.description)}" aria-label="${escapeHtml(`${badge.label}: ${badge.description}`)}">${escapeHtml(badge.label)}</span>
+        <span class="precon-product">${escapeHtml(precon.productSection)}</span>
+      </div>
+      <div class="precon-title">${escapeHtml(precon.deckName)}</div>
+      <div class="precon-commander">Main commander: ${escapeHtml(precon.mainCommander)}</div>
+      ${chips.length ? `<div class="precon-chip-row">${chips.map((chip) => `<span class="precon-chip">${escapeHtml(chip)}</span>`).join("")}</div>` : ""}
+      ${fitSummary ? `<div class="precon-copy">${escapeHtml(fitSummary)}</div>` : ""}
+      ${bestFor ? `<div class="precon-best-for"><span>Best for:</span> ${escapeHtml(bestFor)}</div>` : ""}
+      <div class="precon-links">${buildLinkButtons(buildPreconLinks(precon))}</div>
+    </div>`;
+}
+
+function buildPreconSectionHtml(preconRecommendations) {
+  const preview = selectPreconPreviewRecommendations(preconRecommendations);
+  if (!preconRecommendations?.hasAny || !preview.visible.length) {
+    return `
+      <div class="precons-section">
+        <div class="section-label">Recommended Precon Decks</div>
+        <div class="precon-empty">No validated precon recommendations are available for this dossier yet.</div>
+      </div>`;
+  }
+
+  const canExpand = preview.hasOverflow && preview.remaining.length > 0;
+  const remainingCount = preview.remaining.length;
+  const collapsedLabel = `Display other ${remainingCount}`;
+  const expandedLabel = `Show first ${preview.visible.length} precons`;
+  const toggleAttrs = canExpand
+    ? buildActionAttrs("toggle-precon-preview", {
+        collapsedLabel,
+        expandedLabel,
+      })
+    : "";
+
+  return `
+    <div class="precons-section">
+      <div class="section-label">Recommended Precon Decks</div>
+      <div class="precon-intro">Ready-made Commander decks that match this dossier's color identity, faction pressure, and validated mechanics.</div>
+      <div class="precon-meta">Showing the strongest starting points from this recommendation pool.</div>
+      <div class="precon-grid is-compact" data-precon-preview-grid="primary">${preview.visible.map((precon) => buildPreconCardHtml(precon)).join("")}</div>
+      ${canExpand ? `<div class="precon-grid is-compact" data-precon-preview-grid="remaining" hidden>${preview.remaining.map((precon) => buildPreconCardHtml(precon)).join("")}</div>` : ""}
+      ${canExpand ? `
+        <div class="precon-reveal-row" data-precon-preview-overflow>
+          <button class="precon-reveal-btn" type="button" aria-expanded="false" ${toggleAttrs}>
+            ${escapeHtml(collapsedLabel)}
+          </button>
+        </div>` : ""}
+    </div>`;
+}
+
+function togglePreconPreview(actionNode) {
+  const section = actionNode.closest(".precons-section");
+  const primaryGrid = section?.querySelector('[data-precon-preview-grid="primary"]');
+  const remainingGrid = section?.querySelector('[data-precon-preview-grid="remaining"]');
+  if (!primaryGrid || !remainingGrid) {
+    return;
+  }
+
+  const isExpanded = actionNode.getAttribute("aria-expanded") === "true";
+  const nextExpanded = !isExpanded;
+  primaryGrid.hidden = nextExpanded;
+  remainingGrid.hidden = !nextExpanded;
+  actionNode.setAttribute("aria-expanded", nextExpanded ? "true" : "false");
+  actionNode.textContent = nextExpanded
+    ? actionNode.dataset.expandedLabel || "Show first 4 precons"
+    : actionNode.dataset.collapsedLabel || "Display other precons";
+}
+
 function writeArchscryDossierHandoff(result, context) {
   try {
     localStorage.setItem(ARCHSCRY_MAZE_HANDOFF_KEY, JSON.stringify({
@@ -1909,6 +2064,14 @@ function renderResult(viewKey) {
     taxonomy: APP_STATE.tagTaxonomy,
     modelMechanics,
   });
+  const preconRecommendations = buildPreconRecommendations({
+    faction,
+    dossier,
+    readingTagRefs,
+    starterProfile,
+    preconCatalog: APP_STATE.preconCatalog,
+    preconThemeTaxonomy: APP_STATE.preconThemeTaxonomy,
+  });
   const flavorEchoes = selectFlavorEchoes({ faction, tagRefs: readingTagRefs });
   const mazeContext = buildArchscryMazeContext({ result, dossier, faction });
   writeArchscryDossierHandoff(result, mazeContext);
@@ -2049,6 +2212,9 @@ function renderResult(viewKey) {
     commanderCandidates: commanderPreviewCandidates,
     tagRefs: readingTagRefs,
   }));
+  const preconSectionHtml = Array.isArray(APP_STATE.preconCatalog?.precons)
+    ? buildPreconSectionHtml(preconRecommendations)
+    : "";
   const landLaneCopy = {
     premium: "Best when you want speed, consistency, and fewer tapped lands.",
     midrange: "Good first upgrade lane: stronger fixing without chasing every premium land.",
@@ -2114,6 +2280,7 @@ function renderResult(viewKey) {
       </div>
     </div>`;
   const deckStartsPanelHtml = `
+    ${preconSectionHtml}
     <div class="decks-section">
       <div class="section-label">Commander Deck Starts</div>
       <div class="decks-grid">${decksHtml}</div>
@@ -2641,6 +2808,9 @@ async function handleArchscryActionClick(event) {
       return;
     case "set-dossier-segment":
       setDossierSegment(actionNode.dataset.segmentGroup || "", actionNode.dataset.segment || "");
+      return;
+    case "toggle-precon-preview":
+      togglePreconPreview(actionNode);
       return;
     default:
   }

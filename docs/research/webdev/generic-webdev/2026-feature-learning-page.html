@@ -1,0 +1,1815 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>2026 Feature Stack — Interactive Learning Page</title>
+<meta name="description" content="A comprehensive interactive learning page demonstrating all 2026 web features with working examples and placement text." />
+<style>
+/* ============================================================
+   2026 FEATURE STACK LEARNING PAGE
+   Interactive demonstrations of modern web capabilities
+   ============================================================ */
+
+/* ------------------------------------------------------------
+   1) MODERN THEMING — CSS Custom Properties + OKLCH
+   ------------------------------------------------------------ */
+:root {
+  color-scheme: dark;
+  
+  /* Base colors in OKLCH for perceptual uniformity */
+  --void: oklch(8% 0.02 260);
+  --void-2: oklch(12% 0.02 260);
+  --void-3: oklch(16% 0.02 260);
+  
+  /* Glass surfaces */
+  --glass: oklch(12% 0.02 260 / 0.54);
+  --glass-strong: oklch(10% 0.02 260 / 0.80);
+  
+  /* Text colors */
+  --text: oklch(94% 0.04 75);
+  --text-soft: oklch(82% 0.03 70);
+  --text-dim: oklch(65% 0.02 65);
+  
+  /* Accent colors using OKLCH */
+  --gold: oklch(76% 0.14 75);
+  --gold-bright: oklch(86% 0.12 80);
+  --cyan: oklch(82% 0.16 195);
+  --violet: oklch(72% 0.22 290);
+  --green: oklch(82% 0.18 145);
+  --red: oklch(68% 0.20 25);
+  
+  /* Line colors with relative syntax */
+  --line: color-mix(in oklch, var(--gold) 22%, transparent);
+  --line-bright: color-mix(in oklch, var(--gold-bright) 52%, transparent);
+  
+  /* Shadows */
+  --shadow: 0 28px 90px oklch(0% 0 0 / 0.62);
+  --shadow-lg: 0 42px 120px oklch(0% 0 0 / 0.78);
+  
+  /* Radii */
+  --radius-xl: 32px;
+  --radius-lg: 22px;
+  --radius-md: 16px;
+  --radius-sm: 12px;
+  
+  /* Easing */
+  --ease: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+  
+  /* Fonts */
+  --font-display: ui-serif, Georgia, "Times New Roman", serif;
+  --font-text: Inter, ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-mono: "SFMono-Regular", Consolas, monospace;
+}
+
+/* Theme switching with data attributes */
+body[data-theme="violet"] {
+  --accent: var(--violet);
+  --accent-dim: oklch(62% 0.18 290);
+}
+body[data-theme="cyan"] {
+  --accent: var(--cyan);
+  --accent-dim: oklch(72% 0.14 195);
+}
+body[data-theme="green"] {
+  --accent: var(--green);
+  --accent-dim: oklch(72% 0.15 145);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at 18% 18%, color-mix(in oklch, var(--cyan) 10%, transparent), transparent 34rem),
+    radial-gradient(circle at 82% 22%, color-mix(in oklch, var(--violet) 8%, transparent), transparent 28rem),
+    radial-gradient(circle at 50% 88%, color-mix(in oklch, var(--gold) 12%, transparent), transparent 38rem),
+    linear-gradient(180deg, oklch(8% 0.02 260) 0%, oklch(10% 0.02 260) 46%, oklch(8% 0.02 260) 100%);
+  color: var(--text);
+  font-family: var(--font-text);
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+/* ------------------------------------------------------------
+   2) FILTERS + BLEND MODES — Grid overlay with blend modes
+   ------------------------------------------------------------ */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -5;
+  pointer-events: none;
+  background:
+    linear-gradient(var(--line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--line) 1px, transparent 1px),
+    radial-gradient(circle at 50% 50%, color-mix(in oklch, var(--gold) 18%, transparent), transparent 1px);
+  background-size: 72px 72px, 72px 72px, 42px 42px;
+  mask-image: radial-gradient(ellipse at center, black 0 42%, transparent 82%);
+  opacity: 0.28;
+  mix-blend-mode: screen;
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -4;
+  pointer-events: none;
+  background:
+    linear-gradient(90deg, oklch(0% 0 0 / 0.82), transparent 20%, transparent 78%, oklch(0% 0 0 / 0.84)),
+    radial-gradient(ellipse at 50% 0%, transparent 0 36%, oklch(0% 0 0 / 0.68) 82%);
+}
+
+::selection {
+  background: color-mix(in oklch, var(--gold) 32%, transparent);
+  color: white;
+}
+
+/* ------------------------------------------------------------
+   LAYOUT SYSTEM — Grid + Container Queries
+   ------------------------------------------------------------ */
+.container {
+  width: min(1440px, calc(100% - 4rem));
+  margin: 0 auto;
+  padding: 2rem 0;
+}
+
+@media (max-width: 768px) {
+  .container {
+    width: calc(100% - 2rem);
+  }
+}
+
+/* ------------------------------------------------------------
+   HEADER / NAVIGATION
+   ------------------------------------------------------------ */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--line);
+  background: color-mix(in oklch, var(--void) 72%, transparent);
+}
+
+.site-header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.5rem 0;
+}
+
+.logo {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold-bright);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.logo-mark {
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  background: radial-gradient(circle, var(--gold) 0%, transparent 70%);
+  border-radius: 50%;
+  filter: drop-shadow(0 0 12px color-mix(in oklch, var(--gold) 32%, transparent));
+}
+
+.theme-switcher {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.theme-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--line);
+  background: var(--glass);
+  cursor: pointer;
+  transition: all 0.3s var(--ease);
+  position: relative;
+  overflow: hidden;
+}
+
+.theme-btn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: currentColor;
+  opacity: 0;
+  transition: opacity 0.3s var(--ease);
+}
+
+.theme-btn:hover::before {
+  opacity: 0.1;
+}
+
+.theme-btn[data-color="violet"] { color: var(--violet); }
+.theme-btn[data-color="cyan"] { color: var(--cyan); }
+.theme-btn[data-color="green"] { color: var(--green); }
+.theme-btn[data-color="gold"] { color: var(--gold); }
+
+.theme-btn.active {
+  border-color: currentColor;
+  box-shadow: 0 0 20px color-mix(in oklch, currentColor 24%, transparent);
+}
+
+/* ------------------------------------------------------------
+   HERO SECTION
+   ------------------------------------------------------------ */
+.hero {
+  padding: clamp(4rem, 10vh, 8rem) 0;
+  text-align: center;
+}
+
+h1 {
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 8vw, 6rem);
+  font-weight: 400;
+  line-height: 0.95;
+  letter-spacing: 0.02em;
+  margin: 0 0 1.5rem;
+  text-transform: uppercase;
+  background: linear-gradient(135deg, var(--gold-bright), var(--gold));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 60px color-mix(in oklch, var(--gold) 24%, transparent);
+}
+
+.subtitle {
+  font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+  color: var(--text-soft);
+  max-width: 700px;
+  margin: 0 auto 3rem;
+  line-height: 1.7;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.btn {
+  padding: 1rem 2rem;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--line-bright);
+  background: var(--glass);
+  color: var(--text);
+  font-family: var(--font-text);
+  font-size: 1rem;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.3s var(--ease);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, var(--gold), var(--cyan));
+  opacity: 0;
+  transition: opacity 0.3s var(--ease);
+}
+
+.btn:hover::before {
+  opacity: 0.15;
+}
+
+.btn:hover {
+  border-color: var(--gold-bright);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow);
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--gold), color-mix(in oklch, var(--gold) 80%, var(--cyan)));
+  border-color: var(--gold-bright);
+  color: var(--void);
+  font-weight: 600;
+}
+
+.btn-primary::before {
+  background: white;
+}
+
+/* ------------------------------------------------------------
+   FEATURE SECTIONS
+   ------------------------------------------------------------ */
+.feature-section {
+  padding: clamp(4rem, 8vh, 8rem) 0;
+  position: relative;
+}
+
+.feature-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 1px;
+  height: 100%;
+  background: linear-gradient(to bottom, transparent, var(--line) 20%, var(--line) 80%, transparent);
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 4rem;
+  position: relative;
+}
+
+.section-number {
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  color: var(--gold);
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.section-number::before,
+.section-number::after {
+  content: "✦";
+  margin: 0 1rem;
+  color: var(--gold-bright);
+}
+
+h2 {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 400;
+  margin: 0 0 1rem;
+  color: var(--text);
+}
+
+.section-desc {
+  color: var(--text-soft);
+  max-width: 700px;
+  margin: 0 auto;
+  font-size: 1.1rem;
+}
+
+/* ------------------------------------------------------------
+   EXAMPLE CARDS — Container Queries
+   ------------------------------------------------------------ */
+.examples-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.example-card {
+  container-type: inline-size;
+  container-name: card;
+  background: var(--glass);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s var(--ease);
+}
+
+/* 11) Container Query Example */
+@container card (min-width: 400px) {
+  .example-card {
+    padding: 2.5rem;
+  }
+  .card-title {
+    font-size: 1.5rem;
+  }
+}
+
+.example-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at var(--x, 50%) var(--y, 50%), color-mix(in oklch, var(--gold) 12%, transparent), transparent 60%);
+  opacity: 0;
+  transition: opacity 0.4s var(--ease);
+}
+
+.example-card:hover {
+  border-color: var(--gold);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow);
+}
+
+.example-card:hover::before {
+  opacity: 1;
+}
+
+.card-title {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  margin: 0 0 1rem;
+  color: var(--gold-bright);
+  position: relative;
+}
+
+.card-content {
+  color: var(--text-soft);
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+}
+
+.card-demo {
+  background: var(--void-2);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.code-label {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--text-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 0.5rem;
+}
+
+code {
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  color: var(--cyan);
+  background: color-mix(in oklch, var(--void) 80%, var(--void-3));
+  padding: 0.2rem 0.4rem;
+  border-radius: 4px;
+}
+
+/* ------------------------------------------------------------
+   3) SVG ANIMATION EXAMPLE
+   ------------------------------------------------------------ */
+.sigil-demo {
+  width: 200px;
+  height: 200px;
+  margin: 2rem auto;
+  position: relative;
+}
+
+.sigil-svg {
+  width: 100%;
+  height: 100%;
+  filter: drop-shadow(0 0 20px color-mix(in oklch, var(--gold) 40%, transparent));
+}
+
+.sigil-path {
+  stroke: var(--gold);
+  stroke-width: 2;
+  fill: none;
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: draw-sigil 3s var(--ease) forwards;
+}
+
+@keyframes draw-sigil {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .sigil-path {
+    animation: none;
+    stroke-dashoffset: 0;
+  }
+}
+
+/* ------------------------------------------------------------
+   4) WEB COMPONENTS EXAMPLE
+   ------------------------------------------------------------ */
+mana-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: var(--glass);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  font-size: 0.875rem;
+  color: var(--text);
+}
+
+/* ------------------------------------------------------------
+   5) GRID + SUBGRID EXAMPLE
+   ------------------------------------------------------------ */
+.grid-showcase {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+@media (max-width: 768px) {
+  .grid-showcase {
+    grid-template-columns: 1fr;
+  }
+}
+
+.grid-item {
+  background: var(--glass);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+  display: grid;
+  grid-template-rows: subgrid;
+  grid-row: span 3;
+}
+
+.grid-item-header {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  color: var(--gold);
+  margin: 0 0 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.grid-item-body {
+  color: var(--text-soft);
+  line-height: 1.6;
+}
+
+.grid-item-footer {
+  margin-top: auto;
+  padding-top: 1rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.875rem;
+  color: var(--text-dim);
+}
+
+/* ------------------------------------------------------------
+   6) CANVAS PARTICLES (Placeholder for WebGL effects)
+   ------------------------------------------------------------ */
+#particles-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -3;
+  pointer-events: none;
+  opacity: 0.4;
+}
+
+/* ------------------------------------------------------------
+   7) DATA ATTRIBUTES + :has() SELECTOR
+   ------------------------------------------------------------ */
+.state-demo {
+  display: grid;
+  gap: 1rem;
+}
+
+.state-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  background: var(--void-2);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  transition: all 0.3s var(--ease);
+}
+
+.state-item:has(input:checked) {
+  background: color-mix(in oklch, var(--gold) 15%, var(--void-2));
+  border-color: var(--gold);
+}
+
+.state-checkbox {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  accent-color: var(--gold);
+}
+
+/* ------------------------------------------------------------
+   9) SCROLL-LINKED ANIMATIONS
+   ------------------------------------------------------------ */
+@supports (animation-timeline: scroll()) {
+  .scroll-reveal {
+    animation: reveal-element linear both;
+    animation-timeline: view();
+    animation-range: entry 0% cover 30%;
+  }
+}
+
+@keyframes reveal-element {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Fallback for browsers without scroll-linked animations */
+@supports not (animation-timeline: scroll()) {
+  .scroll-reveal {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Progress bar using scroll timeline */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--gold), var(--cyan));
+  z-index: 200;
+  transform-origin: left;
+  animation: scroll-progress-bar linear both;
+  animation-timeline: scroll(root);
+}
+
+@keyframes scroll-progress-bar {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+/* ------------------------------------------------------------
+   10) MASKING + CLIPPING
+   ------------------------------------------------------------ */
+.mask-demo {
+  position: relative;
+  width: 100%;
+  height: 300px;
+  background: linear-gradient(135deg, var(--violet), var(--cyan));
+  clip-path: polygon(0 0, 100% 0, 100% 85%, 50% 100%, 0 85%);
+  display: grid;
+  place-items: center;
+  color: white;
+  font-size: 2rem;
+  font-family: var(--font-display);
+}
+
+.parchment-edge {
+  background: var(--glass);
+  padding: 2rem;
+  margin: 2rem 0;
+  position: relative;
+  mask-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 100"><path d="M0,0 L400,0 L400,80 Q350,85 300,80 T200,80 T100,85 Q50,90 0,80 Z" fill="black"/></svg>');
+  mask-size: 100% 100%;
+  mask-repeat: no-repeat;
+}
+
+/* ------------------------------------------------------------
+   17) 3D TRANSFORMS
+   ------------------------------------------------------------ */
+.card-3d {
+  width: 300px;
+  height: 200px;
+  margin: 2rem auto;
+  perspective: 1000px;
+}
+
+.card-inner {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transition: transform 0.8s var(--ease);
+  transform-style: preserve-3d;
+}
+
+.card-3d:hover .card-inner {
+  transform: rotateY(180deg);
+}
+
+.card-face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  background: var(--glass);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  display: grid;
+  place-items: center;
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+}
+
+.card-back {
+  transform: rotateY(180deg);
+  background: linear-gradient(135deg, var(--gold), var(--cyan));
+  color: var(--void);
+}
+
+/* ------------------------------------------------------------
+   18) SCROLL SNAP
+   ------------------------------------------------------------ */
+.scroll-snap-container {
+  scroll-snap-type: x mandatory;
+  display: flex;
+  gap: 1rem;
+  overflow-x: auto;
+  padding: 1rem;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scrollbar-color: var(--gold) var(--void-2);
+}
+
+.snap-item {
+  scroll-snap-align: center;
+  flex: 0 0 300px;
+  height: 200px;
+  background: var(--glass);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  display: grid;
+  place-items: center;
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+}
+
+/* ------------------------------------------------------------
+   A) ANCHOR POSITIONING (with popover)
+   ------------------------------------------------------------ */
+.anchor-demo-container {
+  position: relative;
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.anchor-trigger {
+  padding: 1rem 2rem;
+  background: var(--glass);
+  border: 1px solid var(--gold);
+  border-radius: var(--radius-lg);
+  color: var(--text);
+  cursor: pointer;
+  font-family: var(--font-text);
+  font-size: 1rem;
+}
+
+/* B) POPOVER API */
+[popover] {
+  background: var(--glass-strong);
+  border: 1px solid var(--gold);
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+  color: var(--text);
+  box-shadow: var(--shadow-lg);
+  backdrop-filter: blur(20px);
+}
+
+[popover]::backdrop {
+  background: oklch(0% 0 0 / 0.5);
+  backdrop-filter: blur(4px);
+}
+
+/* ------------------------------------------------------------
+   C) VIEW TRANSITIONS (requires JS)
+   ------------------------------------------------------------ */
+@supports (view-transition-name: auto) {
+  .transition-demo {
+    view-transition-name: demo-card;
+  }
+}
+
+/* ------------------------------------------------------------
+   D) CASCADE LAYERS
+   ------------------------------------------------------------ */
+@layer base, components, utilities, effects;
+
+@layer base {
+  /* Base styles are lowest priority */
+}
+
+@layer components {
+  /* Component styles */
+}
+
+@layer utilities {
+  .text-center { text-align: center; }
+  .mt-4 { margin-top: 2rem; }
+  .mb-4 { margin-bottom: 2rem; }
+}
+
+@layer effects {
+  .glow {
+    filter: drop-shadow(0 0 20px color-mix(in oklch, var(--gold) 60%, transparent));
+  }
+}
+
+/* ------------------------------------------------------------
+   CHART.JS RADAR CONTAINER
+   ------------------------------------------------------------ */
+.chart-container {
+  max-width: 500px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: var(--glass);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  position: relative;
+}
+
+.chart-container::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  background: linear-gradient(135deg, var(--gold), var(--cyan));
+  border-radius: var(--radius-lg);
+  opacity: 0;
+  transition: opacity 0.3s var(--ease);
+  z-index: -1;
+}
+
+.chart-container:hover::before {
+  opacity: 0.3;
+}
+
+/* ------------------------------------------------------------
+   12) CUSTOM CURSOR
+   ------------------------------------------------------------ */
+body {
+  cursor: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4" fill="%23d7a23c" opacity="0.6"/><circle cx="12" cy="12" r="2" fill="%23f7d784"/></svg>') 12 12, auto;
+}
+
+button, a, .card-3d {
+  cursor: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><circle cx="12" cy="12" r="6" fill="%23d7a23c" opacity="0.8"/><circle cx="12" cy="12" r="3" fill="%23ffffff"/></svg>') 12 12, pointer;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body, button, a {
+    cursor: auto;
+  }
+}
+
+/* ------------------------------------------------------------
+   FOOTER
+   ------------------------------------------------------------ */
+.site-footer {
+  padding: 4rem 0 2rem;
+  text-align: center;
+  border-top: 1px solid var(--line);
+  margin-top: 8rem;
+}
+
+.footer-content {
+  color: var(--text-dim);
+  font-size: 0.875rem;
+  line-height: 1.8;
+}
+
+.footer-links {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.footer-link {
+  color: var(--text-soft);
+  text-decoration: none;
+  transition: color 0.3s var(--ease);
+}
+
+.footer-link:hover {
+  color: var(--gold-bright);
+}
+
+/* ------------------------------------------------------------
+   RESPONSIVE ADJUSTMENTS
+   ------------------------------------------------------------ */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2.5rem;
+  }
+  
+  .examples-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .grid-showcase {
+    grid-template-columns: 1fr;
+  }
+  
+  .hero-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+</style>
+</head>
+<body data-theme="gold">
+
+<!-- Scroll Progress Bar -->
+<div class="scroll-progress"></div>
+
+<!-- Canvas for particles -->
+<canvas id="particles-canvas"></canvas>
+
+<!-- Header -->
+<header class="site-header">
+  <div class="container">
+    <a href="#" class="logo">
+      <div class="logo-mark">
+        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="50" cy="50" r="35" fill="none" stroke="currentColor" stroke-width="2"/>
+          <path d="M50 20 L50 80 M20 50 L80 50" stroke="currentColor" stroke-width="2"/>
+        </svg>
+      </div>
+      <span>2026 Stack</span>
+    </a>
+    
+    <div class="theme-switcher">
+      <button class="theme-btn active" data-color="gold" title="Gold Theme">
+        <div style="width: 100%; height: 100%; background: var(--gold); border-radius: inherit;"></div>
+      </button>
+      <button class="theme-btn" data-color="violet" title="Violet Theme">
+        <div style="width: 100%; height: 100%; background: var(--violet); border-radius: inherit;"></div>
+      </button>
+      <button class="theme-btn" data-color="cyan" title="Cyan Theme">
+        <div style="width: 100%; height: 100%; background: var(--cyan); border-radius: inherit;"></div>
+      </button>
+      <button class="theme-btn" data-color="green" title="Green Theme">
+        <div style="width: 100%; height: 100%; background: var(--green); border-radius: inherit;"></div>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- Hero Section -->
+<section class="hero">
+  <div class="container">
+    <h1>2026 Feature Stack</h1>
+    <p class="subtitle">
+      An interactive learning page demonstrating modern web capabilities. 
+      Explore cutting-edge CSS, JavaScript, and browser APIs with working examples and placement text.
+    </p>
+    <div class="hero-actions">
+      <a href="#modern-theming" class="btn btn-primary">Start Learning</a>
+      <a href="#examples" class="btn">View Examples</a>
+    </div>
+  </div>
+</section>
+
+<!-- Feature 1: Modern Theming -->
+<section id="modern-theming" class="feature-section scroll-reveal">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-number">Feature 01</span>
+      <h2>Modern Theming</h2>
+      <p class="section-desc">
+        CSS custom properties combined with OKLCH color space, color-mix(), and relative color syntax 
+        for perceptually uniform, future-ready theming systems.
+      </p>
+    </div>
+    
+    <div class="examples-grid">
+      <div class="example-card">
+        <h3 class="card-title">OKLCH Color Space</h3>
+        <div class="card-content">
+          OKLCH provides perceptually uniform colors. Unlike RGB/HSL, equal lightness values 
+          appear equally bright to the human eye.
+        </div>
+        <div class="card-demo">
+          <div class="code-label">Example:</div>
+          <code>--gold: oklch(76% 0.14 75);</code>
+          <div style="margin-top: 1rem; padding: 1rem; background: oklch(76% 0.14 75); border-radius: 8px; color: #000; text-align: center;">
+            This gold uses OKLCH
+          </div>
+        </div>
+      </div>
+      
+      <div class="example-card">
+        <h3 class="card-title">color-mix() Function</h3>
+        <div class="card-content">
+          Mix colors directly in CSS without preprocessing. Perfect for creating derived colors 
+          like hover states and transparency variants.
+        </div>
+        <div class="card-demo">
+          <div class="code-label">Example:</div>
+          <code>color-mix(in oklch, var(--gold) 32%, transparent)</code>
+          <div style="margin-top: 1rem; display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.5rem;">
+            <div style="aspect-ratio: 1; background: color-mix(in oklch, var(--gold) 100%, transparent); border-radius: 8px;"></div>
+            <div style="aspect-ratio: 1; background: color-mix(in oklch, var(--gold) 66%, transparent); border-radius: 8px;"></div>
+            <div style="aspect-ratio: 1; background: color-mix(in oklch, var(--gold) 33%, transparent); border-radius: 8px;"></div>
+            <div style="aspect-ratio: 1; background: color-mix(in oklch, var(--gold) 15%, transparent); border-radius: 8px;"></div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="example-card">
+        <h3 class="card-title">Theme Switching</h3>
+        <div class="card-content">
+          Use data attributes and CSS custom properties for instant theme changes. 
+          Try the theme buttons in the header above!
+        </div>
+        <div class="card-demo">
+          <div class="code-label">HTML:</div>
+          <code>&lt;body data-theme="violet"&gt;</code>
+          <div style="margin-top: 0.5rem;">
+            <div class="code-label">CSS:</div>
+            <code>body[data-theme="violet"] { --accent: var(--violet); }</code>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Feature 2: Filters + Blend Modes -->
+<section id="filters-blend" class="feature-section scroll-reveal">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-number">Feature 02</span>
+      <h2>Filters + Blend Modes</h2>
+      <p class="section-desc">
+        Create atmospheric effects with CSS filters, mix-blend-mode, and masks. 
+        Perfect for glows, auras, and layered compositions.
+      </p>
+    </div>
+    
+    <div class="examples-grid">
+      <div class="example-card">
+        <h3 class="card-title">Glow Effects</h3>
+        <div class="card-content">
+          Use drop-shadow filters for natural glowing effects without expensive blur layers.
+        </div>
+        <div class="card-demo">
+          <div style="text-align: center; font-size: 3rem; color: var(--gold); filter: drop-shadow(0 0 20px color-mix(in oklch, var(--gold) 60%, transparent));">
+            ✦ GLOWING ✦
+          </div>
+        </div>
+      </div>
+      
+      <div class="example-card">
+        <h3 class="card-title">Blend Modes</h3>
+        <div class="card-content">
+          Combine layers with mix-blend-mode for screen, multiply, and overlay effects.
+        </div>
+        <div class="card-demo">
+          <div style="position: relative; height: 150px; background: var(--void-2); border-radius: 8px; overflow: hidden;">
+            <div style="position: absolute; inset: 0; background: radial-gradient(circle at 30% 50%, var(--gold), transparent 50%); mix-blend-mode: screen;"></div>
+            <div style="position: absolute; inset: 0; background: radial-gradient(circle at 70% 50%, var(--cyan), transparent 50%); mix-blend-mode: screen;"></div>
+            <div style="position: absolute; inset: 0; display: grid; place-items: center; color: white; font-family: var(--font-display); font-size: 1.5rem;">
+              Blended
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="example-card">
+        <h3 class="card-title">Reduced Motion</h3>
+        <div class="card-content">
+          Always respect prefers-reduced-motion for accessibility. Disable animations for users who need it.
+        </div>
+        <div class="card-demo">
+          <div class="code-label">CSS:</div>
+          <code>@media (prefers-reduced-motion: reduce) { ... }</code>
+          <div style="margin-top: 1rem; padding: 1rem; background: color-mix(in oklch, var(--gold) 10%, var(--void-2)); border-radius: 8px; color: var(--text-soft); font-size: 0.875rem;">
+            ✓ Animations disabled when user prefers reduced motion
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Feature 3: SVG Animation -->
+<section id="svg-animation" class="feature-section scroll-reveal">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-number">Feature 03</span>
+      <h2>SVG Animation</h2>
+      <p class="section-desc">
+        Animate SVG paths for sigils, glyphs, and icons. Use CSS animations or WAAPI for maximum control.
+      </p>
+    </div>
+    
+    <div class="sigil-demo">
+      <svg class="sigil-svg" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <radialGradient id="sigil-glow">
+            <stop offset="0%" style="stop-color: var(--gold); stop-opacity: 0.8" />
+            <stop offset="100%" style="stop-color: var(--gold); stop-opacity: 0" />
+          </radialGradient>
+        </defs>
+        <circle cx="100" cy="100" r="80" class="sigil-path" />
+        <path d="M 100 20 L 100 180" class="sigil-path" />
+        <path d="M 20 100 L 180 100" class="sigil-path" />
+        <path d="M 40 40 L 160 160" class="sigil-path" />
+        <path d="M 160 40 L 40 160" class="sigil-path" />
+      </svg>
+    </div>
+    
+    <div class="example-card" style="max-width: 600px; margin: 2rem auto;">
+      <h3 class="card-title">Drawing Animation</h3>
+      <div class="card-content">
+        The sigil above uses stroke-dasharray and stroke-dashoffset to create a drawing effect. 
+        This animates automatically and respects reduced motion preferences.
+      </div>
+      <div class="card-demo">
+        <div class="code-label">CSS:</div>
+        <code>stroke-dasharray: 1000; animation: draw 3s forwards;</code>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Feature 4: Web Components -->
+<section id="web-components" class="feature-section scroll-reveal">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-number">Feature 04</span>
+      <h2>Web Components + Shadow DOM</h2>
+      <p class="section-desc">
+        Encapsulated, reusable modules with scoped styling. Create guild-card, sigil-view, 
+        or mana-radar components.
+      </p>
+    </div>
+    
+    <div style="text-align: center; margin: 2rem 0;">
+      <div style="display: inline-flex; gap: 1rem; flex-wrap: wrap; justify-content: center;">
+        <mana-badge data-color="white">White Mana</mana-badge>
+        <mana-badge data-color="blue">Blue Mana</mana-badge>
+        <mana-badge data-color="black">Black Mana</mana-badge>
+        <mana-badge data-color="red">Red Mana</mana-badge>
+        <mana-badge data-color="green">Green Mana</mana-badge>
+      </div>
+    </div>
+    
+    <div class="example-card" style="max-width: 700px; margin: 2rem auto;">
+      <h3 class="card-title">Custom Elements</h3>
+      <div class="card-content">
+        Define reusable components with custom HTML tags. The mana badges above are examples 
+        of simple custom elements with encapsulated styling.
+      </div>
+      <div class="card-demo">
+        <div class="code-label">HTML:</div>
+        <code>&lt;mana-badge data-color="blue"&gt;Blue Mana&lt;/mana-badge&gt;</code>
+        <div style="margin-top: 0.5rem;">
+          <div class="code-label">JavaScript:</div>
+          <code>customElements.define('mana-badge', ManaBadge);</code>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Feature 5: Grid + Subgrid -->
+<section id="grid-subgrid" class="feature-section scroll-reveal">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-number">Feature 05</span>
+      <h2>Grid + Subgrid</h2>
+      <p class="section-desc">
+        Use Grid for layout structure, Flex for small alignments, and Subgrid for consistent 
+        alignment across nested grids.
+      </p>
+    </div>
+    
+    <div class="grid-showcase">
+      <div class="grid-item">
+        <div class="grid-item-header">Azorius Senate</div>
+        <div class="grid-item-body">
+          The guild of law and order. White and blue mana combine for control and structure.
+        </div>
+        <div class="grid-item-footer">WU Guild</div>
+      </div>
+      
+      <div class="grid-item">
+        <div class="grid-item-header">Dimir House</div>
+        <div class="grid-item-body">
+          Masters of secrets and subterfuge. Blue and black mana create information control.
+        </div>
+        <div class="grid-item-footer">UB Guild</div>
+      </div>
+      
+      <div class="grid-item">
+        <div class="grid-item-header">Rakdos Cult</div>
+        <div class="grid-item-body">
+          Chaos and entertainment through destruction. Black and red mana fuel their hedonistic spectacles.
+        </div>
+        <div class="grid-item-footer">BR Guild</div>
+      </div>
+    </div>
+    
+    <div class="example-card" style="max-width: 700px; margin: 2rem auto;">
+      <h3 class="card-title">Subgrid Alignment</h3>
+      <div class="card-content">
+        Notice how the cards above maintain aligned headers and footers even with different 
+        content lengths. This is achieved with subgrid.
+      </div>
+      <div class="card-demo">
+        <div class="code-label">CSS:</div>
+        <code>display: grid; grid-template-rows: subgrid;</code>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Feature 7: Data Attributes + :has() -->
+<section id="data-attributes" class="feature-section scroll-reveal">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-number">Feature 07</span>
+      <h2>Data Attributes + :has() Selector</h2>
+      <p class="section-desc">
+        Use data-* attributes as a configuration layer and :has() for state-based styling 
+        without JavaScript toggles.
+      </p>
+    </div>
+    
+    <div class="example-card" style="max-width: 700px; margin: 2rem auto;">
+      <h3 class="card-title">Interactive State Demo</h3>
+      <div class="card-content">
+        Check the boxes below to see :has() selector in action. The container style changes 
+        based on checkbox state—no JavaScript required!
+      </div>
+      <div class="card-demo">
+        <div class="state-demo">
+          <label class="state-item">
+            <input type="checkbox" class="state-checkbox" checked />
+            <span>White Mana — Law and order</span>
+          </label>
+          <label class="state-item">
+            <input type="checkbox" class="state-checkbox" />
+            <span>Blue Mana — Knowledge and control</span>
+          </label>
+          <label class="state-item">
+            <input type="checkbox" class="state-checkbox" checked />
+            <span>Black Mana — Ambition and power</span>
+          </label>
+          <label class="state-item">
+            <input type="checkbox" class="state-checkbox" />
+            <span>Red Mana — Passion and chaos</span>
+          </label>
+          <label class="state-item">
+            <input type="checkbox" class="state-checkbox" />
+            <span>Green Mana — Nature and growth</span>
+          </label>
+        </div>
+        <div style="margin-top: 1rem;">
+          <div class="code-label">CSS:</div>
+          <code>.state-item:has(input:checked) { background: gold; }</code>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Feature 9: Scroll-Linked Animations -->
+<section id="scroll-animations" class="feature-section scroll-reveal">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-number">Feature 09</span>
+      <h2>Scroll-Linked Animations</h2>
+      <p class="section-desc">
+        Create reveal-on-scroll, progress bars, and auto-draw effects using ScrollTimeline 
+        and view-timeline APIs.
+      </p>
+    </div>
+    
+    <div class="example-card" style="max-width: 700px; margin: 2rem auto;">
+      <h3 class="card-title">Scroll Progress Bar</h3>
+      <div class="card-content">
+        Notice the progress bar at the top of the page? It automatically tracks your scroll 
+        position using CSS scroll-linked animations.
+      </div>
+      <div class="card-demo">
+        <div class="code-label">CSS:</div>
+        <code>animation-timeline: scroll(root);</code>
+        <div style="margin-top: 1rem; padding: 1rem; background: color-mix(in oklch, var(--gold) 10%, var(--void-2)); border-radius: 8px; color: var(--text-soft); font-size: 0.875rem;">
+          ✓ No JavaScript scroll listeners needed
+        </div>
+      </div>
+    </div>
+    
+    <div class="example-card" style="max-width: 700px; margin: 2rem auto;">
+      <h3 class="card-title">Reveal on Scroll</h3>
+      <div class="card-content">
+        All the feature sections on this page fade in as you scroll to them. This uses 
+        view-timeline with entry and cover ranges.
+      </div>
+      <div class="card-demo">
+        <div class="code-label">CSS:</div>
+        <code>animation-timeline: view(); animation-range: entry 0% cover 30%;</code>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Feature 10: Masking + Clipping -->
+<section id="masking-clipping" class="feature-section scroll-reveal">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-number">Feature 10</span>
+      <h2>Masking + Clipping</h2>
+      <p class="section-desc">
+        Create unique shapes with clip-path and mask-image for parchment edges, sigil cutouts, 
+        and decorative boundaries.
+      </p>
+    </div>
+    
+    <div class="mask-demo">
+      Clipped Polygon Shape
+    </div>
+    
+    <div class="parchment-edge" style="max-width: 700px; margin: 3rem auto;">
+      <h3 style="font-family: var(--font-display); color: var(--gold); margin: 0 0 1rem;">Parchment Edge Effect</h3>
+      <p style="margin: 0; line-height: 1.7; color: var(--text-soft);">
+        This container uses SVG mask-image to create a torn parchment edge effect. 
+        Perfect for fantasy-themed interfaces and decorative panels. The mask creates 
+        an organic, hand-crafted appearance.
+      </p>
+    </div>
+    
+    <div class="example-card" style="max-width: 700px; margin: 2rem auto;">
+      <h3 class="card-title">Clip-Path & Mask-Image</h3>
+      <div class="card-content">
+        clip-path cuts shapes with vectors, while mask-image uses images/gradients for 
+        transparency. Both are powerful tools for creative layouts.
+      </div>
+      <div class="card-demo">
+        <div class="code-label">Clip-Path:</div>
+        <code>clip-path: polygon(0 0, 100% 0, 100% 85%, 50% 100%, 0 85%);</code>
+        <div style="margin-top: 0.5rem;">
+          <div class="code-label">Mask-Image:</div>
+          <code>mask-image: url('path/to/mask.svg');</code>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Feature 11: Container Queries -->
+<section id="container-queries" class="feature-section scroll-reveal">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-number">Feature 11</span>
+      <h2>Container Queries</h2>
+      <p class="section-desc">
+        Component-based responsiveness that adapts to container size, not viewport. 
+        Enables truly modular, reusable components.
+      </p>
+    </div>
+    
+    <div class="example-card" style="max-width: 700px; margin: 2rem auto;">
+      <h3 class="card-title">Responsive Components</h3>
+      <div class="card-content">
+        All example cards on this page use container queries. Resize your browser to see 
+        them adapt independently based on their own width, not the viewport.
+      </div>
+      <div class="card-demo">
+        <div class="code-label">CSS:</div>
+        <code>container-type: inline-size; container-name: card;</code>
+        <div style="margin-top: 0.5rem;">
+          <code>@container card (min-width: 400px) { padding: 2.5rem; }</code>
+        </div>
+      </div>
+    </div>
+    
+    <div style="display: grid; grid-template-columns: 1fr 2fr; gap: 2rem; margin: 2rem 0;">
+      <div class="example-card">
+        <h3 class="card-title">Narrow</h3>
+        <div class="card-content">
+          This card is in a narrow container, so it gets different styling.
+        </div>
+      </div>
+      
+      <div class="example-card">
+        <h3 class="card-title">Wide Container</h3>
+        <div class="card-content">
+          This card has more space available, so it gets larger padding and font sizes 
+          through container queries—completely independent of the viewport size.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Feature 17: 3D Transforms -->
+<section id="3d-transforms" class="feature-section scroll-reveal">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-number">Feature 17</span>
+      <h2>3D Transforms</h2>
+      <p class="section-desc">
+        Create card flips, parallax effects, and rotating elements with perspective and 
+        3D transforms.
+      </p>
+    </div>
+    
+    <div class="card-3d">
+      <div class="card-inner">
+        <div class="card-face">
+          Hover to Flip
+        </div>
+        <div class="card-face card-back">
+          Flipped!
+        </div>
+      </div>
+    </div>
+    
+    <div class="example-card" style="max-width: 700px; margin: 2rem auto;">
+      <h3 class="card-title">3D Card Flip</h3>
+      <div class="card-content">
+        The card above uses perspective, transform-style: preserve-3d, and backface-visibility 
+        to create a smooth 3D flip effect.
+      </div>
+      <div class="card-demo">
+        <div class="code-label">CSS:</div>
+        <code>perspective: 1000px; transform: rotateY(180deg);</code>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Feature 18: Scroll Snap -->
+<section id="scroll-snap" class="feature-section scroll-reveal">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-number">Feature 18</span>
+      <h2>Scroll Snap</h2>
+      <p class="section-desc">
+        Create natural pagination with scroll-snap for codex pages, carousels, and 
+        step-based navigation.
+      </p>
+    </div>
+    
+    <div class="scroll-snap-container">
+      <div class="snap-item" style="background: linear-gradient(135deg, var(--gold), var(--void-2));">
+        Page 1
+      </div>
+      <div class="snap-item" style="background: linear-gradient(135deg, var(--cyan), var(--void-2));">
+        Page 2
+      </div>
+      <div class="snap-item" style="background: linear-gradient(135deg, var(--violet), var(--void-2));">
+        Page 3
+      </div>
+      <div class="snap-item" style="background: linear-gradient(135deg, var(--green), var(--void-2));">
+        Page 4
+      </div>
+      <div class="snap-item" style="background: linear-gradient(135deg, var(--red), var(--void-2));">
+        Page 5
+      </div>
+    </div>
+    
+    <div class="example-card" style="max-width: 700px; margin: 2rem auto;">
+      <h3 class="card-title">Snap to Center</h3>
+      <div class="card-content">
+        Scroll the carousel above and notice how items naturally snap to the center. 
+        This provides a better UX with minimal CSS.
+      </div>
+      <div class="card-demo">
+        <div class="code-label">CSS:</div>
+        <code>scroll-snap-type: x mandatory; scroll-snap-align: center;</code>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Feature A: Anchor Positioning + B: Popover API -->
+<section id="anchor-popover" class="feature-section scroll-reveal">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-number">Feature A+B</span>
+      <h2>Anchor Positioning + Popover API</h2>
+      <p class="section-desc">
+        Native overlay system with CSS-based positioning. No JavaScript libraries needed 
+        for tooltips, dropdowns, and dialogs.
+      </p>
+    </div>
+    
+    <div class="anchor-demo-container">
+      <button class="anchor-trigger" popovertarget="demo-popover">
+        Show Popover
+      </button>
+      
+      <div id="demo-popover" popover>
+        <h3 style="font-family: var(--font-display); margin: 0 0 1rem;">Native Popover</h3>
+        <p style="margin: 0; line-height: 1.6; color: var(--text-soft);">
+          This popover uses the native Popover API with built-in accessibility, 
+          focus management, and light-dismiss behavior. No JavaScript required!
+        </p>
+        <button style="margin-top: 1rem; padding: 0.5rem 1rem; background: var(--gold); color: var(--void); border: none; border-radius: 8px; cursor: pointer;">
+          Dismiss
+        </button>
+      </div>
+    </div>
+    
+    <div class="example-card" style="max-width: 700px; margin: 2rem auto;">
+      <h3 class="card-title">Declarative Overlays</h3>
+      <div class="card-content">
+        The Popover API provides native overlay behavior with automatic accessibility, 
+        z-index management, and light-dismiss patterns.
+      </div>
+      <div class="card-demo">
+        <div class="code-label">HTML:</div>
+        <code>&lt;button popovertarget="id"&gt;Show&lt;/button&gt;</code>
+        <div style="margin-top: 0.5rem;">
+          <code>&lt;div id="id" popover&gt;Content&lt;/div&gt;</code>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Feature D: Cascade Layers -->
+<section id="cascade-layers" class="feature-section scroll-reveal">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-number">Feature D</span>
+      <h2>Cascade Layers + Nesting</h2>
+      <p class="section-desc">
+        Organize styles with @layer for predictable specificity. Reduces conflicts and 
+        makes CSS architecture more maintainable.
+      </p>
+    </div>
+    
+    <div class="example-card" style="max-width: 700px; margin: 2rem auto;">
+      <h3 class="card-title">Layer Organization</h3>
+      <div class="card-content">
+        Define layer order once, then styles cascade predictably. Lower layers can't 
+        override higher layers regardless of specificity.
+      </div>
+      <div class="card-demo">
+        <div class="code-label">CSS:</div>
+        <code>@layer base, components, utilities, effects;</code>
+        <div style="margin-top: 1rem;">
+          <div style="padding: 0.5rem; background: var(--void-2); border-left: 3px solid var(--gold); margin-bottom: 0.25rem; font-size: 0.875rem;">Base Layer</div>
+          <div style="padding: 0.5rem; background: var(--void-2); border-left: 3px solid var(--cyan); margin-bottom: 0.25rem; font-size: 0.875rem;">Components Layer</div>
+          <div style="padding: 0.5rem; background: var(--void-2); border-left: 3px solid var(--violet); margin-bottom: 0.25rem; font-size: 0.875rem;">Utilities Layer</div>
+          <div style="padding: 0.5rem; background: var(--void-2); border-left: 3px solid var(--green); font-size: 0.875rem;">Effects Layer (Highest)</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Chart.js Radar Example -->
+<section id="chart-radar" class="feature-section scroll-reveal">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-number">Chart.js</span>
+      <h2>Radar Charts for Mana Profiles</h2>
+      <p class="section-desc">
+        Visualize mana distributions with Chart.js radar charts. Add data labels and 
+        CSS overlays for atmospheric effects.
+      </p>
+    </div>
+    
+    <div class="chart-container">
+      <canvas id="manaRadar" width="400" height="400"></canvas>
+    </div>
+    
+    <div class="example-card" style="max-width: 700px; margin: 2rem auto;">
+      <h3 class="card-title">Accessible Data Visualization</h3>
+      <div class="card-content">
+        Always provide a hidden data table for screen readers alongside visual charts. 
+        Use CSS overlays for glow effects instead of expensive canvas blur.
+      </div>
+      <div class="card-demo">
+        <div class="code-label">Best Practice:</div>
+        <div style="padding: 1rem; background: color-mix(in oklch, var(--gold) 10%, var(--void-2)); border-radius: 8px; margin-top: 0.5rem;">
+          <div style="color: var(--text-soft); font-size: 0.875rem; line-height: 1.6;">
+            ✓ Canvas chart for visual users<br>
+            ✓ Hidden table for screen readers<br>
+            ✓ CSS glow instead of canvas blur
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-content">
+      <p>
+        This page demonstrates the 2026 feature stack with working examples.<br>
+        All features include placement text and interactive demonstrations.
+      </p>
+      <div class="footer-links">
+        <a href="#" class="footer-link">Documentation</a>
+        <a href="#" class="footer-link">GitHub</a>
+        <a href="#" class="footer-link">Resources</a>
+      </div>
+      <p style="margin-top: 2rem; opacity: 0.6;">
+        Built with modern web standards • OKLCH colors • Container queries • View transitions
+      </p>
+    </div>
+  </div>
+</footer>
+
+<!-- Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2"></script>
+<script>
+// Theme Switching
+document.querySelectorAll('.theme-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const color = btn.dataset.color;
+    document.body.dataset.theme = color;
+    document.querySelectorAll('.theme-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+  });
+});
+
+// Example Card Hover Effect with Mouse Position
+document.querySelectorAll('.example-card').forEach(card => {
+  card.addEventListener('mousemove', (e) => {
+    const rect = card.getBoundingClientRect();
+    const x = ((e.clientX - rect.left) / rect.width) * 100;
+    const y = ((e.clientY - rect.top) / rect.height) * 100;
+    card.style.setProperty('--x', `${x}%`);
+    card.style.setProperty('--y', `${y}%`);
+  });
+});
+
+// Canvas Particles
+const canvas = document.getElementById('particles-canvas');
+const ctx = canvas.getContext('2d');
+
+function resizeCanvas() {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+}
+resizeCanvas();
+window.addEventListener('resize', resizeCanvas);
+
+const particles = [];
+const particleCount = 50;
+
+class Particle {
+  constructor() {
+    this.x = Math.random() * canvas.width;
+    this.y = Math.random() * canvas.height;
+    this.size = Math.random() * 2 + 1;
+    this.speedX = (Math.random() - 0.5) * 0.5;
+    this.speedY = (Math.random() - 0.5) * 0.5;
+    this.opacity = Math.random() * 0.5 + 0.2;
+  }
+  
+  update() {
+    this.x += this.speedX;
+    this.y += this.speedY;
+    
+    if (this.x < 0 || this.x > canvas.width) this.speedX *= -1;
+    if (this.y < 0 || this.y > canvas.height) this.speedY *= -1;
+  }
+  
+  draw() {
+    ctx.fillStyle = `rgba(240, 197, 106, ${this.opacity})`;
+    ctx.beginPath();
+    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+    ctx.fill();
+  }
+}
+
+for (let i = 0; i < particleCount; i++) {
+  particles.push(new Particle());
+}
+
+function animate() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  particles.forEach(particle => {
+    particle.update();
+    particle.draw();
+  });
+  requestAnimationFrame(animate);
+}
+animate();
+
+// Chart.js Radar
+const radarCtx = document.getElementById('manaRadar').getContext('2d');
+new Chart(radarCtx, {
+  type: 'radar',
+  data: {
+    labels: ['White', 'Blue', 'Black', 'Red', 'Green'],
+    datasets: [{
+      label: 'Mana Distribution',
+      data: [75, 90, 60, 45, 80],
+      backgroundColor: 'rgba(240, 197, 106, 0.2)',
+      borderColor: 'rgba(240, 197, 106, 1)',
+      pointBackgroundColor: 'rgba(240, 197, 106, 1)',
+      pointBorderColor: '#fff',
+      pointHoverBackgroundColor: '#fff',
+      pointHoverBorderColor: 'rgba(240, 197, 106, 1)',
+      borderWidth: 2,
+      pointRadius: 4,
+      pointHoverRadius: 6
+    }]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: true,
+    scales: {
+      r: {
+        angleLines: {
+          color: 'rgba(241, 199, 111, 0.22)'
+        },
+        grid: {
+          color: 'rgba(241, 199, 111, 0.22)'
+        },
+        pointLabels: {
+          color: '#f7ecd2',
+          font: {
+            size: 14,
+            family: 'Inter, sans-serif'
+          }
+        },
+        ticks: {
+          color: '#958a78',
+          backdropColor: 'transparent'
+        },
+        min: 0,
+        max: 100
+      }
+    },
+    plugins: {
+      legend: {
+        display: true,
+        labels: {
+          color: '#f7ecd2',
+          font: {
+            size: 14
+          }
+        }
+      },
+      datalabels: {
+        color: '#f7ecd2',
+        font: {
+          size: 12,
+          weight: 'bold'
+        },
+        formatter: (value) => value
+      }
+    }
+  },
+  plugins: [ChartDataLabels]
+});
+
+// Web Components Definition
+class ManaBadge extends HTMLElement {
+  constructor() {
+    super();
+    const color = this.getAttribute('data-color') || 'gold';
+    const colorMap = {
+      white: '#f5eecf',
+      blue: '#4aa8ff',
+      black: '#8d66d9',
+      red: '#ff6a4d',
+      green: '#60dc87'
+    };
+    this.style.setProperty('--mana-color', colorMap[color] || '#d6a84e');
+    this.style.borderColor = `color-mix(in oklch, var(--mana-color) 50%, transparent)`;
+  }
+}
+customElements.define('mana-badge', ManaBadge);
+
+// Smooth scroll for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+    e.preventDefault();
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth' });
+    }
+  });
+});
+</script>
+
+</body>
+</html>

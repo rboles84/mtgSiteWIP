@@ -14,11 +14,21 @@ This document traces the main Vox Mana data paths from source content through ge
 
 The authoritative edit path is raw/display data first, then `npm run build:factions` from this repo. Generated artifacts should not be hand-edited unless explicitly repairing generated output.
 
+## Precon Recommendation Artifacts
+
+| Source | Transform | Output | Consumer |
+|---|---|---|---|
+| `data/precons/reference/vox_mana_precon_mechanics_validation_all_155_completed.xlsx` | `research/import-precon-mechanics-validation.mjs` reads the first preferred sheet with all required columns, validates 155 keyed rows, and updates only `mechanics` plus nullable `creatureTypeFocus`. | `data/precons/vox-mana-precons.source.json` | Staging/reference import only; never browser runtime input. |
+| `data/precons/vox-mana-precons.source.json` | `research/build-precon-artifacts.mjs` validates source metadata, score ranges, and color identities. | `data/precons/vox-mana-precon-catalog.json`, `data/precons/vox-mana-precon-catalog.schema.json` | Archscry dossier precon recommendations. |
+| `data/taxonomy/vox-mana-precon-themes.json` | Precon artifact builder resolves normalized theme keys, aliases, reading tags, and table-perception language. | `data/precons/vox-mana-precon-catalog.json` | Archscry dossier ranking and card copy. |
+
+The authoritative edit path is `data/precons/vox-mana-precons.source.json` plus `data/taxonomy/vox-mana-precon-themes.json`, then `npm run build:precons`. The completed mechanics workbook is a staging artifact only; after import, the canonical JSON remains the source of truth. The browser should not read directly from archived research docs or XLSX reference files.
+
 ## Browser Runtime State
 
 | Data | Owner | Storage | Purpose |
 |---|---|---|---|
-| `APP_STATE` | `assets/js/index.js` | In-memory only | Current factions, model, identity-layer catalog, quick answers, adaptive state, active result, active view, interview state, starter profile. Terminal UI state stays dormant unless the feature flag is enabled. |
+| `APP_STATE` | `assets/js/index.js` | In-memory only | Current factions, model, identity-layer catalog, precon catalog, precon theme taxonomy, quick answers, adaptive state, active result, active view, interview state, starter profile. Terminal UI state stays dormant unless the feature flag is enabled. |
 | `VM_SESSION` | `assets/js/shared.js` | In-memory plus session storage | Auth/session profile, username, avatar, current interview history/result, saved profile result. Interview state stays dormant unless the feature flag is enabled. |
 | Cached placement result | `assets/js/shared.js` | `sessionStorage` key `vm_cached_result` | Guest and post-OAuth result recovery. |
 | Pending OAuth save | `assets/js/shared.js` | `sessionStorage` key `vm_pending_result` | Holds result while Google OAuth redirect completes. |
@@ -88,6 +98,7 @@ Legacy rows with `guild` and `scores` but no `placement_result` are converted by
 | `oracle-cards.json` plus `data/taxonomy/vox-mana-tags.json` | `scripts/build-scryfall-indexes.mjs` emits categorized tags, lore tones, Commander candidates, color summaries, and mechanic summaries. | `data/scryfall/indexes/*.json` |
 | `card-flavor-index.json` | Archscry result helpers select short flavor echoes by color identity, reading tags, and lore-tone fit. | Flavor Echoes result section with Scryfall links and "why it echoes" copy. |
 | `commander-index.json` | Archscry Commander preview enrichment checks local metadata after curated Commander Compass candidates are selected. | Commander type/color/tag metadata beside preview cards. |
+| `data/precons/vox-mana-precon-catalog.json` plus `data/taxonomy/vox-mana-precon-themes.json` | Archscry dossier helpers derive faction-native exact, other exact, and stretch recommendations from the active dossier view, reading tags, starter profile, and curated `factionRefs`. | `Recommended Precon Decks` subsection inside the `Commander Deck Starts` panel. |
 | Placement cache/profile result or Archscry handoff | Maze reading-path builder derives optional query seeds. Archscry-originated links seed Plain Reading display text from `plainReadingQuery` while executing `operatorQuery`. | `From Your Reading` sidebar paths, live Scryfall search results, copy/mode continuity, and a dismissible return-to-dossier banner only when placement context exists. |
 
 ## Command Panel Data
@@ -105,6 +116,8 @@ Legacy rows with `guild` and `scores` but no `placement_result` are converted by
 | Command | Output |
 |---|---|
 | `npm test` | Console PASS/FAIL for parser, builder, mode, syntax, and placement tests. |
+| `node research/import-precon-mechanics-validation.mjs` | Imports the completed 155-row precon mechanics workbook into canonical source JSON with duplicate-key, validation-status, mechanics-shape, nullable focus, and protected-field guards. |
+| `npm run build:precons` | Rebuilds the generated precon recommendation catalog and runtime schema from the canonical precon source plus theme taxonomy. |
 | `npm run test:placement` | Console PASS/FAIL for adaptive model invariants and golden paths. |
 | `npm run test:bias` | Writes seeded-random bias report under `test-results/quick-reading-bias/`. |
 | `npm run test:bias:all` | Writes exhaustive/golden bias report under `test-results/quick-reading-bias/`. |

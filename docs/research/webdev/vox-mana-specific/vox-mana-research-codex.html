@@ -1,0 +1,2655 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="wubrg" data-motion="full">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Vox Mana — Research Codex</title>
+<meta name="description" content="A research console for color identity, faction philosophy, and mana topology across the Magic: The Gathering multiverse." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Sora:wght@300;400;500;600&family=IBM+Plex+Mono:wght@300;400;500&display=swap" rel="stylesheet" />
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+
+<style>
+/* ============================================================
+   VOX MANA — RESEARCH CODEX
+   Aesthetic: Arcane research console / obsidian observatory
+   ============================================================ */
+
+:root {
+  /* Base obsidian palette (OKLCH for perceptual consistency) */
+  --void-deepest: oklch(0.08 0.015 280);
+  --void-deep:    oklch(0.11 0.018 275);
+  --void:         oklch(0.14 0.020 270);
+  --void-soft:    oklch(0.18 0.022 268);
+  --void-elev:    oklch(0.22 0.024 265);
+
+  --bone:         oklch(0.92 0.012 80);
+  --bone-soft:    oklch(0.82 0.020 75);
+  --bone-dim:     oklch(0.62 0.025 70);
+  --bone-faint:   oklch(0.45 0.022 70);
+
+  /* Per-identity accent (overridden by [data-theme]) */
+  --accent:       oklch(0.78 0.16 85);   /* gold default — WUBRG */
+  --accent-soft:  oklch(0.65 0.14 85);
+  --accent-deep:  oklch(0.45 0.12 85);
+  --accent-glow:  oklch(0.78 0.16 85 / 0.35);
+  --accent-faint: oklch(0.78 0.16 85 / 0.08);
+
+  /* Mana color tokens */
+  --mc-w: oklch(0.94 0.025 95);
+  --mc-u: oklch(0.70 0.14 235);
+  --mc-b: oklch(0.32 0.04 290);
+  --mc-r: oklch(0.62 0.20 25);
+  --mc-g: oklch(0.55 0.14 145);
+  --mc-c: oklch(0.70 0.01 270);
+
+  /* Spacing & typography scale */
+  --container: min(1400px, 100% - 3rem);
+  --container-tight: min(1100px, 100% - 3rem);
+  --radius-sm: 4px;
+  --radius: 8px;
+  --radius-lg: 14px;
+
+  --font-display: "Cormorant Garamond", "EB Garamond", Georgia, serif;
+  --font-body: "Sora", system-ui, -apple-system, sans-serif;
+  --font-mono: "IBM Plex Mono", "JetBrains Mono", ui-monospace, monospace;
+
+  --shadow-deep: 0 30px 60px -30px oklch(0 0 0 / 0.6), 0 12px 24px -16px oklch(0 0 0 / 0.4);
+  --shadow-glow: 0 0 40px var(--accent-glow);
+}
+
+/* Identity theme presets */
+[data-theme="wubrg"] {
+  --accent:       oklch(0.82 0.16 85);   /* gold prismatic */
+  --accent-soft:  oklch(0.68 0.14 80);
+  --accent-deep:  oklch(0.48 0.12 78);
+  --accent-glow:  oklch(0.82 0.16 85 / 0.35);
+  --accent-faint: oklch(0.82 0.16 85 / 0.08);
+}
+[data-theme="artifact"] {
+  --accent:       oklch(0.80 0.07 215);  /* silver-cyan */
+  --accent-soft:  oklch(0.66 0.08 210);
+  --accent-deep:  oklch(0.46 0.07 205);
+  --accent-glow:  oklch(0.80 0.07 215 / 0.30);
+  --accent-faint: oklch(0.80 0.07 215 / 0.07);
+}
+[data-theme="eldrazi"] {
+  --accent:       oklch(0.70 0.18 305);  /* violet void */
+  --accent-soft:  oklch(0.56 0.16 305);
+  --accent-deep:  oklch(0.38 0.13 300);
+  --accent-glow:  oklch(0.70 0.18 305 / 0.40);
+  --accent-faint: oklch(0.70 0.18 305 / 0.10);
+}
+[data-theme="wastes"] {
+  --accent:       oklch(0.74 0.04 60);   /* bone-ash */
+  --accent-soft:  oklch(0.60 0.05 60);
+  --accent-deep:  oklch(0.42 0.04 55);
+  --accent-glow:  oklch(0.74 0.04 60 / 0.30);
+  --accent-faint: oklch(0.74 0.04 60 / 0.06);
+}
+
+/* Reduced motion */
+[data-motion="reduced"] *,
+[data-motion="reduced"] *::before,
+[data-motion="reduced"] *::after {
+  animation-duration: 0.01ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.01ms !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ============================================================
+   BASE
+   ============================================================ */
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  font-weight: 300;
+  color: var(--bone-soft);
+  background: var(--void-deepest);
+  min-height: 100vh;
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Atmospheric layered void background */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  background:
+    radial-gradient(ellipse 80% 60% at 15% 10%, var(--accent-faint), transparent 60%),
+    radial-gradient(ellipse 70% 50% at 90% 20%, color-mix(in oklch, var(--accent) 10%, transparent), transparent 60%),
+    radial-gradient(ellipse 60% 80% at 50% 100%, color-mix(in oklch, var(--accent-deep) 15%, transparent), transparent 70%),
+    linear-gradient(180deg, var(--void-deepest) 0%, var(--void-deep) 50%, var(--void-deepest) 100%);
+  transition: background 1.2s ease;
+}
+
+/* Constellation grid overlay */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background-image:
+    linear-gradient(color-mix(in oklch, var(--accent) 6%, transparent) 1px, transparent 1px),
+    linear-gradient(90deg, color-mix(in oklch, var(--accent) 6%, transparent) 1px, transparent 1px);
+  background-size: 80px 80px;
+  mask-image: radial-gradient(ellipse 90% 70% at 50% 30%, black 0%, transparent 90%);
+  -webkit-mask-image: radial-gradient(ellipse 90% 70% at 50% 30%, black 0%, transparent 90%);
+  opacity: 0.6;
+  pointer-events: none;
+  transition: background-image 1.2s ease;
+}
+
+/* Star scatter — pure CSS */
+.starfield {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-image:
+    radial-gradient(1px 1px at 20% 30%, var(--bone-faint), transparent),
+    radial-gradient(1px 1px at 60% 70%, var(--bone-faint), transparent),
+    radial-gradient(1px 1px at 80% 10%, var(--bone-faint), transparent),
+    radial-gradient(1px 1px at 35% 80%, var(--bone-faint), transparent),
+    radial-gradient(1px 1px at 90% 45%, var(--bone-faint), transparent),
+    radial-gradient(1px 1px at 10% 60%, var(--bone-faint), transparent),
+    radial-gradient(1px 1px at 50% 15%, var(--bone-faint), transparent),
+    radial-gradient(1px 1px at 75% 85%, var(--bone-faint), transparent),
+    radial-gradient(1px 1px at 5% 40%, var(--bone-faint), transparent),
+    radial-gradient(1px 1px at 95% 75%, var(--bone-faint), transparent);
+  animation: twinkle 8s ease-in-out infinite alternate;
+}
+@keyframes twinkle {
+  from { opacity: 0.4; }
+  to   { opacity: 0.85; }
+}
+
+/* Scroll progress */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 2px;
+  width: 0%;
+  background: linear-gradient(90deg, transparent, var(--accent), var(--accent-soft));
+  z-index: 100;
+  box-shadow: 0 0 8px var(--accent-glow);
+  transition: width 0.1s linear;
+}
+
+/* ============================================================
+   TYPOGRAPHY
+   ============================================================ */
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  font-weight: 500;
+  color: var(--bone);
+  letter-spacing: -0.01em;
+  margin: 0 0 0.5em;
+  line-height: 1.15;
+}
+h1 { font-size: clamp(2.5rem, 6vw, 4.5rem); font-weight: 400; }
+h2 { font-size: clamp(1.8rem, 3.5vw, 2.6rem); }
+h3 { font-size: clamp(1.3rem, 2.2vw, 1.7rem); }
+h4 { font-size: 1.1rem; font-weight: 600; }
+
+.serif-em { font-style: italic; color: var(--accent); }
+
+.mono-label {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--accent);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.mono-label::before {
+  content: "";
+  width: 8px;
+  height: 1px;
+  background: var(--accent);
+}
+
+.system-line {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--bone-faint);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+p { margin: 0 0 1em; }
+p:last-child { margin-bottom: 0; }
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+a:hover { color: var(--accent-soft); }
+
+/* ============================================================
+   HEADER
+   ============================================================ */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  backdrop-filter: blur(18px) saturate(140%);
+  -webkit-backdrop-filter: blur(18px) saturate(140%);
+  background: color-mix(in oklch, var(--void-deepest) 75%, transparent);
+  border-bottom: 1px solid color-mix(in oklch, var(--accent) 18%, transparent);
+  transition: border-color 0.6s, background 0.6s;
+}
+.site-header__inner {
+  width: var(--container);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: 0.9rem 0;
+  flex-wrap: wrap;
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+.brand__mark {
+  width: 36px;
+  height: 36px;
+  position: relative;
+  flex-shrink: 0;
+}
+.brand__mark svg {
+  width: 100%; height: 100%;
+  filter: drop-shadow(0 0 6px var(--accent-glow));
+}
+.brand__name {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: var(--bone);
+}
+.brand__sub {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--accent);
+  margin-top: 2px;
+}
+nav.primary {
+  display: flex;
+  gap: 0.25rem;
+  flex-wrap: wrap;
+}
+nav.primary a {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--bone-dim);
+  padding: 0.45rem 0.85rem;
+  border-radius: var(--radius-sm);
+  transition: all 0.25s;
+  border: 1px solid transparent;
+}
+nav.primary a:hover {
+  color: var(--accent);
+  background: var(--accent-faint);
+  border-color: color-mix(in oklch, var(--accent) 25%, transparent);
+}
+.header-status {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.45rem 0.85rem;
+  border: 1px solid color-mix(in oklch, var(--accent) 28%, transparent);
+  border-radius: 999px;
+  background: var(--accent-faint);
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+.header-status__dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 8px var(--accent-glow);
+  animation: pulse 2s ease-in-out infinite;
+}
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%      { opacity: 0.6; transform: scale(0.8); }
+}
+
+/* ============================================================
+   LAYOUT PRIMITIVES
+   ============================================================ */
+section {
+  padding: 5rem 0;
+  position: relative;
+}
+.container {
+  width: var(--container);
+  margin: 0 auto;
+}
+.container-tight {
+  width: var(--container-tight);
+  margin: 0 auto;
+}
+
+.section-head {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  margin-bottom: 2.5rem;
+  max-width: 720px;
+}
+.section-head__deck {
+  color: var(--bone-dim);
+  font-size: 1.05rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Corner-bracket panel */
+.panel {
+  position: relative;
+  background: linear-gradient(180deg,
+    color-mix(in oklch, var(--void-soft) 70%, transparent) 0%,
+    color-mix(in oklch, var(--void-deep) 60%, transparent) 100%);
+  border: 1px solid color-mix(in oklch, var(--accent) 16%, transparent);
+  border-radius: var(--radius);
+  padding: 1.75rem;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transition: border-color 0.6s, background 0.6s;
+}
+.panel--bracketed {
+  padding: 2rem;
+}
+.panel--bracketed::before,
+.panel--bracketed::after {
+  content: "";
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  border: 1px solid var(--accent);
+  pointer-events: none;
+}
+.panel--bracketed::before {
+  top: -1px; left: -1px;
+  border-right: none; border-bottom: none;
+}
+.panel--bracketed::after {
+  bottom: -1px; right: -1px;
+  border-left: none; border-top: none;
+}
+
+/* Hover-glow card */
+.glow-card {
+  position: relative;
+  overflow: hidden;
+}
+.glow-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(220px circle at var(--mx, 50%) var(--my, 50%),
+              var(--accent-faint), transparent 60%);
+  opacity: 0;
+  transition: opacity 0.3s;
+  pointer-events: none;
+}
+.glow-card:hover::after { opacity: 1; }
+
+/* ============================================================
+   HERO
+   ============================================================ */
+.hero {
+  padding: 7rem 0 5rem;
+  position: relative;
+}
+.hero__inner {
+  width: var(--container);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+  gap: 4rem;
+  align-items: end;
+}
+@media (max-width: 900px) {
+  .hero__inner { grid-template-columns: 1fr; gap: 2rem; }
+}
+.hero__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  color: var(--accent);
+}
+.hero__eyebrow::before {
+  content: "";
+  width: 32px;
+  height: 1px;
+  background: var(--accent);
+}
+.hero h1 {
+  margin-bottom: 1.5rem;
+}
+.hero h1 .hero__accent {
+  font-style: italic;
+  color: var(--accent);
+  font-weight: 400;
+}
+.hero__deck {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  color: var(--bone-soft);
+  max-width: 560px;
+  margin: 0 0 2rem;
+}
+.hero__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem 2.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid color-mix(in oklch, var(--accent) 20%, transparent);
+}
+.hero__meta-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+.hero__meta-key {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--bone-faint);
+}
+.hero__meta-val {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  color: var(--accent);
+}
+
+/* Mana sigil grid in hero right column */
+.hero__sigil {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.6rem;
+}
+.sigil-cell {
+  aspect-ratio: 1;
+  border: 1px solid color-mix(in oklch, var(--accent) 20%, transparent);
+  background: color-mix(in oklch, var(--void) 70%, transparent);
+  border-radius: var(--radius-sm);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--bone-dim);
+  transition: all 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+.sigil-cell:hover {
+  border-color: var(--accent);
+  background: var(--accent-faint);
+  color: var(--accent);
+}
+.sigil-cell__symbol {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 600;
+}
+.sym-w { background: var(--mc-w); color: var(--void-deepest); }
+.sym-u { background: var(--mc-u); color: var(--bone); }
+.sym-b { background: var(--mc-b); color: var(--bone); }
+.sym-r { background: var(--mc-r); color: var(--bone); }
+.sym-g { background: var(--mc-g); color: var(--bone); }
+.sym-c { background: var(--mc-c); color: var(--void-deepest); }
+
+/* ============================================================
+   STATS BAR
+   ============================================================ */
+.stats {
+  padding: 3rem 0;
+  border-block: 1px solid color-mix(in oklch, var(--accent) 12%, transparent);
+  background: linear-gradient(180deg,
+    color-mix(in oklch, var(--accent-faint) 30%, transparent),
+    transparent);
+}
+.stats__grid {
+  width: var(--container);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 2rem;
+}
+.stat {
+  position: relative;
+  padding-left: 1.2rem;
+  border-left: 1px solid color-mix(in oklch, var(--accent) 40%, transparent);
+}
+.stat__num {
+  font-family: var(--font-display);
+  font-size: 2.6rem;
+  line-height: 1;
+  color: var(--bone);
+  margin-bottom: 0.4rem;
+  font-variant-numeric: tabular-nums;
+}
+.stat__num .unit {
+  font-size: 1rem;
+  color: var(--accent);
+  margin-left: 0.2rem;
+}
+.stat__label {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--bone-dim);
+}
+
+/* ============================================================
+   IDENTITY SELECTOR
+   ============================================================ */
+.id-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.25rem;
+}
+.id-card {
+  position: relative;
+  padding: 1.75rem;
+  background: linear-gradient(180deg,
+    color-mix(in oklch, var(--void-elev) 70%, transparent),
+    color-mix(in oklch, var(--void-deep) 80%, transparent));
+  border: 1px solid color-mix(in oklch, var(--bone) 8%, transparent);
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: all 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
+  text-align: left;
+  font: inherit;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  overflow: hidden;
+}
+.id-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, var(--id-accent-faint, transparent), transparent 60%);
+  opacity: 0;
+  transition: opacity 0.4s;
+  pointer-events: none;
+}
+.id-card[aria-pressed="true"]::before { opacity: 1; }
+.id-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--id-accent, var(--accent));
+  box-shadow: 0 12px 28px -16px color-mix(in oklch, var(--id-accent, var(--accent)) 50%, transparent);
+}
+.id-card[aria-pressed="true"] {
+  border-color: var(--id-accent, var(--accent));
+  box-shadow: 0 0 30px color-mix(in oklch, var(--id-accent, var(--accent)) 25%, transparent);
+}
+.id-card__head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.id-card__code {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--id-accent, var(--accent));
+}
+.id-card__name {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  line-height: 1.15;
+  margin: 0;
+  color: var(--bone);
+}
+.id-card__pips {
+  display: flex;
+  gap: 0.3rem;
+  flex-wrap: wrap;
+}
+.pip {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-size: 0.7rem;
+  font-weight: 600;
+  border: 1px solid color-mix(in oklch, currentColor 30%, transparent);
+}
+.pip--missing {
+  background: transparent;
+  color: var(--bone-faint);
+  opacity: 0.5;
+  position: relative;
+}
+.pip--missing::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom right, transparent 45%, currentColor 45%, currentColor 55%, transparent 55%);
+}
+.id-card__line {
+  font-size: 0.92rem;
+  color: var(--bone-dim);
+  line-height: 1.55;
+}
+.id-card__foot {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 0.75rem;
+  border-top: 1px solid color-mix(in oklch, var(--bone) 10%, transparent);
+  margin-top: auto;
+}
+.id-card__status {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--bone-faint);
+}
+.id-card[aria-pressed="true"] .id-card__status {
+  color: var(--id-accent, var(--accent));
+}
+.id-card__arrow {
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  color: var(--id-accent, var(--accent));
+  transition: transform 0.3s;
+}
+.id-card:hover .id-card__arrow { transform: translateX(4px); }
+
+/* ============================================================
+   ACTIVE DOSSIER
+   ============================================================ */
+.dossier {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+  gap: 2rem;
+}
+@media (max-width: 1000px) {
+  .dossier { grid-template-columns: 1fr; }
+}
+
+.dossier__main {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+.dossier__aside {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.dossier-head {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.dossier-head__top {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.dossier-head__name {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  margin: 0;
+  color: var(--bone);
+}
+.dossier-head__code {
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  letter-spacing: 0.16em;
+  color: var(--accent);
+}
+.dossier-head__deck {
+  font-size: 1.08rem;
+  line-height: 1.6;
+  color: var(--bone-soft);
+  max-width: 700px;
+  margin: 0;
+}
+
+.dossier-tags {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+.tag {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 0.3rem 0.7rem;
+  border-radius: 999px;
+  border: 1px solid color-mix(in oklch, var(--accent) 30%, transparent);
+  background: var(--accent-faint);
+  color: var(--accent);
+}
+.tag--surface { color: var(--bone); border-color: color-mix(in oklch, var(--bone) 20%, transparent); background: color-mix(in oklch, var(--bone) 6%, transparent); }
+
+/* Axiom block */
+.axiom {
+  position: relative;
+  padding: 1.5rem 1.5rem 1.5rem 2.2rem;
+  background: var(--accent-faint);
+  border-left: 3px solid var(--accent);
+  border-radius: 0 var(--radius) var(--radius) 0;
+}
+.axiom::before {
+  content: "“";
+  position: absolute;
+  top: -0.2rem;
+  left: 0.8rem;
+  font-family: var(--font-display);
+  font-size: 3rem;
+  line-height: 1;
+  color: var(--accent);
+  opacity: 0.5;
+}
+.axiom__label {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 0.4rem;
+}
+.axiom__text {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-style: italic;
+  line-height: 1.4;
+  color: var(--bone);
+  margin: 0;
+}
+
+/* Pair block: public face / hidden function */
+.pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+@media (max-width: 600px) { .pair { grid-template-columns: 1fr; } }
+.pair__cell {
+  padding: 1.25rem;
+  border-radius: var(--radius);
+  background: color-mix(in oklch, var(--void-soft) 50%, transparent);
+  border: 1px solid color-mix(in oklch, var(--bone) 8%, transparent);
+}
+.pair__cell h4 {
+  margin: 0 0 0.4rem;
+  font-size: 0.78rem;
+  font-family: var(--font-mono);
+  font-weight: 400;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+.pair__cell--shadow h4 { color: var(--bone-dim); }
+.pair__cell p { color: var(--bone-soft); font-size: 0.95rem; }
+
+/* Definition list for dossier facts */
+.dl-facts {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 0.6rem 1.5rem;
+  margin: 0;
+}
+.dl-facts dt {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--bone-faint);
+  padding-top: 0.15rem;
+}
+.dl-facts dd {
+  margin: 0;
+  color: var(--bone-soft);
+  font-size: 0.95rem;
+}
+
+/* Mechanic chips */
+.mechanic-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.mechanic-chip {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  padding: 0.4rem 0.85rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid color-mix(in oklch, var(--accent) 25%, transparent);
+  background: transparent;
+  color: var(--accent-soft);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.mechanic-chip:hover {
+  background: var(--accent-faint);
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+/* Radar chart wrapper */
+.radar-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  max-width: 380px;
+  margin: 0 auto;
+}
+.radar-wrap canvas {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+/* Aside meta */
+.aside-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+.aside-meta__item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.55rem 0;
+  border-bottom: 1px dashed color-mix(in oklch, var(--bone) 12%, transparent);
+}
+.aside-meta__item:last-child { border-bottom: none; }
+.aside-meta__k {
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--bone-faint);
+}
+.aside-meta__v {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  color: var(--accent);
+}
+
+/* ============================================================
+   CROSS-IDENTITY TABLE
+   ============================================================ */
+.cross-table {
+  overflow-x: auto;
+  border-radius: var(--radius);
+  border: 1px solid color-mix(in oklch, var(--accent) 15%, transparent);
+}
+.cross-table table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+.cross-table th, .cross-table td {
+  padding: 0.9rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid color-mix(in oklch, var(--bone) 8%, transparent);
+  vertical-align: top;
+}
+.cross-table thead th {
+  background: var(--accent-faint);
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+  border-bottom: 1px solid var(--accent);
+}
+.cross-table tbody tr:hover {
+  background: color-mix(in oklch, var(--accent) 4%, transparent);
+}
+.cross-table .ident-cell {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  color: var(--bone);
+  font-weight: 500;
+}
+.cross-table .ident-cell small {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.14em;
+  color: var(--bone-faint);
+  text-transform: uppercase;
+  margin-top: 2px;
+}
+
+/* ============================================================
+   MECHANIC ACCORDION
+   ============================================================ */
+.accordion {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+.acc-item {
+  border: 1px solid color-mix(in oklch, var(--bone) 8%, transparent);
+  border-radius: var(--radius);
+  background: color-mix(in oklch, var(--void-soft) 40%, transparent);
+  overflow: hidden;
+  transition: border-color 0.3s;
+}
+.acc-item[open] {
+  border-color: color-mix(in oklch, var(--accent) 30%, transparent);
+}
+.acc-summary {
+  padding: 1.25rem 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  cursor: pointer;
+  list-style: none;
+  user-select: none;
+}
+.acc-summary::-webkit-details-marker { display: none; }
+.acc-summary__title {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  color: var(--bone);
+  margin: 0;
+}
+.acc-summary__meta {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--bone-faint);
+}
+.acc-summary__caret {
+  width: 24px;
+  height: 24px;
+  border: 1px solid color-mix(in oklch, var(--accent) 30%, transparent);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent);
+  font-size: 0.7rem;
+  flex-shrink: 0;
+  transition: transform 0.3s;
+}
+.acc-item[open] .acc-summary__caret { transform: rotate(45deg); }
+.acc-body {
+  padding: 0 1.5rem 1.5rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+@media (max-width: 700px) { .acc-body { grid-template-columns: 1fr; } }
+.acc-body h5 {
+  margin: 0 0 0.4rem;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+.acc-body p { font-size: 0.92rem; color: var(--bone-soft); }
+.acc-body .cards-mini {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+.acc-body .cards-mini span {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  padding: 0.25rem 0.6rem;
+  border-radius: var(--radius-sm);
+  background: color-mix(in oklch, var(--void-deep) 70%, transparent);
+  color: var(--bone-soft);
+  border: 1px solid color-mix(in oklch, var(--bone) 10%, transparent);
+}
+
+/* ============================================================
+   CARD ARCHIVE
+   ============================================================ */
+.archive-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 1.75rem;
+  align-items: center;
+}
+.archive-search {
+  flex: 1 1 280px;
+  position: relative;
+}
+.archive-search input {
+  width: 100%;
+  padding: 0.85rem 1rem 0.85rem 2.6rem;
+  background: color-mix(in oklch, var(--void-deep) 70%, transparent);
+  border: 1px solid color-mix(in oklch, var(--accent) 25%, transparent);
+  border-radius: var(--radius);
+  color: var(--bone);
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  outline: none;
+  transition: all 0.2s;
+}
+.archive-search input::placeholder { color: var(--bone-faint); }
+.archive-search input:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-faint);
+}
+.archive-search::before {
+  content: "⌕";
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--accent);
+  font-size: 1.1rem;
+}
+.archive-filters {
+  display: flex;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+}
+.filter-btn {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 0.5rem 0.95rem;
+  border: 1px solid color-mix(in oklch, var(--bone) 12%, transparent);
+  background: transparent;
+  color: var(--bone-dim);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.filter-btn:hover {
+  color: var(--accent);
+  border-color: color-mix(in oklch, var(--accent) 30%, transparent);
+}
+.filter-btn.active {
+  color: var(--accent);
+  background: var(--accent-faint);
+  border-color: var(--accent);
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+}
+.card-tile {
+  position: relative;
+  padding: 1.25rem;
+  background: color-mix(in oklch, var(--void-soft) 50%, transparent);
+  border: 1px solid color-mix(in oklch, var(--bone) 8%, transparent);
+  border-radius: var(--radius);
+  transition: all 0.25s;
+  overflow: hidden;
+}
+.card-tile:hover {
+  border-color: color-mix(in oklch, var(--accent) 40%, transparent);
+  transform: translateY(-2px);
+}
+.card-tile__head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 0.5rem;
+}
+.card-tile__name {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  color: var(--bone);
+  margin: 0;
+  line-height: 1.2;
+}
+.card-tile__set {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--bone-faint);
+}
+.card-tile__type {
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  color: var(--accent-soft);
+  margin-bottom: 0.7rem;
+  font-style: italic;
+}
+.card-tile__text {
+  font-size: 0.85rem;
+  color: var(--bone-soft);
+  line-height: 1.5;
+  margin-bottom: 0.8rem;
+}
+.card-tile__pips {
+  display: flex;
+  gap: 0.3rem;
+  margin-top: 0.6rem;
+  padding-top: 0.7rem;
+  border-top: 1px dashed color-mix(in oklch, var(--bone) 10%, transparent);
+  align-items: center;
+}
+.card-tile__pips .micro-pip {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+.card-tile__tag {
+  margin-left: auto;
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--bone-faint);
+}
+
+.archive-empty {
+  padding: 3rem;
+  text-align: center;
+  color: var(--bone-faint);
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+/* ============================================================
+   GLOSSARY
+   ============================================================ */
+.gloss-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+}
+.gloss-item {
+  padding: 1rem 1.1rem;
+  background: color-mix(in oklch, var(--void-soft) 30%, transparent);
+  border: 1px solid color-mix(in oklch, var(--bone) 6%, transparent);
+  border-radius: var(--radius-sm);
+  transition: all 0.2s;
+}
+.gloss-item:hover {
+  border-color: color-mix(in oklch, var(--accent) 30%, transparent);
+  background: var(--accent-faint);
+}
+.gloss-item dt {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  color: var(--accent);
+  margin-bottom: 0.3rem;
+}
+.gloss-item dd {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--bone-soft);
+  line-height: 1.55;
+}
+
+/* ============================================================
+   UNCERTAINTIES
+   ============================================================ */
+.uncert-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1rem;
+}
+.uncert-card {
+  position: relative;
+  padding: 1.25rem 1.4rem;
+  background: color-mix(in oklch, var(--void-soft) 40%, transparent);
+  border: 1px solid color-mix(in oklch, var(--bone) 10%, transparent);
+  border-left: 2px solid var(--accent);
+  border-radius: 0 var(--radius) var(--radius) 0;
+}
+.uncert-card h4 {
+  font-size: 1rem;
+  margin: 0 0 0.5rem;
+  color: var(--bone);
+}
+.uncert-card p {
+  font-size: 0.88rem;
+  color: var(--bone-dim);
+  margin: 0;
+}
+.uncert-card .uncert-flag {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 0.5rem;
+}
+
+/* ============================================================
+   SOURCES
+   ============================================================ */
+.sources-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+  gap: 0.6rem;
+}
+.source-item {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  padding: 0.7rem 0.9rem;
+  background: color-mix(in oklch, var(--void-soft) 30%, transparent);
+  border: 1px solid color-mix(in oklch, var(--bone) 6%, transparent);
+  border-radius: var(--radius-sm);
+  color: var(--bone-soft);
+  line-height: 1.5;
+  display: flex;
+  gap: 0.7rem;
+  align-items: flex-start;
+}
+.source-item__num {
+  font-family: var(--font-display);
+  font-style: italic;
+  color: var(--accent);
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+.source-item__tier {
+  display: inline-block;
+  margin-left: 0.3rem;
+  padding: 1px 6px;
+  font-size: 0.62rem;
+  border-radius: 3px;
+  background: var(--accent-faint);
+  color: var(--accent);
+  letter-spacing: 0.1em;
+}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.site-footer {
+  margin-top: 4rem;
+  padding: 3rem 0 2rem;
+  border-top: 1px solid color-mix(in oklch, var(--accent) 15%, transparent);
+  background: linear-gradient(180deg, transparent, color-mix(in oklch, var(--accent-faint) 50%, transparent));
+}
+.site-footer__inner {
+  width: var(--container);
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 2rem;
+}
+.site-footer__brand {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  color: var(--bone);
+}
+.site-footer__brand small {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-top: 4px;
+}
+.site-footer__meta {
+  display: grid;
+  grid-template-columns: repeat(2, max-content);
+  gap: 0.4rem 2rem;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--bone-dim);
+}
+.site-footer__meta dt { color: var(--bone-faint); letter-spacing: 0.14em; text-transform: uppercase; font-size: 0.62rem; }
+.site-footer__meta dd { margin: 0; color: var(--accent); }
+
+/* Utility */
+.sr-only {
+  position: absolute;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Section divider rune */
+.divider-rune {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  width: var(--container);
+  margin: 2rem auto;
+  color: color-mix(in oklch, var(--accent) 40%, transparent);
+}
+.divider-rune::before, .divider-rune::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, currentColor, transparent);
+}
+.divider-rune__mark {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+}
+</style>
+</head>
+
+<body>
+
+<div class="starfield" aria-hidden="true"></div>
+<div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
+
+<!-- ========================================================
+     HEADER
+     ======================================================== -->
+<header class="site-header">
+  <div class="site-header__inner">
+    <div class="brand">
+      <div class="brand__mark" aria-hidden="true">
+        <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="20" cy="20" r="18" fill="none" stroke="currentColor" stroke-width="0.8" opacity="0.4" style="color: var(--accent)"/>
+          <circle cx="20" cy="20" r="11" fill="none" stroke="currentColor" stroke-width="0.6" opacity="0.6" style="color: var(--accent)"/>
+          <g style="color: var(--accent)">
+            <circle cx="20" cy="6"  r="2" fill="currentColor"/>
+            <circle cx="33" cy="15" r="2" fill="currentColor"/>
+            <circle cx="28" cy="32" r="2" fill="currentColor"/>
+            <circle cx="12" cy="32" r="2" fill="currentColor"/>
+            <circle cx="7"  cy="15" r="2" fill="currentColor"/>
+            <circle cx="20" cy="20" r="2.5" fill="currentColor"/>
+          </g>
+        </svg>
+      </div>
+      <div>
+        <div class="brand__name">Vox Mana</div>
+        <div class="brand__sub">Research Codex · v2026</div>
+      </div>
+    </div>
+    <nav class="primary" aria-label="Primary navigation">
+      <a href="#identities">Identities</a>
+      <a href="#dossier">Dossier</a>
+      <a href="#cross">Cross-map</a>
+      <a href="#mechanics">Mechanics</a>
+      <a href="#archive">Archive</a>
+      <a href="#glossary">Glossary</a>
+      <a href="#uncertainties">Uncertainties</a>
+      <a href="#sources">Sources</a>
+    </nav>
+    <div class="header-status" role="status" aria-live="polite">
+      <span class="header-status__dot" aria-hidden="true"></span>
+      <span>Signal Locked · <span id="status-identity">WUBRG</span></span>
+    </div>
+  </div>
+</header>
+
+<!-- ========================================================
+     HERO
+     ======================================================== -->
+<section class="hero">
+  <div class="hero__inner">
+    <div>
+      <div class="hero__eyebrow">Volume I — Edges of the Color Pie</div>
+      <h1>
+        Where five colors meet,<br />
+        and where <span class="hero__accent">no color follows.</span>
+      </h1>
+      <p class="hero__deck">
+        Vox Mana is a research console for color identity, faction philosophy,
+        and mana topology across the Magic multiverse. This codex maps the two
+        outermost territories of the color pie — <em>full inclusion</em> and
+        <em>non-coloration</em> — and treats them not as opposites but as
+        questions the pie answers in different keys.
+      </p>
+      <div class="hero__meta">
+        <div class="hero__meta-item">
+          <span class="hero__meta-key">Volume</span>
+          <span class="hero__meta-val">I / IV</span>
+        </div>
+        <div class="hero__meta-item">
+          <span class="hero__meta-key">Identities Indexed</span>
+          <span class="hero__meta-val">4</span>
+        </div>
+        <div class="hero__meta-item">
+          <span class="hero__meta-key">Archive Records</span>
+          <span class="hero__meta-val" id="hero-card-count">39</span>
+        </div>
+        <div class="hero__meta-item">
+          <span class="hero__meta-key">Authority Tiers</span>
+          <span class="hero__meta-val">T1 · T2 · T3</span>
+        </div>
+      </div>
+    </div>
+    <div class="hero__sigil" aria-label="Mana sigil quick map">
+      <div class="sigil-cell"><div class="sigil-cell__symbol sym-w">W</div>White</div>
+      <div class="sigil-cell"><div class="sigil-cell__symbol sym-u">U</div>Blue</div>
+      <div class="sigil-cell"><div class="sigil-cell__symbol sym-b">B</div>Black</div>
+      <div class="sigil-cell"><div class="sigil-cell__symbol sym-r">R</div>Red</div>
+      <div class="sigil-cell"><div class="sigil-cell__symbol sym-g">G</div>Green</div>
+      <div class="sigil-cell"><div class="sigil-cell__symbol sym-c">C</div>Colorless</div>
+    </div>
+  </div>
+</section>
+
+<!-- ========================================================
+     STATS BAR
+     ======================================================== -->
+<aside class="stats" aria-label="Archive summary">
+  <div class="stats__grid">
+    <div class="stat">
+      <div class="stat__num">4<span class="unit">/ identities</span></div>
+      <div class="stat__label">Dossiers Indexed</div>
+    </div>
+    <div class="stat">
+      <div class="stat__num">39<span class="unit">/ records</span></div>
+      <div class="stat__label">Cards in Evidence Grid</div>
+    </div>
+    <div class="stat">
+      <div class="stat__num">6<span class="unit">/ keywords</span></div>
+      <div class="stat__label">Mechanics Mapped</div>
+    </div>
+    <div class="stat">
+      <div class="stat__num">40<span class="unit">/ tiered</span></div>
+      <div class="stat__label">Source Bibliography</div>
+    </div>
+    <div class="stat">
+      <div class="stat__num">8<span class="unit">/ open</span></div>
+      <div class="stat__label">Canon Uncertainties Flagged</div>
+    </div>
+  </div>
+</aside>
+
+<!-- ========================================================
+     IDENTITY SELECTOR
+     ======================================================== -->
+<section id="identities">
+  <div class="container">
+    <header class="section-head">
+      <span class="mono-label">§ 01 — Identity Selector</span>
+      <h2>Choose a vantage. The codex reshapes around it.</h2>
+      <p class="section-head__deck">
+        Each identity is a distinct relationship to the color pie. Five-color is
+        the pie summed; the three colorless branches each refuse it for different
+        reasons. Selecting an identity changes the active dossier, the ambient
+        accent, and the cross-references downstream.
+      </p>
+    </header>
+
+    <div class="id-grid" role="tablist" aria-label="Identity selector" id="id-grid">
+      <!-- populated by JS -->
+    </div>
+  </div>
+</section>
+
+<!-- ========================================================
+     ACTIVE DOSSIER
+     ======================================================== -->
+<section id="dossier">
+  <div class="container">
+    <header class="section-head">
+      <span class="mono-label">§ 02 — Active Dossier</span>
+      <h2 id="dossier-section-h">Identity intelligence — <span class="serif-em" id="dossier-section-name">Five-Color</span></h2>
+      <p class="section-head__deck" id="dossier-section-deck"></p>
+    </header>
+
+    <div class="dossier">
+      <!-- MAIN -->
+      <div class="dossier__main">
+        <article class="panel panel--bracketed" aria-live="polite">
+          <div class="dossier-head">
+            <div class="dossier-head__top">
+              <h3 class="dossier-head__name" id="d-name">Five-Color</h3>
+              <span class="dossier-head__code" id="d-code">WUBRG · {W}{U}{B}{R}{G}</span>
+            </div>
+            <p class="dossier-head__deck" id="d-deck"></p>
+            <div class="dossier-tags" id="d-tags"></div>
+          </div>
+        </article>
+
+        <article class="panel">
+          <div class="axiom">
+            <div class="axiom__label">Core Axiom</div>
+            <p class="axiom__text" id="d-axiom"></p>
+          </div>
+        </article>
+
+        <article class="panel">
+          <span class="mono-label">Public Face / Hidden Function</span>
+          <div class="pair" style="margin-top: 1rem;">
+            <div class="pair__cell">
+              <h4>Surface Identity</h4>
+              <p id="d-surface"></p>
+            </div>
+            <div class="pair__cell pair__cell--shadow">
+              <h4>Shadow Function</h4>
+              <p id="d-shadow"></p>
+            </div>
+          </div>
+        </article>
+
+        <article class="panel">
+          <span class="mono-label">Thesis & Analysis</span>
+          <h4 style="margin: 1rem 0 0.6rem; font-family: var(--font-display); font-size: 1.4rem; font-weight: 400; color: var(--bone);">
+            <span id="d-thesis-title">What this identity does to the color pie</span>
+          </h4>
+          <p id="d-thesis" style="font-size: 1rem; line-height: 1.7; color: var(--bone-soft);"></p>
+        </article>
+
+        <article class="panel">
+          <span class="mono-label">Canonical Mechanics</span>
+          <h4 style="margin: 1rem 0 1rem; font-family: var(--font-display); font-size: 1.3rem; font-weight: 400; color: var(--bone);">
+            How this identity is expressed mechanically
+          </h4>
+          <div class="mechanic-chips" id="d-mechanics"></div>
+        </article>
+
+        <article class="panel">
+          <span class="mono-label">Card Evidence</span>
+          <h4 style="margin: 1rem 0 1rem; font-family: var(--font-display); font-size: 1.3rem; font-weight: 400; color: var(--bone);">
+            Witnesses from the archive
+          </h4>
+          <div class="card-grid" id="d-cards" style="grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));"></div>
+        </article>
+      </div>
+
+      <!-- ASIDE -->
+      <aside class="dossier__aside">
+        <article class="panel panel--bracketed">
+          <span class="mono-label">Color Pressure</span>
+          <h4 style="margin: 0.8rem 0 1rem; font-family: var(--font-display); font-size: 1.2rem; font-weight: 400; color: var(--bone);">
+            Where the colors land
+          </h4>
+          <div class="radar-wrap">
+            <canvas id="color-radar" aria-label="Radar chart showing color presence" role="img"></canvas>
+          </div>
+          <details style="margin-top: 1rem;">
+            <summary style="cursor: pointer; font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent);">View data table</summary>
+            <table style="width: 100%; margin-top: 0.75rem; font-family: var(--font-mono); font-size: 0.78rem;">
+              <thead><tr><th style="text-align: left; padding: 0.3rem; color: var(--bone-faint);">Axis</th><th style="text-align: right; padding: 0.3rem; color: var(--bone-faint);">Value</th></tr></thead>
+              <tbody id="radar-table"></tbody>
+            </table>
+          </details>
+        </article>
+
+        <article class="panel">
+          <span class="mono-label">Identity Metadata</span>
+          <div class="aside-meta" style="margin-top: 1rem;">
+            <div class="aside-meta__item">
+              <span class="aside-meta__k">Colors Present</span>
+              <span class="aside-meta__v" id="d-colors-present"></span>
+            </div>
+            <div class="aside-meta__item">
+              <span class="aside-meta__k">Colors Missing</span>
+              <span class="aside-meta__v" id="d-colors-missing"></span>
+            </div>
+            <div class="aside-meta__item">
+              <span class="aside-meta__k">Core Drive</span>
+              <span class="aside-meta__v" id="d-drive"></span>
+            </div>
+            <div class="aside-meta__item">
+              <span class="aside-meta__k">Primary Tension</span>
+              <span class="aside-meta__v" id="d-tension" style="font-size: 0.95rem; text-align: right; max-width: 60%;"></span>
+            </div>
+            <div class="aside-meta__item">
+              <span class="aside-meta__k">Canon Tier</span>
+              <span class="aside-meta__v" id="d-tier"></span>
+            </div>
+          </div>
+        </article>
+
+        <article class="panel">
+          <span class="mono-label">Accuracy Calibration</span>
+          <div style="margin-top: 1rem; display: flex; flex-direction: column; gap: 0.65rem;" id="d-accuracy"></div>
+        </article>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<div class="divider-rune"><span class="divider-rune__mark">✦ · ✦ · ✦</span></div>
+
+<!-- ========================================================
+     CROSS-IDENTITY MAP
+     ======================================================== -->
+<section id="cross">
+  <div class="container">
+    <header class="section-head">
+      <span class="mono-label">§ 03 — Cross-Identity Map</span>
+      <h2>Four vantage points, one color pie.</h2>
+      <p class="section-head__deck">
+        These identities answer different questions about the pie's edges.
+        Treating them as one collapses their distinctions. Treating them as
+        opposites flattens their internal architecture.
+      </p>
+    </header>
+
+    <div class="cross-table">
+      <table>
+        <thead>
+          <tr>
+            <th>Identity</th>
+            <th>Colors / Missing</th>
+            <th>Surface</th>
+            <th>Shadow</th>
+            <th>Core Drive</th>
+            <th>Primary Tension</th>
+          </tr>
+        </thead>
+        <tbody id="cross-tbody"></tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ========================================================
+     MECHANICS & LORE
+     ======================================================== -->
+<section id="mechanics">
+  <div class="container">
+    <header class="section-head">
+      <span class="mono-label">§ 04 — Mechanics & Lore Connection</span>
+      <h2>Six keywords carry most of the identity weight.</h2>
+      <p class="section-head__deck">
+        Three mechanics translate <em>full inclusion</em>; three translate
+        <em>non-coloration</em>. None of them, alone, explains the identity it
+        serves — but together they form a map of how design language carries
+        philosophy.
+      </p>
+    </header>
+
+    <div class="accordion" id="mech-accordion"></div>
+  </div>
+</section>
+
+<!-- ========================================================
+     CARD ARCHIVE
+     ======================================================== -->
+<section id="archive">
+  <div class="container">
+    <header class="section-head">
+      <span class="mono-label">§ 05 — Card Archive</span>
+      <h2>Every card in evidence. Searchable.</h2>
+      <p class="section-head__deck">
+        Filter by identity branch or search by name, mechanic, or set. Each
+        record is a piece of witness for the analytical claims above.
+      </p>
+    </header>
+
+    <div class="archive-controls">
+      <label class="archive-search" for="archive-search-input">
+        <span class="sr-only">Search archive</span>
+        <input id="archive-search-input" type="search" placeholder="Search by name, mechanic, set, or keyword…" autocomplete="off" />
+      </label>
+      <div class="archive-filters" role="group" aria-label="Filter archive by identity">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="wubrg">Five-Color</button>
+        <button class="filter-btn" data-filter="artifact">Artifact</button>
+        <button class="filter-btn" data-filter="eldrazi">Eldrazi</button>
+        <button class="filter-btn" data-filter="wastes">Wastes</button>
+      </div>
+    </div>
+
+    <div class="card-grid" id="archive-grid"></div>
+    <div class="archive-empty" id="archive-empty" hidden>No records match the current filter.</div>
+  </div>
+</section>
+
+<!-- ========================================================
+     GLOSSARY
+     ======================================================== -->
+<section id="glossary">
+  <div class="container">
+    <header class="section-head">
+      <span class="mono-label">§ 06 — Glossary</span>
+      <h2>Terminology the codex assumes.</h2>
+      <p class="section-head__deck">
+        Each entry is supported by official rules, design articles, or
+        established secondary references. Search to filter.
+      </p>
+    </header>
+
+    <div class="archive-controls">
+      <label class="archive-search" for="glossary-search">
+        <span class="sr-only">Search glossary</span>
+        <input id="glossary-search" type="search" placeholder="Search terms…" autocomplete="off" />
+      </label>
+    </div>
+
+    <dl class="gloss-grid" id="glossary-grid"></dl>
+  </div>
+</section>
+
+<!-- ========================================================
+     UNCERTAINTIES
+     ======================================================== -->
+<section id="uncertainties">
+  <div class="container">
+    <header class="section-head">
+      <span class="mono-label">§ 07 — Conflicts & Uncertainties</span>
+      <h2>What this archive does not know.</h2>
+      <p class="section-head__deck">
+        Honest research names its edges. Below are the canon gaps,
+        interpretation boundaries, and synthesis flags that the rest of the
+        codex carries quietly underneath its confidence.
+      </p>
+    </header>
+
+    <div class="uncert-grid" id="uncert-grid"></div>
+  </div>
+</section>
+
+<!-- ========================================================
+     SOURCES
+     ======================================================== -->
+<section id="sources">
+  <div class="container">
+    <header class="section-head">
+      <span class="mono-label">§ 08 — Source Bibliography</span>
+      <h2>40 sources. Tiered by authority.</h2>
+      <p class="section-head__deck">
+        Tier 1: official Wizards of the Coast articles and design columns.
+        Tier 2: official card database and rules. Tier 3: secondary references
+        and corroborating commentary. Tier 3 sources never stand alone for
+        major claims.
+      </p>
+    </header>
+
+    <details open>
+      <summary style="cursor: pointer; padding: 0.85rem 1.2rem; background: var(--accent-faint); border: 1px solid color-mix(in oklch, var(--accent) 30%, transparent); border-radius: var(--radius); font-family: var(--font-mono); font-size: 0.78rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); margin-bottom: 1.25rem;">
+        Show full bibliography (40 records)
+      </summary>
+      <div class="sources-list" id="sources-list"></div>
+    </details>
+  </div>
+</section>
+
+<!-- ========================================================
+     FOOTER
+     ======================================================== -->
+<footer class="site-footer">
+  <div class="site-footer__inner">
+    <div class="site-footer__brand">
+      Vox Mana
+      <small>Identity engine · Lore intelligence</small>
+    </div>
+    <dl class="site-footer__meta">
+      <dt>Codex Build</dt><dd>v2026.05.20</dd>
+      <dt>Active Vantage</dt><dd id="footer-active">WUBRG</dd>
+      <dt>Archive State</dt><dd>Synchronised</dd>
+      <dt>Classification</dt><dd>Open Research</dd>
+    </dl>
+  </div>
+</footer>
+
+<!-- ========================================================
+     DATA + SCRIPTS
+     ======================================================== -->
+<script>
+// ============================================================
+// DATA — embedded from the MTG Five-Color & Colorless Dossier
+// ============================================================
+
+const IDENTITIES = {
+  wubrg: {
+    name: "Five-Color",
+    code: "WUBRG · {W}{U}{B}{R}{G}",
+    accent: "wubrg",
+    colors: ["W", "U", "B", "R", "G"],
+    missing: [],
+    deck: "The state of a card, character, or deck encompassing all five colors of the pie at once. Defined not by ideology but by full inclusion — totality, convergence, or overload depending on the object.",
+    surface: "Totality, balance, convergence, coalition — the color pie in repose.",
+    shadow: "Overload, contradiction, identity-collapse — Karona, False God: she belongs to no one because she belongs to everyone.",
+    axiom: "Refuse to leave any color behind.",
+    thesis: "Five-color is the chord struck when all five are played simultaneously. It is not a sixth color and not a faction. It is the color pie summed — which means it also internalises every enemy-color conflict at once. WUBRG identity reads as profoundly unifying (Slivers, Progenitus, the worldsoul tradition) or profoundly unstable (Karona, Coalition Victory, Conflux) depending on whether the five colors agree to share a body. Most true WUBRG mana costs belong to legendary creatures or to spells marking moments of planar unification.",
+    drive: "Refuse the cut",
+    tension: "Holding all five in one body without falling apart",
+    tier: "T1 — Confirmed",
+    tags: [
+      { label: "Full Inclusion", kind: "surface" },
+      { label: "Totality", kind: "surface" },
+      { label: "Convergence", kind: "surface" },
+      { label: "Overload Risk", kind: "shadow" }
+    ],
+    mechanics: ["Domain", "Sunburst", "Converge", "Hybrid Five-Color", "WUBRG Costs", "Five-Color Activated Abilities"],
+    radar: { W: 5, U: 5, B: 5, R: 5, G: 5, "Outside Pie": 0 },
+    accuracy: [
+      { area: "Five-color = all five colors", conf: "Confirmed" },
+      { area: "WUBRG has only a loose unifying philosophy", conf: "Supported" },
+      { area: "Five-color is not a single faction", conf: "Confirmed" },
+      { area: "Domain rewards land-type diversity", conf: "Confirmed" },
+      { area: "Sunburst & Converge are five-color-care mechanics", conf: "Confirmed" },
+      { area: "Five-color avatars as planar totality", conf: "Interpretive" }
+    ]
+  },
+
+  artifact: {
+    name: "Artifact (Colorless)",
+    code: "{C} · Constructed Objects",
+    accent: "artifact",
+    colors: [],
+    missing: ["W", "U", "B", "R", "G"],
+    deck: "The historically dominant colorless category. Artifacts are colorless because they are devices — machinery, relics, technology, equipment, vehicles — built by colored civilizations but politically neutral as objects.",
+    surface: "Utility, constructedness, durability — a tool that endures beyond its maker.",
+    shadow: "Sterility, hollowness — the object that serves any purpose may belong to no one in particular, and may be turned to ends its maker would have refused.",
+    axiom: "Be useful. Endure beyond the user.",
+    thesis: "An artifact is made — by a craftsperson, a planeswalker, a civilization — and carries that intention without inheriting its ideology. This is why artifacts are politically neutral by default (Rosewater) while still being capable of carrying enormous narrative weight: Karn the silver golem, the Mirari, the Golgothian Sylex. The colorless artifact is identity through function, not through belief. Equipment, Vehicles, and Constructs each express a different facet of the same constructedness.",
+    drive: "Build to outlast",
+    tension: "Maker's intent vs. user's purpose",
+    tier: "T1 — Confirmed",
+    tags: [
+      { label: "Constructedness", kind: "surface" },
+      { label: "Utility", kind: "surface" },
+      { label: "Neutral", kind: "surface" },
+      { label: "Sterility Risk", kind: "shadow" }
+    ],
+    mechanics: ["Affinity", "Modular", "Sunburst", "Equipment", "Vehicles (Crew)", "Improvise"],
+    radar: { W: 0, U: 0, B: 0, R: 0, G: 0, "Outside Pie": 3 },
+    accuracy: [
+      { area: "Colorless = no colored mana symbols", conf: "Confirmed" },
+      { area: "Artifacts default to colorless because they are technology, not ideology", conf: "Supported" },
+      { area: "Artifacts are politically neutral within the pie", conf: "Supported (with exceptions like New Phyrexia)" },
+      { area: "Artifacts as 'stored intention'", conf: "Interpretive" }
+    ]
+  },
+
+  eldrazi: {
+    name: "Eldrazi (Colorless)",
+    code: "{C} · The Blind Eternities",
+    accent: "eldrazi",
+    colors: [],
+    missing: ["W", "U", "B", "R", "G"],
+    deck: "A creature type and in-universe race native to the Blind Eternities. Unifiedly colorless by deliberate design — to position them outside the color pie itself, not against any one color. Defined by cosmic hunger and the warping of biology, reality, or physical properties.",
+    surface: "Alienness, cosmic scale, unknowability — beings whose categories do not include 'a color'.",
+    shadow: "Hunger, indifference, plane-erasure — so far outside any local framework that even one's own actions become unintelligible.",
+    axiom: "What you call 'a color' is too small a category to name me.",
+    thesis: "The Eldrazi were designed to feel outside the color pie — not enemies of any color, but enemies of the very framework in which colors mean anything. Three titans (Ulamog warps physical properties, Kozilek warps reality, Emrakul warps biology) were bound on Zendikar by Sorin, Ugin, and Nahiri; Devoid was created so smaller Eldrazi could carry colored mana costs while remaining unifiedly colorless. Ugin canonically advised against destroying them — they may be a natural force on a cosmic scale, closer to a hurricane than a villain.",
+    drive: "Exist outside the framework",
+    tension: "Outsider clarity vs. local unintelligibility",
+    tier: "T1 — Confirmed",
+    tags: [
+      { label: "Exteriority", kind: "surface" },
+      { label: "Cosmic Scale", kind: "surface" },
+      { label: "Unknowability", kind: "surface" },
+      { label: "Hunger Risk", kind: "shadow" }
+    ],
+    mechanics: ["Devoid", "Annihilator", "Ingest", "Processor", "{C} Costs", "Eldrazi Scions/Spawn"],
+    radar: { W: 0, U: 0, B: 0, R: 0, G: 0, "Outside Pie": 5 },
+    accuracy: [
+      { area: "Eldrazi designed colorless to signal alienness", conf: "Confirmed (Rosewater)" },
+      { area: "Three named titans on Zendikar", conf: "Confirmed" },
+      { area: "Other titans may or may not exist", conf: "Unverified" },
+      { area: "Devoid as a marker, not a true mechanic", conf: "Supported (Rosewater retrospective)" },
+      { area: "Annihilator expresses plane-destruction", conf: "Confirmed" },
+      { area: "Eldrazi as 'outside the pie rather than against it'", conf: "Supported" }
+    ]
+  },
+
+  wastes: {
+    name: "Wastes (Colorless)",
+    code: "Basic Land · No Land Type",
+    accent: "wastes",
+    colors: [],
+    missing: ["W", "U", "B", "R", "G"],
+    deck: "A typeless basic land introduced in Oath of the Gatewatch. Has the supertype Basic but no land type, taps for {C}, and flavorfully represents Zendikar terrain stripped of its color by Eldrazi consumption.",
+    surface: "Aftermath, desolation, emptiness — the residue of what was once colored.",
+    shadow: "Permanent ruin, erasure — never reseeding back into one of the colors.",
+    axiom: "After the colors are gone, I am what's left.",
+    thesis: "Wastes is the most fragile of the three colorless branches: it is consequence rather than entity. Not a civilization, not a tribe, not an ideology — a state that land enters when something colored has been emptied from it. The design choice to omit the land type was deliberate (so Wastes wouldn't accidentally boost Domain), and the flavor framing is consistent across all printings: blasted, ash-and-bone terrain that used to be Zendikar.",
+    drive: "Persist as what's left",
+    tension: "Whether the land can return to color",
+    tier: "T1 — Confirmed",
+    tags: [
+      { label: "Aftermath", kind: "surface" },
+      { label: "Desolation", kind: "surface" },
+      { label: "Negative Space", kind: "surface" },
+      { label: "Erasure Risk", kind: "shadow" }
+    ],
+    mechanics: ["Colorless Mana ({C})", "Basic Land (typeless)", "Eldrazi Blight (flavor)"],
+    radar: { W: 0, U: 0, B: 0, R: 0, G: 0, "Outside Pie": 4 },
+    accuracy: [
+      { area: "Wastes mechanics: basic land, no type, taps for {C}", conf: "Confirmed (Gatherer Oracle)" },
+      { area: "Wastes flavorfully linked to Eldrazi blight", conf: "Supported" },
+      { area: "Wastes as a 'civilization' or full philosophy", conf: "Overstated — Lightly Supported" },
+      { area: "Wastes on planes other than Zendikar (lore)", conf: "Unverified" }
+    ]
+  }
+};
+
+// ============================================================
+// MECHANICS DATA
+// ============================================================
+const MECHANICS = [
+  {
+    id: "domain", name: "Domain", branch: "wubrg", set: "Invasion (2000)",
+    rule: "Effects scale with the number of basic land types you control (1–5).",
+    flavor: "Introduced in Invasion as the signature of a Dominarian coalition gathering forces from every region against a unified Phyrexian enemy. Rewards land diversity rather than card-level five-color identity.",
+    notExplains: "Most domain cards are mono-coloured — domain is a property of the deck, not of the card.",
+    cards: ["Tribal Flames", "Collective Restraint", "Allied Strategies", "Herd Migration"]
+  },
+  {
+    id: "sunburst", name: "Sunburst", branch: "wubrg", set: "Fifth Dawn (2004)",
+    rule: "Permanent enters with +1/+1 counters (creature) or charge counters (artifact) equal to the colors of mana spent to cast it.",
+    flavor: "Tied to Mirrodin's five-sun cosmology — every sunburst card art features the five suns somewhere. Mechanically, it's colorless artifacts channeling colored magic.",
+    notExplains: "Operates on artifacts (colorless by default), so it is colorless objects channeling color — not true five-color objects.",
+    cards: ["Engineered Explosives", "Etched Oracle", "Spinal Parasite", "Suntouched Myr"]
+  },
+  {
+    id: "converge", name: "Converge", branch: "wubrg", set: "Battle for Zendikar (2015)",
+    rule: "Ability word: an effect scales with the number of colors of mana spent to cast the spell.",
+    flavor: "Introduced when the Gatewatch — a five-color coalition of planeswalkers — was forming on Zendikar. A cousin of Sunburst, but flexible across card types.",
+    notExplains: "Appears on cards of every color and even on colorless artifacts (Crystalline Crawler) — does not signal a specific color philosophy.",
+    cards: ["Radiant Flames", "Woodland Wanderer", "Bring to Light", "Crystalline Crawler"]
+  },
+  {
+    id: "devoid", name: "Devoid", branch: "eldrazi", set: "Battle for Zendikar (2015)",
+    rule: "Characteristic-defining keyword: 'This card has no color.' A devoid card with coloured mana in its cost still requires that mana but is colorless for any check of its color.",
+    flavor: "Preserves Eldrazi as unifiedly colorless even when their mana costs include colored symbols. Rosewater has since called naming it a 'mechanic' a mistake — it's really a marker.",
+    notExplains: "It carries no synergies of its own; cards mostly reference 'colorless' rather than 'devoid' directly.",
+    cards: ["Forerunner of Slaughter", "Dominator Drone", "Thought-Knot Seer", "Eldrazi Skyspawner"]
+  },
+  {
+    id: "annihilator", name: "Annihilator", branch: "eldrazi", set: "Rise of the Eldrazi (2010)",
+    rule: "'Whenever this creature attacks, defending player sacrifices N permanents.'",
+    flavor: "Built to express, mechanically, the Eldrazi-as-plane-destroyers narrative. High on Rosewater's storm scale; rarely reused.",
+    notExplains: "Doesn't itself say anything about colorlessness — it's a flavor of scale, not of color.",
+    cards: ["Emrakul, the Aeons Torn", "Ulamog, the Infinite Gyre", "Kozilek, Butcher of Truth", "Hand of Emrakul"]
+  },
+  {
+    id: "ingest", name: "Ingest / Processor", branch: "eldrazi", set: "Battle for Zendikar (2015)",
+    rule: "Ingest exiles the top card of opponent's library on combat damage. Processors benefit when opponent cards are exiled.",
+    flavor: "Together they express the Eldrazi consumption cycle: ingest is feeding, processor is digestion. The mechanical signature of cosmic-scale hunger.",
+    notExplains: "Exclusive to BFZ-era Eldrazi; doesn't appear on artifacts or Wastes.",
+    cards: ["Benthic Infiltrator", "Mist Intruder", "Wasteland Strangler", "Ulamog's Reclaimer"]
+  }
+];
+
+// ============================================================
+// CARD ARCHIVE
+// ============================================================
+const CARDS = [
+  // Five-color
+  { name: "Progenitus", set: "Conflux", type: "Legendary Creature — Hydra Avatar", cost: "WUBRG", colors: ["W","U","B","R","G"], branch: "wubrg", text: "Protection from everything; shuffles into library when it would die. The Avatar of the Alaran Worldsoul.", tag: "Worldsoul" },
+  { name: "Cromat", set: "Apocalypse", type: "Legendary Creature — Illusion", cost: "WUBRG", colors: ["W","U","B","R","G"], branch: "wubrg", text: "One ability for each enemy color pair. Five-color as performance-of-each-pairing.", tag: "Enemy Pairs" },
+  { name: "Sliver Queen", set: "Stronghold", type: "Legendary Creature — Sliver", cost: "WUBRG", colors: ["W","U","B","R","G"], branch: "wubrg", text: "Produces 1/1 Sliver tokens. The original brood-mother and the centre of the hive mind on Rath.", tag: "Hive" },
+  { name: "Sliver Legion", set: "Future Sight", type: "Legendary Creature — Sliver", cost: "WUBRG", colors: ["W","U","B","R","G"], branch: "wubrg", text: "All Slivers get +1/+1 for each other Sliver. The hive amplified by its own diversity.", tag: "Cumulative" },
+  { name: "Coalition Victory", set: "Invasion", type: "Sorcery", cost: "3WUBRG", colors: ["W","U","B","R","G"], branch: "wubrg", text: "Win the game if you control a land of each basic land type and a creature of each color.", tag: "Completeness" },
+  { name: "Conflux", set: "Conflux", type: "Sorcery", cost: "3WUBRG", colors: ["W","U","B","R","G"], branch: "wubrg", text: "Search your library for a white, blue, black, red, and green card; reveal and put into hand.", tag: "Gathering" },
+  { name: "Karona, False God", set: "Scourge", type: "Legendary Creature — Avatar Incarnation", cost: "WUBRG", colors: ["W","U","B","R","G"], branch: "wubrg", text: "Each upkeep, controller chooses next controller. 'False god' — she belongs to no one because she belongs to everyone.", tag: "Collapse" },
+  { name: "Child of Alara", set: "Conflux", type: "Legendary Creature — Avatar", cost: "WUBRG", colors: ["W","U","B","R","G"], branch: "wubrg", text: "When it dies, destroy all nonland permanents. The Conflux manifest; the plane made flesh.", tag: "Avatar" },
+  { name: "The Ur-Dragon", set: "Commander 2017", type: "Legendary Creature — Dragon Avatar", cost: "WUBRG", colors: ["W","U","B","R","G"], branch: "wubrg", text: "Eminence; trample; cast triggers; cost reduction for Dragons. The original Dragon, all five colors of dragonkind.", tag: "Ur-Tribal" },
+  { name: "Jodah, Archmage Eternal", set: "Dominaria", type: "Legendary Creature — Human Wizard", cost: "1UR W", colors: ["W","U","R"], branch: "wubrg", text: "You may pay WUBRG instead of any spell's mana cost. WUBRG as a universal key.", tag: "Universal Key" },
+  { name: "Reaper King", set: "Shadowmoor", type: "Legendary Artifact Creature — Scarecrow", cost: "Five hybrid", colors: ["W","U","B","R","G"], branch: "wubrg", text: "When a Scarecrow ETBs, destroy target permanent. Five-color via monocolor-hybrid pips.", tag: "Hybrid" },
+  { name: "Tribal Flames", set: "Modern Masters / Invasion", type: "Sorcery", cost: "1R", colors: ["R"], branch: "wubrg", text: "Deal damage to any target equal to your domain. Mono-red card, five-color payoff.", tag: "Domain" },
+  { name: "Engineered Explosives", set: "Fifth Dawn", type: "Artifact", cost: "X", colors: [], branch: "wubrg", text: "Sunburst: enters with charge counters equal to colors of mana spent. Colorless artifact channelling color.", tag: "Sunburst" },
+  { name: "Woodland Wanderer", set: "Battle for Zendikar", type: "Creature — Elemental", cost: "2G", colors: ["G"], branch: "wubrg", text: "Converge: +1/+1 counter for each color of mana spent; trample, vigilance.", tag: "Converge" },
+  { name: "Crystalline Crawler", set: "Commander 2016", type: "Artifact Creature — Construct", cost: "3", colors: [], branch: "wubrg", text: "Converge on a true-colorless artifact. Can produce mana of any color.", tag: "Converge" },
+  { name: "Maelstrom Archangel", set: "Conflux", type: "Creature — Angel", cost: "WUBRG", colors: ["W","U","B","R","G"], branch: "wubrg", text: "Combat damage triggers a free noncreature spell from hand.", tag: "Channel" },
+  { name: "Sliver Overlord", set: "Scourge", type: "Legendary Creature — Sliver Mutant", cost: "WUBRG", colors: ["W","U","B","R","G"], branch: "wubrg", text: "Tutor for Slivers; control opponent's Slivers. Hivemind dominance.", tag: "Hive" },
+
+  // Artifact
+  { name: "Sol Ring", set: "Limited Edition Alpha", type: "Artifact", cost: "1", colors: [], branch: "artifact", text: "{T}: Add {C}{C}. The first and most iconic colorless mana rock — present from Alpha.", tag: "Utility" },
+  { name: "Karn, Silver Golem", set: "Urza's Saga", type: "Legendary Artifact Creature — Golem", cost: "5", colors: [], branch: "artifact", text: "Animates noncreature artifacts. The first artificial planeswalker (pre-Mending).", tag: "Construct" },
+  { name: "Platinum Angel", set: "Mirrodin", type: "Artifact Creature — Angel", cost: "7", colors: [], branch: "artifact", text: "Players can't lose and your opponents can't win. Game-rewriting machinery.", tag: "Relic" },
+  { name: "Chalice of the Void", set: "Mirrodin", type: "Artifact", cost: "XX", colors: [], branch: "artifact", text: "Counters spells with mana value equal to charge counters. An instrument of restriction.", tag: "Utility" },
+  { name: "Mindslaver", set: "Mirrodin", type: "Artifact", cost: "6", colors: [], branch: "artifact", text: "Sacrifice: control target player's next turn. Ultimate manipulation device.", tag: "Relic" },
+  { name: "Smuggler's Copter", set: "Kaladesh", type: "Artifact — Vehicle", cost: "2", colors: [], branch: "artifact", text: "Crew 1; flying; loot when attacking/blocking. Vehicle becoming creature when crewed.", tag: "Vehicle" },
+  { name: "Heart of Kiran", set: "Aether Revolt", type: "Legendary Artifact — Vehicle", cost: "2", colors: [], branch: "artifact", text: "Crew 3 or remove a planeswalker loyalty counter. Flagship vehicle.", tag: "Vehicle" },
+  { name: "Sword of Fire and Ice", set: "Darksteel", type: "Artifact — Equipment", cost: "3", colors: [], branch: "artifact", text: "Equipped creature gets +2/+2, protection from R/U; on hit, deal 2 and draw.", tag: "Equipment" },
+  { name: "Cranial Plating", set: "Mirrodin", type: "Artifact — Equipment", cost: "2", colors: [], branch: "artifact", text: "Equipped creature gets +1/+1 for each artifact you control. Affinity-era equipment.", tag: "Equipment" },
+  { name: "Karn Liberated", set: "New Phyrexia", type: "Legendary Planeswalker — Karn", cost: "7", colors: [], branch: "artifact", text: "Exile target permanent; restart the game from a new state. Colorless planeswalker.", tag: "Planeswalker" },
+
+  // Eldrazi
+  { name: "Emrakul, the Aeons Torn", set: "Rise of the Eldrazi", type: "Legendary Creature — Eldrazi", cost: "15", colors: [], branch: "eldrazi", text: "Flying, protection from coloured spells, annihilator 6; cast triggers extra turn.", tag: "Titan" },
+  { name: "Ulamog, the Infinite Gyre", set: "Rise of the Eldrazi", type: "Legendary Creature — Eldrazi", cost: "11", colors: [], branch: "eldrazi", text: "Indestructible, annihilator 4, shuffles back from graveyard. Physical-property warping.", tag: "Titan" },
+  { name: "Ulamog, the Ceaseless Hunger", set: "Battle for Zendikar", type: "Legendary Creature — Eldrazi", cost: "10", colors: [], branch: "eldrazi", text: "Cast triggers exile 20. Defeated by the Gatewatch on Zendikar.", tag: "Titan" },
+  { name: "Kozilek, Butcher of Truth", set: "Rise of the Eldrazi", type: "Legendary Creature — Eldrazi", cost: "10", colors: [], branch: "eldrazi", text: "Cast triggers draw 4; annihilator 4; shuffles back. Titan of reality-warping.", tag: "Titan" },
+  { name: "Kozilek, the Great Distortion", set: "Oath of the Gatewatch", type: "Legendary Creature — Eldrazi", cost: "8CC", colors: [], branch: "eldrazi", text: "Discard for counter; if fewer than seven cards in hand, draw. First card to use the {C} mana symbol.", tag: "Titan" },
+  { name: "Emrakul, the Promised End", set: "Eldritch Moon", type: "Legendary Creature — Eldrazi", cost: "13", colors: [], branch: "eldrazi", text: "Costs less for each card type in your graveyard; control opponent's next turn. Emrakul on Innistrad.", tag: "Titan" },
+  { name: "Thought-Knot Seer", set: "Oath of the Gatewatch", type: "Creature — Eldrazi", cost: "3C", colors: [], branch: "eldrazi", text: "ETB exile target nonland card from opponent's hand; leaves play, opponent draws.", tag: "{C} Cost" },
+  { name: "Reality Smasher", set: "Oath of the Gatewatch", type: "Creature — Eldrazi", cost: "4C", colors: [], branch: "eldrazi", text: "Haste, trample; when targeted by a spell, opponent discards.", tag: "{C} Cost" },
+  { name: "Forerunner of Slaughter", set: "Battle for Zendikar", type: "Creature — Eldrazi", cost: "1BR", colors: ["B","R"], branch: "eldrazi", text: "Devoid; pay {1} to give an Eldrazi haste. Devoid card with coloured mana cost.", tag: "Devoid" },
+  { name: "Dominator Drone", set: "Battle for Zendikar", type: "Creature — Eldrazi Drone", cost: "3B", colors: ["B"], branch: "eldrazi", text: "Devoid, ingest; ETB triggers life loss if you control another colorless creature.", tag: "Ingest" },
+  { name: "All Is Dust", set: "Rise of the Eldrazi", type: "Tribal Sorcery — Eldrazi", cost: "7", colors: [], branch: "eldrazi", text: "Each player sacrifices all coloured permanents. Eldrazi nature as anti-colour.", tag: "Anti-Color" },
+  { name: "Ghostfire", set: "Future Sight", type: "Instant", cost: "1R", colors: ["R"], branch: "eldrazi", text: "'Ghostfire is colorless.' Future-shifted card representing Ugin's ghostfire — the inspiration for devoid.", tag: "Ghostfire" },
+
+  // Wastes / Lands
+  { name: "Wastes", set: "Oath of the Gatewatch", type: "Basic Land", cost: "—", colors: [], branch: "wastes", text: "{T}: Add {C}. Basic land of colorless mana — no land type. Flavorfully Eldrazi-blighted Zendikar.", tag: "Basic Land" },
+  { name: "Eye of Ugin", set: "Worldwake", type: "Legendary Land", cost: "—", colors: [], branch: "wastes", text: "Search for colorless Eldrazi creature card; cost reduction for colorless creatures. The original prison-locus.", tag: "Eldrazi Land" },
+  { name: "Eldrazi Temple", set: "Rise of the Eldrazi", type: "Land", cost: "—", colors: [], branch: "wastes", text: "{T}: Add {C}; or {T}: Add {2} for Eldrazi spells. Tribal Eldrazi ramp.", tag: "Eldrazi Land" }
+];
+
+// ============================================================
+// GLOSSARY
+// ============================================================
+const GLOSSARY = [
+  { term: "Affinity", def: "A Mirrodin-era mechanic reducing a spell's cost for each of a chosen permanent type the player controls — most famously 'affinity for artifacts.'" },
+  { term: "Annihilator", def: "Eldrazi triggered ability (Rise of the Eldrazi) forcing the defending player to sacrifice N permanents when the creature attacks." },
+  { term: "Artifact", def: "A card type representing made objects. Most artifacts are colorless, though colored artifacts exist." },
+  { term: "Avatar", def: "A creature subtype used for embodiments of larger forces. Progenitus and Child of Alara are five-color Avatars." },
+  { term: "Battle for Zendikar", def: "The 2015 set returning to Zendikar to depict the Eldrazi-Zendikari war. Introduced devoid and ingest." },
+  { term: "Blind Eternities", def: "The void between planes; the canonical origin of the Eldrazi." },
+  { term: "Color Identity", def: "A Commander-format characteristic comprising all colored mana symbols in a card's cost and rules text." },
+  { term: "Color Pie", def: "Magic's foundational framework arranging the five colors of mana into a wheel with ally and enemy relationships." },
+  { term: "Colorless", def: "An object characteristic and a mana type denoting the absence of color. Explicitly not a color." },
+  { term: "Colorless mana ({C})", def: "Mana symbol introduced in Oath of the Gatewatch denoting specifically colorless mana, required by {C} costs." },
+  { term: "Conflux", def: "The reunification event of the five shards of Alara; also a 2009 set title." },
+  { term: "Converge", def: "An ability word (Battle for Zendikar) scaling an effect with the number of colors of mana spent to cast the spell." },
+  { term: "Devoid", def: "A characteristic-defining keyword (Battle for Zendikar) reading 'This card has no color.'" },
+  { term: "Domain", def: "An ability word scaling with the number of basic land types you control. Originated in Invasion." },
+  { term: "Eldrazi", def: "A creature type for the alien race of the Blind Eternities; defined by cosmic hunger and plane-consumption." },
+  { term: "Eldrazi Scion", def: "Battle for Zendikar token Eldrazi; sacrifices for one mana of any color." },
+  { term: "Eldrazi Titan", def: "Ulamog, Kozilek, Emrakul — the three named titans." },
+  { term: "Emrakul", def: "The Eldrazi Titan of biological warping; canonically sealed in Innistrad's moon after Eldritch Moon." },
+  { term: "Equipment", def: "An artifact subtype (Mirrodin) for items that attach to creatures." },
+  { term: "Eye of Ugin", def: "A legendary land at the centre of the original Eldrazi prison on Zendikar." },
+  { term: "Five-color", def: "A card, deck, or identity comprising all five colors." },
+  { term: "Generic mana", def: "A type of cost (numbered symbols) payable with any mana; cannot be produced as mana." },
+  { term: "Ghostfire", def: "A Future Sight card and the lore-name for Ugin's colorless magic." },
+  { term: "Golem", def: "An artifact-creature subtype; Karn is the canonical silver golem." },
+  { term: "Hedron", def: "Floating geometric structures (Worldwake/Zendikar) used by Ugin and Nahiri to imprison the Eldrazi." },
+  { term: "Hive mind", def: "The shared cognition of the Sliver tribe." },
+  { term: "Hydra", def: "A green-iconic creature type; Progenitus is a five-color Hydra Avatar." },
+  { term: "Ingest", def: "An Eldrazi keyword (BFZ) exiling the top card of opponent's library on combat damage." },
+  { term: "Invasion", def: "The 2000 set initiating the Phyrexian invasion of Dominaria; introduced multicoloured gold themes and domain." },
+  { term: "Karn", def: "The first artificial planeswalker, a colorless silver golem created by Urza." },
+  { term: "Kozilek", def: "The Eldrazi Titan of reality-warping." },
+  { term: "Mana fixing", def: "Cards and lands that produce or convert mana to multiple colors; essential for five-color decks." },
+  { term: "Mirrodin", def: "A plane and a 2003 set; the first artifact-block return after Antiquities." },
+  { term: "Multicolored", def: "A card with more than one color; visually marked by gold frames." },
+  { term: "Multiverse", def: "Magic's setting of multiple planes connected via the Blind Eternities." },
+  { term: "Oath of the Gatewatch", def: "The 2016 set introducing the {C} colorless mana symbol, Wastes, and Kozilek, the Great Distortion." },
+  { term: "Phyrexia", def: "The artificial machine-organic plane and recurring antagonist." },
+  { term: "Planeswalker", def: "A magic-user with a spark allowing planar travel; also a card type." },
+  { term: "Processor", def: "An Eldrazi creature subtype that converts exiled cards into other effects." },
+  { term: "Progenitus", def: "The five-color Hydra Avatar of the Alaran Worldsoul." },
+  { term: "Rise of the Eldrazi", def: "The 2010 set introducing the Eldrazi tribe, annihilator, and the three Titans." },
+  { term: "Slivers", def: "A hive-minded creature type spanning multiple sets; original brood-mother is Sliver Queen." },
+  { term: "Sunburst", def: "A keyword (Fifth Dawn) putting counters on an artifact equal to the colors of mana spent to cast it." },
+  { term: "Ulamog", def: "The Eldrazi Titan of physical-property warping." },
+  { term: "Ugin", def: "The Spirit Dragon, a colorless ancient planeswalker; one of the original Eldrazi prison-architects." },
+  { term: "Vehicle", def: "An artifact subtype (Kaladesh) that becomes a creature when crewed." },
+  { term: "Wastes", def: "A basic land introduced in Oath of the Gatewatch with no land type, producing {C}." },
+  { term: "WUBRG", def: "Shorthand for all five colors in their pie order: White, blUe, Black, Red, Green." },
+  { term: "Zendikar", def: "A wilderness plane; the original prison-plane for the Eldrazi." }
+];
+
+// ============================================================
+// UNCERTAINTIES
+// ============================================================
+const UNCERTAINTIES = [
+  { flag: "Canon Gap", title: "Other Eldrazi Titans", text: "Ugin canonically states only three 'true' titans exist (Ulamog, Kozilek, Emrakul). Some flavor text leaves broader ambiguity. Treat additional titans as unverified." },
+  { flag: "Canon Gap", title: "Emrakul's Current Status", text: "Sealed inside Innistrad's moon at the end of Eldritch Moon. Whether this is a permanent prison or pending future story development is left open." },
+  { flag: "Canon Gap", title: "Wastes Beyond Zendikar", text: "Wastes is mechanically a deckbuilding tool available in any deck. Its narrative presence on planes other than Zendikar is not extensively canonized." },
+  { flag: "Interpretive", title: "WUBRG Philosophy", text: "Rosewater has noted that the closest thing WUBRG has to a unifying philosophy is recognition of the intersection of all five. Individual five-color cards belong to entirely different stories — Slivers, Progenitus, Karona, and Coalition Victory share no ideology." },
+  { flag: "Interpretive", title: "Colorless 'Philosophy'", text: "Officially: colorlessness has no inherent philosophy. Any unified colorless reading in this codex is synthesis, not canon. What colorlessness expresses depends entirely on whether the object is an artifact, an Eldrazi, a Wastes, or a one-off." },
+  { flag: "Synthesis", title: "Artifacts as 'Stored Intention'", text: "An interpretive read based on flavor patterns rather than a stated maxim. Supported by Karn's role, the Mirari, the Golgothian Sylex — but not officially codified." },
+  { flag: "Cleavage", title: "Artifact / Eldrazi / Wastes Are Not One Identity", text: "The three colorless branches share only that they have no colored mana symbols. Treating them as one philosophy collapses the most distinctive design space in the game." },
+  { flag: "Common Confusion", title: "Generic Mana vs. Colorless Mana", text: "Colorless ({C}) is a type of mana. Generic ({n}) is a type of cost. Colorless mana can pay both. Generic mana cannot be produced. A {C} cost requires specifically colorless mana — no color of mana pays it." }
+];
+
+// ============================================================
+// SOURCES
+// ============================================================
+const SOURCES = [
+  { n: 1, title: "Battle for Zendikar Mechanics — Matt Tabak", tier: 1, where: "magic.wizards.com" },
+  { n: 2, title: "Oath of the Gatewatch Mechanics — Matt Tabak", tier: 1, where: "magic.wizards.com" },
+  { n: 3, title: "Battle for Zendikards, Part One — Mark Rosewater", tier: 1, where: "magic.wizards.com" },
+  { n: 4, title: "Battle for Zendikards, Part Two — Mark Rosewater", tier: 1, where: "magic.wizards.com" },
+  { n: 5, title: "Preparing for Battle, Part 2 — Mark Rosewater", tier: 1, where: "magic.wizards.com" },
+  { n: 6, title: "Eldritch Perfect, Part 1 — Mark Rosewater", tier: 1, where: "magic.wizards.com" },
+  { n: 7, title: "Concept vs. Execution — Mark Rosewater", tier: 1, where: "magic.wizards.com" },
+  { n: 8, title: "Odds and Ends: Oath of the Gatewatch, Part 1 — Mark Rosewater", tier: 1, where: "magic.wizards.com" },
+  { n: 9, title: "Mechanical Color Pie 2021 Changes — Mark Rosewater", tier: 1, where: "magic.wizards.com" },
+  { n: 10, title: "Rise of the Eldrazi Mechanics", tier: 1, where: "magic.wizards.com" },
+  { n: 11, title: "Design Files: Mirrodin, Part 1 — Mark Rosewater", tier: 1, where: "magic.wizards.com" },
+  { n: 12, title: "Design Files: Mirrodin, Part 4 — Mark Rosewater", tier: 1, where: "magic.wizards.com" },
+  { n: 13, title: "Gatherer — Wastes oracle text & rulings", tier: 2, where: "gatherer.wizards.com" },
+  { n: 14, title: "Gatherer — Eldrazi Conscription rulings", tier: 2, where: "gatherer.wizards.com" },
+  { n: 15, title: "MTG Wiki — Color", tier: 3, where: "mtg.fandom.com" },
+  { n: 16, title: "MTG Wiki — WUBRG", tier: 3, where: "mtg.wiki" },
+  { n: 17, title: "MTG Wiki — Colorless", tier: 3, where: "mtg.fandom.com" },
+  { n: 18, title: "MTG Wiki — Generic mana cost", tier: 3, where: "mtg.fandom.com" },
+  { n: 19, title: "MTG Wiki — Wastes", tier: 3, where: "mtg.wiki" },
+  { n: 20, title: "MTG Wiki — Devoid", tier: 3, where: "mtg.wiki" },
+  { n: 21, title: "MTG Wiki — Annihilator", tier: 3, where: "mtg.fandom.com" },
+  { n: 22, title: "MTG Wiki — Domain", tier: 3, where: "mtg.fandom.com" },
+  { n: 23, title: "MTG Wiki — Sunburst", tier: 3, where: "mtg.wiki" },
+  { n: 24, title: "MTG Wiki — Converge", tier: 3, where: "mtg.fandom.com" },
+  { n: 25, title: "MTG Wiki — Eldrazi", tier: 3, where: "mtg.fandom.com" },
+  { n: 26, title: "MTG Wiki — Ulamog", tier: 3, where: "mtg.fandom.com" },
+  { n: 27, title: "MTG Wiki — Kozilek", tier: 3, where: "mtg.fandom.com" },
+  { n: 28, title: "MTG Wiki — Emrakul", tier: 3, where: "mtg.fandom.com" },
+  { n: 29, title: "MTG Wiki — Progenitus", tier: 3, where: "mtg.wiki" },
+  { n: 30, title: "MTG Wiki — Sliver / Sliver Queen", tier: 3, where: "mtg.wiki" },
+  { n: 31, title: "MTG Wiki — Karn", tier: 3, where: "mtg.wiki" },
+  { n: 32, title: "MTG Wiki — Invasion", tier: 3, where: "mtg.wiki" },
+  { n: 33, title: "Wargamer — MTG Eldrazi guide", tier: 3, where: "wargamer.com" },
+  { n: 34, title: "Draftsim — Colorless Mana in MTG", tier: 3, where: "draftsim.com" },
+  { n: 35, title: "Draftsim — 43 Best 5-Color Cards", tier: 3, where: "draftsim.com" },
+  { n: 36, title: "CoolStuffInc — Mechanics of Magic: Sunburst (Bockman)", tier: 3, where: "coolstuffinc.com" },
+  { n: 37, title: "CoolStuffInc — Mechanics Overview: Devoid (Lepore)", tier: 3, where: "coolstuffinc.com" },
+  { n: 38, title: "Card Kingdom Blog — History of Slivers", tier: 3, where: "blog.cardkingdom.com" },
+  { n: 39, title: "CBR — How Wizards Forged the Mirrodin Block", tier: 3, where: "cbr.com" },
+  { n: 40, title: "Commander's Herald — History of Artifacts", tier: 3, where: "commandersherald.com" }
+];
+
+// ============================================================
+// HELPERS
+// ============================================================
+function $(sel, root = document) { return root.querySelector(sel); }
+function $$(sel, root = document) { return [...root.querySelectorAll(sel)]; }
+function el(tag, attrs = {}, ...children) {
+  const node = document.createElement(tag);
+  for (const [k, v] of Object.entries(attrs)) {
+    if (k === "class") node.className = v;
+    else if (k === "html") node.innerHTML = v;
+    else if (k.startsWith("on")) node.addEventListener(k.slice(2), v);
+    else if (v === true) node.setAttribute(k, "");
+    else if (v !== false && v != null) node.setAttribute(k, v);
+  }
+  for (const c of children.flat()) {
+    if (c == null || c === false) continue;
+    node.appendChild(typeof c === "string" ? document.createTextNode(c) : c);
+  }
+  return node;
+}
+function pipClass(c) { return "sym-" + c.toLowerCase(); }
+
+// ============================================================
+// IDENTITY SELECTOR
+// ============================================================
+function renderIdentities() {
+  const grid = $("#id-grid");
+  const order = ["wubrg", "artifact", "eldrazi", "wastes"];
+  for (const id of order) {
+    const i = IDENTITIES[id];
+    const accentVar = `var(--accent)`;
+    const card = el("button", {
+      class: "id-card glow-card",
+      type: "button",
+      role: "tab",
+      "data-id": id,
+      "aria-pressed": id === "wubrg" ? "true" : "false",
+      style: `--id-accent: ${id === 'wubrg' ? 'oklch(0.82 0.16 85)' : id === 'artifact' ? 'oklch(0.80 0.07 215)' : id === 'eldrazi' ? 'oklch(0.70 0.18 305)' : 'oklch(0.74 0.04 60)'}; --id-accent-faint: ${id === 'wubrg' ? 'oklch(0.82 0.16 85 / 0.10)' : id === 'artifact' ? 'oklch(0.80 0.07 215 / 0.08)' : id === 'eldrazi' ? 'oklch(0.70 0.18 305 / 0.12)' : 'oklch(0.74 0.04 60 / 0.08)'}; color: inherit;`
+    });
+
+    const head = el("div", { class: "id-card__head" },
+      el("div", {},
+        el("div", { class: "id-card__code" }, i.code.split(" · ")[0]),
+        el("h3", { class: "id-card__name" }, i.name)
+      ),
+      el("div", { class: "id-card__pips" },
+        ...["W","U","B","R","G"].map(c => {
+          const present = i.colors.includes(c);
+          return el("span", {
+            class: `pip ${pipClass(c)} ${present ? "" : "pip--missing"}`,
+            "aria-label": (present ? "Has " : "Missing ") + c
+          }, c);
+        })
+      )
+    );
+
+    const line = el("p", { class: "id-card__line" }, i.surface);
+
+    const foot = el("div", { class: "id-card__foot" },
+      el("span", { class: "id-card__status" }, id === "wubrg" ? "Active vantage" : "Tap to open dossier"),
+      el("span", { class: "id-card__arrow" }, "→")
+    );
+
+    card.append(head, line, foot);
+
+    // Mouse-position glow tracking
+    card.addEventListener("mousemove", (e) => {
+      const r = card.getBoundingClientRect();
+      card.style.setProperty("--mx", `${e.clientX - r.left}px`);
+      card.style.setProperty("--my", `${e.clientY - r.top}px`);
+    });
+
+    card.addEventListener("click", () => setActiveIdentity(id));
+    grid.appendChild(card);
+  }
+}
+
+// ============================================================
+// ACTIVE DOSSIER RENDER
+// ============================================================
+let radarChart = null;
+
+function setActiveIdentity(id) {
+  const i = IDENTITIES[id];
+
+  // Theme
+  document.body.setAttribute("data-theme", i.accent);
+  $("#status-identity").textContent = i.code.split(" · ")[0];
+  $("#footer-active").textContent = i.code.split(" · ")[0];
+
+  // Tab pressed state
+  $$(".id-card").forEach(c => {
+    const isActive = c.dataset.id === id;
+    c.setAttribute("aria-pressed", isActive ? "true" : "false");
+    c.querySelector(".id-card__status").textContent = isActive ? "Active vantage" : "Tap to open dossier";
+  });
+
+  // Section head
+  $("#dossier-section-name").textContent = i.name;
+  $("#dossier-section-deck").textContent = i.deck;
+
+  // Main panel
+  $("#d-name").textContent = i.name;
+  $("#d-code").textContent = i.code;
+  $("#d-deck").textContent = i.deck;
+  $("#d-axiom").textContent = i.axiom;
+  $("#d-surface").textContent = i.surface;
+  $("#d-shadow").textContent = i.shadow;
+  $("#d-thesis").textContent = i.thesis;
+
+  // Tags
+  const tagBar = $("#d-tags");
+  tagBar.innerHTML = "";
+  i.tags.forEach(t => tagBar.appendChild(el("span", { class: `tag ${t.kind === "shadow" ? "" : "tag--surface"}` }, t.label)));
+
+  // Mechanics
+  const mechBar = $("#d-mechanics");
+  mechBar.innerHTML = "";
+  i.mechanics.forEach(m => mechBar.appendChild(el("button", { class: "mechanic-chip", type: "button", onclick: () => scrollToMechanic(m) }, m)));
+
+  // Aside meta
+  $("#d-colors-present").textContent = i.colors.length ? i.colors.join(" · ") : "None";
+  $("#d-colors-missing").textContent = i.missing.length ? i.missing.join(" · ") : "None";
+  $("#d-drive").textContent = i.drive;
+  $("#d-tension").textContent = i.tension;
+  $("#d-tier").textContent = i.tier;
+
+  // Accuracy notes
+  const accWrap = $("#d-accuracy");
+  accWrap.innerHTML = "";
+  i.accuracy.forEach(a => {
+    accWrap.appendChild(el("div", { style: "font-size: 0.85rem;" },
+      el("div", { style: "color: var(--bone); margin-bottom: 0.2rem; line-height: 1.4;" }, a.area),
+      el("div", { style: "font-family: var(--font-mono); font-size: 0.65rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent);" }, a.conf)
+    ));
+  });
+
+  // Card evidence (filtered)
+  const cardWrap = $("#d-cards");
+  cardWrap.innerHTML = "";
+  const evidence = CARDS.filter(c => c.branch === id).slice(0, 9);
+  evidence.forEach(c => cardWrap.appendChild(renderCardTile(c)));
+
+  // Radar
+  updateRadar(i);
+}
+
+function renderCardTile(c) {
+  const pips = el("div", { class: "card-tile__pips" },
+    ...c.colors.map(col => el("span", { class: `micro-pip ${pipClass(col)}`, "aria-label": col })),
+    c.colors.length === 0 ? el("span", { class: "micro-pip sym-c", "aria-label": "Colorless" }) : null,
+    el("span", { class: "card-tile__tag" }, c.tag)
+  );
+  return el("div", { class: "card-tile glow-card", "data-branch": c.branch, "data-search": (c.name + " " + c.set + " " + c.text + " " + c.tag + " " + c.type).toLowerCase() },
+    el("div", { class: "card-tile__head" },
+      el("h4", { class: "card-tile__name" }, c.name),
+      el("span", { class: "card-tile__set" }, c.set)
+    ),
+    el("div", { class: "card-tile__type" }, c.type + " · " + c.cost),
+    el("p", { class: "card-tile__text" }, c.text),
+    pips
+  );
+}
+
+// ============================================================
+// RADAR CHART
+// ============================================================
+function updateRadar(identity) {
+  const ctx = $("#color-radar").getContext("2d");
+  const labels = ["White", "Blue", "Black", "Red", "Green", "Outside Pie"];
+  const data = [
+    identity.radar.W, identity.radar.U, identity.radar.B,
+    identity.radar.R, identity.radar.G, identity.radar["Outside Pie"]
+  ];
+
+  // Table
+  const tbl = $("#radar-table");
+  tbl.innerHTML = "";
+  labels.forEach((l, idx) => {
+    tbl.appendChild(el("tr", {},
+      el("td", { style: "padding: 0.3rem; color: var(--bone-soft);" }, l),
+      el("td", { style: "padding: 0.3rem; text-align: right; color: var(--accent);" }, String(data[idx]))
+    ));
+  });
+
+  const accentRgb = getComputedAccent();
+
+  if (radarChart) {
+    radarChart.data.datasets[0].data = data;
+    radarChart.data.datasets[0].borderColor = `rgba(${accentRgb}, 0.95)`;
+    radarChart.data.datasets[0].backgroundColor = `rgba(${accentRgb}, 0.18)`;
+    radarChart.data.datasets[0].pointBackgroundColor = `rgba(${accentRgb}, 1)`;
+    radarChart.update();
+    return;
+  }
+
+  Chart.defaults.font.family = "'IBM Plex Mono', monospace";
+  Chart.defaults.font.size = 10;
+
+  radarChart = new Chart(ctx, {
+    type: "radar",
+    data: {
+      labels,
+      datasets: [{
+        label: "Color Presence",
+        data,
+        borderColor: `rgba(${accentRgb}, 0.95)`,
+        backgroundColor: `rgba(${accentRgb}, 0.18)`,
+        borderWidth: 2,
+        pointBackgroundColor: `rgba(${accentRgb}, 1)`,
+        pointBorderColor: "rgba(20, 20, 30, 1)",
+        pointBorderWidth: 1,
+        pointRadius: 4
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: true,
+      plugins: { legend: { display: false }, tooltip: { backgroundColor: "rgba(15, 15, 25, 0.95)", titleColor: "#fff", bodyColor: "#ccc", borderColor: `rgba(${accentRgb}, 0.5)`, borderWidth: 1 } },
+      scales: {
+        r: {
+          min: 0, max: 5,
+          ticks: { display: false, stepSize: 1 },
+          grid:  { color: "rgba(200, 200, 220, 0.10)" },
+          angleLines: { color: "rgba(200, 200, 220, 0.15)" },
+          pointLabels: { color: "rgba(220, 220, 230, 0.7)", font: { size: 11, family: "'IBM Plex Mono', monospace" } }
+        }
+      }
+    }
+  });
+}
+
+function getComputedAccent() {
+  // Convert OKLCH accent to approximate RGB for canvas use
+  const map = {
+    wubrg:    "212, 175, 86",
+    artifact: "150, 195, 210",
+    eldrazi:  "175, 110, 215",
+    wastes:   "190, 175, 150"
+  };
+  return map[document.body.dataset.theme] || map.wubrg;
+}
+
+// ============================================================
+// CROSS-IDENTITY TABLE
+// ============================================================
+function renderCrossTable() {
+  const tbody = $("#cross-tbody");
+  const order = ["wubrg", "artifact", "eldrazi", "wastes"];
+  order.forEach(id => {
+    const i = IDENTITIES[id];
+    tbody.appendChild(el("tr", {},
+      el("td", { class: "ident-cell" }, i.name, el("small", {}, i.code.split(" · ")[0])),
+      el("td", {}, (i.colors.length ? i.colors.join(" · ") : "None") + " / " + (i.missing.length ? i.missing.join(" · ") : "None")),
+      el("td", {}, i.surface.split(" — ")[0]),
+      el("td", {}, i.shadow.split(" — ")[0]),
+      el("td", {}, i.drive),
+      el("td", {}, i.tension)
+    ));
+  });
+}
+
+// ============================================================
+// MECHANIC ACCORDION
+// ============================================================
+function renderMechanics() {
+  const wrap = $("#mech-accordion");
+  MECHANICS.forEach((m, idx) => {
+    const branchLabel = m.branch === "wubrg" ? "Five-Color" : m.branch === "eldrazi" ? "Eldrazi" : "Colorless";
+    const item = el("details", { class: "acc-item", "data-mech": m.id, ...(idx === 0 ? { open: true } : {}) },
+      el("summary", { class: "acc-summary" },
+        el("div", {},
+          el("h3", { class: "acc-summary__title" }, m.name),
+          el("div", { class: "acc-summary__meta" }, branchLabel + " · " + m.set)
+        ),
+        el("span", { class: "acc-summary__caret" }, "+")
+      ),
+      el("div", { class: "acc-body" },
+        el("div", {},
+          el("h5", {}, "Rule"),
+          el("p", {}, m.rule),
+          el("h5", { style: "margin-top: 1rem;" }, "Flavor / Lore"),
+          el("p", {}, m.flavor)
+        ),
+        el("div", {},
+          el("h5", {}, "What It Doesn't Explain"),
+          el("p", {}, m.notExplains),
+          el("h5", { style: "margin-top: 1rem;" }, "Best Examples"),
+          el("div", { class: "cards-mini" }, ...m.cards.map(c => el("span", {}, c)))
+        )
+      )
+    );
+    wrap.appendChild(item);
+  });
+}
+
+function scrollToMechanic(name) {
+  const id = MECHANICS.find(m => m.name.toLowerCase().startsWith(name.toLowerCase().split(" ")[0]))?.id;
+  if (!id) {
+    document.getElementById("mechanics")?.scrollIntoView({ behavior: "smooth", block: "start" });
+    return;
+  }
+  const target = $(`[data-mech="${id}"]`);
+  if (target) {
+    $$(".acc-item").forEach(d => d.open = false);
+    target.open = true;
+    target.scrollIntoView({ behavior: "smooth", block: "center" });
+  }
+}
+
+// ============================================================
+// ARCHIVE
+// ============================================================
+let activeFilter = "all";
+function renderArchive() {
+  const grid = $("#archive-grid");
+  grid.innerHTML = "";
+  CARDS.forEach(c => grid.appendChild(renderCardTile(c)));
+  applyArchiveFilter();
+}
+
+function applyArchiveFilter() {
+  const q = $("#archive-search-input").value.trim().toLowerCase();
+  const tiles = $$("#archive-grid .card-tile");
+  let shown = 0;
+  tiles.forEach(t => {
+    const branch = t.dataset.branch;
+    const search = t.dataset.search || "";
+    const branchOk = activeFilter === "all" || branch === activeFilter;
+    const searchOk = !q || search.includes(q);
+    const show = branchOk && searchOk;
+    t.style.display = show ? "" : "none";
+    if (show) shown++;
+  });
+  $("#archive-empty").hidden = shown > 0;
+}
+
+function bindArchiveControls() {
+  $("#archive-search-input").addEventListener("input", applyArchiveFilter);
+  $$(".filter-btn").forEach(b => {
+    b.addEventListener("click", () => {
+      $$(".filter-btn").forEach(x => x.classList.remove("active"));
+      b.classList.add("active");
+      activeFilter = b.dataset.filter;
+      applyArchiveFilter();
+    });
+  });
+}
+
+// ============================================================
+// GLOSSARY
+// ============================================================
+function renderGlossary() {
+  const wrap = $("#glossary-grid");
+  GLOSSARY.forEach(g => {
+    wrap.appendChild(el("div", { class: "gloss-item", "data-search": (g.term + " " + g.def).toLowerCase() },
+      el("dt", {}, g.term),
+      el("dd", {}, g.def)
+    ));
+  });
+  $("#glossary-search").addEventListener("input", (e) => {
+    const q = e.target.value.trim().toLowerCase();
+    $$("#glossary-grid .gloss-item").forEach(it => {
+      it.style.display = !q || it.dataset.search.includes(q) ? "" : "none";
+    });
+  });
+}
+
+// ============================================================
+// UNCERTAINTIES
+// ============================================================
+function renderUncertainties() {
+  const wrap = $("#uncert-grid");
+  UNCERTAINTIES.forEach(u => {
+    wrap.appendChild(el("article", { class: "uncert-card" },
+      el("span", { class: "uncert-flag" }, u.flag),
+      el("h4", {}, u.title),
+      el("p", {}, u.text)
+    ));
+  });
+}
+
+// ============================================================
+// SOURCES
+// ============================================================
+function renderSources() {
+  const wrap = $("#sources-list");
+  SOURCES.forEach(s => {
+    wrap.appendChild(el("div", { class: "source-item" },
+      el("span", { class: "source-item__num" }, String(s.n).padStart(2, "0")),
+      el("div", {},
+        s.title,
+        el("span", { class: "source-item__tier" }, "T" + s.tier),
+        document.createElement("br"),
+        el("span", { style: "color: var(--bone-faint); font-size: 0.7rem;" }, s.where)
+      )
+    ));
+  });
+}
+
+// ============================================================
+// SCROLL PROGRESS
+// ============================================================
+function bindScrollProgress() {
+  const bar = $("#scroll-progress");
+  const onScroll = () => {
+    const h = document.documentElement.scrollHeight - window.innerHeight;
+    const pct = h > 0 ? (window.scrollY / h) * 100 : 0;
+    bar.style.width = pct + "%";
+  };
+  document.addEventListener("scroll", onScroll, { passive: true });
+  onScroll();
+}
+
+// ============================================================
+// BOOT
+// ============================================================
+document.addEventListener("DOMContentLoaded", () => {
+  renderIdentities();
+  renderCrossTable();
+  renderMechanics();
+  renderArchive();
+  renderGlossary();
+  renderUncertainties();
+  renderSources();
+  bindArchiveControls();
+  bindScrollProgress();
+  setActiveIdentity("wubrg");
+
+  // Respect prefers-reduced-motion
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    document.body.setAttribute("data-motion", "reduced");
+  }
+});
+</script>
+
+</body>
+</html>

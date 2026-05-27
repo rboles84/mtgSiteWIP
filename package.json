@@ -2,6 +2,7 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "build:precons": "node research/build-precon-artifacts.mjs",
     "build:factions": "node research/build-faction-artifacts.mjs",
     "audit:factions": "node research/enrich-faction-data.mjs --audit",
     "dossier:audit": "node research/audit-dossiers.mjs",
@@ -40,6 +41,7 @@
     "lighthouse": "^13.3.0",
     "pixelmatch": "^7.2.0",
     "pngjs": "^7.0.0",
-    "puppeteer-core": "^25.0.4"
+    "puppeteer-core": "^25.0.4",
+    "xlsx": "^0.18.5"
   }
 }

@@ -40,6 +40,12 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 ## Done
 
+- [VM-141 - Expand Remaining Precon Recommendations In Archscry](done/VM-141-expand-remaining-precon-recommendations-in-archscry.md)
+- [VM-140 - Premium Recommended Precon Decks Section](done/VM-140-premium-recommended-precon-decks-section.md)
+- [VM-139 - Apply Validated Precon Mechanics From Completed XLSX](done/VM-139-import-validated-precon-mechanics.md)
+- [VM-138 - Precon Unicode Name Preservation](done/VM-138-precon-unicode-name-preservation.md)
+- [VM-137 - Faction-Native Precon Recommendations Across Active Archscry Expressions](done/VM-137-faction-native-precons.md)
+- [VM-136 - Archscry Precon Layer In Commander Deck Starts](done/VM-136-archscry-precon-layer.md)
 - [VM-135 - Archscry Card Voices, Identity Story, And Land Deduping](done/VM-135-archscry-card-voices-identity-story-land-dedupe.md)
 - [VM-134 - Apocrypha Hero Unification Pass](done/VM-134-apocrypha-hero-unification-pass.md)
 - [VM-129G - Maze Help Removal And Loom Clear Reset](done/VM-129G-maze-help-removal-loom-clear-reset.md)

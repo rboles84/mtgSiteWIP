@@ -27,14 +27,14 @@ const captureConfigs = [
   { name: "dossier-why-desktop", width: 1440, height: 2400, state: "dossier", panel: "why", layout: "focus" },
   { name: "dossier-start-mobile", width: 375, height: 2200, state: "dossier", panel: "start", layout: "focus" },
   { name: "dossier-start-desktop", width: 1440, height: 2200, state: "dossier", panel: "start", layout: "focus" },
-  { name: "dossier-commander-deck-starts-mobile", width: 375, height: 2200, state: "dossier", panel: "commander-deck-starts", layout: "focus" },
-  { name: "dossier-commander-deck-starts-desktop", width: 1440, height: 2200, state: "dossier", panel: "commander-deck-starts", layout: "focus" },
+  { name: "dossier-commander-deck-starts-mobile", width: 375, height: 2800, state: "dossier", panel: "commander-deck-starts", layout: "focus" },
+  { name: "dossier-commander-deck-starts-desktop", width: 1440, height: 2800, state: "dossier", panel: "commander-deck-starts", layout: "focus" },
   { name: "dossier-starter-cards-mobile", width: 375, height: 2200, state: "dossier", panel: "starter-cards", layout: "focus" },
   { name: "dossier-starter-cards-desktop", width: 1440, height: 2200, state: "dossier", panel: "starter-cards", layout: "focus" },
   { name: "dossier-mana-base-mobile", width: 375, height: 2200, state: "dossier", panel: "mana-base", layout: "focus" },
   { name: "dossier-mana-base-desktop", width: 1440, height: 2200, state: "dossier", panel: "mana-base", layout: "focus" },
-  { name: "dossier-view-all-mobile", width: 375, height: 3200, state: "dossier", panel: "placement", layout: "all", expectRadar: true },
-  { name: "dossier-view-all-desktop", width: 1440, height: 3200, state: "dossier", panel: "placement", layout: "all", expectRadar: true },
+  { name: "dossier-view-all-mobile", width: 375, height: 3600, state: "dossier", panel: "placement", layout: "all", expectRadar: true },
+  { name: "dossier-view-all-desktop", width: 1440, height: 3600, state: "dossier", panel: "placement", layout: "all", expectRadar: true },
 ];
 const artifactsRoot = path.join(root, "artifacts", "visual-regression", "archscry");
 const baselineDir = path.join(artifactsRoot, "baseline");

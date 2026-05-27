@@ -25,6 +25,12 @@ const snapshotSource = indexSource.slice(snapshotStart, snapshotEnd);
 const panelConfigStart = indexSource.indexOf("const DOSSIER_PANEL_CONFIG");
 const panelConfigEnd = indexSource.indexOf("];", panelConfigStart);
 const panelConfigSource = indexSource.slice(panelConfigStart, panelConfigEnd);
+const deckStartsPanelStart = indexSource.indexOf("const deckStartsPanelHtml =");
+const deckStartsPanelEnd = indexSource.indexOf("const starterCardsPanelHtml =", deckStartsPanelStart);
+const deckStartsPanelSource = indexSource.slice(deckStartsPanelStart, deckStartsPanelEnd);
+const preconRendererStart = indexSource.indexOf("function buildPreconLinks");
+const preconRendererEnd = indexSource.indexOf("function writeArchscryDossierHandoff", preconRendererStart);
+const preconRendererSource = indexSource.slice(preconRendererStart, preconRendererEnd);
 
 assert.match(indexSource, /Open Start Here first/, "expected the placement snapshot to orient new readers toward Start Here first");
 assert.match(indexSource, /Belief/, "expected Layered Identity to start with a Belief card");
@@ -37,6 +43,24 @@ assert.match(indexSource, /How this usually starts/, "expected the snapshot to e
 assert.doesNotMatch(snapshotSource, /commanderLane\.title/, "expected the placement snapshot to stop using commanderLane.title directly");
 assert.match(indexSource, /Signals From Your Answers/, "expected Reading Omens to be renamed for new players");
 assert.match(indexSource, /Commander Lanes/, "expected Playstyle Archetypes to be renamed Commander Lanes");
+assert.match(indexSource, /precons\/vox-mana-precon-catalog\.json/, "expected Archscry to load the generated precon catalog");
+assert.match(indexSource, /taxonomy\/vox-mana-precon-themes\.json/, "expected Archscry to load the precon theme taxonomy");
+assert.match(indexSource, /Recommended Precon Decks/, "expected Archscry to render a precon recommendation subsection");
+assert.match(indexSource, /selectPreconPreviewRecommendations/, "expected Archscry to cap precon presentation through the preview selector");
+assert.match(preconRendererSource, /data-precon-card/, "expected compact precon cards to expose a stable test hook");
+assert.match(preconRendererSource, /Native fit/, "expected native exact precons to render as Native fit cards");
+assert.match(preconRendererSource, /Exact-color fit/, "expected sibling exact precons to render as Exact-color fit cards");
+assert.match(preconRendererSource, /Stretch fit/, "expected stretch precons to render as Stretch fit cards");
+assert.match(preconRendererSource, /chips\.length >= 3/, "expected compact precon chips to cap at three");
+assert.match(preconRendererSource, /preview\.remaining/, "expected compact precon rendering to support revealable remaining cards");
+assert.match(preconRendererSource, /Display other \$\{remainingCount\}/, "expected overflow control to invite revealing the hidden recommendation count");
+assert.match(preconRendererSource, /Show first \$\{preview\.visible\.length\} precons/, "expected overflow control to swap back to the first visible precons");
+assert.match(preconRendererSource, /toggle-precon-preview/, "expected precon reveal controls to use the shared Archscry action handler");
+assert.match(preconRendererSource, /data-precon-preview-grid="remaining" hidden/, "expected remaining precons to render as a hidden swappable grid");
+assert.match(indexSource, /function togglePreconPreview/, "expected precon reveal to toggle in place without rerendering the dossier");
+assert.match(preconRendererSource, /No validated precon recommendations are available for this dossier yet/, "expected compact precon empty state copy");
+assert.doesNotMatch(preconRendererSource, /Skip if|precons=1|#precons|Full precon browsing can be added later/, "expected compact precons to avoid bulky skip blocks, Apocrypha routing, and dead-end overflow copy");
+assert.doesNotMatch(preconRendererSource, /renderResult\(activeViewKey\)|setPreconPreviewExpanded/, "expected precon reveal toggles to avoid full dossier rerenders and scroll jumps");
 assert.match(indexSource, /data-dossier-utility-actions/, "expected focus-mode utility actions to be rendered");
 assert.match(indexSource, /window\.confirm\(confirmMessage\)/, "expected retake to require confirmation through the shared handler");
 assert.doesNotMatch(indexSource, /signal-technical/, "expected standalone signal-technical copy to be removed from live output");
@@ -44,6 +68,11 @@ assert.ok(
   panelConfigSource.indexOf('id: "start"') > panelConfigSource.indexOf('id: "placement"') &&
     panelConfigSource.indexOf('id: "start"') < panelConfigSource.indexOf('id: "why"'),
   "expected Start Here to be the second dossier panel"
+);
+assert.ok(
+  deckStartsPanelSource.indexOf("Recommended Precon Decks") < deckStartsPanelSource.indexOf("Commander Deck Starts") &&
+    deckStartsPanelSource.indexOf("Commander Deck Starts") < deckStartsPanelSource.indexOf("Commander Lanes"),
+  "expected commander-deck-starts panel order to be Precons, Commander Deck Starts, Commander Lanes"
 );
 
 assert.doesNotMatch(radarSource, /dossierRadarCaption/, "expected the lower dossier radar caption to be removed");
@@ -54,6 +83,10 @@ assert.match(radarSource, /Cards That Sound Like This/, "expected the radar comp
 assert.match(radarSource, /data-archscry-card-voices/, "expected card voices to expose a stable data hook");
 assert.match(radarSource, /not a raw mana-score ledger/, "expected the matrix note to describe the authored profile source");
 assert.match(archscryCssSource, /card-preview-overlay/, "expected starter and land cards to use an unclipped preview overlay");
+assert.match(archscryCssSource, /precon-grid\.is-compact/, "expected Archscry CSS to style the compact precon preview grid");
+assert.match(archscryCssSource, /precon-grid\.is-compact\[hidden\]\s*\{\s*display:\s*none/, "expected hidden precon preview grids to remain visually hidden despite compact grid display styles");
+assert.match(archscryCssSource, /precon-badge\.is-native/, "expected Archscry CSS to distinguish native-fit precon badges");
+assert.match(archscryCssSource, /precon-reveal-btn/, "expected Archscry CSS to style the reveal remaining precons control");
 assert.doesNotMatch(archscryCssSource, /\.staple-img:hover\{[^}]*transform:scale\(3\)/, "expected starter card hover to stop scaling inside clipped panels");
 assert.doesNotMatch(archscryCssSource, /\.land-img:hover\{[^}]*transform:scale\(3\)/, "expected mana-base hover to stop scaling inside clipped panels");
 assert.doesNotMatch(archscryCssSource, /vm-faction-signal|vm-signal-node|vm-signal-ring|identity-expression-glyph/, "expected removed expression and faction-signal styles to stay out of Archscry CSS");

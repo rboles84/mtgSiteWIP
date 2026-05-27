@@ -1,0 +1,922 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The World-Class Web Blueprint</title>
+  
+  <!-- Premium Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'system-ui', '-apple-system', 'sans-serif'],
+            serif: ['"Playfair Display"', 'Georgia', 'serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+            brutalist: ['"Space Grotesk"', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Advanced CSS Layer Architecture -->
+  <style>
+    @layer reset, tokens, base, layout, components, interactive;
+
+    @layer tokens {
+      :root {
+        /* Design Mode: Swiss (Default) */
+        --font-primary: "Plus Jakarta Sans", system-ui, sans-serif;
+        --font-mono: "JetBrains Mono", monospace;
+        --radius-factor: 12px;
+        --border-thickness: 1px;
+        --grid-gap: clamp(1rem, 1.5vw + 0.5rem, 3rem);
+        
+        /* OKLCH Perceptually Uniform Palette (Light) */
+        --color-bg-base: oklch(0.98 0.005 240);
+        --color-bg-surface: oklch(1.0 0 0);
+        --color-text-primary: oklch(0.20 0.01 240);
+        --color-text-muted: oklch(0.45 0.02 240);
+        --color-brand-accent: oklch(0.55 0.18 250);
+        --color-brand-hover: oklch(0.48 0.16 250);
+        --color-border: oklch(0.90 0.01 240);
+        --shadow-elevation: 0 4px 24px -4px oklch(0 0 0 / 0.04), 0 2px 8px -2px oklch(0 0 0 / 0.02);
+
+        /* Transitions */
+        --timing-standard: cubic-bezier(0.4, 0, 0.2, 1);
+        --timing-reveal: cubic-bezier(0.16, 1, 0.3, 1);
+        --duration-fast: 150ms;
+        --duration-normal: 250ms;
+      }
+
+      :root.dark {
+        /* Dark Mode Equivalents */
+        --color-bg-base: oklch(0.12 0.01 240);
+        --color-bg-surface: oklch(0.16 0.01 240);
+        --color-text-primary: oklch(0.95 0.005 240);
+        --color-text-muted: oklch(0.72 0.01 240);
+        --color-brand-accent: oklch(0.68 0.15 250);
+        --color-brand-hover: oklch(0.74 0.13 250);
+        --color-border: oklch(0.24 0.01 240);
+        --shadow-elevation: 0 10px 30px -10px oklch(0 0 0 / 0.3);
+      }
+
+      /* Concept B: Neo-Humanist Minimalist */
+      :root[data-design="humanist"] {
+        --font-primary: "Playfair Display", Georgia, serif;
+        --radius-factor: 24px;
+        --border-thickness: 0px;
+        --color-bg-base: oklch(0.96 0.01 60); /* Soft warm linen */
+        --color-bg-surface: oklch(0.99 0.005 60);
+        --color-text-primary: oklch(0.18 0.02 50);
+        --color-text-muted: oklch(0.42 0.02 50);
+        --color-brand-accent: oklch(0.42 0.08 30); /* Rich terracotta */
+        --color-brand-hover: oklch(0.35 0.08 30);
+        --color-border: oklch(0.88 0.01 60);
+        --shadow-elevation: 0 20px 40px -15px oklch(0.15 0.02 50 / 0.06);
+      }
+      :root.dark[data-design="humanist"] {
+        --color-bg-base: oklch(0.15 0.01 50);
+        --color-bg-surface: oklch(0.18 0.01 50);
+        --color-text-primary: oklch(0.92 0.01 60);
+        --color-text-muted: oklch(0.75 0.01 60);
+        --color-brand-accent: oklch(0.72 0.10 40);
+        --color-brand-hover: oklch(0.78 0.08 40);
+        --color-border: oklch(0.26 0.01 50);
+        --shadow-elevation: 0 20px 40px -15px oklch(0 0 0 / 0.4);
+      }
+
+      /* Concept A: Typographic Brutalism */
+      :root[data-design="brutalist"] {
+        --font-primary: "Space Grotesk", sans-serif;
+        --radius-factor: 0px;
+        --border-thickness: 3px;
+        --color-bg-base: oklch(0.99 0.001 10);
+        --color-bg-surface: oklch(0.99 0.001 10);
+        --color-text-primary: oklch(0 0 0);
+        --color-text-muted: oklch(0.25 0 0);
+        --color-brand-accent: oklch(0.82 0.21 115); /* Vibrant Acid Yellow */
+        --color-brand-hover: oklch(0.90 0.18 115);
+        --color-border: oklch(0 0 0);
+        --shadow-elevation: 6px 6px 0px oklch(0 0 0);
+      }
+      :root.dark[data-design="brutalist"] {
+        --color-bg-base: oklch(0.08 0 0);
+        --color-bg-surface: oklch(0.12 0 0);
+        --color-text-primary: oklch(1.0 0 0);
+        --color-text-muted: oklch(0.80 0 0);
+        --color-brand-accent: oklch(0.85 0.18 140); /* Neon Lime */
+        --color-brand-hover: oklch(0.90 0.15 140);
+        --color-border: oklch(1.0 0 0);
+        --shadow-elevation: 6px 6px 0px oklch(1.0 0 0);
+      }
+    }
+
+    @layer base {
+      body {
+        font-family: var(--font-primary);
+        background-color: var(--color-bg-base);
+        color: var(--color-text-primary);
+        transition: background-color var(--duration-normal) var(--timing-standard), 
+                    color var(--duration-normal) var(--timing-standard), 
+                    font-family var(--duration-normal) var(--timing-standard),
+                    border-color var(--duration-normal) var(--timing-standard);
+      }
+      
+      .theme-transitioned {
+        transition: all var(--duration-normal) var(--timing-standard);
+      }
+    }
+
+    @layer components {
+      /* Premium Surface Cards */
+      .canvas-card {
+        background-color: var(--color-bg-surface);
+        border: var(--border-thickness) solid var(--color-border);
+        border-radius: var(--radius-factor);
+        box-shadow: var(--shadow-elevation);
+        transition: transform var(--duration-fast) var(--timing-standard),
+                    box-shadow var(--duration-fast) var(--timing-standard),
+                    background-color var(--duration-normal) var(--timing-standard),
+                    border-color var(--duration-normal) var(--timing-standard);
+      }
+
+      /* Native Custom Focus Rings */
+      .premium-focus:focus-visible {
+        outline: 3px solid var(--color-brand-accent);
+        outline-offset: 4px;
+      }
+
+      /* Animated code blocks */
+      .token-keyword { color: oklch(0.65 0.18 330); }
+      .token-string { color: oklch(0.60 0.12 140); }
+      .token-function { color: oklch(0.60 0.14 220); }
+      .token-comment { color: var(--color-text-muted); opacity: 0.7; }
+    }
+
+    /* Accessibility Overlay simulation */
+    .colorblind-protanopia {
+      filter: url('#protanopia-filter') !important;
+    }
+    .colorblind-tritanopia {
+      filter: url('#tritanopia-filter') !important;
+    }
+  </style>
+</head>
+<body class="min-h-screen relative overflow-x-hidden antialiased bg-grid-texture">
+
+  <!-- SVG ACCESSIBILITY FILTERS (Used dynamically in accessibility simulator) -->
+  <svg class="absolute w-0 h-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <filter id="protanopia-filter">
+        <feColorMatrix type="matrix" values="0.567, 0.433, 0, 0, 0, 0.558, 0.442, 0, 0, 0, 0, 0.242, 0.758, 0, 0, 0, 0, 0, 1, 0" />
+      </filter>
+      <filter id="tritanopia-filter">
+        <feColorMatrix type="matrix" values="0.95, 0.05,  0, 0, 0, 0,  0.433, 0.567, 0, 0, 0,  0.475, 0.525, 0, 0, 0, 0,  0, 1, 0" />
+      </filter>
+    </defs>
+  </svg>
+
+  <!-- BACKGROUND GRID DECORATOR -->
+  <div class="absolute inset-0 pointer-events-none opacity-[0.03] dark:opacity-[0.05] z-0" style="background-image: radial-gradient(var(--color-text-primary) 1.5px, transparent 1.5px); background-size: 32px 32px;"></div>
+
+  <!-- STICKY HEADER -->
+  <header class="sticky top-0 z-40 backdrop-blur-md theme-transitioned border-b border-solid" style="border-color: var(--color-border); background-color: color-mix(in oklch, var(--color-bg-base) 80%, transparent);">
+    <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-lg flex items-center justify-center font-bold text-white transition-all" style="background: var(--color-brand-accent); border-radius: calc(var(--radius-factor) * 0.7);">
+          <span class="font-mono text-xl">W</span>
+        </div>
+        <div>
+          <span class="font-bold tracking-tight text-lg">WebBlueprint</span>
+          <span class="hidden sm:inline-block px-2 py-0.5 ml-2 text-xs rounded-full font-semibold border" style="background-color: var(--color-bg-surface); border-color: var(--color-border);">v4.0 Spec</span>
+        </div>
+      </div>
+
+      <!-- DESKTOP NAV LANDMARKS -->
+      <nav class="hidden md:flex items-center gap-8" aria-label="Main Navigation">
+        <a href="#architecture" class="text-sm font-medium hover:text-[var(--color-brand-accent)] transition-colors premium-focus">Architecture</a>
+        <a href="#playground" class="text-sm font-medium hover:text-[var(--color-brand-accent)] transition-colors premium-focus">Playground</a>
+        <a href="#showcase" class="text-sm font-medium hover:text-[var(--color-brand-accent)] transition-colors premium-focus">Interactive Spec</a>
+        <a href="#roadmap" class="text-sm font-medium hover:text-[var(--color-brand-accent)] transition-colors premium-focus">Implementation</a>
+      </nav>
+
+      <!-- PREFERENCES SYSTEM (Header Integration) -->
+      <div class="flex items-center gap-3">
+        <!-- Design Theme Selection Dropdown -->
+        <div class="relative">
+          <select id="designModeSelector" class="appearance-none px-4 py-2 text-xs font-semibold rounded-lg border bg-transparent cursor-pointer premium-focus transition-all" style="border-color: var(--color-border); border-radius: calc(var(--radius-factor) * 0.6);" aria-label="Switch Design Archetype">
+            <option value="swiss">Swiss Grid Precision</option>
+            <option value="humanist">Neo-Humanist Minimalist</option>
+            <option value="brutalist">Typographic Brutalism</option>
+          </select>
+        </div>
+
+        <!-- Light / Dark Mode Toggle Button -->
+        <button id="themeToggleBtn" class="p-2.5 rounded-lg border transition-all premium-focus hover:bg-neutral-500/10" style="border-color: var(--color-border); border-radius: calc(var(--radius-factor) * 0.6);" aria-label="Toggle visual contrast theme">
+          <!-- Sun Icon -->
+          <svg id="sunIcon" class="w-4 h-4 hidden dark:block" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707m12.728 0l-.707-.707M6.343 6.343l-.707-.707M12 8a4 4 0 100 8 4 4 0 000-8z"/></svg>
+          <!-- Moon Icon -->
+          <svg id="moonIcon" class="w-4 h-4 dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO SECTION WITH LIVE DECORATOR -->
+  <main class="max-w-7xl mx-auto px-6 py-12 md:py-24 relative z-10">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+      <div class="lg:col-span-7 space-y-8">
+        <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border text-xs font-semibold uppercase tracking-wider" style="border-color: var(--color-brand-accent); color: var(--color-brand-accent);">
+          <span class="w-2 h-2 rounded-full animate-ping" style="background-color: var(--color-brand-accent);"></span>
+          High Performance Front-End Spec
+        </div>
+        <h1 class="text-4xl md:text-6xl font-bold tracking-tight leading-[1.1] transition-all" id="hero-heading">
+          Engineering the <span class="underline decoration-wavy decoration-indigo-500/50">Perfect</span> Client-Side Tier
+        </h1>
+        <p class="text-lg md:text-xl text-pretty max-w-2xl leading-relaxed transition-colors" style="color: var(--color-text-muted);">
+          A framework-free reference architecture leveraging custom web platform primitives. Fully engineered with dynamic OKLCH tokens, fluid math bindings, and semantic keyboard controls.
+        </p>
+        
+        <div class="flex flex-wrap gap-4 pt-4">
+          <a href="#playground" class="px-6 py-3.5 font-semibold text-white rounded-lg text-center transition-all duration-150 transform hover:-translate-y-0.5 shadow-md hover:shadow-lg premium-focus" style="background-color: var(--color-brand-accent); border-radius: var(--radius-factor);">
+            Launch Interactive Tools
+          </a>
+          <button id="openSpecModalBtn" class="px-6 py-3.5 font-semibold border rounded-lg text-center transition-all hover:bg-neutral-500/5 premium-focus" style="border-color: var(--color-border); border-radius: var(--radius-factor);">
+            View Compliance Checklist
+          </button>
+        </div>
+      </div>
+
+      <!-- INTERACTIVE ARCHITECTURE GRAPHIC -->
+      <div class="lg:col-span-5 relative">
+        <div class="canvas-card p-6 md:p-8 space-y-6 relative overflow-hidden">
+          <!-- Dynamic Frame Decoration -->
+          <div class="absolute top-0 right-0 p-3 font-mono text-[10px]" style="color: var(--color-text-muted);">
+            SYSTEM_MONITOR: active
+          </div>
+          
+          <h3 class="text-lg font-bold tracking-tight">Active Engine Layout Engine</h3>
+          
+          <!-- Live Interactive Spacing Graphic -->
+          <div class="border rounded-lg p-4 space-y-3 font-mono text-xs" style="border-color: var(--color-border); background-color: color-mix(in oklch, var(--color-bg-base) 40%, transparent);">
+            <div class="flex justify-between items-center pb-2 border-b border-dashed" style="border-color: var(--color-border);">
+              <span>Root Fluid Margin</span>
+              <span class="text-emerald-500 font-semibold" id="liveMarginLabel">clamp(1rem, ...)</span>
+            </div>
+            <div class="flex justify-between items-center pb-2 border-b border-dashed" style="border-color: var(--color-border);">
+              <span>Primary Color (P3)</span>
+              <span class="text-indigo-500 font-semibold" id="liveOklchLabel">oklch(58% 0.18 250)</span>
+            </div>
+            <div class="flex justify-between items-center">
+              <span>Dynamic Scale Factor</span>
+              <span class="text-amber-500 font-semibold">Major Third (1.250)</span>
+            </div>
+          </div>
+
+          <!-- Dynamic SVG Vector graphic linked to theme variables -->
+          <div class="relative h-48 border rounded-lg overflow-hidden flex items-center justify-center" style="border-color: var(--color-border); background-color: var(--color-bg-base);">
+            <svg class="w-full h-full" viewBox="0 0 400 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path class="theme-transitioned" d="M 50,150 Q 150,50 200,100 T 350,50" stroke="var(--color-brand-accent)" stroke-width="3" stroke-linecap="round" />
+              <circle class="theme-transitioned animate-pulse" cx="200" cy="100" r="8" fill="var(--color-brand-accent)" />
+              <line class="theme-transitioned" x1="50" y1="150" x2="50" y2="50" stroke="var(--color-border)" stroke-dasharray="4" />
+              <line class="theme-transitioned" x1="350" y1="150" x2="350" y2="50" stroke="var(--color-border)" stroke-dasharray="4" />
+              <text x="60" y="70" fill="var(--color-text-muted)" font-size="10" font-family="monospace">MIN_VIEWPORT</text>
+              <text x="260" y="170" fill="var(--color-text-muted)" font-size="10" font-family="monospace">MAX_VIEWPORT</text>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- LIVE METRICS DASHBOARD -->
+    <section class="mt-16 md:mt-24 grid grid-cols-2 lg:grid-cols-4 gap-6" aria-label="Real-time performance metrics">
+      <div class="canvas-card p-6 flex flex-col justify-between">
+        <span class="text-xs font-semibold tracking-wider uppercase text-emerald-500">Core Performance</span>
+        <span class="text-4xl md:text-5xl font-mono font-bold mt-2">100</span>
+        <span class="text-xs mt-3" style="color: var(--color-text-muted);">Simulated PageSpeed Audit Score</span>
+      </div>
+      <div class="canvas-card p-6 flex flex-col justify-between">
+        <span class="text-xs font-semibold tracking-wider uppercase text-blue-500">Contrast Safety</span>
+        <span class="text-4xl md:text-5xl font-mono font-bold mt-2">7.4:1</span>
+        <span class="text-xs mt-3" style="color: var(--color-text-muted);">Strict WCAG AAA Lightness Locking</span>
+      </div>
+      <div class="canvas-card p-6 flex flex-col justify-between">
+        <span class="text-xs font-semibold tracking-wider uppercase text-amber-500">Accessibility</span>
+        <span class="text-4xl md:text-5xl font-mono font-bold mt-2">AA+</span>
+        <span class="text-xs mt-3" style="color: var(--color-text-muted);">Roving Tabindex & Native Trap Engine</span>
+      </div>
+      <div class="canvas-card p-6 flex flex-col justify-between">
+        <span class="text-xs font-semibold tracking-wider uppercase text-purple-500">Interactive Weight</span>
+        <span class="text-4xl md:text-5xl font-mono font-bold mt-2">&lt;14kb</span>
+        <span class="text-xs mt-3" style="color: var(--color-text-muted);">Raw size including structural CSS</span>
+      </div>
+    </section>
+
+    <!-- INTERACTIVE PLAYGROUND (The core engine demonstration) -->
+    <section id="playground" class="mt-24 md:mt-36 scroll-mt-24">
+      <div class="text-center max-w-3xl mx-auto space-y-4">
+        <h2 class="text-3xl md:text-5xl font-bold tracking-tight">Design & Mathematics Studio</h2>
+        <p class="text-lg" style="color: var(--color-text-muted);">
+          A mathematical visualizer showcasing how fluid units and accessible states are calculated and applied directly in the browser.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 mt-12">
+        <!-- Interactive Controls Card -->
+        <div class="canvas-card p-6 md:p-8 lg:col-span-5 space-y-8">
+          <h3 class="text-xl font-bold tracking-tight pb-4 border-b border-solid" style="border-color: var(--color-border);">
+            Fluid Type & Spacing Calculator
+          </h3>
+          
+          <div class="space-y-6">
+            <!-- Min/Max Viewport Sizes Slider -->
+            <div>
+              <div class="flex justify-between text-sm font-medium mb-2">
+                <label for="minViewport">Minimum Viewport Width</label>
+                <span class="font-mono text-xs" id="minViewportVal">375px</span>
+              </div>
+              <input type="range" id="minViewport" min="320" max="768" value="375" class="w-full h-2 rounded-lg bg-neutral-200 dark:bg-neutral-800 cursor-pointer accent-[var(--color-brand-accent)]">
+            </div>
+
+            <div>
+              <div class="flex justify-between text-sm font-medium mb-2">
+                <label for="maxViewport">Maximum Viewport Width</label>
+                <span class="font-mono text-xs" id="maxViewportVal">1440px</span>
+              </div>
+              <input type="range" id="maxViewport" min="1024" max="1920" value="1440" class="w-full h-2 rounded-lg bg-neutral-200 dark:bg-neutral-800 cursor-pointer accent-[var(--color-brand-accent)]">
+            </div>
+
+            <!-- Min/Max Font Sizes Slider -->
+            <div>
+              <div class="flex justify-between text-sm font-medium mb-2">
+                <label for="minFont">Min Font Size (rem)</label>
+                <span class="font-mono text-xs" id="minFontVal">2.0rem</span>
+              </div>
+              <input type="range" id="minFont" min="1" max="4" step="0.1" value="2" class="w-full h-2 rounded-lg bg-neutral-200 dark:bg-neutral-800 cursor-pointer accent-[var(--color-brand-accent)]">
+            </div>
+
+            <div>
+              <div class="flex justify-between text-sm font-medium mb-2">
+                <label for="maxFont">Max Font Size (rem)</label>
+                <span class="font-mono text-xs" id="maxFontVal">4.0rem</span>
+              </div>
+              <input type="range" id="maxFont" min="2" max="6" step="0.1" value="4" class="w-full h-2 rounded-lg bg-neutral-200 dark:bg-neutral-800 cursor-pointer accent-[var(--color-brand-accent)]">
+            </div>
+          </div>
+        </div>
+
+        <!-- Realtime Compiled Code Output Card -->
+        <div class="canvas-card p-6 md:p-8 lg:col-span-7 flex flex-col justify-between">
+          <div class="space-y-4 w-full">
+            <div class="flex justify-between items-center pb-4 border-b border-solid" style="border-color: var(--color-border);">
+              <h3 class="text-xl font-bold tracking-tight">CSS Compiled Token</h3>
+              <button id="copyCssBtn" class="px-3.5 py-1.5 text-xs font-semibold rounded-md border flex items-center gap-2 hover:bg-neutral-500/10 transition-colors premium-focus" style="border-color: var(--color-border);">
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"/></svg>
+                Copy CSS
+              </button>
+            </div>
+
+            <!-- Dynamic Preview Box -->
+            <div class="p-6 border rounded-lg text-center font-bold tracking-tight truncate theme-transitioned" id="fluidFontPreview" style="border-color: var(--color-border); background-color: var(--color-bg-base);">
+              Fluid Scale Preview
+            </div>
+
+            <!-- Pre/Code Block for Mathematical Breakdown -->
+            <div class="p-4 rounded-lg font-mono text-sm overflow-x-auto border text-left" style="background-color: var(--color-bg-surface); border-color: var(--color-border);">
+              <code id="mathBreakdownCode">
+<span class="token-comment">/* Formula: font-size = clamp(Min, Slope(vw) + Intercept(rem), Max) */</span>
+<span class="token-keyword">font-size</span>: <span class="token-function">clamp</span>(<span id="clampResult">2rem, 3.005vw + 1.296rem, 4rem</span>);
+              </code>
+            </div>
+          </div>
+
+          <!-- Technical Explanation / Math Theory -->
+          <div class="mt-6 p-4 rounded-lg text-xs leading-relaxed border" style="background-color: color-mix(in oklch, var(--color-bg-base) 60%, transparent); border-color: var(--color-border); color: var(--color-text-muted);">
+            <strong>Mathematical Principle:</strong> By linking viewports via straight line interpolation, components adapt perfectly without breakpoint snapping. Combining relative <code class="font-mono text-[10px]">rem</code> with viewport <code class="font-mono text-[10px]">vw</code> satisfies <strong class="text-[var(--color-text-primary)]">WCAG 2.2 Success Criterion 1.4.4</strong>, ensuring layouts don't break when users scale browser text zoom up to 200%.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ACCESSIBILITY ADVANCED SIMULATOR & COMPONENT SPEC -->
+    <section id="showcase" class="mt-24 md:mt-36 scroll-mt-24">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+        
+        <!-- Left Column: Tabs component implementation -->
+        <div class="lg:col-span-7 space-y-8">
+          <div class="space-y-3">
+            <h2 class="text-2xl md:text-4xl font-bold tracking-tight">Interactive Semantic Components</h2>
+            <p style="color: var(--color-text-muted);">
+              A clean implementation of keyboard-accessible and screen-reader-friendly UI structures built directly on top of native layout grids.
+            </p>
+          </div>
+
+          <!-- ARIA Tabs Container -->
+          <div class="canvas-card p-6 md:p-8" role="region" aria-label="Component Code Examples">
+            <!-- Tab buttons with roving tabindex & keyboard control roles -->
+            <div role="tablist" class="flex gap-1 border-b pb-1" style="border-color: var(--color-border);" aria-label="Markup Implementations">
+              <button id="tabBtn1" role="tab" aria-selected="true" aria-controls="panel1" tabindex="0" class="px-5 py-3 text-sm font-semibold border-b-2 border-solid transition-all premium-focus text-[var(--color-brand-accent)] border-[var(--color-brand-accent)]">
+                HTML5 Landmark System
+              </button>
+              <button id="tabBtn2" role="tab" aria-selected="false" aria-controls="panel2" tabindex="-1" class="px-5 py-3 text-sm font-medium border-b-2 border-transparent transition-all premium-focus opacity-60 hover:opacity-100">
+                CSS Grid Layout
+              </button>
+              <button id="tabBtn3" role="tab" aria-selected="false" aria-controls="panel3" tabindex="-1" class="px-5 py-3 text-sm font-medium border-b-2 border-transparent transition-all premium-focus opacity-60 hover:opacity-100">
+                Focus Engine
+              </button>
+            </div>
+
+            <!-- Tab Panels -->
+            <div class="pt-6">
+              <div id="panel1" role="tabpanel" aria-labelledby="tabBtn1" tabindex="0" class="focus:outline-none space-y-4">
+                <p class="text-sm leading-relaxed" style="color: var(--color-text-muted);">
+                  Semantic elements partition the layout into navigable structures, reducing dependencies on custom JavaScript classes.
+                </p>
+                <div class="p-4 rounded-lg font-mono text-xs overflow-x-auto border" style="background-color: var(--color-bg-base); border-color: var(--color-border);">
+                  <pre><code><span class="token-keyword">&lt;header</span> <span class="token-function">class=</span><span class="token-string">"sticky"</span><span class="token-keyword">&gt;</span>
+  <span class="token-keyword">&lt;nav</span> <span class="token-function">aria-label=</span><span class="token-string">"Primary Navigation"</span><span class="token-keyword">&gt;</span>
+    <span class="token-keyword">&lt;a</span> <span class="token-function">href=</span><span class="token-string">"/"</span><span class="token-keyword">&gt;</span>Brand<span class="token-keyword">&lt;/a&gt;</span>
+  <span class="token-keyword">&lt;/nav&gt;</span>
+<span class="token-keyword">&lt;/header&gt;</span></code></pre>
+                </div>
+              </div>
+
+              <div id="panel2" role="tabpanel" aria-labelledby="tabBtn2" tabindex="0" class="hidden focus:outline-none space-y-4">
+                <p class="text-sm leading-relaxed" style="color: var(--color-text-muted);">
+                  The modern 12-column grid system utilizes CSS Subgrid to align nested layouts cleanly across visual rows.
+                </p>
+                <div class="p-4 rounded-lg font-mono text-xs overflow-x-auto border" style="background-color: var(--color-bg-base); border-color: var(--color-border);">
+                  <pre><code><span class="token-keyword">.layout-container</span> {
+  <span class="token-function">display</span>: grid;
+  <span class="token-function">grid-template-columns</span>: repeat(12, minmax(0, 1fr));
+}
+<span class="token-keyword">.subgrid-element</span> {
+  <span class="token-function">grid-row</span>: subgrid;
+}</code></pre>
+                </div>
+              </div>
+
+              <div id="panel3" role="tabpanel" aria-labelledby="tabBtn3" tabindex="0" class="hidden focus:outline-none space-y-4">
+                <p class="text-sm leading-relaxed" style="color: var(--color-text-muted);">
+                  Keeps the focus trapped inside the active view layer using the native browser <code class="font-mono text-xs">inert</code> property, preventing off-screen keyboard focus leaks.
+                </p>
+                <div class="p-4 rounded-lg font-mono text-xs overflow-x-auto border" style="background-color: var(--color-bg-base); border-color: var(--color-border);">
+                  <pre><code><span class="token-keyword">const</span> <span class="token-function">elements</span> = document.<span class="token-function">querySelectorAll</span>(<span class="token-string">'[tabindex="-1"]'</span>);
+<span class="token-keyword">backgroundContainer</span>.setAttribute(<span class="token-string">'inert'</span>, <span class="token-string">'true'</span>);</code></pre>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Column: Accessibility Visual Analyzer and Diagnostics -->
+        <div class="lg:col-span-5 space-y-8">
+          <div class="canvas-card p-6 md:p-8 space-y-6">
+            <h3 class="text-xl font-bold tracking-tight pb-4 border-b border-solid" style="border-color: var(--color-border);">
+              Accessibility Guardrail Suite
+            </h3>
+            <p class="text-sm" style="color: var(--color-text-muted);">
+              Use these tools to verify visual compliance under simulated vision impairments or to inspect semantic structures.
+            </p>
+
+            <div class="space-y-4">
+              <!-- Impairment Selector -->
+              <div>
+                <label for="colorblindMode" class="block text-xs font-semibold uppercase tracking-wider mb-2" style="color: var(--color-text-muted);">Simulate Vision Conditions</label>
+                <select id="colorblindMode" class="w-full px-4 py-2 text-sm rounded-lg border bg-transparent cursor-pointer premium-focus" style="border-color: var(--color-border);">
+                  <option value="none">Standard Vision</option>
+                  <option value="protanopia">Protanopia (Red-Blindness)</option>
+                  <option value="tritanopia">Tritanopia (Blue-Blindness)</option>
+                </select>
+              </div>
+
+              <!-- Design Outlines Debugger -->
+              <div class="flex items-center justify-between p-3.5 rounded-lg border" style="border-color: var(--color-border);">
+                <div>
+                  <span class="block text-sm font-semibold">Semantic Outline Debugger</span>
+                  <span class="text-xs" style="color: var(--color-text-muted);">Draw diagnostic outlines around container structures</span>
+                </div>
+                <button id="debugOutlinesToggle" class="px-3.5 py-1.5 text-xs font-semibold rounded border transition-colors hover:bg-neutral-500/10 premium-focus" style="border-color: var(--color-border);">
+                  Enable
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TECHNICAL ROADMAP / PHASING IMPLEMENTATION -->
+    <section id="roadmap" class="mt-24 md:mt-36 scroll-mt-24">
+      <div class="text-center max-w-3xl mx-auto space-y-4">
+        <h2 class="text-3xl md:text-5xl font-bold tracking-tight">Technical Implementation Roadmap</h2>
+        <p class="text-lg" style="color: var(--color-text-muted);">
+          A rigorous roadmap structured across eight technical phases to ensure production quality.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-12">
+        <div class="canvas-card p-6 flex flex-col justify-between space-y-4">
+          <div>
+            <span class="text-xs font-bold text-indigo-500">PHASE 1</span>
+            <h3 class="text-lg font-bold mt-2">Design Tokens</h3>
+            <p class="text-xs mt-3 leading-relaxed" style="color: var(--color-text-muted);">
+              Set up perceptually uniform color variables and spacing formulas in <code class="font-mono text-[10px]">tokens.css</code>. Ensure contrast safety thresholds.
+            </p>
+          </div>
+          <span class="text-xs font-semibold font-mono text-emerald-500 flex items-center gap-1.5 pt-4">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+            Complete
+          </span>
+        </div>
+
+        <div class="canvas-card p-6 flex flex-col justify-between space-y-4">
+          <div>
+            <span class="text-xs font-bold text-indigo-500">PHASE 2</span>
+            <h3 class="text-lg font-bold mt-2">Semantic Grid</h3>
+            <p class="text-xs mt-3 leading-relaxed" style="color: var(--color-text-muted);">
+              Develop semantic structural containers with the native 12-column grid layout system. Build accessible landmark foundations.
+            </p>
+          </div>
+          <span class="text-xs font-semibold font-mono text-emerald-500 flex items-center gap-1.5 pt-4">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+            Complete
+          </span>
+        </div>
+
+        <div class="canvas-card p-6 flex flex-col justify-between space-y-4">
+          <div>
+            <span class="text-xs font-bold text-indigo-500">PHASE 3</span>
+            <h3 class="text-lg font-bold mt-2">Dynamic Modules</h3>
+            <p class="text-xs mt-3 leading-relaxed" style="color: var(--color-text-muted);">
+              Build modular widgets, including modal wrappers, accessible tabs, and interactive calculators.
+            </p>
+          </div>
+          <span class="text-xs font-semibold font-mono text-amber-500 flex items-center gap-1.5 pt-4">
+            <span class="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse"></span>
+            Active Visualizer
+          </span>
+        </div>
+
+        <div class="canvas-card p-6 flex flex-col justify-between space-y-4">
+          <div>
+            <span class="text-xs font-bold text-indigo-500">PHASE 4</span>
+            <h3 class="text-lg font-bold mt-2">Optimized Polish</h3>
+            <p class="text-xs mt-3 leading-relaxed" style="color: var(--color-text-muted);">
+              Add hardware-accelerated animations, verify reduced motion settings, and run final accessibility and SEO validation passes.
+            </p>
+          </div>
+          <span class="text-xs font-semibold font-mono" style="color: var(--color-text-muted);">
+            Queueing Next
+          </span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ACCESSIBLE DIALOG MODAL (COMPLIANCE CHECKLIST) -->
+  <dialog id="complianceModal" class="canvas-card p-0 w-full max-w-2xl bg-[var(--color-bg-surface)] backdrop:backdrop-blur-sm open:animate-fade-in premium-focus" style="border-radius: var(--radius-factor);">
+    <div class="p-6 md:p-8 flex flex-col h-full justify-between">
+      <div>
+        <div class="flex justify-between items-center pb-4 border-b border-solid" style="border-color: var(--color-border);">
+          <h2 class="text-2xl font-bold tracking-tight">Core Production Checklist</h2>
+          <button id="closeSpecModalBtn" class="p-2 rounded-lg border hover:bg-neutral-500/10 transition-colors" style="border-color: var(--color-border);" aria-label="Close Compliance Modal">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+          </button>
+        </div>
+        
+        <ul class="mt-6 space-y-4 text-sm" aria-label="Technical Verification Criteria">
+          <li class="flex gap-3">
+            <svg class="w-5 h-5 text-emerald-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+            <div>
+              <strong class="block">Dynamic Contrast Assurance</strong>
+              <span class="text-xs" style="color: var(--color-text-muted);">All background surfaces and typography are balanced using the uniform OKLCH color space.</span>
+            </div>
+          </li>
+          <li class="flex gap-3">
+            <svg class="w-5 h-5 text-emerald-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+            <div>
+              <strong class="block">Dynamic Scale Alignment</strong>
+              <span class="text-xs" style="color: var(--color-text-muted);">Mathematical spacing guarantees layout rhythm adapts seamlessly across mobile, tablet, and desktop formats.</span>
+            </div>
+          </li>
+          <li class="flex gap-3">
+            <svg class="w-5 h-5 text-emerald-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+            <div>
+              <strong class="block">Fully Accessible Controls</strong>
+              <span class="text-xs" style="color: var(--color-text-muted);">Keyboard focus traps and clean landmark tags guarantee standard screen-reader parsing.</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="mt-8 pt-4 border-t border-solid flex justify-end" style="border-color: var(--color-border);">
+        <button id="closeChecklistConfirm" class="px-5 py-2.5 font-semibold text-white rounded-lg transition-all text-sm premium-focus" style="background-color: var(--color-brand-accent); border-radius: var(--radius-factor);">
+          Verify Architecture
+        </button>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- GLOBAL FOOTER -->
+  <footer class="mt-36 border-t border-solid relative z-10" style="border-color: var(--color-border); background-color: var(--color-bg-surface);">
+    <div class="max-w-7xl mx-auto px-6 py-12 flex flex-col md:flex-row items-center justify-between gap-6">
+      <div class="flex items-center gap-3">
+        <span class="font-bold tracking-tight text-md">WebBlueprint</span>
+        <span class="text-xs" style="color: var(--color-text-muted);">| Reference Architecture & Design Engine</span>
+      </div>
+      <p class="text-xs" style="color: var(--color-text-muted);">
+        &copy; 2026 World Class Frontend. Created for Senior Web Engineers.
+      </p>
+    </div>
+  </footer>
+
+  <!-- DYNAMIC CLIENT-SIDE ENGINE -->
+  <script type="module">
+    // State management
+    const state = {
+      isDark: false,
+      designMode: 'swiss',
+      calculator: {
+        minViewport: 375,
+        maxViewport: 1440,
+        minFont: 2.0,
+        maxFont: 4.0
+      },
+      colorblindMode: 'none',
+      diagnosticActive: false
+    };
+
+    // DOM Elements
+    const rootEl = document.documentElement;
+    const designModeSelector = document.getElementById('designModeSelector');
+    const themeToggleBtn = document.getElementById('themeToggleBtn');
+    
+    // Calculator UI elements
+    const minViewportInput = document.getElementById('minViewport');
+    const maxViewportInput = document.getElementById('maxViewport');
+    const minFontInput = document.getElementById('minFont');
+    const maxFontInput = document.getElementById('maxFont');
+
+    const minViewportVal = document.getElementById('minViewportVal');
+    const maxViewportVal = document.getElementById('maxViewportVal');
+    const minFontVal = document.getElementById('minFontVal');
+    const maxFontVal = document.getElementById('maxFontVal');
+
+    const fluidFontPreview = document.getElementById('fluidFontPreview');
+    const clampResult = document.getElementById('clampResult');
+    const mathBreakdownCode = document.getElementById('mathBreakdownCode');
+
+    // Accessibility elements
+    const colorblindMode = document.getElementById('colorblindMode');
+    const debugOutlinesToggle = document.getElementById('debugOutlinesToggle');
+
+    // Modal elements
+    const complianceModal = document.getElementById('complianceModal');
+    const openSpecModalBtn = document.getElementById('openSpecModalBtn');
+    const closeSpecModalBtn = document.getElementById('closeSpecModalBtn');
+    const closeChecklistConfirm = document.getElementById('closeChecklistConfirm');
+
+    // Copy to clipboard fallback
+    const copyCssBtn = document.getElementById('copyCssBtn');
+
+    // Live monitor label update nodes
+    const liveMarginLabel = document.getElementById('liveMarginLabel');
+    const liveOklchLabel = document.getElementById('liveOklchLabel');
+
+    /* Design System Hot-Swapper */
+    function applyDesignSystem() {
+      rootEl.setAttribute('data-design', state.designMode);
+      
+      // Update dynamic live monitors based on archetype selection
+      if (state.designMode === 'swiss') {
+        liveMarginLabel.textContent = 'clamp(1rem, 1.5vw + 0.5rem, 3rem)';
+        liveOklchLabel.textContent = 'oklch(58% 0.18 250)';
+      } else if (state.designMode === 'humanist') {
+        liveMarginLabel.textContent = 'clamp(1.5rem, 2vw + 1rem, 4rem)';
+        liveOklchLabel.textContent = 'oklch(42% 0.08 30)';
+      } else if (state.designMode === 'brutalist') {
+        liveMarginLabel.textContent = '0px';
+        liveOklchLabel.textContent = 'oklch(82% 0.21 115)';
+      }
+    }
+
+    designModeSelector.addEventListener('change', (e) => {
+      state.designMode = e.target.value;
+      applyDesignSystem();
+    });
+
+    /* Theme Toggle Switcher */
+    function applyTheme() {
+      if (state.isDark) {
+        rootEl.classList.add('dark');
+      } else {
+        rootEl.classList.remove('dark');
+      }
+    }
+
+    themeToggleBtn.addEventListener('click', () => {
+      state.isDark = !state.isDark;
+      applyTheme();
+    });
+
+    /* Fluid Typography Formula Calculator */
+    function recalculateFluidFormula() {
+      const minVp = state.calculator.minViewport;
+      const maxVp = state.calculator.maxViewport;
+      const minFn = state.calculator.minFont;
+      const maxFn = state.calculator.maxFont;
+
+      // Mathematical linear interpolation
+      const slope = (maxFn - minFn) / ((maxVp - minVp) / 16);
+      const intercept = minFn - (slope * (minVp / 16));
+
+      // Build clamping output string
+      const clampString = `clamp(${minFn.toFixed(2)}rem, ${(slope * 100).toFixed(3)}vw + ${intercept.toFixed(3)}rem, ${maxFn.toFixed(2)}rem)`;
+      
+      // Update interactive outputs
+      clampResult.textContent = clampString;
+      fluidFontPreview.style.fontSize = clampString;
+    }
+
+    // Bind event listeners to input sliders
+    function bindCalculatorSliders() {
+      minViewportInput.addEventListener('input', (e) => {
+        state.calculator.minViewport = parseInt(e.target.value);
+        minViewportVal.textContent = `${state.calculator.minViewport}px`;
+        recalculateFluidFormula();
+      });
+
+      maxViewportInput.addEventListener('input', (e) => {
+        state.calculator.maxViewport = parseInt(e.target.value);
+        maxViewportVal.textContent = `${state.calculator.maxViewport}px`;
+        recalculateFluidFormula();
+      });
+
+      minFontInput.addEventListener('input', (e) => {
+        state.calculator.minFont = parseFloat(e.target.value);
+        minFontVal.textContent = `${state.calculator.minFont.toFixed(1)}rem`;
+        recalculateFluidFormula();
+      });
+
+      maxFontInput.addEventListener('input', (e) => {
+        state.calculator.maxFont = parseFloat(e.target.value);
+        maxFontVal.textContent = `${state.calculator.maxFont.toFixed(1)}rem`;
+        recalculateFluidFormula();
+      });
+    }
+
+    /* Clipboard integration using fallback execCommand */
+    copyCssBtn.addEventListener('click', () => {
+      const textToCopy = `font-size: ${clampResult.textContent};`;
+      const tempTextArea = document.createElement('textarea');
+      tempTextArea.value = textToCopy;
+      document.body.appendChild(tempTextArea);
+      tempTextArea.select();
+      
+      try {
+        document.execCommand('copy');
+        const originalText = copyCssBtn.innerHTML;
+        copyCssBtn.innerHTML = `
+          <svg class="w-3.5 h-3.5 text-emerald-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+          Copied!
+        `;
+        setTimeout(() => {
+          copyCssBtn.innerHTML = originalText;
+        }, 1800);
+      } catch (err) {
+        console.error('Copy fallback action failed', err);
+      }
+      document.body.removeChild(tempTextArea);
+    });
+
+    /* Accessible Native Modal Trap System */
+    let lastActiveElement = null;
+
+    function openModal() {
+      lastActiveElement = document.activeElement;
+      complianceModal.showModal();
+      complianceModal.focus();
+    }
+
+    function closeModal() {
+      complianceModal.close();
+      if (lastActiveElement) {
+        lastActiveElement.focus();
+      }
+    }
+
+    openSpecModalBtn.addEventListener('click', openModal);
+    closeSpecModalBtn.addEventListener('click', closeModal);
+    closeChecklistConfirm.addEventListener('click', closeModal);
+
+    /* ARIA Semantic Tabs Controller */
+    const tabButtons = [
+      document.getElementById('tabBtn1'),
+      document.getElementById('tabBtn2'),
+      document.getElementById('tabBtn3')
+    ];
+    const tabPanels = [
+      document.getElementById('panel1'),
+      document.getElementById('panel2'),
+      document.getElementById('panel3')
+    ];
+
+    function activateTab(index) {
+      tabButtons.forEach((btn, idx) => {
+        const isSelected = idx === index;
+        btn.setAttribute('aria-selected', isSelected.toString());
+        btn.setAttribute('tabindex', isSelected ? '0' : '-1');
+        
+        if (isSelected) {
+          btn.classList.add('text-[var(--color-brand-accent)]', 'border-[var(--color-brand-accent)]');
+          btn.classList.remove('opacity-60', 'border-transparent');
+          tabPanels[idx].classList.remove('hidden');
+        } else {
+          btn.classList.remove('text-[var(--color-brand-accent)]', 'border-[var(--color-brand-accent)]');
+          btn.classList.add('opacity-60', 'border-transparent');
+          tabPanels[idx].classList.add('hidden');
+        }
+      });
+    }
+
+    tabButtons.forEach((btn, idx) => {
+      btn.addEventListener('click', () => activateTab(idx));
+      
+      // Accessibility Arrow Keys Navigation inside tablist
+      btn.addEventListener('keydown', (e) => {
+        let targetIdx = null;
+        if (e.key === 'ArrowRight') {
+          targetIdx = (idx + 1) % tabButtons.length;
+        } else if (e.key === 'ArrowLeft') {
+          targetIdx = (idx - 1 + tabButtons.length) % tabButtons.length;
+        }
+        
+        if (targetIdx !== null) {
+          tabButtons[targetIdx].focus();
+          activateTab(targetIdx);
+        }
+      });
+    });
+
+    /* Visual Accessibility Filters & Diagnostic Tools */
+    colorblindMode.addEventListener('change', (e) => {
+      state.colorblindMode = e.target.value;
+      
+      // Clear visual overrides
+      document.body.classList.remove('colorblind-protanopia', 'colorblind-tritanopia');
+      
+      if (state.colorblindMode !== 'none') {
+        document.body.classList.add(`colorblind-${state.colorblindMode}`);
+      }
+    });
+
+    debugOutlinesToggle.addEventListener('click', () => {
+      state.diagnosticActive = !state.diagnosticActive;
+      
+      if (state.diagnosticActive) {
+        debugOutlinesToggle.textContent = 'Disable';
+        debugOutlinesToggle.classList.add('bg-rose-500/10', 'text-rose-500');
+        
+        // Dynamic insert diagnostic CSS blocks directly on top layer
+        const styleTag = document.createElement('style');
+        styleTag.id = 'diagnosticOutlinesStyle';
+        styleTag.innerHTML = `
+          div, section, article, header, footer, dialog, main {
+            outline: 1px dashed oklch(0.60 0.20 20) !important;
+            outline-offset: -1px;
+          }
+        `;
+        document.head.appendChild(styleTag);
+      } else {
+        debugOutlinesToggle.textContent = 'Enable';
+        debugOutlinesToggle.classList.remove('bg-rose-500/10', 'text-rose-500');
+        
+        const styleTag = document.getElementById('diagnosticOutlinesStyle');
+        if (styleTag) styleTag.remove();
+      }
+    });
+
+    // Detect system preferred dark themes
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      state.isDark = true;
+      applyTheme();
+    }
+
+    // Initialize logic
+    bindCalculatorSliders();
+    recalculateFluidFormula();
+  </script>
+</body>
+</html>

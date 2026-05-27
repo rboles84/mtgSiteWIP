@@ -129,6 +129,7 @@ body.vm-archscry-route .question-card,
 body.vm-archscry-route .interview-shell,
 body.vm-archscry-route #decree-container,
 body.vm-archscry-route .result-status,
+body.vm-archscry-route .precons-section,
 body.vm-archscry-route .scores-section,
 body.vm-archscry-route .archetypes-section,
 body.vm-archscry-route .starter-section,
@@ -479,17 +480,17 @@ body.vm-archscry-route .section-label {
   border-bottom: 1px solid rgba(184, 149, 74, 0.12);
 }
 
-body.vm-archscry-route :is(.scores-section, .archetypes-section, .starter-section, .adjacent-section, .staples-section, .lands-section, .decks-section, .footer-actions) {
+body.vm-archscry-route :is(.precons-section, .scores-section, .archetypes-section, .starter-section, .adjacent-section, .staples-section, .lands-section, .decks-section, .footer-actions) {
   padding: clamp(1.1rem, 2.5vw, 1.35rem);
   margin-bottom: 1.75rem;
 }
 
-body.vm-archscry-route :is(.archetypes-grid, .decks-grid, .adjacent-grid, .starter-grid, .flavor-echo-grid, .lands-tiers, .commander-preview-grid) {
+body.vm-archscry-route :is(.precon-grid, .archetypes-grid, .decks-grid, .adjacent-grid, .starter-grid, .flavor-echo-grid, .lands-tiers, .commander-preview-grid) {
   gap: 12px;
   background: none;
 }
 
-body.vm-archscry-route :is(.archetypes-section, .decks-section, .adjacent-section, .starter-section, .lands-section) {
+body.vm-archscry-route :is(.precons-section, .archetypes-section, .decks-section, .adjacent-section, .starter-section, .lands-section) {
   container-type: inline-size;
 }
 
@@ -498,7 +499,7 @@ body.vm-archscry-route .flavor-echo-grid {
   container-type: inline-size;
 }
 
-body.vm-archscry-route :is(.arch-card, .deck-card, .adjacent-card, .starter-card, .starter-note, .tag-explainer-card, .tag-interpretation, .omen-card, .commander-preview-card, .land-tier, .lands-guide, .staples-category) {
+body.vm-archscry-route :is(.precon-card, .arch-card, .deck-card, .adjacent-card, .starter-card, .starter-note, .tag-explainer-card, .tag-interpretation, .omen-card, .commander-preview-card, .land-tier, .lands-guide, .staples-category) {
   border: 1px solid rgba(184, 149, 74, 0.14);
   border-radius: 20px;
   background:
@@ -506,7 +507,7 @@ body.vm-archscry-route :is(.arch-card, .deck-card, .adjacent-card, .starter-card
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.02), 0 14px 34px rgba(0, 0, 0, 0.24);
 }
 
-body.vm-archscry-route :is(.arch-card, .deck-card, .adjacent-card, .starter-card) {
+body.vm-archscry-route :is(.precon-card, .arch-card, .deck-card, .adjacent-card, .starter-card) {
   padding: 1.25rem;
 }
 
@@ -546,6 +547,221 @@ body.vm-archscry-route .commander-preview-grid {
 
 body.vm-archscry-route .commander-preview-card {
   padding: 0.95rem;
+}
+
+body.vm-archscry-route .precons-section {
+  display: grid;
+  gap: 0.95rem;
+}
+
+body.vm-archscry-route .precon-intro,
+body.vm-archscry-route .precon-empty,
+body.vm-archscry-route .precon-meta {
+  color: rgba(226, 217, 193, 0.84);
+  font-size: 0.94rem;
+  line-height: 1.6;
+}
+
+body.vm-archscry-route .precon-meta {
+  color: rgba(236, 217, 153, 0.72);
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+body.vm-archscry-route .precon-lane {
+  display: grid;
+  gap: 0.75rem;
+}
+
+body.vm-archscry-route .precon-lane-label,
+body.vm-archscry-route .precon-copy-label,
+body.vm-archscry-route .precon-product {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+body.vm-archscry-route .precon-lane-label {
+  color: rgba(236, 217, 153, 0.78);
+}
+
+body.vm-archscry-route .precon-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.9rem;
+}
+
+body.vm-archscry-route .precon-grid.is-compact {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
+  gap: 0.85rem;
+  background: none;
+}
+
+body.vm-archscry-route .precon-grid.is-compact[hidden] {
+  display: none;
+}
+
+body.vm-archscry-route .precon-card.is-compact {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  padding: 1rem;
+  min-height: 0;
+}
+
+body.vm-archscry-route .precon-topline {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.7rem;
+}
+
+body.vm-archscry-route .precon-topline .precon-product {
+  margin-top: 0;
+  max-width: 58%;
+  text-align: right;
+}
+
+body.vm-archscry-route .precon-title {
+  font-family: var(--font-display);
+  font-size: 1.08rem;
+  line-height: 1.2;
+  color: rgba(249, 245, 231, 0.96);
+}
+
+body.vm-archscry-route .precon-card.is-compact .precon-title {
+  font-size: 1.02rem;
+}
+
+body.vm-archscry-route .precon-product {
+  margin-top: 0.45rem;
+  color: rgba(236, 217, 153, 0.66);
+}
+
+body.vm-archscry-route .precon-badges,
+body.vm-archscry-route .precon-theme-row,
+body.vm-archscry-route .precon-chip-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+body.vm-archscry-route .precon-badge,
+body.vm-archscry-route .precon-chip,
+body.vm-archscry-route .precon-theme {
+  display: inline-flex;
+  align-items: center;
+  min-height: 24px;
+  padding: 0.22rem 0.55rem;
+  border-radius: 999px;
+  border: 1px solid rgba(184, 149, 74, 0.18);
+  background: rgba(184, 149, 74, 0.08);
+  color: rgba(241, 237, 225, 0.92);
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  line-height: 1;
+}
+
+body.vm-archscry-route .precon-badge.is-exact {
+  border-color: rgba(26, 170, 150, 0.34);
+  background: rgba(26, 170, 150, 0.12);
+  color: var(--teal-l);
+}
+
+body.vm-archscry-route .precon-badge.is-native {
+  border-color: rgba(236, 217, 153, 0.42);
+  background: linear-gradient(135deg, rgba(184, 149, 74, 0.18), rgba(26, 170, 150, 0.1));
+  color: rgba(249, 245, 231, 0.94);
+}
+
+body.vm-archscry-route .precon-badge.is-stretch {
+  border-color: rgba(184, 149, 74, 0.34);
+  background: rgba(184, 149, 74, 0.12);
+  color: var(--gold-l);
+}
+
+body.vm-archscry-route .precon-theme.secondary,
+body.vm-archscry-route .precon-chip {
+  border-color: rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.03);
+  color: rgba(222, 214, 193, 0.84);
+}
+
+body.vm-archscry-route .precon-commander {
+  color: rgba(236, 217, 153, 0.84);
+  font-size: 0.92rem;
+}
+
+body.vm-archscry-route .precon-theme-row,
+body.vm-archscry-route .precon-chip-row,
+body.vm-archscry-route .precon-links {
+  margin-top: 0.85rem;
+}
+
+body.vm-archscry-route .precon-copy-label {
+  margin-top: 0.9rem;
+  margin-bottom: 0.4rem;
+  color: rgba(236, 217, 153, 0.7);
+}
+
+body.vm-archscry-route .precon-copy {
+  color: rgba(241, 237, 225, 0.9);
+  font-size: 0.92rem;
+  line-height: 1.58;
+}
+
+body.vm-archscry-route .precon-best-for {
+  color: rgba(214, 203, 184, 0.78);
+  font-size: 0.86rem;
+  line-height: 1.45;
+}
+
+body.vm-archscry-route .precon-best-for span {
+  color: rgba(236, 217, 153, 0.78);
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+}
+
+body.vm-archscry-route .precon-reveal-row {
+  display: flex;
+  justify-content: center;
+  padding-top: 0.15rem;
+}
+
+body.vm-archscry-route .precon-reveal-btn {
+  border: 1px solid rgba(236, 217, 153, 0.26);
+  border-radius: 999px;
+  padding: 0.58rem 0.95rem;
+  background:
+    linear-gradient(135deg, rgba(184, 149, 74, 0.14), rgba(26, 170, 150, 0.08)),
+    rgba(12, 11, 14, 0.78);
+  color: rgba(249, 245, 231, 0.92);
+  cursor: pointer;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  transition: border-color 160ms ease, background 160ms ease, transform 160ms ease;
+}
+
+body.vm-archscry-route .precon-reveal-btn:hover,
+body.vm-archscry-route .precon-reveal-btn:focus-visible {
+  border-color: rgba(236, 217, 153, 0.48);
+  background:
+    linear-gradient(135deg, rgba(184, 149, 74, 0.2), rgba(26, 170, 150, 0.12)),
+    rgba(18, 16, 20, 0.9);
+  transform: translateY(-1px);
+}
+
+body.vm-archscry-route .precon-copy-dim {
+  color: rgba(214, 203, 184, 0.76);
 }
 
 body.vm-archscry-route :is(.commander-placeholder, .staple-placeholder, .land-placeholder) {
@@ -1410,7 +1626,7 @@ body::before{
   padding-bottom:0.5rem;
   border-bottom:1px solid var(--border);
 }
-.scores-section,.archetypes-section,.starter-section,.adjacent-section,.staples-section,.lands-section,.decks-section,.footer-actions{
+.precons-section,.scores-section,.archetypes-section,.starter-section,.adjacent-section,.staples-section,.lands-section,.decks-section,.footer-actions{
   margin-bottom:3rem;
 }
 .score-bars{display:flex;flex-direction:column;gap:8px;max-width:420px}
@@ -1706,8 +1922,8 @@ body::before{
     display:none !important;
   }
 }
-.archetypes-grid,.decks-grid,.adjacent-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1px;background:rgba(184,149,74,0.06)}
-.arch-card,.deck-card,.adjacent-card,.starter-card{background:rgba(12,11,10,0.9);border:1px solid rgba(184,149,74,0.08);padding:1.4rem}
+.precon-grid,.archetypes-grid,.decks-grid,.adjacent-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1px;background:rgba(184,149,74,0.06)}
+.precon-card,.arch-card,.deck-card,.adjacent-card,.starter-card{background:rgba(12,11,10,0.9);border:1px solid rgba(184,149,74,0.08);padding:1.4rem}
 .arch-name,.starter-title{font-family:"Cinzel",serif;font-size:0.9rem;color:var(--gold);margin-bottom:0.4rem}
 .arch-desc,.starter-copy{font-size:0.9rem;color:var(--text-dim);line-height:1.55}
 .signal-strength-card{

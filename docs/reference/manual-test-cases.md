@@ -7,6 +7,8 @@
 3. Run the SQL in `docs/supabase-profile-update.sql`.
 4. Confirm `data/factions.json` is present at the site root under `/data/factions.json`.
 5. Confirm `data/placement-model.json` is present at the site root under `/data/placement-model.json`.
+6. Confirm `data/precons/vox-mana-precon-catalog.json` is present at the site root under `/data/precons/vox-mana-precon-catalog.json`.
+7. Confirm `data/taxonomy/vox-mana-precon-themes.json` is present at the site root under `/data/taxonomy/vox-mana-precon-themes.json`.
 
 ## `newIndex2.html` visual regression harness
 
@@ -23,13 +25,48 @@
 2. Confirm baseline screenshots exist under `artifacts/visual-regression/archscry/baseline/` for:
    - `landing-mobile.png`
    - `landing-desktop.png`
-   - `dossier-mobile.png`
-   - `dossier-tablet.png`
-   - `dossier-desktop.png`
+   - `dossier-placement-mobile.png`
+   - `dossier-placement-desktop.png`
+   - `dossier-why-mobile.png`
+   - `dossier-why-desktop.png`
+   - `dossier-start-mobile.png`
+   - `dossier-start-desktop.png`
+   - `dossier-commander-deck-starts-mobile.png`
+   - `dossier-commander-deck-starts-desktop.png`
+   - `dossier-starter-cards-mobile.png`
+   - `dossier-starter-cards-desktop.png`
+   - `dossier-mana-base-mobile.png`
+   - `dossier-mana-base-desktop.png`
+   - `dossier-view-all-mobile.png`
+   - `dossier-view-all-desktop.png`
 3. After the extraction or route-local refactor, run `npm.cmd run test:visual:archscry`.
 4. Confirm the compare run writes current and diff artifacts under `artifacts/visual-regression/archscry/current/` and `artifacts/visual-regression/archscry/diff/`.
 5. Confirm each capture stays within the mismatch budget and the run reports no new Archscry console or page errors beyond `console-baseline.json`.
 6. If the harness fails, review the generated diff PNGs before accepting any visual change.
+
+## VM-136 / VM-137 / VM-139 / VM-140 / VM-141 precon dossier layer
+
+1. Run `node research/import-precon-mechanics-validation.mjs` twice. The first run may report source updates; the second run should report 155 matched rows, 0 unmatched rows, 0 skipped rows, 0 mechanics count failures, and 0 records updated.
+2. Confirm the import report uses `Mechanics Normalization Review` for the completed workbook and that the protected-field scope guard passes.
+3. Run `npm.cmd run build:precons`.
+4. Confirm `data/precons/vox-mana-precon-catalog.json` and `data/precons/vox-mana-precon-catalog.schema.json` are rewritten without errors.
+5. Run `npm.cmd test` and confirm `PASS precon artifact tests` appears in the output.
+6. Confirm all 155 precons still have 3-6 mechanics, no `Typal synergy` mechanic tag, and nullable `creatureTypeFocus` values do not render or search as `null`.
+7. Open an Archscry result with a known dense two-color identity, such as Orzhov or Simic.
+8. In the `Commander Deck Starts` focus panel, confirm the in-panel order is `Recommended Precon Decks`, then `Commander Deck Starts`, then `Commander Lanes`.
+9. Confirm `Recommended Precon Decks` renders at most four visible cards by default, even when the full recommendation pool contains more exact-color decks.
+10. Confirm cards are selected from the existing grouped pool in this order: `nativeExact`, then `otherExact`, then `stretch`.
+11. Confirm card badges read `Native fit`, `Exact-color fit`, or `Stretch fit`.
+12. Confirm each compact precon card shows deck name, main commander, product/source, no more than three mechanics/theme chips, one short fit sentence, optional `Best for:` copy, and actions for `Research commander` plus `Find decklists`.
+13. Confirm no `Skip if` block, purchase/price/availability copy, second-commander copy, or Apocrypha precon link appears in this section.
+14. Confirm a `Display other [N]` button appears only when more than four total grouped recommendations are available.
+15. Click `Display other [N]` and confirm the section swaps to the remaining recommendations using the same compact card design without scrolling to the top.
+16. Click `Show first 4 precons` and confirm the section swaps back to the first four cards without scrolling to the top.
+17. Confirm exact-color decks remain uncapped internally through automated tests, even though Archscry starts with only four cards.
+18. Switch into an adjacent-fit dossier view and confirm the precon preview recomputes from that active view and returns to collapsed state.
+19. Confirm the empty state says `No validated precon recommendations are available for this dossier yet.` when no recommendations are available.
+20. Re-run `npm.cmd run test:visual:archscry` and confirm the compact `dossier-commander-deck-starts-*` captures pass.
+21. Open a dossier that surfaces `Blood Rites` and confirm `Clavileño, First of the Blessed` renders with the `ñ` intact in the card body, the Scryfall link query, and the MTGDecks commander slug.
 
 ## `strategium/index.html` visual regression harness
 

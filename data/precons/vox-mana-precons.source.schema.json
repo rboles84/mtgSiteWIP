@@ -1,0 +1,215 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Vox Mana Precon Source Catalog",
+  "type": "object",
+  "required": [
+    "_meta",
+    "precons"
+  ],
+  "properties": {
+    "_meta": {
+      "type": "object",
+      "required": [
+        "schema_version",
+        "dataset",
+        "canonical_source",
+        "reference_csv",
+        "record_count"
+      ],
+      "properties": {
+        "schema_version": { "type": "string" },
+        "dataset": { "type": "string" },
+        "canonical_source": { "type": "string" },
+        "reference_csv": { "type": "string" },
+        "record_count": { "type": "integer", "minimum": 1 }
+      },
+      "additionalProperties": true
+    },
+    "precons": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/precon" }
+    }
+  },
+  "$defs": {
+    "scoreSet": {
+      "type": "object",
+      "required": [
+        "beginnerFriendly",
+        "complexity",
+        "politicalSocialPlay",
+        "combatFocus",
+        "comboPotential",
+        "graveyardFocus",
+        "tokenFocus",
+        "artifactFocus",
+        "enchantmentFocus",
+        "spellslingerFocus",
+        "rampFocus",
+        "controlFocus",
+        "aggression",
+        "valueEngine"
+      ],
+      "properties": {
+        "beginnerFriendly": { "type": "integer", "minimum": 1, "maximum": 5 },
+        "complexity": { "type": "integer", "minimum": 1, "maximum": 5 },
+        "politicalSocialPlay": { "type": "integer", "minimum": 1, "maximum": 5 },
+        "combatFocus": { "type": "integer", "minimum": 1, "maximum": 5 },
+        "comboPotential": { "type": "integer", "minimum": 1, "maximum": 5 },
+        "graveyardFocus": { "type": "integer", "minimum": 1, "maximum": 5 },
+        "tokenFocus": { "type": "integer", "minimum": 1, "maximum": 5 },
+        "artifactFocus": { "type": "integer", "minimum": 1, "maximum": 5 },
+        "enchantmentFocus": { "type": "integer", "minimum": 1, "maximum": 5 },
+        "spellslingerFocus": { "type": "integer", "minimum": 1, "maximum": 5 },
+        "rampFocus": { "type": "integer", "minimum": 1, "maximum": 5 },
+        "controlFocus": { "type": "integer", "minimum": 1, "maximum": 5 },
+        "aggression": { "type": "integer", "minimum": 1, "maximum": 5 },
+        "valueEngine": { "type": "integer", "minimum": 1, "maximum": 5 }
+      },
+      "additionalProperties": false
+    },
+    "recommendationProfile": {
+      "type": "object",
+      "required": [
+        "recommendedFor",
+        "notRecommendedFor",
+        "voxManaPlacementFit"
+      ],
+      "properties": {
+        "recommendedFor": { "type": "string", "minLength": 1 },
+        "notRecommendedFor": { "type": "string", "minLength": 1 },
+        "voxManaPlacementFit": { "type": "string", "minLength": 1 }
+      },
+      "additionalProperties": false
+    },
+    "learningProfile": {
+      "type": "object",
+      "required": [
+        "colorPhilosophySummary",
+        "whatThisDeckTeachesAboutItsColors",
+        "beginnerLesson",
+        "strategyLesson",
+        "voxManaBasicsPageUse",
+        "relatedArchetypes",
+        "relatedMechanics"
+      ],
+      "properties": {
+        "colorPhilosophySummary": { "type": "string", "minLength": 1 },
+        "whatThisDeckTeachesAboutItsColors": { "type": "string", "minLength": 1 },
+        "beginnerLesson": { "type": "string", "minLength": 1 },
+        "strategyLesson": { "type": "string", "minLength": 1 },
+        "voxManaBasicsPageUse": { "type": "string", "minLength": 1 },
+        "relatedArchetypes": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 }
+        },
+        "relatedMechanics": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 }
+        }
+      },
+      "additionalProperties": false
+    },
+    "precon": {
+      "type": "object",
+      "required": [
+        "sourcePage",
+        "productSection",
+        "deckName",
+        "mainCommander",
+        "secondaryCommanders",
+        "factionRefs",
+        "colors",
+        "theme",
+        "deckDescription",
+        "iconicCards",
+        "notesMechanicsMentioned",
+        "playstyleTags",
+        "primaryTheme",
+        "secondaryTheme",
+        "mainStrategy",
+        "mechanics",
+        "creatureTypeFocus",
+        "scores",
+        "recommendationProfile",
+        "learningProfile"
+      ],
+      "properties": {
+        "sourcePage": { "type": "string", "minLength": 1 },
+        "productSection": { "type": "string", "minLength": 1 },
+        "deckName": { "type": "string", "minLength": 1 },
+        "mainCommander": { "type": "string", "minLength": 1 },
+        "secondaryCommanders": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 }
+        },
+        "factionRefs": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "enum": [
+              "W",
+              "U",
+              "B",
+              "R",
+              "G",
+              "WU",
+              "UB",
+              "BR",
+              "RG",
+              "WG",
+              "WB",
+              "UR",
+              "BG",
+              "UG",
+              "WR",
+              "LOREHOLD",
+              "PRISMARI",
+              "QUANDRIX",
+              "SILVERQUILL",
+              "WITHERBLOOM"
+            ]
+          }
+        },
+        "colors": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "enum": ["White", "Blue", "Black", "Red", "Green", "Colorless"]
+          }
+        },
+        "theme": { "type": "string", "minLength": 1 },
+        "deckDescription": { "type": "string", "minLength": 1 },
+        "iconicCards": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 }
+        },
+        "notesMechanicsMentioned": { "type": "string", "minLength": 1 },
+        "playstyleTags": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 }
+        },
+        "primaryTheme": { "type": "string", "minLength": 1 },
+        "secondaryTheme": { "type": "string" },
+        "mainStrategy": { "type": "string", "minLength": 1 },
+        "mechanics": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 }
+        },
+        "creatureTypeFocus": {
+          "anyOf": [
+            { "type": "string", "minLength": 1 },
+            { "type": "null" }
+          ]
+        },
+        "scores": { "$ref": "#/$defs/scoreSet" },
+        "recommendationProfile": { "$ref": "#/$defs/recommendationProfile" },
+        "learningProfile": { "$ref": "#/$defs/learningProfile" }
+      },
+      "additionalProperties": false
+    }
+  }
+}

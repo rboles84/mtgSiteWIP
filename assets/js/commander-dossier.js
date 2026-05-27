@@ -8,6 +8,22 @@ import {
 export const DEFAULT_COMMANDER_DECK_FORMAT = 3;
 
 const MANA_ORDER = ["W", "U", "B", "R", "G"];
+const PRECON_COLOR_TO_CODE = new Map([
+  ["white", "W"],
+  ["blue", "U"],
+  ["black", "B"],
+  ["red", "R"],
+  ["green", "G"],
+  ["colorless", "C"],
+]);
+const PRECON_CODE_TO_COLOR = new Map([
+  ["W", "White"],
+  ["U", "Blue"],
+  ["B", "Black"],
+  ["R", "Red"],
+  ["G", "Green"],
+  ["C", "Colorless"],
+]);
 const COLOR_IDENTITY_SLUGS = new Map([
   ["W", "white"],
   ["U", "blue"],
@@ -2180,6 +2196,309 @@ export function buildCommanderDossier({
       activeKey,
       isPrimary,
     }),
+  };
+}
+
+function preconIdentityKey(value) {
+  if (Array.isArray(value)) {
+    const codes = unique(
+      value
+        .map((color) => {
+          const text = normalizeDisplayName(color);
+          if (!text) return "";
+          if (text.length === 1 && PRECON_CODE_TO_COLOR.has(text.toUpperCase())) {
+            return text.toUpperCase();
+          }
+          return PRECON_COLOR_TO_CODE.get(text) || "";
+        })
+        .filter(Boolean)
+    );
+
+    if (codes.includes("C") && codes.length > 1) {
+      return "";
+    }
+
+    return ["W", "U", "B", "R", "G", "C"].filter((code) => codes.includes(code)).join("");
+  }
+
+  const text = String(value || "").toUpperCase().trim();
+  if (!text) return "";
+  if (text === "COLORLESS") return "C";
+  return ["W", "U", "B", "R", "G", "C"].filter((code) => text.includes(code)).join("");
+}
+
+function identitySet(identityKey) {
+  return new Set(String(identityKey || "").split("").filter(Boolean));
+}
+
+function isExactPreconMatch(activeIdentity, candidateIdentity) {
+  return Boolean(activeIdentity && activeIdentity === candidateIdentity);
+}
+
+function isStretchPreconMatch(activeIdentity, candidateIdentity) {
+  if (!activeIdentity || !candidateIdentity || activeIdentity === "C" || activeIdentity.length >= 5) {
+    return false;
+  }
+  const active = identitySet(activeIdentity);
+  const candidate = identitySet(candidateIdentity);
+  if (!active.size || candidate.size !== active.size + 1) {
+    return false;
+  }
+  if (candidate.has("C")) {
+    return false;
+  }
+  return [...active].every((color) => candidate.has(color));
+}
+
+function extraStretchColors(activeIdentity, candidateIdentity) {
+  const active = identitySet(activeIdentity);
+  return [...identitySet(candidateIdentity)]
+    .filter((color) => !active.has(color))
+    .map((color) => PRECON_CODE_TO_COLOR.get(color) || color);
+}
+
+function preconThemeMap(taxonomy = null) {
+  const themes = Array.isArray(taxonomy?.themes) ? taxonomy.themes : [];
+  return new Map(
+    themes.map((theme) => [
+      normalizeDisplayName(theme?.key || ""),
+      {
+        key: String(theme?.key || ""),
+        displayName: String(theme?.display_name || ""),
+        aliases: (theme?.aliases || []).map((entry) => normalizeDisplayName(entry)).filter(Boolean),
+        matchTerms: (theme?.match_terms || []).map((entry) => normalizeDisplayName(entry)).filter(Boolean),
+        readingTags: (theme?.reading_tags || []).map((entry) => normalizeDisplayName(entry)).filter(Boolean),
+        tablePerception: String(theme?.table_perception || "").trim(),
+      },
+    ])
+  );
+}
+
+function collectSignalPhrases(dossier, readingTagRefs = []) {
+  return unique([
+    dossier?.commanderLane?.title,
+    dossier?.commanderLane?.copy,
+    dossier?.commanderPath?.copy,
+    dossier?.commanderPath?.deckFooting,
+    dossier?.commanderPath?.spellcraft,
+    dossier?.commanderPath?.tableCautionText,
+    ...(dossier?.archetypes || []).flatMap((item) => [item?.name, item?.desc]),
+    ...readingTagRefs.map((ref) => ref?.tag),
+  ].map((entry) => normalizeDisplayName(entry)).filter(Boolean));
+}
+
+function collectSignalWords(phrases = []) {
+  return unique(
+    (phrases || [])
+      .flatMap((phrase) => String(phrase || "").split(/\s+/))
+      .map((entry) => entry.trim())
+      .filter((entry) => entry.length > 2)
+  );
+}
+
+function experienceFitScore(scores = {}, starterProfile = {}) {
+  const level = normalizeDisplayName(starterProfile?.experience_level || "returning");
+  const targets = {
+    beginner: { beginnerFriendly: 5, complexity: 2 },
+    returning: { beginnerFriendly: 3, complexity: 3 },
+    experienced: { beginnerFriendly: 2, complexity: 4 },
+    advanced: { beginnerFriendly: 2, complexity: 4 },
+  };
+  const target = targets[level] || targets.returning;
+  return Math.max(
+    0,
+    12 -
+      (Math.abs(Number(scores.beginnerFriendly || 0) - target.beginnerFriendly) * 2) -
+      (Math.abs(Number(scores.complexity || 0) - target.complexity) * 2)
+  );
+}
+
+function preconThemeSignals(precon, themeLookup, signalTags, signalPhrases) {
+  const matchedThemes = [];
+  let score = 0;
+
+  [precon?.normalizedThemes?.primary, precon?.normalizedThemes?.secondary].filter(Boolean).forEach((theme, index) => {
+    const meta = themeLookup.get(normalizeDisplayName(theme?.key || ""));
+    const readingTags = new Set(meta?.readingTags || []);
+    const themeTerms = unique([
+      normalizeDisplayName(theme?.displayName || ""),
+      normalizeDisplayName(theme?.sourceText || ""),
+      ...(meta?.aliases || []),
+      ...(meta?.matchTerms || []),
+    ]).filter(Boolean);
+    const tagMatches = [...readingTags].filter((tag) => signalTags.has(tag));
+    const phraseMatches = themeTerms.filter((term) => signalPhrases.includes(term));
+
+    if (tagMatches.length || phraseMatches.length) {
+      score += (index === 0 ? 20 : 10) + (tagMatches.length * 6) + (phraseMatches.length * 3);
+      matchedThemes.push(theme.displayName);
+    }
+  });
+
+  return {
+    score,
+    matchedThemes: unique(matchedThemes),
+  };
+}
+
+function buildPreconFitSummary({ precon, lane, factionName, matchedThemes, stretchColors }) {
+  const themeList = matchedThemes.length
+    ? matchedThemes
+    : [precon?.normalizedThemes?.primary?.displayName || precon?.rawPrimaryTheme || "theme-forward"];
+  const themeText = themeList.join(" and ").toLowerCase();
+  if (lane === "stretch") {
+    const stretchText = stretchColors.length ? stretchColors.join(" and ") : "an extra color";
+    return `Stretch option that keeps ${factionName}'s core identity intact while adding ${stretchText} for ${themeText} lines.`;
+  }
+  return `Exact ${precon.colorIdentityKey} match with ${themeText} lines that reinforce ${factionName}'s Commander plan.`;
+}
+
+function activePreconFactionKey(faction, dossier) {
+  return String(
+    faction?.key ||
+    dossier?.faction?.key ||
+    dossier?.targetFactionKey ||
+    ""
+  ).trim().toUpperCase();
+}
+
+function preconFactionShortName(faction, dossier, activeIdentity) {
+  const guidance = getCommanderFactionGuidance(faction || dossier?.faction || {});
+  if (guidance?.shortName) {
+    return guidance.shortName;
+  }
+
+  const name = String(faction?.name || dossier?.faction?.name || "").trim();
+  if (name) {
+    return name
+      .replace(/\s+(College|Senate|Syndicate|Conclave|Combine|Swarm|Legion|League|Clans)$/i, "")
+      .trim();
+  }
+
+  return activeIdentity || "Faction";
+}
+
+export const PRECON_PREVIEW_LIMIT = 4;
+
+const PRECON_PREVIEW_GROUP_ORDER = ["nativeExact", "otherExact", "stretch"];
+
+export function selectPreconPreviewRecommendations(preconRecommendations = {}, limit = PRECON_PREVIEW_LIMIT) {
+  const safeLimit = Number.isFinite(limit) ? Math.max(0, Math.floor(limit)) : PRECON_PREVIEW_LIMIT;
+  const ordered = PRECON_PREVIEW_GROUP_ORDER.flatMap((group) => {
+    const items = Array.isArray(preconRecommendations?.[group]) ? preconRecommendations[group] : [];
+    return items.map((precon) => ({
+      ...precon,
+      previewGroup: group,
+    }));
+  });
+  const totalCount = ordered.length;
+  const visible = ordered.slice(0, safeLimit);
+  const remaining = ordered.slice(safeLimit);
+
+  return {
+    visible,
+    remaining,
+    totalCount,
+    limit: safeLimit,
+    hasOverflow: totalCount > safeLimit,
+  };
+}
+
+export function buildPreconRecommendations({
+  faction,
+  dossier,
+  readingTagRefs = [],
+  starterProfile = {},
+  preconCatalog = null,
+  preconThemeTaxonomy = null,
+} = {}) {
+  const precons = Array.isArray(preconCatalog?.precons) ? preconCatalog.precons : [];
+  const activeIdentity = preconIdentityKey(faction?.colors || faction?.colorIdentity || dossier?.faction?.colorIdentity || "");
+  const activeFactionKey = activePreconFactionKey(faction, dossier);
+  if (!precons.length || !activeIdentity) {
+    return { nativeExact: [], otherExact: [], stretch: [], hasAny: false };
+  }
+
+  const signalPhrases = collectSignalPhrases(dossier, readingTagRefs);
+  const signalWords = new Set(collectSignalWords(signalPhrases));
+  const signalTags = new Set(readingTagRefs.map((ref) => normalizeDisplayName(ref?.tag || "")).filter(Boolean));
+  const themeLookup = preconThemeMap(preconThemeTaxonomy);
+  const groupOrder = { nativeExact: 0, otherExact: 1, stretch: 2 };
+
+  const ranked = precons
+    .map((precon) => {
+      const candidateIdentity = preconIdentityKey(precon?.colors || precon?.colorIdentityKey || "");
+      const lane = isExactPreconMatch(activeIdentity, candidateIdentity)
+        ? "exact"
+        : (isStretchPreconMatch(activeIdentity, candidateIdentity) ? "stretch" : "");
+      if (!lane) {
+        return null;
+      }
+
+      const themeSignals = preconThemeSignals(precon, themeLookup, signalTags, signalPhrases);
+      const phraseMatches = (precon?.matchTerms || []).filter((term) => signalPhrases.includes(normalizeDisplayName(term)));
+      const wordMatches = (precon?.matchWords || []).filter((word) => signalWords.has(normalizeDisplayName(word)));
+      const experienceScore = experienceFitScore(precon?.scores || {}, starterProfile);
+      const score =
+        themeSignals.score +
+        Math.min(12, phraseMatches.length * 3) +
+        Math.min(8, wordMatches.length) +
+        experienceScore;
+      const stretchColors = lane === "stretch" ? extraStretchColors(activeIdentity, candidateIdentity) : [];
+      const primaryTheme = precon?.normalizedThemes?.primary || null;
+      const primaryThemeMeta = primaryTheme
+        ? themeLookup.get(normalizeDisplayName(primaryTheme.key || ""))
+        : null;
+      const nativeExact = lane === "exact" &&
+        activeFactionKey &&
+        Array.isArray(precon?.factionRefs) &&
+        precon.factionRefs.includes(activeFactionKey);
+      const group = lane === "stretch" ? "stretch" : (nativeExact ? "nativeExact" : "otherExact");
+
+      return {
+        ...precon,
+        lane,
+        group,
+        score,
+        fitSummary: buildPreconFitSummary({
+          precon,
+          lane,
+          factionName: faction?.name || dossier?.faction?.name || "this reading",
+          matchedThemes: themeSignals.matchedThemes,
+          stretchColors,
+        }),
+        skipSummary: precon?.recommendationProfile?.notRecommendedFor || "",
+        tablePerception:
+          primaryTheme?.tablePerception ||
+          primaryThemeMeta?.tablePerception ||
+          precon?.normalizedThemes?.secondary?.tablePerception ||
+          "",
+      };
+    })
+    .filter(Boolean)
+    .sort((left, right) => {
+      const groupDelta = (groupOrder[left.group] ?? 99) - (groupOrder[right.group] ?? 99);
+      if (groupDelta !== 0) {
+        return groupDelta;
+      }
+      return right.score - left.score || left.sourceIndex - right.sourceIndex;
+    });
+
+  const nativeExact = ranked.filter((entry) => entry.group === "nativeExact");
+  const otherExact = ranked.filter((entry) => entry.group === "otherExact");
+  const stretch = ranked.filter((entry) => entry.group === "stretch").slice(0, 2);
+  const activeFactionShortName = preconFactionShortName(faction, dossier, activeIdentity);
+
+  return {
+    nativeExact,
+    otherExact,
+    stretch,
+    hasAny: nativeExact.length > 0 || otherExact.length > 0 || stretch.length > 0,
+    activeIdentity,
+    activeFactionKey,
+    activeFactionShortName,
+    nativeLaneTitle: `${activeFactionShortName} Precons`,
+    otherExactTitle: `Other ${activeIdentity} Exact Matches`,
   };
 }
 

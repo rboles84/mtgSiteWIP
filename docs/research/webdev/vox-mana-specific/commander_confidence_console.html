@@ -1,0 +1,1111 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Commander Confidence Console - Vox Mana</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        mtg: {
+                            white: '#f8f4ea',
+                            blue: '#0e68ab',
+                            black: '#151112',
+                            red: '#d32f2f',
+                            green: '#007a48',
+                            gold: '#b8860b'
+                        },
+                        brand: {
+                            slate: '#0f172a',
+                            charcoal: '#1e293b',
+                            violet: '#6366f1',
+                            amber: '#f59e0b',
+                            crimson: '#e11d48'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                        serif: ['Playfair Display', 'Georgia', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Custom Style Injection for Custom Scrollbars & Seamless Glows -->
+    <style>
+        body {
+            background-color: #0b0f19;
+            color: #f1f5f9;
+        }
+        .glow-hover:hover {
+            box-shadow: 0 0 20px rgba(99, 102, 241, 0.4);
+        }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0f172a;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #334155;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #475569;
+        }
+    </style>
+</head>
+<body class="font-sans antialiased selection:bg-brand-violet selection:text-white">
+
+    <!-- Top Navigation -->
+    <nav class="sticky top-0 z-50 bg-[#0b0f19]/90 backdrop-blur-md border-b border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <!-- Brand Identity -->
+                <div class="flex items-center space-x-3">
+                    <div class="h-9 w-9 bg-gradient-to-tr from-brand-violet to-brand-amber rounded-xl flex items-center justify-center shadow-lg shadow-brand-violet/20">
+                        <span class="font-serif font-bold text-lg text-white">VM</span>
+                    </div>
+                    <div>
+                        <span class="font-bold tracking-wider text-xl bg-gradient-to-r from-white via-slate-200 to-slate-400 bg-clip-text text-transparent">VOX MANA</span>
+                        <span class="text-[10px] tracking-widest text-brand-amber block uppercase font-semibold">Field Guides</span>
+                    </div>
+                </div>
+
+                <!-- Nav Items -->
+                <div class="hidden md:flex space-x-6 text-sm font-medium">
+                    <a href="#console-hero" class="text-slate-300 hover:text-white transition">Home</a>
+                    <a href="#table-anxiety" class="text-slate-300 hover:text-white transition">Confidence</a>
+                    <a href="#brackets" class="text-slate-300 hover:text-white transition">Brackets</a>
+                    <a href="#precon-anatomy" class="text-slate-300 hover:text-white transition">Anatomy</a>
+                    <a href="#rule-zero" class="text-slate-300 hover:text-white transition">Rule 0 Script</a>
+                    <a href="#playstyle-quiz" class="text-slate-300 hover:text-white transition">Quiz</a>
+                </div>
+
+                <!-- Outbound Helper Pill -->
+                <div class="flex items-center">
+                    <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-slate-800 text-brand-amber border border-slate-700">
+                        <span class="w-1.5 h-1.5 mr-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                        Rulebook Free Zone
+                    </span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Console Hero Segment -->
+    <section id="console-hero" class="relative overflow-hidden pt-20 pb-24 border-b border-slate-900 bg-gradient-to-b from-[#0e1626] to-[#0b0f19]">
+        <!-- Decorative subtle background mesh -->
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(99,102,241,0.08),transparent_50%)]"></div>
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_80%_70%,rgba(245,158,11,0.05),transparent_50%)]"></div>
+        
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative text-center">
+            <!-- Breadcrumb -->
+            <div class="inline-flex items-center space-x-2 bg-slate-800/60 border border-slate-700/50 px-3 py-1.5 rounded-full text-xs text-slate-300 mb-8 backdrop-blur-sm">
+                <span class="text-brand-violet font-semibold">Basics v2.6</span>
+                <span class="text-slate-600">•</span>
+                <span>The Human Onboarding Path</span>
+            </div>
+
+            <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight mb-6">
+                <span class="block text-slate-100">Commander</span>
+                <span class="block mt-1 bg-gradient-to-r from-brand-violet via-indigo-400 to-brand-amber bg-clip-text text-transparent pb-2">Confidence Console</span>
+            </h1>
+
+            <p class="text-lg sm:text-xl text-slate-400 max-w-3xl mx-auto mb-10 leading-relaxed font-light">
+                You don't need to memorize <span class="text-white font-medium">thirty thousand cards</span> to sit down at a table. Vox Mana is an onboarding field guide teaching players what the game represents, what their colors mean, what to say, and how to begin.
+            </p>
+
+            <!-- Quick Action Anchors -->
+            <div class="flex flex-col sm:flex-row justify-center items-center gap-4">
+                <a href="#rule-zero" class="w-full sm:w-auto px-8 py-4 bg-brand-violet hover:bg-indigo-500 text-white rounded-xl font-semibold transition shadow-lg shadow-brand-violet/20 flex items-center justify-center space-x-2">
+                    <i data-lucide="message-square-code" class="w-5 h-5"></i>
+                    <span>Generate Pre-Game Script</span>
+                </a>
+                <a href="#playstyle-quiz" class="w-full sm:w-auto px-8 py-4 bg-slate-800 hover:bg-slate-700 text-slate-200 hover:text-white rounded-xl font-semibold transition border border-slate-700 flex items-center justify-center space-x-2">
+                    <i data-lucide="sparkles" class="w-5 h-5"></i>
+                    <span>Find My Color Identity</span>
+                </a>
+            </div>
+
+            <!-- Strategic Distinction Anchor Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-20 text-left">
+                <div class="bg-slate-900/40 border border-slate-800/80 p-6 rounded-2xl">
+                    <div class="w-10 h-10 rounded-xl bg-brand-violet/10 text-brand-violet flex items-center justify-center mb-4">
+                        <i data-lucide="shield-alert" class="w-5 h-5"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-200 mb-2">Rulebook Anxiety Shield</h3>
+                    <p class="text-sm text-slate-400 leading-relaxed">Skip raw legalistic interactions. Focus on physical manners, active table listening, and the social contract.</p>
+                </div>
+                <div class="bg-slate-900/40 border border-slate-800/80 p-6 rounded-2xl">
+                    <div class="w-10 h-10 rounded-xl bg-brand-amber/10 text-brand-amber flex items-center justify-center mb-4">
+                        <i data-lucide="swatchbook" class="w-5 h-5"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-200 mb-2">Color Ideology Translation</h3>
+                    <p class="text-sm text-slate-400 leading-relaxed">Colors aren't just mana symbols. Learn how each color's worldview predicts tactical actions and tells your player identity.</p>
+                </div>
+                <div class="bg-slate-900/40 border border-slate-800/80 p-6 rounded-2xl">
+                    <div class="w-10 h-10 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center mb-4">
+                        <i data-lucide="package-open" class="w-5 h-5"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-200 mb-2">Smart Upgrading Insights</h3>
+                    <p class="text-sm text-slate-400 leading-relaxed">Avoid the dangerous optimization trap. Learn how to maintain deck synergy instead of chasing expensive staples.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Strategic Table Anxiety Statement -->
+    <section id="table-anxiety" class="py-20 bg-slate-950/40 border-b border-slate-900">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-7">
+                    <span class="text-xs font-semibold uppercase tracking-wider text-brand-violet">Stage 01 — First Table Promise</span>
+                    <h2 class="text-3xl font-extrabold text-slate-100 mt-2 mb-6 font-serif tracking-tight">Belonging Before the Rules Begin</h2>
+                    <p class="text-slate-300 mb-6 leading-relaxed">
+                        Sitting down with strangers for your first paper game of Commander can feel deeply intimidating. The fear of slowing down a playgroup, missing complex trigger interactions, or targeting the wrong opponent is completely normal.
+                    </p>
+                    <div class="space-y-4">
+                        <div class="flex items-start space-x-3">
+                            <div class="w-6 h-6 rounded bg-emerald-500/20 text-emerald-400 flex items-center justify-center mt-1">
+                                <i data-lucide="check" class="w-4 h-4"></i>
+                            </div>
+                            <p class="text-sm text-slate-400"><strong class="text-slate-200">The Social Promise:</strong> No veteran player expects you to know all rules perfectly. Playgroups welcome beginners who participate openly and express their status.</p>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <div class="w-6 h-6 rounded bg-emerald-500/20 text-emerald-400 flex items-center justify-center mt-1">
+                                <i data-lucide="check" class="w-4 h-4"></i>
+                            </div>
+                            <p class="text-sm text-slate-400"><strong class="text-slate-200">Shared Storytelling:</strong> Unlike standard 1-on-1 matches, Commander is a casual, theatrical multiplayer format. The narrative of play is just as important as who wins.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="lg:col-span-5 bg-gradient-to-tr from-slate-900 to-slate-800 border border-slate-700/60 p-8 rounded-3xl relative overflow-hidden">
+                    <div class="absolute -right-16 -bottom-16 w-48 h-48 bg-brand-violet/10 rounded-full blur-2xl"></div>
+                    <h3 class="text-xl font-bold text-white mb-4 flex items-center">
+                        <i data-lucide="megaphone" class="text-brand-amber w-5 h-5 mr-2"></i>
+                        The Vox Mana Thesis
+                    </h3>
+                    <p class="text-sm text-slate-400 italic mb-6 leading-relaxed">
+                        "Your commander is the thesis statement of your deck. Before drawing cards, it sits face-up in the command zone, telling the table exactly what kind of story, strategy, and threat you are introducing to the shared experience."
+                    </p>
+                    <div class="border-t border-slate-700/60 pt-4 flex items-center space-x-3">
+                        <div class="w-10 h-10 rounded-full bg-slate-800 border border-slate-700 flex items-center justify-center">
+                            <i data-lucide="compass" class="w-5 h-5 text-brand-violet"></i>
+                        </div>
+                        <div>
+                            <span class="block text-xs font-semibold text-slate-300">Orientation Priority</span>
+                            <span class="block text-[11px] text-slate-500">Confidence over raw memorization</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WotC Matchmaking Brackets Widget -->
+    <section id="brackets" class="py-20 border-b border-slate-900 relative">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-xs font-semibold uppercase tracking-wider text-brand-amber">Stage 02 — Matchmaking Clear-headedness</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-100 mt-2 mb-4">Official Brackets Without the Headache</h2>
+                <p class="text-slate-400 font-light">
+                    Wizards of the Coast utilizes five Matchmaking Brackets to manage power balances. Use this tool to see where your preconstructed or upgrade ideas fit.
+                </p>
+            </div>
+
+            <!-- Interactive Bracket Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-5 gap-4">
+                <!-- Bracket 1 -->
+                <button onclick="selectBracket(1)" id="bracket-btn-1" class="bracket-card p-6 rounded-2xl text-left border bg-slate-900/30 border-slate-800 hover:border-slate-700 transition relative overflow-hidden group">
+                    <div class="absolute top-0 left-0 w-full h-1 bg-slate-600"></div>
+                    <span class="text-xs text-slate-500 uppercase font-semibold">Level 1</span>
+                    <h4 class="text-lg font-bold text-slate-200 mt-1 mb-2 group-hover:text-white transition">Exhibition</h4>
+                    <p class="text-xs text-slate-400 line-clamp-2">Creative, theme-first builds. Pure storytelling.</p>
+                </button>
+                <!-- Bracket 2 -->
+                <button onclick="selectBracket(2)" id="bracket-btn-2" class="bracket-card p-6 rounded-2xl text-left border bg-slate-900/30 border-slate-800 hover:border-slate-700 transition relative overflow-hidden group">
+                    <div class="absolute top-0 left-0 w-full h-1 bg-emerald-500"></div>
+                    <span class="text-xs text-emerald-400 uppercase font-semibold">Level 2</span>
+                    <h4 class="text-lg font-bold text-slate-200 mt-1 mb-2 group-hover:text-white transition">Core Precon</h4>
+                    <p class="text-xs text-slate-400 line-clamp-2">Standard preconstructed decks. Stable gameplay.</p>
+                </button>
+                <!-- Bracket 3 -->
+                <button onclick="selectBracket(3)" id="bracket-btn-3" class="bracket-card p-6 rounded-2xl text-left border bg-slate-900/30 border-slate-800 hover:border-slate-700 transition relative overflow-hidden group">
+                    <div class="absolute top-0 left-0 w-full h-1 bg-brand-violet"></div>
+                    <span class="text-xs text-brand-violet uppercase font-semibold">Level 3</span>
+                    <h4 class="text-lg font-bold text-slate-200 mt-1 mb-2 group-hover:text-white transition">Upgraded</h4>
+                    <p class="text-xs text-slate-400 line-clamp-2">Synergy focused, allows up to 3 Game Changer cards.</p>
+                </button>
+                <!-- Bracket 4 -->
+                <button onclick="selectBracket(4)" id="bracket-btn-4" class="bracket-card p-6 rounded-2xl text-left border bg-slate-900/30 border-slate-800 hover:border-slate-700 transition relative overflow-hidden group">
+                    <div class="absolute top-0 left-0 w-full h-1 bg-brand-amber"></div>
+                    <span class="text-xs text-brand-amber uppercase font-semibold">Level 4</span>
+                    <h4 class="text-lg font-bold text-slate-200 mt-1 mb-2 group-hover:text-white transition">Optimized</h4>
+                    <p class="text-xs text-slate-400 line-clamp-2">Fast, lethal combat combos and heavy optimization.</p>
+                </button>
+                <!-- Bracket 5 -->
+                <button onclick="selectBracket(5)" id="bracket-btn-5" class="bracket-card p-6 rounded-2xl text-left border bg-slate-900/30 border-slate-800 hover:border-slate-700 transition relative overflow-hidden group">
+                    <div class="absolute top-0 left-0 w-full h-1 bg-brand-crimson"></div>
+                    <span class="text-xs text-brand-crimson uppercase font-semibold">Level 5</span>
+                    <h4 class="text-lg font-bold text-slate-200 mt-1 mb-2 group-hover:text-white transition">cEDH</h4>
+                    <p class="text-xs text-slate-400 line-clamp-2">Maximum efficiency. Fast winning cycles.</p>
+                </button>
+            </div>
+
+            <!-- Interactive Explainer Details Pane -->
+            <div class="mt-8 bg-slate-900/60 border border-slate-800 p-8 rounded-3xl relative min-h-[220px] transition-all duration-300">
+                <div id="bracket-content-area" class="transition-opacity duration-200">
+                    <!-- Dynamic details will load here via JavaScript -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Precon Anatomy Interactive Visualizer -->
+    <section id="precon-anatomy" class="py-20 bg-slate-950/20 border-b border-slate-900">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <!-- Left Details block -->
+                <div class="lg:col-span-5">
+                    <span class="text-xs font-semibold uppercase tracking-wider text-brand-violet">Stage 03 — Structural Anatomy</span>
+                    <h2 class="text-3xl font-extrabold text-slate-100 mt-2 mb-4 font-serif">What's Inside a Precon?</h2>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-6">
+                        A preconstructed deck acts like a self-contained board game. It's pre-balanced to function correctly right out of the box. Hover or tap different card categories to see their role and standard ratio inside a balanced deck recipe.
+                    </p>
+
+                    <!-- Interactive category legends -->
+                    <div class="space-y-3">
+                        <div onmouseover="highlightAnatomy('lands')" onmouseout="resetAnatomy()" class="p-3 bg-slate-900/40 hover:bg-slate-900 border border-slate-850 hover:border-slate-700 rounded-xl transition cursor-pointer flex items-center justify-between">
+                            <div class="flex items-center space-x-3">
+                                <span class="w-3 h-3 rounded bg-slate-500"></span>
+                                <span class="text-sm font-semibold text-slate-200">The Lands</span>
+                            </div>
+                            <span class="text-xs text-slate-400 font-mono">36 - 38 Cards</span>
+                        </div>
+                        <div onmouseover="highlightAnatomy('ramp')" onmouseout="resetAnatomy()" class="p-3 bg-slate-900/40 hover:bg-slate-900 border border-slate-850 hover:border-slate-700 rounded-xl transition cursor-pointer flex items-center justify-between">
+                            <div class="flex items-center space-x-3">
+                                <span class="w-3 h-3 rounded bg-amber-500"></span>
+                                <span class="text-sm font-semibold text-slate-200">Ramp spells</span>
+                            </div>
+                            <span class="text-xs text-slate-400 font-mono">10 - 13 Cards</span>
+                        </div>
+                        <div onmouseover="highlightAnatomy('interaction')" onmouseout="resetAnatomy()" class="p-3 bg-slate-900/40 hover:bg-slate-900 border border-slate-850 hover:border-slate-700 rounded-xl transition cursor-pointer flex items-center justify-between">
+                            <div class="flex items-center space-x-3">
+                                <span class="w-3 h-3 rounded bg-indigo-500"></span>
+                                <span class="text-sm font-semibold text-slate-200">Targeted Interaction</span>
+                            </div>
+                            <span class="text-xs text-slate-400 font-mono">8 - 13 Cards</span>
+                        </div>
+                        <div onmouseover="highlightAnatomy('draw')" onmouseout="resetAnatomy()" class="p-3 bg-slate-900/40 hover:bg-slate-900 border border-slate-850 hover:border-slate-700 rounded-xl transition cursor-pointer flex items-center justify-between">
+                            <div class="flex items-center space-x-3">
+                                <span class="w-3 h-3 rounded bg-teal-500"></span>
+                                <span class="text-sm font-semibold text-slate-200">Card Draw</span>
+                            </div>
+                            <span class="text-xs text-slate-400 font-mono">10 Cards</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Visual block -->
+                <div class="lg:col-span-7 flex flex-col justify-center">
+                    <!-- Ratio visual bar graph -->
+                    <div class="space-y-4 bg-slate-900/60 border border-slate-800 p-8 rounded-3xl">
+                        <h4 class="text-sm font-semibold text-slate-300 uppercase tracking-widest text-center mb-6">Visual Recipe Breakdown</h4>
+                        
+                        <div class="h-10 w-full rounded-xl bg-slate-950 flex overflow-hidden border border-slate-800">
+                            <!-- Lands (38%) -->
+                            <div id="bar-lands" class="h-full bg-slate-600/90 transition-all duration-300 flex items-center justify-center text-[10px] text-white font-mono" style="width: 38%;">Lands</div>
+                            <!-- Ramp (12%) -->
+                            <div id="bar-ramp" class="h-full bg-amber-500/90 transition-all duration-300 flex items-center justify-center text-[10px] text-black font-mono" style="width: 12%;">Ramp</div>
+                            <!-- Interaction (11%) -->
+                            <div id="bar-interaction" class="h-full bg-indigo-500/90 transition-all duration-300 flex items-center justify-center text-[10px] text-white font-mono" style="width: 11%;">Int</div>
+                            <!-- Draw (10%) -->
+                            <div id="bar-draw" class="h-full bg-teal-500/90 transition-all duration-300 flex items-center justify-center text-[10px] text-white font-mono" style="width: 10%;">Draw</div>
+                            <!-- Theme & Synergy (29%) -->
+                            <div id="bar-synergy" class="h-full bg-violet-600/90 transition-all duration-300 flex items-center justify-center text-[10px] text-white font-mono" style="width: 29%;">Synergy</div>
+                        </div>
+
+                        <!-- Focused feedback block -->
+                        <div id="anatomy-feedback" class="bg-slate-950/40 border border-slate-850/60 p-5 rounded-2xl min-h-[120px] transition-all">
+                            <p class="text-xs text-slate-500 uppercase tracking-wider mb-1 font-semibold">Active Focus</p>
+                            <h5 id="anatomy-title" class="text-base font-bold text-slate-200 mb-1">Hover a deck category</h5>
+                            <p id="anatomy-desc" class="text-sm text-slate-400">Discover how these card rations stabilize your deck and prevent you from getting starved of options.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rule 0 Interactive Script Generator -->
+    <section id="rule-zero" class="py-20 border-b border-slate-900 bg-[#0c1221]">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <span class="text-xs font-semibold uppercase tracking-wider text-brand-amber">Stage 04 — Table Readiness Tool</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-100 mt-2 mb-4">Rule 0 Script Generator</h2>
+                <p class="text-slate-400 font-light text-sm max-w-2xl mx-auto">
+                    The pre-game conversation—called Rule 0—helps align expectations. Complete this form to instantly build your personal script to recite before drawing cards.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+                <!-- Form Inputs -->
+                <div class="lg:col-span-5 bg-slate-900/60 border border-slate-800 p-6 rounded-3xl space-y-5">
+                    <!-- Input 1 -->
+                    <div>
+                        <label class="block text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">Commander's Name</label>
+                        <input type="text" id="script-cmd-name" value="Auntie Ool" placeholder="e.g. Auntie Ool" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-sm text-slate-200 focus:outline-none focus:border-brand-violet transition">
+                    </div>
+
+                    <!-- Input 2 -->
+                    <div>
+                        <label class="block text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">Deck Source & Status</label>
+                        <select id="script-deck-source" onchange="generateScript()" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-sm text-slate-200 focus:outline-none focus:border-brand-violet transition">
+                            <option value="unaltered-precon" selected>Stock Precon (No changes)</option>
+                            <option value="lightly-upgraded">Lightly Upgraded Precon</option>
+                            <option value="custom-casual">Custom Casual (No Infinite Combos)</option>
+                            <option value="optimized">Highly Synergistic (Bracket 3-4)</option>
+                        </select>
+                    </div>
+
+                    <!-- Input 3 -->
+                    <div>
+                        <label class="block text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">My Playstyle Experience</label>
+                        <select id="script-experience" onchange="generateScript()" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-sm text-slate-200 focus:outline-none focus:border-brand-violet transition">
+                            <option value="total-beginner" selected>Total Beginner (Still learning basic steps)</option>
+                            <option value="returning">Returning Magic Player (First multiplayer game)</option>
+                            <option value="intermediate">Intermediate (Understand main phases and responses)</option>
+                        </select>
+                    </div>
+
+                    <!-- Input 4 -->
+                    <div>
+                        <label class="block text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">Social Vibe Priority</label>
+                        <select id="script-vibe" onchange="generateScript()" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-sm text-slate-200 focus:outline-none focus:border-brand-violet transition">
+                            <option value="relaxed" selected>Chill & Welcoming (Happy with any play outcome)</option>
+                            <option value="strategic">Thematic but Strategic (Let's play efficiently)</option>
+                            <option value="interactive">Lively Politics & Backstabbing allowed</option>
+                        </select>
+                    </div>
+
+                    <button onclick="generateScript()" class="w-full py-3.5 bg-brand-violet hover:bg-indigo-500 text-white rounded-xl text-sm font-semibold transition flex items-center justify-center space-x-2">
+                        <i data-lucide="refresh-cw" class="w-4 h-4"></i>
+                        <span>Regenerate Script</span>
+                    </button>
+                </div>
+
+                <!-- Live Output Script Terminal -->
+                <div class="lg:col-span-7 flex flex-col justify-between bg-slate-950 border border-slate-850 p-6 rounded-3xl relative overflow-hidden">
+                    <div class="absolute top-0 right-0 p-4 opacity-[0.03]">
+                        <i data-lucide="terminal" class="w-40 h-40"></i>
+                    </div>
+
+                    <div>
+                        <div class="flex items-center justify-between border-b border-slate-850 pb-4 mb-4">
+                            <div class="flex items-center space-x-2">
+                                <span class="w-3 h-3 rounded-full bg-rose-500"></span>
+                                <span class="w-3 h-3 rounded-full bg-amber-500"></span>
+                                <span class="w-3 h-3 rounded-full bg-emerald-500"></span>
+                                <span class="text-xs font-mono text-slate-500 pl-2">script_console.txt</span>
+                            </div>
+                            <span id="script-bracket-indicator" class="px-2.5 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 text-[10px] uppercase font-semibold font-mono">Bracket 2</span>
+                        </div>
+
+                        <div class="min-h-[160px] flex flex-col justify-center">
+                            <p id="rule-zero-text" class="text-slate-300 font-serif italic text-base sm:text-lg leading-relaxed">
+                                "Hey everyone, I'm playing the stock precon led by Auntie Ool. It's a bracket 2 deck with no custom upgrades. I'm a complete beginner, so please let me know if I miss any crucial triggers or step triggers!"
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="border-t border-slate-850 pt-4 mt-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+                        <span class="text-xs text-slate-500 flex items-center">
+                            <i data-lucide="info" class="w-3.5 h-3.5 mr-1.5 text-brand-amber"></i>
+                            Say this out loud before the game begins.
+                        </span>
+                        
+                        <button onclick="copyScriptText()" id="copy-btn" class="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-slate-200 hover:text-white rounded-xl text-xs font-semibold transition flex items-center space-x-2 self-end">
+                            <i data-lucide="clipboard" class="w-4 h-4"></i>
+                            <span id="copy-btn-text">Copy Script</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Playstyle Personality Assessment Quiz -->
+    <section id="playstyle-quiz" class="py-20 border-b border-slate-900 relative">
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_50%_110%,rgba(99,102,241,0.06),transparent_60%)]"></div>
+        
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+            <div class="text-center mb-12">
+                <span class="text-xs font-semibold uppercase tracking-wider text-brand-violet">Stage 05 — Identity Profiling</span>
+                <h2 class="text-3xl font-extrabold text-slate-100 mt-2 mb-3">Playstyle Personality Assessment</h2>
+                <p class="text-slate-400 font-light text-sm max-w-xl mx-auto">
+                    Answer four quick table scenario questions to find which Magic color philosophy fits your natural player instincts.
+                </p>
+            </div>
+
+            <div class="bg-slate-900/40 border border-slate-800 p-8 rounded-3xl relative">
+                <!-- Progress bar -->
+                <div class="w-full bg-slate-950 h-1.5 rounded-full overflow-hidden mb-8">
+                    <div id="quiz-progress" class="bg-brand-violet h-full transition-all duration-300" style="width: 25%;"></div>
+                </div>
+
+                <!-- Question Form Area -->
+                <div id="quiz-question-container">
+                    <div id="quiz-question-num" class="text-xs text-brand-amber font-mono uppercase tracking-widest mb-2">Question 1 of 4</div>
+                    <h3 id="quiz-question-text" class="text-lg sm:text-xl font-bold text-slate-100 mb-6">When a player begins to build a massive, dangerous army, what is your first instinct?</h3>
+                    
+                    <div id="quiz-answers" class="space-y-3">
+                        <!-- Interactive buttons will render dynamically here -->
+                    </div>
+                </div>
+
+                <!-- Result Screen (Hidden by default) -->
+                <div id="quiz-result-container" class="hidden text-center py-6">
+                    <div class="inline-flex items-center justify-center w-16 h-16 rounded-3xl bg-brand-violet/15 text-brand-violet mb-4">
+                        <i data-lucide="shield-check" class="w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-slate-100 mb-2">Your Personality Match:</h3>
+                    <h4 id="quiz-result-title" class="text-xl font-serif text-brand-amber font-semibold mb-4">The Strategic Architect (Azorius)</h4>
+                    <p id="quiz-result-desc" class="text-slate-400 text-sm leading-relaxed max-w-lg mx-auto mb-6">
+                        You value long-term planning, structure, and symmetry. You are comfortable using white's protective structures and blue's tactical draw cycles to hold back chaotic swings at the table.
+                    </p>
+                    
+                    <div class="flex justify-center space-x-4">
+                        <button onclick="restartQuiz()" class="px-5 py-2.5 bg-slate-800 hover:bg-slate-700 text-slate-200 hover:text-white rounded-xl text-xs font-semibold transition">
+                            Restart Quiz
+                        </button>
+                        <a href="#identity-guide" class="px-5 py-2.5 bg-brand-violet hover:bg-indigo-500 text-white rounded-xl text-xs font-semibold transition">
+                            Explore Colors
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Color Identity Field Guide Segment -->
+    <section id="identity-guide" class="py-20 border-b border-slate-900">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-xs font-semibold uppercase tracking-wider text-brand-amber">Stage 06 — Strategic Worldviews</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-100 mt-2 mb-4">Color Identity Field Guide</h2>
+                <p class="text-slate-400 font-light text-sm">
+                    In Commander, your colors determine not just what you play, but how you communicate. Explore each color's table ethos.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-5 gap-6 mb-12">
+                <!-- White -->
+                <div class="bg-[#1e1e1a]/60 border border-slate-800/80 p-6 rounded-2xl relative overflow-hidden">
+                    <div class="absolute top-0 right-0 p-3 opacity-10">
+                        <span class="text-4xl">☀</span>
+                    </div>
+                    <span class="text-xs text-amber-100 uppercase font-bold tracking-wider">White</span>
+                    <h4 class="text-lg font-bold text-amber-50 mt-1 mb-2">Order & Unity</h4>
+                    <p class="text-xs text-slate-400 leading-relaxed">Seeks peace through organization. Decks expand wide, building defensive structures and symmetrical laws to control aggressive tables.</p>
+                </div>
+
+                <!-- Blue -->
+                <div class="bg-[#121c29]/60 border border-slate-800/80 p-6 rounded-2xl relative overflow-hidden">
+                    <div class="absolute top-0 right-0 p-3 opacity-10">
+                        <span class="text-4xl">💧</span>
+                    </div>
+                    <span class="text-xs text-blue-300 uppercase font-bold tracking-wider">Blue</span>
+                    <h4 class="text-lg font-bold text-blue-100 mt-1 mb-2">Knowledge</h4>
+                    <p class="text-xs text-slate-400 leading-relaxed">Values perfection through calculation. Prefers careful responses, slow resource accumulation, and complex stack manipulation.</p>
+                </div>
+
+                <!-- Black -->
+                <div class="bg-[#1b151a]/60 border border-slate-800/80 p-6 rounded-2xl relative overflow-hidden">
+                    <div class="absolute top-0 right-0 p-3 opacity-10">
+                        <span class="text-4xl">💀</span>
+                    </div>
+                    <span class="text-xs text-slate-400 uppercase font-bold tracking-wider">Black</span>
+                    <h4 class="text-lg font-bold text-slate-200 mt-1 mb-2">Opportunity</h4>
+                    <p class="text-xs text-slate-400 leading-relaxed">Values personal agency at any cost. Reuses the graveyard, spends life totals as currency, and executes lethal high-risk sacrifices.</p>
+                </div>
+
+                <!-- Red -->
+                <div class="bg-[#291616]/60 border border-slate-800/80 p-6 rounded-2xl relative overflow-hidden">
+                    <div class="absolute top-0 right-0 p-3 opacity-10">
+                        <span class="text-4xl">🔥</span>
+                    </div>
+                    <span class="text-xs text-red-400 uppercase font-bold tracking-wider">Red</span>
+                    <h4 class="text-lg font-bold text-red-100 mt-1 mb-2">Action & Passion</h4>
+                    <p class="text-xs text-slate-400 leading-relaxed">Values freedom through execution. Relies on speed, unpredictable political mechanics, and explosive bursts of high damage.</p>
+                </div>
+
+                <!-- Green -->
+                <div class="bg-[#132219]/60 border border-slate-800/80 p-6 rounded-2xl relative overflow-hidden">
+                    <div class="absolute top-0 right-0 p-3 opacity-10">
+                        <span class="text-4xl">🌳</span>
+                    </div>
+                    <span class="text-xs text-green-300 uppercase font-bold tracking-wider">Green</span>
+                    <h4 class="text-lg font-bold text-green-100 mt-1 mb-2">Growth</h4>
+                    <p class="text-xs text-slate-400 leading-relaxed">Values acceptance through scale. Accelerates its land count early to play massive, resilient, game-ending apex threats.</p>
+                </div>
+            </div>
+
+            <!-- Deep-Dive Dual Color Factions Callout -->
+            <div class="bg-slate-900/40 border border-slate-800 p-8 rounded-3xl">
+                <h4 class="text-sm font-semibold text-slate-300 uppercase tracking-widest mb-6">Common Combined Personas</h4>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="p-5 bg-slate-950/40 rounded-2xl border border-slate-850">
+                        <span class="inline-block px-2.5 py-0.5 rounded bg-amber-500/10 text-brand-amber text-[10px] uppercase tracking-wider font-bold mb-2">Azorius — White-Blue</span>
+                        <h5 class="text-base font-bold text-slate-200 mb-1">Methodical Structure</h5>
+                        <p class="text-xs text-slate-400 leading-relaxed">Creates balance and gridlocks chaotic spellcast strategies. Perfect for players who find safety in systematic pacing.</p>
+                    </div>
+                    <div class="p-5 bg-slate-950/40 rounded-2xl border border-slate-850">
+                        <span class="inline-block px-2.5 py-0.5 rounded bg-brand-crimson/10 text-brand-crimson text-[10px] uppercase tracking-wider font-bold mb-2">Boros — White-Red</span>
+                        <h5 class="text-base font-bold text-slate-200 mb-1">Explosive Conviction</h5>
+                        <p class="text-xs text-slate-400 leading-relaxed">Combines white's army protection with red's raw speed. Great for aggressive, tactical combat enthusiasts.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Essential Etiquette & Checklist Segment -->
+    <section id="table-manners" class="py-20 bg-slate-950/40">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <span class="text-xs font-semibold uppercase tracking-wider text-brand-violet">Stage 07 — Interactive Pre-game Guide</span>
+                <h2 class="text-3xl font-extrabold text-slate-100 mt-2 mb-4">First Game Readiness Checklist</h2>
+                <p class="text-slate-400 font-light text-sm max-w-xl mx-auto">
+                    Complete these physical preparation items before sitting down for your game at a local store.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Checklist Panel 1 -->
+                <div class="bg-slate-900/40 border border-slate-800 p-6 rounded-3xl space-y-4">
+                    <h3 class="text-lg font-bold text-slate-200 border-b border-slate-800 pb-3 flex items-center">
+                        <i data-lucide="shield" class="w-5 h-5 mr-2 text-brand-violet"></i>
+                        The Physical Kit
+                    </h3>
+                    
+                    <label class="flex items-start space-x-3 cursor-pointer group">
+                        <input type="checkbox" class="mt-1 accent-brand-violet rounded bg-slate-950 border-slate-800">
+                        <span class="text-sm text-slate-400 group-hover:text-slate-300 transition">Bring a clean, clearly legible playmat to protect your sleeve edges.</span>
+                    </label>
+                    <label class="flex items-start space-x-3 cursor-pointer group">
+                        <input type="checkbox" class="mt-1 accent-brand-violet rounded bg-slate-950 border-slate-800">
+                        <span class="text-sm text-slate-400 group-hover:text-slate-300 transition">Keep at least 20 six-sided dice handy for counters and tracking.</span>
+                    </label>
+                    <label class="flex items-start space-x-3 cursor-pointer group">
+                        <input type="checkbox" class="mt-1 accent-brand-violet rounded bg-slate-950 border-slate-800">
+                        <span class="text-sm text-slate-400 group-hover:text-slate-300 transition">Download a dedicated life tracker or bring pen and paper.</span>
+                    </label>
+                </div>
+
+                <!-- Checklist Panel 2 -->
+                <div class="bg-slate-900/40 border border-slate-800 p-6 rounded-3xl space-y-4">
+                    <h3 class="text-lg font-bold text-slate-200 border-b border-slate-800 pb-3 flex items-center">
+                        <i data-lucide="smile" class="w-5 h-5 mr-2 text-brand-amber"></i>
+                        Social Agreement Etiquette
+                    </h3>
+                    
+                    <label class="flex items-start space-x-3 cursor-pointer group">
+                        <input type="checkbox" class="mt-1 accent-brand-amber rounded bg-slate-950 border-slate-800">
+                        <span class="text-sm text-slate-400 group-hover:text-slate-300 transition">Always ask permission before touching another player's cards.</span>
+                    </label>
+                    <label class="flex items-start space-x-3 cursor-pointer group">
+                        <input type="checkbox" class="mt-1 accent-brand-amber rounded bg-slate-950 border-slate-800">
+                        <span class="text-sm text-slate-400 group-hover:text-slate-300 transition">Clearly announce card transitions, phases, and triggers.</span>
+                    </label>
+                    <label class="flex items-start space-x-3 cursor-pointer group">
+                        <input type="checkbox" class="mt-1 accent-brand-amber rounded bg-slate-950 border-slate-800">
+                        <span class="text-sm text-slate-400 group-hover:text-slate-300 transition">Frame in-game targeted removals as interactive fun, not personal attacks.</span>
+                    </label>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Outbound Bridge / Next Steps Segment -->
+    <section class="py-20 border-t border-slate-900 bg-gradient-to-t from-[#090d16] to-[#0b0f19]">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-100 mb-4">Where to Navigate Next?</h2>
+            <p class="text-slate-400 font-light text-sm max-w-2xl mx-auto mb-10">
+                Ready to take your next steps? Use these trusted community resources, but keep our friendly orientation guidelines in mind.
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-left mb-12">
+                <a href="https://www.moxfield.com" target="_blank" class="block p-6 bg-slate-900/30 hover:bg-slate-900/60 border border-slate-850 rounded-2xl group transition">
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="text-sm font-bold text-slate-200 group-hover:text-brand-violet transition">Moxfield</span>
+                        <i data-lucide="external-link" class="w-4 h-4 text-slate-500 group-hover:text-slate-300 transition"></i>
+                    </div>
+                    <p class="text-xs text-slate-400">The premier platform to host, view, and test custom starter deck templates.</p>
+                </a>
+                <a href="https://scryfall.com" target="_blank" class="block p-6 bg-slate-900/30 hover:bg-slate-900/60 border border-slate-850 rounded-2xl group transition">
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="text-sm font-bold text-slate-200 group-hover:text-brand-amber transition">Scryfall</span>
+                        <i data-lucide="external-link" class="w-4 h-4 text-slate-500 group-hover:text-slate-300 transition"></i>
+                    </div>
+                    <p class="text-xs text-slate-400">The ultimate database engine. Ideal for pinpointing specific card requirements.</p>
+                </a>
+                <a href="https://edhrec.com" target="_blank" class="block p-6 bg-slate-900/30 hover:bg-slate-900/60 border border-slate-850 rounded-2xl group transition">
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="text-sm font-bold text-slate-200 group-hover:text-emerald-400 transition">EDHREC</span>
+                        <i data-lucide="external-link" class="w-4 h-4 text-slate-500 group-hover:text-slate-300 transition"></i>
+                    </div>
+                    <p class="text-xs text-slate-400">Excellent metrics for popular synergies. Watch out for costly popularity trap cards.</p>
+                </a>
+            </div>
+
+            <div class="inline-flex items-center space-x-2 bg-slate-900/80 border border-slate-800 py-3 px-6 rounded-2xl text-xs text-slate-400 max-w-lg">
+                <i data-lucide="alert-circle" class="w-5 h-5 text-brand-amber flex-shrink-0"></i>
+                <span class="text-left leading-relaxed"><strong>Warning:</strong> Refrain from blindly acquiring cards based on popularity scores. Focus on mechanical identity and cohesive gameplay.</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Unified Premium Footer -->
+    <footer class="bg-[#070b12] border-t border-slate-900 py-12 text-slate-500 text-xs">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-6 mb-8 border-b border-slate-900 pb-8">
+                <!-- Brand section -->
+                <div class="flex items-center space-x-3">
+                    <div class="h-8 w-8 bg-slate-800 rounded-lg flex items-center justify-center border border-slate-700">
+                        <span class="font-serif font-semibold text-slate-300 text-sm">VM</span>
+                    </div>
+                    <span class="font-bold tracking-wider text-slate-300">VOX MANA</span>
+                </div>
+
+                <!-- Footer nav -->
+                <div class="flex space-x-6">
+                    <a href="#console-hero" class="hover:text-slate-300 transition">Console</a>
+                    <a href="#table-anxiety" class="hover:text-slate-300 transition">Confidence Guide</a>
+                    <a href="#brackets" class="hover:text-slate-300 transition">Matchmaking</a>
+                    <a href="#precon-anatomy" class="hover:text-slate-300 transition">Anatomy</a>
+                </div>
+            </div>
+
+            <!-- Legal Disclaimers -->
+            <div class="space-y-4 text-center md:text-left">
+                <p class="leading-relaxed max-w-4xl">
+                    Vox Mana is an independent resource platform. Wizards of the Coast, Magic: The Gathering, and their respective logos are trademarks of Wizards of the Coast LLC. This project is not affiliated, endorsed, or sponsored by Wizards of the Coast.
+                </p>
+                <p class="text-slate-600 flex flex-col md:flex-row items-center justify-between gap-4">
+                    <span>© 2026 Vox Mana. Designed for optimal table confidence & clear social contract communication.</span>
+                    <span class="flex space-x-4">
+                        <a href="#" class="hover:underline">Privacy Policy</a>
+                        <span>•</span>
+                        <a href="#" class="hover:underline">Terms of Service</a>
+                    </span>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Interactive Logic Execution Engine (JavaScript) -->
+    <script>
+        // Start Lucide Icons renderer
+        lucide.createIcons();
+
+        // ----------------- Stage 02: Matchmaking Brackets Data & Controller -----------------
+        const bracketData = {
+            1: {
+                level: "Level 1",
+                name: "Exhibition Play",
+                colorClass: "text-slate-400",
+                desc: "Silly, theme-first builds created for raw artistic expression over optimal tactical victory. Typical configurations include artist-themed decks, specific directional visual motifs (e.g., 'Ladies Looking Left'), or lore-accurate story representations.",
+                speed: "Slow and deliberate pacing. Typically resolved around turn 9 or later.",
+                rules: "Strictly excludes mass resource denial, immediate infinite combos, or extra turns modules.",
+                advice: "Perfect for relaxed playgroups that prioritize table storytelling over combat efficiency."
+            },
+            2: {
+                level: "Level 2",
+                name: "Core Precon Level",
+                colorClass: "text-emerald-400",
+                desc: "The standard baseline for unmodified modern preconstructed decks (including Foundations, Lorwyn Eclipsed, and Final Fantasy). Play is steady, and game pieces are designed to build engines without locking down the table.",
+                speed: "Balanced pacing. Typically resolved around turn 8 or later.",
+                rules: "No custom upgrades or 'Game Changer' staple list additions. Highly linear game goals.",
+                advice: "This is the safest environment to sit down at with zero confidence anxiety. High fun factor."
+            },
+            3: {
+                level: "Level 3",
+                name: "Upgraded Casual",
+                colorClass: "text-brand-violet",
+                desc: "Decks with upgraded card selections. These lists are fast and highly synergistic, allowed to utilize up to 3 official 'Game Changer' cards (such as Smothering Tithe, Cyclonic Rift, or Rhystic Study) to swing games.",
+                speed: "Moderate-to-fast pacing. Typically resolved around turn 6 or later.",
+                rules: "Includes localized combo loops and powerful tutor elements to seek crucial engine pieces.",
+                advice: "Be communicative here. If you are playing an upgraded precon, announce your changes to keep matching fair."
+            },
+            4: {
+                level: "Level 4",
+                name: "Optimized Power",
+                colorClass: "text-brand-amber",
+                desc: "Highly optimized decks built for fast victories. These decks contain numerous interactive defensive responses, optimized fast-mana rocks, and powerful synergies designed to end games quickly.",
+                speed: "Extremely fast. Typically resolved around turn 4 or 5.",
+                rules: "Features multiple 'Game Changers' and highly efficient tutor systems to execute consistent winning loops.",
+                advice: "Not recommended for beginners or playgroups seeking casual, political table talk."
+            },
+            5: {
+                level: "Level 5",
+                name: "Competitive Commander (cEDH)",
+                colorClass: "text-brand-crimson",
+                desc: "The absolute maximum power level of Commander. Decks are built with zero budget limits or thematic constraints. The sole objective is executing winning loops or establishing locks starting on turn 1.",
+                speed: "Light speed. Games are often decided or locked down by turn 2 or 3.",
+                rules: "Utilizes any legal card, including the fastest mana stones, cheap countermagic, and infinite combos.",
+                advice: "This is a highly technical, tournament-like format. Only dive in once you've fully mastered basic interactions."
+            }
+        };
+
+        function selectBracket(num) {
+            // Update selected button style styling
+            document.querySelectorAll('.bracket-card').forEach(btn => {
+                btn.classList.remove('border-brand-violet', 'bg-slate-900/80', 'ring-2', 'ring-brand-violet/20');
+                btn.classList.add('border-slate-800', 'bg-slate-900/30');
+            });
+
+            const activeBtn = document.getElementById(`bracket-btn-${num}`);
+            if (activeBtn) {
+                activeBtn.classList.remove('border-slate-800', 'bg-slate-900/30');
+                activeBtn.classList.add('border-brand-violet', 'bg-slate-900/80', 'ring-2', 'ring-brand-violet/20');
+            }
+
+            // Render details inside explainer pane
+            const b = bracketData[num];
+            const area = document.getElementById('bracket-content-area');
+            
+            area.style.opacity = '0';
+            setTimeout(() => {
+                area.innerHTML = `
+                    <div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-start">
+                        <div class="md:col-span-8 space-y-4">
+                            <span class="inline-flex items-center px-2.5 py-0.5 rounded text-xs font-mono font-bold bg-slate-950 text-slate-300 border border-slate-800">
+                                ${b.level} Matching
+                            </span>
+                            <h3 class="text-2xl font-extrabold text-white font-serif">${b.name}</h3>
+                            <p class="text-slate-300 text-sm leading-relaxed">${b.desc}</p>
+                            
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+                                <div class="p-3.5 bg-slate-950/50 rounded-xl border border-slate-850">
+                                    <span class="text-[10px] text-slate-500 uppercase font-bold tracking-wider">Tempo</span>
+                                    <p class="text-xs text-slate-300 mt-0.5">${b.speed}</p>
+                                </div>
+                                <div class="p-3.5 bg-slate-950/50 rounded-xl border border-slate-850">
+                                    <span class="text-[10px] text-slate-500 uppercase font-bold tracking-wider">Restrictions</span>
+                                    <p class="text-xs text-slate-300 mt-0.5">${b.rules}</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="md:col-span-4 bg-slate-950/60 border border-slate-850 p-6 rounded-2xl flex flex-col justify-between h-full">
+                            <div>
+                                <h4 class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">Confidence Advice</h4>
+                                <p class="text-xs text-slate-400 leading-relaxed mb-4">${b.advice}</p>
+                            </div>
+                            <div class="border-t border-slate-850 pt-3 flex items-center justify-between text-[11px] text-slate-500">
+                                <span>Official Guide Sync</span>
+                                <i data-lucide="check-circle" class="w-4 h-4 text-emerald-500"></i>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                lucide.createIcons();
+                area.style.opacity = '1';
+            }, 150);
+        }
+
+        // Default setup bracket selection 
+        selectBracket(2);
+
+
+        // ----------------- Stage 03: Precon Anatomy Hover Handler -----------------
+        const anatomyDetails = {
+            lands: {
+                title: "The Lands (36 - 38 Cards)",
+                desc: "Your resource base. A deck that cannot play its spells is a deck that cannot have fun. Do not cut lands for flashier cards.",
+                colors: { lands: "bg-slate-500", ramp: "opacity-30", interaction: "opacity-30", draw: "opacity-30", synergy: "opacity-30" }
+            },
+            ramp: {
+                title: "Ramp Spells (10 - 13 Cards)",
+                desc: "Artifacts, creatures, or spells that accelerate your mana count, allowing you to play high-cost threats ahead of schedule.",
+                colors: { lands: "opacity-30", ramp: "bg-amber-500", interaction: "opacity-30", draw: "opacity-30", synergy: "opacity-30" }
+            },
+            interaction: {
+                title: "Targeted Interaction (8 - 13 Cards)",
+                desc: "Spot removal and board wipes that prevent opponents from running away with the game. Essential for keeping matches balanced.",
+                colors: { lands: "opacity-30", ramp: "opacity-30", interaction: "bg-indigo-500", draw: "opacity-30", synergy: "opacity-30" }
+            },
+            draw: {
+                title: "Card Draw (10 Cards)",
+                desc: "Spells that keep your hand full, ensuring you do not run out of active options as the game transitions into later stages.",
+                colors: { lands: "opacity-30", ramp: "opacity-30", interaction: "opacity-30", draw: "bg-teal-500", synergy: "opacity-30" }
+            }
+        };
+
+        function highlightAnatomy(category) {
+            const info = anatomyDetails[category];
+            document.getElementById('anatomy-title').innerText = info.title;
+            document.getElementById('anatomy-desc').innerText = info.desc;
+
+            // Apply opacity styles to visual elements
+            const parts = ["lands", "ramp", "interaction", "draw", "synergy"];
+            parts.forEach(p => {
+                const element = document.getElementById(`bar-${p}`);
+                if (element) {
+                    if (info.colors[p]) {
+                        // Reset opacity classes and apply highlighting
+                        element.style.opacity = info.colors[p] === "opacity-30" ? "0.3" : "1.0";
+                        if (info.colors[p] !== "opacity-30") {
+                            element.style.transform = "scaleY(1.05)";
+                        } else {
+                            element.style.transform = "scaleY(1.0)";
+                        }
+                    }
+                }
+            });
+        }
+
+        function resetAnatomy() {
+            document.getElementById('anatomy-title').innerText = "Hover a deck category";
+            document.getElementById('anatomy-desc').innerText = "Discover how these card ratios stabilize your deck and prevent you from getting starved of options.";
+            
+            const parts = ["lands", "ramp", "interaction", "draw", "synergy"];
+            parts.forEach(p => {
+                const element = document.getElementById(`bar-${p}`);
+                if (element) {
+                    element.style.opacity = "1.0";
+                    element.style.transform = "scaleY(1.0)";
+                }
+            });
+        }
+
+
+        // ----------------- Stage 04: Rule 0 Script Generator Logic -----------------
+        function generateScript() {
+            const commanderName = document.getElementById('script-cmd-name').value.trim() || "Auntie Ool";
+            const deckSource = document.getElementById('script-deck-source').value;
+            const experience = document.getElementById('script-experience').value;
+            const vibe = document.getElementById('script-vibe').value;
+
+            let bracketLabel = "Bracket 2";
+            let bracketColor = "text-emerald-400 bg-emerald-500/10 border-emerald-500/20";
+            let scriptText = "";
+
+            // Evaluate Bracket based on input deck state
+            if (deckSource === 'unaltered-precon') {
+                bracketLabel = "Bracket 2 (Core)";
+                bracketColor = "text-emerald-400 bg-emerald-500/10 border-emerald-500/20";
+            } else if (deckSource === 'lightly-upgraded') {
+                bracketLabel = "Bracket 2 - 3";
+                bracketColor = "text-brand-violet bg-brand-violet/10 border-brand-violet/20";
+            } else if (deckSource === 'custom-casual') {
+                bracketLabel = "Bracket 2 (Casual Custom)";
+                bracketColor = "text-amber-400 bg-amber-500/10 border-amber-500/20";
+            } else {
+                bracketLabel = "Bracket 3 - 4 (Optimized)";
+                bracketColor = "text-brand-crimson bg-brand-crimson/10 border-brand-crimson/20";
+            }
+
+            // Assemble Script Core Narrative
+            let opening = `Hey everyone! I'm playing a ${commanderName} deck. `;
+            let body = "";
+            let closing = "";
+
+            // Source injection
+            if (deckSource === 'unaltered-precon') {
+                body += `It's a completely unaltered preconstructed deck straight out of the box. `;
+            } else if (deckSource === 'lightly-upgraded') {
+                body += `It started as a precon, but I've made about 5 to 10 card swaps for synergy. `;
+            } else if (deckSource === 'custom-casual') {
+                body += `It's a custom-built casual list. I'm avoiding infinite combat combos, stax locks, and fast-mana options. `;
+            } else {
+                body += `It's a highly synergistic custom deck designed to execute its win conditions quickly, but it's not a competitive deck. `;
+            }
+
+            // Experience injection
+            if (experience === 'total-beginner') {
+                closing += `I'm a complete beginner to paper Commander, so I might need some help tracking active stack interactions and complex triggers. `;
+            } else if (experience === 'returning') {
+                closing += `I'm a returning Magic player transitioning from competitive 1-on-1 matches, so I'm still learning multiplayer pacing. `;
+            } else {
+                closing += `I understand basic turn steps and response windows, so the game should move along smoothly! `;
+            }
+
+            // Vibe injection
+            if (vibe === 'relaxed') {
+                closing += `I'm just looking for a chill, relaxed game where we get to see everyone's deck function.`;
+            } else if (vibe === 'strategic') {
+                closing += `I'm hoping for a balanced game where we make strategic moves but keep things friendly.`;
+            } else {
+                closing += `I'm totally fine with interaction, politics, and some backstabbing. Let's make it exciting!`;
+            }
+
+            scriptText = `"${opening}${body}${closing}"`;
+
+            // Render Output
+            document.getElementById('rule-zero-text').innerText = scriptText;
+            const ind = document.getElementById('script-bracket-indicator');
+            ind.innerText = bracketLabel;
+            ind.className = `px-2.5 py-0.5 rounded border text-[10px] uppercase font-semibold font-mono ${bracketColor}`;
+        }
+
+        // Local Copy Script Action (Using fallback mechanism for Iframe compatibility)
+        function copyScriptText() {
+            const textToCopy = document.getElementById('rule-zero-text').innerText;
+            const textarea = document.createElement('textarea');
+            textarea.value = textToCopy;
+            document.body.appendChild(textarea);
+            textarea.select();
+            
+            try {
+                document.execCommand('copy');
+                const btnText = document.getElementById('copy-btn-text');
+                btnText.innerText = "Copied!";
+                setTimeout(() => {
+                    btnText.innerText = "Copy Script";
+                }, 2000);
+            } catch (err) {
+                console.error("Copy operation failed: ", err);
+            }
+            
+            document.body.removeChild(textarea);
+        }
+
+
+        // ----------------- Stage 05: Playstyle Personality Quiz Logic -----------------
+        const quizQuestions = [
+            {
+                q: "When an opponent begins to build an overwhelming, aggressive army, what is your first instinct?",
+                answers: [
+                    { text: "Help other players build defensive structures to stabilize the table.", score: "W" },
+                    { text: "Bide my time, hold up responses, and wait for the perfect moment.", score: "U" },
+                    { text: "Strike a political deal or use an opportunity to gain an advantage.", score: "B" },
+                    { text: "Attack them immediately before they get too strong!", score: "R" },
+                    { text: "Focus on growing my own board state and trust my big threats.", score: "G" }
+                ]
+            },
+            {
+                q: "What is your primary goal when sitting down at a Commander table?",
+                answers: [
+                    { text: "Establish balance and make sure the game is fair for everyone.", score: "W" },
+                    { text: "Outsmart opponents by out-drawing them and planning my turns.", score: "U" },
+                    { text: "Win the game at any cost, even if I have to sacrifice resources.", score: "B" },
+                    { text: "Create exciting, unpredictable moments and high-action turns.", score: "R" },
+                    { text: "Cast massive creatures and enjoy the natural flow of the game.", score: "G" }
+                ]
+            },
+            {
+                q: "Which kind of cards do you find most appealing?",
+                answers: [
+                    { text: "Defensive laws, token armies, and symmetrical rules.", score: "W" },
+                    { text: "Countermagic, card draw engines, and instant-speed answers.", score: "U" },
+                    { text: "Graveyard recursion, powerful tutors, and high-risk payoffs.", score: "B" },
+                    { text: "Fast combat tricks, direct damage, and chaotic political cards.", score: "R" },
+                    { text: "Massive creatures, land ramp spells, and resilient threats.", score: "G" }
+                ]
+            },
+            {
+                q: "How do you prefer to handle political negotiations with opponents?",
+                answers: [
+                    { text: "Form alliances to stop the threat and keep the table stable.", score: "W" },
+                    { text: "Stay quiet, observe, and manipulate the board from the background.", score: "U" },
+                    { text: "Offer high-reward deals that subtly benefit me more than them.", score: "B" },
+                    { text: "Make loud, funny threats and focus on aggressive deals.", score: "R" },
+                    { text: "Avoid politics and let my board state do the talking.", score: "G" }
+                ]
+            }
+        ];
+
+        let currentQuestionIdx = 0;
+        let scores = { W: 0, U: 0, B: 0, R: 0, G: 0 };
+
+        function loadQuizQuestion() {
+            if (currentQuestionIdx >= quizQuestions.length) {
+                showQuizResult();
+                return;
+            }
+
+            // Update Progress Bar
+            const prog = document.getElementById('quiz-progress');
+            prog.style.width = `${((currentQuestionIdx + 1) / quizQuestions.length) * 100}%`;
+
+            const qNum = document.getElementById('quiz-question-num');
+            qNum.innerText = `Question ${currentQuestionIdx + 1} of ${quizQuestions.length}`;
+
+            const qText = document.getElementById('quiz-question-text');
+            qText.innerText = quizQuestions[currentQuestionIdx].q;
+
+            const answersBox = document.getElementById('quiz-answers');
+            answersBox.innerHTML = "";
+
+            quizQuestions[currentQuestionIdx].answers.forEach((ans, idx) => {
+                const btn = document.createElement('button');
+                btn.className = "w-full text-left p-4 bg-slate-950 hover:bg-slate-900 border border-slate-850 hover:border-slate-750 rounded-xl transition text-sm text-slate-300 hover:text-white flex justify-between items-center group";
+                btn.innerHTML = `
+                    <span>${ans.text}</span>
+                    <i data-lucide="chevron-right" class="w-4 h-4 text-slate-600 group-hover:text-brand-violet transition"></i>
+                `;
+                btn.onclick = () => handleAnswerSelect(ans.score);
+                answersBox.appendChild(btn);
+            });
+            lucide.createIcons();
+        }
+
+        function handleAnswerSelect(score) {
+            scores[score]++;
+            currentQuestionIdx++;
+            loadQuizQuestion();
+        }
+
+        const personalityMatches = {
+            W: { title: "The Protector (Mono White Philosophy)", desc: "You prioritize order, safety, and cooperation. You excel at building defensive structures, rallying token armies, and setting fair boundaries to ensure games stay balanced and fun." },
+            U: { title: "The Mastermind (Mono Blue Philosophy)", desc: "You prioritize strategy, information, and timing. You enjoy drawing cards, keeping mana open, and holding up responses to outmaneuver chaotic swings at the table." },
+            B: { title: "The Opportunist (Mono Black Philosophy)", desc: "You prioritize agency, ambition, and adaptation. You view the graveyard as a second hand and are happy to pay life as currency to execute high-risk, high-reward plays." },
+            R: { title: "The Instigator (Mono Red Philosophy)", desc: "You prioritize emotion, speed, and action. You enjoy political tricks, explosive combat phases, and high-energy plays that keep the table moving quickly." },
+            G: { title: "The Naturalist (Mono Green Philosophy)", desc: "You prioritize scale, acceptance, and growth. You love accelerating your land base early, deploying massive creatures, and letting natural synergy guide your victory." }
+        };
+
+        function showQuizResult() {
+            document.getElementById('quiz-question-container').classList.add('hidden');
+            const resultBox = document.getElementById('quiz-result-container');
+            resultBox.classList.remove('hidden');
+
+            // Find high scoring identity
+            let topScore = "W";
+            let maxVal = -1;
+            for (let key in scores) {
+                if (scores[key] > maxVal) {
+                    maxVal = scores[key];
+                    topScore = key;
+                }
+            }
+
+            const match = personalityMatches[topScore];
+            document.getElementById('quiz-result-title').innerText = match.title;
+            document.getElementById('quiz-result-desc').innerText = match.desc;
+        }
+
+        function restartQuiz() {
+            currentQuestionIdx = 0;
+            scores = { W: 0, U: 0, B: 0, R: 0, G: 0 };
+            document.getElementById('quiz-result-container').classList.add('hidden');
+            document.getElementById('quiz-question-container').classList.remove('hidden');
+            loadQuizQuestion();
+        }
+
+        // Initialize quiz
+        loadQuizQuestion();
+    </script>
+</body>
+</html>

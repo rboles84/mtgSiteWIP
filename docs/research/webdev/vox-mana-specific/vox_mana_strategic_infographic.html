@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vox Mana Strategic Audit Infographic</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            slate: '#0f172a',
+                            charcoal: '#0b0f19',
+                            dark: '#070a13',
+                            indigo: '#6366f1',
+                            amber: '#f59e0b',
+                            crimson: '#e11d48',
+                            emerald: '#10b981'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                        serif: ['Playfair Display', 'Georgia', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        body {
+            background-color: #070a13;
+            color: #f1f5f9;
+        }
+        /* Custom styled scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0b0f19;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1e293b;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #334155;
+        }
+    </style>
+</head>
+<body class="font-sans antialiased">
+
+    <!-- Sticky Navigation Panel -->
+    <nav class="sticky top-0 z-50 bg-brand-charcoal/90 backdrop-blur-md border-b border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center space-x-3">
+                    <div class="h-8 w-8 bg-gradient-to-tr from-brand-indigo to-brand-amber rounded-lg flex items-center justify-center">
+                        <span class="font-serif font-bold text-white text-sm">VM</span>
+                    </div>
+                    <div>
+                        <span class="font-bold tracking-wider text-sm sm:text-base text-white">VOX MANA</span>
+                        <span class="text-[9px] tracking-widest text-brand-amber block uppercase font-bold">Strategic Audit Visualizer</span>
+                    </div>
+                </div>
+                <div class="hidden lg:flex space-x-6 text-xs uppercase font-semibold tracking-wider text-slate-400">
+                    <a href="#executive-verdict" class="hover:text-white transition">Verdict</a>
+                    <a href="#differentiation" class="hover:text-white transition">Differentiation</a>
+                    <a href="#audience" class="hover:text-white transition">Audience</a>
+                    <a href="#open-gap" class="hover:text-white transition">The Gap</a>
+                    <a href="#voice" class="hover:text-white transition">Voice Guide</a>
+                    <a href="#feature-triage" class="hover:text-white transition">Triage</a>
+                    <a href="#risks" class="hover:text-white transition">Risks</a>
+                </div>
+                <div>
+                    <span class="inline-flex items-center px-2.5 py-1 rounded-full text-[10px] font-semibold bg-brand-indigo/10 text-brand-indigo border border-brand-indigo/20">
+                        Strategic Road Map v1.0
+                    </span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header & Hero Block -->
+    <header class="relative overflow-hidden pt-20 pb-16 border-b border-slate-900 bg-gradient-to-b from-[#0e1626] to-brand-charcoal">
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(99,102,241,0.06),transparent_50%)]"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative text-center">
+            <span class="px-3 py-1 bg-slate-800/80 border border-slate-700/50 rounded-full text-[11px] font-semibold tracking-widest text-brand-amber uppercase">
+                Product Quality & Differentiation Audit
+            </span>
+            <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white mt-6 mb-4">
+                Strategic Onboarding <br>
+                <span class="bg-gradient-to-r from-brand-indigo via-purple-400 to-brand-amber bg-clip-text text-transparent">Infographic Console</span>
+            </h1>
+            <p class="max-w-3xl mx-auto text-slate-400 text-sm sm:text-base font-light leading-relaxed mb-8">
+                Pressure-testing the lane, voice boundaries, product focus, and success criteria for Vox Mana. Design rules to prevent identity dilution and guide the smallest viable build.
+            </p>
+        </div>
+    </header>
+
+    <!-- Main Infographic Body -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-16">
+
+        <!-- 1. Executive Verdict -->
+        <section id="executive-verdict" class="bg-slate-900/40 border border-slate-800 p-8 rounded-3xl relative overflow-hidden">
+            <div class="absolute -right-16 -bottom-16 w-64 h-64 bg-brand-indigo/5 rounded-full blur-3xl"></div>
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative">
+                <div class="lg:col-span-8 space-y-4">
+                    <div class="flex items-center space-x-2">
+                        <span class="text-xs font-mono text-brand-amber">AUDIT SECTION 01</span>
+                        <span class="text-slate-600">•</span>
+                        <span class="text-xs uppercase font-bold text-slate-400 tracking-wider">Strategic Assessment</span>
+                    </div>
+                    <h2 class="text-2xl sm:text-3xl font-extrabold text-white font-serif">The Executive Verdict</h2>
+                    <p class="text-slate-300 text-sm leading-relaxed">
+                        The strategic evaluation reveals a highly viable, deeply differentiated market opportunity. While competitor platforms specialize in hyper-optimized card metrics, rules databases, or card searching, they leave players feeling intimidated and table-anxious. 
+                        Vox Mana can win by acting as a <strong>social and psychological translation layer</strong>—focusing entirely on table readiness, color identity expression, and social interaction.
+                    </p>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+                        <div class="p-4 bg-brand-charcoal border border-slate-800 rounded-2xl flex items-start space-x-3">
+                            <div class="w-8 h-8 rounded-lg bg-brand-emerald/10 text-brand-emerald flex items-center justify-center flex-shrink-0 mt-0.5">
+                                <i data-lucide="sparkles" class="w-4.5 h-4.5"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xs font-bold text-slate-200 uppercase">Strongest Opportunity</h4>
+                                <p class="text-xs text-slate-400 mt-1">Translate abstract rules into conversational table scripts and psychological comfort-zone guidance.</p>
+                            </div>
+                        </div>
+                        <div class="p-4 bg-brand-charcoal border border-slate-800 rounded-2xl flex items-start space-x-3">
+                            <div class="w-8 h-8 rounded-lg bg-brand-crimson/10 text-brand-crimson flex items-center justify-center flex-shrink-0 mt-0.5">
+                                <i data-lucide="alert-triangle" class="w-4.5 h-4.5"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xs font-bold text-slate-200 uppercase">The Poetic Trap</h4>
+                                <p class="text-xs text-slate-400 mt-1">Vague prose without concrete, actionable in-game table utility will turn Vox Mana into an empty novelty.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="lg:col-span-4 bg-slate-950/60 border border-slate-850 p-6 rounded-2xl">
+                    <h3 class="text-sm font-bold text-slate-300 uppercase tracking-widest mb-4">Strategic Action Gauge</h3>
+                    <div class="space-y-4">
+                        <div>
+                            <div class="flex justify-between text-xs font-semibold mb-1">
+                                <span class="text-slate-400">Color-Identity Depth</span>
+                                <span class="text-brand-emerald">High Priority</span>
+                            </div>
+                            <div class="w-full bg-slate-900 h-2 rounded-full overflow-hidden">
+                                <div class="bg-brand-emerald h-full w-full"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-xs font-semibold mb-1">
+                                <span class="text-slate-400">Social Table Preparedness</span>
+                                <span class="text-brand-indigo">High Priority</span>
+                            </div>
+                            <div class="w-full bg-slate-900 h-2 rounded-full overflow-hidden">
+                                <div class="bg-brand-indigo h-full w-[90%]"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-xs font-semibold mb-1">
+                                <span class="text-slate-400">Deckbuilder Complex Logic</span>
+                                <span class="text-brand-crimson">Strict Avoid</span>
+                            </div>
+                            <div class="w-full bg-slate-900 h-2 rounded-full overflow-hidden">
+                                <div class="bg-brand-crimson h-full w-[10%]"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. Differentiation Summary -->
+        <section id="differentiation" class="space-y-6">
+            <div class="text-center max-w-3xl mx-auto">
+                <span class="text-xs font-semibold uppercase tracking-wider text-brand-indigo">Audit Section 02</span>
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-white mt-2">Strategic Boundaries</h2>
+                <p class="text-slate-400 text-sm mt-1">
+                    To maintain strategic lane clarity, Vox Mana must establish strict limits. It should companion existing tools rather than compete with their specialized data pipelines.
+                </p>
+            </div>
+
+            <div class="overflow-x-auto bg-slate-900/20 border border-slate-800 rounded-2xl">
+                <table class="w-full text-left border-collapse text-xs">
+                    <thead>
+                        <tr class="border-b border-slate-800 bg-slate-950/40 text-slate-400 font-semibold uppercase tracking-wider">
+                            <th class="p-4">Category</th>
+                            <th class="p-4">Existing Winners</th>
+                            <th class="p-4 text-center">Should Vox Mana Compete?</th>
+                            <th class="p-4">Recommended Vox Mana Role</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-slate-850">
+                        <tr>
+                            <td class="p-4 font-bold text-slate-200">Deck Building</td>
+                            <td class="p-4 text-slate-400 font-mono">Moxfield, Archidekt, ManaBox</td>
+                            <td class="p-4 text-center"><span class="inline-block px-2 py-0.5 rounded bg-brand-crimson/15 text-brand-crimson font-semibold">NO</span></td>
+                            <td class="p-4 text-slate-300">Integrate and embed. Provide starter templates hosted on Moxfield for players to clone.</td>
+                        </tr>
+                        <tr>
+                            <td class="p-4 font-bold text-slate-200">Card Search</td>
+                            <td class="p-4 text-slate-400 font-mono">Scryfall</td>
+                            <td class="p-4 text-center"><span class="inline-block px-2 py-0.5 rounded bg-brand-crimson/15 text-brand-crimson font-semibold">NO</span></td>
+                            <td class="p-4 text-slate-300">Offload entirely. Provide pre-filtered direct links targeting specific core strategies.</td>
+                        </tr>
+                        <tr>
+                            <td class="p-4 font-bold text-slate-200">Rules Verification</td>
+                            <td class="p-4 text-slate-400 font-mono">Gatherer, MTG Wiki</td>
+                            <td class="p-4 text-center"><span class="inline-block px-2 py-0.5 rounded bg-brand-crimson/15 text-brand-crimson font-semibold">NO</span></td>
+                            <td class="p-4 text-slate-300">Outsource. Direct users to official source links for complex interaction rulings.</td>
+                        </tr>
+                        <tr>
+                            <td class="p-4 font-bold text-slate-200">Lore Archives</td>
+                            <td class="p-4 text-slate-400 font-mono">MTG Wiki, Official Lore</td>
+                            <td class="p-4 text-center"><span class="inline-block px-2 py-0.5 rounded bg-brand-crimson/15 text-brand-crimson font-semibold">NO</span></td>
+                            <td class="p-4 text-slate-300">Avoid timeline bloat. Focus purely on how character worldviews affect play behavior.</td>
+                        </tr>
+                        <tr>
+                            <td class="p-4 font-bold text-slate-200">Synergy Metrics</td>
+                            <td class="p-4 text-slate-400 font-mono">EDHREC</td>
+                            <td class="p-4 text-center"><span class="inline-block px-2 py-0.5 rounded bg-brand-crimson/15 text-brand-crimson font-semibold">NO</span></td>
+                            <td class="p-4 text-slate-300">Demystify popularity data. Teach users how to spot and avoid standard popularity traps.</td>
+                        </tr>
+                        <tr>
+                            <td class="p-4 font-bold text-slate-200">Social Architecture</td>
+                            <td class="p-4 text-slate-400 font-mono">Reddit, LGS Standards</td>
+                            <td class="p-4 text-center"><span class="inline-block px-2 py-0.5 rounded bg-brand-emerald/15 text-brand-emerald font-semibold">YES</span></td>
+                            <td class="p-4 text-slate-300 font-medium">Own this space. Deliver conversational Rule 0 pre-game scripts and interactive visuals.</td>
+                        </tr>
+                        <tr>
+                            <td class="p-4 font-bold text-slate-200">Playstyle Mapping</td>
+                            <td class="p-4 text-slate-400 font-mono">Fragmented blogs</td>
+                            <td class="p-4 text-center"><span class="inline-block px-2 py-0.5 rounded bg-brand-emerald/15 text-brand-emerald font-semibold">YES</span></td>
+                            <td class="p-4 text-slate-300 font-medium">Modernize and gamify. Map players psychological profiles directly to color strategies.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- 3. Audience & User Problem -->
+        <section id="audience" class="space-y-6">
+            <div class="text-center max-w-3xl mx-auto">
+                <span class="text-xs font-semibold uppercase tracking-wider text-brand-amber">Audit Section 03</span>
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-white mt-2">Audience Cohorts & Pain Points</h2>
+                <p class="text-slate-400 text-sm mt-1">
+                    Identifying the core target users and the exact psychological friction blocks current tooling fails to resolve.
+                </p>
+            </div>
+
+            <!-- Interative Card Stack or Clean Responsive Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Cohort 1 -->
+                <div class="p-6 bg-[#0f172a]/40 border border-slate-800 rounded-2xl space-y-3 relative">
+                    <div class="w-10 h-10 rounded-xl bg-brand-indigo/10 text-brand-indigo flex items-center justify-center">
+                        <i data-lucide="users-2" class="w-5 h-5"></i>
+                    </div>
+                    <h3 class="text-base font-bold text-slate-200">New Commander Players</h3>
+                    <p class="text-xs text-slate-400 leading-relaxed">
+                        Faced with a massive catalog of <span class="text-white font-semibold">$30,000$ legal cards</span>, multiplayer stacks, and simultaneous triggers. They struggle with basic game mechanics and fear ruining the play flow of experienced players.
+                    </p>
+                </div>
+                <!-- Cohort 2 -->
+                <div class="p-6 bg-[#0f172a]/40 border border-slate-800 rounded-2xl space-y-3 relative">
+                    <div class="w-10 h-10 rounded-xl bg-brand-amber/10 text-brand-amber flex items-center justify-center">
+                        <i data-lucide="history" class="w-5 h-5"></i>
+                    </div>
+                    <h3 class="text-base font-bold text-slate-200">Returning Magic Players</h3>
+                    <p class="text-xs text-slate-400 leading-relaxed">
+                        Trapped in an outdated, $60$-card, competitive $1$-on-$1$ mindset. They do not understand the politics, threat assessment, or structural rules of casual, four-player tables.
+                    </p>
+                </div>
+                <!-- Cohort 3 -->
+                <div class="p-6 bg-[#0f172a]/40 border border-slate-800 rounded-2xl space-y-3 relative">
+                    <div class="w-10 h-10 rounded-xl bg-brand-emerald/10 text-brand-emerald flex items-center justify-center">
+                        <i data-lucide="shopping-bag" class="w-5 h-5"></i>
+                    </div>
+                    <h3 class="text-base font-bold text-slate-200">Product-Overwhelmed Casuals</h3>
+                    <p class="text-xs text-slate-400 leading-relaxed">
+                        Unable to navigate the rapid cycle of preconstructed decks and expansion releases. They don't know what to buy or how to upgrade without breaking the balance of their deck.
+                    </p>
+                </div>
+                <!-- Cohort 4 -->
+                <div class="p-6 bg-[#0f172a]/40 border border-slate-800 rounded-2xl space-y-3 relative">
+                    <div class="w-10 h-10 rounded-xl bg-purple-500/10 text-purple-400 flex items-center justify-center">
+                        <i data-lucide="feather" class="w-5 h-5"></i>
+                    </div>
+                    <h3 class="text-base font-bold text-slate-200">Identity/Flavor Players</h3>
+                    <p class="text-xs text-slate-400 leading-relaxed">
+                        Values thematic storytelling, art, and emotional expression. They struggle to construct functional lists, resulting in decks that fail to execute their intended themes.
+                    </p>
+                </div>
+                <!-- Cohort 5 -->
+                <div class="p-6 bg-[#0f172a]/40 border border-slate-800 rounded-2xl space-y-3 relative">
+                    <div class="w-10 h-10 rounded-xl bg-rose-500/10 text-rose-400 flex items-center justify-center">
+                        <i data-lucide="shield-alert" class="w-5 h-5"></i>
+                    </div>
+                    <h3 class="text-base font-bold text-slate-200">Table-Anxious Players</h3>
+                    <p class="text-xs text-slate-400 leading-relaxed">
+                        Anxious about matching power levels with strangers at a local store. They need communicative scripts and table safety tools to feel comfortable sitting down.
+                    </p>
+                </div>
+                <!-- Highlight Summary Panel -->
+                <div class="p-6 bg-gradient-to-tr from-brand-indigo/10 to-transparent border border-slate-800 rounded-2xl space-y-3">
+                    <div class="text-xs text-brand-indigo font-bold tracking-wider">AUDIT OUTCOME</div>
+                    <h3 class="text-base font-bold text-white">The Core Solution</h3>
+                    <p class="text-xs text-slate-300 leading-relaxed">
+                        Vox Mana addresses these points directly by skipping rule manual mechanics and delivering <strong>human communication guides</strong> and <strong>playstyle orientation</strong> instead.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. The Open Gap -->
+        <section id="open-gap" class="py-12 border-y border-slate-900">
+            <div class="max-w-4xl mx-auto space-y-8">
+                <div class="text-center">
+                    <span class="text-xs font-semibold uppercase tracking-wider text-brand-indigo">Audit Section 04 & 05</span>
+                    <h2 class="text-2xl sm:text-3xl font-extrabold text-white mt-2">The Unowned Gap</h2>
+                    <p class="text-slate-400 text-sm mt-1">
+                        Current tools deliver extreme data granularity, leaving these three gaps wide open:
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 pt-4">
+                    <div class="p-5 bg-slate-900/40 border border-slate-850 rounded-2xl">
+                        <span class="text-[10px] font-mono font-bold text-brand-amber bg-brand-amber/10 border border-brand-amber/20 px-2.5 py-0.5 rounded">01</span>
+                        <h4 class="text-base font-bold text-white mt-4 mb-2">Social Friction Void</h4>
+                        <p class="text-xs text-slate-400 leading-relaxed">
+                            Existing resources assume Commander is a zero-sum card game. They offer zero guidance for navigating multiplayer table politics, targeting-etiquette, and the subjective social contract.
+                        </p>
+                    </div>
+                    <div class="p-5 bg-slate-900/40 border border-slate-850 rounded-2xl">
+                        <span class="text-[10px] font-mono font-bold text-brand-indigo bg-brand-indigo/10 border border-brand-indigo/20 px-2.5 py-0.5 rounded">02</span>
+                        <h4 class="text-base font-bold text-white mt-4 mb-2">Color Translation Void</h4>
+                        <p class="text-xs text-slate-400 leading-relaxed">
+                            Instead of treating color identity purely as a deckbuilding deck-restriction, Vox Mana translates each color's worldview into actual behavioral predictions and table behavior.
+                        </p>
+                    </div>
+                    <div class="p-5 bg-slate-900/40 border border-slate-850 rounded-2xl">
+                        <span class="text-[10px] font-mono font-bold text-brand-emerald bg-brand-emerald/10 border border-brand-emerald/20 px-2.5 py-0.5 rounded">03</span>
+                        <h4 class="text-base font-bold text-white mt-4 mb-2">Precon Upgrade Trap</h4>
+                        <p class="text-xs text-slate-400 leading-relaxed">
+                            Standard guides immediately push users to replace $30$ cards with expensive, uncoordinated staples, pushing their deck out of comfortable casual play and ruining the engine's synergy.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. Product Thesis Diagram -->
+        <section class="max-w-4xl mx-auto bg-gradient-to-r from-brand-indigo/10 to-[#0b0f19] border border-slate-800 p-8 rounded-3xl relative">
+            <div class="space-y-4">
+                <span class="text-xs uppercase font-bold tracking-widest text-brand-indigo">Strategic Roadmap 06 — Product Thesis</span>
+                <h3 class="text-2xl font-serif font-extrabold text-white">The Transformational Pivot</h3>
+                <p class="text-sm text-slate-300 leading-relaxed">
+                    "Vox Mana is the translation layer for the human side of Commander, transforming complex rules, overwhelming card options, and social friction into table-ready confidence through the lens of color identity."
+                </p>
+                <div class="border-t border-slate-800 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono">
+                    <div class="flex items-center space-x-2">
+                        <span class="px-2 py-1 rounded bg-slate-800/80 text-brand-crimson">Anxious Observer</span>
+                        <span class="text-slate-600">→</span>
+                        <span class="px-2 py-1 rounded bg-slate-800/80 text-brand-emerald">Confident Participant</span>
+                    </div>
+                    <div class="text-slate-500">
+                        Guided by Color Identity & Scripting
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. Voice and Copy Limits -->
+        <section id="voice" class="space-y-6">
+            <div class="text-center max-w-3xl mx-auto">
+                <span class="text-xs font-semibold uppercase tracking-wider text-brand-amber">Audit Section 07</span>
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-white mt-2">Strategic Copy Boundaries</h2>
+                <p class="text-slate-400 text-sm mt-1">
+                    Every atmospheric metaphor must immediately resolve into concrete strategic actions. Follow these boundaries:
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                <!-- Bad -->
+                <div class="bg-slate-900/20 border border-slate-850 p-6 rounded-2xl relative">
+                    <div class="absolute top-4 right-4 text-brand-crimson">
+                        <i data-lucide="x-circle" class="w-5 h-5"></i>
+                    </div>
+                    <span class="text-[10px] font-mono text-brand-crimson font-bold uppercase tracking-wider">Too Raw / Mechanical</span>
+                    <h4 class="text-sm font-bold text-slate-300 mt-2 mb-3">Database Dryness</h4>
+                    <p class="text-xs text-slate-400 leading-relaxed italic">
+                        "Mana is used to cast spells. You must tap lands of the correct color to pay a card's mana cost."
+                    </p>
+                    <div class="border-t border-slate-850 pt-3 mt-4 text-[10px] text-slate-500">
+                        Low branding, zero strategic identity mapping.
+                    </div>
+                </div>
+                <!-- Ideal -->
+                <div class="bg-brand-indigo/5 border border-brand-indigo/30 p-6 rounded-2xl relative">
+                    <div class="absolute top-4 right-4 text-brand-emerald">
+                        <i data-lucide="check-circle-2" class="w-5 h-5"></i>
+                    </div>
+                    <span class="text-[10px] font-mono text-brand-emerald font-bold uppercase tracking-wider">The Target Voice</span>
+                    <h4 class="text-sm font-bold text-white mt-2 mb-3">Vox Mana Balance</h4>
+                    <p class="text-xs text-slate-200 leading-relaxed italic">
+                        "Mana is the fuel of Magic, but each color also carries a worldview. In Commander, your color identity shapes not just what you can play, but how your deck behaves at the table."
+                    </p>
+                    <div class="border-t border-brand-indigo/10 pt-3 mt-4 text-[10px] text-brand-indigo font-semibold">
+                        Atmospheric framing resolving to in-game behaviors.
+                    </div>
+                </div>
+                <!-- Overdone -->
+                <div class="bg-slate-900/20 border border-slate-850 p-6 rounded-2xl relative">
+                    <div class="absolute top-4 right-4 text-brand-amber">
+                        <i data-lucide="alert-circle" class="w-5 h-5"></i>
+                    </div>
+                    <span class="text-[10px] font-mono text-brand-amber font-bold uppercase tracking-wider">Overly Poetic</span>
+                    <h4 class="text-sm font-bold text-slate-300 mt-2 mb-3">Vague Storytelling</h4>
+                    <p class="text-xs text-slate-400 leading-relaxed italic">
+                        "Your mana is a spiritual thread connecting you to the ancient ley lines of the multiverse, singing a song of cosmic alignment."
+                    </p>
+                    <div class="border-t border-slate-850 pt-3 mt-4 text-[10px] text-slate-500">
+                        Confuses beginners, offers zero strategic utility.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 7. MVP Site Map & /basics/ Page Architecture -->
+        <section class="space-y-6">
+            <div class="text-center max-w-3xl mx-auto">
+                <span class="text-xs font-semibold uppercase tracking-wider text-brand-indigo">Audit Section 08 & 09</span>
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-white mt-2">The Console Blueprint</h2>
+                <p class="text-slate-400 text-sm mt-1">
+                    The structural architecture recommended for the `/basics/` page—designed to guide anxiety-reduction.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                <!-- Left Architecture Module List -->
+                <div class="lg:col-span-4 bg-brand-charcoal border border-slate-800 p-6 rounded-2xl space-y-4">
+                    <h3 class="text-sm font-bold text-slate-200 border-b border-slate-800 pb-2">The Onboarding Pipeline</h3>
+                    <div class="space-y-2">
+                        <div class="flex items-center space-x-3 text-xs p-2 bg-slate-900/50 rounded-lg">
+                            <span class="w-5 h-5 rounded-full bg-slate-800 text-brand-indigo flex items-center justify-center font-bold text-[10px]">1</span>
+                            <span class="text-slate-300 font-medium">First Table Promise</span>
+                        </div>
+                        <div class="flex items-center space-x-3 text-xs p-2 bg-slate-900/50 rounded-lg">
+                            <span class="w-5 h-5 rounded-full bg-slate-800 text-brand-indigo flex items-center justify-center font-bold text-[10px]">2</span>
+                            <span class="text-slate-300 font-medium">Format Social Reality</span>
+                        </div>
+                        <div class="flex items-center space-x-3 text-xs p-2 bg-slate-900/50 rounded-lg">
+                            <span class="w-5 h-5 rounded-full bg-slate-800 text-brand-indigo flex items-center justify-center font-bold text-[10px]">3</span>
+                            <span class="text-slate-300 font-medium">Commander as Thesis</span>
+                        </div>
+                        <div class="flex items-center space-x-3 text-xs p-2 bg-slate-900/50 rounded-lg">
+                            <span class="w-5 h-5 rounded-full bg-slate-800 text-brand-indigo flex items-center justify-center font-bold text-[10px]">4</span>
+                            <span class="text-slate-300 font-medium">Precon Anatomy Check</span>
+                        </div>
+                        <div class="flex items-center space-x-3 text-xs p-2 bg-slate-900/50 rounded-lg">
+                            <span class="w-5 h-5 rounded-full bg-slate-800 text-brand-indigo flex items-center justify-center font-bold text-[10px]">5</span>
+                            <span class="text-slate-300 font-medium">Rule 0 Script Tool</span>
+                        </div>
+                        <div class="flex items-center space-x-3 text-xs p-2 bg-slate-900/50 rounded-lg">
+                            <span class="w-5 h-5 rounded-full bg-slate-800 text-brand-indigo flex items-center justify-center font-bold text-[10px]">6</span>
+                            <span class="text-slate-300 font-medium">WotC Brackets Visualized</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right visualizer detail block -->
+                <div class="lg:col-span-8 bg-slate-900/40 border border-slate-800 p-6 rounded-2xl space-y-6">
+                    <h3 class="text-base font-bold text-white font-serif">Structural Core Breakdown</h3>
+                    
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div class="p-4 bg-brand-charcoal/80 border border-slate-850 rounded-xl space-y-2">
+                            <div class="flex items-center justify-between">
+                                <span class="text-[10px] text-brand-indigo uppercase font-mono font-bold">Concept 01</span>
+                                <i data-lucide="circle-dot" class="w-4 h-4 text-brand-indigo"></i>
+                            </div>
+                            <h4 class="text-sm font-bold text-slate-200">The Precon Formula</h4>
+                            <p class="text-xs text-slate-400 leading-relaxed">
+                                Avoid expensive upgrades. Stick to the basic functional ratio: 1 Commander, 36-38 Lands, 10-13 Ramp rocks, 8-13 Interaction elements, and 10 Card Advantage cards.
+                            </p>
+                        </div>
+                        <div class="p-4 bg-brand-charcoal/80 border border-slate-850 rounded-xl space-y-2">
+                            <div class="flex items-center justify-between">
+                                <span class="text-[10px] text-brand-amber uppercase font-mono font-bold">Concept 02</span>
+                                <i data-lucide="shuffle" class="w-4 h-4 text-brand-amber"></i>
+                            </div>
+                            <h4 class="text-sm font-bold text-slate-200">WotC Matchmaking</h4>
+                            <p class="text-xs text-slate-400 leading-relaxed">
+                                Unmodified stock precons sit comfortably in <strong>Bracket 2 (Core)</strong>. Upgrading cards with "Game Changers" moves your deck into <strong>Bracket 3 (Upgraded)</strong>. Be upfront about this to prevent playgroup mismatches.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="p-4 bg-slate-950/60 rounded-xl border border-slate-850">
+                        <h4 class="text-xs font-bold text-slate-300 uppercase tracking-wider mb-2">Exclusion List (Avoid Database Bloat)</h4>
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 text-[10px] text-slate-400 font-mono">
+                            <div class="flex items-center"><span class="w-1.5 h-1.5 rounded-full bg-brand-crimson mr-2"></span> No raw rulebook text</div>
+                            <div class="flex items-center"><span class="w-1.5 h-1.5 rounded-full bg-brand-crimson mr-2"></span> No card search box</div>
+                            <div class="flex items-center"><span class="w-1.5 h-1.5 rounded-full bg-brand-crimson mr-2"></span> No deck builders</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 8. Feature Triage -->
+        <section id="feature-triage" class="space-y-6">
+            <div class="text-center max-w-3xl mx-auto">
+                <span class="text-xs font-semibold uppercase tracking-wider text-brand-amber">Audit Section 10</span>
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-white mt-2">Feature Triage Grid</h2>
+                <p class="text-slate-400 text-sm mt-1">
+                    Structuring release cycles strictly to defend against development scope-creep.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+                <!-- Core Now -->
+                <div class="p-4 bg-brand-emerald/5 border border-brand-emerald/20 rounded-2xl flex flex-col justify-between min-h-[200px]">
+                    <div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-[9px] font-bold tracking-widest text-brand-emerald uppercase font-mono">Core Now</span>
+                            <i data-lucide="check" class="w-4 h-4 text-brand-emerald"></i>
+                        </div>
+                        <h4 class="text-base font-bold text-slate-100 mt-4 mb-2">Rule 0 Generator</h4>
+                        <p class="text-[11px] text-slate-400 leading-relaxed">
+                            Playstyle quiz, preconstructed catalog upgrades, table etiquette scripts, first-game readiness checklist.
+                        </p>
+                    </div>
+                    <span class="text-[9px] font-mono text-brand-emerald mt-4 block">Launch Phase 1</span>
+                </div>
+
+                <!-- Later -->
+                <div class="p-4 bg-brand-indigo/5 border border-brand-indigo/20 rounded-2xl flex flex-col justify-between min-h-[200px]">
+                    <div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-[9px] font-bold tracking-widest text-brand-indigo uppercase font-mono">Later</span>
+                            <i data-lucide="history" class="w-4 h-4 text-brand-indigo"></i>
+                        </div>
+                        <h4 class="text-base font-bold text-slate-100 mt-4 mb-2">Visualizer Maps</h4>
+                        <p class="text-[11px] text-slate-400 leading-relaxed">
+                            Interactive precon anatomy bar, bracket validator, dual/triple-color matrix directories, playstyle radar charts.
+                        </p>
+                    </div>
+                    <span class="text-[9px] font-mono text-brand-indigo mt-4 block">Launch Phase 2-3</span>
+                </div>
+
+                <!-- Reference Only -->
+                <div class="p-4 bg-slate-900/40 border border-slate-800 rounded-2xl flex flex-col justify-between min-h-[200px]">
+                    <div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-[9px] font-bold tracking-widest text-slate-400 uppercase font-mono">Reference</span>
+                            <i data-lucide="info" class="w-4 h-4 text-slate-500"></i>
+                        </div>
+                        <h4 class="text-base font-bold text-slate-100 mt-4 mb-2">Curated Links</h4>
+                        <p class="text-[11px] text-slate-400 leading-relaxed">
+                            Curated YouTube beginner orientation library, lightweight legal banlist lookup, footer source references.
+                        </p>
+                    </div>
+                    <span class="text-[9px] font-mono text-slate-500 mt-4 block">Low Maintenance</span>
+                </div>
+
+                <!-- Avoid -->
+                <div class="p-4 bg-brand-crimson/5 border border-brand-crimson/25 rounded-2xl flex flex-col justify-between min-h-[200px]">
+                    <div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-[9px] font-bold tracking-widest text-brand-crimson uppercase font-mono">Strict Avoid</span>
+                            <i data-lucide="x" class="w-4 h-4 text-brand-crimson"></i>
+                        </div>
+                        <h4 class="text-base font-bold text-slate-100 mt-4 mb-2">Mass Databases</h4>
+                        <p class="text-[11px] text-slate-400 leading-relaxed">
+                            No full deck builders, card index search engines, price trackers, or lore-archiving encyclopedia clones.
+                        </p>
+                    </div>
+                    <span class="text-[9px] font-mono text-brand-crimson mt-4 block">Outsource Always</span>
+                </div>
+
+                <!-- Dangerous Bloat -->
+                <div class="p-4 bg-purple-500/5 border border-purple-500/20 rounded-2xl flex flex-col justify-between min-h-[200px]">
+                    <div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-[9px] font-bold tracking-widest text-purple-400 uppercase font-mono">Dangerous Bloat</span>
+                            <i data-lucide="alert-octagon" class="w-4 h-4 text-purple-400"></i>
+                        </div>
+                        <h4 class="text-base font-bold text-slate-100 mt-4 mb-2">Adjacent Guides</h4>
+                        <p class="text-[11px] text-slate-400 leading-relaxed">
+                            Card sleeve evaluations, deckbox reviews, random card generators, and local tournament schedules.
+                        </p>
+                    </div>
+                    <span class="text-[9px] font-mono text-purple-400 mt-4 block">Do Not Pursue</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- 9. Quality Bar & Risks -->
+        <section id="risks" class="grid grid-cols-1 lg:grid-cols-12 gap-8 py-12 border-t border-slate-900">
+            <!-- Left Side Quality Bar Checks -->
+            <div class="lg:col-span-5 space-y-6">
+                <span class="text-xs font-semibold uppercase tracking-wider text-brand-indigo">Audit Section 11</span>
+                <h3 class="text-2xl font-serif font-extrabold text-white">Quality Bar Thresholds</h3>
+                
+                <div class="space-y-4">
+                    <div class="p-4 bg-brand-charcoal/60 border border-slate-850 rounded-xl space-y-2">
+                        <h4 class="text-xs font-bold text-slate-200">UX: The 30-Second Check</h4>
+                        <p class="text-xs text-slate-400 leading-relaxed">
+                            Any landing user must identify precisely why they are here and the value proposition above-the-fold in under $30$ seconds. Zero-state onboarding (no login/signups required).
+                        </p>
+                    </div>
+                    <div class="p-4 bg-brand-charcoal/60 border border-slate-850 rounded-xl space-y-2">
+                        <h4 class="text-xs font-bold text-slate-200">Mobile-First optimization</h4>
+                        <p class="text-xs text-slate-400 leading-relaxed">
+                            Over $70\%$ of active users will evaluate scripts/checklists inside high-glare Local Game Stores. Font hierarchy and UI scaling must be tested explicitly on mobile devices.
+                        </p>
+                    </div>
+                    <div class="p-4 bg-brand-charcoal/60 border border-slate-850 rounded-xl space-y-2">
+                        <h4 class="text-xs font-bold text-slate-200">WotC Dynamic Matching Sync</h4>
+                        <p class="text-xs text-slate-400 leading-relaxed">
+                            Keep guides perfectly in sync with the late-2025 updates from the Commander Format Panel (removing strict tutor limits and updating the Game Changers list).
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Side Risks and Mitigations -->
+            <div class="lg:col-span-7 space-y-6">
+                <span class="text-xs font-semibold uppercase tracking-wider text-brand-amber">Audit Section 12</span>
+                <h3 class="text-2xl font-serif font-extrabold text-white">Project Risk Management</h3>
+
+                <div class="space-y-4">
+                    <!-- Risk 1 -->
+                    <div class="p-4 bg-slate-950/60 border border-slate-850 rounded-2xl grid grid-cols-1 sm:grid-cols-12 gap-4">
+                        <div class="sm:col-span-4">
+                            <span class="text-[9px] font-mono font-bold text-brand-crimson bg-brand-crimson/10 border border-brand-crimson/20 px-2 py-0.5 rounded">Risk 01</span>
+                            <h4 class="text-xs font-bold text-slate-200 mt-2">The Poetic Void</h4>
+                        </div>
+                        <div class="sm:col-span-8 space-y-1">
+                            <p class="text-xs text-slate-400"><strong>Why it matters:</strong> Users enjoy reading poetic flowery copy once but find no recurring utility tools, leading to high initial bounce rates.</p>
+                            <p class="text-xs text-brand-indigo font-medium"><strong>Mitigation:</strong> Ensure every single atmospheric concept immediately translates into a concrete strategic gameplay action.</p>
+                        </div>
+                    </div>
+                    <!-- Risk 2 -->
+                    <div class="p-4 bg-slate-950/60 border border-slate-850 rounded-2xl grid grid-cols-1 sm:grid-cols-12 gap-4">
+                        <div class="sm:col-span-4">
+                            <span class="text-[9px] font-mono font-bold text-brand-crimson bg-brand-crimson/10 border border-brand-crimson/20 px-2 py-0.5 rounded">Risk 02</span>
+                            <h4 class="text-xs font-bold text-slate-200 mt-2">The Database Compulsion</h4>
+                        </div>
+                        <div class="sm:col-span-8 space-y-1">
+                            <p class="text-xs text-slate-400"><strong>Why it matters:</strong> Getting distracted trying to build card indexes or collection managers, causing key onboarding targets to fail.</p>
+                            <p class="text-xs text-brand-indigo font-medium"><strong>Mitigation:</strong> Enforce a strict "no custom database" rule. Externalize all card indexing/deck hosting to Moxfield or Scryfall.</p>
+                        </div>
+                    </div>
+                    <!-- Risk 3 -->
+                    <div class="p-4 bg-slate-950/60 border border-slate-850 rounded-2xl grid grid-cols-1 sm:grid-cols-12 gap-4">
+                        <div class="sm:col-span-4">
+                            <span class="text-[9px] font-mono font-bold text-brand-crimson bg-brand-crimson/10 border border-brand-crimson/20 px-2 py-0.5 rounded">Risk 03</span>
+                            <h4 class="text-xs font-bold text-slate-200 mt-2">Beginner Overwhelm</h4>
+                        </div>
+                        <div class="sm:col-span-8 space-y-1">
+                            <p class="text-xs text-slate-400"><strong>Why it matters:</strong> Drowning users in heavy rules, storm counts, stack interactions, or cEDH combo-lines.</p>
+                            <p class="text-xs text-brand-indigo font-medium"><strong>Mitigation:</strong> Limit scope entirely to Brackets 1, 2, and 3. Defer competitive Bracket 4-5 discussions.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 10. Recommended Next Actions -->
+        <section class="space-y-6">
+            <h3 class="text-xl font-bold text-slate-200 font-serif text-center">Recommended Immediate Actions</h3>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div class="p-4 bg-slate-900/40 border border-slate-850 rounded-xl flex space-x-3">
+                    <span class="text-xs font-mono text-slate-600">01</span>
+                    <p class="text-xs text-slate-300">Draft Rule 0 core dynamic script templates spanning precon, upgraded, and custom playstyles.</p>
+                </div>
+                <div class="p-4 bg-slate-900/40 border border-slate-850 rounded-xl flex space-x-3">
+                    <span class="text-xs font-mono text-slate-600">02</span>
+                    <p class="text-xs text-slate-300">Structure the 10-question Playstyle Personality quiz connecting tablespace to color worldview.</p>
+                </div>
+                <div class="p-4 bg-slate-900/40 border border-slate-850 rounded-xl flex space-x-3">
+                    <span class="text-xs font-mono text-slate-600">03</span>
+                    <p class="text-xs text-slate-300">Assemble the interactive Wizards of the Coast 5-Bracket visual card layout explainer tool.</p>
+                </div>
+                <div class="p-4 bg-slate-900/40 border border-slate-850 rounded-xl flex space-x-3">
+                    <span class="text-xs font-mono text-slate-600">04</span>
+                    <p class="text-xs text-slate-300">Author Foundations and Lorwyn preconstructed deck upgrade formulas targeting safe modifications.</p>
+                </div>
+                <div class="p-4 bg-slate-900/40 border border-slate-850 rounded-xl flex space-x-3">
+                    <span class="text-xs font-mono text-slate-600">05</span>
+                    <p class="text-xs text-slate-300">Host 5 mono-colored starter templates directly on Moxfield to link dynamically as safe base guidelines.</p>
+                </div>
+                <div class="p-4 bg-slate-900/40 border border-slate-850 rounded-xl flex space-x-3">
+                    <span class="text-xs font-mono text-slate-600">06</span>
+                    <p class="text-xs text-slate-300">Test UX layouts in paper store settings to evaluate high-glare readability and mobile navigation speeds.</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Unified Premium Footer -->
+    <footer class="bg-brand-dark border-t border-slate-900 py-12 mt-12 text-slate-500 text-xs">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center sm:text-left space-y-6">
+            <div class="flex flex-col sm:flex-row items-center justify-between gap-4 border-b border-slate-900 pb-6">
+                <div class="flex items-center space-x-3">
+                    <div class="h-6 w-6 bg-slate-850 rounded border border-slate-750 flex items-center justify-center">
+                        <span class="font-serif font-bold text-slate-300 text-xs">VM</span>
+                    </div>
+                    <span class="font-bold tracking-wider text-slate-300 uppercase">VOX MANA AUDIT PROTOCOL</span>
+                </div>
+                <div class="text-[10px] text-slate-600 uppercase font-mono">
+                    Compiled Strategy Directive
+                </div>
+            </div>
+            <p class="max-w-4xl leading-relaxed text-slate-600">
+                Wizards of the Coast, Magic: The Gathering, and their respective logos are trademarks of Wizards of the Coast LLC. This audit visualizer is an independent analysis and is not affiliated, endorsed, or sponsored by Wizards of the Coast.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+    </script>
+</body>
+</html>

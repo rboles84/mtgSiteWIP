@@ -28,7 +28,7 @@ Vox Mana is an unofficial Magic: The Gathering fan site that combines a themed s
 | Archscry route shell | `assets/css/archscry.css`, `archscry/index.html` | Route-local Archscry shell, dossier, and responsive styles extracted from the former inline `archscry/index.html` CSS while still reusing shared tokens, layout, topbar, atmosphere, and shared components. |
 | Strategium route shell | `assets/css/strategium.css`, `assets/js/strategium.js`, `strategium/index.html` | Route-local Strategium shell styling and behavior extracted from the former inline `strategium/index.html` CSS/JS while preserving the Commander console, readiness checklist, archetype library, route-local atmosphere, and shared topbar/reduce-motion bridge. |
 | Apocrypha route shell | `assets/css/apocrypha.css`, `assets/js/apocrypha.js`, `apocrypha/index.html` | Route-local Apocrypha public reference library shell, rail, return dock, archive atmosphere, and hero/reference styling while preserving `/library/` as a compatibility alias. |
-| Placement frontend | `assets/js/index.js`, `assets/js/adaptive-placement.js`, `assets/js/shared.js`, `assets/js/identity-layers.js` | Loads data, runs quick adaptive reading, normalizes layered identity metadata, renders narrative dossiers, saves/resumes results, preserves adjacent-fit context, builds alias-routed Commander directory links, and keeps the terminal dormant behind the shared site flag. |
+| Placement frontend | `assets/js/index.js`, `assets/js/adaptive-placement.js`, `assets/js/shared.js`, `assets/js/identity-layers.js` | Loads data, runs quick adaptive reading, normalizes layered identity metadata, renders narrative dossiers, saves/resumes results, preserves adjacent-fit context, builds alias-routed Commander directory links, derives faction-native precon recommendations from the active dossier view, and keeps the terminal dormant behind the shared site flag. |
 | Site flags | `assets/js/site-flags.js` | Single checked-in switch that hides or reveals the archived terminal UI and browser guards. |
 | Research workspace | `research/*.js`, `maze/index.html`, `assets/css/maze.css` | Plain Reading, raw syntax, Visual Builder, Scryfall search/rendering, query-inspector translation bridge, reading-aware paths, Archscry return banners with dismissal persistence, helper/discovery/recent paths, no-results handling, deck scratchpad stash, and card modal UI. |
 | Scryfall card-expression indexes | `scripts/download-scryfall-bulk.mjs`, `scripts/build-scryfall-indexes.mjs`, `data/scryfall/indexes/*.json`, `data/taxonomy/vox-mana-tags.json` | Ignored local oracle bulk data, lightweight derived indexes, categorized tags, Commander candidates, and flavor echo samples. |
@@ -70,6 +70,13 @@ Vox Mana is an unofficial Magic: The Gathering fan site that combines a themed s
 | `supabase/functions/guild-recruiter/faction-context.ts` | External faction artifact builder | Edge function prompt context. |
 | `data/identity-layers.json` | Hand-authored identity catalog | Mono-aware routing, shared color language, and generated layered identity metadata. |
 | `data/identity-layers.schema.json` | Hand-authored schema | Contract check for the identity catalog. |
+| `data/precons/vox-mana-precons.source.json` | Hand-authored curated precon catalog with explicit `factionRefs`, validated 3-6 mechanic tags, and required nullable `creatureTypeFocus` | Precon artifact builder input. |
+| `data/precons/vox-mana-precons.source.schema.json` | Hand-authored schema | Contract check for the precon source catalog. |
+| `data/precons/reference/vox_mana_precon_mechanics_validation_all_155_completed.xlsx` | Reference/staging workbook | Node-only VM-139 import input; never browser runtime data. |
+| `data/taxonomy/vox-mana-precon-themes.json` | Hand-authored Commander theme taxonomy | Precon artifact builder input and dossier theme normalization. |
+| `data/taxonomy/vox-mana-precon-themes.schema.json` | Hand-authored schema | Contract check for the precon theme taxonomy. |
+| `data/precons/vox-mana-precon-catalog.json` | `research/build-precon-artifacts.mjs` | Archscry dossier precon cards plus faction-native grouping inputs for recommendation scoring. |
+| `data/precons/vox-mana-precon-catalog.schema.json` | `research/build-precon-artifacts.mjs` | Contract check for the generated runtime precon catalog. |
 | `data/raw-factions/*` | Curated source, profile, placement, claims, changelog files | Placement model and generated context. |
 | `data/taxonomy/vox-mana-tags.json` | Hand-authored Vox Mana tag dictionary | Scryfall index builder, Archscry tag explanations, Maze/future discovery copy. |
 | `data/scryfall/raw/oracle-cards.json` | `npm run scryfall:download` | Local-only ignored Scryfall oracle bulk source. |
@@ -82,6 +89,8 @@ Vox Mana is an unofficial Magic: The Gathering fan site that combines a themed s
 | Script | Command | Effect |
 |---|---|---|
 | Faction artifacts | `npm run build:factions` from this repo | Rewrites generated faction/model/schema/context artifacts in this repo. |
+| Precon mechanics import | `node research/import-precon-mechanics-validation.mjs` from this repo | Imports the completed 155-row XLSX validation workbook into canonical source JSON only, with protected-field guards for second-commander data. |
+| Precon artifacts | `npm run build:precons` from this repo | Rewrites the generated precon runtime catalog and schema from the canonical source plus theme taxonomy. |
 | Asset sources | `npm run assets:generate:sources` from `C:\dev\projectFiles\voxmana-tools` | Rewrites deterministic local-only SVG sources. |
 | Command panel | `npm run panel` from `C:\dev\projectFiles\voxmana-tools` | Starts local server on `127.0.0.1:4783`. |
 | Test suite | `npm test` | Runs parser, builder, mode, syntax, and placement checks. |
@@ -99,6 +108,7 @@ Vox Mana is an unofficial Magic: The Gathering fan site that combines a themed s
 - Static files are the deployable site surface; no bundler is currently present.
 - Runtime modules lean on browser globals where existing inline HTML handlers require it.
 - Generated faction artifacts must be treated as outputs; edit raw/display sources first, then regenerate.
+- Generated precon artifacts must be treated as outputs; edit `data/precons/vox-mana-precons.source.json` or `data/taxonomy/vox-mana-precon-themes.json` first, then regenerate.
 - Mono-aware identity metadata originates in `data/identity-layers.json`; do not hand-edit generated `layered_identity` blocks downstream.
 - Docs should describe current dirty working-tree behavior, not only `main` or the last committed state.
 - External Commander directory links are presenter-layer routes. Strixhaven colleges intentionally map to their guild/color analogs for EDHREC and MTGDecks directories.

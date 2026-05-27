@@ -1,0 +1,56 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Vox Mana Precon Theme Taxonomy",
+  "type": "object",
+  "required": [
+    "_meta",
+    "themes"
+  ],
+  "properties": {
+    "_meta": {
+      "type": "object",
+      "required": [
+        "version"
+      ],
+      "properties": {
+        "version": { "type": "string" }
+      },
+      "additionalProperties": true
+    },
+    "themes": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "key",
+          "display_name",
+          "family",
+          "aliases",
+          "match_terms",
+          "reading_tags",
+          "table_perception"
+        ],
+        "properties": {
+          "key": { "type": "string", "minLength": 1 },
+          "display_name": { "type": "string", "minLength": 1 },
+          "family": { "type": "string", "enum": ["core", "specialist"] },
+          "aliases": {
+            "type": "array",
+            "items": { "type": "string", "minLength": 1 }
+          },
+          "match_terms": {
+            "type": "array",
+            "items": { "type": "string", "minLength": 1 }
+          },
+          "reading_tags": {
+            "type": "array",
+            "items": { "type": "string", "minLength": 1 }
+          },
+          "table_perception": { "type": "string" }
+        },
+        "additionalProperties": false
+      }
+    }
+  }
+}
