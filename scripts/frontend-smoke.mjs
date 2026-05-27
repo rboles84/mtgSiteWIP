@@ -7,8 +7,14 @@ const routeChecks = [
   { label: "home -> Apocrypha", from: "index.html", href: "./apocrypha/index.html" },
   { label: "home -> Privacy", from: "index.html", href: "./privacy/index.html" },
   { label: "home -> Terms", from: "index.html", href: "./terms/index.html" },
+  { label: "Archscry -> Home", from: "archscry/index.html", href: "../index.html" },
   { label: "Archscry -> Maze", from: "archscry/index.html", href: "../maze/index.html" },
+  { label: "Maze -> Home", from: "maze/index.html", href: "../index.html" },
   { label: "Maze -> Archscry", from: "maze/index.html", href: "../archscry/index.html" },
+  { label: "Strategium -> Home", from: "strategium/index.html", href: "../index.html" },
+  { label: "Apocrypha -> Home", from: "apocrypha/index.html", href: "../index.html" },
+  { label: "Privacy -> Home", from: "privacy/index.html", href: "../index.html" },
+  { label: "Terms -> Home", from: "terms/index.html", href: "../index.html" },
   { label: "Library alias -> Apocrypha", from: "library/index.html", href: "../apocrypha/" },
 ];
 

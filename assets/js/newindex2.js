@@ -1024,7 +1024,7 @@ function initArchscryAtmosphere() {
     drawOrbs(false);
   }
 
-  // ATMOSPHERE DRAW LOOP: Runs both background layers on one canvas to keep newIndex2.html self-contained.
+  // ATMOSPHERE DRAW LOOP: Runs both background layers on one canvas to keep the home route self-contained.
   function drawAtmosphere() {
     if (document.body.classList.contains('still') || prefersReducedMotion || isHidden) {
       drawStaticAtmosphere();

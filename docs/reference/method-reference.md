@@ -212,31 +212,6 @@ Window handlers exposed by `Object.assign(window, ...)`: `answerQuickQuestion`, 
 
 The rest of the file is top-level test code covering schema metadata, model/faction alignment, scoring deltas, pruning, Crucible selection, golden-path reachability, ranking, and direct placement builds.
 
-### `assets/js/home.js`
-
-| Line | Symbol | Scope | Purpose |
-|---:|---|---|---|
-| 20 | `getCachedFaction()` | Internal | Finds readable cached faction data from storage. |
-| 45 | `init()` | Internal | Updates resume chip and starts home motion. |
-| 58 | `motionIsReduced()` | Internal | Reads OS/document motion state. |
-| 63 | `initHomeMotion()` | Internal | Starts pointer-driven home foreground motion. |
-| 71 | `apply()` | Nested | Applies interpolated foreground transform. |
-
-### `assets/js/atmosphere.js`
-
-| Line | Symbol | Scope | Purpose |
-|---:|---|---|---|
-| 18 | `isReduced()` | Internal | Reads reduced-motion state. |
-| 25 | `init()` | Internal | Creates and controls atmospheric canvas. |
-| 45 | `sizeCanvas()` | Nested | Sizes canvas with device-pixel ratio. |
-| 57 | `generateStars(w, h)` | Nested | Creates starburst particle data. |
-| 76 | `drawStarburst(s, alpha)` | Nested | Paints one starburst. |
-| 100 | `paint(t)` | Nested | Renders animated atmosphere frame. |
-| 145 | `start()` | Nested | Starts animation loop. |
-| 150 | `stop()` | Nested | Stops animation loop. |
-| 157 | `paintOnceStatic()` | Nested | Renders static reduced-motion frame. |
-| 178 | `reactToReducedChange()` | Nested | Switches live/static mode when preference changes. |
-
 ### `assets/js/reduce-motion.js`
 
 | Line | Symbol | Scope | Purpose |

@@ -10,9 +10,9 @@
 6. Confirm `data/precons/vox-mana-precon-catalog.json` is present at the site root under `/data/precons/vox-mana-precon-catalog.json`.
 7. Confirm `data/taxonomy/vox-mana-precon-themes.json` is present at the site root under `/data/taxonomy/vox-mana-precon-themes.json`.
 
-## `newIndex2.html` visual regression harness
+## Home visual regression harness
 
-1. Before changing `newIndex2.html`, run `npm.cmd run test:visual:newindex2:baseline`.
+1. Before changing `index.html` or its route-local Home assets, run `npm.cmd run test:visual:newindex2:baseline`.
 2. Confirm baseline screenshots exist under `artifacts/visual-regression/newindex2/baseline/` for `mobile.png`, `tablet.png`, and `desktop.png`.
 3. After the extraction or route-local refactor, run `npm.cmd run test:visual:newindex2`.
 4. Confirm the compare run writes current and diff artifacts under `artifacts/visual-regression/newindex2/current/` and `artifacts/visual-regression/newindex2/diff/`.
@@ -164,7 +164,7 @@
 
 ## VM-129C Maze / Archscry atmosphere convergence
 
-1. Open `/maze/` beside `newIndex2.html` and `/strategium/`; confirm Maze uses the same rich painted-background family with visible stars, glowing orbs, translucent black-glass panels, gold accents, and no teal-forward console wash.
+1. Open `/maze/` beside `/` and `/strategium/`; confirm Maze uses the same rich painted-background family with visible stars, glowing orbs, translucent black-glass panels, gold accents, and no teal-forward console wash.
 2. Inspect the Maze `.vm-bg__stars` canvas and confirm it is attached to `body`, sized to the current viewport, and marked by the rich runtime instead of staying at the default `300x150` canvas size.
 3. Narrow the desktop viewport or open devtools and confirm the deck scratchpad drawer remains mounted/off-canvas while closed and does not overlap the command deck, return banner, search input, or results panel.
 4. Open `/archscry/`; confirm stars/orbs are visible again while the route remains darker and more dossier-focused than Home, Strategium, or Maze.
@@ -356,7 +356,6 @@
 ## Shared topbar smoke pass
 
 1. Open each public page:
-   - `newIndex2.html`
    - `index.html`
    - `/archscry/`
    - `/maze/`
@@ -375,12 +374,12 @@
 10. Confirm `Strategium` is now the live label and `/strategium/` is the live route.
 11. Confirm Home-link semantics remain unchanged:
    - `index.html` brand and Home link stay self-targeted
-   - non-home routes return to `newIndex2.html`
-   - `newIndex2.html` still self-targets the page top
+   - non-home routes return to `index.html`
+   - `index.html` brand and Home links self-target `./index.html`
 
 ## Semantic HTML / ARIA audit pass
 
-1. Open `newIndex2.html`, `/archscry/`, and `/maze/` in a browser with the accessibility tree or inspector open.
+1. Open `index.html`, `/archscry/`, and `/maze/` in a browser with the accessibility tree or inspector open.
 2. Confirm each page exposes one `banner`, one `main`, and one `contentinfo` / footer landmark.
 3. Confirm the major page sections are named from visible headings through `aria-labelledby`.
 4. On `/archscry/`, confirm the landing, quick reading, Scrying Terminal, and result regions are inside the main landmark and have meaningful names.
@@ -416,7 +415,7 @@
 
 ## Local file route smoke pass
 
-1. Open `newIndex2.html` directly via `file://`.
+1. Open `index.html` directly via `file://`.
 2. Confirm the shared header logo loads correctly under `file://` and still reads cleanly as the committed Vox Mana sigil in the topbar brand pill.
 3. Open the mobile menu and confirm the mirrored route links appear and the menu still opens and closes correctly without a dev server.
 4. Click `Start Archscry` and confirm `archscry/index.html` opens instead of a file-not-found page.
@@ -427,6 +426,6 @@
 9. Complete a quick Archscry reading and confirm the dossier still renders, including the `Mana Alignment Matrix`.
 10. From the dossier, open one of the Maze discovery links and confirm the Maze page opens with query context intact.
 11. Confirm the Maze route topbar can return to `Home`, `Archscry`, `Apocrypha`, and `Strategium` without file-not-found errors.
-12. Click the Strategium nav, card, and footer links from `newIndex2.html` and confirm they resolve to the renamed local route.
+12. Click the Strategium nav, card, and footer links from `index.html` and confirm they resolve to the renamed local route.
 13. Confirm no live local-file path still points to `basics/index.html`.
-14. Open the footer `Privacy` and `Terms` links from `newIndex2.html` and confirm those pages load their styling and topbar correctly under `file://`.
+14. Open the footer `Privacy` and `Terms` links from `index.html` and confirm those pages load their styling and topbar correctly under `file://`.

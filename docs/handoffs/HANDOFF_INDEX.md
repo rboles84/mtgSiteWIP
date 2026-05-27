@@ -4,6 +4,7 @@ This index tracks agent work across planning, board updates, documentation, JSON
 
 | Date | Agent | Task | Related Card | Status | Handoff |
 |---|---|---|---|---|---|
+| 2026-05-26 23:34 | Codex | Promote the Identity Signal homepage to canonical `/`, retire the old Three Doors root assets, retarget route links and harnesses, and open the identity-registry follow-up | VM-148; VM-149 | Complete | [2026-05-26-2334-codex-vm148-canonical-homepage-cutover.md](2026-05-26-2334-codex-vm148-canonical-homepage-cutover.md) |
 | 2026-05-26 23:12 | Codex | Create the frontend route ownership matrix, link it from the docs atlas, and open scoped follow-up cards for stale assets, legal CSS, CDN/font review, and large route CSS/JS risk reduction | VM-143; VM-144 through VM-147 | Complete | [2026-05-26-2312-codex-vm143-route-ownership-matrix.md](2026-05-26-2312-codex-vm143-route-ownership-matrix.md) |
 | 2026-05-26 23:08 | Codex | Unify The Implicit Maze translucency with Strategium's sharper glass treatment and fix the mobile overflow found during QA | VM-142 | Complete | [2026-05-26-2308-codex-vm142-maze-strategium-glass.md](2026-05-26-2308-codex-vm142-maze-strategium-glass.md) |
 | 2026-05-26 22:47 | Codex | Wrap the completed VM-136 through VM-141 precon recommendation bundle and push it into `feature/ui-refactor-exploration` | VM-136 through VM-141 | Complete | [2026-05-26-2247-codex-vm136-vm141-ui-refactor-push.md](2026-05-26-2247-codex-vm136-vm141-ui-refactor-push.md) |

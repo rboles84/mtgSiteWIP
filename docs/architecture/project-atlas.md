@@ -6,10 +6,9 @@ Vox Mana is an unofficial Magic: The Gathering fan site that combines a themed s
 
 | Route | File | Purpose | Primary runtime |
 |---|---|---|---|
-| `/` | `index.html` | Home gateway with destination cards and cached-reading resume chip. | `assets/js/home.js`, `assets/js/vm-topbar.js`, `assets/js/atmosphere.js` |
-| `/newIndex2.html` | `newIndex2.html` | Preview home gateway and VM-121 extraction target. | `assets/js/graph.js`, `assets/js/newindex2.js`, `assets/js/reduce-motion.js`, `assets/js/vm-topbar.js` |
+| `/` | `index.html` | Canonical home gateway and Identity Signal showcase. | `assets/js/graph.js`, `assets/js/newindex2.js`, `assets/js/reduce-motion.js`, `assets/js/vm-topbar.js` |
 | `/archscry/` | `archscry/index.html` | Placement experience: landing, quick adaptive reading, dossier result, archived Scrying Terminal. | `assets/js/index.js`, `assets/js/shared.js`, `assets/js/adaptive-placement.js` |
-| `/maze/` | `maze/index.html` | The Implicit Maze premium Scryfall search console. | `assets/css/maze.css`, `assets/js/atmosphere.js`, `research/research-init.js`, and imported research modules |
+| `/maze/` | `maze/index.html` | The Implicit Maze premium Scryfall search console. | `assets/css/maze.css`, `assets/js/vm-rich-atmosphere.js`, `research/research-init.js`, and imported research modules |
 | `/apocrypha/` | `apocrypha/index.html` | Canonical Apocrypha Archive Console and public provenance page. | `assets/css/apocrypha.css`, `assets/js/apocrypha.js`, shared topbar, and reduce-motion |
 | `/strategium/` | `strategium/index.html` | Commander learning console for Rule 0 scripting, searchable archetype discovery, threat assessment, readiness diagnostics, and identity pressure. | `assets/css/strategium.css`, `assets/js/strategium.js`, `assets/js/reduce-motion.js`, `assets/js/vm-topbar.js` |
 | `/library/` | `library/index.html` | Legacy compatibility alias that forwards to `/apocrypha/`. | Inline redirect shell |
@@ -23,8 +22,7 @@ Vox Mana is an unofficial Magic: The Gathering fan site that combines a themed s
 |---|---|---|
 | Static shells | `index.html`, `archscry/index.html`, `maze/index.html`, `apocrypha/index.html`, `strategium/index.html`, `library/index.html`, policy pages | Define route-specific DOM, preload assets, script entrypoints, and inline handler hooks. |
 | Shared visual system | `assets/css/tokens.css`, `assets/css/fonts.css`, `assets/css/layout.css`, `assets/css/animations.css`, `assets/css/topbar.css`, `assets/css/atmosphere.css`, `assets/css/components.css` | Site tokens, progressive OKLCH fallbacks, teal-only Display P3 accent overrides, a conservative fluid spacing/type pilot, a layered shared layout bridge, canonical imported live keyframes, shared font loading, topbar, atmospheric canvas, and reusable panels/buttons/chips/progress treatments. |
-| Home gateway | `assets/js/home.js` | Resume-chip detection and subtle gateway motion. |
-| Home preview | `assets/css/newindex2.css`, `assets/js/newindex2.js`, `newIndex2.html` | Route-local preview shell styling and behavior extracted from the former inline `newIndex2.html` CSS/JS while still reusing shared tokens, layout, topbar, and local `graph.js`. |
+| Home route | `assets/css/newindex2.css`, `assets/js/newindex2.js`, `index.html` | Canonical home shell styling and behavior extracted from the former preview-page inline CSS/JS while still reusing shared tokens, layout, topbar, and local `graph.js`. |
 | Archscry route shell | `assets/css/archscry.css`, `archscry/index.html` | Route-local Archscry shell, dossier, and responsive styles extracted from the former inline `archscry/index.html` CSS while still reusing shared tokens, layout, topbar, atmosphere, and shared components. |
 | Strategium route shell | `assets/css/strategium.css`, `assets/js/strategium.js`, `strategium/index.html` | Route-local Strategium shell styling and behavior extracted from the former inline `strategium/index.html` CSS/JS while preserving the Commander console, readiness checklist, archetype library, route-local atmosphere, and shared topbar/reduce-motion bridge. |
 | Apocrypha route shell | `assets/css/apocrypha.css`, `assets/js/apocrypha.js`, `apocrypha/index.html` | Route-local Apocrypha public reference library shell, rail, return dock, archive atmosphere, and hero/reference styling while preserving `/library/` as a compatibility alias. |
@@ -96,7 +94,7 @@ Vox Mana is an unofficial Magic: The Gathering fan site that combines a themed s
 | Test suite | `npm test` | Runs parser, builder, mode, syntax, and placement checks. |
 | Placement tests | `npm run test:placement` | Runs adaptive placement model/golden-path assertions. |
 | Bias simulation | `npm run test:bias` / `npm run test:bias:all` | Writes quick-reading bias reports under `test-results/`. |
-| Preview visual regression | `npm run test:visual:newindex2:baseline` / `npm run test:visual:newindex2` | Captures deterministic `newIndex2.html` baseline/current screenshots plus console contracts and compares them with a small pixel-diff budget. |
+| Home visual regression | `npm run test:visual:newindex2:baseline` / `npm run test:visual:newindex2` | Captures deterministic root-home baseline/current screenshots plus console contracts and compares them with a small pixel-diff budget. |
 | Archscry visual regression | `npm run test:visual:archscry:baseline` / `npm run test:visual:archscry` | Captures deterministic Archscry landing and dossier screenshots plus console contracts and compares them with a small pixel-diff budget. |
 | Strategium visual regression | `npm run test:visual:strategium:baseline` / `npm run test:visual:strategium` | Captures deterministic Strategium landing, active console, and archetype-library screenshots plus console contracts and compares them with a small pixel-diff budget. |
 | Apocrypha visual regression | `npm run test:visual:apocrypha:baseline` / `npm run test:visual:apocrypha` | Captures deterministic Apocrypha hero and reference-library screenshots plus console contracts and compares them with a small pixel-diff budget. |

@@ -390,7 +390,7 @@ if (!address || typeof address === "string") {
   throw new Error("Could not determine the local visual-regression server port.");
 }
 
-const url = `http://${host}:${address.port}/newIndex2.html`;
+const url = `http://${host}:${address.port}/index.html`;
 const chromePath = await resolveBrowserPath();
 const chromeFlags = [
   "--headless=new",

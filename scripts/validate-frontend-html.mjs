@@ -2,7 +2,6 @@ import { readFile } from "node:fs/promises";
 
 const publicPages = {
   home: "index.html",
-  homePreview: "newIndex2.html",
   maze: "maze/index.html",
   archscry: "archscry/index.html",
   strategium: "strategium/index.html",
@@ -193,21 +192,21 @@ expectAbsent(
   "archscry/index.html should not ship inline <style> blocks"
 );
 expect(
-  sources.homePreview.includes('<link rel="stylesheet" href="./assets/css/newindex2.css" />'),
-  'newIndex2.html should load "./assets/css/newindex2.css"'
+  sources.home.includes('<link rel="stylesheet" href="./assets/css/newindex2.css" />'),
+  'index.html should load "./assets/css/newindex2.css"'
 );
 expect(
-  sources.homePreview.includes('<script src="./assets/js/newindex2.js" defer></script>'),
-  'newIndex2.html should load "./assets/js/newindex2.js" as a deferred external script'
+  sources.home.includes('<script src="./assets/js/newindex2.js" defer></script>'),
+  'index.html should load "./assets/js/newindex2.js" as a deferred external script'
 );
 expectAbsent(
-  sources.homePreview,
+  sources.home,
   /<style\b[^>]*>/i,
-  "newIndex2.html should not ship inline <style> blocks"
+  "index.html should not ship inline <style> blocks"
 );
 expect(
-  !getScriptTags(sources.homePreview).some(inlineScriptIsExecutable),
-  "newIndex2.html should not ship executable inline <script> blocks"
+  !getScriptTags(sources.home).some(inlineScriptIsExecutable),
+  "index.html should not ship executable inline <script> blocks"
 );
 
 expect(
@@ -228,11 +227,11 @@ expect(
   "strategium/index.html should not ship executable inline <script> blocks"
 );
 
-const newindexTopbarLinkIndex = sources.homePreview.indexOf('./assets/css/topbar.css');
-const newindexRouteCssIndex = sources.homePreview.indexOf('./assets/css/newindex2.css');
+const newindexTopbarLinkIndex = sources.home.indexOf('./assets/css/topbar.css');
+const newindexRouteCssIndex = sources.home.indexOf('./assets/css/newindex2.css');
 expect(
   newindexTopbarLinkIndex !== -1 && newindexRouteCssIndex !== -1 && newindexTopbarLinkIndex < newindexRouteCssIndex,
-  "newIndex2.html should load topbar.css before newindex2.css"
+  "index.html should load topbar.css before newindex2.css"
 );
 
 const archscryLastStylesheetTagIndex = sources.archscry.lastIndexOf('<link rel="stylesheet"');
@@ -275,7 +274,7 @@ expectAbsent(
 );
 
 const legalNavTargets = [
-  'href="../newIndex2.html"',
+  'href="../index.html"',
   'href="../archscry/index.html"',
   'href="../maze/index.html"',
   'href="../apocrypha/index.html"',

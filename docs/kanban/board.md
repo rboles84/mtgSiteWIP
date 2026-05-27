@@ -7,6 +7,7 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 ## Backlog
 
+- [VM-149 - Identity Preview Registry Canonicalization](backlog/VM-149-identity-preview-registry-canonicalization.md)
 - [VM-144 - Stale Preview Asset Archive Audit](backlog/VM-144-stale-preview-asset-archive-audit.md)
 - [VM-145 - Legal Page CSS Extraction](backlog/VM-145-legal-page-css-extraction.md)
 - [VM-146 - CDN And Font Dependency Review](backlog/VM-146-cdn-font-dependency-review.md)
@@ -36,7 +37,7 @@ Cards live in the matching status folders under `docs/kanban/`:
 ## In Progress
 
 - [VM-012 - Scryfall Parser Expansion and Diagnostics](in-progress/VM-012-scryfall-parser-expansion-diagnostics.md)
-- [VM-088 - newIndex2 Auto-Cycling Mana Lens Showcase](in-progress/VM-088-newindex2-auto-cycling-mana-lens-showcase.md)
+- [VM-088 - Home Auto-Cycling Mana Lens Showcase](in-progress/VM-088-newindex2-auto-cycling-mana-lens-showcase.md)
 
 ## Blocked
 
@@ -44,6 +45,7 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 ## Done
 
+- [VM-148 - Canonical Homepage Cutover](done/VM-148-canonical-homepage-cutover.md)
 - [VM-143 - Frontend Route Ownership Matrix](done/VM-143-frontend-route-ownership-matrix.md)
 - [VM-142 - Maze Strategium Glass Unification](done/VM-142-maze-strategium-glass-unification.md)
 - [VM-141 - Expand Remaining Precon Recommendations In Archscry](done/VM-141-expand-remaining-precon-recommendations-in-archscry.md)
