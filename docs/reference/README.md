@@ -5,6 +5,7 @@ This folder is the developer map for the current Vox Mana working tree. It docum
 ## Start Here
 
 - [Project Atlas](../architecture/project-atlas.md) - product shape, route map, entrypoints, runtime layers, external services, scripts, and generated artifacts.
+- [Route Ownership Matrix](../architecture/route-ownership-matrix.md) - per-route ownership map for page purpose, HTML/CSS/JS, storage, data, services, tests, risks, and scoped-protection boundaries.
 - [Core Logic And Algorithms](../architecture/core-logic-and-algorithms.md) - adaptive placement, legacy quick scoring, Scryfall parsing, visual builder, persistence, archived terminal, rate limiting, and build logic.
 - [Data Flow Map](../architecture/data-flow-map.md) - raw faction data, generated models, browser storage, Supabase profile storage, Scryfall calls, archived terminal calls, and command-panel state.
 - [Method Reference](./method-reference.md) - Javadoc-equivalent inventory of named functions, exported constants, globals, handlers, and endpoint surfaces.

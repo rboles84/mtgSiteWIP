@@ -7,6 +7,10 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 ## Backlog
 
+- [VM-144 - Stale Preview Asset Archive Audit](backlog/VM-144-stale-preview-asset-archive-audit.md)
+- [VM-145 - Legal Page CSS Extraction](backlog/VM-145-legal-page-css-extraction.md)
+- [VM-146 - CDN And Font Dependency Review](backlog/VM-146-cdn-font-dependency-review.md)
+- [VM-147 - Large Route CSS JS Risk Reduction](backlog/VM-147-large-route-css-js-risk-reduction.md)
 - [VM-006 - Archscry / Maze Verification and Repeat-Visit Polish](backlog/VM-006-archscry-maze-verification-repeat-visit-polish.md)
 - [VM-021 - Archscry Results UX Consolidation Pass](backlog/VM-021-archscry-results-ux-consolidation-pass.md)
 - [VM-021A - Archscry Dossier QA Corrections](backlog/VM-021A-archscry-dossier-qa-corrections.md)
@@ -40,6 +44,7 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 ## Done
 
+- [VM-143 - Frontend Route Ownership Matrix](done/VM-143-frontend-route-ownership-matrix.md)
 - [VM-142 - Maze Strategium Glass Unification](done/VM-142-maze-strategium-glass-unification.md)
 - [VM-141 - Expand Remaining Precon Recommendations In Archscry](done/VM-141-expand-remaining-precon-recommendations-in-archscry.md)
 - [VM-140 - Premium Recommended Precon Decks Section](done/VM-140-premium-recommended-precon-decks-section.md)

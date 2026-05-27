@@ -6,6 +6,7 @@ This index explains the existing documentation set and how it connects to the te
 |---|---|---|
 | [README](./README.md) | Developer docs hub for the atlas. | Orienting to the documentation set. |
 | [Project Atlas](../architecture/project-atlas.md) | High-level system map. | Finding routes, entrypoints, scripts, runtime layers, and artifacts. |
+| [Route Ownership Matrix](../architecture/route-ownership-matrix.md) | Per-route ownership and dependency map. | Checking page purpose, CSS/JS ownership, storage keys, external services, tests, risks, and do-not-touch boundaries before frontend work. |
 | [Method Reference](./method-reference.md) | Javadoc-equivalent function/API list. | Looking up functions, exports, globals, handlers, and endpoint surfaces. |
 | [Core Logic And Algorithms](../architecture/core-logic-and-algorithms.md) | Behavioral breakdowns. | Understanding placement, parsing, persistence, generation, and command execution logic. |
 | [Data Flow Map](../architecture/data-flow-map.md) | Data lineage and storage map. | Tracing raw inputs to generated artifacts, browser state, Supabase, Scryfall, archived terminal calls, and test output. |
@@ -23,11 +24,13 @@ This index explains the existing documentation set and how it connects to the te
 ```mermaid
 flowchart TD
   README["docs/reference/README.md"] --> Atlas["docs/architecture/project-atlas.md"]
+  README --> Routes["docs/architecture/route-ownership-matrix.md"]
   README --> Methods["docs/reference/method-reference.md"]
   README --> Logic["docs/architecture/core-logic-and-algorithms.md"]
   README --> Data["docs/architecture/data-flow-map.md"]
   README --> Diagrams["docs/diagrams/diagrams.md"]
   Atlas --> Contracts["docs/reference/data-contracts.md"]
+  Atlas --> Routes
   Atlas --> Style["docs/design/visual-style-guide.md"]
   Atlas --> Assets["docs/design/asset-manifest.md"]
   Logic --> Contracts
@@ -41,5 +44,6 @@ flowchart TD
 
 - Update [Method Reference](./method-reference.md) when adding, removing, or renaming named functions, exported constants, globals, or local endpoints.
 - Update [Data Flow Map](../architecture/data-flow-map.md) when generated artifacts, storage keys, external APIs, or Supabase fields change.
+- Update [Route Ownership Matrix](../architecture/route-ownership-matrix.md) when public route HTML, CSS stacks, JS entrypoints, browser storage keys, generated-file usage, external services, smoke/manual tests, or do-not-touch boundaries change.
 - Update [Core Logic And Algorithms](../architecture/core-logic-and-algorithms.md) when placement scoring, parser rules, query-builder behavior, interview normalization, or command execution changes.
 - Update [Diagrams](../diagrams/diagrams.md) and the matching `docs/diagrams/*.mmd` and `*.svg` files when route, data, or runtime boundaries change.
