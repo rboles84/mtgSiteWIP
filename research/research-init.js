@@ -4,7 +4,7 @@ import { buildVisualBuilderQuery, parseKeywordInput } from "./research-builder.j
 import { resolveModeInputValue } from "./research-mode.js";
 import * as ResearchSearch from "./research-search.js";
 import { buildScryfallWebSearchUrl, renderQueryInspector } from "./research-ui.js";
-import { resolveMazeLaunchState } from "../assets/js/maze-handoff.js";
+import { buildDossierMazePathEntries, resolveMazeLaunchState } from "../assets/js/maze-handoff.js";
 
 let currentMode = "ai";
 let currentQuery = "";
@@ -43,7 +43,7 @@ const ARCHSCRY_PATH_LABELS = {
   "commanders-that-fit": "Commanders That Fit",
   "support-cards": "Support Cards",
   "flavor-echoes": "Flavor Echoes",
-  "weird-stretch-commanders": "Weird Stretch Commanders",
+  "weird-stretch-commanders": "Outside-Color Commander Stretch",
   ramp: "Ramp",
   draw: "Draw",
   interaction: "Interaction",
@@ -1473,7 +1473,10 @@ function buildDiscoveryPaths() {
       className: "sb-btn",
       text: path.label,
       action: "quick-search",
-      dataset: { query: path.q }
+      dataset: {
+        query: path.q,
+        plainReadingQuery: path.plainReadingQuery
+      }
     });
     const hint = document.createElement("span");
     hint.textContent = path.hint;
@@ -1652,65 +1655,19 @@ function createReadingPaths(result) {
   const identity = colorIdentityFromPlacement(result);
   if (!identity) return [];
   const signals = readingSearchSignals(result);
-  const oracleGroup = signals.oracle.length
-    ? `(${signals.oracle.map((term) => queryTerm(term, "o")).join(" OR ")})`
-    : "(o:graveyard OR o:sacrifice OR o:draw OR o:token)";
-  const flavorGroup = signals.flavor.length
-    ? `(${signals.flavor.map((term) => queryTerm(term, "ft")).join(" OR ")})`
-    : "(ft:death OR ft:secret OR ft:growth OR ft:law)";
-
-  return [
-    { label: "Commanders that fit this reading", hint: identity.toUpperCase(), q: `ci<=${identity} t:legendary t:creature f:commander ${oracleGroup}` },
-    { label: "Cards that support this shape", hint: "nonlegendary support", q: `ci<=${identity} f:commander -t:legendary ${oracleGroup}` },
-    { label: "Flavor echoes", hint: "card-story texture", q: `ci<=${identity} ${flavorGroup}` },
-    { label: "Same fantasy, different mechanic", hint: "stretch lane", q: `f:commander t:legendary t:creature -ci<=${identity} ${oracleGroup}` }
-  ];
+  return buildDossierMazePathEntries({
+    identity,
+    factionName: result?.faction_name || result?.faction || "this reading",
+    oracleTerms: signals.oracle,
+    flavorTerms: signals.flavor
+  }).map((path) => ({
+    label: path.sidebarLabel || path.label,
+    hint: path.hint,
+    q: path.query,
+    plainReadingQuery: path.plainReadingQuery
+  }));
 }
 
-function colorIdentityFromPlacement(result) {
-  const faction = String(result?.faction || "").toUpperCase();
-  if (/^[WUBRG]{1,5}$/.test(faction)) {
-    return [...new Set(faction.split(""))].sort(sortManaSymbols).join("").toLowerCase();
-  }
-  const scores = result?.mana_scores || result?.scores || {};
-  const ranked = ["W", "U", "B", "R", "G"]
-    .map((color) => ({ color, value: Number(scores[color] || 0) }))
-    .filter((entry) => entry.value > 0)
-    .sort((left, right) => right.value - left.value || sortManaSymbols(left.color, right.color));
-  return ranked.slice(0, 2).map((entry) => entry.color).sort(sortManaSymbols).join("").toLowerCase();
-}
-
-function sortManaSymbols(left, right) {
-  return ["W", "U", "B", "R", "G"].indexOf(left) - ["W", "U", "B", "R", "G"].indexOf(right);
-}
-
-function readingSearchSignals(result) {
-  const text = [
-    result?.decree,
-    result?.faction_name,
-    ...(result?.evidence_trail || []).flatMap((entry) => [entry.signal, entry.answer_title, entry.prompt])
-  ].filter(Boolean).join(" ").toLowerCase();
-  const signals = [
-    { test: /graveyard|death|reclamation|recursion|rot|return/i, oracle: ["graveyard", "return target", "dies"], flavor: ["death", "grave", "again"] },
-    { test: /sacrifice|debt|drain|obligation|aristocrat/i, oracle: ["sacrifice", "each opponent loses", "dies"], flavor: ["debt", "blood", "price"] },
-    { test: /spell|experiment|expression|storm|instant|sorcery/i, oracle: ["instant or sorcery", "copy", "draw"], flavor: ["spark", "experiment", "flame"] },
-    { test: /community|communal|tokens|wide|harmony/i, oracle: ["create", "token", "creatures you control"], flavor: ["together", "conclave", "home"] },
-    { test: /order|law|procedure|control|rules/i, oracle: ["counter target", "exile target", "can't attack"], flavor: ["law", "judgment", "order"] },
-    { test: /secret|hidden|information|shadow|memory/i, oracle: ["surveil", "mill", "discard"], flavor: ["secret", "shadow", "memory"] },
-    { test: /growth|nature|adapt|counter|land/i, oracle: ["land", "+1/+1 counter", "search your library"], flavor: ["growth", "root", "wild"] }
-  ];
-  const matched = signals.filter((signal) => signal.test.test(text));
-  return {
-    oracle: [...new Set(matched.flatMap((signal) => signal.oracle))].slice(0, 5),
-    flavor: [...new Set(matched.flatMap((signal) => signal.flavor))].slice(0, 5)
-  };
-}
-
-function queryTerm(value, field) {
-  const cleaned = String(value || "").trim().toLowerCase();
-  if (!cleaned) return "";
-  return /[^a-z0-9-]/i.test(cleaned) ? `${field}:"${cleaned.replace(/"/g, "")}"` : `${field}:${cleaned}`;
-}
 
 /**
  * Renders color identity shortcut buttons in the sidebar.
@@ -1741,9 +1698,11 @@ function runQuickSearch(query, opts = {}) {
     useFormatDefault: opts.useFormatDefault !== false
   });
   const finalQuery = formatted.query;
+  const plainReadingQuery = normalizeSearchInputValue(opts.plainReadingQuery || "");
   document.getElementById("search-input").value = finalQuery;
   selectAutoFilledInputOnFocus = true;
-  lastSmartQuery = "";
+  lastSmartInput = plainReadingQuery;
+  lastSmartQuery = plainReadingQuery ? finalQuery : "";
   setMode("raw");
   currentOrder = opts.order || "name";
   currentUnique = opts.unique || "cards";
@@ -2407,7 +2366,8 @@ function handleMazeActionClick(event) {
       runQuickSearch(actionNode.dataset.query || "", {
         order: actionNode.dataset.order || undefined,
         unique: actionNode.dataset.unique || undefined,
-        dir: actionNode.dataset.dir || undefined
+        dir: actionNode.dataset.dir || undefined,
+        plainReadingQuery: actionNode.dataset.plainReadingQuery || undefined
       });
       return;
     case "load-more":

@@ -56,7 +56,7 @@ Flow:
 5. Quick path creates adaptive state, renders answer cards, applies selections, and finalizes.
 6. The Scrying Terminal remains behind a feature flag and is hidden by default.
 7. Result rendering switches between primary and adjacent fits, translates raw placement signals into a faction-native presenter layer, renders deck/source guidance, loads Scryfall card art, and exposes save actions.
-8. Maze links carry an Archscry handoff through query parameters and `localStorage` so Maze can show a return banner back to the originating dossier. VM-005 links include a visible `plainReadingQuery`, executable `operatorQuery`, stable `pathType`, and return URL.
+8. Maze links carry an Archscry handoff through query parameters and `localStorage` so Maze can show a return banner back to the originating dossier. Dossier paths are generated through the shared Maze handoff helper as four stable lanes: commander candidates, noncommander support, flavor/story echoes, and outside-color commander stretch. Each link includes a visible `plainReadingQuery`, executable `operatorQuery`, stable `pathType`, and return URL.
 9. External Commander directory links use a presenter-layer alias router: Strixhaven colleges map through their guild/color pair analogs before building EDHREC or MTGDecks directory URLs.
 
 ## Scrying Terminal Backend
@@ -144,7 +144,7 @@ When Maze opens from Archscry, it stays in Plain Reading and displays the author
 Maze also has two discovery layers that do not replace search:
 
 1. General Discovery Paths are static query seeds for fresh users.
-2. From Your Reading paths are rendered only when a saved or cached placement result exists.
+2. From Your Reading paths are rendered only when a saved or cached placement result exists. They use the same four-lane dossier path helper as Archscry links and keep authored Plain Reading text for mode switching.
 
 The lightweight stash uses `localStorage` key `vm_maze_card_stash_v1`. Saved cards keep normalized Scryfall identifiers, name, set, collector number, type line, color identity, URI, image URI, soft stash section, and source query. It is intentionally not a deckbuilder: there is no legality validation, mana curve, land advice, account sync, or direct Moxfield/Archidekt export.
 

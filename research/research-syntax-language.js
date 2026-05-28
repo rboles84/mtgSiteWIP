@@ -37,6 +37,7 @@ function createPhraseParts() {
     rarities: [],
     mana: [],
     oracle: [],
+    flavor: [],
     exclusions: [],
     other: []
   };
@@ -90,14 +91,20 @@ function parseSimpleTerm(term) {
   const color = parseColorTerm(value, negated);
   if (color) return color;
 
-  const identity = value.match(/^id(?:<=|:)([wubrgc]+)$/i);
+  const identity = parseIdentityTerm(value, negated);
   if (identity) {
-    return { kind: "colors", text: `${colorsToWords(identity[1])} commander identity` };
+    return identity;
   }
 
   const type = value.match(/^t:(.+)$/i);
   if (type) {
-    return { kind: "types", text: `${unquote(type[1])} cards` };
+    const typeText = `${unquote(type[1])} cards`;
+    return { kind: negated ? "exclusions" : "types", text: negated ? `excluding ${typeText}` : typeText };
+  }
+
+  const isTerm = value.match(/^is:(.+)$/i);
+  if (isTerm) {
+    return describeIsTerm(isTerm[1], negated);
   }
 
   const keyword = value.match(/^kw:(.+)$/i);
@@ -125,7 +132,55 @@ function parseSimpleTerm(term) {
     return describeOracleTerm(oracle[1], negated);
   }
 
+  const flavor = value.match(/^ft:(.+)$/i);
+  if (flavor) {
+    return describeFlavorTerm(flavor[1], negated);
+  }
+
   return null;
+}
+
+/**
+ * Parses Commander color identity terms.
+ * @param {string} value - Non-negated query term.
+ * @param {boolean} negated - Whether the original term was negated.
+ * @returns {object|null} Parsed identity item or null.
+ */
+function parseIdentityTerm(value, negated) {
+  const identity = value.match(/^(?:id|ci)(:|=|<=|>=)([wubrgc]+)$/i);
+  if (!identity) return null;
+
+  const op = identity[1];
+  const words = colorsToWords(identity[2]);
+  if (negated) {
+    const negativeText = op === "<="
+      ? `outside ${words} commander identity`
+      : `not ${words} commander identity`;
+    return { kind: "exclusions", text: negativeText };
+  }
+  if (op === "=") return { kind: "colors", text: `exactly ${words} commander identity` };
+  if (op === ">=") return { kind: "colors", text: `at least ${words} commander identity` };
+  return { kind: "colors", text: `${words} commander identity` };
+}
+
+/**
+ * Describes an `is:` Scryfall predicate.
+ * @param {string} rawValue - Raw predicate value.
+ * @param {boolean} negated - Whether the predicate is negated.
+ * @returns {{kind: string, text: string}} Translation bucket entry.
+ */
+function describeIsTerm(rawValue, negated) {
+  const value = unquote(rawValue).toLowerCase();
+  if (value === "commander") {
+    return {
+      kind: negated ? "exclusions" : "types",
+      text: negated ? "excluding commander candidates" : "commander candidates"
+    };
+  }
+  return {
+    kind: negated ? "exclusions" : "other",
+    text: negated ? `excluding ${value}` : value
+  };
 }
 
 /**
@@ -159,6 +214,31 @@ function describeOracleTerm(rawValue, negated) {
     kind: negated ? "exclusions" : "oracle",
     text: negated ? `excluding ${phrase}` : phrase
   };
+}
+
+/**
+ * Describes a flavor text term in plain English.
+ * @param {string} rawValue - Raw flavor text value.
+ * @param {boolean} negated - Whether the term was negated.
+ * @returns {{kind: string, text: string}} Normalized translation bucket entry.
+ */
+function describeFlavorTerm(rawValue, negated) {
+  const phrase = describeFlavorPhrase(rawValue);
+  return {
+    kind: negated ? "exclusions" : "flavor",
+    text: negated ? `excluding ${phrase}` : phrase
+  };
+}
+
+/**
+ * Describes flavor text or regex text in plain English.
+ * @param {string} rawValue - Raw flavor payload.
+ * @returns {string} Human-readable flavor text description.
+ */
+function describeFlavorPhrase(rawValue) {
+  const value = unquote(String(rawValue || "").trim());
+  const clean = cleanOracleSnippet(/^\/.+\/$/.test(value) ? value.slice(1, -1) : value);
+  return clean ? `flavor text containing ${clean}` : "flavor text";
 }
 
 /**
@@ -263,6 +343,7 @@ function assemblePhrase(parts, unhandled) {
   if (parts.colors.length) segments.push(joinHuman(parts.colors));
   if (parts.types.length) segments.push(joinHuman(parts.types));
   if (parts.oracle.length) segments.push(joinHuman(parts.oracle));
+  if (parts.flavor.length) segments.push(joinHuman(parts.flavor));
   if (parts.exclusions.length) segments.push(joinHuman(parts.exclusions));
   if (parts.formats.length) segments.push(joinHuman(parts.formats));
   if (parts.rarities.length) segments.push(joinHuman(parts.rarities));

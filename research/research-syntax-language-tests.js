@@ -54,6 +54,31 @@ const cases = [
     expected: "black and red commander identity creature cards commander legal common mana value 2 or less"
   },
   {
+    name: "dossier commander candidates",
+    query: "id<=r is:commander f:commander (o:graveyard OR o:sacrifice OR o:draw OR o:token)",
+    expected: "red commander identity commander candidates oracle text containing graveyard, oracle text containing sacrifice, oracle text containing draw, or oracle text containing token commander legal"
+  },
+  {
+    name: "dossier support excludes commanders and lands",
+    query: "id<=r f:commander -is:commander -t:land (o:graveyard OR o:sacrifice OR o:draw OR o:token)",
+    expected: "red commander identity oracle text containing graveyard, oracle text containing sacrifice, oracle text containing draw, or oracle text containing token excluding commander candidates and excluding land cards commander legal"
+  },
+  {
+    name: "dossier flavor echoes",
+    query: "id<=r f:commander (ft:death OR ft:secret OR ft:growth OR ft:law)",
+    expected: "red commander identity flavor text containing death, flavor text containing secret, flavor text containing growth, or flavor text containing law commander legal"
+  },
+  {
+    name: "dossier outside identity stretch",
+    query: "-id<=r is:commander f:commander (o:graveyard OR o:sacrifice)",
+    expected: "commander candidates oracle text containing graveyard or oracle text containing sacrifice outside red commander identity commander legal"
+  },
+  {
+    name: "legacy ci identity and negated type",
+    query: "ci<=r f:commander -t:legendary (o:graveyard OR o:sacrifice)",
+    expected: "red commander identity oracle text containing graveyard or oracle text containing sacrifice excluding legendary cards commander legal"
+  },
+  {
     name: "unhandled raw syntax is preserved",
     query: "name:/^ajani/",
     expected: "name:/^ajani/",

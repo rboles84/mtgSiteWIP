@@ -3,6 +3,7 @@ import {
   getCommanderFactionGuidance,
 } from "./commander-dossier.js";
 import {
+  buildDossierMazePathEntries,
   mazeSearchLink as buildMazeSearchLink,
   resolveMazeOperatorQuery,
   resolveMazePathType,
@@ -13,7 +14,7 @@ export const MAZE_PATH_LABELS = {
   "commanders-that-fit": "Commanders That Fit",
   "support-cards": "Support Cards",
   "flavor-echoes": "Flavor Echoes",
-  "weird-stretch-commanders": "Weird Stretch Commanders",
+  "weird-stretch-commanders": "Outside-Color Commander Stretch",
   ramp: "Ramp",
   draw: "Draw",
   interaction: "Interaction",
@@ -572,37 +573,20 @@ export function withArchscryMazeContext(links = [], context, origin = "http://lo
 
 export function buildPersonalizedMazePaths({ faction, tagRefs, taxonomy }) {
   const identity = getColorIdentity(faction?.colors || faction?.key || "").toLowerCase() || "c";
-  const oracleGroup = groupedOr(queryTermsForTags(tagRefs, taxonomy, "o"));
-  const flavorTerms = groupedOr([
+  const oracleTerms = queryTermsForTags(tagRefs, taxonomy, "o");
+  const flavorTerms = [
     ...queryTermsForTags(tagRefs.filter((ref) => ref.category === "identity" || ref.category === "lore-tone"), taxonomy, "ft"),
-  ]);
-  const supportGroup = oracleGroup || "(o:draw OR o:token OR o:graveyard OR o:sacrifice OR o:return)";
-  const flavorGroup = flavorTerms || "(ft:death OR ft:secret OR ft:fire OR ft:growth OR ft:law)";
-
-  return [
-    buildMazeSearchLink({
-      label: "commanders that fit",
-      query: `ci<=${identity} t:legendary t:creature f:commander ${supportGroup}`,
-      pathType: "commanders-that-fit",
-      plainReadingQuery: `${faction?.name || "this reading"} commanders that fit the same table identity`,
-    }),
-    buildMazeSearchLink({
-      label: "cards that support this shape",
-      query: `ci<=${identity} f:commander -t:legendary ${supportGroup}`,
-      pathType: "support-cards",
-      plainReadingQuery: `${faction?.name || "this reading"} support cards for the deck shape`,
-    }),
-    buildMazeSearchLink({
-      label: "flavor echoes",
-      query: `ci<=${identity} ${flavorGroup}`,
-      pathType: "flavor-echoes",
-      plainReadingQuery: `${faction?.name || "this reading"} flavor echoes and story motifs`,
-    }),
-    buildMazeSearchLink({
-      label: "weird stretch commanders",
-      query: `f:commander t:legendary t:creature -ci<=${identity} ${supportGroup}`,
-      pathType: "weird-stretch-commanders",
-      plainReadingQuery: `strange commanders that echo ${faction?.name || "this reading"} from outside the color identity`,
-    }),
   ];
+
+  return buildDossierMazePathEntries({
+    identity,
+    factionName: faction?.name || "this reading",
+    oracleTerms,
+    flavorTerms
+  }).map((entry) => buildMazeSearchLink({
+    label: entry.label,
+    query: entry.query,
+    pathType: entry.pathType,
+    plainReadingQuery: entry.plainReadingQuery,
+  }));
 }

@@ -1,4 +1,15 @@
 const DEFAULT_MAZE_PATH_LABEL = "Maze path";
+const MANA_SYMBOL_ORDER = ["w", "u", "b", "r", "g", "c"];
+const MANA_SYMBOL_NAMES = {
+  w: "white",
+  u: "blue",
+  b: "black",
+  r: "red",
+  g: "green",
+  c: "colorless"
+};
+const DEFAULT_ORACLE_TERMS = ["draw", "token", "graveyard", "sacrifice"];
+const DEFAULT_FLAVOR_TERMS = ["death", "secret", "growth", "law"];
 
 /**
  * Resolves a Maze operator query from a link or a URL-bearing object.
@@ -58,6 +69,66 @@ export function mazeSearchLink({ label, query, service = "maze", pathType = "", 
 }
 
 /**
+ * Builds the four stable dossier-shaped Maze paths shared by Archscry and Maze.
+ * @param {object} input - Dossier path input.
+ * @param {string} input.identity - Commander color identity symbols.
+ * @param {string} [input.factionName] - Dossier or reading display name.
+ * @param {string[]} [input.oracleTerms] - Oracle terms or prebuilt `o:` query terms.
+ * @param {string[]} [input.flavorTerms] - Flavor terms or prebuilt `ft:` query terms.
+ * @returns {object[]} Stable Maze path entries.
+ */
+export function buildDossierMazePathEntries({
+  identity = "",
+  factionName = "this reading",
+  oracleTerms = [],
+  flavorTerms = []
+} = {}) {
+  const normalizedIdentity = normalizeMazeIdentity(identity);
+  if (!normalizedIdentity) return [];
+
+  const oracleGroup = groupQueryTerms(oracleTerms, "o", DEFAULT_ORACLE_TERMS);
+  const flavorGroup = groupQueryTerms(flavorTerms, "ft", DEFAULT_FLAVOR_TERMS);
+  const identityLabel = normalizedIdentity.toUpperCase();
+  const identityText = identityToWords(normalizedIdentity);
+  const readingName = String(factionName || "this reading").trim() || "this reading";
+
+  return [
+    {
+      label: "commanders that fit",
+      sidebarLabel: "Commanders that fit this reading",
+      hint: identityLabel,
+      pathType: "commanders-that-fit",
+      query: `id<=${normalizedIdentity} is:commander f:commander ${oracleGroup}`,
+      plainReadingQuery: `${readingName} commander candidates in ${identityText} Commander identity`
+    },
+    {
+      label: "cards that support this shape",
+      sidebarLabel: "Cards that support this shape",
+      hint: "noncommander support",
+      pathType: "support-cards",
+      query: `id<=${normalizedIdentity} f:commander -is:commander -t:land ${oracleGroup}`,
+      plainReadingQuery: `${readingName} noncommander support cards in ${identityText} Commander identity`
+    },
+    {
+      label: "flavor echoes",
+      sidebarLabel: "Flavor echoes",
+      hint: "card-story texture",
+      pathType: "flavor-echoes",
+      query: `id<=${normalizedIdentity} f:commander ${flavorGroup}`,
+      plainReadingQuery: `${readingName} flavor and story echoes in ${identityText} Commander identity`
+    },
+    {
+      label: "outside-color commander stretch",
+      sidebarLabel: "Outside-color commander stretch",
+      hint: "stretch lane",
+      pathType: "weird-stretch-commanders",
+      query: `-id<=${normalizedIdentity} is:commander f:commander ${oracleGroup}`,
+      plainReadingQuery: `${readingName} commander stretch outside ${identityText} identity`
+    }
+  ];
+}
+
+/**
  * Resolves launch state for Maze when Archscry-originated URLs land on the page.
  * @param {URLSearchParams} urlParams - Current page query parameters.
  * @param {object} [existing] - Previously saved handoff state.
@@ -78,4 +149,40 @@ export function resolveMazeLaunchState(urlParams, existing = {}) {
 
 function defaultOrigin() {
   return globalThis?.location?.origin || "http://localhost";
+}
+
+function normalizeMazeIdentity(identity) {
+  const symbols = String(identity || "").toLowerCase().match(/[wubrgc]/g) || [];
+  if (!symbols.length) return "";
+  if (symbols.includes("c") && symbols.every((symbol) => symbol === "c")) return "c";
+  const colored = symbols.filter((symbol) => symbol !== "c");
+  return [...new Set(colored)].sort(sortManaSymbols).join("") || "c";
+}
+
+function sortManaSymbols(left, right) {
+  return MANA_SYMBOL_ORDER.indexOf(left) - MANA_SYMBOL_ORDER.indexOf(right);
+}
+
+function identityToWords(identity) {
+  return String(identity || "")
+    .toLowerCase()
+    .split("")
+    .map((symbol) => MANA_SYMBOL_NAMES[symbol] || symbol)
+    .join("-");
+}
+
+function groupQueryTerms(terms, field, fallbackTerms) {
+  const normalized = [...new Set((terms?.length ? terms : fallbackTerms)
+    .map((term) => normalizeQueryTerm(term, field))
+    .filter(Boolean))];
+  return `(${normalized.join(" OR ")})`;
+}
+
+function normalizeQueryTerm(term, field) {
+  const value = String(term || "").trim();
+  if (!value) return "";
+  if (/^[a-z]+:/i.test(value) || /^\(.+\)$/.test(value)) return value;
+  const cleaned = value.toLowerCase().replace(/"/g, "").trim();
+  if (!cleaned) return "";
+  return /[^a-z0-9-]/i.test(cleaned) ? `${field}:"${cleaned}"` : `${field}:${cleaned}`;
 }

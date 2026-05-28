@@ -32,6 +32,7 @@ import {
   resolveArchidektTagName,
   validateDeckTagData,
 } from "./archscry-result.js";
+import { buildPersonalizedMazePaths } from "./archscry-presentation.js";
 
 const factionData = JSON.parse(
   await readFile(new URL("../../data/factions.json", import.meta.url), "utf8")
@@ -858,6 +859,22 @@ const whiteFlavorGroup = groupedOr(queryTermsForTags(
 const whiteFlavorQuery = `ci<=w ${whiteFlavorGroup}`;
 assert.equal(whiteFlavorQuery, 'ci<=w (ft:order OR ft:structure OR ft:communal OR ft:shared)');
 assert.doesNotMatch(whiteFlavorQuery, /\bdecay\b|\brot\b/i);
+const whiteMazePaths = buildPersonalizedMazePaths({
+  faction: factions.W,
+  tagRefs: whiteFlavorTagRefs,
+  taxonomy: taxonomyData,
+});
+assert.deepEqual(
+  whiteMazePaths.map((path) => path.pathType),
+  ["commanders-that-fit", "support-cards", "flavor-echoes", "weird-stretch-commanders"]
+);
+assert.equal(new Set(whiteMazePaths.map((path) => path.operatorQuery)).size, 4);
+assert.equal(new Set(whiteMazePaths.map((path) => path.plainReadingQuery)).size, 4);
+assert.match(whiteMazePaths[0].operatorQuery, /^id<=w is:commander f:commander /);
+assert.match(whiteMazePaths[1].operatorQuery, /^id<=w f:commander -is:commander -t:land /);
+assert.match(whiteMazePaths[2].operatorQuery, /^id<=w f:commander \(ft:/);
+assert.match(whiteMazePaths[3].operatorQuery, /^-id<=w is:commander f:commander /);
+assert.ok(whiteMazePaths.every((path) => !/\b(?:id|ci|o|ft|t|is):/i.test(path.plainReadingQuery)));
 assert.match(whiteDossier.resultStatus, /primary color fit/i);
 assert.equal(whiteDossier.faction.identity.expression_kind, "color");
 assertMonoBoundaryState("W", whiteGolden);

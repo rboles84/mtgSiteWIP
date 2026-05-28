@@ -133,6 +133,14 @@
 15. At mobile/devtools-width desktop, confirm the drawer and command deck remain usable without horizontal overflow.
 16. Enable reduced motion and confirm Maze transitions and atmosphere effects are disabled or materially reduced.
 
+## VM-150 Dossier-to-Maze path differentiation
+
+1. Complete or restore one mono-color Archscry dossier and one two-color dossier.
+2. In `Maze Discovery Paths`, confirm the four links are commander candidates, support cards, flavor/story echoes, and outside-color commander stretch rather than four near-identical oracle searches.
+3. Open each path in Maze and confirm Operator's Hand shows a distinct query shape: `is:commander`, `-is:commander -t:land`, `ft:`, and `-id<=... is:commander`.
+4. Switch each opened path back to Plain Reading and confirm the visible text remains authored and human-readable rather than raw `id:`, `ci:`, `o:`, `ft:`, or `t:` syntax.
+5. Confirm the return banner still routes back to the originating dossier and no stash or modal behavior changed.
+
 ## VM-129E Maze glass and sidebar disclosures
 
 1. Open `/maze/` and confirm the major panels are more transparent than VM-129D while the text remains readable.

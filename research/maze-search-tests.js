@@ -83,6 +83,18 @@ async function runMazeDomMetadataCases() {
   await import("./research-init.js");
   window.location.search = "";
   window.location.href = "http://localhost/maze/index.html";
+  dom.setLocalStorageItem("vm_archscry_maze_handoff_v1", JSON.stringify({
+    returnUrl: "../archscry/index.html",
+    placementResult: {
+      faction: "R",
+      faction_name: "Red",
+      evidence_trail: [{
+        signal: "graveyard sacrifice tokens",
+        answer_title: "Turn loss into pressure",
+        prompt: "How should the table remember a spent resource?"
+      }]
+    }
+  }));
   await dom.dispatchWindowEvent("load");
 
   assert.equal(document.getElementById("discovery-path-list").children.length, 5);
@@ -90,12 +102,21 @@ async function runMazeDomMetadataCases() {
   assert.equal(document.getElementById("color-grid").children.length, 15);
   assert.equal(document.getElementById("type-checks").children.length, 8);
   assert.equal(document.getElementById("rarity-checks").children.length, 4);
+  assert.equal(document.getElementById("reading-path-list").children.length, 4);
   assert.equal(document.body.dataset.mazeMode, "ai");
   document.getElementById("kw-input").oninput?.({ target: { value: "tox" } });
   assert.ok(
     document.getElementById("kw-suggestions").children.some((node) => node.dataset.keyword === "toxic"),
     "expected Loom autocomplete to include dictionary-derived keyword suggestions"
   );
+  const commanderPath = document.getElementById("reading-path-list").children[0];
+  assert.match(commanderPath.dataset.query, /^id<=r is:commander f:commander /);
+  assert.match(commanderPath.dataset.plainReadingQuery, /Red commander candidates/i);
+  const supportPath = document.getElementById("reading-path-list").children[1];
+  assert.match(supportPath.dataset.query, /^id<=r f:commander -is:commander -t:land /);
+  assert.match(supportPath.dataset.plainReadingQuery, /noncommander support cards/i);
+
+  const bootFetchCount = dom.fetchUrls.length;
   const boardWipeQuery = "otag:board-wipe f:commander";
   const manaRockQuery = "otag:mana-rock f:commander";
   window.runQuickSearch("otag:board-wipe", { unique: "cards", order: "name" });
@@ -274,6 +295,17 @@ async function runMazeDomMetadataCases() {
     }
   });
   assert.equal(prevented, false);
+
+  const dossierPathFetchStart = dom.fetchUrls.length;
+  window.runQuickSearch(commanderPath.dataset.query, {
+    plainReadingQuery: commanderPath.dataset.plainReadingQuery,
+    useFormatDefault: false
+  });
+  await waitForFetchCount(dom.fetchUrls, dossierPathFetchStart + 1);
+  window.setMode("ai");
+  assert.equal(document.getElementById("search-input").value, commanderPath.dataset.plainReadingQuery);
+  window.setMode("raw");
+  assert.equal(document.getElementById("search-input").value, commanderPath.dataset.query);
 
   const localPageStart = dom.fetchUrls.length;
   dom.setFetchResponses([{
