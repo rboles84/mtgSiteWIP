@@ -8,7 +8,6 @@ Cards live in the matching status folders under `docs/kanban/`:
 ## Backlog
 
 - [VM-144 - Stale Preview Asset Archive Audit](backlog/VM-144-stale-preview-asset-archive-audit.md)
-- [VM-145 - Legal Page CSS Extraction](backlog/VM-145-legal-page-css-extraction.md)
 - [VM-146 - CDN And Font Dependency Review](backlog/VM-146-cdn-font-dependency-review.md)
 - [VM-147 - Large Route CSS JS Risk Reduction](backlog/VM-147-large-route-css-js-risk-reduction.md)
 - [VM-006 - Archscry / Maze Verification and Repeat-Visit Polish](backlog/VM-006-archscry-maze-verification-repeat-visit-polish.md)
@@ -19,7 +18,6 @@ Cards live in the matching status folders under `docs/kanban/`:
 - [VM-008 - Commander Compass V1.5 Archetype-Guided Recommendations](backlog/VM-008-commander-compass-v1-5-archetype-guided-recommendations.md)
 - [VM-009 - 32-Deck Challenge, Saved Taste Profile, and Deck Import Later](backlog/VM-009-32-deck-challenge-saved-taste-profile-deck-import-later.md)
 - [VM-010 - The Loom Commander Finder Mode and Graph/Query Layer](backlog/VM-010-the-loom-commander-finder-mode-graph-query-layer.md)
-- [VM-022 - Maze Core Extraction](backlog/VM-022-maze-core-extraction.md)
 - [VM-024 - Normalize Docs Paths After Reorg](backlog/VM-024-normalize-docs-paths-after-reorg.md)
 - [VM-025 - Combo Discovery Placement Section](backlog/VM-025-combo-discovery-placement-section.md)
 - [VM-013 - Placement Domains Architecture and Post-V1 Faction Expansion](backlog/VM-013-placement-domains-architecture-post-v1-faction-expansion.md)
@@ -35,7 +33,7 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 ## In Progress
 
-- No cards currently in progress.
+- [VM-022 - Maze Core Extraction](in-progress/VM-022-maze-core-extraction.md)
 
 ## Blocked
 
@@ -43,6 +41,9 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 ## Done
 
+- [VM-153 - Legal Glass Opacity Match](done/VM-153-legal-glass-opacity-match.md)
+- [VM-152 - Legal Page Visual Alignment](done/VM-152-legal-page-visual-alignment.md)
+- [VM-145 - Legal Page CSS Extraction](done/VM-145-legal-page-css-extraction.md)
 - [VM-151 - Adjacent Dossier Maze Handoff Refresh](done/VM-151-adjacent-dossier-maze-handoff-refresh.md)
 - [VM-150 - Dossier Maze Path Differentiation](done/VM-150-dossier-maze-path-differentiation.md)
 - [VM-012 - Scryfall Parser Expansion and Diagnostics](done/VM-012-scryfall-parser-expansion-diagnostics.md)

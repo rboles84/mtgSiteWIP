@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Vox Mana â€” Terms of Service</title>
+<title>Vox Mana — Terms of Service</title>
 
 <link rel="stylesheet" href="../assets/css/tokens.css">
 <link rel="stylesheet" href="../assets/css/fonts.css">
@@ -11,263 +11,14 @@
 <link rel="stylesheet" href="../assets/css/topbar.css">
 <link rel="stylesheet" href="../assets/css/atmosphere.css">
 <link rel="stylesheet" href="../assets/css/components.css">
-
-<style>
-.legal-page {
-  position: relative;
-  z-index: 1;
-  width: min(1180px, calc(100% - clamp(1.5rem, 4vw, 3.5rem)));
-  margin: 0 auto;
-  padding: clamp(1.25rem, 3vw, 2rem) 0 var(--s-20);
-}
-
-.legal-hero,
-.summary-card,
-.legal-section {
-  position: relative;
-  overflow: hidden;
-  border: 1px solid color-mix(in srgb, var(--gold) 24%, transparent);
-  border-radius: var(--r-3);
-  background:
-    linear-gradient(180deg, rgba(13, 11, 9, 0.94), rgba(13, 11, 9, 0.8)),
-    radial-gradient(circle at top right, rgba(212, 180, 97, 0.12), transparent 44%),
-    var(--asset-texture-panel);
-  background-size: auto, auto, 420px 420px;
-  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.4);
-  backdrop-filter: blur(14px);
-}
-
-.legal-hero {
-  padding: clamp(1.5rem, 3vw, 2.5rem);
-  margin-top: var(--s-8);
-  margin-bottom: var(--s-8);
-}
-
-.legal-hero::after,
-.summary-card::after,
-.legal-section::after {
-  content: "";
-  position: absolute;
-  inset: 0 auto auto 0;
-  width: 100%;
-  height: 1px;
-  background: linear-gradient(90deg, rgba(212, 180, 97, 0.55), rgba(212, 180, 97, 0));
-  pointer-events: none;
-}
-
-.doc-stamp,
-.summary-eyebrow,
-.section-kicker,
-.meta-pill {
-  font-family: var(--font-mono);
-  font-size: var(--text-xs);
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-}
-
-.doc-stamp {
-  color: var(--gold-quiet);
-  margin-bottom: var(--s-3);
-}
-
-.legal-page h1 {
-  font-family: var(--font-display);
-  font-size: clamp(2.3rem, 4vw, 4rem);
-  line-height: 1.05;
-  color: var(--gold-l);
-  letter-spacing: 0.01em;
-  margin-bottom: var(--s-4);
-  font-variation-settings: "opsz" 96, "wght" 600, "SOFT" 50;
-}
-
-.lede {
-  max-width: 68ch;
-  margin-bottom: var(--s-6);
-  color: var(--text);
-  font-family: var(--font-text);
-  font-size: clamp(1.08rem, 1rem + 0.4vw, 1.26rem);
-  line-height: 1.8;
-}
-
-.legal-meta {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--s-3);
-}
-
-.meta-pill {
-  display: inline-flex;
-  align-items: center;
-  min-height: 2.1rem;
-  padding: 0 var(--s-4);
-  border: 1px solid color-mix(in srgb, var(--gold) 26%, transparent);
-  border-radius: 999px;
-  color: var(--gold-l);
-  background: color-mix(in srgb, var(--bg-2) 78%, rgba(212, 180, 97, 0.18));
-}
-
-.legal-layout {
-  display: grid;
-  gap: var(--s-6);
-}
-
-.summary-card {
-  padding: var(--s-6);
-}
-
-.summary-eyebrow {
-  margin-bottom: var(--s-3);
-  color: var(--gold-quiet);
-}
-
-.summary-card h2,
-.legal-section h2 {
-  color: var(--text);
-  font-family: var(--font-text);
-  font-size: clamp(1.3rem, 1.1rem + 0.6vw, 1.8rem);
-  line-height: 1.2;
-  letter-spacing: 0.01em;
-}
-
-.summary-card h2 {
-  margin-bottom: var(--s-3);
-}
-
-.summary-card p,
-.legal-content p,
-.legal-content li,
-.summary-list li {
-  color: var(--text);
-  font-family: var(--font-text);
-  font-size: clamp(1rem, 0.97rem + 0.22vw, 1.1rem);
-  line-height: 1.78;
-}
-
-.summary-card p {
-  margin-bottom: var(--s-4);
-}
-
-.summary-list,
-.legal-content ul {
-  padding-left: 1.2rem;
-}
-
-.summary-list li + li,
-.legal-content li + li {
-  margin-top: var(--s-3);
-}
-
-.legal-content {
-  display: grid;
-  gap: var(--s-5);
-}
-
-.legal-section {
-  padding: clamp(1.25rem, 2.5vw, 2rem);
-}
-
-.section-kicker {
-  display: inline-flex;
-  margin-bottom: var(--s-3);
-  color: var(--gold-quiet);
-}
-
-.legal-section h2 {
-  margin-bottom: var(--s-4);
-}
-
-.legal-section p + p,
-.legal-section ul,
-.legal-section .callout {
-  margin-top: var(--s-4);
-}
-
-.legal-content p,
-.legal-content li {
-  max-width: 72ch;
-}
-
-.callout {
-  padding: var(--s-4) var(--s-5);
-  border-left: 2px solid var(--gold);
-  border-radius: var(--r-2);
-  background: color-mix(in srgb, var(--bg-2) 82%, rgba(212, 180, 97, 0.14));
-  color: var(--text);
-}
-
-.foot {
-  padding-top: var(--s-4);
-  border-top: 1px solid var(--border);
-  color: var(--text-muted);
-  font-style: italic;
-}
-
-.legal-footer {
-  position: relative;
-  z-index: 1;
-  width: min(1180px, calc(100% - clamp(1.5rem, 4vw, 3.5rem)));
-  margin: 0 auto var(--s-6);
-  padding: var(--s-4) 0 0;
-  border-top: 1px solid var(--border);
-  color: var(--text-muted);
-  font-family: var(--font-mono);
-  font-size: var(--text-xs);
-}
-
-.legal-footer a {
-  color: var(--gold);
-  text-decoration: none;
-}
-
-@media (min-width: 981px) {
-  .legal-layout {
-    grid-template-columns: minmax(0, 1.65fr) minmax(18rem, 0.95fr);
-    align-items: start;
-  }
-
-  .summary-card {
-    order: 2;
-    position: sticky;
-    top: calc(var(--s-10) + 4.25rem);
-  }
-
-  .legal-content {
-    order: 1;
-  }
-}
-
-@media (max-width: 980px) {
-  .legal-hero,
-  .summary-card,
-  .legal-section {
-    padding-left: clamp(1rem, 3vw, 1.5rem);
-    padding-right: clamp(1rem, 3vw, 1.5rem);
-  }
-}
-
-@media (max-width: 640px) {
-  .legal-page {
-    width: min(100% - 1rem, 1180px);
-    padding-top: var(--s-4);
-    padding-bottom: var(--s-16);
-  }
-
-  .legal-page h1 {
-    font-size: clamp(2rem, 9vw, 2.7rem);
-  }
-
-  .legal-meta {
-    gap: var(--s-2);
-  }
-}
-</style>
+<link rel="stylesheet" href="../assets/css/legal.css">
 </head>
-<body data-page="terms" data-vm-current="terms" data-bg="heavy" data-bg-clean="true">
+<body data-page="terms" data-vm-current="terms" data-bg="medium" data-bg-clean="true">
 
 <div class="vm-bg" aria-hidden="true">
   <picture class="vm-bg__picture">
-    <source type="image/webp" srcset="../assets/img/backgrounds/background-apocrypha-library-clean-01.webp 2560w" sizes="100vw">
-    <img src="../assets/img/backgrounds/background-apocrypha-library-clean-01.webp" alt="" width="1672" height="941" decoding="async">
+    <source type="image/webp" srcset="../assets/img/backgrounds/background-vox-gateway-clean-13.webp 2560w" sizes="100vw">
+    <img src="../assets/img/backgrounds/background-vox-gateway-clean-13.webp" alt="" width="1672" height="941" decoding="async">
   </picture>
   <div class="vm-bg__nebula"></div>
   <canvas class="vm-bg__stars" aria-hidden="true"></canvas>
@@ -327,7 +78,7 @@
 
 <main class="legal-page" aria-labelledby="terms-title">
   <header class="legal-hero">
-    <div class="doc-stamp">Archive Record // Terms</div>
+    <div class="doc-stamp">Vox Mana // Terms</div>
     <h1 id="terms-title">Vox Mana Terms of Service</h1>
     <p class="lede">These terms govern your use of Vox Mana, including <span class="vm-gloss" tabindex="0" data-gloss="Reading without signing in. Your result is held in browser storage; you can save it permanently with Google sign-in.">guest readings</span>, saved placements, and optional Google sign-in.</p>
     <div class="legal-meta" aria-label="Terms of service highlights">

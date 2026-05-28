@@ -10,6 +10,7 @@ This index explains the existing documentation set and how it connects to the te
 | [Method Reference](./method-reference.md) | Javadoc-equivalent function/API list. | Looking up functions, exports, globals, handlers, and endpoint surfaces. |
 | [Core Logic And Algorithms](../architecture/core-logic-and-algorithms.md) | Behavioral breakdowns. | Understanding placement, parsing, persistence, generation, and command execution logic. |
 | [Data Flow Map](../architecture/data-flow-map.md) | Data lineage and storage map. | Tracing raw inputs to generated artifacts, browser state, Supabase, Scryfall, archived terminal calls, and test output. |
+| [Maze Query Contract](../contracts/maze-query-contract.md) | VM-022 query contract. | Changing Maze parsing, raw syntax normalization, builder query generation, Archscry/path launches, or query-core ownership boundaries. |
 | [Diagrams](../diagrams/diagrams.md) | Visual maps. | Reading architecture, route, flow, and data diagrams. |
 | [Data Contracts](./data-contracts.md) | Runtime data shapes. | Updating placement result shape, generated model shape, or Supabase profile expectations. |
 | [Manual Test Cases](./manual-test-cases.md) | Human QA flow. | Verifying quick reading, archived terminal, save/resume, failures, and mobile sanity. |
@@ -34,6 +35,7 @@ flowchart TD
   Atlas --> Style["docs/design/visual-style-guide.md"]
   Atlas --> Assets["docs/design/asset-manifest.md"]
   Logic --> Contracts
+  Logic --> MazeContract["docs/contracts/maze-query-contract.md"]
   Logic --> Tests["docs/reference/manual-test-cases.md"]
   Data --> Contracts
   Data --> Assets
@@ -46,4 +48,5 @@ flowchart TD
 - Update [Data Flow Map](../architecture/data-flow-map.md) when generated artifacts, storage keys, external APIs, or Supabase fields change.
 - Update [Route Ownership Matrix](../architecture/route-ownership-matrix.md) when public route HTML, CSS stacks, JS entrypoints, browser storage keys, generated-file usage, external services, smoke/manual tests, or do-not-touch boundaries change.
 - Update [Core Logic And Algorithms](../architecture/core-logic-and-algorithms.md) when placement scoring, parser rules, query-builder behavior, interview normalization, or command execution changes.
+- Update [Maze Query Contract](../contracts/maze-query-contract.md) before changing Maze query request/result shapes, path-entry semantics, or ownership boundaries.
 - Update [Diagrams](../diagrams/diagrams.md) and the matching `docs/diagrams/*.mmd` and `*.svg` files when route, data, or runtime boundaries change.

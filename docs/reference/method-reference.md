@@ -240,6 +240,22 @@ The rest of the file is top-level test code covering schema metadata, model/fact
 
 ## Research Workspace
 
+### `research/maze-query-core.js`
+
+| Line | Symbol | Scope | Purpose |
+|---:|---|---|---|
+| 5 | `MAZE_QUERY_MODES` | Export | Stable Maze search-mode union: `ai`, `raw`, and `builder`. |
+| 6 | `MAZE_QUERY_ORIGINS` | Export | Stable request-origin union, separate from search mode. |
+| 7 | `MAZE_PARSER_MODES` | Export | Stable parser-result classifications including `exact_name`. |
+| 8 | `MAZE_DOSSIER_PATH_TYPES` | Export | Stable VM-022 dossier path-type enum values. |
+| 26 | `resolveMazeQueryRequest(request)` | Export | Resolves a MazeQueryRequest into the v1 contract result shape. |
+| 118 | `prepareRawSyntaxQuery(input)` | Export | Normalizes raw syntax pasted with standalone plain-language `AND`. |
+| 154 | `applyMazeFormatToQuery(query, opts)` | Export | Appends a format filter when the executable query has none. |
+| 172 | `normalizeMazeSourceContext(input)` | Export | Normalizes launch/source metadata without treating origin as mode. |
+| 202 | `buildMazePathEntries(placementContext)` | Export | Builds shared dossier path entries through the Maze handoff factory. |
+| 217 | `normalizeMazeQueryApiMetadata(api, fallback)` | Export | Keeps only Maze-supported Scryfall request metadata. |
+| 233 | `resolveMazeLaunchState(urlParams, existing)` | Re-export | Re-exports the existing launch-state helper from `assets/js/maze-handoff.js`. |
+
 ### `research/research-init.js`
 
 | Line | Symbol | Scope | Purpose |
@@ -268,9 +284,7 @@ The rest of the file is top-level test code covering schema metadata, model/fact
 | 546 | `toggleRarity(value, label)` | Window | Toggles builder rarity selection. |
 | 557 | `rebuildFromFilters()` | Window | Rebuilds search input from builder filters. |
 | 570 | `buildFilterQuery()` | Internal | Creates visual-builder query string. |
-| 579 | `prepareRawSyntaxQuery(input)` | Internal | Cleans raw syntax and builds optional OR diagnostic. |
-| 614 | `splitRawSyntaxOnStandaloneAnd(query)` | Internal | Splits raw syntax on plain-language standalone AND. |
-| 649 | `isStandaloneWordAt(value, index, word)` | Internal | Checks standalone word boundaries. |
+| 579 | `prepareRawSyntaxQuery(input)` | Export | Imported from `research/maze-query-core.js` to clean raw syntax and build optional OR diagnostics. |
 | 661 | `showKwSuggestions(value)` | Window | Displays keyword autocomplete suggestions. |
 | 680 | `handleKwKey(event)` | Window | Handles keyword input key events. |
 | 692 | `addKeyword(keyword)` | Window | Adds a keyword filter. |

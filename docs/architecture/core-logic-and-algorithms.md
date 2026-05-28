@@ -129,13 +129,15 @@ Design notes:
 
 ## Maze Research Workspace
 
-Files: `maze/index.html`, `research/research-init.js`, `research/research-builder.js`, `research/research-mode.js`, `research/research-ui.js`, `research/research-search.js`.
+Files: `maze/index.html`, `research/maze-query-core.js`, `research/research-init.js`, `research/research-builder.js`, `research/research-mode.js`, `research/research-ui.js`, `research/research-search.js`.
 
 The Maze has three modes:
 
 - Plain Reading: parse natural language, then search Scryfall.
 - Operator's Hand: accept raw Scryfall syntax and prepare diagnostics.
 - Loom: build a query from visual filters.
+
+VM-022 adds a Maze-first query contract in `docs/contracts/maze-query-contract.md` and the first reusable core surface in `research/maze-query-core.js`. The core owns request/result normalization, raw syntax cleanup, format application, parser-mode classification, source-context normalization, and path-entry generation. The route adapter still owns DOM state, storage, Scryfall fetch execution, Query Inspector rendering, modal behavior, stash behavior, and boot sequencing.
 
 The UI keeps mode state, filter state, search results, pagination, recent searches, keyword suggestions, query inspector content, and modal state in module-local variables. It exposes handlers for existing inline attributes after module load.
 

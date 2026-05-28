@@ -376,6 +376,16 @@
 
 ## Shared topbar smoke pass
 
+## VM-153 Legal glass opacity match
+
+1. Open `/privacy/` and `/terms/` beside `/maze/`.
+2. Confirm the legal hero uses the same darker primary glass balance as the Maze command deck, with the gateway background visible through the surface.
+3. Confirm the legal summary card and section cards use the lighter Maze sidebar/results glass balance rather than the darker hero treatment.
+4. Inspect the legal hero, summary card, and section card surfaces and confirm their major panels do not use `backdrop-filter` blur.
+5. At desktop and mobile widths, confirm legal text, meta pills, footer links, glossary spans, topbar, and current-page highlighting remain readable and unchanged.
+
+## Shared topbar smoke pass
+
 1. Open each public page:
    - `index.html`
    - `/archscry/`

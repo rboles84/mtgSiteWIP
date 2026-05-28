@@ -281,6 +281,25 @@ const legalNavTargets = [
   'href="../strategium/index.html"',
 ];
 
+for (const key of ["privacy", "terms"]) {
+  const file = publicPages[key];
+  const stylesheetHrefs = getStylesheetHrefs(sources[key]);
+
+  expect(
+    sources[key].includes('<link rel="stylesheet" href="../assets/css/legal.css">'),
+    `${file} should load "../assets/css/legal.css"`
+  );
+  expect(
+    stylesheetHrefs[stylesheetHrefs.length - 1] === "../assets/css/legal.css",
+    `${file} should keep legal.css as the last stylesheet in the head`
+  );
+  expectAbsent(
+    sources[key],
+    /<style\b[^>]*>/i,
+    `${file} should not ship inline <style> blocks`
+  );
+}
+
 for (const href of legalNavTargets) {
   expect(
     sources.privacy.includes(href) && sources.terms.includes(href),

@@ -2,7 +2,7 @@
 
 ID: VM-022
 Title: Maze Core Extraction
-Status: backlog
+Status: in-progress
 Type: Enhancement / Architecture
 Area: Maze, Scryfall, API
 Priority: medium
@@ -13,6 +13,14 @@ Created: 2026-05-16
 Turn Maze's browser-local parsing and translation layer into a reusable query-intelligence core that can serve Vox Mana first, then a public API, and later a GitHub-publishable package.
 
 This card is intentionally a sibling to VM-010 and VM-012, not a rename of either one. The emphasis is on a shared contract for query intent, operator-safe translation, and placement-aware metadata so the Maze UI becomes one consumer of the engine instead of the owner of the semantics.
+
+## Current Slice
+
+The active VM-022 slice is contract lockdown on `feature/vm-022-maze-query-contract`:
+
+- Define `docs/contracts/maze-query-contract.md` before deeper extraction.
+- Add a first browser-safe query-core surface without changing fetch/cache/stash/modal behavior.
+- Preserve current generated query strings, Scryfall request metadata, rendered result behavior, and Archscry handoff storage semantics.
 
 ## Source
 

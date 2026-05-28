@@ -1,6 +1,7 @@
 ﻿import { loadDictionaryFromSeedUrl } from "./scryfall-dictionary.js";
 import { normalizeSortDirection, parseScryfallNaturalLanguage, setScryfallDictionary } from "./scryfall-parser.js";
 import { buildVisualBuilderQuery, parseKeywordInput } from "./research-builder.js";
+import { applyMazeFormatToQuery, prepareRawSyntaxQuery } from "./maze-query-core.js";
 import { resolveModeInputValue } from "./research-mode.js";
 import * as ResearchSearch from "./research-search.js";
 import { buildScryfallWebSearchUrl, renderQueryInspector } from "./research-ui.js";
@@ -1115,10 +1116,6 @@ function initializeDefaultFormatControls() {
   if (sidebarFormat && !sidebarFormat.value) sidebarFormat.value = DEFAULT_FORMAT;
 }
 
-function queryHasFormat(query) {
-  return /(^|\s)(?:f|format):[a-z0-9_-]+\b/i.test(String(query || ""));
-}
-
 function stripFormatFilter(query) {
   return String(query || "")
     .replace(/(^|\s)(?:f|format):[a-z0-9_-]+\b/gi, " ")
@@ -1133,15 +1130,7 @@ function getActiveFormatFilter() {
 function applySelectedFormatToQuery(query, opts = {}) {
   const useFormatDefault = opts.useFormatDefault !== false;
   const format = opts.format ?? (useFormatDefault ? getActiveFormatFilter() : "");
-  const cleanQuery = String(query || "").trim();
-  if (!cleanQuery || !format || queryHasFormat(cleanQuery)) {
-    return { query: cleanQuery, changed: false, format: "" };
-  }
-  return {
-    query: `${cleanQuery} f:${format}`.trim(),
-    changed: true,
-    format
-  };
+  return applyMazeFormatToQuery(query, { format, useFormatDefault });
 }
 
 function formatLabel(format) {
@@ -1281,89 +1270,6 @@ function formatBuilderSummary() {
   }
   if (bFilters.keywords.length) parts.push(`Keywords: ${bFilters.keywords.join(", ")}`);
   return parts.length ? parts.join(" | ") : "No visual filters selected yet.";
-}
-
-/**
- * Normalizes common plain-English glue accidentally pasted into raw syntax.
- * @param {string} input - Raw Scryfall syntax field value.
- * @returns {object} Prepared query with optional diagnostics.
- */
-function prepareRawSyntaxQuery(input) {
-  const andParts = splitRawSyntaxOnStandaloneAnd(input);
-  if (andParts.length <= 1) {
-    return { query: input, reason: "", changed: false, diagnostics: null };
-  }
-
-  const query = andParts.join(" ").replace(/\s+/g, " ").trim();
-  const alternativeQuery = andParts.map((part) => `(${part})`).join(" OR ");
-  return {
-    query,
-    reason: "Removed plain-language AND from raw syntax; Scryfall combines filters with spaces.",
-    changed: query !== input,
-    diagnostics: {
-      reason: "Raw syntax normalized before searching.",
-      recognized: ["raw Scryfall syntax", "plain-language AND"],
-      assumptions: [
-        "Spaces already mean AND in Scryfall syntax.",
-        "This still searches for cards matching every remaining filter."
-      ],
-      unresolved: [],
-      alternatives: [
-        {
-          label: "Treat pasted snippets as alternatives",
-          query: alternativeQuery
-        }
-      ]
-    }
-  };
-}
-
-/**
- * Splits raw syntax on standalone unquoted AND tokens.
- * @param {string} query - Raw query text.
- * @returns {string[]} Query parts split around plain-language AND.
- */
-function splitRawSyntaxOnStandaloneAnd(query) {
-  const parts = [];
-  let current = "";
-  let inQuote = false;
-  const value = String(query || "");
-
-  for (let i = 0; i < value.length; i += 1) {
-    const char = value[i];
-    if (char === '"') {
-      inQuote = !inQuote;
-      current += char;
-      continue;
-    }
-
-    if (!inQuote && isStandaloneWordAt(value, i, "and")) {
-      if (current.trim()) parts.push(current.trim());
-      current = "";
-      i += 2;
-      continue;
-    }
-
-    current += char;
-  }
-
-  if (current.trim()) parts.push(current.trim());
-  return parts.length ? parts : [value.trim()].filter(Boolean);
-}
-
-/**
- * Checks if a word appears at an index without being part of a larger token.
- * @param {string} value - Full search text.
- * @param {number} index - Candidate start index.
- * @param {string} word - Word to match.
- * @returns {boolean} True when the word is standalone at the index.
- */
-function isStandaloneWordAt(value, index, word) {
-  const lower = value.toLowerCase();
-  if (lower.slice(index, index + word.length) !== word) return false;
-  const before = value[index - 1] || "";
-  const after = value[index + word.length] || "";
-  return !/[a-z0-9_]/i.test(before) && !/[a-z0-9_]/i.test(after);
 }
 
 /**
