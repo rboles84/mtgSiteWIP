@@ -19,7 +19,8 @@
 4. Confirm the compare run writes current and diff artifacts under `artifacts/visual-regression/newindex2/current/` and `artifacts/visual-regression/newindex2/diff/`.
 5. Confirm each viewport stays within the mismatch budget and the run reports no new console or page errors beyond `console-baseline.json`.
 6. Confirm the Home identity signal initializes from `data/identity-layers.json`, shows the same 20 preview identities, and the forced `boros` visual hook resolves through the registry alias list.
-7. If the harness fails, review the generated diff PNGs before accepting any visual change.
+7. Confirm the Home Mana Lens reports `Still` under reduced motion, uses the tuned 4800ms cycle outside reduced motion, and still pauses on hover/focus before resuming.
+8. If the harness fails, review the generated diff PNGs before accepting any visual change.
 
 ## `archscry/index.html` visual regression harness
 

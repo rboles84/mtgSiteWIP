@@ -220,6 +220,108 @@ async function verifyCanvasRendered(page, selector, label) {
   }
 }
 
+async function verifyHeroManaCaptureState(page) {
+  const state = await page.evaluate(() => ({
+    datasetText: document.getElementById("heroManaDatasetPills")?.textContent ?? "",
+    title: document.getElementById("heroManaTitle")?.textContent ?? "",
+    signalState: document.getElementById("heroManaSignalState")?.textContent ?? "",
+    intervalCalls: window.__vmIntervalCallCount ?? 0,
+  }));
+
+  for (const expectedText of ["White", "Red", "Boros"]) {
+    if (!state.datasetText.includes(expectedText)) {
+      throw new Error(`Forced Boros hero capture did not render ${expectedText} in the overlay pills.`);
+    }
+  }
+
+  if (!state.title.includes("Boros")) {
+    throw new Error("Forced Boros hero capture did not resolve the registry alias to Boros.");
+  }
+
+  if (state.signalState !== "Still") {
+    throw new Error(`Reduced-motion hero capture should report Still, found "${state.signalState}".`);
+  }
+
+  if (state.intervalCalls !== 0) {
+    throw new Error("Reduced-motion hero capture should not start the Mana Lens interval.");
+  }
+}
+
+async function verifyHeroManaCycleInteraction(browser, url) {
+  const page = await browser.newPage();
+
+  try {
+    await page.setViewport({
+      width: 1024,
+      height: 1000,
+      deviceScaleFactor: 1,
+    });
+    await page.emulateMediaFeatures([{ name: "prefers-reduced-motion", value: "no-preference" }]);
+    await page.evaluateOnNewDocument(identityId => {
+      const originalSetInterval = window.setInterval.bind(window);
+
+      window.setInterval = (handler, timeout, ...args) => {
+        const tunedTimeout = timeout === 4800 ? 60 : timeout;
+        return originalSetInterval(handler, tunedTimeout, ...args);
+      };
+
+      Object.defineProperty(window, "__vmVisualRegressionHeroIdentityId", {
+        configurable: true,
+        enumerable: false,
+        value: identityId,
+        writable: false,
+      });
+
+      try {
+        localStorage.removeItem("vm_reduce_motion");
+      } catch {
+        // Ignore storage access failures.
+      }
+    }, "W");
+
+    await page.goto(url, { waitUntil: "domcontentloaded" });
+    await page.waitForFunction(() => document.readyState === "complete");
+    await page.waitForSelector("#heroManaTitle");
+    await page.waitForFunction(() => document.getElementById("heroManaTitle")?.textContent?.includes("White"));
+
+    const initialTitle = await page.$eval("#heroManaTitle", node => node.textContent);
+    await page.waitForFunction(
+      title => document.getElementById("heroManaTitle")?.textContent !== title,
+      { timeout: 1000 },
+      initialTitle
+    );
+
+    await page.evaluate(() => {
+      const panel = document.querySelector(".vm-hero-mana");
+      if (!panel) return;
+      panel.dispatchEvent(new PointerEvent("pointerenter"));
+      panel.dispatchEvent(new MouseEvent("mouseenter"));
+    });
+
+    const pausedTitle = await page.$eval("#heroManaTitle", node => node.textContent);
+    await delay(180);
+    const titleAfterPause = await page.$eval("#heroManaTitle", node => node.textContent);
+    if (titleAfterPause !== pausedTitle) {
+      throw new Error("Home Mana Lens changed identities while reader hover pause was active.");
+    }
+
+    await page.evaluate(() => {
+      const panel = document.querySelector(".vm-hero-mana");
+      if (!panel) return;
+      panel.dispatchEvent(new PointerEvent("pointerleave"));
+      panel.dispatchEvent(new MouseEvent("mouseleave"));
+    });
+
+    await page.waitForFunction(
+      title => document.getElementById("heroManaTitle")?.textContent !== title,
+      { timeout: 1000 },
+      pausedTitle
+    );
+  } finally {
+    await page.close();
+  }
+}
+
 async function verifyBaselineArtifacts() {
   const missingArtifacts = [];
 
@@ -273,7 +375,7 @@ async function capturePage(browser, url, viewport, screenshotDir) {
   await page.emulateMediaFeatures([{ name: "prefers-reduced-motion", value: "reduce" }]);
   await page.evaluateOnNewDocument(seed => {
     const seededRandom = (() => {
-      let state = seed >>> 0;
+      let state = seed.randomSeed >>> 0;
       return () => {
         state = (1664525 * state + 1013904223) >>> 0;
         return state / 0x100000000;
@@ -291,16 +393,28 @@ async function capturePage(browser, url, viewport, screenshotDir) {
     Object.defineProperty(window, "__vmVisualRegressionHeroIdentityId", {
       configurable: true,
       enumerable: false,
-      value: "boros",
+      value: seed.identityId,
       writable: false,
     });
+    Object.defineProperty(window, "__vmIntervalCallCount", {
+      configurable: true,
+      enumerable: false,
+      value: 0,
+      writable: true,
+    });
+
+    const originalSetInterval = window.setInterval.bind(window);
+    window.setInterval = (handler, timeout, ...args) => {
+      window.__vmIntervalCallCount += 1;
+      return originalSetInterval(handler, timeout, ...args);
+    };
 
     try {
       localStorage.setItem("vm_reduce_motion", "true");
     } catch {
       // Ignore storage access failures.
     }
-  }, 121);
+  }, { randomSeed: 121, identityId: captureHeroIdentityId });
 
   await page.goto(url, { waitUntil: "domcontentloaded" });
   await page.waitForFunction(() => document.readyState === "complete");
@@ -323,6 +437,7 @@ async function capturePage(browser, url, viewport, screenshotDir) {
   });
   await verifyCanvasPresent(page, ".vm-bg__stars", "Background star canvas");
   await verifyCanvasRendered(page, "#vmHeroManaChart", "Hero radar canvas");
+  await verifyHeroManaCaptureState(page);
   await page.addStyleTag({
     content: `
       .vm-bg__stars,
@@ -429,6 +544,8 @@ try {
     allConsoleErrors.push(...capture.consoleErrors.map(error => ({ viewport: viewport.name, ...error })));
     allPageErrors.push(...capture.pageErrors.map(error => ({ viewport: viewport.name, ...error })));
   }
+
+  await verifyHeroManaCycleInteraction(browser, url);
 
   const normalizedConsoleErrors = normalizeErrors(allConsoleErrors.filter(error => !isIgnorableConsoleError(error)));
   const normalizedPageErrors = normalizeErrors(allPageErrors);

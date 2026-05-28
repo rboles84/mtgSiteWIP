@@ -40,8 +40,15 @@ for (const check of routeChecks) {
 }
 
 const mazeSource = await readFile(path.resolve(root, "maze/index.html"), "utf8");
+const homeSource = await readFile(path.resolve(root, "index.html"), "utf8");
+const homeRuntimeSource = await readFile(path.resolve(root, "assets/js/newindex2.js"), "utf8");
+const identityLayerSource = await readFile(path.resolve(root, "data/identity-layers.json"), "utf8");
+const identityLayerData = JSON.parse(identityLayerSource);
 const archscrySource = await readFile(path.resolve(root, "archscry/index.html"), "utf8");
 const archscryRuntimeSource = await readFile(path.resolve(root, "assets/js/index.js"), "utf8");
+const previewEntries = Object.entries(identityLayerData.expressions ?? {})
+  .filter(([, expression]) => expression?.preview_eligible === true)
+  .sort((left, right) => Number(left[1].preview_order) - Number(right[1].preview_order));
 
 if (!mazeSource.includes('id="modal-wrap" role="dialog"')) {
   failures.push("Maze modal smoke check failed: dialog wrapper semantics are missing");
@@ -52,6 +59,49 @@ if (!mazeSource.includes('data-maze-modal-background')) {
 if (!mazeSource.includes('data-action="load-more"')) {
   failures.push("Maze modal smoke check failed: load-more action hook is missing");
 }
+if (!homeSource.includes('id="vmHeroManaChart"')) {
+  failures.push("Home Mana Lens smoke check failed: hero radar canvas is missing");
+}
+if (!homeSource.includes('id="heroManaSignalLatch"')) {
+  failures.push("Home Mana Lens smoke check failed: hold/release latch is missing");
+}
+for (const forbiddenHeroPickerHook of ["heroManaIdentitySelect", "heroManaPicker", "identityPicker", "identityGrid"]) {
+  if (homeSource.includes(forbiddenHeroPickerHook) || homeRuntimeSource.includes(forbiddenHeroPickerHook)) {
+    failures.push(`Home Mana Lens smoke check failed: stale picker hook ${forbiddenHeroPickerHook} is still present`);
+  }
+}
+if (!homeRuntimeSource.includes("const heroManaCycleMs = 4800")) {
+  failures.push("Home Mana Lens smoke check failed: tuned 4800ms cycle constant is missing");
+}
+if (!homeRuntimeSource.includes("loadHeroManaPreviewRegistry().then(initHeroManaPreview)")) {
+  failures.push("Home Mana Lens smoke check failed: preview initialization is not gated by the registry load");
+}
+if (!homeRuntimeSource.includes("expression?.preview_eligible === true")) {
+  failures.push("Home Mana Lens smoke check failed: registry filtering does not use preview_eligible");
+}
+if (!homeRuntimeSource.includes("left.previewOrder - right.previewOrder")) {
+  failures.push("Home Mana Lens smoke check failed: registry identities are not sorted by preview_order");
+}
+if (!homeRuntimeSource.includes("window.setInterval(advanceHeroManaCycle, heroManaCycleMs)")) {
+  failures.push("Home Mana Lens smoke check failed: cycle interval does not use the tuned constant");
+}
+if (!homeRuntimeSource.includes('window.matchMedia("(prefers-reduced-motion: reduce)")')) {
+  failures.push("Home Mana Lens smoke check failed: reduced-motion guard is missing");
+}
+if (!homeRuntimeSource.includes('document.addEventListener("visibilitychange"')) {
+  failures.push("Home Mana Lens smoke check failed: hidden-tab pause/resume listener is missing");
+}
+if (!homeRuntimeSource.includes('addEventListener("pointerenter"') || !homeRuntimeSource.includes('addEventListener("focusin"')) {
+  failures.push("Home Mana Lens smoke check failed: reader hover/focus pause listeners are missing");
+}
+if (previewEntries.length !== 20) {
+  failures.push(`Home Mana Lens smoke check failed: expected 20 preview-eligible identities, found ${previewEntries.length}`);
+}
+previewEntries.forEach(([key, expression], index) => {
+  if (Number(expression.preview_order) !== index) {
+    failures.push(`Home Mana Lens smoke check failed: preview_order for ${key} should be ${index}`);
+  }
+});
 if (!archscrySource.includes('data-action="start-quick-flow"')) {
   failures.push("Archscry smoke check failed: quick-flow action hook is missing");
 }
