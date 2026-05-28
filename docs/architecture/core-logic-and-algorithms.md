@@ -113,10 +113,11 @@ Flow:
 
 1. `loadDictionaryFromSeedUrl` loads seed rows.
 2. `createDictionaryFromSeed` expands trigger phrases into dictionaries and oracle rows.
-3. `parseScryfallNaturalLanguage` normalizes input, creates mutable parse state, detects exact-card intent, checks high-confidence special rules, then runs detector phases.
-4. Detector phases add terms for formats, identities, colors, types, keywords, oracle phrases, mana value, power/toughness, rarity, price, sorting, and ambiguity.
-5. `assembleQuery`, `scoreConfidence`, and `buildReason` finalize the result.
-6. Alternatives and unresolved terms help users recover when the parser is unsure.
+3. `getScryfallDictionaryVocabulary` exposes deterministic local keyword, subtype, card type, and format vocabulary for validation and Maze autocomplete.
+4. `parseScryfallNaturalLanguage` normalizes input, creates mutable parse state, detects exact-card intent, checks high-confidence special rules, then runs detector phases.
+5. Detector phases add terms for formats, identities, colors, types, keywords, oracle phrases, mana value, power/toughness, rarity, price, sorting, and ambiguity.
+6. `assembleQuery`, `scoreConfidence`, and `buildReason` finalize the result.
+7. Warnings, alternatives, and unresolved terms help users recover when the parser is unsure.
 
 Design notes:
 
@@ -124,6 +125,7 @@ Design notes:
 - Exact color intent uses `c=` instead of broad `c:`.
 - "Counter" ambiguity gets special handling to avoid confusing counterspells with +1/+1 counters.
 - Protection phrases avoid accidentally interpreting target colors as card colors.
+- Sacrifice remains Oracle text intent (`o:sacrifice`), not a keyword/subtype/type/formal format.
 
 ## Maze Research Workspace
 

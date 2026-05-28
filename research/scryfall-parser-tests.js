@@ -1,10 +1,31 @@
 import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
-import { createDictionaryFromSeed } from "./scryfall-dictionary.js";
+import { createDictionaryFromSeed, getScryfallDictionaryVocabulary } from "./scryfall-dictionary.js";
 import { parseScryfallNaturalLanguage, setScryfallDictionary } from "./scryfall-parser.js";
 
 const seed = JSON.parse(await readFile(new URL("./scryfall-parser-seed-2026.json", import.meta.url), "utf8"));
-setScryfallDictionary(createDictionaryFromSeed(seed));
+const testDictionary = createDictionaryFromSeed(seed);
+setScryfallDictionary(testDictionary);
+
+const legacyKeywordSuggestions = [
+  "cascade", "convoke", "cycling", "deathtouch", "defender", "double strike",
+  "equip", "escape", "explore", "first strike", "flash", "flying", "haste",
+  "hexproof", "indestructible", "investigate", "kicker", "landfall", "lifelink",
+  "menace", "morph", "proliferate", "protection", "prowess", "reach", "scry",
+  "shroud", "surveil", "trample", "vigilance", "ward"
+].sort();
+const vocabulary = getScryfallDictionaryVocabulary(testDictionary);
+assert.deepEqual(
+  legacyKeywordSuggestions.filter((keyword) => !vocabulary.keywords.includes(keyword)),
+  [],
+  "derivedKeywords missing legacy autocomplete entries"
+);
+for (const expected of ["prowess", "first strike", "wizard", "soldier", "vehicle", "creature", "commander"]) {
+  assert.ok(
+    [...vocabulary.keywords, ...vocabulary.subtypes, ...vocabulary.cardTypes, ...vocabulary.formats].includes(expected),
+    `dictionary vocabulary missing ${expected}`
+  );
+}
 
 const cases = [
   {
@@ -60,6 +81,35 @@ const cases = [
     name: "red blue elemental ETB",
     input: "any red and blue elemental with an ETB",
     expected: "c:ur t:elemental o:enters"
+  },
+  {
+    // Tests crew as Oracle text intent, not an unresolved word
+    name: "red vehicles with crew",
+    input: "red vehicles with crew",
+    expected: "c:r t:vehicle o:crew",
+    expectedUnresolvedExact: []
+  },
+  {
+    // Tests sacrifice as Oracle text intent paired with token text
+    name: "blood token sacrifice",
+    input: "blood token sacrifice",
+    expectedIncludes: ["o:blood", "o:sacrifice"],
+    expectedRecognized: ["text: Blood Token", "text: Sacrifice"],
+    expectedUnresolvedExact: []
+  },
+  {
+    // Tests subtype and keyword vocabulary from the local dictionary
+    name: "blue wizard prowess",
+    input: "blue wizards with prowess",
+    expected: "c:u t:wizard kw:prowess",
+    expectedUnresolvedExact: []
+  },
+  {
+    // Tests Commander format plus subtype and multi-word keyword vocabulary
+    name: "commander soldier first strike",
+    input: "white soldiers with first strike in commander",
+    expectedIncludes: ["id<=w", "f:commander", "t:soldier", "kw:\"first strike\""],
+    expectedUnresolvedExact: []
   },
   {
     // Tests handling of logical OR within Oracle text queries
@@ -366,7 +416,8 @@ const cases = [
     input: "blue counter cards",
     expectedIncludes: ["c:u", "o:\"counter target spell\""],
     expectedAlternatives: 3,
-    expectedAssumptions: ["counterspell text"]
+    expectedAssumptions: ["counterspell text"],
+    expectedWarnings: ["Ambiguous parse"]
   },
   {
     // Tests unresolved diagnostics for vague support language
@@ -374,6 +425,7 @@ const cases = [
     input: "white soldier support",
     expectedIncludes: ["c:w", "t:soldier"],
     expectedUnresolved: ["support"],
+    expectedWarnings: ["Unresolved terms: support"],
     minConfidence: 0.45
   },
   {
@@ -702,6 +754,7 @@ const cases = [
     input: "blue spaghetti volcano",
     expectedIncludes: ["c:u"],
     expectedUnresolved: ["spaghetti", "volcano"],
+    expectedWarnings: ["Unresolved terms: spaghetti, volcano"],
     maxConfidence: 0.6
   }
 ];

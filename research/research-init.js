@@ -123,13 +123,14 @@ const COLOR_LABELS = [
   { c: "WR", label: "Boros", q: "id<=wr" }
 ];
 
-const KEYWORDS = [
+const LEGACY_keywordVocabulary = [
   "cascade", "convoke", "cycling", "deathtouch", "defender", "double strike",
   "equip", "escape", "explore", "first strike", "flash", "flying", "haste",
   "hexproof", "indestructible", "investigate", "kicker", "landfall", "lifelink",
   "menace", "morph", "proliferate", "protection", "prowess", "reach", "scry",
   "shroud", "surveil", "trample", "vigilance", "ward"
 ].sort();
+let keywordVocabulary = [...LEGACY_keywordVocabulary];
 
 const TYPES = ["Creature", "Instant", "Sorcery", "Enchantment", "Artifact", "Planeswalker", "Land", "Battle"];
 const RARITIES = [{ v: "c", l: "Common" }, { v: "u", l: "Uncommon" }, { v: "r", l: "Rare" }, { v: "m", l: "Mythic" }];
@@ -344,9 +345,75 @@ async function initializeParserDictionary() {
   try {
     const dictionary = await loadDictionaryFromSeedUrl("research/scryfall-parser-seed-2026.json");
     setScryfallDictionary(dictionary);
+    setKeywordVocabulary(dictionary);
   } catch (error) {
     console.warn("Parser seed unavailable; using built-in parser dictionary.", error);
+    setKeywordVocabulary();
   }
+}
+
+/**
+ * Refreshes Loom keyword suggestions from local parser vocabulary while preserving legacy coverage.
+ * @param {object} [dictionary] - Seed-expanded parser dictionary.
+ */
+function setKeywordVocabulary(dictionary) {
+  const derivedKeywords = getKeywordVocabularyFromDictionary(dictionary);
+  const missingLegacy = dictionary
+    ? LEGACY_keywordVocabulary.filter((keyword) => !derivedKeywords.includes(keyword))
+    : [];
+  if (missingLegacy.length) {
+    console.warn(`Parser keyword vocabulary missing legacy suggestions: ${missingLegacy.join(", ")}`);
+  }
+  keywordVocabulary = [...new Set([...derivedKeywords, ...LEGACY_keywordVocabulary])].sort((a, b) => a.localeCompare(b));
+}
+
+/**
+ * Builds Loom keyword suggestions from the loaded parser dictionary.
+ * Kept local to avoid making Maze boot depend on a newly added named export
+ * when a browser still has an older dictionary module in cache.
+ * @param {object} [dictionary] - Seed-expanded parser dictionary.
+ * @returns {string[]} Sorted keyword vocabulary.
+ */
+function getKeywordVocabularyFromDictionary(dictionary) {
+  const terms = new Set();
+  Object.entries(dictionary?.keywords || {}).forEach(([trigger, output]) => {
+    addKeywordVocabularyTerm(terms, trigger);
+    extractKeywordVocabularyTerms(output).forEach((term) => addKeywordVocabularyTerm(terms, term));
+  });
+  return [...terms].sort((a, b) => a.localeCompare(b));
+}
+
+/**
+ * Adds a normalized keyword suggestion term.
+ * @param {Set<string>} terms - Keyword vocabulary being collected.
+ * @param {string} value - Raw trigger or Scryfall output term.
+ */
+function addKeywordVocabularyTerm(terms, value) {
+  const clean = String(value || "")
+    .toLowerCase()
+    .replace(/[()]/g, " ")
+    .replace(/['\u2019]/g, "")
+    .replace(/[^a-z0-9+\/ -]/g, " ")
+    .replace(/\s+/g, " ")
+    .trim()
+    .replace(/^["']|["']$/g, "");
+  if (clean) terms.add(clean);
+}
+
+/**
+ * Extracts canonical keyword names from Scryfall keyword filters.
+ * @param {string} output - Scryfall query fragment.
+ * @returns {string[]} Keyword terms.
+ */
+function extractKeywordVocabularyTerms(output) {
+  const pattern = /\bkw:(?:"([^"]+)"|'([^']+)'|([^\s()]+))/gi;
+  const terms = [];
+  let match;
+  while ((match = pattern.exec(String(output || "")))) {
+    const term = match[1] || match[2] || match[3] || "";
+    if (term && !/[<>=]/.test(term)) terms.push(term);
+  }
+  return terms;
 }
 
 /**
@@ -1304,7 +1371,7 @@ function showKwSuggestions(value) {
     return;
   }
 
-  const matches = KEYWORDS
+  const matches = keywordVocabulary
     .filter((keyword) => keyword.includes(input))
     .sort((a, b) => {
       const aPrefix = a.startsWith(input) ? 0 : 1;
@@ -1336,7 +1403,7 @@ function showKwSuggestions(value) {
  * @param {string} keyword - Keyword text to add.
  */
 function addKeyword(keyword) {
-  parseKeywordInput(keyword, KEYWORDS).forEach((item) => {
+  parseKeywordInput(keyword, keywordVocabulary).forEach((item) => {
     if (!bFilters.keywords.includes(item)) bFilters.keywords.push(item);
   });
   renderKwChips();

@@ -238,12 +238,14 @@ export const DEFAULT_DICTIONARY = {
     { label: "Protection from red", triggers: ["protection from red", "protected from red", "pro red"], query: "o:\"protection from red\"" },
     { label: "Counterspell", triggers: ["counterspell", "counter target spell", "counter spells", "counters spells"], query: "o:\"counter target spell\"" },
     { label: "Tokens", triggers: ["make tokens", "create tokens", "token maker", "tokens"], query: "o:token" },
+    { label: "Crew", triggers: ["crew", "crew vehicles", "can crew vehicles"], query: "o:crew" },
     { label: "Lifegain", triggers: ["gain life", "lifegain", "life gain"], query: "o:\"gain life\"" },
     { label: "Ramp", triggers: ["ramp", "land search", "search for lands"], query: "otag:mana-ramp" },
     { label: "Tutor", triggers: ["tutor", "tutors", "search library", "search your library", "search the library"], query: "otag:tutor" },
     { label: "Card advantage", triggers: ["card advantage"], query: "otag:card-advantage" },
     { label: "Draw engine", triggers: ["draw engine", "draw engines"], query: "otag:draw" },
     { label: "Graveyard", triggers: ["graveyard", "from graveyard", "reanimate", "reanimation"], query: "o:graveyard" },
+    { label: "Sacrifice", triggers: ["sacrifice", "sacrifices", "sacrificing", "sac"], query: "o:sacrifice" },
     { label: "Board wipe", triggers: ["board wipe", "board wipes", "wrath", "wraths", "sweeper", "sweepers"], query: "otag:board-wipe" },
     { label: "Creature removal", triggers: ["creature removal", "kill a creature", "destroy creature", "destroy target creature"], query: "otag:removal-creature" },
     { label: "Removal", triggers: ["removal spell", "removal spells", "spot removal", "answer", "answers"], query: "otag:removal" },
@@ -455,6 +457,21 @@ export function createDictionaryFromSeed(seed) {
 }
 
 /**
+ * Builds deterministic local vocabulary lists from a parser dictionary.
+ * @param {object} [dictionary] - Seed-expanded parser dictionary.
+ * @returns {{keywords: string[], subtypes: string[], cardTypes: string[], formats: string[]}} Vocabulary lists.
+ */
+export function getScryfallDictionaryVocabulary(dictionary = DEFAULT_DICTIONARY) {
+  const source = dictionary || DEFAULT_DICTIONARY;
+  return {
+    keywords: vocabularyFromMap(source.keywords, "kw"),
+    subtypes: vocabularyFromMap(source.subtypes, "t"),
+    cardTypes: vocabularyFromMap(source.types, "t"),
+    formats: vocabularyFromMap(source.formats, "f")
+  };
+}
+
+/**
  * Adds a normalized trigger-to-query entry when both sides are useful.
  * @param {object} target - Lookup map to mutate.
  * @param {string} trigger - Natural-language trigger text.
@@ -465,6 +482,58 @@ function addMapEntry(target, trigger, output) {
   if (key && output && !target[key] && !output.includes("implicit")) {
     target[key] = output;
   }
+}
+
+/**
+ * Collects vocabulary from natural-language triggers and canonical Scryfall output values.
+ * @param {object} map - Dictionary lookup map.
+ * @param {string} outputPrefix - Scryfall operator prefix to collect from output values.
+ * @returns {string[]} Sorted vocabulary.
+ */
+function vocabularyFromMap(map = {}, outputPrefix = "") {
+  const terms = new Set();
+  Object.entries(map || {}).forEach(([trigger, output]) => {
+    addVocabularyTerm(terms, trigger);
+    extractOutputVocabulary(output, outputPrefix).forEach((term) => addVocabularyTerm(terms, term));
+  });
+  return [...terms].sort((a, b) => a.localeCompare(b));
+}
+
+/**
+ * Adds a normalized display term to a vocabulary set.
+ * @param {Set<string>} terms - Terms being collected.
+ * @param {string} value - Raw term.
+ */
+function addVocabularyTerm(terms, value) {
+  const clean = normalizeTrigger(value).replace(/^["']|["']$/g, "");
+  if (clean) terms.add(clean);
+}
+
+/**
+ * Extracts canonical terms from simple Scryfall output fragments.
+ * @param {string} output - Scryfall query fragment.
+ * @param {string} prefix - Operator prefix without colon.
+ * @returns {string[]} Extracted vocabulary terms.
+ */
+function extractOutputVocabulary(output, prefix) {
+  if (!prefix || !output) return [];
+  const pattern = new RegExp(`\\b${escapeRegExp(prefix)}:(?:"([^"]+)"|'([^']+)'|([^\\s()]+))`, "gi");
+  const terms = [];
+  let match;
+  while ((match = pattern.exec(String(output)))) {
+    const term = match[1] || match[2] || match[3] || "";
+    if (term && !/[<>=]/.test(term)) terms.push(term);
+  }
+  return terms;
+}
+
+/**
+ * Escapes a string for regular-expression construction.
+ * @param {string} value - Raw value.
+ * @returns {string} Escaped value.
+ */
+function escapeRegExp(value) {
+  return String(value).replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 }
 
 /**

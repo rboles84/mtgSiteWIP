@@ -119,6 +119,7 @@ function renderDiagnostics(inspector, result, api = {}) {
     ${renderChipGroup("API", apiItems)}
     ${result ? renderChipGroup("Recognized", result.recognized) : ""}
     ${result ? renderChipGroup("Assumptions", result.assumptions) : ""}
+    ${result ? renderChipGroup("Warnings", result.warnings, "warn") : ""}
     ${result ? renderChipGroup("Unresolved", result.unresolved, "warn") : ""}
     ${result ? renderAlternatives(result.alternatives) : ""}
   `;

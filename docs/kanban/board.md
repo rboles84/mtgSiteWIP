@@ -35,7 +35,7 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 ## In Progress
 
-- [VM-012 - Scryfall Parser Expansion and Diagnostics](in-progress/VM-012-scryfall-parser-expansion-diagnostics.md)
+- No cards currently in progress.
 
 ## Blocked
 
@@ -43,6 +43,7 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 ## Done
 
+- [VM-012 - Scryfall Parser Expansion and Diagnostics](done/VM-012-scryfall-parser-expansion-diagnostics.md)
 - [VM-149 - Identity Preview Registry Canonicalization](done/VM-149-identity-preview-registry-canonicalization.md)
 - [VM-088 - Home Auto-Cycling Mana Lens Showcase](done/VM-088-home-auto-cycling-mana-lens-showcase.md)
 - [VM-148 - Canonical Homepage Cutover](done/VM-148-canonical-homepage-cutover.md)

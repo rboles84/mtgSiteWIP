@@ -84,7 +84,7 @@ Legacy rows with `guild` and `scores` but no `placement_result` are converted by
 
 | Source | Transform | Output |
 |---|---|---|
-| `research/scryfall-parser-seed-2026.json` | `createDictionaryFromSeed` expands triggers into dictionaries. | Runtime parser dictionary. |
+| `research/scryfall-parser-seed-2026.json` | `createDictionaryFromSeed` expands triggers into dictionaries; `getScryfallDictionaryVocabulary` exposes local terms. | Runtime parser dictionary plus deterministic keyword, subtype, card type, and format vocabulary. |
 | Natural language input | `parseScryfallNaturalLanguage` | Structured query, reason, confidence, warnings, assumptions, alternatives. |
 | Raw syntax input | `prepareRawSyntaxQuery` | Cleaned query and optional OR alternative diagnostics. |
 | Visual Builder filters | `buildVisualBuilderQuery` | Scryfall query fragments for color, type, format, rarity, mana value, and keywords. |

@@ -81,37 +81,53 @@ async function runMazeDomMetadataCases() {
   const dom = installMazeDomHarness();
 
   await import("./research-init.js");
+  window.location.search = "";
+  window.location.href = "http://localhost/maze/index.html";
+  await dom.dispatchWindowEvent("load");
 
+  assert.equal(document.getElementById("discovery-path-list").children.length, 5);
+  assert.equal(document.getElementById("quick-search-list").children.length, 12);
+  assert.equal(document.getElementById("color-grid").children.length, 15);
+  assert.equal(document.getElementById("type-checks").children.length, 8);
+  assert.equal(document.getElementById("rarity-checks").children.length, 4);
+  assert.equal(document.body.dataset.mazeMode, "ai");
+  document.getElementById("kw-input").oninput?.({ target: { value: "tox" } });
+  assert.ok(
+    document.getElementById("kw-suggestions").children.some((node) => node.dataset.keyword === "toxic"),
+    "expected Loom autocomplete to include dictionary-derived keyword suggestions"
+  );
+  const boardWipeQuery = "otag:board-wipe f:commander";
+  const manaRockQuery = "otag:mana-rock f:commander";
   window.runQuickSearch("otag:board-wipe", { unique: "cards", order: "name" });
-  await waitForFetchCount(dom.fetchUrls, 1);
+  await waitForFetchCount(dom.fetchUrls, bootFetchCount + 1);
   let lastUrl = latestFetchUrl(dom.fetchUrls);
-  assert.equal(lastUrl.searchParams.get("q"), "otag:board-wipe");
+  assert.equal(lastUrl.searchParams.get("q"), boardWipeQuery);
   assert.equal(lastUrl.searchParams.get("order"), "name");
   assert.equal(lastUrl.searchParams.get("unique"), "cards");
   assert.equal(lastUrl.searchParams.get("dir"), null);
   assert.equal(document.getElementById("recent-section").open, true);
   assert.equal(document.getElementById("search-copy-btn").disabled, false);
   assert.equal(document.getElementById("search-scryfall-link").getAttribute("aria-disabled"), "false");
-  assert.equal(new URL(document.getElementById("search-scryfall-link").href).searchParams.get("q"), "otag:board-wipe");
+  assert.equal(new URL(document.getElementById("search-scryfall-link").href).searchParams.get("q"), boardWipeQuery);
 
   window.changeOrder("usd", "desc");
-  await waitForFetchCount(dom.fetchUrls, 2);
+  await waitForFetchCount(dom.fetchUrls, bootFetchCount + 2);
   lastUrl = latestFetchUrl(dom.fetchUrls);
-  assert.equal(lastUrl.searchParams.get("q"), "otag:board-wipe");
+  assert.equal(lastUrl.searchParams.get("q"), boardWipeQuery);
   assert.equal(lastUrl.searchParams.get("order"), "usd");
   assert.equal(lastUrl.searchParams.get("dir"), "desc");
   assert.equal(lastUrl.searchParams.get("unique"), "cards");
 
   window.changeOrder("name");
-  await waitForFetchCount(dom.fetchUrls, 3);
+  await waitForFetchCount(dom.fetchUrls, bootFetchCount + 3);
   lastUrl = latestFetchUrl(dom.fetchUrls);
-  assert.equal(lastUrl.searchParams.get("q"), "otag:board-wipe");
+  assert.equal(lastUrl.searchParams.get("q"), boardWipeQuery);
   assert.equal(lastUrl.searchParams.get("order"), "name");
   assert.equal(lastUrl.searchParams.get("dir"), null);
   assert.equal(lastUrl.searchParams.get("unique"), "cards");
 
   window.copyQuery();
-  assert.equal(dom.getCopiedText(), "otag:board-wipe");
+  assert.equal(dom.getCopiedText(), boardWipeQuery);
   assert.doesNotMatch(dom.getCopiedText(), /\b(?:order|direction|dir|unique):/);
 
   renderQueryInspector({
@@ -123,6 +139,7 @@ async function runMazeDomMetadataCases() {
       recognized: [],
       assumptions: [],
       unresolved: [],
+      warnings: ["Ambiguous parse: review the alternate query interpretations below."],
       alternatives: [{
         label: "Newest mana rock prints",
         query: "otag:mana-rock",
@@ -131,32 +148,34 @@ async function runMazeDomMetadataCases() {
       api: { endpoint: "/cards/search", unique: "cards", order: "name" }
     }
   });
+  assert.match(document.getElementById("qi-diagnostics").innerHTML, /Warnings/);
+  assert.match(document.getElementById("qi-diagnostics").innerHTML, /Ambiguous parse/);
 
   const alternative = document.querySelectorAll(".qi-alt")[0];
   assert.ok(alternative, "expected Query Inspector to render an alternative button");
   alternative.onclick?.();
-  await waitForFetchCount(dom.fetchUrls, 4);
+  await waitForFetchCount(dom.fetchUrls, bootFetchCount + 4);
   lastUrl = latestFetchUrl(dom.fetchUrls);
-  assert.equal(lastUrl.searchParams.get("q"), "otag:mana-rock");
+  assert.equal(lastUrl.searchParams.get("q"), manaRockQuery);
   assert.equal(lastUrl.searchParams.get("order"), "released");
   assert.equal(lastUrl.searchParams.get("dir"), "desc");
   assert.equal(lastUrl.searchParams.get("unique"), "prints");
 
   const inspectorUrl = new URL(document.getElementById("qi-scryfall").href);
-  assert.equal(inspectorUrl.searchParams.get("q"), "otag:mana-rock");
+  assert.equal(inspectorUrl.searchParams.get("q"), manaRockQuery);
   assert.equal(inspectorUrl.searchParams.get("order"), "released");
   assert.equal(inspectorUrl.searchParams.get("dir"), "desc");
   assert.equal(inspectorUrl.searchParams.get("unique"), "prints");
 
   window.copyQuery();
-  assert.equal(dom.getCopiedText(), "otag:mana-rock");
+  assert.equal(dom.getCopiedText(), manaRockQuery);
   assert.doesNotMatch(dom.getCopiedText(), /\b(?:order|direction|dir|unique):/);
 
   const input = document.getElementById("search-input");
   window.setMode("ai");
   input.value = "red instants in commander";
   await window.doSearch();
-  await waitForFetchCount(dom.fetchUrls, 5);
+  await waitForFetchCount(dom.fetchUrls, bootFetchCount + 5);
   const smartUrl = latestFetchUrl(dom.fetchUrls);
   assert.ok(smartUrl.searchParams.get("q"), "expected Plain Reading to execute a compiled query");
   window.copyQuery();
@@ -171,13 +190,13 @@ async function runMazeDomMetadataCases() {
   document.getElementById("bld-format").value = "commander";
   input.value = "c:r";
   await window.doSearch();
-  await waitForFetchCount(dom.fetchUrls, 6);
+  await waitForFetchCount(dom.fetchUrls, bootFetchCount + 6);
   lastUrl = latestFetchUrl(dom.fetchUrls);
   assert.equal(lastUrl.searchParams.get("q"), "c:r f:commander");
 
   input.value = "c:u f:modern";
   await window.doSearch();
-  await waitForFetchCount(dom.fetchUrls, 7);
+  await waitForFetchCount(dom.fetchUrls, bootFetchCount + 7);
   lastUrl = latestFetchUrl(dom.fetchUrls);
   assert.equal(lastUrl.searchParams.get("q"), "c:u f:modern");
 
@@ -242,7 +261,7 @@ async function runMazeDomMetadataCases() {
   window.setMode("raw");
   input.value = "c:r\nkw:haste";
   await window.doSearch();
-  await waitForFetchCount(dom.fetchUrls, 8);
+  await waitForFetchCount(dom.fetchUrls, bootFetchCount + 8);
   lastUrl = latestFetchUrl(dom.fetchUrls);
   assert.equal(lastUrl.searchParams.get("q"), "c:r kw:haste");
 
@@ -315,6 +334,7 @@ async function waitForFetchCount(fetchUrls, count) {
   for (let i = 0; i < 25 && fetchUrls.length < count; i++) {
     await new Promise((resolve) => setTimeout(resolve, 0));
   }
+  await new Promise((resolve) => setTimeout(resolve, 0));
   assert.equal(fetchUrls.length, count);
 }
 
@@ -325,6 +345,8 @@ function installMazeDomHarness() {
   let fetchResponses = [];
   let copiedText = "";
   let altButtons = [];
+  const windowEvents = new Map();
+  const localStorageValues = new Map();
 
   class FakeClassList {
     constructor() {
@@ -533,6 +555,9 @@ function installMazeDomHarness() {
   }
 
   const body = createElement("body", "body");
+  const page = createElement("main");
+  page.className = "page";
+  body.appendChild(page);
   const documentStub = {
     body,
     createElement,
@@ -557,7 +582,10 @@ function installMazeDomHarness() {
     "mode-ai", "mode-raw", "mode-builder", "search-icon", "builder-panel", "kw-wrap",
     "kw-input", "kw-suggestions", "kw-chips", "builder-generated-query", "builder-summary",
     "color-op", "bld-format", "cmc-min", "cmc-max", "sb-format", "modal-inner", "modal-bg",
-    "maze-mode-context-label", "maze-mode-context-copy",
+    "maze-mode-context-label", "maze-mode-context-copy", "discovery-path-list",
+    "quick-search-list", "color-grid", "type-checks", "rarity-checks", "reading-path-section",
+    "reading-path-list", "r-user-badge", "maze-return-banner", "maze-return-copy",
+    "maze-return-link", "maze-return-dismiss",
     "stash-drawer-toggle", "search-copy-btn", "search-scryfall-link"
   ].forEach((id) => {
     const tagName = ["qi-scryfall", "search-scryfall-link"].includes(id)
@@ -572,8 +600,15 @@ function installMazeDomHarness() {
 
   const windowStub = {
     document: documentStub,
-    location: { search: "" },
-    addEventListener() {}
+    location: {
+      href: "http://localhost/maze/index.html",
+      origin: "http://localhost",
+      pathname: "/maze/index.html",
+      search: ""
+    },
+    addEventListener(event, handler) {
+      windowEvents.set(event, handler);
+    }
   };
 
   Object.defineProperty(globalThis, "document", { value: documentStub, configurable: true });
@@ -587,6 +622,25 @@ function installMazeDomHarness() {
           copiedText = value;
           return Promise.resolve();
         }
+      }
+    },
+    configurable: true
+  });
+  Object.defineProperty(globalThis, "localStorage", {
+    value: {
+      getItem(key) {
+        if (String(key).startsWith("vm_scryfall_api_v1:")) return null;
+        return localStorageValues.has(key) ? localStorageValues.get(key) : null;
+      },
+      setItem(key, value) {
+        if (String(key).startsWith("vm_scryfall_api_v1:")) return;
+        localStorageValues.set(key, String(value));
+      },
+      removeItem(key) {
+        localStorageValues.delete(key);
+      },
+      clear() {
+        localStorageValues.clear();
       }
     },
     configurable: true
@@ -611,6 +665,15 @@ function installMazeDomHarness() {
     fetchUrls,
     setFetchResponses(responses) {
       fetchResponses = [...responses];
+    },
+    setLocalStorageItem(key, value) {
+      localStorageValues.set(key, String(value));
+    },
+    getLocalStorageItem(key) {
+      return localStorageValues.has(key) ? localStorageValues.get(key) : null;
+    },
+    async dispatchWindowEvent(event) {
+      await windowEvents.get(event)?.({ type: event });
     },
     getCopiedText: () => copiedText
   };

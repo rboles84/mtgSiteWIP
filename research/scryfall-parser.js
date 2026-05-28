@@ -898,7 +898,15 @@ function finalizeResult(state, mode, query, reason, confidence, api = state.api)
   };
 
   if (mode === "search" && confidence < 0.65) {
-    result.warnings.push("Low-confidence deterministic parse. Review or edit the generated query.");
+    addUnique(result.warnings, "Low-confidence deterministic parse. Review or edit the generated query.");
+  }
+
+  if (mode === "search" && result.unresolved.length) {
+    addUnique(result.warnings, `Unresolved terms: ${result.unresolved.join(", ")}. Review or remove them if they are not part of the intended search.`);
+  }
+
+  if (mode === "search" && result.alternatives.length) {
+    addUnique(result.warnings, "Ambiguous parse: review the alternate query interpretations below.");
   }
 
   return result;

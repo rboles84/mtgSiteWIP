@@ -36,6 +36,10 @@ Raw JSON and `.json.gz` files under `data/scryfall/raw/` are ignored by Git. The
 
 The flavor index intentionally uses a slim derived shape. It keeps card identifiers, display metadata, image references, categorized tags, lore tones, and short excerpts for display. It does not commit full `oracle_text` or full `flavor_text`, so the repo does not become a broad text mirror of Scryfall card data.
 
+## Parser Vocabulary
+
+VM-012 closes the Maze parser/data diagnostics layer by treating `research/scryfall-parser-seed-2026.json` plus `research/scryfall-dictionary.js` as the local deterministic validation source for parser vocabulary. `getScryfallDictionaryVocabulary()` exposes sorted keyword, subtype, card type, and format terms for local autocomplete and validation without adding Scryfall bulk downloads, runtime fetches, build-time API calls, or network-backed parsing.
+
 ## Guardrails
 
 - Use `oracle_cards` for v1.
