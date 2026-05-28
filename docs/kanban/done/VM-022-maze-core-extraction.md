@@ -2,7 +2,7 @@
 
 ID: VM-022
 Title: Maze Core Extraction
-Status: in-progress
+Status: complete
 Type: Enhancement / Architecture
 Area: Maze, Scryfall, API
 Priority: medium
@@ -14,16 +14,22 @@ Turn Maze's browser-local parsing and translation layer into a reusable query-in
 
 This card is intentionally a sibling to VM-010 and VM-012, not a rename of either one. The emphasis is on a shared contract for query intent, operator-safe translation, and placement-aware metadata so the Maze UI becomes one consumer of the engine instead of the owner of the semantics.
 
-## Current Slice
+## Final Outcome
 
-The active VM-022 slice is the quick-search and route-seeded contract-adapter pass on `codex/vm-022-do-search-contract-adapter`:
+VM-022 is complete on `codex/vm-022-do-search-contract-adapter`:
 
-- Keep Maze's primary `doSearch()` path on the `MazeQueryRequest` / `resolveMazeQueryRequest()` adapter introduced in the prior slice.
-- Move `runQuickSearch()` and Archscry URL/handoff launches through the same adapter-local request resolver, with `origin` kept separate from `mode`.
-- Keep Scryfall fetch/cache/dedupe, exact-name modal flow, stash behavior, DOM rendering, route boot, Archscry handoff storage, sort changes, load-more, return banner behavior, and sidebar rendering outside the core.
-- Preserve current generated query strings, Scryfall request metadata, Query Inspector bridge metadata, rendered result behavior, raw normalization, builder semantics, exact-name behavior, and authored dossier/path Plain Reading text.
+- `docs/contracts/maze-query-contract.md` defines the v1 Maze query contract, field inventory, field-to-code mapping table, and contract test matrix.
+- Maze's primary `doSearch()`, `runQuickSearch()`, Query Inspector alternatives, Archscry launches, URL `?q=` launches, and path/sidebar clicks now resolve query intent through `MazeQueryRequest` and `resolveMazeQueryRequest()`.
+- Query Inspector rendering consumes contract-owned `MazeDiagnostic[]` instead of the temporary legacy diagnostics bridge.
+- `MazeQueryResult.query` remains the only executable core query; `plainReadingQuery` remains display/trace metadata.
+- Scryfall fetch/cache/dedupe, exact-name modal flow, stash behavior, DOM rendering, route boot, handoff storage, sort changes, load-more, return banner behavior, and sidebar rendering remain route/UI-owned.
 
-The prior contract-lockdown slice established `docs/contracts/maze-query-contract.md`, the field inventory, the contract test matrix, and the first browser-safe query-core surface. The primary `doSearch()` adapter slice is committed as `e54a32d`.
+Delivered slices:
+
+- Contract lockdown and first core surface.
+- Primary `doSearch()` adapter consumption (`e54a32d`).
+- Prebuilt/quick/route-seeded adapter consumption (`b22c576`).
+- Query Inspector diagnostics migration and closeout.
 
 ## Source
 

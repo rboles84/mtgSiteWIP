@@ -101,8 +101,6 @@ Preserved legacy adapter boundaries:
 
 `plainReadingQuery` is display and trace metadata only. It must not drive fetch execution unless it is passed through the core again.
 
-The current adapter may also carry legacy inspector diagnostics while the Query Inspector still reads the older parser result shape. That adapter field is not part of the public v1 contract.
-
 `MazeDiagnostic`:
 
 ```js
@@ -117,6 +115,23 @@ The current adapter may also carry legacy inspector diagnostics while the Query 
 ```
 
 Contract tests should assert stable `code` values instead of full message text.
+
+Current v1 diagnostic code groups:
+
+| Code | Details | Query Inspector use |
+|---|---|---|
+| `parser_confidence` | `{ confidence: number }` | Confidence chip. |
+| `parser_recognized` | Optional display details only. | Recognized chips. |
+| `parser_assumption` | Optional display details only. | Assumption chips. |
+| `parser_warning_N` | Optional display details only. | Warning chips. |
+| `parser_unresolved_term` | `{ term: string }` | Unresolved chips. |
+| `parser_alternative` | `{ query: string, api?: object }` | Alternative query buttons. |
+| `raw_recognized` | Optional display details only. | Recognized chips for raw normalization. |
+| `raw_assumption` | Optional display details only. | Assumption chips for raw normalization. |
+| `raw_warning` | Optional display details only. | Warning chips for raw normalization. |
+| `raw_alternative` | `{ query: string, api?: object }` | Alternative query buttons for raw normalization. |
+
+The core owns structured diagnostic data. Query Inspector labels, button markup, and presentation remain UI-owned.
 
 `MazeQueryApiMetadata`:
 
@@ -306,7 +321,7 @@ Exact-name is parser/result behavior, not a Maze search mode. Maze route code st
 | `result.reason` | Parser reason, raw normalization, format append | Query Inspector | Explanation copy remains diagnostic-only. | `scryfall-parser-tests.js`, `maze-query-contract-tests.js` | Core-owned metadata |
 | `result.mode` | Request mode | Maze route | Search mode echoed after normalization. | `maze-query-contract-tests.js` | Core-owned normalization |
 | `result.parserMode` | `parseScryfallNaturalLanguage()` and request mode | Core result | Represents `plain_reading`, `raw`, `exact_name`, or `builder`. | `maze-query-contract-tests.js` | Core-owned |
-| `result.diagnostics` | Parser result and raw normalizer diagnostics | Contract tests and future Query Inspector adapter | Stable diagnostic codes; messages remain non-contractual. | `maze-query-contract-tests.js` | Core-owned |
+| `result.diagnostics` | Parser result and raw normalizer diagnostics | Contract tests and Query Inspector rendering | Stable diagnostic codes; messages remain non-contractual. | `maze-query-contract-tests.js`, `maze-search-tests.js` | Core-owned data, UI-owned rendering |
 | `result.api` | Parser API metadata, route sort state, `research-search.js` URL builder | Maze search execution and links | Preserves endpoint/order/unique/dir currently used. | `maze-search-tests.js`, `maze-query-contract-tests.js` | Core-owned metadata |
 | `result.sourceContext` | Launch and placement context | Maze return/sidebar adapter | Normalized source metadata with pass-through stability. | `maze-query-contract-tests.js` | Core-owned normalization |
 | `result.normalized` | Raw normalizer, format append, parse translation | Query Inspector | Indicates user-visible input changed before execution. | `maze-search-tests.js`, `maze-query-contract-tests.js` | Core-owned |
@@ -325,6 +340,7 @@ Exact-name is parser/result behavior, not a Maze search mode. Maze route code st
 | Plain Reading request | Executable query, `parserMode: "plain_reading"`, format append, API metadata. | `research/maze-query-contract-tests.js` |
 | Exact-name request/input | `parserMode: "exact_name"`, `/cards/named`, current modal flow preserved by adapter. | `research/maze-query-contract-tests.js`, `research/maze-search-tests.js` |
 | Raw request | `A AND B` normalizes to `A B`, stable diagnostic code. | `research/maze-query-contract-tests.js`, `research/maze-search-tests.js` |
+| Query Inspector diagnostics | Contract diagnostics render confidence, recognized, assumptions, warnings, unresolved terms, and alternatives without legacy adapter diagnostics. | `research/maze-search-tests.js` |
 | Builder request | Current `bFilters` inventory emits unchanged query fragments. | `research/maze-query-contract-tests.js`, `research/research-builder-tests.js` |
 | Archscry launch normalization | Origin/source metadata stays stable. | `research/maze-query-contract-tests.js`, `research/maze-search-tests.js` |
 | Dossier path generation | Four stable `MazePathEntry` records and path types. | `research/maze-query-contract-tests.js`, `assets/js/quick-reading-tests.js`, `research/maze-search-tests.js` |

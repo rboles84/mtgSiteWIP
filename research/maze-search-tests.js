@@ -179,23 +179,62 @@ async function runMazeDomMetadataCases() {
   renderQueryInspector({
     query: "otag:board-wipe",
     reason: "DOM alternative metadata fixture.",
-    parserResult: {
-      confidence: 0.88,
-      reason: "DOM alternative metadata fixture.",
-      recognized: [],
-      assumptions: [],
-      unresolved: [],
-      warnings: ["Ambiguous parse: review the alternate query interpretations below."],
-      alternatives: [{
-        label: "Newest mana rock prints",
-        query: "otag:mana-rock",
-        api: { unique: "prints", order: "released", dir: "desc" }
-      }],
-      api: { endpoint: "/cards/search", unique: "cards", order: "name" }
-    }
+    diagnostics: [
+      {
+        level: "info",
+        code: "parser_confidence",
+        message: "Confidence 88%",
+        source: "parser",
+        details: { confidence: 0.88 }
+      },
+      {
+        level: "info",
+        code: "parser_recognized",
+        message: "functional tag: board wipe",
+        source: "parser"
+      },
+      {
+        level: "info",
+        code: "parser_assumption",
+        message: "Used Scryfall's validated board-wipe functional tag.",
+        source: "parser"
+      },
+      {
+        level: "warning",
+        code: "parser_warning_1",
+        message: "Ambiguous parse: review the alternate query interpretations below.",
+        source: "parser"
+      },
+      {
+        level: "warning",
+        code: "parser_unresolved_term",
+        message: "Unresolved term: lantern",
+        source: "parser",
+        field: "input",
+        details: { term: "lantern" }
+      },
+      {
+        level: "info",
+        code: "parser_alternative",
+        message: "Newest mana rock prints",
+        source: "parser",
+        details: {
+          query: "otag:mana-rock",
+          api: { unique: "prints", order: "released", dir: "desc" }
+        }
+      }
+    ],
+    api: { endpoint: "/cards/search", unique: "cards", order: "name" }
   });
+  assert.match(document.getElementById("qi-diagnostics").innerHTML, /Confidence 88%/);
+  assert.match(document.getElementById("qi-diagnostics").innerHTML, /Recognized/);
+  assert.match(document.getElementById("qi-diagnostics").innerHTML, /functional tag: board wipe/);
+  assert.match(document.getElementById("qi-diagnostics").innerHTML, /Assumptions/);
+  assert.match(document.getElementById("qi-diagnostics").innerHTML, /validated board-wipe/);
   assert.match(document.getElementById("qi-diagnostics").innerHTML, /Warnings/);
   assert.match(document.getElementById("qi-diagnostics").innerHTML, /Ambiguous parse/);
+  assert.match(document.getElementById("qi-diagnostics").innerHTML, /Unresolved/);
+  assert.match(document.getElementById("qi-diagnostics").innerHTML, /lantern/);
 
   const alternative = document.querySelectorAll(".qi-alt")[0];
   assert.ok(alternative, "expected Query Inspector to render an alternative button");

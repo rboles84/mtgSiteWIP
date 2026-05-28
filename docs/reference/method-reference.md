@@ -296,7 +296,7 @@ The rest of the file is top-level test code covering schema metadata, model/fact
 | 765 | `applyFormatFilter(format)` | Window | Adds/replaces format term in current query. |
 | 775 | `changeOrder(order)` | Window | Re-runs search with selected order. |
 | 784 | `addRecent(query)` | Internal | Adds query to recent-search list. |
-| 800 | `showQueryInspector(query, reason, parserResult)` | Internal | Renders parser/query diagnostics. |
+| 800 | `showQueryInspector(query, reason, diagnostics)` | Internal | Renders contract `MazeDiagnostic[]` data through the Query Inspector UI. |
 | 807 | `copyQuery()` | Window | Copies generated query to clipboard. |
 | 814 | `clearSearchInput()` | Window | Clears input and resets results. |
 | 833 | `resetSearchResults()` | Internal | Clears result state and UI. |
@@ -434,8 +434,8 @@ Window handlers exposed by `exposeWindowHandlers`: `setMode`, `doSearch`, `clear
 
 | Line | Symbol | Scope | Purpose |
 |---:|---|---|---|
-| 8 | `renderQueryInspector(options)` | Export | Renders query inspector HTML. |
-| 32 | `renderDiagnostics(inspector, result)` | Internal | Renders parser diagnostics. |
+| 8 | `renderQueryInspector(options)` | Export | Renders query inspector HTML from contract diagnostics and API metadata. |
+| 32 | `renderDiagnostics(inspector, diagnosticsList)` | Internal | Renders `MazeDiagnostic[]` groups. |
 | 63 | `renderConfidence(confidence)` | Internal | Renders confidence label. |
 | 77 | `renderChipGroup(label, items, tone)` | Internal | Renders diagnostic chips. |
 | 87 | `renderAlternatives(alternatives)` | Internal | Renders alternative query buttons. |

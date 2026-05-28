@@ -3,7 +3,7 @@
  * @param {object} details - Inspector render details.
  * @param {string} details.query - Generated Scryfall query.
  * @param {string} [details.reason] - Short explanation.
- * @param {object} [details.parserResult] - Full parser diagnostics.
+ * @param {object[]} [details.diagnostics] - Contract diagnostics.
  * @param {object} [details.api] - Search API/display metadata.
  * @param {string} [details.inputValue] - Original user input before translation/normalization.
  * @param {boolean} [details.normalized] - Whether the displayed query differs from the input.
@@ -11,14 +11,16 @@
 export function renderQueryInspector({
   query,
   reason = "",
-  parserResult = null,
+  diagnostics = [],
   api = null,
   inputValue = "",
   normalized = false
 }) {
   const inspector = document.getElementById("query-inspector");
   if (!inspector) return;
-  const searchApi = parserResult?.api || api || {};
+  const diagnosticList = Array.isArray(diagnostics) ? diagnostics : [];
+  const searchApi = api || {};
+  const hasDiagnostics = diagnosticList.length > 0;
   const mode = document.body?.dataset?.mazeMode || "ai";
   inspector.dataset.mode = mode;
   inspector.classList.toggle("is-compact", mode === "raw" && !normalized);
@@ -30,12 +32,12 @@ export function renderQueryInspector({
   const inputLabel = document.getElementById("qi-input-label");
   const inputText = document.getElementById("qi-input");
   const queryText = document.getElementById("qi-query");
-  const finalReason = parserResult?.reason || reason;
+  const finalReason = reason;
   const scryfallLink = document.getElementById("qi-scryfall");
   if (scryfallLink) scryfallLink.href = buildScryfallWebSearchUrl(query, searchApi);
 
-  const redundantRaw = mode === "raw" && !normalized && !finalReason && !parserResult;
-  const redundantBuilder = mode === "builder" && !finalReason && !parserResult;
+  const redundantRaw = mode === "raw" && !normalized && !finalReason && !hasDiagnostics;
+  const redundantBuilder = mode === "builder" && !finalReason && !hasDiagnostics;
   if (redundantRaw || redundantBuilder) {
     inputWrap?.classList.add("hidden");
     document.getElementById("qi-reason")?.classList.add("hidden");
@@ -73,7 +75,7 @@ export function renderQueryInspector({
     reasonEl.classList.add("hidden");
   }
 
-  renderDiagnostics(inspector, parserResult, searchApi);
+  renderDiagnostics(inspector, diagnosticList, searchApi);
   inspector.classList.remove("hidden");
 }
 
@@ -93,12 +95,12 @@ export function buildScryfallWebSearchUrl(query, api = {}) {
 }
 
 /**
- * Renders parser diagnostics below the primary query row.
+ * Renders contract diagnostics below the primary query row.
  * @param {HTMLElement} inspector - Query Inspector container.
- * @param {object|null} result - Parser result to display.
+ * @param {object[]} diagnosticsList - Contract diagnostics to display.
  * @param {object} api - Search API/display metadata.
  */
-function renderDiagnostics(inspector, result, api = {}) {
+function renderDiagnostics(inspector, diagnosticsList = [], api = {}) {
   let diagnostics = document.getElementById("qi-diagnostics");
   if (!diagnostics) {
     diagnostics = document.createElement("div");
@@ -108,23 +110,61 @@ function renderDiagnostics(inspector, result, api = {}) {
   }
 
   const apiItems = formatApiMetadata(api);
-  if (!result && !apiItems.length) {
+  const groups = groupDiagnosticsForInspector(diagnosticsList);
+  if (!groups.hasDiagnostics && !apiItems.length) {
     diagnostics.innerHTML = "";
     diagnostics.classList.add("hidden");
     return;
   }
 
   diagnostics.innerHTML = `
-    ${result ? renderConfidence(result.confidence) : ""}
+    ${renderConfidence(groups.confidence)}
     ${renderChipGroup("API", apiItems)}
-    ${result ? renderChipGroup("Recognized", result.recognized) : ""}
-    ${result ? renderChipGroup("Assumptions", result.assumptions) : ""}
-    ${result ? renderChipGroup("Warnings", result.warnings, "warn") : ""}
-    ${result ? renderChipGroup("Unresolved", result.unresolved, "warn") : ""}
-    ${result ? renderAlternatives(result.alternatives) : ""}
+    ${renderChipGroup("Recognized", groups.recognized)}
+    ${renderChipGroup("Assumptions", groups.assumptions)}
+    ${renderChipGroup("Warnings", groups.warnings, "warn")}
+    ${renderChipGroup("Unresolved", groups.unresolved, "warn")}
+    ${renderAlternatives(groups.alternatives)}
   `;
   bindAlternativeButtons();
   diagnostics.classList.remove("hidden");
+}
+
+function groupDiagnosticsForInspector(diagnostics = []) {
+  const groups = {
+    confidence: undefined,
+    recognized: [],
+    assumptions: [],
+    warnings: [],
+    unresolved: [],
+    alternatives: [],
+    hasDiagnostics: diagnostics.length > 0
+  };
+
+  diagnostics.forEach((diagnostic) => {
+    if (!diagnostic || typeof diagnostic !== "object") return;
+    const code = String(diagnostic.code || "");
+    const message = String(diagnostic.message || "");
+    if (code.endsWith("_confidence")) {
+      groups.confidence = diagnostic.details?.confidence;
+    } else if (code.endsWith("_recognized") && message) {
+      groups.recognized.push(message);
+    } else if (code.endsWith("_assumption") && message) {
+      groups.assumptions.push(message);
+    } else if (code === "parser_unresolved_term") {
+      groups.unresolved.push(diagnostic.details?.term || message);
+    } else if (code.endsWith("_alternative") && diagnostic.details?.query) {
+      groups.alternatives.push({
+        label: message,
+        query: diagnostic.details.query,
+        api: diagnostic.details.api || {}
+      });
+    } else if (diagnostic.level === "warning" && message) {
+      groups.warnings.push(message);
+    }
+  });
+
+  return groups;
 }
 
 /**

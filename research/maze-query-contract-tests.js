@@ -36,6 +36,10 @@ assert.deepEqual(plain.api, {
   order: "name",
   dir: "desc"
 });
+assert.equal(Object.hasOwn(plain, "adapterDiagnostics"), false);
+assert.ok(plain.diagnostics.some((diagnostic) => diagnostic.code === "parser_confidence"));
+assert.ok(plain.diagnostics.some((diagnostic) => diagnostic.code === "parser_recognized"));
+assert.ok(plain.diagnostics.some((diagnostic) => diagnostic.code === "parser_assumption"));
 
 const exact = resolveMazeQueryRequest({
   mode: "ai",
@@ -56,6 +60,9 @@ assert.equal(raw.mode, "raw");
 assert.equal(raw.parserMode, "raw");
 assert.equal(raw.query, "c:r t:creature f:commander");
 assert.equal(raw.normalized, true);
+assert.equal(Object.hasOwn(raw, "adapterDiagnostics"), false);
+assert.ok(raw.diagnostics.some((diagnostic) => diagnostic.code === "raw_recognized"));
+assert.ok(raw.diagnostics.some((diagnostic) => diagnostic.code === "raw_assumption"));
 assert.ok(raw.diagnostics.some((diagnostic) => diagnostic.code === "raw_alternative"));
 
 const builder = resolveMazeQueryRequest({

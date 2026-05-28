@@ -86,7 +86,7 @@ Legacy rows with `guild` and `scores` but no `placement_result` are converted by
 |---|---|---|
 | `research/scryfall-parser-seed-2026.json` | `createDictionaryFromSeed` expands triggers into dictionaries; `getScryfallDictionaryVocabulary` exposes local terms. | Runtime parser dictionary plus deterministic keyword, subtype, card type, and format vocabulary. |
 | Natural language input | `parseScryfallNaturalLanguage` | Structured query, reason, confidence, warnings, assumptions, alternatives. |
-| Maze query request | `research/research-init.js` `doSearch()`, `runQuickSearch()`, and route-seeded launch adapters -> `research/maze-query-core.js` | Contract-shaped `MazeQueryResult` with executable query, parser mode, diagnostics, normalized API metadata, and source context. Route adapter still executes fetch/render/storage behavior. |
+| Maze query request | `research/research-init.js` `doSearch()`, `runQuickSearch()`, and route-seeded launch adapters -> `research/maze-query-core.js` | Contract-shaped `MazeQueryResult` with executable query, parser mode, `MazeDiagnostic[]`, normalized API metadata, and source context. Route adapter still executes fetch/render/storage behavior. |
 | Raw syntax input | `prepareRawSyntaxQuery` in the Maze query core | Cleaned query and optional OR alternative diagnostics. |
 | Visual Builder filters | `buildVisualBuilderQuery` | Scryfall query fragments for color, type, format, rarity, mana value, and keywords. |
 | Scryfall responses | `research-init.js` render helpers | Result grid, modal detail, no-results state, recent searches. |

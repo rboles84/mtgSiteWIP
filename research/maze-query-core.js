@@ -21,7 +21,7 @@ const DEFAULT_SEARCH_API = {
 /**
  * Resolves a Maze query request into the v1 contract result shape.
  * @param {object} request - MazeQueryRequest.
- * @returns {object} MazeQueryResult plus adapter diagnostics for current UI consumers.
+ * @returns {object} MazeQueryResult.
  */
 export function resolveMazeQueryRequest(request = {}) {
   const mode = normalizeMazeMode(request.mode);
@@ -43,8 +43,7 @@ export function resolveMazeQueryRequest(request = {}) {
       api: normalizeMazeQueryApiMetadata(options),
       sourceContext,
       normalized: Boolean(query && query !== input),
-      diagnostics: [],
-      adapterDiagnostics: null
+      diagnostics: []
     });
   }
 
@@ -66,8 +65,7 @@ export function resolveMazeQueryRequest(request = {}) {
       api: normalizeMazeQueryApiMetadata(options),
       sourceContext,
       normalized: prepared.changed || formatted.changed,
-      diagnostics: legacyDiagnosticsToMazeDiagnostics(prepared.diagnostics, "raw"),
-      adapterDiagnostics: prepared.diagnostics
+      diagnostics: legacyDiagnosticsToMazeDiagnostics(prepared.diagnostics, "raw")
     });
   }
 
@@ -83,8 +81,7 @@ export function resolveMazeQueryRequest(request = {}) {
       diagnostics: legacyDiagnosticsToMazeDiagnostics(parserResult, "parser"),
       api: normalizeMazeQueryApiMetadata(parserResult.api || {}, { endpoint: "/cards/named" }),
       sourceContext,
-      normalized: parserResult.query !== input,
-      adapterDiagnostics: parserResult
+      normalized: parserResult.query !== input
     });
   }
 
@@ -105,8 +102,7 @@ export function resolveMazeQueryRequest(request = {}) {
     diagnostics: legacyDiagnosticsToMazeDiagnostics(parserResult, "parser"),
     api: normalizeMazeQueryApiMetadata(parserResult.api || {}, options),
     sourceContext,
-    normalized: formatted.changed || parserResult.query !== input,
-    adapterDiagnostics: parserResult
+    normalized: formatted.changed || parserResult.query !== input
   });
 }
 
@@ -241,8 +237,7 @@ function buildContractResult({
   diagnostics,
   api,
   sourceContext,
-  normalized,
-  adapterDiagnostics
+  normalized
 }) {
   const result = {
     query,
@@ -255,13 +250,33 @@ function buildContractResult({
   };
   if (plainReadingQuery) result.plainReadingQuery = plainReadingQuery;
   if (reason) result.reason = reason;
-  if (adapterDiagnostics) result.adapterDiagnostics = adapterDiagnostics;
   return result;
 }
 
 function legacyDiagnosticsToMazeDiagnostics(result, source) {
   if (!result) return [];
   const diagnostics = [];
+  if (Number.isFinite(result.confidence)) {
+    diagnostics.push({
+      level: "info",
+      code: `${source}_confidence`,
+      message: `Confidence ${Math.round((result.confidence || 0) * 100)}%`,
+      source,
+      details: { confidence: result.confidence }
+    });
+  }
+  (result.recognized || []).forEach((message) => diagnostics.push({
+    level: "info",
+    code: `${source}_recognized`,
+    message,
+    source
+  }));
+  (result.assumptions || []).forEach((message) => diagnostics.push({
+    level: "info",
+    code: `${source}_assumption`,
+    message,
+    source
+  }));
   (result.warnings || []).forEach((message, index) => diagnostics.push({
     level: "warning",
     code: source === "raw" ? "raw_warning" : `parser_warning_${index + 1}`,

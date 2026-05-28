@@ -487,7 +487,7 @@ async function initializeResearchArchives() {
     setMode("ai");
     triggerSearch(queryResult.query, {
       api: queryResult.api,
-      parserResult: queryResult.adapterDiagnostics || null,
+      diagnostics: queryResult.diagnostics || [],
       inputValue: launch.plainReadingQuery || "",
       normalized: queryResult.normalized
     });
@@ -505,7 +505,7 @@ async function initializeResearchArchives() {
     setMode("raw");
     triggerSearch(queryResult.query, {
       api: queryResult.api,
-      parserResult: queryResult.adapterDiagnostics || null,
+      diagnostics: queryResult.diagnostics || [],
       inputValue: launch.urlQ,
       normalized: queryResult.normalized
     });
@@ -625,7 +625,7 @@ async function doSearch() {
   try {
     const queryResult = resolveMazeRouteQuery(rawInput);
     const query = queryResult.query;
-    const parserResult = queryResult.adapterDiagnostics || null;
+    const diagnostics = queryResult.diagnostics || [];
     const reason = currentMode === "builder" ? "" : queryResult.reason || "";
 
     if (currentMode === "builder" && !query.trim()) {
@@ -648,7 +648,7 @@ async function doSearch() {
         currentQuery = query;
         currentSearchApi = queryResult.api || { endpoint: "/cards/search", unique: currentUnique, order: currentOrder };
         updateSearchActions(query, currentSearchApi);
-        showQueryInspector(query, reason, parserResult, null, { inputValue: rawInput });
+        showQueryInspector(query, reason, diagnostics, null, { inputValue: rawInput });
         const card = await ResearchSearch.scryfallExact(query);
         setLoading(false);
         hideState();
@@ -667,7 +667,7 @@ async function doSearch() {
     await triggerSearch(query, {
       reason,
       api: queryResult.api,
-      parserResult,
+      diagnostics,
       inputValue: rawInput,
       normalized: currentMode === "raw" && queryResult.normalized
     });
@@ -721,13 +721,13 @@ async function triggerSearch(query, opts = {}) {
     unique = currentUnique,
     dir = currentDir,
     api = null,
-    parserResult = null,
+    diagnostics = [],
     inputValue = "",
     normalized = false
   } = opts;
-  const searchOrder = parserResult?.api?.order || api?.order || order || "name";
-  const searchUnique = parserResult?.api?.unique || api?.unique || unique || "cards";
-  const searchDir = normalizeSortDirection(parserResult?.api?.dir || api?.dir || dir);
+  const searchOrder = api?.order || order || "name";
+  const searchUnique = api?.unique || unique || "cards";
+  const searchDir = normalizeSortDirection(api?.dir || dir);
   const searchApi = { endpoint: "/cards/search", unique: searchUnique, order: searchOrder };
   if (searchDir) searchApi.dir = searchDir;
   currentQuery = query;
@@ -737,7 +737,7 @@ async function triggerSearch(query, opts = {}) {
   currentSearchApi = searchApi;
   updateSearchActions(query, searchApi);
   addRecent(query);
-  showQueryInspector(query, reason, parserResult, searchApi, { inputValue, normalized });
+  showQueryInspector(query, reason, diagnostics, searchApi, { inputValue, normalized });
 
   const data = await ResearchSearch.scryfallSearch(query, { order: searchOrder, unique: searchUnique, dir: searchDir });
   if (data.object === "error") {
@@ -1730,7 +1730,7 @@ function runQuickSearch(query, opts = {}) {
     placementContext: opts.placementContext
   });
   const finalQuery = queryResult.query;
-  const parserResult = queryResult.adapterDiagnostics || null;
+  const diagnostics = queryResult.diagnostics || [];
   const plainReadingQuery = normalizeSearchInputValue(opts.plainReadingQuery || "");
   document.getElementById("search-input").value = finalQuery;
   selectAutoFilledInputOnFocus = true;
@@ -1747,7 +1747,7 @@ function runQuickSearch(query, opts = {}) {
   triggerSearch(finalQuery, {
     reason: queryResult.reason || "",
     api: queryResult.api,
-    parserResult,
+    diagnostics,
     inputValue: query,
     normalized: queryResult.normalized
   })
@@ -1833,13 +1833,13 @@ function addRecent(query) {
  * Delegates Query Inspector rendering to the dedicated UI module.
  * @param {string} query - Generated Scryfall query.
  * @param {string} reason - Short explanation.
- * @param {object|null} parserResult - Optional parser diagnostics.
+ * @param {object[]} diagnostics - Contract diagnostics.
  */
-function showQueryInspector(query, reason, parserResult = null, api = null, ui = {}) {
+function showQueryInspector(query, reason, diagnostics = [], api = null, ui = {}) {
   renderQueryInspector({
     query,
     reason,
-    parserResult,
+    diagnostics,
     api,
     inputValue: ui.inputValue || "",
     normalized: Boolean(ui.normalized)

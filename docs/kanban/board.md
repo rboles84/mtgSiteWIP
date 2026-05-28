@@ -31,7 +31,7 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 ## In Progress
 
-- [VM-022 - Maze Core Extraction](in-progress/VM-022-maze-core-extraction.md)
+- No cards currently in progress.
 
 ## Blocked
 
@@ -39,6 +39,7 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 ## Done
 
+- [VM-022 - Maze Core Extraction](done/VM-022-maze-core-extraction.md)
 - [VM-146 - CDN And Font Dependency Review](done/VM-146-cdn-font-dependency-review.md)
 - [VM-144 - Stale Preview Asset Archive Audit](done/VM-144-stale-preview-asset-archive-audit.md)
 - [VM-153 - Legal Glass Opacity Match](done/VM-153-legal-glass-opacity-match.md)
