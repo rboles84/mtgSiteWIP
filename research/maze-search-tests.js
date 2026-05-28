@@ -296,6 +296,50 @@ async function runMazeDomMetadataCases() {
   lastUrl = latestFetchUrl(dom.fetchUrls);
   assert.equal(lastUrl.searchParams.get("q"), "c:r kw:haste");
 
+  const rawAndStart = dom.fetchUrls.length;
+  document.getElementById("sb-format").value = "commander";
+  input.value = "c:r AND t:creature";
+  await window.doSearch();
+  await waitForFetchCount(dom.fetchUrls, rawAndStart + 1);
+  lastUrl = latestFetchUrl(dom.fetchUrls);
+  assert.equal(lastUrl.searchParams.get("q"), "c:r t:creature f:commander");
+  assert.equal(input.value, "c:r t:creature f:commander");
+  assert.match(document.getElementById("qi-diagnostics").innerHTML, /Alternatives/);
+
+  const exactStart = dom.fetchUrls.length;
+  dom.setFetchResponses([{
+    object: "card",
+    name: "Lightning Bolt",
+    type_line: "Instant",
+    oracle_text: "Lightning Bolt deals 3 damage to any target.",
+    scryfall_uri: "https://scryfall.com/card/test/lightning-bolt",
+    set: "lea",
+    collector_number: "161"
+  }]);
+  window.setMode("ai");
+  input.value = "! Lightning Bolt";
+  await window.doSearch();
+  await waitForFetchCount(dom.fetchUrls, exactStart + 1);
+  lastUrl = latestFetchUrl(dom.fetchUrls);
+  assert.equal(lastUrl.origin + lastUrl.pathname, "https://api.scryfall.com/cards/named");
+  assert.equal(lastUrl.searchParams.get("fuzzy"), "Lightning Bolt");
+  assert.notEqual(lastUrl.origin + lastUrl.pathname, "https://api.scryfall.com/cards/search");
+  assert.equal(document.body.style.overflow, "hidden", "expected exact-name search to open the card modal");
+  window.copyQuery();
+  assert.equal(dom.getCopiedText(), "Lightning Bolt");
+  window.closeModal();
+
+  const builderStart = dom.fetchUrls.length;
+  window.setMode("builder");
+  window.resetBuilderFilters();
+  document.getElementById("bld-format").value = "modern";
+  document.getElementById("bld-format").onchange?.({ target: document.getElementById("bld-format") });
+  await window.doSearch();
+  await waitForFetchCount(dom.fetchUrls, builderStart + 1);
+  lastUrl = latestFetchUrl(dom.fetchUrls);
+  assert.equal(lastUrl.searchParams.get("q"), "f:modern");
+  assert.ok(document.getElementById("query-inspector").classList.contains("hidden"));
+
   let prevented = false;
   window.handleSearchInputKeydown({
     key: "Enter",
@@ -603,6 +647,12 @@ function installMazeDomHarness() {
   const documentStub = {
     body,
     createElement,
+    createTextNode(text) {
+      const node = createElement("#text");
+      node.nodeType = 3;
+      node.textContent = String(text ?? "");
+      return node;
+    },
     getElementById(id) {
       return elements.get(id) || null;
     },
@@ -699,6 +749,13 @@ function installMazeDomHarness() {
           return data;
         }
       };
+    },
+    configurable: true
+  });
+  Object.defineProperty(globalThis, "requestAnimationFrame", {
+    value: (handler) => {
+      handler();
+      return 1;
     },
     configurable: true
   });

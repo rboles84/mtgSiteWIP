@@ -16,11 +16,13 @@ This card is intentionally a sibling to VM-010 and VM-012, not a rename of eithe
 
 ## Current Slice
 
-The active VM-022 slice is contract lockdown on `feature/vm-022-maze-query-contract`:
+The active VM-022 slice is the `doSearch()` contract-adapter pass on `codex/vm-022-do-search-contract-adapter`:
 
-- Define `docs/contracts/maze-query-contract.md` before deeper extraction.
-- Add a first browser-safe query-core surface without changing fetch/cache/stash/modal behavior.
-- Preserve current generated query strings, Scryfall request metadata, rendered result behavior, and Archscry handoff storage semantics.
+- Have Maze's primary `doSearch()` path build a `MazeQueryRequest` and consume `resolveMazeQueryRequest()`.
+- Keep Scryfall fetch/cache/dedupe, exact-name modal flow, stash behavior, DOM rendering, route boot, and Archscry handoff storage outside the core.
+- Preserve current generated query strings, Scryfall request metadata, rendered result behavior, raw normalization, builder semantics, and exact-name behavior.
+
+The prior contract-lockdown slice established `docs/contracts/maze-query-contract.md`, the field inventory, the contract test matrix, and the first browser-safe query-core surface.
 
 ## Source
 

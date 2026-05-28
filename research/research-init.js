@@ -1,7 +1,7 @@
 ﻿import { loadDictionaryFromSeedUrl } from "./scryfall-dictionary.js";
-import { normalizeSortDirection, parseScryfallNaturalLanguage, setScryfallDictionary } from "./scryfall-parser.js";
+import { normalizeSortDirection, setScryfallDictionary } from "./scryfall-parser.js";
 import { buildVisualBuilderQuery, parseKeywordInput } from "./research-builder.js";
-import { applyMazeFormatToQuery, prepareRawSyntaxQuery } from "./maze-query-core.js";
+import { applyMazeFormatToQuery, resolveMazeQueryRequest } from "./maze-query-core.js";
 import { resolveModeInputValue } from "./research-mode.js";
 import * as ResearchSearch from "./research-search.js";
 import { buildScryfallWebSearchUrl, renderQueryInspector } from "./research-ui.js";
@@ -591,7 +591,7 @@ function bindSearchInputSelectOnFocus() {
 }
 
 /**
- * Runs the active search mode and routes Smart Search through the local parser.
+ * Runs the active search mode through the Maze query contract adapter.
  */
 async function doSearch() {
   const rawInput = normalizeSearchInputValue(document.getElementById("search-input")?.value || "");
@@ -602,24 +602,31 @@ async function doSearch() {
   displayPage = 0;
   allResults = [];
 
-  let query = rawInput;
-  let reason = "";
-  let parserResult = null;
-
   try {
-    if (currentMode === "ai") {
-      parserResult = parseScryfallNaturalLanguage(rawInput);
-      query = parserResult.query;
-      lastSmartInput = rawInput;
-      reason = parserResult.reason || "";
-      currentOrder = parserResult.api?.order || currentOrder;
-      currentUnique = parserResult.api?.unique || currentUnique;
-      currentDir = parserResult.api?.dir || currentDir;
+    const queryResult = resolveMazeQueryRequest(buildMazeQueryRequest(rawInput));
+    const query = queryResult.query;
+    const parserResult = queryResult.adapterDiagnostics || null;
+    const reason = currentMode === "builder" ? "" : queryResult.reason || "";
 
-      if (parserResult.mode === "exact_name") {
-        lastSmartQuery = query;
+    if (currentMode === "builder" && !query.trim()) {
+      showError("Add at least one filter before searching.");
+      setLoading(false);
+      return;
+    }
+
+    if (queryResult.api?.order) currentOrder = queryResult.api.order;
+    if (queryResult.api?.unique) currentUnique = queryResult.api.unique;
+    if (queryResult.api && Object.hasOwn(queryResult.api, "dir")) {
+      currentDir = normalizeSortDirection(queryResult.api.dir);
+    }
+
+    if (currentMode === "ai") {
+      lastSmartInput = rawInput;
+      lastSmartQuery = query;
+
+      if (queryResult.parserMode === "exact_name") {
         currentQuery = query;
-        currentSearchApi = parserResult.api || { endpoint: "/cards/search", unique: currentUnique, order: currentOrder };
+        currentSearchApi = queryResult.api || { endpoint: "/cards/search", unique: currentUnique, order: currentOrder };
         updateSearchActions(query, currentSearchApi);
         showQueryInspector(query, reason, parserResult, null, { inputValue: rawInput });
         const card = await ResearchSearch.scryfallExact(query);
@@ -632,41 +639,39 @@ async function doSearch() {
         openModal(card);
         return;
       }
-      const formatted = applySelectedFormatToQuery(query);
-      query = formatted.query;
-      lastSmartQuery = query;
-      if (formatted.changed) reason = appendReason(reason, `Applied ${formatLabel(formatted.format)} format.`);
-    } else if (currentMode === "builder") {
-      query = buildFilterQuery();
-      if (!query.trim()) {
-        showError("Add at least one filter before searching.");
-        setLoading(false);
-        return;
-      }
     } else if (currentMode === "raw") {
-      const prepared = prepareRawSyntaxQuery(rawInput);
-      query = prepared.query;
-      reason = prepared.reason;
-      parserResult = prepared.diagnostics;
-      const formatted = applySelectedFormatToQuery(query);
-      query = formatted.query;
-      if (formatted.changed) reason = appendReason(reason, `Applied ${formatLabel(formatted.format)} format.`);
-      if (prepared.changed || formatted.changed) document.getElementById("search-input").value = query;
+      if (queryResult.normalized) document.getElementById("search-input").value = query;
       if (query !== lastSmartQuery) lastSmartQuery = "";
     }
 
     await triggerSearch(query, {
       reason,
-      order: currentOrder,
+      api: queryResult.api,
       parserResult,
       inputValue: rawInput,
-      normalized: currentMode === "raw" && query !== rawInput
+      normalized: currentMode === "raw" && queryResult.normalized
     });
   } catch (error) {
     showError(`Search failed: ${error.message}`);
   }
 
   setLoading(false);
+}
+
+function buildMazeQueryRequest(rawInput) {
+  const request = {
+    mode: currentMode,
+    origin: "maze",
+    input: rawInput,
+    options: {
+      format: getActiveFormatFilter(),
+      order: currentOrder,
+      unique: currentUnique,
+      dir: currentDir
+    }
+  };
+  if (currentMode === "builder") request.builderFilters = bFilters;
+  return request;
 }
 
 /**
@@ -680,13 +685,14 @@ async function triggerSearch(query, opts = {}) {
     order = currentOrder,
     unique = currentUnique,
     dir = currentDir,
+    api = null,
     parserResult = null,
     inputValue = "",
     normalized = false
   } = opts;
-  const searchOrder = parserResult?.api?.order || order || "name";
-  const searchUnique = parserResult?.api?.unique || unique || "cards";
-  const searchDir = normalizeSortDirection(parserResult?.api?.dir || dir);
+  const searchOrder = parserResult?.api?.order || api?.order || order || "name";
+  const searchUnique = parserResult?.api?.unique || api?.unique || unique || "cards";
+  const searchDir = normalizeSortDirection(parserResult?.api?.dir || api?.dir || dir);
   const searchApi = { endpoint: "/cards/search", unique: searchUnique, order: searchOrder };
   if (searchDir) searchApi.dir = searchDir;
   currentQuery = query;
@@ -1136,10 +1142,6 @@ function applySelectedFormatToQuery(query, opts = {}) {
 function formatLabel(format) {
   if (!format) return "selected";
   return format.charAt(0).toUpperCase() + format.slice(1);
-}
-
-function appendReason(reason, addition) {
-  return [reason, addition].filter(Boolean).join(" ");
 }
 
 /**
