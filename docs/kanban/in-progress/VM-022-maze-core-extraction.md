@@ -16,13 +16,14 @@ This card is intentionally a sibling to VM-010 and VM-012, not a rename of eithe
 
 ## Current Slice
 
-The active VM-022 slice is the `doSearch()` contract-adapter pass on `codex/vm-022-do-search-contract-adapter`:
+The active VM-022 slice is the quick-search and route-seeded contract-adapter pass on `codex/vm-022-do-search-contract-adapter`:
 
-- Have Maze's primary `doSearch()` path build a `MazeQueryRequest` and consume `resolveMazeQueryRequest()`.
-- Keep Scryfall fetch/cache/dedupe, exact-name modal flow, stash behavior, DOM rendering, route boot, and Archscry handoff storage outside the core.
-- Preserve current generated query strings, Scryfall request metadata, rendered result behavior, raw normalization, builder semantics, and exact-name behavior.
+- Keep Maze's primary `doSearch()` path on the `MazeQueryRequest` / `resolveMazeQueryRequest()` adapter introduced in the prior slice.
+- Move `runQuickSearch()` and Archscry URL/handoff launches through the same adapter-local request resolver, with `origin` kept separate from `mode`.
+- Keep Scryfall fetch/cache/dedupe, exact-name modal flow, stash behavior, DOM rendering, route boot, Archscry handoff storage, sort changes, load-more, return banner behavior, and sidebar rendering outside the core.
+- Preserve current generated query strings, Scryfall request metadata, Query Inspector bridge metadata, rendered result behavior, raw normalization, builder semantics, exact-name behavior, and authored dossier/path Plain Reading text.
 
-The prior contract-lockdown slice established `docs/contracts/maze-query-contract.md`, the field inventory, the contract test matrix, and the first browser-safe query-core surface.
+The prior contract-lockdown slice established `docs/contracts/maze-query-contract.md`, the field inventory, the contract test matrix, and the first browser-safe query-core surface. The primary `doSearch()` adapter slice is committed as `e54a32d`.
 
 ## Source
 

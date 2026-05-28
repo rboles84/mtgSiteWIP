@@ -1,7 +1,7 @@
 ﻿import { loadDictionaryFromSeedUrl } from "./scryfall-dictionary.js";
 import { normalizeSortDirection, setScryfallDictionary } from "./scryfall-parser.js";
 import { buildVisualBuilderQuery, parseKeywordInput } from "./research-builder.js";
-import { applyMazeFormatToQuery, resolveMazeQueryRequest } from "./maze-query-core.js";
+import { resolveMazeQueryRequest } from "./maze-query-core.js";
 import { resolveModeInputValue } from "./research-mode.js";
 import * as ResearchSearch from "./research-search.js";
 import { buildScryfallWebSearchUrl, renderQueryInspector } from "./research-ui.js";
@@ -471,23 +471,43 @@ async function initializeResearchArchives() {
 
   const launch = resolveMazeLaunchState(urlParams, readArchscryMazeHandoff() || {});
   if (launch.from === "archscry" && launch.operatorQuery) {
+    const queryResult = resolveMazeRouteQuery(launch.operatorQuery, {
+      mode: "raw",
+      origin: "archscry",
+      order: urlParams.get("order") || currentOrder,
+      unique: urlParams.get("unique") || currentUnique,
+      dir: normalizeSortDirection(urlParams.get("dir")) || currentDir,
+      useFormatDefault: false,
+      launchContext: launch
+    });
     const input = document.getElementById("search-input");
     input.value = launch.plainReadingQuery || launch.operatorQuery;
     lastSmartInput = input.value;
-    lastSmartQuery = launch.operatorQuery;
+    lastSmartQuery = queryResult.query;
     setMode("ai");
-    triggerSearch(launch.operatorQuery, {
-      order: urlParams.get("order") || currentOrder,
-      unique: urlParams.get("unique") || currentUnique,
-      dir: normalizeSortDirection(urlParams.get("dir")) || currentDir
+    triggerSearch(queryResult.query, {
+      api: queryResult.api,
+      parserResult: queryResult.adapterDiagnostics || null,
+      inputValue: launch.plainReadingQuery || "",
+      normalized: queryResult.normalized
     });
   } else if (launch.urlQ) {
-    document.getElementById("search-input").value = launch.urlQ;
-    setMode("raw");
-    triggerSearch(launch.urlQ, {
+    const queryResult = resolveMazeRouteQuery(launch.urlQ, {
+      mode: "raw",
+      origin: launch.from === "archscry" ? "archscry" : "maze",
       order: urlParams.get("order") || currentOrder,
       unique: urlParams.get("unique") || currentUnique,
-      dir: normalizeSortDirection(urlParams.get("dir")) || currentDir
+      dir: normalizeSortDirection(urlParams.get("dir")) || currentDir,
+      useFormatDefault: false,
+      launchContext: launch
+    });
+    document.getElementById("search-input").value = launch.urlQ;
+    setMode("raw");
+    triggerSearch(queryResult.query, {
+      api: queryResult.api,
+      parserResult: queryResult.adapterDiagnostics || null,
+      inputValue: launch.urlQ,
+      normalized: queryResult.normalized
     });
   }
 }
@@ -603,7 +623,7 @@ async function doSearch() {
   allResults = [];
 
   try {
-    const queryResult = resolveMazeQueryRequest(buildMazeQueryRequest(rawInput));
+    const queryResult = resolveMazeRouteQuery(rawInput);
     const query = queryResult.query;
     const parserResult = queryResult.adapterDiagnostics || null;
     const reason = currentMode === "builder" ? "" : queryResult.reason || "";
@@ -658,20 +678,35 @@ async function doSearch() {
   setLoading(false);
 }
 
-function buildMazeQueryRequest(rawInput) {
+/**
+ * Builds and resolves a Maze contract request from route-local state.
+ * @param {string} input - User or prebuilt query input.
+ * @param {object} opts - Adapter-local request overrides.
+ * @returns {object} Resolved Maze query contract result.
+ */
+function resolveMazeRouteQuery(input, opts = {}) {
+  const mode = opts.mode || currentMode;
+  const useFormatDefault = opts.useFormatDefault !== false;
+  const format = Object.hasOwn(opts, "format")
+    ? opts.format
+    : useFormatDefault
+      ? getActiveFormatFilter()
+      : "";
   const request = {
-    mode: currentMode,
-    origin: "maze",
-    input: rawInput,
+    mode,
+    origin: opts.origin || "maze",
+    input,
     options: {
-      format: getActiveFormatFilter(),
-      order: currentOrder,
-      unique: currentUnique,
-      dir: currentDir
+      format,
+      order: opts.order || currentOrder,
+      unique: opts.unique || currentUnique,
+      dir: Object.hasOwn(opts, "dir") ? opts.dir : currentDir
     }
   };
-  if (currentMode === "builder") request.builderFilters = bFilters;
-  return request;
+  if (mode === "builder") request.builderFilters = opts.builderFilters || bFilters;
+  if (opts.launchContext) request.launchContext = opts.launchContext;
+  if (opts.placementContext) request.placementContext = opts.placementContext;
+  return resolveMazeQueryRequest(request);
 }
 
 /**
@@ -958,7 +993,7 @@ function openModal(card, opener = document.activeElement) {
     className: "m-btn m-btn-teal",
     text: "Find Similar",
     action: "quick-search",
-    dataset: { query: similarQ }
+    dataset: { query: similarQ, origin: "maze" }
   }));
   if (card.prices?.usd) {
     actions.appendChild(createLink({
@@ -1131,17 +1166,6 @@ function stripFormatFilter(query) {
 
 function getActiveFormatFilter() {
   return document.getElementById("sb-format")?.value || "";
-}
-
-function applySelectedFormatToQuery(query, opts = {}) {
-  const useFormatDefault = opts.useFormatDefault !== false;
-  const format = opts.format ?? (useFormatDefault ? getActiveFormatFilter() : "");
-  return applyMazeFormatToQuery(query, { format, useFormatDefault });
-}
-
-function formatLabel(format) {
-  if (!format) return "selected";
-  return format.charAt(0).toUpperCase() + format.slice(1);
 }
 
 /**
@@ -1382,7 +1406,7 @@ function buildQuickSearches() {
       className: "sb-btn",
       text: quickSearch.label,
       action: "quick-search",
-      dataset: { query: quickSearch.q }
+      dataset: { query: quickSearch.q, origin: "maze" }
     });
     const hint = document.createElement("span");
     hint.textContent = quickSearch.hint;
@@ -1403,7 +1427,7 @@ function buildDiscoveryPaths() {
       className: "sb-btn",
       text: path.label,
       action: "quick-search",
-      dataset: { query: path.q }
+      dataset: { query: path.q, origin: "maze" }
     });
     const hint = document.createElement("span");
     hint.textContent = path.hint;
@@ -1546,7 +1570,8 @@ function buildReadingPaths() {
       action: "quick-search",
       dataset: {
         query: path.q,
-        plainReadingQuery: path.plainReadingQuery
+        plainReadingQuery: path.plainReadingQuery,
+        origin: "path"
       }
     });
     const hint = document.createElement("span");
@@ -1681,7 +1706,7 @@ function buildColorGrid() {
       className: "color-sb-btn",
       text: color.c,
       action: "quick-search",
-      dataset: { query: color.q },
+      dataset: { query: color.q, origin: "maze" },
       title: color.label,
       ariaLabel: color.label
     }));
@@ -1694,30 +1719,37 @@ function buildColorGrid() {
  */
 function runQuickSearch(query, opts = {}) {
   currentMode = "raw";
-  const formatted = applySelectedFormatToQuery(query, {
-    useFormatDefault: opts.useFormatDefault !== false
+  const queryResult = resolveMazeRouteQuery(query, {
+    mode: "raw",
+    origin: opts.origin || "maze",
+    order: opts.order || "name",
+    unique: opts.unique || "cards",
+    dir: normalizeSortDirection(opts.dir),
+    useFormatDefault: opts.useFormatDefault !== false,
+    launchContext: opts.launchContext,
+    placementContext: opts.placementContext
   });
-  const finalQuery = formatted.query;
+  const finalQuery = queryResult.query;
+  const parserResult = queryResult.adapterDiagnostics || null;
   const plainReadingQuery = normalizeSearchInputValue(opts.plainReadingQuery || "");
   document.getElementById("search-input").value = finalQuery;
   selectAutoFilledInputOnFocus = true;
   lastSmartInput = plainReadingQuery;
   lastSmartQuery = plainReadingQuery ? finalQuery : "";
   setMode("raw");
-  currentOrder = opts.order || "name";
-  currentUnique = opts.unique || "cards";
-  currentDir = normalizeSortDirection(opts.dir);
+  currentOrder = queryResult.api?.order || opts.order || "name";
+  currentUnique = queryResult.api?.unique || opts.unique || "cards";
+  currentDir = normalizeSortDirection(queryResult.api?.dir || opts.dir);
   displayPage = 0;
   allResults = [];
   setLoading(true);
   clearError();
   triggerSearch(finalQuery, {
-    reason: formatted.changed ? `Applied ${formatLabel(formatted.format)} format.` : "",
-    order: currentOrder,
-    unique: currentUnique,
-    dir: currentDir,
+    reason: queryResult.reason || "",
+    api: queryResult.api,
+    parserResult,
     inputValue: query,
-    normalized: formatted.changed
+    normalized: queryResult.normalized
   })
     .catch((error) => showError(`Search failed: ${error.message}`))
     .finally(() => setLoading(false));
@@ -1786,7 +1818,7 @@ function addRecent(query) {
       className: "recent-item",
       text: recent.length > 40 ? `${recent.slice(0, 40)}...` : recent,
       action: "quick-search",
-      dataset: { query: recent },
+      dataset: { query: recent, origin: "maze" },
       title: recent
     }));
   });
@@ -2367,7 +2399,8 @@ function handleMazeActionClick(event) {
         order: actionNode.dataset.order || undefined,
         unique: actionNode.dataset.unique || undefined,
         dir: actionNode.dataset.dir || undefined,
-        plainReadingQuery: actionNode.dataset.plainReadingQuery || undefined
+        plainReadingQuery: actionNode.dataset.plainReadingQuery || undefined,
+        origin: actionNode.dataset.origin || "maze"
       });
       return;
     case "load-more":

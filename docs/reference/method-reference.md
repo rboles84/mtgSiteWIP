@@ -265,7 +265,7 @@ The rest of the file is top-level test code covering schema metadata, model/fact
 | 124 | `setMode(mode)` | Window | Switches Smart, raw, and builder modes. |
 | 168 | `syncInputForModeSwitch(input, previousMode, nextMode)` | Internal | Preserves or translates input across mode switches. |
 | 190 | `bindSearchInputSelectOnFocus()` | Internal | Selects auto-filled search text on focus. |
-| 208 | `doSearch()` | Window | Builds a Maze query request, consumes `resolveMazeQueryRequest()`, then routes exact-name and search execution through the route adapter. |
+| 208 | `doSearch()` | Window | Resolves the active Maze query through the adapter-local `MazeQueryRequest` helper, then routes exact-name and search execution through the route adapter. |
 | 271 | `triggerSearch(query, opts)` | Internal | Calls Scryfall search and renders first page. |
 | 300 | `loadMore()` | Window | Loads next client/server result page. |
 | 325 | `renderResults(append)` | Internal | Renders result grid and pagination state. |
@@ -284,7 +284,7 @@ The rest of the file is top-level test code covering schema metadata, model/fact
 | 546 | `toggleRarity(value, label)` | Window | Toggles builder rarity selection. |
 | 557 | `rebuildFromFilters()` | Window | Rebuilds search input from builder filters. |
 | 570 | `buildFilterQuery()` | Internal | Creates visual-builder query string. |
-| 579 | `resolveMazeQueryRequest(request)` | Export | Imported from `research/maze-query-core.js` so the primary search path resolves plain-reading, raw, exact-name, and builder requests through the contract. |
+| 579 | `resolveMazeQueryRequest(request)` | Export | Imported from `research/maze-query-core.js` so primary, quick-search, Query Inspector alternative, and route-seeded search paths resolve plain-reading, raw, exact-name, and builder requests through the contract. |
 | 661 | `showKwSuggestions(value)` | Window | Displays keyword autocomplete suggestions. |
 | 680 | `handleKwKey(event)` | Window | Handles keyword input key events. |
 | 692 | `addKeyword(keyword)` | Window | Adds a keyword filter. |
@@ -292,7 +292,7 @@ The rest of the file is top-level test code covering schema metadata, model/fact
 | 715 | `renderKwChips()` | Internal | Renders selected keyword chips. |
 | 724 | `buildQuickSearches()` | Internal | Renders canned quick-search buttons. |
 | 736 | `buildColorGrid()` | Internal | Renders color shortcut buttons. |
-| 747 | `runQuickSearch(query)` | Window | Executes a canned query. |
+| 747 | `runQuickSearch(query)` | Window | Resolves a canned/prebuilt raw query through the adapter-local `MazeQueryRequest` helper, then lets the route adapter execute and render it. |
 | 765 | `applyFormatFilter(format)` | Window | Adds/replaces format term in current query. |
 | 775 | `changeOrder(order)` | Window | Re-runs search with selected order. |
 | 784 | `addRecent(query)` | Internal | Adds query to recent-search list. |

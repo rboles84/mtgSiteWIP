@@ -74,6 +74,7 @@ assert.deepEqual(parseAlternativeApi("{bad json"), {});
 assert.equal(stripApiMetadataFromQuery("otag:board-wipe order:released direction:desc unique:prints"), "otag:board-wipe");
 
 await runMazeDomMetadataCases();
+await runMazeUrlBootCase();
 
 console.log("Maze search metadata helper cases passed.");
 
@@ -96,6 +97,16 @@ async function runMazeDomMetadataCases() {
     }
   }));
   await dom.dispatchWindowEvent("load");
+
+  await new Promise((resolve) => setTimeout(resolve, 0));
+  const launchUrl = dom.fetchUrls
+    .map((url) => new URL(url, "http://localhost"))
+    .find((url) => url.origin + url.pathname === "https://api.scryfall.com/cards/search" &&
+      /^id<=bg is:commander f:commander /.test(url.searchParams.get("q") || ""));
+  assert.ok(launchUrl, "expected Archscry launch to execute the operator query through Maze search");
+  assert.equal(document.body.dataset.mazeMode, "ai");
+  assert.match(launchUrl.searchParams.get("q"), /^id<=bg is:commander f:commander /);
+  assert.notEqual(launchUrl.searchParams.get("q"), "ignored");
 
   assert.equal(document.getElementById("discovery-path-list").children.length, 5);
   assert.equal(document.getElementById("quick-search-list").children.length, 12);
@@ -121,10 +132,14 @@ async function runMazeDomMetadataCases() {
   assert.match(commanderPath.dataset.query, /^id<=bg is:commander f:commander /);
   assert.match(commanderPath.dataset.plainReadingQuery, /Witherbloom College commander candidates/i);
   assert.doesNotMatch(commanderPath.dataset.plainReadingQuery, /\bRed\b/);
+  assert.equal(commanderPath.dataset.origin, "path");
   const supportPath = document.getElementById("reading-path-list").children[1];
   assert.match(supportPath.dataset.query, /^id<=bg f:commander -is:commander -t:land /);
   assert.match(supportPath.dataset.plainReadingQuery, /noncommander support cards/i);
   assert.match(supportPath.dataset.plainReadingQuery, /Witherbloom College/i);
+  assert.equal(document.getElementById("quick-search-list").children[0].dataset.origin, "maze");
+  assert.equal(document.getElementById("discovery-path-list").children[0].dataset.origin, "maze");
+  assert.equal(document.getElementById("color-grid").children[0].dataset.origin, "maze");
 
   const bootFetchCount = dom.fetchUrls.length;
   const boardWipeQuery = "otag:board-wipe f:commander";
@@ -231,6 +246,19 @@ async function runMazeDomMetadataCases() {
   lastUrl = latestFetchUrl(dom.fetchUrls);
   assert.equal(lastUrl.searchParams.get("q"), "c:u f:modern");
 
+  const explicitQuickFormatStart = dom.fetchUrls.length;
+  window.runQuickSearch("c:u f:modern");
+  await waitForFetchCount(dom.fetchUrls, explicitQuickFormatStart + 1);
+  lastUrl = latestFetchUrl(dom.fetchUrls);
+  assert.equal(lastUrl.searchParams.get("q"), "c:u f:modern");
+
+  const noStaleFormatStart = dom.fetchUrls.length;
+  document.getElementById("sb-format").value = "";
+  window.runQuickSearch("t:artifact");
+  await waitForFetchCount(dom.fetchUrls, noStaleFormatStart + 1);
+  lastUrl = latestFetchUrl(dom.fetchUrls);
+  assert.equal(lastUrl.searchParams.get("q"), "t:artifact");
+
   window.clearSearchInput();
   assert.equal(document.body.dataset.mazeMode, "raw");
   assert.equal(input.value, "");
@@ -291,8 +319,9 @@ async function runMazeDomMetadataCases() {
   document.getElementById("sb-format").value = "";
   window.setMode("raw");
   input.value = "c:r\nkw:haste";
+  const rawMultilineStart = dom.fetchUrls.length;
   await window.doSearch();
-  await waitForFetchCount(dom.fetchUrls, bootFetchCount + 8);
+  await waitForFetchCount(dom.fetchUrls, rawMultilineStart + 1);
   lastUrl = latestFetchUrl(dom.fetchUrls);
   assert.equal(lastUrl.searchParams.get("q"), "c:r kw:haste");
 
@@ -340,6 +369,13 @@ async function runMazeDomMetadataCases() {
   assert.equal(lastUrl.searchParams.get("q"), "f:modern");
   assert.ok(document.getElementById("query-inspector").classList.contains("hidden"));
 
+  const quickAfterBuilderStart = dom.fetchUrls.length;
+  document.getElementById("sb-format").value = "";
+  window.runQuickSearch("t:artifact", { useFormatDefault: false });
+  await waitForFetchCount(dom.fetchUrls, quickAfterBuilderStart + 1);
+  lastUrl = latestFetchUrl(dom.fetchUrls);
+  assert.equal(lastUrl.searchParams.get("q"), "t:artifact");
+
   let prevented = false;
   window.handleSearchInputKeydown({
     key: "Enter",
@@ -353,6 +389,7 @@ async function runMazeDomMetadataCases() {
   const dossierPathFetchStart = dom.fetchUrls.length;
   window.runQuickSearch(commanderPath.dataset.query, {
     plainReadingQuery: commanderPath.dataset.plainReadingQuery,
+    origin: commanderPath.dataset.origin,
     useFormatDefault: false
   });
   await waitForFetchCount(dom.fetchUrls, dossierPathFetchStart + 1);
@@ -398,6 +435,23 @@ async function runMazeDomMetadataCases() {
   await waitForFetchCount(dom.fetchUrls, remotePageStart + 2);
   assert.equal(dom.fetchUrls.at(-1), nextPageUrl);
   assert.equal(document.getElementById("card-grid").children.length, 34);
+}
+
+async function runMazeUrlBootCase() {
+  const dom = installMazeDomHarness();
+  await import("./research-init.js?url-boot");
+  window.location.search = "?q=c%3Ar%20AND%20t%3Acreature";
+  window.location.href = `http://localhost/maze/index.html${window.location.search}`;
+  await dom.dispatchWindowEvent("load");
+  await new Promise((resolve) => setTimeout(resolve, 0));
+
+  const searchUrl = dom.fetchUrls
+    .map((url) => new URL(url, "http://localhost"))
+    .find((url) => url.origin + url.pathname === "https://api.scryfall.com/cards/search");
+  assert.ok(searchUrl, "expected URL-seeded raw launch to execute a Scryfall search");
+  assert.equal(document.body.dataset.mazeMode, "raw");
+  assert.equal(document.getElementById("search-input").value, "c:r AND t:creature");
+  assert.equal(searchUrl.searchParams.get("q"), "c:r t:creature");
 }
 
 function makeTestCards(count, prefix) {
