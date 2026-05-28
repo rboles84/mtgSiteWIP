@@ -43,6 +43,7 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 ## Done
 
+- [VM-151 - Adjacent Dossier Maze Handoff Refresh](done/VM-151-adjacent-dossier-maze-handoff-refresh.md)
 - [VM-150 - Dossier Maze Path Differentiation](done/VM-150-dossier-maze-path-differentiation.md)
 - [VM-012 - Scryfall Parser Expansion and Diagnostics](done/VM-012-scryfall-parser-expansion-diagnostics.md)
 - [VM-149 - Identity Preview Registry Canonicalization](done/VM-149-identity-preview-registry-canonicalization.md)

@@ -1,5 +1,9 @@
 import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
+import {
+  buildArchscryMazeContext,
+  withArchscryMazeContext,
+} from "../assets/js/archscry-presentation.js";
 import { getDossierRadarProfile } from "../assets/js/dossier-radar.js";
 
 const indexSource = await readFile(new URL("../assets/js/index.js", import.meta.url), "utf8");
@@ -63,3 +67,34 @@ assert.deepEqual(
   ["B", "R"],
   "fallback profiles should preserve the viewed dossier color components"
 );
+
+const adjacentMazeContext = buildArchscryMazeContext({
+  result: {
+    faction: "R",
+    faction_name: "Red",
+    taken_at: "2026-05-27T10:00:00.000Z"
+  },
+  dossier: {
+    primaryFactionKey: "R",
+    targetFactionKey: "WITHERBLOOM",
+    faction: { name: "Witherbloom College" }
+  },
+  faction: { name: "Witherbloom College" }
+});
+assert.equal(adjacentMazeContext.guild, "R");
+assert.equal(adjacentMazeContext.fit, "WITHERBLOOM");
+assert.equal(adjacentMazeContext.factionName, "Witherbloom College");
+assert.match(adjacentMazeContext.returnUrl, /view=WITHERBLOOM/);
+
+const [adjacentMazeLink] = withArchscryMazeContext([{
+  service: "maze",
+  label: "commanders that fit",
+  pathType: "commanders-that-fit",
+  plainReadingQuery: "Witherbloom College commander candidates in black-green Commander identity",
+  operatorQuery: "id<=bg is:commander f:commander (o:sacrifice OR o:graveyard)",
+  url: "/maze/?q=id%3C%3Dbg%20is%3Acommander"
+}], adjacentMazeContext, "http://localhost/archscry/index.html");
+const adjacentMazeUrl = new URL(adjacentMazeLink.url, "http://localhost/archscry/index.html");
+assert.equal(adjacentMazeUrl.searchParams.get("fit"), "WITHERBLOOM");
+assert.equal(adjacentMazeUrl.searchParams.get("factionName"), "Witherbloom College");
+assert.equal(adjacentMazeUrl.searchParams.get("operatorQuery"), "id<=bg is:commander f:commander (o:sacrifice OR o:graveyard)");

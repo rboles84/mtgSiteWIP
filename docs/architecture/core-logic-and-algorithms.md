@@ -56,7 +56,7 @@ Flow:
 5. Quick path creates adaptive state, renders answer cards, applies selections, and finalizes.
 6. The Scrying Terminal remains behind a feature flag and is hidden by default.
 7. Result rendering switches between primary and adjacent fits, translates raw placement signals into a faction-native presenter layer, renders deck/source guidance, loads Scryfall card art, and exposes save actions.
-8. Maze links carry an Archscry handoff through query parameters and `localStorage` so Maze can show a return banner back to the originating dossier. Dossier paths are generated through the shared Maze handoff helper as four stable lanes: commander candidates, noncommander support, flavor/story echoes, and outside-color commander stretch. Each link includes a visible `plainReadingQuery`, executable `operatorQuery`, stable `pathType`, and return URL.
+8. Maze links carry an Archscry handoff through query parameters and `localStorage` so Maze can show a return banner back to the originating dossier. Dossier paths are generated through the shared Maze handoff helper as four stable lanes: commander candidates, noncommander support, flavor/story echoes, and outside-color commander stretch. Each link includes a visible `plainReadingQuery`, executable `operatorQuery`, stable `pathType`, active `fit`, faction name, and return URL.
 9. External Commander directory links use a presenter-layer alias router: Strixhaven colleges map through their guild/color pair analogs before building EDHREC or MTGDecks directory URLs.
 
 ## Scrying Terminal Backend
@@ -139,7 +139,7 @@ The Maze has three modes:
 
 The UI keeps mode state, filter state, search results, pagination, recent searches, keyword suggestions, query inspector content, and modal state in module-local variables. It exposes handlers for existing inline attributes after module load.
 
-When Maze opens from Archscry, it stays in Plain Reading and displays the authored `plainReadingQuery`, while executing the stored `operatorQuery` against live Scryfall search. `lastSmartInput` and `lastSmartQuery` are seeded from that handoff so mode switching and copy behavior preserve the human phrase in Plain Reading and raw syntax in Operator's Hand.
+When Maze opens from Archscry, it stays in Plain Reading and displays the authored `plainReadingQuery`, while executing the stored `operatorQuery` against live Scryfall search. `lastSmartInput` and `lastSmartQuery` are seeded from that handoff so mode switching and copy behavior preserve the human phrase in Plain Reading and raw syntax in Operator's Hand. The "From Your Dossier" sidebar treats the current handoff `fit` as the active view, so adjacent dossiers such as Witherbloom build BG sidebar paths even when the stored primary placement remains Red for Archscry return/restore behavior.
 
 Maze also has two discovery layers that do not replace search:
 

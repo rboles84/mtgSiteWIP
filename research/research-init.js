@@ -50,6 +50,28 @@ const ARCHSCRY_PATH_LABELS = {
   lands: "Lands",
   "win-conditions": "Win Conditions"
 };
+const DOSSIER_COLOR_IDENTITIES = new Map([
+  ["WHITE", "w"],
+  ["BLUE", "u"],
+  ["BLACK", "b"],
+  ["RED", "r"],
+  ["GREEN", "g"],
+  ["AZORIUS", "wu"],
+  ["DIMIR", "ub"],
+  ["RAKDOS", "br"],
+  ["GRUUL", "rg"],
+  ["SELESNYA", "wg"],
+  ["ORZHOV", "wb"],
+  ["IZZET", "ur"],
+  ["GOLGARI", "bg"],
+  ["SIMIC", "ug"],
+  ["BOROS", "wr"],
+  ["LOREHOLD", "wr"],
+  ["PRISMARI", "ur"],
+  ["QUANDRIX", "ug"],
+  ["SILVERQUILL", "wb"],
+  ["WITHERBLOOM", "bg"]
+]);
 const STASH_SECTIONS = [
   { id: "commander", label: "Commander Ideas", exportHeading: "Commander" },
   { id: "support", label: "Cards That Support This Shape", exportHeading: "Deck" },
@@ -123,14 +145,14 @@ const COLOR_LABELS = [
   { c: "WR", label: "Boros", q: "id<=wr" }
 ];
 
-const LEGACY_keywordVocabulary = [
+const LEGACY_KEYWORDS = [
   "cascade", "convoke", "cycling", "deathtouch", "defender", "double strike",
   "equip", "escape", "explore", "first strike", "flash", "flying", "haste",
   "hexproof", "indestructible", "investigate", "kicker", "landfall", "lifelink",
   "menace", "morph", "proliferate", "protection", "prowess", "reach", "scry",
   "shroud", "surveil", "trample", "vigilance", "ward"
 ].sort();
-let keywordVocabulary = [...LEGACY_keywordVocabulary];
+let keywordVocabulary = [...LEGACY_KEYWORDS];
 
 const TYPES = ["Creature", "Instant", "Sorcery", "Enchantment", "Artifact", "Planeswalker", "Land", "Battle"];
 const RARITIES = [{ v: "c", l: "Common" }, { v: "u", l: "Uncommon" }, { v: "r", l: "Rare" }, { v: "m", l: "Mythic" }];
@@ -359,12 +381,12 @@ async function initializeParserDictionary() {
 function setKeywordVocabulary(dictionary) {
   const derivedKeywords = getKeywordVocabularyFromDictionary(dictionary);
   const missingLegacy = dictionary
-    ? LEGACY_keywordVocabulary.filter((keyword) => !derivedKeywords.includes(keyword))
+    ? LEGACY_KEYWORDS.filter((keyword) => !derivedKeywords.includes(keyword))
     : [];
   if (missingLegacy.length) {
     console.warn(`Parser keyword vocabulary missing legacy suggestions: ${missingLegacy.join(", ")}`);
   }
-  keywordVocabulary = [...new Set([...derivedKeywords, ...LEGACY_keywordVocabulary])].sort((a, b) => a.localeCompare(b));
+  keywordVocabulary = [...new Set([...derivedKeywords, ...LEGACY_KEYWORDS])].sort((a, b) => a.localeCompare(b));
 }
 
 /**
@@ -1473,10 +1495,7 @@ function buildDiscoveryPaths() {
       className: "sb-btn",
       text: path.label,
       action: "quick-search",
-      dataset: {
-        query: path.q,
-        plainReadingQuery: path.plainReadingQuery
-      }
+      dataset: { query: path.q }
     });
     const hint = document.createElement("span");
     hint.textContent = path.hint;
@@ -1617,7 +1636,10 @@ function buildReadingPaths() {
       className: "sb-btn is-reading",
       text: path.label,
       action: "quick-search",
-      dataset: { query: path.q }
+      dataset: {
+        query: path.q,
+        plainReadingQuery: path.plainReadingQuery
+      }
     });
     const hint = document.createElement("span");
     hint.textContent = path.hint;
@@ -1627,6 +1649,10 @@ function buildReadingPaths() {
 }
 
 function getStoredPlacementResult() {
+  const handoff = readArchscryMazeHandoff();
+  const activeHandoffResult = activePlacementResultFromArchscryHandoff(handoff);
+  if (activeHandoffResult?.faction || activeHandoffResult?.mana_scores) return activeHandoffResult;
+
   const sessionResult = (typeof VM_SESSION !== "undefined" && VM_SESSION.profile?.placementResult) ||
     (typeof VM_SESSION !== "undefined" && VM_SESSION.interviewResult) ||
     null;
@@ -1638,7 +1664,6 @@ function getStoredPlacementResult() {
   }
 
   try {
-    const handoff = readArchscryMazeHandoff();
     if (handoff?.placementResult?.faction || handoff?.placementResult?.mana_scores) {
       return handoff.placementResult;
     }
@@ -1649,6 +1674,26 @@ function getStoredPlacementResult() {
   } catch (_) {
     return null;
   }
+}
+
+function activePlacementResultFromArchscryHandoff(handoff) {
+  if (!handoff || typeof handoff !== "object") return null;
+  const activeFaction = String(handoff.fit || handoff.guild || "").trim();
+  if (!activeFaction) return null;
+
+  const source = handoff.placementResult && typeof handoff.placementResult === "object"
+    ? handoff.placementResult
+    : {};
+  const activeKey = activeFaction.toUpperCase();
+  const activeName = String(handoff.factionName || source.faction_name || activeKey).trim() || activeKey;
+
+  return {
+    ...source,
+    faction: activeKey,
+    faction_name: activeName,
+    evidence_trail: Array.isArray(source.evidence_trail) ? source.evidence_trail : [],
+    decree: source.decree || handoff.readingTitle || ""
+  };
 }
 
 function createReadingPaths(result) {
@@ -1668,6 +1713,53 @@ function createReadingPaths(result) {
   }));
 }
 
+function colorIdentityFromPlacement(result) {
+  const faction = String(result?.faction || "").toUpperCase();
+  const keyIdentity = colorIdentityFromDossierKey(faction);
+  if (keyIdentity) return keyIdentity;
+
+  const scores = result?.mana_scores || result?.scores || {};
+  const ranked = ["W", "U", "B", "R", "G"]
+    .map((color) => ({ color, value: Number(scores[color] || 0) }))
+    .filter((entry) => entry.value > 0)
+    .sort((left, right) => right.value - left.value || sortManaSymbols(left.color, right.color));
+  return ranked.slice(0, 2).map((entry) => entry.color).sort(sortManaSymbols).join("").toLowerCase();
+}
+
+function colorIdentityFromDossierKey(key) {
+  const value = String(key || "").toUpperCase();
+  if (!value) return "";
+  if (/^[WUBRG]{1,5}$/.test(value)) {
+    return [...new Set(value.split(""))].sort(sortManaSymbols).join("").toLowerCase();
+  }
+  return DOSSIER_COLOR_IDENTITIES.get(value) || "";
+}
+
+function sortManaSymbols(left, right) {
+  return ["W", "U", "B", "R", "G"].indexOf(left) - ["W", "U", "B", "R", "G"].indexOf(right);
+}
+
+function readingSearchSignals(result) {
+  const text = [
+    result?.decree,
+    result?.faction_name,
+    ...(result?.evidence_trail || []).flatMap((entry) => [entry.signal, entry.answer_title, entry.prompt])
+  ].filter(Boolean).join(" ").toLowerCase();
+  const signals = [
+    { test: /graveyard|death|reclamation|recursion|rot|return/i, oracle: ["graveyard", "return target", "dies"], flavor: ["death", "grave", "again"] },
+    { test: /sacrifice|debt|drain|obligation|aristocrat/i, oracle: ["sacrifice", "each opponent loses", "dies"], flavor: ["debt", "blood", "price"] },
+    { test: /spell|experiment|expression|storm|instant|sorcery/i, oracle: ["instant or sorcery", "copy", "draw"], flavor: ["spark", "experiment", "flame"] },
+    { test: /community|communal|tokens|wide|harmony/i, oracle: ["create", "token", "creatures you control"], flavor: ["together", "conclave", "home"] },
+    { test: /order|law|procedure|control|rules/i, oracle: ["counter target", "exile target", "can't attack"], flavor: ["law", "judgment", "order"] },
+    { test: /secret|hidden|information|shadow|memory/i, oracle: ["surveil", "mill", "discard"], flavor: ["secret", "shadow", "memory"] },
+    { test: /growth|nature|adapt|counter|land/i, oracle: ["land", "+1/+1 counter", "search your library"], flavor: ["growth", "root", "wild"] }
+  ];
+  const matched = signals.filter((signal) => signal.test.test(text));
+  return {
+    oracle: [...new Set(matched.flatMap((signal) => signal.oracle))].slice(0, 5),
+    flavor: [...new Set(matched.flatMap((signal) => signal.flavor))].slice(0, 5)
+  };
+}
 
 /**
  * Renders color identity shortcut buttons in the sidebar.

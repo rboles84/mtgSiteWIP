@@ -81,8 +81,8 @@ async function runMazeDomMetadataCases() {
   const dom = installMazeDomHarness();
 
   await import("./research-init.js");
-  window.location.search = "";
-  window.location.href = "http://localhost/maze/index.html";
+  window.location.search = "?from=archscry&fit=WITHERBLOOM&factionName=Witherbloom%20College&readingId=red-reading&pathType=commanders-that-fit&plainReadingQuery=Witherbloom%20commander%20candidates%20in%20black-green%20Commander%20identity&operatorQuery=id%3C%3Dbg%20is%3Acommander%20f%3Acommander%20%28o%3Agraveyard%20OR%20o%3Asacrifice%29&returnUrl=..%2Farchscry%2Findex.html%3Ffrom%3Dmaze%26view%3DWITHERBLOOM%23maze-discovery-paths";
+  window.location.href = `http://localhost/maze/index.html${window.location.search}`;
   dom.setLocalStorageItem("vm_archscry_maze_handoff_v1", JSON.stringify({
     returnUrl: "../archscry/index.html",
     placementResult: {
@@ -104,17 +104,27 @@ async function runMazeDomMetadataCases() {
   assert.equal(document.getElementById("rarity-checks").children.length, 4);
   assert.equal(document.getElementById("reading-path-list").children.length, 4);
   assert.equal(document.body.dataset.mazeMode, "ai");
+  const storedActiveHandoff = JSON.parse(dom.getLocalStorageItem("vm_archscry_maze_handoff_v1"));
+  assert.equal(storedActiveHandoff.fit, "WITHERBLOOM");
+  assert.equal(storedActiveHandoff.factionName, "Witherbloom College");
+  assert.equal(
+    storedActiveHandoff.placementResult.faction,
+    "R",
+    "active Maze sidebar should not mutate the stored primary placement result"
+  );
   document.getElementById("kw-input").oninput?.({ target: { value: "tox" } });
   assert.ok(
     document.getElementById("kw-suggestions").children.some((node) => node.dataset.keyword === "toxic"),
     "expected Loom autocomplete to include dictionary-derived keyword suggestions"
   );
   const commanderPath = document.getElementById("reading-path-list").children[0];
-  assert.match(commanderPath.dataset.query, /^id<=r is:commander f:commander /);
-  assert.match(commanderPath.dataset.plainReadingQuery, /Red commander candidates/i);
+  assert.match(commanderPath.dataset.query, /^id<=bg is:commander f:commander /);
+  assert.match(commanderPath.dataset.plainReadingQuery, /Witherbloom College commander candidates/i);
+  assert.doesNotMatch(commanderPath.dataset.plainReadingQuery, /\bRed\b/);
   const supportPath = document.getElementById("reading-path-list").children[1];
-  assert.match(supportPath.dataset.query, /^id<=r f:commander -is:commander -t:land /);
+  assert.match(supportPath.dataset.query, /^id<=bg f:commander -is:commander -t:land /);
   assert.match(supportPath.dataset.plainReadingQuery, /noncommander support cards/i);
+  assert.match(supportPath.dataset.plainReadingQuery, /Witherbloom College/i);
 
   const bootFetchCount = dom.fetchUrls.length;
   const boardWipeQuery = "otag:board-wipe f:commander";

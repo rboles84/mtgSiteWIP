@@ -141,6 +141,16 @@
 4. Switch each opened path back to Plain Reading and confirm the visible text remains authored and human-readable rather than raw `id:`, `ci:`, `o:`, `ft:`, or `t:` syntax.
 5. Confirm the return banner still routes back to the originating dossier and no stash or modal behavior changed.
 
+## VM-151 Adjacent Dossier Maze handoff refresh
+
+1. Complete a Red primary placement and open Maze Discovery.
+2. Open each of the four Maze paths, switch between Plain Reading and Operator's Hand, and confirm the English and syntax are Red.
+3. Use the Maze return link to return to the Red dossier, then open Adjacent Fits.
+4. Open the second adjacent fit, such as Witherbloom, and open Maze Discovery from that adjacent dossier.
+5. Confirm the four Maze paths now use the active adjacent dossier. For Witherbloom, Plain Reading should name Witherbloom and Operator's Hand should use BG identity syntax such as `id<=bg`.
+6. In Maze's left rail, click From Your Dossier and confirm it also follows the active adjacent dossier instead of reverting to Red.
+7. Repeat with one other adjacent fit to confirm the sidebar follows the active dossier view, not the original primary placement.
+
 ## VM-129E Maze glass and sidebar disclosures
 
 1. Open `/maze/` and confirm the major panels are more transparent than VM-129D while the text remains readable.
