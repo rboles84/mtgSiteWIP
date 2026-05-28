@@ -22,7 +22,7 @@ Vox Mana is an unofficial Magic: The Gathering fan site that combines a themed s
 |---|---|---|
 | Static shells | `index.html`, `archscry/index.html`, `maze/index.html`, `apocrypha/index.html`, `strategium/index.html`, `library/index.html`, policy pages | Define route-specific DOM, preload assets, script entrypoints, and inline handler hooks. |
 | Shared visual system | `assets/css/tokens.css`, `assets/css/fonts.css`, `assets/css/layout.css`, `assets/css/animations.css`, `assets/css/topbar.css`, `assets/css/atmosphere.css`, `assets/css/components.css` | Site tokens, progressive OKLCH fallbacks, teal-only Display P3 accent overrides, a conservative fluid spacing/type pilot, a layered shared layout bridge, canonical imported live keyframes, shared font loading, topbar, atmospheric canvas, and reusable panels/buttons/chips/progress treatments. |
-| Home route | `assets/css/newindex2.css`, `assets/js/newindex2.js`, `index.html` | Canonical home shell styling and behavior extracted from the former preview-page inline CSS/JS while still reusing shared tokens, layout, topbar, and local `graph.js`. |
+| Home route | `assets/css/newindex2.css`, `assets/js/newindex2.js`, `index.html` | Canonical home shell styling and behavior extracted from the former preview-page inline CSS/JS while still reusing shared tokens, layout, topbar, local `graph.js`, `data/identity-layers.json` preview metadata, and `data/factions.json` lore notes. |
 | Archscry route shell | `assets/css/archscry.css`, `archscry/index.html` | Route-local Archscry shell, dossier, and responsive styles extracted from the former inline `archscry/index.html` CSS while still reusing shared tokens, layout, topbar, atmosphere, and shared components. |
 | Strategium route shell | `assets/css/strategium.css`, `assets/js/strategium.js`, `strategium/index.html` | Route-local Strategium shell styling and behavior extracted from the former inline `strategium/index.html` CSS/JS while preserving the Commander console, readiness checklist, archetype library, route-local atmosphere, and shared topbar/reduce-motion bridge. |
 | Apocrypha route shell | `assets/css/apocrypha.css`, `assets/js/apocrypha.js`, `apocrypha/index.html` | Route-local Apocrypha public reference library shell, rail, return dock, archive atmosphere, and hero/reference styling while preserving `/library/` as a compatibility alias. |
@@ -30,7 +30,7 @@ Vox Mana is an unofficial Magic: The Gathering fan site that combines a themed s
 | Site flags | `assets/js/site-flags.js` | Single checked-in switch that hides or reveals the archived terminal UI and browser guards. |
 | Research workspace | `research/*.js`, `maze/index.html`, `assets/css/maze.css` | Plain Reading, raw syntax, Visual Builder, Scryfall search/rendering, query-inspector translation bridge, reading-aware paths, Archscry return banners with dismissal persistence, helper/discovery/recent paths, no-results handling, deck scratchpad stash, and card modal UI. |
 | Scryfall card-expression indexes | `scripts/download-scryfall-bulk.mjs`, `scripts/build-scryfall-indexes.mjs`, `data/scryfall/indexes/*.json`, `data/taxonomy/vox-mana-tags.json` | Ignored local oracle bulk data, lightweight derived indexes, categorized tags, Commander candidates, and flavor echo samples. |
-| Identity layer catalog | `data/identity-layers.json`, `data/identity-layers.schema.json` | Canonical mono-aware identity data for colors, expressions, routing aliases, and shared dossier language. |
+| Identity layer catalog | `data/identity-layers.json`, `data/identity-layers.schema.json` | Canonical mono-aware identity data for colors, expressions, routing aliases, Home preview metadata, and shared dossier language. |
 | External command panel | `C:\dev\projectFiles\voxmana-tools` | Runs allowlisted commands, reads external Apocrypha manifest data, and tracks panel state outside the site repo. |
 | Backend interview | `supabase/functions/guild-recruiter/index.ts` | Deno edge function retained for the archived terminal path and future deterministic replacement work. |
 
@@ -66,8 +66,8 @@ Vox Mana is an unofficial Magic: The Gathering fan site that combines a themed s
 | `data/placement-model.json` | External faction artifact builder | Quick adaptive placement engine. |
 | `data/placement-model.schema.json` | External faction artifact builder | Contract check for generated placement model shape. |
 | `supabase/functions/guild-recruiter/faction-context.ts` | External faction artifact builder | Edge function prompt context. |
-| `data/identity-layers.json` | Hand-authored identity catalog | Mono-aware routing, shared color language, and generated layered identity metadata. |
-| `data/identity-layers.schema.json` | Hand-authored schema | Contract check for the identity catalog. |
+| `data/identity-layers.json` | Hand-authored identity catalog | Mono-aware routing, shared color language, Home preview registry metadata, and generated layered identity metadata. |
+| `data/identity-layers.schema.json` | Hand-authored schema | Contract check for the identity catalog and preview-eligible expression metadata. |
 | `data/precons/vox-mana-precons.source.json` | Hand-authored curated precon catalog with explicit `factionRefs`, validated 3-6 mechanic tags, and required nullable `creatureTypeFocus` | Precon artifact builder input. |
 | `data/precons/vox-mana-precons.source.schema.json` | Hand-authored schema | Contract check for the precon source catalog. |
 | `data/precons/reference/vox_mana_precon_mechanics_validation_all_155_completed.xlsx` | Reference/staging workbook | Node-only VM-139 import input; never browser runtime data. |

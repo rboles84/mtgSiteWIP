@@ -42,6 +42,12 @@ const placementModel = JSON.parse(
 const placementSchema = JSON.parse(
   await readFile(new URL("../../data/placement-model.schema.json", import.meta.url), "utf8")
 );
+const identityLayers = JSON.parse(
+  await readFile(new URL("../../data/identity-layers.json", import.meta.url), "utf8")
+);
+const identityLayerSchema = JSON.parse(
+  await readFile(new URL("../../data/identity-layers.schema.json", import.meta.url), "utf8")
+);
 const deckTagData = JSON.parse(
   await readFile(new URL("../../data/deck-tags_expanded.json", import.meta.url), "utf8")
 );
@@ -62,6 +68,39 @@ const MONO_BOUNDARY_TARGETS = Object.freeze({
   R: ["WR", "UR", "BR", "RG"],
   G: ["WG", "UG", "BG", "RG"],
 });
+const INSTITUTION_TYPES = Object.freeze([
+  "guild",
+  "college",
+  "color",
+  "shard",
+  "wedge",
+  "four_color",
+  "five_color",
+  "colorless",
+]);
+const PREVIEW_SCORE_KEYS = Object.freeze(["order", "knowledge", "ambition", "freedom", "growth"]);
+const EXPECTED_PREVIEW_ORDER = Object.freeze([
+  "W",
+  "U",
+  "B",
+  "R",
+  "G",
+  "WU",
+  "UB",
+  "BR",
+  "RG",
+  "WG",
+  "WB",
+  "UR",
+  "BG",
+  "WR",
+  "UG",
+  "SILVERQUILL",
+  "PRISMARI",
+  "WITHERBLOOM",
+  "LOREHOLD",
+  "QUANDRIX",
+]);
 
 function normalizeTaxonomyMatchText(value) {
   return String(value || "")
@@ -196,7 +235,7 @@ function assertValidPlacement(placement) {
   assert.equal(placement.model_version, placementModel._meta.model_version);
   assert.ok(factionKeys.includes(placement.faction), `Unknown faction ${placement.faction}`);
   assert.equal(placement.faction_name, factions[placement.faction].name);
-  assert.match(placement.institution_type, /^(guild|college|color)$/);
+  assert.ok(INSTITUTION_TYPES.includes(placement.institution_type), `Unexpected institution type ${placement.institution_type}`);
   assert.ok(placement.world, "Placement should include world.");
   assert.ok(placement.decree.length > 80, "Placement should include a meaningful decree.");
   assert.ok(placement.confidence >= 0 && placement.confidence <= 1);
@@ -229,11 +268,67 @@ function assertValidPlacement(placement) {
   });
 }
 
+function assertIdentityPreviewRegistryContract() {
+  const expressionSchema = identityLayerSchema.properties.expressions.additionalProperties;
+  const institutionEnum = identityLayerSchema.$defs.institutionType.enum;
+  const previewScoreSchema = identityLayerSchema.$defs.previewScores;
+  const previewThenRequired = expressionSchema.allOf
+    .find((entry) => entry.if?.properties?.preview_eligible?.const === true)
+    ?.then?.required || [];
+
+  assert.deepEqual(institutionEnum, INSTITUTION_TYPES);
+  assert.ok(!institutionEnum.includes("family"), "identity institution enum should not include family yet");
+  ["display_code", "aliases", "placement_eligible", "preview_eligible"].forEach((field) => {
+    assert.ok(expressionSchema.required.includes(field), `identity expression schema should require ${field}`);
+  });
+  ["preview_order", "preview_label", "preview_title", "preview_text", "preview_hex", "preview_scores"].forEach((field) => {
+    assert.ok(previewThenRequired.includes(field), `preview-eligible expressions should require ${field}`);
+  });
+  assert.deepEqual(previewScoreSchema.required, PREVIEW_SCORE_KEYS);
+
+  const previewEntries = Object.entries(identityLayers.expressions)
+    .filter(([, expression]) => expression.preview_eligible === true)
+    .sort((left, right) => left[1].preview_order - right[1].preview_order);
+  assert.deepEqual(previewEntries.map(([key]) => key), EXPECTED_PREVIEW_ORDER);
+
+  const seenOrders = new Set();
+  previewEntries.forEach(([key, expression], index) => {
+    assert.equal(expression.key, key);
+    assert.equal(expression.placement_eligible, true, `${key} should stay placement eligible`);
+    assert.equal(expression.preview_order, index, `${key} should preserve Home preview order`);
+    assert.ok(!seenOrders.has(expression.preview_order), `${key} has duplicate preview order`);
+    seenOrders.add(expression.preview_order);
+    assert.ok(expression.display_code, `${key} should expose a display code`);
+    assert.ok(Array.isArray(expression.aliases) && expression.aliases.length >= 1, `${key} should expose aliases`);
+    assert.ok(expression.aliases.includes(key), `${key} aliases should include canonical key`);
+    assert.ok(expression.preview_label, `${key} should expose preview label`);
+    assert.ok(expression.preview_title, `${key} should expose preview title`);
+    assert.ok(expression.preview_text, `${key} should expose preview text`);
+    assert.match(expression.preview_hex, /^#[0-9a-fA-F]{6}$/, `${key} should expose a preview hex`);
+
+    PREVIEW_SCORE_KEYS.forEach((scoreKey) => {
+      const value = expression.preview_scores?.[scoreKey];
+      assert.equal(typeof value, "number", `${key} preview score ${scoreKey} should be numeric`);
+      assert.ok(value >= 0 && value <= 100, `${key} preview score ${scoreKey} should stay in radar range`);
+    });
+    assert.deepEqual(Object.keys(expression.preview_scores), PREVIEW_SCORE_KEYS, `${key} preview scores should follow Home axis order`);
+  });
+
+  assert.equal(identityLayers.expressions.WG.display_code, "GW");
+  assert.ok(identityLayers.expressions.WG.aliases.includes("GW"));
+  assert.equal(identityLayers.expressions.UG.display_code, "GU");
+  assert.ok(identityLayers.expressions.UG.aliases.includes("GU"));
+  assert.equal(identityLayers.expressions.WR.display_code, "RW");
+  assert.ok(identityLayers.expressions.WR.aliases.includes("RW"));
+  assert.ok(identityLayers.expressions.WR.aliases.includes("boros"));
+}
+
 assert.equal(placementSchema.title, "Vox Mana Adaptive Placement Model");
 assert.equal(placementModel._meta.model_version, "vox-mana-adaptive-placement-v1");
 assert.equal(placementModel._meta.faction_count, modelFactionKeys.length);
 assert.equal(factionKeys.length, modelFactionKeys.length);
 assert.deepEqual(modelFactionKeys.sort(), factionKeys.slice().sort());
+assertIdentityPreviewRegistryContract();
 
 const tagValidation = validateDeckTagData(deckTagData);
 assert.deepEqual(tagValidation.errors, []);
@@ -358,6 +453,15 @@ assert.equal(redAlias.colorIdentity, "R");
 const greenAlias = getExternalDeckRoutingAlias(factions.G);
 assert.equal(greenAlias.guild, "mono-green");
 assert.equal(greenAlias.colorIdentity, "G");
+
+const borosStringAliases = ["boros", "RW", "WR"].map((alias) => getExternalDeckRoutingAlias(alias));
+borosStringAliases.forEach((alias) => {
+  assert.equal(alias.guild, "boros");
+  assert.equal(alias.colorIdentity, "WR");
+});
+const whiteStringAlias = getExternalDeckRoutingAlias("W");
+assert.equal(whiteStringAlias.guild, "mono-white");
+assert.equal(whiteStringAlias.colorIdentity, "W");
 
 const collegeDirectoryCases = [
   [factions.PRISMARI, "https://edhrec.com/commanders/izzet", "https://mtgdecks.net/Commander/izzet-commanders"],

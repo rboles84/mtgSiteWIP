@@ -25,11 +25,11 @@ const PRECON_CODE_TO_COLOR = new Map([
   ["C", "Colorless"],
 ]);
 const COLOR_IDENTITY_SLUGS = new Map([
-  ["W", "white"],
-  ["U", "blue"],
-  ["B", "black"],
-  ["R", "red"],
-  ["G", "green"],
+  ["W", "mono-white"],
+  ["U", "mono-blue"],
+  ["B", "mono-black"],
+  ["R", "mono-red"],
+  ["G", "mono-green"],
   ["WU", "azorius"],
   ["UB", "dimir"],
   ["BR", "rakdos"],
@@ -44,46 +44,30 @@ const COLOR_IDENTITY_SLUGS = new Map([
   ["WR", "boros"],
 ]);
 
-const EXTERNAL_ROUTING_ALIASES = new Map([
-  ["W", { guild: "white", colorIdentity: "W", label: "White" }],
-  ["WHITE", { guild: "white", colorIdentity: "W", label: "White" }],
-  ["U", { guild: "blue", colorIdentity: "U", label: "Blue" }],
-  ["BLUE", { guild: "blue", colorIdentity: "U", label: "Blue" }],
-  ["B", { guild: "black", colorIdentity: "B", label: "Black" }],
-  ["BLACK", { guild: "black", colorIdentity: "B", label: "Black" }],
-  ["R", { guild: "red", colorIdentity: "R", label: "Red" }],
-  ["RED", { guild: "red", colorIdentity: "R", label: "Red" }],
-  ["G", { guild: "green", colorIdentity: "G", label: "Green" }],
-  ["GREEN", { guild: "green", colorIdentity: "G", label: "Green" }],
-  ["WU", { guild: "azorius", colorIdentity: "WU", label: "Azorius" }],
-  ["AZORIUS", { guild: "azorius", colorIdentity: "WU", label: "Azorius" }],
-  ["UB", { guild: "dimir", colorIdentity: "UB", label: "Dimir" }],
-  ["DIMIR", { guild: "dimir", colorIdentity: "UB", label: "Dimir" }],
-  ["BR", { guild: "rakdos", colorIdentity: "BR", label: "Rakdos" }],
-  ["RAKDOS", { guild: "rakdos", colorIdentity: "BR", label: "Rakdos" }],
-  ["RG", { guild: "gruul", colorIdentity: "RG", label: "Gruul" }],
-  ["GRUUL", { guild: "gruul", colorIdentity: "RG", label: "Gruul" }],
-  ["WG", { guild: "selesnya", colorIdentity: "WG", label: "Selesnya" }],
-  ["GW", { guild: "selesnya", colorIdentity: "WG", label: "Selesnya" }],
-  ["SELESNYA", { guild: "selesnya", colorIdentity: "WG", label: "Selesnya" }],
-  ["WB", { guild: "orzhov", colorIdentity: "WB", label: "Orzhov" }],
-  ["ORZHOV", { guild: "orzhov", colorIdentity: "WB", label: "Orzhov" }],
-  ["UR", { guild: "izzet", colorIdentity: "UR", label: "Izzet" }],
-  ["IZZET", { guild: "izzet", colorIdentity: "UR", label: "Izzet" }],
-  ["BG", { guild: "golgari", colorIdentity: "BG", label: "Golgari" }],
-  ["GOLGARI", { guild: "golgari", colorIdentity: "BG", label: "Golgari" }],
-  ["UG", { guild: "simic", colorIdentity: "UG", label: "Simic" }],
-  ["GU", { guild: "simic", colorIdentity: "UG", label: "Simic" }],
-  ["SIMIC", { guild: "simic", colorIdentity: "UG", label: "Simic" }],
-  ["WR", { guild: "boros", colorIdentity: "WR", label: "Boros" }],
-  ["RW", { guild: "boros", colorIdentity: "WR", label: "Boros" }],
-  ["BOROS", { guild: "boros", colorIdentity: "WR", label: "Boros" }],
-  ["LOREHOLD", { guild: "boros", colorIdentity: "WR", label: "Boros" }],
-  ["PRISMARI", { guild: "izzet", colorIdentity: "UR", label: "Izzet" }],
-  ["QUANDRIX", { guild: "simic", colorIdentity: "UG", label: "Simic" }],
-  ["SILVERQUILL", { guild: "orzhov", colorIdentity: "WB", label: "Orzhov" }],
-  ["WITHERBLOOM", { guild: "golgari", colorIdentity: "BG", label: "Golgari" }],
-]);
+const EXTERNAL_ROUTING_FALLBACKS = [
+  { aliases: ["W", "WHITE"], guild: "mono-white", colorIdentity: "W", label: "White" },
+  { aliases: ["U", "BLUE"], guild: "mono-blue", colorIdentity: "U", label: "Blue" },
+  { aliases: ["B", "BLACK"], guild: "mono-black", colorIdentity: "B", label: "Black" },
+  { aliases: ["R", "RED"], guild: "mono-red", colorIdentity: "R", label: "Red" },
+  { aliases: ["G", "GREEN"], guild: "mono-green", colorIdentity: "G", label: "Green" },
+  { aliases: ["WU", "AZORIUS"], guild: "azorius", colorIdentity: "WU", label: "Azorius" },
+  { aliases: ["UB", "DIMIR"], guild: "dimir", colorIdentity: "UB", label: "Dimir" },
+  { aliases: ["BR", "RAKDOS"], guild: "rakdos", colorIdentity: "BR", label: "Rakdos" },
+  { aliases: ["RG", "GRUUL"], guild: "gruul", colorIdentity: "RG", label: "Gruul" },
+  { aliases: ["WG", "GW", "SELESNYA"], guild: "selesnya", colorIdentity: "WG", label: "Selesnya" },
+  { aliases: ["WB", "ORZHOV", "SILVERQUILL"], guild: "orzhov", colorIdentity: "WB", label: "Orzhov" },
+  { aliases: ["UR", "IZZET", "PRISMARI"], guild: "izzet", colorIdentity: "UR", label: "Izzet" },
+  { aliases: ["BG", "GOLGARI", "WITHERBLOOM"], guild: "golgari", colorIdentity: "BG", label: "Golgari" },
+  { aliases: ["UG", "GU", "SIMIC", "QUANDRIX"], guild: "simic", colorIdentity: "UG", label: "Simic" },
+  { aliases: ["WR", "RW", "BOROS", "LOREHOLD"], guild: "boros", colorIdentity: "WR", label: "Boros" },
+];
+
+// Temporary string-only fallback until dossier routing receives the registry alias index directly.
+const EXTERNAL_ROUTING_ALIASES = new Map(
+  EXTERNAL_ROUTING_FALLBACKS.flatMap(({ aliases, ...routing }) =>
+    aliases.map((alias) => [alias, routing])
+  )
+);
 
 export const SERVICE_CHIP_META = {
   archidekt: {
@@ -1343,7 +1327,14 @@ export function getExternalDeckRoutingAlias(source) {
   const keyCandidates = [];
   let routedIdentity = null;
   if (source && typeof source === "object" && !Array.isArray(source)) {
-    keyCandidates.push(source.key, source.name, source.research_links?.edhrec_slug);
+    keyCandidates.push(
+      source.key,
+      source.name,
+      source.identity?.expression_key,
+      source.identity?.routing?.label,
+      source.research_links?.edhrec_slug,
+      ...(source.aliases || [])
+    );
     routedIdentity = source.identity?.routing || source.layered_identity?.routing || null;
   } else {
     keyCandidates.push(source);

@@ -1,11 +1,11 @@
 {
   "_meta": {
-    "version": "2026-05-17",
-    "source": "Vox Mana mono identity layer pilot",
+    "version": "2026-05-27",
+    "source": "Vox Mana identity layer registry",
     "notes": [
       "Color entries define foundational identity language.",
-      "Expression entries define routing and blend metadata.",
-      "White and Black are active mono expressions in this phase."
+      "Expression entries define routing, blend metadata, placement eligibility, and Home preview metadata.",
+      "The current preview set covers five mono colors, ten Ravnica guilds, and five Strixhaven colleges."
     ]
   },
   "colors": {
@@ -538,6 +538,25 @@
             "ask": "Is the first responsibility to build a structure that lasts, or to intervene before the next blow lands?"
           }
         ]
+      },
+      "display_code": "W",
+      "aliases": [
+        "W",
+        "White"
+      ],
+      "placement_eligible": true,
+      "preview_eligible": true,
+      "preview_order": 0,
+      "preview_label": "White",
+      "preview_title": "White \u2014 Peace through Order",
+      "preview_text": "White values structure, protection, community, duty, and shared stability. It asks how life can be made safer through order.",
+      "preview_hex": "#f7f0d0",
+      "preview_scores": {
+        "order": 96,
+        "knowledge": 42,
+        "ambition": 24,
+        "freedom": 30,
+        "growth": 58
       }
     },
     "WU": {
@@ -557,7 +576,26 @@
         "mtgdecks_slug": "azorius",
         "label": "Azorius"
       },
-      "identity_blend": "White structure sharpened by Blue procedure."
+      "identity_blend": "White structure sharpened by Blue procedure.",
+      "display_code": "WU",
+      "aliases": [
+        "WU",
+        "azorius"
+      ],
+      "placement_eligible": true,
+      "preview_eligible": true,
+      "preview_order": 5,
+      "preview_label": "Azorius",
+      "preview_title": "Azorius \u2014 Law through Knowledge",
+      "preview_text": "Azorius blends White order with Blue planning. It seeks peace through systems, procedure, control, and carefully managed improvement.",
+      "preview_hex": "#a8d9f5",
+      "preview_scores": {
+        "order": 82,
+        "knowledge": 78,
+        "ambition": 28,
+        "freedom": 26,
+        "growth": 54
+      }
     },
     "UB": {
       "key": "UB",
@@ -576,7 +614,26 @@
         "mtgdecks_slug": "dimir",
         "label": "Dimir"
       },
-      "identity_blend": "Blue patience weaponized by Black leverage."
+      "identity_blend": "Blue patience weaponized by Black leverage.",
+      "display_code": "UB",
+      "aliases": [
+        "UB",
+        "dimir"
+      ],
+      "placement_eligible": true,
+      "preview_eligible": true,
+      "preview_order": 6,
+      "preview_label": "Dimir",
+      "preview_title": "Dimir \u2014 Secrets through Control",
+      "preview_text": "Dimir blends Blue knowledge with Black ambition. It favors hidden information, memory, leverage, deception, and quiet control.",
+      "preview_hex": "#7f93f2",
+      "preview_scores": {
+        "order": 34,
+        "knowledge": 86,
+        "ambition": 76,
+        "freedom": 48,
+        "growth": 46
+      }
     },
     "BR": {
       "key": "BR",
@@ -595,7 +652,26 @@
         "mtgdecks_slug": "rakdos",
         "label": "Rakdos"
       },
-      "identity_blend": "Black appetite turned public through Red spectacle."
+      "identity_blend": "Black appetite turned public through Red spectacle.",
+      "display_code": "BR",
+      "aliases": [
+        "BR",
+        "rakdos"
+      ],
+      "placement_eligible": true,
+      "preview_eligible": true,
+      "preview_order": 7,
+      "preview_label": "Rakdos",
+      "preview_title": "Rakdos \u2014 Appetite through Expression",
+      "preview_text": "Rakdos blends Black ambition with Red freedom. It turns desire, spectacle, indulgence, danger, and provocation into identity.",
+      "preview_hex": "#d86e9a",
+      "preview_scores": {
+        "order": 32,
+        "knowledge": 48,
+        "ambition": 84,
+        "freedom": 88,
+        "growth": 48
+      }
     },
     "RG": {
       "key": "RG",
@@ -614,7 +690,26 @@
         "mtgdecks_slug": "gruul",
         "label": "Gruul"
       },
-      "identity_blend": "Red force returned to Green instinct and wild refusal."
+      "identity_blend": "Red force returned to Green instinct and wild refusal.",
+      "display_code": "RG",
+      "aliases": [
+        "RG",
+        "gruul"
+      ],
+      "placement_eligible": true,
+      "preview_eligible": true,
+      "preview_order": 8,
+      "preview_label": "Gruul",
+      "preview_title": "Gruul \u2014 Instinct through Action",
+      "preview_text": "Gruul blends Red freedom with Green instinct. It values impulse, survival, body-truth, terrain, revolt, and the wild beyond civilization.",
+      "preview_hex": "#c7a96a",
+      "preview_scores": {
+        "order": 44,
+        "knowledge": 38,
+        "ambition": 48,
+        "freedom": 86,
+        "growth": 84
+      }
     },
     "WG": {
       "key": "WG",
@@ -633,7 +728,27 @@
         "mtgdecks_slug": "selesnya",
         "label": "Selesnya"
       },
-      "identity_blend": "White protection rooted in Green belonging and communal growth."
+      "identity_blend": "White protection rooted in Green belonging and communal growth.",
+      "display_code": "GW",
+      "aliases": [
+        "WG",
+        "GW",
+        "selesnya"
+      ],
+      "placement_eligible": true,
+      "preview_eligible": true,
+      "preview_order": 9,
+      "preview_label": "Selesnya",
+      "preview_title": "Selesnya \u2014 Harmony through Belonging",
+      "preview_text": "Selesnya blends Green growth with White order. It seeks harmony, stewardship, collective purpose, shared life, and belonging.",
+      "preview_hex": "#cde9a4",
+      "preview_scores": {
+        "order": 86,
+        "knowledge": 44,
+        "ambition": 30,
+        "freedom": 42,
+        "growth": 84
+      }
     },
     "WB": {
       "key": "WB",
@@ -652,7 +767,26 @@
         "mtgdecks_slug": "orzhov",
         "label": "Orzhov"
       },
-      "identity_blend": "White structure hardened into Black obligation and collected debt."
+      "identity_blend": "White structure hardened into Black obligation and collected debt.",
+      "display_code": "WB",
+      "aliases": [
+        "WB",
+        "orzhov"
+      ],
+      "placement_eligible": true,
+      "preview_eligible": true,
+      "preview_order": 10,
+      "preview_label": "Orzhov",
+      "preview_title": "Orzhov \u2014 Obligation through Power",
+      "preview_text": "Orzhov blends White structure with Black ambition. It frames duty, debt, hierarchy, devotion, sacrifice, and power as binding systems.",
+      "preview_hex": "#d3aedc",
+      "preview_scores": {
+        "order": 78,
+        "knowledge": 48,
+        "ambition": 78,
+        "freedom": 42,
+        "growth": 50
+      }
     },
     "UR": {
       "key": "UR",
@@ -671,7 +805,26 @@
         "mtgdecks_slug": "izzet",
         "label": "Izzet"
       },
-      "identity_blend": "Blue curiosity accelerated by Red experimentation."
+      "identity_blend": "Blue curiosity accelerated by Red experimentation.",
+      "display_code": "UR",
+      "aliases": [
+        "UR",
+        "izzet"
+      ],
+      "placement_eligible": true,
+      "preview_eligible": true,
+      "preview_order": 11,
+      "preview_label": "Izzet",
+      "preview_title": "Izzet \u2014 Discovery through Impulse",
+      "preview_text": "Izzet blends Blue knowledge with Red freedom. It favors experiment, inspiration, volatility, invention, and sudden impossible insight.",
+      "preview_hex": "#88a9d6",
+      "preview_scores": {
+        "order": 36,
+        "knowledge": 86,
+        "ambition": 46,
+        "freedom": 82,
+        "growth": 54
+      }
     },
     "BG": {
       "key": "BG",
@@ -690,7 +843,26 @@
         "mtgdecks_slug": "golgari",
         "label": "Golgari"
       },
-      "identity_blend": "Black survival stabilized by Green cycles of decay and renewal."
+      "identity_blend": "Black survival stabilized by Green cycles of decay and renewal.",
+      "display_code": "BG",
+      "aliases": [
+        "BG",
+        "golgari"
+      ],
+      "placement_eligible": true,
+      "preview_eligible": true,
+      "preview_order": 12,
+      "preview_label": "Golgari",
+      "preview_title": "Golgari \u2014 Survival through Recursion",
+      "preview_text": "Golgari blends Black ambition with Green growth. It sees decay, hunger, grave-soil, renewal, inevitability, and survival as one cycle.",
+      "preview_hex": "#84b68b",
+      "preview_scores": {
+        "order": 42,
+        "knowledge": 52,
+        "ambition": 82,
+        "freedom": 58,
+        "growth": 82
+      }
     },
     "UG": {
       "key": "UG",
@@ -709,7 +881,27 @@
         "mtgdecks_slug": "simic",
         "label": "Simic"
       },
-      "identity_blend": "Blue improvement grown through Green adaptation."
+      "identity_blend": "Blue improvement grown through Green adaptation.",
+      "display_code": "GU",
+      "aliases": [
+        "UG",
+        "GU",
+        "simic"
+      ],
+      "placement_eligible": true,
+      "preview_eligible": true,
+      "preview_order": 14,
+      "preview_label": "Simic",
+      "preview_title": "Simic \u2014 Adaptation through Knowledge",
+      "preview_text": "Simic blends Green growth with Blue knowledge. It values mutation, research, guided evolution, optimization, and becoming.",
+      "preview_hex": "#67d8c5",
+      "preview_scores": {
+        "order": 52,
+        "knowledge": 84,
+        "ambition": 38,
+        "freedom": 46,
+        "growth": 88
+      }
     },
     "WR": {
       "key": "WR",
@@ -728,7 +920,27 @@
         "mtgdecks_slug": "boros",
         "label": "Boros"
       },
-      "identity_blend": "White duty carried into action by Red conviction."
+      "identity_blend": "White duty carried into action by Red conviction.",
+      "display_code": "RW",
+      "aliases": [
+        "WR",
+        "RW",
+        "boros"
+      ],
+      "placement_eligible": true,
+      "preview_eligible": true,
+      "preview_order": 13,
+      "preview_label": "Boros",
+      "preview_title": "Boros \u2014 Conviction through Action",
+      "preview_text": "Boros blends Red freedom with White order. It channels courage, discipline, justice, coordinated force, and immediate moral action.",
+      "preview_hex": "#efad84",
+      "preview_scores": {
+        "order": 84,
+        "knowledge": 38,
+        "ambition": 46,
+        "freedom": 82,
+        "growth": 62
+      }
     },
     "LOREHOLD": {
       "key": "LOREHOLD",
@@ -748,7 +960,25 @@
         "label": "Boros"
       },
       "core_tension": "Does history belong to order or to chaos? To careful systematic analysis or dangerous fieldwork? The college needs both traditions. Every student must choose - and then watch the choice shape everything afterward.",
-      "identity_blend": "White duty and Red action turned toward memory, history, and excavation."
+      "identity_blend": "White duty and Red action turned toward memory, history, and excavation.",
+      "display_code": "RW",
+      "aliases": [
+        "LOREHOLD"
+      ],
+      "placement_eligible": true,
+      "preview_eligible": true,
+      "preview_order": 18,
+      "preview_label": "Lorehold",
+      "preview_title": "Lorehold \u2014 History through Action",
+      "preview_text": "Lorehold overlays Red freedom and White order through history, artifacts, memory, rhetoric, spirits, and action through legacy.",
+      "preview_hex": "#ffce84",
+      "preview_scores": {
+        "order": 78,
+        "knowledge": 48,
+        "ambition": 42,
+        "freedom": 82,
+        "growth": 64
+      }
     },
     "PRISMARI": {
       "key": "PRISMARI",
@@ -768,7 +998,25 @@
         "label": "Izzet"
       },
       "core_tension": "Does mastery of the medium precede authentic expression, or does authentic expression make technique meaningful? Both traditions are right. The tension between them is where the actual art lives.",
-      "identity_blend": "Blue spellcraft widened into Red performance and spectacle."
+      "identity_blend": "Blue spellcraft widened into Red performance and spectacle.",
+      "display_code": "UR",
+      "aliases": [
+        "PRISMARI"
+      ],
+      "placement_eligible": true,
+      "preview_eligible": true,
+      "preview_order": 16,
+      "preview_label": "Prismari",
+      "preview_title": "Prismari \u2014 Art through Volatility",
+      "preview_text": "Prismari overlays Blue knowledge and Red freedom through elemental art, spectacle, inspiration, creativity, and expressive mastery.",
+      "preview_hex": "#8bd0ff",
+      "preview_scores": {
+        "order": 34,
+        "knowledge": 78,
+        "ambition": 42,
+        "freedom": 88,
+        "growth": 58
+      }
     },
     "QUANDRIX": {
       "key": "QUANDRIX",
@@ -788,7 +1036,25 @@
         "label": "Simic"
       },
       "core_tension": "Does math exist in the world, or in the mind? Are equations forces of nature waiting to be discovered, or frameworks constructed by minds? The College's most honest answer is that Esix exists and they're not entirely sure why.",
-      "identity_blend": "Blue abstraction rooted in Green growth and scale."
+      "identity_blend": "Blue abstraction rooted in Green growth and scale.",
+      "display_code": "GU",
+      "aliases": [
+        "QUANDRIX"
+      ],
+      "placement_eligible": true,
+      "preview_eligible": true,
+      "preview_order": 19,
+      "preview_label": "Quandrix",
+      "preview_title": "Quandrix \u2014 Pattern through Growth",
+      "preview_text": "Quandrix overlays Green growth and Blue knowledge through mathematics, pattern, scale, nature as equation, and impossible geometry.",
+      "preview_hex": "#78e6ca",
+      "preview_scores": {
+        "order": 48,
+        "knowledge": 88,
+        "ambition": 34,
+        "freedom": 46,
+        "growth": 84
+      }
     },
     "SILVERQUILL": {
       "key": "SILVERQUILL",
@@ -808,7 +1074,25 @@
         "label": "Orzhov"
       },
       "core_tension": "Is eloquence a tool of service or self-advancement? The Radiance tradition holds that language is most powerful when it uplifts. The Shadow tradition holds that language flows toward individual power and pretending otherwise is the most dishonest thing a Silverquill mage can do. Both are right. The tension is the curriculum.",
-      "identity_blend": "White standards articulated through Black pressure, rhetoric, and status."
+      "identity_blend": "White standards articulated through Black pressure, rhetoric, and status.",
+      "display_code": "WB",
+      "aliases": [
+        "SILVERQUILL"
+      ],
+      "placement_eligible": true,
+      "preview_eligible": true,
+      "preview_order": 15,
+      "preview_label": "Silverquill",
+      "preview_title": "Silverquill \u2014 Language through Pressure",
+      "preview_text": "Silverquill overlays White structure and Black ambition through rhetoric, charisma, status, moral pressure, sharp critique, and words as weapons.",
+      "preview_hex": "#efe2ff",
+      "preview_scores": {
+        "order": 82,
+        "knowledge": 54,
+        "ambition": 74,
+        "freedom": 52,
+        "growth": 42
+      }
     },
     "WITHERBLOOM": {
       "key": "WITHERBLOOM",
@@ -828,7 +1112,25 @@
         "label": "Golgari"
       },
       "core_tension": "Is life sacred because it creates and nourishes, or productive precisely because it ends? Both Lisette and Valentin are right about different aspects of the same process. Witherbloom students learn to hold both simultaneously.",
-      "identity_blend": "Black appetite and Green cycle studied through vitality, biology, and exchange."
+      "identity_blend": "Black appetite and Green cycle studied through vitality, biology, and exchange.",
+      "display_code": "BG",
+      "aliases": [
+        "WITHERBLOOM"
+      ],
+      "placement_eligible": true,
+      "preview_eligible": true,
+      "preview_order": 17,
+      "preview_label": "Witherbloom",
+      "preview_title": "Witherbloom \u2014 Life through Exchange",
+      "preview_text": "Witherbloom overlays Black ambition and Green growth through life-death craft, medicine, decay, nourishment, pests, and resource exchange.",
+      "preview_hex": "#9bd36d",
+      "preview_scores": {
+        "order": 38,
+        "knowledge": 46,
+        "ambition": 78,
+        "freedom": 58,
+        "growth": 88
+      }
     },
     "U": {
       "key": "U",
@@ -1207,6 +1509,25 @@
             "ask": "Is the first change to the plan, tool, and model, or to the organism that must survive the future?"
           }
         ]
+      },
+      "display_code": "U",
+      "aliases": [
+        "U",
+        "Blue"
+      ],
+      "placement_eligible": true,
+      "preview_eligible": true,
+      "preview_order": 1,
+      "preview_label": "Blue",
+      "preview_title": "Blue \u2014 Perfection through Knowledge",
+      "preview_text": "Blue values learning, patience, improvement, planning, and possibility. It asks what life could become with enough understanding.",
+      "preview_hex": "#58b8ff",
+      "preview_scores": {
+        "order": 38,
+        "knowledge": 98,
+        "ambition": 36,
+        "freedom": 34,
+        "growth": 54
       }
     },
     "B": {
@@ -1583,6 +1904,25 @@
             "ask": "Would you rather own the leverage privately, or bind it into an obligation no one can escape?"
           }
         ]
+      },
+      "display_code": "B",
+      "aliases": [
+        "B",
+        "Black"
+      ],
+      "placement_eligible": true,
+      "preview_eligible": true,
+      "preview_order": 2,
+      "preview_label": "Black",
+      "preview_title": "Black \u2014 Power through Opportunity",
+      "preview_text": "Black values ambition, self-definition, pragmatism, and survival. It asks what you are willing to do to claim agency.",
+      "preview_hex": "#230a41",
+      "preview_scores": {
+        "order": 30,
+        "knowledge": 56,
+        "ambition": 98,
+        "freedom": 62,
+        "growth": 42
       }
     },
     "R": {
@@ -1961,6 +2301,25 @@
             "ask": "Is the impulse true because you feel it now, or because the wild body and its kin already know the path?"
           }
         ]
+      },
+      "display_code": "R",
+      "aliases": [
+        "R",
+        "Red"
+      ],
+      "placement_eligible": true,
+      "preview_eligible": true,
+      "preview_order": 3,
+      "preview_label": "Red",
+      "preview_title": "Red \u2014 Freedom through Action",
+      "preview_text": "Red values emotion, impulse, authenticity, passion, and expression. It asks what is true when you stop pretending.",
+      "preview_hex": "#ff6b55",
+      "preview_scores": {
+        "order": 36,
+        "knowledge": 34,
+        "ambition": 58,
+        "freedom": 98,
+        "growth": 62
       }
     },
     "G": {
@@ -2344,6 +2703,25 @@
             "ask": "Does instinct ask you to root and grow, or to break the constraint that cages the wild body?"
           }
         ]
+      },
+      "display_code": "G",
+      "aliases": [
+        "G",
+        "Green"
+      ],
+      "placement_eligible": true,
+      "preview_eligible": true,
+      "preview_order": 4,
+      "preview_label": "Green",
+      "preview_title": "Green \u2014 Growth through Acceptance",
+      "preview_text": "Green values nature, instinct, tradition, interdependence, and belonging. It asks what you already are beneath the noise.",
+      "preview_hex": "#63e58d",
+      "preview_scores": {
+        "order": 62,
+        "knowledge": 48,
+        "ambition": 38,
+        "freedom": 58,
+        "growth": 98
       }
     }
   }

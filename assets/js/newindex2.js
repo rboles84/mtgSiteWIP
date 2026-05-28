@@ -7,237 +7,6 @@
               });
             })();
 
-// SINGLE-COLOR PROFILE DATA: Source data for W/U/B/R/G, including title, descriptive text, chart color, and five axis scores. Preview the color system colors.
-const colorProfiles = {
-  W: {
-    key: "W",
-    name: "White",
-    title: "White — Peace through Order",
-    text: "White values structure, protection, community, duty, and shared stability. It asks how life can be made safer through order.",
-    hex: "#f7f0d0",
-    data: [96, 42, 24, 30, 58]
-  },
-  U: {
-    key: "U",
-    name: "Blue",
-    title: "Blue — Perfection through Knowledge",
-    text: "Blue values learning, patience, improvement, planning, and possibility. It asks what life could become with enough understanding.",
-    hex: "#58b8ff",
-    data: [38, 98, 36, 34, 54]
-  },
-  B: {
-    key: "B",
-    name: "Black",
-    title: "Black — Power through Opportunity",
-    text: "Black values ambition, self-definition, pragmatism, and survival. It asks what you are willing to do to claim agency.",
-    hex: "#230a41",
-    data: [30, 56, 98, 62, 42]
-  },
-  R: {
-    key: "R",
-    name: "Red",
-    title: "Red — Freedom through Action",
-    text: "Red values emotion, impulse, authenticity, passion, and expression. It asks what is true when you stop pretending.",
-    hex: "#ff6b55",
-    data: [36, 34, 58, 98, 62]
-  },
-  G: {
-    key: "G",
-    name: "Green",
-    title: "Green — Growth through Acceptance",
-    text: "Green values nature, instinct, tradition, interdependence, and belonging. It asks what you already are beneath the noise.",
-    hex: "#63e58d",
-    data: [62, 48, 38, 58, 98]
-  }
-};
-
-// IDENTITY DATASET: Combined list of selectable profiles. It starts with mono colors, then adds guilds and colleges.
-const identities = [
-  ...Object.values(colorProfiles).map(color => ({
-    id: color.key,
-    type: "mono",
-    group: "mono",
-    code: color.key,
-    name: color.name,
-    title: color.title,
-    text: color.text,
-    components: [color.key],
-    data: color.data,
-    hex: color.hex
-  })),
-
-  // Two-Color - Allied Guilds
-  {
-    id: "azorius",
-    group: "allied",
-    code: "WU",
-    name: "Azorius",
-    title: "Azorius — Law through Knowledge",
-    text: "Azorius blends White order with Blue planning. It seeks peace through systems, procedure, control, and carefully managed improvement.",
-    components: ["W", "U"],
-    data: [82, 78, 28, 26, 54],
-    hex: "#a8d9f5"
-  },
-  {
-    id: "dimir",
-    group: "allied",
-    code: "UB",
-    name: "Dimir",
-    title: "Dimir — Secrets through Control",
-    text: "Dimir blends Blue knowledge with Black ambition. It favors hidden information, memory, leverage, deception, and quiet control.",
-    components: ["U", "B"],
-    data: [34, 86, 76, 48, 46],
-    hex: "#7f93f2"
-  },
-  {
-    id: "rakdos",
-    group: "allied",
-    code: "BR",
-    name: "Rakdos",
-    title: "Rakdos — Appetite through Expression",
-    text: "Rakdos blends Black ambition with Red freedom. It turns desire, spectacle, indulgence, danger, and provocation into identity.",
-    components: ["B", "R"],
-    data: [32, 48, 84, 88, 48],
-    hex: "#d86e9a"
-  },
-  {
-    id: "gruul",
-    group: "allied",
-    code: "RG",
-    name: "Gruul",
-    title: "Gruul — Instinct through Action",
-    text: "Gruul blends Red freedom with Green instinct. It values impulse, survival, body-truth, terrain, revolt, and the wild beyond civilization.",
-    components: ["R", "G"],
-    data: [44, 38, 48, 86, 84],
-    hex: "#c7a96a"
-  },
-  {
-    id: "selesnya",
-    group: "allied",
-    code: "GW",
-    name: "Selesnya",
-    title: "Selesnya — Harmony through Belonging",
-    text: "Selesnya blends Green growth with White order. It seeks harmony, stewardship, collective purpose, shared life, and belonging.",
-    components: ["G", "W"],
-    data: [86, 44, 30, 42, 84],
-    hex: "#cde9a4"
-  },
-
-  // Two-Color - Enemy Guilds
-  {
-    id: "orzhov",
-    group: "enemy",
-    code: "WB",
-    name: "Orzhov",
-    title: "Orzhov — Obligation through Power",
-    text: "Orzhov blends White structure with Black ambition. It frames duty, debt, hierarchy, devotion, sacrifice, and power as binding systems.",
-    components: ["W", "B"],
-    data: [78, 48, 78, 42, 50],
-    hex: "#d3aedc"
-  },
-  {
-    id: "izzet",
-    group: "enemy",
-    code: "UR",
-    name: "Izzet",
-    title: "Izzet — Discovery through Impulse",
-    text: "Izzet blends Blue knowledge with Red freedom. It favors experiment, inspiration, volatility, invention, and sudden impossible insight.",
-    components: ["U", "R"],
-    data: [36, 86, 46, 82, 54],
-    hex: "#88a9d6"
-  },
-  {
-    id: "golgari",
-    group: "enemy",
-    code: "BG",
-    name: "Golgari",
-    title: "Golgari — Survival through Recursion",
-    text: "Golgari blends Black ambition with Green growth. It sees decay, hunger, grave-soil, renewal, inevitability, and survival as one cycle.",
-    components: ["B", "G"],
-    data: [42, 52, 82, 58, 82],
-    hex: "#84b68b"
-  },
-  {
-    id: "boros",
-    group: "enemy",
-    code: "RW",
-    name: "Boros",
-    title: "Boros — Conviction through Action",
-    text: "Boros blends Red freedom with White order. It channels courage, discipline, justice, coordinated force, and immediate moral action.",
-    components: ["R", "W"],
-    data: [84, 38, 46, 82, 62],
-    hex: "#efad84"
-  },
-  {
-    id: "simic",
-    group: "enemy",
-    code: "GU",
-    name: "Simic",
-    title: "Simic — Adaptation through Knowledge",
-    text: "Simic blends Green growth with Blue knowledge. It values mutation, research, guided evolution, optimization, and becoming.",
-    components: ["G", "U"],
-    data: [52, 84, 38, 46, 88],
-    hex: "#67d8c5"
-  },
-
-  // Two-Color - Strixhaven Colleges
-  {
-    id: "silverquill",
-    group: "strixhaven",
-    code: "WB",
-    name: "Silverquill",
-    title: "Silverquill — Language through Pressure",
-    text: "Silverquill overlays White structure and Black ambition through rhetoric, charisma, status, moral pressure, sharp critique, and words as weapons.",
-    components: ["W", "B"],
-    data: [82, 54, 74, 52, 42],
-    hex: "#efe2ff"
-  },
-  {
-    id: "prismari",
-    group: "strixhaven",
-    code: "UR",
-    name: "Prismari",
-    title: "Prismari — Art through Volatility",
-    text: "Prismari overlays Blue knowledge and Red freedom through elemental art, spectacle, inspiration, creativity, and expressive mastery.",
-    components: ["U", "R"],
-    data: [34, 78, 42, 88, 58],
-    hex: "#8bd0ff"
-  },
-  {
-    id: "witherbloom",
-    group: "strixhaven",
-    code: "BG",
-    name: "Witherbloom",
-    title: "Witherbloom — Life through Exchange",
-    text: "Witherbloom overlays Black ambition and Green growth through life-death craft, medicine, decay, nourishment, pests, and resource exchange.",
-    components: ["B", "G"],
-    data: [38, 46, 78, 58, 88],
-    hex: "#9bd36d"
-  },
-  {
-    id: "lorehold",
-    group: "strixhaven",
-    code: "RW",
-    name: "Lorehold",
-    title: "Lorehold — History through Action",
-    text: "Lorehold overlays Red freedom and White order through history, artifacts, memory, rhetoric, spirits, and action through legacy.",
-    components: ["R", "W"],
-    data: [78, 48, 42, 82, 64],
-    hex: "#ffce84"
-  },
-  {
-    id: "quandrix",
-    group: "strixhaven",
-    code: "GU",
-    name: "Quandrix",
-    title: "Quandrix — Pattern through Growth",
-    text: "Quandrix overlays Green growth and Blue knowledge through mathematics, pattern, scale, nature as equation, and impossible geometry.",
-    components: ["G", "U"],
-    data: [48, 88, 34, 46, 84],
-    hex: "#78e6ca"
-  }
-];
-
 // RADAR AXES: Labels used both by the radar chart and the horizontal score list.
 const axisLabels = ["Order", "Knowledge", "Ambition", "Freedom", "Growth"];
 
@@ -292,9 +61,167 @@ function radialFill(chart, hexes) {
   return gradient;
 }
 
-// IDENTITY LOOKUP: Finds the selected identity by id/key from the identities array.
+const heroManaPreviewUrl = "./data/identity-layers.json";
+const heroManaPreviewScoreKeys = ["order", "knowledge", "ambition", "freedom", "growth"];
+const heroManaColorNames = {
+  W: "White",
+  U: "Blue",
+  B: "Black",
+  R: "Red",
+  G: "Green"
+};
+let heroManaPreviewIdentities = [];
+let heroManaPreviewAliases = new Map();
+let heroManaColorProfiles = new Map();
+let heroManaPreviewRequest = null;
+
+function normalizeHeroManaAlias(value) {
+  return String(value || "")
+    .trim()
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "");
+}
+
+function uniqueHeroManaAliases(values) {
+  const seen = new Set();
+  const aliases = [];
+  values.forEach(value => {
+    const alias = String(value || "").trim();
+    const normalized = normalizeHeroManaAlias(alias);
+    if (!alias || seen.has(normalized)) return;
+    seen.add(normalized);
+    aliases.push(alias);
+  });
+  return aliases;
+}
+
+function heroManaPreviewKindLabel(kind) {
+  switch (String(kind || "").toLowerCase()) {
+    case "color":
+      return "Color";
+    case "college":
+      return "College";
+    case "guild":
+      return "Guild";
+    case "shard":
+      return "Shard";
+    case "wedge":
+      return "Wedge";
+    case "four_color":
+      return "Four-color";
+    case "five_color":
+      return "Five-color";
+    case "colorless":
+      return "Colorless";
+    default:
+      return "Signal";
+  }
+}
+
+function buildHeroManaPreviewIdentity(key, expression) {
+  const canonicalComponents = Array.isArray(expression.colors) ? expression.colors.slice() : [];
+  const displayComponents = String(expression.display_code || "")
+    .toUpperCase()
+    .split("")
+    .filter(component => heroManaColorNames[component]);
+  const aliases = uniqueHeroManaAliases([
+    key,
+    expression.display_code,
+    expression.preview_label,
+    expression.name,
+    ...(expression.aliases || [])
+  ]);
+
+  return {
+    id: key,
+    key,
+    kind: expression.kind,
+    code: expression.display_code || key,
+    name: expression.preview_label || expression.name || key,
+    title: expression.preview_title || expression.preview_label || key,
+    text: expression.preview_text || expression.identity_blend || "",
+    components: displayComponents.length === canonicalComponents.length ? displayComponents : canonicalComponents,
+    data: heroManaPreviewScoreKeys.map(scoreKey => Number(expression.preview_scores?.[scoreKey]) || 0),
+    hex: expression.preview_hex || "#ffffff",
+    aliases,
+    previewOrder: Number(expression.preview_order) || 0
+  };
+}
+
+function indexHeroManaPreviewIdentities(identities) {
+  heroManaPreviewIdentities = identities;
+  heroManaPreviewAliases = new Map();
+  heroManaColorProfiles = new Map();
+
+  identities.forEach(identity => {
+    if (identity.kind === "color" && identity.components.length === 1) {
+      heroManaColorProfiles.set(identity.components[0], identity);
+    }
+
+    uniqueHeroManaAliases([
+      identity.id,
+      identity.key,
+      identity.code,
+      identity.name,
+      ...(identity.aliases || [])
+    ]).forEach(alias => {
+      const normalized = normalizeHeroManaAlias(alias);
+      if (normalized && !heroManaPreviewAliases.has(normalized)) {
+        heroManaPreviewAliases.set(normalized, identity);
+      }
+    });
+  });
+}
+
+function loadHeroManaPreviewRegistry() {
+  if (heroManaPreviewIdentities.length) return Promise.resolve(heroManaPreviewIdentities);
+  if (heroManaPreviewRequest) return heroManaPreviewRequest;
+
+  heroManaPreviewRequest = fetch(heroManaPreviewUrl)
+    .then(response => response.ok ? response.json() : Promise.reject(new Error("Identity preview registry unavailable")))
+    .then(data => {
+      const identities = Object.entries(data?.expressions || {})
+        .filter(([, expression]) => expression?.preview_eligible === true)
+        .map(([key, expression]) => buildHeroManaPreviewIdentity(key, expression))
+        .sort((left, right) => left.previewOrder - right.previewOrder || left.name.localeCompare(right.name));
+      indexHeroManaPreviewIdentities(identities);
+      return identities;
+    })
+    .catch(() => {
+      indexHeroManaPreviewIdentities([]);
+      return [];
+    });
+
+  return heroManaPreviewRequest;
+}
+
+function heroManaComponentProfile(componentKey) {
+  const key = String(componentKey || "").toUpperCase();
+  return heroManaColorProfiles.get(key) || {
+    key,
+    name: heroManaColorNames[key] || key,
+    data: [0, 0, 0, 0, 0],
+    hex: "#ffffff"
+  };
+}
+
+function heroManaIdentityMatches(identity, value) {
+  const normalized = normalizeHeroManaAlias(value);
+  if (!identity || !normalized) return false;
+  return uniqueHeroManaAliases([
+    identity.id,
+    identity.key,
+    identity.code,
+    identity.name,
+    ...(identity.aliases || [])
+  ]).some(alias => normalizeHeroManaAlias(alias) === normalized);
+}
+
 function findIdentity(id) {
-  return identities.find(identity => identity.id === id || identity.key === id);
+  const normalized = normalizeHeroManaAlias(id);
+  return heroManaPreviewAliases.get(normalized) ||
+    heroManaCycleIdentities.find(identity => heroManaIdentityMatches(identity, id)) ||
+    null;
 }
 
 // HERO MANA PREVIEW: Small, independent radar preview for the homepage hero.
@@ -315,31 +242,9 @@ let heroManaLoreRequest = null;
 const heroManaCycleMs = 4800;
 const heroManaBlackDisplayHex = "#a46bea";
 const heroManaLoreUrl = "./data/factions.json";
-const heroManaLoreKeys = {
-  W: "W",
-  U: "U",
-  B: "B",
-  R: "R",
-  G: "G",
-  azorius: "WU",
-  dimir: "UB",
-  rakdos: "BR",
-  gruul: "RG",
-  selesnya: "WG",
-  orzhov: "WB",
-  izzet: "UR",
-  golgari: "BG",
-  boros: "WR",
-  simic: "UG",
-  lorehold: "LOREHOLD",
-  prismari: "PRISMARI",
-  witherbloom: "WITHERBLOOM",
-  quandrix: "QUANDRIX",
-  silverquill: "SILVERQUILL"
-};
 
 function heroManaComponentHex(componentKey) {
-  return componentKey === "B" ? heroManaBlackDisplayHex : colorProfiles[componentKey].hex;
+  return componentKey === "B" ? heroManaBlackDisplayHex : heroManaComponentProfile(componentKey).hex;
 }
 
 function heroManaIdentityHex(identity) {
@@ -434,7 +339,7 @@ function buildHeroManaDataset(identity) {
 
   if (identity.components.length > 1) {
     identity.components.forEach(componentKey => {
-      const component = colorProfiles[componentKey];
+      const component = heroManaComponentProfile(componentKey);
       const componentHex = heroManaComponentHex(componentKey);
       datasets.push({
         label: component.name,
@@ -495,10 +400,7 @@ function summarizeHeroManaText(text) {
 }
 
 function heroManaIdentityKind(identity) {
-  if (!identity) return "Signal";
-  if (identity.group === "mono") return "Color";
-  if (identity.group === "strixhaven") return "College";
-  return "Guild";
+  return heroManaPreviewKindLabel(identity?.kind);
 }
 
 function cleanHeroManaLoreText(text) {
@@ -520,7 +422,7 @@ function trimHeroManaLoreText(text, maxLength = 240) {
 
 function heroManaLoreKey(identity) {
   if (!identity) return "";
-  return heroManaLoreKeys[identity.id] || heroManaLoreKeys[identity.key] || heroManaLoreKeys[identity.code] || "";
+  return identity.key || identity.id || "";
 }
 
 function loadHeroManaLoreIndex() {
@@ -657,7 +559,7 @@ function updateHeroManaDatasetPills(identity) {
   }
 
   const componentPills = identity.components.map(key => {
-    const component = colorProfiles[key];
+    const component = heroManaComponentProfile(key);
     return `<span class="vm-hero-mana-dataset-pill" style="--dataset-color:${heroManaComponentHex(key)};">${component.name}</span>`;
   }).join(`<span class="vm-hero-mana-dataset-join"> + </span>`);
 
@@ -683,12 +585,7 @@ function updateHeroManaRadarDetails(identity, datasets) {
 }
 
 function buildHeroManaCycleIdentities() {
-  return [
-    ...identities.filter(identity => identity.group === "mono"),
-    ...identities.filter(identity => identity.group === "allied"),
-    ...identities.filter(identity => identity.group === "enemy"),
-    ...identities.filter(identity => identity.group === "strixhaven")
-  ];
+  return heroManaPreviewIdentities.slice();
 }
 
 function randomizeHeroManaCycleIndex() {
@@ -703,11 +600,11 @@ function randomizeHeroManaCycleIndex() {
 function applyVisualRegressionHeroIdentityHook() {
   if (typeof window === "undefined") return false;
   const forcedIdentityId = typeof window.__vmVisualRegressionHeroIdentityId === "string"
-    ? window.__vmVisualRegressionHeroIdentityId.trim().toLowerCase()
+    ? window.__vmVisualRegressionHeroIdentityId.trim()
     : "";
   if (!forcedIdentityId) return false;
 
-  const forcedIndex = heroManaCycleIdentities.findIndex(identity => identity.id === forcedIdentityId);
+  const forcedIndex = heroManaCycleIdentities.findIndex(identity => heroManaIdentityMatches(identity, forcedIdentityId));
   if (forcedIndex < 0) return false;
 
   heroManaCycleIndex = forcedIndex;
@@ -783,6 +680,7 @@ function initHeroManaPreview() {
   const heroManaLatch = document.getElementById("heroManaSignalLatch");
   heroManaReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   heroManaCycleIdentities = buildHeroManaCycleIdentities();
+  if (!heroManaCycleIdentities.length) return;
   if (!applyVisualRegressionHeroIdentityHook()) {
     randomizeHeroManaCycleIndex();
   }
@@ -1168,7 +1066,7 @@ const archscryRevealObserver = new IntersectionObserver((entries) => {
 document.addEventListener("DOMContentLoaded", () => {
   initArchscryAtmosphere();
   document.querySelectorAll('.hero-card').forEach(el => archscryRevealObserver.observe(el));
-  initHeroManaPreview();
+  loadHeroManaPreviewRegistry().then(initHeroManaPreview);
   initRevealObserver();
 
   // PLACEHOLDER NAV GUARD: Keeps future-page placeholder nav links visually clickable without scrolling or navigating yet.

@@ -32,6 +32,16 @@ export function getExpressionKindLabel(value) {
       return "Guild";
     case "color":
       return "Color";
+    case "shard":
+      return "Shard";
+    case "wedge":
+      return "Wedge";
+    case "four_color":
+      return "Four-color";
+    case "five_color":
+      return "Five-color";
+    case "colorless":
+      return "Colorless";
     default:
       return "Expression";
   }

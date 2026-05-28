@@ -7,6 +7,59 @@
     "colors",
     "expressions"
   ],
+  "$defs": {
+    "institutionType": {
+      "type": "string",
+      "enum": [
+        "guild",
+        "college",
+        "color",
+        "shard",
+        "wedge",
+        "four_color",
+        "five_color",
+        "colorless"
+      ]
+    },
+    "previewScores": {
+      "type": "object",
+      "required": [
+        "order",
+        "knowledge",
+        "ambition",
+        "freedom",
+        "growth"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "order": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100
+        },
+        "knowledge": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100
+        },
+        "ambition": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100
+        },
+        "freedom": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100
+        },
+        "growth": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100
+        }
+      }
+    }
+  },
   "properties": {
     "_meta": {
       "type": "object",
@@ -42,6 +95,10 @@
       "type": "object",
       "required": [
         "W",
+        "U",
+        "B",
+        "R",
+        "G",
         "WU",
         "UB",
         "BR",
@@ -68,7 +125,114 @@
           "core_color",
           "secondary_colors",
           "routing",
-          "identity_blend"
+          "identity_blend",
+          "display_code",
+          "aliases",
+          "placement_eligible",
+          "preview_eligible"
+        ],
+        "properties": {
+          "key": {
+            "type": "string"
+          },
+          "active": {
+            "type": "boolean"
+          },
+          "kind": {
+            "$ref": "#/$defs/institutionType"
+          },
+          "colors": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "core_color": {
+            "type": "string"
+          },
+          "secondary_colors": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "routing": {
+            "type": "object"
+          },
+          "identity_blend": {
+            "type": "string"
+          },
+          "display_code": {
+            "type": "string"
+          },
+          "aliases": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "placement_eligible": {
+            "type": "boolean"
+          },
+          "preview_eligible": {
+            "type": "boolean"
+          },
+          "preview_order": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "preview_label": {
+            "type": "string",
+            "minLength": 1
+          },
+          "preview_title": {
+            "type": "string",
+            "minLength": 1
+          },
+          "preview_text": {
+            "type": "string",
+            "minLength": 1
+          },
+          "preview_hex": {
+            "type": "string",
+            "pattern": "^#[0-9a-fA-F]{6}$"
+          },
+          "preview_scores": {
+            "$ref": "#/$defs/previewScores"
+          },
+          "display": {
+            "type": "object",
+            "properties": {
+              "institution_type": {
+                "$ref": "#/$defs/institutionType"
+              }
+            }
+          }
+        },
+        "allOf": [
+          {
+            "if": {
+              "properties": {
+                "preview_eligible": {
+                  "const": true
+                }
+              },
+              "required": [
+                "preview_eligible"
+              ]
+            },
+            "then": {
+              "required": [
+                "preview_order",
+                "preview_label",
+                "preview_title",
+                "preview_text",
+                "preview_hex",
+                "preview_scores"
+              ]
+            }
+          }
         ]
       }
     }

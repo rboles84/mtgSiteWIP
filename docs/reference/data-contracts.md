@@ -4,8 +4,8 @@
 
 Vox Mana now uses a raw-plus-generated data flow:
 
-- `data/identity-layers.json` is the canonical identity-layer source for mono colors, expression routing, and shared color language.
-- `data/identity-layers.schema.json` describes the identity-layer contract.
+- `data/identity-layers.json` is the canonical identity-layer source for mono colors, expression routing, shared color language, and the Home identity preview registry.
+- `data/identity-layers.schema.json` describes the identity-layer and Home preview registry contract.
 - `data/precons/vox-mana-precons.source.json` is the canonical precon source catalog for Archscry dossier recommendations.
 - `data/precons/vox-mana-precons.source.schema.json` describes the hand-authored precon source contract.
 - `data/taxonomy/vox-mana-precon-themes.json` is the hand-authored precon theme taxonomy used to normalize theme language.
@@ -21,6 +21,38 @@ Vox Mana now uses a raw-plus-generated data flow:
 After changing identity layers, raw faction data, or display data, run `npm run build:factions` from `C:\dev\mtgSiteWIP`.
 
 After changing the precon source catalog or precon theme taxonomy, run `npm run build:precons` from `C:\dev\mtgSiteWIP`.
+
+## Identity preview registry
+
+`data/identity-layers.json` owns the canonical Home preview metadata for the current 20-expression carousel. `assets/js/newindex2.js` fetches this registry, selects entries where `preview_eligible` is `true`, sorts by `preview_order`, and keeps `data/factions.json` as the lore-note source.
+
+Every expression entry must include:
+
+- `display_code`
+- `aliases`
+- `placement_eligible`
+- `preview_eligible`
+
+When `preview_eligible` is `true`, the entry must also include:
+
+- `preview_order`
+- `preview_label`
+- `preview_title`
+- `preview_text`
+- `preview_hex`
+- `preview_scores`
+
+`preview_scores` uses the Home radar axis order:
+
+- `order`
+- `knowledge`
+- `ambition`
+- `freedom`
+- `growth`
+
+The identity-layer institution enum is `guild`, `college`, `color`, `shard`, `wedge`, `four_color`, `five_color`, and `colorless`. It does not include `family`; a New Capenna or family-like grouping needs a separate runtime definition before schema inclusion.
+
+Display codes may preserve user-facing color-pair order while canonical keys stay WUBRG-normalized. For example, Selesnya is keyed as `WG` with `display_code: "GW"`, Simic is keyed as `UG` with `display_code: "GU"`, and Boros is keyed as `WR` with `display_code: "RW"`.
 
 Each faction entry contains:
 
@@ -204,7 +236,7 @@ All result-producing paths should converge on this shape:
 
 Notes:
 
-- `institution_type` can now be `guild`, `college`, or `color`.
+- `institution_type` uses the identity-layer institution enum: `guild`, `college`, `color`, `shard`, `wedge`, `four_color`, `five_color`, or `colorless`. Current placement outputs use the active 20-expression set: guilds, colleges, and mono colors.
 - `identity` is the layered identity block used by dossier rendering, routing, and compatibility recovery.
 - `color_weights` is an optional field. Phase 0 does not fabricate or approximate it when the current scoring model cannot derive it accurately.
 - `top_matches` and `adjacent_matches` should carry `identity` entries so the presenter layer does not need to infer mono or pair structure from display names alone.
