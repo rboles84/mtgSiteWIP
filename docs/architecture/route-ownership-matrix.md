@@ -41,7 +41,7 @@ This is an audit artifact, not an implementation branch. The generic web develop
 - Route-contract documentation is delivered by VM-143 and this matrix.
 - VM-144 archived the proven-dead preview-era assets from active `assets/` paths into `docs/research/archive/vm144-stale-preview-assets/`. Remaining `newindex2.css` / `newindex2.js` Home assets are live despite historical names.
 - VM-145 completed legal page CSS extraction, VM-152 realigned the legal pages to the current public-route visual family, and VM-153 matched legal glass opacity to the VM-142 Maze/Strategium decision; future legal-page styling work should stay presentation-only, keep `legal.css` scoped to Privacy/Terms, and preserve policy text.
-- CDN/font dependency review should separate privacy/performance analysis from broad architecture change.
+- VM-146 completed the CDN/font dependency review in `docs/architecture/cdn-font-dependency-review.md`; future dependency work should keep external asset delivery separate from product/service behavior and policy-copy mentions.
 - Large CSS/JS reduction should be route-by-route with visual harnesses, not shared-system churn.
 
 ## Current Verification Baseline

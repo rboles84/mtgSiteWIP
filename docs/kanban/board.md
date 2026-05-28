@@ -7,7 +7,6 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 ## Backlog
 
-- [VM-146 - CDN And Font Dependency Review](backlog/VM-146-cdn-font-dependency-review.md)
 - [VM-147 - Large Route CSS JS Risk Reduction](backlog/VM-147-large-route-css-js-risk-reduction.md)
 - [VM-006 - Archscry / Maze Verification and Repeat-Visit Polish](backlog/VM-006-archscry-maze-verification-repeat-visit-polish.md)
 - [VM-021 - Archscry Results UX Consolidation Pass](backlog/VM-021-archscry-results-ux-consolidation-pass.md)
@@ -40,6 +39,7 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 ## Done
 
+- [VM-146 - CDN And Font Dependency Review](done/VM-146-cdn-font-dependency-review.md)
 - [VM-144 - Stale Preview Asset Archive Audit](done/VM-144-stale-preview-asset-archive-audit.md)
 - [VM-153 - Legal Glass Opacity Match](done/VM-153-legal-glass-opacity-match.md)
 - [VM-152 - Legal Page Visual Alignment](done/VM-152-legal-page-visual-alignment.md)
