@@ -7,7 +7,6 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 ## Backlog
 
-- [VM-144 - Stale Preview Asset Archive Audit](backlog/VM-144-stale-preview-asset-archive-audit.md)
 - [VM-146 - CDN And Font Dependency Review](backlog/VM-146-cdn-font-dependency-review.md)
 - [VM-147 - Large Route CSS JS Risk Reduction](backlog/VM-147-large-route-css-js-risk-reduction.md)
 - [VM-006 - Archscry / Maze Verification and Repeat-Visit Polish](backlog/VM-006-archscry-maze-verification-repeat-visit-polish.md)
@@ -41,6 +40,7 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 ## Done
 
+- [VM-144 - Stale Preview Asset Archive Audit](done/VM-144-stale-preview-asset-archive-audit.md)
 - [VM-153 - Legal Glass Opacity Match](done/VM-153-legal-glass-opacity-match.md)
 - [VM-152 - Legal Page Visual Alignment](done/VM-152-legal-page-visual-alignment.md)
 - [VM-145 - Legal Page CSS Extraction](done/VM-145-legal-page-css-extraction.md)

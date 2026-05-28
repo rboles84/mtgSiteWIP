@@ -516,10 +516,7 @@ function appendUrlParams(url, params, origin = "http://localhost") {
 
 export function buildArchscryMazeContext({ result, dossier, faction }) {
   const readingId = readingIdForResult(result);
-  const isAtlasPreview =
-    typeof window !== "undefined" &&
-    /\/index2\.html$/i.test(window.location.pathname || "");
-  const returnBase = isAtlasPreview ? "../archscry/index2.html" : "../archscry/index.html";
+  const returnBase = "../archscry/index.html";
   const returnUrl = `${returnBase}?from=maze&view=${encodeURIComponent(dossier.targetFactionKey)}&readingId=${encodeURIComponent(readingId)}#maze-discovery-paths`;
   return {
     from: "archscry",

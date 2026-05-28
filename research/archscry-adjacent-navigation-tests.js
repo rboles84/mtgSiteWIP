@@ -84,6 +84,7 @@ const adjacentMazeContext = buildArchscryMazeContext({
 assert.equal(adjacentMazeContext.guild, "R");
 assert.equal(adjacentMazeContext.fit, "WITHERBLOOM");
 assert.equal(adjacentMazeContext.factionName, "Witherbloom College");
+assert.match(adjacentMazeContext.returnUrl, /^\.\.\/archscry\/index\.html\?/);
 assert.match(adjacentMazeContext.returnUrl, /view=WITHERBLOOM/);
 
 const [adjacentMazeLink] = withArchscryMazeContext([{

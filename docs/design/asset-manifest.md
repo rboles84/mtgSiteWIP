@@ -16,6 +16,19 @@ The mockups are reference art only. Do not load them directly in production page
 | Token-referenced overlay SVGs | Ready | Transparent CSS overlay sources used by the shared atmosphere layer. Export to PNG only if a renderer or CDN pipeline requires raster. |
 | Token-referenced texture SVGs | Ready | Tileable SVG texture sources used by shared panels and regions. Export to WEBP after art direction is locked if desired. |
 
+## Archived Preview Assets
+
+VM-144 moved obsolete preview-era CSS/JS out of active `assets/` paths and into `docs/research/archive/vm144-stale-preview-assets/`.
+
+| Former active asset | Current status | Notes |
+|---|---|---|
+| `/assets/css/archscry-atlas.css` | Archived | Proven obsolete after `/archscry/index2.html` was removed. |
+| `/assets/js/archscry-index2.js` | Archived | Proven obsolete after `/archscry/index2.html` was removed and removed from the JS lint target list. |
+| `/assets/css/home-preview.css` | Archived | Proven obsolete after `newIndex.html` was removed. |
+| `/assets/js/home-preview.js` | Archived | Proven obsolete after `newIndex.html` was removed. |
+
+The canonical Home route still uses `/assets/css/newindex2.css` and `/assets/js/newindex2.js`; those names are historical but the files are live.
+
 ## Background Generation Queue
 
 Use the global negative prompt for every background:

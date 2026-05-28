@@ -1,6 +1,7 @@
 (function () {
   "use strict";
 
+  // Archived by VM-144 after the newIndex.html preview route was removed.
   var AXES = ["order", "knowledge", "ambition", "freedom", "growth"];
 
   var BASELINES = {

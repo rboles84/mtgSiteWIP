@@ -1,6 +1,7 @@
 (function () {
   "use strict";
 
+  // Archived by VM-144 after the /archscry/index2.html preview route was removed.
   if (!document.body?.classList.contains("vm-archscry-atlas-preview")) {
     return;
   }

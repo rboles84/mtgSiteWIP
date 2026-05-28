@@ -363,16 +363,9 @@
 4. Complete a quick reading and confirm the `Mana Alignment Matrix`, adjacent fits, and lower dossier sections still render inside the refreshed shell without changing their behavior.
 5. Restore a saved result and confirm the refreshed shell is still present without changing result behavior.
 
-## Atlas preview smoke pass
+## Archived Archscry atlas preview note
 
-1. Open `/archscry/index2.html`.
-2. Complete a quick reading and confirm the quiz flow still reaches a working dossier result.
-3. Confirm the result reuses the real dossier content but rearranges it into the alternate atlas composition instead of the live `archscry/index.html` order.
-4. Confirm the `Mana Alignment Matrix` radar still renders inside the preview layout.
-5. Confirm the preview shares the same `background-vox-gateway-clean-09.webp` atmosphere and refreshed Archscry shell language as the live route.
-6. Switch into adjacent fits and confirm the atlas composition reapplies cleanly after each rerender.
-7. Click `Back to Primary Reading` and confirm the primary dossier returns without duplicate panels.
-8. Click `Begin Again`, complete a new reading, and confirm the preview still rebuilds the atlas layout around the fresh result.
+`/archscry/index2.html` is no longer a live route. VM-144 archived the remaining atlas-preview assets under `docs/research/archive/vm144-stale-preview-assets/`; use the regular `/archscry/` shell continuity and Maze return checks for current route behavior.
 
 ## Shared topbar smoke pass
 
