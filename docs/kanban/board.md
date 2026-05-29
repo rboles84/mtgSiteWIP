@@ -7,22 +7,16 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 ## Backlog
 
-- [VM-147 - Large Route CSS JS Risk Reduction](backlog/VM-147-large-route-css-js-risk-reduction.md)
+- [VM-154 - Home Hero Horizontal Overflow Containment](backlog/VM-154-home-hero-horizontal-overflow-containment.md)
 - [VM-006 - Archscry / Maze Verification and Repeat-Visit Polish](backlog/VM-006-archscry-maze-verification-repeat-visit-polish.md)
-- [VM-021 - Archscry Results UX Consolidation Pass](backlog/VM-021-archscry-results-ux-consolidation-pass.md)
-- [VM-021A - Archscry Dossier QA Corrections](backlog/VM-021A-archscry-dossier-qa-corrections.md)
-- [VM-021C - Add In-Flight Request Dedupe for Scryfall Calls](backlog/VM-021C-add-in-flight-request-dedupe-for-scryfall-calls.md)
 - [VM-007 - Commander Dossier Quality and Link Follow-Up](backlog/VM-007-commander-dossier-quality-link-follow-up.md)
 - [VM-008 - Commander Compass V1.5 Archetype-Guided Recommendations](backlog/VM-008-commander-compass-v1-5-archetype-guided-recommendations.md)
 - [VM-009 - 32-Deck Challenge, Saved Taste Profile, and Deck Import Later](backlog/VM-009-32-deck-challenge-saved-taste-profile-deck-import-later.md)
 - [VM-010 - The Loom Commander Finder Mode and Graph/Query Layer](backlog/VM-010-the-loom-commander-finder-mode-graph-query-layer.md)
-- [VM-024 - Normalize Docs Paths After Reorg](backlog/VM-024-normalize-docs-paths-after-reorg.md)
 - [VM-025 - Combo Discovery Placement Section](backlog/VM-025-combo-discovery-placement-section.md)
-- [VM-013 - Placement Domains Architecture and Post-V1 Faction Expansion](backlog/VM-013-placement-domains-architecture-post-v1-faction-expansion.md)
 - [VM-014 - UI Shell Cleanup and Legacy Terminal Follow-Up](backlog/VM-014-ui-shell-cleanup-legacy-terminal-follow-up.md)
 - [VM-015 - Returning User Commander Fit Check](backlog/VM-015-returning-user-commander-fit-check.md)
 - [VM-016 - Archscry Profile Return QR](backlog/VM-016-archscry-profile-return-qr.md)
-- [VM-017 - Main Index Gateway Mockup Set](backlog/VM-017-main-index-gateway-mockup-set.md)
 - [VM-018 - Commander Table Fit and Rule Zero Card](backlog/VM-018-commander-table-fit-rule-zero-card.md)
 
 ## Ready
@@ -39,6 +33,16 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 ## Done
 
+Historical note: `VM-044` is a preserved historical duplicate ID and `VM-049` is an intentional preserved duplicate pairing per the handoff trail. Neither ID should be reused.
+
+- [VM-156 - Canon Inventory and Three-Color Reference Audit](done/VM-156-canon-inventory-three-color-reference-audit.md)
+- [VM-155 - Targeted Supabase Frontend Security Review](done/VM-155-targeted-supabase-frontend-security-review.md)
+- [VM-013 - Placement Domains Architecture and Post-V1 Faction Expansion](done/VM-013-placement-domains-architecture-post-v1-faction-expansion.md)
+- [VM-147 - Route CSS JS Risk Reduction Spike](done/VM-147-large-route-css-js-risk-reduction.md)
+- [VM-147D - Static Public Route CSS JS Risk Review](done/VM-147D-static-public-route-css-js-risk-review.md)
+- [VM-147C - Maze Route CSS JS Risk Reduction](done/VM-147C-maze-route-css-js-risk-reduction.md)
+- [VM-147B - Archscry Route CSS JS Risk Reduction](done/VM-147B-archscry-route-css-js-risk-reduction.md)
+- [VM-147A - Home Route CSS JS Risk Reduction](done/VM-147A-home-route-css-js-risk-reduction.md)
 - [VM-022 - Maze Core Extraction](done/VM-022-maze-core-extraction.md)
 - [VM-146 - CDN And Font Dependency Review](done/VM-146-cdn-font-dependency-review.md)
 - [VM-144 - Stale Preview Asset Archive Audit](done/VM-144-stale-preview-asset-archive-audit.md)
@@ -175,8 +179,13 @@ Cards live in the matching status folders under `docs/kanban/`:
 - [VM-028 - Blue Mono Authoring Pass](done/VM-028-blue-mono-authoring-pass.md)
 - [VM-027 - Black Mono Authoring Pass](done/VM-027-black-mono-authoring-pass.md)
 - [VM-026 - White Mono Stabilization Pass](done/VM-026-white-mono-stabilization-pass.md)
+- [VM-024 - Normalize Docs Paths After Reorg](done/VM-024-normalize-docs-paths-after-reorg.md)
 - [VM-023 - Mono Identity Layer Refactor + White Pilot](done/VM-023-mono-identity-layer-refactor-white-pilot.md)
+- [VM-021C - Add In-Flight Request Dedupe For Scryfall Calls](done/VM-021C-add-in-flight-request-dedupe-for-scryfall-calls.md)
 - [VM-021B - Surgical Fix: Adjacent Fits Top Placement + Return Anchor](done/VM-021B-surgical-fix-adjacent-fits-top-placement-return-anchor.md)
+- [VM-021A - Archscry Dossier QA Corrections](done/VM-021A-archscry-dossier-qa-corrections.md)
+- [VM-021 - Archscry Results UX Consolidation Pass](done/VM-021-archscry-results-ux-consolidation-pass.md)
+- [VM-017 - Main Index Gateway Mockup Set](done/VM-017-main-index-gateway-mockup-set.md)
 - [VM-005 - Archscry / Maze UX Continuity + Link Reliability](done/VM-005-archscry-maze-ux-continuity-link-reliability.md)
 - [VM-019 - Lightweight Mock Home Sandbox](done/VM-019-lightweight-mock-home-sandbox.md)
 - [VM-020 - Route Architecture Normalization](done/VM-020-route-architecture-normalization.md)

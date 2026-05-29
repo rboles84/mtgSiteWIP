@@ -1,3 +1,4 @@
+/* HOME ROUTE SHELL: Route-local tokens, page background, shell spacing, and active Home-only surfaces. */
 /* CSS VARIABLES: Global design tokens. These custom properties centralize colors, glow values, panel colors, and mana colors so the rest of the CSS can reuse them with var(...). */
 :root {
   --bg: #050508;
@@ -249,7 +250,7 @@ section {
   line-height: 1.65;
 }
 
-/* CSS SECTION: Top hero/landing introduction styling. */
+/* HERO: First-viewport copy, living-index layout, and WUBRG axis composition. */
 /* HERO */
 /* HERO SECTION: Main first impression area; grid centering places the title block in the middle. */
 .vm-hero {
@@ -498,6 +499,7 @@ section {
   text-transform: uppercase;
 }
 
+/* IDENTITY SIGNAL: Hero Mana Lens panel, Chart.js canvas frame, latch controls, and held-signal details. */
 .vm-hero-mana {
   position: relative;
   align-self: stretch;
@@ -813,7 +815,7 @@ section {
   font-size: 0.64rem;
 }
 
-/* CSS SECTION: Reusable card grid, glass panels, hover effects, and CTA text. */
+/* CARDS / PANELS: Reusable route-local card grids, glass surfaces, hover states, and CTA text. */
 /* CARDS */
 /* CARD GRID: Three-column layout for path cards and library preview cards. */
 .vm-card-grid {
@@ -1461,32 +1463,11 @@ section {
   padding: 1rem;
 }
 
-.vm-radar-glow {
-  position: absolute;
-  inset: 0;
-  opacity: 0.34;
-  filter: blur(28px);
-  pointer-events: none;
-  transition: 0.35s ease;
-}
-
 /* RADAR CANVAS SIZE BOX: Gives Chart.js a fixed-height responsive area to draw into. */
 .vm-radar-wrap {
   position: relative;
   z-index: 2;
   height: 450px;
-}
-
-/* VOID CANVAS: A fixed full-screen canvas style from the Archscry extract. There is no matching element in this file right now. */
-#void-canvas {
-  position: fixed;
-  inset: 0;
-  z-index: -2;
-  width: 100%;
-  height: 100%;
-  opacity: 0.78;
-  pointer-events: none;
-  mix-blend-mode: screen;
 }
 
 /* RADAR CAPTION: Text below the chart showing the current profile name. */
@@ -1597,7 +1578,7 @@ section {
   pointer-events: auto;
 }
 
-/* CSS SECTION: Media queries that adapt layout for tablets and phones. */
+/* RESPONSIVE BEHAVIOR: Viewport adjustments for tablet and phone layouts; block order preserves cascade. */
 /* RESPONSIVE */
 /* RESPONSIVE <= 940px: Collapses the Color Matrix layout from two columns to one and shortens the radar area. */
 @media (max-width: 940px) {
@@ -1753,7 +1734,7 @@ section {
     border-radius: 12px;
   }
 }
-/* CSS SECTION: New "Your colors have a shape" hero title, lede, and WUBRG color axis. */
+/* LEGACY GLYPH COMPATIBILITY: Extracted WUBRG title and SVG glyph motion styles kept route-local. */
 
 .vm-hero__title {
   display: grid;
@@ -1902,6 +1883,7 @@ section {
   66%      { opacity: 0.50; }
 }
 
+/* ANIMATION / REDUCED MOTION: Disable glyph motion while preserving the still color signal. */
 @media (prefers-reduced-motion: reduce) {
   .cag-node, .cag-orbit,
   .cag-halo-w-a, .cag-halo-w-b,

@@ -69,6 +69,7 @@ Vox Mana is an unofficial Magic: The Gathering fan site that combines a themed s
 | `supabase/functions/guild-recruiter/faction-context.ts` | External faction artifact builder | Edge function prompt context. |
 | `data/identity-layers.json` | Hand-authored identity catalog | Mono-aware routing, shared color language, Home preview registry metadata, and generated layered identity metadata. |
 | `data/identity-layers.schema.json` | Hand-authored schema | Contract check for the identity catalog and preview-eligible expression metadata. |
+| `docs/architecture/placement-domains.md` | Hand-authored architecture spec | Defines the current `ravnica_strixhaven` baseline domain and future post-v1 `khans` / `new_capenna` domain plan without changing runtime contracts. |
 | `data/precons/vox-mana-precons.source.json` | Hand-authored curated precon catalog with explicit `factionRefs`, validated 3-6 mechanic tags, and required nullable `creatureTypeFocus` | Precon artifact builder input. |
 | `data/precons/vox-mana-precons.source.schema.json` | Hand-authored schema | Contract check for the precon source catalog. |
 | `data/precons/reference/vox_mana_precon_mechanics_validation_all_155_completed.xlsx` | Reference/staging workbook | Node-only VM-139 import input; never browser runtime data. |
@@ -109,5 +110,6 @@ Vox Mana is an unofficial Magic: The Gathering fan site that combines a themed s
 - Generated faction artifacts must be treated as outputs; edit raw/display sources first, then regenerate.
 - Generated precon artifacts must be treated as outputs; edit `data/precons/vox-mana-precons.source.json` or `data/taxonomy/vox-mana-precon-themes.json` first, then regenerate.
 - Mono-aware identity metadata originates in `data/identity-layers.json`; do not hand-edit generated `layered_identity` blocks downstream.
+- Placement domains are currently a docs-only architecture concept. The live 20-expression model runs as the `ravnica_strixhaven` baseline, and no runtime or generated artifact exposes a live `domain` field yet.
 - Docs should describe current dirty working-tree behavior, not only `main` or the last committed state.
 - External Commander directory links are presenter-layer routes. Strixhaven colleges intentionally map to their guild/color analogs for EDHREC and MTGDecks directories.

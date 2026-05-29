@@ -1,12 +1,14 @@
-            (function() {
-              var d = 'M -38 -39 C -16 -56 26 -42 34 -8 C 42 26 8 54 -28 42 C -58 32 -56 -4 -28 4 C -6 10 18 4 20 -14 C 22 -35 -25 -35 -37 -40';
-              ['cag-spiralW','cag-spiralU','cag-spiralB','cag-spiralR','cag-spiralG'].forEach(function(id) {
-                var g = document.getElementById(id);
-                if (!g) return;
-                g.querySelectorAll('path').forEach(function(p) { p.setAttribute('d', d); });
-              });
-            })();
+// SVG BOOT: Populate the Home WUBRG spiral paths after the inline SVG definitions exist.
+(function() {
+  const d = 'M -38 -39 C -16 -56 26 -42 34 -8 C 42 26 8 54 -28 42 C -58 32 -56 -4 -28 4 C -6 10 18 4 20 -14 C 22 -35 -25 -35 -37 -40';
+  ['cag-spiralW','cag-spiralU','cag-spiralB','cag-spiralR','cag-spiralG'].forEach(function(id) {
+    const g = document.getElementById(id);
+    if (!g) return;
+    g.querySelectorAll('path').forEach(function(p) { p.setAttribute('d', d); });
+  });
+})();
 
+// HERO MANA LENS: Registry-backed identity preview data and Chart.js helpers.
 // RADAR AXES: Labels used both by the radar chart and the horizontal score list.
 const axisLabels = ["Order", "Knowledge", "Ambition", "Freedom", "Growth"];
 
@@ -769,6 +771,7 @@ function initHeroManaPreview() {
   startHeroManaCycle();
 }
 
+// HOME ATMOSPHERE: Route-local star-particle canvas retained from the original Home extraction.
 // ATMOSPHERE FEATURE FLAG: Keeps the star-particle atmosphere enabled for this home skeleton.
 const ARCHSCRY_ENABLED = true;
 // ATMOSPHERE INITIALIZER: Sets up animated star particles, responsive canvas sizing, mouse glow coordinates, and reduced-motion safety.
@@ -965,6 +968,7 @@ function initArchscryAtmosphere() {
   drawAtmosphere();
 }
 
+// REVEAL AND PAGE BOOTSTRAP: Scroll reveals and Home route startup.
 // REVEAL OBSERVER INITIALIZER: Uses IntersectionObserver to add .is-visible when reveal elements enter the viewport.
 function initRevealObserver() {
   const reveals = document.querySelectorAll(".reveal, .vm-reveal");
@@ -991,90 +995,11 @@ function initRevealObserver() {
   });
 }
 
-// WEB COMPONENT: Defines a reusable <vm-dossier-card> custom element with its own Shadow DOM styling and click event.
-class VMDossierCard extends HTMLElement {
-  // WEB COMPONENT CONSTRUCTOR: Creates a shadow root so this component can own isolated markup/styles.
-  constructor() {
-    super();
-    this.attachShadow({ mode: 'open' });
-  }
-
-  // WEB COMPONENT MOUNT: Runs when <vm-dossier-card> is added to the page; reads attributes and renders internal HTML.
-  connectedCallback() {
-    const title = this.getAttribute('title') || 'Placeholder Dossier';
-    const kind = this.getAttribute('kind') || 'Placeholder Type';
-    const tone = this.getAttribute('tone') || 'Placeholder Tone';
-    const signal = this.getAttribute('signal') || 'Placeholder signal';
-    const details = this.getAttribute('details') || 'Placeholder details.';
-    const bullets = (this.getAttribute('bullets') || 'Evidence one|Evidence two|Evidence three').split('|');
-    this.setAttribute('tabindex', '0');
-    this.setAttribute('role', 'button');
-    this.setAttribute('aria-label', `${title}: ${signal}`);
-    this.shadowRoot.innerHTML = `
-      <style>
-        :host{ display:block; container-type:inline-size; }
-        .card{ min-height:230px; height:100%; padding:1.1rem; position:relative; overflow:hidden; color:#f5ead2; background:linear-gradient(180deg, rgba(7,10,14,.92), rgba(3,4,6,.72)); border:1px solid rgba(215,162,60,.34); box-shadow:0 24px 70px rgba(0,0,0,.42); clip-path:polygon(14px 0, calc(100% - 14px) 0, 100% 14px, 100% calc(100% - 14px), calc(100% - 14px) 100%, 14px 100%, 0 calc(100% - 14px), 0 14px); transition:transform .28s ease, border-color .28s ease, box-shadow .28s ease; transform-style:preserve-3d; }
-        .card::before{ content:""; position:absolute; inset:-30%; background:radial-gradient(circle at var(--x,50%) var(--y,10%), rgba(247,215,132,.2), transparent 16rem); opacity:.8; mix-blend-mode:screen; }
-        .card:hover,.card:focus-within{ transform:translateY(-5px) rotateX(3deg) rotateY(-2deg); border-color:rgba(247,215,132,.82); box-shadow:0 32px 90px rgba(0,0,0,.5),0 0 32px rgba(215,162,60,.2); }
-        button{ all:unset; display:block; width:100%; height:100%; position:relative; z-index:2; }
-        .kind{ font-family:ui-monospace,Menlo,monospace; color:#d7a23c; letter-spacing:.16rem; text-transform:uppercase; font-size:.68rem; }
-        h3{ font-family:Georgia,serif; font-weight:400; color:#f7d784; font-size:1.65rem; letter-spacing:.07em; margin:.75rem 0 .35rem; }
-        p{ color:#a89b84; line-height:1.6; margin:.4rem 0; }
-        .tone{ color:#58baff; font-family:ui-monospace,Menlo,monospace; font-size:.75rem; text-transform:uppercase; letter-spacing:.12rem; }
-        ul{ margin:.7rem 0 0; padding-left:1rem; color:#cdbf9e; line-height:1.45; }
-        @container (max-width:260px){ h3{font-size:1.25rem}.card{min-height:190px} }
-      </style>
-      <div class="card">
-        <button type="button">
-          <div class="kind">${kind}</div><h3>${title}</h3><div class="tone">${tone}</div><p>${signal}</p><ul>${bullets.map(b => `<li>${b}</li>`).join('')}</ul>
-        </button>
-      </div>`;
-    this.shadowRoot.querySelector('button').addEventListener('click', () => this.select(title, kind, details, bullets));
-    this.addEventListener('keydown', e => {
-      if (e.key === 'Enter' || e.key === ' ') {
-        e.preventDefault();
-        this.select(title, kind, details, bullets);
-      }
-    });
-    this.shadowRoot.querySelector('.card').addEventListener('mousemove', e => {
-      const r = e.currentTarget.getBoundingClientRect();
-      e.currentTarget.style.setProperty('--x', `${((e.clientX - r.left) / r.width * 100)}%`);
-      e.currentTarget.style.setProperty('--y', `${((e.clientY - r.top) / r.height * 100)}%`);
-    });
-  }
-
-  // WEB COMPONENT SELECT EVENT: Emits a custom event so outer page code can react to a dossier card selection.
-  select(title, kind, details, bullets) {
-    this.dispatchEvent(new CustomEvent('dossier-select', { bubbles: true, detail: { title, kind, details, bullets } }));
-  }
-}
-// CUSTOM ELEMENT REGISTRATION: Tells the browser that <vm-dossier-card> should use the VMDossierCard class.
-customElements.define('vm-dossier-card', VMDossierCard);
-
-// REDUCED MOTION CHECK: Reads the user/browser setting. This variable is currently declared but not used later.
-const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-// SECOND REVEAL OBSERVER: Preserves the old hero-card-specific reveal path without re-observing .reveal elements.
-const archscryRevealObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('is-visible');
-      archscryRevealObserver.unobserve(entry.target);
-    }
-  });
-}, { threshold: 0.15, rootMargin: '0px 0px -8% 0px' });
 // PAGE BOOTSTRAP: Waits for deferred head scripts like graph.js, then starts page behavior.
 document.addEventListener("DOMContentLoaded", () => {
   initArchscryAtmosphere();
-  document.querySelectorAll('.hero-card').forEach(el => archscryRevealObserver.observe(el));
   loadHeroManaPreviewRegistry().then(initHeroManaPreview);
   initRevealObserver();
-
-  // PLACEHOLDER NAV GUARD: Keeps future-page placeholder nav links visually clickable without scrolling or navigating yet.
-  document.querySelectorAll("[data-vm-placeholder-link]").forEach(link => {
-    link.addEventListener("click", event => {
-      event.preventDefault();
-    });
-  });
 
   // BACK-TO-TOP SETUP: Stores the button and toggles its visibility based on scroll distance.
   const backTop = document.getElementById("backTop");

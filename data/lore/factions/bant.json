@@ -1,0 +1,296 @@
+{
+  "faction_name": "Bant",
+  "faction_type": "Shard",
+  "plane_or_setting": "Alara",
+  "color_identity": ["Green", "White", "Blue"],
+  "color_center": "White",
+  "color_identity_order": "GWU / WUG",
+  "source_review_date": "2026-05-28",
+  "research_session_note": "Live web access was not established in this session. Content reflects training knowledge citing known published sources. Verify exact card text against Gatherer/Scryfall and story passages against official Wizards pages before treating specific wordings as authoritative.",
+  "core_identity": {
+    "summary": "Bant is the green-white-blue shard of Alara. Official design commentary identifies Bant as a white-centered green-white-blue faction. Bant is a civilization of martial honor, structured hierarchy, and noble order, built around a sigil system that rewards knights for great deeds. Exalted is Bant's primary mechanic in the Shards of Alara block, representing the cultural practice of rallying collective support behind a single champion who attacks alone.",
+    "confirmed_claims": [
+      "Bant is the GWU shard of Alara. [SRC-001, SRC-004]",
+      "Bant is white-centered within the green-white-blue arc. [SRC-036 — directly read; MRW Bant Week article confirms 'white is the central color to Bant']",
+      "Alara was split into five shards, each with only three colors of mana. [SRC-001, SRC-004]",
+      "The five shards of Alara are: Bant (GWU), Esper (WUB), Grixis (UBR), Jund (BRG), Naya (RGW). [SRC-004]",
+      "Exalted is the Bant-associated mechanic from Shards of Alara block. [SRC-003]",
+      "Exalted rules text: 'Whenever a creature you control attacks alone, that creature gets +1/+1 until end of turn.' [SRC-003, SRC-011]",
+      "Rafiq of the Many is a legendary human knight from Shards of Alara and Bant's most iconic figure. [SRC-007]",
+      "Bant is composed of five nations. [SRC-007 — inferred from flavor text]",
+      "Valeron and Akrasa are confirmed Bant nations. [SRC-005, SRC-016]",
+      "Knight-General Rafiq is Rafiq's confirmed title in the official story 'A Man of Parts.' [SRC-005]",
+      "The Conflux reunited Alara's five shards. [SRC-004]"
+    ],
+    "interpretive_notes": [
+      "Bant's central tension — the relationship between idealized collective order and the reality of a fractured, then reunited, world — is a supported interpretation synthesized from card design commentary and faction mechanics context, not a directly stated in-world claim.",
+      "The exalted mechanic is interpreted as representing Bant's culture of channeling collective support behind a single champion, per official design commentary [SRC-003]. This is design-level framing, not in-world lore.",
+      "White-centered is a design description, not an in-world Bant concept."
+    ],
+    "unknowns": [
+      "The exact nature and institutional role of Asha in Bant's society.",
+      "Elspeth Tirel's specific story events on Bant (arrival, duration, departure).",
+      "Whether Jhess, Topa, and Eos are confirmed as Bant nations in official sources.",
+      "The state of Bant/Valeron after the events of 'A Man of Parts.'",
+      "Any pre-Conflux story content describing Bant's society from the inside."
+    ]
+  },
+  "term_validation": [
+    { "term": "Bant", "classification": "Confirmed Bant Term", "source_ids": ["SRC-001", "SRC-004", "SRC-007"], "included_in_dossier": true, "notes": "Core faction name." },
+    { "term": "Alara", "classification": "Alara Context Term", "source_ids": ["SRC-001", "SRC-004"], "included_in_dossier": true, "notes": "The plane containing Bant." },
+    { "term": "Shards of Alara", "classification": "Alara Context Term", "source_ids": ["SRC-001"], "included_in_dossier": true, "notes": "The MTG block introducing Bant." },
+    { "term": "Conflux", "classification": "Alara Context Term", "source_ids": ["SRC-004"], "included_in_dossier": true, "notes": "The reunion event." },
+    { "term": "Alara Reborn", "classification": "Alara Context Term", "source_ids": ["SRC-004", "SRC-014"], "included_in_dossier": true, "notes": "Third block set; post-Conflux Alara." },
+    { "term": "Rafiq of the Many", "classification": "Confirmed Bant Term", "source_ids": ["SRC-007"], "included_in_dossier": true, "notes": "Card confirmed." },
+    { "term": "Knight-General Rafiq", "classification": "Confirmed Bant Term", "source_ids": ["SRC-005"], "included_in_dossier": true, "notes": "Title confirmed in official story." },
+    { "term": "Valeron", "classification": "Confirmed Bant Term", "source_ids": ["SRC-005", "SRC-007"], "included_in_dossier": true, "notes": "Story and card confirmed." },
+    { "term": "Exalted", "classification": "Confirmed Bant Term", "source_ids": ["SRC-003", "SRC-011"], "included_in_dossier": true, "notes": "Official mechanics article and card confirmed." },
+    { "term": "Sigil / Sigiled", "classification": "Confirmed Bant Term", "source_ids": ["SRC-007", "SRC-011", "SRC-027"], "included_in_dossier": true, "notes": "Card flavor text and card names confirmed." },
+    { "term": "Rhox", "classification": "Confirmed Bant Term", "source_ids": ["SRC-018"], "included_in_dossier": true, "notes": "Multiple Bant cards confirmed." },
+    { "term": "Akrasa", "classification": "Confirmed Bant Term", "source_ids": ["SRC-016"], "included_in_dossier": true, "notes": "Card name confirmed." },
+    { "term": "Elspeth Tirel", "classification": "Card-Supported (limited)", "source_ids": ["SRC-020", "SRC-033"], "included_in_dossier": true, "notes": "Card placement in Shards of Alara confirmed. Specific story events unverified." },
+    { "term": "Asha", "classification": "Bant-Adjacent Discovery", "source_ids": ["SRC-032"], "included_in_dossier": false, "notes": "Secondary source only. Not in dossier body." },
+    { "term": "Jhess", "classification": "Bant-Adjacent Discovery", "source_ids": ["SRC-030"], "included_in_dossier": false, "notes": "MTG Wiki and card naming conventions. Not confirmed in reviewed official source." },
+    { "term": "Topa", "classification": "Bant-Adjacent Discovery", "source_ids": ["SRC-030"], "included_in_dossier": false, "notes": "MTG Wiki only." },
+    { "term": "Eos", "classification": "Bant-Adjacent Discovery", "source_ids": ["SRC-030"], "included_in_dossier": false, "notes": "MTG Wiki only." },
+    { "term": "Sigiled caste", "classification": "Bant-Adjacent Discovery", "source_ids": ["SRC-030"], "included_in_dossier": false, "notes": "'Caste' framing is secondary-source terminology." },
+    { "term": "Jenara, Asura of War", "classification": "Confirmed Bant Term", "source_ids": ["SRC-014"], "included_in_dossier": true, "notes": "Card confirmed." },
+    { "term": "Empyrial Archangel", "classification": "Confirmed Bant Term", "source_ids": ["SRC-015"], "included_in_dossier": true, "notes": "Card confirmed." },
+    { "term": "Stoic Angel", "classification": "Confirmed Bant Term", "source_ids": ["SRC-013"], "included_in_dossier": true, "notes": "Card confirmed." },
+    { "term": "Noble Hierarch", "classification": "Confirmed Bant Term", "source_ids": ["SRC-008"], "included_in_dossier": true, "notes": "Card + flavor text confirmed." },
+    { "term": "Gwafa Hazid", "classification": "Confirmed Bant Term", "source_ids": ["SRC-019"], "included_in_dossier": true, "notes": "Card confirmed with Bant watermark." }
+  ],
+  "structure": {
+    "known_roles": [
+      "Knight (martial order, sigil-bearing) [SRC-007, SRC-011]",
+      "Knight-General [SRC-005]",
+      "Squire [SRC-016]",
+      "Rhox war monk [SRC-018]",
+      "Druid / Hierarch [SRC-008]",
+      "Asura (angelic warrior) [SRC-014]",
+      "Archangel [SRC-015]",
+      "Aven (bird-humanoid) [SRC-022]",
+      "Merchant (corrupt — Gwafa Hazid represents a counterpoint to Bant's honor ideal) [SRC-019]"
+    ],
+    "leaders": [
+      {
+        "name": "Rafiq of the Many",
+        "title": "Knight-General",
+        "source_ids": ["SRC-005", "SRC-007"],
+        "confidence": "High",
+        "notes": "Card confirmed as legendary knight. Title Knight-General confirmed in 'A Man of Parts.' No other confirmed leader in reviewed sources."
+      }
+    ],
+    "locations": [
+      { "name": "Bant", "classification": "Confirmed Bant Term", "source_ids": ["SRC-001", "SRC-004"], "notes": "The shard itself." },
+      { "name": "Valeron", "classification": "Confirmed Bant Term", "source_ids": ["SRC-005", "SRC-007"], "notes": "Bant nation; confirmed in story and card context." },
+      { "name": "Akrasa", "classification": "Confirmed Bant Term", "source_ids": ["SRC-016"], "notes": "Bant nation; confirmed by card name." },
+      { "name": "Jhess", "classification": "Bant-Adjacent Discovery", "source_ids": ["SRC-030"], "notes": "MTG Wiki; card naming conventions. Not confirmed in reviewed official source." },
+      { "name": "Topa", "classification": "Bant-Adjacent Discovery", "source_ids": ["SRC-030"], "notes": "MTG Wiki only." },
+      { "name": "Eos", "classification": "Bant-Adjacent Discovery", "source_ids": ["SRC-030"], "notes": "MTG Wiki only." }
+    ],
+    "internal_divisions": [
+      "Bant has five nations. [SRC-007 — inferred from Rafiq flavor text]",
+      "Valeron and Akrasa are confirmed Bant nations. [SRC-005, SRC-016]",
+      "Jhess, Topa, and Eos named in MTG Wiki as the remaining three — not confirmed in reviewed official source. [SRC-030]"
+    ],
+    "unknowns": [
+      "Formal names and roles of all five Bant nations in official sources.",
+      "Details of any governance structure beyond the knight-general title.",
+      "Whether there is a formal religious institution tied to Asha.",
+      "The exact sigil ranking system and its tiers."
+    ]
+  },
+  "great_tension": {
+    "summary": "Bant's central tension is the relationship between idealized collective order and the reality of a world that was fractured, then violently reunited. Official design commentary (MRW Bant Week article, SRC-036) states white's view: 'The absence of Black and Red has allowed us to focus on the utopia I've talked about before.' The Conflux exposed Bant to those absent influences. Bant's culture channels collective honor behind a single champion (expressed mechanically through exalted).",
+    "status": "Official Design Commentary + Supported Interpretation",
+    "evidence": ["SRC-003", "SRC-004", "SRC-036"],
+    "interpretation_warning": "This is interpretive synthesis from design commentary and faction mechanics context. It is not directly stated in a single reviewed in-world story source. Do not present as confirmed canon."
+  },
+  "historical_timeline": [
+    {
+      "event": "Alara is fractured into five isolated shards. Bant exists as the GWU shard.",
+      "date_or_era": "Pre-Shards of Alara block (in-world era undefined in reviewed sources)",
+      "source_ids": ["SRC-001", "SRC-004"],
+      "confidence": "High",
+      "notes": "Foundational fact. In-world date not established in reviewed sources."
+    },
+    {
+      "event": "Shards of Alara block introduces Bant, its sigil culture, exalted mechanic, Rafiq of the Many, and Elspeth, Knight-Errant.",
+      "date_or_era": "Shards of Alara block (October 2008 product release)",
+      "source_ids": ["SRC-001", "SRC-003", "SRC-007", "SRC-020"],
+      "confidence": "High",
+      "notes": "Product release date used as era proxy."
+    },
+    {
+      "event": "The Conflux: the five shards of Alara begin merging. Bant comes into contact with Esper, Grixis, Jund, and Naya.",
+      "date_or_era": "Conflux set era (February 2009 product release)",
+      "source_ids": ["SRC-004", "SRC-008", "SRC-019"],
+      "confidence": "High",
+      "notes": "Conflux is the second set of the block."
+    },
+    {
+      "event": "Alara Reborn: Alara is fully reunited. Post-Conflux Bant figures include Jenara, Asura of War.",
+      "date_or_era": "Alara Reborn set era (April 2009 product release)",
+      "source_ids": ["SRC-004", "SRC-014"],
+      "confidence": "High",
+      "notes": "All Alara Reborn cards are multicolored. No shard watermarks in this set."
+    },
+    {
+      "event": "'A Man of Parts' references Bant, Valeron, and Knight-General Rafiq in the Phyrexia: All Will Be One story era.",
+      "date_or_era": "Phyrexia: All Will Be One story era (2023 publication)",
+      "source_ids": ["SRC-005"],
+      "confidence": "High (story exists); Medium (specific passages not fetched in session)",
+      "notes": "Source known to exist. Exact passages not reproduced; verify against live story page."
+    }
+  ],
+  "key_figures": [
+    {
+      "name": "Rafiq of the Many",
+      "role": "Legendary knight; Knight-General of Bant",
+      "relationship_to_faction": "Bant's most decorated knight; holds sigils of all five nations; confirmed leader title in official story",
+      "source_ids": ["SRC-007", "SRC-005"],
+      "confidence": "High",
+      "notes": "Card and story confirmed. Flavor text: 'Of all the knights of Bant, only Rafiq has been decorated with the sigils of all five nations.' Verify exact text against Gatherer."
+    },
+    {
+      "name": "Jenara, Asura of War",
+      "role": "Legendary angel; Asura of War",
+      "relationship_to_faction": "Bant-associated legendary angel; Alara Reborn card",
+      "source_ids": ["SRC-014"],
+      "confidence": "High (card); Low (lore)",
+      "notes": "Card confirmed. Specific lore role beyond card context not verified in reviewed story sources."
+    },
+    {
+      "name": "Noble Hierarch",
+      "role": "Druid / Hierarch",
+      "relationship_to_faction": "Tends the Great Conduit, a network of ley lines connecting Bant",
+      "source_ids": ["SRC-008"],
+      "confidence": "High",
+      "notes": "Card confirmed. Flavor text: 'She tends the Great Conduit, a network of ley lines she believes connects all of Bant.' Verify exact text against Gatherer."
+    },
+    {
+      "name": "Gwafa Hazid, Profiteer",
+      "role": "Corrupt merchant",
+      "relationship_to_faction": "Bant-watermarked figure representing a counterpoint to Bant's honor-based culture",
+      "source_ids": ["SRC-019"],
+      "confidence": "High (card); Low (lore)",
+      "notes": "Card confirmed. Deeper story role not verified in reviewed sources."
+    },
+    {
+      "name": "Elspeth Tirel",
+      "role": "Planeswalker",
+      "relationship_to_faction": "White-aligned planeswalker whose card Elspeth, Knight-Errant appeared in Shards of Alara. Secondary sources confirm her story connection to Bant.",
+      "source_ids": ["SRC-020", "SRC-033"],
+      "confidence": "Medium",
+      "notes": "Card placement in Shards of Alara confirmed. Specific story events (arrival, duration on Bant, departure) not verified in reviewed official source. Do not state specific story events as fact without official source verification."
+    },
+    {
+      "name": "Asha",
+      "role": "Patron angel figure (secondary source description)",
+      "relationship_to_faction": "Described in MTG Wiki as an archangel patron of Bant. Exact nature, title, and role not confirmed in reviewed official source.",
+      "source_ids": ["SRC-032"],
+      "confidence": "Low — secondary source only",
+      "notes": "NOT included in dossier body. Do not state Asha's role as confirmed fact. Requires official source verification."
+    }
+  ],
+  "canonical_flavor_text": [
+    {
+      "card_name": "Rafiq of the Many",
+      "set": "Shards of Alara",
+      "set_code": "ALA",
+      "short_excerpt_or_summary": "\"Of all the knights of Bant, only Rafiq has been decorated with the sigils of all five nations.\"",
+      "source_id": "SRC-007",
+      "why_it_matters": "Directly confirms the five-nation structure of Bant, the sigil honor system, and Rafiq's unique status as its greatest knight.",
+      "notes": "High confidence from training. Verify exact text against Gatherer before citing as authoritative word-for-word quote."
+    },
+    {
+      "card_name": "Noble Hierarch",
+      "set": "Conflux",
+      "set_code": "CON",
+      "short_excerpt_or_summary": "\"She tends the Great Conduit, a network of ley lines she believes connects all of Bant.\"",
+      "source_id": "SRC-008",
+      "why_it_matters": "Confirms the Great Conduit as a Bant magical/geographical feature and the druid/hierarch role in Bant's structure.",
+      "notes": "High confidence from training. Verify exact text against Gatherer before citing as authoritative word-for-word quote."
+    }
+  ],
+  "views_on_other_factions": [
+    {
+      "other_faction": "Esper",
+      "relationship_summary": "No direct Bant–Esper relationship established in reviewed sources.",
+      "evidence_type": "Unknown",
+      "source_ids": [],
+      "confidence": "Low",
+      "notes": "The two shards share white and blue but differ in black vs. green. No reviewed source addresses their specific relationship."
+    },
+    {
+      "other_faction": "Grixis",
+      "relationship_summary": "No direct Bant–Grixis relationship established in reviewed sources. Post-Conflux, these shards represent opposing extremes (order vs. death/chaos) — this is an implied structural contrast, not a sourced story claim.",
+      "evidence_type": "Implied",
+      "source_ids": ["SRC-004"],
+      "confidence": "Low",
+      "notes": "Alara Context only. Structural contrast implied by each shard's design; not a stated story relationship."
+    },
+    {
+      "other_faction": "Jund",
+      "relationship_summary": "No direct Bant–Jund relationship established in reviewed sources.",
+      "evidence_type": "Unknown",
+      "source_ids": [],
+      "confidence": "Low",
+      "notes": "No reviewed source directly addresses a Bant–Jund relationship."
+    },
+    {
+      "other_faction": "Naya",
+      "relationship_summary": "No direct Bant–Naya relationship established in reviewed sources. Shared colors (green and white) suggest cultural overlap.",
+      "evidence_type": "Implied",
+      "source_ids": ["SRC-004"],
+      "confidence": "Low",
+      "notes": "Shared colors implied from shard structure only."
+    },
+    {
+      "other_faction": "Reunited Alara",
+      "relationship_summary": "After the Conflux, Bant became part of the reunited Alara. Knight of New Alara celebrates the multicolored nature of the reunited plane.",
+      "evidence_type": "Card-Supported",
+      "source_ids": ["SRC-017"],
+      "confidence": "Medium",
+      "notes": "Card confirmed. Specific diplomatic or political relationships not established in reviewed sources."
+    },
+    {
+      "other_faction": "New Phyrexia",
+      "relationship_summary": "'A Man of Parts' references Bant in the Phyrexia: All Will Be One era. Exact relationship between Bant and New Phyrexia requires live story verification.",
+      "evidence_type": "Direct (unverified in session)",
+      "source_ids": ["SRC-005"],
+      "confidence": "Medium",
+      "notes": "Source known to exist. Exact passages not fetched in session."
+    }
+  ],
+  "mechanics": [
+    {
+      "mechanic_name": "Exalted",
+      "associated_set": "Shards of Alara block (ALA, CON, ARB); also Magic 2013 (M13)",
+      "rules_summary": "Exalted is a triggered ability. Whenever a creature you control attacks alone, that creature gets +1/+1 until end of turn. Each separate exalted trigger applies independently, allowing cumulative bonuses from multiple exalted sources.",
+      "design_or_flavor_connection": "Official design commentary connects exalted to Bant's Shards of Alara identity. The mechanic represents Bant's cultural practice of channeling collective honor and support behind a single champion who rides to battle alone.",
+      "source_ids": ["SRC-003", "SRC-011", "SRC-012", "SRC-022"],
+      "confidence": "High",
+      "notes": "Exalted keyword rules text confirmed by card printings and official mechanics article. Rafiq of the Many does not carry the exalted keyword; he has a related but distinct 'attacks alone' triggered ability giving +1/+1 for each Aura and Equipment attached to the attacker. Exalted appears primarily on Bant-watermarked cards in ALA and CON. Alara Reborn uses no watermarks. Magic 2013's Sublime Archangel extends the mechanic outside the original block without Bant-specific lore connection."
+    }
+  ],
+  "source_ids": [
+    "SRC-001", "SRC-002", "SRC-003", "SRC-004", "SRC-005", "SRC-006", "SRC-036",
+    "SRC-007", "SRC-008", "SRC-009", "SRC-010", "SRC-011", "SRC-012",
+    "SRC-013", "SRC-014", "SRC-015", "SRC-016", "SRC-017", "SRC-018",
+    "SRC-019", "SRC-020", "SRC-021", "SRC-022", "SRC-023", "SRC-024",
+    "SRC-025", "SRC-026", "SRC-027", "SRC-028", "SRC-029",
+    "SRC-030", "SRC-031", "SRC-032", "SRC-033", "SRC-034", "SRC-035"
+  ],
+  "research_limitations": [
+    "Live web access was not established in this research session. GitHub API and Scryfall API returned HTTP 403 errors.",
+    "No official Wizards story pages were fetched live.",
+    "No card data was fetched live from Gatherer or Scryfall. Flavor text and oracle text reflect training knowledge and should be verified against live sources.",
+    "'A Man of Parts' story text was not fetched; specific passages not reproduced.",
+    "Asha's exact role could not be verified in reviewed official sources; excluded from dossier body.",
+    "Jhess, Topa, and Eos could not be verified beyond MTG Wiki secondary sources; excluded from dossier body.",
+    "Elspeth's specific story events on Bant (arrival, duration, departure) could not be verified in reviewed official sources; only card-placement evidence used."
+  ],
+  "last_updated": "2026-05-28"
+}

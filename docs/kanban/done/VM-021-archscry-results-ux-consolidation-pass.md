@@ -2,7 +2,7 @@
 
 ID: VM-021
 Title: Archscry Results UX Consolidation Pass
-Status: backlog
+Status: done
 Type: UX / reliability
 Area: Archscry, Maze
 Priority: high
@@ -34,3 +34,5 @@ Consolidate the Archscry result dossier into a clearer guided reading flow by pr
 ## Notes
 
 This is a scoped presenter and navigation pass only. Keep routing shape, scoring, and lore systems untouched.
+
+2026-05-28 closeout: Implemented per `docs/handoffs/2026-05-16-1200-codex-vm021-archscry-results-ux-consolidation.md` and moved to `done/` during the Kanban cleanup recorded in `docs/handoffs/2026-05-28-1702-codex-kanban-cleanup-closeout.md`.

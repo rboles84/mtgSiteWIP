@@ -46,6 +46,22 @@ import {
   renderDossierRadarSection,
 } from "./dossier-radar.js";
 
+/*
+ * Archscry route runtime ownership map (VM-147B)
+ *
+ * Keep function order stable in this file. Dossier panel IDs, URL params,
+ * storage keys, data-action dispatch, Maze handoff payloads, and card-art
+ * ID prefixes are route contracts that should not move during risk-reduction
+ * cleanup without a dedicated behavior card.
+ *
+ * Runtime zones:
+ * - Data boot and route state live in APP_STATE plus load* helpers.
+ * - Quick reading and the archived terminal flow produce placement results.
+ * - Dossier helpers own panel state, URL state, Maze handoff, and render HTML.
+ * - Card art and preview helpers decorate an already-rendered dossier.
+ * - bindArchscryControls owns delegated data-action and preview events.
+ */
+
 const SESSION = VM_SESSION;
 const DATA_BASE_URL = new URL("../../data/", import.meta.url);
 
@@ -148,6 +164,8 @@ const MANA_SYMBOL_NAMES = {
   G: "Green",
   C: "Colorless",
 };
+
+// Data loading and optional route dependency inventory.
 
 /**
  * Returns true when the Scrying Terminal should be shown and wired up.
@@ -305,6 +323,8 @@ function flavorSnippetsForFaction(faction) {
   const key = faction?.key || faction?.identity?.expression_key || "";
   return Array.isArray(snippets[key]) ? snippets[key] : [];
 }
+
+// Identity, copy, and presentation helpers used by result and dossier views.
 
 /**
  * Returns the canonical faction entry for a given key.
@@ -587,6 +607,8 @@ function buildAdjacentContextHtml({ dossier, result }) {
   return "";
 }
 
+// Route view state and shared session controls.
+
 /**
  * Shows a single application section and scrolls back to the top of the page.
  *
@@ -722,6 +744,8 @@ async function handleSignOut() {
   updateTopbar();
   showSection("landing");
 }
+
+// Adaptive quick-reading flow.
 
 /**
  * Starts the adaptive Gate -> Hall -> Crucible quick reading flow.
@@ -874,6 +898,8 @@ function getStarterProfile() {
     experience_level: APP_STATE.starterProfile.experience_level,
   };
 }
+
+// Result finalization plus archived terminal flow.
 
 /**
  * Finalizes the adaptive quick reading, stores the normalized result locally, and opens the dossier.
@@ -1078,6 +1104,8 @@ function returnToInterviewSource() {
   showSection("interview");
   updateTopbar();
 }
+
+// Save controls, external links, precon previews, and Maze handoff payloads.
 
 /**
  * Saves the current active placement using Google OAuth when needed.
@@ -1400,6 +1428,8 @@ function readArchscryDossierHandoff() {
     return null;
   }
 }
+
+// Dossier panel, layout, URL, and segmented-control state.
 
 function requestedDossierViewKey() {
   const params = new URLSearchParams(window.location.search);
@@ -1969,6 +1999,8 @@ function buildMazeDiscoveryHtml(paths = []) {
     </div>`;
 }
 
+// Result rendering and adjacent-dossier switching.
+
 function scrollToAnchorOnce(anchor) {
   const hash = anchor || APP_STATE.mazeReturnAnchor;
   if (!hash) return;
@@ -2446,6 +2478,8 @@ function returnToPrimaryReading() {
   renderResult(primaryViewKey);
 }
 
+// Card art loading, Scryfall named-card cache, and desktop preview overlays.
+
 /**
  * Loads Scryfall images for Commander previews, staples, and lands after the result HTML has rendered.
  *
@@ -2740,6 +2774,8 @@ function handleCardPreviewFocusOut(event) {
   }
 }
 
+// Delegated route controls. Keep data-action behavior centralized here.
+
 function bindArchscryControls() {
   const app = document.querySelector(".app");
   app?.addEventListener("click", (event) => {
@@ -2856,6 +2892,8 @@ function handleArchscryKeydown(event) {
   setDossierPanel(nextTab.dataset.dossierTab || "");
   nextTab.focus();
 }
+
+// Boot, restore, compatibility exports, and session events.
 
 function renderInitializationError(error) {
   clearNode(document.body);

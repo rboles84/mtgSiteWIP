@@ -22,6 +22,19 @@
 7. Confirm the Home Mana Lens reports `Still` under reduced motion, uses the tuned 4800ms cycle outside reduced motion, and still pauses on hover/focus before resuming.
 8. If the harness fails, review the generated diff PNGs before accepting any visual change.
 
+## VM-147A Home route manual QA
+
+1. Open `/` and `/index.html`; confirm both load the canonical Home route with no broken asset requests.
+2. Confirm `index.html` still loads `assets/js/graph.js`, `assets/css/newindex2.css`, and `assets/js/newindex2.js` without renaming the historical Home assets.
+3. Confirm the shared topbar marks Home as active, opens and closes the utility menu, and keeps Archscry, Maze, Apocrypha, and Strategium links working.
+4. Confirm the hero copy, WUBRG glyph row, route cards, and footer/back-to-top behavior render correctly.
+5. Confirm the identity signal radar renders through Chart.js, initializes from `data/identity-layers.json`, and shows the expected overlay pills and held-signal details.
+6. Confirm normal animation still runs: star atmosphere moves, reveal sections become visible, and the Mana Lens cycles unless hovered, focused, hidden, or latched.
+7. Enable reduced motion and confirm the hero signal reports `Still`, reveal sections are visible without scroll animation, and glyph/canvas motion is materially reduced.
+8. Check mobile, tablet, and desktop widths for no horizontal overflow, clipped chart content, or topbar/menu overlap.
+9. Confirm the initial load has no console errors beyond known environment-only font or favicon noise already filtered by the visual harness.
+10. If any stale-code candidate cannot be proven unused, leave it in place and record it as follow-up rather than removing it during VM-147A.
+
 ## `archscry/index.html` visual regression harness
 
 1. Before changing `archscry/index.html` or `assets/css/archscry.css`, run `npm.cmd run test:visual:archscry:baseline`.
@@ -46,6 +59,39 @@
 4. Confirm the compare run writes current and diff artifacts under `artifacts/visual-regression/archscry/current/` and `artifacts/visual-regression/archscry/diff/`.
 5. Confirm each capture stays within the mismatch budget and the run reports no new Archscry console or page errors beyond `console-baseline.json`.
 6. If the harness fails, review the generated diff PNGs before accepting any visual change.
+
+## VM-147B Archscry route manual QA
+
+1. Open `/archscry/`; confirm `archscry/index.html` preserves the current CSS stack ending in `../assets/css/archscry.css` and the current JS stack through Supabase UMD, `site-flags.js`, `shared.js`, `graph.js`, module `index.js`, `reduce-motion.js`, `vm-rich-atmosphere.js`, and `vm-topbar.js`.
+2. Confirm the topbar marks Archscry as active, opens and closes the utility menu, preserves route links, and still toggles reduced motion.
+3. Complete the quick reading flow from landing through Gate, Hall, Crucible, result reveal, and full dossier without console errors or broken asset requests.
+4. Confirm the dossier directory, focus mode, View All mode, and keyboard tab navigation still switch panels without changing URL, panel id, or focus behavior unexpectedly.
+5. In the Identity Matrix, confirm the radar/glow/starfield areas render visually in browser, noting that the visual regression harness intentionally masks unstable animated or canvas surfaces.
+6. Switch into an adjacent fit, return to the primary reading, and confirm the radar, axis bars, panel copy, and precon preview recompute for the active view without duplicating chart instances.
+7. Open Maze Discovery paths from the primary dossier and one adjacent dossier; confirm Maze receives the active dossier handoff and its return link still routes back to Archscry.
+8. In Commander Deck Starts, confirm Recommended Precon Decks, Commander Deck Starts, Commander Lanes, starter cards, mana base sections, card-art loading, and desktop card previews still behave as before.
+9. Check mobile, tablet, and desktop widths for readable panels, no obvious horizontal overflow, no clipped card art, and no topbar or dossier rail overlap.
+10. Enable reduced motion and confirm Archscry keeps a static atmosphere/radar presentation without continuous animation.
+11. Confirm any ambiguous stale CSS or JS ownership found during VM-147B remains in place and is recorded as follow-up rather than removed during the slice.
+
+## VM-147C Maze route manual QA
+
+1. Open `/maze/`; confirm `maze/index.html` preserves the current CSS stack ending in `../assets/css/maze.css` and the current JS stack through Supabase UMD, `shared.js`, module `research-init.js`, `vm-rich-atmosphere.js`, `reduce-motion.js`, and `vm-topbar.js`.
+2. Confirm the shared topbar marks The Implicit Maze as active, opens and closes the utility menu, preserves route links, and still toggles reduced motion.
+3. Confirm Maze boots with Discovery Paths, Helper Searches, By Color, type chips, rarity chips, default Commander format controls, and Plain Reading mode available on first load.
+4. In Plain Reading, search `red vampires that sacrifice creatures`; confirm Query Inspector shows the original phrase, translated syntax, confidence/diagnostic details when present, Copy, and Open in Scryfall.
+5. In Operator's Hand, search `ci<=br t:creature o:sacrifice f:commander`; confirm raw syntax, sorting, Copy, and Open in Scryfall preserve the normalized Scryfall query behavior.
+6. In The Loom, select colors, type, Commander format, rarity, mana value, and a keyword; confirm generated syntax, builder summary, reset behavior, and the submitted query still match the existing builder contract.
+7. Click a Query Inspector alternative when one is present; confirm it reruns through the existing quick-search path with order, unique, and direction metadata intact.
+8. Open `/maze/?q=ci%3C%3Dur%20t%3Alegendary%20t%3Acreature%20f%3Acommander`; confirm the route lands with query context intact and the search actions point at the same query.
+9. Open `/maze/?from=archscry&readingId=test&guild=izzet&fit=UR&readingTitle=Test%20Reading&returnUrl=/archscry/`; confirm the Archscry return banner appears, dismisses, and links back without changing the handoff payload.
+10. From an Archscry primary dossier and one adjacent-fit dossier, open Maze Discovery paths; confirm From Your Dossier reflects the active fit and Plain Reading / Operator's Hand mode switching preserves authored path text.
+11. Add a card to the Deck Scratchpad from the grid, open a modal, add a card to Commander Ideas from the modal, remove a stashed card, copy the export, and clear the stash while preserving `Commander` and `Deck` headings.
+12. Open and close a card modal by close button, outside click, and Escape; confirm background targets become inert while open, Tab stays inside the modal, and focus returns to the opener.
+13. Search enough results to enable Load More; confirm client pagination and remote `next_page` loading still update counts and recover button state after failure.
+14. Check mobile, tablet, and desktop widths for readable command deck, sidebar, results, stash drawer, modal, and return banner with no obvious horizontal overflow.
+15. Enable reduced motion and confirm Maze keeps a static or materially reduced atmosphere while mode cards, Query Inspector, stash drawer, and modal remain usable.
+16. Confirm any duplicate Maze CSS candidate that is not byte-identical and cascade-safe remains in place and is recorded as follow-up rather than removed during VM-147C.
 
 ## VM-136 / VM-137 / VM-139 / VM-140 / VM-141 precon dossier layer
 
@@ -97,6 +143,17 @@
 5. Confirm each capture stays within the mismatch budget and the run reports no new Apocrypha console or page errors beyond `console-baseline.json`.
 6. Confirm `/library/` still forwards into `/apocrypha/` after any Apocrypha visual pass.
 7. If the harness fails, review the generated diff PNGs before accepting any visual change.
+
+## VM-147D Static public route manual QA
+
+1. Open `/strategium/`, `/apocrypha/`, `/privacy/`, `/terms/`, and `/library/`; confirm each route loads with its current asset stack and no broken route-owned asset requests.
+2. Confirm `/library/` keeps its current compatibility behavior for Apocrypha exactly as implemented, including the alias shell text, meta refresh, inline JavaScript redirect, and noscript fallback, without changing the mechanism.
+3. On `/strategium/`, confirm the shared topbar marks Strategium as active, the mobile menu opens and closes, reduced motion toggles shared state, and all tabs, checklist controls, and archetype search behavior remain unchanged.
+4. On `/apocrypha/`, confirm the shared topbar marks Apocrypha as active, the route preserves public reference framing, all visible public source links remain reachable, versioned CSS/JS query strings stay intact, and no private-source framing leaks into public copy.
+5. On `/privacy/` and `/terms/`, confirm the shared topbar marks the current legal route as active, legal copy and service wording are unchanged, `../assets/css/legal.css` remains the final stylesheet, and the VM-153 glass opacity/no-blur treatment remains readable.
+6. At mobile, tablet, and desktop widths, confirm Strategium panels, Apocrypha reference cards, legal sections, topbars, footers, and the `/library/` compatibility shell have no obvious horizontal overflow, clipped text, or unreadable overlap.
+7. Confirm no new console or page errors appear beyond known environment-only font, favicon, or visual-harness noise.
+8. If a visual test fails before any VM-147D runtime edit, document it as a pre-existing condition and do not regenerate visual baselines under VM-147D.
 
 ## The Implicit Maze VM-129 console pass
 

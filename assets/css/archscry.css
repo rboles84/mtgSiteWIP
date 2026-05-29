@@ -3,7 +3,11 @@
    Shared route styling for /archscry/.
    Keeps runtime markup intact while moving the route into the
    newer vm-bg / glass / chamber presentation system.
+   VM-147B note: comments below mark route ownership zones only.
+   Do not reorder scoped and legacy blocks without a verified cascade reason.
    ============================================================ */
+
+/* Archscry route shell / rich atmosphere */
 
 body.vm-archscry-route {
   --vm-archscry-bg-image: url("../img/backgrounds/background-vox-gateway-clean-09.webp");
@@ -112,6 +116,8 @@ body.vm-archscry-route #result {
   justify-content: flex-start;
   padding: clamp(1rem, 2vw, 1.5rem) 0 4rem;
 }
+
+/* Landing, quick reading, and archived terminal shells */
 
 body.vm-archscry-route .landing-wrap,
 body.vm-archscry-route .quick-shell,
@@ -403,6 +409,8 @@ body.vm-archscry-route .decree-text {
   font-size: 1.08rem;
 }
 
+/* Result shell and route-local dossier panels */
+
 body.vm-archscry-route .result-inner {
   max-width: 1120px;
   padding: 0 1rem 4rem;
@@ -548,6 +556,8 @@ body.vm-archscry-route .commander-preview-grid {
 body.vm-archscry-route .commander-preview-card {
   padding: 0.95rem;
 }
+
+/* Commander and precon recommendation panels */
 
 body.vm-archscry-route .precons-section {
   display: grid;
@@ -799,6 +809,8 @@ body.vm-archscry-route .decree-footer {
   max-width: none;
 }
 
+/* Dossier navigation, rail, and panel chrome */
+
 body.vm-archscry-route .dossier-snapshot {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -1026,6 +1038,8 @@ body.vm-archscry-route .lands-tiers .dossier-segment-panel[hidden] {
   display: none !important;
 }
 
+/* Responsive behavior for the modern route-scoped shell */
+
 @media (max-width: 940px) {
   body.vm-archscry-route .hero-band {
     max-width: none;
@@ -1156,8 +1170,9 @@ body.vm-archscry-route .lands-tiers .dossier-segment-panel[hidden] {
 }
 
 /* ============================================================
-   Archscry live route extracted page-local styles (VM-127)
+   Legacy compatibility layer from VM-127 extraction
    Literal lift from archscry/index.html. Keep unlayered and route-local.
+   These selectors intentionally remain in their original cascade position.
    ============================================================ */
 /* Page-local aliases. Values aligned with /assets/css/tokens.css (Batch 1 locked).
    Variable names kept legacy (--bg2 not --bg-2) so the inline CSS below still resolves.
@@ -1645,6 +1660,9 @@ body::before{
   box-sizing:border-box;
 }
 .score-val{font-size:0.8rem;color:var(--text-muted);width:20px;text-align:right}
+
+/* Identity matrix and radar */
+
 .vm-dossier-matrix-section{
   --line:var(--border-s);
   --muted:var(--text-dim);
@@ -1922,6 +1940,9 @@ body::before{
     display:none !important;
   }
 }
+
+/* Legacy recommendation cards and card preview surfaces */
+
 .precon-grid,.archetypes-grid,.decks-grid,.adjacent-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1px;background:rgba(184,149,74,0.06)}
 .precon-card,.arch-card,.deck-card,.adjacent-card,.starter-card{background:rgba(12,11,10,0.9);border:1px solid rgba(184,149,74,0.08);padding:1.4rem}
 .arch-name,.starter-title{font-family:"Cinzel",serif;font-size:0.9rem;color:var(--gold);margin-bottom:0.4rem}
@@ -2466,6 +2487,8 @@ body::before{
   color:var(--gold);
   margin-bottom:0.8rem;
 }
+
+/* Legacy animation and responsive behavior */
 
 @keyframes pulse{0%,100%{opacity:0.4}50%{opacity:1}}
 

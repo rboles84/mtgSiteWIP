@@ -7,6 +7,15 @@ import * as ResearchSearch from "./research-search.js";
 import { buildScryfallWebSearchUrl, renderQueryInspector } from "./research-ui.js";
 import { buildDossierMazePathEntries, resolveMazeLaunchState } from "../assets/js/maze-handoff.js";
 
+/*
+ * VM-147C ownership map:
+ * - This route adapter owns Maze DOM state, boot, mode controls, result rendering, modal, stash, and Archscry return UI.
+ * - Query parsing/normalization stays in maze-query-core and parser modules.
+ * - Scryfall fetch/cache/dedupe stays in research-search.
+ * - Query Inspector markup helpers stay in research-ui.
+ */
+
+// Route state, storage keys, and static UI definitions.
 let currentMode = "ai";
 let currentQuery = "";
 let currentOrder = "name";
@@ -159,6 +168,7 @@ const TYPES = ["Creature", "Instant", "Sorcery", "Enchantment", "Artifact", "Pla
 const RARITIES = [{ v: "c", l: "Common" }, { v: "u", l: "Uncommon" }, { v: "r", l: "Rare" }, { v: "m", l: "Mythic" }];
 const MODE_IDS = ["ai", "raw", "builder"];
 
+// DOM utility and modal focus helpers.
 /**
  * Normalizes textarea whitespace into a Scryfall-safe single-line query.
  * @param {string} value - Raw textarea value.
@@ -361,6 +371,7 @@ function trapModalFocus(event) {
   }
 }
 
+// Boot and parser dictionary initialization.
 /**
  * Loads the checked-in parser seed so Smart Search uses the curated ruleset.
  */
@@ -512,6 +523,7 @@ async function initializeResearchArchives() {
   }
 }
 
+// Mode switching and search input sync.
 /**
  * Switches between Smart Search, raw Scryfall syntax, and Visual Builder.
  * @param {string} mode - Search mode id.
@@ -610,6 +622,7 @@ function bindSearchInputSelectOnFocus() {
   });
 }
 
+// Query resolution, Scryfall execution, and pagination.
 /**
  * Runs the active search mode through the Maze query contract adapter.
  */
@@ -801,6 +814,7 @@ async function loadMore() {
   }
 }
 
+// Results grid and card modal rendering.
 /**
  * Renders the visible card grid and footer paging state.
  * @param {boolean} append - Whether to append to current grid content.
@@ -1106,6 +1120,7 @@ function closeModal() {
   returnFocus?.focus?.();
 }
 
+// The Loom builder controls.
 /**
  * Builds Visual Builder type filter chips.
  */
@@ -1394,6 +1409,7 @@ function renderKwChips() {
   });
 }
 
+// Sidebar quick paths, Archscry handoff, and reading paths.
 /**
  * Renders quick-search buttons in the sidebar.
  */
@@ -1829,6 +1845,7 @@ function addRecent(query) {
   }
 }
 
+// Query Inspector, search actions, and result state helpers.
 /**
  * Delegates Query Inspector rendering to the dedicated UI module.
  * @param {string} query - Generated Scryfall query.
@@ -2087,6 +2104,7 @@ function renderNoResultsCard(card) {
   }
 }
 
+// Deck Scratchpad stash state and export helpers.
 function loadStash() {
   try {
     const parsed = JSON.parse(localStorage.getItem(STASH_KEY) || "[]");
@@ -2324,6 +2342,7 @@ function fallbackCopyText(text, successMessage) {
   }
 }
 
+// Event binding, global actions, and test compatibility surface.
 function bindMazeControls() {
   document.querySelector(".page")?.addEventListener("click", handleMazeActionClick);
   document.getElementById("modal-bg")?.addEventListener("click", handleMazeActionClick);

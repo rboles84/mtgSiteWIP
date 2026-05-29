@@ -8,6 +8,8 @@ Files: `assets/js/adaptive-placement.js`, `data/placement-model.json`, plus the 
 
 The adaptive placement engine treats each faction as a hypothesis with an equal log prior. Each answer carries likelihoods for one or more factions. The engine converts likelihoods into configured log-score deltas, applies positive and negative evidence, optionally suppresses lookalike factions through lateral inhibition, prunes poison-pill matches, and converts scores into probabilities through softmax.
 
+The shipped engine currently operates as one baseline domain across the live 20-expression model. That baseline is documented as `ravnica_strixhaven` in [Placement Domains](placement-domains.md). There is no live domain-aware question routing, no live `domain` field in runtime contracts, and no upfront domain selector in the current Archscry flow.
+
 Main flow:
 
 1. `createInitialAdaptiveState` seeds every faction with the same prior and empty trails.
@@ -211,6 +213,8 @@ Important transforms:
 - Discriminator questions are normalized with fallback ids and collision targets.
 - Good/poor indicators and inhibitor traps are flattened to plain lists.
 - Context is condensed for prompt use while keeping display metadata.
+
+Future domain modeling may eventually add metadata above the current expression set, but this build currently emits the live 20-expression baseline only. Any future split between Ravnica and Strixhaven must be treated as a separate architecture decision because it would change question routing, adjacent-fit behavior, and dossier language.
 
 ## Command Panel
 

@@ -2,7 +2,7 @@
 
 ID: VM-021C
 Title: Add In-Flight Request Dedupe for Scryfall Calls
-Status: backlog
+Status: done
 Type: UX / reliability
 Area: Maze, Archscry
 Priority: high
@@ -28,3 +28,5 @@ Add a small in-flight promise dedupe layer for Scryfall search, exact-card, and 
 ## Notes
 
 Keep this additive only. Do not alter Maze return flow, MTGDecks routing, parser seed path, or result layout.
+
+2026-05-28 closeout: Implemented per `docs/handoffs/2026-05-16-1345-codex-vm021c-add-in-flight-request-dedupe-for-scryfall-calls.md` and moved to `done/` during the Kanban cleanup recorded in `docs/handoffs/2026-05-28-1702-codex-kanban-cleanup-closeout.md`.

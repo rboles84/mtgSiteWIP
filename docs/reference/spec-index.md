@@ -10,6 +10,7 @@ This index explains the existing documentation set and how it connects to the te
 | [Method Reference](./method-reference.md) | Javadoc-equivalent function/API list. | Looking up functions, exports, globals, handlers, and endpoint surfaces. |
 | [Core Logic And Algorithms](../architecture/core-logic-and-algorithms.md) | Behavioral breakdowns. | Understanding placement, parsing, persistence, generation, and command execution logic. |
 | [Data Flow Map](../architecture/data-flow-map.md) | Data lineage and storage map. | Tracing raw inputs to generated artifacts, browser state, Supabase, Scryfall, archived terminal calls, and test output. |
+| [Supabase Frontend Security Review](../architecture/supabase-frontend-security-review.md) | Scoped security review of the checked-in Supabase browser and archived Edge Function surface. | Auditing the public browser key, `profiles` access patterns, Edge Function request controls, or missing Supabase policy traceability. |
 | [Maze Query Contract](../contracts/maze-query-contract.md) | VM-022 query contract. | Changing Maze parsing, raw syntax normalization, builder query generation, Archscry/path launches, or query-core ownership boundaries. |
 | [Diagrams](../diagrams/diagrams.md) | Visual maps. | Reading architecture, route, flow, and data diagrams. |
 | [Data Contracts](./data-contracts.md) | Runtime data shapes. | Updating placement result shape, generated model shape, or Supabase profile expectations. |

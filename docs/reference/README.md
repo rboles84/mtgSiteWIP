@@ -12,12 +12,14 @@ This folder is the developer map for the current Vox Mana working tree. It docum
 - [Method Reference](./method-reference.md) - Javadoc-equivalent inventory of named functions, exported constants, globals, handlers, and endpoint surfaces.
 - [Diagrams](../diagrams/diagrams.md) - editable Mermaid sources and static SVG companions.
 - [Spec Index](./spec-index.md) - map of existing project specs and how they relate.
+- [Supabase Frontend Security Review](../architecture/supabase-frontend-security-review.md) - code-only review of the public Supabase browser surface, the archived Edge Function, and the current policy traceability gap.
 
 ## Existing Project Specs
 
 - [Data Contracts](./data-contracts.md)
 - [Maze Query Contract](../contracts/maze-query-contract.md)
 - [Manual Test Cases](./manual-test-cases.md)
+- [Supabase Frontend Security Review](../architecture/supabase-frontend-security-review.md)
 - [Visual Style Guide](../design/visual-style-guide.md)
 - [Asset Manifest](../design/asset-manifest.md)
 - [Implementation Notes](../design/implementation-notes.md)

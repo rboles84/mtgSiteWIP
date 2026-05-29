@@ -1,8 +1,14 @@
 /* ============================================================
    Vox Mana - The Implicit Maze route styles
    VM-129C atmosphere and route-family convergence.
+
+   VM-147C ownership map:
+   - Maze route shell/background: route-local visual treatment only.
+   - Command deck/search/sidebar/results/modal/stash: preserve DOM contracts.
+   - Parser, Scryfall execution, handoff, modal, and stash behavior live in JS.
    ============================================================ */
 
+/* Route shell and shared background treatment */
 body.vm-maze-route {
   --maze-bg-image: url("../img/backgrounds/background-vox-gateway-clean-13.webp");
   --maze-panel: rgba(12, 16, 25, 0.50);
@@ -139,6 +145,7 @@ body.vm-maze-route .page {
   gap: clamp(1rem, 2vw, 1.35rem);
 }
 
+/* Route utility helpers */
 .hidden {
   display: none !important;
 }
@@ -155,6 +162,7 @@ body.vm-maze-route .page {
   border: 0 !important;
 }
 
+/* Animation helpers */
 @keyframes maze-fade-up {
   from {
     opacity: 0;
@@ -186,6 +194,7 @@ body.vm-maze-route :focus-visible {
   outline-offset: 3px;
 }
 
+/* Shared Maze glass surfaces */
 .maze-command-deck,
 .r-sidebar,
 .r-main,
@@ -201,6 +210,7 @@ body.vm-maze-route :focus-visible {
   box-shadow: 0 24px 72px rgba(0, 0, 0, 0.42);
 }
 
+/* Command deck and route introduction */
 .maze-command-deck {
   grid-column: 1;
   container-type: inline-size;
@@ -278,6 +288,7 @@ body.vm-maze-route :focus-visible {
   min-width: 0;
 }
 
+/* Mode cards and search shell */
 .mode-row {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -585,6 +596,7 @@ body.vm-maze-route[data-maze-mode="builder"] .maze-user-badge {
   padding: 0.05rem 0.32rem;
 }
 
+/* Query Inspector */
 .query-inspector {
   display: grid;
   grid-template-columns: minmax(0, 0.78fr) minmax(0, 1fr) auto;
@@ -784,6 +796,7 @@ body.vm-maze-route[data-maze-mode="builder"] .maze-user-badge {
   word-break: break-word;
 }
 
+/* The Loom visual builder */
 .builder-panel {
   grid-column: 1 / -1;
   display: grid;
@@ -1048,6 +1061,7 @@ body.vm-maze-route[data-maze-mode="builder"] .maze-user-badge {
   color: var(--maze-muted);
 }
 
+/* Sidebar, results shell, and Archscry return banner */
 .r-body {
   grid-column: 1;
   display: grid;
@@ -1284,6 +1298,7 @@ body.vm-maze-route[data-maze-mode="builder"] .maze-user-badge {
   color: var(--maze-text);
 }
 
+/* Empty, loading, and no-results states */
 .state-panel {
   flex: 1;
   min-height: inherit;
@@ -1383,6 +1398,7 @@ body.vm-maze-route[data-maze-mode="builder"] .maze-user-badge {
   color: var(--maze-text);
 }
 
+/* Result grid and card tiles */
 .card-grid {
   flex: 1;
   display: grid;
@@ -1555,6 +1571,7 @@ body.vm-maze-route[data-maze-mode="builder"] .maze-user-badge {
   font-size: 0.72rem;
 }
 
+/* Deck Scratchpad stash drawer */
 .stash-panel {
   display: flex;
   flex-direction: column;
@@ -1729,6 +1746,7 @@ body.vm-maze-route[data-stash-open="true"] .stash-panel {
   font-size: 0.62rem;
 }
 
+/* Card detail modal */
 .modal-bg {
   position: fixed;
   inset: 0;
@@ -1921,6 +1939,7 @@ body.vm-maze-route[data-stash-open="true"] .stash-panel {
   text-decoration: none;
 }
 
+/* Responsive behavior */
 @media (max-width: 1180px) {
   body.vm-maze-route .page {
     width: min(100% - 1rem, 1540px);
@@ -2087,6 +2106,7 @@ body.vm-maze-route[data-stash-open="true"] .stash-panel {
   }
 }
 
+/* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
   body.vm-maze-route .vm-bg__stars {
     opacity: 0.45;

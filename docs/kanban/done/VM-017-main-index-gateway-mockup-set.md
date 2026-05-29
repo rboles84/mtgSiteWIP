@@ -2,7 +2,7 @@
 
 ID: VM-017
 Title: Main Index Gateway Mockup Set
-Status: backlog
+Status: superseded
 Type: Design / UX
 Area: Home, Visual Direction
 Priority: medium
@@ -85,4 +85,6 @@ Keep this scoped to the home gateway. The result should be a premium front door 
 2026-05-15 update: `VM-019` added a disposable root-level first-visit sandbox for local review. The full VM-017 mockup-set scope remains open because returning-user and dedicated mobile frames were intentionally excluded from that lightweight pass.
 
 2026-05-26 update: `VM-148` promotes the Identity Signal homepage to canonical `/` and removes the old Three Doors shell plus `assets/css/home.css` and `assets/js/home.js`. Re-triage this card before implementation; do not target deleted Three Doors assets without explicit new scope.
+
+2026-05-28 supersession note: The original Three Doors direction was superseded by `VM-148`; future homepage concept work should use a fresh current-home card rather than reopening this removed route direction. Historical references: `docs/handoffs/2026-05-15-2016-codex-vm017-main-index-gateway-mockup-set.md` and the `VM-148` history cited above.
 

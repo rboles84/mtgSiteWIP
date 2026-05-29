@@ -2,7 +2,7 @@
 
 ID: VM-021A
 Title: Archscry Dossier QA Corrections
-Status: backlog
+Status: done
 Type: UX / reliability
 Area: Archscry, Maze
 Priority: high
@@ -30,3 +30,5 @@ Apply the small QA corrections from VM-021: move Adjacent Fits directly under Pr
 ## Notes
 
 Keep this as a small correction pass only. No redesign, no scoring changes, no QR work, no route changes.
+
+2026-05-28 closeout: Implemented per `docs/handoffs/2026-05-16-1240-codex-vm021a-archscry-dossier-qa-corrections.md` and moved to `done/` during the Kanban cleanup recorded in `docs/handoffs/2026-05-28-1702-codex-kanban-cleanup-closeout.md`.
