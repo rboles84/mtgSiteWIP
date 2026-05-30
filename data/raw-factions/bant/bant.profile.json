@@ -1,0 +1,971 @@
+{
+  "schema_version": "1.0.0",
+  "profile_version": "1.0.0",
+  "faction_id": "bant",
+  "faction_name": "Bant",
+  "faction_type": "shard",
+  "plane_or_setting": "Alara",
+  "color_identity": [
+    "White",
+    "Blue",
+    "Green"
+  ],
+  "color_pair_or_group": "WUG shard",
+  "source_review_date": "2026-05-29",
+  "last_full_review": "2026-05-29",
+  "last_incremental_review": null,
+  "last_updated": "2026-05-29",
+  "site_surface": {
+    "display_name": "Bant",
+    "short_summary": "Bant is Alara's white-centered green-white-blue shard: an ordered, honor-bound society whose strongest evidence cluster is exalted, sigils, knightly recognition, Rafiq, Valeron, Akrasa, the Great Conduit, and collective force concentrated through a worthy champion.",
+    "one_sentence_identity": "Bant asks whether greatness can remain worthy when it carries the hopes, order, and support of the whole.",
+    "tagline": "The many raise the worthy line.",
+    "primary_tags": [
+      "Bant",
+      "Alara",
+      "Shard",
+      "White-centered",
+      "Exalted",
+      "Sigils",
+      "Champion",
+      "Collective honor",
+      "Ordered harmony"
+    ],
+    "secondary_tags": [
+      "Rafiq of the Many",
+      "Valeron",
+      "Akrasa",
+      "Great Conduit",
+      "Jenara",
+      "Noble Hierarch",
+      "Rhox",
+      "Aven",
+      "Conflux",
+      "Mubin",
+      "Source draft"
+    ],
+    "tone_words": [
+      "honorable",
+      "disciplined",
+      "protective",
+      "aspirational",
+      "ceremonial",
+      "communal",
+      "refined",
+      "patient",
+      "noble",
+      "structured"
+    ],
+    "visual_keywords": [
+      "sigils",
+      "knights",
+      "banners",
+      "green fields",
+      "high castles",
+      "angels",
+      "rhox monks",
+      "aven squires",
+      "single champion",
+      "ley-line conduit"
+    ],
+    "best_for": [
+      "players drawn to creature-forward value with a protective frame",
+      "players who like a visible champion backed by a larger board",
+      "players who want order and community without pure prison control",
+      "players who prefer structured harmony, enchantress, blink, or honorable voltron"
+    ],
+    "content_warnings_or_sensitivity_notes": [
+      "Bant material can involve hierarchy, rigid social order, war, invasion, and source-bound references to post-Conflux or Phyrexian-era conflict."
+    ],
+    "claim_ids": [
+      "bant_claim_0001",
+      "bant_claim_0002",
+      "bant_claim_0003",
+      "bant_claim_0004",
+      "bant_claim_0005",
+      "bant_claim_0006",
+      "bant_claim_0007",
+      "bant_claim_0008",
+      "bant_claim_0009",
+      "bant_claim_0011",
+      "bant_claim_0017",
+      "bant_claim_0020",
+      "bant_claim_0021"
+    ]
+  },
+  "core_identity": {
+    "summary": "Bant is a white-centered Alara shard where order, protection, interconnection, refinement, and public honor reinforce one another. Its primary image is not generic three-color value, but a society that concentrates communal trust and force through a worthy champion.",
+    "philosophy": "Bant treats excellence as legitimate when it remains answerable to the whole. White gives the collective ideal, Blue gives planning and refinement, and Green gives interconnection and belonging.",
+    "central_tension": "Bant's harmony can become rigid or insular when the order cannot hear dissent, absorb disruption, or correct itself after contact with values it was not built around.",
+    "confirmed_claim_ids": [
+      "bant_claim_0001",
+      "bant_claim_0002",
+      "bant_claim_0003",
+      "bant_claim_0004",
+      "bant_claim_0005",
+      "bant_claim_0007",
+      "bant_claim_0008",
+      "bant_claim_0009",
+      "bant_claim_0011",
+      "bant_claim_0012",
+      "bant_claim_0015"
+    ],
+    "interpretive_claim_ids": [
+      "bant_claim_0006",
+      "bant_claim_0017",
+      "bant_claim_0018",
+      "bant_claim_0019"
+    ],
+    "unknowns": [
+      "Exact live-verified card text for several flavor and oracle details",
+      "Asha founder role and broader doctrine beyond presider, sacred authority, and council-of-archmages angel-creation support",
+      "Elspeth governance or institution-building claims remain unsupported",
+      "Complete post-Conflux and post-Phyrexia political condition",
+      "Named Bant angel compleation, survival, or hierarchy outcomes"
+    ],
+    "claim_ids": [
+      "bant_claim_0001",
+      "bant_claim_0002",
+      "bant_claim_0003",
+      "bant_claim_0004",
+      "bant_claim_0006",
+      "bant_claim_0015"
+    ]
+  },
+  "structure": {
+    "summary": "The structural floor is sigil-ranked public honor, knightly recognition, supported champion combat, confirmed roles such as knights, squires, rhox monks, hierarchs, angels, and the confirmed five-nation geography of Valeron, Akrasa, Jhess, Topa, and Eos. All five nations are verified in A Planeswalker's Guide to Alara (Beyer & Helland, 2008) and are cleared for runtime use. VM-159A source packet confirmed this upgrade.",
+    "confirmed_elements": [
+      "Bant as an Alara shard",
+      "White-centered green-white-blue color identity",
+      "Sigils as visible earned recognition",
+      "Rafiq as iconic decorated knight and later Knight-General reference",
+      "Valeron and Akrasa as confirmed Bant nations",
+      "Jhess as confirmed Bant eastern island/coastal nation",
+      "Topa and Eos as confirmed Bant Inner Three nations alongside Akrasa",
+      "The Great Conduit as a bounded symbolic and geographic anchor"
+    ],
+    "bounded_elements": [
+      "Asha as supreme guardian, sacred authority, and presider; angel creation belongs to a council of archmages, not to Asha as founder",
+      "Elspeth as having a confirmed Bant knightly and spiritual arc, not governing Bant",
+      "Mubin as source-bound support for the Sword of Asha sequence and hidden communal labor behind the public champion"
+    ],
+    "manual_review_required": [
+      "Do not promote Asha as founder or angel-creation architect without direct official support",
+      "Do not promote Elspeth as a Bant governor or institution-builder",
+      "Verify post-Phyrexia Bant status and named angel outcomes before adding detailed political language"
+    ],
+    "claim_ids": [
+      "bant_claim_0007",
+      "bant_claim_0008",
+      "bant_claim_0009",
+      "bant_claim_0010",
+      "bant_claim_0011",
+      "bant_claim_0013",
+      "bant_claim_0014",
+      "bant_claim_0016",
+      "bant_claim_0021"
+    ]
+  },
+  "great_tension": {
+    "summary": "Bant's ideal order is beautiful because the whole can elevate the worthy champion without dissolving into private appetite. Its risk is that the same system can harden into insularity, rank fixation, or control when dissent and correction are absent.",
+    "placement_relevance": "Use this tension to separate Bant from generic peaceful three-color value, Azorius prison, Selesnya belonging, Simic growth engines, and Naya big-creature immediacy.",
+    "not_canon_doctrine": true,
+    "claim_ids": [
+      "bant_claim_0004",
+      "bant_claim_0006",
+      "bant_claim_0015",
+      "bant_claim_0019"
+    ]
+  },
+  "historical_timeline": [
+    {
+      "event_id": "event_bant_0001",
+      "event": "Alara is fractured into five shards; Bant develops as the green-white-blue shard in isolation from Black and Red.",
+      "date_or_era": "Pre-Shards of Alara story era",
+      "claim_ids": [
+        "bant_claim_0001",
+        "bant_claim_0002",
+        "bant_claim_0004"
+      ],
+      "confidence": "High",
+      "notes": "Exact in-world chronology is not specified in this packet."
+    },
+    {
+      "event_id": "event_bant_0002",
+      "event": "Shards of Alara introduces Bant, exalted, Rafiq, sigils, and the key visual/mechanical floor for the shard.",
+      "date_or_era": "Shards of Alara block",
+      "claim_ids": [
+        "bant_claim_0005",
+        "bant_claim_0007",
+        "bant_claim_0008"
+      ],
+      "confidence": "High",
+      "notes": "Card text should still be checked live before exact quoting."
+    },
+    {
+      "event_id": "event_bant_0003",
+      "event": "Conflux reunites Alara's shards and tests Bant's isolated ideal through renewed contact with the other shard value systems.",
+      "date_or_era": "Conflux / Alara Reborn era",
+      "claim_ids": [
+        "bant_claim_0015"
+      ],
+      "confidence": "High",
+      "notes": "Detailed inter-shard diplomacy remains out of scope for this source packet."
+    },
+    {
+      "event_id": "event_bant_0004",
+      "event": "Later story/support material preserves Bant, Valeron, and Knight-General Rafiq as meaningful markers, but this packet does not establish a complete post-Phyrexia political condition.",
+      "date_or_era": "Phyrexia: All Will Be One / March of the Machine era",
+      "claim_ids": [
+        "bant_claim_0016"
+      ],
+      "confidence": "Medium",
+      "notes": "Requires official passage verification before live dossier language."
+    }
+  ],
+  "key_figures": [
+    {
+      "character_id": "char_bant_rafiq_of_the_many",
+      "name": "Rafiq of the Many",
+      "role": "Legendary knight; Knight-General in later support",
+      "relationship_to_faction": "Iconic Bant champion and sigil-bearing figure.",
+      "claim_ids": [
+        "bant_claim_0008",
+        "bant_claim_0009"
+      ],
+      "confidence": "High",
+      "notes": "Exact card flavor text and story passages should be checked live before runtime promotion."
+    },
+    {
+      "character_id": "char_bant_noble_hierarch",
+      "name": "Noble Hierarch",
+      "role": "Druid / hierarch",
+      "relationship_to_faction": "Bant-associated Great Conduit anchor.",
+      "claim_ids": [
+        "bant_claim_0011",
+        "bant_claim_0012"
+      ],
+      "confidence": "High",
+      "notes": "Exact flavor text should be verified before quoting."
+    },
+    {
+      "character_id": "char_bant_jenara",
+      "name": "Jenara, Asura of War",
+      "role": "Legendary angel card anchor",
+      "relationship_to_faction": "Bant-associated angel and Commander-facing exemplar.",
+      "claim_ids": [
+        "bant_claim_0012",
+        "bant_claim_0017"
+      ],
+      "confidence": "High for card association; medium for deeper lore",
+      "notes": "Specific institutional angel role is not assigned in this packet."
+    },
+    {
+      "character_id": "char_bant_gwafa_hazid",
+      "name": "Gwafa Hazid, Profiteer",
+      "role": "Bant-associated merchant counterpoint",
+      "relationship_to_faction": "Card-supported figure useful as a corruption/counterexample boundary.",
+      "claim_ids": [
+        "bant_claim_0012"
+      ],
+      "confidence": "High for card association; medium for deeper story",
+      "notes": "Do not treat Gwafa as a founder or social-order architect."
+    },
+    {
+      "character_id": "char_bant_asha",
+      "name": "Asha",
+      "role": "Supreme guardian, sacred authority, and presider, source-bound",
+      "relationship_to_faction": "May be referenced carefully as Bant's highest remembered angelic authority; angel creation is attributed to a council of archmages.",
+      "claim_ids": [
+        "bant_claim_0013"
+      ],
+      "confidence": "Medium",
+      "notes": "Do not present as sole founder of Bant's social order or angel-creation mechanism."
+    },
+    {
+      "character_id": "char_bant_elspeth_tirel",
+      "name": "Elspeth Tirel",
+      "role": "Planeswalker with a confirmed Bant knightly/spiritual arc",
+      "relationship_to_faction": "Source-bound Bant connection through training, knighthood, Conflux-era rupture, Sword of Asha handoff, and departure; not a Bant governor or institution-builder.",
+      "claim_ids": [
+        "bant_claim_0014"
+      ],
+      "confidence": "Medium",
+      "notes": "Use the confirmed sequence as identity support only; do not treat Elspeth as building Bant's institutions."
+    },
+    {
+      "character_id": "char_bant_mubin",
+      "name": "Mubin",
+      "role": "Rhox knight, Rafiq friend/rival, and hidden Sword of Asha support figure",
+      "relationship_to_faction": "Source-bound Conflux figure whose research and restoration of the Sword of Asha enables Rafiq's public victory over Malfegor.",
+      "claim_ids": [
+        "bant_claim_0021"
+      ],
+      "confidence": "Medium",
+      "notes": "Use as support context for Bant's many-behind-the-champion pattern, not as a standalone placement route."
+    }
+  ],
+  "canonical_flavor_text": [
+    {
+      "card_name": "Rafiq of the Many",
+      "set": "Shards of Alara",
+      "short_excerpt_or_summary": "Flavor text supports Rafiq as uniquely decorated with sigils from Bant's five nations.",
+      "is_exact_excerpt": false,
+      "claim_ids": [
+        "bant_claim_0008",
+        "bant_claim_0009"
+      ],
+      "source_ids": [
+        "src_vm_bant_evidence_ledger_20260528",
+        "src_vm_bant_research_dossier_20260528"
+      ],
+      "notes": "Summarized from the curated packet; exact wording should be checked live."
+    },
+    {
+      "card_name": "Noble Hierarch",
+      "set": "Conflux",
+      "short_excerpt_or_summary": "Flavor text supports the Great Conduit as a network connecting Bant.",
+      "is_exact_excerpt": false,
+      "claim_ids": [
+        "bant_claim_0011"
+      ],
+      "source_ids": [
+        "src_vm_bant_evidence_ledger_20260528",
+        "src_vm_bant_research_dossier_20260528"
+      ],
+      "notes": "Summarized from the curated packet; exact wording should be checked live."
+    },
+    {
+      "card_name": "Akrasan Squire",
+      "set": "Shards of Alara",
+      "short_excerpt_or_summary": "Card naming supports Akrasa as a Bant location/nation anchor.",
+      "is_exact_excerpt": false,
+      "claim_ids": [
+        "bant_claim_0009"
+      ],
+      "source_ids": [
+        "src_vm_bant_evidence_ledger_20260528",
+        "src_vm_bant_research_dossier_20260528"
+      ],
+      "notes": "Used as location support, not detailed political lore."
+    }
+  ],
+  "views_on_other_factions": [
+    {
+      "faction": "Azorius Senate",
+      "relationship_summary": "Vox Mana separator only: Azorius makes order procedural and civic; Bant makes order communal, honorable, and creature-centered.",
+      "evidence_type": "Project placement guidance",
+      "claim_ids": [
+        "bant_claim_0019"
+      ],
+      "confidence": "Medium",
+      "notes": "Not canon diplomacy."
+    },
+    {
+      "faction": "Selesnya Conclave",
+      "relationship_summary": "Vox Mana separator only: Selesnya centers belonging and consensus; Bant adds Blue refinement, tactical planning, public rank, and champion logic.",
+      "evidence_type": "Project placement guidance",
+      "claim_ids": [
+        "bant_claim_0019"
+      ],
+      "confidence": "Medium",
+      "notes": "Not canon diplomacy."
+    },
+    {
+      "faction": "Simic Combine",
+      "relationship_summary": "Vox Mana separator only: Simic growth is adaptive and experimental; Bant growth is morally ordered, publicly honorable, and community-framed.",
+      "evidence_type": "Project placement guidance",
+      "claim_ids": [
+        "bant_claim_0019"
+      ],
+      "confidence": "Medium",
+      "notes": "Not canon diplomacy."
+    },
+    {
+      "faction": "Naya",
+      "relationship_summary": "Vox Mana separator only: Naya is Bant's closest shard-level false positive because it shares White and Green; the separator is Blue refinement and planned order versus Red passion and big-creature immediacy.",
+      "evidence_type": "Project placement guidance",
+      "claim_ids": [
+        "bant_claim_0019"
+      ],
+      "confidence": "Medium",
+      "notes": "Most important adjacent shard comparison for future runtime calibration."
+    },
+    {
+      "faction": "Esper",
+      "relationship_summary": "Vox Mana separator only: Esper replaces Green's living interconnection with Black ambition and artifact-centered perfection; Bant remains creature/community framed.",
+      "evidence_type": "Project placement guidance",
+      "claim_ids": [
+        "bant_claim_0019"
+      ],
+      "confidence": "Medium",
+      "notes": "Not canon diplomacy."
+    },
+    {
+      "faction": "Grixis",
+      "relationship_summary": "Vox Mana separator only: Grixis removes White and Green, centering scarcity, death, and exploitation where Bant centers shared order and life.",
+      "evidence_type": "Project placement guidance",
+      "claim_ids": [
+        "bant_claim_0019"
+      ],
+      "confidence": "Medium",
+      "notes": "Not canon diplomacy."
+    },
+    {
+      "faction": "Jund",
+      "relationship_summary": "Vox Mana separator only: Jund expresses force through appetite and predation; Bant regulates force through public honor and community endorsement.",
+      "evidence_type": "Project placement guidance",
+      "claim_ids": [
+        "bant_claim_0019"
+      ],
+      "confidence": "Medium",
+      "notes": "Not canon diplomacy."
+    }
+  ],
+  "mechanics": {
+    "summary": "Exalted is the primary Bant-associated mechanic and the safest mechanical anchor for future placement. Bant Commander curation may also support blink, ETB value, enchantress, aura/equipment voltron, Clues, counters, and creature-forward value when those patterns preserve Bant's community/champion frame.",
+    "confirmed_mechanics": [
+      {
+        "name": "Exalted",
+        "relationship_to_faction": "Bant-associated Shards of Alara mechanic",
+        "claim_ids": [
+          "bant_claim_0005",
+          "bant_claim_0006"
+        ],
+        "confidence": "High",
+        "notes": "Exact rules text should be checked live before quoting."
+      }
+    ],
+    "commander_curation_patterns": [
+      "creature-forward value midrange",
+      "enchantress and aura engines",
+      "blink and ETB value",
+      "exalted single-champion combat",
+      "honor-coded voltron",
+      "clean creature-based combo or value lines",
+      "Clue/investigate value",
+      "counter movement and proliferate when creature/community framed"
+    ],
+    "claim_ids": [
+      "bant_claim_0005",
+      "bant_claim_0006",
+      "bant_claim_0017",
+      "bant_claim_0018"
+    ]
+  },
+  "search_and_filter_metadata": {
+    "aliases": [
+      "Bant",
+      "GWU",
+      "green-white-blue",
+      "white-blue-green",
+      "Alara Bant",
+      "Bant shard"
+    ],
+    "related_terms": [
+      "Alara",
+      "Shards of Alara",
+      "Conflux",
+      "Alara Reborn",
+      "Rafiq of the Many",
+      "Knight-General Rafiq",
+      "Valeron",
+      "Akrasa",
+      "Jhess",
+      "Topa",
+      "Eos",
+      "Great Conduit",
+      "sigils",
+      "exalted",
+      "Noble Hierarch",
+      "Jenara",
+      "Asha",
+      "Elspeth",
+      "Mubin"
+    ],
+    "known_mechanics": [
+      "Exalted",
+      "attacks alone",
+      "blink",
+      "ETB value",
+      "Auras",
+      "Equipment",
+      "Enchantress",
+      "Clue tokens",
+      "Investigate",
+      "Proliferate",
+      "Counter movement"
+    ],
+    "known_characters": [
+      "Rafiq of the Many",
+      "Noble Hierarch",
+      "Jenara, Asura of War",
+      "Gwafa Hazid, Profiteer",
+      "Elspeth Tirel",
+      "Asha",
+      "Mubin",
+      "Stoic Angel",
+      "Empyrial Archangel",
+      "Rhox War Monk"
+    ],
+    "known_locations": [
+      "Bant",
+      "Valeron",
+      "Akrasa",
+      "Jhess",
+      "Topa",
+      "Eos",
+      "Great Conduit",
+      "Cathedral of Bliss"
+    ],
+    "sets_or_story_arcs": [
+      "Shards of Alara",
+      "Conflux",
+      "Alara Reborn",
+      "Phyrexia: All Will Be One",
+      "March of the Machine"
+    ],
+    "tags": [
+      "shard",
+      "wug",
+      "white-centered",
+      "altruistic-order",
+      "exalted",
+      "sigils",
+      "champion",
+      "creature-value",
+      "enchantress",
+      "blink",
+      "voltron",
+      "live-pilot"
+    ],
+    "search_keywords": [
+      "Bant",
+      "Bant commander",
+      "Rafiq exalted",
+      "Bant exalted",
+      "Bant enchantress",
+      "Bant blink",
+      "Bant value",
+      "Bant Clues",
+      "Bant counters",
+      "Chulane",
+      "Tuvasa",
+      "Morska",
+      "Roon",
+      "Galea",
+      "Estrid",
+      "Helga",
+      "Yenna",
+      "Kestia"
+    ],
+    "future_identity_note": "VM-160 promotes Bant as the live shard expression key BANT. WUG remains color-direction metadata only and must not become an alias, generated top-level key, placement result key, raw-to-key target, or identity.expression_key."
+  },
+  "data_quality": {
+    "source_packet_review_status": "live_pilot_source_packet",
+    "runtime_promotion_status": "live_pilot",
+    "review_date": "2026-05-29",
+    "source_basis": "Curated Bant ledgers and dossier, VM-157/VM-158 architecture docs, direct Rosewater capture, bounded lore reference, approved MTG Wiki support, manual fill notes, and Commander workbook rows.",
+    "strongest_evidence_areas": [
+      "Bant as a white-blue-green Alara shard",
+      "White as Bant's design center",
+      "Exalted as Bant-associated mechanic",
+      "Sigils and champion recognition",
+      "Rafiq as iconic Bant knight",
+      "Valeron, Akrasa, and Great Conduit anchors",
+      "Asha as presider and sacred authority, with angel creation attributed to a council of archmages",
+      "Elspeth's confirmed Bant knightly and spiritual arc",
+      "Mubin's confirmed Sword of Asha support sequence",
+      "Commander-expression lane shape as Vox Mana curation"
+    ],
+    "weakest_evidence_areas": [
+      "Asha founder role and broader doctrine",
+      "Elspeth governance or institution-building claims",
+      "Detailed post-Conflux diplomacy",
+      "Detailed post-Phyrexia political condition",
+      "Named Bant angel compleation or survival outcomes",
+      "Post-pilot placement calibration"
+    ],
+    "manual_review_required": [
+      "Live-verify card text and story passages before exact quotation",
+      "Verify official sourcebook passages before direct quotation of Bant nation descriptions",
+      "Recheck Bant placement behavior after VM-160 against the active 21-expression model",
+      "Keep future Bant Home preview exposure as a separate card"
+    ],
+    "intentional_omissions": [
+      "No top-level live domain field",
+      "No generated artifact expectations",
+      "No definitive post-Phyrexia political reconstruction"
+    ]
+  },
+  "research_limitations": "VM-160 promotes Bant as a live placement pilot from the mature raw source packet. It does not verify new live web sources, does not expand unsupported lore, and does not expose Bant in the Home preview carousel.",
+  "commander_compass": {
+    "schema_version": "1.0.0",
+    "source_research_file": "docs/research/vox_mana_second_commander_recommendations_enhanced.xlsx",
+    "last_reviewed": "2026-05-29",
+    "review_status": "live_pilot_generated_curation",
+    "recommendation_philosophy": "Use Bant Commander guidance as expression-shape support only: creature/community framing, structured protection, value, enchantress, blink, Clues, counters, and honor-coded voltron are in-bounds; hard-lock prison and off-frame graveyard or mill shells are suppressions.",
+    "identity_basis": {
+      "owned_themes": [
+        "collective support behind a worthy champion",
+        "creature-forward value and protection",
+        "structured white-blue-green refinement serving a communal ideal",
+        "exalted, sigils, and honorable visible excellence"
+      ],
+      "allowed_phrases": [
+        "Bant value",
+        "Bant enchantress",
+        "Bant blink",
+        "Bant exalted",
+        "Bant champion",
+        "Bant Clues",
+        "Bant counters"
+      ],
+      "avoid_or_contrast_phrases": [
+        "Azorius prison as Bant",
+        "generic three-color goodstuff",
+        "Simic ramp with no White structure",
+        "Selesnya go-wide with no Blue refinement",
+        "Naya big-creature aggression",
+        "Esper mill-control",
+        "Golgari or Sultai mass reanimation"
+      ],
+      "supporting_claim_ids": [
+        "bant_claim_0017",
+        "bant_claim_0018",
+        "bant_claim_0019"
+      ],
+      "supporting_source_ids": [
+        "src_vm_bant_manual_fill_20260529",
+        "src_vm_commander_workbook_20260529",
+        "src_vm_bant_identity_md_20260529"
+      ]
+    },
+    "native_fit_commanders": [
+      {
+        "exact_card_name": "Rafiq of the Many",
+        "display_name": "Rafiq of the Many",
+        "color_identity": [
+          "W",
+          "U",
+          "G"
+        ],
+        "commander_legal": true,
+        "recommendation_type": "Native Fit Draft",
+        "archetype_tags": [
+          "Exalted",
+          "Voltron",
+          "Single Champion"
+        ],
+        "why_this_fits": "Rafiq is the clearest Bant champion expression: one worthy attacker receives the force and recognition of the whole.",
+        "skip_if": "The player wants broad go-wide tokens, prison control, or ramp with no champion frame.",
+        "gameplay_summary": "Build around a single protected attacker and amplify combat through support, auras, equipment, and exalted-style pressure.",
+        "source_basis": {
+          "existing_repo_claim_ids": [
+            "bant_claim_0006",
+            "bant_claim_0008",
+            "bant_claim_0017"
+          ],
+          "existing_repo_source_ids": [
+            "src_vm_bant_evidence_ledger_20260528",
+            "src_vm_bant_manual_fill_20260529"
+          ]
+        },
+        "confidence": "Medium",
+        "caution_notes": [
+          "Card data and deck guidance require live verification before runtime Commander Compass use."
+        ]
+      },
+      {
+        "exact_card_name": "Chulane, Teller of Tales",
+        "display_name": "Chulane, Teller of Tales",
+        "color_identity": [
+          "W",
+          "U",
+          "G"
+        ],
+        "commander_legal": true,
+        "recommendation_type": "Native Fit Draft",
+        "archetype_tags": [
+          "Creature Value",
+          "Card Draw",
+          "Combo"
+        ],
+        "why_this_fits": "Manual-fill guidance places creature-forward value and clean creature-based combo inside Bant when the line remains creature/community framed.",
+        "skip_if": "The deck becomes generic combo efficiency with no communal or creature-forward identity.",
+        "gameplay_summary": "Chain creatures for resource growth, card flow, and value loops while keeping the engine board-centered.",
+        "source_basis": {
+          "existing_repo_claim_ids": [
+            "bant_claim_0017"
+          ],
+          "existing_repo_source_ids": [
+            "src_vm_bant_manual_fill_20260529"
+          ]
+        },
+        "confidence": "Medium",
+        "caution_notes": [
+          "Commander-specific claims are curation support, not live recommendation output."
+        ]
+      },
+      {
+        "exact_card_name": "Tuvasa the Sunlit",
+        "display_name": "Tuvasa the Sunlit",
+        "color_identity": [
+          "W",
+          "U",
+          "G"
+        ],
+        "commander_legal": true,
+        "recommendation_type": "Native Fit Draft",
+        "archetype_tags": [
+          "Enchantress",
+          "Auras",
+          "Voltron"
+        ],
+        "why_this_fits": "The workbook and manual-fill notes support enchantress and aura engines as Bant-facing when they stay creature-centered instead of prison-centered.",
+        "skip_if": "The enchantment package is primarily tax, denial, or prison without a creature/community frame.",
+        "gameplay_summary": "Turn enchantments into steady growth and card flow while building a protected threat.",
+        "source_basis": {
+          "existing_repo_claim_ids": [
+            "bant_claim_0017",
+            "bant_claim_0018"
+          ],
+          "existing_repo_source_ids": [
+            "src_vm_bant_manual_fill_20260529",
+            "src_vm_commander_workbook_20260529"
+          ]
+        },
+        "confidence": "Medium",
+        "caution_notes": [
+          "Use as lane support only until Commander Compass promotion."
+        ]
+      },
+      {
+        "exact_card_name": "Morska, Undersea Sleuth",
+        "display_name": "Morska, Undersea Sleuth",
+        "color_identity": [
+          "W",
+          "U",
+          "G"
+        ],
+        "commander_legal": true,
+        "recommendation_type": "Native Fit Draft",
+        "archetype_tags": [
+          "Clues",
+          "Card Draw",
+          "Value"
+        ],
+        "why_this_fits": "The Commander workbook identifies Deep Clue Sea as a Bant value and Clue-token expression with White structure, Blue card draw, and Green support.",
+        "skip_if": "The player wants fast combat or non-Bant artifact control rather than incremental Clue value.",
+        "gameplay_summary": "Generate and spend Clues for card advantage and decision-rich resource growth.",
+        "source_basis": {
+          "existing_repo_claim_ids": [
+            "bant_claim_0017"
+          ],
+          "existing_repo_source_ids": [
+            "src_vm_commander_workbook_20260529"
+          ]
+        },
+        "confidence": "Medium",
+        "caution_notes": [
+          "Workbook curation is not yet runtime recommendation data."
+        ]
+      }
+    ],
+    "weird_stretch_commanders": [
+      {
+        "exact_card_name": "Derevi, Empyrial Tactician",
+        "display_name": "Derevi, Empyrial Tactician",
+        "color_identity": [
+          "W",
+          "U",
+          "G"
+        ],
+        "commander_legal": true,
+        "recommendation_type": "Context-Sensitive Stretch",
+        "archetype_tags": [
+          "Evasion",
+          "Tempo",
+          "Tap-Untap"
+        ],
+        "why_this_fits": "Evasive tempo and creature-based tap/untap value can remain Bant-facing.",
+        "skip_if": "The build is hard-lock stax, resource denial, or prison-first control.",
+        "gameplay_summary": "Use combat triggers and untap value as tempo rather than as a table-denial lock.",
+        "source_basis": {
+          "existing_repo_claim_ids": [
+            "bant_claim_0018"
+          ],
+          "existing_repo_source_ids": [
+            "src_vm_bant_manual_fill_20260529",
+            "src_vm_commander_workbook_20260529"
+          ]
+        },
+        "confidence": "Medium",
+        "caution_notes": [
+          "Derevi must be strategy-qualified before recommendation."
+        ]
+      }
+    ],
+    "budget_friendly_commanders": [],
+    "advanced_complexity_commanders": [
+      {
+        "exact_card_name": "Roon of the Hidden Realm",
+        "display_name": "Roon of the Hidden Realm",
+        "color_identity": [
+          "W",
+          "U",
+          "G"
+        ],
+        "commander_legal": true,
+        "recommendation_type": "Advanced Draft",
+        "archetype_tags": [
+          "Blink",
+          "ETB Value",
+          "Tempo"
+        ],
+        "why_this_fits": "Manual-fill guidance and workbook rows support blink and ETB value as Bant-facing when creature/community framing stays present.",
+        "skip_if": "The player dislikes trigger management or slower value engines.",
+        "gameplay_summary": "Reuse creature enters-the-battlefield effects and protect key board pieces through blink timing.",
+        "source_basis": {
+          "existing_repo_claim_ids": [
+            "bant_claim_0017"
+          ],
+          "existing_repo_source_ids": [
+            "src_vm_bant_manual_fill_20260529",
+            "src_vm_commander_workbook_20260529"
+          ]
+        },
+        "confidence": "Medium",
+        "caution_notes": [
+          "Runtime complexity lane is not implemented in VM-159."
+        ]
+      }
+    ],
+    "iconic_lore_forward_commanders": [
+      {
+        "exact_card_name": "Jenara, Asura of War",
+        "display_name": "Jenara, Asura of War",
+        "color_identity": [
+          "W",
+          "U",
+          "G"
+        ],
+        "commander_legal": true,
+        "recommendation_type": "Iconic Lore-Forward Draft",
+        "archetype_tags": [
+          "Voltron",
+          "Counters",
+          "Angel"
+        ],
+        "why_this_fits": "Jenara is a Bant-associated legendary angel and supports an honor-coded protected-threat lane.",
+        "skip_if": "The user wants broad board consensus or prison control rather than a focused protected threat.",
+        "gameplay_summary": "Grow and protect one evasive threat while the deck supplies support, counters, and defense.",
+        "source_basis": {
+          "existing_repo_claim_ids": [
+            "bant_claim_0012",
+            "bant_claim_0017"
+          ],
+          "existing_repo_source_ids": [
+            "src_vm_bant_evidence_ledger_20260528",
+            "src_vm_bant_manual_fill_20260529"
+          ]
+        },
+        "confidence": "Medium",
+        "caution_notes": [
+          "Specific angel hierarchy is not inferred from this card."
+        ]
+      }
+    ],
+    "not_recommended_or_deprioritized": [
+      {
+        "name": "Derevi hard-lock stax",
+        "reason": "Primary identity becomes table denial and prison control rather than Bant's creature/community champion frame.",
+        "could_still_be_used_if": "The Derevi shell is evasion, tempo, or creature-value oriented rather than hard-lock resource denial.",
+        "confidence": "Medium"
+      },
+      {
+        "name": "Prison enchantment stacks",
+        "reason": "Tax and denial enchantments without creature/community framing route closer to Azorius prison than Bant.",
+        "could_still_be_used_if": "The enchantment engine is enchantress, aura, protection, or creature-forward value.",
+        "confidence": "Medium"
+      },
+      {
+        "name": "Mill, self-mill, or mass reanimation as primary identity",
+        "reason": "These patterns drift toward Dimir, Esper, Golgari, or Sultai rather than Bant's supported identity.",
+        "could_still_be_used_if": "They are minor support pieces inside a Bant creature/community plan rather than the main identity.",
+        "confidence": "Medium"
+      }
+    ],
+    "archetype_lanes": [
+      {
+        "lane_name": "Exalted Champion",
+        "description": "One worthy attacker carries visible support from the board.",
+        "recommended_for": "Rafiq of the Many",
+        "skip_if": "You want go-wide tokens or a noncombat value pile.",
+        "example_commanders": [
+          "Rafiq of the Many",
+          "Jenara, Asura of War"
+        ],
+        "supporting_identity_terms": [
+          "exalted",
+          "sigils",
+          "champion",
+          "public honor"
+        ],
+        "complexity": "Medium",
+        "budget_friendliness": "Medium"
+      },
+      {
+        "lane_name": "Creature-Forward Value",
+        "description": "Bant value that stays board-centered through creatures, ETB triggers, Clues, and protective growth.",
+        "recommended_for": "Chulane, Teller of Tales; Morska, Undersea Sleuth; Roon of the Hidden Realm",
+        "skip_if": "You want hard control or spell-only combo.",
+        "example_commanders": [
+          "Chulane, Teller of Tales",
+          "Morska, Undersea Sleuth",
+          "Roon of the Hidden Realm"
+        ],
+        "supporting_identity_terms": [
+          "community",
+          "refinement",
+          "value",
+          "protected board"
+        ],
+        "complexity": "Medium",
+        "budget_friendliness": "Medium"
+      },
+      {
+        "lane_name": "Enchantress and Aura Order",
+        "description": "Enchantments, auras, and equipment that protect and elevate a creature-centered line.",
+        "recommended_for": "Tuvasa the Sunlit; Galea, Kindler of Hope; Estrid, the Masked",
+        "skip_if": "The deck is prison-first or denial-first.",
+        "example_commanders": [
+          "Tuvasa the Sunlit",
+          "Galea, Kindler of Hope",
+          "Estrid, the Masked"
+        ],
+        "supporting_identity_terms": [
+          "protection",
+          "visible support",
+          "aura",
+          "structured growth"
+        ],
+        "complexity": "Medium",
+        "budget_friendliness": "Medium"
+      }
+    ],
+    "link_targets": {
+      "edhrec_commander_index": null,
+      "mtgdecks_color_identity": null,
+      "scryfall_commander_search": null,
+      "archidekt_color_search": null
+    },
+    "merge_notes": {
+      "product_guidance_not_canon": true,
+      "commander_legality_validated": false,
+      "scryfall_card_pages_validated": false,
+      "do_not_use_as_claim_source": true,
+      "runtime_status": "live_pilot"
+    }
+  }
+}

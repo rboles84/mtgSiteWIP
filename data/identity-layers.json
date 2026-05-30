@@ -5,7 +5,8 @@
     "notes": [
       "Color entries define foundational identity language.",
       "Expression entries define routing, blend metadata, placement eligibility, and Home preview metadata.",
-      "The current preview set covers five mono colors, ten Ravnica guilds, and five Strixhaven colleges."
+      "The current preview set covers five mono colors, ten Ravnica guilds, and five Strixhaven colleges.",
+      "VM-160 adds Bant as a live placement pilot with preview_eligible false; the Home preview carousel remains at 20 entries."
     ]
   },
   "colors": {
@@ -902,6 +903,151 @@
         "freedom": 46,
         "growth": 88
       }
+    },
+    "BANT": {
+      "key": "BANT",
+      "active": true,
+      "kind": "shard",
+      "name": "Bant",
+      "world": "Alara",
+      "colors": [
+        "W",
+        "U",
+        "G"
+      ],
+      "core_color": "W",
+      "secondary_colors": [
+        "U",
+        "G"
+      ],
+      "routing": {
+        "edhrec_slug": "bant",
+        "mtgdecks_slug": "bant",
+        "label": "Bant"
+      },
+      "identity_blend": "White order refined by Blue planning and rooted in Green interconnection.",
+      "display": {
+        "key": "BANT",
+        "name": "Bant",
+        "institution_type": "shard",
+        "world": "Alara",
+        "colors": [
+          "W",
+          "U",
+          "G"
+        ],
+        "accent": "#9ed8b4",
+        "banner": "linear-gradient(160deg,rgba(158,216,180,0.34) 0%,rgba(105,138,180,0.22) 48%,rgba(238,226,178,0.12) 100%)",
+        "tagline": "The many raise the worthy line.",
+        "philosophy": "Bant treats excellence as honorable when it remains answerable to the whole. Its order is not merely procedure; it is public trust, refined discipline, and a living community choosing which champion can carry its hope.",
+        "lore_summary": "Bant is Alara's white-centered shard of sigils, exalted support, knightly recognition, and communal order. Vox Mana reads it as structured harmony where the many concentrate support behind a worthy line of action.",
+        "core_tension": "Bant's virtue is disciplined harmony, but the same order can become rigid or insular when dissent and correction cannot be heard.",
+        "affinity": {
+          "drawn_to": [
+            "A worthy champion backed by the whole community",
+            "Public honor, sigils, rank, and visible responsibility",
+            "Protection that serves a living social body",
+            "Refinement, order, and growth held inside shared duty"
+          ],
+          "repelled_by": [
+            "Hard-lock denial that mistakes control for protection",
+            "Generic three-color value without Bant anchors",
+            "Private leverage as the main moral center",
+            "Raw instinct or aggression without disciplined communal order"
+          ],
+          "core_question": "What makes one line of action worthy enough for the whole community to stand behind?",
+          "interview_tells": [
+            "Frames power as accountable excellence",
+            "Wants support and recognition to be visible rather than hidden",
+            "Names champion, honor, sigil, duty, or disciplined belonging",
+            "Distinguishes protection of community from prison control"
+          ],
+          "not_to_be_confused_with": "Azorius centers procedure; Selesnya centers broad belonging; Simic centers adaptation; Naya centers instinctive force and awe."
+        },
+        "decree_voice": {
+          "tone": "Noble, disciplined, and communal without becoming cold.",
+          "speaks_like": "A herald naming the charge a champion accepts on behalf of the many.",
+          "example_opening": "The reading turns toward honor, support, and the line the whole can stand behind.",
+          "example_decree": "The reading turns toward honor, support, and the line the whole can stand behind. Bant does not ask you to be alone with excellence. It asks whether your strength can remain worthy while carrying the trust, order, and living support of the community around it."
+        },
+        "archetypes": [
+          {
+            "name": "Exalted Champion",
+            "desc": "Protect and elevate one clean attacker while the rest of the board makes that line worthy."
+          },
+          {
+            "name": "Creature-Forward Value",
+            "desc": "Use creatures, blink, Clues, and protective growth as a communal engine rather than detached efficiency."
+          },
+          {
+            "name": "Enchantress and Aura Order",
+            "desc": "Turn enchantments, auras, and equipment into visible support for a creature-centered plan."
+          }
+        ],
+        "staples": {
+          "creatures": [
+            "Rafiq of the Many",
+            "Chulane, Teller of Tales",
+            "Tuvasa the Sunlit"
+          ],
+          "spells": [
+            "Swords to Plowshares",
+            "Counterspell",
+            "Heroic Intervention"
+          ],
+          "permanents": [
+            "Rhystic Study",
+            "Mirari's Wake",
+            "Smothering Tithe"
+          ]
+        },
+        "land_base": {
+          "premium": [
+            "Tropical Island",
+            "Tundra",
+            "Savannah"
+          ],
+          "midrange": [
+            "Breeding Pool",
+            "Hallowed Fountain",
+            "Temple Garden"
+          ],
+          "budget": [
+            "Seaside Citadel",
+            "Bant Panorama",
+            "Path of Ancestry"
+          ],
+          "utility": [
+            "Command Tower",
+            "Exotic Orchard",
+            "Rogue's Passage"
+          ],
+          "optimal": "Tropical Island / Tundra / Savannah / Command Tower / Boseiju, Who Endures",
+          "mid": "Breeding Pool / Hallowed Fountain / Temple Garden / Command Tower / Seaside Citadel",
+          "budget_line": "Seaside Citadel / Bant Panorama / Path of Ancestry / Evolving Wilds / basics",
+          "utility_line": "Command Tower / Exotic Orchard / Rogue's Passage / Boseiju, Who Endures"
+        },
+        "deck_links": [
+          {
+            "fmt": "Commander",
+            "name": "Bant Commanders",
+            "desc": "Bant Commander starts for exalted champions, creature-forward value, enchantress, blink, Clues, and protected-board plans.",
+            "mtgg": null,
+            "edhrec": "https://edhrec.com/commanders/bant",
+            "mtgd": "https://mtgdecks.net/Commander/bant-commanders"
+          }
+        ],
+        "research_links": {
+          "edhrec_slug": "bant"
+        }
+      },
+      "display_code": "BANT",
+      "aliases": [
+        "BANT",
+        "bant"
+      ],
+      "placement_eligible": true,
+      "preview_eligible": false
     },
     "WR": {
       "key": "WR",

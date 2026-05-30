@@ -19,6 +19,7 @@ import {
   getColorIdentity,
   getCommanderFactionGuidance,
   getServiceChipMeta,
+  hasRenderableLandTier,
   selectPreconPreviewRecommendations,
 } from "./commander-dossier.js";
 import {
@@ -2254,6 +2255,9 @@ function renderResult(viewKey) {
     utility: "Adds Commander flexibility beyond color fixing.",
   };
   const basicLandCopy = basicLandGuidanceCopy(faction.colors || []);
+  const manaBaseSegments = MANA_BASE_SEGMENTS.filter((segment) =>
+    hasRenderableLandTier(landRecommendations, segment.id)
+  );
   const utilityTierHtml = (landRecommendations.utility || []).length
     ? `
         <div class="land-tier tier-utility">
@@ -2271,7 +2275,7 @@ function renderResult(viewKey) {
   const manaBaseSegment = normalizeDossierSegment(
     "mana-base",
     APP_STATE.dossierSegments["mana-base"],
-    MANA_BASE_SEGMENTS
+    manaBaseSegments
   );
   APP_STATE.dossierSegments["starter-cards"] = starterSegment;
   APP_STATE.dossierSegments["mana-base"] = manaBaseSegment;
@@ -2345,32 +2349,32 @@ function renderResult(viewKey) {
   const manaBasePanelHtml = `
     <div class="lands-section">
       <div class="section-label">Mana Base Starting Map</div>
-      ${buildSegmentControlsHtml("mana-base", MANA_BASE_SEGMENTS, manaBaseSegment, "Mana base tiers")}
+      ${buildSegmentControlsHtml("mana-base", manaBaseSegments, manaBaseSegment, "Mana base tiers")}
       <div class="lands-tiers">
         ${buildSegmentPanelHtml("mana-base", "basics", manaBaseSegment, `
           <div class="land-tier tier-basics">
             <div class="land-tier-label">Basics</div>
             <div class="land-tier-copy">${basicLandCopy}</div>
           </div>`)}
-        ${buildSegmentPanelHtml("mana-base", "premium", manaBaseSegment, `
+        ${hasRenderableLandTier(landRecommendations, "premium") ? buildSegmentPanelHtml("mana-base", "premium", manaBaseSegment, `
           <div class="land-tier tier-premium">
             <div class="land-tier-label">Premium</div>
             <div class="land-tier-copy">${landLaneCopy.premium}</div>
             <div class="land-cards-row">${landSlots(landRecommendations.premium, "lp")}</div>
-          </div>`)}
-        ${buildSegmentPanelHtml("mana-base", "midrange", manaBaseSegment, `
+          </div>`) : ""}
+        ${hasRenderableLandTier(landRecommendations, "midrange") ? buildSegmentPanelHtml("mana-base", "midrange", manaBaseSegment, `
           <div class="land-tier tier-midrange">
             <div class="land-tier-label">Midrange</div>
             <div class="land-tier-copy">${landLaneCopy.midrange}</div>
             <div class="land-cards-row">${landSlots(landRecommendations.midrange, "lm")}</div>
-          </div>`)}
-        ${buildSegmentPanelHtml("mana-base", "budget", manaBaseSegment, `
+          </div>`) : ""}
+        ${hasRenderableLandTier(landRecommendations, "budget") ? buildSegmentPanelHtml("mana-base", "budget", manaBaseSegment, `
           <div class="land-tier tier-budget">
             <div class="land-tier-label">Budget</div>
             <div class="land-tier-copy">${landLaneCopy.budget}</div>
             <div class="land-cards-row">${landSlots(landRecommendations.budget, "lb")}</div>
-          </div>`)}
-        ${buildSegmentPanelHtml("mana-base", "utility", manaBaseSegment, utilityTierHtml)}
+          </div>`) : ""}
+        ${hasRenderableLandTier(landRecommendations, "utility") ? buildSegmentPanelHtml("mana-base", "utility", manaBaseSegment, utilityTierHtml) : ""}
       </div>
     </div>`;
   const footerActionsHtml = `

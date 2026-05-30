@@ -35,6 +35,17 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 Historical note: `VM-044` is a preserved historical duplicate ID and `VM-049` is an intentional preserved duplicate pairing per the handoff trail. Neither ID should be reused.
 
+- [VM-170 - Bant Research Folder Cleanup Before Push](done/VM-170-bant-research-folder-cleanup-before-push.md)
+- [VM-169 - Bant Gold-Standard Parity Cleanup](done/VM-169-bant-gold-standard-parity-cleanup.md)
+- [VM-168 - Bant Downstream Lore Reconciliation](done/VM-168-bant-downstream-lore-reconciliation.md)
+- [VM-163 - Esper Source Packet Evidence Ledger](done/VM-163-esper-source-packet-evidence-ledger.md)
+- [VM-162 - Mana Base Empty Tier Suppression](done/VM-162-mana-base-empty-tier-suppression.md)
+- [VM-161 - Mana Base Basics Placeholder Suppression](done/VM-161-mana-base-basics-placeholder-suppression.md)
+- [VM-160 - Bant Controlled Placement Promotion](done/VM-160-bant-controlled-placement-promotion.md)
+- [VM-159A - Bant Raw Packet Reconciliation](done/VM-159A-bant-raw-packet-reconciliation.md)
+- [VM-159 - Bant Raw-Faction Source Packet](done/VM-159-bant-raw-faction-source-packet.md)
+- [VM-158 - Bant Docs Parity Fill Pass](done/VM-158-bant-docs-parity-fill-pass.md)
+- [VM-157 - Bant Identity And Metaphysics Authoring Pass](done/VM-157-bant-identity-metaphysics-authoring-pass.md)
 - [VM-156 - Canon Inventory and Three-Color Reference Audit](done/VM-156-canon-inventory-three-color-reference-audit.md)
 - [VM-155 - Targeted Supabase Frontend Security Review](done/VM-155-targeted-supabase-frontend-security-review.md)
 - [VM-013 - Placement Domains Architecture and Post-V1 Faction Expansion](done/VM-013-placement-domains-architecture-post-v1-faction-expansion.md)

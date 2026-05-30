@@ -1,0 +1,257 @@
+{
+  "schema_version": "1.0.0",
+  "faction_id": "bant",
+  "faction_name": "Bant",
+  "source_review_date": "2026-05-29",
+  "last_updated": "2026-05-29",
+  "sources": [
+    {
+      "source_id": "src_vm_bant_source_ledger_20260528",
+      "title": "Bant Source Ledger",
+      "author": "Vox Mana research packet",
+      "publisher_or_site": "Local repository",
+      "publication_date": "2026-05-28",
+      "url_or_repository_path": "docs/research/bant/bant-source-ledger.md",
+      "source_type": "Curated source ledger",
+      "reliability": "Primary local research ledger",
+      "notes": "Defines the Bant source hierarchy, session limitations, verified direct reads, and sources requiring later live verification."
+    },
+    {
+      "source_id": "src_vm_bant_evidence_ledger_20260528",
+      "title": "Bant Evidence Ledger",
+      "author": "Vox Mana research packet",
+      "publisher_or_site": "Local repository",
+      "publication_date": "2026-05-28",
+      "url_or_repository_path": "docs/research/bant/bant-evidence-ledger.md",
+      "source_type": "Curated evidence ledger",
+      "reliability": "Primary local evidence ledger",
+      "notes": "Maps Bant claims to confidence, evidence type, source IDs, and overreach risk."
+    },
+    {
+      "source_id": "src_vm_bant_research_dossier_20260528",
+      "title": "Bant Research Dossier",
+      "author": "Vox Mana research packet",
+      "publisher_or_site": "Local repository",
+      "publication_date": "2026-05-28",
+      "url_or_repository_path": "docs/research/bant/bant-research-dossier.md",
+      "source_type": "Curated research dossier",
+      "reliability": "Primary local synthesis with explicit confidence boundaries",
+      "notes": "Summarizes Bant identity, structure, timeline, key figures, mechanics, and research limitations."
+    },
+    {
+      "source_id": "src_vm_bant_reliability_audit_20260528",
+      "title": "Bant Reliability Audit",
+      "author": "Vox Mana research packet",
+      "publisher_or_site": "Local repository",
+      "publication_date": "2026-05-28",
+      "url_or_repository_path": "docs/research/bant/bant-reliability-audit.md",
+      "source_type": "Reliability audit",
+      "reliability": "Primary local audit",
+      "notes": "Records session limitations, downgraded claims, open questions, and anti-hallucination checks."
+    },
+    {
+      "source_id": "src_wotc_rosewater_bant_20081006",
+      "title": "Peace, Love and Understanding",
+      "author": "Mark Rosewater",
+      "publisher_or_site": "Magic: The Gathering / Making Magic",
+      "publication_date": "2008-10-06",
+      "url_or_repository_path": "docs/research/canon/mark_rosewater_official_three_color/Bant_Peace, Love and Understanding _ MAGIC_ THE GATHERING.md",
+      "source_type": "Official Wizards design article capture",
+      "reliability": "Primary / official design commentary",
+      "notes": "Directly read local capture. Confirms Bant as green-white-blue, White as the central color to Bant, and Bant's design framing as a White-centered utopia in the absence of Black and Red."
+    },
+    {
+      "source_id": "src_vm_canon_inventory_three_color_audit_20260528",
+      "title": "Canon Inventory and Three-Color Reference Audit",
+      "author": "Codex",
+      "publisher_or_site": "Local repository",
+      "publication_date": "2026-05-28",
+      "url_or_repository_path": "docs/analysis/canon-inventory-three-color-reference-audit.md",
+      "source_type": "Canon inventory and discovery audit",
+      "reliability": "Repository inventory / discovery aid",
+      "notes": "Identifies the official Rosewater shard files and Alara shard protocol material. Used as a discovery and boundary document, not as standalone proof."
+    },
+    {
+      "source_id": "src_vm_bant_identity_md_20260529",
+      "title": "Bant Shard - Ordered Utopia Through Collective Honor",
+      "author": "Vox Mana architecture docs",
+      "publisher_or_site": "Local repository",
+      "publication_date": "2026-05-29",
+      "url_or_repository_path": "docs/architecture/colors/bant/identity.md",
+      "source_type": "Vox Mana architecture doc",
+      "reliability": "Project architecture synthesis from approved evidence",
+      "notes": "Defines Bant's docs-phase identity, Commander expression, placement separators, and source-boundary rules. Not Magic canon."
+    },
+    {
+      "source_id": "src_vm_bant_metaphysics_md_20260529",
+      "title": "Bant Shard Metaphysics - Harmonized Excellence Under an Ideal Order",
+      "author": "Vox Mana architecture docs",
+      "publisher_or_site": "Local repository",
+      "publication_date": "2026-05-29",
+      "url_or_repository_path": "docs/architecture/colors/bant/metaphysics.md",
+      "source_type": "Vox Mana metaphysics doc",
+      "reliability": "Project metaphysics synthesis from approved evidence",
+      "notes": "Defines Bant's Vox Mana metaphysical reading. Explicitly not official canon doctrine."
+    },
+    {
+      "source_id": "src_vm_bant_manual_fill_20260529",
+      "title": "Bant Manual Fill",
+      "author": "User-provided manual fill notes",
+      "publisher_or_site": "Local repository",
+      "publication_date": "2026-05-29",
+      "url_or_repository_path": "docs/research/bant/bant-manual-fill.md",
+      "source_type": "Manual-fill and operator-language support",
+      "reliability": "Approved support for Commander expression and operator language",
+      "notes": "Used for Commander-expression lanes, suppressions, and Vox Mana separator language. Does not override stronger lore evidence."
+    },
+    {
+      "source_id": "src_vm_commander_workbook_20260529",
+      "title": "Vox Mana Second Commander Recommendations Enhanced",
+      "author": "Vox Mana research workbook",
+      "publisher_or_site": "Local repository",
+      "publication_date": "2026-05-29",
+      "url_or_repository_path": "docs/research/vox_mana_second_commander_recommendations_enhanced.xlsx",
+      "source_type": "Commander recommendation workbook",
+      "reliability": "Approved support for Commander-expression curation",
+      "notes": "Contains Bant-color precon rows for counters, group hug, Clues, enchantress, evasion, auras/equipment, historic spells, and counter diversity."
+    },
+    {
+      "source_id": "src_vm_bant_lore_reference_docx_20260529",
+      "title": "Bant Lore Reference",
+      "author": "User-provided lore reference packet",
+      "publisher_or_site": "Local repository",
+      "publication_date": "2026-05-29",
+      "url_or_repository_path": "docs/research/bant/source-material/Bant_Lore_Reference.docx",
+      "source_type": "Bounded lore/manual-fill reference",
+      "reliability": "Approved support only where traceable to Wizards, Rosewater, card text, or approved secondary support",
+      "notes": "Used to upgrade bounded manual-fill items while preserving source-boundary language for Asha, Elspeth, nation, post-Conflux, and post-Phyrexia claims."
+    },
+    {
+      "source_id": "src_vm_bant_lore_source_packet_20260529",
+      "title": "Bant Lore Source Packet",
+      "author": "Vox Mana research packet",
+      "publisher_or_site": "Local repository",
+      "publication_date": "2026-05-29",
+      "url_or_repository_path": "docs/research/bant/bant-lore-source-packet.md",
+      "source_type": "Reconciliation source packet",
+      "reliability": "Approved support for VM-159A reconciliation where claims trace to official Wizards, Rosewater, card text, or approved secondary support",
+      "notes": "Used for the VM-159A five-nation and caste reconciliation and VM-168 Asha, Elspeth, and Mubin boundary updates. Do not use the composed Interactive Codex liturgy as an official quote, and do not use the rejected alternate cross-shard Mubin framing."
+    },
+    {
+      "source_id": "src_wotc_planeswalkers_guide_alara_2008",
+      "title": "A Planeswalker's Guide to Alara",
+      "author": "Doug Beyer and Jenna Helland",
+      "publisher_or_site": "Wizards of the Coast",
+      "publication_date": "2008",
+      "url_or_repository_path": "Referenced by docs/research/bant/source-material/Bant_Lore_Reference.docx",
+      "source_type": "Official Wizards sourcebook",
+      "reliability": "Primary / official, not fully reproduced in this repository packet",
+      "notes": "Used through the trace supplied by the bounded lore reference, lore source packet, and approved support sources. VM-159A accepts the five-nation roster for future runtime geography use; exact passages should still be checked before direct quotation or expanded political claims."
+    },
+    {
+      "source_id": "src_wotc_alara_plane_page",
+      "title": "Alara Plane Page",
+      "author": "Wizards of the Coast",
+      "publisher_or_site": "Magic: The Gathering",
+      "publication_date": "Ongoing",
+      "url_or_repository_path": "https://magic.wizards.com/en/story/planes/alara",
+      "source_type": "Official plane page",
+      "reliability": "Primary / official; not fetched in the original Bant research session",
+      "notes": "Cited by the source ledger for Alara's five-shard structure and Conflux reunification. Verify live before runtime promotion."
+    },
+    {
+      "source_id": "src_wotc_a_man_of_parts",
+      "title": "A Man of Parts",
+      "author": "Wizards of the Coast story",
+      "publisher_or_site": "Magic: The Gathering",
+      "publication_date": "2023",
+      "url_or_repository_path": "https://magic.wizards.com/en/news/magic-story/a-man-of-parts",
+      "source_type": "Official story",
+      "reliability": "Primary / official; not fetched in the original Bant research session",
+      "notes": "Cited by the source ledger and lore reference for Bant, Valeron, Knight-General Rafiq, and later-era warning context. Exact story passages need live verification before direct quotation or expanded runtime dossier language."
+    },
+    {
+      "source_id": "src_wotc_angel_eye_view_bant_20081008",
+      "title": "An Angel's Eye View of Bant",
+      "author": "Doug Beyer",
+      "publisher_or_site": "Magic: The Gathering",
+      "publication_date": "2008-10-08",
+      "url_or_repository_path": "https://magic.wizards.com/en/news/feature/angels-eye-view-bant-2008-10-08",
+      "source_type": "Official Wizards feature article",
+      "reliability": "Primary / official, cited through the updated lore source packet",
+      "notes": "Used by VM-168 for Asha as supreme angelic authority and presider, not founder. Exact passages should be checked before direct quotation."
+    },
+    {
+      "source_id": "src_archive_trap_alara",
+      "title": "Archive Trap - Alara Story Summaries",
+      "author": "Archive Trap / MTG Salvation archive",
+      "publisher_or_site": "MTG Salvation / Archive Trap",
+      "publication_date": "Ongoing archive",
+      "url_or_repository_path": "Referenced by docs/research/bant/bant-lore-source-packet.md",
+      "source_type": "Approved secondary/reference support",
+      "reliability": "Approved support source for VM-168; defer to official Wizards sources if wording conflicts",
+      "notes": "Used for Mubin sequence discovery/support and Elspeth/Rafiq Conflux beats as recorded in the updated source packet. Do not quote as official Wizards text."
+    },
+    {
+      "source_id": "src_card_kingdom_elspeth_story",
+      "title": "The Story of Elspeth Tirel",
+      "author": "Card Kingdom Blog",
+      "publisher_or_site": "Card Kingdom",
+      "publication_date": "Ongoing archive",
+      "url_or_repository_path": "Referenced by docs/research/bant/bant-lore-source-packet.md",
+      "source_type": "Approved secondary/reference support",
+      "reliability": "Approved support source for VM-168; defer to official Wizards sources if wording conflicts",
+      "notes": "Used for Elspeth's Bant arrival, training, and knighthood arc as recorded in the updated source packet. Do not quote as official Wizards text."
+    },
+    {
+      "source_id": "src_mtg_wiki_bant",
+      "title": "Bant",
+      "author": "MTG Wiki contributors",
+      "publisher_or_site": "MTG Wiki",
+      "publication_date": "Ongoing",
+      "url_or_repository_path": "https://mtg.fandom.com/wiki/Bant",
+      "source_type": "Approved secondary/reference support",
+      "reliability": "Approved support source for VM-159; defer to official Wizards sources if wording conflicts",
+      "notes": "Used for bounded support on Bant nations, Asha-adjacent context, Mubin sequence discovery, and later-era continuity where the user approved MTG Wiki as support."
+    },
+    {
+      "source_id": "src_mtg_wiki_asha",
+      "title": "Asha",
+      "author": "MTG Wiki contributors",
+      "publisher_or_site": "MTG Wiki",
+      "publication_date": "Ongoing",
+      "url_or_repository_path": "https://mtg.fandom.com/wiki/Asha",
+      "source_type": "Approved secondary/reference support",
+      "reliability": "Approved support source for VM-159; source-boundary language required",
+      "notes": "May support Asha as guardian angel, sacred authority, and empty-throne presider. Does not support promoting Asha as the sole founder of Bant's social order or angel-creation mechanism."
+    },
+    {
+      "source_id": "src_mtg_wiki_elspeth",
+      "title": "Elspeth Tirel",
+      "author": "MTG Wiki contributors",
+      "publisher_or_site": "MTG Wiki",
+      "publication_date": "Ongoing",
+      "url_or_repository_path": "https://mtg.fandom.com/wiki/Elspeth_Tirel",
+      "source_type": "Approved secondary/reference support",
+      "reliability": "Approved support source for VM-159; source-boundary language required",
+      "notes": "May support Elspeth's Bant knightly and spiritual chapter. Does not support claims that she governed Bant or built its institutions."
+    }
+  ],
+  "not_used_or_rejected_sources": [
+    {
+      "source_name": "Excluded Bant Commander analysis note",
+      "reason": "Explicitly excluded from the VM-159 evidence chain by the user and prior VM-158 handoff.",
+      "notes": "May be named in handoff context only, not cited as evidence for Bant claims."
+    },
+    {
+      "source_name": "Fan-generated Alara HTML artifact",
+      "reason": "Rejected by the Bant research README as non-authoritative for canon or placement claims.",
+      "notes": "Not cited in this raw packet."
+    },
+    {
+      "source_name": "Unapproved generated or broad deep-research summaries",
+      "reason": "The user requested the curated Bant packet, traceable lore reference, MTG Wiki support, and approved workbook/manual-fill sources instead.",
+      "notes": "Not cited in this raw packet."
+    }
+  ]
+}

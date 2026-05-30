@@ -1,0 +1,864 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Esper Archival Codex & Infusion Matrix</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Tailwind Config for Theme Accents -->
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        esperCyan: '#00f0ff',
+                        esperPurple: '#bd00ff',
+                        esperBlue: '#1a56db',
+                        esperDark: '#080c14',
+                        esperCard: 'rgba(15, 23, 42, 0.85)'
+                    },
+                    boxShadow: {
+                        'glow-cyan': '0 0 15px rgba(0, 240, 255, 0.25)',
+                        'glow-purple': '0 0 15px rgba(189, 0, 255, 0.25)',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom scrollbars and animations */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #080c14;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1e293b;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #00f0ff;
+        }
+        .glow-border {
+            position: relative;
+        }
+        .glow-border::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: inherit;
+            padding: 1px;
+            background: linear-gradient(to bottom right, #00f0ff, #bd00ff, transparent);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            pointer-events: none;
+        }
+        @keyframes pulseGlow {
+            0%, 100% { opacity: 0.2; }
+            50% { opacity: 0.4; }
+        }
+        .bg-grid-pattern {
+            background-size: 40px 40px;
+            background-image:
+                linear-gradient(to right, rgba(0, 240, 255, 0.05) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(0, 240, 255, 0.05) 1px, transparent 1px);
+        }
+    </style>
+</head>
+<body class="bg-esperDark text-slate-200 font-sans min-h-screen bg-grid-pattern relative overflow-x-hidden">
+
+    <!-- Ambient Glow Effects -->
+    <div class="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-esperCyan/10 rounded-full filter blur-[120px] pointer-events-none animate-pulse"></div>
+    <div class="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] bg-esperPurple/10 rounded-full filter blur-[120px] pointer-events-none animate-pulse" style="animation-duration: 8s;"></div>
+
+    <!-- Header Navigation -->
+    <header class="sticky top-0 z-50 backdrop-blur-md bg-esperDark/80 border-b border-slate-800/80">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <!-- SVG Icon representing Esper filigree/geometry -->
+                <svg class="w-8 h-8 text-esperCyan animate-spin-slow" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="50" cy="50" r="45" stroke="currentColor" stroke-width="1.5" stroke-dasharray="10 5" />
+                    <polygon points="50,15 80,75 20,75" stroke="#bd00ff" stroke-width="1.5" />
+                    <circle cx="50" cy="50" r="10" fill="currentColor" />
+                </svg>
+                <div>
+                    <span class="text-xl font-bold tracking-wider text-transparent bg-clip-text bg-gradient-to-r from-esperCyan to-esperPurple">ESPER ARCHIVES</span>
+                    <span class="text-[9px] block text-slate-400 tracking-widest uppercase">The Shard of Glass & Etherium</span>
+                </div>
+            </div>
+
+            <nav class="hidden md:flex space-x-1 text-sm font-medium">
+                <button onclick="scrollToSection('lore')" class="px-3 py-2 text-slate-300 hover:text-esperCyan transition-all duration-200">Codex Database</button>
+                <button onclick="scrollToSection('alignment')" class="px-3 py-2 text-slate-300 hover:text-esperCyan transition-all duration-200">Shard Alignment</button>
+                <button onclick="scrollToSection('infusion-lab')" class="px-3 py-2 text-slate-300 hover:text-esperCyan transition-all duration-200">Infusion Lab</button>
+                <button onclick="scrollToSection('conflux-clash')" class="px-3 py-2 text-slate-300 hover:text-esperCyan transition-all duration-200">Conflux Conflict</button>
+            </nav>
+
+            <div class="flex items-center space-x-2">
+                <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold bg-blue-900/40 text-esperCyan border border-esperCyan/30">
+                    <span class="w-1.5 h-1.5 mr-1.5 rounded-full bg-esperCyan animate-ping"></span>
+                    Etherium Synced
+                </span>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 relative">
+
+        <!-- SECTION 1: HERO / LANDING -->
+        <section class="mb-16 text-center md:text-left py-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                <div class="lg:col-span-7 space-y-6">
+                    <div class="inline-flex items-center space-x-2 bg-slate-950/80 px-3 py-1 rounded-full border border-slate-800 text-xs text-slate-400">
+                        <span class="text-esperPurple">✦</span>
+                        <span>Alara Planar Records</span>
+                        <span class="text-esperCyan">✦</span>
+                    </div>
+                    <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight text-white leading-tight">
+                        Self-Perfection Through <br/>
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-esperCyan via-esperBlue to-esperPurple">
+                            Metallic Sovereignty
+                        </span>
+                    </h1>
+                    <p class="text-lg text-slate-300 max-w-2xl leading-relaxed">
+                        Isolated during the planar sunder, the shard of <strong>Esper</strong> cast off the chaotic volatility of Red and Green mana. Governed by brilliant sphinxes, cold vedalken, and augmented humans, its inhabitants pursue the "Noble Work": the systematic replacement of fallible biology with the mystical filigree alloy of <span class="text-esperCyan font-semibold">Etherium</span>.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 pt-4 justify-center md:justify-start">
+                        <button onclick="scrollToSection('infusion-lab')" class="px-6 py-3 bg-gradient-to-r from-esperCyan/20 to-esperBlue/40 text-esperCyan border border-esperCyan/50 rounded-lg font-semibold hover:from-esperCyan/30 hover:to-esperBlue/50 hover:shadow-glow-cyan transition-all duration-300 flex items-center justify-center space-x-2">
+                            <span>Access Infusion Lab</span>
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                        </button>
+                        <button onclick="scrollToSection('lore')" class="px-6 py-3 bg-slate-900/60 border border-slate-800 text-slate-300 rounded-lg hover:bg-slate-800 transition-all duration-200">
+                            Read Codex Files
+                        </button>
+                    </div>
+                </div>
+                <div class="lg:col-span-5 relative flex justify-center">
+                    <!-- Geometric filigree projection card -->
+                    <div class="w-80 h-80 md:w-96 md:h-96 rounded-full bg-gradient-to-tr from-esperBlue/20 to-esperPurple/20 flex items-center justify-center border border-esperCyan/20 relative shadow-glow-cyan">
+                        <!-- Orbiting particles using CSS borders -->
+                        <div class="absolute inset-4 rounded-full border border-dashed border-esperCyan/40 animate-spin-slow"></div>
+                        <div class="absolute inset-10 rounded-full border border-esperPurple/30 animate-spin-reverse"></div>
+
+                        <!-- Core Sphere -->
+                        <div class="w-48 h-48 rounded-full bg-slate-950/90 border border-slate-800 flex flex-col items-center justify-center p-6 text-center backdrop-blur-md">
+                            <span class="text-[10px] text-esperCyan tracking-widest uppercase">System Core</span>
+                            <span class="text-3xl font-black mt-2 text-white">W•U•B</span>
+                            <span class="text-xs text-slate-400 mt-2">White • Blue • Black</span>
+                            <div class="w-16 h-1 bg-gradient-to-r from-esperCyan to-esperPurple mt-3 rounded-full"></div>
+                        </div>
+
+                        <!-- Floating Widgets -->
+                        <div class="absolute top-4 right-4 bg-slate-900/90 px-3 py-1.5 rounded-lg border border-slate-800 text-xs flex items-center space-x-2 backdrop-blur-sm">
+                            <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+                            <span>Etherium Infusion: <span id="hero-infusion-percent">65%</span></span>
+                        </div>
+                        <div class="absolute bottom-8 left-4 bg-slate-900/90 px-3 py-1.5 rounded-lg border border-slate-800 text-xs flex items-center space-x-2 backdrop-blur-sm">
+                            <span class="w-2 h-2 rounded-full bg-esperPurple animate-ping"></span>
+                            <span>Aether Waves Active</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 2: INTERACTIVE CODEX (THE LORE DATABASE) -->
+        <section id="lore" class="mb-16 scroll-mt-20">
+            <div class="border-t border-slate-800/80 pt-10">
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-8 gap-4">
+                    <div>
+                        <h2 class="text-3xl font-bold tracking-tight text-white flex items-center gap-2">
+                            <span class="text-esperCyan">■</span> Esper Codex Database
+                        </h2>
+                        <p class="text-slate-400 mt-1">Acquire and decrypt the systematic files of the high-order shard.</p>
+                    </div>
+                    <!-- Search Filter Bar -->
+                    <div class="w-full md:w-80">
+                        <div class="relative">
+                            <input type="text" id="codex-search" oninput="filterCodex()" placeholder="Filter archives (e.g. Sharuum, Vectis)..." class="w-full bg-slate-950/90 border border-slate-800 rounded-lg px-4 py-2 text-sm text-slate-200 placeholder-slate-500 focus:outline-none focus:border-esperCyan focus:ring-1 focus:ring-esperCyan transition-all" />
+                            <span class="absolute right-3 top-2.5 text-slate-600">🔍</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Codex Tabs -->
+                <div class="grid grid-cols-1 md:grid-cols-12 gap-8">
+                    <!-- Tab Buttons -->
+                    <div class="md:col-span-4 flex flex-row md:flex-col overflow-x-auto md:overflow-visible gap-2 pb-4 md:pb-0" id="codex-tabs">
+                        <button onclick="switchTab('overview')" id="tab-overview" class="w-full text-left px-4 py-3 rounded-lg border bg-gradient-to-r from-esperBlue/20 to-transparent border-esperCyan/40 text-esperCyan font-medium transition-all duration-200 shrink-0">
+                            ✦ 1. General Overview
+                        </button>
+                        <button onclick="switchTab('noblework')" id="tab-noblework" class="w-full text-left px-4 py-3 rounded-lg border border-slate-800/80 hover:bg-slate-900/50 hover:border-slate-700 text-slate-400 font-medium transition-all duration-200 shrink-0">
+                            ✦ 2. The Noble Work & Carmot
+                        </button>
+                        <button onclick="switchTab('castes')" id="tab-castes" class="w-full text-left px-4 py-3 rounded-lg border border-slate-800/80 hover:bg-slate-900/50 hover:border-slate-700 text-slate-400 font-medium transition-all duration-200 shrink-0">
+                            ✦ 3. Esper Castes & Inhabitants
+                        </button>
+                        <button onclick="switchTab('geography')" id="tab-geography" class="w-full text-left px-4 py-3 rounded-lg border border-slate-800/80 hover:bg-slate-900/50 hover:border-slate-700 text-slate-400 font-medium transition-all duration-200 shrink-0">
+                            ✦ 4. Geography & Sovereign Citadels
+                        </button>
+                        <button onclick="switchTab('figures')" id="tab-figures" class="w-full text-left px-4 py-3 rounded-lg border border-slate-800/80 hover:bg-slate-900/50 hover:border-slate-700 text-slate-400 font-medium transition-all duration-200 shrink-0">
+                            ✦ 5. Key Sovereigns & Figures
+                        </button>
+                    </div>
+
+                    <!-- Tab Content Panels -->
+                    <div class="md:col-span-8 bg-esperCard border border-slate-800 rounded-xl p-6 backdrop-blur-md relative overflow-hidden shadow-2xl" id="codex-content-container">
+                        <!-- Panel: Overview -->
+                        <div id="panel-overview" class="codex-panel space-y-4">
+                            <h3 class="text-2xl font-bold text-white flex items-center gap-2">
+                                <span class="w-1.5 h-6 bg-esperCyan rounded"></span> General Overview of Esper
+                            </h3>
+                            <div class="w-full h-1 bg-gradient-to-r from-esperCyan/30 to-transparent my-2"></div>
+                            <p class="text-slate-300 leading-relaxed">
+                                Under the three-color mana alignment of <span class="text-blue-400">Blue (primary)</span>, <span class="text-white">White</span>, and <span class="text-slate-500">Black</span>, the world of Esper discarded natural entropic cycles and raw untethered instincts (lacking Green and Red mana). This exclusion meant that chaotic fire and primitive jungle growths disappeared, leaving a perfectly ordered landscape consisting of glass-dune deserts, metal coastlines, and brilliant, highly structured tides.
+                            </p>
+                            <div class="bg-slate-950/60 rounded-lg p-4 border border-slate-800 space-y-2">
+                                <h4 class="text-xs font-semibold uppercase text-esperCyan tracking-wider">Planar Architecture & Philosophy</h4>
+                                <p class="text-sm text-slate-400">
+                                    Nothing is accidental on Esper. The clouds run on schedules, the sea's tides follow a rigid mathematical pattern, and the winds are engineered for maximum efficiency. Every organism is considered a dynamic variable designed to be integrated into the grand sovereign grid of the plane.
+                                </p>
+                            </div>
+                            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2">
+                                <div class="bg-esperDark/80 p-3 rounded-lg border border-slate-800 text-center">
+                                    <div class="text-xs text-slate-500 font-bold uppercase tracking-wider">Predominant Focus</div>
+                                    <div class="text-sm font-semibold text-esperCyan mt-1">Logic & Optimization</div>
+                                </div>
+                                <div class="bg-esperDark/80 p-3 rounded-lg border border-slate-800 text-center">
+                                    <div class="text-xs text-slate-500 font-bold uppercase tracking-wider">Mana Structure</div>
+                                    <div class="text-sm font-semibold text-esperPurple mt-1">Blue-Centered Arc</div>
+                                </div>
+                                <div class="bg-esperDark/80 p-3 rounded-lg border border-slate-800 text-center">
+                                    <div class="text-xs text-slate-500 font-bold uppercase tracking-wider">Primary Catalyst</div>
+                                    <div class="text-sm font-semibold text-white mt-1">Etherium Infusion</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Panel: Noble Work -->
+                        <div id="panel-noblework" class="codex-panel hidden space-y-4">
+                            <h3 class="text-2xl font-bold text-white flex items-center gap-2">
+                                <span class="w-1.5 h-6 bg-esperCyan rounded"></span> The Noble Work & Carmot Crisis
+                            </h3>
+                            <div class="w-full h-1 bg-gradient-to-r from-esperCyan/30 to-transparent my-2"></div>
+                            <p class="text-slate-300 leading-relaxed">
+                                The ultimate ambition of Esper's inhabitants is <strong>The Noble Work</strong>. Recognizing biological flesh as weak, decay-prone, and mathematically flawed, the citizens systematically infuse their skeletal structures, vital organs, and limbs with the glistening alloy of <span class="text-esperCyan">Etherium</span>.
+                            </p>
+                            <p class="text-slate-300 leading-relaxed">
+                                Crucius, an ancient sphinx, invented etherium by utilizing a rare compound known as <strong>Carmot</strong>. Carmot is the critical, non-regenerative catalytic element required to bind spellcraft to raw metal.
+                            </p>
+                            <div class="bg-red-950/25 rounded-lg p-4 border border-red-900/40 space-y-2">
+                                <h4 class="text-xs font-semibold uppercase text-red-400 tracking-wider">The Seekers of Carmot</h4>
+                                <p class="text-sm text-slate-400">
+                                    Because Esper was isolated during the sundering, the supply of Carmot eventually depleted. The plane's society was thrust into a silent panic. A group known as the <strong>Seekers of Carmot</strong> arose—a highly secretive cabal dedicated to scouring the lands for any hidden deposits of Carmot, often resorting to dark or highly tyrannical means to secure it.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Panel: Castes -->
+                        <div id="panel-castes" class="codex-panel hidden space-y-4">
+                            <h3 class="text-2xl font-bold text-white flex items-center gap-2">
+                                <span class="w-1.5 h-6 bg-esperCyan rounded"></span> Esper Castes & Inhabitants
+                            </h3>
+                            <div class="w-full h-1 bg-gradient-to-r from-esperCyan/30 to-transparent my-2"></div>
+                            <p class="text-slate-300 leading-relaxed">
+                                Esper society is structured strictly by biological and mechanical taxonomy. There are three primary thinking species: humans, vedalken, and sphinxes, with various artificial servant constructs.
+                            </p>
+                            <div class="space-y-3">
+                                <div class="bg-slate-950/50 p-3 rounded-lg border border-slate-800/80">
+                                    <strong class="text-white text-sm block">1. The Sphinxes</strong>
+                                    <span class="text-xs text-slate-400">The supreme intellectual rulers and philosophers. Possessing massive mechanical, silver-filigreed wings, they govern with calculated decrees and demand rigorous adherence to logic.</span>
+                                </div>
+                                <div class="bg-slate-950/50 p-3 rounded-lg border border-slate-800/80">
+                                    <strong class="text-esperCyan text-sm block">2. The Vedalken</strong>
+                                    <span class="text-xs text-slate-400">Four-armed, blue-skinned scholars, surgeons, and etherium sculptors. They view flesh as an engineering puzzle waiting to be solved and represent the primary technicians of the Noble Work.</span>
+                                </div>
+                                <div class="bg-slate-950/50 p-3 rounded-lg border border-slate-800/80">
+                                    <strong class="text-esperPurple text-sm block">3. Human Filigree Mages</strong>
+                                    <span class="text-xs text-slate-400">Mortal casters who act as bureaucrats, soldiers, or agents. Many belong to the high-ranking elite, while the un-infused reside in the lower slummy ports of the world.</span>
+                                </div>
+                                <div class="bg-slate-950/50 p-3 rounded-lg border border-slate-800/80">
+                                    <strong class="text-slate-400 text-sm block">4. Homunculi & Gargoyles</strong>
+                                    <span class="text-xs text-slate-400">Artificial clockwork and filigree constructs programmed to run routine maintenance, carry items, or perform border defense patrols.</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Panel: Geography -->
+                        <div id="panel-geography" class="codex-panel hidden space-y-4">
+                            <h3 class="text-2xl font-bold text-white flex items-center gap-2">
+                                <span class="w-1.5 h-6 bg-esperCyan rounded"></span> Sovereign Citadels & Geographies
+                            </h3>
+                            <div class="w-full h-1 bg-gradient-to-r from-esperCyan/30 to-transparent my-2"></div>
+                            <p class="text-slate-300 leading-relaxed">
+                                Esper's geography is sleek, reflective, and dominated by architectural and geometric grids.
+                            </p>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div class="border border-slate-800/80 bg-slate-950/60 p-4 rounded-lg">
+                                    <span class="text-xs font-bold text-esperCyan uppercase tracking-wider block">Vectis</span>
+                                    <p class="text-xs text-slate-400 mt-1">
+                                        The largest urban sprawl on Esper. Divided into **Upper Vectis**—a pristine city of gleaming towers, glass streets, and wealthy enhanced elites—and the **Tidehollow Sub-slums**, a damp, subterranean labyrinth where outcasts and un-infused scavengers scrap for fragments of etherium.
+                                    </p>
+                                </div>
+                                <div class="border border-slate-800/80 bg-slate-950/60 p-4 rounded-lg">
+                                    <span class="text-xs font-bold text-esperPurple uppercase tracking-wider block">The Glass Dunes</span>
+                                    <p class="text-xs text-slate-400 mt-1">
+                                        An endless expanse of perfectly round, shimmering glass grains. These dunes are swept by mathematically precise wind currents, reflecting the blinding white sky and magnifying defensive magical arrays.
+                                    </p>
+                                </div>
+                                <div class="border border-slate-800/80 bg-slate-950/60 p-4 rounded-lg">
+                                    <span class="text-xs font-bold text-white uppercase tracking-wider block">Palanth Citadel</span>
+                                    <p class="text-xs text-slate-400 mt-1">
+                                        The absolute center of academic and physical perfection. A massive floating citadel where the highest council of sphinxes gather to forecast global alignment changes and coordinate research.
+                                    </p>
+                                </div>
+                                <div class="border border-slate-800/80 bg-slate-950/60 p-4 rounded-lg">
+                                    <span class="text-xs font-bold text-slate-500 uppercase tracking-wider block">The Otarian Sea</span>
+                                    <p class="text-xs text-slate-400 mt-1">
+                                        A pristine, metallic-sheen body of water. Its waves are regular and constant, devoid of chaotic natural storms due to weather-controlling arrays aligned in massive towers along the shores.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Panel: Figures -->
+                        <div id="panel-figures" class="codex-panel hidden space-y-4">
+                            <h3 class="text-2xl font-bold text-white flex items-center gap-2">
+                                <span class="w-1.5 h-6 bg-esperCyan rounded"></span> Key Figures of Esper
+                            </h3>
+                            <div class="w-full h-1 bg-gradient-to-r from-esperCyan/30 to-transparent my-2"></div>
+                            <div class="space-y-4">
+                                <div class="flex items-start space-x-3">
+                                    <div class="p-2 bg-esperCyan/10 rounded-lg text-esperCyan border border-esperCyan/30 font-bold text-xs shrink-0">SH</div>
+                                    <div>
+                                        <h4 class="text-white text-sm font-semibold">Sharuum the Hegemon</h4>
+                                        <p class="text-xs text-slate-400 mt-0.5">
+                                            A majestic, ancient female sphinx of massive intelligence. She is the current supreme sovereign ruler of Esper. Sharuum works tirelessly to resolve the Carmot scarcity to preserve the lifespan of her metallic subjects.
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start space-x-3">
+                                    <div class="p-2 bg-esperPurple/10 rounded-lg text-esperPurple border border-esperPurple/30 font-bold text-xs shrink-0">TZ</div>
+                                    <div>
+                                        <h4 class="text-white text-sm font-semibold">Tezzeret</h4>
+                                        <p class="text-xs text-slate-400 mt-0.5">
+                                            Born in the damp dirt of the Tidehollow slums, Tezzeret's raw talent for sculpting metal led him to qualify as a Seeker of Carmot. After his Spark ignited, he expanded his control and returned during the Phyrexian Invasion to spread planar warnings.
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start space-x-3">
+                                    <div class="p-2 bg-slate-800 rounded-lg text-white border border-slate-700 font-bold text-xs shrink-0">CR</div>
+                                    <div>
+                                        <h4 class="text-white text-sm font-semibold">Crucius the Mad</h4>
+                                        <p class="text-xs text-slate-400 mt-0.5">
+                                            The legendary sphinx genius who originally cracked the formula for manufacturing etherium. Crucius went missing centuries ago, leaving behind incomplete designs and notes that sparked the Seekers of Carmot factions.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 3: THE GREAT ALIGNMENT (DATA VISUALIZATION) -->
+        <section id="alignment" class="mb-16 scroll-mt-20">
+            <div class="border-t border-slate-800/80 pt-10">
+                <div class="text-center md:text-left mb-8">
+                    <h2 class="text-3xl font-bold tracking-tight text-white flex items-center justify-center md:justify-start gap-2">
+                        <span class="text-esperPurple">■</span> Planar Alignment Analysis
+                    </h2>
+                    <p class="text-slate-400 mt-1">Comparing the socio-philosophical profiles of the shards utilizing Graph.js metrics.</p>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+                    <!-- Column 1: Radar Chart for Shard Comparison -->
+                    <div class="lg:col-span-7 bg-esperCard border border-slate-800 rounded-xl p-6 backdrop-blur-md flex flex-col justify-between">
+                        <div>
+                            <h3 class="text-lg font-semibold text-white">Element & Mana Affinity Comparison</h3>
+                            <p class="text-xs text-slate-400 mb-4">Esper's logical constraints vs Bant's high cooperative order.</p>
+                        </div>
+                        <div class="relative w-full h-80 flex items-center justify-center">
+                            <canvas id="alignmentChart"></canvas>
+                        </div>
+                        <div class="mt-4 text-xs text-slate-400 text-center">
+                            <em>Note: The absence of Red (Chaos) and Green (Nature) highlights Esper's extreme structural artificiality.</em>
+                        </div>
+                    </div>
+
+                    <!-- Column 2: Value Metrics (Bar Graph) -->
+                    <div class="lg:col-span-5 bg-esperCard border border-slate-800 rounded-xl p-6 backdrop-blur-md flex flex-col justify-between">
+                        <div>
+                            <h3 class="text-lg font-semibold text-white">Societal Value Core Dynamics</h3>
+                            <p class="text-xs text-slate-400 mb-4">Tracking key metrics of philosophical drive.</p>
+                        </div>
+                        <div class="relative w-full h-80 flex items-center justify-center">
+                            <canvas id="valueMetricsChart"></canvas>
+                        </div>
+                        <div class="mt-4 flex justify-between text-xs text-slate-400">
+                            <span class="flex items-center"><span class="w-2.5 h-2.5 bg-esperCyan rounded-full mr-1"></span> Esper</span>
+                            <span class="flex items-center"><span class="w-2.5 h-2.5 bg-amber-500 rounded-full mr-1"></span> Bant</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 4: INTERACTIVE LAB (ETHERIUM INFUSION MATRIX) -->
+        <section id="infusion-lab" class="mb-16 scroll-mt-20">
+            <div class="border-t border-slate-800/80 pt-10">
+                <div class="text-center md:text-left mb-8">
+                    <h2 class="text-3xl font-bold tracking-tight text-white flex items-center justify-center md:justify-start gap-2">
+                        <span class="text-esperCyan">🧪</span> Interactive Etherium Infusion Lab
+                    </h2>
+                    <p class="text-slate-400 mt-1">Calibrate biological replacements. Observe shifts in elemental mana identity in real-time.</p>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+                    <!-- Sliders panel -->
+                    <div class="lg:col-span-5 bg-esperCard border border-slate-800 rounded-xl p-6 backdrop-blur-md space-y-6">
+                        <h3 class="text-xl font-bold text-white border-b border-slate-800 pb-3 flex items-center gap-2">
+                            <span>🎚️</span> Parameter Calibration
+                        </h3>
+
+                        <div class="space-y-4">
+                            <!-- Slider 1 -->
+                            <div>
+                                <div class="flex justify-between text-xs font-semibold mb-1">
+                                    <span class="text-slate-300">Etherium Replacement Percentage</span>
+                                    <span class="text-esperCyan" id="val-replacement">65%</span>
+                                </div>
+                                <input type="range" id="slide-replacement" min="0" max="100" value="65" oninput="updateSimulation()" class="w-full h-1.5 bg-slate-950 rounded-lg appearance-none cursor-pointer accent-esperCyan" />
+                                <span class="text-[10px] text-slate-500 block mt-0.5">Elevates Blue (Logic) & Black (Self-interest); decimates Green.</span>
+                            </div>
+
+                            <!-- Slider 2 -->
+                            <div>
+                                <div class="flex justify-between text-xs font-semibold mb-1">
+                                    <span class="text-slate-300">Adherence to Codified Law</span>
+                                    <span class="text-esperCyan" id="val-law">80%</span>
+                                </div>
+                                <input type="range" id="slide-law" min="0" max="100" value="80" oninput="updateSimulation()" class="w-full h-1.5 bg-slate-950 rounded-lg appearance-none cursor-pointer accent-esperCyan" />
+                                <span class="text-[10px] text-slate-500 block mt-0.5">Increases White (Sovereign Order) and Blue.</span>
+                            </div>
+
+                            <!-- Slider 3 -->
+                            <div>
+                                <div class="flex justify-between text-xs font-semibold mb-1">
+                                    <span class="text-slate-300">Ambition / Self-Maximization</span>
+                                    <span class="text-esperCyan" id="val-ambition">75%</span>
+                                </div>
+                                <input type="range" id="slide-ambition" min="0" max="100" value="75" oninput="updateSimulation()" class="w-full h-1.5 bg-slate-950 rounded-lg appearance-none cursor-pointer accent-esperCyan" />
+                                <span class="text-[10px] text-slate-500 block mt-0.5">Increases Black (Power); reduces White cooperative metrics.</span>
+                            </div>
+
+                            <!-- Slider 4 -->
+                            <div>
+                                <div class="flex justify-between text-xs font-semibold mb-1">
+                                    <span class="text-slate-300">Organic Harmony & Growth</span>
+                                    <span class="text-esperCyan" id="val-harmony">15%</span>
+                                </div>
+                                <input type="range" id="slide-harmony" min="0" max="100" value="15" oninput="updateSimulation()" class="w-full h-1.5 bg-slate-950 rounded-lg appearance-none cursor-pointer accent-esperCyan" />
+                                <span class="text-[10px] text-slate-500 block mt-0.5">Increases Green (Ancestral growth) and Red; conflicts with Etherium.</span>
+                            </div>
+                        </div>
+
+                        <!-- Reset Button -->
+                        <button onclick="resetSimulation()" class="w-full py-2 bg-slate-900 hover:bg-slate-800 border border-slate-700/50 rounded-lg text-xs font-semibold text-slate-300 transition-all">
+                            Reset Calibration to Defaults
+                        </button>
+                    </div>
+
+                    <!-- Live update Display panel -->
+                    <div class="lg:col-span-7 bg-esperCard border border-slate-800 rounded-xl p-6 backdrop-blur-md flex flex-col md:flex-row gap-6 items-center">
+                        <!-- Left inside panel: Mini Radar -->
+                        <div class="w-full md:w-1/2 relative h-64 flex items-center justify-center">
+                            <canvas id="simChart"></canvas>
+                        </div>
+
+                        <!-- Right inside panel: Assessment Report -->
+                        <div class="w-full md:w-1/2 space-y-4">
+                            <h4 class="text-sm font-bold text-slate-300 uppercase tracking-widest border-b border-slate-850 pb-2">Diagnostic Feedback</h4>
+
+                            <div class="space-y-3 text-xs">
+                                <div class="bg-slate-950/80 p-3 rounded-lg border border-slate-850">
+                                    <span class="text-slate-500 block font-bold uppercase tracking-wider">Projected Alignment Class</span>
+                                    <span class="text-sm font-black text-esperCyan mt-1 block" id="assessment-class">Calculating...</span>
+                                </div>
+
+                                <div class="bg-slate-950/80 p-3 rounded-lg border border-slate-850">
+                                    <span class="text-slate-500 block font-bold uppercase tracking-wider">System Vulnerability Index</span>
+                                    <span class="text-sm font-black mt-1 block" id="assessment-vuln">Low</span>
+                                </div>
+
+                                <div class="bg-slate-950/80 p-3 rounded-lg border border-slate-850">
+                                    <span class="text-slate-500 block font-bold uppercase tracking-wider">Aether Synergy Output</span>
+                                    <span class="text-sm font-black text-esperPurple mt-1 block" id="assessment-synergy">Moderate</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 5: CONFLUX CLASH (ESPER VS BANT) -->
+        <section id="conflux-clash" class="mb-16 scroll-mt-20">
+            <div class="border-t border-slate-800/80 pt-10">
+                <div class="text-center md:text-left mb-8">
+                    <h2 class="text-3xl font-bold tracking-tight text-white flex items-center justify-center md:justify-start gap-2">
+                        <span class="text-esperBlue">⚔️</span> The Conflux Conflict
+                    </h2>
+                    <p class="text-slate-400 mt-1">Exploring the historical overlap, ideological friction, and eventual resolution between Esper and Bant.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- Left: Mind Magic Friction -->
+                    <div class="bg-esperCard border border-slate-800 rounded-xl p-6 backdrop-blur-md space-y-4">
+                        <div class="flex items-center space-x-2">
+                            <span class="px-2.5 py-0.5 rounded text-xs font-semibold bg-blue-900/40 text-blue-400 border border-blue-500/30">Esper Tactics</span>
+                            <span class="text-slate-500">▶</span>
+                            <span class="px-2.5 py-0.5 rounded text-xs font-semibold bg-amber-900/40 text-amber-500 border border-amber-500/30">Bant Tradition</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white">The Betrayal of Single-Combat</h3>
+                        <p class="text-sm text-slate-300 leading-relaxed">
+                            When the Conflux began, the pristine kingdom of Bant expected combat to follow their historical, ritualized rules of single-combat dueling (the *Exalted* custom). Instead, Esper's pragmatic metal-mages bypassed honor entirely, projecting mental arrays directly onto the field.
+                        </p>
+                        <p class="text-sm text-slate-400 leading-relaxed">
+                            In a catastrophic tactical encounter, Esperite mind-sculptors gained control of the rhox monk **Mubin** (Knight-General Rafiq's close confidant), forcing Rafiq to make the tragic decision to permanently paralyze his own friend to neutralize the mental threat.
+                        </p>
+                    </div>
+
+                    <!-- Right: Modern Integration -->
+                    <div class="bg-esperCard border border-slate-800 rounded-xl p-6 backdrop-blur-md space-y-4">
+                        <div class="flex items-center space-x-2">
+                            <span class="px-2.5 py-0.5 rounded text-xs font-semibold bg-purple-900/40 text-esperPurple border border-purple-500/30">Phyrexian Era</span>
+                            <span class="text-slate-500">▶</span>
+                            <span class="px-2.5 py-0.5 rounded text-xs font-semibold bg-esperCyan/20 text-esperCyan border border-esperCyan/30">Multiverse Alliance</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white">The Messenger of Tidehollow</h3>
+                        <p class="text-sm text-slate-300 leading-relaxed">
+                            Following the complete reunification of Alara's borders, the geographic proximity between Valeron (Bant) and Upper Vectis (Esper) became a tense, highly fortified border.
+                        </p>
+                        <p class="text-sm text-slate-400 leading-relaxed">
+                            During the subsequent New Phyrexian invasion, Tezzeret traveled to the dark metal underbelly of the Tidehollow slums. He selected a local youth named **Estel**, giving him a secure etherium-infused payload to bypass borders and deliver an critical warning directly to Rafiq to summon Bant's celestial angels to halt Elesh Norn's infection.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-950 border-t border-slate-900 py-12 text-center text-sm text-slate-500">
+        <div class="max-w-7xl mx-auto px-4 space-y-4">
+            <div class="flex justify-center space-x-6">
+                <span class="text-slate-400 font-bold hover:text-esperCyan transition-all cursor-pointer" onclick="scrollToSection('lore')">CODEX</span>
+                <span class="text-slate-400 font-bold hover:text-esperCyan transition-all cursor-pointer" onclick="scrollToSection('alignment')">SHARDS</span>
+                <span class="text-slate-400 font-bold hover:text-esperCyan transition-all cursor-pointer" onclick="scrollToSection('infusion-lab')">MATRIX</span>
+            </div>
+            <p>Archival Database of the Planar Reunification Task Force. All data certified accurate to 2026 guidelines.</p>
+            <p class="text-xs text-slate-600">Built using Tailwind CSS, Chart.js, and Modern Web API Interfaces.</p>
+        </div>
+    </footer>
+
+    <!-- Vanilla Javascript Logic -->
+    <script>
+        // Smooth scrolling helper
+        function scrollToSection(id) {
+            const el = document.getElementById(id);
+            if (el) {
+                el.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        // Tab Switching Logic
+        function switchTab(tabId) {
+            // Hide all panels
+            const panels = document.querySelectorAll('.codex-panel');
+            panels.forEach(p => p.classList.add('hidden'));
+
+            // Show selected panel
+            const activePanel = document.getElementById('panel-' + tabId);
+            if (activePanel) {
+                activePanel.classList.remove('hidden');
+            }
+
+            // Remove active classes from all tab buttons
+            const tabContainer = document.getElementById('codex-tabs');
+            const buttons = tabContainer.getElementsByTagName('button');
+            for (let btn of buttons) {
+                btn.className = "w-full text-left px-4 py-3 rounded-lg border border-slate-800/80 hover:bg-slate-900/50 hover:border-slate-700 text-slate-400 font-medium transition-all duration-200 shrink-0";
+            }
+
+            // Set active class on clicked button
+            const activeBtn = document.getElementById('tab-' + tabId);
+            if (activeBtn) {
+                activeBtn.className = "w-full text-left px-4 py-3 rounded-lg border bg-gradient-to-r from-esperBlue/20 to-transparent border-esperCyan/40 text-esperCyan font-medium transition-all duration-200 shrink-0";
+            }
+        }
+
+        // Search Filtering Logic for Codex Panels
+        function filterCodex() {
+            const searchQuery = document.getElementById('codex-search').value.toLowerCase();
+            const tabButtons = document.querySelectorAll('#codex-tabs button');
+
+            tabButtons.forEach(btn => {
+                const text = btn.textContent.toLowerCase();
+                if (text.includes(searchQuery)) {
+                    btn.style.display = 'block';
+                } else {
+                    btn.style.display = 'none';
+                }
+            });
+        }
+
+        // --- CHART JS IMPLEMENTATIONS ---
+
+        // Global Chart Instance Holders
+        let alignmentChart;
+        let valueMetricsChart;
+        let simChart;
+
+        // Initialize Charts when DOM loads
+        window.onload = function() {
+            initAlignmentChart();
+            initValueMetricsChart();
+            initSimulationChart();
+            updateSimulation(); // Trigger initial state
+        };
+
+        // 1. Shard Element Radar Alignment Chart
+        function initAlignmentChart() {
+            const ctx = document.getElementById('alignmentChart').getContext('2d');
+            alignmentChart = new Chart(ctx, {
+                type: 'radar',
+                data: {
+                    labels: ['White (Order)', 'Blue (Mind)', 'Black (Self)', 'Red (Chaos)', 'Green (Life)'],
+                    datasets: [
+                        {
+                            label: 'Esper (WUB)',
+                            data: [75, 95, 80, 5, 5],
+                            backgroundColor: 'rgba(0, 240, 255, 0.2)',
+                            borderColor: '#00f0ff',
+                            pointBackgroundColor: '#00f0ff',
+                            pointBorderColor: '#fff',
+                            borderWidth: 2
+                        },
+                        {
+                            label: 'Bant (GWU)',
+                            data: [85, 70, 5, 5, 90],
+                            backgroundColor: 'rgba(245, 158, 11, 0.2)',
+                            borderColor: '#f59e0b',
+                            pointBackgroundColor: '#f59e0b',
+                            pointBorderColor: '#fff',
+                            borderWidth: 2
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            labels: {
+                                color: '#94a3b8',
+                                font: { size: 11 }
+                            }
+                        }
+                    },
+                    scales: {
+                        r: {
+                            angleLines: { color: 'rgba(148, 163, 184, 0.1)' },
+                            grid: { color: 'rgba(148, 163, 184, 0.1)' },
+                            pointLabels: {
+                                color: '#94a3b8',
+                                font: { size: 10, weight: 'bold' }
+                            },
+                            ticks: {
+                                display: false,
+                                max: 100
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        // 2. Bar Chart for Value Core comparison
+        function initValueMetricsChart() {
+            const ctx = document.getElementById('valueMetricsChart').getContext('2d');
+            valueMetricsChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['Structure', 'Ambition', 'Technological Progress', 'Collective Harmony', 'Empathy'],
+                    datasets: [
+                        {
+                            label: 'Esper',
+                            data: [90, 85, 98, 40, 15],
+                            backgroundColor: 'rgba(189, 0, 255, 0.75)',
+                            borderColor: '#bd00ff',
+                            borderWidth: 1
+                        },
+                        {
+                            label: 'Bant',
+                            data: [85, 10, 20, 95, 85],
+                            backgroundColor: 'rgba(245, 158, 11, 0.75)',
+                            borderColor: '#f59e0b',
+                            borderWidth: 1
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { display: false }
+                    },
+                    scales: {
+                        x: {
+                            grid: { display: false },
+                            ticks: { color: '#64748b', font: { size: 10 } }
+                        },
+                        y: {
+                            grid: { color: 'rgba(148, 163, 184, 0.1)' },
+                            ticks: { color: '#64748b', font: { size: 10 } },
+                            min: 0,
+                            max: 100
+                        }
+                    }
+                }
+            });
+        }
+
+        // 3. Dynamic Infusion Matrix Radar
+        function initSimulationChart() {
+            const ctx = document.getElementById('simChart').getContext('2d');
+            simChart = new Chart(ctx, {
+                type: 'radar',
+                data: {
+                    labels: ['White', 'Blue', 'Black', 'Red', 'Green'],
+                    datasets: [{
+                        label: 'Calibrated Alignment',
+                        data: [50, 50, 50, 10, 10],
+                        backgroundColor: 'rgba(0, 240, 255, 0.25)',
+                        borderColor: '#00f0ff',
+                        pointBackgroundColor: '#bd00ff',
+                        pointBorderColor: '#fff',
+                        borderWidth: 2
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { display: false }
+                    },
+                    scales: {
+                        r: {
+                            angleLines: { color: 'rgba(148, 163, 184, 0.1)' },
+                            grid: { color: 'rgba(148, 163, 184, 0.1)' },
+                            pointLabels: {
+                                color: '#94a3b8',
+                                font: { size: 10, weight: 'bold' }
+                            },
+                            ticks: {
+                                display: false,
+                                min: 0,
+                                max: 100
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        // Live updater triggered by slider inputs
+        function updateSimulation() {
+            // Read inputs
+            const replacement = parseInt(document.getElementById('slide-replacement').value);
+            const law = parseInt(document.getElementById('slide-law').value);
+            const ambition = parseInt(document.getElementById('slide-ambition').value);
+            const harmony = parseInt(document.getElementById('slide-harmony').value);
+
+            // Reflect in display values
+            document.getElementById('val-replacement').innerText = replacement + '%';
+            document.getElementById('val-law').innerText = law + '%';
+            document.getElementById('val-ambition').innerText = ambition + '%';
+            document.getElementById('val-harmony').innerText = harmony + '%';
+
+            // Calculate dynamic elemental coefficients
+            // Formulaic behavior to emulate magic settings
+            let blue = Math.min(100, Math.round((replacement * 0.6) + (law * 0.4)));
+            let black = Math.min(100, Math.round((replacement * 0.5) + (ambition * 0.5) - (harmony * 0.3)));
+            let white = Math.min(100, Math.round((law * 0.7) + (harmony * 0.2) - (ambition * 0.1)));
+            let green = Math.min(100, Math.round((harmony * 0.8) - (replacement * 0.6)));
+            let red = Math.min(100, Math.round((ambition * 0.4) + (harmony * 0.3) - (law * 0.4)));
+
+            // Prevent negative values
+            blue = Math.max(0, blue);
+            black = Math.max(0, black);
+            white = Math.max(0, white);
+            green = Math.max(0, green);
+            red = Math.max(0, red);
+
+            // Update Chart
+            simChart.data.datasets[0].data = [white, blue, black, red, green];
+            simChart.update();
+
+            // Update Assessment UI
+            document.getElementById('hero-infusion-percent').innerText = replacement + '%';
+
+            let alignClass = "Pure Biological (Human)";
+            let vulnerability = "Severe (Susceptible to Decay/Fleshrot)";
+            let synergy = "Low (Manual casting output)";
+
+            if (replacement > 75) {
+                alignClass = "Eminent High-Sovereign (Sphinxs Equivalent)";
+                vulnerability = "Negligible (Metal structures immunized)";
+                synergy = "Absolute Filigree Core Flow";
+            } else if (replacement > 50) {
+                alignClass = "Vedalken Infusion Initiate";
+                vulnerability = "Low (Flesh matrices reinforced)";
+                synergy = "Stable Grid Sync";
+            } else if (replacement > 25) {
+                alignClass = "Tidehollow Outcast Hybrid";
+                vulnerability = "Moderate (Unbalanced organic integration)";
+                synergy = "Erratic Spike Activity";
+            }
+
+            // High ambition + high law = Seeker of Carmot
+            if (ambition > 70 && law > 70) {
+                alignClass = "High-Inquisitor / Seeker of Carmot";
+            }
+
+            // High harmony = Bant Border Sympathizer
+            if (harmony > 60) {
+                alignClass = "Planar Convergence heretic (Bant Alignment)";
+                vulnerability = "High (Intermittent chaotic decay)";
+            }
+
+            document.getElementById('assessment-class').innerText = alignClass;
+            document.getElementById('assessment-vuln').innerText = vulnerability;
+            document.getElementById('assessment-synergy').innerText = synergy;
+        }
+
+        // Reset Lab UI
+        function resetSimulation() {
+            document.getElementById('slide-replacement').value = 65;
+            document.getElementById('slide-law').value = 80;
+            document.getElementById('slide-ambition').value = 75;
+            document.getElementById('slide-harmony').value = 15;
+            updateSimulation();
+        }
+    </script>
+</body>
+</html>

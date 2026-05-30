@@ -4,6 +4,8 @@
 
 ---
 
+> **VM-169 status note:** This audit preserves the VM-157 reliability pass, but current Bant authoring should read stale uncertainty labels through the VM-159A/VM-168 curated source-packet outcomes. The updates below normalize status labels only and do not expand Bant lore claims beyond those source-packet boundaries.
+
 ## Final Audit Summary
 
 | Audit Field | Result |
@@ -17,12 +19,12 @@
 | Number of secondary / discovery sources cited | 5 (SRC-030 through SRC-034) |
 | Number of claims verified at High confidence | 23 |
 | Number of claims marked Medium confidence | 5 |
-| Number of claims marked Low confidence | 3 |
-| Sections with limited evidence | Views on Other Factions, Asha character details |
+| Number of claims marked Low confidence | 0 current; 3 historical VM-157 labels superseded by VM-159A/VM-168 |
+| Sections with limited evidence | Views on Other Factions; direct-quotation detail for bounded Asha, Elspeth, Jhess, Topa, and Eos claims |
 | Conflicting sources found | None identified |
 | Assumptions removed during validation | 4 (see below) |
 | Live sources fetched in session | 1 (SRC-036 — read from local project file docs/research/bant/) |
-| Overall confidence rating | Medium-High — strong structural, card, and design-article evidence; in-world story text not fetched live |
+| Overall confidence rating | Medium with high-confidence structural, card, and design-article evidence; in-world story text not fetched live |
 
 ---
 
@@ -51,10 +53,10 @@ As a result:
 | Noble Hierarch flavor text | Medium impact — text recalled from training; verify exact wording against Gatherer |
 | Other card flavor text | High impact — not reproduced in dossier; marked "verify against Gatherer" |
 | "A Man of Parts" story passages | High impact — not fetched live; specific passages not reproduced in dossier |
-| Asha character details | High impact — based on secondary source only; not in dossier body |
-| Jhess, Topa, Eos as Bant nations | High impact — secondary source only; not in dossier body |
+| Asha character details | Medium impact — bounded source-packet support only; no founder or angel-creation-architect claim |
+| Jhess, Topa, Eos as Bant nations | Medium impact — bounded five-nation geography only; direct quotation and expanded detail still source-bound |
 
-**One source was read directly:** SRC-036 — Mark Rosewater, "Peace, Love and Understanding" (Making Magic, Oct 6 2008), captured in `docs/research/bant/Bant_Peace, Love and Understanding _ MAGIC_ THE GATHERING.md`. This upgrades the white-centered claim and the Bant-as-utopia framing from training-knowledge-only to directly read. Note: The Interactive Codex HTML file in the same folder is a fan-generated document and was rejected as a source.
+**One source was read directly:** SRC-036 — Mark Rosewater, "Peace, Love and Understanding" (Making Magic, Oct 6 2008), captured in `docs/research/canon/mark_rosewater_official_three_color/Bant_Peace, Love and Understanding _ MAGIC_ THE GATHERING.md`. This upgrades the white-centered claim and the Bant-as-utopia framing from training-knowledge-only to directly read. Note: the Interactive Codex HTML capture now lives in `docs/research/canon/misc/` and remains support-only, not a primary canon source.
 
 **Recommended follow-up actions:**
 
@@ -63,7 +65,7 @@ As a result:
 3. Fetch `https://api.scryfall.com/cards/named?exact=Noble+Hierarch` and verify flavor text.
 4. Fetch `https://api.scryfall.com/cards/search?q=watermark%3Abant` to enumerate all Bant-watermarked cards.
 5. Fetch `https://magic.wizards.com/en/articles/archive/feature/between-rock-and-shard-place-2008-09-26` to verify exalted/Bant design connection.
-6. Fetch `https://mtg.fandom.com/wiki/Bant` to verify Jhess, Topa, Eos claims and identify what the wiki cites as sources.
+6. Fetch official or archived Alara material, and only then the secondary-source trail if needed, to verify exact wording or expanded detail for Jhess, Topa, and Eos.
 7. Search polarkac/MTG-Stories for Alara-era story files to find any additional pre-Conflux Bant story context.
 
 ---
@@ -84,11 +86,11 @@ As a result:
 | Sigil / Sigiled | Confirmed Bant Term | Yes | Card flavor text + card names. |
 | Rhox | Confirmed Bant Term | Yes | Multiple Bant cards. |
 | Akrasa | Confirmed Bant Term | Yes | Card name confirmed. |
-| Elspeth Tirel | Card-Supported (limited) | Yes (limited) | Card placement confirmed; story events require verification. |
-| Asha | Bant-Adjacent Discovery | Evidence Ledger Only | Secondary source only; not in dossier body. |
-| Jhess | Bant-Adjacent Discovery | Evidence Ledger Only | Wiki + card naming; not officially confirmed. |
-| Topa | Bant-Adjacent Discovery | Evidence Ledger Only | Wiki only. |
-| Eos | Bant-Adjacent Discovery | Evidence Ledger Only | Wiki only. |
+| Elspeth Tirel | Card-Supported / Source-Packet Bounded Support | Yes (bounded) | Card placement and curated packet support Bant / Alara relevance; do not use as governance or institution-building evidence. |
+| Asha | Source-Packet Bounded Support | Yes (bounded) | Curated packet supports presider / sacred-authority framing; no founder or angel-creation-architect claim. |
+| Jhess | Source-Packet Bounded Geography | Yes (bounded) | Current packet accepts five-nation geography; direct quotation and expanded detail remain source-bound. |
+| Topa | Source-Packet Bounded Geography | Yes (bounded) | Current packet accepts five-nation geography; direct quotation and expanded detail remain source-bound. |
+| Eos | Source-Packet Bounded Geography | Yes (bounded) | Current packet accepts five-nation geography; direct quotation and expanded detail remain source-bound. |
 | Sigiled caste | Bant-Adjacent Discovery | Evidence Ledger Only | "Caste" framing is secondary terminology. |
 | Jenara, Asura of War | Confirmed Bant Term | Yes | Card confirmed. |
 | Empyrial Archangel | Confirmed Bant Term | Yes | Card confirmed. |
@@ -130,7 +132,7 @@ As a result:
 - [x] Did you reject or downgrade broad/noisy terms such as "honor," "court," "angels," and "knights" unless supported by targeted Bant evidence?
 
 **Notes on checklist item: Asha**
-Asha is handled as a Bant-Adjacent Discovery term. She is not placed in the dossier body as a leader, founder, deity, or institutional figure. Her presence is acknowledged in the evidence ledger only, with a clear Low confidence rating and secondary-source-only classification.
+Asha is handled as a source-packet-bounded presider / sacred-authority figure. She is not placed in the dossier body as a founder, angel-creation architect, deity, or current governance leader. Broader doctrine remains limited-source and should not be upgraded without a separate verification pass.
 
 **Notes on checklist item: Exalted / non-Bant cards**
 Exalted is described as the "Bant-associated mechanic" in the block, not as an exclusively Bant mechanic. Alara Reborn does not use shard watermarks; this is noted. Later printings (Sublime Archangel, M13) are noted as extensions of the mechanic without Bant lore connection.
@@ -140,14 +142,14 @@ Rafiq of the Many does not use the exalted keyword on his own card. He has a rel
 
 ---
 
-## Claims Removed or Downgraded
+## Claims Removed, Downgraded, or Superseded
 
 | Claim | Action Taken | Reason |
 |---|---|---|
-| "Asha founded Bant's social order" | Removed entirely | No reviewed official source confirms this. MTG Wiki secondary only. |
-| "Asha is an archangel patron of Bant" | Downgraded to evidence ledger only | No reviewed official source confirms exact nature, title, or role. |
-| "Jhess, Topa, and Eos are the remaining three Bant nations" | Downgraded to evidence ledger only | MTG Wiki secondary only; not confirmed in reviewed official source. |
-| "Elspeth trained on Bant" | Removed from dossier body | Specific story events not verified in reviewed official source. Card evidence supports Bant era connection only. |
+| "Asha founded Bant's social order" | Removed entirely | Still excluded; the curated packet supports bounded sacred authority, not a founder claim. |
+| "Asha is an archangel patron of Bant" | Superseded by bounded source-packet support | Current status is presider / sacred-authority framing; exact title and broader doctrine remain limited-source. |
+| "Jhess, Topa, and Eos are the remaining three Bant nations" | Superseded by bounded source-packet geography | Current packet accepts the five-nation geography for project use; direct quotation and expanded detail remain source-bound. |
+| "Elspeth trained on Bant" | Superseded by bounded source-packet support | Use only source-supported Bant / Alara relevance; no governance, founding, or institution-building claim. |
 | "Sigiled caste system" as a formal term | Downgraded to evidence ledger only | "Caste" is secondary-source framing; "sigil hierarchy" is supported by card evidence and is used instead. |
 | Broad "Honor / Court / Angels / Knights" as standalone claims | Rejected | Too generic; replaced with targeted, card-supported claims with Bant qualifier. |
 | Specific flavor text for Battlegrace Angel, Sigiled Paladin, Finest Hour, Akrasan Squire, Stoic Angel, Jenara, Gwafa Hazid | Not reproduced in dossier | Exact wording not confirmed with sufficient certainty from training; requires live Gatherer verification. |
@@ -160,9 +162,9 @@ Rafiq of the Many does not use the exalted keyword on his own card. He has a rel
 | Question | Why It Remains Open | Suggested Follow-Up Source |
 |---|---|---|
 | What exactly does "A Man of Parts" say about Bant, Valeron, and Rafiq? | Story not fetched in session; GitHub API returned 403. | Fetch `https://magic.wizards.com/en/news/magic-story/a-man-of-parts` or polarkac/MTG-Stories story file. |
-| What is Asha's exact nature, role, and relationship to Bant? | Only secondary source (MTG Wiki) reviewed; no official story or card oracle text confirms her role. | Fetch official story pages that mention Asha; inspect card flavor text citing Asha. |
-| Are Jhess, Topa, and Eos confirmed as Bant nations in official sources? | MTG Wiki secondary only. | Fetch official Bant/Alara material; verify "Jhessian" card watermarks via Scryfall. |
-| What is Elspeth's specific story arc on Bant — when did she arrive, how long did she stay, and why did she leave? | MTG Wiki only. Official story pages not fetched. | Fetch Elspeth story pages on magic.wizards.com; inspect Magic Origins stories. |
+| What Asha founder, angel-creation, or broader doctrine claims are directly supportable? | VM-159A/VM-168 support only bounded sacred-authority framing; broader claims remain out of scope. | Fetch official story pages that mention Asha; inspect card flavor text citing Asha. |
+| What exact direct-source wording supports Jhess, Topa, and Eos? | VM-159A/VM-168 bound the five-nation geography for project use, but exact quotation and expanded detail remain source-bound. | Fetch official Bant/Alara material; verify "Jhessian" card watermarks via Scryfall only as supporting evidence. |
+| What exact source wording supports Elspeth's Bant arc? | VM-159A/VM-168 support Bant / Alara relevance, but governance and institution-building claims remain excluded. | Fetch Elspeth story pages on magic.wizards.com; inspect Magic Origins stories. |
 | What does "The Brothers' War | Chapter 4: The Dark" say about Asha and Elspeth? | Source not fetched in session. | Fetch from magic.wizards.com or polarkac/MTG-Stories. |
 | Do all listed card flavor texts match their Gatherer entries exactly? | Card data not fetched live; recalled from training. | Verify each card against Gatherer at `https://gatherer.wizards.com` or Scryfall. |
 | What is the state of Bant/Valeron after the events of "A Man of Parts"? | Story not fetched; post-story developments unknown. | Fetch story and subsequent official material. |

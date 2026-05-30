@@ -9,6 +9,7 @@ import {
   needsCrucible,
   rankAdaptiveFactions,
   runAdaptiveGoldenPath,
+  runAdaptiveReadingWithStrategy,
   selectNextAdaptiveQuestion,
   softmaxScores,
 } from "./adaptive-placement.js";
@@ -48,6 +49,10 @@ const identityLayers = JSON.parse(
 );
 const identityLayerSchema = JSON.parse(
   await readFile(new URL("../../data/identity-layers.schema.json", import.meta.url), "utf8")
+);
+const factionContextText = await readFile(
+  new URL("../../supabase/functions/guild-recruiter/faction-context.ts", import.meta.url),
+  "utf8"
 );
 const deckTagData = JSON.parse(
   await readFile(new URL("../../data/deck-tags_expanded.json", import.meta.url), "utf8")
@@ -177,9 +182,15 @@ function assertMonoBoundaryState(key, placementResult) {
     `${key} should keep the four mono-adjacent boundary expressions wired into the model.`
   );
   const expectedFamilies = new Set(expectedTargets.map(normalizedAdjacentFamily));
+  const allowedAdjacentKeys = new Set(expectedTargets);
+  if (["W", "U", "G"].includes(key)) {
+    allowedAdjacentKeys.add("BANT");
+  }
   assert.ok(
-    (placementResult?.adjacent_matches || []).every((match) => expectedFamilies.has(normalizedAdjacentFamily(match.faction))),
-    `${key} adjacent matches should remain inside the ${expectedTargets.join(", ")} pair families.`
+    (placementResult?.adjacent_matches || []).every((match) =>
+      allowedAdjacentKeys.has(match.faction) || expectedFamilies.has(normalizedAdjacentFamily(match.faction))
+    ),
+    `${key} adjacent matches should remain inside the ${expectedTargets.join(", ")} pair families or the Bant shard pilot.`
   );
 }
 
@@ -192,6 +203,22 @@ function assertMonoCommanderOwnership(key, dossier) {
     "commander_compass (3)",
     `${key} dossier should keep authored mono Commander Compass ownership.`
   );
+}
+
+function runScriptedReading(answerTitlesByQuestionId) {
+  return runAdaptiveReadingWithStrategy({
+    model: placementModel,
+    factions,
+    strategy(question) {
+      const wantedTitle = answerTitlesByQuestionId[question.id];
+      if (!wantedTitle) {
+        return 0;
+      }
+      const index = (question.answers || []).findIndex((answer) => answer.title === wantedTitle);
+      assert.notEqual(index, -1, `Missing scripted answer "${wantedTitle}" for ${question.id}.`);
+      return index;
+    },
+  });
 }
 
 function deriveReadingTagRefsForTest({ dossier, faction, result }) {
@@ -291,6 +318,9 @@ function assertIdentityPreviewRegistryContract() {
     .filter(([, expression]) => expression.preview_eligible === true)
     .sort((left, right) => left[1].preview_order - right[1].preview_order);
   assert.deepEqual(previewEntries.map(([key]) => key), EXPECTED_PREVIEW_ORDER);
+  assert.equal(previewEntries.length, 20);
+  assert.equal(identityLayers.expressions.BANT?.preview_eligible, false);
+  assert.ok(!previewEntries.some(([key]) => key === "BANT"), "BANT should not enter the Home preview carousel in VM-160.");
 
   const seenOrders = new Set();
   previewEntries.forEach(([key, expression], index) => {
@@ -322,6 +352,10 @@ function assertIdentityPreviewRegistryContract() {
   assert.equal(identityLayers.expressions.WR.display_code, "RW");
   assert.ok(identityLayers.expressions.WR.aliases.includes("RW"));
   assert.ok(identityLayers.expressions.WR.aliases.includes("boros"));
+  assert.deepEqual(identityLayers.expressions.BANT.aliases, ["BANT", "bant"]);
+  Object.entries(identityLayers.expressions).forEach(([key, expression]) => {
+    assert.ok(!(expression.aliases || []).includes("WUG"), `${key} should not expose WUG as an alias.`);
+  });
 }
 
 assert.equal(placementSchema.title, "Vox Mana Adaptive Placement Model");
@@ -330,6 +364,28 @@ assert.equal(placementModel._meta.faction_count, modelFactionKeys.length);
 assert.equal(factionKeys.length, modelFactionKeys.length);
 assert.deepEqual(modelFactionKeys.sort(), factionKeys.slice().sort());
 assertIdentityPreviewRegistryContract();
+
+assert.ok(factions.BANT, "Generated factions should include BANT.");
+assert.ok(placementModel.factions.BANT, "Generated placement model should include BANT.");
+assert.match(factionContextText, /"BANT": \{/);
+assert.equal(factions.BANT.institution_type, "shard");
+assert.equal(placementModel.factions.BANT.institution_type, "shard");
+assert.deepEqual(factions.BANT.colors, ["W", "U", "G"]);
+assert.deepEqual(placementModel.factions.BANT.colors, ["W", "U", "G"]);
+assert.deepEqual(sortedStrings(placementModel.factions.BANT.lateral_inhibition_targets), ["UG", "WG", "WU"]);
+assert.equal(factions.BANT.identity.expression_key, "BANT");
+assert.equal(factions.BANT.identity.expression_kind, "shard");
+assert.ok(factions.BANT.commander_compass, "BANT should receive sanitized Commander Compass data after display creation.");
+assert.ok(!factionKeys.includes("WUG"), "Generated faction keys should not include WUG.");
+assert.ok(!modelFactionKeys.includes("WUG"), "Generated model keys should not include WUG.");
+assert.ok(!Object.hasOwn(identityLayers.expressions, "WUG"), "Identity registry should not expose WUG as an expression key.");
+assert.doesNotMatch(
+  JSON.stringify({ factions, placementModel }) + factionContextText,
+  /\bWUG\b/,
+  "Generated runtime artifacts should not expose WUG outside explicit negative test assertions."
+);
+const builderSource = await readFile(new URL("../../research/build-faction-artifacts.mjs", import.meta.url), "utf8");
+assert.doesNotMatch(builderSource, /bant:\s*["']WUG["']/, "RAW_TO_KEY must not target WUG for Bant.");
 
 const tagValidation = validateDeckTagData(deckTagData);
 assert.deepEqual(tagValidation.errors, []);
@@ -810,9 +866,65 @@ const goldenResults = modelFactionKeys.map((targetFaction) => {
 });
 
 const selected = new Set(goldenResults.map((result) => result.faction));
-["LOREHOLD", "SILVERQUILL", "WB", "WG"].forEach((key) => {
+["BANT", "LOREHOLD", "SILVERQUILL", "WB", "WG"].forEach((key) => {
   assert.ok(selected.has(key), `${key} must be reachable by golden-path evidence.`);
 });
+
+const bantGolden = goldenResults.find((result) => result.faction === "BANT");
+assert.ok(bantGolden, "BANT golden path should be present.");
+assert.equal(bantGolden.identity.expression_key, "BANT");
+assert.equal(bantGolden.identity.expression_kind, "shard");
+assert.deepEqual(factions[bantGolden.faction].colors, ["W", "U", "G"]);
+assert.ok(
+  bantGolden.evidence_trail.some((entry) => entry.question_id === "hall_BANT_champion"),
+  "BANT golden path should use supported-champion evidence."
+);
+assert.ok(
+  bantGolden.evidence_trail.some((entry) => entry.question_id === "hall_BANT_living_order"),
+  "BANT golden path should use living-order evidence."
+);
+
+const bantOverlap = runScriptedReading({
+  gate_pressure_trust: "A process that binds everyone",
+  gate_power_shape: "Power that is accountable",
+  gate_attention_pattern: "The precedent",
+  gate_belonging_cost: "Belonging to something larger",
+  hall_BANT_champion: "Public trust and support",
+  hall_BANT_living_order: "Duty held by living community",
+}).result;
+assertValidPlacement(bantOverlap);
+assert.equal(bantOverlap.faction, "BANT", "Bant synthesis should beat Azorius/Selesnya/Simic overlap.");
+const overlapEvidenceTargets = new Set(
+  bantOverlap.evidence_trail
+    .flatMap((entry) => entry.deltas || [])
+    .filter((delta) => delta.delta > 0)
+    .map((delta) => delta.faction)
+);
+assert.ok(["WU", "WG", "UG"].some((key) => overlapEvidenceTargets.has(key)), "Overlap path should include live neighbor evidence.");
+
+const nayaStyleInstinct = runScriptedReading({
+  gate_pressure_trust: "A bold release of force",
+  gate_power_shape: "Power that grows from roots",
+  gate_attention_pattern: "The wound",
+  gate_belonging_cost: "A place to grow as you are",
+  hall_G_growth: "Break the fence",
+  hall_RG_wild: "Stop asking permission",
+}).result;
+assertValidPlacement(nayaStyleInstinct);
+assert.notEqual(nayaStyleInstinct.faction, "BANT", "Bant should not win a Naya-style instinct/aggression path.");
+assert.equal(nayaStyleInstinct.faction, "RG");
+
+const simicStyleAdaptation = runScriptedReading({
+  gate_pressure_trust: "A living system response",
+  gate_power_shape: "Power that transforms",
+  gate_attention_pattern: "The body of the system",
+  gate_belonging_cost: "A chance to build and test",
+  hall_UG_adaptation: "Adapt the organism",
+  hall_WITHERBLOOM_essence: "The improved organism",
+}).result;
+assertValidPlacement(simicStyleAdaptation);
+assert.notEqual(simicStyleAdaptation.faction, "BANT", "Bant should not win Simic adaptation without order, duty, or honor.");
+assert.equal(simicStyleAdaptation.faction, "UG");
 
 const ranked = rankAdaptiveFactions(sample.state, placementModel);
 assert.equal(ranked[0].faction, "WU");
@@ -826,8 +938,8 @@ assertValidPlacement(whiteGolden);
 assert.equal(whiteGolden.identity.expression_kind, "color");
 assert.equal(whiteGolden.identity.purity, 1);
 assert.ok(
-  whiteGolden.adjacent_matches.some((match) => ["WU", "WR", "WG"].includes(match.faction)),
-  "White should keep at least one white-adjacent pair expression nearby."
+  whiteGolden.adjacent_matches.some((match) => ["WU", "WR", "WG", "LOREHOLD", "BANT"].includes(match.faction)),
+  "White should keep at least one white-centered adjacent expression nearby."
 );
 const whiteDossier = buildCommanderDossier({
   factions,

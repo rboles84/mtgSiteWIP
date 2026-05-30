@@ -16,6 +16,7 @@ const RESULT_VERSION = "2026-05-10";
 
 const RAW_TO_KEY = {
   azorius_senate: "WU",
+  bant: "BANT",
   boros_legion: "WR",
   cult_of_rakdos: "BR",
   golgari_swarm: "BG",
@@ -155,6 +156,14 @@ const BIOLOGICAL_PRIORS = {
     inhibitor_trigger:
       "Bodily or natural-form absolutism; believes living systems must remain untouched even when adaptation would prevent collapse.",
   },
+  BANT: {
+    archetype: "The Communal Champion",
+    primary_foundation: "Loyalty",
+    secondary_foundation: "Authority",
+    risk_signal: "low-medium honor-order risk",
+    inhibitor_trigger:
+      "Treats excellence as private self-authorization, raw instinct, or abstract optimization rather than accountable power carried for a living community.",
+  },
   SILVERQUILL: {
     archetype: "The Rhetorical Status Shaper",
     primary_foundation: "Authority",
@@ -211,6 +220,7 @@ const KNOWN_LATERAL_INHIBITION = {
   UR: ["PRISMARI", "QUANDRIX", "UG"],
   PRISMARI: ["UR", "BR", "SILVERQUILL"],
   UG: ["QUANDRIX", "UR", "WITHERBLOOM"],
+  BANT: ["WU", "WG", "UG"],
   QUANDRIX: ["UG", "UR", "LOREHOLD"],
   BG: ["WITHERBLOOM", "WG", "WB"],
   WITHERBLOOM: ["BG", "UG", "WG"],
@@ -232,7 +242,7 @@ const QUESTION_BANK = {
           title: "A process that binds everyone",
           copy: "Clear rules, shared limits, and a path that does not depend on anyone's mood.",
           signal: "procedure as protection",
-          likelihoods: { W: 0.75, WU: 0.9, WB: 0.6, WG: 0.55 },
+          likelihoods: { W: 0.75, WU: 0.9, BANT: 0.85, WB: 0.6, WG: 0.55 },
           suppresses: { BR: 0.45, RG: 0.35 },
         },
         {
@@ -289,7 +299,7 @@ const QUESTION_BANK = {
           title: "Power that is accountable",
           copy: "Authority should be legible, answerable, and bound by a standard beyond itself.",
           signal: "accountable authority",
-          likelihoods: { W: 0.9, WU: 0.8, WR: 0.7, SILVERQUILL: 0.55 },
+          likelihoods: { W: 0.9, BANT: 0.9, WU: 0.8, WR: 0.7, SILVERQUILL: 0.55 },
           suppresses: { UB: 0.3, BR: 0.25 },
         },
         {
@@ -346,7 +356,7 @@ const QUESTION_BANK = {
           title: "The precedent",
           copy: "What happened before, what was promised, and what the record proves.",
           signal: "historical evidence",
-          likelihoods: { W: 0.75, LOREHOLD: 0.9, WU: 0.65, WB: 0.55 },
+          likelihoods: { W: 0.75, LOREHOLD: 0.9, BANT: 0.75, WU: 0.65, WB: 0.55 },
           suppresses: { BR: 0.25, RG: 0.25 },
         },
         {
@@ -410,7 +420,7 @@ const QUESTION_BANK = {
           title: "Belonging to something larger",
           copy: "A shared self, shared care, and the relief of not carrying the whole world alone.",
           signal: "communal belonging",
-          likelihoods: { WG: 0.9, WITHERBLOOM: 0.55, WR: 0.45 },
+          likelihoods: { WG: 0.9, BANT: 0.85, WITHERBLOOM: 0.55, WR: 0.45 },
           suppresses: { UB: 0.35, BR: 0.25 },
         },
         {
@@ -1187,6 +1197,80 @@ const QUESTION_BANK = {
           signal: "chaotic experiment",
           likelihoods: { UR: 0.8 },
           suppresses: { UG: 0.25 },
+        },
+      ],
+    },
+    {
+      id: "hall_BANT_champion",
+      stage: "hall",
+      faction: "BANT",
+      eyebrow: "Hall - Bant",
+      prompt: "The group can only back one line of action. What makes that champion worthy of the whole community's support?",
+      answers: [
+        {
+          title: "Public trust and support",
+          copy: "The champion is worthy when their excellence stays visible, accountable, and carried by the community behind them.",
+          signal: "supported champion",
+          likelihoods: { BANT: 0.95 },
+          suppresses: { WU: 0.75, WG: 0.65, UG: 0.65 },
+        },
+        {
+          title: "The fairest procedure",
+          copy: "The right line is the one the process can defend impartially.",
+          signal: "procedure over champion",
+          likelihoods: { WU: 0.85 },
+          suppresses: { BANT: 0.65 },
+        },
+        {
+          title: "Everyone moving together",
+          copy: "The worth comes from the whole group choosing the same care at the same time.",
+          signal: "broad communal belonging",
+          likelihoods: { WG: 0.85 },
+          suppresses: { BANT: 0.55 },
+        },
+        {
+          title: "The best-adapted form",
+          copy: "The worthy line is the one that changes the organism enough to survive.",
+          signal: "adaptation over honor",
+          likelihoods: { UG: 0.85 },
+          suppresses: { BANT: 0.55 },
+        },
+      ],
+    },
+    {
+      id: "hall_BANT_living_order",
+      stage: "hall",
+      faction: "BANT",
+      eyebrow: "Hall - Bant",
+      prompt: "Order can protect, refine, or smother a living community. What makes it honorable?",
+      answers: [
+        {
+          title: "Duty held by living community",
+          copy: "Order is honorable when it protects the living body of the group and keeps power answerable to shared duty.",
+          signal: "living order",
+          likelihoods: { BANT: 0.95 },
+          suppresses: { WU: 0.7, WG: 0.55, UG: 0.6 },
+        },
+        {
+          title: "Procedure that cannot bend",
+          copy: "Order is honorable because the rule stays stable even when the room wants an exception.",
+          signal: "airtight procedure",
+          likelihoods: { WU: 0.85 },
+          suppresses: { BANT: 0.6 },
+        },
+        {
+          title: "Belonging before rank",
+          copy: "Order matters when it dissolves isolation and lets the circle care as one.",
+          signal: "belonging before rank",
+          likelihoods: { WG: 0.85 },
+          suppresses: { BANT: 0.55 },
+        },
+        {
+          title: "Adaptation before duty",
+          copy: "Order is only useful if the living system can keep changing toward what comes next.",
+          signal: "adaptive life",
+          likelihoods: { UG: 0.85 },
+          suppresses: { BANT: 0.55 },
         },
       ],
     },
@@ -2264,7 +2348,6 @@ async function main() {
     rawRecords[rawId] = await loadRawFaction(rawId);
   }
 
-  attachCommanderCompass(displayData, rawRecords);
   const model = buildPlacementModel(displayData, rawRecords, identityLayers);
 
   displayData.identity_layers = {
@@ -2295,6 +2378,7 @@ async function main() {
       identity_blend: expressionMeta?.identity_blend || "",
     };
   });
+  attachCommanderCompass(displayData, rawRecords);
   displayData._meta.factions = Object.keys(model.factions).length;
   const factionContext = buildFactionContext(model, displayData);
 

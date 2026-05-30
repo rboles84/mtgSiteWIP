@@ -269,13 +269,14 @@
    - starter planning section
    - deck-start links
 7. Confirm two adjacent fits are shown.
-8. Confirm the result page includes an evidence trail when the adaptive quick path produced one.
-9. Confirm a multicolor result shows component and synthesis datasets, and a mono result shows only a single synthesis dataset without component toggle UI.
+8. In `Mana Base Starting Map`, confirm `Basics` shows guidance copy only, empty non-Basics tiers are not offered as tabs, and Premium/Midrange/Budget/Utility never display a placeholder card for `basics`, `basic land`, or `basic lands`.
+9. Confirm the result page includes an evidence trail when the adaptive quick path produced one.
+10. Confirm a multicolor result shows component and synthesis datasets, and a mono result shows only a single synthesis dataset without component toggle UI.
 
 ## Adaptive placement sanity
 
 1. Run `node assets/js/quick-reading-tests.js`.
-2. Confirm all 20 golden paths pass.
+2. Confirm all 21 golden paths pass.
 3. Run `node assets/js/quick-reading-bias.js --all`.
 4. Confirm no faction is listed under `Never selected`.
 5. Run `node assets/js/quick-reading-bias.js --runs=100`.
@@ -293,15 +294,15 @@
 ## Mono rollout acceptance sweep
 
 1. Run `npm run test:placement`.
-2. Confirm the suite reports `20 factions, 20 golden paths`.
+2. Confirm the suite reports `21 factions, 21 golden paths`.
 3. Confirm mono routing checks still pass for `mono-white`, `mono-blue`, `mono-black`, `mono-red`, and `mono-green`.
 4. Confirm mono adjacent-fit boundary checks stay inside the expected pair shells:
-   - `W` vs `WU`-family / `WB`-family / `WG`-family / `WR`-family
-   - `U` vs `WU`-family / `UB`-family / `UR`-family / `UG`-family
+   - `W` vs `WU`-family / `WB`-family / `WG`-family / `WR`-family / Bant `WUG` color-family metadata
+   - `U` vs `WU`-family / `UB`-family / `UR`-family / `UG`-family / Bant `WUG` color-family metadata
    - `B` vs `UB`-family / `WB`-family / `BG`-family / `BR`-family
    - `R` vs `WR`-family / `UR`-family / `BR`-family / `RG`-family
-   - `G` vs `WG`-family / `UG`-family / `BG`-family / `RG`-family
-5. Confirm valid guild/college analogs are accepted inside those pair families, for example mono White accepting `LOREHOLD` as a valid `WR`-family adjacent without collapsing the displayed identity label.
+   - `G` vs `WG`-family / `UG`-family / `BG`-family / `RG`-family / Bant `WUG` color-family metadata
+5. Confirm valid guild/college/shard analogs are accepted inside those families, for example mono White accepting `LOREHOLD` as a valid `WR`-family adjacent or `BANT` as Bant `WUG` color-family metadata without collapsing the displayed identity label.
 6. Confirm mono dossiers still report authored mono recommendation ownership/guidance, not just generic Commander Compass presence.
 7. Run `npm run dossier:audit`.
 8. Confirm the audit has `failures: 0`.

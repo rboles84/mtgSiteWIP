@@ -24,7 +24,7 @@ After changing the precon source catalog or precon theme taxonomy, run `npm run 
 
 ## Identity preview registry
 
-`data/identity-layers.json` owns the canonical Home preview metadata for the current 20-expression carousel. `assets/js/newindex2.js` fetches this registry, selects entries where `preview_eligible` is `true`, sorts by `preview_order`, and keeps `data/factions.json` as the lore-note source.
+`data/identity-layers.json` owns the canonical Home preview metadata for the current 20-expression carousel. `assets/js/newindex2.js` fetches this registry, selects entries where `preview_eligible` is `true`, sorts by `preview_order`, and keeps `data/factions.json` as the lore-note source. VM-160 adds `BANT` as a live placement expression with `preview_eligible: false`, so Home preview order remains unchanged.
 
 Every expression entry must include:
 
@@ -117,7 +117,7 @@ Each generated precon entry contains:
 - `matchWords`
 - `searchTerms`
 
-`factionRefs` uses current Vox Mana expression keys from the active 20-expression atlas. It lets the dossier distinguish faction-native decks such as `SILVERQUILL` or `UG` from generic same-color alternatives.
+`factionRefs` uses current Vox Mana expression keys from the active placement atlas. It lets the dossier distinguish faction-native decks such as `SILVERQUILL`, `UG`, or `BANT` from generic same-color alternatives.
 
 The dossier presenter layer decides `nativeExact`, `otherExact`, and `stretch` lanes at runtime from the active dossier view. That grouping result is not stored back into the generated catalog.
 
@@ -236,7 +236,7 @@ All result-producing paths should converge on this shape:
 
 Notes:
 
-- `institution_type` uses the identity-layer institution enum: `guild`, `college`, `color`, `shard`, `wedge`, `four_color`, `five_color`, or `colorless`. Current placement outputs use the active 20-expression set: guilds, colleges, and mono colors.
+- `institution_type` uses the identity-layer institution enum: `guild`, `college`, `color`, `shard`, `wedge`, `four_color`, `five_color`, or `colorless`. Current placement outputs use the active 21-expression set: guilds, colleges, mono colors, and the Bant shard pilot.
 - `identity` is the layered identity block used by dossier rendering, routing, and compatibility recovery.
 - `color_weights` is an optional field. Phase 0 does not fabricate or approximate it when the current scoring model cannot derive it accurately.
 - `top_matches` and `adjacent_matches` should carry `identity` entries so the presenter layer does not need to infer mono or pair structure from display names alone.

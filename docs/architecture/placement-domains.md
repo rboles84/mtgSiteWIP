@@ -1,20 +1,21 @@
 # Placement Domains
 
-This document defines the future placement-domain architecture for Vox Mana without changing the current live placement model.
+This document defines the future placement-domain architecture for Vox Mana while preserving the current no-domain runtime contract.
 
 ## Current Baseline
 
-The live adaptive placement model currently runs on one active baseline domain:
+The live adaptive placement model currently runs without a runtime `domain` field. Its documented baseline domain remains:
 
 - `ravnica_strixhaven`
 
-This baseline covers the current 20 active expressions:
+The live placement set is now the current 20-expression Ravnica/Strixhaven/mono baseline plus the Bant shard pilot:
 
 - 10 Ravnica guilds
 - 5 Strixhaven colleges
 - 5 mono colors represented through the identity-layer model
+- 1 controlled Alara shard pilot: `BANT`
 
-`ravnica_strixhaven` is the current active baseline domain for the existing 20-expression placement model. Do not split Ravnica and Strixhaven into separate domains in this prerequisite slice. Any future split requires a separate architecture decision because it would affect question routing, adjacent-fit behavior, and dossier language.
+`ravnica_strixhaven` is still the current baseline-domain decision for the original 20-expression model. Bant is a controlled shard pilot layered into the live placement set without adding a live domain selector or splitting Ravnica and Strixhaven. Any future split requires a separate architecture decision because it would affect question routing, adjacent-fit behavior, and dossier language.
 
 ## What A Domain Owns
 
@@ -32,22 +33,22 @@ Domains are meant to organize how Vox Mana reasons about groups of expressions. 
 
 The documented domain map is:
 
-- `ravnica_strixhaven` for the current active 20-expression baseline
+- `ravnica_strixhaven` for the current 20-expression baseline, currently live alongside the Bant shard pilot
 - `khans` for the future Khans wedge expansion
 - `new_capenna` for the future New Capenna family expansion
 
-Khans and New Capenna are post-v1 roadmap domains only. They are not shipped placement support, do not have live question routing, and do not add runtime domain fields in this slice.
+Khans and New Capenna are post-v1 roadmap domains only. They are not shipped placement support, do not have live question routing, and do not add runtime domain fields in this slice. Bant's pilot does not create a broad shard domain framework.
 
 ## Current Repo Truth
 
 The current repository shape remains:
 
-- raw source coverage is 15 faction folders under `data/raw-factions/`
+- raw source coverage is 16 faction folders under `data/raw-factions/`
 - mono coverage is represented through `data/identity-layers.json`
-- the adaptive placement model remains the live 20-expression model
+- the adaptive placement model is the live 21-expression set: the previous 20-expression baseline plus `BANT`
 - no runtime or generated contract currently carries a live `domain` field
 
-Do not add, rename, or reclassify any expression, faction, guild, college, wedge, family, or mono identity in this slice.
+Do not add, rename, or reclassify any further expression, faction, guild, college, wedge, family, or mono identity without a separate card.
 
 ## Future Contract Direction
 
@@ -61,10 +62,8 @@ Future expansion may add a `domain` field to:
 Until that happens:
 
 - `institution_type` remains unchanged
-- `data/factions.json` remains unchanged
-- `data/placement-model.json` remains unchanged
-- `data/placement-model.schema.json` remains unchanged
-- `supabase/functions/guild-recruiter/faction-context.ts` remains unchanged
+- generated artifacts continue to omit a live `domain` field
+- `BANT` uses `institution_type: "shard"` through the existing identity-layer enum
 
 The identity-layer system already has room for `wedge` as a category. `family` is not a current live identity-layer category and requires a separate schema and version decision before any New Capenna implementation begins.
 

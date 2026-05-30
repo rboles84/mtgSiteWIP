@@ -349,7 +349,17 @@ const LAND_COUNT_PATTERNS = [
 ];
 const LAND_QUANTITY_PATTERN = /^\s*(\d+)\s*x?\s+(.+?)\s*$/i;
 const LAND_SUFFIX_QUANTITY_PATTERN = /^\s*(.+?)\s*x\s*([2-9])\s*$/i;
-const BASIC_LANDS = new Set(["plains", "island", "swamp", "mountain", "forest"]);
+const BASIC_LAND_PLACEHOLDERS = new Set([
+  "plains",
+  "island",
+  "swamp",
+  "mountain",
+  "forest",
+  "basic",
+  "basics",
+  "basic land",
+  "basic lands",
+]);
 const CARD_DISPLAY_NAME_OVERRIDES = new Map([
   ["adrix and nev", "Adrix and Nev, Twincasters"],
   ["adrix and nev twincasters", "Adrix and Nev, Twincasters"],
@@ -836,7 +846,7 @@ function cleanLandPick(value, sourceTier, suppressedQuantities) {
   }
 
   name = name.replace(/\s+/g, " ").trim();
-  return BASIC_LANDS.has(normalizeDisplayName(name)) ? "" : name;
+  return BASIC_LAND_PLACEHOLDERS.has(normalizeDisplayName(name)) ? "" : name;
 }
 
 function canonicalLandKeys(value) {
@@ -943,6 +953,13 @@ export function buildCommanderLandRecommendations(faction) {
     suppressedQuantities,
     suppressedDuplicates,
   };
+}
+
+export function hasRenderableLandTier(landRecommendations = {}, tier) {
+  if (tier === "basics") {
+    return true;
+  }
+  return Array.isArray(landRecommendations?.[tier]) && landRecommendations[tier].length > 0;
 }
 
 function includesRulePattern(text, pattern) {

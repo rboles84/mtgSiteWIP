@@ -41,15 +41,22 @@ assert.deepEqual(
 const monoWhite = payload.cases.find((entry) => entry.case_id === "mono-white-boundary");
 assert.ok(monoWhite, "Expected mono White snapshot case.");
 assert.equal(monoWhite.placement_result.faction, "W");
+const expectedWhiteBoundaryAdjacencies = [
+  { key: "LOREHOLD", family: "WR" },
+  { key: "BANT", family: "WUG" },
+];
+const whiteBoundaryAdjacency = expectedWhiteBoundaryAdjacencies.find(({ key }) =>
+  monoWhite.raw_adjacent_labels.some((entry) => entry.key === key)
+);
 assert.ok(
-  monoWhite.raw_adjacent_labels.some((entry) => entry.key === "LOREHOLD"),
-  "White boundary case should preserve raw Lorehold adjacent label."
+  whiteBoundaryAdjacency,
+  "White boundary case should preserve a raw Lorehold or Bant adjacent label."
 );
 assert.ok(
   monoWhite.adjacent_debug_family_grouping.some((entry) =>
-    entry.raw_key === "LOREHOLD" && entry.family_color_identity === "WR"
+    entry.raw_key === whiteBoundaryAdjacency.key && entry.family_color_identity === whiteBoundaryAdjacency.family
   ),
-  "White boundary case should include debug-only WR family grouping for Lorehold."
+  "White boundary case should include debug-only family grouping for its raw adjacent label."
 );
 assert.ok(monoWhite.presentation.hero_thesis.length > 80);
 assert.ok(monoWhite.presentation.why_rose_first.copy.includes("White led with a"));
@@ -58,11 +65,11 @@ assert.ok(monoWhite.presentation.maze_paths.every((path) => path.plainReadingQue
 assert.match(monoWhite.authored_vs_fallback.summary, /commander_compass/);
 
 const monoBoundaryFamilies = {
-  "mono-white-boundary": ["WU", "WB", "WG", "WR"],
-  "mono-blue-boundary": ["WU", "UB", "UR", "UG"],
+  "mono-white-boundary": ["WU", "WB", "WG", "WR", "WUG"],
+  "mono-blue-boundary": ["WU", "UB", "UR", "UG", "WUG"],
   "mono-black-boundary": ["WB", "UB", "BR", "BG"],
   "mono-red-boundary": ["WR", "UR", "BR", "RG"],
-  "mono-green-boundary": ["WG", "UG", "BG", "RG"],
+  "mono-green-boundary": ["WG", "UG", "BG", "RG", "WUG"],
 };
 Object.entries(monoBoundaryFamilies).forEach(([caseId, expectedFamilies]) => {
   const entry = payload.cases.find((item) => item.case_id === caseId);
@@ -111,8 +118,8 @@ const header = csv.split(/\r?\n/)[0].split(",");
 const flattened = flattenSnapshotCase(monoWhite);
 assert.equal(flattened.primary_key, "W");
 assert.ok(
-  [flattened.adjacent_1_key, flattened.adjacent_2_key].includes("LOREHOLD"),
-  "White boundary flattened row should preserve Lorehold as a raw adjacent value."
+  [flattened.adjacent_1_key, flattened.adjacent_2_key].some((key) => ["LOREHOLD", "BANT"].includes(key)),
+  "White boundary flattened row should preserve Lorehold or Bant as a raw adjacent value."
 );
 assert.equal(flattened.maze_path_count, "4");
 

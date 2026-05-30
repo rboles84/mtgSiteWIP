@@ -1,0 +1,318 @@
+{
+  "schema_version": "1.0.0",
+  "faction_id": "bant",
+  "faction_name": "Bant",
+  "source_review_date": "2026-05-29",
+  "last_updated": "2026-05-29",
+  "claim_count": 21,
+  "claims": [
+    {
+      "claim_id": "bant_claim_0001",
+      "faction_id": "bant",
+      "claim_type": "identity",
+      "statement": "Bant is one of the five shards of Alara.",
+      "canon_status": "Canon-supported",
+      "source_ids": [
+        "src_vm_bant_evidence_ledger_20260528",
+        "src_vm_bant_research_dossier_20260528",
+        "src_wotc_alara_plane_page"
+      ],
+      "confidence": "High",
+      "notes": "Official source IDs were carried forward from the curated Bant packet; live page verification remains recommended before runtime promotion."
+    },
+    {
+      "claim_id": "bant_claim_0002",
+      "faction_id": "bant",
+      "claim_type": "identity",
+      "statement": "Bant's color identity is green, white, and blue, with WUG retained as color-direction metadata only while VM-160 promotes the live expression key as BANT.",
+      "canon_status": "Canon-supported plus project registry direction",
+      "source_ids": [
+        "src_vm_bant_evidence_ledger_20260528",
+        "src_wotc_rosewater_bant_20081006",
+        "src_vm_bant_identity_md_20260529"
+      ],
+      "confidence": "High",
+      "notes": "WUG is color metadata only. It is not a live expression key, alias, generated top-level key, placement result key, raw-to-key target, or identity.expression_key."
+    },
+    {
+      "claim_id": "bant_claim_0003",
+      "faction_id": "bant",
+      "claim_type": "design_identity",
+      "statement": "Official Rosewater design commentary identifies White as the central color to Bant.",
+      "canon_status": "Official design commentary",
+      "source_ids": [
+        "src_wotc_rosewater_bant_20081006",
+        "src_vm_bant_evidence_ledger_20260528"
+      ],
+      "confidence": "High",
+      "notes": "Design commentary should not be rewritten as in-world Bant doctrine."
+    },
+    {
+      "claim_id": "bant_claim_0004",
+      "faction_id": "bant",
+      "claim_type": "design_identity",
+      "statement": "Rosewater's Bant article frames Bant as an idealized White-centered utopia made possible by the absence of Black and Red from the shard.",
+      "canon_status": "Official design commentary",
+      "source_ids": [
+        "src_wotc_rosewater_bant_20081006",
+        "src_vm_bant_evidence_ledger_20260528"
+      ],
+      "confidence": "High",
+      "notes": "Use as color-pie/design support, not as an in-world quote from Bant residents."
+    },
+    {
+      "claim_id": "bant_claim_0005",
+      "faction_id": "bant",
+      "claim_type": "mechanics",
+      "statement": "Exalted is the Bant-associated mechanic from the Shards of Alara block.",
+      "canon_status": "Canon-supported",
+      "source_ids": [
+        "src_vm_bant_evidence_ledger_20260528",
+        "src_vm_bant_research_dossier_20260528"
+      ],
+      "confidence": "High",
+      "notes": "Exact rules text and card listings should still be live-verified before promotion."
+    },
+    {
+      "claim_id": "bant_claim_0006",
+      "faction_id": "bant",
+      "claim_type": "mechanics_interpretation",
+      "statement": "Exalted supports a Bant placement reading of many members concentrating support behind one worthy champion.",
+      "canon_status": "Supported Interpretation",
+      "source_ids": [
+        "src_vm_bant_research_dossier_20260528",
+        "src_vm_bant_identity_md_20260529",
+        "src_vm_bant_metaphysics_md_20260529"
+      ],
+      "confidence": "High",
+      "notes": "This is Vox Mana synthesis from official mechanics and card-supported Bant structure, not official Wizards psychology."
+    },
+    {
+      "claim_id": "bant_claim_0007",
+      "faction_id": "bant",
+      "claim_type": "structure",
+      "statement": "Bant's social structure is strongly associated with sigils, public honor, and earned recognition.",
+      "canon_status": "Card-supported",
+      "source_ids": [
+        "src_vm_bant_evidence_ledger_20260528",
+        "src_vm_bant_research_dossier_20260528"
+      ],
+      "confidence": "High",
+      "notes": "Prefer sigil hierarchy language unless a future pass verifies more detailed caste terminology from primary sources."
+    },
+    {
+      "claim_id": "bant_claim_0008",
+      "faction_id": "bant",
+      "claim_type": "figure",
+      "statement": "Rafiq of the Many is Bant's iconic legendary knight figure and is associated with sigils from all five Bant nations.",
+      "canon_status": "Card-supported plus story-supported title",
+      "source_ids": [
+        "src_vm_bant_evidence_ledger_20260528",
+        "src_vm_bant_research_dossier_20260528",
+        "src_wotc_a_man_of_parts"
+      ],
+      "confidence": "High",
+      "notes": "Exact flavor text and story passages should be checked live before runtime promotion."
+    },
+    {
+      "claim_id": "bant_claim_0009",
+      "faction_id": "bant",
+      "claim_type": "geography",
+      "statement": "Bant has a confirmed five-nation geography anchored by Valeron, Akrasa, Jhess, Topa, and Eos.",
+      "canon_status": "Card-supported and story-supported",
+      "source_ids": [
+        "src_vm_bant_evidence_ledger_20260528",
+        "src_vm_bant_research_dossier_20260528",
+        "src_wotc_a_man_of_parts",
+        "src_wotc_planeswalkers_guide_alara_2008",
+        "src_vm_bant_lore_reference_docx_20260529",
+        "src_vm_bant_lore_source_packet_20260529"
+      ],
+      "confidence": "High",
+      "notes": "VM-159A upgrades the complete roster from a manual-fill caveat to accepted source-packet geography. Detailed local politics and direct sourcebook quotation remain bounded until quoted primary passages are reviewed."
+    },
+    {
+      "claim_id": "bant_claim_0010",
+      "faction_id": "bant",
+      "claim_type": "geography",
+      "statement": "Jhess, Topa, and Eos are confirmed Bant nations. All three are verified in A Planeswalker's Guide to Alara (Beyer & Helland, 2008): Jhess is the eastern island/coastal nation; Topa and Eos are two of the Inner Three nations of Bant's central savannahs alongside Akrasa.",
+      "canon_status": "Confirmed — primary sourcebook verified",
+      "source_ids": [
+        "src_wotc_planeswalkers_guide_alara_2008",
+        "src_vm_bant_lore_reference_docx_20260529",
+        "src_vm_bant_lore_source_packet_20260529"
+      ],
+      "confidence": "High",
+      "notes": "VM-159A accepts these names for future runtime geography use. Exact primary passage text should still be checked before direct quotation, detailed local politics, or expanded dossier language."
+    },
+    {
+      "claim_id": "bant_claim_0011",
+      "faction_id": "bant",
+      "claim_type": "location_symbol",
+      "statement": "The Great Conduit is a Bant symbolic/geographic anchor associated with Noble Hierarch in the curated packet.",
+      "canon_status": "Card-supported",
+      "source_ids": [
+        "src_vm_bant_evidence_ledger_20260528",
+        "src_vm_bant_research_dossier_20260528"
+      ],
+      "confidence": "High",
+      "notes": "Exact flavor text should be checked live before quoting."
+    },
+    {
+      "claim_id": "bant_claim_0012",
+      "faction_id": "bant",
+      "claim_type": "figures",
+      "statement": "The curated packet supports Rafiq, Jenara, Noble Hierarch, Gwafa Hazid, Stoic Angel, Empyrial Archangel, and Rhox War Monk as Bant-associated figures or card anchors with varying degrees of lore depth.",
+      "canon_status": "Card-supported",
+      "source_ids": [
+        "src_vm_bant_evidence_ledger_20260528",
+        "src_vm_bant_research_dossier_20260528"
+      ],
+      "confidence": "High",
+      "notes": "Do not infer full institutional roles from card association alone."
+    },
+    {
+      "claim_id": "bant_claim_0013",
+      "faction_id": "bant",
+      "claim_type": "asha_boundary",
+      "statement": "Asha may be described as Bant's supreme guardian/sacred authority and presider, while the angel-creation mechanism is attributed to a council of archmages rather than to Asha herself.",
+      "canon_status": "Approved support with source-boundary language",
+      "source_ids": [
+        "src_vm_bant_lore_source_packet_20260529",
+        "src_vm_bant_lore_reference_docx_20260529",
+        "src_wotc_angel_eye_view_bant_20081008",
+        "src_mtg_wiki_asha",
+        "src_vm_bant_identity_md_20260529"
+      ],
+      "confidence": "Medium",
+      "notes": "The founder claim remains explicitly out of bounds: do not present Asha as the sole founder of Bant's caste, sigil, or angel-creation system."
+    },
+    {
+      "claim_id": "bant_claim_0014",
+      "faction_id": "bant",
+      "claim_type": "elspeth_boundary",
+      "statement": "Elspeth's Bant arc may be described as a defining knightly and spiritual chapter, including her training, knighthood, Conflux-era rupture, Sword of Asha handoff, and departure, but not as governing or institution-building on Bant.",
+      "canon_status": "Approved support with source-boundary language",
+      "source_ids": [
+        "src_vm_bant_lore_source_packet_20260529",
+        "src_vm_bant_lore_reference_docx_20260529",
+        "src_mtg_wiki_elspeth",
+        "src_archive_trap_alara",
+        "src_card_kingdom_elspeth_story",
+        "src_vm_bant_identity_md_20260529"
+      ],
+      "confidence": "Medium",
+      "notes": "Use the confirmed sequence as source-bound support only; do not route Bant through Elspeth governance or institutional authorship."
+    },
+    {
+      "claim_id": "bant_claim_0015",
+      "faction_id": "bant",
+      "claim_type": "timeline",
+      "statement": "Conflux reunited Alara's shards and is the main rupture point for Bant's isolated ideal.",
+      "canon_status": "Canon-supported plus Vox Mana interpretation",
+      "source_ids": [
+        "src_vm_bant_evidence_ledger_20260528",
+        "src_vm_bant_research_dossier_20260528",
+        "src_wotc_alara_plane_page",
+        "src_vm_bant_metaphysics_md_20260529"
+      ],
+      "confidence": "High",
+      "notes": "Detailed post-Conflux political conditions remain manual-review material."
+    },
+    {
+      "claim_id": "bant_claim_0016",
+      "faction_id": "bant",
+      "claim_type": "timeline_boundary",
+      "statement": "Post-Phyrexia material may support continuity of Bant identity, Valeron, and Knight-General Rafiq, but does not establish a complete post-invasion political condition in this packet.",
+      "canon_status": "Approved support with source-boundary language",
+      "source_ids": [
+        "src_vm_bant_lore_reference_docx_20260529",
+        "src_wotc_a_man_of_parts",
+        "src_mtg_wiki_bant"
+      ],
+      "confidence": "Medium",
+      "notes": "Do not promote detailed reconstruction, crisis-of-faith, or institution-compleation claims without direct official source text."
+    },
+    {
+      "claim_id": "bant_claim_0017",
+      "faction_id": "bant",
+      "claim_type": "commander_expression",
+      "statement": "Bant's in-bounds Commander expression includes creature-forward value midrange, enchantress or aura engines, blink and ETB value, exalted single-champion combat, honor-coded voltron, and clean creature-based combo or value lines.",
+      "canon_status": "Vox Mana Commander curation",
+      "source_ids": [
+        "src_vm_bant_manual_fill_20260529",
+        "src_vm_commander_workbook_20260529",
+        "src_vm_bant_identity_md_20260529"
+      ],
+      "confidence": "Medium",
+      "notes": "Commander lanes are source-supported project curation, not official lore."
+    },
+    {
+      "claim_id": "bant_claim_0018",
+      "faction_id": "bant",
+      "claim_type": "commander_suppression",
+      "statement": "Derevi hard-lock stax, prison-enchantment stacks without creature/community framing, mill or self-mill without communal creature identity, and mass reanimation as primary identity should be suppressed as Bant primary expressions.",
+      "canon_status": "Vox Mana Commander curation",
+      "source_ids": [
+        "src_vm_bant_manual_fill_20260529",
+        "src_vm_bant_identity_md_20260529"
+      ],
+      "confidence": "Medium",
+      "notes": "This is a placement and Commander guardrail, not a legality statement."
+    },
+    {
+      "claim_id": "bant_claim_0019",
+      "faction_id": "bant",
+      "claim_type": "placement_separator",
+      "statement": "Bant should be separated from Azorius, Selesnya, Simic, Naya, Esper, Grixis, and Jund through Vox Mana expression-level guidance rather than canon diplomacy claims.",
+      "canon_status": "Vox Mana placement guidance",
+      "source_ids": [
+        "src_vm_bant_identity_md_20260529",
+        "src_vm_bant_manual_fill_20260529",
+        "src_vm_canon_inventory_three_color_audit_20260528"
+      ],
+      "confidence": "Medium",
+      "notes": "Naya is the most important adjacent shard false positive because it shares White and Green."
+    },
+    {
+      "claim_id": "bant_claim_0020",
+      "faction_id": "bant",
+      "claim_type": "runtime_boundary",
+      "statement": "VM-160 promotes Bant from the VM-159 raw source packet into live placement under expression key BANT, while lore limits remain source-bound.",
+      "canon_status": "Project implementation boundary",
+      "source_ids": [
+        "src_vm_bant_identity_md_20260529",
+        "src_vm_bant_reliability_audit_20260528"
+      ],
+      "confidence": "High",
+      "notes": "BANT is the only live expression key. WUG remains color-direction metadata only. Asha-founder claims, Elspeth-governance claims, post-Conflux and post-Phyrexia political detail, named angel-compleation outcomes, and direct-quotation limits remain source-bound."
+    },
+    {
+      "claim_id": "bant_claim_0021",
+      "faction_id": "bant",
+      "claim_type": "mubin_sequence",
+      "statement": "Mubin's source-bound Conflux sequence may support Bant's many-behind-the-champion pattern: friendship and rivalry with Rafiq, Esper mind-control and paralysis, research that restores the Sword of Asha, Rafiq's Malfegor victory enabled by that discovery, and Mubin's death after failed etherium surgery.",
+      "canon_status": "Approved support with source-boundary language",
+      "source_ids": [
+        "src_vm_bant_lore_source_packet_20260529",
+        "src_archive_trap_alara",
+        "src_mtg_wiki_bant"
+      ],
+      "confidence": "Medium",
+      "notes": "Use Mubin as support context for Bant's communal-champion logic, not as a standalone placement route or card-facing Commander anchor."
+    }
+  ],
+  "claim_quality_summary": {
+    "overall_confidence": "Medium source packet confidence with high-confidence core identity claims; live pilot runtime calibration active",
+    "high_confidence_claims": 12,
+    "medium_confidence_claims": 9,
+    "low_confidence_claims": 0,
+    "manual_review_required": [
+      "Exact Gatherer or Scryfall text for card flavor and oracle details",
+      "Exact sourcebook passages before direct quotation of Bant nation descriptions",
+      "Exact official story passages before direct quotation of Asha, Elspeth, Mubin, Rafiq, Valeron, and later-era Bant",
+      "Runtime placement calibration against the active 21-expression model"
+    ],
+    "notes": "VM-160 makes Bant live under BANT; VM-168 narrows the remaining lore limits after the source-packet updates."
+  }
+}

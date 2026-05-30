@@ -1,0 +1,281 @@
+{
+  "schema_version": "1.0.0",
+  "faction_id": "bant",
+  "faction_name": "Bant",
+  "last_updated": "2026-05-29",
+  "changes": [
+    {
+      "change_id": "bant_change_005",
+      "change_type": "VM-169 Gold-Standard Parity Cleanup",
+      "change_date": "2026-05-29",
+      "summary": "Normalized Bant live-pilot status labels and metadata to match the VM-159A/VM-168 curated source-packet outcome without expanding lore claims.",
+      "sources_added": [],
+      "sources_updated": [],
+      "claims_added": [],
+      "claims_updated": [
+        "bant_claim_0013",
+        "bant_claim_0014",
+        "bant_claim_0021"
+      ],
+      "claims_superseded": [
+        "Historical secondary-only uncertainty labels for Asha, Elspeth, Jhess, Topa, Eos, and Mubin where VM-159A/VM-168 already bounded the current project status"
+      ],
+      "claims_contradicted": [],
+      "profile_fields_updated": [
+        "profile_version",
+        "key_figures.confidence"
+      ],
+      "placement_fields_updated": [
+        "placement_profile_version",
+        "based_on_profile_version"
+      ],
+      "manual_review_required": [
+        "Do not promote Asha beyond bounded presider / sacred-authority support.",
+        "Do not use Elspeth as Bant governance, founding, or institution-building evidence.",
+        "Do not promote Mubin beyond support context for Bant's communal champion pattern.",
+        "Keep Jhess, Topa, and Eos direct quotations and expanded detail source-bound."
+      ],
+      "notes": "VM-169 updates draft-era version strings to 1.0.0 and replaces hybrid structured confidence labels with existing High/Medium conventions while preserving nuance in notes."
+    },
+    {
+      "change_id": "bant_change_004",
+      "change_type": "VM-168 Downstream Lore Reconciliation",
+      "change_date": "2026-05-29",
+      "summary": "Reconciled the updated Bant lore-source packet with live identity, metaphysics, raw claims, raw profile, raw placement, and source metadata after VM-160 promotion.",
+      "sources_added": [
+        "src_wotc_angel_eye_view_bant_20081008",
+        "src_archive_trap_alara",
+        "src_card_kingdom_elspeth_story"
+      ],
+      "sources_updated": [
+        "src_vm_bant_lore_source_packet_20260529",
+        "src_wotc_a_man_of_parts",
+        "src_mtg_wiki_bant",
+        "src_mtg_wiki_asha",
+        "src_mtg_wiki_elspeth"
+      ],
+      "claims_added": [
+        "bant_claim_0021"
+      ],
+      "claims_updated": [
+        "bant_claim_0013",
+        "bant_claim_0014",
+        "bant_claim_0020"
+      ],
+      "claims_superseded": [],
+      "claims_contradicted": [
+        "Removed the remaining positive proper-noun use of The Great Resolution; the source packet now treats it only as an invented term to avoid."
+      ],
+      "profile_fields_updated": [
+        "site_surface.claim_ids",
+        "core_identity.unknowns",
+        "structure.bounded_elements",
+        "structure.manual_review_required",
+        "key_figures",
+        "search_and_filter_metadata",
+        "data_quality"
+      ],
+      "placement_fields_updated": [
+        "chatbot_guidance",
+        "placement_quality"
+      ],
+      "manual_review_required": [
+        "Keep Asha-founder and Asha-created-angel claims out of live dossier language without direct official support.",
+        "Keep Elspeth-governance or institution-building claims out of live dossier language.",
+        "Verify post-Phyrexia Bant political status and named angel outcomes before adding detailed political language.",
+        "Verify exact card, story, and sourcebook passages before direct quotation."
+      ],
+      "notes": "Asha, Elspeth, and Mubin now have narrower source-bound support roles in the live Bant setup without changing placement scoring, Home exposure, Maze behavior, routes, or the BANT/WUG key boundary."
+    },
+    {
+      "change_id": "bant_change_003",
+      "change_type": "VM-160 Live Pilot Promotion",
+      "change_date": "2026-05-29",
+      "summary": "Promoted Bant from the VM-159 raw source packet into live placement under expression key BANT while keeping WUG as color-direction metadata only.",
+      "sources_added": [],
+      "sources_updated": [],
+      "claims_added": [],
+      "claims_updated": [
+        "bant_claim_0002",
+        "bant_claim_0020"
+      ],
+      "claims_superseded": [],
+      "claims_contradicted": [],
+      "profile_fields_updated": [
+        "search_and_filter_metadata",
+        "data_quality",
+        "research_limitations",
+        "commander_compass.review_status",
+        "commander_compass.merge_notes"
+      ],
+      "placement_fields_updated": [
+        "placement_summary",
+        "placement_quality",
+        "calibration_tuning"
+      ],
+      "manual_review_required": [
+        "Verify exact card flavor and oracle text before quoting in live dossier output.",
+        "Verify exact sourcebook passages before direct quotation of Bant nation descriptions.",
+        "Keep Asha-founder, Elspeth-governance, post-invasion, and direct-quotation limits source-bound before expanding live dossier language.",
+        "Keep Bant Home preview exposure for a later UI/content card."
+      ],
+      "notes": "BANT is the only live expression key. WUG remains color-direction metadata only and is not an alias, generated top-level key, placement result key, raw-to-key target, or identity.expression_key."
+    },
+    {
+      "change_id": "bant_change_002",
+      "change_type": "VM-159A Reconciliation",
+      "change_date": "2026-05-29",
+      "summary": "Reconciled the accepted Bant lore-source packet with the VM-159 raw JSON before VM-160 promotion.",
+      "sources_added": [
+        "src_vm_bant_lore_source_packet_20260529"
+      ],
+      "sources_updated": [
+        "src_wotc_planeswalkers_guide_alara_2008"
+      ],
+      "claims_added": [],
+      "claims_updated": [
+        "bant_claim_0009",
+        "bant_claim_0010"
+      ],
+      "claims_superseded": [],
+      "claims_contradicted": [
+        "Rejected the Interactive Codex alternate Mubin framing in favor of the Esper mind-control and Sword of Asha version recorded in the accepted lore-source packet."
+      ],
+      "profile_fields_updated": [
+        "data_quality.manual_review_required"
+      ],
+      "placement_fields_updated": [],
+      "manual_review_required": [
+        "Verify exact card flavor and oracle text before quoting in live dossier output.",
+        "Verify exact sourcebook passages before direct quotation of Bant nation descriptions.",
+        "Keep Asha-founder, Elspeth-governance, post-invasion, and direct-quotation limits source-bound before expanding live dossier language.",
+        "Recheck Bant placement behavior after VM-160 against the active 21-expression model."
+      ],
+      "notes": "VM-159A upgraded the five-nation geography from runtime-blocking caveat to accepted source-packet geography and kept the alternate Mubin story rejected. VM-160 handles the controlled live placement promotion."
+    },
+    {
+      "change_id": "bant_change_001",
+      "change_type": "Initial Source Packet",
+      "change_date": "2026-05-29",
+      "summary": "Created the first Bant raw-faction source packet as an authored-but-not-live VM-159 airlock slice.",
+      "sources_added": [
+        "src_vm_bant_source_ledger_20260528",
+        "src_vm_bant_evidence_ledger_20260528",
+        "src_vm_bant_research_dossier_20260528",
+        "src_vm_bant_reliability_audit_20260528",
+        "src_wotc_rosewater_bant_20081006",
+        "src_vm_canon_inventory_three_color_audit_20260528",
+        "src_vm_bant_identity_md_20260529",
+        "src_vm_bant_metaphysics_md_20260529",
+        "src_vm_bant_manual_fill_20260529",
+        "src_vm_commander_workbook_20260529",
+        "src_vm_bant_lore_reference_docx_20260529",
+        "src_wotc_planeswalkers_guide_alara_2008",
+        "src_wotc_alara_plane_page",
+        "src_wotc_a_man_of_parts",
+        "src_mtg_wiki_bant",
+        "src_mtg_wiki_asha",
+        "src_mtg_wiki_elspeth"
+      ],
+      "sources_updated": [],
+      "claims_added": [
+        "bant_claim_0001",
+        "bant_claim_0002",
+        "bant_claim_0003",
+        "bant_claim_0004",
+        "bant_claim_0005",
+        "bant_claim_0006",
+        "bant_claim_0007",
+        "bant_claim_0008",
+        "bant_claim_0009",
+        "bant_claim_0010",
+        "bant_claim_0011",
+        "bant_claim_0012",
+        "bant_claim_0013",
+        "bant_claim_0014",
+        "bant_claim_0015",
+        "bant_claim_0016",
+        "bant_claim_0017",
+        "bant_claim_0018",
+        "bant_claim_0019",
+        "bant_claim_0020"
+      ],
+      "claims_updated": [],
+      "claims_superseded": [],
+      "claims_contradicted": [],
+      "profile_fields_updated": [
+        "site_surface",
+        "core_identity",
+        "structure",
+        "great_tension",
+        "historical_timeline",
+        "key_figures",
+        "canonical_flavor_text",
+        "views_on_other_factions",
+        "mechanics",
+        "search_and_filter_metadata",
+        "data_quality",
+        "research_limitations",
+        "commander_compass"
+      ],
+      "placement_fields_updated": [
+        "placement_summary",
+        "moral_and_psychological_profile",
+        "placement_axes",
+        "core_values",
+        "behavioral_signals",
+        "inhibitor_traits",
+        "good_fit_indicators",
+        "poor_fit_indicators",
+        "discriminator_questions",
+        "chatbot_guidance",
+        "placement_quality",
+        "calibration_tuning",
+        "collision_guidance"
+      ],
+      "manual_review_required": [
+        "Verify exact card flavor and oracle text before quoting in live dossier output.",
+        "Verify exact official sourcebook passages before direct quotation of Bant nation descriptions.",
+        "Keep Asha-founder, Elspeth-governance, post-invasion, and direct-quotation limits source-bound before expanding live dossier language.",
+        "Recheck Bant placement behavior after VM-160 against the active 21-expression model."
+      ],
+      "notes": "VM-159 intentionally did not edit identity layers, builder constants, schemas, generated artifacts, runtime files, Maze files, route CSS/JS, or Supabase files."
+    }
+  ],
+  "audit_summary": {
+    "faction_researched": "Bant",
+    "plane_or_setting": "Alara",
+    "number_of_sources_reviewed": 21,
+    "number_of_official_sources_used": 6,
+    "number_of_local_research_sources_used": 9,
+    "number_of_secondary_or_support_sources_used": 6,
+    "number_of_claims_verified": 21,
+    "number_of_claims_marked_uncertain": 9,
+    "sections_with_limited_evidence": [
+      "direct quotation of sourcebook nation descriptions",
+      "Asha founder role and broader doctrine",
+      "Elspeth governance or institution-building claims",
+      "post-Conflux political detail",
+      "post-Phyrexia political detail",
+      "named Bant angel compleation or survival outcomes",
+      "post-pilot runtime placement calibration"
+    ],
+    "conflicting_sources_found": [],
+    "assumptions_removed_during_validation": [
+      "Bant was held out of runtime placement until VM-160.",
+      "Asha is not treated as sole founder.",
+      "Asha is not treated as creator of Bant's angel-transformation mechanism.",
+      "Elspeth is not treated as governing or institution-building on Bant.",
+      "The Great Resolution is not used as an official Bant proper noun.",
+      "Hard-lock stax is not treated as primary Bant expression."
+    ],
+    "overall_confidence_rating": "Medium as source packet with high-confidence core identity claims; live pilot runtime calibration active",
+    "source_packet_review_status": "live_pilot_source_packet",
+    "runtime_promotion_status": "live_pilot",
+    "intentional_omissions": [
+      "No live domain field",
+      "No route, Maze, Home preview, or hand-authored Supabase edits"
+    ],
+    "structure_comparison_note": "The packet mirrors azorius_senate and lorehold by including profile, placement, claims, sources, and changelog files. VM-160 consumes Bant through the builder as the live pilot key BANT while preserving source-bound lore limits."
+  }
+}

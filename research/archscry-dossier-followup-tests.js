@@ -7,6 +7,7 @@ import {
 } from "../assets/js/archscry-presentation.js";
 import {
   buildCommanderLandRecommendations,
+  hasRenderableLandTier,
 } from "../assets/js/commander-dossier.js";
 
 const indexSource = await readFile(new URL("../assets/js/index.js", import.meta.url), "utf8");
@@ -97,7 +98,10 @@ const allIndexedFlavor = new Set([
 ]);
 
 const currentFactionKeys = Object.keys(factionsData.factions || {});
-assert.equal(currentFactionKeys.length, 20, "expected the current Archscry faction set to contain 20 keys");
+const expectedFactionCount = factionsData._meta?.factions;
+assert.equal(expectedFactionCount, 21, "expected Archscry faction metadata to include the Bant pilot");
+assert.equal(currentFactionKeys.length, expectedFactionCount, "expected the current Archscry faction set to match generated metadata");
+assert.ok(currentFactionKeys.includes("BANT"), "expected the current Archscry faction set to include the Bant pilot key");
 currentFactionKeys.forEach((key) => {
   const faction = factionsData.factions[key];
   const expressionKey = faction.identity?.expression_key || key;
@@ -141,6 +145,8 @@ const renderedWhiteLands = [
   ...whiteLands.utility,
 ];
 const normalizedWhiteLands = renderedWhiteLands.map((name) => name.toLowerCase());
+assert.equal(hasRenderableLandTier(whiteLands, "basics"), true, "expected Basics guidance to stay renderable for White");
+assert.equal(hasRenderableLandTier(whiteLands, "budget"), false, "expected empty White budget tier to be hidden after dedupe");
 assert.equal(
   normalizedWhiteLands.filter((name) => name.includes("war room")).length,
   1,
@@ -156,10 +162,28 @@ assert.ok(
   "expected White land recommendations to record suppressed duplicate lands"
 );
 
+const bantLands = buildCommanderLandRecommendations(factionsData.factions.BANT);
+const bantBudgetNames = (bantLands.budget || []).map((name) => name.toLowerCase());
+const bantRenderedLands = [
+  ...bantLands.premium,
+  ...bantLands.midrange,
+  ...bantLands.budget,
+  ...bantLands.utility,
+].map((name) => name.toLowerCase());
+assert.equal(hasRenderableLandTier(bantLands, "budget"), true, "expected Bant budget tier to stay renderable");
+["bant panorama", "path of ancestry", "evolving wilds"].forEach((name) => {
+  assert.ok(bantBudgetNames.includes(name), `expected Bant budget lands to keep ${name}`);
+});
+["basic", "basics", "basic land", "basic lands"].forEach((placeholder) => {
+  assert.ok(!bantRenderedLands.includes(placeholder), `expected Bant land tiers to suppress ${placeholder}`);
+});
+
 const selectStart = presentationSource.indexOf("export function selectReadingTagRefs");
 const selectEnd = presentationSource.indexOf("export function buildTagExplanationSummaries", selectStart);
 const selectSource = presentationSource.slice(selectStart, selectEnd);
 assert.doesNotMatch(selectSource, /decreeCopy|tagline|philosophy/, "expected tag selection to avoid broad lore-only sources");
+assert.match(indexSource, /buildSegmentControlsHtml\("mana-base",\s*manaBaseSegments/, "expected mana-base tabs to use available segments only");
+assert.match(indexSource, /hasRenderableLandTier\(landRecommendations,\s*"budget"\)/, "expected empty Budget land tiers to be skipped at render time");
 
 const taxonomy = {
   tags: [

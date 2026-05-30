@@ -15,6 +15,8 @@
 
 ---
 
+> **VM-169 status note:** This dossier preserves the VM-157 research-session evidence shape, but current Bant authoring should read Asha, Elspeth, Jhess, Topa, Eos, and Mubin through the later VM-159A/VM-168 curated source-packet boundaries. The updates below normalize stale status labels only; they do not expand Bant lore claims beyond the curated packet.
+
 ## 1. Core Identity
 
 ### What Bant Is
@@ -64,7 +66,9 @@ Knights are a central institution in Bant. Sigils — marks of honor granted for
 The following are not confirmed in reviewed sources and are excluded from the dossier body:
 
 - The exact founding event or founding figure of Bant's social order.
-- The precise nature and history of Asha (see Section 6).
+- Asha as founder or angel-creation architect; the curated packet supports only bounded presider / sacred-authority framing, with angel creation attributed to archmages rather than Asha.
+- Elspeth as a Bant governance or institution-building figure; only source-supported Bant / Alara relevance should be used.
+- Direct-quotation-level detail for Jhess, Topa, and Eos beyond their bounded five-nation geography status.
 - The specific pre-Conflux conditions that created Bant's distinct society.
 - Bant's condition after the New Phyrexian invasion beyond what "A Man of Parts" directly states (see Section 5).
 
@@ -86,11 +90,11 @@ The following are not confirmed in reviewed sources and are excluded from the do
 | Sigil / Sigiled | Confirmed Bant Term | Yes | SRC-007, SRC-011, SRC-027 | Bant honor system; confirmed by card names and flavor text |
 | Rhox | Confirmed Bant Term | Yes | SRC-018 | Rhino-humanoid figures in Bant; confirmed by card |
 | Akrasa | Confirmed Bant Term | Yes | SRC-016 | Bant nation; confirmed by card name "Akrasan Squire" |
-| Elspeth Tirel | Bant-Adjacent Discovery → Card-Supported | Yes (limited) | SRC-020, SRC-033 | Card evidence: Elspeth, Knight-Errant in Shards of Alara. Story connection confirmed in secondary sources. Specific story claims need official source verification. |
-| Asha | Bant-Adjacent Discovery | Evidence Ledger Only | SRC-032 | Referenced in secondary sources as a patron angel figure. Exact nature, title, and role not verified in reviewed official source. |
-| Jhess | Bant-Adjacent Discovery | Evidence Ledger Only | SRC-030 | Named in MTG Wiki as a Bant nation. Card names (e.g., Jhessian Balmgiver) suggest Bant connection. Not verified in official story or card source directly naming Jhess as a Bant nation. |
-| Topa | Bant-Adjacent Discovery | Evidence Ledger Only | SRC-030 | Named in MTG Wiki as a Bant nation. Not verified in reviewed official source. |
-| Eos | Bant-Adjacent Discovery | Evidence Ledger Only | SRC-030 | Named in MTG Wiki as a Bant nation. Not verified in reviewed official source. |
+| Elspeth Tirel | Card-Supported / Source-Packet Bounded Support | Yes (bounded) | SRC-020, SRC-033; VM-159A/VM-168 packet | Card evidence and curated packet support Bant / Alara relevance. Do not use her as a Bant governance, founding, or institution-building claim. |
+| Asha | Source-Packet Bounded Support | Yes (bounded) | SRC-032; VM-159A/VM-168 packet | Curated packet supports bounded presider / sacred-authority framing. Do not make founder or angel-creation-architect claims; broader doctrine remains limited-source. |
+| Jhess | Source-Packet Bounded Geography | Yes (bounded) | SRC-030; VM-159A/VM-168 packet | Current packet accepts Jhess within Bant's five-nation geography, with direct quotation and expanded detail still source-bound. |
+| Topa | Source-Packet Bounded Geography | Yes (bounded) | SRC-030; VM-159A/VM-168 packet | Current packet accepts Topa within Bant's five-nation geography, with direct quotation and expanded detail still source-bound. |
+| Eos | Source-Packet Bounded Geography | Yes (bounded) | SRC-030; VM-159A/VM-168 packet | Current packet accepts Eos within Bant's five-nation geography, with direct quotation and expanded detail still source-bound. |
 | Sigiled caste | Bant-Adjacent Discovery | Evidence Ledger Only | SRC-030 | Named in secondary sources. Sigil system confirmed by card evidence; "caste" framing is secondary-source terminology. |
 | Jenara, Asura of War | Confirmed Bant Term | Yes | SRC-014 | Legendary Bant angel; Alara Reborn card confirmed |
 | Empyrial Archangel | Confirmed Bant Term | Yes | SRC-015 | Bant angel card; Shards of Alara |
@@ -135,7 +139,7 @@ Known role types confirmed by card evidence:
 
 **Knight-General Rafiq** is confirmed as a leader figure by both his legendary card status (Rafiq of the Many, Shards of Alara [SRC-007]) and by his title "Knight-General Rafiq" in the official story "A Man of Parts" [SRC-005].
 
-No other confirmed leader is established in reviewed sources. Asha is referenced in secondary sources as a patron figure (see Section 6), but her exact institutional role as a leader or founder is not confirmed in reviewed official sources.
+No other current political leader is established in reviewed sources. Asha has bounded source-packet support as a presider / sacred-authority figure (see Section 6), but she should not be used as Bant's founder, angel-creation architect, or current governance leader.
 
 ### Known Locations
 
@@ -144,17 +148,17 @@ No other confirmed leader is established in reviewed sources. Asha is referenced
 | Bant (the shard) | Confirmed Bant Term | Core faction identification | SRC-001, SRC-004 |
 | Valeron | Confirmed Bant Term | Referenced in "A Man of Parts" and implied in Rafiq flavor text ("five nations") | SRC-005, SRC-007 |
 | Akrasa | Confirmed Bant Term | Card name: Akrasan Squire | SRC-016 |
-| Jhess | Bant-Adjacent Discovery | MTG Wiki; card names with "Jhessian" prefix suggest Bant connection | SRC-030 |
-| Topa | Bant-Adjacent Discovery | MTG Wiki only | SRC-030 |
-| Eos | Bant-Adjacent Discovery | MTG Wiki only | SRC-030 |
+| Jhess | Source-Packet Bounded Geography | Current packet accepts the five-nation geography; card names with "Jhessian" prefix suggest Bant connection | SRC-030; VM-159A/VM-168 packet |
+| Topa | Source-Packet Bounded Geography | Current packet accepts the five-nation geography; direct quotation and expanded detail remain source-bound | SRC-030; VM-159A/VM-168 packet |
+| Eos | Source-Packet Bounded Geography | Current packet accepts the five-nation geography; direct quotation and expanded detail remain source-bound | SRC-030; VM-159A/VM-168 packet |
 
-> **Note:** Rafiq of the Many's flavor text states he has "the sigils of all five nations," confirming Bant is composed of five nations. Valeron and Akrasa are verified by official sources. Jhess is supported by card naming conventions. Topa and Eos remain MTG Wiki secondary sources only.
+> **Note:** Rafiq of the Many's flavor text states he has "the sigils of all five nations," confirming Bant is composed of five nations. Valeron and Akrasa are verified by official sources. VM-159A/VM-168 bound Jhess, Topa, and Eos as the remaining five-nation geography names for project use, while exact quotation and expanded detail remain source-bound.
 
 ### Internal Divisions
 
 > **Alara Context / Bant-Adjacent Discovery** — [SRC-007, SRC-030]
 
-Bant contains five nations, confirmed by Rafiq's flavor text [SRC-007]. The five nations are: Valeron (confirmed official), Akrasa (confirmed card), and three others that are named in secondary sources (MTG Wiki) as Jhess, Topa, and Eos. These three names are not confirmed in reviewed official story or card sources.
+Bant contains five nations, confirmed by Rafiq's flavor text [SRC-007]. The five nations are: Valeron (confirmed official), Akrasa (confirmed card), and three others that VM-159A/VM-168 bound for project use as Jhess, Topa, and Eos. Direct quotation and expanded detail for those three names remain source-bound.
 
 ### Known Institutions / Symbols
 
@@ -210,8 +214,8 @@ This tension plays out in two directions:
 | Jenara, Asura of War | Legendary angel; Asura of War | Bant-associated angel; legendary creature from Alara Reborn | SRC-014 | High | Card confirmed (Alara Reborn, GWU). Exact lore role beyond card context not verified in reviewed story sources. |
 | Noble Hierarch | Druid / hierarch | Tends the Great Conduit of Bant; GWU druid from Conflux | SRC-008 | High | Card confirmed. Flavor text: "She tends the Great Conduit, a network of ley lines she believes connects all of Bant." |
 | Gwafa Hazid, Profiteer | Merchant (corrupt figure) | Bant-aligned corrupt merchant; Conflux card with Bant watermark | SRC-019 | High | Card confirmed. Represents a counterpoint to Bant's honor ideal. Exact story role not verified beyond card context. |
-| Elspeth Tirel | Planeswalker | White-aligned planeswalker whose card Elspeth, Knight-Errant appeared in Shards of Alara. Story sources confirm her connection to Bant. | SRC-020, SRC-033 | Medium | Card appearance in Shards of Alara confirmed. Story connection confirmed in secondary sources. Specific story claims (arrival, departure, duration on Bant) require verification against official story source before stating as fact. |
-| Asha | Patron angel figure | Referenced in secondary sources as the patron angel and cultural/spiritual anchor of Bant's social order. | SRC-032 | Low — secondary source only | MTG Wiki describes Asha as an archangel patron of Bant. Exact nature, title, and founding role NOT confirmed in reviewed official source. Do not state as confirmed fact. |
+| Elspeth Tirel | Planeswalker | White-aligned planeswalker whose card Elspeth, Knight-Errant appeared in Shards of Alara. Curated sources support Bant / Alara relevance. | SRC-020, SRC-033; VM-159A/VM-168 packet | Medium | Use only source-supported Bant / Alara relevance. Do not promote Elspeth into Bant governance, founding, or institution-building claims. |
+| Asha | Presider / sacred-authority figure | Curated packet supports bounded spiritual authority framing for Bant. | SRC-032; VM-159A/VM-168 packet | Medium | No founder claim. Do not attribute angel creation to Asha; the curated packet attributes the mechanism to archmages, while broader Asha doctrine remains limited-source. |
 | Stoic Angel | Angel | Bant-associated legendary-adjacent angel from Shards of Alara | SRC-013 | High (card); Low (lore) | Card confirmed (ALA, GWU). Specific lore role not confirmed beyond card. |
 | Empyrial Archangel | Angel | Bant-associated angel from Shards of Alara | SRC-015 | High (card); Low (lore) | Card confirmed (ALA). Specific lore role not confirmed beyond card. |
 | Rhox War Monk | Rhox monk figure | Representative of the Rhox serving in Bant's warrior-monk tradition | SRC-018 | High (card); Medium (lore) | Card confirmed. Rhox as a Bant-associated creature type confirmed by multiple cards. Specific monk-order lore not confirmed in reviewed official source. |
@@ -289,19 +293,21 @@ Rafiq of the Many does not carry the exalted keyword text itself; his oracle tex
 
 ### Lightly Supported
 
-- Elspeth Tirel's connection to Bant: confirmed by card placement (Shards of Alara, [SRC-020]) and secondary sources [SRC-033]; specific story events not verified in reviewed official source.
-- Jhess as a Bant nation: supported by card naming conventions and MTG Wiki [SRC-030]; not directly confirmed in reviewed official story or card source.
+- Elspeth Tirel's connection to Bant: confirmed by card placement (Shards of Alara, [SRC-020]) and bounded by the VM-159A/VM-168 source packet; governance, founding, and institution-building claims remain excluded.
+- Asha as a presider / sacred-authority figure: bounded by the VM-159A/VM-168 source packet; founder and angel-creation-architect claims remain excluded.
+- Jhess, Topa, and Eos as Bant nations: bounded by the VM-159A/VM-168 source packet; direct quotation and expanded detail remain source-bound.
 - Gwafa Hazid as a Bant-associated corrupt merchant: card confirmed [SRC-019]; deeper story role not verified.
 - Bant/Valeron as a setting in "A Man of Parts": source known to exist [SRC-005]; specific passages not reproduced in this session due to access failure.
 
 ### Uncertain / Not Confirmed in Reviewed Sources
 
-- Asha's exact nature, title, founding role, or relationship to Bant's social structure. [Secondary: SRC-032]
-- Topa and Eos as Bant nations. [Secondary: SRC-030]
+- Asha's broader doctrine, founding role, or any claim that she personally created Bant's angels.
+- Elspeth as a Bant governance, founding, or institution-building figure.
+- Direct-quotation-level evidence and expanded detail for Jhess, Topa, and Eos beyond their bounded five-nation geography status.
 - The detailed sigil-caste ranking structure. [Secondary: SRC-030]
 - Bant's specific reaction to other shards post-Conflux.
 - The state of Bant/Valeron after the events of "A Man of Parts."
-- Whether Elspeth trained on Bant, how long she stayed, and under what circumstances she left.
+- Exact quotations for Elspeth's Bant arc and the precise wording of any story beats not reproduced in this dossier.
 
 ### Canon Ambiguity
 

@@ -2,6 +2,8 @@
 
 **Faction:** Bant | **Plane:** Alara | **Date:** 2026-05-28
 
+> **VM-169 status note:** This ledger preserves the original VM-157 evidence audit shape, but current authoring should read stale uncertainty labels through the VM-159A and VM-168 curated source-packet outcomes. The updates below normalize status labels only; they do not expand Bant lore claims beyond the curated source packet.
+
 ---
 
 ## Part A — Claim Evidence Table
@@ -28,12 +30,12 @@
 | BANT-018 | Jenara, Asura of War is a legendary angel associated with Bant. | High | Card-Supported | SRC-014 | Jenara, Asura of War card from Alara Reborn. GWU legendary creature. | Card confirmed. Specific lore role beyond card not verified. | Low (card); Medium (lore) |
 | BANT-019 | Gwafa Hazid is a Bant-associated figure who uses bribery. | High | Card-Supported | SRC-019 | Gwafa Hazid, Profiteer from Conflux. Oracle text involves bribe counters. | Card confirmed with Bant watermark. Deeper story role not verified. | Low (card); Medium (lore) |
 | BANT-020 | Elspeth, Knight-Errant appeared in Shards of Alara. | High | Card-Supported | SRC-020 | Elspeth, Knight-Errant card from Shards of Alara set. | Card confirmed. Establishes Elspeth's connection to the Bant story era. | Low |
-| BANT-021 | Elspeth Tirel has a story connection to Bant. | Medium | Card-Supported / Secondary | SRC-020, SRC-033 | Card placement in Shards of Alara + MTG Wiki secondary source. | Specific story claims (arrival, training, departure) not verified in reviewed official source. | Medium — do not overstate specific events. |
+| BANT-021 | Elspeth Tirel has a source-supported Bant/Alara relevance. | Medium | Card-Supported / Source-Packet Bounded Support | SRC-020, SRC-033 | Card placement in Shards of Alara plus the VM-168 curated source-packet outcome support Elspeth's Bant/Alara relevance. | Use only the source-supported Bant knightly/spiritual arc; do not promote Elspeth as governing or institution-building on Bant. | Medium - do not overstate beyond the curated packet. |
 | BANT-022 | The Conflux reunited Alara's five shards into one plane. | High | Official Summary | SRC-004 | Alara plane page and Conflux set context confirm the reunion. | Alara context. | Low |
 | BANT-023 | The Rhox are rhino-humanoid figures serving warrior and monk roles in Bant. | High | Card-Supported | SRC-018, SRC-026 | Rhox War Monk (ALA), Rhox Charger (ALA) — cards with GWU color presence in Bant context. | Multiple Rhox cards in Bant colors confirm creature type and role. | Low |
-| BANT-024 | Asha is associated with Bant in secondary sources as a patron angel figure. | Low | Secondary Discovery | SRC-032 | MTG Wiki describes Asha as an archangel patron of Bant. | NOT confirmed in reviewed official source. Do not state as fact in dossier body. | High — do not claim specific founding/patron role without official source. |
-| BANT-025 | Jhess is a Bant nation. | Low | Secondary Discovery | SRC-030 | MTG Wiki names Jhess as one of Bant's five nations. Card names with "Jhessian" prefix suggest Bant connection. | Not directly confirmed in reviewed official story source. | Medium |
-| BANT-026 | Topa and Eos are Bant nations. | Low | Secondary Discovery | SRC-030 | MTG Wiki names Topa and Eos as Bant nations. | Not verified in reviewed official source. | High — do not include in dossier body. |
+| BANT-024 | Asha has bounded Bant source-packet support as presider/sacred authority. | Medium | Source-Packet Bounded Support | SRC-032 | VM-168 keeps Asha source-bound as presider/supreme guardian/sacred authority and attributes angel creation to archmages, not to Asha. | No founder claim; no Asha-created-angel claim; broader doctrine remains bounded. | High if expanded beyond the curated packet. |
+| BANT-025 | Jhess is accepted in the current source-packet five-nation geography. | Medium | Source-Packet Bounded Support | SRC-030 | VM-159A/VM-168 bound Jhess through the curated five-nation packet while preserving direct-quotation limits. | No longer wholly unresolved for project use; exact direct sourcebook wording remains bounded. | Medium |
+| BANT-026 | Topa and Eos are accepted in the current source-packet five-nation geography. | Medium | Source-Packet Bounded Support | SRC-030 | VM-159A/VM-168 bound Topa and Eos through the curated five-nation packet while preserving direct-quotation limits. | No longer wholly unresolved for project use; exact direct sourcebook wording remains bounded. | Medium |
 | BANT-027 | Exalted appears on Bant-watermarked cards in Shards of Alara and Conflux. | High | Card-Supported | SRC-011, SRC-012, SRC-022 | Multiple Bant-watermarked cards carry the exalted keyword. | Verified by card evidence. | Low |
 | BANT-028 | Sublime Archangel (Magic 2013) gives other creatures exalted and extends the mechanic beyond the original block. | High | Card-Supported | SRC-023 | Sublime Archangel oracle text: "Flying. Exalted. Other creatures you control have exalted." | Card confirmed. Extends the mechanic's presence but not Bant-specific lore. | Low |
 | BANT-029 | Bant is white-centered. White is "the central color to Bant." | High | Official Design Article | SRC-036 | Mark Rosewater, "Peace, Love and Understanding" (Making Magic, Bant Week, Oct 6 2008). Directly confirms white as Bant's center. Article read from local project file. | Upgrades the white-centered claim from training-knowledge-only to directly read source. | Low |
@@ -59,11 +61,11 @@
 | Rhox | Confirmed Bant Term | Confirmed Bant Term | SRC-018 | Yes | Bant creature type; card confirmed. |
 | Akrasa | Confirmed Bant Term | Confirmed Bant Term | SRC-016 | Yes | Bant nation; confirmed by card name. |
 | A Man of Parts | Confirmed Bant Term | Confirmed Bant Term | SRC-005 | Yes (as source) | Official Wizards story; references Bant, Valeron, Rafiq. |
-| Elspeth Tirel | Bant-Adjacent Discovery | Card-Supported (limited) | SRC-020, SRC-033 | Yes (limited) | Card placement in Shards of Alara confirmed. Specific story claims remain unverified. |
-| Asha | Bant-Adjacent Discovery | Bant-Adjacent Discovery | SRC-032 | Evidence Ledger Only | Secondary source only. Exact role and nature not confirmed in reviewed official source. |
-| Jhess | Bant-Adjacent Discovery | Bant-Adjacent Discovery | SRC-030 | Evidence Ledger Only | MTG Wiki + card naming conventions. Not confirmed in reviewed official story source. |
-| Topa | Bant-Adjacent Discovery | Bant-Adjacent Discovery | SRC-030 | Evidence Ledger Only | MTG Wiki only. Not verified in reviewed official source. |
-| Eos | Bant-Adjacent Discovery | Bant-Adjacent Discovery | SRC-030 | Evidence Ledger Only | MTG Wiki only. Not verified in reviewed official source. |
+| Elspeth Tirel | Bant-Adjacent Discovery | Source-Packet Bounded Support | SRC-020, SRC-033 | Yes (bounded) | VM-168 supports Bant/Alara relevance and the knightly/spiritual arc; governance and institution-building remain excluded. |
+| Asha | Bant-Adjacent Discovery | Source-Packet Bounded Support | SRC-032 | Yes (bounded) | VM-168 supports presider/sacred-authority language only; founder and angel-creation claims remain excluded. |
+| Jhess | Bant-Adjacent Discovery | Source-Packet Bounded Geography | SRC-030 | Yes (bounded) | VM-159A/VM-168 accept the five-nation geography for project use while preserving direct-quotation limits. |
+| Topa | Bant-Adjacent Discovery | Source-Packet Bounded Geography | SRC-030 | Yes (bounded) | VM-159A/VM-168 accept the five-nation geography for project use while preserving direct-quotation limits. |
+| Eos | Bant-Adjacent Discovery | Source-Packet Bounded Geography | SRC-030 | Yes (bounded) | VM-159A/VM-168 accept the five-nation geography for project use while preserving direct-quotation limits. |
 | Sigiled caste | Bant-Adjacent Discovery | Bant-Adjacent Discovery | SRC-030 | Evidence Ledger Only | "Caste" framing is secondary-source terminology. Sigil hierarchy confirmed; caste labeling not verified in official source. |
 | Jenara, Asura of War | Bant-Adjacent Discovery | Confirmed Bant Term | SRC-014 | Yes | Card confirmed; Alara Reborn GWU legendary angel. |
 | Empyrial Archangel | Bant-Adjacent Discovery | Confirmed Bant Term | SRC-015 | Yes | Card confirmed; Shards of Alara GWU legendary angel. |

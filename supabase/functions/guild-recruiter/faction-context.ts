@@ -206,6 +206,243 @@ export const FACTION_CONTEXT = {
       ]
     }
   },
+  "BANT": {
+    "name": "Bant",
+    "institution_type": "shard",
+    "world": "Alara",
+    "colors": [
+      "W",
+      "U",
+      "G"
+    ],
+    "layered_identity": {
+      "core_color": "W",
+      "secondary_colors": [
+        "U",
+        "G"
+      ],
+      "secondary_color": "U",
+      "expression_key": "BANT",
+      "expression_name": "Bant",
+      "expression_kind": "shard",
+      "purity": null,
+      "routing": {
+        "edhrec_slug": "bant",
+        "mtgdecks_slug": "bant",
+        "label": "Bant"
+      }
+    },
+    "tagline": "The many raise the worthy line.",
+    "philosophy": "Bant treats excellence as honorable when it remains answerable to the whole. Its order is not merely procedure; it is public trust, refined discipline, and a living community choosing which champion can carry its hope.",
+    "core_tension": "Bant's virtue is disciplined harmony, but the same order can become rigid or insular when dissent and correction cannot be heard.",
+    "affinity": {
+      "drawn_to": [
+        "A worthy champion backed by the whole community",
+        "Public honor, sigils, rank, and visible responsibility",
+        "Protection that serves a living social body",
+        "Refinement, order, and growth held inside shared duty"
+      ],
+      "repelled_by": [
+        "Hard-lock denial that mistakes control for protection",
+        "Generic three-color value without Bant anchors",
+        "Private leverage as the main moral center",
+        "Raw instinct or aggression without disciplined communal order"
+      ],
+      "core_question": "What makes one line of action worthy enough for the whole community to stand behind?",
+      "interview_tells": [
+        "Frames power as accountable excellence",
+        "Wants support and recognition to be visible rather than hidden",
+        "Names champion, honor, sigil, duty, or disciplined belonging",
+        "Distinguishes protection of community from prison control"
+      ],
+      "not_to_be_confused_with": "Azorius centers procedure; Selesnya centers broad belonging; Simic centers adaptation; Naya centers instinctive force and awe."
+    },
+    "decree_voice": {
+      "tone": "Noble, disciplined, and communal without becoming cold.",
+      "speaks_like": "A herald naming the charge a champion accepts on behalf of the many.",
+      "example_opening": "The reading turns toward honor, support, and the line the whole can stand behind.",
+      "example_decree": "The reading turns toward honor, support, and the line the whole can stand behind. Bant does not ask you to be alone with excellence. It asks whether your strength can remain worthy while carrying the trust, order, and living support of the community around it."
+    },
+    "biological_expression": {
+      "archetype": "The Communal Champion",
+      "primary_foundation": "Loyalty",
+      "secondary_foundation": "Authority",
+      "risk_signal": "low-medium honor-order risk",
+      "inhibitor_trigger": "Treats excellence as private self-authorization, raw instinct, or abstract optimization rather than accountable power carried for a living community."
+    },
+    "placement_axes": {
+      "required_positive_evidence_terms": [
+        "Bant",
+        "exalted",
+        "champion",
+        "sigil",
+        "honor",
+        "Rafiq",
+        "Valeron",
+        "Akrasa",
+        "Great Conduit",
+        "community",
+        "protection",
+        "refinement"
+      ],
+      "required_positive_min_hits": 3,
+      "strengthens_when_user_centers": [
+        "supported champion",
+        "public honor",
+        "exalted combat",
+        "sigil-ranked worth",
+        "creature-forward value",
+        "community protection",
+        "Bant-specific card or lore anchors"
+      ],
+      "suppress_when_user_centers": [
+        "hard-lock stax",
+        "prison enchantments",
+        "generic three-color value",
+        "Simic ramp",
+        "Selesnya tokens",
+        "Naya big creatures",
+        "Esper mill-control",
+        "mass reanimation"
+      ],
+      "false_positive_guardrail": "Do not score Bant highly from color identity or generic value alone. Require a champion-order evidence cluster.",
+      "broad_match_penalty": 0.18
+    },
+    "good_fit_indicators": [
+      "elevates one champion while preserving the role of the supporting community",
+      "uses order to protect a living social body rather than to deny agency",
+      "values visible merit, sigils, rank, or public honor",
+      "enjoys creature-forward value, blink, enchantress, auras, Clues, counters, or honorable voltron in a Bant-colored frame",
+      "names Bant, Rafiq, exalted, Valeron, Akrasa, Great Conduit, or sigils"
+    ],
+    "poor_fit_indicators": [
+      "The answer wants control through denial more than community protection.",
+      "The answer is mainly ramp, landfall, evolve, or adaptation without White structure.",
+      "The answer is mainly go-wide belonging without Blue refinement.",
+      "The answer is mainly big-creature aggression or emotional immediacy.",
+      "The answer centers mill, mass reanimation, discard, sacrifice, or private leverage."
+    ],
+    "inhibitor_traps": [
+      "Treats excellence as private self-authorization, raw instinct, or abstract optimization rather than accountable power carried for a living community.",
+      "Down-rank Bant when the answer is generic three-color goodstuff with no Bant-specific surface.",
+      "Down-rank Bant when the primary strategy is hard-lock stax, prison enchantments, or resource denial.",
+      "Down-rank Bant when the main appeal is Simic adaptation, Selesnya belonging, Naya big creatures, Esper artifacts/mill, or Grixis/Jund survival pressure.",
+      "Down-rank Bant when the answer needs Asha-founder claims, Elspeth-governance claims, named angel-compleation outcomes, or detailed post-Conflux/post-Phyrexia politics beyond the source packet.",
+      "The answer wants control through denial more than community protection.",
+      "The answer is mainly ramp, landfall, evolve, or adaptation without White structure.",
+      "The answer is mainly go-wide belonging without Blue refinement.",
+      "The answer is mainly big-creature aggression or emotional immediacy.",
+      "The answer centers mill, mass reanimation, discard, sacrifice, or private leverage."
+    ],
+    "lateral_inhibition_targets": [
+      "WU",
+      "WG",
+      "UG"
+    ],
+    "discriminator_questions": [
+      {
+        "id": "q_bant_0001",
+        "prompt": "When the group needs one person to act, what makes that champion worthy: strength, public trust, clever planning, shared belonging, or raw instinct?",
+        "purpose": "Separates Bant's supported champion from Naya strength, Simic optimization, Selesnya belonging, and Azorius procedure.",
+        "supports": "The answer says the champion is worthy because the group can trust, recognize, and stand behind the action.",
+        "weakens": "The answer centers private power, raw impulse, abstract optimization, or process alone.",
+        "collision_targets": [
+          "WU",
+          "WG",
+          "UG"
+        ],
+        "evidence_claim_ids": [
+          "bant_claim_0006",
+          "bant_claim_0007",
+          "bant_claim_0019"
+        ],
+        "confidence": "Medium"
+      },
+      {
+        "id": "q_bant_0002",
+        "prompt": "When order is needed, should it protect the community, enforce the procedure, grow naturally, or stop everyone else from acting?",
+        "purpose": "Separates Bant protection from Azorius procedure, Selesnya harmony, and prison control.",
+        "supports": "The answer uses order to protect a living community and keep excellence accountable.",
+        "weakens": "The answer wants procedure for its own sake or hard denial as the main form of safety.",
+        "collision_targets": [
+          "WU",
+          "WG"
+        ],
+        "evidence_claim_ids": [
+          "bant_claim_0017",
+          "bant_claim_0018",
+          "bant_claim_0019"
+        ],
+        "confidence": "Medium"
+      },
+      {
+        "id": "q_bant_0003",
+        "prompt": "Does a perfect board feel like one huge creature, one protected champion, a flexible value engine, or a table where opponents cannot act?",
+        "purpose": "Separates Naya, Bant, Simic/Bant value, and Azorius-prison drift.",
+        "supports": "The answer centers a protected champion or creature/community value engine with visible support.",
+        "weakens": "The answer centers largest-threat aggression, pure optimization, or hard locks.",
+        "collision_targets": [
+          "UG",
+          "WU"
+        ],
+        "evidence_claim_ids": [
+          "bant_claim_0017",
+          "bant_claim_0018",
+          "bant_claim_0019"
+        ],
+        "confidence": "Medium"
+      }
+    ],
+    "chatbot_guidance": {
+      "how_to_recognize_match": [
+        "Look for a cluster of champion support, sigils, exalted, public honor, disciplined protection, and white-blue-green refinement serving a living community.",
+        "Give extra weight when the user wants one worthy line of action backed by the whole rather than many independent threats.",
+        "Treat creature-forward value, enchantress, blink, Clues, counters, and voltron as Bant-facing only when they preserve community/champion framing.",
+        "Recognize Naya as the main shard-level false positive and test for Blue planning versus Red immediacy."
+      ],
+      "how_to_recognize_mismatch": [
+        "Down-rank Bant when the answer is generic three-color goodstuff with no Bant-specific surface.",
+        "Down-rank Bant when the primary strategy is hard-lock stax, prison enchantments, or resource denial.",
+        "Down-rank Bant when the main appeal is Simic adaptation, Selesnya belonging, Naya big creatures, Esper artifacts/mill, or Grixis/Jund survival pressure.",
+        "Down-rank Bant when the answer needs Asha-founder claims, Elspeth-governance claims, named angel-compleation outcomes, or detailed post-Conflux/post-Phyrexia politics beyond the source packet."
+      ],
+      "questions_to_ask_when_uncertain": [
+        "Is the main joy being the biggest force, the cleanest system, the best-supported champion, or the broadest community?",
+        "When a deck protects itself, is it protecting a living plan or preventing the table from playing?",
+        "Does the Bant-colored shell feel like Bant specifically, or only like efficient value in those colors?"
+      ],
+      "do_not_overweight": [
+        "Do not award Bant from color identity alone.",
+        "Do not award Bant from generic angels or knights without Bant anchors.",
+        "Do not treat every enchantment deck as Bant; prison shells should drift away.",
+        "Do not use Asha, Elspeth, Mubin, or later-era political claims as standalone live routing anchors."
+      ],
+      "never_claim_as_canon": [
+        "Never claim Vox Mana placement axes are official Wizards canon.",
+        "Never claim Bant determines a player's personality objectively.",
+        "Never claim detailed Bant-to-shard diplomacy as canon from this packet.",
+        "Never claim Asha founded Bant's entire social order.",
+        "Never claim Asha created Bant's angel-transformation mechanism.",
+        "Never claim Elspeth governed or built institutions on Bant.",
+        "Never claim a complete post-Phyrexia Bant political condition from this packet.",
+        "Placement scoring is a Vox Mana interpretation, not official Wizards canon."
+      ],
+      "calibration_note": "Bant should require a positive evidence cluster: champion support, sigils or exalted, public honor, creature/community frame, and white-blue-green refinement serving White-centered order.",
+      "scoring_guardrail": "Do not award for generic three-color value, generic peace, generic angels, or generic knight aesthetics without Bant's champion-order evidence cluster."
+    },
+    "canon_guardrails": {
+      "never_claim_as_canon": [
+        "Never claim Vox Mana placement axes are official Wizards canon.",
+        "Never claim Bant determines a player's personality objectively.",
+        "Never claim detailed Bant-to-shard diplomacy as canon from this packet.",
+        "Never claim Asha founded Bant's entire social order.",
+        "Never claim Asha created Bant's angel-transformation mechanism.",
+        "Never claim Elspeth governed or built institutions on Bant.",
+        "Never claim a complete post-Phyrexia Bant political condition from this packet.",
+        "Placement scoring is a Vox Mana interpretation, not official Wizards canon."
+      ]
+    }
+  },
   "WR": {
     "name": "Boros Legion",
     "institution_type": "guild",
@@ -4186,10 +4423,11 @@ export const PLACEMENT_MODEL_META = {
   "result_version": "2026-05-10",
   "source": "data/raw-factions plus data/factions.json display surface",
   "framing": "Biological expression placement model; Vox Mana interpretive taxonomy, not official canon.",
-  "faction_count": 20,
-  "identity_layer_version": "2026-05-17",
+  "faction_count": 21,
+  "identity_layer_version": "2026-05-27",
   "active_expression_keys": [
     "WU",
+    "BANT",
     "WR",
     "BR",
     "BG",

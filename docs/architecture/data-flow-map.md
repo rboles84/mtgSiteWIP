@@ -14,7 +14,7 @@ This document traces the main Vox Mana data paths from source content through ge
 
 The authoritative edit path is raw/display data first, then `npm run build:factions` from this repo. Generated artifacts should not be hand-edited unless explicitly repairing generated output.
 
-The current live placement pipeline still operates as one baseline domain across the active 20-expression model. That baseline is documented as `ravnica_strixhaven` in [Placement Domains](placement-domains.md). Khans and New Capenna remain future post-v1 architecture only, and no live build step currently reads or emits a `domain` field.
+The current live placement pipeline still operates without a runtime `domain` field. The active placement set is the original 20-expression Ravnica/Strixhaven/mono baseline plus the Bant shard pilot, with the baseline-domain decision documented as `ravnica_strixhaven` in [Placement Domains](placement-domains.md). Khans and New Capenna remain future post-v1 architecture only, and no live build step currently reads or emits a `domain` field.
 
 ## Precon Recommendation Artifacts
 

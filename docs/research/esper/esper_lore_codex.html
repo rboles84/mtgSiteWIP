@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Esper Planar Dossier & Lore Archive</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Google Fonts: Inter & JetBrains Mono -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #030712; /* Extreme dark */
+        }
+        .code-font {
+            font-family: 'JetBrains Mono', monospace;
+        }
+        /* Custom scrollbar for clinical aesthetic */
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0b0f19;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1e293b;
+            border-radius: 3px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #0ea5e9;
+        }
+        /* Glassmorphism utility */
+        .glass-panel {
+            background: rgba(15, 23, 42, 0.65);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(14, 165, 233, 0.15);
+        }
+        .filigree-border {
+            position: relative;
+        }
+        .filigree-border::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border: 1px solid rgba(14, 165, 233, 0.2);
+            pointer-events: none;
+            border-radius: inherit;
+            transition: all 0.3s ease;
+        }
+        .filigree-border:hover::after {
+            border-color: rgba(14, 165, 233, 0.5);
+            box-shadow: 0 0 15px rgba(14, 165, 233, 0.15);
+        }
+    </style>
+</head>
+<body class="text-slate-200 antialiased selection:bg-cyan-500 selection:text-slate-950">
+
+    <!-- Ambient Grid Overlay -->
+    <div class="fixed inset-0 bg-[linear-gradient(to_right,#0f172a_1px,transparent_1px),linear-gradient(to_bottom,#0f172a_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] pointer-events-none z-0 opacity-40"></div>
+
+    <!-- Header Navigation -->
+    <nav class="sticky top-0 z-50 glass-panel border-b border-cyan-500/10 px-6 py-4">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+            <div class="flex items-center gap-3">
+                <!-- Esper Geometric Symbol SVG -->
+                <svg class="w-8 h-8 text-cyan-400" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <polygon points="50,5 95,50 50,95 5,50" />
+                    <circle cx="50" cy="50" r="25" stroke-dasharray="4 2" />
+                    <line x1="5" y1="50" x2="95" y2="50" />
+                    <line x1="50" y1="5" x2="50" y2="95" />
+                </svg>
+                <div>
+                    <span class="text-xs uppercase tracking-[0.25em] text-cyan-500 font-bold code-font">Planar Archive</span>
+                    <h1 class="text-xl font-extrabold text-white tracking-wide">ESPER // SHARD OF ALARA</h1>
+                </div>
+            </div>
+            <div class="flex gap-2 text-xs code-font">
+                <a href="#core-identity" class="px-3 py-1.5 rounded bg-slate-900 border border-slate-800 hover:border-cyan-500/40 text-slate-300 hover:text-cyan-400 transition">Core</a>
+                <a href="#metallurgy-sim" class="px-3 py-1.5 rounded bg-slate-900 border border-slate-800 hover:border-cyan-500/40 text-slate-300 hover:text-cyan-400 transition">Calculator</a>
+                <a href="#visualizations" class="px-3 py-1.5 rounded bg-slate-900 border border-slate-800 hover:border-cyan-500/40 text-slate-300 hover:text-cyan-400 transition">Data Metrics</a>
+                <a href="#key-figures" class="px-3 py-1.5 rounded bg-slate-900 border border-slate-800 hover:border-cyan-500/40 text-slate-300 hover:text-cyan-400 transition">Figures</a>
+                <a href="#audit-ledger" class="px-3 py-1.5 rounded bg-slate-900 border border-slate-800 hover:border-cyan-500/40 text-slate-300 hover:text-cyan-400 transition">Audits</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content Area -->
+    <main class="relative z-10 max-w-7xl mx-auto px-6 py-12 space-y-16">
+
+        <!-- Hero Section -->
+        <section class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            <div class="lg:col-span-7 space-y-6">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-950/40 border border-cyan-800/30 text-cyan-400 text-xs font-semibold uppercase tracking-wider code-font">
+                    <span class="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span> Absolute Canon Verified
+                </div>
+                <h2 class="text-4xl md:text-5xl font-black text-white leading-tight tracking-tight">
+                    The Pursuit of <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-400 to-indigo-400">Artificial Perfection</span>
+                </h2>
+                <p class="text-slate-400 text-lg leading-relaxed">
+                    Severed entirely from the chaotic impulse of red mana and the primal growth of green mana, Esper represents Alara's most highly organized and sterile shard. Here, life is not merely lived—it is programmed, augmented, and driven toward the state of the Noble Work through the mastery of the filigree alloy, etherium.
+                </p>
+                <div class="grid grid-cols-3 gap-4 pt-4 text-xs code-font">
+                    <div class="p-3 bg-slate-900/40 border border-slate-800 rounded">
+                        <span class="block text-slate-500">COLOR CENTER</span>
+                        <span class="text-cyan-400 font-bold text-sm">Blue-Centered</span>
+                    </div>
+                    <div class="p-3 bg-slate-900/40 border border-slate-800 rounded">
+                        <span class="block text-slate-500">IDENTITY</span>
+                        <span class="text-white font-bold text-sm">WUB (White-Blue-Black)</span>
+                    </div>
+                    <div class="p-3 bg-slate-900/40 border border-slate-800 rounded">
+                        <span class="block text-slate-500">MECHANICAL PATH</span>
+                        <span class="text-cyan-400 font-bold text-sm">Colored Artifacts</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="lg:col-span-5">
+                <!-- Mathematical Representation Box -->
+                <div class="glass-panel filigree-border rounded-xl p-6 space-y-6 relative overflow-hidden">
+                    <div class="absolute top-0 right-0 p-2 text-[8rem] font-bold text-cyan-500/5 leading-none select-none pointer-events-none code-font">WUB</div>
+                    <h3 class="text-sm font-bold uppercase tracking-wider text-cyan-500 code-font">// Planebound Convergence Formulas</h3>
+                    <div class="space-y-4 text-sm">
+                        <div class="p-4 bg-slate-950/60 rounded border border-cyan-950/40">
+                            <span class="block text-slate-400 mb-1 font-semibold">Planar Convergence Boundary Formula</span>
+                            <code class="block text-cyan-300 text-xs py-2 bg-slate-900/50 rounded px-2 text-center overflow-x-auto select-all">
+                                S_div(t) = lim_{Δt -> 0} Σ_{i=1}^{5} P_i(t) * e^{-λ Δt}
+                            </code>
+                            <span class="block text-[11px] text-slate-500 mt-2">Models the spatial collapse of Alara's five separate shards into the Maelstrom.</span>
+                        </div>
+                        <div class="p-4 bg-slate-950/60 rounded border border-cyan-950/40">
+                            <span class="block text-slate-400 mb-1 font-semibold">Alloy Thinning Threshold Coefficient</span>
+                            <code class="block text-cyan-300 text-xs py-2 bg-slate-900/50 rounded px-2 text-center overflow-x-auto select-all">
+                                C_{thin} = (R_{eth} / A_{fil}) * (1 - δ / L_{avg})
+                            </code>
+                            <span class="block text-[11px] text-slate-500 mt-2">Determines structural stability limitations before systemic aether-lich decay triggers.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Divider -->
+        <hr class="border-slate-900" />
+
+        <!-- Core Identity Details & Topography -->
+        <section id="core-identity" class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <div class="lg:col-span-1 space-y-4">
+                <span class="text-xs uppercase tracking-[0.2em] text-cyan-500 font-bold code-font">Section 01</span>
+                <h3 class="text-2xl font-bold text-white tracking-tight">Geographical & Structural Grids</h3>
+                <p class="text-slate-400 text-sm leading-relaxed">
+                    Esper's topography has been stripped of organic randomness. Waterways are metered, clouds follow clinical coordinate pathways, and the landscape is organized into distinct zones of glass, metal, and polished spires.
+                </p>
+                <div class="p-4 bg-slate-900/30 rounded border border-slate-800 space-y-2">
+                    <h4 class="text-xs font-semibold uppercase text-cyan-500 code-font">The Absence of Red & Green</h4>
+                    <p class="text-xs text-slate-500 leading-relaxed">
+                        Without natural volcanic volatility (Red) or unchecked biological evolution (Green), Esper's climate remains perfectly static and predictable.
+                    </p>
+                </div>
+            </div>
+
+            <div class="lg:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-4">
+                <!-- Zone Cards -->
+                <div class="p-5 bg-slate-900/40 border border-slate-800/80 rounded-lg hover:border-cyan-500/20 transition space-y-2">
+                    <span class="text-xs font-semibold text-cyan-400 code-font">VECTIS CITY</span>
+                    <p class="text-xs text-slate-400 leading-relaxed">
+                        High-spire urban center built of towering silver, glass, and polished steel. It stands as the seat of the Academy of Mages and coordinates the grid network.
+                    </p>
+                </div>
+                <div class="p-5 bg-slate-900/40 border border-slate-800/80 rounded-lg hover:border-cyan-500/20 transition space-y-2">
+                    <span class="text-xs font-semibold text-cyan-400 code-font">TIDEHOLLOW</span>
+                    <p class="text-xs text-slate-400 leading-relaxed">
+                        A damp, lightless subterranean network below Lower Vectis. Home to scullers, scrappers, and the discarded populations living off residual scrap metals.
+                    </p>
+                </div>
+                <div class="p-5 bg-slate-900/40 border border-slate-800/80 rounded-lg hover:border-cyan-500/20 transition space-y-2">
+                    <span class="text-xs font-semibold text-cyan-400 code-font">THE GLASS DUNES</span>
+                    <p class="text-xs text-slate-400 leading-relaxed">
+                        Vast deserts of shimmering white-glass sandstorms. Glaciers of glass compile over centuries under enormous pressure and predictable temporal shifts.
+                    </p>
+                </div>
+                <div class="p-5 bg-slate-900/40 border border-slate-800/80 rounded-lg hover:border-cyan-500/20 transition space-y-2">
+                    <span class="text-xs font-semibold text-cyan-400 code-font">SANCTUM ARCANUM</span>
+                    <p class="text-xs text-slate-400 leading-relaxed">
+                        A monolithic, heavily guarded citadel that houses the central headquarters of the Seekers of Carmot and the legendary Codex Etherium archive.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive Interactive Thinning Simulator -->
+        <section id="metallurgy-sim" class="glass-panel filigree-border rounded-xl p-6 lg:p-8 space-y-8">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 border-b border-slate-800 pb-4">
+                <div>
+                    <span class="text-xs uppercase tracking-wider text-cyan-500 font-bold code-font">Interactive Tool</span>
+                    <h3 class="text-2xl font-bold text-white tracking-tight">Etherium Thinning & Stability Simulator</h3>
+                </div>
+                <div class="text-xs text-slate-400 code-font bg-slate-900 px-3 py-1.5 rounded border border-slate-800">
+                    Formula: <span class="text-cyan-400">C_thin = (R_eth / A_fil) * (1 - d / L)</span>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+                <!-- Sliders Controls -->
+                <div class="lg:col-span-7 space-y-6">
+                    <p class="text-sm text-slate-400 leading-relaxed">
+                        The mages of Esper lost the ability to synthesize new etherium because carmot is native only to Jund. They are forced to thin existing reserves (<span class="text-cyan-400">R_eth</span>) across massive biological surface areas (<span class="text-cyan-400">A_fil</span>). Use the simulator below to balance resource conservation with lethal systemic decay thresholds.
+                    </p>
+
+                    <div class="space-y-4">
+                        <!-- Rod Reserves (R_eth) -->
+                        <div class="space-y-2">
+                            <div class="flex justify-between text-xs code-font">
+                                <label class="text-slate-300 font-medium">Etherium Rod Reserves (R_eth)</label>
+                                <span class="text-cyan-400 font-bold" id="eth_reserves_val">500 rods</span>
+                            </div>
+                            <input type="range" id="eth_reserves" min="50" max="1000" value="500" class="w-full h-1 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-cyan-500">
+                            <span class="block text-[11px] text-slate-500">Dwindling sheer volume of pure un-thinned alloy remaining.</span>
+                        </div>
+
+                        <!-- Filigree Surface Area (A_fil) -->
+                        <div class="space-y-2">
+                            <div class="flex justify-between text-xs code-font">
+                                <label class="text-slate-300 font-medium">Filigree Spread Surface Area (A_fil)</label>
+                                <span class="text-cyan-400 font-bold" id="fil_area_val">1200 m²</span>
+                            </div>
+                            <input type="range" id="fil_area" min="200" max="3000" value="1200" class="w-full h-1 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-cyan-500">
+                            <span class="block text-[11px] text-slate-500">The physical volume/area of tissue being converted to filigree.</span>
+                        </div>
+
+                        <!-- Degradation Speed (d) -->
+                        <div class="space-y-2">
+                            <div class="flex justify-between text-xs code-font">
+                                <label class="text-slate-300 font-medium">Degradation Coefficient (δ)</label>
+                                <span class="text-cyan-400 font-bold" id="deg_speed_val">1.50</span>
+                            </div>
+                            <input type="range" id="deg_speed" min="0.1" max="5.0" step="0.1" value="1.5" class="w-full h-1 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-cyan-500">
+                            <span class="block text-[11px] text-slate-500">Environmental wear, grid instability, or lack of direct maintenance.</span>
+                        </div>
+
+                        <!-- Target Lifespan (L_avg) -->
+                        <div class="space-y-2">
+                            <div class="flex justify-between text-xs code-font">
+                                <label class="text-slate-300 font-medium">Target Host Lifespan (L_avg)</label>
+                                <span class="text-cyan-400 font-bold" id="lifespan_val">80 years</span>
+                            </div>
+                            <input type="range" id="lifespan" min="10" max="250" value="80" class="w-full h-1 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-cyan-500">
+                            <span class="block text-[11px] text-slate-500">Target duration the host's body must sustain the systemic physical modifications.</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Simulation Output Status -->
+                <div class="lg:col-span-5 flex flex-col justify-between p-6 bg-slate-950/80 rounded-xl border border-slate-800/80 relative overflow-hidden">
+                    <div class="space-y-4">
+                        <span class="text-xs uppercase tracking-wider text-slate-500 font-bold code-font">Diagnostic Output</span>
+
+                        <div class="text-center py-6 border-b border-slate-900">
+                            <span class="block text-xs text-slate-400 uppercase tracking-widest mb-1">Thinning Coefficient (C_thin)</span>
+                            <span class="text-5xl font-black code-font text-cyan-400" id="coefficient_result">0.00</span>
+                        </div>
+
+                        <div class="space-y-2">
+                            <div class="flex justify-between text-xs code-font">
+                                <span>Physical Status Integrity</span>
+                                <span class="font-bold text-cyan-400" id="status_label">STABLE</span>
+                            </div>
+                            <div class="w-full bg-slate-900 h-3 rounded-full overflow-hidden p-0.5 border border-slate-800">
+                                <div id="status_bar" class="bg-cyan-500 h-full rounded-full transition-all duration-300" style="width: 70%"></div>
+                            </div>
+                        </div>
+
+                        <div id="status_message" class="p-3 bg-slate-900 rounded text-xs text-slate-400 leading-relaxed border-l-2 border-cyan-500">
+                            The system is functional. The current thinning distribution is within safe operating limits of the Noble Work.
+                        </div>
+                    </div>
+
+                    <!-- Actions / Rebound State Toggle -->
+                    <div class="pt-4 border-t border-slate-900 flex gap-2">
+                        <button onclick="applyCarmotBreakthrough()" class="flex-1 py-2 rounded text-xs code-font font-semibold bg-cyan-950 hover:bg-cyan-900 border border-cyan-800/40 text-cyan-300 transition">
+                            Apply Carmot Discovery (Jund)
+                        </button>
+                        <button onclick="resetSimulator()" class="py-2 px-3 rounded text-xs code-font font-semibold bg-slate-900 hover:bg-slate-800 border border-slate-800 text-slate-400 transition">
+                            Reset
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Visualizations / Chart.js Section -->
+        <section id="visualizations" class="space-y-8">
+            <div>
+                <span class="text-xs uppercase tracking-[0.2em] text-cyan-500 font-bold code-font">Section 02</span>
+                <h3 class="text-2xl font-bold text-white tracking-tight">Planar Metaphysics & Metallurgy Metrics</h3>
+                <p class="text-slate-400 text-sm leading-relaxed max-w-3xl">
+                    Real-time data visualization of the elemental and magical constraints dictating Esper. Charts reveal the absolute deprivation of physical elements before the Conflux.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <!-- Chart 1: Mana Balance -->
+                <div class="glass-panel filigree-border rounded-xl p-6 space-y-4">
+                    <div class="flex justify-between items-center border-b border-slate-800 pb-3">
+                        <span class="text-xs font-semibold uppercase tracking-wider text-cyan-400 code-font">Mana Climate Composition</span>
+                        <span class="text-slate-500 text-xs code-font">Post-Sundering Era</span>
+                    </div>
+                    <div class="h-64 relative">
+                        <canvas id="manaChart"></canvas>
+                    </div>
+                    <p class="text-[11px] text-slate-500 leading-relaxed">
+                        Notice the absolute zero readings of Red (Chaos) and Green (Growth) mana, which led to Esper's static landscape structure.
+                    </p>
+                </div>
+
+                <!-- Chart 2: Etherium Thinning Depletion -->
+                <div class="glass-panel filigree-border rounded-xl p-6 space-y-4">
+                    <div class="flex justify-between items-center border-b border-slate-800 pb-3">
+                        <span class="text-xs font-semibold uppercase tracking-wider text-cyan-400 code-font">Historic Etherium Volume & Integrity Trend</span>
+                        <span class="text-slate-500 text-xs code-font">Post-Sundering to Post-Conflux</span>
+                    </div>
+                    <div class="h-64 relative">
+                        <canvas id="etheriumDepletionChart"></canvas>
+                    </div>
+                    <p class="text-[11px] text-slate-500 leading-relaxed">
+                        The depletion represents the historic carmot crisis, reaching near-critical system collapse prior to Breya's Jund expedition.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Key Figures Section -->
+        <section id="key-figures" class="space-y-6">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+                <div>
+                    <span class="text-xs uppercase tracking-[0.2em] text-cyan-500 font-bold code-font">Section 03</span>
+                    <h3 class="text-2xl font-bold text-white tracking-tight">Key Historical & Modern Figures</h3>
+                </div>
+                <!-- Controls for Figure Filter -->
+                <div class="flex gap-2 text-xs code-font" id="figure-filters">
+                    <button onclick="filterFigures('all')" class="px-3 py-1.5 rounded bg-cyan-950 border border-cyan-800/40 text-cyan-400 font-bold hover:bg-cyan-900 transition" id="btn-all">All</button>
+                    <button onclick="filterFigures('native')" class="px-3 py-1.5 rounded bg-slate-900 border border-slate-800 text-slate-400 hover:text-cyan-400 hover:border-cyan-500/40 transition" id="btn-native">Native Esper</button>
+                    <button onclick="filterFigures('planeswalker')" class="px-3 py-1.5 rounded bg-slate-900 border border-slate-800 text-slate-400 hover:text-cyan-400 hover:border-cyan-500/40 transition" id="btn-planeswalker">Planeswalkers</button>
+                </div>
+            </div>
+
+            <!-- Figure Cards Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="figure-cards">
+                <!-- Sharuum -->
+                <div class="p-6 bg-slate-900/40 border border-slate-800 rounded-xl hover:border-cyan-500/30 transition relative overflow-hidden group figure-card" data-category="native">
+                    <div class="absolute top-0 right-0 p-3 text-[5rem] font-bold text-cyan-500/5 leading-none select-none code-font">01</div>
+                    <div class="space-y-4">
+                        <div>
+                            <span class="text-[10px] text-cyan-500 uppercase font-extrabold tracking-widest code-font">SPHINX HEGEMON</span>
+                            <h4 class="text-lg font-bold text-white mt-1">Sharuum the Hegemon</h4>
+                        </div>
+                        <p class="text-xs text-slate-400 leading-relaxed">
+                            Ageless sphinx, philosopher queen, and ruler of Esper. Devised structural thinning mechanics to save her population from sudden structural collapse amidst the historic etherium famine.
+                        </p>
+                        <div class="text-[11px] code-font bg-slate-950/60 p-2.5 rounded border border-slate-900 text-slate-400">
+                            <span class="block text-slate-500 uppercase">Primary Goal</span> Preserving society while hunting for Crucius.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Silas Renn -->
+                <div class="p-6 bg-slate-900/40 border border-slate-800 rounded-xl hover:border-cyan-500/30 transition relative overflow-hidden group figure-card" data-category="native">
+                    <div class="absolute top-0 right-0 p-3 text-[5rem] font-bold text-cyan-500/5 leading-none select-none code-font">02</div>
+                    <div class="space-y-4">
+                        <div>
+                            <span class="text-[10px] text-cyan-500 uppercase font-extrabold tracking-widest code-font">SEEKER ADEPT</span>
+                            <h4 class="text-lg font-bold text-white mt-1">Silas Renn</h4>
+                        </div>
+                        <p class="text-xs text-slate-400 leading-relaxed">
+                            Heir of House Renn. Earned the first experimental artificial etherium heart after defeating Tezzeret at Vectis Academy. Later constructed defensive measures at Sanctum Arcanum.
+                        </p>
+                        <div class="text-[11px] code-font bg-slate-950/60 p-2.5 rounded border border-slate-900 text-slate-400">
+                            <span class="block text-slate-500 uppercase">Primary Goal</span> Deciphering coordinates inside the blank Codex.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tezzeret -->
+                <div class="p-6 bg-slate-900/40 border border-slate-800 rounded-xl hover:border-cyan-500/30 transition relative overflow-hidden group figure-card" data-category="planeswalker">
+                    <div class="absolute top-0 right-0 p-3 text-[5rem] font-bold text-cyan-500/5 leading-none select-none code-font">03</div>
+                    <div class="space-y-4">
+                        <div>
+                            <span class="text-[10px] text-cyan-500 uppercase font-extrabold tracking-widest code-font">PLANESWALKER / SLUM-BORN</span>
+                            <h4 class="text-lg font-bold text-white mt-1">Tezzeret</h4>
+                        </div>
+                        <p class="text-xs text-slate-400 leading-relaxed">
+                            Exiled from Vectis, ignited his spark upon realizing the Codex Etherium was blank fraud. Utilized his home planet to house his private sanctuary before trading allegiances to New Phyrexia.
+                        </p>
+                        <div class="text-[11px] code-font bg-slate-950/60 p-2.5 rounded border border-slate-900 text-slate-400">
+                            <span class="block text-slate-500 uppercase">Primary Goal</span> Escaping physical decay of the Planar Bridge.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Breya -->
+                <div class="p-6 bg-slate-900/40 border border-slate-800 rounded-xl hover:border-cyan-500/30 transition relative overflow-hidden group figure-card" data-category="native">
+                    <div class="absolute top-0 right-0 p-3 text-[5rem] font-bold text-cyan-500/5 leading-none select-none code-font">04</div>
+                    <div class="space-y-4">
+                        <div>
+                            <span class="text-[10px] text-cyan-500 uppercase font-extrabold tracking-widest code-font">ETHERIUM SHAPER</span>
+                            <h4 class="text-lg font-bold text-white mt-1">Breya, Etherium Shaper</h4>
+                        </div>
+                        <p class="text-xs text-slate-400 leading-relaxed">
+                            Brilliant research artificer who braved the volatile wilderness of Jund post-Conflux. Harvested raw carmot and sangrite to break the ancient etherium production limits.
+                        </p>
+                        <div class="text-[11px] code-font bg-slate-950/60 p-2.5 rounded border border-slate-900 text-slate-400">
+                            <span class="block text-slate-500 uppercase">Primary Goal</span> Forging chaotic-bound, limitless alloy.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Agatha -->
+                <div class="p-6 bg-slate-900/40 border border-slate-800 rounded-xl hover:border-cyan-500/30 transition relative overflow-hidden group figure-card" data-category="native">
+                    <div class="absolute top-0 right-0 p-3 text-[5rem] font-bold text-cyan-500/5 leading-none select-none code-font">05</div>
+                    <div class="space-y-4">
+                        <div>
+                            <span class="text-[10px] text-cyan-500 uppercase font-extrabold tracking-widest code-font">HARBORGATE SOLDIER</span>
+                            <h4 class="text-lg font-bold text-white mt-1">Agatha</h4>
+                        </div>
+                        <p class="text-xs text-slate-400 leading-relaxed">
+                            Stationed at Harborgate when it teleported into the borders of Bant. Chose moral defection to Jhess over harvesting filigree from fallen Bant knights alongside her fanatical sister.
+                        </p>
+                        <div class="text-[11px] code-font bg-slate-950/60 p-2.5 rounded border border-slate-900 text-slate-400">
+                            <span class="block text-slate-500 uppercase">Primary Goal</span> Abandoning the extreme dogma of the Ethersworn.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Crucius the Mad -->
+                <div class="p-6 bg-slate-900/40 border border-slate-800 rounded-xl hover:border-cyan-500/30 transition relative overflow-hidden group figure-card" data-category="planeswalker">
+                    <div class="absolute top-0 right-0 p-3 text-[5rem] font-bold text-cyan-500/5 leading-none select-none code-font">06</div>
+                    <div class="space-y-4">
+                        <div>
+                            <span class="text-[10px] text-cyan-500 uppercase font-extrabold tracking-widest code-font">SPHINX PLANESWALKER</span>
+                            <h4 class="text-lg font-bold text-white mt-1">Crucius the Mad</h4>
+                        </div>
+                        <p class="text-xs text-slate-400 leading-relaxed">
+                            Original creator of the Noble Work and etherium. Conceived the physical alloy to act as a metaphysical anchor for Alara. Driven into deep exile after being blamed for undead decay.
+                        </p>
+                        <div class="text-[11px] code-font bg-slate-950/60 p-2.5 rounded border border-slate-900 text-slate-400">
+                            <span class="block text-slate-500 uppercase">Primary Goal</span> Secretly anchoring the shards to force reunion.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Divider -->
+        <hr class="border-slate-900" />
+
+        <!-- Verification Database & Reliability Audit -->
+        <section id="audit-ledger" class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+            <!-- Left Side: Interactive Verification Filter Table -->
+            <div class="lg:col-span-8 space-y-6">
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+                    <div>
+                        <span class="text-xs uppercase tracking-[0.2em] text-cyan-500 font-bold code-font">Verification Engine</span>
+                        <h3 class="text-2xl font-bold text-white tracking-tight">Lore Term Validation Ledger</h3>
+                    </div>
+                    <input type="text" id="termSearch" onkeyup="searchTerms()" placeholder="Search terms (e.g. Carmot, Sydri)..." class="bg-slate-950 border border-slate-800 text-xs text-slate-200 rounded px-3 py-1.5 focus:outline-none focus:border-cyan-500/60 code-font w-full md:w-64">
+                </div>
+
+                <div class="overflow-x-auto border border-slate-800 rounded-lg bg-slate-900/20">
+                    <table class="w-full text-left border-collapse text-xs">
+                        <thead>
+                            <tr class="border-b border-slate-800 bg-slate-900/60 text-slate-400 code-font">
+                                <th class="p-3">LORE TERM</th>
+                                <th class="p-3">CLASSIFICATION</th>
+                                <th class="p-3">STATUS IN DOSSIER</th>
+                                <th class="p-3">CANON REASONING / SOURCE</th>
+                            </tr>
+                        </thead>
+                        <tbody id="termTableBody">
+                            <tr class="border-b border-slate-900 hover:bg-slate-900/20 transition">
+                                <td class="p-3 font-semibold text-white code-font">Esper</td>
+                                <td class="p-3"><span class="px-2 py-0.5 rounded bg-cyan-950 text-cyan-400 border border-cyan-800/30">Confirmed Esper Term</span></td>
+                                <td class="p-3 text-cyan-500 font-semibold">Included</td>
+                                <td class="p-3 text-slate-400">Primary location / Shard of Alara from Shards of Alara Block.</td>
+                            </tr>
+                            <tr class="border-b border-slate-900 hover:bg-slate-900/20 transition">
+                                <td class="p-3 font-semibold text-white code-font">Carmot</td>
+                                <td class="p-3"><span class="px-2 py-0.5 rounded bg-cyan-950 text-cyan-400 border border-cyan-800/30">Confirmed Esper Term</span></td>
+                                <td class="p-3 text-cyan-500 font-semibold">Included</td>
+                                <td class="p-3 text-slate-400">Physical catalyst stone native to Jund. Absolutely key for synthesizing new etherium.</td>
+                            </tr>
+                            <tr class="border-b border-slate-900 hover:bg-slate-900/20 transition">
+                                <td class="p-3 font-semibold text-white code-font">Sydri, Galvanic Genius</td>
+                                <td class="p-3"><span class="px-2 py-0.5 rounded bg-red-950 text-red-400 border border-red-800/30">Rejected / Non-Alaran</span></td>
+                                <td class="p-3 text-red-500 font-semibold">Excluded</td>
+                                <td class="p-3 text-slate-400">Sydri resides exclusively in Paliano on the plane of Fiora. Never associated with Alara.</td>
+                            </tr>
+                            <tr class="border-b border-slate-900 hover:bg-slate-900/20 transition">
+                                <td class="p-3 font-semibold text-white code-font">Ethersworn</td>
+                                <td class="p-3"><span class="px-2 py-0.5 rounded bg-cyan-950 text-cyan-400 border border-cyan-800/30">Confirmed Esper Term</span></td>
+                                <td class="p-3 text-cyan-500 font-semibold">Included</td>
+                                <td class="p-3 text-slate-400">Militant order dedicated to forcing metallic grid-perfection across all life.</td>
+                            </tr>
+                            <tr class="border-b border-slate-900 hover:bg-slate-900/20 transition">
+                                <td class="p-3 font-semibold text-white code-font">Vectis City</td>
+                                <td class="p-3"><span class="px-2 py-0.5 rounded bg-cyan-950 text-cyan-400 border border-cyan-800/30">Confirmed Esper Term</span></td>
+                                <td class="p-3 text-cyan-500 font-semibold">Included</td>
+                                <td class="p-3 text-slate-400">The supreme metallic spire capital. Seat of the Academy of Mages.</td>
+                            </tr>
+                            <tr class="border-b border-slate-900 hover:bg-slate-900/20 transition">
+                                <td class="p-3 font-semibold text-white code-font">Test of Metal</td>
+                                <td class="p-3"><span class="px-2 py-0.5 rounded bg-amber-950 text-amber-400 border border-amber-800/30">Contested / Low Trust</span></td>
+                                <td class="p-3 text-amber-500 font-semibold">Audit Only</td>
+                                <td class="p-3 text-slate-400">Matthew Stover novel featuring extreme claims contradicted by core canon products.</td>
+                            </tr>
+                            <tr class="border-b border-slate-900 hover:bg-slate-900/20 transition">
+                                <td class="p-3 font-semibold text-white code-font">Mages / Wizards</td>
+                                <td class="p-3"><span class="px-2 py-0.5 rounded bg-slate-800 text-slate-400 border border-slate-700">Too Broad</span></td>
+                                <td class="p-3 text-slate-500 font-semibold">Restricted</td>
+                                <td class="p-3 text-slate-400">Too generic unless specifically targeted as 'Mages of Esper' in direct text.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Right Side: Reliability Audit Card -->
+            <div class="lg:col-span-4 space-y-4">
+                <span class="text-xs uppercase tracking-[0.2em] text-cyan-500 font-bold code-font">Reliability Audit</span>
+                <div class="glass-panel filigree-border rounded-xl p-5 space-y-4">
+                    <h4 class="text-md font-bold text-white tracking-tight">Resolving Narrative Contradictions</h4>
+
+                    <div class="space-y-3 text-xs leading-relaxed">
+                        <div class="p-3 bg-slate-950/80 rounded border-l-2 border-amber-500 border-slate-900">
+                            <span class="block text-amber-400 font-bold mb-1">Issue: "Tezzeret is the Carmot"</span>
+                            <p class="text-slate-400">
+                                Declared by Tezzeret in <i>Test of Metal</i>. Directly conflicts with core Wizards manuals describing carmot as an objective red mineral harvested in the volcanic zones of Jund.
+                            </p>
+                            <span class="block mt-2 text-slate-500 font-semibold">Audit Verdict: Rejected as metaphorical/incorrect.</span>
+                        </div>
+
+                        <div class="p-3 bg-slate-950/80 rounded border-l-2 border-red-500 border-slate-900">
+                            <span class="block text-red-400 font-bold mb-1">Issue: Sharuum's Throne Abdication</span>
+                            <p class="text-slate-400">
+                                Stover's novel states Sharuum traded away her throne to Tezzeret. All subsequent card updates and official summaries depict Sharuum continuing to hold the title of active Hegemon of Esper.
+                            </p>
+                            <span class="block mt-2 text-slate-500 font-semibold">Audit Verdict: Disregarded; Sharuum remains Hegemon.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer Area -->
+    <footer class="mt-20 border-t border-slate-900 bg-slate-950/80 px-6 py-8 text-xs code-font">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4 text-slate-500">
+            <div>
+                <span>Faction: ESPER (WUB)</span>
+                <span class="mx-2">•</span>
+                <span>Setting: ALARA</span>
+            </div>
+            <div>
+                <span>Planar Reconstruction Initiative // May 2026</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Interactive JavaScript -->
+    <script>
+        // Setup Charts once page completes rendering
+        window.onload = function() {
+            initManaChart();
+            initDepletionChart();
+            calculateThinning(); // Run initial simulation calculation
+        }
+
+        // Global Chart Instance References
+        let manaChartInstance;
+        let depletionChartInstance;
+
+        // 1. Mana climate Chart (Radar chart of typical Esper Shard balance)
+        function initManaChart() {
+            const ctx = document.getElementById('manaChart').getContext('2d');
+            manaChartInstance = new Chart(ctx, {
+                type: 'radar',
+                data: {
+                    labels: ['White (Order)', 'Blue (Mind)', 'Black (Ambition)', 'Red (Chaos)', 'Green (Growth)'],
+                    datasets: [{
+                        label: 'Mana Frequency Profile (Esper)',
+                        data: [4, 5, 4, 0, 0], // True representation of shard absence
+                        backgroundColor: 'rgba(14, 165, 233, 0.2)',
+                        borderColor: 'rgba(14, 165, 233, 0.8)',
+                        borderWidth: 2,
+                        pointBackgroundColor: '#0ea5e9',
+                        pointBorderColor: '#fff',
+                        pointHoverBackgroundColor: '#fff',
+                        pointHoverBorderColor: '#0ea5e9'
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        r: {
+                            angleLines: {
+                                color: 'rgba(148, 163, 184, 0.1)'
+                            },
+                            grid: {
+                                color: 'rgba(148, 163, 184, 0.1)'
+                            },
+                            pointLabels: {
+                                color: '#94a3b8',
+                                font: {
+                                    size: 10,
+                                    family: 'JetBrains Mono'
+                                }
+                            },
+                            ticks: {
+                                display: false,
+                                max: 5,
+                                stepSize: 1
+                            }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            labels: {
+                                color: '#94a3b8',
+                                font: {
+                                    size: 11,
+                                    family: 'JetBrains Mono'
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        // 2. Depletion timeline chart (Post-Sundering -> Carmot Breakthrough -> Modern)
+        function initDepletionChart() {
+            const ctx = document.getElementById('etheriumDepletionChart').getContext('2d');
+            depletionChartInstance = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: ['Sundering', 'Mid-Isolation', 'The Famine', 'Conflux Era', 'Carmot Breakthrough (Breya)'],
+                    datasets: [
+                        {
+                            label: 'Pure Rod Reserves (R_eth)',
+                            data: [1000, 750, 200, 150, 850],
+                            borderColor: 'rgba(14, 165, 233, 0.8)',
+                            backgroundColor: 'rgba(14, 165, 233, 0.1)',
+                            fill: true,
+                            tension: 0.3
+                        },
+                        {
+                            label: 'Stability Thinning Limit',
+                            data: [200, 300, 800, 850, 300],
+                            borderColor: 'rgba(239, 68, 68, 0.8)',
+                            borderDash: [5, 5],
+                            fill: false,
+                            tension: 0.1
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            grid: {
+                                color: 'rgba(148, 163, 184, 0.05)'
+                            },
+                            ticks: {
+                                color: '#64748b',
+                                font: {
+                                    size: 9,
+                                    family: 'JetBrains Mono'
+                                }
+                            }
+                        },
+                        x: {
+                            grid: {
+                                color: 'rgba(148, 163, 184, 0.05)'
+                            },
+                            ticks: {
+                                color: '#64748b',
+                                font: {
+                                    size: 9,
+                                    family: 'JetBrains Mono'
+                                }
+                            }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            labels: {
+                                color: '#94a3b8',
+                                font: {
+                                    size: 11,
+                                    family: 'JetBrains Mono'
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        // 3. Etherium Thinning Simulator Math & Controls
+        const reservesInput = document.getElementById('eth_reserves');
+        const areaInput = document.getElementById('fil_area');
+        const degradationInput = document.getElementById('deg_speed');
+        const lifespanInput = document.getElementById('lifespan');
+
+        // Output DOM
+        const reservesVal = document.getElementById('eth_reserves_val');
+        const areaVal = document.getElementById('fil_area_val');
+        const degradationVal = document.getElementById('deg_speed_val');
+        const lifespanVal = document.getElementById('lifespan_val');
+
+        const coefficientResult = document.getElementById('coefficient_result');
+        const statusLabel = document.getElementById('status_label');
+        const statusBar = document.getElementById('status_bar');
+        const statusMessage = document.getElementById('status_message');
+
+        // Slider listeners
+        reservesInput.oninput = () => { reservesVal.innerText = reservesInput.value + " rods"; calculateThinning(); };
+        areaInput.oninput = () => { areaVal.innerText = areaInput.value + " m²"; calculateThinning(); };
+        degradationInput.oninput = () => { degradationVal.innerText = parseFloat(degradationInput.value).toFixed(2); calculateThinning(); };
+        lifespanInput.oninput = () => { lifespanVal.innerText = lifespanInput.value + " years"; calculateThinning(); };
+
+        function calculateThinning() {
+            const r_eth = parseFloat(reservesInput.value);
+            const a_fil = parseFloat(areaInput.value);
+            const delta = parseFloat(degradationInput.value);
+            const l_avg = parseFloat(lifespanInput.value);
+
+            // Compute: C_thin = (R_eth / A_fil) * (1 - delta / L_avg)
+            const baseTerm = r_eth / a_fil;
+            const decayModifier = 1 - (delta / l_avg);
+            let c_thin = baseTerm * decayModifier;
+            if (c_thin < 0) c_thin = 0;
+
+            coefficientResult.innerText = c_thin.toFixed(4);
+
+            // Evaluate thresholds
+            // Safe: C_thin >= 0.25
+            // Thinning Warning: 0.10 <= C_thin < 0.25
+            // Systemic Decay Risk (Aether-Lich State): C_thin < 0.10
+            if (c_thin >= 0.25) {
+                statusLabel.innerText = "OPTIMAL & STABLE";
+                statusLabel.className = "font-bold text-cyan-400";
+                statusBar.style.width = "100%";
+                statusBar.className = "bg-cyan-500 h-full rounded-full transition-all duration-300";
+                statusMessage.innerText = "The alloy thickness holds full biological stability. Organ replacement is complete and optimal.";
+            } else if (c_thin >= 0.10 && c_thin < 0.25) {
+                statusLabel.innerText = "CRITICAL THINNING WARNING";
+                statusLabel.className = "font-bold text-amber-400";
+                statusBar.style.width = "45%";
+                statusBar.className = "bg-amber-500 h-full rounded-full transition-all duration-300";
+                statusMessage.innerText = "Alloy concentration is dangerously thinned. Residual tissue warnings. Micro-fracturing imminent without Carmot supplements.";
+            } else {
+                statusLabel.innerText = "SYSTEMIC DECAY (AETHER-LICH)";
+                statusLabel.className = "font-bold text-red-500";
+                statusBar.style.width = "15%";
+                statusBar.className = "bg-red-500 h-full rounded-full transition-all duration-300 animate-pulse";
+                statusMessage.innerText = "COLLAPSE DETECTED. Filigree cannot sustain structural biological function. Physical matter enters chaotic undead decomposition.";
+            }
+        }
+
+        function applyCarmotBreakthrough() {
+            // Simulated Jund discovery instantly maximizes pure alloy reserves and drops degradation
+            reservesInput.value = "950";
+            degradationInput.value = "0.2";
+            lifespanInput.value = "200";
+
+            reservesVal.innerText = "950 rods (Jund Supplement)";
+            degradationVal.innerText = "0.20";
+            lifespanVal.innerText = "200 years";
+
+            calculateThinning();
+        }
+
+        function resetSimulator() {
+            reservesInput.value = "500";
+            areaInput.value = "1200";
+            degradationInput.value = "1.5";
+            lifespanInput.value = "80";
+
+            reservesVal.innerText = "500 rods";
+            areaVal.innerText = "1200 m²";
+            degradationVal.innerText = "1.50";
+            lifespanVal.innerText = "80 years";
+
+            calculateThinning();
+        }
+
+        // 4. Key Figures Filter Logic
+        function filterFigures(category) {
+            const cards = document.getElementsByClassName('figure-card');
+
+            // Toggle active styling on buttons
+            document.getElementById('btn-all').className = "px-3 py-1.5 rounded bg-slate-900 border border-slate-800 text-slate-400 hover:text-cyan-400 transition";
+            document.getElementById('btn-native').className = "px-3 py-1.5 rounded bg-slate-900 border border-slate-800 text-slate-400 hover:text-cyan-400 transition";
+            document.getElementById('btn-planeswalker').className = "px-3 py-1.5 rounded bg-slate-900 border border-slate-800 text-slate-400 hover:text-cyan-400 transition";
+
+            document.getElementById('btn-' + category).className = "px-3 py-1.5 rounded bg-cyan-950 border border-cyan-800/40 text-cyan-400 font-bold hover:bg-cyan-900 transition";
+
+            for (let card of cards) {
+                if (category === 'all' || card.getAttribute('data-category') === category) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            }
+        }
+
+        // 5. Term Validation Search Filter
+        function searchTerms() {
+            const input = document.getElementById('termSearch');
+            const filter = input.value.toUpperCase();
+            const tableBody = document.getElementById('termTableBody');
+            const rows = tableBody.getElementsByTagName('tr');
+
+            for (let i = 0; i < rows.length; i++) {
+                const termCell = rows[i].getElementsByTagName('td')[0];
+                if (termCell) {
+                    const txtValue = termCell.textContent || termCell.innerText;
+                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                        rows[i].style.display = "";
+                    } else {
+                        rows[i].style.display = "none";
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+</html>

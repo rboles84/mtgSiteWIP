@@ -110,6 +110,6 @@ Vox Mana is an unofficial Magic: The Gathering fan site that combines a themed s
 - Generated faction artifacts must be treated as outputs; edit raw/display sources first, then regenerate.
 - Generated precon artifacts must be treated as outputs; edit `data/precons/vox-mana-precons.source.json` or `data/taxonomy/vox-mana-precon-themes.json` first, then regenerate.
 - Mono-aware identity metadata originates in `data/identity-layers.json`; do not hand-edit generated `layered_identity` blocks downstream.
-- Placement domains are currently a docs-only architecture concept. The live 20-expression model runs as the `ravnica_strixhaven` baseline, and no runtime or generated artifact exposes a live `domain` field yet.
+- Placement domains are currently a docs-only architecture concept. The live placement set is the original 20-expression `ravnica_strixhaven` baseline plus the Bant shard pilot, and no runtime or generated artifact exposes a live `domain` field yet.
 - Docs should describe current dirty working-tree behavior, not only `main` or the last committed state.
 - External Commander directory links are presenter-layer routes. Strixhaven colleges intentionally map to their guild/color analogs for EDHREC and MTGDecks directories.

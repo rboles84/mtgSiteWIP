@@ -6,7 +6,7 @@
       "data/scryfall/indexes/card-flavor-index.json"
     ],
     "text_policy": "Uses committed short flavor excerpts only; no flavor text is invented or paraphrased.",
-    "faction_count": 20
+    "faction_count": 21
   },
   "snippets": {
     "B": [
@@ -33,6 +33,32 @@
         "scryfall_uri": "https://scryfall.com/card/khm/92/egon-god-of-death-throne-of-death?utm_source=api",
         "source_index": "commander-index",
         "source_type": "matched_commander"
+      }
+    ],
+    "BANT": [
+      {
+        "faction_key": "BANT",
+        "card_name": "Bant Battlemage",
+        "flavor_excerpt": "\"A night attack will be easy. We'll make an air raid over the Akrasan border. Just get me some flint to light the war...",
+        "scryfall_uri": "https://scryfall.com/card/ala/5/bant-battlemage?utm_source=api",
+        "source_index": "card-flavor-index",
+        "source_type": "matched_card"
+      },
+      {
+        "faction_key": "BANT",
+        "card_name": "Bant Sojourners",
+        "flavor_excerpt": "\"We must spread Bant's light before we are shadowed over.\"",
+        "scryfall_uri": "https://scryfall.com/card/arb/125/bant-sojourners?utm_source=api",
+        "source_index": "card-flavor-index",
+        "source_type": "matched_card"
+      },
+      {
+        "faction_key": "BANT",
+        "card_name": "Bant Sureblade",
+        "flavor_excerpt": "Soldiers who fought through Grixis learned to hit first, recite the prayer of Asha later.",
+        "scryfall_uri": "https://scryfall.com/card/arb/143/bant-sureblade?utm_source=api",
+        "source_index": "card-flavor-index",
+        "source_type": "matched_card"
       }
     ],
     "BG": [

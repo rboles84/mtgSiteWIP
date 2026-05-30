@@ -2,10 +2,10 @@
   "_meta": {
     "version": "2026-05-05",
     "source": "Merged from Vox Mana display data and Factions_Lore.json",
-    "factions": 20,
+    "factions": 21,
     "placement_model_version": "vox-mana-adaptive-placement-v1",
     "raw_source": "data/raw-factions",
-    "identity_layer_version": "2026-05-17"
+    "identity_layer_version": "2026-05-27"
   },
   "factions": {
     "WU": {
@@ -11811,10 +11811,512 @@
         }
       },
       "identity_blend": "Green expressed without a secondary color."
+    },
+    "BANT": {
+      "key": "BANT",
+      "name": "Bant",
+      "institution_type": "shard",
+      "world": "Alara",
+      "colors": [
+        "W",
+        "U",
+        "G"
+      ],
+      "accent": "#9ed8b4",
+      "banner": "linear-gradient(160deg,rgba(158,216,180,0.34) 0%,rgba(105,138,180,0.22) 48%,rgba(238,226,178,0.12) 100%)",
+      "tagline": "The many raise the worthy line.",
+      "philosophy": "Bant treats excellence as honorable when it remains answerable to the whole. Its order is not merely procedure; it is public trust, refined discipline, and a living community choosing which champion can carry its hope.",
+      "lore_summary": "Bant is Alara's white-centered shard of sigils, exalted support, knightly recognition, and communal order. Vox Mana reads it as structured harmony where the many concentrate support behind a worthy line of action.",
+      "core_tension": "Bant's virtue is disciplined harmony, but the same order can become rigid or insular when dissent and correction cannot be heard.",
+      "affinity": {
+        "drawn_to": [
+          "A worthy champion backed by the whole community",
+          "Public honor, sigils, rank, and visible responsibility",
+          "Protection that serves a living social body",
+          "Refinement, order, and growth held inside shared duty"
+        ],
+        "repelled_by": [
+          "Hard-lock denial that mistakes control for protection",
+          "Generic three-color value without Bant anchors",
+          "Private leverage as the main moral center",
+          "Raw instinct or aggression without disciplined communal order"
+        ],
+        "core_question": "What makes one line of action worthy enough for the whole community to stand behind?",
+        "interview_tells": [
+          "Frames power as accountable excellence",
+          "Wants support and recognition to be visible rather than hidden",
+          "Names champion, honor, sigil, duty, or disciplined belonging",
+          "Distinguishes protection of community from prison control"
+        ],
+        "not_to_be_confused_with": "Azorius centers procedure; Selesnya centers broad belonging; Simic centers adaptation; Naya centers instinctive force and awe."
+      },
+      "decree_voice": {
+        "tone": "Noble, disciplined, and communal without becoming cold.",
+        "speaks_like": "A herald naming the charge a champion accepts on behalf of the many.",
+        "example_opening": "The reading turns toward honor, support, and the line the whole can stand behind.",
+        "example_decree": "The reading turns toward honor, support, and the line the whole can stand behind. Bant does not ask you to be alone with excellence. It asks whether your strength can remain worthy while carrying the trust, order, and living support of the community around it."
+      },
+      "archetypes": [
+        {
+          "name": "Exalted Champion",
+          "desc": "Protect and elevate one clean attacker while the rest of the board makes that line worthy."
+        },
+        {
+          "name": "Creature-Forward Value",
+          "desc": "Use creatures, blink, Clues, and protective growth as a communal engine rather than detached efficiency."
+        },
+        {
+          "name": "Enchantress and Aura Order",
+          "desc": "Turn enchantments, auras, and equipment into visible support for a creature-centered plan."
+        }
+      ],
+      "staples": {
+        "creatures": [
+          "Rafiq of the Many",
+          "Chulane, Teller of Tales",
+          "Tuvasa the Sunlit"
+        ],
+        "spells": [
+          "Swords to Plowshares",
+          "Counterspell",
+          "Heroic Intervention"
+        ],
+        "permanents": [
+          "Rhystic Study",
+          "Mirari's Wake",
+          "Smothering Tithe"
+        ]
+      },
+      "land_base": {
+        "premium": [
+          "Tropical Island",
+          "Tundra",
+          "Savannah"
+        ],
+        "midrange": [
+          "Breeding Pool",
+          "Hallowed Fountain",
+          "Temple Garden"
+        ],
+        "budget": [
+          "Seaside Citadel",
+          "Bant Panorama",
+          "Path of Ancestry"
+        ],
+        "utility": [
+          "Command Tower",
+          "Exotic Orchard",
+          "Rogue's Passage"
+        ],
+        "optimal": "Tropical Island / Tundra / Savannah / Command Tower / Boseiju, Who Endures",
+        "mid": "Breeding Pool / Hallowed Fountain / Temple Garden / Command Tower / Seaside Citadel",
+        "budget_line": "Seaside Citadel / Bant Panorama / Path of Ancestry / Evolving Wilds / basics",
+        "utility_line": "Command Tower / Exotic Orchard / Rogue's Passage / Boseiju, Who Endures"
+      },
+      "deck_links": [
+        {
+          "fmt": "Commander",
+          "name": "Bant Commanders",
+          "desc": "Bant Commander starts for exalted champions, creature-forward value, enchantress, blink, Clues, and protected-board plans.",
+          "mtgg": null,
+          "edhrec": "https://edhrec.com/commanders/bant",
+          "mtgd": "https://mtgdecks.net/Commander/bant-commanders"
+        }
+      ],
+      "research_links": {
+        "edhrec_slug": "bant"
+      },
+      "identity": {
+        "core_color": "W",
+        "secondary_colors": [
+          "U",
+          "G"
+        ],
+        "secondary_color": "U",
+        "expression_key": "BANT",
+        "expression_name": "Bant",
+        "expression_kind": "shard",
+        "purity": null,
+        "routing": {
+          "edhrec_slug": "bant",
+          "mtgdecks_slug": "bant",
+          "label": "Bant"
+        }
+      },
+      "identity_blend": "White order refined by Blue planning and rooted in Green interconnection.",
+      "commander_compass": {
+        "schema_version": "1.0.0",
+        "source_research_file": "docs/research/vox_mana_second_commander_recommendations_enhanced.xlsx",
+        "last_reviewed": "2026-05-29",
+        "review_status": "live_pilot_generated_curation",
+        "recommendation_philosophy": "Use Bant Commander guidance as expression-shape support only: creature/community framing, structured protection, value, enchantress, blink, Clues, counters, and honor-coded voltron are in-bounds; hard-lock prison and off-frame graveyard or mill shells are suppressions.",
+        "identity_basis": {
+          "owned_themes": [
+            "collective support behind a worthy champion",
+            "creature-forward value and protection",
+            "structured white-blue-green refinement serving a communal ideal",
+            "exalted, sigils, and honorable visible excellence"
+          ],
+          "allowed_phrases": [
+            "Bant value",
+            "Bant enchantress",
+            "Bant blink",
+            "Bant exalted",
+            "Bant champion",
+            "Bant Clues",
+            "Bant counters"
+          ],
+          "avoid_or_contrast_phrases": [
+            "Azorius prison as Bant",
+            "generic three-color goodstuff",
+            "Simic ramp with no White structure",
+            "Selesnya go-wide with no Blue refinement",
+            "Naya big-creature aggression",
+            "Esper mill-control",
+            "Golgari or Sultai mass reanimation"
+          ],
+          "supporting_claim_ids": [
+            "bant_claim_0017",
+            "bant_claim_0018",
+            "bant_claim_0019"
+          ],
+          "supporting_source_ids": [
+            "src_vm_bant_manual_fill_20260529",
+            "src_vm_commander_workbook_20260529",
+            "src_vm_bant_identity_md_20260529"
+          ]
+        },
+        "native_fit_commanders": [
+          {
+            "exact_card_name": "Rafiq of the Many",
+            "display_name": "Rafiq of the Many",
+            "color_identity": [
+              "W",
+              "U",
+              "G"
+            ],
+            "commander_legal": true,
+            "recommendation_type": "Native Fit Draft",
+            "archetype_tags": [
+              "Exalted",
+              "Voltron",
+              "Single Champion"
+            ],
+            "why_this_fits": "Rafiq is the clearest Bant champion expression: one worthy attacker receives the force and recognition of the whole.",
+            "skip_if": "The player wants broad go-wide tokens, prison control, or ramp with no champion frame.",
+            "gameplay_summary": "Build around a single protected attacker and amplify combat through support, auras, equipment, and exalted-style pressure.",
+            "source_basis": {
+              "existing_repo_claim_ids": [
+                "bant_claim_0006",
+                "bant_claim_0008",
+                "bant_claim_0017"
+              ],
+              "existing_repo_source_ids": [
+                "src_vm_bant_evidence_ledger_20260528",
+                "src_vm_bant_manual_fill_20260529"
+              ]
+            },
+            "confidence": "Medium",
+            "caution_notes": [
+              "Card data and deck guidance require live verification before runtime Commander Compass use."
+            ]
+          },
+          {
+            "exact_card_name": "Chulane, Teller of Tales",
+            "display_name": "Chulane, Teller of Tales",
+            "color_identity": [
+              "W",
+              "U",
+              "G"
+            ],
+            "commander_legal": true,
+            "recommendation_type": "Native Fit Draft",
+            "archetype_tags": [
+              "Creature Value",
+              "Card Draw",
+              "Combo"
+            ],
+            "why_this_fits": "Manual-fill guidance places creature-forward value and clean creature-based combo inside Bant when the line remains creature/community framed.",
+            "skip_if": "The deck becomes generic combo efficiency with no communal or creature-forward identity.",
+            "gameplay_summary": "Chain creatures for resource growth, card flow, and value loops while keeping the engine board-centered.",
+            "source_basis": {
+              "existing_repo_claim_ids": [
+                "bant_claim_0017"
+              ],
+              "existing_repo_source_ids": [
+                "src_vm_bant_manual_fill_20260529"
+              ]
+            },
+            "confidence": "Medium",
+            "caution_notes": [
+              "Commander-specific claims are curation support, not live recommendation output."
+            ]
+          },
+          {
+            "exact_card_name": "Tuvasa the Sunlit",
+            "display_name": "Tuvasa the Sunlit",
+            "color_identity": [
+              "W",
+              "U",
+              "G"
+            ],
+            "commander_legal": true,
+            "recommendation_type": "Native Fit Draft",
+            "archetype_tags": [
+              "Enchantress",
+              "Auras",
+              "Voltron"
+            ],
+            "why_this_fits": "The workbook and manual-fill notes support enchantress and aura engines as Bant-facing when they stay creature-centered instead of prison-centered.",
+            "skip_if": "The enchantment package is primarily tax, denial, or prison without a creature/community frame.",
+            "gameplay_summary": "Turn enchantments into steady growth and card flow while building a protected threat.",
+            "source_basis": {
+              "existing_repo_claim_ids": [
+                "bant_claim_0017",
+                "bant_claim_0018"
+              ],
+              "existing_repo_source_ids": [
+                "src_vm_bant_manual_fill_20260529",
+                "src_vm_commander_workbook_20260529"
+              ]
+            },
+            "confidence": "Medium",
+            "caution_notes": [
+              "Use as lane support only until Commander Compass promotion."
+            ]
+          },
+          {
+            "exact_card_name": "Morska, Undersea Sleuth",
+            "display_name": "Morska, Undersea Sleuth",
+            "color_identity": [
+              "W",
+              "U",
+              "G"
+            ],
+            "commander_legal": true,
+            "recommendation_type": "Native Fit Draft",
+            "archetype_tags": [
+              "Clues",
+              "Card Draw",
+              "Value"
+            ],
+            "why_this_fits": "The Commander workbook identifies Deep Clue Sea as a Bant value and Clue-token expression with White structure, Blue card draw, and Green support.",
+            "skip_if": "The player wants fast combat or non-Bant artifact control rather than incremental Clue value.",
+            "gameplay_summary": "Generate and spend Clues for card advantage and decision-rich resource growth.",
+            "source_basis": {
+              "existing_repo_claim_ids": [
+                "bant_claim_0017"
+              ],
+              "existing_repo_source_ids": [
+                "src_vm_commander_workbook_20260529"
+              ]
+            },
+            "confidence": "Medium",
+            "caution_notes": [
+              "Workbook curation is not yet runtime recommendation data."
+            ]
+          }
+        ],
+        "weird_stretch_commanders": [
+          {
+            "exact_card_name": "Derevi, Empyrial Tactician",
+            "display_name": "Derevi, Empyrial Tactician",
+            "color_identity": [
+              "W",
+              "U",
+              "G"
+            ],
+            "commander_legal": true,
+            "recommendation_type": "Context-Sensitive Stretch",
+            "archetype_tags": [
+              "Evasion",
+              "Tempo",
+              "Tap-Untap"
+            ],
+            "why_this_fits": "Evasive tempo and creature-based tap/untap value can remain Bant-facing.",
+            "skip_if": "The build is hard-lock stax, resource denial, or prison-first control.",
+            "gameplay_summary": "Use combat triggers and untap value as tempo rather than as a table-denial lock.",
+            "source_basis": {
+              "existing_repo_claim_ids": [
+                "bant_claim_0018"
+              ],
+              "existing_repo_source_ids": [
+                "src_vm_bant_manual_fill_20260529",
+                "src_vm_commander_workbook_20260529"
+              ]
+            },
+            "confidence": "Medium",
+            "caution_notes": [
+              "Derevi must be strategy-qualified before recommendation."
+            ]
+          }
+        ],
+        "budget_friendly_commanders": [],
+        "advanced_complexity_commanders": [
+          {
+            "exact_card_name": "Roon of the Hidden Realm",
+            "display_name": "Roon of the Hidden Realm",
+            "color_identity": [
+              "W",
+              "U",
+              "G"
+            ],
+            "commander_legal": true,
+            "recommendation_type": "Advanced Draft",
+            "archetype_tags": [
+              "Blink",
+              "ETB Value",
+              "Tempo"
+            ],
+            "why_this_fits": "Manual-fill guidance and workbook rows support blink and ETB value as Bant-facing when creature/community framing stays present.",
+            "skip_if": "The player dislikes trigger management or slower value engines.",
+            "gameplay_summary": "Reuse creature enters-the-battlefield effects and protect key board pieces through blink timing.",
+            "source_basis": {
+              "existing_repo_claim_ids": [
+                "bant_claim_0017"
+              ],
+              "existing_repo_source_ids": [
+                "src_vm_bant_manual_fill_20260529",
+                "src_vm_commander_workbook_20260529"
+              ]
+            },
+            "confidence": "Medium",
+            "caution_notes": [
+              "Runtime complexity lane is not implemented in VM-159."
+            ]
+          }
+        ],
+        "iconic_lore_forward_commanders": [
+          {
+            "exact_card_name": "Jenara, Asura of War",
+            "display_name": "Jenara, Asura of War",
+            "color_identity": [
+              "W",
+              "U",
+              "G"
+            ],
+            "commander_legal": true,
+            "recommendation_type": "Iconic Lore-Forward Draft",
+            "archetype_tags": [
+              "Voltron",
+              "Counters",
+              "Angel"
+            ],
+            "why_this_fits": "Jenara is a Bant-associated legendary angel and supports an honor-coded protected-threat lane.",
+            "skip_if": "The user wants broad board consensus or prison control rather than a focused protected threat.",
+            "gameplay_summary": "Grow and protect one evasive threat while the deck supplies support, counters, and defense.",
+            "source_basis": {
+              "existing_repo_claim_ids": [
+                "bant_claim_0012",
+                "bant_claim_0017"
+              ],
+              "existing_repo_source_ids": [
+                "src_vm_bant_evidence_ledger_20260528",
+                "src_vm_bant_manual_fill_20260529"
+              ]
+            },
+            "confidence": "Medium",
+            "caution_notes": [
+              "Specific angel hierarchy is not inferred from this card."
+            ]
+          }
+        ],
+        "not_recommended_or_deprioritized": [
+          {
+            "name": "Derevi hard-lock stax",
+            "reason": "Primary identity becomes table denial and prison control rather than Bant's creature/community champion frame.",
+            "could_still_be_used_if": "The Derevi shell is evasion, tempo, or creature-value oriented rather than hard-lock resource denial.",
+            "confidence": "Medium"
+          },
+          {
+            "name": "Prison enchantment stacks",
+            "reason": "Tax and denial enchantments without creature/community framing route closer to Azorius prison than Bant.",
+            "could_still_be_used_if": "The enchantment engine is enchantress, aura, protection, or creature-forward value.",
+            "confidence": "Medium"
+          },
+          {
+            "name": "Mill, self-mill, or mass reanimation as primary identity",
+            "reason": "These patterns drift toward Dimir, Esper, Golgari, or Sultai rather than Bant's supported identity.",
+            "could_still_be_used_if": "They are minor support pieces inside a Bant creature/community plan rather than the main identity.",
+            "confidence": "Medium"
+          }
+        ],
+        "archetype_lanes": [
+          {
+            "lane_name": "Exalted Champion",
+            "description": "One worthy attacker carries visible support from the board.",
+            "recommended_for": "Rafiq of the Many",
+            "skip_if": "You want go-wide tokens or a noncombat value pile.",
+            "example_commanders": [
+              "Rafiq of the Many",
+              "Jenara, Asura of War"
+            ],
+            "supporting_identity_terms": [
+              "exalted",
+              "sigils",
+              "champion",
+              "public honor"
+            ],
+            "complexity": "Medium",
+            "budget_friendliness": "Medium"
+          },
+          {
+            "lane_name": "Creature-Forward Value",
+            "description": "Bant value that stays board-centered through creatures, ETB triggers, Clues, and protective growth.",
+            "recommended_for": "Chulane, Teller of Tales; Morska, Undersea Sleuth; Roon of the Hidden Realm",
+            "skip_if": "You want hard control or spell-only combo.",
+            "example_commanders": [
+              "Chulane, Teller of Tales",
+              "Morska, Undersea Sleuth",
+              "Roon of the Hidden Realm"
+            ],
+            "supporting_identity_terms": [
+              "community",
+              "refinement",
+              "value",
+              "protected board"
+            ],
+            "complexity": "Medium",
+            "budget_friendliness": "Medium"
+          },
+          {
+            "lane_name": "Enchantress and Aura Order",
+            "description": "Enchantments, auras, and equipment that protect and elevate a creature-centered line.",
+            "recommended_for": "Tuvasa the Sunlit; Galea, Kindler of Hope; Estrid, the Masked",
+            "skip_if": "The deck is prison-first or denial-first.",
+            "example_commanders": [
+              "Tuvasa the Sunlit",
+              "Galea, Kindler of Hope",
+              "Estrid, the Masked"
+            ],
+            "supporting_identity_terms": [
+              "protection",
+              "visible support",
+              "aura",
+              "structured growth"
+            ],
+            "complexity": "Medium",
+            "budget_friendliness": "Medium"
+          }
+        ],
+        "link_targets": {
+          "edhrec_commander_index": null,
+          "mtgdecks_color_identity": null,
+          "scryfall_commander_search": null,
+          "archidekt_color_search": null
+        },
+        "merge_notes": {
+          "product_guidance_not_canon": true,
+          "commander_legality_validated": false,
+          "scryfall_card_pages_validated": false,
+          "do_not_use_as_claim_source": true,
+          "runtime_status": "live_pilot"
+        }
+      }
     }
   },
   "identity_layers": {
-    "version": "2026-05-17",
+    "version": "2026-05-27",
     "colors": {
       "W": {
         "key": "W",
@@ -12345,6 +12847,25 @@
               "ask": "Is the first responsibility to build a structure that lasts, or to intervene before the next blow lands?"
             }
           ]
+        },
+        "display_code": "W",
+        "aliases": [
+          "W",
+          "White"
+        ],
+        "placement_eligible": true,
+        "preview_eligible": true,
+        "preview_order": 0,
+        "preview_label": "White",
+        "preview_title": "White — Peace through Order",
+        "preview_text": "White values structure, protection, community, duty, and shared stability. It asks how life can be made safer through order.",
+        "preview_hex": "#f7f0d0",
+        "preview_scores": {
+          "order": 96,
+          "knowledge": 42,
+          "ambition": 24,
+          "freedom": 30,
+          "growth": 58
         }
       },
       "WU": {
@@ -12364,7 +12885,26 @@
           "mtgdecks_slug": "azorius",
           "label": "Azorius"
         },
-        "identity_blend": "White structure sharpened by Blue procedure."
+        "identity_blend": "White structure sharpened by Blue procedure.",
+        "display_code": "WU",
+        "aliases": [
+          "WU",
+          "azorius"
+        ],
+        "placement_eligible": true,
+        "preview_eligible": true,
+        "preview_order": 5,
+        "preview_label": "Azorius",
+        "preview_title": "Azorius — Law through Knowledge",
+        "preview_text": "Azorius blends White order with Blue planning. It seeks peace through systems, procedure, control, and carefully managed improvement.",
+        "preview_hex": "#a8d9f5",
+        "preview_scores": {
+          "order": 82,
+          "knowledge": 78,
+          "ambition": 28,
+          "freedom": 26,
+          "growth": 54
+        }
       },
       "UB": {
         "key": "UB",
@@ -12383,7 +12923,26 @@
           "mtgdecks_slug": "dimir",
           "label": "Dimir"
         },
-        "identity_blend": "Blue patience weaponized by Black leverage."
+        "identity_blend": "Blue patience weaponized by Black leverage.",
+        "display_code": "UB",
+        "aliases": [
+          "UB",
+          "dimir"
+        ],
+        "placement_eligible": true,
+        "preview_eligible": true,
+        "preview_order": 6,
+        "preview_label": "Dimir",
+        "preview_title": "Dimir — Secrets through Control",
+        "preview_text": "Dimir blends Blue knowledge with Black ambition. It favors hidden information, memory, leverage, deception, and quiet control.",
+        "preview_hex": "#7f93f2",
+        "preview_scores": {
+          "order": 34,
+          "knowledge": 86,
+          "ambition": 76,
+          "freedom": 48,
+          "growth": 46
+        }
       },
       "BR": {
         "key": "BR",
@@ -12402,7 +12961,26 @@
           "mtgdecks_slug": "rakdos",
           "label": "Rakdos"
         },
-        "identity_blend": "Black appetite turned public through Red spectacle."
+        "identity_blend": "Black appetite turned public through Red spectacle.",
+        "display_code": "BR",
+        "aliases": [
+          "BR",
+          "rakdos"
+        ],
+        "placement_eligible": true,
+        "preview_eligible": true,
+        "preview_order": 7,
+        "preview_label": "Rakdos",
+        "preview_title": "Rakdos — Appetite through Expression",
+        "preview_text": "Rakdos blends Black ambition with Red freedom. It turns desire, spectacle, indulgence, danger, and provocation into identity.",
+        "preview_hex": "#d86e9a",
+        "preview_scores": {
+          "order": 32,
+          "knowledge": 48,
+          "ambition": 84,
+          "freedom": 88,
+          "growth": 48
+        }
       },
       "RG": {
         "key": "RG",
@@ -12421,7 +12999,26 @@
           "mtgdecks_slug": "gruul",
           "label": "Gruul"
         },
-        "identity_blend": "Red force returned to Green instinct and wild refusal."
+        "identity_blend": "Red force returned to Green instinct and wild refusal.",
+        "display_code": "RG",
+        "aliases": [
+          "RG",
+          "gruul"
+        ],
+        "placement_eligible": true,
+        "preview_eligible": true,
+        "preview_order": 8,
+        "preview_label": "Gruul",
+        "preview_title": "Gruul — Instinct through Action",
+        "preview_text": "Gruul blends Red freedom with Green instinct. It values impulse, survival, body-truth, terrain, revolt, and the wild beyond civilization.",
+        "preview_hex": "#c7a96a",
+        "preview_scores": {
+          "order": 44,
+          "knowledge": 38,
+          "ambition": 48,
+          "freedom": 86,
+          "growth": 84
+        }
       },
       "WG": {
         "key": "WG",
@@ -12440,7 +13037,27 @@
           "mtgdecks_slug": "selesnya",
           "label": "Selesnya"
         },
-        "identity_blend": "White protection rooted in Green belonging and communal growth."
+        "identity_blend": "White protection rooted in Green belonging and communal growth.",
+        "display_code": "GW",
+        "aliases": [
+          "WG",
+          "GW",
+          "selesnya"
+        ],
+        "placement_eligible": true,
+        "preview_eligible": true,
+        "preview_order": 9,
+        "preview_label": "Selesnya",
+        "preview_title": "Selesnya — Harmony through Belonging",
+        "preview_text": "Selesnya blends Green growth with White order. It seeks harmony, stewardship, collective purpose, shared life, and belonging.",
+        "preview_hex": "#cde9a4",
+        "preview_scores": {
+          "order": 86,
+          "knowledge": 44,
+          "ambition": 30,
+          "freedom": 42,
+          "growth": 84
+        }
       },
       "WB": {
         "key": "WB",
@@ -12459,7 +13076,26 @@
           "mtgdecks_slug": "orzhov",
           "label": "Orzhov"
         },
-        "identity_blend": "White structure hardened into Black obligation and collected debt."
+        "identity_blend": "White structure hardened into Black obligation and collected debt.",
+        "display_code": "WB",
+        "aliases": [
+          "WB",
+          "orzhov"
+        ],
+        "placement_eligible": true,
+        "preview_eligible": true,
+        "preview_order": 10,
+        "preview_label": "Orzhov",
+        "preview_title": "Orzhov — Obligation through Power",
+        "preview_text": "Orzhov blends White structure with Black ambition. It frames duty, debt, hierarchy, devotion, sacrifice, and power as binding systems.",
+        "preview_hex": "#d3aedc",
+        "preview_scores": {
+          "order": 78,
+          "knowledge": 48,
+          "ambition": 78,
+          "freedom": 42,
+          "growth": 50
+        }
       },
       "UR": {
         "key": "UR",
@@ -12478,7 +13114,26 @@
           "mtgdecks_slug": "izzet",
           "label": "Izzet"
         },
-        "identity_blend": "Blue curiosity accelerated by Red experimentation."
+        "identity_blend": "Blue curiosity accelerated by Red experimentation.",
+        "display_code": "UR",
+        "aliases": [
+          "UR",
+          "izzet"
+        ],
+        "placement_eligible": true,
+        "preview_eligible": true,
+        "preview_order": 11,
+        "preview_label": "Izzet",
+        "preview_title": "Izzet — Discovery through Impulse",
+        "preview_text": "Izzet blends Blue knowledge with Red freedom. It favors experiment, inspiration, volatility, invention, and sudden impossible insight.",
+        "preview_hex": "#88a9d6",
+        "preview_scores": {
+          "order": 36,
+          "knowledge": 86,
+          "ambition": 46,
+          "freedom": 82,
+          "growth": 54
+        }
       },
       "BG": {
         "key": "BG",
@@ -12497,7 +13152,26 @@
           "mtgdecks_slug": "golgari",
           "label": "Golgari"
         },
-        "identity_blend": "Black survival stabilized by Green cycles of decay and renewal."
+        "identity_blend": "Black survival stabilized by Green cycles of decay and renewal.",
+        "display_code": "BG",
+        "aliases": [
+          "BG",
+          "golgari"
+        ],
+        "placement_eligible": true,
+        "preview_eligible": true,
+        "preview_order": 12,
+        "preview_label": "Golgari",
+        "preview_title": "Golgari — Survival through Recursion",
+        "preview_text": "Golgari blends Black ambition with Green growth. It sees decay, hunger, grave-soil, renewal, inevitability, and survival as one cycle.",
+        "preview_hex": "#84b68b",
+        "preview_scores": {
+          "order": 42,
+          "knowledge": 52,
+          "ambition": 82,
+          "freedom": 58,
+          "growth": 82
+        }
       },
       "UG": {
         "key": "UG",
@@ -12516,7 +13190,172 @@
           "mtgdecks_slug": "simic",
           "label": "Simic"
         },
-        "identity_blend": "Blue improvement grown through Green adaptation."
+        "identity_blend": "Blue improvement grown through Green adaptation.",
+        "display_code": "GU",
+        "aliases": [
+          "UG",
+          "GU",
+          "simic"
+        ],
+        "placement_eligible": true,
+        "preview_eligible": true,
+        "preview_order": 14,
+        "preview_label": "Simic",
+        "preview_title": "Simic — Adaptation through Knowledge",
+        "preview_text": "Simic blends Green growth with Blue knowledge. It values mutation, research, guided evolution, optimization, and becoming.",
+        "preview_hex": "#67d8c5",
+        "preview_scores": {
+          "order": 52,
+          "knowledge": 84,
+          "ambition": 38,
+          "freedom": 46,
+          "growth": 88
+        }
+      },
+      "BANT": {
+        "key": "BANT",
+        "active": true,
+        "kind": "shard",
+        "name": "Bant",
+        "world": "Alara",
+        "colors": [
+          "W",
+          "U",
+          "G"
+        ],
+        "core_color": "W",
+        "secondary_colors": [
+          "U",
+          "G"
+        ],
+        "routing": {
+          "edhrec_slug": "bant",
+          "mtgdecks_slug": "bant",
+          "label": "Bant"
+        },
+        "identity_blend": "White order refined by Blue planning and rooted in Green interconnection.",
+        "display": {
+          "key": "BANT",
+          "name": "Bant",
+          "institution_type": "shard",
+          "world": "Alara",
+          "colors": [
+            "W",
+            "U",
+            "G"
+          ],
+          "accent": "#9ed8b4",
+          "banner": "linear-gradient(160deg,rgba(158,216,180,0.34) 0%,rgba(105,138,180,0.22) 48%,rgba(238,226,178,0.12) 100%)",
+          "tagline": "The many raise the worthy line.",
+          "philosophy": "Bant treats excellence as honorable when it remains answerable to the whole. Its order is not merely procedure; it is public trust, refined discipline, and a living community choosing which champion can carry its hope.",
+          "lore_summary": "Bant is Alara's white-centered shard of sigils, exalted support, knightly recognition, and communal order. Vox Mana reads it as structured harmony where the many concentrate support behind a worthy line of action.",
+          "core_tension": "Bant's virtue is disciplined harmony, but the same order can become rigid or insular when dissent and correction cannot be heard.",
+          "affinity": {
+            "drawn_to": [
+              "A worthy champion backed by the whole community",
+              "Public honor, sigils, rank, and visible responsibility",
+              "Protection that serves a living social body",
+              "Refinement, order, and growth held inside shared duty"
+            ],
+            "repelled_by": [
+              "Hard-lock denial that mistakes control for protection",
+              "Generic three-color value without Bant anchors",
+              "Private leverage as the main moral center",
+              "Raw instinct or aggression without disciplined communal order"
+            ],
+            "core_question": "What makes one line of action worthy enough for the whole community to stand behind?",
+            "interview_tells": [
+              "Frames power as accountable excellence",
+              "Wants support and recognition to be visible rather than hidden",
+              "Names champion, honor, sigil, duty, or disciplined belonging",
+              "Distinguishes protection of community from prison control"
+            ],
+            "not_to_be_confused_with": "Azorius centers procedure; Selesnya centers broad belonging; Simic centers adaptation; Naya centers instinctive force and awe."
+          },
+          "decree_voice": {
+            "tone": "Noble, disciplined, and communal without becoming cold.",
+            "speaks_like": "A herald naming the charge a champion accepts on behalf of the many.",
+            "example_opening": "The reading turns toward honor, support, and the line the whole can stand behind.",
+            "example_decree": "The reading turns toward honor, support, and the line the whole can stand behind. Bant does not ask you to be alone with excellence. It asks whether your strength can remain worthy while carrying the trust, order, and living support of the community around it."
+          },
+          "archetypes": [
+            {
+              "name": "Exalted Champion",
+              "desc": "Protect and elevate one clean attacker while the rest of the board makes that line worthy."
+            },
+            {
+              "name": "Creature-Forward Value",
+              "desc": "Use creatures, blink, Clues, and protective growth as a communal engine rather than detached efficiency."
+            },
+            {
+              "name": "Enchantress and Aura Order",
+              "desc": "Turn enchantments, auras, and equipment into visible support for a creature-centered plan."
+            }
+          ],
+          "staples": {
+            "creatures": [
+              "Rafiq of the Many",
+              "Chulane, Teller of Tales",
+              "Tuvasa the Sunlit"
+            ],
+            "spells": [
+              "Swords to Plowshares",
+              "Counterspell",
+              "Heroic Intervention"
+            ],
+            "permanents": [
+              "Rhystic Study",
+              "Mirari's Wake",
+              "Smothering Tithe"
+            ]
+          },
+          "land_base": {
+            "premium": [
+              "Tropical Island",
+              "Tundra",
+              "Savannah"
+            ],
+            "midrange": [
+              "Breeding Pool",
+              "Hallowed Fountain",
+              "Temple Garden"
+            ],
+            "budget": [
+              "Seaside Citadel",
+              "Bant Panorama",
+              "Path of Ancestry"
+            ],
+            "utility": [
+              "Command Tower",
+              "Exotic Orchard",
+              "Rogue's Passage"
+            ],
+            "optimal": "Tropical Island / Tundra / Savannah / Command Tower / Boseiju, Who Endures",
+            "mid": "Breeding Pool / Hallowed Fountain / Temple Garden / Command Tower / Seaside Citadel",
+            "budget_line": "Seaside Citadel / Bant Panorama / Path of Ancestry / Evolving Wilds / basics",
+            "utility_line": "Command Tower / Exotic Orchard / Rogue's Passage / Boseiju, Who Endures"
+          },
+          "deck_links": [
+            {
+              "fmt": "Commander",
+              "name": "Bant Commanders",
+              "desc": "Bant Commander starts for exalted champions, creature-forward value, enchantress, blink, Clues, and protected-board plans.",
+              "mtgg": null,
+              "edhrec": "https://edhrec.com/commanders/bant",
+              "mtgd": "https://mtgdecks.net/Commander/bant-commanders"
+            }
+          ],
+          "research_links": {
+            "edhrec_slug": "bant"
+          }
+        },
+        "display_code": "BANT",
+        "aliases": [
+          "BANT",
+          "bant"
+        ],
+        "placement_eligible": true,
+        "preview_eligible": false
       },
       "WR": {
         "key": "WR",
@@ -12535,7 +13374,27 @@
           "mtgdecks_slug": "boros",
           "label": "Boros"
         },
-        "identity_blend": "White duty carried into action by Red conviction."
+        "identity_blend": "White duty carried into action by Red conviction.",
+        "display_code": "RW",
+        "aliases": [
+          "WR",
+          "RW",
+          "boros"
+        ],
+        "placement_eligible": true,
+        "preview_eligible": true,
+        "preview_order": 13,
+        "preview_label": "Boros",
+        "preview_title": "Boros — Conviction through Action",
+        "preview_text": "Boros blends Red freedom with White order. It channels courage, discipline, justice, coordinated force, and immediate moral action.",
+        "preview_hex": "#efad84",
+        "preview_scores": {
+          "order": 84,
+          "knowledge": 38,
+          "ambition": 46,
+          "freedom": 82,
+          "growth": 62
+        }
       },
       "LOREHOLD": {
         "key": "LOREHOLD",
@@ -12555,7 +13414,25 @@
           "label": "Boros"
         },
         "core_tension": "Does history belong to order or to chaos? To careful systematic analysis or dangerous fieldwork? The college needs both traditions. Every student must choose - and then watch the choice shape everything afterward.",
-        "identity_blend": "White duty and Red action turned toward memory, history, and excavation."
+        "identity_blend": "White duty and Red action turned toward memory, history, and excavation.",
+        "display_code": "RW",
+        "aliases": [
+          "LOREHOLD"
+        ],
+        "placement_eligible": true,
+        "preview_eligible": true,
+        "preview_order": 18,
+        "preview_label": "Lorehold",
+        "preview_title": "Lorehold — History through Action",
+        "preview_text": "Lorehold overlays Red freedom and White order through history, artifacts, memory, rhetoric, spirits, and action through legacy.",
+        "preview_hex": "#ffce84",
+        "preview_scores": {
+          "order": 78,
+          "knowledge": 48,
+          "ambition": 42,
+          "freedom": 82,
+          "growth": 64
+        }
       },
       "PRISMARI": {
         "key": "PRISMARI",
@@ -12575,7 +13452,25 @@
           "label": "Izzet"
         },
         "core_tension": "Does mastery of the medium precede authentic expression, or does authentic expression make technique meaningful? Both traditions are right. The tension between them is where the actual art lives.",
-        "identity_blend": "Blue spellcraft widened into Red performance and spectacle."
+        "identity_blend": "Blue spellcraft widened into Red performance and spectacle.",
+        "display_code": "UR",
+        "aliases": [
+          "PRISMARI"
+        ],
+        "placement_eligible": true,
+        "preview_eligible": true,
+        "preview_order": 16,
+        "preview_label": "Prismari",
+        "preview_title": "Prismari — Art through Volatility",
+        "preview_text": "Prismari overlays Blue knowledge and Red freedom through elemental art, spectacle, inspiration, creativity, and expressive mastery.",
+        "preview_hex": "#8bd0ff",
+        "preview_scores": {
+          "order": 34,
+          "knowledge": 78,
+          "ambition": 42,
+          "freedom": 88,
+          "growth": 58
+        }
       },
       "QUANDRIX": {
         "key": "QUANDRIX",
@@ -12595,7 +13490,25 @@
           "label": "Simic"
         },
         "core_tension": "Does math exist in the world, or in the mind? Are equations forces of nature waiting to be discovered, or frameworks constructed by minds? The College's most honest answer is that Esix exists and they're not entirely sure why.",
-        "identity_blend": "Blue abstraction rooted in Green growth and scale."
+        "identity_blend": "Blue abstraction rooted in Green growth and scale.",
+        "display_code": "GU",
+        "aliases": [
+          "QUANDRIX"
+        ],
+        "placement_eligible": true,
+        "preview_eligible": true,
+        "preview_order": 19,
+        "preview_label": "Quandrix",
+        "preview_title": "Quandrix — Pattern through Growth",
+        "preview_text": "Quandrix overlays Green growth and Blue knowledge through mathematics, pattern, scale, nature as equation, and impossible geometry.",
+        "preview_hex": "#78e6ca",
+        "preview_scores": {
+          "order": 48,
+          "knowledge": 88,
+          "ambition": 34,
+          "freedom": 46,
+          "growth": 84
+        }
       },
       "SILVERQUILL": {
         "key": "SILVERQUILL",
@@ -12615,7 +13528,25 @@
           "label": "Orzhov"
         },
         "core_tension": "Is eloquence a tool of service or self-advancement? The Radiance tradition holds that language is most powerful when it uplifts. The Shadow tradition holds that language flows toward individual power and pretending otherwise is the most dishonest thing a Silverquill mage can do. Both are right. The tension is the curriculum.",
-        "identity_blend": "White standards articulated through Black pressure, rhetoric, and status."
+        "identity_blend": "White standards articulated through Black pressure, rhetoric, and status.",
+        "display_code": "WB",
+        "aliases": [
+          "SILVERQUILL"
+        ],
+        "placement_eligible": true,
+        "preview_eligible": true,
+        "preview_order": 15,
+        "preview_label": "Silverquill",
+        "preview_title": "Silverquill — Language through Pressure",
+        "preview_text": "Silverquill overlays White structure and Black ambition through rhetoric, charisma, status, moral pressure, sharp critique, and words as weapons.",
+        "preview_hex": "#efe2ff",
+        "preview_scores": {
+          "order": 82,
+          "knowledge": 54,
+          "ambition": 74,
+          "freedom": 52,
+          "growth": 42
+        }
       },
       "WITHERBLOOM": {
         "key": "WITHERBLOOM",
@@ -12635,7 +13566,25 @@
           "label": "Golgari"
         },
         "core_tension": "Is life sacred because it creates and nourishes, or productive precisely because it ends? Both Lisette and Valentin are right about different aspects of the same process. Witherbloom students learn to hold both simultaneously.",
-        "identity_blend": "Black appetite and Green cycle studied through vitality, biology, and exchange."
+        "identity_blend": "Black appetite and Green cycle studied through vitality, biology, and exchange.",
+        "display_code": "BG",
+        "aliases": [
+          "WITHERBLOOM"
+        ],
+        "placement_eligible": true,
+        "preview_eligible": true,
+        "preview_order": 17,
+        "preview_label": "Witherbloom",
+        "preview_title": "Witherbloom — Life through Exchange",
+        "preview_text": "Witherbloom overlays Black ambition and Green growth through life-death craft, medicine, decay, nourishment, pests, and resource exchange.",
+        "preview_hex": "#9bd36d",
+        "preview_scores": {
+          "order": 38,
+          "knowledge": 46,
+          "ambition": 78,
+          "freedom": 58,
+          "growth": 88
+        }
       },
       "U": {
         "key": "U",
@@ -13014,6 +13963,25 @@
               "ask": "Is the first change to the plan, tool, and model, or to the organism that must survive the future?"
             }
           ]
+        },
+        "display_code": "U",
+        "aliases": [
+          "U",
+          "Blue"
+        ],
+        "placement_eligible": true,
+        "preview_eligible": true,
+        "preview_order": 1,
+        "preview_label": "Blue",
+        "preview_title": "Blue — Perfection through Knowledge",
+        "preview_text": "Blue values learning, patience, improvement, planning, and possibility. It asks what life could become with enough understanding.",
+        "preview_hex": "#58b8ff",
+        "preview_scores": {
+          "order": 38,
+          "knowledge": 98,
+          "ambition": 36,
+          "freedom": 34,
+          "growth": 54
         }
       },
       "B": {
@@ -13390,6 +14358,25 @@
               "ask": "Would you rather own the leverage privately, or bind it into an obligation no one can escape?"
             }
           ]
+        },
+        "display_code": "B",
+        "aliases": [
+          "B",
+          "Black"
+        ],
+        "placement_eligible": true,
+        "preview_eligible": true,
+        "preview_order": 2,
+        "preview_label": "Black",
+        "preview_title": "Black — Power through Opportunity",
+        "preview_text": "Black values ambition, self-definition, pragmatism, and survival. It asks what you are willing to do to claim agency.",
+        "preview_hex": "#230a41",
+        "preview_scores": {
+          "order": 30,
+          "knowledge": 56,
+          "ambition": 98,
+          "freedom": 62,
+          "growth": 42
         }
       },
       "R": {
@@ -13768,6 +14755,25 @@
               "ask": "Is the impulse true because you feel it now, or because the wild body and its kin already know the path?"
             }
           ]
+        },
+        "display_code": "R",
+        "aliases": [
+          "R",
+          "Red"
+        ],
+        "placement_eligible": true,
+        "preview_eligible": true,
+        "preview_order": 3,
+        "preview_label": "Red",
+        "preview_title": "Red — Freedom through Action",
+        "preview_text": "Red values emotion, impulse, authenticity, passion, and expression. It asks what is true when you stop pretending.",
+        "preview_hex": "#ff6b55",
+        "preview_scores": {
+          "order": 36,
+          "knowledge": 34,
+          "ambition": 58,
+          "freedom": 98,
+          "growth": 62
         }
       },
       "G": {
@@ -14151,6 +15157,25 @@
               "ask": "Does instinct ask you to root and grow, or to break the constraint that cages the wild body?"
             }
           ]
+        },
+        "display_code": "G",
+        "aliases": [
+          "G",
+          "Green"
+        ],
+        "placement_eligible": true,
+        "preview_eligible": true,
+        "preview_order": 4,
+        "preview_label": "Green",
+        "preview_title": "Green — Growth through Acceptance",
+        "preview_text": "Green values nature, instinct, tradition, interdependence, and belonging. It asks what you already are beneath the noise.",
+        "preview_hex": "#63e58d",
+        "preview_scores": {
+          "order": 62,
+          "knowledge": 48,
+          "ambition": 38,
+          "freedom": 58,
+          "growth": 98
         }
       }
     }
