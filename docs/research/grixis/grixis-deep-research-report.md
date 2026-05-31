@@ -86,8 +86,8 @@ That is why “black-centered” is a better description than simply “evil col
 Official design commentary is consistent that Grixis is defined by lacking white and green. In the original shard pitch, Rosewater wrote that white and green are “the two colors of life,” and that their absence produced a world “devoid of life magic and overrun with death.” In a later official retrospective, he described Grixis as a world without green vitality, where things rotted into corpses and poisonous creatures, and without white order, where the world became a barren landscape of deception and terror. citeturn35view0turn38view0
 
 That gives strong official support for several absences:
-- **life and vitality**, because green is gone;  
-- **order and stabilizing social structure**, because white is gone;  
+- **life and vitality**, because green is gone;
+- **order and stabilizing social structure**, because white is gone;
 - **renewal**, at least in the sense of organic regrowth and healthy life cycles, because the shard is overrun by death rather than living abundance. citeturn35view0turn38view0
 
 Some broader formulations are best treated as **color-pie inference rather than direct official wording**. For example, saying Grixis lacks “community,” “restoration,” or “stewardship” is reasonable as a synthesis of white/green absence, but those exact nouns are not what the inspected sources foreground. The inspected official sources speak more concretely about life, vitality, morality, and order. citeturn35view0turn37view0turn38view0

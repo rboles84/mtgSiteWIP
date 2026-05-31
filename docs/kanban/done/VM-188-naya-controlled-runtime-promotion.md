@@ -71,4 +71,3 @@ VM-187 was already occupied by `Jund Live-Pilot Copy And Dossier Handoff Repair`
 - `NAYA` aliases are only `NAYA` and `naya`.
 - No `RGW`, `GRW`, or `WRG` expression key, raw-to-live target, or identity alias was introduced.
 - No standalone `/naya/` or `/rgw/` route was added.
-

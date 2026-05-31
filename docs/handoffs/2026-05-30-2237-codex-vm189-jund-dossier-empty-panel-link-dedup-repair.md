@@ -93,4 +93,3 @@ Manual QA / Product Reviewer for live Jund dossier acceptance.
 - `docs/kanban/done/VM-187-jund-live-pilot-copy-dossier-handoff-repair.md`
 - `docs/handoffs/2026-05-30-2152-codex-vm187-jund-live-pilot-copy-dossier-repair.md`
 - `docs/handoffs/2026-05-30-2212-codex-vm188-naya-controlled-runtime-promotion.md`
-

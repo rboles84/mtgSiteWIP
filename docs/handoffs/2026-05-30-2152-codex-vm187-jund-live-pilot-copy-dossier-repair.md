@@ -129,4 +129,3 @@ Manual QA / Product Reviewer for live Jund copy acceptance.
 - `docs/handoffs/2026-05-30-2056-codex-vm186-jund-controlled-runtime-promotion.md`
 - `docs/handoffs/2026-05-30-1728-codex-vm174-grixis-maze-sidebar-identity-repair.md`
 - `docs/handoffs/2026-05-30-1715-codex-vm173-grixis-dossier-recommendation-quality-repair.md`
-

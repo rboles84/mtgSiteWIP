@@ -62,4 +62,3 @@ Fill Jund Starter Card References with displayable, Commander-legal local Scryfa
 - Selected Jund starter cards and Jund/Naya lands resolve in committed local Scryfall oracle data.
 - Rendered all-placement mana-base cards resolve in committed local Scryfall oracle data and satisfy each placement's Commander color identity.
 - `data/raw-factions/jund/jund.claims.json` was not edited.
-

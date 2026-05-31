@@ -9,11 +9,11 @@
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 <!-- Chosen Palette: Warm Neutrals with Grixis Accents (Stone, Charcoal, Muted Crimson, Deep Sapphire) -->
 <!-- Application Structure Plan: A dashboard-style SPA with a persistent sidebar navigation to allow users to explore the deep research report seamlessly. The report is chunked into logical thematic views: Overview, World & Lore, Philosophy, Mechanics, Key Figures, and Community. This structure prevents overwhelming the user with a massive wall of text and encourages active exploration of the specific facets of Grixis they are interested in. Interactive elements like charts and accordions are used to digest complex data (like color philosophy weights and commander archetypes). -->
-<!-- Visualization & Content Choices: 
+<!-- Visualization & Content Choices:
 Overview -> Goal: Establish baseline understanding -> Method: Text blocks and Source Map Table -> Justification: Clearest way to present raw factual lists.
 Philosophy -> Goal: Explain color relationships -> Method: Polar Area Chart (Chart.js) -> Justification: Visually represents Black's centrality and the supporting roles of Blue/Red.
 Mechanics -> Goal: Show gameplay identity -> Method: Bar Chart (Chart.js) -> Justification: Effectively compares the popularity of various Commander archetypes based on EDHREC data.
-Figures -> Goal: Organize lore characters -> Method: Interactive Grid with hover states -> Justification: Makes dense character lore easily scannable. 
+Figures -> Goal: Organize lore characters -> Method: Interactive Grid with hover states -> Justification: Makes dense character lore easily scannable.
 -->
 <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
 <style>
@@ -173,7 +173,7 @@ Figures -> Goal: Organize lore characters -> Method: Interactive Grid with hover
                     <p class="text-sm text-stone-600">The human enclaves. Vithians are the tragic living remnants of Grixis, surviving in hidden strongholds, constantly defending their Vis from the undead hordes and demon lords.</p>
                 </div>
             </div>
-            
+
             <div class="mt-10 p-6 bg-red-50 border border-red-200 rounded-xl">
                 <h4 class="font-bold text-red-900 mb-2">The Impact of Conflux</h4>
                 <p class="text-sm text-red-800">
@@ -278,7 +278,7 @@ Figures -> Goal: Organize lore characters -> Method: Interactive Grid with hover
             </p>
 
             <div class="space-y-4" id="accordion-container">
-                
+
                 <div class="bg-white border border-stone-200 rounded-lg overflow-hidden">
                     <button class="accordion-btn w-full px-6 py-4 text-left font-bold text-xl font-cinzel flex justify-between items-center bg-stone-50 hover:bg-stone-100 transition-colors">
                         Nicol Bolas
@@ -429,7 +429,7 @@ Figures -> Goal: Organize lore characters -> Method: Interactive Grid with hover
             btn.addEventListener('click', () => {
                 navBtns.forEach(b => b.classList.remove('active'));
                 btn.classList.add('active');
-                
+
                 const targetId = btn.getAttribute('data-target');
                 sections.forEach(sec => {
                     if(sec.id === targetId) {

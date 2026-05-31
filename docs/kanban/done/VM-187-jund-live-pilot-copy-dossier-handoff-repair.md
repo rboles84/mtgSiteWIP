@@ -72,4 +72,3 @@ Repair Jund's post-VM-186 live-pilot presentation so its reveal, onboarding, pre
 - Jund raw claim count remained 10 with IDs `jund_claim_0001` through `jund_claim_0010`.
 - Source-role allowlist remained valid with no new claim-bearing source reclassification.
 - No VM-187 edits were made to Naya paths, Home preview files, route maps, schema files, or raw-faction claim files.
-

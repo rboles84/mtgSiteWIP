@@ -59,4 +59,3 @@ Fix the remaining Jund live dossier defects after VM-187: duplicate EDHREC / MTG
 
 - `data/raw-factions/jund/jund.claims.json` hash remained `EDA50E0F55756014D80351AC36089474755CA501B73DE5B11A4BFAC8641FDA82`.
 - No VM-189 edits were made to Naya paths, Home preview files, route maps, schema files, generated faction output, Supabase context, or raw-faction metadata.
-

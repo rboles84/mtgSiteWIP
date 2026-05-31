@@ -70,14 +70,14 @@
             width: 8px;
         }
         ::-webkit-scrollbar-track {
-            background: #1c1917; 
+            background: #1c1917;
         }
         ::-webkit-scrollbar-thumb {
-            background: #b91c1c; 
+            background: #b91c1c;
             border-radius: 4px;
         }
         ::-webkit-scrollbar-thumb:hover {
-            background: #991b1b; 
+            background: #991b1b;
         }
     </style>
 </head>
@@ -85,8 +85,8 @@
 
     <!-- Chosen Palette: Volcanic Predation (Deep Charcoal, Blood Red, Forest Green, Bone White accents) -->
     <!-- Application Structure Plan: The SPA uses a dashboard/sidebar navigation model to break a dense lore/mechanics report into digestible, thematic chunks. This prevents overwhelming the user with a wall of text. The structure moves logically from the executive summary, into the world-building (Alara), then color philosophy, mechanics, specific figures (clarifying lore vs gameplay assumptions), and finally player culture. This allows users to easily find specific data like "Is Prossh from Alara?" or "What does Jund 'em out mean?" -->
-    <!-- Visualization & Content Choices: 
-         - Color Philosophy (Pie Chart): Shows Red as central with Black/Green supporting. Library: Chart.js (Doughnut). 
+    <!-- Visualization & Content Choices:
+         - Color Philosophy (Pie Chart): Shows Red as central with Black/Green supporting. Library: Chart.js (Doughnut).
          - Thematic Support (Radar Chart): Maps how strongly themes are supported across Canon, Design, and Community. Library: Chart.js (Radar).
          - Key Figures (Dynamic Table): Organizes complex character data and explicitly debunks non-Alara characters often associated with Jund colors. Uses HTML/JS sorting.
          - CONFIRMING: NO SVG used. NO Mermaid JS used. Interactive elements rely on DOM manipulation and Chart.js Canvas. -->
@@ -113,7 +113,7 @@
         <section id="exec-summary" class="tab-content active max-w-4xl mx-auto">
             <h2 class="text-4xl font-display text-white mb-6 border-b border-mtg-red pb-2">1. Executive Summary & Definition</h2>
             <p class="text-lg text-gray-300 leading-relaxed mb-8">This section provides a high-level overview of Jund, distinguishing its canonical origins on the plane of Alara from its broader mechanical and player-driven identity in modern Magic: The Gathering.</p>
-            
+
             <div class="bg-mtg-jund p-6 rounded-lg border border-mtg-red/30 mb-8 shadow-lg shadow-black/50">
                 <h3 class="text-xl font-bold text-mtg-red mb-4">The Best Short Definition</h3>
                 <p class="text-xl font-serif italic text-gray-200">"Jund is the black-red-green shard of Alara, a harsh, volcanic world defined by the absence of white's order and blue's logic. It is a predatory ecology built entirely on impulse, instinct, and a ruthless 'eat-or-be-eaten' hierarchy where dragons rule as apex predators. In player culture, 'Jund' has transcended this lore to become shorthand for a resource-attrition, midrange gameplay strategy defined by efficient threats and universal answers."</p>
@@ -192,7 +192,7 @@
         <section id="color-philosophy" class="tab-content max-w-5xl mx-auto">
             <h2 class="text-4xl font-display text-white mb-6 border-b border-mtg-red pb-2">3. Red-Centered Color Philosophy</h2>
             <p class="text-lg text-gray-300 leading-relaxed mb-8">Drawing heavily from Mark Rosewater's "Making Magic" articles, this section breaks down how Jund functions conceptually as a Black-Red-Green identity anchored by Red.</p>
-            
+
             <div class="flex flex-col lg:flex-row gap-8 items-center bg-[#150b07] p-8 rounded-lg border border-[#3f3f46]">
                 <div class="flex-1 w-full">
                     <h3 class="text-2xl font-bold text-white mb-4">The Core of Jund: Red's Impulse</h3>
@@ -308,7 +308,7 @@
                     </tbody>
                 </table>
             </div>
-            
+
             <div class="mt-6 p-4 bg-red-900/20 border border-red-700/50 rounded">
                 <strong class="text-white">Crucial Distinction:</strong> In Commander (EDH), players use "Jund" to describe the BRG color identity globally. Therefore, commanders like Prossh or Korvold, Fae-Cursed King (Eldraine) are called "Jund Commanders." However, from a strict lore perspective, they have zero connection to the shard of Jund on Alara.
             </div>
@@ -345,7 +345,7 @@
         <section id="sources" class="tab-content max-w-4xl mx-auto">
             <h2 class="text-4xl font-display text-white mb-6 border-b border-mtg-red pb-2">7. Source Map & Methodology</h2>
             <p class="text-lg text-gray-300 leading-relaxed mb-6">This research adhered strictly to verified sources to distinguish canon from community drift.</p>
-            
+
             <div class="bg-[#150b07] border border-[#3f3f46] rounded overflow-hidden">
                 <table class="min-w-full text-left">
                     <thead>
@@ -400,13 +400,13 @@
         navButtons.forEach(btn => {
             btn.addEventListener('click', () => {
                 navButtons.forEach(b => b.classList.remove('nav-active', 'border-l-4', 'border-mtg-red', 'text-white', 'bg-[#291d19]'));
-                
+
                 btn.classList.add('nav-active', 'border-l-4', 'border-mtg-red', 'text-white', 'bg-[#291d19]');
-                
+
                 tabContents.forEach(content => {
                     content.classList.remove('active');
                 });
-                
+
                 const targetId = btn.getAttribute('data-target');
                 document.getElementById(targetId).classList.add('active');
             });
@@ -424,9 +424,9 @@
                     datasets: [{
                         data: [50, 25, 25],
                         backgroundColor: [
-                            '#b91c1c', 
-                            '#1a1a1a', 
-                            '#15803d'  
+                            '#b91c1c',
+                            '#1a1a1a',
+                            '#15803d'
                         ],
                         borderColor: '#291d19',
                         borderWidth: 2,

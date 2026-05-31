@@ -35,6 +35,7 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 Historical note: `VM-044` is a preserved historical duplicate ID and `VM-049` is an intentional preserved duplicate pairing per the handoff trail. Neither ID should be reused.
 
+- [VM-199 - Shard Branch Merge Hygiene Fix](done/VM-199-shard-branch-merge-hygiene-fix.md)
 - [VM-198 - Shard Bundle Worktree Cleanup](done/VM-198-shard-bundle-worktree-cleanup.md)
 - [VM-197 - Alara Shard Gold-Standard Parity Closeout](done/VM-197-alara-shard-gold-standard-parity-closeout.md)
 - [VM-195 - Esper Live Parity And Archscry Text Hardening](done/VM-195-esper-live-parity-archscry-text-hardening.md)

@@ -106,4 +106,3 @@ Manual QA / Product Reviewer for live Jund dossier and mana-base acceptance.
 - `docs/kanban/done/VM-189-jund-dossier-empty-panel-link-dedup-repair.md`
 - `docs/kanban/done/VM-187-jund-live-pilot-copy-dossier-handoff-repair.md`
 - `docs/handoffs/2026-05-30-2237-codex-vm189-jund-dossier-empty-panel-link-dedup-repair.md`
-

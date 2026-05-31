@@ -131,4 +131,3 @@ Manual QA / Product Reviewer for live Naya promotion acceptance.
 - `docs/kanban/done/VM-187-jund-live-pilot-copy-dossier-handoff-repair.md`
 - `docs/handoffs/2026-05-30-2042-codex-vm185-naya-raw-packet-review-gate.md`
 - `docs/handoffs/2026-05-30-2056-codex-vm186-jund-controlled-runtime-promotion.md`
-
