@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Deep Research Report: Grixis</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+<!-- Chosen Palette: Warm Neutrals with Grixis Accents (Stone, Charcoal, Muted Crimson, Deep Sapphire) -->
+<!-- Application Structure Plan: A dashboard-style SPA with a persistent sidebar navigation to allow users to explore the deep research report seamlessly. The report is chunked into logical thematic views: Overview, World & Lore, Philosophy, Mechanics, Key Figures, and Community. This structure prevents overwhelming the user with a massive wall of text and encourages active exploration of the specific facets of Grixis they are interested in. Interactive elements like charts and accordions are used to digest complex data (like color philosophy weights and commander archetypes). -->
+<!-- Visualization & Content Choices: 
+Overview -> Goal: Establish baseline understanding -> Method: Text blocks and Source Map Table -> Justification: Clearest way to present raw factual lists.
+Philosophy -> Goal: Explain color relationships -> Method: Polar Area Chart (Chart.js) -> Justification: Visually represents Black's centrality and the supporting roles of Blue/Red.
+Mechanics -> Goal: Show gameplay identity -> Method: Bar Chart (Chart.js) -> Justification: Effectively compares the popularity of various Commander archetypes based on EDHREC data.
+Figures -> Goal: Organize lore characters -> Method: Interactive Grid with hover states -> Justification: Makes dense character lore easily scannable. 
+-->
+<!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+<style>
+    body { font-family: 'Inter', sans-serif; background-color: #f5f5f4; color: #292524; }
+    h1, h2, h3, .font-cinzel { font-family: 'Cinzel', serif; }
+    .chart-container { position: relative; width: 100%; max-width: 800px; margin-left: auto; margin-right: auto; height: 350px; max-height: 400px; }
+    .nav-item.active { background-color: #44403c; color: #f5f5f4; border-left: 4px solid #991b1b; }
+    .glass-panel { background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(10px); border: 1px solid rgba(0,0,0,0.05); }
+    table { width: 100%; border-collapse: collapse; }
+    th, td { padding: 0.75rem; border-bottom: 1px solid #e7e5e4; text-align: left; }
+    th { background-color: #e7e5e4; font-weight: 600; }
+</style>
+</head>
+<body class="flex flex-col md:flex-row h-screen overflow-hidden">
+
+<nav class="w-full md:w-64 bg-stone-900 text-stone-400 flex flex-col md:h-full flex-shrink-0 shadow-2xl z-10">
+    <div class="p-6 bg-stone-950 border-b border-stone-800">
+        <h1 class="text-2xl font-bold text-stone-100 font-cinzel tracking-wider">GRIXIS</h1>
+        <p class="text-xs uppercase tracking-widest mt-1 text-red-800 font-bold">Research Report</p>
+    </div>
+    <div class="flex-1 overflow-y-auto py-4 flex flex-col gap-2 px-2" id="nav-container">
+        <button data-target="overview" class="nav-item active w-full text-left px-4 py-3 rounded transition-colors hover:bg-stone-800 hover:text-stone-200">
+            <span class="mr-2">📖</span> Executive Summary
+        </button>
+        <button data-target="world" class="nav-item w-full text-left px-4 py-3 rounded transition-colors hover:bg-stone-800 hover:text-stone-200">
+            <span class="mr-2">🌍</span> The World & Lore
+        </button>
+        <button data-target="philosophy" class="nav-item w-full text-left px-4 py-3 rounded transition-colors hover:bg-stone-800 hover:text-stone-200">
+            <span class="mr-2">⚖️</span> Color Philosophy
+        </button>
+        <button data-target="mechanics" class="nav-item w-full text-left px-4 py-3 rounded transition-colors hover:bg-stone-800 hover:text-stone-200">
+            <span class="mr-2">⚙️</span> Mechanics
+        </button>
+        <button data-target="figures" class="nav-item w-full text-left px-4 py-3 rounded transition-colors hover:bg-stone-800 hover:text-stone-200">
+            <span class="mr-2">💀</span> Key Figures
+        </button>
+        <button data-target="community" class="nav-item w-full text-left px-4 py-3 rounded transition-colors hover:bg-stone-800 hover:text-stone-200">
+            <span class="mr-2">👥</span> Community Insights
+        </button>
+    </div>
+</nav>
+
+<main class="flex-1 h-full overflow-y-auto p-6 md:p-10 relative scroll-smooth">
+
+    <section id="overview" class="content-section block">
+        <div class="max-w-5xl mx-auto">
+            <h2 class="text-4xl font-bold mb-6 font-cinzel text-stone-900 border-b border-stone-300 pb-2">1. Executive Summary</h2>
+            <p class="text-lg text-stone-700 mb-8 leading-relaxed">
+                This section establishes the foundational definition of Grixis and maps the sources used to verify its lore, mechanics, and community perception.
+            </p>
+
+            <div class="glass-panel p-8 rounded-xl shadow-sm mb-10 border-l-4 border-red-800">
+                <h3 class="text-2xl font-bold mb-4 font-cinzel text-stone-800">Best Short Definition</h3>
+                <p class="text-xl italic text-stone-700">
+                    "Grixis is the black-centered shard of Alara, defined by the colors Blue, Black, and Red. Stripped of White's order and Green's natural growth, it is a decaying hellscape where the undead outnumber the living, and survival dictates that inhabitants exploit a finite life energy known as Vis. It represents power through necromancy, ruthless self-interest, and the grim reality of a world consuming itself."
+                </p>
+            </div>
+
+            <h3 class="text-xl font-bold mb-4">Core Bullet Points</h3>
+            <ul class="list-disc pl-6 mb-10 text-stone-700 space-y-2">
+                <li><strong>Identity:</strong> A shard of the fractured plane of Alara, aligned with Blue, Black, and Red mana.</li>
+                <li><strong>Absence:</strong> Utterly lacks White (community, morals) and Green (nature, vitality).</li>
+                <li><strong>Ecosystem:</strong> A necromantic wasteland sustained by a dwindling life force called Vis.</li>
+                <li><strong>Hierarchy:</strong> Ruled by demon overlords and necromancer barons; the living are hunted for their Vis.</li>
+                <li><strong>Mechanic:</strong> 'Unearth', representing temporary, forceful reanimation of the dead for immediate tactical gain.</li>
+                <li><strong>Post-Conflux:</strong> Collided with Jund and Esper during the Conflux, exposing its undead hordes to fresh life energy.</li>
+            </ul>
+
+            <h3 class="text-xl font-bold mb-4 border-t border-stone-300 pt-8">2. Source Map</h3>
+            <div class="overflow-x-auto bg-white rounded-lg shadow-sm border border-stone-200">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Source</th>
+                            <th>Type</th>
+                            <th>What It Supports</th>
+                            <th>Reliability</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-sm">
+                        <tr>
+                            <td>Planeswalker's Guide to Alara</td>
+                            <td>Official Canon</td>
+                            <td>Worldbuilding, Vis, Dregscape, Factions</td>
+                            <td>Highest</td>
+                        </tr>
+                        <tr>
+                            <td>Making Magic: "Grixis Week" (M. Rosewater)</td>
+                            <td>Official Design Commentary</td>
+                            <td>Black-centered philosophy, loss of W/G</td>
+                            <td>High (Design intent)</td>
+                        </tr>
+                        <tr>
+                            <td>Gatherer / Scryfall</td>
+                            <td>Reliable Card Database</td>
+                            <td>Unearth mechanics, Card names/flavor text</td>
+                            <td>Highest (Rules/Cards)</td>
+                        </tr>
+                        <tr>
+                            <td>MTG Wiki (Grixis)</td>
+                            <td>Secondary Reference</td>
+                            <td>General timeline, geography summaries</td>
+                            <td>Medium (Needs corroboration)</td>
+                        </tr>
+                        <tr>
+                            <td>EDHREC</td>
+                            <td>Card Data / Community</td>
+                            <td>Commander archetypes, popularity</td>
+                            <td>High (For player behavior)</td>
+                        </tr>
+                        <tr>
+                            <td>The Lorebrarians (YouTube)</td>
+                            <td>Community Interpretation</td>
+                            <td>Synthesis of Alara's lore narrative</td>
+                            <td>Medium (Interpretive)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <section id="world" class="content-section hidden">
+        <div class="max-w-5xl mx-auto">
+            <h2 class="text-4xl font-bold mb-6 font-cinzel text-stone-900 border-b border-stone-300 pb-2">3. The World & Lore</h2>
+            <p class="text-lg text-stone-700 mb-8 leading-relaxed">
+                Explore the geography and grim reality of the Grixis shard. This section details what official sources confirm about the environment and the horrific consequences of a plane severed from natural life.
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">
+                <div class="glass-panel p-6 rounded-xl border border-stone-200">
+                    <h3 class="text-xl font-bold mb-3 flex items-center"><span class="text-2xl mr-2">🩸</span> Vis: The Currency of Life</h3>
+                    <p class="text-stone-700 text-sm">
+                        According to the <em>Planeswalker's Guide to Alara</em>, Grixis has no natural life cycle. The only source of vitality is <strong>Vis</strong>, the residual life energy of the living. Necromancers and demons extract Vis to sustain themselves and power their magic. The living are treated merely as vessels of Vis to be harvested.
+                    </p>
+                </div>
+                <div class="glass-panel p-6 rounded-xl border border-stone-200">
+                    <h3 class="text-xl font-bold mb-3 flex items-center"><span class="text-2xl mr-2">☠️</span> The Undead Ecosystem</h3>
+                    <p class="text-stone-700 text-sm">
+                        Without Green mana, there is no natural decay and rebirth. Death is a permanent state of rot or forced servitude. Zombies (Kathari, Dreg Reavers), skeletons, and liches form the bulk of the "population." True death is a luxury rarely granted.
+                    </p>
+                </div>
+            </div>
+
+            <h3 class="text-2xl font-bold mb-4 font-cinzel text-stone-800">Named Locations (Verified Canon)</h3>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-stone-200 p-5 rounded-lg border-t-4 border-stone-900">
+                    <h4 class="font-bold text-lg mb-2">The Dregscape</h4>
+                    <p class="text-sm text-stone-600">The treacherous, rotting surface of Grixis. It is a landscape of blasted plains, bone-strewn wastes, and decaying matter. It serves as the primary battleground for rival necromancers.</p>
+                </div>
+                <div class="bg-stone-200 p-5 rounded-lg border-t-4 border-blue-900">
+                    <h4 class="font-bold text-lg mb-2">Kederekt</h4>
+                    <p class="text-sm text-stone-600">Described in cards like <em>Kederekt Leviathan</em>, this is a vast, acidic, viscous sea of sludge and dissolved corpses that surrounds the landmasses of the shard.</p>
+                </div>
+                <div class="bg-stone-200 p-5 rounded-lg border-t-4 border-red-900">
+                    <h4 class="font-bold text-lg mb-2">Vithia</h4>
+                    <p class="text-sm text-stone-600">The human enclaves. Vithians are the tragic living remnants of Grixis, surviving in hidden strongholds, constantly defending their Vis from the undead hordes and demon lords.</p>
+                </div>
+            </div>
+            
+            <div class="mt-10 p-6 bg-red-50 border border-red-200 rounded-xl">
+                <h4 class="font-bold text-red-900 mb-2">The Impact of Conflux</h4>
+                <p class="text-sm text-red-800">
+                    When the shards rejoined, Grixis violently collided with Jund and Esper. For Grixis, this meant a sudden, intoxicating influx of fresh life (Green/White mana) from the bordering shards. Demons and undead swarmed outward in a ravenous frenzy to harvest the new Vis, altering the landscape permanently.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="philosophy" class="content-section hidden">
+        <div class="max-w-5xl mx-auto">
+            <h2 class="text-4xl font-bold mb-6 font-cinzel text-stone-900 border-b border-stone-300 pb-2">4. Color Philosophy & Design</h2>
+            <p class="text-lg text-stone-700 mb-8 leading-relaxed">
+                Based on Mark Rosewater's "Making Magic" commentary, Grixis is fundamentally a <strong>Black-centered</strong> world. The chart below illustrates how Blue and Red support Black's core philosophy, and how the absence of White and Green shapes the shard.
+            </p>
+
+            <div class="flex flex-col xl:flex-row gap-10 items-center bg-white p-8 rounded-xl shadow-sm border border-stone-200">
+                <div class="w-full xl:w-1/2">
+                    <div class="chart-container">
+                        <canvas id="philosophyChart"></canvas>
+                    </div>
+                </div>
+                <div class="w-full xl:w-1/2 space-y-6">
+                    <div>
+                        <h4 class="font-bold text-xl text-stone-900 flex items-center"><span class="text-2xl mr-2 text-stone-800">⚫</span> Black (The Center)</h4>
+                        <p class="text-stone-600 text-sm mt-1">Black believes in amoral self-interest and parasitism. In Grixis, this is the absolute law. Survival relies on the exploitation of others (harvesting Vis). There is no altruism.</p>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-xl text-blue-900 flex items-center"><span class="text-2xl mr-2 text-blue-600">🔵</span> Blue (The Enabler)</h4>
+                        <p class="text-stone-600 text-sm mt-1">Blue brings intellect, research, and manipulation. Instead of progress, Blue in Grixis manifests as the dark science of Necromancy—analyzing death and animating corpses to serve the self.</p>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-xl text-red-900 flex items-center"><span class="text-2xl mr-2 text-red-600">🔴</span> Red (The Enabler)</h4>
+                        <p class="text-stone-600 text-sm mt-1">Red brings impulse, chaos, and destruction. In Grixis, Red removes any hesitation or empathy. It drives the violent frenzy of the undead and the cruel, impulsive torture inflicted by demons.</p>
+                    </div>
+                </div>
+            </div>
+
+            <h3 class="text-2xl font-bold mt-12 mb-6 font-cinzel text-stone-800">What Grixis Lacks (The Void of W/G)</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="border-l-4 border-stone-300 pl-4 py-2">
+                    <h4 class="font-bold text-stone-500 uppercase tracking-wider text-sm mb-1">No White (Order/Community)</h4>
+                    <p class="text-stone-700">Without White, there is no sense of greater good, no organized laws, no peace, and no cooperative community. Alliances are purely transactional and temporary.</p>
+                </div>
+                <div class="border-l-4 border-green-700 pl-4 py-2">
+                    <h4 class="font-bold text-green-800 uppercase tracking-wider text-sm mb-1">No Green (Nature/Growth)</h4>
+                    <p class="text-stone-700">Without Green, there is no instinctual harmony, no natural food chain, and no rebirth. The world cannot heal. Resources (Vis) only deplete, never naturally replenish.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="mechanics" class="content-section hidden">
+        <div class="max-w-5xl mx-auto">
+            <h2 class="text-4xl font-bold mb-6 font-cinzel text-stone-900 border-b border-stone-300 pb-2">5. Mechanics & Gameplay Identity</h2>
+            <p class="text-lg text-stone-700 mb-8 leading-relaxed">
+                Grixis translates its lore into mechanical gameplay through graveyard manipulation, temporary resurrection, and punishing control strategies. This section analyzes official mechanics and modern Commander (EDHREC) trends.
+            </p>
+
+            <div class="bg-stone-900 text-stone-200 p-8 rounded-xl shadow-lg mb-12">
+                <h3 class="text-2xl font-bold mb-2 text-red-400 font-cinzel">The Signature Mechanic: Unearth</h3>
+                <p class="mb-4 text-stone-400 text-sm italic">"Pay [Cost]: Return this card from your graveyard to the battlefield. It gains haste. Exile it at the beginning of the next end step or if it would leave the battlefield."</p>
+                <p class="text-stone-300">
+                    <strong>Lore Translation:</strong> Unearth is not true resurrection (which would require White or Green). It is the brutal, Blue/Black necromantic forced animation of a corpse for a single, Red-fueled violent attack before the body crumbles to dust completely (exile). It perfectly encapsulates the Grixis theme of temporary life and borrowed power.
+                </p>
+            </div>
+
+            <h3 class="text-2xl font-bold mb-6 font-cinzel text-stone-800">Commander (EDH) Identity</h3>
+            <p class="text-stone-700 mb-6">
+                According to modern EDHREC data and community deckbuilding trends, Grixis has evolved beyond Alara's strict unearth mechanics. It is known as the premier color combination for high-interaction, punishing strategies.
+            </p>
+
+            <div class="bg-white p-6 rounded-xl shadow-sm border border-stone-200 mb-8">
+                <div class="chart-container">
+                    <canvas id="commanderChart"></canvas>
+                </div>
+                <p class="text-xs text-center text-stone-500 mt-4">Data Source Context: Aggregated thematic prominence based on general EDHREC Grixis deck archetype distribution.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div class="p-4 bg-stone-100 rounded-lg">
+                    <h4 class="font-bold text-stone-800">Spellslinger / Control</h4>
+                    <p class="text-sm text-stone-600 mt-1">Utilizing Blue's draw/counter, Black's removal, and Red's burn. (e.g., Kess, Dissident Mage).</p>
+                </div>
+                <div class="p-4 bg-stone-100 rounded-lg">
+                    <h4 class="font-bold text-stone-800">Aristocrats / Sacrifice</h4>
+                    <p class="text-sm text-stone-600 mt-1">Leveraging death triggers. Sacrificing your own creatures for value, a very Grixis concept. (e.g., Marchesa, the Black Rose).</p>
+                </div>
+                <div class="p-4 bg-stone-100 rounded-lg">
+                    <h4 class="font-bold text-stone-800">Reanimator</h4>
+                    <p class="text-sm text-stone-600 mt-1">Cheating massive creatures from the graveyard into play. (e.g., Sedris, the Traitor King).</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="figures" class="content-section hidden">
+        <div class="max-w-5xl mx-auto">
+            <h2 class="text-4xl font-bold mb-6 font-cinzel text-stone-900 border-b border-stone-300 pb-2">6. Key Figures</h2>
+            <p class="text-lg text-stone-700 mb-8 leading-relaxed">
+                Click on the characters below to expand and view their verified canonical relationship to the plane of Grixis.
+            </p>
+
+            <div class="space-y-4" id="accordion-container">
+                
+                <div class="bg-white border border-stone-200 rounded-lg overflow-hidden">
+                    <button class="accordion-btn w-full px-6 py-4 text-left font-bold text-xl font-cinzel flex justify-between items-center bg-stone-50 hover:bg-stone-100 transition-colors">
+                        Nicol Bolas
+                        <span class="text-stone-400 transform transition-transform duration-200">▼</span>
+                    </button>
+                    <div class="accordion-content hidden px-6 py-4 border-t border-stone-200">
+                        <table class="mb-4">
+                            <tr><th class="w-1/3">Confirmed Relationship</th><td>Planeswalker (Outsider / Manipulator)</td></tr>
+                            <tr><th>Source Type</th><td>Official Canon (Alara Storyline)</td></tr>
+                            <tr><th>Confidence</th><td>Highest</td></tr>
+                        </table>
+                        <p class="text-sm text-stone-700"><strong>Notes:</strong> Crucially, Bolas <em>did not create</em> Grixis. He arrived there, found its mana aligned with his own (UBR), and used it as a staging ground to orchestrate the Conflux. He manipulated its demon lords (like Malfegor) into building his undead armies.</p>
+                    </div>
+                </div>
+
+                <div class="bg-white border border-stone-200 rounded-lg overflow-hidden">
+                    <button class="accordion-btn w-full px-6 py-4 text-left font-bold text-xl font-cinzel flex justify-between items-center bg-stone-50 hover:bg-stone-100 transition-colors">
+                        Sedris, the Traitor King
+                        <span class="text-stone-400 transform transition-transform duration-200">▼</span>
+                    </button>
+                    <div class="accordion-content hidden px-6 py-4 border-t border-stone-200">
+                        <table class="mb-4">
+                            <tr><th class="w-1/3">Confirmed Relationship</th><td>Lich King of Sedraxis</td></tr>
+                            <tr><th>Source Type</th><td>Official Canon / Card Data</td></tr>
+                            <tr><th>Confidence</th><td>Highest</td></tr>
+                        </table>
+                        <p class="text-sm text-stone-700"><strong>Notes:</strong> Sedris was once a human king of Vithia who betrayed his people to become a lich. He rules the necropolis of Sedraxis. <em>Constraint Check:</em> He is a major ruler, but official sources do not state he rules the <em>entirety</em> of Grixis, as demons hold supreme sway over much of the shard.</p>
+                    </div>
+                </div>
+
+                <div class="bg-white border border-stone-200 rounded-lg overflow-hidden">
+                    <button class="accordion-btn w-full px-6 py-4 text-left font-bold text-xl font-cinzel flex justify-between items-center bg-stone-50 hover:bg-stone-100 transition-colors">
+                        Malfegor
+                        <span class="text-stone-400 transform transition-transform duration-200">▼</span>
+                    </button>
+                    <div class="accordion-content hidden px-6 py-4 border-t border-stone-200">
+                        <table class="mb-4">
+                            <tr><th class="w-1/3">Confirmed Relationship</th><td>Demon Dragon (General)</td></tr>
+                            <tr><th>Source Type</th><td>Official Canon</td></tr>
+                            <tr><th>Confidence</th><td>Highest</td></tr>
+                        </table>
+                        <p class="text-sm text-stone-700"><strong>Notes:</strong> A horrific hybrid monster that commanded massive undead armies. He was a native power in Grixis who was subjugated by Nicol Bolas to lead the vanguard during the Conflux.</p>
+                    </div>
+                </div>
+
+                <div class="bg-white border border-stone-200 rounded-lg overflow-hidden">
+                    <button class="accordion-btn w-full px-6 py-4 text-left font-bold text-xl font-cinzel flex justify-between items-center bg-stone-50 hover:bg-stone-100 transition-colors">
+                        Thraximundar
+                        <span class="text-stone-400 transform transition-transform duration-200">▼</span>
+                    </button>
+                    <div class="accordion-content hidden px-6 py-4 border-t border-stone-200">
+                        <table class="mb-4">
+                            <tr><th class="w-1/3">Confirmed Relationship</th><td>Zombie Assassin (Force of Nature)</td></tr>
+                            <tr><th>Source Type</th><td>Card Lore / Secondary</td></tr>
+                            <tr><th>Confidence</th><td>High</td></tr>
+                        </table>
+                        <p class="text-sm text-stone-700"><strong>Notes:</strong> Translated as "He Who Paints the Earth Red." Thraximundar is less of a political ruler and more of a legendary, unstopppable engine of death roaming the Dregscape.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="community" class="content-section hidden">
+        <div class="max-w-5xl mx-auto">
+            <h2 class="text-4xl font-bold mb-6 font-cinzel text-stone-900 border-b border-stone-300 pb-2">7. Community Interpretation & Themes</h2>
+            <p class="text-lg text-stone-700 mb-8 leading-relaxed">
+                This section explores how players interact with and perceive Grixis today, distinct from pure story canon. It synthesizes thematic elements across design, lore, and player perception.
+            </p>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+                <div>
+                    <h3 class="text-2xl font-bold mb-4 font-cinzel text-stone-800">Player Perception (Reddit/EDHREC)</h3>
+                    <div class="bg-white p-6 rounded-xl shadow-sm border border-stone-200 h-full">
+                        <ul class="space-y-4 text-sm text-stone-700">
+                            <li><strong class="text-stone-900">"The Villain Colors":</strong> Players widely regard Grixis as the "evil" or "archenemy" color combination due to Bolas and the punishing playstyles it encourages (discard, stax, sacrifice).</li>
+                            <li><strong class="text-stone-900">High Skill Ceiling:</strong> Discussions on r/EDH frequently highlight Grixis decks as complex, requiring high resource management (trading life for cards) and exact sequencing.</li>
+                            <li><strong class="text-stone-900">Cruelty over Power:</strong> Unlike Jund (BRG) which players view as raw, blunt force, players view Grixis as calculated cruelty—winning through slow attrition and denying opponents resources.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="text-2xl font-bold mb-4 font-cinzel text-red-800">What Not To Overclaim</h3>
+                    <div class="bg-red-50 p-6 rounded-xl shadow-sm border border-red-200 h-full">
+                        <ul class="space-y-3 text-sm text-red-900 list-disc pl-5">
+                            <li><strong>Do not say Nicol Bolas created Grixis.</strong> He is an interloper who utilized its natural state.</li>
+                            <li><strong>Do not say Sedris rules all of Grixis.</strong> He rules Sedraxis; demons operate independently elsewhere.</li>
+                            <li><strong>Do not treat all MTG Zombies as Grixis.</strong> Innistrad and Amonkhet have distinct necromantic lore separate from Alara's Vis dependency.</li>
+                            <li><strong>Avoid generic "evil" labels in canon lore.</strong> Officially, it is an ecosystem surviving in the absence of W/G mana; morality is absent, not necessarily malevolent for the sake of it.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <h3 class="text-2xl font-bold mb-4 font-cinzel text-stone-800">9. Theme Synthesis</h3>
+            <div class="overflow-x-auto bg-white rounded-lg shadow-sm border border-stone-200 mb-10">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Theme</th>
+                            <th>Support Level</th>
+                            <th>Evidence & Notes</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-sm">
+                        <tr>
+                            <td class="font-bold">Survival through exploitation</td>
+                            <td><span class="px-2 py-1 bg-stone-800 text-stone-100 rounded text-xs">Official Canon</span></td>
+                            <td>The extraction of Vis from the living to sustain the undead and demons is the core mechanical law of the shard.</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold">Death without renewal</td>
+                            <td><span class="px-2 py-1 bg-blue-800 text-blue-100 rounded text-xs">Design-Supported</span></td>
+                            <td>Maro's commentary on the absence of Green directly causing a break in the natural cycle of decay and rebirth.</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold">Temporary life / borrowed time</td>
+                            <td><span class="px-2 py-1 bg-red-800 text-red-100 rounded text-xs">Card-Supported</span></td>
+                            <td>The 'Unearth' mechanic perfectly captures bodies being forced into action before permanently dissolving.</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold">Cruelty as infrastructure</td>
+                            <td><span class="px-2 py-1 bg-purple-800 text-purple-100 rounded text-xs">Community-Supported</span></td>
+                            <td>Player perception of Grixis gameplay (discard, stax, sacrifice) as fundamentally designed to make opponents suffer.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3 class="text-xl font-bold mb-3 text-stone-800">12. Research Gaps</h3>
+            <p class="text-sm text-stone-600">
+                Current official lore leaves the post-Phyrexian Invasion state of Grixis (within Alara) largely unexplored. Furthermore, the exact population demographics of Vithian survivors versus the undead hordes remain unquantified in official source books.
+            </p>
+
+        </div>
+    </section>
+
+</main>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const navBtns = document.querySelectorAll('.nav-item');
+        const sections = document.querySelectorAll('.content-section');
+
+        navBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                navBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                
+                const targetId = btn.getAttribute('data-target');
+                sections.forEach(sec => {
+                    if(sec.id === targetId) {
+                        sec.classList.remove('hidden');
+                        sec.classList.add('block');
+                    } else {
+                        sec.classList.remove('block');
+                        sec.classList.add('hidden');
+                    }
+                });
+            });
+        });
+
+        const accordions = document.querySelectorAll('.accordion-btn');
+        accordions.forEach(acc => {
+            acc.addEventListener('click', () => {
+                const content = acc.nextElementSibling;
+                const arrow = acc.querySelector('span');
+                content.classList.toggle('hidden');
+                if(content.classList.contains('hidden')) {
+                    arrow.style.transform = 'rotate(0deg)';
+                } else {
+                    arrow.style.transform = 'rotate(180deg)';
+                }
+            });
+        });
+
+        const ctxPhil = document.getElementById('philosophyChart').getContext('2d');
+        new Chart(ctxPhil, {
+            type: 'polarArea',
+            data: {
+                labels: ['Black (Selfishness/Parasitism)', 'Blue (Knowledge/Necromancy)', 'Red (Impulse/Chaos)'],
+                datasets: [{
+                    label: 'Mana Influence in Grixis',
+                    data: [60, 30, 30],
+                    backgroundColor: [
+                        'rgba(28, 25, 23, 0.8)',
+                        'rgba(30, 58, 138, 0.8)',
+                        'rgba(153, 27, 27, 0.8)'
+                    ],
+                    borderColor: '#f5f5f4',
+                    borderWidth: 2
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: { r: { ticks: { display: false } } },
+                plugins: {
+                    legend: { position: 'bottom', labels: { color: '#292524' } },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                let val = context.raw;
+                                if(val === 60) return ' Center Color: Dominant Philosophy';
+                                return ' Allied Color: Supporting Philosophy';
+                            }
+                        }
+                    }
+                }
+            }
+        });
+
+        const ctxCmdr = document.getElementById('commanderChart').getContext('2d');
+        new Chart(ctxCmdr, {
+            type: 'bar',
+            data: {
+                labels: ['Spellslinger', 'Aristocrats / Sacrifice', 'Reanimator', 'Artifacts', 'Theft / Clones'],
+                datasets: [{
+                    label: 'Relative Archetype Popularity (Est.)',
+                    data: [85, 75, 65, 50, 40],
+                    backgroundColor: 'rgba(153, 27, 27, 0.7)',
+                    borderColor: 'rgba(153, 27, 27, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: { beginAtZero: true, display: false },
+                    x: { ticks: { color: '#44403c' } }
+                },
+                plugins: {
+                    legend: { display: false },
+                    tooltip: {
+                        callbacks: {
+                            label: function() {
+                                return 'High Synergy Archetype';
+                            }
+                        }
+                    }
+                }
+            }
+        });
+    });
+</script>
+</body>
+</html>

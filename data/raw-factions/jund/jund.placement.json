@@ -1,0 +1,345 @@
+{
+  "schema_version": "1.0.0",
+  "placement_profile_version": "0.1.0",
+  "faction_id": "jund",
+  "faction_name": "Jund",
+  "based_on_profile_version": "0.1.0",
+  "last_updated": "2026-05-30",
+  "placement_summary": "Jund is a VM-186 live-pilot placement packet for the JUND shard expression. Its strongest source-bound signals are Red-centered self-truth, gut instinct, emotion as guide, Black appetite, Green unrestrained instinct, freedom with consequences, and anti-flattening boundaries.",
+  "moral_and_psychological_profile": {
+    "summary": "Vox Mana models Jund as freedom through appetite, instinct, survival pressure, and consequence-bearing action. This is project interpretation from VM-176 through VM-178, not official canon; VM-186 enables it as a bounded live pilot.",
+    "claim_ids": [
+      "jund_claim_0002",
+      "jund_claim_0003",
+      "jund_claim_0004",
+      "jund_claim_0005",
+      "jund_claim_0006",
+      "jund_claim_0007",
+      "jund_claim_0008",
+      "jund_claim_0010"
+    ],
+    "confidence": "Medium",
+    "notes": "Psychological language is Vox Mana interpretation. Support-only rows do not raise confidence."
+  },
+  "placement_axes": [],
+  "core_values": [
+    {
+      "value_id": "value_jund_0001",
+      "label": "Self-Truth Before Permission",
+      "description": "The self trusts gut instinct and emotional honesty before outside restraint defines the action.",
+      "claim_ids": [
+        "jund_claim_0003",
+        "jund_claim_0004"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "value_id": "value_jund_0002",
+      "label": "Appetite As Self-Advocacy",
+      "description": "Personal need and contentment become a way to resist imposed constraint without reducing Jund to cruelty.",
+      "claim_ids": [
+        "jund_claim_0006",
+        "jund_claim_0010"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "value_id": "value_jund_0003",
+      "label": "Instinct Into Motion",
+      "description": "Green's unrestrained instinct and Red's action turn the feeling into embodied force under consequence.",
+      "claim_ids": [
+        "jund_claim_0005",
+        "jund_claim_0007",
+        "jund_claim_0008"
+      ],
+      "confidence": "Medium"
+    }
+  ],
+  "behavioral_signals": [
+    {
+      "signal_id": "signal_jund_0001",
+      "signal": "Look for self-truth, gut instinct, emotion, and doing what feels right as primary language.",
+      "claim_ids": [
+        "jund_claim_0003",
+        "jund_claim_0004"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "signal_id": "signal_jund_0002",
+      "signal": "Look for appetite, personal need, and self-advocacy supporting a Red-centered action frame.",
+      "claim_ids": [
+        "jund_claim_0002",
+        "jund_claim_0006"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "signal_id": "signal_jund_0003",
+      "signal": "Look for unrestrained instinct, less overthinking, and feral motion tied to consequence.",
+      "claim_ids": [
+        "jund_claim_0005",
+        "jund_claim_0007",
+        "jund_claim_0008"
+      ],
+      "confidence": "Medium"
+    }
+  ],
+  "inhibitor_traits": [
+    "BRG color composition without the Red-centered Jund evidence cluster",
+    "generic anger or Red violence without self-truth and emotional-honesty framing",
+    "generic savage nature without Red-centered freedom",
+    "Naya communal or behemoth ecology treated as Jund",
+    "Grixis death-world, necromancy, vis, or exploitation framing treated as Jund",
+    "Gruul civilization rejection treated as Jund",
+    "Rakdos spectacle or cruelty treated as Jund",
+    "Golgari lifecycle, rot, or undercity ecology treated as Jund",
+    "Witherbloom life-drain or pest ecology treated as Jund",
+    "Riveteers labor or family identity treated as Jund",
+    "Modern Jund midrange player culture treated as Jund canon",
+    "manual-fill lore used as current evidence"
+  ],
+  "good_fit_indicators": [
+    "self-truth, gut instinct, and emotion are the main way the answer frames identity",
+    "appetite or personal need supports self-advocacy rather than spectacle",
+    "unrestrained instinct and embodied action are tied to consequence",
+    "the answer resists flattening Jund into generic anger, savagery, devour, or Modern Jund"
+  ],
+  "ideal_fit_indicators": [
+    "The answer combines Red-centered feeling, Black appetite, and Green instinct while keeping detailed lore out of the claim basis.",
+    "The answer uses Jund or Alara in a source-bound shard context.",
+    "The answer treats Commander/operator mechanics, devour, figures, geography, and comparator factions as support or manual-review topics rather than evidence foundations."
+  ],
+  "poor_fit_indicators": [
+    "The answer depends on detailed geography, figure biography, predator hierarchy, devour-as-total-identity, or Conflux chronology.",
+    "The answer is mainly generic BRG, generic midrange, generic sacrifice value, or Riveteers/Witherbloom styling.",
+    "The answer centers public honor, engineered perfection, death-world necromancy, civilization rejection, spectacle, lifecycle rot, or Green-centered behemoth community."
+  ],
+  "discriminator_questions": [
+    {
+      "question_id": "q_jund_0001",
+      "question": "When pressure arrives, what makes the next move true: feeding the instinct, breaking a boundary, staging a release, or protecting the living whole?",
+      "purpose": "Separates Jund's instinct-and-consequence frame from Gruul boundary-breaking, Rakdos spectacle, and Naya communal/behemoth drift without adding new lore claims.",
+      "answer_pattern_that_supports_this_faction": "The answer treats instinct as worth feeding and accepts the cost as part of the action.",
+      "answer_pattern_that_weakens_this_faction": "The answer centers civilization rejection, performance, cruelty, communal abundance, or size reverence as the main motive.",
+      "claim_ids": [
+        "jund_claim_0003",
+        "jund_claim_0004",
+        "jund_claim_0005",
+        "jund_claim_0010"
+      ],
+      "confidence": "Medium",
+      "notes": "Draft placement question only; not a live question-bank addition."
+    },
+    {
+      "question_id": "q_jund_0002",
+      "question": "After the first exchange, should the spent resource become pressure again, a calculated weakness map, a lifecycle loop, or a clean reset?",
+      "purpose": "Keeps Jund's appetite/resource-conversion lane distinct from Grixis calculation, Golgari lifecycle/rot, and generic value play.",
+      "answer_pattern_that_supports_this_faction": "The answer wants the spent thing to feed the next attack, rebuild pressure, or make consequence visible.",
+      "answer_pattern_that_weakens_this_faction": "The answer centers hidden calculation, closed-loop rot, passive value, or control before embodied action.",
+      "claim_ids": [
+        "jund_claim_0005",
+        "jund_claim_0006",
+        "jund_claim_0007",
+        "jund_claim_0010"
+      ],
+      "confidence": "Medium",
+      "notes": "Commander/operator mechanics remain support-only vocabulary, not canon evidence."
+    },
+    {
+      "question_id": "q_jund_0003",
+      "question": "If the deck uses sacrifice, graveyards, counters, lands, or combat pressure, are those tools serving appetite and consequence, or replacing Jund with a single mechanic?",
+      "purpose": "Prevents support-only mechanics from becoming the whole Jund identity.",
+      "answer_pattern_that_supports_this_faction": "The answer uses mechanics as echoes of Red-centered self-truth, Black appetite, Green instinct, and consequence.",
+      "answer_pattern_that_weakens_this_faction": "The answer treats devour, Modern Jund, generic aristocrats, generic lands, or generic graveyard value as sufficient by itself.",
+      "claim_ids": [
+        "jund_claim_0003",
+        "jund_claim_0006",
+        "jund_claim_0007",
+        "jund_claim_0010"
+      ],
+      "confidence": "Medium",
+      "notes": "Uses JUND-EVID-016 and JUND-EVID-017 only as support-only operator boundaries."
+    }
+  ],
+  "chatbot_guidance": {
+    "how_to_recognize_match": [
+      "VM-186 live-pilot guidance: Jund language should combine Red-centered self-truth and emotion with Black appetite and Green instinct.",
+      "Use support-only Commander/operator patterns as vocabulary only, not as canon evidence.",
+      "Keep manual-fill topics out of the match basis."
+    ],
+    "how_to_recognize_mismatch": [
+      "Do not match Jund from BRG color composition alone.",
+      "Do not match Jund from generic anger, generic savagery, or generic devour alone.",
+      "Do not match Jund from Naya, Grixis, Gruul, Rakdos, Golgari, Witherbloom, Riveteers, or Modern Jund false-positive material.",
+      "Do not match Jund from support-only Commander/operator rows."
+    ],
+    "questions_to_ask_when_uncertain": [
+      "Is the player choosing pressure because the instinct feels true, or because they simply want generic aggression?",
+      "Does appetite become consequence-bearing momentum, or does it drift into Rakdos spectacle, Witherbloom drain, or generic aristocrats?",
+      "Are graveyard, land, counter, token, and combat-pressure tools serving the Jund identity, or replacing it with a single mechanic?"
+    ],
+    "do_not_overweight": [
+      "Do not award Jund from color composition alone.",
+      "Do not award Jund from support-only Commander/operator rows.",
+      "Do not award Jund from support-only mechanics.",
+      "Do not award Jund from manual-fill topics."
+    ],
+    "never_claim_as_canon": [
+      "Never claim Vox Mana placement planning is official Wizards canon.",
+      "Never claim BRG is a generated expression key.",
+      "Never claim detailed geography, figure biography, predator hierarchy, devour-as-total-identity, Conflux chronology, or Modern Jund canon from VM-179.",
+      "Never claim Jund has a Home preview card, route, static page, Maze route, or broad shard framework from VM-186."
+    ],
+    "review_note": "VM-186 enables Jund through the approved builder path only. It does not add new lore sources, raw claims, Commander facts, routes, Home cards, Maze routes, schema fields, or manual Supabase source edits."
+  },
+  "placement_quality": {
+    "overall_confidence": "Medium source-authored confidence for narrow identity/design evidence; low for detailed lore until future evidence work.",
+    "strongest_evidence_areas": [
+      "Black-red-green Jund shard identity",
+      "BRG metadata and Red center/design lens",
+      "Red self-truth and gut instinct",
+      "Emotion as guide",
+      "Freedom with action and survival consequences",
+      "Black appetite and personal need",
+      "Green unrestrained instinct",
+      "Boundary against generic violence, savagery, devour, and Modern Jund"
+    ],
+    "weakest_evidence_areas": [
+      "Detailed geography and named locations",
+      "Named figure biographies",
+      "Predator hierarchy, dragon rule, volcanic details, and creature ecology",
+      "Conflux and post-Conflux chronology",
+      "Devour as whole-identity theory",
+      "Commander/operator material beyond support-only language"
+    ],
+    "manual_review_recommended": true,
+    "review_gated": false,
+    "placement_eligible": true,
+    "notes": "VM-186 enables Jund through the approved builder path only. BRG remains metadata-only and JUND is the only live expression key.",
+    "calibration_tuning_status": "vm186_live_pilot",
+    "last_placement_ready_pass": "VM-186",
+    "live_pilot": true
+  },
+  "color_identity": {
+    "colors": [
+      "B",
+      "R",
+      "G"
+    ],
+    "metadata_only": true,
+    "notes": "BRG is color-direction metadata only and not a generated key, route key, runtime alias, fixture key, or lookup key."
+  },
+  "calibration_tuning": {
+    "status": "vm186_live_pilot",
+    "required_positive_evidence_terms": [
+      "Jund",
+      "Alara",
+      "BRG",
+      "Red-centered",
+      "self-truth",
+      "gut instinct",
+      "emotion as guide",
+      "freedom with consequences",
+      "Black appetite",
+      "Green instinct"
+    ],
+    "required_positive_min_hits": null,
+    "broad_match_penalty": null,
+    "overselection_reason": "Color composition, generic anger, generic sacrifice value, devour, Modern Jund, or same-color comparator aesthetics can overselect Jund without the VM-176 Red-centered evidence cluster.",
+    "suppress_when_user_centers": [
+      "generic BRG",
+      "generic anger",
+      "generic savage nature",
+      "devour alone",
+      "Modern Jund midrange",
+      "Naya behemoth community",
+      "Grixis death necromancy",
+      "Gruul civilization rejection",
+      "Rakdos spectacle",
+      "Golgari rot",
+      "Witherbloom life-drain",
+      "Riveteers family labor",
+      "manual-fill lore as proof"
+    ],
+    "strengthen_when_user_centers": [
+      "Red-centered self-truth",
+      "gut instinct",
+      "emotion as guide",
+      "appetite as self-advocacy",
+      "unrestrained instinct",
+      "freedom with consequence",
+      "White and Blue absence at design scope",
+      "anti-flattening boundary"
+    ],
+    "collision_suppressions": [
+      "naya_same_rg_not_jund",
+      "grixis_black_red_without_green_instinct",
+      "gruul_red_green_without_black_appetite",
+      "rakdos_black_red_without_green_instinct",
+      "golgari_black_green_without_red_center",
+      "witherbloom_life_drain_not_jund",
+      "riveteers_brg_not_jund",
+      "modern_jund_midrange_not_canon"
+    ],
+    "false_positive_guardrail": "Do not treat support-only mechanics, Commander/operator rows, manual-fill lore, comparator factions, or color composition alone as Jund evidence.",
+    "smoke_test_note": "VM-186 wires Jund into generated placement data as a controlled live pilot through the approved build path."
+  },
+  "collision_guidance": [
+    {
+      "collision_id": "collision_jund_gruul",
+      "against": "gruul_clans",
+      "separator": "Jund shares Red-Green force, but Jund feeds instinct through Black appetite and consequence; Gruul centers civilization rejection and boundary-breaking.",
+      "ask": "Is the move about feeding an instinct with a cost, or breaking a boundary because the boundary itself is false?",
+      "claim_ids": [
+        "jund_claim_0003",
+        "jund_claim_0005",
+        "jund_claim_0006",
+        "jund_claim_0007",
+        "jund_claim_0010"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "collision_id": "collision_jund_grixis",
+      "against": "grixis",
+      "separator": "Jund shares Black-Red danger, but replaces Blue calculation with Green instinct and keeps Red self-truth as the center.",
+      "ask": "Is the answer moving from bodily instinct and appetite, or from a calculated map of weakness?",
+      "claim_ids": [
+        "jund_claim_0002",
+        "jund_claim_0003",
+        "jund_claim_0007",
+        "jund_claim_0009",
+        "jund_claim_0010"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "collision_id": "collision_jund_witherbloom",
+      "against": "witherbloom",
+      "separator": "Jund may use drain or sacrifice as support-only gameplay texture; Witherbloom centers life exchange, pest ecology, and metabolic loops.",
+      "ask": "Is drain a consequence of appetite and pressure, or is life exchange itself the whole economy?",
+      "claim_ids": [
+        "jund_claim_0005",
+        "jund_claim_0006",
+        "jund_claim_0010"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "collision_id": "collision_jund_naya_note_draft",
+      "against": "naya",
+      "separator": "Jund and Naya share Red-Green motion, but Jund centers Red self-truth fed by Black appetite while Naya centers Green living abundance, awe, and the communal whole.",
+      "ask": "Is the pressure hungry and consequence-bearing, or is it protective awe for the living whole?",
+      "claim_ids": [
+        "jund_claim_0002",
+        "jund_claim_0005",
+        "jund_claim_0006",
+        "jund_claim_0007",
+        "jund_claim_0010"
+      ],
+      "confidence": "Medium",
+      "notes": "Draft separator note only; VM-191 does not add Naya as a Jund lateral inhibition target."
+    }
+  ]
+}

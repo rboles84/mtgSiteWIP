@@ -339,6 +339,9 @@ function cleanOracleSnippet(value) {
  * @returns {string} Plain-language search phrase.
  */
 function assemblePhrase(parts, unhandled) {
+  const exactCommander = exactCommanderPhrase(parts);
+  if (exactCommander && !unhandled.length) return exactCommander;
+
   const segments = [];
   if (parts.colors.length) segments.push(joinHuman(parts.colors));
   if (parts.types.length) segments.push(joinHuman(parts.types));
@@ -352,6 +355,48 @@ function assemblePhrase(parts, unhandled) {
   if (!segments.length && unhandled.length) return "";
   if (unhandled.length) segments.push(`plus ${unhandled.map(describeUnhandledTerm).join(" ")}`);
   return segments.join(" ").replace(/\s+/g, " ").trim();
+}
+
+function exactCommanderPhrase(parts) {
+  if (parts.colors.length !== 1 || parts.types.length !== 1) return "";
+  if (!/^exactly .+ commander identity$/i.test(parts.colors[0])) return "";
+  if (parts.types[0] !== "commander candidates") return "";
+
+  const identityWords = hyphenatedIdentityWords(parts.colors[0]
+    .replace(/^exactly\s+/i, "")
+    .replace(/\s+commander identity$/i, ""));
+  const identityName = shardNameForIdentityWords(identityWords);
+  const commanderText = identityName
+    ? `${identityName} commanders with exactly ${identityWords} identity`
+    : `Commanders with exactly ${identityWords} identity`;
+  const tail = [
+    parts.oracle.length ? joinHuman(parts.oracle) : "",
+    parts.flavor.length ? joinHuman(parts.flavor) : "",
+    parts.exclusions.length ? joinHuman(parts.exclusions) : "",
+    parts.formats.length ? joinHuman(parts.formats) : "",
+    parts.rarities.length ? joinHuman(parts.rarities) : "",
+    parts.mana.length ? joinHuman(parts.mana) : "",
+    parts.keywords.length ? `with ${joinHuman(parts.keywords)}` : "",
+  ].filter(Boolean).join(" ");
+  return [commanderText, tail].filter(Boolean).join(" ").replace(/\s+/g, " ").trim();
+}
+
+function hyphenatedIdentityWords(identityWords) {
+  return String(identityWords || "")
+    .toLowerCase()
+    .replace(/,\s+and\s+/g, "-")
+    .replace(/\s+and\s+/g, "-")
+    .replace(/,\s*/g, "-");
+}
+
+function shardNameForIdentityWords(identityWords) {
+  return ({
+    "white-blue-green": "Bant",
+    "white-blue-black": "Esper",
+    "blue-black-red": "Grixis",
+    "black-red-green": "Jund",
+    "white-red-green": "Naya",
+  })[String(identityWords || "").toLowerCase()] || "";
 }
 
 /**

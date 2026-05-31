@@ -54,9 +54,9 @@ const cases = [
     expected: "black and red commander identity creature cards commander legal common mana value 2 or less"
   },
   {
-    name: "dossier commander candidates",
-    query: "id<=r is:commander f:commander (o:graveyard OR o:sacrifice OR o:draw OR o:token)",
-    expected: "red commander identity commander candidates oracle text containing graveyard, oracle text containing sacrifice, oracle text containing draw, or oracle text containing token commander legal"
+    name: "dossier exact Grixis commander candidates",
+    query: "id=ubr is:commander f:commander (o:discard OR o:\"hand attack\" OR o:sacrifice OR o:\"sac outlets\" OR o:aggro OR o:aggressive OR o:control OR o:permission)",
+    expected: "Grixis commanders with exactly blue-black-red identity oracle text containing discard, oracle text containing hand attack, oracle text containing sacrifice, oracle text containing sac outlets, oracle text containing aggro, oracle text containing aggressive, oracle text containing control, or oracle text containing permission commander legal"
   },
   {
     name: "dossier support excludes commanders and lands",

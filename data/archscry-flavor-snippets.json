@@ -6,7 +6,7 @@
       "data/scryfall/indexes/card-flavor-index.json"
     ],
     "text_policy": "Uses committed short flavor excerpts only; no flavor text is invented or paraphrased.",
-    "faction_count": 21
+    "faction_count": 25
   },
   "snippets": {
     "B": [
@@ -113,6 +113,32 @@
         "source_type": "matched_card"
       }
     ],
+    "ESPER": [
+      {
+        "faction_key": "ESPER",
+        "card_name": "Aven Trailblazer",
+        "flavor_excerpt": "\"The bird wore the form of a man, bereft of filigree. Why do the Texts not speak of it?\" —Belator of Esper",
+        "scryfall_uri": "https://scryfall.com/card/con/4/aven-trailblazer?utm_source=api",
+        "source_index": "card-flavor-index",
+        "source_type": "matched_card"
+      },
+      {
+        "faction_key": "ESPER",
+        "card_name": "Countersquall",
+        "flavor_excerpt": "Each of the twenty-three winds of Esper is named and chronicled, and every possible interaction with the flow of magi...",
+        "scryfall_uri": "https://scryfall.com/card/uma/198/countersquall?utm_source=api",
+        "source_index": "card-flavor-index",
+        "source_type": "matched_card"
+      },
+      {
+        "faction_key": "ESPER",
+        "card_name": "Court Homunculus",
+        "flavor_excerpt": "Mages of Esper measure their wealth and status by the number of servants in their retinues.",
+        "scryfall_uri": "https://scryfall.com/card/mm2/13/court-homunculus?utm_source=api",
+        "source_index": "card-flavor-index",
+        "source_type": "matched_card"
+      }
+    ],
     "G": [
       {
         "faction_key": "G",
@@ -139,6 +165,58 @@
         "source_type": "matched_commander"
       }
     ],
+    "GRIXIS": [
+      {
+        "faction_key": "GRIXIS",
+        "card_name": "Agony Warp",
+        "flavor_excerpt": "Life's circle has become inverted in Grixis. The same energy is endlessly recycled and becomes more stagnant with eac...",
+        "scryfall_uri": "https://scryfall.com/card/2x2/168/agony-warp?utm_source=api",
+        "source_index": "card-flavor-index",
+        "source_type": "matched_card"
+      },
+      {
+        "faction_key": "GRIXIS",
+        "card_name": "Blightning",
+        "flavor_excerpt": "While the smell of burning flesh is common in Grixis, the odor of smoldering brain matter is a rare treat.",
+        "scryfall_uri": "https://scryfall.com/card/a25/198/blightning?utm_source=api",
+        "source_index": "card-flavor-index",
+        "source_type": "matched_card"
+      },
+      {
+        "faction_key": "GRIXIS",
+        "card_name": "Brainbite",
+        "flavor_excerpt": "An Esper mage will leave a hole in your memory with surgical precision. A Grixis mage sees no reason to be so kind.",
+        "scryfall_uri": "https://scryfall.com/card/arb/18/brainbite?utm_source=api",
+        "source_index": "card-flavor-index",
+        "source_type": "matched_card"
+      }
+    ],
+    "JUND": [
+      {
+        "faction_key": "JUND",
+        "card_name": "Broodmate Tyrant",
+        "flavor_excerpt": "Karrthus was not the first Tyrant of Jund, nor will he be the last.",
+        "scryfall_uri": "https://scryfall.com/card/m3c/71/broodmate-tyrant?utm_source=api",
+        "source_index": "card-flavor-index",
+        "source_type": "matched_card"
+      },
+      {
+        "faction_key": "JUND",
+        "card_name": "Charnelhoard Wurm",
+        "flavor_excerpt": "Jund's dragons hoard only sangrite crystals. Its wurms aren't so picky.",
+        "scryfall_uri": "https://scryfall.com/card/c18/171/charnelhoard-wurm?utm_source=api",
+        "source_index": "card-flavor-index",
+        "source_type": "matched_card"
+      },
+      {
+        "faction_key": "JUND",
+        "card_name": "Algae Gharial",
+        "flavor_excerpt": "It lurks just under the surface, using the algae-choked tar pits of Jund as both home and hunting blind.",
+        "scryfall_uri": "https://scryfall.com/card/mm2/137/algae-gharial?utm_source=api",
+        "source_index": "card-flavor-index",
+        "source_type": "matched_card"
+      }
+    ],
     "LOREHOLD": [
       {
         "faction_key": "LOREHOLD",
@@ -163,6 +241,32 @@
         "scryfall_uri": "https://scryfall.com/card/dsk/208/arabella-abandoned-doll?utm_source=api",
         "source_index": "commander-index",
         "source_type": "matched_commander"
+      }
+    ],
+    "NAYA": [
+      {
+        "faction_key": "NAYA",
+        "card_name": "Ajani's Mantra",
+        "flavor_excerpt": "\"He hasn't returned to the Cloud Forest. But I can still sense his calming presence.\" —Zaliki of Naya",
+        "scryfall_uri": "https://scryfall.com/card/ddh/22/ajanis-mantra?utm_source=api",
+        "source_index": "card-flavor-index",
+        "source_type": "matched_card"
+      },
+      {
+        "faction_key": "NAYA",
+        "card_name": "Bull Cerodon",
+        "flavor_excerpt": "It holds motionless vigil, watching Naya in silence through the screen of the whitecover. When it senses anything ami...",
+        "scryfall_uri": "https://scryfall.com/card/hop/84/bull-cerodon?utm_source=api",
+        "source_index": "card-flavor-index",
+        "source_type": "matched_card"
+      },
+      {
+        "faction_key": "NAYA",
+        "card_name": "Cavern Thoctar",
+        "flavor_excerpt": "Natives of Naya know better than to loiter near the mouth of a cave. Two glowing red eyes and the stench of foul brea...",
+        "scryfall_uri": "https://scryfall.com/card/ala/125/cavern-thoctar?utm_source=api",
+        "source_index": "card-flavor-index",
+        "source_type": "matched_card"
       }
     ],
     "PRISMARI": [

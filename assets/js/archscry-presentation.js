@@ -1,6 +1,6 @@
 import {
-  getColorIdentity,
   getCommanderFactionGuidance,
+  getExternalDeckRoutingAlias,
 } from "./commander-dossier.js";
 import {
   buildDossierMazePathEntries,
@@ -231,6 +231,76 @@ export const FACTION_PRESENTATION = {
     forkQuestion: "What must be spent so the living engine keeps working?",
     direction: "moves downward into essence, body, and exchange",
   },
+  BANT: {
+    shortName: "Bant",
+    tableRole: "The supported champion",
+    opponentRead: "Opponents feel the deck choosing one line, protecting it carefully, and making every support piece look like public trust made visible.",
+    emotionalPressure: "Pressure through honor, refinement, protection, and the question of whether strength can remain worthy while others stand behind it.",
+    loreRole: "Alara shard context read through source-grounded White-centered order, Blue refinement, Green belonging, sigils, exalted support, and communal honor",
+    mechanics: "Exalted, auras, equipment, blink, ETB value, enchantress, Clues, counters, and protection as Commander support texture, not new lore-canon claims",
+    tableExperience: "one protected champion, refined support, living order, and communal trust becoming visible pressure",
+    thesis: "Bant read your answers as strength that wants to stay answerable. White sets the public standard, Blue refines the line of action, and Green keeps that line alive through belonging and support.",
+    closeReason: "public honor, refined protection, living support, communal trust, and champion responsibility",
+    forkQuestion: "What strength remains worthy when a whole community stands behind it?",
+    direction: "moves toward protected excellence, public trust, and Commander expression",
+    selfCheck: "This may fit if you want a Commander deck that chooses a worthy threat or board plan, surrounds it with support, protects it carefully, and makes excellence feel accountable to the whole.",
+  },
+  ESPER: {
+    shortName: "Esper",
+    tableRole: "The system refiner",
+    opponentRead: "Opponents feel the deck making the future smaller and cleaner: cards turn into options, options turn into answers, and answers arrive exactly when the table thought it had room.",
+    emotionalPressure: "Pressure through precision, planning, information advantage, and the sense that the game is being redesigned while it is still happening.",
+    loreRole: "Alara shard context read through source-grounded Blue-centered perfectibility, White ordered improvement, and Black focused control",
+    mechanics: "Control, card advantage, library setup, artifacts, lifegain, reanimation value, tokens, and evasive pressure as Commander support texture for planned refinement and controlled change",
+    tableExperience: "careful setup, protected engines, clean answers, and a future that narrows as Esper understands the table",
+    thesis: "Esper read your answers as potential waiting for a better design. Blue looks for the pattern, White gives improvement a structure, and Black makes information useful enough to control the outcome.",
+    closeReason: "perfectibility, planning, structured optimization, information advantage, and designed control",
+    forkQuestion: "What would change if the system became legible enough to redesign?",
+    direction: "moves toward planned refinement, controlled change, and Commander expression",
+    selfCheck: "This may fit if you want a Commander deck that sets up carefully, keeps answers ready, and turns knowledge into advantage before the table realizes its best line has narrowed.",
+  },
+  GRIXIS: {
+    shortName: "Grixis",
+    tableRole: "The survival strategist",
+    opponentRead: "Opponents feel the deck measuring weak points, preserving the answer that matters, and taking the opening before the table can close it.",
+    emotionalPressure: "Pressure through scarcity, calculation, urgency, and the feeling that every delayed answer becomes someone else's leverage.",
+    loreRole: "Alara shard context read through source-grounded Black-centered survival, Blue calculation, and Red immediacy",
+    mechanics: "Removal, discard, sacrifice, recursion, card draw, and spell pressure as Commander support texture, not lore-canon proof or the whole identity",
+    tableExperience: "survival control, calculated leverage, and urgent openings that make each answer feel spent for a reason",
+    thesis: "Grixis read you as someone who survives by seeing the weak point before the room admits it exists. Black keeps the self alive, Blue finds the leverage, and Red moves before the opening closes.",
+    closeReason: "survival, self-advocacy, calculated leverage, urgency, and volatility under pressure",
+    forkQuestion: "What opening must be taken before it closes?",
+    direction: "moves toward survival, leverage, and immediate Commander expression",
+    selfCheck: "This may fit if you want a Commander deck that treats removal, discard, recursion, sacrifice, and spell pressure as tools for staying alive and converting one narrow opening into control of the table.",
+  },
+  JUND: {
+    shortName: "Jund",
+    tableRole: "The appetite engine",
+    opponentRead: "Opponents feel the deck as pressure made visible: the board asks what they can survive before they know which piece matters most.",
+    emotionalPressure: "Pressure through instinct, appetite, survival, and consequences that arrive before the table finishes bargaining.",
+    loreRole: "Alara shard, Red-centered self-truth, Black appetite, Green instinct, and consequence under pressure",
+    mechanics: "Combat, sacrifice, graveyard value, counters, damage, and resource conversion as mechanical echoes, not lore-canon examples",
+    tableExperience: "pressure becoming visible through attacks, spent resources, graveyards, and consequences that force the table to show what it can survive",
+    thesis: "The blood knows before the mind can bargain. Jund treats feeling as a compass: Red supplies self-truth and action, Black honors appetite and self-interest, and Green strips away overthinking until instinct can move.",
+    closeReason: "instinct, appetite, self-truth, survival, pressure, and consequence",
+    forkQuestion: "What instinct is worth feeding?",
+    direction: "moves toward appetite, consequence, and Commander expression",
+    selfCheck: "This may fit if you want a Commander deck that acts from pressure instead of waiting for permission: attacking, feeding resources, forcing blocks, using the graveyard, and accepting consequences as part of the plan.",
+  },
+  NAYA: {
+    shortName: "Naya",
+    tableRole: "The living-world guardian",
+    opponentRead: "Opponents feel the deck as a protected board becoming a habitat: mana grows, creatures gather, and scale turns belonging into pressure.",
+    emotionalPressure: "Pressure through abundance, instinct, protection, and the sense that the whole living world is moving at once.",
+    loreRole: "Alara shard, Green-centered living abundance, White care for the whole, Red instinct, and belonging inside a larger natural world",
+    mechanics: "Ramp, protection, creature engines, tokens, counters, lands, and combat texture as support-only ways to show abundance, instinct, and creature-forward scale",
+    tableExperience: "grow mana, guard the living whole, build a protected board, and let creature-forward scale make the table answer abundance",
+    thesis: "Naya read your answers as life becoming relation before it becomes force. Green supplies growth and place, White keeps the larger whole in view, and Red makes protection immediate enough to move when the bond is threatened.",
+    closeReason: "abundance, living world belonging, protected board growth, creature-forward scale, instinct, and care for the whole",
+    forkQuestion: "When growth becomes immense, what keeps it faithful to the living whole?",
+    direction: "moves toward belonging, instinctive care, and Commander expression",
+    selfCheck: "This may fit if you want a Commander deck that grows mana, protects a living board, and turns creature-forward scale into pressure without losing the bond that holds the whole together.",
+  },
 };
 
 function normalizeCardName(value) {
@@ -349,6 +419,14 @@ export function buildContrastCopy(primaryFaction, adjacentFaction) {
 
   if (primaryFaction.key === "WR" && adjacentFaction.key === "BG") {
     return "Both recognize harm and grievance. Boros asks: \"What line was crossed, and who must answer for it?\" Golgari asks: \"What can be reclaimed from what was lost?\" Boros moves outward into intervention. Golgari moves downward into endurance and recursion.";
+  }
+
+  if (primaryFaction.key === "JUND" && adjacentFaction.key === "RG") {
+    return "Both paths recognize pressure, instinct, and refusal, but they solve them differently. Jund asks: \"What instinct is worth feeding?\" Gruul asks: \"What boundary deserves to be broken?\" Jund moves toward appetite, consequence, and Commander expression. Gruul moves toward impact, refusal, and the force of breaking through.";
+  }
+
+  if (primaryFaction.key === "RG" && adjacentFaction.key === "JUND") {
+    return "Both paths recognize pressure, instinct, and refusal, but they solve them differently. Gruul asks: \"What boundary deserves to be broken?\" Jund asks: \"What instinct is worth feeding?\" Gruul moves toward impact, refusal, and the force of breaking through. Jund moves toward appetite, consequence, and Commander expression.";
   }
 
   return `Both paths recognized the same tension, but they solve it differently. ${primary.shortName} asks: "${primary.forkQuestion}" ${adjacent.shortName} asks: "${adjacent.forkQuestion}" ${primary.shortName} ${primary.direction}; ${adjacent.shortName} ${adjacent.direction}.`;
@@ -569,17 +647,20 @@ export function withArchscryMazeContext(links = [], context, origin = "http://lo
 }
 
 export function buildPersonalizedMazePaths({ faction, tagRefs, taxonomy }) {
-  const identity = getColorIdentity(faction?.colors || faction?.key || "").toLowerCase() || "c";
+  const identity = getExternalDeckRoutingAlias(faction).colorIdentity.toLowerCase() || "c";
   const oracleTerms = queryTermsForTags(tagRefs, taxonomy, "o");
   const flavorTerms = [
     ...queryTermsForTags(tagRefs.filter((ref) => ref.category === "identity" || ref.category === "lore-tone"), taxonomy, "ft"),
   ];
+  const factionKey = String(faction?.key || "").toUpperCase();
 
   return buildDossierMazePathEntries({
     identity,
     factionName: faction?.name || "this reading",
     oracleTerms,
-    flavorTerms
+    flavorTerms,
+    identityHint: factionKey === "JUND" ? "Jund" : factionKey === "NAYA" ? "Naya" : "",
+    includeOutsideColorStretch: !["GRIXIS", "JUND", "NAYA"].includes(factionKey)
   }).map((entry) => buildMazeSearchLink({
     label: entry.label,
     query: entry.query,

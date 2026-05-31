@@ -1,0 +1,223 @@
+{
+  "schema_version": "1.0.0",
+  "faction_id": "esper",
+  "faction_name": "Esper",
+  "last_updated": "2026-05-31",
+  "changes": [
+    {
+      "change_id": "esper_change_001",
+      "change_type": "VM-166 Initial Source-Only Raw Packet",
+      "change_date": "2026-05-30",
+      "summary": "Created Esper's authored-but-not-live raw-faction packet from VM-163 evidence and VM-165 evidence-bound architecture language while preserving all manual-fill and runtime boundaries.",
+      "sources_added": [
+        "src_vm_esper_source_ledger_20260529",
+        "src_vm_esper_evidence_ledger_20260529",
+        "src_vm_esper_research_dossier_20260529",
+        "src_vm_esper_reliability_audit_20260529",
+        "src_vm_esper_manual_fill_20260529",
+        "src_wotc_rosewater_esper_striving_for_perfection",
+        "src_vm_canon_inventory_three_color_audit_20260528",
+        "src_vm_esper_identity_md_20260529",
+        "src_vm_esper_metaphysics_md_20260529",
+        "src_vm_esper_lore_source_packet_20260529",
+        "src_alara_shards_lore_dossier_protocol_rtf",
+        "src_vm_cross_color_dynamics_20260529",
+        "src_vm_wub_commander_jsonl_20260529"
+      ],
+      "sources_updated": [],
+      "claims_added": [
+        "esper_claim_0001",
+        "esper_claim_0002",
+        "esper_claim_0003",
+        "esper_claim_0004",
+        "esper_claim_0005",
+        "esper_claim_0006",
+        "esper_claim_0007",
+        "esper_claim_0008",
+        "esper_claim_0009"
+      ],
+      "claims_updated": [],
+      "claims_superseded": [],
+      "claims_contradicted": [],
+      "profile_fields_updated": [
+        "site_surface",
+        "core_identity",
+        "structure",
+        "great_tension",
+        "historical_timeline",
+        "key_figures",
+        "canonical_flavor_text",
+        "views_on_other_factions",
+        "mechanics",
+        "search_and_filter_metadata",
+        "data_quality",
+        "research_limitations",
+        "commander_compass"
+      ],
+      "placement_fields_updated": [
+        "placement_summary",
+        "moral_and_psychological_profile",
+        "placement_axes",
+        "core_values",
+        "behavioral_signals",
+        "inhibitor_traits",
+        "good_fit_indicators",
+        "ideal_fit_indicators",
+        "poor_fit_indicators",
+        "discriminator_questions",
+        "chatbot_guidance",
+        "placement_quality",
+        "color_identity",
+        "calibration_tuning",
+        "collision_guidance"
+      ],
+      "manual_review_required": [
+        "Keep geography and named locations, including Vectis and Tidehollow, as deferred topics.",
+        "Keep society, classes, institutions, Ethersworn, Seekers, and Noble Work as deferred topics.",
+        "Keep etherium, Carmot, Sangrite, Crucius, and metallurgy details as deferred topics.",
+        "Keep figure-specific claims about Sharuum, Tezzeret, Silas Renn, Breya, Agatha, Sydri, or related figures as deferred topics.",
+        "Keep Conflux, post-Conflux, and post-Phyrexian chronology as deferred topics.",
+        "Keep card-text-derived claims and exact flavor text deferred."
+      ],
+      "notes": "Historical VM-166 status: this initial packet intentionally left placement_axes empty, kept Esper pre-promotion and placement-ineligible at that time, did not edit builder/runtime/generated/schema/route/Home/Maze/Supabase surfaces, and did not add ESPER or WUB as a key or raw-to-key target."
+    },
+    {
+      "change_id": "esper_change_002",
+      "change_type": "VM-167 Controlled Runtime Promotion",
+      "change_date": "2026-05-30",
+      "summary": "Promoted Esper from the VM-166 raw packet into the live ESPER placement expression key while preserving WUB as metadata only and keeping Home preview disabled.",
+      "sources_added": [],
+      "sources_updated": [
+        "src_vm_esper_lore_source_packet_20260529"
+      ],
+      "claims_added": [],
+      "claims_updated": [],
+      "claims_superseded": [],
+      "claims_contradicted": [],
+      "profile_fields_updated": [
+        "profile_version",
+        "site_surface.runtime_status",
+        "site_surface.placement_status",
+        "site_surface.preview_eligible",
+        "data_quality.source_packet_review_status",
+        "data_quality.runtime_promotion_status",
+        "research_limitations",
+        "commander_compass.merge_notes.runtime_status"
+      ],
+      "placement_fields_updated": [
+        "placement_profile_version",
+        "placement_summary",
+        "placement_quality.placement_eligible",
+        "placement_quality.calibration_tuning_status",
+        "placement_quality.last_placement_ready_pass",
+        "calibration_tuning",
+        "collision_guidance"
+      ],
+      "manual_review_required": [
+        "Keep expanded Esper lore out of raw claims and live routing until a later evidence-reconciliation card promotes it.",
+        "Keep WUB metadata-only; ESPER is the live expression key.",
+        "Keep Home preview disabled until a separate Home-preview card changes that rule."
+      ],
+      "notes": "VM-167 intentionally trims live collision guidance to active targets only: Azorius, Dimir, Orzhov, and Bant. Grixis, Jund, and Naya are omitted because they are not live placement targets and would normalize to null in generated collision guidance."
+    },
+    {
+      "change_id": "esper_change_003",
+      "change_type": "VM-171 Post-Promotion Lore Reconciliation",
+      "change_date": "2026-05-30",
+      "summary": "Reconciled stale pre-live wording after VM-167, restored the active Esper research packet path to docs/research/esper/, and preserved detailed lore as source-bound/deferred rather than routing evidence.",
+      "sources_added": [],
+      "sources_updated": [
+        "src_vm_esper_lore_source_packet_20260529"
+      ],
+      "claims_added": [],
+      "claims_updated": [],
+      "claims_superseded": [],
+      "claims_contradicted": [],
+      "profile_fields_updated": [
+        "views_on_other_factions.notes",
+        "search_and_filter_metadata.live_identity_note",
+        "data_quality.manual_review_required"
+      ],
+      "placement_fields_updated": [
+        "moral_and_psychological_profile.summary",
+        "core_values",
+        "behavioral_signals",
+        "chatbot_guidance.how_to_recognize_match",
+        "chatbot_guidance.review_note"
+      ],
+      "manual_review_required": [
+        "Keep geography, institutions, material lore, figures, chronology, and exact card text out of raw claims and live routing until a later evidence-promotion card approves them.",
+        "Keep WUB metadata-only; ESPER remains the live expression key.",
+        "Keep placement scoring, Hall prompts, Home preview, routes, and runtime key structure unchanged."
+      ],
+      "notes": "VM-171 is status cleanup and boundary reconciliation only. It does not add new Esper lore claims, named figures, placement axes, numeric scores, or generated keys."
+    },
+    {
+      "change_id": "esper_change_004",
+      "change_type": "VM-195 Live Parity And Archscry Text Hardening",
+      "change_date": "2026-05-31",
+      "summary": "Hardened Esper's Commander-facing product copy and support metadata after live promotion while preserving ESPER as the live key and WUB as color-direction/query metadata only.",
+      "sources_added": [],
+      "sources_updated": [],
+      "claims_added": [],
+      "claims_updated": [],
+      "claims_superseded": [],
+      "claims_contradicted": [],
+      "profile_fields_updated": [
+        "site_surface.short_summary",
+        "site_surface.primary_tags",
+        "site_surface.visual_keywords",
+        "mechanics.summary",
+        "search_and_filter_metadata.related_terms_source_bound",
+        "search_and_filter_metadata.non_runtime_search_keywords",
+        "commander_compass"
+      ],
+      "placement_fields_updated": [],
+      "manual_review_required": [
+        "Keep WUB as internal color-direction/query language, not a public identity label or generated key.",
+        "Keep Commander rows as product/operator support rather than Esper canon proof.",
+        "Keep named figures, locations, metallurgy, chronology, and exact card text out of raw claims and live routing."
+      ],
+      "notes": "VM-195 adds exact-color Commander support and polished display language only. It does not change placement scoring, Hall prompts, Home preview, routes, Maze behavior, raw claims, or source tiers."
+    }
+  ],
+  "audit_summary": {
+    "faction_researched": "Esper",
+    "plane_or_setting": "Alara",
+    "number_of_sources_reviewed": 13,
+    "number_of_official_sources_used": 1,
+    "number_of_local_research_sources_used": 8,
+    "number_of_secondary_or_support_sources_used": 4,
+    "number_of_raw_claims_authored": 9,
+    "number_of_claims_marked_limited": 0,
+    "sections_with_limited_evidence": [
+      "geography and named locations",
+      "society, classes, institutions, Ethersworn, Seekers, and Noble Work",
+      "etherium, Carmot, Sangrite, Crucius, and metallurgy details",
+      "named figure histories",
+      "Conflux, post-Conflux, and post-Phyrexian chronology",
+      "card-text-derived claims and exact flavor text",
+      "future placement calibration"
+    ],
+    "conflicting_sources_found": [],
+    "assumptions_removed_during_validation": [
+      "Esper becomes live only as ESPER after VM-167.",
+      "WUB remains metadata only.",
+      "WUB is not added as a live expression key, placement key, registry key, generated key, alias, fixture key, or raw-to-key target.",
+      "Commander/operator rows do not support canon claims.",
+      "Manual-fill topics do not support raw claims.",
+      "Placement axes remain empty in VM-167."
+    ],
+    "overall_confidence_rating": "Medium as a review-gated source packet with high-confidence narrow identity/design claims.",
+    "source_packet_review_status": "live_pilot_source_packet",
+    "runtime_promotion_status": "live_pilot",
+    "intentional_omissions": [
+      "No WUB raw-to-key target",
+      "No live domain field",
+      "No Home preview exposure",
+      "No route, Maze, Home UI, or hand-authored Supabase source changes",
+      "No numeric placement axes"
+    ],
+    "structure_comparison_note": "The packet mirrors Bant's five-file raw-packet family and controlled-promotion path as a process reference only. Esper uses ESPER as the live key, keeps WUB metadata-only, preserves empty placement axes, and does not inherit Bant's Home-preview boundary changes."
+  }
+}

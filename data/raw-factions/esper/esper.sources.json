@@ -1,0 +1,174 @@
+{
+  "schema_version": "1.0.0",
+  "faction_id": "esper",
+  "faction_name": "Esper",
+  "source_review_date": "2026-05-30",
+  "last_updated": "2026-05-30",
+  "sources": [
+    {
+      "source_id": "src_vm_esper_source_ledger_20260529",
+      "title": "Esper Source Ledger",
+      "author": "Vox Mana research packet",
+      "publisher_or_site": "Local repository",
+      "publication_date": "2026-05-29",
+      "url_or_repository_path": "docs/research/esper/esper-source-ledger.md",
+      "source_type": "Curated source ledger",
+      "reliability": "Primary local research ledger",
+      "notes": "Defines the Esper source hierarchy, support-only boundaries, manual-fill limits, and Commander/operator-only source policy."
+    },
+    {
+      "source_id": "src_vm_esper_evidence_ledger_20260529",
+      "title": "Esper Evidence Ledger",
+      "author": "Vox Mana research packet",
+      "publisher_or_site": "Local repository",
+      "publication_date": "2026-05-29",
+      "url_or_repository_path": "docs/research/esper/esper-evidence-ledger.md",
+      "source_type": "Curated evidence ledger",
+      "reliability": "Primary local evidence ledger",
+      "notes": "Maps Esper claims to source tiers, confidence/status, promoted/support-only/manual-fill classification, and evidence row IDs."
+    },
+    {
+      "source_id": "src_vm_esper_research_dossier_20260529",
+      "title": "Esper Research Dossier",
+      "author": "Vox Mana research packet",
+      "publisher_or_site": "Local repository",
+      "publication_date": "2026-05-29",
+      "url_or_repository_path": "docs/research/esper/esper-research-dossier.md",
+      "source_type": "Curated research dossier",
+      "reliability": "Primary local synthesis with explicit boundaries",
+      "notes": "Summarizes the conservative Esper identity floor, source limits, and manual-fill queue without making Esper live."
+    },
+    {
+      "source_id": "src_vm_esper_reliability_audit_20260529",
+      "title": "Esper Reliability Audit",
+      "author": "Vox Mana research packet",
+      "publisher_or_site": "Local repository",
+      "publication_date": "2026-05-29",
+      "url_or_repository_path": "docs/research/esper/esper-reliability-audit.md",
+      "source_type": "Reliability audit",
+      "reliability": "Primary local audit",
+      "notes": "Records which Esper topics are promoted, support-only, or manual fill and warns against using draft/presentation artifacts as evidence."
+    },
+    {
+      "source_id": "src_vm_esper_manual_fill_20260529",
+      "title": "Esper Manual Fill",
+      "author": "Vox Mana research packet",
+      "publisher_or_site": "Local repository",
+      "publication_date": "2026-05-29",
+      "url_or_repository_path": "docs/research/esper/esper-manual-fill.md",
+      "source_type": "Manual-fill queue",
+      "reliability": "Limitations ledger only",
+      "notes": "Records deferred Esper topics. It is not raw-claim evidence."
+    },
+    {
+      "source_id": "src_wotc_rosewater_esper_striving_for_perfection",
+      "title": "Striving For Perfection",
+      "author": "Mark Rosewater",
+      "publisher_or_site": "Magic: The Gathering / Making Magic",
+      "publication_date": "Local capture, original date not restated in VM-163 packet",
+      "url_or_repository_path": "docs/research/canon/mark_rosewater_official_three_color/Esper_Striving For Perfection _ Magic_ The Gathering.md",
+      "source_type": "Official Wizards design article capture",
+      "reliability": "Primary / official design commentary",
+      "notes": "Directly read local capture. Supports Esper as white-blue-black, WUB color direction, Blue center/design lens, Blue philosophy, White and Black ally roles, and Red/Green missing-pressure design commentary."
+    },
+    {
+      "source_id": "src_vm_canon_inventory_three_color_audit_20260528",
+      "title": "Canon Inventory and Three-Color Reference Audit",
+      "author": "Codex",
+      "publisher_or_site": "Local repository",
+      "publication_date": "2026-05-28",
+      "url_or_repository_path": "docs/analysis/canon-inventory-three-color-reference-audit.md",
+      "source_type": "Canon inventory and discovery audit",
+      "reliability": "Repository inventory / discovery aid",
+      "notes": "Identifies the official Esper Rosewater file as the primary identity source and records the Alara protocol material as support/discovery context."
+    },
+    {
+      "source_id": "src_vm_esper_identity_md_20260529",
+      "title": "Esper Shard - Perfectibility Through Designed Control",
+      "author": "Vox Mana architecture docs",
+      "publisher_or_site": "Local repository",
+      "publication_date": "2026-05-29",
+      "url_or_repository_path": "docs/architecture/colors/esper/identity.md",
+      "source_type": "Vox Mana architecture doc",
+      "reliability": "Project architecture synthesis from VM-163 evidence",
+      "notes": "May shape profile and placement prose. It is not Magic canon and should not replace direct evidence rows for raw claims."
+    },
+    {
+      "source_id": "src_vm_esper_metaphysics_md_20260529",
+      "title": "Esper Shard Metaphysics - Perfectibility As Designed Form",
+      "author": "Vox Mana architecture docs",
+      "publisher_or_site": "Local repository",
+      "publication_date": "2026-05-29",
+      "url_or_repository_path": "docs/architecture/colors/esper/metaphysics.md",
+      "source_type": "Vox Mana metaphysics doc",
+      "reliability": "Project metaphysics synthesis from VM-163 evidence",
+      "notes": "May shape Vox Mana metaphysical profile fields. It is explicitly not Wizards or MTG canon."
+    },
+    {
+      "source_id": "src_vm_esper_lore_source_packet_20260529",
+      "title": "Esper Lore Source Packet",
+      "author": "Vox Mana research packet",
+      "publisher_or_site": "Local repository",
+      "publication_date": "2026-05-29",
+      "url_or_repository_path": "docs/research/esper/esper-lore-source-packet.md",
+      "source_type": "Compiled research aid",
+      "reliability": "Research aid only",
+      "notes": "Restored active-path research aid and review-bounded support note. VM-171 treats docs/research/esper/ as the canonical packet location. Do not cite this file instead of the evidence ledger for raw claims, and do not use expanded lore as live routing evidence."
+    },
+    {
+      "source_id": "src_alara_shards_lore_dossier_protocol_rtf",
+      "title": "Alara Shards Lore Dossier Protocol",
+      "author": "Local canon packet",
+      "publisher_or_site": "Local repository",
+      "publication_date": "Unknown local capture date",
+      "url_or_repository_path": "docs/research/canon/guild_research/Alara Shards Lore Dossier Protocol.rtf",
+      "source_type": "Alara shard support packet",
+      "reliability": "Support-only unless independently backed by promoted rows",
+      "notes": "May support discovery and topic queues such as artifacts/filigree and shard context. It must not support canon claims in this raw packet without promoted evidence rows."
+    },
+    {
+      "source_id": "src_vm_cross_color_dynamics_20260529",
+      "title": "Cross-Color Dynamics",
+      "author": "Vox Mana architecture docs",
+      "publisher_or_site": "Local repository",
+      "publication_date": "Unknown local authoring date",
+      "url_or_repository_path": "docs/architecture/system/cross-color-dynamics.md",
+      "source_type": "Vox Mana architecture support",
+      "reliability": "Support-only for separator/operator language",
+      "notes": "May shape future separator and operator prose. It is not canon lore evidence."
+    },
+    {
+      "source_id": "src_vm_wub_commander_jsonl_20260529",
+      "title": "Vox Mana Second Commander Recommendations Enhanced",
+      "author": "Vox Mana research workbook export",
+      "publisher_or_site": "Local repository",
+      "publication_date": "2026-05-29",
+      "url_or_repository_path": "docs/research/vox_mana_second_commander_recommendations_enhanced.jsonl",
+      "source_type": "Commander/operator support",
+      "reliability": "Product/operator support only",
+      "notes": "ESP-SRC-006. VM-163 found 10 WUB rows and evidence rows ESPER-013, ESPER-014, and ESPER-015. Use only for Commander/operator and placement-planning fields."
+    }
+  ],
+  "not_used_or_rejected_sources": [
+    {
+      "source_name": "Esper Lore Dossier Generation.md",
+      "reason": "Generated-style scaffold pointing to missing dossier/data files.",
+      "notes": "May inform missing-topic discovery only; not cited as evidence."
+    },
+    {
+      "source_name": "esper_codex.html and esper_lore_codex.html",
+      "reason": "Presentation artifacts, not evidence.",
+      "notes": "May not support raw claims, profile details, placement fields, or live promotion."
+    },
+    {
+      "source_name": "MTG Wiki or other uncaptured web pages",
+      "reason": "Not approved primary authority for VM-166.",
+      "notes": "Manual-fill topics that depend on these sources stay deferred."
+    },
+    {
+      "source_name": "Exact card text and flavor text",
+      "reason": "Not locally promoted in VM-163.",
+      "notes": "Card-text-derived claims remain manual-fill/deferred until separately sourced."
+    }
+  ]
+}

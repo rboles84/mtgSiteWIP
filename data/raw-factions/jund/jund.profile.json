@@ -1,0 +1,787 @@
+{
+  "schema_version": "1.0.0",
+  "profile_version": "0.1.0",
+  "faction_id": "jund",
+  "faction_name": "Jund",
+  "faction_type": "shard",
+  "plane_or_setting": "Alara",
+  "color_identity": [
+    "Black",
+    "Red",
+    "Green"
+  ],
+  "color_pair_or_group": "BRG shard metadata only",
+  "source_review_date": "2026-05-30",
+  "last_full_review": "2026-05-30",
+  "last_incremental_review": "2026-05-30",
+  "last_updated": "2026-05-30",
+  "site_surface": {
+    "display_name": "Jund",
+    "short_summary": "Jund is a VM-186 live-pilot Alara shard expression for Red-centered black-red-green freedom, instinct, appetite, and survival under consequence.",
+    "one_sentence_identity": "Jund asks what the self becomes when feeling, hunger, and instinct are trusted before permission.",
+    "tagline": "Trust the feeling. Feed the hunger. Bear the consequence.",
+    "primary_tags": [
+      "Jund",
+      "Alara",
+      "Shard",
+      "BRG metadata",
+      "Red-centered",
+      "Instinct",
+      "Appetite",
+      "Freedom",
+      "Survival",
+      "Consequence",
+      "Live-pilot",
+      "Placement-eligible"
+    ],
+    "secondary_tags": [
+      "Black-red-green",
+      "Self-truth",
+      "Emotion as guide",
+      "Unrestrained instinct",
+      "Missing White and Blue pressures",
+      "Source-authored",
+      "Review-gated"
+    ],
+    "tone_words": [
+      "raw",
+      "instinctive",
+      "hungry",
+      "embodied",
+      "volatile",
+      "defiant",
+      "alive",
+      "consequence-heavy",
+      "self-true",
+      "unrestrained"
+    ],
+    "visual_keywords": [
+      "red-green-black pressure",
+      "embodied motion",
+      "survival heat",
+      "appetite as compass",
+      "raw impulse",
+      "feral momentum",
+      "consequence marks"
+    ],
+    "best_for": [
+      "readers drawn to Red-centered instinct and self-truth",
+      "players who prefer appetite, pressure, and action under consequence",
+      "reviewers checking that Jund stays separate from Naya, Grixis, Gruul, Rakdos, Golgari, Witherbloom, Riveteers, and Modern Jund"
+    ],
+    "content_warnings_or_sensitivity_notes": [
+      "Jund material can involve survival pressure, appetite, violence-adjacent imagery, and deferred predator/ecology topics. This packet does not narrate detailed story-world claims as current evidence."
+    ],
+    "runtime_status": "live_pilot",
+    "placement_status": "placement_eligible",
+    "preview_eligible": false,
+    "claim_ids": [
+      "jund_claim_0001",
+      "jund_claim_0002",
+      "jund_claim_0003",
+      "jund_claim_0004",
+      "jund_claim_0005",
+      "jund_claim_0006",
+      "jund_claim_0007",
+      "jund_claim_0008",
+      "jund_claim_0009",
+      "jund_claim_0010"
+    ]
+  },
+  "core_identity": {
+    "summary": "Jund is the Red-centered black-red-green Alara shard expression whose safe evidence floor is self-truth, gut instinct, emotion as guide, total freedom with consequences, Black self-interest, Green unrestrained instinct, and the design-level absence of White/Blue pressures.",
+    "philosophy": "Red supplies the center: being true to oneself, following gut instinct, and doing what feels right. Black supports appetite and self-advocacy. Green supports unrestrained instinct and embodied force.",
+    "central_tension": "Vox Mana models Jund's tension as freedom through appetite and instinct drifting into flattening, overconsumption, or mistaking impulse for truth.",
+    "supported_claim_ids": [
+      "jund_claim_0001",
+      "jund_claim_0002",
+      "jund_claim_0003",
+      "jund_claim_0004",
+      "jund_claim_0005",
+      "jund_claim_0006",
+      "jund_claim_0007",
+      "jund_claim_0008",
+      "jund_claim_0009",
+      "jund_claim_0010"
+    ],
+    "interpretive_note": "Central-tension and product-language compression are Vox Mana modeling from VM-176, VM-177, and VM-178. They are not official Wizards or MTG canon.",
+    "unknowns": [
+      "Detailed Jund geography, settlements, named places, species, social structures, and ecology",
+      "Kresh, Meren, Rakka Mar, Karrthus, Sarkhan Vol, and other figure biographies beyond separately verified card facts",
+      "Devour as a whole identity, complete predator ecology, or total social metaphysics",
+      "Conflux and post-Conflux chronology",
+      "Modern Jund midrange culture as anything other than player-format context",
+      "Fine-grained predator hierarchy, dragon rule, volcanic details, or creature ecology"
+    ],
+    "claim_ids": [
+      "jund_claim_0001",
+      "jund_claim_0002",
+      "jund_claim_0003",
+      "jund_claim_0004",
+      "jund_claim_0005",
+      "jund_claim_0006",
+      "jund_claim_0007",
+      "jund_claim_0008",
+      "jund_claim_0009",
+      "jund_claim_0010"
+    ]
+  },
+  "structure": {
+    "summary": "The safe structural floor is narrow: Jund is an Alara shard with BRG color-direction metadata, Red as center/design lens, Black and Green as ally roles, and White/Blue as missing pressures at the design level.",
+    "supported_elements": [
+      "Jund as a black-red-green Alara shard",
+      "BRG as color-direction metadata only",
+      "Red as center/design lens",
+      "Self-truth, gut instinct, and doing what feels right",
+      "Emotion as a primal guide",
+      "Freedom with action and survival consequences",
+      "Black self-interest, personal needs, contentment, and resistance to White constraint",
+      "Green unrestrained instinct, less overthinking, and feral force",
+      "White and Blue as missing pressures at design-philosophy scope only",
+      "Boundary against generic Red violence, savage nature, devour, and Modern Jund"
+    ],
+    "review_gated_elements": [
+      "Commander/operator rows as product support only",
+      "Local Scryfall card facts as future claim-by-claim support only",
+      "Rakdos, Golgari, and Gruul articles as color-philosophy support only",
+      "Naya and Grixis as comparator rails only"
+    ],
+    "manual_review_required": [
+      "Do not narrate detailed geography before stronger local evidence is added.",
+      "Do not narrate figures, rulers, or named story roles before stronger local evidence is added.",
+      "Do not turn devour into the whole identity before stronger local evidence is added.",
+      "Do not narrate Conflux chronology before stronger local evidence is added.",
+      "Do not use Modern Jund midrange as Jund canon or metaphysics."
+    ],
+    "claim_ids": [
+      "jund_claim_0001",
+      "jund_claim_0002",
+      "jund_claim_0003",
+      "jund_claim_0004",
+      "jund_claim_0005",
+      "jund_claim_0006",
+      "jund_claim_0007",
+      "jund_claim_0008",
+      "jund_claim_0009",
+      "jund_claim_0010"
+    ]
+  },
+  "great_tension": {
+    "summary": "Vox Mana models Jund's great tension as appetite and instinct becoming compass: the self gains honesty and motion, but the same pressure can flatten nuance or confuse immediacy with truth.",
+    "placement_relevance": "VM-186 live-pilot placement note. Use only with VM-176 evidence boundaries and without converting support-only Commander, mechanics, or comparator material into claims.",
+    "not_canon_doctrine": true,
+    "claim_ids": [
+      "jund_claim_0003",
+      "jund_claim_0004",
+      "jund_claim_0005",
+      "jund_claim_0006",
+      "jund_claim_0007",
+      "jund_claim_0008",
+      "jund_claim_0010"
+    ]
+  },
+  "historical_timeline": [
+    {
+      "event_id": "event_jund_0001",
+      "event": "Alara's local shard context includes Jund among the shard identities.",
+      "date_or_era": "Alara shard context",
+      "claim_ids": [
+        "jund_claim_0001",
+        "jund_claim_0002"
+      ],
+      "confidence": "High",
+      "notes": "Detailed chronology remains deferred."
+    }
+  ],
+  "key_figures": [],
+  "canonical_flavor_text": [],
+  "views_on_other_factions": [
+    {
+      "faction": "Naya",
+      "relationship_summary": "Vox Mana separator only: Jund should not be replaced by Naya's Green-centered communal/behemoth ecology.",
+      "evidence_type": "VM-176 boundary and VM-178 architecture separator",
+      "claim_ids": [
+        "jund_claim_0002",
+        "jund_claim_0005",
+        "jund_claim_0006",
+        "jund_claim_0007",
+        "jund_claim_0010"
+      ],
+      "confidence": "Medium",
+      "notes": "Not story-world diplomacy."
+    },
+    {
+      "faction": "Grixis",
+      "relationship_summary": "Vox Mana separator only: Jund shares Black/Red danger but replaces Blue calculation with Green instinct and keeps Red as center.",
+      "evidence_type": "VM-176 boundary and VM-178 architecture separator",
+      "claim_ids": [
+        "jund_claim_0002",
+        "jund_claim_0003",
+        "jund_claim_0007",
+        "jund_claim_0009",
+        "jund_claim_0010"
+      ],
+      "confidence": "Medium",
+      "notes": "Not story-world diplomacy."
+    }
+  ],
+  "mechanics": {
+    "summary": "Use devour, sacrifice, graveyard value, lands, counters, tokens, combat pressure, and value engines as support-only mechanical echoes of Jund appetite, survival, and consequence. They are not lore-canon proof, raw claims, or substitutes for the source-bound Red-centered identity floor.",
+    "supported_mechanics": [],
+    "commander_curation_patterns": [
+      {
+        "pattern": "Exact Black/Red/Green Commander rows can provide support-only operator vocabulary around counters, lands, graveyards, sacrifice, tokens, combat pressure, and value engines.",
+        "source_ids": [
+          "src_vm_second_commander_recommendations_brg"
+        ],
+        "notes": "These rows are not Jund canon evidence and do not become raw claims."
+      }
+    ],
+    "source_ids": [
+      "src_vm_jund_source_ledger_20260530",
+      "src_vm_jund_research_dossier_20260530",
+      "src_vm_jund_manual_fill_20260530"
+    ],
+    "notes": "Support-only material must not raise raw-claim confidence, create raw claims, or imply placement readiness."
+  },
+  "search_and_filter_metadata": {
+    "aliases": [
+      "Jund",
+      "black-red-green",
+      "Alara Jund",
+      "Jund shard"
+    ],
+    "related_terms_source_bound": [
+      "Alara",
+      "Shards of Alara context",
+      "Red-centered",
+      "self-truth",
+      "gut instinct",
+      "emotion as guide",
+      "freedom with consequences",
+      "self-interest",
+      "personal needs",
+      "unrestrained instinct",
+      "feral force"
+    ],
+    "known_mechanics": [],
+    "known_characters": [],
+    "known_locations": [],
+    "sets_or_story_arcs": [
+      "Shards of Alara context only"
+    ],
+    "tags": [
+      "shard",
+      "brg-metadata",
+      "red-centered",
+      "instinct",
+      "appetite",
+      "survival",
+      "freedom",
+      "live-pilot",
+      "placement-eligible"
+    ],
+    "notes": "Aliases and related terms support the VM-186 live pilot. BRG remains metadata only and is not an alias surface, route key, fixture key, generated key, public label, or lookup key."
+  },
+  "data_quality": {
+    "source_packet_review_status": "VM-176 reviewed and accepted as the source packet for VM-179 input.",
+    "architecture_review_status": "VM-177 and VM-178 reviewed and accepted as project architecture input only.",
+    "raw_packet_status": "vm186_live_pilot_source_bound",
+    "generation_status": "wired_through_approved_builder_path",
+    "claim_count": 10,
+    "claim_basis": "VM-176 promoted/evidence-bound rows only.",
+    "support_material_policy": "Support-only, manual-fill, discovery-only, Commander/operator, seed, generated HTML, and comparator-only material may appear only in bounded review notes.",
+    "known_limitations": [
+      "No detailed geography or ecology",
+      "No figure biography",
+      "No Conflux chronology",
+      "No devour-as-total-identity claim",
+      "No Modern Jund canon claim",
+      "Commander/operator rows are support-only"
+    ],
+    "claim_ids": [
+      "jund_claim_0001",
+      "jund_claim_0002",
+      "jund_claim_0003",
+      "jund_claim_0004",
+      "jund_claim_0005",
+      "jund_claim_0006",
+      "jund_claim_0007",
+      "jund_claim_0008",
+      "jund_claim_0009",
+      "jund_claim_0010"
+    ]
+  },
+  "research_limitations": {
+    "manual_review_required": true,
+    "deferred_topics": [
+      "Jund geography, settlements, named places, species, social structures, and ecology",
+      "Kresh, Meren, Rakka Mar, Karrthus, Sarkhan Vol, and other figure biographies",
+      "Devour as a whole identity",
+      "Conflux and post-Conflux chronology",
+      "Modern Jund midrange as canon or metaphysics",
+      "Generated HTML or seed-heading claims"
+    ],
+    "excluded_as_raw_claim_evidence": [
+      "Commander/operator rows",
+      "local Scryfall data without claim-by-claim extraction",
+      "color-philosophy support sources",
+      "Naya and Grixis comparator sources",
+      "unmanaged seed files",
+      "generated HTML",
+      "architecture prose"
+    ]
+  },
+  "commander_compass": {
+    "schema_version": "1.0.0",
+    "source_research_file": "docs/research/vox_mana_second_commander_recommendations_enhanced.jsonl",
+    "last_reviewed": "2026-05-30",
+    "review_status": "support_only_live_pilot_curation",
+    "exact_color_set": "Black; Red; Green",
+    "recommendation_philosophy": "Use Jund Commander guidance as product/operator support only: exact Black/Red/Green decks can express instinctive pressure, appetite engines, feral value, sacrifice, graveyard value, lands, counters, tokens, and consequence-bearing combat. These rows do not create Jund canon, geography, story, creature ecology, or raw claims.",
+    "identity_basis": {
+      "owned_themes": [
+        "Red-centered self-truth under pressure",
+        "Black appetite and self-advocacy",
+        "Green unrestrained instinct and embodied force",
+        "resource conversion that makes consequence visible"
+      ],
+      "allowed_phrases": [
+        "Exact Jund color fit",
+        "Exact Black/Red/Green fit",
+        "appetite engines",
+        "instinctive pressure",
+        "feral value",
+        "survival after impact",
+        "consequence-bearing combat"
+      ],
+      "avoid_or_contrast_phrases": [
+        "public color-code match wording",
+        "Jund story validation from Commander rows",
+        "devour as total identity",
+        "Modern Jund midrange as canon",
+        "Riveteers family or labor identity as Jund",
+        "generic savage nature"
+      ],
+      "adjacent_overlap_notes": [
+        "Sacrifice and drain language must stay Jund-side and not become Rakdos spectacle or Witherbloom life-drain doctrine.",
+        "Graveyard and lands language must stay appetite/survival support and not become Golgari lifecycle or Grixis death-world doctrine.",
+        "Combat pressure must stay Red-centered appetite and consequence, not Gruul civilization-rejection or Naya communal/behemoth ecology."
+      ],
+      "supporting_claim_ids": [
+        "jund_claim_0003",
+        "jund_claim_0004",
+        "jund_claim_0005",
+        "jund_claim_0006",
+        "jund_claim_0007",
+        "jund_claim_0008",
+        "jund_claim_0010"
+      ],
+      "supporting_source_ids": [
+        "src_vm_second_commander_recommendations_brg",
+        "src_scryfall_oracle_cards_local",
+        "src_vm_jund_identity_md_20260530",
+        "src_vm_jund_metaphysics_md_20260530"
+      ]
+    },
+    "support_decks": [
+      "Blight Curse",
+      "World Shaper",
+      "Graveyard Overdrive",
+      "Nature's Vengeance",
+      "Power Hungry",
+      "Riveteers Rampage"
+    ],
+    "support_language": [
+      "counters",
+      "lands",
+      "graveyards",
+      "sacrifice",
+      "tokens",
+      "combat pressure",
+      "value engines"
+    ],
+    "native_fit_commanders": [
+      {
+        "exact_card_name": "Prossh, Skyraider of Kher",
+        "display_name": "Prossh, Skyraider of Kher",
+        "scryfall_uri": "https://scryfall.com/card/a25/214/prossh-skyraider-of-kher?utm_source=api",
+        "color_identity": [
+          "B",
+          "R",
+          "G"
+        ],
+        "commander_legal": true,
+        "recommendation_type": "Native Fit Draft",
+        "archetype_tags": [
+          "Sacrifice",
+          "Tokens",
+          "Combat Pressure"
+        ],
+        "why_this_fits": "Power Hungry is an exact Black/Red/Green support deck, and Prossh turns bodies into resources, pressure, and consequence without making sacrifice a canon claim.",
+        "skip_if": "The player wants low-threat table politics, slow control, or Jund story validation rather than appetite-engine gameplay.",
+        "gameplay_summary": "Make bodies, spend bodies, and turn each sacrifice into a clock the table has to answer before the hunger compounds.",
+        "faction_identity_terms": [
+          "appetite",
+          "pressure",
+          "consequence",
+          "resource conversion"
+        ],
+        "source_basis": {
+          "existing_repo_claim_ids": [
+            "jund_claim_0005",
+            "jund_claim_0006",
+            "jund_claim_0008",
+            "jund_claim_0010"
+          ],
+          "existing_repo_source_ids": [
+            "src_vm_second_commander_recommendations_brg",
+            "src_scryfall_oracle_cards_local"
+          ],
+          "supporting_evidence_rows": [
+            "JUND-EVID-016",
+            "JUND-EVID-017"
+          ]
+        },
+        "confidence": "Medium",
+        "caution_notes": [
+          "Product/operator support only; not Jund canon evidence.",
+          "Do not display with public color-code match wording."
+        ],
+        "type_line": "Legendary Creature - Dragon"
+      },
+      {
+        "exact_card_name": "Hearthhull, the Worldseed",
+        "display_name": "Hearthhull, the Worldseed",
+        "scryfall_uri": "https://scryfall.com/card/eoc/1/hearthhull-the-worldseed?utm_source=api",
+        "color_identity": [
+          "B",
+          "R",
+          "G"
+        ],
+        "commander_legal": true,
+        "recommendation_type": "Native Fit Draft",
+        "archetype_tags": [
+          "Lands",
+          "Graveyard",
+          "Resource Conversion"
+        ],
+        "why_this_fits": "World Shaper is an exact Black/Red/Green support deck, and Hearthhull frames lands and graveyard value as spent material returning as pressure.",
+        "skip_if": "The player wants a commander that wins through pure combat speed or a lore-canon Jund figure.",
+        "gameplay_summary": "Let lands, graveyards, and sacrificed resources feed the next turn so survival becomes pressure instead of merely recovery.",
+        "faction_identity_terms": [
+          "survival",
+          "lands",
+          "graveyard value",
+          "appetite with consequence"
+        ],
+        "source_basis": {
+          "existing_repo_claim_ids": [
+            "jund_claim_0005",
+            "jund_claim_0007",
+            "jund_claim_0010"
+          ],
+          "existing_repo_source_ids": [
+            "src_vm_second_commander_recommendations_brg",
+            "src_scryfall_oracle_cards_local"
+          ],
+          "supporting_evidence_rows": [
+            "JUND-EVID-016",
+            "JUND-EVID-017"
+          ]
+        },
+        "confidence": "Medium",
+        "caution_notes": [
+          "Product/operator support only; not Jund canon evidence.",
+          "Keep lands/graveyard copy away from Golgari lifecycle or Grixis death-world doctrine."
+        ],
+        "type_line": "Legendary Artifact - Spacecraft"
+      },
+      {
+        "exact_card_name": "Disa the Restless",
+        "display_name": "Disa the Restless",
+        "scryfall_uri": "https://scryfall.com/card/m3c/1/disa-the-restless?utm_source=api",
+        "color_identity": [
+          "B",
+          "R",
+          "G"
+        ],
+        "commander_legal": true,
+        "recommendation_type": "Native Fit Draft",
+        "archetype_tags": [
+          "Graveyard",
+          "Self-Mill",
+          "Combat Pressure"
+        ],
+        "why_this_fits": "Graveyard Overdrive is an exact Black/Red/Green support deck, and Disa turns discarded or dead material into survival-after-impact pressure.",
+        "skip_if": "The player wants Alaran story figures, pure sacrifice combo, or a deck with no graveyard exposure.",
+        "gameplay_summary": "Stock the graveyard, keep threat density alive, and let what was spent return as force before the table stabilizes.",
+        "faction_identity_terms": [
+          "survival after impact",
+          "graveyard pressure",
+          "feral value",
+          "consequence"
+        ],
+        "source_basis": {
+          "existing_repo_claim_ids": [
+            "jund_claim_0005",
+            "jund_claim_0007",
+            "jund_claim_0010"
+          ],
+          "existing_repo_source_ids": [
+            "src_vm_second_commander_recommendations_brg",
+            "src_scryfall_oracle_cards_local"
+          ],
+          "supporting_evidence_rows": [
+            "JUND-EVID-016",
+            "JUND-EVID-017"
+          ]
+        },
+        "confidence": "Medium",
+        "caution_notes": [
+          "Product/operator support only; not Jund canon evidence.",
+          "Do not treat Disa's non-Jund story context as Jund lore."
+        ],
+        "type_line": "Legendary Creature - Human Scout"
+      }
+    ],
+    "weird_stretch_commanders": [
+      {
+        "exact_card_name": "Henzie \"Toolbox\" Torre",
+        "display_name": "Henzie \"Toolbox\" Torre",
+        "scryfall_uri": "https://scryfall.com/card/ncc/2/henzie-toolbox-torre?utm_source=api",
+        "color_identity": [
+          "B",
+          "R",
+          "G"
+        ],
+        "commander_legal": true,
+        "recommendation_type": "Context-Sensitive Stretch",
+        "archetype_tags": [
+          "Blitz",
+          "Sacrifice",
+          "Big Creatures"
+        ],
+        "why_this_fits": "Riveteers Rampage is exact Black/Red/Green product support, and Henzie can express speed, cost, and temporary pressure when kept away from Riveteers faction doctrine.",
+        "skip_if": "The player is reading Riveteers family, labor, or New Capenna identity as if it were Jund.",
+        "gameplay_summary": "Use temporary threats, haste, and sacrifice timing as pressure tools, then rebuild from the value they leave behind.",
+        "faction_identity_terms": [
+          "pressure",
+          "cost",
+          "temporary force",
+          "support-only BRG operator texture"
+        ],
+        "source_basis": {
+          "existing_repo_claim_ids": [
+            "jund_claim_0005",
+            "jund_claim_0010"
+          ],
+          "existing_repo_source_ids": [
+            "src_vm_second_commander_recommendations_brg",
+            "src_scryfall_oracle_cards_local"
+          ],
+          "supporting_evidence_rows": [
+            "JUND-EVID-016",
+            "JUND-EVID-017"
+          ]
+        },
+        "confidence": "Low",
+        "caution_notes": [
+          "Same-color product support only; Riveteers identity remains a Jund false positive.",
+          "Do not display as a lore-forward Jund recommendation."
+        ],
+        "type_line": "Legendary Creature - Devil Rogue"
+      }
+    ],
+    "budget_friendly_commanders": [
+      {
+        "exact_card_name": "Auntie Ool, Cursewretch",
+        "display_name": "Auntie Ool, Cursewretch",
+        "scryfall_uri": "https://scryfall.com/card/ecc/2/auntie-ool-cursewretch?utm_source=api",
+        "color_identity": [
+          "B",
+          "R",
+          "G"
+        ],
+        "commander_legal": true,
+        "recommendation_type": "Budget-Friendly Draft",
+        "archetype_tags": [
+          "-1/-1 Counters",
+          "Sacrifice",
+          "Attrition"
+        ],
+        "why_this_fits": "Blight Curse is an exact Black/Red/Green support deck where counters, sacrifice, and attrition can read as careful appetite/consequence pressure.",
+        "skip_if": "The player wants the cleanest classic Jund sacrifice engine or dislikes counter-management gameplay.",
+        "gameplay_summary": "Weaken the board, manage the cost, and turn attrition into leverage without claiming counter attrition is Jund canon.",
+        "faction_identity_terms": [
+          "attrition",
+          "appetite",
+          "consequence",
+          "careful pressure"
+        ],
+        "source_basis": {
+          "existing_repo_claim_ids": [
+            "jund_claim_0005",
+            "jund_claim_0006",
+            "jund_claim_0010"
+          ],
+          "existing_repo_source_ids": [
+            "src_vm_second_commander_recommendations_brg",
+            "src_scryfall_oracle_cards_local"
+          ],
+          "supporting_evidence_rows": [
+            "JUND-EVID-016",
+            "JUND-EVID-017"
+          ]
+        },
+        "confidence": "Medium",
+        "caution_notes": [
+          "Product/operator support only; not Jund canon evidence."
+        ],
+        "type_line": "Legendary Creature - Goblin Warlock"
+      }
+    ],
+    "advanced_complexity_commanders": [
+      {
+        "exact_card_name": "Lord Windgrace",
+        "display_name": "Lord Windgrace",
+        "scryfall_uri": "https://scryfall.com/card/c18/43/lord-windgrace?utm_source=api",
+        "color_identity": [
+          "B",
+          "R",
+          "G"
+        ],
+        "commander_legal": true,
+        "recommendation_type": "Advanced Draft",
+        "archetype_tags": [
+          "Lands",
+          "Graveyard",
+          "Card Advantage"
+        ],
+        "why_this_fits": "Nature's Vengeance is an exact Black/Red/Green support deck where land recursion and graveyard value can serve Jund's survival/resource-conversion lane.",
+        "skip_if": "The player wants a simple creature combat deck or wants land recursion treated as Jund story canon.",
+        "gameplay_summary": "Make lands into the engine: discard, recur, replay, and turn the mana base itself into pressure.",
+        "faction_identity_terms": [
+          "lands",
+          "graveyard value",
+          "survival",
+          "resource conversion"
+        ],
+        "source_basis": {
+          "existing_repo_claim_ids": [
+            "jund_claim_0005",
+            "jund_claim_0007",
+            "jund_claim_0010"
+          ],
+          "existing_repo_source_ids": [
+            "src_vm_second_commander_recommendations_brg",
+            "src_scryfall_oracle_cards_local"
+          ],
+          "supporting_evidence_rows": [
+            "JUND-EVID-016",
+            "JUND-EVID-017"
+          ]
+        },
+        "confidence": "Medium",
+        "caution_notes": [
+          "Product/operator support only; not Jund canon evidence.",
+          "Land recursion is a Commander lane, not a new Jund lore claim."
+        ],
+        "type_line": "Legendary Planeswalker - Windgrace"
+      }
+    ],
+    "iconic_lore_forward_commanders": [],
+    "not_recommended_or_deprioritized": [
+      {
+        "name": "Riveteers family/labor identity as Jund lore",
+        "reason": "Riveteers Rampage is exact Black/Red/Green operator support, but New Capenna labor, family, and faction identity remain false positives for Alaran Jund.",
+        "could_still_be_used_if": "The deck is framed as same-color Blitz pressure only and not as Jund canon or lore.",
+        "confidence": "Medium"
+      },
+      {
+        "name": "Modern Jund midrange as identity proof",
+        "reason": "Constructed-format shorthand does not prove Jund setting, metaphysics, or Commander identity.",
+        "could_still_be_used_if": "It appears only as player-culture context and never as canon evidence.",
+        "confidence": "High"
+      },
+      {
+        "name": "Devour as total identity",
+        "reason": "Devour remains support-only/manual-review material and cannot replace the Red-centered self-truth, appetite, instinct, and consequence floor.",
+        "could_still_be_used_if": "It is one mechanical echo inside a broader Jund pressure plan.",
+        "confidence": "High"
+      }
+    ],
+    "archetype_lanes": [
+      {
+        "lane_name": "Instinctive Pressure",
+        "description": "Act from gut truth, make pressure visible, and force the table to answer before comfort becomes a plan.",
+        "recommended_for": "Prossh, Skyraider of Kher; Henzie \"Toolbox\" Torre",
+        "skip_if": "The player wants slow permission control or pressure without consequence.",
+        "example_commanders": [
+          "Prossh, Skyraider of Kher",
+          "Henzie \"Toolbox\" Torre"
+        ],
+        "supporting_identity_terms": [
+          "self-truth",
+          "instinct",
+          "pressure",
+          "action under consequence"
+        ],
+        "complexity": "Medium",
+        "budget_friendliness": "Medium"
+      },
+      {
+        "lane_name": "Appetite Engines",
+        "description": "Turn bodies, counters, sacrifice, and spent resources into momentum that makes every exchange expensive.",
+        "recommended_for": "Prossh, Skyraider of Kher; Auntie Ool, Cursewretch",
+        "skip_if": "The deck becomes generic aristocrats, generic cruelty, or mechanics-as-canon.",
+        "example_commanders": [
+          "Prossh, Skyraider of Kher",
+          "Auntie Ool, Cursewretch"
+        ],
+        "supporting_identity_terms": [
+          "appetite",
+          "self-advocacy",
+          "attrition",
+          "resource conversion"
+        ],
+        "complexity": "Medium",
+        "budget_friendliness": "Medium"
+      },
+      {
+        "lane_name": "Feral Value",
+        "description": "Use lands, graveyards, and Green instinct to keep pressure alive after the first strike.",
+        "recommended_for": "Hearthhull, the Worldseed; Disa the Restless; Lord Windgrace",
+        "skip_if": "The deck is really Golgari lifecycle, Grixis death-world value, or Naya abundance.",
+        "example_commanders": [
+          "Hearthhull, the Worldseed",
+          "Disa the Restless",
+          "Lord Windgrace"
+        ],
+        "supporting_identity_terms": [
+          "survival",
+          "graveyard value",
+          "lands",
+          "feral momentum"
+        ],
+        "complexity": "Medium",
+        "budget_friendliness": "Medium"
+      }
+    ],
+    "link_targets": {
+      "edhrec_commander_index": "https://edhrec.com/commanders/jund",
+      "mtgdecks_color_identity": "https://mtgdecks.net/Commander/jund-commanders",
+      "scryfall_commander_search": "https://scryfall.com/search?q=id%3Dbrg+is%3Acommander+f%3Acommander",
+      "archidekt_color_search": "https://archidekt.com/search/decks?colors=BRG&deckFormat=3&orderBy=-updatedAt&page=1"
+    },
+    "merge_notes": {
+      "product_guidance_not_canon": true,
+      "commander_legality_validated": true,
+      "scryfall_card_pages_validated": true,
+      "do_not_use_as_claim_source": true,
+      "runtime_status": "live_pilot",
+      "vm191_scope": "Archscry placement surface completeness; no raw claims changed."
+    },
+    "notes": "Commander Compass material is product/operator support only. It is not Jund canon evidence, not setting proof, and not raw-claim input."
+  }
+}

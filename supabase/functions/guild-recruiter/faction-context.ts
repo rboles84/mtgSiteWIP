@@ -120,7 +120,8 @@ export const FACTION_CONTEXT = {
       "WG",
       "WR",
       "WB",
-      "SILVERQUILL"
+      "SILVERQUILL",
+      "ESPER"
     ],
     "discriminator_questions": [
       {
@@ -337,7 +338,9 @@ export const FACTION_CONTEXT = {
     "lateral_inhibition_targets": [
       "WU",
       "WG",
-      "UG"
+      "UG",
+      "ESPER",
+      "GRIXIS"
     ],
     "discriminator_questions": [
       {
@@ -347,6 +350,7 @@ export const FACTION_CONTEXT = {
         "supports": "The answer says the champion is worthy because the group can trust, recognize, and stand behind the action.",
         "weakens": "The answer centers private power, raw impulse, abstract optimization, or process alone.",
         "collision_targets": [
+          "NAYA",
           "WU",
           "WG",
           "UG"
@@ -382,6 +386,7 @@ export const FACTION_CONTEXT = {
         "supports": "The answer centers a protected champion or creature/community value engine with visible support.",
         "weakens": "The answer centers largest-threat aggression, pure optimization, or hard locks.",
         "collision_targets": [
+          "NAYA",
           "UG",
           "WU"
         ],
@@ -729,7 +734,9 @@ export const FACTION_CONTEXT = {
     "lateral_inhibition_targets": [
       "RG",
       "PRISMARI",
-      "WR"
+      "WR",
+      "GRIXIS",
+      "JUND"
     ],
     "discriminator_questions": [
       {
@@ -794,6 +801,743 @@ export const FACTION_CONTEXT = {
         "Psychological placement categories are Vox Mana interpretation, not official Wizards canon.",
         "Do not state that a user's personality is objectively determined by a faction.",
         "Placement scoring is a Vox Mana interpretation, not official Wizards canon."
+      ]
+    }
+  },
+  "ESPER": {
+    "name": "Esper",
+    "institution_type": "shard",
+    "world": "Alara",
+    "colors": [
+      "W",
+      "U",
+      "B"
+    ],
+    "layered_identity": {
+      "core_color": "U",
+      "secondary_colors": [
+        "W",
+        "B"
+      ],
+      "secondary_color": "W",
+      "expression_key": "ESPER",
+      "expression_name": "Esper",
+      "expression_kind": "shard",
+      "purity": null,
+      "routing": {
+        "edhrec_slug": "esper",
+        "mtgdecks_slug": "esper",
+        "label": "Esper"
+      }
+    },
+    "tagline": "Potential, made exact.",
+    "philosophy": "Esper treats potential as a design problem. Blue seeks perfectibility through knowledge and applied information, White gives the project ordered improvement, and Black turns information into focused control.",
+    "core_tension": "Esper's virtue is deliberate improvement, but perfectibility can drift into over-control when the unoptimized starts to look like an error to correct.",
+    "affinity": {
+      "drawn_to": [
+        "Knowledge before action",
+        "Planning as a way to improve the system",
+        "Order that coordinates change",
+        "Control made precise by information"
+      ],
+      "repelled_by": [
+        "Generic three-color control without a perfectibility frame",
+        "Artifacts as aesthetics without applied knowledge",
+        "Impulse treated as truth",
+        "Natural acceptance treated as the final answer"
+      ],
+      "core_question": "What would you improve if the system finally became legible enough to redesign?",
+      "interview_tells": [
+        "Frames change as deliberate optimization",
+        "Wants knowledge, structure, and control to work together",
+        "Treats information as useful only when it changes outcomes",
+        "Distinguishes designed improvement from civic procedure, secrecy, or obligation alone"
+      ],
+      "not_to_be_confused_with": "Azorius centers procedure; Dimir centers hidden leverage; Orzhov centers obligation; Bant centers living communal order."
+    },
+    "decree_voice": {
+      "tone": "Precise, refined, and controlled without becoming lore-omniscient.",
+      "speaks_like": "A systems architect naming the pattern before changing it.",
+      "example_opening": "The reading turns toward planned refinement, exact knowledge, and control made useful.",
+      "example_decree": "The reading turns toward planned refinement, exact knowledge, and control made useful. Esper does not ask whether change is possible. It asks whether you understand the system well enough to make change deliberate."
+    },
+    "biological_expression": {
+      "archetype": "The Perfecting Systems Architect",
+      "primary_foundation": "Authority",
+      "secondary_foundation": "Fairness",
+      "risk_signal": "medium-high perfection-control risk",
+      "inhibitor_trigger": "Rejects planning, optimization, and controlled improvement as dehumanizing by default, even when deliberate redesign would prevent avoidable harm."
+    },
+    "placement_axes": {
+      "required_positive_evidence_terms": [
+        "Esper",
+        "Alara",
+        "WUB",
+        "Blue-centered perfectibility",
+        "perfectibility",
+        "knowledge",
+        "planning",
+        "applied information",
+        "ordered improvement",
+        "coordination",
+        "focused control",
+        "instrumental information",
+        "designed control",
+        "optimization"
+      ],
+      "required_positive_min_hits": 3,
+      "strengthens_when_user_centers": [
+        "Blue-centered perfectibility",
+        "knowledge before action",
+        "planning as change engine",
+        "applied information",
+        "ordered improvement",
+        "focused control",
+        "designed control",
+        "optimization through structure",
+        "Esper-specific source-bound context"
+      ],
+      "suppress_when_user_centers": [
+        "generic WUB goodstuff",
+        "generic artifacts",
+        "generic control",
+        "civic procedure alone",
+        "hidden leverage alone",
+        "debt or obligation alone",
+        "living communal order",
+        "Red impulse",
+        "Green natural acceptance",
+        "manual-fill lore as proof"
+      ],
+      "false_positive_guardrail": "Do not score Esper highly from color identity, artifacts, or generic control alone. Require the Blue-centered perfectibility cluster with White structure and Black focused control.",
+      "broad_match_penalty": 0.18
+    },
+    "good_fit_indicators": [
+      "planning, knowledge, and applied information are the main way change happens",
+      "order is described as a tool for improvement rather than as law by itself",
+      "control is focused and information-led",
+      "the answer uses WUB Commander/operator language only as support below the canon-claim line",
+      "the answer names Esper or Alara in a source-bound shard context"
+    ],
+    "poor_fit_indicators": [
+      "The answer depends on detailed Esper geography, society, figures, material lore, chronology, or exact card text.",
+      "The answer is mainly civic procedure, secrecy, debt, generic WUB, or generic artifact value.",
+      "The answer centers impulse, natural acceptance, big-creature immediacy, predatory appetite, or spontaneous passion."
+    ],
+    "inhibitor_traps": [
+      "Rejects planning, optimization, and controlled improvement as dehumanizing by default, even when deliberate redesign would prevent avoidable harm.",
+      "Do not match Esper from WUB color identity alone.",
+      "Do not match Esper from artifacts alone.",
+      "Do not match Esper from detailed lore claims that VM-163 left in manual fill.",
+      "Do not route to Esper from WUB color identity, artifacts, or control language alone.",
+      "The answer depends on detailed Esper geography, society, figures, material lore, chronology, or exact card text.",
+      "The answer is mainly civic procedure, secrecy, debt, generic WUB, or generic artifact value.",
+      "The answer centers impulse, natural acceptance, big-creature immediacy, predatory appetite, or spontaneous passion."
+    ],
+    "lateral_inhibition_targets": [
+      "WU",
+      "UB",
+      "WB",
+      "BANT",
+      "GRIXIS"
+    ],
+    "discriminator_questions": [],
+    "chatbot_guidance": {
+      "how_to_recognize_match": [
+        "Treat Esper as a live-pilot match only when the answer combines Blue-centered perfectibility with White ordered improvement and Black focused control.",
+        "Use Commander/operator patterns as vocabulary only, not as canon evidence.",
+        "Keep manual-fill topics out of the match basis."
+      ],
+      "how_to_recognize_mismatch": [
+        "Do not match Esper from WUB color identity alone.",
+        "Do not match Esper from artifacts alone.",
+        "Do not match Esper from detailed lore claims that VM-163 left in manual fill.",
+        "Do not route to Esper from WUB color identity, artifacts, or control language alone."
+      ],
+      "questions_to_ask_when_uncertain": [],
+      "do_not_overweight": [
+        "Do not award Esper from generic control language.",
+        "Do not award Esper from generic artifact language.",
+        "Do not award Esper from Commander rows as canon.",
+        "Do not award Esper from manual-fill topics."
+      ],
+      "never_claim_as_canon": [
+        "Never claim Vox Mana placement planning is official Wizards canon.",
+        "Never claim WUB is a live expression key.",
+        "Never claim Esper is Home-preview eligible.",
+        "Never claim detailed geography, society, figure, material, chronology, or exact card-text-derived lore from VM-166."
+      ],
+      "review_note": "VM-167 promotes Esper as the live ESPER placement expression. This packet remains source-bound and does not authorize detailed lore as routing evidence or add new scoring rules."
+    },
+    "canon_guardrails": {
+      "never_claim_as_canon": [
+        "Never claim Vox Mana placement planning is official Wizards canon.",
+        "Never claim WUB is a live expression key.",
+        "Never claim Esper is Home-preview eligible.",
+        "Never claim detailed geography, society, figure, material, chronology, or exact card-text-derived lore from VM-166."
+      ]
+    }
+  },
+  "GRIXIS": {
+    "name": "Grixis",
+    "institution_type": "shard",
+    "world": "Alara",
+    "colors": [
+      "U",
+      "B",
+      "R"
+    ],
+    "layered_identity": {
+      "core_color": "B",
+      "secondary_colors": [
+        "U",
+        "R"
+      ],
+      "secondary_color": "U",
+      "expression_key": "GRIXIS",
+      "expression_name": "Grixis",
+      "expression_kind": "shard",
+      "purity": null,
+      "routing": {
+        "edhrec_slug": "grixis",
+        "mtgdecks_slug": "grixis",
+        "label": "Grixis"
+      }
+    },
+    "tagline": "Survive first. Find the weakness. Take the opening.",
+    "philosophy": "Grixis treats survival as the first law. Black supplies self-advocacy and adaptation to reality, Blue studies weakness and leverage, and Red acts before the opening closes.",
+    "core_tension": "Grixis's virtue is clear-eyed survival, but the same pressure can turn every weakness into something to exploit before the self notices what it has become.",
+    "affinity": {
+      "drawn_to": [
+        "survival as first principle",
+        "calculated pressure",
+        "urgent openings",
+        "self-advocacy under hostile conditions"
+      ],
+      "repelled_by": [
+        "generic evil UBR flattening",
+        "Maestros interchangeability",
+        "Bolas or Sedris rulership overclaims",
+        "unearth treated as the whole identity"
+      ],
+      "core_question": "When the world gives you one narrow opening, do you study the weakness and move before it closes?",
+      "interview_tells": [
+        "names survival before comfort",
+        "turns information into leverage",
+        "acts quickly once the opening is real",
+        "resists generic villain coding"
+      ],
+      "not_to_be_confused_with": "Dimir centers hidden leverage; Rakdos centers appetite and release; Izzet centers experiment; Esper centers perfectibility; Bant centers public order; Maestros are New Capenna comparator material, not Alaran Grixis evidence."
+    },
+    "decree_voice": {
+      "tone": "Unsparing, tactical, and urgent without becoming generic villain prose.",
+      "speaks_like": "A survivor naming the weakness before the window closes.",
+      "example_opening": "The reading turns toward survival, leverage, and the opening that will not wait.",
+      "example_decree": "The reading turns toward survival, leverage, and the opening that will not wait. Grixis does not ask whether the world is fair. It asks what must be understood, endured, or taken before the chance is gone."
+    },
+    "biological_expression": {
+      "archetype": "The Survival Strategist",
+      "primary_foundation": "Liberty",
+      "secondary_foundation": "Authority",
+      "risk_signal": "high survival-agency risk",
+      "inhibitor_trigger": "Outsources survival to systems, permission, or shared order when immediate calculated self-advocacy is required."
+    },
+    "placement_axes": {
+      "required_positive_evidence_terms": [
+        "Grixis",
+        "Alara",
+        "UBR",
+        "Black-centered survival",
+        "survival",
+        "self-advocacy",
+        "adaptation",
+        "calculation",
+        "weakness analysis",
+        "immediacy",
+        "zeal",
+        "volatility"
+      ],
+      "required_positive_min_hits": 3,
+      "strengthens_when_user_centers": [
+        "Black-centered survival",
+        "self-advocacy",
+        "adapting to the world as it is",
+        "weakness analysis",
+        "information as leverage",
+        "urgent action",
+        "volatility under survival pressure",
+        "anti-simple-evil framing"
+      ],
+      "suppress_when_user_centers": [
+        "generic UBR",
+        "generic villainy",
+        "Maestros aesthetics",
+        "unearth alone",
+        "Bolas claims",
+        "Sedris claims",
+        "vis claims",
+        "public honor",
+        "life-renewal",
+        "manual-fill lore as proof"
+      ],
+      "false_positive_guardrail": "Do not treat support-only mechanics, Commander/operator rows, manual-fill lore, Maestros, or color identity alone as Grixis evidence.",
+      "broad_match_penalty": 0.18
+    },
+    "good_fit_indicators": [
+      "survival and self-advocacy are the main way the answer frames identity",
+      "calculation and weakness analysis are tied to action",
+      "urgency and volatility appear under Black-centered survival rather than as pure impulse",
+      "the answer resists simple evil UBR framing"
+    ],
+    "poor_fit_indicators": [
+      "The answer depends on detailed geography, figure biography, vis physiology, or Conflux chronology.",
+      "The answer is mainly generic UBR, generic villain coding, generic spells, or Maestros styling.",
+      "The answer centers public honor, communal order, life-renewal, pure curiosity, or pure appetite without the Black-centered Grixis frame."
+    ],
+    "inhibitor_traps": [
+      "Outsources survival to systems, permission, or shared order when immediate calculated self-advocacy is required.",
+      "Do not match Grixis from UBR color identity alone.",
+      "Do not match Grixis from generic villainy alone.",
+      "Do not match Grixis from Maestros/New Capenna material.",
+      "Do not match Grixis from unearth, Bolas, Sedris, or vis claims that VM-164 left deferred.",
+      "The answer depends on detailed geography, figure biography, vis physiology, or Conflux chronology.",
+      "The answer is mainly generic UBR, generic villain coding, generic spells, or Maestros styling.",
+      "The answer centers public honor, communal order, life-renewal, pure curiosity, or pure appetite without the Black-centered Grixis frame."
+    ],
+    "lateral_inhibition_targets": [
+      "BANT",
+      "BR",
+      "ESPER",
+      "UB",
+      "UR",
+      "JUND"
+    ],
+    "discriminator_questions": [],
+    "chatbot_guidance": {
+      "how_to_recognize_match": [
+        "Review-only guidance: Grixis language should combine Black-centered survival with Blue calculation and Red immediacy.",
+        "Use support-only mechanics and operator patterns as vocabulary only, not as canon evidence.",
+        "Keep manual-fill topics out of the match basis."
+      ],
+      "how_to_recognize_mismatch": [
+        "Do not match Grixis from UBR color identity alone.",
+        "Do not match Grixis from generic villainy alone.",
+        "Do not match Grixis from Maestros/New Capenna material.",
+        "Do not match Grixis from unearth, Bolas, Sedris, or vis claims that VM-164 left deferred."
+      ],
+      "questions_to_ask_when_uncertain": [],
+      "do_not_overweight": [
+        "Do not award Grixis from generic UBR language.",
+        "Do not award Grixis from support-only Commander/operator rows.",
+        "Do not award Grixis from support-only mechanics.",
+        "Do not award Grixis from manual-fill topics."
+      ],
+      "never_claim_as_canon": [
+        "Never claim Vox Mana placement planning is official Wizards canon.",
+        "Never claim UBR is a live expression key.",
+        "Never claim Grixis is enabled in the live placement model.",
+        "Never claim detailed geography, vis, figure, chronology, or exact card-text-derived lore from VM-166."
+      ],
+      "review_note": "VM-166 is a source-authored review packet only. It does not add builder wiring, generated placement data, or live app behavior."
+    },
+    "canon_guardrails": {
+      "never_claim_as_canon": [
+        "Never claim Vox Mana placement planning is official Wizards canon.",
+        "Never claim UBR is a live expression key.",
+        "Never claim Grixis is enabled in the live placement model.",
+        "Never claim detailed geography, vis, figure, chronology, or exact card-text-derived lore from VM-166."
+      ]
+    }
+  },
+  "JUND": {
+    "name": "Jund",
+    "institution_type": "shard",
+    "world": "Alara",
+    "colors": [
+      "B",
+      "R",
+      "G"
+    ],
+    "layered_identity": {
+      "core_color": "R",
+      "secondary_colors": [
+        "B",
+        "G"
+      ],
+      "secondary_color": "B",
+      "expression_key": "JUND",
+      "expression_name": "Jund",
+      "expression_kind": "shard",
+      "purity": null,
+      "routing": {
+        "edhrec_slug": "jund",
+        "mtgdecks_slug": "jund",
+        "label": "Jund"
+      }
+    },
+    "tagline": "Trust the feeling. Feed the hunger. Bear the consequence.",
+    "philosophy": "Jund treats feeling as a compass. Red supplies self-truth and action, Black honors appetite and self-interest, and Green strips away overthinking until instinct can move.",
+    "core_tension": "Jund's virtue is honest instinct in motion, but the same pressure can turn appetite into overconsumption or mistake impulse for truth.",
+    "affinity": {
+      "drawn_to": [
+        "gut instinct under pressure",
+        "freedom with consequence",
+        "appetite as self-knowledge",
+        "survival that refuses polite permission"
+      ],
+      "repelled_by": [
+        "generic Red violence",
+        "savage-nature flattening",
+        "devour treated as the whole identity",
+        "Modern Jund midrange treated as canon"
+      ],
+      "core_question": "When the honest feeling arrives with a cost, do you trust it enough to move?",
+      "interview_tells": [
+        "names instinct before permission",
+        "treats appetite as information",
+        "accepts consequence as part of freedom",
+        "resists generic cruelty or midrange shorthand"
+      ],
+      "not_to_be_confused_with": "Rakdos centers performance and transgression; Golgari centers lifecycle and rot; Gruul centers civilization rejection; Grixis centers survival calculation; Naya centers communal abundance. Jund centers Red self-truth fed by Black appetite and Green instinct."
+    },
+    "decree_voice": {
+      "tone": "Primal, direct, and consequence-aware without becoming generic cruelty.",
+      "speaks_like": "A body naming the hunger and the cost in the same breath.",
+      "example_opening": "The reading turns toward appetite, instinct, and the honest motion that refuses to wait.",
+      "example_decree": "The reading turns toward appetite, instinct, and the honest motion that refuses to wait. Jund does not ask for permission to feel what it feels. It asks whether the hunger is true enough to carry the cost."
+    },
+    "biological_expression": {
+      "archetype": "The Instinctive Survivor",
+      "primary_foundation": "Liberty",
+      "secondary_foundation": "Sanctity",
+      "risk_signal": "high instinct-appetite risk",
+      "inhibitor_trigger": "Waits for permission, abstract approval, or sterile control when survival asks for honest instinct and consequence-bearing action."
+    },
+    "placement_axes": {
+      "required_positive_evidence_terms": [
+        "Jund",
+        "Alara",
+        "BRG",
+        "Red-centered",
+        "self-truth",
+        "gut instinct",
+        "emotion as guide",
+        "freedom with consequences",
+        "Black appetite",
+        "Green instinct"
+      ],
+      "required_positive_min_hits": 2,
+      "strengthens_when_user_centers": [
+        "Red-centered self-truth",
+        "gut instinct",
+        "emotion as guide",
+        "appetite as self-advocacy",
+        "unrestrained instinct",
+        "freedom with consequence",
+        "White and Blue absence at design scope",
+        "anti-flattening boundary"
+      ],
+      "suppress_when_user_centers": [
+        "generic BRG",
+        "generic anger",
+        "generic savage nature",
+        "devour alone",
+        "Modern Jund midrange",
+        "Naya behemoth community",
+        "Grixis death necromancy",
+        "Gruul civilization rejection",
+        "Rakdos spectacle",
+        "Golgari rot",
+        "Witherbloom life-drain",
+        "Riveteers family labor",
+        "manual-fill lore as proof"
+      ],
+      "false_positive_guardrail": "Do not treat support-only mechanics, Commander/operator rows, manual-fill lore, comparator factions, or color composition alone as Jund evidence.",
+      "broad_match_penalty": 0.12
+    },
+    "good_fit_indicators": [
+      "self-truth, gut instinct, and emotion are the main way the answer frames identity",
+      "appetite or personal need supports self-advocacy rather than spectacle",
+      "unrestrained instinct and embodied action are tied to consequence",
+      "the answer resists flattening Jund into generic anger, savagery, devour, or Modern Jund"
+    ],
+    "poor_fit_indicators": [
+      "The answer depends on detailed geography, figure biography, predator hierarchy, devour-as-total-identity, or Conflux chronology.",
+      "The answer is mainly generic BRG, generic midrange, generic sacrifice value, or Riveteers/Witherbloom styling.",
+      "The answer centers public honor, engineered perfection, death-world necromancy, civilization rejection, spectacle, lifecycle rot, or Green-centered behemoth community."
+    ],
+    "inhibitor_traps": [
+      "Waits for permission, abstract approval, or sterile control when survival asks for honest instinct and consequence-bearing action.",
+      "Do not match Jund from BRG color composition alone.",
+      "Do not match Jund from generic anger, generic savagery, or generic devour alone.",
+      "Do not match Jund from Naya, Grixis, Gruul, Rakdos, Golgari, Witherbloom, Riveteers, or Modern Jund false-positive material.",
+      "Do not match Jund from support-only Commander/operator rows.",
+      "The answer depends on detailed geography, figure biography, predator hierarchy, devour-as-total-identity, or Conflux chronology.",
+      "The answer is mainly generic BRG, generic midrange, generic sacrifice value, or Riveteers/Witherbloom styling.",
+      "The answer centers public honor, engineered perfection, death-world necromancy, civilization rejection, spectacle, lifecycle rot, or Green-centered behemoth community."
+    ],
+    "lateral_inhibition_targets": [
+      "BR",
+      "BG",
+      "RG",
+      "GRIXIS",
+      "WITHERBLOOM"
+    ],
+    "discriminator_questions": [
+      {
+        "id": "q_jund_0001",
+        "prompt": "When pressure arrives, what makes the next move true: feeding the instinct, breaking a boundary, staging a release, or protecting the living whole?",
+        "purpose": "Separates Jund's instinct-and-consequence frame from Gruul boundary-breaking, Rakdos spectacle, and Naya communal/behemoth drift without adding new lore claims.",
+        "supports": "The answer treats instinct as worth feeding and accepts the cost as part of the action.",
+        "weakens": "The answer centers civilization rejection, performance, cruelty, communal abundance, or size reverence as the main motive.",
+        "collision_targets": [],
+        "evidence_claim_ids": [
+          "jund_claim_0003",
+          "jund_claim_0004",
+          "jund_claim_0005",
+          "jund_claim_0010"
+        ],
+        "confidence": "Medium"
+      },
+      {
+        "id": "q_jund_0002",
+        "prompt": "After the first exchange, should the spent resource become pressure again, a calculated weakness map, a lifecycle loop, or a clean reset?",
+        "purpose": "Keeps Jund's appetite/resource-conversion lane distinct from Grixis calculation, Golgari lifecycle/rot, and generic value play.",
+        "supports": "The answer wants the spent thing to feed the next attack, rebuild pressure, or make consequence visible.",
+        "weakens": "The answer centers hidden calculation, closed-loop rot, passive value, or control before embodied action.",
+        "collision_targets": [],
+        "evidence_claim_ids": [
+          "jund_claim_0005",
+          "jund_claim_0006",
+          "jund_claim_0007",
+          "jund_claim_0010"
+        ],
+        "confidence": "Medium"
+      },
+      {
+        "id": "q_jund_0003",
+        "prompt": "If the deck uses sacrifice, graveyards, counters, lands, or combat pressure, are those tools serving appetite and consequence, or replacing Jund with a single mechanic?",
+        "purpose": "Prevents support-only mechanics from becoming the whole Jund identity.",
+        "supports": "The answer uses mechanics as echoes of Red-centered self-truth, Black appetite, Green instinct, and consequence.",
+        "weakens": "The answer treats devour, Modern Jund, generic aristocrats, generic lands, or generic graveyard value as sufficient by itself.",
+        "collision_targets": [],
+        "evidence_claim_ids": [
+          "jund_claim_0003",
+          "jund_claim_0006",
+          "jund_claim_0007",
+          "jund_claim_0010"
+        ],
+        "confidence": "Medium"
+      }
+    ],
+    "chatbot_guidance": {
+      "how_to_recognize_match": [
+        "VM-186 live-pilot guidance: Jund language should combine Red-centered self-truth and emotion with Black appetite and Green instinct.",
+        "Use support-only Commander/operator patterns as vocabulary only, not as canon evidence.",
+        "Keep manual-fill topics out of the match basis."
+      ],
+      "how_to_recognize_mismatch": [
+        "Do not match Jund from BRG color composition alone.",
+        "Do not match Jund from generic anger, generic savagery, or generic devour alone.",
+        "Do not match Jund from Naya, Grixis, Gruul, Rakdos, Golgari, Witherbloom, Riveteers, or Modern Jund false-positive material.",
+        "Do not match Jund from support-only Commander/operator rows."
+      ],
+      "questions_to_ask_when_uncertain": [
+        "Is the player choosing pressure because the instinct feels true, or because they simply want generic aggression?",
+        "Does appetite become consequence-bearing momentum, or does it drift into Rakdos spectacle, Witherbloom drain, or generic aristocrats?",
+        "Are graveyard, land, counter, token, and combat-pressure tools serving the Jund identity, or replacing it with a single mechanic?"
+      ],
+      "do_not_overweight": [
+        "Do not award Jund from color composition alone.",
+        "Do not award Jund from support-only Commander/operator rows.",
+        "Do not award Jund from support-only mechanics.",
+        "Do not award Jund from manual-fill topics."
+      ],
+      "never_claim_as_canon": [
+        "Never claim Vox Mana placement planning is official Wizards canon.",
+        "Never claim BRG is a generated expression key.",
+        "Never claim detailed geography, figure biography, predator hierarchy, devour-as-total-identity, Conflux chronology, or Modern Jund canon from VM-179.",
+        "Never claim Jund has a Home preview card, route, static page, Maze route, or broad shard framework from VM-186."
+      ],
+      "review_note": "VM-186 enables Jund through the approved builder path only. It does not add new lore sources, raw claims, Commander facts, routes, Home cards, Maze routes, schema fields, or manual Supabase source edits."
+    },
+    "canon_guardrails": {
+      "never_claim_as_canon": [
+        "Never claim Vox Mana placement planning is official Wizards canon.",
+        "Never claim BRG is a generated expression key.",
+        "Never claim detailed geography, figure biography, predator hierarchy, devour-as-total-identity, Conflux chronology, or Modern Jund canon from VM-179.",
+        "Never claim Jund has a Home preview card, route, static page, Maze route, or broad shard framework from VM-186."
+      ]
+    }
+  },
+  "NAYA": {
+    "name": "Naya",
+    "institution_type": "shard",
+    "world": "Alara",
+    "colors": [
+      "R",
+      "G",
+      "W"
+    ],
+    "layered_identity": {
+      "core_color": "G",
+      "secondary_colors": [
+        "R",
+        "W"
+      ],
+      "secondary_color": "R",
+      "expression_key": "NAYA",
+      "expression_name": "Naya",
+      "expression_kind": "shard",
+      "purity": null,
+      "routing": {
+        "edhrec_slug": "naya",
+        "mtgdecks_slug": "naya",
+        "color_identity": "RGW",
+        "label": "Naya"
+      }
+    },
+    "tagline": "Grow with the world. Move with the bond. Guard the living whole.",
+    "philosophy": "Naya treats life as belonging in a larger natural whole. Green supplies growth and place, White turns that life toward care for the whole, and Red makes the bond immediate, loyal, and instinctive.",
+    "core_tension": "Naya's virtue is belonging in the living whole, but the same abundance can become overgrowth, over-identification with scale, or instinct mistaken for wisdom.",
+    "affinity": {
+      "drawn_to": [
+        "life and growth understood as belonging",
+        "instinct that protects the living whole",
+        "abundance that deepens relation instead of becoming mere size",
+        "care for creatures, place, and bond before control or extraction"
+      ],
+      "repelled_by": [
+        "generic big-creature shorthand",
+        "generic tokens or go-wide play treated as the whole identity",
+        "Cabaretti style drift treated as Naya",
+        "Jund pressure or Bant hierarchy replacing Green-centered abundance"
+      ],
+      "core_question": "When growth becomes immense, what keeps it faithful to the living whole?",
+      "interview_tells": [
+        "names life, growth, and belonging before optimization",
+        "treats instinct as bond rather than pure chaos",
+        "protects abundance through care for the larger whole",
+        "resists flattening Naya into generic size, tokens, or same-color style"
+      ],
+      "not_to_be_confused_with": "Selesnya centers Green-White community; Gruul centers Red-Green wild refusal; Boros centers Red-White action and order; Bant centers sanctioned honor; Jund centers survival pressure and consequence. Naya centers Green living abundance held by White care and Red instinct."
+    },
+    "decree_voice": {
+      "tone": "Lush, warm, immense, and protective without becoming generic battlecruiser shorthand.",
+      "speaks_like": "A living world answering through growth, bond, and the instant motion of protection.",
+      "example_opening": "The reading turns toward abundance, instinct, and the life that knows where it belongs.",
+      "example_decree": "The reading turns toward abundance, instinct, and the life that knows where it belongs. Naya does not ask the living world to become a machine or a hunger. It asks what bond lets growth protect the whole."
+    },
+    "biological_expression": {
+      "archetype": "The Living World Guardian",
+      "primary_foundation": "Sanctity",
+      "secondary_foundation": "Loyalty",
+      "risk_signal": "medium abundance-instinct risk",
+      "inhibitor_trigger": "Mistakes control, extraction, or isolated scale for belonging when the living whole asks for protective instinct and care."
+    },
+    "placement_axes": {
+      "required_positive_evidence_terms": [
+        "Naya",
+        "Alara",
+        "RGW",
+        "Green-centered",
+        "life",
+        "nature",
+        "growth",
+        "ecosystem belonging",
+        "larger natural whole",
+        "White care",
+        "Red instinct"
+      ],
+      "required_positive_min_hits": 2,
+      "strengthens_when_user_centers": [
+        "Green-centered life",
+        "nature and growth",
+        "ecosystem belonging",
+        "role and place in a living whole",
+        "White larger-picture care",
+        "Red feral instinct and loyalty",
+        "Blue and Black absence at design scope",
+        "anti-flattening boundary"
+      ],
+      "suppress_when_user_centers": [
+        "generic RGW",
+        "generic big creatures",
+        "generic tokens",
+        "casual battlecruiser",
+        "Cabaretti social glamour",
+        "Selesnya community without Red instinct",
+        "Gruul impulse without White care",
+        "Boros action without Green abundance",
+        "Bant hierarchy",
+        "Jund consumption",
+        "manual-fill lore as proof"
+      ],
+      "false_positive_guardrail": "Do not treat support-only mechanics, Commander/operator rows, manual-fill lore, comparator factions, or color composition alone as Naya evidence.",
+      "broad_match_penalty": 0.12
+    },
+    "good_fit_indicators": [
+      "life, growth, nature, and ecosystem belonging are the main way the answer frames identity",
+      "larger-picture care supports life and creatures without becoming law or hierarchy",
+      "feral instinct and loyalty are tied to living belonging",
+      "the answer resists flattening Naya into generic big creatures, generic tokens, Cabaretti, or same-color comparators"
+    ],
+    "poor_fit_indicators": [
+      "The answer depends on detailed geography, figure biography, religion, creature-culture hierarchy, power-5 totalization, or post-Phyrexian chronology.",
+      "The answer is mainly generic RGW, generic battlecruiser, generic tokens, Cabaretti style, or Commander product flavor.",
+      "The answer centers public honor hierarchy, engineered control, self-interested extraction, civilization rejection, or Jund-style consumption."
+    ],
+    "inhibitor_traps": [
+      "Mistakes control, extraction, or isolated scale for belonging when the living whole asks for protective instinct and care.",
+      "Do not match Naya from RGW color composition alone.",
+      "Do not match Naya from generic big creatures, generic tokens, or casual battlecruiser alone.",
+      "Do not match Naya from Cabaretti, Selesnya, Gruul, Boros, Bant, Jund, Abzan, or Temur false-positive material.",
+      "Do not match Naya from support-only Commander/operator rows.",
+      "The answer depends on detailed geography, figure biography, religion, creature-culture hierarchy, power-5 totalization, or post-Phyrexian chronology.",
+      "The answer is mainly generic RGW, generic battlecruiser, generic tokens, Cabaretti style, or Commander product flavor.",
+      "The answer centers public honor hierarchy, engineered control, self-interested extraction, civilization rejection, or Jund-style consumption."
+    ],
+    "lateral_inhibition_targets": [
+      "WG",
+      "RG",
+      "WR",
+      "BANT",
+      "JUND"
+    ],
+    "discriminator_questions": [],
+    "chatbot_guidance": {
+      "how_to_recognize_match": [
+        "VM-188 live-pilot guidance: Naya language should combine Green-centered life and growth with White larger-picture care and Red instinct.",
+        "Use support-only Commander/operator patterns as vocabulary only, not as canon evidence.",
+        "Keep manual-fill topics out of the match basis."
+      ],
+      "how_to_recognize_mismatch": [
+        "Do not match Naya from RGW color composition alone.",
+        "Do not match Naya from generic big creatures, generic tokens, or casual battlecruiser alone.",
+        "Do not match Naya from Cabaretti, Selesnya, Gruul, Boros, Bant, Jund, Abzan, or Temur false-positive material.",
+        "Do not match Naya from support-only Commander/operator rows."
+      ],
+      "questions_to_ask_when_uncertain": [],
+      "do_not_overweight": [
+        "Do not award Naya from color composition alone.",
+        "Do not award Naya from support-only Commander/operator rows.",
+        "Do not award Naya from support-only mechanics.",
+        "Do not award Naya from manual-fill topics."
+      ],
+      "never_claim_as_canon": [
+        "Never claim Vox Mana placement planning is official Wizards canon.",
+        "Never claim RGW is a generated expression key.",
+        "Never claim detailed geography, figure biography, religion, creature-culture hierarchy, power-5 totalization, Commander product canon, or post-Phyrexian outcomes from VM-184.",
+        "Never claim Naya has a Home preview card, route, static page, Maze route, or broad shard framework from VM-188."
+      ],
+      "review_note": "VM-188 enables Naya through the approved builder path only. It does not add new lore sources, raw claims, Commander facts, routes, Home cards, Maze routes, schema fields, or manual Supabase source edits."
+    },
+    "canon_guardrails": {
+      "never_claim_as_canon": [
+        "Never claim Vox Mana placement planning is official Wizards canon.",
+        "Never claim RGW is a generated expression key.",
+        "Never claim detailed geography, figure biography, religion, creature-culture hierarchy, power-5 totalization, Commander product canon, or post-Phyrexian outcomes from VM-184.",
+        "Never claim Naya has a Home preview card, route, static page, Maze route, or broad shard framework from VM-188."
       ]
     }
   },
@@ -909,7 +1653,8 @@ export const FACTION_CONTEXT = {
     "lateral_inhibition_targets": [
       "WITHERBLOOM",
       "WG",
-      "WB"
+      "WB",
+      "JUND"
     ],
     "discriminator_questions": [
       {
@@ -1108,6 +1853,7 @@ export const FACTION_CONTEXT = {
       "BR",
       "WG",
       "WITHERBLOOM",
+      "JUND",
       "BG",
       "LOREHOLD"
     ],
@@ -1383,6 +2129,8 @@ export const FACTION_CONTEXT = {
     "lateral_inhibition_targets": [
       "WB",
       "UG",
+      "ESPER",
+      "GRIXIS",
       "SILVERQUILL"
     ],
     "discriminator_questions": [
@@ -1617,7 +2365,8 @@ export const FACTION_CONTEXT = {
     "lateral_inhibition_targets": [
       "PRISMARI",
       "QUANDRIX",
-      "UG"
+      "UG",
+      "GRIXIS"
     ],
     "discriminator_questions": [
       {
@@ -2196,7 +2945,8 @@ export const FACTION_CONTEXT = {
     "lateral_inhibition_targets": [
       "WU",
       "UB",
-      "SILVERQUILL"
+      "SILVERQUILL",
+      "ESPER"
     ],
     "discriminator_questions": [
       {
@@ -3444,7 +4194,8 @@ export const FACTION_CONTEXT = {
     "lateral_inhibition_targets": [
       "BG",
       "UG",
-      "WG"
+      "WG",
+      "JUND"
     ],
     "discriminator_questions": [
       {
@@ -4423,13 +5174,17 @@ export const PLACEMENT_MODEL_META = {
   "result_version": "2026-05-10",
   "source": "data/raw-factions plus data/factions.json display surface",
   "framing": "Biological expression placement model; Vox Mana interpretive taxonomy, not official canon.",
-  "faction_count": 21,
+  "faction_count": 25,
   "identity_layer_version": "2026-05-27",
   "active_expression_keys": [
     "WU",
     "BANT",
     "WR",
     "BR",
+    "ESPER",
+    "GRIXIS",
+    "JUND",
+    "NAYA",
     "BG",
     "RG",
     "UB",

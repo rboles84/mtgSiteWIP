@@ -1,0 +1,157 @@
+{
+  "schema_version": "1.0.0",
+  "faction_id": "grixis",
+  "faction_name": "Grixis",
+  "source_review_date": "2026-05-30",
+  "last_updated": "2026-05-30",
+  "claim_count": 8,
+  "claims": [
+    {
+      "claim_id": "grixis_claim_0001",
+      "faction_id": "grixis",
+      "claim_type": "identity",
+      "statement": "Grixis is the blue-black-red shard discussed in the local official Grixis design article.",
+      "canon_status": "Source-supported identity",
+      "source_ids": [
+        "src_vm_grixis_evidence_ledger_20260530",
+        "src_wotc_rosewater_grixis_looking_out_for_number_one"
+      ],
+      "evidence_rows": [
+        "GRIXIS-001"
+      ],
+      "confidence": "High",
+      "notes": "Use for base shard identity only. It does not prove detailed geography, society, figures, metaphysical physiology, or chronology."
+    },
+    {
+      "claim_id": "grixis_claim_0002",
+      "faction_id": "grixis",
+      "claim_type": "identity_metadata",
+      "statement": "Grixis's color direction is UBR, with Black as the center/design lens.",
+      "canon_status": "Source-supported design metadata",
+      "source_ids": [
+        "src_vm_grixis_evidence_ledger_20260530",
+        "src_wotc_rosewater_grixis_looking_out_for_number_one",
+        "src_vm_canon_inventory_three_color_audit_20260528"
+      ],
+      "evidence_rows": [
+        "GRIXIS-002"
+      ],
+      "confidence": "High",
+      "notes": "UBR is metadata only. This packet does not create UBR or GRIXIS as generated, registry, placement, alias, or raw-to-key data."
+    },
+    {
+      "claim_id": "grixis_claim_0003",
+      "faction_id": "grixis",
+      "claim_type": "design_identity",
+      "statement": "Black's Grixis framing centers survival, self-advocacy, agency, and adapting to the world as it is.",
+      "canon_status": "Official design commentary",
+      "source_ids": [
+        "src_vm_grixis_evidence_ledger_20260530",
+        "src_wotc_rosewater_grixis_looking_out_for_number_one"
+      ],
+      "evidence_rows": [
+        "GRIXIS-003"
+      ],
+      "confidence": "High",
+      "notes": "This supports identity and design-philosophy language. Do not rewrite it as detailed in-world social doctrine."
+    },
+    {
+      "claim_id": "grixis_claim_0004",
+      "faction_id": "grixis",
+      "claim_type": "design_identity",
+      "statement": "Blue contributes subtle problem-solving, study, planning, weakness analysis, and exploitation of information in Black's Grixis frame.",
+      "canon_status": "Official design commentary",
+      "source_ids": [
+        "src_vm_grixis_evidence_ledger_20260530",
+        "src_wotc_rosewater_grixis_looking_out_for_number_one"
+      ],
+      "evidence_rows": [
+        "GRIXIS-004"
+      ],
+      "confidence": "High",
+      "notes": "This supports intelligent and tactical Grixis language. It does not prove named institutions, hierarchy, or society."
+    },
+    {
+      "claim_id": "grixis_claim_0005",
+      "faction_id": "grixis",
+      "claim_type": "design_identity",
+      "statement": "Red contributes immediacy, zeal, individual priority, action, willingness to get its hands dirty, and volatility/tension in Black's Grixis frame.",
+      "canon_status": "Official design commentary",
+      "source_ids": [
+        "src_vm_grixis_evidence_ledger_20260530",
+        "src_wotc_rosewater_grixis_looking_out_for_number_one"
+      ],
+      "evidence_rows": [
+        "GRIXIS-005"
+      ],
+      "confidence": "High",
+      "notes": "This supports urgency and volatility language while preserving Black as center and Blue as calculation."
+    },
+    {
+      "claim_id": "grixis_claim_0006",
+      "faction_id": "grixis",
+      "claim_type": "design_synthesis",
+      "statement": "The UBR synthesis can be described as Black using Red's zeal and Blue's manipulation to create an actively conniving survival world.",
+      "canon_status": "Official design commentary",
+      "source_ids": [
+        "src_vm_grixis_evidence_ledger_20260530",
+        "src_wotc_rosewater_grixis_looking_out_for_number_one"
+      ],
+      "evidence_rows": [
+        "GRIXIS-006"
+      ],
+      "confidence": "High",
+      "notes": "Use as design synthesis only, not as permission to invent geography, figures, events, or institutions."
+    },
+    {
+      "claim_id": "grixis_claim_0007",
+      "faction_id": "grixis",
+      "claim_type": "design_boundary",
+      "statement": "White and Green are the missing enemy-color pressures in the Grixis shard frame; VM-166 may treat moral/order constraint and life/renewal pressure as absent only at this design level.",
+      "canon_status": "Design commentary with source boundary",
+      "source_ids": [
+        "src_vm_grixis_evidence_ledger_20260530",
+        "src_wotc_rosewater_grixis_looking_out_for_number_one",
+        "src_alara_shards_lore_dossier_protocol_rtf"
+      ],
+      "evidence_rows": [
+        "GRIXIS-007"
+      ],
+      "confidence": "High",
+      "notes": "Do not expand this into claims that Grixis lacks intelligence, structure, systems, or social logic."
+    },
+    {
+      "claim_id": "grixis_claim_0008",
+      "faction_id": "grixis",
+      "claim_type": "design_boundary",
+      "statement": "Grixis should not be reduced to evil UBR; the source frame is Black explaining its own philosophy and pushing back on the evil label.",
+      "canon_status": "Promoted boundary",
+      "source_ids": [
+        "src_vm_grixis_evidence_ledger_20260530",
+        "src_wotc_rosewater_grixis_looking_out_for_number_one"
+      ],
+      "evidence_rows": [
+        "GRIXIS-008"
+      ],
+      "confidence": "High",
+      "notes": "Use this as a false-positive guardrail against generic villain coding, not as a new lore claim."
+    }
+  ],
+  "claim_quality_summary": {
+    "raw_claims_added": 8,
+    "source_evidence_rows_used": [
+      "GRIXIS-001",
+      "GRIXIS-002",
+      "GRIXIS-003",
+      "GRIXIS-004",
+      "GRIXIS-005",
+      "GRIXIS-006",
+      "GRIXIS-007",
+      "GRIXIS-008"
+    ],
+    "raw_claim_id_policy": "Raw claims use grixis_claim_0001-style IDs. VM-164 GRIXIS row IDs remain evidence references only.",
+    "claim_floor": "Promoted/evidence-bound VM-164 identity and design rows only.",
+    "row_scope_note": "Rows outside GRIXIS-001 through GRIXIS-008 were not promoted into this claims packet.",
+    "overall_confidence": "High for narrow color-philosophy and design-center claims; not sufficient for detailed lore."
+  }
+}

@@ -283,9 +283,12 @@ const CURATED_LEGENDARY_CREATURE_STAPLES = new Set([
   "kroxa titan of death s hunger",
   "lavinia of the tenth",
   "lazav dimir mastermind",
+  "marath will of the wild",
+  "pantlaza sun favored",
   "prime speaker zegana",
   "quintorius field historian",
   "rootha mercurial artist",
+  "shalai and hallar",
   "shadrix silverquill",
   "tanazir quandrix",
   "thalia guardian of thraben",
@@ -306,37 +309,37 @@ const PACKAGE_QUERIES = [
   {
     key: "commanders-that-fit",
     label: "commanders",
-    plain: (identity) => `${identity.toUpperCase()} commanders that fit this reading`,
-    query: (identity) => `(t:legendary t:creature) id<=${identity} f:commander`,
+    plain: (identity, identityLabel = "") => `${identityLabel || identity.toUpperCase()} commanders with exact Commander identity`,
+    query: (identity) => `id=${identity} is:commander f:commander`,
   },
   {
     key: "ramp",
     label: "ramp",
-    plain: (identity) => `${identity.toUpperCase()} ramp for this Commander path`,
+    plain: (identity, identityLabel = "") => `${identityLabel || identity.toUpperCase()} ramp for this Commander path`,
     query: (identity) => `id<=${identity} f:commander (o:"search your library for a land" OR o:"add {")`,
   },
   {
     key: "draw",
     label: "draw",
-    plain: (identity) => `${identity.toUpperCase()} card draw for this Commander path`,
+    plain: (identity, identityLabel = "") => `${identityLabel || identity.toUpperCase()} card draw for this Commander path`,
     query: (identity) => `id<=${identity} f:commander o:draw`,
   },
   {
     key: "interaction",
     label: "interaction",
-    plain: (identity) => `${identity.toUpperCase()} interaction for this Commander path`,
+    plain: (identity, identityLabel = "") => `${identityLabel || identity.toUpperCase()} interaction for this Commander path`,
     query: (identity) => `id<=${identity} f:commander (o:"destroy target" OR o:"exile target" OR o:"counter target" OR o:"return target")`,
   },
   {
     key: "lands",
     label: "lands",
-    plain: (identity) => `${identity.toUpperCase()} lands for this Commander path`,
+    plain: (identity, identityLabel = "") => `${identityLabel || identity.toUpperCase()} lands for this Commander path`,
     query: (identity) => `id<=${identity} f:commander t:land`,
   },
   {
     key: "win-conditions",
     label: "win conditions",
-    plain: (identity) => `${identity.toUpperCase()} win conditions for this Commander path`,
+    plain: (identity, identityLabel = "") => `${identityLabel || identity.toUpperCase()} win conditions for this Commander path`,
     query: (identity) => `id<=${identity} f:commander (o:"you win the game" OR o:"each opponent loses" OR o:"combat damage")`,
   },
 ];
@@ -693,6 +696,81 @@ export const COMMANDER_FACTION_GUIDANCE = {
     tableCautionText: "Protect the drain engine, buy time with life gain, and rebuild through Pests when the table removes your outlet.",
     tableCautionReviewRule: "If slow rot or reclamation metaphors appear, require Golgari or Lorehold disambiguation",
   },
+  ESPER: {
+    key: "ESPER",
+    shortName: "Esper",
+    ownedThemes: ["perfectibility", "planning", "information advantage", "structured optimization", "controlled change", "library setup", "artifact-oriented value"],
+    allowedPhrases: ["planned refinement", "information advantage", "structured optimization", "controlled change", "knowledge before action", "designed control"],
+    bannedPhrases: ["Exact WUB", "generic three-color goodstuff", "artifact deck as canon", "Azorius-only procedure", "Dimir-only secrecy", "Orzhov-only obligation", "etherium lore proof", "named-location lore proof"],
+    bleedWarningTerms: ["civic procedure alone", "hidden leverage alone", "debt obligation alone", "generic artifacts", "unbounded etherium", "unsupported figure lore", "living communal order"],
+    bleedWarnings: ["avoid collapsing Esper into Azorius procedure, Dimir secrecy, Orzhov obligation, generic artifact value, Bant living order, or unsupported Esper lore"],
+    preferredArchetypeTags: ["Control", "Artifacts", "Enchantments"],
+    starterSearchTags: ["Control", "Artifacts", "Enchantments"],
+    commanderPlan: "turns knowledge into a controlled future: set up the library, keep answers ready, convert cards into advantage, and let structure make the table's options narrower",
+    spellcraftIdentity: "Use control, card advantage, library setup, artifact value, lifegain engines, reanimation value, tokens, and evasive pressure as gameplay texture for planned refinement and controlled change.",
+    tableCautionText: "Hold the answer until it changes the outcome, protect the engine that turns knowledge into advantage, and avoid making the table feel locked out before your plan is ready.",
+    tableCautionReviewRule: "If text sounds like generic artifacts, color-code goodstuff, or mechanics-as-canon, rebind it to VM-163/VM-166/VM-171 source limits.",
+  },
+  BANT: {
+    key: "BANT",
+    shortName: "Bant",
+    ownedThemes: ["supported champion", "public honor", "communal trust", "disciplined belonging", "living order", "protection", "refinement", "exalted support", "sigil texture"],
+    allowedPhrases: ["supported champion", "public trust", "living order", "refined protection", "communal support", "worthy line of action"],
+    bannedPhrases: ["Exact WUG", "generic three-color goodstuff", "Asha founded Bant", "Elspeth governed Bant", "Asha created Bant's angels", "post-Phyrexia certainty", "sigil caste expansion"],
+    bleedWarningTerms: ["Azorius prison", "Selesnya-only belonging", "Simic adaptation", "Naya aggression", "generic angels", "generic knights", "hard-lock stax"],
+    bleedWarnings: ["avoid collapsing Bant into Azorius prison, Selesnya belonging alone, Simic adaptation, Naya aggression, or unsupported Asha/Elspeth lore"],
+    preferredArchetypeTags: ["Voltron", "Counters Matter", "Enchantments"],
+    starterSearchTags: ["Voltron", "Counters Matter", "Enchantments"],
+    commanderPlan: "protects one worthy line of action: choose the champion, refine the support around it, and let the living community make that pressure honorable",
+    spellcraftIdentity: "Use exalted, auras, equipment, blink, ETB value, enchantress, Clues, counters, and protection as Commander support texture for public trust and refined communal order. They are not new Bant canon claims.",
+    tableCautionText: "Protect the line that carries the table's trust, keep interaction for the answer that breaks your support, and avoid turning order into a prison.",
+    tableCautionReviewRule: "If text sounds like color-code goodstuff, Asha-founder lore, Elspeth governance, prison control, or mechanics-as-canon, rebind it to VM-159A/VM-168 source limits.",
+  },
+  GRIXIS: {
+    key: "GRIXIS",
+    shortName: "Grixis",
+    ownedThemes: ["survival", "self-advocacy", "adaptation", "calculated leverage", "urgent action", "volatility", "hostile-condition resource pressure"],
+    allowedPhrases: ["survive first", "find the weakness", "take the opening", "calculated pressure", "urgent action", "survival control", "leverage engine"],
+    bannedPhrases: ["generic evil UBR", "Maestros interchangeability", "Bolas rules Grixis", "Sedris rules all of Grixis", "unearth as whole identity"],
+    bleedWarningTerms: ["generic villainy", "death-world shorthand", "Maestros glamour", "pure secrecy", "spectacle appetite", "experiment for its own sake", "perfected artifact control", "public honor"],
+    bleedWarnings: ["avoid collapsing Grixis into generic evil UBR, Maestros, Bolas/Sedris rulership, unearth-as-whole-identity, Dimir, Rakdos, Izzet, Esper, or Bant"],
+    preferredArchetypeTags: ["Control", "Spellslinger", "Aristocrats"],
+    starterSearchTags: ["Control", "Spellslinger", "Aristocrats"],
+    commanderPlan: "survives first, studies the weakness, then takes the opening before the table can close it: trade resources deliberately, keep interaction ready, and turn pressure into leverage",
+    spellcraftIdentity: "Removal, discard, sacrifice, spell recursion, card draw, and pressure pieces are Commander support texture for survival, calculation, and urgency. They are not proof that any one mechanic is the whole Grixis identity.",
+    tableCautionText: "Hold the answer that keeps you alive, spend resources only when they create leverage, and take the narrow opening before the table closes it.",
+    tableCautionReviewRule: "If text sounds like generic villainy, Maestros style, Bolas or Sedris rule, or unearth as the whole identity, rebind it to the VM-164 evidence floor.",
+  },
+  JUND: {
+    key: "JUND",
+    shortName: "Jund",
+    ownedThemes: ["instinct", "appetite", "pressure", "survival", "sacrifice", "attrition", "drain", "graveyard value", "combat pressure", "consequence"],
+    allowedPhrases: ["instinct worth feeding", "appetite into consequence", "pressure sets the clock", "survival after impact"],
+    bannedPhrases: ["generic savage nature", "devour as total identity", "Modern Jund midrange as canon", "Exact BRG match"],
+    bleedWarningTerms: ["communal behemoth ecology", "death-world necromancy", "civilization rejection", "performance cruelty", "lifecycle rot"],
+    bleedWarnings: ["avoid collapsing Jund into Naya, Grixis, Gruul, Rakdos, Golgari, Witherbloom, Riveteers, or Modern Jund shorthand"],
+    preferredArchetypeTags: ["Midrange", "Aggro", "Counters Matter"],
+    starterSearchTags: ["Midrange", "Aggro", "Counters Matter"],
+    commanderPlan: "makes every exchange expensive: pressure sets the clock, sacrifice pays the cost, attrition narrows the table, and drain turns appetite into consequence",
+    spellcraftIdentity: "Use devour, sacrifice, graveyard value, lands, counters, tokens, combat pressure, and value engines as mechanical echoes of appetite, survival, and consequence. They are Commander support texture, not lore-canon proof.",
+    tableCautionText: "Wait for the table to spend its answers, hold interaction, and rebuild before committing your last engine.",
+    tableCautionReviewRule: "If text sounds like generic savagery, Modern Jund, or mechanics-as-canon, rebind it to VM-176/VM-179 support-only limits.",
+  },
+  NAYA: {
+    key: "NAYA",
+    shortName: "Naya",
+    ownedThemes: ["abundance", "living world", "belonging", "growth", "creature-forward scale", "instinct", "protection", "larger natural whole", "ramp", "tokens", "counters"],
+    allowedPhrases: ["living abundance", "guard the living whole", "grow mana", "protected board", "creature-forward scale", "instinctive care"],
+    bannedPhrases: ["generic big-creature-only framing", "generic RGW goodstuff", "Cabaretti as Naya canon", "Jund pressure", "Bant hierarchy"],
+    bleedWarningTerms: ["generic big creatures", "goodstuff", "drain", "attrition", "sacrifice small pieces", "spellslinger", "party style"],
+    bleedWarnings: ["avoid collapsing Naya into generic big creatures, generic tokens, Cabaretti, Selesnya-with-red, Gruul-with-white, Bant-with-red, or Jund pressure"],
+    preferredArchetypeTags: ["Ramp", "Big Mana", "Tokens"],
+    starterSearchTags: ["Ramp", "Big Mana", "Tokens"],
+    commanderPlan: "can grow mana into a protected board, lets creature-forward scale carry the pressure, and turns instinct, belonging, and abundance into a shared push",
+    spellcraftIdentity: "Ramp, protection, creature engines, tokens, counters, land support, and combat texture can all help Naya guard the living whole. Treat them as support texture for abundance, instinct, belonging, and scale, not as new canon claims.",
+    tableCautionText: "Develop mana first, protect the living board, and commit the largest swing after the cleanest answer is spent.",
+    tableCautionReviewRule: "If text sounds like generic RGW goodstuff, pure big-creature shorthand, Cabaretti style, or Jund pressure, rebind it to VM-181/VM-184 support-only limits.",
+  },
 };
 
 function normalizeTagText(value) {
@@ -807,7 +885,10 @@ function commanderStapleDescription(name, faction) {
     "Breena, the Demagogue": "Turns table politics into cards and counters, exactly where Silverquill wants its social leverage to become visible.",
     "Dina, Soul Steeper": "Converts life gain into table-wide drain, giving Witherbloom a simple engine for life and death as one economy.",
     "Killian, Ink Duelist": "Rewards targeted pressure and cheap interaction, giving Silverquill a focused combat-negotiation commander.",
+    "Marath, Will of the Wild": "Gives Naya a flexible creature-forward mana sink where counters, bodies, and damage stay tied to living-board pressure.",
+    "Pantlaza, Sun-Favored": "Turns creature-forward scale into fresh momentum, letting Naya grow mana and keep the living board moving through Dinosaur pressure.",
     "Rootha, Mercurial Artist": "Copies the expressive spell that matters, letting Prismari make one big performance echo twice.",
+    "Shalai and Hallar": "Makes counters visible as protective pressure, giving Naya a clean support line from growth to table impact.",
     "Veyran, Voice of Duality": "Doubles magecraft-style triggers so Prismari and Izzet spell turns become louder without losing velocity.",
     "Willowdusk, Essence Seer": "Turns life-total swings into counters, making Witherbloom's healing and harm visible in combat.",
     "Zimone, Quandrix Prodigy": "Rewards land drops and card flow, giving Quandrix ramp decks a steady way to keep the math moving.",
@@ -1359,7 +1440,7 @@ export function getExternalDeckRoutingAlias(source) {
 
   if (routedIdentity?.edhrec_slug || routedIdentity?.mtgdecks_slug) {
     const guild = routedIdentity.edhrec_slug || routedIdentity.mtgdecks_slug;
-    const colorIdentity = getColorIdentity(
+    const colorIdentity = routedIdentity.color_identity || getColorIdentity(
       source && typeof source === "object" && !Array.isArray(source) ? (source.colors || source.key) : source
     );
     return {
@@ -1699,6 +1780,7 @@ export function buildArchidektSearchLinks({
   commanderName = "",
 }) {
   const colors = faction?.colors || faction?.key || "";
+  const deckSearchLabel = getExternalDeckRoutingAlias(faction).label || getColorIdentity(colors) || "Commander";
   const deckFormatCommander = catalog?.deckFormatCommander || DEFAULT_COMMANDER_DECK_FORMAT;
   const tagLanes = collectArchidektTagLanes({
     catalog,
@@ -1712,7 +1794,7 @@ export function buildArchidektSearchLinks({
     {
       kind: "archidekt-base",
       service: "archidekt",
-      label: `${getColorIdentity(colors)} Commander decks`,
+      label: `${deckSearchLabel} Commander decks`,
       url: buildArchidektDeckSearchUrl({ colors, deckFormatCommander, commanderName }),
     },
     ...tagLanes.map((lane) => ({
@@ -1738,7 +1820,7 @@ export function buildArchidektSearchLinks({
  * @returns {{maze:object[],scryfall:object[]}} Link groups.
  */
 export function buildCommanderPackageLinks(faction) {
-  const identity = getColorIdentity(faction?.colors || faction?.key || "").toLowerCase();
+  const identity = getExternalDeckRoutingAlias(faction).colorIdentity.toLowerCase();
   const links = PACKAGE_QUERIES.map((entry) => {
     const query = entry.query(identity);
     return {
@@ -1819,10 +1901,12 @@ export function buildCommanderStartingLane({
   const colorIdentity = getColorIdentity(faction?.colors || faction?.key || "");
   const archetypes = (faction?.archetypes || []).slice(0, 2).map((item) => item.name);
   const mechanics = modelFaction?.identity?.mechanics || "";
-  const laneTags = tagLanes.map((lane) => lane.tagName);
   const budget = starterProfile?.budget_band || "mid";
   const experience = starterProfile?.experience_level || "returning";
   const guidance = getCommanderFactionGuidance(faction);
+  const laneTags = guidance?.starterSearchTags?.length
+    ? guidance.starterSearchTags
+    : tagLanes.map((lane) => lane.tagName);
   const institutionWord = getExpressionKindLabel(faction);
   const deckCenter = archetypes.length
     ? `Start with ${archetypes.join(" or ")}`
@@ -2349,7 +2433,182 @@ function preconThemeSignals(precon, themeLookup, signalTags, signalPhrases) {
   };
 }
 
-function buildPreconFitSummary({ precon, lane, factionName, matchedThemes, stretchColors }) {
+const JUND_PRECON_FIT_SUMMARIES = new Map([
+  [
+    "world shaper",
+    "Exact Jund color fit with lands, graveyard value, and resource-conversion lines. This is the feed the engine, rebuild from what was spent version of Jund.",
+  ],
+  [
+    "power hungry",
+    "Exact Jund color fit with token creation, sacrifice, and death-trigger pressure. This is the clearest appetite/consequence precon: bodies become resources, resources become pressure.",
+  ],
+  [
+    "blight curse",
+    "Exact Jund color fit with -1/-1 counters, sacrifice, and attrition play. This is Jund as careful pressure: weaken the board, manage the cost, and turn decay into leverage.",
+  ],
+  [
+    "graveyard overdrive",
+    "Exact Jund color fit with graveyard value, self-mill, discard, and combat pressure. This is Jund as survival-after-impact: what dies, gets discarded, or gets milled can still come back as force.",
+  ],
+]);
+
+const BANT_PRECON_FIT_SUMMARIES = new Map([
+  [
+    "counter blitz",
+    "Bant support fit with counter movement, proliferate, and combat value: refine the board's growth so one supported line can carry pressure cleanly.",
+  ],
+  [
+    "peace offering",
+    "Bant support fit with group-hug politics and counters: share resources carefully, then turn public trust and planning into the advantage that matters.",
+  ],
+  [
+    "deep clue sea",
+    "Bant support fit with Clues, card draw, and token value: structure the investigation, turn knowledge into resources, and keep the engine inside a living board.",
+  ],
+  [
+    "adaptive enchantment",
+    "Bant support fit with enchantress, auras, ramp, and card flow: make the support network visible without turning the enchantment shell into prison-first control.",
+  ],
+  [
+    "evasive maneuvers",
+    "Bant support fit with evasive creatures and tap-untap tempo: use disciplined combat and timing as pressure, not hard-lock table denial.",
+  ],
+  [
+    "aura of courage",
+    "Bant support fit with Auras, Equipment, and protected-threat play: elevate one creature through refined support while avoiding generic voltron shorthand.",
+  ],
+  [
+    "blast from the past",
+    "Bant support fit with historic spells, artifacts, Sagas, and companion texture: treat the product as deck support, not Alaran Bant canon.",
+  ],
+  [
+    "bedecked brokers",
+    "Bant support fit with counter diversity, shield counters, and protected voltron texture: make many kinds of support gather around the champion.",
+  ],
+]);
+
+const NAYA_PRECON_FIT_SUMMARIES = new Map([
+  [
+    "limit break",
+    "Naya support fit with equipment and power-threshold combat texture: build one protected threat, then let creature-forward scale make the turn matter.",
+  ],
+  [
+    "desert bloom",
+    "Naya support fit with lands, graveyard-land texture, and resilient rebuilding: grow mana, use the land base as a living resource, and protect the board that follows.",
+  ],
+  [
+    "scrappy survivors",
+    "Naya support fit with Auras and Equipment as protective board texture: make the bond visible on creatures without treating the product as Naya canon.",
+  ],
+  [
+    "deadly disguise",
+    "Naya support fit with face-down creature play and timing texture: keep the board creature-forward while the table learns which body matters.",
+  ],
+  [
+    "primal genesis",
+    "Naya support fit with populate and token texture: turn one living board into many bodies while keeping abundance tied to the whole.",
+  ],
+  [
+    "nature of the beast",
+    "Naya support fit with Marath, Beasts, and counters: use flexible creature-forward scale so growth can become pressure, protection, or a wider board.",
+  ],
+  [
+    "land s wrath",
+    "Naya support fit with landfall and animated-land pressure: grow mana first, then let the land itself join the protected board.",
+  ],
+  [
+    "veloci ramp tor",
+    "Naya support fit with Dinosaur ramp and creature-forward scale: make abundance huge without flattening Naya into generic big-creature-only play.",
+  ],
+  [
+    "call for backup",
+    "Naya support fit with counters and Backup texture: spread growth across the board so protection, instinct, and scale move together.",
+  ],
+  [
+    "cabaretti cacophony",
+    "Same-color support/style comparator only: go-wide and goad texture can overlap Naya deckbuilding, but Cabaretti is not Naya canon, not Alara canon, and not a Naya lore source.",
+  ],
+]);
+
+const ESPER_PRECON_FIT_SUMMARIES = new Map([
+  [
+    "scions spellcraft",
+    "Esper color fit with control, card draw, protection, and removal: keep the table's options narrow while each answer becomes another piece of advantage.",
+  ],
+  [
+    "eternal might",
+    "Esper color fit with Zombies, looting, and graveyard value: use card selection to choose what matters, then turn the graveyard into a planned resource.",
+  ],
+  [
+    "miracle worker",
+    "Esper color fit with enchantments, miracles, and library setup: arrange the top of the deck so the decisive answer arrives at the cleanest moment.",
+  ],
+  [
+    "subjective reality",
+    "Esper color fit with top-of-library setup, blink value, and miracle timing: make the next draw feel designed before the table sees it.",
+  ],
+  [
+    "eternal bargain",
+    "Esper color fit with lifegain, card draw, and artifact value: convert time and life totals into a slow engine of controlled inevitability.",
+  ],
+  [
+    "dungeons of death",
+    "Esper color fit with dungeon progression, graveyard value, and reanimation: make each step through the plan unlock the next resource.",
+  ],
+  [
+    "cavalry charge",
+    "Esper color fit with Knights, tactical combat, and command-zone pressure: turn order, planning, and ambition into a disciplined attack.",
+  ],
+  [
+    "urza s iron alliance",
+    "Esper color fit with artifact creatures, tokens, and artifact-count pressure: build the machine carefully, then make every piece contribute to the clock.",
+  ],
+  [
+    "forces of the imperium",
+    "Esper color fit with tokens, Squad, and card draw from bodies entering: make formation and information advantage reinforce the same board.",
+  ],
+  [
+    "obscura operation",
+    "Esper color fit with evasive attackers, connive, and card selection: make one precise threat connect while each hit improves the next decision.",
+  ],
+]);
+
+const GRIXIS_PRECON_FIT_SUMMARIES = new Map([
+  [
+    "arcane wizardry",
+    "Exact Grixis color fit with Wizard tribal, ETB copying, and creature-based control. Product-support only: sequencing and value illustrate survival-control gameplay, not Grixis canon lore.",
+  ],
+  [
+    "mind seize",
+    "Exact Grixis color fit with Jeleva, exile-casting, and high-cost instant/sorcery pressure. Product-support only: opponents' spells become gameplay leverage, not a new lore claim.",
+  ],
+  [
+    "ahoy mateys",
+    "Exact Grixis color fit with Pirate tribal, graveyard setup, and tapped-and-attacking reanimation. Product-support only: the graveyard is a deck resource here, not Grixis source doctrine.",
+  ],
+  [
+    "masters of evil",
+    "Exact Grixis color fit with artifacts and forced-choice control. Product-support only: villain branding stays product context, not the definition of Grixis.",
+  ],
+  [
+    "the hosts of mordor",
+    "Exact Grixis color fit with control, attrition, and graveyard backup. Product-support only: crossover story material is not Alaran Grixis canon.",
+  ],
+  [
+    "mishra s burnished banner",
+    "Exact Grixis color fit with artifact copy/sacrifice and combat conversion. Product-support only: artifact sacrifice is deck texture, not the whole identity.",
+  ],
+  [
+    "the ruinous powers",
+    "Exact Grixis color fit with cascade, life-loss setup, and Demon-tribal backup. Product-support only: demons and cascade do not define Grixis canon.",
+  ],
+  [
+    "maestros massacre",
+    "Exact Grixis color fit with casualty and spell copying. Product-support only: New Capenna Maestros is same-color comparator material, not Alaran Grixis evidence.",
+  ],
+]);
+
+function buildPreconFitSummary({ precon, lane, factionName, matchedThemes, stretchColors, activeFactionKey = "" }) {
   const themeList = matchedThemes.length
     ? matchedThemes
     : [precon?.normalizedThemes?.primary?.displayName || precon?.rawPrimaryTheme || "theme-forward"];
@@ -2357,6 +2616,27 @@ function buildPreconFitSummary({ precon, lane, factionName, matchedThemes, stret
   if (lane === "stretch") {
     const stretchText = stretchColors.length ? stretchColors.join(" and ") : "an extra color";
     return `Stretch option that keeps ${factionName}'s core identity intact while adding ${stretchText} for ${themeText} lines.`;
+  }
+  const factionKey = String(activeFactionKey || "").toUpperCase();
+  if (factionKey === "BANT") {
+    return BANT_PRECON_FIT_SUMMARIES.get(normalizeDisplayName(precon?.deckName || "")) ||
+      `Bant support fit with ${themeText} lines that reinforce public trust, refined protection, living order, and a worthy supported line of action.`;
+  }
+  if (factionKey === "ESPER") {
+    return ESPER_PRECON_FIT_SUMMARIES.get(normalizeDisplayName(precon?.deckName || "")) ||
+      `Esper color fit with ${themeText} lines that reinforce planning, information advantage, structured optimization, and controlled change.`;
+  }
+  if (factionKey === "GRIXIS") {
+    return GRIXIS_PRECON_FIT_SUMMARIES.get(normalizeDisplayName(precon?.deckName || "")) ||
+      `Exact Grixis color fit with ${themeText} lines that reinforce survival, calculation, and urgent leverage as product-support gameplay.`;
+  }
+  if (factionKey === "JUND") {
+    return JUND_PRECON_FIT_SUMMARIES.get(normalizeDisplayName(precon?.deckName || "")) ||
+      `Exact Jund color fit with ${themeText} lines that reinforce Jund's appetite/consequence plan.`;
+  }
+  if (factionKey === "NAYA") {
+    return NAYA_PRECON_FIT_SUMMARIES.get(normalizeDisplayName(precon?.deckName || "")) ||
+      `Naya support fit with ${themeText} lines that reinforce abundance, protected board growth, creature-forward scale, and instinctive care.`;
   }
   return `Exact ${precon.colorIdentityKey} match with ${themeText} lines that reinforce ${factionName}'s Commander plan.`;
 }
@@ -2474,6 +2754,7 @@ export function buildPreconRecommendations({
           factionName: faction?.name || dossier?.faction?.name || "this reading",
           matchedThemes: themeSignals.matchedThemes,
           stretchColors,
+          activeFactionKey,
         }),
         skipSummary: precon?.recommendationProfile?.notRecommendedFor || "",
         tablePerception:
@@ -2506,7 +2787,7 @@ export function buildPreconRecommendations({
     activeFactionKey,
     activeFactionShortName,
     nativeLaneTitle: `${activeFactionShortName} Precons`,
-    otherExactTitle: `Other ${activeIdentity} Exact Matches`,
+    otherExactTitle: `Other ${activeFactionShortName} Exact Matches`,
   };
 }
 

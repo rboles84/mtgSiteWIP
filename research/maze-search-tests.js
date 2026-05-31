@@ -74,6 +74,7 @@ assert.deepEqual(parseAlternativeApi("{bad json"), {});
 assert.equal(stripApiMetadataFromQuery("otag:board-wipe order:released direction:desc unique:prints"), "otag:board-wipe");
 
 await runMazeDomMetadataCases();
+await runLiveShardDossierSidebarCases();
 await runMazeUrlBootCase();
 
 console.log("Maze search metadata helper cases passed.");
@@ -82,7 +83,7 @@ async function runMazeDomMetadataCases() {
   const dom = installMazeDomHarness();
 
   await import("./research-init.js");
-  window.location.search = "?from=archscry&fit=WITHERBLOOM&factionName=Witherbloom%20College&readingId=red-reading&pathType=commanders-that-fit&plainReadingQuery=Witherbloom%20commander%20candidates%20in%20black-green%20Commander%20identity&operatorQuery=id%3C%3Dbg%20is%3Acommander%20f%3Acommander%20%28o%3Agraveyard%20OR%20o%3Asacrifice%29&returnUrl=..%2Farchscry%2Findex.html%3Ffrom%3Dmaze%26view%3DWITHERBLOOM%23maze-discovery-paths";
+  window.location.search = "?from=archscry&fit=WITHERBLOOM&factionName=Witherbloom%20College&readingId=red-reading&pathType=commanders-that-fit&plainReadingQuery=Witherbloom%20College%20commanders%20with%20exactly%20black-green%20identity&operatorQuery=id%3Dbg%20is%3Acommander%20f%3Acommander%20%28o%3Agraveyard%20OR%20o%3Asacrifice%29&returnUrl=..%2Farchscry%2Findex.html%3Ffrom%3Dmaze%26view%3DWITHERBLOOM%23maze-discovery-paths";
   window.location.href = `http://localhost/maze/index.html${window.location.search}`;
   dom.setLocalStorageItem("vm_archscry_maze_handoff_v1", JSON.stringify({
     returnUrl: "../archscry/index.html",
@@ -102,10 +103,10 @@ async function runMazeDomMetadataCases() {
   const launchUrl = dom.fetchUrls
     .map((url) => new URL(url, "http://localhost"))
     .find((url) => url.origin + url.pathname === "https://api.scryfall.com/cards/search" &&
-      /^id<=bg is:commander f:commander /.test(url.searchParams.get("q") || ""));
+      /^id=bg is:commander f:commander /.test(url.searchParams.get("q") || ""));
   assert.ok(launchUrl, "expected Archscry launch to execute the operator query through Maze search");
   assert.equal(document.body.dataset.mazeMode, "ai");
-  assert.match(launchUrl.searchParams.get("q"), /^id<=bg is:commander f:commander /);
+  assert.match(launchUrl.searchParams.get("q"), /^id=bg is:commander f:commander /);
   assert.notEqual(launchUrl.searchParams.get("q"), "ignored");
 
   assert.equal(document.getElementById("discovery-path-list").children.length, 5);
@@ -129,8 +130,8 @@ async function runMazeDomMetadataCases() {
     "expected Loom autocomplete to include dictionary-derived keyword suggestions"
   );
   const commanderPath = document.getElementById("reading-path-list").children[0];
-  assert.match(commanderPath.dataset.query, /^id<=bg is:commander f:commander /);
-  assert.match(commanderPath.dataset.plainReadingQuery, /Witherbloom College commander candidates/i);
+  assert.match(commanderPath.dataset.query, /^id=bg is:commander f:commander /);
+  assert.match(commanderPath.dataset.plainReadingQuery, /Witherbloom College commanders with exactly black-green identity/i);
   assert.doesNotMatch(commanderPath.dataset.plainReadingQuery, /\bRed\b/);
   assert.equal(commanderPath.dataset.origin, "path");
   const supportPath = document.getElementById("reading-path-list").children[1];
@@ -474,6 +475,67 @@ async function runMazeDomMetadataCases() {
   await waitForFetchCount(dom.fetchUrls, remotePageStart + 2);
   assert.equal(dom.fetchUrls.at(-1), nextPageUrl);
   assert.equal(document.getElementById("card-grid").children.length, 34);
+}
+
+async function runLiveShardDossierSidebarCases() {
+  const cases = [
+    { key: "BANT", name: "Bant", identity: "wug", words: "white-blue-green", expectedPaths: 4, storedKey: "WU", storedName: "Azorius Senate", storedScores: { W: 8, U: 7, B: 0, R: 0, G: 0 }, visibleHint: "WUG" },
+    { key: "ESPER", name: "Esper", identity: "wub", words: "white-blue-black", expectedPaths: 4, storedKey: "WU", storedName: "Azorius Senate", storedScores: { W: 8, U: 7, B: 0, R: 0, G: 0 }, visibleHint: "WUB" },
+    { key: "GRIXIS", name: "Grixis", identity: "ubr", words: "blue-black-red", expectedPaths: 3, storedKey: "WU", storedName: "Azorius Senate", storedScores: { W: 8, U: 7, B: 0, R: 0, G: 0 }, visibleHint: "UBR" },
+    { key: "JUND", name: "Jund", identity: "brg", words: "black-red-green", expectedPaths: 3, storedKey: "UR", storedName: "Izzet League", storedScores: { W: 0, U: 7, B: 0, R: 8, G: 0 }, visibleHint: "Jund" },
+  ];
+
+  for (const testCase of cases) {
+    const dom = installMazeDomHarness();
+    const encodedName = encodeURIComponent(testCase.name);
+    const encodedPlain = encodeURIComponent(`${testCase.name} commanders with exactly ${testCase.words} identity`);
+    const encodedOperator = encodeURIComponent(`id=${testCase.identity} is:commander f:commander (o:draw OR o:token OR o:graveyard OR o:sacrifice)`);
+    const encodedReturn = encodeURIComponent(`../archscry/index.html?from=maze&view=${testCase.key}#maze-discovery-paths`);
+
+    await import(`./research-init.js?${testCase.key.toLowerCase()}-sidebar`);
+    window.location.search = `?from=archscry&guild=${testCase.storedKey}&fit=${testCase.key}&factionName=${encodedName}&readingId=${testCase.storedKey.toLowerCase()}-reading&pathType=commanders-that-fit&plainReadingQuery=${encodedPlain}&operatorQuery=${encodedOperator}&returnUrl=${encodedReturn}`;
+    window.location.href = `http://localhost/maze/index.html${window.location.search}`;
+    dom.setLocalStorageItem("vm_archscry_maze_handoff_v1", JSON.stringify({
+      returnUrl: "../archscry/index.html",
+      placementResult: {
+        faction: testCase.storedKey,
+        faction_name: testCase.storedName,
+        mana_scores: testCase.storedScores,
+        evidence_trail: [{
+          signal: "draw token structure",
+          answer_title: "Build the stable plan",
+          prompt: "How should the table recover?"
+        }]
+      }
+    }));
+    await dom.dispatchWindowEvent("load");
+    await new Promise((resolve) => setTimeout(resolve, 0));
+
+    const readingPaths = document.getElementById("reading-path-list").children;
+    assert.equal(readingPaths.length, testCase.expectedPaths, `expected ${testCase.key} sidebar path count to match shard policy`);
+    assert.equal(readingPaths[0].children.at(-1).textContent, testCase.visibleHint);
+    assert.match(readingPaths[0].dataset.query, new RegExp(`^id=${testCase.identity} is:commander f:commander `));
+    assert.match(
+      readingPaths[0].dataset.plainReadingQuery,
+      new RegExp(`${testCase.name} commanders with exactly ${testCase.words} identity`, "i")
+    );
+    assert.match(readingPaths[1].dataset.query, new RegExp(`^id<=${testCase.identity} f:commander -is:commander -t:land `));
+    assert.match(readingPaths[2].dataset.query, new RegExp(`^id<=${testCase.identity} f:commander \\(ft:`));
+    assert.doesNotMatch(readingPaths[0].dataset.query, new RegExp(`^id=${testCase.storedKey.toLowerCase()}\\b`));
+    assert.ok(
+      [...readingPaths].every((path) => path.dataset.query && !new RegExp(`^id<=${testCase.storedKey.toLowerCase()}\\b`).test(path.dataset.query)),
+      `expected active ${testCase.key} handoff to override stored ${testCase.storedKey} primary placement identity`
+    );
+    if (testCase.key === "JUND") {
+      const sidebarText = document.getElementById("reading-path-list").textContent;
+      assert.doesNotMatch(sidebarText, /\bUR\b/);
+      assert.doesNotMatch(sidebarText, /\bBRG\b/);
+      assert.ok(
+        [...readingPaths].every((path) => path.dataset.pathType !== "weird-stretch-commanders"),
+        "expected active JUND sidebar to hide the outside-color commander stretch path"
+      );
+    }
+  }
 }
 
 async function runMazeUrlBootCase() {

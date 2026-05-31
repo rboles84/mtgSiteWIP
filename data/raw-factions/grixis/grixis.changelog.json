@@ -1,0 +1,155 @@
+{
+  "schema_version": "1.0.0",
+  "faction_id": "grixis",
+  "faction_name": "Grixis",
+  "last_updated": "2026-05-30",
+  "changes": [
+    {
+      "change_id": "grixis_change_001",
+      "change_type": "VM-166 Initial Source-Only Raw Packet",
+      "change_date": "2026-05-30",
+      "summary": "Created Grixis's authored-but-not-live raw-faction packet from VM-164 evidence and VM-165 architecture language while preserving all support-only, manual-fill, comparator, and runtime boundaries.",
+      "sources_added": [
+        "src_vm_grixis_source_ledger_20260530",
+        "src_vm_grixis_evidence_ledger_20260530",
+        "src_vm_grixis_research_dossier_20260530",
+        "src_vm_grixis_reliability_audit_20260530",
+        "src_vm_grixis_manual_fill_20260530",
+        "src_vm_grixis_lore_source_packet_20260530",
+        "src_wotc_rosewater_grixis_looking_out_for_number_one",
+        "src_vm_canon_inventory_three_color_audit_20260528",
+        "src_alara_shards_lore_dossier_protocol_rtf",
+        "src_vm_grixis_identity_md_20260530",
+        "src_vm_grixis_metaphysics_md_20260530"
+      ],
+      "sources_updated": [],
+      "claims_added": [
+        "grixis_claim_0001",
+        "grixis_claim_0002",
+        "grixis_claim_0003",
+        "grixis_claim_0004",
+        "grixis_claim_0005",
+        "grixis_claim_0006",
+        "grixis_claim_0007",
+        "grixis_claim_0008"
+      ],
+      "claims_updated": [],
+      "claims_superseded": [],
+      "claims_contradicted": [],
+      "profile_fields_updated": [
+        "site_surface",
+        "core_identity",
+        "structure",
+        "great_tension",
+        "historical_timeline",
+        "key_figures",
+        "canonical_flavor_text",
+        "views_on_other_factions",
+        "mechanics",
+        "search_and_filter_metadata",
+        "data_quality",
+        "research_limitations",
+        "commander_compass"
+      ],
+      "placement_fields_updated": [
+        "placement_summary",
+        "moral_and_psychological_profile",
+        "placement_axes",
+        "core_values",
+        "behavioral_signals",
+        "inhibitor_traits",
+        "good_fit_indicators",
+        "ideal_fit_indicators",
+        "poor_fit_indicators",
+        "discriminator_questions",
+        "chatbot_guidance",
+        "placement_quality",
+        "color_identity",
+        "calibration_tuning",
+        "collision_guidance"
+      ],
+      "manual_review_required": [
+        "Keep full vis economy and physiology deferred.",
+        "Keep Grixis geography and named locations deferred.",
+        "Keep Sedris biography and scope of authority deferred.",
+        "Keep Nicol Bolas's exact Grixis role deferred.",
+        "Keep Malfegor story details deferred.",
+        "Keep Kess and other figure details deferred.",
+        "Keep Conflux and post-Conflux chronology deferred.",
+        "Keep unearth as narrative theory deferred.",
+        "Keep Maestros as comparator/support only."
+      ],
+      "notes": "This initial packet intentionally leaves placement_axes empty, keeps Grixis authored/review-gated/non-live, does not edit builder/runtime/generated/schema/route/Home/Maze/Supabase surfaces, and does not add grixis or GRIXIS as a key or raw-to-key target."
+    },
+    {
+      "change_id": "grixis_change_002",
+      "change_type": "VM-168 Controlled Runtime Promotion Metadata",
+      "change_date": "2026-05-30",
+      "summary": "Updated Grixis status, review, and promotion metadata for a controlled VM-168 live pilot while leaving raw claims and source evidence rows unchanged.",
+      "sources_added": [],
+      "sources_updated": [
+        "src_vm_grixis_lore_source_packet_20260530"
+      ],
+      "claims_added": [],
+      "claims_updated": [],
+      "claims_superseded": [],
+      "claims_contradicted": [],
+      "profile_fields_updated": [
+        "site_surface.runtime_status",
+        "site_surface.placement_status",
+        "great_tension.placement_relevance",
+        "search_and_filter_metadata.aliases",
+        "search_and_filter_metadata.tags",
+        "search_and_filter_metadata.notes",
+        "data_quality.raw_packet_status",
+        "data_quality.generation_status",
+        "data_quality.known_limitations"
+      ],
+      "placement_fields_updated": [
+        "placement_summary",
+        "moral_and_psychological_profile.summary",
+        "placement_quality.review_gated",
+        "placement_quality.placement_eligible",
+        "placement_quality.live_pilot",
+        "placement_quality.calibration_tuning_status",
+        "placement_quality.last_placement_ready_pass",
+        "calibration_tuning.status",
+        "calibration_tuning.required_positive_min_hits",
+        "calibration_tuning.broad_match_penalty",
+        "calibration_tuning.smoke_test_note"
+      ],
+      "manual_review_required": [
+        "Keep all VM-166 manual-fill topics deferred unless a later evidence packet promotes them.",
+        "Keep Commander/operator rows as product support only.",
+        "Keep Maestros as comparator/support only.",
+        "Keep UBR as metadata only, not a live key or alias."
+      ],
+      "notes": "VM-168 promotion metadata does not add lore sources, raw claims, Commander facts, evidence rows, route pages, Home cards, Maze routes, schema domain fields, or manual Supabase source edits."
+    }
+  ],
+  "audit_summary": {
+    "raw_packet_created": true,
+    "raw_claim_count": 8,
+    "source_evidence_rows_used": [
+      "GRIXIS-001",
+      "GRIXIS-002",
+      "GRIXIS-003",
+      "GRIXIS-004",
+      "GRIXIS-005",
+      "GRIXIS-006",
+      "GRIXIS-007",
+      "GRIXIS-008"
+    ],
+    "support_only_rows_promoted": false,
+    "manual_fill_rows_promoted": false,
+    "maestros_used_as_grixis_evidence": false,
+    "raw_to_key_updated": true,
+    "build_factions_run": true,
+    "generated_artifacts_updated": true,
+    "status": "vm168_live_pilot",
+    "last_placement_ready_pass": "VM-168",
+    "placement_eligible": true,
+    "live_pilot": true,
+    "ubr_metadata_only": true
+  }
+}

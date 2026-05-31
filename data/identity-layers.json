@@ -5,8 +5,10 @@
     "notes": [
       "Color entries define foundational identity language.",
       "Expression entries define routing, blend metadata, placement eligibility, and Home preview metadata.",
-      "The current preview set covers five mono colors, ten Ravnica guilds, and five Strixhaven colleges.",
-      "VM-160 adds Bant as a live placement pilot with preview_eligible false; the Home preview carousel remains at 20 entries."
+      "The current Home preview set remains five mono colors, ten Ravnica guilds, and five Strixhaven colleges.",
+      "The current live placement set has 25 expressions: the original 20-expression preview baseline plus five Alara shard pilots.",
+      "BANT, ESPER, GRIXIS, JUND, and NAYA are live placement expression keys with preview_eligible false.",
+      "WUG, WUB, UBR, BRG, and RGW remain color-direction/query metadata only, not expression keys or aliases."
     ]
   },
   "colors": {
@@ -1045,6 +1047,784 @@
       "aliases": [
         "BANT",
         "bant"
+      ],
+      "placement_eligible": true,
+      "preview_eligible": false
+    },
+    "ESPER": {
+      "key": "ESPER",
+      "active": true,
+      "kind": "shard",
+      "name": "Esper",
+      "world": "Alara",
+      "colors": [
+        "W",
+        "U",
+        "B"
+      ],
+      "core_color": "U",
+      "secondary_colors": [
+        "W",
+        "B"
+      ],
+      "routing": {
+        "edhrec_slug": "esper",
+        "mtgdecks_slug": "esper",
+        "label": "Esper"
+      },
+      "identity_blend": "Blue perfectibility structured by White order and sharpened by Black control.",
+      "display": {
+        "key": "ESPER",
+        "name": "Esper",
+        "institution_type": "shard",
+        "world": "Alara",
+        "colors": [
+          "W",
+          "U",
+          "B"
+        ],
+        "accent": "#7fb8ff",
+        "banner": "linear-gradient(160deg,rgba(127,184,255,0.34) 0%,rgba(226,232,240,0.18) 46%,rgba(61,48,83,0.24) 100%)",
+        "tagline": "Potential, made exact.",
+        "philosophy": "Esper treats potential as a design problem. Blue seeks perfectibility through knowledge and applied information, White gives the project ordered improvement, and Black turns information into focused control.",
+        "lore_summary": "Esper is Alara's Blue-centered shard of deliberate improvement, planned change, and structured control. Vox Mana reads it as perfectibility pursued through knowledge, coordination, and instrumental information.",
+        "core_tension": "Esper's virtue is deliberate improvement, but perfectibility can drift into over-control when the unoptimized starts to look like an error to correct.",
+        "affinity": {
+          "drawn_to": [
+            "Knowledge before action",
+            "Planning as a way to improve the system",
+            "Order that coordinates change",
+            "Control made precise by information"
+          ],
+          "repelled_by": [
+            "Generic three-color control without a perfectibility frame",
+            "Artifacts as aesthetics without applied knowledge",
+            "Impulse treated as truth",
+            "Natural acceptance treated as the final answer"
+          ],
+          "core_question": "What would you improve if the system finally became legible enough to redesign?",
+          "interview_tells": [
+            "Frames change as deliberate optimization",
+            "Wants knowledge, structure, and control to work together",
+            "Treats information as useful only when it changes outcomes",
+            "Distinguishes designed improvement from civic procedure, secrecy, or obligation alone"
+          ],
+          "not_to_be_confused_with": "Azorius centers procedure; Dimir centers hidden leverage; Orzhov centers obligation; Bant centers living communal order."
+        },
+        "decree_voice": {
+          "tone": "Precise, refined, and controlled without becoming lore-omniscient.",
+          "speaks_like": "A systems architect naming the pattern before changing it.",
+          "example_opening": "The reading turns toward planned refinement, exact knowledge, and control made useful.",
+          "example_decree": "The reading turns toward planned refinement, exact knowledge, and control made useful. Esper does not ask whether change is possible. It asks whether you understand the system well enough to make change deliberate."
+        },
+        "archetypes": [
+          {
+            "name": "Perfectibility Control",
+            "desc": "Use knowledge, timing, and structure to make the table's future narrower and cleaner."
+          },
+          {
+            "name": "Information Engines",
+            "desc": "Turn cards, libraries, and planning into the resources that decide what may happen next."
+          },
+          {
+            "name": "Artifact-Oriented Value",
+            "desc": "Use artifact language as support for designed improvement, not as the whole identity by itself."
+          }
+        ],
+        "staples": {
+          "creatures": [
+            "Baleful Strix",
+            "Solemn Simulacrum",
+            "Cyberdrive Awakener"
+          ],
+          "spells": [
+            "Swords to Plowshares",
+            "Counterspell",
+            "Anguished Unmaking"
+          ],
+          "permanents": [
+            "Rhystic Study",
+            "Smothering Tithe",
+            "Mystic Remora"
+          ]
+        },
+        "land_base": {
+          "premium": [
+            "Tundra",
+            "Underground Sea",
+            "Scrubland"
+          ],
+          "midrange": [
+            "Hallowed Fountain",
+            "Watery Grave",
+            "Godless Shrine"
+          ],
+          "budget": [
+            "Arcane Sanctum",
+            "Esper Panorama",
+            "Path of Ancestry"
+          ],
+          "utility": [
+            "Command Tower",
+            "Exotic Orchard",
+            "Reliquary Tower"
+          ],
+          "optimal": "Tundra / Underground Sea / Scrubland / Command Tower / Otawara, Soaring City",
+          "mid": "Hallowed Fountain / Watery Grave / Godless Shrine / Command Tower / Arcane Sanctum",
+          "budget_line": "Arcane Sanctum / Esper Panorama / Path of Ancestry / Evolving Wilds / basics",
+          "utility_line": "Command Tower / Exotic Orchard / Reliquary Tower / Otawara, Soaring City"
+        },
+        "deck_links": [
+          {
+            "fmt": "Commander",
+            "name": "Esper Commanders",
+            "desc": "Esper Commander starts for control, card advantage, library setup, artifact-oriented value, and structured optimization.",
+            "mtgg": null,
+            "edhrec": "https://edhrec.com/commanders/esper",
+            "mtgd": "https://mtgdecks.net/Commander/esper-commanders"
+          }
+        ],
+        "research_links": {
+          "edhrec_slug": "esper"
+        }
+      },
+      "display_code": "ESPER",
+      "aliases": [
+        "ESPER",
+        "esper"
+      ],
+      "placement_eligible": true,
+      "preview_eligible": false
+    },
+    "GRIXIS": {
+      "key": "GRIXIS",
+      "active": true,
+      "kind": "shard",
+      "name": "Grixis",
+      "world": "Alara",
+      "colors": [
+        "U",
+        "B",
+        "R"
+      ],
+      "core_color": "B",
+      "secondary_colors": [
+        "U",
+        "R"
+      ],
+      "routing": {
+        "edhrec_slug": "grixis",
+        "mtgdecks_slug": "grixis",
+        "label": "Grixis"
+      },
+      "identity_blend": "Black-centered survival sharpened by Blue calculation and accelerated by Red immediacy.",
+      "core_tension": "Grixis's virtue is clear-eyed survival, but the same pressure can turn every weakness into something to exploit before the self notices what it has become.",
+      "display": {
+        "key": "GRIXIS",
+        "name": "Grixis",
+        "institution_type": "shard",
+        "world": "Alara",
+        "colors": [
+          "U",
+          "B",
+          "R"
+        ],
+        "accent": "#9f526f",
+        "banner": "linear-gradient(160deg, rgba(58, 72, 139, 0.30) 0%, rgba(18, 17, 26, 0.28) 48%, rgba(166, 70, 82, 0.24) 100%)",
+        "tagline": "Survive first. Find the weakness. Take the opening.",
+        "philosophy": "Grixis treats survival as the first law. Black supplies self-advocacy and adaptation to reality, Blue studies weakness and leverage, and Red acts before the opening closes.",
+        "lore_summary": "Grixis is Alara's Black-centered UBR shard expression. Vox Mana reads it through source-bound survival, calculation, immediacy, volatility, and the absence of White and Green pressures, not as generic villainy or Maestros by another name.",
+        "core_tension": "Grixis's virtue is clear-eyed survival, but the same pressure can turn every weakness into something to exploit before the self notices what it has become.",
+        "affinity": {
+          "drawn_to": [
+            "survival as first principle",
+            "calculated pressure",
+            "urgent openings",
+            "self-advocacy under hostile conditions"
+          ],
+          "repelled_by": [
+            "generic evil UBR flattening",
+            "Maestros interchangeability",
+            "Bolas or Sedris rulership overclaims",
+            "unearth treated as the whole identity"
+          ],
+          "core_question": "When the world gives you one narrow opening, do you study the weakness and move before it closes?",
+          "interview_tells": [
+            "names survival before comfort",
+            "turns information into leverage",
+            "acts quickly once the opening is real",
+            "resists generic villain coding"
+          ],
+          "not_to_be_confused_with": "Dimir centers hidden leverage; Rakdos centers appetite and release; Izzet centers experiment; Esper centers perfectibility; Bant centers public order; Maestros are New Capenna comparator material, not Alaran Grixis evidence."
+        },
+        "decree_voice": {
+          "tone": "Unsparing, tactical, and urgent without becoming generic villain prose.",
+          "speaks_like": "A survivor naming the weakness before the window closes.",
+          "example_opening": "The reading turns toward survival, leverage, and the opening that will not wait.",
+          "example_decree": "The reading turns toward survival, leverage, and the opening that will not wait. Grixis does not ask whether the world is fair. It asks what must be understood, endured, or taken before the chance is gone."
+        },
+        "archetypes": [
+          {
+            "name": "Survival Control",
+            "desc": "Use information, removal, and timing to stay alive long enough to decide which opening matters."
+          },
+          {
+            "name": "Leverage Engines",
+            "desc": "Turn cards, life, resources, and table pressure into the next survivable advantage."
+          },
+          {
+            "name": "Volatile Spell Pressure",
+            "desc": "Act quickly when the window opens, pairing calculation with decisive red-black force."
+          }
+        ],
+        "staples": {
+          "creatures": [
+            "Kess, Dissident Mage",
+            "Nekusar, the Mindrazer",
+            "Jeleva, Nephalia's Scourge"
+          ],
+          "spells": [
+            "Terminate",
+            "Counterspell",
+            "Blasphemous Act"
+          ],
+          "permanents": [
+            "Arcane Signet",
+            "Talisman of Dominance",
+            "Talisman of Indulgence"
+          ]
+        },
+        "land_base": {
+          "premium": [
+            "Underground Sea",
+            "Volcanic Island",
+            "Badlands"
+          ],
+          "midrange": [
+            "Watery Grave",
+            "Steam Vents",
+            "Blood Crypt"
+          ],
+          "budget": [
+            "Crumbling Necropolis",
+            "Grixis Panorama",
+            "Path of Ancestry"
+          ],
+          "utility": [
+            "Command Tower",
+            "Exotic Orchard",
+            "Reliquary Tower"
+          ],
+          "optimal": "Underground Sea / Volcanic Island / Badlands / Command Tower / Exotic Orchard",
+          "mid": "Watery Grave / Steam Vents / Blood Crypt / Command Tower / Exotic Orchard",
+          "budget_line": "Crumbling Necropolis / Grixis Panorama / Path of Ancestry / Command Tower",
+          "utility_line": "Command Tower / Exotic Orchard / Reliquary Tower / Path of Ancestry"
+        },
+        "deck_links": [
+          {
+            "fmt": "Commander",
+            "name": "Grixis Commanders",
+            "desc": "Grixis Commander starts for survival control, spell pressure, leverage engines, and UBR plans that pair calculation with decisive action.",
+            "mtgg": null,
+            "edhrec": "https://edhrec.com/commanders/grixis",
+            "mtgd": "https://mtgdecks.net/Commander/grixis-commanders"
+          }
+        ],
+        "research_links": {
+          "edhrec_slug": "grixis"
+        }
+      },
+      "display_code": "GRIXIS",
+      "aliases": [
+        "GRIXIS",
+        "grixis"
+      ],
+      "placement_eligible": true,
+      "preview_eligible": false
+    },
+    "JUND": {
+      "key": "JUND",
+      "active": true,
+      "kind": "shard",
+      "name": "Jund",
+      "world": "Alara",
+      "colors": [
+        "B",
+        "R",
+        "G"
+      ],
+      "core_color": "R",
+      "secondary_colors": [
+        "B",
+        "G"
+      ],
+      "routing": {
+        "edhrec_slug": "jund",
+        "mtgdecks_slug": "jund",
+        "label": "Jund"
+      },
+      "identity_blend": "Red-centered self-truth sharpened by Black appetite and grounded in Green instinct.",
+      "core_tension": "Jund's virtue is honest instinct in motion, but the same pressure can turn appetite into overconsumption or mistake impulse for truth.",
+      "display": {
+        "key": "JUND",
+        "name": "Jund",
+        "institution_type": "shard",
+        "world": "Alara",
+        "colors": [
+          "B",
+          "R",
+          "G"
+        ],
+        "accent": "#c05f3f",
+        "banner": "linear-gradient(160deg, rgba(80, 48, 42, 0.30) 0%, rgba(151, 61, 45, 0.28) 50%, rgba(77, 119, 70, 0.24) 100%)",
+        "tagline": "Trust the feeling. Feed the hunger. Bear the consequence.",
+        "philosophy": "Jund treats feeling as a compass. Red supplies self-truth and action, Black honors appetite and self-interest, and Green strips away overthinking until instinct can move.",
+        "lore_summary": "Jund is Alara's Red-centered black-red-green shard expression. Vox Mana reads it through source-bound self-truth, gut instinct, appetite, freedom with consequences, and the absence of White and Blue pressures, not as generic violence, devour, or Modern Jund by another name.",
+        "core_tension": "Jund's virtue is honest instinct in motion, but the same pressure can turn appetite into overconsumption or mistake impulse for truth.",
+        "affinity": {
+          "drawn_to": [
+            "gut instinct under pressure",
+            "freedom with consequence",
+            "appetite as self-knowledge",
+            "survival that refuses polite permission"
+          ],
+          "repelled_by": [
+            "generic Red violence",
+            "savage-nature flattening",
+            "devour treated as the whole identity",
+            "Modern Jund midrange treated as canon"
+          ],
+          "core_question": "When the honest feeling arrives with a cost, do you trust it enough to move?",
+          "interview_tells": [
+            "names instinct before permission",
+            "treats appetite as information",
+            "accepts consequence as part of freedom",
+            "resists generic cruelty or midrange shorthand"
+          ],
+          "not_to_be_confused_with": "Rakdos centers performance and transgression; Golgari centers lifecycle and rot; Gruul centers civilization rejection; Grixis centers survival calculation; Naya centers communal abundance. Jund centers Red self-truth fed by Black appetite and Green instinct."
+        },
+        "decree_voice": {
+          "tone": "Primal, direct, and consequence-aware without becoming generic cruelty.",
+          "speaks_like": "A body naming the hunger and the cost in the same breath.",
+          "example_opening": "The reading turns toward appetite, instinct, and the honest motion that refuses to wait.",
+          "example_decree": "The reading turns toward appetite, instinct, and the honest motion that refuses to wait. Jund does not ask for permission to feel what it feels. It asks whether the hunger is true enough to carry the cost."
+        },
+        "archetypes": [
+          {
+            "name": "Instinctive Pressure",
+            "desc": "Act from gut truth and force the table to answer the motion while the window is still alive."
+          },
+          {
+            "name": "Appetite Engines",
+            "desc": "Turn resources, bodies, graveyards, and combat pressure into consequence-bearing momentum."
+          },
+        {
+          "name": "Feral Value",
+          "desc": "Use Green instinct and Black self-interest to keep pressure alive after the first strike."
+        }
+      ],
+      "staples": {
+        "creatures": [
+          "Prossh, Skyraider of Kher",
+          "Korvold, Fae-Cursed King",
+          "Mayhem Devil"
+        ],
+        "spells": [
+          "Terminate",
+          "Cultivate",
+          "Victimize"
+        ],
+        "permanents": [
+          "Goblin Bombardment",
+          "Moldervine Reclamation",
+          "Rhythm of the Wild"
+        ]
+      },
+        "land_base": {
+          "premium": [
+            "Badlands",
+            "Bayou",
+            "Taiga"
+        ],
+        "midrange": [
+          "Blood Crypt",
+          "Overgrown Tomb",
+          "Stomping Ground"
+        ],
+        "budget": [
+          "Savage Lands",
+          "Jund Panorama",
+          "Path of Ancestry"
+        ],
+        "utility": [
+          "Command Tower",
+          "Exotic Orchard",
+          "Kessig Wolf Run"
+        ],
+        "optimal": "Badlands / Bayou / Taiga / Command Tower / Exotic Orchard",
+          "mid": "Blood Crypt / Overgrown Tomb / Stomping Ground / Luxury Suite / Spire Garden",
+          "budget_line": "Savage Lands / Jund Panorama / Path of Ancestry / Evolving Wilds / basics",
+          "utility_line": "Command Tower / Exotic Orchard / Kessig Wolf Run / Bojuka Bog"
+        },
+        "deck_links": [
+          {
+            "fmt": "Commander",
+            "name": "Jund Commanders",
+            "desc": "Jund Commander starts for instinctive pressure, appetite engines, feral value, sacrifice, graveyard value, lands, counters, and consequence-bearing combat.",
+            "mtgg": null,
+            "edhrec": "https://edhrec.com/commanders/jund",
+            "mtgd": "https://mtgdecks.net/Commander/jund-commanders"
+          }
+        ],
+        "research_links": {
+          "edhrec_slug": "jund"
+        }
+      },
+      "display_code": "JUND",
+      "aliases": [
+        "JUND",
+        "jund"
+      ],
+      "placement_eligible": true,
+      "preview_eligible": false
+    },
+    "NAYA": {
+      "key": "NAYA",
+      "active": true,
+      "kind": "shard",
+      "name": "Naya",
+      "world": "Alara",
+      "colors": [
+        "R",
+        "G",
+        "W"
+      ],
+      "core_color": "G",
+      "secondary_colors": [
+        "R",
+        "W"
+      ],
+      "routing": {
+        "edhrec_slug": "naya",
+        "mtgdecks_slug": "naya",
+        "color_identity": "RGW",
+        "label": "Naya"
+      },
+      "identity_blend": "Green-centered abundance supported by Red instinct and White larger-picture care.",
+      "core_tension": "Naya's virtue is belonging in the living whole, but the same abundance can become overgrowth, over-identification with scale, or instinct mistaken for wisdom.",
+      "display": {
+        "key": "NAYA",
+        "name": "Naya",
+        "institution_type": "shard",
+        "world": "Alara",
+        "colors": [
+          "R",
+          "G",
+          "W"
+        ],
+        "accent": "#86b96d",
+        "banner": "linear-gradient(160deg, rgba(74, 124, 64, 0.30) 0%, rgba(192, 111, 63, 0.24) 48%, rgba(238, 216, 150, 0.22) 100%)",
+        "tagline": "Grow with the world. Move with the bond. Guard the living whole.",
+        "philosophy": "Naya treats life as belonging in a larger natural whole. Green supplies growth and place, White turns that life toward care for the whole, and Red makes the bond immediate, loyal, and instinctive.",
+        "lore_summary": "Naya is Alara's Green-centered red-green-white shard expression. Vox Mana reads it through source-bound life, nature, growth, ecosystem belonging, White larger-picture care, Red feral instinct, and the absence of Blue and Black pressures, not as generic big creatures, generic tokens, or Cabaretti by another name.",
+        "core_tension": "Naya's virtue is belonging in the living whole, but the same abundance can become overgrowth, over-identification with scale, or instinct mistaken for wisdom.",
+        "affinity": {
+          "drawn_to": [
+            "life and growth understood as belonging",
+            "instinct that protects the living whole",
+            "abundance that deepens relation instead of becoming mere size",
+            "care for creatures, place, and bond before control or extraction"
+          ],
+          "repelled_by": [
+            "generic big-creature shorthand",
+            "generic tokens or go-wide play treated as the whole identity",
+            "Cabaretti style drift treated as Naya",
+            "Jund pressure or Bant hierarchy replacing Green-centered abundance"
+          ],
+          "core_question": "When growth becomes immense, what keeps it faithful to the living whole?",
+          "interview_tells": [
+            "names life, growth, and belonging before optimization",
+            "treats instinct as bond rather than pure chaos",
+            "protects abundance through care for the larger whole",
+            "resists flattening Naya into generic size, tokens, or same-color style"
+          ],
+          "not_to_be_confused_with": "Selesnya centers Green-White community; Gruul centers Red-Green wild refusal; Boros centers Red-White action and order; Bant centers sanctioned honor; Jund centers survival pressure and consequence. Naya centers Green living abundance held by White care and Red instinct."
+        },
+        "decree_voice": {
+          "tone": "Lush, warm, immense, and protective without becoming generic battlecruiser shorthand.",
+          "speaks_like": "A living world answering through growth, bond, and the instant motion of protection.",
+          "example_opening": "The reading turns toward abundance, instinct, and the life that knows where it belongs.",
+          "example_decree": "The reading turns toward abundance, instinct, and the life that knows where it belongs. Naya does not ask the living world to become a machine or a hunger. It asks what bond lets growth protect the whole."
+        },
+        "archetypes": [
+          {
+            "name": "Living Abundance",
+            "desc": "Let growth become a board presence that feels rooted in place, relation, and the larger natural whole."
+          },
+          {
+            "name": "Instinctive Protection",
+            "desc": "Move quickly when the bond is threatened, with Red immediacy held by White care."
+          },
+        {
+          "name": "Creature-Forward Scale",
+          "desc": "Use scale as an expression of life and belonging rather than a generic size contest."
+        }
+      ],
+      "staples": {
+        "creatures": [
+          "Pantlaza, Sun-Favored",
+          "Marath, Will of the Wild",
+          "Shalai and Hallar"
+        ],
+        "spells": [
+          "Splendid Reclamation",
+          "Tempt with Discovery",
+          "Heroic Intervention"
+        ],
+        "permanents": [
+          "Mirari's Wake",
+          "Rhythm of the Wild",
+          "Uncivil Unrest"
+        ]
+      },
+      "land_base": {
+        "premium": [
+          "Taiga",
+          "Savannah",
+          "Plateau"
+        ],
+        "midrange": [
+          "Stomping Ground",
+          "Temple Garden",
+          "Sacred Foundry"
+        ],
+        "budget": [
+          "Jungle Shrine",
+          "Naya Panorama",
+          "Path of Ancestry"
+        ],
+        "utility": [
+          "Command Tower",
+          "Exotic Orchard",
+          "Gavony Township"
+        ],
+        "optimal": "Taiga / Savannah / Plateau / Command Tower / Exotic Orchard",
+        "mid": "Stomping Ground / Temple Garden / Sacred Foundry / Jetmir's Garden / Spire Garden",
+        "budget_line": "Jungle Shrine / Naya Panorama / Path of Ancestry / Evolving Wilds / basics",
+        "utility_line": "Command Tower / Exotic Orchard / Gavony Township / Kessig Wolf Run"
+      },
+      "research_links": {
+        "edhrec_slug": "naya"
+      },
+      "deck_links": [
+        {
+          "fmt": "Commander",
+          "name": "Naya Commanders",
+          "desc": "Naya Commander starts for abundance, protected board growth, creature-forward scale, ramp, tokens, counters, instinctive care, and guarding the living whole.",
+          "mtgg": null,
+          "edhrec": "https://edhrec.com/commanders/naya",
+          "mtgd": "https://mtgdecks.net/Commander/naya-commanders"
+        }
+      ],
+      "commander_compass": {
+        "schema_version": "1.0.0",
+        "source_research_file": "docs/research/vox_mana_second_commander_recommendations_enhanced.jsonl",
+        "last_reviewed": "2026-05-31",
+        "review_status": "support_only_live_pilot_curation",
+        "recommendation_philosophy": "Use Naya Commander guidance as product/operator support only: exact Red/Green/White decks can express abundance, protected board growth, creature-forward scale, ramp, tokens, counters, instinctive care, and guarding the living whole. These rows do not create Naya canon, geography, story, culture, creature ecology, or raw claims.",
+        "identity_basis": {
+          "owned_themes": [
+            "Green-centered abundance and living-world belonging",
+            "White care for the larger whole",
+            "Red instinctive loyalty and immediacy",
+            "creature-forward scale that protects the living board"
+          ],
+          "allowed_phrases": [
+            "Naya support fit",
+            "abundance",
+            "protected board growth",
+            "creature-forward scale",
+            "instinctive care",
+            "guard the living whole"
+          ],
+          "avoid_or_contrast_phrases": [
+            "public color-code match wording",
+            "Naya story validation from Commander rows",
+            "generic big-creature shorthand",
+            "generic tokens as total identity",
+            "Cabaretti as Naya canon",
+            "Jund pressure or Bant hierarchy as Naya"
+          ],
+          "adjacent_overlap_notes": [
+            "Tokens and go-wide play must stay Naya-side support texture and not become Selesnya community doctrine or Cabaretti canon.",
+            "Ramp and large creatures must stay abundance and protected-board support, not generic battlecruiser shorthand.",
+            "Equipment, counters, lands, and combat texture support Commander play but do not become new raw claims."
+          ],
+          "supporting_claim_ids": [
+            "naya_claim_0003",
+            "naya_claim_0004",
+            "naya_claim_0005",
+            "naya_claim_0006",
+            "naya_claim_0007",
+            "naya_claim_0008",
+            "naya_claim_0010"
+          ],
+          "supporting_source_ids": [
+            "src_vm_second_commander_recommendations_rgw",
+            "src_scryfall_oracle_cards_local",
+            "src_vm_naya_identity_md_20260530",
+            "src_vm_naya_metaphysics_md_20260530"
+          ]
+        },
+        "support_decks": [
+          "Limit Break",
+          "Desert Bloom",
+          "Scrappy Survivors",
+          "Deadly Disguise",
+          "Primal Genesis",
+          "Nature of the Beast",
+          "Land's Wrath",
+          "Veloci-Ramp-Tor",
+          "Call for Backup",
+          "Cabaretti Cacophony"
+        ],
+        "support_language": [
+          "ramp",
+          "protected board growth",
+          "creature-forward scale",
+          "tokens",
+          "counters",
+          "lands",
+          "equipment",
+          "Auras",
+          "face-down play",
+          "Backup",
+          "goad as same-color style texture"
+        ],
+        "native_fit_commanders": [
+          {
+            "exact_card_name": "Pantlaza, Sun-Favored",
+            "display_name": "Pantlaza, Sun-Favored",
+            "scryfall_uri": "https://scryfall.com/card/lcc/4/pantlaza-sun-favored?utm_source=api",
+            "color_identity": [
+              "G",
+              "R",
+              "W"
+            ],
+            "commander_legal": true,
+            "recommendation_type": "Native Fit Draft",
+            "archetype_tags": [
+              "Ramp",
+              "Dinosaurs",
+              "Creature-Forward Scale"
+            ],
+            "why_this_fits": "Veloci-Ramp-Tor is a Naya support row, and Pantlaza turns ramp plus creature-forward scale into visible board momentum without making Dinosaurs the whole Naya identity.",
+            "skip_if": "The player wants spell-stack play, hard control, or Naya story validation rather than creature-forward abundance.",
+            "gameplay_summary": "Grow mana, cast meaningful creatures, and let each large body make the protected board harder to answer.",
+            "faction_identity_terms": [
+              "abundance",
+              "scale",
+              "ramp",
+              "living board"
+            ]
+          },
+          {
+            "exact_card_name": "Marath, Will of the Wild",
+            "display_name": "Marath, Will of the Wild",
+            "scryfall_uri": "https://scryfall.com/card/c13/198/marath-will-of-the-wild?utm_source=api",
+            "color_identity": [
+              "G",
+              "R",
+              "W"
+            ],
+            "commander_legal": true,
+            "recommendation_type": "Native Fit Draft",
+            "archetype_tags": [
+              "Counters",
+              "Tokens",
+              "Flexible Board Pressure"
+            ],
+            "why_this_fits": "Nature of the Beast is a Naya support row, and Marath gives protected-board growth a flexible outlet across counters, bodies, and damage.",
+            "skip_if": "The player wants a single linear creature tribe or a low-tracking beginner deck.",
+            "gameplay_summary": "Turn mana into counters, bodies, or damage so abundance can protect the board and become pressure.",
+            "faction_identity_terms": [
+              "abundance",
+              "instinct",
+              "protected board",
+              "scale"
+            ]
+          },
+          {
+            "exact_card_name": "Shalai and Hallar",
+            "display_name": "Shalai and Hallar",
+            "scryfall_uri": "https://scryfall.com/card/moc/10/shalai-and-hallar?utm_source=api",
+            "color_identity": [
+              "G",
+              "R",
+              "W"
+            ],
+            "commander_legal": true,
+            "recommendation_type": "Native Fit Draft",
+            "archetype_tags": [
+              "Counters",
+              "Protection",
+              "Board Growth"
+            ],
+            "why_this_fits": "Call for Backup is a Naya support row, and Shalai and Hallar turn counter growth into protective pressure without adding new Naya canon.",
+            "skip_if": "The player dislikes counter tracking or wants noncombat combo as the primary plan.",
+            "gameplay_summary": "Spread counters, protect the living board, and let growth become table pressure.",
+            "faction_identity_terms": [
+              "growth",
+              "protection",
+              "instinctive care",
+              "scale"
+            ]
+          }
+        ],
+        "weird_stretch_commanders": [],
+        "budget_friendly_commanders": [],
+        "advanced_complexity_commanders": [],
+        "iconic_lore_forward_commanders": [],
+        "not_recommended_or_deprioritized": [
+          {
+            "name": "Tifa, Lockhart of AVALANCHE",
+            "reason": "Omitted in VM-193 because that exact name does not resolve in committed local Scryfall data."
+          },
+          {
+            "name": "Cabaretti Cacophony",
+            "reason": "Same-color support/style comparator only; not Naya canon, not Alara canon, and not a Naya lore source."
+          }
+        ],
+        "archetype_lanes": [
+          {
+            "lane": "Ramp",
+            "why_it_fits": "Ramp supports Naya's grow-mana start and creature-forward scale."
+          },
+          {
+            "lane": "Big Mana",
+            "why_it_fits": "Big mana supports abundance becoming a protected board rather than generic oversized threats."
+          },
+          {
+            "lane": "Tokens",
+            "why_it_fits": "Tokens can express abundance and belonging when kept as support texture instead of total identity."
+          }
+        ],
+        "link_targets": {
+          "edhrec_commander_index": "https://edhrec.com/commanders/naya",
+          "mtgdecks_color_identity": "https://mtgdecks.net/Commander/naya-commanders",
+          "scryfall_commander_search": "id=rgw is:commander f:commander",
+          "archidekt_color_search": "https://archidekt.com/search/decks?colors=RGW&formats=3"
+        },
+        "merge_notes": {
+          "vm193_scope": "Live UX support/display curation only; no raw claims, no Naya raw-file edits, and no Cabaretti-as-Naya canon framing.",
+          "commander_rows": "Exact Red/Green/White Commander rows are support/display curation only."
+        }
+      }
+      },
+      "display_code": "NAYA",
+      "aliases": [
+        "NAYA",
+        "naya"
       ],
       "placement_eligible": true,
       "preview_eligible": false

@@ -1,0 +1,777 @@
+{
+  "schema_version": "1.0.0",
+  "profile_version": "1.0.0",
+  "faction_id": "esper",
+  "faction_name": "Esper",
+  "faction_type": "shard",
+  "plane_or_setting": "Alara",
+  "color_identity": [
+    "White",
+    "Blue",
+    "Black"
+  ],
+  "color_pair_or_group": "WUB shard metadata only",
+  "source_review_date": "2026-05-30",
+  "last_full_review": "2026-05-30",
+  "last_incremental_review": "2026-05-31",
+  "last_updated": "2026-05-31",
+  "site_surface": {
+    "display_name": "Esper",
+    "short_summary": "Esper is a live-pilot Alara shard expression for Blue-centered perfectibility through knowledge, planning, ordered improvement, and focused control.",
+    "one_sentence_identity": "Esper asks whether a world can be improved by making change deliberate, structured, and information-led.",
+    "tagline": "Potential, made exact.",
+    "primary_tags": [
+      "Esper",
+      "Alara",
+      "Shard",
+      "White-Blue-Black identity",
+      "Blue-centered",
+      "Perfectibility",
+      "Planning",
+      "Information",
+      "Control",
+      "Live pilot"
+    ],
+    "secondary_tags": [
+      "White-blue-black",
+      "Designed improvement",
+      "Applied knowledge",
+      "Ordered change",
+      "Instrumental information",
+      "Source-bound packet"
+    ],
+    "tone_words": [
+      "precise",
+      "deliberate",
+      "structured",
+      "analytical",
+      "controlled",
+      "ambitious",
+      "elegant",
+      "methodical",
+      "calculating",
+      "refined"
+    ],
+    "visual_keywords": [
+      "filigree as bounded support signal",
+      "ordered diagrams",
+      "blue-white-black light",
+      "measured instruments",
+      "architectural symmetry",
+      "coded machinery",
+      "careful hands",
+      "controlled transformation"
+    ],
+    "best_for": [
+      "users drawn to planning, knowledge, and structured control",
+      "Commander language around control, card advantage, library care, and artifact-oriented value",
+      "players who prefer optimization as a deliberate design project"
+    ],
+    "content_warnings_or_sensitivity_notes": [
+      "Esper material can involve hierarchy, control, body modification themes, war, and deferred story material. This packet does not narrate those details as current claims."
+    ],
+    "runtime_status": "live_pilot",
+    "placement_status": "placement_eligible",
+    "preview_eligible": false,
+    "claim_ids": [
+      "esper_claim_0001",
+      "esper_claim_0002",
+      "esper_claim_0003",
+      "esper_claim_0004",
+      "esper_claim_0005",
+      "esper_claim_0006",
+      "esper_claim_0007",
+      "esper_claim_0008",
+      "esper_claim_0009"
+    ]
+  },
+  "core_identity": {
+    "summary": "Esper is the Blue-centered white-blue-black Alara shard in which perfectibility is modeled through knowledge, planning, applied information, ordered improvement, and focused control.",
+    "philosophy": "Blue supplies the center: potential can be unlocked through knowledge and deliberate change. White gives the improvement project structure and coordination. Black gives the project focus, ambition, and the will to make information useful.",
+    "central_tension": "Vox Mana models Esper's tension as perfectibility drifting into over-control, where the unoptimized starts to look like an error to correct.",
+    "supported_claim_ids": [
+      "esper_claim_0001",
+      "esper_claim_0002",
+      "esper_claim_0003",
+      "esper_claim_0004",
+      "esper_claim_0005",
+      "esper_claim_0006",
+      "esper_claim_0007",
+      "esper_claim_0008",
+      "esper_claim_0009"
+    ],
+    "interpretive_note": "The central tension and Commander-facing language are Vox Mana modeling from the promoted evidence floor, not official Wizards or MTG canon.",
+    "unknowns": [
+      "Geography and named locations",
+      "Society, classes, institutions, Ethersworn, Seekers, and Noble Work",
+      "Etherium, Carmot, Sangrite, Crucius, and metallurgy details",
+      "Named figure histories, including Sharuum, Tezzeret, Silas Renn, Breya, Agatha, and Sydri",
+      "Conflux, post-Conflux, and post-Phyrexian chronology",
+      "Card-text-derived claims and exact flavor text"
+    ],
+    "claim_ids": [
+      "esper_claim_0001",
+      "esper_claim_0002",
+      "esper_claim_0003",
+      "esper_claim_0004",
+      "esper_claim_0005",
+      "esper_claim_0006",
+      "esper_claim_0007"
+    ]
+  },
+  "structure": {
+    "summary": "The safe structural floor is deliberately narrow: Esper is an Alara shard with WUB color-direction metadata, Blue as center/design lens, and White/Black ally roles defined through official design commentary.",
+    "supported_elements": [
+      "Esper as a white-blue-black Alara shard",
+      "WUB as color-direction metadata only",
+      "Blue as center/design lens",
+      "Perfectibility through knowledge, planning, change, and applied information",
+      "White as ordered improvement, coordination, strategy, and technology serving people",
+      "Black as control, information value, focus, and vision",
+      "Red and Green as missing enemy-color pressures in design commentary"
+    ],
+    "review_gated_elements": [
+      "Artifacts and filigree as bounded operator language",
+      "Commander and search vocabulary from WUB support rows",
+      "Separator language against guilds and shards from VM-165 architecture docs"
+    ],
+    "manual_review_required": [
+      "Do not narrate named locations before stronger local evidence is added.",
+      "Do not narrate institutions, social classes, or faction structures before stronger local evidence is added.",
+      "Do not narrate material-lore ideology before stronger local evidence is added.",
+      "Do not narrate named figures or timelines before stronger local evidence is added."
+    ],
+    "claim_ids": [
+      "esper_claim_0001",
+      "esper_claim_0002",
+      "esper_claim_0003",
+      "esper_claim_0004",
+      "esper_claim_0005",
+      "esper_claim_0006",
+      "esper_claim_0007",
+      "esper_claim_0009"
+    ]
+  },
+  "great_tension": {
+    "summary": "Vox Mana models Esper's great tension as perfectibility becoming over-control: a design project that can forget the difference between improving a system and treating life as a defect.",
+    "placement_relevance": "Use as live-pilot placement guidance only when the answer combines Blue-centered perfectibility, White ordered improvement, and Black focused control. Do not use detailed lore, generic three-color control, or color identity alone as routing evidence.",
+    "not_canon_doctrine": true,
+    "claim_ids": [
+      "esper_claim_0003",
+      "esper_claim_0004",
+      "esper_claim_0005",
+      "esper_claim_0006",
+      "esper_claim_0007"
+    ]
+  },
+  "historical_timeline": [
+    {
+      "event_id": "event_esper_0001",
+      "event": "Alara's local shard context includes Esper among Bant, Esper, Grixis, Jund, and Naya.",
+      "date_or_era": "Alara shard context",
+      "claim_ids": [
+        "esper_claim_0001",
+        "esper_claim_0009"
+      ],
+      "confidence": "High",
+      "notes": "Detailed chronology is deferred."
+    }
+  ],
+  "key_figures": [],
+  "canonical_flavor_text": [],
+  "views_on_other_factions": [
+    {
+      "faction": "Azorius Senate",
+      "relationship_summary": "Vox Mana separator only: Esper needs WU order pulled into Black-supported control and Blue-centered perfectibility, not civic procedure by itself.",
+      "evidence_type": "Project placement-planning guidance",
+      "claim_ids": [
+        "esper_claim_0003",
+        "esper_claim_0005",
+        "esper_claim_0006"
+      ],
+      "confidence": "Medium",
+      "notes": "Not canon diplomacy and not independent scoring data."
+    },
+    {
+      "faction": "Dimir",
+      "relationship_summary": "Vox Mana separator only: Esper needs UB information control organized by White structure and designed improvement, not hidden leverage alone.",
+      "evidence_type": "Project placement-planning guidance",
+      "claim_ids": [
+        "esper_claim_0003",
+        "esper_claim_0005",
+        "esper_claim_0006"
+      ],
+      "confidence": "Medium",
+      "notes": "Not canon diplomacy and not independent scoring data."
+    },
+    {
+      "faction": "Orzhov Syndicate",
+      "relationship_summary": "Vox Mana separator only: Esper needs WB structure guided by Blue planning and optimization, not obligation or extraction alone.",
+      "evidence_type": "Project placement-planning guidance",
+      "claim_ids": [
+        "esper_claim_0003",
+        "esper_claim_0005",
+        "esper_claim_0006"
+      ],
+      "confidence": "Medium",
+      "notes": "Not canon diplomacy and not independent scoring data."
+    },
+    {
+      "faction": "Bant",
+      "relationship_summary": "Vox Mana separator only: Esper replaces Green's living acceptance with Black-supported control, focus, and instrumental information.",
+      "evidence_type": "Project placement-planning guidance",
+      "claim_ids": [
+        "esper_claim_0002",
+        "esper_claim_0006",
+        "esper_claim_0007",
+        "esper_claim_0009"
+      ],
+      "confidence": "Medium",
+      "notes": "Contrast from Esper's evidence floor only."
+    },
+    {
+      "faction": "Grixis",
+      "relationship_summary": "Vox Mana separator only: Esper shares Blue-Black control but rejects Red impulse through White structure and ordered improvement.",
+      "evidence_type": "Project placement-planning guidance",
+      "claim_ids": [
+        "esper_claim_0005",
+        "esper_claim_0006",
+        "esper_claim_0007",
+        "esper_claim_0009"
+      ],
+      "confidence": "Medium",
+      "notes": "Contrast from Esper's evidence floor only."
+    },
+    {
+      "faction": "Jund",
+      "relationship_summary": "Vox Mana separator only: Esper keeps Black tied to Blue planning and White coordination rather than Red-Green immediacy and natural force.",
+      "evidence_type": "Project placement-planning guidance",
+      "claim_ids": [
+        "esper_claim_0003",
+        "esper_claim_0005",
+        "esper_claim_0006",
+        "esper_claim_0007",
+        "esper_claim_0009"
+      ],
+      "confidence": "Medium",
+      "notes": "Contrast from Esper's evidence floor only."
+    },
+    {
+      "faction": "Naya",
+      "relationship_summary": "Vox Mana separator only: Esper's designed control contrasts with Red-Green immediacy and natural growth from Esper's side of the comparison.",
+      "evidence_type": "Project placement-planning guidance",
+      "claim_ids": [
+        "esper_claim_0003",
+        "esper_claim_0005",
+        "esper_claim_0006",
+        "esper_claim_0007",
+        "esper_claim_0009"
+      ],
+      "confidence": "Medium",
+      "notes": "Contrast from Esper's evidence floor only."
+    }
+  ],
+  "mechanics": {
+    "summary": "Esper presents Commander gameplay as planned refinement: control, card advantage, library setup, artifact value, lifegain engines, reanimation value, tokens, and evasive pressure can all express knowledge turning into controlled change.",
+    "supported_mechanics": [],
+    "commander_curation_patterns": [
+      "control and card advantage",
+      "top-of-library manipulation and miracle-style setup",
+      "artifact-oriented value",
+      "life-gain control",
+      "reanimation and dungeon/value loops",
+      "tribal or token overlays",
+      "evasive connive and aggressive value"
+    ],
+    "source_ids": [
+      "src_vm_wub_commander_jsonl_20260529"
+    ],
+    "supporting_evidence_rows": [
+      "ESPER-013",
+      "ESPER-014",
+      "ESPER-015"
+    ],
+    "notes": "Commander lanes are product/operator support only, not canon proof."
+  },
+  "search_and_filter_metadata": {
+    "aliases": [
+      "Esper",
+      "WUB",
+      "white-blue-black",
+      "Alara Esper",
+      "Esper shard"
+    ],
+    "related_terms_source_bound": [
+      "Alara",
+      "Shards of Alara",
+      "perfectibility",
+      "knowledge",
+      "planning",
+      "applied information",
+      "ordered improvement",
+      "focused control",
+      "filigree as bounded support signal"
+    ],
+    "known_mechanics": [],
+    "known_characters": [],
+    "known_locations": [],
+    "sets_or_story_arcs": [
+      "Shards of Alara context only"
+    ],
+    "tags": [
+      "source-authored",
+      "live-pilot",
+      "placement-eligible",
+      "shard",
+      "wub-metadata",
+      "blue-centered",
+      "perfectibility",
+      "control",
+      "planning"
+    ],
+    "non_runtime_search_keywords": [
+      "Esper perfectibility",
+      "Esper control planning",
+      "white-blue-black applied information",
+      "Esper artifact value planning",
+      "Esper library manipulation planning"
+    ],
+    "live_identity_note": "VM-167 promotes ESPER as the live expression key while keeping WUB as color-direction metadata only."
+  },
+  "data_quality": {
+    "source_packet_review_status": "live_pilot_source_packet",
+    "runtime_promotion_status": "live_pilot",
+    "review_date": "2026-05-30",
+    "source_basis": "VM-163 Esper source ledger, evidence ledger, research dossier, reliability audit, official local Rosewater capture, VM-164/VM-165 architecture docs, and Commander/operator support rows for non-canon planning language.",
+    "strongest_evidence_areas": [
+      "Esper as a white-blue-black Alara shard",
+      "WUB color-direction metadata and Blue center/design lens",
+      "Blue-centered perfectibility through knowledge, planning, change, and applied information",
+      "White ally role in ordered improvement, planning, and strategy",
+      "Black ally role in control, information value, focus, and vision",
+      "Red and Green as missing enemy-color pressures"
+    ],
+    "weakest_evidence_areas": [
+      "Geography and named locations",
+      "Society, classes, institutions, Ethersworn, Seekers, and Noble Work",
+      "Etherium, Carmot, Sangrite, Crucius, and metallurgy details",
+      "Figure-specific claims about Sharuum, Tezzeret, Silas Renn, Breya, Agatha, Sydri, or related figures",
+      "Conflux, post-Conflux, and post-Phyrexian chronology",
+      "Exact card text or flavor text"
+    ],
+    "manual_review_required": [
+      "Keep manual-fill topics out of raw claims until stronger local evidence is added.",
+      "Review Commander/operator support before any future placement tuning or dossier expansion.",
+      "Keep manual-fill topics out of live routing and raw claims unless a later source-reconciliation card promotes them."
+    ],
+    "intentional_omissions": [
+      "No WUB runtime expression key",
+      "No WUB raw-to-key target",
+      "No live domain field",
+      "No Home preview exposure",
+      "No numeric placement axes",
+      "No named figures, locations, or chronology claims"
+    ]
+  },
+  "research_limitations": "VM-167 promotes Esper as the live ESPER expression key from this source packet. It keeps WUB color-direction-only and does not upgrade manual-fill topics into raw claims or live routing evidence.",
+  "commander_compass": {
+    "schema_version": "1.0.0",
+    "source_research_file": "docs/research/vox_mana_second_commander_recommendations_enhanced.jsonl",
+    "last_reviewed": "2026-05-31",
+    "review_status": "support_only_live_pilot_curation",
+    "exact_color_set": "White; Blue; Black",
+    "recommendation_philosophy": "Use Esper Commander guidance as product/operator support: exact White/Blue/Black decks can express planning, control, card advantage, library setup, lifegain engines, artifact-oriented value, and precise combat lines. These rows do not create Esper canon, geography, story, metallurgy, named-figure, or raw claims.",
+    "identity_basis": {
+      "owned_themes": [
+        "perfectibility",
+        "planning",
+        "information advantage",
+        "structured optimization",
+        "controlled change",
+        "library setup",
+        "artifact-oriented value"
+      ],
+      "allowed_phrases": [
+        "planned refinement",
+        "information advantage",
+        "structured optimization",
+        "controlled change",
+        "knowledge before action",
+        "designed control"
+      ],
+      "avoid_or_contrast_phrases": [
+        "generic three-color goodstuff",
+        "artifact deck as canon",
+        "Azorius-only procedure",
+        "Dimir-only secrecy",
+        "Orzhov-only obligation",
+        "unsupported figure or location lore",
+        "manual-fill lore as current proof"
+      ],
+      "supporting_source_ids": [
+        "src_vm_wub_commander_jsonl_20260529"
+      ],
+      "supporting_evidence_rows": [
+        "ESPER-013",
+        "ESPER-014",
+        "ESPER-015"
+      ]
+    },
+    "support_decks": [
+      "Scions & Spellcraft",
+      "Eternal Might",
+      "Miracle Worker",
+      "Subjective Reality",
+      "Eternal Bargain",
+      "Dungeons of Death",
+      "Cavalry Charge",
+      "Urza's Iron Alliance",
+      "Forces of the Imperium",
+      "Obscura Operation"
+    ],
+    "support_language": [
+      "control",
+      "card advantage",
+      "library setup",
+      "artifact value",
+      "lifegain engines",
+      "reanimation value",
+      "tokens",
+      "evasive pressure"
+    ],
+    "native_fit_commanders": [
+      {
+        "exact_card_name": "Y'shtola, Night's Blessed",
+        "display_name": "Y'shtola, Night's Blessed",
+        "scryfall_uri": "https://scryfall.com/card/fic/7/yshtola-nights-blessed?utm_source=api",
+        "color_identity": [
+          "W",
+          "U",
+          "B"
+        ],
+        "commander_legal": true,
+        "recommendation_type": "Native Fit Draft",
+        "archetype_tags": [
+          "Control",
+          "Card Advantage",
+          "Spellcraft"
+        ],
+        "why_this_fits": "Scions & Spellcraft is an exact White/Blue/Black support deck, and Y'shtola turns answers and card flow into a steady advantage plan that fits Esper's knowledge-first control lane.",
+        "skip_if": "The player wants fast combat, low bookkeeping, or Alaran Esper story grounding.",
+        "gameplay_summary": "Keep answers ready, draw through the table's pressure, and let each exchange become another piece of controlled advantage.",
+        "faction_identity_terms": [
+          "planning",
+          "information advantage",
+          "controlled change"
+        ],
+        "source_basis": {
+          "existing_repo_claim_ids": [
+            "esper_claim_0003",
+            "esper_claim_0005",
+            "esper_claim_0006"
+          ],
+          "existing_repo_source_ids": [
+            "src_vm_wub_commander_jsonl_20260529"
+          ],
+          "supporting_evidence_rows": [
+            "ESPER-013",
+            "ESPER-014",
+            "ESPER-015"
+          ]
+        },
+        "confidence": "Medium",
+        "caution_notes": [
+          "Product/operator support; not Esper canon evidence.",
+          "Do not treat crossover story context as Alaran Esper lore."
+        ],
+        "type_line": "Legendary Creature - Cat Warlock"
+      },
+      {
+        "exact_card_name": "Aminatou, Veil Piercer",
+        "display_name": "Aminatou, Veil Piercer",
+        "scryfall_uri": "https://scryfall.com/card/dsc/1/aminatou-veil-piercer?utm_source=api",
+        "color_identity": [
+          "W",
+          "U",
+          "B"
+        ],
+        "commander_legal": true,
+        "recommendation_type": "Native Fit Draft",
+        "archetype_tags": [
+          "Enchantments",
+          "Library Setup",
+          "Miracles"
+        ],
+        "why_this_fits": "Miracle Worker is exact White/Blue/Black support, and Aminatou rewards library setup, enchantment engines, and perfectly timed miracle turns.",
+        "skip_if": "The player dislikes topdeck planning, enchantment engines, or careful sequencing.",
+        "gameplay_summary": "Arrange the top of the library, make the answer cheaper at the right moment, and let planning turn into tempo.",
+        "faction_identity_terms": [
+          "planning",
+          "library setup",
+          "structured optimization"
+        ],
+        "source_basis": {
+          "existing_repo_claim_ids": [
+            "esper_claim_0003",
+            "esper_claim_0004",
+            "esper_claim_0005"
+          ],
+          "existing_repo_source_ids": [
+            "src_vm_wub_commander_jsonl_20260529"
+          ],
+          "supporting_evidence_rows": [
+            "ESPER-013",
+            "ESPER-014",
+            "ESPER-015"
+          ]
+        },
+        "confidence": "Medium",
+        "caution_notes": [
+          "Product/operator support; not Esper canon evidence."
+        ],
+        "type_line": "Legendary Creature - Human Wizard"
+      },
+      {
+        "exact_card_name": "Oloro, Ageless Ascetic",
+        "display_name": "Oloro, Ageless Ascetic",
+        "scryfall_uri": "https://scryfall.com/card/c13/203/oloro-ageless-ascetic?utm_source=api",
+        "color_identity": [
+          "W",
+          "U",
+          "B"
+        ],
+        "commander_legal": true,
+        "recommendation_type": "Native Fit Draft",
+        "archetype_tags": [
+          "Lifegain",
+          "Card Advantage",
+          "Control"
+        ],
+        "why_this_fits": "Eternal Bargain is exact White/Blue/Black support, and Oloro turns life gain, card draw, and artifact value into a slow plan of inevitability.",
+        "skip_if": "The player wants proactive combat or dislikes a slower command-zone engine.",
+        "gameplay_summary": "Convert time and life totals into cards, then use those cards to control when the table can move.",
+        "faction_identity_terms": [
+          "information advantage",
+          "control",
+          "deliberate improvement"
+        ],
+        "source_basis": {
+          "existing_repo_claim_ids": [
+            "esper_claim_0003",
+            "esper_claim_0006",
+            "esper_claim_0007"
+          ],
+          "existing_repo_source_ids": [
+            "src_vm_wub_commander_jsonl_20260529"
+          ],
+          "supporting_evidence_rows": [
+            "ESPER-013",
+            "ESPER-014",
+            "ESPER-015"
+          ]
+        },
+        "confidence": "Medium",
+        "caution_notes": [
+          "Product/operator support; not Esper canon evidence."
+        ],
+        "type_line": "Legendary Creature - Giant Soldier"
+      }
+    ],
+    "weird_stretch_commanders": [
+      {
+        "exact_card_name": "Kamiz, Obscura Oculus",
+        "display_name": "Kamiz, Obscura Oculus",
+        "scryfall_uri": "https://scryfall.com/card/ncc/3/kamiz-obscura-oculus?utm_source=api",
+        "color_identity": [
+          "W",
+          "U",
+          "B"
+        ],
+        "commander_legal": true,
+        "recommendation_type": "Context-Sensitive Stretch",
+        "archetype_tags": [
+          "Evasive Combat",
+          "Card Selection",
+          "Tempo"
+        ],
+        "why_this_fits": "Obscura Operation is exact White/Blue/Black support, and Kamiz shows Esper as precise evasive pressure rather than a pure control shell.",
+        "skip_if": "The player wants classic draw-go control, no combat focus, or New Capenna identity treated as Alaran Esper.",
+        "gameplay_summary": "Choose the threat that must connect, protect its line, and let each hit improve the next decision.",
+        "faction_identity_terms": [
+          "precision",
+          "information advantage",
+          "planned pressure"
+        ],
+        "source_basis": {
+          "existing_repo_claim_ids": [
+            "esper_claim_0003",
+            "esper_claim_0005",
+            "esper_claim_0006"
+          ],
+          "existing_repo_source_ids": [
+            "src_vm_wub_commander_jsonl_20260529"
+          ],
+          "supporting_evidence_rows": [
+            "ESPER-013",
+            "ESPER-014",
+            "ESPER-015"
+          ]
+        },
+        "confidence": "Low",
+        "caution_notes": [
+          "Same-color product support; not Esper canon evidence.",
+          "Do not display as a lore-forward Alara recommendation."
+        ],
+        "type_line": "Legendary Creature - Octopus Rogue"
+      }
+    ],
+    "budget_friendly_commanders": [],
+    "advanced_complexity_commanders": [
+      {
+        "exact_card_name": "Aminatou, the Fateshifter",
+        "display_name": "Aminatou, the Fateshifter",
+        "scryfall_uri": "https://scryfall.com/card/2x2/169/aminatou-the-fateshifter?utm_source=api",
+        "color_identity": [
+          "W",
+          "U",
+          "B"
+        ],
+        "commander_legal": true,
+        "recommendation_type": "Advanced Draft",
+        "archetype_tags": [
+          "Topdeck Setup",
+          "Blink Value",
+          "Control"
+        ],
+        "why_this_fits": "Subjective Reality is exact White/Blue/Black support, and Aminatou rewards top-of-library setup, blink value, and deliberately chosen draws.",
+        "skip_if": "The player wants simple combat math or dislikes managing the top card of the library.",
+        "gameplay_summary": "Set the next draw, blink the right permanent, and let the table feel every future line become curated.",
+        "faction_identity_terms": [
+          "planning",
+          "library setup",
+          "controlled change"
+        ],
+        "source_basis": {
+          "existing_repo_claim_ids": [
+            "esper_claim_0003",
+            "esper_claim_0004",
+            "esper_claim_0005"
+          ],
+          "existing_repo_source_ids": [
+            "src_vm_wub_commander_jsonl_20260529"
+          ],
+          "supporting_evidence_rows": [
+            "ESPER-013",
+            "ESPER-014",
+            "ESPER-015"
+          ]
+        },
+        "confidence": "Medium",
+        "caution_notes": [
+          "Product/operator support; not Esper canon evidence."
+        ],
+        "type_line": "Legendary Planeswalker - Aminatou"
+      },
+      {
+        "exact_card_name": "Urza, Chief Artificer",
+        "display_name": "Urza, Chief Artificer",
+        "scryfall_uri": "https://scryfall.com/card/brc/2/urza-chief-artificer?utm_source=api",
+        "color_identity": [
+          "W",
+          "U",
+          "B"
+        ],
+        "commander_legal": true,
+        "recommendation_type": "Advanced Draft",
+        "archetype_tags": [
+          "Artifacts",
+          "Tokens",
+          "Board Design"
+        ],
+        "why_this_fits": "Urza's Iron Alliance is exact White/Blue/Black support, and Urza turns artifact creatures and token production into a designed board state.",
+        "skip_if": "The player wants spell control with few permanents or wants artifact lore treated as Esper proof.",
+        "gameplay_summary": "Build the artifact board piece by piece, then make the machine attack as one planned system.",
+        "faction_identity_terms": [
+          "structured optimization",
+          "artifact-oriented value",
+          "planned pressure"
+        ],
+        "source_basis": {
+          "existing_repo_claim_ids": [
+            "esper_claim_0003",
+            "esper_claim_0005",
+            "esper_claim_0006"
+          ],
+          "existing_repo_source_ids": [
+            "src_vm_wub_commander_jsonl_20260529"
+          ],
+          "supporting_evidence_rows": [
+            "ESPER-013",
+            "ESPER-014",
+            "ESPER-015"
+          ]
+        },
+        "confidence": "Medium",
+        "caution_notes": [
+          "Product/operator support; not Esper canon evidence.",
+          "Keep artifacts as gameplay texture rather than material-lore proof."
+        ],
+        "type_line": "Legendary Creature - Human Artificer"
+      }
+    ],
+    "iconic_lore_forward_commanders": [],
+    "not_recommended_or_deprioritized": [
+      {
+        "name": "Artifact deck as Esper canon",
+        "reason": "Artifact value can support Esper's planning and designed-control gameplay, but artifact presence alone does not establish Esper canon or material lore.",
+        "could_still_be_used_if": "The deck copy frames artifacts as gameplay texture for structured optimization.",
+        "confidence": "High"
+      },
+      {
+        "name": "Unsupported Esper figure or location lore",
+        "reason": "Named figures, locations, metallurgy, and chronology remain outside raw claims unless a later evidence-promotion card approves them.",
+        "could_still_be_used_if": "The surface marks the topic as deferred or source-bound instead of current truth.",
+        "confidence": "High"
+      }
+    ],
+    "archetype_lanes": [
+      {
+        "lane_name": "Planned Control",
+        "description": "Keep answers ready, convert cards into options, and make each exchange narrow the table's future.",
+        "recommended_for": "Y'shtola, Night's Blessed; Oloro, Ageless Ascetic",
+        "skip_if": "The player wants fast combat or minimal stack interaction."
+      },
+      {
+        "lane_name": "Library Design",
+        "description": "Use top-of-library setup, miracles, blink value, and selected draws to make planning feel material.",
+        "recommended_for": "Aminatou, Veil Piercer; Aminatou, the Fateshifter",
+        "skip_if": "The player dislikes sequencing or managing hidden information."
+      },
+      {
+        "lane_name": "Artifact And Token Engines",
+        "description": "Use artifact value, tokens, and board construction as gameplay support for structured optimization.",
+        "recommended_for": "Urza, Chief Artificer; Inquisitor Greyfax",
+        "skip_if": "The player wants artifact lore treated as proof of Esper canon."
+      },
+      {
+        "lane_name": "Precise Combat",
+        "description": "Use evasive pressure, connive, Knights, or formation play when Esper should feel exact rather than purely defensive.",
+        "recommended_for": "Sidar Jabari of Zhalfir; Kamiz, Obscura Oculus",
+        "skip_if": "The player wants draw-go control with little combat."
+      }
+    ],
+    "link_targets": {
+      "edhrec_commander_index": "https://edhrec.com/commanders/esper",
+      "mtgdecks_color_identity": "https://mtgdecks.net/Commander/esper-commanders",
+      "scryfall_commander_search": "https://scryfall.com/search?q=id%3Dwub+is%3Acommander+f%3Acommander",
+      "archidekt_color_search": "https://archidekt.com/search/decks?colors=WUB"
+    },
+    "merge_notes": {
+      "product_guidance_not_canon": true,
+      "commander_legality_validated": true,
+      "scryfall_card_pages_validated": true,
+      "do_not_use_as_claim_source": true,
+      "runtime_status": "live_pilot"
+    }
+  }
+}

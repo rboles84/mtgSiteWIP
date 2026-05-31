@@ -1,0 +1,191 @@
+{
+  "schema_version": "1.0.0",
+  "faction_id": "naya",
+  "faction_name": "Naya",
+  "source_review_date": "2026-05-30",
+  "last_updated": "2026-05-30",
+  "claim_count": 10,
+  "claims": [
+    {
+      "claim_id": "naya_claim_0001",
+      "faction_id": "naya",
+      "claim_type": "identity",
+      "statement": "Naya is the red-green-white Alara shard discussed in the local official Naya design article.",
+      "canon_status": "Source-supported identity",
+      "source_ids": [
+        "src_vm_naya_evidence_ledger_20260530",
+        "src_wotc_rosewater_naya_searching_within"
+      ],
+      "evidence_rows": [
+        "NAYA-EVID-001"
+      ],
+      "confidence": "High",
+      "notes": "Use for base shard identity only. It does not prove detailed geography, creature culture, society, figure biography, religion, or chronology."
+    },
+    {
+      "claim_id": "naya_claim_0002",
+      "faction_id": "naya",
+      "claim_type": "identity_metadata",
+      "statement": "Naya's color-direction metadata is RGW, and VM-181 frames Green as the center/design lens.",
+      "canon_status": "Source-supported design metadata",
+      "source_ids": [
+        "src_vm_naya_evidence_ledger_20260530",
+        "src_wotc_rosewater_naya_searching_within",
+        "src_vm_canon_inventory_three_color_audit_20260528"
+      ],
+      "evidence_rows": [
+        "NAYA-EVID-002",
+        "NAYA-EVID-003"
+      ],
+      "confidence": "High",
+      "notes": "RGW is metadata only. This packet does not create RGW, GRW, WRG, or NAYA as generated, registry, placement, alias, fixture, route, display label, or lookup data."
+    },
+    {
+      "claim_id": "naya_claim_0003",
+      "faction_id": "naya",
+      "claim_type": "design_identity",
+      "statement": "Naya frames life as part of a larger natural whole where ecosystem, role, place, and belonging are safe design-level readings.",
+      "canon_status": "Official design commentary",
+      "source_ids": [
+        "src_vm_naya_evidence_ledger_20260530",
+        "src_wotc_rosewater_naya_searching_within"
+      ],
+      "evidence_rows": [
+        "NAYA-EVID-004"
+      ],
+      "confidence": "High",
+      "notes": "This supports design-level belonging language. Do not convert it into named social structures, polities, creature-culture hierarchy, or religion."
+    },
+    {
+      "claim_id": "naya_claim_0004",
+      "faction_id": "naya",
+      "claim_type": "design_identity",
+      "statement": "Naya's official design frame puts nature and growth at center stage, with growth pushed to an extreme.",
+      "canon_status": "Official design commentary",
+      "source_ids": [
+        "src_vm_naya_evidence_ledger_20260530",
+        "src_wotc_rosewater_naya_searching_within"
+      ],
+      "evidence_rows": [
+        "NAYA-EVID-005"
+      ],
+      "confidence": "High",
+      "notes": "This supports nature, growth, abundance, and scale at design scope. It is not a total doctrine of big creatures, power thresholds, or tokens."
+    },
+    {
+      "claim_id": "naya_claim_0005",
+      "faction_id": "naya",
+      "claim_type": "design_identity",
+      "statement": "White supports Naya through larger-picture duty, life, creatures, and greater-good language.",
+      "canon_status": "Official design commentary",
+      "source_ids": [
+        "src_vm_naya_evidence_ledger_20260530",
+        "src_wotc_rosewater_naya_searching_within"
+      ],
+      "evidence_rows": [
+        "NAYA-EVID-006"
+      ],
+      "confidence": "High",
+      "notes": "This supports White's ally role only. It does not prove institutions, laws, public hierarchy, or named groups."
+    },
+    {
+      "claim_id": "naya_claim_0006",
+      "faction_id": "naya",
+      "claim_type": "design_identity",
+      "statement": "Red supports Naya through feral instinct, immediacy, loyalty, and bond language.",
+      "canon_status": "Official design commentary",
+      "source_ids": [
+        "src_vm_naya_evidence_ledger_20260530",
+        "src_wotc_rosewater_naya_searching_within"
+      ],
+      "evidence_rows": [
+        "NAYA-EVID-007"
+      ],
+      "confidence": "High",
+      "notes": "This supports Red's ally role only. It does not prove named clans, hierarchy, biography, or story chronology."
+    },
+    {
+      "claim_id": "naya_claim_0007",
+      "faction_id": "naya",
+      "claim_type": "design_synthesis",
+      "statement": "Naya's internal balance is Green abundance moderated by enough Red to avoid over-order and enough White to avoid pure chaos.",
+      "canon_status": "Official design commentary with source boundary",
+      "source_ids": [
+        "src_vm_naya_evidence_ledger_20260530",
+        "src_wotc_rosewater_naya_searching_within"
+      ],
+      "evidence_rows": [
+        "NAYA-EVID-008"
+      ],
+      "confidence": "High",
+      "notes": "Use as a high-level design synthesis only. Do not convert it into story, society, religion, creature, place, or social-metaphysics claims."
+    },
+    {
+      "claim_id": "naya_claim_0008",
+      "faction_id": "naya",
+      "claim_type": "design_boundary",
+      "statement": "Naya's absence of Blue and Black can be read as absence of controlling technology or intellectual mastery and self-interested ecological extraction.",
+      "canon_status": "Design commentary with source boundary",
+      "source_ids": [
+        "src_vm_naya_evidence_ledger_20260530",
+        "src_wotc_rosewater_naya_searching_within"
+      ],
+      "evidence_rows": [
+        "NAYA-EVID-009"
+      ],
+      "confidence": "High",
+      "notes": "Use as an absence-of-color boundary only. Do not expand it into claims that Naya has no knowledge, craft, agency, conflict, culture, or self-interest."
+    },
+    {
+      "claim_id": "naya_claim_0009",
+      "faction_id": "naya",
+      "claim_type": "design_boundary",
+      "statement": "Naya must not be flattened into generic big creatures, generic tokens, generic RGW, casual battlecruiser, Cabaretti, Selesnya-with-red, Gruul-with-white, Bant-with-red, or Jund-style consumption.",
+      "canon_status": "Source-supported boundary",
+      "source_ids": [
+        "src_vm_naya_evidence_ledger_20260530"
+      ],
+      "evidence_rows": [
+        "NAYA-EVID-011"
+      ],
+      "confidence": "High",
+      "notes": "Use as a false-positive guardrail. It does not add detailed lore, mechanics, commander facts, or doctrine for comparator identities."
+    },
+    {
+      "claim_id": "naya_claim_0010",
+      "faction_id": "naya",
+      "claim_type": "metadata_boundary",
+      "statement": "RGW, GRW, and WRG may appear only as color-direction metadata, query construction values, or validation terms for Naya.",
+      "canon_status": "Source-supported metadata boundary",
+      "source_ids": [
+        "src_vm_naya_evidence_ledger_20260530",
+        "src_vm_canon_inventory_three_color_audit_20260528"
+      ],
+      "evidence_rows": [
+        "NAYA-EVID-013"
+      ],
+      "confidence": "High",
+      "notes": "These color-code strings do not become expression keys, aliases, placement keys, public labels, route slugs, routes, generated labels, fixture keys, or lookup keys."
+    }
+  ],
+  "claim_quality_summary": {
+    "raw_claims_added": 10,
+    "source_evidence_rows_used": [
+      "NAYA-EVID-001",
+      "NAYA-EVID-002",
+      "NAYA-EVID-003",
+      "NAYA-EVID-004",
+      "NAYA-EVID-005",
+      "NAYA-EVID-006",
+      "NAYA-EVID-007",
+      "NAYA-EVID-008",
+      "NAYA-EVID-009",
+      "NAYA-EVID-011",
+      "NAYA-EVID-013"
+    ],
+    "raw_claim_id_policy": "Raw claims use naya_claim_0001-style IDs. VM-181 NAYA-EVID row IDs remain evidence references only.",
+    "claim_floor": "VM-181 source-supported identity, design, synthesis, and boundary rows only.",
+    "row_scope_note": "Rows outside the VM-184 claim list were not turned into raw claims.",
+    "overall_confidence": "High for narrow design-philosophy and source-bound identity claims; not sufficient for detailed lore."
+  }
+}

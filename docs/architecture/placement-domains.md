@@ -8,14 +8,14 @@ The live adaptive placement model currently runs without a runtime `domain` fiel
 
 - `ravnica_strixhaven`
 
-The live placement set is now the current 20-expression Ravnica/Strixhaven/mono baseline plus the Bant shard pilot:
+The live placement set is now the current 20-expression Ravnica/Strixhaven/mono baseline plus five controlled Alara shard pilots:
 
 - 10 Ravnica guilds
 - 5 Strixhaven colleges
 - 5 mono colors represented through the identity-layer model
-- 1 controlled Alara shard pilot: `BANT`
+- 5 controlled Alara shard pilots: `BANT`, `ESPER`, `GRIXIS`, `JUND`, `NAYA`
 
-`ravnica_strixhaven` is still the current baseline-domain decision for the original 20-expression model. Bant is a controlled shard pilot layered into the live placement set without adding a live domain selector or splitting Ravnica and Strixhaven. Any future split requires a separate architecture decision because it would affect question routing, adjacent-fit behavior, and dossier language.
+`ravnica_strixhaven` is still the current baseline-domain decision for the original 20-expression model. The five Alara shards are controlled pilots layered into the live placement set without adding a live domain selector, creating a public Alara route key, or splitting Ravnica and Strixhaven. Any future split requires a separate architecture decision because it would affect question routing, adjacent-fit behavior, and dossier language.
 
 ## What A Domain Owns
 
@@ -33,22 +33,22 @@ Domains are meant to organize how Vox Mana reasons about groups of expressions. 
 
 The documented domain map is:
 
-- `ravnica_strixhaven` for the current 20-expression baseline, currently live alongside the Bant shard pilot
+- `ravnica_strixhaven` for the current 20-expression baseline, currently live alongside five controlled Alara shard pilots
 - `khans` for the future Khans wedge expansion
 - `new_capenna` for the future New Capenna family expansion
 
-Khans and New Capenna are post-v1 roadmap domains only. They are not shipped placement support, do not have live question routing, and do not add runtime domain fields in this slice. Bant's pilot does not create a broad shard domain framework.
+Khans and New Capenna are post-v1 roadmap domains only. They are not shipped placement support, do not have live question routing, and do not add runtime domain fields in this slice. The Alara shard pilots do not create a separate live `alara` runtime domain or a broad shard-domain selector.
 
 ## Current Repo Truth
 
 The current repository shape remains:
 
-- raw source coverage is 16 faction folders under `data/raw-factions/`
+- raw source coverage is 20 faction folders under `data/raw-factions/`
 - mono coverage is represented through `data/identity-layers.json`
-- the adaptive placement model is the live 21-expression set: the previous 20-expression baseline plus `BANT`
+- the adaptive placement model is the live 25-expression set: the original 20-expression preview baseline plus `BANT`, `ESPER`, `GRIXIS`, `JUND`, and `NAYA`
 - no runtime or generated contract currently carries a live `domain` field
 
-Do not add, rename, or reclassify any further expression, faction, guild, college, wedge, family, or mono identity without a separate card.
+The 25-expression live set does not mean raw source coverage should be inflated by this card: the five mono colors remain identity-layer expressions, not raw-faction folders. Do not add, rename, or reclassify any further expression, faction, guild, college, shard, wedge, family, or mono identity without a separate card.
 
 ## Future Contract Direction
 
@@ -63,7 +63,8 @@ Until that happens:
 
 - `institution_type` remains unchanged
 - generated artifacts continue to omit a live `domain` field
-- `BANT` uses `institution_type: "shard"` through the existing identity-layer enum
+- `BANT`, `ESPER`, `GRIXIS`, `JUND`, and `NAYA` use `institution_type: "shard"` through the existing identity-layer enum
+- `WUG`, `WUB`, `UBR`, `BRG`, and `RGW` may remain color-direction/query metadata, but must not become expression keys, public aliases, route keys, placement keys, dossier keys, or Home preview identifiers
 
 The identity-layer system already has room for `wedge` as a category. `family` is not a current live identity-layer category and requires a separate schema and version decision before any New Capenna implementation begins.
 

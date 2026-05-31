@@ -69,37 +69,41 @@ export function mazeSearchLink({ label, query, service = "maze", pathType = "", 
 }
 
 /**
- * Builds the four stable dossier-shaped Maze paths shared by Archscry and Maze.
+ * Builds stable dossier-shaped Maze paths shared by Archscry and Maze.
  * @param {object} input - Dossier path input.
  * @param {string} input.identity - Commander color identity symbols.
  * @param {string} [input.factionName] - Dossier or reading display name.
+ * @param {string} [input.identityHint] - Optional visible identity hint for the sidebar.
  * @param {string[]} [input.oracleTerms] - Oracle terms or prebuilt `o:` query terms.
  * @param {string[]} [input.flavorTerms] - Flavor terms or prebuilt `ft:` query terms.
+ * @param {boolean} [input.includeOutsideColorStretch] - Whether to include the stretch commander lane.
  * @returns {object[]} Stable Maze path entries.
  */
 export function buildDossierMazePathEntries({
   identity = "",
   factionName = "this reading",
+  identityHint = "",
   oracleTerms = [],
-  flavorTerms = []
+  flavorTerms = [],
+  includeOutsideColorStretch = true
 } = {}) {
   const normalizedIdentity = normalizeMazeIdentity(identity);
   if (!normalizedIdentity) return [];
 
   const oracleGroup = groupQueryTerms(oracleTerms, "o", DEFAULT_ORACLE_TERMS);
   const flavorGroup = groupQueryTerms(flavorTerms, "ft", DEFAULT_FLAVOR_TERMS);
-  const identityLabel = normalizedIdentity.toUpperCase();
+  const identityLabel = String(identityHint || "").trim() || normalizedIdentity.toUpperCase();
   const identityText = identityToWords(normalizedIdentity);
   const readingName = String(factionName || "this reading").trim() || "this reading";
 
-  return [
+  const entries = [
     {
       label: "commanders that fit",
       sidebarLabel: "Commanders that fit this reading",
       hint: identityLabel,
       pathType: "commanders-that-fit",
-      query: `id<=${normalizedIdentity} is:commander f:commander ${oracleGroup}`,
-      plainReadingQuery: `${readingName} commander candidates in ${identityText} Commander identity`
+      query: `id=${normalizedIdentity} is:commander f:commander ${oracleGroup}`,
+      plainReadingQuery: `${readingName} commanders with exactly ${identityText} identity`
     },
     {
       label: "cards that support this shape",
@@ -116,16 +120,21 @@ export function buildDossierMazePathEntries({
       pathType: "flavor-echoes",
       query: `id<=${normalizedIdentity} f:commander ${flavorGroup}`,
       plainReadingQuery: `${readingName} flavor and story echoes in ${identityText} Commander identity`
-    },
-    {
+    }
+  ];
+
+  if (includeOutsideColorStretch) {
+    entries.push({
       label: "outside-color commander stretch",
       sidebarLabel: "Outside-color commander stretch",
       hint: "stretch lane",
       pathType: "weird-stretch-commanders",
       query: `-id<=${normalizedIdentity} is:commander f:commander ${oracleGroup}`,
       plainReadingQuery: `${readingName} commander stretch outside ${identityText} identity`
-    }
-  ];
+    });
+  }
+
+  return entries;
 }
 
 /**
@@ -152,7 +161,9 @@ function defaultOrigin() {
 }
 
 function normalizeMazeIdentity(identity) {
-  const symbols = String(identity || "").toLowerCase().match(/[wubrgc]/g) || [];
+  const rawIdentity = String(identity || "").toLowerCase().replace(/[^wubrgc]/g, "");
+  if (rawIdentity === "rgw") return "rgw";
+  const symbols = rawIdentity.match(/[wubrgc]/g) || [];
   if (!symbols.length) return "";
   if (symbols.includes("c") && symbols.every((symbol) => symbol === "c")) return "c";
   const colored = symbols.filter((symbol) => symbol !== "c");

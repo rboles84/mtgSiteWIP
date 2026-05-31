@@ -501,7 +501,9 @@ The strategic intent is confirmed (Tezzeret hoped Bant's angels would function a
 ### Primary source hierarchy for Bant
 
 **Tier 1 / Absolute**:
-- *A Planeswalker's Guide to Alara* (Beyer & Helland, 2008) — establishes geography, nations, caste structure, Great Conduit, exalted design context. The primary authority on pre-Conflux Bant.
+- *A Planeswalker's Guide to Alara* (Beyer & Helland, 2008) — establishes geography, nations, caste structure, Great Conduit, exalted design context. The primary authority on pre-Conflux Bant. **Note: physical book — not locally captured as a file.**
+- `docs/research/canon/source-material/alara/worlds-of-magic-origins-alara.md` — **verified curl capture** (2026-05-30). Official Wizards article. Locally confirms: all five Bant nations (Jhess, Valeron, Topa, Eos, Akrasa / Inner Three) with character descriptions; sigil system; leotau mounts; aven and rhox populations; Gideon's Bant arrival context. Supplements the physical book with a locally available primary source.
+- `docs/research/canon/source-material/alara/alara-plane-overview.md` — **verified curl capture** (2026-05-30). Official Wizards article. Confirms all five shards named, Conflux context, Nicol Bolas's role.
 - MaRo, "Peace, Love and Understanding" (Making Magic, Oct 2008) — establishes white as center color, Bant-as-utopia framing, white's relationships with Blue and Green, explicit enemy stance toward Black and Red. Read directly from repo file.
 - MaRo, "Between a Rock and a Shard Place" (Making Magic, 2008) — establishes exalted as the Bant mechanic. Not fetched live but well-documented.
 - Official story "A Man of Parts" (Phyrexia: All Will Be One era, 2023) — confirms Knight-General Rafiq, Valeron, Bant outpost. Not reproduced in full in session; exact passages require live verification.

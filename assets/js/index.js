@@ -98,10 +98,12 @@ const APP_STATE = {
   activeDossierPanel: "placement",
   dossierLayoutMode: "focus",
   forceDossierPanel: "",
+  hiddenDossierPanelIds: new Set(),
   dossierSegments: {
     "starter-cards": "creatures",
     "mana-base": "basics",
   },
+  dossierAvailableSegments: {},
   activeDossierRadarFaction: null,
 };
 
@@ -368,7 +370,15 @@ function basicLandNamesForColors(colors) {
     .filter(Boolean);
 }
 
-function basicLandGuidanceCopy(colors) {
+function formatBasicLandList(names = []) {
+  const values = names.filter(Boolean);
+  if (values.length <= 2) {
+    return values.join(" and ");
+  }
+  return `${values.slice(0, -1).join(", ")}, and ${values.at(-1)}`;
+}
+
+export function basicLandGuidanceCopy(colors) {
   const colorSymbols = (Array.isArray(colors) ? colors : String(colors || "").split(""))
     .map((color) => color.toUpperCase())
     .filter((color) => MANA_SYMBOL_NAMES[color]);
@@ -381,7 +391,26 @@ function basicLandGuidanceCopy(colors) {
   }
   const firstColor = (MANA_SYMBOL_NAMES[colorSymbols[0]] || basics[0]).toLowerCase();
   const secondColor = (MANA_SYMBOL_NAMES[colorSymbols[1]] || basics[1]).toLowerCase();
-  return `After choosing your nonbasic lands, fill the rest with ${basics.join(" and ")} based on your early colored mana needs. If most early spells need ${firstColor}, lean ${basics[0]}. If your early interaction needs ${secondColor}, lean ${basics[1]}.`;
+  return `After choosing your nonbasic lands, fill the rest with ${formatBasicLandList(basics)} based on your early colored mana needs. If most early spells need ${firstColor}, lean ${basics[0]}. If your early interaction needs ${secondColor}, lean ${basics[1]}.`;
+}
+
+function normalizeStarterCardNames(items = []) {
+  return (Array.isArray(items) ? items : [])
+    .map((name) => String(name || "").trim())
+    .filter(Boolean);
+}
+
+export function normalizeStarterCardGroups(starterCards = {}) {
+  return {
+    creatures: normalizeStarterCardNames(starterCards.creatures),
+    spells: normalizeStarterCardNames(starterCards.spells),
+    permanents: normalizeStarterCardNames(starterCards.permanents),
+  };
+}
+
+function starterCardSegmentsForGroups(starterCards = {}) {
+  const groups = normalizeStarterCardGroups(starterCards);
+  return STARTER_CARD_SEGMENTS.filter((segment) => groups[segment.id]?.length);
 }
 
 function identityColorEntry(code) {
@@ -503,6 +532,9 @@ function resolveIdentityTension(identity, faction) {
 
 function buildSelfCheckCopy(faction) {
   const presentation = presentationForFaction(faction);
+  if (presentation.selfCheck) {
+    return presentation.selfCheck;
+  }
   const reason = presentation.closeReason || presentation.tableExperience || faction?.tagline || "";
   if (!reason) {
     return "This may fit if the values in this reading feel like the kind of deck identity you want to explore.";
@@ -1172,6 +1204,29 @@ function buildLinkButtons(links, className = "") {
     .join("");
 }
 
+function buildCommanderDirectoryLinksHtml(links = []) {
+  const linkButtons = buildLinkButtons(links);
+  return linkButtons
+    ? `<div class="starter-links" data-commander-directory-links>${linkButtons}</div>`
+    : "";
+}
+
+export function buildDossierRenderState({
+  starterCards = {},
+  colors = [],
+  commanderDirectoryLinks = [],
+} = {}) {
+  const normalizedStarterCards = normalizeStarterCardGroups(starterCards);
+  const starterCardSegments = starterCardSegmentsForGroups(normalizedStarterCards);
+  return {
+    starterCards: normalizedStarterCards,
+    starterCardSegments,
+    hasStarterCardReferences: starterCardSegments.length > 0,
+    basicLandCopy: basicLandGuidanceCopy(colors),
+    commanderDirectoryLinksHtml: buildCommanderDirectoryLinksHtml(commanderDirectoryLinks),
+  };
+}
+
 function dedupeLinks(links = []) {
   const seen = new Set();
   return (links || []).filter((link) => {
@@ -1439,7 +1494,9 @@ function requestedDossierViewKey() {
 
 function normalizeDossierPanelId(value) {
   const panelId = String(value || "").trim().toLowerCase();
-  return DOSSIER_PANEL_IDS.has(panelId) ? panelId : "";
+  if (!DOSSIER_PANEL_IDS.has(panelId)) return "";
+  if (APP_STATE.hiddenDossierPanelIds?.has(panelId)) return "";
+  return panelId;
 }
 
 function normalizeDossierLayoutMode(value) {
@@ -1537,7 +1594,7 @@ function sanitizeUserFacingCopy(value) {
 function buildDossierTabsHtml(location, activePanel, layoutMode) {
   const active = normalizeDossierPanelId(activePanel) || DOSSIER_DEFAULT_PANEL_ID;
   const isAllMode = layoutMode === "all";
-  return DOSSIER_PANEL_CONFIG.map((panel, index) => {
+  return DOSSIER_PANEL_CONFIG.filter((panel) => !APP_STATE.hiddenDossierPanelIds?.has(panel.id)).map((panel, index) => {
     const selected = !isAllMode && panel.id === active;
     return `
       <button
@@ -1628,6 +1685,14 @@ function normalizeDossierSegment(group, segment, segments) {
   return segments.some((item) => item.id === segmentId) ? segmentId : segments[0]?.id || "";
 }
 
+function availableDossierSegments(group) {
+  const configured = APP_STATE.dossierAvailableSegments?.[group];
+  if (Array.isArray(configured) && configured.length) {
+    return configured;
+  }
+  return group === "mana-base" ? MANA_BASE_SEGMENTS : STARTER_CARD_SEGMENTS;
+}
+
 function buildSegmentControlsHtml(group, segments, activeSegment, label) {
   const active = normalizeDossierSegment(group, activeSegment, segments);
   return `
@@ -1652,7 +1717,7 @@ function buildSegmentPanelHtml(group, segment, activeSegment, content) {
 }
 
 function applyDossierSegmentState(group) {
-  const segments = group === "mana-base" ? MANA_BASE_SEGMENTS : STARTER_CARD_SEGMENTS;
+  const segments = availableDossierSegments(group);
   const active = normalizeDossierSegment(group, APP_STATE.dossierSegments[group], segments);
   APP_STATE.dossierSegments[group] = active;
 
@@ -1671,7 +1736,7 @@ function setDossierSegment(group, segment) {
   if (group !== "starter-cards" && group !== "mana-base") {
     return;
   }
-  const segments = group === "mana-base" ? MANA_BASE_SEGMENTS : STARTER_CARD_SEGMENTS;
+  const segments = availableDossierSegments(group);
   APP_STATE.dossierSegments[group] = normalizeDossierSegment(group, segment, segments);
   applyDossierSegmentState(group);
 }
@@ -2176,14 +2241,21 @@ function renderResult(viewKey) {
       .join("");
   }
 
-  const commanderFallbackClass = commanderPreviewCandidates.length ? "" : " is-visible";
+  const renderState = buildDossierRenderState({
+    starterCards: dossier.starterCards,
+    colors: faction.colors || [],
+    commanderDirectoryLinks,
+  });
+  const renderableStarterCards = renderState.starterCards;
+  const starterCardSegments = renderState.starterCardSegments;
+  const hasStarterCardReferences = renderState.hasStarterCardReferences;
+  const basicLandCopy = renderState.basicLandCopy;
+  const commanderDirectoryLinksHtml = renderState.commanderDirectoryLinksHtml;
   const commanderPreviewHtml = `
     <div class="commander-preview-block">
       <div class="commander-preview-label">Commander starting points</div>
+      ${commanderDirectoryLinksHtml}
       ${commanderPreviewCandidates.length ? `<div class="commander-preview-grid" id="commander-preview-grid">${commanderPreviewSlots(commanderPreviewCandidates)}</div>` : ""}
-      <div class="commander-preview-fallback${commanderFallbackClass}" id="commander-preview-fallback">
-        ${buildLinkButtons(commanderDirectoryLinks)}
-      </div>
     </div>`;
 
   const adjacentMatches = dossier.adjacentFits || [];
@@ -2254,7 +2326,6 @@ function renderResult(viewKey) {
     budget: "Playable entry point. Expect more tapped lands, but the deck will still function.",
     utility: "Adds Commander flexibility beyond color fixing.",
   };
-  const basicLandCopy = basicLandGuidanceCopy(faction.colors || []);
   const manaBaseSegments = MANA_BASE_SEGMENTS.filter((segment) =>
     hasRenderableLandTier(landRecommendations, segment.id)
   );
@@ -2266,11 +2337,16 @@ function renderResult(viewKey) {
           <div class="land-cards-row">${landSlots(landRecommendations.utility, "lu")}</div>
         </div>`
     : "";
+  APP_STATE.hiddenDossierPanelIds = new Set(hasStarterCardReferences ? [] : ["starter-cards"]);
+  APP_STATE.dossierAvailableSegments = {
+    "starter-cards": starterCardSegments,
+    "mana-base": manaBaseSegments,
+  };
   const { activePanel, layoutMode } = resolveDossierConsoleState();
   const starterSegment = normalizeDossierSegment(
     "starter-cards",
     APP_STATE.dossierSegments["starter-cards"],
-    STARTER_CARD_SEGMENTS
+    starterCardSegments
   );
   const manaBaseSegment = normalizeDossierSegment(
     "mana-base",
@@ -2310,7 +2386,6 @@ function renderResult(viewKey) {
                 <div class="starter-copy">${detail.copy}</div>
               </div>`).join("")}
           </div>
-          <div class="starter-links">${buildLinkButtons(commanderDirectoryLinks)}</div>
           ${commanderPreviewHtml}
         </div>
       </div>
@@ -2326,26 +2401,31 @@ function renderResult(viewKey) {
         <div class="section-label">Commander Lanes</div>
         <div class="archetypes-grid">${archetypeHtml}</div>
       </div>` : ""}`;
-  const starterCardsPanelHtml = `
+  const starterCardPanelContent = {
+    creatures: `
+      <div class="staples-category">
+        <div class="staple-cat-label">Creatures</div>
+        <div class="staple-row">${cardSlots(renderableStarterCards.creatures, "sc", "staple-placeholder", "staple-img")}</div>
+      </div>`,
+    spells: `
+      <div class="staples-category">
+        <div class="staple-cat-label">Instants and Sorceries</div>
+        <div class="staple-row">${cardSlots(renderableStarterCards.spells, "ss", "staple-placeholder", "staple-img")}</div>
+      </div>`,
+    permanents: `
+      <div class="staples-category">
+        <div class="staple-cat-label">Enchantments and Artifacts</div>
+        <div class="staple-row">${cardSlots(renderableStarterCards.permanents, "sp", "staple-placeholder", "staple-img")}</div>
+      </div>`,
+  };
+  const starterCardsPanelHtml = hasStarterCardReferences ? `
     <div class="staples-section">
       <div class="section-label">${institutionLabel} Starter Card References</div>
-      ${buildSegmentControlsHtml("starter-cards", STARTER_CARD_SEGMENTS, starterSegment, "Starter card groups")}
-      ${buildSegmentPanelHtml("starter-cards", "creatures", starterSegment, `
-        <div class="staples-category">
-          <div class="staple-cat-label">Creatures</div>
-          <div class="staple-row">${cardSlots(dossier.starterCards?.creatures, "sc", "staple-placeholder", "staple-img")}</div>
-        </div>`)}
-      ${buildSegmentPanelHtml("starter-cards", "spells", starterSegment, `
-        <div class="staples-category">
-          <div class="staple-cat-label">Instants and Sorceries</div>
-          <div class="staple-row">${cardSlots(dossier.starterCards?.spells, "ss", "staple-placeholder", "staple-img")}</div>
-        </div>`)}
-      ${buildSegmentPanelHtml("starter-cards", "permanents", starterSegment, `
-        <div class="staples-category">
-          <div class="staple-cat-label">Enchantments and Artifacts</div>
-          <div class="staple-row">${cardSlots(dossier.starterCards?.permanents, "sp", "staple-placeholder", "staple-img")}</div>
-        </div>`)}
-    </div>`;
+      ${buildSegmentControlsHtml("starter-cards", starterCardSegments, starterSegment, "Starter card groups")}
+      ${starterCardSegments.map((segment) =>
+        buildSegmentPanelHtml("starter-cards", segment.id, starterSegment, starterCardPanelContent[segment.id])
+      ).join("")}
+    </div>` : "";
   const manaBasePanelHtml = `
     <div class="lands-section">
       <div class="section-label">Mana Base Starting Map</div>
@@ -2353,7 +2433,6 @@ function renderResult(viewKey) {
       <div class="lands-tiers">
         ${buildSegmentPanelHtml("mana-base", "basics", manaBaseSegment, `
           <div class="land-tier tier-basics">
-            <div class="land-tier-label">Basics</div>
             <div class="land-tier-copy">${basicLandCopy}</div>
           </div>`)}
         ${hasRenderableLandTier(landRecommendations, "premium") ? buildSegmentPanelHtml("mana-base", "premium", manaBaseSegment, `
@@ -2400,10 +2479,10 @@ function renderResult(viewKey) {
     { id: "why", content: whyPanelHtml },
     { id: "adjacent", content: `${returnToPrimaryButton}${adjacentSectionHtml}` },
     { id: "commander-deck-starts", content: deckStartsPanelHtml },
-    { id: "starter-cards", content: starterCardsPanelHtml },
+    hasStarterCardReferences ? { id: "starter-cards", content: starterCardsPanelHtml } : null,
     { id: "mana-base", content: manaBasePanelHtml },
     { id: "maze-discovery", content: mazePanelHtml },
-  ].map((panel) => buildDossierPanelHtml({
+  ].filter(Boolean).map((panel) => buildDossierPanelHtml({
     id: panel.id,
     activePanel,
     layoutMode,
@@ -2454,7 +2533,7 @@ function renderResult(viewKey) {
   updateTopbar();
   initializeDossierRadarIfVisible(result, faction);
   if (!shouldDisableResultCardArt()) {
-    loadResultCardArt(faction, commanderPreviewCandidates, dossier.starterCards, landRecommendations);
+    loadResultCardArt(faction, commanderPreviewCandidates, renderableStarterCards, landRecommendations);
   }
 }
 

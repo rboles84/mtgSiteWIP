@@ -91,11 +91,11 @@ const [adjacentMazeLink] = withArchscryMazeContext([{
   service: "maze",
   label: "commanders that fit",
   pathType: "commanders-that-fit",
-  plainReadingQuery: "Witherbloom College commander candidates in black-green Commander identity",
-  operatorQuery: "id<=bg is:commander f:commander (o:sacrifice OR o:graveyard)",
-  url: "/maze/?q=id%3C%3Dbg%20is%3Acommander"
+  plainReadingQuery: "Witherbloom College commanders with exactly black-green identity",
+  operatorQuery: "id=bg is:commander f:commander (o:sacrifice OR o:graveyard)",
+  url: "/maze/?q=id%3Dbg%20is%3Acommander"
 }], adjacentMazeContext, "http://localhost/archscry/index.html");
 const adjacentMazeUrl = new URL(adjacentMazeLink.url, "http://localhost/archscry/index.html");
 assert.equal(adjacentMazeUrl.searchParams.get("fit"), "WITHERBLOOM");
 assert.equal(adjacentMazeUrl.searchParams.get("factionName"), "Witherbloom College");
-assert.equal(adjacentMazeUrl.searchParams.get("operatorQuery"), "id<=bg is:commander f:commander (o:sacrifice OR o:graveyard)");
+assert.equal(adjacentMazeUrl.searchParams.get("operatorQuery"), "id=bg is:commander f:commander (o:sacrifice OR o:graveyard)");

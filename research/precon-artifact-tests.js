@@ -652,4 +652,101 @@ const liveDimirPreview = selectPreconPreviewRecommendations(liveDimirRecs);
 assert.equal(liveDimirPreview.visible.length, PRECON_PREVIEW_LIMIT, "expected Dimir preview to cap dense exact-color pools at four");
 assert.ok(liveDimirPreview.visible.every((entry) => entry.previewGroup === "nativeExact"), "expected Dimir preview to prioritize native exact cards when the native group fills the cap");
 
+const bantDossier = {
+  commanderLane: {
+    title: "Exalted Champion / Creature-Forward Value",
+    copy: "Bant protects one worthy line of action with public trust, refined support, and living order.",
+  },
+  commanderPath: {
+    copy: "Start with a supported champion, protection, refinement, counters, enchantments, Clues, and living support.",
+    deckFooting: "Bant Commander, mid budget, returning pilot. Start with Voltron, Counters Matter, and Enchantments.",
+    spellcraft: "Use exalted, auras, equipment, blink, ETB value, enchantress, Clues, counters, and protection as support texture.",
+    tableCautionText: "Protect the line that carries the table's trust.",
+  },
+  archetypes: [
+    { name: "Exalted Champion", desc: "Protect and elevate one clean attacker while the board makes that line worthy." },
+    { name: "Creature-Forward Value", desc: "Keep the value engine board-centered and communal." },
+    { name: "Enchantress and Aura Order", desc: "Turn enchantments and equipment into visible support." },
+  ],
+};
+
+const liveBantRecs = buildPreconRecommendations({
+  faction: { key: "BANT", name: "Bant", colors: ["White", "Blue", "Green"] },
+  dossier: bantDossier,
+  readingTagRefs: [
+    { tag: "voltron" },
+    { tag: "counters" },
+    { tag: "enchantments" },
+    { tag: "clues" },
+    { tag: "protection" },
+  ],
+  starterProfile: { experience_level: "returning" },
+  preconCatalog: generatedCatalog,
+  preconThemeTaxonomy: themeTaxonomy,
+});
+assert.equal(liveBantRecs.otherExactTitle, "Other Bant Exact Matches", "expected Bant exact-color buckets to avoid public WUG labels");
+const bantPreconSummaries = new Map(
+  [...liveBantRecs.nativeExact, ...liveBantRecs.otherExact].map((entry) => [entry.deckName, entry.fitSummary])
+);
+[
+  "Counter Blitz",
+  "Peace Offering",
+  "Deep Clue Sea",
+  "Adaptive Enchantment",
+  "Evasive Maneuvers",
+  "Aura of Courage",
+  "Blast From the Past",
+  "Bedecked Brokers",
+].forEach((deckName) => {
+  assert.ok(bantPreconSummaries.has(deckName), `expected ${deckName} to remain available as a local Bant exact-color recommendation`);
+  assert.match(bantPreconSummaries.get(deckName), /Bant support fit/);
+  assert.doesNotMatch(bantPreconSummaries.get(deckName), /Exact WUG|lore proof|canon proof|canon evidence/i);
+});
+assert.match(bantPreconSummaries.get("Counter Blitz"), /counter movement, proliferate, and combat value/);
+assert.match(bantPreconSummaries.get("Peace Offering"), /group-hug politics and counters/);
+assert.match(bantPreconSummaries.get("Deep Clue Sea"), /Clues, card draw, and token value/);
+assert.match(bantPreconSummaries.get("Adaptive Enchantment"), /enchantress, auras, ramp, and card flow/);
+assert.match(bantPreconSummaries.get("Evasive Maneuvers"), /evasive creatures and tap-untap tempo/);
+assert.match(bantPreconSummaries.get("Aura of Courage"), /Auras, Equipment, and protected-threat play/);
+assert.match(bantPreconSummaries.get("Blast From the Past"), /historic spells, artifacts, Sagas, and companion texture/);
+assert.match(bantPreconSummaries.get("Bedecked Brokers"), /counter diversity, shield counters, and protected voltron texture/);
+
+const jundDossier = {
+  commanderLane: {
+    title: "Instinctive Pressure / Appetite Engines",
+    copy: "Jund makes pressure visible and turns spent resources into consequence.",
+  },
+  commanderPath: {
+    copy: "Start with pressure, sacrifice, attrition, drain, and graveyard value.",
+    deckFooting: "Jund Commander, mid budget, returning pilot. Start with Midrange, Aggro, and Counters Matter.",
+    spellcraft: "Support-only Jund mechanics can point toward sacrifice, graveyard value, lands, counters, tokens, combat pressure, and value engines.",
+    tableCautionText: "Wait for the table to spend its answers before committing the last engine.",
+  },
+  archetypes: [
+    { name: "Instinctive Pressure", desc: "Act from gut truth before the table settles." },
+    { name: "Appetite Engines", desc: "Turn spent bodies and resources into consequence." },
+  ],
+};
+
+const liveJundRecs = buildPreconRecommendations({
+  faction: { key: "JUND", name: "Jund", colors: ["Black", "Red", "Green"] },
+  dossier: jundDossier,
+  readingTagRefs: [{ tag: "sacrifice" }, { tag: "graveyard" }, { tag: "counters" }, { tag: "aggro" }],
+  starterProfile: { experience_level: "returning" },
+  preconCatalog: generatedCatalog,
+  preconThemeTaxonomy: themeTaxonomy,
+});
+const jundPreconSummaries = new Map(
+  [...liveJundRecs.nativeExact, ...liveJundRecs.otherExact].map((entry) => [entry.deckName, entry.fitSummary])
+);
+["World Shaper", "Power Hungry", "Blight Curse", "Graveyard Overdrive"].forEach((deckName) => {
+  assert.ok(jundPreconSummaries.has(deckName), `expected ${deckName} to remain available as a local Jund exact-color recommendation`);
+  assert.match(jundPreconSummaries.get(deckName), /Exact Jund color fit/);
+  assert.doesNotMatch(jundPreconSummaries.get(deckName), /Exact BRG|reanimator lines/i);
+});
+assert.match(jundPreconSummaries.get("World Shaper"), /lands, graveyard value, and resource-conversion/);
+assert.match(jundPreconSummaries.get("Power Hungry"), /token creation, sacrifice, and death-trigger pressure/);
+assert.match(jundPreconSummaries.get("Blight Curse"), /-1\/-1 counters, sacrifice, and attrition/);
+assert.match(jundPreconSummaries.get("Graveyard Overdrive"), /graveyard value, self-mill, discard, and combat pressure/);
+
 console.log("PASS precon artifact tests");

@@ -76,6 +76,10 @@ const DOSSIER_COLOR_IDENTITIES = new Map([
   ["GOLGARI", "bg"],
   ["SIMIC", "ug"],
   ["BOROS", "wr"],
+  ["BANT", "wug"],
+  ["ESPER", "wub"],
+  ["GRIXIS", "ubr"],
+  ["JUND", "brg"],
   ["LOREHOLD", "wr"],
   ["PRISMARI", "ur"],
   ["QUANDRIX", "ug"],
@@ -1587,6 +1591,7 @@ function buildReadingPaths() {
       dataset: {
         query: path.q,
         plainReadingQuery: path.plainReadingQuery,
+        pathType: path.pathType,
         origin: "path"
       }
     });
@@ -1649,14 +1654,18 @@ function createReadingPaths(result) {
   const identity = colorIdentityFromPlacement(result);
   if (!identity) return [];
   const signals = readingSearchSignals(result);
+  const factionKey = String(result?.faction || "").toUpperCase();
   return buildDossierMazePathEntries({
     identity,
     factionName: result?.faction_name || result?.faction || "this reading",
     oracleTerms: signals.oracle,
-    flavorTerms: signals.flavor
+    flavorTerms: signals.flavor,
+    identityHint: factionKey === "JUND" ? "Jund" : "",
+    includeOutsideColorStretch: !["GRIXIS", "JUND"].includes(factionKey)
   }).map((path) => ({
     label: path.sidebarLabel || path.label,
     hint: path.hint,
+    pathType: path.pathType,
     q: path.query,
     plainReadingQuery: path.plainReadingQuery
   }));

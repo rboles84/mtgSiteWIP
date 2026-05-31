@@ -1,0 +1,243 @@
+{
+  "schema_version": "1.0.0",
+  "faction_id": "jund",
+  "faction_name": "Jund",
+  "source_review_date": "2026-05-30",
+  "last_updated": "2026-05-30",
+  "sources": [
+    {
+      "source_id": "src_vm_jund_source_ledger_20260530",
+      "title": "Jund Source Ledger",
+      "author": "Vox Mana research packet",
+      "publisher_or_site": "Local repository",
+      "publication_date": "2026-05-30",
+      "url_or_repository_path": "docs/research/jund/jund-source-ledger.md",
+      "source_type": "Curated source ledger",
+      "source_role": "shaping-only",
+      "reliability": "Primary local source-role ledger",
+      "notes": "Defines VM-176 source tiers, approved use, support-only limits, exact BRG Commander extraction rules, and seed-file handling. It shapes this packet but does not back raw claims by itself."
+    },
+    {
+      "source_id": "src_vm_jund_evidence_ledger_20260530",
+      "title": "Jund Evidence Ledger",
+      "author": "Vox Mana research packet",
+      "publisher_or_site": "Local repository",
+      "publication_date": "2026-05-30",
+      "url_or_repository_path": "docs/research/jund/jund-evidence-ledger.md",
+      "source_type": "Curated evidence ledger",
+      "source_role": "claim-bearing",
+      "reliability": "Primary local evidence ledger",
+      "claim_bearing_evidence_rows": [
+        "JUND-EVID-001",
+        "JUND-EVID-002",
+        "JUND-EVID-003",
+        "JUND-EVID-004",
+        "JUND-EVID-005",
+        "JUND-EVID-006",
+        "JUND-EVID-007",
+        "JUND-EVID-008",
+        "JUND-EVID-009",
+        "JUND-EVID-010",
+        "JUND-EVID-012",
+        "JUND-EVID-013"
+      ],
+      "notes": "Primary VM-176 evidence row index for VM-179 raw claims. Support-only, synthesis, reliability, non-live, and manual-fill rows are not raw-claim rows."
+    },
+    {
+      "source_id": "src_wotc_rosewater_jund_following_your_heart",
+      "title": "Following Your Heart",
+      "author": "Mark Rosewater",
+      "publisher_or_site": "Magic: The Gathering / Making Magic",
+      "publication_date": "Local capture, original date not restated in VM-176 packet",
+      "url_or_repository_path": "docs/research/canon/mark_rosewater_official_three_color/Jund_Following Your Heart _ MAGIC_ THE GATHERING.md",
+      "source_type": "Official Wizards design article capture",
+      "source_role": "claim-bearing",
+      "reliability": "Primary / official design commentary",
+      "claim_bearing_evidence_rows": [
+        "JUND-EVID-001",
+        "JUND-EVID-002",
+        "JUND-EVID-003",
+        "JUND-EVID-004",
+        "JUND-EVID-005",
+        "JUND-EVID-006",
+        "JUND-EVID-007",
+        "JUND-EVID-008",
+        "JUND-EVID-009",
+        "JUND-EVID-010",
+        "JUND-EVID-012",
+        "JUND-EVID-013"
+      ],
+      "notes": "Primary Jund identity source for the narrow design-philosophy floor: black-red-green shard, Red center, Red self-truth/emotion/freedom frame, Black and Green ally roles, White/Blue absence, and anti-flattening boundaries."
+    },
+    {
+      "source_id": "src_vm_canon_inventory_three_color_audit_20260528",
+      "title": "Canon Inventory and Three-Color Reference Audit",
+      "author": "Codex",
+      "publisher_or_site": "Local repository",
+      "publication_date": "2026-05-28",
+      "url_or_repository_path": "docs/analysis/canon-inventory-three-color-reference-audit.md",
+      "source_type": "Canon inventory and discovery audit",
+      "source_role": "claim-bearing",
+      "reliability": "Repository inventory / source-order audit",
+      "claim_bearing_evidence_rows": [
+        "JUND-EVID-002",
+        "JUND-EVID-010"
+      ],
+      "notes": "Supports the local source-order and normalized BRG direction context only. It does not independently prove Jund geography, story, creature, place, or figure claims."
+    },
+    {
+      "source_id": "src_vm_jund_research_dossier_20260530",
+      "title": "Jund Research Dossier",
+      "author": "Vox Mana research packet",
+      "publisher_or_site": "Local repository",
+      "publication_date": "2026-05-30",
+      "url_or_repository_path": "docs/research/jund/jund-research-dossier.md",
+      "source_type": "Curated research dossier",
+      "source_role": "shaping-only",
+      "reliability": "Primary local synthesis with explicit boundaries",
+      "notes": "Summarizes the conservative VM-176 identity floor, support-only Commander context, anti-bleed notes, manual-fill boundaries, and downstream readiness. It may shape profile wording but not raw claims."
+    },
+    {
+      "source_id": "src_vm_jund_reliability_audit_20260530",
+      "title": "Jund Reliability Audit",
+      "author": "Vox Mana research packet",
+      "publisher_or_site": "Local repository",
+      "publication_date": "2026-05-30",
+      "url_or_repository_path": "docs/research/jund/jund-reliability-audit.md",
+      "source_type": "Reliability audit",
+      "source_role": "shaping-only",
+      "reliability": "Primary local audit",
+      "notes": "Records seed defects, source-use controls, Commander extraction reliability, downgraded claim classes, and anti-bleed checks. It shapes exclusions but does not back raw claims."
+    },
+    {
+      "source_id": "src_vm_jund_manual_fill_20260530",
+      "title": "Jund Manual Fill",
+      "author": "Vox Mana research packet",
+      "publisher_or_site": "Local repository",
+      "publication_date": "2026-05-30",
+      "url_or_repository_path": "docs/research/jund/jund-manual-fill.md",
+      "source_type": "Manual-fill queue",
+      "source_role": "support-only",
+      "reliability": "Limitations ledger only",
+      "notes": "Records deferred topics such as geography, figure biography, devour-as-total-identity, Conflux chronology, Modern Jund, generated HTML, and seed-heading claims. It is not raw-claim evidence."
+    },
+    {
+      "source_id": "src_vm_jund_lore_source_packet_20260530",
+      "title": "Jund Lore Source Packet",
+      "author": "Vox Mana research packet",
+      "publisher_or_site": "Local repository",
+      "publication_date": "2026-05-30",
+      "url_or_repository_path": "docs/research/jund/jund-lore-source-packet.md",
+      "source_type": "Compiled source packet",
+      "source_role": "shaping-only",
+      "reliability": "Primary VM-176 packet summary",
+      "notes": "Records the VM-176 source-packet verdict, safe evidence floor, support-only material, manual-fill list, distinction guardrails, and stop gate. It shapes packet organization and VM-186 status metadata but does not replace evidence rows."
+    },
+    {
+      "source_id": "src_vm_jund_identity_md_20260530",
+      "title": "Jund Shard - Freedom Through Instinct, Appetite, And Survival",
+      "author": "Vox Mana architecture docs",
+      "publisher_or_site": "Local repository",
+      "publication_date": "2026-05-30",
+      "url_or_repository_path": "docs/architecture/colors/jund/identity.md",
+      "source_type": "Vox Mana architecture doc",
+      "source_role": "shaping-only",
+      "reliability": "Project architecture synthesis from VM-176 and VM-178",
+      "notes": "May inform source-authored profile and placement wording only. It is not Magic canon and must not replace VM-176 evidence rows for raw claims."
+    },
+    {
+      "source_id": "src_vm_jund_metaphysics_md_20260530",
+      "title": "Jund Shard Metaphysics - Appetite As Compass",
+      "author": "Vox Mana architecture docs",
+      "publisher_or_site": "Local repository",
+      "publication_date": "2026-05-30",
+      "url_or_repository_path": "docs/architecture/colors/jund/metaphysics.md",
+      "source_type": "Vox Mana metaphysics doc",
+      "source_role": "shaping-only",
+      "reliability": "Project metaphysics synthesis from VM-176 and VM-178",
+      "notes": "May inform source-authored metaphysical profile fields only. It is explicitly not Wizards or MTG canon and is not raw-claim evidence."
+    },
+    {
+      "source_id": "src_alara_shards_lore_dossier_protocol_rtf",
+      "title": "Alara Shards Lore Dossier Protocol",
+      "author": "Vox Mana local canon support material",
+      "publisher_or_site": "Local repository",
+      "publication_date": "Local capture, original date not restated in VM-176 packet",
+      "url_or_repository_path": "docs/research/canon/guild_research/Alara Shards Lore Dossier Protocol.rtf",
+      "source_type": "Repo-local support protocol",
+      "source_role": "support-only",
+      "reliability": "Support/discovery only",
+      "notes": "May support Alara shard discovery context only. It is not claim-bearing for detailed Jund setting, creature, place, or story claims."
+    },
+    {
+      "source_id": "src_scryfall_oracle_cards_local",
+      "title": "Local Scryfall Oracle Cards",
+      "author": "Scryfall local data mirror",
+      "publisher_or_site": "Local repository",
+      "publication_date": "Local data snapshot, date not restated in VM-176 packet",
+      "url_or_repository_path": "data/scryfall/raw/oracle-cards.json",
+      "source_type": "Local card-data source",
+      "source_role": "support-only",
+      "reliability": "Card facts support only",
+      "notes": "May support future claim-by-claim card facts or mechanics. VM-179 does not query card facts and does not use this source for raw claims."
+    },
+    {
+      "source_id": "src_vm_second_commander_recommendations_brg",
+      "title": "Vox Mana Second Commander Recommendations Enhanced",
+      "author": "Vox Mana product research data",
+      "publisher_or_site": "Local repository",
+      "publication_date": "Local data snapshot, date not restated in VM-176 packet",
+      "url_or_repository_path": "docs/research/vox_mana_second_commander_recommendations_enhanced.jsonl",
+      "source_type": "Commander/operator support data",
+      "source_role": "support-only",
+      "reliability": "Product/operator support only",
+      "notes": "Exact Black/Red/Green Commander rows support operator language around counters, lands, graveyards, sacrifice, tokens, combat pressure, and value engines. They do not prove Jund canon, setting, story, creature, place, or metaphysics claims."
+    },
+    {
+      "source_id": "src_wotc_color_philosophy_support_jund",
+      "title": "Red, Black, Green, Rakdos, Golgari, Gruul, Allied, and Enemy Color Philosophy Support",
+      "author": "Mark Rosewater / Wizards captures",
+      "publisher_or_site": "Local repository",
+      "publication_date": "Local captures, original dates not restated in VM-176 packet",
+      "url_or_repository_path": "docs/research/canon/mark_rosewater_official_two_color/ and docs/research/canon/mark_rosewater_official_misc/",
+      "source_type": "Color-philosophy support captures",
+      "source_role": "support-only",
+      "reliability": "Color philosophy support only",
+      "notes": "May support future pair-overlap and color-philosophy wording only. These sources do not independently prove Jund setting, creature, place, story, or raw claims."
+    },
+    {
+      "source_id": "src_wotc_naya_grixis_comparator_support",
+      "title": "Naya and Grixis Comparator Shard Articles",
+      "author": "Mark Rosewater / Wizards captures",
+      "publisher_or_site": "Local repository",
+      "publication_date": "Local captures, original dates not restated in VM-176 packet",
+      "url_or_repository_path": "docs/research/canon/mark_rosewater_official_three_color/Naya_Searching Within _ MAGIC_ THE GATHERING.md and docs/research/canon/mark_rosewater_official_three_color/Grixis_Looking Out For Number One _ MAGIC_ THE GATHERING.md",
+      "source_type": "Comparator support captures",
+      "source_role": "support-only",
+      "reliability": "Comparator support only",
+      "notes": "Comparator rails only. These sources are not Jund evidence."
+    }
+  ],
+  "not_used_or_rejected_sources": [
+    {
+      "source_name": "Unmanaged Jund seed files under docs/research/jund/source-material/",
+      "reason": "Seed/reference only. VM-176 recorded stale VM-161 labels, mojibake risk, external/community citation risk, over-broad claims, and generated artifact risk."
+    },
+    {
+      "source_name": "Generated Jund HTML/report material",
+      "reason": "Structure and formatting reference only. It must not be used as canon or raw-claim evidence."
+    },
+    {
+      "source_name": "MTG Wiki / Fandom pages",
+      "reason": "Discovery only; not primary evidence for VM-179 raw claims."
+    },
+    {
+      "source_name": "Reddit, EDHREC, blogs, dynamic community sources, and player-culture shorthand",
+      "reason": "Community or player perception only; not canon or raw-claim evidence."
+    },
+    {
+      "source_name": "Detailed Jund lore without local official capture",
+      "reason": "Deferred to Manual fill required until a later evidence-update card adds direct local support."
+    }
+  ]
+}

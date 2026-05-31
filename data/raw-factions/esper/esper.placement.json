@@ -1,0 +1,273 @@
+{
+  "schema_version": "1.0.0",
+  "placement_profile_version": "1.0.0",
+  "faction_id": "esper",
+  "faction_name": "Esper",
+  "based_on_profile_version": "1.0.0",
+  "last_updated": "2026-05-30",
+  "placement_summary": "Esper is a live-pilot placement profile for the ESPER shard expression. Its strongest signals are Blue-centered perfectibility, knowledge, planning, applied information, White ordered improvement, and Black focused control.",
+  "moral_and_psychological_profile": {
+    "summary": "Vox Mana models Esper as Blue-centered perfectibility through knowledge, planning, ordered improvement, and focused control. This is descriptive architecture for the live pilot, not official canon and not standalone scoring data.",
+    "claim_ids": [
+      "esper_claim_0003",
+      "esper_claim_0004",
+      "esper_claim_0005",
+      "esper_claim_0006",
+      "esper_claim_0007"
+    ],
+    "confidence": "Medium",
+    "notes": "Psychological language is Vox Mana interpretation, not official Wizards canon."
+  },
+  "placement_axes": [],
+  "core_values": [
+    {
+      "value_id": "value_esper_0001",
+      "label": "Perfectibility Through Knowledge",
+      "description": "Potential is approached through knowledge, planning, change, and applied information.",
+      "claim_ids": [
+        "esper_claim_0003",
+        "esper_claim_0004"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "value_id": "value_esper_0002",
+      "label": "Ordered Improvement",
+      "description": "Improvement receives structure from White's planning, coordination, strategy, and technology-serving-people frame.",
+      "claim_ids": [
+        "esper_claim_0005"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "value_id": "value_esper_0003",
+      "label": "Instrumental Information",
+      "description": "Control, focus, ambition, and the useful handling of information form the Black ally pressure in Esper's Blue-centered model.",
+      "claim_ids": [
+        "esper_claim_0006"
+      ],
+      "confidence": "Medium"
+    }
+  ],
+  "behavioral_signals": [
+    {
+      "signal_id": "signal_esper_0001",
+      "signal": "Look for planning, applied information, and deliberate change as the user's primary language.",
+      "claim_ids": [
+        "esper_claim_0003"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "signal_id": "signal_esper_0002",
+      "signal": "Look for order or coordination that serves improvement rather than procedure alone.",
+      "claim_ids": [
+        "esper_claim_0005"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "signal_id": "signal_esper_0003",
+      "signal": "Look for information becoming focused control, not secrecy by itself.",
+      "claim_ids": [
+        "esper_claim_0006"
+      ],
+      "confidence": "Medium"
+    }
+  ],
+  "inhibitor_traits": [
+    "generic WUB color identity with no Blue-centered perfectibility frame",
+    "generic control with no ordered improvement or applied-information language",
+    "generic artifacts with no evidence-bound Esper identity signal",
+    "civic procedure without Black-supported control",
+    "hidden leverage without White structure",
+    "debt or obligation without Blue optimization",
+    "Red impulse or Green natural acceptance as the dominant appeal",
+    "manual-fill lore used as if it were current evidence"
+  ],
+  "good_fit_indicators": [
+    "planning, knowledge, and applied information are the main way change happens",
+    "order is described as a tool for improvement rather than as law by itself",
+    "control is focused and information-led",
+    "the answer uses WUB Commander/operator language only as support below the canon-claim line",
+    "the answer names Esper or Alara in a source-bound shard context"
+  ],
+  "ideal_fit_indicators": [
+    "The answer combines Blue perfectibility, White ordered improvement, and Black focused control while keeping manual-fill lore out of the claim basis.",
+    "The placement model separates Esper from Azorius, Dimir, and Orzhov through the positive WUB perfectibility cluster.",
+    "The placement model separates Esper from Bant through the difference between designed control and living communal order."
+  ],
+  "poor_fit_indicators": [
+    "The answer depends on detailed Esper geography, society, figures, material lore, chronology, or exact card text.",
+    "The answer is mainly civic procedure, secrecy, debt, generic WUB, or generic artifact value.",
+    "The answer centers impulse, natural acceptance, big-creature immediacy, predatory appetite, or spontaneous passion."
+  ],
+  "discriminator_questions": [],
+  "chatbot_guidance": {
+    "how_to_recognize_match": [
+      "Treat Esper as a live-pilot match only when the answer combines Blue-centered perfectibility with White ordered improvement and Black focused control.",
+      "Use Commander/operator patterns as vocabulary only, not as canon evidence.",
+      "Keep manual-fill topics out of the match basis."
+    ],
+    "how_to_recognize_mismatch": [
+      "Do not match Esper from WUB color identity alone.",
+      "Do not match Esper from artifacts alone.",
+      "Do not match Esper from detailed lore claims that VM-163 left in manual fill.",
+      "Do not route to Esper from WUB color identity, artifacts, or control language alone."
+    ],
+    "questions_to_ask_when_uncertain": [],
+    "do_not_overweight": [
+      "Do not award Esper from generic control language.",
+      "Do not award Esper from generic artifact language.",
+      "Do not award Esper from Commander rows as canon.",
+      "Do not award Esper from manual-fill topics."
+    ],
+    "never_claim_as_canon": [
+      "Never claim Vox Mana placement planning is official Wizards canon.",
+      "Never claim WUB is a live expression key.",
+      "Never claim Esper is Home-preview eligible.",
+      "Never claim detailed geography, society, figure, material, chronology, or exact card-text-derived lore from VM-166."
+    ],
+    "review_note": "VM-167 promotes Esper as the live ESPER placement expression. This packet remains source-bound and does not authorize detailed lore as routing evidence or add new scoring rules."
+  },
+  "placement_quality": {
+    "overall_confidence": "Medium live-pilot placement confidence; high for narrow identity/design evidence and limited for detailed lore.",
+    "strongest_evidence_areas": [
+      "White-blue-black Esper shard identity",
+      "WUB metadata and Blue center/design lens",
+      "Blue-centered perfectibility through knowledge, planning, change, and applied information",
+      "White ordered improvement and strategy",
+      "Black control, information value, focus, and vision"
+    ],
+    "weakest_evidence_areas": [
+      "Geography and named locations",
+      "Society, classes, institutions, Ethersworn, Seekers, and Noble Work",
+      "Etherium, Carmot, Sangrite, Crucius, and metallurgy details",
+      "Figure-specific claims about Sharuum, Tezzeret, Silas Renn, Breya, Agatha, Sydri, or related figures",
+      "Conflux, post-Conflux, and post-Phyrexian chronology",
+      "Exact card text or flavor text"
+    ],
+    "manual_review_recommended": true,
+    "placement_eligible": true,
+    "review_gated": false,
+    "notes": "Esper is placement-eligible as the VM-167 live pilot expression key ESPER. Lore limits remain source-bound, WUB remains metadata-only, and Home preview stays disabled.",
+    "calibration_tuning_status": "live_pilot",
+    "last_placement_ready_pass": "VM-167"
+  },
+  "color_identity": {
+    "colors": [
+      "W",
+      "U",
+      "B"
+    ],
+    "metadata_only": true,
+    "notes": "WUB is color-direction metadata only and not a runtime/generated key."
+  },
+  "calibration_tuning": {
+    "status": "live_pilot",
+    "required_positive_evidence_terms": [
+      "Esper",
+      "Alara",
+      "WUB",
+      "Blue-centered perfectibility",
+      "perfectibility",
+      "knowledge",
+      "planning",
+      "applied information",
+      "ordered improvement",
+      "coordination",
+      "focused control",
+      "instrumental information",
+      "designed control",
+      "optimization"
+    ],
+    "required_positive_min_hits": 3,
+    "broad_match_penalty": 0.18,
+    "overselection_reason": "Color identity, generic WUB control, and generic artifact aesthetics are likely to overselect Esper without the perfectibility-through-design evidence cluster.",
+    "suppress_when_user_centers": [
+      "generic WUB goodstuff",
+      "generic artifacts",
+      "generic control",
+      "civic procedure alone",
+      "hidden leverage alone",
+      "debt or obligation alone",
+      "living communal order",
+      "Red impulse",
+      "Green natural acceptance",
+      "manual-fill lore as proof"
+    ],
+    "strengthen_when_user_centers": [
+      "Blue-centered perfectibility",
+      "knowledge before action",
+      "planning as change engine",
+      "applied information",
+      "ordered improvement",
+      "focused control",
+      "designed control",
+      "optimization through structure",
+      "Esper-specific source-bound context"
+    ],
+    "collision_suppressions": [
+      "azorius_procedure_without_black_control",
+      "dimir_hidden_leverage_without_white_structure",
+      "orzhov_obligation_without_blue_optimization",
+      "bant_living_order_without_designed_control",
+      "grixis_red_impulse",
+      "jund_predatory_force",
+      "naya_natural_awe"
+    ],
+    "false_positive_guardrail": "Do not score Esper highly from color identity, artifacts, or generic control alone. Require the Blue-centered perfectibility cluster with White structure and Black focused control.",
+    "smoke_test_note": "VM-167 live pilot metadata consumed by the generated placement model."
+  },
+  "collision_guidance": [
+    {
+      "collision_id": "collision_esper_azorius_live",
+      "against": "azorius_senate",
+      "separator": "From Esper's side only: Esper needs WU order pulled into Black-supported control and Blue-centered perfectibility, not civic procedure by itself.",
+      "ask": "Is the answer about lawful procedure, or about using knowledge, structure, and control to optimize a system?",
+      "claim_ids": [
+        "esper_claim_0003",
+        "esper_claim_0005",
+        "esper_claim_0006"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "collision_id": "collision_esper_dimir_live",
+      "against": "house_dimir",
+      "separator": "From Esper's side only: Esper needs UB information control organized by White structure and designed improvement, not hidden leverage alone.",
+      "ask": "Is information kept as private leverage, or turned into ordered design?",
+      "claim_ids": [
+        "esper_claim_0003",
+        "esper_claim_0005",
+        "esper_claim_0006"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "collision_id": "collision_esper_orzhov_live",
+      "against": "orzhov_syndicate",
+      "separator": "From Esper's side only: Esper needs WB structure guided by Blue planning and optimization, not obligation or extraction alone.",
+      "ask": "Is the structure about what is owed, or about perfecting outcomes through knowledge and method?",
+      "claim_ids": [
+        "esper_claim_0003",
+        "esper_claim_0005",
+        "esper_claim_0006"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "collision_id": "collision_esper_bant_live",
+      "against": "bant",
+      "separator": "From Esper's side only: Esper replaces Green's living acceptance with Black-supported control, focus, and instrumental information.",
+      "ask": "Is the ideal a living communal order, or a designed system optimized through information and control?",
+      "claim_ids": [
+        "esper_claim_0002",
+        "esper_claim_0006",
+        "esper_claim_0007",
+        "esper_claim_0009"
+      ],
+      "confidence": "Medium"
+    }
+  ]
+}

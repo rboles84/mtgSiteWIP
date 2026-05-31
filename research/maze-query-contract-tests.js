@@ -87,7 +87,7 @@ const launchSource = normalizeMazeSourceContext({
   launchContext: {
     from: "archscry",
     urlQ: "ignored",
-    operatorQuery: "id<=bg is:commander",
+    operatorQuery: "id=bg is:commander",
     plainReadingQuery: "Witherbloom commander candidates",
     pathType: "commanders-that-fit",
     returnUrl: "../archscry/",
@@ -103,7 +103,7 @@ assert.deepEqual(launchSource, {
   pathType: "commanders-that-fit",
   returnUrl: "../archscry/",
   plainReadingQuery: "Witherbloom commander candidates",
-  operatorQuery: "id<=bg is:commander",
+  operatorQuery: "id=bg is:commander",
   factionName: "Witherbloom College",
   from: "archscry",
   urlQ: "ignored"
@@ -117,8 +117,8 @@ const paths = buildMazePathEntries({
 });
 assert.equal(paths.length, 4);
 assert.deepEqual(paths.map((path) => path.pathType), MAZE_DOSSIER_PATH_TYPES);
-assert.equal(paths[0].query, "id<=bg is:commander f:commander (o:sacrifice OR o:graveyard)");
-assert.equal(paths[0].plainReadingQuery, "Witherbloom College commander candidates in black-green Commander identity");
+assert.equal(paths[0].query, "id=bg is:commander f:commander (o:sacrifice OR o:graveyard)");
+assert.equal(paths[0].plainReadingQuery, "Witherbloom College commanders with exactly black-green identity");
 
 assert.deepEqual(normalizeMazeQueryApiMetadata({
   unique: "prints",

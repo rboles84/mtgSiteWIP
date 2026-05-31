@@ -19,6 +19,10 @@ const RAW_TO_KEY = {
   bant: "BANT",
   boros_legion: "WR",
   cult_of_rakdos: "BR",
+  esper: "ESPER",
+  grixis: "GRIXIS",
+  jund: "JUND",
+  naya: "NAYA",
   golgari_swarm: "BG",
   gruul_clans: "RG",
   house_dimir: "UB",
@@ -164,6 +168,38 @@ const BIOLOGICAL_PRIORS = {
     inhibitor_trigger:
       "Treats excellence as private self-authorization, raw instinct, or abstract optimization rather than accountable power carried for a living community.",
   },
+  ESPER: {
+    archetype: "The Perfecting Systems Architect",
+    primary_foundation: "Authority",
+    secondary_foundation: "Fairness",
+    risk_signal: "medium-high perfection-control risk",
+    inhibitor_trigger:
+      "Rejects planning, optimization, and controlled improvement as dehumanizing by default, even when deliberate redesign would prevent avoidable harm.",
+  },
+  GRIXIS: {
+    archetype: "The Survival Strategist",
+    primary_foundation: "Liberty",
+    secondary_foundation: "Authority",
+    risk_signal: "high survival-agency risk",
+    inhibitor_trigger:
+      "Outsources survival to systems, permission, or shared order when immediate calculated self-advocacy is required.",
+  },
+  JUND: {
+    archetype: "The Instinctive Survivor",
+    primary_foundation: "Liberty",
+    secondary_foundation: "Sanctity",
+    risk_signal: "high instinct-appetite risk",
+    inhibitor_trigger:
+      "Waits for permission, abstract approval, or sterile control when survival asks for honest instinct and consequence-bearing action.",
+  },
+  NAYA: {
+    archetype: "The Living World Guardian",
+    primary_foundation: "Sanctity",
+    secondary_foundation: "Loyalty",
+    risk_signal: "medium abundance-instinct risk",
+    inhibitor_trigger:
+      "Mistakes control, extraction, or isolated scale for belonging when the living whole asks for protective instinct and care.",
+  },
   SILVERQUILL: {
     archetype: "The Rhetorical Status Shaper",
     primary_foundation: "Authority",
@@ -212,20 +248,24 @@ const KNOWN_LATERAL_INHIBITION = {
   B: ["UB", "BR", "BG", "WB"],
   R: ["WR", "UR", "BR", "RG"],
   G: ["WG", "UG", "BG", "RG"],
-  WU: ["WG", "WR", "WB", "SILVERQUILL"],
+  WU: ["WG", "WR", "WB", "SILVERQUILL", "ESPER"],
   WG: ["WU", "WR", "WITHERBLOOM"],
   WR: ["WU", "LOREHOLD", "WG"],
-  WB: ["WU", "UB", "SILVERQUILL"],
-  UB: ["WB", "UG"],
-  UR: ["PRISMARI", "QUANDRIX", "UG"],
+  WB: ["WU", "UB", "SILVERQUILL", "ESPER"],
+  UB: ["WB", "UG", "ESPER", "GRIXIS"],
+  UR: ["PRISMARI", "QUANDRIX", "UG", "GRIXIS"],
   PRISMARI: ["UR", "BR", "SILVERQUILL"],
   UG: ["QUANDRIX", "UR", "WITHERBLOOM"],
-  BANT: ["WU", "WG", "UG"],
+  BANT: ["WU", "WG", "UG", "ESPER", "GRIXIS"],
+  ESPER: ["WU", "UB", "WB", "BANT", "GRIXIS"],
+  GRIXIS: ["BANT", "BR", "ESPER", "UB", "UR", "JUND"],
+  JUND: ["BR", "BG", "RG", "GRIXIS", "WITHERBLOOM"],
+  NAYA: ["WG", "RG", "WR", "BANT", "JUND"],
   QUANDRIX: ["UG", "UR", "LOREHOLD"],
-  BG: ["WITHERBLOOM", "WG", "WB"],
-  WITHERBLOOM: ["BG", "UG", "WG"],
-  BR: ["RG", "PRISMARI", "WR"],
-  RG: ["BR", "WG", "WITHERBLOOM"],
+  BG: ["WITHERBLOOM", "WG", "WB", "JUND"],
+  WITHERBLOOM: ["BG", "UG", "WG", "JUND"],
+  BR: ["RG", "PRISMARI", "WR", "GRIXIS", "JUND"],
+  RG: ["BR", "WG", "WITHERBLOOM", "JUND"],
   LOREHOLD: ["WR", "WU", "QUANDRIX"],
   SILVERQUILL: ["WB", "WU", "PRISMARI", "UB"],
 };
@@ -249,42 +289,42 @@ const QUESTION_BANK = {
           title: "Immediate protection",
           copy: "If someone is in danger, the right first move is to step between them and harm.",
           signal: "protective intervention",
-          likelihoods: { W: 0.85, WR: 0.9, LOREHOLD: 0.55, WG: 0.5 },
+          likelihoods: { W: 0.85, WR: 0.9, LOREHOLD: 0.55, NAYA: 0.55, WG: 0.5 },
           suppresses: { WU: 0.35, UB: 0.25 },
         },
         {
           title: "Information advantage",
           copy: "Read the room, hold your position, and act when the hidden structure is visible.",
           signal: "hidden information",
-          likelihoods: { U: 0.95, UB: 0.9, B: 0.75, WB: 0.65, QUANDRIX: 0.25 },
+          likelihoods: { U: 0.95, UB: 0.9, B: 0.75, ESPER: 0.75, GRIXIS: 0.65, WB: 0.65, QUANDRIX: 0.25 },
           suppresses: { WR: 0.3, BR: 0.25 },
         },
         {
           title: "A bold release of force",
           copy: "Break the paralysis with motion, spectacle, or a move nobody can ignore.",
           signal: "high-intensity action",
-          likelihoods: { BR: 0.85, RG: 0.8, PRISMARI: 0.75, WR: 0.55 },
+          likelihoods: { BR: 0.85, RG: 0.8, PRISMARI: 0.75, JUND: 0.7, WR: 0.55 },
           suppresses: { WU: 0.4, WG: 0.25 },
         },
         {
           title: "A living system response",
           copy: "Look for what is growing, decaying, adapting, or asking to be tended.",
           signal: "living systems",
-          likelihoods: { WITHERBLOOM: 0.85, UG: 0.8, BG: 0.75, WG: 0.6 },
+          likelihoods: { NAYA: 0.85, WITHERBLOOM: 0.85, UG: 0.8, BG: 0.75, WG: 0.6 },
           suppresses: { UB: 0.25, BR: 0.25 },
         },
         {
           title: "The first honest motion",
           copy: "Move before the feeling gets trapped under permission, fear, or overthinking.",
           signal: "immediate ignition",
-          likelihoods: { R: 0.95, WR: 0.55, UR: 0.5, BR: 0.45, RG: 0.45 },
+          likelihoods: { R: 0.95, GRIXIS: 0.85, JUND: 0.7, NAYA: 0.55, WR: 0.55, UR: 0.5, BR: 0.45, RG: 0.45 },
           suppresses: { WU: 0.35, U: 0.25 },
         },
         {
           title: "The older living pattern",
           copy: "Root, observe, and let the answer follow the life already carrying the strain.",
           signal: "natural order under strain",
-          likelihoods: { G: 0.95, WG: 0.5, UG: 0.5, BG: 0.5, RG: 0.5 },
+          likelihoods: { G: 0.95, NAYA: 0.85, WG: 0.5, UG: 0.5, BG: 0.5, RG: 0.5 },
           suppresses: { U: 0.25, WU: 0.25 },
         },
       ],
@@ -299,7 +339,7 @@ const QUESTION_BANK = {
           title: "Power that is accountable",
           copy: "Authority should be legible, answerable, and bound by a standard beyond itself.",
           signal: "accountable authority",
-          likelihoods: { W: 0.9, BANT: 0.9, WU: 0.8, WR: 0.7, SILVERQUILL: 0.55 },
+          likelihoods: { W: 0.9, BANT: 0.9, WU: 0.8, WR: 0.7, SILVERQUILL: 0.55, NAYA: 0.45 },
           suppresses: { UB: 0.3, BR: 0.25 },
         },
         {
@@ -313,14 +353,14 @@ const QUESTION_BANK = {
           title: "Power that stays unseen",
           copy: "The cleanest leverage is the kind people do not know you have.",
           signal: "invisible leverage",
-          likelihoods: { UB: 0.9, B: 0.75, WB: 0.6 },
+          likelihoods: { UB: 0.9, B: 0.75, GRIXIS: 0.65, WB: 0.6 },
           suppresses: { SILVERQUILL: 0.35, WR: 0.35 },
         },
         {
           title: "Power that transforms",
           copy: "The best strength changes the organism, the system, or the self into a better fit.",
           signal: "adaptive transformation",
-          likelihoods: { UG: 0.85, U: 0.55, WITHERBLOOM: 0.65, QUANDRIX: 0.6, UR: 0.5 },
+          likelihoods: { UG: 0.85, WITHERBLOOM: 0.65, ESPER: 0.65, QUANDRIX: 0.6, U: 0.55, UR: 0.5 },
           suppresses: { WU: 0.25 },
         },
         {
@@ -334,14 +374,14 @@ const QUESTION_BANK = {
           title: "Power that ignites action",
           copy: "The cleanest power is the spark that gets the honest thing moving now.",
           signal: "freedom through motion",
-          likelihoods: { R: 0.95, WR: 0.5, UR: 0.45, BR: 0.45, RG: 0.45 },
+          likelihoods: { R: 0.95, GRIXIS: 0.85, JUND: 0.7, NAYA: 0.55, WR: 0.5, UR: 0.45, BR: 0.45, RG: 0.45 },
           suppresses: { WU: 0.3, B: 0.2 },
         },
         {
           title: "Power that grows from roots",
           copy: "Strength is cleanest when it rises from land, creatures, time, and the shape life already holds.",
           signal: "rooted growth",
-          likelihoods: { G: 0.95, WG: 0.5, UG: 0.5, BG: 0.5, RG: 0.5 },
+          likelihoods: { G: 0.95, NAYA: 0.85, WG: 0.5, UG: 0.5, BG: 0.5, RG: 0.5 },
           suppresses: { U: 0.25, WU: 0.25 },
         },
       ],
@@ -363,28 +403,28 @@ const QUESTION_BANK = {
           title: "The pattern",
           copy: "The hidden equation, repeatable structure, or edge case everyone else missed.",
           signal: "abstract pattern",
-          likelihoods: { QUANDRIX: 0.9, UR: 0.65, UG: 0.55, UB: 0.45 },
+          likelihoods: { QUANDRIX: 0.9, UR: 0.65, UG: 0.55, ESPER: 0.5, UB: 0.45 },
           suppresses: { BR: 0.25, WR: 0.2 },
         },
         {
           title: "The leverage",
           copy: "What can still be converted, what price is worth paying, and who controls the next move.",
           signal: "personal leverage",
-          likelihoods: { B: 0.85, UB: 0.55, WB: 0.5 },
+          likelihoods: { GRIXIS: 0.85, B: 0.85, ESPER: 0.65, UB: 0.55, WB: 0.5 },
           suppresses: { W: 0.25, WG: 0.25 },
         },
         {
           title: "The body of the system",
           copy: "What is alive, vulnerable, mutating, sick, hungry, or becoming something else.",
           signal: "biological reality",
-          likelihoods: { UG: 0.85, WITHERBLOOM: 0.8, BG: 0.65 },
+          likelihoods: { UG: 0.85, WITHERBLOOM: 0.8, BG: 0.65, NAYA: 0.55 },
           suppresses: { WU: 0.25, SILVERQUILL: 0.2 },
         },
         {
           title: "The wound",
           copy: "What was taken, who was harmed, and what polite language is trying to cover.",
           signal: "specific grievance",
-          likelihoods: { RG: 0.9, WR: 0.65, BG: 0.55 },
+          likelihoods: { RG: 0.9, JUND: 0.65, WR: 0.65, BG: 0.55, NAYA: 0.45 },
           suppresses: { WU: 0.35, WB: 0.2 },
         },
         {
@@ -398,14 +438,14 @@ const QUESTION_BANK = {
           title: "The next impulse",
           copy: "What wants to happen before analysis, respectability, or habit talks it down.",
           signal: "honest impulse",
-          likelihoods: { R: 0.95, WR: 0.45, UR: 0.45, BR: 0.4, RG: 0.4 },
+          likelihoods: { R: 0.95, JUND: 0.65, WR: 0.45, UR: 0.45, BR: 0.4, RG: 0.4 },
           suppresses: { WU: 0.3, U: 0.25 },
         },
         {
           title: "The natural role",
           copy: "What is trying to grow, what pace it needs, and where it belongs in the living order.",
           signal: "natural role",
-          likelihoods: { G: 0.95, WG: 0.5, UG: 0.5, BG: 0.5, RG: 0.5 },
+          likelihoods: { G: 0.95, NAYA: 0.85, WG: 0.5, UG: 0.5, BG: 0.5, RG: 0.5 },
           suppresses: { U: 0.25, WU: 0.2 },
         },
       ],
@@ -420,14 +460,14 @@ const QUESTION_BANK = {
           title: "Belonging to something larger",
           copy: "A shared self, shared care, and the relief of not carrying the whole world alone.",
           signal: "communal belonging",
-          likelihoods: { WG: 0.9, BANT: 0.85, WITHERBLOOM: 0.55, WR: 0.45 },
-          suppresses: { UB: 0.35, BR: 0.25 },
+          likelihoods: { WG: 0.9, BANT: 0.85, NAYA: 0.85, WITHERBLOOM: 0.55, WR: 0.45 },
+          suppresses: { GRIXIS: 0.65, UB: 0.35, BR: 0.25 },
         },
         {
           title: "A chance to build and test",
           copy: "A lab, a workshop, or a problem strange enough to justify the risk.",
           signal: "experimental construction",
-          likelihoods: { UR: 0.9, U: 0.55, UG: 0.65, QUANDRIX: 0.55, PRISMARI: 0.45 },
+          likelihoods: { UR: 0.9, UG: 0.65, U: 0.55, QUANDRIX: 0.55, ESPER: 0.5, PRISMARI: 0.45 },
           suppresses: { WU: 0.25, WG: 0.25 },
         },
         {
@@ -435,34 +475,34 @@ const QUESTION_BANK = {
           copy: "An institution that lets intensity, beauty, critique, or discomfort actually land.",
           signal: "truth through expression",
           likelihoods: { PRISMARI: 0.85, BR: 0.75, SILVERQUILL: 0.65 },
-          suppresses: { WU: 0.3, WG: 0.2 },
+          suppresses: { GRIXIS: 0.85, WU: 0.3, WG: 0.2 },
         },
         {
           title: "A durable legacy",
           copy: "Something that outlasts mood: law, lineage, contracts, record, or remembered duty.",
           signal: "durable legacy",
-          likelihoods: { W: 0.85, WB: 0.85, LOREHOLD: 0.75, WU: 0.6 },
+          likelihoods: { W: 0.85, WB: 0.85, LOREHOLD: 0.75, ESPER: 0.65, WU: 0.6 },
           suppresses: { BR: 0.25, RG: 0.25 },
         },
         {
           title: "A place that uses what others discard",
           copy: "Waste, failure, rot, grief, and leftovers become the start of the next structure.",
           signal: "reclamation",
-          likelihoods: { BG: 0.9, B: 0.75, WITHERBLOOM: 0.7, RG: 0.45 },
+          likelihoods: { BG: 0.9, GRIXIS: 0.85, B: 0.75, WITHERBLOOM: 0.7, JUND: 0.65, RG: 0.45 },
           suppresses: { WU: 0.25, PRISMARI: 0.2 },
         },
         {
           title: "A chance to live the spark",
           copy: "A place where the feeling can become action before the moment goes cold.",
           signal: "present-tense freedom",
-          likelihoods: { R: 0.95, WR: 0.4, UR: 0.4, BR: 0.4, RG: 0.4 },
+          likelihoods: { R: 0.95, JUND: 0.65, NAYA: 0.45, WR: 0.4, UR: 0.4, BR: 0.4, RG: 0.4 },
           suppresses: { WU: 0.25, WB: 0.2 },
         },
         {
           title: "A place to grow as you are",
           copy: "A living order where roots deepen, instincts return, and patient strength unfolds.",
           signal: "rooted belonging",
-          likelihoods: { G: 0.95, WG: 0.55, UG: 0.5, BG: 0.5, RG: 0.5 },
+          likelihoods: { G: 0.95, NAYA: 0.85, WG: 0.55, UG: 0.5, BG: 0.5, RG: 0.5 },
           suppresses: { U: 0.25, WU: 0.2 },
         },
       ],
@@ -1271,6 +1311,302 @@ const QUESTION_BANK = {
           signal: "adaptive life",
           likelihoods: { UG: 0.85 },
           suppresses: { BANT: 0.55 },
+        },
+      ],
+    },
+    {
+      id: "hall_ESPER_perfectibility",
+      stage: "hall",
+      faction: "ESPER",
+      eyebrow: "Hall - Esper",
+      prompt: "A flawed system can be improved, but only if the change is exact. What makes improvement trustworthy?",
+      answers: [
+        {
+          title: "Understand, then refine",
+          copy: "Study the system, identify the disorder, and improve it through deliberate knowledge rather than impulse.",
+          signal: "perfectibility through applied knowledge",
+          likelihoods: { ESPER: 0.95, U: 0.55, WU: 0.55 },
+          suppresses: { RG: 0.45, WG: 0.3, BANT: 0.3 },
+        },
+        {
+          title: "Follow the procedure",
+          copy: "Improvement is trustworthy when the process stays impartial and public.",
+          signal: "procedure over perfectibility",
+          likelihoods: { WU: 0.85 },
+          suppresses: { ESPER: 0.45 },
+        },
+        {
+          title: "Keep the leverage hidden",
+          copy: "Improvement is safest when no one sees the information advantage until it matters.",
+          signal: "hidden leverage over design",
+          likelihoods: { UB: 0.85 },
+          suppresses: { ESPER: 0.35 },
+        },
+        {
+          title: "Protect the living whole",
+          copy: "Improvement is trustworthy when it preserves the community that has to live inside it.",
+          signal: "living order over exact design",
+          likelihoods: { BANT: 0.85, WG: 0.55 },
+          suppresses: { ESPER: 0.45 },
+        },
+      ],
+    },
+    {
+      id: "hall_ESPER_designed_control",
+      stage: "hall",
+      faction: "ESPER",
+      eyebrow: "Hall - Esper",
+      prompt: "A plan is nearly perfect, but one part keeps resisting optimization. What should happen next?",
+      answers: [
+        {
+          title: "Make every piece serve the design",
+          copy: "Keep refining until the whole system obeys the shape knowledge has revealed.",
+          signal: "designed control",
+          likelihoods: { ESPER: 0.95, WB: 0.55, UB: 0.55, WU: 0.55 },
+          suppresses: { BANT: 0.45, RG: 0.45, G: 0.35 },
+        },
+        {
+          title: "Preserve the obligation",
+          copy: "The resistant part matters because it owes or is owed something the structure must honor.",
+          signal: "obligation over optimization",
+          likelihoods: { WB: 0.85 },
+          suppresses: { ESPER: 0.35 },
+        },
+        {
+          title: "Control the unseen variable",
+          copy: "Keep the decisive factor hidden until the table can no longer answer it.",
+          signal: "hidden variable control",
+          likelihoods: { UB: 0.85 },
+          suppresses: { ESPER: 0.35 },
+        },
+        {
+          title: "Keep the community whole",
+          copy: "A design that breaks the living order is not worth completing.",
+          signal: "community over optimization",
+          likelihoods: { BANT: 0.85, WG: 0.55 },
+          suppresses: { ESPER: 0.5 },
+        },
+      ],
+    },
+    {
+      id: "hall_GRIXIS_survival_opening",
+      stage: "hall",
+      faction: "GRIXIS",
+      eyebrow: "Hall - Grixis",
+      prompt: "A hostile situation leaves one narrow opening. What makes the next move true?",
+      answers: [
+        {
+          title: "Find the weakness and take it",
+          copy: "Study the break in the situation, claim the opening, and survive before it closes.",
+          signal: "calculated survival opening",
+          likelihoods: { GRIXIS: 0.95, B: 0.55, UB: 0.55, BR: 0.5 },
+          suppresses: { BANT: 0.55, ESPER: 0.45, WU: 0.4, WG: 0.35 },
+        },
+        {
+          title: "Make the process legitimate",
+          copy: "The move is true when the room can audit it and the rule can survive pressure.",
+          signal: "legitimacy over survival",
+          likelihoods: { WU: 0.85 },
+          suppresses: { GRIXIS: 0.45 },
+        },
+        {
+          title: "Release the appetite",
+          copy: "The opening matters because pressure wants an honest, unrestrained answer.",
+          signal: "appetite over calculation",
+          likelihoods: { BR: 0.85 },
+          suppresses: { GRIXIS: 0.35 },
+        },
+        {
+          title: "Preserve the whole",
+          copy: "The opening is only worth taking if it keeps the community intact.",
+          signal: "community over survival leverage",
+          likelihoods: { BANT: 0.85, WG: 0.55 },
+          suppresses: { GRIXIS: 0.5 },
+        },
+      ],
+    },
+    {
+      id: "hall_GRIXIS_volatile_calculation",
+      stage: "hall",
+      faction: "GRIXIS",
+      eyebrow: "Hall - Grixis",
+      prompt: "The information is incomplete, the pressure is rising, and delay has a cost. What wins your trust?",
+      answers: [
+        {
+          title: "Calculation aimed at survival",
+          copy: "Know enough to name the weakness, then act before the table gets another chance to close ranks.",
+          signal: "volatile calculation",
+          likelihoods: { GRIXIS: 0.95, UB: 0.55, UR: 0.55, BR: 0.55 },
+          suppresses: { ESPER: 0.55, BANT: 0.45, WU: 0.35, WG: 0.35 },
+        },
+        {
+          title: "Refine until exact",
+          copy: "Pressure is not permission to move before the design is trustworthy.",
+          signal: "exact control over volatility",
+          likelihoods: { ESPER: 0.85, WU: 0.55 },
+          suppresses: { GRIXIS: 0.45 },
+        },
+        {
+          title: "Experiment in the open",
+          copy: "The best answer is to try the strange idea and learn from the spark.",
+          signal: "experiment over survival leverage",
+          likelihoods: { UR: 0.85, PRISMARI: 0.55 },
+          suppresses: { GRIXIS: 0.35 },
+        },
+        {
+          title: "Stand with the circle",
+          copy: "The safest move is the one the group can carry together.",
+          signal: "shared order over self-advocacy",
+          likelihoods: { BANT: 0.85, WG: 0.55 },
+          suppresses: { GRIXIS: 0.5 },
+        },
+      ],
+    },
+    {
+      id: "hall_JUND_instinct_pressure",
+      stage: "hall",
+      faction: "JUND",
+      eyebrow: "Hall - Jund",
+      prompt: "Pressure strips away the polite answer. What makes the next move true?",
+      answers: [
+        {
+          title: "Trust the gut and move",
+          copy: "The body knows enough. Act from the honest feeling and carry the consequence.",
+          signal: "instinct under pressure",
+          likelihoods: { JUND: 0.95, R: 0.55, RG: 0.55, BR: 0.5 },
+          suppresses: { WU: 0.45, WG: 0.35 },
+        },
+        {
+          title: "Make the process legitimate",
+          copy: "The move is true when a shared rule can defend it after the pressure passes.",
+          signal: "legitimacy over instinct",
+          likelihoods: { WU: 0.85 },
+          suppresses: { JUND: 0.45 },
+        },
+        {
+          title: "Preserve the living whole",
+          copy: "The next move should protect belonging before it indulges appetite.",
+          signal: "belonging over appetite",
+          likelihoods: { WG: 0.85 },
+          suppresses: { JUND: 0.35 },
+        },
+        {
+          title: "Calculate the opening",
+          copy: "Move only after the weakness, cost, and leverage are named.",
+          signal: "calculation over gut truth",
+          likelihoods: { GRIXIS: 0.85, UB: 0.45 },
+          suppresses: { JUND: 0.4 },
+        },
+      ],
+    },
+    {
+      id: "hall_JUND_appetite_consequence",
+      stage: "hall",
+      faction: "JUND",
+      eyebrow: "Hall - Jund",
+      prompt: "A hunger rises with real cost attached. What makes it worth following?",
+      answers: [
+        {
+          title: "Feed it and own the cost",
+          copy: "Wanting is not a crime. The honest path is to act, pay, and become what survives.",
+          signal: "appetite with consequence",
+          likelihoods: { JUND: 0.95, BR: 0.55, BG: 0.55, RG: 0.55 },
+          suppresses: { WU: 0.35, WG: 0.35 },
+        },
+        {
+          title: "Bind it to duty",
+          copy: "A hunger is trustworthy only when it serves a larger obligation.",
+          signal: "duty over appetite",
+          likelihoods: { WB: 0.85 },
+          suppresses: { JUND: 0.45 },
+        },
+        {
+          title: "Let it become spectacle",
+          copy: "The point is not survival but the release: visible, dangerous, and impossible to ignore.",
+          signal: "performance over survival appetite",
+          likelihoods: { BR: 0.85 },
+          suppresses: { JUND: 0.35 },
+        },
+        {
+          title: "Compost it into renewal",
+          copy: "Hunger is safest when it returns loss to the cycle and feeds what comes next.",
+          signal: "cycle over appetite",
+          likelihoods: { BG: 0.85, WITHERBLOOM: 0.55 },
+          suppresses: { JUND: 0.4 },
+        },
+      ],
+    },
+    {
+      id: "hall_NAYA_living_whole",
+      stage: "hall",
+      faction: "NAYA",
+      eyebrow: "Hall - Naya",
+      prompt: "A living world pulls through care, instinct, and scale. What makes the next move trustworthy?",
+      answers: [
+        {
+          title: "Protect the living whole",
+          copy: "Move with the bond that lets life keep growing, not with control or appetite alone.",
+          signal: "belonging through protective abundance",
+          likelihoods: { NAYA: 0.95, RG: 0.5, WR: 0.45 },
+          suppresses: { JUND: 0.4, GRIXIS: 0.35, BANT: 0.3 },
+        },
+        {
+          title: "Stand with the circle",
+          copy: "The move is trustworthy when the community can carry it together.",
+          signal: "shared community over living-world instinct",
+          likelihoods: { WG: 0.85, BANT: 0.45 },
+          suppresses: { NAYA: 0.35 },
+        },
+        {
+          title: "Feed the hunger",
+          copy: "The honest answer is the appetite that survives the cost.",
+          signal: "appetite over belonging",
+          likelihoods: { JUND: 0.85, BR: 0.45 },
+          suppresses: { NAYA: 0.4 },
+        },
+        {
+          title: "Find the weakness",
+          copy: "Trust the opening that gives you leverage before the world can close around you.",
+          signal: "calculation over belonging",
+          likelihoods: { GRIXIS: 0.85, UB: 0.45 },
+          suppresses: { NAYA: 0.4 },
+        },
+      ],
+    },
+    {
+      id: "hall_NAYA_abundance_instinct",
+      stage: "hall",
+      faction: "NAYA",
+      eyebrow: "Hall - Naya",
+      prompt: "Scale is rising fast. When does abundance become wisdom instead of just size?",
+      answers: [
+        {
+          title: "When growth belongs",
+          copy: "The right scale deepens life, bond, and protection of the whole.",
+          signal: "abundance held by belonging",
+          likelihoods: { NAYA: 0.95, RG: 0.55, WR: 0.45 },
+          suppresses: { JUND: 0.35, GRIXIS: 0.35 },
+        },
+        {
+          title: "When hunger wins",
+          copy: "Scale matters when it can take what it needs and keep moving.",
+          signal: "appetite over abundance",
+          likelihoods: { JUND: 0.85, BG: 0.45, RG: 0.45 },
+          suppresses: { NAYA: 0.4 },
+        },
+        {
+          title: "When order approves",
+          copy: "Growth is wise when the whole hierarchy can sanction it.",
+          signal: "sanctioned order over abundance",
+          likelihoods: { BANT: 0.85, WU: 0.45 },
+          suppresses: { NAYA: 0.35 },
+        },
+        {
+          title: "When the circle shares it",
+          copy: "Abundance is wise when the whole community can receive and return it.",
+          signal: "shared community over living-world scale",
+          likelihoods: { WG: 0.85, BANT: 0.35 },
+          suppresses: { NAYA: 0.35 },
         },
       ],
     },
@@ -2101,6 +2437,22 @@ function sanitizeCommanderCompass(compass) {
   return sanitized;
 }
 
+function commanderCompassHasCuratedData(compass) {
+  if (!compass || typeof compass !== "object") {
+    return false;
+  }
+
+  return Boolean(
+    compass.recommendation_philosophy ||
+      (Array.isArray(compass.native_fit_commanders) && compass.native_fit_commanders.length) ||
+      (Array.isArray(compass.weird_stretch_commanders) && compass.weird_stretch_commanders.length) ||
+      (Array.isArray(compass.budget_friendly_commanders) && compass.budget_friendly_commanders.length) ||
+      (Array.isArray(compass.advanced_complexity_commanders) && compass.advanced_complexity_commanders.length) ||
+      (Array.isArray(compass.iconic_lore_forward_commanders) && compass.iconic_lore_forward_commanders.length) ||
+      (Array.isArray(compass.archetype_lanes) && compass.archetype_lanes.length)
+  );
+}
+
 function attachCommanderCompass(displayData, rawRecords) {
   Object.entries(rawRecords).forEach(([rawId, raw]) => {
     const key = RAW_TO_KEY[rawId];
@@ -2110,8 +2462,10 @@ function attachCommanderCompass(displayData, rawRecords) {
     }
 
     const commanderCompass = sanitizeCommanderCompass(raw.profile?.commander_compass);
-    if (commanderCompass) {
+    if (commanderCompassHasCuratedData(commanderCompass)) {
       displayFaction.commander_compass = commanderCompass;
+    } else if (key === "NAYA" && displayFaction.commander_compass) {
+      displayFaction.commander_compass = cloneJson(displayFaction.commander_compass);
     } else {
       delete displayFaction.commander_compass;
     }
@@ -2119,11 +2473,22 @@ function attachCommanderCompass(displayData, rawRecords) {
 }
 
 function buildFactionRecord({ key, rawId, placement, profile, display, expressionMeta = null }) {
+  const knownTargets = new Set(KNOWN_LATERAL_INHIBITION[key] || []);
+  const normalizedCollisionGuidance = (placement.collision_guidance || [])
+    .map((entry) => ({
+      entry,
+      target: normalizeTarget(entry.against),
+    }))
+    .filter(({ entry, target }) => {
+      if (!target) return false;
+      const isDormantDraft = String(entry.collision_id || "").endsWith("_draft") && !knownTargets.has(target);
+      return !isDormantDraft;
+    });
   const calibration = placement.calibration_tuning || {};
   const rawQuestions = placement.discriminator_questions || [];
   const collisionTargets = [
     ...(KNOWN_LATERAL_INHIBITION[key] || []),
-    ...(placement.collision_guidance || []).map((entry) => normalizeTarget(entry.against)),
+    ...normalizedCollisionGuidance.map(({ target }) => target),
     ...rawQuestions.flatMap((question) => question.collision_targets || []).map(normalizeTarget),
   ];
   const goodFit = normalizeIndicatorList(
@@ -2185,9 +2550,9 @@ function buildFactionRecord({ key, rawId, placement, profile, display, expressio
       normalizeQuestion(question, key, index)
     ),
     lateral_inhibition_targets: unique(collisionTargets).filter((target) => target !== key),
-    collision_guidance: (placement.collision_guidance || []).map((entry) => ({
+    collision_guidance: normalizedCollisionGuidance.map(({ entry, target }) => ({
       collision_id: entry.collision_id || "",
-      against: normalizeTarget(entry.against),
+      against: target,
       separator: entry.separator || "",
       ask: entry.ask || "",
     })),
@@ -2362,7 +2727,29 @@ async function main() {
 
   Object.entries(model.factions).forEach(([key, faction]) => {
     const expressionMeta = expressionMetaFor(identityLayers, key);
-    const displayBase = displayData.factions[key] || structuredClone(expressionMeta?.display || {});
+    const expressionDisplay = structuredClone(expressionMeta?.display || {});
+    const existingDisplay = displayData.factions[key] || {};
+    const rawManaged = Object.values(RAW_TO_KEY).includes(key);
+    const displayCommanderCompass = key === "NAYA"
+      ? expressionDisplay.commander_compass
+      : (commanderCompassHasCuratedData(existingDisplay.commander_compass)
+          ? existingDisplay.commander_compass
+          : expressionDisplay.commander_compass);
+    const displayBase = key === "NAYA"
+      ? {
+          ...existingDisplay,
+          ...expressionDisplay,
+          staples: expressionDisplay.staples || existingDisplay.staples,
+          land_base: expressionDisplay.land_base || existingDisplay.land_base,
+          commander_compass: displayCommanderCompass,
+        }
+      : {
+          ...expressionDisplay,
+          ...existingDisplay,
+          staples: existingDisplay.staples || expressionDisplay.staples,
+          land_base: existingDisplay.land_base || expressionDisplay.land_base,
+          commander_compass: rawManaged ? undefined : displayCommanderCompass,
+        };
     displayData.factions[key] = {
       ...displayBase,
       key,

@@ -559,7 +559,7 @@
       "Yenna",
       "Kestia"
     ],
-    "future_identity_note": "VM-160 promotes Bant as the live shard expression key BANT. WUG remains color-direction metadata only and must not become an alias, generated top-level key, placement result key, raw-to-key target, or identity.expression_key."
+    "live_identity_note": "VM-160 promotes Bant as the live shard expression key BANT. WUG remains color-direction metadata only and must not become an alias, generated top-level key, placement result key, raw-to-key target, or identity.expression_key."
   },
   "data_quality": {
     "source_packet_review_status": "live_pilot_source_packet",
@@ -603,7 +603,7 @@
     "schema_version": "1.0.0",
     "source_research_file": "docs/research/vox_mana_second_commander_recommendations_enhanced.xlsx",
     "last_reviewed": "2026-05-29",
-    "review_status": "live_pilot_generated_curation",
+    "review_status": "support_only_live_pilot_curation",
     "recommendation_philosophy": "Use Bant Commander guidance as expression-shape support only: creature/community framing, structured protection, value, enchantress, blink, Clues, counters, and honor-coded voltron are in-bounds; hard-lock prison and off-frame graveyard or mill shells are suppressions.",
     "identity_basis": {
       "owned_themes": [
@@ -955,10 +955,10 @@
       }
     ],
     "link_targets": {
-      "edhrec_commander_index": null,
-      "mtgdecks_color_identity": null,
-      "scryfall_commander_search": null,
-      "archidekt_color_search": null
+      "edhrec_commander_index": "https://edhrec.com/commanders/bant",
+      "mtgdecks_color_identity": "https://mtgdecks.net/Commander/bant-commanders",
+      "scryfall_commander_search": "https://scryfall.com/search?q=id%3Dwug+is%3Acommander+f%3Acommander",
+      "archidekt_color_search": "https://archidekt.com/search/decks?colors=WUG&deckFormat=3&orderBy=-updatedAt&page=1"
     },
     "merge_notes": {
       "product_guidance_not_canon": true,

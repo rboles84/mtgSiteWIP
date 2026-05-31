@@ -33,7 +33,11 @@ import {
   resolveArchidektTagName,
   validateDeckTagData,
 } from "./archscry-result.js";
-import { buildPersonalizedMazePaths } from "./archscry-presentation.js";
+import {
+  buildPersonalizedMazePaths,
+  buildHeroNarrative,
+  presentationForFaction,
+} from "./archscry-presentation.js";
 
 const factionData = JSON.parse(
   await readFile(new URL("../../data/factions.json", import.meta.url), "utf8")
@@ -186,11 +190,23 @@ function assertMonoBoundaryState(key, placementResult) {
   if (["W", "U", "G"].includes(key)) {
     allowedAdjacentKeys.add("BANT");
   }
+  if (["W", "U", "B"].includes(key)) {
+    allowedAdjacentKeys.add("ESPER");
+  }
+  if (["U", "B", "R"].includes(key)) {
+    allowedAdjacentKeys.add("GRIXIS");
+  }
+  if (["B", "R", "G"].includes(key)) {
+    allowedAdjacentKeys.add("JUND");
+  }
+  if (["W", "R", "G"].includes(key)) {
+    allowedAdjacentKeys.add("NAYA");
+  }
   assert.ok(
     (placementResult?.adjacent_matches || []).every((match) =>
       allowedAdjacentKeys.has(match.faction) || expectedFamilies.has(normalizedAdjacentFamily(match.faction))
     ),
-    `${key} adjacent matches should remain inside the ${expectedTargets.join(", ")} pair families or the Bant shard pilot.`
+    `${key} adjacent matches should remain inside the ${expectedTargets.join(", ")} pair families or the live shard pilots.`
   );
 }
 
@@ -320,7 +336,15 @@ function assertIdentityPreviewRegistryContract() {
   assert.deepEqual(previewEntries.map(([key]) => key), EXPECTED_PREVIEW_ORDER);
   assert.equal(previewEntries.length, 20);
   assert.equal(identityLayers.expressions.BANT?.preview_eligible, false);
+  assert.equal(identityLayers.expressions.ESPER?.preview_eligible, false);
+  assert.equal(identityLayers.expressions.GRIXIS?.preview_eligible, false);
+  assert.equal(identityLayers.expressions.JUND?.preview_eligible, false);
+  assert.equal(identityLayers.expressions.NAYA?.preview_eligible, false);
   assert.ok(!previewEntries.some(([key]) => key === "BANT"), "BANT should not enter the Home preview carousel in VM-160.");
+  assert.ok(!previewEntries.some(([key]) => key === "ESPER"), "ESPER should not enter the Home preview carousel in VM-167.");
+  assert.ok(!previewEntries.some(([key]) => key === "GRIXIS"), "GRIXIS should not enter the Home preview carousel in VM-168.");
+  assert.ok(!previewEntries.some(([key]) => key === "JUND"), "JUND should not enter the Home preview carousel in VM-186.");
+  assert.ok(!previewEntries.some(([key]) => key === "NAYA"), "NAYA should not enter the Home preview carousel in VM-188.");
 
   const seenOrders = new Set();
   previewEntries.forEach(([key, expression], index) => {
@@ -353,8 +377,25 @@ function assertIdentityPreviewRegistryContract() {
   assert.ok(identityLayers.expressions.WR.aliases.includes("RW"));
   assert.ok(identityLayers.expressions.WR.aliases.includes("boros"));
   assert.deepEqual(identityLayers.expressions.BANT.aliases, ["BANT", "bant"]);
+  assert.deepEqual(identityLayers.expressions.ESPER.aliases, ["ESPER", "esper"]);
+  assert.deepEqual(identityLayers.expressions.GRIXIS.aliases, ["GRIXIS", "grixis"]);
+  assert.deepEqual(identityLayers.expressions.JUND.aliases, ["JUND", "jund"]);
+  assert.deepEqual(identityLayers.expressions.NAYA.aliases, ["NAYA", "naya"]);
   Object.entries(identityLayers.expressions).forEach(([key, expression]) => {
     assert.ok(!(expression.aliases || []).includes("WUG"), `${key} should not expose WUG as an alias.`);
+    assert.ok(!(expression.aliases || []).includes("WUB"), `${key} should not expose WUB as an alias.`);
+    assert.ok(!(expression.aliases || []).includes("UBR"), `${key} should not expose UBR as an alias.`);
+    assert.ok(!(expression.aliases || []).includes("BRG"), `${key} should not expose BRG as an alias.`);
+    assert.ok(!(expression.aliases || []).includes("brg"), `${key} should not expose brg as an alias.`);
+    assert.ok(!(expression.aliases || []).includes("RGW"), `${key} should not expose RGW as an alias.`);
+    assert.ok(!(expression.aliases || []).includes("GRW"), `${key} should not expose GRW as an alias.`);
+    assert.ok(!(expression.aliases || []).includes("WRG"), `${key} should not expose WRG as an alias.`);
+    assert.ok(!(expression.aliases || []).includes("rgw"), `${key} should not expose rgw as an alias.`);
+    assert.ok(!(expression.aliases || []).includes("grw"), `${key} should not expose grw as an alias.`);
+    assert.ok(!(expression.aliases || []).includes("wrg"), `${key} should not expose wrg as an alias.`);
+    assert.ok(!(expression.aliases || []).includes("R/G/W"), `${key} should not expose R/G/W as an alias.`);
+    assert.ok(!(expression.aliases || []).includes("Red-Green-White"), `${key} should not expose Red-Green-White as an alias.`);
+    assert.ok(!Object.hasOwn(expression, "domain"), `${key} should not expose a live domain field.`);
   });
 }
 
@@ -372,20 +413,104 @@ assert.equal(factions.BANT.institution_type, "shard");
 assert.equal(placementModel.factions.BANT.institution_type, "shard");
 assert.deepEqual(factions.BANT.colors, ["W", "U", "G"]);
 assert.deepEqual(placementModel.factions.BANT.colors, ["W", "U", "G"]);
-assert.deepEqual(sortedStrings(placementModel.factions.BANT.lateral_inhibition_targets), ["UG", "WG", "WU"]);
+assert.deepEqual(sortedStrings(placementModel.factions.BANT.lateral_inhibition_targets), ["ESPER", "GRIXIS", "UG", "WG", "WU"]);
 assert.equal(factions.BANT.identity.expression_key, "BANT");
 assert.equal(factions.BANT.identity.expression_kind, "shard");
 assert.ok(factions.BANT.commander_compass, "BANT should receive sanitized Commander Compass data after display creation.");
+assert.ok(factions.ESPER, "Generated factions should include ESPER.");
+assert.ok(placementModel.factions.ESPER, "Generated placement model should include ESPER.");
+assert.match(factionContextText, /"ESPER": \{/);
+assert.equal(factions.ESPER.institution_type, "shard");
+assert.equal(placementModel.factions.ESPER.institution_type, "shard");
+assert.deepEqual(factions.ESPER.colors, ["W", "U", "B"]);
+assert.deepEqual(placementModel.factions.ESPER.colors, ["W", "U", "B"]);
+assert.deepEqual(sortedStrings(placementModel.factions.ESPER.lateral_inhibition_targets), ["BANT", "GRIXIS", "UB", "WB", "WU"]);
+assert.equal(factions.ESPER.identity.expression_key, "ESPER");
+assert.equal(factions.ESPER.identity.expression_kind, "shard");
+assert.equal(identityLayers.expressions.ESPER.placement_eligible, true);
+assert.equal(identityLayers.expressions.ESPER.preview_eligible, false);
+assert.ok(factions.GRIXIS, "Generated factions should include GRIXIS.");
+assert.ok(placementModel.factions.GRIXIS, "Generated placement model should include GRIXIS.");
+assert.match(factionContextText, /"GRIXIS": \{/);
+assert.equal(factions.GRIXIS.institution_type, "shard");
+assert.equal(placementModel.factions.GRIXIS.institution_type, "shard");
+assert.deepEqual(factions.GRIXIS.colors, ["U", "B", "R"]);
+assert.deepEqual(placementModel.factions.GRIXIS.colors, ["U", "B", "R"]);
+assert.deepEqual(placementModel.factions.GRIXIS.lateral_inhibition_targets, ["BANT", "BR", "ESPER", "UB", "UR", "JUND"]);
+assert.equal(factions.GRIXIS.identity.expression_key, "GRIXIS");
+assert.equal(factions.GRIXIS.identity.expression_kind, "shard");
+assert.equal(identityLayers.expressions.GRIXIS.placement_eligible, true);
+assert.equal(identityLayers.expressions.GRIXIS.preview_eligible, false);
+assert.ok(factions.JUND, "Generated factions should include JUND.");
+assert.ok(placementModel.factions.JUND, "Generated placement model should include JUND.");
+assert.match(factionContextText, /"JUND": \{/);
+assert.equal(factions.JUND.institution_type, "shard");
+assert.equal(placementModel.factions.JUND.institution_type, "shard");
+assert.deepEqual(factions.JUND.colors, ["B", "R", "G"]);
+assert.deepEqual(placementModel.factions.JUND.colors, ["B", "R", "G"]);
+assert.deepEqual(placementModel.factions.JUND.lateral_inhibition_targets, ["BR", "BG", "RG", "GRIXIS", "WITHERBLOOM"]);
+["BR", "BG", "RG", "GRIXIS", "WITHERBLOOM"].forEach((key) => {
+  assert.ok(
+    placementModel.factions[key].lateral_inhibition_targets.includes("JUND"),
+    `${key} should reciprocally inhibit JUND`
+  );
+});
+assert.equal(factions.JUND.identity.expression_key, "JUND");
+assert.equal(factions.JUND.identity.expression_kind, "shard");
+assert.equal(identityLayers.expressions.JUND.placement_eligible, true);
+assert.equal(identityLayers.expressions.JUND.preview_eligible, false);
+assert.ok(factions.NAYA, "Generated factions should include NAYA.");
+assert.ok(placementModel.factions.NAYA, "Generated placement model should include NAYA.");
+assert.match(factionContextText, /"NAYA": \{/);
+assert.equal(factions.NAYA.institution_type, "shard");
+assert.equal(placementModel.factions.NAYA.institution_type, "shard");
+assert.deepEqual(factions.NAYA.colors, ["R", "G", "W"]);
+assert.deepEqual(placementModel.factions.NAYA.colors, ["R", "G", "W"]);
+assert.deepEqual(placementModel.factions.NAYA.lateral_inhibition_targets, ["WG", "RG", "WR", "BANT", "JUND"]);
+assert.equal(factions.NAYA.identity.expression_key, "NAYA");
+assert.equal(factions.NAYA.identity.expression_kind, "shard");
+assert.equal(identityLayers.expressions.NAYA.placement_eligible, true);
+assert.equal(identityLayers.expressions.NAYA.preview_eligible, false);
+assert.equal(factions.NAYA.commander_compass?.review_status, "support_only_live_pilot_curation");
+assert.ok((factions.NAYA.commander_compass?.native_fit_commanders || []).length >= 3);
+assert.ok(!factionKeys.includes("WUB"), "Generated faction keys should not include WUB.");
+assert.ok(!modelFactionKeys.includes("WUB"), "Generated model keys should not include WUB.");
+assert.ok(!Object.hasOwn(identityLayers.expressions, "WUB"), "Identity registry should not expose WUB as an expression key.");
 assert.ok(!factionKeys.includes("WUG"), "Generated faction keys should not include WUG.");
 assert.ok(!modelFactionKeys.includes("WUG"), "Generated model keys should not include WUG.");
 assert.ok(!Object.hasOwn(identityLayers.expressions, "WUG"), "Identity registry should not expose WUG as an expression key.");
+assert.ok(!factionKeys.includes("UBR"), "Generated faction keys should not include UBR.");
+assert.ok(!modelFactionKeys.includes("UBR"), "Generated model keys should not include UBR.");
+assert.ok(!Object.hasOwn(identityLayers.expressions, "UBR"), "Identity registry should not expose UBR as an expression key.");
+assert.ok(!factionKeys.includes("BRG"), "Generated faction keys should not include BRG.");
+assert.ok(!modelFactionKeys.includes("BRG"), "Generated model keys should not include BRG.");
+assert.ok(!Object.hasOwn(identityLayers.expressions, "BRG"), "Identity registry should not expose BRG as an expression key.");
+assert.ok(!factionKeys.includes("RGW"), "Generated faction keys should not include RGW.");
+assert.ok(!modelFactionKeys.includes("RGW"), "Generated model keys should not include RGW.");
+assert.ok(!Object.hasOwn(identityLayers.expressions, "RGW"), "Identity registry should not expose RGW as an expression key.");
+assert.ok(!factionKeys.includes("GRW"), "Generated faction keys should not include GRW.");
+assert.ok(!modelFactionKeys.includes("GRW"), "Generated model keys should not include GRW.");
+assert.ok(!Object.hasOwn(identityLayers.expressions, "GRW"), "Identity registry should not expose GRW as an expression key.");
+assert.ok(!factionKeys.includes("WRG"), "Generated faction keys should not include WRG.");
+assert.ok(!modelFactionKeys.includes("WRG"), "Generated model keys should not include WRG.");
+assert.ok(!Object.hasOwn(identityLayers.expressions, "WRG"), "Identity registry should not expose WRG as an expression key.");
+const runtimeArtifactTextForAliasScan = (JSON.stringify({ factions, placementModel }) + factionContextText)
+  .replace(/colors=WUG/g, "colors=");
 assert.doesNotMatch(
-  JSON.stringify({ factions, placementModel }) + factionContextText,
+  runtimeArtifactTextForAliasScan,
   /\bWUG\b/,
-  "Generated runtime artifacts should not expose WUG outside explicit negative test assertions."
+  "Generated runtime artifacts should not expose WUG outside explicit query metadata and negative test assertions."
 );
 const builderSource = await readFile(new URL("../../research/build-faction-artifacts.mjs", import.meta.url), "utf8");
 assert.doesNotMatch(builderSource, /bant:\s*["']WUG["']/, "RAW_TO_KEY must not target WUG for Bant.");
+assert.match(builderSource, /esper:\s*["']ESPER["']/, "RAW_TO_KEY should target ESPER for Esper.");
+assert.doesNotMatch(builderSource, /wub:\s*["']WUB["']/i, "RAW_TO_KEY must not target WUB for Esper.");
+assert.match(builderSource, /grixis:\s*["']GRIXIS["']/, "RAW_TO_KEY should target GRIXIS for Grixis.");
+assert.doesNotMatch(builderSource, /ubr:\s*["']UBR["']/i, "RAW_TO_KEY must not target UBR for Grixis.");
+assert.match(builderSource, /jund:\s*["']JUND["']/, "RAW_TO_KEY should target JUND for Jund.");
+assert.doesNotMatch(builderSource, /brg:\s*["']BRG["']/i, "RAW_TO_KEY must not target BRG for Jund.");
+assert.match(builderSource, /naya:\s*["']NAYA["']/, "RAW_TO_KEY should target NAYA for Naya.");
+assert.doesNotMatch(builderSource, /rgw:\s*["']RGW["']/i, "RAW_TO_KEY must not target RGW for Naya.");
 
 const tagValidation = validateDeckTagData(deckTagData);
 assert.deepEqual(tagValidation.errors, []);
@@ -551,6 +676,10 @@ assert.equal(
   [factions.G, "https://edhrec.com/commanders/mono-green", "https://mtgdecks.net/Commander/mono-green-commanders"],
   [factions.WU, "https://edhrec.com/commanders/azorius", "https://mtgdecks.net/Commander/azorius-commanders"],
   [factions.BG, "https://edhrec.com/commanders/golgari", "https://mtgdecks.net/Commander/golgari-commanders"],
+  [factions.ESPER, "https://edhrec.com/commanders/esper", "https://mtgdecks.net/Commander/esper-commanders"],
+  [factions.GRIXIS, "https://edhrec.com/commanders/grixis", "https://mtgdecks.net/Commander/grixis-commanders"],
+  [factions.JUND, "https://edhrec.com/commanders/jund", "https://mtgdecks.net/Commander/jund-commanders"],
+  [factions.NAYA, "https://edhrec.com/commanders/naya", "https://mtgdecks.net/Commander/naya-commanders"],
 ].forEach(([faction, edhrecUrl, mtgDecksUrl]) => {
   const links = buildCommanderDirectoryLinks(faction);
   assert.equal(links.find((link) => link.service === "edhrec")?.url, edhrecUrl);
@@ -569,6 +698,25 @@ assert.deepEqual(
   ["commanders-that-fit", "ramp", "draw", "interaction", "lands", "win-conditions"]
 );
 assert.ok(packageLinks.maze.every((link) => link.operatorQuery && link.plainReadingQuery));
+assert.match(packageLinks.maze[0].operatorQuery, /^id=wu is:commander f:commander$/);
+packageLinks.maze.slice(1).forEach((link) => {
+  assert.match(link.operatorQuery, /^id<=wu /, `${link.pathType} should stay within WU support identity`);
+});
+
+[
+  ["BANT", "wug"],
+  ["ESPER", "wub"],
+  ["GRIXIS", "ubr"],
+  ["JUND", "brg"],
+  ["NAYA", "rgw"],
+].forEach(([key, identity]) => {
+  const shardPackageLinks = buildCommanderPackageLinks(factions[key]);
+  assert.match(shardPackageLinks.maze[0].operatorQuery, new RegExp(`^id=${identity} is:commander f:commander$`));
+  assert.doesNotMatch(shardPackageLinks.maze[0].operatorQuery, new RegExp(`^id<=${identity}\\b`));
+  shardPackageLinks.maze.slice(1).forEach((link) => {
+    assert.match(link.operatorQuery, new RegExp(`^id<=${identity} `), `${key} ${link.pathType} should keep id<=${identity} for support and 99 cards`);
+  });
+});
 
 const dimirCommanderLane = buildCommanderStartingLane({
   faction: factions.UB,
@@ -593,6 +741,317 @@ assert.match(
 );
 assert.doesNotMatch(dimirTableCaution.copy, /;/);
 assert.match(dimirTableCaution.copy, /\b(wait|hold|draw)\b/i);
+
+const bantGuidance = getCommanderFactionGuidance(factions.BANT);
+assert.ok(bantGuidance, "expected Bant to have a mature Commander guidance override");
+assert.deepEqual(
+  bantGuidance.starterSearchTags,
+  ["Voltron", "Counters Matter", "Enchantments"],
+  "expected Bant starter search tags to be explicit support/search-assist metadata"
+);
+assert.match(bantGuidance.commanderPlan, /one worthy line of action/);
+assert.match(bantGuidance.spellcraftIdentity, /Commander support texture for public trust and refined communal order/);
+assert.match(bantGuidance.tableCautionReviewRule, /VM-159A\/VM-168 source limits/);
+assert.doesNotMatch(
+  [
+    bantGuidance.commanderPlan,
+    bantGuidance.spellcraftIdentity,
+    bantGuidance.tableCautionText,
+  ].join(" "),
+  /Exact WUG|generic three-color goodstuff|Asha founded|Elspeth governed|Asha created|post-Phyrexia certainty|sigil caste expansion/i
+);
+
+const bantPresentation = presentationForFaction(factions.BANT);
+assert.equal(bantPresentation.tableRole, "The supported champion");
+assert.match(bantPresentation.thesis, /strength that wants to stay answerable/);
+assert.match(bantPresentation.thesis, /White sets the public standard, Blue refines the line of action, and Green keeps that line alive/);
+assert.match(bantPresentation.mechanics, /Commander support texture, not new lore-canon claims/);
+assert.match(bantPresentation.selfCheck, /makes excellence feel accountable to the whole/);
+assert.doesNotMatch(
+  [
+    bantPresentation.thesis,
+    bantPresentation.tableExperience,
+    bantPresentation.mechanics,
+    bantPresentation.selfCheck,
+  ].join(" "),
+  /playable pattern|personality label|recognizable Commander table role|Commander mechanics that make the faction plan visible|Exact WUG|generic three-color goodstuff/i
+);
+
+const bantHeroNarrative = buildHeroNarrative({
+  dossier: { isPrimary: true, targetFactionKey: "BANT" },
+  faction: factions.BANT,
+  result: { faction: "BANT", adjacent_matches: [{ faction: "WU", confidence: 0.4 }] },
+  factions,
+});
+assert.match(bantHeroNarrative, /Azorius Senate stayed close/);
+assert.match(bantHeroNarrative, /one protected champion, refined support, living order, and communal trust/i);
+assert.doesNotMatch(bantHeroNarrative, /recognizable Commander table role|playable pattern|personality label|Exact WUG/i);
+
+const bantCommanderLane = buildCommanderStartingLane({
+  faction: factions.BANT,
+  placementResult: { evidence_trail: [] },
+  starterProfile: { budget_band: "mid", experience_level: "returning" },
+  modelFaction: placementModel.factions.BANT,
+  tagLanes: [{ tagName: "Voltron" }],
+});
+const bantLaneText = [
+  bantCommanderLane.copy,
+  ...bantCommanderLane.details.flatMap((detail) => [detail.label, detail.copy]),
+].join(" ");
+assert.match(bantCommanderLane.copy, /protects one worthy line of action/);
+assert.match(bantLaneText, /Voltron, Counters Matter, Enchantments/);
+assert.match(bantLaneText, /Commander support texture for public trust and refined communal order/);
+assert.match(bantLaneText, /Protect the line that carries the table's trust/);
+assert.doesNotMatch(
+  bantLaneText,
+  /Exact WUG|generic three-color goodstuff|Asha founded|Elspeth governed|Asha created|post-Phyrexia certainty|sigil caste expansion|playable pattern|personality label|recognizable Commander table role/i
+);
+
+const bantHardeningDossier = buildCommanderDossier({
+  factions,
+  placementModel,
+  deckTagCatalog,
+  placementResult: {
+    faction: "BANT",
+    confidence: 0.76,
+    decree: "Bant carries one worthy line with public support.",
+    starter_profile: {
+      budget_band: "mid",
+      experience_level: "returning",
+    },
+    top_matches: [
+      {
+        faction: "BANT",
+        faction_name: "Bant",
+        confidence: 0.76,
+      },
+    ],
+    adjacent_matches: [
+      {
+        faction: "WU",
+        faction_name: "Azorius Senate",
+        confidence: 0.58,
+      },
+    ],
+    evidence_trail: [],
+  },
+  starterProfile: {
+    budget_band: "mid",
+    experience_level: "returning",
+  },
+});
+const bantHardeningText = renderCommanderDossierText(bantHardeningDossier);
+const bantVisibleText = bantHardeningText.replace(/https?:\/\/\S+/g, "");
+assert.match(bantHardeningText, /Bant Commander decks/);
+assert.match(bantHardeningText, /protects one worthy line of action/i);
+assert.match(bantHardeningText, /Commander support texture for public trust and refined communal order/i);
+assert.doesNotMatch(
+  bantVisibleText,
+  /\bWUG\b|Exact WUG|generic three-color goodstuff|Asha founded|Elspeth governed|Asha created|post-Phyrexia certainty|sigil caste expansion|recognizable Commander table role|Commander mechanics that make the faction plan visible|playable pattern|personality label|\/bant\//i,
+  "expected rendered Bant visible text to avoid public WUG labels, route-like Bant paths, fallback copy, and unsupported lore claims"
+);
+const bantHardeningAudit = auditCommanderDossier(bantHardeningDossier);
+assert.ok(
+  !bantHardeningAudit.failures.join(" ").includes("Missing Commander guidance"),
+  "expected Bant dossier audit not to report missing Commander guidance"
+);
+
+const esperGuidance = getCommanderFactionGuidance(factions.ESPER);
+assert.ok(esperGuidance, "expected Esper to have a mature Commander guidance override");
+assert.deepEqual(esperGuidance.starterSearchTags, ["Control", "Artifacts", "Enchantments"]);
+assert.match(esperGuidance.commanderPlan, /turns knowledge into a controlled future/);
+assert.match(esperGuidance.spellcraftIdentity, /planned refinement and controlled change/);
+assert.doesNotMatch(
+  [
+    esperGuidance.commanderPlan,
+    esperGuidance.spellcraftIdentity,
+    esperGuidance.tableCautionText,
+  ].join(" "),
+  /Exact WUB|generic WUB|support-only|evidence floor|metadata|fallback|local catalog|validation|review language|etherium|Vectis|Tidehollow|Sharuum|Tezzeret|Sydri/i
+);
+
+const esperPresentation = presentationForFaction(factions.ESPER);
+assert.equal(esperPresentation.tableRole, "The system refiner");
+assert.match(esperPresentation.thesis, /Blue looks for the pattern, White gives improvement a structure, and Black makes information useful enough to control the outcome/);
+assert.match(esperPresentation.mechanics, /Commander support texture for planned refinement and controlled change/);
+assert.doesNotMatch(
+  [
+    esperPresentation.thesis,
+    esperPresentation.tableExperience,
+    esperPresentation.mechanics,
+    esperPresentation.selfCheck,
+  ].join(" "),
+  /playable pattern|personality label|recognizable Commander table role|Commander mechanics that make the faction plan visible|Exact WUB|generic WUB|support-only|evidence floor|metadata|fallback|local catalog|validation|review language|etherium|Vectis|Tidehollow|Sharuum|Tezzeret|Sydri/i
+);
+
+const esperCommanderLane = buildCommanderStartingLane({
+  faction: factions.ESPER,
+  placementResult: { evidence_trail: [] },
+  starterProfile: { budget_band: "mid", experience_level: "returning" },
+  modelFaction: placementModel.factions.ESPER,
+  tagLanes: [{ tagName: "Control" }],
+});
+const esperLaneText = [
+  esperCommanderLane.copy,
+  ...esperCommanderLane.details.flatMap((detail) => [detail.label, detail.copy]),
+].join(" ");
+assert.match(esperCommanderLane.copy, /turns knowledge into a controlled future/);
+assert.match(esperLaneText, /Control, Artifacts, Enchantments/);
+assert.match(esperLaneText, /planned refinement and controlled change/);
+assert.doesNotMatch(
+  esperLaneText,
+  /Exact WUB|generic WUB|support-only|evidence floor|metadata|fallback|local catalog|validation|review language|etherium|Carmot|Sangrite|Noble Work|Vectis|Tidehollow|Sharuum|Tezzeret|Sydri|\/esper\//i
+);
+
+const esperHardeningDossier = buildCommanderDossier({
+  factions,
+  placementModel,
+  deckTagCatalog,
+  placementResult: {
+    faction: "ESPER",
+    confidence: 0.76,
+    decree: "Esper makes knowledge into controlled change.",
+    starter_profile: {
+      budget_band: "mid",
+      experience_level: "returning",
+    },
+    top_matches: [
+      {
+        faction: "ESPER",
+        faction_name: "Esper",
+        confidence: 0.76,
+      },
+    ],
+    adjacent_matches: [
+      {
+        faction: "WU",
+        faction_name: "Azorius Senate",
+        confidence: 0.58,
+      },
+    ],
+    evidence_trail: [],
+  },
+  starterProfile: {
+    budget_band: "mid",
+    experience_level: "returning",
+  },
+});
+const esperHardeningText = renderCommanderDossierText(esperHardeningDossier);
+const esperVisibleText = esperHardeningText.replace(/https?:\/\/\S+/g, "");
+assert.match(esperHardeningText, /Esper Commander decks/);
+assert.match(esperHardeningText, /turns knowledge into a controlled future/i);
+assert.match(esperHardeningText, /planned refinement and controlled change/i);
+assert.doesNotMatch(
+  esperVisibleText,
+  /\bWUB\b|Exact WUB|generic WUB|generic three-color goodstuff|artifact deck as canon|Azorius-only|Dimir-only|Orzhov-only|support-only|evidence floor|metadata|fallback|local catalog|validation|review language|etherium|Carmot|Sangrite|Noble Work|Vectis|Tidehollow|Sharuum|Tezzeret|Sydri|\/esper\//i,
+  "expected rendered Esper visible text to avoid public WUB labels, route-like Esper paths, implementation caveats, and unsupported lore"
+);
+
+const grixisPresentation = presentationForFaction(factions.GRIXIS);
+assert.match(grixisPresentation.thesis, /Black keeps the self alive, Blue finds the leverage, and Red moves/);
+assert.match(grixisPresentation.loreRole, /source-grounded Black-centered survival/);
+assert.match(grixisPresentation.mechanics, /Commander support texture, not lore-canon proof or the whole identity/);
+assert.doesNotMatch(
+  [
+    grixisPresentation.thesis,
+    grixisPresentation.tableExperience,
+    grixisPresentation.mechanics,
+  ].join(" "),
+  /playable pattern|personality label|recognizable Commander table role|Commander mechanics that make the faction plan visible/i
+);
+const grixisCommanderLane = buildCommanderStartingLane({
+  faction: factions.GRIXIS,
+  placementResult: { evidence_trail: [] },
+  starterProfile: { budget_band: "mid", experience_level: "returning" },
+  modelFaction: placementModel.factions.GRIXIS,
+  tagLanes: [{ tagName: "Control" }],
+});
+const grixisLaneText = [
+  grixisCommanderLane.copy,
+  ...grixisCommanderLane.details.flatMap((detail) => [detail.label, detail.copy]),
+].join(" ");
+assert.match(grixisLaneText, /survives first, studies the weakness/);
+assert.match(grixisLaneText, /Control, Spellslinger, Aristocrats/);
+assert.match(grixisLaneText, /Commander support texture for survival, calculation, and urgency/);
+assert.doesNotMatch(
+  grixisLaneText,
+  /VM-166|raw claims beyond|manual-review material|playable pattern|personality label|recognizable Commander table role|Exact UBR|UBR Commander decks/i
+);
+
+const jundPresentation = presentationForFaction(factions.JUND);
+assert.match(jundPresentation.thesis, /The blood knows before the mind can bargain/);
+assert.match(jundPresentation.thesis, /Red supplies self-truth and action/);
+assert.equal(jundPresentation.forkQuestion, "What instinct is worth feeding?");
+assert.match(jundPresentation.tableExperience, /pressure becoming visible/i);
+assert.match(jundPresentation.mechanics, /mechanical echoes, not lore-canon examples/i);
+assert.doesNotMatch(
+  [
+    jundPresentation.thesis,
+    jundPresentation.tableExperience,
+    jundPresentation.mechanics,
+  ].join(" "),
+  /playable pattern|personality label|recognizable Commander table role|Commander mechanics that make the faction plan visible/i
+);
+const jundHeroNarrative = buildHeroNarrative({
+  dossier: { isPrimary: true, targetFactionKey: "JUND" },
+  faction: factions.JUND,
+  result: { faction: "JUND", adjacent_matches: [{ faction: "RG", confidence: 0.4 }] },
+  factions,
+});
+assert.match(jundHeroNarrative, /Gruul.*stayed close/);
+assert.match(jundHeroNarrative, /pressure becoming visible/);
+assert.doesNotMatch(jundHeroNarrative, /recognizable Commander table role|playable pattern|personality label/i);
+
+const jundCommanderLane = buildCommanderStartingLane({
+  faction: factions.JUND,
+  placementResult: { evidence_trail: [] },
+  starterProfile: { budget_band: "mid", experience_level: "returning" },
+  modelFaction: placementModel.factions.JUND,
+  tagLanes: [{ tagName: "Sacrifice" }],
+});
+const jundLaneText = [
+  jundCommanderLane.copy,
+  ...jundCommanderLane.details.flatMap((detail) => [detail.label, detail.copy]),
+].join(" ");
+assert.match(jundCommanderLane.copy, /pressure sets the clock, sacrifice pays the cost, attrition narrows the table, and drain turns appetite into consequence/);
+assert.match(jundLaneText, /Midrange, Aggro, Counters Matter/);
+assert.match(jundLaneText, /mechanical echoes of appetite, survival, and consequence/);
+assert.match(jundLaneText, /Commander support texture, not lore-canon proof/);
+assert.doesNotMatch(jundLaneText, /VM-179|raw claims beyond|manual-review material/);
+assert.match(jundLaneText, /Wait for the table to spend its answers, hold interaction, and rebuild before committing your last engine/);
+assert.doesNotMatch(jundLaneText, /Exact BRG|playable pattern|personality label|recognizable Commander table role/i);
+
+const nayaPresentation = presentationForFaction(factions.NAYA);
+assert.match(nayaPresentation.thesis, /life becoming relation before it becomes force/i);
+assert.match(nayaPresentation.tableExperience, /grow mana, guard the living whole, build a protected board/i);
+assert.match(nayaPresentation.mechanics, /support-only ways to show abundance, instinct, and creature-forward scale/i);
+assert.doesNotMatch(
+  [
+    nayaPresentation.thesis,
+    nayaPresentation.tableExperience,
+    nayaPresentation.mechanics,
+  ].join(" "),
+  /playable pattern|personality label|recognizable Commander table role|Commander mechanics that make the faction plan visible|appetite|Exact RGW|generic RGW goodstuff/i
+);
+
+const nayaCommanderLane = buildCommanderStartingLane({
+  faction: factions.NAYA,
+  placementResult: { evidence_trail: [] },
+  starterProfile: { budget_band: "mid", experience_level: "returning" },
+  modelFaction: placementModel.factions.NAYA,
+  tagLanes: [{ tagName: "Ramp" }],
+});
+const nayaLaneText = [
+  nayaCommanderLane.copy,
+  ...nayaCommanderLane.details.flatMap((detail) => [detail.label, detail.copy]),
+].join(" ");
+assert.match(nayaLaneText, /can grow mana into a protected board/);
+assert.match(nayaLaneText, /Ramp, Big Mana, Tokens/);
+assert.match(nayaLaneText, /guard the living whole/);
+assert.doesNotMatch(
+  nayaLaneText,
+  /sacrifice small pieces|drain the table|attrition into a clock|appetite|Exact RGW|BRG|Spellslinger|generic RGW goodstuff|generic big-creature-only/i
+);
 
 const gruulGolden = runAdaptiveGoldenPath({ model: placementModel, factions, targetFaction: "RG" }).result;
 const gruulDossier = buildCommanderDossier({
@@ -866,7 +1325,7 @@ const goldenResults = modelFactionKeys.map((targetFaction) => {
 });
 
 const selected = new Set(goldenResults.map((result) => result.faction));
-["BANT", "LOREHOLD", "SILVERQUILL", "WB", "WG"].forEach((key) => {
+["BANT", "ESPER", "GRIXIS", "NAYA", "LOREHOLD", "SILVERQUILL", "WB", "WG"].forEach((key) => {
   assert.ok(selected.has(key), `${key} must be reachable by golden-path evidence.`);
 });
 
@@ -882,6 +1341,64 @@ assert.ok(
 assert.ok(
   bantGolden.evidence_trail.some((entry) => entry.question_id === "hall_BANT_living_order"),
   "BANT golden path should use living-order evidence."
+);
+
+const esperGolden = goldenResults.find((result) => result.faction === "ESPER");
+assert.ok(esperGolden, "ESPER golden path should be present.");
+assert.equal(esperGolden.identity.expression_key, "ESPER");
+assert.equal(esperGolden.identity.expression_kind, "shard");
+assert.deepEqual(factions[esperGolden.faction].colors, ["W", "U", "B"]);
+assert.ok(
+  esperGolden.evidence_trail.some((entry) => entry.question_id === "hall_ESPER_perfectibility"),
+  "ESPER golden path should use perfectibility evidence."
+);
+assert.ok(
+  esperGolden.evidence_trail.some((entry) => entry.question_id === "hall_ESPER_designed_control"),
+  "ESPER golden path should use designed-control evidence."
+);
+assert.ok(
+  placementModel.factions.ESPER.collision_guidance.every((entry) => entry.against),
+  "ESPER collision guidance should not emit null targets."
+);
+
+const grixisGolden = goldenResults.find((result) => result.faction === "GRIXIS");
+assert.ok(grixisGolden, "GRIXIS golden path should be present.");
+assert.equal(grixisGolden.identity.expression_key, "GRIXIS");
+assert.equal(grixisGolden.identity.expression_kind, "shard");
+assert.deepEqual(factions[grixisGolden.faction].colors, ["U", "B", "R"]);
+assert.ok(
+  grixisGolden.evidence_trail.some((entry) => entry.question_id === "hall_GRIXIS_survival_opening"),
+  "GRIXIS golden path should use survival-opening evidence."
+);
+assert.ok(
+  grixisGolden.evidence_trail.some((entry) => entry.question_id === "hall_GRIXIS_volatile_calculation"),
+  "GRIXIS golden path should use volatile-calculation evidence."
+);
+const jundGolden = goldenResults.find((result) => result.faction === "JUND");
+assert.ok(jundGolden, "JUND golden path should be present.");
+assert.equal(jundGolden.identity.expression_key, "JUND");
+assert.equal(jundGolden.identity.expression_kind, "shard");
+assert.deepEqual(factions[jundGolden.faction].colors, ["B", "R", "G"]);
+assert.ok(
+  jundGolden.evidence_trail.some((entry) => entry.question_id === "hall_JUND_instinct_pressure"),
+  "JUND golden path should use instinct-pressure evidence."
+);
+assert.ok(
+  jundGolden.evidence_trail.some((entry) => entry.question_id === "hall_JUND_appetite_consequence"),
+  "JUND golden path should use appetite-consequence evidence."
+);
+const nayaGolden = goldenResults.find((result) => result.faction === "NAYA");
+assert.ok(nayaGolden, "NAYA golden path should be present.");
+assert.equal(nayaGolden.identity.expression_key, "NAYA");
+assert.equal(nayaGolden.identity.expression_kind, "shard");
+assert.deepEqual(factions[nayaGolden.faction].colors, ["R", "G", "W"]);
+assert.ok(
+  nayaGolden.evidence_trail.some((entry) => entry.question_id === "hall_NAYA_living_whole"),
+  "NAYA golden path should use living-whole evidence."
+);
+assert.ok(
+  nayaGolden.evidence_trail.some((entry) => entry.question_id === "hall_NAYA_abundance_instinct"),
+  "NAYA golden path should use abundance-instinct evidence."
 );
 
 const bantOverlap = runScriptedReading({
@@ -902,6 +1419,78 @@ const overlapEvidenceTargets = new Set(
 );
 assert.ok(["WU", "WG", "UG"].some((key) => overlapEvidenceTargets.has(key)), "Overlap path should include live neighbor evidence.");
 
+const esperOverlap = runScriptedReading({
+  gate_pressure_trust: "Information advantage",
+  gate_power_shape: "Power that transforms",
+  gate_attention_pattern: "The leverage",
+  gate_belonging_cost: "A durable legacy",
+  hall_ESPER_perfectibility: "Understand, then refine",
+  hall_ESPER_designed_control: "Make every piece serve the design",
+}).result;
+assertValidPlacement(esperOverlap);
+assert.equal(esperOverlap.faction, "ESPER", "Esper synthesis should beat Azorius/Dimir/Orzhov overlap.");
+const esperEvidenceTargets = new Set(
+  esperOverlap.evidence_trail
+    .flatMap((entry) => entry.deltas || [])
+    .filter((delta) => delta.delta > 0)
+    .map((delta) => delta.faction)
+);
+assert.ok(["WU", "UB", "WB"].some((key) => esperEvidenceTargets.has(key)), "Esper overlap path should include live neighbor evidence.");
+
+const grixisOverlap = runScriptedReading({
+  gate_pressure_trust: "The first honest motion",
+  gate_power_shape: "Power that ignites action",
+  gate_attention_pattern: "The leverage",
+  gate_belonging_cost: "A place that uses what others discard",
+  hall_GRIXIS_survival_opening: "Find the weakness and take it",
+  hall_GRIXIS_volatile_calculation: "Calculation aimed at survival",
+}).result;
+assertValidPlacement(grixisOverlap);
+assert.equal(grixisOverlap.faction, "GRIXIS", "Grixis synthesis should beat Dimir/Rakdos/Izzet/Esper/Bant overlap.");
+const grixisEvidenceTargets = new Set(
+  grixisOverlap.evidence_trail
+    .flatMap((entry) => entry.deltas || [])
+    .filter((delta) => delta.delta > 0)
+    .map((delta) => delta.faction)
+);
+assert.ok(["UB", "UR", "BR"].some((key) => grixisEvidenceTargets.has(key)), "Grixis overlap path should include live neighbor evidence.");
+
+const jundOverlap = runScriptedReading({
+  gate_pressure_trust: "A bold release of force",
+  gate_power_shape: "Power that ignites action",
+  gate_attention_pattern: "The wound",
+  gate_belonging_cost: "A place that uses what others discard",
+  hall_JUND_instinct_pressure: "Trust the gut and move",
+  hall_JUND_appetite_consequence: "Feed it and own the cost",
+}).result;
+assertValidPlacement(jundOverlap);
+assert.equal(jundOverlap.faction, "JUND", "Jund synthesis should beat Rakdos/Golgari/Gruul/Grixis/Witherbloom overlap.");
+const jundEvidenceTargets = new Set(
+  jundOverlap.evidence_trail
+    .flatMap((entry) => entry.deltas || [])
+    .filter((delta) => delta.delta > 0)
+    .map((delta) => delta.faction)
+);
+assert.ok(["BR", "BG", "RG"].some((key) => jundEvidenceTargets.has(key)), "Jund overlap path should include live neighbor evidence.");
+
+const nayaOverlap = runScriptedReading({
+  gate_pressure_trust: "A living system response",
+  gate_power_shape: "Power that grows from roots",
+  gate_attention_pattern: "The natural role",
+  gate_belonging_cost: "Belonging to something larger",
+  hall_NAYA_living_whole: "Protect the living whole",
+  hall_NAYA_abundance_instinct: "When growth belongs",
+}).result;
+assertValidPlacement(nayaOverlap);
+assert.equal(nayaOverlap.faction, "NAYA", "Naya synthesis should beat Selesnya/Gruul/Boros/Bant/Jund overlap.");
+const nayaEvidenceTargets = new Set(
+  nayaOverlap.evidence_trail
+    .flatMap((entry) => entry.deltas || [])
+    .filter((delta) => delta.delta > 0)
+    .map((delta) => delta.faction)
+);
+assert.ok(["WG", "RG", "WR"].some((key) => nayaEvidenceTargets.has(key)), "Naya overlap path should include live neighbor evidence.");
+
 const nayaStyleInstinct = runScriptedReading({
   gate_pressure_trust: "A bold release of force",
   gate_power_shape: "Power that grows from roots",
@@ -913,6 +1502,38 @@ const nayaStyleInstinct = runScriptedReading({
 assertValidPlacement(nayaStyleInstinct);
 assert.notEqual(nayaStyleInstinct.faction, "BANT", "Bant should not win a Naya-style instinct/aggression path.");
 assert.equal(nayaStyleInstinct.faction, "RG");
+
+const azoriusProcedure = runScriptedReading({
+  gate_pressure_trust: "A process that binds everyone",
+  gate_power_shape: "Power that is accountable",
+  gate_attention_pattern: "The precedent",
+  gate_belonging_cost: "A durable legacy",
+  hall_WU_process: "Follow the process",
+}).result;
+assertValidPlacement(azoriusProcedure);
+assert.notEqual(azoriusProcedure.faction, "ESPER", "Esper should not win an Azorius procedure path.");
+assert.ok(["WU", "W"].includes(azoriusProcedure.faction), "Azorius procedure path should stay in White/Azorius space.");
+
+const dimirHiddenLeverage = runScriptedReading({
+  gate_pressure_trust: "Information advantage",
+  gate_power_shape: "Power that stays unseen",
+  gate_attention_pattern: "The leverage",
+  hall_UB_information: "Hold it until timing matters",
+}).result;
+assertValidPlacement(dimirHiddenLeverage);
+assert.notEqual(dimirHiddenLeverage.faction, "ESPER", "Esper should not win a Dimir hidden-leverage path.");
+assert.ok(["UB", "B"].includes(dimirHiddenLeverage.faction), "Dimir hidden-leverage path should stay in Black/Dimir space.");
+
+const orzhovObligation = runScriptedReading({
+  gate_pressure_trust: "Information advantage",
+  gate_power_shape: "Power that is earned and owed",
+  gate_attention_pattern: "The leverage",
+  gate_belonging_cost: "A durable legacy",
+  hall_WB_obligation: "A debt that outlasts apology",
+}).result;
+assertValidPlacement(orzhovObligation);
+assert.notEqual(orzhovObligation.faction, "ESPER", "Esper should not win an Orzhov obligation path.");
+assert.equal(orzhovObligation.faction, "WB");
 
 const simicStyleAdaptation = runScriptedReading({
   gate_pressure_trust: "A living system response",
@@ -982,11 +1603,60 @@ assert.deepEqual(
 );
 assert.equal(new Set(whiteMazePaths.map((path) => path.operatorQuery)).size, 4);
 assert.equal(new Set(whiteMazePaths.map((path) => path.plainReadingQuery)).size, 4);
-assert.match(whiteMazePaths[0].operatorQuery, /^id<=w is:commander f:commander /);
+assert.match(whiteMazePaths[0].operatorQuery, /^id=w is:commander f:commander /);
 assert.match(whiteMazePaths[1].operatorQuery, /^id<=w f:commander -is:commander -t:land /);
 assert.match(whiteMazePaths[2].operatorQuery, /^id<=w f:commander \(ft:/);
 assert.match(whiteMazePaths[3].operatorQuery, /^-id<=w is:commander f:commander /);
 assert.ok(whiteMazePaths.every((path) => !/\b(?:id|ci|o|ft|t|is):/i.test(path.plainReadingQuery)));
+
+const grixisMazePaths = buildPersonalizedMazePaths({
+  faction: factions.GRIXIS,
+  tagRefs: whiteFlavorTagRefs,
+  taxonomy: taxonomyData,
+});
+assert.deepEqual(
+  grixisMazePaths.map((path) => path.pathType),
+  ["commanders-that-fit", "support-cards", "flavor-echoes"]
+);
+assert.match(grixisMazePaths[0].operatorQuery, /^id=ubr is:commander f:commander /);
+assert.equal(grixisMazePaths[0].plainReadingQuery, "Grixis commanders with exactly blue-black-red identity");
+assert.match(grixisMazePaths[1].operatorQuery, /^id<=ubr f:commander -is:commander -t:land /);
+assert.match(grixisMazePaths[2].operatorQuery, /^id<=ubr f:commander \(ft:/);
+assert.ok(!grixisMazePaths.some((path) => path.pathType === "weird-stretch-commanders"));
+assert.ok(grixisMazePaths.every((path) => !/commander identity commander candidates/i.test(path.plainReadingQuery)));
+
+const jundMazePaths = buildPersonalizedMazePaths({
+  faction: factions.JUND,
+  tagRefs: whiteFlavorTagRefs,
+  taxonomy: taxonomyData,
+});
+assert.deepEqual(
+  jundMazePaths.map((path) => path.pathType),
+  ["commanders-that-fit", "support-cards", "flavor-echoes"]
+);
+assert.match(jundMazePaths[0].operatorQuery, /^id=brg is:commander f:commander /);
+assert.equal(jundMazePaths[0].plainReadingQuery, "Jund commanders with exactly black-red-green identity");
+assert.match(jundMazePaths[1].operatorQuery, /^id<=brg f:commander -is:commander -t:land /);
+assert.match(jundMazePaths[2].operatorQuery, /^id<=brg f:commander \(ft:/);
+assert.ok(!jundMazePaths.some((path) => path.pathType === "weird-stretch-commanders"));
+assert.ok(jundMazePaths.every((path) => !/id=ur|id<=ur|Exact BRG/i.test(`${path.operatorQuery} ${path.plainReadingQuery}`)));
+
+const nayaMazePaths = buildPersonalizedMazePaths({
+  faction: factions.NAYA,
+  tagRefs: whiteFlavorTagRefs,
+  taxonomy: taxonomyData,
+});
+assert.deepEqual(
+  nayaMazePaths.map((path) => path.pathType),
+  ["commanders-that-fit", "support-cards", "flavor-echoes"]
+);
+assert.match(nayaMazePaths[0].operatorQuery, /^id=rgw is:commander f:commander /);
+assert.equal(nayaMazePaths[0].plainReadingQuery, "Naya commanders with exactly red-green-white identity");
+assert.match(nayaMazePaths[1].operatorQuery, /^id<=rgw f:commander -is:commander -t:land /);
+assert.match(nayaMazePaths[2].operatorQuery, /^id<=rgw f:commander \(ft:/);
+assert.ok(!nayaMazePaths.some((path) => path.pathType === "weird-stretch-commanders"));
+assert.ok(nayaMazePaths.every((path) => !/id=brg|id<=brg|Exact RGW|\/naya\/|\/rgw\//i.test(`${path.operatorQuery} ${path.plainReadingQuery}`)));
+
 assert.match(whiteDossier.resultStatus, /primary color fit/i);
 assert.equal(whiteDossier.faction.identity.expression_kind, "color");
 assertMonoBoundaryState("W", whiteGolden);

@@ -4,13 +4,17 @@
     "result_version": "2026-05-10",
     "source": "data/raw-factions plus data/factions.json display surface",
     "framing": "Biological expression placement model; Vox Mana interpretive taxonomy, not official canon.",
-    "faction_count": 21,
+    "faction_count": 25,
     "identity_layer_version": "2026-05-27",
     "active_expression_keys": [
       "WU",
       "BANT",
       "WR",
       "BR",
+      "ESPER",
+      "GRIXIS",
+      "JUND",
+      "NAYA",
       "BG",
       "RG",
       "UB",
@@ -32,7 +36,7 @@
   },
   "scoring_rules": {
     "prior": "equal",
-    "prior_log_probability": -3.044522437723423,
+    "prior_log_probability": -3.2188758248682006,
     "likelihood_to_delta": {
       "0.95": 1.45,
       "0.90": 1.2,
@@ -218,7 +222,8 @@
         "WG",
         "WR",
         "WB",
-        "SILVERQUILL"
+        "SILVERQUILL",
+        "ESPER"
       ],
       "collision_guidance": [
         {
@@ -396,6 +401,7 @@
           "supports": "The answer says the champion is worthy because the group can trust, recognize, and stand behind the action.",
           "weakens": "The answer centers private power, raw impulse, abstract optimization, or process alone.",
           "collision_targets": [
+            "NAYA",
             "WU",
             "WG",
             "UG"
@@ -431,6 +437,7 @@
           "supports": "The answer centers a protected champion or creature/community value engine with visible support.",
           "weakens": "The answer centers largest-threat aggression, pure optimization, or hard locks.",
           "collision_targets": [
+            "NAYA",
             "UG",
             "WU"
           ],
@@ -445,7 +452,9 @@
       "lateral_inhibition_targets": [
         "WU",
         "WG",
-        "UG"
+        "UG",
+        "ESPER",
+        "GRIXIS"
       ],
       "collision_guidance": [
         {
@@ -467,28 +476,16 @@
           "ask": "Is improvement answerable to communal honor, or is adaptation itself the point?"
         },
         {
-          "collision_id": "collision_bant_naya_draft",
-          "against": null,
-          "separator": "Bant uses Blue planning and disciplined protection; Naya uses Red immediacy, awe, instinct, and big-creature pressure.",
-          "ask": "Do you want to protect the right line, or put the biggest living force on the table and let instinct lead?"
-        },
-        {
           "collision_id": "collision_bant_esper_draft",
-          "against": null,
+          "against": "ESPER",
           "separator": "Bant's order is living, communal, and creature-framed; Esper's order trends artifact-centered, engineered, and ambition-driven.",
           "ask": "Is the ideal a protected community or an engineered perfection?"
         },
         {
           "collision_id": "collision_bant_grixis_draft",
-          "against": null,
+          "against": "GRIXIS",
           "separator": "Bant treats order and life as shared goods; Grixis centers scarcity, death, and private extraction.",
           "ask": "Does knowledge coordinate the community, or does it become leverage in a hostile world?"
-        },
-        {
-          "collision_id": "collision_bant_jund_draft",
-          "against": null,
-          "separator": "Bant regulates force through honor and support; Jund expresses force through appetite, predation, and survival pressure.",
-          "ask": "Is force made legitimate by the community, or by survival and dominance?"
         }
       ],
       "chatbot_guidance": {
@@ -822,7 +819,9 @@
       "lateral_inhibition_targets": [
         "RG",
         "PRISMARI",
-        "WR"
+        "WR",
+        "GRIXIS",
+        "JUND"
       ],
       "collision_guidance": [],
       "chatbot_guidance": {
@@ -865,6 +864,727 @@
         "placement_model_version": "vox-mana-lore-json-v1",
         "source_review_date": "2026-05-09",
         "claim_count": 6
+      }
+    },
+    "ESPER": {
+      "key": "ESPER",
+      "raw_id": "esper",
+      "name": "Esper",
+      "institution_type": "shard",
+      "world": "Alara",
+      "colors": [
+        "W",
+        "U",
+        "B"
+      ],
+      "identity": {
+        "summary": "Esper is the Blue-centered white-blue-black Alara shard in which perfectibility is modeled through knowledge, planning, applied information, ordered improvement, and focused control.",
+        "philosophy": "Blue supplies the center: potential can be unlocked through knowledge and deliberate change. White gives the improvement project structure and coordination. Black gives the project focus, ambition, and the will to make information useful.",
+        "central_tension": "Vox Mana models Esper's tension as perfectibility drifting into over-control, where the unoptimized starts to look like an error to correct.",
+        "display_tagline": "Potential, made exact.",
+        "mechanics": "Esper presents Commander gameplay as planned refinement: control, card advantage, library setup, artifact value, lifegain engines, reanimation value, tokens, and evasive pressure can all express knowledge turning into controlled change."
+      },
+      "layered_identity": {
+        "core_color": "U",
+        "secondary_colors": [
+          "W",
+          "B"
+        ],
+        "secondary_color": "W",
+        "expression_key": "ESPER",
+        "expression_name": "Esper",
+        "expression_kind": "shard",
+        "purity": null,
+        "routing": {
+          "edhrec_slug": "esper",
+          "mtgdecks_slug": "esper",
+          "label": "Esper"
+        }
+      },
+      "biological_expression": {
+        "archetype": "The Perfecting Systems Architect",
+        "primary_foundation": "Authority",
+        "secondary_foundation": "Fairness",
+        "risk_signal": "medium-high perfection-control risk",
+        "inhibitor_trigger": "Rejects planning, optimization, and controlled improvement as dehumanizing by default, even when deliberate redesign would prevent avoidable harm."
+      },
+      "placement_axes": {
+        "required_positive_evidence_terms": [
+          "Esper",
+          "Alara",
+          "WUB",
+          "Blue-centered perfectibility",
+          "perfectibility",
+          "knowledge",
+          "planning",
+          "applied information",
+          "ordered improvement",
+          "coordination",
+          "focused control",
+          "instrumental information",
+          "designed control",
+          "optimization"
+        ],
+        "required_positive_min_hits": 3,
+        "strengthens_when_user_centers": [
+          "Blue-centered perfectibility",
+          "knowledge before action",
+          "planning as change engine",
+          "applied information",
+          "ordered improvement",
+          "focused control",
+          "designed control",
+          "optimization through structure",
+          "Esper-specific source-bound context"
+        ],
+        "suppress_when_user_centers": [
+          "generic WUB goodstuff",
+          "generic artifacts",
+          "generic control",
+          "civic procedure alone",
+          "hidden leverage alone",
+          "debt or obligation alone",
+          "living communal order",
+          "Red impulse",
+          "Green natural acceptance",
+          "manual-fill lore as proof"
+        ],
+        "false_positive_guardrail": "Do not score Esper highly from color identity, artifacts, or generic control alone. Require the Blue-centered perfectibility cluster with White structure and Black focused control.",
+        "broad_match_penalty": 0.18
+      },
+      "good_fit_indicators": [
+        "planning, knowledge, and applied information are the main way change happens",
+        "order is described as a tool for improvement rather than as law by itself",
+        "control is focused and information-led",
+        "the answer uses WUB Commander/operator language only as support below the canon-claim line",
+        "the answer names Esper or Alara in a source-bound shard context"
+      ],
+      "poor_fit_indicators": [
+        "The answer depends on detailed Esper geography, society, figures, material lore, chronology, or exact card text.",
+        "The answer is mainly civic procedure, secrecy, debt, generic WUB, or generic artifact value.",
+        "The answer centers impulse, natural acceptance, big-creature immediacy, predatory appetite, or spontaneous passion."
+      ],
+      "inhibitor_traps": [
+        "Rejects planning, optimization, and controlled improvement as dehumanizing by default, even when deliberate redesign would prevent avoidable harm.",
+        "Do not match Esper from WUB color identity alone.",
+        "Do not match Esper from artifacts alone.",
+        "Do not match Esper from detailed lore claims that VM-163 left in manual fill.",
+        "Do not route to Esper from WUB color identity, artifacts, or control language alone.",
+        "The answer depends on detailed Esper geography, society, figures, material lore, chronology, or exact card text.",
+        "The answer is mainly civic procedure, secrecy, debt, generic WUB, or generic artifact value.",
+        "The answer centers impulse, natural acceptance, big-creature immediacy, predatory appetite, or spontaneous passion."
+      ],
+      "discriminator_questions": [],
+      "lateral_inhibition_targets": [
+        "WU",
+        "UB",
+        "WB",
+        "BANT",
+        "GRIXIS"
+      ],
+      "collision_guidance": [
+        {
+          "collision_id": "collision_esper_azorius_live",
+          "against": "WU",
+          "separator": "From Esper's side only: Esper needs WU order pulled into Black-supported control and Blue-centered perfectibility, not civic procedure by itself.",
+          "ask": "Is the answer about lawful procedure, or about using knowledge, structure, and control to optimize a system?"
+        },
+        {
+          "collision_id": "collision_esper_dimir_live",
+          "against": "UB",
+          "separator": "From Esper's side only: Esper needs UB information control organized by White structure and designed improvement, not hidden leverage alone.",
+          "ask": "Is information kept as private leverage, or turned into ordered design?"
+        },
+        {
+          "collision_id": "collision_esper_orzhov_live",
+          "against": "WB",
+          "separator": "From Esper's side only: Esper needs WB structure guided by Blue planning and optimization, not obligation or extraction alone.",
+          "ask": "Is the structure about what is owed, or about perfecting outcomes through knowledge and method?"
+        },
+        {
+          "collision_id": "collision_esper_bant_live",
+          "against": "BANT",
+          "separator": "From Esper's side only: Esper replaces Green's living acceptance with Black-supported control, focus, and instrumental information.",
+          "ask": "Is the ideal a living communal order, or a designed system optimized through information and control?"
+        }
+      ],
+      "chatbot_guidance": {
+        "how_to_recognize_match": [
+          "Treat Esper as a live-pilot match only when the answer combines Blue-centered perfectibility with White ordered improvement and Black focused control.",
+          "Use Commander/operator patterns as vocabulary only, not as canon evidence.",
+          "Keep manual-fill topics out of the match basis."
+        ],
+        "how_to_recognize_mismatch": [
+          "Do not match Esper from WUB color identity alone.",
+          "Do not match Esper from artifacts alone.",
+          "Do not match Esper from detailed lore claims that VM-163 left in manual fill.",
+          "Do not route to Esper from WUB color identity, artifacts, or control language alone."
+        ],
+        "questions_to_ask_when_uncertain": [],
+        "do_not_overweight": [
+          "Do not award Esper from generic control language.",
+          "Do not award Esper from generic artifact language.",
+          "Do not award Esper from Commander rows as canon.",
+          "Do not award Esper from manual-fill topics."
+        ],
+        "never_claim_as_canon": [
+          "Never claim Vox Mana placement planning is official Wizards canon.",
+          "Never claim WUB is a live expression key.",
+          "Never claim Esper is Home-preview eligible.",
+          "Never claim detailed geography, society, figure, material, chronology, or exact card-text-derived lore from VM-166."
+        ],
+        "review_note": "VM-167 promotes Esper as the live ESPER placement expression. This packet remains source-bound and does not authorize detailed lore as routing evidence or add new scoring rules."
+      },
+      "canon_guardrails": {
+        "never_claim_as_canon": [
+          "Never claim Vox Mana placement planning is official Wizards canon.",
+          "Never claim WUB is a live expression key.",
+          "Never claim Esper is Home-preview eligible.",
+          "Never claim detailed geography, society, figure, material, chronology, or exact card-text-derived lore from VM-166."
+        ]
+      },
+      "source_metadata": {
+        "profile_version": "1.0.0",
+        "placement_model_version": "",
+        "source_review_date": "2026-05-30",
+        "claim_count": 0
+      }
+    },
+    "GRIXIS": {
+      "key": "GRIXIS",
+      "raw_id": "grixis",
+      "name": "Grixis",
+      "institution_type": "shard",
+      "world": "Alara",
+      "colors": [
+        "U",
+        "B",
+        "R"
+      ],
+      "identity": {
+        "summary": "Grixis is the Black-centered blue-black-red Alara shard expression whose safe evidence floor is survival, self-advocacy, adaptation, Blue calculation, Red immediacy and zeal, and a boundary against simple evil framing.",
+        "philosophy": "Black supplies the center: survival, agency, self-interest, and adaptation to reality. Blue gives weakness analysis and information leverage. Red gives action, urgency, zeal, and volatility.",
+        "central_tension": "Vox Mana models Grixis's tension as survival logic becoming exploitative pressure: the opening matters because delay can mean loss, but taking every opening can make the self ruthless before it notices.",
+        "display_tagline": "Survive first. Find the weakness. Take the opening.",
+        "mechanics": "VM-166 does not establish Grixis mechanics as raw claims beyond the promoted identity/design floor. Unearth, attrition, sacrifice, resource pressure, and vis terms remain support-only or manual-review material."
+      },
+      "layered_identity": {
+        "core_color": "B",
+        "secondary_colors": [
+          "U",
+          "R"
+        ],
+        "secondary_color": "U",
+        "expression_key": "GRIXIS",
+        "expression_name": "Grixis",
+        "expression_kind": "shard",
+        "purity": null,
+        "routing": {
+          "edhrec_slug": "grixis",
+          "mtgdecks_slug": "grixis",
+          "label": "Grixis"
+        }
+      },
+      "biological_expression": {
+        "archetype": "The Survival Strategist",
+        "primary_foundation": "Liberty",
+        "secondary_foundation": "Authority",
+        "risk_signal": "high survival-agency risk",
+        "inhibitor_trigger": "Outsources survival to systems, permission, or shared order when immediate calculated self-advocacy is required."
+      },
+      "placement_axes": {
+        "required_positive_evidence_terms": [
+          "Grixis",
+          "Alara",
+          "UBR",
+          "Black-centered survival",
+          "survival",
+          "self-advocacy",
+          "adaptation",
+          "calculation",
+          "weakness analysis",
+          "immediacy",
+          "zeal",
+          "volatility"
+        ],
+        "required_positive_min_hits": 3,
+        "strengthens_when_user_centers": [
+          "Black-centered survival",
+          "self-advocacy",
+          "adapting to the world as it is",
+          "weakness analysis",
+          "information as leverage",
+          "urgent action",
+          "volatility under survival pressure",
+          "anti-simple-evil framing"
+        ],
+        "suppress_when_user_centers": [
+          "generic UBR",
+          "generic villainy",
+          "Maestros aesthetics",
+          "unearth alone",
+          "Bolas claims",
+          "Sedris claims",
+          "vis claims",
+          "public honor",
+          "life-renewal",
+          "manual-fill lore as proof"
+        ],
+        "false_positive_guardrail": "Do not treat support-only mechanics, Commander/operator rows, manual-fill lore, Maestros, or color identity alone as Grixis evidence.",
+        "broad_match_penalty": 0.18
+      },
+      "good_fit_indicators": [
+        "survival and self-advocacy are the main way the answer frames identity",
+        "calculation and weakness analysis are tied to action",
+        "urgency and volatility appear under Black-centered survival rather than as pure impulse",
+        "the answer resists simple evil UBR framing"
+      ],
+      "poor_fit_indicators": [
+        "The answer depends on detailed geography, figure biography, vis physiology, or Conflux chronology.",
+        "The answer is mainly generic UBR, generic villain coding, generic spells, or Maestros styling.",
+        "The answer centers public honor, communal order, life-renewal, pure curiosity, or pure appetite without the Black-centered Grixis frame."
+      ],
+      "inhibitor_traps": [
+        "Outsources survival to systems, permission, or shared order when immediate calculated self-advocacy is required.",
+        "Do not match Grixis from UBR color identity alone.",
+        "Do not match Grixis from generic villainy alone.",
+        "Do not match Grixis from Maestros/New Capenna material.",
+        "Do not match Grixis from unearth, Bolas, Sedris, or vis claims that VM-164 left deferred.",
+        "The answer depends on detailed geography, figure biography, vis physiology, or Conflux chronology.",
+        "The answer is mainly generic UBR, generic villain coding, generic spells, or Maestros styling.",
+        "The answer centers public honor, communal order, life-renewal, pure curiosity, or pure appetite without the Black-centered Grixis frame."
+      ],
+      "discriminator_questions": [],
+      "lateral_inhibition_targets": [
+        "BANT",
+        "BR",
+        "ESPER",
+        "UB",
+        "UR",
+        "JUND"
+      ],
+      "collision_guidance": [],
+      "chatbot_guidance": {
+        "how_to_recognize_match": [
+          "Review-only guidance: Grixis language should combine Black-centered survival with Blue calculation and Red immediacy.",
+          "Use support-only mechanics and operator patterns as vocabulary only, not as canon evidence.",
+          "Keep manual-fill topics out of the match basis."
+        ],
+        "how_to_recognize_mismatch": [
+          "Do not match Grixis from UBR color identity alone.",
+          "Do not match Grixis from generic villainy alone.",
+          "Do not match Grixis from Maestros/New Capenna material.",
+          "Do not match Grixis from unearth, Bolas, Sedris, or vis claims that VM-164 left deferred."
+        ],
+        "questions_to_ask_when_uncertain": [],
+        "do_not_overweight": [
+          "Do not award Grixis from generic UBR language.",
+          "Do not award Grixis from support-only Commander/operator rows.",
+          "Do not award Grixis from support-only mechanics.",
+          "Do not award Grixis from manual-fill topics."
+        ],
+        "never_claim_as_canon": [
+          "Never claim Vox Mana placement planning is official Wizards canon.",
+          "Never claim UBR is a live expression key.",
+          "Never claim Grixis is enabled in the live placement model.",
+          "Never claim detailed geography, vis, figure, chronology, or exact card-text-derived lore from VM-166."
+        ],
+        "review_note": "VM-166 is a source-authored review packet only. It does not add builder wiring, generated placement data, or live app behavior."
+      },
+      "canon_guardrails": {
+        "never_claim_as_canon": [
+          "Never claim Vox Mana placement planning is official Wizards canon.",
+          "Never claim UBR is a live expression key.",
+          "Never claim Grixis is enabled in the live placement model.",
+          "Never claim detailed geography, vis, figure, chronology, or exact card-text-derived lore from VM-166."
+        ]
+      },
+      "source_metadata": {
+        "profile_version": "0.1.0",
+        "placement_model_version": "",
+        "source_review_date": "2026-05-30",
+        "claim_count": 0
+      }
+    },
+    "JUND": {
+      "key": "JUND",
+      "raw_id": "jund",
+      "name": "Jund",
+      "institution_type": "shard",
+      "world": "Alara",
+      "colors": [
+        "B",
+        "R",
+        "G"
+      ],
+      "identity": {
+        "summary": "Jund is the Red-centered black-red-green Alara shard expression whose safe evidence floor is self-truth, gut instinct, emotion as guide, total freedom with consequences, Black self-interest, Green unrestrained instinct, and the design-level absence of White/Blue pressures.",
+        "philosophy": "Red supplies the center: being true to oneself, following gut instinct, and doing what feels right. Black supports appetite and self-advocacy. Green supports unrestrained instinct and embodied force.",
+        "central_tension": "Vox Mana models Jund's tension as freedom through appetite and instinct drifting into flattening, overconsumption, or mistaking impulse for truth.",
+        "display_tagline": "Trust the feeling. Feed the hunger. Bear the consequence.",
+        "mechanics": "Use devour, sacrifice, graveyard value, lands, counters, tokens, combat pressure, and value engines as support-only mechanical echoes of Jund appetite, survival, and consequence. They are not lore-canon proof, raw claims, or substitutes for the source-bound Red-centered identity floor."
+      },
+      "layered_identity": {
+        "core_color": "R",
+        "secondary_colors": [
+          "B",
+          "G"
+        ],
+        "secondary_color": "B",
+        "expression_key": "JUND",
+        "expression_name": "Jund",
+        "expression_kind": "shard",
+        "purity": null,
+        "routing": {
+          "edhrec_slug": "jund",
+          "mtgdecks_slug": "jund",
+          "label": "Jund"
+        }
+      },
+      "biological_expression": {
+        "archetype": "The Instinctive Survivor",
+        "primary_foundation": "Liberty",
+        "secondary_foundation": "Sanctity",
+        "risk_signal": "high instinct-appetite risk",
+        "inhibitor_trigger": "Waits for permission, abstract approval, or sterile control when survival asks for honest instinct and consequence-bearing action."
+      },
+      "placement_axes": {
+        "required_positive_evidence_terms": [
+          "Jund",
+          "Alara",
+          "BRG",
+          "Red-centered",
+          "self-truth",
+          "gut instinct",
+          "emotion as guide",
+          "freedom with consequences",
+          "Black appetite",
+          "Green instinct"
+        ],
+        "required_positive_min_hits": 2,
+        "strengthens_when_user_centers": [
+          "Red-centered self-truth",
+          "gut instinct",
+          "emotion as guide",
+          "appetite as self-advocacy",
+          "unrestrained instinct",
+          "freedom with consequence",
+          "White and Blue absence at design scope",
+          "anti-flattening boundary"
+        ],
+        "suppress_when_user_centers": [
+          "generic BRG",
+          "generic anger",
+          "generic savage nature",
+          "devour alone",
+          "Modern Jund midrange",
+          "Naya behemoth community",
+          "Grixis death necromancy",
+          "Gruul civilization rejection",
+          "Rakdos spectacle",
+          "Golgari rot",
+          "Witherbloom life-drain",
+          "Riveteers family labor",
+          "manual-fill lore as proof"
+        ],
+        "false_positive_guardrail": "Do not treat support-only mechanics, Commander/operator rows, manual-fill lore, comparator factions, or color composition alone as Jund evidence.",
+        "broad_match_penalty": 0.12
+      },
+      "good_fit_indicators": [
+        "self-truth, gut instinct, and emotion are the main way the answer frames identity",
+        "appetite or personal need supports self-advocacy rather than spectacle",
+        "unrestrained instinct and embodied action are tied to consequence",
+        "the answer resists flattening Jund into generic anger, savagery, devour, or Modern Jund"
+      ],
+      "poor_fit_indicators": [
+        "The answer depends on detailed geography, figure biography, predator hierarchy, devour-as-total-identity, or Conflux chronology.",
+        "The answer is mainly generic BRG, generic midrange, generic sacrifice value, or Riveteers/Witherbloom styling.",
+        "The answer centers public honor, engineered perfection, death-world necromancy, civilization rejection, spectacle, lifecycle rot, or Green-centered behemoth community."
+      ],
+      "inhibitor_traps": [
+        "Waits for permission, abstract approval, or sterile control when survival asks for honest instinct and consequence-bearing action.",
+        "Do not match Jund from BRG color composition alone.",
+        "Do not match Jund from generic anger, generic savagery, or generic devour alone.",
+        "Do not match Jund from Naya, Grixis, Gruul, Rakdos, Golgari, Witherbloom, Riveteers, or Modern Jund false-positive material.",
+        "Do not match Jund from support-only Commander/operator rows.",
+        "The answer depends on detailed geography, figure biography, predator hierarchy, devour-as-total-identity, or Conflux chronology.",
+        "The answer is mainly generic BRG, generic midrange, generic sacrifice value, or Riveteers/Witherbloom styling.",
+        "The answer centers public honor, engineered perfection, death-world necromancy, civilization rejection, spectacle, lifecycle rot, or Green-centered behemoth community."
+      ],
+      "discriminator_questions": [
+        {
+          "id": "q_jund_0001",
+          "prompt": "When pressure arrives, what makes the next move true: feeding the instinct, breaking a boundary, staging a release, or protecting the living whole?",
+          "purpose": "Separates Jund's instinct-and-consequence frame from Gruul boundary-breaking, Rakdos spectacle, and Naya communal/behemoth drift without adding new lore claims.",
+          "supports": "The answer treats instinct as worth feeding and accepts the cost as part of the action.",
+          "weakens": "The answer centers civilization rejection, performance, cruelty, communal abundance, or size reverence as the main motive.",
+          "collision_targets": [],
+          "evidence_claim_ids": [
+            "jund_claim_0003",
+            "jund_claim_0004",
+            "jund_claim_0005",
+            "jund_claim_0010"
+          ],
+          "confidence": "Medium"
+        },
+        {
+          "id": "q_jund_0002",
+          "prompt": "After the first exchange, should the spent resource become pressure again, a calculated weakness map, a lifecycle loop, or a clean reset?",
+          "purpose": "Keeps Jund's appetite/resource-conversion lane distinct from Grixis calculation, Golgari lifecycle/rot, and generic value play.",
+          "supports": "The answer wants the spent thing to feed the next attack, rebuild pressure, or make consequence visible.",
+          "weakens": "The answer centers hidden calculation, closed-loop rot, passive value, or control before embodied action.",
+          "collision_targets": [],
+          "evidence_claim_ids": [
+            "jund_claim_0005",
+            "jund_claim_0006",
+            "jund_claim_0007",
+            "jund_claim_0010"
+          ],
+          "confidence": "Medium"
+        },
+        {
+          "id": "q_jund_0003",
+          "prompt": "If the deck uses sacrifice, graveyards, counters, lands, or combat pressure, are those tools serving appetite and consequence, or replacing Jund with a single mechanic?",
+          "purpose": "Prevents support-only mechanics from becoming the whole Jund identity.",
+          "supports": "The answer uses mechanics as echoes of Red-centered self-truth, Black appetite, Green instinct, and consequence.",
+          "weakens": "The answer treats devour, Modern Jund, generic aristocrats, generic lands, or generic graveyard value as sufficient by itself.",
+          "collision_targets": [],
+          "evidence_claim_ids": [
+            "jund_claim_0003",
+            "jund_claim_0006",
+            "jund_claim_0007",
+            "jund_claim_0010"
+          ],
+          "confidence": "Medium"
+        }
+      ],
+      "lateral_inhibition_targets": [
+        "BR",
+        "BG",
+        "RG",
+        "GRIXIS",
+        "WITHERBLOOM"
+      ],
+      "collision_guidance": [
+        {
+          "collision_id": "collision_jund_gruul",
+          "against": "RG",
+          "separator": "Jund shares Red-Green force, but Jund feeds instinct through Black appetite and consequence; Gruul centers civilization rejection and boundary-breaking.",
+          "ask": "Is the move about feeding an instinct with a cost, or breaking a boundary because the boundary itself is false?"
+        },
+        {
+          "collision_id": "collision_jund_grixis",
+          "against": "GRIXIS",
+          "separator": "Jund shares Black-Red danger, but replaces Blue calculation with Green instinct and keeps Red self-truth as the center.",
+          "ask": "Is the answer moving from bodily instinct and appetite, or from a calculated map of weakness?"
+        },
+        {
+          "collision_id": "collision_jund_witherbloom",
+          "against": "WITHERBLOOM",
+          "separator": "Jund may use drain or sacrifice as support-only gameplay texture; Witherbloom centers life exchange, pest ecology, and metabolic loops.",
+          "ask": "Is drain a consequence of appetite and pressure, or is life exchange itself the whole economy?"
+        }
+      ],
+      "chatbot_guidance": {
+        "how_to_recognize_match": [
+          "VM-186 live-pilot guidance: Jund language should combine Red-centered self-truth and emotion with Black appetite and Green instinct.",
+          "Use support-only Commander/operator patterns as vocabulary only, not as canon evidence.",
+          "Keep manual-fill topics out of the match basis."
+        ],
+        "how_to_recognize_mismatch": [
+          "Do not match Jund from BRG color composition alone.",
+          "Do not match Jund from generic anger, generic savagery, or generic devour alone.",
+          "Do not match Jund from Naya, Grixis, Gruul, Rakdos, Golgari, Witherbloom, Riveteers, or Modern Jund false-positive material.",
+          "Do not match Jund from support-only Commander/operator rows."
+        ],
+        "questions_to_ask_when_uncertain": [
+          "Is the player choosing pressure because the instinct feels true, or because they simply want generic aggression?",
+          "Does appetite become consequence-bearing momentum, or does it drift into Rakdos spectacle, Witherbloom drain, or generic aristocrats?",
+          "Are graveyard, land, counter, token, and combat-pressure tools serving the Jund identity, or replacing it with a single mechanic?"
+        ],
+        "do_not_overweight": [
+          "Do not award Jund from color composition alone.",
+          "Do not award Jund from support-only Commander/operator rows.",
+          "Do not award Jund from support-only mechanics.",
+          "Do not award Jund from manual-fill topics."
+        ],
+        "never_claim_as_canon": [
+          "Never claim Vox Mana placement planning is official Wizards canon.",
+          "Never claim BRG is a generated expression key.",
+          "Never claim detailed geography, figure biography, predator hierarchy, devour-as-total-identity, Conflux chronology, or Modern Jund canon from VM-179.",
+          "Never claim Jund has a Home preview card, route, static page, Maze route, or broad shard framework from VM-186."
+        ],
+        "review_note": "VM-186 enables Jund through the approved builder path only. It does not add new lore sources, raw claims, Commander facts, routes, Home cards, Maze routes, schema fields, or manual Supabase source edits."
+      },
+      "canon_guardrails": {
+        "never_claim_as_canon": [
+          "Never claim Vox Mana placement planning is official Wizards canon.",
+          "Never claim BRG is a generated expression key.",
+          "Never claim detailed geography, figure biography, predator hierarchy, devour-as-total-identity, Conflux chronology, or Modern Jund canon from VM-179.",
+          "Never claim Jund has a Home preview card, route, static page, Maze route, or broad shard framework from VM-186."
+        ]
+      },
+      "source_metadata": {
+        "profile_version": "0.1.0",
+        "placement_model_version": "",
+        "source_review_date": "2026-05-30",
+        "claim_count": 0
+      }
+    },
+    "NAYA": {
+      "key": "NAYA",
+      "raw_id": "naya",
+      "name": "Naya",
+      "institution_type": "shard",
+      "world": "Alara",
+      "colors": [
+        "R",
+        "G",
+        "W"
+      ],
+      "identity": {
+        "summary": "Naya is the Green-centered red-green-white Alara shard expression whose safe evidence floor is life, nature, growth, ecosystem belonging, White larger-picture duty and life support, Red feral instinct and loyalty, and Blue/Black as missing control and extraction pressures.",
+        "philosophy": "Green supplies the center: life grows into its place in a larger natural whole. White supports larger-picture care for life and creatures. Red supports immediacy, loyalty, and instinctive bond.",
+        "central_tension": "Vox Mana models Naya's tension as abundance and belonging drifting into overgrowth, over-identification with scale, or mistaking instinct for wisdom.",
+        "display_tagline": "Grow with the world. Move with the bond. Guard the living whole.",
+        "mechanics": "VM-184 does not establish Naya mechanics as raw claims beyond the source-bound identity/design floor. Equipment, power thresholds, land recursion, Auras, face-down play, populate, tokens, counters, landfall, dinosaurs, Backup, goad, and go-wide play remain support-only or manual-review material."
+      },
+      "layered_identity": {
+        "core_color": "G",
+        "secondary_colors": [
+          "R",
+          "W"
+        ],
+        "secondary_color": "R",
+        "expression_key": "NAYA",
+        "expression_name": "Naya",
+        "expression_kind": "shard",
+        "purity": null,
+        "routing": {
+          "edhrec_slug": "naya",
+          "mtgdecks_slug": "naya",
+          "color_identity": "RGW",
+          "label": "Naya"
+        }
+      },
+      "biological_expression": {
+        "archetype": "The Living World Guardian",
+        "primary_foundation": "Sanctity",
+        "secondary_foundation": "Loyalty",
+        "risk_signal": "medium abundance-instinct risk",
+        "inhibitor_trigger": "Mistakes control, extraction, or isolated scale for belonging when the living whole asks for protective instinct and care."
+      },
+      "placement_axes": {
+        "required_positive_evidence_terms": [
+          "Naya",
+          "Alara",
+          "RGW",
+          "Green-centered",
+          "life",
+          "nature",
+          "growth",
+          "ecosystem belonging",
+          "larger natural whole",
+          "White care",
+          "Red instinct"
+        ],
+        "required_positive_min_hits": 2,
+        "strengthens_when_user_centers": [
+          "Green-centered life",
+          "nature and growth",
+          "ecosystem belonging",
+          "role and place in a living whole",
+          "White larger-picture care",
+          "Red feral instinct and loyalty",
+          "Blue and Black absence at design scope",
+          "anti-flattening boundary"
+        ],
+        "suppress_when_user_centers": [
+          "generic RGW",
+          "generic big creatures",
+          "generic tokens",
+          "casual battlecruiser",
+          "Cabaretti social glamour",
+          "Selesnya community without Red instinct",
+          "Gruul impulse without White care",
+          "Boros action without Green abundance",
+          "Bant hierarchy",
+          "Jund consumption",
+          "manual-fill lore as proof"
+        ],
+        "false_positive_guardrail": "Do not treat support-only mechanics, Commander/operator rows, manual-fill lore, comparator factions, or color composition alone as Naya evidence.",
+        "broad_match_penalty": 0.12
+      },
+      "good_fit_indicators": [
+        "life, growth, nature, and ecosystem belonging are the main way the answer frames identity",
+        "larger-picture care supports life and creatures without becoming law or hierarchy",
+        "feral instinct and loyalty are tied to living belonging",
+        "the answer resists flattening Naya into generic big creatures, generic tokens, Cabaretti, or same-color comparators"
+      ],
+      "poor_fit_indicators": [
+        "The answer depends on detailed geography, figure biography, religion, creature-culture hierarchy, power-5 totalization, or post-Phyrexian chronology.",
+        "The answer is mainly generic RGW, generic battlecruiser, generic tokens, Cabaretti style, or Commander product flavor.",
+        "The answer centers public honor hierarchy, engineered control, self-interested extraction, civilization rejection, or Jund-style consumption."
+      ],
+      "inhibitor_traps": [
+        "Mistakes control, extraction, or isolated scale for belonging when the living whole asks for protective instinct and care.",
+        "Do not match Naya from RGW color composition alone.",
+        "Do not match Naya from generic big creatures, generic tokens, or casual battlecruiser alone.",
+        "Do not match Naya from Cabaretti, Selesnya, Gruul, Boros, Bant, Jund, Abzan, or Temur false-positive material.",
+        "Do not match Naya from support-only Commander/operator rows.",
+        "The answer depends on detailed geography, figure biography, religion, creature-culture hierarchy, power-5 totalization, or post-Phyrexian chronology.",
+        "The answer is mainly generic RGW, generic battlecruiser, generic tokens, Cabaretti style, or Commander product flavor.",
+        "The answer centers public honor hierarchy, engineered control, self-interested extraction, civilization rejection, or Jund-style consumption."
+      ],
+      "discriminator_questions": [],
+      "lateral_inhibition_targets": [
+        "WG",
+        "RG",
+        "WR",
+        "BANT",
+        "JUND"
+      ],
+      "collision_guidance": [],
+      "chatbot_guidance": {
+        "how_to_recognize_match": [
+          "VM-188 live-pilot guidance: Naya language should combine Green-centered life and growth with White larger-picture care and Red instinct.",
+          "Use support-only Commander/operator patterns as vocabulary only, not as canon evidence.",
+          "Keep manual-fill topics out of the match basis."
+        ],
+        "how_to_recognize_mismatch": [
+          "Do not match Naya from RGW color composition alone.",
+          "Do not match Naya from generic big creatures, generic tokens, or casual battlecruiser alone.",
+          "Do not match Naya from Cabaretti, Selesnya, Gruul, Boros, Bant, Jund, Abzan, or Temur false-positive material.",
+          "Do not match Naya from support-only Commander/operator rows."
+        ],
+        "questions_to_ask_when_uncertain": [],
+        "do_not_overweight": [
+          "Do not award Naya from color composition alone.",
+          "Do not award Naya from support-only Commander/operator rows.",
+          "Do not award Naya from support-only mechanics.",
+          "Do not award Naya from manual-fill topics."
+        ],
+        "never_claim_as_canon": [
+          "Never claim Vox Mana placement planning is official Wizards canon.",
+          "Never claim RGW is a generated expression key.",
+          "Never claim detailed geography, figure biography, religion, creature-culture hierarchy, power-5 totalization, Commander product canon, or post-Phyrexian outcomes from VM-184.",
+          "Never claim Naya has a Home preview card, route, static page, Maze route, or broad shard framework from VM-188."
+        ],
+        "review_note": "VM-188 enables Naya through the approved builder path only. It does not add new lore sources, raw claims, Commander facts, routes, Home cards, Maze routes, schema fields, or manual Supabase source edits."
+      },
+      "canon_guardrails": {
+        "never_claim_as_canon": [
+          "Never claim Vox Mana placement planning is official Wizards canon.",
+          "Never claim RGW is a generated expression key.",
+          "Never claim detailed geography, figure biography, religion, creature-culture hierarchy, power-5 totalization, Commander product canon, or post-Phyrexian outcomes from VM-184.",
+          "Never claim Naya has a Home preview card, route, static page, Maze route, or broad shard framework from VM-188."
+        ]
+      },
+      "source_metadata": {
+        "profile_version": "0.1.0",
+        "placement_model_version": "",
+        "source_review_date": "2026-05-30",
+        "claim_count": 0
       }
     },
     "BG": {
@@ -985,7 +1705,8 @@
       "lateral_inhibition_targets": [
         "WITHERBLOOM",
         "WG",
-        "WB"
+        "WB",
+        "JUND"
       ],
       "collision_guidance": [],
       "chatbot_guidance": {
@@ -1312,6 +2033,7 @@
         "BR",
         "WG",
         "WITHERBLOOM",
+        "JUND",
         "BG",
         "LOREHOLD"
       ],
@@ -1549,6 +2271,8 @@
       "lateral_inhibition_targets": [
         "WB",
         "UG",
+        "ESPER",
+        "GRIXIS",
         "SILVERQUILL"
       ],
       "collision_guidance": [
@@ -1987,7 +2711,8 @@
       "lateral_inhibition_targets": [
         "PRISMARI",
         "QUANDRIX",
-        "UG"
+        "UG",
+        "GRIXIS"
       ],
       "collision_guidance": [],
       "chatbot_guidance": {
@@ -2601,7 +3326,8 @@
       "lateral_inhibition_targets": [
         "WU",
         "UB",
-        "SILVERQUILL"
+        "SILVERQUILL",
+        "ESPER"
       ],
       "collision_guidance": [
         {
@@ -3812,7 +4538,8 @@
       "lateral_inhibition_targets": [
         "BG",
         "UG",
-        "WG"
+        "WG",
+        "JUND"
       ],
       "collision_guidance": [
         {
@@ -4813,6 +5540,7 @@
               "W": 0.85,
               "WR": 0.9,
               "LOREHOLD": 0.55,
+              "NAYA": 0.55,
               "WG": 0.5
             },
             "suppresses": {
@@ -4828,6 +5556,8 @@
               "U": 0.95,
               "UB": 0.9,
               "B": 0.75,
+              "ESPER": 0.75,
+              "GRIXIS": 0.65,
               "WB": 0.65,
               "QUANDRIX": 0.25
             },
@@ -4844,6 +5574,7 @@
               "BR": 0.85,
               "RG": 0.8,
               "PRISMARI": 0.75,
+              "JUND": 0.7,
               "WR": 0.55
             },
             "suppresses": {
@@ -4856,6 +5587,7 @@
             "copy": "Look for what is growing, decaying, adapting, or asking to be tended.",
             "signal": "living systems",
             "likelihoods": {
+              "NAYA": 0.85,
               "WITHERBLOOM": 0.85,
               "UG": 0.8,
               "BG": 0.75,
@@ -4872,6 +5604,9 @@
             "signal": "immediate ignition",
             "likelihoods": {
               "R": 0.95,
+              "GRIXIS": 0.85,
+              "JUND": 0.7,
+              "NAYA": 0.55,
               "WR": 0.55,
               "UR": 0.5,
               "BR": 0.45,
@@ -4888,6 +5623,7 @@
             "signal": "natural order under strain",
             "likelihoods": {
               "G": 0.95,
+              "NAYA": 0.85,
               "WG": 0.5,
               "UG": 0.5,
               "BG": 0.5,
@@ -4915,7 +5651,8 @@
               "BANT": 0.9,
               "WU": 0.8,
               "WR": 0.7,
-              "SILVERQUILL": 0.55
+              "SILVERQUILL": 0.55,
+              "NAYA": 0.45
             },
             "suppresses": {
               "UB": 0.3,
@@ -4943,6 +5680,7 @@
             "likelihoods": {
               "UB": 0.9,
               "B": 0.75,
+              "GRIXIS": 0.65,
               "WB": 0.6
             },
             "suppresses": {
@@ -4956,9 +5694,10 @@
             "signal": "adaptive transformation",
             "likelihoods": {
               "UG": 0.85,
-              "U": 0.55,
               "WITHERBLOOM": 0.65,
+              "ESPER": 0.65,
               "QUANDRIX": 0.6,
+              "U": 0.55,
               "UR": 0.5
             },
             "suppresses": {
@@ -4986,6 +5725,9 @@
             "signal": "freedom through motion",
             "likelihoods": {
               "R": 0.95,
+              "GRIXIS": 0.85,
+              "JUND": 0.7,
+              "NAYA": 0.55,
               "WR": 0.5,
               "UR": 0.45,
               "BR": 0.45,
@@ -5002,6 +5744,7 @@
             "signal": "rooted growth",
             "likelihoods": {
               "G": 0.95,
+              "NAYA": 0.85,
               "WG": 0.5,
               "UG": 0.5,
               "BG": 0.5,
@@ -5044,6 +5787,7 @@
               "QUANDRIX": 0.9,
               "UR": 0.65,
               "UG": 0.55,
+              "ESPER": 0.5,
               "UB": 0.45
             },
             "suppresses": {
@@ -5056,7 +5800,9 @@
             "copy": "What can still be converted, what price is worth paying, and who controls the next move.",
             "signal": "personal leverage",
             "likelihoods": {
+              "GRIXIS": 0.85,
               "B": 0.85,
+              "ESPER": 0.65,
               "UB": 0.55,
               "WB": 0.5
             },
@@ -5072,7 +5818,8 @@
             "likelihoods": {
               "UG": 0.85,
               "WITHERBLOOM": 0.8,
-              "BG": 0.65
+              "BG": 0.65,
+              "NAYA": 0.55
             },
             "suppresses": {
               "WU": 0.25,
@@ -5085,8 +5832,10 @@
             "signal": "specific grievance",
             "likelihoods": {
               "RG": 0.9,
+              "JUND": 0.65,
               "WR": 0.65,
-              "BG": 0.55
+              "BG": 0.55,
+              "NAYA": 0.45
             },
             "suppresses": {
               "WU": 0.35,
@@ -5113,6 +5862,7 @@
             "signal": "honest impulse",
             "likelihoods": {
               "R": 0.95,
+              "JUND": 0.65,
               "WR": 0.45,
               "UR": 0.45,
               "BR": 0.4,
@@ -5129,6 +5879,7 @@
             "signal": "natural role",
             "likelihoods": {
               "G": 0.95,
+              "NAYA": 0.85,
               "WG": 0.5,
               "UG": 0.5,
               "BG": 0.5,
@@ -5154,10 +5905,12 @@
             "likelihoods": {
               "WG": 0.9,
               "BANT": 0.85,
+              "NAYA": 0.85,
               "WITHERBLOOM": 0.55,
               "WR": 0.45
             },
             "suppresses": {
+              "GRIXIS": 0.65,
               "UB": 0.35,
               "BR": 0.25
             }
@@ -5168,9 +5921,10 @@
             "signal": "experimental construction",
             "likelihoods": {
               "UR": 0.9,
-              "U": 0.55,
               "UG": 0.65,
+              "U": 0.55,
               "QUANDRIX": 0.55,
+              "ESPER": 0.5,
               "PRISMARI": 0.45
             },
             "suppresses": {
@@ -5188,6 +5942,7 @@
               "SILVERQUILL": 0.65
             },
             "suppresses": {
+              "GRIXIS": 0.85,
               "WU": 0.3,
               "WG": 0.2
             }
@@ -5200,6 +5955,7 @@
               "W": 0.85,
               "WB": 0.85,
               "LOREHOLD": 0.75,
+              "ESPER": 0.65,
               "WU": 0.6
             },
             "suppresses": {
@@ -5213,8 +5969,10 @@
             "signal": "reclamation",
             "likelihoods": {
               "BG": 0.9,
+              "GRIXIS": 0.85,
               "B": 0.75,
               "WITHERBLOOM": 0.7,
+              "JUND": 0.65,
               "RG": 0.45
             },
             "suppresses": {
@@ -5228,6 +5986,8 @@
             "signal": "present-tense freedom",
             "likelihoods": {
               "R": 0.95,
+              "JUND": 0.65,
+              "NAYA": 0.45,
               "WR": 0.4,
               "UR": 0.4,
               "BR": 0.4,
@@ -5244,6 +6004,7 @@
             "signal": "rooted belonging",
             "likelihoods": {
               "G": 0.95,
+              "NAYA": 0.85,
               "WG": 0.55,
               "UG": 0.5,
               "BG": 0.5,
@@ -6485,6 +7246,481 @@
             },
             "suppresses": {
               "BANT": 0.55
+            }
+          }
+        ]
+      },
+      {
+        "id": "hall_ESPER_perfectibility",
+        "stage": "hall",
+        "faction": "ESPER",
+        "eyebrow": "Hall - Esper",
+        "prompt": "A flawed system can be improved, but only if the change is exact. What makes improvement trustworthy?",
+        "answers": [
+          {
+            "title": "Understand, then refine",
+            "copy": "Study the system, identify the disorder, and improve it through deliberate knowledge rather than impulse.",
+            "signal": "perfectibility through applied knowledge",
+            "likelihoods": {
+              "ESPER": 0.95,
+              "U": 0.55,
+              "WU": 0.55
+            },
+            "suppresses": {
+              "RG": 0.45,
+              "WG": 0.3,
+              "BANT": 0.3
+            }
+          },
+          {
+            "title": "Follow the procedure",
+            "copy": "Improvement is trustworthy when the process stays impartial and public.",
+            "signal": "procedure over perfectibility",
+            "likelihoods": {
+              "WU": 0.85
+            },
+            "suppresses": {
+              "ESPER": 0.45
+            }
+          },
+          {
+            "title": "Keep the leverage hidden",
+            "copy": "Improvement is safest when no one sees the information advantage until it matters.",
+            "signal": "hidden leverage over design",
+            "likelihoods": {
+              "UB": 0.85
+            },
+            "suppresses": {
+              "ESPER": 0.35
+            }
+          },
+          {
+            "title": "Protect the living whole",
+            "copy": "Improvement is trustworthy when it preserves the community that has to live inside it.",
+            "signal": "living order over exact design",
+            "likelihoods": {
+              "BANT": 0.85,
+              "WG": 0.55
+            },
+            "suppresses": {
+              "ESPER": 0.45
+            }
+          }
+        ]
+      },
+      {
+        "id": "hall_ESPER_designed_control",
+        "stage": "hall",
+        "faction": "ESPER",
+        "eyebrow": "Hall - Esper",
+        "prompt": "A plan is nearly perfect, but one part keeps resisting optimization. What should happen next?",
+        "answers": [
+          {
+            "title": "Make every piece serve the design",
+            "copy": "Keep refining until the whole system obeys the shape knowledge has revealed.",
+            "signal": "designed control",
+            "likelihoods": {
+              "ESPER": 0.95,
+              "WB": 0.55,
+              "UB": 0.55,
+              "WU": 0.55
+            },
+            "suppresses": {
+              "BANT": 0.45,
+              "RG": 0.45,
+              "G": 0.35
+            }
+          },
+          {
+            "title": "Preserve the obligation",
+            "copy": "The resistant part matters because it owes or is owed something the structure must honor.",
+            "signal": "obligation over optimization",
+            "likelihoods": {
+              "WB": 0.85
+            },
+            "suppresses": {
+              "ESPER": 0.35
+            }
+          },
+          {
+            "title": "Control the unseen variable",
+            "copy": "Keep the decisive factor hidden until the table can no longer answer it.",
+            "signal": "hidden variable control",
+            "likelihoods": {
+              "UB": 0.85
+            },
+            "suppresses": {
+              "ESPER": 0.35
+            }
+          },
+          {
+            "title": "Keep the community whole",
+            "copy": "A design that breaks the living order is not worth completing.",
+            "signal": "community over optimization",
+            "likelihoods": {
+              "BANT": 0.85,
+              "WG": 0.55
+            },
+            "suppresses": {
+              "ESPER": 0.5
+            }
+          }
+        ]
+      },
+      {
+        "id": "hall_GRIXIS_survival_opening",
+        "stage": "hall",
+        "faction": "GRIXIS",
+        "eyebrow": "Hall - Grixis",
+        "prompt": "A hostile situation leaves one narrow opening. What makes the next move true?",
+        "answers": [
+          {
+            "title": "Find the weakness and take it",
+            "copy": "Study the break in the situation, claim the opening, and survive before it closes.",
+            "signal": "calculated survival opening",
+            "likelihoods": {
+              "GRIXIS": 0.95,
+              "B": 0.55,
+              "UB": 0.55,
+              "BR": 0.5
+            },
+            "suppresses": {
+              "BANT": 0.55,
+              "ESPER": 0.45,
+              "WU": 0.4,
+              "WG": 0.35
+            }
+          },
+          {
+            "title": "Make the process legitimate",
+            "copy": "The move is true when the room can audit it and the rule can survive pressure.",
+            "signal": "legitimacy over survival",
+            "likelihoods": {
+              "WU": 0.85
+            },
+            "suppresses": {
+              "GRIXIS": 0.45
+            }
+          },
+          {
+            "title": "Release the appetite",
+            "copy": "The opening matters because pressure wants an honest, unrestrained answer.",
+            "signal": "appetite over calculation",
+            "likelihoods": {
+              "BR": 0.85
+            },
+            "suppresses": {
+              "GRIXIS": 0.35
+            }
+          },
+          {
+            "title": "Preserve the whole",
+            "copy": "The opening is only worth taking if it keeps the community intact.",
+            "signal": "community over survival leverage",
+            "likelihoods": {
+              "BANT": 0.85,
+              "WG": 0.55
+            },
+            "suppresses": {
+              "GRIXIS": 0.5
+            }
+          }
+        ]
+      },
+      {
+        "id": "hall_GRIXIS_volatile_calculation",
+        "stage": "hall",
+        "faction": "GRIXIS",
+        "eyebrow": "Hall - Grixis",
+        "prompt": "The information is incomplete, the pressure is rising, and delay has a cost. What wins your trust?",
+        "answers": [
+          {
+            "title": "Calculation aimed at survival",
+            "copy": "Know enough to name the weakness, then act before the table gets another chance to close ranks.",
+            "signal": "volatile calculation",
+            "likelihoods": {
+              "GRIXIS": 0.95,
+              "UB": 0.55,
+              "UR": 0.55,
+              "BR": 0.55
+            },
+            "suppresses": {
+              "ESPER": 0.55,
+              "BANT": 0.45,
+              "WU": 0.35,
+              "WG": 0.35
+            }
+          },
+          {
+            "title": "Refine until exact",
+            "copy": "Pressure is not permission to move before the design is trustworthy.",
+            "signal": "exact control over volatility",
+            "likelihoods": {
+              "ESPER": 0.85,
+              "WU": 0.55
+            },
+            "suppresses": {
+              "GRIXIS": 0.45
+            }
+          },
+          {
+            "title": "Experiment in the open",
+            "copy": "The best answer is to try the strange idea and learn from the spark.",
+            "signal": "experiment over survival leverage",
+            "likelihoods": {
+              "UR": 0.85,
+              "PRISMARI": 0.55
+            },
+            "suppresses": {
+              "GRIXIS": 0.35
+            }
+          },
+          {
+            "title": "Stand with the circle",
+            "copy": "The safest move is the one the group can carry together.",
+            "signal": "shared order over self-advocacy",
+            "likelihoods": {
+              "BANT": 0.85,
+              "WG": 0.55
+            },
+            "suppresses": {
+              "GRIXIS": 0.5
+            }
+          }
+        ]
+      },
+      {
+        "id": "hall_JUND_instinct_pressure",
+        "stage": "hall",
+        "faction": "JUND",
+        "eyebrow": "Hall - Jund",
+        "prompt": "Pressure strips away the polite answer. What makes the next move true?",
+        "answers": [
+          {
+            "title": "Trust the gut and move",
+            "copy": "The body knows enough. Act from the honest feeling and carry the consequence.",
+            "signal": "instinct under pressure",
+            "likelihoods": {
+              "JUND": 0.95,
+              "R": 0.55,
+              "RG": 0.55,
+              "BR": 0.5
+            },
+            "suppresses": {
+              "WU": 0.45,
+              "WG": 0.35
+            }
+          },
+          {
+            "title": "Make the process legitimate",
+            "copy": "The move is true when a shared rule can defend it after the pressure passes.",
+            "signal": "legitimacy over instinct",
+            "likelihoods": {
+              "WU": 0.85
+            },
+            "suppresses": {
+              "JUND": 0.45
+            }
+          },
+          {
+            "title": "Preserve the living whole",
+            "copy": "The next move should protect belonging before it indulges appetite.",
+            "signal": "belonging over appetite",
+            "likelihoods": {
+              "WG": 0.85
+            },
+            "suppresses": {
+              "JUND": 0.35
+            }
+          },
+          {
+            "title": "Calculate the opening",
+            "copy": "Move only after the weakness, cost, and leverage are named.",
+            "signal": "calculation over gut truth",
+            "likelihoods": {
+              "GRIXIS": 0.85,
+              "UB": 0.45
+            },
+            "suppresses": {
+              "JUND": 0.4
+            }
+          }
+        ]
+      },
+      {
+        "id": "hall_JUND_appetite_consequence",
+        "stage": "hall",
+        "faction": "JUND",
+        "eyebrow": "Hall - Jund",
+        "prompt": "A hunger rises with real cost attached. What makes it worth following?",
+        "answers": [
+          {
+            "title": "Feed it and own the cost",
+            "copy": "Wanting is not a crime. The honest path is to act, pay, and become what survives.",
+            "signal": "appetite with consequence",
+            "likelihoods": {
+              "JUND": 0.95,
+              "BR": 0.55,
+              "BG": 0.55,
+              "RG": 0.55
+            },
+            "suppresses": {
+              "WU": 0.35,
+              "WG": 0.35
+            }
+          },
+          {
+            "title": "Bind it to duty",
+            "copy": "A hunger is trustworthy only when it serves a larger obligation.",
+            "signal": "duty over appetite",
+            "likelihoods": {
+              "WB": 0.85
+            },
+            "suppresses": {
+              "JUND": 0.45
+            }
+          },
+          {
+            "title": "Let it become spectacle",
+            "copy": "The point is not survival but the release: visible, dangerous, and impossible to ignore.",
+            "signal": "performance over survival appetite",
+            "likelihoods": {
+              "BR": 0.85
+            },
+            "suppresses": {
+              "JUND": 0.35
+            }
+          },
+          {
+            "title": "Compost it into renewal",
+            "copy": "Hunger is safest when it returns loss to the cycle and feeds what comes next.",
+            "signal": "cycle over appetite",
+            "likelihoods": {
+              "BG": 0.85,
+              "WITHERBLOOM": 0.55
+            },
+            "suppresses": {
+              "JUND": 0.4
+            }
+          }
+        ]
+      },
+      {
+        "id": "hall_NAYA_living_whole",
+        "stage": "hall",
+        "faction": "NAYA",
+        "eyebrow": "Hall - Naya",
+        "prompt": "A living world pulls through care, instinct, and scale. What makes the next move trustworthy?",
+        "answers": [
+          {
+            "title": "Protect the living whole",
+            "copy": "Move with the bond that lets life keep growing, not with control or appetite alone.",
+            "signal": "belonging through protective abundance",
+            "likelihoods": {
+              "NAYA": 0.95,
+              "RG": 0.5,
+              "WR": 0.45
+            },
+            "suppresses": {
+              "JUND": 0.4,
+              "GRIXIS": 0.35,
+              "BANT": 0.3
+            }
+          },
+          {
+            "title": "Stand with the circle",
+            "copy": "The move is trustworthy when the community can carry it together.",
+            "signal": "shared community over living-world instinct",
+            "likelihoods": {
+              "WG": 0.85,
+              "BANT": 0.45
+            },
+            "suppresses": {
+              "NAYA": 0.35
+            }
+          },
+          {
+            "title": "Feed the hunger",
+            "copy": "The honest answer is the appetite that survives the cost.",
+            "signal": "appetite over belonging",
+            "likelihoods": {
+              "JUND": 0.85,
+              "BR": 0.45
+            },
+            "suppresses": {
+              "NAYA": 0.4
+            }
+          },
+          {
+            "title": "Find the weakness",
+            "copy": "Trust the opening that gives you leverage before the world can close around you.",
+            "signal": "calculation over belonging",
+            "likelihoods": {
+              "GRIXIS": 0.85,
+              "UB": 0.45
+            },
+            "suppresses": {
+              "NAYA": 0.4
+            }
+          }
+        ]
+      },
+      {
+        "id": "hall_NAYA_abundance_instinct",
+        "stage": "hall",
+        "faction": "NAYA",
+        "eyebrow": "Hall - Naya",
+        "prompt": "Scale is rising fast. When does abundance become wisdom instead of just size?",
+        "answers": [
+          {
+            "title": "When growth belongs",
+            "copy": "The right scale deepens life, bond, and protection of the whole.",
+            "signal": "abundance held by belonging",
+            "likelihoods": {
+              "NAYA": 0.95,
+              "RG": 0.55,
+              "WR": 0.45
+            },
+            "suppresses": {
+              "JUND": 0.35,
+              "GRIXIS": 0.35
+            }
+          },
+          {
+            "title": "When hunger wins",
+            "copy": "Scale matters when it can take what it needs and keep moving.",
+            "signal": "appetite over abundance",
+            "likelihoods": {
+              "JUND": 0.85,
+              "BG": 0.45,
+              "RG": 0.45
+            },
+            "suppresses": {
+              "NAYA": 0.4
+            }
+          },
+          {
+            "title": "When order approves",
+            "copy": "Growth is wise when the whole hierarchy can sanction it.",
+            "signal": "sanctioned order over abundance",
+            "likelihoods": {
+              "BANT": 0.85,
+              "WU": 0.45
+            },
+            "suppresses": {
+              "NAYA": 0.35
+            }
+          },
+          {
+            "title": "When the circle shares it",
+            "copy": "Abundance is wise when the whole community can receive and return it.",
+            "signal": "shared community over living-world scale",
+            "likelihoods": {
+              "WG": 0.85,
+              "BANT": 0.35
+            },
+            "suppresses": {
+              "NAYA": 0.35
             }
           }
         ]

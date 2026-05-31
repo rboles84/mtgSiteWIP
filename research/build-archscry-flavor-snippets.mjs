@@ -50,6 +50,17 @@ function identityKey(colors = []) {
   return MANA_ORDER.filter((color) => set.has(color)).join("");
 }
 
+function cardIdentityKey(card) {
+  return Array.isArray(card?.color_identity) ? identityKey(card.color_identity) : null;
+}
+
+function isCardIdentitySubset(card, factionIdentity) {
+  const cardIdentity = cardIdentityKey(card);
+  if (cardIdentity === null) return false;
+  const factionColors = new Set(String(factionIdentity || "").split(""));
+  return String(cardIdentity).split("").every((color) => factionColors.has(color));
+}
+
 function splitWords(value) {
   return normalizeText(value)
     .split(/\s+/)
@@ -212,14 +223,14 @@ function buildSnippetsForFaction({ faction, commanderCards, flavorCards }) {
 
   nativeNames.forEach((name, index) => {
     const card = commanderCards.find((candidate) => cardNameMatches(candidate, name));
-    if (isUsableFlavorCard(card)) {
+    if (isUsableFlavorCard(card) && isCardIdentitySubset(card, factionIdentity)) {
       addCandidate(candidates, seen, candidateFromCard(card, faction.key, "native_commander", 300 - index));
     }
   });
 
   commanderCards
     .filter(isUsableFlavorCard)
-    .filter((card) => identityKey(card.color_identity || card.colors || []) === factionIdentity)
+    .filter((card) => cardIdentityKey(card) === factionIdentity)
     .map((card) => ({
       card,
       score: 150 + overlapScore(card, themes) * 12 + (includesFactionTerm(card, terms) ? 35 : 0),
@@ -232,8 +243,9 @@ function buildSnippetsForFaction({ faction, commanderCards, flavorCards }) {
 
   flavorCards
     .filter(isUsableFlavorCard)
+    .filter((card) => isCardIdentitySubset(card, factionIdentity))
     .map((card) => {
-      const cardIdentity = identityKey(card.color_identity || card.colors || []);
+      const cardIdentity = cardIdentityKey(card);
       const exactIdentity = cardIdentity === factionIdentity;
       const factionTerm = includesFactionTerm(card, terms);
       const overlap = overlapScore(card, themes);

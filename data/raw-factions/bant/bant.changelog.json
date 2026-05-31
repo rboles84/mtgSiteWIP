@@ -2,8 +2,53 @@
   "schema_version": "1.0.0",
   "faction_id": "bant",
   "faction_name": "Bant",
-  "last_updated": "2026-05-29",
+  "last_updated": "2026-05-31",
   "changes": [
+    {
+      "change_id": "bant_change_007",
+      "change_type": "VM-194 Live Parity And Archscry Text Hardening",
+      "change_date": "2026-05-31",
+      "summary": "Hardened Bant's live Commander support metadata so Archscry can use mature support-only presentation, exact commander discovery, and metadata-only WUG boundaries without adding lore claims.",
+      "sources_added": [],
+      "sources_updated": [],
+      "claims_added": [],
+      "claims_updated": [],
+      "claims_superseded": [],
+      "claims_contradicted": [],
+      "profile_fields_updated": [
+        "commander_compass.review_status",
+        "commander_compass.link_targets"
+      ],
+      "placement_fields_updated": [],
+      "manual_review_required": [
+        "Keep Bant Commander Compass material support-only and do not promote precon, Scryfall, or operator-link texture into canon.",
+        "Keep WUG as metadata, query, raw source, and test assertion text only; do not expose it as public label, alias, route-map entry, or expression key.",
+        "Do not add Asha-founder, Asha angel-creation, Elspeth-governance, post-Phyrexia certainty, or sigil-caste expansion claims from this hardening pass."
+      ],
+      "notes": "VM-194 intentionally leaves bant.claims.json unchanged and does not add new source rows, raw claims, Home preview entries, routes, schemas, Maze behavior, or manual generated-output edits."
+    },
+    {
+      "change_id": "bant_change_006",
+      "change_type": "VM-172 Post-Cleanup Source Path Reconciliation",
+      "change_date": "2026-05-30",
+      "summary": "Restored docs/research/bant/ as the active research packet path after staging-path drift and normalized the raw profile identity-note key without reopening Bant evidence or lore claims.",
+      "sources_added": [],
+      "sources_updated": [],
+      "claims_added": [],
+      "claims_updated": [],
+      "claims_superseded": [],
+      "claims_contradicted": [],
+      "profile_fields_updated": [
+        "search_and_filter_metadata.live_identity_note"
+      ],
+      "placement_fields_updated": [],
+      "manual_review_required": [
+        "Keep docs/research/bant/ as the active research packet path for references.",
+        "Keep the staging or source-recovery copy out of active references until a separate cleanup card proves exact duplicates.",
+        "Do not promote new Bant lore claims, source tiers, Commander claims, or mechanical interpretations from this source-path repair."
+      ],
+      "notes": "VM-172 preserves BANT as the live key, keeps WUG metadata-only, and does not change placement scoring, Home preview, routes, Maze, Hall prompts, aliases, or runtime logic."
+    },
     {
       "change_id": "bant_change_005",
       "change_type": "VM-169 Gold-Standard Parity Cleanup",

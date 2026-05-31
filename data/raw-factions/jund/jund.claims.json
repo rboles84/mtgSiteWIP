@@ -1,0 +1,195 @@
+{
+  "schema_version": "1.0.0",
+  "faction_id": "jund",
+  "faction_name": "Jund",
+  "source_review_date": "2026-05-30",
+  "last_updated": "2026-05-30",
+  "claim_count": 10,
+  "claims": [
+    {
+      "claim_id": "jund_claim_0001",
+      "faction_id": "jund",
+      "claim_type": "identity",
+      "statement": "Jund is the black-red-green Alara shard discussed in the local official Jund design article.",
+      "canon_status": "Source-supported identity",
+      "source_ids": [
+        "src_vm_jund_evidence_ledger_20260530",
+        "src_wotc_rosewater_jund_following_your_heart"
+      ],
+      "evidence_rows": [
+        "JUND-EVID-001"
+      ],
+      "confidence": "High",
+      "notes": "Use for base shard identity only. It does not prove detailed geography, creature hierarchy, society, figure biography, or chronology."
+    },
+    {
+      "claim_id": "jund_claim_0002",
+      "faction_id": "jund",
+      "claim_type": "identity_metadata",
+      "statement": "Jund's color-direction metadata is BRG, and VM-176 frames Red as the center/design lens.",
+      "canon_status": "Source-supported design metadata",
+      "source_ids": [
+        "src_vm_jund_evidence_ledger_20260530",
+        "src_wotc_rosewater_jund_following_your_heart",
+        "src_vm_canon_inventory_three_color_audit_20260528"
+      ],
+      "evidence_rows": [
+        "JUND-EVID-002",
+        "JUND-EVID-003"
+      ],
+      "confidence": "High",
+      "notes": "BRG is metadata only. This packet does not create BRG or JUND as generated, registry, placement, alias, fixture, route, or lookup data."
+    },
+    {
+      "claim_id": "jund_claim_0003",
+      "faction_id": "jund",
+      "claim_type": "design_identity",
+      "statement": "Red's Jund frame centers being true to oneself, following gut instinct, and doing what feels right.",
+      "canon_status": "Official design commentary",
+      "source_ids": [
+        "src_vm_jund_evidence_ledger_20260530",
+        "src_wotc_rosewater_jund_following_your_heart"
+      ],
+      "evidence_rows": [
+        "JUND-EVID-004"
+      ],
+      "confidence": "High",
+      "notes": "This supports identity and design-philosophy language. Do not rewrite it as complete social doctrine or geography."
+    },
+    {
+      "claim_id": "jund_claim_0004",
+      "faction_id": "jund",
+      "claim_type": "design_identity",
+      "statement": "Red's Jund frame treats emotion as a powerful primal guide rather than something to deny, repress, or over-rationalize.",
+      "canon_status": "Official design commentary",
+      "source_ids": [
+        "src_vm_jund_evidence_ledger_20260530",
+        "src_wotc_rosewater_jund_following_your_heart"
+      ],
+      "evidence_rows": [
+        "JUND-EVID-005"
+      ],
+      "confidence": "High",
+      "notes": "This supports emotion-as-signal language while preserving Red as center."
+    },
+    {
+      "claim_id": "jund_claim_0005",
+      "faction_id": "jund",
+      "claim_type": "design_identity",
+      "statement": "The Jund design frame describes a world of total freedom where action and survival carry consequences.",
+      "canon_status": "Official design commentary",
+      "source_ids": [
+        "src_vm_jund_evidence_ledger_20260530",
+        "src_wotc_rosewater_jund_following_your_heart"
+      ],
+      "evidence_rows": [
+        "JUND-EVID-006"
+      ],
+      "confidence": "High",
+      "notes": "Use as a design frame. Do not expand this into detailed geography, predator hierarchy, dragon rule, or social law."
+    },
+    {
+      "claim_id": "jund_claim_0006",
+      "faction_id": "jund",
+      "claim_type": "design_identity",
+      "statement": "Black supports Red's Jund frame through self-interest, personal needs, contentment, and opposition to White's constraints.",
+      "canon_status": "Official design commentary",
+      "source_ids": [
+        "src_vm_jund_evidence_ledger_20260530",
+        "src_wotc_rosewater_jund_following_your_heart"
+      ],
+      "evidence_rows": [
+        "JUND-EVID-007"
+      ],
+      "confidence": "High",
+      "notes": "This supports appetite and self-advocacy language. It is not permission for generic cruelty or Rakdos spectacle."
+    },
+    {
+      "claim_id": "jund_claim_0007",
+      "faction_id": "jund",
+      "claim_type": "design_identity",
+      "statement": "Green supports Red's Jund frame through being unrestrained, not overthinking, and a feral or rampaging side.",
+      "canon_status": "Official design commentary",
+      "source_ids": [
+        "src_vm_jund_evidence_ledger_20260530",
+        "src_wotc_rosewater_jund_following_your_heart"
+      ],
+      "evidence_rows": [
+        "JUND-EVID-008"
+      ],
+      "confidence": "High",
+      "notes": "This supports instinct and embodied-force language. It is not a detailed ecology, species, or predator-hierarchy claim."
+    },
+    {
+      "claim_id": "jund_claim_0008",
+      "faction_id": "jund",
+      "claim_type": "design_synthesis",
+      "statement": "The Red/Black/Green Jund synthesis can support language about Black and Green backing Red's destructive side and letting loose, scoped to design and not generic cruelty.",
+      "canon_status": "Official design commentary with source boundary",
+      "source_ids": [
+        "src_vm_jund_evidence_ledger_20260530",
+        "src_wotc_rosewater_jund_following_your_heart"
+      ],
+      "evidence_rows": [
+        "JUND-EVID-009"
+      ],
+      "confidence": "High",
+      "notes": "Use as design synthesis only. Do not convert it into story, creature, figure, or social-metaphysics claims."
+    },
+    {
+      "claim_id": "jund_claim_0009",
+      "faction_id": "jund",
+      "claim_type": "design_boundary",
+      "statement": "White and Blue are absent enemy-color pressures at design-philosophy scope only, not a new lore, geography, or story claim.",
+      "canon_status": "Design commentary with source boundary",
+      "source_ids": [
+        "src_vm_jund_evidence_ledger_20260530",
+        "src_wotc_rosewater_jund_following_your_heart",
+        "src_vm_canon_inventory_three_color_audit_20260528"
+      ],
+      "evidence_rows": [
+        "JUND-EVID-010"
+      ],
+      "confidence": "High",
+      "notes": "Do not expand White/Blue absence into claims that Jund has no society, intelligence, memory, planning, or culture."
+    },
+    {
+      "claim_id": "jund_claim_0010",
+      "faction_id": "jund",
+      "claim_type": "design_boundary",
+      "statement": "Jund must not flatten into generic Red violence, anger, savage nature, devour, or Modern Jund midrange.",
+      "canon_status": "Source-supported boundary",
+      "source_ids": [
+        "src_vm_jund_evidence_ledger_20260530",
+        "src_wotc_rosewater_jund_following_your_heart"
+      ],
+      "evidence_rows": [
+        "JUND-EVID-012",
+        "JUND-EVID-013"
+      ],
+      "confidence": "High",
+      "notes": "Use as a false-positive guardrail. It does not add detailed lore or mechanics."
+    }
+  ],
+  "claim_quality_summary": {
+    "raw_claims_added": 10,
+    "source_evidence_rows_used": [
+      "JUND-EVID-001",
+      "JUND-EVID-002",
+      "JUND-EVID-003",
+      "JUND-EVID-004",
+      "JUND-EVID-005",
+      "JUND-EVID-006",
+      "JUND-EVID-007",
+      "JUND-EVID-008",
+      "JUND-EVID-009",
+      "JUND-EVID-010",
+      "JUND-EVID-012",
+      "JUND-EVID-013"
+    ],
+    "raw_claim_id_policy": "Raw claims use jund_claim_0001-style IDs. VM-176 JUND-EVID row IDs remain evidence references only.",
+    "claim_floor": "VM-176 source-supported identity, design, and boundary rows only.",
+    "row_scope_note": "Rows outside the VM-179 claim list were not turned into raw claims.",
+    "overall_confidence": "High for narrow design-philosophy and source-bound identity claims; not sufficient for detailed lore."
+  }
+}

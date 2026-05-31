@@ -1,0 +1,236 @@
+{
+  "schema_version": "1.0.0",
+  "placement_profile_version": "0.1.0",
+  "faction_id": "naya",
+  "faction_name": "Naya",
+  "based_on_profile_version": "0.1.0",
+  "last_updated": "2026-05-30",
+  "placement_summary": "Naya is a VM-188 live-pilot placement packet for the NAYA shard expression. Its strongest source-bound signals are Green-centered life, nature, growth, ecosystem belonging, White larger-picture care, Red feral instinct and loyalty, Blue/Black absence, and anti-flattening boundaries.",
+  "moral_and_psychological_profile": {
+    "summary": "Vox Mana models Naya as abundance through living-world belonging, instinctive bond, and care for the larger natural whole. This is project interpretation from VM-181 through VM-183, not official canon; VM-188 enables it as a bounded live pilot.",
+    "claim_ids": [
+      "naya_claim_0002",
+      "naya_claim_0003",
+      "naya_claim_0004",
+      "naya_claim_0005",
+      "naya_claim_0006",
+      "naya_claim_0007",
+      "naya_claim_0008",
+      "naya_claim_0009"
+    ],
+    "confidence": "Medium",
+    "notes": "Psychological language is Vox Mana interpretation. Support-only rows do not raise confidence."
+  },
+  "placement_axes": [],
+  "core_values": [
+    {
+      "value_id": "value_naya_0001",
+      "label": "Life In The Larger Whole",
+      "description": "The self belongs to a living ecosystem where role, place, and relation matter before mastery.",
+      "claim_ids": [
+        "naya_claim_0003",
+        "naya_claim_0008"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "value_id": "value_naya_0002",
+      "label": "Growth Toward Abundance",
+      "description": "Nature and growth are centered, with scale and fullness treated as expressions of life rather than generic size.",
+      "claim_ids": [
+        "naya_claim_0004",
+        "naya_claim_0009"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "value_id": "value_naya_0003",
+      "label": "Instinct Held By Care",
+      "description": "Red immediacy and loyalty move through White larger-picture care without replacing Green's center.",
+      "claim_ids": [
+        "naya_claim_0005",
+        "naya_claim_0006",
+        "naya_claim_0007"
+      ],
+      "confidence": "Medium"
+    }
+  ],
+  "behavioral_signals": [
+    {
+      "signal_id": "signal_naya_0001",
+      "signal": "Look for life, nature, growth, ecosystem belonging, role, place, and the living whole as primary language.",
+      "claim_ids": [
+        "naya_claim_0003",
+        "naya_claim_0004"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "signal_id": "signal_naya_0002",
+      "signal": "Look for larger-picture care for life and creatures supporting the Green-centered abundance frame.",
+      "claim_ids": [
+        "naya_claim_0002",
+        "naya_claim_0005",
+        "naya_claim_0007"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "signal_id": "signal_naya_0003",
+      "signal": "Look for feral instinct, immediacy, loyalty, and bond tied to belonging rather than pure chaos.",
+      "claim_ids": [
+        "naya_claim_0006",
+        "naya_claim_0007"
+      ],
+      "confidence": "Medium"
+    }
+  ],
+  "inhibitor_traits": [
+    "RGW color composition without the Green-centered Naya evidence cluster",
+    "generic big creatures without ecosystem belonging and source-bound growth language",
+    "generic tokens or go-wide play without the Naya identity floor",
+    "Cabaretti social glamour, performance, or family style treated as Naya",
+    "Selesnya community without Red instinct treated as Naya",
+    "Gruul impulse or civilization rejection without White larger-picture care treated as Naya",
+    "Boros action or order without Green-centered living abundance treated as Naya",
+    "Bant honor, hierarchy, or sanctioned excellence treated as Naya",
+    "Jund appetite, consumption, or survival pressure treated as Naya",
+    "manual-fill lore used as current evidence"
+  ],
+  "good_fit_indicators": [
+    "life, growth, nature, and ecosystem belonging are the main way the answer frames identity",
+    "larger-picture care supports life and creatures without becoming law or hierarchy",
+    "feral instinct and loyalty are tied to living belonging",
+    "the answer resists flattening Naya into generic big creatures, generic tokens, Cabaretti, or same-color comparators"
+  ],
+  "ideal_fit_indicators": [
+    "The answer combines Green-centered abundance, White larger-picture care, and Red instinct while keeping detailed lore out of the claim basis.",
+    "The answer uses Naya or Alara in a source-bound shard context.",
+    "The answer treats Commander/operator mechanics, power thresholds, figures, geography, religion, and comparator factions as support or manual-review topics rather than evidence foundations."
+  ],
+  "poor_fit_indicators": [
+    "The answer depends on detailed geography, figure biography, religion, creature-culture hierarchy, power-5 totalization, or post-Phyrexian chronology.",
+    "The answer is mainly generic RGW, generic battlecruiser, generic tokens, Cabaretti style, or Commander product flavor.",
+    "The answer centers public honor hierarchy, engineered control, self-interested extraction, civilization rejection, or Jund-style consumption."
+  ],
+  "discriminator_questions": [],
+  "chatbot_guidance": {
+    "how_to_recognize_match": [
+      "VM-188 live-pilot guidance: Naya language should combine Green-centered life and growth with White larger-picture care and Red instinct.",
+      "Use support-only Commander/operator patterns as vocabulary only, not as canon evidence.",
+      "Keep manual-fill topics out of the match basis."
+    ],
+    "how_to_recognize_mismatch": [
+      "Do not match Naya from RGW color composition alone.",
+      "Do not match Naya from generic big creatures, generic tokens, or casual battlecruiser alone.",
+      "Do not match Naya from Cabaretti, Selesnya, Gruul, Boros, Bant, Jund, Abzan, or Temur false-positive material.",
+      "Do not match Naya from support-only Commander/operator rows."
+    ],
+    "questions_to_ask_when_uncertain": [],
+    "do_not_overweight": [
+      "Do not award Naya from color composition alone.",
+      "Do not award Naya from support-only Commander/operator rows.",
+      "Do not award Naya from support-only mechanics.",
+      "Do not award Naya from manual-fill topics."
+    ],
+    "never_claim_as_canon": [
+      "Never claim Vox Mana placement planning is official Wizards canon.",
+      "Never claim RGW is a generated expression key.",
+      "Never claim detailed geography, figure biography, religion, creature-culture hierarchy, power-5 totalization, Commander product canon, or post-Phyrexian outcomes from VM-184.",
+      "Never claim Naya has a Home preview card, route, static page, Maze route, or broad shard framework from VM-188."
+    ],
+    "review_note": "VM-188 enables Naya through the approved builder path only. It does not add new lore sources, raw claims, Commander facts, routes, Home cards, Maze routes, schema fields, or manual Supabase source edits."
+  },
+  "placement_quality": {
+    "overall_confidence": "Medium source-authored confidence for narrow identity/design evidence; low for detailed lore until future evidence work.",
+    "strongest_evidence_areas": [
+      "Red-green-white Naya shard identity",
+      "RGW metadata and Green center/design lens",
+      "Life, ecosystem, role, place, and belonging",
+      "Nature and growth pushed to an extreme",
+      "White larger-picture care for life and creatures",
+      "Red feral instinct, immediacy, loyalty, and bond",
+      "Blue and Black absence at design scope",
+      "Boundary against generic big creatures, generic tokens, Cabaretti, and Jund-style consumption"
+    ],
+    "weakest_evidence_areas": [
+      "Detailed geography and named locations",
+      "Named figure biographies and authority",
+      "Religion, Progenitus theology, worldsoul language, and Coil worship",
+      "Power 5 or big matters as whole-identity theory",
+      "Conflux, post-Conflux, and post-Phyrexian chronology",
+      "Commander/operator material beyond support-only language"
+    ],
+    "manual_review_recommended": true,
+    "review_gated": false,
+    "placement_eligible": true,
+    "notes": "VM-188 enables Naya through the approved builder path only. RGW remains metadata-only and NAYA is the only live expression key.",
+    "calibration_tuning_status": "vm188_live_pilot",
+    "last_placement_ready_pass": "VM-188",
+    "live_pilot": true
+  },
+  "color_identity": {
+    "colors": [
+      "R",
+      "G",
+      "W"
+    ],
+    "metadata_only": true,
+    "notes": "RGW is color-direction metadata only and not a generated key, route key, runtime alias, fixture key, public label, or lookup key."
+  },
+  "calibration_tuning": {
+    "status": "vm188_live_pilot",
+    "required_positive_evidence_terms": [
+      "Naya",
+      "Alara",
+      "RGW",
+      "Green-centered",
+      "life",
+      "nature",
+      "growth",
+      "ecosystem belonging",
+      "larger natural whole",
+      "White care",
+      "Red instinct"
+    ],
+    "required_positive_min_hits": null,
+    "broad_match_penalty": null,
+    "overselection_reason": "Color composition, generic big creatures, generic tokens, Cabaretti style, casual battlecruiser, or same-color comparator aesthetics can overselect Naya without the VM-181 Green-centered evidence cluster.",
+    "suppress_when_user_centers": [
+      "generic RGW",
+      "generic big creatures",
+      "generic tokens",
+      "casual battlecruiser",
+      "Cabaretti social glamour",
+      "Selesnya community without Red instinct",
+      "Gruul impulse without White care",
+      "Boros action without Green abundance",
+      "Bant hierarchy",
+      "Jund consumption",
+      "manual-fill lore as proof"
+    ],
+    "strengthen_when_user_centers": [
+      "Green-centered life",
+      "nature and growth",
+      "ecosystem belonging",
+      "role and place in a living whole",
+      "White larger-picture care",
+      "Red feral instinct and loyalty",
+      "Blue and Black absence at design scope",
+      "anti-flattening boundary"
+    ],
+    "collision_suppressions": [
+      "jund_same_rg_not_naya",
+      "bant_white_green_without_red_instinct",
+      "selesnya_green_white_without_red_instinct",
+      "gruul_red_green_without_white_care",
+      "boros_red_white_without_green_abundance",
+      "cabaretti_style_not_naya",
+      "generic_big_creatures_not_naya",
+      "generic_tokens_not_naya"
+    ],
+    "false_positive_guardrail": "Do not treat support-only mechanics, Commander/operator rows, manual-fill lore, comparator factions, or color composition alone as Naya evidence.",
+    "smoke_test_note": "VM-188 wires Naya into generated placement data as a controlled live pilot through the approved build path."
+  },
+  "collision_guidance": []
+}

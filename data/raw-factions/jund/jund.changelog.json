@@ -1,0 +1,224 @@
+{
+  "schema_version": "1.0.0",
+  "faction_id": "jund",
+  "faction_name": "Jund",
+  "last_updated": "2026-05-30",
+  "changes": [
+    {
+      "change_id": "jund_change_001",
+      "change_type": "VM-179 Initial Source-Only Raw Packet",
+      "change_date": "2026-05-30",
+      "summary": "Created Jund's authored-but-not-live raw-faction packet from VM-176 evidence and VM-177/VM-178 shaping language while preserving all support-only, manual-fill, comparator, source-role, and runtime boundaries.",
+      "sources_added": [
+        "src_vm_jund_source_ledger_20260530",
+        "src_vm_jund_evidence_ledger_20260530",
+        "src_wotc_rosewater_jund_following_your_heart",
+        "src_vm_canon_inventory_three_color_audit_20260528",
+        "src_vm_jund_research_dossier_20260530",
+        "src_vm_jund_reliability_audit_20260530",
+        "src_vm_jund_manual_fill_20260530",
+        "src_vm_jund_lore_source_packet_20260530",
+        "src_vm_jund_identity_md_20260530",
+        "src_vm_jund_metaphysics_md_20260530",
+        "src_alara_shards_lore_dossier_protocol_rtf",
+        "src_scryfall_oracle_cards_local",
+        "src_vm_second_commander_recommendations_brg",
+        "src_wotc_color_philosophy_support_jund",
+        "src_wotc_naya_grixis_comparator_support"
+      ],
+      "sources_updated": [],
+      "claims_added": [
+        "jund_claim_0001",
+        "jund_claim_0002",
+        "jund_claim_0003",
+        "jund_claim_0004",
+        "jund_claim_0005",
+        "jund_claim_0006",
+        "jund_claim_0007",
+        "jund_claim_0008",
+        "jund_claim_0009",
+        "jund_claim_0010"
+      ],
+      "claims_updated": [],
+      "claims_superseded": [],
+      "claims_contradicted": [],
+      "profile_fields_updated": [
+        "site_surface",
+        "core_identity",
+        "structure",
+        "great_tension",
+        "historical_timeline",
+        "key_figures",
+        "canonical_flavor_text",
+        "views_on_other_factions",
+        "mechanics",
+        "search_and_filter_metadata",
+        "data_quality",
+        "research_limitations",
+        "commander_compass"
+      ],
+      "placement_fields_updated": [
+        "placement_summary",
+        "moral_and_psychological_profile",
+        "placement_axes",
+        "core_values",
+        "behavioral_signals",
+        "inhibitor_traits",
+        "good_fit_indicators",
+        "ideal_fit_indicators",
+        "poor_fit_indicators",
+        "discriminator_questions",
+        "chatbot_guidance",
+        "placement_quality",
+        "color_identity",
+        "calibration_tuning",
+        "collision_guidance"
+      ],
+      "manual_review_required": [
+        "Keep detailed Jund geography, settlements, named places, species, social structures, and ecology deferred.",
+        "Keep Kresh, Meren, Rakka Mar, Karrthus, Sarkhan Vol, and other figure biographies deferred unless separately verified by narrow local evidence.",
+        "Keep devour as whole-identity theory deferred.",
+        "Keep Conflux and post-Conflux chronology deferred.",
+        "Keep Modern Jund midrange outside canon and metaphysics.",
+        "Keep Commander/operator rows as product support only.",
+        "Keep Naya, Grixis, Gruul, Rakdos, Golgari, Witherbloom, and Riveteers as boundary/comparator material only.",
+        "Keep BRG as metadata only."
+      ],
+      "notes": "This initial packet intentionally leaves placement_axes empty, keeps Jund authored and review-gated, does not edit builder/runtime/generated/schema/route/Home/Maze/Supabase/fixture/test surfaces, and does not add jund, JUND, or BRG as a generated, route, fixture, lookup, or builder target."
+    },
+    {
+      "change_id": "jund_change_002",
+      "change_type": "VM-186 Controlled Runtime Promotion Metadata",
+      "change_date": "2026-05-30",
+      "summary": "Updated Jund status, review, and promotion metadata for a controlled VM-186 live pilot while leaving raw claims and source evidence rows unchanged.",
+      "sources_added": [],
+      "sources_updated": [
+        "src_vm_jund_lore_source_packet_20260530"
+      ],
+      "claims_added": [],
+      "claims_updated": [],
+      "claims_superseded": [],
+      "claims_contradicted": [],
+      "profile_fields_updated": [
+        "site_surface.runtime_status",
+        "site_surface.placement_status",
+        "site_surface.preview_eligible",
+        "great_tension.placement_relevance",
+        "search_and_filter_metadata",
+        "data_quality"
+      ],
+      "placement_fields_updated": [
+        "placement_summary",
+        "moral_and_psychological_profile",
+        "placement_quality.review_gated",
+        "placement_quality.placement_eligible",
+        "placement_quality.live_pilot",
+        "calibration_tuning.status",
+        "chatbot_guidance.review_note"
+      ],
+      "manual_review_required": [
+        "Keep all VM-176 manual-fill topics deferred unless a later evidence packet promotes them.",
+        "Keep Commander/operator rows as product support only.",
+        "Keep devour, Modern Jund, geography, ecology, and figure material out of raw claims unless later evidence work promotes exact claims.",
+        "Keep BRG as metadata only, not a live key or alias."
+      ],
+      "notes": "VM-186 promotion metadata does not add lore sources, raw claims, Commander facts, evidence rows, route pages, Home cards, Maze routes, schema fields, or manual Supabase source edits."
+    },
+    {
+      "change_id": "jund_change_003",
+      "change_type": "VM-191 Archscry Placement Surface Completeness",
+      "change_date": "2026-05-30",
+      "summary": "Filled support-only Commander Compass structure and placement-page discriminator/collision guidance so the live Jund Archscry surface has source-authored data instead of empty scaffolding.",
+      "sources_added": [],
+      "sources_updated": [],
+      "claims_added": [],
+      "claims_updated": [],
+      "claims_superseded": [],
+      "claims_contradicted": [],
+      "profile_fields_updated": [
+        "commander_compass.schema_version",
+        "commander_compass.identity_basis",
+        "commander_compass.native_fit_commanders",
+        "commander_compass.weird_stretch_commanders",
+        "commander_compass.budget_friendly_commanders",
+        "commander_compass.advanced_complexity_commanders",
+        "commander_compass.not_recommended_or_deprioritized",
+        "commander_compass.archetype_lanes",
+        "commander_compass.link_targets",
+        "commander_compass.merge_notes"
+      ],
+      "placement_fields_updated": [
+        "discriminator_questions",
+        "chatbot_guidance.questions_to_ask_when_uncertain",
+        "collision_guidance"
+      ],
+      "manual_review_required": [
+        "Keep Commander Compass material product/operator support only.",
+        "Do not use local Scryfall or precon catalog details as Jund canon evidence.",
+        "Do not reclassify support-only sources as claim-bearing.",
+        "Keep BRG as metadata/query text only, not a public expression key or alias.",
+        "Do not add Naya as a Jund lateral inhibition target in this pass."
+      ],
+      "notes": "VM-191 intentionally leaves jund.claims.json unchanged and does not add new raw claims, evidence rows, lore captures, routes, Home preview entries, schemas, or manual generated-output edits."
+    },
+    {
+      "change_id": "jund_change_004",
+      "change_type": "VM-192 Live Parity And Archscry Text Hardening",
+      "change_date": "2026-05-30",
+      "summary": "Hardened Jund live presentation/support copy so visible Archscry mechanics and Commander spellcraft language reads as Vox Mana support texture instead of internal work-card caveat text.",
+      "sources_added": [],
+      "sources_updated": [
+        "src_vm_second_commander_recommendations_brg"
+      ],
+      "claims_added": [],
+      "claims_updated": [],
+      "claims_superseded": [],
+      "claims_contradicted": [],
+      "profile_fields_updated": [
+        "mechanics.summary"
+      ],
+      "placement_fields_updated": [],
+      "manual_review_required": [
+        "Keep Commander/operator, Scryfall, precon, starter-card, and mechanics material support-only.",
+        "Do not convert mechanics language into Jund canon, raw claims, source evidence, or figure/geography/ecology claims.",
+        "Keep BRG as metadata/query text only, not a public expression key, alias, route, or label."
+      ],
+      "notes": "VM-192 intentionally leaves jund.claims.json unchanged and does not add new raw claims, evidence rows, lore captures, Home preview entries, routes, schemas, or manual generated-output edits."
+    }
+  ],
+  "audit_summary": {
+    "raw_packet_created": true,
+    "raw_claim_count": 10,
+    "source_evidence_rows_used": [
+      "JUND-EVID-001",
+      "JUND-EVID-002",
+      "JUND-EVID-003",
+      "JUND-EVID-004",
+      "JUND-EVID-005",
+      "JUND-EVID-006",
+      "JUND-EVID-007",
+      "JUND-EVID-008",
+      "JUND-EVID-009",
+      "JUND-EVID-010",
+      "JUND-EVID-012",
+      "JUND-EVID-013"
+    ],
+    "support_only_rows_as_claims": false,
+    "manual_fill_rows_as_claims": false,
+    "architecture_docs_as_raw_claim_evidence": false,
+    "commander_rows_as_raw_claims": false,
+    "seed_files_as_raw_claim_evidence": false,
+    "generated_html_as_raw_claim_evidence": false,
+    "builder_mapping_changed": false,
+    "generated_artifacts_changed": false,
+    "status": "vm186_live_pilot",
+    "placement_ready_pass": null,
+    "brg_metadata_only": true,
+    "raw_to_key_updated": true,
+    "build_factions_run": true,
+    "generated_artifacts_updated": true,
+    "last_placement_ready_pass": "VM-186",
+    "placement_eligible": true,
+    "live_pilot": true
+  }
+}

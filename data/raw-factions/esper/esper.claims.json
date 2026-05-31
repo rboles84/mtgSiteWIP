@@ -1,0 +1,169 @@
+{
+  "schema_version": "1.0.0",
+  "faction_id": "esper",
+  "faction_name": "Esper",
+  "source_review_date": "2026-05-30",
+  "last_updated": "2026-05-30",
+  "claim_count": 9,
+  "claims": [
+    {
+      "claim_id": "esper_claim_0001",
+      "faction_id": "esper",
+      "claim_type": "identity",
+      "statement": "Esper is the white-blue-black shard discussed in the local official Esper design article.",
+      "canon_status": "Source-supported identity",
+      "source_ids": [
+        "src_vm_esper_evidence_ledger_20260529",
+        "src_wotc_rosewater_esper_striving_for_perfection"
+      ],
+      "evidence_rows": [
+        "ESPER-001"
+      ],
+      "confidence": "High",
+      "notes": "Use for the base shard identity only; it does not prove detailed geography, society, figures, material lore, or chronology."
+    },
+    {
+      "claim_id": "esper_claim_0002",
+      "faction_id": "esper",
+      "claim_type": "identity_metadata",
+      "statement": "Esper's color direction is WUB, with Blue as the center/design lens.",
+      "canon_status": "Source-supported design metadata",
+      "source_ids": [
+        "src_vm_esper_evidence_ledger_20260529",
+        "src_wotc_rosewater_esper_striving_for_perfection"
+      ],
+      "evidence_rows": [
+        "ESPER-002"
+      ],
+      "confidence": "High",
+      "notes": "WUB is metadata only. This packet does not create WUB or ESPER as runtime, registry, placement, generated, alias, or raw-to-key data."
+    },
+    {
+      "claim_id": "esper_claim_0003",
+      "faction_id": "esper",
+      "claim_type": "design_identity",
+      "statement": "Esper's Blue-centered design philosophy treats potential as accessible through knowledge, planning, change, and applied information.",
+      "canon_status": "Official design commentary",
+      "source_ids": [
+        "src_vm_esper_evidence_ledger_20260529",
+        "src_wotc_rosewater_esper_striving_for_perfection"
+      ],
+      "evidence_rows": [
+        "ESPER-003"
+      ],
+      "confidence": "High",
+      "notes": "This supports identity and design-philosophy language. Do not rewrite it as an in-world social doctrine."
+    },
+    {
+      "claim_id": "esper_claim_0004",
+      "faction_id": "esper",
+      "claim_type": "design_identity",
+      "statement": "The official design article frames Esper as Blue's proof-of-concept world for order and perfection.",
+      "canon_status": "Official design commentary",
+      "source_ids": [
+        "src_vm_esper_evidence_ledger_20260529",
+        "src_wotc_rosewater_esper_striving_for_perfection"
+      ],
+      "evidence_rows": [
+        "ESPER-004"
+      ],
+      "confidence": "High",
+      "notes": "Use as color-pie/design support, not as direct in-world narration."
+    },
+    {
+      "claim_id": "esper_claim_0005",
+      "faction_id": "esper",
+      "claim_type": "design_identity",
+      "statement": "White supports Esper's Blue center through social improvement, long-term planning, technology serving people, and strategy.",
+      "canon_status": "Official design commentary",
+      "source_ids": [
+        "src_vm_esper_evidence_ledger_20260529",
+        "src_wotc_rosewater_esper_striving_for_perfection"
+      ],
+      "evidence_rows": [
+        "ESPER-005"
+      ],
+      "confidence": "High",
+      "notes": "This does not support unpromoted claims about Esper law, classes, institutions, or factions."
+    },
+    {
+      "claim_id": "esper_claim_0006",
+      "faction_id": "esper",
+      "claim_type": "design_identity",
+      "statement": "Black supports Esper's Blue center through control, information value, focus, and vision, while introducing ethical risk.",
+      "canon_status": "Official design commentary",
+      "source_ids": [
+        "src_vm_esper_evidence_ledger_20260529",
+        "src_wotc_rosewater_esper_striving_for_perfection"
+      ],
+      "evidence_rows": [
+        "ESPER-006"
+      ],
+      "confidence": "High",
+      "notes": "This does not support unpromoted claims about named figures, rulers, conflicts, or contested story material."
+    },
+    {
+      "claim_id": "esper_claim_0007",
+      "faction_id": "esper",
+      "claim_type": "design_boundary",
+      "statement": "Red and Green are the missing enemy-color pressures in Esper's shard framing.",
+      "canon_status": "Design commentary with source boundary",
+      "source_ids": [
+        "src_vm_esper_evidence_ledger_20260529",
+        "src_wotc_rosewater_esper_striving_for_perfection"
+      ],
+      "evidence_rows": [
+        "ESPER-007"
+      ],
+      "confidence": "High",
+      "notes": "Keep this at the design-philosophy level unless later evidence promotes detailed Alara lore."
+    },
+    {
+      "claim_id": "esper_claim_0008",
+      "faction_id": "esper",
+      "claim_type": "source_classification",
+      "statement": "The local canon inventory identifies the Esper Rosewater file as the primary identity source and the Alara protocol file as support/discovery material.",
+      "canon_status": "Repository source classification",
+      "source_ids": [
+        "src_vm_esper_evidence_ledger_20260529",
+        "src_vm_canon_inventory_three_color_audit_20260528"
+      ],
+      "evidence_rows": [
+        "ESPER-008"
+      ],
+      "confidence": "High",
+      "notes": "Use to preserve source hierarchy and reference paths, not as standalone lore proof."
+    },
+    {
+      "claim_id": "esper_claim_0009",
+      "faction_id": "esper",
+      "claim_type": "setting_context",
+      "statement": "The local corpus records Bant, Esper, Grixis, Jund, and Naya as the five Alara shard identities.",
+      "canon_status": "Repository shard-context support",
+      "source_ids": [
+        "src_vm_esper_evidence_ledger_20260529",
+        "src_vm_canon_inventory_three_color_audit_20260528"
+      ],
+      "evidence_rows": [
+        "ESPER-009"
+      ],
+      "confidence": "High",
+      "notes": "This supports basic Alara shard context only. It does not establish doctrine for other shards."
+    }
+  ],
+  "claim_quality_summary": {
+    "overall_confidence": "High for the narrow identity and design-philosophy floor; limited for detailed Esper lore until manual-fill topics receive stronger local evidence.",
+    "high_confidence_claims": 9,
+    "medium_confidence_claims": 0,
+    "low_confidence_claims": 0,
+    "manual_review_required": [
+      "Geography and named locations, including Vectis and Tidehollow",
+      "Society, classes, institutions, Ethersworn, Seekers, and Noble Work",
+      "Etherium, Carmot, Sangrite, Crucius, and metallurgy details",
+      "Figure-specific claims about Sharuum, Tezzeret, Silas Renn, Breya, Agatha, Sydri, or related figures",
+      "Conflux, post-Conflux, and post-Phyrexian chronology",
+      "Card-text-derived claims and exact flavor text"
+    ],
+    "notes": "VM-166 is source-authored and review-gated. It does not make Esper live or placement-eligible."
+  }
+}

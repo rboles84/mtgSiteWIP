@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jund: Deep Research Report</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Cinzel:wght@700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        mtg: {
+                            black: '#150b07',
+                            red: '#b91c1c',
+                            green: '#166534',
+                            white: '#f8fafc',
+                            blue: '#0284c7',
+                            jund: '#291d19'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Cinzel', 'serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #0c0a09;
+            color: #d6d3d1;
+            margin: 0;
+            overflow-x: hidden;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 400px;
+            max-height: 50vh;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 450px;
+            }
+        }
+        .nav-active {
+            background-color: #291d19;
+            border-left: 4px solid #b91c1c;
+            color: #ffffff;
+        }
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.4s ease-in-out;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #1c1917; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #b91c1c; 
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #991b1b; 
+        }
+    </style>
+</head>
+<body class="antialiased flex flex-col md:flex-row h-screen">
+
+    <!-- Chosen Palette: Volcanic Predation (Deep Charcoal, Blood Red, Forest Green, Bone White accents) -->
+    <!-- Application Structure Plan: The SPA uses a dashboard/sidebar navigation model to break a dense lore/mechanics report into digestible, thematic chunks. This prevents overwhelming the user with a wall of text. The structure moves logically from the executive summary, into the world-building (Alara), then color philosophy, mechanics, specific figures (clarifying lore vs gameplay assumptions), and finally player culture. This allows users to easily find specific data like "Is Prossh from Alara?" or "What does Jund 'em out mean?" -->
+    <!-- Visualization & Content Choices: 
+         - Color Philosophy (Pie Chart): Shows Red as central with Black/Green supporting. Library: Chart.js (Doughnut). 
+         - Thematic Support (Radar Chart): Maps how strongly themes are supported across Canon, Design, and Community. Library: Chart.js (Radar).
+         - Key Figures (Dynamic Table): Organizes complex character data and explicitly debunks non-Alara characters often associated with Jund colors. Uses HTML/JS sorting.
+         - CONFIRMING: NO SVG used. NO Mermaid JS used. Interactive elements rely on DOM manipulation and Chart.js Canvas. -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+
+    <nav class="w-full md:w-64 bg-[#150b07] border-r border-[#3f3f46] flex flex-col z-20 h-auto md:h-full overflow-y-auto shrink-0">
+        <div class="p-6 border-b border-[#3f3f46]">
+            <h1 class="text-3xl font-display text-white tracking-wider text-mtg-red">JUND</h1>
+            <p class="text-xs text-gray-400 mt-2 uppercase tracking-widest font-semibold">MTG Deep Research Report</p>
+        </div>
+        <ul class="flex-1 py-4 flex flex-row md:flex-col overflow-x-auto md:overflow-x-hidden" id="nav-menu">
+            <li><button data-target="exec-summary" class="nav-btn w-full text-left px-6 py-4 text-sm font-semibold text-gray-400 hover:text-white hover:bg-[#291d19] transition-colors whitespace-nowrap md:whitespace-normal nav-active">Executive Summary</button></li>
+            <li><button data-target="world-lore" class="nav-btn w-full text-left px-6 py-4 text-sm font-semibold text-gray-400 hover:text-white hover:bg-[#291d19] transition-colors whitespace-nowrap md:whitespace-normal">World & Lore</button></li>
+            <li><button data-target="color-philosophy" class="nav-btn w-full text-left px-6 py-4 text-sm font-semibold text-gray-400 hover:text-white hover:bg-[#291d19] transition-colors whitespace-nowrap md:whitespace-normal">Color Philosophy</button></li>
+            <li><button data-target="mechanics" class="nav-btn w-full text-left px-6 py-4 text-sm font-semibold text-gray-400 hover:text-white hover:bg-[#291d19] transition-colors whitespace-nowrap md:whitespace-normal">Mechanics & Gameplay</button></li>
+            <li><button data-target="key-figures" class="nav-btn w-full text-left px-6 py-4 text-sm font-semibold text-gray-400 hover:text-white hover:bg-[#291d19] transition-colors whitespace-nowrap md:whitespace-normal">Key Figures Verification</button></li>
+            <li><button data-target="community" class="nav-btn w-full text-left px-6 py-4 text-sm font-semibold text-gray-400 hover:text-white hover:bg-[#291d19] transition-colors whitespace-nowrap md:whitespace-normal">Community & Themes</button></li>
+            <li><button data-target="sources" class="nav-btn w-full text-left px-6 py-4 text-sm font-semibold text-gray-400 hover:text-white hover:bg-[#291d19] transition-colors whitespace-nowrap md:whitespace-normal">Source Map</button></li>
+        </ul>
+    </nav>
+
+    <main class="flex-1 p-6 md:p-12 overflow-y-auto relative bg-[#0c0a09]">
+
+        <section id="exec-summary" class="tab-content active max-w-4xl mx-auto">
+            <h2 class="text-4xl font-display text-white mb-6 border-b border-mtg-red pb-2">1. Executive Summary & Definition</h2>
+            <p class="text-lg text-gray-300 leading-relaxed mb-8">This section provides a high-level overview of Jund, distinguishing its canonical origins on the plane of Alara from its broader mechanical and player-driven identity in modern Magic: The Gathering.</p>
+            
+            <div class="bg-mtg-jund p-6 rounded-lg border border-mtg-red/30 mb-8 shadow-lg shadow-black/50">
+                <h3 class="text-xl font-bold text-mtg-red mb-4">The Best Short Definition</h3>
+                <p class="text-xl font-serif italic text-gray-200">"Jund is the black-red-green shard of Alara, a harsh, volcanic world defined by the absence of white's order and blue's logic. It is a predatory ecology built entirely on impulse, instinct, and a ruthless 'eat-or-be-eaten' hierarchy where dragons rule as apex predators. In player culture, 'Jund' has transcended this lore to become shorthand for a resource-attrition, midrange gameplay strategy defined by efficient threats and universal answers."</p>
+            </div>
+
+            <h3 class="text-2xl font-bold text-white mb-4">Core Findings</h3>
+            <ul class="space-y-4">
+                <li class="flex items-start">
+                    <span class="text-mtg-red mr-3 font-bold text-xl">►</span>
+                    <div><strong class="text-white">Alara Canon:</strong> Jund is a volcanic, jungle-covered shard where survival of the fittest is the only law. It is dominated by dragons who sit at the top of an inescapable food chain.</div>
+                </li>
+                <li class="flex items-start">
+                    <span class="text-mtg-red mr-3 font-bold text-xl">►</span>
+                    <div><strong class="text-white">Red-Centered Philosophy:</strong> According to Mark Rosewater, Jund is driven by Red's desire for action and impulse, utilizing Green's instinctual natural order and Black's amoral selfishness to survive.</div>
+                </li>
+                <li class="flex items-start">
+                    <span class="text-mtg-red mr-3 font-bold text-xl">►</span>
+                    <div><strong class="text-white">The Void of Order:</strong> The complete absence of White and Blue means Jund has no civilization, no concept of law, no reflection, and no abstract intellectualism. Everything is visceral.</div>
+                </li>
+                <li class="flex items-start">
+                    <span class="text-mtg-red mr-3 font-bold text-xl">►</span>
+                    <div><strong class="text-white">Mechanical Identity:</strong> Officially represented by the "Devour" mechanic (eating one's own to grow stronger). It heavily features sacrifice as a resource conversion tool.</div>
+                </li>
+                <li class="flex items-start">
+                    <span class="text-mtg-red mr-3 font-bold text-xl">►</span>
+                    <div><strong class="text-white">Player Culture Overlap:</strong> In Constructed formats, "Jund" describes a midrange attrition archetype ("Jund 'em out") that focuses on individual card quality rather than synergy. Many popular "Jund" Commanders (like Prossh) are frequently misattributed to the plane of Alara despite originating elsewhere.</div>
+                </li>
+            </ul>
+
+            <div class="mt-12 p-4 border border-gray-700 bg-black/50 rounded">
+                <h3 class="text-lg font-bold text-red-500 mb-2">Research Gaps & Uncertainties</h3>
+                <p class="text-sm text-gray-400">Post-Conflux integration details remain sparse. How the rigid predator/prey hierarchy of Jund fully adapted to encountering the structured military of Bant or the undead hordes of Grixis is largely told only in fragments. Furthermore, the daily existence of non-warrior classes on Jund is almost entirely undocumented, leaving it uncertain how basic societal reproduction occurs outside of combat.</p>
+            </div>
+        </section>
+
+        <section id="world-lore" class="tab-content max-w-4xl mx-auto">
+            <h2 class="text-4xl font-display text-white mb-6 border-b border-mtg-red pb-2">2. Jund as a World (Alara Lore)</h2>
+            <p class="text-lg text-gray-300 leading-relaxed mb-8">This section explores the physical and societal structure of the shard of Jund, built strictly upon official Shards of Alara lore, planeswalker guides, and set materials.</p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                <div class="bg-[#1a1a1a] p-6 rounded border-l-4 border-mtg-red">
+                    <h3 class="text-xl font-bold text-white mb-2">The Environment</h3>
+                    <p class="text-gray-400 text-sm">Jund is a world of jagged peaks, active volcanoes, toxic tar pits, and dense, suffocating jungles. The air is thick with ash and the smell of blood. It is a primal, unshaped world where tectonic violence mirrors the violence of its inhabitants.</p>
+                </div>
+                <div class="bg-[#1a1a1a] p-6 rounded border-l-4 border-mtg-green">
+                    <h3 class="text-xl font-bold text-white mb-2">The Food Chain</h3>
+                    <p class="text-gray-400 text-sm">Society does not exist; only ecology. The hierarchy is absolute and based purely on physical power. Dragons sit at the apex. Below them are Viashino, humans, and goblins. Everyone is a hunter, and everyone is prey. The "Life Hunt" is the central driving force of daily existence.</p>
+                </div>
+                <div class="bg-[#1a1a1a] p-6 rounded border-l-4 border-mtg-black">
+                    <h3 class="text-xl font-bold text-white mb-2">Absence of White & Blue</h3>
+                    <p class="text-gray-400 text-sm">Without White, there is no empathy, no law, no community, and no peace. Without Blue, there is no forethought, no planning, no intellectual curiosity, and no illusion. Jund operates purely in the present moment, driven by hunger and immediate survival.</p>
+                </div>
+                <div class="bg-[#1a1a1a] p-6 rounded border-l-4 border-gray-500">
+                    <h3 class="text-xl font-bold text-white mb-2">Named Locations</h3>
+                    <p class="text-gray-400 text-sm"><strong>The Jund Panorama:</strong> The vast volcanic mountain ranges. <strong>Tar Pits:</strong> Natural traps where predators wait for struggling prey. <em>Note: Kher Ridges is often associated with Jund colors due to Prossh, but is canonically on Dominaria.</em></p>
+                </div>
+            </div>
+
+            <h3 class="text-2xl font-bold text-white mt-10 mb-4">The Denizens of Jund</h3>
+            <div class="space-y-4">
+                <div class="p-4 bg-black/40 border border-[#3f3f46] rounded">
+                    <strong class="text-mtg-red text-lg">Dragons (Apex):</strong> The undisputed rulers of Jund. They do not govern; they consume. They feed on everything below them. They are fueled by the intense volcanic mana of the plane.
+                </div>
+                <div class="p-4 bg-black/40 border border-[#3f3f46] rounded">
+                    <strong class="text-mtg-green text-lg">Viashino (Predators):</strong> Lizard-folk who thrive in the volcanic heat. They are cunning pack-hunters, highly adapted to the harsh terrain, often preying on humans and goblins.
+                </div>
+                <div class="p-4 bg-black/40 border border-[#3f3f46] rounded">
+                    <strong class="text-gray-300 text-lg">Humans (Survivors):</strong> Divided into warrior clans, they revere strength and view death in battle as the only worthy end. Shamans weave magic from death and blood to strengthen their warriors.
+                </div>
+                <div class="p-4 bg-black/40 border border-[#3f3f46] rounded">
+                    <strong class="text-mtg-black text-lg">Goblins (Bottom Feeders):</strong> The bottom of the sentient food chain. They survive through sheer numbers, rapid reproduction, and scavenging, often serving as fodder for larger predators.
+                </div>
+            </div>
+        </section>
+
+        <section id="color-philosophy" class="tab-content max-w-5xl mx-auto">
+            <h2 class="text-4xl font-display text-white mb-6 border-b border-mtg-red pb-2">3. Red-Centered Color Philosophy</h2>
+            <p class="text-lg text-gray-300 leading-relaxed mb-8">Drawing heavily from Mark Rosewater's "Making Magic" articles, this section breaks down how Jund functions conceptually as a Black-Red-Green identity anchored by Red.</p>
+            
+            <div class="flex flex-col lg:flex-row gap-8 items-center bg-[#150b07] p-8 rounded-lg border border-[#3f3f46]">
+                <div class="flex-1 w-full">
+                    <h3 class="text-2xl font-bold text-white mb-4">The Core of Jund: Red's Impulse</h3>
+                    <p class="text-gray-300 mb-4">Mark Rosewater explicitly designed the Shards around a central color flanked by its two allies. Jund is Red-centered. Red is the color of emotion, action, impulse, and freedom.</p>
+                    <p class="text-gray-300 mb-4">In Jund, Red's desire to act without restraint is taken to its absolute extreme. There is no waiting, no deliberating. You act, or you are eaten. Red provides the explosive, chaotic energy that drives the plane's endless cycle of violence and volcanic eruptions.</p>
+                    <ul class="space-y-2 mt-6">
+                        <li class="text-gray-400"><strong class="text-mtg-black">Black's Contribution:</strong> Adds pure selfishness, amorality, and a willingness to kill or sacrifice others for personal gain. It removes any moral hesitation from Red's impulses.</li>
+                        <li class="text-gray-400"><strong class="text-mtg-green">Green's Contribution:</strong> Provides the framework of the "natural order" (the food chain), instinct, and growth. It grounds Red's chaos into a brutal, inescapable ecological system.</li>
+                    </ul>
+                </div>
+                <div class="flex-1 w-full flex justify-center">
+                    <div class="chart-container">
+                        <canvas id="colorPieChart"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-8 p-6 bg-red-900/20 border border-red-700/50 rounded text-center">
+                <h4 class="text-xl font-bold text-white mb-2">What Jund Loses Without White and Blue</h4>
+                <p class="text-gray-300 max-w-2xl mx-auto">The defining feature of a shard is its missing enemy colors. Without White, Jund lacks structure, altruism, laws, and peace. Without Blue, it lacks reflection, study, artifice, and patience. The result is a world completely devoid of civilization, existing in a perpetual state of immediate, visceral reality.</p>
+            </div>
+        </section>
+
+        <section id="mechanics" class="tab-content max-w-4xl mx-auto">
+            <h2 class="text-4xl font-display text-white mb-6 border-b border-mtg-red pb-2">4. Mechanics & Gameplay Identity</h2>
+            <p class="text-lg text-gray-300 leading-relaxed mb-8">Jund's identity is split between its canonical mechanical debut in Shards of Alara and its evolved, player-driven identity in Constructed formats.</p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">
+                <div class="bg-[#150b07] p-6 border border-[#3f3f46] rounded">
+                    <h3 class="text-2xl font-bold text-mtg-red mb-4">Alara Lore Mechanics</h3>
+                    <div class="mb-4">
+                        <h4 class="font-bold text-white text-lg">Devour</h4>
+                        <p class="text-sm text-gray-400 mt-1">The signature mechanic of Alara Jund. As a creature enters the battlefield, you may sacrifice any number of creatures to put +1/+1 counters on it. This perfectly encapsulates the "eat-or-be-eaten" lore. You feed the weak to the strong to create an apex predator.</p>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-white text-lg">Sacrifice as Resource</h4>
+                        <p class="text-sm text-gray-400 mt-1">Cards frequently require sacrificing creatures or lands to deal damage, draw cards, or generate mana. This reflects the expendable nature of life and resources in the Jund food chain.</p>
+                    </div>
+                </div>
+
+                <div class="bg-[#150b07] p-6 border border-[#3f3f46] rounded">
+                    <h3 class="text-2xl font-bold text-gray-300 mb-4">Constructed / "Modern" Identity</h3>
+                    <div class="mb-4">
+                        <h4 class="font-bold text-white text-lg">Midrange Attrition</h4>
+                        <p class="text-sm text-gray-400 mt-1">In competitive Magic (esp. Modern), "Jund" means a deck that seeks to trade resources 1-for-1 using efficient removal (Lightning Bolt, Fatal Push) and hand disruption (Thoughtseize), relying on standalone powerful threats (Tarmogoyf, Bloodbraid Elf) to win a topdeck war.</p>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-white text-lg">"Jund 'em Out"</h4>
+                        <p class="text-sm text-gray-400 mt-1">A community phrase meaning to strip an opponent of all synergy and resources, dragging them into a topdeck battle where the sheer individual power of Jund cards ensures victory. This is a gameplay interpretation of "survival of the fittest," not Alara lore.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="key-figures" class="tab-content max-w-5xl mx-auto">
+            <h2 class="text-4xl font-display text-white mb-6 border-b border-mtg-red pb-2">5. Key Figures: Verification & Source Mapping</h2>
+            <p class="text-lg text-gray-300 leading-relaxed mb-6">A critical analysis separating canonical Alara Jund characters from characters that merely share the Black-Red-Green color identity, commonly confused by the player base.</p>
+
+            <div class="overflow-x-auto">
+                <table class="min-w-full text-left border-collapse">
+                    <thead>
+                        <tr class="bg-[#291d19] text-white">
+                            <th class="p-4 border-b border-[#3f3f46]">Figure</th>
+                            <th class="p-4 border-b border-[#3f3f46]">Relationship to Alara Jund</th>
+                            <th class="p-4 border-b border-[#3f3f46]">Source Type</th>
+                            <th class="p-4 border-b border-[#3f3f46]">Confidence</th>
+                            <th class="p-4 border-b border-[#3f3f46]">Notes / Correction</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-sm text-gray-300" id="figures-table-body">
+                        <tr class="bg-[#150b07] hover:bg-[#1a1a1a] border-b border-[#3f3f46]">
+                            <td class="p-4 font-bold text-white">Kresh the Bloodbraided</td>
+                            <td class="p-4 text-mtg-green font-semibold">Confirmed Native</td>
+                            <td class="p-4">Official Canon (Alara)</td>
+                            <td class="p-4 text-green-500">High</td>
+                            <td class="p-4">Human warrior champion. Braids the hair of his fallen enemies into his own. Does <em class="text-red-400">not</em> lead all of Jund (Jund has no central leader).</td>
+                        </tr>
+                        <tr class="bg-[#150b07] hover:bg-[#1a1a1a] border-b border-[#3f3f46]">
+                            <td class="p-4 font-bold text-white">Broodmate Dragon / Hellkite Overlord</td>
+                            <td class="p-4 text-mtg-green font-semibold">Confirmed Native</td>
+                            <td class="p-4">Official Canon / Cards</td>
+                            <td class="p-4 text-green-500">High</td>
+                            <td class="p-4">Apex predators of the plane. Canonical representation of the dragon threat on Alara's Jund.</td>
+                        </tr>
+                        <tr class="bg-[#150b07] hover:bg-[#1a1a1a] border-b border-[#3f3f46]">
+                            <td class="p-4 font-bold text-white">Prossh, Skyraider of Kher</td>
+                            <td class="p-4 text-mtg-red font-semibold">NOT ALARA JUND</td>
+                            <td class="p-4">Card Data / Community</td>
+                            <td class="p-4 text-green-500">High (Confirmed Not)</td>
+                            <td class="p-4">Despite having "Jund mechanics" (sacrifice/tokens) and BRG colors, Prossh is canonically from Dominaria (Kher Ridges). Widely misattributed by EDH players.</td>
+                        </tr>
+                        <tr class="bg-[#150b07] hover:bg-[#1a1a1a] border-b border-[#3f3f46]">
+                            <td class="p-4 font-bold text-white">Sek'Kuar, Deathkeeper</td>
+                            <td class="p-4 text-mtg-red font-semibold">NOT ALARA JUND</td>
+                            <td class="p-4">Card Data / Community</td>
+                            <td class="p-4 text-green-500">High (Confirmed Not)</td>
+                            <td class="p-4">From the Coldsnap set (Dominaria/Ice Age era). An Orc Shaman. Shares the color identity and sacrifice synergy, but is completely unrelated to Alara lore.</td>
+                        </tr>
+                        <tr class="bg-[#150b07] hover:bg-[#1a1a1a] border-b border-[#3f3f46]">
+                            <td class="p-4 font-bold text-white">Vaevictis Asmadi</td>
+                            <td class="p-4 text-mtg-red font-semibold">NOT ALARA JUND</td>
+                            <td class="p-4">Official Canon</td>
+                            <td class="p-4 text-green-500">High (Confirmed Not)</td>
+                            <td class="p-4">An Elder Dragon from Dominaria. Used as the original namesake for the BRG color wedge before Alara was created.</td>
+                        </tr>
+                        <tr class="bg-[#150b07] hover:bg-[#1a1a1a]">
+                            <td class="p-4 font-bold text-white">Lord of Shatterskull Pass</td>
+                            <td class="p-4 text-mtg-red font-semibold">NOT ALARA JUND</td>
+                            <td class="p-4">Card Data</td>
+                            <td class="p-4 text-green-500">High (Confirmed Not)</td>
+                            <td class="p-4">Zendikar. Often grouped in "Jund goodstuff" discussions purely due to mechanics/colors.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="mt-6 p-4 bg-red-900/20 border border-red-700/50 rounded">
+                <strong class="text-white">Crucial Distinction:</strong> In Commander (EDH), players use "Jund" to describe the BRG color identity globally. Therefore, commanders like Prossh or Korvold, Fae-Cursed King (Eldraine) are called "Jund Commanders." However, from a strict lore perspective, they have zero connection to the shard of Jund on Alara.
+            </div>
+        </section>
+
+        <section id="community" class="tab-content max-w-5xl mx-auto">
+            <h2 class="text-4xl font-display text-white mb-6 border-b border-mtg-red pb-2">6. Themes & Community Interpretation</h2>
+            <p class="text-lg text-gray-300 leading-relaxed mb-8">Analyzing the perceived themes of Jund and how strongly they are backed by official lore versus how they have been molded by the player community.</p>
+
+            <div class="flex flex-col lg:flex-row gap-8 items-center mb-10">
+                <div class="flex-1 w-full">
+                    <div class="chart-container">
+                        <canvas id="radarChart"></canvas>
+                    </div>
+                    <p class="text-xs text-gray-500 text-center mt-2">Scale 1-5: How strongly a theme is supported by the source type.</p>
+                </div>
+                <div class="flex-1 w-full space-y-6">
+                    <div>
+                        <h4 class="text-xl font-bold text-mtg-red">Theme: "Eat or Be Eaten" (Predation)</h4>
+                        <p class="text-sm text-gray-300 mt-1"><strong>Support: Universal.</strong> Canon explicitly builds the world on this. Design embedded it in Devour. Players identify it instantly with BRG creature strategies.</p>
+                    </div>
+                    <div>
+                        <h4 class="text-xl font-bold text-white">Theme: "Jund Goodstuff / Value Engines"</h4>
+                        <p class="text-sm text-gray-300 mt-1"><strong>Support: Player/Community Driven.</strong> Lore Jund is not about accumulating incremental "value" or card advantage; it is about explosive, high-risk violence. "Value Jund" is entirely a product of competitive Constructed formats.</p>
+                    </div>
+                    <div>
+                        <h4 class="text-xl font-bold text-white">Why Players Enjoy Jund</h4>
+                        <p class="text-sm text-gray-300 mt-1">According to community hubs (r/EDH, Modern MTG content), players love the feeling of inevitability and interacting with every part of the board. It feels "fair" but powerful. It appeals to players who want to win through combat math, resource denial, and overwhelming physical board presence rather than infinite combos or stack interaction.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="sources" class="tab-content max-w-4xl mx-auto">
+            <h2 class="text-4xl font-display text-white mb-6 border-b border-mtg-red pb-2">7. Source Map & Methodology</h2>
+            <p class="text-lg text-gray-300 leading-relaxed mb-6">This research adhered strictly to verified sources to distinguish canon from community drift.</p>
+            
+            <div class="bg-[#150b07] border border-[#3f3f46] rounded overflow-hidden">
+                <table class="min-w-full text-left">
+                    <thead>
+                        <tr class="bg-[#291d19] text-white text-sm">
+                            <th class="p-3">Source Type</th>
+                            <th class="p-3">Specific Examples Consulted</th>
+                            <th class="p-3">Reliability for Lore</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-sm text-gray-300">
+                        <tr class="border-b border-[#3f3f46]">
+                            <td class="p-3 font-bold">Official Canon / Lore</td>
+                            <td class="p-3">Shards of Alara Planeswalker's Guide, Magic Story (Alara Block), Set Flavor Text.</td>
+                            <td class="p-3 text-green-500">Absolute Canon</td>
+                        </tr>
+                        <tr class="border-b border-[#3f3f46]">
+                            <td class="p-3 font-bold">Design Commentary</td>
+                            <td class="p-3">Mark Rosewater "Making Magic" (Jund Week), Blogatog (Color Pie philosophy).</td>
+                            <td class="p-3 text-blue-400">Design Intent / Conceptual</td>
+                        </tr>
+                        <tr class="border-b border-[#3f3f46]">
+                            <td class="p-3 font-bold">Card Databases</td>
+                            <td class="p-3">Scryfall, Gatherer (verifying character sets: Prossh, Sek'Kuar).</td>
+                            <td class="p-3 text-green-500">Mechanical/Origin Canon</td>
+                        </tr>
+                        <tr class="border-b border-[#3f3f46]">
+                            <td class="p-3 font-bold">Community Data</td>
+                            <td class="p-3">EDHREC (Jund Commanders), r/ModernMagic, r/EDH, Tolarian Community College (Format history).</td>
+                            <td class="p-3 text-yellow-500">Player Perception Only</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="mt-8 p-4 bg-mtg-jund border-l-4 border-mtg-red">
+                <h3 class="text-lg font-bold text-white mb-1">What NOT To Overclaim (Guidelines for Accuracy)</h3>
+                <ul class="list-disc list-inside text-gray-300 space-y-2 mt-2 text-sm">
+                    <li>Do not claim Kresh the Bloodbraided is the "leader" or "king" of Jund. Jund has no central government.</li>
+                    <li>Do not claim Prossh or Korvold are from Alara.</li>
+                    <li>Do not equate Modern Jund (Thoughtseize/Goyf) to the lore of Alara Jund. One is about calculated resource trading; the other is explosive survivalism.</li>
+                    <li>Do not treat Reddit/EDHREC discussions as story canon.</li>
+                </ul>
+            </div>
+        </section>
+
+    </main>
+
+    <script>
+        const navButtons = document.querySelectorAll('.nav-btn');
+        const tabContents = document.querySelectorAll('.tab-content');
+
+        navButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                navButtons.forEach(b => b.classList.remove('nav-active', 'border-l-4', 'border-mtg-red', 'text-white', 'bg-[#291d19]'));
+                
+                btn.classList.add('nav-active', 'border-l-4', 'border-mtg-red', 'text-white', 'bg-[#291d19]');
+                
+                tabContents.forEach(content => {
+                    content.classList.remove('active');
+                });
+                
+                const targetId = btn.getAttribute('data-target');
+                document.getElementById(targetId).classList.add('active');
+            });
+        });
+
+        const initCharts = () => {
+            Chart.defaults.color = '#a8a29e';
+            Chart.defaults.font.family = 'Inter, sans-serif';
+
+            const pieCtx = document.getElementById('colorPieChart').getContext('2d');
+            new Chart(pieCtx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Red (Action/Impulse)', 'Black (Selfishness)', 'Green (Instinct)'],
+                    datasets: [{
+                        data: [50, 25, 25],
+                        backgroundColor: [
+                            '#b91c1c', 
+                            '#1a1a1a', 
+                            '#15803d'  
+                        ],
+                        borderColor: '#291d19',
+                        borderWidth: 2,
+                        hoverOffset: 10
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'bottom',
+                            labels: {
+                                padding: 20,
+                                font: { size: 14 }
+                            }
+                        },
+                        title: {
+                            display: true,
+                            text: 'Jund Color Philosophy Weighting (Conceptual)',
+                            color: '#ffffff',
+                            font: { size: 16 }
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    let label = context.label || '';
+                                    if (label) label += ': ';
+                                    if (context.parsed !== null) label += context.parsed + '% Core Identity';
+                                    return label;
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+
+            const radarCtx = document.getElementById('radarChart').getContext('2d');
+            new Chart(radarCtx, {
+                type: 'radar',
+                data: {
+                    labels: [
+                        'Eat or be Eaten',
+                        'Instinct over Law',
+                        'Dragons as Apex',
+                        'Sacrifice for Value',
+                        'Midrange Inevitability'
+                    ],
+                    datasets: [
+                        {
+                            label: 'Official Lore / Canon',
+                            data: [5, 5, 5, 2, 1],
+                            backgroundColor: 'rgba(185, 28, 28, 0.2)',
+                            borderColor: 'rgba(185, 28, 28, 1)',
+                            pointBackgroundColor: 'rgba(185, 28, 28, 1)',
+                            borderWidth: 2
+                        },
+                        {
+                            label: 'Player Community / Meta',
+                            data: [3, 2, 3, 5, 5],
+                            backgroundColor: 'rgba(21, 128, 61, 0.2)',
+                            borderColor: 'rgba(21, 128, 61, 1)',
+                            pointBackgroundColor: 'rgba(21, 128, 61, 1)',
+                            borderWidth: 2
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        r: {
+                            angleLines: { color: '#3f3f46' },
+                            grid: { color: '#3f3f46' },
+                            pointLabels: {
+                                color: '#d6d3d1',
+                                font: { size: 12 }
+                            },
+                            ticks: {
+                                display: false,
+                                min: 0,
+                                max: 5
+                            }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            position: 'top',
+                            labels: {
+                                color: '#ffffff'
+                            }
+                        },
+                        tooltip: {
+                            callbacks: {
+                                title: function(context) {
+                                    return context[0].label;
+                                },
+                                label: function(context) {
+                                    return context.dataset.label + ': ' + context.raw + '/5';
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        };
+
+        window.addEventListener('DOMContentLoaded', initCharts);
+    </script>
+</body>
+</html>

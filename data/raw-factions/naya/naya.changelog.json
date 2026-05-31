@@ -1,0 +1,163 @@
+{
+  "schema_version": "1.0.0",
+  "faction_id": "naya",
+  "faction_name": "Naya",
+  "last_updated": "2026-05-30",
+  "changes": [
+    {
+      "change_id": "naya_change_001",
+      "change_type": "VM-184 Initial Source-Only Raw Packet",
+      "change_date": "2026-05-30",
+      "summary": "Created Naya's authored-but-not-live raw-faction packet from VM-181 evidence and VM-182/VM-183 shaping language while preserving all support-only, manual-fill, comparator, source-role, and runtime boundaries.",
+      "sources_added": [
+        "src_vm_naya_source_ledger_20260530",
+        "src_vm_naya_evidence_ledger_20260530",
+        "src_wotc_rosewater_naya_searching_within",
+        "src_vm_canon_inventory_three_color_audit_20260528",
+        "src_vm_naya_research_dossier_20260530",
+        "src_vm_naya_reliability_audit_20260530",
+        "src_vm_naya_manual_fill_20260530",
+        "src_vm_naya_lore_source_packet_20260530",
+        "src_vm_naya_identity_md_20260530",
+        "src_vm_naya_metaphysics_md_20260530",
+        "src_alara_shards_lore_dossier_protocol_rtf",
+        "src_alara_metaphysical_ecology_interactive_codex",
+        "src_scryfall_oracle_cards_local",
+        "src_vm_second_commander_recommendations_rgw",
+        "src_wotc_color_philosophy_support_naya",
+        "src_vm_shard_comparator_support_naya"
+      ],
+      "sources_updated": [],
+      "claims_added": [
+        "naya_claim_0001",
+        "naya_claim_0002",
+        "naya_claim_0003",
+        "naya_claim_0004",
+        "naya_claim_0005",
+        "naya_claim_0006",
+        "naya_claim_0007",
+        "naya_claim_0008",
+        "naya_claim_0009",
+        "naya_claim_0010"
+      ],
+      "claims_updated": [],
+      "claims_superseded": [],
+      "claims_contradicted": [],
+      "profile_fields_updated": [
+        "site_surface",
+        "core_identity",
+        "structure",
+        "great_tension",
+        "historical_timeline",
+        "key_figures",
+        "canonical_flavor_text",
+        "views_on_other_factions",
+        "mechanics",
+        "search_and_filter_metadata",
+        "data_quality",
+        "research_limitations",
+        "commander_compass"
+      ],
+      "placement_fields_updated": [
+        "placement_summary",
+        "moral_and_psychological_profile",
+        "placement_axes",
+        "core_values",
+        "behavioral_signals",
+        "inhibitor_traits",
+        "good_fit_indicators",
+        "ideal_fit_indicators",
+        "poor_fit_indicators",
+        "discriminator_questions",
+        "chatbot_guidance",
+        "placement_quality",
+        "color_identity",
+        "calibration_tuning",
+        "collision_guidance"
+      ],
+      "manual_review_required": [
+        "Keep detailed Naya geography, named locations, settlements, and shard-era travel deferred.",
+        "Keep Mayael, the Anima, Cylian elves, Nacatl groups, Jazal, Marisi, Progenitus, and Gahiji biography or authority deferred unless separately verified by narrow local evidence.",
+        "Keep Progenitus theology, worldsoul claims, Coil worship, and religion deferred.",
+        "Keep power 5, enormous creatures, and big-matters gameplay as whole-identity theory deferred.",
+        "Keep Conflux, post-Conflux, and post-Phyrexian outcomes deferred.",
+        "Keep Commander/operator rows as product support only.",
+        "Keep Cabaretti, Selesnya, Gruul, Boros, Bant, Jund, Abzan, and Temur as boundary/comparator material only.",
+        "Keep RGW, GRW, and WRG as metadata only."
+      ],
+      "notes": "This initial packet intentionally leaves placement_axes empty, keeps Naya authored and review-gated, does not edit builder/runtime/generated/schema/route/Home/Maze/Supabase/fixture/test surfaces, and does not add naya, NAYA, RGW, GRW, or WRG as a generated, route, fixture, lookup, public label, or builder target."
+    },
+    {
+      "change_id": "naya_change_002",
+      "change_type": "VM-188 Controlled Runtime Promotion Metadata",
+      "change_date": "2026-05-30",
+      "summary": "Updated Naya status, review, and promotion metadata for a controlled VM-188 live pilot while leaving raw claims and source evidence rows unchanged.",
+      "sources_added": [],
+      "sources_updated": [
+        "src_vm_naya_lore_source_packet_20260530"
+      ],
+      "claims_added": [],
+      "claims_updated": [],
+      "claims_superseded": [],
+      "claims_contradicted": [],
+      "profile_fields_updated": [
+        "site_surface.runtime_status",
+        "site_surface.placement_status",
+        "site_surface.preview_eligible",
+        "great_tension.placement_relevance",
+        "search_and_filter_metadata",
+        "data_quality"
+      ],
+      "placement_fields_updated": [
+        "placement_summary",
+        "moral_and_psychological_profile",
+        "placement_quality.review_gated",
+        "placement_quality.placement_eligible",
+        "placement_quality.live_pilot",
+        "calibration_tuning.status",
+        "chatbot_guidance.review_note"
+      ],
+      "manual_review_required": [
+        "Keep all VM-181 manual-fill topics deferred unless a later evidence packet promotes them.",
+        "Keep Commander/operator rows as product support only.",
+        "Keep geography, figures, religion, creature-culture hierarchy, power-5 totalization, and post-Phyrexian outcomes out of raw claims unless later evidence work promotes exact claims.",
+        "Keep RGW, GRW, and WRG as metadata only, not live keys or aliases."
+      ],
+      "notes": "VM-188 promotion metadata does not add lore sources, raw claims, Commander facts, evidence rows, route pages, Home cards, Maze routes, schema fields, or manual Supabase source edits."
+    }
+  ],
+  "audit_summary": {
+    "raw_packet_created": true,
+    "raw_claim_count": 10,
+    "source_evidence_rows_used": [
+      "NAYA-EVID-001",
+      "NAYA-EVID-002",
+      "NAYA-EVID-003",
+      "NAYA-EVID-004",
+      "NAYA-EVID-005",
+      "NAYA-EVID-006",
+      "NAYA-EVID-007",
+      "NAYA-EVID-008",
+      "NAYA-EVID-009",
+      "NAYA-EVID-011",
+      "NAYA-EVID-013"
+    ],
+    "support_only_rows_as_claims": false,
+    "manual_fill_rows_as_claims": false,
+    "architecture_docs_as_raw_claim_evidence": false,
+    "commander_rows_as_raw_claims": false,
+    "seed_files_as_raw_claim_evidence": false,
+    "generated_reports_as_raw_claim_evidence": false,
+    "builder_mapping_changed": false,
+    "generated_artifacts_changed": false,
+    "status": "vm188_live_pilot",
+    "placement_ready_pass": null,
+    "rgw_metadata_only": true,
+    "raw_to_key_updated": true,
+    "build_factions_run": true,
+    "generated_artifacts_updated": true,
+    "last_placement_ready_pass": "VM-188",
+    "placement_eligible": true,
+    "live_pilot": true
+  }
+}

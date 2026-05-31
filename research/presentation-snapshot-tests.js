@@ -65,11 +65,11 @@ assert.ok(monoWhite.presentation.maze_paths.every((path) => path.plainReadingQue
 assert.match(monoWhite.authored_vs_fallback.summary, /commander_compass/);
 
 const monoBoundaryFamilies = {
-  "mono-white-boundary": ["WU", "WB", "WG", "WR", "WUG"],
-  "mono-blue-boundary": ["WU", "UB", "UR", "UG", "WUG"],
-  "mono-black-boundary": ["WB", "UB", "BR", "BG"],
-  "mono-red-boundary": ["WR", "UR", "BR", "RG"],
-  "mono-green-boundary": ["WG", "UG", "BG", "RG", "WUG"],
+  "mono-white-boundary": ["WU", "WB", "WG", "WR", "WUG", "RGW"],
+  "mono-blue-boundary": ["WU", "UB", "UR", "UG", "WUG", "UBR"],
+  "mono-black-boundary": ["WB", "UB", "BR", "BG", "UBR", "BRG"],
+  "mono-red-boundary": ["WR", "UR", "BR", "RG", "UBR", "BRG", "RGW"],
+  "mono-green-boundary": ["WG", "UG", "BG", "RG", "WUG", "BRG", "RGW"],
 };
 Object.entries(monoBoundaryFamilies).forEach(([caseId, expectedFamilies]) => {
   const entry = payload.cases.find((item) => item.case_id === caseId);
