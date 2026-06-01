@@ -156,6 +156,19 @@ The branch contains a large completed bundle spanning Abzan, Temur, Sultai, Mard
 - `npm.cmd run audit:factions`: passed.
 - `npm.cmd test`: completed with PASS output across the bundled automated suites and no failure output.
 
+## Merge-Back Closeout Update (Pre-Target-Push)
+
+- Bundle commit hash: `2f2dd602647a35214c963c1ba055915ad959d6f6` (`2f2dd60`)
+- Source branch push result: pushed `codex/abzan-houses-gold-standard-onboarding` to `origin` as a new remote branch and set upstream tracking successfully.
+- Source `HEAD` / `origin` comparison: `git rev-parse HEAD` and `git rev-parse origin/codex/abzan-houses-gold-standard-onboarding` both resolved to `2f2dd602647a35214c963c1ba055915ad959d6f6`.
+- Source pre-switch cleanliness: `git -c safe.directory=C:/dev/mtgSiteWIP status -sb` showed `## codex/abzan-houses-gold-standard-onboarding...origin/codex/abzan-houses-gold-standard-onboarding` with no dirty paths.
+- Excluded Bant-path confirmation: `git -c safe.directory=C:/dev/mtgSiteWIP show --name-only --oneline HEAD` did not list `docs/research/bant/Magic_ The Gathering Bant Lore Research.md`; the exact excluded path remained absent from both the worktree check and the payload commit contents.
+- Target fast-forward result: `feature/ui-refactor-exploration` was fast-forwarded from `087327e` to `2f2dd60` with `git -c safe.directory=C:/dev/mtgSiteWIP merge --ff-only codex/abzan-houses-gold-standard-onboarding`.
+- Target post-fast-forward verification: `git -c safe.directory=C:/dev/mtgSiteWIP log --oneline --decorate -3` showed `HEAD -> feature/ui-refactor-exploration` at `2f2dd60`, matching the published payload commit.
+- Pre-push checkout/status on `feature/ui-refactor-exploration`: `git -c safe.directory=C:/dev/mtgSiteWIP status -sb` showed `## feature/ui-refactor-exploration...origin/feature/ui-refactor-exploration [ahead 6]`.
+- Expected target push command: `git -c safe.directory=C:/dev/mtgSiteWIP push origin feature/ui-refactor-exploration`
+- Target push success is intentionally not recorded in this commit because the push happens after this closeout update.
+
 ## Not Touched
 
 - `main`
@@ -166,13 +179,12 @@ The branch contains a large completed bundle spanning Abzan, Temur, Sultai, Mard
 
 ## Follow-Up Recommendations
 
-- After the payload commit is pushed, verify the exact commit contents before switching branches.
-- After the target fast-forward, update this same handoff with the merge-back state in a metadata-only commit.
-- After the target push, report the actual upstream hash alignment and final clean checkout in the final response rather than backfilling it into this pre-commit version.
+- Push `feature/ui-refactor-exploration` after this metadata-only closeout commit and verify `HEAD` matches `origin/feature/ui-refactor-exploration`.
+- Report the actual target push result, upstream hash alignment, and final clean checkout in the final response rather than backfilling it into this pre-push handoff state.
 
 ## Next Suggested Agent
 
-Release Steward to complete the source push, target fast-forward, closeout commit, and final branch verification.
+Release Steward to create the metadata-only closeout commit, push `feature/ui-refactor-exploration`, and verify final branch alignment.
 
 ## Related Kanban Card / Docs
 
