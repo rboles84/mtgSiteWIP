@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jeskai Way: Deep Research Report</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 350px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 400px;
+            }
+        }
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.3s ease-in-out;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(5px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-900 font-sans leading-relaxed">
+
+    <!-- Chosen Palette: Jeskai Scroll (Warm slate backgrounds, deep blue text, crimson and sky blue accents representing URW) -->
+    <!-- Application Structure Plan: The SPA uses a tabbed dashboard layout. This structure was chosen to prevent an overwhelming wall of text, allowing the user to compartmentalize lore, mechanical data, and community interpretations. The sidebar navigation intuitively guides the user through the requested research sections (Summary, Lore, Philosophy, Gameplay, Figures, Synthesis). -->
+    <!-- Visualization & Content Choices: Radar Chart (Philosophy) -> Visually demonstrates the URW dominance and complete lack of BG, reflecting Maro's design commentary (Chart.js). Bar Chart (Community) -> Contrasts actual lore with modern player archetypes in Commander (Chart.js). Tables -> Organizes dense factual data like Key Figures and Theme Synthesis for easy scanning. -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+
+    <div class="flex flex-col md:flex-row min-h-screen">
+
+        <nav class="bg-blue-900 text-white w-full md:w-64 flex-shrink-0 p-6 sticky top-0 md:h-screen overflow-y-auto shadow-xl">
+            <div class="mb-8">
+                <h1 class="text-2xl font-bold tracking-wider uppercase text-blue-100">Jeskai Way</h1>
+                <p class="text-sm text-blue-300 mt-1">Research Report</p>
+            </div>
+            <ul class="space-y-2">
+                <li><button onclick="switchTab('exec-summary')" id="btn-exec-summary" class="w-full text-left px-4 py-2 rounded transition-colors bg-blue-800 text-white font-medium">1. Executive Summary</button></li>
+                <li><button onclick="switchTab('canon-culture')" id="btn-canon-culture" class="w-full text-left px-4 py-2 rounded transition-colors hover:bg-blue-800 text-blue-200">2. Canon & Culture</button></li>
+                <li><button onclick="switchTab('philosophy')" id="btn-philosophy" class="w-full text-left px-4 py-2 rounded transition-colors hover:bg-blue-800 text-blue-200">3. Design Philosophy</button></li>
+                <li><button onclick="switchTab('mechanics')" id="btn-mechanics" class="w-full text-left px-4 py-2 rounded transition-colors hover:bg-blue-800 text-blue-200">4. Mechanics & Player View</button></li>
+                <li><button onclick="switchTab('figures')" id="btn-figures" class="w-full text-left px-4 py-2 rounded transition-colors hover:bg-blue-800 text-blue-200">5. Key Figures</button></li>
+                <li><button onclick="switchTab('synthesis')" id="btn-synthesis" class="w-full text-left px-4 py-2 rounded transition-colors hover:bg-blue-800 text-blue-200">6. Synthesis & Gaps</button></li>
+            </ul>
+        </nav>
+
+        <main class="flex-grow p-6 md:p-10 max-w-6xl mx-auto w-full">
+
+            <section id="exec-summary" class="tab-content active">
+                <h2 class="text-3xl font-bold text-blue-900 mb-6 border-b-2 border-red-500 pb-2">1. Executive Summary & Source Map</h2>
+                <p class="mb-6 text-lg">This section provides a high-level overview of the Jeskai clan's core identity and catalogs the sources used to verify these claims.</p>
+
+                <div class="bg-white p-6 rounded-lg shadow-md mb-8 border-l-4 border-blue-500">
+                    <ul class="list-disc pl-5 space-y-3">
+                        <li><strong>Identity:</strong> The Jeskai Way is a martial, mystical clan originating from the plane of Tarkir, centered in blue mana and supported by red and white.</li>
+                        <li><strong>Core Philosophy:</strong> They seek enlightenment through discipline, focusing on the perfection of mind and body, martial technique, and the accumulation of knowledge.</li>
+                        <li><strong>Culture:</strong> Situated in high mountain monasteries, the society includes monks, warriors, sages, aven, humans, efreet, and djinn, bound by strict codes and training.</li>
+                        <li><strong>Dragon Aspect:</strong> They revere the dragon aspect of <em>cunning</em>, originally utilizing soulfire, which later became subjugated under Dragonlord Ojutai.</li>
+                        <li><strong>Mechanical Identity:</strong> Built around the "Prowess" mechanic, noncreature spell synergy, combat tricks, tempo manipulation, and tactical superiority.</li>
+                        <li><strong>Player Perception:</strong> In modern formats like Commander, Jeskai is heavily associated with "spellslinger" and "control" archetypes, though this slightly oversimplifies their martial lore.</li>
+                    </ul>
+                </div>
+
+                <h3 class="text-2xl font-bold text-blue-900 mb-4">Source Map</h3>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left border-collapse bg-white shadow-md rounded-lg overflow-hidden">
+                        <thead class="bg-blue-100 text-blue-900">
+                            <tr>
+                                <th class="p-3 font-semibold">Source</th>
+                                <th class="p-3 font-semibold">Type</th>
+                                <th class="p-3 font-semibold">What It Supports</th>
+                                <th class="p-3 font-semibold">Reliability</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-gray-200">
+                            <tr class="hover:bg-slate-50">
+                                <td class="p-3">MTG Official Articles (Planeswalker's Guide to Khans of Tarkir)</td>
+                                <td class="p-3">Official Canon</td>
+                                <td class="p-3">Monastery culture, races (aven, efreet, djinn), stronghold names, soulfire concept.</td>
+                                <td class="p-3 text-green-600 font-bold">Highest</td>
+                            </tr>
+                            <tr class="hover:bg-slate-50">
+                                <td class="p-3">Mark Rosewater "Making Magic" / Blogatog</td>
+                                <td class="p-3">Design Commentary</td>
+                                <td class="p-3">Blue-centered philosophy, lack of B/G, Prowess creation, wedge balance.</td>
+                                <td class="p-3 text-green-600 font-bold">High (Design)</td>
+                            </tr>
+                            <tr class="hover:bg-slate-50">
+                                <td class="p-3">Scryfall / Gatherer (Card Text/Flavor)</td>
+                                <td class="p-3">Rules/Card Data</td>
+                                <td class="p-3">Mechanics, character affiliations, spell types, creature typings (Monks).</td>
+                                <td class="p-3 text-green-600 font-bold">High</td>
+                            </tr>
+                            <tr class="hover:bg-slate-50">
+                                <td class="p-3">MTG Story (Tarkir Block Stories)</td>
+                                <td class="p-3">Official Canon</td>
+                                <td class="p-3">Narset's leadership, Shu Yun's sacrifice, transition to Ojutai brood.</td>
+                                <td class="p-3 text-green-600 font-bold">Highest</td>
+                            </tr>
+                            <tr class="hover:bg-slate-50">
+                                <td class="p-3">EDHREC / r/EDH</td>
+                                <td class="p-3">Community Interp.</td>
+                                <td class="p-3">Player archetypes (spellslinger, control), deckbuilding habits.</td>
+                                <td class="p-3 text-orange-500 font-bold">Contextual</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section id="canon-culture" class="tab-content">
+                <h2 class="text-3xl font-bold text-blue-900 mb-6 border-b-2 border-red-500 pb-2">2. Confirmed Canon & Culture</h2>
+                <p class="mb-6 text-lg">This section outlines the verified lore of the Jeskai Way, their environment, society, and the fundamental shift caused by the Tarkir timeline alteration.</p>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                    <div class="bg-white p-6 rounded-lg shadow border-t-4 border-blue-500">
+                        <h3 class="text-xl font-bold text-blue-800 mb-3">Society & Environment</h3>
+                        <p class="mb-3">The Jeskai inhabit the high mountain peaks, remote lakes, and hidden valleys of Tarkir. Their society is built around fortress-monasteries (like the Sage-Eye Stronghold and Dirgur Fortress). They are an ascetic culture devoted to martial arts, mysticism, and rigorous physical and mental training.</p>
+                        <p><strong>Demographics:</strong> The clan is diverse, comprising Humans, Aven (bird-folk), Efreet, and Djinn. Monks, warriors, and sages form the bulk of their ranks.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow border-t-4 border-red-500">
+                        <h3 class="text-xl font-bold text-red-800 mb-3">Magic & Combat</h3>
+                        <p class="mb-3">Jeskai combat is characterized by speed, precision, and agility, contrasting with the brute force of the Temur or Mardu. They utilize elemental magic—wind, water, and fire.</p>
+                        <p><strong>Inner Fire:</strong> In the original timeline, Jeskai mystics learned to harness "soulfire" or inner fire, channeling their life essence into martial strikes and spells. They embody the dragon aspect of <em>cunning</em>.</p>
+                    </div>
+                </div>
+
+                <h3 class="text-2xl font-bold text-blue-900 mb-4">The Timeline Shift</h3>
+                <div class="bg-blue-50 p-6 rounded-lg border border-blue-200">
+                    <p class="mb-3"><strong>Khans Timeline (Jeskai Way):</strong> Led by Khan Narset. A proud, independent clan preserving historical scrolls and seeking personal enlightenment.</p>
+                    <p><strong>Dragons Timeline (Ojutai Brood):</strong> Following Sarkhan Vol's intervention, dragons survived. The Jeskai submitted to Dragonlord Ojutai. They are no longer the "Jeskai Way" officially, but the "Ojutai Brood." History was erased; true enlightenment is now defined strictly by Ojutai's teachings. The red mana influence was suppressed, pushing them to a strict Blue/White alignment, prioritizing dogma and order over passion and freedom.</p>
+                </div>
+            </section>
+
+            <section id="philosophy" class="tab-content">
+                <h2 class="text-3xl font-bold text-blue-900 mb-6 border-b-2 border-red-500 pb-2">3. Design & Color Philosophy</h2>
+                <p class="mb-6 text-lg">Mark Rosewater's design commentary defines Jeskai as a blue-centered wedge. This section explores how the presence of blue, red, and white, alongside the notable absence of black and green, shapes their worldview.</p>
+
+                <div class="flex flex-col lg:flex-row gap-8 items-center bg-white p-6 rounded-lg shadow mb-8">
+                    <div class="w-full lg:w-1/2">
+                        <h3 class="text-xl font-bold text-blue-800 mb-2">The Blue Center</h3>
+                        <p class="mb-4">Blue is the core. Jeskai believes the world is a blank slate and perfection is achievable through knowledge and rigorous study. Everything is a technique to be mastered.</p>
+
+                        <h3 class="text-xl font-bold text-red-600 mb-2">Red & White Support</h3>
+                        <p class="mb-4"><strong>Red</strong> provides passion, speed, and instinct. It turns blue's static knowledge into expressive, spontaneous martial motion. <strong>White</strong> provides order, structure, and a moral code, grounding red's chaos into disciplined monastic life.</p>
+
+                        <h3 class="text-xl font-bold text-gray-700 mb-2">The Absence of Black & Green</h3>
+                        <ul class="list-disc pl-5 space-y-2 text-gray-700">
+                            <li><strong>No Black:</strong> Jeskai lacks ambition for the sake of power at the expense of others. They are not ruthless, exploitative, or parasitic.</li>
+                            <li><strong>No Green:</strong> They do not accept the world "as it is." They reject biological determinism and instinctual stagnation, believing training (nurture) always overcomes nature.</li>
+                        </ul>
+                    </div>
+                    <div class="w-full lg:w-1/2">
+                        <div class="chart-container">
+                            <canvas id="philosophyChart"></canvas>
+                        </div>
+                        <p class="text-center text-sm text-gray-500 mt-2">Relative influence of color pie philosophies on Jeskai society.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="mechanics" class="tab-content">
+                <h2 class="text-3xl font-bold text-blue-900 mb-6 border-b-2 border-red-500 pb-2">4. Mechanics & Player Perception</h2>
+                <p class="mb-6 text-lg">This section contrasts the official gameplay mechanics introduced in Tarkir block with how modern Commander players interpret the Blue-Red-White (Jeskai) color identity.</p>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                    <div class="bg-blue-50 p-6 rounded-lg border border-blue-200">
+                        <h3 class="text-xl font-bold text-blue-900 mb-3">Tarkir Gameplay Identity</h3>
+                        <ul class="list-disc pl-5 space-y-2">
+                            <li><strong>Prowess:</strong> The signature mechanic. Creatures get +1/+1 until end of turn whenever a noncreature spell is cast. It physically represents martial mastery triggered by mystical preparation.</li>
+                            <li><strong>Combat Tricks & Tempo:</strong> High utilization of bounce spells, burn, and protection to outmaneuver larger threats.</li>
+                            <li><strong>Evasion:</strong> High density of flying (Aven/Dragons) and unblockable mechanics.</li>
+                            <li><strong>Synergy over Size:</strong> Creatures are individually smaller but scale rapidly as spells are chained together.</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-lg shadow">
+                        <h3 class="text-xl font-bold text-blue-900 mb-3">Commander Archetypes (EDHREC)</h3>
+                        <div class="chart-container" style="height: 250px;">
+                            <canvas id="commanderChart"></canvas>
+                        </div>
+                        <p class="text-sm text-gray-600 mt-4"><em>Community Interpretation:</em> Players strongly associate Jeskai with Spellslinger and Control. The martial/monk aspect of the lore is mechanically present (Prowess) but heavily overshadowed by non-interactive spell-chaining in actual deckbuilding.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="figures" class="tab-content">
+                <h2 class="text-3xl font-bold text-blue-900 mb-6 border-b-2 border-red-500 pb-2">5. Key Figures & Cards</h2>
+                <p class="mb-6 text-lg">A catalog of major individuals and definitive cards tied officially to the Jeskai Way, verifying their canonical status and role.</p>
+
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left border-collapse bg-white shadow-md rounded-lg overflow-hidden text-sm">
+                        <thead class="bg-blue-100 text-blue-900">
+                            <tr>
+                                <th class="p-3 font-semibold">Figure / Card</th>
+                                <th class="p-3 font-semibold">Relationship to Jeskai</th>
+                                <th class="p-3 font-semibold">Source Type</th>
+                                <th class="p-3 font-semibold">Confidence</th>
+                                <th class="p-3 font-semibold">Notes</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-gray-200">
+                            <tr class="hover:bg-slate-50">
+                                <td class="p-3 font-medium">Narset, Enlightened Master</td>
+                                <td class="p-3">Khan of the Jeskai (Original Timeline).</td>
+                                <td class="p-3">Official Canon</td>
+                                <td class="p-3 text-green-600 font-bold">Highest</td>
+                                <td class="p-3">Embodiment of Jeskai seeking knowledge beyond clan dogma.</td>
+                            </tr>
+                            <tr class="hover:bg-slate-50">
+                                <td class="p-3 font-medium">Shu Yun, the Silent Tempest</td>
+                                <td class="p-3">Khan of the Jeskai (Fate Reforged era).</td>
+                                <td class="p-3">Official Canon</td>
+                                <td class="p-3 text-green-600 font-bold">Highest</td>
+                                <td class="p-3">Sacrificed himself to Ojutai to save his students.</td>
+                            </tr>
+                            <tr class="hover:bg-slate-50">
+                                <td class="p-3 font-medium">Dragonlord Ojutai</td>
+                                <td class="p-3">Ruler of the altered timeline brood.</td>
+                                <td class="p-3">Official Canon</td>
+                                <td class="p-3 text-green-600 font-bold">Highest</td>
+                                <td class="p-3">Erased Jeskai history, enforcing strict WU dogma.</td>
+                            </tr>
+                            <tr class="hover:bg-slate-50">
+                                <td class="p-3 font-medium">Taigam, Ojutai Master</td>
+                                <td class="p-3">Former Jeskai monk, shifted to Sultai/Ojutai.</td>
+                                <td class="p-3">Official Canon</td>
+                                <td class="p-3 text-green-600 font-bold">High</td>
+                                <td class="p-3">Represents the tension between clan loyalty and personal ambition.</td>
+                            </tr>
+                            <tr class="hover:bg-slate-50">
+                                <td class="p-3 font-medium">Mantis Rider</td>
+                                <td class="p-3">Iconic clan warrior/mount.</td>
+                                <td class="p-3">Card Data</td>
+                                <td class="p-3 text-green-600 font-bold">Highest</td>
+                                <td class="p-3">Perfectly encapsulates the URW mechanical speed and evasion.</td>
+                            </tr>
+                            <tr class="hover:bg-slate-50">
+                                <td class="p-3 font-medium">Monastery Swiftspear</td>
+                                <td class="p-3">Jeskai warrior.</td>
+                                <td class="p-3">Card Data</td>
+                                <td class="p-3 text-green-600 font-bold">Highest</td>
+                                <td class="p-3">Prime example of red's speed combined with prowess mechanics.</td>
+                            </tr>
+                            <tr class="hover:bg-slate-50">
+                                <td class="p-3 font-medium">Soulfire Grand Master</td>
+                                <td class="p-3">Master of Jeskai mysticism.</td>
+                                <td class="p-3">Card / Lore</td>
+                                <td class="p-3 text-green-600 font-bold">High</td>
+                                <td class="p-3">Confirms the "soulfire" lore aspect.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section id="synthesis" class="tab-content">
+                <h2 class="text-3xl font-bold text-blue-900 mb-6 border-b-2 border-red-500 pb-2">6. Theme Synthesis, Cautions & Conclusions</h2>
+                <p class="mb-6 text-lg">Synthesizing the research to define what Jeskai truly is, identifying common community misconceptions, and highlighting gaps in the current lore.</p>
+
+                <h3 class="text-2xl font-bold text-blue-900 mb-4">Theme Synthesis</h3>
+                <div class="overflow-x-auto mb-8">
+                    <table class="w-full text-left border-collapse bg-white shadow-md rounded-lg overflow-hidden text-sm">
+                        <thead class="bg-blue-100 text-blue-900">
+                            <tr>
+                                <th class="p-3 font-semibold">Theme</th>
+                                <th class="p-3 font-semibold">Support Level</th>
+                                <th class="p-3 font-semibold">Evidence</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-gray-200">
+                            <tr class="hover:bg-slate-50">
+                                <td class="p-3 font-medium">Perfection through discipline</td>
+                                <td class="p-3 text-green-600 font-bold">Official Canon</td>
+                                <td class="p-3">Monastery life, Maro's URW analysis.</td>
+                            </tr>
+                            <tr class="hover:bg-slate-50">
+                                <td class="p-3 font-medium">Knowledge expressed through motion</td>
+                                <td class="p-3 text-green-600 font-bold">Design/Card-Supported</td>
+                                <td class="p-3">Prowess mechanic triggering off spells.</td>
+                            </tr>
+                            <tr class="hover:bg-slate-50">
+                                <td class="p-3 font-medium">"Spellslinger" Identity</td>
+                                <td class="p-3 text-orange-500 font-bold">Community-Supported</td>
+                                <td class="p-3">EDHREC data; heavily favored over actual creature combat in modern play.</td>
+                            </tr>
+                            <tr class="hover:bg-slate-50">
+                                <td class="p-3 font-medium">Emotionless Logic</td>
+                                <td class="p-3 text-red-500 font-bold">Speculative / Weak</td>
+                                <td class="p-3">Contradicts the presence of Red mana (passion/fire) in the clan.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                    <div class="bg-red-50 border-l-4 border-red-500 p-6 rounded shadow">
+                        <h3 class="text-xl font-bold text-red-900 mb-3">What Not to Overclaim</h3>
+                        <ul class="list-disc pl-5 space-y-2 text-sm text-gray-800">
+                            <li><strong>Do not treat Jeskai's player reputation as canon:</strong> The community reduces Jeskai to "Control/Spellslinger," ignoring their deeply martial, creature-based combat lore.</li>
+                            <li><strong>Do not say they lack emotion:</strong> Red is integral. They refine emotion into technique; they do not erase it.</li>
+                            <li><strong>Ojutai Brood ≠ Jeskai Way:</strong> Do not treat the Dragons timeline brood as identical to the Khans clan. The brood lacks red mana and historical truth.</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-blue-50 border-l-4 border-blue-500 p-6 rounded shadow">
+                        <h3 class="text-xl font-bold text-blue-900 mb-3">Best Short Definition</h3>
+                        <p class="text-lg italic text-gray-800">
+                            "The Jeskai Way is a mountain-dwelling monastic culture that pursues enlightenment through the relentless perfection of mind and body. Centered in blue mana's thirst for knowledge, propelled by red's passionate speed, and structured by white's discipline, they combine mystical spellcraft with flawless martial technique to achieve tactical supremacy."
+                        </p>
+                    </div>
+                </div>
+
+                <h3 class="text-2xl font-bold text-blue-900 mb-4">Research Gaps</h3>
+                <ul class="list-disc pl-5 space-y-2 text-gray-700 bg-white p-6 rounded shadow">
+                    <li><strong>Underground Jeskai:</strong> Lore hints at factions secretly preserving the "old ways" under Ojutai's rule, but their daily operations and scale are highly under-sourced.</li>
+                    <li><strong>Efreet/Djinn specifics:</strong> While humans and aven have clear monastic roles, the exact societal integration and philosophical alignment of Jeskai Djinn and Efreet are sparsely detailed in official story text compared to card art.</li>
+                </ul>
+            </section>
+
+        </main>
+    </div>
+
+    <script>
+        function switchTab(tabId) {
+            document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+            document.querySelectorAll('nav button').forEach(el => {
+                el.classList.remove('bg-blue-800', 'text-white', 'font-medium');
+                el.classList.add('text-blue-200');
+            });
+
+            document.getElementById(tabId).classList.add('active');
+
+            const btn = document.getElementById('btn-' + tabId);
+            btn.classList.add('bg-blue-800', 'text-white', 'font-medium');
+            btn.classList.remove('text-blue-200');
+        }
+
+        const ctxRadar = document.getElementById('philosophyChart').getContext('2d');
+        new Chart(ctxRadar, {
+            type: 'radar',
+            data: {
+                labels: ['Blue (Knowledge)', 'Red (Passion)', 'White (Order)', 'Black (Selfishness)', 'Green (Instinct)'],
+                datasets: [{
+                    label: 'Jeskai Color Influence',
+                    data: [10, 7, 7, 0, 0],
+                    backgroundColor: 'rgba(59, 130, 246, 0.2)',
+                    borderColor: 'rgba(59, 130, 246, 1)',
+                    pointBackgroundColor: ['#2563eb', '#dc2626', '#d97706', '#111827', '#166534'],
+                    borderWidth: 2
+                }]
+            },
+            options: {
+                maintainAspectRatio: false,
+                scales: {
+                    r: {
+                        angleLines: { color: 'rgba(0, 0, 0, 0.1)' },
+                        grid: { color: 'rgba(0, 0, 0, 0.1)' },
+                        pointLabels: { font: { size: 12 }, color: '#1e3a8a' },
+                        ticks: { display: false, max: 10, min: 0 }
+                    }
+                },
+                plugins: {
+                    legend: { display: false }
+                }
+            }
+        });
+
+        const ctxBar = document.getElementById('commanderChart').getContext('2d');
+        new Chart(ctxBar, {
+            type: 'bar',
+            data: {
+                labels: ['Spellslinger', 'Control', 'Artifacts', 'Tempo', 'Prowess', 'Monk Tribal'],
+                datasets: [{
+                    label: 'Perceived Popularity (Relative Scale)',
+                    data: [95, 85, 60, 50, 45, 15],
+                    backgroundColor: [
+                        'rgba(59, 130, 246, 0.7)',
+                        'rgba(29, 78, 216, 0.7)',
+                        'rgba(147, 197, 253, 0.7)',
+                        'rgba(239, 68, 68, 0.7)',
+                        'rgba(248, 113, 113, 0.7)',
+                        'rgba(226, 232, 240, 0.7)'
+                    ],
+                    borderColor: 'rgba(255, 255, 255, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        grid: { color: 'rgba(0, 0, 0, 0.05)' },
+                        ticks: { display: false }
+                    },
+                    x: {
+                        grid: { display: false }
+                    }
+                },
+                plugins: {
+                    legend: { display: false },
+                    tooltip: {
+                        callbacks: {
+                            title: function(context) {
+                                let label = context[0].label || '';
+                                if (label.length > 16) {
+                                    return label.match(/.{1,16}(\s|$)/g);
+                                }
+                                return label;
+                            }
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>

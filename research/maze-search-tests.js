@@ -5,6 +5,7 @@ import { buildScryfallApiSearchUrl } from "./research-search.js";
 import { buildScryfallWebSearchUrl, parseAlternativeApi, renderQueryInspector, serializeAlternativeApi } from "./research-ui.js";
 import {
   mazeSearchLink,
+  isMazeOperatorQuery,
   resolveMazeLaunchState,
   resolveMazeOperatorQuery,
   resolveMazePathType,
@@ -36,6 +37,9 @@ const pageUrl = "https://api.scryfall.com/cards/search?q=otag%3Amana-rock&unique
 assert.equal(buildScryfallApiSearchUrl("ignored", { page: pageUrl, order: "name", dir: "asc" }), pageUrl);
 
 assert.equal(resolveMazeOperatorQuery({ url: "/maze/?q=otag%3Aboard-wipe" }, "https://example.com"), "otag:board-wipe");
+assert.equal(resolveMazeOperatorQuery({ url: "/maze/?q=Mardu+Horde+commanders+with+exactly+red-white-black+identity" }, "https://example.com"), "");
+assert.equal(isMazeOperatorQuery("Mardu Horde commanders with exactly red-white-black identity"), false);
+assert.equal(isMazeOperatorQuery("id=rwb is:commander f:commander"), true);
 assert.equal(resolveMazePathType({ label: "Weird Stretch Commanders" }), "weird-stretch-commanders");
 assert.equal(resolveMazePlainReadingQuery({}, { label: "Maze path", factionName: "Azorius" }), "Maze path from Azorius");
 assert.deepEqual(
@@ -48,6 +52,24 @@ assert.deepEqual(
     pathType: "support-cards",
     returnUrl: "/archscry/"
   }
+);
+assert.deepEqual(
+  resolveMazeLaunchState(
+    new URLSearchParams("from=archscry&q=Mardu+Horde+commanders+with+exactly+red-white-black+identity&plainReadingQuery=Mardu+Horde+commanders+with+exactly+red-white-black+identity"),
+    { operatorQuery: "id=old", returnUrl: "/archscry/" }
+  ),
+  {
+    from: "archscry",
+    urlQ: "Mardu Horde commanders with exactly red-white-black identity",
+    operatorQuery: "",
+    plainReadingQuery: "Mardu Horde commanders with exactly red-white-black identity",
+    pathType: "",
+    returnUrl: "/archscry/"
+  }
+);
+assert.equal(
+  resolveMazeLaunchState(new URLSearchParams("from=archscry&q=id%3Drwb%20is%3Acommander"), {}).operatorQuery,
+  "id=rwb is:commander"
 );
 
 const mazeLink = mazeSearchLink({ label: "Board Wipes", query: "otag:board-wipe" });
@@ -75,6 +97,8 @@ assert.equal(stripApiMetadataFromQuery("otag:board-wipe order:released direction
 
 await runMazeDomMetadataCases();
 await runLiveShardDossierSidebarCases();
+await runMarduArchscryOperatorPrecedenceCase();
+await runJeskaiArchscryOperatorPrecedenceCase();
 await runMazeUrlBootCase();
 
 console.log("Maze search metadata helper cases passed.");
@@ -483,6 +507,12 @@ async function runLiveShardDossierSidebarCases() {
     { key: "ESPER", name: "Esper", identity: "wub", words: "white-blue-black", expectedPaths: 4, storedKey: "WU", storedName: "Azorius Senate", storedScores: { W: 8, U: 7, B: 0, R: 0, G: 0 }, visibleHint: "WUB" },
     { key: "GRIXIS", name: "Grixis", identity: "ubr", words: "blue-black-red", expectedPaths: 3, storedKey: "WU", storedName: "Azorius Senate", storedScores: { W: 8, U: 7, B: 0, R: 0, G: 0 }, visibleHint: "UBR" },
     { key: "JUND", name: "Jund", identity: "brg", words: "black-red-green", expectedPaths: 3, storedKey: "UR", storedName: "Izzet League", storedScores: { W: 0, U: 7, B: 0, R: 8, G: 0 }, visibleHint: "Jund" },
+    { key: "NAYA", name: "Naya", identity: "rgw", words: "red-green-white", expectedPaths: 3, storedKey: "UR", storedName: "Izzet League", storedScores: { W: 0, U: 7, B: 0, R: 8, G: 0 }, visibleHint: "Naya" },
+    { key: "ABZAN", name: "Abzan Houses", identity: "wbg", words: "white-black-green", expectedPaths: 3, storedKey: "UR", storedName: "Izzet League", storedScores: { W: 0, U: 7, B: 0, R: 8, G: 0 }, visibleHint: "Abzan" },
+    { key: "TEMUR", name: "Temur Frontier", identity: "gur", words: "green-blue-red", expectedPaths: 3, storedKey: "WB", storedName: "Orzhov Syndicate", storedScores: { W: 7, U: 0, B: 8, R: 0, G: 0 }, visibleHint: "Temur" },
+    { key: "SULTAI", name: "Sultai Brood", identity: "bgu", words: "black-green-blue", expectedPaths: 3, storedKey: "WR", storedName: "Boros Legion", storedScores: { W: 8, U: 0, B: 0, R: 7, G: 0 }, visibleHint: "Sultai" },
+    { key: "MARDU", name: "Mardu Horde", identity: "rwb", words: "red-white-black", expectedPaths: 3, storedKey: "UG", storedName: "Simic Combine", storedScores: { W: 0, U: 7, B: 0, R: 0, G: 8 }, visibleHint: "Mardu" },
+    { key: "JESKAI", name: "Jeskai Way", identity: "urw", words: "blue-red-white", expectedPaths: 3, storedKey: "BG", storedName: "Golgari Swarm", storedScores: { W: 0, U: 7, B: 8, R: 0, G: 8 }, visibleHint: "Jeskai" },
   ];
 
   for (const testCase of cases) {
@@ -526,16 +556,161 @@ async function runLiveShardDossierSidebarCases() {
       [...readingPaths].every((path) => path.dataset.query && !new RegExp(`^id<=${testCase.storedKey.toLowerCase()}\\b`).test(path.dataset.query)),
       `expected active ${testCase.key} handoff to override stored ${testCase.storedKey} primary placement identity`
     );
-    if (testCase.key === "JUND") {
-      const sidebarText = document.getElementById("reading-path-list").textContent;
+    if (["JUND", "NAYA", "ABZAN", "TEMUR", "SULTAI", "MARDU", "JESKAI"].includes(testCase.key)) {
+      const sidebarText = [...readingPaths].map((path) => `${path.textContent} ${path.dataset.query} ${path.dataset.plainReadingQuery}`).join(" ");
       assert.doesNotMatch(sidebarText, /\bUR\b/);
-      assert.doesNotMatch(sidebarText, /\bBRG\b/);
+      assert.doesNotMatch(sidebarText, new RegExp(`\\b${testCase.storedKey}\\b`));
+      assert.doesNotMatch(sidebarText, /\bBRG\b|\bRGW\b|\bWBG\b|\bGUR\b|\bBGU\b|\bBUG\b|\bUBG\b|\bGUB\b|\bRWB\b|\bWBR\b|\bRBW\b|\bWRB\b|\bBRW\b|\bBWR\b|\bURW\b|\bWUR\b|\bRWU\b|\bUWR\b|\bRUW\b|\bWRU\b/);
       assert.ok(
         [...readingPaths].every((path) => path.dataset.pathType !== "weird-stretch-commanders"),
-        "expected active JUND sidebar to hide the outside-color commander stretch path"
+        `expected active ${testCase.key} sidebar to hide the outside-color commander stretch path`
       );
     }
+    if (testCase.key === "ABZAN") {
+      const abzanSidebarText = [...readingPaths].map((path) => `${path.textContent} ${path.dataset.query} ${path.dataset.plainReadingQuery}`).join(" ");
+      assert.doesNotMatch(abzanSidebarText, /Dromoka|generic WBG|Orzhov|Golgari|Selesnya/i);
+    }
+    if (testCase.key === "SULTAI") {
+      const sultaiSidebarText = [...readingPaths].map((path) => `${path.textContent} ${path.dataset.query} ${path.dataset.plainReadingQuery}`).join(" ");
+      assert.doesNotMatch(sultaiSidebarText, /Silumgar|generic BGU|Dimir|Golgari|Simic|\/sultai\/|\/bgu\//i);
+    }
+    if (testCase.key === "MARDU") {
+      const marduSidebarText = [...readingPaths].map((path) => `${path.textContent} ${path.dataset.query} ${path.dataset.plainReadingQuery}`).join(" ");
+      assert.doesNotMatch(marduSidebarText, /Kolaghan|generic RWB|generic WBR|Boros|Orzhov|Rakdos|\/mardu\/|\/rwb\/|\/wbr\//i);
+    }
+    if (testCase.key === "JESKAI") {
+      const jeskaiSidebarText = [...readingPaths].map((path) => `${path.textContent} ${path.dataset.query} ${path.dataset.plainReadingQuery}`).join(" ");
+      assert.doesNotMatch(jeskaiSidebarText, /Ojutai continuity|generic URW|generic WUR|Izzet|Azorius|Boros|\/jeskai\/|\/urw\/|\/wur\//i);
+    }
   }
+
+  await runTemurQueryInferredSidebarCase();
+}
+
+async function runTemurQueryInferredSidebarCase() {
+  const dom = installMazeDomHarness();
+  await import("./research-init.js?temur-query-inferred-sidebar");
+  const encodedOperator = encodeURIComponent("id=gur is:commander f:commander (o:ramp OR o:copy)");
+  window.location.search = `?from=archscry&guild=WB&readingId=stale-wb-reading&pathType=commanders-that-fit&operatorQuery=${encodedOperator}&returnUrl=..%2Farchscry%2Findex.html`;
+  window.location.href = `http://localhost/maze/index.html${window.location.search}`;
+  dom.setLocalStorageItem("vm_archscry_maze_handoff_v1", JSON.stringify({
+    returnUrl: "../archscry/index.html",
+    placementResult: {
+      faction: "WB",
+      faction_name: "Orzhov Syndicate",
+      mana_scores: { W: 7, U: 0, B: 8, R: 0, G: 0 },
+      evidence_trail: [{
+        signal: "debt and obligation",
+        answer_title: "Name the price",
+        prompt: "What does the table owe?"
+      }]
+    }
+  }));
+  await dom.dispatchWindowEvent("load");
+  await new Promise((resolve) => setTimeout(resolve, 0));
+
+  const readingPaths = [...document.getElementById("reading-path-list").children];
+  const sidebarText = readingPaths.map((path) => `${path.textContent} ${path.dataset.query} ${path.dataset.plainReadingQuery}`).join(" ");
+  assert.equal(readingPaths.length, 3);
+  assert.equal(readingPaths[0].children.at(-1).textContent, "Temur");
+  assert.match(readingPaths[0].dataset.query, /^id=gur is:commander f:commander /);
+  assert.doesNotMatch(sidebarText, /\bWB\b|Orzhov|outside-color commander stretch|stretch lane/i);
+}
+
+async function runMarduArchscryOperatorPrecedenceCase() {
+  const dom = installMazeDomHarness();
+  await import("./research-init.js?mardu-operator-precedence");
+  const plainReadingQuery = "Mardu Horde commanders with exactly red-white-black identity";
+  const operatorQuery = "id=rwb is:commander f:commander (o:draw OR o:token OR o:graveyard OR o:sacrifice)";
+  const encodedPlain = encodeURIComponent(plainReadingQuery);
+  const encodedOperator = encodeURIComponent(operatorQuery);
+  const encodedReturn = encodeURIComponent("../archscry/index.html?from=maze&view=MARDU#maze-discovery-paths");
+
+  window.location.search = `?from=archscry&guild=UG&fit=MARDU&factionName=Mardu%20Horde&readingId=mardu-reading&pathType=commanders-that-fit&q=${encodedOperator}&plainReadingQuery=${encodedPlain}&operatorQuery=${encodedOperator}&returnUrl=${encodedReturn}`;
+  window.location.href = `http://localhost/maze/index.html${window.location.search}`;
+  dom.setLocalStorageItem("vm_archscry_maze_handoff_v1", JSON.stringify({
+    returnUrl: "../archscry/index.html",
+    placementResult: {
+      faction: "UG",
+      faction_name: "Simic Combine",
+      mana_scores: { W: 0, U: 7, B: 0, R: 0, G: 8 },
+      evidence_trail: [{
+        signal: "adaptation and biology",
+        answer_title: "Follow the living system",
+        prompt: "What should move first?"
+      }]
+    }
+  }));
+  await dom.dispatchWindowEvent("load");
+  await new Promise((resolve) => setTimeout(resolve, 0));
+
+  const launchUrl = dom.fetchUrls
+    .map((url) => new URL(url, "http://localhost"))
+    .find((url) => url.origin + url.pathname === "https://api.scryfall.com/cards/search");
+  assert.ok(launchUrl, "expected Mardu Archscry launch to execute preserved operator query");
+  assert.equal(launchUrl.searchParams.get("q"), operatorQuery);
+  assert.doesNotMatch(launchUrl.searchParams.get("q") || "", /\bc=wb\b.*\bc=br\b.*\bc=wbr\b/i);
+  assert.equal(document.body.dataset.mazeMode, "ai");
+  assert.equal(document.getElementById("search-input").value, plainReadingQuery);
+
+  const diagnosticsText = document.getElementById("qi-diagnostics").innerHTML;
+  assert.doesNotMatch(diagnosticsText, /Orzhov identity|Rakdos identity|Mardu identity/i);
+  assert.doesNotMatch(diagnosticsText, /Unresolved term: (?:horde|commanders|identity)/i);
+
+  const readingPaths = [...document.getElementById("reading-path-list").children];
+  assert.equal(readingPaths.length, 3);
+  assert.match(readingPaths[0].dataset.query, /^id=rwb is:commander f:commander /);
+  assert.match(readingPaths[0].dataset.plainReadingQuery, /red-white-black identity/i);
+  assert.ok(readingPaths.every((path) => !/\bid(?:<)?=wbr\b/i.test(path.dataset.query)));
+}
+
+async function runJeskaiArchscryOperatorPrecedenceCase() {
+  const dom = installMazeDomHarness();
+  await import("./research-init.js?jeskai-operator-precedence");
+  const plainReadingQuery = "Jeskai Way commanders with exactly white-blue-red identity";
+  const operatorQuery = "id=wur is:commander f:commander (o:draw OR o:prowess OR o:noncreature OR o:combat)";
+  const encodedPlain = encodeURIComponent(plainReadingQuery);
+  const encodedOperator = encodeURIComponent(operatorQuery);
+  const encodedReturn = encodeURIComponent("../archscry/index.html?from=maze&view=JESKAI#maze-discovery-paths");
+
+  window.location.search = `?from=archscry&guild=BG&fit=JESKAI&factionName=Jeskai%20Way&readingId=jeskai-reading&pathType=commanders-that-fit&q=${encodedOperator}&plainReadingQuery=${encodedPlain}&operatorQuery=${encodedOperator}&returnUrl=${encodedReturn}`;
+  window.location.href = `http://localhost/maze/index.html${window.location.search}`;
+  dom.setLocalStorageItem("vm_archscry_maze_handoff_v1", JSON.stringify({
+    returnUrl: "../archscry/index.html",
+    placementResult: {
+      faction: "BG",
+      faction_name: "Golgari Swarm",
+      mana_scores: { W: 0, U: 7, B: 8, R: 0, G: 8 },
+      evidence_trail: [{
+        signal: "disciplined action",
+        answer_title: "Train the line",
+        prompt: "What makes the next move trustworthy?"
+      }]
+    }
+  }));
+  await dom.dispatchWindowEvent("load");
+  await new Promise((resolve) => setTimeout(resolve, 0));
+
+  const launchUrl = dom.fetchUrls
+    .map((url) => new URL(url, "http://localhost"))
+    .find((url) => url.origin + url.pathname === "https://api.scryfall.com/cards/search");
+  assert.ok(launchUrl, "expected Jeskai Archscry launch to execute preserved operator query");
+  assert.equal(launchUrl.searchParams.get("q"), operatorQuery);
+  assert.doesNotMatch(launchUrl.searchParams.get("q") || "", /\bc=wu\b.*\bc=ur\b.*\bc=wur\b.*\bf:commander\b/i);
+  assert.equal(document.body.dataset.mazeMode, "ai");
+  assert.equal(document.getElementById("search-input").value, plainReadingQuery);
+
+  const diagnosticsText = document.getElementById("qi-diagnostics").innerHTML;
+  assert.doesNotMatch(diagnosticsText, /Azorius identity|Izzet identity|Jeskai identity/i);
+  assert.doesNotMatch(diagnosticsText, /\bc=wu\b.*\bc=ur\b.*\bc=wur\b.*\bf:commander\b/i);
+  assert.doesNotMatch(diagnosticsText, /Unresolved term: (?:way|commanders|identity)/i);
+
+  const readingPaths = [...document.getElementById("reading-path-list").children];
+  assert.equal(readingPaths.length, 3);
+  assert.match(readingPaths[0].dataset.plainReadingQuery, /(white-blue-red|blue-red-white) identity/i);
+
+  const sidebarText = readingPaths.map((path) => `${path.textContent} ${path.dataset.query} ${path.dataset.plainReadingQuery}`).join(" ");
+  assert.doesNotMatch(sidebarText, /\bc=wu\b.*\bc=ur\b.*\bc=wur\b.*\bf:commander\b/i);
 }
 
 async function runMazeUrlBootCase() {

@@ -65,6 +65,13 @@ import {
 
 const SESSION = VM_SESSION;
 const DATA_BASE_URL = new URL("../../data/", import.meta.url);
+const CORE_DATA_FETCH_OPTIONS = Object.freeze({ cache: "no-store" });
+const LIVE_QUICK_READING_REACHABILITY = Object.freeze({
+  MARDU: {
+    gateAnswer: "The charge before the gap closes",
+    hallQuestionIds: ["hall_MARDU_total_commitment", "hall_MARDU_war_name_oath"],
+  },
+});
 
 const APP_STATE = {
   factions: {},
@@ -158,6 +165,9 @@ const SYSTEM_COPY_REPLACEMENTS = [
   { pattern: systemCopyPattern(["specific", "grievance"]), replacement: "specific pressure" },
   { pattern: /\bCI\s+([WUBRG]{1,5})\b/g, replacement: "Color Identity: $1" },
   { pattern: systemCopyPattern(["Read", "In", "Apocrypha"], "g"), replacement: "Read in the source library" },
+  { pattern: /\u00e2\u20ac\u201d/g, replacement: "-" },
+  { pattern: /\u00e2\u20ac\u0153|\u00e2\u20ac\u009d/g, replacement: '"' },
+  { pattern: /\u00e2\u20ac\u2122/g, replacement: "'" },
 ];
 const MANA_SYMBOL_NAMES = {
   W: "White",
@@ -183,6 +193,49 @@ function resolveDataUrl(path) {
   return new URL(path, DATA_BASE_URL).href;
 }
 
+async function loadCoreJson(path, label) {
+  const response = await fetch(resolveDataUrl(path), CORE_DATA_FETCH_OPTIONS);
+  if (!response.ok) {
+    throw new Error(`Could not load ${label}.`);
+  }
+  return response.json();
+}
+
+function validateQuickReadingReachability() {
+  const liveExpressions = APP_STATE.identityLayers?.expressions || {};
+  const liveFactionKeys = new Set([
+    ...Object.keys(APP_STATE.factions || {}),
+    ...Object.keys(liveExpressions),
+  ]);
+  const model = APP_STATE.placementModel || {};
+  const modelFactions = model.factions || {};
+  const gateQuestions = model.question_bank?.gate || [];
+  const hallQuestions = model.question_bank?.hall || [];
+
+  Object.entries(LIVE_QUICK_READING_REACHABILITY).forEach(([key, requirement]) => {
+    if (!liveFactionKeys.has(key)) {
+      return;
+    }
+
+    const hasModelFaction = Boolean(modelFactions[key]);
+    const hasGateSupport = gateQuestions.some((question) =>
+      (question.answers || []).some(
+        (answer) =>
+          answer.title === requirement.gateAnswer &&
+          Number(answer.likelihoods?.[key] || 0) >= 0.75
+      )
+    );
+    const hallQuestionIds = new Set(hallQuestions.map((question) => question.id));
+    const hasHallSupport = requirement.hallQuestionIds.every((id) => hallQuestionIds.has(id));
+
+    if (!hasModelFaction || !hasGateSupport || !hasHallSupport) {
+      throw new Error(
+        `Archscry placement data is stale. Reload the page so the ${key} quick-reading path can load.`
+      );
+    }
+  });
+}
+
 /**
  * Applies the feature flag to terminal-only UI already in the DOM.
  */
@@ -205,11 +258,7 @@ function applyTerminalVisibility() {
  * @returns {Promise<object>} Canonical faction map keyed by faction code.
  */
 async function loadFactionData() {
-  const response = await fetch(resolveDataUrl("factions.json"));
-  if (!response.ok) {
-    throw new Error("Could not load faction data.");
-  }
-  const json = await response.json();
+  const json = await loadCoreJson("factions.json", "faction data");
   APP_STATE.factions = json.factions || {};
   return APP_STATE.factions;
 }
@@ -220,11 +269,7 @@ async function loadFactionData() {
  * @returns {Promise<object>} Generated placement model.
  */
 async function loadPlacementModel() {
-  const response = await fetch(resolveDataUrl("placement-model.json"));
-  if (!response.ok) {
-    throw new Error("Could not load placement model.");
-  }
-  APP_STATE.placementModel = await response.json();
+  APP_STATE.placementModel = await loadCoreJson("placement-model.json", "placement model");
   return APP_STATE.placementModel;
 }
 
@@ -243,11 +288,7 @@ async function loadDeckTagCatalog() {
 }
 
 async function loadIdentityLayerData() {
-  const response = await fetch(resolveDataUrl("identity-layers.json"));
-  if (!response.ok) {
-    throw new Error("Could not load identity layers.");
-  }
-  APP_STATE.identityLayers = await response.json();
+  APP_STATE.identityLayers = await loadCoreJson("identity-layers.json", "identity layers");
   return APP_STATE.identityLayers;
 }
 
@@ -431,6 +472,15 @@ function layeredIdentityForDisplay(faction, resultIdentity = null) {
   });
 }
 
+export function identityMetaLabelForDisplay(identity = {}, faction = {}, identityColors = []) {
+  const kind = String(identity.expression_kind || faction?.identity?.expression_kind || faction?.institution_type || "").toLowerCase();
+  const routingLabel = String(identity.routing?.label || faction?.identity?.routing?.label || "").trim();
+  if (routingLabel && ["shard", "wedge"].includes(kind)) {
+    return routingLabel;
+  }
+  return getColorIdentity(identityColors || faction?.key || "");
+}
+
 function buildManaPipsHtml(colors = [], className = "") {
   const symbols = (Array.isArray(colors) ? colors : String(colors || "").split(""))
     .map((color) => String(color || "").toUpperCase())
@@ -563,7 +613,7 @@ function buildLayeredIdentityHtml({ dossier, faction }) {
   const tensionTitle = identity.secondary_color ? "Tension" : "Undivided";
   const identityMeta = [
     buildManaPipsHtml(identityColors, "mana-pips-inline"),
-    `<span>${escapeHtml(getColorIdentity(identityColors || faction?.key || ""))}</span>`,
+    `<span>${escapeHtml(identityMetaLabelForDisplay(identity, faction, identityColors))}</span>`,
   ].filter(Boolean).join("");
 
   const beliefCard = buildIdentityStoryCard({
@@ -1204,17 +1254,9 @@ function buildLinkButtons(links, className = "") {
     .join("");
 }
 
-function buildCommanderDirectoryLinksHtml(links = []) {
-  const linkButtons = buildLinkButtons(links);
-  return linkButtons
-    ? `<div class="starter-links" data-commander-directory-links>${linkButtons}</div>`
-    : "";
-}
-
 export function buildDossierRenderState({
   starterCards = {},
   colors = [],
-  commanderDirectoryLinks = [],
 } = {}) {
   const normalizedStarterCards = normalizeStarterCardGroups(starterCards);
   const starterCardSegments = starterCardSegmentsForGroups(normalizedStarterCards);
@@ -1223,7 +1265,6 @@ export function buildDossierRenderState({
     starterCardSegments,
     hasStarterCardReferences: starterCardSegments.length > 0,
     basicLandCopy: basicLandGuidanceCopy(colors),
-    commanderDirectoryLinksHtml: buildCommanderDirectoryLinksHtml(commanderDirectoryLinks),
   };
 }
 
@@ -1935,7 +1976,56 @@ function flavorExcerptForCard(card) {
   return card.flavor_excerpt || (card.card_faces || []).find((face) => face.flavor_excerpt)?.flavor_excerpt || "";
 }
 
+function resolveIndexedFlavorCardForSnippet(snippet, cards = []) {
+  const snippetName = normalizeCardName(snippet?.card_name || "");
+  const snippetExcerpt = String(snippet?.flavor_excerpt || "");
+  if (!snippetName || !snippetExcerpt) return null;
+  return (cards || []).find((card) =>
+    normalizeCardName(card?.name || "") === snippetName &&
+    flavorExcerptForCard(card) === snippetExcerpt
+  ) || (cards || []).find((card) => normalizeCardName(card?.name || "") === snippetName) || null;
+}
+
+export function selectCuratedFlavorEchoesForFaction({
+  faction,
+  snippets = {},
+  flavorCards = [],
+  tagRefs = [],
+} = {}) {
+  const key = faction?.key || faction?.identity?.expression_key || "";
+  const curated = Array.isArray(snippets[key]) ? snippets[key] : [];
+  if (curated.length < 2) return [];
+  const fallbackTags = uniqueTagRefs(tagRefs).slice(0, 3);
+  return curated.slice(0, 3).map((snippet) => {
+    const indexedCard = resolveIndexedFlavorCardForSnippet(snippet, flavorCards) || {};
+    return {
+      card: {
+        ...indexedCard,
+        name: snippet.card_name || indexedCard.name || "",
+        flavor_excerpt: snippet.flavor_excerpt || flavorExcerptForCard(indexedCard),
+        scryfall_uri: snippet.scryfall_uri || indexedCard.scryfall_uri || "#",
+        image_uris: indexedCard.image_uris || null,
+        card_faces: indexedCard.card_faces || [],
+        color_identity: indexedCard.color_identity || [],
+      },
+      refs: tagRefsForRecord(indexedCard),
+      tagMatches: fallbackTags,
+      score: 100,
+      identityFits: true,
+      curatedSnippet: true,
+    };
+  }).filter((entry) => entry.card.name && flavorExcerptForCard(entry.card));
+}
+
 function selectFlavorEchoes({ faction, tagRefs }) {
+  const curated = selectCuratedFlavorEchoesForFaction({
+    faction,
+    snippets: APP_STATE.archscryFlavorSnippets?.snippets || {},
+    flavorCards: APP_STATE.scryfallFlavorIndex?.cards || [],
+    tagRefs,
+  });
+  if (curated.length >= 2) return curated;
+
   const desired = new Set(uniqueTagRefs(tagRefs).map((ref) => `${ref.category}:${ref.tag}`));
   const cards = APP_STATE.scryfallFlavorIndex?.cards || [];
   const factionColors = faction?.colors || [];
@@ -2006,8 +2096,11 @@ function buildDossierInterpretationHtml({ dossier, faction, result, tagRefs }) {
     </div>`;
 }
 
-function buildFlavorEchoWhy({ tagMatches, faction }) {
+function buildFlavorEchoWhy({ tagMatches, faction, curatedSnippet = false }) {
   const presentation = presentationForFaction(faction);
+  if (curatedSnippet) {
+    return `This curated ${presentation.shortName} card voice keeps the example tied to ${presentation.shortName}'s own table texture instead of a broad tag match.`;
+  }
   const bestRef = tagMatches.find((ref) => ref.category === "identity" || ref.category === "lore-tone") || tagMatches[0];
   const entry = bestRef ? taxonomyEntry(bestRef.category, bestRef.tag) : null;
   if (entry) {
@@ -2016,12 +2109,12 @@ function buildFlavorEchoWhy({ tagMatches, faction }) {
   return "";
 }
 
-function buildFlavorEchoesHtml(flavorEchoes = [], faction = {}) {
+export function buildFlavorEchoesHtml(flavorEchoes = [], faction = {}) {
   if (!flavorEchoes.length) return "";
   const groundedEchoes = flavorEchoes
     .map((entry) => ({
       ...entry,
-      why: buildFlavorEchoWhy({ tagMatches: entry.tagMatches, faction }),
+      why: buildFlavorEchoWhy({ tagMatches: entry.tagMatches, faction, curatedSnippet: entry.curatedSnippet }),
     }))
     .filter((entry) => entry.why);
   if (!groundedEchoes.length) return "";
@@ -2031,7 +2124,7 @@ function buildFlavorEchoesHtml(flavorEchoes = [], faction = {}) {
       <div class="flavor-echo-intro">These are examples of the reading's feel in actual cards, not mandatory pickups.</div>
       <div class="flavor-echo-grid">
         ${groundedEchoes.map(({ card, tagMatches, why }) => {
-          const excerpt = wordExcerpt(flavorExcerptForCard(card), 18);
+          const excerpt = wordExcerpt(sanitizeUserFacingCopy(flavorExcerptForCard(card)), 18);
           const image = card.image_uris?.art_crop || card.image_uris?.normal || card.card_faces?.[0]?.image_uris?.art_crop || "";
           return `
             <a class="flavor-echo-card" href="${escapeHtml(card.scryfall_uri || "#")}" target="_blank" rel="noopener">
@@ -2244,17 +2337,14 @@ function renderResult(viewKey) {
   const renderState = buildDossierRenderState({
     starterCards: dossier.starterCards,
     colors: faction.colors || [],
-    commanderDirectoryLinks,
   });
   const renderableStarterCards = renderState.starterCards;
   const starterCardSegments = renderState.starterCardSegments;
   const hasStarterCardReferences = renderState.hasStarterCardReferences;
   const basicLandCopy = renderState.basicLandCopy;
-  const commanderDirectoryLinksHtml = renderState.commanderDirectoryLinksHtml;
   const commanderPreviewHtml = `
     <div class="commander-preview-block">
       <div class="commander-preview-label">Commander starting points</div>
-      ${commanderDirectoryLinksHtml}
       ${commanderPreviewCandidates.length ? `<div class="commander-preview-grid" id="commander-preview-grid">${commanderPreviewSlots(commanderPreviewCandidates)}</div>` : ""}
     </div>`;
 
@@ -3091,6 +3181,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     await loadPlacementModel();
     await loadDeckTagCatalog();
     await loadIdentityLayerData();
+    validateQuickReadingReachability();
     await loadDiscoveryData();
   } catch (error) {
     renderInitializationError(error);

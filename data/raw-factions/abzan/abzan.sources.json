@@ -1,0 +1,331 @@
+{
+  "schema_version": "1.0.0",
+  "faction_id": "abzan",
+  "faction_name": "Abzan Houses",
+  "source_review_date": "2026-05-31",
+  "last_updated": "2026-05-31",
+  "sources": [
+    {
+      "source_id": "src_vm_abzan_source_ledger_20260531",
+      "title": "Abzan Source Ledger",
+      "author": "Vox Mana research packet",
+      "publisher_or_site": "Local repository",
+      "publication_date": "2026-05-31",
+      "url_or_repository_path": "docs/research/abzan/abzan-source-ledger.md",
+      "source_type": "Curated source ledger",
+      "source_role": "shaping-only",
+      "reliability": "Primary local source-role ledger",
+      "notes": "Defines ABZAN source tiers, approved use, support-only limits, exact WBG Commander extraction rules, and seed-file handling. It shapes this packet but does not back raw claims by itself."
+    },
+    {
+      "source_id": "src_vm_abzan_evidence_ledger_20260531",
+      "title": "Abzan Evidence Ledger",
+      "author": "Vox Mana research packet",
+      "publisher_or_site": "Local repository",
+      "publication_date": "2026-05-31",
+      "url_or_repository_path": "docs/research/abzan/abzan-evidence-ledger.md",
+      "source_type": "Curated evidence ledger",
+      "source_role": "claim-bearing",
+      "reliability": "Primary local evidence ledger",
+      "claim_bearing_evidence_rows": [
+        "ABZAN-EVID-001",
+        "ABZAN-EVID-002",
+        "ABZAN-EVID-003",
+        "ABZAN-EVID-004",
+        "ABZAN-EVID-005",
+        "ABZAN-EVID-006",
+        "ABZAN-EVID-007",
+        "ABZAN-EVID-008",
+        "ABZAN-EVID-009",
+        "ABZAN-EVID-010",
+        "ABZAN-EVID-011",
+        "ABZAN-EVID-012",
+        "ABZAN-EVID-013",
+        "ABZAN-EVID-014",
+        "ABZAN-EVID-015",
+        "ABZAN-EVID-016",
+        "ABZAN-EVID-017",
+        "ABZAN-EVID-018",
+        "ABZAN-EVID-019",
+        "ABZAN-EVID-020",
+        "ABZAN-EVID-021",
+        "ABZAN-EVID-022",
+        "ABZAN-EVID-023",
+        "ABZAN-EVID-024",
+        "ABZAN-EVID-025",
+        "ABZAN-EVID-026",
+        "ABZAN-EVID-029",
+        "ABZAN-EVID-031"
+      ],
+      "notes": "Primary normalized evidence row index for the duplicate Abzan VM-200 raw claims. Support-only, synthesis, and manual-fill rows are not raw-claim rows."
+    },
+    {
+      "source_id": "src_wotc_rosewater_abzan_we_will_survive",
+      "title": "Abzan: We Will Survive",
+      "author": "Mark Rosewater",
+      "publisher_or_site": "Magic: The Gathering / Making Magic",
+      "publication_date": "Local capture, original date not restated in VM-200 packet",
+      "url_or_repository_path": "docs/research/canon/mark_rosewater_official_three_color/Abzan_We Will Survive _ MAGIC_ THE GATHERING.md",
+      "source_type": "Official Wizards design article capture",
+      "source_role": "claim-bearing",
+      "reliability": "Primary / official design commentary",
+      "claim_bearing_evidence_rows": [
+        "ABZAN-EVID-001",
+        "ABZAN-EVID-002",
+        "ABZAN-EVID-003"
+      ],
+      "notes": "Primary Abzan design source for WBG wedge identity, White center, endurance/survival, defense-first strategy, and late-game growth."
+    },
+    {
+      "source_id": "src_wotc_tarkir_khans_pg_part_1",
+      "title": "Planeswalker's Guide to Khans of Tarkir, Part 1",
+      "author": "Wizards of the Coast",
+      "publisher_or_site": "Magic: The Gathering",
+      "publication_date": "Local capture, original date not restated in VM-200 packet",
+      "url_or_repository_path": "docs/research/canon/source-material/tarkir/planeswalkers-guide-khans-part-1.md",
+      "source_type": "Official Wizards lore guide capture",
+      "source_role": "claim-bearing",
+      "reliability": "Primary / official Tarkir lore",
+      "claim_bearing_evidence_rows": [
+        "ABZAN-EVID-004",
+        "ABZAN-EVID-005",
+        "ABZAN-EVID-006",
+        "ABZAN-EVID-007",
+        "ABZAN-EVID-008"
+      ],
+      "notes": "Khans-era Abzan lore source for family, duty, kin trees, ancestor spirits, social categories, roles, magic, and named anchors."
+    },
+    {
+      "source_id": "src_wotc_tarkir_fate_reforged_pg",
+      "title": "Planeswalker's Guide to Fate Reforged",
+      "author": "Wizards of the Coast",
+      "publisher_or_site": "Magic: The Gathering",
+      "publication_date": "Local capture, original date not restated in VM-200 packet",
+      "url_or_repository_path": "docs/research/canon/source-material/tarkir/planeswalkers-guide-fate-reforged.md",
+      "source_type": "Official Wizards lore guide capture",
+      "source_role": "claim-bearing",
+      "reliability": "Primary / official Tarkir lore",
+      "claim_bearing_evidence_rows": [
+        "ABZAN-EVID-009",
+        "ABZAN-EVID-010"
+      ],
+      "notes": "Past-era Abzan context under dragon threat and Dromoka pressure. It does not make Dromoka's brood Abzan Houses."
+    },
+    {
+      "source_id": "src_wotc_tarkir_dragons_pg_part_1",
+      "title": "Planeswalker's Guide to Dragons of Tarkir, Part 1",
+      "author": "Wizards of the Coast",
+      "publisher_or_site": "Magic: The Gathering",
+      "publication_date": "Local capture, original date not restated in VM-200 packet",
+      "url_or_repository_path": "docs/research/canon/source-material/tarkir/planeswalkers-guide-dragons-part-1.md",
+      "source_type": "Official Wizards lore guide capture",
+      "source_role": "claim-bearing",
+      "reliability": "Primary / official Tarkir chronology",
+      "claim_bearing_evidence_rows": [
+        "ABZAN-EVID-011"
+      ],
+      "notes": "Khanfall and dragon-clan transition source. It is not a modern Abzan Houses source."
+    },
+    {
+      "source_id": "src_wotc_tarkir_dragons_pg_part_2",
+      "title": "Planeswalker's Guide to Dragons of Tarkir, Part 2",
+      "author": "Wizards of the Coast",
+      "publisher_or_site": "Magic: The Gathering",
+      "publication_date": "Local capture, original date not restated in VM-200 packet",
+      "url_or_repository_path": "docs/research/canon/source-material/tarkir/planeswalkers-guide-dragons-part-2.md",
+      "source_type": "Official Wizards lore guide capture",
+      "source_role": "claim-bearing",
+      "reliability": "Primary / official Dromoka-era contrast",
+      "claim_bearing_evidence_rows": [
+        "ABZAN-EVID-012"
+      ],
+      "notes": "Dromoka-era contrast source for ancestor-magic prohibition and kin-tree suppression. Dromoka's brood remains non-Abzan for this packet."
+    },
+    {
+      "source_id": "src_wotc_tarkir_story_khanfall",
+      "title": "Khanfall",
+      "author": "Wizards of the Coast",
+      "publisher_or_site": "Magic: The Gathering",
+      "publication_date": "Local capture, original date not restated in VM-200 packet",
+      "url_or_repository_path": "docs/research/canon/source-material/tarkir/story-khanfall.md",
+      "source_type": "Official Wizards story capture",
+      "source_role": "claim-bearing",
+      "reliability": "Primary / official story context",
+      "claim_bearing_evidence_rows": [
+        "ABZAN-EVID-013"
+      ],
+      "notes": "Story-specific transition context for Daghatar, Reyhan, Dromoka capitulation, and Abzan holdouts. Do not generalize beyond cited events."
+    },
+    {
+      "source_id": "src_wotc_tarkir_dragonstorm_pg_part_1",
+      "title": "Planeswalker's Guide to Tarkir: Dragonstorm, Part 1",
+      "author": "Wizards of the Coast",
+      "publisher_or_site": "Magic: The Gathering",
+      "publication_date": "Local capture, original date not restated in VM-200 packet",
+      "url_or_repository_path": "docs/research/canon/source-material/tarkir/planeswalkers-guide-dragonstorm-part-1.md",
+      "source_type": "Official Wizards modern Tarkir guide capture",
+      "source_role": "claim-bearing",
+      "reliability": "Primary / official modern Abzan source",
+      "claim_bearing_evidence_rows": [
+        "ABZAN-EVID-014",
+        "ABZAN-EVID-015",
+        "ABZAN-EVID-016",
+        "ABZAN-EVID-017",
+        "ABZAN-EVID-018",
+        "ABZAN-EVID-019",
+        "ABZAN-EVID-020",
+        "ABZAN-EVID-021",
+        "ABZAN-EVID-022",
+        "ABZAN-EVID-023",
+        "ABZAN-EVID-024",
+        "ABZAN-EVID-025"
+      ],
+      "notes": "Primary modern Abzan Houses source for revival, governance, houses, perennation, Kin-Trees, military, daily life, magic, dragons, dragonstorms, and locations."
+    },
+    {
+      "source_id": "src_wotc_tarkir_dragonstorm_pg_part_2",
+      "title": "Planeswalker's Guide to Tarkir: Dragonstorm, Part 2",
+      "author": "Wizards of the Coast",
+      "publisher_or_site": "Magic: The Gathering",
+      "publication_date": "Local capture, original date not restated in VM-200 packet",
+      "url_or_repository_path": "docs/research/canon/source-material/tarkir/planeswalkers-guide-dragonstorm-part-2.md",
+      "source_type": "Official Wizards modern Tarkir guide capture",
+      "source_role": "claim-bearing",
+      "reliability": "Primary / official regional support",
+      "claim_bearing_evidence_rows": [
+        "ABZAN-EVID-025"
+      ],
+      "notes": "Support for geography and border context only."
+    },
+    {
+      "source_id": "src_vm_abzan_research_dossier_20260531",
+      "title": "Abzan Research Dossier",
+      "author": "Vox Mana research packet",
+      "publisher_or_site": "Local repository",
+      "publication_date": "2026-05-31",
+      "url_or_repository_path": "docs/research/abzan/abzan-research-dossier.md",
+      "source_type": "Curated research dossier",
+      "source_role": "shaping-only",
+      "reliability": "Primary local synthesis with explicit boundaries",
+      "notes": "Summarizes the conservative Abzan evidence floor, support-only Commander context, anti-bleed notes, manual-fill boundaries, and downstream readiness. It may shape profile wording but not raw claims."
+    },
+    {
+      "source_id": "src_vm_abzan_reliability_audit_20260531",
+      "title": "Abzan Reliability Audit",
+      "author": "Vox Mana research packet",
+      "publisher_or_site": "Local repository",
+      "publication_date": "2026-05-31",
+      "url_or_repository_path": "docs/research/abzan/abzan-reliability-audit.md",
+      "source_type": "Reliability audit",
+      "source_role": "shaping-only",
+      "reliability": "Primary local audit",
+      "notes": "Records seed handling, source laundering controls, Commander extraction reliability, overclaim risks, and hygiene requirements. It shapes exclusions but does not back raw claims."
+    },
+    {
+      "source_id": "src_vm_abzan_manual_fill_20260531",
+      "title": "Abzan Manual Fill",
+      "author": "Vox Mana research packet",
+      "publisher_or_site": "Local repository",
+      "publication_date": "2026-05-31",
+      "url_or_repository_path": "docs/research/abzan/abzan-manual-fill.md",
+      "source_type": "Manual-fill queue",
+      "source_role": "support-only",
+      "reliability": "Limitations ledger only",
+      "notes": "Records deferred topics such as exact card facts, biographies, minor-house hierarchy, rebellion operations, post-rebellion integration, dragonstorm ecology, wild-dragon protocols, Commander canon, generic WBG, Dromoka continuity, and uncaptured seed-cited pages. It is not raw-claim evidence."
+    },
+    {
+      "source_id": "src_vm_abzan_lore_source_packet_20260531",
+      "title": "Abzan Lore Source Packet",
+      "author": "Vox Mana research packet",
+      "publisher_or_site": "Local repository",
+      "publication_date": "2026-05-31",
+      "url_or_repository_path": "docs/research/abzan/abzan-lore-source-packet.md",
+      "source_type": "Compiled source packet",
+      "source_role": "shaping-only",
+      "reliability": "Primary local packet summary",
+      "notes": "Records source-packet verdict, safe evidence floor, support-only material, manual-fill list, distinction guardrails, and stop gate. It shapes packet organization but does not replace evidence rows."
+    },
+    {
+      "source_id": "src_vm_abzan_identity_md_20260531",
+      "title": "Abzan Houses - Endurance Through Family, Memory, And Perennation",
+      "author": "Vox Mana architecture docs",
+      "publisher_or_site": "Local repository",
+      "publication_date": "2026-05-31",
+      "url_or_repository_path": "docs/architecture/colors/abzan/identity.md",
+      "source_type": "Vox Mana architecture doc",
+      "source_role": "shaping-only",
+      "reliability": "Project architecture synthesis from Abzan VM-198 and VM-199",
+      "notes": "May inform source-authored profile and placement wording only. It is not Magic canon and must not replace ABZAN evidence rows for raw claims."
+    },
+    {
+      "source_id": "src_vm_abzan_metaphysics_md_20260531",
+      "title": "Abzan Houses Metaphysics - Perennation As Family Continuity",
+      "author": "Vox Mana architecture docs",
+      "publisher_or_site": "Local repository",
+      "publication_date": "2026-05-31",
+      "url_or_repository_path": "docs/architecture/colors/abzan/metaphysics.md",
+      "source_type": "Vox Mana metaphysics doc",
+      "source_role": "shaping-only",
+      "reliability": "Project metaphysics synthesis from Abzan VM-198 and VM-199",
+      "notes": "May inform source-authored metaphysical profile fields only. It is explicitly not Wizards or MTG canon and is not raw-claim evidence."
+    },
+    {
+      "source_id": "src_vm_second_commander_recommendations_wbg",
+      "title": "Vox Mana Second Commander Recommendations Enhanced",
+      "author": "Vox Mana product research data",
+      "publisher_or_site": "Local repository",
+      "publication_date": "Local data snapshot, date not restated in VM-200 packet",
+      "url_or_repository_path": "docs/research/vox_mana_second_commander_recommendations_enhanced.jsonl",
+      "source_type": "Commander/operator support data",
+      "source_role": "support-only",
+      "reliability": "Product/operator support only",
+      "notes": "Exact WBG rows support operator language around defenders, toughness, counters, tokens, sacrifice, keyword counters, graveyard enchantments, Food, life gain, poison, corrupted, and proliferate. They do not prove Abzan canon, setting, story, commander legality, or metaphysics claims."
+    },
+    {
+      "source_id": "src_scryfall_oracle_cards_local",
+      "title": "Local Scryfall Oracle Cards",
+      "author": "Scryfall local data mirror",
+      "publisher_or_site": "Local repository",
+      "publication_date": "Local data snapshot, date not restated in VM-200 packet",
+      "url_or_repository_path": "data/scryfall/raw/oracle-cards.json",
+      "source_type": "Local card-data source",
+      "source_role": "support-only",
+      "reliability": "Card facts support only",
+      "notes": "May support future claim-by-claim card facts or mechanics. Duplicate Abzan VM-200 does not query card facts and does not use this source for raw claims."
+    },
+    {
+      "source_id": "src_wotc_color_philosophy_support_abzan",
+      "title": "White, Black, Green, Orzhov, Selesnya, and Golgari Color Philosophy Support",
+      "author": "Mark Rosewater / Wizards captures",
+      "publisher_or_site": "Local repository",
+      "publication_date": "Local captures, original dates not restated in VM-200 packet",
+      "url_or_repository_path": "docs/research/canon/mark_rosewater_official_two_color/ and docs/research/canon/mark_rosewater_official_misc/",
+      "source_type": "Color-philosophy support captures",
+      "source_role": "support-only",
+      "reliability": "Color philosophy support only",
+      "notes": "May support future pair-overlap and color-philosophy wording only. These sources do not independently prove Abzan setting, story, society, figure, or raw claims."
+    }
+  ],
+  "not_used_or_rejected_sources": [
+    {
+      "source_name": "Quarantined Abzan seed files under docs/research/abzan/source-material/",
+      "reason": "Discovery/reference only. ABZAN-EVID-029 blocks seed files from becoming evidence unless independently rebound to approved source rows."
+    },
+    {
+      "source_name": "Restored spaced folder docs/research/abzan houses/",
+      "reason": "Original seed location only. The normalized packet controls source use; this raw packet does not cite the spaced folder."
+    },
+    {
+      "source_name": "Architecture docs as raw-claim evidence",
+      "reason": "VM-198 and VM-199 may shape wording only. Raw claims must trace directly to ABZAN-EVID rows."
+    },
+    {
+      "source_name": "Commander products as Tarkir Abzan canon",
+      "reason": "Commander/operator rows are support-only unless a later claim-level source review promotes exact card or story facts."
+    },
+    {
+      "source_name": "Manual-fill topics",
+      "reason": "Deferred until a later evidence-update card adds direct local support."
+    }
+  ]
+}

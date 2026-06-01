@@ -1,0 +1,238 @@
+{
+  "schema_version": "1.0.0",
+  "faction_id": "mardu",
+  "faction_name": "Mardu Horde",
+  "source_review_date": "2026-05-31",
+  "last_updated": "2026-05-31",
+  "claim_count": 10,
+  "claims": [
+    {
+      "claim_id": "mardu_claim_0001",
+      "faction_id": "mardu",
+      "claim_type": "identity",
+      "statement": "Mardu Horde is the red-white-black Tarkir wedge identity using MARDU as the future expression name while RWB and WBR remain metadata/query-only, with MARDU remaining source-authored, review-gated, and non-live in VM-226.",
+      "canon_status": "Source-supported identity with lifecycle boundary",
+      "source_ids": [
+        "src_vm_mardu_evidence_ledger_20260531",
+        "src_wotc_rosewater_mardu_finishing_first"
+      ],
+      "evidence_rows": [
+        "MARDU-EVID-001",
+        "MARDU-EVID-032"
+      ],
+      "confidence": "High",
+      "notes": "Use for base Mardu Horde identity only. RWB and WBR remain metadata/query-only and do not become runtime aliases, navigation keys, generated keys, fixture keys, lookup keys, or public labels."
+    },
+    {
+      "claim_id": "mardu_claim_0002",
+      "faction_id": "mardu",
+      "claim_type": "design_identity",
+      "statement": "Mardu design identity has Red as its center and speed as its wedge attribute, with speed expressed through action, early pressure, strategic timing, rapid coordinated attack, and all-in aggression across the three colors.",
+      "canon_status": "Official design commentary",
+      "source_ids": [
+        "src_vm_mardu_evidence_ledger_20260531",
+        "src_wotc_rosewater_mardu_finishing_first"
+      ],
+      "evidence_rows": [
+        "MARDU-EVID-002",
+        "MARDU-EVID-003"
+      ],
+      "confidence": "High",
+      "notes": "Use for design-level speed and color-role language. Exact raid, dash, mobilize, card text, card prevalence, and Commander legality remain deferred."
+    },
+    {
+      "claim_id": "mardu_claim_0003",
+      "faction_id": "mardu",
+      "claim_type": "khans_lore_identity",
+      "statement": "Khans-era Mardu are a feared warrior culture defined by speed, brutality, honor, the dragon wing symbol, the Edicts of Ilagra, war names, respect-earning khan authority, seminomadic raiding, plunder dependence, and low-infrastructure war society.",
+      "canon_status": "Official Tarkir lore capture",
+      "source_ids": [
+        "src_vm_mardu_evidence_ledger_20260531",
+        "src_wotc_tarkir_khans_pg_part_2"
+      ],
+      "evidence_rows": [
+        "MARDU-EVID-004",
+        "MARDU-EVID-005",
+        "MARDU-EVID-006",
+        "MARDU-EVID-008"
+      ],
+      "confidence": "High",
+      "notes": "Use for Khans-era Mardu Horde society and warrior-code floor. Do not backfill modern Dragonstorm reforms into this identity."
+    },
+    {
+      "claim_id": "mardu_claim_0004",
+      "faction_id": "mardu",
+      "claim_type": "khans_tactics_anchor",
+      "statement": "Khans-era Mardu floor includes dragon-hunting merit, archery, concealment magic, war shrieks, wind magic, riders, hordechiefs, wranglers, feudmasters, war horses, falcons or rocs, Zurgo Helmsmasher at Wingthrone, and locations including Wingthrone, Goldengrave, The Scour, and Screamreach.",
+      "canon_status": "Official Tarkir lore capture",
+      "source_ids": [
+        "src_vm_mardu_evidence_ledger_20260531",
+        "src_wotc_tarkir_khans_pg_part_2"
+      ],
+      "evidence_rows": [
+        "MARDU-EVID-007",
+        "MARDU-EVID-009",
+        "MARDU-EVID-010",
+        "MARDU-EVID-011",
+        "MARDU-EVID-012"
+      ],
+      "confidence": "High",
+      "notes": "Use for Khans-era tactics, magic, roles, Zurgo-era figure floor, and geography. Full Zurgo biography and exact mechanic/card facts remain deferred."
+    },
+    {
+      "claim_id": "mardu_claim_0005",
+      "faction_id": "mardu",
+      "claim_type": "fate_reforged_bridge",
+      "statement": "Fate Reforged and story-specific Mardu material supports an ancient bridge in which Mardu are feared warriors who live for battle and speed, Alesha is a young Mardu khan and skilled rider, archer, and swordfighter, and Alesha story rows support war-name judgment, accepted name, identity recognition, and Khanfall transition context.",
+      "canon_status": "Official Tarkir guide and story capture",
+      "source_ids": [
+        "src_vm_mardu_evidence_ledger_20260531",
+        "src_wotc_tarkir_fate_reforged_pg",
+        "src_wotc_tarkir_story_truth_of_names",
+        "src_wotc_tarkir_story_khanfall"
+      ],
+      "evidence_rows": [
+        "MARDU-EVID-013",
+        "MARDU-EVID-014",
+        "MARDU-EVID-015",
+        "MARDU-EVID-016",
+        "MARDU-EVID-017"
+      ],
+      "confidence": "High",
+      "notes": "Use as an ancient bridge only. Do not expand into full Alesha biography, card-level claims, or broad political doctrine without later evidence capture."
+    },
+    {
+      "claim_id": "mardu_claim_0006",
+      "faction_id": "mardu",
+      "claim_type": "timeline_boundary",
+      "statement": "Kolaghan clan is a Dragons-era dragonlord clan boundary, not Khans-era Mardu Horde continuity; its little internal structure, lack of official rank, the crave, lightning-fast brutality, Zurgo Bellstriker, and Vial Smasher are contrast or timeline-bound material.",
+      "canon_status": "Official Tarkir lore boundary",
+      "source_ids": [
+        "src_vm_mardu_evidence_ledger_20260531",
+        "src_wotc_tarkir_dragons_pg_part_2"
+      ],
+      "evidence_rows": [
+        "MARDU-EVID-018",
+        "MARDU-EVID-019"
+      ],
+      "confidence": "High",
+      "notes": "Use as an anti-bleed boundary. Do not treat Kolaghan clan as Khans-era Mardu Horde identity."
+    },
+    {
+      "claim_id": "mardu_claim_0007",
+      "faction_id": "mardu",
+      "claim_type": "modern_dragonstorm_society",
+      "statement": "Modern Dragonstorm-era Mardu are a timeline-labeled restored clan of nomadic warriors following Kolaghan rule, Phyrexian-invasion losses, rebellion, and reunification, with agile tactics, technology, weakness exploitation, blacksmithing, beastriders, lightning fighters, archers, khan governance, the Dalkovan Assembly, generals, mobile camp-cities, civilian life, arts, sport, and combat readiness.",
+      "canon_status": "Official modern Tarkir guide capture",
+      "source_ids": [
+        "src_vm_mardu_evidence_ledger_20260531",
+        "src_wotc_tarkir_dragonstorm_pg_part_2"
+      ],
+      "evidence_rows": [
+        "MARDU-EVID-020",
+        "MARDU-EVID-021",
+        "MARDU-EVID-022",
+        "MARDU-EVID-023",
+        "MARDU-EVID-024"
+      ],
+      "confidence": "High",
+      "notes": "Modern Dragonstorm-era only. Do not backfill modern governance, law, or community survival texture into Khans-era Mardu Horde."
+    },
+    {
+      "claim_id": "mardu_claim_0008",
+      "faction_id": "mardu",
+      "claim_type": "modern_dragonstorm_belief_magic_geography",
+      "statement": "Modern Dragonstorm-era Mardu belief, magic, dragonstorm, and geography include Emberheart and Skybreath, open religious mixing, Lightning Proving, lightning and physical enhancement magic, stormsingers, clan dragons as contributors, dragonstorm mobility and lightning barriers, Dalkovan cities, Thunder Stadium, Dragonsong Rock, Sandsteppe Gate, Screamreach, Goldengrave, and The Scour.",
+      "canon_status": "Official modern Tarkir guide capture",
+      "source_ids": [
+        "src_vm_mardu_evidence_ledger_20260531",
+        "src_wotc_tarkir_dragonstorm_pg_part_2"
+      ],
+      "evidence_rows": [
+        "MARDU-EVID-025",
+        "MARDU-EVID-026"
+      ],
+      "confidence": "High",
+      "notes": "Modern Dragonstorm-era only. Exact modern story chronology and detailed named-figure biographies remain deferred."
+    },
+    {
+      "claim_id": "mardu_claim_0009",
+      "faction_id": "mardu",
+      "claim_type": "source_hygiene_boundary",
+      "statement": "Color-pair philosophy files and Mardu seed source-material artifacts are not direct Tarkir lore evidence; color-pair files support interpretation only, and seed claims must be independently rebound to approved source rows or marked Manual fill required.",
+      "canon_status": "Source-supported boundary",
+      "source_ids": [
+        "src_vm_mardu_evidence_ledger_20260531"
+      ],
+      "evidence_rows": [
+        "MARDU-EVID-029",
+        "MARDU-EVID-030"
+      ],
+      "confidence": "High",
+      "notes": "Use to block color-philosophy proof, seed-copy proof, and circular packet citation."
+    },
+    {
+      "claim_id": "mardu_claim_0010",
+      "faction_id": "mardu",
+      "claim_type": "metadata_boundary",
+      "statement": "Generic RWB, generic WBR, Kolaghan continuity, Dragonstorm backfill, color-pair interpretation, seed-file claims, and non-live packet status are not sufficient Mardu Horde proof or runtime readiness.",
+      "canon_status": "Source-supported boundary",
+      "source_ids": [
+        "src_vm_mardu_evidence_ledger_20260531"
+      ],
+      "evidence_rows": [
+        "MARDU-EVID-001",
+        "MARDU-EVID-018",
+        "MARDU-EVID-029",
+        "MARDU-EVID-030",
+        "MARDU-EVID-032"
+      ],
+      "confidence": "High",
+      "notes": "This is a false-positive and lifecycle guardrail. Commander/operator rows are excluded by source-role policy and are not cited as raw-claim evidence."
+    }
+  ],
+  "claim_quality_summary": {
+    "raw_claims_added": 10,
+    "source_evidence_rows_used": [
+      "MARDU-EVID-001",
+      "MARDU-EVID-002",
+      "MARDU-EVID-003",
+      "MARDU-EVID-004",
+      "MARDU-EVID-005",
+      "MARDU-EVID-006",
+      "MARDU-EVID-007",
+      "MARDU-EVID-008",
+      "MARDU-EVID-009",
+      "MARDU-EVID-010",
+      "MARDU-EVID-011",
+      "MARDU-EVID-012",
+      "MARDU-EVID-013",
+      "MARDU-EVID-014",
+      "MARDU-EVID-015",
+      "MARDU-EVID-016",
+      "MARDU-EVID-017",
+      "MARDU-EVID-018",
+      "MARDU-EVID-019",
+      "MARDU-EVID-020",
+      "MARDU-EVID-021",
+      "MARDU-EVID-022",
+      "MARDU-EVID-023",
+      "MARDU-EVID-024",
+      "MARDU-EVID-025",
+      "MARDU-EVID-026",
+      "MARDU-EVID-029",
+      "MARDU-EVID-030",
+      "MARDU-EVID-032"
+    ],
+    "raw_claim_id_policy": "Raw claims use mardu_claim_0001-style IDs. MARDU-EVID row IDs remain evidence references only.",
+    "claim_floor": "Normalized Mardu promoted rows plus allowed guardrail/lifecycle boundary rows only.",
+    "excluded_rows": [
+      "support-only Commander/operator evidence rows",
+      "Vox Mana synthesis row as independent raw-claim evidence",
+      "Commander row identifiers",
+      "manual-fill rows",
+      "direct MARDU-SRC rows"
+    ],
+    "overall_confidence": "High for source-bound Mardu identity, Khans-era floor, Fate Reforged/Alesha bridge, Kolaghan boundary, modern Dragonstorm guide, and guardrail claims; low for exact card facts, Commander legality, full biographies, exact mechanics, and detailed Dragonstorm chronology."
+  }
+}

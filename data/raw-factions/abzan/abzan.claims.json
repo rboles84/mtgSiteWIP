@@ -1,0 +1,234 @@
+{
+  "schema_version": "1.0.0",
+  "faction_id": "abzan",
+  "faction_name": "Abzan Houses",
+  "source_review_date": "2026-05-31",
+  "last_updated": "2026-05-31",
+  "claim_count": 10,
+  "claims": [
+    {
+      "claim_id": "abzan_claim_0001",
+      "faction_id": "abzan",
+      "claim_type": "identity",
+      "statement": "Abzan is the White-centered WBG Tarkir wedge expression identified by the normalized Abzan evidence packet.",
+      "canon_status": "Source-supported identity",
+      "source_ids": [
+        "src_vm_abzan_evidence_ledger_20260531",
+        "src_wotc_rosewater_abzan_we_will_survive"
+      ],
+      "evidence_rows": [
+        "ABZAN-EVID-001"
+      ],
+      "confidence": "High",
+      "notes": "Use for base Abzan Houses identity only. WBG and W/B/G permutations remain metadata/query-only and do not become runtime aliases, route keys, generated keys, fixture keys, or public labels."
+    },
+    {
+      "claim_id": "abzan_claim_0002",
+      "faction_id": "abzan",
+      "claim_type": "design_identity",
+      "statement": "Abzan's design identity emphasizes endurance and survival through proactive defense, active defense, long-game planning, and Green growth after pressure is survived.",
+      "canon_status": "Official design commentary",
+      "source_ids": [
+        "src_vm_abzan_evidence_ledger_20260531",
+        "src_wotc_rosewater_abzan_we_will_survive"
+      ],
+      "evidence_rows": [
+        "ABZAN-EVID-002",
+        "ABZAN-EVID-003"
+      ],
+      "confidence": "High",
+      "notes": "This supports design-level endurance and defense language. It does not prove specific deck mechanics, commander legality, or card text."
+    },
+    {
+      "claim_id": "abzan_claim_0003",
+      "faction_id": "abzan",
+      "claim_type": "lore_identity",
+      "statement": "Khans-era Abzan society grounds endurance in family, duty, kin-tree practice, ancestor spirits, and defined kinship categories.",
+      "canon_status": "Official Tarkir lore capture",
+      "source_ids": [
+        "src_vm_abzan_evidence_ledger_20260531",
+        "src_wotc_tarkir_khans_pg_part_1"
+      ],
+      "evidence_rows": [
+        "ABZAN-EVID-004",
+        "ABZAN-EVID-005",
+        "ABZAN-EVID-006"
+      ],
+      "confidence": "High",
+      "notes": "Use for Khans-era social and ancestor-practice floor. Exact post-rebellion integration details remain manual-review material."
+    },
+    {
+      "claim_id": "abzan_claim_0004",
+      "faction_id": "abzan",
+      "claim_type": "lore_support",
+      "statement": "Khans and Fate Reforged Abzan material supports era-bound roles, magic, named anchors, family bonds, lineage, dragon-scale armor, and dragon-threat context.",
+      "canon_status": "Official Tarkir lore capture",
+      "source_ids": [
+        "src_vm_abzan_evidence_ledger_20260531",
+        "src_wotc_tarkir_khans_pg_part_1",
+        "src_wotc_tarkir_fate_reforged_pg"
+      ],
+      "evidence_rows": [
+        "ABZAN-EVID-007",
+        "ABZAN-EVID-008",
+        "ABZAN-EVID-009"
+      ],
+      "confidence": "High",
+      "notes": "Named anchors are era-specific. This does not create broad biography, commander legality, or modern card-fact claims."
+    },
+    {
+      "claim_id": "abzan_claim_0005",
+      "faction_id": "abzan",
+      "claim_type": "transition_boundary",
+      "statement": "Khanfall and Dromoka-era material provide transition and suppression context, while Dromoka's brood remains separate from Abzan Houses.",
+      "canon_status": "Official Tarkir chronology with source boundary",
+      "source_ids": [
+        "src_vm_abzan_evidence_ledger_20260531",
+        "src_wotc_tarkir_fate_reforged_pg",
+        "src_wotc_tarkir_dragons_pg_part_1",
+        "src_wotc_tarkir_dragons_pg_part_2",
+        "src_wotc_tarkir_story_khanfall"
+      ],
+      "evidence_rows": [
+        "ABZAN-EVID-010",
+        "ABZAN-EVID-011",
+        "ABZAN-EVID-012",
+        "ABZAN-EVID-013"
+      ],
+      "confidence": "High",
+      "notes": "Use Dromoka-era material as contrast and suppression context only. Do not treat Dromoka's brood or generic WG dragon-clan identity as Abzan Houses."
+    },
+    {
+      "claim_id": "abzan_claim_0006",
+      "faction_id": "abzan",
+      "claim_type": "modern_lore_identity",
+      "statement": "Modern Dragonstorm-era Abzan are loyal and enduring, revived after Dromoka suppression, governed by the Council of Houses, and structured around extended house membership and major houses.",
+      "canon_status": "Official modern Tarkir guide capture",
+      "source_ids": [
+        "src_vm_abzan_evidence_ledger_20260531",
+        "src_wotc_tarkir_dragonstorm_pg_part_1"
+      ],
+      "evidence_rows": [
+        "ABZAN-EVID-014",
+        "ABZAN-EVID-016",
+        "ABZAN-EVID-017",
+        "ABZAN-EVID-018",
+        "ABZAN-EVID-019"
+      ],
+      "confidence": "High",
+      "notes": "Use for modern Abzan Houses identity, governance, house membership, and major-house floor. Detailed minor-house hierarchy and individual biography remain manual-review material."
+    },
+    {
+      "claim_id": "abzan_claim_0007",
+      "faction_id": "abzan",
+      "claim_type": "modern_lore_structure",
+      "statement": "Modern Abzan civic and military life includes trade networks, fortified refuge, patient defensive strength, organized military support, and daily trades and arts.",
+      "canon_status": "Official modern Tarkir guide capture",
+      "source_ids": [
+        "src_vm_abzan_evidence_ledger_20260531",
+        "src_wotc_tarkir_dragonstorm_pg_part_1"
+      ],
+      "evidence_rows": [
+        "ABZAN-EVID-015",
+        "ABZAN-EVID-020",
+        "ABZAN-EVID-021"
+      ],
+      "confidence": "High",
+      "notes": "Use for modern civic, defensive, and daily-life floor only. Do not infer exact campaign chronology, card text, or exhaustive military protocols."
+    },
+    {
+      "claim_id": "abzan_claim_0008",
+      "faction_id": "abzan",
+      "claim_type": "metaphysical_lore",
+      "statement": "Modern Abzan central belief is perennation, with life/death continuity, ancestor guidance, Kin-Tree bonding, earth manipulation, and spirit summoning as source-bound practices.",
+      "canon_status": "Official modern Tarkir guide capture",
+      "source_ids": [
+        "src_vm_abzan_evidence_ledger_20260531",
+        "src_wotc_tarkir_dragonstorm_pg_part_1"
+      ],
+      "evidence_rows": [
+        "ABZAN-EVID-022",
+        "ABZAN-EVID-023"
+      ],
+      "confidence": "High",
+      "notes": "Use for perennation, ancestor guidance, Kin-Tree, earth-magic, and spirit-summoning floor. Broader Vox Mana metaphysical prose must remain labeled as synthesis."
+    },
+    {
+      "claim_id": "abzan_claim_0009",
+      "faction_id": "abzan",
+      "claim_type": "modern_lore_context",
+      "statement": "Modern Abzan dragonstorm-era context includes defensive dragon hunting or capture, house-associated dragons, storm refuge, protective walls, and source-bound geography.",
+      "canon_status": "Official modern Tarkir guide capture",
+      "source_ids": [
+        "src_vm_abzan_evidence_ledger_20260531",
+        "src_wotc_tarkir_dragonstorm_pg_part_1",
+        "src_wotc_tarkir_dragonstorm_pg_part_2"
+      ],
+      "evidence_rows": [
+        "ABZAN-EVID-024",
+        "ABZAN-EVID-025"
+      ],
+      "confidence": "High",
+      "notes": "Use for high-level dragonstorm and geography floor. Long-term dragonstorm ecology and exact wild-dragon protocols remain manual-review material."
+    },
+    {
+      "claim_id": "abzan_claim_0010",
+      "faction_id": "abzan",
+      "claim_type": "metadata_boundary",
+      "statement": "Generic WBG, generic defense or graveyard themes, Dromoka's brood, Commander products, seed files, and non-live packet status are not sufficient Abzan Houses proof.",
+      "canon_status": "Source-supported boundary",
+      "source_ids": [
+        "src_vm_abzan_evidence_ledger_20260531"
+      ],
+      "evidence_rows": [
+        "ABZAN-EVID-026",
+        "ABZAN-EVID-029",
+        "ABZAN-EVID-031"
+      ],
+      "confidence": "High",
+      "notes": "This is a false-positive and lifecycle guardrail. It does not make Abzan runtime-live, placement-eligible, or generated."
+    }
+  ],
+  "claim_quality_summary": {
+    "raw_claims_added": 10,
+    "source_evidence_rows_used": [
+      "ABZAN-EVID-001",
+      "ABZAN-EVID-002",
+      "ABZAN-EVID-003",
+      "ABZAN-EVID-004",
+      "ABZAN-EVID-005",
+      "ABZAN-EVID-006",
+      "ABZAN-EVID-007",
+      "ABZAN-EVID-008",
+      "ABZAN-EVID-009",
+      "ABZAN-EVID-010",
+      "ABZAN-EVID-011",
+      "ABZAN-EVID-012",
+      "ABZAN-EVID-013",
+      "ABZAN-EVID-014",
+      "ABZAN-EVID-015",
+      "ABZAN-EVID-016",
+      "ABZAN-EVID-017",
+      "ABZAN-EVID-018",
+      "ABZAN-EVID-019",
+      "ABZAN-EVID-020",
+      "ABZAN-EVID-021",
+      "ABZAN-EVID-022",
+      "ABZAN-EVID-023",
+      "ABZAN-EVID-024",
+      "ABZAN-EVID-025",
+      "ABZAN-EVID-026",
+      "ABZAN-EVID-029",
+      "ABZAN-EVID-031"
+    ],
+    "raw_claim_id_policy": "Raw claims use abzan_claim_0001-style IDs. ABZAN-EVID row IDs remain evidence references only.",
+    "claim_floor": "Normalized Abzan promoted and guardrail rows only.",
+    "excluded_rows": [
+      "support-only Commander/operator evidence rows",
+      "Vox Mana synthesis row as independent raw-claim evidence",
+      "Commander row identifiers",
+      "manual-fill rows"
+    ],
+    "overall_confidence": "High for source-bound Abzan identity, modern guide, and guardrail claims; low for exact card facts, commander legality, minor-house hierarchy, detailed campaigns, and long-term dragonstorm ecology."
+  }
+}

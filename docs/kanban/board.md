@@ -7,6 +7,37 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 ## Backlog
 
+- [VM-240 - Yore Source Packet And Evidence Ledger](backlog/VM-240-yore-source-packet-and-evidence-ledger.md)
+- [VM-241 - Yore Identity And Metaphysics Docs](backlog/VM-241-yore-identity-and-metaphysics-docs.md)
+- [VM-242 - Yore Docs Parity Fill](backlog/VM-242-yore-docs-parity-fill.md)
+- [VM-243 - Yore Non-Live Raw Packet](backlog/VM-243-yore-non-live-raw-packet.md)
+- [VM-244 - Yore Review Gate](backlog/VM-244-yore-review-gate.md)
+- [VM-245 - Yore Controlled Runtime Promotion](backlog/VM-245-yore-controlled-runtime-promotion.md)
+- [VM-246 - Glint Source Packet And Evidence Ledger](backlog/VM-246-glint-source-packet-and-evidence-ledger.md)
+- [VM-247 - Glint Identity And Metaphysics Docs](backlog/VM-247-glint-identity-and-metaphysics-docs.md)
+- [VM-248 - Glint Docs Parity Fill](backlog/VM-248-glint-docs-parity-fill.md)
+- [VM-249 - Glint Non-Live Raw Packet](backlog/VM-249-glint-non-live-raw-packet.md)
+- [VM-250 - Glint Review Gate](backlog/VM-250-glint-review-gate.md)
+- [VM-251 - Glint Controlled Runtime Promotion](backlog/VM-251-glint-controlled-runtime-promotion.md)
+- [VM-252 - Dune Source Packet And Evidence Ledger](backlog/VM-252-dune-source-packet-and-evidence-ledger.md)
+- [VM-253 - Dune Identity And Metaphysics Docs](backlog/VM-253-dune-identity-and-metaphysics-docs.md)
+- [VM-254 - Dune Docs Parity Fill](backlog/VM-254-dune-docs-parity-fill.md)
+- [VM-255 - Dune Non-Live Raw Packet](backlog/VM-255-dune-non-live-raw-packet.md)
+- [VM-256 - Dune Review Gate](backlog/VM-256-dune-review-gate.md)
+- [VM-257 - Dune Controlled Runtime Promotion](backlog/VM-257-dune-controlled-runtime-promotion.md)
+- [VM-258 - Ink Source Packet And Evidence Ledger](backlog/VM-258-ink-source-packet-and-evidence-ledger.md)
+- [VM-259 - Ink Identity And Metaphysics Docs](backlog/VM-259-ink-identity-and-metaphysics-docs.md)
+- [VM-260 - Ink Docs Parity Fill](backlog/VM-260-ink-docs-parity-fill.md)
+- [VM-261 - Ink Non-Live Raw Packet](backlog/VM-261-ink-non-live-raw-packet.md)
+- [VM-262 - Ink Review Gate](backlog/VM-262-ink-review-gate.md)
+- [VM-263 - Ink Controlled Runtime Promotion](backlog/VM-263-ink-controlled-runtime-promotion.md)
+- [VM-264 - Witch Source Packet And Evidence Ledger](backlog/VM-264-witch-source-packet-and-evidence-ledger.md)
+- [VM-265 - Witch Identity And Metaphysics Docs](backlog/VM-265-witch-identity-and-metaphysics-docs.md)
+- [VM-266 - Witch Docs Parity Fill](backlog/VM-266-witch-docs-parity-fill.md)
+- [VM-267 - Witch Non-Live Raw Packet](backlog/VM-267-witch-non-live-raw-packet.md)
+- [VM-268 - Witch Review Gate](backlog/VM-268-witch-review-gate.md)
+- [VM-269 - Witch Controlled Runtime Promotion](backlog/VM-269-witch-controlled-runtime-promotion.md)
+- [VM-236 - Sultai Live Copy Polish And Identity Display Repair](backlog/VM-236-sultai-live-copy-polish-identity-display-repair.md)
 - [VM-154 - Home Hero Horizontal Overflow Containment](backlog/VM-154-home-hero-horizontal-overflow-containment.md)
 - [VM-006 - Archscry / Maze Verification and Repeat-Visit Polish](backlog/VM-006-archscry-maze-verification-repeat-visit-polish.md)
 - [VM-007 - Commander Dossier Quality and Link Follow-Up](backlog/VM-007-commander-dossier-quality-link-follow-up.md)
@@ -33,8 +64,47 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 ## Done
 
-Historical note: `VM-044` is a preserved historical duplicate ID and `VM-049` is an intentional preserved duplicate pairing per the handoff trail. Neither ID should be reused.
+Historical note: `VM-044` is a preserved historical duplicate ID and `VM-049` is an intentional preserved duplicate pairing per the handoff trail. `VM-197` also has a user-declared Abzan stack duplicate while preserving the existing Alara VM-197 card. `VM-215` has a manual-QA Abzan repair duplicate; the former Jeskai VM-215 through VM-220 reservation was repaired to VM-229 through VM-234 on 2026-05-31.
 
+- [VM-239 - Jeskai Dossier Deck-Start De-Dup And QA Closeout](done/VM-239-jeskai-dossier-deck-start-de-dup-and-qa-closeout.md)
+- [VM-238 - Mardu Maze Link Query Preservation Repair](done/VM-238-mardu-maze-link-query-preservation-repair.md)
+- [VM-234 - Jeskai Way Controlled Runtime Promotion](done/VM-234-jeskai-way-controlled-runtime-promotion.md)
+- [VM-237 - Mardu Live Quick Reading Reachability Repair](done/VM-237-mardu-live-quick-reading-reachability-repair.md)
+- [VM-228 - Mardu Horde Controlled Runtime Promotion](done/VM-228-mardu-horde-controlled-runtime-promotion.md)
+- [VM-233 - Jeskai Way Raw Packet Review Gate](done/VM-233-jeskai-way-raw-packet-review-gate.md)
+- [VM-235 - Mardu Raw Packet Non-Live Status Marker Repair](done/VM-235-mardu-raw-packet-non-live-status-marker-repair.md)
+- [VM-214 - Sultai Brood Controlled Runtime Promotion](done/VM-214-sultai-brood-controlled-runtime-promotion.md)
+- [VM-232 - Jeskai Way Raw-Faction Source Packet](done/VM-232-jeskai-way-raw-faction-source-packet.md)
+- [VM-227 - Mardu Horde Raw Packet Review Gate](done/VM-227-mardu-horde-raw-packet-review-gate.md)
+- [VM-226 - Mardu Horde Raw-Faction Source Packet](done/VM-226-mardu-horde-raw-faction-source-packet.md)
+- [VM-231 - Jeskai Way Docs Parity Fill](done/VM-231-jeskai-way-docs-parity-fill.md)
+- [VM-213 - Sultai Brood Raw Packet Review Gate](done/VM-213-sultai-brood-raw-packet-review-gate.md)
+- [VM-230 - Jeskai Way Identity And Metaphysics](done/VM-230-jeskai-way-identity-and-metaphysics.md)
+- [VM-225 - Mardu Horde Docs Parity Fill](done/VM-225-mardu-horde-docs-parity-fill.md)
+- [VM-212 - Sultai Brood Raw-Faction Source Packet](done/VM-212-sultai-brood-raw-faction-source-packet.md)
+- [VM-229 - Jeskai Way Source Packet And Evidence Ledger](done/VM-229-jeskai-way-source-packet-evidence-ledger.md)
+- [VM-224 - Mardu Horde Identity And Metaphysics](done/VM-224-mardu-horde-identity-and-metaphysics.md)
+- [VM-211 - Sultai Brood Docs Parity Fill](done/VM-211-sultai-brood-docs-parity-fill.md)
+- [VM-223 - Mardu Horde Source Packet And Evidence Ledger](done/VM-223-mardu-horde-source-packet-evidence-ledger.md)
+- [VM-210 - Sultai Brood Identity And Metaphysics](done/VM-210-sultai-brood-identity-and-metaphysics.md)
+- [VM-222 - Temur Dossier Link And Maze QA Repair](done/VM-222-temur-dossier-link-maze-qa-repair.md)
+- [VM-221 - Temur Live Parity And Archscry Text Hardening](done/VM-221-temur-live-parity-archscry-text-hardening.md)
+- [VM-215 - Abzan Dossier Manual QA Repair](done/VM-215-abzan-dossier-manual-qa-repair.md) - duplicate ID observed during closeout; Jeskai Way reservation later repaired to VM-229 through VM-234.
+- [VM-209 - Sultai Brood Source Packet And Evidence Ledger](done/VM-209-sultai-brood-source-packet-evidence-ledger.md)
+- [VM-208 - Temur Frontier Controlled Runtime Promotion](done/VM-208-temur-frontier-controlled-runtime-promotion.md)
+- [VM-197 - Abzan Houses Source Packet And Evidence Ledger](done/VM-197-abzan-source-packet-evidence-ledger.md) - duplicate ID approved for user-declared Abzan VM-197 through VM-202 stack; existing Alara VM-197 and historical Abzan VM-200 source-packet record preserved.
+- [VM-202 - Abzan Controlled Runtime Promotion](done/VM-202-abzan-controlled-runtime-promotion.md)
+- [VM-201 - Abzan Raw Packet Review Gate](done/VM-201-abzan-raw-packet-review-gate.md) - duplicate ID approved for user-declared Abzan VM-197 through VM-202 stack; existing Tarkir clan restore VM-201 preserved.
+- [VM-207 - Temur Frontier Raw Packet Review Gate](done/VM-207-temur-frontier-raw-packet-review-gate.md)
+- [VM-200 - Abzan Raw-Faction Source Packet](done/VM-200-abzan-raw-faction-source-packet.md) - duplicate ID approved for user-declared Abzan VM-197 through VM-202 stack; existing Abzan source-packet VM-200 preserved.
+- [VM-206 - Temur Frontier Raw-Faction Source Packet](done/VM-206-temur-frontier-raw-faction-source-packet.md)
+- [VM-205 - Temur Frontier Docs Parity Fill](done/VM-205-temur-frontier-docs-parity-fill.md)
+- [VM-199 - Abzan Docs Parity Fill](done/VM-199-abzan-docs-parity-fill.md) - duplicate ID approved for user-declared Abzan VM-197 through VM-202 stack; unrelated shard-merge VM-199 preserved.
+- [VM-204 - Temur Frontier Identity And Metaphysics](done/VM-204-temur-frontier-identity-and-metaphysics.md)
+- [VM-198 - Abzan Identity And Metaphysics](done/VM-198-abzan-identity-and-metaphysics.md) - duplicate ID approved for user-declared Abzan VM-197 through VM-202 stack; unrelated shard-cleanup VM-198 preserved.
+- [VM-203 - Temur Frontier Source Packet And Evidence Ledger](done/VM-203-temur-frontier-source-packet-evidence-ledger.md)
+- [VM-201 - Tarkir Clan Source Folder Restore](done/VM-201-tarkir-clan-source-folder-restore.md)
+- [VM-200 - Abzan Houses Source Packet And Evidence Ledger](done/VM-200-abzan-houses-source-packet-evidence-ledger.md)
 - [VM-199 - Shard Branch Merge Hygiene Fix](done/VM-199-shard-branch-merge-hygiene-fix.md)
 - [VM-198 - Shard Bundle Worktree Cleanup](done/VM-198-shard-bundle-worktree-cleanup.md)
 - [VM-197 - Alara Shard Gold-Standard Parity Closeout](done/VM-197-alara-shard-gold-standard-parity-closeout.md)

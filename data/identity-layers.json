@@ -6,9 +6,9 @@
       "Color entries define foundational identity language.",
       "Expression entries define routing, blend metadata, placement eligibility, and Home preview metadata.",
       "The current Home preview set remains five mono colors, ten Ravnica guilds, and five Strixhaven colleges.",
-      "The current live placement set has 25 expressions: the original 20-expression preview baseline plus five Alara shard pilots.",
-      "BANT, ESPER, GRIXIS, JUND, and NAYA are live placement expression keys with preview_eligible false.",
-      "WUG, WUB, UBR, BRG, and RGW remain color-direction/query metadata only, not expression keys or aliases."
+      "The current live placement set has 30 expressions: the original 20-expression preview baseline, five Alara shard pilots, Abzan Houses, Temur Frontier, Sultai Brood, Mardu Horde, and Jeskai Way.",
+      "BANT, ESPER, GRIXIS, JUND, NAYA, ABZAN, TEMUR, SULTAI, MARDU, and JESKAI are live placement expression keys with preview_eligible false.",
+      "WUG, WUB, UBR, BRG, RGW, WBG, GUR, BGU, RWB, WBR, URW, WUR, RWU, UWR, RUW, WRU, and same-color-order permutations remain color-direction/query metadata only, not expression keys or aliases."
     ]
   },
   "colors": {
@@ -1825,6 +1825,586 @@
       "aliases": [
         "NAYA",
         "naya"
+      ],
+      "placement_eligible": true,
+      "preview_eligible": false
+    },
+    "ABZAN": {
+      "key": "ABZAN",
+      "active": true,
+      "kind": "wedge",
+      "name": "Abzan Houses",
+      "world": "Tarkir",
+      "colors": [
+        "W",
+        "B",
+        "G"
+      ],
+      "core_color": "W",
+      "secondary_colors": [
+        "B",
+        "G"
+      ],
+      "routing": {
+        "color_identity": "WBG",
+        "label": "Abzan"
+      },
+      "identity_blend": "White-centered family endurance supported by Black ancestor obligation and Green perennation.",
+      "core_tension": "Abzan's virtue is house continuity across time, but that duty can become exclusion, rigidity, political burden, or obligation that outlives consent.",
+      "display": {
+        "key": "ABZAN",
+        "name": "Abzan Houses",
+        "institution_type": "wedge",
+        "world": "Tarkir",
+        "colors": [
+          "W",
+          "B",
+          "G"
+        ],
+        "accent": "#c8b77a",
+        "banner": "linear-gradient(160deg, rgba(210, 191, 126, 0.26) 0%, rgba(74, 85, 54, 0.24) 50%, rgba(52, 46, 39, 0.22) 100%)",
+        "tagline": "Endure with the house. Remember through the tree. Guard the next generation.",
+        "philosophy": "Abzan treats survival as a duty carried by family, ancestor memory, and the living house. White keeps obligation centered, Black remembers what endurance costs, and Green lets continuity pass through roots, bodies, and time.",
+        "lore_summary": "Abzan Houses is Tarkir's White-centered white-black-green wedge expression. Vox Mana reads it through source-bound endurance, family continuity, ancestor obligation, perennation, defensive patience, and house survival, not as generic same-color goodstuff, Dromoka's brood, Commander product canon, or a routeable color-code identity.",
+        "core_tension": "Abzan's virtue is house continuity across time, but that duty can become exclusion, rigidity, political burden, or obligation that outlives consent.",
+        "affinity": {
+          "drawn_to": [
+            "family duty that protects the next generation",
+            "ancestor memory as practical guidance",
+            "defensive patience and long-game endurance",
+            "house continuity rooted in living and dead kin"
+          ],
+          "repelled_by": [
+            "generic same-color goodstuff",
+            "Dromoka's brood treated as Abzan continuity",
+            "Commander products treated as Tarkir canon",
+            "Sultai, Mardu, Jeskai, Temur, Orzhov, Selesnya, or Golgari pressure replacing positive Abzan evidence"
+          ],
+          "core_question": "What duty is worth carrying into the next generation?",
+          "interview_tells": [
+            "names family, ancestors, and house survival before generic mechanics",
+            "treats endurance as an obligation, not just a defensive deck style",
+            "links life and death through perennation, Kin-Tree memory, and stewardship",
+            "guards against generic same-color, Dromoka, Commander-product, and adjacent-wedge false positives"
+          ],
+          "not_to_be_confused_with": "Orzhov centers White-Black obligation; Selesnya centers Green-White community; Golgari centers Black-Green life/death ecology; Bant centers sanctioned honor; Naya centers living-world abundance; Jund centers appetite and consequence; Witherbloom centers vitality ecology. Abzan centers White-led family endurance, ancestor obligation, Green perennation, and house continuity."
+        },
+        "decree_voice": {
+          "tone": "Patient, ancestral, protective, and duty-bound without becoming generic defense or graveyard shorthand.",
+          "speaks_like": "A house that has survived long enough for roots, names, and obligations to answer together.",
+          "example_opening": "The reading turns toward endurance, family memory, and the duty that survives the first fall.",
+          "example_decree": "The reading turns toward endurance, family memory, and the duty that survives the first fall. Abzan does not ask survival to be solitary. It asks what house, ancestor, and future generation make the cost worth carrying."
+        },
+        "archetypes": [
+          {
+            "name": "Family Endurance",
+            "desc": "Build the durable board as a house that can carry pressure across turns."
+          },
+          {
+            "name": "Ancestor Obligation",
+            "desc": "Let death, memory, and duty shape the next choice without turning support texture into canon proof."
+          },
+          {
+            "name": "Perennial Defense",
+            "desc": "Use counters, life, bodies, and recursion as support for continuity that keeps returning."
+          }
+        ],
+        "land_base": {
+          "premium": [
+            "Bayou",
+            "Scrubland",
+            "Savannah"
+          ],
+          "midrange": [
+            "Overgrown Tomb",
+            "Godless Shrine",
+            "Temple Garden"
+          ],
+          "budget": [
+            "Sandsteppe Citadel",
+            "Terramorphic Expanse",
+            "Path of Ancestry"
+          ],
+          "utility": [
+            "Command Tower",
+            "Exotic Orchard",
+            "Bojuka Bog"
+          ],
+          "optimal": "Bayou / Scrubland / Savannah / Command Tower / Exotic Orchard",
+          "mid": "Overgrown Tomb / Godless Shrine / Temple Garden / Indatha Triome / Caves of Koilos",
+          "budget_line": "Sandsteppe Citadel / Terramorphic Expanse / Path of Ancestry / Evolving Wilds / basics",
+          "utility_line": "Command Tower / Exotic Orchard / Bojuka Bog / Gavony Township"
+        },
+        "research_links": {},
+        "deck_links": []
+      },
+      "display_code": "ABZAN",
+      "aliases": [
+        "ABZAN"
+      ],
+      "placement_eligible": true,
+      "preview_eligible": false
+    },
+    "TEMUR": {
+      "key": "TEMUR",
+      "active": true,
+      "kind": "wedge",
+      "name": "Temur Frontier",
+      "world": "Tarkir",
+      "colors": [
+        "G",
+        "U",
+        "R"
+      ],
+      "core_color": "G",
+      "secondary_colors": [
+        "U",
+        "R"
+      ],
+      "routing": {
+        "color_identity": "GUR",
+        "label": "Temur"
+      },
+      "identity_blend": "Green-centered survival and instinct supported by Blue mental fortitude and Red direct action.",
+      "core_tension": "Temur's virtue is strength earned by listening to the living world, but that strength can harden into isolation, suspicion, or force without wisdom.",
+      "display": {
+        "key": "TEMUR",
+        "name": "Temur Frontier",
+        "institution_type": "wedge",
+        "world": "Tarkir",
+        "colors": [
+          "G",
+          "U",
+          "R"
+        ],
+        "accent": "#55b777",
+        "banner": "linear-gradient(160deg, rgba(89, 180, 118, 0.26) 0%, rgba(63, 127, 166, 0.22) 48%, rgba(191, 82, 54, 0.2) 100%)",
+        "tagline": "Listen to the wild. Endure the cold. Strike with earned strength.",
+        "philosophy": "Temur treats survival as relationship with terrain, instinct, memory, and the living world. Green keeps the body and land centered, Blue listens for pattern and mental fortitude, and Red acts when the signal becomes clear.",
+        "lore_summary": "Temur Frontier is Tarkir's Green-centered green-blue-red wedge expression. Vox Mana reads it through source-bound survival, instinct, mental fortitude, Qal Sisma endurance, shamanic listening, elemental memory, and timeline-labeled modern Dragonstorm material, not as generic same-color goodstuff, Atarka continuity, Commander product canon, or a routeable color-code identity.",
+        "core_tension": "Temur's virtue is strength earned by listening to the living world, but that strength can harden into isolation, suspicion, or force without wisdom.",
+        "affinity": {
+          "drawn_to": [
+            "survival shaped by listening before action",
+            "instinct tempered by mental fortitude",
+            "elemental memory and ancestral wild signals",
+            "earned strength in harsh terrain"
+          ],
+          "repelled_by": [
+            "generic same-color goodstuff",
+            "Atarka Clan treated as Temur continuity",
+            "Commander products treated as Tarkir canon",
+            "Dragonstorm-era detail backfilled into Khans-era Temur"
+          ],
+          "core_question": "What signal is worth trusting when survival has no room for noise?",
+          "interview_tells": [
+            "names survival, instinct, and mental fortitude before generic mechanics",
+            "treats terrain, ancestors, and elemental memory as signals to heed",
+            "keeps modern Dragonstorm Temur timeline-labeled",
+            "guards against generic same-color, Atarka, Commander-product, and seed-file false positives"
+          ],
+          "not_to_be_confused_with": "Gruul centers Red-Green instinctive revolt; Simic centers Green-Blue adaptation; Izzet centers Blue-Red discovery; Naya centers living-world abundance; Bant centers sanctioned honor; Grixis centers survival leverage; Jund centers appetite and consequence; Abzan centers family endurance. Temur centers Green-led survival, instinct, mental fortitude, shamanic listening, and elemental memory."
+        },
+        "decree_voice": {
+          "tone": "Feral, attentive, weathered, and protective without becoming generic dragon/ramp shorthand.",
+          "speaks_like": "A clan that waits for stone, ice, blood, and storm to answer before the strike lands.",
+          "example_opening": "The reading turns toward harsh terrain, living memory, and the instinct that listens before it moves.",
+          "example_decree": "The reading turns toward harsh terrain, living memory, and the instinct that listens before it moves. Temur does not ask strength to be noise. It asks which signal the wild has already given you."
+        },
+        "archetypes": [
+          {
+            "name": "Survival Through Attunement",
+            "desc": "Read the land, weather, memory, and body before committing force."
+          },
+          {
+            "name": "Instinct With Mental Fortitude",
+            "desc": "Let direct action follow perception rather than collapse into impulse alone."
+          },
+          {
+            "name": "Elemental Memory",
+            "desc": "Treat ancestors, stone, ice, and song as support for survival without turning deferred mechanics into claims."
+          }
+        ],
+        "land_base": {
+          "premium": [
+            "Tropical Island",
+            "Volcanic Island",
+            "Taiga"
+          ],
+          "midrange": [
+            "Breeding Pool",
+            "Steam Vents",
+            "Stomping Ground"
+          ],
+          "budget": [
+            "Frontier Bivouac",
+            "Terramorphic Expanse",
+            "Path of Ancestry"
+          ],
+          "utility": [
+            "Command Tower",
+            "Exotic Orchard",
+            "Kessig Wolf Run"
+          ],
+          "optimal": "Tropical Island / Volcanic Island / Taiga / Command Tower / Exotic Orchard",
+          "mid": "Breeding Pool / Steam Vents / Stomping Ground / Ketria Triome / Yavimaya Coast",
+          "budget_line": "Frontier Bivouac / Terramorphic Expanse / Path of Ancestry / Evolving Wilds / basics",
+          "utility_line": "Command Tower / Exotic Orchard / Kessig Wolf Run / Reliquary Tower"
+        },
+        "research_links": {},
+        "deck_links": []
+      },
+      "display_code": "TEMUR",
+      "aliases": [
+        "TEMUR"
+      ],
+      "placement_eligible": true,
+      "preview_eligible": false
+    },
+    "SULTAI": {
+      "key": "SULTAI",
+      "active": true,
+      "kind": "wedge",
+      "name": "Sultai Brood",
+      "world": "Tarkir",
+      "colors": [
+        "B",
+        "G",
+        "U"
+      ],
+      "core_color": "B",
+      "secondary_colors": [
+        "G",
+        "U"
+      ],
+      "routing": {
+        "color_identity": "BGU",
+        "label": "Sultai"
+      },
+      "identity_blend": "Black-centered ruthless opportunity supported by Green life/death resources and Blue strategic calculation.",
+      "core_tension": "Sultai's virtue is seeing every cost, secret, body, and opportunity as usable material, but that conversion can become domination when ambition and calculation overrule restraint.",
+      "display": {
+        "key": "SULTAI",
+        "name": "Sultai Brood",
+        "institution_type": "wedge",
+        "world": "Tarkir",
+        "colors": [
+          "B",
+          "G",
+          "U"
+        ],
+        "accent": "#527463",
+        "banner": "linear-gradient(160deg, rgba(58, 42, 74, 0.28) 0%, rgba(47, 96, 66, 0.24) 48%, rgba(51, 109, 124, 0.2) 100%)",
+        "tagline": "Turn opportunity into power. Keep the dead useful. Leave no advantage unclaimed.",
+        "philosophy": "Sultai treats opportunity as material for power. Black keeps ambition and cost at the center, Green supplies bodies, death, land, poison, and renewal as resources, and Blue makes the conversion selective, secretive, and planned.",
+        "lore_summary": "Sultai Brood is Tarkir's Black-centered black-green-blue wedge expression. Vox Mana reads it through source-bound ruthlessness, opportunity, necromancy, sibsig labor, Sidisi-era ambition, graveyard/resource conversion, and strict Silumgar and Dragonstorm timeline boundaries, not as generic BGU goodstuff, Silumgar continuity, Commander product canon, or a routeable color-code identity.",
+        "core_tension": "Sultai's virtue is seeing every cost, secret, body, and opportunity as usable material, but that conversion can become domination when ambition and calculation overrule restraint.",
+        "affinity": {
+          "drawn_to": [
+            "ruthless opportunity before public approval",
+            "graveyard and resource conversion",
+            "necromantic utility kept source-bound",
+            "calculated advantage from secrets, bodies, and costs"
+          ],
+          "repelled_by": [
+            "generic BGU goodstuff",
+            "Silumgar clan treated as Sultai Brood continuity",
+            "modern Dragonstorm detail backfilled into Khans-era Sultai",
+            "Commander products, seed files, or color philosophy treated as Tarkir canon"
+          ],
+          "core_question": "What advantage is worth claiming before anyone else sees what it can become?",
+          "interview_tells": [
+            "names ruthlessness, opportunity, and resource conversion before generic mechanics",
+            "treats the dead, secrets, and costs as usable material with clear boundaries",
+            "keeps Silumgar and Dragonstorm material timeline-labeled",
+            "guards against generic BGU, Commander-product, seed-file, and color-philosophy false positives"
+          ],
+          "not_to_be_confused_with": "Dimir centers Blue-Black hidden information; Golgari centers Black-Green life/death ecology; Simic centers Green-Blue adaptation; Abzan centers family endurance; Temur centers survival attunement; Grixis centers survival leverage; Jund centers appetite and consequence; Witherbloom centers vitality ecology. Sultai centers Black-led ruthless opportunity, necromancy, calculated resource conversion, and strict Tarkir timeline boundaries."
+        },
+        "decree_voice": {
+          "tone": "Ruthless, courtly, death-aware, and calculating without becoming generic graveyard or theft shorthand.",
+          "speaks_like": "A court that sees every body, secret, cost, and opening as material for power before anyone else recognizes its value.",
+          "example_opening": "The reading turns toward ruthless opportunity, useful death, and the advantage waiting inside what others refuse to claim.",
+          "example_decree": "The reading turns toward ruthless opportunity, useful death, and the advantage waiting inside what others refuse to claim. Sultai does not ask power to be clean. It asks what can still be converted before the moment is wasted."
+        },
+        "archetypes": [
+          {
+            "name": "Resource Conversion",
+            "desc": "Turn costs, secrets, bodies, land, and openings into leverage before the table names their value."
+          },
+          {
+            "name": "Necromantic Utility",
+            "desc": "Make the dead useful while keeping Silumgar and Dragonstorm material in separate timeline lanes."
+          },
+          {
+            "name": "Calculated Ruthlessness",
+            "desc": "Let ambition move through planning, theft, denial, and selective timing rather than generic same-color goodstuff."
+          }
+        ],
+        "land_base": {
+          "premium": [
+            "Bayou",
+            "Tropical Island",
+            "Underground Sea"
+          ],
+          "midrange": [
+            "Overgrown Tomb",
+            "Breeding Pool",
+            "Watery Grave"
+          ],
+          "budget": [
+            "Opulent Palace",
+            "Terramorphic Expanse",
+            "Path of Ancestry"
+          ],
+          "utility": [
+            "Command Tower",
+            "Exotic Orchard",
+            "Bojuka Bog"
+          ],
+          "optimal": "Bayou / Tropical Island / Underground Sea / Command Tower / Exotic Orchard",
+          "mid": "Overgrown Tomb / Breeding Pool / Watery Grave / Zagoth Triome / Yavimaya Coast",
+          "budget_line": "Opulent Palace / Terramorphic Expanse / Path of Ancestry / Evolving Wilds / basics",
+          "utility_line": "Command Tower / Exotic Orchard / Bojuka Bog / Reliquary Tower"
+        },
+        "research_links": {},
+        "deck_links": []
+      },
+      "display_code": "SULTAI",
+      "aliases": [
+        "SULTAI"
+      ],
+      "placement_eligible": true,
+      "preview_eligible": false
+    },
+    "MARDU": {
+      "key": "MARDU",
+      "active": true,
+      "kind": "wedge",
+      "name": "Mardu Horde",
+      "world": "Tarkir",
+      "colors": [
+        "R",
+        "W",
+        "B"
+      ],
+      "core_color": "R",
+      "secondary_colors": [
+        "W",
+        "B"
+      ],
+      "routing": {
+        "color_identity": "RWB",
+        "label": "Mardu"
+      },
+      "identity_blend": "Red-centered speed and total commitment supported by White martial order and Black ruthless opportunity.",
+      "core_tension": "Mardu's virtue is decisive action bound to a war code, but that speed can become conquest, overextension, or cruelty when commitment outruns the oath that gives it shape.",
+      "display": {
+        "key": "MARDU",
+        "name": "Mardu Horde",
+        "institution_type": "wedge",
+        "world": "Tarkir",
+        "colors": [
+          "R",
+          "W",
+          "B"
+        ],
+        "accent": "#b9493f",
+        "banner": "linear-gradient(160deg, rgba(191, 73, 63, 0.28) 0%, rgba(210, 194, 142, 0.22) 48%, rgba(58, 42, 48, 0.24) 100%)",
+        "tagline": "Strike with the Horde. Keep the war name. Take the opening before it closes.",
+        "philosophy": "Mardu treats identity as action under pressure. Red supplies speed, attack, and total commitment; White gives the charge formation, oath, and martial order; Black makes opportunity, survival, and ruthless advantage impossible to ignore.",
+        "lore_summary": "Mardu Horde is Tarkir's Red-centered red-white-black wedge expression. Vox Mana reads it through source-bound speed, raid momentum, war names, the Edicts of Ilagra, Zurgo-era Horde identity, Alesha bridge material, Kolaghan and Dragonstorm boundaries, and strict RWB/WBR metadata-only handling, not as generic same-color goodstuff, Commander product canon, or routeable color-code identity.",
+        "core_tension": "Mardu's virtue is decisive action bound to a war code, but that speed can become conquest, overextension, or cruelty when commitment outruns the oath that gives it shape.",
+        "affinity": {
+          "drawn_to": [
+            "speed and total commitment",
+            "war names, oaths, and martial formation",
+            "the opening that must be taken now",
+            "ruthless advantage bound to Horde code"
+          ],
+          "repelled_by": [
+            "generic RWB or WBR goodstuff",
+            "Kolaghan clan treated as Khans-era Mardu continuity",
+            "Dragonstorm material backfilled into Khans-era doctrine",
+            "Commander products, seed files, or exact mechanics treated as Tarkir canon"
+          ],
+          "core_question": "What opening is worth taking before the charge loses its name?",
+          "interview_tells": [
+            "names speed, attack, and total commitment before generic mechanics",
+            "treats formation, oath, and war names as the shape that keeps action from becoming noise",
+            "keeps Alesha, Kolaghan, and Dragonstorm material timeline-labeled",
+            "guards against generic RWB/WBR, Commander-product, seed-file, and color-philosophy false positives"
+          ],
+          "not_to_be_confused_with": "Boros centers Red-White intervention; Orzhov centers White-Black obligation; Rakdos centers Red-Black appetite and spectacle; Abzan centers family endurance; Temur centers survival attunement; Sultai centers ruthless resource conversion; Naya and Jund share pressure textures without Mardu's Horde code. Mardu centers Red-led speed, martial oath, war names, coordinated attack, and ruthless opportunity."
+        },
+        "decree_voice": {
+          "tone": "Fast, martial, oath-bound, and dangerous without becoming generic aggression or same-color shorthand.",
+          "speaks_like": "A war band that names the charge before the opening closes and expects every rider to keep pace.",
+          "example_opening": "The reading turns toward speed, oath, and the opening that must be taken before hesitation breaks the charge.",
+          "example_decree": "The reading turns toward speed, oath, and the opening that must be taken before hesitation breaks the charge. Mardu does not ask action to wait for comfort. It asks whether the war name can survive the cost of moving now."
+        },
+        "archetypes": [
+          {
+            "name": "Raid Momentum",
+            "desc": "Commit early, keep pressure coordinated, and make the table answer the charge before it stabilizes."
+          },
+          {
+            "name": "War-Name Oath",
+            "desc": "Let formation, code, and named commitment give speed its shape."
+          },
+          {
+            "name": "Ruthless Opening",
+            "desc": "Take the immediate advantage while keeping Kolaghan, Dragonstorm, and Commander support material in bounded lanes."
+          }
+        ],
+        "land_base": {
+          "premium": [
+            "Badlands",
+            "Plateau",
+            "Scrubland"
+          ],
+          "midrange": [
+            "Blood Crypt",
+            "Sacred Foundry",
+            "Godless Shrine"
+          ],
+          "budget": [
+            "Nomad Outpost",
+            "Terramorphic Expanse",
+            "Path of Ancestry"
+          ],
+          "utility": [
+            "Command Tower",
+            "Exotic Orchard",
+            "Bojuka Bog"
+          ],
+          "optimal": "Badlands / Plateau / Scrubland / Command Tower / Exotic Orchard",
+          "mid": "Blood Crypt / Sacred Foundry / Godless Shrine / Savai Triome / Battlefield Forge",
+          "budget_line": "Nomad Outpost / Terramorphic Expanse / Path of Ancestry / Evolving Wilds / basics",
+          "utility_line": "Command Tower / Exotic Orchard / Bojuka Bog / Slayers' Stronghold"
+        },
+        "research_links": {},
+        "deck_links": []
+      },
+      "display_code": "MARDU",
+      "aliases": [
+        "MARDU"
+      ],
+      "placement_eligible": true,
+      "preview_eligible": false
+    },
+    "JESKAI": {
+      "key": "JESKAI",
+      "active": true,
+      "kind": "wedge",
+      "name": "Jeskai Way",
+      "world": "Tarkir",
+      "colors": [
+        "U",
+        "R",
+        "W"
+      ],
+      "core_color": "U",
+      "secondary_colors": [
+        "R",
+        "W"
+      ],
+      "routing": {
+        "color_identity": "URW",
+        "label": "Jeskai"
+      },
+      "identity_blend": "Blue-centered disciplined cunning supported by Red action and White shared form.",
+      "core_tension": "Jeskai's virtue is trained insight moving with precision, courage, compassion, and restraint, but that discipline can become empty delay when practice forgets the moment it was meant to serve.",
+      "display": {
+        "key": "JESKAI",
+        "name": "Jeskai Way",
+        "institution_type": "wedge",
+        "world": "Tarkir",
+        "colors": [
+          "U",
+          "R",
+          "W"
+        ],
+        "accent": "#4f8fb4",
+        "banner": "linear-gradient(160deg, rgba(61, 110, 154, 0.28) 0%, rgba(190, 82, 65, 0.2) 48%, rgba(218, 203, 152, 0.22) 100%)",
+        "tagline": "Know the line. Train the body. Move when insight is ready.",
+        "philosophy": "Jeskai treats action as something that should be trained before it is released. Blue keeps knowledge, perfection, and cunning centered; Red gives insight the courage to move; White gives that motion form, restraint, and responsibility to the people it touches.",
+        "lore_summary": "Jeskai Way is Tarkir's Blue-centered blue-red-white wedge expression. Vox Mana reads it through source-bound cunning, monastery discipline, martial practice, Narset and Shu Yun timeline boundaries, Ojutai discontinuity, and modern revived-clan context, not as generic same-color goodstuff, Ojutai continuity, Commander product lore, or routeable color-code identity.",
+        "core_tension": "Jeskai's virtue is trained insight moving with precision, courage, compassion, and restraint, but that discipline can become empty delay when practice forgets the moment it was meant to serve.",
+        "affinity": {
+          "drawn_to": [
+            "knowledge turned into trained action",
+            "martial discipline with compassion and restraint",
+            "monastery practice, breath, timing, and precision",
+            "cunning that protects the shape of the move"
+          ],
+          "repelled_by": [
+            "generic blue-red-white goodstuff",
+            "Ojutai treated as direct Jeskai Way continuity",
+            "modern revival details backfilled into Khans-era doctrine",
+            "Commander products, seed files, or exact mechanics treated as Tarkir lore"
+          ],
+          "core_question": "What insight is worth training until it can move without losing its form?",
+          "interview_tells": [
+            "names discipline, study, martial practice, and cunning before generic spells",
+            "wants action to be precise, courageous, and accountable rather than merely fast",
+            "keeps Narset, Shu Yun, Ojutai, and modern revival material timeline-labeled",
+            "guards against generic color-code, Commander-product, seed-file, and mechanics false positives"
+          ],
+          "not_to_be_confused_with": "Izzet centers Blue-Red experiment and spark; Azorius centers White-Blue procedure; Boros centers Red-White intervention; Temur centers survival attunement; Mardu centers speed under a war code; Sultai centers ruthless resource conversion. Jeskai centers Blue-led disciplined cunning, trained action, martial practice, and strict Tarkir timeline boundaries."
+        },
+        "decree_voice": {
+          "tone": "Precise, disciplined, reflective, and swift without becoming generic spellslinger shorthand.",
+          "speaks_like": "A monastery that trains perception until the body can answer with courage, compassion, and control.",
+          "example_opening": "The reading turns toward disciplined insight, trained motion, and the line that action should not cross until it understands itself.",
+          "example_decree": "The reading turns toward disciplined insight, trained motion, and the line that action should not cross until it understands itself. Jeskai does not ask action to become slow. It asks motion to be worthy of the knowledge that guides it."
+        },
+        "archetypes": [
+          {
+            "name": "Disciplined Tempo",
+            "desc": "Use timing, protection, and selective pressure so each move feels trained rather than merely fast."
+          },
+          {
+            "name": "Cunning In Motion",
+            "desc": "Turn knowledge, copies, spells, and precision into table texture for insight becoming action."
+          },
+          {
+            "name": "Monastery Practice",
+            "desc": "Let martial discipline, restraint, and compassion frame the deck's momentum while keeping Ojutai and modern revival material in separate timeline lanes."
+          }
+        ],
+        "land_base": {
+          "premium": [
+            "Tundra",
+            "Volcanic Island",
+            "Plateau"
+          ],
+          "midrange": [
+            "Hallowed Fountain",
+            "Steam Vents",
+            "Sacred Foundry"
+          ],
+          "budget": [
+            "Mystic Monastery",
+            "Terramorphic Expanse",
+            "Path of Ancestry"
+          ],
+          "utility": [
+            "Command Tower",
+            "Exotic Orchard",
+            "Mystic Monastery"
+          ],
+          "optimal": "Tundra / Volcanic Island / Plateau / Command Tower / Exotic Orchard",
+          "mid": "Hallowed Fountain / Steam Vents / Sacred Foundry / Raugrin Triome / Shivan Reef",
+          "budget_line": "Mystic Monastery / Terramorphic Expanse / Path of Ancestry / Evolving Wilds / basics",
+          "utility_line": "Command Tower / Exotic Orchard / Mystic Monastery / Reliquary Tower"
+        },
+        "research_links": {},
+        "deck_links": []
+      },
+      "display_code": "JESKAI",
+      "aliases": [
+        "JESKAI"
       ],
       "placement_eligible": true,
       "preview_eligible": false

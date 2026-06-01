@@ -1,0 +1,237 @@
+{
+  "schema_version": "1.0.0",
+  "faction_id": "temur",
+  "faction_name": "Temur Frontier",
+  "source_review_date": "2026-05-31",
+  "last_updated": "2026-05-31",
+  "claim_count": 10,
+  "claims": [
+    {
+      "claim_id": "temur_claim_0001",
+      "faction_id": "temur",
+      "claim_type": "identity",
+      "statement": "Temur Frontier is the Green-centered Temur wedge identity using GUR as color-direction metadata only.",
+      "canon_status": "Source-supported identity",
+      "source_ids": [
+        "src_vm_temur_evidence_ledger_20260531",
+        "src_wotc_rosewater_temur_what_doesnt_kill_you"
+      ],
+      "evidence_rows": [
+        "TEMUR-EVID-001"
+      ],
+      "confidence": "High",
+      "notes": "Use for base Temur Frontier identity only. GUR and color-order permutations remain metadata/query-only and do not become runtime aliases, navigation keys, generated keys, fixture keys, lookup keys, or public labels."
+    },
+    {
+      "claim_id": "temur_claim_0002",
+      "faction_id": "temur",
+      "claim_type": "design_identity",
+      "statement": "Temur's design identity emphasizes savagery as inner strength, mental fortitude, instinct, impulse, action, and toughness when pressure arrives.",
+      "canon_status": "Official design commentary",
+      "source_ids": [
+        "src_vm_temur_evidence_ledger_20260531",
+        "src_wotc_rosewater_temur_what_doesnt_kill_you"
+      ],
+      "evidence_rows": [
+        "TEMUR-EVID-002"
+      ],
+      "confidence": "High",
+      "notes": "This supports design-level savagery, instinct, and endurance language. It does not prove exact mechanics, Commander legality, or card text."
+    },
+    {
+      "claim_id": "temur_claim_0003",
+      "faction_id": "temur",
+      "claim_type": "color_role_boundary",
+      "statement": "Temur combines Green acceptance and physical natural strength, Blue knowledge and mental problem solving, and Red freedom, action, emotion, impulse, and direct conflict.",
+      "canon_status": "Official design commentary",
+      "source_ids": [
+        "src_vm_temur_evidence_ledger_20260531",
+        "src_wotc_rosewater_temur_what_doesnt_kill_you"
+      ],
+      "evidence_rows": [
+        "TEMUR-EVID-003",
+        "TEMUR-EVID-004",
+        "TEMUR-EVID-005"
+      ],
+      "confidence": "High",
+      "notes": "Use for Green, Blue, and Red role boundaries inside Temur only. Do not turn the pair overlaps into Gruul, Simic, or Izzet doctrine from this packet."
+    },
+    {
+      "claim_id": "temur_claim_0004",
+      "faction_id": "temur",
+      "claim_type": "khans_lore_identity",
+      "statement": "Khans-era Temur Frontier identity is grounded in Qal Sisma survival, strength, self-sufficiency, nomadic family groups, practical raiding for supplies, and defense against physical or cultural intrusion.",
+      "canon_status": "Official Tarkir lore capture",
+      "source_ids": [
+        "src_vm_temur_evidence_ledger_20260531",
+        "src_wotc_tarkir_khans_pg_part_2",
+        "src_wotc_tarkir_story_awakening_the_bear"
+      ],
+      "evidence_rows": [
+        "TEMUR-EVID-006",
+        "TEMUR-EVID-007",
+        "TEMUR-EVID-009",
+        "TEMUR-EVID-010",
+        "TEMUR-EVID-011",
+        "TEMUR-EVID-018"
+      ],
+      "confidence": "High",
+      "notes": "Use for Khans-era social, environmental, and named-anchor floor. Surrak story events remain story-specific support, not universal clan law."
+    },
+    {
+      "claim_id": "temur_claim_0005",
+      "faction_id": "temur",
+      "claim_type": "khans_metaphysical_lore",
+      "statement": "Khans-era Temur metaphysics include whisperers, frozen ancestors, ancestral roles, Wide Whisper knowledge, elemental affinity, ice or stone shaping, thaw imagery, ice doubles, and hidden preservation of ancient traditions.",
+      "canon_status": "Official Tarkir lore capture",
+      "source_ids": [
+        "src_vm_temur_evidence_ledger_20260531",
+        "src_wotc_tarkir_khans_pg_part_2",
+        "src_wotc_tarkir_dragons_pg_part_2"
+      ],
+      "evidence_rows": [
+        "TEMUR-EVID-008",
+        "TEMUR-EVID-017"
+      ],
+      "confidence": "High",
+      "notes": "Use for Temur magic and memory floor only. Exact Endless Song temporal mechanics remain deferred."
+    },
+    {
+      "claim_id": "temur_claim_0006",
+      "faction_id": "temur",
+      "claim_type": "transition_context",
+      "statement": "Fate Reforged and Yasova-era Temur material provides an era-specific bridge through Qal Sisma clanholds, whisperers, Yasova Dragonclaw, Atarka pressure, food scarcity, elemental shelter, and Yasova's survival bargain.",
+      "canon_status": "Official Tarkir transition context",
+      "source_ids": [
+        "src_vm_temur_evidence_ledger_20260531",
+        "src_wotc_tarkir_fate_reforged_pg",
+        "src_wotc_tarkir_story_khanfall"
+      ],
+      "evidence_rows": [
+        "TEMUR-EVID-012",
+        "TEMUR-EVID-013",
+        "TEMUR-EVID-014"
+      ],
+      "confidence": "High",
+      "notes": "Use as transition context only. Yasova's full biography and Bolas-manipulation arc remain manual-review material."
+    },
+    {
+      "claim_id": "temur_claim_0007",
+      "faction_id": "temur",
+      "claim_type": "timeline_boundary",
+      "statement": "Atarka Clan material is suppression and contrast context: dragonlord clans replaced khan-led clans, Atarka's followers are diminished under hunger, and Dragonclaw continuity is blocked rather than preserved.",
+      "canon_status": "Official Tarkir chronology with source boundary",
+      "source_ids": [
+        "src_vm_temur_evidence_ledger_20260531",
+        "src_wotc_tarkir_dragons_pg_part_1",
+        "src_wotc_tarkir_dragons_pg_part_2"
+      ],
+      "evidence_rows": [
+        "TEMUR-EVID-015",
+        "TEMUR-EVID-016",
+        "TEMUR-EVID-017"
+      ],
+      "confidence": "High",
+      "notes": "Use Atarka-era material as contrast, suppression, and hidden-preservation context only. Do not treat Atarka Clan as Temur Frontier continuity."
+    },
+    {
+      "claim_id": "temur_claim_0008",
+      "faction_id": "temur",
+      "claim_type": "modern_dragonstorm_lore_identity",
+      "statement": "Modern Dragonstorm-era Temur are timeline-labeled as reformed after Atarka's fall, semi-nomadic, northern, isolationist, land-protective, guided by whisperers, organized around Dragonclaw and Twice Whisperer leadership, and sustained by hunting, gathering, herding, fishing, scouting, storytelling, wrestling, and portable arts.",
+      "canon_status": "Official modern Tarkir guide capture",
+      "source_ids": [
+        "src_vm_temur_evidence_ledger_20260531",
+        "src_wotc_tarkir_dragonstorm_pg_part_2"
+      ],
+      "evidence_rows": [
+        "TEMUR-EVID-019",
+        "TEMUR-EVID-020",
+        "TEMUR-EVID-021",
+        "TEMUR-EVID-022"
+      ],
+      "confidence": "High",
+      "notes": "Modern Dragonstorm-era only. Do not backfill these details into Khans-era Temur Frontier identity without specific VM-203 evidence rows."
+    },
+    {
+      "claim_id": "temur_claim_0009",
+      "faction_id": "temur",
+      "claim_type": "modern_dragonstorm_metaphysical_lore",
+      "statement": "Modern Dragonstorm-era Temur are timeline-labeled through Endless Song belief, elemental magic, dragonstorm prediction, sheltering or vacating, clan dragon bonds, protective mountain dragons, and source-bound northern locations.",
+      "canon_status": "Official modern Tarkir guide capture",
+      "source_ids": [
+        "src_vm_temur_evidence_ledger_20260531",
+        "src_wotc_tarkir_dragonstorm_pg_part_2"
+      ],
+      "evidence_rows": [
+        "TEMUR-EVID-023",
+        "TEMUR-EVID-024",
+        "TEMUR-EVID-025",
+        "TEMUR-EVID-026"
+      ],
+      "confidence": "High",
+      "notes": "Modern Dragonstorm-era only. Exact Endless Song mechanism and detailed clan dragon diplomacy remain manual-review material."
+    },
+    {
+      "claim_id": "temur_claim_0010",
+      "faction_id": "temur",
+      "claim_type": "metadata_boundary",
+      "statement": "Generic GUR, support-only Commander products, seed files, generated HTML, Atarka continuity, Dragonstorm backfill, and non-live packet status are not sufficient Temur Frontier proof.",
+      "canon_status": "Source-supported boundary",
+      "source_ids": [
+        "src_vm_temur_evidence_ledger_20260531"
+      ],
+      "evidence_rows": [
+        "TEMUR-EVID-015",
+        "TEMUR-EVID-016",
+        "TEMUR-EVID-029",
+        "TEMUR-EVID-031"
+      ],
+      "confidence": "High",
+      "notes": "This is a false-positive and lifecycle guardrail. Commander/operator rows are excluded by source-role policy and are not cited as raw-claim evidence."
+    }
+  ],
+  "claim_quality_summary": {
+    "raw_claims_added": 10,
+    "source_evidence_rows_used": [
+      "TEMUR-EVID-001",
+      "TEMUR-EVID-002",
+      "TEMUR-EVID-003",
+      "TEMUR-EVID-004",
+      "TEMUR-EVID-005",
+      "TEMUR-EVID-006",
+      "TEMUR-EVID-007",
+      "TEMUR-EVID-008",
+      "TEMUR-EVID-009",
+      "TEMUR-EVID-010",
+      "TEMUR-EVID-011",
+      "TEMUR-EVID-012",
+      "TEMUR-EVID-013",
+      "TEMUR-EVID-014",
+      "TEMUR-EVID-015",
+      "TEMUR-EVID-016",
+      "TEMUR-EVID-017",
+      "TEMUR-EVID-018",
+      "TEMUR-EVID-019",
+      "TEMUR-EVID-020",
+      "TEMUR-EVID-021",
+      "TEMUR-EVID-022",
+      "TEMUR-EVID-023",
+      "TEMUR-EVID-024",
+      "TEMUR-EVID-025",
+      "TEMUR-EVID-026",
+      "TEMUR-EVID-029",
+      "TEMUR-EVID-031"
+    ],
+    "raw_claim_id_policy": "Raw claims use temur_claim_0001-style IDs. TEMUR-EVID row IDs remain evidence references only.",
+    "claim_floor": "Normalized Temur promoted and guardrail evidence rows only.",
+    "excluded_rows": [
+      "support-only Commander/operator evidence rows",
+      "Vox Mana synthesis row as independent raw-claim evidence",
+      "Commander row identifiers",
+      "manual-fill rows",
+      "direct TEMUR-SRC rows"
+    ],
+    "overall_confidence": "High for source-bound Temur identity, Khans-era floor, modern Dragonstorm guide, and guardrail claims; low for exact card facts, Commander legality, Yasova's full arc, exact Endless Song mechanics, detailed governance, and clan dragon diplomacy."
+  }
+}

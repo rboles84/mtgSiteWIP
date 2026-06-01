@@ -42,6 +42,12 @@ const COLOR_IDENTITY_SLUGS = new Map([
   ["UG", "simic"],
   ["GU", "simic"],
   ["WR", "boros"],
+  ["GUR", "temur"],
+  ["GRU", "temur"],
+  ["UGR", "temur"],
+  ["URG", "temur"],
+  ["RGU", "temur"],
+  ["RUG", "temur"],
 ]);
 
 const EXTERNAL_ROUTING_FALLBACKS = [
@@ -60,6 +66,11 @@ const EXTERNAL_ROUTING_FALLBACKS = [
   { aliases: ["BG", "GOLGARI", "WITHERBLOOM"], guild: "golgari", colorIdentity: "BG", label: "Golgari" },
   { aliases: ["UG", "GU", "SIMIC", "QUANDRIX"], guild: "simic", colorIdentity: "UG", label: "Simic" },
   { aliases: ["WR", "RW", "BOROS", "LOREHOLD"], guild: "boros", colorIdentity: "WR", label: "Boros" },
+  { aliases: ["ABZAN"], guild: "wbg", colorIdentity: "WBG", label: "Abzan" },
+  { aliases: ["TEMUR"], guild: "temur", colorIdentity: "GUR", label: "Temur" },
+  { aliases: ["SULTAI"], guild: "sultai", colorIdentity: "BGU", label: "Sultai" },
+  { aliases: ["MARDU"], guild: "mardu", colorIdentity: "RWB", label: "Mardu" },
+  { aliases: ["JESKAI"], guild: "jeskai", colorIdentity: "URW", label: "Jeskai" },
 ];
 
 // Temporary string-only fallback until dossier routing receives the registry alias index directly.
@@ -174,6 +185,18 @@ const EVIDENCE_EXPLANATIONS = [
 ];
 
 const OMEN_COPY_RULES = [
+  {
+    pattern: /ancestor|ancestral|memory|stewardship|perennation|kin-tree|kin tree|spirit/i,
+    phrase: "You let memory become stewardship, carrying the living house without turning duty into nostalgia.",
+  },
+  {
+    pattern: /family|house|lineage|family line|\bline\b|next generation|outlast|alive|kinship/i,
+    phrase: "You measured survival by whether the house could carry its family duty forward.",
+  },
+  {
+    pattern: /endurance|endure|survive|survival|defensive patience|duty/i,
+    phrase: "You trusted patience that keeps the next generation alive after the first pressure breaks.",
+  },
   {
     pattern: /\b(graveyard|reclamation|recursion|rot|death|life-death|return|returns|reanimate|survival)\b/i,
     phrase: "You were willing to turn the graveyard into a second hand.",
@@ -771,6 +794,81 @@ export const COMMANDER_FACTION_GUIDANCE = {
     tableCautionText: "Develop mana first, protect the living board, and commit the largest swing after the cleanest answer is spent.",
     tableCautionReviewRule: "If text sounds like generic RGW goodstuff, pure big-creature shorthand, Cabaretti style, or Jund pressure, rebind it to VM-181/VM-184 support-only limits.",
   },
+  ABZAN: {
+    key: "ABZAN",
+    shortName: "Abzan",
+    ownedThemes: ["family endurance", "ancestor obligation", "perennation", "house continuity", "defensive patience", "Kin-Tree memory", "counters", "tokens", "lifegain", "sacrifice"],
+    allowedPhrases: ["family endurance", "house continuity", "ancestor obligation", "perennation", "defensive patience", "guard the next generation"],
+    bannedPhrases: ["generic three-color goodstuff", "Dromoka's brood as Abzan continuity", "Commander products as canon", "generic graveyard value"],
+    bleedWarningTerms: ["Dromoka brood", "generic graveyard value", "generic lifegain", "Sultai cruelty", "Mardu raid pressure", "Jeskai discipline-only", "Temur frontier endurance"],
+    bleedWarnings: ["avoid collapsing Abzan into generic same-color goodstuff, Dromoka's brood, Sultai, Mardu, Jeskai, Temur, Orzhov, Selesnya, Golgari, or Commander-product canon"],
+    preferredArchetypeTags: ["Counters Matter", "Lifegain", "Tokens"],
+    starterSearchTags: ["Counters Matter", "Lifegain", "Tokens"],
+    commanderPlan: "endures through layered defenses: grow counters, preserve life totals, spend bodies carefully, and let family-duty texture become a long-game board",
+    spellcraftIdentity: "Defenders, toughness matters, counters, tokens, sacrifice, keyword counters, graveyard enchantments, Food, life gain, poison, corrupted, and proliferate can all support Abzan's endurance and ancestor-duty texture. Treat them as Commander support, not canon proof.",
+    tableCautionText: "Build the defensive base, protect the piece that carries the counters or life engine, and let the table spend answers before committing the next generation of value.",
+    tableCautionReviewRule: "If text sounds like generic same-color goodstuff, Dromoka continuity, or mechanics-as-canon, rebind it to VM-197 through VM-201 support-only limits.",
+  },
+  TEMUR: {
+    key: "TEMUR",
+    shortName: "Temur",
+    ownedThemes: ["survival", "instinct", "mental fortitude", "shamanic listening", "elemental memory", "Qal Sisma", "dragons", "ramp", "copying", "energy", "counters"],
+    allowedPhrases: ["listen before moving", "survival through attunement", "earned strength", "elemental memory", "mental fortitude", "harsh-terrain instinct"],
+    bannedPhrases: ["generic GUR goodstuff", "Atarka Clan as Temur continuity", "Commander products as canon", "Dragonstorm backfill", "generic dragon ramp copy identity"],
+    bleedWarningTerms: ["Atarka continuity", "generic dragons", "generic ramp", "generic copying", "Commander canon", "Sultai pragmatism", "Jeskai discipline-only", "Naya abundance"],
+    bleedWarnings: ["avoid collapsing Temur into generic same-color goodstuff, Atarka Clan continuity, Commander-product canon, Dragonstorm backfill, Naya, Sultai, Jeskai, Mardu, Abzan, Gruul, Simic, or Izzet"],
+    preferredArchetypeTags: ["Ramp", "Big Mana", "Spellslinger"],
+    starterSearchTags: ["Ramp", "Big Mana", "Spellslinger"],
+    commanderPlan: "listens for the right opening, grows resources, and lets dragons, copying, counters, or huge force become table texture for survival through attunement",
+    spellcraftIdentity: "Dragons, ramp, energy, artifacts, copying spells and creatures, instants matter, non-hand casting, artifact tokens, counters, X-spells, and ravenous lines can give Commander table texture to Temur's survival, instinct, and elemental-force plan. They are deck expression, not the source of the clan's lore.",
+    tableCautionText: "Develop mana and board texture first, hold the copying or force multiplier until the table exposes the right signal, and avoid treating raw size as the whole identity.",
+    tableCautionReviewRule: "If text sounds like generic GUR goodstuff, Atarka continuity, Dragonstorm backfill, Commander products as canon, or mechanics-as-canon, rebind it to VM-203 through VM-207 support-only limits.",
+  },
+  SULTAI: {
+    key: "SULTAI",
+    shortName: "Sultai",
+    ownedThemes: ["ruthlessness", "opportunity", "resource conversion", "necromancy", "Sidisi-era ambition", "graveyard value", "theft", "self-mill", "morph", "mutate", "recursion"],
+    allowedPhrases: ["ruthless opportunity", "resource conversion", "keep the dead useful", "calculated advantage", "no advantage unclaimed", "source-bound Sultai Brood"],
+    bannedPhrases: ["generic same-color goodstuff", "Silumgar continuity", "Dragonstorm backfill", "Commander products as canon", "mechanics-as-canon", "generic graveyard value"],
+    bleedWarningTerms: ["generic same-color", "Silumgar continuity", "Dragonstorm backfill", "Commander canon", "generic theft", "generic mill", "generic morph", "generic mutate", "Abzan ancestry", "Temur attunement"],
+    bleedWarnings: ["avoid collapsing Sultai into generic same-color goodstuff, Silumgar continuity, Dragonstorm backfill, Commander-product canon, Dimir, Golgari, Simic, Abzan, Temur, Grixis, Jund, or Witherbloom"],
+    preferredArchetypeTags: ["Graveyard", "Theft", "Self-Mill"],
+    starterSearchTags: ["Graveyard", "Theft", "Self-Mill"],
+    commanderPlan: "turns graveyards, stolen resources, and hidden information into table advantage while keeping that play texture anchored to source-bound Sultai Brood identity",
+    spellcraftIdentity: "Graveyard value, theft, self-mill, mill, morph, mutate, recursion, hidden information, and complex creature value can give Commander table texture to Sultai's ruthless resource-conversion plan. They are table texture, not Tarkir setting evidence.",
+    tableCautionText: "Set up graveyard and hand-resource engines early, convert the first discarded option into leverage, and keep enough interaction to make the stolen or returned resource matter.",
+    tableCautionReviewRule: "If text sounds like generic same-color goodstuff, Silumgar continuity, Dragonstorm backfill, Commander products as canon, or mechanics-as-canon, rebind it to VM-209 through VM-213 support-only limits.",
+  },
+  MARDU: {
+    key: "MARDU",
+    shortName: "Mardu",
+    ownedThemes: ["speed", "total commitment", "martial order", "war names", "raid momentum", "ruthless opportunity", "combat pressure", "tokens", "sacrifice", "recursion"],
+    allowedPhrases: ["Red-centered speed", "take the opening", "war-name oath", "coordinated attack", "ruthless opportunity", "source-bound Mardu Horde"],
+    bannedPhrases: ["generic same-color goodstuff", "Kolaghan continuity", "Dragonstorm backfill", "Commander products as canon", "mechanics-as-canon", "generic attack deck"],
+    bleedWarningTerms: ["generic same-color", "Kolaghan continuity", "Dragonstorm backfill", "Commander canon", "generic attack", "generic sacrifice", "Abzan endurance", "Temur attunement", "Sultai resource conversion"],
+    bleedWarnings: ["avoid collapsing Mardu into generic same-color goodstuff, Kolaghan continuity, Dragonstorm backfill, Commander-product canon, Boros, Orzhov, Rakdos, Abzan, Temur, Sultai, Naya, or Jund"],
+    preferredArchetypeTags: ["Aggro", "Tokens", "Sacrifice"],
+    starterSearchTags: ["Aggro", "Tokens", "Sacrifice"],
+    commanderPlan: "turns early pressure, attack triggers, expendable bodies, and removal into a coordinated charge while keeping that play texture anchored to source-bound Mardu Horde identity",
+    spellcraftIdentity: "Combat pressure, tokens, sacrifice, recursion, aristocrats texture, attack triggers, and removal can give Commander table texture to Mardu's speed, martial oath, and ruthless-opening plan. They are table texture, not Tarkir setting evidence.",
+    tableCautionText: "Commit pressure early, keep the key attack lane protected, and spend sacrifice or removal pieces only when they keep the charge named and moving.",
+    tableCautionReviewRule: "If text sounds like generic same-color goodstuff, Kolaghan continuity, Dragonstorm backfill, Commander products as canon, or mechanics-as-canon, rebind it to VM-223 through VM-227 support-only limits.",
+  },
+  JESKAI: {
+    key: "JESKAI",
+    shortName: "Jeskai",
+    ownedThemes: ["discipline", "cunning", "martial practice", "monastery training", "tempo", "spells", "protection", "copies", "artifacts", "energy", "cycling"],
+    allowedPhrases: ["Blue-centered cunning", "trained insight", "disciplined action", "monastery practice", "precision and restraint", "source-bound Jeskai Way"],
+    bannedPhrases: ["generic same-color goodstuff", "Ojutai continuity", "Dragonstorm backfill", "Commander products as canon", "mechanics-as-canon", "generic spellslinger deck"],
+    bleedWarningTerms: ["generic same-color", "Ojutai continuity", "Dragonstorm backfill", "Commander canon", "generic spells", "generic prowess", "Mardu speed", "Temur attunement", "Sultai resource conversion"],
+    bleedWarnings: ["avoid collapsing Jeskai into generic same-color goodstuff, Ojutai continuity, Dragonstorm backfill, Commander-product canon, Izzet, Azorius, Boros, Temur, Mardu, Sultai, Naya, Esper, or Grixis"],
+    preferredArchetypeTags: ["Spellslinger", "Tempo", "Control"],
+    starterSearchTags: ["Spellslinger", "Tempo", "Control"],
+    commanderPlan: "turns timing, protection, copies, and disciplined pressure into table texture for trained insight becoming action",
+    spellcraftIdentity: "Tempo play, protection, copies, spells, prowess-like pressure, artifacts, energy, cycling, and time counters can give Commander table texture to Jeskai's discipline, cunning, and martial-practice plan. They are table texture, not Tarkir setting evidence.",
+    tableCautionText: "Develop the stance first, keep interaction ready, and spend the decisive spell only when it lets insight become action without losing restraint.",
+    tableCautionReviewRule: "If text sounds like generic same-color goodstuff, Ojutai continuity, Dragonstorm backfill, Commander products as canon, or mechanics-as-canon, rebind it to VM-229 through VM-233 source boundaries.",
+  },
 };
 
 function normalizeTagText(value) {
@@ -1146,7 +1244,7 @@ function omenPhraseForEntry(entry) {
 }
 
 function positiveFactionNames(entry, factions = {}, activeFactionKey = "") {
-  const names = (entry?.deltas || [])
+  const ranked = (entry?.deltas || [])
     .filter((delta) => delta.delta > 0)
     .sort((left, right) => {
       if (left.faction === activeFactionKey) {
@@ -1156,7 +1254,11 @@ function positiveFactionNames(entry, factions = {}, activeFactionKey = "") {
         return 1;
       }
       return right.delta - left.delta;
-    })
+    });
+  const filtered = activeFactionKey === "ABZAN" && ranked.some((delta) => delta.faction === activeFactionKey)
+    ? ranked.filter((delta) => delta.faction === activeFactionKey)
+    : ranked;
+  const names = filtered
     .map((delta) => factions[delta.faction]?.name || delta.faction)
     .filter(Boolean);
 
@@ -2530,6 +2632,91 @@ const NAYA_PRECON_FIT_SUMMARIES = new Map([
   ],
 ]);
 
+const ABZAN_PRECON_FIT_SUMMARIES = new Map([
+  [
+    "abzan armor",
+    "Abzan support fit with counters and defensive board texture: make endurance visible through protected growth while keeping the house identity source-bound.",
+  ],
+  [
+    "counterpunch",
+    "Abzan support fit with counters and board resilience: turn survival into a long-game shield without treating the product as Tarkir canon.",
+  ],
+  [
+    "symbiotic swarm",
+    "Abzan support fit with sacrifice, bodies, and recursion: let resources carry family-duty texture while avoiding generic graveyard value.",
+  ],
+  [
+    "enduring enchantments",
+    "Abzan support fit with graveyard enchantments and resilient permanents: make continuity feel perennial without adding new lore claims.",
+  ],
+  [
+    "food and fellowship",
+    "Abzan support fit with Food, life gain, and protective bodies: use care and endurance as table texture, not as setting proof.",
+  ],
+  [
+    "corrupting influence",
+    "Abzan support fit with poison, corrupted, and proliferate: treat the counters as survival pressure only, not as an Abzan canon claim.",
+  ],
+]);
+
+const TEMUR_PRECON_FIT_SUMMARIES = new Map([
+  [
+    "temur roar",
+    "Temur Commander fit with dragons and forceful scale: make strength visible while keeping the table story anchored in attunement, not raw size.",
+  ],
+  [
+    "living energy",
+    "Temur Commander fit with energy and adaptive resource texture: turn stored force into timing while keeping the table story centered on listening for the right signal.",
+  ],
+  [
+    "mirror mastery",
+    "Temur Commander fit with copying spells and creatures: let the right signal echo into pressure while keeping attunement ahead of spectacle.",
+  ],
+  [
+    "arcane maelstrom",
+    "Temur Commander fit with instants, big spells, and reactive timing: wait for the opening, then let the storm of choices carry the turn.",
+  ],
+  [
+    "paradox power",
+    "Temur Commander fit with non-hand casting and spell momentum: make possibility feel wild and forceful while the clan identity stays survival through attunement.",
+  ],
+  [
+    "tinker time",
+    "Temur Commander fit with artifacts and tokens as adaptive table texture: build the tool, then let timing and force decide the swing.",
+  ],
+  [
+    "tyranid swarm",
+    "Temur Commander fit with ravenous, counters, and X-spell scale: let huge growth read as earned pressure, not the whole identity.",
+  ],
+]);
+
+const SULTAI_PRECON_FIT_SUMMARIES = new Map([
+  [
+    "sultai arisen",
+    "Sultai Commander fit with graveyard value and recursion: make the dead useful as table texture while keeping Sultai Brood identity source-bound.",
+  ],
+  [
+    "grand larceny",
+    "Sultai Commander fit with theft and exile-casting: turn stolen resources into leverage without treating the product as Tarkir canon.",
+  ],
+  [
+    "mutant menace",
+    "Sultai Commander fit with mill, rad counters, and creature mutation texture: use transformation and graveyards as support-only play language.",
+  ],
+  [
+    "faceless menace",
+    "Sultai Commander fit with morph and hidden information: make secrecy visible at the table without converting morph into a Sultai lore claim.",
+  ],
+  [
+    "devour for power",
+    "Sultai Commander fit with graveyard construction and recursion: let the graveyard become leverage while avoiding generic same-color goodstuff.",
+  ],
+  [
+    "enhanced evolution",
+    "Sultai Commander fit with mutate and creature-value engines: treat adaptation as support texture, not as proof of Tarkir Sultai canon.",
+  ],
+]);
+
 const ESPER_PRECON_FIT_SUMMARIES = new Map([
   [
     "scions spellcraft",
@@ -2637,6 +2824,24 @@ function buildPreconFitSummary({ precon, lane, factionName, matchedThemes, stret
   if (factionKey === "NAYA") {
     return NAYA_PRECON_FIT_SUMMARIES.get(normalizeDisplayName(precon?.deckName || "")) ||
       `Naya support fit with ${themeText} lines that reinforce abundance, protected board growth, creature-forward scale, and instinctive care.`;
+  }
+  if (factionKey === "ABZAN") {
+    return ABZAN_PRECON_FIT_SUMMARIES.get(normalizeDisplayName(precon?.deckName || "")) ||
+      `Abzan support fit with ${themeText} lines that reinforce family endurance, ancestor obligation, perennation, defensive patience, and house continuity.`;
+  }
+  if (factionKey === "TEMUR") {
+    return TEMUR_PRECON_FIT_SUMMARIES.get(normalizeDisplayName(precon?.deckName || "")) ||
+      `Temur Commander fit with ${themeText} lines that reinforce survival, instinct, mental fortitude, shamanic listening, elemental memory, and earned strength.`;
+  }
+  if (factionKey === "SULTAI") {
+    return SULTAI_PRECON_FIT_SUMMARIES.get(normalizeDisplayName(precon?.deckName || "")) ||
+      `Sultai support fit with ${themeText} lines that reinforce ruthless opportunity, graveyard/resource conversion, necromantic utility, and calculated advantage as support-only table texture.`;
+  }
+  if (factionKey === "MARDU") {
+    return `Mardu support fit with ${themeText} lines that reinforce speed, martial order, coordinated attack, sacrifice pressure, and ruthless openings as Commander table texture.`;
+  }
+  if (factionKey === "JESKAI") {
+    return `Jeskai support fit with ${themeText} lines that reinforce disciplined timing, trained insight, protective interaction, and precise action as Commander table texture.`;
   }
   return `Exact ${precon.colorIdentityKey} match with ${themeText} lines that reinforce ${factionName}'s Commander plan.`;
 }

@@ -1,0 +1,306 @@
+{
+  "schema_version": "1.0.0",
+  "faction_id": "mardu",
+  "faction_name": "Mardu Horde",
+  "source_review_date": "2026-05-31",
+  "last_updated": "2026-05-31",
+  "sources": [
+    {
+      "source_id": "src_vm_mardu_source_ledger_20260531",
+      "title": "Mardu Source Ledger",
+      "author": "Vox Mana research packet",
+      "publisher_or_site": "Local repository",
+      "publication_date": "2026-05-31",
+      "url_or_repository_path": "docs/research/mardu/mardu-source-ledger.md",
+      "source_type": "Curated source ledger",
+      "source_role": "shaping-only",
+      "reliability": "Primary local source-role ledger",
+      "notes": "Defines Mardu source tiers, approved use, support-only Commander limits, exact RWB/WBR extraction rules, seed-file handling, Kolaghan boundaries, and modern Dragonstorm timeline limits. It shapes this packet but does not back raw claims by itself."
+    },
+    {
+      "source_id": "src_vm_mardu_evidence_ledger_20260531",
+      "title": "Mardu Evidence Ledger",
+      "author": "Vox Mana research packet",
+      "publisher_or_site": "Local repository",
+      "publication_date": "2026-05-31",
+      "url_or_repository_path": "docs/research/mardu/mardu-evidence-ledger.md",
+      "source_type": "Curated evidence ledger",
+      "source_role": "claim-bearing",
+      "reliability": "Primary local evidence ledger",
+      "claim_bearing_evidence_rows": [
+        "MARDU-EVID-001",
+        "MARDU-EVID-002",
+        "MARDU-EVID-003",
+        "MARDU-EVID-004",
+        "MARDU-EVID-005",
+        "MARDU-EVID-006",
+        "MARDU-EVID-007",
+        "MARDU-EVID-008",
+        "MARDU-EVID-009",
+        "MARDU-EVID-010",
+        "MARDU-EVID-011",
+        "MARDU-EVID-012",
+        "MARDU-EVID-013",
+        "MARDU-EVID-014",
+        "MARDU-EVID-015",
+        "MARDU-EVID-016",
+        "MARDU-EVID-017",
+        "MARDU-EVID-018",
+        "MARDU-EVID-019",
+        "MARDU-EVID-020",
+        "MARDU-EVID-021",
+        "MARDU-EVID-022",
+        "MARDU-EVID-023",
+        "MARDU-EVID-024",
+        "MARDU-EVID-025",
+        "MARDU-EVID-026",
+        "MARDU-EVID-029",
+        "MARDU-EVID-030",
+        "MARDU-EVID-032"
+      ],
+      "notes": "Primary normalized evidence row index for VM-226 raw claims. Commander/operator support rows, Vox Mana synthesis rows, direct source rows, seed files, and manual-fill rows are not raw-claim rows. Guardrail rows are used only for boundary or lifecycle claims."
+    },
+    {
+      "source_id": "src_wotc_rosewater_mardu_finishing_first",
+      "title": "Mardu: Finishing First",
+      "author": "Mark Rosewater",
+      "publisher_or_site": "Magic: The Gathering / Making Magic",
+      "publication_date": "Local capture, original date not restated in VM-226 packet",
+      "url_or_repository_path": "docs/research/canon/mark_rosewater_official_three_color/Mardu_Finishing First _ MAGIC_ THE GATHERING.md",
+      "source_type": "Official Wizards design article capture",
+      "source_role": "claim-bearing",
+      "reliability": "Primary / official design commentary",
+      "claim_bearing_evidence_rows": [
+        "MARDU-EVID-001",
+        "MARDU-EVID-002",
+        "MARDU-EVID-003"
+      ],
+      "notes": "Primary design source for red-white-black wedge identity, Red as design center, and speed as Mardu attribute."
+    },
+    {
+      "source_id": "src_wotc_tarkir_khans_pg_part_2",
+      "title": "Planeswalker's Guide to Khans of Tarkir, Part 2",
+      "author": "Wizards of the Coast",
+      "publisher_or_site": "Magic: The Gathering",
+      "publication_date": "Local capture, original date not restated in VM-226 packet",
+      "url_or_repository_path": "docs/research/canon/source-material/tarkir/planeswalkers-guide-khans-part-2.md",
+      "source_type": "Official Tarkir guide capture",
+      "source_role": "claim-bearing",
+      "reliability": "Primary / official lore guide",
+      "claim_bearing_evidence_rows": [
+        "MARDU-EVID-004",
+        "MARDU-EVID-005",
+        "MARDU-EVID-006",
+        "MARDU-EVID-007",
+        "MARDU-EVID-008",
+        "MARDU-EVID-009",
+        "MARDU-EVID-010",
+        "MARDU-EVID-011",
+        "MARDU-EVID-012"
+      ],
+      "notes": "Primary Khans-era Mardu Horde source for clan culture, code, roles, magic, Zurgo, and locations."
+    },
+    {
+      "source_id": "src_wotc_tarkir_fate_reforged_pg",
+      "title": "Planeswalker's Guide to Fate Reforged",
+      "author": "Wizards of the Coast",
+      "publisher_or_site": "Magic: The Gathering",
+      "publication_date": "Local capture, original date not restated in VM-226 packet",
+      "url_or_repository_path": "docs/research/canon/source-material/tarkir/planeswalkers-guide-fate-reforged.md",
+      "source_type": "Official Tarkir guide capture",
+      "source_role": "claim-bearing",
+      "reliability": "Primary / official lore guide",
+      "claim_bearing_evidence_rows": [
+        "MARDU-EVID-013",
+        "MARDU-EVID-014"
+      ],
+      "notes": "Ancient/Fate Reforged source for feared Mardu warriors, raiding, speed value, Alesha as young khan, and Kolaghan reverence in that era."
+    },
+    {
+      "source_id": "src_wotc_tarkir_story_truth_of_names",
+      "title": "The Truth of Names",
+      "author": "Wizards of the Coast",
+      "publisher_or_site": "Magic: The Gathering",
+      "publication_date": "Local capture, original date not restated in VM-226 packet",
+      "url_or_repository_path": "docs/research/canon/source-material/tarkir/story-truth-of-names.md",
+      "source_type": "Official Tarkir story capture",
+      "source_role": "claim-bearing",
+      "reliability": "Primary / official story",
+      "claim_bearing_evidence_rows": [
+        "MARDU-EVID-015",
+        "MARDU-EVID-016"
+      ],
+      "notes": "Story-specific Alesha and war-name evidence. It supports a narrow bridge, not a full biography engine."
+    },
+    {
+      "source_id": "src_wotc_tarkir_story_khanfall",
+      "title": "Khanfall",
+      "author": "Wizards of the Coast",
+      "publisher_or_site": "Magic: The Gathering",
+      "publication_date": "Local capture, original date not restated in VM-226 packet",
+      "url_or_repository_path": "docs/research/canon/source-material/tarkir/story-khanfall.md",
+      "source_type": "Official Tarkir story capture",
+      "source_role": "claim-bearing",
+      "reliability": "Primary / official story",
+      "claim_bearing_evidence_rows": [
+        "MARDU-EVID-017"
+      ],
+      "notes": "Story-specific transition context for Alesha at the khan summit and Mardu rank-and-file pressure."
+    },
+    {
+      "source_id": "src_wotc_tarkir_dragons_pg_part_2",
+      "title": "Planeswalker's Guide to Dragons of Tarkir, Part 2",
+      "author": "Wizards of the Coast",
+      "publisher_or_site": "Magic: The Gathering",
+      "publication_date": "Local capture, original date not restated in VM-226 packet",
+      "url_or_repository_path": "docs/research/canon/source-material/tarkir/planeswalkers-guide-dragons-part-2.md",
+      "source_type": "Official Tarkir guide capture",
+      "source_role": "claim-bearing",
+      "reliability": "Primary / official lore guide",
+      "claim_bearing_evidence_rows": [
+        "MARDU-EVID-018",
+        "MARDU-EVID-019"
+      ],
+      "notes": "Dragons-era Kolaghan source used for contrast and timeline boundaries only, not Khans-era Mardu continuity."
+    },
+    {
+      "source_id": "src_wotc_tarkir_dragonstorm_pg_part_2",
+      "title": "Planeswalker's Guide to Tarkir: Dragonstorm, Part 2",
+      "author": "Wizards of the Coast",
+      "publisher_or_site": "Magic: The Gathering",
+      "publication_date": "Local capture, original date not restated in VM-226 packet",
+      "url_or_repository_path": "docs/research/canon/source-material/tarkir/planeswalkers-guide-dragonstorm-part-2.md",
+      "source_type": "Official Tarkir guide capture",
+      "source_role": "claim-bearing",
+      "reliability": "Primary / official lore guide",
+      "claim_bearing_evidence_rows": [
+        "MARDU-EVID-020",
+        "MARDU-EVID-021",
+        "MARDU-EVID-022",
+        "MARDU-EVID-023",
+        "MARDU-EVID-024",
+        "MARDU-EVID-025",
+        "MARDU-EVID-026"
+      ],
+      "notes": "Modern Dragonstorm-era Mardu source. These rows must stay timeline-labeled and cannot be read backward into Khans-era Mardu."
+    },
+    {
+      "source_id": "src_vm_mardu_canon_inventory_20260531",
+      "title": "Canon Inventory Three-Color Reference Audit",
+      "author": "Vox Mana research packet",
+      "publisher_or_site": "Local repository",
+      "publication_date": "2026-05-31",
+      "url_or_repository_path": "docs/research/canon/canon-inventory-three-color-reference-audit.md",
+      "source_type": "Local source-selection audit",
+      "source_role": "shaping-only",
+      "reliability": "Source-selection support",
+      "notes": "Identifies official source families. It does not directly prove raw Mardu lore claims."
+    },
+    {
+      "source_id": "src_vm_mardu_research_dossier_20260531",
+      "title": "Mardu Research Dossier",
+      "author": "Vox Mana research packet",
+      "publisher_or_site": "Local repository",
+      "publication_date": "2026-05-31",
+      "url_or_repository_path": "docs/research/mardu/mardu-research-dossier.md",
+      "source_type": "Research dossier",
+      "source_role": "shaping-only",
+      "reliability": "Packet summary only",
+      "notes": "Summarizes evidence and boundaries. It shapes profile language but is not raw-claim evidence."
+    },
+    {
+      "source_id": "src_vm_mardu_reliability_audit_20260531",
+      "title": "Mardu Reliability Audit",
+      "author": "Vox Mana research packet",
+      "publisher_or_site": "Local repository",
+      "publication_date": "2026-05-31",
+      "url_or_repository_path": "docs/research/mardu/mardu-reliability-audit.md",
+      "source_type": "Reliability audit",
+      "source_role": "shaping-only",
+      "reliability": "Source-role audit",
+      "notes": "Defines source reliability and role limits. It does not independently prove raw claims."
+    },
+    {
+      "source_id": "src_vm_mardu_manual_fill_20260531",
+      "title": "Mardu Manual Fill Queue",
+      "author": "Vox Mana research packet",
+      "publisher_or_site": "Local repository",
+      "publication_date": "2026-05-31",
+      "url_or_repository_path": "docs/research/mardu/mardu-manual-fill.md",
+      "source_type": "Manual-fill queue",
+      "source_role": "support-only",
+      "reliability": "Open issue list",
+      "notes": "Lists unresolved topics. Manual-fill rows are not raw-claim evidence."
+    },
+    {
+      "source_id": "src_vm_mardu_lore_source_packet_20260531",
+      "title": "Mardu Lore Source Packet",
+      "author": "Vox Mana research packet",
+      "publisher_or_site": "Local repository",
+      "publication_date": "2026-05-31",
+      "url_or_repository_path": "docs/research/mardu/mardu-lore-source-packet.md",
+      "source_type": "Source-airlock packet",
+      "source_role": "shaping-only",
+      "reliability": "Packet index",
+      "notes": "Indexes packet boundaries and unresolved topics. It is not raw-claim evidence."
+    },
+    {
+      "source_id": "src_vm_mardu_identity_md_20260531",
+      "title": "Mardu Identity Architecture",
+      "author": "Vox Mana architecture docs",
+      "publisher_or_site": "Local repository",
+      "publication_date": "2026-05-31",
+      "url_or_repository_path": "docs/architecture/colors/mardu/identity.md",
+      "source_type": "Architecture document",
+      "source_role": "shaping-only",
+      "reliability": "VM-224/VM-225 shaping doc",
+      "notes": "Used only for profile and placement wording. It is not raw-claim evidence."
+    },
+    {
+      "source_id": "src_vm_mardu_metaphysics_md_20260531",
+      "title": "Mardu Metaphysics Architecture",
+      "author": "Vox Mana architecture docs",
+      "publisher_or_site": "Local repository",
+      "publication_date": "2026-05-31",
+      "url_or_repository_path": "docs/architecture/colors/mardu/metaphysics.md",
+      "source_type": "Architecture document",
+      "source_role": "shaping-only",
+      "reliability": "VM-224/VM-225 shaping doc",
+      "notes": "Used only for profile and placement wording. It is not raw-claim evidence."
+    },
+    {
+      "source_id": "src_vm_second_commander_recommendations_rwb_wbr",
+      "title": "Vox Mana Second Commander Recommendations Enhanced",
+      "author": "Vox Mana local data",
+      "publisher_or_site": "Local repository",
+      "publication_date": "Local capture, original date not restated in VM-226 packet",
+      "url_or_repository_path": "docs/research/vox_mana_second_commander_recommendations_enhanced.jsonl",
+      "source_type": "Local Commander/operator extraction",
+      "source_role": "support-only",
+      "reliability": "Product/operator support only",
+      "notes": "May support player-facing operator vocabulary only. It is not Tarkir lore evidence, raw-claim evidence, Commander legality proof, or exact decklist validation."
+    }
+  ],
+  "not_used_or_rejected_sources": [
+    {
+      "source_or_topic": "Commander/operator rows",
+      "reason": "Support-only product/operator vocabulary. Not raw-claim evidence."
+    },
+    {
+      "source_or_topic": "Vox Mana synthesis row",
+      "reason": "Architecture synthesis only. Not independent raw-claim evidence."
+    },
+    {
+      "source_or_topic": "Manual-fill rows",
+      "reason": "Open validation queue. Not raw-claim evidence."
+    },
+    {
+      "source_or_topic": "Mardu seed source-material artifacts",
+      "reason": "Discovery-only copies. Claims require independent evidence promotion."
+    },
+    {
+      "source_or_topic": "Color-pair philosophy support files",
+      "reason": "Interpretive support only. They do not prove Tarkir-specific lore, mechanics, events, figures, chronology, or clan facts."
+    }
+  ]
+}

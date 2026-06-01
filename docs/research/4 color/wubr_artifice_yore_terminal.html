@@ -1,0 +1,929 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WUBR: Artifice & Yore Systemic Terminal</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Share Tech Mono & Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        mono: ['"Share Tech Mono"', 'monospace'],
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        etherium: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            400: '#38bdf8',
+                            500: '#0ea5e9',
+                            600: '#0284c7',
+                            950: '#030712',
+                        },
+                        carmot: {
+                            500: '#ef4444',
+                            600: '#dc2626',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #030712;
+            color: #f3f4f6;
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
+        .terminal-header {
+            font-family: 'Share Tech Mono', monospace;
+        }
+        /* Custom Glowing Classes */
+        .glow-blue {
+            box-shadow: 0 0 15px rgba(56, 189, 248, 0.25);
+            border-color: rgba(56, 189, 248, 0.4);
+        }
+        .glow-red {
+            box-shadow: 0 0 15px rgba(239, 68, 68, 0.25);
+            border-color: rgba(239, 68, 68, 0.4);
+        }
+        .glow-white {
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.15);
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+        .glow-black {
+            box-shadow: 0 0 15px rgba(168, 85, 247, 0.2);
+            border-color: rgba(168, 85, 247, 0.3);
+        }
+        .glow-green-error {
+            box-shadow: 0 0 15px rgba(34, 197, 94, 0.1);
+            border-color: rgba(34, 197, 94, 0.2);
+        }
+        .text-glow {
+            text-shadow: 0 0 8px rgba(56, 189, 248, 0.6);
+        }
+        .text-glow-red {
+            text-shadow: 0 0 8px rgba(239, 68, 68, 0.6);
+        }
+        /* Hide scrollbar but keep functionality */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        /* Matrix Grid overlay */
+        .grid-bg {
+            background-size: 40px 40px;
+            background-image: linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                              linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+        }
+    </style>
+</head>
+<body class="grid-bg min-h-screen relative flex flex-col justify-between">
+
+    <!-- Hexagon Decorative Accents -->
+    <div class="absolute top-0 left-0 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="absolute bottom-10 right-0 w-[500px] h-[500px] bg-red-500/5 rounded-full blur-3xl pointer-events-none"></div>
+
+    <!-- HEADER -->
+    <header class="border-b border-neutral-800 bg-neutral-950/80 backdrop-blur-md sticky top-0 z-50 px-4 py-3">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+            <div class="flex items-center gap-3">
+                <div class="relative">
+                    <div class="w-10 h-10 rounded border-2 border-sky-500 flex items-center justify-center bg-sky-950/30 text-sky-400 font-bold text-lg glow-blue animate-pulse">
+                        WUBR
+                    </div>
+                </div>
+                <div>
+                    <h1 class="text-xl md:text-2xl font-bold tracking-wider terminal-header text-neutral-100 flex items-center gap-2">
+                        SYSTEMIC TERMINAL: <span class="text-sky-400 text-glow">ARTIFICE // YORE</span>
+                    </h1>
+                    <p class="text-xs text-neutral-400 font-mono">NON-GREEN COLOR PIE QUANTUM ANALYZER v2.5</p>
+                </div>
+            </div>
+
+            <!-- Real-time Status Bar -->
+            <div class="flex items-center gap-3 font-mono text-xs text-neutral-400">
+                <div class="flex items-center gap-1.5 px-2.5 py-1 rounded bg-neutral-900 border border-neutral-800">
+                    <span class="w-2 h-2 rounded-full bg-sky-400 inline-block animate-ping"></span>
+                    <span>ETHERIUM CORE: ONLINE</span>
+                </div>
+                <div class="flex items-center gap-1.5 px-2.5 py-1 rounded bg-red-950/30 border border-red-900/40 text-red-400">
+                    <span class="w-2 h-2 rounded-full bg-red-500 inline-block"></span>
+                    <span>CARMOT CATALYST: ACTIVE</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN TERMINAL LAYOUT -->
+    <main class="max-w-7xl w-full mx-auto p-4 md:p-6 grid grid-cols-1 lg:grid-cols-12 gap-6 flex-grow">
+
+        <!-- SIDEBAR / TUNER PANEL (4 cols) -->
+        <section class="lg:col-span-4 flex flex-col gap-6">
+
+            <!-- Core Paradigm Balancing Console -->
+            <div class="bg-neutral-900/90 border border-neutral-800 rounded-lg p-5 flex flex-col gap-4 glow-white">
+                <div class="flex items-center justify-between border-b border-neutral-800 pb-3">
+                    <h2 class="font-mono text-sm tracking-widest text-neutral-300 flex items-center gap-2">
+                        <i data-lucide="sliders" class="w-4 h-4 text-sky-400"></i> SYSTEM PARADIGM TUNER
+                    </h2>
+                    <button onclick="resetSliders()" class="text-[10px] uppercase font-mono px-2 py-0.5 rounded bg-neutral-800 hover:bg-neutral-700 text-neutral-300 transition">
+                        Reset
+                    </button>
+                </div>
+
+                <p class="text-xs text-neutral-400 font-mono">
+                    Adjust individual mana currents to realign the dynamic radar chart and system ratios.
+                </p>
+
+                <!-- Color Sliders -->
+                <div class="flex flex-col gap-4 mt-2">
+                    <!-- White -->
+                    <div class="space-y-1">
+                        <div class="flex justify-between text-xs font-mono">
+                            <span class="text-neutral-100 flex items-center gap-1.5">
+                                <span class="w-3 h-3 rounded-full bg-white border border-neutral-400 inline-block"></span> White (System/Order)
+                            </span>
+                            <span id="val-white" class="font-semibold text-neutral-200">85%</span>
+                        </div>
+                        <input type="range" id="slide-white" min="10" max="100" value="85" class="w-full accent-neutral-300 bg-neutral-850 h-1 rounded" oninput="updateSystem()">
+                    </div>
+
+                    <!-- Blue -->
+                    <div class="space-y-1">
+                        <div class="flex justify-between text-xs font-mono">
+                            <span class="text-sky-400 flex items-center gap-1.5">
+                                <span class="w-3 h-3 rounded-full bg-sky-500 inline-block"></span> Blue (Optimization)
+                            </span>
+                            <span id="val-blue" class="font-semibold text-sky-400">90%</span>
+                        </div>
+                        <input type="range" id="slide-blue" min="10" max="100" value="90" class="w-full accent-sky-500 bg-neutral-850 h-1 rounded" oninput="updateSystem()">
+                    </div>
+
+                    <!-- Black -->
+                    <div class="space-y-1">
+                        <div class="flex justify-between text-xs font-mono">
+                            <span class="text-purple-400 flex items-center gap-1.5">
+                                <span class="w-3 h-3 rounded-full bg-purple-700 inline-block"></span> Black (Ambition)
+                            </span>
+                            <span id="val-black" class="font-semibold text-purple-400">80%</span>
+                        </div>
+                        <input type="range" id="slide-black" min="10" max="100" value="80" class="w-full accent-purple-600 bg-neutral-850 h-1 rounded" oninput="updateSystem()">
+                    </div>
+
+                    <!-- Red -->
+                    <div class="space-y-1">
+                        <div class="flex justify-between text-xs font-mono">
+                            <span class="text-red-400 flex items-center gap-1.5">
+                                <span class="w-3 h-3 rounded-full bg-red-600 inline-block"></span> Red (Creative Catalyst)
+                            </span>
+                            <span id="val-red" class="font-semibold text-red-400">75%</span>
+                        </div>
+                        <input type="range" id="slide-red" min="10" max="100" value="75" class="w-full accent-red-600 bg-neutral-850 h-1 rounded" oninput="updateSystem()">
+                    </div>
+
+                    <!-- Green (Locked Error State) -->
+                    <div class="space-y-1 p-2 bg-green-950/10 border border-green-900/20 rounded relative overflow-hidden group">
+                        <div class="absolute right-2 top-2 bg-green-900/30 text-green-400 px-1.5 py-0.5 rounded font-mono text-[9px] border border-green-500/20">
+                            BLOCKED
+                        </div>
+                        <div class="flex justify-between text-xs font-mono">
+                            <span class="text-green-500/60 flex items-center gap-1.5">
+                                <span class="w-3 h-3 rounded-full bg-green-950 border border-green-800/40 inline-block"></span> Green (Natural Limits)
+                            </span>
+                            <span class="font-semibold text-green-500/60">0%</span>
+                        </div>
+                        <input type="range" disabled min="0" max="100" value="0" class="w-full opacity-30 cursor-not-allowed">
+                        <p class="text-[9px] text-green-500/60 font-mono mt-1 leading-snug">
+                            Warning: Organic leyline connection severed. Dynamic natural growth and decay systems offline.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dynamic System Output Metrics -->
+            <div class="bg-neutral-900/90 border border-neutral-800 rounded-lg p-5 flex flex-col gap-4 glow-blue">
+                <h3 class="font-mono text-sm tracking-widest text-neutral-300 flex items-center gap-2">
+                    <i data-lucide="cpu" class="w-4 h-4 text-sky-400"></i> REAL-TIME METRIC PROFILES
+                </h3>
+                <div class="grid grid-cols-2 gap-3 text-center">
+                    <div class="bg-neutral-950 p-3 rounded border border-neutral-800">
+                        <div class="text-[10px] text-neutral-400 font-mono uppercase">Systemic Artifice</div>
+                        <div id="metric-artifice" class="text-xl font-bold font-mono text-sky-400 text-glow">87%</div>
+                        <div class="text-[9px] text-neutral-500 mt-1">Optimization level</div>
+                    </div>
+                    <div class="bg-neutral-950 p-3 rounded border border-neutral-800">
+                        <div class="text-[10px] text-neutral-400 font-mono uppercase">Yore Excavation</div>
+                        <div id="metric-yore" class="text-xl font-bold font-mono text-purple-400">82%</div>
+                        <div class="text-[9px] text-neutral-500 mt-1">Graveyard utility</div>
+                    </div>
+                    <div class="bg-neutral-950 p-3 rounded border border-neutral-800">
+                        <div class="text-[10px] text-neutral-400 font-mono uppercase">Entropy Resistance</div>
+                        <div id="metric-entropy" class="text-xl font-bold font-mono text-emerald-400">92%</div>
+                        <div class="text-[9px] text-neutral-500 mt-1">Rejection of decay</div>
+                    </div>
+                    <div class="bg-neutral-950 p-3 rounded border border-neutral-800">
+                        <div class="text-[10px] text-neutral-400 font-mono uppercase">Combustion Index</div>
+                        <div id="metric-combustion" class="text-xl font-bold font-mono text-red-400">77%</div>
+                        <div class="text-[9px] text-neutral-500 mt-1">Sacrifice yield</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Glitch Terminal Display -->
+            <div class="bg-neutral-950 border border-neutral-850 rounded-lg p-4 font-mono text-[11px] leading-relaxed flex flex-col h-40 justify-between">
+                <div class="text-sky-500 flex justify-between items-center border-b border-neutral-900 pb-1.5">
+                    <span>STATUS LOG_</span>
+                    <span class="animate-pulse">● READY</span>
+                </div>
+                <div id="terminal-content" class="text-neutral-400 h-24 overflow-y-auto pr-1 no-scrollbar flex flex-col gap-1 select-none">
+                    <div>[09:02:11] Init static systems... W, U, B, R pathways aligned.</div>
+                    <div>[09:02:12] Warning: Green mana node bypassed completely.</div>
+                    <div>[09:02:14] Carmot catalyst injected into Esper lattice.</div>
+                    <div>[09:02:15] Ready to excavate lost artifacts from Yore.</div>
+                </div>
+                <div class="text-neutral-500 text-right mt-1 border-t border-neutral-900 pt-1">
+                    Press sliders to tune values
+                </div>
+            </div>
+
+        </section>
+
+        <!-- CENTER STAGE (8 cols) -->
+        <section class="lg:col-span-8 flex flex-col gap-6">
+
+            <!-- GRAPH & RADAR CONTAINER -->
+            <div class="bg-neutral-900/90 border border-neutral-800 rounded-lg p-5 flex flex-col md:flex-row gap-6 glow-red">
+                <div class="md:w-1/2 flex flex-col justify-between">
+                    <div>
+                        <span class="text-xs uppercase font-mono tracking-widest text-neutral-400 bg-neutral-950 px-2.5 py-1 border border-neutral-800 rounded">Analysis View</span>
+                        <h2 class="text-lg font-bold font-mono text-neutral-200 mt-3 flex items-center gap-2">
+                            <i data-lucide="activity" class="text-red-400 w-5 h-5"></i> QUANTUM COLOR SPECTRUM
+                        </h2>
+                        <p class="text-xs text-neutral-400 mt-2 leading-relaxed">
+                            This radar profile showcases the balanced vectors of <span class="text-neutral-100 font-semibold">White</span>, <span class="text-sky-400 font-semibold">Blue</span>, <span class="text-purple-400 font-semibold">Black</span>, and <span class="text-red-400 font-semibold">Red</span>, while emphasizing the deep void of <span class="text-green-500 font-semibold">Green</span>. Watch the chart update dynamically as you tweak values in the Paradigm Tuner.
+                        </p>
+                    </div>
+
+                    <div class="mt-4 p-3 bg-neutral-950 border border-neutral-850 rounded">
+                        <div class="flex items-center gap-2 text-xs font-mono font-bold text-red-400 uppercase">
+                            <i data-lucide="triangle-alert" class="w-4 h-4"></i> Green Opposition Matrix
+                        </div>
+                        <p class="text-[11px] text-neutral-400 mt-1">
+                            By rejecting Green’s acceptance of natural mortality, seasonal cycles, and static environments, this system leverages intensive industrialization, transhuman modification, and perpetual recursion.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Chart.js Glowing Chart Area -->
+                <div class="md:w-1/2 flex items-center justify-center relative min-h-[280px]">
+                    <div class="absolute inset-0 flex items-center justify-center bg-radial-gradient from-sky-500/5 to-transparent blur-2xl pointer-events-none"></div>
+                    <canvas id="wubrRadarCanvas" class="max-w-[260px] max-h-[260px]"></canvas>
+                </div>
+            </div>
+
+            <!-- INTERACTIVE VALUE-LOOP COMBUSTION ENGINE -->
+            <div class="bg-neutral-900/90 border border-neutral-800 rounded-lg p-5 flex flex-col gap-4 glow-white">
+                <div class="flex flex-col md:flex-row items-start md:items-center justify-between border-b border-neutral-800 pb-3 gap-2">
+                    <div>
+                        <h2 class="font-mono text-sm tracking-widest text-neutral-300 flex items-center gap-2">
+                            <i data-lucide="repeat" class="w-4 h-4 text-sky-400 animate-spin" style="animation-duration: 4s;"></i> THE WUBR VALUE ENGINE: "COMBUSTION LOOP"
+                        </h2>
+                        <p class="text-xs text-neutral-400">Interactive live particle trace simulating non-green resource scaling</p>
+                    </div>
+                    <div class="flex gap-2">
+                        <button onclick="changeEngineSpeed(1)" class="text-[10px] font-mono px-2 py-1 rounded bg-neutral-800 border border-neutral-700 hover:bg-neutral-700 hover:text-white transition">Normal</button>
+                        <button onclick="changeEngineSpeed(2)" class="text-[10px] font-mono px-2 py-1 rounded bg-red-950/40 border border-red-900/30 text-red-400 hover:bg-red-900/40 transition">Overdrive</button>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-12 gap-5 items-center">
+                    <!-- Canvas Animation Column -->
+                    <div class="md:col-span-7 bg-neutral-950 rounded border border-neutral-850 p-2 relative">
+                        <div class="absolute top-2 left-2 text-[9px] font-mono text-neutral-500 uppercase tracking-widest bg-neutral-900 px-1.5 py-0.5 rounded border border-neutral-800 z-10">
+                            ENGINE TELEMETRY
+                        </div>
+                        <canvas id="combustionEngine" class="w-full h-44 bg-neutral-950 rounded"></canvas>
+                    </div>
+
+                    <!-- Flow Telemetry Text Column -->
+                    <div class="md:col-span-5 flex flex-col gap-3 font-mono text-xs">
+                        <div class="p-2.5 rounded bg-neutral-950 border border-neutral-850">
+                            <span class="text-sky-400 font-bold">[1] LOOT & PREPARE</span>
+                            <p class="text-[10px] text-neutral-400 mt-0.5">Blue & Red discard cards directly to graveyard, loading it with powerful mechanical artifacts.</p>
+                        </div>
+                        <div class="p-2.5 rounded bg-neutral-950 border border-neutral-850">
+                            <span class="text-purple-400 font-bold">[2] EXCAVATE & REANIMATE</span>
+                            <p class="text-[10px] text-neutral-400 mt-0.5">Black & White systems bypass mana limits, pulling assets directly from the grave to the battlefield.</p>
+                        </div>
+                        <div class="p-2.5 rounded bg-neutral-950 border border-neutral-850">
+                            <span class="text-red-400 font-bold">[3] COMBUST & SACRIFICE</span>
+                            <p class="text-[10px] text-neutral-400 mt-0.5">Red & Black sacrifice current resources in explosive bursts, yielding raw card-draw & high energy output.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- INTERACTIVE MULTI-TAB DISPLAY: PHILOSOPHY, LORE, COMMANDERS -->
+            <div class="bg-neutral-900/90 border border-neutral-800 rounded-lg overflow-hidden flex flex-col glow-blue">
+                <!-- Navigation Tabs -->
+                <div class="flex border-b border-neutral-850 bg-neutral-950/85">
+                    <button id="tabBtn-phil" onclick="switchTab('phil')" class="flex-1 py-3 px-4 text-xs font-mono font-bold tracking-wider uppercase border-r border-neutral-850 text-sky-400 bg-neutral-900/50 border-b-2 border-b-sky-500 transition-all flex items-center justify-center gap-2">
+                        <i data-lucide="brain-circuit" class="w-4 h-4"></i> Color Philosophy
+                    </button>
+                    <button id="tabBtn-lore" onclick="switchTab('lore')" class="flex-1 py-3 px-4 text-xs font-mono font-bold tracking-wider uppercase border-r border-neutral-850 text-neutral-400 hover:text-neutral-200 transition-all flex items-center justify-center gap-2">
+                        <i data-lucide="book-open" class="w-4 h-4"></i> Ancient Lore
+                    </button>
+                    <button id="tabBtn-cards" onclick="switchTab('cards')" class="flex-1 py-3 px-4 text-xs font-mono font-bold tracking-wider uppercase border-r border-neutral-850 text-neutral-400 hover:text-neutral-200 transition-all flex items-center justify-center gap-2">
+                        <i data-lucide="layers" class="w-4 h-4"></i> Key Commanders
+                    </button>
+                    <button id="tabBtn-matrix" onclick="switchTab('matrix')" class="flex-1 py-3 px-4 text-xs font-mono font-bold tracking-wider uppercase text-neutral-400 hover:text-neutral-200 transition-all flex items-center justify-center gap-2">
+                        <i data-lucide="shield-check" class="w-4 h-4"></i> Validity Matrix
+                    </button>
+                </div>
+
+                <!-- Tab 1: Philosophy Content -->
+                <div id="tab-phil" class="p-6 flex flex-col gap-4">
+                    <h3 class="text-md font-bold font-mono text-neutral-200 border-b border-neutral-800 pb-2">
+                        THE FOUR-COLOR PHILOSOPHY: ABSENCE OF GREEN
+                    </h3>
+                    <p class="text-xs text-neutral-300 leading-relaxed">
+                        To understand WUBR, we must look to what is absent: <span class="text-green-500 font-semibold">Green</span>. In standard color pie design, Green represents acceptance, natural progression, and respecting organic limitations. WUBR is the antithesis of this philosophy. By removing Green, we remove all moral and ideological objections to physical self-augmentation, endless industrial scaling, and the complete reshaping of biological life.
+                    </p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-2">
+                        <div class="bg-neutral-950 p-4 border border-neutral-850 rounded">
+                            <div class="flex items-center gap-2 text-sky-400 font-mono text-xs font-bold">
+                                <span class="w-2 h-2 rounded-full bg-sky-400"></span> Rejection of Natural Limits
+                            </div>
+                            <p class="text-[11px] text-neutral-400 mt-1.5 leading-relaxed">
+                                Under a green philosophy, physical failure, biological weakness, and final mortality are treated as sacred parts of the lifecycle. WUBR treats them as engineering challenges. Natural hearts are replaced with clockwork gears; memory is integrated directly into digital data vaults.
+                            </p>
+                        </div>
+                        <div class="bg-neutral-950 p-4 border border-neutral-850 rounded">
+                            <div class="flex items-center gap-2 text-purple-400 font-mono text-xs font-bold">
+                                <span class="w-2 h-2 rounded-full bg-purple-500"></span> Non-Organic Resurrection
+                            </div>
+                            <p class="text-[11px] text-neutral-400 mt-1.5 leading-relaxed">
+                                Green celebrates slow, seasonal decay that feeds new life. WUBR treats rot as a catastrophic loss of mechanical and systemic value. Rather than allowing assets to decay, the system actively excavations the grave, utilizing reanimation spells to return deceased parts directly to combat.
+                            </p>
+                        </div>
+                        <div class="bg-neutral-950 p-4 border border-neutral-850 rounded">
+                            <div class="flex items-center gap-2 text-red-400 font-mono text-xs font-bold">
+                                <span class="w-2 h-2 rounded-full bg-red-500"></span> Exploding Carmot Catalyst
+                            </div>
+                            <p class="text-[11px] text-neutral-400 mt-1.5 leading-relaxed">
+                                In Esper (WUB), progress is limited by finite resources (carmot). Adding Red’s passion and raw volatility creates a combustion engine: the systems are designed to self-sacrifice, combusting current materials for explosive, immediate acceleration and infinite value synthesis.
+                            </p>
+                        </div>
+                        <div class="bg-neutral-950 p-4 border border-neutral-850 rounded">
+                            <div class="flex items-center gap-2 text-neutral-200 font-mono text-xs font-bold">
+                                <span class="w-2 h-2 rounded-full bg-white"></span> Systemic Civilizations
+                            </div>
+                            <p class="text-[11px] text-neutral-400 mt-1.5 leading-relaxed">
+                                White’s rules, laws, and structural lattices unify Blue’s planning, Black’s drive, and Red’s creativity. This paves over uncultivated wildness, ensuring that structured progress always dominates over unmanaged environments.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tab 2: Ancient Lore Content -->
+                <div id="tab-lore" class="p-6 hidden flex flex-col gap-4">
+                    <h3 class="text-md font-bold font-mono text-neutral-200 border-b border-neutral-800 pb-2">
+                        THE "YORE" PARADOX: ANCIENT EXCAVATION VS. NATURAL REVERENCE
+                    </h3>
+                    <p class="text-xs text-neutral-300 leading-relaxed">
+                        The term "Yore" is derived directly from the oldest printed four-color cards: the **Nephilim cycle** from the original Ravnica block's *Guildpact* expansion.
+                    </p>
+                    <div class="space-y-3 font-mono text-xs bg-neutral-950 p-4 rounded border border-neutral-850">
+                        <div class="flex justify-between border-b border-neutral-900 pb-1.5">
+                            <span class="text-purple-400">HISTORICAL ARCHIVES: THE NEPHILIM</span>
+                            <span class="text-neutral-500">RAVNICA DATABASE</span>
+                        </div>
+                        <p class="text-[11px] text-neutral-400 leading-relaxed font-sans">
+                            In Ravnican history, the five Nephilim are ancient, mindless, primordial giants that slept deep within the plane's core for ten millennia. Awakened by massive industrial building projects in the Utvara district, they fed on a dragon carcass, mutating into colossal, destructive forces.
+                        </p>
+                        <p class="text-[11px] text-neutral-400 leading-relaxed font-sans">
+                            A secretive, unguilded group known as the **Cult of Yore** worshipped these creatures as the "true old gods," rejecting the modern artificial systems of the ten Guilds. However, the exact entity they worshipped—the **Yore-Tiller Nephilim**—operates under a color identity that strictly *excludes* Green. This creates a fascinating lore paradox.
+                        </p>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-1">
+                        <div class="bg-neutral-950 p-4 border border-neutral-850 rounded">
+                            <h4 class="text-xs font-bold text-neutral-200 font-mono uppercase">Adjacent Lore: The Thran</h4>
+                            <p class="text-[11px] text-neutral-400 mt-1 leading-relaxed">
+                                Ancient Dominarian empire that built complex, powerstone-driven technology. While highly aligned with WUBR artifice themes, they are a colorless civilization, not a canonical WUBR faction.
+                            </p>
+                        </div>
+                        <div class="bg-neutral-950 p-4 border border-neutral-850 rounded">
+                            <h4 class="text-xs font-bold text-neutral-200 font-mono uppercase">Adjacent Lore: Phyrexia</h4>
+                            <p class="text-[11px] text-neutral-400 mt-1 leading-relaxed">
+                                Represents biomechanical transhumanist upgrade ("compleation"). However, Phyrexia evolved into a 5-color hierarchy under New Phyrexia, actively embracing Green's survival of the fittest.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tab 3: Key Commanders Content -->
+                <div id="tab-cards" class="p-6 hidden flex flex-col gap-4">
+                    <h3 class="text-md font-bold font-mono text-neutral-200 border-b border-neutral-800 pb-2">
+                        WUBR DATA ENGINE COMMANDERS
+                    </h3>
+                    <div class="overflow-x-auto no-scrollbar">
+                        <table class="w-full text-left font-mono text-xs border-collapse">
+                            <thead>
+                                <tr class="border-b border-neutral-800 text-neutral-400">
+                                    <th class="pb-2 font-bold">NAME</th>
+                                    <th class="pb-2 font-bold text-center">IDENTITY</th>
+                                    <th class="pb-2 font-bold">MECHANICAL DOMAIN</th>
+                                    <th class="pb-2 font-bold">CONFIRMATION TYPE</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="border-b border-neutral-850 hover:bg-neutral-950 transition">
+                                    <td class="py-3 font-semibold text-neutral-100">Breya, Etherium Shaper</td>
+                                    <td class="py-3 text-center text-sky-400">WUBR</td>
+                                    <td class="py-3 font-sans text-[11px] text-neutral-400">Artifact sacrifice engine, token creation, infinite loops, and versatile direct damage.</td>
+                                    <td class="py-3"><span class="px-1.5 py-0.5 rounded bg-sky-950 text-sky-400 border border-sky-900 text-[10px]">TRUE WUBR CANON</span></td>
+                                </tr>
+                                <tr class="border-b border-neutral-850 hover:bg-neutral-950 transition">
+                                    <td class="py-3 font-semibold text-neutral-100">Yore-Tiller Nephilim</td>
+                                    <td class="py-3 text-center text-purple-400">WUBR</td>
+                                    <td class="py-3 font-sans text-[11px] text-neutral-400">Combat attack triggers, pulling creatures directly from the grave onto the battlefield.</td>
+                                    <td class="py-3"><span class="px-1.5 py-0.5 rounded bg-purple-950 text-purple-400 border border-purple-900 text-[10px]">TRUE WUBR CANON</span></td>
+                                </tr>
+                                <tr class="border-b border-neutral-850 hover:bg-neutral-950 transition">
+                                    <td class="py-3 font-semibold text-neutral-100">Silas Renn + Akiri</td>
+                                    <td class="py-3 text-center text-neutral-300">WUBR</td>
+                                    <td class="py-3 font-sans text-[11px] text-neutral-400">Partner mechanic construction. Silas recurs dead artifacts; Akiri grows stronger from controlled relics.</td>
+                                    <td class="py-3"><span class="px-1.5 py-0.5 rounded bg-neutral-800 text-neutral-300 border border-neutral-700 text-[10px]">PARTNER MATRIX</span></td>
+                                </tr>
+                                <tr class="hover:bg-neutral-950 transition">
+                                    <td class="py-3 font-semibold text-neutral-100">Wernog + Cecily</td>
+                                    <td class="py-3 text-center text-red-400">WUBR</td>
+                                    <td class="py-3 font-sans text-[11px] text-neutral-400">"Friends Forever" pairing. Generates endless Clue tokens to draw cards and free-cast high-cost spells.</td>
+                                    <td class="py-3"><span class="px-1.5 py-0.5 rounded bg-neutral-800 text-neutral-300 border border-neutral-700 text-[10px]">PARTNER MATRIX</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Tab 4: Validity Matrix Content -->
+                <div id="tab-matrix" class="p-6 hidden flex flex-col gap-4">
+                    <h3 class="text-md font-bold font-mono text-neutral-200 border-b border-neutral-800 pb-2">
+                        THEMATIC VALIDITY MATRIX
+                    </h3>
+                    <p class="text-xs text-neutral-400 mb-2">
+                        Our research strictly classifies theoretical claims to prevent fan-canon overreach. Click on any paradigm block below to evaluate its supporting evidence.
+                    </p>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                        <div class="bg-neutral-950 p-3.5 border border-neutral-850 rounded flex flex-col justify-between">
+                            <div>
+                                <div class="flex justify-between items-start">
+                                    <span class="text-xs font-bold text-neutral-200 font-mono">TECHNOLOGY OVER BIOLOGY</span>
+                                    <span class="px-1.5 py-0.5 rounded bg-emerald-950/40 text-emerald-400 border border-emerald-900/30 text-[9px] uppercase font-mono">Canon</span>
+                                </div>
+                                <p class="text-[11px] text-neutral-400 mt-2">
+                                    The physical modification of organic matter with synthetic filigree. Supported explicitly by the lore of Esper and Breya's physical transformation.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="bg-neutral-950 p-3.5 border border-neutral-850 rounded flex flex-col justify-between">
+                            <div>
+                                <div class="flex justify-between items-start">
+                                    <span class="text-xs font-bold text-neutral-200 font-mono">PROGRESS OVER ACCEPTANCE</span>
+                                    <span class="px-1.5 py-0.5 rounded bg-sky-950 text-sky-400 border border-sky-900 text-[9px] uppercase font-mono">Design-Supported</span>
+                                </div>
+                                <p class="text-[11px] text-neutral-400 mt-2">
+                                    Mark Rosewater's design diaries for Commander 2016 codify WUBR as "the collective desire for intervention, design, and active improvement of reality."
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="bg-neutral-950 p-3.5 border border-neutral-850 rounded flex flex-col justify-between">
+                            <div>
+                                <div class="flex justify-between items-start">
+                                    <span class="text-xs font-bold text-neutral-200 font-mono">THE PAST AS BURIED POWER</span>
+                                    <span class="px-1.5 py-0.5 rounded bg-purple-950 text-purple-400 border border-purple-900 text-[9px] uppercase font-mono">Card-Supported</span>
+                                </div>
+                                <p class="text-[11px] text-neutral-400 mt-2">
+                                    Excavating historical elements from the graveyard. Supported mechanically by Yore-Tiller Nephilim and Silas Renn's recursive triggers.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="bg-neutral-950 p-3.5 border border-neutral-850 rounded flex flex-col justify-between">
+                            <div>
+                                <div class="flex justify-between items-start">
+                                    <span class="text-xs font-bold text-neutral-200 font-mono">"YORE" AS A SHIELDED EMPIRE</span>
+                                    <span class="px-1.5 py-0.5 rounded bg-red-950/40 text-red-400 border border-red-900/30 text-[9px] uppercase font-mono">Speculative</span>
+                                </div>
+                                <p class="text-[11px] text-neutral-400 mt-2">
+                                    The theoretical claim that Yore is a structured, unified, non-green plane or faction. There is no canonical support for this in MTG lore.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SOURCE MATRIX AND BIBLIOGRAPHY -->
+            <div class="bg-neutral-900/90 border border-neutral-800 rounded-lg p-5 flex flex-col gap-4 glow-white">
+                <h3 class="font-mono text-sm tracking-widest text-neutral-300 flex items-center gap-2">
+                    <i data-lucide="database" class="w-4 h-4 text-sky-400"></i> SOURCE MAP & CITATION DATABASE
+                </h3>
+                <div class="overflow-x-auto no-scrollbar border border-neutral-850 rounded bg-neutral-950">
+                    <table class="w-full text-left font-mono text-xs border-collapse">
+                        <thead>
+                            <tr class="border-b border-neutral-850 bg-neutral-900/50 text-neutral-400 text-[10px]">
+                                <th class="p-3">SOURCE ID</th>
+                                <th class="p-3">TYPE</th>
+                                <th class="p-3">WHAT IT SUPPORTS</th>
+                                <th class="p-3">RELIABILITY LEVEL</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-neutral-900 text-[11px]">
+                            <tr class="hover:bg-neutral-900/20 transition">
+                                <td class="p-3 text-sky-400 font-bold">[1] Mark Rosewater: Making Magic</td>
+                                <td class="p-3">Official Design Notes</td>
+                                <td class="p-3 text-neutral-400">WUBR artifice themes, 4-color development design, and Green’s complete philosophical opposition.</td>
+                                <td class="p-3 text-emerald-400">MAXIMUM (Primary)</td>
+                            </tr>
+                            <tr class="hover:bg-neutral-900/20 transition">
+                                <td class="p-3 text-sky-400 font-bold">[4] Commander 2016 Lore</td>
+                                <td class="p-3">Official MTG Story</td>
+                                <td class="p-3 text-neutral-400">Breya’s transhumanist filigree, Jund carmot integration, and Esper limits.</td>
+                                <td class="p-3 text-emerald-400">MAXIMUM (Primary)</td>
+                            </tr>
+                            <tr class="hover:bg-neutral-900/20 transition">
+                                <td class="p-3 text-sky-400 font-bold">[7] Yore-Tiller Nephilim Cards</td>
+                                <td class="p-3">Official Card Rules</td>
+                                <td class="p-3 text-neutral-400">Forced combat reanimation mechanics and historical context.</td>
+                                <td class="p-3 text-emerald-400">MAXIMUM (Primary)</td>
+                            </tr>
+                            <tr class="hover:bg-neutral-900/20 transition">
+                                <td class="p-3 text-sky-400 font-bold">[14] Guildpact Novels & Guide</td>
+                                <td class="p-3">Official Planes Pages</td>
+                                <td class="p-3 text-neutral-400">The Cult of Yore, the Utvara district awakening, and the Nephilim rampage.</td>
+                                <td class="p-3 text-sky-400">HIGH (Secondary)</td>
+                            </tr>
+                            <tr class="hover:bg-neutral-900/20 transition">
+                                <td class="p-3 text-sky-400 font-bold">[30] EDHREC Analytics</td>
+                                <td class="p-3">Player Data Database</td>
+                                <td class="p-3 text-neutral-400">Breya combo paradigms, companion partner trends, and competitive (cEDH) play configurations.</td>
+                                <td class="p-3 text-sky-400">HIGH (Secondary)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- FOOTER & AUDIT CODE -->
+    <footer class="border-t border-neutral-800 bg-neutral-950 px-6 py-4 mt-12">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4 font-mono text-[11px] text-neutral-400">
+            <div>
+                <span>WUBR SYSTEM ANALYZER // SECURE TERMINAL</span>
+            </div>
+            <div class="text-center md:text-right">
+                <span>Canvas Fallback Mode Active: <span class="text-rose-400">gemini-2.5-flash-image-preview</span> (Simulated Graphics Renderer Engine)</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- INTERACTIVE TERMINAL ENGINE CODES (Chart.js & Live Animations) -->
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // Color configurations for WUBR
+        const wColors = {
+            white: { border: 'rgba(255, 255, 255, 0.9)', fill: 'rgba(255, 255, 255, 0.08)' },
+            blue: { border: 'rgba(56, 189, 248, 0.9)', fill: 'rgba(56, 189, 248, 0.08)' },
+            black: { border: 'rgba(168, 85, 247, 0.9)', fill: 'rgba(168, 85, 247, 0.08)' },
+            red: { border: 'rgba(239, 68, 68, 0.9)', fill: 'rgba(239, 68, 68, 0.08)' },
+            green: { border: 'rgba(34, 197, 94, 0.1)', fill: 'rgba(34, 197, 94, 0.0)' }
+        };
+
+        let radarChart;
+
+        // Initial values for the sliders
+        let slideValues = {
+            white: 85,
+            blue: 90,
+            black: 80,
+            red: 75,
+            green: 0
+        };
+
+        // Custom Glowing Radar Chart Plugin for Chart.js
+        const glowPlugin = {
+            id: 'glowPlugin',
+            beforeDraw: (chart) => {
+                const { ctx } = chart;
+                ctx.save();
+                ctx.shadowBlur = 12;
+                ctx.shadowColor = 'rgba(56, 189, 248, 0.4)';
+            },
+            afterDraw: (chart) => {
+                chart.ctx.restore();
+            }
+        };
+
+        // Render the Chart.js Radar Chart
+        function initRadarChart() {
+            const ctx = document.getElementById('wubrRadarCanvas').getContext('2d');
+
+            Chart.register(glowPlugin);
+
+            radarChart = new Chart(ctx, {
+                type: 'radar',
+                data: {
+                    labels: ['White (Order)', 'Blue (Artifice)', 'Black (Ambition)', 'Red (Catalyst)', 'Green (Nature)'],
+                    datasets: [{
+                        label: 'Quantum Vector Magnitude',
+                        data: [slideValues.white, slideValues.blue, slideValues.black, slideValues.red, slideValues.green],
+                        borderColor: 'rgba(56, 189, 248, 1)',
+                        backgroundColor: 'rgba(56, 189, 248, 0.15)',
+                        borderWidth: 2.5,
+                        pointBackgroundColor: ['#ffffff', '#38bdf8', '#a855f7', '#ef4444', '#22c55e'],
+                        pointBorderColor: '#030712',
+                        pointHoverRadius: 7,
+                        pointRadius: 5
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        r: {
+                            angleLines: {
+                                color: 'rgba(255, 255, 255, 0.08)'
+                            },
+                            grid: {
+                                color: 'rgba(255, 255, 255, 0.08)'
+                            },
+                            pointLabels: {
+                                color: 'rgba(255, 255, 255, 0.7)',
+                                font: {
+                                    family: 'Share Tech Mono',
+                                    size: 11
+                                }
+                            },
+                            ticks: {
+                                display: false,
+                                maxTicksLimit: 5
+                            },
+                            suggestedMin: 0,
+                            suggestedMax: 100
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            display: false
+                        }
+                    }
+                }
+            });
+        }
+
+        // Live Balance Tuner Calculation
+        function updateSystem() {
+            slideValues.white = parseInt(document.getElementById('slide-white').value);
+            slideValues.blue = parseInt(document.getElementById('slide-blue').value);
+            slideValues.black = parseInt(document.getElementById('slide-black').value);
+            slideValues.red = parseInt(document.getElementById('slide-red').value);
+
+            // Print values to screen
+            document.getElementById('val-white').innerText = slideValues.white + '%';
+            document.getElementById('val-blue').innerText = slideValues.blue + '%';
+            document.getElementById('val-black').innerText = slideValues.black + '%';
+            document.getElementById('val-red').innerText = slideValues.red + '%';
+
+            // Chart updating
+            radarChart.data.datasets[0].data = [
+                slideValues.white,
+                slideValues.blue,
+                slideValues.black,
+                slideValues.red,
+                0
+            ];
+            radarChart.update();
+
+            // Calculate complex mathematical formulas mapping to metrics
+            const totalIntensity = (slideValues.white + slideValues.blue + slideValues.black + slideValues.red) / 4;
+            const metArtifice = Math.round((slideValues.blue * 0.45) + (slideValues.white * 0.35) + (slideValues.black * 0.2));
+            const metYore = Math.round((slideValues.black * 0.5) + (slideValues.white * 0.3) + (slideValues.red * 0.2));
+            const metEntropy = Math.round(100 - (slideValues.green * 0.5) - ((100 - slideValues.white) * 0.25) - ((100 - slideValues.blue) * 0.15));
+            const metCombustion = Math.round((slideValues.red * 0.5) + (slideValues.black * 0.3) + (slideValues.blue * 0.2));
+
+            // Set metric strings
+            document.getElementById('metric-artifice').innerText = metArtifice + '%';
+            document.getElementById('metric-yore').innerText = metYore + '%';
+            document.getElementById('metric-entropy').innerText = metEntropy + '%';
+            document.getElementById('metric-combustion').innerText = metCombustion + '%';
+
+            // Log output to console-like UI element
+            const timeStr = new Date().toTimeString().split(' ')[0];
+            const logs = [
+                `[${timeStr}] Tuner: Spectrum alignment realigned dynamically.`,
+                `[${timeStr}] Vector calculated: Artifice (${metArtifice}%), Yore (${metYore}%).`,
+                `[${timeStr}] Entropy mitigation standing strong at ${metEntropy}%.`
+            ];
+            writeLog(logs[Math.floor(Math.random() * logs.length)]);
+        }
+
+        function resetSliders() {
+            document.getElementById('slide-white').value = 85;
+            document.getElementById('slide-blue').value = 90;
+            document.getElementById('slide-black').value = 80;
+            document.getElementById('slide-red').value = 75;
+            updateSystem();
+            writeLog(`[${new Date().toTimeString().split(' ')[0]}] System hardware default loaded.`);
+        }
+
+        function writeLog(text) {
+            const container = document.getElementById('terminal-content');
+            const div = document.createElement('div');
+            div.innerText = text;
+            container.appendChild(div);
+            container.scrollTop = container.scrollHeight;
+        }
+
+        // Tab Switching Mechanism
+        function switchTab(tabId) {
+            const tabs = ['phil', 'lore', 'cards', 'matrix'];
+            tabs.forEach(t => {
+                document.getElementById(`tab-${t}`).classList.add('hidden');
+                document.getElementById(`tabBtn-${t}`).className = "flex-1 py-3 px-4 text-xs font-mono font-bold tracking-wider uppercase border-r border-neutral-850 text-neutral-400 hover:text-neutral-200 transition-all flex items-center justify-center gap-2";
+            });
+
+            // Highlight target
+            document.getElementById(`tab-${tabId}`).classList.remove('hidden');
+            document.getElementById(`tabBtn-${tabId}`).className = "flex-1 py-3 px-4 text-xs font-mono font-bold tracking-wider uppercase border-r border-neutral-850 text-sky-400 bg-neutral-900/50 border-b-2 border-b-sky-500 transition-all flex items-center justify-center gap-2";
+
+            writeLog(`[${new Date().toTimeString().split(' ')[0]}] Tab switched to: ${tabId.toUpperCase()}`);
+        }
+
+        // LIVE CANVAS ENGINE PARTICLE SIMULATOR (The WUBR Value Loop)
+        const canvas = document.getElementById('combustionEngine');
+        const cCtx = canvas.getContext('2d');
+        let animationFrameId;
+        let speedMultiplier = 1;
+
+        // Custom Resize handler for animation canvas
+        function resizeCanvas() {
+            canvas.width = canvas.parentElement.clientWidth;
+            canvas.height = canvas.parentElement.clientHeight || 176;
+        }
+
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
+
+        // Setup loop coordinates & particles
+        const points = [];
+        let particles = [];
+
+        function initEnginePoints() {
+            points.length = 0;
+            const w = canvas.width;
+            const h = canvas.height;
+
+            // Define 4 nodes corresponding to the Combustion Engine steps
+            points.push({ x: w * 0.15, y: h * 0.5, label: 'Loot [U/R]', color: '#0ea5e9' });
+            points.push({ x: w * 0.4, y: h * 0.25, label: 'Grave [B]', color: '#a855f7' });
+            points.push({ x: w * 0.65, y: h * 0.75, label: 'Reanimate [W]', color: '#f3f4f6' });
+            points.push({ x: w * 0.85, y: h * 0.5, label: 'Combust [R/B]', color: '#ef4444' });
+        }
+
+        function createParticle() {
+            return {
+                currentPointIdx: 0,
+                progress: 0,
+                speed: (0.01 + Math.random() * 0.015) * speedMultiplier,
+                size: 2 + Math.random() * 3,
+                color: points[0].color
+            };
+        }
+
+        function updateParticles() {
+            if (particles.length < 25) {
+                particles.push(createParticle());
+            }
+
+            particles.forEach((p, idx) => {
+                p.progress += p.speed;
+                if (p.progress >= 1) {
+                    p.progress = 0;
+                    p.currentPointIdx = (p.currentPointIdx + 1) % points.length;
+                    p.color = points[p.currentPointIdx].color;
+                }
+            });
+        }
+
+        function drawEngine() {
+            cCtx.clearRect(0, 0, canvas.width, canvas.height);
+
+            // Draw connector loops with custom neon glow
+            cCtx.lineWidth = 1;
+            cCtx.strokeStyle = 'rgba(255, 255, 255, 0.05)';
+            cCtx.beginPath();
+            for (let i = 0; i < points.length; i++) {
+                const start = points[i];
+                const end = points[(i + 1) % points.length];
+                cCtx.moveTo(start.x, start.y);
+                cCtx.bezierCurveTo(start.x + (end.x - start.x)/2, start.y - 20, start.x + (end.x - start.x)/2, end.y + 20, end.x, end.y);
+            }
+            cCtx.stroke();
+
+            // Draw Particles
+            particles.forEach(p => {
+                const start = points[p.currentPointIdx];
+                const end = points[(p.currentPointIdx + 1) % points.length];
+
+                // Interpolate along the curve
+                const cx1 = start.x + (end.x - start.x) / 2;
+                const cy1 = start.y - 20;
+                const cx2 = start.x + (end.x - start.x) / 2;
+                const cy2 = end.y + 20;
+
+                const t = p.progress;
+                const x = Math.pow(1-t, 3) * start.x + 3 * Math.pow(1-t, 2) * t * cx1 + 3 * (1-t) * Math.pow(t, 2) * cx2 + Math.pow(t, 3) * end.x;
+                const y = Math.pow(1-t, 3) * start.y + 3 * Math.pow(1-t, 2) * t * cy1 + 3 * (1-t) * Math.pow(t, 2) * cy2 + Math.pow(t, 3) * end.y;
+
+                cCtx.fillStyle = p.color;
+                cCtx.beginPath();
+                cCtx.arc(x, y, p.size, 0, Math.PI * 2);
+                cCtx.shadowBlur = 8;
+                cCtx.shadowColor = p.color;
+                cCtx.fill();
+            });
+            cCtx.shadowBlur = 0; // Reset shadow
+
+            // Draw Nodes
+            points.forEach(pt => {
+                cCtx.fillStyle = '#030712';
+                cCtx.strokeStyle = pt.color;
+                cCtx.lineWidth = 2;
+                cCtx.beginPath();
+                cCtx.arc(pt.x, pt.y, 10, 0, Math.PI * 2);
+                cCtx.fill();
+                cCtx.stroke();
+
+                // Pulse indicator
+                cCtx.strokeStyle = pt.color + '33';
+                cCtx.lineWidth = 1;
+                cCtx.beginPath();
+                cCtx.arc(pt.x, pt.y, 16 + Math.sin(Date.now() / 150) * 4, 0, Math.PI * 2);
+                cCtx.stroke();
+
+                // Labels
+                cCtx.fillStyle = '#f3f4f6';
+                cCtx.font = '9px "Share Tech Mono"';
+                cCtx.textAlign = 'center';
+                cCtx.fillText(pt.label, pt.x, pt.y - 20);
+            });
+        }
+
+        function changeEngineSpeed(level) {
+            speedMultiplier = level === 1 ? 1 : 2.5;
+            particles.forEach(p => p.speed = (0.01 + Math.random() * 0.015) * speedMultiplier);
+            writeLog(`[${new Date().toTimeString().split(' ')[0]}] Engine speed updated to ${level === 1 ? 'NORMAL' : 'OVERDRIVE'}.`);
+        }
+
+        function runEngineLoop() {
+            updateParticles();
+            drawEngine();
+            animationFrameId = requestAnimationFrame(runEngineLoop);
+        }
+
+        // Window Onload initialization
+        window.onload = function() {
+            initRadarChart();
+            initEnginePoints();
+            runEngineLoop();
+        };
+    </script>
+</body>
+</html>

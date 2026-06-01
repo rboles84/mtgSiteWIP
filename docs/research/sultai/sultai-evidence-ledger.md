@@ -1,0 +1,57 @@
+# Sultai Evidence Ledger
+
+Status: VM-209 evidence ledger. Sultai remains docs-only, non-live, and review-gated.
+
+## Evidence Rows
+
+| Evidence ID | Class | Claim Or Boundary | Source Basis | Use |
+|---|---|---|---|---|
+| SULTAI-EVID-001 | Promoted | Sultai is identified in the approved design source as the Black-Green-Blue wedge. VM-209 treats the project key as `SULTAI` and the color direction as `BGU` metadata/query context only. | SULTAI-SRC-001:7-8; VM-209 scope | Safe identity floor; not runtime promotion. |
+| SULTAI-EVID-002 | Promoted | Sultai's design attribute is ruthlessness, framed as willingness to take action and do what needs to be done to get what one wants. | SULTAI-SRC-001:23-24,75-83 | Design-level identity floor. |
+| SULTAI-EVID-003 | Promoted | The Sultai color trio's design tools include hand/library pressure, destruction, theft/redirect, paying additional costs, graveyard return, resource denial, and using the dead. | SULTAI-SRC-001:85-97 | Design/mechanical texture only; exact card rules remain manual-fill. |
+| SULTAI-EVID-004 | Promoted | Khans-era Sultai emulate dragon ruthlessness, use the fang as symbol, and grew wealthy through exploitation of people and land resources. | SULTAI-SRC-002:439-445 | Khans-era clan floor. |
+| SULTAI-EVID-005 | Promoted | Khans-era Sultai power is grounded in necromancy, especially sibsig undead used as tireless laborers and army resupply. | SULTAI-SRC-002:443-445,453-467 | Necromancy and resource-conversion floor. |
+| SULTAI-EVID-006 | Promoted | Khans-era Sultai made rakshasa pacts, developed deadlier magic, and used naga propaganda about dragon ancestry to support rulership. | SULTAI-SRC-002:449-473 | Social/magical power floor. |
+| SULTAI-EVID-007 | Promoted | Khans-era Sultai roles include naga/human/rakshasa mages, human/zombie/naga warriors and assassins, Panjasi merchants, and zombies as servants. | SULTAI-SRC-002:451-463 | Social-role floor. |
+| SULTAI-EVID-008 | Promoted | Khans-era Sultai magic includes the "second skin" undead practice, body-part ritual relics, mind control or lotus perfume, naga warping/poison magic, human elementalism/shamanism, and rakshasa spirit/dark magic. | SULTAI-SRC-002:465-479 | Magic floor; exact mechanics/card text remain manual-fill. |
+| SULTAI-EVID-009 | Promoted | Queen Sidisi is khan and queen of the Khans-era Sultai; her power comes from inherited wealth and rakshasa-taught magic, and she seeks an empire under her banner. | SULTAI-SRC-002:483-491 | Named Khans-era figure floor. |
+| SULTAI-EVID-010 | Promoted | Khans-era Sultai safe location anchors include Kheru Temple, Qarsi Palace, Ukud Necropolis, Gudul, Gurmag Swamps, Marang River Fortress, Sagu, Molderfang Falls, and Crocodile Pits. | SULTAI-SRC-002:501-523 | Geography floor; exact map details remain manual-fill. |
+| SULTAI-EVID-011 | Promoted | Fate Reforged Sultai are described as ruling with cruelty, treachery, rakshasa pacts, and an ever-growing undead servant legion. | SULTAI-SRC-003:253-263 | Ancient/Fate Reforged floor. |
+| SULTAI-EVID-012 | Promoted | Fate Reforged Tasigur is an heir to the Sultai fortune who is hedonistic, carried by zombies, and associated with cruelty toward enemies and undead kin. | SULTAI-SRC-003:263 | Tasigur floor; full biography remains manual-fill. |
+| SULTAI-EVID-013 | Promoted | Fate Reforged Sultai respond to Silumgar with natural and magical poisons, zombie weapon-bearers, and stealthy human/naga dragon slayers. | SULTAI-SRC-003:313-319 | Anti-dragon pressure context. |
+| SULTAI-EVID-014 | Guardrail | Silumgar and his brood are not the Khans-era Sultai Brood; they are dragon opponents or later dragonlord rulers depending on era. | SULTAI-SRC-003:315-319; SULTAI-SRC-005:339-343 | Timeline anti-bleed rule. |
+| SULTAI-EVID-015 | Guardrail | Dragons-era Tarkir replaces khan-led clans with dragonlord clans; Silumgar clan is a dragonlord hierarchy, not the same political condition as the Sultai Brood. | SULTAI-SRC-005:223-231,339-363 | Sultai/Silumgar separation. |
+| SULTAI-EVID-016 | Promoted | Silumgar clan embodies ruthlessness, has few living followers but unrivaled undead numbers, and measures subjects' worth by the dragonlord's caprice. | SULTAI-SRC-005:339-347 | Silumgar contrast floor. |
+| SULTAI-EVID-017 | Promoted | Silumgar clan values power and knowledge, uses a top-down hierarchy, and relies on necromancy, corpse repurposing, life-force harvesting, and enhanced sibsig. | SULTAI-SRC-005:359-389 | Silumgar contrast floor; do not backfill into Khans Sultai. |
+| SULTAI-EVID-018 | Promoted | In the Dragons-era guide, Sidisi is not a khan; she becomes an intelligent undead servant after Silumgar executes and raises her. | SULTAI-SRC-005:411-413 | Named-figure timeline boundary. |
+| SULTAI-EVID-019 | Promoted | `Khanfall` story supports Tasigur's participation in khan-level crisis talks, his disappearance under truce, Silumgar's intervention, and the "there is no khan" boundary. | SULTAI-SRC-004:293-323,455-491,561-601 | Story-specific transition support. |
+| SULTAI-EVID-020 | Promoted | Modern Dragonstorm-era Sultai live in Tarkir's jungles, transform challenge into opportunity, cultivate farms and cities, raise honored dead, and use elite stealth, terrain knowledge, and espionage. | SULTAI-SRC-006:227-235 | Modern Dragonstorm floor. |
+| SULTAI-EVID-021 | Promoted | Modern Dragonstorm-era Sultai use trade, diplomacy, spies, scouts, planning, and terrain to maintain position and power. | SULTAI-SRC-006:233-235,309-313 | Modern strategy floor. |
+| SULTAI-EVID-022 | Promoted | Modern Sultai revival arises from resistance within Silumgar's brood, rejection of both Silumgar and old Sultai oppression, and a post-Phyrexian rebellion that reclaims Silumgar territory. | SULTAI-SRC-006:237-241 | Modern revival floor. |
+| SULTAI-EVID-023 | Promoted | Modern Sultai reject rakshasa pacts, treating rakshasa as enablers of Silumgar and old Sultai cruelty and linking them to Tasigur's betrayal. | SULTAI-SRC-006:251-253 | Modern ethical boundary. |
+| SULTAI-EVID-024 | Promoted | Modern Sultai governance is decentralized: the Fangkeeper is a ruler with minor daily role, villages use elected mayors and lead necromancer priests, and the Lasyd are a small elite military including spies, scouts, and assassins. | SULTAI-SRC-006:243-251 | Modern governance and military floor. |
+| SULTAI-EVID-025 | Promoted | Modern Sultai daily life includes agriculture, fishing, export goods, respected craftspeople, Panjasi merchants, horticultural aesthetics, arts, lotus dance, Dusan boxing, and harvest festivals. | SULTAI-SRC-006:255-267,295-297 | Modern daily-life floor. |
+| SULTAI-EVID-026 | Promoted | Modern Sultai belief and necromancy center on the Abiding Harvest and Rite of Renewal; unwilling raising is outlawed, honored dead may return, and sibsig have honored status. | SULTAI-SRC-006:269-289 | Modern metaphysics floor; VM-210 authors final doctrine. |
+| SULTAI-EVID-027 | Promoted | Modern Sultai magic manipulates life essence to weaken, strengthen, heal, harm, and divine through the dead and remains. | SULTAI-SRC-006:299-301 | Modern magic floor. |
+| SULTAI-EVID-028 | Promoted | Modern Sultai dragonstorm practice includes spies/scouts predicting storms, opportunistic dragon capture, lithe jungle-adapted clan dragons, poison breath, water-level adaptation, and plant manipulation around storms. | SULTAI-SRC-006:305-319 | Modern dragon/dragonstorm floor. |
+| SULTAI-EVID-029 | Promoted | Modern Sultai locations include Kheru City, Qarsi Palace, Kishla Stilt Village, Gudul Islands, Gurmag Swamp, Marang River, Sagu Forest, and Bloomvine Jungle. | SULTAI-SRC-006:321-341 | Modern geography floor. |
+| SULTAI-EVID-030 | Guardrail | Modern Dragonstorm-era Sultai are not Khans-era Sultai Brood and must not be backfilled into Sidisi-era culture without timeline labeling. | SULTAI-SRC-002; SULTAI-SRC-006 | Dragonstorm anti-bleed rule. |
+| SULTAI-EVID-031 | Support-only | The exact BGU Commander/operator extraction returns six rows across graveyard value, theft/exile-casting, mill/rad counters, morph, Mimeoplasm-style graveyard construction, and mutate. | SULTAI-SRC-008; SULTAI-CMD-001 through SULTAI-CMD-006 | Operator language only. |
+| SULTAI-EVID-032 | Support-only | Commander rows can suggest search/operator phrasing for Sultai-adjacent play patterns, but they do not prove Tarkir canon, Sultai origin, or commander legality without later validation. | SULTAI-SRC-008 | support-only. |
+| SULTAI-EVID-033 | Guardrail | Color-pair philosophy files may support future color/metaphysics interpretation only. They must not prove Tarkir-specific lore, events, figures, mechanics, chronology, or clan facts. | SULTAI-SRC-010 through SULTAI-SRC-012 | VM-210 authoring guardrail. |
+| SULTAI-EVID-034 | Guardrail | The two source-material seed artifacts are discovery-only, not evidence. Their claims must be independently rebound to approved source rows or marked `Manual fill required`. | SULTAI-SRC-013 through SULTAI-SRC-014 | Source hygiene rule. |
+| SULTAI-EVID-035 | Vox Mana synthesis | Vox Mana may later frame Sultai as Black-centered BGU ruthlessness using Green life/death/resource cycles and Blue calculation, but VM-209 records this only as labeled synthesis for VM-210 consideration. | SULTAI-EVID-001 through SULTAI-EVID-033 | Label as Vox Mana synthesis; not MTG canon. |
+| SULTAI-EVID-036 | Guardrail | VM-209 leaves Sultai non-live: no architecture docs, raw-faction JSON, runtime keys, generated artifacts, schemas, Maze changes, route changes, Home preview changes, placement model changes, or Supabase changes. | VM-209 scope | Stop gate. |
+
+## Manual-Fill Rows
+
+| Manual ID | Topic | Why It Is Thin | Required Before Use |
+|---|---|---|---|
+| SULTAI-MF-001 | Exact delve rules text, card text, and card prevalence. | VM-209 did not inspect local Scryfall/card records for exact rules or card text. | Exact local card-data validation and evidence row. |
+| SULTAI-MF-002 | Exact exploit rules text, card text, and card prevalence. | Silumgar/Dragons-era material supports necromancy and corpse use, but exact exploit mechanics were not validated here. | Exact local card-data validation and evidence row. |
+| SULTAI-MF-003 | Full Sidisi biography across Khans, Dragons, and any later references. | VM-209 captured guide rows only. | Direct official story/profile/card capture before detailed biography. |
+| SULTAI-MF-004 | Full Tasigur biography, Shidiqi betrayal details, and all Khanfall consequences. | VM-209 captured Fate Reforged and `Khanfall` floor only. | Direct official story/profile/card capture. |
+| SULTAI-MF-005 | Detailed biographies for Feyomsi, Taigam, Kirada, Fangkeeper, Lasyd leaders, Kotis, Teval, or other named figures. | VM-209 did not inspect local card/profile records beyond guide rows and support-only Commander rows. | Official source capture or leave as support-only. |
+| SULTAI-MF-006 | Exact Dragonstorm story chronology after the guide preview. | VM-209 used the local Planeswalker's Guide, not full story episode capture. | Direct official story capture and timeline row. |
+| SULTAI-MF-007 | Commander products as Tarkir canon or commander legality proof. | Commander rows are support-only operator rows. | Separate card/product validation if ever needed. |
+| SULTAI-MF-008 | Color-pair doctrine and final Sultai metaphysics. | VM-209 records source evidence only; VM-210 owns final identity/metaphysics doctrine. | VM-210 source-bound authoring. |

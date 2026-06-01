@@ -1,0 +1,286 @@
+{
+  "schema_version": "1.0.0",
+  "placement_profile_version": "0.1.0",
+  "faction_id": "mardu",
+  "faction_name": "Mardu Horde",
+  "based_on_profile_version": "0.1.0",
+  "last_updated": "2026-05-31",
+  "placement_summary": "Mardu Horde is a source-authored, review-gated raw packet. Its strongest source-bound signals are Red-centered speed, total commitment, martial code, war names, Edicts of Ilagra, Khans-era raiding, Zurgo-era anchors, Alesha bridge context, Kolaghan boundary, modern Dragonstorm timeline labeling, and false-positive boundaries against generic RWB/WBR, Commander products, color-pair proof, Dragonstorm backfill, and seed files.",
+  "moral_and_psychological_profile": {
+    "summary": "Vox Mana models Mardu as speed through chosen commitment: act while the opening exists, bind the charge to code and formation, and take the exposed advantage before the field closes. This is project interpretation from normalized MARDU evidence plus VM-224/VM-225 shaping docs, not official canon, and it has no live placement behavior in VM-226.",
+    "claim_ids": [
+      "mardu_claim_0001",
+      "mardu_claim_0002",
+      "mardu_claim_0003",
+      "mardu_claim_0006",
+      "mardu_claim_0010"
+    ],
+    "confidence": "Medium",
+    "notes": "Psychological language is Vox Mana synthesis. Support-only rows do not raise confidence."
+  },
+  "placement_axes": [],
+  "core_values": [
+    {
+      "value_id": "value_mardu_0001",
+      "label": "Immediate Commitment",
+      "description": "The opening matters because it can close; Mardu acts before hesitation becomes defeat.",
+      "claim_ids": [
+        "mardu_claim_0002",
+        "mardu_claim_0003"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "value_id": "value_mardu_0002",
+      "label": "War-Bound Code",
+      "description": "Speed is shaped by Edicts, war names, formation, khan authority, and respect earned through deeds.",
+      "claim_ids": [
+        "mardu_claim_0003",
+        "mardu_claim_0004",
+        "mardu_claim_0005"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "value_id": "value_mardu_0003",
+      "label": "Opportunity With Teeth",
+      "description": "Mardu opportunity is immediate martial opening, not slow resource conversion or generic appetite.",
+      "claim_ids": [
+        "mardu_claim_0002",
+        "mardu_claim_0006",
+        "mardu_claim_0010"
+      ],
+      "confidence": "Medium"
+    }
+  ],
+  "behavioral_signals": [
+    {
+      "signal_id": "signal_mardu_0001",
+      "signal": "Look for Red-centered Mardu speed, early pressure, rapid coordinated attack, all-in aggression, total commitment, and war-name identity as primary language.",
+      "claim_ids": [
+        "mardu_claim_0001",
+        "mardu_claim_0002",
+        "mardu_claim_0003",
+        "mardu_claim_0004"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "signal_id": "signal_mardu_0002",
+      "signal": "Look for Alesha bridge context only when it stays tied to ancient/Fate Reforged war-name and identity evidence rather than full biography claims.",
+      "claim_ids": [
+        "mardu_claim_0005"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "signal_id": "signal_mardu_0003",
+      "signal": "Look for modern Dragonstorm Mardu only when the era is explicit and not used to backfill Khans-era Mardu Horde.",
+      "claim_ids": [
+        "mardu_claim_0007",
+        "mardu_claim_0008",
+        "mardu_claim_0010"
+      ],
+      "confidence": "Medium"
+    }
+  ],
+  "inhibitor_traits": [
+    "RWB or WBR color composition without a positive Mardu evidence cluster",
+    "Generic aggro, sacrifice, tokens, aristocrats, reanimator, Vampire tribal, Outlaws/Treasure, attack-triggered large threats, Human tribal, or legendary goodstuff without Mardu evidence",
+    "Boros-style Red-White combat without Black opportunity and Horde evidence",
+    "Orzhov-style White-Black hierarchy without Red speed and raid momentum",
+    "Rakdos-style Red-Black appetite without White code, formation, and war names",
+    "Kolaghan clan treated as Khans-era Mardu Horde continuity",
+    "Modern Dragonstorm reforms used as Khans-era proof",
+    "Commander product color identity treated as Tarkir canon",
+    "Color-pair philosophy files treated as Tarkir lore proof",
+    "Seed-file language treated as evidence",
+    "Exact raid, dash, mobilize, full biographies, Commander legality, or exact Dragonstorm chronology used without direct evidence"
+  ],
+  "good_fit_indicators": [
+    {
+      "indicator_id": "good_mardu_0001",
+      "text": "The candidate centers speed, action, early pressure, and all-in commitment with explicit Mardu or Tarkir Horde anchors.",
+      "claim_ids": [
+        "mardu_claim_0001",
+        "mardu_claim_0002",
+        "mardu_claim_0003"
+      ]
+    },
+    {
+      "indicator_id": "good_mardu_0002",
+      "text": "The candidate uses war names, Edicts of Ilagra, khan authority, Horde roles, Wingthrone, Goldengrave, The Scour, or Screamreach as bounded Mardu evidence.",
+      "claim_ids": [
+        "mardu_claim_0003",
+        "mardu_claim_0004"
+      ]
+    },
+    {
+      "indicator_id": "good_mardu_0003",
+      "text": "The candidate clearly labels Alesha, Kolaghan, or Dragonstorm context by era and avoids backfill.",
+      "claim_ids": [
+        "mardu_claim_0005",
+        "mardu_claim_0006",
+        "mardu_claim_0007",
+        "mardu_claim_0008"
+      ]
+    }
+  ],
+  "ideal_fit_indicators": [
+    "Red-centered speed plus White martial code plus Black opportunity are all present.",
+    "Khans-era Horde evidence is present, and any Fate Reforged, Kolaghan, or Dragonstorm material is timeline-labeled.",
+    "False positives are explicitly rejected: generic color code, Commander products, seed prose, exact mechanics, and backfilled timelines."
+  ],
+  "poor_fit_indicators": [
+    "The candidate is only RWB/WBR color identity.",
+    "The candidate is only Commander goodstuff or exact-color product identity.",
+    "The candidate treats Kolaghan or modern Dragonstorm material as Khans-era Mardu.",
+    "The candidate relies on exact raid, dash, or mobilize claims without card-data validation.",
+    "The candidate relies on seed files, color-pair philosophy, or architecture prose as proof."
+  ],
+  "discriminator_questions": [
+    {
+      "question_id": "mardu_discriminator_0001",
+      "question": "Is the signal about immediate, war-bound action rather than long endurance, institutional technique, hidden resource conversion, or survival through attunement?",
+      "claim_ids": [
+        "mardu_claim_0002",
+        "mardu_claim_0003",
+        "mardu_claim_0010"
+      ]
+    },
+    {
+      "question_id": "mardu_discriminator_0002",
+      "question": "Does the candidate include a positive Mardu evidence cluster beyond RWB/WBR color identity or Commander support texture?",
+      "claim_ids": [
+        "mardu_claim_0001",
+        "mardu_claim_0009",
+        "mardu_claim_0010"
+      ]
+    },
+    {
+      "question_id": "mardu_discriminator_0003",
+      "question": "Are Alesha, Kolaghan, and Dragonstorm references held inside their timeline boundaries?",
+      "claim_ids": [
+        "mardu_claim_0005",
+        "mardu_claim_0006",
+        "mardu_claim_0007",
+        "mardu_claim_0008"
+      ]
+    }
+  ],
+  "chatbot_guidance": {
+    "use_when": [
+      "A user asks for speed, decisive action, martial code, war-name identity, total commitment, raiding motion, or Mardu-specific Tarkir flavor.",
+      "A user distinguishes Mardu from generic Commander products or adjacent color-pair patterns.",
+      "A user wants timeline-labeled Tarkir clan identity rather than generic RWB/WBR play patterns."
+    ],
+    "avoid_when": [
+      "The user only mentions RWB/WBR color identity.",
+      "The user centers Commander legality, exact decklists, or product facts.",
+      "The user asks for exact raid, dash, or mobilize rules without later card-data validation.",
+      "The user centers Kolaghan continuity, Dragonstorm backfill, or seed-file claims as proof."
+    ],
+    "claim_ids": [
+      "mardu_claim_0001",
+      "mardu_claim_0002",
+      "mardu_claim_0009",
+      "mardu_claim_0010"
+    ]
+  },
+  "placement_quality": {
+    "strongest_evidence_areas": [
+      "Mardu red-white-black wedge identity",
+      "Red design center and speed attribute",
+      "Khans-era Mardu Horde culture, code, war names, and raiding society",
+      "Zurgo-era figure and location anchors",
+      "Alesha bridge and war-name story support",
+      "Kolaghan separation and timeline boundary",
+      "Modern Dragonstorm-era Mardu source context",
+      "Generic RWB/WBR, color philosophy, seed-file, Commander, and lifecycle guardrails"
+    ],
+    "weakest_evidence_areas": [
+      "Exact raid card facts",
+      "Exact dash card facts",
+      "Exact mobilize card facts",
+      "Alesha's full biography",
+      "Zurgo's full biography",
+      "Detailed named-character biographies",
+      "Exact Dragonstorm story chronology",
+      "Commander/operator material beyond support-only language"
+    ],
+    "manual_review_recommended": true,
+    "review_gated": true,
+    "placement_eligible": false,
+    "notes": "VM-226 creates source-authored raw JSON only. MARDU is not placement-ready, not preview-ready, not generated, and not live.",
+    "calibration_tuning_status": "source_authored_review_gated",
+    "last_placement_ready_pass": null,
+    "live_pilot": false
+  },
+  "color_identity": {
+    "colors": [
+      "R",
+      "W",
+      "B"
+    ],
+    "metadata_only": true,
+    "notes": "RWB, WBR, and lowercase forms are metadata/query-only and not generated keys, navigation keys, runtime aliases, fixture keys, public labels, or lookup keys."
+  },
+  "calibration_tuning": {
+    "status": "source_authored_review_gated",
+    "required_positive_evidence_terms": [
+      "Mardu Horde",
+      "Tarkir",
+      "RWB",
+      "WBR",
+      "Red-centered",
+      "speed",
+      "war names",
+      "Edicts of Ilagra",
+      "total commitment",
+      "Zurgo",
+      "Wingthrone",
+      "Alesha bridge",
+      "Kolaghan boundary",
+      "Modern Dragonstorm Mardu"
+    ],
+    "required_positive_min_hits": null,
+    "broad_match_penalty": null,
+    "overselection_reason": "Color composition, generic aggro, Commander products, Kolaghan continuity, Dragonstorm backfill, color-pair philosophy files, or seed-file phrasing can overselect Mardu without the normalized speed, war-code, Horde, and timeline-boundary evidence cluster.",
+    "suppress_when_user_centers": [
+      "generic RWB",
+      "generic WBR",
+      "generic aggro",
+      "generic sacrifice or tokens",
+      "generic Commander goodstuff",
+      "Kolaghan clan continuity",
+      "Dragonstorm backfill into Khans-era Mardu",
+      "seed-file claims",
+      "manual-fill lore as proof",
+      "color philosophy as Tarkir proof"
+    ],
+    "strengthen_when_user_centers": [
+      "Red-centered Mardu Horde",
+      "speed",
+      "total commitment",
+      "war names",
+      "Edicts of Ilagra",
+      "Zurgo-era Mardu",
+      "Alesha bridge",
+      "Kolaghan boundary",
+      "modern Dragonstorm Mardu source context"
+    ],
+    "collision_suppressions": [
+      "generic_rwb_wbr_not_mardu",
+      "kolaghan_clan_not_khans_mardu_continuity",
+      "commander_product_not_tarkir_canon",
+      "generic_aggro_sacrifice_tokens_not_mardu",
+      "dragonstorm_backfill_not_khans_mardu",
+      "seed_files_not_evidence",
+      "color_pair_philosophy_not_tarkir_lore"
+    ],
+    "false_positive_guardrail": "Do not treat support-only mechanics, Commander/operator rows, manual-fill lore, architecture prose, seed files, Kolaghan clan, Dragonstorm backfill, color-pair philosophy, or color composition alone as Mardu evidence.",
+    "smoke_test_note": "VM-226 does not wire Mardu into generated placement data.",
+    "review_note": "VM-226 adds no live expression key, no public navigation, no preview membership, no schema fields, no fixtures, and no color-code public aliases."
+  },
+  "collision_guidance": []
+}

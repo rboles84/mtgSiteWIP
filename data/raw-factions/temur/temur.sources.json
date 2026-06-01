@@ -1,0 +1,353 @@
+{
+  "schema_version": "1.0.0",
+  "faction_id": "temur",
+  "faction_name": "Temur Frontier",
+  "source_review_date": "2026-05-31",
+  "last_updated": "2026-05-31",
+  "sources": [
+    {
+      "source_id": "src_vm_temur_source_ledger_20260531",
+      "title": "Temur Source Ledger",
+      "author": "Vox Mana research packet",
+      "publisher_or_site": "Local repository",
+      "publication_date": "2026-05-31",
+      "url_or_repository_path": "docs/research/temur/temur-source-ledger.md",
+      "source_type": "Curated source ledger",
+      "source_role": "shaping-only",
+      "reliability": "Primary local source-role ledger",
+      "notes": "Defines TEMUR source tiers, approved use, support-only Commander limits, exact GUR extraction rules, seed-file handling, Atarka boundaries, and modern Dragonstorm timeline limits. It shapes this packet but does not back raw claims by itself."
+    },
+    {
+      "source_id": "src_vm_temur_evidence_ledger_20260531",
+      "title": "Temur Evidence Ledger",
+      "author": "Vox Mana research packet",
+      "publisher_or_site": "Local repository",
+      "publication_date": "2026-05-31",
+      "url_or_repository_path": "docs/research/temur/temur-evidence-ledger.md",
+      "source_type": "Curated evidence ledger",
+      "source_role": "claim-bearing",
+      "reliability": "Primary local evidence ledger",
+      "claim_bearing_evidence_rows": [
+        "TEMUR-EVID-001",
+        "TEMUR-EVID-002",
+        "TEMUR-EVID-003",
+        "TEMUR-EVID-004",
+        "TEMUR-EVID-005",
+        "TEMUR-EVID-006",
+        "TEMUR-EVID-007",
+        "TEMUR-EVID-008",
+        "TEMUR-EVID-009",
+        "TEMUR-EVID-010",
+        "TEMUR-EVID-011",
+        "TEMUR-EVID-012",
+        "TEMUR-EVID-013",
+        "TEMUR-EVID-014",
+        "TEMUR-EVID-015",
+        "TEMUR-EVID-016",
+        "TEMUR-EVID-017",
+        "TEMUR-EVID-018",
+        "TEMUR-EVID-019",
+        "TEMUR-EVID-020",
+        "TEMUR-EVID-021",
+        "TEMUR-EVID-022",
+        "TEMUR-EVID-023",
+        "TEMUR-EVID-024",
+        "TEMUR-EVID-025",
+        "TEMUR-EVID-026",
+        "TEMUR-EVID-029",
+        "TEMUR-EVID-031"
+      ],
+      "notes": "Primary normalized evidence row index for VM-206 raw claims. Support-only Commander rows, Vox Mana synthesis rows, direct source rows, and manual-fill rows are not raw-claim rows."
+    },
+    {
+      "source_id": "src_wotc_rosewater_temur_what_doesnt_kill_you",
+      "title": "Temur: What Doesn't Kill You Makes You Stronger",
+      "author": "Mark Rosewater",
+      "publisher_or_site": "Magic: The Gathering / Making Magic",
+      "publication_date": "Local capture, original date not restated in VM-206 packet",
+      "url_or_repository_path": "docs/research/canon/mark_rosewater_official_three_color/Temur_What Doesn't Kill You Makes You Stronger _ MAGIC_ THE GATHERING.md",
+      "source_type": "Official Wizards design article capture",
+      "source_role": "claim-bearing",
+      "reliability": "Primary / official design commentary",
+      "claim_bearing_evidence_rows": [
+        "TEMUR-EVID-001",
+        "TEMUR-EVID-002",
+        "TEMUR-EVID-003",
+        "TEMUR-EVID-004",
+        "TEMUR-EVID-005"
+      ],
+      "notes": "Primary Temur design source for Green-centered GUR wedge identity, savagery, inner strength, mental fortitude, instinct, and Green/Blue/Red role boundaries."
+    },
+    {
+      "source_id": "src_wotc_tarkir_khans_pg_part_2",
+      "title": "Planeswalker's Guide to Khans of Tarkir, Part 2",
+      "author": "Wizards of the Coast",
+      "publisher_or_site": "Magic: The Gathering",
+      "publication_date": "Local capture, original date not restated in VM-206 packet",
+      "url_or_repository_path": "docs/research/canon/source-material/tarkir/planeswalkers-guide-khans-part-2.md",
+      "source_type": "Official Wizards lore guide capture",
+      "source_role": "claim-bearing",
+      "reliability": "Primary / official Tarkir lore",
+      "claim_bearing_evidence_rows": [
+        "TEMUR-EVID-006",
+        "TEMUR-EVID-007",
+        "TEMUR-EVID-008",
+        "TEMUR-EVID-009",
+        "TEMUR-EVID-010",
+        "TEMUR-EVID-011"
+      ],
+      "notes": "Khans-era Temur Frontier source for Qal Sisma, nomadic family groups, self-sufficiency, frozen ancestors, whispering, Wide Whisper, clan roles, named anchors, creatures, allies, and locations."
+    },
+    {
+      "source_id": "src_wotc_tarkir_fate_reforged_pg",
+      "title": "Planeswalker's Guide to Fate Reforged",
+      "author": "Wizards of the Coast",
+      "publisher_or_site": "Magic: The Gathering",
+      "publication_date": "Local capture, original date not restated in VM-206 packet",
+      "url_or_repository_path": "docs/research/canon/source-material/tarkir/planeswalkers-guide-fate-reforged.md",
+      "source_type": "Official Wizards lore guide capture",
+      "source_role": "claim-bearing",
+      "reliability": "Primary / official Tarkir lore",
+      "claim_bearing_evidence_rows": [
+        "TEMUR-EVID-012",
+        "TEMUR-EVID-013"
+      ],
+      "notes": "Ancient Temur bridge source for Qal Sisma clanholds, whisperers, Yasova Dragonclaw, independence, wilderness survival, wild predators, and Atarka pressure."
+    },
+    {
+      "source_id": "src_wotc_tarkir_story_khanfall",
+      "title": "Khanfall",
+      "author": "Wizards of the Coast",
+      "publisher_or_site": "Magic: The Gathering",
+      "publication_date": "Local capture, original date not restated in VM-206 packet",
+      "url_or_repository_path": "docs/research/canon/source-material/tarkir/story-khanfall.md",
+      "source_type": "Official Wizards story capture",
+      "source_role": "claim-bearing",
+      "reliability": "Primary / official story context",
+      "claim_bearing_evidence_rows": [
+        "TEMUR-EVID-014"
+      ],
+      "notes": "Story-specific transition context for Yasova's survival bargain with Atarka. Do not generalize into full Yasova biography without further official capture."
+    },
+    {
+      "source_id": "src_wotc_tarkir_dragons_pg_part_1",
+      "title": "Planeswalker's Guide to Dragons of Tarkir, Part 1",
+      "author": "Wizards of the Coast",
+      "publisher_or_site": "Magic: The Gathering",
+      "publication_date": "Local capture, original date not restated in VM-206 packet",
+      "url_or_repository_path": "docs/research/canon/source-material/tarkir/planeswalkers-guide-dragons-part-1.md",
+      "source_type": "Official Wizards lore guide capture",
+      "source_role": "claim-bearing",
+      "reliability": "Primary / official Tarkir chronology",
+      "claim_bearing_evidence_rows": [
+        "TEMUR-EVID-015"
+      ],
+      "notes": "Khanfall and dragonlord-clan transition source. It is not a Khans-era Temur Frontier source."
+    },
+    {
+      "source_id": "src_wotc_tarkir_dragons_pg_part_2",
+      "title": "Planeswalker's Guide to Dragons of Tarkir, Part 2",
+      "author": "Wizards of the Coast",
+      "publisher_or_site": "Magic: The Gathering",
+      "publication_date": "Local capture, original date not restated in VM-206 packet",
+      "url_or_repository_path": "docs/research/canon/source-material/tarkir/planeswalkers-guide-dragons-part-2.md",
+      "source_type": "Official Wizards Atarka-era contrast capture",
+      "source_role": "claim-bearing",
+      "reliability": "Primary / official Atarka-era contrast",
+      "claim_bearing_evidence_rows": [
+        "TEMUR-EVID-015",
+        "TEMUR-EVID-016",
+        "TEMUR-EVID-017"
+      ],
+      "notes": "Atarka Clan contrast source for feed-or-be-fed survival, suppressed Dragonclaw continuity, hidden shamans, Wide Whisper preservation, elemental power sites, and secret records."
+    },
+    {
+      "source_id": "src_wotc_tarkir_story_awakening_the_bear",
+      "title": "Awakening the Bear",
+      "author": "Wizards of the Coast",
+      "publisher_or_site": "Magic: The Gathering",
+      "publication_date": "Local capture, original date not restated in VM-206 packet",
+      "url_or_repository_path": "docs/research/canon/source-material/tarkir/story-awakening-the-bear.md",
+      "source_type": "Official Wizards story capture",
+      "source_role": "claim-bearing",
+      "reliability": "Primary / official story context",
+      "claim_bearing_evidence_rows": [
+        "TEMUR-EVID-011",
+        "TEMUR-EVID-018"
+      ],
+      "notes": "Story-specific support for Surrak, Temur spirituality and pragmatism, bear challenge, clan defense, and Dragonclaw mythic texture."
+    },
+    {
+      "source_id": "src_wotc_tarkir_dragonstorm_pg_part_2",
+      "title": "Planeswalker's Guide to Tarkir: Dragonstorm, Part 2",
+      "author": "Wizards of the Coast",
+      "publisher_or_site": "Magic: The Gathering",
+      "publication_date": "Local capture, original date not restated in VM-206 packet",
+      "url_or_repository_path": "docs/research/canon/source-material/tarkir/planeswalkers-guide-dragonstorm-part-2.md",
+      "source_type": "Official Wizards modern Tarkir guide capture",
+      "source_role": "claim-bearing",
+      "reliability": "Primary / official modern Temur source",
+      "claim_bearing_evidence_rows": [
+        "TEMUR-EVID-019",
+        "TEMUR-EVID-020",
+        "TEMUR-EVID-021",
+        "TEMUR-EVID-022",
+        "TEMUR-EVID-023",
+        "TEMUR-EVID-024",
+        "TEMUR-EVID-025",
+        "TEMUR-EVID-026"
+      ],
+      "notes": "Primary modern Dragonstorm-era Temur source for reformation, rebellion, semi-nomadic society, Dragonclaw and Twice Whisperer leadership, daily life, Endless Song, magic, dragonstorms, clan dragons, and locations. Modern era only."
+    },
+    {
+      "source_id": "src_vm_temur_canon_inventory_20260531",
+      "title": "Canon Inventory Three-Color Reference Audit",
+      "author": "Vox Mana source audit",
+      "publisher_or_site": "Local repository",
+      "publication_date": "2026-05-31",
+      "url_or_repository_path": "docs/research/canon/canon-inventory-three-color-reference-audit.md",
+      "source_type": "Source inventory",
+      "source_role": "shaping-only",
+      "reliability": "Source-selection support only",
+      "notes": "Identifies the Temur MaRo article and Tarkir source families. It does not directly prove Temur lore claims."
+    },
+    {
+      "source_id": "src_vm_temur_canon_inventory_analysis_20260531",
+      "title": "Canon Inventory Three-Color Reference Audit Analysis",
+      "author": "Vox Mana source audit",
+      "publisher_or_site": "Local repository",
+      "publication_date": "2026-05-31",
+      "url_or_repository_path": "docs/analysis/canon-inventory-three-color-reference-audit.md",
+      "source_type": "Source inventory analysis",
+      "source_role": "shaping-only",
+      "reliability": "Source-selection support only",
+      "notes": "Normalized analysis copy of source inventory and primary source-role classification. It does not directly prove raw claims."
+    },
+    {
+      "source_id": "src_vm_temur_research_dossier_20260531",
+      "title": "Temur Research Dossier",
+      "author": "Vox Mana research packet",
+      "publisher_or_site": "Local repository",
+      "publication_date": "2026-05-31",
+      "url_or_repository_path": "docs/research/temur/temur-research-dossier.md",
+      "source_type": "Curated research dossier",
+      "source_role": "shaping-only",
+      "reliability": "Primary local synthesis with explicit boundaries",
+      "notes": "Summarizes the conservative Temur evidence floor, support-only Commander context, Atarka anti-bleed notes, manual-fill boundaries, and downstream readiness. It may shape profile wording but not raw claims."
+    },
+    {
+      "source_id": "src_vm_temur_reliability_audit_20260531",
+      "title": "Temur Reliability Audit",
+      "author": "Vox Mana research packet",
+      "publisher_or_site": "Local repository",
+      "publication_date": "2026-05-31",
+      "url_or_repository_path": "docs/research/temur/temur-reliability-audit.md",
+      "source_type": "Reliability audit",
+      "source_role": "shaping-only",
+      "reliability": "Primary local audit",
+      "notes": "Records seed handling, source laundering controls, Commander extraction reliability, overclaim risks, and hygiene requirements. It shapes exclusions but does not back raw claims."
+    },
+    {
+      "source_id": "src_vm_temur_manual_fill_20260531",
+      "title": "Temur Manual Fill",
+      "author": "Vox Mana research packet",
+      "publisher_or_site": "Local repository",
+      "publication_date": "2026-05-31",
+      "url_or_repository_path": "docs/research/temur/temur-manual-fill.md",
+      "source_type": "Manual-fill queue",
+      "source_role": "support-only",
+      "reliability": "Limitations ledger only",
+      "notes": "Records deferred topics such as exact Ferocious and Formidable rules text, Yasova's full arc, exact Endless Song mechanics, detailed modern governance, clan dragon diplomacy, exact modern character biographies, social integration beyond direct support, and Commander products as Tarkir canon or legality proof. It is not raw-claim evidence."
+    },
+    {
+      "source_id": "src_vm_temur_lore_source_packet_20260531",
+      "title": "Temur Lore Source Packet",
+      "author": "Vox Mana research packet",
+      "publisher_or_site": "Local repository",
+      "publication_date": "2026-05-31",
+      "url_or_repository_path": "docs/research/temur/temur-lore-source-packet.md",
+      "source_type": "Compiled source packet",
+      "source_role": "shaping-only",
+      "reliability": "Primary local packet summary",
+      "notes": "Records source-packet verdict, safe evidence floor, support-only material, manual-fill list, Atarka and Dragonstorm distinction guardrails, and stop gate. It shapes packet organization but does not replace evidence rows."
+    },
+    {
+      "source_id": "src_vm_temur_identity_md_20260531",
+      "title": "Temur Frontier - Survival Through Instinct, Memory, And The Living Wild",
+      "author": "Vox Mana architecture docs",
+      "publisher_or_site": "Local repository",
+      "publication_date": "2026-05-31",
+      "url_or_repository_path": "docs/architecture/colors/temur/identity.md",
+      "source_type": "Vox Mana architecture doc",
+      "source_role": "shaping-only",
+      "reliability": "Project architecture synthesis from Temur VM-204 and VM-205",
+      "notes": "May inform source-authored profile and placement wording only. It is not Magic canon and must not replace TEMUR evidence rows for raw claims."
+    },
+    {
+      "source_id": "src_vm_temur_metaphysics_md_20260531",
+      "title": "Temur Frontier Metaphysics - The Endless Song And Survival By Listening",
+      "author": "Vox Mana architecture docs",
+      "publisher_or_site": "Local repository",
+      "publication_date": "2026-05-31",
+      "url_or_repository_path": "docs/architecture/colors/temur/metaphysics.md",
+      "source_type": "Vox Mana metaphysics doc",
+      "source_role": "shaping-only",
+      "reliability": "Project metaphysics synthesis from Temur VM-204 and VM-205",
+      "notes": "May inform source-authored metaphysical profile fields only. It is explicitly not Wizards or MTG canon and is not raw-claim evidence."
+    },
+    {
+      "source_id": "src_vm_second_commander_recommendations_gur",
+      "title": "Vox Mana Second Commander Recommendations Enhanced",
+      "author": "Vox Mana product research data",
+      "publisher_or_site": "Local repository",
+      "publication_date": "Local data snapshot, date not restated in VM-206 packet",
+      "url_or_repository_path": "docs/research/vox_mana_second_commander_recommendations_enhanced.jsonl",
+      "source_type": "Commander/operator support data",
+      "source_role": "support-only",
+      "reliability": "Product/operator support only",
+      "notes": "Exact GUR rows support operator language around dragons, ramp, energy, artifacts, copying spells or creatures, instant copying, non-hand casting, artifact tokens, counters, X-spells, and ravenous. They do not prove Temur canon, setting, story, Commander legality, or metaphysics claims."
+    },
+    {
+      "source_id": "src_scryfall_oracle_cards_local",
+      "title": "Local Scryfall Oracle Cards",
+      "author": "Scryfall local data mirror",
+      "publisher_or_site": "Local repository",
+      "publication_date": "Local data snapshot, date not restated in VM-206 packet",
+      "url_or_repository_path": "data/scryfall/raw/oracle-cards.json",
+      "source_type": "Local card-data source",
+      "source_role": "support-only",
+      "reliability": "Card facts support only",
+      "notes": "May support future claim-by-claim card facts or mechanics. VM-206 does not query card facts and does not use this source for raw claims."
+    }
+  ],
+  "not_used_or_rejected_sources": [
+    {
+      "source_name": "Quarantined Temur seed files under docs/research/temur/source-material/",
+      "reason": "Discovery/reference only. TEMUR-EVID-029 blocks seed files from becoming evidence unless independently rebound to approved source rows."
+    },
+    {
+      "source_name": "Restored spaced folder docs/research/temur frontier/",
+      "reason": "Original seed location only. The normalized packet controls source use; this raw packet does not cite the spaced folder."
+    },
+    {
+      "source_name": "Architecture docs as raw-claim evidence",
+      "reason": "VM-204 and VM-205 may shape wording only. Raw claims must trace directly to TEMUR-EVID rows."
+    },
+    {
+      "source_name": "Commander products as Tarkir Temur canon",
+      "reason": "Commander/operator rows are support-only unless a later claim-level source review promotes exact card or story facts."
+    },
+    {
+      "source_name": "Manual-fill topics",
+      "reason": "Deferred until a later evidence-update card adds direct local support."
+    },
+    {
+      "source_name": "Atarka Clan as Temur Frontier continuity",
+      "reason": "Atarka material is suppression and contrast context, not Khans-era Temur Frontier continuity."
+    },
+    {
+      "source_name": "Modern Dragonstorm details as Khans-era Temur backfill",
+      "reason": "Modern Dragonstorm-era Temur rows must remain timeline-labeled and cannot backfill Khans-era identity without specific evidence."
+    }
+  ]
+}

@@ -6,9 +6,35 @@
       "data/scryfall/indexes/card-flavor-index.json"
     ],
     "text_policy": "Uses committed short flavor excerpts only; no flavor text is invented or paraphrased.",
-    "faction_count": 25
+    "faction_count": 30
   },
   "snippets": {
+    "ABZAN": [
+      {
+        "faction_key": "ABZAN",
+        "card_name": "Abzan Banner",
+        "flavor_excerpt": "Stone to endure, roots to remember.",
+        "scryfall_uri": "https://scryfall.com/card/ktk/215/abzan-banner?utm_source=api",
+        "source_index": "card-flavor-index",
+        "source_type": "matched_card"
+      },
+      {
+        "faction_key": "ABZAN",
+        "card_name": "Abzan Devotee",
+        "flavor_excerpt": "The Kin-Trees rediscovered after Dromoka's fall are tended by carefully chosen wardens.",
+        "scryfall_uri": "https://scryfall.com/card/tdm/68/abzan-devotee?utm_source=api",
+        "source_index": "card-flavor-index",
+        "source_type": "matched_card"
+      },
+      {
+        "faction_key": "ABZAN",
+        "card_name": "Abzan Guide",
+        "flavor_excerpt": "\"These roads are desolate and changeable. Follow me, or die in the wastes.\"",
+        "scryfall_uri": "https://scryfall.com/card/ktk/162/abzan-guide?utm_source=api",
+        "source_index": "card-flavor-index",
+        "source_type": "matched_card"
+      }
+    ],
     "B": [
       {
         "faction_key": "B",
@@ -116,6 +142,14 @@
     "ESPER": [
       {
         "faction_key": "ESPER",
+        "card_name": "Desperate Farmer // Depraved Harvester",
+        "flavor_excerpt": "A tragic moment pushed him to a blasphemous act.",
+        "scryfall_uri": "https://scryfall.com/card/inr/105/desperate-farmer-depraved-harvester?utm_source=api",
+        "source_index": "card-flavor-index",
+        "source_type": "matched_card"
+      },
+      {
+        "faction_key": "ESPER",
         "card_name": "Aven Trailblazer",
         "flavor_excerpt": "\"The bird wore the form of a man, bereft of filigree. Why do the Texts not speak of it?\" —Belator of Esper",
         "scryfall_uri": "https://scryfall.com/card/con/4/aven-trailblazer?utm_source=api",
@@ -124,17 +158,9 @@
       },
       {
         "faction_key": "ESPER",
-        "card_name": "Countersquall",
-        "flavor_excerpt": "Each of the twenty-three winds of Esper is named and chronicled, and every possible interaction with the flow of magi...",
-        "scryfall_uri": "https://scryfall.com/card/uma/198/countersquall?utm_source=api",
-        "source_index": "card-flavor-index",
-        "source_type": "matched_card"
-      },
-      {
-        "faction_key": "ESPER",
-        "card_name": "Court Homunculus",
-        "flavor_excerpt": "Mages of Esper measure their wealth and status by the number of servants in their retinues.",
-        "scryfall_uri": "https://scryfall.com/card/mm2/13/court-homunculus?utm_source=api",
+        "card_name": "Brainbite",
+        "flavor_excerpt": "An Esper mage will leave a hole in your memory with surgical precision. A Grixis mage sees no reason to be so kind.",
+        "scryfall_uri": "https://scryfall.com/card/arb/18/brainbite?utm_source=api",
         "source_index": "card-flavor-index",
         "source_type": "matched_card"
       }
@@ -168,19 +194,19 @@
     "GRIXIS": [
       {
         "faction_key": "GRIXIS",
-        "card_name": "Agony Warp",
-        "flavor_excerpt": "Life's circle has become inverted in Grixis. The same energy is endlessly recycled and becomes more stagnant with eac...",
-        "scryfall_uri": "https://scryfall.com/card/2x2/168/agony-warp?utm_source=api",
-        "source_index": "card-flavor-index",
-        "source_type": "matched_card"
+        "card_name": "Kess, Dissident Mage",
+        "flavor_excerpt": "\"Loss has no meaning here. You cannot take from those who have nothing.\"",
+        "scryfall_uri": "https://scryfall.com/card/ncc/344/kess-dissident-mage?utm_source=api",
+        "source_index": "commander-index",
+        "source_type": "native_commander"
       },
       {
         "faction_key": "GRIXIS",
-        "card_name": "Blightning",
-        "flavor_excerpt": "While the smell of burning flesh is common in Grixis, the odor of smoldering brain matter is a rare treat.",
-        "scryfall_uri": "https://scryfall.com/card/a25/198/blightning?utm_source=api",
-        "source_index": "card-flavor-index",
-        "source_type": "matched_card"
+        "card_name": "Nekusar, the Mindrazer",
+        "flavor_excerpt": "His enemies wondered if the lich king's brutal death and unnatural rebirth had been his plan all along.",
+        "scryfall_uri": "https://scryfall.com/card/cmm/349/nekusar-the-mindrazer?utm_source=api",
+        "source_index": "commander-index",
+        "source_type": "native_commander"
       },
       {
         "faction_key": "GRIXIS",
@@ -189,6 +215,24 @@
         "scryfall_uri": "https://scryfall.com/card/arb/18/brainbite?utm_source=api",
         "source_index": "card-flavor-index",
         "source_type": "matched_card"
+      }
+    ],
+    "JESKAI": [
+      {
+        "faction_key": "JESKAI",
+        "card_name": "Bloodfire Expert",
+        "flavor_excerpt": "Some efreet abandon their homes in the volcanic Fire Rim to embrace the Jeskai Way and discipline their innate flames.",
+        "scryfall_uri": "https://scryfall.com/card/ktk/101/bloodfire-expert?utm_source=api",
+        "source_index": "card-flavor-index",
+        "source_type": "matched_card"
+      },
+      {
+        "faction_key": "JESKAI",
+        "card_name": "Narset, Jeskai Waymaster",
+        "flavor_excerpt": "\"Each step we take is a decision that changes the course of our futures. We must be careful where we tread.\"",
+        "scryfall_uri": "https://scryfall.com/card/tdm/209/narset-jeskai-waymaster?utm_source=api",
+        "source_index": "commander-index",
+        "source_type": "matched_commander"
       }
     ],
     "JUND": [
@@ -243,28 +287,54 @@
         "source_type": "matched_commander"
       }
     ],
+    "MARDU": [
+      {
+        "faction_key": "MARDU",
+        "card_name": "Defibrillating Current",
+        "flavor_excerpt": "A small shock to save a life, a large one to take it away. —Mardu healer's adage",
+        "scryfall_uri": "https://scryfall.com/card/tdm/177/defibrillating-current?utm_source=api",
+        "source_index": "card-flavor-index",
+        "source_type": "matched_card"
+      },
+      {
+        "faction_key": "MARDU",
+        "card_name": "Alesha's Vanguard",
+        "flavor_excerpt": "Boundaries drawn on maps or marked with stone have no meaning for the Mardu.",
+        "scryfall_uri": "https://scryfall.com/card/frf/60/aleshas-vanguard?utm_source=api",
+        "source_index": "card-flavor-index",
+        "source_type": "matched_card"
+      },
+      {
+        "faction_key": "MARDU",
+        "card_name": "Bloodsoaked Champion",
+        "flavor_excerpt": "\"Death is merely another foe the Mardu will overcome.\"",
+        "scryfall_uri": "https://scryfall.com/card/clb/740/bloodsoaked-champion?utm_source=api",
+        "source_index": "card-flavor-index",
+        "source_type": "matched_card"
+      }
+    ],
     "NAYA": [
+      {
+        "faction_key": "NAYA",
+        "card_name": "Shalai and Hallar",
+        "flavor_excerpt": "Between the angel's blade and the elf's bow, few Phyrexians made it as far as Llanowar's canopy.",
+        "scryfall_uri": "https://scryfall.com/card/moc/10/shalai-and-hallar?utm_source=api",
+        "source_index": "commander-index",
+        "source_type": "native_commander"
+      },
+      {
+        "faction_key": "NAYA",
+        "card_name": "Cradle of Vitality",
+        "flavor_excerpt": "Naya's trees grow tall and sturdy. Their foliage intertwines to form dewcups, rainwater pools where the elves gather...",
+        "scryfall_uri": "https://scryfall.com/card/jmp/98/cradle-of-vitality?utm_source=api",
+        "source_index": "card-flavor-index",
+        "source_type": "matched_card"
+      },
       {
         "faction_key": "NAYA",
         "card_name": "Ajani's Mantra",
         "flavor_excerpt": "\"He hasn't returned to the Cloud Forest. But I can still sense his calming presence.\" —Zaliki of Naya",
         "scryfall_uri": "https://scryfall.com/card/ddh/22/ajanis-mantra?utm_source=api",
-        "source_index": "card-flavor-index",
-        "source_type": "matched_card"
-      },
-      {
-        "faction_key": "NAYA",
-        "card_name": "Bull Cerodon",
-        "flavor_excerpt": "It holds motionless vigil, watching Naya in silence through the screen of the whitecover. When it senses anything ami...",
-        "scryfall_uri": "https://scryfall.com/card/hop/84/bull-cerodon?utm_source=api",
-        "source_index": "card-flavor-index",
-        "source_type": "matched_card"
-      },
-      {
-        "faction_key": "NAYA",
-        "card_name": "Cavern Thoctar",
-        "flavor_excerpt": "Natives of Naya know better than to loiter near the mouth of a cave. Two glowing red eyes and the stench of foul brea...",
-        "scryfall_uri": "https://scryfall.com/card/ala/125/cavern-thoctar?utm_source=api",
         "source_index": "card-flavor-index",
         "source_type": "matched_card"
       }
@@ -397,6 +467,58 @@
         "scryfall_uri": "https://scryfall.com/card/otj/195/baron-bertram-graywater?utm_source=api",
         "source_index": "commander-index",
         "source_type": "matched_commander"
+      }
+    ],
+    "SULTAI": [
+      {
+        "faction_key": "SULTAI",
+        "card_name": "Blinding Spray",
+        "flavor_excerpt": "\"The stronger our enemies seem, the more vulnerable they are.\" —Sultai secret",
+        "scryfall_uri": "https://scryfall.com/card/ktk/32/blinding-spray?utm_source=api",
+        "source_index": "card-flavor-index",
+        "source_type": "matched_card"
+      },
+      {
+        "faction_key": "SULTAI",
+        "card_name": "Aggressive Negotiations",
+        "flavor_excerpt": "\"When an alliance outlasts its usefulness it's best to end it quickly.\" —Heng, Sultai ambassador",
+        "scryfall_uri": "https://scryfall.com/card/tdm/70/aggressive-negotiations?utm_source=api",
+        "source_index": "card-flavor-index",
+        "source_type": "matched_card"
+      },
+      {
+        "faction_key": "SULTAI",
+        "card_name": "Dark Deal",
+        "flavor_excerpt": "The first khans of the Sultai relied on the magic of the rakshasa to ensure the survival of the clan.",
+        "scryfall_uri": "https://scryfall.com/card/frf/66/dark-deal?utm_source=api",
+        "source_index": "card-flavor-index",
+        "source_type": "matched_card"
+      }
+    ],
+    "TEMUR": [
+      {
+        "faction_key": "TEMUR",
+        "card_name": "Avalanche Tusker",
+        "flavor_excerpt": "\"Hold the high ground, then bring it to your enemy.\" —Surrak, khan of the Temur",
+        "scryfall_uri": "https://scryfall.com/card/ktk/166/avalanche-tusker?utm_source=api",
+        "source_index": "card-flavor-index",
+        "source_type": "matched_card"
+      },
+      {
+        "faction_key": "TEMUR",
+        "card_name": "Ainok Tracker",
+        "flavor_excerpt": "Some ainok of the mountains are accepted among the Temur as trusted hunt-mates.",
+        "scryfall_uri": "https://scryfall.com/card/ktk/96/ainok-tracker?utm_source=api",
+        "source_index": "card-flavor-index",
+        "source_type": "matched_card"
+      },
+      {
+        "faction_key": "TEMUR",
+        "card_name": "Auroral Procession",
+        "flavor_excerpt": "The Temur celebrate the end of the Unbroken Night with stories, dances, and feasts. They gather to witness the first...",
+        "scryfall_uri": "https://scryfall.com/card/tdm/169/auroral-procession?utm_source=api",
+        "source_index": "card-flavor-index",
+        "source_type": "matched_card"
       }
     ],
     "U": [

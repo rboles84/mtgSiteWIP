@@ -1,0 +1,247 @@
+{
+  "schema_version": "1.0.0",
+  "faction_id": "sultai",
+  "faction_name": "Sultai Brood",
+  "source_review_date": "2026-05-31",
+  "last_updated": "2026-05-31",
+  "claim_count": 10,
+  "claims": [
+    {
+      "claim_id": "sultai_claim_0001",
+      "faction_id": "sultai",
+      "claim_type": "identity",
+      "statement": "Sultai Brood is the Black-Green-Blue Tarkir wedge identity using BGU as color-direction metadata only, with SULTAI remaining source-authored, review-gated, and non-live in VM-212.",
+      "canon_status": "Source-supported identity with lifecycle boundary",
+      "source_ids": [
+        "src_vm_sultai_evidence_ledger_20260531",
+        "src_wotc_rosewater_sultai_whatever_it_takes"
+      ],
+      "evidence_rows": [
+        "SULTAI-EVID-001",
+        "SULTAI-EVID-036"
+      ],
+      "confidence": "High",
+      "notes": "Use for base Sultai Brood identity only. BGU and color-order permutations remain metadata/query-only and do not become runtime aliases, navigation keys, generated keys, fixture keys, lookup keys, or public labels."
+    },
+    {
+      "claim_id": "sultai_claim_0002",
+      "faction_id": "sultai",
+      "claim_type": "design_identity",
+      "statement": "Sultai's design identity emphasizes ruthlessness: willingness to take action and do what needs to be done to get what one wants.",
+      "canon_status": "Official design commentary",
+      "source_ids": [
+        "src_vm_sultai_evidence_ledger_20260531",
+        "src_wotc_rosewater_sultai_whatever_it_takes"
+      ],
+      "evidence_rows": [
+        "SULTAI-EVID-002"
+      ],
+      "confidence": "High",
+      "notes": "This supports design-level ruthlessness language. It does not prove exact mechanics, Commander legality, card text, or detailed story biography."
+    },
+    {
+      "claim_id": "sultai_claim_0003",
+      "faction_id": "sultai",
+      "claim_type": "design_tool_boundary",
+      "statement": "Sultai design tools include hand/library pressure, destruction, theft or redirection, paying additional costs, graveyard return, resource denial, and using the dead.",
+      "canon_status": "Official design commentary",
+      "source_ids": [
+        "src_vm_sultai_evidence_ledger_20260531",
+        "src_wotc_rosewater_sultai_whatever_it_takes"
+      ],
+      "evidence_rows": [
+        "SULTAI-EVID-003"
+      ],
+      "confidence": "High",
+      "notes": "Use as design and mechanical texture only. Exact delve, exploit, card text, card prevalence, and legality remain manual-review material."
+    },
+    {
+      "claim_id": "sultai_claim_0004",
+      "faction_id": "sultai",
+      "claim_type": "khans_lore_identity",
+      "statement": "Khans-era Sultai Brood identity includes dragon ruthlessness, the fang symbol, and wealth gained through exploitation of people and land resources.",
+      "canon_status": "Official Tarkir lore capture",
+      "source_ids": [
+        "src_vm_sultai_evidence_ledger_20260531",
+        "src_wotc_tarkir_khans_pg_part_1"
+      ],
+      "evidence_rows": [
+        "SULTAI-EVID-004"
+      ],
+      "confidence": "High",
+      "notes": "Use for Khans-era clan floor only. Do not backfill modern Dragonstorm reforms into this identity."
+    },
+    {
+      "claim_id": "sultai_claim_0005",
+      "faction_id": "sultai",
+      "claim_type": "khans_power_structure",
+      "statement": "Khans-era Sultai power includes necromancy and sibsig labor, rakshasa pacts, deadlier magic, naga rulership propaganda, defined social roles, and Sultai magic practices such as mind control, poison or warping magic, and body-part relic practice.",
+      "canon_status": "Official Tarkir lore capture",
+      "source_ids": [
+        "src_vm_sultai_evidence_ledger_20260531",
+        "src_wotc_tarkir_khans_pg_part_1"
+      ],
+      "evidence_rows": [
+        "SULTAI-EVID-005",
+        "SULTAI-EVID-006",
+        "SULTAI-EVID-007",
+        "SULTAI-EVID-008"
+      ],
+      "confidence": "High",
+      "notes": "Use for Khans-era social, magical, and necromantic floor. Exact mechanic rules and card-level details remain deferred."
+    },
+    {
+      "claim_id": "sultai_claim_0006",
+      "faction_id": "sultai",
+      "claim_type": "khans_named_anchor",
+      "statement": "Queen Sidisi and Khans-era locations provide a narrow named-figure and geography floor for Sultai Brood: Sidisi is khan and queen, and safe location anchors include Kheru Temple, Qarsi Palace, Ukud Necropolis, Gudul, Gurmag Swamps, Marang River Fortress, Sagu, Molderfang Falls, and Crocodile Pits.",
+      "canon_status": "Official Tarkir lore capture",
+      "source_ids": [
+        "src_vm_sultai_evidence_ledger_20260531",
+        "src_wotc_tarkir_khans_pg_part_1"
+      ],
+      "evidence_rows": [
+        "SULTAI-EVID-009",
+        "SULTAI-EVID-010"
+      ],
+      "confidence": "High",
+      "notes": "Use as narrow guide-row support only. Full Sidisi biography and exact map details remain manual-review material."
+    },
+    {
+      "claim_id": "sultai_claim_0007",
+      "faction_id": "sultai",
+      "claim_type": "transition_context",
+      "statement": "Fate Reforged, Tasigur, and Khanfall material provide transition context through ancient Sultai cruelty, treachery, rakshasa pacts, undead servants, anti-dragon pressure, Tasigur's narrow floor, and the no-khan boundary.",
+      "canon_status": "Official Tarkir transition context",
+      "source_ids": [
+        "src_vm_sultai_evidence_ledger_20260531",
+        "src_wotc_tarkir_fate_reforged_pg",
+        "src_wotc_tarkir_story_khanfall"
+      ],
+      "evidence_rows": [
+        "SULTAI-EVID-011",
+        "SULTAI-EVID-012",
+        "SULTAI-EVID-013",
+        "SULTAI-EVID-019"
+      ],
+      "confidence": "High",
+      "notes": "Use as transition context only. Tasigur's full biography, Shidiqi betrayal details, and Khanfall consequences remain manual-review material."
+    },
+    {
+      "claim_id": "sultai_claim_0008",
+      "faction_id": "sultai",
+      "claim_type": "timeline_boundary",
+      "statement": "Silumgar clan is a Dragons-era boundary and contrast, not Khans-era Sultai Brood continuity: dragonlord clans replace khan-led clans, Silumgar clan is a dragonlord hierarchy, and Sidisi is no longer a khan in the Dragons-era guide.",
+      "canon_status": "Official Tarkir chronology with source boundary",
+      "source_ids": [
+        "src_vm_sultai_evidence_ledger_20260531",
+        "src_wotc_tarkir_fate_reforged_pg",
+        "src_wotc_tarkir_dragons_pg_part_1",
+        "src_wotc_tarkir_story_khanfall"
+      ],
+      "evidence_rows": [
+        "SULTAI-EVID-014",
+        "SULTAI-EVID-015",
+        "SULTAI-EVID-016",
+        "SULTAI-EVID-017",
+        "SULTAI-EVID-018",
+        "SULTAI-EVID-019"
+      ],
+      "confidence": "High",
+      "notes": "Use Silumgar material as boundary and contrast only. Do not treat Silumgar clan as Sultai Brood continuity."
+    },
+    {
+      "claim_id": "sultai_claim_0009",
+      "faction_id": "sultai",
+      "claim_type": "modern_dragonstorm_lore_identity",
+      "statement": "Modern Dragonstorm-era Sultai are timeline-labeled through jungle life, opportunity-seeking strategy, revival after Silumgar, rakshasa rejection, decentralized governance, daily life, honored dead, life-essence magic, dragonstorm practice, clan dragons, and modern geography.",
+      "canon_status": "Official modern Tarkir guide capture",
+      "source_ids": [
+        "src_vm_sultai_evidence_ledger_20260531",
+        "src_wotc_tarkir_dragonstorm_pg_part_2"
+      ],
+      "evidence_rows": [
+        "SULTAI-EVID-020",
+        "SULTAI-EVID-021",
+        "SULTAI-EVID-022",
+        "SULTAI-EVID-023",
+        "SULTAI-EVID-024",
+        "SULTAI-EVID-025",
+        "SULTAI-EVID-026",
+        "SULTAI-EVID-027",
+        "SULTAI-EVID-028",
+        "SULTAI-EVID-029",
+        "SULTAI-EVID-030"
+      ],
+      "confidence": "High",
+      "notes": "Modern Dragonstorm-era only. Do not backfill modern reforms, honored-dead practice, governance, or dragonstorm details into Khans-era Sultai Brood."
+    },
+    {
+      "claim_id": "sultai_claim_0010",
+      "faction_id": "sultai",
+      "claim_type": "metadata_boundary",
+      "statement": "Generic BGU, Silumgar continuity, Dragonstorm backfill, color-philosophy proof, seed files, support-only Commander products, and non-live packet status are not sufficient Sultai Brood proof.",
+      "canon_status": "Source-supported boundary",
+      "source_ids": [
+        "src_vm_sultai_evidence_ledger_20260531"
+      ],
+      "evidence_rows": [
+        "SULTAI-EVID-001",
+        "SULTAI-EVID-030",
+        "SULTAI-EVID-033",
+        "SULTAI-EVID-034",
+        "SULTAI-EVID-036"
+      ],
+      "confidence": "High",
+      "notes": "This is a false-positive and lifecycle guardrail. Commander/operator rows are excluded by source-role policy and are not cited as raw-claim evidence."
+    }
+  ],
+  "claim_quality_summary": {
+    "raw_claims_added": 10,
+    "source_evidence_rows_used": [
+      "SULTAI-EVID-001",
+      "SULTAI-EVID-002",
+      "SULTAI-EVID-003",
+      "SULTAI-EVID-004",
+      "SULTAI-EVID-005",
+      "SULTAI-EVID-006",
+      "SULTAI-EVID-007",
+      "SULTAI-EVID-008",
+      "SULTAI-EVID-009",
+      "SULTAI-EVID-010",
+      "SULTAI-EVID-011",
+      "SULTAI-EVID-012",
+      "SULTAI-EVID-013",
+      "SULTAI-EVID-014",
+      "SULTAI-EVID-015",
+      "SULTAI-EVID-016",
+      "SULTAI-EVID-017",
+      "SULTAI-EVID-018",
+      "SULTAI-EVID-019",
+      "SULTAI-EVID-020",
+      "SULTAI-EVID-021",
+      "SULTAI-EVID-022",
+      "SULTAI-EVID-023",
+      "SULTAI-EVID-024",
+      "SULTAI-EVID-025",
+      "SULTAI-EVID-026",
+      "SULTAI-EVID-027",
+      "SULTAI-EVID-028",
+      "SULTAI-EVID-029",
+      "SULTAI-EVID-030",
+      "SULTAI-EVID-033",
+      "SULTAI-EVID-034",
+      "SULTAI-EVID-036"
+    ],
+    "raw_claim_id_policy": "Raw claims use sultai_claim_0001-style IDs. SULTAI-EVID row IDs remain evidence references only.",
+    "claim_floor": "Normalized Sultai promoted rows plus allowed guardrail/lifecycle boundary rows only.",
+    "excluded_rows": [
+      "support-only Commander/operator evidence rows",
+      "Vox Mana synthesis row as independent raw-claim evidence",
+      "Commander row identifiers",
+      "manual-fill rows",
+      "direct SULTAI-SRC rows"
+    ],
+    "overall_confidence": "High for source-bound Sultai identity, Khans-era floor, Silumgar boundary, modern Dragonstorm guide, and guardrail claims; low for exact card facts, Commander legality, full biographies, exact mechanics, and detailed Dragonstorm chronology."
+  }
+}

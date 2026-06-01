@@ -1,0 +1,310 @@
+{
+  "schema_version": "1.0.0",
+  "faction_id": "jeskai",
+  "faction_name": "Jeskai Way",
+  "source_review_date": "2026-05-31",
+  "last_updated": "2026-05-31",
+  "sources": [
+    {
+      "source_id": "src_vm_jeskai_source_ledger_20260531",
+      "title": "Jeskai Source Ledger",
+      "author": "Vox Mana research packet",
+      "publisher_or_site": "Local repository",
+      "publication_date": "2026-05-31",
+      "url_or_repository_path": "docs/research/jeskai/jeskai-source-ledger.md",
+      "source_type": "Curated source ledger",
+      "source_role": "shaping-only",
+      "reliability": "Primary local source-role ledger",
+      "notes": "Defines Jeskai source tiers, approved use, support-only Commander limits, seed-file handling, Ojutai boundaries, and modern Dragonstorm timeline limits. It shapes this packet but does not back raw claims by itself."
+    },
+    {
+      "source_id": "src_vm_jeskai_evidence_ledger_20260531",
+      "title": "Jeskai Evidence Ledger",
+      "author": "Vox Mana research packet",
+      "publisher_or_site": "Local repository",
+      "publication_date": "2026-05-31",
+      "url_or_repository_path": "docs/research/jeskai/jeskai-evidence-ledger.md",
+      "source_type": "Curated evidence ledger",
+      "source_role": "claim-bearing",
+      "reliability": "Primary local evidence ledger",
+      "claim_bearing_evidence_rows": [
+        "JESKAI-EVID-001",
+        "JESKAI-EVID-002",
+        "JESKAI-EVID-003",
+        "JESKAI-EVID-004",
+        "JESKAI-EVID-005",
+        "JESKAI-EVID-006",
+        "JESKAI-EVID-007",
+        "JESKAI-EVID-008",
+        "JESKAI-EVID-009",
+        "JESKAI-EVID-010",
+        "JESKAI-EVID-011",
+        "JESKAI-EVID-012",
+        "JESKAI-EVID-013",
+        "JESKAI-EVID-014",
+        "JESKAI-EVID-015",
+        "JESKAI-EVID-016",
+        "JESKAI-EVID-017",
+        "JESKAI-EVID-018",
+        "JESKAI-EVID-022"
+      ],
+      "notes": "Primary normalized evidence row index for VM-232 raw claims. Commander/operator rows, manual-fill rows, source rows, discovery-only seed rows, and Vox Mana synthesis rows are not raw-claim rows. JESKAI-EVID-022 is used only for lifecycle and boundary claims."
+    },
+    {
+      "source_id": "src_wotc_rosewater_jeskai_smart_thinking",
+      "title": "Jeskai: Smart Thinking",
+      "author": "Mark Rosewater",
+      "publisher_or_site": "Magic: The Gathering / Making Magic",
+      "publication_date": "Local capture, original date not restated in VM-229 packet",
+      "url_or_repository_path": "docs/research/canon/mark_rosewater_official_three_color/Jeskai_Smart Thinking _ MAGIC_ THE GATHERING.md",
+      "source_type": "Official Wizards design article capture",
+      "source_role": "claim-bearing",
+      "reliability": "Primary / official design commentary",
+      "claim_bearing_evidence_rows": [
+        "JESKAI-EVID-001",
+        "JESKAI-EVID-002",
+        "JESKAI-EVID-003"
+      ],
+      "notes": "Primary design source for Blue-centered Jeskai wedge identity, Red and White support roles, and cunning as broad design vocabulary."
+    },
+    {
+      "source_id": "src_wotc_tarkir_khans_pg_part_1",
+      "title": "Planeswalker's Guide to Khans of Tarkir, Part 1",
+      "author": "Wizards of the Coast",
+      "publisher_or_site": "Magic: The Gathering",
+      "publication_date": "Local capture, original date not restated in VM-229 packet",
+      "url_or_repository_path": "docs/research/canon/source-material/tarkir/planeswalkers-guide-khans-part-1.md",
+      "source_type": "Official Tarkir guide capture",
+      "source_role": "claim-bearing",
+      "reliability": "Primary / official lore guide",
+      "claim_bearing_evidence_rows": [
+        "JESKAI-EVID-004",
+        "JESKAI-EVID-005",
+        "JESKAI-EVID-006",
+        "JESKAI-EVID-007",
+        "JESKAI-EVID-008",
+        "JESKAI-EVID-009"
+      ],
+      "notes": "Primary Khans-era Jeskai Way source for clan culture, monasteries, martial practice, values, fire-language, strongholds, three Ways, and Narset as era-bound leader."
+    },
+    {
+      "source_id": "src_wotc_tarkir_fate_reforged_pg",
+      "title": "Planeswalker's Guide to Fate Reforged",
+      "author": "Wizards of the Coast",
+      "publisher_or_site": "Magic: The Gathering",
+      "publication_date": "Local capture, original date not restated in VM-229 packet",
+      "url_or_repository_path": "docs/research/canon/source-material/tarkir/planeswalkers-guide-fate-reforged.md",
+      "source_type": "Official Tarkir guide capture",
+      "source_role": "claim-bearing",
+      "reliability": "Primary / official lore guide",
+      "claim_bearing_evidence_rows": [
+        "JESKAI-EVID-010"
+      ],
+      "notes": "Fate Reforged source for Shu Yun, Jeskai martial/mystic context, and Ojutai as the dragon ideal of cunning before the Dragons-era Ojutai clan."
+    },
+    {
+      "source_id": "src_wotc_tarkir_story_khanfall",
+      "title": "Khanfall",
+      "author": "Wizards of the Coast",
+      "publisher_or_site": "Magic: The Gathering",
+      "publication_date": "Local capture, original date not restated in VM-229 packet",
+      "url_or_repository_path": "docs/research/canon/source-material/tarkir/story-khanfall.md",
+      "source_type": "Official Tarkir story capture",
+      "source_role": "claim-bearing",
+      "reliability": "Primary / official story",
+      "claim_bearing_evidence_rows": [
+        "JESKAI-EVID-011",
+        "JESKAI-EVID-012"
+      ],
+      "notes": "Story-scoped transition evidence for Shu Yun, the Annals, Ugin choice, Ojutai confrontation, and the erasure of Jeskai identity."
+    },
+    {
+      "source_id": "src_wotc_tarkir_dragons_pg_part_1",
+      "title": "Planeswalker's Guide to Dragons of Tarkir, Part 1",
+      "author": "Wizards of the Coast",
+      "publisher_or_site": "Magic: The Gathering",
+      "publication_date": "Local capture, original date not restated in VM-229 packet",
+      "url_or_repository_path": "docs/research/canon/source-material/tarkir/planeswalkers-guide-dragons-part-1.md",
+      "source_type": "Official Tarkir guide capture",
+      "source_role": "claim-bearing",
+      "reliability": "Primary / official lore guide",
+      "claim_bearing_evidence_rows": [
+        "JESKAI-EVID-013",
+        "JESKAI-EVID-014"
+      ],
+      "notes": "Dragons-era Ojutai source used for boundary and discontinuity evidence, not as direct Khans-era Jeskai continuity."
+    },
+    {
+      "source_id": "src_wotc_tarkir_dragonstorm_pg_part_1",
+      "title": "Planeswalker's Guide to Tarkir: Dragonstorms, Part 1",
+      "author": "Wizards of the Coast",
+      "publisher_or_site": "Magic: The Gathering",
+      "publication_date": "Local capture, original date not restated in VM-229 packet",
+      "url_or_repository_path": "docs/research/canon/source-material/tarkir/planeswalkers-guide-dragonstorm-part-1.md",
+      "source_type": "Official Tarkir guide capture",
+      "source_role": "claim-bearing",
+      "reliability": "Primary / official lore guide",
+      "claim_bearing_evidence_rows": [
+        "JESKAI-EVID-015",
+        "JESKAI-EVID-016",
+        "JESKAI-EVID-017",
+        "JESKAI-EVID-018"
+      ],
+      "notes": "Modern Dragonstorm-era Jeskai source. These rows must stay timeline-labeled and cannot be read backward into Khans-era Jeskai Way."
+    },
+    {
+      "source_id": "src_vm_jeskai_canon_inventory_20260531",
+      "title": "Canon Inventory Three-Color Reference Audit",
+      "author": "Vox Mana research packet",
+      "publisher_or_site": "Local repository",
+      "publication_date": "2026-05-31",
+      "url_or_repository_path": "docs/research/canon/canon-inventory-three-color-reference-audit.md",
+      "source_type": "Local source-selection audit",
+      "source_role": "shaping-only",
+      "reliability": "Source-selection support",
+      "notes": "Identifies official source families. It does not directly prove raw Jeskai lore claims."
+    },
+    {
+      "source_id": "src_vm_jeskai_research_dossier_20260531",
+      "title": "Jeskai Research Dossier",
+      "author": "Vox Mana research packet",
+      "publisher_or_site": "Local repository",
+      "publication_date": "2026-05-31",
+      "url_or_repository_path": "docs/research/jeskai/jeskai-research-dossier.md",
+      "source_type": "Research dossier",
+      "source_role": "shaping-only",
+      "reliability": "Packet summary only",
+      "notes": "Summarizes evidence and boundaries. It shapes profile language but is not raw-claim evidence."
+    },
+    {
+      "source_id": "src_vm_jeskai_reliability_audit_20260531",
+      "title": "Jeskai Reliability Audit",
+      "author": "Vox Mana research packet",
+      "publisher_or_site": "Local repository",
+      "publication_date": "2026-05-31",
+      "url_or_repository_path": "docs/research/jeskai/jeskai-reliability-audit.md",
+      "source_type": "Reliability audit",
+      "source_role": "shaping-only",
+      "reliability": "Source-role audit",
+      "notes": "Records why source-material seeds, Commander products, generated HTML, and Vox Mana synthesis cannot become raw-claim evidence without separate approved mapping."
+    },
+    {
+      "source_id": "src_vm_jeskai_manual_fill_20260531",
+      "title": "Jeskai Manual Fill",
+      "author": "Vox Mana research packet",
+      "publisher_or_site": "Local repository",
+      "publication_date": "2026-05-31",
+      "url_or_repository_path": "docs/research/jeskai/jeskai-manual-fill.md",
+      "source_type": "Manual-fill register",
+      "source_role": "manual-fill",
+      "reliability": "Gap register only",
+      "notes": "Tracks unsupported or thin claims. It is not raw-claim evidence."
+    },
+    {
+      "source_id": "src_vm_jeskai_lore_source_packet_20260531",
+      "title": "Jeskai Lore Source Packet",
+      "author": "Vox Mana research packet",
+      "publisher_or_site": "Local repository",
+      "publication_date": "2026-05-31",
+      "url_or_repository_path": "docs/research/jeskai/jeskai-lore-source-packet.md",
+      "source_type": "Source packet",
+      "source_role": "shaping-only",
+      "reliability": "Packet summary only",
+      "notes": "Human-readable packet companion. It may shape this raw packet but cannot cite itself as canon."
+    },
+    {
+      "source_id": "src_vm_jeskai_identity_md_20260531",
+      "title": "Jeskai Way - Blue-Centered Cunning Through Disciplined Action",
+      "author": "Vox Mana architecture docs",
+      "publisher_or_site": "Local repository",
+      "publication_date": "2026-05-31",
+      "url_or_repository_path": "docs/architecture/colors/jeskai/identity.md",
+      "source_type": "Architecture synthesis",
+      "source_role": "shaping-only",
+      "reliability": "Architecture context only",
+      "notes": "VM-230 identity architecture with later VM-231 parity sections. It may shape profile language but is not cited from jeskai.claims.json."
+    },
+    {
+      "source_id": "src_vm_jeskai_metaphysics_md_20260531",
+      "title": "Jeskai Way Metaphysics - Cunning As Disciplined Action",
+      "author": "Vox Mana architecture docs",
+      "publisher_or_site": "Local repository",
+      "publication_date": "2026-05-31",
+      "url_or_repository_path": "docs/architecture/colors/jeskai/metaphysics.md",
+      "source_type": "Architecture synthesis",
+      "source_role": "shaping-only",
+      "reliability": "Architecture context only",
+      "notes": "VM-230 metaphysics architecture with later VM-231 parity sections. It may shape profile language but is not cited from jeskai.claims.json."
+    },
+    {
+      "source_id": "src_vm_second_commander_recommendations_wur_urw",
+      "title": "Enhanced Commander Recommendations JSONL",
+      "author": "Vox Mana support data",
+      "publisher_or_site": "Local repository",
+      "publication_date": "Local repository capture",
+      "url_or_repository_path": "docs/research/vox_mana_second_commander_recommendations_enhanced.jsonl",
+      "source_type": "Commander support data",
+      "source_role": "support-only",
+      "reliability": "Operator/play-pattern support only",
+      "notes": "WUR/URW rows may support operator texture in later review, but they are excluded from raw-claim evidence and do not prove lore, canon, legality, or placement readiness."
+    },
+    {
+      "source_id": "src_vm_jeskai_seed_deep_research_20260531",
+      "title": "Seed: Jeskai Way Deep Research Report",
+      "author": "Restored seed artifact",
+      "publisher_or_site": "Local repository",
+      "publication_date": "Preserved input",
+      "url_or_repository_path": "docs/research/jeskai/source-material/Jeskai Way Deep Research Report.md",
+      "source_type": "Preserved seed input",
+      "source_role": "discovery-only",
+      "reliability": "Discovery-only seed material",
+      "notes": "Preserved input only. It is not approved evidence unless claims are separately audited into the VM-229 evidence ledger."
+    },
+    {
+      "source_id": "src_vm_jeskai_seed_lore_source_packet_20260531",
+      "title": "Seed: Jeskai Way Lore Source Packet",
+      "author": "Restored seed artifact",
+      "publisher_or_site": "Local repository",
+      "publication_date": "Preserved input",
+      "url_or_repository_path": "docs/research/jeskai/source-material/jeskai-way-lore-source-packet.md",
+      "source_type": "Preserved seed input",
+      "source_role": "discovery-only",
+      "reliability": "Discovery-only seed material",
+      "notes": "Preserved input only. It is not approved evidence unless claims are separately audited into the VM-229 evidence ledger."
+    },
+    {
+      "source_id": "src_vm_jeskai_seed_html_report_20260531",
+      "title": "Seed: Jeskai Way HTML Report",
+      "author": "Restored generated seed artifact",
+      "publisher_or_site": "Local repository",
+      "publication_date": "Preserved input",
+      "url_or_repository_path": "docs/research/jeskai/source-material/jeskai_way_research_report.html",
+      "source_type": "Generated preserved seed input",
+      "source_role": "excluded-from-raw-claims",
+      "reliability": "Generated HTML cannot cite itself as canon",
+      "notes": "Preserved input only and excluded from raw-claim evidence."
+    }
+  ],
+  "not_used_or_rejected_sources": [
+    {
+      "source_or_topic": "JESKAI-EVID-019 Commander/operator row",
+      "source_role": "support-only",
+      "reason": "Commander JSONL rows are support-only and cannot prove lore, canon, legality, or placement readiness."
+    },
+    {
+      "source_or_topic": "JESKAI-EVID-020 seed artifact row",
+      "source_role": "discovery-only",
+      "reason": "Seed files are preserved inputs only until separately audited into approved evidence."
+    },
+    {
+      "source_or_topic": "JESKAI-EVID-021 Vox Mana synthesis row",
+      "source_role": "excluded-from-raw-claims",
+      "reason": "Vox Mana synthesis may shape interpretation but cannot become independent raw-claim evidence."
+    },
+    {
+      "source_or_topic": "JESKAI-CMD, JESKAI-MF, and JESKAI-SRC identifiers",
+      "source_role": "excluded-from-raw-claims",
+      "reason": "Raw claims cite approved evidence rows only, not Commander rows, manual-fill rows, or source ledger row IDs."
+    }
+  ]
+}

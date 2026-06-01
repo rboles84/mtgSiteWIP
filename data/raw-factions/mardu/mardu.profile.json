@@ -1,0 +1,397 @@
+{
+  "schema_version": "1.0.0",
+  "profile_version": "0.1.0",
+  "faction_id": "mardu",
+  "faction_name": "Mardu Horde",
+  "faction_type": "wedge",
+  "plane_or_setting": "Tarkir",
+  "color_identity": [
+    "Red",
+    "White",
+    "Black"
+  ],
+  "color_pair_or_group": "RWB/WBR wedge metadata only",
+  "source_review_date": "2026-05-31",
+  "last_full_review": "2026-05-31",
+  "last_incremental_review": "2026-05-31",
+  "last_updated": "2026-05-31",
+  "site_surface": {
+    "display_name": "Mardu Horde",
+    "short_summary": "Mardu Horde is a source-authored, review-gated Tarkir wedge packet for Red-centered speed, war-bound action, earned names, total commitment, Khans-era raiding, Alesha bridge context, and strict Kolaghan and Dragonstorm boundaries.",
+    "one_sentence_identity": "Mardu turns the open moment into a charge before hesitation can become a rival.",
+    "tagline": "Strike while the field is open. Earn the name in motion.",
+    "primary_tags": [
+      "Mardu Horde",
+      "Tarkir",
+      "Wedge",
+      "RWB metadata",
+      "WBR metadata",
+      "Red-centered",
+      "Speed",
+      "War names",
+      "Edicts of Ilagra",
+      "Zurgo-era Horde"
+    ],
+    "secondary_tags": [
+      "Dragon wing",
+      "Total commitment",
+      "Raiding society",
+      "Dakla archery",
+      "War shrieks",
+      "Alesha bridge",
+      "Kolaghan boundary",
+      "Modern Dragonstorm Mardu",
+      "Dalkovan Assembly",
+      "Decree of Thunder",
+      "Lightning Proving",
+      "Source-authored",
+      "Review-gated",
+      "Non-live"
+    ],
+    "tone_words": [
+      "fast",
+      "martial",
+      "honor-bound",
+      "brutal",
+      "decisive",
+      "opportunistic",
+      "thunderous",
+      "mobile",
+      "oath-shaped",
+      "dangerous"
+    ],
+    "visual_keywords": [
+      "dragon wing",
+      "horse charge",
+      "war banner",
+      "lightning-marked steppe",
+      "earned war name",
+      "Wingthrone",
+      "Goldengrave",
+      "Screamreach",
+      "Dalkovan city",
+      "Red-centered RWB"
+    ],
+    "best_for": [
+      "readers drawn to speed, total commitment, martial code, earned names, and decisive action",
+      "players who like attack pressure, sacrifice texture, token pressure, recursion, and legendary play as support-only Commander vocabulary",
+      "reviewers checking that Mardu stays separate from generic RWB/WBR, Kolaghan continuity, Dragonstorm backfill, Commander products, color-pair overreach, seed files, and runtime readiness"
+    ],
+    "content_warnings_or_sensitivity_notes": [
+      "Mardu material can involve raiding, conquest, brutality, war names, strict martial hierarchy, plunder, dragon conflict, and modern survival after violence. This packet keeps exact mechanics, card facts, Commander legality, full biographies, and detailed Dragonstorm chronology deferred."
+    ],
+    "claim_ids": [
+      "mardu_claim_0001",
+      "mardu_claim_0002",
+      "mardu_claim_0003",
+      "mardu_claim_0004",
+      "mardu_claim_0005",
+      "mardu_claim_0006",
+      "mardu_claim_0007",
+      "mardu_claim_0008",
+      "mardu_claim_0009",
+      "mardu_claim_0010"
+    ]
+  },
+  "core_identity": {
+    "identity_statement": "Mardu Horde is Red-centered speed through war-bound action: Red supplies the impulse to act, White gives that motion code and formation, and Black turns an exposed opening into decisive advantage.",
+    "identity_source": "VM-223 evidence rows shaped by VM-224/VM-225 architecture.",
+    "source_status": "source_authored_review_gated",
+    "claim_ids": [
+      "mardu_claim_0001",
+      "mardu_claim_0002",
+      "mardu_claim_0003"
+    ],
+    "notes": "This is profile wording only. The raw claims remain tied to VM-223 evidence rows."
+  },
+  "structure": {
+    "primary_structure": "Khans-era Mardu is a mobile raiding horde with warrior code, earned names, khan authority, roles, magic, and low-infrastructure war economy.",
+    "modern_structure": "Modern Dragonstorm-era Mardu is a restored, timeline-labeled clan with khan governance, Dalkovan Assembly, generals, mobile camp-cities, civilian life, Decree of Thunder, and survival/community framing.",
+    "timeline_boundaries": [
+      "Khans-era Mardu Horde is the main Horde identity floor.",
+      "Fate Reforged/Alesha material is an ancient bridge only.",
+      "Kolaghan clan is a Dragons-era boundary, not Mardu Horde continuity.",
+      "Modern Dragonstorm Mardu is restored-clan context and cannot be backfilled into Khans-era doctrine."
+    ],
+    "claim_ids": [
+      "mardu_claim_0003",
+      "mardu_claim_0004",
+      "mardu_claim_0005",
+      "mardu_claim_0006",
+      "mardu_claim_0007",
+      "mardu_claim_0008"
+    ]
+  },
+  "great_tension": {
+    "summary": "Mardu's speed and code can become conquest hunger when action outruns restraint.",
+    "positive_expression": "Total commitment, earned identity, and decisive action before the opening closes.",
+    "failure_mode": "Generic aggression, color-code identity, Kolaghan continuity, Dragonstorm backfill, or Commander goodstuff without a Mardu evidence cluster.",
+    "claim_ids": [
+      "mardu_claim_0002",
+      "mardu_claim_0003",
+      "mardu_claim_0006",
+      "mardu_claim_0010"
+    ],
+    "confidence": "Medium"
+  },
+  "historical_timeline": [
+    {
+      "era_id": "mardu_timeline_khans",
+      "era_label": "Khans-era Mardu Horde",
+      "summary": "Warrior culture, Edicts of Ilagra, war names, Zurgo, Wingthrone, Goldengrave, The Scour, Screamreach, raiding economy, tactics, magic, and clan roles.",
+      "claim_ids": [
+        "mardu_claim_0003",
+        "mardu_claim_0004"
+      ]
+    },
+    {
+      "era_id": "mardu_timeline_fate_reforged",
+      "era_label": "Fate Reforged / Alesha bridge",
+      "summary": "Ancient Mardu speed and battle identity, Alesha as young khan, war-name judgment, and Khanfall transition context.",
+      "claim_ids": [
+        "mardu_claim_0005"
+      ]
+    },
+    {
+      "era_id": "mardu_timeline_kolaghan",
+      "era_label": "Dragons-era Kolaghan boundary",
+      "summary": "Kolaghan clan is contrast and timeline-bound material, not Khans-era Mardu Horde continuity.",
+      "claim_ids": [
+        "mardu_claim_0006"
+      ]
+    },
+    {
+      "era_id": "mardu_timeline_dragonstorm",
+      "era_label": "Modern Dragonstorm-era Mardu",
+      "summary": "Restored clan after Kolaghan rule and Phyrexian-invasion losses, with mobile cities, modern governance, Decree of Thunder, stormsingers, clan dragons, and modern locations.",
+      "claim_ids": [
+        "mardu_claim_0007",
+        "mardu_claim_0008"
+      ]
+    }
+  ],
+  "key_figures": [
+    {
+      "name": "Zurgo Helmsmasher",
+      "status": "narrow Khans-era anchor",
+      "summary": "Mardu khan at Wingthrone commanding raiding parties from a stronghold built where an ancient lightning dragon died.",
+      "claim_ids": [
+        "mardu_claim_0004"
+      ],
+      "limitations": "Full Zurgo biography remains deferred."
+    },
+    {
+      "name": "Alesha",
+      "status": "ancient bridge anchor",
+      "summary": "Young Mardu khan, rider, archer, swordfighter, war-name judge, and story-specific identity/name anchor.",
+      "claim_ids": [
+        "mardu_claim_0005"
+      ],
+      "limitations": "Full Alesha biography remains deferred."
+    },
+    {
+      "name": "Dragonlord Kolaghan",
+      "status": "boundary figure",
+      "summary": "Dragons-era contrast for speed without Khans-era Mardu Horde structure.",
+      "claim_ids": [
+        "mardu_claim_0006"
+      ],
+      "limitations": "Use as Kolaghan boundary only."
+    }
+  ],
+  "canonical_flavor_text": {
+    "safe_phrases": [
+      "red-white-black Tarkir wedge",
+      "Red as design center",
+      "speed as wedge attribute",
+      "feared warrior culture",
+      "Edicts of Ilagra",
+      "war names earned through battlefield deeds",
+      "Zurgo Helmsmasher at Wingthrone",
+      "Fate Reforged Alesha bridge",
+      "Kolaghan clan boundary",
+      "modern Dragonstorm-era restored Mardu"
+    ],
+    "avoid_phrases": [
+      "generic Mardu Commander identity as Tarkir proof",
+      "Kolaghan clan as Khans-era Mardu continuity",
+      "Dragonstorm reforms as Khans-era Mardu doctrine",
+      "exact raid, dash, or mobilize facts without card-data validation",
+      "seed-file claims as evidence"
+    ],
+    "claim_ids": [
+      "mardu_claim_0001",
+      "mardu_claim_0002",
+      "mardu_claim_0003",
+      "mardu_claim_0005",
+      "mardu_claim_0006",
+      "mardu_claim_0007",
+      "mardu_claim_0010"
+    ]
+  },
+  "views_on_other_factions": {
+    "pair_overlap_boundaries": [
+      "Boros-like Red-White combat is insufficient without Black opportunity and Horde evidence.",
+      "Orzhov-like White-Black hierarchy is insufficient without Red speed and raid momentum.",
+      "Rakdos-like Red-Black appetite is insufficient without White code, formation, and war names."
+    ],
+    "wedge_boundaries": [
+      "Abzan-facing endurance and house continuity are not Mardu speed.",
+      "Jeskai-facing discipline and technique are not Mardu without Black opportunity and Horde war-code.",
+      "Sultai-facing resource conversion and necromancy are not Mardu immediate martial opening.",
+      "Temur-facing survival through attunement is not Mardu war-bound commitment."
+    ],
+    "claim_ids": [
+      "mardu_claim_0002",
+      "mardu_claim_0003",
+      "mardu_claim_0009",
+      "mardu_claim_0010"
+    ],
+    "notes": "Pair and wedge language is shaping-only VM-225 guidance and does not create live placement scoring."
+  },
+  "mechanics": {
+    "supported_texture": [
+      "speed",
+      "action",
+      "early pressure",
+      "strategic timing",
+      "rapid coordinated attack",
+      "all-in aggression",
+      "archery",
+      "concealment magic",
+      "war shrieks",
+      "wind magic",
+      "lightning and physical enhancement magic"
+    ],
+    "manual_fill_required": [
+      "Exact raid rules text, card text, and card prevalence",
+      "Exact dash rules text, card text, and card prevalence",
+      "Exact mobilize rules text, card text, and card prevalence",
+      "Commander legality and exact decklists"
+    ],
+    "claim_ids": [
+      "mardu_claim_0002",
+      "mardu_claim_0004",
+      "mardu_claim_0008"
+    ],
+    "notes": "Mechanics language is texture only unless a later card-data pass promotes exact evidence rows."
+  },
+  "search_and_filter_metadata": {
+    "future_expression_key": "MARDU",
+    "metadata_color_orders": [
+      "RWB",
+      "WBR"
+    ],
+    "metadata_only": true,
+    "positive_language": [
+      "Red-centered speed",
+      "total commitment",
+      "war names",
+      "Edicts of Ilagra",
+      "Zurgo-era Horde",
+      "Alesha bridge",
+      "Kolaghan boundary",
+      "Dragonstorm-era Mardu"
+    ],
+    "inhibitors": [
+      "generic RWB",
+      "generic WBR",
+      "Commander goodstuff",
+      "Kolaghan backfill",
+      "Dragonstorm backfill",
+      "seed-file prose",
+      "exact mechanics without validation"
+    ],
+    "runtime_status": "source_authored_review_gated",
+    "placement_status": "not_placement_eligible",
+    "preview_eligible": false,
+    "claim_ids": [
+      "mardu_claim_0001",
+      "mardu_claim_0010"
+    ]
+  },
+  "data_quality": {
+    "claim_basis": "Normalized MARDU promoted rows plus allowed guardrail/lifecycle boundary rows only.",
+    "support_material_policy": "Support-only, manual-fill, discovery-only, Commander/operator, seed, generated report, architecture, dossier, and direct source-row material may appear only in bounded review notes.",
+    "evidence_quality": "High for source-bound Mardu identity, Khans-era floor, Fate Reforged/Alesha bridge, Kolaghan boundary, modern guide, and guardrail claims; low for exact card facts and deferred detailed lore.",
+    "known_limitations": [
+      "Exact raid card facts are not validated",
+      "Exact dash card facts are not validated",
+      "Exact mobilize card facts are not validated",
+      "Alesha's full biography is deferred",
+      "Zurgo's full biography is deferred",
+      "Detailed modern named-character biographies are deferred",
+      "Exact Dragonstorm story chronology is deferred",
+      "Commander/operator rows are support-only"
+    ],
+    "claim_ids": [
+      "mardu_claim_0001",
+      "mardu_claim_0002",
+      "mardu_claim_0003",
+      "mardu_claim_0004",
+      "mardu_claim_0005",
+      "mardu_claim_0006",
+      "mardu_claim_0007",
+      "mardu_claim_0008",
+      "mardu_claim_0009",
+      "mardu_claim_0010"
+    ]
+  },
+  "research_limitations": {
+    "manual_review_required": true,
+    "deferred_topics": [
+      "Exact raid rules text, card text, and card prevalence",
+      "Exact dash rules text, card text, and card prevalence",
+      "Exact mobilize rules text, card text, and card prevalence",
+      "Alesha's full biography across Fate Reforged, story, cards, and later references",
+      "Zurgo's full biography across Helmsmasher, Bellstriker, Stormrender, and later references",
+      "Detailed biographies for Ankleshank/Vial Smasher, Dalkovan generals, stormsingers, Zurgo Stormrender, or modern named figures",
+      "Exact Dragonstorm story chronology after the local guide preview",
+      "Commander products as Tarkir Mardu canon or Commander legality proof",
+      "Generic RWB or WBR as Mardu Horde",
+      "Kolaghan clan as Mardu Horde continuity",
+      "Modern Dragonstorm details as Khans-era backfill",
+      "Color-pair philosophy files as Tarkir lore proof"
+    ],
+    "excluded_as_raw_claim_evidence": [
+      "Commander/operator rows",
+      "local Scryfall data without claim-by-claim extraction",
+      "architecture prose",
+      "dossier prose",
+      "manual-fill rows",
+      "direct MARDU-SRC rows",
+      "seed files",
+      "generated reports",
+      "Vox Mana synthesis rows"
+    ]
+  },
+  "commander_compass": {
+    "review_status": "support_only",
+    "exact_color_sets": [
+      "Red; White; Black",
+      "White; Black; Red"
+    ],
+    "support_decks": [
+      "Revival Trance",
+      "Mardu Surge",
+      "Most Wanted",
+      "Hail, Caesar",
+      "Vampiric Bloodlust",
+      "Heavenly Inferno",
+      "Ruthless Regiment",
+      "Legends' Legacy"
+    ],
+    "support_language": [
+      "attacking tokens",
+      "sacrifice",
+      "aristocrats",
+      "reanimator",
+      "Outlaws and Treasure",
+      "Vampire tribal",
+      "large-threat attack triggers",
+      "Human tribal",
+      "legendary permanents"
+    ],
+    "notes": "Commander Compass material is product/operator support only. It is not Mardu canon evidence, not setting proof, and not raw-claim input."
+  }
+}

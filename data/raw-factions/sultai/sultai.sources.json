@@ -1,0 +1,326 @@
+{
+  "schema_version": "1.0.0",
+  "faction_id": "sultai",
+  "faction_name": "Sultai Brood",
+  "source_review_date": "2026-05-31",
+  "last_updated": "2026-05-31",
+  "sources": [
+    {
+      "source_id": "src_vm_sultai_source_ledger_20260531",
+      "title": "Sultai Source Ledger",
+      "author": "Vox Mana research packet",
+      "publisher_or_site": "Local repository",
+      "publication_date": "2026-05-31",
+      "url_or_repository_path": "docs/research/sultai/sultai-source-ledger.md",
+      "source_type": "Curated source ledger",
+      "source_role": "shaping-only",
+      "reliability": "Primary local source-role ledger",
+      "notes": "Defines SULTAI source tiers, approved use, support-only Commander limits, exact BGU extraction rules, seed-file handling, Silumgar boundaries, and modern Dragonstorm timeline limits. It shapes this packet but does not back raw claims by itself."
+    },
+    {
+      "source_id": "src_vm_sultai_evidence_ledger_20260531",
+      "title": "Sultai Evidence Ledger",
+      "author": "Vox Mana research packet",
+      "publisher_or_site": "Local repository",
+      "publication_date": "2026-05-31",
+      "url_or_repository_path": "docs/research/sultai/sultai-evidence-ledger.md",
+      "source_type": "Curated evidence ledger",
+      "source_role": "claim-bearing",
+      "reliability": "Primary local evidence ledger",
+      "claim_bearing_evidence_rows": [
+        "SULTAI-EVID-001",
+        "SULTAI-EVID-002",
+        "SULTAI-EVID-003",
+        "SULTAI-EVID-004",
+        "SULTAI-EVID-005",
+        "SULTAI-EVID-006",
+        "SULTAI-EVID-007",
+        "SULTAI-EVID-008",
+        "SULTAI-EVID-009",
+        "SULTAI-EVID-010",
+        "SULTAI-EVID-011",
+        "SULTAI-EVID-012",
+        "SULTAI-EVID-013",
+        "SULTAI-EVID-014",
+        "SULTAI-EVID-015",
+        "SULTAI-EVID-016",
+        "SULTAI-EVID-017",
+        "SULTAI-EVID-018",
+        "SULTAI-EVID-019",
+        "SULTAI-EVID-020",
+        "SULTAI-EVID-021",
+        "SULTAI-EVID-022",
+        "SULTAI-EVID-023",
+        "SULTAI-EVID-024",
+        "SULTAI-EVID-025",
+        "SULTAI-EVID-026",
+        "SULTAI-EVID-027",
+        "SULTAI-EVID-028",
+        "SULTAI-EVID-029",
+        "SULTAI-EVID-030",
+        "SULTAI-EVID-033",
+        "SULTAI-EVID-034",
+        "SULTAI-EVID-036"
+      ],
+      "notes": "Primary normalized evidence row index for VM-212 raw claims. Support-only Commander rows, Vox Mana synthesis rows, direct source rows, and manual-fill rows are not raw-claim rows. Guardrail rows are used only for boundary or lifecycle claims."
+    },
+    {
+      "source_id": "src_wotc_rosewater_sultai_whatever_it_takes",
+      "title": "Sultai: Whatever It Takes",
+      "author": "Mark Rosewater",
+      "publisher_or_site": "Magic: The Gathering / Making Magic",
+      "publication_date": "Local capture, original date not restated in VM-212 packet",
+      "url_or_repository_path": "docs/research/canon/mark_rosewater_official_three_color/Sultai_Whatever It Takes _ MAGIC_ THE GATHERING.md",
+      "source_type": "Official Wizards design article capture",
+      "source_role": "claim-bearing",
+      "reliability": "Primary / official design commentary",
+      "claim_bearing_evidence_rows": [
+        "SULTAI-EVID-001",
+        "SULTAI-EVID-002",
+        "SULTAI-EVID-003"
+      ],
+      "notes": "Primary Sultai design source for Black-Green-Blue identity, ruthlessness, color interaction, hand/library pressure, graveyard use, resource denial, theft, and using the dead."
+    },
+    {
+      "source_id": "src_wotc_tarkir_khans_pg_part_1",
+      "title": "Planeswalker's Guide to Khans of Tarkir, Part 1",
+      "author": "Wizards of the Coast",
+      "publisher_or_site": "Magic: The Gathering",
+      "publication_date": "Local capture, original date not restated in VM-212 packet",
+      "url_or_repository_path": "docs/research/canon/source-material/tarkir/planeswalkers-guide-khans-part-1.md",
+      "source_type": "Official Wizards lore guide capture",
+      "source_role": "claim-bearing",
+      "reliability": "Primary / official Tarkir lore",
+      "claim_bearing_evidence_rows": [
+        "SULTAI-EVID-004",
+        "SULTAI-EVID-005",
+        "SULTAI-EVID-006",
+        "SULTAI-EVID-007",
+        "SULTAI-EVID-008",
+        "SULTAI-EVID-009",
+        "SULTAI-EVID-010",
+        "SULTAI-EVID-030"
+      ],
+      "notes": "Khans-era Sultai Brood source for dragon ruthlessness, fang symbol, exploitation, sibsig, rakshasa pacts, naga hierarchy, clan roles, magic, Sidisi, and locations. It is also part of the Dragonstorm anti-backfill guardrail."
+    },
+    {
+      "source_id": "src_wotc_tarkir_fate_reforged_pg",
+      "title": "Planeswalker's Guide to Fate Reforged",
+      "author": "Wizards of the Coast",
+      "publisher_or_site": "Magic: The Gathering",
+      "publication_date": "Local capture, original date not restated in VM-212 packet",
+      "url_or_repository_path": "docs/research/canon/source-material/tarkir/planeswalkers-guide-fate-reforged.md",
+      "source_type": "Official Wizards lore guide capture",
+      "source_role": "claim-bearing",
+      "reliability": "Primary / official Tarkir lore",
+      "claim_bearing_evidence_rows": [
+        "SULTAI-EVID-011",
+        "SULTAI-EVID-012",
+        "SULTAI-EVID-013",
+        "SULTAI-EVID-014"
+      ],
+      "notes": "Ancient/Fate Reforged Sultai bridge source for cruelty, treachery, Tasigur, undead servants, rakshasa pacts, anti-dragon pressure, and Silumgar boundary context."
+    },
+    {
+      "source_id": "src_wotc_tarkir_story_khanfall",
+      "title": "Khanfall",
+      "author": "Wizards of the Coast",
+      "publisher_or_site": "Magic: The Gathering",
+      "publication_date": "Local capture, original date not restated in VM-212 packet",
+      "url_or_repository_path": "docs/research/canon/source-material/tarkir/story-khanfall.md",
+      "source_type": "Official Wizards story capture",
+      "source_role": "claim-bearing",
+      "reliability": "Primary / official story context",
+      "claim_bearing_evidence_rows": [
+        "SULTAI-EVID-019"
+      ],
+      "notes": "Story-specific transition support for Tasigur, khan-level crisis talks, disappearance under truce, Silumgar's intervention, and the no-khan boundary."
+    },
+    {
+      "source_id": "src_wotc_tarkir_dragons_pg_part_1",
+      "title": "Planeswalker's Guide to Dragons of Tarkir, Part 1",
+      "author": "Wizards of the Coast",
+      "publisher_or_site": "Magic: The Gathering",
+      "publication_date": "Local capture, original date not restated in VM-212 packet",
+      "url_or_repository_path": "docs/research/canon/source-material/tarkir/planeswalkers-guide-dragons-part-1.md",
+      "source_type": "Official Wizards lore guide capture",
+      "source_role": "claim-bearing",
+      "reliability": "Primary / official Silumgar-era contrast",
+      "claim_bearing_evidence_rows": [
+        "SULTAI-EVID-014",
+        "SULTAI-EVID-015",
+        "SULTAI-EVID-016",
+        "SULTAI-EVID-017",
+        "SULTAI-EVID-018"
+      ],
+      "notes": "Dragons-era source for Silumgar clan, dragonlord hierarchy, ruthlessness, power/knowledge values, necromancy, corpse repurposing, enhanced sibsig, and Sidisi as Undead Vizier. Silumgar clan remains contrast, not Khans-era Sultai Brood continuity."
+    },
+    {
+      "source_id": "src_wotc_tarkir_dragonstorm_pg_part_2",
+      "title": "Planeswalker's Guide to Tarkir: Dragonstorm, Part 2",
+      "author": "Wizards of the Coast",
+      "publisher_or_site": "Magic: The Gathering",
+      "publication_date": "Local capture, original date not restated in VM-212 packet",
+      "url_or_repository_path": "docs/research/canon/source-material/tarkir/planeswalkers-guide-dragonstorm-part-2.md",
+      "source_type": "Official Wizards modern Tarkir guide capture",
+      "source_role": "claim-bearing",
+      "reliability": "Primary / official modern Sultai source",
+      "claim_bearing_evidence_rows": [
+        "SULTAI-EVID-020",
+        "SULTAI-EVID-021",
+        "SULTAI-EVID-022",
+        "SULTAI-EVID-023",
+        "SULTAI-EVID-024",
+        "SULTAI-EVID-025",
+        "SULTAI-EVID-026",
+        "SULTAI-EVID-027",
+        "SULTAI-EVID-028",
+        "SULTAI-EVID-029",
+        "SULTAI-EVID-030"
+      ],
+      "notes": "Primary modern Dragonstorm-era Sultai source for revival, agriculture, honored dead, Lasyd, spies, scouts, naga protectors, rakshasa rejection, Abiding Harvest, Rite of Renewal, life-essence magic, dragonstorms, clan dragons, and modern locations. Modern era only."
+    },
+    {
+      "source_id": "src_vm_sultai_canon_inventory_20260531",
+      "title": "Canon Inventory Three-Color Reference Audit",
+      "author": "Vox Mana source audit",
+      "publisher_or_site": "Local repository",
+      "publication_date": "2026-05-31",
+      "url_or_repository_path": "docs/research/canon/canon-inventory-three-color-reference-audit.md",
+      "source_type": "Source inventory",
+      "source_role": "shaping-only",
+      "reliability": "Source-selection support only",
+      "notes": "Identifies the official Sultai MaRo article and Tarkir source families. It does not directly prove Sultai lore claims."
+    },
+    {
+      "source_id": "src_vm_sultai_research_dossier_20260531",
+      "title": "Sultai Research Dossier",
+      "author": "Vox Mana research packet",
+      "publisher_or_site": "Local repository",
+      "publication_date": "2026-05-31",
+      "url_or_repository_path": "docs/research/sultai/sultai-research-dossier.md",
+      "source_type": "Curated research dossier",
+      "source_role": "shaping-only",
+      "reliability": "Primary local synthesis with explicit boundaries",
+      "notes": "Summarizes the conservative Sultai evidence floor, support-only Commander context, Silumgar anti-bleed notes, manual-fill boundaries, and downstream readiness. It may shape profile wording but not raw claims."
+    },
+    {
+      "source_id": "src_vm_sultai_reliability_audit_20260531",
+      "title": "Sultai Reliability Audit",
+      "author": "Vox Mana research packet",
+      "publisher_or_site": "Local repository",
+      "publication_date": "2026-05-31",
+      "url_or_repository_path": "docs/research/sultai/sultai-reliability-audit.md",
+      "source_type": "Reliability audit",
+      "source_role": "shaping-only",
+      "reliability": "Primary local audit",
+      "notes": "Records seed handling, source laundering controls, Commander extraction reliability, overclaim risks, and hygiene requirements. It shapes exclusions but does not back raw claims."
+    },
+    {
+      "source_id": "src_vm_sultai_manual_fill_20260531",
+      "title": "Sultai Manual Fill",
+      "author": "Vox Mana research packet",
+      "publisher_or_site": "Local repository",
+      "publication_date": "2026-05-31",
+      "url_or_repository_path": "docs/research/sultai/sultai-manual-fill.md",
+      "source_type": "Manual-fill queue",
+      "source_role": "support-only",
+      "reliability": "Limitations ledger only",
+      "notes": "Records deferred topics such as exact delve and exploit rules text, Sidisi and Tasigur biographies, named figures, Dragonstorm chronology, Commander legality, and card-level product facts. It is not raw-claim evidence."
+    },
+    {
+      "source_id": "src_vm_sultai_lore_source_packet_20260531",
+      "title": "Sultai Lore Source Packet",
+      "author": "Vox Mana research packet",
+      "publisher_or_site": "Local repository",
+      "publication_date": "2026-05-31",
+      "url_or_repository_path": "docs/research/sultai/sultai-lore-source-packet.md",
+      "source_type": "Compiled source packet",
+      "source_role": "shaping-only",
+      "reliability": "Primary local packet summary",
+      "notes": "Records source-packet verdict, safe evidence floor, support-only material, manual-fill list, Silumgar and Dragonstorm distinction guardrails, and stop gate. It shapes packet organization but does not replace evidence rows."
+    },
+    {
+      "source_id": "src_vm_sultai_identity_md_20260531",
+      "title": "Sultai Brood - Ruthlessness Through Resource Conversion",
+      "author": "Vox Mana architecture docs",
+      "publisher_or_site": "Local repository",
+      "publication_date": "2026-05-31",
+      "url_or_repository_path": "docs/architecture/colors/sultai/identity.md",
+      "source_type": "Vox Mana architecture doc",
+      "source_role": "shaping-only",
+      "reliability": "Project architecture synthesis from Sultai VM-210 and VM-211",
+      "notes": "May inform source-authored profile and placement wording only. It is not Magic canon and must not replace SULTAI evidence rows for raw claims."
+    },
+    {
+      "source_id": "src_vm_sultai_metaphysics_md_20260531",
+      "title": "Sultai Brood Metaphysics - Ruthlessness As Resource Conversion",
+      "author": "Vox Mana architecture docs",
+      "publisher_or_site": "Local repository",
+      "publication_date": "2026-05-31",
+      "url_or_repository_path": "docs/architecture/colors/sultai/metaphysics.md",
+      "source_type": "Vox Mana metaphysics doc",
+      "source_role": "shaping-only",
+      "reliability": "Project metaphysics synthesis from Sultai VM-210 and VM-211",
+      "notes": "May inform source-authored metaphysical profile fields only. It is explicitly not Wizards or MTG canon and is not raw-claim evidence."
+    },
+    {
+      "source_id": "src_vm_second_commander_recommendations_bgu",
+      "title": "Vox Mana Second Commander Recommendations Enhanced",
+      "author": "Vox Mana product research data",
+      "publisher_or_site": "Local repository",
+      "publication_date": "Local data snapshot, date not restated in VM-212 packet",
+      "url_or_repository_path": "docs/research/vox_mana_second_commander_recommendations_enhanced.jsonl",
+      "source_type": "Commander/operator support data",
+      "source_role": "support-only",
+      "reliability": "Product/operator support only",
+      "notes": "Exact BGU rows support operator language around graveyard value, theft/exile-casting, mill and rad counters, morph, Mimeoplasm-style graveyard construction, mutate, recursion, hidden information, and complex creature value. They do not prove Sultai canon, setting, story, Commander legality, or metaphysics claims."
+    },
+    {
+      "source_id": "src_scryfall_oracle_cards_local",
+      "title": "Local Scryfall Oracle Cards",
+      "author": "Scryfall local data mirror",
+      "publisher_or_site": "Local repository",
+      "publication_date": "Local data snapshot, date not restated in VM-212 packet",
+      "url_or_repository_path": "data/scryfall/raw/oracle-cards.json",
+      "source_type": "Local card-data source",
+      "source_role": "support-only",
+      "reliability": "Card facts support only",
+      "notes": "May support future claim-by-claim card facts or mechanics. VM-212 does not query card facts and does not use this source for raw claims."
+    }
+  ],
+  "not_used_or_rejected_sources": [
+    {
+      "source_name": "Quarantined Sultai seed files under docs/research/sultai/source-material/",
+      "reason": "Discovery/reference only. SULTAI-EVID-034 blocks seed files from becoming evidence unless independently rebound to approved source rows."
+    },
+    {
+      "source_name": "Original spaced folder docs/research/sultai brood/",
+      "reason": "Original unmanaged seed location only. The normalized packet controls source use; this raw packet does not cite the spaced folder."
+    },
+    {
+      "source_name": "Architecture docs as raw-claim evidence",
+      "reason": "VM-210 and VM-211 may shape wording only. Raw claims must trace directly to SULTAI-EVID rows."
+    },
+    {
+      "source_name": "Commander products as Tarkir Sultai canon",
+      "reason": "Commander/operator rows are support-only unless a later claim-level source review promotes exact card or story facts."
+    },
+    {
+      "source_name": "Manual-fill topics",
+      "reason": "Deferred until a later evidence-update card adds direct local support."
+    },
+    {
+      "source_name": "Silumgar clan as Sultai Brood continuity",
+      "reason": "Silumgar material is Dragons-era boundary and contrast context, not Khans-era Sultai Brood continuity."
+    },
+    {
+      "source_name": "Modern Dragonstorm details as Khans-era Sultai backfill",
+      "reason": "Modern Dragonstorm-era Sultai rows must remain timeline-labeled and cannot backfill Khans-era identity without specific evidence."
+    },
+    {
+      "source_name": "Color-pair philosophy files as Tarkir lore proof",
+      "reason": "Color philosophy may support future interpretation only and does not prove Tarkir-specific events, figures, mechanics, chronology, or clan facts."
+    }
+  ]
+}

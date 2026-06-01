@@ -1,0 +1,421 @@
+{
+  "schema_version": "1.0.0",
+  "profile_version": "0.1.0",
+  "faction_id": "sultai",
+  "faction_name": "Sultai Brood",
+  "faction_type": "wedge",
+  "plane_or_setting": "Tarkir",
+  "color_identity": [
+    "Black",
+    "Green",
+    "Blue"
+  ],
+  "color_pair_or_group": "BGU wedge metadata only",
+  "source_review_date": "2026-05-31",
+  "last_full_review": "2026-05-31",
+  "last_incremental_review": "2026-05-31",
+  "last_updated": "2026-05-31",
+  "site_surface": {
+    "display_name": "Sultai Brood",
+    "short_summary": "Sultai Brood is a source-authored, review-gated Tarkir wedge packet for Black-centered BGU ruthlessness, opportunity, graveyard/resource conversion, necromancy, Sidisi-era ambition, and strict Silumgar and Dragonstorm boundaries.",
+    "one_sentence_identity": "Sultai asks what power can be made from every body, secret, cost, and opportunity before anyone else can claim it.",
+    "tagline": "Turn opportunity into power. Keep the dead useful. Leave no advantage unclaimed.",
+    "primary_tags": [
+      "Sultai Brood",
+      "Tarkir",
+      "Wedge",
+      "BGU metadata",
+      "Black-centered",
+      "Ruthlessness",
+      "Resource conversion",
+      "Necromancy",
+      "Sidisi",
+      "Sibsig"
+    ],
+    "secondary_tags": [
+      "Fang symbol",
+      "Rakshasa pacts",
+      "Naga hierarchy",
+      "Mind control",
+      "Poison magic",
+      "Silumgar boundary",
+      "Modern Dragonstorm Sultai",
+      "Abiding Harvest",
+      "Rite of Renewal",
+      "Source-authored",
+      "Live pilot",
+      "Preview-ineligible"
+    ],
+    "tone_words": [
+      "ruthless",
+      "opportunistic",
+      "necromantic",
+      "calculated",
+      "luxurious",
+      "predatory",
+      "secretive",
+      "resourceful",
+      "courtly",
+      "death-aware"
+    ],
+    "visual_keywords": [
+      "dragon fang",
+      "jungle palace",
+      "sibsig labor",
+      "lotus perfume",
+      "rakshasa bargain",
+      "necropolis",
+      "poisoned water",
+      "honored dead",
+      "life essence",
+      "Black-centered BGU"
+    ],
+    "best_for": [
+      "readers drawn to ruthless opportunity, necromancy, graveyard/resource conversion, and calculated advantage",
+      "players who like graveyard value, theft, morph, mutate, and complex creature value as support-only Commander texture",
+      "reviewers checking that Sultai stays separate from generic BGU, Silumgar continuity, Dragonstorm backfill, Commander products, color-philosophy overreach, seed files, and raw runtime readiness"
+    ],
+    "content_warnings_or_sensitivity_notes": [
+      "Sultai material can involve exploitation, coercive magic, necromancy, undead labor, poison, body-part relic practice, betrayal, life-force harvesting in Silumgar contrast material, and oppressive hierarchy. This packet keeps thin card, biography, Commander, and detailed Dragonstorm chronology topics deferred."
+    ],
+    "runtime_status": "live_pilot",
+    "placement_status": "placement_eligible",
+    "preview_eligible": false,
+    "claim_ids": [
+      "sultai_claim_0001",
+      "sultai_claim_0002",
+      "sultai_claim_0003",
+      "sultai_claim_0004",
+      "sultai_claim_0005",
+      "sultai_claim_0006",
+      "sultai_claim_0007",
+      "sultai_claim_0008",
+      "sultai_claim_0009",
+      "sultai_claim_0010"
+    ]
+  },
+  "core_identity": {
+    "summary": "Sultai Brood is the Black-centered BGU Tarkir wedge expression whose source-bound floor is ruthlessness, opportunity, graveyard/resource conversion, necromancy, wealth through exploitation, Sidisi-era ambition, and strict timeline separation from Silumgar clan and modern Dragonstorm-era Sultai.",
+    "philosophy": "Black supplies ambition, cost-paying, theft, resource denial, and permission to seize advantage. Green supplies life, death, bodies, land, poison, and decay as usable material. Blue supplies planning, hidden information, redirection, mind pressure, and strategic selection.",
+    "central_tension": "Vox Mana synthesis models Sultai's tension as resource use becoming domination when Black ambition and Blue calculation overrule restraint.",
+    "supported_claim_ids": [
+      "sultai_claim_0001",
+      "sultai_claim_0002",
+      "sultai_claim_0003",
+      "sultai_claim_0004",
+      "sultai_claim_0005",
+      "sultai_claim_0006",
+      "sultai_claim_0007",
+      "sultai_claim_0008",
+      "sultai_claim_0009",
+      "sultai_claim_0010"
+    ],
+    "interpretive_note": "Central-tension and metaphysical compression are Vox Mana synthesis from normalized SULTAI evidence plus VM-210/VM-211 shaping docs. They are not official Wizards or MTG canon.",
+    "unknowns": [
+      "Exact delve rules text, card text, and card prevalence",
+      "Exact exploit keyword/mechanic rules text, card text, and card prevalence",
+      "Sidisi's full biography across Khans, Dragons, and later references",
+      "Tasigur's full biography and all Khanfall consequences",
+      "Detailed biographies for Shidiqi, Feyomsi, Taigam, Kirada, Fangkeeper, Lasyd leaders, Kotis, Teval, or other named figures",
+      "Exact Dragonstorm story chronology after the local guide preview",
+      "Commander products as Tarkir Sultai canon or Commander legality proof"
+    ],
+    "claim_ids": [
+      "sultai_claim_0001",
+      "sultai_claim_0002",
+      "sultai_claim_0003",
+      "sultai_claim_0004",
+      "sultai_claim_0005",
+      "sultai_claim_0008",
+      "sultai_claim_0010"
+    ]
+  },
+  "structure": {
+    "summary": "The safe structural floor is source-rich and non-live: Sultai is a Tarkir BGU wedge with Black center, Khans-era Sidisi and necromancy evidence, Fate Reforged and Khanfall transition context, Silumgar contrast, modern Dragonstorm-era material, and explicit VM-212 runtime boundaries.",
+    "supported_elements": [
+      "Sultai as Black-Green-Blue Tarkir wedge",
+      "BGU as color-direction metadata/query-only",
+      "Ruthlessness as design attribute",
+      "Hand/library pressure, theft, resource denial, graveyard return, and using the dead as design texture",
+      "Khans-era exploitation of people and land",
+      "Necromancy, sibsig labor, rakshasa pacts, naga hierarchy, and Sultai magic practices",
+      "Queen Sidisi and Khans-era Sultai location anchors",
+      "Fate Reforged and Khanfall transition context",
+      "Silumgar clan as Dragons-era boundary and contrast only",
+      "Modern Dragonstorm Sultai as timeline-labeled guide evidence",
+      "Generic BGU, Commander products, color philosophy, seed files, and Dragonstorm backfill blocked as Sultai proof"
+    ],
+    "review_gated_elements": [
+      "Commander/operator rows as support-only product language",
+      "Local Scryfall card facts as future claim-by-claim support only",
+      "VM-210 and VM-211 architecture docs as shaping-only inputs",
+      "Seed files as discovery/reference only"
+    ],
+    "manual_review_required": [
+      "Do not narrate exact delve or exploit rules text before stronger local evidence is added.",
+      "Do not narrate full Sidisi or Tasigur biographies before stronger local evidence is added.",
+      "Do not narrate detailed named-character biographies before stronger local evidence is added.",
+      "Do not narrate exact Dragonstorm story chronology beyond direct guide support before stronger local evidence is added.",
+      "Do not use Commander products as Tarkir Sultai canon or Commander legality proof."
+    ],
+    "claim_ids": [
+      "sultai_claim_0001",
+      "sultai_claim_0002",
+      "sultai_claim_0003",
+      "sultai_claim_0004",
+      "sultai_claim_0005",
+      "sultai_claim_0006",
+      "sultai_claim_0007",
+      "sultai_claim_0008",
+      "sultai_claim_0009",
+      "sultai_claim_0010"
+    ]
+  },
+  "great_tension": {
+    "summary": "Vox Mana synthesis models Sultai's great tension as resource conversion under ambition: life, death, land, bodies, secrets, and costs can become power, but useful conversion can harden into domination.",
+    "placement_relevance": "Review-gated note only. Use only with normalized Sultai evidence boundaries and without converting support-only Commander, seed, architecture, direct-source, or manual-fill material into claims.",
+    "not_canon_doctrine": true,
+    "claim_ids": [
+      "sultai_claim_0002",
+      "sultai_claim_0003",
+      "sultai_claim_0004",
+      "sultai_claim_0005",
+      "sultai_claim_0008",
+      "sultai_claim_0010"
+    ]
+  },
+  "historical_timeline": [
+    {
+      "event_id": "event_sultai_0001",
+      "event": "Khans-era Sultai Brood is evidenced as a ruthless clan using the fang symbol, exploitation of people and land, necromancy, sibsig labor, rakshasa pacts, naga hierarchy, Sidisi, and source-bound locations.",
+      "date_or_era": "Khans-era Tarkir context",
+      "claim_ids": [
+        "sultai_claim_0004",
+        "sultai_claim_0005",
+        "sultai_claim_0006"
+      ],
+      "confidence": "High",
+      "notes": "Detailed card mechanics and complete character biographies remain deferred."
+    },
+    {
+      "event_id": "event_sultai_0002",
+      "event": "Fate Reforged, Tasigur, Khanfall, and Silumgar-era sources provide bridge, pressure, and boundary context without making Silumgar clan equivalent to Sultai Brood.",
+      "date_or_era": "Fate Reforged / Dragons-era transition context",
+      "claim_ids": [
+        "sultai_claim_0007",
+        "sultai_claim_0008",
+        "sultai_claim_0010"
+      ],
+      "confidence": "High",
+      "notes": "Silumgar continuity remains blocked unless a future source explicitly reframes it."
+    },
+    {
+      "event_id": "event_sultai_0003",
+      "event": "Modern Dragonstorm-era Sultai is source-bound through revival after Silumgar, rakshasa rejection, decentralized governance, honored dead, Abiding Harvest, Rite of Renewal, life-essence magic, dragonstorm practice, clan dragons, and geography.",
+      "date_or_era": "Modern Dragonstorm-era Tarkir context",
+      "claim_ids": [
+        "sultai_claim_0009",
+        "sultai_claim_0010"
+      ],
+      "confidence": "High",
+      "notes": "Modern details stay timeline-labeled and do not backfill Khans-era Sultai without direct evidence."
+    }
+  ],
+  "key_figures": [],
+  "canonical_flavor_text": [],
+  "views_on_other_factions": [
+    {
+      "faction": "Silumgar clan",
+      "relationship_summary": "Boundary only: Silumgar clan material is Dragons-era contrast and transition context, not Khans-era Sultai Brood continuity.",
+      "evidence_type": "Normalized Sultai guardrail rows",
+      "claim_ids": [
+        "sultai_claim_0008",
+        "sultai_claim_0010"
+      ],
+      "confidence": "High",
+      "notes": "Not story-world diplomacy."
+    },
+    {
+      "faction": "Abzan / Temur / Jeskai / Mardu / Dimir / Golgari / Simic",
+      "relationship_summary": "Vox Mana separator only: adjacent pair and wedge pressures should not replace positive Sultai ruthlessness, necromancy, resource conversion, and timeline-labeled evidence.",
+      "evidence_type": "VM-211 shaping-only architecture boundary",
+      "claim_ids": [
+        "sultai_claim_0001",
+        "sultai_claim_0002",
+        "sultai_claim_0003",
+        "sultai_claim_0010"
+      ],
+      "confidence": "Medium",
+      "notes": "Not story-world diplomacy and not raw claim evidence about the comparator factions."
+    }
+  ],
+  "mechanics": {
+    "summary": "VM-212 does not establish Sultai mechanics as raw claims beyond the source-bound design and lore floor. Graveyard value, theft, mill, rad counters, morph, Mimeoplasm-style graveyard construction, mutate, recursion, hidden information, and complex creature value remain support-only operator material.",
+    "supported_mechanics": [],
+    "commander_curation_patterns": [
+      {
+        "pattern": "Exact BGU Commander rows can provide support-only operator vocabulary around graveyard value, theft and exile-casting, mill and rad counters, morph, Mimeoplasm-style graveyard construction, mutate, recursion, hidden information, and complex creature value.",
+        "source_ids": [
+          "src_vm_second_commander_recommendations_bgu"
+        ],
+        "notes": "These rows are not Sultai canon evidence and do not become raw claims."
+      }
+    ],
+    "source_ids": [
+      "src_vm_sultai_source_ledger_20260531",
+      "src_vm_sultai_research_dossier_20260531",
+      "src_vm_sultai_manual_fill_20260531"
+    ],
+    "notes": "Support-only material must not raise raw-claim confidence, create raw claims, or imply placement readiness."
+  },
+  "search_and_filter_metadata": {
+    "aliases": [
+      "Sultai Brood",
+      "Tarkir Sultai",
+      "Sultai"
+    ],
+    "related_terms_source_bound": [
+      "Tarkir",
+      "Black-centered BGU",
+      "ruthlessness",
+      "resource conversion",
+      "necromancy",
+      "sibsig",
+      "rakshasa pacts",
+      "naga hierarchy",
+      "Queen Sidisi",
+      "Kheru Temple",
+      "Qarsi Palace",
+      "Ukud Necropolis",
+      "Silumgar boundary",
+      "Modern Dragonstorm Sultai",
+      "Abiding Harvest",
+      "Rite of Renewal",
+      "life essence"
+    ],
+    "known_mechanics": [],
+    "known_characters": [],
+    "known_locations": [
+      "Kheru Temple",
+      "Qarsi Palace",
+      "Ukud Necropolis",
+      "Gudul",
+      "Gurmag Swamps",
+      "Marang River Fortress",
+      "Sagu",
+      "Molderfang Falls",
+      "Crocodile Pits",
+      "Kheru City",
+      "Kishla Stilt Village",
+      "Gudul Islands",
+      "Gurmag Swamp",
+      "Marang River",
+      "Sagu Forest",
+      "Bloomvine Jungle"
+    ],
+    "sets_or_story_arcs": [
+      "Khans-era Tarkir context",
+      "Fate Reforged transition context",
+      "Dragons-era Silumgar boundary context",
+      "Modern Dragonstorm-era Tarkir context"
+    ],
+    "tags": [
+      "source-authored",
+      "live-pilot",
+      "preview-ineligible",
+      "wedge",
+      "BGU metadata",
+      "Black-centered",
+      "ruthlessness",
+      "necromancy",
+      "resource conversion",
+      "Silumgar boundary"
+    ],
+    "notes": "Aliases and related terms support source-authored review only. BGU and color-order permutations remain metadata/query-only and are not navigation keys, fixture keys, generated keys, public labels, or lookup keys."
+  },
+  "data_quality": {
+    "source_packet_review_status": "Normalized Sultai packet exists and is the source basis for this VM-212 raw packet.",
+    "architecture_review_status": "Sultai VM-210 and VM-211 reviewed as shaping-only architecture input.",
+    "raw_packet_status": "vm214_live_pilot_source_bound",
+    "generation_status": "generated_through_vm214_build_path",
+    "claim_count": 10,
+    "claim_basis": "Normalized SULTAI promoted rows plus allowed guardrail/lifecycle boundary rows only.",
+    "support_material_policy": "Support-only, manual-fill, discovery-only, Commander/operator, seed, generated report, architecture, dossier, and direct source-row material may appear only in bounded review notes.",
+    "evidence_quality": "High for source-bound Sultai identity, Khans-era floor, Silumgar boundary, modern guide, and guardrail claims; low for exact card facts and deferred detailed lore.",
+    "known_limitations": [
+      "Exact delve card facts are not validated",
+      "Exact exploit card facts are not validated",
+      "Sidisi's full biography is deferred",
+      "Tasigur's full biography and Khanfall consequences are deferred",
+      "Detailed named-character biographies are deferred",
+      "Exact Dragonstorm story chronology is deferred",
+      "Commander/operator rows are support-only"
+    ],
+    "claim_ids": [
+      "sultai_claim_0001",
+      "sultai_claim_0002",
+      "sultai_claim_0003",
+      "sultai_claim_0004",
+      "sultai_claim_0005",
+      "sultai_claim_0006",
+      "sultai_claim_0007",
+      "sultai_claim_0008",
+      "sultai_claim_0009",
+      "sultai_claim_0010"
+    ]
+  },
+  "research_limitations": {
+    "manual_review_required": true,
+    "deferred_topics": [
+      "Exact delve rules text, card text, and card prevalence",
+      "Exact exploit keyword/mechanic rules text, card text, and card prevalence",
+      "Sidisi's full biography across Khans, Dragons, and later references",
+      "Tasigur's full biography and all Khanfall consequences",
+      "Detailed biographies for Shidiqi, Feyomsi, Taigam, Kirada, Fangkeeper, Lasyd leaders, Kotis, Teval, or other named figures",
+      "Exact Dragonstorm story chronology after the local guide preview",
+      "Commander products as Tarkir Sultai canon or Commander legality proof",
+      "Generic BGU as Sultai Brood",
+      "Silumgar clan as Sultai Brood continuity",
+      "Modern Dragonstorm details as Khans-era backfill",
+      "Color-pair philosophy files as Tarkir lore proof"
+    ],
+    "excluded_as_raw_claim_evidence": [
+      "Commander/operator rows",
+      "local Scryfall data without claim-by-claim extraction",
+      "architecture prose",
+      "dossier prose",
+      "manual-fill rows",
+      "direct SULTAI-SRC rows",
+      "seed files",
+      "generated reports",
+      "Vox Mana synthesis rows"
+    ]
+  },
+  "commander_compass": {
+    "review_status": "support_only",
+    "exact_color_set": "Black; Green; Blue",
+    "support_decks": [
+      "Sultai Arisen",
+      "Grand Larceny",
+      "Mutant Menace",
+      "Faceless Menace",
+      "Devour for Power",
+      "Enhanced Evolution"
+    ],
+    "support_language": [
+      "graveyard value",
+      "self-mill",
+      "theft",
+      "exile-casting",
+      "mill",
+      "rad counters",
+      "morph",
+      "hidden information",
+      "graveyard construction",
+      "mutate",
+      "recursion",
+      "complex creature value"
+    ],
+    "notes": "Commander Compass material is product/operator support only. It is not Sultai canon evidence, not setting proof, and not raw-claim input."
+  }
+}

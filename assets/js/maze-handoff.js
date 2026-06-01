@@ -21,10 +21,26 @@ export function resolveMazeOperatorQuery(link = {}, origin = defaultOrigin()) {
   if (link.operatorQuery) return link.operatorQuery;
   try {
     const parsed = new URL(link.url || "", origin);
-    return parsed.searchParams.get("operatorQuery") || parsed.searchParams.get("q") || "";
+    const operatorQuery = parsed.searchParams.get("operatorQuery") || "";
+    if (operatorQuery) return operatorQuery;
+    const urlQ = parsed.searchParams.get("q") || "";
+    return isMazeOperatorQuery(urlQ) ? urlQ : "";
   } catch (_) {
     return "";
   }
+}
+
+/**
+ * Checks whether a URL `q` parameter is explicit Scryfall syntax.
+ * @param {string} query - Candidate URL query value.
+ * @returns {boolean} True when the value contains operator syntax.
+ */
+export function isMazeOperatorQuery(query = "") {
+  const value = String(query || "").trim();
+  if (!value) return false;
+  const operatorFieldPattern = /\b(?:id|ci|c|o|t|is|f|type|oracle|color|otag|atag|art|artist|flavor|ft|kw|keyword|r|rarity|set|e|in|cn|number|lang|usd|eur|tix|pow|tou|loy|mv|cmc|mana)\s*(?::|[<>=]=?)/i;
+  const parenthesizedOperatorPattern = /\([^)]*\b(?:id|ci|c|o|t|is|f|type|oracle|color|otag|ft|kw|mv|cmc)\s*(?::|[<>=]=?)[^)]*\)/i;
+  return operatorFieldPattern.test(value) || parenthesizedOperatorPattern.test(value);
 }
 
 /**
@@ -145,11 +161,14 @@ export function buildDossierMazePathEntries({
  */
 export function resolveMazeLaunchState(urlParams, existing = {}) {
   const urlQ = urlParams.get("q") || "";
+  const explicitOperatorQuery = urlParams.get("operatorQuery") || "";
+  const operatorStyleQ = isMazeOperatorQuery(urlQ) ? urlQ : "";
+  const existingOperatorQuery = !urlQ ? existing.operatorQuery || "" : "";
   const from = urlParams.get("from") || "";
   return {
     from,
     urlQ,
-    operatorQuery: urlParams.get("operatorQuery") || urlQ || existing.operatorQuery || "",
+    operatorQuery: explicitOperatorQuery || operatorStyleQ || existingOperatorQuery,
     plainReadingQuery: urlParams.get("plainReadingQuery") || existing.plainReadingQuery || "",
     pathType: urlParams.get("pathType") || existing.pathType || "",
     returnUrl: urlParams.get("returnUrl") || existing.returnUrl || ""
@@ -163,6 +182,7 @@ function defaultOrigin() {
 function normalizeMazeIdentity(identity) {
   const rawIdentity = String(identity || "").toLowerCase().replace(/[^wubrgc]/g, "");
   if (rawIdentity === "rgw") return "rgw";
+  if (rawIdentity === "rwb") return "rwb";
   const symbols = rawIdentity.match(/[wubrgc]/g) || [];
   if (!symbols.length) return "";
   if (symbols.includes("c") && symbols.every((symbol) => symbol === "c")) return "c";

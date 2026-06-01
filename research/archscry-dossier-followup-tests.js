@@ -9,6 +9,7 @@ import {
 import {
   buildCommanderDossier,
   buildCommanderLandRecommendations,
+  buildReadingOmens,
   buildPreconRecommendations,
   collectCommanderPreviewCandidates,
   createArchidektTagCatalog,
@@ -65,7 +66,12 @@ globalThis.document = {
     };
   },
 };
-const { buildDossierRenderState } = await import("../assets/js/index.js");
+const {
+  buildDossierRenderState,
+  buildFlavorEchoesHtml,
+  identityMetaLabelForDisplay,
+  selectCuratedFlavorEchoesForFaction,
+} = await import("../assets/js/index.js");
 
 const snapshotStart = indexSource.indexOf("function buildPlacementSnapshotHtml");
 const snapshotEnd = indexSource.indexOf("function normalizeDossierSegment", snapshotStart);
@@ -76,6 +82,12 @@ const panelConfigSource = indexSource.slice(panelConfigStart, panelConfigEnd);
 const deckStartsPanelStart = indexSource.indexOf("const deckStartsPanelHtml =");
 const deckStartsPanelEnd = indexSource.indexOf("const starterCardsPanelHtml =", deckStartsPanelStart);
 const deckStartsPanelSource = indexSource.slice(deckStartsPanelStart, deckStartsPanelEnd);
+const commanderPreviewStart = indexSource.indexOf("const commanderPreviewHtml =");
+const commanderPreviewEnd = indexSource.indexOf("const adjacentMatches =", commanderPreviewStart);
+const commanderPreviewSource = indexSource.slice(commanderPreviewStart, commanderPreviewEnd);
+const deckDiscoveryGroupsStart = indexSource.indexOf("function buildDeckDiscoveryGroups");
+const deckDiscoveryGroupsEnd = indexSource.indexOf("function buildDeckDiscoveryHtml", deckDiscoveryGroupsStart);
+const deckDiscoveryGroupsSource = indexSource.slice(deckDiscoveryGroupsStart, deckDiscoveryGroupsEnd);
 const preconRendererStart = indexSource.indexOf("function buildPreconLinks");
 const preconRendererEnd = indexSource.indexOf("function writeArchscryDossierHandoff", preconRendererStart);
 const preconRendererSource = indexSource.slice(preconRendererStart, preconRendererEnd);
@@ -261,24 +273,29 @@ function assertManaBaseResolvesWithinIdentity(key) {
 
 const currentFactionKeys = Object.keys(factionsData.factions || {});
 const expectedFactionCount = factionsData._meta?.factions;
-const shardKeys = ["BANT", "ESPER", "GRIXIS", "JUND", "NAYA"];
-const shardColorCodes = ["WUG", "WUB", "UBR", "BRG", "RGW"];
-assert.equal(expectedFactionCount, 25, "expected Archscry faction metadata to include the Bant, Esper, Grixis, Jund, and Naya pilots");
+const livePilotKeys = ["BANT", "ESPER", "GRIXIS", "JUND", "NAYA", "ABZAN", "TEMUR", "SULTAI", "MARDU", "JESKAI"];
+const blockedColorCodes = ["WUG", "WUB", "UBR", "BRG", "RGW", "WBG", "WGB", "BWG", "BGW", "GWB", "GBW", "GUR", "GRU", "UGR", "URG", "RGU", "RUG", "BGU", "BUG", "UBG", "UGB", "GBU", "GUB", "RWB", "RBW", "WRB", "WBR", "BRW", "BWR", "URW", "WUR", "RWU", "UWR", "RUW", "WRU"];
+assert.equal(expectedFactionCount, 30, "expected Archscry faction metadata to include the Bant, Esper, Grixis, Jund, Naya, Abzan, Temur, Sultai, Mardu, and Jeskai pilots");
 assert.equal(currentFactionKeys.length, expectedFactionCount, "expected the current Archscry faction set to match generated metadata");
-shardKeys.forEach((key) => {
+livePilotKeys.forEach((key) => {
   assert.ok(currentFactionKeys.includes(key), `expected the current Archscry faction set to include the ${key} pilot key`);
-  assert.ok(identityLayers.expressions?.[key], `expected ${key} to exist as the public shard expression key`);
+  assert.ok(identityLayers.expressions?.[key], `expected ${key} to exist as the public live-pilot expression key`);
   assert.equal(identityLayers.expressions[key].preview_eligible, false, `expected ${key} to stay outside the Home preview carousel`);
   assert.equal(identityLayers.expressions[key].placement_eligible, true, `expected ${key} to stay live-placement eligible`);
 });
-shardColorCodes.forEach((code) => {
+assert.deepEqual(identityLayers.expressions.ABZAN.aliases, ["ABZAN"], "expected ABZAN to expose only its canonical public alias");
+assert.deepEqual(identityLayers.expressions.TEMUR.aliases, ["TEMUR"], "expected TEMUR to expose only its canonical public alias");
+assert.deepEqual(identityLayers.expressions.SULTAI.aliases, ["SULTAI"], "expected SULTAI to expose only its canonical public alias");
+assert.deepEqual(identityLayers.expressions.MARDU.aliases, ["MARDU"], "expected MARDU to expose only its canonical public alias");
+assert.deepEqual(identityLayers.expressions.JESKAI.aliases, ["JESKAI"], "expected JESKAI to expose only its canonical public alias");
+blockedColorCodes.forEach((code) => {
   assert.ok(!identityLayers.expressions?.[code], `expected ${code} not to be a public expression key`);
   assert.ok(!factionsData.factions?.[code], `expected ${code} not to be a generated faction key`);
   assert.ok(!placementModel.factions?.[code], `expected ${code} not to be a placement-model key`);
 });
-shardKeys.forEach((key) => {
+livePilotKeys.forEach((key) => {
   const aliases = identityLayers.expressions?.[key]?.aliases || [];
-  shardColorCodes.forEach((code) => {
+  blockedColorCodes.forEach((code) => {
     assert.ok(
       !aliases.some((alias) => String(alias).toUpperCase() === code),
       `expected ${code} not to be a public alias for ${key}`
@@ -288,8 +305,8 @@ shardKeys.forEach((key) => {
 const previewExpressions = Object.values(identityLayers.expressions || {}).filter((expression) => expression.preview_eligible);
 assert.equal(previewExpressions.length, 20, "expected Home preview metadata to remain the original 20-expression set");
 assert.ok(
-  shardKeys.every((key) => !previewExpressions.some((expression) => expression.key === key)),
-  "expected the five Alara shards to stay out of the Home preview metadata"
+  livePilotKeys.every((key) => !previewExpressions.some((expression) => expression.key === key)),
+  "expected the live pilots to stay out of the Home preview metadata"
 );
 currentFactionKeys.forEach((key) => {
   const faction = factionsData.factions[key];
@@ -316,6 +333,32 @@ assertLegalSnippetVoices("ESPER");
 assertLegalSnippetVoices("GRIXIS");
 assertLegalSnippetVoices("JUND");
 assertLegalSnippetVoices("NAYA");
+assertLegalSnippetVoices("ABZAN");
+assertLegalSnippetVoices("TEMUR");
+assertLegalSnippetVoices("SULTAI");
+assertLegalSnippetVoices("MARDU");
+assertLegalSnippetVoices("JESKAI");
+const abzanCuratedEchoes = selectCuratedFlavorEchoesForFaction({
+  faction: factionsData.factions.ABZAN,
+  snippets: flavorSnippets.snippets,
+  flavorCards: cardFlavorIndex.cards,
+  tagRefs: [],
+});
+assert.deepEqual(
+  abzanCuratedEchoes.map((entry) => entry.card.name),
+  ["Abzan Banner", "Abzan Devotee", "Abzan Guide"],
+  "expected Abzan card examples to prefer curated faction-native snippets"
+);
+const abzanFlavorEchoHtml = buildFlavorEchoesHtml(abzanCuratedEchoes, factionsData.factions.ABZAN);
+assert.match(abzanFlavorEchoHtml, /Abzan Banner/);
+assert.match(abzanFlavorEchoHtml, /Stone to endure, roots to remember/);
+assert.match(abzanFlavorEchoHtml, /Abzan Devotee/);
+assert.match(abzanFlavorEchoHtml, /Kin-Trees rediscovered/);
+assert.doesNotMatch(
+  abzanFlavorEchoHtml,
+  /A-Hobbling Zombie|Adorned Crocodile|Aphemia, the Cacophony|\u00e2\u20ac\u201d/i,
+  "expected Abzan card examples to avoid broad tag-match misses and mojibake"
+);
 currentFactionKeys.forEach(assertManaBaseResolvesWithinIdentity);
 ["BANT", "ESPER", "GRIXIS", "JUND", "NAYA"].forEach(assertStarterUxCardsResolveWithinIdentity);
 assert.ok(
@@ -1220,7 +1263,426 @@ assert.match(
   "expected Cabaretti Cacophony to be framed only as same-color support/style comparator"
 );
 
-["JUND", "NAYA"].forEach((key) => {
+const abzan = factionsData.factions.ABZAN;
+const abzanEvidenceTrail = [
+  {
+    faction: "ABZAN",
+    signal: "family line, house continuity, and endurance for the next generation",
+    answer_title: "The family line",
+    prompt: "Where does your attention go first in a complicated situation?",
+    deltas: [
+      { faction: "ABZAN", delta: 0.95 },
+      { faction: "WB", delta: 0.35 },
+      { faction: "BG", delta: 0.25 },
+    ],
+  },
+  {
+    faction: "ABZAN",
+    signal: "ancestor memory, stewardship, perennation, and Kin-Tree duty",
+    answer_title: "Let memory become stewardship",
+    prompt: "What should memory become when the house has to endure?",
+    deltas: [
+      { faction: "ABZAN", delta: 0.95 },
+      { faction: "WG", delta: 0.3 },
+    ],
+  },
+];
+const abzanOmens = buildReadingOmens({
+  evidenceTrail: abzanEvidenceTrail,
+  factions: factionsData.factions,
+  activeFactionKey: "ABZAN",
+});
+const abzanOmenText = abzanOmens.map((omen) => `${omen.answerTitle} ${omen.copy}`).join(" ");
+assert.match(abzanOmenText, /family duty|living house|memory become stewardship|Abzan Houses/i);
+assert.doesNotMatch(
+  abzanOmenText,
+  /table reveal itself|making the table answer|Orzhov|Golgari|Selesnya|generic WBG|Dromoka/i,
+  "expected Abzan answer signals to keep house and ancestor wording without adjacent-result leakage"
+);
+
+const abzanDossier = buildCommanderDossier({
+  factions: factionsData.factions,
+  placementModel,
+  placementResult: {
+    faction: "ABZAN",
+    confidence: 0.78,
+    decree: "Abzan endures through family memory and the duty carried by house and ancestor.",
+    starter_profile: {
+      budget_band: "mid",
+      experience_level: "returning",
+    },
+    top_matches: [
+      {
+        faction: "ABZAN",
+        faction_name: "Abzan Houses",
+        confidence: 0.78,
+      },
+    ],
+    adjacent_matches: [
+      {
+        faction: "WB",
+        faction_name: "Orzhov Syndicate",
+        confidence: 0.48,
+      },
+    ],
+    evidence_trail: abzanEvidenceTrail,
+  },
+  starterProfile: {
+    budget_band: "mid",
+    experience_level: "returning",
+  },
+});
+const abzanDossierText = renderCommanderDossierText(abzanDossier);
+const abzanVisibleText = abzanDossierText.replace(/https?:\/\/\S+/g, "");
+assert.match(abzanVisibleText, /Abzan Houses Commander decks|family endurance|ancestor obligation|perennation/i);
+assert.doesNotMatch(
+  abzanVisibleText,
+  /Dromoka Commander|generic WBG|Orzhov Commander decks|Golgari Commander decks|Selesnya Commander decks|Exact WBG/i,
+  "expected Abzan dossier copy not to relabel the result as Dromoka, generic WBG, or adjacent pairs"
+);
+
+const temurEvidenceTrail = [
+  {
+    faction: "TEMUR",
+    signal: "survival through attunement, terrain, and instinct",
+    answer_title: "Listen, then move",
+    prompt: "What signal is worth trusting when survival has no room for noise?",
+    deltas: [
+      { faction: "TEMUR", delta: 0.95 },
+      { faction: "RG", delta: 0.35 },
+      { faction: "UG", delta: 0.3 },
+    ],
+  },
+  {
+    faction: "TEMUR",
+    signal: "elemental memory, shamanic listening, and earned strength",
+    answer_title: "Follow the living memory",
+    prompt: "How should old strength return when the table changes?",
+    deltas: [
+      { faction: "TEMUR", delta: 0.95 },
+      { faction: "UR", delta: 0.3 },
+    ],
+  },
+];
+const temurDossier = buildCommanderDossier({
+  factions: factionsData.factions,
+  placementModel,
+  deckTagCatalog,
+  placementResult: {
+    faction: "TEMUR",
+    confidence: 0.78,
+    decree: "Temur survives by listening to terrain, instinct, and elemental memory before committing force.",
+    starter_profile: {
+      budget_band: "mid",
+      experience_level: "returning",
+    },
+    top_matches: [
+      {
+        faction: "TEMUR",
+        faction_name: "Temur Frontier",
+        confidence: 0.78,
+      },
+    ],
+    adjacent_matches: [
+      {
+        faction: "RG",
+        faction_name: "Gruul Clans",
+        confidence: 0.48,
+      },
+    ],
+    evidence_trail: temurEvidenceTrail,
+  },
+  starterProfile: {
+    budget_band: "mid",
+    experience_level: "returning",
+  },
+});
+const temurDossierText = renderCommanderDossierText(temurDossier);
+const temurVisibleText = temurDossierText.replace(/https?:\/\/\S+/g, "");
+const temurDirectoryText = (temurDossier.links?.commanderStart || [])
+  .map((link) => `${link.label} ${link.url}`)
+  .join(" ");
+const temurIdentityMeta = identityMetaLabelForDisplay(
+  factionsData.factions.TEMUR.identity,
+  factionsData.factions.TEMUR,
+  factionsData.factions.TEMUR.colors
+);
+const temurPresentation = presentationForFaction(factionsData.factions.TEMUR);
+const temurPresentationText = [
+  temurPresentation.thesis,
+  temurPresentation.tableExperience,
+  temurPresentation.mechanics,
+  temurPresentation.selfCheck,
+].join(" ");
+assert.match(temurVisibleText, /Temur Frontier Commander decks|survival|attunement|elemental/i);
+assert.equal(temurIdentityMeta, "Temur");
+assert.match(temurDirectoryText, /https:\/\/edhrec\.com\/commanders\/temur\b/);
+assert.match(temurDirectoryText, /https:\/\/mtgdecks\.net\/Commander\/temur-commanders\b/);
+assert.doesNotMatch(temurDirectoryText, /commanders\/(?:gur|urg)\b|\/Commander\/(?:gur|urg)-commanders/i);
+assert.match(temurPresentationText, /Commander-facing ways to show force|table texture for survival through attunement/i);
+assert.doesNotMatch(
+  `${temurVisibleText} ${temurPresentationText} ${temurIdentityMeta}`,
+  /\b(?:GUR|GRU|UGR|URG|RGU|RUG)\b|Exact GUR|generic GUR|generic three-color goodstuff|Atarka.*continuity|Commander products as canon|Dragonstorm backfill|support-only|canon proof|lore proof|card legality|placement evidence|raw-claim evidence|metadata|review language|mechanics-as-canon|\/temur\/|\/gur\//i,
+  "expected Temur visible copy to avoid public GUR labels, route-like paths, internal caveats, Atarka continuity, Dragonstorm backfill, and Commander-canon leakage"
+);
+
+const sultaiEvidenceTrail = [
+  {
+    faction: "SULTAI",
+    signal: "ruthless opportunity and resource conversion before public approval",
+    answer_title: "Use what others waste",
+    prompt: "What makes a costly resource trustworthy?",
+    deltas: [
+      { faction: "SULTAI", delta: 0.95 },
+      { faction: "BG", delta: 0.35 },
+      { faction: "UB", delta: 0.3 },
+    ],
+  },
+  {
+    faction: "SULTAI",
+    signal: "necromantic utility and calculated advantage",
+    answer_title: "Make the dead useful",
+    prompt: "What should happen when the dead can still guide the living?",
+    deltas: [
+      { faction: "SULTAI", delta: 0.95 },
+      { faction: "UG", delta: 0.3 },
+    ],
+  },
+];
+const sultaiDossier = buildCommanderDossier({
+  factions: factionsData.factions,
+  placementModel,
+  deckTagCatalog,
+  placementResult: {
+    faction: "SULTAI",
+    confidence: 0.78,
+    decree: "Sultai converts opportunity, secrets, bodies, and the dead into power before anyone else sees the opening.",
+    starter_profile: {
+      budget_band: "mid",
+      experience_level: "returning",
+    },
+    top_matches: [
+      {
+        faction: "SULTAI",
+        faction_name: "Sultai Brood",
+        confidence: 0.78,
+      },
+    ],
+    adjacent_matches: [
+      {
+        faction: "BG",
+        faction_name: "Golgari Swarm",
+        confidence: 0.48,
+      },
+    ],
+    evidence_trail: sultaiEvidenceTrail,
+  },
+  starterProfile: {
+    budget_band: "mid",
+    experience_level: "returning",
+  },
+});
+const sultaiDossierText = renderCommanderDossierText(sultaiDossier);
+const sultaiVisibleText = sultaiDossierText.replace(/https?:\/\/\S+/g, "");
+const sultaiDirectoryText = (sultaiDossier.links?.commanderStart || [])
+  .map((link) => `${link.label} ${link.url}`)
+  .join(" ");
+const sultaiIdentityMeta = identityMetaLabelForDisplay(
+  factionsData.factions.SULTAI.identity,
+  factionsData.factions.SULTAI,
+  factionsData.factions.SULTAI.colors
+);
+const sultaiPresentation = presentationForFaction(factionsData.factions.SULTAI);
+const sultaiPresentationText = [
+  sultaiPresentation.thesis,
+  sultaiPresentation.tableExperience,
+  sultaiPresentation.mechanics,
+  sultaiPresentation.selfCheck,
+].join(" ");
+assert.match(sultaiVisibleText, /Sultai Brood Commander decks|ruthless|resource conversion|necromantic|opportunity/i);
+assert.equal(sultaiIdentityMeta, "Sultai");
+assert.match(sultaiDirectoryText, /https:\/\/edhrec\.com\/commanders\/sultai\b/);
+assert.match(sultaiDirectoryText, /https:\/\/mtgdecks\.net\/Commander\/sultai-commanders\b/);
+assert.doesNotMatch(sultaiDirectoryText, /commanders\/(?:bgu|bug|ubg|gub)\b|\/Commander\/(?:bgu|bug|ubg|gub)-commanders/i);
+assert.match(sultaiPresentationText, /opportunity becoming power|Commander-facing support texture/i);
+assert.doesNotMatch(
+  `${sultaiVisibleText} ${sultaiPresentationText} ${sultaiIdentityMeta}`,
+  /\b(?:BGU|BUG|UBG|UGB|GBU|GUB)\b|Exact BGU|generic BGU|generic three-color goodstuff|Silumgar.*continuity|Dragonstorm backfill|Commander products as canon|canon proof|lore proof|card legality|placement evidence|raw-claim evidence|metadata|review language|mechanics-as-canon|\/sultai\/|\/bgu\//i,
+  "expected Sultai visible copy to avoid public BGU labels, route-like paths, internal caveats, Silumgar continuity, Dragonstorm backfill, and Commander-canon leakage"
+);
+
+const marduEvidenceTrail = [
+  {
+    faction: "MARDU",
+    signal: "Red-centered speed, total commitment, and coordinated attack",
+    answer_title: "Take the opening now",
+    prompt: "What makes action trustworthy when hesitation will break the charge?",
+    deltas: [
+      { faction: "MARDU", delta: 0.95 },
+      { faction: "WR", delta: 0.35 },
+      { faction: "BR", delta: 0.3 },
+    ],
+  },
+  {
+    faction: "MARDU",
+    signal: "war-name oath, martial order, and ruthless opportunity",
+    answer_title: "Keep the war name",
+    prompt: "What keeps speed from becoming noise?",
+    deltas: [
+      { faction: "MARDU", delta: 0.95 },
+      { faction: "WB", delta: 0.3 },
+    ],
+  },
+];
+const marduDossier = buildCommanderDossier({
+  factions: factionsData.factions,
+  placementModel,
+  deckTagCatalog,
+  placementResult: {
+    faction: "MARDU",
+    confidence: 0.78,
+    decree: "Mardu commits to the opening with speed, formation, oath, and ruthless pressure before the charge loses its name.",
+    starter_profile: {
+      budget_band: "mid",
+      experience_level: "returning",
+    },
+    top_matches: [
+      {
+        faction: "MARDU",
+        faction_name: "Mardu Horde",
+        confidence: 0.78,
+      },
+    ],
+    adjacent_matches: [
+      {
+        faction: "WR",
+        faction_name: "Boros Legion",
+        confidence: 0.48,
+      },
+    ],
+    evidence_trail: marduEvidenceTrail,
+  },
+  starterProfile: {
+    budget_band: "mid",
+    experience_level: "returning",
+  },
+});
+const marduDossierText = renderCommanderDossierText(marduDossier);
+const marduVisibleText = marduDossierText.replace(/https?:\/\/\S+/g, "");
+const marduDirectoryText = (marduDossier.links?.commanderStart || [])
+  .map((link) => `${link.label} ${link.url}`)
+  .join(" ");
+const marduIdentityMeta = identityMetaLabelForDisplay(
+  factionsData.factions.MARDU.identity,
+  factionsData.factions.MARDU,
+  factionsData.factions.MARDU.colors
+);
+const marduPresentation = presentationForFaction(factionsData.factions.MARDU);
+const marduPresentationText = [
+  marduPresentation.thesis,
+  marduPresentation.tableExperience,
+  marduPresentation.mechanics,
+  marduPresentation.selfCheck,
+].join(" ");
+assert.match(marduVisibleText, /Mardu Horde Commander decks|speed|coordinated|war name|opening/i);
+assert.equal(marduIdentityMeta, "Mardu");
+assert.match(marduDirectoryText, /https:\/\/edhrec\.com\/commanders\/mardu\b/);
+assert.match(marduDirectoryText, /https:\/\/mtgdecks\.net\/Commander\/mardu-commanders\b/);
+assert.doesNotMatch(marduDirectoryText, /commanders\/(?:rwb|wbr)\b|\/Commander\/(?:rwb|wbr)-commanders/i);
+assert.match(marduPresentationText, /action that has a name|Commander-facing ways to show speed/i);
+assert.doesNotMatch(
+  `${marduVisibleText} ${marduPresentationText} ${marduIdentityMeta}`,
+  /\b(?:RWB|RBW|WRB|WBR|BRW|BWR)\b|Exact RWB|Exact WBR|generic RWB|generic WBR|generic three-color goodstuff|Kolaghan.*continuity|Dragonstorm backfill|Commander products as canon|canon proof|lore proof|card legality|placement evidence|raw-claim evidence|metadata|review language|mechanics-as-canon|\/mardu\/|\/rwb\/|\/wbr\//i,
+  "expected Mardu visible copy to avoid public RWB/WBR labels, route-like paths, internal caveats, Kolaghan continuity, Dragonstorm backfill, and Commander-canon leakage"
+);
+
+const jeskaiEvidenceTrail = [
+  {
+    faction: "JESKAI",
+    signal: "Blue-centered cunning, trained insight, and disciplined action",
+    answer_title: "Train until insight can move",
+    prompt: "What makes action trustworthy when insight arrives first?",
+    deltas: [
+      { faction: "JESKAI", delta: 0.95 },
+      { faction: "U", delta: 0.4 },
+      { faction: "UR", delta: 0.35 },
+    ],
+  },
+  {
+    faction: "JESKAI",
+    signal: "shared restraint giving insight form",
+    answer_title: "Let form serve the moving insight",
+    prompt: "What keeps the Way alive?",
+    deltas: [
+      { faction: "JESKAI", delta: 0.95 },
+      { faction: "WU", delta: 0.35 },
+      { faction: "WR", delta: 0.3 },
+    ],
+  },
+];
+const jeskaiDossier = buildCommanderDossier({
+  factions: factionsData.factions,
+  placementModel,
+  deckTagCatalog,
+  placementResult: {
+    faction: "JESKAI",
+    confidence: 0.78,
+    decree: "Jeskai trains insight until action can move with discipline, courage, compassion, and restraint.",
+    starter_profile: {
+      budget_band: "mid",
+      experience_level: "returning",
+    },
+    top_matches: [
+      {
+        faction: "JESKAI",
+        faction_name: "Jeskai Way",
+        confidence: 0.78,
+      },
+    ],
+    adjacent_matches: [
+      {
+        faction: "UR",
+        faction_name: "Izzet League",
+        confidence: 0.48,
+      },
+    ],
+    evidence_trail: jeskaiEvidenceTrail,
+  },
+  starterProfile: {
+    budget_band: "mid",
+    experience_level: "returning",
+  },
+});
+const jeskaiDossierText = renderCommanderDossierText(jeskaiDossier);
+const jeskaiVisibleText = jeskaiDossierText.replace(/https?:\/\/\S+/g, "");
+const jeskaiDirectoryText = (jeskaiDossier.links?.commanderStart || [])
+  .map((link) => `${link.label} ${link.url}`)
+  .join(" ");
+const jeskaiIdentityMeta = identityMetaLabelForDisplay(
+  factionsData.factions.JESKAI.identity,
+  factionsData.factions.JESKAI,
+  factionsData.factions.JESKAI.colors
+);
+const jeskaiPresentation = presentationForFaction(factionsData.factions.JESKAI);
+const jeskaiPresentationText = [
+  jeskaiPresentation.thesis,
+  jeskaiPresentation.tableExperience,
+  jeskaiPresentation.mechanics,
+  jeskaiPresentation.selfCheck,
+].join(" ");
+assert.match(jeskaiVisibleText, /Jeskai Way Commander decks|discipline|cunning|trained insight|action/i);
+assert.equal(jeskaiIdentityMeta, "Jeskai");
+assert.match(jeskaiDirectoryText, /https:\/\/edhrec\.com\/commanders\/jeskai\b/);
+assert.match(jeskaiDirectoryText, /https:\/\/mtgdecks\.net\/Commander\/jeskai-commanders\b/);
+assert.doesNotMatch(jeskaiDirectoryText, /commanders\/(?:urw|wur)\b|\/Commander\/(?:urw|wur)-commanders/i);
+assert.match(jeskaiPresentationText, /insight trained until it can move|Commander-facing ways to show trained insight/i);
+assert.doesNotMatch(
+  `${jeskaiVisibleText} ${jeskaiPresentationText} ${jeskaiIdentityMeta}`,
+  /\b(?:URW|WUR|RWU|UWR|RUW|WRU)\b|Exact URW|Exact WUR|generic URW|generic WUR|generic three-color goodstuff|Ojutai.*continuity|Dragonstorm backfill|Commander products as canon|canon proof|lore proof|card legality|placement evidence|raw-claim evidence|metadata|review language|mechanics-as-canon|support-only|claim-bearing|manual-fill|raw packet|review-gated|source_authored_review_gated|not_placement_eligible|\/jeskai\/|\/urw\/|\/wur\//i,
+  "expected Jeskai visible copy to avoid public color-code labels, route-like paths, internal caveats, Ojutai continuity, Dragonstorm backfill, and Commander-canon leakage"
+);
+
+["JUND", "NAYA", "ABZAN", "TEMUR", "SULTAI", "MARDU", "JESKAI"].forEach((key) => {
   const lands = buildCommanderLandRecommendations(factionsData.factions[key]);
   ["premium", "midrange", "budget", "utility"].forEach((tier) => {
     assert.ok(hasRenderableLandTier(lands, tier), `expected ${key} ${tier} mana-base tier to render`);
@@ -1291,8 +1753,13 @@ assert.match(indexSource, /buildSegmentControlsHtml\("mana-base",\s*manaBaseSegm
 assert.match(indexSource, /hasRenderableLandTier\(landRecommendations,\s*"budget"\)/, "expected empty Budget land tiers to be skipped at render time");
 assert.match(indexSource, /hasStarterCardReferences/, "expected empty starter-card groups to be suppressible at render time");
 assert.match(indexSource, /hiddenDossierPanelIds/, "expected empty starter-card panels to be removed from dossier navigation");
-assert.match(indexSource, /data-commander-directory-links/, "expected commander directory links to render from one stable Start Here block");
-assert.doesNotMatch(indexSource, /const commanderStarterLinksHtml/, "expected Start Here to avoid a second commander directory link block");
+assert.doesNotMatch(indexSource, /data-commander-directory-links/, "expected Start Here to stop rendering duplicate commander directory service links");
+assert.match(commanderPreviewSource, /Commander starting points/, "expected Start Here to keep the commander starting-point guidance block");
+assert.match(commanderPreviewSource, /commander-preview-grid/, "expected Start Here to keep commander preview cards");
+assert.doesNotMatch(commanderPreviewSource, /starter-links|data-commander-directory-links/, "expected Start Here to remove the external commander directory service block");
+assert.match(deckDiscoveryGroupsSource, /service:\s*"edhrec"/, "expected Commander Deck Starts to keep the EDHREC service group");
+assert.match(deckDiscoveryGroupsSource, /service:\s*"archidekt"/, "expected Commander Deck Starts to keep the Archidekt service group");
+assert.match(deckDiscoveryGroupsSource, /service:\s*"mtgdecks"/, "expected Commander Deck Starts to keep the MTGDecks service group");
 assert.doesNotMatch(indexSource, /<div class="land-tier-label">Basics<\/div>/, "expected Basics to appear once through the active mana-base tab, not as a duplicate inner label");
 
 const blankJundRenderState = buildDossierRenderState({
@@ -1305,8 +1772,7 @@ const blankJundRenderState = buildDossierRenderState({
 });
 assert.equal(blankJundRenderState.hasStarterCardReferences, false, "expected blank Jund starter references to suppress the panel");
 assert.deepEqual(blankJundRenderState.starterCardSegments.map((segment) => segment.id), [], "expected no starter-card tabs for empty Jund starter groups");
-assert.equal((blankJundRenderState.commanderDirectoryLinksHtml.match(/service-edhrec/g) || []).length, 1, "expected one EDHREC Start Here link");
-assert.equal((blankJundRenderState.commanderDirectoryLinksHtml.match(/service-mtgdecks/g) || []).length, 1, "expected one MTGDecks Start Here link");
+assert.ok(!("commanderDirectoryLinksHtml" in blankJundRenderState), "expected Start Here render state to drop duplicated commander directory link HTML");
 assert.match(blankJundRenderState.basicLandCopy, /Swamps, Mountains, and Forests/, "expected Jund basics guidance to name all three basics cleanly");
 assert.equal(
   (`Basics ${blankJundRenderState.basicLandCopy}`.match(/\bBasics\b/g) || []).length,

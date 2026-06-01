@@ -120,6 +120,17 @@ assert.deepEqual(paths.map((path) => path.pathType), MAZE_DOSSIER_PATH_TYPES);
 assert.equal(paths[0].query, "id=bg is:commander f:commander (o:sacrifice OR o:graveyard)");
 assert.equal(paths[0].plainReadingQuery, "Witherbloom College commanders with exactly black-green identity");
 
+const marduPaths = buildMazePathEntries({
+  identity: "rwb",
+  factionName: "Mardu Horde",
+  oracleTerms: ["draw", "token"],
+  flavorTerms: ["war names", "charge"]
+});
+assert.equal(marduPaths[0].query, "id=rwb is:commander f:commander (o:draw OR o:token)");
+assert.equal(marduPaths[0].plainReadingQuery, "Mardu Horde commanders with exactly red-white-black identity");
+assert.equal(marduPaths[1].query, "id<=rwb f:commander -is:commander -t:land (o:draw OR o:token)");
+assert.ok(marduPaths.every((path) => !/\bid(?:<)?=wbr\b/i.test(path.query)));
+
 assert.deepEqual(normalizeMazeQueryApiMetadata({
   unique: "prints",
   order: "usd",

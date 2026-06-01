@@ -1,0 +1,242 @@
+{
+  "schema_version": "1.0.0",
+  "placement_profile_version": "0.1.0",
+  "faction_id": "sultai",
+  "faction_name": "Sultai Brood",
+  "based_on_profile_version": "0.1.0",
+  "last_updated": "2026-05-31",
+  "placement_summary": "Sultai Brood is a source-bound live pilot. Its strongest placement signals are Black-centered BGU Tarkir identity, ruthlessness, resource conversion, necromancy, sibsig labor, Sidisi-era ambition, Silumgar boundary, modern Dragonstorm timeline labeling, and false-positive boundaries against generic BGU, Commander products, color-philosophy proof, Dragonstorm backfill, and seed files.",
+  "moral_and_psychological_profile": {
+    "summary": "Vox Mana models Sultai as ruthlessness through resource conversion: opportunity, bodies, land, secrets, costs, and the dead become usable material under Black ambition and Blue calculation. This is project interpretation from normalized SULTAI evidence plus VM-210/VM-211 shaping docs, not official canon, and VM-214 keeps it preview-ineligible while enabling live placement.",
+    "claim_ids": [
+      "sultai_claim_0001",
+      "sultai_claim_0002",
+      "sultai_claim_0003",
+      "sultai_claim_0004",
+      "sultai_claim_0005",
+      "sultai_claim_0010"
+    ],
+    "confidence": "Medium",
+    "notes": "Psychological language is Vox Mana synthesis. Support-only rows do not raise confidence."
+  },
+  "placement_axes": [],
+  "core_values": [
+    {
+      "value_id": "value_sultai_0001",
+      "label": "Ruthless Opportunity",
+      "description": "Advantage is taken because it is available, and costs are acceptable when they move the goal closer.",
+      "claim_ids": [
+        "sultai_claim_0002",
+        "sultai_claim_0003",
+        "sultai_claim_0004"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "value_id": "value_sultai_0002",
+      "label": "Death As Resource",
+      "description": "Necromancy, sibsig labor, graveyard return, and modern honored-dead boundaries frame the dead as powerful material only when era-labeled.",
+      "claim_ids": [
+        "sultai_claim_0003",
+        "sultai_claim_0005",
+        "sultai_claim_0009"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "value_id": "value_sultai_0003",
+      "label": "Calculated Conversion",
+      "description": "Theft, resource denial, mind pressure, planning, spies, scouts, and terrain knowledge shape Sultai as selective rather than merely hungry.",
+      "claim_ids": [
+        "sultai_claim_0003",
+        "sultai_claim_0005",
+        "sultai_claim_0009"
+      ],
+      "confidence": "Medium"
+    }
+  ],
+  "behavioral_signals": [
+    {
+      "signal_id": "signal_sultai_0001",
+      "signal": "Look for Black-centered BGU Sultai Brood framing with ruthlessness, resource conversion, necromancy, Sidisi-era ambition, and using the dead as source-backed primary language.",
+      "claim_ids": [
+        "sultai_claim_0001",
+        "sultai_claim_0002",
+        "sultai_claim_0003",
+        "sultai_claim_0004",
+        "sultai_claim_0005",
+        "sultai_claim_0006"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "signal_id": "signal_sultai_0002",
+      "signal": "Look for Silumgar clan only when it is framed as a Dragons-era boundary, contrast, or transition context rather than Sultai Brood continuity.",
+      "claim_ids": [
+        "sultai_claim_0008",
+        "sultai_claim_0010"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "signal_id": "signal_sultai_0003",
+      "signal": "Look for modern Dragonstorm Sultai only when the era is explicit and not used to backfill Khans-era Sultai Brood.",
+      "claim_ids": [
+        "sultai_claim_0009",
+        "sultai_claim_0010"
+      ],
+      "confidence": "Medium"
+    }
+  ],
+  "inhibitor_traits": [
+    "BGU color composition without a positive Sultai evidence cluster",
+    "Generic graveyard value, theft, mill, morph, mutate, or Commander goodstuff without Sultai evidence",
+    "Silumgar clan treated as Sultai Brood continuity",
+    "Modern Dragonstorm Sultai details used as Khans-era proof",
+    "Commander product color identity treated as Tarkir canon",
+    "Color-pair philosophy files treated as Tarkir lore proof",
+    "Seed-file language treated as evidence",
+    "Exact delve or exploit card facts, full biographies, Commander legality, or exact Dragonstorm chronology used without direct evidence"
+  ],
+  "good_fit_indicators": [
+    "ruthlessness, resource conversion, necromancy, and Black-centered Sultai identity are central",
+    "Sidisi, sibsig, rakshasa pacts, naga hierarchy, or Khans-era Sultai locations appear as more than generic graveyard or villain language",
+    "Silumgar and modern Dragonstorm-era material are clearly timeline-labeled",
+    "Commander products, generic BGU, color-pair philosophy files, and seed files are treated as boundaries rather than identity proof"
+  ],
+  "ideal_fit_indicators": [
+    "The answer combines Black-centered Sultai Brood identity with ruthlessness, opportunity, necromancy, and calculated resource conversion.",
+    "The answer uses Tarkir Sultai sources or normalized SULTAI evidence rows rather than seed files or Commander products.",
+    "The answer treats Silumgar and modern Dragonstorm-era Sultai as their own boundaries and does not backfill Khans-era details."
+  ],
+  "poor_fit_indicators": [
+    "The answer depends mainly on generic BGU color identity.",
+    "The answer centers generic graveyard goodstuff, theft decks, mill, morph, mutate, or Commander product flavor.",
+    "The answer requires exact card facts, Commander legality, detailed biography, exact delve or exploit mechanics, or exact Dragonstorm chronology not promoted in SULTAI evidence rows."
+  ],
+  "discriminator_questions": [],
+  "chatbot_guidance": {
+    "how_to_recognize_match": [
+      "VM-214 live-pilot guidance: Sultai language should combine Black-centered BGU Tarkir Sultai Brood with ruthlessness, resource conversion, necromancy, Sidisi-era ambition, and strict timeline boundaries.",
+      "Use support-only Commander/operator patterns as vocabulary only, not as canon evidence.",
+      "Keep manual-fill topics out of the match basis."
+    ],
+    "how_to_recognize_mismatch": [
+      "Do not match Sultai from BGU color composition alone.",
+      "Do not match Sultai from generic graveyard, theft, mill, morph, mutate, or Commander value alone.",
+      "Do not match Sultai from Silumgar continuity, Commander products, color-pair philosophy files, or seed files.",
+      "Do not use modern Dragonstorm-era details as Khans-era proof."
+    ],
+    "questions_to_ask_when_uncertain": [],
+    "do_not_overweight": [
+      "Do not award Sultai from color composition alone.",
+      "Do not award Sultai from support-only Commander/operator rows.",
+      "Do not award Sultai from manual-fill topics.",
+      "Do not award Sultai from architecture prose as evidence."
+    ],
+    "never_claim_as_canon": [
+      "Never claim Vox Mana placement planning is official Wizards canon.",
+      "Never claim BGU is a generated expression key.",
+      "Never claim Sultai has a public navigation entry, schema field, hosted database source, fixture, or runtime alias from VM-212.",
+      "Never claim Silumgar clan is Sultai Brood continuity from this packet.",
+      "Never claim modern Dragonstorm Sultai details are Khans-era facts without direct evidence."
+    ],
+    "review_note": "VM-214 enables SULTAI as the single live placement key. BGU and color-order permutations remain metadata/query-only."
+  },
+  "placement_quality": {
+    "overall_confidence": "Medium source-authored confidence for narrow identity, Khans-era floor, Silumgar boundary, modern guide, and guardrail claims; low for exact card facts and deferred detailed lore.",
+    "strongest_evidence_areas": [
+      "Black-Green-Blue Sultai identity",
+      "Ruthlessness as design attribute",
+      "Resource denial, graveyard return, theft, and using the dead as design texture",
+      "Khans-era exploitation, necromancy, sibsig labor, and rakshasa pacts",
+      "Queen Sidisi and Khans-era location anchors",
+      "Silumgar separation and timeline boundary",
+      "Modern Dragonstorm-era Sultai source context",
+      "Generic BGU, color philosophy, seed-file, Commander, and lifecycle guardrails"
+    ],
+    "weakest_evidence_areas": [
+      "Exact delve card facts",
+      "Exact exploit card facts",
+      "Sidisi's full biography",
+      "Tasigur's full biography",
+      "Detailed named-character biographies",
+      "Exact Dragonstorm story chronology",
+      "Commander/operator material beyond support-only language"
+    ],
+    "manual_review_recommended": true,
+    "review_gated": false,
+    "placement_eligible": true,
+    "notes": "VM-214 promotes SULTAI through the controlled build path. SULTAI is placement-ready and live, preview-ineligible, and still keeps BGU/permutations metadata/query-only.",
+    "calibration_tuning_status": "vm214_live_pilot",
+    "last_placement_ready_pass": "VM-214",
+    "live_pilot": true
+  },
+  "color_identity": {
+    "colors": [
+      "B",
+      "G",
+      "U"
+    ],
+    "metadata_only": true,
+    "notes": "BGU and color-order permutations are metadata/query-only and not generated keys, navigation keys, runtime aliases, fixture keys, public labels, or lookup keys."
+  },
+  "calibration_tuning": {
+    "status": "vm214_live_pilot",
+    "required_positive_evidence_terms": [
+      "Sultai Brood",
+      "Tarkir",
+      "BGU",
+      "Black-centered",
+      "ruthlessness",
+      "resource conversion",
+      "necromancy",
+      "sibsig",
+      "rakshasa pacts",
+      "Queen Sidisi",
+      "Silumgar boundary",
+      "Modern Dragonstorm Sultai"
+    ],
+    "required_positive_min_hits": null,
+    "broad_match_penalty": null,
+    "overselection_reason": "Color composition, generic graveyard/theft/mill/morph/mutate play, Commander products, Silumgar continuity, Dragonstorm backfill, color-pair philosophy files, or seed-file phrasing can overselect Sultai without the normalized ruthlessness, necromancy, resource conversion, and timeline-boundary evidence cluster.",
+    "suppress_when_user_centers": [
+      "generic BGU",
+      "generic graveyard value",
+      "generic theft or exile-casting",
+      "generic mill",
+      "generic morph",
+      "generic mutate",
+      "Silumgar clan continuity",
+      "Commander product identity",
+      "Dragonstorm backfill into Khans-era Sultai",
+      "seed-file claims",
+      "manual-fill lore as proof",
+      "color philosophy as Tarkir proof"
+    ],
+    "strengthen_when_user_centers": [
+      "Black-centered Sultai Brood",
+      "ruthlessness",
+      "resource conversion",
+      "necromancy",
+      "sibsig labor",
+      "rakshasa pacts",
+      "Queen Sidisi",
+      "Silumgar boundary",
+      "modern Dragonstorm Sultai source context"
+    ],
+    "collision_suppressions": [
+      "generic_bgu_not_sultai",
+      "silumgar_clan_not_sultai_brood_continuity",
+      "commander_product_not_tarkir_canon",
+      "generic_graveyard_theft_morph_mutate_not_sultai",
+      "dragonstorm_backfill_not_khans_sultai",
+      "seed_files_not_evidence",
+      "color_pair_philosophy_not_tarkir_lore"
+    ],
+    "false_positive_guardrail": "Do not treat support-only mechanics, Commander/operator rows, manual-fill lore, architecture prose, seed files, Silumgar clan, Dragonstorm backfill, color-pair philosophy, or color composition alone as Sultai evidence.",
+    "smoke_test_note": "VM-214 wires SULTAI into generated placement data through the controlled build path.",
+    "review_note": "VM-214 adds the SULTAI live expression key only. It adds no public navigation, no preview membership, no schema fields, no fixtures, and no color-code public aliases."
+  },
+  "collision_guidance": []
+}

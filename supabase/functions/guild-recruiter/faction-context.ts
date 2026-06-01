@@ -340,7 +340,10 @@ export const FACTION_CONTEXT = {
       "WG",
       "UG",
       "ESPER",
-      "GRIXIS"
+      "GRIXIS",
+      "ABZAN",
+      "TEMUR",
+      "SULTAI"
     ],
     "discriminator_questions": [
       {
@@ -559,7 +562,8 @@ export const FACTION_CONTEXT = {
     "lateral_inhibition_targets": [
       "WU",
       "LOREHOLD",
-      "WG"
+      "WG",
+      "MARDU"
     ],
     "discriminator_questions": [
       {
@@ -736,7 +740,8 @@ export const FACTION_CONTEXT = {
       "PRISMARI",
       "WR",
       "GRIXIS",
-      "JUND"
+      "JUND",
+      "MARDU"
     ],
     "discriminator_questions": [
       {
@@ -1110,7 +1115,9 @@ export const FACTION_CONTEXT = {
       "ESPER",
       "UB",
       "UR",
-      "JUND"
+      "JUND",
+      "TEMUR",
+      "SULTAI"
     ],
     "discriminator_questions": [],
     "chatbot_guidance": {
@@ -1281,7 +1288,11 @@ export const FACTION_CONTEXT = {
       "BG",
       "RG",
       "GRIXIS",
-      "WITHERBLOOM"
+      "WITHERBLOOM",
+      "ABZAN",
+      "TEMUR",
+      "SULTAI",
+      "MARDU"
     ],
     "discriminator_questions": [
       {
@@ -1502,7 +1513,10 @@ export const FACTION_CONTEXT = {
       "RG",
       "WR",
       "BANT",
-      "JUND"
+      "JUND",
+      "ABZAN",
+      "TEMUR",
+      "MARDU"
     ],
     "discriminator_questions": [],
     "chatbot_guidance": {
@@ -1538,6 +1552,910 @@ export const FACTION_CONTEXT = {
         "Never claim RGW is a generated expression key.",
         "Never claim detailed geography, figure biography, religion, creature-culture hierarchy, power-5 totalization, Commander product canon, or post-Phyrexian outcomes from VM-184.",
         "Never claim Naya has a Home preview card, route, static page, Maze route, or broad shard framework from VM-188."
+      ]
+    }
+  },
+  "ABZAN": {
+    "name": "Abzan Houses",
+    "institution_type": "wedge",
+    "world": "Tarkir",
+    "colors": [
+      "W",
+      "B",
+      "G"
+    ],
+    "layered_identity": {
+      "core_color": "W",
+      "secondary_colors": [
+        "B",
+        "G"
+      ],
+      "secondary_color": "B",
+      "expression_key": "ABZAN",
+      "expression_name": "Abzan Houses",
+      "expression_kind": "wedge",
+      "purity": null,
+      "routing": {
+        "color_identity": "WBG",
+        "label": "Abzan"
+      }
+    },
+    "tagline": "Endure with the house. Remember through the tree. Guard the next generation.",
+    "philosophy": "Abzan treats survival as a duty carried by family, ancestor memory, and the living house. White keeps obligation centered, Black remembers what endurance costs, and Green lets continuity pass through roots, bodies, and time.",
+    "core_tension": "Abzan's virtue is house continuity across time, but that duty can become exclusion, rigidity, political burden, or obligation that outlives consent.",
+    "affinity": {
+      "drawn_to": [
+        "family duty that protects the next generation",
+        "ancestor memory as practical guidance",
+        "defensive patience and long-game endurance",
+        "house continuity rooted in living and dead kin"
+      ],
+      "repelled_by": [
+        "generic same-color goodstuff",
+        "Dromoka's brood treated as Abzan continuity",
+        "Commander products treated as Tarkir canon",
+        "Sultai, Mardu, Jeskai, Temur, Orzhov, Selesnya, or Golgari pressure replacing positive Abzan evidence"
+      ],
+      "core_question": "What duty is worth carrying into the next generation?",
+      "interview_tells": [
+        "names family, ancestors, and house survival before generic mechanics",
+        "treats endurance as an obligation, not just a defensive deck style",
+        "links life and death through perennation, Kin-Tree memory, and stewardship",
+        "guards against generic same-color, Dromoka, Commander-product, and adjacent-wedge false positives"
+      ],
+      "not_to_be_confused_with": "Orzhov centers White-Black obligation; Selesnya centers Green-White community; Golgari centers Black-Green life/death ecology; Bant centers sanctioned honor; Naya centers living-world abundance; Jund centers appetite and consequence; Witherbloom centers vitality ecology. Abzan centers White-led family endurance, ancestor obligation, Green perennation, and house continuity."
+    },
+    "decree_voice": {
+      "tone": "Patient, ancestral, protective, and duty-bound without becoming generic defense or graveyard shorthand.",
+      "speaks_like": "A house that has survived long enough for roots, names, and obligations to answer together.",
+      "example_opening": "The reading turns toward endurance, family memory, and the duty that survives the first fall.",
+      "example_decree": "The reading turns toward endurance, family memory, and the duty that survives the first fall. Abzan does not ask survival to be solitary. It asks what house, ancestor, and future generation make the cost worth carrying."
+    },
+    "biological_expression": {
+      "archetype": "The Ancestral Endurer",
+      "primary_foundation": "Loyalty",
+      "secondary_foundation": "Authority",
+      "risk_signal": "medium ancestral-duty risk",
+      "inhibitor_trigger": "Turns family continuity into exclusion, rigidity, political burden, or duty that outlives consent."
+    },
+    "placement_axes": {
+      "required_positive_evidence_terms": [
+        "Abzan Houses",
+        "Tarkir",
+        "WBG",
+        "White-centered",
+        "family",
+        "house continuity",
+        "endurance",
+        "Kin-Trees",
+        "ancestor spirits",
+        "perennation",
+        "defensive patience"
+      ],
+      "required_positive_min_hits": 2,
+      "strengthens_when_user_centers": [
+        "White-centered Abzan Houses",
+        "family duty",
+        "house continuity",
+        "Kin-Trees",
+        "ancestor spirits",
+        "perennation",
+        "defensive patience",
+        "modern Dragonstorm Abzan source context"
+      ],
+      "suppress_when_user_centers": [
+        "generic WBG",
+        "generic defenders",
+        "generic toughness",
+        "generic graveyard recursion",
+        "generic counters or tokens",
+        "Dromoka clan continuity",
+        "Commander product identity",
+        "seed-file claims",
+        "manual-fill lore as proof"
+      ],
+      "false_positive_guardrail": "Do not treat support-only mechanics, Commander/operator rows, manual-fill lore, architecture prose, seed files, Dromoka's brood, or color composition alone as Abzan evidence.",
+      "broad_match_penalty": 0.12
+    },
+    "good_fit_indicators": [
+      "family, house continuity, duty, and future generations are central",
+      "ancestor guidance, Kin-Trees, or perennation appear as more than generic graveyard flavor",
+      "defensive patience, endurance, active defense, and civic refuge support the identity",
+      "Dromoka, Commander products, and generic WBG are treated as boundaries rather than identity proof"
+    ],
+    "poor_fit_indicators": [
+      "The answer depends mainly on generic WBG color identity.",
+      "The answer centers Dromoka's brood, generic graveyard value, generic toughness, or Commander product flavor.",
+      "The answer requires exact card facts, commander legality, detailed biography, minor-house hierarchy, campaign chronology, or dragonstorm ecology not promoted in ABZAN evidence rows."
+    ],
+    "inhibitor_traps": [
+      "Turns family continuity into exclusion, rigidity, political burden, or duty that outlives consent.",
+      "Do not match Abzan from WBG color composition alone.",
+      "Do not match Abzan from generic defense, toughness, counters, graveyard, lifegain, Food, poison, or proliferate alone.",
+      "Do not match Abzan from Dromoka's brood or Commander products.",
+      "Do not match Abzan from seed files that have not passed through ABZAN-EVID rows.",
+      "The answer depends mainly on generic WBG color identity.",
+      "The answer centers Dromoka's brood, generic graveyard value, generic toughness, or Commander product flavor.",
+      "The answer requires exact card facts, commander legality, detailed biography, minor-house hierarchy, campaign chronology, or dragonstorm ecology not promoted in ABZAN evidence rows."
+    ],
+    "lateral_inhibition_targets": [
+      "WB",
+      "WG",
+      "BG",
+      "BANT",
+      "NAYA",
+      "JUND",
+      "WITHERBLOOM",
+      "TEMUR",
+      "SULTAI",
+      "MARDU"
+    ],
+    "discriminator_questions": [],
+    "chatbot_guidance": {
+      "how_to_recognize_match": [
+        "VM-202 live-pilot guidance only: Abzan language should combine White-centered WBG Tarkir Abzan Houses with family, endurance, ancestor obligation, perennation, and defensive patience.",
+        "Use support-only Commander/operator patterns as vocabulary only, not as canon evidence.",
+        "Keep manual-fill topics out of the match basis."
+      ],
+      "how_to_recognize_mismatch": [
+        "Do not match Abzan from WBG color composition alone.",
+        "Do not match Abzan from generic defense, toughness, counters, graveyard, lifegain, Food, poison, or proliferate alone.",
+        "Do not match Abzan from Dromoka's brood or Commander products.",
+        "Do not match Abzan from seed files that have not passed through ABZAN-EVID rows."
+      ],
+      "questions_to_ask_when_uncertain": [],
+      "do_not_overweight": [
+        "Do not award Abzan from color composition alone.",
+        "Do not award Abzan from support-only Commander/operator rows.",
+        "Do not award Abzan from manual-fill topics.",
+        "Do not award Abzan from architecture prose as evidence."
+      ],
+      "never_claim_as_canon": [
+        "Never claim Vox Mana placement planning is official Wizards canon.",
+        "Never claim WBG is a generated expression key.",
+        "Never claim Abzan has a route, Home preview card, Maze route, schema field, public alias, or color-code runtime key from VM-202.",
+        "Never claim Dromoka's brood is Abzan Houses continuity from this packet."
+      ],
+      "review_note": "VM-202 adds one live-pilot expression key through the approved builder path only. It does not add Home preview membership, routes, Maze route keys, schema fields, fixtures, or color-code public aliases."
+    },
+    "canon_guardrails": {
+      "never_claim_as_canon": [
+        "Never claim Vox Mana placement planning is official Wizards canon.",
+        "Never claim WBG is a generated expression key.",
+        "Never claim Abzan has a route, Home preview card, Maze route, schema field, public alias, or color-code runtime key from VM-202.",
+        "Never claim Dromoka's brood is Abzan Houses continuity from this packet."
+      ]
+    }
+  },
+  "TEMUR": {
+    "name": "Temur Frontier",
+    "institution_type": "wedge",
+    "world": "Tarkir",
+    "colors": [
+      "G",
+      "U",
+      "R"
+    ],
+    "layered_identity": {
+      "core_color": "G",
+      "secondary_colors": [
+        "U",
+        "R"
+      ],
+      "secondary_color": "U",
+      "expression_key": "TEMUR",
+      "expression_name": "Temur Frontier",
+      "expression_kind": "wedge",
+      "purity": null,
+      "routing": {
+        "color_identity": "GUR",
+        "label": "Temur"
+      }
+    },
+    "tagline": "Listen to the wild. Endure the cold. Strike with earned strength.",
+    "philosophy": "Temur treats survival as relationship with terrain, instinct, memory, and the living world. Green keeps the body and land centered, Blue listens for pattern and mental fortitude, and Red acts when the signal becomes clear.",
+    "core_tension": "Temur's virtue is strength earned by listening to the living world, but that strength can harden into isolation, suspicion, or force without wisdom.",
+    "affinity": {
+      "drawn_to": [
+        "survival shaped by listening before action",
+        "instinct tempered by mental fortitude",
+        "elemental memory and ancestral wild signals",
+        "earned strength in harsh terrain"
+      ],
+      "repelled_by": [
+        "generic same-color goodstuff",
+        "Atarka Clan treated as Temur continuity",
+        "Commander products treated as Tarkir canon",
+        "Dragonstorm-era detail backfilled into Khans-era Temur"
+      ],
+      "core_question": "What signal is worth trusting when survival has no room for noise?",
+      "interview_tells": [
+        "names survival, instinct, and mental fortitude before generic mechanics",
+        "treats terrain, ancestors, and elemental memory as signals to heed",
+        "keeps modern Dragonstorm Temur timeline-labeled",
+        "guards against generic same-color, Atarka, Commander-product, and seed-file false positives"
+      ],
+      "not_to_be_confused_with": "Gruul centers Red-Green instinctive revolt; Simic centers Green-Blue adaptation; Izzet centers Blue-Red discovery; Naya centers living-world abundance; Bant centers sanctioned honor; Grixis centers survival leverage; Jund centers appetite and consequence; Abzan centers family endurance. Temur centers Green-led survival, instinct, mental fortitude, shamanic listening, and elemental memory."
+    },
+    "decree_voice": {
+      "tone": "Feral, attentive, weathered, and protective without becoming generic dragon/ramp shorthand.",
+      "speaks_like": "A clan that waits for stone, ice, blood, and storm to answer before the strike lands.",
+      "example_opening": "The reading turns toward harsh terrain, living memory, and the instinct that listens before it moves.",
+      "example_decree": "The reading turns toward harsh terrain, living memory, and the instinct that listens before it moves. Temur does not ask strength to be noise. It asks which signal the wild has already given you."
+    },
+    "biological_expression": {
+      "archetype": "The Elemental Survivor",
+      "primary_foundation": "Sanctity",
+      "secondary_foundation": "Liberty",
+      "risk_signal": "medium instinct-attunement risk",
+      "inhibitor_trigger": "Treats survival as suspicion, isolation, or raw force when the terrain, memory, and living signal ask to be heard first."
+    },
+    "placement_axes": {
+      "required_positive_evidence_terms": [
+        "Temur Frontier",
+        "Tarkir",
+        "GUR",
+        "Green-centered",
+        "savagery",
+        "instinct",
+        "mental fortitude",
+        "Qal Sisma",
+        "whisperers",
+        "Wide Whisper",
+        "frozen ancestors",
+        "elemental memory",
+        "Endless Song"
+      ],
+      "required_positive_min_hits": 2,
+      "strengthens_when_user_centers": [
+        "Green-centered Temur Frontier",
+        "Qal Sisma survival",
+        "inner strength",
+        "mental fortitude",
+        "instinct",
+        "whisperers",
+        "Wide Whisper",
+        "frozen ancestors",
+        "elemental memory",
+        "modern Dragonstorm Temur source context"
+      ],
+      "suppress_when_user_centers": [
+        "generic GUR",
+        "generic dragons",
+        "generic ramp",
+        "generic copying",
+        "generic energy or artifacts",
+        "Atarka Clan continuity",
+        "Commander product identity",
+        "Dragonstorm backfill into Khans-era Temur",
+        "seed-file claims",
+        "manual-fill lore as proof"
+      ],
+      "false_positive_guardrail": "Do not treat support-only mechanics, Commander/operator rows, manual-fill lore, architecture prose, seed files, Atarka Clan, Dragonstorm backfill, or color composition alone as Temur evidence.",
+      "broad_match_penalty": 0.12
+    },
+    "good_fit_indicators": [
+      "survival, instinct, mental fortitude, and Green-centered Temur identity are central",
+      "Qal Sisma, nomadic family groups, whisperers, frozen ancestors, Wide Whisper, or elemental memory appear as more than generic wildness",
+      "modern Dragonstorm-era material is clearly timeline-labeled",
+      "Atarka Clan, Commander products, generic GUR, and seed files are treated as boundaries rather than identity proof"
+    ],
+    "poor_fit_indicators": [
+      "The answer depends mainly on generic GUR color identity.",
+      "The answer centers generic dragon/ramp/copy play, Atarka Clan, or Commander product flavor.",
+      "The answer requires exact card facts, Commander legality, detailed biography, exact Endless Song mechanics, detailed governance, or dragon diplomacy not promoted in TEMUR evidence rows."
+    ],
+    "inhibitor_traps": [
+      "Treats survival as suspicion, isolation, or raw force when the terrain, memory, and living signal ask to be heard first.",
+      "Do not match Temur from GUR color composition alone.",
+      "Do not match Temur from generic dragon, ramp, copying, energy, artifact, counter, or X-spell play alone.",
+      "Do not match Temur from Atarka Clan continuity, Commander products, or seed files.",
+      "Do not use modern Dragonstorm-era details as Khans-era proof.",
+      "The answer depends mainly on generic GUR color identity.",
+      "The answer centers generic dragon/ramp/copy play, Atarka Clan, or Commander product flavor.",
+      "The answer requires exact card facts, Commander legality, detailed biography, exact Endless Song mechanics, detailed governance, or dragon diplomacy not promoted in TEMUR evidence rows."
+    ],
+    "lateral_inhibition_targets": [
+      "RG",
+      "UG",
+      "UR",
+      "NAYA",
+      "BANT",
+      "GRIXIS",
+      "JUND",
+      "ABZAN",
+      "SULTAI",
+      "MARDU"
+    ],
+    "discriminator_questions": [],
+    "chatbot_guidance": {
+      "how_to_recognize_match": [
+        "VM-208 live-pilot guidance: Temur language should combine Green-centered GUR Tarkir Temur Frontier with survival, instinct, mental fortitude, shamanic listening, and elemental memory.",
+        "Use support-only Commander/operator patterns as vocabulary only, not as canon evidence.",
+        "Keep manual-fill topics out of the match basis."
+      ],
+      "how_to_recognize_mismatch": [
+        "Do not match Temur from GUR color composition alone.",
+        "Do not match Temur from generic dragon, ramp, copying, energy, artifact, counter, or X-spell play alone.",
+        "Do not match Temur from Atarka Clan continuity, Commander products, or seed files.",
+        "Do not use modern Dragonstorm-era details as Khans-era proof."
+      ],
+      "questions_to_ask_when_uncertain": [],
+      "do_not_overweight": [
+        "Do not award Temur from color composition alone.",
+        "Do not award Temur from support-only Commander/operator rows.",
+        "Do not award Temur from manual-fill topics.",
+        "Do not award Temur from architecture prose as evidence."
+      ],
+      "never_claim_as_canon": [
+        "Never claim Vox Mana placement planning is official Wizards canon.",
+        "Never claim GUR is a generated expression key.",
+        "Never claim Temur has a public navigation entry, schema field, hosted database source, fixture, or runtime alias from VM-208.",
+        "Never claim Atarka Clan is Temur Frontier continuity from this packet.",
+        "Never claim modern Dragonstorm Temur details are Khans-era facts without direct evidence."
+      ],
+      "review_note": "VM-208 enables Temur through the approved builder path only. GUR remains metadata/query-only and TEMUR is the only live expression key."
+    },
+    "canon_guardrails": {
+      "never_claim_as_canon": [
+        "Never claim Vox Mana placement planning is official Wizards canon.",
+        "Never claim GUR is a generated expression key.",
+        "Never claim Temur has a public navigation entry, schema field, hosted database source, fixture, or runtime alias from VM-208.",
+        "Never claim Atarka Clan is Temur Frontier continuity from this packet.",
+        "Never claim modern Dragonstorm Temur details are Khans-era facts without direct evidence."
+      ]
+    }
+  },
+  "SULTAI": {
+    "name": "Sultai Brood",
+    "institution_type": "wedge",
+    "world": "Tarkir",
+    "colors": [
+      "B",
+      "G",
+      "U"
+    ],
+    "layered_identity": {
+      "core_color": "B",
+      "secondary_colors": [
+        "G",
+        "U"
+      ],
+      "secondary_color": "G",
+      "expression_key": "SULTAI",
+      "expression_name": "Sultai Brood",
+      "expression_kind": "wedge",
+      "purity": null,
+      "routing": {
+        "color_identity": "BGU",
+        "label": "Sultai"
+      }
+    },
+    "tagline": "Turn opportunity into power. Keep the dead useful. Leave no advantage unclaimed.",
+    "philosophy": "Sultai treats opportunity as material for power. Black keeps ambition and cost at the center, Green supplies bodies, death, land, poison, and renewal as resources, and Blue makes the conversion selective, secretive, and planned.",
+    "core_tension": "Sultai's virtue is seeing every cost, secret, body, and opportunity as usable material, but that conversion can become domination when ambition and calculation overrule restraint.",
+    "affinity": {
+      "drawn_to": [
+        "ruthless opportunity before public approval",
+        "graveyard and resource conversion",
+        "necromantic utility kept source-bound",
+        "calculated advantage from secrets, bodies, and costs"
+      ],
+      "repelled_by": [
+        "generic BGU goodstuff",
+        "Silumgar clan treated as Sultai Brood continuity",
+        "modern Dragonstorm detail backfilled into Khans-era Sultai",
+        "Commander products, seed files, or color philosophy treated as Tarkir canon"
+      ],
+      "core_question": "What advantage is worth claiming before anyone else sees what it can become?",
+      "interview_tells": [
+        "names ruthlessness, opportunity, and resource conversion before generic mechanics",
+        "treats the dead, secrets, and costs as usable material with clear boundaries",
+        "keeps Silumgar and Dragonstorm material timeline-labeled",
+        "guards against generic BGU, Commander-product, seed-file, and color-philosophy false positives"
+      ],
+      "not_to_be_confused_with": "Dimir centers Blue-Black hidden information; Golgari centers Black-Green life/death ecology; Simic centers Green-Blue adaptation; Abzan centers family endurance; Temur centers survival attunement; Grixis centers survival leverage; Jund centers appetite and consequence; Witherbloom centers vitality ecology. Sultai centers Black-led ruthless opportunity, necromancy, calculated resource conversion, and strict Tarkir timeline boundaries."
+    },
+    "decree_voice": {
+      "tone": "Ruthless, courtly, death-aware, and calculating without becoming generic graveyard or theft shorthand.",
+      "speaks_like": "A court that sees every body, secret, cost, and opening as material for power before anyone else recognizes its value.",
+      "example_opening": "The reading turns toward ruthless opportunity, useful death, and the advantage waiting inside what others refuse to claim.",
+      "example_decree": "The reading turns toward ruthless opportunity, useful death, and the advantage waiting inside what others refuse to claim. Sultai does not ask power to be clean. It asks what can still be converted before the moment is wasted."
+    },
+    "biological_expression": {
+      "archetype": "The Ruthless Resource Converter",
+      "primary_foundation": "Liberty",
+      "secondary_foundation": "Authority",
+      "risk_signal": "high resource-conversion risk",
+      "inhibitor_trigger": "Refuses to use available bodies, secrets, costs, or openings when survival asks for calculated conversion before the advantage is wasted."
+    },
+    "placement_axes": {
+      "required_positive_evidence_terms": [
+        "Sultai Brood",
+        "Tarkir",
+        "BGU",
+        "Black-centered",
+        "ruthlessness",
+        "resource conversion",
+        "necromancy",
+        "sibsig",
+        "rakshasa pacts",
+        "Queen Sidisi",
+        "Silumgar boundary",
+        "Modern Dragonstorm Sultai"
+      ],
+      "required_positive_min_hits": 2,
+      "strengthens_when_user_centers": [
+        "Black-centered Sultai Brood",
+        "ruthlessness",
+        "resource conversion",
+        "necromancy",
+        "sibsig labor",
+        "rakshasa pacts",
+        "Queen Sidisi",
+        "Silumgar boundary",
+        "modern Dragonstorm Sultai source context"
+      ],
+      "suppress_when_user_centers": [
+        "generic BGU",
+        "generic graveyard value",
+        "generic theft or exile-casting",
+        "generic mill",
+        "generic morph",
+        "generic mutate",
+        "Silumgar clan continuity",
+        "Commander product identity",
+        "Dragonstorm backfill into Khans-era Sultai",
+        "seed-file claims",
+        "manual-fill lore as proof",
+        "color philosophy as Tarkir proof"
+      ],
+      "false_positive_guardrail": "Do not treat support-only mechanics, Commander/operator rows, manual-fill lore, architecture prose, seed files, Silumgar clan, Dragonstorm backfill, color-pair philosophy, or color composition alone as Sultai evidence.",
+      "broad_match_penalty": 0.12
+    },
+    "good_fit_indicators": [
+      "ruthlessness, resource conversion, necromancy, and Black-centered Sultai identity are central",
+      "Sidisi, sibsig, rakshasa pacts, naga hierarchy, or Khans-era Sultai locations appear as more than generic graveyard or villain language",
+      "Silumgar and modern Dragonstorm-era material are clearly timeline-labeled",
+      "Commander products, generic BGU, color-pair philosophy files, and seed files are treated as boundaries rather than identity proof"
+    ],
+    "poor_fit_indicators": [
+      "The answer depends mainly on generic BGU color identity.",
+      "The answer centers generic graveyard goodstuff, theft decks, mill, morph, mutate, or Commander product flavor.",
+      "The answer requires exact card facts, Commander legality, detailed biography, exact delve or exploit mechanics, or exact Dragonstorm chronology not promoted in SULTAI evidence rows."
+    ],
+    "inhibitor_traps": [
+      "Refuses to use available bodies, secrets, costs, or openings when survival asks for calculated conversion before the advantage is wasted.",
+      "Do not match Sultai from BGU color composition alone.",
+      "Do not match Sultai from generic graveyard, theft, mill, morph, mutate, or Commander value alone.",
+      "Do not match Sultai from Silumgar continuity, Commander products, color-pair philosophy files, or seed files.",
+      "Do not use modern Dragonstorm-era details as Khans-era proof.",
+      "The answer depends mainly on generic BGU color identity.",
+      "The answer centers generic graveyard goodstuff, theft decks, mill, morph, mutate, or Commander product flavor.",
+      "The answer requires exact card facts, Commander legality, detailed biography, exact delve or exploit mechanics, or exact Dragonstorm chronology not promoted in SULTAI evidence rows."
+    ],
+    "lateral_inhibition_targets": [
+      "UB",
+      "BG",
+      "UG",
+      "GRIXIS",
+      "JUND",
+      "BANT",
+      "ABZAN",
+      "TEMUR",
+      "WITHERBLOOM",
+      "MARDU"
+    ],
+    "discriminator_questions": [],
+    "chatbot_guidance": {
+      "how_to_recognize_match": [
+        "VM-214 live-pilot guidance: Sultai language should combine Black-centered BGU Tarkir Sultai Brood with ruthlessness, resource conversion, necromancy, Sidisi-era ambition, and strict timeline boundaries.",
+        "Use support-only Commander/operator patterns as vocabulary only, not as canon evidence.",
+        "Keep manual-fill topics out of the match basis."
+      ],
+      "how_to_recognize_mismatch": [
+        "Do not match Sultai from BGU color composition alone.",
+        "Do not match Sultai from generic graveyard, theft, mill, morph, mutate, or Commander value alone.",
+        "Do not match Sultai from Silumgar continuity, Commander products, color-pair philosophy files, or seed files.",
+        "Do not use modern Dragonstorm-era details as Khans-era proof."
+      ],
+      "questions_to_ask_when_uncertain": [],
+      "do_not_overweight": [
+        "Do not award Sultai from color composition alone.",
+        "Do not award Sultai from support-only Commander/operator rows.",
+        "Do not award Sultai from manual-fill topics.",
+        "Do not award Sultai from architecture prose as evidence."
+      ],
+      "never_claim_as_canon": [
+        "Never claim Vox Mana placement planning is official Wizards canon.",
+        "Never claim BGU is a generated expression key.",
+        "Never claim Sultai has a public navigation entry, schema field, hosted database source, fixture, or runtime alias from VM-212.",
+        "Never claim Silumgar clan is Sultai Brood continuity from this packet.",
+        "Never claim modern Dragonstorm Sultai details are Khans-era facts without direct evidence."
+      ],
+      "review_note": "VM-214 enables SULTAI as the single live placement key. BGU and color-order permutations remain metadata/query-only."
+    },
+    "canon_guardrails": {
+      "never_claim_as_canon": [
+        "Never claim Vox Mana placement planning is official Wizards canon.",
+        "Never claim BGU is a generated expression key.",
+        "Never claim Sultai has a public navigation entry, schema field, hosted database source, fixture, or runtime alias from VM-212.",
+        "Never claim Silumgar clan is Sultai Brood continuity from this packet.",
+        "Never claim modern Dragonstorm Sultai details are Khans-era facts without direct evidence."
+      ]
+    }
+  },
+  "MARDU": {
+    "name": "Mardu Horde",
+    "institution_type": "wedge",
+    "world": "Tarkir",
+    "colors": [
+      "R",
+      "W",
+      "B"
+    ],
+    "layered_identity": {
+      "core_color": "R",
+      "secondary_colors": [
+        "W",
+        "B"
+      ],
+      "secondary_color": "W",
+      "expression_key": "MARDU",
+      "expression_name": "Mardu Horde",
+      "expression_kind": "wedge",
+      "purity": null,
+      "routing": {
+        "color_identity": "RWB",
+        "label": "Mardu"
+      }
+    },
+    "tagline": "Strike with the Horde. Keep the war name. Take the opening before it closes.",
+    "philosophy": "Mardu treats identity as action under pressure. Red supplies speed, attack, and total commitment; White gives the charge formation, oath, and martial order; Black makes opportunity, survival, and ruthless advantage impossible to ignore.",
+    "core_tension": "Mardu's virtue is decisive action bound to a war code, but that speed can become conquest, overextension, or cruelty when commitment outruns the oath that gives it shape.",
+    "affinity": {
+      "drawn_to": [
+        "speed and total commitment",
+        "war names, oaths, and martial formation",
+        "the opening that must be taken now",
+        "ruthless advantage bound to Horde code"
+      ],
+      "repelled_by": [
+        "generic RWB or WBR goodstuff",
+        "Kolaghan clan treated as Khans-era Mardu continuity",
+        "Dragonstorm material backfilled into Khans-era doctrine",
+        "Commander products, seed files, or exact mechanics treated as Tarkir canon"
+      ],
+      "core_question": "What opening is worth taking before the charge loses its name?",
+      "interview_tells": [
+        "names speed, attack, and total commitment before generic mechanics",
+        "treats formation, oath, and war names as the shape that keeps action from becoming noise",
+        "keeps Alesha, Kolaghan, and Dragonstorm material timeline-labeled",
+        "guards against generic RWB/WBR, Commander-product, seed-file, and color-philosophy false positives"
+      ],
+      "not_to_be_confused_with": "Boros centers Red-White intervention; Orzhov centers White-Black obligation; Rakdos centers Red-Black appetite and spectacle; Abzan centers family endurance; Temur centers survival attunement; Sultai centers ruthless resource conversion; Naya and Jund share pressure textures without Mardu's Horde code. Mardu centers Red-led speed, martial oath, war names, coordinated attack, and ruthless opportunity."
+    },
+    "decree_voice": {
+      "tone": "Fast, martial, oath-bound, and dangerous without becoming generic aggression or same-color shorthand.",
+      "speaks_like": "A war band that names the charge before the opening closes and expects every rider to keep pace.",
+      "example_opening": "The reading turns toward speed, oath, and the opening that must be taken before hesitation breaks the charge.",
+      "example_decree": "The reading turns toward speed, oath, and the opening that must be taken before hesitation breaks the charge. Mardu does not ask action to wait for comfort. It asks whether the war name can survive the cost of moving now."
+    },
+    "biological_expression": {
+      "archetype": "The Oathbound Raider",
+      "primary_foundation": "Liberty",
+      "secondary_foundation": "Authority",
+      "risk_signal": "high martial-commitment risk",
+      "inhibitor_trigger": "Waits for permission, comfort, or perfect safety when the honest opening asks for decisive action under a code."
+    },
+    "placement_axes": {
+      "required_positive_evidence_terms": [
+        "Mardu Horde",
+        "Tarkir",
+        "RWB",
+        "WBR",
+        "Red-centered",
+        "speed",
+        "war names",
+        "Edicts of Ilagra",
+        "total commitment",
+        "Zurgo",
+        "Wingthrone",
+        "Alesha bridge",
+        "Kolaghan boundary",
+        "Modern Dragonstorm Mardu"
+      ],
+      "required_positive_min_hits": 2,
+      "strengthens_when_user_centers": [
+        "Red-centered Mardu Horde",
+        "speed",
+        "total commitment",
+        "war names",
+        "Edicts of Ilagra",
+        "Zurgo-era Mardu",
+        "Alesha bridge",
+        "Kolaghan boundary",
+        "modern Dragonstorm Mardu source context"
+      ],
+      "suppress_when_user_centers": [
+        "generic RWB",
+        "generic WBR",
+        "generic aggro",
+        "generic sacrifice or tokens",
+        "generic Commander goodstuff",
+        "Kolaghan clan continuity",
+        "Dragonstorm backfill into Khans-era Mardu",
+        "seed-file claims",
+        "manual-fill lore as proof",
+        "color philosophy as Tarkir proof"
+      ],
+      "false_positive_guardrail": "Do not treat support-only mechanics, Commander/operator rows, manual-fill lore, architecture prose, seed files, Kolaghan clan, Dragonstorm backfill, color-pair philosophy, or color composition alone as Mardu evidence.",
+      "broad_match_penalty": 0.12
+    },
+    "good_fit_indicators": [],
+    "poor_fit_indicators": [
+      "The candidate is only RWB/WBR color identity.",
+      "The candidate is only Commander goodstuff or exact-color product identity.",
+      "The candidate treats Kolaghan or modern Dragonstorm material as Khans-era Mardu.",
+      "The candidate relies on exact raid, dash, or mobilize claims without card-data validation.",
+      "The candidate relies on seed files, color-pair philosophy, or architecture prose as proof."
+    ],
+    "inhibitor_traps": [
+      "Waits for permission, comfort, or perfect safety when the honest opening asks for decisive action under a code.",
+      "The candidate is only RWB/WBR color identity.",
+      "The candidate is only Commander goodstuff or exact-color product identity.",
+      "The candidate treats Kolaghan or modern Dragonstorm material as Khans-era Mardu.",
+      "The candidate relies on exact raid, dash, or mobilize claims without card-data validation.",
+      "The candidate relies on seed files, color-pair philosophy, or architecture prose as proof."
+    ],
+    "lateral_inhibition_targets": [
+      "WR",
+      "WB",
+      "BR",
+      "NAYA",
+      "JUND",
+      "ABZAN",
+      "TEMUR",
+      "SULTAI"
+    ],
+    "discriminator_questions": [
+      {
+        "id": "mardu_discriminator_0001",
+        "prompt": "Is the signal about immediate, war-bound action rather than long endurance, institutional technique, hidden resource conversion, or survival through attunement?",
+        "purpose": "",
+        "supports": "",
+        "weakens": "",
+        "collision_targets": [],
+        "evidence_claim_ids": [
+          "mardu_claim_0002",
+          "mardu_claim_0003",
+          "mardu_claim_0010"
+        ],
+        "confidence": "Medium"
+      },
+      {
+        "id": "mardu_discriminator_0002",
+        "prompt": "Does the candidate include a positive Mardu evidence cluster beyond RWB/WBR color identity or Commander support texture?",
+        "purpose": "",
+        "supports": "",
+        "weakens": "",
+        "collision_targets": [],
+        "evidence_claim_ids": [
+          "mardu_claim_0001",
+          "mardu_claim_0009",
+          "mardu_claim_0010"
+        ],
+        "confidence": "Medium"
+      },
+      {
+        "id": "mardu_discriminator_0003",
+        "prompt": "Are Alesha, Kolaghan, and Dragonstorm references held inside their timeline boundaries?",
+        "purpose": "",
+        "supports": "",
+        "weakens": "",
+        "collision_targets": [],
+        "evidence_claim_ids": [
+          "mardu_claim_0005",
+          "mardu_claim_0006",
+          "mardu_claim_0007",
+          "mardu_claim_0008"
+        ],
+        "confidence": "Medium"
+      }
+    ],
+    "chatbot_guidance": {
+      "use_when": [
+        "A user asks for speed, decisive action, martial code, war-name identity, total commitment, raiding motion, or Mardu-specific Tarkir flavor.",
+        "A user distinguishes Mardu from generic Commander products or adjacent color-pair patterns.",
+        "A user wants timeline-labeled Tarkir clan identity rather than generic RWB/WBR play patterns."
+      ],
+      "avoid_when": [
+        "The user only mentions RWB/WBR color identity.",
+        "The user centers Commander legality, exact decklists, or product facts.",
+        "The user asks for exact raid, dash, or mobilize rules without later card-data validation.",
+        "The user centers Kolaghan continuity, Dragonstorm backfill, or seed-file claims as proof."
+      ],
+      "claim_ids": [
+        "mardu_claim_0001",
+        "mardu_claim_0002",
+        "mardu_claim_0009",
+        "mardu_claim_0010"
+      ]
+    },
+    "canon_guardrails": {
+      "never_claim_as_canon": [
+        "Psychological placement categories are Vox Mana interpretation, not official Wizards canon.",
+        "Do not state that a user's personality is objectively determined by a faction."
+      ]
+    }
+  },
+  "JESKAI": {
+    "name": "Jeskai Way",
+    "institution_type": "wedge",
+    "world": "Tarkir",
+    "colors": [
+      "U",
+      "R",
+      "W"
+    ],
+    "layered_identity": {
+      "core_color": "U",
+      "secondary_colors": [
+        "R",
+        "W"
+      ],
+      "secondary_color": "R",
+      "expression_key": "JESKAI",
+      "expression_name": "Jeskai Way",
+      "expression_kind": "wedge",
+      "purity": null,
+      "routing": {
+        "color_identity": "URW",
+        "label": "Jeskai"
+      }
+    },
+    "tagline": "Know the line. Train the body. Move when insight is ready.",
+    "philosophy": "Jeskai treats action as something that should be trained before it is released. Blue keeps knowledge, perfection, and cunning centered; Red gives insight the courage to move; White gives that motion form, restraint, and responsibility to the people it touches.",
+    "core_tension": "Jeskai's virtue is trained insight moving with precision, courage, compassion, and restraint, but that discipline can become empty delay when practice forgets the moment it was meant to serve.",
+    "affinity": {
+      "drawn_to": [
+        "knowledge turned into trained action",
+        "martial discipline with compassion and restraint",
+        "monastery practice, breath, timing, and precision",
+        "cunning that protects the shape of the move"
+      ],
+      "repelled_by": [
+        "generic blue-red-white goodstuff",
+        "Ojutai treated as direct Jeskai Way continuity",
+        "modern revival details backfilled into Khans-era doctrine",
+        "Commander products, seed files, or exact mechanics treated as Tarkir lore"
+      ],
+      "core_question": "What insight is worth training until it can move without losing its form?",
+      "interview_tells": [
+        "names discipline, study, martial practice, and cunning before generic spells",
+        "wants action to be precise, courageous, and accountable rather than merely fast",
+        "keeps Narset, Shu Yun, Ojutai, and modern revival material timeline-labeled",
+        "guards against generic color-code, Commander-product, seed-file, and mechanics false positives"
+      ],
+      "not_to_be_confused_with": "Izzet centers Blue-Red experiment and spark; Azorius centers White-Blue procedure; Boros centers Red-White intervention; Temur centers survival attunement; Mardu centers speed under a war code; Sultai centers ruthless resource conversion. Jeskai centers Blue-led disciplined cunning, trained action, martial practice, and strict Tarkir timeline boundaries."
+    },
+    "decree_voice": {
+      "tone": "Precise, disciplined, reflective, and swift without becoming generic spellslinger shorthand.",
+      "speaks_like": "A monastery that trains perception until the body can answer with courage, compassion, and control.",
+      "example_opening": "The reading turns toward disciplined insight, trained motion, and the line that action should not cross until it understands itself.",
+      "example_decree": "The reading turns toward disciplined insight, trained motion, and the line that action should not cross until it understands itself. Jeskai does not ask action to become slow. It asks motion to be worthy of the knowledge that guides it."
+    },
+    "biological_expression": {
+      "archetype": "The Disciplined Cunning Adept",
+      "primary_foundation": "Fairness",
+      "secondary_foundation": "Authority",
+      "risk_signal": "medium disciplined-action risk",
+      "inhibitor_trigger": "Mistakes practice, restraint, or study for the whole answer when trained insight is asking to move."
+    },
+    "placement_axes": {
+      "required_positive_evidence_terms": [],
+      "required_positive_min_hits": 2,
+      "strengthens_when_user_centers": [],
+      "suppress_when_user_centers": [],
+      "false_positive_guardrail": "",
+      "broad_match_penalty": 0.12
+    },
+    "good_fit_indicators": [],
+    "poor_fit_indicators": [
+      "The candidate is only URW/WUR/RWU/UWR/RUW/WRU color identity.",
+      "The candidate is only Commander goodstuff or exact-color product identity.",
+      "The candidate treats Ojutai or modern Dragonstorm material as Khans-era Jeskai.",
+      "The candidate relies on exact prowess or named mechanics without card-data validation.",
+      "The candidate relies on seed files, generated HTML, color-pair philosophy, or architecture prose as proof."
+    ],
+    "inhibitor_traps": [
+      "Mistakes practice, restraint, or study for the whole answer when trained insight is asking to move.",
+      "The candidate is only URW/WUR/RWU/UWR/RUW/WRU color identity.",
+      "The candidate is only Commander goodstuff or exact-color product identity.",
+      "The candidate treats Ojutai or modern Dragonstorm material as Khans-era Jeskai.",
+      "The candidate relies on exact prowess or named mechanics without card-data validation.",
+      "The candidate relies on seed files, generated HTML, color-pair philosophy, or architecture prose as proof."
+    ],
+    "lateral_inhibition_targets": [
+      "WU",
+      "UR",
+      "WR",
+      "BANT",
+      "ESPER",
+      "GRIXIS",
+      "NAYA",
+      "TEMUR",
+      "MARDU",
+      "SULTAI"
+    ],
+    "discriminator_questions": [
+      {
+        "id": "jeskai_discriminator_0001",
+        "prompt": "Is the signal about disciplined cunning and trained insight rather than generic spellslinger play, color identity, or Commander support texture?",
+        "purpose": "",
+        "supports": "",
+        "weakens": "",
+        "collision_targets": [],
+        "evidence_claim_ids": [
+          "jeskai_claim_0002",
+          "jeskai_claim_0003",
+          "jeskai_claim_0010"
+        ],
+        "confidence": "Medium"
+      },
+      {
+        "id": "jeskai_discriminator_0002",
+        "prompt": "Does the candidate include a positive Jeskai evidence cluster beyond URW/WUR/RWU/UWR/RUW/WRU color identity?",
+        "purpose": "",
+        "supports": "",
+        "weakens": "",
+        "collision_targets": [],
+        "evidence_claim_ids": [
+          "jeskai_claim_0001",
+          "jeskai_claim_0004",
+          "jeskai_claim_0010"
+        ],
+        "confidence": "Medium"
+      },
+      {
+        "id": "jeskai_discriminator_0003",
+        "prompt": "Are Narset, Shu Yun, Ojutai, and Dragonstorm references held inside their timeline boundaries?",
+        "purpose": "",
+        "supports": "",
+        "weakens": "",
+        "collision_targets": [],
+        "evidence_claim_ids": [
+          "jeskai_claim_0006",
+          "jeskai_claim_0007",
+          "jeskai_claim_0008",
+          "jeskai_claim_0009"
+        ],
+        "confidence": "Medium"
+      }
+    ],
+    "chatbot_guidance": {
+      "use_when": [
+        "A user asks for discipline, cunning, martial training, Blue-led perfection, restrained action, monastery practice, or Jeskai-specific Tarkir flavor.",
+        "A user distinguishes Jeskai Way from generic Commander products or adjacent color-pair patterns.",
+        "A user wants timeline-labeled Tarkir clan identity rather than generic URW/WUR/RWU/UWR/RUW/WRU play patterns."
+      ],
+      "avoid_when": [
+        "The user only mentions color-code identity.",
+        "The user centers Commander legality, exact decklists, or product facts.",
+        "The user asks for exact prowess or named mechanics without later card-data validation.",
+        "The user centers Ojutai continuity, Dragonstorm backfill, or seed-file claims as proof."
+      ],
+      "claim_ids": [
+        "jeskai_claim_0001",
+        "jeskai_claim_0002",
+        "jeskai_claim_0008",
+        "jeskai_claim_0010"
+      ]
+    },
+    "canon_guardrails": {
+      "never_claim_as_canon": [
+        "Psychological placement categories are Vox Mana interpretation, not official Wizards canon.",
+        "Do not state that a user's personality is objectively determined by a faction."
       ]
     }
   },
@@ -1654,7 +2572,9 @@ export const FACTION_CONTEXT = {
       "WITHERBLOOM",
       "WG",
       "WB",
-      "JUND"
+      "JUND",
+      "ABZAN",
+      "SULTAI"
     ],
     "discriminator_questions": [
       {
@@ -1854,6 +2774,7 @@ export const FACTION_CONTEXT = {
       "WG",
       "WITHERBLOOM",
       "JUND",
+      "TEMUR",
       "BG",
       "LOREHOLD"
     ],
@@ -2131,6 +3052,7 @@ export const FACTION_CONTEXT = {
       "UG",
       "ESPER",
       "GRIXIS",
+      "SULTAI",
       "SILVERQUILL"
     ],
     "discriminator_questions": [
@@ -2366,7 +3288,8 @@ export const FACTION_CONTEXT = {
       "PRISMARI",
       "QUANDRIX",
       "UG",
-      "GRIXIS"
+      "GRIXIS",
+      "TEMUR"
     ],
     "discriminator_questions": [
       {
@@ -2946,7 +3869,9 @@ export const FACTION_CONTEXT = {
       "WU",
       "UB",
       "SILVERQUILL",
-      "ESPER"
+      "ESPER",
+      "ABZAN",
+      "MARDU"
     ],
     "discriminator_questions": [
       {
@@ -3553,7 +4478,8 @@ export const FACTION_CONTEXT = {
     "lateral_inhibition_targets": [
       "WU",
       "WR",
-      "WITHERBLOOM"
+      "WITHERBLOOM",
+      "ABZAN"
     ],
     "discriminator_questions": [
       {
@@ -3980,7 +4906,9 @@ export const FACTION_CONTEXT = {
     "lateral_inhibition_targets": [
       "QUANDRIX",
       "UR",
-      "WITHERBLOOM"
+      "WITHERBLOOM",
+      "TEMUR",
+      "SULTAI"
     ],
     "discriminator_questions": [
       {
@@ -4195,7 +5123,9 @@ export const FACTION_CONTEXT = {
       "BG",
       "UG",
       "WG",
-      "JUND"
+      "JUND",
+      "ABZAN",
+      "SULTAI"
     ],
     "discriminator_questions": [
       {
@@ -5174,7 +6104,7 @@ export const PLACEMENT_MODEL_META = {
   "result_version": "2026-05-10",
   "source": "data/raw-factions plus data/factions.json display surface",
   "framing": "Biological expression placement model; Vox Mana interpretive taxonomy, not official canon.",
-  "faction_count": 25,
+  "faction_count": 30,
   "identity_layer_version": "2026-05-27",
   "active_expression_keys": [
     "WU",
@@ -5185,6 +6115,11 @@ export const PLACEMENT_MODEL_META = {
     "GRIXIS",
     "JUND",
     "NAYA",
+    "ABZAN",
+    "TEMUR",
+    "SULTAI",
+    "MARDU",
+    "JESKAI",
     "BG",
     "RG",
     "UB",

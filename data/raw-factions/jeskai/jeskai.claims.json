@@ -1,0 +1,229 @@
+{
+  "schema_version": "1.0.0",
+  "faction_id": "jeskai",
+  "faction_name": "Jeskai Way",
+  "source_review_date": "2026-05-31",
+  "last_updated": "2026-05-31",
+  "claim_count": 10,
+  "claims": [
+    {
+      "claim_id": "jeskai_claim_0001",
+      "faction_id": "jeskai",
+      "claim_type": "identity_lifecycle_boundary",
+      "statement": "Jeskai Way is the blue-red-white Tarkir wedge identity using JESKAI as a future/planned expression name only, while URW, WUR, RWU, UWR, RUW, and WRU remain metadata/query-only and JESKAI remains source-authored, review-gated, and non-live in VM-232.",
+      "canon_status": "Source-supported identity with lifecycle boundary",
+      "source_ids": [
+        "src_vm_jeskai_evidence_ledger_20260531",
+        "src_wotc_rosewater_jeskai_smart_thinking"
+      ],
+      "evidence_rows": [
+        "JESKAI-EVID-001",
+        "JESKAI-EVID-022"
+      ],
+      "confidence": "High",
+      "notes": "JESKAI is not a live key, alias, placement key, generated key, route key, fixture key, lookup key, Home preview key, Maze key, Supabase key, schema key, or public interface."
+    },
+    {
+      "claim_id": "jeskai_claim_0002",
+      "faction_id": "jeskai",
+      "claim_type": "color_design_identity",
+      "statement": "Jeskai design identity has Blue as its center through perfection, knowledge, tools, discipline, and self-improvement, with Red adding action and White adding peace, order, structure, and shared form.",
+      "canon_status": "Official design commentary",
+      "source_ids": [
+        "src_vm_jeskai_evidence_ledger_20260531",
+        "src_wotc_rosewater_jeskai_smart_thinking"
+      ],
+      "evidence_rows": [
+        "JESKAI-EVID-002"
+      ],
+      "confidence": "High",
+      "notes": "Use for high-level color design and identity framing only. It does not prove Tarkir-specific lore without the Tarkir rows."
+    },
+    {
+      "claim_id": "jeskai_claim_0003",
+      "faction_id": "jeskai",
+      "claim_type": "cunning_design_attribute",
+      "statement": "Cunning is Jeskai's wedge attribute and broad design vocabulary, expressed through knowledge, preparation, tricks, spell interaction, tempo, protection, and prowess-like design texture.",
+      "canon_status": "Official design commentary",
+      "source_ids": [
+        "src_vm_jeskai_evidence_ledger_20260531",
+        "src_wotc_rosewater_jeskai_smart_thinking"
+      ],
+      "evidence_rows": [
+        "JESKAI-EVID-003"
+      ],
+      "confidence": "High",
+      "notes": "Use for design-level cunning language. Exact prowess rules text, card prevalence, and specific mechanics remain deferred until later validation."
+    },
+    {
+      "claim_id": "jeskai_claim_0004",
+      "faction_id": "jeskai",
+      "claim_type": "khans_lore_identity",
+      "statement": "Khans-era Jeskai Way includes monks and sages in lake-top monasteries, martial artists, mystics, wandering warriors, mystical arts, reverence for dragon cunning, discipline, enlightenment, honor, respect, industriousness, and tradition.",
+      "canon_status": "Official Tarkir lore capture",
+      "source_ids": [
+        "src_vm_jeskai_evidence_ledger_20260531",
+        "src_wotc_tarkir_khans_pg_part_1"
+      ],
+      "evidence_rows": [
+        "JESKAI-EVID-004",
+        "JESKAI-EVID-005",
+        "JESKAI-EVID-006"
+      ],
+      "confidence": "High",
+      "notes": "Use for Khans-era Jeskai Way society and value floor. Do not backfill Ojutai or modern Dragonstorm structure into this identity."
+    },
+    {
+      "claim_id": "jeskai_claim_0005",
+      "faction_id": "jeskai",
+      "claim_type": "khans_structure_anchor",
+      "statement": "Khans-era Jeskai source rows support fire-language magical practice including bloodfire, broader fire terms, strongholds and minor holds, elders, schools, the Annals, the Rules of Reeds, and the three major Ways of artisan, mystic, and wandering warrior.",
+      "canon_status": "Official Tarkir lore capture with deferred systems",
+      "source_ids": [
+        "src_vm_jeskai_evidence_ledger_20260531",
+        "src_wotc_tarkir_khans_pg_part_1"
+      ],
+      "evidence_rows": [
+        "JESKAI-EVID-007",
+        "JESKAI-EVID-008"
+      ],
+      "confidence": "Medium",
+      "notes": "Use as a Khans-era anchor only. Full six-fire doctrine, full three-Ways system, exact school hierarchy, and detailed mechanics remain deferred."
+    },
+    {
+      "claim_id": "jeskai_claim_0006",
+      "faction_id": "jeskai",
+      "claim_type": "narset_timeline_boundary",
+      "statement": "Narset is supported as Khans-era Jeskai leader, while later Narset and Ojutai material must remain in later timeline buckets unless an approved row explicitly bridges the eras.",
+      "canon_status": "Official Tarkir lore boundary",
+      "source_ids": [
+        "src_vm_jeskai_evidence_ledger_20260531",
+        "src_wotc_tarkir_khans_pg_part_1",
+        "src_wotc_tarkir_dragons_pg_part_1",
+        "src_wotc_tarkir_dragonstorm_pg_part_1"
+      ],
+      "evidence_rows": [
+        "JESKAI-EVID-009",
+        "JESKAI-EVID-014",
+        "JESKAI-EVID-015"
+      ],
+      "confidence": "High",
+      "notes": "Use for strict Narset era separation. Do not expand into a full Narset biography."
+    },
+    {
+      "claim_id": "jeskai_claim_0007",
+      "faction_id": "jeskai",
+      "claim_type": "shu_yun_transition_boundary",
+      "statement": "Fate Reforged and Khanfall material supports a Shu Yun/Jeskai transition context: Shu Yun leads a Jeskai clan of martial artists and mystics, gathers clans, invokes memory and the Annals, protects records, chooses not to kill Ugin, faces Ojutai, and the Jeskai identity is then ended or erased under Ojutai.",
+      "canon_status": "Official Tarkir guide and story capture",
+      "source_ids": [
+        "src_vm_jeskai_evidence_ledger_20260531",
+        "src_wotc_tarkir_fate_reforged_pg",
+        "src_wotc_tarkir_story_khanfall"
+      ],
+      "evidence_rows": [
+        "JESKAI-EVID-010",
+        "JESKAI-EVID-011",
+        "JESKAI-EVID-012"
+      ],
+      "confidence": "High",
+      "notes": "Use as a transition bridge only. Do not expand into full Shu Yun biography or broad Ojutai doctrine without later evidence."
+    },
+    {
+      "claim_id": "jeskai_claim_0008",
+      "faction_id": "jeskai",
+      "claim_type": "ojutai_boundary",
+      "statement": "Dragons-era Ojutai is a boundary and discontinuity, not direct Khans-era Jeskai continuity; Ojutai kills Shu Yun, orders the end or erasure of Jeskai identity, and later Ojutai clan material has its own monastic, political, and religious structure.",
+      "canon_status": "Official Tarkir lore boundary",
+      "source_ids": [
+        "src_vm_jeskai_evidence_ledger_20260531",
+        "src_wotc_tarkir_story_khanfall",
+        "src_wotc_tarkir_dragons_pg_part_1",
+        "src_wotc_tarkir_dragonstorm_pg_part_1"
+      ],
+      "evidence_rows": [
+        "JESKAI-EVID-012",
+        "JESKAI-EVID-013",
+        "JESKAI-EVID-014",
+        "JESKAI-EVID-018"
+      ],
+      "confidence": "High",
+      "notes": "Use as an anti-bleed boundary. Do not treat later Ojutai material as direct Jeskai evidence unless a source explicitly supports that bridge."
+    },
+    {
+      "claim_id": "jeskai_claim_0009",
+      "faction_id": "jeskai",
+      "claim_type": "modern_dragonstorm_revival",
+      "statement": "Modern Dragonstorm-era Jeskai is supported only as timeline-labeled revived Jeskai material: clans re-establish in distinct form after dragonlord oppression and Stormnexus, modern Jeskai are led by Way practitioners, practice disciplined thought, shared reality, precision, compassion, martial training, and eastern mountain monasteries, connect to Shu Yun writings in a hidden archive, reject Ojutai reincarnation doctrine, and keep distinct magic, body, mind, and dragonstorm practices.",
+      "canon_status": "Official modern Tarkir guide capture",
+      "source_ids": [
+        "src_vm_jeskai_evidence_ledger_20260531",
+        "src_wotc_tarkir_dragonstorm_pg_part_1"
+      ],
+      "evidence_rows": [
+        "JESKAI-EVID-015",
+        "JESKAI-EVID-016",
+        "JESKAI-EVID-017",
+        "JESKAI-EVID-018"
+      ],
+      "confidence": "High",
+      "notes": "Modern Dragonstorm-era only. Do not backfill modern practices, monasteries, doctrine, or revived-clan structure into Khans-era Jeskai Way."
+    },
+    {
+      "claim_id": "jeskai_claim_0010",
+      "faction_id": "jeskai",
+      "claim_type": "metadata_source_hygiene_boundary",
+      "statement": "Generic color codes, Commander products, seed files, generated HTML, Ojutai collapse, Dragonstorm backfill, unsupported mechanics, and non-live packet status are not sufficient Jeskai Way proof or runtime readiness.",
+      "canon_status": "Source-supported boundary",
+      "source_ids": [
+        "src_vm_jeskai_evidence_ledger_20260531"
+      ],
+      "evidence_rows": [
+        "JESKAI-EVID-001",
+        "JESKAI-EVID-012",
+        "JESKAI-EVID-013",
+        "JESKAI-EVID-018",
+        "JESKAI-EVID-022"
+      ],
+      "confidence": "High",
+      "notes": "This is a false-positive and lifecycle guardrail. Commander/operator rows, manual-fill rows, source rows, seed rows, and Vox Mana synthesis rows are excluded by source-role policy and are not cited as raw-claim evidence."
+    }
+  ],
+  "claim_quality_summary": {
+    "raw_claims_added": 10,
+    "source_evidence_rows_used": [
+      "JESKAI-EVID-001",
+      "JESKAI-EVID-002",
+      "JESKAI-EVID-003",
+      "JESKAI-EVID-004",
+      "JESKAI-EVID-005",
+      "JESKAI-EVID-006",
+      "JESKAI-EVID-007",
+      "JESKAI-EVID-008",
+      "JESKAI-EVID-009",
+      "JESKAI-EVID-010",
+      "JESKAI-EVID-011",
+      "JESKAI-EVID-012",
+      "JESKAI-EVID-013",
+      "JESKAI-EVID-014",
+      "JESKAI-EVID-015",
+      "JESKAI-EVID-016",
+      "JESKAI-EVID-017",
+      "JESKAI-EVID-018",
+      "JESKAI-EVID-022"
+    ],
+    "raw_claim_id_policy": "Raw claims use jeskai_claim_0001-style IDs. JESKAI-EVID row IDs remain evidence references only.",
+    "claim_floor": "Normalized Jeskai approved evidence rows plus allowed lifecycle boundary row only.",
+    "excluded_rows": [
+      "support-only Commander/operator evidence row",
+      "discovery-only seed artifact evidence row",
+      "Vox Mana synthesis evidence row",
+      "Commander/operator row identifiers",
+      "manual-fill rows",
+      "direct source ledger rows",
+      "seed files",
+      "generated HTML"
+    ],
+    "overall_confidence": "High for source-bound Jeskai identity, color design floor, Khans-era culture, Narset and Shu Yun timeline boundaries, Ojutai discontinuity, modern Dragonstorm revival, and lifecycle guardrails; low for exact mechanics, Commander legality, full biographies, complete six-fire doctrine, full three-Ways system, and unsupported Ojutai continuity."
+  }
+}

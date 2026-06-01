@@ -1,0 +1,236 @@
+{
+  "schema_version": "1.0.0",
+  "placement_profile_version": "0.1.0",
+  "faction_id": "temur",
+  "faction_name": "Temur Frontier",
+  "based_on_profile_version": "0.1.0",
+  "last_updated": "2026-05-31",
+  "placement_summary": "Temur Frontier is a VM-208 live-pilot raw packet. Its strongest source-bound signals are Green-centered GUR Tarkir identity, savagery, instinct, mental fortitude, Qal Sisma survival, shamanic listening, elemental memory, modern Dragonstorm timeline labeling, and false-positive boundaries against generic GUR, Atarka Clan continuity, Commander products, Dragonstorm backfill, and seed files.",
+  "moral_and_psychological_profile": {
+    "summary": "Vox Mana models Temur as survival through instinct, listening, endurance, and living-world attunement. This is project interpretation from normalized TEMUR evidence plus VM-204/VM-205 shaping docs, not official canon, with live-pilot placement behavior bounded by VM-208.",
+    "claim_ids": [
+      "temur_claim_0001",
+      "temur_claim_0002",
+      "temur_claim_0003",
+      "temur_claim_0004",
+      "temur_claim_0005",
+      "temur_claim_0010"
+    ],
+    "confidence": "Medium",
+    "notes": "Psychological language is Vox Mana synthesis. Support-only rows do not raise confidence."
+  },
+  "placement_axes": [],
+  "core_values": [
+    {
+      "value_id": "value_temur_0001",
+      "label": "Survival Through Attunement",
+      "description": "Strength is earned by listening to terrain, ancestors, weather, animals, and elemental memory before acting.",
+      "claim_ids": [
+        "temur_claim_0002",
+        "temur_claim_0004",
+        "temur_claim_0005"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "value_id": "value_temur_0002",
+      "label": "Instinct With Mental Fortitude",
+      "description": "Temur force is not just impulse; it joins Green physical survival, Blue mental strength, and Red direct action.",
+      "claim_ids": [
+        "temur_claim_0002",
+        "temur_claim_0003"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "value_id": "value_temur_0003",
+      "label": "Memory In The Living Wild",
+      "description": "Whisperers, frozen ancestors, Wide Whisper knowledge, elemental memory, and the Endless Song frame survival as relationship with land and time.",
+      "claim_ids": [
+        "temur_claim_0005",
+        "temur_claim_0009"
+      ],
+      "confidence": "Medium"
+    }
+  ],
+  "behavioral_signals": [
+    {
+      "signal_id": "signal_temur_0001",
+      "signal": "Look for Green-centered GUR Temur Frontier framing with survival, instinct, mental fortitude, and Qal Sisma pressure as primary language.",
+      "claim_ids": [
+        "temur_claim_0001",
+        "temur_claim_0002",
+        "temur_claim_0003",
+        "temur_claim_0004"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "signal_id": "signal_temur_0002",
+      "signal": "Look for whisperers, frozen ancestors, Wide Whisper, elemental memory, ice or stone shaping, or Endless Song material tied to Temur survival.",
+      "claim_ids": [
+        "temur_claim_0005",
+        "temur_claim_0009"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "signal_id": "signal_temur_0003",
+      "signal": "Look for modern Dragonstorm Temur only when the era is explicit and not used to backfill Khans-era Temur.",
+      "claim_ids": [
+        "temur_claim_0008",
+        "temur_claim_0009",
+        "temur_claim_0010"
+      ],
+      "confidence": "Medium"
+    }
+  ],
+  "inhibitor_traits": [
+    "GUR color composition without a positive Temur evidence cluster",
+    "Generic dragons, ramp, copying, energy, artifacts, counters, X-spells, or ravenous play without Temur evidence",
+    "Atarka Clan treated as Temur Frontier continuity",
+    "Modern Dragonstorm Temur details used as Khans-era proof",
+    "Commander product color identity treated as Tarkir canon",
+    "Seed-file language treated as evidence",
+    "Exact card facts, Yasova biography, detailed governance, or clan dragon diplomacy used without direct evidence"
+  ],
+  "good_fit_indicators": [
+    "survival, instinct, mental fortitude, and Green-centered Temur identity are central",
+    "Qal Sisma, nomadic family groups, whisperers, frozen ancestors, Wide Whisper, or elemental memory appear as more than generic wildness",
+    "modern Dragonstorm-era material is clearly timeline-labeled",
+    "Atarka Clan, Commander products, generic GUR, and seed files are treated as boundaries rather than identity proof"
+  ],
+  "ideal_fit_indicators": [
+    "The answer combines Green-centered Temur Frontier identity with savagery, survival, instinct, mental fortitude, and shamanic listening.",
+    "The answer uses Tarkir Temur sources or normalized TEMUR evidence rows rather than seed files or Commander products.",
+    "The answer treats modern Dragonstorm Temur as its own era and does not backfill Khans-era details."
+  ],
+  "poor_fit_indicators": [
+    "The answer depends mainly on generic GUR color identity.",
+    "The answer centers generic dragon/ramp/copy play, Atarka Clan, or Commander product flavor.",
+    "The answer requires exact card facts, Commander legality, detailed biography, exact Endless Song mechanics, detailed governance, or dragon diplomacy not promoted in TEMUR evidence rows."
+  ],
+  "discriminator_questions": [],
+  "chatbot_guidance": {
+    "how_to_recognize_match": [
+      "VM-208 live-pilot guidance: Temur language should combine Green-centered GUR Tarkir Temur Frontier with survival, instinct, mental fortitude, shamanic listening, and elemental memory.",
+      "Use support-only Commander/operator patterns as vocabulary only, not as canon evidence.",
+      "Keep manual-fill topics out of the match basis."
+    ],
+    "how_to_recognize_mismatch": [
+      "Do not match Temur from GUR color composition alone.",
+      "Do not match Temur from generic dragon, ramp, copying, energy, artifact, counter, or X-spell play alone.",
+      "Do not match Temur from Atarka Clan continuity, Commander products, or seed files.",
+      "Do not use modern Dragonstorm-era details as Khans-era proof."
+    ],
+    "questions_to_ask_when_uncertain": [],
+    "do_not_overweight": [
+      "Do not award Temur from color composition alone.",
+      "Do not award Temur from support-only Commander/operator rows.",
+      "Do not award Temur from manual-fill topics.",
+      "Do not award Temur from architecture prose as evidence."
+    ],
+    "never_claim_as_canon": [
+      "Never claim Vox Mana placement planning is official Wizards canon.",
+      "Never claim GUR is a generated expression key.",
+      "Never claim Temur has a public navigation entry, schema field, hosted database source, fixture, or runtime alias from VM-208.",
+      "Never claim Atarka Clan is Temur Frontier continuity from this packet.",
+      "Never claim modern Dragonstorm Temur details are Khans-era facts without direct evidence."
+    ],
+    "review_note": "VM-208 enables Temur through the approved builder path only. GUR remains metadata/query-only and TEMUR is the only live expression key."
+  },
+  "placement_quality": {
+    "overall_confidence": "Medium source-authored confidence for narrow identity, Khans-era floor, modern guide, and guardrail claims; low for exact card facts and deferred detailed lore.",
+    "strongest_evidence_areas": [
+      "Green-centered GUR Temur identity",
+      "Savagery, inner strength, instinct, and mental fortitude",
+      "Green, Blue, and Red role boundaries",
+      "Khans-era Qal Sisma survival",
+      "Whisperers, frozen ancestors, Wide Whisper, and elemental memory",
+      "Modern Dragonstorm-era Temur source context",
+      "Atarka separation and generic GUR guardrails"
+    ],
+    "weakest_evidence_areas": [
+      "Exact Ferocious and Formidable card facts",
+      "Yasova's full story arc",
+      "Exact Endless Song mechanics",
+      "Detailed modern governance",
+      "Clan dragon diplomacy",
+      "Exact modern character biographies",
+      "Commander/operator material beyond support-only language"
+    ],
+    "manual_review_recommended": true,
+    "review_gated": false,
+    "placement_eligible": true,
+    "notes": "VM-208 enables Temur through the approved builder path only. GUR remains metadata/query-only and TEMUR is the only live expression key.",
+    "calibration_tuning_status": "vm208_live_pilot",
+    "last_placement_ready_pass": "VM-208",
+    "live_pilot": true
+  },
+  "color_identity": {
+    "colors": [
+      "G",
+      "U",
+      "R"
+    ],
+    "metadata_only": true,
+    "notes": "GUR and color-order permutations are metadata/query-only and not generated keys, navigation keys, runtime aliases, fixture keys, public labels, or lookup keys."
+  },
+  "calibration_tuning": {
+    "status": "vm208_live_pilot",
+    "required_positive_evidence_terms": [
+      "Temur Frontier",
+      "Tarkir",
+      "GUR",
+      "Green-centered",
+      "savagery",
+      "instinct",
+      "mental fortitude",
+      "Qal Sisma",
+      "whisperers",
+      "Wide Whisper",
+      "frozen ancestors",
+      "elemental memory",
+      "Endless Song"
+    ],
+    "required_positive_min_hits": null,
+    "broad_match_penalty": null,
+    "overselection_reason": "Color composition, generic dragon/ramp/copy play, Commander products, Atarka Clan continuity, Dragonstorm backfill, or seed-file phrasing can overselect Temur without the normalized survival, instinct, shamanic listening, and elemental memory evidence cluster.",
+    "suppress_when_user_centers": [
+      "generic GUR",
+      "generic dragons",
+      "generic ramp",
+      "generic copying",
+      "generic energy or artifacts",
+      "Atarka Clan continuity",
+      "Commander product identity",
+      "Dragonstorm backfill into Khans-era Temur",
+      "seed-file claims",
+      "manual-fill lore as proof"
+    ],
+    "strengthen_when_user_centers": [
+      "Green-centered Temur Frontier",
+      "Qal Sisma survival",
+      "inner strength",
+      "mental fortitude",
+      "instinct",
+      "whisperers",
+      "Wide Whisper",
+      "frozen ancestors",
+      "elemental memory",
+      "modern Dragonstorm Temur source context"
+    ],
+    "collision_suppressions": [
+      "generic_gur_not_temur",
+      "atarka_clan_not_temur_frontier",
+      "commander_product_not_tarkir_canon",
+      "generic_dragon_ramp_copy_not_temur",
+      "dragonstorm_backfill_not_khans_temur",
+      "seed_files_not_evidence"
+    ],
+    "false_positive_guardrail": "Do not treat support-only mechanics, Commander/operator rows, manual-fill lore, architecture prose, seed files, Atarka Clan, Dragonstorm backfill, or color composition alone as Temur evidence.",
+    "smoke_test_note": "VM-208 wires Temur into generated placement data through the approved builder path only.",
+    "review_note": "VM-208 adds one live-pilot expression key through the approved builder path only. It does not add Home preview membership, routes, Maze route keys, schema fields, fixtures, or color-code public aliases."
+  },
+  "collision_guidance": []
+}

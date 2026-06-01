@@ -4,7 +4,7 @@
     "result_version": "2026-05-10",
     "source": "data/raw-factions plus data/factions.json display surface",
     "framing": "Biological expression placement model; Vox Mana interpretive taxonomy, not official canon.",
-    "faction_count": 25,
+    "faction_count": 30,
     "identity_layer_version": "2026-05-27",
     "active_expression_keys": [
       "WU",
@@ -15,6 +15,11 @@
       "GRIXIS",
       "JUND",
       "NAYA",
+      "ABZAN",
+      "TEMUR",
+      "SULTAI",
+      "MARDU",
+      "JESKAI",
       "BG",
       "RG",
       "UB",
@@ -36,7 +41,7 @@
   },
   "scoring_rules": {
     "prior": "equal",
-    "prior_log_probability": -3.2188758248682006,
+    "prior_log_probability": -3.4011973816621555,
     "likelihood_to_delta": {
       "0.95": 1.45,
       "0.90": 1.2,
@@ -454,7 +459,10 @@
         "WG",
         "UG",
         "ESPER",
-        "GRIXIS"
+        "GRIXIS",
+        "ABZAN",
+        "TEMUR",
+        "SULTAI"
       ],
       "collision_guidance": [
         {
@@ -678,7 +686,8 @@
       "lateral_inhibition_targets": [
         "WU",
         "LOREHOLD",
-        "WG"
+        "WG",
+        "MARDU"
       ],
       "collision_guidance": [],
       "chatbot_guidance": {
@@ -821,7 +830,8 @@
         "PRISMARI",
         "WR",
         "GRIXIS",
-        "JUND"
+        "JUND",
+        "MARDU"
       ],
       "collision_guidance": [],
       "chatbot_guidance": {
@@ -1161,7 +1171,9 @@
         "ESPER",
         "UB",
         "UR",
-        "JUND"
+        "JUND",
+        "TEMUR",
+        "SULTAI"
       ],
       "collision_guidance": [],
       "chatbot_guidance": {
@@ -1363,7 +1375,11 @@
         "BG",
         "RG",
         "GRIXIS",
-        "WITHERBLOOM"
+        "WITHERBLOOM",
+        "ABZAN",
+        "TEMUR",
+        "SULTAI",
+        "MARDU"
       ],
       "collision_guidance": [
         {
@@ -1542,7 +1558,10 @@
         "RG",
         "WR",
         "BANT",
-        "JUND"
+        "JUND",
+        "ABZAN",
+        "TEMUR",
+        "MARDU"
       ],
       "collision_guidance": [],
       "chatbot_guidance": {
@@ -1584,6 +1603,835 @@
         "profile_version": "0.1.0",
         "placement_model_version": "",
         "source_review_date": "2026-05-30",
+        "claim_count": 0
+      }
+    },
+    "ABZAN": {
+      "key": "ABZAN",
+      "raw_id": "abzan",
+      "name": "Abzan Houses",
+      "institution_type": "wedge",
+      "world": "Tarkir",
+      "colors": [
+        "W",
+        "B",
+        "G"
+      ],
+      "identity": {
+        "summary": "Abzan Houses is the White-centered WBG Tarkir wedge expression whose source-bound floor is endurance, survival, family, house continuity, ancestor obligation, perennation, active defense, and defensive patience.",
+        "philosophy": "White centers duty, family standing, house membership, and continuity. Black carries death-aware obligation, ancestor pressure, inheritance, and political survival. Green roots memory in Kin-Trees, growth after survival, earth practice, and life/death continuity.",
+        "central_tension": "Vox Mana synthesis models Abzan's tension as family continuity becoming exclusion, rigidity, political burden, or duty that outlives consent.",
+        "display_tagline": "Endure with the house. Remember through the tree. Guard the next generation.",
+        "mechanics": "Duplicate Abzan VM-200 does not establish Abzan mechanics as raw claims beyond the source-bound design and lore floor. Defenders, toughness, counters, tokens, sacrifice, graveyard enchantments, Food, life gain, poison, corrupted, and proliferate remain support-only operator material."
+      },
+      "layered_identity": {
+        "core_color": "W",
+        "secondary_colors": [
+          "B",
+          "G"
+        ],
+        "secondary_color": "B",
+        "expression_key": "ABZAN",
+        "expression_name": "Abzan Houses",
+        "expression_kind": "wedge",
+        "purity": null,
+        "routing": {
+          "color_identity": "WBG",
+          "label": "Abzan"
+        }
+      },
+      "biological_expression": {
+        "archetype": "The Ancestral Endurer",
+        "primary_foundation": "Loyalty",
+        "secondary_foundation": "Authority",
+        "risk_signal": "medium ancestral-duty risk",
+        "inhibitor_trigger": "Turns family continuity into exclusion, rigidity, political burden, or duty that outlives consent."
+      },
+      "placement_axes": {
+        "required_positive_evidence_terms": [
+          "Abzan Houses",
+          "Tarkir",
+          "WBG",
+          "White-centered",
+          "family",
+          "house continuity",
+          "endurance",
+          "Kin-Trees",
+          "ancestor spirits",
+          "perennation",
+          "defensive patience"
+        ],
+        "required_positive_min_hits": 2,
+        "strengthens_when_user_centers": [
+          "White-centered Abzan Houses",
+          "family duty",
+          "house continuity",
+          "Kin-Trees",
+          "ancestor spirits",
+          "perennation",
+          "defensive patience",
+          "modern Dragonstorm Abzan source context"
+        ],
+        "suppress_when_user_centers": [
+          "generic WBG",
+          "generic defenders",
+          "generic toughness",
+          "generic graveyard recursion",
+          "generic counters or tokens",
+          "Dromoka clan continuity",
+          "Commander product identity",
+          "seed-file claims",
+          "manual-fill lore as proof"
+        ],
+        "false_positive_guardrail": "Do not treat support-only mechanics, Commander/operator rows, manual-fill lore, architecture prose, seed files, Dromoka's brood, or color composition alone as Abzan evidence.",
+        "broad_match_penalty": 0.12
+      },
+      "good_fit_indicators": [
+        "family, house continuity, duty, and future generations are central",
+        "ancestor guidance, Kin-Trees, or perennation appear as more than generic graveyard flavor",
+        "defensive patience, endurance, active defense, and civic refuge support the identity",
+        "Dromoka, Commander products, and generic WBG are treated as boundaries rather than identity proof"
+      ],
+      "poor_fit_indicators": [
+        "The answer depends mainly on generic WBG color identity.",
+        "The answer centers Dromoka's brood, generic graveyard value, generic toughness, or Commander product flavor.",
+        "The answer requires exact card facts, commander legality, detailed biography, minor-house hierarchy, campaign chronology, or dragonstorm ecology not promoted in ABZAN evidence rows."
+      ],
+      "inhibitor_traps": [
+        "Turns family continuity into exclusion, rigidity, political burden, or duty that outlives consent.",
+        "Do not match Abzan from WBG color composition alone.",
+        "Do not match Abzan from generic defense, toughness, counters, graveyard, lifegain, Food, poison, or proliferate alone.",
+        "Do not match Abzan from Dromoka's brood or Commander products.",
+        "Do not match Abzan from seed files that have not passed through ABZAN-EVID rows.",
+        "The answer depends mainly on generic WBG color identity.",
+        "The answer centers Dromoka's brood, generic graveyard value, generic toughness, or Commander product flavor.",
+        "The answer requires exact card facts, commander legality, detailed biography, minor-house hierarchy, campaign chronology, or dragonstorm ecology not promoted in ABZAN evidence rows."
+      ],
+      "discriminator_questions": [],
+      "lateral_inhibition_targets": [
+        "WB",
+        "WG",
+        "BG",
+        "BANT",
+        "NAYA",
+        "JUND",
+        "WITHERBLOOM",
+        "TEMUR",
+        "SULTAI",
+        "MARDU"
+      ],
+      "collision_guidance": [],
+      "chatbot_guidance": {
+        "how_to_recognize_match": [
+          "VM-202 live-pilot guidance only: Abzan language should combine White-centered WBG Tarkir Abzan Houses with family, endurance, ancestor obligation, perennation, and defensive patience.",
+          "Use support-only Commander/operator patterns as vocabulary only, not as canon evidence.",
+          "Keep manual-fill topics out of the match basis."
+        ],
+        "how_to_recognize_mismatch": [
+          "Do not match Abzan from WBG color composition alone.",
+          "Do not match Abzan from generic defense, toughness, counters, graveyard, lifegain, Food, poison, or proliferate alone.",
+          "Do not match Abzan from Dromoka's brood or Commander products.",
+          "Do not match Abzan from seed files that have not passed through ABZAN-EVID rows."
+        ],
+        "questions_to_ask_when_uncertain": [],
+        "do_not_overweight": [
+          "Do not award Abzan from color composition alone.",
+          "Do not award Abzan from support-only Commander/operator rows.",
+          "Do not award Abzan from manual-fill topics.",
+          "Do not award Abzan from architecture prose as evidence."
+        ],
+        "never_claim_as_canon": [
+          "Never claim Vox Mana placement planning is official Wizards canon.",
+          "Never claim WBG is a generated expression key.",
+          "Never claim Abzan has a route, Home preview card, Maze route, schema field, public alias, or color-code runtime key from VM-202.",
+          "Never claim Dromoka's brood is Abzan Houses continuity from this packet."
+        ],
+        "review_note": "VM-202 adds one live-pilot expression key through the approved builder path only. It does not add Home preview membership, routes, Maze route keys, schema fields, fixtures, or color-code public aliases."
+      },
+      "canon_guardrails": {
+        "never_claim_as_canon": [
+          "Never claim Vox Mana placement planning is official Wizards canon.",
+          "Never claim WBG is a generated expression key.",
+          "Never claim Abzan has a route, Home preview card, Maze route, schema field, public alias, or color-code runtime key from VM-202.",
+          "Never claim Dromoka's brood is Abzan Houses continuity from this packet."
+        ]
+      },
+      "source_metadata": {
+        "profile_version": "0.1.0",
+        "placement_model_version": "",
+        "source_review_date": "2026-05-31",
+        "claim_count": 0
+      }
+    },
+    "TEMUR": {
+      "key": "TEMUR",
+      "raw_id": "temur",
+      "name": "Temur Frontier",
+      "institution_type": "wedge",
+      "world": "Tarkir",
+      "colors": [
+        "G",
+        "U",
+        "R"
+      ],
+      "identity": {
+        "summary": "Temur Frontier is the Green-centered GUR Tarkir wedge expression whose source-bound floor is savagery, inner strength, mental fortitude, instinct, Qal Sisma survival, shamanic listening, elemental memory, and careful timeline separation from Atarka and modern Dragonstorm material.",
+        "philosophy": "Green centers physical survival, acceptance, harmony with the natural world, growth, and strength. Blue carries knowledge, mental strength, problem solving, transformation, and disciplined perception. Red carries freedom, action, impulse, emotion, directness, and force in conflict.",
+        "central_tension": "Vox Mana synthesis models Temur's tension as listening versus isolation, instinct versus wisdom, survival versus suspicion, and preservation versus adaptation.",
+        "display_tagline": "Listen to the wild. Endure the cold. Strike with earned strength.",
+        "mechanics": "VM-206 does not establish Temur mechanics as raw claims beyond the source-bound design and lore floor. Dragons, ramp, energy, artifacts, copying, non-hand casting, artifact tokens, counters, X-spells, and ravenous remain support-only operator material."
+      },
+      "layered_identity": {
+        "core_color": "G",
+        "secondary_colors": [
+          "U",
+          "R"
+        ],
+        "secondary_color": "U",
+        "expression_key": "TEMUR",
+        "expression_name": "Temur Frontier",
+        "expression_kind": "wedge",
+        "purity": null,
+        "routing": {
+          "color_identity": "GUR",
+          "label": "Temur"
+        }
+      },
+      "biological_expression": {
+        "archetype": "The Elemental Survivor",
+        "primary_foundation": "Sanctity",
+        "secondary_foundation": "Liberty",
+        "risk_signal": "medium instinct-attunement risk",
+        "inhibitor_trigger": "Treats survival as suspicion, isolation, or raw force when the terrain, memory, and living signal ask to be heard first."
+      },
+      "placement_axes": {
+        "required_positive_evidence_terms": [
+          "Temur Frontier",
+          "Tarkir",
+          "GUR",
+          "Green-centered",
+          "savagery",
+          "instinct",
+          "mental fortitude",
+          "Qal Sisma",
+          "whisperers",
+          "Wide Whisper",
+          "frozen ancestors",
+          "elemental memory",
+          "Endless Song"
+        ],
+        "required_positive_min_hits": 2,
+        "strengthens_when_user_centers": [
+          "Green-centered Temur Frontier",
+          "Qal Sisma survival",
+          "inner strength",
+          "mental fortitude",
+          "instinct",
+          "whisperers",
+          "Wide Whisper",
+          "frozen ancestors",
+          "elemental memory",
+          "modern Dragonstorm Temur source context"
+        ],
+        "suppress_when_user_centers": [
+          "generic GUR",
+          "generic dragons",
+          "generic ramp",
+          "generic copying",
+          "generic energy or artifacts",
+          "Atarka Clan continuity",
+          "Commander product identity",
+          "Dragonstorm backfill into Khans-era Temur",
+          "seed-file claims",
+          "manual-fill lore as proof"
+        ],
+        "false_positive_guardrail": "Do not treat support-only mechanics, Commander/operator rows, manual-fill lore, architecture prose, seed files, Atarka Clan, Dragonstorm backfill, or color composition alone as Temur evidence.",
+        "broad_match_penalty": 0.12
+      },
+      "good_fit_indicators": [
+        "survival, instinct, mental fortitude, and Green-centered Temur identity are central",
+        "Qal Sisma, nomadic family groups, whisperers, frozen ancestors, Wide Whisper, or elemental memory appear as more than generic wildness",
+        "modern Dragonstorm-era material is clearly timeline-labeled",
+        "Atarka Clan, Commander products, generic GUR, and seed files are treated as boundaries rather than identity proof"
+      ],
+      "poor_fit_indicators": [
+        "The answer depends mainly on generic GUR color identity.",
+        "The answer centers generic dragon/ramp/copy play, Atarka Clan, or Commander product flavor.",
+        "The answer requires exact card facts, Commander legality, detailed biography, exact Endless Song mechanics, detailed governance, or dragon diplomacy not promoted in TEMUR evidence rows."
+      ],
+      "inhibitor_traps": [
+        "Treats survival as suspicion, isolation, or raw force when the terrain, memory, and living signal ask to be heard first.",
+        "Do not match Temur from GUR color composition alone.",
+        "Do not match Temur from generic dragon, ramp, copying, energy, artifact, counter, or X-spell play alone.",
+        "Do not match Temur from Atarka Clan continuity, Commander products, or seed files.",
+        "Do not use modern Dragonstorm-era details as Khans-era proof.",
+        "The answer depends mainly on generic GUR color identity.",
+        "The answer centers generic dragon/ramp/copy play, Atarka Clan, or Commander product flavor.",
+        "The answer requires exact card facts, Commander legality, detailed biography, exact Endless Song mechanics, detailed governance, or dragon diplomacy not promoted in TEMUR evidence rows."
+      ],
+      "discriminator_questions": [],
+      "lateral_inhibition_targets": [
+        "RG",
+        "UG",
+        "UR",
+        "NAYA",
+        "BANT",
+        "GRIXIS",
+        "JUND",
+        "ABZAN",
+        "SULTAI",
+        "MARDU"
+      ],
+      "collision_guidance": [],
+      "chatbot_guidance": {
+        "how_to_recognize_match": [
+          "VM-208 live-pilot guidance: Temur language should combine Green-centered GUR Tarkir Temur Frontier with survival, instinct, mental fortitude, shamanic listening, and elemental memory.",
+          "Use support-only Commander/operator patterns as vocabulary only, not as canon evidence.",
+          "Keep manual-fill topics out of the match basis."
+        ],
+        "how_to_recognize_mismatch": [
+          "Do not match Temur from GUR color composition alone.",
+          "Do not match Temur from generic dragon, ramp, copying, energy, artifact, counter, or X-spell play alone.",
+          "Do not match Temur from Atarka Clan continuity, Commander products, or seed files.",
+          "Do not use modern Dragonstorm-era details as Khans-era proof."
+        ],
+        "questions_to_ask_when_uncertain": [],
+        "do_not_overweight": [
+          "Do not award Temur from color composition alone.",
+          "Do not award Temur from support-only Commander/operator rows.",
+          "Do not award Temur from manual-fill topics.",
+          "Do not award Temur from architecture prose as evidence."
+        ],
+        "never_claim_as_canon": [
+          "Never claim Vox Mana placement planning is official Wizards canon.",
+          "Never claim GUR is a generated expression key.",
+          "Never claim Temur has a public navigation entry, schema field, hosted database source, fixture, or runtime alias from VM-208.",
+          "Never claim Atarka Clan is Temur Frontier continuity from this packet.",
+          "Never claim modern Dragonstorm Temur details are Khans-era facts without direct evidence."
+        ],
+        "review_note": "VM-208 enables Temur through the approved builder path only. GUR remains metadata/query-only and TEMUR is the only live expression key."
+      },
+      "canon_guardrails": {
+        "never_claim_as_canon": [
+          "Never claim Vox Mana placement planning is official Wizards canon.",
+          "Never claim GUR is a generated expression key.",
+          "Never claim Temur has a public navigation entry, schema field, hosted database source, fixture, or runtime alias from VM-208.",
+          "Never claim Atarka Clan is Temur Frontier continuity from this packet.",
+          "Never claim modern Dragonstorm Temur details are Khans-era facts without direct evidence."
+        ]
+      },
+      "source_metadata": {
+        "profile_version": "0.1.0",
+        "placement_model_version": "",
+        "source_review_date": "2026-05-31",
+        "claim_count": 0
+      }
+    },
+    "SULTAI": {
+      "key": "SULTAI",
+      "raw_id": "sultai",
+      "name": "Sultai Brood",
+      "institution_type": "wedge",
+      "world": "Tarkir",
+      "colors": [
+        "B",
+        "G",
+        "U"
+      ],
+      "identity": {
+        "summary": "Sultai Brood is the Black-centered BGU Tarkir wedge expression whose source-bound floor is ruthlessness, opportunity, graveyard/resource conversion, necromancy, wealth through exploitation, Sidisi-era ambition, and strict timeline separation from Silumgar clan and modern Dragonstorm-era Sultai.",
+        "philosophy": "Black supplies ambition, cost-paying, theft, resource denial, and permission to seize advantage. Green supplies life, death, bodies, land, poison, and decay as usable material. Blue supplies planning, hidden information, redirection, mind pressure, and strategic selection.",
+        "central_tension": "Vox Mana synthesis models Sultai's tension as resource use becoming domination when Black ambition and Blue calculation overrule restraint.",
+        "display_tagline": "Turn opportunity into power. Keep the dead useful. Leave no advantage unclaimed.",
+        "mechanics": "VM-212 does not establish Sultai mechanics as raw claims beyond the source-bound design and lore floor. Graveyard value, theft, mill, rad counters, morph, Mimeoplasm-style graveyard construction, mutate, recursion, hidden information, and complex creature value remain support-only operator material."
+      },
+      "layered_identity": {
+        "core_color": "B",
+        "secondary_colors": [
+          "G",
+          "U"
+        ],
+        "secondary_color": "G",
+        "expression_key": "SULTAI",
+        "expression_name": "Sultai Brood",
+        "expression_kind": "wedge",
+        "purity": null,
+        "routing": {
+          "color_identity": "BGU",
+          "label": "Sultai"
+        }
+      },
+      "biological_expression": {
+        "archetype": "The Ruthless Resource Converter",
+        "primary_foundation": "Liberty",
+        "secondary_foundation": "Authority",
+        "risk_signal": "high resource-conversion risk",
+        "inhibitor_trigger": "Refuses to use available bodies, secrets, costs, or openings when survival asks for calculated conversion before the advantage is wasted."
+      },
+      "placement_axes": {
+        "required_positive_evidence_terms": [
+          "Sultai Brood",
+          "Tarkir",
+          "BGU",
+          "Black-centered",
+          "ruthlessness",
+          "resource conversion",
+          "necromancy",
+          "sibsig",
+          "rakshasa pacts",
+          "Queen Sidisi",
+          "Silumgar boundary",
+          "Modern Dragonstorm Sultai"
+        ],
+        "required_positive_min_hits": 2,
+        "strengthens_when_user_centers": [
+          "Black-centered Sultai Brood",
+          "ruthlessness",
+          "resource conversion",
+          "necromancy",
+          "sibsig labor",
+          "rakshasa pacts",
+          "Queen Sidisi",
+          "Silumgar boundary",
+          "modern Dragonstorm Sultai source context"
+        ],
+        "suppress_when_user_centers": [
+          "generic BGU",
+          "generic graveyard value",
+          "generic theft or exile-casting",
+          "generic mill",
+          "generic morph",
+          "generic mutate",
+          "Silumgar clan continuity",
+          "Commander product identity",
+          "Dragonstorm backfill into Khans-era Sultai",
+          "seed-file claims",
+          "manual-fill lore as proof",
+          "color philosophy as Tarkir proof"
+        ],
+        "false_positive_guardrail": "Do not treat support-only mechanics, Commander/operator rows, manual-fill lore, architecture prose, seed files, Silumgar clan, Dragonstorm backfill, color-pair philosophy, or color composition alone as Sultai evidence.",
+        "broad_match_penalty": 0.12
+      },
+      "good_fit_indicators": [
+        "ruthlessness, resource conversion, necromancy, and Black-centered Sultai identity are central",
+        "Sidisi, sibsig, rakshasa pacts, naga hierarchy, or Khans-era Sultai locations appear as more than generic graveyard or villain language",
+        "Silumgar and modern Dragonstorm-era material are clearly timeline-labeled",
+        "Commander products, generic BGU, color-pair philosophy files, and seed files are treated as boundaries rather than identity proof"
+      ],
+      "poor_fit_indicators": [
+        "The answer depends mainly on generic BGU color identity.",
+        "The answer centers generic graveyard goodstuff, theft decks, mill, morph, mutate, or Commander product flavor.",
+        "The answer requires exact card facts, Commander legality, detailed biography, exact delve or exploit mechanics, or exact Dragonstorm chronology not promoted in SULTAI evidence rows."
+      ],
+      "inhibitor_traps": [
+        "Refuses to use available bodies, secrets, costs, or openings when survival asks for calculated conversion before the advantage is wasted.",
+        "Do not match Sultai from BGU color composition alone.",
+        "Do not match Sultai from generic graveyard, theft, mill, morph, mutate, or Commander value alone.",
+        "Do not match Sultai from Silumgar continuity, Commander products, color-pair philosophy files, or seed files.",
+        "Do not use modern Dragonstorm-era details as Khans-era proof.",
+        "The answer depends mainly on generic BGU color identity.",
+        "The answer centers generic graveyard goodstuff, theft decks, mill, morph, mutate, or Commander product flavor.",
+        "The answer requires exact card facts, Commander legality, detailed biography, exact delve or exploit mechanics, or exact Dragonstorm chronology not promoted in SULTAI evidence rows."
+      ],
+      "discriminator_questions": [],
+      "lateral_inhibition_targets": [
+        "UB",
+        "BG",
+        "UG",
+        "GRIXIS",
+        "JUND",
+        "BANT",
+        "ABZAN",
+        "TEMUR",
+        "WITHERBLOOM",
+        "MARDU"
+      ],
+      "collision_guidance": [],
+      "chatbot_guidance": {
+        "how_to_recognize_match": [
+          "VM-214 live-pilot guidance: Sultai language should combine Black-centered BGU Tarkir Sultai Brood with ruthlessness, resource conversion, necromancy, Sidisi-era ambition, and strict timeline boundaries.",
+          "Use support-only Commander/operator patterns as vocabulary only, not as canon evidence.",
+          "Keep manual-fill topics out of the match basis."
+        ],
+        "how_to_recognize_mismatch": [
+          "Do not match Sultai from BGU color composition alone.",
+          "Do not match Sultai from generic graveyard, theft, mill, morph, mutate, or Commander value alone.",
+          "Do not match Sultai from Silumgar continuity, Commander products, color-pair philosophy files, or seed files.",
+          "Do not use modern Dragonstorm-era details as Khans-era proof."
+        ],
+        "questions_to_ask_when_uncertain": [],
+        "do_not_overweight": [
+          "Do not award Sultai from color composition alone.",
+          "Do not award Sultai from support-only Commander/operator rows.",
+          "Do not award Sultai from manual-fill topics.",
+          "Do not award Sultai from architecture prose as evidence."
+        ],
+        "never_claim_as_canon": [
+          "Never claim Vox Mana placement planning is official Wizards canon.",
+          "Never claim BGU is a generated expression key.",
+          "Never claim Sultai has a public navigation entry, schema field, hosted database source, fixture, or runtime alias from VM-212.",
+          "Never claim Silumgar clan is Sultai Brood continuity from this packet.",
+          "Never claim modern Dragonstorm Sultai details are Khans-era facts without direct evidence."
+        ],
+        "review_note": "VM-214 enables SULTAI as the single live placement key. BGU and color-order permutations remain metadata/query-only."
+      },
+      "canon_guardrails": {
+        "never_claim_as_canon": [
+          "Never claim Vox Mana placement planning is official Wizards canon.",
+          "Never claim BGU is a generated expression key.",
+          "Never claim Sultai has a public navigation entry, schema field, hosted database source, fixture, or runtime alias from VM-212.",
+          "Never claim Silumgar clan is Sultai Brood continuity from this packet.",
+          "Never claim modern Dragonstorm Sultai details are Khans-era facts without direct evidence."
+        ]
+      },
+      "source_metadata": {
+        "profile_version": "0.1.0",
+        "placement_model_version": "",
+        "source_review_date": "2026-05-31",
+        "claim_count": 0
+      }
+    },
+    "MARDU": {
+      "key": "MARDU",
+      "raw_id": "mardu",
+      "name": "Mardu Horde",
+      "institution_type": "wedge",
+      "world": "Tarkir",
+      "colors": [
+        "R",
+        "W",
+        "B"
+      ],
+      "identity": {
+        "summary": "Mardu Horde is Tarkir's Red-centered red-white-black wedge expression. Vox Mana reads it through source-bound speed, raid momentum, war names, the Edicts of Ilagra, Zurgo-era Horde identity, Alesha bridge material, Kolaghan and Dragonstorm boundaries, and strict RWB/WBR metadata-only handling, not as generic same-color goodstuff, Commander product canon, or routeable color-code identity.",
+        "philosophy": "Mardu treats identity as action under pressure. Red supplies speed, attack, and total commitment; White gives the charge formation, oath, and martial order; Black makes opportunity, survival, and ruthless advantage impossible to ignore.",
+        "central_tension": "Mardu's virtue is decisive action bound to a war code, but that speed can become conquest, overextension, or cruelty when commitment outruns the oath that gives it shape.",
+        "display_tagline": "Strike while the field is open. Earn the name in motion.",
+        "mechanics": ""
+      },
+      "layered_identity": {
+        "core_color": "R",
+        "secondary_colors": [
+          "W",
+          "B"
+        ],
+        "secondary_color": "W",
+        "expression_key": "MARDU",
+        "expression_name": "Mardu Horde",
+        "expression_kind": "wedge",
+        "purity": null,
+        "routing": {
+          "color_identity": "RWB",
+          "label": "Mardu"
+        }
+      },
+      "biological_expression": {
+        "archetype": "The Oathbound Raider",
+        "primary_foundation": "Liberty",
+        "secondary_foundation": "Authority",
+        "risk_signal": "high martial-commitment risk",
+        "inhibitor_trigger": "Waits for permission, comfort, or perfect safety when the honest opening asks for decisive action under a code."
+      },
+      "placement_axes": {
+        "required_positive_evidence_terms": [
+          "Mardu Horde",
+          "Tarkir",
+          "RWB",
+          "WBR",
+          "Red-centered",
+          "speed",
+          "war names",
+          "Edicts of Ilagra",
+          "total commitment",
+          "Zurgo",
+          "Wingthrone",
+          "Alesha bridge",
+          "Kolaghan boundary",
+          "Modern Dragonstorm Mardu"
+        ],
+        "required_positive_min_hits": 2,
+        "strengthens_when_user_centers": [
+          "Red-centered Mardu Horde",
+          "speed",
+          "total commitment",
+          "war names",
+          "Edicts of Ilagra",
+          "Zurgo-era Mardu",
+          "Alesha bridge",
+          "Kolaghan boundary",
+          "modern Dragonstorm Mardu source context"
+        ],
+        "suppress_when_user_centers": [
+          "generic RWB",
+          "generic WBR",
+          "generic aggro",
+          "generic sacrifice or tokens",
+          "generic Commander goodstuff",
+          "Kolaghan clan continuity",
+          "Dragonstorm backfill into Khans-era Mardu",
+          "seed-file claims",
+          "manual-fill lore as proof",
+          "color philosophy as Tarkir proof"
+        ],
+        "false_positive_guardrail": "Do not treat support-only mechanics, Commander/operator rows, manual-fill lore, architecture prose, seed files, Kolaghan clan, Dragonstorm backfill, color-pair philosophy, or color composition alone as Mardu evidence.",
+        "broad_match_penalty": 0.12
+      },
+      "good_fit_indicators": [],
+      "poor_fit_indicators": [
+        "The candidate is only RWB/WBR color identity.",
+        "The candidate is only Commander goodstuff or exact-color product identity.",
+        "The candidate treats Kolaghan or modern Dragonstorm material as Khans-era Mardu.",
+        "The candidate relies on exact raid, dash, or mobilize claims without card-data validation.",
+        "The candidate relies on seed files, color-pair philosophy, or architecture prose as proof."
+      ],
+      "inhibitor_traps": [
+        "Waits for permission, comfort, or perfect safety when the honest opening asks for decisive action under a code.",
+        "The candidate is only RWB/WBR color identity.",
+        "The candidate is only Commander goodstuff or exact-color product identity.",
+        "The candidate treats Kolaghan or modern Dragonstorm material as Khans-era Mardu.",
+        "The candidate relies on exact raid, dash, or mobilize claims without card-data validation.",
+        "The candidate relies on seed files, color-pair philosophy, or architecture prose as proof."
+      ],
+      "discriminator_questions": [
+        {
+          "id": "mardu_discriminator_0001",
+          "prompt": "Is the signal about immediate, war-bound action rather than long endurance, institutional technique, hidden resource conversion, or survival through attunement?",
+          "purpose": "",
+          "supports": "",
+          "weakens": "",
+          "collision_targets": [],
+          "evidence_claim_ids": [
+            "mardu_claim_0002",
+            "mardu_claim_0003",
+            "mardu_claim_0010"
+          ],
+          "confidence": "Medium"
+        },
+        {
+          "id": "mardu_discriminator_0002",
+          "prompt": "Does the candidate include a positive Mardu evidence cluster beyond RWB/WBR color identity or Commander support texture?",
+          "purpose": "",
+          "supports": "",
+          "weakens": "",
+          "collision_targets": [],
+          "evidence_claim_ids": [
+            "mardu_claim_0001",
+            "mardu_claim_0009",
+            "mardu_claim_0010"
+          ],
+          "confidence": "Medium"
+        },
+        {
+          "id": "mardu_discriminator_0003",
+          "prompt": "Are Alesha, Kolaghan, and Dragonstorm references held inside their timeline boundaries?",
+          "purpose": "",
+          "supports": "",
+          "weakens": "",
+          "collision_targets": [],
+          "evidence_claim_ids": [
+            "mardu_claim_0005",
+            "mardu_claim_0006",
+            "mardu_claim_0007",
+            "mardu_claim_0008"
+          ],
+          "confidence": "Medium"
+        }
+      ],
+      "lateral_inhibition_targets": [
+        "WR",
+        "WB",
+        "BR",
+        "NAYA",
+        "JUND",
+        "ABZAN",
+        "TEMUR",
+        "SULTAI"
+      ],
+      "collision_guidance": [],
+      "chatbot_guidance": {
+        "use_when": [
+          "A user asks for speed, decisive action, martial code, war-name identity, total commitment, raiding motion, or Mardu-specific Tarkir flavor.",
+          "A user distinguishes Mardu from generic Commander products or adjacent color-pair patterns.",
+          "A user wants timeline-labeled Tarkir clan identity rather than generic RWB/WBR play patterns."
+        ],
+        "avoid_when": [
+          "The user only mentions RWB/WBR color identity.",
+          "The user centers Commander legality, exact decklists, or product facts.",
+          "The user asks for exact raid, dash, or mobilize rules without later card-data validation.",
+          "The user centers Kolaghan continuity, Dragonstorm backfill, or seed-file claims as proof."
+        ],
+        "claim_ids": [
+          "mardu_claim_0001",
+          "mardu_claim_0002",
+          "mardu_claim_0009",
+          "mardu_claim_0010"
+        ]
+      },
+      "canon_guardrails": {
+        "never_claim_as_canon": [
+          "Psychological placement categories are Vox Mana interpretation, not official Wizards canon.",
+          "Do not state that a user's personality is objectively determined by a faction."
+        ]
+      },
+      "source_metadata": {
+        "profile_version": "0.1.0",
+        "placement_model_version": "",
+        "source_review_date": "2026-05-31",
+        "claim_count": 0
+      }
+    },
+    "JESKAI": {
+      "key": "JESKAI",
+      "raw_id": "jeskai",
+      "name": "Jeskai Way",
+      "institution_type": "wedge",
+      "world": "Tarkir",
+      "colors": [
+        "U",
+        "R",
+        "W"
+      ],
+      "identity": {
+        "summary": "",
+        "philosophy": "",
+        "central_tension": "",
+        "display_tagline": "Know the line. Train the body. Move when insight is ready.",
+        "mechanics": ""
+      },
+      "layered_identity": {
+        "core_color": "U",
+        "secondary_colors": [
+          "R",
+          "W"
+        ],
+        "secondary_color": "R",
+        "expression_key": "JESKAI",
+        "expression_name": "Jeskai Way",
+        "expression_kind": "wedge",
+        "purity": null,
+        "routing": {
+          "color_identity": "URW",
+          "label": "Jeskai"
+        }
+      },
+      "biological_expression": {
+        "archetype": "The Disciplined Cunning Adept",
+        "primary_foundation": "Fairness",
+        "secondary_foundation": "Authority",
+        "risk_signal": "medium disciplined-action risk",
+        "inhibitor_trigger": "Mistakes practice, restraint, or study for the whole answer when trained insight is asking to move."
+      },
+      "placement_axes": {
+        "required_positive_evidence_terms": [],
+        "required_positive_min_hits": 2,
+        "strengthens_when_user_centers": [],
+        "suppress_when_user_centers": [],
+        "false_positive_guardrail": "",
+        "broad_match_penalty": 0.12
+      },
+      "good_fit_indicators": [],
+      "poor_fit_indicators": [
+        "The candidate is only URW/WUR/RWU/UWR/RUW/WRU color identity.",
+        "The candidate is only Commander goodstuff or exact-color product identity.",
+        "The candidate treats Ojutai or modern Dragonstorm material as Khans-era Jeskai.",
+        "The candidate relies on exact prowess or named mechanics without card-data validation.",
+        "The candidate relies on seed files, generated HTML, color-pair philosophy, or architecture prose as proof."
+      ],
+      "inhibitor_traps": [
+        "Mistakes practice, restraint, or study for the whole answer when trained insight is asking to move.",
+        "The candidate is only URW/WUR/RWU/UWR/RUW/WRU color identity.",
+        "The candidate is only Commander goodstuff or exact-color product identity.",
+        "The candidate treats Ojutai or modern Dragonstorm material as Khans-era Jeskai.",
+        "The candidate relies on exact prowess or named mechanics without card-data validation.",
+        "The candidate relies on seed files, generated HTML, color-pair philosophy, or architecture prose as proof."
+      ],
+      "discriminator_questions": [
+        {
+          "id": "jeskai_discriminator_0001",
+          "prompt": "Is the signal about disciplined cunning and trained insight rather than generic spellslinger play, color identity, or Commander support texture?",
+          "purpose": "",
+          "supports": "",
+          "weakens": "",
+          "collision_targets": [],
+          "evidence_claim_ids": [
+            "jeskai_claim_0002",
+            "jeskai_claim_0003",
+            "jeskai_claim_0010"
+          ],
+          "confidence": "Medium"
+        },
+        {
+          "id": "jeskai_discriminator_0002",
+          "prompt": "Does the candidate include a positive Jeskai evidence cluster beyond URW/WUR/RWU/UWR/RUW/WRU color identity?",
+          "purpose": "",
+          "supports": "",
+          "weakens": "",
+          "collision_targets": [],
+          "evidence_claim_ids": [
+            "jeskai_claim_0001",
+            "jeskai_claim_0004",
+            "jeskai_claim_0010"
+          ],
+          "confidence": "Medium"
+        },
+        {
+          "id": "jeskai_discriminator_0003",
+          "prompt": "Are Narset, Shu Yun, Ojutai, and Dragonstorm references held inside their timeline boundaries?",
+          "purpose": "",
+          "supports": "",
+          "weakens": "",
+          "collision_targets": [],
+          "evidence_claim_ids": [
+            "jeskai_claim_0006",
+            "jeskai_claim_0007",
+            "jeskai_claim_0008",
+            "jeskai_claim_0009"
+          ],
+          "confidence": "Medium"
+        }
+      ],
+      "lateral_inhibition_targets": [
+        "WU",
+        "UR",
+        "WR",
+        "BANT",
+        "ESPER",
+        "GRIXIS",
+        "NAYA",
+        "TEMUR",
+        "MARDU",
+        "SULTAI"
+      ],
+      "collision_guidance": [],
+      "chatbot_guidance": {
+        "use_when": [
+          "A user asks for discipline, cunning, martial training, Blue-led perfection, restrained action, monastery practice, or Jeskai-specific Tarkir flavor.",
+          "A user distinguishes Jeskai Way from generic Commander products or adjacent color-pair patterns.",
+          "A user wants timeline-labeled Tarkir clan identity rather than generic URW/WUR/RWU/UWR/RUW/WRU play patterns."
+        ],
+        "avoid_when": [
+          "The user only mentions color-code identity.",
+          "The user centers Commander legality, exact decklists, or product facts.",
+          "The user asks for exact prowess or named mechanics without later card-data validation.",
+          "The user centers Ojutai continuity, Dragonstorm backfill, or seed-file claims as proof."
+        ],
+        "claim_ids": [
+          "jeskai_claim_0001",
+          "jeskai_claim_0002",
+          "jeskai_claim_0008",
+          "jeskai_claim_0010"
+        ]
+      },
+      "canon_guardrails": {
+        "never_claim_as_canon": [
+          "Psychological placement categories are Vox Mana interpretation, not official Wizards canon.",
+          "Do not state that a user's personality is objectively determined by a faction."
+        ]
+      },
+      "source_metadata": {
+        "profile_version": "0.1.0",
+        "placement_model_version": "",
+        "source_review_date": "2026-05-31",
         "claim_count": 0
       }
     },
@@ -1706,7 +2554,9 @@
         "WITHERBLOOM",
         "WG",
         "WB",
-        "JUND"
+        "JUND",
+        "ABZAN",
+        "SULTAI"
       ],
       "collision_guidance": [],
       "chatbot_guidance": {
@@ -2034,6 +2884,7 @@
         "WG",
         "WITHERBLOOM",
         "JUND",
+        "TEMUR",
         "BG",
         "LOREHOLD"
       ],
@@ -2273,6 +3124,7 @@
         "UG",
         "ESPER",
         "GRIXIS",
+        "SULTAI",
         "SILVERQUILL"
       ],
       "collision_guidance": [
@@ -2712,7 +3564,8 @@
         "PRISMARI",
         "QUANDRIX",
         "UG",
-        "GRIXIS"
+        "GRIXIS",
+        "TEMUR"
       ],
       "collision_guidance": [],
       "chatbot_guidance": {
@@ -3327,7 +4180,9 @@
         "WU",
         "UB",
         "SILVERQUILL",
-        "ESPER"
+        "ESPER",
+        "ABZAN",
+        "MARDU"
       ],
       "collision_guidance": [
         {
@@ -3909,7 +4764,8 @@
       "lateral_inhibition_targets": [
         "WU",
         "WR",
-        "WITHERBLOOM"
+        "WITHERBLOOM",
+        "ABZAN"
       ],
       "collision_guidance": [
         {
@@ -4328,7 +5184,9 @@
       "lateral_inhibition_targets": [
         "QUANDRIX",
         "UR",
-        "WITHERBLOOM"
+        "WITHERBLOOM",
+        "TEMUR",
+        "SULTAI"
       ],
       "collision_guidance": [
         {
@@ -4539,7 +5397,9 @@
         "BG",
         "UG",
         "WG",
-        "JUND"
+        "JUND",
+        "ABZAN",
+        "SULTAI"
       ],
       "collision_guidance": [
         {
@@ -5524,6 +6384,7 @@
               "W": 0.75,
               "WU": 0.9,
               "BANT": 0.85,
+              "ABZAN": 0.6,
               "WB": 0.6,
               "WG": 0.55
             },
@@ -5624,6 +6485,7 @@
             "likelihoods": {
               "G": 0.95,
               "NAYA": 0.85,
+              "ABZAN": 0.6,
               "WG": 0.5,
               "UG": 0.5,
               "BG": 0.5,
@@ -5632,6 +6494,88 @@
             "suppresses": {
               "U": 0.25,
               "WU": 0.25
+            }
+          },
+          {
+            "title": "The house that remembers",
+            "copy": "Trust begins with the family, the names already carried, and the next generation that must survive the choice.",
+            "signal": "remembered family duty",
+            "likelihoods": {
+              "ABZAN": 0.95,
+              "WB": 0.35,
+              "WG": 0.35,
+              "BG": 0.35
+            },
+            "suppresses": {
+              "JUND": 0.35,
+              "NAYA": 0.3,
+              "BANT": 0.25
+            }
+          },
+          {
+            "title": "The wild signal",
+            "copy": "Trust begins with the land, the body, and the old warning that arrives before language.",
+            "signal": "attuned survival signal",
+            "likelihoods": {
+              "TEMUR": 0.95,
+              "G": 0.55,
+              "UG": 0.45,
+              "RG": 0.45
+            },
+            "suppresses": {
+              "JUND": 0.35,
+              "NAYA": 0.25,
+              "GRIXIS": 0.25,
+              "ABZAN": 0.25
+            }
+          },
+          {
+            "title": "The unclaimed advantage",
+            "copy": "Trust begins with the resource nobody else is willing to see: the body, secret, cost, or opening that can become power.",
+            "signal": "ruthless resource conversion",
+            "likelihoods": {
+              "SULTAI": 0.95,
+              "B": 0.55,
+              "UB": 0.45,
+              "BG": 0.45
+            },
+            "suppresses": {
+              "ABZAN": 0.3,
+              "TEMUR": 0.25,
+              "NAYA": 0.25
+            }
+          },
+          {
+            "title": "The charge before the gap closes",
+            "copy": "Trust begins with the formation that can move before fear, delay, or comfort breaks the opening.",
+            "signal": "coordinated action before hesitation",
+            "likelihoods": {
+              "MARDU": 0.95,
+              "R": 0.55,
+              "WR": 0.45,
+              "BR": 0.45
+            },
+            "suppresses": {
+              "ABZAN": 0.3,
+              "TEMUR": 0.25,
+              "SULTAI": 0.25
+            }
+          },
+          {
+            "title": "The trained line",
+            "copy": "Trust begins with practiced perception: know the angle, steady the body, then move when insight is ready.",
+            "signal": "disciplined insight into action",
+            "likelihoods": {
+              "JESKAI": 0.95,
+              "U": 0.55,
+              "UR": 0.45,
+              "WU": 0.4,
+              "WR": 0.35
+            },
+            "suppresses": {
+              "MARDU": 0.3,
+              "TEMUR": 0.25,
+              "SULTAI": 0.25
             }
           }
         ]
@@ -5665,6 +6609,7 @@
             "signal": "obligation ledger",
             "likelihoods": {
               "WB": 0.9,
+              "ABZAN": 0.65,
               "SILVERQUILL": 0.6,
               "WU": 0.45
             },
@@ -5745,6 +6690,7 @@
             "likelihoods": {
               "G": 0.95,
               "NAYA": 0.85,
+              "ABZAN": 0.6,
               "WG": 0.5,
               "UG": 0.5,
               "BG": 0.5,
@@ -5753,6 +6699,85 @@
             "suppresses": {
               "U": 0.25,
               "WU": 0.25
+            }
+          },
+          {
+            "title": "Power that carries the house",
+            "copy": "Power is cleanest when it preserves family continuity, ancestor duty, and the living house beyond this one crisis.",
+            "signal": "house-preserving obligation",
+            "likelihoods": {
+              "ABZAN": 0.95,
+              "WB": 0.5,
+              "BG": 0.4
+            },
+            "suppresses": {
+              "JUND": 0.35,
+              "WITHERBLOOM": 0.25
+            }
+          },
+          {
+            "title": "Power that listens first",
+            "copy": "Strength is cleanest when it hears terrain, memory, and instinct before becoming force.",
+            "signal": "listening before strength",
+            "likelihoods": {
+              "TEMUR": 0.95,
+              "G": 0.55,
+              "UG": 0.45,
+              "UR": 0.4
+            },
+            "suppresses": {
+              "JUND": 0.35,
+              "GRIXIS": 0.25,
+              "NAYA": 0.25
+            }
+          },
+          {
+            "title": "Power that converts the cost",
+            "copy": "Power is honest when every body, secret, and opportunity can be turned into leverage before it is wasted.",
+            "signal": "opportunity converted into leverage",
+            "likelihoods": {
+              "SULTAI": 0.95,
+              "UB": 0.5,
+              "BG": 0.45,
+              "B": 0.4
+            },
+            "suppresses": {
+              "ABZAN": 0.3,
+              "BANT": 0.25,
+              "NAYA": 0.25
+            }
+          },
+          {
+            "title": "Power that commits the charge",
+            "copy": "Power is honest when speed, oath, and ruthless opportunity move together before the moment is gone.",
+            "signal": "martial commitment through action",
+            "likelihoods": {
+              "MARDU": 0.95,
+              "R": 0.55,
+              "WR": 0.45,
+              "BR": 0.45
+            },
+            "suppresses": {
+              "ABZAN": 0.3,
+              "TEMUR": 0.25,
+              "SULTAI": 0.25
+            }
+          },
+          {
+            "title": "Power that practices first",
+            "copy": "Power is honest when knowledge, training, courage, and restraint make the action precise enough to matter.",
+            "signal": "cunning disciplined into motion",
+            "likelihoods": {
+              "JESKAI": 0.95,
+              "U": 0.55,
+              "UR": 0.45,
+              "WU": 0.4,
+              "WR": 0.35
+            },
+            "suppresses": {
+              "MARDU": 0.3,
+              "SULTAI": 0.25,
+              "TEMUR": 0.25
             }
           }
         ]
@@ -5771,6 +6796,7 @@
               "W": 0.75,
               "LOREHOLD": 0.9,
               "BANT": 0.75,
+              "ABZAN": 0.65,
               "WU": 0.65,
               "WB": 0.55
             },
@@ -5819,6 +6845,7 @@
               "UG": 0.85,
               "WITHERBLOOM": 0.8,
               "BG": 0.65,
+              "ABZAN": 0.55,
               "NAYA": 0.55
             },
             "suppresses": {
@@ -5889,6 +6916,85 @@
               "U": 0.25,
               "WU": 0.2
             }
+          },
+          {
+            "title": "The family line",
+            "copy": "What matters first is how the choice affects the house, the ancestors behind it, and the descendants ahead.",
+            "signal": "lineage across time",
+            "likelihoods": {
+              "ABZAN": 0.95,
+              "WB": 0.45,
+              "BG": 0.4
+            },
+            "suppresses": {
+              "JUND": 0.35,
+              "NAYA": 0.25
+            }
+          },
+          {
+            "title": "The terrain signal",
+            "copy": "Attention goes to weather, stone, tracks, silence, and the living warning under the noise.",
+            "signal": "terrain and elemental signal",
+            "likelihoods": {
+              "TEMUR": 0.95,
+              "UG": 0.5,
+              "RG": 0.45,
+              "UR": 0.4
+            },
+            "suppresses": {
+              "ABZAN": 0.3,
+              "NAYA": 0.25,
+              "GRIXIS": 0.25
+            }
+          },
+          {
+            "title": "The usable resource",
+            "copy": "Attention goes to what can be claimed, repurposed, stolen, buried, raised, or turned before anyone else recognizes the opening.",
+            "signal": "usable resource before public meaning",
+            "likelihoods": {
+              "SULTAI": 0.95,
+              "UB": 0.5,
+              "BG": 0.45,
+              "UG": 0.35
+            },
+            "suppresses": {
+              "ABZAN": 0.3,
+              "TEMUR": 0.25,
+              "NAYA": 0.25
+            }
+          },
+          {
+            "title": "The opening",
+            "copy": "Attention goes to the gap that speed, formation, and ruthless commitment can take before it closes.",
+            "signal": "opening claimed through martial speed",
+            "likelihoods": {
+              "MARDU": 0.95,
+              "R": 0.55,
+              "WR": 0.45,
+              "BR": 0.45
+            },
+            "suppresses": {
+              "ABZAN": 0.3,
+              "TEMUR": 0.25,
+              "SULTAI": 0.25
+            }
+          },
+          {
+            "title": "The practiced angle",
+            "copy": "Attention goes to the line where study, timing, breath, and compassion can become the cleanest action.",
+            "signal": "trained perception before precise action",
+            "likelihoods": {
+              "JESKAI": 0.95,
+              "U": 0.55,
+              "WU": 0.45,
+              "UR": 0.4,
+              "WR": 0.35
+            },
+            "suppresses": {
+              "MARDU": 0.3,
+              "SULTAI": 0.25,
+              "GRIXIS": 0.25
+            }
           }
         ]
       },
@@ -5906,6 +7012,7 @@
               "WG": 0.9,
               "BANT": 0.85,
               "NAYA": 0.85,
+              "ABZAN": 0.55,
               "WITHERBLOOM": 0.55,
               "WR": 0.45
             },
@@ -5954,6 +7061,7 @@
             "likelihoods": {
               "W": 0.85,
               "WB": 0.85,
+              "ABZAN": 0.65,
               "LOREHOLD": 0.75,
               "ESPER": 0.65,
               "WU": 0.6
@@ -6013,6 +7121,87 @@
             "suppresses": {
               "U": 0.25,
               "WU": 0.2
+            }
+          },
+          {
+            "title": "A house that outlasts me",
+            "copy": "The cost is bearable when it helps the house endure beyond one life and keeps memory useful for the living.",
+            "signal": "house continuity beyond the self",
+            "likelihoods": {
+              "ABZAN": 0.95,
+              "WB": 0.55,
+              "WG": 0.45,
+              "BG": 0.4
+            },
+            "suppresses": {
+              "GRIXIS": 0.45,
+              "JUND": 0.35,
+              "NAYA": 0.25
+            }
+          },
+          {
+            "title": "A clan that hears the wild",
+            "copy": "The cost is bearable when survival belongs to terrain, kin, instinct, and the signal that keeps the next step alive.",
+            "signal": "clan survival through attunement",
+            "likelihoods": {
+              "TEMUR": 0.95,
+              "G": 0.55,
+              "RG": 0.45,
+              "UG": 0.45
+            },
+            "suppresses": {
+              "JUND": 0.35,
+              "ABZAN": 0.3,
+              "GRIXIS": 0.25
+            }
+          },
+          {
+            "title": "An advantage no one else claims",
+            "copy": "The cost is bearable when it turns waste, death, secrecy, or risk into the power to keep choosing.",
+            "signal": "cost converted into agency",
+            "likelihoods": {
+              "SULTAI": 0.95,
+              "B": 0.55,
+              "BG": 0.45,
+              "UB": 0.45
+            },
+            "suppresses": {
+              "ABZAN": 0.3,
+              "TEMUR": 0.25,
+              "BANT": 0.25
+            }
+          },
+          {
+            "title": "A name worth charging under",
+            "copy": "The cost is bearable when the charge has a name, a code, and companions moving fast enough to keep it true.",
+            "signal": "war-name belonging through commitment",
+            "likelihoods": {
+              "MARDU": 0.95,
+              "WR": 0.5,
+              "WB": 0.45,
+              "R": 0.45
+            },
+            "suppresses": {
+              "JUND": 0.3,
+              "ABZAN": 0.25,
+              "SULTAI": 0.25
+            }
+          },
+          {
+            "title": "A school that makes motion wise",
+            "copy": "The cost is bearable when discipline turns insight into action that can protect the form it serves.",
+            "signal": "monastery practice as shared action",
+            "likelihoods": {
+              "JESKAI": 0.95,
+              "U": 0.55,
+              "WU": 0.45,
+              "UR": 0.4,
+              "WR": 0.35
+            },
+            "suppresses": {
+              "MARDU": 0.3,
+              "SULTAI": 0.25,
+              "TEMUR": 0.25
             }
           }
         ]
@@ -7721,6 +8910,626 @@
             },
             "suppresses": {
               "NAYA": 0.35
+            }
+          }
+        ]
+      },
+      {
+        "id": "hall_ABZAN_family_endurance",
+        "stage": "hall",
+        "faction": "ABZAN",
+        "eyebrow": "Hall - Abzan",
+        "prompt": "The house can survive, but only if the next move carries family duty forward. What makes endurance trustworthy?",
+        "answers": [
+          {
+            "title": "Keep the house alive",
+            "copy": "Survival matters when it protects family continuity and gives the next generation something rooted to inherit.",
+            "signal": "family endurance through house continuity",
+            "likelihoods": {
+              "ABZAN": 0.95,
+              "WB": 0.55,
+              "WG": 0.45
+            },
+            "suppresses": {
+              "JUND": 0.35,
+              "NAYA": 0.3,
+              "BANT": 0.25
+            }
+          },
+          {
+            "title": "Let growth outrun the old duty",
+            "copy": "The future is wiser when life can grow beyond inherited obligations.",
+            "signal": "growth over inherited duty",
+            "likelihoods": {
+              "NAYA": 0.8,
+              "WG": 0.5
+            },
+            "suppresses": {
+              "ABZAN": 0.35
+            }
+          },
+          {
+            "title": "Feed what survives the cost",
+            "copy": "Endurance belongs to whatever can pay, adapt, and keep pressure moving.",
+            "signal": "survival pressure over house continuity",
+            "likelihoods": {
+              "JUND": 0.8,
+              "BG": 0.45
+            },
+            "suppresses": {
+              "ABZAN": 0.4
+            }
+          },
+          {
+            "title": "Make the rule publicly worthy",
+            "copy": "Continuity needs standards the whole order can recognize and approve.",
+            "signal": "public legitimacy over family continuity",
+            "likelihoods": {
+              "BANT": 0.8,
+              "WU": 0.45
+            },
+            "suppresses": {
+              "ABZAN": 0.3
+            }
+          }
+        ]
+      },
+      {
+        "id": "hall_ABZAN_ancestor_perennation",
+        "stage": "hall",
+        "faction": "ABZAN",
+        "eyebrow": "Hall - Abzan",
+        "prompt": "Ancestors, roots, and the dead are present in the decision. How should memory guide the living?",
+        "answers": [
+          {
+            "title": "Let memory become stewardship",
+            "copy": "The dead are not weight alone; they are obligation, warning, and rooted guidance for the house that remains.",
+            "signal": "ancestor duty through perennation",
+            "likelihoods": {
+              "ABZAN": 0.95,
+              "BG": 0.5,
+              "WB": 0.45
+            },
+            "suppresses": {
+              "GRIXIS": 0.35,
+              "NAYA": 0.25
+            }
+          },
+          {
+            "title": "Compost loss into renewal",
+            "copy": "Death feeds what comes next, even when no family oath can contain the cycle.",
+            "signal": "life-death cycle over house memory",
+            "likelihoods": {
+              "WITHERBLOOM": 0.85,
+              "BG": 0.55
+            },
+            "suppresses": {
+              "ABZAN": 0.35
+            }
+          },
+          {
+            "title": "Protect only the living moment",
+            "copy": "The living world needs care now, not an inherited debt that keeps speaking over it.",
+            "signal": "living care over ancestor obligation",
+            "likelihoods": {
+              "NAYA": 0.75,
+              "WG": 0.5
+            },
+            "suppresses": {
+              "ABZAN": 0.35
+            }
+          },
+          {
+            "title": "Break from inherited debt",
+            "copy": "If a duty cannot be chosen, surviving it may require cutting the obligation loose.",
+            "signal": "freedom from inherited duty",
+            "likelihoods": {
+              "JUND": 0.75,
+              "BR": 0.4
+            },
+            "suppresses": {
+              "ABZAN": 0.45
+            }
+          }
+        ]
+      },
+      {
+        "id": "hall_TEMUR_survival_attunement",
+        "stage": "hall",
+        "faction": "TEMUR",
+        "eyebrow": "Hall - Temur",
+        "prompt": "The terrain is harsh, the signal is thin, and action has a cost. What makes the next move trustworthy?",
+        "answers": [
+          {
+            "title": "Listen, then move",
+            "copy": "Survival starts by hearing the land, the body, and the old memory before strength becomes motion.",
+            "signal": "attuned instinct before force",
+            "likelihoods": {
+              "TEMUR": 0.95,
+              "G": 0.55,
+              "UG": 0.5,
+              "RG": 0.45
+            },
+            "suppresses": {
+              "JUND": 0.35,
+              "NAYA": 0.3,
+              "GRIXIS": 0.3,
+              "ABZAN": 0.25
+            }
+          },
+          {
+            "title": "Feed the pressure",
+            "copy": "The honest answer is the hunger that can survive the cost.",
+            "signal": "appetite over listening",
+            "likelihoods": {
+              "JUND": 0.8,
+              "RG": 0.45,
+              "BR": 0.4
+            },
+            "suppresses": {
+              "TEMUR": 0.35
+            }
+          },
+          {
+            "title": "Refine the pattern",
+            "copy": "The move is safe when observation becomes a cleaner system.",
+            "signal": "optimization over wild signal",
+            "likelihoods": {
+              "UG": 0.8,
+              "QUANDRIX": 0.45
+            },
+            "suppresses": {
+              "TEMUR": 0.3
+            }
+          },
+          {
+            "title": "Guard the living whole",
+            "copy": "The right move protects belonging before it tests strength.",
+            "signal": "communal care over harsh-terrain instinct",
+            "likelihoods": {
+              "NAYA": 0.75,
+              "BANT": 0.45,
+              "WG": 0.4
+            },
+            "suppresses": {
+              "TEMUR": 0.35
+            }
+          }
+        ]
+      },
+      {
+        "id": "hall_TEMUR_elemental_memory",
+        "stage": "hall",
+        "faction": "TEMUR",
+        "eyebrow": "Hall - Temur",
+        "prompt": "An old signal moves through stone, ice, storm, and ancestor memory. How should it guide the living?",
+        "answers": [
+          {
+            "title": "Follow the living memory",
+            "copy": "The signal is not a chain. It is the world remembering enough to help survival choose its next shape.",
+            "signal": "elemental memory as survival guidance",
+            "likelihoods": {
+              "TEMUR": 0.95,
+              "UG": 0.5,
+              "RG": 0.4
+            },
+            "suppresses": {
+              "ABZAN": 0.35,
+              "NAYA": 0.25,
+              "GRIXIS": 0.25
+            }
+          },
+          {
+            "title": "Keep the house alive",
+            "copy": "Memory should carry obligation forward through family and the next generation.",
+            "signal": "ancestor duty over wild memory",
+            "likelihoods": {
+              "ABZAN": 0.8,
+              "WB": 0.4,
+              "WG": 0.35
+            },
+            "suppresses": {
+              "TEMUR": 0.35
+            }
+          },
+          {
+            "title": "Turn it into leverage",
+            "copy": "A signal matters when it reveals the opening before anyone else sees it.",
+            "signal": "leverage over elemental listening",
+            "likelihoods": {
+              "GRIXIS": 0.75,
+              "UR": 0.4
+            },
+            "suppresses": {
+              "TEMUR": 0.35
+            }
+          },
+          {
+            "title": "Let growth belong",
+            "copy": "Memory is wisest when it protects the larger living whole.",
+            "signal": "abundance over harsh-terrain memory",
+            "likelihoods": {
+              "NAYA": 0.75,
+              "WG": 0.45
+            },
+            "suppresses": {
+              "TEMUR": 0.3
+            }
+          }
+        ]
+      },
+      {
+        "id": "hall_SULTAI_resource_conversion",
+        "stage": "hall",
+        "faction": "SULTAI",
+        "eyebrow": "Hall - Sultai",
+        "prompt": "A resource is ugly, hidden, or costly, but it could become power. What makes using it trustworthy?",
+        "answers": [
+          {
+            "title": "Use what others waste",
+            "copy": "The resource is trustworthy when it converts death, secrecy, cost, or opportunity into power before anyone else can claim it.",
+            "signal": "ruthless resource conversion",
+            "likelihoods": {
+              "SULTAI": 0.95,
+              "B": 0.55,
+              "BG": 0.5,
+              "UB": 0.45
+            },
+            "suppresses": {
+              "ABZAN": 0.35,
+              "TEMUR": 0.3,
+              "NAYA": 0.25
+            }
+          },
+          {
+            "title": "Make it protect the house",
+            "copy": "A cost is trustworthy when family continuity and remembered duty can answer for it.",
+            "signal": "house duty over resource conversion",
+            "likelihoods": {
+              "ABZAN": 0.8,
+              "WB": 0.45,
+              "WG": 0.35
+            },
+            "suppresses": {
+              "SULTAI": 0.35
+            }
+          },
+          {
+            "title": "Wait for the living signal",
+            "copy": "Power should not outrun the terrain, body, and memory that make survival wise.",
+            "signal": "attunement over ruthless conversion",
+            "likelihoods": {
+              "TEMUR": 0.8,
+              "G": 0.45,
+              "UG": 0.4
+            },
+            "suppresses": {
+              "SULTAI": 0.3
+            }
+          },
+          {
+            "title": "Turn risk into performance",
+            "copy": "The best use of danger is the bold move that changes the room before restraint can kill it.",
+            "signal": "spectacle over hidden conversion",
+            "likelihoods": {
+              "GRIXIS": 0.75,
+              "BR": 0.45,
+              "UR": 0.4
+            },
+            "suppresses": {
+              "SULTAI": 0.3
+            }
+          }
+        ]
+      },
+      {
+        "id": "hall_SULTAI_dead_usefulness",
+        "stage": "hall",
+        "faction": "SULTAI",
+        "eyebrow": "Hall - Sultai",
+        "prompt": "The dead, the discarded, or the secret cost can still guide the living. What should happen next?",
+        "answers": [
+          {
+            "title": "Make the dead useful",
+            "copy": "The dead are not only memory. They are material, warning, labor, and leverage when ambition can make them serve the living choice.",
+            "signal": "death converted into power",
+            "likelihoods": {
+              "SULTAI": 0.95,
+              "BG": 0.55,
+              "UB": 0.45
+            },
+            "suppresses": {
+              "ABZAN": 0.35,
+              "TEMUR": 0.25,
+              "NAYA": 0.25
+            }
+          },
+          {
+            "title": "Let memory become stewardship",
+            "copy": "The dead guide best as obligation and continuity for the house that remains.",
+            "signal": "ancestor duty over necromantic utility",
+            "likelihoods": {
+              "ABZAN": 0.85,
+              "WB": 0.45,
+              "BG": 0.4
+            },
+            "suppresses": {
+              "SULTAI": 0.35
+            }
+          },
+          {
+            "title": "Compost loss into renewal",
+            "copy": "Death feeds life most cleanly when it stays part of a shared cycle rather than a tool of domination.",
+            "signal": "vitality ecology over ruthless utility",
+            "likelihoods": {
+              "WITHERBLOOM": 0.85,
+              "BG": 0.55
+            },
+            "suppresses": {
+              "SULTAI": 0.35
+            }
+          },
+          {
+            "title": "Hear the old signal",
+            "copy": "Memory should keep survival listening before it becomes a thing to spend.",
+            "signal": "elemental memory over utility",
+            "likelihoods": {
+              "TEMUR": 0.75,
+              "UG": 0.4
+            },
+            "suppresses": {
+              "SULTAI": 0.3
+            }
+          }
+        ]
+      },
+      {
+        "id": "hall_MARDU_total_commitment",
+        "stage": "hall",
+        "faction": "MARDU",
+        "eyebrow": "Hall - Mardu",
+        "prompt": "The opening is here, but hesitation will break the charge. What makes action trustworthy?",
+        "answers": [
+          {
+            "title": "Take the opening now",
+            "copy": "Action is trustworthy when speed, formation, and commitment strike before the moment loses its name.",
+            "signal": "Red-centered speed through coordinated attack",
+            "likelihoods": {
+              "MARDU": 0.95,
+              "R": 0.55,
+              "WR": 0.5,
+              "BR": 0.45
+            },
+            "suppresses": {
+              "ABZAN": 0.35,
+              "TEMUR": 0.3,
+              "SULTAI": 0.25
+            }
+          },
+          {
+            "title": "Keep the house alive",
+            "copy": "The right move is the one that lets family duty and continuity survive the pressure.",
+            "signal": "house endurance over raid momentum",
+            "likelihoods": {
+              "ABZAN": 0.8,
+              "WB": 0.45,
+              "WG": 0.35
+            },
+            "suppresses": {
+              "MARDU": 0.35
+            }
+          },
+          {
+            "title": "Listen for the living signal",
+            "copy": "Survival should wait until terrain, memory, and instinct agree on the next strike.",
+            "signal": "attunement over immediate charge",
+            "likelihoods": {
+              "TEMUR": 0.8,
+              "RG": 0.45,
+              "UG": 0.35
+            },
+            "suppresses": {
+              "MARDU": 0.3
+            }
+          },
+          {
+            "title": "Convert the hidden cost",
+            "copy": "An opening matters most when it can become leverage before anyone else sees its value.",
+            "signal": "resource conversion over open assault",
+            "likelihoods": {
+              "SULTAI": 0.75,
+              "UB": 0.4,
+              "BG": 0.35
+            },
+            "suppresses": {
+              "MARDU": 0.3
+            }
+          }
+        ]
+      },
+      {
+        "id": "hall_MARDU_war_name_oath",
+        "stage": "hall",
+        "faction": "MARDU",
+        "eyebrow": "Hall - Mardu",
+        "prompt": "A charge can win the moment, but only a name and code can carry it forward. What keeps speed from becoming noise?",
+        "answers": [
+          {
+            "title": "Keep the war name",
+            "copy": "Speed needs oath, formation, and a name strong enough to make every rider answer for the charge.",
+            "signal": "war-name oath and martial structure",
+            "likelihoods": {
+              "MARDU": 0.95,
+              "WR": 0.55,
+              "WB": 0.45
+            },
+            "suppresses": {
+              "JUND": 0.35,
+              "NAYA": 0.25,
+              "SULTAI": 0.25
+            }
+          },
+          {
+            "title": "Feed what survives",
+            "copy": "The honest rule is appetite: what can survive the cost earns the next move.",
+            "signal": "appetite over oath-bound formation",
+            "likelihoods": {
+              "JUND": 0.8,
+              "BR": 0.5,
+              "RG": 0.4
+            },
+            "suppresses": {
+              "MARDU": 0.35
+            }
+          },
+          {
+            "title": "Guard the living whole",
+            "copy": "The next move should protect belonging and abundance before it becomes conquest.",
+            "signal": "living-world care over martial raid",
+            "likelihoods": {
+              "NAYA": 0.75,
+              "WG": 0.45,
+              "WR": 0.35
+            },
+            "suppresses": {
+              "MARDU": 0.3
+            }
+          },
+          {
+            "title": "Use what others waste",
+            "copy": "Power belongs to the cost, secret, or body that can be converted before the room understands it.",
+            "signal": "ruthless conversion over visible war code",
+            "likelihoods": {
+              "SULTAI": 0.75,
+              "B": 0.45,
+              "BG": 0.4
+            },
+            "suppresses": {
+              "MARDU": 0.3
+            }
+          }
+        ]
+      },
+      {
+        "id": "hall_JESKAI_disciplined_cunning",
+        "stage": "hall",
+        "faction": "JESKAI",
+        "eyebrow": "Hall - Jeskai",
+        "prompt": "Insight arrives before the field is ready for it. What makes the next action trustworthy?",
+        "answers": [
+          {
+            "title": "Train until insight can move",
+            "copy": "Action is trustworthy when knowledge, breath, and practice have made the line precise enough to take.",
+            "signal": "Blue-centered cunning through disciplined action",
+            "likelihoods": {
+              "JESKAI": 0.95,
+              "U": 0.55,
+              "UR": 0.45,
+              "WU": 0.4
+            },
+            "suppresses": {
+              "MARDU": 0.35,
+              "SULTAI": 0.3,
+              "TEMUR": 0.25
+            }
+          },
+          {
+            "title": "Take the opening now",
+            "copy": "The moment is honest because speed and commitment can claim it before it disappears.",
+            "signal": "immediate charge over trained timing",
+            "likelihoods": {
+              "MARDU": 0.8,
+              "R": 0.45,
+              "WR": 0.4
+            },
+            "suppresses": {
+              "JESKAI": 0.35
+            }
+          },
+          {
+            "title": "Convert the hidden leverage",
+            "copy": "Insight matters most when it reveals a resource nobody else knows how to use.",
+            "signal": "resource conversion over open discipline",
+            "likelihoods": {
+              "SULTAI": 0.75,
+              "UB": 0.4
+            },
+            "suppresses": {
+              "JESKAI": 0.3
+            }
+          },
+          {
+            "title": "Wait for the living signal",
+            "copy": "The right action should answer terrain, instinct, and survival before technique leads.",
+            "signal": "attunement over practiced form",
+            "likelihoods": {
+              "TEMUR": 0.75,
+              "UG": 0.4
+            },
+            "suppresses": {
+              "JESKAI": 0.3
+            }
+          }
+        ]
+      },
+      {
+        "id": "hall_JESKAI_way_form",
+        "stage": "hall",
+        "faction": "JESKAI",
+        "eyebrow": "Hall - Jeskai",
+        "prompt": "A discipline can sharpen action or become empty restraint. What keeps the Way alive?",
+        "answers": [
+          {
+            "title": "Let form serve the moving insight",
+            "copy": "The Way stays alive when structure, courage, and compassion give trained perception a body in the world.",
+            "signal": "shared restraint giving insight form",
+            "likelihoods": {
+              "JESKAI": 0.95,
+              "WU": 0.5,
+              "WR": 0.45,
+              "U": 0.4
+            },
+            "suppresses": {
+              "MARDU": 0.3,
+              "SULTAI": 0.25,
+              "GRIXIS": 0.25
+            }
+          },
+          {
+            "title": "Keep the charge named",
+            "copy": "Form matters because the oath lets speed and companions keep the action accountable.",
+            "signal": "war-name oath over monastery form",
+            "likelihoods": {
+              "MARDU": 0.75,
+              "WR": 0.45
+            },
+            "suppresses": {
+              "JESKAI": 0.3
+            }
+          },
+          {
+            "title": "Make the pattern public",
+            "copy": "Discipline matters when it becomes a process others can trust and repeat.",
+            "signal": "procedure over martial insight",
+            "likelihoods": {
+              "WU": 0.8,
+              "BANT": 0.45
+            },
+            "suppresses": {
+              "JESKAI": 0.25
+            }
+          },
+          {
+            "title": "Let the wild choose the strike",
+            "copy": "The move stays alive when instinct and terrain keep technique from becoming a cage.",
+            "signal": "survival attunement over refined Way",
+            "likelihoods": {
+              "TEMUR": 0.75,
+              "RG": 0.4,
+              "UG": 0.35
+            },
+            "suppresses": {
+              "JESKAI": 0.3
             }
           }
         ]

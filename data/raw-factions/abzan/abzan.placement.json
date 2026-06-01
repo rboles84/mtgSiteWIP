@@ -1,0 +1,227 @@
+{
+  "schema_version": "1.0.0",
+  "placement_profile_version": "0.1.0",
+  "faction_id": "abzan",
+  "faction_name": "Abzan Houses",
+  "based_on_profile_version": "0.1.0",
+  "last_updated": "2026-05-31",
+  "placement_summary": "Abzan Houses is a VM-202 live-pilot raw packet. Its strongest source-bound signals are White-centered WBG Tarkir identity, endurance, family, house continuity, ancestor obligation, perennation, defensive patience, and false-positive boundaries against generic WBG, Dromoka's brood, Commander products, and seed files.",
+  "moral_and_psychological_profile": {
+    "summary": "Vox Mana models Abzan as continuity through family, ancestry, obligation, and defensive patience. This is project interpretation from normalized ABZAN evidence plus VM-198/VM-199 shaping docs, not official canon.",
+    "claim_ids": [
+      "abzan_claim_0001",
+      "abzan_claim_0002",
+      "abzan_claim_0003",
+      "abzan_claim_0006",
+      "abzan_claim_0008",
+      "abzan_claim_0010"
+    ],
+    "confidence": "Medium",
+    "notes": "Psychological language is Vox Mana synthesis. Support-only rows do not raise confidence."
+  },
+  "placement_axes": [],
+  "core_values": [
+    {
+      "value_id": "value_abzan_0001",
+      "label": "Family As Continuity",
+      "description": "The self belongs to a house whose elders, descendants, spouses, adopted members, ancestors, and future generations make survival communal.",
+      "claim_ids": [
+        "abzan_claim_0003",
+        "abzan_claim_0006",
+        "abzan_claim_0008"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "value_id": "value_abzan_0002",
+      "label": "Endurance Before Glory",
+      "description": "Defense, patience, fortification, and long-game survival matter because the house must outlast pressure.",
+      "claim_ids": [
+        "abzan_claim_0002",
+        "abzan_claim_0007"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "value_id": "value_abzan_0003",
+      "label": "Perennation Through Duty",
+      "description": "Life and death continuity become practical obligation through Kin-Trees, ancestor guidance, earth magic, and spirit summoning.",
+      "claim_ids": [
+        "abzan_claim_0008"
+      ],
+      "confidence": "Medium"
+    }
+  ],
+  "behavioral_signals": [
+    {
+      "signal_id": "signal_abzan_0001",
+      "signal": "Look for White-centered WBG Abzan Houses framing with family, duty, house continuity, and survival as primary language.",
+      "claim_ids": [
+        "abzan_claim_0001",
+        "abzan_claim_0002",
+        "abzan_claim_0003",
+        "abzan_claim_0006"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "signal_id": "signal_abzan_0002",
+      "signal": "Look for ancestor spirits, Kin-Trees, perennation, burial, spirit summoning, or duty beyond death tied to house survival.",
+      "claim_ids": [
+        "abzan_claim_0003",
+        "abzan_claim_0008"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "signal_id": "signal_abzan_0003",
+      "signal": "Look for defensive patience, fortified refuge, trade/civic resilience, and outlasting enemies as Abzan support texture.",
+      "claim_ids": [
+        "abzan_claim_0002",
+        "abzan_claim_0007",
+        "abzan_claim_0009"
+      ],
+      "confidence": "Medium"
+    }
+  ],
+  "inhibitor_traits": [
+    "WBG color composition without a positive Abzan evidence cluster",
+    "Generic toughness, defender, graveyard, counter, token, Food, poison, or life-gain play without Abzan house or ancestor evidence",
+    "Dromoka's brood or WG dragon-clan identity treated as Abzan Houses",
+    "Commander product color identity treated as Tarkir canon",
+    "Seed-file language treated as evidence",
+    "Exact card facts, biography, minor-house politics, rebellion operations, or dragonstorm ecology used without direct evidence"
+  ],
+  "good_fit_indicators": [
+    "family, house continuity, duty, and future generations are central",
+    "ancestor guidance, Kin-Trees, or perennation appear as more than generic graveyard flavor",
+    "defensive patience, endurance, active defense, and civic refuge support the identity",
+    "Dromoka, Commander products, and generic WBG are treated as boundaries rather than identity proof"
+  ],
+  "ideal_fit_indicators": [
+    "The answer combines White-centered Abzan Houses identity with endurance, family, ancestor obligation, and perennation.",
+    "The answer uses Tarkir Abzan sources or normalized ABZAN evidence rows rather than seed files or Commander products.",
+    "The answer treats support-only mechanics and manual-fill topics as bounded texture rather than evidence foundations."
+  ],
+  "poor_fit_indicators": [
+    "The answer depends mainly on generic WBG color identity.",
+    "The answer centers Dromoka's brood, generic graveyard value, generic toughness, or Commander product flavor.",
+    "The answer requires exact card facts, commander legality, detailed biography, minor-house hierarchy, campaign chronology, or dragonstorm ecology not promoted in ABZAN evidence rows."
+  ],
+  "discriminator_questions": [],
+  "chatbot_guidance": {
+    "how_to_recognize_match": [
+      "VM-202 live-pilot guidance only: Abzan language should combine White-centered WBG Tarkir Abzan Houses with family, endurance, ancestor obligation, perennation, and defensive patience.",
+      "Use support-only Commander/operator patterns as vocabulary only, not as canon evidence.",
+      "Keep manual-fill topics out of the match basis."
+    ],
+    "how_to_recognize_mismatch": [
+      "Do not match Abzan from WBG color composition alone.",
+      "Do not match Abzan from generic defense, toughness, counters, graveyard, lifegain, Food, poison, or proliferate alone.",
+      "Do not match Abzan from Dromoka's brood or Commander products.",
+      "Do not match Abzan from seed files that have not passed through ABZAN-EVID rows."
+    ],
+    "questions_to_ask_when_uncertain": [],
+    "do_not_overweight": [
+      "Do not award Abzan from color composition alone.",
+      "Do not award Abzan from support-only Commander/operator rows.",
+      "Do not award Abzan from manual-fill topics.",
+      "Do not award Abzan from architecture prose as evidence."
+    ],
+    "never_claim_as_canon": [
+      "Never claim Vox Mana placement planning is official Wizards canon.",
+      "Never claim WBG is a generated expression key.",
+      "Never claim Abzan has a route, Home preview card, Maze route, schema field, public alias, or color-code runtime key from VM-202.",
+      "Never claim Dromoka's brood is Abzan Houses continuity from this packet."
+    ],
+    "review_note": "VM-202 adds one live-pilot expression key through the approved builder path only. It does not add Home preview membership, routes, Maze route keys, schema fields, fixtures, or color-code public aliases."
+  },
+  "placement_quality": {
+    "overall_confidence": "Medium source-authored confidence for narrow identity, modern guide, and guardrail claims; low for exact card facts and deferred detailed lore.",
+    "strongest_evidence_areas": [
+      "White-centered WBG Abzan identity",
+      "Endurance and survival",
+      "Khans-era family and ancestor practice",
+      "Modern Abzan house continuity",
+      "Perennation",
+      "Defensive civic and military patterns",
+      "Dromoka separation and generic WBG guardrails"
+    ],
+    "weakest_evidence_areas": [
+      "Exact modern card facts and commander legality",
+      "Individual biographies beyond guide text",
+      "Detailed minor-house politics",
+      "Exact rebellion operations",
+      "Post-rebellion integration details",
+      "Long-term dragonstorm ecology",
+      "Commander/operator material beyond support-only language"
+    ],
+    "manual_review_recommended": true,
+    "review_gated": false,
+    "placement_eligible": true,
+    "notes": "VM-202 enables Abzan through the approved builder path only. WBG remains metadata/query-only and ABZAN is the only live expression key.",
+    "calibration_tuning_status": "vm202_live_pilot",
+    "last_placement_ready_pass": "VM-202",
+    "live_pilot": true
+  },
+  "color_identity": {
+    "colors": [
+      "W",
+      "B",
+      "G"
+    ],
+    "metadata_only": true,
+    "notes": "WBG and any W/B/G color-order permutations are metadata/query-only and not generated keys, route keys, runtime aliases, fixture keys, public labels, or lookup keys."
+  },
+  "calibration_tuning": {
+    "status": "vm202_live_pilot",
+    "required_positive_evidence_terms": [
+      "Abzan Houses",
+      "Tarkir",
+      "WBG",
+      "White-centered",
+      "family",
+      "house continuity",
+      "endurance",
+      "Kin-Trees",
+      "ancestor spirits",
+      "perennation",
+      "defensive patience"
+    ],
+    "required_positive_min_hits": null,
+    "broad_match_penalty": null,
+    "overselection_reason": "Color composition, generic defense, generic graveyard value, Commander products, Dromoka's brood, or seed-file phrasing can overselect Abzan without the normalized family/endurance/perennation evidence cluster.",
+    "suppress_when_user_centers": [
+      "generic WBG",
+      "generic defenders",
+      "generic toughness",
+      "generic graveyard recursion",
+      "generic counters or tokens",
+      "Dromoka clan continuity",
+      "Commander product identity",
+      "seed-file claims",
+      "manual-fill lore as proof"
+    ],
+    "strengthen_when_user_centers": [
+      "White-centered Abzan Houses",
+      "family duty",
+      "house continuity",
+      "Kin-Trees",
+      "ancestor spirits",
+      "perennation",
+      "defensive patience",
+      "modern Dragonstorm Abzan source context"
+    ],
+    "collision_suppressions": [
+      "generic_wbg_not_abzan",
+      "dromoka_brood_not_abzan",
+      "commander_product_not_tarkir_canon",
+      "generic_graveyard_not_abzan",
+      "generic_toughness_not_abzan",
+      "seed_files_not_evidence"
+    ],
+    "false_positive_guardrail": "Do not treat support-only mechanics, Commander/operator rows, manual-fill lore, architecture prose, seed files, Dromoka's brood, or color composition alone as Abzan evidence.",
+    "smoke_test_note": "VM-202 wires only the ABZAN live-pilot expression through generated placement data."
+  },
+  "collision_guidance": []
+}

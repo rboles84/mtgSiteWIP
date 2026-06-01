@@ -5,7 +5,7 @@ import { resolveMazeQueryRequest } from "./maze-query-core.js";
 import { resolveModeInputValue } from "./research-mode.js";
 import * as ResearchSearch from "./research-search.js";
 import { buildScryfallWebSearchUrl, renderQueryInspector } from "./research-ui.js";
-import { buildDossierMazePathEntries, resolveMazeLaunchState } from "../assets/js/maze-handoff.js";
+import { buildDossierMazePathEntries, isMazeOperatorQuery, resolveMazeLaunchState } from "../assets/js/maze-handoff.js";
 
 /*
  * VM-147C ownership map:
@@ -80,12 +80,115 @@ const DOSSIER_COLOR_IDENTITIES = new Map([
   ["ESPER", "wub"],
   ["GRIXIS", "ubr"],
   ["JUND", "brg"],
+  ["NAYA", "rgw"],
+  ["ABZAN", "wbg"],
+  ["TEMUR", "gur"],
+  ["SULTAI", "bgu"],
+  ["MARDU", "rwb"],
+  ["JESKAI", "urw"],
   ["LOREHOLD", "wr"],
   ["PRISMARI", "ur"],
   ["QUANDRIX", "ug"],
   ["SILVERQUILL", "wb"],
   ["WITHERBLOOM", "bg"]
 ]);
+const DOSSIER_NAME_TO_KEY = new Map([
+  ["BANT", "BANT"],
+  ["ESPER", "ESPER"],
+  ["GRIXIS", "GRIXIS"],
+  ["JUND", "JUND"],
+  ["NAYA", "NAYA"],
+  ["ABZAN", "ABZAN"],
+  ["ABZAN HOUSES", "ABZAN"],
+  ["TEMUR", "TEMUR"],
+  ["TEMUR FRONTIER", "TEMUR"],
+  ["SULTAI", "SULTAI"],
+  ["SULTAI BROOD", "SULTAI"],
+  ["MARDU", "MARDU"],
+  ["MARDU HORDE", "MARDU"],
+  ["JESKAI", "JESKAI"],
+  ["JESKAI WAY", "JESKAI"],
+]);
+const DOSSIER_COLOR_CODE_TO_KEY = new Map([
+  ["WUG", "BANT"],
+  ["WGU", "BANT"],
+  ["UWG", "BANT"],
+  ["UGW", "BANT"],
+  ["GWU", "BANT"],
+  ["GUW", "BANT"],
+  ["WUB", "ESPER"],
+  ["WBU", "ESPER"],
+  ["UWB", "ESPER"],
+  ["UBW", "ESPER"],
+  ["BWU", "ESPER"],
+  ["BUW", "ESPER"],
+  ["UBR", "GRIXIS"],
+  ["URB", "GRIXIS"],
+  ["BUR", "GRIXIS"],
+  ["BRU", "GRIXIS"],
+  ["RUB", "GRIXIS"],
+  ["RBU", "GRIXIS"],
+  ["BRG", "JUND"],
+  ["BGR", "JUND"],
+  ["RBG", "JUND"],
+  ["RGB", "JUND"],
+  ["GBR", "JUND"],
+  ["GRB", "JUND"],
+  ["RGW", "NAYA"],
+  ["RWG", "NAYA"],
+  ["GRW", "NAYA"],
+  ["GWR", "NAYA"],
+  ["WRG", "NAYA"],
+  ["WGR", "NAYA"],
+  ["WBG", "ABZAN"],
+  ["WGB", "ABZAN"],
+  ["BWG", "ABZAN"],
+  ["BGW", "ABZAN"],
+  ["GWB", "ABZAN"],
+  ["GBW", "ABZAN"],
+  ["GUR", "TEMUR"],
+  ["GRU", "TEMUR"],
+  ["UGR", "TEMUR"],
+  ["URG", "TEMUR"],
+  ["RGU", "TEMUR"],
+  ["RUG", "TEMUR"],
+  ["RWB", "MARDU"],
+  ["RBW", "MARDU"],
+  ["WRB", "MARDU"],
+  ["WBR", "MARDU"],
+  ["BRW", "MARDU"],
+  ["BWR", "MARDU"],
+]);
+const DOSSIER_VISIBLE_IDENTITY_HINTS = new Map([
+  ["JUND", "Jund"],
+  ["NAYA", "Naya"],
+  ["ABZAN", "Abzan"],
+  ["TEMUR", "Temur"],
+  ["SULTAI", "Sultai"],
+  ["MARDU", "Mardu"],
+  ["JESKAI", "Jeskai"],
+]);
+const DOSSIER_DISPLAY_NAMES = new Map([
+  ["BANT", "Bant"],
+  ["ESPER", "Esper"],
+  ["GRIXIS", "Grixis"],
+  ["JUND", "Jund"],
+  ["NAYA", "Naya"],
+  ["ABZAN", "Abzan Houses"],
+  ["TEMUR", "Temur Frontier"],
+  ["SULTAI", "Sultai Brood"],
+  ["MARDU", "Mardu Horde"],
+  ["JESKAI", "Jeskai Way"],
+]);
+const DOSSIER_NO_STRETCH_KEYS = new Set(["GRIXIS", "JUND", "NAYA", "ABZAN", "TEMUR", "SULTAI", "MARDU", "JESKAI"]);
+const DOSSIER_QUERY_IDENTITIES = new Set(["rgw", "wbg", "gur", "bgu", "rwb", "urw"]);
+const MANA_SYMBOL_WORDS = {
+  w: "white",
+  u: "blue",
+  b: "black",
+  r: "red",
+  g: "green",
+};
 const STASH_SECTIONS = [
   { id: "commander", label: "Commander Ideas", exportHeading: "Commander" },
   { id: "support", label: "Cards That Support This Shape", exportHeading: "Deck" },
@@ -506,7 +609,7 @@ async function initializeResearchArchives() {
       inputValue: launch.plainReadingQuery || "",
       normalized: queryResult.normalized
     });
-  } else if (launch.urlQ) {
+  } else if (launch.urlQ && (launch.from !== "archscry" || isMazeOperatorQuery(launch.urlQ))) {
     const queryResult = resolveMazeRouteQuery(launch.urlQ, {
       mode: "raw",
       origin: launch.from === "archscry" ? "archscry" : "maze",
@@ -1485,7 +1588,14 @@ function initializeArchscryMazeHandoff(urlParams) {
 
   const existing = readArchscryMazeHandoff() || {};
   const readingId = urlParams.get("readingId") || existing.readingId || "";
-  const fit = urlParams.get("fit") || existing.fit || "";
+  const urlQ = urlParams.get("q") || "";
+  const explicitOperatorQuery = urlParams.get("operatorQuery") || "";
+  const operatorQuery = explicitOperatorQuery || (isMazeOperatorQuery(urlQ) ? urlQ : "") || (!urlQ ? existing.operatorQuery || "" : "");
+  const fit = urlParams.get("fit") ||
+    resolveDossierActiveKey(urlParams.get("factionName")) ||
+    inferDossierKeyFromMazeQuery(operatorQuery) ||
+    existing.fit ||
+    "";
   const pathType = urlParams.get("pathType") || existing.pathType || "";
   const previousIdentity = [existing.readingId, existing.fit, existing.pathType].filter(Boolean).join(":");
   const nextIdentity = [readingId, fit, pathType].filter(Boolean).join(":");
@@ -1499,7 +1609,7 @@ function initializeArchscryMazeHandoff(urlParams) {
     readingTitle: urlParams.get("readingTitle") || existing.readingTitle || "your Vox Mana reading",
     pathType,
     plainReadingQuery: urlParams.get("plainReadingQuery") || existing.plainReadingQuery || "",
-    operatorQuery: urlParams.get("operatorQuery") || urlParams.get("q") || existing.operatorQuery || "",
+    operatorQuery,
     returnBannerDismissed: previousIdentity && previousIdentity === nextIdentity
       ? existing.returnBannerDismissed === true
       : false,
@@ -1632,21 +1742,33 @@ function getStoredPlacementResult() {
 
 function activePlacementResultFromArchscryHandoff(handoff) {
   if (!handoff || typeof handoff !== "object") return null;
-  const activeFaction = String(handoff.fit || handoff.guild || "").trim();
-  if (!activeFaction) return null;
+  const activeKey = resolveDossierActiveKey(
+    handoff.fit ||
+    handoff.factionName ||
+    inferDossierKeyFromMazeQuery(handoff.operatorQuery || handoff.urlQ || "") ||
+    handoff.guild ||
+    ""
+  );
+  if (!activeKey) return null;
 
   const source = handoff.placementResult && typeof handoff.placementResult === "object"
     ? handoff.placementResult
     : {};
-  const activeKey = activeFaction.toUpperCase();
-  const activeName = String(handoff.factionName || source.faction_name || activeKey).trim() || activeKey;
+  const sourceKey = resolveDossierActiveKey(source.faction || "");
+  const sourceMatchesActive = !sourceKey || sourceKey === activeKey;
+  const activeName = String(
+    handoff.factionName ||
+    (sourceMatchesActive ? source.faction_name : "") ||
+    DOSSIER_DISPLAY_NAMES.get(activeKey) ||
+    activeKey
+  ).trim() || activeKey;
 
   return {
     ...source,
     faction: activeKey,
     faction_name: activeName,
-    evidence_trail: Array.isArray(source.evidence_trail) ? source.evidence_trail : [],
-    decree: source.decree || handoff.readingTitle || ""
+    evidence_trail: sourceMatchesActive && Array.isArray(source.evidence_trail) ? source.evidence_trail : [],
+    decree: sourceMatchesActive && source.decree ? source.decree : handoff.readingTitle || ""
   };
 }
 
@@ -1655,20 +1777,53 @@ function createReadingPaths(result) {
   if (!identity) return [];
   const signals = readingSearchSignals(result);
   const factionKey = String(result?.faction || "").toUpperCase();
-  return buildDossierMazePathEntries({
+  const paths = buildDossierMazePathEntries({
     identity,
     factionName: result?.faction_name || result?.faction || "this reading",
     oracleTerms: signals.oracle,
     flavorTerms: signals.flavor,
-    identityHint: factionKey === "JUND" ? "Jund" : "",
-    includeOutsideColorStretch: !["GRIXIS", "JUND"].includes(factionKey)
-  }).map((path) => ({
+    identityHint: DOSSIER_VISIBLE_IDENTITY_HINTS.get(factionKey) || "",
+    includeOutsideColorStretch: !DOSSIER_NO_STRETCH_KEYS.has(factionKey)
+  });
+  return applyDossierQueryIdentityOverride(paths, identity).map((path) => ({
     label: path.sidebarLabel || path.label,
     hint: path.hint,
     pathType: path.pathType,
     q: path.query,
     plainReadingQuery: path.plainReadingQuery
   }));
+}
+
+function applyDossierQueryIdentityOverride(paths, identity) {
+  const queryIdentity = String(identity || "").toLowerCase();
+  if (!DOSSIER_QUERY_IDENTITIES.has(queryIdentity)) return paths;
+  const normalizedIdentity = normalizedMazeIdentityForOverride(queryIdentity);
+  if (!normalizedIdentity || normalizedIdentity === queryIdentity) return paths;
+  const normalizedWords = identityWordsForOverride(normalizedIdentity);
+  const queryWords = identityWordsForOverride(queryIdentity);
+  return paths.map((path) => ({
+    ...path,
+    query: String(path.query || "")
+      .replace(new RegExp(`id=${normalizedIdentity}\\b`, "g"), `id=${queryIdentity}`)
+      .replace(new RegExp(`id<=${normalizedIdentity}\\b`, "g"), `id<=${queryIdentity}`)
+      .replace(new RegExp(`-id<=${normalizedIdentity}\\b`, "g"), `-id<=${queryIdentity}`),
+    plainReadingQuery: String(path.plainReadingQuery || "").replace(normalizedWords, queryWords),
+  }));
+}
+
+function normalizedMazeIdentityForOverride(identity) {
+  const symbols = String(identity || "").toLowerCase().match(/[wubrg]/g) || [];
+  return [...new Set(symbols)]
+    .sort((left, right) => sortManaSymbols(left.toUpperCase(), right.toUpperCase()))
+    .join("");
+}
+
+function identityWordsForOverride(identity) {
+  return String(identity || "")
+    .toLowerCase()
+    .split("")
+    .map((symbol) => MANA_SYMBOL_WORDS[symbol] || symbol)
+    .join("-");
 }
 
 function colorIdentityFromPlacement(result) {
@@ -1685,12 +1840,29 @@ function colorIdentityFromPlacement(result) {
 }
 
 function colorIdentityFromDossierKey(key) {
-  const value = String(key || "").toUpperCase();
+  const value = resolveDossierActiveKey(key);
   if (!value) return "";
   if (/^[WUBRG]{1,5}$/.test(value)) {
     return [...new Set(value.split(""))].sort(sortManaSymbols).join("").toLowerCase();
   }
   return DOSSIER_COLOR_IDENTITIES.get(value) || "";
+}
+
+function resolveDossierActiveKey(value) {
+  const raw = String(value || "").trim();
+  if (!raw) return "";
+  const upper = raw.toUpperCase();
+  if (DOSSIER_COLOR_CODE_TO_KEY.has(upper)) return DOSSIER_COLOR_CODE_TO_KEY.get(upper);
+  if (DOSSIER_COLOR_IDENTITIES.has(upper) || /^[WUBRG]{1,5}$/.test(upper)) return upper;
+  const labelKey = upper.replace(/[^A-Z0-9]+/g, " ").trim();
+  return DOSSIER_NAME_TO_KEY.get(labelKey) || upper;
+}
+
+function inferDossierKeyFromMazeQuery(query) {
+  const text = String(query || "");
+  const match = text.match(/(?:^|\s)-?id(?:<=|=)([wubrg]{1,5})\b/i);
+  if (!match) return "";
+  return resolveDossierActiveKey(match[1]);
 }
 
 function sortManaSymbols(left, right) {
@@ -1710,7 +1882,8 @@ function readingSearchSignals(result) {
     { test: /community|communal|tokens|wide|harmony/i, oracle: ["create", "token", "creatures you control"], flavor: ["together", "conclave", "home"] },
     { test: /order|law|procedure|control|rules/i, oracle: ["counter target", "exile target", "can't attack"], flavor: ["law", "judgment", "order"] },
     { test: /secret|hidden|information|shadow|memory/i, oracle: ["surveil", "mill", "discard"], flavor: ["secret", "shadow", "memory"] },
-    { test: /growth|nature|adapt|counter|land/i, oracle: ["land", "+1/+1 counter", "search your library"], flavor: ["growth", "root", "wild"] }
+    { test: /growth|nature|adapt|counter|land/i, oracle: ["land", "+1/+1 counter", "search your library"], flavor: ["growth", "root", "wild"] },
+    { test: /family|house|ancestor|stewardship|perennation|kin-tree|kin tree|lineage|endurance|duty/i, oracle: ["+1/+1 counter", "lifegain", "return target"], flavor: ["ancestor", "family", "root"] }
   ];
   const matched = signals.filter((signal) => signal.test.test(text));
   return {
