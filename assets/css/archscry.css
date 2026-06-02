@@ -435,6 +435,10 @@ body.vm-archscry-route .guild-banner::before {
     radial-gradient(circle at top center, rgba(255, 255, 255, 0.12), transparent 34rem);
 }
 
+body.vm-archscry-route .guild-banner[data-hero-background="identity-image"]::before {
+  content: none;
+}
+
 body.vm-archscry-route .guild-eyebrow {
   color: rgba(244, 230, 187, 0.72);
 }

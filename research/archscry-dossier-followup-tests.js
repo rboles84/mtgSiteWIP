@@ -1,4 +1,5 @@
 import assert from "node:assert/strict";
+import { existsSync } from "node:fs";
 import { readFile } from "node:fs/promises";
 
 import {
@@ -69,6 +70,8 @@ globalThis.document = {
 const {
   buildDossierRenderState,
   buildFlavorEchoesHtml,
+  heroBannerBackgroundForFaction,
+  heroBannerImageSlugForFaction,
   identityMetaLabelForDisplay,
   selectCuratedFlavorEchoesForFaction,
 } = await import("../assets/js/index.js");
@@ -1753,6 +1756,9 @@ assert.match(indexSource, /buildSegmentControlsHtml\("mana-base",\s*manaBaseSegm
 assert.match(indexSource, /hasRenderableLandTier\(landRecommendations,\s*"budget"\)/, "expected empty Budget land tiers to be skipped at render time");
 assert.match(indexSource, /hasStarterCardReferences/, "expected empty starter-card groups to be suppressible at render time");
 assert.match(indexSource, /hiddenDossierPanelIds/, "expected empty starter-card panels to be removed from dossier navigation");
+assert.match(indexSource, /class="guild-banner"[^>]*data-faction-key="\$\{escapeHtml\(faction\.key \|\| ""\)\}"/, "expected the dossier hero card to expose a faction-key hook on the guild banner");
+assert.match(indexSource, /data-hero-background="\$\{heroBannerImageSlugForFaction\(faction\) \? "identity-image" : "banner"\}"/, "expected mapped identity heroes to mark their background mode explicitly");
+assert.match(indexSource, /style="background:\$\{heroBannerBackgroundForFaction\(faction\)\}"/, "expected the dossier hero card to resolve background through the dedicated hero helper");
 assert.doesNotMatch(indexSource, /data-commander-directory-links/, "expected Start Here to stop rendering duplicate commander directory service links");
 assert.match(commanderPreviewSource, /Commander starting points/, "expected Start Here to keep the commander starting-point guidance block");
 assert.match(commanderPreviewSource, /commander-preview-grid/, "expected Start Here to keep commander preview cards");
@@ -1760,7 +1766,117 @@ assert.doesNotMatch(commanderPreviewSource, /starter-links|data-commander-direct
 assert.match(deckDiscoveryGroupsSource, /service:\s*"edhrec"/, "expected Commander Deck Starts to keep the EDHREC service group");
 assert.match(deckDiscoveryGroupsSource, /service:\s*"archidekt"/, "expected Commander Deck Starts to keep the Archidekt service group");
 assert.match(deckDiscoveryGroupsSource, /service:\s*"mtgdecks"/, "expected Commander Deck Starts to keep the MTGDecks service group");
+assert.match(archscryCssSource, /\.guild-banner\[data-hero-background="identity-image"\]::before\s*\{\s*content:\s*none;\s*\}/, "expected a generic image-backed hero overlay suppression override");
+assert.doesNotMatch(archscryCssSource, /\[data-faction-key="JESKAI"\]::before/, "expected the VM-271 rollout to remove the hard-coded Jeskai overlay override");
 assert.doesNotMatch(indexSource, /<div class="land-tier-label">Basics<\/div>/, "expected Basics to appear once through the active mana-base tab, not as a duplicate inner label");
+
+const identityHeroOverlay = "linear-gradient(180deg, rgba(7, 10, 12, 0.38), rgba(7, 10, 12, 0.78))";
+const expectedIdentityHeroSlugs = Object.freeze({
+  ABZAN: "abzan",
+  BANT: "bant",
+  ESPER: "esper",
+  GRIXIS: "grixis",
+  JESKAI: "jeskai",
+  JUND: "jund",
+  LOREHOLD: "lorehold",
+  MARDU: "mardu",
+  NAYA: "naya",
+  PRISMARI: "prismari",
+  QUANDRIX: "quandrix",
+  SILVERQUILL: "silverquill",
+  SULTAI: "sultai",
+  TEMUR: "temur",
+  WITHERBLOOM: "witherbloom",
+  WU: "azorius",
+  UB: "dimir",
+  BR: "rakdos",
+  RG: "gruul",
+  WG: "selesnya",
+  WB: "orzhov",
+  UR: "izzet",
+  BG: "golgari",
+  UG: "simic",
+  WR: "boros",
+  W: "white",
+  U: "blue",
+  B: "black",
+  R: "red",
+  G: "green",
+});
+const expectedIdentityHeroEntries = Object.entries(expectedIdentityHeroSlugs);
+const normalizeCssStack = (value) => String(value || "").replace(/\s+/g, " ").trim();
+const identityHeroImageLayer = (slug) => `url('/assets/img/identity-hero/${slug}.webp') center center / cover no-repeat`;
+const assertBackgroundLayerOrder = (background, layers, message) => {
+  const normalized = normalizeCssStack(background);
+  let cursor = -1;
+  layers.forEach((layer) => {
+    const next = normalized.indexOf(normalizeCssStack(layer), cursor + 1);
+    assert.ok(next > cursor, `${message}: expected ${layer} after previous layer`);
+    cursor = next;
+  });
+};
+
+assert.equal(expectedIdentityHeroEntries.length, 30, "expected the identity hero slug coverage list to contain exactly 30 dossier-backed entries");
+assert.deepEqual(
+  Object.keys(factionsData.factions).sort(),
+  Object.keys(expectedIdentityHeroSlugs).sort(),
+  "expected every current dossier-backed faction key to have an identity hero slug"
+);
+expectedIdentityHeroEntries.forEach(([key, slug]) => {
+  assert.equal(heroBannerImageSlugForFaction({ key }), slug, `expected ${key} to resolve to ${slug}`);
+  const browserUrl = `/assets/img/identity-hero/${slug}.webp`;
+  assert.match(browserUrl, /^\/assets\/img\/identity-hero\/[a-z]+\.webp$/, `expected ${key} to form the browser identity-hero URL`);
+  assert.ok(browserUrl.endsWith(`${slug}.webp`), `expected ${key} browser URL to include the resolved slug`);
+  assert.ok(existsSync(new URL(`../assets/img/identity-hero/${slug}.webp`, import.meta.url)), `expected identity hero asset to exist for ${key}`);
+});
+["COLORLESS", "WUBRG", "YORE", "GLINT", "DUNE", "INK", "WITCH"].forEach((key) => {
+  assert.equal(heroBannerImageSlugForFaction({ key }), "", `expected ${key} to remain outside the current dossier-backed hero rollout`);
+});
+assert.equal(heroBannerImageSlugForFaction(null), "", "expected null faction input to resolve to no hero slug");
+assert.equal(heroBannerImageSlugForFaction({}), "", "expected missing faction key to resolve to no hero slug");
+assert.equal(heroBannerImageSlugForFaction({ key: "wu" }), "azorius", "expected hero slug lookup to normalize faction.key case without reordering color keys");
+
+const sampleBanner = "linear-gradient(160deg, rgba(1, 2, 3, 0.4), rgba(4, 5, 6, 0.5))";
+const wuNoBannerBackground = heroBannerBackgroundForFaction({ key: "WU" });
+assert.equal(
+  normalizeCssStack(wuNoBannerBackground),
+  normalizeCssStack(`${identityHeroOverlay}, ${identityHeroImageLayer("azorius")}`),
+  "expected WU without a banner to compose overlay + image only"
+);
+const wuWithBannerBackground = heroBannerBackgroundForFaction({ key: "WU", banner: sampleBanner });
+assert.equal(
+  normalizeCssStack(wuWithBannerBackground),
+  normalizeCssStack(`${identityHeroOverlay}, ${identityHeroImageLayer("azorius")}, ${sampleBanner}`),
+  "expected WU with a banner to compose overlay + image + unchanged banner"
+);
+assert.equal(
+  heroBannerBackgroundForFaction({ key: "COLORLESS", banner: sampleBanner }),
+  sampleBanner,
+  "expected COLORLESS to remain unmapped and preserve the existing banner fallback"
+);
+assert.equal(
+  heroBannerBackgroundForFaction({ banner: sampleBanner }),
+  sampleBanner,
+  "expected missing-key factions to preserve the existing banner fallback"
+);
+
+const jeskaiHeroBackground = heroBannerBackgroundForFaction(factionsData.factions.JESKAI);
+assertBackgroundLayerOrder(
+  jeskaiHeroBackground,
+  [identityHeroOverlay, identityHeroImageLayer("jeskai"), factionsData.factions.JESKAI.banner],
+  "expected the Jeskai hero background to keep overlay / image / existing banner layer order"
+);
+assert.match(jeskaiHeroBackground, /url\('\/assets\/img\/identity-hero\/jeskai\.webp'\) center center \/ cover no-repeat/, "expected the Jeskai hero background to use the supplied identity-hero image path");
+assert.match(jeskaiHeroBackground, /rgba\(7, 10, 12, 0\.38\)/, "expected the Jeskai hero background to keep the supplied top overlay gradient");
+assert.ok(
+  normalizeCssStack(jeskaiHeroBackground).endsWith(normalizeCssStack(factionsData.factions.JESKAI.banner)),
+  "expected the Jeskai hero background to preserve the current faction banner as the bottom layer"
+);
+assertBackgroundLayerOrder(
+  heroBannerBackgroundForFaction(factionsData.factions.MARDU),
+  [identityHeroOverlay, identityHeroImageLayer("mardu"), factionsData.factions.MARDU.banner],
+  "expected Mardu to receive the shared image-backed identity hero treatment"
+);
 
 const blankJundRenderState = buildDossierRenderState({
   starterCards: { creatures: [], spells: [" "], permanents: [] },

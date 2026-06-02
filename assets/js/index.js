@@ -1268,6 +1268,55 @@ export function buildDossierRenderState({
   };
 }
 
+const IDENTITY_HERO_OVERLAY = "linear-gradient(180deg, rgba(7, 10, 12, 0.38), rgba(7, 10, 12, 0.78))";
+const IDENTITY_HERO_SLUG_BY_FACTION_KEY = Object.freeze({
+  ABZAN: "abzan",
+  BANT: "bant",
+  ESPER: "esper",
+  GRIXIS: "grixis",
+  JESKAI: "jeskai",
+  JUND: "jund",
+  LOREHOLD: "lorehold",
+  MARDU: "mardu",
+  NAYA: "naya",
+  PRISMARI: "prismari",
+  QUANDRIX: "quandrix",
+  SILVERQUILL: "silverquill",
+  SULTAI: "sultai",
+  TEMUR: "temur",
+  WITHERBLOOM: "witherbloom",
+  WU: "azorius",
+  UB: "dimir",
+  BR: "rakdos",
+  RG: "gruul",
+  WG: "selesnya",
+  WB: "orzhov",
+  UR: "izzet",
+  BG: "golgari",
+  UG: "simic",
+  WR: "boros",
+  W: "white",
+  U: "blue",
+  B: "black",
+  R: "red",
+  G: "green",
+});
+
+export function heroBannerImageSlugForFaction(faction = {}) {
+  const key = String(faction?.key || "").toUpperCase();
+  return IDENTITY_HERO_SLUG_BY_FACTION_KEY[key] || "";
+}
+
+export function heroBannerBackgroundForFaction(faction = {}) {
+  const slug = heroBannerImageSlugForFaction(faction);
+  if (!slug) {
+    return faction?.banner || "";
+  }
+
+  const image = `url('/assets/img/identity-hero/${slug}.webp') center center / cover no-repeat`;
+  return [IDENTITY_HERO_OVERLAY, image, faction?.banner || ""].filter(Boolean).join(", ");
+}
+
 function dedupeLinks(links = []) {
   const seen = new Set();
   return (links || []).filter((link) => {
@@ -2580,7 +2629,7 @@ function renderResult(viewKey) {
   })).join("");
 
   document.getElementById("result-inner").innerHTML = `
-    <div class="guild-banner" style="background:${faction.banner}">
+    <div class="guild-banner" data-faction-key="${escapeHtml(faction.key || "")}" data-hero-background="${heroBannerImageSlugForFaction(faction) ? "identity-image" : "banner"}" style="background:${heroBannerBackgroundForFaction(faction)}">
       <div class="guild-eyebrow">${isPrimary ? `Your ${institutionLabel}` : `Adjacent ${institutionLabel} Fit`}</div>
       <div class="guild-name" style="color:${faction.accent}">${faction.name}</div>
       <div class="guild-tagline">${faction.tagline}</div>

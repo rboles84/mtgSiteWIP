@@ -66,6 +66,8 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 Historical note: `VM-044` is a preserved historical duplicate ID and `VM-049` is an intentional preserved duplicate pairing per the handoff trail. `VM-197` also has a user-declared Abzan stack duplicate while preserving the existing Alara VM-197 card. `VM-215` has a manual-QA Abzan repair duplicate; the former Jeskai VM-215 through VM-220 reservation was repaired to VM-229 through VM-234 on 2026-05-31.
 
+- [VM-271 - Archscry Identity-Hero Background Rollout](done/VM-271-archscry-identity-hero-background-rollout.md)
+- [VM-270 - Jeskai Archscry Hero Background Image Trial](done/VM-270-jeskai-archscry-hero-background-image-trial.md)
 - [VM-239 - Jeskai Dossier Deck-Start De-Dup And QA Closeout](done/VM-239-jeskai-dossier-deck-start-de-dup-and-qa-closeout.md)
 - [VM-238 - Mardu Maze Link Query Preservation Repair](done/VM-238-mardu-maze-link-query-preservation-repair.md)
 - [VM-234 - Jeskai Way Controlled Runtime Promotion](done/VM-234-jeskai-way-controlled-runtime-promotion.md)
