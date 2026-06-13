@@ -27,7 +27,7 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 ## In Progress
 
-- No cards currently in progress.
+- [VM-364 - Archscry Identity Matrix Data Map](in-progress/VM-364-archscry-identity-matrix-data-map.md)
 
 ## Blocked
 
