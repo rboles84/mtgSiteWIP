@@ -1,0 +1,353 @@
+{
+  "schema_version": "1.0.0",
+  "placement_profile_version": "0.1.3",
+  "based_on_profile_version": "0.1.3",
+  "faction_id": "witch",
+  "faction_name": "Witch / Growth",
+  "last_updated": "2026-06-12",
+  "color_identity": {
+    "colors": [
+      "Green",
+      "White",
+      "Blue",
+      "Black"
+    ],
+    "metadata_query_only_forms": [
+      "GWUB",
+      "GWBU",
+      "GUWB",
+      "GUBW",
+      "GBWU",
+      "GBUW",
+      "WGUB",
+      "WGBU",
+      "WUGB",
+      "WUBG",
+      "WBGU",
+      "WBUG",
+      "UGWB",
+      "UGBW",
+      "UWGB",
+      "UWBG",
+      "UBGW",
+      "UBWG",
+      "BGWU",
+      "BGUW",
+      "BWGU",
+      "BWUG",
+      "BUGW",
+      "BUWG",
+      "gwub",
+      "gwbu",
+      "guwb",
+      "gubw",
+      "gbwu",
+      "gbuw",
+      "wgub",
+      "wgbu",
+      "wugb",
+      "wubg",
+      "wbgu",
+      "wbug",
+      "ugwb",
+      "ugbw",
+      "uwgb",
+      "uwbg",
+      "ubgw",
+      "ubwg",
+      "bgwu",
+      "bguw",
+      "bwgu",
+      "bwug",
+      "bugw",
+      "buwg"
+    ],
+    "future_expression_name": "WITCH",
+    "future_expression_name_status": "live after VM-269; WITCH is the Vox Mana expression label, Growth is Commander 2016 support/display framing only, Growth is not a public alias, route key, dossier key, preview key, expression key, or exclusive official name, GWUB and all same-color permutations remain metadata/query-only, and WUBG appears only when echoing support-source order"
+  },
+  "placement_summary": "Witch / Growth is source-grounded live guidance for four-color without Red cultivated inevitability, patient development, calculated expansion, and bounded Atraxa / Breed Lethality support texture.",
+  "moral_and_psychological_profile": {
+    "primary_drive": "Protect small investments, optimize their growth, and convert patient cultivation into inevitable advantage.",
+    "ethical_pressure": "The rejection of impulse can turn wisdom into sterility if planning leaves no room for living joy.",
+    "core_boundary": "Placement language is review-gated guidance only, not scoring data."
+  },
+  "placement_axes": [],
+  "core_values": [
+    "patient development",
+    "calculated expansion",
+    "systematic accumulation",
+    "protected cultivation",
+    "optimized growth",
+    "ambition without impulse"
+  ],
+  "behavioral_signals": [
+    "wants slow advantage to become inevitable through protected growth",
+    "uses garden, trellis, ledger, ritual, experiment, counter, proliferate, and engine language with missing-Red pressure",
+    "treats time, structure, knowledge, and ambition as ways to keep the future growing"
+  ],
+  "inhibitor_traits": [
+    "spontaneity, emotional release, haste, spectacle, or living in the moment as the center",
+    "generic counters, proliferate, or superfriends language without the missing-Red worldview",
+    "nearby Bant, Esper, Sultai, Abzan, Yore, Glint, Dune, or Ink language without the full four-color without Red frame",
+    "Atraxa, Breed Lethality, Growth, Witch-Maw, Phyrexia, or same-color identity used as proof without approved evidence"
+  ],
+  "inhibitor_traps": [
+    "Treats speed, impulse, spectacle, or emotional release as the center when patient cultivation is asking for protected, calculated growth.",
+    "The user only mentions counters, proliferate, Atraxa, infect, superfriends, or same-color grouping without the full non-Red protected-cultivation worldview.",
+    "The user treats Growth, Atraxa, Breed Lethality, Witch-Maw, or same-color identity as naming authority.",
+    "The user centers impulse, spectacle, haste, emotional release, or living in the moment as the thing that should lead the answer."
+  ],
+  "good_fit_indicators": [
+    "patient cultivation protected by structure",
+    "calculated growth without Red-style impulse",
+    "knowledge optimized into long-horizon advantage",
+    "ambition disciplined into planned inevitability",
+    "explicit four-color without Red boundary preserved"
+  ],
+  "ideal_fit_indicators": [
+    "the answer needs Green cultivation, White structure, Blue calculation, and Black ambition all at once",
+    "the appeal is planned growth rather than generic value, counters, or color identity",
+    "the user wants slow accumulation to win because it was protected before anyone panicked"
+  ],
+  "poor_fit_indicators": [
+    "generic same-color goodstuff",
+    "generic counters or proliferate shells",
+    "generic Atraxa-only shells",
+    "infect-only identity",
+    "superfriends-only identity",
+    "Phyrexia-only identity",
+    "Witch-Maw-only identity",
+    "Breed Lethality-only identity",
+    "Growth-only naming",
+    "Bant order and growth without Black ambition",
+    "Esper structure and control without Green cultivation",
+    "Sultai growth and ambition without White structure",
+    "Abzan endurance and family structure without Blue calculation",
+    "Yore, Glint, Dune, or Ink three-color-overlap readings treated as Witch proof",
+    "Nephilim language treated as institutional proof"
+  ],
+  "discriminator_questions": [
+    {
+      "question_id": "witch_disc_001",
+      "question": "Is the appeal growth itself, or growth plus structure, calculation, ambition, and rejection of impulse under a missing-Red frame?",
+      "purpose": "Separates genuine Witch alignment from simpler growth, ramp, counters, or proliferate identities.",
+      "answer_pattern_that_supports_this_faction": "Clear Witch placement when the user names patience, structure, calculation, and ambition as one system, with the absence of impulse as the key pressure.",
+      "answer_pattern_that_weakens_this_faction": "Weakens Witch when the user is drawn primarily to organic growth, ramp, big creatures, counters, or value engines without the missing-Red frame.",
+      "collision_targets": [
+        "WG",
+        "UG",
+        "SULTAI",
+        "ABZAN",
+        "BANT"
+      ],
+      "claim_ids": [
+        "witch_claim_0003",
+        "witch_claim_0005"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "question_id": "witch_disc_002",
+      "question": "Does the answer require Green cultivation, White structure, Blue calculation, and Black ambition working together, or would Bant, Esper, Sultai, or Abzan explain it fully?",
+      "purpose": "Forces the four-color threshold test without turning the color code itself into public proof.",
+      "answer_pattern_that_supports_this_faction": "Supports Witch when the user needs all four present color pressures and can explain why losing any one changes the answer.",
+      "answer_pattern_that_weakens_this_faction": "Weakens Witch when the answer resolves cleanly into a three-color neighbor without needing the fourth pressure.",
+      "collision_targets": [
+        "BANT",
+        "ESPER",
+        "SULTAI",
+        "ABZAN"
+      ],
+      "claim_ids": [
+        "witch_claim_0002",
+        "witch_claim_0003"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "question_id": "witch_disc_003",
+      "question": "When you imagine the ideal outcome of your plan, does it look like a slow system reaching a tipping point, or a decisive moment of action, protected generosity, living volatility, territorial force, or constructed intervention?",
+      "purpose": "Distinguishes Witch accumulation from decisive action, protected commons, volatility, territorial force, or constructed-agency identities.",
+      "answer_pattern_that_supports_this_faction": "Supports Witch when the user describes a quiet threshold being crossed: a position becoming irreversible rather than one dramatic event.",
+      "answer_pattern_that_weakens_this_faction": "Weakens Witch when the user is energized by decisive moments, protected commons, constructed intervention, creative release, immediate territorial pressure, or volatility instead of accumulation reaching critical mass.",
+      "collision_targets": [
+        "BANT",
+        "INK",
+        "GLINT",
+        "DUNE",
+        "YORE"
+      ],
+      "lateral_inhibition": false,
+      "claim_ids": [
+        "witch_claim_0003",
+        "witch_claim_0005"
+      ],
+      "confidence": "Medium"
+    }
+  ],
+  "chatbot_guidance": {
+    "allowed": [
+      "Use Witch as source-grounded, review-gated identity language.",
+      "Describe Atraxa, Breed Lethality, Growth, proliferate, and counters readability as support-only when needed.",
+      "Use Manual fill required where exact card facts, public copy, legality, rankings, or product grounding need stronger evidence."
+    ],
+    "not_allowed": [
+      "Do not say Witch is an official MTG faction.",
+      "Do not say Witch or Growth is the official universal GWUB name.",
+      "Do not route or score users into Witch in VM-267.",
+      "Do not treat Commander/operator material as lore proof.",
+      "Do not promote Growth, GWUB, WUBG, or same-color permutations as public aliases.",
+      "Do not collapse Witch into Atraxa, Phyrexia, or generic counters."
+    ],
+    "use_when": [
+      "A user centers patient cultivation, protected growth, calculated expansion, or slow inevitability under a missing-Red frame.",
+      "A user needs Green cultivation, White structure, Blue calculation, and Black ambition together.",
+      "A user distinguishes Witch from Bant, Esper, Sultai, Abzan, Yore, Glint, Dune, Ink, generic Atraxa-only shells, generic counters, proliferate, infect, superfriends, and Phyrexia-only readings."
+    ],
+    "avoid_when": [
+      "The user only mentions counters, proliferate, Atraxa, infect, superfriends, or same-color grouping without the full non-Red protected-cultivation worldview.",
+      "The user treats Growth, Atraxa, Breed Lethality, Witch-Maw, or same-color identity as naming authority.",
+      "The user centers impulse, spectacle, haste, emotional release, or living in the moment as the thing that should lead the answer."
+    ],
+    "claim_boundaries": [
+      "Use Commander examples as table texture, not identity sources.",
+      "Keep the four-letter color code as technical routing data only.",
+      "Do not turn Witch or Growth into a Wizards-published faction or universal color-name claim."
+    ],
+    "how_to_recognize_mismatch": [
+      "The user only wants counters, proliferate, or a known commander without the missing-Red protected-growth worldview.",
+      "The answer resolves cleanly into Bant, Esper, Sultai, or Abzan without needing all four present color pressures.",
+      "The user wants speed, spectacle, or emotional ignition to lead the decision."
+    ],
+    "calibration_note": "Require patient cultivation, structure, calculation, ambition, and missing-Red pressure together. Treat commanders, mechanics, and same-color grouping as support signals only.",
+    "never_claim_as_canon": [
+      "Witch is a Vox Mana identity expression, not an official Wizards faction.",
+      "Growth is support/display framing, not a universal official name.",
+      "Do not treat commanders, mechanics, Nephilim, or color grouping as placement proof by themselves."
+    ]
+  },
+  "placement_quality": {
+    "strongest_evidence_areas": [
+      "lifecycle and metadata boundary",
+      "naming guardrail",
+      "missing-Red identity frame",
+      "Witch-Maw anchor boundary",
+      "bounded patient-growth and Atraxa / Breed Lethality support frame"
+    ],
+    "weakest_evidence_areas": [
+      "exact card facts",
+      "Commander legality",
+      "Atraxa and Breed Lethality product/article grounding",
+      "Growth commentary beyond support/display framing",
+      "adjacent separator raw evidence",
+      "long-form ritual symbolism, Phyrexia texture, and strategy"
+    ],
+    "manual_review_recommended": true,
+    "review_gated": false,
+    "placement_status": "live_after_vm269_source_repair",
+    "placement_eligible": true,
+    "preview_eligible": false,
+    "calibration_tuning_status": "source_authored_live_repair",
+    "last_placement_ready_pass": "VM-328",
+    "live_pilot": true,
+    "notes": "VM-328 source-normalizes generated WITCH fit and inhibitor backing after VM-269 live promotion and VM-298 source repair. The repair keeps exactly five approved raw claims, adds no evidence rows, and does not expand WITCH authority."
+  },
+  "calibration_tuning": {
+    "status": "source_authored_live_authority_repair",
+    "reason": "VM-328 aligns WITCH generated fit and inhibitor language with source-backed raw placement backing after VM-300 validation exposed generated/source drift.",
+    "required_positive_evidence_terms": [
+      "cultivate",
+      "accumulate",
+      "patient",
+      "inevitable",
+      "compound",
+      "protect",
+      "structure",
+      "long-term",
+      "scale",
+      "deliberate",
+      "systematic"
+    ],
+    "required_positive_min_hits": 2,
+    "strengthen_when_user_centers": [
+      "User keeps returning to small protected investments becoming overwhelming over time.",
+      "User keeps returning to the satisfaction of a plan resolving exactly as designed over many steps.",
+      "User frames patience as active power rather than passivity.",
+      "User needs structure, knowledge, growth, and ambition working together rather than just one pressure.",
+      "User treats impulsive or emotional decision-making as a liability."
+    ],
+    "suppress_when_user_centers": [
+      "User centers speed, urgency, or acting before the window closes.",
+      "User centers spectacle, emotional release, or the thrill of one decisive moment.",
+      "User centers chaotic variance, high-risk gambling, or outcomes that depend on luck.",
+      "User centers individual heroism, present-tense sacrifice, or immediate protection as the main answer.",
+      "User centers mechanics, commanders, or color grouping without the missing-Red protected-growth worldview."
+    ],
+    "false_positive_guardrail": "Do not award Witch for generic same-color goodstuff, counters-only play patterns, proliferate familiarity, or Atraxa familiarity. Require the full four-color synthesis: patient cultivation held together by structure, calculation, and disciplined ambition under an explicit missing-Red frame. Proximity to Bant, Esper, Sultai, or Abzan alone does not qualify.",
+    "broad_match_penalty": 0.12
+  },
+  "collision_guidance": {
+    "review_triggers": [
+      "Bant",
+      "Esper",
+      "Sultai",
+      "Abzan",
+      "Yore",
+      "Glint",
+      "Dune",
+      "Ink",
+      "Witch-Maw-only anchors",
+      "Atraxa-only shells",
+      "Breed Lethality-only shells",
+      "Growth-only naming",
+      "generic proliferate",
+      "generic counters",
+      "infect-only",
+      "superfriends-only",
+      "Phyrexia-only",
+      "generic same-color goodstuff"
+    ],
+    "rule": "Treat these as collision or false-positive review triggers, not automatic Witch placement.",
+    "pairs": [
+      {
+        "collision_id": "collision_witch_ink_four_color_ring",
+        "against": "INK",
+        "lateral_inhibition": false,
+        "separator": "Witch centers protected long-horizon cultivation, calculation, ambition, and missing-Red patience; Ink centers protected generosity, open knowledge, and missing-Black refusal of private hoarding.",
+        "ask": "Is the answer cultivating inevitability, or keeping the commons open and protected?",
+        "evidence_claim_ids": [
+          "witch_claim_0003",
+          "witch_claim_0005",
+          "ink_claim_0003",
+          "ink_claim_0005"
+        ],
+        "supporting_source_ids": [
+          "src_vm_witch_evidence_ledger_20260604",
+          "src_vm_four_color_reference_audit_20260604",
+          "src_vm_ink_evidence_ledger_20260604",
+          "src_vm_four_color_reference_audit_20260604"
+        ]
+      },
+      {
+        "collision_id": "collision_witch_yore_four_color_ring",
+        "against": "YORE",
+        "lateral_inhibition": false,
+        "separator": "Witch grows a position until it becomes inevitable; Yore builds against natural limits through civilization, technology, artifice, and progress.",
+        "ask": "Is the answer patient cultivation reaching critical mass, or constructed agency refusing organic closure?",
+        "evidence_claim_ids": [
+          "witch_claim_0003",
+          "witch_claim_0005",
+          "yore_claim_0003",
+          "yore_claim_0004"
+        ],
+        "supporting_source_ids": [
+          "src_vm_witch_evidence_ledger_20260604",
+          "src_vm_four_color_reference_audit_20260604",
+          "src_vm_yore_evidence_ledger_20260602",
+          "src_vm_four_color_reference_audit_20260602"
+        ]
+      }
+    ]
+  },
+  "placement_model_version": "0.1.3"
+}

@@ -70,32 +70,35 @@ assert.deepEqual(
 
 const adjacentMazeContext = buildArchscryMazeContext({
   result: {
-    faction: "R",
-    faction_name: "Red",
+    faction: "DUNE",
+    faction_name: "Dune",
     taken_at: "2026-05-27T10:00:00.000Z"
   },
   dossier: {
-    primaryFactionKey: "R",
-    targetFactionKey: "WITHERBLOOM",
-    faction: { name: "Witherbloom College" }
+    primaryFactionKey: "DUNE",
+    targetFactionKey: "GLINT",
+    faction: { name: "Glint" }
   },
-  faction: { name: "Witherbloom College" }
+  faction: { name: "Glint" }
 });
-assert.equal(adjacentMazeContext.guild, "R");
-assert.equal(adjacentMazeContext.fit, "WITHERBLOOM");
-assert.equal(adjacentMazeContext.factionName, "Witherbloom College");
+assert.equal(adjacentMazeContext.guild, "GLINT");
+assert.equal(adjacentMazeContext.fit, "GLINT");
+assert.equal(adjacentMazeContext.factionName, "Glint");
+assert.equal(adjacentMazeContext.sourceFaction, "DUNE");
 assert.match(adjacentMazeContext.returnUrl, /^\.\.\/archscry\/index\.html\?/);
-assert.match(adjacentMazeContext.returnUrl, /view=WITHERBLOOM/);
+assert.match(adjacentMazeContext.returnUrl, /view=GLINT/);
 
 const [adjacentMazeLink] = withArchscryMazeContext([{
   service: "maze",
   label: "commanders that fit",
   pathType: "commanders-that-fit",
-  plainReadingQuery: "Witherbloom College commanders with exactly black-green identity",
-  operatorQuery: "id=bg is:commander f:commander (o:sacrifice OR o:graveyard)",
-  url: "/maze/?q=id%3Dbg%20is%3Acommander"
+  plainReadingQuery: "Glint commanders with exactly blue-black-red-green identity",
+  operatorQuery: "id=ubrg is:commander f:commander",
+  url: "/maze/?q=id%3Dubrg%20is%3Acommander"
 }], adjacentMazeContext, "http://localhost/archscry/index.html");
 const adjacentMazeUrl = new URL(adjacentMazeLink.url, "http://localhost/archscry/index.html");
-assert.equal(adjacentMazeUrl.searchParams.get("fit"), "WITHERBLOOM");
-assert.equal(adjacentMazeUrl.searchParams.get("factionName"), "Witherbloom College");
-assert.equal(adjacentMazeUrl.searchParams.get("operatorQuery"), "id=bg is:commander f:commander (o:sacrifice OR o:graveyard)");
+assert.equal(adjacentMazeUrl.searchParams.get("guild"), "GLINT");
+assert.equal(adjacentMazeUrl.searchParams.get("fit"), "GLINT");
+assert.equal(adjacentMazeUrl.searchParams.get("factionName"), "Glint");
+assert.equal(adjacentMazeUrl.searchParams.get("sourceFaction"), "DUNE");
+assert.equal(adjacentMazeUrl.searchParams.get("operatorQuery"), "id=ubrg is:commander f:commander");

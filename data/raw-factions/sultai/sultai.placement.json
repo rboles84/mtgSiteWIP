@@ -4,7 +4,7 @@
   "faction_id": "sultai",
   "faction_name": "Sultai Brood",
   "based_on_profile_version": "0.1.0",
-  "last_updated": "2026-05-31",
+  "last_updated": "2026-06-12",
   "placement_summary": "Sultai Brood is a source-bound live pilot. Its strongest placement signals are Black-centered BGU Tarkir identity, ruthlessness, resource conversion, necromancy, sibsig labor, Sidisi-era ambition, Silumgar boundary, modern Dragonstorm timeline labeling, and false-positive boundaries against generic BGU, Commander products, color-philosophy proof, Dragonstorm backfill, and seed files.",
   "moral_and_psychological_profile": {
     "summary": "Vox Mana models Sultai as ruthlessness through resource conversion: opportunity, bodies, land, secrets, costs, and the dead become usable material under Black ambition and Blue calculation. This is project interpretation from normalized SULTAI evidence plus VM-210/VM-211 shaping docs, not official canon, and VM-214 keeps it preview-ineligible while enabling live placement.",
@@ -114,7 +114,59 @@
     "The answer centers generic graveyard goodstuff, theft decks, mill, morph, mutate, or Commander product flavor.",
     "The answer requires exact card facts, Commander legality, detailed biography, exact delve or exploit mechanics, or exact Dragonstorm chronology not promoted in SULTAI evidence rows."
   ],
-  "discriminator_questions": [],
+  "discriminator_questions": [
+    {
+      "question_id": "sultai_discriminator_0001",
+      "question": "Does continuity preserve the house, or can the past, the dead, and hidden costs be converted into power?",
+      "purpose": "Separates Sultai resource conversion from Abzan family continuity.",
+      "answer_pattern_that_supports_this_faction": "Supports Sultai when the answer centers ruthlessness, opportunity, using the dead, necromancy, secrets, costs, and resource denial.",
+      "answer_pattern_that_weakens_this_faction": "Weakens Sultai when ancestry, Kin-Trees, perennation, duty, and defensive patience preserve family continuity.",
+      "collision_targets": [
+        "ABZAN"
+      ],
+      "claim_ids": [
+        "sultai_claim_0002",
+        "sultai_claim_0003",
+        "sultai_claim_0005",
+        "sultai_claim_0010"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "question_id": "sultai_discriminator_0002",
+      "question": "Is survival found by listening to the living wild, or by turning bodies, secrets, and openings into usable material?",
+      "purpose": "Separates Sultai calculated conversion from Temur attuned survival.",
+      "answer_pattern_that_supports_this_faction": "Supports Sultai when survival language is ruthless, strategic, necromantic, opportunistic, and resource-converting.",
+      "answer_pattern_that_weakens_this_faction": "Weakens Sultai when the answer centers instinct, mental fortitude, whisperers, elemental memory, and terrain/listening before action.",
+      "collision_targets": [
+        "TEMUR"
+      ],
+      "claim_ids": [
+        "sultai_claim_0002",
+        "sultai_claim_0003",
+        "sultai_claim_0004",
+        "sultai_claim_0005"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "question_id": "sultai_discriminator_0003",
+      "question": "Does insight become disciplined action, or private conversion of secrets, costs, and the dead?",
+      "purpose": "Separates Sultai hidden conversion from Jeskai disciplined cunning.",
+      "answer_pattern_that_supports_this_faction": "Supports Sultai when planning and secrets serve Black-centered ruthlessness, opportunity, necromancy, and resource conversion.",
+      "answer_pattern_that_weakens_this_faction": "Weakens Sultai when insight is disciplined, public enough to be trained, and released as precise Jeskai action.",
+      "collision_targets": [
+        "JESKAI"
+      ],
+      "claim_ids": [
+        "sultai_claim_0002",
+        "sultai_claim_0003",
+        "sultai_claim_0005",
+        "sultai_claim_0010"
+      ],
+      "confidence": "Medium"
+    }
+  ],
   "chatbot_guidance": {
     "how_to_recognize_match": [
       "VM-214 live-pilot guidance: Sultai language should combine Black-centered BGU Tarkir Sultai Brood with ruthlessness, resource conversion, necromancy, Sidisi-era ambition, and strict timeline boundaries.",
@@ -238,5 +290,39 @@
     "smoke_test_note": "VM-214 wires SULTAI into generated placement data through the controlled build path.",
     "review_note": "VM-214 adds the SULTAI live expression key only. It adds no public navigation, no preview membership, no schema fields, no fixtures, and no color-code public aliases."
   },
-  "collision_guidance": []
+  "collision_guidance": [
+    {
+      "collision_id": "collision_sultai_abzan_live",
+      "against": "abzan",
+      "separator": "Sultai converts bodies, secrets, costs, and the dead into advantage; Abzan binds ancestry and death into family continuity, perennation, and duty.",
+      "ask": "Does the dead past preserve the house, or become material for power?",
+      "claim_ids": [
+        "sultai_claim_0003",
+        "sultai_claim_0005"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "collision_id": "collision_sultai_temur_live",
+      "against": "temur",
+      "separator": "Sultai is Black-centered ruthlessness and calculated resource conversion; Temur is Green-centered survival through instinct, mental fortitude, and listening to the living wild.",
+      "ask": "Is the answer converting what is available, or attuning to what the wild is already saying?",
+      "claim_ids": [
+        "sultai_claim_0002",
+        "sultai_claim_0003"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "collision_id": "collision_sultai_jeskai_live",
+      "against": "jeskai",
+      "separator": "Sultai uses planning, secrets, and the dead for ruthless conversion; Jeskai uses discipline, training, and knowledge for precise action.",
+      "ask": "Is insight kept as convertible advantage, or trained into disciplined action?",
+      "claim_ids": [
+        "sultai_claim_0003",
+        "sultai_claim_0005"
+      ],
+      "confidence": "Medium"
+    }
+  ]
 }

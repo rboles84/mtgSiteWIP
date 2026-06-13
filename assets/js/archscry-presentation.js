@@ -22,6 +22,33 @@ export const MAZE_PATH_LABELS = {
   "win-conditions": "Win Conditions",
 };
 
+const LIVE_FOUR_COLOR_MAZE_LABELS = new Map([
+  ["YORE", "Yore"],
+  ["GLINT", "Glint"],
+  ["DUNE", "Dune"],
+  ["INK", "Ink"],
+  ["WITCH", "Witch"],
+]);
+const DOSSIER_MAZE_HINTS = new Map([
+  ["JUND", "Jund"],
+  ["NAYA", "Naya"],
+  ["ABZAN", "Abzan"],
+  ["TEMUR", "Temur"],
+  ["SULTAI", "Sultai"],
+  ["MARDU", "Mardu"],
+  ["JESKAI", "Jeskai"],
+  ["YORE", "Yore"],
+  ["GLINT", "Glint"],
+  ["DUNE", "Dune"],
+  ["INK", "Ink"],
+  ["WITCH", "Witch"],
+]);
+const MAZE_NO_STRETCH_KEYS = new Set([
+  "GRIXIS", "JUND", "NAYA", "ABZAN", "TEMUR", "SULTAI", "MARDU", "JESKAI",
+  "YORE", "GLINT", "DUNE", "INK", "WITCH",
+]);
+const LIVE_FOUR_COLOR_EXACT_COMMANDER_QUERY_IDENTITIES = new Set(["wubr", "ubrg", "brgw", "rgwu", "gwub"]);
+
 export const FACTION_PRESENTATION = {
   W: {
     shortName: "White",
@@ -341,7 +368,7 @@ export const FACTION_PRESENTATION = {
     closeReason: "ruthless opportunity, graveyard/resource conversion, necromantic utility, calculated advantage, and strict same-color false-positive boundaries",
     forkQuestion: "What advantage is worth claiming before anyone else sees what it can become?",
     direction: "moves toward opportunity, conversion, and Commander expression",
-    selfCheck: "This may fit if you want a Commander deck that turns graveyards, secrets, stolen options, and hidden costs into leverage without mistaking generic same-color goodstuff for Sultai Brood identity.",
+    selfCheck: "This may fit if you want a Commander deck where graveyards, secrets, and stolen options become calculated advantage under Sultai's ruthless opportunity and Sidisi-era ambition.",
   },
   MARDU: {
     shortName: "Mardu",
@@ -370,6 +397,90 @@ export const FACTION_PRESENTATION = {
     forkQuestion: "What insight is worth training until it can move without losing its form?",
     direction: "moves toward discipline, precision, and Commander expression",
     selfCheck: "This may fit if you want a Commander deck that holds the right spell, protects the critical stance, and turns tempo, copies, or martial pressure into table texture for disciplined action.",
+  },
+  YORE: {
+    shortName: "Yore",
+    tableRole: "The engineered agency architect",
+    opponentRead: "Opponents feel the deck assemble a machine around the table's limits: artifacts, archives, costs, and heat become a system that keeps choice alive.",
+    emotionalPressure: "Pressure through artifice, progress, constructed continuity, and the sense that natural surrender is not allowed to close the case.",
+    loreRole: "Vox Mana four-color without Green expression for artifice, civilization, and engineered agency, with adjacent artifacts and recursion kept carefully separated",
+    mechanics: "Artifacts, sacrifice, recursion, control, value engines, and precise combo texture as Commander-facing ways to show artifice and constructed continuity",
+    tableExperience: "build a system that keeps choice alive, protect the archive, turn loss into a reusable engine, and make the table answer a constructed future",
+    thesis: "Rewrite the limit. Keep the engine honest. Yore reads your answers as a four-color without Green machine of agency. White supplies structure, Blue refines the system, Black refuses passive limits, and Red gives the engine heat enough to move.",
+    closeReason: "engineered agency, artifice, civilization, progress, and refusal to let natural limits become final",
+    forkQuestion: "What limit is worth rebuilding so choice can continue?",
+    direction: "moves toward artifice, constructed continuity, and engineered agency",
+    selfCheck: "This may fit if you want a Commander deck that builds a careful engine, turns costs into continuity, and keeps progress alive without mistaking every artifact shell for Yore.",
+  },
+  GLINT: {
+    shortName: "Glint",
+    tableRole: "The storm-fed opportunist",
+    opponentRead: "Opponents feel the deck learning in motion: pressure changes shape, the live opening gets exploited, and volatility never arrives without appetite or force behind it.",
+    emotionalPressure: "Pressure through adaptive hunger, improvisation, living force, and the sense that stable civic restraint has already lost the moment.",
+    loreRole: "Vox Mana four-color without White expression for adaptive appetite, storm-fed growth, and living pressure that keeps learning before order can pin it down",
+    mechanics: "Volatile sequencing, pressure-based value, combat-damage spell momentum, adaptive creature texture, and cascade-adjacent turns as Commander-facing ways to show appetite and living force without mistaking the loudest turn for the whole identity",
+    tableExperience: "a live surge that keeps learning, feeds on the opening, and forces the table to answer before order turns it harmless",
+    thesis: "Ride the surge. Keep the edge alive. Glint reads your answers as a four-color without White current where Blue keeps learning, Black keeps appetite honest, Red keeps ignition live, and Green keeps the force growing under pressure.",
+    closeReason: "adaptive appetite, volatility with intelligence, living force, and refusal to let White-style order make the opening harmless",
+    forkQuestion: "What opening is worth feeding before order makes it harmless?",
+    direction: "moves toward adaptive appetite, living pressure, and storm-fed growth",
+    selfCheck: "This may fit if you want a Commander deck that stays volatile, learns under pressure, and turns living force into table leverage without mistaking every Yidris shell, cascade turn, or same-color pile for Glint.",
+  },
+  DUNE: {
+    shortName: "Dune",
+    tableRole: "The common-front linebreaker",
+    opponentRead: "Opponents feel the deck take the field before distance can cool it: bodies, cost, ignition, and persistence turn pressure into claimed ground.",
+    emotionalPressure: "Pressure through organized territorial force, cost-bearing solidarity, and the sense that contemplation arrived too late to stop the line.",
+    loreRole: "Vox Mana four-color without Blue expression for organized territorial pressure, direct action, survival-minded multiplication, and strict separation from generic go-wide combat shells and nearby shard or wedge readings",
+    mechanics: "Go-wide pressure, attack triggers, token-like multiplication, multi-front combat, and disciplined threat sequencing as Commander-facing ways to show line, cost, ignition, and persistence without mistaking generic combat texture for the whole identity",
+    tableExperience: "take the field early, keep the line moving, and make the table answer force-backed solidarity before distance can cool it",
+    thesis: "Take the field. Keep the line moving. Dune reads your answers as a four-color without Blue front where White holds the line, Black authorizes the cost, Red keeps ignition immediate, and Green keeps bodies and pressure multiplying.",
+    closeReason: "organized territorial pressure, cost-bearing solidarity, immediate strike pressure, survival-minded multiplication, and strict non-Blue false-positive boundaries",
+    forkQuestion: "What ground is worth claiming before contemplation turns the line passive?",
+    direction: "moves toward organized territorial pressure and common-front force",
+    selfCheck: "This may fit if you want a Commander deck that coordinates pressure, spends resources to keep the line live, and multiplies presence without mistaking every go-wide or same-color combat shell for Dune.",
+  },
+  INK: {
+    shortName: "Ink",
+    tableRole: "The commons keeper",
+    opponentRead: "Opponents feel the deck keep resources and knowledge circulating while the table learns that the gift is guarded, not free for capture.",
+    emotionalPressure: "Pressure through protected generosity, open knowledge, public abundance, and the sense that private hoarding cannot claim the center.",
+    loreRole: "Vox Mana four-color without Black expression for protected public abundance, open knowledge, guarded generosity, and strict separation from generic group-hug or public-archive readings",
+    mechanics: "Group-hug exchanges, political incentives, ramp, draw, shared-resource texture, and guarded reciprocity as Commander-facing ways to show open knowledge and public commons without mistaking one card or commander for the whole identity",
+    tableExperience: "guard the commons, keep the gift moving, and make the table answer whether shared abundance can stay open without becoming private leverage",
+    thesis: "Keep the commons guarded. Keep the gift moving. Ink reads your answers as a four-color without Black commons where Red keeps care present, Green keeps reciprocity alive, White gives public promise, and Blue opens knowledge without letting Black-style private hoarding define the center.",
+    closeReason: "protected public abundance, open knowledge, community benefit, guarded generosity, and strict non-Black false-positive boundaries",
+    forkQuestion: "What gift is worth protecting so it can keep moving?",
+    direction: "moves toward protected public abundance and open-knowledge reciprocity",
+    selfCheck: "This may fit if you want a Commander deck that shares resources, negotiates openly, and protects the commons without mistaking every group-hug shell, Kynaios deck, Ink-Treader card, or same-color pile for Ink.",
+  },
+  WITCH: {
+    shortName: "Witch",
+    tableRole: "The patient cultivation schemer",
+    opponentRead: "Opponents feel the deck keep every small investment alive until the table realizes the garden was a machine all along.",
+    emotionalPressure: "Pressure through protected growth, long-horizon calculation, ritual patience, and the sense that impulse was never allowed to steer.",
+    loreRole: "Vox Mana four-color without Red expression for patient cultivation, calculated expansion, protected accumulation, and strict separation from generic Atraxa, proliferate, counters, Phyrexia-only, or same-color goodstuff readings",
+    mechanics: "Counters, proliferate texture, protected engines, value accumulation, recursion-adjacent resources, and scaling board development as Commander-facing ways to show cultivated inevitability without mistaking mechanics for the identity",
+    tableExperience: "cultivate the board patiently, protect the growing engine, and make every small counter, card, and resource become part of a plan too rooted to uproot",
+    thesis: "Let the garden wait. Count every root. Witch reads your answers as a four-color without Red conservatory where Green cultivates growth, White protects the structure, Blue optimizes the method, and Black keeps ambition aimed at inevitability.",
+    closeReason: "patient cultivation, calculated expansion, protected accumulation, ambition under structure, and strict non-Red false-positive boundaries",
+    forkQuestion: "What future is worth cultivating until impulse can no longer interrupt it?",
+    direction: "moves toward protected growth and calculated inevitability",
+    selfCheck: "This may fit if you want a Commander deck that protects small investments, grows through counters or proliferate texture, and turns patience into inevitability without mistaking every Atraxa, counters, or same-color pile for Witch.",
+  },
+  COLORLESS: {
+    shortName: "Colorless",
+    tableRole: "The Engine Builder",
+    opponentRead: "Opponents see the deck assemble infrastructure before the threat: clean {C}, mana rocks, utility lands, and one payoff large enough to test every answer.",
+    emotionalPressure: "Pressure through outside-WUBRG precision, chosen restriction, machine logic, and the sense that every resource has to justify its slot.",
+    loreRole: "Vox Mana Colorless expression for outside-WUBRG precision, chosen restriction, artifacts, Wastes, Eldrazi scale, and strict generic/colorless separation",
+    mechanics: "Reliable {C}, Wastes, artifact engines, big mana, utility lands, and colorless finishers as Commander-facing proof that the constraint is functional without collapsing artifacts, Eldrazi, Devoid, or five-color Eldrazi into Colorless",
+    tableExperience: "infrastructure first, then one oversized threat, artifact engine, or inevitability piece at a time",
+    thesis: "Build outside the wheel. Colorless reads your answers as chosen restriction: fewer shortcuts, stricter mana, and payoffs that make the absence of color visible.",
+    closeReason: "outside-WUBRG precision, strict true-{C} mana, Wastes, artifact engines, and five-color Eldrazi false-positive boundaries",
+    forkQuestion: "What limit is worth making into the structure of the whole deck?",
+    direction: "moves toward strict outside-WUBRG construction, artifact engines, big mana, and false-positive discipline",
+    selfCheck: "This may fit if you want the deck-building constraint itself to matter, with Wastes and true {C} serving the plan instead of generic costs or five-color Eldrazi blurring it.",
   },
 };
 
@@ -424,6 +535,76 @@ function queryTermsForTags(tagRefs = [], taxonomy = null, field = "o") {
 
 function groupedOr(terms = []) {
   return terms.length ? `(${terms.join(" OR ")})` : "";
+}
+
+const DUNE_MAZE_ORACLE_TERMS = Object.freeze([
+  "o:attack",
+  "o:attacks",
+  "o:combat",
+  "o:damage",
+  "o:tokens",
+  "o:haste",
+  "o:trample",
+  "o:fight",
+]);
+
+const DUNE_MAZE_FLAVOR_TERMS = Object.freeze([
+  "ft:war",
+  "ft:battle",
+  "ft:rage",
+  "ft:hunt",
+  "ft:survival",
+]);
+
+function normalizedMazeIdentityForOverride(identity) {
+  const symbols = String(identity || "").toLowerCase().match(/[wubrg]/g) || [];
+  return [...new Set(symbols)]
+    .sort((left, right) => ["w", "u", "b", "r", "g"].indexOf(left) - ["w", "u", "b", "r", "g"].indexOf(right))
+    .join("");
+}
+
+function identityWordsForOverride(identity) {
+  const names = { w: "white", u: "blue", b: "black", r: "red", g: "green" };
+  return String(identity || "")
+    .toLowerCase()
+    .split("")
+    .map((symbol) => names[symbol] || symbol)
+    .join("-");
+}
+
+function applyMazeIdentityOverride(entries = [], identity = "") {
+  const queryIdentity = String(identity || "").toLowerCase();
+  const normalizedIdentity = normalizedMazeIdentityForOverride(queryIdentity);
+  if (!queryIdentity || !normalizedIdentity || normalizedIdentity === queryIdentity) {
+    return entries;
+  }
+
+  const normalizedWords = identityWordsForOverride(normalizedIdentity);
+  const queryWords = identityWordsForOverride(queryIdentity);
+  return entries.map((entry) => ({
+    ...entry,
+    query: String(entry.query || "")
+      .replace(new RegExp(`id=${normalizedIdentity}\\b`, "g"), `id=${queryIdentity}`)
+      .replace(new RegExp(`id<=${normalizedIdentity}\\b`, "g"), `id<=${queryIdentity}`)
+      .replace(new RegExp(`-id<=${normalizedIdentity}\\b`, "g"), `-id<=${queryIdentity}`),
+    plainReadingQuery: String(entry.plainReadingQuery || "").replace(normalizedWords, queryWords),
+  }));
+}
+
+function liveFourColorExactCommanderQuery(identity = "") {
+  const queryIdentity = String(identity || "").toLowerCase();
+  return LIVE_FOUR_COLOR_EXACT_COMMANDER_QUERY_IDENTITIES.has(queryIdentity)
+    ? `id=${queryIdentity} is:commander f:commander`
+    : "";
+}
+
+function applyLiveFourColorExactCommanderPolicy(entries = [], identity = "") {
+  const exactCommanderQuery = liveFourColorExactCommanderQuery(identity);
+  if (!exactCommanderQuery) return entries;
+  return entries.map((entry) => entry.pathType === "commanders-that-fit"
+    ? { ...entry, query: exactCommanderQuery }
+    : entry
+  );
 }
 
 function getFaction(factions, key) {
@@ -482,21 +663,51 @@ function factionDisplayName(factions, key) {
   return getFaction(factions, key)?.name || key || "the neighboring path";
 }
 
+function factionKey(faction) {
+  return String(faction?.key || faction?.identity?.expression_key || "").toUpperCase();
+}
+
 export function buildContrastCopy(primaryFaction, adjacentFaction) {
   if (!primaryFaction || !adjacentFaction) return "";
   const primary = presentationForFaction(primaryFaction);
   const adjacent = presentationForFaction(adjacentFaction);
+  const primaryKey = factionKey(primaryFaction);
+  const adjacentKey = factionKey(adjacentFaction);
 
-  if (primaryFaction.key === "WR" && adjacentFaction.key === "BG") {
+  if (primaryKey === "WR" && adjacentKey === "BG") {
     return "Both recognize harm and grievance. Boros asks: \"What line was crossed, and who must answer for it?\" Golgari asks: \"What can be reclaimed from what was lost?\" Boros moves outward into intervention. Golgari moves downward into endurance and recursion.";
   }
 
-  if (primaryFaction.key === "JUND" && adjacentFaction.key === "RG") {
+  if (primaryKey === "JUND" && adjacentKey === "RG") {
     return "Both paths recognize pressure, instinct, and refusal, but they solve them differently. Jund asks: \"What instinct is worth feeding?\" Gruul asks: \"What boundary deserves to be broken?\" Jund moves toward appetite, consequence, and Commander expression. Gruul moves toward impact, refusal, and the force of breaking through.";
   }
 
-  if (primaryFaction.key === "RG" && adjacentFaction.key === "JUND") {
+  if (primaryKey === "RG" && adjacentKey === "JUND") {
     return "Both paths recognize pressure, instinct, and refusal, but they solve them differently. Gruul asks: \"What boundary deserves to be broken?\" Jund asks: \"What instinct is worth feeding?\" Gruul moves toward impact, refusal, and the force of breaking through. Jund moves toward appetite, consequence, and Commander expression.";
+  }
+
+  if (primaryKey === "YORE" && adjacentKey === "ABZAN") {
+    return "Both paths recognized pressure, inheritance, and survival. They differ in what they do with the burden. Yore asks: \"What limit is worth rebuilding so choice can continue?\" Abzan asks: \"What duty is worth carrying into the next generation?\" Yore moves toward artifice, constructed continuity, and engineered agency. Abzan moves toward endurance, obligation, and inherited survival.";
+  }
+
+  if (primaryKey === "ABZAN" && adjacentKey === "YORE") {
+    return "Both paths recognized pressure, inheritance, and survival. They differ in what they do with the burden. Abzan asks: \"What duty is worth carrying into the next generation?\" Yore asks: \"What limit is worth rebuilding so choice can continue?\" Abzan moves toward endurance, obligation, and inherited survival. Yore moves toward artifice, constructed continuity, and engineered agency.";
+  }
+
+  if (primaryKey === "COLORLESS" && adjacentKey === "ABZAN") {
+    return "Both paths recognized pressure, endurance, and the need for structure. Colorless asks: \"What limit is worth making into the structure of the whole deck?\" Abzan asks: \"What duty is worth carrying into the next generation?\" Colorless moves toward chosen restriction, true {C}, Wastes, artifact engines, and outside-WUBRG deckbuilding. Abzan moves toward endurance, obligation, inheritance, and defensive continuity.";
+  }
+
+  if (primaryKey === "ABZAN" && adjacentKey === "COLORLESS") {
+    return "Both paths recognized pressure, endurance, and the need for structure. Abzan asks: \"What duty is worth carrying into the next generation?\" Colorless asks: \"What limit is worth making into the structure of the whole deck?\" Abzan moves toward endurance, obligation, inheritance, and defensive continuity. Colorless moves toward chosen restriction, true {C}, Wastes, artifact engines, and outside-WUBRG deckbuilding.";
+  }
+
+  if (primaryKey === "GLINT" && adjacentKey === "B") {
+    return "Both paths recognize appetite, risk, and the refusal to wait for permission. Glint asks: \"What opening is worth feeding before order makes it harmless?\" Black asks: \"What are you willing to spend to keep the choice yours?\" Glint moves toward adaptive appetite, living pressure, and storm-fed growth. Black moves toward sovereignty, cost, and chosen advantage.";
+  }
+
+  if (primaryKey === "B" && adjacentKey === "GLINT") {
+    return "Both paths recognize appetite, risk, and the refusal to wait for permission. Black asks: \"What are you willing to spend to keep the choice yours?\" Glint asks: \"What opening is worth feeding before order makes it harmless?\" Black moves toward sovereignty, cost, and chosen advantage. Glint moves toward adaptive appetite, living pressure, and storm-fed growth.";
   }
 
   return `Both paths recognized the same tension, but they solve it differently. ${primary.shortName} asks: "${primary.forkQuestion}" ${adjacent.shortName} asks: "${adjacent.forkQuestion}" ${primary.shortName} ${primary.direction}; ${adjacent.shortName} ${adjacent.direction}.`;
@@ -506,9 +717,28 @@ export function buildHeroNarrative({ dossier, faction, result, factions = {} }) 
   const presentation = presentationForFaction(faction);
   const adjacent = adjacentMatchForSummary(result, dossier.targetFactionKey);
   const adjacentFaction = adjacent?.faction ? getFaction(factions, adjacent.faction) : null;
+  const activeKey = factionKey(faction);
+  const adjacentKey = factionKey(adjacentFaction);
 
-  if (dossier.isPrimary && faction.key === "WR" && adjacentFaction?.key === "BG") {
+  if (dossier.isPrimary && activeKey === "WR" && adjacentKey === "BG") {
     return `${presentation.thesis} Golgari stayed close because your answers carried grievance, endurance, and the memory of harm. But Golgari absorbs pain and turns it into survival. Boros turns harm into action.`;
+  }
+
+  if (dossier.isPrimary && activeKey === "YORE" && adjacentKey === "ABZAN") {
+    return `${presentation.thesis} ${adjacentFaction.name} stayed close because your answers also carried endurance, obligation, ancestry, defensive patience, and continuity. The deciding difference was what the pressure became. Abzan carries the house forward. Yore rebuilds the limit itself. Yore believes the given world is not the final world. When nature asks for surrender, Yore answers with artifice, archive, sacrifice, recursion, and constructed choice.`;
+  }
+
+  if (dossier.isPrimary && activeKey === "GLINT" && adjacentKey === "B") {
+    return `${presentation.thesis} ${adjacentFaction.name} stayed close because your answers also carried cost, agency, and the willingness to spend from the self to keep the choice yours. The deciding difference was how Glint turns that pressure into ${presentation.tableExperience}.`;
+  }
+
+  if (dossier.isPrimary && activeKey === "COLORLESS") {
+    const adjacentCopy = adjacentKey === "ABZAN"
+      ? ` ${adjacentFaction.name} stayed close because your answers also carried endurance, obligation, defensive patience, and continuity.`
+      : adjacentFaction
+        ? ` ${adjacentFaction.name} stayed close because your answers also carried ${presentationForFaction(adjacentFaction).closeReason}.`
+        : "";
+    return `${presentation.thesis}${adjacentCopy} The deciding difference was motion: Colorless turns pressure into infrastructure, then asks the table to answer one oversized threat, artifact engine, or inevitability piece at a time.`;
   }
 
   if (!dossier.isPrimary) {
@@ -532,6 +762,7 @@ export function buildReadingSignalCopy({ dossier, faction, result, factions = {}
   const adjacent = adjacentMatchForSummary(result, dossier.targetFactionKey);
   const band = confidenceBand(activeMatch?.confidence || result?.confidence);
   const presentation = presentationForFaction(faction);
+  const activeKey = factionKey(faction);
 
   if (!dossier.isPrimary) {
     const primaryName = dossier.primaryFaction?.name || factionDisplayName(factions, dossier.primaryFactionKey);
@@ -544,6 +775,22 @@ export function buildReadingSignalCopy({ dossier, faction, result, factions = {}
 
   const adjacentFaction = getFaction(factions, adjacent.faction);
   const adjacentPresentation = presentationForFaction(adjacentFaction);
+
+  if (activeKey === "YORE" && factionKey(adjacentFaction) === "ABZAN") {
+    return `${faction.name} led with a ${band} signal. The reading was not one-note: ${adjacentFaction.name} remained nearby, which means your answers also carried endurance, obligation, family continuity, and defensive patience. The deciding difference was motion. Abzan preserves what must survive. Yore constructs the system that lets choice continue. This result rose first because your answers leaned toward artifice, engineered agency, controlled overreach, and the refusal to let natural limits become final.`;
+  }
+
+  if (activeKey === "GLINT" && factionKey(adjacentFaction) === "B") {
+    return `${faction.name} led with a ${band} signal. The reading was not one-note: ${adjacentFaction.name} remained nearby because your answers also carried cost, agency, and the willingness to spend from the self to keep the choice yours. This result rose first because it wanted pressure to keep learning, feeding, and changing before White-style order could make the opening harmless.`;
+  }
+
+  if (activeKey === "COLORLESS") {
+    const adjacentCopy = factionKey(adjacentFaction) === "ABZAN"
+      ? `${adjacentFaction.name} remained nearby, which means your answers also carried endurance, obligation, and defensive patience.`
+      : `${adjacentFaction?.name || adjacent.faction_name} remained nearby, which means your answers also carried ${adjacentPresentation.closeReason}.`;
+    return `${faction.name} led with a ${band} signal, but the reading was not one-note. ${adjacentCopy} Colorless rose first because the stronger motion was toward a strict construction problem: make mana, tools, and finishers earn their place outside the usual five-color vocabulary.`;
+  }
+
   return `${faction.name} led with a ${band} signal. The reading was not one-note; ${adjacentFaction?.name || adjacent.faction_name} remained nearby, which suggests your answers carried both ${presentation.closeReason} and ${adjacentPresentation.closeReason}. The deciding difference was motion: this result chose the path that ${presentation.direction}.`;
 }
 
@@ -600,6 +847,7 @@ export function selectReadingTagRefs({ dossier, result, taxonomy, modelMechanics
 export function buildTagExplanationSummaries({ tagRefs = [], faction, taxonomy, limit = 4 }) {
   const refs = uniqueTagRefs(tagRefs).slice(0, limit);
   const presentation = presentationForFaction(faction);
+  const activeKey = factionKey(faction);
   if (!refs.length) {
     return [{
       title: `${presentation.shortName} pressure`,
@@ -612,6 +860,26 @@ export function buildTagExplanationSummaries({ tagRefs = [], faction, taxonomy, 
   return refs.map((ref) => {
     const entry = taxonomyEntry(taxonomy, ref.category, ref.tag);
     if (!entry) return null;
+    if (activeKey === "YORE" && ref.category === "playstyle" && normalizeCardName(ref.tag) === "aggro") {
+      return {
+        category: ref.category,
+        tag: ref.tag,
+        title: "Pressure",
+        meaning: "Forcing the table to answer before comfort becomes a plan.",
+        copy: "This is not generic artifact aggro. In this Yore reading, pressure means building a system that keeps choice alive and makes the table answer a constructed future before natural limits become final.",
+        helper: "Displayed as Pressure for Yore only; the underlying tag taxonomy remains unchanged.",
+      };
+    }
+    if (activeKey === "COLORLESS" && ref.category === "playstyle" && normalizeCardName(ref.tag) === "aggro") {
+      return {
+        category: ref.category,
+        tag: ref.tag,
+        title: "Pressure",
+        meaning: "Forcing the table to answer before comfort becomes a plan.",
+        copy: "In this Colorless reading, pressure does not mean a small-creature curve-out. It means early infrastructure, clean mana, artifact engines, and ahead-of-schedule threats that make restriction feel like the deck's plan.",
+        helper: "Displayed as Pressure for Colorless only; the underlying tag taxonomy remains unchanged.",
+      };
+    }
     const actions = (entry.typical_actions || []).slice(0, 2).join(" and ");
     const actionCopy = actions ? ` One common deck expression here is to ${actions}.` : "";
     const groundingCopy = entry.table_feel || entry.player_fantasy || entry.canonical_definition || entry.vox_mana_interpretation;
@@ -663,16 +931,22 @@ function appendUrlParams(url, params, origin = "http://localhost") {
 }
 
 export function buildArchscryMazeContext({ result, dossier, faction }) {
+  const factionKey = String(dossier?.targetFactionKey || faction?.key || "").toUpperCase();
+  const liveFourColorLabel = LIVE_FOUR_COLOR_MAZE_LABELS.get(factionKey) || "";
+  const factionName = liveFourColorLabel || faction?.name || dossier.faction?.name || dossier.targetFactionKey;
+  const sourceKey = String(result?.faction || dossier.primaryFactionKey || "").toUpperCase();
+  const sourceFaction = liveFourColorLabel && sourceKey && sourceKey !== factionKey ? sourceKey : "";
   const readingId = readingIdForResult(result);
   const returnBase = "../archscry/index.html";
   const returnUrl = `${returnBase}?from=maze&view=${encodeURIComponent(dossier.targetFactionKey)}&readingId=${encodeURIComponent(readingId)}#maze-discovery-paths`;
   return {
     from: "archscry",
     readingId,
-    guild: result?.faction || dossier.primaryFactionKey,
+    guild: dossier.targetFactionKey,
+    sourceFaction,
     fit: dossier.targetFactionKey,
-    factionName: faction?.name || dossier.faction?.name || dossier.targetFactionKey,
-    readingTitle: `${faction?.name || "Vox Mana"} dossier`,
+    factionName,
+    readingTitle: `${factionName || "Vox Mana"} dossier`,
     pathType: "",
     plainReadingQuery: "",
     operatorQuery: "",
@@ -704,6 +978,7 @@ export function withArchscryMazeContext(links = [], context, origin = "http://lo
         from: "archscry",
         readingId: context.readingId,
         guild: context.guild,
+        sourceFaction: context.sourceFaction,
         fit: context.fit,
         factionName: context.factionName,
         readingTitle: context.readingTitle,
@@ -717,24 +992,33 @@ export function withArchscryMazeContext(links = [], context, origin = "http://lo
 }
 
 export function buildPersonalizedMazePaths({ faction, tagRefs, taxonomy }) {
-  const identity = getExternalDeckRoutingAlias(faction).colorIdentity.toLowerCase() || "c";
+  const factionKey = String(faction?.key || "").toUpperCase();
+
+  const routingAlias = getExternalDeckRoutingAlias(faction);
+  const identity = routingAlias.colorIdentity.toLowerCase() || "c";
   const oracleTerms = queryTermsForTags(tagRefs, taxonomy, "o");
   const flavorTerms = [
     ...queryTermsForTags(tagRefs.filter((ref) => ref.category === "identity" || ref.category === "lore-tone"), taxonomy, "ft"),
   ];
-  const factionKey = String(faction?.key || "").toUpperCase();
-
-  return buildDossierMazePathEntries({
+  const isLiveFourColor = LIVE_FOUR_COLOR_MAZE_LABELS.has(factionKey);
+  const factionLabel = LIVE_FOUR_COLOR_MAZE_LABELS.get(factionKey) || faction?.name || "this reading";
+  const isDune = factionKey === "DUNE";
+  const entries = buildDossierMazePathEntries({
     identity,
-    factionName: faction?.name || "this reading",
-    oracleTerms,
-    flavorTerms,
-    identityHint: factionKey === "JUND" ? "Jund" : factionKey === "NAYA" ? "Naya" : factionKey === "ABZAN" ? "Abzan" : factionKey === "TEMUR" ? "Temur" : factionKey === "SULTAI" ? "Sultai" : factionKey === "MARDU" ? "Mardu" : factionKey === "JESKAI" ? "Jeskai" : "",
-    includeOutsideColorStretch: !["GRIXIS", "JUND", "NAYA", "ABZAN", "TEMUR", "SULTAI", "MARDU", "JESKAI"].includes(factionKey)
-  }).map((entry) => buildMazeSearchLink({
-    label: entry.label,
-    query: entry.query,
-    pathType: entry.pathType,
-    plainReadingQuery: entry.plainReadingQuery,
-  }));
+    factionName: factionLabel,
+    oracleTerms: isDune ? DUNE_MAZE_ORACLE_TERMS : oracleTerms,
+    flavorTerms: isDune ? DUNE_MAZE_FLAVOR_TERMS : flavorTerms,
+    identityHint: DOSSIER_MAZE_HINTS.get(factionKey) || (isLiveFourColor ? factionLabel : ""),
+    includeOutsideColorStretch: !MAZE_NO_STRETCH_KEYS.has(factionKey)
+  });
+
+  const normalizedEntries = applyMazeIdentityOverride(entries, identity);
+  return applyLiveFourColorExactCommanderPolicy(normalizedEntries, identity).map((entry) => {
+    return buildMazeSearchLink({
+      label: entry.label,
+      query: entry.query,
+      pathType: entry.pathType,
+      plainReadingQuery: entry.plainReadingQuery,
+    });
+  });
 }

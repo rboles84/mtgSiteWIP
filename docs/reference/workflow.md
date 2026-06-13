@@ -29,6 +29,18 @@ For non-trivial work:
 
 Small read-only questions, quick status checks, and simple command lookups do not need a Kanban card or handoff unless they reveal follow-up work.
 
+## Source-Bound Data Work Modes
+
+Faction identity, placement, dossier, and gold-standard parity cards must follow the source-bound rule in [Source / Generated Guardrails](source-generated-guardrails.md).
+
+- Recon cards may inspect generated/runtime surfaces only to identify gaps.
+- Review cards may approve, reject, or narrow proposed repairs, but must not promote missing evidence into source backing.
+- Review cards may authorize later repair cards only after the source category for each field is known.
+- Repair cards may edit only fields backed by existing official researched data.
+- Source-intake cards may fetch or add new legitimate sources, but must record them in the appropriate source/evidence ledger before generated/display parity work consumes them.
+- Implementation cards must classify every changed or preserved field as one of: `backed-repair`, `source-normalization`, `source-intake-needed`, or `blocked-noncanonical`.
+- Runtime/generated files may be regenerated from canonical source, but not hand-edited as source.
+
 ## Kanban Cards
 
 Cards should use `VM-###` IDs and live in the folder matching their status. Move a card between folders when its status changes, and update `docs/kanban/board.md` in the same change.

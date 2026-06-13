@@ -27,7 +27,7 @@ VM-144 moved obsolete preview-era CSS/JS out of active `assets/` paths and into 
 | `/assets/css/home-preview.css` | Archived | Proven obsolete after `newIndex.html` was removed. |
 | `/assets/js/home-preview.js` | Archived | Proven obsolete after `newIndex.html` was removed. |
 
-The canonical Home route still uses `/assets/css/newindex2.css` and `/assets/js/newindex2.js`; those names are historical but the files are live.
+The canonical Home route is `index.html`. Its route-local assets are `/assets/css/home.css` and `/assets/js/home.js`. Any remaining legacy preview-era names belong to historical records only.
 
 ## Background Generation Queue
 

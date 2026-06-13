@@ -1,13 +1,14 @@
 {
   "schema_version": "1.0.0",
-  "placement_profile_version": "0.1.0",
+  "placement_profile_version": "0.1.1",
+  "placement_model_version": "0.1.1",
   "faction_id": "jeskai",
   "faction_name": "Jeskai Way",
-  "based_on_profile_version": "0.1.0",
-  "last_updated": "2026-05-31",
-  "placement_summary": "Jeskai Way is a source-authored, review-gated raw packet. Its strongest source-bound signals are Blue-centered cunning, disciplined training, Red action, White structure, Khans-era monasteries and Ways, Narset and Shu Yun timeline boundaries, Ojutai discontinuity, modern Dragonstorm revival boundaries, and false-positive boundaries against generic color codes, Commander products, seed files, generated HTML, unsupported mechanics, and runtime promotion.",
+  "based_on_profile_version": "0.1.1",
+  "last_updated": "2026-06-12",
+  "placement_summary": "Jeskai Way is a source-authored live-repair raw packet. Its strongest source-bound signals are Blue-centered cunning, disciplined training, Red action, White structure, Khans-era monasteries and Ways, Narset and Shu Yun timeline boundaries, Ojutai discontinuity, modern Dragonstorm revival boundaries, and false-positive boundaries against generic color codes, Commander products, seed files, generated HTML, unsupported mechanics, and runtime promotion.",
   "moral_and_psychological_profile": {
-    "summary": "Vox Mana models Jeskai as cunning through disciplined action: train perception until insight can move with courage, precision, compassion, and restraint. This is project interpretation from normalized VM-229 evidence plus VM-230/VM-231 shaping language, not official canon, and it has no live placement behavior in VM-232.",
+    "summary": "Vox Mana models Jeskai as cunning through disciplined action: train perception until insight can move with courage, precision, compassion, and restraint. This is project interpretation from normalized VM-229 evidence plus VM-230/VM-231 shaping language, not official canon; VM-299 repairs source-durable live placement after VM-234 promotion.",
     "claim_ids": [
       "jeskai_claim_0001",
       "jeskai_claim_0002",
@@ -99,33 +100,9 @@
     "Exact mechanics, full six-fire doctrine, complete three-Ways hierarchy, full Narset biography, or full Shu Yun biography used without direct evidence"
   ],
   "good_fit_indicators": [
-    {
-      "indicator_id": "good_jeskai_0001",
-      "text": "The candidate centers Blue-led perfection, knowledge, discipline, Red action, White structure, and cunning with explicit Jeskai or Tarkir Way anchors.",
-      "claim_ids": [
-        "jeskai_claim_0001",
-        "jeskai_claim_0002",
-        "jeskai_claim_0003"
-      ]
-    },
-    {
-      "indicator_id": "good_jeskai_0002",
-      "text": "The candidate uses monasteries, martial artists, mystics, wandering warriors, Annals, Rules of Reeds, fire-language, or three Ways as bounded Jeskai evidence.",
-      "claim_ids": [
-        "jeskai_claim_0004",
-        "jeskai_claim_0005"
-      ]
-    },
-    {
-      "indicator_id": "good_jeskai_0003",
-      "text": "The candidate clearly labels Narset, Shu Yun, Ojutai, or Dragonstorm context by era and avoids backfill.",
-      "claim_ids": [
-        "jeskai_claim_0006",
-        "jeskai_claim_0007",
-        "jeskai_claim_0008",
-        "jeskai_claim_0009"
-      ]
-    }
+    "The candidate centers Blue-led perfection, knowledge, discipline, Red action, White structure, and cunning with explicit Jeskai or Tarkir Way anchors.",
+    "The candidate uses monasteries, martial artists, mystics, wandering warriors, Annals, Rules of Reeds, fire-language, or three Ways as bounded Jeskai evidence.",
+    "The candidate clearly labels Narset, Shu Yun, Ojutai, or Dragonstorm context by era and avoids backfill."
   ],
   "ideal_fit_indicators": [
     "Blue-centered perfection plus Red action plus White shared form are all present.",
@@ -133,16 +110,21 @@
     "False positives are explicitly rejected: generic color code, Commander products, seed prose, generated HTML, exact mechanics, and backfilled timelines."
   ],
   "poor_fit_indicators": [
-    "The candidate is only URW/WUR/RWU/UWR/RUW/WRU color identity.",
-    "The candidate is only Commander goodstuff or exact-color product identity.",
-    "The candidate treats Ojutai or modern Dragonstorm material as Khans-era Jeskai.",
-    "The candidate relies on exact prowess or named mechanics without card-data validation.",
-    "The candidate relies on seed files, generated HTML, color-pair philosophy, or architecture prose as proof."
+    "The candidate is only URW/WUR/RWU/UWR/RUW/WRU color identity or Commander support texture without disciplined cunning, monastery practice, or trained-action framing.",
+    "The candidate centers generic spellslinger play, pure speed, pure control, Ojutai continuity, Dragonstorm backfill, seed files, generated HTML, color-pair philosophy, or exact mechanics instead of a positive Jeskai Way evidence cluster."
   ],
   "discriminator_questions": [
     {
       "question_id": "jeskai_discriminator_0001",
       "question": "Is the signal about disciplined cunning and trained insight rather than generic spellslinger play, color identity, or Commander support texture?",
+      "purpose": "Separates genuine Jeskai alignment from generic same-color spellslinger play or Commander support texture.",
+      "answer_pattern_that_supports_this_faction": "Supports Jeskai when the user connects their draw to training, preparation, disciplined study, precision, and action that has been earned through practice.",
+      "answer_pattern_that_weakens_this_faction": "Weakens Jeskai when the user is drawn only to blue-red-white card patterns, generic spell efficiency, or Commander product identity without martial, monastic, or trained-action framing.",
+      "collision_targets": [
+        "UR",
+        "WU",
+        "WR"
+      ],
       "claim_ids": [
         "jeskai_claim_0002",
         "jeskai_claim_0003",
@@ -152,6 +134,16 @@
     {
       "question_id": "jeskai_discriminator_0002",
       "question": "Does the candidate include a positive Jeskai evidence cluster beyond URW/WUR/RWU/UWR/RUW/WRU color identity?",
+      "purpose": "Forces the three-color threshold test so Jeskai is not selected for color identity alone.",
+      "answer_pattern_that_supports_this_faction": "Supports Jeskai when the user needs Blue intellectual discipline, Red courage to act, and White accountability for consequences together.",
+      "answer_pattern_that_weakens_this_faction": "Weakens Jeskai when the answer resolves cleanly into a two-color identity such as Azorius procedure, Izzet experimentation, or Boros intervention.",
+      "collision_targets": [
+        "WU",
+        "UR",
+        "WR",
+        "TEMUR",
+        "MARDU"
+      ],
       "claim_ids": [
         "jeskai_claim_0001",
         "jeskai_claim_0004",
@@ -161,6 +153,14 @@
     {
       "question_id": "jeskai_discriminator_0003",
       "question": "Are Narset, Shu Yun, Ojutai, and Dragonstorm references held inside their timeline boundaries?",
+      "purpose": "Prevents cross-era bleed between Khans-era Jeskai, Fate Reforged transition material, Dragons-era Ojutai, and modern Dragonstorm revival context.",
+      "answer_pattern_that_supports_this_faction": "Supports Jeskai when Narset, Shu Yun, Ojutai, and Dragonstorm references are timeline-labeled and used as boundaries or source-backed bridges.",
+      "answer_pattern_that_weakens_this_faction": "Weakens Jeskai when Ojutai doctrine or modern Dragonstorm material is backfilled into Khans-era Jeskai Way without source support.",
+      "collision_targets": [
+        "OJUTAI",
+        "MARDU",
+        "TEMUR"
+      ],
       "claim_ids": [
         "jeskai_claim_0006",
         "jeskai_claim_0007",
@@ -210,13 +210,14 @@
       "Commander/operator material beyond support-only language"
     ],
     "manual_review_recommended": true,
-    "review_gated": true,
-    "placement_status": "not_placement_eligible",
-    "placement_eligible": false,
-    "notes": "VM-232 creates source-authored raw JSON only. JESKAI is a future/planned expression name only and is not placement-ready, not preview-ready, not generated, and not live.",
-    "calibration_tuning_status": "source_authored_review_gated",
-    "last_placement_ready_pass": null,
-    "live_pilot": false
+    "review_gated": false,
+    "placement_status": "live_after_vm234_source_repair",
+    "placement_eligible": true,
+    "preview_eligible": false,
+    "notes": "VM-299 repairs source-durable Jeskai placement after VM-234 live promotion and VM-294 generated-authoring contamination. The repair keeps the ten promoted raw claims as the durable claim floor and does not expand evidence authority.",
+    "calibration_tuning_status": "source_authored_live_repair",
+    "last_placement_ready_pass": "VM-299",
+    "live_pilot": true
   },
   "color_identity": {
     "colors": [
@@ -239,36 +240,84 @@
       "wru"
     ],
     "future_expression_name": "JESKAI",
-    "future_expression_name_status": "future/planned only; not a live key, alias, generated key, route key, placement key, fixture key, Home preview key, Maze key, Supabase key, schema key, or public interface"
+    "future_expression_name_status": "live after VM-234 as the public/generated faction key; color-code permutations remain metadata/query-only and are not aliases, route keys, fixture keys, Home preview keys, Maze keys, Supabase keys, schema keys, or public interfaces"
   },
   "calibration_tuning": {
-    "status": "source_authored_review_gated",
-    "placement_status": "not_placement_eligible",
+    "status": "source_authored_live_repair",
+    "placement_status": "live_after_vm234_source_repair",
     "preview_eligible": false,
-    "placement_eligible": false,
-    "live_pilot": false,
-    "placement_axes": [],
-    "notes": "No placement scoring, no route surface, no generated output, no builder mapping, no fixture behavior, and no runtime promotion are authorized in VM-232."
+    "placement_eligible": true,
+    "live_pilot": true,
+    "required_positive_evidence_terms": [
+      "Jeskai Way",
+      "Blue-centered",
+      "cunning",
+      "discipline",
+      "training",
+      "martial practice",
+      "monastery",
+      "Narset",
+      "Shu Yun",
+      "Ojutai boundary",
+      "Dragonstorm revival",
+      "trained insight"
+    ],
+    "required_positive_min_hits": 2,
+    "strengthen_when_user_centers": [
+      "Blue-centered discipline, knowledge, and self-improvement before action.",
+      "Cunning as trained preparation, timing, protection, and precise release.",
+      "Khans-era monasteries, martial artists, mystics, wandering warriors, Annals, Rules of Reeds, or three Ways.",
+      "Narset or Shu Yun with explicit timeline boundaries.",
+      "Modern Dragonstorm Jeskai only when labeled as revival context rather than Khans-era backfill."
+    ],
+    "suppress_when_user_centers": [
+      "URW, WUR, RWU, UWR, RUW, or WRU color identity without a Jeskai evidence cluster.",
+      "Generic spellslinger, prowess, copies, artifacts, energy, cycling, time counters, or Commander goodstuff without Jeskai evidence.",
+      "Ojutai clan treated as Khans-era Jeskai continuity.",
+      "Modern Dragonstorm revival used as Khans-era proof.",
+      "Seed files, generated HTML, color-pair philosophy, or architecture prose treated as proof."
+    ],
+    "false_positive_guardrail": "Do not treat same-color composition, generic spellslinger play, Commander support rows, Ojutai continuity, Dragonstorm backfill, seed files, generated HTML, or exact mechanics as Jeskai evidence. Require a positive Jeskai Way evidence cluster grounded in Blue-centered disciplined cunning, training, martial practice, and strict Tarkir timeline boundaries.",
+    "broad_match_penalty": 0.12,
+    "notes": "VM-299 authorizes source-durable live placement repair only for Jeskai. Color-code permutations remain metadata/query-only and exact mechanics remain manual-fill."
   },
-  "collision_guidance": {
-    "adjacent_pair_collisions": [
-      "Izzet",
-      "Azorius",
-      "Boros"
-    ],
-    "adjacent_wedge_collisions": [
-      "Temur",
-      "Mardu",
-      "Sultai",
-      "Abzan",
-      "Naya",
-      "Ojutai"
-    ],
-    "boundary_rule": "Require a positive Jeskai Way evidence cluster and timeline labels before treating material as Jeskai. Color-code composition or Commander support texture alone is insufficient.",
-    "claim_ids": [
-      "jeskai_claim_0001",
-      "jeskai_claim_0008",
-      "jeskai_claim_0010"
-    ]
-  }
+  "collision_guidance": [
+    {
+      "collision_id": "collision_jeskai_mardu_live",
+      "against": "mardu",
+      "separator": "Jeskai turns Blue-centered discipline, training, and cunning into precise action; Mardu turns Red-centered speed, war code, and total commitment into immediate action.",
+      "ask": "Is the answer trained insight released with precision, or a war-bound charge before the opening closes?",
+      "claim_ids": [
+        "jeskai_claim_0002",
+        "jeskai_claim_0003",
+        "jeskai_claim_0004",
+        "jeskai_claim_0010"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "collision_id": "collision_jeskai_sultai_live",
+      "against": "sultai",
+      "separator": "Jeskai uses knowledge, discipline, and practice for precise action; Sultai uses secrets, costs, and the dead for ruthless resource conversion.",
+      "ask": "Does insight become trained action, or private advantage converted from what others will not use?",
+      "claim_ids": [
+        "jeskai_claim_0002",
+        "jeskai_claim_0003",
+        "jeskai_claim_0010"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "collision_id": "collision_jeskai_temur_live",
+      "against": "temur",
+      "separator": "Jeskai centers disciplined training, monastery practice, and cunning action; Temur centers survival, instinct, mental fortitude, and listening to land and memory.",
+      "ask": "Is insight disciplined through the Way, or heard through the wild signal?",
+      "claim_ids": [
+        "jeskai_claim_0002",
+        "jeskai_claim_0003",
+        "jeskai_claim_0004"
+      ],
+      "confidence": "Medium"
+    }
+  ]
 }

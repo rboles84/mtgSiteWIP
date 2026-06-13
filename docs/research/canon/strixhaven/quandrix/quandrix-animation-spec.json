@@ -1,0 +1,103 @@
+{
+  "schema_version": "vox-mana-animation-spec-v1",
+  "identity": "quandrix",
+  "motion_thesis": "A question becomes a variable, then the variable becomes visible proof.",
+  "core_axiom": "Reality is an equation that can be grown, copied, doubled, and proven by scale.",
+  "motion_model": "question -> variable -> proof -> scale break -> materialized theorem",
+  "palette": {
+    "void_ink": "#050b12",
+    "deep_pool": "#0b2230",
+    "blackboard": "#10231f",
+    "theorem_blue": "#2f8fd6",
+    "fractal_cyan": "#67d8ff",
+    "growth_green": "#55c96f",
+    "leyline_green": "#9be074",
+    "chalk": "#d9f6ef",
+    "golden_ratio": "#d7c072",
+    "mist": "#9ccfda",
+    "grid_line": "rgba(103, 216, 255, 0.18)",
+    "glow_fractal": "rgba(103, 216, 255, 0.32)",
+    "glow_growth": "rgba(85, 201, 111, 0.26)",
+    "shadow_depth": "rgba(0, 6, 12, 0.78)"
+  },
+  "timing": {
+    "question_mark": "220ms",
+    "variable_assign": "360ms",
+    "proof_line": "520ms",
+    "doubling_pulse": "760ms",
+    "fractal_bloom": "1100ms",
+    "scale_break": "1400ms",
+    "ease_theorem": "cubic-bezier(0.22, 0.72, 0.16, 1)",
+    "ease_bloom": "cubic-bezier(0.16, 0.84, 0.44, 1)",
+    "ease_doubling": "cubic-bezier(0.12, 0.9, 0.24, 1.18)"
+  },
+  "keyframes": [
+    {
+      "name": "vm-quandrix-grid-resolve",
+      "purpose": "background grid resolves from scattered points"
+    },
+    {
+      "name": "vm-quandrix-variable-assign",
+      "purpose": "chips/answers snap into labeled variable slots"
+    },
+    {
+      "name": "vm-quandrix-fractal-bloom",
+      "purpose": "token/counter panels scale outward in recursive rings"
+    },
+    {
+      "name": "vm-quandrix-proof-line",
+      "purpose": "thin theorem line draws under headings and CTAs"
+    },
+    {
+      "name": "vm-quandrix-double-pulse",
+      "purpose": "doubling/copy state duplicates along an offset vector"
+    },
+    {
+      "name": "vm-quandrix-scale-break",
+      "purpose": "big-mana or eight-land threshold causes the panel to expand"
+    },
+    {
+      "name": "vm-quandrix-chalk-drift",
+      "purpose": "subtle chalk particles for inactive theorem notes"
+    }
+  ],
+  "component_states": {
+    "placement_card": {
+      "entrance": "vm-quandrix-grid-resolve followed by vm-quandrix-proof-line",
+      "idle_primary": "low-opacity recursive grid shimmer; no constant particles",
+      "hover": "variable chips offset by 2px, cyan edge, green underglow",
+      "active": "double-pulse on the core identity sigil plus proof-line underline"
+    },
+    "proof_panel": {
+      "entrance": "question copy appears first, then variables, then conclusion",
+      "math_chips": "assign x/y/z labels; use short stagger; avoid equations users must parse",
+      "threshold_state": "scale-break animation when land count, counter count, or token count crosses a named threshold"
+    },
+    "fractal_token_card": {
+      "entrance": "vm-quandrix-fractal-bloom",
+      "hover": "recursive outline grows one iteration; do not exceed 2 loops",
+      "selected": "outer ring doubles and settles"
+    },
+    "maze_link": {
+      "hover": "query string appears as clean theorem tags, not raw operator soup",
+      "copy_style": "solve / scale / double / replicate / materialize"
+    },
+    "error_state": {
+      "visual": "misaligned equation grid",
+      "motion": "single variable shake, then snap back to baseline",
+      "copy": "That proof does not resolve yet."
+    }
+  },
+  "accessibility": {
+    "prefers_reduced_motion": "disable grid shimmer, chalk drift, recursive loops, and double-pulse; keep instant state changes and static proof-line separators",
+    "avoid": [
+      "hard-to-read mathematical notation as decorative text",
+      "fast recursive zooms",
+      "screen-wide parallax",
+      "generic Simic biology slime",
+      "Izzet lightning/lab palette",
+      "Azorius law-grid severity",
+      "repeating symbols that look like captchas"
+    ]
+  }
+}

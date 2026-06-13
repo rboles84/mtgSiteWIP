@@ -13,10 +13,10 @@
 
 ## Home visual regression harness
 
-1. Before changing `index.html` or its route-local Home assets, run `npm.cmd run test:visual:newindex2:baseline`.
-2. Confirm baseline screenshots exist under `artifacts/visual-regression/newindex2/baseline/` for `mobile.png`, `tablet.png`, and `desktop.png`.
-3. After the extraction or route-local refactor, run `npm.cmd run test:visual:newindex2`.
-4. Confirm the compare run writes current and diff artifacts under `artifacts/visual-regression/newindex2/current/` and `artifacts/visual-regression/newindex2/diff/`.
+1. Before changing `index.html` or its route-local Home assets, run `npm.cmd run test:visual:home:baseline`.
+2. Confirm baseline screenshots exist under `artifacts/visual-regression/home/baseline/` for `mobile.png`, `tablet.png`, and `desktop.png`.
+3. After the extraction or route-local refactor, run `npm.cmd run test:visual:home`.
+4. Confirm the compare run writes current and diff artifacts under `artifacts/visual-regression/home/current/` and `artifacts/visual-regression/home/diff/`.
 5. Confirm each viewport stays within the mismatch budget and the run reports no new console or page errors beyond `console-baseline.json`.
 6. Confirm the Home identity signal initializes from `data/identity-layers.json`, shows the same 20 preview identities, and the forced `boros` visual hook resolves through the registry alias list.
 7. Confirm the Home Mana Lens reports `Still` under reduced motion, uses the tuned 4800ms cycle outside reduced motion, and still pauses on hover/focus before resuming.
@@ -25,7 +25,7 @@
 ## VM-147A Home route manual QA
 
 1. Open `/` and `/index.html`; confirm both load the canonical Home route with no broken asset requests.
-2. Confirm `index.html` still loads `assets/js/graph.js`, `assets/css/newindex2.css`, and `assets/js/newindex2.js` without renaming the historical Home assets.
+2. Confirm `index.html` still loads `assets/js/graph.js`, `assets/css/home.css`, and `assets/js/home.js`.
 3. Confirm the shared topbar marks Home as active, opens and closes the utility menu, and keeps Archscry, Maze, Apocrypha, and Strategium links working.
 4. Confirm the hero copy, WUBRG glyph row, route cards, and footer/back-to-top behavior render correctly.
 5. Confirm the identity signal radar renders through Chart.js, initializes from `data/identity-layers.json`, and shows the expected overlay pills and held-signal details.
@@ -68,11 +68,13 @@
 4. Confirm the dossier directory, focus mode, View All mode, and keyboard tab navigation still switch panels without changing URL, panel id, or focus behavior unexpectedly.
 5. In the Identity Matrix, confirm the radar/glow/starfield areas render visually in browser, noting that the visual regression harness intentionally masks unstable animated or canvas surfaces.
 6. Switch into an adjacent fit, return to the primary reading, and confirm the radar, axis bars, panel copy, and precon preview recompute for the active view without duplicating chart instances.
-7. Open Maze Discovery paths from the primary dossier and one adjacent dossier; confirm Maze receives the active dossier handoff and its return link still routes back to Archscry.
-8. In Commander Deck Starts, confirm Recommended Precon Decks, Commander Deck Starts, Commander Lanes, starter cards, mana base sections, card-art loading, and desktop card previews still behave as before.
-9. Check mobile, tablet, and desktop widths for readable panels, no obvious horizontal overflow, no clipped card art, and no topbar or dossier rail overlap.
-10. Enable reduced motion and confirm Archscry keeps a static atmosphere/radar presentation without continuous animation.
-11. Confirm any ambiguous stale CSS or JS ownership found during VM-147B remains in place and is recorded as follow-up rather than removed during the slice.
+7. In the result summary strip, confirm exactly three cards render in this order: `Adjacent fit`, `Where this leads`, `Play pattern`. Confirm the strip does not show mana pips, compact identity strings, `Current fit`, `First stop`, or CTA buttons/links.
+8. On desktop, confirm the middle summary card is visibly wider than the other two. On mobile, confirm the same three cards stack in the same order and the tag row hides cleanly when no tags exist.
+9. Open Maze Discovery paths from the primary dossier and one adjacent dossier; confirm Maze receives the active dossier handoff and its return link still routes back to Archscry.
+10. In Commander Deck Starts, confirm Recommended Precon Decks, Commander Deck Starts, Commander Lanes, starter cards, mana base sections, card-art loading, and desktop card previews still behave as before.
+11. Check mobile, tablet, and desktop widths for readable panels, no obvious horizontal overflow, no clipped card art, and no topbar or dossier rail overlap.
+12. Enable reduced motion and confirm Archscry keeps a static atmosphere/radar presentation without continuous animation.
+13. Confirm any ambiguous stale CSS or JS ownership found during VM-147B remains in place and is recorded as follow-up rather than removed during the slice.
 
 ## VM-147C Maze route manual QA
 
@@ -276,7 +278,7 @@
 ## Adaptive placement sanity
 
 1. Run `node assets/js/quick-reading-tests.js`.
-2. Confirm all 21 golden paths pass.
+2. Confirm all 30 golden paths pass.
 3. Run `node assets/js/quick-reading-bias.js --all`.
 4. Confirm no faction is listed under `Never selected`.
 5. Run `node assets/js/quick-reading-bias.js --runs=100`.
@@ -294,15 +296,15 @@
 ## Mono rollout acceptance sweep
 
 1. Run `npm run test:placement`.
-2. Confirm the suite reports `21 factions, 21 golden paths`.
+2. Confirm the suite reports `30 factions, 30 golden paths`.
 3. Confirm mono routing checks still pass for `mono-white`, `mono-blue`, `mono-black`, `mono-red`, and `mono-green`.
 4. Confirm mono adjacent-fit boundary checks stay inside the expected pair shells:
-   - `W` vs `WU`-family / `WB`-family / `WG`-family / `WR`-family / Bant `WUG` color-family metadata
-   - `U` vs `WU`-family / `UB`-family / `UR`-family / `UG`-family / Bant `WUG` color-family metadata
+   - `W` vs `WU`-family / `WB`-family / `WG`-family / `WR`-family
+   - `U` vs `WU`-family / `UB`-family / `UR`-family / `UG`-family
    - `B` vs `UB`-family / `WB`-family / `BG`-family / `BR`-family
    - `R` vs `WR`-family / `UR`-family / `BR`-family / `RG`-family
-   - `G` vs `WG`-family / `UG`-family / `BG`-family / `RG`-family / Bant `WUG` color-family metadata
-5. Confirm valid guild/college/shard analogs are accepted inside those families, for example mono White accepting `LOREHOLD` as a valid `WR`-family adjacent or `BANT` as Bant `WUG` color-family metadata without collapsing the displayed identity label.
+   - `G` vs `WG`-family / `UG`-family / `BG`-family / `RG`-family
+5. Confirm valid guild, college, shard, and wedge analogs are accepted inside those families. For example, mono White may accept `LOREHOLD`, `BANT`, or `JESKAI` as valid white-adjacent fits without collapsing the displayed identity label, as long as the adjacent fit still resolves inside White's `WU` / `WB` / `WG` / `WR` shells.
 6. Confirm mono dossiers still report authored mono recommendation ownership/guidance, not just generic Commander Compass presence.
 7. Run `npm run dossier:audit`.
 8. Confirm the audit has `failures: 0`.
@@ -416,7 +418,7 @@
 ## Shell continuity pass
 
 1. Open `/archscry/`.
-2. Confirm the route uses `background-vox-gateway-clean-09.webp` with the `newIndex2`-style `vm-bg` atmosphere stack, star canvas, and painted overlay treatment instead of the older chamber image.
+2. Confirm the route uses `background-vox-gateway-clean-09.webp` with the current Home `vm-bg` atmosphere stack, star canvas, and painted overlay treatment instead of the older chamber image.
 3. Confirm the landing hero, quick-reading card, interview shell, decree state, and dossier sections feel like one continuous Archscry surface system.
 4. Complete a quick reading and confirm the `Mana Alignment Matrix`, adjacent fits, and lower dossier sections still render inside the refreshed shell without changing their behavior.
 5. Restore a saved result and confirm the refreshed shell is still present without changing result behavior.

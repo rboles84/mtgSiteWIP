@@ -1,0 +1,124 @@
+{
+  "schema_version": "1.0.0",
+  "faction_id": "witch",
+  "faction_name": "Witch / Growth",
+  "source_review_date": "2026-06-04",
+  "last_updated": "2026-06-04",
+  "claim_count": 5,
+  "claim_quality_summary": {
+    "claim_basis": "Existing VM-264 claim-bearing evidence rows only.",
+    "allowed_claim_bearing_evidence_rows": [
+      "WITCH-EVID-001",
+      "WITCH-EVID-002",
+      "WITCH-EVID-003",
+      "WITCH-EVID-004",
+      "WITCH-EVID-005",
+      "WITCH-EVID-007",
+      "WITCH-EVID-010"
+    ],
+    "support_material_policy": "Support-only, shaping-only, discovery-only, Commander/operator, precon support, architecture, synthesis, manual-fill, and quarantine material may appear only in bounded profile or review notes.",
+    "evidence_quality": "High for lifecycle, naming, metadata/query-only boundary, missing-color framing, and Witch-Maw boundary; medium for bounded Atraxa / Breed Lethality support texture and patient-growth framing; low or deferred for exact card facts, Commander legality, direct product/article grounding, rankings, cEDH claims, and Phyrexia-only collapse.",
+    "known_limitations": [
+      "Direct Witch-Maw card facts remain Manual fill required.",
+      "Atraxa / Breed Lethality / Growth product grounding remains support-only unless stronger local capture is added.",
+      "Adjacent separators remain architecture guidance, not raw claim evidence.",
+      "Commander legality, recommendations, rankings, and metagame claims remain deferred.",
+      "WITCH is the Vox Mana expression/research label, while Growth is Commander 2016 support/display framing rather than a public alias or exclusive official name.",
+      "Long-form metaphysics, ritual cultivation symbolism, strategy, and comparative claims should stay conservative and bounded.",
+      "The three unmanaged Witch drafts remain discovery-only quarantine records and are not raw-claim evidence."
+    ],
+    "claim_ids": [
+      "witch_claim_0001",
+      "witch_claim_0002",
+      "witch_claim_0003",
+      "witch_claim_0004",
+      "witch_claim_0005"
+    ]
+  },
+  "claims": [
+    {
+      "claim_id": "witch_claim_0001",
+      "faction_id": "witch",
+      "claim_type": "identity_lifecycle_boundary",
+      "statement": "Witch / Growth is a source-authored, review-gated, non-live raw packet for the GWUB four-color lane; WITCH is not a live key, alias, route key, placement key, preview key, generated key, fixture key, Home preview key, Maze key, Supabase key, schema key, or public interface in VM-267.",
+      "canon_status": "Vox Mana lifecycle and public-interface boundary",
+      "source_ids": [
+        "src_vm_witch_evidence_ledger_20260604",
+        "src_vm_witch_vm264_scope_card_20260604"
+      ],
+      "evidence_rows": [
+        "WITCH-EVID-001",
+        "WITCH-EVID-002",
+        "WITCH-EVID-010"
+      ],
+      "confidence": "High",
+      "notes": "Use only to preserve the non-live raw packet boundary. WITCH is the Vox Mana expression/research label, Growth is support/display framing only, and this claim does not authorize review approval or promotion."
+    },
+    {
+      "claim_id": "witch_claim_0002",
+      "faction_id": "witch",
+      "claim_type": "naming_and_color_order_guardrail",
+      "statement": "WITCH is Vox Mana's expression/research label for GWUB/non-Red, while Growth is Commander 2016 support/display framing for the same color quadruple; neither term should be presented as the official, exclusive, or universally accepted MTG name for GWUB.",
+      "canon_status": "Vox Mana naming policy with source-bound guardrail",
+      "source_ids": [
+        "src_vm_witch_evidence_ledger_20260604",
+        "src_vm_four_color_reference_audit_20260604"
+      ],
+      "evidence_rows": [
+        "WITCH-EVID-002",
+        "WITCH-EVID-010"
+      ],
+      "confidence": "High",
+      "notes": "Do not create public aliases from this naming policy. GWUB and same-color permutations remain metadata/query-only; WUBG appears only when echoing support-source order."
+    },
+    {
+      "claim_id": "witch_claim_0003",
+      "faction_id": "witch",
+      "claim_type": "missing_color_identity",
+      "statement": "The Witch / Growth GWUB four-color lane is framed by the color it excludes: Red.",
+      "canon_status": "Source-bound four-color framing",
+      "source_ids": [
+        "src_vm_witch_evidence_ledger_20260604",
+        "src_vm_four_color_reference_audit_20260604"
+      ],
+      "evidence_rows": [
+        "WITCH-EVID-003"
+      ],
+      "confidence": "High",
+      "notes": "Missing-color framing is identity structure, not a canon faction claim or placement authorization."
+    },
+    {
+      "claim_id": "witch_claim_0004",
+      "faction_id": "witch",
+      "claim_type": "witch_maw_boundary",
+      "statement": "Witch-Maw Nephilim is the Nephilim/card anchor for Witch, but Nephilim should remain historical/card-identity anchors rather than Vox Mana factions, institutions, doctrines, civilizations, naming authorities, or placement authorities.",
+      "canon_status": "Source-bound anchor with guardrail",
+      "source_ids": [
+        "src_vm_witch_evidence_ledger_20260604",
+        "src_vm_four_color_reference_audit_20260604"
+      ],
+      "evidence_rows": [
+        "WITCH-EVID-004"
+      ],
+      "confidence": "Medium",
+      "notes": "Exact official Witch-Maw card facts remain Manual fill required before deeper raw or public copy. Witch-Maw may help identify the historical card-anchor boundary, but it does not authorize routing, scoring, or placement eligibility."
+    },
+    {
+      "claim_id": "witch_claim_0005",
+      "faction_id": "witch",
+      "claim_type": "patient_growth_support_frame",
+      "statement": "The current Witch / Growth frame may discuss patient development, calculated expansion, systematic accumulation, proliferate/counter scaling, and bounded Atraxa / Breed Lethality Commander texture, but detailed metaphysical, Commander, strategic, comparative, popularity, or Phyrexia-collapse claims should remain bounded beyond the approved evidence floor.",
+      "canon_status": "Source-bound framing with support boundary",
+      "source_ids": [
+        "src_vm_witch_evidence_ledger_20260604",
+        "src_vm_four_color_reference_audit_20260604"
+      ],
+      "evidence_rows": [
+        "WITCH-EVID-005",
+        "WITCH-EVID-007"
+      ],
+      "confidence": "Medium",
+      "notes": "Use as high-level identity and Commander texture framing only. Keep long-form metaphysics, public symbolic language, placement logic, rankings, legality, and Commander culture claims conservative and explicitly bounded."
+    }
+  ]
+}

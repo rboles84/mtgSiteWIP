@@ -6,7 +6,7 @@
       "data/scryfall/indexes/card-flavor-index.json"
     ],
     "text_policy": "Uses committed short flavor excerpts only; no flavor text is invented or paraphrased.",
-    "faction_count": 30
+    "faction_count": 36
   },
   "snippets": {
     "ABZAN": [
@@ -139,6 +139,58 @@
         "source_type": "matched_card"
       }
     ],
+    "COLORLESS": [
+      {
+        "faction_key": "COLORLESS",
+        "card_name": "All Is Dust",
+        "flavor_excerpt": "\"The emergence of the Eldrazi isn't necessarily a bad thing, as long as you've already lived a fulfilling and complet...",
+        "scryfall_uri": "https://scryfall.com/card/cmm/800/all-is-dust?utm_source=api",
+        "source_index": "card-flavor-index",
+        "source_type": "matched_card"
+      },
+      {
+        "faction_key": "COLORLESS",
+        "card_name": "Adarkar Sentinel",
+        "flavor_excerpt": "\"We encountered the sentinels in the wastes, near no living thing. Their purpose was inscrutable.\" —Disa the Restless...",
+        "scryfall_uri": "https://scryfall.com/card/me2/201/adarkar-sentinel?utm_source=api",
+        "source_index": "card-flavor-index",
+        "source_type": "matched_card"
+      },
+      {
+        "faction_key": "COLORLESS",
+        "card_name": "Bane of Bala Ged",
+        "flavor_excerpt": "The continent of Bala Ged was ravaged by massive Eldrazi of Ulamog's lineage, its lush jungles and cascading rivers r...",
+        "scryfall_uri": "https://scryfall.com/card/cmm/802/bane-of-bala-ged?utm_source=api",
+        "source_index": "card-flavor-index",
+        "source_type": "matched_card"
+      }
+    ],
+    "DUNE": [
+      {
+        "faction_key": "DUNE",
+        "card_name": "Aurelia, the Warleader",
+        "flavor_excerpt": "Where Razia was aloof and untouchable, Aurelia is on the frontlines, calling for war.",
+        "scryfall_uri": "https://scryfall.com/card/fdn/651/aurelia-the-warleader?utm_source=api",
+        "source_index": "card-flavor-index",
+        "source_type": "matched_card"
+      },
+      {
+        "faction_key": "DUNE",
+        "card_name": "Apprentice Sharpshooter",
+        "flavor_excerpt": "Innistrad's best archers are trained by the Quiver of Kessig, an order of cathars who specialize in ranged combat.",
+        "scryfall_uri": "https://scryfall.com/card/vow/185/apprentice-sharpshooter?utm_source=api",
+        "source_index": "card-flavor-index",
+        "source_type": "matched_card"
+      },
+      {
+        "faction_key": "DUNE",
+        "card_name": "Augusta, Order Returned",
+        "flavor_excerpt": "\"I won't leave my students without a guide.\"",
+        "scryfall_uri": "https://scryfall.com/card/soc/11/augusta-order-returned?utm_source=api",
+        "source_index": "card-flavor-index",
+        "source_type": "matched_card"
+      }
+    ],
     "ESPER": [
       {
         "faction_key": "ESPER",
@@ -191,6 +243,32 @@
         "source_type": "matched_commander"
       }
     ],
+    "GLINT": [
+      {
+        "faction_key": "GLINT",
+        "card_name": "Cyclops Electromancer",
+        "flavor_excerpt": "Every storm has an eye.",
+        "scryfall_uri": "https://scryfall.com/card/cmm/212/cyclops-electromancer?utm_source=api",
+        "source_index": "card-flavor-index",
+        "source_type": "matched_card"
+      },
+      {
+        "faction_key": "GLINT",
+        "card_name": "Adaptive Snapjaw",
+        "flavor_excerpt": "\"Eh, needs more toad.\" —Gulistan, Simic biomancer",
+        "scryfall_uri": "https://scryfall.com/card/gtc/113/adaptive-snapjaw?utm_source=api",
+        "source_index": "card-flavor-index",
+        "source_type": "matched_card"
+      },
+      {
+        "faction_key": "GLINT",
+        "card_name": "Aether Storm",
+        "flavor_excerpt": "\"I do love the rain . . . but this storm feels somehow wrong, Taysir.\" —Daria",
+        "scryfall_uri": "https://scryfall.com/card/me2/39/aether-storm?utm_source=api",
+        "source_index": "card-flavor-index",
+        "source_type": "matched_card"
+      }
+    ],
     "GRIXIS": [
       {
         "faction_key": "GRIXIS",
@@ -217,7 +295,41 @@
         "source_type": "matched_card"
       }
     ],
+    "INK": [
+      {
+        "faction_key": "INK",
+        "card_name": "Aberrant Manawurm",
+        "flavor_excerpt": "\"What is the equation for terror?\" —Lost research note, Paradox Gardens",
+        "scryfall_uri": "https://scryfall.com/card/sos/138/aberrant-manawurm?utm_source=api",
+        "source_index": "card-flavor-index",
+        "source_type": "matched_card"
+      },
+      {
+        "faction_key": "INK",
+        "card_name": "Access Denied",
+        "flavor_excerpt": "The Saiba Futurists guard their secret experiments with ever-evolving networks of cutting-edge defensive technology.",
+        "scryfall_uri": "https://scryfall.com/card/nec/11/access-denied?utm_source=api",
+        "source_index": "card-flavor-index",
+        "source_type": "matched_card"
+      },
+      {
+        "faction_key": "INK",
+        "card_name": "Ancestral Anger",
+        "flavor_excerpt": "An incautious Lorehold student may learn more about the unbound rage of the Blood Age than they wanted to.",
+        "scryfall_uri": "https://scryfall.com/card/sos/106/ancestral-anger?utm_source=api",
+        "source_index": "card-flavor-index",
+        "source_type": "matched_card"
+      }
+    ],
     "JESKAI": [
+      {
+        "faction_key": "JESKAI",
+        "card_name": "Shiko and Narset, Unified",
+        "flavor_excerpt": "For peace, lead by example.",
+        "scryfall_uri": "https://scryfall.com/card/tdc/7/shiko-and-narset-unified?utm_source=api",
+        "source_index": "commander-index",
+        "source_type": "native_commander"
+      },
       {
         "faction_key": "JESKAI",
         "card_name": "Bloodfire Expert",
@@ -228,9 +340,9 @@
       },
       {
         "faction_key": "JESKAI",
-        "card_name": "Narset, Jeskai Waymaster",
-        "flavor_excerpt": "\"Each step we take is a decision that changes the course of our futures. We must be careful where we tread.\"",
-        "scryfall_uri": "https://scryfall.com/card/tdm/209/narset-jeskai-waymaster?utm_source=api",
+        "card_name": "Narset, Enlightened Exile",
+        "flavor_excerpt": "They called her unique insight a \"gift.\" Then she saw the truth, and suddenly it was a \"threat.\"",
+        "scryfall_uri": "https://scryfall.com/card/mat/38/narset-enlightened-exile?utm_source=api",
         "source_index": "commander-index",
         "source_type": "matched_commander"
       }
@@ -290,17 +402,17 @@
     "MARDU": [
       {
         "faction_key": "MARDU",
-        "card_name": "Defibrillating Current",
-        "flavor_excerpt": "A small shock to save a life, a large one to take it away. —Mardu healer's adage",
-        "scryfall_uri": "https://scryfall.com/card/tdm/177/defibrillating-current?utm_source=api",
-        "source_index": "card-flavor-index",
-        "source_type": "matched_card"
+        "card_name": "Alesha, Who Smiles at Death",
+        "flavor_excerpt": "\"Greet death with sword in hand.\"",
+        "scryfall_uri": "https://scryfall.com/card/dmc/118/alesha-who-smiles-at-death?utm_source=api",
+        "source_index": "commander-index",
+        "source_type": "native_commander"
       },
       {
         "faction_key": "MARDU",
-        "card_name": "Alesha's Vanguard",
-        "flavor_excerpt": "Boundaries drawn on maps or marked with stone have no meaning for the Mardu.",
-        "scryfall_uri": "https://scryfall.com/card/frf/60/aleshas-vanguard?utm_source=api",
+        "card_name": "Defibrillating Current",
+        "flavor_excerpt": "A small shock to save a life, a large one to take it away. —Mardu healer's adage",
+        "scryfall_uri": "https://scryfall.com/card/tdm/177/defibrillating-current?utm_source=api",
         "source_index": "card-flavor-index",
         "source_type": "matched_card"
       },
@@ -355,14 +467,6 @@
         "scryfall_uri": "https://scryfall.com/card/soc/52/coastal-peak?utm_source=api",
         "source_index": "card-flavor-index",
         "source_type": "matched_card"
-      },
-      {
-        "faction_key": "PRISMARI",
-        "card_name": "Alania, Divergent Storm",
-        "flavor_excerpt": "\"Why would I chase the storm? Does a cloud chase the rain? Does the sun chase the light?\"",
-        "scryfall_uri": "https://scryfall.com/card/blb/204/alania-divergent-storm?utm_source=api",
-        "source_index": "commander-index",
-        "source_type": "matched_commander"
       }
     ],
     "QUANDRIX": [
@@ -454,17 +558,17 @@
       },
       {
         "faction_key": "SILVERQUILL",
-        "card_name": "Elenda, the Dusk Rose",
-        "flavor_excerpt": "Her centuries-long search is ended.",
-        "scryfall_uri": "https://scryfall.com/card/lcc/268/elenda-the-dusk-rose?utm_source=api",
+        "card_name": "Baron Bertram Graywater",
+        "flavor_excerpt": "\"Of course the law's on my side. I wrote it.\"",
+        "scryfall_uri": "https://scryfall.com/card/otj/195/baron-bertram-graywater?utm_source=api",
         "source_index": "commander-index",
         "source_type": "matched_commander"
       },
       {
         "faction_key": "SILVERQUILL",
-        "card_name": "Baron Bertram Graywater",
-        "flavor_excerpt": "\"Of course the law's on my side. I wrote it.\"",
-        "scryfall_uri": "https://scryfall.com/card/otj/195/baron-bertram-graywater?utm_source=api",
+        "card_name": "Edgar, Charmed Groom // Edgar Markov's Coffin",
+        "flavor_excerpt": "\"Our kind has taken my gift for granted. It is time to correct that folly.\"",
+        "scryfall_uri": "https://scryfall.com/card/vow/236/edgar-charmed-groom-edgar-markovs-coffin?utm_source=api",
         "source_index": "commander-index",
         "source_type": "matched_commander"
       }
@@ -703,6 +807,32 @@
         "source_type": "native_commander"
       }
     ],
+    "WITCH": [
+      {
+        "faction_key": "WITCH",
+        "card_name": "Abyssal Harvester",
+        "flavor_excerpt": "\"Till the soil, spare no soul. / Neath the darkness, nightmares grow.\" —Children's nursery rhyme",
+        "scryfall_uri": "https://scryfall.com/card/fdn/54/abyssal-harvester?utm_source=api",
+        "source_index": "card-flavor-index",
+        "source_type": "matched_card"
+      },
+      {
+        "faction_key": "WITCH",
+        "card_name": "Agent of Horizons",
+        "flavor_excerpt": "The light in the woods just before dawn reveals a glimmering network of branches, roots, and spiderwebs. The acolytes...",
+        "scryfall_uri": "https://scryfall.com/card/ths/148/agent-of-horizons?utm_source=api",
+        "source_index": "card-flavor-index",
+        "source_type": "matched_card"
+      },
+      {
+        "faction_key": "WITCH",
+        "card_name": "Assassin's Trophy",
+        "flavor_excerpt": "\"Not just any floriculturist can grow this caliber of nightbloom. We're looking for a rooftop hothouse with quite par...",
+        "scryfall_uri": "https://scryfall.com/card/soc/294/assassins-trophy?utm_source=api",
+        "source_index": "card-flavor-index",
+        "source_type": "matched_card"
+      }
+    ],
     "WITHERBLOOM": [
       {
         "faction_key": "WITHERBLOOM",
@@ -714,17 +844,17 @@
       },
       {
         "faction_key": "WITHERBLOOM",
-        "card_name": "Blossoming Bogbeast",
-        "flavor_excerpt": "As subtle as a bogbeast —Witherbloom expression meaning \"crude and clumsy\"",
-        "scryfall_uri": "https://scryfall.com/card/soc/264/blossoming-bogbeast?utm_source=api",
+        "card_name": "Big Play",
+        "flavor_excerpt": "\"Quandrix is running out of time. If they're going to capture the Witherbloom mascot, they need something big here.\"...",
+        "scryfall_uri": "https://scryfall.com/card/stx/122/big-play?utm_source=api",
         "source_index": "card-flavor-index",
         "source_type": "matched_card"
       },
       {
         "faction_key": "WITHERBLOOM",
-        "card_name": "Big Play",
-        "flavor_excerpt": "\"Quandrix is running out of time. If they're going to capture the Witherbloom mascot, they need something big here.\"...",
-        "scryfall_uri": "https://scryfall.com/card/stx/122/big-play?utm_source=api",
+        "card_name": "Blossoming Bogbeast",
+        "flavor_excerpt": "As subtle as a bogbeast —Witherbloom expression meaning \"crude and clumsy\"",
+        "scryfall_uri": "https://scryfall.com/card/soc/264/blossoming-bogbeast?utm_source=api",
         "source_index": "card-flavor-index",
         "source_type": "matched_card"
       }
@@ -777,6 +907,32 @@
         "card_name": "Azorius Guildgate",
         "flavor_excerpt": "Enter the Senate, the seat of justice and the foundation of Ravnican society.",
         "scryfall_uri": "https://scryfall.com/card/fdn/683/azorius-guildgate?utm_source=api",
+        "source_index": "card-flavor-index",
+        "source_type": "matched_card"
+      }
+    ],
+    "YORE": [
+      {
+        "faction_key": "YORE",
+        "card_name": "Ayara, Widow of the Realm // Ayara, Furnace Queen",
+        "flavor_excerpt": "Ayara cherished her new machine servitors just as much as she once did her many suitors: not at all.",
+        "scryfall_uri": "https://scryfall.com/card/mom/90/ayara-widow-of-the-realm-ayara-furnace-queen?utm_source=api",
+        "source_index": "card-flavor-index",
+        "source_type": "matched_card"
+      },
+      {
+        "faction_key": "YORE",
+        "card_name": "Abandoned Sarcophagus",
+        "flavor_excerpt": "Although long since dead, the banished dissenters finally took their vengeance.",
+        "scryfall_uri": "https://scryfall.com/card/c20/236/abandoned-sarcophagus?utm_source=api",
+        "source_index": "card-flavor-index",
+        "source_type": "matched_card"
+      },
+      {
+        "faction_key": "YORE",
+        "card_name": "Access Denied",
+        "flavor_excerpt": "The Saiba Futurists guard their secret experiments with ever-evolving networks of cutting-edge defensive technology.",
+        "scryfall_uri": "https://scryfall.com/card/nec/11/access-denied?utm_source=api",
         "source_index": "card-flavor-index",
         "source_type": "matched_card"
       }

@@ -13,8 +13,8 @@
   "color_pair_or_group": "BGU wedge metadata only",
   "source_review_date": "2026-05-31",
   "last_full_review": "2026-05-31",
-  "last_incremental_review": "2026-05-31",
-  "last_updated": "2026-05-31",
+  "last_incremental_review": "2026-06-09",
+  "last_updated": "2026-06-09",
   "site_surface": {
     "display_name": "Sultai Brood",
     "short_summary": "Sultai Brood is a source-authored, review-gated Tarkir wedge packet for Black-centered BGU ruthlessness, opportunity, graveyard/resource conversion, necromancy, Sidisi-era ambition, and strict Silumgar and Dragonstorm boundaries.",
@@ -221,7 +221,88 @@
       "notes": "Modern details stay timeline-labeled and do not backfill Khans-era Sultai without direct evidence."
     }
   ],
-  "key_figures": [],
+  "key_figures": [
+    {
+      "name": "Queen Sidisi",
+      "status": "Khans-era named ruler anchor",
+      "summary": "Source-bound as the Khans-era Sultai khan and queen whose power comes from inherited wealth and rakshasa-taught magic.",
+      "claim_ids": [
+        "sultai_claim_0006"
+      ],
+      "evidence_rows": [
+        "SULTAI-EVID-009"
+      ],
+      "source_ids": [
+        "src_wotc_tarkir_khans_pg_part_1"
+      ],
+      "limitations": "Keep to the captured guide-row floor; full Sidisi biography, later timeline forms, exact card facts, and card text remain deferred."
+    },
+    {
+      "name": "Tasigur",
+      "status": "Fate Reforged and Khanfall transition anchor",
+      "summary": "Source-bound as the Fate Reforged Sultai fortune heir and a Khanfall transition figure tied to Sultai crisis talks, disappearance under truce, Silumgar intervention, and the no-khan boundary.",
+      "claim_ids": [
+        "sultai_claim_0007"
+      ],
+      "evidence_rows": [
+        "SULTAI-EVID-012",
+        "SULTAI-EVID-019"
+      ],
+      "source_ids": [
+        "src_wotc_tarkir_fate_reforged_pg",
+        "src_wotc_tarkir_story_khanfall"
+      ],
+      "limitations": "Use as transition-boundary evidence only; full biography, Shidiqi betrayal detail, Commander reputation, exact card facts, and card text remain deferred."
+    },
+    {
+      "name": "The Fangkeeper",
+      "status": "Modern Dragonstorm-era governance office",
+      "summary": "Source-bound as a ruler with a minor daily role in decentralized modern Sultai governance.",
+      "claim_ids": [
+        "sultai_claim_0009"
+      ],
+      "evidence_rows": [
+        "SULTAI-EVID-024"
+      ],
+      "source_ids": [
+        "src_wotc_tarkir_dragonstorm_pg_part_2"
+      ],
+      "limitations": "Treat as an institutional office, not a fully biographied individual; Fangkeeper specifics remain manual-fill material."
+    },
+    {
+      "name": "The Lasyd",
+      "status": "Modern Dragonstorm-era elite military and intelligence institution",
+      "summary": "Source-bound as a small elite military including spies, scouts, and assassins in modern Sultai.",
+      "claim_ids": [
+        "sultai_claim_0009"
+      ],
+      "evidence_rows": [
+        "SULTAI-EVID-024"
+      ],
+      "source_ids": [
+        "src_wotc_tarkir_dragonstorm_pg_part_2"
+      ],
+      "limitations": "Treat as an institutional anchor; individual Lasyd leaders and biographies remain manual-fill material."
+    },
+    {
+      "name": "Sibsig and honored dead",
+      "status": "Timeline-labeled necromancy and honored-dead anchor",
+      "summary": "Khans-era sibsig labor and modern Dragonstorm-era honored dead are both source-bound Sultai necromancy anchors, but they must remain era-labeled.",
+      "claim_ids": [
+        "sultai_claim_0005",
+        "sultai_claim_0009"
+      ],
+      "evidence_rows": [
+        "SULTAI-EVID-005",
+        "SULTAI-EVID-026"
+      ],
+      "source_ids": [
+        "src_wotc_tarkir_khans_pg_part_1",
+        "src_wotc_tarkir_dragonstorm_pg_part_2"
+      ],
+      "limitations": "Do not collapse Khans-era undead labor into modern honored-dead practice or backfill modern reforms into Sidisi-era Sultai."
+    }
+  ],
   "canonical_flavor_text": [],
   "views_on_other_factions": [
     {

@@ -13,9 +13,9 @@ Every future Temur claim must resolve to one of these outcomes:
 
 ## Seed Artifact Handling
 
-VM-203 renamed the unmanaged restored source drop from `docs/research/temur fontier/` to `docs/research/temur frontier/`. The corrected path remains unmanaged restored material.
+VM-203 renamed the unmanaged restored source drop from `docs/research/temur fontier/` to `docs/research/temur frontier/`. After folder consolidation, `docs/research/temur frontier/` is only a tombstone redirect.
 
-The three seed artifacts were copied into `docs/research/temur/source-material/` with original filenames and matching SHA-256 hashes. Their contents were not edited. Do not repair links, headings, claims, or source text inside those copies as part of VM-203.
+The three seed artifacts were copied into `docs/research/temur/source-material/` with original filenames and matching SHA-256 hashes. Their contents were not edited. Do not repair links, headings, claims, or source text inside those copies as part of folder consolidation.
 
 ## Approved Source Spine
 

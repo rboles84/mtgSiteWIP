@@ -1,0 +1,442 @@
+{
+  "schema_version": "1.0.0",
+  "profile_version": "0.1.2",
+  "faction_id": "dune",
+  "faction_name": "Dune / Aggression",
+  "faction_type": "four-color",
+  "color_identity": [
+    "Black",
+    "Red",
+    "Green",
+    "White"
+  ],
+  "color_pair_or_group": "BRGW four-color metadata only; all 24 BRGW permutations metadata/query-only",
+  "plane_or_setting": "Cross-setting; Ravnica historical anchor; Commander 2016 support texture",
+  "last_updated": "2026-06-12",
+  "source_review_date": "2026-06-12",
+  "last_full_review": "2026-06-03",
+  "last_incremental_review": "2026-06-12",
+  "core_identity": {
+    "short_form": "BRGW without Blue: organized territorial pressure before detached contemplation.",
+    "identity_frame": "Dune / Aggression uses the missing-Blue frame to describe White line, Black cost-bearing conquest, Red ignition, Green survival-minded multiplication, and organized force without Blue-style distance or exhaustive modeling.",
+    "naming_boundary": "DUNE is the future Vox Mana expression label, Aggression is Commander 2016 paired-framing support text only, neither is the official or exclusive BRGW name, and BRGW, WBRG, and all same-color permutations remain metadata/query-only.",
+    "claim_ids": [
+      "dune_claim_0001",
+      "dune_claim_0002",
+      "dune_claim_0003",
+      "dune_claim_0004",
+      "dune_claim_0005"
+    ]
+  },
+  "structure": {
+    "identity_class": "four-color",
+    "missing_color": "Blue",
+    "present_colors": [
+      "Black",
+      "Red",
+      "Green",
+      "White"
+    ],
+    "primary_anchor": "Dune-Brood Nephilim as bounded historical/card anchor",
+    "support_texture": [
+      "combat pressure",
+      "multi-front damage",
+      "go-wide pressure",
+      "token-like spread",
+      "organized territorial force",
+      "four-color-without-Blue Commander texture"
+    ],
+    "non_faction_boundary": "Dune is not an official faction, plane, civilization, doctrine, institution, or organized school."
+  },
+  "great_tension": {
+    "gift": "The line moves with disciplined force before abstraction can cool the field.",
+    "shadow": "If no detached pause is trusted, solidarity and momentum can become domination or overextension.",
+    "boundary": "This is Vox Mana/source synthesis, not direct canon doctrine."
+  },
+  "historical_timeline": [
+    {
+      "label": "Nephilim-era anchor",
+      "summary": "Dune-Brood Nephilim provides the card-identity anchor for the lane.",
+      "boundary": "Not a civilization, doctrine, or placement authority; exact official card facts remain Manual fill required."
+    },
+    {
+      "label": "Commander 2016 support texture",
+      "summary": "Aggression and Saskia / Open Hostility support combat-pressure, multi-front damage, and four-color-without-Blue Commander readability.",
+      "boundary": "Support-only; not lore proof, legality proof, runtime authorization, or recommendation proof."
+    }
+  ],
+  "key_figures": [
+    {
+      "name": "Dune-Brood Nephilim",
+      "role": "Historical/card anchor",
+      "boundary": "Not a Dune faction founder, institution, or doctrine source."
+    },
+    {
+      "name": "Saskia the Unyielding",
+      "role": "Commander support texture",
+      "boundary": "Support-only; not proof of Dune lore or official naming."
+    }
+  ],
+  "canonical_flavor_text": {
+    "source_bound_summary": "Dune / Aggression is the BRGW/non-Blue raw packet for organized territorial pressure, direct action, bounded Dune-Brood anchoring, and strict non-live public-interface boundaries.",
+    "vox_mana_synthesis": "The line advances before distance can ask it to wait.",
+    "boundary": "Use synthesis only as profile language, not as raw canon proof. Do not invent or quote unsupported flavor text."
+  },
+  "mechanics": {
+    "source_bound_texture": [
+      "missing-Blue four-color framing",
+      "organized territorial pressure",
+      "direct action under pressure"
+    ],
+    "support_only_texture": [
+      "multi-front combat pressure",
+      "go-wide pressure",
+      "token-like spread",
+      "four-color-without-Blue Commander play"
+    ],
+    "deferred": [
+      "exact Dune-Brood card facts",
+      "exact Commander legality",
+      "exact recommendations",
+      "exact Commander 2016 article claims",
+      "card-level combat or token claims"
+    ],
+    "summary": "Missing-Blue four-color pressure, organized territorial force, direct action, multi-front combat texture, and survival-minded multiplication can express Dune only when they serve the full BRGW/non-Blue worldview of White line, Black cost, Red ignition, and Green persistence before detached contemplation; combat mechanics alone do not define the identity."
+  },
+  "views_on_other_factions": {
+    "pair_overlap_boundaries": [
+      "Rakdos appetite and attack alone are not Dune.",
+      "Golgari survival pressure alone is not Dune.",
+      "Orzhov hierarchy and cost alone are not Dune.",
+      "Gruul force and momentum alone are not Dune.",
+      "Boros coordination and attack alone are not Dune.",
+      "Selesnya numbers and solidarity alone are not Dune."
+    ],
+    "near_match_boundaries": [
+      "Jund lacks White line and common-front discipline.",
+      "Naya lacks Black cost-bearing conquest.",
+      "Mardu lacks Green survival-minded multiplication.",
+      "Abzan lacks Red ignition and immediate strike.",
+      "Glint includes Blue adaptation and lacks White civic line.",
+      "Saskia-only shells are review triggers, not proof.",
+      "Generic go-wide or combat shells are review triggers, not proof.",
+      "Generic BRGW goodstuff is a review trigger, not proof."
+    ],
+    "source_role": "Shaping-only parity guidance from VM-254."
+  },
+  "commander_compass": {
+    "schema_version": "1.0.0",
+    "source_research_file": "docs/research/vox_mana_second_commander_recommendations_enhanced.jsonl",
+    "last_reviewed": "2026-06-12",
+    "review_status": "support_only_live_pilot_curation",
+    "recommendation_philosophy": "Use DUNE Commander guidance as product/operator support only: the local Open Hostility / Saskia the Unyielding support row can express Saskia, combat-pressure, and four-color-without-Blue Commander texture. These rows do not create lore proof, naming authority, Commander legality proof, placement evidence, public aliases, or claim authority.",
+    "identity_basis": {
+      "owned_themes": [
+        "BRGW/non-Blue direct action",
+        "combat pressure as support-only Commander vocabulary",
+        "territorial force without detached contemplation"
+      ],
+      "allowed_phrases": [
+        "Dune support fit",
+        "combat pressure",
+        "direct aggression",
+        "territorial force"
+      ],
+      "avoid_or_contrast_phrases": [
+        "Saskia as Dune lore proof",
+        "Open Hostility as naming authority",
+        "Commander legality proof",
+        "combat preference as placement evidence"
+      ],
+      "adjacent_overlap_notes": [
+        "Combat pressure overlaps Jund, Naya, Mardu, and Abzan; Dune support wording keeps the non-Blue immediate-force boundary visible."
+      ],
+      "supporting_claim_ids": [
+        "dune_claim_0002",
+        "dune_claim_0003",
+        "dune_claim_0005"
+      ],
+      "supporting_source_ids": [
+        "src_vm_commander_recommendations_saskia_20260603",
+        "src_vm_four_color_identity_dossier_md_20260603"
+      ]
+    },
+    "support_decks": [
+      "Open Hostility"
+    ],
+    "support_language": [
+      "combat",
+      "aggression",
+      "damage pressure",
+      "creature scaling"
+    ],
+    "native_fit_commanders": [
+      {
+        "exact_card_name": "Saskia the Unyielding",
+        "display_name": "Saskia the Unyielding",
+        "scryfall_uri": "https://scryfall.com/card/c16/41/saskia-the-unyielding?utm_source=api",
+        "edhrec_uri": "https://edhrec.com/commanders/saskia-the-unyielding",
+        "color_identity": [
+          "B",
+          "R",
+          "G",
+          "W"
+        ],
+        "commander_legal": true,
+        "recommendation_type": "Support-Only Commander Row",
+        "archetype_tags": [
+          "combat",
+          "aggression",
+          "damage pressure",
+          "creature scaling"
+        ],
+        "why_this_fits": "The approved local Commander support row for Open Hostility supports Saskia, combat-pressure, and four-color-without-Blue Commander texture for the DUNE lane.",
+        "skip_if": "Skip if the user needs lore proof, naming authority, exact legality proof, placement evidence, or metagame certainty rather than support-only Commander texture.",
+        "gameplay_summary": "Commander support texture for combat pressure, aggressive scaling, and direct four-color action. Use only as a support starting point for the Dune lane.",
+        "faction_identity_terms": [
+          "Dune support fit",
+          "combat pressure",
+          "direct aggression",
+          "territorial force"
+        ],
+        "source_basis": "src_vm_commander_recommendations_saskia_20260603; docs/research/vox_mana_second_commander_recommendations_enhanced.jsonl:52",
+        "confidence": "Support-only",
+        "caution_notes": "Support-only Commander material; not lore, canon, placement, claim, route, alias, or public naming authority."
+      }
+    ],
+    "weird_stretch_commanders": [],
+    "budget_friendly_commanders": [],
+    "advanced_complexity_commanders": [],
+    "iconic_lore_forward_commanders": [],
+    "not_recommended_or_deprioritized": [
+      {
+        "reason": "Saskia as Dune lore proof"
+      },
+      {
+        "reason": "Open Hostility as naming authority"
+      },
+      {
+        "reason": "Commander legality proof"
+      },
+      {
+        "reason": "combat preference as placement evidence"
+      }
+    ],
+    "archetype_lanes": [
+      {
+        "lane": "Open Hostility support texture",
+        "support_decks": [
+          "Open Hostility"
+        ],
+        "support_language": [
+          "combat",
+          "aggression",
+          "damage pressure",
+          "creature scaling"
+        ],
+        "source_basis": "src_vm_commander_recommendations_saskia_20260603"
+      }
+    ],
+    "link_targets": {
+      "edhrec_commander_index": "https://edhrec.com/commanders/saskia-the-unyielding",
+      "mtgdecks_color_identity": "",
+      "scryfall_commander_search": "https://scryfall.com/search?q=id%3Dbrgw+is%3Acommander+f%3Acommander",
+      "archidekt_color_search": "https://archidekt.com/search/decks?colors=BRGW&deckFormat=3&orderBy=-updatedAt&page=1"
+    },
+    "merge_notes": {
+      "support_only_boundary": "Commander/deck/operator material remains support texture only and must not be used as lore, canon, placement, Crucible, discriminator, claim, route, alias, or naming proof.",
+      "deck_links_status": "External links are Commander support navigation targets only, not evidence rows."
+    }
+  },
+  "search_and_filter_metadata": {
+    "future_expression_name": "DUNE",
+    "future_expression_name_status": "live public/generated key after VM-257; Aggression remains Commander 2016 paired-framing support text only, not a public alias, route key, placement key, fixture key, Home preview key, Maze key, Supabase key, schema key, or official universal BRGW name; BRGW, WBRG, and same-color permutations remain metadata/query-only and are not public color-code interfaces",
+    "metadata_query_only_terms": [
+      "BRGW",
+      "BRWG",
+      "BGRW",
+      "BGWR",
+      "BWRG",
+      "BWGR",
+      "RBGW",
+      "RBWG",
+      "RGBW",
+      "RGWB",
+      "RWBG",
+      "RWGB",
+      "GBRW",
+      "GBWR",
+      "GRBW",
+      "GRWB",
+      "GWBR",
+      "GWRB",
+      "WBRG",
+      "WBGR",
+      "WRBG",
+      "WRGB",
+      "WGBR",
+      "WGRB",
+      "brgw",
+      "brwg",
+      "bgrw",
+      "bgwr",
+      "bwrg",
+      "bwgr",
+      "rbgw",
+      "rbwg",
+      "rgbw",
+      "rgwb",
+      "rwbg",
+      "rwgb",
+      "gbrw",
+      "gbwr",
+      "grbw",
+      "grwb",
+      "gwbr",
+      "gwrb",
+      "wbrg",
+      "wbgr",
+      "wrbg",
+      "wrgb",
+      "wgbr",
+      "wgrb"
+    ],
+    "source_status": "source_grounded_live_repair",
+    "placement_status": "live_after_vm257_source_repair",
+    "preview_eligible": false,
+    "review_gated": false,
+    "placement_eligible": true,
+    "live_pilot": true,
+    "claim_ids": [
+      "dune_claim_0001",
+      "dune_claim_0002",
+      "dune_claim_0003",
+      "dune_claim_0004",
+      "dune_claim_0005"
+    ]
+  },
+  "site_surface": {
+    "display_name": "Dune / Aggression",
+    "short_summary": "Dune / Aggression is a source-grounded live BRGW/non-Blue identity for organized territorial pressure, direct action, common-front force, survival-minded multiplication, and strict color-code public-interface boundaries.",
+    "one_sentence_identity": "Dune presses the line before detached contemplation can cool the field.",
+    "tagline": "Take the field. Keep the line moving.",
+    "primary_tags": [
+      "Dune",
+      "Aggression support texture",
+      "BRGW metadata",
+      "Four-color",
+      "Non-Blue",
+      "Source-grounded",
+      "Source-durable repair",
+      "Live after VM-257"
+    ],
+    "secondary_tags": [
+      "Territorial pressure",
+      "Direct action",
+      "Survival-minded multiplication",
+      "Dune-Brood boundary",
+      "Commander support-only",
+      "Metadata-query-only permutations"
+    ],
+    "tone_words": [
+      "martial",
+      "immediate",
+      "unyielding",
+      "embodied",
+      "forceful",
+      "coordinated",
+      "front-line",
+      "pressure-bound"
+    ],
+    "visual_keywords": [
+      "dust-blown war line",
+      "banners in motion",
+      "contested ground",
+      "bone and root advance",
+      "heat at the front",
+      "non-Blue BRGW"
+    ],
+    "best_for": [
+      "reviewers checking Dune's source-grounded raw packet boundary",
+      "future authors preserving the difference between Dune identity, Aggression support texture, and BRGW metadata",
+      "Commander-first language that likes combat pressure and multi-front attack while keeping those anchors support-only"
+    ],
+    "content_warnings_or_sensitivity_notes": [
+      "Dune language can involve conquest, bodily force, territorial conflict, and aggression. Exact card facts, Commander legality, recommendations, and stronger product or article grounding remain deferred."
+    ],
+    "claim_ids": [
+      "dune_claim_0001",
+      "dune_claim_0002",
+      "dune_claim_0003",
+      "dune_claim_0004",
+      "dune_claim_0005"
+    ]
+  },
+  "data_quality": {
+    "strongest_evidence_areas": [
+      "Dune lifecycle and public-interface boundary",
+      "BRGW metadata/query-only boundary",
+      "DUNE/Aggression naming guardrail",
+      "missing-Blue four-color frame",
+      "Dune-Brood Nephilim boundary as card anchor, not institutional authority",
+      "bounded direct-action and territorial-pressure frame"
+    ],
+    "weakest_evidence_areas": [
+      "direct official Dune-Brood card facts",
+      "Saskia lore and Commander 2016 product or article grounding",
+      "Rosewater Aggression commentary",
+      "adjacent separator raw evidence",
+      "Commander legality and exact recommendations",
+      "long-form metaphysics, strategy, and competitive claims"
+    ],
+    "manual_review_recommended": true,
+    "review_gated": false,
+    "placement_eligible": true,
+    "preview_eligible": false,
+    "live_pilot": true,
+    "notes": "VM-302 repairs source durability after VM-257 live promotion. The raw claim set remains exactly five claims; placement/profile output must stay within that boundary.",
+    "source_status": "source_grounded_live_repair"
+  },
+  "research_limitations": [
+    "Do not use VM-253 or VM-254 architecture docs as raw-claim evidence.",
+    "Do not use Commander rows, precon support data, support-only synthesis, or manual-fill rows as raw-claim evidence.",
+    "Do not use Saskia, Open Hostility, partner or decklist texture, or generic BRGW goodstuff as proof of Dune lore.",
+    "Adjacent separators remain architecture guidance only while the packet's adjacent-separator manual-fill drift remains unresolved."
+  ],
+  "profile": {
+    "overview": "Dune / Aggression is Vox Mana's four-color without Blue expression for organized territorial pressure, direct action, common-front force, and survival-minded multiplication.",
+    "philosophy": "Dune believes presence should claim ground before detached contemplation can cool the moment. White holds the line, Black authorizes the cost, Red keeps ignition immediate, and Green keeps bodies and pressure multiplying.",
+    "core_tension": "Dune claims ground through coordinated force before detached contemplation can cool the moment, but common-front pressure can become domination when every body, cost, and opening is treated as something to spend forward.",
+    "mechanics_and_play_pattern": "Missing-Blue four-color pressure, organized territorial force, direct action, multi-front combat texture, and survival-minded multiplication can express Dune only when they serve the full BRGW/non-Blue worldview of White line, Black cost, Red ignition, and Green persistence before detached contemplation; combat mechanics alone do not define the identity.",
+    "claim_ids": [
+      "dune_claim_0001",
+      "dune_claim_0002",
+      "dune_claim_0003",
+      "dune_claim_0004",
+      "dune_claim_0005"
+    ]
+  },
+  "deck_links": [
+    {
+      "fmt": "Commander",
+      "name": "Saskia the Unyielding",
+      "desc": "Commander support texture for combat pressure, aggressive scaling, and direct four-color action. Use only as a support starting point for the Dune lane.",
+      "mtgg": null,
+      "edhrec": "https://edhrec.com/commanders/saskia-the-unyielding",
+      "mtgd": null
+    },
+    {
+      "fmt": "Commander",
+      "name": "Open Hostility (Precon)",
+      "desc": "Commander 2016 support texture for Saskia-led combat pressure. Treat as support-only deck context, not lore proof or naming authority.",
+      "mtgg": null,
+      "edhrec": "https://edhrec.com/decks/open-hostility",
+      "mtgd": null
+    }
+  ],
+  "research_links": {
+    "source_packet": "data/raw-factions/dune/dune.sources.json",
+    "support_dossier": "docs/research/canon/misc/Magic Four-Color Identity Dossier.md",
+    "commander_support_row": "docs/research/vox_mana_second_commander_recommendations_enhanced.jsonl:52"
+  }
+}

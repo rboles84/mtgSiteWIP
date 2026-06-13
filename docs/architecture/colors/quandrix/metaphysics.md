@@ -20,6 +20,10 @@ The approved evidence supports nature and magic as patterns. Trees, rivers, grow
 
 The central tension is whether mathematics is found or made. Quandrix can be read as discovering a real structure beneath the world, or as generating a model powerful enough to impose shape on the world. Vox Mana preserves that tension rather than resolving it into doctrine.
 
+This makes Quandrix different from generic intelligence. The college is not merely clever, studious, or blue-green. Its metaphysical object is a pattern that can be proven, scaled, and made physical. A strong Quandrix reading should therefore keep asking whether the user's attraction is to the hidden structure itself, the elegance of the proof, or the power that arrives when the model holds.
+
+Green gives the equation something to discover: growth, nature, scale, recursion, and living pattern. Blue gives the equation an authored form: abstraction, model, precision, and proof. Quandrix becomes thin when either side disappears. Without Green, it drifts toward detached theory; without Blue, it becomes natural intuition or biological adaptation rather than numeromancy.
+
 ## Vox Mana Read
 
 **Support status:** strongly supported as Vox Mana internal architecture derived from approved evidence; not MTG canon.
@@ -29,6 +33,8 @@ This section is a compression-only Vox Mana read. It adds no new nouns, mechanic
 Quandrix is the metaphysics of abstraction becoming physical. A model is not only an explanation; under magical pressure, it can become a creature, a counter pattern, a mana engine, a copied term, or a doubled board state.
 
 The college's metaphysical lens is proof, model, and pattern. It does not begin from law, history, invention, performance, life-force exchange, or biological improvement. It begins from the hidden equation and asks how much reality will change when the equation is correctly perceived.
+
+The user experience should make that boundary felt. Quandrix placement should reward language about proof, proportion, scaling, symmetry, hidden structure, and reliable models. It should be cautious with answers that only say "I like science," "I like nature," or "I like optimization" unless the answer also carries the pattern/proof grammar that the raw packet supports.
 
 ## Structural & Mechanical Architecture
 
@@ -45,6 +51,16 @@ Mana and land growth express the world as an adjustable resource field. More lan
 Doubling and copying express recursion and multiplication. They turn a single pattern into repeated structure, then let repeated structure become overwhelming presence.
 
 Pattern-based growth is the bridge between philosophy and play: the board state should feel as if a mathematical model has crossed from notation into matter.
+
+| Structure | Mechanical or placement signal | Metaphysical read | Evidence basis |
+|---|---|---|---|
+| Numeromancy | Patterns, fractals, symmetries, statistics, and mathematics of nature and magic | Reality is readable as a mathematical field | `data/raw-factions/quandrix/quandrix.profile.json` `structure`; `data/raw-factions/quandrix/quandrix.profile.json` `profile` |
+| Found vs made tension | Green discovery of natural patterns and Blue construction of abstract models | The proof is both observation and intervention | `data/raw-factions/quandrix/quandrix.profile.json` `great_tension`; `data/raw-factions/quandrix/quandrix.placement.json` `quandrix_q2` |
+| Fractal embodiment | Fractal tokens and pattern-based growth | Abstraction becomes visible matter | `data/raw-factions/quandrix/quandrix.profile.json` `mechanics`; `data/raw-factions/quandrix/quandrix.placement.json` `calibration_tuning` |
+| Scaling and doubling | Counters, mana, scaling, and repeated structures | Growth behaves like an equation with compounding terms | `data/raw-factions/quandrix/quandrix.profile.json` `mechanics`; `data/raw-factions/quandrix/quandrix.placement.json` `placement_summary` |
+| Boundary against neighbors | Simic, Izzet, Prismari, Lorehold, and Witherbloom collisions | Proof/model language must remain distinct from biology, invention, performance, evidence-history, and life/death exchange | `data/raw-factions/quandrix/quandrix.placement.json` `collision_guidance` |
+
+Named character and story detail remains outside this repair. Kianne, Imbraham, Zimone, and related story rows require a source-intake or source-promotion card before they can become dossier enrichment or raw-placement evidence.
 
 ## Ludological Matrix Mapping
 

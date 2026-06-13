@@ -1,0 +1,198 @@
+{
+  "schema_version": "1.0.0",
+  "faction_id": "yore",
+  "faction_name": "Yore / Artifice",
+  "source_review_date": "2026-06-12",
+  "last_updated": "2026-06-12",
+  "sources": [
+    {
+      "source_id": "src_vm_yore_source_ledger_20260602",
+      "title": "Yore Source Ledger",
+      "author": "Vox Mana research packet",
+      "publisher_or_site": "Local repository",
+      "publication_date": "2026-06-02",
+      "url_or_repository_path": "docs/research/yore/yore-source-ledger.md",
+      "source_type": "Curated source ledger",
+      "source_role": "shaping-only",
+      "reliability": "Primary local source-role ledger",
+      "notes": "Defines Yore source roles and downstream limits. It shapes the raw packet but does not back raw claims by itself."
+    },
+    {
+      "source_id": "src_vm_yore_evidence_ledger_20260602",
+      "title": "Yore Evidence Ledger",
+      "author": "Vox Mana research packet",
+      "publisher_or_site": "Local repository",
+      "publication_date": "2026-06-02",
+      "url_or_repository_path": "docs/research/yore/yore-evidence-ledger.md",
+      "source_type": "Curated evidence ledger",
+      "source_role": "claim-bearing",
+      "reliability": "Primary local evidence ledger",
+      "claim_bearing_evidence_rows": [
+        "YORE-EVID-001",
+        "YORE-EVID-002",
+        "YORE-EVID-003",
+        "YORE-EVID-004",
+        "YORE-EVID-005",
+        "YORE-EVID-010"
+      ],
+      "notes": "Primary normalized evidence row index for VM-243 raw claims. Support-bound rows, discovery-only rows, Vox Mana synthesis rows, and manual-fill rows are excluded from raw-claim proof."
+    },
+    {
+      "source_id": "src_vm_yore_vm240_scope_card_20260602",
+      "title": "VM-240 Yore Source Packet And Evidence Ledger Done Card",
+      "author": "Vox Mana Kanban",
+      "publisher_or_site": "Local repository",
+      "publication_date": "2026-06-02",
+      "url_or_repository_path": "docs/kanban/done/VM-240-yore-source-packet-and-evidence-ledger.md",
+      "source_type": "Kanban scope record",
+      "source_role": "claim-bearing",
+      "reliability": "Scope-bound authorization record",
+      "claim_bearing_evidence_rows": [
+        "YORE-EVID-001",
+        "YORE-EVID-002"
+      ],
+      "notes": "Scope record for the source-packet-only boundary, non-live Yore status, and WUBR metadata/query-only guardrail."
+    },
+    {
+      "source_id": "src_vm245_yore_runtime_promotion_20260602",
+      "title": "VM-245 - Yore Controlled Runtime Promotion",
+      "author": "Vox Mana project card",
+      "publisher_or_site": "Local repository",
+      "publication_date": "2026-06-02",
+      "url_or_repository_path": "docs/kanban/done/VM-245-yore-controlled-runtime-promotion.md",
+      "source_type": "Project lifecycle decision",
+      "source_role": "shaping-only",
+      "reliability": "Primary local project decision",
+      "notes": "Used only to resolve live/generated lifecycle metadata after the VM-243 source packet and VM-244 review gate. It is not lore evidence, card evidence, Commander evidence, or support for color-code public aliases."
+    },
+    {
+      "source_id": "src_vm_four_color_reference_audit_20260602",
+      "title": "Canon Inventory Four-Color Reference Audit",
+      "author": "Vox Mana canon audit",
+      "publisher_or_site": "Local repository",
+      "publication_date": "Local capture",
+      "url_or_repository_path": "docs/research/canon/canon-inventory-four-color-reference-audit.md",
+      "source_type": "Repo-truth canon audit",
+      "source_role": "claim-bearing",
+      "reliability": "Primary repo-truth audit for VM-240 framing",
+      "claim_bearing_evidence_rows": [
+        "YORE-EVID-002",
+        "YORE-EVID-003",
+        "YORE-EVID-004",
+        "YORE-EVID-005",
+        "YORE-EVID-010"
+      ],
+      "notes": "Claim-bearing only for the VM-240 approved framing rows. It does not authorize runtime promotion, raw card facts, or public aliases."
+    },
+    {
+      "source_id": "src_vm_four_color_identity_dossier_md_20260602",
+      "title": "Magic Four-Color Identity Dossier",
+      "author": "Vox Mana research synthesis",
+      "publisher_or_site": "Local repository",
+      "publication_date": "Local capture",
+      "url_or_repository_path": "docs/research/canon/misc/Magic Four-Color Identity Dossier.md",
+      "source_type": "Repo synthesis",
+      "source_role": "support-only",
+      "reliability": "Support-only unless cross-checked by claim-bearing rows",
+      "notes": "Supports already-bounded four-color missing-color, Yore-Tiller, Breya contrast, and overclaim warning language. It is not cited as raw-claim proof in VM-243."
+    },
+    {
+      "source_id": "src_vm_commander_recommendations_breya_20260602",
+      "title": "Vox Mana Second Commander Recommendations - Breya Row",
+      "author": "Vox Mana Commander data",
+      "publisher_or_site": "Local repository",
+      "publication_date": "Local data row",
+      "url_or_repository_path": "docs/research/vox_mana_second_commander_recommendations_enhanced.jsonl:55",
+      "source_type": "Commander support row",
+      "source_role": "support-only",
+      "reliability": "Commander support-only",
+      "notes": "May support artifact, sacrifice, combo, value, and four-color-without-Green texture. Not lore proof, legality proof, recommendation proof, or runtime authorization."
+    },
+    {
+      "source_id": "src_vm_yore_identity_md_20260602",
+      "title": "Yore / Artifice Identity",
+      "author": "Vox Mana architecture docs",
+      "publisher_or_site": "Local repository",
+      "publication_date": "2026-06-02",
+      "url_or_repository_path": "docs/architecture/colors/yore/identity.md",
+      "source_type": "Architecture prose",
+      "source_role": "shaping-only",
+      "reliability": "Docs-only parity guidance",
+      "notes": "May shape profile and placement language. Must not be used as raw-claim evidence."
+    },
+    {
+      "source_id": "src_vm_yore_metaphysics_md_20260602",
+      "title": "Yore / Artifice Metaphysics",
+      "author": "Vox Mana architecture docs",
+      "publisher_or_site": "Local repository",
+      "publication_date": "2026-06-02",
+      "url_or_repository_path": "docs/architecture/colors/yore/metaphysics.md",
+      "source_type": "Architecture prose",
+      "source_role": "shaping-only",
+      "reliability": "Docs-only parity guidance",
+      "notes": "May shape profile and placement language. Must not be used as raw-claim evidence."
+    },
+    {
+      "source_id": "src_vm_yore_manual_fill_20260602",
+      "title": "Yore Manual Fill",
+      "author": "Vox Mana research packet",
+      "publisher_or_site": "Local repository",
+      "publication_date": "2026-06-02",
+      "url_or_repository_path": "docs/research/yore/yore-manual-fill.md",
+      "source_type": "Manual-fill queue",
+      "source_role": "shaping-only",
+      "reliability": "Gap-tracking document",
+      "notes": "Tracks deferred work and known topic-number drift. It is not raw-claim evidence."
+    },
+    {
+      "source_id": "src_vm_yore_seed_wubr_research_20260602",
+      "title": "WUBR Artifice And Yore Research",
+      "author": "Local seed research",
+      "publisher_or_site": "Local repository",
+      "publication_date": "Local seed",
+      "url_or_repository_path": "docs/research/4 color/WUBR_ Artifice and Yore Research.md",
+      "source_type": "Local seed research",
+      "source_role": "discovery-only",
+      "reliability": "Discovery-only",
+      "notes": "Preserved as a lead for later audit. Not raw-claim evidence."
+    },
+    {
+      "source_id": "src_vm_yore_seed_terminal_html_20260602",
+      "title": "WUBR Artifice Yore Terminal HTML",
+      "author": "Local visual seed",
+      "publisher_or_site": "Local repository",
+      "publication_date": "Local seed",
+      "url_or_repository_path": "docs/research/4 color/wubr_artifice_yore_terminal.html",
+      "source_type": "Local visual seed",
+      "source_role": "discovery-only",
+      "reliability": "Discovery-only",
+      "notes": "UI and presentation seed only. Not raw-claim evidence or canon."
+    },
+    {
+      "source_id": "src_vm_yore_user_source_material_20260602",
+      "title": "User-Added Yore Source Material Folder",
+      "author": "User-added supplemental material",
+      "publisher_or_site": "Local repository",
+      "publication_date": "2026-06-02",
+      "url_or_repository_path": "docs/research/yore/source-material/",
+      "source_type": "Supplemental source-material folder",
+      "source_role": "discovery-only",
+      "reliability": "Supplemental only until claim-by-claim audit",
+      "notes": "May not be classified as claim-bearing in VM-243. Not raw-claim evidence."
+    }
+  ],
+  "not_used_or_rejected_sources": [
+    {
+      "source_id": "src_vm_yore_source_material_html_reports",
+      "reason": "User-added HTML and visual material remains supplemental/discovery-only and is not raw-claim evidence."
+    },
+    {
+      "source_id": "src_vm_yore_architecture_docs_as_claims",
+      "reason": "VM-241 and VM-242 architecture docs are shaping-only and cannot be cited as raw-claim proof."
+    },
+    {
+      "source_id": "src_vm_yore_manual_fill_rows_as_claims",
+      "reason": "Manual-fill rows track gaps and must not become raw claims before review."
+    }
+  ]
+}

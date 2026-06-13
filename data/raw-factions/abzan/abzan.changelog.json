@@ -2,8 +2,60 @@
   "schema_version": "1.0.0",
   "faction_id": "abzan",
   "faction_name": "Abzan Houses",
-  "last_updated": "2026-05-31",
+  "last_updated": "2026-06-12",
   "changes": [
+    {
+      "change_id": "abzan_change_004",
+      "change_type": "VM-352 Source-Backed Discriminator Repair",
+      "change_date": "2026-06-12",
+      "summary": "Added one source-backed discriminator separating Abzan house continuity and ancestor duty from generic WBG, Dromoka-coded, Commander-product, graveyard, and toughness false positives.",
+      "sources_added": [],
+      "sources_updated": [],
+      "claims_added": [],
+      "claims_updated": [],
+      "claims_superseded": [],
+      "claims_contradicted": [],
+      "profile_fields_updated": [],
+      "placement_fields_updated": [
+        "discriminator_questions"
+      ],
+      "manual_review_required": [
+        "Keep exact modern Abzan card facts, commander legality, biographies, minor-house politics, rebellion operations, and dragonstorm ecology deferred.",
+        "Keep WBG permutations metadata/query-only; ABZAN remains the live expression key.",
+        "Do not broaden Abzan using Commander product identity, Dromoka continuity, generic graveyard, or generic toughness alone."
+      ],
+      "notes": "Matrix classification: backed-repair in docs/reference/shard-clan-source-readiness-matrix.md. No new sources, claims, routes, Home preview surfaces, Commander recommendations, or generated-file hand edits."
+    },
+    {
+      "change_id": "abzan_change_003",
+      "change_type": "VM-314 Display Enrichment And Source-Backed Figure Fill",
+      "change_date": "2026-06-09",
+      "summary": "Added source-backed ABZAN figure display backing and durable wedge deck-link/routing metadata while keeping placement, claims, sources, schema, flavor snippets, and generated placement output out of scope.",
+      "sources_added": [],
+      "sources_updated": [],
+      "claims_added": [],
+      "claims_updated": [],
+      "claims_superseded": [],
+      "claims_contradicted": [],
+      "profile_fields_updated": [
+        "last_incremental_review",
+        "last_updated",
+        "key_figures"
+      ],
+      "placement_fields_updated": [],
+      "display_fields_updated": [
+        "data/factions.json::factions.ABZAN.raw_enrichment",
+        "data/identity-layers.json::expressions.ABZAN.routing.edhrec_slug",
+        "data/identity-layers.json::expressions.ABZAN.display.deck_links"
+      ],
+      "manual_review_required": [
+        "Keep canonical_flavor_text empty until exact local card/flavor validation exists.",
+        "Keep Commander/deck links as display navigation metadata, not lore evidence.",
+        "Keep Felothar, Betor, Hamza, and other individual modern character biographies beyond captured guide rows deferred.",
+        "Keep WBG and W/B/G permutations metadata/query-only."
+      ],
+      "notes": "VM-314 uses promoted local evidence rows for figure anchors and the existing wedge display convention for Commander links. It does not add raw claims, raw sources, placement surfaces, route aliases, flavor snippets, or schema changes."
+    },
     {
       "change_id": "abzan_change_002",
       "change_type": "VM-202 Controlled Runtime Promotion",

@@ -1,0 +1,141 @@
+# Source / Generated Guardrails
+
+## Purpose
+
+VM-300 adds a focused validation gate for source-first faction quality work.
+
+The validator prevents target factions from shipping generated placement/profile output that is stronger, newer, or more complete than its source backing.
+
+## Source-Bound Gold Standard Rule
+
+Gold standard means source-backed parity, not output symmetry. Parity work may improve only fields backed by official researched data. Missing evidence is an acceptable result; the correct output is a source-acquisition or intake card, not filler copy.
+
+Official researched data means approved local source material under `docs/research/**`, source and evidence ledgers, raw faction packets under `data/raw-factions/**`, approved canon inventory/capture files, approved Commander recommendation files, and architecture identity/metaphysics docs only where a card explicitly promotes the relevant section into a raw packet, claim ledger, or cited source ledger entry.
+
+Generated/runtime surfaces are comparison targets only. `data/factions.json`, `data/placement-model.json`, `data/identity-layers.json`, Supabase context, hardcoded dossier copy, generated snippets, existing Archscry UI output, and existing display affinity copy are not canonical evidence.
+
+No web search, model memory, general MTG knowledge, or unsourced inference may be used to fill parity fields unless the active card is explicitly a source-acquisition card and records the new source in the approved source/evidence ledger.
+
+## Authoritative Source Scope
+
+Durable placement and claim-backed profile authoring belongs in:
+
+- `data/raw-factions/**`
+- approved local source/research inputs named by the active card
+- approved Commander recommendation files for Commander support fields
+- architecture identity/metaphysics docs only after explicit card-level promotion into raw, claim, or source-ledger backing
+
+Generated/runtime display surfaces may be inspected to identify symptoms, drift, and UX gaps. They do not prove source backing.
+
+Non-canonical comparison targets include:
+
+- `data/factions.json`
+- `data/identity-layers.json`
+- generated `data/placement-model.json`
+- generated `data/placement-model.schema.json`
+- generated Supabase faction context
+- generated flavor/snippet output
+- hardcoded dossier/presentation copy
+- existing Archscry UI output
+
+Existing generated/runtime values may be preserved only if they trace back to official researched data. If no source path exists, preservation must be classified as `blocked-noncanonical` or converted into a source-intake task.
+
+## Mono Transitional Authority
+
+VM-335 records W/U/B/R/G as a transitional Layer 1 exception. Mono colors remain active registry/runtime identities, but their current active status does not make mono registry copy claim evidence under VM-325.
+
+For mono colors, `data/identity-layers.json` is authoritative for active registry membership, routing metadata, shared color language, Home preview metadata, and builder-fed display generation. It is not claim evidence for parity repair, placement discrimination, Commander guidance, lore facts, or source-backed profile claims.
+
+Future mono parity repair requires separately approved raw packets, claim ledgers, or source-intake promotion before generated/display/runtime fields can be treated as source-backed. VM-335 does not authorize mono runtime copy, generated parity repairs, raw packets, claim ledgers, validator mappings, builder migrations, or placement discriminator repairs.
+
+## Work Mode Rules
+
+- Recon cards may inspect generated/runtime surfaces only to identify gaps.
+- Review cards may approve, reject, or narrow proposed repairs, but must not promote missing evidence into source backing.
+- Review cards may authorize later repair cards only after the source category for each field is known.
+- Repair cards may edit only fields backed by existing official researched data.
+- Source-intake cards may fetch or add new legitimate sources, but must record them in the appropriate source/evidence ledger before generated/display parity work consumes them.
+- Implementation cards must classify every changed or preserved field as one of: `backed-repair`, `source-normalization`, `source-intake-needed`, or `blocked-noncanonical`.
+- Runtime/generated files may be regenerated from canonical source, but not hand-edited as source.
+
+## Gold Standard Contract
+
+- Raw packet: source roles present, claim ledger complete, profile/placement claim refs traceable, changelog updated.
+- Placement: discriminators, suppressions, Crucible pairs, and golden paths only where raw placement evidence supports them.
+- Display/dossier: affinity, archetypes, deck links, research links, timeline anchors, figures, flavor anchors, and commander compass only when backed by approved raw/research/Commander source material.
+- Docs: identity/metaphysics expansion is source authoring, not generated parity repair.
+- Parity does not require equal field counts; it requires the strongest source-backed version of each required surface.
+
+## Cohort Defaults
+
+- Mono colors: VM-335 keeps W/U/B/R/G active under a transitional Layer 1 registry exception. Source-backed mono parity repair still requires separately approved raw packets, claim ledgers, or source-intake promotion first.
+- Guilds: mostly parity-ready for normalization; new facts, figures, flavor, placement claims, or Commander guidance still require explicit source support.
+- Strixhaven: normalize existing source structure first; enrich only where raw/research support exists.
+- Shards: placement repair lane first; figures/flavor only from explicit raw/research support.
+- Tarkir: Abzan/Temur/Sultai need source-backed placement discrimination; Mardu/Jeskai dossier gaps require Commander source verification.
+- Four-color: requires a per-identity, per-field source-readiness matrix before any parity implementation.
+- Colorless: VM-334 ratifies the current controlled placeable `COLORLESS` state after the separate readiness, promotion, and UX repair path. Future Colorless expansion still requires explicit source-intake, QA, public-surface, or product-copy approval.
+
+## Validator Contract
+
+Run:
+
+```powershell
+npm.cmd run test:source-generated
+```
+
+The default target set is the repaired source-durable regression set:
+
+```text
+JESKAI,MARDU
+```
+
+For a faction pass, run the validator against the active target:
+
+```powershell
+npm.cmd run validate:source-generated -- --targets=YORE
+```
+
+The validator fails when a target generated placement/profile field is not backed by raw source state. It specifically checks:
+
+- `source_metadata.profile_version`
+- `source_metadata.placement_model_version`
+- `source_metadata.source_review_date`
+- `source_metadata.claim_count`
+- `identity.mechanics`
+- `placement_axes.required_positive_evidence_terms`
+- `placement_axes.strengthens_when_user_centers`
+- `placement_axes.suppress_when_user_centers`
+- `placement_axes.false_positive_guardrail`
+- `good_fit_indicators`
+- `poor_fit_indicators`
+- `inhibitor_traps`
+- discriminator prompts, purposes, supports, weakens, collision targets, and evidence claim IDs
+
+The builder owns some model constants, such as the biological inhibitor trigger. The validator reports those as warnings by default when they are the only non-raw inhibitor entry. Use `--strict-model-owned` when a pass needs raw-only inhibitor parity.
+
+## Pass Ordering
+
+After VM-300, default source-first quality order is:
+
+```text
+YORE -> DUNE -> GLINT -> INK
+```
+
+If validation finds a blocking source/generated durability defect for the active target, stop and document the defect instead of continuing downstream faction authoring. Do not patch generated output to satisfy the validator.
+
+The repair path is:
+
+```text
+raw source or approved display input -> rebuild -> rerun validator
+```
+
+## Explicit Non-Goals
+
+VM-300 does not:
+
+- redesign placement schemas
+- edit generated placement output
+- treat generated files as source of truth
+- perform new faction authoring
+- resolve the known Temur color-order placement residual

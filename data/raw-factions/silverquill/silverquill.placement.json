@@ -446,6 +446,20 @@
         "silverquill_claim_002",
         "silverquill_claim_003"
       ]
+    },
+    {
+      "collision_id": "collision_silverquill_vs_prismari_placement_ready",
+      "against": "prismari",
+      "lateral_inhibition": false,
+      "separator": "Silverquill moves the room through precise words, reputation, and public influence; Prismari moves the room through art, performance, and elemental spectacle.",
+      "ask": "When language can move a room, should it become a precise argument, a public performance, or an elemental spectacle?",
+      "suppress_if": "the answer centers expressive art, elemental spectacle, emotion, or performance before rhetoric",
+      "evidence_claim_ids": [
+        "silverquill_claim_002",
+        "silverquill_claim_003",
+        "silverquill_claim_004",
+        "silverquill_claim_006"
+      ]
     }
   ]
 }

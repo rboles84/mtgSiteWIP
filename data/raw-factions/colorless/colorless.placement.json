@@ -1,0 +1,357 @@
+{
+  "schema_version": "1.0.0",
+  "placement_profile_version": "0.1.3",
+  "placement_model_version": "0.1.3",
+  "based_on_profile_version": "0.1.3",
+  "faction_id": "colorless",
+  "faction_name": "Colorless",
+  "last_updated": "2026-06-11",
+  "color_identity": {
+    "colors": [],
+    "future_expression_name": "COLORLESS",
+    "future_expression_name_status": "VM-334-ratified controlled placeable expression key: colors: [], core_color: \"C\", placement_eligible: true, preview_eligible: false, directory links suppressed, aliases limited to [\"COLORLESS\"], and no public route, Home preview, public alias, or generated hand-edit authority."
+  },
+  "placement_summary": "Colorless is a controlled placeable raw placement packet for outside-WUBRG identity, attraction-readiness, and concept-boundary testing. It supports controlled placement and dossier-visible output without approving Home preview, public routes, public aliases, Commander Compass, broad recommendations, or generated hand edits.",
+  "moral_and_psychological_profile": {
+    "primary_drive": "Choose a precise outside-WUBRG restriction because the absence, machine, void, austere mana, or titan-scale path is itself the appeal.",
+    "ethical_pressure": "A precise outside-color identity becomes misleading if it collapses generic mana, colorless mana, artifacts, Eldrazi, Wastes, Devoid, Commander legality, and transcendent support texture into one undifferentiated bucket.",
+    "core_boundary": "Placement language is controlled guidance, not threshold tuning, public routing approval, Home preview approval, or broad Commander/deck recommendation authority."
+  },
+  "placement_axes": [
+    {
+      "axis_id": "axis_outside_wubrg_precision",
+      "label": "Outside-WUBRG Precision",
+      "description": "Measures whether the user wants an identity outside the five-color system itself rather than a missing color, mono-color purity, five-color fullness, generic mana, or artifact-only taste.",
+      "low_end_label": "Color-adjacent taste",
+      "high_end_label": "Non-color precision",
+      "faction_position": 84,
+      "rationale": "VM-324 intake strengthens the almost-like-a-color but not-a-color boundary and gives Colorless positive attraction language without sixth-color framing.",
+      "claim_ids": [
+        "colorless_claim_0002",
+        "colorless_claim_0006"
+      ],
+      "confidence": "Medium",
+      "notes": "Controlled placement axis only. Do not treat it as threshold tuning, public routing approval, or Home preview approval."
+    },
+    {
+      "axis_id": "axis_machine_vs_void_branch",
+      "label": "Machine Logic vs Void Austerity",
+      "description": "Separates users drawn to artifact automation, constructed engines, and machine-like problem solving from users drawn to Wastes, Eldrazi alienness, desolation, or the void branch.",
+      "low_end_label": "Artifact machine",
+      "high_end_label": "Void and Wastes",
+      "faction_position": 50,
+      "rationale": "The sourced notes make the artifact camp versus Wastes/void camp a useful internal discriminator without making either branch all of Colorless.",
+      "claim_ids": [
+        "colorless_claim_0004",
+        "colorless_claim_0006"
+      ],
+      "confidence": "Medium",
+      "notes": "Internal branch axis only; do not treat either endpoint as sufficient Colorless proof."
+    },
+    {
+      "axis_id": "axis_restriction_puzzle_vs_titan_spectacle",
+      "label": "Restriction Puzzle vs Titan Spectacle",
+      "description": "Separates attraction to colorless as a hard deckbuilding puzzle from attraction to enormous Eldrazi and spectacular high-mana moments.",
+      "low_end_label": "Restriction puzzle",
+      "high_end_label": "Titan spectacle",
+      "faction_position": 58,
+      "rationale": "VM-324 intake maps Johnny/Jenny-style artifact machinery and Timmy/Tammy-style Eldrazi spectacle as synthesis over official psychographic vocabulary.",
+      "claim_ids": [
+        "colorless_claim_0006",
+        "colorless_claim_0007"
+      ],
+      "confidence": "Medium",
+      "notes": "Vox Mana synthesis; not an official Wizards Colorless player profile."
+    },
+    {
+      "axis_id": "axis_clean_mana_control_vs_engine_expression",
+      "label": "Clean Mana Control vs Engine Expression",
+      "description": "Separates users who like austere colorless mana systems, resource denial, and prison pressure from users who want reusable artifact engines and unusual combo expression.",
+      "low_end_label": "Clean denial",
+      "high_end_label": "Engine expression",
+      "faction_position": 54,
+      "rationale": "The sourced notes seed Spike-style clean mana/resource-denial and Johnny/Jenny-style artifact-engine attractions while keeping price, metagame, and legality claims deferred.",
+      "claim_ids": [
+        "colorless_claim_0006"
+      ],
+      "confidence": "Low",
+      "notes": "Candidate axis only; current price/metagame claims are Manual fill required."
+    }
+  ],
+  "core_values": [
+    "outside-WUBRG precision",
+    "generic/colorless separation",
+    "branch discipline",
+    "support-only Commander restraint",
+    "non-superiority over WUBRG",
+    "chosen restriction as attraction",
+    "artifact-machine and void-branch separation",
+    "strict Commander color-identity precision"
+  ],
+  "behavioral_signals": [
+    "the user distinguishes absence, orthogonality, machinery, void, desolation, and transcendence instead of treating them as one neutral idea",
+    "the user explicitly separates generic mana costs from colorless mana requirements",
+    "the user treats artifacts, Eldrazi, Wastes, Devoid, and Ugin/Karn as different branches with different evidence limits",
+    "the user is drawn to outside-system perspective without claiming it is above or complete mastery of WUBRG",
+    "the user finds the restriction itself inviting rather than merely tolerable",
+    "the user can say whether the pull is artifact machinery, Eldrazi spectacle, Wastes austerity, clean mana, or resource-denial pressure",
+    "the user separates strict Colorless Commander from five-color Eldrazi Commander and Devoid colorlessness"
+  ],
+  "inhibitor_traits": [
+    "generic mana treated as colorless mana",
+    "artifacts treated as the whole of Colorless",
+    "Eldrazi treated as artifacts or as all of Colorless",
+    "Wastes treated as all Colorless meaning",
+    "five-color Eldrazi treated as Colorless proof",
+    "Phyrexia treated as Colorless proof",
+    "support-only Commander rows treated as broad Commander viability",
+    "Colorless framed as a sixth color, mono-color, or superior version of WUBRG",
+    "Devoid treated as strict Colorless Commander legality",
+    "Ulalek or Eldrazi Incursion treated as strict Colorless proof",
+    "named-card legality assumed from source notes without Oracle verification"
+  ],
+  "inhibitor_traps": [
+    "The answer says colorless because the deck has many generic mana costs rather than actual {C} requirements or Colorless identity.",
+    "The answer names artifacts but ignores colored artifacts, artifact civilizations, and the artifact/Colorless distinction.",
+    "The answer names Eldrazi but turns five-color Eldrazi support or Eldrazi Incursion into Colorless proof.",
+    "The answer treats Wastes, Devoid, Ugin, Karn, or Phyrexia as enough proof without preserving evidence boundaries.",
+    "The answer treats outside the color wheel as above the color wheel.",
+    "The answer treats Devoid object colorlessness as strict Colorless Commander legality.",
+    "The answer treats Ulalek, Eldrazi Incursion, or five-color Eldrazi gameplay as Colorless placement proof.",
+    "The answer asks for deck-buying, current price, or metagame advice from raw intake notes."
+  ],
+  "good_fit_indicators": [
+    "explicit outside-WUBRG framing without sixth-color language",
+    "explicit generic mana versus colorless mana distinction",
+    "branch-separated artifacts, Eldrazi, Wastes, Devoid, and Ugin/Karn texture",
+    "Commander examples kept support-only",
+    "five-color and Phyrexia kept as comparator or separator context rather than proof",
+    "positive attraction to a chosen outside-WUBRG restriction",
+    "clear branch preference among artifact machinery, Eldrazi spectacle, Wastes austerity, clean mana, or resource-denial pressure",
+    "strict Colorless Commander constraints understood as part of the appeal rather than a deckbuilding accident"
+  ],
+  "ideal_fit_indicators": [
+    "the answer requires a non-color identity rather than a missing-color, mono-color, five-color, artifact-only, or Eldrazi-only frame",
+    "the user wants absence, function, void, terrain stripped of color, and detached perspective kept in tension instead of blended together",
+    "the language honors Colorless as outside or orthogonal to WUBRG while refusing superiority or totalizing mastery",
+    "the user treats Colorless as a deliberate constraint that creates creativity, austerity, or alien scale",
+    "the user wants the machine and the void kept distinct while still held under one outside-WUBRG umbrella"
+  ],
+  "poor_fit_indicators": [
+    "generic same-color or generic mana goodstuff",
+    "artifact-only identity",
+    "Eldrazi-only identity",
+    "Wastes-only identity",
+    "Devoid-only identity",
+    "Ugin-only or Karn-only lore claims without direct evidence",
+    "five-color Eldrazi framing",
+    "Phyrexia-only framing",
+    "Commander product proof or legality claims beyond current support-only rows",
+    "positive sixth-color framing",
+    "public route or Home preview readiness language",
+    "Devoid as strict Commander legality proof",
+    "five-color Eldrazi as strict Colorless identity",
+    "named-card legality or exact Oracle claims without verification",
+    "current price or metagame advice from raw intake material"
+  ],
+  "discriminator_questions": [
+    {
+      "question_id": "colorless_disc_001",
+      "question": "Is the appeal outside the five-color system itself, or only a deck with artifacts, generic costs, or Eldrazi cards?",
+      "purpose": "Separates Colorless identity from artifact-only, generic-mana, and Eldrazi-only false positives.",
+      "answer_pattern_that_supports_this_faction": "Supports Colorless when the user names outside-WUBRG absence, non-coloration, or concept-boundary precision and can keep the branches separate.",
+      "answer_pattern_that_weakens_this_faction": "Weakens Colorless when the user only wants artifacts, large costs, Eldrazi flavor, or generic ramp without the non-color identity boundary.",
+      "collision_targets": [
+        "WUBRG",
+        "artifact identities",
+        "Eldrazi support",
+        "generic mana"
+      ],
+      "claim_ids": [
+        "colorless_claim_0002",
+        "colorless_claim_0003",
+        "colorless_claim_0004"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "question_id": "colorless_disc_002",
+      "question": "Does the answer distinguish specifically colorless mana from generic mana costs?",
+      "purpose": "Protects the {C}/generic boundary inside controlled placement logic.",
+      "answer_pattern_that_supports_this_faction": "Supports Colorless when the user understands that generic costs can be paid by any mana while {C} requires colorless mana.",
+      "answer_pattern_that_weakens_this_faction": "Weakens Colorless when colorless is used as a synonym for expensive, generic, or any-mana costs.",
+      "collision_targets": [
+        "generic mana",
+        "{C}",
+        "Wastes"
+      ],
+      "claim_ids": [
+        "colorless_claim_0003"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "question_id": "colorless_disc_003",
+      "question": "Is outside-WUBRG being used as a precise absence, or as a claim that Colorless is above, beyond, or complete mastery of all colors?",
+      "purpose": "Separates Colorless orthogonality from five-color fullness or superiority framing.",
+      "answer_pattern_that_supports_this_faction": "Supports Colorless when the user frames it as outside or orthogonal to WUBRG and keeps five-color fullness separate.",
+      "answer_pattern_that_weakens_this_faction": "Weakens Colorless when it becomes a sixth color, a superior color, or a total mastery of WUBRG.",
+      "collision_targets": [
+        "WUBRG",
+        "five-color",
+        "mono-color"
+      ],
+      "claim_ids": [
+        "colorless_claim_0002",
+        "colorless_claim_0005"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "question_id": "colorless_disc_004",
+      "question": "When Colorless feels right, is the pull more artifact machinery, Wastes austerity, Eldrazi spectacle, or the challenge of building under strict non-color constraints?",
+      "purpose": "Adds positive attraction energy and separates internal Colorless branches without making any branch sufficient proof by itself.",
+      "answer_pattern_that_supports_this_faction": "Supports Colorless when the user names the non-color restriction and can place their attraction in a branch while preserving branch boundaries.",
+      "answer_pattern_that_weakens_this_faction": "Weakens Colorless when the user only wants artifacts, big monsters, or barren aesthetics without the outside-WUBRG restriction.",
+      "collision_targets": [
+        "artifact identities",
+        "Eldrazi support",
+        "Wastes",
+        "generic mana"
+      ],
+      "claim_ids": [
+        "colorless_claim_0004",
+        "colorless_claim_0006"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "question_id": "colorless_disc_005",
+      "question": "Is the Commander appeal a strict colorless commander/deck restriction, or a five-color Eldrazi deck that happens to use many colorless and Devoid cards?",
+      "purpose": "Separates strict Colorless Commander attraction from Eldrazi Incursion and other five-color Eldrazi false positives.",
+      "answer_pattern_that_supports_this_faction": "Supports Colorless when the user values the strict colorless identity constraint and understands that five-color Eldrazi support is comparator context.",
+      "answer_pattern_that_weakens_this_faction": "Weakens Colorless when the user wants Ulalek, five-color Eldrazi, or Devoid-heavy color decks as the primary identity.",
+      "collision_targets": [
+        "WUBRG",
+        "five-color Eldrazi",
+        "Devoid",
+        "Commander support"
+      ],
+      "claim_ids": [
+        "colorless_claim_0005",
+        "colorless_claim_0007",
+        "colorless_claim_0008"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "question_id": "colorless_disc_006",
+      "question": "Does the answer need current card legality, exact Oracle text, prices, or metagame advice before Colorless can be recommended?",
+      "purpose": "Keeps readiness material separate from public recommendation authority and catches source-intake overreach.",
+      "answer_pattern_that_supports_this_faction": "Supports only a cautious Colorless read when the user accepts source-bound controlled-profile guidance and leaves exact card/deck advice for later verification.",
+      "answer_pattern_that_weakens_this_faction": "Weakens or blocks Colorless when the answer depends on unverified card legality, exact combos, price, or metagame claims.",
+      "collision_targets": [
+        "Commander recommendations",
+        "deck-buying advice",
+        "Oracle text",
+        "metagame claims"
+      ],
+      "claim_ids": [
+        "colorless_claim_0006",
+        "colorless_claim_0007",
+        "colorless_claim_0008"
+      ],
+      "manual_fill": [
+        "COLORLESS-MF-014",
+        "COLORLESS-MF-015"
+      ],
+      "confidence": "Low"
+    }
+  ],
+  "chatbot_guidance": {
+    "allowed": [
+      "Describe Colorless as outside or orthogonal to WUBRG when evidence boundaries are preserved.",
+      "Use artifacts, Eldrazi, Wastes, Devoid, Ugin, Karn, and Eldrazi Unbound only with their branch/support boundaries intact.",
+      "Use Manual fill required where exact rules, product, card, or lore facts need stronger official grounding.",
+      "Use this packet as controlled dossier and placement guidance only.",
+      "Use Colorless as inviting when the user is drawn to the restriction itself, artifact machinery, Eldrazi spectacle, Wastes austerity, clean mana, or resource-denial pressure with boundaries intact.",
+      "Use strict Commander and Devoid/five-color Eldrazi distinctions as false-positive checks."
+    ],
+    "not_allowed": [
+      "Do not say Colorless is a sixth color.",
+      "Do not say Colorless is superior to or complete mastery of WUBRG.",
+      "Do not say generic mana is colorless mana.",
+      "Do not say artifacts are equivalent to Colorless identity.",
+      "Do not say Eldrazi, Wastes, Devoid, Ugin, Karn, Phyrexia, or Eldrazi Unbound proves all of Colorless.",
+      "Do not use controlled Colorless placement to approve Home preview, public routes, public aliases, public URL expansion, Supabase manual-context expansion, schema expansion, generated hand edits, or broad recommendation behavior.",
+      "Do not cite architecture docs or generated output as raw evidence.",
+      "Do not say Devoid makes a card legal in strict Colorless Commander by itself.",
+      "Do not say Ulalek or Eldrazi Incursion proves strict Colorless identity.",
+      "Do not provide named-card legality, Oracle text, price, or metagame advice from VM-324 intake without separate verification."
+    ],
+    "use_when": [
+      "A reviewer needs controlled guidance for outside-WUBRG identity.",
+      "A placement author needs false-positive boundaries before changing thresholds or public behavior.",
+      "The question is about separating generic mana, colorless mana, artifacts, Eldrazi, Wastes, Devoid, and support-only Commander examples."
+    ],
+    "avoid_when": [
+      "The user wants public routing, Home preview, broad recommendations, or threshold tuning.",
+      "The answer depends on exact current official rules, Wastes rulings, official product proof, or detailed Ugin/Karn/Eldrazi lore not yet captured.",
+      "The answer uses support-only Commander data as proof."
+    ],
+    "claim_boundaries": [
+      "Use VM-308 evidence rows as authority.",
+      "Treat VM-309/VM-310 docs as shaping context only.",
+      "Support-only Commander rows cannot authorize raw claims or broad Commander viability.",
+      "Generated artifacts are not source truth.",
+      "Treat COLORLESS-SRC-018 as audit intake with primary-source and manual-fill caveats.",
+      "VM-334 is lifecycle/product-governance authority only and does not authorize lore, rules, Commander, card, legality, or deck claims."
+    ],
+    "how_to_recognize_mismatch": [
+      "The answer centers artifacts, Eldrazi, or Wastes as a single proof source.",
+      "The answer collapses {C} and generic mana.",
+      "The answer treats five-color Eldrazi or Phyrexia as Colorless.",
+      "The answer needs public copy, route behavior, Home preview, or broad recommendations."
+    ],
+    "calibration_note": "Require precise outside-WUBRG language, branch separation, strict Commander/devoid/five-color boundaries, and controlled public-expansion boundaries. Treat all guidance here as controlled placement and dossier scaffolding, not Home preview, public routing, Commander Compass, or broad recommendation approval.",
+    "never_claim_as_canon": [
+      "Colorless is a sixth color.",
+      "Colorless is superior to WUBRG.",
+      "Generic mana is colorless mana.",
+      "Artifacts are all Colorless.",
+      "Eldrazi Unbound proves broad Colorless Commander viability.",
+      "Phyrexia is Colorless."
+    ]
+  },
+  "placement_quality": {
+    "review_gated": true,
+    "placement_eligible": true,
+    "preview_eligible": false,
+    "live_pilot": true,
+    "placement_ready_pass": "VM-326/VM-334",
+    "status": "vm337_controlled_placeable_dossier_expansion",
+    "notes": "VM-334 controls Colorless lifecycle status. VM-337 expands controlled dossier-facing copy without approving Home preview, public routes, public aliases, Commander Compass, broad recommendations, or generated hand edits."
+  },
+  "calibration_tuning": {
+    "status": "controlled_placeable_public_expansion_gated",
+    "notes": "Placement axes and discriminator questions support controlled Colorless placement and dossier copy. VM-337 does not add scoring weights, threshold tuning, public routes, Home preview, public aliases, Commander Compass, or broad recommendations."
+  },
+  "collision_guidance": {
+    "primary_false_positives": [
+      "five-color WUBRG",
+      "mono-color purity",
+      "generic mana costs",
+      "artifact-only identity",
+      "Eldrazi-only identity",
+      "Wastes-only identity",
+      "Phyrexia-only identity",
+      "support-only Commander identity",
+      "Devoid-as-Commander-legality",
+      "five-color Eldrazi Commander",
+      "Ulalek strict-Colorless confusion",
+      "named-card legality overreach",
+      "current price or metagame advice"
+    ],
+    "source_role": "VM-337 controlled dossier expansion over VM-324 intake and VM-334 lifecycle authority, with managed evidence/manual-fill boundaries and no public expansion approval."
+  }
+}

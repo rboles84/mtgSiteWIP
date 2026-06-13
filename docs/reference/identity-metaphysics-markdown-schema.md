@@ -20,6 +20,8 @@ For this pass, each mono color is represented as a paired source set:
 - `docs/architecture/colors/{color}/identity.md`
 - `docs/architecture/colors/{color}/metaphysics.md`
 
+VM-335 preserves these files as mono authoring and interpretation docs, not as VM-325 claim evidence by default. A future card must explicitly promote content from these docs into raw packets, claim ledgers, or source-intake records before using it for source-backed parity repair.
+
 ## Parser Assumptions
 
 Required, parser-sensitive.
@@ -220,6 +222,8 @@ Human-readable only.
 Mono colors are the foundation. Guilds, schools, shards, clans, families, and other factions may later receive derived or expression-level identity/metaphysics files after the mono-color foundation is stable.
 
 This schema should inform that future work, but it should not be forced onto guilds or schools in this pass. Higher-order factions should eventually be evaluated as expressions or combinations of foundational color identities, not as disconnected content systems.
+
+The mono foundation remains a transitional Layer 1 registry/runtime exception until future approved source work creates W/U/B/R/G raw packets, claim ledgers, or source-intake promotion records. This schema does not authorize mono runtime copy, generated parity repairs, raw packets, claim ledgers, validator mappings, builder migrations, or placement discriminator repairs.
 
 ## Normalization Rules
 

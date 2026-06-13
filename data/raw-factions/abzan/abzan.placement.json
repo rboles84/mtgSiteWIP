@@ -4,7 +4,7 @@
   "faction_id": "abzan",
   "faction_name": "Abzan Houses",
   "based_on_profile_version": "0.1.0",
-  "last_updated": "2026-05-31",
+  "last_updated": "2026-06-12",
   "placement_summary": "Abzan Houses is a VM-202 live-pilot raw packet. Its strongest source-bound signals are White-centered WBG Tarkir identity, endurance, family, house continuity, ancestor obligation, perennation, defensive patience, and false-positive boundaries against generic WBG, Dromoka's brood, Commander products, and seed files.",
   "moral_and_psychological_profile": {
     "summary": "Vox Mana models Abzan as continuity through family, ancestry, obligation, and defensive patience. This is project interpretation from normalized ABZAN evidence plus VM-198/VM-199 shaping docs, not official canon.",
@@ -108,7 +108,62 @@
     "The answer centers Dromoka's brood, generic graveyard value, generic toughness, or Commander product flavor.",
     "The answer requires exact card facts, commander legality, detailed biography, minor-house hierarchy, campaign chronology, or dragonstorm ecology not promoted in ABZAN evidence rows."
   ],
-  "discriminator_questions": [],
+  "discriminator_questions": [
+    {
+      "question_id": "abzan_discriminator_0001",
+      "question": "Does pressure call for long family endurance, or a decisive charge before the opening closes?",
+      "purpose": "Separates Abzan family endurance from Mardu immediate commitment.",
+      "answer_pattern_that_supports_this_faction": "Supports Abzan when the answer centers house continuity, ancestor duty, patient defense, and survival across generations.",
+      "answer_pattern_that_weakens_this_faction": "Weakens Abzan when the answer centers speed, total commitment, war names, and taking the martial opening now.",
+      "collision_targets": [
+        "MARDU"
+      ],
+      "claim_ids": [
+        "abzan_claim_0002",
+        "abzan_claim_0003",
+        "abzan_claim_0006",
+        "abzan_claim_0008"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "question_id": "abzan_discriminator_0002",
+      "question": "Are the dead and ancestors obligations to preserve, or resources to convert into advantage?",
+      "purpose": "Separates Abzan ancestor continuity from Sultai resource conversion.",
+      "answer_pattern_that_supports_this_faction": "Supports Abzan when the dead, Kin-Trees, perennation, and ancestor guidance preserve family continuity and duty.",
+      "answer_pattern_that_weakens_this_faction": "Weakens Abzan when death, bodies, secrets, costs, or graveyard return become tools for ruthlessness and opportunity.",
+      "collision_targets": [
+        "SULTAI"
+      ],
+      "claim_ids": [
+        "abzan_claim_0003",
+        "abzan_claim_0008",
+        "abzan_claim_0010"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "question_id": "abzan_discriminator_0003",
+      "question": "Is endurance about Abzan house continuity and ancestor duty, or only generic WBG resilience, graveyard value, or toughness?",
+      "purpose": "Separates Abzan Houses from generic WBG, Dromoka-coded, Commander-product, graveyard, and toughness false positives.",
+      "answer_pattern_that_supports_this_faction": "Supports Abzan when resilience is grounded in family, house continuity, ancestor obligation, Kin-Trees, perennation, and defensive patience.",
+      "answer_pattern_that_weakens_this_faction": "Weakens Abzan when the answer centers WBG color identity, Dromoka continuity, Commander product identity, graveyard value, toughness, or defensive mechanics without Abzan house and ancestor evidence.",
+      "collision_targets": [
+        "generic_WBG",
+        "Dromoka_clan_continuity",
+        "Commander_product_identity",
+        "generic_graveyard",
+        "generic_toughness"
+      ],
+      "claim_ids": [
+        "abzan_claim_0001",
+        "abzan_claim_0002",
+        "abzan_claim_0003",
+        "abzan_claim_0008"
+      ],
+      "confidence": "Medium"
+    }
+  ],
   "chatbot_guidance": {
     "how_to_recognize_match": [
       "VM-202 live-pilot guidance only: Abzan language should combine White-centered WBG Tarkir Abzan Houses with family, endurance, ancestor obligation, perennation, and defensive patience.",
@@ -223,5 +278,27 @@
     "false_positive_guardrail": "Do not treat support-only mechanics, Commander/operator rows, manual-fill lore, architecture prose, seed files, Dromoka's brood, or color composition alone as Abzan evidence.",
     "smoke_test_note": "VM-202 wires only the ABZAN live-pilot expression through generated placement data."
   },
-  "collision_guidance": []
+  "collision_guidance": [
+    {
+      "collision_id": "collision_abzan_mardu_live",
+      "against": "mardu",
+      "separator": "Abzan survives through family continuity, ancestor obligation, and defensive patience; Mardu acts through Red-centered speed, total commitment, and war-bound openings.",
+      "ask": "Is the right answer to outlast for the house, or to move before the opening closes?",
+      "claim_ids": [
+        "abzan_claim_0002",
+        "abzan_claim_0003"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "collision_id": "collision_abzan_sultai_live",
+      "against": "sultai",
+      "separator": "Abzan treats ancestry and death as continuity and duty; Sultai treats bodies, secrets, costs, and the dead as resources for ruthless opportunity.",
+      "ask": "Does the past bind the house to survive, or become material to convert into power?",
+      "claim_ids": [
+        "abzan_claim_0008"
+      ],
+      "confidence": "Medium"
+    }
+  ]
 }

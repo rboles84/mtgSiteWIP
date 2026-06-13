@@ -3,7 +3,7 @@
   "faction_id": "grixis",
   "faction_name": "Grixis",
   "source_review_date": "2026-05-30",
-  "last_updated": "2026-05-30",
+  "last_updated": "2026-06-12",
   "sources": [
     {
       "source_id": "src_vm_grixis_source_ledger_20260530",
@@ -13,6 +13,7 @@
       "publication_date": "2026-05-30",
       "url_or_repository_path": "docs/research/grixis/grixis-source-ledger.md",
       "source_type": "Curated source ledger",
+      "source_role": "shaping-only",
       "reliability": "Primary local research ledger",
       "notes": "Defines the VM-164 source hierarchy, source IDs, support-only boundaries, manual-fill limits, and rejected source classes."
     },
@@ -24,6 +25,7 @@
       "publication_date": "2026-05-30",
       "url_or_repository_path": "docs/research/grixis/grixis-evidence-ledger.md",
       "source_type": "Curated evidence ledger",
+      "source_role": "claim-bearing",
       "reliability": "Primary local evidence ledger",
       "notes": "Maps Grixis claims to source tiers, confidence/status, promoted/support-only/manual-fill classification, and VM-164 evidence row IDs."
     },
@@ -35,6 +37,7 @@
       "publication_date": "2026-05-30",
       "url_or_repository_path": "docs/research/grixis/grixis-research-dossier.md",
       "source_type": "Curated research dossier",
+      "source_role": "shaping-only",
       "reliability": "Primary local synthesis with explicit boundaries",
       "notes": "Summarizes the conservative Grixis identity floor and marks mechanics, Commander/operator material, Maestros, and detailed lore as support-only or deferred."
     },
@@ -46,6 +49,7 @@
       "publication_date": "2026-05-30",
       "url_or_repository_path": "docs/research/grixis/grixis-reliability-audit.md",
       "source_type": "Reliability audit",
+      "source_role": "shaping-only",
       "reliability": "Primary local audit",
       "notes": "Records which Grixis topics are promoted, support-only, or manual fill and warns against using draft/community material as evidence."
     },
@@ -57,6 +61,7 @@
       "publication_date": "2026-05-30",
       "url_or_repository_path": "docs/research/grixis/grixis-manual-fill.md",
       "source_type": "Manual-fill queue",
+      "source_role": "support-only",
       "reliability": "Limitations ledger only",
       "notes": "Records deferred Grixis topics. It is not raw-claim evidence."
     },
@@ -68,6 +73,7 @@
       "publication_date": "2026-05-30",
       "url_or_repository_path": "docs/research/grixis/grixis-lore-source-packet.md",
       "source_type": "Compiled source packet",
+      "source_role": "shaping-only",
       "reliability": "Primary VM-164 packet summary",
       "notes": "Records the VM-164 source-packet verdict, promoted identity claims, support-only claims, manual-fill list, draft classification, and VM-168 live-pilot boundary."
     },
@@ -79,6 +85,7 @@
       "publication_date": "Local capture, original date not restated in VM-164 packet",
       "url_or_repository_path": "docs/research/canon/mark_rosewater_official_three_color/Grixis_Looking Out For Number One _ MAGIC_ THE GATHERING.md",
       "source_type": "Official Wizards design article capture",
+      "source_role": "claim-bearing",
       "reliability": "Primary / official design commentary",
       "notes": "Directly read local capture. Supports Grixis as blue-black-red, Black center/design lens, Black survival/self-advocacy framing, Blue and Red ally roles, White/Green missing pressures, and the anti-flattening boundary against simple evil framing."
     },
@@ -90,6 +97,7 @@
       "publication_date": "2026-05-28",
       "url_or_repository_path": "docs/analysis/canon-inventory-three-color-reference-audit.md",
       "source_type": "Canon inventory and discovery audit",
+      "source_role": "shaping-only",
       "reliability": "Repository inventory / discovery aid",
       "notes": "Identifies the official Grixis Rosewater file as a primary identity source and records Alara shard protocol material as support/discovery context."
     },
@@ -101,6 +109,7 @@
       "publication_date": "Local capture, original date not restated in VM-164 packet",
       "url_or_repository_path": "docs/research/canon/guild_research/Alara Shards Lore Dossier Protocol.rtf",
       "source_type": "Repo-local support protocol",
+      "source_role": "support-only",
       "reliability": "Support/discovery only",
       "notes": "May support Alara shard context and discovery terms. It is not primary proof for detailed Grixis lore or raw claims."
     },
@@ -112,6 +121,7 @@
       "publication_date": "2026-05-30",
       "url_or_repository_path": "docs/architecture/colors/grixis/identity.md",
       "source_type": "Vox Mana architecture doc",
+      "source_role": "shaping-only",
       "reliability": "Project architecture synthesis from VM-164 evidence",
       "notes": "May shape profile and placement prose. It is not Magic canon and must not replace VM-164 evidence rows for raw claims."
     },
@@ -123,6 +133,7 @@
       "publication_date": "2026-05-30",
       "url_or_repository_path": "docs/architecture/colors/grixis/metaphysics.md",
       "source_type": "Vox Mana metaphysics doc",
+      "source_role": "shaping-only",
       "reliability": "Project metaphysics synthesis from VM-164 evidence",
       "notes": "May shape Vox Mana metaphysical profile fields. It is explicitly not Wizards or MTG canon."
     }

@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Witch-Maw — GWUB Research Packet</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=Cormorant+SC:wght@300;400;600;700&display=swap');
+
+  :root {
+    --green:   #2E7D52;
+    --white:   #D4C8A0;
+    --blue:    #1A4F7A;
+    --black:   #2C1040;
+    --growth:  #4A9E6A;
+    --mist:    #7EB0A0;
+    --deep:    #0C0818;
+    --surface: rgba(14,10,28,0.90);
+    --border:  rgba(78,158,106,0.28);
+    --parch:   #D8ECD8;
+    --muted:   #6A8878;
+    --gold:    #A8C878;
+    --accent:  #5ABE8A;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background-color: var(--deep);
+    color: var(--parch);
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 1.1rem;
+    line-height: 1.75;
+    background-image:
+      radial-gradient(ellipse 50% 60% at 15% 20%, rgba(46,125,82,0.14) 0%, transparent 60%),
+      radial-gradient(ellipse 45% 45% at 85% 75%, rgba(26,79,122,0.12) 0%, transparent 55%),
+      radial-gradient(ellipse 60% 30% at 50% 100%, rgba(44,16,64,0.20) 0%, transparent 50%),
+      radial-gradient(ellipse 30% 50% at 90% 10%, rgba(90,190,138,0.07) 0%, transparent 45%),
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.55' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+    min-height: 100vh;
+  }
+
+  .page-wrap {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 3rem 2rem 5rem;
+  }
+
+  /* ── HEADER ── */
+  header {
+    text-align: center;
+    padding: 3rem 0 2rem;
+  }
+
+  .pip-row {
+    display: flex;
+    justify-content: center;
+    gap: 0.6rem;
+    margin-bottom: 1.4rem;
+  }
+
+  .pip {
+    width: 22px; height: 22px;
+    border-radius: 50%;
+    border: 2px solid;
+    display: inline-block;
+    position: relative;
+  }
+  .pip-g { background: #1a4a30; border-color: var(--growth); }
+  .pip-w { background: #5a5030; border-color: var(--white); }
+  .pip-u { background: #0c2a48; border-color: var(--blue); }
+  .pip-b { background: #2c1040; border-color: #7040a0; }
+
+  .faction-label {
+    font-family: 'Cormorant SC', serif;
+    font-size: 0.78rem;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 0.5rem;
+  }
+
+  h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.8rem, 8vw, 5rem);
+    font-weight: 300;
+    color: var(--parch);
+    letter-spacing: 0.06em;
+    line-height: 1.05;
+    font-style: italic;
+    text-shadow:
+      0 0 80px rgba(90,190,138,0.35),
+      0 0 30px rgba(46,125,82,0.25),
+      0 2px 8px rgba(0,0,0,0.7);
+  }
+
+  h1 span.accent { color: var(--accent); font-style: normal; font-weight: 600; }
+
+  .subtitle {
+    font-family: 'Cormorant SC', serif;
+    font-size: 0.85rem;
+    letter-spacing: 0.2em;
+    color: var(--muted);
+    margin-top: 0.5rem;
+  }
+
+  .flavor-line {
+    font-style: italic;
+    font-size: 0.98rem;
+    color: rgba(216,236,216,0.55);
+    margin-top: 0.7rem;
+    max-width: 520px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .divider {
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--green), var(--white), var(--blue), var(--black), transparent);
+    opacity: 0.35;
+    margin: 1.5rem 0;
+  }
+
+  /* ── SECTION ── */
+  .section { margin-bottom: 2.5rem; }
+
+  h2 {
+    font-family: 'Cormorant SC', serif;
+    font-size: 0.88rem;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+  }
+
+  h2::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, var(--accent), transparent);
+    opacity: 0.25;
+  }
+
+  /* ── STAT GRID ── */
+  .stat-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(155px, 1fr));
+    gap: 1px;
+    border: 1px solid var(--border);
+    background: var(--border);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+
+  .stat-cell {
+    background: var(--surface);
+    padding: 1rem 1.2rem;
+  }
+
+  .stat-cell .label {
+    font-family: 'Cormorant SC', serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 0.3rem;
+  }
+
+  .stat-cell .value {
+    font-size: 1rem;
+    color: var(--parch);
+    font-weight: 400;
+  }
+
+  /* ── PANEL ── */
+  .panel {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 5px;
+    padding: 1.5rem 1.8rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .panel::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--green), var(--white), var(--blue), var(--black));
+    opacity: 0.6;
+  }
+
+  /* ── COLOR ENTRIES ── */
+  .color-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+
+  .color-entry {
+    border-left: 3px solid;
+    padding-left: 1rem;
+  }
+  .color-entry.c-g { border-color: var(--growth); }
+  .color-entry.c-w { border-color: #b0a070; }
+  .color-entry.c-u { border-color: var(--blue); }
+  .color-entry.c-b { border-color: #8050c0; }
+
+  .color-entry .color-name {
+    font-family: 'Cormorant SC', serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 0.2rem;
+  }
+  .color-entry.c-g .color-name { color: var(--growth); }
+  .color-entry.c-w .color-name { color: var(--white); }
+  .color-entry.c-u .color-name { color: #6090c0; }
+  .color-entry.c-b .color-name { color: #a070d8; }
+
+  .color-entry .color-desc {
+    font-size: 0.92rem;
+    color: rgba(216,236,216,0.8);
+    font-style: italic;
+  }
+
+  /* ── ABSENT COLOR ── */
+  .absence-box {
+    background: linear-gradient(135deg, rgba(192,57,43,0.07), rgba(100,30,20,0.05));
+    border: 1px solid rgba(192,57,43,0.22);
+    border-radius: 4px;
+    padding: 1.1rem 1.4rem;
+    margin-top: 1rem;
+  }
+
+  .absence-box .header {
+    font-family: 'Cormorant SC', serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #c07060;
+    margin-bottom: 0.35rem;
+  }
+
+  .absence-box p {
+    font-size: 0.92rem;
+    color: rgba(216,236,216,0.68);
+    font-style: italic;
+  }
+
+  /* ── CARD TEXT ── */
+  .card-text-block {
+    border-left: 3px solid var(--accent);
+    padding: 0.8rem 1.4rem;
+    margin: 1rem 0;
+    background: rgba(90,190,138,0.06);
+    border-radius: 0 4px 4px 0;
+  }
+
+  .card-text-block p {
+    font-style: italic;
+    font-size: 1rem;
+    color: rgba(216,236,216,0.92);
+  }
+
+  .card-text-block .flavor {
+    margin-top: 0.5rem;
+    color: rgba(216,236,216,0.55);
+    font-size: 0.9rem;
+  }
+
+  .card-text-block cite {
+    display: block;
+    margin-top: 0.4rem;
+    font-size: 0.72rem;
+    font-style: normal;
+    color: var(--muted);
+    font-family: 'Cormorant SC', serif;
+    letter-spacing: 0.1em;
+  }
+
+  /* ── COMMANDER CARDS ── */
+  .commander-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .commander-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 5px;
+    padding: 1.2rem 1.5rem;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 0.5rem 1.5rem;
+    align-items: start;
+  }
+
+  .commander-card.featured {
+    border-color: rgba(90,190,138,0.5);
+    background: linear-gradient(135deg, rgba(14,20,14,0.97), rgba(14,10,28,0.97));
+  }
+
+  .commander-card.featured2 {
+    border-color: rgba(90,190,138,0.35);
+  }
+
+  .commander-card .cmd-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--parch);
+    margin-bottom: 0.1rem;
+  }
+
+  .commander-card .cmd-type {
+    font-family: 'Cormorant SC', serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin-bottom: 0.45rem;
+  }
+
+  .commander-card .cmd-desc {
+    font-size: 0.93rem;
+    color: rgba(216,236,216,0.82);
+    line-height: 1.6;
+  }
+
+  .commander-card .cmd-meta {
+    text-align: right;
+    min-width: 90px;
+  }
+
+  .deck-count {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--accent);
+    display: block;
+    line-height: 1;
+  }
+
+  .deck-label {
+    font-family: 'Cormorant SC', serif;
+    font-size: 0.58rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .tag {
+    display: inline-block;
+    background: rgba(90,190,138,0.1);
+    border: 1px solid rgba(90,190,138,0.28);
+    border-radius: 3px;
+    font-family: 'Cormorant SC', serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    color: var(--accent);
+    padding: 1px 6px;
+    margin: 2px 2px 0 0;
+  }
+
+  .tag.blue  { background: rgba(26,79,122,0.18); border-color: rgba(26,79,122,0.35); color: #7aabe0; }
+  .tag.black { background: rgba(44,16,64,0.25);  border-color: rgba(112,64,160,0.35); color: #c090e0; }
+  .tag.white { background: rgba(212,200,160,0.1); border-color: rgba(212,200,160,0.28); color: #c8b878; }
+  .tag.red   { background: rgba(192,57,43,0.12);  border-color: rgba(192,57,43,0.3); color: #d08070; }
+
+  /* ── TWO-COL ── */
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  .callout-box {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 5px;
+    padding: 1.2rem 1.5rem;
+  }
+
+  .callout-box h3 {
+    font-family: 'Cormorant SC', serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.7rem;
+  }
+
+  .callout-box ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .callout-box ul li {
+    padding: 0.25rem 0 0.25rem 1.2rem;
+    font-size: 0.92rem;
+    color: rgba(216,236,216,0.82);
+    position: relative;
+  }
+
+  .callout-box ul li::before {
+    content: '✦';
+    position: absolute;
+    left: 0;
+    font-size: 0.5rem;
+    top: 0.6rem;
+    color: var(--accent);
+    opacity: 0.5;
+  }
+
+  .callout-box.strengths { border-left: 3px solid rgba(90,190,138,0.55); }
+  .callout-box.weaknesses { border-left: 3px solid rgba(192,57,43,0.45); }
+
+  /* ── TABLE ── */
+  .arch-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+  }
+
+  .arch-table th {
+    font-family: 'Cormorant SC', serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    padding: 0.6rem 0.8rem;
+    text-align: left;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .arch-table td {
+    padding: 0.65rem 0.8rem;
+    border-bottom: 1px solid rgba(90,190,138,0.1);
+    color: rgba(216,236,216,0.78);
+    vertical-align: top;
+  }
+
+  .arch-table tr:last-child td { border-bottom: none; }
+  .arch-table tr:hover td { background: rgba(90,190,138,0.04); }
+
+  .arch-table td:first-child {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--parch);
+    white-space: nowrap;
+  }
+
+  /* ── COUNTER CALLOUT ── */
+  .counter-types {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.8rem;
+    margin-top: 0.8rem;
+  }
+
+  .counter-chip {
+    background: rgba(90,190,138,0.08);
+    border: 1px solid rgba(90,190,138,0.22);
+    border-radius: 4px;
+    padding: 0.6rem 0.8rem;
+    font-size: 0.88rem;
+  }
+
+  .counter-chip .ct-name {
+    font-family: 'Cormorant SC', serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.2rem;
+  }
+
+  .counter-chip p {
+    font-size: 0.82rem;
+    color: rgba(216,236,216,0.72);
+    font-style: italic;
+    line-height: 1.4;
+  }
+
+  /* ── FOOTNOTE ── */
+  .footnote {
+    font-size: 0.77rem;
+    color: var(--muted);
+    font-style: italic;
+    margin-top: 0.6rem;
+    padding-top: 0.6rem;
+    border-top: 1px solid rgba(90,190,138,0.1);
+  }
+
+  @media (max-width: 600px) {
+    .two-col, .color-row, .counter-types { grid-template-columns: 1fr; }
+    .commander-card { grid-template-columns: 1fr; }
+    .commander-card .cmd-meta { text-align: left; }
+    .counter-types { grid-template-columns: 1fr 1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="page-wrap">
+
+  <header>
+    <div class="pip-row">
+      <span class="pip pip-g" title="Green"></span>
+      <span class="pip pip-w" title="White"></span>
+      <span class="pip pip-u" title="Blue"></span>
+      <span class="pip pip-b" title="Black"></span>
+    </div>
+    <div class="faction-label">Four-Color Faction · Research Packet</div>
+    <h1><span class="accent">Witch</span>-Maw</h1>
+    <div class="subtitle">G W U B — The Redless Quadrant · Growth</div>
+    <div class="flavor-line">"When it awoke, it shattered the hillsides to make way for its passage."</div>
+    <div class="divider"></div>
+  </header>
+
+  <!-- AT A GLANCE -->
+  <section class="section">
+    <h2>At a Glance</h2>
+    <div class="stat-grid">
+      <div class="stat-cell">
+        <div class="label">Formal Name</div>
+        <div class="value">Witch-Maw</div>
+      </div>
+      <div class="stat-cell">
+        <div class="label">Also Called</div>
+        <div class="value">Non-Red · Redless</div>
+      </div>
+      <div class="stat-cell">
+        <div class="label">Missing Color</div>
+        <div class="value" style="color:#c07060">Red</div>
+      </div>
+      <div class="stat-cell">
+        <div class="label">Mechanic Theme</div>
+        <div class="value">Growth</div>
+      </div>
+      <div class="stat-cell">
+        <div class="label">Named For</div>
+        <div class="value">Witch-Maw Nephilim</div>
+      </div>
+      <div class="stat-cell">
+        <div class="label">Nephilim Set</div>
+        <div class="value">Guildpact (2006)</div>
+      </div>
+      <div class="stat-cell">
+        <div class="label">Nephilim Stats</div>
+        <div class="value">1/1 · Rare</div>
+      </div>
+      <div class="stat-cell">
+        <div class="label">Top Commander</div>
+        <div class="value" style="font-size:0.88rem">Atraxa PV (~42K decks)</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COLOR IDENTITY -->
+  <section class="section">
+    <h2>Color Identity</h2>
+    <div class="panel">
+      <p style="font-size:0.97rem; color:rgba(216,236,216,0.82);">
+        Witch-Maw is the most methodically complete color combination in Magic — patient, optimizing, and inevitable. All four colors share a belief in long-term planning over short-term gain. The combination does not rush; it cultivates. It is widely considered the poster combination of Phyrexia, whose four aligned Praetors represent four of these very colors.
+      </p>
+      <div class="color-row">
+        <div class="color-entry c-g">
+          <div class="color-name">🟢 Green — Growth</div>
+          <div class="color-desc">Natural expansion, land ramp, and organic inevitability. Green provides the mana engine and creature density to sustain escalating plans.</div>
+        </div>
+        <div class="color-entry c-w">
+          <div class="color-name">⬜ White — Community</div>
+          <div class="color-desc">Organization, efficiency multiplication, removal, and structured order. White turns individual components into a coordinated system.</div>
+        </div>
+        <div class="color-entry c-u">
+          <div class="color-name">🔵 Blue — Knowledge</div>
+          <div class="color-desc">Card selection, optimization, counterspells, and the superior information that enables perfect decisions. The planner's color.</div>
+        </div>
+        <div class="color-entry c-b">
+          <div class="color-name">🟣 Black — Ambition</div>
+          <div class="color-desc">Ruthless direction, tutors, sacrifice optimization, and the willingness to pursue long-term ambition without moral hesitation.</div>
+        </div>
+      </div>
+      <div class="absence-box">
+        <div class="header">🔴 The Absent Color: Red</div>
+        <p>Red provides passion, spontaneity, haste, and emotional decision-making — living in the moment and acting without a plan. Witch-Maw's rejection of red is the rejection of impulse itself. Every action is calculated; every resource is a long-term investment. There is no "attack now and figure it out later" — only patient, methodical accumulation until the moment of inevitable victory.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ORIGIN -->
+  <section class="section">
+    <h2>Origin — The Nephilim</h2>
+    <div class="panel">
+      <p style="margin-bottom:0.8rem; font-size:0.95rem; color:rgba(216,236,216,0.82);">
+        Witch-Maw Nephilim is a Rare 1/1 for GWUB from <em>Guildpact</em> (2006), card #138, illustrated by Greg Staples. It is the most mechanically demanding of the five Nephilim to activate — starting as a 1/1, it requires spell casts to grow, and rewards patience with a creature that earns trample only after reaching power 10 or greater. The fantasy is pure Witch-Maw: a slow accumulation that becomes unstoppable.
+      </p>
+
+      <div class="card-text-block">
+        <p>Whenever you cast a spell, you may put two +1/+1 counters on Witch-Maw Nephilim. Whenever Witch-Maw Nephilim attacks, it gains trample until end of turn if its power is 10 or greater.</p>
+        <p class="flavor">"When it awoke, it shattered the hillsides to make way for its passage."</p>
+        <cite>— Witch-Maw Nephilim, Guildpact (2006)</cite>
+      </div>
+
+      <p style="font-size:0.92rem; color:rgba(216,236,216,0.72); margin-top:0.8rem;">
+        The mechanical arc is the faction's philosophical arc in miniature: fragile beginning → patient investment → critical mass → unstoppable conclusion. A 1/1 that gains two +1/+1 counters per spell can reach power 10 in roughly five spell casts, after which it tramples through any blocker. In practice, the absence of innate evasion until power 10 creates vulnerability — but that challenge simply asks the pilot to protect the investment, which is exactly what GWUB does best: white removal, blue counterspells, black tutors, and green bodies providing a shield until the inevitable moment arrives.
+      </p>
+      <p class="footnote">Note: Like all Nephilim, Witch-Maw is not officially legal as a Commander, but sees play at house-rule tables as a spell-slinger voltron threat. It has roughly 1,166 EDHREC decks listed.</p>
+    </div>
+  </section>
+
+  <!-- THE ATRAXA FACTOR -->
+  <section class="section">
+    <h2>The Atraxa Factor</h2>
+    <div class="panel">
+      <p style="font-size:0.95rem; color:rgba(216,236,216,0.82); margin-bottom:0.9rem;">
+        Witch-Maw is unique among the five four-color quadrants: it is by far the most commander-dominated quadrant in all of Commander. Atraxa, Praetors' Voice held the #1 spot on EDHREC's all-time most-played commanders list for nearly a decade. Even after being recently surpassed by The Ur-Dragon in 2025 — itself a product of extraordinary set support from <em>Tarkir: Dragonstorm</em> — Atraxa remains #2 with approximately 38,000–42,000 logged decks. A second Atraxa card, Atraxa, Grand Unifier (Phyrexia: All Will Be One, 2023), added another ~17,000 decks. The two cards together account for roughly 59,000 EDHREC decks at GWUB, an unprecedented volume for a single color identity.
+      </p>
+      <p style="font-size:0.92rem; color:rgba(216,236,216,0.72); font-style:italic;">
+        For Vox Mana placement purposes: any player who has ever built or is attracted to Atraxa belongs in Witch-Maw. The faction's identity IS Atraxa's identity in the popular imagination.
+      </p>
+    </div>
+  </section>
+
+  <!-- KEY COMMANDERS -->
+  <section class="section">
+    <h2>Key Commanders</h2>
+    <div class="commander-list">
+
+      <div class="commander-card featured">
+        <div>
+          <div class="cmd-name">Atraxa, Praetors' Voice</div>
+          <div class="cmd-type">Legendary Creature — Phyrexian Angel Horror · Commander 2016</div>
+          <div class="cmd-desc">
+            A 4/4 with flying, vigilance, deathtouch, and lifelink for GWUB — four of the most powerful combat keywords simultaneously. At the end of your turn, she proliferates. Proliferate means choosing any number of players and/or permanents with counters and adding one counter of any type already there. The word "any type" is the key: +1/+1 counters, loyalty counters on planeswalkers, poison counters on opponents, experience counters, charge counters on artifacts — all scale together. She has been called "the most powerful commander in the game" and held the #1 EDHREC spot for over half a decade. Her four major themes — Infect (6,600+ decks), Planeswalkers (3,900+), +1/+1 Counters (2,800+), and Phyrexians (2,100+) — each represent a distinct deck identity.
+          </div>
+          <div style="margin-top:0.6rem;">
+            <span class="tag">Growth</span>
+            <span class="tag blue">Proliferate</span>
+            <span class="tag red">Infect</span>
+            <span class="tag black">Planeswalkers</span>
+            <span class="tag white">Counters</span>
+          </div>
+        </div>
+        <div class="cmd-meta">
+          <span class="deck-count">~42K</span>
+          <span class="deck-label">EDHREC Decks</span>
+        </div>
+      </div>
+
+      <div class="commander-card featured2">
+        <div>
+          <div class="cmd-name">Atraxa, Grand Unifier</div>
+          <div class="cmd-type">Legendary Creature — Phyrexian Angel · Phyrexia: All Will Be One (2023)</div>
+          <div class="cmd-desc">
+            A 7/7 with flying, vigilance, deathtouch, and lifelink for GWUB at mana value 7. When she enters the battlefield, you reveal the top ten cards of your library and put one card of each card type (creature, instant, sorcery, artifact, enchantment, planeswalker, land, battle) into your hand. One of the most powerful ETB triggers ever printed — she refills your hand completely and selects for card type diversity, then arrives as a 7/7 flying deathtouch vigilance lifelink body. A different expression of the same Witch-Maw philosophy: patient development culminating in an overwhelming, inevitable value event.
+          </div>
+          <div style="margin-top:0.6rem;">
+            <span class="tag">Card Advantage</span>
+            <span class="tag blue">ETB Value</span>
+            <span class="tag white">Good Stuff</span>
+          </div>
+        </div>
+        <div class="cmd-meta">
+          <span class="deck-count">~17K</span>
+          <span class="deck-label">EDHREC Decks</span>
+        </div>
+      </div>
+
+      <div class="commander-card">
+        <div>
+          <div class="cmd-name">Witch-Maw Nephilim</div>
+          <div class="cmd-type">Creature — Nephilim · Guildpact (House Rule Commander)</div>
+          <div class="cmd-desc">
+            The namesake. A 1/1 that grows by two +1/+1 counters per spell cast, gaining trample at power 10+. Playable under house rules as a voltron/storm threat. Approximately 1,166 EDHREC decks. Works well with spell-doublers (Thousand-Year Storm, Ral Zarek), protection suites (Swiftfoot Boots, Lightning Greaves), and proliferate effects to accelerate its counter accumulation.
+          </div>
+          <div style="margin-top:0.6rem;">
+            <span class="tag">House Rules</span>
+            <span class="tag">Voltron</span>
+            <span class="tag blue">Storm</span>
+          </div>
+        </div>
+        <div class="cmd-meta">
+          <span class="deck-count">1,166</span>
+          <span class="deck-label">EDHREC Decks</span>
+        </div>
+      </div>
+
+    </div>
+    <p class="footnote" style="margin-top:0.8rem;">Note: Unlike the other four quadrants, Witch-Maw has no significant Partner pairing competition — Atraxa's dominance is total. The quadrant is defined by Atraxa in a way no other four-color identity is defined by a single card.</p>
+  </section>
+
+  <!-- PROLIFERATE: THE MECHANIC -->
+  <section class="section">
+    <h2>Proliferate — The Mechanic of Growth</h2>
+    <div class="panel">
+      <p style="font-size:0.95rem; color:rgba(216,236,216,0.82); margin-bottom:1rem;">
+        Proliferate is Witch-Maw's defining mechanic. It reads: "Choose any number of players and/or permanents that have a counter, then give each one additional counter of each kind already there." Its power lies in universality — it scales every counter type simultaneously, compounding different strategies at once:
+      </p>
+      <div class="counter-types">
+        <div class="counter-chip">
+          <div class="ct-name">+1/+1 Counters</div>
+          <p>Creatures accumulate power over time. Every proliferate turn doubles investment already made in your board.</p>
+        </div>
+        <div class="counter-chip">
+          <div class="ct-name">Poison Counters</div>
+          <p>Infect deals poison to players; at 10, they lose. Proliferate accelerates the clock without needing combat.</p>
+        </div>
+        <div class="counter-chip">
+          <div class="ct-name">Loyalty Counters</div>
+          <p>Planeswalkers activate abilities by spending loyalty — proliferate rebuilds them faster than opponents can answer them.</p>
+        </div>
+        <div class="counter-chip">
+          <div class="ct-name">Experience Counters</div>
+          <p>Commander experience counters (Meren, Ezuri, Saskia) scale permanently — proliferate accelerates every commander in a pod.</p>
+        </div>
+        <div class="counter-chip">
+          <div class="ct-name">Charge Counters</div>
+          <p>Astral Cornucopia, Everflowing Chalice, and other artifacts scale in mana production with each proliferate trigger.</p>
+        </div>
+        <div class="counter-chip">
+          <div class="ct-name">Lore Counters</div>
+          <p>Sagas advance to next chapter on proliferate, unlocking abilities faster and potentially recycling after completion.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STRENGTHS & WEAKNESSES -->
+  <section class="section">
+    <h2>Strengths &amp; Weaknesses</h2>
+    <div class="two-col">
+      <div class="callout-box strengths">
+        <h3>Strengths</h3>
+        <ul>
+          <li>Best ramp in the game (green) combined with best card advantage (blue/black) and best removal (white/black)</li>
+          <li>Proliferate scales multiple win conditions simultaneously — each trigger advances every counter-based plan</li>
+          <li>Atraxa's four combat keywords (flying, vigilance, deathtouch, lifelink) make her both a threat and a stabilizer in one card</li>
+          <li>Blue counterspells protect the slow accumulation plan from disruption</li>
+          <li>White exile-based removal handles indestructible and difficult permanents</li>
+          <li>Enormous strategic flexibility — same commander enables infect, superfriends, and +1/+1 counters as entirely distinct decks</li>
+          <li>Grand Unifier's ETB triggers even off reanimation, flicker, or clone effects</li>
+        </ul>
+      </div>
+      <div class="callout-box weaknesses">
+        <h3>Weaknesses</h3>
+        <ul>
+          <li>No red means no haste — slow starts are exposed to combo decks before the engine fires</li>
+          <li>No direct damage — must win through combat, poison, or combo; no "burn" finish</li>
+          <li>Atraxa is a known threat — tables will apply coordinated removal before proliferate accumulates</li>
+          <li>Infect builds draw disproportionate hate and political enmity at tables</li>
+          <li>Planeswalker builds require protecting multiple fragile permanents simultaneously</li>
+          <li>Grand Unifier at 7 mana can be countered for massive card disadvantage</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ARCHETYPES -->
+  <section class="section">
+    <h2>Common Archetypes</h2>
+    <div class="panel" style="padding:0; overflow:hidden;">
+      <table class="arch-table">
+        <thead>
+          <tr>
+            <th>Archetype</th>
+            <th>Core Strategy</th>
+            <th>Key Enablers</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Infect</td>
+            <td>Deal poison counters through infect creatures, then proliferate opponents to 10 without needing direct combat</td>
+            <td>Atraxa PV, Tekuthal, Thrummingbird, Viral Drake, Inexorable Tide, Grafted Exoskeleton</td>
+          </tr>
+          <tr>
+            <td>Superfriends</td>
+            <td>Deploy multiple planeswalkers, use their abilities, and proliferate loyalty back up before opponents can attack them</td>
+            <td>Atraxa PV, Oath of Teferi, Doubling Season, The Chain Veil, Deepglow Skate</td>
+          </tr>
+          <tr>
+            <td>+1/+1 Counters</td>
+            <td>Place and proliferate counters on a growing board until creatures become overwhelming; protect with white/blue</td>
+            <td>Atraxa PV, Hardened Scales, Ozolith, Inspiring Call, Kalonian Hydra, Evolution Sage</td>
+          </tr>
+          <tr>
+            <td>Good Stuff / ETB</td>
+            <td>Play the most powerful cards in four colors; use Grand Unifier's ETB to refill on value repeatedly via flicker</td>
+            <td>Atraxa Grand Unifier, Conjurer's Closet, Deadeye Navigator, Soulherder, Ephemerate</td>
+          </tr>
+          <tr>
+            <td>Spell-Storm Voltron</td>
+            <td>Cast spells to grow Witch-Maw Nephilim to critical mass, then attack with a 10+ trample creature backed by protection</td>
+            <td>Witch-Maw Nephilim, Lightning Greaves, Swiftfoot Boots, Thousand-Year Storm, Teferi's Ageless Insight</td>
+          </tr>
+          <tr>
+            <td>Phyrexian Tribal</td>
+            <td>Assemble Phyrexian creatures and synergies around the Praetors' combined vision of total compleation</td>
+            <td>Atraxa PV, Ixhel, Norn's Choirmaster, Glissa Herald of Predation, Jin-Gitaxias, Sheoldred</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- VOXMANA NOTES -->
+  <section class="section">
+    <h2>Vox Mana Design Notes</h2>
+    <div class="panel">
+      <p style="font-size:0.95rem; color:rgba(216,236,216,0.82); margin-bottom:0.9rem;">Placement signal considerations and design hooks:</p>
+      <ul style="list-style:none; padding:0; display:flex; flex-direction:column; gap:0.7rem;">
+        <li style="padding-left:1.5rem; position:relative; font-size:0.92rem; color:rgba(216,236,216,0.8);"><span style="position:absolute;left:0;color:var(--accent);">✦</span> Witch-Maw's defining negative signal is <strong style="color:#c07060;">absent red</strong>: players who reject impulsive action, emotional play, and "doing something now" score here. "I would rather accumulate advantage than attack early" is the Witch-Maw disposition.</li>
+        <li style="padding-left:1.5rem; position:relative; font-size:0.92rem; color:rgba(216,236,216,0.8);"><span style="position:absolute;left:0;color:var(--accent);">✦</span> Witch-Maw has the largest commander in Commander. Atraxa's brand recognition extends beyond dedicated players — it is the most accessible entry point for new Commander players across all five quadrants. "I want to build Atraxa" is itself a full placement answer.</li>
+        <li style="padding-left:1.5rem; position:relative; font-size:0.92rem; color:rgba(216,236,216,0.8);"><span style="position:absolute;left:0;color:var(--accent);">✦</span> The <strong>Growth</strong> label covers multiple mechanical expressions: counter accumulation, planeswalker escalation, poison clock, and incremental board advantage. Unlike Aggression (one clear strategy), Growth has internal diversity that supports different player types within the same faction.</li>
+        <li style="padding-left:1.5rem; position:relative; font-size:0.92rem; color:rgba(216,236,216,0.8);"><span style="position:absolute;left:0;color:var(--accent);">✦</span> Contrast with Glint-Eye (UBRG): both have blue and black, but Glint-Eye trades white's structure for red's chaos and sacrifices patience for cascade explosiveness. Witch-Maw keeps the order (white), keeps the patience (no red), and focuses on compounding investment rather than random detonation.</li>
+        <li style="padding-left:1.5rem; position:relative; font-size:0.92rem; color:rgba(216,236,216,0.8);"><span style="position:absolute;left:0;color:var(--accent);">✦</span> The Phyrexian lore connection is strong and available: Atraxa is literally built from Phyrexian Praetor components (Elesh Norn, Jin-Gitaxias, Sheoldred, Vorinclex — all GWUB). For lore-interested players, Witch-Maw is the faction of New Phyrexia's dominant ideology — compleation as patient perfection.</li>
+        <li style="padding-left:1.5rem; position:relative; font-size:0.92rem; color:rgba(216,236,216,0.8);"><span style="position:absolute;left:0;color:var(--accent);">✦</span> Personality fit: Johnny players (complex scaling systems, proliferate interactions, combo endpoints) are the primary profile. Spike is present through infect's clean win condition and Superfriends' inevitability. Timmy appears in the Grand Unifier builds — a massive creature that draws a huge hand is a pure Timmy moment.</li>
+        <li style="padding-left:1.5rem; position:relative; font-size:0.92rem; color:rgba(216,236,216,0.8);"><span style="position:absolute;left:0;color:var(--accent);">✦</span> Placement quiz signals: <em>prefers patience over speed, likes watching resources accumulate over time, values planning and information, doesn't need to win "now," comfortable with complex multi-step strategies, attracted to counters/scaling/incremental advantage</em>. All of these cleanly route to Witch-Maw.</li>
+        <li style="padding-left:1.5rem; position:relative; font-size:0.92rem; color:rgba(216,236,216,0.8);"><span style="position:absolute;left:0;color:var(--accent);">✦</span> Recommendation hook: Witch-Maw offers the widest range of <em>thematically distinct</em> decks under a single commander — infect, superfriends, +1/+1 counters, Phyrexian tribal, and good stuff are functionally different decks that all run Atraxa. This is the strongest quadrant for differentiating recommendations by play style.</li>
+      </ul>
+    </div>
+  </section>
+
+  <div class="footnote" style="font-size:0.73rem; margin-top:2rem; line-height:1.85; font-family:'Cormorant SC',serif; letter-spacing:0.04em;">
+    <strong style="letter-spacing:0.15em; color:var(--muted);">Sources</strong><br>
+    MTG Wiki — Nephilim, Guildpact · Scryfall — Witch-Maw Nephilim (GPT #138) · CardTrader / Card Kingdom — Witch-Maw Nephilim card data · EDHREC — Top Witch-Maw Commanders, Atraxa Praetors' Voice (Commander, all theme tags), Atraxa Grand Unifier (Commander) · Draftsim — Atraxa Dethroned: EDH Has a New #1 Most Popular Commander (May 2025) · EDHREC Articles — A Statistical Look at (Almost) a Year in Commander 2025 · Bell of Lost Souls — Top 5 Witch-Maw Commanders (2024) · CommanderComplete — Atraxa proliferate deck listing
+  </div>
+
+</div>
+</body>
+</html>

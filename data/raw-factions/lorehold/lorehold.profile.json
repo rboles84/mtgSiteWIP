@@ -13,7 +13,7 @@
   "source_review_date": "2026-05-09",
   "last_full_review": "2026-05-09",
   "last_incremental_review": "2026-05-09",
-  "last_updated": "2026-05-13T21:14:06.308Z",
+  "last_updated": "2026-06-09T00:00:00.000Z",
   "site_surface": {
     "display_name": "Lorehold",
     "short_summary": "Lorehold is Strixhaven's red-white College of Archaeomancy: a history-and-fieldwork college built around ruins, relics, spirits, scrolls, artifacts, living history, and the order-versus-chaos tension of preserving the past while chasing discovery.",
@@ -737,7 +737,58 @@
     }
   ],
   "views_on_other_factions": [],
-  "mechanics": [
+  "mechanics": {
+    "summary": "Lorehold mechanics are best read as archaeomancy in action: Spirit and statue magic, The Rousing, Spirit tokens, historical artifact restoration, and field evidence turning the past into present action. Magecraft, Learn, and Lessons are Strixhaven-wide support texture here rather than Lorehold-exclusive proof; they should only support Lorehold when paired with history, artifacts, spirits, records, ruins, or fieldwork.",
+    "source_bound_texture": [
+      "Spirits and Spirit tokens as ancient dead, witnesses, mentors, or primary-source contact.",
+      "Artifacts, relics, monuments, tomes, and restored objects as material history rather than generic artifact value.",
+      "Graveyard-leaves and reconstruction patterns as excavation, recovered history, or witness-calling.",
+      "Magecraft, Learn, and Lessons as Strixhaven-wide context only when anchored to exact Lorehold cards or historical evidence."
+    ],
+    "supporting_claim_ids": [
+      "claim_lorehold_core_0004",
+      "claim_lorehold_core_0005",
+      "claim_lorehold_core_0006",
+      "claim_lorehold_core_0007",
+      "claim_lorehold_core_0008",
+      "claim_lorehold_structure_0006",
+      "claim_lorehold_structure_0007",
+      "claim_lorehold_structure_0009",
+      "claim_lorehold_mechanic_0001",
+      "claim_lorehold_mechanic_0002",
+      "claim_lorehold_mechanic_0003",
+      "claim_lorehold_mechanic_0004",
+      "claim_lorehold_mechanic_0005",
+      "claim_lorehold_mechanic_0006",
+      "claim_lorehold_mechanic_0007",
+      "claim_lorehold_mechanic_0008",
+      "claim_lorehold_mechanic_0009",
+      "claim_lorehold_mechanic_0010",
+      "claim_lorehold_mechanic_0013",
+      "claim_lorehold_mechanic_0014",
+      "claim_lorehold_mechanic_0015",
+      "claim_lorehold_mechanic_0016",
+      "claim_lorehold_mechanic_0017",
+      "claim_lorehold_location_0010",
+      "claim_lorehold_figure_0018",
+      "claim_lorehold_placement_0009"
+    ],
+    "supporting_source_ids": [
+      "src_lorehold_0002",
+      "src_lorehold_0004",
+      "src_lorehold_0005",
+      "src_lorehold_0006",
+      "src_lorehold_0008",
+      "src_lorehold_0009",
+      "src_lorehold_0010",
+      "src_lorehold_0011",
+      "VM-056"
+    ],
+    "not_promoted_terms": [
+      "ward",
+      "Boros mentor keyword"
+    ],
+    "entries": [
     {
       "mechanic_id": "mech_archaeomancy",
       "mechanic_name": "Archaeomancy",
@@ -853,7 +904,8 @@
       "confidence": "High",
       "notes": "Do not generalize to every Lorehold student; use as a supported example of preservation-oriented practice."
     }
-  ],
+  ]
+  },
   "search_and_filter_metadata": {
     "aliases": [
       "Lorehold",

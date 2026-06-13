@@ -12,6 +12,7 @@
 } from "./adaptive-placement.js";
 import {
   buildCommanderDossier,
+  buildCommanderDeckStartFallbackCandidates,
   buildPreconRecommendations,
   createArchidektTagCatalog,
   buildMtgDecksCommanderUrl,
@@ -20,6 +21,7 @@ import {
   getCommanderFactionGuidance,
   getServiceChipMeta,
   hasRenderableLandTier,
+  resolveSignalBand,
   selectPreconPreviewRecommendations,
 } from "./commander-dossier.js";
 import {
@@ -425,7 +427,7 @@ export function basicLandGuidanceCopy(colors) {
     .filter((color) => MANA_SYMBOL_NAMES[color]);
   const basics = basicLandNamesForColors(colorSymbols);
   if (!basics.length) {
-    return "After choosing your nonbasic lands, fill the rest with basics or colorless utility lands based on your early mana needs.";
+    return "Start with Wastes, true {C} sources, and mana rocks before utility lands. Generic costs are not colorless mana, effects that ask for a color will not make {C}, Command Tower cannot choose colorless, and Reflecting Pool-style effects need another {C} source before they help.";
   }
   if (basics.length === 1) {
     return `After choosing your nonbasic lands, fill the rest with ${basics[0]} unless your utility lands need more room.`;
@@ -433,6 +435,23 @@ export function basicLandGuidanceCopy(colors) {
   const firstColor = (MANA_SYMBOL_NAMES[colorSymbols[0]] || basics[0]).toLowerCase();
   const secondColor = (MANA_SYMBOL_NAMES[colorSymbols[1]] || basics[1]).toLowerCase();
   return `After choosing your nonbasic lands, fill the rest with ${formatBasicLandList(basics)} based on your early colored mana needs. If most early spells need ${firstColor}, lean ${basics[0]}. If your early interaction needs ${secondColor}, lean ${basics[1]}.`;
+}
+
+function landLaneCopyForFaction(faction = {}) {
+  if (String(faction?.key || "").toUpperCase() === "COLORLESS") {
+    return {
+      premium: "Best when you need true {C} early and enough speed to reach colorless finishers before the table stabilizes.",
+      midrange: "The practical upgrade lane: Wastes, proven colorless sources, utility lands, and artifact mana that keep the restriction consistent.",
+      budget: "Start with Wastes and reliable colorless production first; add utility lands only when they still help cast your actual {C} cards.",
+      utility: "Use utility lands as deck machinery, not decoration; Reflecting Pool-style effects need another source that can make {C} before they help the plan.",
+    };
+  }
+  return {
+    premium: "Best when you want speed, consistency, and fewer tapped lands.",
+    midrange: "Good first upgrade lane: stronger fixing without chasing every premium land.",
+    budget: "Playable entry point. Expect more tapped lands, but the deck will still function.",
+    utility: "Adds Commander flexibility beyond color fixing.",
+  };
 }
 
 function normalizeStarterCardNames(items = []) {
@@ -511,10 +530,7 @@ function commanderStartSnapshotCopy({ commanderLane, dossier }) {
 }
 
 function readingSignalBand(confidence) {
-  const value = Number(confidence || 0);
-  if (value >= 0.6) return "strong";
-  if (value >= 0.3) return "moderate";
-  return "emerging";
+  return resolveSignalBand(confidence).signalBand;
 }
 
 function readingSignalMeaning({ band, dossier }) {
@@ -559,6 +575,16 @@ function buildSignalStrengthCardHtml({ dossier, result }) {
         <span class="${band === "strong" ? "is-active" : ""}">Strong</span>
       </div>
       <div class="starter-copy">${escapeHtml(readingSignalMeaning({ band, dossier }))}</div>
+    </div>`;
+}
+
+function buildSummaryTagRowHtml(tags = []) {
+  if (!Array.isArray(tags) || !tags.length) {
+    return `<div class="dossier-snapshot-tags" data-summary-tags-row hidden></div>`;
+  }
+  return `
+    <div class="dossier-snapshot-tags" data-summary-tags-row>
+      ${tags.map((tag) => `<span class="dossier-snapshot-tag">${escapeHtml(tag)}</span>`).join("")}
     </div>`;
 }
 
@@ -1285,6 +1311,11 @@ const IDENTITY_HERO_SLUG_BY_FACTION_KEY = Object.freeze({
   SULTAI: "sultai",
   TEMUR: "temur",
   WITHERBLOOM: "witherbloom",
+  DUNE: "dune",
+  GLINT: "glint",
+  WITCH: "witch",
+  YORE: "yore",
+  COLORLESS: "colorless",
   WU: "azorius",
   UB: "dimir",
   BR: "rakdos",
@@ -1320,7 +1351,17 @@ export function heroBannerBackgroundForFaction(faction = {}) {
 function dedupeLinks(links = []) {
   const seen = new Set();
   return (links || []).filter((link) => {
-    const key = `${link?.service || ""}:${link?.url || ""}:${link?.label || ""}`;
+    const service = String(link?.service || "").trim().toLowerCase();
+    let url = String(link?.url || "").trim();
+    try {
+      const parsed = new URL(url, "https://vox-mana.local");
+      parsed.hash = "";
+      parsed.searchParams.sort();
+      url = parsed.pathname + (parsed.search ? parsed.search : "");
+    } catch (_) {
+      url = url.replace(/#.*$/, "");
+    }
+    const key = `${service}:${url}`;
     if (!link?.url || seen.has(key)) return false;
     seen.add(key);
     return true;
@@ -1364,6 +1405,7 @@ function buildDeckDiscoveryGroups({
   archidektLinks,
   commanderDirectoryLinks,
   commanderCandidates,
+  commanderFallbackCandidates,
   tagRefs,
 }) {
   const identity = getColorIdentity(faction?.colors || faction?.key || "");
@@ -1371,6 +1413,9 @@ function buildDeckDiscoveryGroups({
   const topTag = uniqueTagRefs(tagRefs)[0];
   const tagEntry = topTag ? taxonomyEntry(topTag.category, topTag.tag) : null;
   const routingAlias = getExternalDeckRoutingAlias(faction);
+  const deckStartCommanderCandidates = routingAlias.suppressDirectoryLinks && !(commanderCandidates || []).length
+    ? (commanderFallbackCandidates || [])
+    : (commanderCandidates || []);
 
   return [
     {
@@ -1380,7 +1425,7 @@ function buildDeckDiscoveryGroups({
       links: dedupeLinks([
         ...commanderDirectoryLinks.filter((link) => getServiceChipMeta(link).key === "edhrec"),
         { service: "edhrec", label: `${routingAlias.label} commanders`, url: routingAlias.edhrecUrl },
-        ...buildCommanderSpecificLinks(commanderCandidates, "edhrec"),
+        ...buildCommanderSpecificLinks(deckStartCommanderCandidates, "edhrec"),
       ]).slice(0, 4),
     },
     {
@@ -1395,7 +1440,7 @@ function buildDeckDiscoveryGroups({
       desc: "Start with the color lane, then search commander names when you want tournament-adjacent deck examples.",
       links: dedupeLinks([
         ...commanderDirectoryLinks.filter((link) => getServiceChipMeta(link).key === "mtgdecks"),
-        ...buildCommanderSpecificLinks(commanderCandidates, "mtgdecks"),
+        ...buildCommanderSpecificLinks(deckStartCommanderCandidates, "mtgdecks"),
       ]).slice(0, 4),
     },
   ].filter((group) => group.links.length);
@@ -1483,7 +1528,7 @@ function buildPreconCardHtml(precon) {
   const previewGroup = precon?.previewGroup || precon?.group || (precon?.lane === "stretch" ? "stretch" : "otherExact");
   const badge = PRECON_BADGE_META[previewGroup] || PRECON_BADGE_META.otherExact;
   const fitSummary = wordExcerpt(precon?.fitSummary || precon?.tablePerception || "", 24);
-  const bestFor = wordExcerpt(precon?.recommendationProfile?.recommendedFor || "", 18);
+  const bestFor = wordExcerpt(precon?.recommendedForOverride || precon?.recommendationProfile?.recommendedFor || "", 18);
   const chips = preconPreviewChips(precon);
 
   return `
@@ -1737,35 +1782,30 @@ function buildDossierUtilityActionsHtml({ isPrimary, layoutMode }) {
     </div>`;
 }
 
-function buildPlacementSnapshotHtml({ dossier, faction, commanderLane }) {
-  const colorCode = getColorIdentity(faction.colors || faction.key);
-  const colorNames = colorIdentityNames(faction.colors || colorCode);
-  const closestAdjacent = dossier.adjacentFits?.[0]?.name || "No adjacent fit saved";
-  const identityMeta = colorCode ? `${colorNames} · ${colorCode}` : colorNames;
-  const startCopy = commanderStartSnapshotCopy({ commanderLane, dossier });
-  const firstStop = dossier.isPrimary ? "Open Start Here first" : "Open Start Here for this fit";
+function buildPlacementSnapshotHtml({ dossier }) {
+  const summary = dossier?.resultSummaryStrip || {};
+  const adjacentFit = summary.adjacentFit || {};
+  const whereThisLeads = summary.whereThisLeads || {};
+  const playPattern = summary.playPattern || {};
 
   return `
-    <div class="dossier-snapshot" aria-label="Placement snapshot">
-      <div class="dossier-snapshot-card dossier-snapshot-card--placement">
-        <span>Current fit</span>
-        <strong>${escapeHtml(faction.name)}</strong>
-        <div class="dossier-snapshot-meta">
-          ${buildManaPipsHtml(faction.colors || [], "mana-pips-inline")}
-          <em>Identity | ${escapeHtml(identityMeta)}</em>
-        </div>
+    <div class="dossier-snapshot" aria-label="Result summary strip">
+      <div class="dossier-snapshot-card dossier-snapshot-card--adjacent" data-summary-card="adjacent-fit" data-signal-band="${escapeAttributeValue(adjacentFit.signalBand || "related")}">
+        <span>${escapeHtml(adjacentFit.label || "Adjacent fit")}</span>
+        <strong>${escapeHtml(adjacentFit.heading || adjacentFit.targetName || "Related path")}</strong>
+        <div class="dossier-snapshot-signal">${escapeHtml(adjacentFit.signalLabel || "Related adjacent signal")}</div>
+        <div class="dossier-snapshot-copy">${escapeHtml(adjacentFit.relationshipCopy || "A neighboring path stayed close enough to be worth comparing.")}</div>
       </div>
-      <div class="dossier-snapshot-card">
-        <span>Closest adjacent fit</span>
-        <strong>${escapeHtml(closestAdjacent)}</strong>
+      <div class="dossier-snapshot-card dossier-snapshot-card--narrative" data-summary-card="where-this-leads">
+        <span>${escapeHtml(whereThisLeads.label || "Where this leads")}</span>
+        <strong>${escapeHtml(whereThisLeads.heading || "Commander direction")}</strong>
+        <div class="dossier-snapshot-copy">${escapeHtml(whereThisLeads.body || "This reading points toward a Commander plan with a visible, repeatable pressure pattern.")}</div>
+        ${buildSummaryTagRowHtml(whereThisLeads.tags || [])}
       </div>
-      <div class="dossier-snapshot-card dossier-snapshot-card--narrative">
-        <span>How this usually starts</span>
-        <div class="dossier-snapshot-copy">${escapeHtml(startCopy)}</div>
-      </div>
-      <div class="dossier-snapshot-card">
-        <span>First stop</span>
-        <strong>${escapeHtml(firstStop)}</strong>
+      <div class="dossier-snapshot-card dossier-snapshot-card--play-pattern" data-summary-card="play-pattern">
+        <span>${escapeHtml(playPattern.label || "Play pattern")}</span>
+        <strong>${escapeHtml(playPattern.heading || "At the table")}</strong>
+        <div class="dossier-snapshot-copy">${escapeHtml(playPattern.body || "Opponents usually read this identity through the pressure it keeps visible and the answers it makes them spend.")}</div>
       </div>
     </div>`;
 }
@@ -1967,6 +2007,35 @@ function renderTagChips(tagRefs = [], limit = 6) {
     .join("");
 }
 
+function renderStaticTagChips(labels = [], limit = 6) {
+  return [...new Set(labels.map((label) => String(label || "").trim()).filter(Boolean))]
+    .slice(0, limit)
+    .map((label) => `<span class="vm-tag-chip">${escapeHtml(label)}</span>`)
+    .join("");
+}
+
+function colorlessCuratedFlavorTags(cardName, fallbackTags = []) {
+  const normalized = normalizeCardName(cardName);
+  const byCard = new Map([
+    ["all is dust", [
+      { category: "identity", tag: "cosmic" },
+      { category: "mechanical", tag: "exile" },
+      { category: "lore-tone", tag: "inevitable" },
+    ]],
+    ["adarkar sentinel", [
+      { category: "mechanical", tag: "artifacts" },
+      { category: "identity", tag: "cosmic" },
+      { category: "lore-tone", tag: "ancient" },
+    ]],
+    ["bane of bala ged", [
+      { category: "identity", tag: "cosmic" },
+      { category: "mechanical", tag: "big-mana" },
+      { category: "lore-tone", tag: "inevitable" },
+    ]],
+  ]);
+  return byCard.get(normalized) || fallbackTags;
+}
+
 function renderTagInterpretations(tagRefs = [], limit = 3) {
   return uniqueTagRefs(tagRefs)
     .slice(0, limit)
@@ -2047,10 +2116,11 @@ export function selectCuratedFlavorEchoesForFaction({
   const fallbackTags = uniqueTagRefs(tagRefs).slice(0, 3);
   return curated.slice(0, 3).map((snippet) => {
     const indexedCard = resolveIndexedFlavorCardForSnippet(snippet, flavorCards) || {};
+    const cardName = snippet.card_name || indexedCard.name || "";
     return {
       card: {
         ...indexedCard,
-        name: snippet.card_name || indexedCard.name || "",
+        name: cardName,
         flavor_excerpt: snippet.flavor_excerpt || flavorExcerptForCard(indexedCard),
         scryfall_uri: snippet.scryfall_uri || indexedCard.scryfall_uri || "#",
         image_uris: indexedCard.image_uris || null,
@@ -2058,7 +2128,9 @@ export function selectCuratedFlavorEchoesForFaction({
         color_identity: indexedCard.color_identity || [],
       },
       refs: tagRefsForRecord(indexedCard),
-      tagMatches: fallbackTags,
+      tagMatches: String(key).toUpperCase() === "COLORLESS"
+        ? colorlessCuratedFlavorTags(cardName, fallbackTags)
+        : fallbackTags,
       score: 100,
       identityFits: true,
       curatedSnippet: true,
@@ -2288,6 +2360,8 @@ function renderResult(viewKey) {
     placementResult: result,
     targetFactionKey: activeKey,
     starterProfile,
+    summaryPresentationForFaction: presentationForFaction,
+    summaryContrastCopyBuilder: buildContrastCopy,
   });
   const faction = dossier.faction.record;
   const institutionLabel = getInstitutionLabel(faction);
@@ -2312,6 +2386,7 @@ function renderResult(viewKey) {
     preconCatalog: APP_STATE.preconCatalog,
     preconThemeTaxonomy: APP_STATE.preconThemeTaxonomy,
   });
+  const commanderDeckStartFallbackCandidates = buildCommanderDeckStartFallbackCandidates(preconRecommendations);
   const flavorEchoes = selectFlavorEchoes({ faction, tagRefs: readingTagRefs });
   const mazeContext = buildArchscryMazeContext({ result, dossier, faction });
   writeArchscryDossierHandoff(result, mazeContext);
@@ -2333,11 +2408,7 @@ function renderResult(viewKey) {
   const activeMonoCount = activeExpressionEntries
     .filter((entry) => String(entry?.kind || "").toLowerCase() === "color")
     .length;
-  const atlasFrontierCopy = activeMonoCount === 1
-    ? `The atlas is still opening: ${activeExpressionCount} expressions are lit now - ten Ravnican guilds, five Strixhaven colleges, and one mono color path. Wedges, families, and stranger color-shapes wait beyond the next veil.`
-    : activeMonoCount > 1
-      ? `The atlas is still opening: ${activeExpressionCount} expressions are lit now - ten Ravnican guilds, five Strixhaven colleges, and ${activeMonoCount} mono color paths. Wedges, families, and stranger color-shapes wait beyond the next veil.`
-      : `The atlas is still opening: ${activeExpressionCount} expressions are lit now - ten Ravnican guilds and five Strixhaven colleges. Wedges, families, and stranger color-shapes wait beyond the next veil.`;
+  const atlasFrontierCopy = `The atlas is still opening: ${activeExpressionCount} expressions are lit now, and the frontier still widens. Guilds, colleges, mono colors, wedges, families, and stranger color-shapes wait beyond the next veil.`;
   const archetypeHtml = (dossier.archetypes || [])
     .map((item) => `<div class="arch-card"><div class="arch-name">${item.name}</div><div class="arch-desc">${item.desc}</div></div>`)
     .join("");
@@ -2355,7 +2426,7 @@ function renderResult(viewKey) {
     return (items || [])
       .map((name, index) => {
         const id = `${prefix}_${index}`;
-        return `<div class="land-wrap"><div class="land-placeholder" id="${id}">${name}</div><div class="land-name">${name}</div></div>`;
+        return `<div class="land-wrap"><div class="land-placeholder" id="${id}" aria-label="${escapeAttributeValue(`${name} card art`)}"></div><div class="land-name">${name}</div></div>`;
       })
       .join("");
   }
@@ -2366,11 +2437,13 @@ function renderResult(viewKey) {
         const id = `cmd_${index}`;
         const indexed = indexedCommanderForCandidate(candidate);
         const meta = commanderMetaHtml(indexed);
-        const tagChips = indexed ? renderTagChips(tagRefsForRecord(indexed), 3) : "";
+        const tagChips = candidate.displayTags?.length
+          ? renderStaticTagChips(candidate.displayTags, 3)
+          : indexed ? renderTagChips(tagRefsForRecord(indexed), 3) : "";
         return `
           <div class="commander-preview-card" data-commander-card>
             <div class="commander-art-shell">
-              <div class="commander-placeholder" id="${id}">${candidate.name}</div>
+              <div class="commander-placeholder" id="${id}" aria-label="${escapeAttributeValue(`${candidate.name} card art`)}"></div>
             </div>
             <div class="commander-preview-body">
               <div class="commander-name">${candidate.name}</div>
@@ -2391,11 +2464,11 @@ function renderResult(viewKey) {
   const starterCardSegments = renderState.starterCardSegments;
   const hasStarterCardReferences = renderState.hasStarterCardReferences;
   const basicLandCopy = renderState.basicLandCopy;
-  const commanderPreviewHtml = `
+  const commanderPreviewHtml = commanderPreviewCandidates.length ? `
     <div class="commander-preview-block">
       <div class="commander-preview-label">Commander starting points</div>
-      ${commanderPreviewCandidates.length ? `<div class="commander-preview-grid" id="commander-preview-grid">${commanderPreviewSlots(commanderPreviewCandidates)}</div>` : ""}
-    </div>`;
+      <div class="commander-preview-grid" id="commander-preview-grid">${commanderPreviewSlots(commanderPreviewCandidates)}</div>
+    </div>` : "";
 
   const adjacentMatches = dossier.adjacentFits || [];
   const adjacentHtml = adjacentMatches.length
@@ -2454,24 +2527,36 @@ function renderResult(viewKey) {
     archidektLinks: archidektSearchLinks,
     commanderDirectoryLinks,
     commanderCandidates: commanderPreviewCandidates,
+    commanderFallbackCandidates: commanderDeckStartFallbackCandidates,
     tagRefs: readingTagRefs,
   }));
   const preconSectionHtml = Array.isArray(APP_STATE.preconCatalog?.precons)
     ? buildPreconSectionHtml(preconRecommendations)
     : "";
-  const landLaneCopy = {
-    premium: "Best when you want speed, consistency, and fewer tapped lands.",
-    midrange: "Good first upgrade lane: stronger fixing without chasing every premium land.",
-    budget: "Playable entry point. Expect more tapped lands, but the deck will still function.",
-    utility: "Adds Commander flexibility beyond color fixing.",
-  };
+  const landLaneCopy = landLaneCopyForFaction(faction);
+  const isColorlessFaction = String(faction?.key || "").toUpperCase() === "COLORLESS";
+  const colorlessManaPrimerHtml = isColorlessFaction ? `
+    <div class="starter-grid mana-primer-grid">
+      <div class="starter-card">
+        <div class="starter-title">Wastes First</div>
+        <div class="starter-copy">Use Wastes and true {C} producers as the floor before adding utility lands.</div>
+      </div>
+      <div class="starter-card">
+        <div class="starter-title">Rocks And Sources</div>
+        <div class="starter-copy">Mana rocks help the deck reach expensive colorless spells, but generic costs are not colorless mana.</div>
+      </div>
+      <div class="starter-card">
+        <div class="starter-title">Color-Choice Caution</div>
+        <div class="starter-copy">Command Tower cannot choose colorless, and Reflecting Pool-style effects need another source that can already make {C}.</div>
+      </div>
+    </div>` : "";
   const manaBaseSegments = MANA_BASE_SEGMENTS.filter((segment) =>
     hasRenderableLandTier(landRecommendations, segment.id)
   );
   const utilityTierHtml = (landRecommendations.utility || []).length
     ? `
         <div class="land-tier tier-utility">
-          <div class="land-tier-label">Utility</div>
+          <div class="land-tier-label">${isColorlessFaction ? "Utility Land Caution" : "Utility"}</div>
           <div class="land-tier-copy">${landLaneCopy.utility}</div>
           <div class="land-cards-row">${landSlots(landRecommendations.utility, "lu")}</div>
         </div>`
@@ -2568,27 +2653,29 @@ function renderResult(viewKey) {
   const manaBasePanelHtml = `
     <div class="lands-section">
       <div class="section-label">Mana Base Starting Map</div>
+      ${colorlessManaPrimerHtml}
       ${buildSegmentControlsHtml("mana-base", manaBaseSegments, manaBaseSegment, "Mana base tiers")}
       <div class="lands-tiers">
         ${buildSegmentPanelHtml("mana-base", "basics", manaBaseSegment, `
           <div class="land-tier tier-basics">
+            ${isColorlessFaction ? `<div class="land-tier-label">Wastes First</div>` : ""}
             <div class="land-tier-copy">${basicLandCopy}</div>
           </div>`)}
         ${hasRenderableLandTier(landRecommendations, "premium") ? buildSegmentPanelHtml("mana-base", "premium", manaBaseSegment, `
           <div class="land-tier tier-premium">
-            <div class="land-tier-label">Premium</div>
+            <div class="land-tier-label">${isColorlessFaction ? "Fast {C} Lane" : "Premium"}</div>
             <div class="land-tier-copy">${landLaneCopy.premium}</div>
             <div class="land-cards-row">${landSlots(landRecommendations.premium, "lp")}</div>
           </div>`) : ""}
         ${hasRenderableLandTier(landRecommendations, "midrange") ? buildSegmentPanelHtml("mana-base", "midrange", manaBaseSegment, `
           <div class="land-tier tier-midrange">
-            <div class="land-tier-label">Midrange</div>
+            <div class="land-tier-label">${isColorlessFaction ? "Practical Upgrade Lane" : "Midrange"}</div>
             <div class="land-tier-copy">${landLaneCopy.midrange}</div>
             <div class="land-cards-row">${landSlots(landRecommendations.midrange, "lm")}</div>
           </div>`) : ""}
         ${hasRenderableLandTier(landRecommendations, "budget") ? buildSegmentPanelHtml("mana-base", "budget", manaBaseSegment, `
           <div class="land-tier tier-budget">
-            <div class="land-tier-label">Budget</div>
+            <div class="land-tier-label">${isColorlessFaction ? "Entry {C} Lane" : "Budget"}</div>
             <div class="land-tier-copy">${landLaneCopy.budget}</div>
             <div class="land-cards-row">${landSlots(landRecommendations.budget, "lb")}</div>
           </div>`) : ""}

@@ -1,0 +1,443 @@
+{
+  "schema_version": "1.0.0",
+  "profile_version": "0.1.2",
+  "faction_id": "yore",
+  "faction_name": "Yore / Artifice",
+  "faction_type": "four-color",
+  "color_identity": [
+    "White",
+    "Blue",
+    "Black",
+    "Red"
+  ],
+  "color_pair_or_group": "WUBR four-color metadata only; all 24 WUBR permutations metadata/query-only",
+  "plane_or_setting": "Cross-setting; Ravnica historical anchor; Commander 2016 support texture",
+  "last_updated": "2026-06-12",
+  "source_review_date": "2026-06-12",
+  "last_full_review": "2026-06-02",
+  "last_incremental_review": "2026-06-12",
+  "core_identity": {
+    "short_form": "WUBR without Green: engineered agency against natural surrender.",
+    "identity_frame": "Yore / Artifice uses the missing-Green frame to describe civilization, technology, artifice, and progress over natural acceptance and organic limits.",
+    "naming_boundary": "YORE is a Vox Mana expression label and Artifice is Commander 2016 theme texture; neither is an official universal MTG name for WUBR.",
+    "claim_ids": [
+      "yore_claim_0001",
+      "yore_claim_0002",
+      "yore_claim_0003",
+      "yore_claim_0004",
+      "yore_claim_0005"
+    ]
+  },
+  "structure": {
+    "identity_class": "four-color",
+    "missing_color": "Green",
+    "present_colors": [
+      "White",
+      "Blue",
+      "Black",
+      "Red"
+    ],
+    "primary_anchor": "Yore-Tiller Nephilim as bounded historical/card anchor",
+    "support_texture": [
+      "artifice",
+      "civilization",
+      "technology",
+      "progress",
+      "artifact support",
+      "graveyard/reanimation texture",
+      "control through artificial tools"
+    ],
+    "non_faction_boundary": "Yore is not an official faction, plane, cult, civilization, doctrine, institution, or organized school."
+  },
+  "great_tension": {
+    "gift": "Agency against fatalism through constructed intervention.",
+    "shadow": "Treating every limit, body, grave, or natural cycle as raw material can become overreach.",
+    "boundary": "This is Vox Mana/source synthesis, not direct canon doctrine."
+  },
+  "historical_timeline": [
+    {
+      "label": "Nephilim-era anchor",
+      "summary": "Yore-Tiller Nephilim provides the card-identity anchor for the lane.",
+      "boundary": "Not a civilization, doctrine, or placement institution; exact official card facts remain Manual fill required."
+    },
+    {
+      "label": "Commander 2016 support texture",
+      "summary": "Artifice and Breya/Invent Superiority support artifact, sacrifice, combo, value, and four-color-without-Green Commander readability.",
+      "boundary": "Support-only; not lore proof, legality proof, runtime authorization, or recommendation proof."
+    }
+  ],
+  "key_figures": [
+    {
+      "name": "Yore-Tiller Nephilim",
+      "role": "Historical/card anchor",
+      "boundary": "Not a Yore faction leader or institutional authority."
+    },
+    {
+      "name": "Breya",
+      "role": "Commander support texture",
+      "boundary": "Support-only; not proof of Yore lore or official naming."
+    }
+  ],
+  "canonical_flavor_text": {
+    "source_bound_summary": "Yore / Artifice is the WUBR/non-Green raw packet for civilization, technology, artifice, progress, and a bounded Yore-Tiller anchor.",
+    "vox_mana_synthesis": "The machine that refuses to let natural limits be final.",
+    "boundary": "Use synthesis only as profile language, not as raw canon proof."
+  },
+  "mechanics": {
+    "source_bound_texture": [
+      "artifact support",
+      "graveyard/reanimation texture",
+      "control through artificial tools"
+    ],
+    "support_only_texture": [
+      "artifact sacrifice",
+      "combo",
+      "value engines",
+      "four-color-without-Green Commander play"
+    ],
+    "deferred": [
+      "exact Yore-Tiller card facts",
+      "exact Commander legality",
+      "exact recommendations",
+      "cEDH metagame claims",
+      "card-level artifact or recursion claims"
+    ],
+    "summary": "Artifact support, graveyard or reanimation texture, resource conversion, and control through artificial tools can express Yore only when they serve the full four-color without Green worldview of engineered agency against natural limits; mechanics alone do not define the identity."
+  },
+  "views_on_other_factions": {
+    "pair_overlap_boundaries": [
+      "Azorius procedure alone is not Yore.",
+      "Dimir secrecy alone is not Yore.",
+      "Rakdos cost or spectacle alone is not Yore.",
+      "Izzet invention alone is not Yore.",
+      "Orzhov obligation alone is not Yore.",
+      "Boros action alone is not Yore."
+    ],
+    "near_match_boundaries": [
+      "Esper lacks Red heat.",
+      "Grixis lacks White architecture.",
+      "Jeskai lacks Black refusal.",
+      "Mardu lacks Blue optimization.",
+      "Sultai includes Green.",
+      "Thran, Phyrexia, Breya-only artifacts, generic artifacts, generic recursion, Cult of Yore, and generic WUBR goodstuff are review triggers, not proof."
+    ],
+    "source_role": "Shaping-only parity guidance from VM-242."
+  },
+  "commander_compass": {
+    "schema_version": "1.0.0",
+    "source_research_file": "docs/research/vox_mana_second_commander_recommendations_enhanced.jsonl",
+    "last_reviewed": "2026-06-12",
+    "review_status": "support_only_live_pilot_curation",
+    "recommendation_philosophy": "Use YORE Commander guidance as product/operator support only: the local Invent Superiority / Breya, Etherium Shaper support row can express artifact, sacrifice, combo, and value texture. These rows do not create lore proof, naming authority, Commander legality proof, placement evidence, public aliases, or claim authority.",
+    "identity_basis": {
+      "owned_themes": [
+        "WUBR/non-Green constructed agency",
+        "artifact and sacrifice texture as support-only Commander vocabulary",
+        "progress over natural closure"
+      ],
+      "allowed_phrases": [
+        "Yore support fit",
+        "artifact sacrifice",
+        "constructed agency",
+        "artifact value loops"
+      ],
+      "avoid_or_contrast_phrases": [
+        "Breya as Yore lore proof",
+        "Invent Superiority as naming authority",
+        "Commander legality proof",
+        "artifact preference as placement evidence"
+      ],
+      "adjacent_overlap_notes": [
+        "Artifact and sacrifice texture can overlap Esper, Grixis, Jeskai, or Mardu; Yore support wording keeps the non-Green constructed-agency boundary visible."
+      ],
+      "supporting_claim_ids": [
+        "yore_claim_0002",
+        "yore_claim_0003",
+        "yore_claim_0004"
+      ],
+      "supporting_source_ids": [
+        "src_vm_commander_recommendations_breya_20260602",
+        "src_vm_four_color_identity_dossier_md_20260602"
+      ]
+    },
+    "support_decks": [
+      "Invent Superiority"
+    ],
+    "support_language": [
+      "artifacts",
+      "sacrifice",
+      "combo",
+      "value"
+    ],
+    "native_fit_commanders": [
+      {
+        "exact_card_name": "Breya, Etherium Shaper",
+        "display_name": "Breya, Etherium Shaper",
+        "scryfall_uri": "https://scryfall.com/card/mh3/289/breya-etherium-shaper?utm_source=api",
+        "edhrec_uri": "https://edhrec.com/commanders/breya-etherium-shaper",
+        "color_identity": [
+          "W",
+          "U",
+          "B",
+          "R"
+        ],
+        "commander_legal": true,
+        "recommendation_type": "Support-Only Commander Row",
+        "archetype_tags": [
+          "artifacts",
+          "sacrifice",
+          "combo",
+          "value"
+        ],
+        "why_this_fits": "The approved local Commander support row for Invent Superiority supports artifact, sacrifice, combo, and value texture for the YORE lane.",
+        "skip_if": "Skip if the user needs lore proof, naming authority, exact legality proof, placement evidence, or metagame certainty rather than support-only Commander texture.",
+        "gameplay_summary": "Commander support texture for artifact sacrifice, combo, and value loops. Use only as a support starting point for the WUBR/non-Green constructed-agency lane.",
+        "faction_identity_terms": [
+          "Yore support fit",
+          "artifact sacrifice",
+          "constructed agency",
+          "artifact value loops"
+        ],
+        "source_basis": "src_vm_commander_recommendations_breya_20260602; docs/research/vox_mana_second_commander_recommendations_enhanced.jsonl:55",
+        "confidence": "Support-only",
+        "caution_notes": "Support-only Commander material; not lore, canon, placement, claim, route, alias, or public naming authority."
+      }
+    ],
+    "weird_stretch_commanders": [],
+    "budget_friendly_commanders": [],
+    "advanced_complexity_commanders": [],
+    "iconic_lore_forward_commanders": [],
+    "not_recommended_or_deprioritized": [
+      {
+        "reason": "Breya as Yore lore proof"
+      },
+      {
+        "reason": "Invent Superiority as naming authority"
+      },
+      {
+        "reason": "Commander legality proof"
+      },
+      {
+        "reason": "artifact preference as placement evidence"
+      }
+    ],
+    "archetype_lanes": [
+      {
+        "lane": "Invent Superiority support texture",
+        "support_decks": [
+          "Invent Superiority"
+        ],
+        "support_language": [
+          "artifacts",
+          "sacrifice",
+          "combo",
+          "value"
+        ],
+        "source_basis": "src_vm_commander_recommendations_breya_20260602"
+      }
+    ],
+    "link_targets": {
+      "edhrec_commander_index": "https://edhrec.com/commanders/breya-etherium-shaper",
+      "mtgdecks_color_identity": "",
+      "scryfall_commander_search": "https://scryfall.com/search?q=id%3Dwubr+is%3Acommander+f%3Acommander",
+      "archidekt_color_search": "https://archidekt.com/search/decks?colors=WUBR&deckFormat=3&orderBy=-updatedAt&page=1"
+    },
+    "merge_notes": {
+      "support_only_boundary": "Commander/deck/operator material remains support texture only and must not be used as lore, canon, placement, Crucible, discriminator, claim, route, alias, or naming proof.",
+      "deck_links_status": "External links are Commander support navigation targets only, not evidence rows."
+    }
+  },
+  "search_and_filter_metadata": {
+    "future_expression_name": "YORE",
+    "future_expression_name_status": "live public/generated key after VM-245; WUBR and same-color permutations remain metadata/query-only and are not aliases, route keys, placement keys, fixture keys, Home preview keys, Maze keys, Supabase keys, schema keys, or public color-code interfaces",
+    "metadata_query_only_terms": [
+      "WUBR",
+      "WURB",
+      "WBRU",
+      "WBUR",
+      "WRUB",
+      "WRBU",
+      "UWBR",
+      "UWRB",
+      "UBWR",
+      "UBRW",
+      "URWB",
+      "URBW",
+      "BWUR",
+      "BWRU",
+      "BUWR",
+      "BURW",
+      "BRWU",
+      "BRUW",
+      "RWUB",
+      "RWBU",
+      "RUWB",
+      "RUBW",
+      "RBWU",
+      "RBUW",
+      "wubr",
+      "wurb",
+      "wbru",
+      "wbur",
+      "wrub",
+      "wrbu",
+      "uwbr",
+      "uwrb",
+      "ubwr",
+      "ubrw",
+      "urwb",
+      "urbw",
+      "bwur",
+      "bwru",
+      "buwr",
+      "burw",
+      "brwu",
+      "bruw",
+      "rwub",
+      "rwbu",
+      "ruwb",
+      "rubw",
+      "rbwu",
+      "rbuw"
+    ],
+    "source_status": "source_grounded_live_repair",
+    "placement_status": "live_after_vm245_source_repair",
+    "preview_eligible": false,
+    "review_gated": false,
+    "placement_eligible": true,
+    "live_pilot": true,
+    "claim_ids": [
+      "yore_claim_0001",
+      "yore_claim_0002",
+      "yore_claim_0003",
+      "yore_claim_0004",
+      "yore_claim_0005"
+    ]
+  },
+  "site_surface": {
+    "display_name": "Yore / Artifice",
+    "short_summary": "Yore / Artifice is a source-grounded live WUBR/non-Green identity for engineered agency, civilization, technology, artifice, progress, and strict color-code public-interface boundaries.",
+    "one_sentence_identity": "Yore builds against the idea that nature gets the final word.",
+    "tagline": "Rewrite the limit. Keep the engine honest.",
+    "primary_tags": [
+      "Yore",
+      "Artifice",
+      "WUBR metadata",
+      "Four-color",
+      "Non-Green",
+      "Source-grounded",
+      "Source-durable repair",
+      "Live after VM-245"
+    ],
+    "secondary_tags": [
+      "Civilization",
+      "Technology",
+      "Artifice",
+      "Progress",
+      "Yore-Tiller boundary",
+      "Commander support-only",
+      "Metadata-query-only permutations"
+    ],
+    "tone_words": [
+      "constructed",
+      "precise",
+      "restless",
+      "inventive",
+      "defiant",
+      "procedural",
+      "heated",
+      "archive-minded"
+    ],
+    "visual_keywords": [
+      "foundry archive",
+      "blueprint under glass",
+      "grave catalog",
+      "brass engine",
+      "controlled forge",
+      "non-Green WUBR"
+    ],
+    "best_for": [
+      "reviewers checking Yore's source-grounded raw packet boundary",
+      "future authors preserving the difference between Yore identity, Artifice support texture, and WUBR metadata",
+      "Commander-first language that likes engines, artifacts, sacrifice, and recursion while keeping those anchors support-only"
+    ],
+    "content_warnings_or_sensitivity_notes": [
+      "Yore language can involve body modification, graveyard use, sacrifice, engineered control, and refusal of natural limits. Exact card facts, Commander legality, recommendations, Cult of Yore boundaries, and color-code aliases remain deferred."
+    ],
+    "claim_ids": [
+      "yore_claim_0001",
+      "yore_claim_0002",
+      "yore_claim_0003",
+      "yore_claim_0004",
+      "yore_claim_0005"
+    ]
+  },
+  "data_quality": {
+    "strongest_evidence_areas": [
+      "Yore lifecycle and non-live public-interface boundary",
+      "WUBR metadata/query-only boundary",
+      "Yore/Artifice naming guardrail",
+      "missing-Green four-color frame",
+      "civilization, technology, artifice, and progress frame",
+      "Yore-Tiller Nephilim boundary as card anchor, not faction authority"
+    ],
+    "weakest_evidence_areas": [
+      "direct official Yore-Tiller card facts",
+      "Breya lore and Commander 2016 product grounding",
+      "Cult of Yore narrative boundary",
+      "exact color philosophy source spine",
+      "adjacent separator raw evidence",
+      "Commander legality and exact recommendations",
+      "cEDH and metagame claims"
+    ],
+    "manual_review_recommended": true,
+    "review_gated": false,
+    "placement_eligible": true,
+    "preview_eligible": false,
+    "live_pilot": true,
+    "notes": "VM-301 repairs source durability after VM-245 live promotion and VM-273 copy polish. The raw claim set remains exactly five claims; placement/profile output must stay within that boundary.",
+    "source_status": "source_grounded_live_repair"
+  },
+  "research_limitations": [
+    "Do not use VM-241 or VM-242 architecture docs as raw-claim evidence.",
+    "Do not use seed HTML, user-added source-material, Commander JSONL, manual-fill rows, or discovery-only files as raw-claim evidence.",
+    "Carry forward the VM-240 manual-fill topic-number drift rather than repairing it in VM-243.",
+    "Do not use support-only Breya, artifact, recursion, or cEDH texture as proof of Yore lore."
+  ],
+  "profile": {
+    "overview": "Yore / Artifice is Vox Mana's four-color without Green expression for civilization, technology, artifice, progress, and engineered agency against natural surrender.",
+    "philosophy": "Yore believes the given world is not the final world. White structure, Blue optimization, Black refusal, and Red heat can build a machine of agency where Green-rooted acceptance would have asked for surrender.",
+    "core_tension": "Yore refuses to let natural limits be final, but engineered agency can become overreach when every body, grave, rule, and spark is treated as material to rebuild.",
+    "mechanics_and_play_pattern": "Artifact support, graveyard or reanimation texture, resource conversion, and control through artificial tools can express Yore only when they serve the full four-color without Green worldview of engineered agency against natural limits; mechanics alone do not define the identity.",
+    "claim_ids": [
+      "yore_claim_0001",
+      "yore_claim_0002",
+      "yore_claim_0003",
+      "yore_claim_0004",
+      "yore_claim_0005"
+    ]
+  },
+  "deck_links": [
+    {
+      "fmt": "Commander",
+      "name": "Breya, Etherium Shaper",
+      "desc": "Commander support texture for artifact sacrifice, combo, and value loops. Use only as a support starting point for the WUBR/non-Green constructed-agency lane.",
+      "mtgg": null,
+      "edhrec": "https://edhrec.com/commanders/breya-etherium-shaper",
+      "mtgd": null
+    },
+    {
+      "fmt": "Commander",
+      "name": "Invent Superiority (Precon)",
+      "desc": "Commander 2016 support texture for Breya-led artifact play. Treat as support-only deck context, not lore proof or naming authority.",
+      "mtgg": null,
+      "edhrec": "https://edhrec.com/decks/invent-superiority",
+      "mtgd": null
+    }
+  ],
+  "research_links": {
+    "source_packet": "data/raw-factions/yore/yore.sources.json",
+    "support_dossier": "docs/research/canon/misc/Magic Four-Color Identity Dossier.md",
+    "commander_support_row": "docs/research/vox_mana_second_commander_recommendations_enhanced.jsonl:55"
+  }
+}

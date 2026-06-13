@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Yore — WUBR Research Packet</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Cinzel:wght@400;600;700&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap');
+
+  :root {
+    --white:  #F5F0E8;
+    --blue:   #3B82C4;
+    --black:  #1A1014;
+    --red:    #C0392B;
+    --gold:   #C9A84C;
+    --parchment: #EDE4CE;
+    --ink:    #0D0810;
+    --muted:  #7A6E82;
+    --card-bg: rgba(20,14,24,0.85);
+    --border: rgba(201,168,76,0.35);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { font-size: 16px; }
+
+  body {
+    background-color: var(--ink);
+    color: var(--parchment);
+    font-family: 'Crimson Pro', Georgia, serif;
+    font-size: 1.05rem;
+    line-height: 1.7;
+    background-image:
+      radial-gradient(ellipse 60% 40% at 20% 10%, rgba(59,130,196,0.12) 0%, transparent 60%),
+      radial-gradient(ellipse 50% 50% at 85% 80%, rgba(192,57,43,0.10) 0%, transparent 60%),
+      radial-gradient(ellipse 40% 60% at 70% 15%, rgba(201,168,76,0.06) 0%, transparent 50%),
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    min-height: 100vh;
+  }
+
+  .page-wrap {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 3rem 2rem 5rem;
+  }
+
+  /* ── HEADER ── */
+  header {
+    text-align: center;
+    padding: 3rem 0 2rem;
+    position: relative;
+  }
+
+  .pip-row {
+    display: flex;
+    justify-content: center;
+    gap: 0.6rem;
+    margin-bottom: 1.4rem;
+  }
+
+  .pip {
+    width: 22px; height: 22px;
+    border-radius: 50%;
+    border: 2px solid;
+    display: inline-block;
+  }
+  .pip-w { background: #F5F0E8; border-color: #d4c8a8; }
+  .pip-u { background: #3B82C4; border-color: #2563a8; }
+  .pip-b { background: #2a1a30; border-color: #6b4a7a; }
+  .pip-r { background: #C0392B; border-color: #8b2219; }
+
+  .faction-label {
+    font-family: 'Cinzel', serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.7;
+    margin-bottom: 0.5rem;
+  }
+
+  h1 {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: clamp(2.2rem, 6vw, 3.6rem);
+    font-weight: 700;
+    color: var(--parchment);
+    letter-spacing: 0.05em;
+    line-height: 1.1;
+    text-shadow: 0 0 40px rgba(59,130,196,0.4), 0 2px 4px rgba(0,0,0,0.6);
+  }
+
+  h1 span.accent { color: var(--gold); }
+
+  .subtitle {
+    font-family: 'Cinzel', serif;
+    font-size: 0.95rem;
+    letter-spacing: 0.2em;
+    color: var(--muted);
+    margin-top: 0.5rem;
+  }
+
+  .divider {
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold), var(--blue), var(--red), transparent);
+    opacity: 0.4;
+    margin: 1.5rem 0;
+  }
+
+  /* ── SECTIONS ── */
+  .section {
+    margin-bottom: 2.5rem;
+  }
+
+  h2 {
+    font-family: 'Cinzel', serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+  }
+
+  h2::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, var(--gold), transparent);
+    opacity: 0.3;
+  }
+
+  /* ── STAT GRID ── */
+  .stat-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 1px;
+    border: 1px solid var(--border);
+    background: var(--border);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+
+  .stat-cell {
+    background: var(--card-bg);
+    padding: 1rem 1.2rem;
+  }
+
+  .stat-cell .label {
+    font-family: 'Cinzel', serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 0.3rem;
+  }
+
+  .stat-cell .value {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--parchment);
+  }
+
+  /* ── COLOR BADGE ── */
+  .color-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    background: rgba(201,168,76,0.1);
+    border: 1px solid rgba(201,168,76,0.3);
+    border-radius: 3px;
+    padding: 2px 8px;
+    font-family: 'Cinzel', serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    color: var(--gold);
+  }
+
+  /* ── IDENTITY PANEL ── */
+  .identity-panel {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 1.5rem 1.8rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .identity-panel::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--white), var(--blue), #4a2060, var(--red));
+    opacity: 0.7;
+  }
+
+  .color-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+
+  .color-entry {
+    border-left: 3px solid;
+    padding-left: 1rem;
+  }
+  .color-entry.c-w { border-color: #d4c8a8; }
+  .color-entry.c-u { border-color: var(--blue); }
+  .color-entry.c-b { border-color: #7a4a90; }
+  .color-entry.c-r { border-color: var(--red); }
+
+  .color-entry .color-name {
+    font-family: 'Cinzel', serif;
+    font-size: 0.78rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 0.2rem;
+  }
+  .color-entry.c-w .color-name { color: #d4c8a8; }
+  .color-entry.c-u .color-name { color: var(--blue); }
+  .color-entry.c-b .color-name { color: #b080d0; }
+  .color-entry.c-r .color-name { color: var(--red); }
+
+  .color-entry .color-desc {
+    font-size: 0.9rem;
+    color: var(--parchment);
+    opacity: 0.85;
+    font-style: italic;
+  }
+
+  /* ── ABSENCE CALLOUT ── */
+  .absence-callout {
+    background: linear-gradient(135deg, rgba(34,85,34,0.12), rgba(20,60,20,0.08));
+    border: 1px solid rgba(60,140,60,0.3);
+    border-radius: 6px;
+    padding: 1.2rem 1.5rem;
+    margin-top: 1rem;
+  }
+
+  .absence-callout .header {
+    font-family: 'Cinzel', serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #5aaa5a;
+    margin-bottom: 0.4rem;
+  }
+
+  .absence-callout p {
+    font-size: 0.95rem;
+    color: rgba(237,228,206,0.75);
+    font-style: italic;
+  }
+
+  /* ── COMMANDER CARDS ── */
+  .commander-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .commander-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 1.2rem 1.5rem;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 0.5rem 1.5rem;
+    align-items: start;
+  }
+
+  .commander-card.featured {
+    border-color: rgba(201,168,76,0.55);
+    background: linear-gradient(135deg, rgba(30,20,40,0.95), rgba(20,14,24,0.95));
+  }
+
+  .commander-card .cmd-name {
+    font-family: 'Cinzel', serif;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--parchment);
+    margin-bottom: 0.15rem;
+  }
+
+  .commander-card .cmd-type {
+    font-size: 0.82rem;
+    color: var(--muted);
+    font-style: italic;
+    margin-bottom: 0.4rem;
+  }
+
+  .commander-card .cmd-desc {
+    font-size: 0.92rem;
+    color: rgba(237,228,206,0.85);
+    line-height: 1.5;
+  }
+
+  .commander-card .cmd-meta {
+    text-align: right;
+    min-width: 90px;
+  }
+
+  .deck-count {
+    font-family: 'Cinzel', serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--gold);
+    display: block;
+  }
+
+  .deck-label {
+    font-size: 0.68rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .tag {
+    display: inline-block;
+    background: rgba(59,130,196,0.15);
+    border: 1px solid rgba(59,130,196,0.3);
+    border-radius: 3px;
+    font-family: 'Cinzel', serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #7ab5e0;
+    padding: 1px 6px;
+    margin: 2px 2px 0 0;
+  }
+
+  .tag.red { background: rgba(192,57,43,0.15); border-color: rgba(192,57,43,0.3); color: #e07070; }
+  .tag.gold { background: rgba(201,168,76,0.15); border-color: rgba(201,168,76,0.3); color: var(--gold); }
+  .tag.purple { background: rgba(122,74,144,0.2); border-color: rgba(122,74,144,0.4); color: #c090e0; }
+
+  /* ── TWO-COL ── */
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  .callout-box {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 1.2rem 1.5rem;
+  }
+
+  .callout-box h3 {
+    font-family: 'Cinzel', serif;
+    font-size: 0.78rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.7rem;
+  }
+
+  .callout-box ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .callout-box ul li {
+    padding: 0.25rem 0;
+    font-size: 0.9rem;
+    color: rgba(237,228,206,0.85);
+    padding-left: 1.1rem;
+    position: relative;
+  }
+
+  .callout-box ul li::before {
+    content: '◆';
+    position: absolute;
+    left: 0;
+    font-size: 0.5rem;
+    top: 0.5rem;
+    color: var(--gold);
+    opacity: 0.6;
+  }
+
+  .callout-box.strengths { border-left: 3px solid rgba(59,130,196,0.6); }
+  .callout-box.weaknesses { border-left: 3px solid rgba(192,57,43,0.6); }
+
+  /* ── ARCHETYPE TABLE ── */
+  .archetype-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+  }
+
+  .archetype-table th {
+    font-family: 'Cinzel', serif;
+    font-size: 0.68rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold);
+    padding: 0.6rem 0.8rem;
+    text-align: left;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .archetype-table td {
+    padding: 0.65rem 0.8rem;
+    border-bottom: 1px solid rgba(201,168,76,0.1);
+    color: rgba(237,228,206,0.85);
+    vertical-align: top;
+  }
+
+  .archetype-table tr:last-child td { border-bottom: none; }
+  .archetype-table tr:hover td { background: rgba(201,168,76,0.04); }
+
+  .archetype-table td:first-child {
+    font-family: 'Cinzel', serif;
+    font-size: 0.82rem;
+    color: var(--parchment);
+    white-space: nowrap;
+  }
+
+  /* ── QUOTE BLOCK ── */
+  .lore-block {
+    border-left: 3px solid var(--gold);
+    padding: 0.8rem 1.4rem;
+    margin: 1rem 0;
+    background: rgba(201,168,76,0.05);
+    border-radius: 0 4px 4px 0;
+  }
+
+  .lore-block p {
+    font-style: italic;
+    font-size: 1rem;
+    color: rgba(237,228,206,0.9);
+  }
+
+  .lore-block cite {
+    display: block;
+    margin-top: 0.4rem;
+    font-size: 0.8rem;
+    font-style: normal;
+    color: var(--muted);
+    letter-spacing: 0.05em;
+  }
+
+  /* ── FOOTNOTE ── */
+  .footnote {
+    font-size: 0.78rem;
+    color: var(--muted);
+    font-style: italic;
+    margin-top: 0.5rem;
+    padding-top: 0.5rem;
+    border-top: 1px solid rgba(201,168,76,0.1);
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 600px) {
+    .two-col, .color-row { grid-template-columns: 1fr; }
+    .commander-card { grid-template-columns: 1fr; }
+    .commander-card .cmd-meta { text-align: left; }
+  }
+</style>
+</head>
+<body>
+<div class="page-wrap">
+
+  <header>
+    <div class="pip-row">
+      <span class="pip pip-w" title="White"></span>
+      <span class="pip pip-u" title="Blue"></span>
+      <span class="pip pip-b" title="Black"></span>
+      <span class="pip pip-r" title="Red"></span>
+    </div>
+    <div class="faction-label">Four-Color Faction · Research Packet</div>
+    <h1><span class="accent">Yore</span></h1>
+    <div class="subtitle">W U B R — The Greenless Quadrant</div>
+    <div class="divider"></div>
+  </header>
+
+  <!-- AT A GLANCE -->
+  <section class="section">
+    <h2>At a Glance</h2>
+    <div class="stat-grid">
+      <div class="stat-cell">
+        <div class="label">Formal Name</div>
+        <div class="value">Yore-Tiller</div>
+      </div>
+      <div class="stat-cell">
+        <div class="label">Also Called</div>
+        <div class="value">Dark-Jeskai · Greenless</div>
+      </div>
+      <div class="stat-cell">
+        <div class="label">Missing Color</div>
+        <div class="value" style="color:#5aaa5a">Green</div>
+      </div>
+      <div class="stat-cell">
+        <div class="label">Mechanic Theme</div>
+        <div class="value">Artifice</div>
+      </div>
+      <div class="stat-cell">
+        <div class="label">Named For</div>
+        <div class="value">Yore-Tiller Nephilim</div>
+      </div>
+      <div class="stat-cell">
+        <div class="label">Nephilim Set</div>
+        <div class="value">Guildpact (2006)</div>
+      </div>
+      <div class="stat-cell">
+        <div class="label">Nephilim Stats</div>
+        <div class="value">2/2 · Rare</div>
+      </div>
+      <div class="stat-cell">
+        <div class="label">EDHREC Decks</div>
+        <div class="value">~21,000+</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COLOR IDENTITY -->
+  <section class="section">
+    <h2>Color Identity</h2>
+    <div class="identity-panel">
+      <p style="font-size:0.95rem; color:rgba(237,228,206,0.8);">
+        Yore's identity is defined not by what it contains, but by what it refuses. All four present colors share a rejection of the natural order: they manipulate, construct, and impose. The absent green is the color of growth, instinct, and acceptance of nature's limits — and Yore wants none of it.
+      </p>
+      <div class="color-row">
+        <div class="color-entry c-w">
+          <div class="color-name">⬜ White — Order</div>
+          <div class="color-desc">Law, structure, collective discipline, removal, exile, lifegain. The civilizing force that builds empires and prison pods alike.</div>
+        </div>
+        <div class="color-entry c-u">
+          <div class="color-name">🔵 Blue — Knowledge</div>
+          <div class="color-desc">Intellect, manipulation, countermagic, artifact affinity, card draw. The planner behind every constructed machine.</div>
+        </div>
+        <div class="color-entry c-b">
+          <div class="color-name">🟣 Black — Power</div>
+          <div class="color-desc">Ambition, self-determination, graveyard recursion, sacrifice, tutor effects. Willing to pay any price.</div>
+        </div>
+        <div class="color-entry c-r">
+          <div class="color-name">🔴 Red — Passion</div>
+          <div class="color-desc">Chaos, aggression, haste, impulse, direct damage. The creative spark that ignites invention — and everything else.</div>
+        </div>
+      </div>
+      <div class="absence-callout">
+        <div class="header">🌿 The Absent Color: Green</div>
+        <p>Green provides ramp, creature-based value, and harmony with the natural world. Yore's rejection of green means the combination is "comprised entirely of the unnatural, focusing on artifice, manipulation, and infinite potential. However, by forcibly recreating the world around it, it may fail to understand the necessity, purpose, and interconnection of the things it changes."</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ORIGIN -->
+  <section class="section">
+    <h2>Origin — The Nephilim</h2>
+    <div class="identity-panel">
+      <p style="margin-bottom:0.8rem; font-size:0.95rem; color:rgba(237,228,206,0.85);">
+        The Nephilim from <em>Guildpact</em> (2006) were the first four-color cards ever printed in Magic — ancient, monstrous entities from Ravnica predating the guilds. Yore-Tiller Nephilim is a Rare 2/2 for WUBR (card #140), illustrated by Jeremy Jarvis.
+      </p>
+
+      <div class="lore-block">
+        <p>Whenever Yore-Tiller Nephilim attacks, return target creature card from your graveyard to the battlefield tapped and attacking.</p>
+        <cite>— Yore-Tiller Nephilim, Guildpact (2006)</cite>
+      </div>
+
+      <p style="font-size:0.92rem; color:rgba(237,228,206,0.75); margin-top:0.8rem;">
+        The ability telegraphs graveyard recursion fused with aggressive combat — pulling powerful creatures back from the dead the moment it attacks. In practice, the 2/2 body is fragile and the strict WUBR cost demands a polished mana base, limiting its use as a formal Commander. Most tables treat Nephilim as generals by house rule only; they are not officially legal as Commanders without a variant ruling.
+      </p>
+      <p class="footnote">Note: Yore-Tiller Nephilim has since received a reprint in the Planeswalker Symbol Reprints series.</p>
+    </div>
+  </section>
+
+  <!-- KEY COMMANDERS -->
+  <section class="section">
+    <h2>Key Commanders</h2>
+    <div class="commander-list">
+
+      <div class="commander-card featured">
+        <div>
+          <div class="cmd-name">Breya, Etherium Shaper</div>
+          <div class="cmd-type">Legendary Artifact Creature — Human Artificer · Commander 2016</div>
+          <div class="cmd-desc">
+            The sole dedicated legendary creature printed at WUBR color identity. Creates two Thopter tokens on ETB, then offers multiple sacrifice-powered activated abilities: dealing damage, gaining life, or destroying artifacts/enchantments. The definitive Yore commander — she generates her own sacrifice fodder and rewards artifact synergy at every turn. Dominates EDHREC data for the quadrant.
+          </div>
+          <div style="margin-top:0.6rem;">
+            <span class="tag gold">Artifice</span>
+            <span class="tag">Artifacts</span>
+            <span class="tag">Combo</span>
+            <span class="tag">Tokens</span>
+            <span class="tag red">cEDH Viable</span>
+          </div>
+        </div>
+        <div class="cmd-meta">
+          <span class="deck-count">13,059</span>
+          <span class="deck-label">EDHREC Decks</span>
+        </div>
+      </div>
+
+      <div class="commander-card">
+        <div>
+          <div class="cmd-name">Kraum, Ludevic's Opus // Tymna the Weaver</div>
+          <div class="cmd-type">Partner Pairing — C16 / Battlebond</div>
+          <div class="cmd-desc">
+            The most popular Partner combination reaching WUBR. Tymna provides consistent card draw off combat damage; Kraum punishes opponents for casting multiple spells per turn. A midrange-to-cEDH threat that leverages blue's flying creatures and black's disruption while Kraum's haste provides immediate board presence.
+          </div>
+          <div style="margin-top:0.6rem;">
+            <span class="tag">Partner</span>
+            <span class="tag red">Aggro-Control</span>
+            <span class="tag purple">cEDH</span>
+          </div>
+        </div>
+        <div class="cmd-meta">
+          <span class="deck-count">5,587</span>
+          <span class="deck-label">EDHREC Decks</span>
+        </div>
+      </div>
+
+      <div class="commander-card">
+        <div>
+          <div class="cmd-name">Yore-Tiller Nephilim</div>
+          <div class="cmd-type">Creature — Nephilim · Guildpact (House Rule Commander)</div>
+          <div class="cmd-desc">
+            The quadrant's namesake. Not officially legal as a Commander, but commonly used under casual house rules. Synergizes with reanimator strategies — Entomb, Buried Alive, and big-body targets like Medomai the Ageless or Master of Cruelties. Community builds often pair it with Blasting Station or Altar of Dementia for loops.
+          </div>
+          <div style="margin-top:0.6rem;">
+            <span class="tag">House Rules</span>
+            <span class="tag">Reanimator</span>
+            <span class="tag red">Combat</span>
+          </div>
+        </div>
+        <div class="cmd-meta">
+          <span class="deck-count">1,957</span>
+          <span class="deck-label">EDHREC Decks</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- STRENGTHS & WEAKNESSES -->
+  <section class="section">
+    <h2>Strengths &amp; Weaknesses</h2>
+    <div class="two-col">
+      <div class="callout-box strengths">
+        <h3>Strengths</h3>
+        <ul>
+          <li>Best removal suite in the game — exile, destroy, counter, and bounce all present</li>
+          <li>Deep artifact synergy; Sol Ring, Arcane Signet, and Thopter lines compensate for absent ramp</li>
+          <li>Strong combo potential: infinite loops via artifact sacrifice are well-supported</li>
+          <li>Excellent card draw across blue and black</li>
+          <li>Flexible win conditions: combo, control, tokens, reanimator</li>
+          <li>White provides the best board wipes (Wrath, Farewell, Austere Command)</li>
+        </ul>
+      </div>
+      <div class="callout-box weaknesses">
+        <h3>Weaknesses</h3>
+        <ul>
+          <li>No green = no efficient land ramp; entirely dependent on mana rocks</li>
+          <li>Demanding four-color mana base (fetch + shock + triome investment)</li>
+          <li>Vulnerable to artifact hate (Bane of Progress, Vandalblast hitting rocks)</li>
+          <li>Lacks the raw mana acceleration of green-inclusive color identities</li>
+          <li>May over-engineer answers without "naturally" closing games</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ARCHETYPES -->
+  <section class="section">
+    <h2>Common Archetypes</h2>
+    <div class="identity-panel" style="padding:0; overflow:hidden;">
+      <table class="archetype-table">
+        <thead>
+          <tr>
+            <th>Archetype</th>
+            <th>Core Strategy</th>
+            <th>Key Enablers</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Artifact Combo</td>
+            <td>Assemble an infinite loop using artifact creatures, sacrifice outlets, and mana rocks</td>
+            <td>Breya, Ashnod's Altar, Scrap Trawler, Krark-Clan Ironworks</td>
+          </tr>
+          <tr>
+            <td>Reanimator</td>
+            <td>Mill or discard expensive creatures, recur them for free via graveyard effects</td>
+            <td>Yore-Tiller Nephilim, Animate Dead, Entomb, Buried Alive</td>
+          </tr>
+          <tr>
+            <td>Control / Stax</td>
+            <td>Lock down the board with counterspells, taxing effects, and resource denial</td>
+            <td>Esper + red removal suite, Trinisphere, Winter Orb, Rhystic Study</td>
+          </tr>
+          <tr>
+            <td>Spellslinger</td>
+            <td>Cast and copy spells, leveraging red/blue instants and sorceries</td>
+            <td>Balmor, Rootha, Thousand-Year Storm, Sentinel Tower</td>
+          </tr>
+          <tr>
+            <td>Flicker / ETB</td>
+            <td>Repeatedly trigger enters-the-battlefield effects via blink and bounce</td>
+            <td>Aminatou, Conjurer's Closet, Soulherder, Felidar Guardian</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- NOTABLE COMBOS -->
+  <section class="section">
+    <h2>Notable Combo Lines</h2>
+    <div class="identity-panel">
+      <p style="font-size:0.92rem; color:rgba(237,228,206,0.75); margin-bottom:1rem;">Yore is one of the format's most combo-dense color identities. Representative lines:</p>
+      <div class="two-col" style="gap:1rem;">
+        <div>
+          <p style="font-family:'Cinzel',serif; font-size:0.75rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--gold); margin-bottom:0.4rem;">Aminatou Loop</p>
+          <p style="font-size:0.88rem; color:rgba(237,228,206,0.82);">Aminatou, the Fateshifter + Nicol Bolas, Dragon-God + Oath of Teferi — exiles all opponents' permanents and hands. One of the most played combos in the quadrant (~6,652 decks).</p>
+        </div>
+        <div>
+          <p style="font-family:'Cinzel',serif; font-size:0.75rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--gold); margin-bottom:0.4rem;">Breya Damage Loop</p>
+          <p style="font-size:0.88rem; color:rgba(237,228,206,0.82);">Breya + Ashnod's Altar (or KCI) + any 0-cost artifact generates infinite damage through repeated self-sacrifice and recursion — a cEDH staple in the format.</p>
+        </div>
+        <div>
+          <p style="font-family:'Cinzel',serif; font-size:0.75rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--gold); margin-bottom:0.4rem;">Scrap Trawler Chain</p>
+          <p style="font-size:0.88rem; color:rgba(237,228,206,0.82);">Scrap Trawler + Myr Retriever + Blasting Station — sacrifice loops that continually return artifacts from the graveyard, generating infinite "enters/dies" triggers.</p>
+        </div>
+        <div>
+          <p style="font-family:'Cinzel',serif; font-size:0.75rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--gold); margin-bottom:0.4rem;">Yore-Tiller Reanimate</p>
+          <p style="font-size:0.88rem; color:rgba(237,228,206,0.82);">Medomai the Ageless (extra turn) enters attacking via Nephilim trigger → sacrifice to Altar of Dementia → recur next attack. Generates repeated extra turns with a sacrifice outlet.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VOXMANA NOTES -->
+  <section class="section">
+    <h2>Vox Mana Design Notes</h2>
+    <div class="identity-panel">
+      <p style="font-size:0.95rem; color:rgba(237,228,206,0.85); margin-bottom:0.8rem;">
+        Considerations for placement signals and faction representation in Vox Mana:
+      </p>
+      <ul style="list-style:none; padding:0; display:flex; flex-direction:column; gap:0.6rem;">
+        <li style="padding-left:1.4rem; position:relative; font-size:0.92rem; color:rgba(237,228,206,0.82);"><span style="position:absolute;left:0;color:var(--gold);">◆</span> Yore's defining negative signal is <strong style="color:#5aaa5a;">absent green</strong>: users who reject naturalistic, organic, or "harmony with the world" playstyle themes should score toward this quadrant.</li>
+        <li style="padding-left:1.4rem; position:relative; font-size:0.92rem; color:rgba(237,228,206,0.82);"><span style="position:absolute;left:0;color:var(--gold);">◆</span> Mechanically, the Artifice label from Commander 2016 is the strongest thematic anchor — far more resonant than "not-green." Artifact, construct, and engineer archetypes map cleanly here.</li>
+        <li style="padding-left:1.4rem; position:relative; font-size:0.92rem; color:rgba(237,228,206,0.82);"><span style="position:absolute;left:0;color:var(--gold);">◆</span> Adjacent identity tensions: Yore shares white+blue with Esper (control) and white+red with Boros (aggro), but distinguishes itself through <em>constructed complexity</em> rather than raw authority or speed.</li>
+        <li style="padding-left:1.4rem; position:relative; font-size:0.92rem; color:rgba(237,228,206,0.82);"><span style="position:absolute;left:0;color:var(--gold);">◆</span> Dark-Jeskai is a useful alternate label for players who think in Tarkir wedge terms: Jeskai (WUR) + black = Yore.</li>
+        <li style="padding-left:1.4rem; position:relative; font-size:0.92rem; color:rgba(237,228,206,0.82);"><span style="position:absolute;left:0;color:var(--gold);">◆</span> The color identity supports all three main deck personalities: spike (cEDH Breya), johnny (Yore-Tiller reanimate loops), and timmy (big artifact payoffs). Broad placement applicability.</li>
+        <li style="padding-left:1.4rem; position:relative; font-size:0.92rem; color:rgba(237,228,206,0.82);"><span style="position:absolute;left:0;color:var(--gold);">◆</span> Commander pool is thin for a non-Breya WUBR commander (Breya accounts for ~59% of Yore EDHREC volume). Users wanting variety lean on Partner pairings, which can be a recommendation differentiation hook.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- SOURCES -->
+  <div class="footnote" style="font-size:0.75rem; margin-top:2rem; line-height:1.8;">
+    <strong style="font-family:'Cinzel',serif; font-size:0.7rem; letter-spacing:0.15em; text-transform:uppercase; color:var(--muted);">Sources</strong><br>
+    MTG Wiki — Multicolored, Color · EDH Wiki (Fandom) — Yore-Tiller · EDHREC — Yore-Tiller Commanders, Breya Commander page, Combos · Magic Madhouse — Deep Dive on Color Combinations · Eneba — MTG Color Combinations 2026 · MTG Salvation forums — Yore-Tiller Nephilim EDH (2011)
+  </div>
+
+</div>
+</body>
+</html>

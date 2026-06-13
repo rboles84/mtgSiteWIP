@@ -54,6 +54,10 @@ const ARCHSCRY_PATH_LABELS = {
   "support-cards": "Support Cards",
   "flavor-echoes": "Flavor Echoes",
   "weird-stretch-commanders": "Outside-Color Commander Stretch",
+  "colorless-identity": "Colorless Identity",
+  "colorless-noncommander-support": "Colorless Support",
+  "colorless-story-echoes": "Colorless Story Echoes",
+  "outside-color-stretch": "Outside-Color Stretch",
   ramp: "Ramp",
   draw: "Draw",
   interaction: "Interaction",
@@ -90,8 +94,22 @@ const DOSSIER_COLOR_IDENTITIES = new Map([
   ["PRISMARI", "ur"],
   ["QUANDRIX", "ug"],
   ["SILVERQUILL", "wb"],
-  ["WITHERBLOOM", "bg"]
+  ["WITHERBLOOM", "bg"],
+  ["YORE", "wubr"],
+  ["GLINT", "ubrg"],
+  ["DUNE", "brgw"],
+  ["INK", "rgwu"],
+  ["WITCH", "gwub"],
+  ["COLORLESS", "c"]
 ]);
+const LIVE_FOUR_COLOR_DOSSIER_CONFIG = Object.freeze([
+  { key: "YORE", canonicalIdentity: "wubr", displayName: "Yore" },
+  { key: "GLINT", canonicalIdentity: "ubrg", displayName: "Glint" },
+  { key: "DUNE", canonicalIdentity: "brgw", displayName: "Dune" },
+  { key: "INK", canonicalIdentity: "rgwu", displayName: "Ink" },
+  { key: "WITCH", canonicalIdentity: "gwub", displayName: "Witch" },
+]);
+const LIVE_FOUR_COLOR_DOSSIER_KEYS = new Set(LIVE_FOUR_COLOR_DOSSIER_CONFIG.map((entry) => entry.key));
 const DOSSIER_NAME_TO_KEY = new Map([
   ["BANT", "BANT"],
   ["ESPER", "ESPER"],
@@ -108,8 +126,19 @@ const DOSSIER_NAME_TO_KEY = new Map([
   ["MARDU HORDE", "MARDU"],
   ["JESKAI", "JESKAI"],
   ["JESKAI WAY", "JESKAI"],
+  ["YORE", "YORE"],
+  ["YORE ARTIFICE", "YORE"],
+  ["GLINT", "GLINT"],
+  ["GLINT CHAOS", "GLINT"],
+  ["DUNE", "DUNE"],
+  ["DUNE AGGRESSION", "DUNE"],
+  ["INK", "INK"],
+  ["INK ALTRUISM", "INK"],
+  ["WITCH", "WITCH"],
+  ["COLORLESS", "COLORLESS"],
 ]);
 const DOSSIER_COLOR_CODE_TO_KEY = new Map([
+  ["C", "COLORLESS"],
   ["WUG", "BANT"],
   ["WGU", "BANT"],
   ["UWG", "BANT"],
@@ -158,6 +187,7 @@ const DOSSIER_COLOR_CODE_TO_KEY = new Map([
   ["WBR", "MARDU"],
   ["BRW", "MARDU"],
   ["BWR", "MARDU"],
+  ...buildLiveFourColorDossierColorCodeEntries(),
 ]);
 const DOSSIER_VISIBLE_IDENTITY_HINTS = new Map([
   ["JUND", "Jund"],
@@ -167,6 +197,12 @@ const DOSSIER_VISIBLE_IDENTITY_HINTS = new Map([
   ["SULTAI", "Sultai"],
   ["MARDU", "Mardu"],
   ["JESKAI", "Jeskai"],
+  ["YORE", "Yore"],
+  ["GLINT", "Glint"],
+  ["DUNE", "Dune"],
+  ["INK", "Ink"],
+  ["WITCH", "Witch"],
+  ["COLORLESS", "C"],
 ]);
 const DOSSIER_DISPLAY_NAMES = new Map([
   ["BANT", "Bant"],
@@ -179,16 +215,51 @@ const DOSSIER_DISPLAY_NAMES = new Map([
   ["SULTAI", "Sultai Brood"],
   ["MARDU", "Mardu Horde"],
   ["JESKAI", "Jeskai Way"],
+  ["YORE", "Yore"],
+  ["GLINT", "Glint"],
+  ["DUNE", "Dune"],
+  ["INK", "Ink"],
+  ["WITCH", "Witch"],
+  ["COLORLESS", "Colorless"],
 ]);
-const DOSSIER_NO_STRETCH_KEYS = new Set(["GRIXIS", "JUND", "NAYA", "ABZAN", "TEMUR", "SULTAI", "MARDU", "JESKAI"]);
-const DOSSIER_QUERY_IDENTITIES = new Set(["rgw", "wbg", "gur", "bgu", "rwb", "urw"]);
+const DOSSIER_NO_STRETCH_KEYS = new Set(["GRIXIS", "JUND", "NAYA", "ABZAN", "TEMUR", "SULTAI", "MARDU", "JESKAI", "YORE", "GLINT", "DUNE", "INK", "WITCH"]);
+const DOSSIER_QUERY_IDENTITIES = new Set(["rgw", "wbg", "gur", "bgu", "rwb", "urw", "wubr", "ubrg", "brgw", "rgwu", "gwub"]);
+const LIVE_FOUR_COLOR_EXACT_COMMANDER_QUERY_IDENTITIES = new Set(["wubr", "ubrg", "brgw", "rgwu", "gwub"]);
 const MANA_SYMBOL_WORDS = {
   w: "white",
   u: "blue",
   b: "black",
   r: "red",
   g: "green",
+  c: "colorless",
 };
+
+function buildLiveFourColorDossierColorCodeEntries() {
+  return LIVE_FOUR_COLOR_DOSSIER_CONFIG.flatMap(({ key, canonicalIdentity }) =>
+    permuteManaIdentity(canonicalIdentity.toUpperCase()).map((code) => [code, key])
+  );
+}
+
+function permuteManaIdentity(identity) {
+  const letters = [...new Set(String(identity || "").split("").filter(Boolean))];
+  if (!letters.length) return [];
+  if (letters.length === 1) return letters;
+  const results = [];
+  const walk = (prefix, remaining) => {
+    if (!remaining.length) {
+      results.push(prefix.join(""));
+      return;
+    }
+    remaining.forEach((symbol, index) => {
+      walk(
+        [...prefix, symbol],
+        remaining.filter((_, remainingIndex) => remainingIndex !== index)
+      );
+    });
+  };
+  walk([], letters);
+  return results;
+}
 const STASH_SECTIONS = [
   { id: "commander", label: "Commander Ideas", exportHeading: "Commander" },
   { id: "support", label: "Cards That Support This Shape", exportHeading: "Deck" },
@@ -589,25 +660,49 @@ async function initializeResearchArchives() {
 
   const launch = resolveMazeLaunchState(urlParams, readArchscryMazeHandoff() || {});
   if (launch.from === "archscry" && launch.operatorQuery) {
-    const queryResult = resolveMazeRouteQuery(launch.operatorQuery, {
+    const launchPathType = urlParams.get("pathType") || launch.pathType || "";
+    const initialLaunchOperatorQuery = normalizeLiveFourColorExactCommanderQuery(
+      launch.operatorQuery,
+      launchPathType
+    );
+    const archscryFitKey = resolveDossierActiveKey(
+      urlParams.get("fit") ||
+      urlParams.get("factionName") ||
+      inferDossierKeyFromMazeQuery(initialLaunchOperatorQuery || launch.urlQ || "") ||
+      urlParams.get("guild") ||
+      ""
+    );
+    const normalizedLaunch = canonicalizeColorlessMazeLaunch(
+      { ...launch, operatorQuery: initialLaunchOperatorQuery, pathType: launchPathType },
+      archscryFitKey,
+      launchPathType,
+      urlParams.get("factionName") || launch.factionName || "Colorless"
+    );
+    const launchOperatorQuery = normalizedLaunch.operatorQuery || initialLaunchOperatorQuery;
+    const useRawVisibleArchscryLaunch = LIVE_FOUR_COLOR_DOSSIER_KEYS.has(archscryFitKey);
+    const queryResult = resolveMazeRouteQuery(launchOperatorQuery, {
       mode: "raw",
       origin: "archscry",
       order: urlParams.get("order") || currentOrder,
       unique: urlParams.get("unique") || currentUnique,
       dir: normalizeSortDirection(urlParams.get("dir")) || currentDir,
       useFormatDefault: false,
-      launchContext: launch
+      launchContext: { ...normalizedLaunch, operatorQuery: launchOperatorQuery }
     });
     const input = document.getElementById("search-input");
-    input.value = launch.plainReadingQuery || launch.operatorQuery;
-    lastSmartInput = input.value;
+    input.value = useRawVisibleArchscryLaunch
+      ? queryResult.query
+      : (normalizedLaunch.plainReadingQuery || launchOperatorQuery);
+    lastSmartInput = normalizedLaunch.plainReadingQuery || launchOperatorQuery;
     lastSmartQuery = queryResult.query;
-    setMode("ai");
+    setMode(useRawVisibleArchscryLaunch ? "raw" : "ai");
     triggerSearch(queryResult.query, {
       api: queryResult.api,
       diagnostics: queryResult.diagnostics || [],
-      inputValue: launch.plainReadingQuery || "",
-      normalized: queryResult.normalized
+      inputValue: useRawVisibleArchscryLaunch
+        ? queryResult.query
+        : (normalizedLaunch.plainReadingQuery || ""),
+      normalized: useRawVisibleArchscryLaunch ? false : queryResult.normalized
     });
   } else if (launch.urlQ && (launch.from !== "archscry" || isMazeOperatorQuery(launch.urlQ))) {
     const queryResult = resolveMazeRouteQuery(launch.urlQ, {
@@ -1577,6 +1672,40 @@ function writeArchscryMazeHandoff(handoff) {
   } catch (_) {}
 }
 
+const COLORLESS_DOSSIER_PATH_TYPE_ALIASES = new Map([
+  ["commanders-that-fit", "colorless-identity"],
+  ["support-cards", "colorless-noncommander-support"],
+  ["flavor-echoes", "colorless-story-echoes"],
+  ["weird-stretch-commanders", "outside-color-stretch"],
+]);
+
+function isColorlessDossierKey(value) {
+  return resolveDossierActiveKey(value) === "COLORLESS";
+}
+
+function colorlessDossierPathEntry(pathType = "", factionName = "Colorless") {
+  const normalizedPathType = COLORLESS_DOSSIER_PATH_TYPE_ALIASES.get(pathType) || pathType || "colorless-identity";
+  return buildDossierMazePathEntries({
+    identity: "C",
+    factionName: factionName || "Colorless",
+    identityHint: "C",
+  }).find((entry) => entry.pathType === normalizedPathType) ||
+    buildDossierMazePathEntries({ identity: "C", factionName: factionName || "Colorless", identityHint: "C" })[0] ||
+    null;
+}
+
+function canonicalizeColorlessMazeLaunch(launch = {}, activeKey = "", pathType = "", factionName = "Colorless") {
+  if (!isColorlessDossierKey(activeKey)) return launch;
+  const entry = colorlessDossierPathEntry(pathType || launch.pathType || "", factionName);
+  if (!entry) return launch;
+  return {
+    ...launch,
+    operatorQuery: entry.query,
+    plainReadingQuery: entry.plainReadingQuery,
+    pathType: entry.pathType,
+  };
+}
+
 function initializeArchscryMazeHandoff(urlParams) {
   if (urlParams.get("from") !== "archscry") {
     const existing = readArchscryMazeHandoff();
@@ -1590,26 +1719,67 @@ function initializeArchscryMazeHandoff(urlParams) {
   const readingId = urlParams.get("readingId") || existing.readingId || "";
   const urlQ = urlParams.get("q") || "";
   const explicitOperatorQuery = urlParams.get("operatorQuery") || "";
-  const operatorQuery = explicitOperatorQuery || (isMazeOperatorQuery(urlQ) ? urlQ : "") || (!urlQ ? existing.operatorQuery || "" : "");
-  const fit = urlParams.get("fit") ||
-    resolveDossierActiveKey(urlParams.get("factionName")) ||
-    inferDossierKeyFromMazeQuery(operatorQuery) ||
-    existing.fit ||
-    "";
   const pathType = urlParams.get("pathType") || existing.pathType || "";
+  const initialOperatorQuery = normalizeLiveFourColorExactCommanderQuery(
+    explicitOperatorQuery || (isMazeOperatorQuery(urlQ) ? urlQ : "") || (!urlQ ? existing.operatorQuery || "" : ""),
+    pathType
+  );
+  const hasExplicitFit = urlParams.has("fit");
+  const urlFitKey = resolveDossierActiveKey(urlParams.get("fit"));
+  const urlFactionNameKey = resolveDossierActiveKey(urlParams.get("factionName"));
+  const urlGuildKey = resolveDossierActiveKey(urlParams.get("guild"));
+  const operatorKey = inferDossierKeyFromMazeQuery(initialOperatorQuery);
+  const existingFitKey = resolveDossierActiveKey(existing.fit || "");
+  const colorlessUrlKey = [urlFitKey, urlFactionNameKey, urlGuildKey].find((key) => key === "COLORLESS") || "";
+  const fit = urlFitKey ||
+    colorlessUrlKey ||
+    operatorKey ||
+    urlFactionNameKey ||
+    existingFitKey ||
+    urlGuildKey ||
+    "";
+  const existingActiveKey = resolveDossierActiveKey(existing.fit || existing.guild || "");
+  const keepExistingLabel = Boolean(existingActiveKey && existingActiveKey === fit);
+  const liveFourColorDisplayName = LIVE_FOUR_COLOR_DOSSIER_KEYS.has(fit)
+    ? DOSSIER_DISPLAY_NAMES.get(fit) || fit
+    : "";
+  const existingSourceFactionKey = !urlParams.has("sourceFaction") && !urlParams.has("guild")
+    ? resolveDossierActiveKey(existing.sourceFaction)
+    : "";
+  const sourceFaction = [
+    urlParams.get("sourceFaction"),
+    hasExplicitFit ? urlParams.get("guild") : "",
+    existingSourceFactionKey
+  ].map((value) => resolveDossierActiveKey(value))
+    .find((sourceKey) => sourceKey && sourceKey !== fit) || "";
+  const factionName = liveFourColorDisplayName ||
+    (fit === "COLORLESS" ? "Colorless" : urlParams.get("factionName")) ||
+    (keepExistingLabel ? existing.factionName || "" : "");
+  const colorlessLaunch = canonicalizeColorlessMazeLaunch(
+    { operatorQuery: initialOperatorQuery, plainReadingQuery: urlParams.get("plainReadingQuery") || existing.plainReadingQuery || "", pathType },
+    fit,
+    pathType,
+    factionName || "Colorless"
+  );
+  const operatorQuery = colorlessLaunch.operatorQuery || initialOperatorQuery;
+  const handoffPathType = colorlessLaunch.pathType || pathType;
+  const handoffPlainReadingQuery = colorlessLaunch.plainReadingQuery || urlParams.get("plainReadingQuery") || existing.plainReadingQuery || "";
   const previousIdentity = [existing.readingId, existing.fit, existing.pathType].filter(Boolean).join(":");
-  const nextIdentity = [readingId, fit, pathType].filter(Boolean).join(":");
+  const nextIdentity = [readingId, fit, handoffPathType].filter(Boolean).join(":");
+  const keepExistingPlacementResult = !LIVE_FOUR_COLOR_DOSSIER_KEYS.has(fit) || keepExistingLabel;
   const handoff = {
     ...existing,
     from: "archscry",
     readingId,
-    guild: urlParams.get("guild") || existing.guild || "",
+    guild: LIVE_FOUR_COLOR_DOSSIER_KEYS.has(fit) ? fit : fit || urlGuildKey || existing.guild || "",
+    sourceFaction,
     fit,
-    factionName: urlParams.get("factionName") || existing.factionName || "",
+    factionName,
     readingTitle: urlParams.get("readingTitle") || existing.readingTitle || "your Vox Mana reading",
-    pathType,
-    plainReadingQuery: urlParams.get("plainReadingQuery") || existing.plainReadingQuery || "",
+    pathType: handoffPathType,
+    plainReadingQuery: handoffPlainReadingQuery,
     operatorQuery,
+    placementResult: keepExistingPlacementResult ? existing.placementResult : undefined,
     returnBannerDismissed: previousIdentity && previousIdentity === nextIdentity
       ? existing.returnBannerDismissed === true
       : false,
@@ -1742,10 +1912,18 @@ function getStoredPlacementResult() {
 
 function activePlacementResultFromArchscryHandoff(handoff) {
   if (!handoff || typeof handoff !== "object") return null;
+  const colorlessActiveSignal = [
+    handoff.fit,
+    handoff.faction,
+    handoff.factionName,
+    handoff.guild,
+    handoff.identity,
+  ].some((value) => isColorlessDossierKey(value)) ? "COLORLESS" : "";
   const activeKey = resolveDossierActiveKey(
+    colorlessActiveSignal ||
     handoff.fit ||
-    handoff.factionName ||
     inferDossierKeyFromMazeQuery(handoff.operatorQuery || handoff.urlQ || "") ||
+    handoff.factionName ||
     handoff.guild ||
     ""
   );
@@ -1756,15 +1934,20 @@ function activePlacementResultFromArchscryHandoff(handoff) {
     : {};
   const sourceKey = resolveDossierActiveKey(source.faction || "");
   const sourceMatchesActive = !sourceKey || sourceKey === activeKey;
+  const liveFourColorDisplayName = LIVE_FOUR_COLOR_DOSSIER_KEYS.has(activeKey)
+    ? DOSSIER_DISPLAY_NAMES.get(activeKey) || activeKey
+    : "";
   const activeName = String(
+    liveFourColorDisplayName ||
     handoff.factionName ||
     (sourceMatchesActive ? source.faction_name : "") ||
     DOSSIER_DISPLAY_NAMES.get(activeKey) ||
     activeKey
   ).trim() || activeKey;
+  const activeSource = sourceMatchesActive ? source : {};
 
   return {
-    ...source,
+    ...activeSource,
     faction: activeKey,
     faction_name: activeName,
     evidence_trail: sourceMatchesActive && Array.isArray(source.evidence_trail) ? source.evidence_trail : [],
@@ -1777,15 +1960,19 @@ function createReadingPaths(result) {
   if (!identity) return [];
   const signals = readingSearchSignals(result);
   const factionKey = String(result?.faction || "").toUpperCase();
+  const readingName = LIVE_FOUR_COLOR_DOSSIER_KEYS.has(factionKey)
+    ? (DOSSIER_DISPLAY_NAMES.get(factionKey) || result?.faction_name || result?.faction || "this reading")
+    : (result?.faction_name || result?.faction || "this reading");
   const paths = buildDossierMazePathEntries({
     identity,
-    factionName: result?.faction_name || result?.faction || "this reading",
+    factionName: readingName,
     oracleTerms: signals.oracle,
     flavorTerms: signals.flavor,
     identityHint: DOSSIER_VISIBLE_IDENTITY_HINTS.get(factionKey) || "",
     includeOutsideColorStretch: !DOSSIER_NO_STRETCH_KEYS.has(factionKey)
   });
-  return applyDossierQueryIdentityOverride(paths, identity).map((path) => ({
+  const normalizedPaths = applyDossierQueryIdentityOverride(paths, identity);
+  return applyLiveFourColorExactCommanderPolicy(normalizedPaths, identity).map((path) => ({
     label: path.sidebarLabel || path.label,
     hint: path.hint,
     pathType: path.pathType,
@@ -1811,6 +1998,30 @@ function applyDossierQueryIdentityOverride(paths, identity) {
   }));
 }
 
+function liveFourColorExactCommanderQuery(identity = "") {
+  const queryIdentity = String(identity || "").toLowerCase();
+  return LIVE_FOUR_COLOR_EXACT_COMMANDER_QUERY_IDENTITIES.has(queryIdentity)
+    ? `id=${queryIdentity} is:commander f:commander`
+    : "";
+}
+
+function applyLiveFourColorExactCommanderPolicy(paths = [], identity = "") {
+  const exactCommanderQuery = liveFourColorExactCommanderQuery(identity);
+  if (!exactCommanderQuery) return paths;
+  return paths.map((path) => path.pathType === "commanders-that-fit"
+    ? { ...path, query: exactCommanderQuery }
+    : path
+  );
+}
+
+function normalizeLiveFourColorExactCommanderQuery(query = "", pathType = "") {
+  const canonicalQuery = canonicalizeLiveFourColorOperatorQuery(query);
+  if (pathType !== "commanders-that-fit") return canonicalQuery;
+  const activeKey = inferDossierKeyFromMazeQuery(canonicalQuery);
+  if (!LIVE_FOUR_COLOR_DOSSIER_KEYS.has(activeKey)) return canonicalQuery;
+  return liveFourColorExactCommanderQuery(DOSSIER_COLOR_IDENTITIES.get(activeKey)) || canonicalQuery;
+}
+
 function normalizedMazeIdentityForOverride(identity) {
   const symbols = String(identity || "").toLowerCase().match(/[wubrg]/g) || [];
   return [...new Set(symbols)]
@@ -1824,6 +2035,17 @@ function identityWordsForOverride(identity) {
     .split("")
     .map((symbol) => MANA_SYMBOL_WORDS[symbol] || symbol)
     .join("-");
+}
+
+function canonicalizeLiveFourColorOperatorQuery(query) {
+  return String(query || "").replace(/(-?id(?:<=|=))([wubrg]{4})\b/ig, (full, prefix, code) => {
+    const resolvedKey = resolveDossierActiveKey(code);
+    if (!LIVE_FOUR_COLOR_DOSSIER_KEYS.has(resolvedKey)) {
+      return full;
+    }
+    const canonicalIdentity = DOSSIER_COLOR_IDENTITIES.get(resolvedKey) || String(code || "").toLowerCase();
+    return `${prefix}${canonicalIdentity}`;
+  });
 }
 
 function colorIdentityFromPlacement(result) {
@@ -1842,6 +2064,7 @@ function colorIdentityFromPlacement(result) {
 function colorIdentityFromDossierKey(key) {
   const value = resolveDossierActiveKey(key);
   if (!value) return "";
+  if (/^[WUBRG]{4}$/.test(value)) return "";
   if (/^[WUBRG]{1,5}$/.test(value)) {
     return [...new Set(value.split(""))].sort(sortManaSymbols).join("").toLowerCase();
   }
@@ -1860,7 +2083,7 @@ function resolveDossierActiveKey(value) {
 
 function inferDossierKeyFromMazeQuery(query) {
   const text = String(query || "");
-  const match = text.match(/(?:^|\s)-?id(?:<=|=)([wubrg]{1,5})\b/i);
+  const match = text.match(/(?:^|\s)-?id(?:<=|=)([wubrgc]{1,5})\b/i);
   if (!match) return "";
   return resolveDossierActiveKey(match[1]);
 }

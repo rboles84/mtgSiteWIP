@@ -14,7 +14,7 @@ This document traces the main Vox Mana data paths from source content through ge
 
 The authoritative edit path is raw/display data first, then `npm run build:factions` from this repo. Generated artifacts should not be hand-edited unless explicitly repairing generated output.
 
-The current live placement pipeline still operates without a runtime `domain` field. The active placement set is the original 20-expression Ravnica/Strixhaven/mono baseline plus the Bant shard pilot, with the baseline-domain decision documented as `ravnica_strixhaven` in [Placement Domains](placement-domains.md). Khans and New Capenna remain future post-v1 architecture only, and no live build step currently reads or emits a `domain` field.
+The current live placement pipeline still operates without a runtime `domain` field. The active placement set is the original 20-expression Ravnica/Strixhaven/mono Home preview baseline plus five live Alara shard pilots and five live wedge pilots, with the baseline-domain decision documented as `ravnica_strixhaven` in [Placement Domains](placement-domains.md). Khans and New Capenna remain future post-v1 architecture only, and no live build step currently reads or emits a `domain` field.
 
 ## Precon Recommendation Artifacts
 
@@ -36,7 +36,7 @@ The authoritative edit path is `data/precons/vox-mana-precons.source.json` plus 
 | Pending OAuth save | `assets/js/shared.js` | `sessionStorage` key `vm_pending_result` | Holds result while Google OAuth redirect completes. |
 | Interview session bucket | `assets/js/shared.js` | `sessionStorage` key `vm_interview_session_id` | Stable client throttle/session id for edge function calls. |
 | Reduce motion | `assets/js/reduce-motion.js`, `assets/js/vm-topbar.js` | `localStorage` key `vm_reduce_motion` | Shared motion preference. |
-| Home identity signal | `assets/js/newindex2.js` plus `data/identity-layers.json` | Route-local runtime state, canonical preview registry fetch, and `data/factions.json` lore fetch | Renders the canonical homepage Identity Signal, hero radar, destination links, and mana lore note from registry-owned preview metadata. |
+| Home identity signal | `assets/js/home.js` plus `data/identity-layers.json` | Route-local runtime state, canonical preview registry fetch, and `data/factions.json` lore fetch | Renders the canonical homepage Identity Signal, hero radar, destination links, and mana lore note from registry-owned preview metadata. |
 | Archscry-to-Maze handoff | `assets/js/index.js`, `assets/js/maze-handoff.js`, `research/research-init.js` | `localStorage` key `vm_archscry_maze_handoff_v1` plus Maze query params | Preserves originating dossier, active fit, faction name, return URL, `plainReadingQuery`, executable `operatorQuery`, stable `pathType`, and return-banner dismissal state when opening the shared four-lane dossier Maze paths. |
 | Maze card stash | `research/research-init.js` | `localStorage` key `vm_maze_card_stash_v1` | Lightweight local card stash with Commander Ideas, support cards, and maybe finds. |
 | Command panel filters | External command panel | `localStorage` keys `cp.*` | Local panel lane/status/search/page preferences. |

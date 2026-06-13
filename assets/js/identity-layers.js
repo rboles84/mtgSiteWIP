@@ -57,6 +57,10 @@ export function formatPurity(purity) {
     : "Pending color calibration";
 }
 
+function hasAggregateCoreColor(coreColor) {
+  return !COLOR_ORDER.includes(String(coreColor || "").toUpperCase());
+}
+
 export function normalizeLayeredIdentity(identity = {}, fallback = {}) {
   const expressionKey = identity.expression_key || fallback.expression_key || fallback.key || null;
   const expressionName = identity.expression_name || fallback.expression_name || fallback.name || null;
@@ -71,7 +75,7 @@ export function normalizeLayeredIdentity(identity = {}, fallback = {}) {
   return {
     core_color: coreColor,
     secondary_colors: secondaryColors,
-    secondary_color: secondaryColors[0] || null,
+    secondary_color: hasAggregateCoreColor(coreColor) ? null : secondaryColors[0] || null,
     expression_key: expressionKey,
     expression_name: expressionName,
     expression_kind: expressionKind,

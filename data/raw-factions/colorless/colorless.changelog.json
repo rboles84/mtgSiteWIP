@@ -1,0 +1,339 @@
+{
+  "schema_version": "1.0.0",
+  "faction_id": "colorless",
+  "faction_name": "Colorless",
+  "last_updated": "2026-06-11",
+  "audit_summary": {
+    "raw_packet_created": true,
+    "raw_claim_count": 8,
+    "claim_bearing_rows_used_as_raw_proof": [
+      "COLORLESS-EVID-001",
+      "COLORLESS-EVID-006",
+      "COLORLESS-EVID-007",
+      "COLORLESS-EVID-008",
+      "COLORLESS-EVID-009",
+      "COLORLESS-EVID-010",
+      "COLORLESS-EVID-011",
+      "COLORLESS-EVID-012",
+      "COLORLESS-EVID-013",
+      "COLORLESS-EVID-016",
+      "COLORLESS-EVID-018",
+      "COLORLESS-EVID-019",
+      "COLORLESS-EVID-020",
+      "COLORLESS-EVID-021",
+      "COLORLESS-EVID-025"
+    ],
+    "support_boundary_rows_used_as_limitations": [
+      "COLORLESS-EVID-014",
+      "COLORLESS-EVID-015",
+      "COLORLESS-EVID-017",
+      "COLORLESS-EVID-022",
+      "COLORLESS-EVID-023",
+      "COLORLESS-EVID-024"
+    ],
+    "excluded_evidence_rows_as_raw_proof": [
+      "COLORLESS-EVID-002",
+      "COLORLESS-EVID-003",
+      "COLORLESS-EVID-005",
+      "COLORLESS-EVID-014",
+      "COLORLESS-EVID-015",
+      "COLORLESS-EVID-017",
+      "COLORLESS-MF-001",
+      "COLORLESS-MF-002",
+      "COLORLESS-MF-003",
+      "COLORLESS-MF-004",
+      "COLORLESS-MF-005",
+      "COLORLESS-MF-006",
+      "COLORLESS-MF-007",
+      "COLORLESS-MF-008",
+      "COLORLESS-MF-009",
+      "COLORLESS-MF-010",
+      "COLORLESS-MF-011",
+      "COLORLESS-MF-012",
+      "COLORLESS-EVID-022",
+      "COLORLESS-EVID-023",
+      "COLORLESS-EVID-024",
+      "COLORLESS-MF-013",
+      "COLORLESS-MF-014",
+      "COLORLESS-MF-015",
+      "COLORLESS-MF-016"
+    ],
+    "support_only_rows_as_independent_claims": false,
+    "manual_fill_rows_as_claims": false,
+    "architecture_docs_as_raw_claim_evidence": false,
+    "commander_rows_as_broad_commander_proof": false,
+    "discovery_files_as_raw_claim_evidence": false,
+    "synthesis_rows_as_raw_claim_evidence": false,
+    "visual_assets_as_raw_claim_evidence": false,
+    "generated_output_copied_into_raw_packet": false,
+    "canon_relocation_normalized": false,
+    "builder_mapping_changed": false,
+    "generated_artifacts_changed": true,
+    "runtime_files_changed": true,
+    "identity_layers_changed": true,
+    "placement_model_changed": true,
+    "schema_files_changed": false,
+    "status": "vm337_controlled_dossier_expansion",
+    "placement_status": "controlled_placeable",
+    "placement_ready_pass": "VM-326/VM-334",
+    "colorless_future_planned_only": false,
+    "raw_key_mapping_updated": true,
+    "build_factions_run": true,
+    "placement_eligible": true,
+    "preview_eligible": false,
+    "live_pilot": true,
+    "raw_hash_baseline_invalidated_by_vm324": true,
+    "raw_hash_baseline_invalidated_by_vm337": true,
+    "next_review_gate_required": "Manual browser QA and separate approval before Home preview, public routes, public aliases, Commander Compass, or broad recommendations"
+  },
+  "changes": [
+    {
+      "change_id": "colorless_change_001",
+      "change_type": "VM-311 Initial Non-Live Raw Packet",
+      "change_date": "2026-06-10",
+      "summary": "Created the pre-promotion raw-faction packet from existing VM-308 evidence rows while preserving VM-309 and VM-310 architecture as shaping-only, Commander rows as support-only, Ugin/Karn lore as manual-fill constrained texture, canon relocation as unresolved, colorless.webp as out-of-scope visual material, COLORLESS as future/planned only at that time, and no runtime, generated, schema, builder, route, Maze, Home, Supabase, or identity-layer changes.",
+      "sources_added": [],
+      "source_identifiers_reused": [
+        "COLORLESS-SCOPE-003",
+        "COLORLESS-SCOPE-004",
+        "COLORLESS-SRC-008",
+        "COLORLESS-SRC-009",
+        "COLORLESS-SRC-010",
+        "COLORLESS-SRC-011",
+        "COLORLESS-SRC-012",
+        "COLORLESS-SRC-013",
+        "COLORLESS-SRC-014",
+        "COLORLESS-SRC-017",
+        "COLORLESS-CANON-001",
+        "COLORLESS-CANON-003",
+        "COLORLESS-CMD-001",
+        "COLORLESS-CMD-002"
+      ],
+      "sources_updated": [],
+      "quarantine_records_added": [
+        "colorless_quarantine_relocation_001",
+        "colorless_quarantine_visual_001",
+        "colorless_quarantine_future_notes_001"
+      ],
+      "claims_added": [
+        "colorless_claim_0001",
+        "colorless_claim_0002",
+        "colorless_claim_0003",
+        "colorless_claim_0004",
+        "colorless_claim_0005"
+      ],
+      "claims_updated": [],
+      "claims_superseded": [],
+      "claims_contradicted": [],
+      "profile_fields_updated": [
+        "site_surface",
+        "core_identity",
+        "structure",
+        "great_tension",
+        "historical_timeline",
+        "key_figures",
+        "canonical_flavor_text",
+        "profile",
+        "mechanics",
+        "views_on_other_factions",
+        "commander_compass",
+        "search_and_filter_metadata",
+        "data_quality",
+        "research_limitations"
+      ],
+      "placement_fields_updated": [
+        "placement_summary",
+        "moral_and_psychological_profile",
+        "placement_axes",
+        "core_values",
+        "behavioral_signals",
+        "inhibitor_traits",
+        "inhibitor_traps",
+        "good_fit_indicators",
+        "ideal_fit_indicators",
+        "poor_fit_indicators",
+        "discriminator_questions",
+        "chatbot_guidance",
+        "placement_quality",
+        "color_identity",
+        "calibration_tuning",
+        "collision_guidance"
+      ],
+      "manual_review_required": [
+        "Verify current official Comprehensive Rules citations before exact rules copy.",
+        "Verify official Oath of the Gatewatch source mapping for {C} and Wastes before polished public/raw claims.",
+        "Verify Wastes Oracle and ruling details before exact card copy.",
+        "Add official Eldrazi Unbound product proof before definitive Commander claims.",
+        "Capture direct official Ugin/Karn lore before detailed lore claims.",
+        "Verify Eldrazi titan lore before public identity copy.",
+        "Add direct colored-artifact/history sources before broad artifact claims.",
+        "Validate colorless raw/runtime/schema representation only in a later review or promotion card.",
+        "Document canon relocation replacement mapping before staging or normalizing old canon Colorless deletes.",
+        "Keep future product and Semnia notes excluded unless a later card approves evidence."
+      ],
+      "notes": "Historical VM-311 state only: COLORLESS was pre-promotion at that time. VM-334 now controls current product status. VM-311 did not infer runtime/schema support from colorless enum-like strings, did not create source/evidence/manual-fill IDs, did not cite architecture docs as claim-bearing evidence, and did not copy generated placement/profile/context language into raw data."
+    },
+    {
+      "change_id": "colorless_change_002",
+      "change_type": "VM-324 Source Intake And UX Readiness Repair",
+      "change_date": "2026-06-10",
+      "summary": "Copied the user-provided sourced Colorless notes into managed source-material intake, added COLORLESS-SRC-018 plus new evidence/manual-fill rows, and repaired the pre-promotion raw packet with positive attraction material, placement-axis candidates, stricter Commander/Devoid/five-color Eldrazi false-positive boundaries, and explicit review-gate requirements. VM-334 now controls current Colorless product status.",
+      "sources_added": [
+        "COLORLESS-SRC-018"
+      ],
+      "source_identifiers_reused": [
+        "COLORLESS-SCOPE-003",
+        "COLORLESS-SCOPE-004",
+        "COLORLESS-SRC-008",
+        "COLORLESS-SRC-010",
+        "COLORLESS-SRC-012",
+        "COLORLESS-SRC-017",
+        "COLORLESS-CANON-001",
+        "COLORLESS-CANON-003",
+        "COLORLESS-CMD-001",
+        "COLORLESS-CMD-002"
+      ],
+      "sources_updated": [
+        "colorless.sources.json",
+        "colorless-source-ledger.md",
+        "colorless-evidence-ledger.md"
+      ],
+      "evidence_rows_added": [
+        "COLORLESS-EVID-019",
+        "COLORLESS-EVID-020",
+        "COLORLESS-EVID-021",
+        "COLORLESS-EVID-022",
+        "COLORLESS-EVID-023",
+        "COLORLESS-EVID-024"
+      ],
+      "manual_fill_rows_added": [
+        "COLORLESS-MF-013",
+        "COLORLESS-MF-014",
+        "COLORLESS-MF-015",
+        "COLORLESS-MF-016"
+      ],
+      "claims_added": [
+        "colorless_claim_0006",
+        "colorless_claim_0007",
+        "colorless_claim_0008"
+      ],
+      "claims_updated": [
+        "colorless_claim_0001",
+        "colorless_claim_0002",
+        "colorless_claim_0003",
+        "colorless_claim_0004",
+        "colorless_claim_0005"
+      ],
+      "claims_superseded": [],
+      "claims_contradicted": [],
+      "profile_fields_updated": [
+        "core_identity",
+        "structure",
+        "historical_timeline",
+        "key_figures",
+        "canonical_flavor_text",
+        "profile",
+        "mechanics",
+        "views_on_other_factions",
+        "commander_compass",
+        "search_and_filter_metadata",
+        "site_surface",
+        "data_quality",
+        "research_limitations"
+      ],
+      "placement_fields_updated": [
+        "placement_summary",
+        "moral_and_psychological_profile",
+        "placement_axes",
+        "core_values",
+        "behavioral_signals",
+        "inhibitor_traits",
+        "inhibitor_traps",
+        "good_fit_indicators",
+        "ideal_fit_indicators",
+        "poor_fit_indicators",
+        "discriminator_questions",
+        "chatbot_guidance",
+        "placement_quality",
+        "calibration_tuning",
+        "collision_guidance"
+      ],
+      "raw_hash_baseline_effect": "Intentionally invalidates the VM-321 raw hash baseline. VM-326 must establish the next reviewed baseline before any promotion work resumes.",
+      "manual_review_required": [
+        "Review COLORLESS-SRC-018 intake classification and evidence-row mapping.",
+        "Verify Phyrexia false-positive grounding before stronger public or raw-positive claims.",
+        "Verify named-card Oracle text and Commander legality before public recommendations or exact rules copy.",
+        "Use fresh data before price or metagame advice.",
+        "Verify live Colorless rendering and data-model UX in a later runtime implementation/review card.",
+        "Use VM-334 as current lifecycle authority before future Colorless expansion work."
+      ],
+      "notes": "Historical VM-324 state only: readiness repair did not approve COLORLESS for placement at that time. VM-334 now controls current product status. VM-324 did not run builders/generators and did not touch runtime/generated/schema/Home/Maze/routes/Supabase/image/canon relocation paths."
+    },
+    {
+      "change_id": "colorless_change_003",
+      "change_type": "VM-337 Controlled Dossier Expansion",
+      "change_date": "2026-06-11",
+      "summary": "Recorded VM-334 as lifecycle/product-governance authority only, revised stale current-status language to controlled placeable, and prepared controlled Colorless dossier, mana-base, Commander-boundary, and Matrix Boundary copy without approving public route, Home preview, public alias, Commander Compass, broad recommendation, schema, Supabase manual-context, or image expansion.",
+      "sources_added": [
+        "COLORLESS-SCOPE-005"
+      ],
+      "source_identifiers_reused": [
+        "COLORLESS-SCOPE-003",
+        "COLORLESS-SCOPE-004",
+        "COLORLESS-SRC-008",
+        "COLORLESS-SRC-010",
+        "COLORLESS-SRC-012",
+        "COLORLESS-SRC-017",
+        "COLORLESS-SRC-018",
+        "COLORLESS-CANON-001",
+        "COLORLESS-CANON-003",
+        "COLORLESS-CMD-001",
+        "COLORLESS-CMD-002"
+      ],
+      "sources_updated": [
+        "colorless.sources.json",
+        "colorless-source-ledger.md",
+        "colorless-evidence-ledger.md"
+      ],
+      "evidence_rows_added": [
+        "COLORLESS-EVID-025"
+      ],
+      "claims_added": [],
+      "claims_updated": [
+        "colorless_claim_0001",
+        "colorless_claim_0006",
+        "colorless_claim_0008"
+      ],
+      "profile_fields_updated": [
+        "core_identity",
+        "historical_timeline",
+        "canonical_flavor_text",
+        "profile",
+        "mechanics",
+        "search_and_filter_metadata",
+        "site_surface",
+        "data_quality",
+        "research_limitations"
+      ],
+      "placement_fields_updated": [
+        "color_identity",
+        "placement_summary",
+        "moral_and_psychological_profile",
+        "placement_axes",
+        "poor_fit_indicators",
+        "discriminator_questions",
+        "chatbot_guidance",
+        "placement_quality",
+        "calibration_tuning",
+        "collision_guidance"
+      ],
+      "manual_review_required": [
+        "Manual browser QA remains required before broader public Colorless rollout.",
+        "Verify named-card Oracle text and Commander legality before public recommendations or exact rules copy.",
+        "Use fresh data before price or metagame advice.",
+        "Require separate approval before Home preview, public routes, public aliases, Commander Compass, broader URL expansion, Supabase manual-context expansion, schema expansion, or image changes."
+      ],
+      "notes": "VM-334 may be cited only as lifecycle/product-governance authority, not MTG lore, rules, Commander, card, legality, or deck evidence. VM-337 accepts generated output only through approved builder propagation."
+    }
+  ]
+}

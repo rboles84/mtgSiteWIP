@@ -1,0 +1,444 @@
+{
+  "schema_version": "1.0.0",
+  "profile_version": "0.1.2",
+  "faction_id": "glint",
+  "faction_name": "Glint / Chaos",
+  "faction_type": "four-color",
+  "color_identity": [
+    "Blue",
+    "Black",
+    "Red",
+    "Green"
+  ],
+  "color_pair_or_group": "UBRG four-color metadata only; all 24 UBRG permutations metadata/query-only",
+  "plane_or_setting": "Cross-setting; Ravnica historical anchor; Commander 2016 support texture",
+  "last_updated": "2026-06-12",
+  "source_review_date": "2026-06-12",
+  "last_full_review": "2026-06-02",
+  "last_incremental_review": "2026-06-12",
+  "core_identity": {
+    "short_form": "UBRG without White: adaptive appetite without civic restraint.",
+    "identity_frame": "Glint / Chaos uses the missing-White frame to describe appetite, adaptation, force, volatility, and living pressure without White-style imposed order.",
+    "naming_boundary": "GLINT is a Vox Mana expression label and Chaos is Commander 2016 support/theme texture; neither is an official universal MTG name for UBRG.",
+    "claim_ids": [
+      "glint_claim_0001",
+      "glint_claim_0002",
+      "glint_claim_0003",
+      "glint_claim_0004",
+      "glint_claim_0005"
+    ]
+  },
+  "structure": {
+    "identity_class": "four-color",
+    "missing_color": "White",
+    "present_colors": [
+      "Blue",
+      "Black",
+      "Red",
+      "Green"
+    ],
+    "primary_anchor": "Glint-Eye Nephilim as bounded historical/card anchor",
+    "support_texture": [
+      "appetite",
+      "adaptive intelligence",
+      "volatility",
+      "living force",
+      "non-White four-color pressure",
+      "cascade and maelstrom support texture"
+    ],
+    "non_faction_boundary": "Glint is not an official faction, plane, cult, school, doctrine, institution, or organized social order."
+  },
+  "great_tension": {
+    "gift": "Adaptive force that learns, feeds, and grows under pressure without asking civic restraint for permission.",
+    "shadow": "If no higher order is trusted, appetite and improvisation can become predatory and destabilizing.",
+    "boundary": "This is Vox Mana/source synthesis, not direct canon doctrine."
+  },
+  "historical_timeline": [
+    {
+      "label": "Nephilim-era anchor",
+      "summary": "Glint-Eye Nephilim provides the card-identity anchor for the lane.",
+      "boundary": "Not a civilization, doctrine, or placement authority; exact local card-data validation now exists as support-only bounded copy, while stronger direct official capture remains deferred for any later claim-bearing promotion."
+    },
+    {
+      "label": "Commander 2016 support texture",
+      "summary": "Chaos and Yidris / Entropic Uprising support volatility, cascade, and four-color-without-White Commander readability.",
+      "boundary": "Support-only; not lore proof, legality proof, runtime authorization, or recommendation proof."
+    }
+  ],
+  "key_figures": [
+    {
+      "name": "Glint-Eye Nephilim",
+      "role": "Historical/card anchor",
+      "boundary": "Not a Glint faction founder, institution, or doctrine source."
+    },
+    {
+      "name": "Yidris",
+      "role": "Commander support texture",
+      "boundary": "Support-only; not proof of Glint lore or official naming."
+    }
+  ],
+  "canonical_flavor_text": {
+    "source_bound_summary": "Glint / Chaos is Vox Mana's live UBRG/non-White expression for appetite, adaptive intelligence, volatility, living force, and storm-fed opportunity under pressure.",
+    "vox_mana_synthesis": "The storm that learns while it feeds.",
+    "boundary": "Use synthesis only as profile language, not as raw canon proof. Do not invent or quote unsupported flavor text."
+  },
+  "profile": {
+    "overview": "Glint / Chaos is Vox Mana's UBRG/non-White expression for adaptive appetite, volatility, living force, and storm-fed opportunity under pressure.",
+    "philosophy": "Glint wants the world alive, hungry, and adaptive enough to learn through pressure before civic restraint can flatten the moment into duty or law.",
+    "core_tension": "Glint learns, feeds, and grows through instability without asking White-style order for permission, but appetite and improvisation can become predatory when nothing above the self is trusted to stabilize the world.",
+    "mechanics_and_play_pattern": "Missing-White four-color pressure, adaptive appetite, volatility, living force, cascade/high-variance support texture, and improvisational pressure can express Glint only when they serve the full UBRG/non-White worldview of Blue adaptation, Black appetite, Red ignition, and Green living force without White-style civic restraint; chaos or cascade mechanics alone do not define the identity.",
+    "claim_ids": [
+      "glint_claim_0001",
+      "glint_claim_0002",
+      "glint_claim_0003",
+      "glint_claim_0004",
+      "glint_claim_0005"
+    ]
+  },
+  "mechanics": {
+    "summary": "Missing-White four-color pressure, adaptive appetite, volatility, living force, cascade/high-variance support texture, and improvisational pressure can express Glint only when they serve the full UBRG/non-White worldview of Blue adaptation, Black appetite, Red ignition, and Green living force without White-style civic restraint; chaos or cascade mechanics alone do not define the identity.",
+    "source_bound_texture": [
+      "missing-White four-color framing",
+      "living force under pressure",
+      "adaptive predation boundary"
+    ],
+    "support_only_texture": [
+      "cascade",
+      "combat-damage spell momentum",
+      "high-variance turns",
+      "four-color-without-White Commander play"
+    ],
+    "deferred": [
+      "stronger direct official Glint-Eye or Yidris page/article capture if later claim-bearing promotion is desired",
+      "exact Commander legality",
+      "exact recommendations",
+      "exact Commander 2016 article claims",
+      "card-level cascade or combat interpretation beyond bounded local card-data support"
+    ]
+  },
+  "views_on_other_factions": {
+    "pair_overlap_boundaries": [
+      "Dimir secrecy and opportunism alone are not Glint.",
+      "Izzet experimentation alone is not Glint.",
+      "Simic adaptation alone is not Glint.",
+      "Rakdos appetite alone is not Glint.",
+      "Golgari survival pressure alone is not Glint.",
+      "Gruul ferocity alone is not Glint."
+    ],
+    "near_match_boundaries": [
+      "Grixis lacks Green living force.",
+      "Jund lacks Blue adaptive intelligence.",
+      "Temur lacks Black appetite.",
+      "Sultai lacks Red ignition.",
+      "Omnath and non-Black four-color value shells often include White stability or lack Black predation.",
+      "Yidris-only shells are review triggers, not proof.",
+      "Generic chaos or cascade is a review trigger, not proof.",
+      "Generic UBRG goodstuff is a review trigger, not proof."
+    ],
+    "source_role": "Shaping-only parity guidance from VM-248."
+  },
+  "commander_compass": {
+    "schema_version": "1.0.0",
+    "source_research_file": "docs/research/vox_mana_second_commander_recommendations_enhanced.jsonl",
+    "last_reviewed": "2026-06-12",
+    "review_status": "support_only_live_pilot_curation",
+    "recommendation_philosophy": "Use GLINT Commander guidance as product/operator support only: the local Entropic Uprising / Yidris, Maelstrom Wielder support row can express Yidris, cascade, volatility, and four-color-without-White Commander texture. These rows do not create lore proof, naming authority, Commander legality proof, placement evidence, public aliases, or claim authority.",
+    "identity_basis": {
+      "owned_themes": [
+        "UBRG/non-White appetite and adaptation",
+        "cascade and volatility as support-only Commander vocabulary",
+        "living force without imposed civic restraint"
+      ],
+      "allowed_phrases": [
+        "Glint support fit",
+        "cascade texture",
+        "volatile value",
+        "living appetite"
+      ],
+      "avoid_or_contrast_phrases": [
+        "Yidris as Glint lore proof",
+        "Entropic Uprising as naming authority",
+        "Commander legality proof",
+        "chaos preference as placement evidence"
+      ],
+      "adjacent_overlap_notes": [
+        "Cascade and chaos texture can overlap Izzet, Grixis, Jund, or Temur; Glint support wording keeps missing-White restraint refusal visible."
+      ],
+      "supporting_claim_ids": [
+        "glint_claim_0002",
+        "glint_claim_0003",
+        "glint_claim_0005"
+      ],
+      "supporting_source_ids": [
+        "src_vm_commander_recommendations_yidris_20260602",
+        "src_vm_four_color_identity_dossier_md_20260602"
+      ]
+    },
+    "support_decks": [
+      "Entropic Uprising"
+    ],
+    "support_language": [
+      "cascade",
+      "chaos",
+      "volatility",
+      "value"
+    ],
+    "native_fit_commanders": [
+      {
+        "exact_card_name": "Yidris, Maelstrom Wielder",
+        "display_name": "Yidris, Maelstrom Wielder",
+        "scryfall_uri": "https://scryfall.com/card/c16/50/yidris-maelstrom-wielder?utm_source=api",
+        "edhrec_uri": "https://edhrec.com/commanders/yidris-maelstrom-wielder",
+        "color_identity": [
+          "U",
+          "B",
+          "R",
+          "G"
+        ],
+        "commander_legal": true,
+        "recommendation_type": "Support-Only Commander Row",
+        "archetype_tags": [
+          "cascade",
+          "chaos",
+          "volatility",
+          "value"
+        ],
+        "why_this_fits": "The approved local Commander support row for Entropic Uprising supports Yidris, cascade, volatility, and four-color-without-White Commander texture for the GLINT lane.",
+        "skip_if": "Skip if the user needs lore proof, naming authority, exact legality proof, placement evidence, or metagame certainty rather than support-only Commander texture.",
+        "gameplay_summary": "Commander support texture for cascade, volatile value, and four-color-without-White play. Use only as a support starting point for the Glint lane.",
+        "faction_identity_terms": [
+          "Glint support fit",
+          "cascade texture",
+          "volatile value",
+          "living appetite"
+        ],
+        "source_basis": "src_vm_commander_recommendations_yidris_20260602; docs/research/vox_mana_second_commander_recommendations_enhanced.jsonl:51",
+        "confidence": "Support-only",
+        "caution_notes": "Support-only Commander material; not lore, canon, placement, claim, route, alias, or public naming authority."
+      }
+    ],
+    "weird_stretch_commanders": [],
+    "budget_friendly_commanders": [],
+    "advanced_complexity_commanders": [],
+    "iconic_lore_forward_commanders": [],
+    "not_recommended_or_deprioritized": [
+      {
+        "reason": "Yidris as Glint lore proof"
+      },
+      {
+        "reason": "Entropic Uprising as naming authority"
+      },
+      {
+        "reason": "Commander legality proof"
+      },
+      {
+        "reason": "chaos preference as placement evidence"
+      }
+    ],
+    "archetype_lanes": [
+      {
+        "lane": "Entropic Uprising support texture",
+        "support_decks": [
+          "Entropic Uprising"
+        ],
+        "support_language": [
+          "cascade",
+          "chaos",
+          "volatility",
+          "value"
+        ],
+        "source_basis": "src_vm_commander_recommendations_yidris_20260602"
+      }
+    ],
+    "link_targets": {
+      "edhrec_commander_index": "https://edhrec.com/commanders/yidris-maelstrom-wielder",
+      "mtgdecks_color_identity": "",
+      "scryfall_commander_search": "https://scryfall.com/search?q=id%3Dubrg+is%3Acommander+f%3Acommander",
+      "archidekt_color_search": "https://archidekt.com/search/decks?colors=UBRG&deckFormat=3&orderBy=-updatedAt&page=1"
+    },
+    "merge_notes": {
+      "support_only_boundary": "Commander/deck/operator material remains support texture only and must not be used as lore, canon, placement, Crucible, discriminator, claim, route, alias, or naming proof.",
+      "deck_links_status": "External links are Commander support navigation targets only, not evidence rows."
+    }
+  },
+  "search_and_filter_metadata": {
+    "future_expression_name": "GLINT",
+    "future_expression_name_status": "Historical field name retained; GLINT is now the live public expression key after VM-251, while UBRG and all same-color permutations remain metadata/query-only.",
+    "metadata_query_only_terms": [
+      "UBRG",
+      "UBGR",
+      "URBG",
+      "URGB",
+      "UGBR",
+      "UGRB",
+      "BURG",
+      "BUGR",
+      "BRUG",
+      "BRGU",
+      "BGUR",
+      "BGRU",
+      "RUBG",
+      "RUGB",
+      "RBUG",
+      "RBGU",
+      "RGUB",
+      "RGBU",
+      "GUBR",
+      "GURB",
+      "GBUR",
+      "GBRU",
+      "GRUB",
+      "GRBU",
+      "ubrg",
+      "ubgr",
+      "urbg",
+      "urgb",
+      "ugbr",
+      "ugrb",
+      "burg",
+      "bugr",
+      "brug",
+      "brgu",
+      "bgur",
+      "bgru",
+      "rubg",
+      "rugb",
+      "rbug",
+      "rbgu",
+      "rgub",
+      "rgbu",
+      "gubr",
+      "gurb",
+      "gbur",
+      "gbru",
+      "grub",
+      "grbu"
+    ],
+    "source_status": "source_grounded_live_repair",
+    "placement_status": "live_after_vm251_source_repair",
+    "preview_eligible": false,
+    "review_gated": false,
+    "placement_eligible": true,
+    "live_pilot": true,
+    "source_durability_note": "VM-303 source-backs GLINT's current generated profile and placement state while preserving the original five-claim floor and bounded support-only texture.",
+    "claim_ids": [
+      "glint_claim_0001",
+      "glint_claim_0002",
+      "glint_claim_0003",
+      "glint_claim_0004",
+      "glint_claim_0005"
+    ]
+  },
+  "site_surface": {
+    "display_name": "Glint / Chaos",
+    "short_summary": "Glint / Chaos is Vox Mana's live UBRG/non-White expression for adaptive appetite, volatility, living force, and storm-fed opportunity under pressure.",
+    "one_sentence_identity": "Glint learns in the storm and refuses to let civic order tell hunger what it may become.",
+    "tagline": "Ride the surge. Keep the edge alive.",
+    "primary_tags": [
+      "Glint",
+      "Chaos support texture",
+      "UBRG metadata",
+      "Four-color",
+      "Non-White",
+      "Source-grounded",
+      "Live pilot"
+    ],
+    "secondary_tags": [
+      "Appetite",
+      "Adaptation",
+      "Volatility",
+      "Living force",
+      "Glint-Eye boundary",
+      "Commander support-only",
+      "Metadata-query-only permutations"
+    ],
+    "tone_words": [
+      "volatile",
+      "adaptive",
+      "hungry",
+      "feral",
+      "cunning",
+      "unlicensed",
+      "storm-lit",
+      "predatory"
+    ],
+    "visual_keywords": [
+      "maelstrom sky",
+      "storm-fed growth",
+      "predatory current",
+      "glinting eye",
+      "wild surge",
+      "non-White UBRG"
+    ],
+    "best_for": [
+      "users drawn to adaptive appetite, volatility, and living-force pressure",
+      "Commander-first language that likes Yidris-style momentum without mistaking support-only anchors for lore proof",
+      "authors preserving the difference between Glint identity, Chaos support texture, and UBRG metadata"
+    ],
+    "content_warnings_or_sensitivity_notes": [
+      "Glint language can involve predation, volatility, hunger, bodily force, and refusal of civic restraint. Stronger Commander 2016 article grounding, exact recommendations, and deeper naming or philosophy support remain deferred."
+    ],
+    "claim_ids": [
+      "glint_claim_0001",
+      "glint_claim_0002",
+      "glint_claim_0003",
+      "glint_claim_0004",
+      "glint_claim_0005"
+    ]
+  },
+  "data_quality": {
+    "strongest_evidence_areas": [
+      "Glint lifecycle and live-key boundary",
+      "UBRG metadata/query-only boundary",
+      "Glint/Chaos naming guardrail",
+      "missing-White four-color frame",
+      "Glint-Eye Nephilim boundary as card anchor, not institutional authority",
+      "bounded non-White appetite and anti-imposed-order frame",
+      "exact local Glint-Eye and Yidris card-data validation as support-only copy support"
+    ],
+    "weakest_evidence_areas": [
+      "stronger direct official Glint-Eye and Yidris article/page capture",
+      "Yidris lore and Commander 2016 article grounding",
+      "exact missing-White philosophy source spine",
+      "adjacent separator raw evidence",
+      "Commander legality and exact recommendations",
+      "long-form psychology"
+    ],
+    "manual_review_recommended": true,
+    "review_gated": false,
+    "placement_eligible": true,
+    "preview_eligible": false,
+    "live_pilot": true,
+    "notes": "VM-276 preserves the original VM-249 five-claim floor while reconciling GLINT's current live-pilot status after VM-251. UBRG and all same-color permutations remain metadata/query-only, and stronger article or naming capture is still deferred."
+  },
+  "research_limitations": [
+    "Do not use VM-247 or VM-248 architecture docs as raw-claim evidence.",
+    "Do not promote support-only local card-data validation into raw claims without explicit source-role or evidence-policy change.",
+    "Do not use Commander rows, unmanaged drafts, support-only synthesis, or manual-fill rows as raw-claim evidence.",
+    "Do not use Yidris, Entropic Uprising, chaos/cascade texture, or generic UBRG goodstuff as proof of Glint lore.",
+    "Keep long-form psychology, stronger direct official card/article capture, and Commander legality deferred until later reviewed surfaces."
+  ],
+  "deck_links": [
+    {
+      "fmt": "Commander",
+      "name": "Yidris, Maelstrom Wielder",
+      "desc": "Commander support texture for cascade, volatile value, and four-color-without-White play. Use only as a support starting point for the Glint lane.",
+      "mtgg": null,
+      "edhrec": "https://edhrec.com/commanders/yidris-maelstrom-wielder",
+      "mtgd": null
+    },
+    {
+      "fmt": "Commander",
+      "name": "Entropic Uprising (Precon)",
+      "desc": "Commander 2016 support texture for Yidris-led cascade. Treat as support-only deck context, not lore proof or naming authority.",
+      "mtgg": null,
+      "edhrec": "https://edhrec.com/decks/entropic-uprising",
+      "mtgd": null
+    }
+  ],
+  "research_links": {
+    "source_packet": "data/raw-factions/glint/glint.sources.json",
+    "support_dossier": "docs/research/canon/misc/Magic Four-Color Identity Dossier.md",
+    "commander_support_row": "docs/research/vox_mana_second_commander_recommendations_enhanced.jsonl:51"
+  }
+}

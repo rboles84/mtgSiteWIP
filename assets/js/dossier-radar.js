@@ -224,6 +224,26 @@ const DOSSIER_RADAR_PROFILES = {
     data: [48, 88, 34, 46, 84],
     hex: "#78e6ca",
   },
+  YORE: {
+    key: "YORE",
+    name: "Yore",
+    title: "Yore / Artifice - Four-Color without Green",
+    text: "Yore combines White structure, Blue refinement, Black refusal, and Red heat into engineered agency. It uses artifice, archive, sacrifice, recursion, and constructed choice rather than accepting nature as the final answer.",
+    note: "For non-Green Yore, Growth is not a Green alignment claim. It reads continuity, adaptation, survival pressure, and the ability to keep choice alive under constraint; Yore converts that pressure into construction rather than surrender.",
+    components: ["W", "U", "B", "R"],
+    data: [50, 58, 54, 56, 54],
+    hex: "#d6a84e",
+  },
+  COLORLESS: {
+    key: "COLORLESS",
+    name: "Colorless",
+    title: "Colorless - Outside the Wheel",
+    text: "This synthesis translates the reading into one previewable identity shape while keeping Colorless outside the five-color grammar.",
+    note: "Colorless is shown as chosen restriction, true {C}, Wastes, artifact engines, and colorless finishers. The matrix is presentation support, not a claim that Colorless is a sixth color or WUBRG blend.",
+    components: [],
+    data: [50, 54, 50, 46, 48],
+    hex: "#c7c8bd",
+  },
 };
 
 let dossierManaRadarChart = null;
@@ -397,8 +417,19 @@ function renderDossierCardVoicesPanel(snippets = []) {
     </div>`;
 }
 
+function renderColorlessCardVoiceBoundaryPanel() {
+  return `
+    <div class="vm-card-voice-panel" data-archscry-card-voices>
+      <div class="vm-card-voice-heading">
+        <span>Colorless Matrix Boundary</span>
+        <p>Colorless card examples stay in the main card section so artifacts, Wastes, Eldrazi, true {C}, generic costs, and five-color Eldrazi do not repeat as one interchangeable voice.</p>
+      </div>
+    </div>`;
+}
+
 function renderDossierRadarSection({ result, faction, flavorSnippets = [] }) {
   const profile = getDossierRadarProfile(result, faction);
+  const factionKey = String(faction?.key || result?.primary || result?.top || "").toUpperCase();
   const multiColor = (profile.components || []).length > 1;
   const controlsHtml = multiColor
     ? `
@@ -431,7 +462,7 @@ function renderDossierRadarSection({ result, faction, flavorSnippets = [] }) {
               <div class="vm-overlay-line" id="dossierOverlayLine">${renderDossierOverlayLine(profile)}</div>
             </div>
             <div class="vm-axis-list" id="dossierAxisList">${renderDossierAxisList(profile)}</div>
-            <div class="vm-placeholder-note">This authored identity matrix summarizes how the active placement expresses Order, Knowledge, Ambition, Freedom, and Growth. It is a readable profile for the chosen fit, not a raw mana-score ledger.</div>
+            <div class="vm-placeholder-note">${escapeDossierHtml(profile.note || "This authored identity matrix summarizes how the active placement expresses Order, Knowledge, Ambition, Freedom, and Growth. It is a readable profile for the chosen fit, not a raw mana-score ledger.")}</div>
           </div>
           <div class="vm-radar-card">
             ${controlsHtml}
@@ -441,7 +472,7 @@ function renderDossierRadarSection({ result, faction, flavorSnippets = [] }) {
                 <canvas id="dossierManaRadar" aria-label="Vox Mana placement radar chart"></canvas>
                 <div class="vm-radar-fallback" data-dossier-radar-fallback hidden></div>
               </div>
-              ${renderDossierCardVoicesPanel(flavorSnippets)}
+              ${factionKey === "COLORLESS" ? renderColorlessCardVoiceBoundaryPanel() : renderDossierCardVoicesPanel(flavorSnippets)}
             </div>
           </div>
         </div>

@@ -771,6 +771,25 @@ export const FACTION_CONTEXT = {
           "cult_of_rakdos_claim_003"
         ],
         "confidence": "Medium"
+      },
+      {
+        "id": "rakdos_q3",
+        "prompt": "When you break decorum, is it to expose a truth onstage, or only to release heat?",
+        "purpose": "Separates Rakdos theatrical truth and transgressive spectacle from generic chaos, grief, sacrifice, reckless emotion, or red-black aggression.",
+        "supports": "The answer treats performance, spectacle, provocation, or transgression as a way to reveal hypocrisy, intensify truth, or make restraint feel false.",
+        "weakens": "The answer centers grief, sacrifice, reckless anger, violence, or generic chaos without performance, spectacle, or truth-telling pressure.",
+        "collision_targets": [
+          "BG",
+          "JUND",
+          "WB"
+        ],
+        "evidence_claim_ids": [
+          "cult_of_rakdos_claim_001",
+          "cult_of_rakdos_claim_002",
+          "cult_of_rakdos_claim_005",
+          "cult_of_rakdos_claim_006"
+        ],
+        "confidence": "Medium"
       }
     ],
     "chatbot_guidance": {
@@ -946,7 +965,57 @@ export const FACTION_CONTEXT = {
       "BANT",
       "GRIXIS"
     ],
-    "discriminator_questions": [],
+    "discriminator_questions": [
+      {
+        "id": "esper_discriminator_0001",
+        "prompt": "Is the ideal a living communal order or a designed system optimized through knowledge, structure, and focused control?",
+        "purpose": "Separates Esper designed control from Bant living communal order.",
+        "supports": "Supports Esper when the answer centers Blue-led perfectibility, planning, ordered improvement, and Black-supported focused control.",
+        "weakens": "Weakens Esper when the answer centers public honor, supported champions, creature-community protection, or Green living acceptance.",
+        "collision_targets": [
+          "BANT"
+        ],
+        "evidence_claim_ids": [
+          "esper_claim_0003",
+          "esper_claim_0005",
+          "esper_claim_0006",
+          "esper_claim_0007"
+        ],
+        "confidence": "Medium"
+      },
+      {
+        "id": "esper_discriminator_0002",
+        "prompt": "Does information become a perfected design, or leverage for survival in a hostile world?",
+        "purpose": "Separates Esper perfectibility-through-design from Grixis survival-through-leverage.",
+        "supports": "Supports Esper when the user wants information to optimize, improve, and govern the system.",
+        "weakens": "Weakens Esper when information is mainly weakness analysis, urgent survival, self-advocacy, or volatility.",
+        "collision_targets": [
+          "GRIXIS"
+        ],
+        "evidence_claim_ids": [
+          "esper_claim_0003",
+          "esper_claim_0004",
+          "esper_claim_0006"
+        ],
+        "confidence": "Medium"
+      },
+      {
+        "id": "esper_discriminator_0003",
+        "prompt": "Is the order mainly lawful procedure, or a knowledge-built system for optimization and focused control?",
+        "purpose": "Separates Esper designed optimization from Azorius civic procedure.",
+        "supports": "Supports Esper when rules, structure, and knowledge are used to improve, optimize, and govern the system through focused control.",
+        "weakens": "Weakens Esper when the answer centers procedure, legality, fairness-by-process, or institutional order without Black-supported control and Blue-centered perfectibility.",
+        "collision_targets": [
+          "WU"
+        ],
+        "evidence_claim_ids": [
+          "esper_claim_0003",
+          "esper_claim_0005",
+          "esper_claim_0006"
+        ],
+        "confidence": "Medium"
+      }
+    ],
     "chatbot_guidance": {
       "how_to_recognize_match": [
         "Treat Esper as a live-pilot match only when the answer combines Blue-centered perfectibility with White ordered improvement and Black focused control.",
@@ -1119,7 +1188,61 @@ export const FACTION_CONTEXT = {
       "TEMUR",
       "SULTAI"
     ],
-    "discriminator_questions": [],
+    "discriminator_questions": [
+      {
+        "id": "grixis_discriminator_0001",
+        "prompt": "Is information used to perfect the system, or to survive by finding the weakness no one else sees?",
+        "purpose": "Separates Grixis survival leverage from Esper designed perfectibility.",
+        "supports": "Supports Grixis when information serves survival, self-advocacy, weakness analysis, and action under pressure.",
+        "weakens": "Weakens Grixis when information primarily becomes ordered improvement, social perfection, or designed control.",
+        "collision_targets": [
+          "ESPER"
+        ],
+        "evidence_claim_ids": [
+          "grixis_claim_0003",
+          "grixis_claim_0004",
+          "grixis_claim_0005",
+          "grixis_claim_0008"
+        ],
+        "confidence": "Medium"
+      },
+      {
+        "id": "grixis_discriminator_0002",
+        "prompt": "Is the motion urgent because survival requires leverage, or because instinct and appetite should be followed honestly?",
+        "purpose": "Separates Grixis Black-centered survival from Jund Red-centered instinct and appetite.",
+        "supports": "Supports Grixis when urgency is tied to survival, calculation, weakness analysis, manipulation, and self-advocacy.",
+        "weakens": "Weakens Grixis when the answer centers Red gut instinct, emotional truth, appetite, or being unrestrained.",
+        "collision_targets": [
+          "JUND"
+        ],
+        "evidence_claim_ids": [
+          "grixis_claim_0002",
+          "grixis_claim_0003",
+          "grixis_claim_0004",
+          "grixis_claim_0005"
+        ],
+        "confidence": "Medium"
+      },
+      {
+        "id": "grixis_discriminator_0003",
+        "prompt": "Is the plan private leverage for survival, or only secrecy, appetite, or experiment without survival pressure?",
+        "purpose": "Separates Grixis Black-centered survival leverage from Dimir secrecy, Rakdos appetite, and Izzet experiment false positives.",
+        "supports": "Supports Grixis when calculation, weakness analysis, self-advocacy, and urgent action all serve survival under pressure.",
+        "weakens": "Weakens Grixis when the answer centers hidden leverage without Red immediacy, appetite without Blue calculation, or experiment without Black survival pressure.",
+        "collision_targets": [
+          "UB",
+          "BR",
+          "UR"
+        ],
+        "evidence_claim_ids": [
+          "grixis_claim_0002",
+          "grixis_claim_0003",
+          "grixis_claim_0004",
+          "grixis_claim_0005"
+        ],
+        "confidence": "Medium"
+      }
+    ],
     "chatbot_guidance": {
       "how_to_recognize_match": [
         "Review-only guidance: Grixis language should combine Black-centered survival with Blue calculation and Red immediacy.",
@@ -1518,7 +1641,64 @@ export const FACTION_CONTEXT = {
       "TEMUR",
       "MARDU"
     ],
-    "discriminator_questions": [],
+    "discriminator_questions": [
+      {
+        "id": "naya_discriminator_0001",
+        "prompt": "Is the appeal a living ecosystem growing into abundance, or instinct and appetite carrying consequence?",
+        "purpose": "Separates Naya Green-centered living abundance from Jund Red-centered instinct and appetite.",
+        "supports": "Supports Naya when life, growth, ecosystem belonging, White care, and Red loyalty are the center.",
+        "weakens": "Weakens Naya when the answer centers gut instinct, self-interest, appetite, destructive release, or survival consequence without larger-picture care.",
+        "collision_targets": [
+          "JUND"
+        ],
+        "evidence_claim_ids": [
+          "naya_claim_0003",
+          "naya_claim_0004",
+          "naya_claim_0005",
+          "naya_claim_0006",
+          "naya_claim_0007"
+        ],
+        "confidence": "Medium"
+      },
+      {
+        "id": "naya_discriminator_0002",
+        "prompt": "Should the community protect a refined champion, or follow the larger living world through instinct, growth, and care?",
+        "purpose": "Separates Naya living abundance from Bant public champion/order framing.",
+        "supports": "Supports Naya when the answer centers role and place in a living whole, natural growth, creature care, feral instinct, and loyalty.",
+        "weakens": "Weakens Naya when the answer centers public honor, sanctioned excellence, supported champions, or Blue planning and refinement.",
+        "collision_targets": [
+          "BANT"
+        ],
+        "evidence_claim_ids": [
+          "naya_claim_0003",
+          "naya_claim_0004",
+          "naya_claim_0005",
+          "naya_claim_0006",
+          "naya_claim_0008"
+        ],
+        "confidence": "Medium"
+      },
+      {
+        "id": "naya_discriminator_0003",
+        "prompt": "Is scale serving a living world of growth, instinct, and care, or only a big-creature, token, or style signal?",
+        "purpose": "Separates Naya Green-centered living abundance from generic RGW size, token, battlecruiser, and Cabaretti-style false positives.",
+        "supports": "Supports Naya when size, tokens, creatures, instinct, or loyalty are tied to life, growth, ecosystem belonging, and White larger-picture care.",
+        "weakens": "Weakens Naya when the answer centers generic big creatures, generic tokens, casual battlecruiser scale, social glamour, or same-color comparators without Green-centered living abundance.",
+        "collision_targets": [
+          "WG",
+          "RG",
+          "WR"
+        ],
+        "evidence_claim_ids": [
+          "naya_claim_0003",
+          "naya_claim_0004",
+          "naya_claim_0005",
+          "naya_claim_0006",
+          "naya_claim_0008"
+        ],
+        "confidence": "Medium"
+      }
+    ],
     "chatbot_guidance": {
       "how_to_recognize_match": [
         "VM-188 live-pilot guidance: Naya language should combine Green-centered life and growth with White larger-picture care and Red instinct.",
@@ -1690,7 +1870,56 @@ export const FACTION_CONTEXT = {
       "SULTAI",
       "MARDU"
     ],
-    "discriminator_questions": [],
+    "discriminator_questions": [
+      {
+        "id": "abzan_discriminator_0001",
+        "prompt": "Does pressure call for long family endurance, or a decisive charge before the opening closes?",
+        "purpose": "Separates Abzan family endurance from Mardu immediate commitment.",
+        "supports": "Supports Abzan when the answer centers house continuity, ancestor duty, patient defense, and survival across generations.",
+        "weakens": "Weakens Abzan when the answer centers speed, total commitment, war names, and taking the martial opening now.",
+        "collision_targets": [
+          "MARDU"
+        ],
+        "evidence_claim_ids": [
+          "abzan_claim_0002",
+          "abzan_claim_0003",
+          "abzan_claim_0006",
+          "abzan_claim_0008"
+        ],
+        "confidence": "Medium"
+      },
+      {
+        "id": "abzan_discriminator_0002",
+        "prompt": "Are the dead and ancestors obligations to preserve, or resources to convert into advantage?",
+        "purpose": "Separates Abzan ancestor continuity from Sultai resource conversion.",
+        "supports": "Supports Abzan when the dead, Kin-Trees, perennation, and ancestor guidance preserve family continuity and duty.",
+        "weakens": "Weakens Abzan when death, bodies, secrets, costs, or graveyard return become tools for ruthlessness and opportunity.",
+        "collision_targets": [
+          "SULTAI"
+        ],
+        "evidence_claim_ids": [
+          "abzan_claim_0003",
+          "abzan_claim_0008",
+          "abzan_claim_0010"
+        ],
+        "confidence": "Medium"
+      },
+      {
+        "id": "abzan_discriminator_0003",
+        "prompt": "Is endurance about Abzan house continuity and ancestor duty, or only generic WBG resilience, graveyard value, or toughness?",
+        "purpose": "Separates Abzan Houses from generic WBG, Dromoka-coded, Commander-product, graveyard, and toughness false positives.",
+        "supports": "Supports Abzan when resilience is grounded in family, house continuity, ancestor obligation, Kin-Trees, perennation, and defensive patience.",
+        "weakens": "Weakens Abzan when the answer centers WBG color identity, Dromoka continuity, Commander product identity, graveyard value, toughness, or defensive mechanics without Abzan house and ancestor evidence.",
+        "collision_targets": [],
+        "evidence_claim_ids": [
+          "abzan_claim_0001",
+          "abzan_claim_0002",
+          "abzan_claim_0003",
+          "abzan_claim_0008"
+        ],
+        "confidence": "Medium"
+      }
+    ],
     "chatbot_guidance": {
       "how_to_recognize_match": [
         "VM-202 live-pilot guidance only: Abzan language should combine White-centered WBG Tarkir Abzan Houses with family, endurance, ancestor obligation, perennation, and defensive patience.",
@@ -1865,9 +2094,62 @@ export const FACTION_CONTEXT = {
       "JUND",
       "ABZAN",
       "SULTAI",
-      "MARDU"
+      "MARDU",
+      "JESKAI"
     ],
-    "discriminator_questions": [],
+    "discriminator_questions": [
+      {
+        "id": "temur_discriminator_0001",
+        "prompt": "Do you survive by listening to terrain, memory, and instinct, or by converting every available resource into advantage?",
+        "purpose": "Separates Temur attuned survival from Sultai resource conversion.",
+        "supports": "Supports Temur when the answer centers Qal Sisma survival, instinct, mental fortitude, whisperers, Wide Whisper, and elemental memory.",
+        "weakens": "Weakens Temur when the answer centers ruthlessness, necromancy, using the dead, theft, denial, or opportunity-seeking conversion.",
+        "collision_targets": [
+          "SULTAI"
+        ],
+        "evidence_claim_ids": [
+          "temur_claim_0002",
+          "temur_claim_0004",
+          "temur_claim_0005",
+          "temur_claim_0010"
+        ],
+        "confidence": "Medium"
+      },
+      {
+        "id": "temur_discriminator_0002",
+        "prompt": "Is the right move learned from the wild signal, or chosen as a charge before hesitation breaks the opening?",
+        "purpose": "Separates Temur survival through attunement from Mardu speed and commitment.",
+        "supports": "Supports Temur when the answer listens first to land, body, weather, ancestors, animals, and elemental memory.",
+        "weakens": "Weakens Temur when the answer centers early pressure, war names, formation, speed, and total commitment.",
+        "collision_targets": [
+          "MARDU"
+        ],
+        "evidence_claim_ids": [
+          "temur_claim_0002",
+          "temur_claim_0003",
+          "temur_claim_0004",
+          "temur_claim_0005"
+        ],
+        "confidence": "Medium"
+      },
+      {
+        "id": "temur_discriminator_0003",
+        "prompt": "Does insight come from trained discipline and monastic practice, or from survival attunement to land, body, and old memory?",
+        "purpose": "Separates Temur listening and elemental memory from Jeskai disciplined cunning.",
+        "supports": "Supports Temur when mental strength belongs to survival, instinct, Qal Sisma pressure, whisperers, and elemental memory.",
+        "weakens": "Weakens Temur when insight is primarily Blue-centered discipline, martial practice, monastery training, or precise prepared action.",
+        "collision_targets": [
+          "JESKAI"
+        ],
+        "evidence_claim_ids": [
+          "temur_claim_0002",
+          "temur_claim_0003",
+          "temur_claim_0005",
+          "temur_claim_0010"
+        ],
+        "confidence": "Medium"
+      }
+    ],
     "chatbot_guidance": {
       "how_to_recognize_match": [
         "VM-208 live-pilot guidance: Temur language should combine Green-centered GUR Tarkir Temur Frontier with survival, instinct, mental fortitude, shamanic listening, and elemental memory.",
@@ -2044,9 +2326,62 @@ export const FACTION_CONTEXT = {
       "ABZAN",
       "TEMUR",
       "WITHERBLOOM",
-      "MARDU"
+      "MARDU",
+      "JESKAI"
     ],
-    "discriminator_questions": [],
+    "discriminator_questions": [
+      {
+        "id": "sultai_discriminator_0001",
+        "prompt": "Does continuity preserve the house, or can the past, the dead, and hidden costs be converted into power?",
+        "purpose": "Separates Sultai resource conversion from Abzan family continuity.",
+        "supports": "Supports Sultai when the answer centers ruthlessness, opportunity, using the dead, necromancy, secrets, costs, and resource denial.",
+        "weakens": "Weakens Sultai when ancestry, Kin-Trees, perennation, duty, and defensive patience preserve family continuity.",
+        "collision_targets": [
+          "ABZAN"
+        ],
+        "evidence_claim_ids": [
+          "sultai_claim_0002",
+          "sultai_claim_0003",
+          "sultai_claim_0005",
+          "sultai_claim_0010"
+        ],
+        "confidence": "Medium"
+      },
+      {
+        "id": "sultai_discriminator_0002",
+        "prompt": "Is survival found by listening to the living wild, or by turning bodies, secrets, and openings into usable material?",
+        "purpose": "Separates Sultai calculated conversion from Temur attuned survival.",
+        "supports": "Supports Sultai when survival language is ruthless, strategic, necromantic, opportunistic, and resource-converting.",
+        "weakens": "Weakens Sultai when the answer centers instinct, mental fortitude, whisperers, elemental memory, and terrain/listening before action.",
+        "collision_targets": [
+          "TEMUR"
+        ],
+        "evidence_claim_ids": [
+          "sultai_claim_0002",
+          "sultai_claim_0003",
+          "sultai_claim_0004",
+          "sultai_claim_0005"
+        ],
+        "confidence": "Medium"
+      },
+      {
+        "id": "sultai_discriminator_0003",
+        "prompt": "Does insight become disciplined action, or private conversion of secrets, costs, and the dead?",
+        "purpose": "Separates Sultai hidden conversion from Jeskai disciplined cunning.",
+        "supports": "Supports Sultai when planning and secrets serve Black-centered ruthlessness, opportunity, necromancy, and resource conversion.",
+        "weakens": "Weakens Sultai when insight is disciplined, public enough to be trained, and released as precise Jeskai action.",
+        "collision_targets": [
+          "JESKAI"
+        ],
+        "evidence_claim_ids": [
+          "sultai_claim_0002",
+          "sultai_claim_0003",
+          "sultai_claim_0005",
+          "sultai_claim_0010"
+        ],
+        "confidence": "Medium"
+      }
+    ],
     "chatbot_guidance": {
       "how_to_recognize_match": [
         "VM-214 live-pilot guidance: Sultai language should combine Black-centered BGU Tarkir Sultai Brood with ruthlessness, resource conversion, necromancy, Sidisi-era ambition, and strict timeline boundaries.",
@@ -2151,62 +2486,48 @@ export const FACTION_CONTEXT = {
     "placement_axes": {
       "required_positive_evidence_terms": [
         "Mardu Horde",
-        "Tarkir",
-        "RWB",
-        "WBR",
         "Red-centered",
         "speed",
+        "total commitment",
         "war names",
         "Edicts of Ilagra",
-        "total commitment",
         "Zurgo",
-        "Wingthrone",
-        "Alesha bridge",
+        "Alesha",
         "Kolaghan boundary",
-        "Modern Dragonstorm Mardu"
+        "Dragonstorm Mardu",
+        "martial oath",
+        "Tarkir"
       ],
       "required_positive_min_hits": 2,
       "strengthens_when_user_centers": [
-        "Red-centered Mardu Horde",
-        "speed",
-        "total commitment",
-        "war names",
-        "Edicts of Ilagra",
-        "Zurgo-era Mardu",
-        "Alesha bridge",
-        "Kolaghan boundary",
-        "modern Dragonstorm Mardu source context"
+        "Red-centered speed, action, early pressure, or all-in commitment under a war code.",
+        "War names, Edicts of Ilagra, khan authority, Wingthrone, Goldengrave, The Scour, or Screamreach.",
+        "Zurgo-era Mardu, Alesha bridge material, or Kolaghan boundary with explicit timeline labels.",
+        "Modern Dragonstorm Mardu only when labeled as revival context rather than Khans-era backfill."
       ],
       "suppress_when_user_centers": [
-        "generic RWB",
-        "generic WBR",
-        "generic aggro",
-        "generic sacrifice or tokens",
-        "generic Commander goodstuff",
-        "Kolaghan clan continuity",
-        "Dragonstorm backfill into Khans-era Mardu",
-        "seed-file claims",
-        "manual-fill lore as proof",
-        "color philosophy as Tarkir proof"
+        "RWB or WBR color identity without a Mardu evidence cluster.",
+        "Generic aggro, sacrifice, tokens, aristocrats, reanimator, Vampire tribal, Outlaws/Treasure, or Commander goodstuff without Mardu evidence.",
+        "Kolaghan clan treated as Khans-era Mardu continuity.",
+        "Modern Dragonstorm reforms used as Khans-era proof.",
+        "Seed files, color-pair philosophy, architecture prose, or manual-fill lore treated as proof."
       ],
-      "false_positive_guardrail": "Do not treat support-only mechanics, Commander/operator rows, manual-fill lore, architecture prose, seed files, Kolaghan clan, Dragonstorm backfill, color-pair philosophy, or color composition alone as Mardu evidence.",
+      "false_positive_guardrail": "Do not treat same-color composition, generic aggro, Commander support rows, Kolaghan continuity, Dragonstorm backfill, seed files, color-pair philosophy, architecture prose, or exact mechanics as Mardu evidence. Require a positive Mardu Horde evidence cluster grounded in Red-centered speed, total commitment, war code, and strict Tarkir timeline boundaries.",
       "broad_match_penalty": 0.12
     },
-    "good_fit_indicators": [],
+    "good_fit_indicators": [
+      "The candidate centers speed, action, early pressure, and all-in commitment with explicit Mardu or Tarkir Horde anchors.",
+      "The candidate uses war names, Edicts of Ilagra, khan authority, Horde roles, Wingthrone, Goldengrave, The Scour, or Screamreach as bounded Mardu evidence.",
+      "The candidate clearly labels Alesha, Kolaghan, or Dragonstorm context by era and avoids backfill."
+    ],
     "poor_fit_indicators": [
-      "The candidate is only RWB/WBR color identity.",
-      "The candidate is only Commander goodstuff or exact-color product identity.",
-      "The candidate treats Kolaghan or modern Dragonstorm material as Khans-era Mardu.",
-      "The candidate relies on exact raid, dash, or mobilize claims without card-data validation.",
-      "The candidate relies on seed files, color-pair philosophy, or architecture prose as proof."
+      "The candidate prefers patient resource accumulation, careful setup, long endurance, or positional advantage over early pressure and decisive action.",
+      "The candidate is only RWB/WBR color identity, Commander support texture, generic aggro, sacrifice, tokens, aristocrats, reanimator, Kolaghan continuity, Dragonstorm backfill, seed files, color-pair philosophy, or exact mechanics without a positive Mardu evidence cluster."
     ],
     "inhibitor_traps": [
       "Waits for permission, comfort, or perfect safety when the honest opening asks for decisive action under a code.",
-      "The candidate is only RWB/WBR color identity.",
-      "The candidate is only Commander goodstuff or exact-color product identity.",
-      "The candidate treats Kolaghan or modern Dragonstorm material as Khans-era Mardu.",
-      "The candidate relies on exact raid, dash, or mobilize claims without card-data validation.",
-      "The candidate relies on seed files, color-pair philosophy, or architecture prose as proof."
+      "The candidate prefers patient resource accumulation, careful setup, long endurance, or positional advantage over early pressure and decisive action.",
+      "The candidate is only RWB/WBR color identity, Commander support texture, generic aggro, sacrifice, tokens, aristocrats, reanimator, Kolaghan continuity, Dragonstorm backfill, seed files, color-pair philosophy, or exact mechanics without a positive Mardu evidence cluster."
     ],
     "lateral_inhibition_targets": [
       "WR",
@@ -2216,16 +2537,22 @@ export const FACTION_CONTEXT = {
       "JUND",
       "ABZAN",
       "TEMUR",
-      "SULTAI"
+      "SULTAI",
+      "JESKAI"
     ],
     "discriminator_questions": [
       {
         "id": "mardu_discriminator_0001",
         "prompt": "Is the signal about immediate, war-bound action rather than long endurance, institutional technique, hidden resource conversion, or survival through attunement?",
-        "purpose": "",
-        "supports": "",
-        "weakens": "",
-        "collision_targets": [],
+        "purpose": "Separates Mardu immediate raid-momentum identity from Abzan endurance, Jeskai institutional technique, Sultai hidden conversion, and Temur survival through attunement.",
+        "supports": "Supports Mardu when the user centers speed, total commitment, war code, and taking the opening before it closes.",
+        "weakens": "Weakens Mardu when the user centers patience, long endurance, careful preparation, positional advantage, hidden resource conversion, or attuned survival instead of decisive action.",
+        "collision_targets": [
+          "ABZAN",
+          "JESKAI",
+          "SULTAI",
+          "TEMUR"
+        ],
         "evidence_claim_ids": [
           "mardu_claim_0002",
           "mardu_claim_0003",
@@ -2236,10 +2563,14 @@ export const FACTION_CONTEXT = {
       {
         "id": "mardu_discriminator_0002",
         "prompt": "Does the candidate include a positive Mardu evidence cluster beyond RWB/WBR color identity or Commander support texture?",
-        "purpose": "",
-        "supports": "",
-        "weakens": "",
-        "collision_targets": [],
+        "purpose": "Guards against generic RWB/WBR and Commander false positives.",
+        "supports": "Supports Mardu when war names, Edicts, speed-as-doctrine, Zurgo or Alesha timeline labels, or Mardu Horde lore appear together with Red-centered commitment.",
+        "weakens": "Weakens Mardu when the answer is only RWB/WBR color composition, generic aggro, generic sacrifice, tokens, aristocrats, reanimator, Vampire tribal, Outlaws/Treasure, or Commander product identity.",
+        "collision_targets": [
+          "WR",
+          "WB",
+          "BR"
+        ],
         "evidence_claim_ids": [
           "mardu_claim_0001",
           "mardu_claim_0009",
@@ -2250,9 +2581,9 @@ export const FACTION_CONTEXT = {
       {
         "id": "mardu_discriminator_0003",
         "prompt": "Are Alesha, Kolaghan, and Dragonstorm references held inside their timeline boundaries?",
-        "purpose": "",
-        "supports": "",
-        "weakens": "",
+        "purpose": "Prevents cross-era bleed between Khans-era Mardu, Fate Reforged Alesha material, Kolaghan separation, and modern Dragonstorm context.",
+        "supports": "Supports Mardu when Alesha, Kolaghan, and Dragonstorm references are timeline-labeled and used as boundaries or source-backed bridges.",
+        "weakens": "Weakens Mardu when Kolaghan is treated as Khans-era Mardu continuity or modern Dragonstorm reforms are backfilled into Khans-era Mardu Horde proof.",
         "collision_targets": [],
         "evidence_claim_ids": [
           "mardu_claim_0005",
@@ -2353,28 +2684,51 @@ export const FACTION_CONTEXT = {
       "inhibitor_trigger": "Mistakes practice, restraint, or study for the whole answer when trained insight is asking to move."
     },
     "placement_axes": {
-      "required_positive_evidence_terms": [],
+      "required_positive_evidence_terms": [
+        "Jeskai Way",
+        "Blue-centered",
+        "cunning",
+        "discipline",
+        "training",
+        "martial practice",
+        "monastery",
+        "Narset",
+        "Shu Yun",
+        "Ojutai boundary",
+        "Dragonstorm revival",
+        "trained insight"
+      ],
       "required_positive_min_hits": 2,
-      "strengthens_when_user_centers": [],
-      "suppress_when_user_centers": [],
-      "false_positive_guardrail": "",
+      "strengthens_when_user_centers": [
+        "Blue-centered discipline, knowledge, and self-improvement before action.",
+        "Cunning as trained preparation, timing, protection, and precise release.",
+        "Khans-era monasteries, martial artists, mystics, wandering warriors, Annals, Rules of Reeds, or three Ways.",
+        "Narset or Shu Yun with explicit timeline boundaries.",
+        "Modern Dragonstorm Jeskai only when labeled as revival context rather than Khans-era backfill."
+      ],
+      "suppress_when_user_centers": [
+        "URW, WUR, RWU, UWR, RUW, or WRU color identity without a Jeskai evidence cluster.",
+        "Generic spellslinger, prowess, copies, artifacts, energy, cycling, time counters, or Commander goodstuff without Jeskai evidence.",
+        "Ojutai clan treated as Khans-era Jeskai continuity.",
+        "Modern Dragonstorm revival used as Khans-era proof.",
+        "Seed files, generated HTML, color-pair philosophy, or architecture prose treated as proof."
+      ],
+      "false_positive_guardrail": "Do not treat same-color composition, generic spellslinger play, Commander support rows, Ojutai continuity, Dragonstorm backfill, seed files, generated HTML, or exact mechanics as Jeskai evidence. Require a positive Jeskai Way evidence cluster grounded in Blue-centered disciplined cunning, training, martial practice, and strict Tarkir timeline boundaries.",
       "broad_match_penalty": 0.12
     },
-    "good_fit_indicators": [],
+    "good_fit_indicators": [
+      "The candidate centers Blue-led perfection, knowledge, discipline, Red action, White structure, and cunning with explicit Jeskai or Tarkir Way anchors.",
+      "The candidate uses monasteries, martial artists, mystics, wandering warriors, Annals, Rules of Reeds, fire-language, or three Ways as bounded Jeskai evidence.",
+      "The candidate clearly labels Narset, Shu Yun, Ojutai, or Dragonstorm context by era and avoids backfill."
+    ],
     "poor_fit_indicators": [
-      "The candidate is only URW/WUR/RWU/UWR/RUW/WRU color identity.",
-      "The candidate is only Commander goodstuff or exact-color product identity.",
-      "The candidate treats Ojutai or modern Dragonstorm material as Khans-era Jeskai.",
-      "The candidate relies on exact prowess or named mechanics without card-data validation.",
-      "The candidate relies on seed files, generated HTML, color-pair philosophy, or architecture prose as proof."
+      "The candidate is only URW/WUR/RWU/UWR/RUW/WRU color identity or Commander support texture without disciplined cunning, monastery practice, or trained-action framing.",
+      "The candidate centers generic spellslinger play, pure speed, pure control, Ojutai continuity, Dragonstorm backfill, seed files, generated HTML, color-pair philosophy, or exact mechanics instead of a positive Jeskai Way evidence cluster."
     ],
     "inhibitor_traps": [
       "Mistakes practice, restraint, or study for the whole answer when trained insight is asking to move.",
-      "The candidate is only URW/WUR/RWU/UWR/RUW/WRU color identity.",
-      "The candidate is only Commander goodstuff or exact-color product identity.",
-      "The candidate treats Ojutai or modern Dragonstorm material as Khans-era Jeskai.",
-      "The candidate relies on exact prowess or named mechanics without card-data validation.",
-      "The candidate relies on seed files, generated HTML, color-pair philosophy, or architecture prose as proof."
+      "The candidate is only URW/WUR/RWU/UWR/RUW/WRU color identity or Commander support texture without disciplined cunning, monastery practice, or trained-action framing.",
+      "The candidate centers generic spellslinger play, pure speed, pure control, Ojutai continuity, Dragonstorm backfill, seed files, generated HTML, color-pair philosophy, or exact mechanics instead of a positive Jeskai Way evidence cluster."
     ],
     "lateral_inhibition_targets": [
       "WU",
@@ -2392,10 +2746,14 @@ export const FACTION_CONTEXT = {
       {
         "id": "jeskai_discriminator_0001",
         "prompt": "Is the signal about disciplined cunning and trained insight rather than generic spellslinger play, color identity, or Commander support texture?",
-        "purpose": "",
-        "supports": "",
-        "weakens": "",
-        "collision_targets": [],
+        "purpose": "Separates genuine Jeskai alignment from generic same-color spellslinger play or Commander support texture.",
+        "supports": "Supports Jeskai when the user connects their draw to training, preparation, disciplined study, precision, and action that has been earned through practice.",
+        "weakens": "Weakens Jeskai when the user is drawn only to blue-red-white card patterns, generic spell efficiency, or Commander product identity without martial, monastic, or trained-action framing.",
+        "collision_targets": [
+          "UR",
+          "WU",
+          "WR"
+        ],
         "evidence_claim_ids": [
           "jeskai_claim_0002",
           "jeskai_claim_0003",
@@ -2406,10 +2764,16 @@ export const FACTION_CONTEXT = {
       {
         "id": "jeskai_discriminator_0002",
         "prompt": "Does the candidate include a positive Jeskai evidence cluster beyond URW/WUR/RWU/UWR/RUW/WRU color identity?",
-        "purpose": "",
-        "supports": "",
-        "weakens": "",
-        "collision_targets": [],
+        "purpose": "Forces the three-color threshold test so Jeskai is not selected for color identity alone.",
+        "supports": "Supports Jeskai when the user needs Blue intellectual discipline, Red courage to act, and White accountability for consequences together.",
+        "weakens": "Weakens Jeskai when the answer resolves cleanly into a two-color identity such as Azorius procedure, Izzet experimentation, or Boros intervention.",
+        "collision_targets": [
+          "WU",
+          "UR",
+          "WR",
+          "TEMUR",
+          "MARDU"
+        ],
         "evidence_claim_ids": [
           "jeskai_claim_0001",
           "jeskai_claim_0004",
@@ -2420,10 +2784,13 @@ export const FACTION_CONTEXT = {
       {
         "id": "jeskai_discriminator_0003",
         "prompt": "Are Narset, Shu Yun, Ojutai, and Dragonstorm references held inside their timeline boundaries?",
-        "purpose": "",
-        "supports": "",
-        "weakens": "",
-        "collision_targets": [],
+        "purpose": "Prevents cross-era bleed between Khans-era Jeskai, Fate Reforged transition material, Dragons-era Ojutai, and modern Dragonstorm revival context.",
+        "supports": "Supports Jeskai when Narset, Shu Yun, Ojutai, and Dragonstorm references are timeline-labeled and used as boundaries or source-backed bridges.",
+        "weakens": "Weakens Jeskai when Ojutai doctrine or modern Dragonstorm material is backfilled into Khans-era Jeskai Way without source support.",
+        "collision_targets": [
+          "MARDU",
+          "TEMUR"
+        ],
         "evidence_claim_ids": [
           "jeskai_claim_0006",
           "jeskai_claim_0007",
@@ -2456,6 +2823,1429 @@ export const FACTION_CONTEXT = {
       "never_claim_as_canon": [
         "Psychological placement categories are Vox Mana interpretation, not official Wizards canon.",
         "Do not state that a user's personality is objectively determined by a faction."
+      ]
+    }
+  },
+  "YORE": {
+    "name": "Yore / Artifice",
+    "institution_type": "four_color",
+    "world": "Cross-setting",
+    "colors": [
+      "W",
+      "U",
+      "B",
+      "R"
+    ],
+    "layered_identity": {
+      "core_color": "WUBR",
+      "secondary_colors": [
+        "W",
+        "U",
+        "B",
+        "R"
+      ],
+      "secondary_color": null,
+      "expression_key": "YORE",
+      "expression_name": "Yore / Artifice",
+      "expression_kind": "four_color",
+      "purity": null,
+      "routing": {
+        "color_identity": "WUBR",
+        "label": "Yore",
+        "suppress_directory_links": true
+      }
+    },
+    "tagline": "Rewrite the limit. Keep the engine honest.",
+    "philosophy": "Yore believes the given world is not the final world. Structure, knowledge, ambition, and heat can build a machine of agency where nature would have asked for surrender.",
+    "core_tension": "Yore refuses to let natural limits be final, but engineered agency can become overreach when every body, grave, rule, and spark is treated as material to rebuild.",
+    "affinity": {
+      "drawn_to": [
+        "Systems that can be rebuilt instead of merely accepted",
+        "Artifact, archive, contract, forge, and laboratory language",
+        "Resource conversion that feels like constructed continuity",
+        "Progress that keeps agency alive under pressure"
+      ],
+      "repelled_by": [
+        "Natural surrender treated as sacred by default",
+        "Organic belonging as the center of the answer",
+        "Generic artifact preference without a missing-Green worldview",
+        "Generic recursion or optimization without engineered agency"
+      ],
+      "core_question": "What can be rebuilt when nature is not allowed to have the final word?",
+      "interview_tells": [
+        "Talks about systems, machines, archives, and engineered continuity",
+        "Treats limits as design constraints rather than endings",
+        "Likes artifacts or recursion because they feel like agency, not because they are generically powerful"
+      ]
+    },
+    "decree_voice": {
+      "tone": "Precise, restless, engineered, and luminous with controlled heat.",
+      "signature_line": "The engine is not sacred. The choice to build it is."
+    },
+    "biological_expression": {
+      "archetype": "The Engineered Agency Architect",
+      "primary_foundation": "Authority",
+      "secondary_foundation": "Liberty",
+      "risk_signal": "high over-optimization risk",
+      "inhibitor_trigger": "Treats natural closure, organic belonging, or patient growth as final when agency is asking for a constructed answer."
+    },
+    "placement_axes": {
+      "required_positive_evidence_terms": [
+        "engineered",
+        "agency",
+        "artifice",
+        "technology",
+        "civilization",
+        "progress",
+        "natural limits",
+        "four-color",
+        "without Green",
+        "missing-Green",
+        "White structure",
+        "Blue optimization",
+        "Black refusal",
+        "Red heat",
+        "resource conversion",
+        "constructed continuity"
+      ],
+      "required_positive_min_hits": 2,
+      "strengthens_when_user_centers": [
+        "User keeps returning to refusing natural limits through constructed agency.",
+        "User frames artifacts, recursion, or resource conversion as a machine of agency rather than a standalone deck preference.",
+        "User needs White structure, Blue optimization, Black refusal, and Red heat together.",
+        "User treats progress, civilization, technology, and artifice as identity language rather than isolated mechanics.",
+        "User explicitly preserves the four-color without Green boundary."
+      ],
+      "suppress_when_user_centers": [
+        "User centers natural lifecycle, organic belonging, ecological harmony, or Green-rooted continuity.",
+        "User mentions artifacts, recursion, sacrifice, or optimization without engineered agency or missing-Green worldview.",
+        "User treats Breya, Invent Superiority, Yore-Tiller, Cult of Yore, or a name-adjacent phrase as sufficient proof.",
+        "User resolves more cleanly into Esper, Grixis, Jeskai, Mardu, Sultai, a two-color pair, or generic same-color goodstuff."
+      ],
+      "false_positive_guardrail": "Do not award Yore for generic artifacts, generic recursion, color-code goodstuff, single-commander familiarity, or adjacent Yore phrases. Require the full four-color without Green synthesis: engineered agency against natural limits through civilization, technology, artifice, progress, and constructed continuity.",
+      "broad_match_penalty": 0.12
+    },
+    "good_fit_indicators": [
+      "engineered agency against natural limits",
+      "artifice and technology as identity frame",
+      "resource conversion as constructed continuity",
+      "four-color without Green frame explicitly preserved"
+    ],
+    "poor_fit_indicators": [
+      "artifact preference without the four-color without Green worldview",
+      "recursion preference without engineered agency",
+      "artifact civilization without White structure, Blue optimization, Black refusal, and Red heat",
+      "natural lifecycle or organic belonging as the center of the answer",
+      "single-commander artifact identity treated as the whole frame",
+      "same-color goodstuff without Yore's missing-Green refusal",
+      "adjacent Yore phrases treated as a four-color faction"
+    ],
+    "inhibitor_traps": [
+      "Treats natural closure, organic belonging, or patient growth as final when agency is asking for a constructed answer.",
+      "The user only mentions artifacts, recursion, sacrifice, or optimization without a missing-Green worldview.",
+      "The user treats a single commander, support product, or name-adjacent phrase as enough to define Yore.",
+      "The user centers natural lifecycle, organic belonging, or Green-rooted continuity.",
+      "artifact preference without the four-color without Green worldview",
+      "recursion preference without engineered agency",
+      "artifact civilization without White structure, Blue optimization, Black refusal, and Red heat",
+      "natural lifecycle or organic belonging as the center of the answer",
+      "single-commander artifact identity treated as the whole frame",
+      "same-color goodstuff without Yore's missing-Green refusal",
+      "adjacent Yore phrases treated as a four-color faction"
+    ],
+    "lateral_inhibition_targets": [
+      "WU",
+      "UB",
+      "BR",
+      "UR",
+      "WB",
+      "WR",
+      "ESPER",
+      "GRIXIS",
+      "JESKAI",
+      "MARDU",
+      "SULTAI"
+    ],
+    "discriminator_questions": [
+      {
+        "id": "yore_disc_001",
+        "prompt": "Is the appeal the artifact or recursion engine itself, or the feeling of refusing natural limits through constructed agency?",
+        "purpose": "Separates genuine Yore alignment from generic artifact, recursion, sacrifice, or optimization preference.",
+        "supports": "Supports Yore when the user connects artifacts, recursion, resource conversion, or optimization to engineered agency against natural limits and the full four-color without Green worldview.",
+        "weakens": "Weakens Yore when the user likes artifacts, recursion, sacrifice, or optimization as standalone mechanics without missing-Green refusal, civilization, technology, or constructed-continuity framing.",
+        "collision_targets": [
+          "WU",
+          "UB",
+          "BR",
+          "UR",
+          "WB",
+          "WR",
+          "ESPER",
+          "GRIXIS",
+          "JESKAI",
+          "MARDU"
+        ],
+        "evidence_claim_ids": [
+          "yore_claim_0003",
+          "yore_claim_0004",
+          "yore_claim_0005"
+        ],
+        "confidence": "Medium"
+      },
+      {
+        "id": "yore_disc_002",
+        "prompt": "Does the answer need all four present colors plus missing Green, or would a nearby Esper, Grixis, Jeskai, Mardu, or Sultai frame explain it better?",
+        "purpose": "Forces the four-color threshold test so Yore is not selected for color identity alone, adjacent faction language, or name-adjacent phrases.",
+        "supports": "Supports Yore when White structure, Blue optimization, Black refusal, Red heat, and explicit missing-Green resistance to natural closure are all needed together.",
+        "weakens": "Weakens Yore when the answer resolves cleanly into Esper artifact perfection, Grixis recursion, Jeskai discipline, Mardu sacrifice, Sultai Green-centered resource conversion, or generic same-color goodstuff.",
+        "collision_targets": [
+          "ESPER",
+          "GRIXIS",
+          "JESKAI",
+          "MARDU",
+          "SULTAI"
+        ],
+        "evidence_claim_ids": [
+          "yore_claim_0001",
+          "yore_claim_0002",
+          "yore_claim_0003",
+          "yore_claim_0004"
+        ],
+        "confidence": "Medium"
+      },
+      {
+        "id": "yore_disc_003",
+        "prompt": "Is the user drawn to constructed agency that refuses natural closure, or to living volatility, patient cultivation, and other adjacent four-color pressures?",
+        "purpose": "Separates Yore from adjacent four-color peers in the source-bound missing-Green ring.",
+        "supports": "Supports Yore when civilization, technology, artifice, progress, and explicit missing-Green refusal of natural acceptance or organic limits are all needed.",
+        "weakens": "Weakens Yore when the answer centers Glint volatility, Witch patient cultivation, or another adjacent four-color pressure without constructed-agency refusal.",
+        "collision_targets": [
+          "GLINT",
+          "WITCH"
+        ],
+        "evidence_claim_ids": [
+          "yore_claim_0003",
+          "yore_claim_0004"
+        ],
+        "confidence": "Medium",
+        "lateral_inhibition": false
+      }
+    ],
+    "chatbot_guidance": {
+      "use_when": [
+        "A user centers four-color without Green, engineered agency, artifice, civilization, technology, progress, or refusal of natural surrender.",
+        "A user frames artifacts, recursion, sacrifice, or value engines as constructed agency rather than generic power.",
+        "A user distinguishes Yore from Esper, Grixis, Jeskai, Mardu, Sultai, and artifact-only shells."
+      ],
+      "avoid_when": [
+        "The user only mentions artifacts, recursion, sacrifice, or optimization without a missing-Green worldview.",
+        "The user treats a single commander, support product, or name-adjacent phrase as enough to define Yore.",
+        "The user centers natural lifecycle, organic belonging, or Green-rooted continuity."
+      ],
+      "claim_boundaries": [
+        "Use Commander examples as table texture, not identity sources.",
+        "Keep the four-letter color code as technical routing data only.",
+        "Do not turn Yore into a Wizards-published faction or universal color-name claim."
+      ]
+    },
+    "canon_guardrails": {
+      "never_claim_as_canon": [
+        "Psychological placement categories are Vox Mana interpretation, not official Wizards canon.",
+        "Do not state that a user's personality is objectively determined by a faction."
+      ]
+    }
+  },
+  "GLINT": {
+    "name": "Glint / Chaos",
+    "institution_type": "four_color",
+    "world": "Cross-setting",
+    "colors": [
+      "U",
+      "B",
+      "R",
+      "G"
+    ],
+    "layered_identity": {
+      "core_color": "UBRG",
+      "secondary_colors": [
+        "U",
+        "B",
+        "R",
+        "G"
+      ],
+      "secondary_color": null,
+      "expression_key": "GLINT",
+      "expression_name": "Glint / Chaos",
+      "expression_kind": "four_color",
+      "purity": null,
+      "routing": {
+        "color_identity": "UBRG",
+        "label": "Glint",
+        "suppress_directory_links": true
+      }
+    },
+    "tagline": "Ride the surge. Keep the edge alive.",
+    "philosophy": "Glint believes the world should stay alive long enough to learn from pressure. Appetite, leverage, ignition, and growth refuse to let civic restraint define the only honest future.",
+    "core_tension": "Glint learns, feeds, and grows under pressure without asking civic restraint for permission, but appetite and improvisation can become predatory when nothing above the self is trusted to hold the world steady.",
+    "affinity": {
+      "drawn_to": [
+        "Power that stays adaptive, hungry, and alive under pressure",
+        "Storm, maelstrom, and surge language that keeps learning in motion",
+        "Leverage, improvisation, and volatility that still feel alive instead of mechanical",
+        "Living-force language that refuses White-style civic restraint"
+      ],
+      "repelled_by": [
+        "Stable public order, fairness, duty, or peace-through-law as the center",
+        "Generic chaos or cascade without the full non-White worldview",
+        "Near-match Grixis, Jund, Temur, or Sultai language without the full UBRG frame",
+        "Yidris, Nephilim, or color identity used as institutional proof"
+      ],
+      "core_question": "What do you become when hunger learns faster than order can cage it?",
+      "interview_tells": [
+        "Talks about appetite, volatility, and living pressure as parts of the same answer",
+        "Treats knowledge as something learned under pressure for advantage rather than for civic calm",
+        "Needs Blue intelligence, Black appetite, Red ignition, and Green living force all at once"
+      ]
+    },
+    "decree_voice": {
+      "tone": "Storm-lit, feral, opportunistic, and alive with predatory intelligence.",
+      "signature_line": "If the surge can learn, it can choose."
+    },
+    "biological_expression": {
+      "archetype": "The Storm-Fed Opportunist",
+      "primary_foundation": "Liberty",
+      "secondary_foundation": "Sanctity",
+      "risk_signal": "high predation-volatility risk",
+      "inhibitor_trigger": "Treats civic restraint, imposed order, or stabilizing duty as the only trustworthy answer when appetite, adaptation, and living force are asking to move first."
+    },
+    "placement_axes": {
+      "required_positive_evidence_terms": [
+        "adaptive",
+        "appetite",
+        "volatility",
+        "living force",
+        "improvisation",
+        "four-color",
+        "without White",
+        "missing-White",
+        "Blue adaptation",
+        "Black appetite",
+        "Red ignition",
+        "Green living force",
+        "cascade",
+        "maelstrom",
+        "unlicensed",
+        "civic restraint"
+      ],
+      "required_positive_min_hits": 2,
+      "strengthens_when_user_centers": [
+        "The user returns to adaptive appetite, volatility, and living force without civic restraint.",
+        "The user treats chaos, cascade, maelstrom, or high-variance turns as support texture rather than standalone identity proof.",
+        "The user needs Blue adaptation, Black appetite, Red ignition, and Green living force together.",
+        "The user frames refusal of White order, fairness, duty, or civic stability as identity language.",
+        "The user preserves the four-color without White boundary instead of collapsing into a nearby shard, wedge, pair, or generic UBRG goodstuff."
+      ],
+      "suppress_when_user_centers": [
+        "The user centers White order, fairness, duty, stability, communal obligation, or peace-through-law.",
+        "The user mentions only chaos, cascade, high variance, Yidris, or Glint-Eye without the missing-White worldview.",
+        "The user treats Glint-Eye, Nephilim, Yidris, Chaos, UBRG, or color-code language as institutional or official proof.",
+        "The user resolves more cleanly into Grixis, Jund, Temur, Sultai, Omnath/non-Black value, a two-color pair, or generic goodstuff."
+      ],
+      "false_positive_guardrail": "Do not award Glint for generic chaos, cascade, high-variance play, Yidris familiarity, Glint-Eye/Nephilim anchoring alone, UBRG goodstuff, or adjacent shard/wedge language. Require the full four-color without White synthesis: adaptive appetite, volatility, living force, Blue adaptation, Black appetite, Red ignition, Green living force, and refusal of White-style civic restraint.",
+      "broad_match_penalty": 0.12
+    },
+    "good_fit_indicators": [
+      "adaptive appetite under pressure",
+      "living force without White-style civic restraint",
+      "volatility and improvisation as identity frame",
+      "explicit UBRG/non-White boundary preserved"
+    ],
+    "poor_fit_indicators": [
+      "generic UBRG goodstuff",
+      "generic chaos",
+      "generic cascade",
+      "generic high-variance decks",
+      "Yidris-only identity",
+      "Grixis cruelty without Green living force",
+      "Jund predation without Blue adaptive intelligence",
+      "Temur experimentation without Black appetite",
+      "Sultai exploitation without Red ignition",
+      "Omnath or non-Black four-color value shells",
+      "Glint-Eye or Nephilim language treated as institutional proof"
+    ],
+    "inhibitor_traps": [
+      "Treats civic restraint, imposed order, or stabilizing duty as the only trustworthy answer when appetite, adaptation, and living force are asking to move first.",
+      "The user only mentions generic chaos, cascade, high-variance play, or Yidris without the full non-White frame.",
+      "The user treats Glint-Eye, Nephilim, or Yidris as institutional proof.",
+      "The user centers White-style order, fairness, duty, or stability.",
+      "generic UBRG goodstuff",
+      "generic chaos",
+      "generic cascade",
+      "generic high-variance decks",
+      "Yidris-only identity",
+      "Grixis cruelty without Green living force",
+      "Jund predation without Blue adaptive intelligence",
+      "Temur experimentation without Black appetite",
+      "Sultai exploitation without Red ignition",
+      "Omnath or non-Black four-color value shells",
+      "Glint-Eye or Nephilim language treated as institutional proof"
+    ],
+    "lateral_inhibition_targets": [
+      "UB",
+      "UR",
+      "UG",
+      "BR",
+      "BG",
+      "RG",
+      "GRIXIS",
+      "JUND",
+      "TEMUR",
+      "SULTAI"
+    ],
+    "discriminator_questions": [
+      {
+        "id": "glint_disc_001",
+        "prompt": "Is the appeal volatility itself, or volatility plus appetite, adaptation, and living force under a missing-White frame?",
+        "purpose": "Separates source-bounded Glint identity from generic chaos, cascade, high-variance play, or Yidris-only texture.",
+        "supports": "Supports Glint when volatility is tied to appetite, adaptation, living force, missing-White pressure, and the full UBRG/non-White worldview.",
+        "weakens": "Weakens Glint when the user only wants variance, chaos, cascade, Yidris, or high-variance play without the missing-White frame.",
+        "collision_targets": [
+          "UB",
+          "UR",
+          "UG",
+          "BR",
+          "BG",
+          "RG",
+          "GRIXIS",
+          "JUND",
+          "TEMUR",
+          "SULTAI"
+        ],
+        "evidence_claim_ids": [
+          "glint_claim_0001",
+          "glint_claim_0003",
+          "glint_claim_0005"
+        ],
+        "confidence": "Medium"
+      },
+      {
+        "id": "glint_disc_002",
+        "prompt": "Does the answer need all four present colors plus missing White, or would a nearer Grixis, Jund, Temur, Sultai, or Omnath-style frame explain it better?",
+        "purpose": "Tests the four-color threshold so GLINT is not awarded for an adjacent shard, wedge, pair, Omnath-style value shell, or generic UBRG goodstuff.",
+        "supports": "Supports Glint when Blue adaptation, Black appetite, Red ignition, Green living force, and explicit missing-White refusal of civic restraint all matter together.",
+        "weakens": "Weakens Glint when Grixis, Jund, Temur, Sultai, a two-color pair, Omnath/non-Black value, or generic goodstuff explains the center better.",
+        "collision_targets": [
+          "UB",
+          "UR",
+          "UG",
+          "BR",
+          "BG",
+          "RG",
+          "GRIXIS",
+          "JUND",
+          "TEMUR",
+          "SULTAI"
+        ],
+        "evidence_claim_ids": [
+          "glint_claim_0001",
+          "glint_claim_0002",
+          "glint_claim_0003",
+          "glint_claim_0004",
+          "glint_claim_0005"
+        ],
+        "confidence": "Medium"
+      },
+      {
+        "id": "glint_disc_003",
+        "prompt": "Is the pull living volatility without imposed order, or Yore's constructed agency or Dune's direct territorial force?",
+        "purpose": "Separates Glint from adjacent four-color peers in the source-bound missing-White ring.",
+        "supports": "Supports Glint when appetite, adaptation, force, volatility, and missing-White refusal of civic restraint all matter together.",
+        "weakens": "Weakens Glint when the answer centers Yore constructed progress against nature or Dune non-Blue territorial combat pressure.",
+        "collision_targets": [
+          "YORE",
+          "DUNE"
+        ],
+        "evidence_claim_ids": [
+          "glint_claim_0003",
+          "glint_claim_0005"
+        ],
+        "confidence": "Medium",
+        "lateral_inhibition": false
+      }
+    ],
+    "chatbot_guidance": {
+      "use_when": [
+        "A user centers adaptive appetite, volatility, living force, or missing-White pressure rather than civic restraint.",
+        "A user needs Blue intelligence, Black appetite, Red ignition, and Green living force together.",
+        "A user distinguishes Glint from Grixis, Jund, Temur, Sultai, Omnath/non-Black four-color value, and generic chaos or cascade."
+      ],
+      "avoid_when": [
+        "The user only mentions generic chaos, cascade, high-variance play, or Yidris without the full non-White frame.",
+        "The user treats Glint-Eye, Nephilim, or Yidris as institutional proof.",
+        "The user centers White-style order, fairness, duty, or stability."
+      ],
+      "claim_boundaries": [
+        "Use Commander examples as table texture, not identity sources.",
+        "Keep the four-letter color code as technical routing data only.",
+        "Do not turn Glint or Chaos into a Wizards-published faction or universal color-name claim."
+      ]
+    },
+    "canon_guardrails": {
+      "never_claim_as_canon": [
+        "Psychological placement categories are Vox Mana interpretation, not official Wizards canon.",
+        "Do not state that a user's personality is objectively determined by a faction."
+      ]
+    }
+  },
+  "DUNE": {
+    "name": "Dune / Aggression",
+    "institution_type": "four_color",
+    "world": "Cross-setting",
+    "colors": [
+      "B",
+      "R",
+      "G",
+      "W"
+    ],
+    "layered_identity": {
+      "core_color": "BRGW",
+      "secondary_colors": [
+        "B",
+        "R",
+        "G",
+        "W"
+      ],
+      "secondary_color": null,
+      "expression_key": "DUNE",
+      "expression_name": "Dune / Aggression",
+      "expression_kind": "four_color",
+      "purity": null,
+      "routing": {
+        "color_identity": "BRGW",
+        "label": "Dune",
+        "suppress_directory_links": true
+      }
+    },
+    "tagline": "Take the field. Keep the line moving.",
+    "philosophy": "Dune believes presence should claim ground before detached contemplation can cool the moment. White holds the line, Black authorizes the cost, Red keeps ignition immediate, and Green keeps bodies and pressure multiplying.",
+    "core_tension": "Dune claims ground through coordinated force before detached contemplation can cool the moment, but common-front pressure can become domination when every body, cost, and opening is treated as something to spend forward.",
+    "affinity": {
+      "drawn_to": [
+        "Lines, formations, and bodies already moving together under pressure",
+        "Territory, momentum, and conflict language that makes presence itself feel decisive",
+        "Costs that keep a common front alive instead of making peace the first answer",
+        "Growth or multiplication that reinforces pressure rather than retreat"
+      ],
+      "repelled_by": [
+        "Detached contemplation treated as the cleanest answer by default",
+        "Generic go-wide, combat, or token language without the missing-Blue worldview",
+        "Nearby Jund, Naya, Mardu, Abzan, or Glint signals without the full BRGW line",
+        "Nephilim, commander product texture, or color identity used as institutional proof"
+      ],
+      "core_question": "What ground is worth claiming before distance can talk the line into standing still?",
+      "interview_tells": [
+        "Talks about pressure, territory, solidarity, and motion as the same answer",
+        "Needs White line, Black cost, Red ignition, and Green persistence all at once",
+        "Treats overthinking as the thing that lets the field be lost"
+      ]
+    },
+    "decree_voice": {
+      "tone": "Martial, grounded, urgent, and heavy with force that has already decided to move.",
+      "signature_line": "The field belongs to the force already crossing it."
+    },
+    "biological_expression": {
+      "archetype": "The Common-Front Linebreaker",
+      "primary_foundation": "Loyalty",
+      "secondary_foundation": "Liberty",
+      "risk_signal": "high force-forward risk",
+      "inhibitor_trigger": "Mistakes detached contemplation, delay, or perfect modeling for the only adult answer when the line needs bodies, cost, ignition, and persistence moving together now."
+    },
+    "placement_axes": {
+      "required_positive_evidence_terms": [
+        "organized",
+        "territorial",
+        "force",
+        "pressure",
+        "direct action",
+        "physical momentum",
+        "survival",
+        "multiplication",
+        "common front",
+        "four-color",
+        "without Blue",
+        "missing-Blue",
+        "White line",
+        "Black cost",
+        "Red ignition",
+        "Green persistence"
+      ],
+      "required_positive_min_hits": 2,
+      "strengthens_when_user_centers": [
+        "User keeps returning to organized territorial pressure before detached contemplation.",
+        "User frames combat, tokens, or go-wide texture as common-front force rather than a standalone deck preference.",
+        "User needs White line, Black cost, Red ignition, and Green persistence together.",
+        "User treats direct action, physical momentum, and survival-minded multiplication as identity language rather than isolated mechanics.",
+        "User explicitly preserves the four-color without Blue boundary."
+      ],
+      "suppress_when_user_centers": [
+        "User centers detached contemplation, Blue adaptation, stable distance, exhaustive modeling, or perfect delay.",
+        "User mentions combat, tokens, go-wide pressure, Saskia, Open Hostility, Dune-Brood, or Nephilim language without the missing-Blue worldview.",
+        "User treats a single commander, support product, card anchor, color code, or name-adjacent phrase as sufficient proof.",
+        "User resolves more cleanly into Jund, Naya, Mardu, Abzan, Glint, a two-color pair, or generic same-color goodstuff."
+      ],
+      "false_positive_guardrail": "Do not award Dune for generic combat, tokens, same-color goodstuff, single-commander familiarity, Dune-Brood/Nephilim anchoring alone, or adjacent shard/wedge language. Require the full four-color without Blue synthesis: organized territorial pressure, direct action, White line, Black cost, Red ignition, Green persistence, and refusal of detached contemplation.",
+      "broad_match_penalty": 0.12
+    },
+    "good_fit_indicators": [
+      "organized territorial force",
+      "cost-bearing solidarity under pressure",
+      "immediate strike pressure",
+      "survival-minded multiplication",
+      "explicit BRGW/non-Blue boundary preserved"
+    ],
+    "poor_fit_indicators": [
+      "generic BRGW goodstuff",
+      "generic go-wide shells",
+      "generic tokens",
+      "generic combat pressure",
+      "Saskia-only identity",
+      "Jund predation without White line",
+      "Naya abundance without Black conquest pressure",
+      "Mardu raid-speed without Green survival-minded multiplication",
+      "Abzan endurance without Red ignition",
+      "Glint volatility or appetite with Blue present",
+      "Dune-Brood or Nephilim language treated as institutional proof"
+    ],
+    "inhibitor_traps": [
+      "Mistakes detached contemplation, delay, or perfect modeling for the only adult answer when the line needs bodies, cost, ignition, and persistence moving together now.",
+      "The user only mentions generic combat, tokens, or go-wide pressure without the missing-Blue worldview.",
+      "The user treats Saskia, Open Hostility, Dune-Brood, or color identity alone as enough to define Dune.",
+      "The user centers detached contemplation, Blue adaptation, or stable distance as the thing that should lead the answer.",
+      "generic BRGW goodstuff",
+      "generic go-wide shells",
+      "generic tokens",
+      "generic combat pressure",
+      "Saskia-only identity",
+      "Jund predation without White line",
+      "Naya abundance without Black conquest pressure",
+      "Mardu raid-speed without Green survival-minded multiplication",
+      "Abzan endurance without Red ignition",
+      "Glint volatility or appetite with Blue present",
+      "Dune-Brood or Nephilim language treated as institutional proof"
+    ],
+    "lateral_inhibition_targets": [
+      "BR",
+      "BG",
+      "WB",
+      "RG",
+      "WR",
+      "WG",
+      "JUND",
+      "NAYA",
+      "ABZAN",
+      "MARDU",
+      "GLINT"
+    ],
+    "discriminator_questions": [
+      {
+        "id": "dune_disc_001",
+        "prompt": "Is the appeal the combat shell itself, or combat plus coordinated territorial pressure under a missing-Blue frame?",
+        "purpose": "Separates genuine Dune alignment from generic combat, tokens, go-wide, Saskia-only, or aggressive shell preference.",
+        "supports": "Supports Dune when combat is tied to coordinated territorial pressure, missing-Blue urgency, direct action, common-front force, and the full BRGW/non-Blue worldview.",
+        "weakens": "Weakens Dune when the user only likes combat, tokens, go-wide pressure, Saskia, Open Hostility, Dune-Brood, or aggression without the missing-Blue territorial-pressure frame.",
+        "collision_targets": [
+          "BR",
+          "RG",
+          "WG",
+          "WB",
+          "WR",
+          "BG",
+          "JUND",
+          "NAYA",
+          "MARDU",
+          "ABZAN",
+          "GLINT"
+        ],
+        "evidence_claim_ids": [
+          "dune_claim_0001",
+          "dune_claim_0003",
+          "dune_claim_0005"
+        ],
+        "confidence": "Medium"
+      },
+      {
+        "id": "dune_disc_002",
+        "prompt": "Does the answer need all four present colors plus missing Blue, or would a nearer Jund, Naya, Mardu, Abzan, or Glint frame explain it better?",
+        "purpose": "Forces the four-color threshold test so Dune is not selected for color identity alone, adjacent shard/wedge language, or generic same-color combat piles.",
+        "supports": "Supports Dune when White line, Black cost, Red ignition, Green persistence, and explicit missing-Blue refusal of detached contemplation are all needed together.",
+        "weakens": "Weakens Dune when the answer resolves cleanly into Jund predation, Naya abundance, Mardu raid-speed, Abzan endurance, Glint Blue-present adaptation, a two-color pair, or generic BRGW goodstuff.",
+        "collision_targets": [
+          "JUND",
+          "NAYA",
+          "MARDU",
+          "ABZAN",
+          "GLINT",
+          "BR",
+          "RG",
+          "WG",
+          "WB",
+          "WR",
+          "BG"
+        ],
+        "evidence_claim_ids": [
+          "dune_claim_0001",
+          "dune_claim_0002",
+          "dune_claim_0003",
+          "dune_claim_0005"
+        ],
+        "confidence": "Medium"
+      },
+      {
+        "id": "dune_disc_003",
+        "prompt": "Is the urgency coordinated territorial pressure without Blue delay, or Glint's adaptive volatility or Ink's protected commons?",
+        "purpose": "Separates Dune from adjacent four-color peers in the source-bound missing-Blue ring.",
+        "supports": "Supports Dune when direct action, physical momentum, territorial pressure, organized force, and missing-Blue refusal of detached contemplation all matter together.",
+        "weakens": "Weakens Dune when the answer centers Glint appetite and adaptation or Ink shared prosperity and open knowledge rather than immediate force.",
+        "collision_targets": [
+          "GLINT",
+          "INK"
+        ],
+        "evidence_claim_ids": [
+          "dune_claim_0003",
+          "dune_claim_0005"
+        ],
+        "confidence": "Medium",
+        "lateral_inhibition": false
+      }
+    ],
+    "chatbot_guidance": {
+      "use_when": [
+        "A user centers organized territorial pressure, cost-bearing solidarity, immediate strike pressure, or survival-minded multiplication without Blue-style distance.",
+        "A user needs White line, Black cost, Red ignition, and Green persistence all at once.",
+        "A user distinguishes Dune from Jund, Naya, Mardu, Abzan, Glint, Saskia-only shells, and generic BRGW combat piles."
+      ],
+      "avoid_when": [
+        "The user only mentions generic combat, tokens, or go-wide pressure without the missing-Blue worldview.",
+        "The user treats Saskia, Open Hostility, Dune-Brood, or color identity alone as enough to define Dune.",
+        "The user centers detached contemplation, Blue adaptation, or stable distance as the thing that should lead the answer."
+      ],
+      "claim_boundaries": [
+        "Use Commander examples as table texture, not identity sources.",
+        "Keep the four-letter color code as technical routing data only.",
+        "Do not turn Dune or Aggression into a Wizards-published faction or universal color-name claim."
+      ]
+    },
+    "canon_guardrails": {
+      "never_claim_as_canon": [
+        "Psychological placement categories are Vox Mana interpretation, not official Wizards canon.",
+        "Do not state that a user's personality is objectively determined by a faction."
+      ]
+    }
+  },
+  "INK": {
+    "name": "Ink / Altruism",
+    "institution_type": "four_color",
+    "world": "Cross-setting",
+    "colors": [
+      "R",
+      "G",
+      "W",
+      "U"
+    ],
+    "layered_identity": {
+      "core_color": "RGWU",
+      "secondary_colors": [
+        "R",
+        "G",
+        "W",
+        "U"
+      ],
+      "secondary_color": null,
+      "expression_key": "INK",
+      "expression_name": "Ink / Altruism",
+      "expression_kind": "four_color",
+      "purity": null,
+      "routing": {
+        "color_identity": "RGWU",
+        "label": "Ink",
+        "suppress_directory_links": true
+      }
+    },
+    "tagline": "Keep the commons guarded. Keep the gift moving.",
+    "philosophy": "Ink believes abundance should circulate through a defended commons rather than become private leverage. Red keeps care present, Green keeps reciprocity alive, White gives public promise, and Blue opens knowledge without letting Black-style private hoarding define the center.",
+    "core_tension": "Ink keeps resources, knowledge, and care moving through a defended commons, but protected generosity can become self-erasure when private need is mistrusted too strongly.",
+    "affinity": {
+      "drawn_to": [
+        "Shared resources protected from capture",
+        "Open knowledge, public memory, and civic generosity",
+        "Group-benefit language that still honors consent and guardrails",
+        "Abundance that circulates instead of becoming private leverage"
+      ],
+      "repelled_by": [
+        "Private hoarding or personal advantage as the center of the answer",
+        "Generic group-hug friendliness without a missing-Black worldview",
+        "Public archive imagery without care, reciprocity, and protection",
+        "Kynaios, Ink-Treader, or color identity used as naming authority"
+      ],
+      "core_question": "What gift is worth protecting so it can keep moving through the commons?",
+      "interview_tells": [
+        "Talks about commons, open knowledge, public memory, and shared resources as one protected system",
+        "Wants generosity to circulate without letting the table become capture-prone",
+        "Needs Red care, Green reciprocity, White civic promise, and Blue open knowledge all at once"
+      ]
+    },
+    "decree_voice": {
+      "tone": "Civic, generous, archival, and quietly guarded.",
+      "signature_line": "The commons is not a vault. Guard it so the gift can move."
+    },
+    "biological_expression": {
+      "archetype": "The Commons Keeper",
+      "primary_foundation": "Care",
+      "secondary_foundation": "Fairness",
+      "risk_signal": "high self-erasure risk",
+      "inhibitor_trigger": "Treats private need, guarded consent, or personal limits as selfish by default when the gift needs protection in order to keep moving."
+    },
+    "placement_axes": {
+      "required_positive_evidence_terms": [
+        "protected",
+        "public abundance",
+        "open knowledge",
+        "community benefit",
+        "shared resources",
+        "guarded commons",
+        "protected generosity",
+        "four-color",
+        "without Black",
+        "missing-Black",
+        "Red care",
+        "Green reciprocity",
+        "White civic promise",
+        "Blue open knowledge",
+        "commons",
+        "gift",
+        "capture"
+      ],
+      "required_positive_min_hits": 2,
+      "strengthens_when_user_centers": [
+        "The user returns to protected public abundance, open knowledge, community benefit, and shared resources guarded from capture.",
+        "The user treats group-hug, shared resources, Kynaios, Stalwart Unity, or public-archive texture as support texture rather than standalone identity proof.",
+        "The user needs Red care, Green reciprocity, White civic promise, and Blue open knowledge together.",
+        "The user frames refusal of Black private advantage, hoarding, or personal sovereignty as identity language.",
+        "The user preserves the four-color without Black boundary instead of collapsing into Bant, Jeskai, Naya, Temur, Dune, Glint, a two-color pair, or generic same-color goodstuff."
+      ],
+      "suppress_when_user_centers": [
+        "The user centers private advantage, hoarding, personal sovereignty, or Black-style leverage as the leading value.",
+        "The user mentions only shared resources, group-hug, public archives, Kynaios, Ink-Treader, Altruism, or same-color grouping without the missing-Black worldview.",
+        "The user treats Altruism, Kynaios, Stalwart Unity, Ink-Treader, RGWU, WURG, same-color identity, or color-code language as official public naming authority.",
+        "The user resolves more cleanly into Bant, Jeskai, Naya, Temur, Dune, Glint, a two-color pair, or generic same-color goodstuff."
+      ],
+      "false_positive_guardrail": "Do not award Ink for generic group-hug, generic shared resources, public archive imagery, Kynaios familiarity, Ink-Treader anchoring alone, Altruism/same-color naming, RGWU/WURG goodstuff, or adjacent shard/wedge/four-color language. Require the full four-color without Black synthesis: protected public abundance, open knowledge, community benefit, shared resources guarded from capture, Red care, Green reciprocity, White civic promise, Blue open knowledge, and refusal of Black-style private hoarding.",
+      "broad_match_penalty": 0.12
+    },
+    "good_fit_indicators": [
+      "protected public abundance",
+      "open knowledge joined to community benefit",
+      "shared resources guarded from capture",
+      "explicit non-Black public-commons boundary preserved"
+    ],
+    "poor_fit_indicators": [
+      "generic same-color goodstuff",
+      "generic group-hug shells",
+      "generic public archive imagery",
+      "generic shared resources without the missing-Black worldview",
+      "Kynaios-only identity",
+      "Ink-Treader-only identity",
+      "Bant order and learning without Red immediacy",
+      "Jeskai discipline and expression without Green reciprocity",
+      "Naya embodied community without Blue open knowledge",
+      "Temur vitality and study without White civic promise",
+      "Dune force or Glint volatility treated as Ink proof",
+      "Altruism or same-color code treated as public naming authority"
+    ],
+    "inhibitor_traps": [
+      "Treats private need, guarded consent, or personal limits as selfish by default when the gift needs protection in order to keep moving.",
+      "The user only mentions shared resources, group-hug, public archives, Kynaios, Ink-Treader, or same-color grouping without the full non-Black protected-commons worldview.",
+      "The user treats Altruism, Kynaios, Stalwart Unity, Ink-Treader, or same-color identity as naming authority.",
+      "The user centers private advantage, hoarding, or personal sovereignty as the thing that should lead the answer.",
+      "generic same-color goodstuff",
+      "generic group-hug shells",
+      "generic public archive imagery",
+      "generic shared resources without the missing-Black worldview",
+      "Kynaios-only identity",
+      "Ink-Treader-only identity",
+      "Bant order and learning without Red immediacy",
+      "Jeskai discipline and expression without Green reciprocity",
+      "Naya embodied community without Blue open knowledge",
+      "Temur vitality and study without White civic promise",
+      "Dune force or Glint volatility treated as Ink proof",
+      "Altruism or same-color code treated as public naming authority"
+    ],
+    "lateral_inhibition_targets": [
+      "WU",
+      "UR",
+      "UG",
+      "WG",
+      "WR",
+      "RG",
+      "BANT",
+      "JESKAI",
+      "NAYA",
+      "TEMUR",
+      "GLINT",
+      "DUNE"
+    ],
+    "discriminator_questions": [
+      {
+        "id": "ink_disc_001",
+        "prompt": "Is the appeal generosity itself, or generosity plus protection from capture under a missing-Black frame?",
+        "purpose": "Separates source-bounded Ink identity from generic generosity, group-hug, shared resources, public archive imagery, Kynaios-only texture, or Ink-Treader-only anchoring.",
+        "supports": "Supports Ink when generosity, shared resources, or open knowledge are tied to protection from capture, community benefit, guarded commons, missing-Black pressure, and the full RGWU/non-Black worldview.",
+        "weakens": "Weakens Ink when the user only wants group-hug, shared resources, public archives, Kynaios, Ink-Treader, Altruism, same-color grouping, or friendliness without the non-Black protected-commons frame.",
+        "collision_targets": [
+          "WU",
+          "UR",
+          "UG",
+          "WG",
+          "WR",
+          "RG",
+          "BANT",
+          "JESKAI",
+          "NAYA",
+          "TEMUR",
+          "GLINT",
+          "DUNE"
+        ],
+        "evidence_claim_ids": [
+          "ink_claim_0001",
+          "ink_claim_0003",
+          "ink_claim_0005"
+        ],
+        "confidence": "Medium"
+      },
+      {
+        "id": "ink_disc_002",
+        "prompt": "Does the answer need all four present colors plus missing Black, or would a nearer Bant, Jeskai, Naya, Temur, Dune, Witch, or Kynaios-only frame explain it better?",
+        "purpose": "Tests the four-color threshold so INK is not awarded for adjacent shards, wedges, pairs, Dune force, Glint volatility, Kynaios-only shells, or generic same-color goodstuff.",
+        "supports": "Supports Ink when Red care, Green reciprocity, White civic promise, Blue open knowledge, and explicit missing-Black refusal of private hoarding all matter together.",
+        "weakens": "Weakens Ink when Bant, Jeskai, Naya, Temur, Dune, Glint, a two-color pair, Kynaios-only support texture, or generic same-color goodstuff explains the center better.",
+        "collision_targets": [
+          "WU",
+          "UR",
+          "UG",
+          "WG",
+          "WR",
+          "RG",
+          "BANT",
+          "JESKAI",
+          "NAYA",
+          "TEMUR",
+          "GLINT",
+          "DUNE"
+        ],
+        "evidence_claim_ids": [
+          "ink_claim_0001",
+          "ink_claim_0002",
+          "ink_claim_0003",
+          "ink_claim_0004",
+          "ink_claim_0005"
+        ],
+        "confidence": "Medium"
+      },
+      {
+        "id": "ink_disc_003",
+        "prompt": "Is the answer protected generosity and open knowledge without private hoarding, or Dune's force or Witch's patient accumulation?",
+        "purpose": "Separates Ink from adjacent four-color peers in the source-bound missing-Black ring.",
+        "supports": "Supports Ink when shared prosperity, community benefit, protected generosity, open knowledge, and missing-Black refusal of private hoarding all matter together.",
+        "weakens": "Weakens Ink when the center is Dune's immediate organized force or Witch's protected long-horizon accumulation instead of a guarded commons.",
+        "collision_targets": [
+          "DUNE",
+          "WITCH"
+        ],
+        "evidence_claim_ids": [
+          "ink_claim_0003",
+          "ink_claim_0005"
+        ],
+        "confidence": "Medium",
+        "lateral_inhibition": false
+      }
+    ],
+    "chatbot_guidance": {
+      "use_when": [
+        "A user centers protected generosity, public abundance, open knowledge, or shared resources guarded from capture under a missing-Black frame.",
+        "A user needs Red care, Green reciprocity, White civic promise, and Blue open knowledge together.",
+        "A user distinguishes Ink from Bant, Jeskai, Naya, Temur, Dune, Glint, Kynaios-only shells, Ink-Treader-only anchors, and generic group-hug."
+      ],
+      "avoid_when": [
+        "The user only mentions shared resources, group-hug, public archives, Kynaios, Ink-Treader, or same-color grouping without the full non-Black protected-commons worldview.",
+        "The user treats Altruism, Kynaios, Stalwart Unity, Ink-Treader, or same-color identity as naming authority.",
+        "The user centers private advantage, hoarding, or personal sovereignty as the thing that should lead the answer."
+      ],
+      "claim_boundaries": [
+        "Use Commander examples as table texture, not identity sources.",
+        "Keep the four-letter color code as technical routing data only.",
+        "Do not turn Ink or Altruism into a Wizards-published faction or universal color-name claim."
+      ]
+    },
+    "canon_guardrails": {
+      "never_claim_as_canon": [
+        "Psychological placement categories are Vox Mana interpretation, not official Wizards canon.",
+        "Do not state that a user's personality is objectively determined by a faction."
+      ]
+    }
+  },
+  "WITCH": {
+    "name": "Witch / Growth",
+    "institution_type": "four_color",
+    "world": "Cross-setting",
+    "colors": [
+      "G",
+      "W",
+      "U",
+      "B"
+    ],
+    "layered_identity": {
+      "core_color": "GWUB",
+      "secondary_colors": [
+        "G",
+        "W",
+        "U",
+        "B"
+      ],
+      "secondary_color": null,
+      "expression_key": "WITCH",
+      "expression_name": "Witch / Growth",
+      "expression_kind": "four_color",
+      "purity": null,
+      "routing": {
+        "color_identity": "GWUB",
+        "label": "Witch",
+        "suppress_directory_links": true
+      }
+    },
+    "tagline": "Let the garden wait. Count every root.",
+    "philosophy": "Witch believes the future should be cultivated before it is claimed. Green grows the root, White protects the trellis, Blue measures the method, and Black keeps ambition aimed at inevitability without letting Red-style impulse take command.",
+    "core_tension": "Witch cultivates protected growth through structure, calculation, and ambition, but patient planning can become sterile control when Red-style impulse is excluded too completely.",
+    "affinity": {
+      "drawn_to": [
+        "Small investments quietly protected until they become overwhelming",
+        "Systems that compound: counters, structures, knowledge, and leverage held together",
+        "Plans that win because they were tended before anyone else noticed",
+        "Growth that requires structure, calculation, and ambition working together",
+        "Patience understood as discipline rather than passivity"
+      ],
+      "repelled_by": [
+        "Impulse, spectacle, or emotional release treated as the engine of a decision",
+        "Generic counters or proliferate divorced from the missing-Red worldview",
+        "Declarations that the faction is about winning fast, hitting hard, or seizing the moment"
+      ],
+      "core_question": "What future is worth cultivating until impulse can no longer interrupt it?",
+      "interview_tells": [
+        "Says something like 'I had to wait, but I knew it would compound if I did' when describing a plan or success",
+        "Talks about protecting a small early advantage rather than gambling it into something bigger",
+        "Describes satisfaction from watching a complex system resolve exactly as planned over many steps",
+        "Uses words like 'cultivate,' 'accumulate,' 'inevitable,' 'patient,' or 'architecture' naturally in answers",
+        "Needs growth, order, knowledge, and ambition working together, not just one or two of them"
+      ]
+    },
+    "decree_voice": {
+      "tone": "Patient, ritual, botanical, calculating, and calm enough to feel inexorable.",
+      "signature_line": "The root remembers what the spark forgot."
+    },
+    "biological_expression": {
+      "archetype": "The Patient Cultivation Schemer",
+      "primary_foundation": "Authority",
+      "secondary_foundation": "Care",
+      "risk_signal": "high sterile-control risk",
+      "inhibitor_trigger": "Treats speed, impulse, spectacle, or emotional release as the center when patient cultivation is asking for protected, calculated growth."
+    },
+    "placement_axes": {
+      "required_positive_evidence_terms": [
+        "cultivate",
+        "accumulate",
+        "patient",
+        "inevitable",
+        "compound",
+        "protect",
+        "structure",
+        "long-term",
+        "scale",
+        "deliberate",
+        "systematic"
+      ],
+      "required_positive_min_hits": 2,
+      "strengthens_when_user_centers": [
+        "User keeps returning to small protected investments becoming overwhelming over time.",
+        "User keeps returning to the satisfaction of a plan resolving exactly as designed over many steps.",
+        "User frames patience as active power rather than passivity.",
+        "User needs structure, knowledge, growth, and ambition working together rather than just one pressure.",
+        "User treats impulsive or emotional decision-making as a liability."
+      ],
+      "suppress_when_user_centers": [
+        "User centers speed, urgency, or acting before the window closes.",
+        "User centers spectacle, emotional release, or the thrill of one decisive moment.",
+        "User centers chaotic variance, high-risk gambling, or outcomes that depend on luck.",
+        "User centers individual heroism, present-tense sacrifice, or immediate protection as the main answer.",
+        "User centers mechanics, commanders, or color grouping without the missing-Red protected-growth worldview."
+      ],
+      "false_positive_guardrail": "Do not award Witch for generic same-color goodstuff, counters-only play patterns, proliferate familiarity, or Atraxa familiarity. Require the full four-color synthesis: patient cultivation held together by structure, calculation, and disciplined ambition under an explicit missing-Red frame. Proximity to Bant, Esper, Sultai, or Abzan alone does not qualify.",
+      "broad_match_penalty": 0.12
+    },
+    "good_fit_indicators": [
+      "patient cultivation protected by structure",
+      "calculated growth without Red-style impulse",
+      "knowledge optimized into long-horizon advantage",
+      "ambition disciplined into planned inevitability",
+      "explicit four-color without Red boundary preserved"
+    ],
+    "poor_fit_indicators": [
+      "generic same-color goodstuff",
+      "generic counters or proliferate shells",
+      "generic Atraxa-only shells",
+      "infect-only identity",
+      "superfriends-only identity",
+      "Phyrexia-only identity",
+      "Witch-Maw-only identity",
+      "Growth-only naming",
+      "Bant order and growth without Black ambition",
+      "Esper structure and control without Green cultivation",
+      "Sultai growth and ambition without White structure",
+      "Abzan endurance and family structure without Blue calculation",
+      "Yore, Glint, Dune, or Ink three-color-overlap readings treated as Witch proof"
+    ],
+    "inhibitor_traps": [
+      "Treats speed, impulse, spectacle, or emotional release as the center when patient cultivation is asking for protected, calculated growth.",
+      "The user only mentions counters, proliferate, Atraxa, infect, superfriends, or same-color grouping without the full non-Red protected-cultivation worldview.",
+      "The user treats Growth, Atraxa, Breed Lethality, Witch-Maw, or same-color identity as naming authority.",
+      "The user centers impulse, spectacle, haste, emotional release, or living in the moment as the thing that should lead the answer.",
+      "generic same-color goodstuff",
+      "generic counters or proliferate shells",
+      "generic Atraxa-only shells",
+      "infect-only identity",
+      "superfriends-only identity",
+      "Phyrexia-only identity",
+      "Witch-Maw-only identity",
+      "Growth-only naming",
+      "Bant order and growth without Black ambition",
+      "Esper structure and control without Green cultivation",
+      "Sultai growth and ambition without White structure",
+      "Abzan endurance and family structure without Blue calculation",
+      "Yore, Glint, Dune, or Ink three-color-overlap readings treated as Witch proof"
+    ],
+    "lateral_inhibition_targets": [
+      "WU",
+      "UB",
+      "BG",
+      "WG",
+      "UG",
+      "WB",
+      "BANT",
+      "ESPER",
+      "SULTAI",
+      "ABZAN",
+      "YORE",
+      "GLINT",
+      "DUNE",
+      "INK"
+    ],
+    "discriminator_questions": [
+      {
+        "id": "witch_disc_001",
+        "prompt": "Is the appeal growth itself, or growth plus structure, calculation, ambition, and rejection of impulse under a missing-Red frame?",
+        "purpose": "Separates genuine Witch alignment from simpler growth, ramp, counters, or proliferate identities.",
+        "supports": "Clear Witch placement when the user names patience, structure, calculation, and ambition as one system, with the absence of impulse as the key pressure.",
+        "weakens": "Weakens Witch when the user is drawn primarily to organic growth, ramp, big creatures, counters, or value engines without the missing-Red frame.",
+        "collision_targets": [
+          "WG",
+          "UG",
+          "SULTAI",
+          "ABZAN",
+          "BANT"
+        ],
+        "evidence_claim_ids": [
+          "witch_claim_0003",
+          "witch_claim_0005"
+        ],
+        "confidence": "Medium"
+      },
+      {
+        "id": "witch_disc_002",
+        "prompt": "Does the answer require Green cultivation, White structure, Blue calculation, and Black ambition working together, or would Bant, Esper, Sultai, or Abzan explain it fully?",
+        "purpose": "Forces the four-color threshold test without turning the color code itself into public proof.",
+        "supports": "Supports Witch when the user needs all four present color pressures and can explain why losing any one changes the answer.",
+        "weakens": "Weakens Witch when the answer resolves cleanly into a three-color neighbor without needing the fourth pressure.",
+        "collision_targets": [
+          "BANT",
+          "ESPER",
+          "SULTAI",
+          "ABZAN"
+        ],
+        "evidence_claim_ids": [
+          "witch_claim_0002",
+          "witch_claim_0003"
+        ],
+        "confidence": "Medium"
+      },
+      {
+        "id": "witch_disc_003",
+        "prompt": "When you imagine the ideal outcome of your plan, does it look like a slow system reaching a tipping point, or a decisive moment of action, protected generosity, living volatility, territorial force, or constructed intervention?",
+        "purpose": "Distinguishes Witch accumulation from decisive action, protected commons, volatility, territorial force, or constructed-agency identities.",
+        "supports": "Supports Witch when the user describes a quiet threshold being crossed: a position becoming irreversible rather than one dramatic event.",
+        "weakens": "Weakens Witch when the user is energized by decisive moments, protected commons, constructed intervention, creative release, immediate territorial pressure, or volatility instead of accumulation reaching critical mass.",
+        "collision_targets": [
+          "BANT",
+          "INK",
+          "GLINT",
+          "DUNE",
+          "YORE"
+        ],
+        "evidence_claim_ids": [
+          "witch_claim_0003",
+          "witch_claim_0005"
+        ],
+        "confidence": "Medium",
+        "lateral_inhibition": false
+      }
+    ],
+    "chatbot_guidance": {
+      "use_when": [
+        "A user centers patient cultivation, protected growth, calculated expansion, or slow inevitability under a missing-Red frame.",
+        "A user needs Green cultivation, White structure, Blue calculation, and Black ambition together.",
+        "A user distinguishes Witch from Bant, Esper, Sultai, Abzan, Yore, Glint, Dune, Ink, generic Atraxa goodstuff, generic counters, proliferate, infect, superfriends, and Phyrexia-only readings."
+      ],
+      "avoid_when": [
+        "The user only mentions counters, proliferate, Atraxa, infect, superfriends, or same-color grouping without the full non-Red protected-cultivation worldview.",
+        "The user treats Growth, Atraxa, Breed Lethality, Witch-Maw, or same-color identity as naming authority.",
+        "The user centers impulse, spectacle, haste, emotional release, or living in the moment as the thing that should lead the answer."
+      ],
+      "claim_boundaries": [
+        "Use Commander examples as table texture, not identity sources.",
+        "Keep the four-letter color code as technical routing data only.",
+        "Do not turn Witch or Growth into a Wizards-published faction or universal color-name claim."
+      ]
+    },
+    "canon_guardrails": {
+      "never_claim_as_canon": [
+        "Witch is a Vox Mana identity expression, not an official Wizards faction.",
+        "Growth is support/display framing, not a universal official name.",
+        "Do not treat commanders, mechanics, Nephilim, or color grouping as placement proof by themselves."
+      ]
+    }
+  },
+  "COLORLESS": {
+    "name": "Colorless",
+    "institution_type": "colorless",
+    "world": "Cross-plane",
+    "colors": [],
+    "layered_identity": {
+      "core_color": "C",
+      "secondary_colors": [],
+      "secondary_color": null,
+      "expression_key": "COLORLESS",
+      "expression_name": "Colorless",
+      "expression_kind": "colorless",
+      "purity": null,
+      "routing": {
+        "color_identity": "C",
+        "label": "Colorless",
+        "suppress_directory_links": true
+      }
+    },
+    "tagline": "Outside the wheel. Not above it.",
+    "philosophy": "Colorless asks what remains when the five colors are not the grammar of the answer: the artifact that acts without appetite, the void that does not negotiate, the Wastes where colored mana has been stripped away, and the detached perspective that must not become superiority over color.",
+    "core_tension": "Colorless gains clarity by standing outside WUBRG, but loses clarity the moment outside-ness becomes a generic catch-all.",
+    "affinity": {
+      "drawn_to": [
+        "A deliberate identity outside WUBRG rather than a missing color",
+        "A lane governed like its own constraint without becoming a sixth color",
+        "The restriction puzzle of strict non-color deckbuilding",
+        "Artifact machinery, Wastes austerity, Eldrazi scale, or clean mana systems kept as separate branches",
+        "Precise distinctions between generic mana, colorless mana, artifacts, Eldrazi, Wastes, and Devoid"
+      ],
+      "repelled_by": [
+        "Treating Colorless as a sixth color or superior form of WUBRG",
+        "Generic artifact preference without outside-WUBRG precision",
+        "Generic mana costs treated as colorless mana",
+        "Five-color Eldrazi, Phyrexia, Devoid, or Wastes treated as automatic Colorless proof"
+      ],
+      "core_question": "What remains compelling when the color wheel is not the language of the answer?",
+      "interview_tells": [
+        "Names the appeal of the restriction itself rather than only artifacts or large mana costs",
+        "Separates machine, void, Wastes, Eldrazi, and Devoid branches instead of collapsing them",
+        "Frames Colorless as outside or orthogonal to WUBRG, not above it"
+      ]
+    },
+    "decree_voice": {
+      "tone": "Spare, precise, alien, instrumental, and austere without becoming empty.",
+      "signature_line": "The absence is not empty. It is exact."
+    },
+    "biological_expression": {
+      "archetype": "The Outside-System Architect",
+      "primary_foundation": "Precision",
+      "secondary_foundation": "Constraint",
+      "risk_signal": "high conflation risk",
+      "inhibitor_trigger": "Collapses generic mana, colorless mana, artifacts, Eldrazi, Wastes, Devoid, five-color Eldrazi, or Phyrexia into one undifferentiated Colorless identity."
+    },
+    "placement_axes": {
+      "required_positive_evidence_terms": [],
+      "required_positive_min_hits": 2,
+      "strengthens_when_user_centers": [],
+      "suppress_when_user_centers": [],
+      "false_positive_guardrail": "Require precise outside-WUBRG language, branch separation, strict Commander/devoid/five-color boundaries, and controlled public-expansion boundaries. Treat all guidance here as controlled placement and dossier scaffolding, not Home preview, public routing, Commander Compass, or broad recommendation approval.",
+      "broad_match_penalty": 0.12
+    },
+    "good_fit_indicators": [
+      "explicit outside-WUBRG framing without sixth-color language",
+      "explicit generic mana versus colorless mana distinction",
+      "branch-separated artifacts, Eldrazi, Wastes, Devoid, and Ugin/Karn texture",
+      "Commander examples kept support-only",
+      "five-color and Phyrexia kept as comparator or separator context rather than proof",
+      "positive attraction to a chosen outside-WUBRG restriction",
+      "clear branch preference among artifact machinery, Eldrazi spectacle, Wastes austerity, clean mana, or resource-denial pressure",
+      "strict Colorless Commander constraints understood as part of the appeal rather than a deckbuilding accident"
+    ],
+    "poor_fit_indicators": [
+      "generic same-color or generic mana goodstuff",
+      "artifact-only identity",
+      "Eldrazi-only identity",
+      "Wastes-only identity",
+      "Devoid-only identity",
+      "Ugin-only or Karn-only lore claims without direct evidence",
+      "five-color Eldrazi framing",
+      "Phyrexia-only framing",
+      "Commander product proof or legality claims beyond current support-only rows",
+      "positive sixth-color framing",
+      "public route or Home preview readiness language",
+      "Devoid as strict Commander legality proof",
+      "five-color Eldrazi as strict Colorless identity",
+      "named-card legality or exact Oracle claims without verification",
+      "current price or metagame advice from raw intake material"
+    ],
+    "inhibitor_traps": [
+      "Collapses generic mana, colorless mana, artifacts, Eldrazi, Wastes, Devoid, five-color Eldrazi, or Phyrexia into one undifferentiated Colorless identity.",
+      "The answer says colorless because the deck has many generic mana costs rather than actual {C} requirements or Colorless identity.",
+      "The answer names artifacts but ignores colored artifacts, artifact civilizations, and the artifact/Colorless distinction.",
+      "The answer names Eldrazi but turns five-color Eldrazi support or Eldrazi Incursion into Colorless proof.",
+      "The answer treats outside the color wheel as above the color wheel.",
+      "generic same-color or generic mana goodstuff",
+      "artifact-only identity",
+      "Eldrazi-only identity",
+      "Wastes-only identity",
+      "Devoid-only identity",
+      "Ugin-only or Karn-only lore claims without direct evidence",
+      "five-color Eldrazi framing",
+      "Phyrexia-only framing",
+      "Commander product proof or legality claims beyond current support-only rows",
+      "positive sixth-color framing",
+      "public route or Home preview readiness language",
+      "Devoid as strict Commander legality proof",
+      "five-color Eldrazi as strict Colorless identity",
+      "named-card legality or exact Oracle claims without verification",
+      "current price or metagame advice from raw intake material"
+    ],
+    "lateral_inhibition_targets": [
+      "W",
+      "U",
+      "B",
+      "R",
+      "G",
+      "YORE",
+      "ESPER",
+      "WITCH"
+    ],
+    "discriminator_questions": [
+      {
+        "id": "colorless_disc_001",
+        "prompt": "Is the appeal outside the five-color system itself, or only a deck with artifacts, generic costs, or Eldrazi cards?",
+        "purpose": "Separates Colorless identity from artifact-only, generic-mana, and Eldrazi-only false positives.",
+        "supports": "Supports Colorless when the user names outside-WUBRG absence, non-coloration, or concept-boundary precision and can keep the branches separate.",
+        "weakens": "Weakens Colorless when the user only wants artifacts, large costs, Eldrazi flavor, or generic ramp without the non-color identity boundary.",
+        "collision_targets": [],
+        "evidence_claim_ids": [
+          "colorless_claim_0002",
+          "colorless_claim_0003",
+          "colorless_claim_0004"
+        ],
+        "confidence": "Medium"
+      },
+      {
+        "id": "colorless_disc_002",
+        "prompt": "Does the answer distinguish specifically colorless mana from generic mana costs?",
+        "purpose": "Protects the {C}/generic boundary inside controlled placement logic.",
+        "supports": "Supports Colorless when the user understands that generic costs can be paid by any mana while {C} requires colorless mana.",
+        "weakens": "Weakens Colorless when colorless is used as a synonym for expensive, generic, or any-mana costs.",
+        "collision_targets": [],
+        "evidence_claim_ids": [
+          "colorless_claim_0003"
+        ],
+        "confidence": "Medium"
+      },
+      {
+        "id": "colorless_disc_003",
+        "prompt": "Is outside-WUBRG being used as a precise absence, or as a claim that Colorless is above, beyond, or complete mastery of all colors?",
+        "purpose": "Separates Colorless orthogonality from five-color fullness or superiority framing.",
+        "supports": "Supports Colorless when the user frames it as outside or orthogonal to WUBRG and keeps five-color fullness separate.",
+        "weakens": "Weakens Colorless when it becomes a sixth color, a superior color, or a total mastery of WUBRG.",
+        "collision_targets": [],
+        "evidence_claim_ids": [
+          "colorless_claim_0002",
+          "colorless_claim_0005"
+        ],
+        "confidence": "Medium"
+      },
+      {
+        "id": "colorless_disc_004",
+        "prompt": "When Colorless feels right, is the pull more artifact machinery, Wastes austerity, Eldrazi spectacle, or the challenge of building under strict non-color constraints?",
+        "purpose": "Adds positive attraction energy and separates internal Colorless branches without making any branch sufficient proof by itself.",
+        "supports": "Supports Colorless when the user names the non-color restriction and can place their attraction in a branch while preserving branch boundaries.",
+        "weakens": "Weakens Colorless when the user only wants artifacts, big monsters, or barren aesthetics without the outside-WUBRG restriction.",
+        "collision_targets": [],
+        "evidence_claim_ids": [
+          "colorless_claim_0004",
+          "colorless_claim_0006"
+        ],
+        "confidence": "Medium"
+      },
+      {
+        "id": "colorless_disc_005",
+        "prompt": "Is the Commander appeal a strict colorless commander/deck restriction, or a five-color Eldrazi deck that happens to use many colorless and Devoid cards?",
+        "purpose": "Separates strict Colorless Commander attraction from Eldrazi Incursion and other five-color Eldrazi false positives.",
+        "supports": "Supports Colorless when the user values the strict colorless identity constraint and understands that five-color Eldrazi support is comparator context.",
+        "weakens": "Weakens Colorless when the user wants Ulalek, five-color Eldrazi, or Devoid-heavy color decks as the primary identity.",
+        "collision_targets": [],
+        "evidence_claim_ids": [
+          "colorless_claim_0005",
+          "colorless_claim_0007",
+          "colorless_claim_0008"
+        ],
+        "confidence": "Medium"
+      }
+    ],
+    "chatbot_guidance": {
+      "use_when": [
+        "Use Colorless as inviting when the user is drawn to the restriction itself, artifact machinery, Eldrazi spectacle, Wastes austerity, clean mana, or resource-denial pressure with boundaries intact.",
+        "Use strict Commander and Devoid/five-color Eldrazi distinctions as false-positive checks."
+      ],
+      "avoid_when": [
+        "The answer says colorless because the deck has many generic mana costs rather than actual {C} requirements or Colorless identity.",
+        "The answer names artifacts but ignores colored artifacts, artifact civilizations, and the artifact/Colorless distinction.",
+        "The answer names Eldrazi but turns five-color Eldrazi support or Eldrazi Incursion into Colorless proof.",
+        "The answer treats outside the color wheel as above the color wheel."
+      ],
+      "claim_boundaries": [
+        "Use VM-308 evidence rows as authority.",
+        "Treat VM-309/VM-310 docs as shaping context only.",
+        "Support-only Commander rows cannot authorize raw claims or broad Commander viability.",
+        "Generated artifacts are not source truth."
+      ]
+    },
+    "canon_guardrails": {
+      "never_claim_as_canon": [
+        "Colorless is a sixth color.",
+        "Colorless is superior to WUBRG.",
+        "Generic mana is colorless mana.",
+        "Artifacts are all Colorless.",
+        "Eldrazi Unbound proves broad Colorless Commander viability.",
+        "Phyrexia is Colorless."
       ]
     }
   },
@@ -2602,6 +4392,25 @@ export const FACTION_CONTEXT = {
           "golgari_swarm_claim_001",
           "golgari_swarm_claim_002",
           "golgari_swarm_claim_003"
+        ],
+        "confidence": "Medium"
+      },
+      {
+        "id": "golgari_q3",
+        "prompt": "When something is discarded, do you preserve it, mourn it, study it, consume it, or make it feed the next cycle?",
+        "purpose": "Separates Golgari decay, reclamation, and cycle logic from generic resilience, generic nature, Witherbloom study, Abzan endurance, or Jund survival.",
+        "supports": "The answer centers decay as useful truth, reclaimed waste, death feeding life, undercity survival, or endings becoming material for renewal.",
+        "weakens": "The answer centers clean preservation, generic nature, abstract study, long endurance, appetite, or survival without decay, reclamation, or cycle logic.",
+        "collision_targets": [
+          "JUND",
+          "WG"
+        ],
+        "evidence_claim_ids": [
+          "golgari_swarm_claim_001",
+          "golgari_swarm_claim_002",
+          "golgari_swarm_claim_003",
+          "golgari_swarm_claim_006",
+          "golgari_swarm_claim_007"
         ],
         "confidence": "Medium"
       }
@@ -3561,32 +5370,22 @@ export const FACTION_CONTEXT = {
       "The user wants to uncover hidden history through physical clues, archives, ruins, or artifacts.",
       "The user likes the idea that the dead or forgotten past can actively teach the living.",
       "The user respects precedent but still wants adventure.",
-      "The user learns by going to the source, not just reading a summary.",
-      "They want to preserve the site before extracting the object.",
-      "They see ghosts, fossils, records, and ruins as different kinds of historical witnesses."
+      "They want to preserve the site before extracting the object."
     ],
     "poor_fit_indicators": [
       "The user sees history as irrelevant unless it provides immediate power or social status.",
-      "The user prefers polished performance over messy evidence.",
       "The user wants pure future-facing invention without interest in old systems, ruins, or inherited lessons.",
-      "The user uses precedent only to shut down inquiry.",
-      "They would sell or display a found relic without documenting context, provenance, or cultural significance.",
-      "They want the romance of ruins but not the slow work of records, tools, maps, safety, and documentation."
+      "They treat relics, sites, or evidence as loot, status objects, or ruin aesthetics without context, provenance, preservation, or documentation."
     ],
     "inhibitor_traps": [
       "Presentism; dismisses old evidence, elders, artifacts, and tradition as irrelevant dead weight.",
       "Down-rank Lorehold when the user has little interest in history, old objects, records, or field investigation.",
-      "Down-rank Lorehold when the user's main driver is pure performance, persuasion, mathematical abstraction, biological transformation, or institutional control without curiosity.",
       "Down-rank Lorehold when the user repeatedly treats evidence as disposable if it conflicts with identity, status, or power.",
       "Down-rank Lorehold when the user wants novelty without roots or tradition without inquiry.",
-      "Down-rank Lorehold when the user treats artifacts as unowned loot, trophies, or status objects with no concern for context.",
-      "Down-rank Lorehold when the user wants only the vibe of ruins but not the slow work of records, preservation, maps, tools, or safety.",
+      "Down-rank Lorehold when the user treats artifacts, sites, or ruins as loot, trophies, status objects, or aesthetics with no concern for context, preservation, maps, tools, provenance, or safety.",
       "The user sees history as irrelevant unless it provides immediate power or social status.",
-      "The user prefers polished performance over messy evidence.",
       "The user wants pure future-facing invention without interest in old systems, ruins, or inherited lessons.",
-      "The user uses precedent only to shut down inquiry.",
-      "They would sell or display a found relic without documenting context, provenance, or cultural significance.",
-      "They want the romance of ruins but not the slow work of records, tools, maps, safety, and documentation."
+      "They treat relics, sites, or evidence as loot, status objects, or ruin aesthetics without context, provenance, preservation, or documentation."
     ],
     "lateral_inhibition_targets": [
       "WR",
@@ -3673,22 +5472,22 @@ export const FACTION_CONTEXT = {
         "confidence": "High"
       },
       {
-        "id": "q_lorehold_0005",
-        "prompt": "Do you learn better from theories, debates, performances, experiments, or walking the ground where something happened?",
-        "purpose": "Identifies the fieldwork and direct-evidence preference central to Lorehold placement.",
-        "supports": "They prefer going to the site, handling evidence, comparing records, and reconstructing what happened.",
-        "weakens": "They prefer purely abstract models, social debate, or performance as the main mode.",
+        "id": "q_lorehold_0006",
+        "prompt": "When the past contradicts the story your group wants to tell, should the record be protected, revised, buried, or used as a weapon?",
+        "purpose": "Tests evidence integrity and separates Lorehold from manipulative or reputation-first profiles.",
+        "supports": "They protect and examine the record, even when it complicates the preferred narrative.",
+        "weakens": "They bury the record, weaponize it without context, or rewrite it for status.",
         "collision_targets": [
-          "QUANDRIX",
+          "UB",
           "SILVERQUILL",
-          "PRISMARI"
+          "WB"
         ],
         "evidence_claim_ids": [
-          "claim_lorehold_core_0009",
-          "claim_lorehold_structure_0006",
-          "claim_lorehold_placement_0002"
+          "claim_lorehold_dichotomy_0004",
+          "claim_lorehold_dichotomy_0005",
+          "claim_lorehold_placement_0004"
         ],
-        "confidence": "High"
+        "confidence": "Medium"
       }
     ],
     "chatbot_guidance": {
@@ -3704,11 +5503,9 @@ export const FACTION_CONTEXT = {
       ],
       "how_to_recognize_mismatch": [
         "Down-rank Lorehold when the user has little interest in history, old objects, records, or field investigation.",
-        "Down-rank Lorehold when the user's main driver is pure performance, persuasion, mathematical abstraction, biological transformation, or institutional control without curiosity.",
         "Down-rank Lorehold when the user repeatedly treats evidence as disposable if it conflicts with identity, status, or power.",
         "Down-rank Lorehold when the user wants novelty without roots or tradition without inquiry.",
-        "Down-rank Lorehold when the user treats artifacts as unowned loot, trophies, or status objects with no concern for context.",
-        "Down-rank Lorehold when the user wants only the vibe of ruins but not the slow work of records, preservation, maps, tools, or safety."
+        "Down-rank Lorehold when the user treats artifacts, sites, or ruins as loot, trophies, status objects, or aesthetics with no concern for context, preservation, maps, tools, provenance, or safety."
       ],
       "questions_to_ask_when_uncertain": [
         "Are you more excited by the artifact itself, the story it proves, the system behind it, or the audience reaction to it?",
@@ -4114,6 +5911,36 @@ export const FACTION_CONTEXT = {
           "prismari_claim_003"
         ],
         "confidence": "Medium"
+      },
+      {
+        "id": "prismari_q3",
+        "prompt": "When a pattern is correct but lifeless, do you prove it more carefully or make it land as an experience?",
+        "purpose": "Separates Prismari expressive performance from Quandrix proof and abstract model logic.",
+        "supports": "The answer centers art, performance, elemental spectacle, felt expression, or technique in service of emotion.",
+        "weakens": "The answer centers proof, mathematical model, hidden structure, or abstraction before experience.",
+        "collision_targets": [],
+        "evidence_claim_ids": [
+          "prismari_claim_002",
+          "prismari_claim_003",
+          "prismari_claim_004",
+          "prismari_claim_006"
+        ],
+        "confidence": "Medium"
+      },
+      {
+        "id": "prismari_q4",
+        "prompt": "When language can move a room, should it become a precise argument, a public performance, or an elemental spectacle?",
+        "purpose": "Separates Prismari art and elemental performance from Silverquill rhetorical influence.",
+        "supports": "The answer centers art, performance, elemental spectacle, movement, emotion, or expressive force.",
+        "weakens": "The answer centers precise rhetoric, status, reputation, leadership, or word-magic influence.",
+        "collision_targets": [],
+        "evidence_claim_ids": [
+          "prismari_claim_002",
+          "prismari_claim_003",
+          "prismari_claim_004",
+          "prismari_claim_006"
+        ],
+        "confidence": "Medium"
       }
     ],
     "chatbot_guidance": {
@@ -4129,7 +5956,9 @@ export const FACTION_CONTEXT = {
       ],
       "questions_to_ask_when_uncertain": [
         "When has making something beautiful mattered more than making it efficient?",
-        "Do you perfect the technique first, or throw the feeling into the room and refine later?"
+        "Do you perfect the technique first, or throw the feeling into the room and refine later?",
+        "When a pattern is correct but lifeless, do you prove it more carefully or make it land as an experience?",
+        "When language can move a room, should it become a precise argument, a public performance, or an elemental spectacle?"
       ],
       "do_not_overweight": [
         "Do not overfit a single color preference.",
@@ -6104,7 +7933,7 @@ export const PLACEMENT_MODEL_META = {
   "result_version": "2026-05-10",
   "source": "data/raw-factions plus data/factions.json display surface",
   "framing": "Biological expression placement model; Vox Mana interpretive taxonomy, not official canon.",
-  "faction_count": 30,
+  "faction_count": 36,
   "identity_layer_version": "2026-05-27",
   "active_expression_keys": [
     "WU",
@@ -6120,6 +7949,12 @@ export const PLACEMENT_MODEL_META = {
     "SULTAI",
     "MARDU",
     "JESKAI",
+    "YORE",
+    "GLINT",
+    "DUNE",
+    "INK",
+    "WITCH",
+    "COLORLESS",
     "BG",
     "RG",
     "UB",

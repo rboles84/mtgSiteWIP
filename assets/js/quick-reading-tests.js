@@ -20,7 +20,10 @@ import {
   buildCommanderDossier,
   buildCommanderDirectoryLinks,
   buildMtgDecksCommanderUrl,
+  buildPlayPatternSummary,
+  buildResultSummaryStrip,
   buildCommanderStartingLane,
+  buildWhereThisLeadsSummary,
   buildReadingOmens,
   collectCommanderPreviewCandidates,
   buildCommanderPackageLinks,
@@ -30,14 +33,25 @@ import {
   getCommanderFactionGuidance,
   getColorIdentity,
   renderCommanderDossierText,
+  resolveSignalBand,
+  resolveSummaryAdjacentFit,
   resolveArchidektTagName,
   validateDeckTagData,
 } from "./archscry-result.js";
 import {
+  buildArchscryMazeContext,
   buildPersonalizedMazePaths,
+  buildContrastCopy,
   buildHeroNarrative,
+  buildReadingSignalCopy,
+  buildTagExplanationSummaries,
   presentationForFaction,
+  withArchscryMazeContext,
 } from "./archscry-presentation.js";
+import {
+  getDossierRadarProfile,
+  renderDossierRadarSection,
+} from "./dossier-radar.js";
 
 const factionData = JSON.parse(
   await readFile(new URL("../../data/factions.json", import.meta.url), "utf8")
@@ -53,6 +67,9 @@ const identityLayers = JSON.parse(
 );
 const identityLayerSchema = JSON.parse(
   await readFile(new URL("../../data/identity-layers.schema.json", import.meta.url), "utf8")
+);
+const archscryFlavorSnippets = JSON.parse(
+  await readFile(new URL("../../data/archscry-flavor-snippets.json", import.meta.url), "utf8")
 );
 const factionContextText = await readFile(
   new URL("../../supabase/functions/guild-recruiter/faction-context.ts", import.meta.url),
@@ -72,6 +89,29 @@ const modelFactionKeys = Object.keys(placementModel.factions);
 const deckTagCatalog = createArchidektTagCatalog(deckTagData);
 const deckTagNames = new Set(deckTagCatalog.tagNames);
 const taxonomyTags = taxonomyData.tags || [];
+const summaryPlaceholderPattern = /\b(todo|tbd|placeholder|missing)\b/i;
+
+function assertSummaryStripComplete(strip, context) {
+  assert.ok(strip, `expected ${context} to expose a resultSummaryStrip`);
+
+  const fields = [
+    ["adjacent label", strip.adjacentFit?.label],
+    ["adjacent heading", strip.adjacentFit?.heading],
+    ["adjacent relationship copy", strip.adjacentFit?.relationshipCopy],
+    ["adjacent target name", strip.adjacentFit?.targetName],
+    ["direction label", strip.whereThisLeads?.label],
+    ["direction heading", strip.whereThisLeads?.heading],
+    ["direction body", strip.whereThisLeads?.body],
+    ["play-pattern label", strip.playPattern?.label],
+    ["play-pattern heading", strip.playPattern?.heading],
+    ["play-pattern body", strip.playPattern?.body],
+  ];
+
+  fields.forEach(([label, value]) => {
+    assert.ok(String(value || "").trim(), `expected ${context} ${label} to be nonempty`);
+    assert.doesNotMatch(String(value || ""), summaryPlaceholderPattern, `expected ${context} ${label} to avoid placeholder copy`);
+  });
+}
 const MONO_BOUNDARY_TARGETS = Object.freeze({
   W: ["WU", "WB", "WG", "WR"],
   U: ["WU", "UB", "UR", "UG"],
@@ -89,6 +129,66 @@ const INSTITUTION_TYPES = Object.freeze([
   "five_color",
   "colorless",
 ]);
+const WUBR_PERMUTATIONS = Object.freeze([
+  "WUBR", "WURB", "WBUR", "WBRU", "WRUB", "WRBU",
+  "UWBR", "UWRB", "UBWR", "UBRW", "URWB", "URBW",
+  "BWUR", "BWRU", "BUWR", "BURW", "BRWU", "BRUW",
+  "RWUB", "RWBU", "RUWB", "RUBW", "RBWU", "RBUW",
+]);
+const UBRG_PERMUTATIONS = Object.freeze([
+  "UBRG", "UBGR", "URBG", "URGB", "UGBR", "UGRB",
+  "BURG", "BUGR", "BRUG", "BRGU", "BGUR", "BGRU",
+  "RUBG", "RUGB", "RBUG", "RBGU", "RGUB", "RGBU",
+  "GUBR", "GURB", "GBUR", "GBRU", "GRUB", "GRBU",
+]);
+const BRGW_PERMUTATIONS = Object.freeze([
+  "BRGW", "BRWG", "BGRW", "BGWR", "BWRG", "BWGR",
+  "RBGW", "RBWG", "RGBW", "RGWB", "RWBG", "RWGB",
+  "GBRW", "GBWR", "GRBW", "GRWB", "GWBR", "GWRB",
+  "WBRG", "WBGR", "WRBG", "WRGB", "WGBR", "WGRB",
+]);
+const RGWU_PERMUTATIONS = Object.freeze([
+  "RGWU", "RGUW", "RWGU", "RWUG", "RUGW", "RUWG",
+  "GRWU", "GRUW", "GWRU", "GWUR", "GURW", "GUWR",
+  "WRGU", "WRUG", "WGRU", "WGUR", "WURG", "WUGR",
+  "URGW", "URWG", "UGRW", "UGWR", "UWRG", "UWGR",
+]);
+const GWUB_PERMUTATIONS = Object.freeze([
+  "GWUB", "GWBU", "GUWB", "GUBW", "GBWU", "GBUW",
+  "WGUB", "WGBU", "WUGB", "WUBG", "WBGU", "WBUG",
+  "UGWB", "UGBW", "UWGB", "UWBG", "UBGW", "UBWG",
+  "BGWU", "BGUW", "BWGU", "BWUG", "BUGW", "BUWG",
+]);
+const WUBR_FORBIDDEN_PUBLIC_KEYS = Object.freeze([
+  ...WUBR_PERMUTATIONS,
+  ...WUBR_PERMUTATIONS.map((code) => code.toLowerCase()),
+  "yore",
+]);
+const UBRG_FORBIDDEN_PUBLIC_KEYS = Object.freeze([
+  ...UBRG_PERMUTATIONS,
+  ...UBRG_PERMUTATIONS.map((code) => code.toLowerCase()),
+  "glint",
+  "chaos",
+]);
+const BRGW_FORBIDDEN_PUBLIC_KEYS = Object.freeze([
+  ...BRGW_PERMUTATIONS,
+  ...BRGW_PERMUTATIONS.map((code) => code.toLowerCase()),
+  "dune",
+  "aggression",
+]);
+const RGWU_FORBIDDEN_PUBLIC_KEYS = Object.freeze([
+  ...RGWU_PERMUTATIONS,
+  ...RGWU_PERMUTATIONS.map((code) => code.toLowerCase()),
+  "altruism",
+]);
+const GWUB_FORBIDDEN_PUBLIC_KEYS = Object.freeze([
+  ...GWUB_PERMUTATIONS,
+  ...GWUB_PERMUTATIONS.map((code) => code.toLowerCase()),
+  "GROWTH",
+  "Growth",
+  "growth",
+]);
+const LIVE_FOUR_COLOR_EXACT_COMMANDER_FORBIDDEN_FILTERS = /(?:\bo:|\bft:|\bstorm\b|spell chain|\bknowledge\b|\bstudy\b|\bhungry\b|\bdevouring\b|\baggro\b|\baggressive\b)/i;
 const PREVIEW_SCORE_KEYS = Object.freeze(["order", "knowledge", "ambition", "freedom", "growth"]);
 const EXPECTED_PREVIEW_ORDER = Object.freeze([
   "W",
@@ -360,6 +460,12 @@ function assertIdentityPreviewRegistryContract() {
   assert.equal(identityLayers.expressions.TEMUR?.preview_eligible, false);
   assert.equal(identityLayers.expressions.SULTAI?.preview_eligible, false);
   assert.equal(identityLayers.expressions.MARDU?.preview_eligible, false);
+  assert.equal(identityLayers.expressions.YORE?.preview_eligible, false);
+  assert.equal(identityLayers.expressions.GLINT?.preview_eligible, false);
+  assert.equal(identityLayers.expressions.DUNE?.preview_eligible, false);
+  assert.equal(identityLayers.expressions.INK?.preview_eligible, false);
+  assert.equal(identityLayers.expressions.WITCH?.preview_eligible, false);
+  assert.equal(identityLayers.expressions.COLORLESS?.preview_eligible, false);
   assert.ok(!previewEntries.some(([key]) => key === "BANT"), "BANT should not enter the Home preview carousel in VM-160.");
   assert.ok(!previewEntries.some(([key]) => key === "ESPER"), "ESPER should not enter the Home preview carousel in VM-167.");
   assert.ok(!previewEntries.some(([key]) => key === "GRIXIS"), "GRIXIS should not enter the Home preview carousel in VM-168.");
@@ -369,6 +475,12 @@ function assertIdentityPreviewRegistryContract() {
   assert.ok(!previewEntries.some(([key]) => key === "TEMUR"), "TEMUR should not enter the Home preview carousel in VM-208.");
   assert.ok(!previewEntries.some(([key]) => key === "SULTAI"), "SULTAI should not enter the Home preview carousel in VM-214.");
   assert.ok(!previewEntries.some(([key]) => key === "MARDU"), "MARDU should not enter the Home preview carousel in VM-228.");
+  assert.ok(!previewEntries.some(([key]) => key === "YORE"), "YORE should not enter the Home preview carousel in VM-245.");
+  assert.ok(!previewEntries.some(([key]) => key === "GLINT"), "GLINT should not enter the Home preview carousel in VM-251.");
+  assert.ok(!previewEntries.some(([key]) => key === "DUNE"), "DUNE should not enter the Home preview carousel in VM-257.");
+  assert.ok(!previewEntries.some(([key]) => key === "INK"), "INK should not enter the Home preview carousel in VM-263.");
+  assert.ok(!previewEntries.some(([key]) => key === "WITCH"), "WITCH should not enter the Home preview carousel in VM-269.");
+  assert.ok(!previewEntries.some(([key]) => key === "COLORLESS"), "COLORLESS should not enter the Home preview carousel in VM-327.");
 
   const seenOrders = new Set();
   previewEntries.forEach(([key, expression], index) => {
@@ -409,7 +521,22 @@ function assertIdentityPreviewRegistryContract() {
   assert.deepEqual(identityLayers.expressions.TEMUR.aliases, ["TEMUR"]);
   assert.deepEqual(identityLayers.expressions.SULTAI.aliases, ["SULTAI"]);
   assert.deepEqual(identityLayers.expressions.MARDU.aliases, ["MARDU"]);
+  assert.deepEqual(identityLayers.expressions.YORE.aliases, ["YORE"]);
+  assert.deepEqual(identityLayers.expressions.GLINT.aliases, ["GLINT"]);
+  assert.deepEqual(identityLayers.expressions.DUNE.aliases, ["DUNE"]);
+  assert.deepEqual(identityLayers.expressions.INK.aliases, ["INK"]);
+  assert.deepEqual(identityLayers.expressions.WITCH.aliases, ["WITCH"]);
+  assert.deepEqual(identityLayers.expressions.COLORLESS.aliases, ["COLORLESS"]);
+  assert.equal(identityLayers.expressions.COLORLESS.kind, "colorless");
+  assert.equal(identityLayers.expressions.COLORLESS.placement_eligible, true);
+  assert.deepEqual(identityLayers.expressions.COLORLESS.colors, []);
+  assert.deepEqual(identityLayers.expressions.COLORLESS.secondary_colors, []);
+  assert.equal(identityLayers.expressions.COLORLESS.core_color, "C");
+  assert.equal(identityLayers.expressions.COLORLESS.display_code, "C");
+  assert.equal(identityLayers.expressions.COLORLESS.routing?.suppress_directory_links, true);
   Object.entries(identityLayers.expressions).forEach(([key, expression]) => {
+    assert.ok(!(expression.aliases || []).includes("colorless"), `${key} should not expose lowercase colorless as an alias.`);
+    assert.ok(!(expression.aliases || []).includes("C"), `${key} should not expose C as an alias.`);
     assert.ok(!(expression.aliases || []).includes("WUG"), `${key} should not expose WUG as an alias.`);
     assert.ok(!(expression.aliases || []).includes("WUB"), `${key} should not expose WUB as an alias.`);
     assert.ok(!(expression.aliases || []).includes("UBR"), `${key} should not expose UBR as an alias.`);
@@ -455,16 +582,91 @@ function assertIdentityPreviewRegistryContract() {
     ["RWB", "RBW", "WRB", "WBR", "BRW", "BWR", "rwb", "rbw", "wrb", "wbr", "brw", "bwr", "mardu"].forEach((alias) => {
       assert.ok(!(expression.aliases || []).includes(alias), `${key} should not expose ${alias} as an alias.`);
     });
+    WUBR_FORBIDDEN_PUBLIC_KEYS.forEach((alias) => {
+      assert.ok(!(expression.aliases || []).includes(alias), `${key} should not expose ${alias} as an alias.`);
+    });
+    UBRG_FORBIDDEN_PUBLIC_KEYS.forEach((alias) => {
+      assert.ok(!(expression.aliases || []).includes(alias), `${key} should not expose ${alias} as an alias.`);
+    });
+    BRGW_FORBIDDEN_PUBLIC_KEYS.forEach((alias) => {
+      assert.ok(!(expression.aliases || []).includes(alias), `${key} should not expose ${alias} as an alias.`);
+    });
+    RGWU_FORBIDDEN_PUBLIC_KEYS.forEach((alias) => {
+      assert.ok(!(expression.aliases || []).includes(alias), `${key} should not expose ${alias} as an alias.`);
+    });
     assert.ok(!Object.hasOwn(expression, "domain"), `${key} should not expose a live domain field.`);
   });
 }
 
+const quickReadingSectionFailures = [];
+let quickReadingGoldenPathCount = 0;
+
+function summarizeQuickReadingSectionError(error) {
+  return error?.stack || `${error}`;
+}
+
+async function runQuickReadingSection(name, callback) {
+  try {
+    await callback();
+  } catch (error) {
+    quickReadingSectionFailures.push({
+      name,
+      detail: summarizeQuickReadingSectionError(error),
+    });
+  }
+}
+
+function finishQuickReadingSections() {
+  if (!quickReadingSectionFailures.length) {
+    return;
+  }
+
+  console.error("FAIL quick-reading sections:");
+  quickReadingSectionFailures.forEach(({ name, detail }, index) => {
+    console.error(`${index + 1}. ${name}`);
+    console.error(detail);
+  });
+
+  throw new Error(`${quickReadingSectionFailures.length} quick-reading section(s) failed`);
+}
+
+await runQuickReadingSection("Generated Placement Artifacts And Identity Registry", async () => {
 assert.equal(placementSchema.title, "Vox Mana Adaptive Placement Model");
 assert.equal(placementModel._meta.model_version, "vox-mana-adaptive-placement-v1");
 assert.equal(placementModel._meta.faction_count, modelFactionKeys.length);
 assert.equal(factionKeys.length, modelFactionKeys.length);
 assert.deepEqual(modelFactionKeys.sort(), factionKeys.slice().sort());
 assertIdentityPreviewRegistryContract();
+
+assert.ok(factions.COLORLESS, "Generated factions should include COLORLESS.");
+assert.ok(placementModel.factions.COLORLESS, "Generated placement model should include COLORLESS.");
+assert.equal((factionContextText.match(/"COLORLESS": \{/g) || []).length, 1, "Generated FACTION_CONTEXT should include COLORLESS exactly once.");
+assert.equal(factions.COLORLESS.institution_type, "colorless");
+assert.equal(placementModel.factions.COLORLESS.institution_type, "colorless");
+assert.deepEqual(factions.COLORLESS.colors, []);
+assert.deepEqual(placementModel.factions.COLORLESS.colors, []);
+assert.equal(factions.COLORLESS.identity.core_color, "C");
+assert.equal(factions.COLORLESS.identity.secondary_color, null);
+assert.deepEqual(factions.COLORLESS.identity.secondary_colors, []);
+assert.equal(factions.COLORLESS.identity.purity, null);
+assert.equal(factions.COLORLESS.identity.expression_key, "COLORLESS");
+assert.equal(factions.COLORLESS.identity.expression_kind, "colorless");
+assert.deepEqual(sortedStrings(placementModel.factions.COLORLESS.lateral_inhibition_targets), ["B", "ESPER", "G", "R", "U", "W", "WITCH", "YORE"]);
+assert.ok(!factions.COLORLESS.commander_compass, "COLORLESS should not expose Commander recommendations from support-only raw texture.");
+assert.ok(Array.isArray(archscryFlavorSnippets.snippets.COLORLESS), "COLORLESS should receive generated flavor snippets.");
+assert.ok(archscryFlavorSnippets.snippets.COLORLESS.length >= 2, "COLORLESS should resolve at least two source-safe flavor snippets.");
+assert.ok(
+  archscryFlavorSnippets.snippets.COLORLESS.every((snippet) =>
+    !/Ashnod's Coupon|Ulalek|Phyrexia|Phyrexian/i.test(`${snippet.card_name} ${snippet.flavor_excerpt}`)
+  ),
+  "COLORLESS flavor snippets should avoid joke, Phyrexia, and five-color Eldrazi bleed."
+);
+assert.match(archscryIndexSource, /COLORLESS:\s*"colorless"/, "Archscry runtime source should map COLORLESS only to its approved dossier hero asset slug.");
+assert.doesNotMatch(
+  archscryIndexSource,
+  /view=COLORLESS|\/colorless\b|colorless\.html|COLORLESS:\s*["'](?:\/|route|preview|maze|home)/i,
+  "Archscry runtime source should not hard-code COLORLESS route, preview, Maze, Home, or public alias behavior."
+);
 
 assert.ok(factions.BANT, "Generated factions should include BANT.");
 assert.ok(placementModel.factions.BANT, "Generated placement model should include BANT.");
@@ -559,7 +761,7 @@ assert.equal(factions.TEMUR.institution_type, "wedge");
 assert.equal(placementModel.factions.TEMUR.institution_type, "wedge");
 assert.deepEqual(factions.TEMUR.colors, ["G", "U", "R"]);
 assert.deepEqual(placementModel.factions.TEMUR.colors, ["G", "U", "R"]);
-assert.deepEqual(placementModel.factions.TEMUR.lateral_inhibition_targets, ["RG", "UG", "UR", "NAYA", "BANT", "GRIXIS", "JUND", "ABZAN", "SULTAI", "MARDU"]);
+assert.deepEqual(placementModel.factions.TEMUR.lateral_inhibition_targets, ["RG", "UG", "UR", "NAYA", "BANT", "GRIXIS", "JUND", "ABZAN", "SULTAI", "MARDU", "JESKAI"]);
 ["RG", "UG", "UR", "NAYA", "BANT", "GRIXIS", "JUND", "ABZAN"].forEach((key) => {
   assert.ok(
     placementModel.factions[key].lateral_inhibition_targets.includes("TEMUR"),
@@ -578,7 +780,7 @@ assert.equal(factions.SULTAI.institution_type, "wedge");
 assert.equal(placementModel.factions.SULTAI.institution_type, "wedge");
 assert.deepEqual(factions.SULTAI.colors, ["B", "G", "U"]);
 assert.deepEqual(placementModel.factions.SULTAI.colors, ["B", "G", "U"]);
-assert.deepEqual(placementModel.factions.SULTAI.lateral_inhibition_targets, ["UB", "BG", "UG", "GRIXIS", "JUND", "BANT", "ABZAN", "TEMUR", "WITHERBLOOM", "MARDU"]);
+assert.deepEqual(placementModel.factions.SULTAI.lateral_inhibition_targets, ["UB", "BG", "UG", "GRIXIS", "JUND", "BANT", "ABZAN", "TEMUR", "WITHERBLOOM", "MARDU", "JESKAI"]);
 ["UB", "BG", "UG", "GRIXIS", "JUND", "BANT", "ABZAN", "TEMUR", "WITHERBLOOM"].forEach((key) => {
   assert.ok(
     placementModel.factions[key].lateral_inhibition_targets.includes("SULTAI"),
@@ -597,8 +799,8 @@ assert.equal(factions.MARDU.institution_type, "wedge");
 assert.equal(placementModel.factions.MARDU.institution_type, "wedge");
 assert.deepEqual(factions.MARDU.colors, ["R", "W", "B"]);
 assert.deepEqual(placementModel.factions.MARDU.colors, ["R", "W", "B"]);
-assert.deepEqual(placementModel.factions.MARDU.lateral_inhibition_targets, ["WR", "WB", "BR", "NAYA", "JUND", "ABZAN", "TEMUR", "SULTAI"]);
-["WR", "WB", "BR", "NAYA", "JUND", "ABZAN", "TEMUR", "SULTAI"].forEach((key) => {
+assert.deepEqual(placementModel.factions.MARDU.lateral_inhibition_targets, ["WR", "WB", "BR", "NAYA", "JUND", "ABZAN", "TEMUR", "SULTAI", "JESKAI"]);
+["WR", "WB", "BR", "NAYA", "JUND", "ABZAN", "TEMUR", "SULTAI", "JESKAI"].forEach((key) => {
   assert.ok(
     placementModel.factions[key].lateral_inhibition_targets.includes("MARDU"),
     `${key} should reciprocally inhibit MARDU`
@@ -622,6 +824,345 @@ assert.equal(factions.JESKAI.identity.expression_kind, "wedge");
 assert.equal(identityLayers.expressions.JESKAI.placement_eligible, true);
 assert.equal(identityLayers.expressions.JESKAI.preview_eligible, false);
 assert.deepEqual(identityLayers.expressions.JESKAI.aliases, ["JESKAI"]);
+assert.ok(factions.YORE, "Generated factions should include YORE.");
+assert.ok(placementModel.factions.YORE, "Generated placement model should include YORE.");
+assert.match(factionContextText, /"YORE": \{/);
+assert.equal(factions.YORE.institution_type, "four_color");
+assert.equal(placementModel.factions.YORE.institution_type, "four_color");
+assert.deepEqual(factions.YORE.colors, ["W", "U", "B", "R"]);
+assert.deepEqual(placementModel.factions.YORE.colors, ["W", "U", "B", "R"]);
+assert.deepEqual(placementModel.factions.YORE.lateral_inhibition_targets, ["WU", "UB", "BR", "UR", "WB", "WR", "ESPER", "GRIXIS", "JESKAI", "MARDU", "SULTAI"]);
+assert.equal(factions.YORE.identity.expression_key, "YORE");
+assert.equal(factions.YORE.identity.expression_kind, "four_color");
+assert.equal(factions.YORE.identity.core_color, "WUBR");
+assert.equal(factions.YORE.identity.secondary_color, null);
+assert.deepEqual(factions.YORE.identity.secondary_colors, ["W", "U", "B", "R"]);
+assert.equal(identityLayers.expressions.YORE.placement_eligible, true);
+assert.equal(identityLayers.expressions.YORE.preview_eligible, false);
+assert.deepEqual(identityLayers.expressions.YORE.aliases, ["YORE"]);
+assert.equal(identityLayers.expressions.YORE.core_color, "WUBR");
+assert.deepEqual(identityLayers.expressions.YORE.secondary_colors, ["W", "U", "B", "R"]);
+assert.equal(identityLayers.expressions.YORE.routing.color_identity, "WUBR");
+assert.equal(identityLayers.expressions.YORE.routing.label, "Yore");
+assert.equal(identityLayers.expressions.YORE.routing.suppress_directory_links, true);
+const yoreExternalAlias = getExternalDeckRoutingAlias(factions.YORE);
+assert.equal(yoreExternalAlias.guild, "");
+assert.equal(yoreExternalAlias.colorIdentity, "WUBR");
+assert.equal(yoreExternalAlias.label, "Yore");
+assert.equal(yoreExternalAlias.suppressDirectoryLinks, true);
+assert.deepEqual(buildCommanderDirectoryLinks(factions.YORE), []);
+assert.equal(
+  new URL(buildArchidektDeckSearchUrl({ colors: factions.YORE.colors })).searchParams.get("colors"),
+  "WUBR",
+  "YORE should preserve WUBR only as deck-search color metadata"
+);
+assert.ok(factions.GLINT, "Generated factions should include GLINT.");
+assert.ok(placementModel.factions.GLINT, "Generated placement model should include GLINT.");
+assert.match(factionContextText, /"GLINT": \{/);
+assert.equal(factions.GLINT.institution_type, "four_color");
+assert.equal(placementModel.factions.GLINT.institution_type, "four_color");
+assert.deepEqual(factions.GLINT.colors, ["U", "B", "R", "G"]);
+assert.deepEqual(placementModel.factions.GLINT.colors, ["U", "B", "R", "G"]);
+assert.deepEqual(placementModel.factions.GLINT.lateral_inhibition_targets, ["UB", "UR", "UG", "BR", "BG", "RG", "GRIXIS", "JUND", "TEMUR", "SULTAI"]);
+assert.equal(factions.GLINT.identity.expression_key, "GLINT");
+assert.equal(factions.GLINT.identity.expression_kind, "four_color");
+assert.equal(factions.GLINT.identity.core_color, "UBRG");
+assert.equal(factions.GLINT.identity.secondary_color, null);
+assert.deepEqual(factions.GLINT.identity.secondary_colors, ["U", "B", "R", "G"]);
+assert.equal(identityLayers.expressions.GLINT.placement_eligible, true);
+assert.equal(identityLayers.expressions.GLINT.preview_eligible, false);
+assert.deepEqual(identityLayers.expressions.GLINT.aliases, ["GLINT"]);
+assert.equal(identityLayers.expressions.GLINT.core_color, "UBRG");
+assert.deepEqual(identityLayers.expressions.GLINT.secondary_colors, ["U", "B", "R", "G"]);
+assert.equal(identityLayers.expressions.GLINT.routing.color_identity, "UBRG");
+assert.equal(identityLayers.expressions.GLINT.routing.label, "Glint");
+assert.equal(identityLayers.expressions.GLINT.routing.suppress_directory_links, true);
+const glintExternalAlias = getExternalDeckRoutingAlias(factions.GLINT);
+assert.equal(glintExternalAlias.guild, "");
+assert.equal(glintExternalAlias.colorIdentity, "UBRG");
+assert.equal(glintExternalAlias.label, "Glint");
+assert.equal(glintExternalAlias.suppressDirectoryLinks, true);
+assert.deepEqual(buildCommanderDirectoryLinks(factions.GLINT), []);
+assert.equal(
+  new URL(buildArchidektDeckSearchUrl({ colors: factions.GLINT.colors })).searchParams.get("colors"),
+  "UBRG",
+  "GLINT should preserve UBRG only as deck-search color metadata"
+);
+const glintSnippetNames = (archscryFlavorSnippets.snippets.GLINT || []).map((snippet) => snippet.card_name);
+assert.ok((archscryFlavorSnippets.snippets.GLINT || []).length >= 2);
+assert.ok(
+  (archscryFlavorSnippets.snippets.GLINT || []).some((snippet) => /storm|adaptive|eye/i.test(`${snippet.card_name} ${snippet.flavor_excerpt}`)),
+  "GLINT should resolve source-grounded storm/adaptation flavor texture"
+);
+assert.ok(!glintSnippetNames.includes("Chaos Warp"));
+assert.ok(factions.DUNE, "Generated factions should include DUNE.");
+assert.ok(placementModel.factions.DUNE, "Generated placement model should include DUNE.");
+assert.match(factionContextText, /"DUNE": \{/);
+assert.equal(factions.DUNE.institution_type, "four_color");
+assert.equal(placementModel.factions.DUNE.institution_type, "four_color");
+assert.deepEqual(factions.DUNE.colors, ["B", "R", "G", "W"]);
+assert.deepEqual(placementModel.factions.DUNE.colors, ["B", "R", "G", "W"]);
+assert.deepEqual(placementModel.factions.DUNE.lateral_inhibition_targets, ["BR", "BG", "WB", "RG", "WR", "WG", "JUND", "NAYA", "ABZAN", "MARDU", "GLINT"]);
+assert.equal(factions.DUNE.identity.expression_key, "DUNE");
+assert.equal(factions.DUNE.identity.expression_kind, "four_color");
+assert.equal(factions.DUNE.identity.core_color, "BRGW");
+assert.equal(factions.DUNE.identity.secondary_color, null);
+assert.deepEqual(factions.DUNE.identity.secondary_colors, ["B", "R", "G", "W"]);
+assert.equal(identityLayers.expressions.DUNE.placement_eligible, true);
+assert.equal(identityLayers.expressions.DUNE.preview_eligible, false);
+assert.deepEqual(identityLayers.expressions.DUNE.aliases, ["DUNE"]);
+assert.equal(identityLayers.expressions.DUNE.core_color, "BRGW");
+assert.deepEqual(identityLayers.expressions.DUNE.secondary_colors, ["B", "R", "G", "W"]);
+assert.equal(identityLayers.expressions.DUNE.routing.color_identity, "BRGW");
+assert.equal(identityLayers.expressions.DUNE.routing.label, "Dune");
+assert.equal(identityLayers.expressions.DUNE.routing.suppress_directory_links, true);
+const duneExternalAlias = getExternalDeckRoutingAlias(factions.DUNE);
+assert.equal(duneExternalAlias.guild, "");
+assert.equal(duneExternalAlias.colorIdentity, "BRGW");
+assert.equal(duneExternalAlias.label, "Dune");
+assert.equal(duneExternalAlias.suppressDirectoryLinks, true);
+assert.deepEqual(buildCommanderDirectoryLinks(factions.DUNE), []);
+const duneArchidektDeckStartLinks = buildArchidektSearchLinks({
+  catalog: deckTagCatalog,
+  faction: factions.DUNE,
+  placementResult: { faction: "DUNE", evidence_trail: [] },
+  starterProfile: { budget_band: "mid", experience_level: "returning" },
+  modelFaction: placementModel.factions.DUNE,
+});
+assert.deepEqual(
+  duneArchidektDeckStartLinks.map((link) => link.service),
+  ["archidekt", "archidekt", "archidekt"],
+  "DUNE deck-start links should remain Archidekt-only"
+);
+assert.deepEqual(
+  duneArchidektDeckStartLinks.map((link) => link.label),
+  ["Dune Commander decks", "Midrange Commander shells", "Aggro archetype lane"],
+  "DUNE deck-start labels should keep only the approved Archidekt lanes"
+);
+assert.ok(
+  duneArchidektDeckStartLinks.every((link) => /^https:\/\/archidekt\.com\/search\/decks\?/.test(link.url || "")),
+  "DUNE deck-start links should not fall back to Commander directory providers"
+);
+assert.ok(
+  duneArchidektDeckStartLinks.every((link) => !/edhrec|mtgdecks|\/commanders\/(?:wbrg|brgw)/i.test(`${link.label} ${link.url}`)),
+  "DUNE deck-start links should not expose EDHREC, MTGDecks, or color-code Commander directory routes"
+);
+assert.equal(
+  new URL(buildArchidektDeckSearchUrl({ colors: factions.DUNE.colors, colorIdentity: factions.DUNE.identity.routing.color_identity })).searchParams.get("colors"),
+  "BRGW",
+  "DUNE should preserve BRGW only as deck-search color metadata"
+);
+const duneSnippetNames = (archscryFlavorSnippets.snippets.DUNE || []).map((snippet) => snippet.card_name);
+assert.ok((archscryFlavorSnippets.snippets.DUNE || []).length >= 2);
+assert.doesNotMatch(
+  (archscryFlavorSnippets.snippets.DUNE || []).map((snippet) => `${snippet.card_name} ${snippet.flavor_excerpt}`).join(" "),
+  /Aggression|BRGW|WBRG|Saskia|Open Hostility/i,
+  "DUNE flavor should not surface support-only naming or Commander texture as live flavor copy."
+);
+assert.ok(factions.INK, "Generated factions should include INK.");
+assert.ok(placementModel.factions.INK, "Generated placement model should include INK.");
+assert.match(factionContextText, /"INK": \{/);
+assert.equal(factions.INK.institution_type, "four_color");
+assert.equal(placementModel.factions.INK.institution_type, "four_color");
+assert.deepEqual(factions.INK.colors, ["R", "G", "W", "U"]);
+assert.deepEqual(placementModel.factions.INK.colors, ["R", "G", "W", "U"]);
+assert.deepEqual(placementModel.factions.INK.lateral_inhibition_targets, ["WU", "UR", "UG", "WG", "WR", "RG", "BANT", "JESKAI", "NAYA", "TEMUR", "GLINT", "DUNE"]);
+assert.equal(factions.INK.identity.expression_key, "INK");
+assert.equal(factions.INK.identity.expression_kind, "four_color");
+assert.equal(factions.INK.identity.core_color, "RGWU");
+assert.equal(factions.INK.identity.secondary_color, null);
+assert.deepEqual(factions.INK.identity.secondary_colors, ["R", "G", "W", "U"]);
+assert.equal(identityLayers.expressions.INK.placement_eligible, true);
+assert.equal(identityLayers.expressions.INK.preview_eligible, false);
+assert.deepEqual(identityLayers.expressions.INK.aliases, ["INK"]);
+assert.equal(identityLayers.expressions.INK.core_color, "RGWU");
+assert.deepEqual(identityLayers.expressions.INK.secondary_colors, ["R", "G", "W", "U"]);
+assert.equal(identityLayers.expressions.INK.routing.color_identity, "RGWU");
+assert.equal(identityLayers.expressions.INK.routing.label, "Ink");
+assert.equal(identityLayers.expressions.INK.routing.suppress_directory_links, true);
+const inkExternalAlias = getExternalDeckRoutingAlias(factions.INK);
+assert.equal(inkExternalAlias.guild, "");
+assert.equal(inkExternalAlias.colorIdentity, "RGWU");
+assert.equal(inkExternalAlias.label, "Ink");
+assert.equal(inkExternalAlias.suppressDirectoryLinks, true);
+assert.deepEqual(buildCommanderDirectoryLinks(factions.INK), []);
+const inkArchidektDeckStartLinks = buildArchidektSearchLinks({
+  catalog: deckTagCatalog,
+  faction: factions.INK,
+  placementResult: { faction: "INK", evidence_trail: [] },
+  starterProfile: { budget_band: "mid", experience_level: "returning" },
+  modelFaction: placementModel.factions.INK,
+});
+assert.ok(
+  inkArchidektDeckStartLinks.length >= 1 && inkArchidektDeckStartLinks.every((link) => link.service === "archidekt"),
+  "INK deck-start links should remain Archidekt-only"
+);
+assert.ok(
+  inkArchidektDeckStartLinks.every((link) => /^https:\/\/archidekt\.com\/search\/decks\?/.test(link.url || "")),
+  "INK deck-start links should not fall back to Commander directory providers"
+);
+assert.ok(
+  inkArchidektDeckStartLinks.every((link) => !/edhrec|mtgdecks|\/commanders\/(?:rgwu|wurg)/i.test(`${link.label} ${link.url}`)),
+  "INK deck-start links should not expose EDHREC, MTGDecks, or color-code Commander directory routes"
+);
+assert.equal(
+  new URL(buildArchidektDeckSearchUrl({ colors: factions.INK.colors, colorIdentity: factions.INK.identity.routing.color_identity })).searchParams.get("colors"),
+  "RGWU",
+  "INK should preserve RGWU only as deck-search color metadata"
+);
+const inkMazePaths = buildPersonalizedMazePaths({
+  faction: factions.INK,
+  tagRefs: [
+    { category: "playstyle", tag: "ramp" },
+    { category: "identity", tag: "knowledge" },
+    { category: "lore-tone", tag: "generous" },
+  ],
+  taxonomy: taxonomyData,
+});
+assert.equal(inkMazePaths.length, 3, "INK should create live personalized Maze links after VM-332.");
+assert.equal(inkMazePaths[0].pathType, "commanders-that-fit");
+assert.equal(inkMazePaths[0].operatorQuery, "id=rgwu is:commander f:commander");
+assert.equal(inkMazePaths[0].plainReadingQuery, "Ink commanders with exactly red-green-white-blue identity");
+assert.ok(
+  inkMazePaths.slice(1).every((link) => /^id<=rgwu\b/i.test(link.operatorQuery || "")),
+  "INK support and flavor Maze paths should remain bounded RGWU support queries"
+);
+assert.ok(
+  inkMazePaths.every((link) => !/\bRGWU\b|WURG|\/(?:rgwu|wurg)\//i.test(`${link.label} ${link.plainReadingQuery} ${(link.url || "").split("?")[0]}`)),
+  "INK Maze paths should not expose RGWU or WURG as public labels or routes"
+);
+const inkSnippetNames = (archscryFlavorSnippets.snippets.INK || []).map((snippet) => snippet.card_name);
+assert.ok((archscryFlavorSnippets.snippets.INK || []).length >= 2);
+assert.doesNotMatch(
+  (archscryFlavorSnippets.snippets.INK || []).map((snippet) => `${snippet.card_name} ${snippet.flavor_excerpt}`).join(" "),
+  /Altruism|RGWU|WURG|Kynaios|Stalwart Unity|Ink-Treader/i,
+  "INK flavor should not surface support-only naming, color-code aliases, or Commander texture as live flavor copy."
+);
+assert.ok(!inkSnippetNames.some((name) => /Kynaios|Ink-Treader/i.test(name)));
+assert.ok(factions.WITCH, "Generated factions should include WITCH.");
+assert.ok(placementModel.factions.WITCH, "Generated placement model should include WITCH.");
+assert.match(factionContextText, /"WITCH": \{/);
+assert.equal(factions.WITCH.institution_type, "four_color");
+assert.equal(placementModel.factions.WITCH.institution_type, "four_color");
+assert.deepEqual(factions.WITCH.colors, ["G", "W", "U", "B"]);
+assert.deepEqual(placementModel.factions.WITCH.colors, ["G", "W", "U", "B"]);
+assert.deepEqual(placementModel.factions.WITCH.lateral_inhibition_targets, ["WU", "UB", "BG", "WG", "UG", "WB", "BANT", "ESPER", "SULTAI", "ABZAN", "YORE", "GLINT", "DUNE", "INK"]);
+assert.equal(factions.WITCH.identity.expression_key, "WITCH");
+assert.equal(factions.WITCH.identity.expression_kind, "four_color");
+assert.equal(factions.WITCH.identity.core_color, "GWUB");
+assert.equal(factions.WITCH.identity.secondary_color, null);
+assert.deepEqual(factions.WITCH.identity.secondary_colors, ["G", "W", "U", "B"]);
+assert.equal(identityLayers.expressions.WITCH.placement_eligible, true);
+assert.equal(identityLayers.expressions.WITCH.preview_eligible, false);
+assert.deepEqual(identityLayers.expressions.WITCH.aliases, ["WITCH"]);
+assert.equal(identityLayers.expressions.WITCH.core_color, "GWUB");
+assert.deepEqual(identityLayers.expressions.WITCH.secondary_colors, ["G", "W", "U", "B"]);
+assert.equal(identityLayers.expressions.WITCH.routing.color_identity, "GWUB");
+assert.equal(identityLayers.expressions.WITCH.routing.label, "Witch");
+assert.equal(identityLayers.expressions.WITCH.routing.suppress_directory_links, true);
+const witchExternalAlias = getExternalDeckRoutingAlias(factions.WITCH);
+assert.equal(witchExternalAlias.guild, "");
+assert.equal(witchExternalAlias.colorIdentity, "GWUB");
+assert.equal(witchExternalAlias.label, "Witch");
+assert.equal(witchExternalAlias.suppressDirectoryLinks, true);
+assert.deepEqual(buildCommanderDirectoryLinks(factions.WITCH), []);
+const witchArchidektDeckStartLinks = buildArchidektSearchLinks({
+  catalog: deckTagCatalog,
+  faction: factions.WITCH,
+  placementResult: { faction: "WITCH", evidence_trail: [] },
+  starterProfile: { budget_band: "mid", experience_level: "returning" },
+  modelFaction: placementModel.factions.WITCH,
+});
+assert.ok(
+  witchArchidektDeckStartLinks.length >= 1 && witchArchidektDeckStartLinks.every((link) => link.service === "archidekt"),
+  "WITCH deck-start links should remain Archidekt-only"
+);
+assert.ok(
+  witchArchidektDeckStartLinks.every((link) => /^https:\/\/archidekt\.com\/search\/decks\?/.test(link.url || "")),
+  "WITCH deck-start links should not fall back to Commander directory providers"
+);
+assert.ok(
+  witchArchidektDeckStartLinks.every((link) => !/edhrec|mtgdecks|\/commanders\/(?:gwub|wubg|buwg)/i.test(`${link.label} ${link.url}`)),
+  "WITCH deck-start links should not expose EDHREC, MTGDecks, or color-code Commander directory routes"
+);
+assert.equal(
+  new URL(buildArchidektDeckSearchUrl({ colors: factions.WITCH.colors, colorIdentity: factions.WITCH.identity.routing.color_identity })).searchParams.get("colors"),
+  "GWUB",
+  "WITCH should preserve GWUB only as deck-search color metadata"
+);
+const fourColorRingKeys = ["YORE", "GLINT", "DUNE", "INK", "WITCH"];
+const fourColorCrucibleIds = [
+  "crucible_YORE_GLINT",
+  "crucible_GLINT_DUNE",
+  "crucible_DUNE_INK",
+  "crucible_INK_WITCH",
+  "crucible_WITCH_YORE",
+];
+const crucibleIds = new Set((placementModel.question_bank?.crucible || []).map((question) => question.id));
+fourColorCrucibleIds.forEach((id) => {
+  assert.ok(crucibleIds.has(id), `expected ${id} to exist for VM-348 four-color close-call repair`);
+});
+fourColorRingKeys.forEach((key) => {
+  const faction = factions[key];
+  const modelFaction = placementModel.factions[key];
+  assert.ok(faction.raw_enrichment?.historical_timeline?.length >= 2, `${key} should expose source-backed raw timeline enrichment`);
+  assert.ok(faction.raw_enrichment?.key_figures?.length >= 2, `${key} should expose source-backed raw figure enrichment`);
+  assert.ok(
+    !Object.prototype.hasOwnProperty.call(faction.raw_enrichment || {}, "canonical_flavor_text"),
+    `${key} should keep raw flavor anchors absent until source-backed`
+  );
+  assert.ok((faction.deck_links || []).length >= 2, `${key} should expose support-only deck links`);
+  assert.equal(faction.commander_compass?.review_status, "support_only_live_pilot_curation", `${key} should expose support-only Commander Compass data`);
+  assert.ok((faction.commander_compass?.native_fit_commanders || []).length >= 1, `${key} should expose at least one support-only Commander Compass candidate`);
+  assert.match(
+    [
+      faction.commander_compass?.recommendation_philosophy,
+      faction.commander_compass?.merge_notes?.support_only_boundary,
+      faction.deck_links?.map((link) => link.desc).join(" "),
+    ].join(" "),
+    /support only|support-only/i,
+    `${key} Commander and deck copy should preserve support-only boundaries`
+  );
+  assert.ok(
+    modelFaction.discriminator_questions.some((question) =>
+      question.lateral_inhibition === false && question.collision_targets.some((target) => fourColorRingKeys.includes(target))
+    ),
+    `${key} should include a ring-focused close-call discriminator without broad lateral inhibition`
+  );
+  assert.ok(
+    modelFaction.collision_guidance.some((entry) =>
+      entry.lateral_inhibition === false && fourColorRingKeys.includes(entry.against) && entry.review_triggers && entry.rule
+    ),
+    `${key} should preserve object-level collision review metadata on generated pair guidance`
+  );
+});
+const witchMazePaths = buildPersonalizedMazePaths({
+  faction: factions.WITCH,
+  tagRefs: [
+    { category: "mechanical", tag: "counters" },
+    { category: "identity", tag: "knowledge" },
+    { category: "lore-tone", tag: "growth" },
+  ],
+  taxonomy: taxonomyData,
+});
+assert.deepEqual(
+  witchMazePaths.map((path) => path.pathType),
+  ["commanders-that-fit", "support-cards", "flavor-echoes"]
+);
+assert.equal(witchMazePaths[0].operatorQuery, "id=gwub is:commander f:commander");
+assert.doesNotMatch(witchMazePaths[0].operatorQuery, LIVE_FOUR_COLOR_EXACT_COMMANDER_FORBIDDEN_FILTERS);
+assert.equal(witchMazePaths[0].plainReadingQuery, "Witch commanders with exactly green-white-blue-black identity");
+assert.match(witchMazePaths[1].operatorQuery, /^id<=gwub f:commander -is:commander -t:land /);
+assert.match(witchMazePaths[2].operatorQuery, /^id<=gwub f:commander \(ft:/);
+assert.ok(!witchMazePaths.some((path) => path.pathType === "weird-stretch-commanders"));
+assert.ok(witchMazePaths.every((path) => !/Witch \/ Growth|\/gwub\/|\/wubg\/|\/witch\/|\/growth\//i.test(`${path.operatorQuery} ${path.plainReadingQuery}`)));
+const witchSnippetText = (archscryFlavorSnippets.snippets.WITCH || []).map((snippet) => `${snippet.card_name} ${snippet.flavor_excerpt}`).join(" ");
+assert.ok((archscryFlavorSnippets.snippets.WITCH || []).length >= 2);
+assert.doesNotMatch(
+  witchSnippetText,
+  /GWUB|WUBG|Atraxa|Breed Lethality|Witch-Maw/i,
+  "WITCH flavor should not surface color-code aliases or support-only anchors as live flavor copy."
+);
 assert.ok(!factionKeys.includes("WUB"), "Generated faction keys should not include WUB.");
 assert.ok(!modelFactionKeys.includes("WUB"), "Generated model keys should not include WUB.");
 assert.ok(!Object.hasOwn(identityLayers.expressions, "WUB"), "Identity registry should not expose WUB as an expression key.");
@@ -643,7 +1184,7 @@ assert.ok(!Object.hasOwn(identityLayers.expressions, "GRW"), "Identity registry 
 assert.ok(!factionKeys.includes("WRG"), "Generated faction keys should not include WRG.");
 assert.ok(!modelFactionKeys.includes("WRG"), "Generated model keys should not include WRG.");
 assert.ok(!Object.hasOwn(identityLayers.expressions, "WRG"), "Identity registry should not expose WRG as an expression key.");
-["WBG", "WGB", "BWG", "BGW", "GWB", "GBW", "wbg", "wgb", "bwg", "bgw", "gwb", "gbw", "abzan", "GUR", "GRU", "UGR", "URG", "RGU", "RUG", "gur", "gru", "ugr", "urg", "rgu", "rug", "temur", "BGU", "BUG", "UBG", "UGB", "GBU", "GUB", "bgu", "bug", "ubg", "ugb", "gbu", "gub", "sultai", "RWB", "RBW", "WRB", "WBR", "BRW", "BWR", "rwb", "rbw", "wrb", "wbr", "brw", "bwr", "mardu", "URW", "WUR", "RWU", "UWR", "RUW", "WRU", "urw", "wur", "rwu", "uwr", "ruw", "wru", "jeskai"].forEach((key) => {
+["WBG", "WGB", "BWG", "BGW", "GWB", "GBW", "wbg", "wgb", "bwg", "bgw", "gwb", "gbw", "abzan", "GUR", "GRU", "UGR", "URG", "RGU", "RUG", "gur", "gru", "ugr", "urg", "rgu", "rug", "temur", "BGU", "BUG", "UBG", "UGB", "GBU", "GUB", "bgu", "bug", "ubg", "ugb", "gbu", "gub", "sultai", "RWB", "RBW", "WRB", "WBR", "BRW", "BWR", "rwb", "rbw", "wrb", "wbr", "brw", "bwr", "mardu", "URW", "WUR", "RWU", "UWR", "RUW", "WRU", "urw", "wur", "rwu", "uwr", "ruw", "wru", "jeskai", ...WUBR_FORBIDDEN_PUBLIC_KEYS, ...UBRG_FORBIDDEN_PUBLIC_KEYS, ...BRGW_FORBIDDEN_PUBLIC_KEYS, ...RGWU_FORBIDDEN_PUBLIC_KEYS, ...GWUB_FORBIDDEN_PUBLIC_KEYS].forEach((key) => {
   assert.ok(!factionKeys.includes(key), `Generated faction keys should not include ${key}.`);
   assert.ok(!modelFactionKeys.includes(key), `Generated model keys should not include ${key}.`);
   assert.ok(!Object.hasOwn(identityLayers.expressions, key), `Identity registry should not expose ${key} as an expression key.`);
@@ -688,6 +1229,31 @@ assert.match(builderSource, /jeskai:\s*["']JESKAI["']/, "RAW_TO_KEY should targe
   assert.doesNotMatch(builderSource, new RegExp(`${key}:\\s*["']${key.toUpperCase()}["']`, "i"), `RAW_TO_KEY must not target ${key.toUpperCase()} for Jeskai.`);
 });
 assert.doesNotMatch(builderSource, /JESKAI:\s*["']JESKAI["']/, "RAW_TO_KEY must not use uppercase JESKAI as a raw key.");
+assert.match(builderSource, /yore:\s*["']YORE["']/, "RAW_TO_KEY should target YORE for Yore.");
+WUBR_PERMUTATIONS.map((code) => code.toLowerCase()).forEach((key) => {
+  assert.doesNotMatch(builderSource, new RegExp(`${key}:\\s*["']${key.toUpperCase()}["']`, "i"), `RAW_TO_KEY must not target ${key.toUpperCase()} for Yore.`);
+});
+assert.doesNotMatch(builderSource, /YORE:\s*["']YORE["']/, "RAW_TO_KEY must not use uppercase YORE as a raw key.");
+assert.match(builderSource, /glint:\s*["']GLINT["']/, "RAW_TO_KEY should target GLINT for Glint.");
+UBRG_PERMUTATIONS.map((code) => code.toLowerCase()).forEach((key) => {
+  assert.doesNotMatch(builderSource, new RegExp(`${key}:\\s*["']${key.toUpperCase()}["']`, "i"), `RAW_TO_KEY must not target ${key.toUpperCase()} for Glint.`);
+});
+assert.doesNotMatch(builderSource, /GLINT:\s*["']GLINT["']/, "RAW_TO_KEY must not use uppercase GLINT as a raw key.");
+assert.match(builderSource, /dune:\s*["']DUNE["']/, "RAW_TO_KEY should target DUNE for Dune.");
+BRGW_PERMUTATIONS.map((code) => code.toLowerCase()).forEach((key) => {
+  assert.doesNotMatch(builderSource, new RegExp(`${key}:\\s*["']${key.toUpperCase()}["']`, "i"), `RAW_TO_KEY must not target ${key.toUpperCase()} for Dune.`);
+});
+assert.doesNotMatch(builderSource, /DUNE:\s*["']DUNE["']/, "RAW_TO_KEY must not use uppercase DUNE as a raw key.");
+assert.match(builderSource, /ink:\s*["']INK["']/, "RAW_TO_KEY should target INK for Ink.");
+RGWU_PERMUTATIONS.map((code) => code.toLowerCase()).forEach((key) => {
+  assert.doesNotMatch(builderSource, new RegExp(`${key}:\\s*["']${key.toUpperCase()}["']`, "i"), `RAW_TO_KEY must not target ${key.toUpperCase()} for Ink.`);
+});
+assert.doesNotMatch(builderSource, /INK:\s*["']INK["']/, "RAW_TO_KEY must not use uppercase INK as a raw key.");
+assert.match(builderSource, /witch:\s*["']WITCH["']/, "RAW_TO_KEY should target WITCH for Witch.");
+GWUB_PERMUTATIONS.map((code) => code.toLowerCase()).forEach((key) => {
+  assert.doesNotMatch(builderSource, new RegExp(`${key}:\\s*["']${key.toUpperCase()}["']`, "i"), `RAW_TO_KEY must not target ${key.toUpperCase()} for Witch.`);
+});
+assert.doesNotMatch(builderSource, /WITCH:\s*["']WITCH["']/, "RAW_TO_KEY must not use uppercase WITCH as a raw key.");
 
 const tagValidation = validateDeckTagData(deckTagData);
 assert.deepEqual(tagValidation.errors, []);
@@ -836,6 +1402,9 @@ collegeDirectoryCases.forEach(([faction, edhrecUrl, mtgDecksUrl]) => {
   assert.equal(links.find((link) => link.service === "mtgdecks")?.url, mtgDecksUrl);
 });
 
+});
+
+await runQuickReadingSection("External Deck Routing And Package Links", async () => {
 assert.equal(
   buildMtgDecksCommanderUrl("Veyran, Voice of Duality"),
   "https://mtgdecks.net/Commander/veyran-voice-of-duality"
@@ -903,6 +1472,9 @@ packageLinks.maze.slice(1).forEach((link) => {
   });
 });
 
+});
+
+await runQuickReadingSection("Dossier Presentation, Summary Strips, And Four-Color Copy", async () => {
 const dimirCommanderLane = buildCommanderStartingLane({
   faction: factions.UB,
   placementResult: { evidence_trail: [] },
@@ -1451,6 +2023,428 @@ assert.doesNotMatch(
   "Jeskai public deck-start links should use Jeskai slugs, not color-code slugs."
 );
 
+const yorePresentation = presentationForFaction(factions.YORE);
+assert.match(yorePresentation.thesis, /four-color without Green machine of agency/i);
+assert.match(yorePresentation.thesis, /Rewrite the limit\. Keep the engine honest\./i);
+assert.match(yorePresentation.tableExperience, /system that keeps choice alive/i);
+assert.match(yorePresentation.closeReason, /engineered agency, artifice, civilization, progress/i);
+assert.doesNotMatch(yorePresentation.closeReason, /false-positive boundaries/i);
+assert.match(yorePresentation.direction, /engineered agency/i);
+assert.match(yorePresentation.mechanics, /Commander-facing ways to show artifice/i);
+assert.doesNotMatch(
+  [
+    yorePresentation.thesis,
+    yorePresentation.tableExperience,
+    yorePresentation.mechanics,
+    yorePresentation.selfCheck,
+    yorePresentation.loreRole,
+    yorePresentation.closeReason,
+  ].join(" "),
+  /official MTG faction|official universal WUBR name|Cult of Yore equivalence|Breya.*lore|cEDH proof|Commander legality proof|seed HTML|support-only|claim-bearing|manual-fill|raw packet|canon proof|review-gated|source_authored_review_gated|not_placement_eligible|metadata|generic WUBR goodstuff|Exact WUBR|strict false-positive boundaries/i
+);
+const yoreAbzanHero = buildHeroNarrative({
+  dossier: { isPrimary: true, targetFactionKey: "YORE" },
+  faction: factions.YORE,
+  result: { faction: "YORE", adjacent_matches: [{ faction: "ABZAN", confidence: 0.45 }] },
+  factions,
+});
+assert.match(yoreAbzanHero, /Yore believes the given world is not the final world/i);
+assert.match(yoreAbzanHero, /Abzan carries the house forward\. Yore rebuilds the limit itself\./i);
+assert.doesNotMatch(yoreAbzanHero, /strict false-positive boundaries|Commander expression|support-only|manual-fill|raw packet/i);
+const yoreAbzanFork = buildContrastCopy(factions.YORE, factions.ABZAN);
+assert.match(yoreAbzanFork, /Yore asks: "What limit is worth rebuilding so choice can continue\?"/);
+assert.match(yoreAbzanFork, /Abzan asks: "What duty is worth carrying into the next generation\?"/);
+assert.match(yoreAbzanFork, /Yore moves toward artifice, constructed continuity, and engineered agency/);
+assert.match(yoreAbzanFork, /Abzan moves toward endurance, obligation, and inherited survival/);
+assert.doesNotMatch(yoreAbzanFork, /Commander expression|strict false-positive boundaries/i);
+const yoreSignalCopy = buildReadingSignalCopy({
+  dossier: { isPrimary: true, targetFactionKey: "YORE" },
+  faction: factions.YORE,
+  result: { faction: "YORE", confidence: 0.63, adjacent_matches: [{ faction: "ABZAN", confidence: 0.45 }] },
+  factions,
+});
+assert.match(yoreSignalCopy, /Yore constructs the system that lets choice continue/i);
+assert.match(yoreSignalCopy, /refusal to let natural limits become final/i);
+assert.doesNotMatch(yoreSignalCopy, /Commander expression|strict false-positive boundaries/i);
+const yorePressureSummary = buildTagExplanationSummaries({
+  tagRefs: [{ category: "playstyle", tag: "aggro" }],
+  faction: factions.YORE,
+  taxonomy: taxonomyData,
+  limit: 1,
+});
+assert.equal(yorePressureSummary[0].title, "Pressure");
+assert.match(yorePressureSummary[0].copy, /not generic artifact aggro/i);
+assert.match(yorePressureSummary[0].meaning, /forcing the table to answer/i);
+const yoreRadarProfile = getDossierRadarProfile({ faction: "YORE" }, factions.YORE);
+assert.deepEqual(yoreRadarProfile.data, [50, 58, 54, 56, 54]);
+assert.match(yoreRadarProfile.note, /Growth is not a Green alignment claim/i);
+assert.match(renderDossierRadarSection({ result: { faction: "YORE" }, faction: factions.YORE }), /Growth is not a Green alignment claim/i);
+const yoreSnippetNames = (archscryFlavorSnippets.snippets.YORE || []).map((snippet) => snippet.card_name);
+assert.ok(yoreSnippetNames.includes("Ayara, Widow of the Realm // Ayara, Furnace Queen"));
+assert.ok(yoreSnippetNames.includes("Abandoned Sarcophagus"));
+assert.ok(!yoreSnippetNames.includes("Abrade"));
+assert.ok(!yoreSnippetNames.includes("Abandon the Post"));
+
+const yoreCommanderLane = buildCommanderStartingLane({
+  faction: factions.YORE,
+  placementResult: { evidence_trail: [] },
+  starterProfile: { budget_band: "mid", experience_level: "returning" },
+  modelFaction: placementModel.factions.YORE,
+  tagLanes: [{ tagName: "Artifacts" }],
+});
+const yoreLaneText = [
+  yoreCommanderLane.copy,
+  ...yoreCommanderLane.details.flatMap((detail) => [detail.label, detail.copy]),
+].join(" ");
+assert.match(yoreLaneText, /turns artifacts, sacrifice, recursion, and controlled engines into table texture/);
+assert.match(yoreLaneText, /Artifacts, Aristocrats, Control/);
+assert.match(yoreLaneText, /four-color without Green worldview/);
+assert.doesNotMatch(
+  yoreLaneText,
+  /official MTG faction|official universal WUBR name|Cult of Yore equivalence|Breya.*lore|cEDH proof|Commander legality proof|seed HTML|support-only|claim-bearing|manual-fill|raw packet|canon proof|review-gated|source_authored_review_gated|not_placement_eligible|generic WUBR goodstuff|Exact WUBR|\/wubr\/|\/yore\//i
+);
+const yoreDirectoryLinks = buildCommanderDirectoryLinks(factions.YORE);
+assert.deepEqual(yoreDirectoryLinks, []);
+
+const glintPresentation = presentationForFaction(factions.GLINT);
+assert.match(glintPresentation.thesis, /four-color without White current/i);
+assert.match(glintPresentation.thesis, /Ride the surge\. Keep the edge alive\./i);
+assert.match(glintPresentation.tableExperience, /a live surge that keeps learning, feeds on the opening, and forces the table to answer/i);
+assert.match(glintPresentation.closeReason, /adaptive appetite, volatility with intelligence, living force, and refusal to let White-style order make the opening harmless/i);
+assert.match(glintPresentation.direction, /adaptive appetite, living pressure, and storm-fed growth/i);
+assert.match(glintPresentation.mechanics, /cascade-adjacent turns as Commander-facing ways/i);
+assert.doesNotMatch(
+  [
+    glintPresentation.thesis,
+    glintPresentation.tableExperience,
+    glintPresentation.mechanics,
+    glintPresentation.selfCheck,
+    glintPresentation.loreRole,
+    glintPresentation.closeReason,
+  ].join(" "),
+  /official MTG faction|official universal UBRG name|Yidris proves Glint lore|Commander legality proof|support-only|claim-bearing|manual-fill|raw packet|canon proof|review-gated|metadata|generic UBRG goodstuff|strict separation from generic chaos|strict non-White false-positive boundaries|Commander expression|\/ubrg\/|\/glint\//i
+);
+const glintSignalCopy = buildReadingSignalCopy({
+  dossier: { isPrimary: true, targetFactionKey: "GLINT" },
+  faction: factions.GLINT,
+  result: { faction: "GLINT", confidence: 0.64, adjacent_matches: [{ faction: "TEMUR", confidence: 0.43 }] },
+  factions,
+});
+assert.match(glintSignalCopy, /Glint(?: \/ Chaos)? led with a strong signal/i);
+assert.match(glintSignalCopy, /adaptive appetite, living pressure, and storm-fed growth/i);
+assert.doesNotMatch(glintSignalCopy, /support-only|manual-fill|raw packet|Commander expression|strict non-White false-positive boundaries|\/ubrg\/|\/glint\//i);
+const glintBlackHero = buildHeroNarrative({
+  dossier: { isPrimary: true, targetFactionKey: "GLINT" },
+  faction: factions.GLINT,
+  result: { faction: "GLINT", adjacent_matches: [{ faction: "B", confidence: 0.45 }] },
+  factions,
+});
+assert.match(glintBlackHero, /Black stayed close because your answers also carried cost, agency, and the willingness to spend from the self to keep the choice yours/i);
+assert.match(glintBlackHero, /turns that pressure into a live surge that keeps learning, feeds on the opening, and forces the table to answer/i);
+assert.doesNotMatch(glintBlackHero, /turns that pressure into keep the surge alive|Commander expression|strict non-White false-positive boundaries|support-only|manual-fill|raw packet/i);
+const glintBlackFork = buildContrastCopy(factions.GLINT, factions.B);
+assert.match(glintBlackFork, /Glint asks: "What opening is worth feeding before order makes it harmless\?"/);
+assert.match(glintBlackFork, /Black asks: "What are you willing to spend to keep the choice yours\?"/);
+assert.match(glintBlackFork, /Glint moves toward adaptive appetite, living pressure, and storm-fed growth/);
+assert.match(glintBlackFork, /Black moves toward sovereignty, cost, and chosen advantage/);
+assert.doesNotMatch(glintBlackFork, /What does this path do with the same tension|Commander expression|strict non-White false-positive boundaries/i);
+const glintBlackSignalCopy = buildReadingSignalCopy({
+  dossier: { isPrimary: true, targetFactionKey: "GLINT" },
+  faction: factions.GLINT,
+  result: { faction: "GLINT", confidence: 0.64, adjacent_matches: [{ faction: "B", confidence: 0.45 }] },
+  factions,
+});
+assert.match(glintBlackSignalCopy, /Black remained nearby because your answers also carried cost, agency, and the willingness to spend from the self to keep the choice yours/i);
+assert.match(glintBlackSignalCopy, /pressure to keep learning, feeding, and changing before White-style order could make the opening harmless/i);
+assert.doesNotMatch(glintBlackSignalCopy, /Commander expression|strict non-White false-positive boundaries|turns that pressure into keep the surge alive|support-only|manual-fill|raw packet/i);
+const glintCommanderLane = buildCommanderStartingLane({
+  faction: factions.GLINT,
+  placementResult: { evidence_trail: [] },
+  starterProfile: { budget_band: "mid", experience_level: "returning" },
+  modelFaction: placementModel.factions.GLINT,
+  tagLanes: [{ tagName: "Spellslinger" }],
+});
+const glintLaneText = [
+  glintCommanderLane.copy,
+  ...glintCommanderLane.details.flatMap((detail) => [detail.label, detail.copy]),
+].join(" ");
+assert.match(glintLaneText, /adaptive appetite|living-force adaptation|storm-fed identity/i);
+assert.match(glintLaneText, /Spellslinger, Aggro, Midrange/);
+assert.match(glintLaneText, /full non-White frame|White-style civic restraint/i);
+assert.doesNotMatch(
+  glintLaneText,
+  /official MTG faction|official universal UBRG name|Yidris proves Glint lore|Commander legality proof|support-only|claim-bearing|manual-fill|raw packet|canon proof|review-gated|metadata|generic UBRG goodstuff|\/ubrg\/|\/glint\//i
+);
+const glintDirectoryLinks = buildCommanderDirectoryLinks(factions.GLINT);
+assert.deepEqual(glintDirectoryLinks, []);
+
+const dunePresentation = presentationForFaction(factions.DUNE);
+assert.match(dunePresentation.thesis, /four-color without Blue front/i);
+assert.match(dunePresentation.thesis, /Take the field\. Keep the line moving\./i);
+assert.match(dunePresentation.tableExperience, /make the table answer force-backed solidarity/i);
+assert.match(dunePresentation.closeReason, /organized territorial pressure, cost-bearing solidarity, immediate strike pressure, survival-minded multiplication/i);
+assert.match(dunePresentation.direction, /organized territorial pressure and common-front force/i);
+assert.match(dunePresentation.mechanics, /Commander-facing ways to show line, cost, ignition, and persistence/i);
+assert.doesNotMatch(
+  [
+    dunePresentation.thesis,
+    dunePresentation.tableExperience,
+    dunePresentation.mechanics,
+    dunePresentation.selfCheck,
+    dunePresentation.loreRole,
+    dunePresentation.closeReason,
+  ].join(" "),
+  /official MTG faction|official universal BRGW name|Aggression as public alias|Saskia proves Dune lore|Commander legality proof|support-only|claim-bearing|manual-fill|raw packet|canon proof|review-gated|metadata|generic BRGW goodstuff|\/brgw\/|\/wbrg\/|\/dune\//i
+);
+const duneSignalCopy = buildReadingSignalCopy({
+  dossier: { isPrimary: true, targetFactionKey: "DUNE" },
+  faction: factions.DUNE,
+  result: { faction: "DUNE", confidence: 0.64, adjacent_matches: [{ faction: "MARDU", confidence: 0.43 }] },
+  factions,
+});
+assert.match(duneSignalCopy, /Dune(?: \/ Aggression)? led with a strong signal/i);
+assert.match(duneSignalCopy, /organized territorial pressure and common-front force/i);
+assert.doesNotMatch(duneSignalCopy, /Aggression as public alias|support-only|manual-fill|raw packet|\/brgw\/|\/wbrg\/|\/dune\//i);
+const duneCommanderLane = buildCommanderStartingLane({
+  faction: factions.DUNE,
+  placementResult: { evidence_trail: [] },
+  starterProfile: { budget_band: "mid", experience_level: "returning" },
+  modelFaction: placementModel.factions.DUNE,
+  tagLanes: [{ tagName: "Aggro" }],
+});
+const duneLaneText = [
+  duneCommanderLane.copy,
+  ...duneCommanderLane.details.flatMap((detail) => [detail.label, detail.copy]),
+].join(" ");
+assert.match(duneLaneText, /organized territorial pressure|force-backed solidarity|survival-minded multiplication/i);
+assert.match(duneLaneText, /Aggro, Tokens, Midrange/);
+assert.match(duneLaneText, /generic combat shell|same-color pile|non-Blue territorial frame/i);
+assert.doesNotMatch(
+  duneLaneText,
+  /official MTG faction|official universal BRGW name|Aggression as public alias|Saskia proves Dune lore|Commander legality proof|support-only|claim-bearing|manual-fill|raw packet|canon proof|review-gated|metadata|generic BRGW goodstuff|\/brgw\/|\/wbrg\/|\/dune\//i
+);
+const duneDirectoryLinks = buildCommanderDirectoryLinks(factions.DUNE);
+assert.deepEqual(duneDirectoryLinks, []);
+
+assert.deepEqual(resolveSignalBand(0.6), {
+  signalBand: "strong",
+  signalLabel: "Strong adjacent signal",
+});
+assert.deepEqual(resolveSignalBand(0.3), {
+  signalBand: "moderate",
+  signalLabel: "Moderate adjacent signal",
+});
+assert.deepEqual(resolveSignalBand(0.12), {
+  signalBand: "emerging",
+  signalLabel: "Emerging adjacent signal",
+});
+assert.deepEqual(resolveSignalBand(undefined), {
+  signalBand: "related",
+  signalLabel: "Related adjacent signal",
+});
+assert.equal(resolveSignalBand(Number.NaN).signalBand, "related");
+assert.equal(resolveSignalBand(1.2).signalBand, "related");
+assert.equal(resolveSignalBand(-0.1).signalBand, "related");
+
+const yoreSummaryResult = {
+  faction: "YORE",
+  confidence: 0.63,
+  adjacent_matches: [{ faction: "ABZAN", faction_name: "Abzan Houses", confidence: 0.45 }],
+  starter_profile: { budget_band: "mid", experience_level: "returning" },
+  identity: { expression_key: "YORE" },
+};
+const yoreSummaryDossier = buildCommanderDossier({
+  factions,
+  placementModel,
+  deckTagCatalog,
+  placementResult: yoreSummaryResult,
+  summaryPresentationForFaction: presentationForFaction,
+  summaryContrastCopyBuilder: buildContrastCopy,
+});
+const yoreWhereThisLeads = buildWhereThisLeadsSummary({
+  faction: factions.YORE,
+  dossier: yoreSummaryDossier,
+  commanderLane: yoreSummaryDossier.commanderLane,
+  guidance: getCommanderFactionGuidance(factions.YORE),
+});
+assert.equal(yoreWhereThisLeads.label, "Where this leads");
+assert.equal(yoreWhereThisLeads.heading, "Rebuild the engine");
+assert.match(yoreWhereThisLeads.body, /Turns artifacts, sacrifice, recursion/i);
+assert.doesNotMatch(yoreWhereThisLeads.body, /Yore(?: \/ Artifice)? wants a Commander deck that/i);
+assert.deepEqual(yoreWhereThisLeads.tags, ["Artifacts", "Aristocrats", "Control"]);
+const yorePlayPattern = buildPlayPatternSummary({
+  faction: factions.YORE,
+  dossier: yoreSummaryDossier,
+  guidance: getCommanderFactionGuidance(factions.YORE),
+  whereThisLeads: yoreWhereThisLeads,
+  presentationForFaction,
+});
+assert.equal(yorePlayPattern.label, "Play pattern");
+assert.match(yorePlayPattern.body, /Opponents feel the deck assemble a machine/i);
+assert.doesNotMatch(yorePlayPattern.body, /Turns artifacts, sacrifice, recursion/i);
+const yorePrimaryAdjacent = resolveSummaryAdjacentFit({
+  factions,
+  placementModel,
+  placementResult: yoreSummaryResult,
+  activeKey: "YORE",
+  primaryKey: "YORE",
+  activeFaction: factions.YORE,
+  primaryFaction: factions.YORE,
+  isPrimary: true,
+  buildContrastCopy,
+});
+assert.equal(yorePrimaryAdjacent.targetKey, "ABZAN");
+assert.equal(yorePrimaryAdjacent.targetName, "Abzan Houses");
+assert.equal(yorePrimaryAdjacent.signalBand, "moderate");
+assert.notEqual(yorePrimaryAdjacent.targetKey, "YORE");
+const yoreSummaryStrip = buildResultSummaryStrip({
+  factions,
+  placementModel,
+  placementResult: yoreSummaryResult,
+  dossier: yoreSummaryDossier,
+  activeKey: "YORE",
+  primaryKey: "YORE",
+  presentationForFaction,
+  buildContrastCopy,
+});
+assertSummaryStripComplete(yoreSummaryStrip, "Yore summary strip");
+assert.match(yoreSummaryStrip.adjacentFit.relationshipCopy, /Yore asks: "What limit is worth rebuilding so choice can continue\?"/);
+assert.equal(yoreSummaryStrip.whereThisLeads.heading, "Rebuild the engine");
+assert.equal(yoreSummaryStrip.playPattern.heading, "Keep agency online");
+
+const glintSummaryResult = {
+  faction: "GLINT",
+  confidence: 0.64,
+  adjacent_matches: [{ faction: "B", faction_name: "Black", confidence: 0.45 }],
+  starter_profile: { budget_band: "mid", experience_level: "returning" },
+  identity: { expression_key: "GLINT" },
+};
+const glintSummaryDossier = buildCommanderDossier({
+  factions,
+  placementModel,
+  deckTagCatalog,
+  placementResult: glintSummaryResult,
+  summaryPresentationForFaction: presentationForFaction,
+  summaryContrastCopyBuilder: buildContrastCopy,
+});
+assertSummaryStripComplete(glintSummaryDossier.resultSummaryStrip, "Glint dossier summary strip");
+assert.match(glintSummaryDossier.resultSummaryStrip.adjacentFit.relationshipCopy, /Glint asks: "What opening is worth feeding before order makes it harmless\?"/);
+assert.equal(glintSummaryDossier.resultSummaryStrip.whereThisLeads.heading, "Feed the opening");
+assert.equal(glintSummaryDossier.resultSummaryStrip.playPattern.heading, "Keep the pressure live");
+
+const golgariPrimaryComparison = resolveSummaryAdjacentFit({
+  factions,
+  placementModel,
+  placementResult: {
+    faction: "BG",
+    top_matches: [{ faction: "BG", faction_name: "Golgari Swarm", confidence: 0.72 }],
+    adjacent_matches: [
+      { faction: "UG", faction_name: "Simic Combine", confidence: 0.42 },
+      { faction: "WB", faction_name: "Orzhov Syndicate", confidence: 0.31 },
+    ],
+  },
+  activeKey: "UG",
+  primaryKey: "BG",
+  activeFaction: factions.UG,
+  primaryFaction: factions.BG,
+  isPrimary: false,
+  reasonItStayedClose: "Simic stayed close for testing.",
+  buildContrastCopy,
+});
+assert.equal(golgariPrimaryComparison.targetKey, "BG");
+assert.equal(golgariPrimaryComparison.targetName, "Golgari Swarm");
+assert.equal(golgariPrimaryComparison.signalBand, "strong");
+assert.notEqual(golgariPrimaryComparison.targetKey, "UG");
+
+});
+
+await runQuickReadingSection("Maze Handoff Context And Dune Query Hygiene", async () => {
+const duneMazePaths = buildPersonalizedMazePaths({
+  faction: factions.DUNE,
+  tagRefs: [
+    { category: "playstyle", tag: "aggro" },
+    { category: "identity", tag: "knowledge" },
+    { category: "lore-tone", tag: "hungry" },
+  ],
+  taxonomy: taxonomyData,
+});
+assert.deepEqual(
+  duneMazePaths.map((path) => path.pathType),
+  ["commanders-that-fit", "support-cards", "flavor-echoes"]
+);
+assert.deepEqual(
+  duneMazePaths.map((path) => path.operatorQuery),
+  [
+    "id=brgw is:commander f:commander",
+    "id<=brgw f:commander -is:commander -t:land (o:attack OR o:attacks OR o:combat OR o:damage OR o:tokens OR o:haste OR o:trample OR o:fight)",
+    "id<=brgw f:commander (ft:war OR ft:battle OR ft:rage OR ft:hunt OR ft:survival)",
+  ],
+  "DUNE personalized Maze paths should use the approved Dune-safe Scryfall query shapes"
+);
+assert.doesNotMatch(
+  duneMazePaths[0].operatorQuery,
+  LIVE_FOUR_COLOR_EXACT_COMMANDER_FORBIDDEN_FILTERS,
+  "DUNE exact commander path should stay broad and identity-only"
+);
+assert.doesNotMatch(
+  duneMazePaths.map((path) => path.operatorQuery).join(" "),
+  /\b(?:knowledge|study|hungry|devouring|aggro|aggressive)\b/i,
+  "DUNE personalized Maze path queries should not inherit Blue, Glint, Jund, or generic aggro terms"
+);
+assert.ok(!duneMazePaths.some((path) => path.pathType === "weird-stretch-commanders"));
+assert.ok(duneMazePaths.every((path) => !/\bid(?:<)?=wbrg\b/i.test(path.operatorQuery)));
+
+[
+  { key: "YORE", label: "Yore", source: "ABZAN", query: "id=wubr is:commander f:commander" },
+  { key: "GLINT", label: "Glint", source: "DUNE", query: "id=ubrg is:commander f:commander" },
+  { key: "DUNE", label: "Dune", source: "MARDU", query: "id=brgw is:commander f:commander" },
+].forEach(({ key, label, source, query }) => {
+  const context = buildArchscryMazeContext({
+    result: { faction: source, confidence: 0.64 },
+    dossier: { targetFactionKey: key, primaryFactionKey: source },
+    faction: factions[key],
+  });
+  assert.equal(context.guild, key);
+  assert.equal(context.fit, key);
+  assert.equal(context.factionName, label);
+  assert.equal(context.sourceFaction, source);
+
+  const [link] = withArchscryMazeContext([{
+    service: "maze",
+    label: "Commanders that fit this reading",
+    url: `/maze/?q=${encodeURIComponent(query)}`,
+  }], context, "http://localhost");
+  const url = new URL(link.url, "http://localhost/archscry/index.html");
+  assert.equal(url.searchParams.get("guild"), key);
+  assert.equal(url.searchParams.get("fit"), key);
+  assert.equal(url.searchParams.get("factionName"), label);
+  assert.equal(url.searchParams.get("sourceFaction"), source);
+
+  const sameSourceContext = buildArchscryMazeContext({
+    result: { faction: key, confidence: 0.64 },
+    dossier: { targetFactionKey: key, primaryFactionKey: key },
+    faction: factions[key],
+  });
+  assert.equal(sameSourceContext.guild, key);
+  assert.equal(sameSourceContext.fit, key);
+  assert.equal(sameSourceContext.factionName, label);
+  assert.equal(sameSourceContext.sourceFaction, "");
+
+  const [sameSourceLink] = withArchscryMazeContext([{
+    service: "maze",
+    label: "Commanders that fit this reading",
+    url: `/maze/?q=${encodeURIComponent(query)}`,
+  }], sameSourceContext, "http://localhost");
+  const sameSourceUrl = new URL(sameSourceLink.url, "http://localhost/archscry/index.html");
+  assert.equal(sameSourceUrl.searchParams.get("guild"), key);
+  assert.equal(sameSourceUrl.searchParams.get("fit"), key);
+  assert.equal(sameSourceUrl.searchParams.get("factionName"), label);
+  assert.equal(sameSourceUrl.searchParams.has("sourceFaction"), false);
+});
+
+});
+
+await runQuickReadingSection("Commander Dossier Hardening And Adjacent Guidance", async () => {
 const gruulGolden = runAdaptiveGoldenPath({ model: placementModel, factions, targetFaction: "RG" }).result;
 const gruulDossier = buildCommanderDossier({
   factions,
@@ -1567,8 +2561,8 @@ assert.doesNotMatch(
 );
 
 const silverquillCommanderCandidates = collectCommanderPreviewCandidates(factions.SILVERQUILL);
-assert.equal(silverquillCommanderCandidates[0].source, "commander_compass");
-assert.equal(silverquillCommanderCandidates[1].source, "commander_compass");
+assert.ok(!factions.SILVERQUILL.commander_compass, "Silverquill should not expose public Commander Compass data until source-matrix backed.");
+assert.ok(silverquillCommanderCandidates.every((candidate) => candidate.source === "staple"));
 assert.doesNotMatch(
   silverquillCommanderCandidates.map((candidate) => `${candidate.name} ${candidate.desc}`).join(" "),
   /\b(contract|debt|tax|obligation|afterlife|payment|ledger)\b/i
@@ -1598,12 +2592,13 @@ const quandrixAdjacentDossier = buildCommanderDossier({
   deckTagCatalog,
   placementResult: golgariRun.result,
   targetFactionKey: "QUANDRIX",
-  adjacentReason: "Regression check: adjacent dossiers should use the target faction's Commander Compass.",
+  adjacentReason: "Regression check: adjacent dossiers should use the target faction's source-backed recommendation lane.",
 });
-assert.match(quandrixAdjacentDossier.commanderRecommendationSource, /^commander_compass \(2\)/);
+assert.ok(!factions.QUANDRIX.commander_compass, "Quandrix should not expose public Commander Compass data until source-matrix backed.");
+assert.match(quandrixAdjacentDossier.commanderRecommendationSource, /^starter legendary whitelist \(3\)/);
 assert.deepEqual(
   quandrixAdjacentDossier.commanderRecommendations.slice(0, 2).map((candidate) => candidate.name),
-  ["Quandrix, the Proof", "Adrix and Nev, Twincasters"]
+  ["Tanazir Quandrix", "Adrix and Nev, Twincasters"]
 );
 assert.ok(!quandrixAdjacentDossier.commanderRecommendations.some((candidate) => /Jarad|Meren|Gitrog/i.test(candidate.name)));
 
@@ -1702,6 +2697,9 @@ assert.equal(
   "Crucible should select the pairwise discriminator."
 );
 
+});
+
+await runQuickReadingSection("Golden-Path Sweep And Overlap Regressions", async () => {
 const sample = runAdaptiveGoldenPath({
   model: placementModel,
   factions,
@@ -1721,9 +2719,10 @@ const goldenResults = modelFactionKeys.map((targetFaction) => {
   );
   return run.result;
 });
+quickReadingGoldenPathCount = goldenResults.length;
 
 const selected = new Set(goldenResults.map((result) => result.faction));
-["BANT", "ESPER", "GRIXIS", "NAYA", "ABZAN", "TEMUR", "SULTAI", "MARDU", "JESKAI", "LOREHOLD", "SILVERQUILL", "WB", "WG"].forEach((key) => {
+["BANT", "ESPER", "GRIXIS", "NAYA", "ABZAN", "TEMUR", "SULTAI", "MARDU", "JESKAI", "INK", "WITCH", "LOREHOLD", "SILVERQUILL", "WB", "WG"].forEach((key) => {
   assert.ok(selected.has(key), `${key} must be reachable by golden-path evidence.`);
 });
 
@@ -1889,6 +2888,33 @@ assert.ok(
 assert.ok(
   jeskaiGolden.evidence_trail.some((entry) => entry.question_id === "hall_JESKAI_way_form"),
   "JESKAI golden path should use Way-form evidence."
+);
+const inkGolden = goldenResults.find((result) => result.faction === "INK");
+assert.ok(inkGolden, "INK golden path should be present.");
+assert.equal(inkGolden.identity.expression_key, "INK");
+assert.equal(inkGolden.identity.expression_kind, "four_color");
+assert.deepEqual(factions[inkGolden.faction].colors, ["R", "G", "W", "U"]);
+assert.ok(
+  inkGolden.evidence_trail.some((entry) => entry.question_id === "hall_INK_protected_abundance"),
+  "INK golden path should use protected-abundance evidence."
+);
+assert.ok(
+  inkGolden.evidence_trail.some((entry) => entry.question_id === "hall_INK_missing_black"),
+  "INK golden path should use missing-Black evidence."
+);
+
+const witchGolden = goldenResults.find((result) => result.faction === "WITCH");
+assert.ok(witchGolden, "WITCH golden path should be present.");
+assert.equal(witchGolden.identity.expression_key, "WITCH");
+assert.equal(witchGolden.identity.expression_kind, "four_color");
+assert.deepEqual(factions[witchGolden.faction].colors, ["G", "W", "U", "B"]);
+assert.ok(
+  witchGolden.evidence_trail.some((entry) => entry.question_id === "hall_WITCH_patient_cultivation"),
+  "WITCH golden path should use patient-cultivation evidence."
+);
+assert.ok(
+  witchGolden.evidence_trail.some((entry) => entry.question_id === "hall_WITCH_missing_red"),
+  "WITCH golden path should use missing-Red evidence."
 );
 
 const bantOverlap = runScriptedReading({
@@ -2072,6 +3098,44 @@ const jeskaiEvidenceTargets = new Set(
 );
 assert.ok(["WU", "UR", "WR"].some((key) => jeskaiEvidenceTargets.has(key)), "Jeskai overlap path should include live neighbor evidence.");
 
+const inkOverlap = runScriptedReading({
+  gate_pressure_trust: "The guarded commons",
+  gate_power_shape: "Power that keeps the gift moving",
+  gate_attention_pattern: "The shared resource",
+  gate_belonging_cost: "A commons worth guarding",
+  hall_INK_protected_abundance: "Guard the commons",
+  hall_INK_missing_black: "It resists private capture",
+}).result;
+assertValidPlacement(inkOverlap);
+assert.equal(inkOverlap.faction, "INK", "Ink synthesis should beat Bant/Jeskai/Naya/Temur and generic group-hug overlap.");
+assert.ok(
+  inkOverlap.evidence_trail.some((entry) => entry.question_id === "hall_INK_protected_abundance"),
+  "Ink overlap path should include protected-abundance evidence."
+);
+assert.ok(
+  inkOverlap.evidence_trail.some((entry) => entry.question_id === "hall_INK_missing_black"),
+  "Ink overlap path should include missing-Black evidence."
+);
+
+const witchOverlap = runScriptedReading({
+  gate_pressure_trust: "The cultivated future",
+  gate_power_shape: "Power that compounds",
+  gate_attention_pattern: "The long plan",
+  gate_belonging_cost: "A garden worth binding",
+  hall_WITCH_patient_cultivation: "Let the roots keep the ledger",
+  hall_WITCH_missing_red: "Keep the spark out of command",
+}).result;
+assertValidPlacement(witchOverlap);
+assert.equal(witchOverlap.faction, "WITCH", "Witch synthesis should beat Bant/Esper/Sultai/Abzan and generic Atraxa/counters/proliferate overlap.");
+assert.ok(
+  witchOverlap.evidence_trail.some((entry) => entry.question_id === "hall_WITCH_patient_cultivation"),
+  "Witch overlap path should include patient-cultivation evidence."
+);
+assert.ok(
+  witchOverlap.evidence_trail.some((entry) => entry.question_id === "hall_WITCH_missing_red"),
+  "Witch overlap path should include missing-Red evidence."
+);
+
 const nayaStyleInstinct = runScriptedReading({
   gate_pressure_trust: "A bold release of force",
   gate_power_shape: "Power that grows from roots",
@@ -2131,6 +3195,9 @@ assert.equal(simicStyleAdaptation.faction, "UG");
 const ranked = rankAdaptiveFactions(sample.state, placementModel);
 assert.equal(ranked[0].faction, "WU");
 
+});
+
+await runQuickReadingSection("Maze Query Identity And Mono Boundary Preservation", async () => {
 const whiteGolden = runAdaptiveGoldenPath({
   model: placementModel,
   factions,
@@ -2263,10 +3330,10 @@ assert.deepEqual(
   temurMazePaths.map((path) => path.pathType),
   ["commanders-that-fit", "support-cards", "flavor-echoes"]
 );
-assert.match(temurMazePaths[0].operatorQuery, /^id=urg is:commander f:commander /);
-assert.equal(temurMazePaths[0].plainReadingQuery, "Temur Frontier commanders with exactly blue-red-green identity");
-assert.match(temurMazePaths[1].operatorQuery, /^id<=urg f:commander -is:commander -t:land /);
-assert.match(temurMazePaths[2].operatorQuery, /^id<=urg f:commander \(ft:/);
+assert.match(temurMazePaths[0].operatorQuery, /^id=gur is:commander f:commander /);
+assert.equal(temurMazePaths[0].plainReadingQuery, "Temur Frontier commanders with exactly green-blue-red identity");
+assert.match(temurMazePaths[1].operatorQuery, /^id<=gur f:commander -is:commander -t:land /);
+assert.match(temurMazePaths[2].operatorQuery, /^id<=gur f:commander \(ft:/);
 assert.ok(!temurMazePaths.some((path) => path.pathType === "weird-stretch-commanders"));
 assert.ok(temurMazePaths.every((path) => !/id=brg|id<=brg|Exact GUR|\/temur\/|\/gur\//i.test(`${path.operatorQuery} ${path.plainReadingQuery}`)));
 
@@ -2279,10 +3346,10 @@ assert.deepEqual(
   sultaiMazePaths.map((path) => path.pathType),
   ["commanders-that-fit", "support-cards", "flavor-echoes"]
 );
-assert.match(sultaiMazePaths[0].operatorQuery, /^id=ubg is:commander f:commander /);
-assert.equal(sultaiMazePaths[0].plainReadingQuery, "Sultai Brood commanders with exactly blue-black-green identity");
-assert.match(sultaiMazePaths[1].operatorQuery, /^id<=ubg f:commander -is:commander -t:land /);
-assert.match(sultaiMazePaths[2].operatorQuery, /^id<=ubg f:commander \(ft:/);
+assert.match(sultaiMazePaths[0].operatorQuery, /^id=bgu is:commander f:commander /);
+assert.equal(sultaiMazePaths[0].plainReadingQuery, "Sultai Brood commanders with exactly black-green-blue identity");
+assert.match(sultaiMazePaths[1].operatorQuery, /^id<=bgu f:commander -is:commander -t:land /);
+assert.match(sultaiMazePaths[2].operatorQuery, /^id<=bgu f:commander \(ft:/);
 assert.ok(!sultaiMazePaths.some((path) => path.pathType === "weird-stretch-commanders"));
 assert.ok(sultaiMazePaths.every((path) => !/Exact BGU|\/sultai\/|\/bgu\/|\/bug\/|\/ubg\/|\/gub\//i.test(`${path.operatorQuery} ${path.plainReadingQuery}`)));
 
@@ -2312,12 +3379,66 @@ assert.deepEqual(
   jeskaiMazePaths.map((path) => path.pathType),
   ["commanders-that-fit", "support-cards", "flavor-echoes"]
 );
-assert.match(jeskaiMazePaths[0].operatorQuery, /^id=wur is:commander f:commander /);
-assert.equal(jeskaiMazePaths[0].plainReadingQuery, "Jeskai Way commanders with exactly white-blue-red identity");
-assert.match(jeskaiMazePaths[1].operatorQuery, /^id<=wur f:commander -is:commander -t:land /);
-assert.match(jeskaiMazePaths[2].operatorQuery, /^id<=wur f:commander \(ft:/);
+assert.match(jeskaiMazePaths[0].operatorQuery, /^id=urw is:commander f:commander /);
+assert.equal(jeskaiMazePaths[0].plainReadingQuery, "Jeskai Way commanders with exactly blue-red-white identity");
+assert.match(jeskaiMazePaths[1].operatorQuery, /^id<=urw f:commander -is:commander -t:land /);
+assert.match(jeskaiMazePaths[2].operatorQuery, /^id<=urw f:commander \(ft:/);
 assert.ok(!jeskaiMazePaths.some((path) => path.pathType === "weird-stretch-commanders"));
 assert.ok(jeskaiMazePaths.every((path) => !/Exact URW|Exact WUR|\/jeskai\/|\/urw\/|\/wur\//i.test(`${path.operatorQuery} ${path.plainReadingQuery}`)));
+
+const yoreMazePaths = buildPersonalizedMazePaths({
+  faction: factions.YORE,
+  tagRefs: whiteFlavorTagRefs,
+  taxonomy: taxonomyData,
+});
+assert.deepEqual(
+  yoreMazePaths.map((path) => path.pathType),
+  ["commanders-that-fit", "support-cards", "flavor-echoes"]
+);
+assert.equal(yoreMazePaths[0].operatorQuery, "id=wubr is:commander f:commander");
+assert.doesNotMatch(yoreMazePaths[0].operatorQuery, LIVE_FOUR_COLOR_EXACT_COMMANDER_FORBIDDEN_FILTERS);
+assert.equal(yoreMazePaths[0].plainReadingQuery, "Yore commanders with exactly white-blue-black-red identity");
+assert.match(yoreMazePaths[1].operatorQuery, /^id<=wubr f:commander -is:commander -t:land /);
+assert.match(yoreMazePaths[2].operatorQuery, /^id<=wubr f:commander \(ft:/);
+assert.ok(!yoreMazePaths.some((path) => path.pathType === "weird-stretch-commanders"));
+assert.ok(yoreMazePaths.every((path) => !/Yore \/ Artifice|\/wubr\/|\/yore\//i.test(`${path.operatorQuery} ${path.plainReadingQuery}`)));
+
+const glintMazePaths = buildPersonalizedMazePaths({
+  faction: factions.GLINT,
+  tagRefs: whiteFlavorTagRefs,
+  taxonomy: taxonomyData,
+});
+assert.deepEqual(
+  glintMazePaths.map((path) => path.pathType),
+  ["commanders-that-fit", "support-cards", "flavor-echoes"]
+);
+assert.equal(glintMazePaths[0].operatorQuery, "id=ubrg is:commander f:commander");
+assert.doesNotMatch(glintMazePaths[0].operatorQuery, LIVE_FOUR_COLOR_EXACT_COMMANDER_FORBIDDEN_FILTERS);
+assert.equal(glintMazePaths[0].plainReadingQuery, "Glint commanders with exactly blue-black-red-green identity");
+assert.match(glintMazePaths[1].operatorQuery, /^id<=ubrg f:commander -is:commander -t:land /);
+assert.match(glintMazePaths[2].operatorQuery, /^id<=ubrg f:commander \(ft:/);
+assert.ok(!glintMazePaths.some((path) => path.pathType === "weird-stretch-commanders"));
+assert.ok(glintMazePaths.every((path) => !/Glint \/ Chaos|\/ubrg\/|\/glint\//i.test(`${path.operatorQuery} ${path.plainReadingQuery}`)));
+
+const colorlessMazePaths = buildPersonalizedMazePaths({
+  faction: factions.COLORLESS,
+  tagRefs: whiteFlavorTagRefs,
+  taxonomy: taxonomyData,
+});
+assert.deepEqual(
+  colorlessMazePaths.map((path) => path.operatorQuery),
+  [
+    "id=c is:commander f:commander",
+    "id<=c f:commander -is:commander (t:artifact OR o:{C} OR o:\"colorless mana\" OR o:Eldrazi)",
+    "id<=c f:commander (ft:cosmic OR ft:void OR ft:waste OR ft:wastes OR ft:eldrazi)",
+    "-id<=c is:commander f:commander (t:artifact OR o:\"colorless mana\" OR o:Eldrazi OR o:artifact)",
+  ],
+  "expected Colorless personalized Maze paths to use C/id<=c lanes"
+);
+assert.ok(
+  colorlessMazePaths.every((path) => !/\bid(?:<)?=wu\b|white-blue identity|\bWU\b/i.test(`${path.operatorQuery} ${path.plainReadingQuery} ${path.label}`)),
+  "expected Colorless personalized Maze paths to stay separate from adjacent WU evidence"
+);
 
 assert.match(whiteDossier.resultStatus, /primary color fit/i);
 assert.equal(whiteDossier.faction.identity.expression_kind, "color");
@@ -2542,11 +3663,19 @@ Object.entries({
   assert.equal(result.identity?.purity, 1, `${key} should remain a pure mono result.`);
 });
 
+const directPlacementSample = runAdaptiveGoldenPath({
+  model: placementModel,
+  factions,
+  targetFaction: "WU",
+});
 const directPlacement = buildAdaptivePlacementResult({
-  state: sample.state,
+  state: directPlacementSample.state,
   model: placementModel,
   factions,
 });
 assertValidPlacement(directPlacement);
 
-console.log(`PASS adaptive placement tests: ${modelFactionKeys.length} factions, ${goldenResults.length} golden paths`);
+});
+
+finishQuickReadingSections();
+console.log(`PASS adaptive placement tests: ${modelFactionKeys.length} factions, ${quickReadingGoldenPathCount || modelFactionKeys.length} golden paths`);

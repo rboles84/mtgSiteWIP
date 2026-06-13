@@ -1,0 +1,450 @@
+{
+  "schema_version": "1.0.0",
+  "profile_version": "0.1.3",
+  "faction_id": "witch",
+  "faction_name": "Witch / Growth",
+  "faction_type": "four-color",
+  "color_identity": [
+    "Green",
+    "White",
+    "Blue",
+    "Black"
+  ],
+  "color_pair_or_group": "GWUB four-color metadata only; all 24 GWUB permutations metadata/query-only",
+  "plane_or_setting": "Cross-setting; Ravnica historical anchor; Commander 2016 support texture",
+  "last_updated": "2026-06-12",
+  "source_review_date": "2026-06-12",
+  "last_full_review": "2026-06-04",
+  "last_incremental_review": "2026-06-12",
+  "core_identity": {
+    "short_form": "GWUB without Red: cultivated inevitability rather than impulsive spark.",
+    "identity_frame": "Witch / Growth uses the missing-Red frame to describe Green cultivation, White structure, Blue calculation, Black ambition, and patient expansion that refuses to mistake impulse for wisdom.",
+    "naming_boundary": "WITCH is Vox Mana's expression/research label, Growth is Commander 2016 support/display framing only, neither is the official or exclusive GWUB name, GWUB and same-color permutations remain metadata/query-only, and WUBG appears only when echoing support-source order.",
+    "claim_ids": [
+      "witch_claim_0001",
+      "witch_claim_0002",
+      "witch_claim_0003",
+      "witch_claim_0004",
+      "witch_claim_0005"
+    ]
+  },
+  "structure": {
+    "identity_class": "four-color",
+    "missing_color": "Red",
+    "present_colors": [
+      "Green",
+      "White",
+      "Blue",
+      "Black"
+    ],
+    "primary_anchor": "Witch-Maw Nephilim as bounded historical/card anchor",
+    "support_texture": [
+      "patient development",
+      "calculated expansion",
+      "systematic accumulation",
+      "proliferate and counter scaling",
+      "Atraxa support texture",
+      "Breed Lethality Commander texture",
+      "Growth support/display framing"
+    ],
+    "non_faction_boundary": "Witch is not an official faction, plane, civilization, doctrine, institution, or organized school."
+  },
+  "great_tension": {
+    "gift": "Small investments are protected, optimized, and multiplied until growth becomes difficult to stop.",
+    "shadow": "If impulse is distrusted too completely, patient planning can become sterile control rather than living cultivation.",
+    "boundary": "This is Vox Mana/source synthesis, not direct canon doctrine."
+  },
+  "historical_timeline": [
+    {
+      "label": "Nephilim-era anchor",
+      "summary": "Witch-Maw Nephilim provides the card-identity anchor for the lane.",
+      "boundary": "Not a civilization, doctrine, naming authority, or placement authority; exact official card facts remain Manual fill required."
+    },
+    {
+      "label": "Commander 2016 support texture",
+      "summary": "Growth, Atraxa, Praetors' Voice, and Breed Lethality support proliferate, counters, scaling growth, and patient-board-expansion readability.",
+      "boundary": "Support-only; not lore proof, legality proof, runtime authorization, recommendation proof, or independent identity proof."
+    }
+  ],
+  "key_figures": [
+    {
+      "name": "Witch-Maw Nephilim",
+      "role": "Historical/card anchor",
+      "boundary": "Not a Witch faction founder, institution, doctrine source, or naming authority."
+    },
+    {
+      "name": "Atraxa, Praetors' Voice",
+      "role": "Commander support texture",
+      "boundary": "Support-only; not proof of Witch lore, official naming, or Phyrexia-only identity."
+    }
+  ],
+  "canonical_flavor_text": {
+    "source_bound_summary": "Witch / Growth is the four-color without Red raw source for patient development, calculated expansion, bounded Witch-Maw anchoring, bounded Atraxa / Breed Lethality texture, and strict public-interface boundaries.",
+    "vox_mana_synthesis": "The garden does not hurry; it counts the seasons and keeps every root.",
+    "boundary": "Use synthesis only as profile language, not as raw canon proof. Do not invent or quote unsupported flavor text."
+  },
+  "mechanics": {
+    "source_bound_texture": [
+      "missing-Red four-color framing",
+      "patient development",
+      "calculated expansion",
+      "systematic accumulation",
+      "proliferate and counter scaling"
+    ],
+    "support_only_texture": [
+      "Atraxa Commander texture",
+      "Breed Lethality product texture",
+      "Growth support/display framing",
+      "patient board expansion",
+      "scaling Commander engines"
+    ],
+    "deferred": [
+      "exact Witch-Maw card facts",
+      "exact Commander legality",
+      "exact recommendations",
+      "exact Commander 2016 article claims",
+      "EDHREC, popularity, ranking, and cEDH claims",
+      "Phyrexia-only lore collapse"
+    ],
+    "summary": "Counters, proliferate texture, protected engines, value accumulation, and scaling board development can express Witch's patient accumulation only when they serve the full missing-Red protected-growth worldview; mechanics alone do not define the identity."
+  },
+  "views_on_other_factions": {
+    "pair_overlap_boundaries": [
+      "Selesnya community and cultivation alone are not Witch.",
+      "Simic growth through study alone is not Witch.",
+      "Golgari endurance and resource reuse alone are not Witch.",
+      "Azorius structure and knowledge alone are not Witch.",
+      "Orzhov obligation and hierarchy alone are not Witch.",
+      "Dimir secrecy and calculation alone are not Witch."
+    ],
+    "near_match_boundaries": [
+      "Bant lacks Black ambition.",
+      "Esper lacks Green cultivation.",
+      "Sultai lacks White structure.",
+      "Abzan lacks Blue calculation.",
+      "Yore-facing comparison is architecture-only and not proof of Witch.",
+      "Glint-facing comparison is architecture-only and not proof of Witch.",
+      "Dune-facing comparison is architecture-only and not proof of Witch.",
+      "Ink-facing comparison is architecture-only and not proof of Witch.",
+      "Witch-Maw-only anchors are review triggers, not proof.",
+      "Atraxa-only, Breed Lethality-only, and Growth-only shells are review triggers, not proof.",
+      "Generic proliferate, counters, infect, superfriends, Phyrexian, or GWUB goodstuff is a review trigger, not proof."
+    ],
+    "source_role": "Shaping-only parity guidance from VM-266."
+  },
+  "commander_compass": {
+    "schema_version": "1.0.0",
+    "source_research_file": "docs/research/vox_mana_second_commander_recommendations_enhanced.jsonl",
+    "last_reviewed": "2026-06-12",
+    "review_status": "support_only_live_pilot_curation",
+    "recommendation_philosophy": "Use WITCH Commander guidance as product/operator support only: the local Breed Lethality / Atraxa, Praetors' Voice support row can express Breed Lethality, Atraxa, proliferate, counters, and scaling-growth Commander texture. These rows do not create lore proof, naming authority, Commander legality proof, placement evidence, public aliases, or claim authority.",
+    "identity_basis": {
+      "owned_themes": [
+        "GWUB/non-Red patient cultivation",
+        "counters and proliferate as support-only Commander vocabulary",
+        "protected long-horizon accumulation"
+      ],
+      "allowed_phrases": [
+        "Witch support fit",
+        "proliferate texture",
+        "counter scaling",
+        "patient accumulation"
+      ],
+      "avoid_or_contrast_phrases": [
+        "Atraxa as Witch lore proof",
+        "Breed Lethality as naming authority",
+        "Commander legality proof",
+        "counter preference as placement evidence"
+      ],
+      "adjacent_overlap_notes": [
+        "Counters and growth texture overlaps Bant, Abzan, Sultai, and Simic; Witch support wording keeps the non-Red patient-cultivation boundary visible."
+      ],
+      "supporting_claim_ids": [
+        "witch_claim_0002",
+        "witch_claim_0003",
+        "witch_claim_0005"
+      ],
+      "supporting_source_ids": [
+        "src_vm_commander_recommendations_breed_lethality_20260604",
+        "src_vm_four_color_identity_dossier_md_20260604"
+      ]
+    },
+    "support_decks": [
+      "Breed Lethality"
+    ],
+    "support_language": [
+      "counters",
+      "proliferate",
+      "scaling growth",
+      "long-game value"
+    ],
+    "native_fit_commanders": [
+      {
+        "exact_card_name": "Atraxa, Praetors' Voice",
+        "display_name": "Atraxa, Praetors' Voice",
+        "scryfall_uri": "https://scryfall.com/card/2xm/190/atraxa-praetors-voice?utm_source=api",
+        "edhrec_uri": "https://edhrec.com/commanders/atraxa-praetors-voice",
+        "color_identity": [
+          "G",
+          "W",
+          "U",
+          "B"
+        ],
+        "commander_legal": true,
+        "recommendation_type": "Support-Only Commander Row",
+        "archetype_tags": [
+          "counters",
+          "proliferate",
+          "scaling growth",
+          "long-game value"
+        ],
+        "why_this_fits": "The approved local Commander support row for Breed Lethality supports Breed Lethality, Atraxa, proliferate, counters, and scaling-growth Commander texture for the WITCH lane.",
+        "skip_if": "Skip if the user needs lore proof, naming authority, exact legality proof, placement evidence, or metagame certainty rather than support-only Commander texture.",
+        "gameplay_summary": "Commander support texture for protected counters, proliferate-style scaling, and long-game growth. Use only as a support starting point for Witch's missing-Red patience and protected accumulation.",
+        "faction_identity_terms": [
+          "Witch support fit",
+          "proliferate texture",
+          "counter scaling",
+          "patient accumulation"
+        ],
+        "source_basis": "src_vm_commander_recommendations_breed_lethality_20260604; docs/research/vox_mana_second_commander_recommendations_enhanced.jsonl (content-matched deckName Breed Lethality and mainCommander Atraxa, Praetors' Voice)",
+        "confidence": "Support-only",
+        "caution_notes": "Support-only Commander material; not lore, canon, placement, claim, route, alias, or public naming authority."
+      }
+    ],
+    "weird_stretch_commanders": [],
+    "budget_friendly_commanders": [],
+    "advanced_complexity_commanders": [],
+    "iconic_lore_forward_commanders": [],
+    "not_recommended_or_deprioritized": [
+      {
+        "reason": "Atraxa as Witch lore proof"
+      },
+      {
+        "reason": "Breed Lethality as naming authority"
+      },
+      {
+        "reason": "Commander legality proof"
+      },
+      {
+        "reason": "counter preference as placement evidence"
+      }
+    ],
+    "archetype_lanes": [
+      {
+        "lane": "Breed Lethality support texture",
+        "support_decks": [
+          "Breed Lethality"
+        ],
+        "support_language": [
+          "counters",
+          "proliferate",
+          "scaling growth",
+          "long-game value"
+        ],
+        "source_basis": "src_vm_commander_recommendations_breed_lethality_20260604"
+      }
+    ],
+    "link_targets": {
+      "edhrec_commander_index": "https://edhrec.com/commanders/atraxa-praetors-voice",
+      "mtgdecks_color_identity": "",
+      "scryfall_commander_search": "https://scryfall.com/search?q=id%3Dgwub+is%3Acommander+f%3Acommander",
+      "archidekt_color_search": "https://archidekt.com/search/decks?colors=GWUB&deckFormat=3&orderBy=-updatedAt&page=1"
+    },
+    "merge_notes": {
+      "support_only_boundary": "Commander/deck/operator material remains support texture only and must not be used as lore, canon, placement, Crucible, discriminator, claim, route, alias, or naming proof.",
+      "deck_links_status": "External links are Commander support navigation targets only, not evidence rows."
+    }
+  },
+  "search_and_filter_metadata": {
+    "future_expression_name": "WITCH",
+    "future_expression_name_status": "live after VM-269; WITCH is the Vox Mana expression label, Growth is Commander 2016 support/display framing only, Growth is not a public alias, route key, dossier key, preview key, expression key, or exclusive official name, GWUB and all same-color permutations remain metadata/query-only, and WUBG appears only when echoing support-source order",
+    "metadata_query_only_terms": [
+      "GWUB",
+      "GWBU",
+      "GUWB",
+      "GUBW",
+      "GBWU",
+      "GBUW",
+      "WGUB",
+      "WGBU",
+      "WUGB",
+      "WUBG",
+      "WBGU",
+      "WBUG",
+      "UGWB",
+      "UGBW",
+      "UWGB",
+      "UWBG",
+      "UBGW",
+      "UBWG",
+      "BGWU",
+      "BGUW",
+      "BWGU",
+      "BWUG",
+      "BUGW",
+      "BUWG",
+      "gwub",
+      "gwbu",
+      "guwb",
+      "gubw",
+      "gbwu",
+      "gbuw",
+      "wgub",
+      "wgbu",
+      "wugb",
+      "wubg",
+      "wbgu",
+      "wbug",
+      "ugwb",
+      "ugbw",
+      "uwgb",
+      "uwbg",
+      "ubgw",
+      "ubwg",
+      "bgwu",
+      "bguw",
+      "bwgu",
+      "bwug",
+      "bugw",
+      "buwg"
+    ],
+    "source_status": "source_grounded_live_authority_repair",
+    "placement_status": "live_after_vm269_source_repair",
+    "preview_eligible": false,
+    "review_gated": false,
+    "placement_eligible": true,
+    "live_pilot": true,
+    "claim_ids": [
+      "witch_claim_0001",
+      "witch_claim_0002",
+      "witch_claim_0003",
+      "witch_claim_0004",
+      "witch_claim_0005"
+    ]
+  },
+  "site_surface": {
+    "display_name": "Witch / Growth",
+    "short_summary": "Witch / Growth is a source-grounded four-color without Red identity for cultivated inevitability, patient growth, and strict public-interface boundaries.",
+    "one_sentence_identity": "Witch keeps growing because every root was planned before the spark arrived.",
+    "tagline": "Let the garden wait. Count every root.",
+    "primary_tags": [
+      "Witch",
+      "Growth support texture",
+      "Four-color",
+      "Non-Red",
+      "Source-grounded",
+      "Live after VM-269"
+    ],
+    "secondary_tags": [
+      "Patient development",
+      "Calculated expansion",
+      "Systematic accumulation",
+      "Witch-Maw boundary",
+      "Atraxa support-only",
+      "Breed Lethality support-only",
+      "Metadata-query-only permutations"
+    ],
+    "tone_words": [
+      "patient",
+      "cultivating",
+      "calculated",
+      "structured",
+      "ambitious",
+      "inevitable",
+      "cold",
+      "garden-bound"
+    ],
+    "visual_keywords": [
+      "patient garden",
+      "ritual trellis",
+      "sealed conservatory",
+      "ledgered roots",
+      "controlled experiment",
+      "four-color without Red"
+    ],
+    "best_for": [
+      "readers checking Witch's source-grounded live repair boundary",
+      "future authors preserving the difference between Witch identity, Growth support texture, and technical color metadata",
+      "Commander-first language that likes proliferate, counters, and patient board expansion while keeping those anchors support-only"
+    ],
+    "content_warnings_or_sensitivity_notes": [
+      "Witch language can involve cold planning, ambition, control, and suppressed impulse. Exact card facts, Commander legality, recommendations, rankings, cEDH claims, and stronger product or article grounding remain deferred."
+    ],
+    "claim_ids": [
+      "witch_claim_0001",
+      "witch_claim_0002",
+      "witch_claim_0003",
+      "witch_claim_0004",
+      "witch_claim_0005"
+    ]
+  },
+  "data_quality": {
+    "strongest_evidence_areas": [
+      "Witch lifecycle and non-live public-interface boundary",
+      "GWUB metadata/query-only boundary",
+      "WITCH/Growth naming guardrail",
+      "missing-Red four-color frame",
+      "Witch-Maw Nephilim boundary as card anchor, not institutional authority",
+      "bounded patient-growth and Atraxa / Breed Lethality support texture"
+    ],
+    "weakest_evidence_areas": [
+      "direct official Witch-Maw card facts",
+      "Atraxa and Breed Lethality product or article grounding beyond support rows",
+      "Growth commentary beyond support/display framing",
+      "adjacent separator raw evidence",
+      "Commander legality and exact recommendations",
+      "long-form ritual symbolism, strategy, competitive claims, and Phyrexia-only readings"
+    ],
+    "manual_review_recommended": true,
+    "review_gated": false,
+    "placement_eligible": true,
+    "preview_eligible": false,
+    "live_pilot": true,
+    "notes": "VM-328 repairs WITCH source/generated authority drift after VM-269 live promotion and VM-298 source repair. The raw claim set remains exactly five claims; no new claims or evidence rows were added, and generated placement must stay within that boundary.",
+    "source_status": "source_grounded_live_authority_repair"
+  },
+  "research_limitations": [
+    "Do not use VM-265 or VM-266 architecture docs as raw-claim evidence.",
+    "Do not use Commander rows, precon support data, support-only synthesis, or manual-fill rows as raw-claim evidence.",
+    "Do not use Atraxa, Breed Lethality, Growth, proliferate, counters, Phyrexia texture, or generic same-color goodstuff as proof of Witch lore.",
+    "Do not use unmanaged Witch drafts as source authority; they are quarantine records only.",
+    "Adjacent separators remain architecture guidance rather than raw proof."
+  ],
+  "profile": {
+    "overview": "Witch / Growth is Vox Mana's four-color without Red expression for patient cultivation, calculated expansion, protected accumulation, and ambition disciplined into long-horizon growth.",
+    "philosophy": "Witch believes the future should be cultivated before it is claimed: Green grows the root, White protects the trellis, Blue measures the method, and Black keeps ambition aimed at inevitability without letting Red-style impulse take command.",
+    "core_tension": "Witch cultivates protected growth through structure, calculation, and ambition, but patient planning can become sterile control when Red-style impulse is excluded too completely.",
+    "mechanics_and_play_pattern": "Counters, proliferate texture, protected engines, value accumulation, and scaling board development can express Witch's patient accumulation only when they serve the full missing-Red protected-growth worldview; mechanics alone do not define the identity.",
+    "claim_ids": [
+      "witch_claim_0001",
+      "witch_claim_0002",
+      "witch_claim_0003",
+      "witch_claim_0004",
+      "witch_claim_0005"
+    ]
+  },
+  "deck_links": [
+    {
+      "fmt": "Commander",
+      "name": "Atraxa, Praetors' Voice",
+      "desc": "Commander support texture for protected counters, proliferate-style scaling, and long-game growth. Use only as a support starting point for Witch's missing-Red patience and protected accumulation.",
+      "mtgg": null,
+      "edhrec": "https://edhrec.com/commanders/atraxa-praetors-voice",
+      "mtgd": null
+    },
+    {
+      "fmt": "Commander",
+      "name": "Breed Lethality (Precon)",
+      "desc": "Commander 2016 support texture for counters and proliferate-style scaling with Atraxa, Praetors' Voice. Treat as precon reference only, not naming authority or lore proof.",
+      "mtgg": null,
+      "edhrec": "https://edhrec.com/decks/breed-lethality",
+      "mtgd": null
+    }
+  ],
+  "research_links": {
+    "source_packet": "data/raw-factions/witch/witch.sources.json",
+    "support_dossier": "docs/research/canon/misc/Magic Four-Color Identity Dossier.md",
+    "commander_support_row": "docs/research/vox_mana_second_commander_recommendations_enhanced.jsonl (content-matched deckName Breed Lethality and mainCommander Atraxa, Praetors' Voice)"
+  }
+}

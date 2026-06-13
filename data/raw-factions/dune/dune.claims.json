@@ -1,0 +1,115 @@
+{
+  "schema_version": "1.0.0",
+  "faction_id": "dune",
+  "faction_name": "Dune / Aggression",
+  "source_review_date": "2026-06-09",
+  "last_updated": "2026-06-09",
+  "claim_count": 5,
+  "claim_quality_summary": {
+    "claim_basis": "Existing VM-252 claim-bearing evidence rows, with VM-257 used only for live lifecycle metadata.",
+    "support_material_policy": "Support-only, shaping-only, discovery-only, Commander/operator, precon support, architecture, and manual-fill material may appear only in bounded profile or review notes.",
+    "evidence_quality": "High for lifecycle, naming, missing-color, Dune-Brood boundary, and bounded missing-Blue pressure framing; low or deferred for exact card facts, Commander legality, Saskia lore, Commander 2016 article grounding, adjacent separator raw proof, and public placement readiness beyond the VM-257 live lifecycle decision.",
+    "known_limitations": [
+      "Direct official Dune-Brood card facts remain Manual fill required.",
+      "Saskia and Commander 2016 product or lore grounding remain support-only.",
+      "Rosewater Aggression commentary remains support-only until direct local capture exists.",
+      "Adjacent separators remain architecture guidance, not raw claim evidence.",
+      "Commander legality and exact recommendations remain deferred.",
+      "DUNE is the future Vox Mana expression label, while Aggression is Commander 2016 paired-framing support text only rather than a public alias or exclusive official name.",
+      "Long-form metaphysics, strategy, and competitive claims should stay conservative and bounded."
+    ],
+    "claim_ids": [
+      "dune_claim_0001",
+      "dune_claim_0002",
+      "dune_claim_0003",
+      "dune_claim_0004",
+      "dune_claim_0005"
+    ]
+  },
+  "claims": [
+    {
+      "claim_id": "dune_claim_0001",
+      "faction_id": "dune",
+      "claim_type": "identity_lifecycle_boundary",
+      "statement": "Dune / Aggression is the BRGW/non-Blue four-color identity using DUNE as the project expression key; VM-257 later promoted DUNE to the live public/generated key, while BRGW, WBRG, and all same-color permutations remain metadata/query-only and do not become aliases or public interface keys.",
+      "canon_status": "Source-supported identity with lifecycle boundary",
+      "source_ids": [
+        "src_vm_dune_evidence_ledger_20260603",
+        "src_vm_dune_vm252_scope_card_20260603",
+        "src_vm257_dune_runtime_promotion_20260603"
+      ],
+      "evidence_rows": [
+        "DUNE-EVID-001",
+        "DUNE-EVID-002",
+        "DUNE-EVID-010"
+      ],
+      "confidence": "High",
+      "notes": "VM-302 updates the lifecycle sentence after VM-257 while preserving the evidence floor and color-code boundary. BRGW, WBRG, and all same-color permutations remain metadata/query-only and are not aliases, route keys, fixture keys, Home preview keys, Maze keys, Supabase keys, schema keys, or public color-code interfaces."
+    },
+    {
+      "claim_id": "dune_claim_0002",
+      "faction_id": "dune",
+      "claim_type": "naming_guardrail",
+      "statement": "DUNE is Vox Mana's expression label for BRGW/non-Blue, while Aggression is Commander 2016 support/theme texture for the same color quadruple; neither term should be presented as the official, exclusive, or universally accepted MTG name for BRGW.",
+      "canon_status": "Vox Mana naming policy with source-bound guardrail",
+      "source_ids": [
+        "src_vm_dune_evidence_ledger_20260603",
+        "src_vm_four_color_reference_audit_20260603"
+      ],
+      "evidence_rows": [
+        "DUNE-EVID-002",
+        "DUNE-EVID-010"
+      ],
+      "confidence": "High",
+      "notes": "Do not create public aliases from this naming policy. Aggression is paired-framing support text only, and BRGW, WBRG, and all same-color permutations remain metadata/query-only."
+    },
+    {
+      "claim_id": "dune_claim_0003",
+      "faction_id": "dune",
+      "claim_type": "missing_color_identity",
+      "statement": "The Dune / Aggression BRGW four-color lane is framed by the color it excludes: Blue.",
+      "canon_status": "Source-bound four-color framing",
+      "source_ids": [
+        "src_vm_dune_evidence_ledger_20260603",
+        "src_vm_four_color_reference_audit_20260603"
+      ],
+      "evidence_rows": [
+        "DUNE-EVID-003"
+      ],
+      "confidence": "High",
+      "notes": "Missing-color framing is identity structure, not a canon faction claim."
+    },
+    {
+      "claim_id": "dune_claim_0004",
+      "faction_id": "dune",
+      "claim_type": "dune_brood_boundary",
+      "statement": "Dune-Brood Nephilim is the Nephilim/card anchor for Dune, but Nephilim should remain historical/card-identity anchors rather than Vox Mana factions, institutions, doctrines, or placement authorities.",
+      "canon_status": "Source-bound anchor with guardrail",
+      "source_ids": [
+        "src_vm_dune_evidence_ledger_20260603",
+        "src_vm_four_color_reference_audit_20260603"
+      ],
+      "evidence_rows": [
+        "DUNE-EVID-004"
+      ],
+      "confidence": "Medium",
+      "notes": "Exact official Dune-Brood card facts remain Manual fill required before deeper raw or public copy. Dune-Brood may help identify the historical card-anchor boundary, but it does not authorize routing, scoring, or placement eligibility."
+    },
+    {
+      "claim_id": "dune_claim_0005",
+      "faction_id": "dune",
+      "claim_type": "missing_blue_pressure_frame",
+      "statement": "The current Dune / Aggression frame may discuss direct action, physical momentum, territorial pressure, organized force, and rejection of detached contemplation, but detailed metaphysical, Commander, strategic, or competitive claims should remain bounded beyond the approved evidence floor.",
+      "canon_status": "Source-bound framing with synthesis boundary",
+      "source_ids": [
+        "src_vm_dune_evidence_ledger_20260603",
+        "src_vm_four_color_reference_audit_20260603"
+      ],
+      "evidence_rows": [
+        "DUNE-EVID-007"
+      ],
+      "confidence": "Medium",
+      "notes": "Use as high-level identity framing only. Keep long-form metaphysics, placement logic, and Commander texture conservative and explicitly bounded."
+    }
+  ]
+}

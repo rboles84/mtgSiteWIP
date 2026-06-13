@@ -1,0 +1,232 @@
+{
+  "schema_version": "1.0.0",
+  "faction_id": "witch",
+  "faction_name": "Witch / Growth",
+  "last_updated": "2026-06-12",
+  "audit_summary": {
+    "raw_packet_created": true,
+    "raw_claim_count": 5,
+    "source_evidence_rows_used": [
+      "WITCH-EVID-001",
+      "WITCH-EVID-002",
+      "WITCH-EVID-003",
+      "WITCH-EVID-004",
+      "WITCH-EVID-005",
+      "WITCH-EVID-007",
+      "WITCH-EVID-010"
+    ],
+    "excluded_evidence_rows": [
+      "WITCH-EVID-006",
+      "WITCH-EVID-008",
+      "WITCH-EVID-009",
+      "WITCH-EVID-011",
+      "WITCH-MF-001",
+      "WITCH-MF-002",
+      "WITCH-MF-003",
+      "WITCH-MF-004",
+      "WITCH-MF-005",
+      "WITCH-MF-006",
+      "WITCH-MF-007",
+      "WITCH-MF-008",
+      "WITCH-MF-009",
+      "WITCH-MF-010",
+      "WITCH-MF-011",
+      "WITCH-MF-012",
+      "WITCH-MF-013"
+    ],
+    "support_only_rows_as_claims": false,
+    "manual_fill_rows_as_claims": false,
+    "architecture_docs_as_raw_claim_evidence": false,
+    "commander_rows_as_raw_claims": false,
+    "discovery_draft_files_as_raw_claim_evidence": false,
+    "synthesis_rows_as_raw_claim_evidence": false,
+    "generated_html_as_raw_claim_evidence": false,
+    "builder_mapping_changed": false,
+    "generated_artifacts_changed": true,
+    "runtime_files_changed": false,
+    "status": "source_grounded_live_authority_repair",
+    "placement_status": "live_after_vm269_source_generated_authority_repair",
+    "placement_ready_pass": "VM-328",
+    "witch_future_planned_only": false,
+    "gwub_and_permutations_metadata_query_only": true,
+    "wubg_support_order_only": true,
+    "raw_key_mapping_updated": false,
+    "build_factions_run": true,
+    "placement_eligible": true,
+    "preview_eligible": false,
+    "live_pilot": true,
+    "authority_repair": {
+      "card": "VM-328",
+      "date": "2026-06-10",
+      "claim_count_preserved": 5,
+      "new_claim_ids_added": [],
+      "new_evidence_ids_added": [],
+      "source_backing": "Generated WITCH good-fit, poor-fit, and inhibitor strings were source-normalized only where traceable to VM-264 evidence and VM-266 separator guidance."
+    }
+  },
+  "changes": [
+    {
+      "change_id": "witch_change_001",
+      "change_type": "VM-267 Initial Non-Live Raw Packet",
+      "change_date": "2026-06-04",
+      "summary": "Created the Witch / Growth review-gated, non-live raw-faction packet from the fixed VM-264 evidence allowlist while preserving VM-265 and VM-266 architecture as shaping-only, Commander and precon texture as support-only, the three unmanaged Witch drafts as discovery-only quarantine records without source IDs, GWUB and permutations as metadata/query-only, WUBG as support-source order only, and no runtime, generated, or builder changes.",
+      "sources_added": [
+        "src_vm_witch_source_ledger_20260604",
+        "src_vm_witch_evidence_ledger_20260604",
+        "src_vm_witch_vm264_scope_card_20260604",
+        "src_vm_four_color_reference_audit_20260604",
+        "src_vm_four_color_identity_dossier_md_20260604",
+        "src_vm_witch_commander_deck_list_20260604",
+        "src_vm_commander_recommendations_breed_lethality_20260604",
+        "src_vm_witch_precons_source_json_20260604",
+        "src_vm_witch_precon_catalog_json_20260604",
+        "src_vm_witch_identity_md_20260604",
+        "src_vm_witch_metaphysics_md_20260604",
+        "src_vm_witch_manual_fill_20260604",
+        "src_vm_mtg_lore_research_enhanced_final_20260604"
+      ],
+      "quarantine_records_added": [
+        "witch_quarantine_discovery_001",
+        "witch_quarantine_discovery_002",
+        "witch_quarantine_discovery_003"
+      ],
+      "sources_updated": [],
+      "claims_added": [
+        "witch_claim_0001",
+        "witch_claim_0002",
+        "witch_claim_0003",
+        "witch_claim_0004",
+        "witch_claim_0005"
+      ],
+      "claims_updated": [],
+      "claims_superseded": [],
+      "claims_contradicted": [],
+      "profile_fields_updated": [
+        "site_surface",
+        "core_identity",
+        "structure",
+        "great_tension",
+        "historical_timeline",
+        "key_figures",
+        "canonical_flavor_text",
+        "views_on_other_factions",
+        "mechanics",
+        "search_and_filter_metadata",
+        "data_quality",
+        "research_limitations",
+        "commander_compass"
+      ],
+      "placement_fields_updated": [
+        "placement_summary",
+        "moral_and_psychological_profile",
+        "placement_axes",
+        "core_values",
+        "behavioral_signals",
+        "inhibitor_traits",
+        "good_fit_indicators",
+        "ideal_fit_indicators",
+        "poor_fit_indicators",
+        "discriminator_questions",
+        "chatbot_guidance",
+        "placement_quality",
+        "color_identity",
+        "calibration_tuning",
+        "collision_guidance"
+      ],
+      "manual_review_required": [
+        "Verify exact official Witch-Maw card facts before exact card copy.",
+        "Keep Atraxa / Breed Lethality / Commander 2016 product or lore grounding support-only until stronger local sources are captured.",
+        "Keep Growth commentary support/display-only until direct local capture exists.",
+        "Keep all Witch manual-fill topics excluded from raw-claim evidence.",
+        "Keep adjacent separators as architecture guidance, not raw proof.",
+        "Keep Commander legality, exact card data, recommendations, rankings, metagame claims, cEDH claims, and house-rule claims deferred.",
+        "Keep Phyrexia-only framing bounded and non-totalizing.",
+        "Keep Growth paired-framing only and non-public.",
+        "Keep GWUB and all same-color permutations metadata/query-only.",
+        "Keep WUBG support-source order only.",
+        "Keep WITCH future/planned only and non-live."
+      ],
+      "notes": "WITCH is the Vox Mana expression/research label, Growth is Commander 2016 support/display framing only, Growth is not a public alias or exclusive official name, GWUB remains metadata/query-only, WUBG remains support-source order only, and no builder, runtime, generated, schema, navigation, fixture, test, or placement-model surfaces were edited."
+    },
+    {
+      "change_id": "witch_change_002",
+      "change_type": "VM-328 Source-Generated Authority Repair",
+      "change_date": "2026-06-10",
+      "summary": "Source-normalized active WITCH fit and inhibitor backing so VM-300 source/generated validation can pass without expanding authority beyond the VM-264 through VM-298 evidence floor. WITCH remains live/placeable and preview-ineligible after VM-269.",
+      "sources_added": [],
+      "quarantine_records_added": [],
+      "sources_updated": [],
+      "claims_added": [],
+      "claims_updated": [],
+      "claims_superseded": [],
+      "claims_contradicted": [],
+      "evidence_rows_added": [],
+      "profile_fields_updated": [
+        "profile_version",
+        "last_updated",
+        "source_review_date",
+        "last_incremental_review",
+        "search_and_filter_metadata.source_status",
+        "data_quality.notes",
+        "data_quality.source_status"
+      ],
+      "placement_fields_updated": [
+        "placement_profile_version",
+        "based_on_profile_version",
+        "last_updated",
+        "inhibitor_traps",
+        "good_fit_indicators",
+        "poor_fit_indicators",
+        "placement_quality",
+        "calibration_tuning"
+      ],
+      "manual_review_required": [
+        "Keep claim_count at 5.",
+        "Do not add WITCH evidence IDs or claim IDs for this repair.",
+        "Keep Growth, Atraxa, Breed Lethality, Witch-Maw, Nephilim language, GWUB, WUBG, and same-color permutations bounded to their existing support, anchor, or metadata roles.",
+        "Keep WITCH preview-ineligible and do not add public aliases, routes, Home preview membership, or hero work."
+      ],
+      "notes": "No WITCH claims or sources were edited. The repair adds validator-counted raw backing for exact generated WITCH good-fit, poor-fit, biological-prior, and avoid/mismatch strings where they are traceable to approved WITCH source evidence or VM-266 separator guidance."
+    },
+    {
+      "change_id": "witch_change_003",
+      "change_type": "VM-348 Four-Color Source-Bound Cohort Repair",
+      "change_date": "2026-06-12",
+      "summary": "Normalized four-color source roles, added source-backed ring discriminator and collision guidance coverage, added support-only Commander/deck dossier data, and prepared raw enrichment for builder-surfaced generated output without changing the five-claim floor.",
+      "sources_added": [],
+      "sources_updated": [
+        "src_vm_witch_manual_fill_20260604"
+      ],
+      "claims_added": [],
+      "claims_updated": [],
+      "claims_superseded": [],
+      "claims_contradicted": [],
+      "profile_fields_updated": [
+        "profile_version",
+        "source_review_date",
+        "last_incremental_review",
+        "commander_compass",
+        "deck_links",
+        "research_links"
+      ],
+      "placement_fields_updated": [
+        "placement_profile_version",
+        "placement_model_version",
+        "based_on_profile_version",
+        "discriminator_questions",
+        "collision_guidance"
+      ],
+      "support_only_rows_used": [
+        "src_vm_commander_recommendations_breed_lethality_20260604",
+        "src_vm_four_color_identity_dossier_md_20260604"
+      ],
+      "manual_review_required": [
+        "Keep claim_count at exactly 5.",
+        "Keep Commander/deck/operator material support-only and out of lore, placement, Crucible, discriminator-proof, claim, route, alias, and naming authority.",
+        "Keep unmanaged discovery drafts discovery-only unless a future source-intake card audits and promotes them.",
+        "Keep ring collision guidance lateral_inhibition:false unless a future approved calibration card strengthens suppression deliberately."
+      ],
+      "notes": "VM-348 is a source-bound cohort repair. It adds no web intake, no raw claims, no generated hand edits, no public aliases, no Home preview membership, and no route changes."
+    }
+  ]
+}

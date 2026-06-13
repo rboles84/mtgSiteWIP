@@ -2,8 +2,28 @@
   "schema_version": "1.0.0",
   "faction_id": "gruul_clans",
   "faction_name": "Gruul Clans",
-  "last_updated": "2026-05-10T02:56:03.254Z",
+  "last_updated": "2026-06-09T00:00:00.000Z",
   "changes": [
+    {
+      "change_id": "change_gruul_clans_vm306_mechanics_source_first_20260609",
+      "date": "2026-06-09",
+      "change_type": "source_first_mechanics_summary",
+      "summary": "Wrapped the existing Gruul mechanics entries in a builder-readable mechanics object with a source-backed summary for generated placement output.",
+      "affected_files": [
+        "gruul_clans.profile.json"
+      ],
+      "sources_added": [],
+      "claims_added": [],
+      "claims_updated": [],
+      "profile_fields_updated": [
+        "mechanics.summary",
+        "mechanics.source_bound_texture",
+        "mechanics.supporting_claim_ids",
+        "mechanics.supporting_sources",
+        "mechanics.entries"
+      ],
+      "notes": "No new claims or mechanics were added. Riot and bloodrush are promoted from existing raw mechanics entries; bloodthirst, surveil, and adapt remain unpromoted search/support metadata for this pass."
+    },
     {
       "change_id": "change_gruul_clans_placement_ready_20260510025603",
       "date": "2026-05-10",

@@ -1,0 +1,325 @@
+{
+  "schema_version": "1.0.0",
+  "placement_profile_version": "0.1.2",
+  "placement_model_version": "0.1.2",
+  "based_on_profile_version": "0.1.2",
+  "faction_id": "yore",
+  "faction_name": "Yore / Artifice",
+  "last_updated": "2026-06-12",
+  "color_identity": {
+    "colors": [
+      "White",
+      "Blue",
+      "Black",
+      "Red"
+    ],
+    "metadata_query_only_forms": [
+      "WUBR",
+      "WURB",
+      "WBRU",
+      "WBUR",
+      "WRUB",
+      "WRBU",
+      "UWBR",
+      "UWRB",
+      "UBWR",
+      "UBRW",
+      "URWB",
+      "URBW",
+      "BWUR",
+      "BWRU",
+      "BUWR",
+      "BURW",
+      "BRWU",
+      "BRUW",
+      "RWUB",
+      "RWBU",
+      "RUWB",
+      "RUBW",
+      "RBWU",
+      "RBUW",
+      "wubr",
+      "wurb",
+      "wbru",
+      "wbur",
+      "wrub",
+      "wrbu",
+      "uwbr",
+      "uwrb",
+      "ubwr",
+      "ubrw",
+      "urwb",
+      "urbw",
+      "bwur",
+      "bwru",
+      "buwr",
+      "burw",
+      "brwu",
+      "bruw",
+      "rwub",
+      "rwbu",
+      "ruwb",
+      "rubw",
+      "rbwu",
+      "rbuw"
+    ],
+    "future_expression_name": "YORE",
+    "future_expression_name_status": "live public/generated key after VM-245; WUBR and same-color permutations remain metadata/query-only and are not aliases, route keys, placement keys, fixture keys, Home preview keys, Maze keys, Supabase keys, schema keys, or public color-code interfaces"
+  },
+  "placement_summary": "Yore / Artifice is a source-authored live-repair raw packet for WUBR/non-Green engineered agency against natural surrender. Its strongest source-bound signals are the missing-Green frame, civilization, technology, artifice, progress, Yore-Tiller anchor boundary, and strict false-positive boundaries against generic artifacts, generic recursion, single-commander identity, adjacent-color drift, and color-code goodstuff.",
+  "moral_and_psychological_profile": {
+    "primary_drive": "Correct the given world through constructed intervention.",
+    "ethical_pressure": "Limits can be studied, paid through, or rebuilt, but overreach is a live risk.",
+    "core_boundary": "Placement language is review-gated guidance only, not scoring data."
+  },
+  "placement_axes": [],
+  "core_values": [
+    "engineered agency",
+    "civilization",
+    "technology",
+    "artifice",
+    "progress",
+    "refusal of natural surrender"
+  ],
+  "behavioral_signals": [
+    "wants to build, optimize, refine, or mechanize instead of accepting the given state",
+    "uses machine, blueprint, laboratory, foundry, archive, contract, engine, recursion, or controlled-risk language with missing-Green refusal",
+    "frames death, limits, or resources as systems to study, reclaim, or rebuild"
+  ],
+  "inhibitor_traits": [
+    "organic belonging, land, patient growth, pack instinct, ecological harmony, or natural closure as the center",
+    "artifact preference without missing-Green worldview",
+    "graveyard preference without artifice or archive framing",
+    "Breya, cEDH, Cult of Yore, or Yore-Tiller phrasing used as proof without approved evidence"
+  ],
+  "good_fit_indicators": [
+    "engineered agency against natural limits",
+    "artifice and technology as identity frame",
+    "resource conversion as constructed continuity",
+    "four-color without Green frame explicitly preserved"
+  ],
+  "ideal_fit_indicators": [
+    "the answer centers rebuilding the world through White structure, Blue optimization, Black refusal, and Red heat",
+    "artifact and recursion language appears as a machine of agency rather than generic deck preference",
+    "the user wants progress without natural surrender while accepting the shadow risk of over-optimization"
+  ],
+  "poor_fit_indicators": [
+    "artifact preference without the four-color without Green worldview",
+    "recursion preference without engineered agency",
+    "artifact civilization without White structure, Blue optimization, Black refusal, and Red heat",
+    "natural lifecycle or organic belonging as the center of the answer",
+    "single-commander artifact identity treated as the whole frame",
+    "same-color goodstuff without Yore's missing-Green refusal",
+    "adjacent Yore phrases treated as a four-color faction"
+  ],
+  "discriminator_questions": [
+    {
+      "question_id": "yore_disc_001",
+      "question": "Is the appeal the artifact or recursion engine itself, or the feeling of refusing natural limits through constructed agency?",
+      "purpose": "Separates genuine Yore alignment from generic artifact, recursion, sacrifice, or optimization preference.",
+      "answer_pattern_that_supports_this_faction": "Supports Yore when the user connects artifacts, recursion, resource conversion, or optimization to engineered agency against natural limits and the full four-color without Green worldview.",
+      "answer_pattern_that_weakens_this_faction": "Weakens Yore when the user likes artifacts, recursion, sacrifice, or optimization as standalone mechanics without missing-Green refusal, civilization, technology, or constructed-continuity framing.",
+      "collision_targets": [
+        "WU",
+        "UB",
+        "BR",
+        "UR",
+        "WB",
+        "WR",
+        "ESPER",
+        "GRIXIS",
+        "JESKAI",
+        "MARDU"
+      ],
+      "claim_ids": [
+        "yore_claim_0003",
+        "yore_claim_0004",
+        "yore_claim_0005"
+      ],
+      "positive_signal": "Refusing natural limits through constructed agency.",
+      "negative_signal": "Artifact or recursion preference by itself."
+    },
+    {
+      "question_id": "yore_disc_002",
+      "question": "Does the answer need all four present colors plus missing Green, or would a nearby Esper, Grixis, Jeskai, Mardu, or Sultai frame explain it better?",
+      "purpose": "Forces the four-color threshold test so Yore is not selected for color identity alone, adjacent faction language, or name-adjacent phrases.",
+      "answer_pattern_that_supports_this_faction": "Supports Yore when White structure, Blue optimization, Black refusal, Red heat, and explicit missing-Green resistance to natural closure are all needed together.",
+      "answer_pattern_that_weakens_this_faction": "Weakens Yore when the answer resolves cleanly into Esper artifact perfection, Grixis recursion, Jeskai discipline, Mardu sacrifice, Sultai Green-centered resource conversion, or generic same-color goodstuff.",
+      "collision_targets": [
+        "ESPER",
+        "GRIXIS",
+        "JESKAI",
+        "MARDU",
+        "SULTAI"
+      ],
+      "claim_ids": [
+        "yore_claim_0001",
+        "yore_claim_0002",
+        "yore_claim_0003",
+        "yore_claim_0004"
+      ],
+      "positive_signal": "The answer needs the full WUBR/non-Green machine.",
+      "negative_signal": "A nearby shard/wedge/pair explains the center better."
+    },
+    {
+      "question_id": "yore_disc_003",
+      "question": "Is the user drawn to constructed agency that refuses natural closure, or to living volatility, patient cultivation, and other adjacent four-color pressures?",
+      "purpose": "Separates Yore from adjacent four-color peers in the source-bound missing-Green ring.",
+      "answer_pattern_that_supports_this_faction": "Supports Yore when civilization, technology, artifice, progress, and explicit missing-Green refusal of natural acceptance or organic limits are all needed.",
+      "answer_pattern_that_weakens_this_faction": "Weakens Yore when the answer centers Glint volatility, Witch patient cultivation, or another adjacent four-color pressure without constructed-agency refusal.",
+      "collision_targets": [
+        "GLINT",
+        "WITCH"
+      ],
+      "lateral_inhibition": false,
+      "claim_ids": [
+        "yore_claim_0003",
+        "yore_claim_0004"
+      ],
+      "positive_signal": "Constructed agency against natural closure.",
+      "negative_signal": "Adjacent four-color pressure without missing-Green artifice.",
+      "confidence": "Medium"
+    }
+  ],
+  "chatbot_guidance": {
+    "allowed": [
+      "Use Yore as source-grounded live identity language.",
+      "Describe Breya, Invent Superiority, artifacts, recursion, sacrifice, and cEDH texture as support-only when needed.",
+      "Use Manual fill required where exact card facts or public copy need stronger evidence."
+    ],
+    "not_allowed": [
+      "Do not say Yore is an official MTG faction.",
+      "Do not say Yore or Artifice is the official universal WUBR name.",
+      "Do not use WUBR or same-color permutations as public aliases, routes, or color-code interfaces.",
+      "Do not treat Commander/operator material as lore proof."
+    ],
+    "how_to_recognize_mismatch": [
+      "Treats natural closure, organic belonging, or patient growth as final when agency is asking for a constructed answer.",
+      "The user only mentions artifacts, recursion, sacrifice, or optimization without a missing-Green worldview.",
+      "The user treats a single commander, support product, or name-adjacent phrase as enough to define Yore.",
+      "The user centers natural lifecycle, organic belonging, or Green-rooted continuity."
+    ],
+    "calibration_note": "Do not award Yore for generic artifacts, generic recursion, color-code goodstuff, or single-commander familiarity. Require engineered agency against natural limits under an explicit four-color without Green frame."
+  },
+  "placement_quality": {
+    "strongest_evidence_areas": [
+      "lifecycle and metadata boundary",
+      "naming guardrail",
+      "missing-Green identity frame",
+      "artifice and civilization frame",
+      "Yore-Tiller anchor boundary"
+    ],
+    "weakest_evidence_areas": [
+      "exact card facts",
+      "Commander legality",
+      "Breya lore",
+      "Cult of Yore narrative",
+      "adjacent separator raw evidence",
+      "cEDH optimization claims"
+    ],
+    "manual_review_recommended": true,
+    "review_gated": false,
+    "placement_status": "live_after_vm245_source_repair",
+    "placement_eligible": true,
+    "preview_eligible": false,
+    "calibration_tuning_status": "source_authored_live_repair",
+    "last_placement_ready_pass": "VM-301",
+    "live_pilot": true,
+    "notes": "VM-301 repairs source-durable Yore placement after VM-245 live promotion and VM-273 live copy polish. The repair keeps exactly five approved raw claims and does not expand evidence authority."
+  },
+  "calibration_tuning": {
+    "status": "source_authored_live_repair",
+    "reason": "VM-301 repairs source durability after VM-245 live promotion and VM-273 copy polish.",
+    "required_positive_evidence_terms": [
+      "engineered",
+      "agency",
+      "artifice",
+      "technology",
+      "civilization",
+      "progress",
+      "natural limits",
+      "four-color",
+      "without Green",
+      "missing-Green",
+      "White structure",
+      "Blue optimization",
+      "Black refusal",
+      "Red heat",
+      "resource conversion",
+      "constructed continuity"
+    ],
+    "required_positive_min_hits": 2,
+    "strengthen_when_user_centers": [
+      "User keeps returning to refusing natural limits through constructed agency.",
+      "User frames artifacts, recursion, or resource conversion as a machine of agency rather than a standalone deck preference.",
+      "User needs White structure, Blue optimization, Black refusal, and Red heat together.",
+      "User treats progress, civilization, technology, and artifice as identity language rather than isolated mechanics.",
+      "User explicitly preserves the four-color without Green boundary."
+    ],
+    "suppress_when_user_centers": [
+      "User centers natural lifecycle, organic belonging, ecological harmony, or Green-rooted continuity.",
+      "User mentions artifacts, recursion, sacrifice, or optimization without engineered agency or missing-Green worldview.",
+      "User treats Breya, Invent Superiority, Yore-Tiller, Cult of Yore, or a name-adjacent phrase as sufficient proof.",
+      "User resolves more cleanly into Esper, Grixis, Jeskai, Mardu, Sultai, a two-color pair, or generic same-color goodstuff."
+    ],
+    "false_positive_guardrail": "Do not award Yore for generic artifacts, generic recursion, color-code goodstuff, single-commander familiarity, or adjacent Yore phrases. Require the full four-color without Green synthesis: engineered agency against natural limits through civilization, technology, artifice, progress, and constructed continuity.",
+    "broad_match_penalty": 0.12
+  },
+  "collision_guidance": {
+    "review_triggers": [
+      "Esper",
+      "Grixis",
+      "Jeskai",
+      "Mardu",
+      "Sultai",
+      "Thran",
+      "Phyrexia",
+      "Breya-only artifacts",
+      "generic artifacts",
+      "generic recursion",
+      "Cult of Yore",
+      "generic WUBR goodstuff"
+    ],
+    "rule": "Treat these as collision or false-positive review triggers, not automatic Yore placement.",
+    "pairs": [
+      {
+        "collision_id": "collision_yore_glint_four_color_ring",
+        "against": "GLINT",
+        "lateral_inhibition": false,
+        "separator": "Yore centers WUBR/non-Green constructed agency and refusal of organic closure; Glint centers UBRG/non-White appetite, adaptation, force, volatility, and refusal of imposed order.",
+        "ask": "Is the answer trying to outbuild natural limits, or follow living volatility without civic restraint?",
+        "evidence_claim_ids": [
+          "yore_claim_0003",
+          "yore_claim_0004",
+          "glint_claim_0003",
+          "glint_claim_0005"
+        ],
+        "supporting_source_ids": [
+          "src_vm_yore_evidence_ledger_20260602",
+          "src_vm_four_color_reference_audit_20260602",
+          "src_vm_glint_evidence_ledger_20260602",
+          "src_vm_four_color_reference_audit_20260602"
+        ]
+      },
+      {
+        "collision_id": "collision_yore_witch_four_color_ring",
+        "against": "WITCH",
+        "lateral_inhibition": false,
+        "separator": "Yore centers constructed progress against natural acceptance; Witch centers patient cultivation, calculation, ambition, and protected long-horizon growth without Red impulse.",
+        "ask": "Is the answer an engineered intervention against natural limits, or a slow cultivated position becoming irreversible?",
+        "evidence_claim_ids": [
+          "yore_claim_0003",
+          "yore_claim_0004",
+          "witch_claim_0003",
+          "witch_claim_0005"
+        ],
+        "supporting_source_ids": [
+          "src_vm_yore_evidence_ledger_20260602",
+          "src_vm_four_color_reference_audit_20260602",
+          "src_vm_witch_evidence_ledger_20260604",
+          "src_vm_four_color_reference_audit_20260604"
+        ]
+      }
+    ]
+  }
+}

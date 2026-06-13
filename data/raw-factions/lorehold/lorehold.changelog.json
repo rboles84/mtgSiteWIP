@@ -2,8 +2,47 @@
   "schema_version": "1.0.0",
   "faction_id": "lorehold",
   "faction_name": "Lorehold",
-  "last_updated": "2026-05-10T02:56:03.254Z",
+  "last_updated": "2026-06-09T00:00:00.000Z",
   "changes": [
+    {
+      "change_id": "change_lorehold_vm307_mechanics_signal_balance_20260609",
+      "date": "2026-06-09",
+      "change_type": "source_first_mechanics_signal_balance",
+      "summary": "Converted Lorehold mechanics from a bare array into a builder-readable source-backed summary with preserved detailed entries, then trimmed duplicated placement signal surfaces for VM-307.",
+      "affected_files": [
+        "lorehold.profile.json",
+        "lorehold.placement.json",
+        "lorehold.changelog.json"
+      ],
+      "mechanics_shape_before": "data/raw-factions/lorehold/lorehold.profile.json::mechanics was array(8), so it did not feed builder path profile.mechanics.summary.",
+      "mechanics_shape_after": "data/raw-factions/lorehold/lorehold.profile.json::mechanics is an object with summary, source_bound_texture, supporting claim/source metadata, not_promoted_terms, and entries array(8).",
+      "placement_signal_balance": {
+        "good_fit_indicators": "6 -> 4",
+        "poor_fit_indicators": "6 -> 3",
+        "raw_mismatch_lines": "6 -> 4",
+        "inhibitor_traits": "10 -> 5",
+        "discriminator_questions": "11 -> 7"
+      },
+      "discriminator_questions_removed": [
+        {
+          "question_id": "q_lorehold_0005",
+          "rationale": "Duplicated fieldwork/direct-evidence checks already covered by q_lorehold_0001 and q_lorehold_0003."
+        },
+        {
+          "question_id": "q_lorehold_0007",
+          "rationale": "Quick phrase separator duplicated stronger evidence/source questions and was less source-specific."
+        },
+        {
+          "question_id": "q_lorehold_0008",
+          "rationale": "Mechanics imagery duplicated the preserved spirit and relic stewardship questions."
+        },
+        {
+          "question_id": "q_lorehold_0010",
+          "rationale": "Rule/evidence tension duplicated q_lorehold_0002 while adding narrower story-scene dependence."
+        }
+      ],
+      "source_boundary": "No new lore, card facts, commander facts, claim counts, source IDs, public display copy, routes, Maze behavior, flavor snippets, schemas, or validator policy changes."
+    },
     {
       "change_id": "change_lorehold_placement_ready_20260510025603",
       "date": "2026-05-10",

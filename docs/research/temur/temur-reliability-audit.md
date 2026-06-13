@@ -31,4 +31,6 @@ Status: VM-203 source reliability audit. Temur remains non-live and review-gated
 
 ## Source-Drop Hygiene Result
 
-VM-203 corrected the unmanaged typo path from `docs/research/temur fontier/` to `docs/research/temur frontier/`. The corrected path remains unmanaged restored source material. The approved source packet lives at `docs/research/temur/`, and the seed copies in `source-material/` are byte-identical to the corrected source-drop originals.
+VM-203 corrected the unmanaged typo path from `docs/research/temur fontier/` to `docs/research/temur frontier/`. The approved source packet lives at `docs/research/temur/`, and the seed copies in `source-material/` are the canonical preserved copies.
+
+After folder consolidation, `docs/research/temur frontier/` is only a tombstone redirect. Its duplicate seed artifacts were verified byte-identical to the canonical copies and removed from that folder.

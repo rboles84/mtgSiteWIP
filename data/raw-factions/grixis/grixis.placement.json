@@ -4,7 +4,7 @@
   "faction_id": "grixis",
   "faction_name": "Grixis",
   "based_on_profile_version": "0.1.0",
-  "last_updated": "2026-05-30",
+  "last_updated": "2026-06-12",
   "placement_summary": "Grixis is a VM-168 live-pilot placement packet for the GRIXIS shard expression. Its strongest source-bound signals are Black-centered survival, Blue calculation, Red immediacy, volatility, and the boundary against simple evil UBR framing.",
   "moral_and_psychological_profile": {
     "summary": "Vox Mana models Grixis as survival through exploitation, calculation, and volatility. This is project interpretation from VM-164/VM-165, not official canon; VM-168 enables it as a bounded live pilot.",
@@ -102,7 +102,61 @@
     "The answer is mainly generic UBR, generic villain coding, generic spells, or Maestros styling.",
     "The answer centers public honor, communal order, life-renewal, pure curiosity, or pure appetite without the Black-centered Grixis frame."
   ],
-  "discriminator_questions": [],
+  "discriminator_questions": [
+    {
+      "question_id": "grixis_discriminator_0001",
+      "question": "Is information used to perfect the system, or to survive by finding the weakness no one else sees?",
+      "purpose": "Separates Grixis survival leverage from Esper designed perfectibility.",
+      "answer_pattern_that_supports_this_faction": "Supports Grixis when information serves survival, self-advocacy, weakness analysis, and action under pressure.",
+      "answer_pattern_that_weakens_this_faction": "Weakens Grixis when information primarily becomes ordered improvement, social perfection, or designed control.",
+      "collision_targets": [
+        "ESPER"
+      ],
+      "claim_ids": [
+        "grixis_claim_0003",
+        "grixis_claim_0004",
+        "grixis_claim_0005",
+        "grixis_claim_0008"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "question_id": "grixis_discriminator_0002",
+      "question": "Is the motion urgent because survival requires leverage, or because instinct and appetite should be followed honestly?",
+      "purpose": "Separates Grixis Black-centered survival from Jund Red-centered instinct and appetite.",
+      "answer_pattern_that_supports_this_faction": "Supports Grixis when urgency is tied to survival, calculation, weakness analysis, manipulation, and self-advocacy.",
+      "answer_pattern_that_weakens_this_faction": "Weakens Grixis when the answer centers Red gut instinct, emotional truth, appetite, or being unrestrained.",
+      "collision_targets": [
+        "JUND"
+      ],
+      "claim_ids": [
+        "grixis_claim_0002",
+        "grixis_claim_0003",
+        "grixis_claim_0004",
+        "grixis_claim_0005"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "question_id": "grixis_discriminator_0003",
+      "question": "Is the plan private leverage for survival, or only secrecy, appetite, or experiment without survival pressure?",
+      "purpose": "Separates Grixis Black-centered survival leverage from Dimir secrecy, Rakdos appetite, and Izzet experiment false positives.",
+      "answer_pattern_that_supports_this_faction": "Supports Grixis when calculation, weakness analysis, self-advocacy, and urgent action all serve survival under pressure.",
+      "answer_pattern_that_weakens_this_faction": "Weakens Grixis when the answer centers hidden leverage without Red immediacy, appetite without Blue calculation, or experiment without Black survival pressure.",
+      "collision_targets": [
+        "house_dimir",
+        "cult_of_rakdos",
+        "izzet_league"
+      ],
+      "claim_ids": [
+        "grixis_claim_0002",
+        "grixis_claim_0003",
+        "grixis_claim_0004",
+        "grixis_claim_0005"
+      ],
+      "confidence": "Medium"
+    }
+  ],
   "chatbot_guidance": {
     "how_to_recognize_match": [
       "Review-only guidance: Grixis language should combine Black-centered survival with Blue calculation and Red immediacy.",
@@ -217,5 +271,30 @@
     "false_positive_guardrail": "Do not treat support-only mechanics, Commander/operator rows, manual-fill lore, Maestros, or color identity alone as Grixis evidence.",
     "smoke_test_note": "VM-168 wires Grixis into generated placement data as a controlled live pilot through the approved build path."
   },
-  "collision_guidance": []
+  "collision_guidance": [
+    {
+      "collision_id": "collision_grixis_esper_live",
+      "against": "esper",
+      "separator": "Grixis turns information toward survival, agency, weakness analysis, and urgent leverage; Esper turns information toward designed perfectibility and ordered improvement.",
+      "ask": "Is the answer trying to optimize the system, or survive it by finding leverage?",
+      "claim_ids": [
+        "grixis_claim_0003",
+        "grixis_claim_0004",
+        "grixis_claim_0005"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "collision_id": "collision_grixis_jund_live",
+      "against": "jund",
+      "separator": "Grixis is Black-centered survival using Blue calculation and Red immediacy; Jund is Red-centered instinct, appetite, and consequence without Blue calculation.",
+      "ask": "Does the answer lead with calculated survival leverage, or with gut instinct and appetite?",
+      "claim_ids": [
+        "grixis_claim_0002",
+        "grixis_claim_0003",
+        "grixis_claim_0004"
+      ],
+      "confidence": "Medium"
+    }
+  ]
 }

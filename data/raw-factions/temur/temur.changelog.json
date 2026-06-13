@@ -2,8 +2,41 @@
   "schema_version": "1.0.0",
   "faction_id": "temur",
   "faction_name": "Temur Frontier",
-  "last_updated": "2026-05-31",
+  "last_updated": "2026-06-09",
   "changes": [
+    {
+      "change_id": "temur_change_003",
+      "change_type": "VM-316 Source-First Display Enrichment",
+      "change_date": "2026-06-09",
+      "summary": "Added source-backed TEMUR display enrichment, durable wedge deck-link metadata, and tightly bounded figure/institutional anchors while keeping placement, claims, sources, schema, flavor snippets, runtime copy, and generated placement output out of scope.",
+      "sources_added": [],
+      "sources_updated": [],
+      "claims_added": [],
+      "claims_updated": [],
+      "claims_superseded": [],
+      "claims_contradicted": [],
+      "profile_fields_updated": [
+        "last_incremental_review",
+        "last_updated",
+        "key_figures"
+      ],
+      "placement_fields_updated": [],
+      "display_fields_updated": [
+        "data/factions.json::factions.TEMUR.raw_enrichment",
+        "data/identity-layers.json::expressions.TEMUR.display.research_links.edhrec_slug",
+        "data/identity-layers.json::expressions.TEMUR.display.deck_links"
+      ],
+      "manual_review_required": [
+        "Keep canonical_flavor_text empty until exact local card/flavor validation exists.",
+        "Keep Commander/deck links as display navigation metadata, not lore evidence.",
+        "Keep Surrak and Yasova full biographies, exact card facts, Commander reputation, and card text deferred.",
+        "Keep Dragonclaw and Twice Whisperer as timeline-labeled institutional roles, not a single continuous biography.",
+        "Keep Khans-era Wide Whisper and modern Endless Song material timeline-labeled.",
+        "Keep exact Endless Song temporal mechanics, modern character biographies, and detailed clan dragon diplomacy deferred.",
+        "Keep GUR and G/U/R permutations metadata/query-only."
+      ],
+      "notes": "VM-316 uses promoted local evidence rows for display and profile anchors and the existing wedge display convention for Commander links. It does not add raw claims, raw sources, placement surfaces, route aliases, flavor snippets, schema changes, or generated placement edits."
+    },
     {
       "change_id": "temur_change_002",
       "change_type": "VM-208 Controlled Runtime Promotion",

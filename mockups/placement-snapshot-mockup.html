@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Placement Snapshot — Mockup v2</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=JetBrains+Mono:wght@400;500&display=swap');
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: #0b0a0d;
+    color: rgba(241, 237, 225, 0.9);
+    font-family: 'EB Garamond', Georgia, serif;
+    padding: 2rem 2.5rem;
+    min-height: 100vh;
+  }
+
+  .page-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(184, 149, 74, 0.45);
+    margin-bottom: 2.5rem;
+  }
+
+  .case { margin-bottom: 3rem; }
+
+  .case-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(184, 149, 74, 0.5);
+    margin-bottom: 0.75rem;
+  }
+
+  /* ── Snapshot grid ── */
+  .dossier-snapshot {
+    display: grid;
+    grid-template-columns: 22% 24% 1fr;
+    gap: 12px;
+  }
+
+  .dossier-snapshot-card {
+    min-width: 0;
+    padding: 1rem 1.1rem;
+    border: 1px solid rgba(184, 149, 74, 0.18);
+    border-radius: 14px;
+    background:
+      linear-gradient(135deg, rgba(26, 170, 150, 0.07), transparent 50%),
+      rgba(11, 10, 13, 0.8);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.02), 0 14px 34px rgba(0,0,0,0.28);
+  }
+
+  /* Card eyebrow label */
+  .snap-label {
+    display: block;
+    margin-bottom: 0.42rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba(236, 217, 153, 0.6);
+  }
+
+  /* Primary value */
+  .snap-value {
+    display: block;
+    color: rgba(249, 245, 231, 0.95);
+    font-size: 1.02rem;
+    font-weight: 500;
+    line-height: 1.28;
+    margin-bottom: 0.35rem;
+  }
+
+  /* Supporting line under value */
+  .snap-sub {
+    display: block;
+    color: rgba(220, 210, 185, 0.65);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.06em;
+    line-height: 1.5;
+  }
+
+  /* Prose copy (wider card) */
+  .snap-copy {
+    color: rgba(241, 237, 225, 0.88);
+    font-size: 0.92rem;
+    line-height: 1.6;
+  }
+
+  /* Signal band */
+  .snap-signal {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    margin-top: 0.55rem;
+  }
+
+  .snap-signal-dot {
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .snap-signal em {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.6rem;
+    font-style: normal;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  [data-signal="strong"]  .snap-signal-dot { background: rgba(80, 210, 150, 0.85); }
+  [data-signal="strong"]  .snap-signal em  { color: rgba(80, 210, 150, 0.72); }
+  [data-signal="moderate"] .snap-signal-dot { background: rgba(236, 217, 153, 0.85); }
+  [data-signal="moderate"] .snap-signal em  { color: rgba(236, 217, 153, 0.72); }
+  [data-signal="emerging"] .snap-signal-dot { background: rgba(200, 160, 100, 0.75); }
+  [data-signal="emerging"] .snap-signal em  { color: rgba(200, 160, 100, 0.65); }
+
+  /* Status badge on result-status card */
+  .snap-badge {
+    display: inline-block;
+    margin-top: 0.55rem;
+    padding: 0.18em 0.6em;
+    border-radius: 5px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.58rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .snap-badge--primary {
+    background: rgba(184, 149, 74, 0.15);
+    border: 1px solid rgba(184, 149, 74, 0.35);
+    color: rgba(236, 217, 153, 0.88);
+  }
+
+  .snap-badge--adjacent {
+    background: rgba(120, 160, 200, 0.1);
+    border: 1px solid rgba(120, 160, 200, 0.28);
+    color: rgba(160, 195, 230, 0.8);
+  }
+
+  /* Yellow banner (existing element shown for context) */
+  .context-banner {
+    margin-top: 10px;
+    padding: 0.7rem 1.1rem;
+    border-radius: 10px;
+    background: rgba(184, 149, 74, 0.12);
+    border: 1px solid rgba(184, 149, 74, 0.25);
+    font-family: 'EB Garamond', Georgia, serif;
+    font-size: 0.92rem;
+    color: rgba(236, 217, 153, 0.85);
+    font-style: italic;
+  }
+
+  .context-banner--removed {
+    background: rgba(180, 60, 60, 0.08);
+    border-color: rgba(180, 60, 60, 0.2);
+    color: rgba(220, 150, 150, 0.7);
+    text-decoration: line-through;
+    text-decoration-color: rgba(220, 150, 150, 0.4);
+  }
+
+  .annotation {
+    margin-top: 7px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.58rem;
+    letter-spacing: 0.08em;
+    color: rgba(184, 149, 74, 0.4);
+  }
+
+  hr.divider {
+    border: none;
+    border-top: 1px solid rgba(184, 149, 74, 0.1);
+    margin: 2.5rem 0;
+  }
+
+  .section-header {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: rgba(184, 149, 74, 0.4);
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.4rem;
+    border-bottom: 1px solid rgba(184, 149, 74, 0.08);
+  }
+</style>
+</head>
+<body>
+
+<p class="page-label">Placement Snapshot · Proposed Redesign v2 · No CTA · Result interpretation only</p>
+
+<!-- ══════════════════════════════════════════
+     CASE 1 — PRIMARY (Yore / Artifice)
+     ══════════════════════════════════════════ -->
+<div class="case">
+  <p class="case-label">Case 1 · Primary placement — Yore / Artifice</p>
+
+  <div class="dossier-snapshot">
+
+    <div class="dossier-snapshot-card">
+      <span class="snap-label">Result status</span>
+      <span class="snap-value">Primary four-color fit</span>
+      <span class="snap-sub">Strongest match from your reading.</span>
+      <span class="snap-badge snap-badge--primary">Primary result</span>
+    </div>
+
+    <div class="dossier-snapshot-card" data-signal="strong">
+      <span class="snap-label">Closest adjacent fit</span>
+      <span class="snap-value">Abzan Houses</span>
+      <div class="snap-signal">
+        <span class="snap-signal-dot"></span>
+        <em>Strong adjacent signal</em>
+      </div>
+    </div>
+
+    <div class="dossier-snapshot-card">
+      <span class="snap-label">Where this usually starts</span>
+      <p class="snap-copy">Yore / Artifice wants a Commander deck that turns artifacts, sacrifice, recursion, and controlled engines into table texture for engineered agency against natural surrender.</p>
+    </div>
+
+  </div>
+
+  <div class="context-banner context-banner--removed">This is your primary four-color fit.</div>
+  <p class="annotation">↑ existing yellow banner — absorbed into Result Status card above, can be removed</p>
+</div>
+
+<hr class="divider">
+
+<!-- ══════════════════════════════════════════
+     CASE 2 — ADJACENT (Abzan Houses)
+     ══════════════════════════════════════════ -->
+<div class="case">
+  <p class="case-label">Case 2 · Adjacent placement — Abzan Houses</p>
+
+  <div class="dossier-snapshot">
+
+    <div class="dossier-snapshot-card">
+      <span class="snap-label">Result status</span>
+      <span class="snap-value">Adjacent color fit</span>
+      <span class="snap-sub">Related to your Yore / Artifice result.</span>
+      <span class="snap-badge snap-badge--adjacent">Adjacent result</span>
+    </div>
+
+    <div class="dossier-snapshot-card" data-signal="moderate">
+      <span class="snap-label">Closest adjacent fit</span>
+      <span class="snap-value">Black</span>
+      <div class="snap-signal">
+        <span class="snap-signal-dot"></span>
+        <em>Moderate adjacent signal</em>
+      </div>
+    </div>
+
+    <div class="dossier-snapshot-card">
+      <span class="snap-label">Where this usually starts</span>
+      <p class="snap-copy">Abzan Houses wants a Commander deck that endures through layered defenses: grow counters, preserve life totals, spend bodies carefully, and let family-duty texture become a long-game board.</p>
+    </div>
+
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- ══════════════════════════════════════════
+     CASE 3 — ADJACENT (Black)
+     ══════════════════════════════════════════ -->
+<div class="case">
+  <p class="case-label">Case 3 · Adjacent placement — Black</p>
+
+  <div class="dossier-snapshot">
+
+    <div class="dossier-snapshot-card">
+      <span class="snap-label">Result status</span>
+      <span class="snap-value">Adjacent color fit</span>
+      <span class="snap-sub">Related to your Yore / Artifice result.</span>
+      <span class="snap-badge snap-badge--adjacent">Adjacent result</span>
+    </div>
+
+    <div class="dossier-snapshot-card" data-signal="emerging">
+      <span class="snap-label">Closest adjacent fit</span>
+      <span class="snap-value">Abzan Houses</span>
+      <div class="snap-signal">
+        <span class="snap-signal-dot"></span>
+        <em>Emerging adjacent signal</em>
+      </div>
+    </div>
+
+    <div class="dossier-snapshot-card">
+      <span class="snap-label">Where this usually starts</span>
+      <p class="snap-copy">Black wants a Commander deck that turns cost into agency: spend life, cash in creatures, and make the graveyard or hand become a resource engine before the table can stabilize.</p>
+    </div>
+
+  </div>
+</div>
+
+</body>
+</html>

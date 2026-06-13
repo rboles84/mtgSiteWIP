@@ -2,26 +2,27 @@
   "schema_version": "1.0.0",
   "faction_id": "mardu",
   "faction_name": "Mardu Horde",
-  "source_review_date": "2026-05-31",
-  "last_updated": "2026-05-31",
+  "source_review_date": "2026-06-05",
+  "last_updated": "2026-06-05",
   "claim_count": 10,
   "claims": [
     {
       "claim_id": "mardu_claim_0001",
       "faction_id": "mardu",
       "claim_type": "identity",
-      "statement": "Mardu Horde is the red-white-black Tarkir wedge identity using MARDU as the future expression name while RWB and WBR remain metadata/query-only, with MARDU remaining source-authored, review-gated, and non-live in VM-226.",
+      "statement": "Mardu Horde is the red-white-black Tarkir wedge identity using MARDU as the project expression key; VM-228 later promoted MARDU to the live public/generated key, while RWB and WBR remain metadata/query-only and do not become aliases or public interface keys.",
       "canon_status": "Source-supported identity with lifecycle boundary",
       "source_ids": [
         "src_vm_mardu_evidence_ledger_20260531",
-        "src_wotc_rosewater_mardu_finishing_first"
+        "src_wotc_rosewater_mardu_finishing_first",
+        "src_vm228_mardu_runtime_promotion_20260531"
       ],
       "evidence_rows": [
         "MARDU-EVID-001",
         "MARDU-EVID-032"
       ],
       "confidence": "High",
-      "notes": "Use for base Mardu Horde identity only. RWB and WBR remain metadata/query-only and do not become runtime aliases, navigation keys, generated keys, fixture keys, lookup keys, or public labels."
+      "notes": "VM-299 updates the lifecycle sentence after VM-228 while preserving the evidence floor and color-code boundary. Use for base Mardu Horde identity only. RWB and WBR remain metadata/query-only and are not aliases, navigation keys, generated keys, fixture keys, lookup keys, or public labels."
     },
     {
       "claim_id": "mardu_claim_0002",

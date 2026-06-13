@@ -6,9 +6,9 @@
       "Color entries define foundational identity language.",
       "Expression entries define routing, blend metadata, placement eligibility, and Home preview metadata.",
       "The current Home preview set remains five mono colors, ten Ravnica guilds, and five Strixhaven colleges.",
-      "The current live placement set has 30 expressions: the original 20-expression preview baseline, five Alara shard pilots, Abzan Houses, Temur Frontier, Sultai Brood, Mardu Horde, and Jeskai Way.",
-      "BANT, ESPER, GRIXIS, JUND, NAYA, ABZAN, TEMUR, SULTAI, MARDU, and JESKAI are live placement expression keys with preview_eligible false.",
-      "WUG, WUB, UBR, BRG, RGW, WBG, GUR, BGU, RWB, WBR, URW, WUR, RWU, UWR, RUW, WRU, and same-color-order permutations remain color-direction/query metadata only, not expression keys or aliases."
+      "The current live placement set has 34 expressions: the original 20-expression preview baseline, five Alara shard pilots, Abzan Houses, Temur Frontier, Sultai Brood, Mardu Horde, Jeskai Way, Yore / Artifice, Glint / Chaos, Dune / Aggression, and Ink / Altruism.",
+      "BANT, ESPER, GRIXIS, JUND, NAYA, ABZAN, TEMUR, SULTAI, MARDU, JESKAI, YORE, GLINT, DUNE, and INK are live placement expression keys with preview_eligible false.",
+      "WUG, WUB, UBR, BRG, RGW, WBG, GUR, BGU, RWB, WBR, URW, WUR, RWU, UWR, RUW, WRU, UBRG, UBGR, URBG, URGB, UGBR, UGRB, BURG, BUGR, BRUG, BRGU, BGUR, BGRU, RUBG, RUGB, RBUG, RBGU, RGUB, RGBU, GUBR, GURB, GBUR, GBRU, GRUB, GRBU, BRGW, BRWG, BGRW, BGWR, BWRG, BWGR, RBGW, RBWG, RGBW, RGWB, RWBG, RWGB, GBRW, GBWR, GRBW, GRWB, GWBR, GWRB, WBRG, WBGR, WRBG, WRGB, WGBR, WGRB, RGWU, RGUW, RWGU, RWUG, RUGW, RUWG, GRWU, GRUW, GWRU, GWUR, GURW, GUWR, WRGU, WRUG, WGRU, WGUR, WURG, WUGR, URGW, URWG, UGRW, UGWR, UWRG, UWGR, and same-color-order permutations remain color-direction/query metadata only, not expression keys or aliases."
     ]
   },
   "colors": {
@@ -1935,8 +1935,19 @@
           "budget_line": "Sandsteppe Citadel / Terramorphic Expanse / Path of Ancestry / Evolving Wilds / basics",
           "utility_line": "Command Tower / Exotic Orchard / Bojuka Bog / Gavony Township"
         },
-        "research_links": {},
-        "deck_links": []
+        "research_links": {
+          "edhrec_slug": "abzan"
+        },
+        "deck_links": [
+          {
+            "fmt": "Commander",
+            "name": "Abzan Commanders",
+            "desc": "Abzan Commander starts for WBG family endurance, ancestor obligation, defensive patience, house continuity, and long-game resilience.",
+            "mtgg": null,
+            "edhrec": "https://edhrec.com/commanders/abzan",
+            "mtgd": "https://mtgdecks.net/Commander/abzan-commanders"
+          }
+        ]
       },
       "display_code": "ABZAN",
       "aliases": [
@@ -2051,8 +2062,19 @@
           "budget_line": "Frontier Bivouac / Terramorphic Expanse / Path of Ancestry / Evolving Wilds / basics",
           "utility_line": "Command Tower / Exotic Orchard / Kessig Wolf Run / Reliquary Tower"
         },
-        "research_links": {},
-        "deck_links": []
+        "research_links": {
+          "edhrec_slug": "temur"
+        },
+        "deck_links": [
+          {
+            "fmt": "Commander",
+            "name": "Temur Commanders",
+            "desc": "Temur Commander starts for GUR survival attunement, instinct, mental fortitude, elemental memory, wild pressure, and table-ready strength.",
+            "mtgg": null,
+            "edhrec": "https://edhrec.com/commanders/temur",
+            "mtgd": "https://mtgdecks.net/Commander/temur-commanders"
+          }
+        ]
       },
       "display_code": "TEMUR",
       "aliases": [
@@ -2138,7 +2160,7 @@
           },
           {
             "name": "Calculated Ruthlessness",
-            "desc": "Let ambition move through planning, theft, denial, and selective timing rather than generic same-color goodstuff."
+            "desc": "Let ambition move through planning, theft, denial, selective timing, and resource conversion under ruthless opportunity and Sidisi-era ambition."
           }
         ],
         "land_base": {
@@ -2167,8 +2189,19 @@
           "budget_line": "Opulent Palace / Terramorphic Expanse / Path of Ancestry / Evolving Wilds / basics",
           "utility_line": "Command Tower / Exotic Orchard / Bojuka Bog / Reliquary Tower"
         },
-        "research_links": {},
-        "deck_links": []
+        "research_links": {
+          "edhrec_slug": "sultai"
+        },
+        "deck_links": [
+          {
+            "fmt": "Commander",
+            "name": "Sultai Commanders",
+            "desc": "Sultai Commander starts for BGU ruthless opportunity, graveyard/resource conversion, necromancy, calculated advantage, and long-game inevitability.",
+            "mtgg": null,
+            "edhrec": "https://edhrec.com/commanders/sultai",
+            "mtgd": "https://mtgdecks.net/Commander/sultai-commanders"
+          }
+        ]
       },
       "display_code": "SULTAI",
       "aliases": [
@@ -2405,6 +2438,774 @@
       "display_code": "JESKAI",
       "aliases": [
         "JESKAI"
+      ],
+      "placement_eligible": true,
+      "preview_eligible": false
+    },
+    "YORE": {
+      "key": "YORE",
+      "active": true,
+      "kind": "four_color",
+      "name": "Yore / Artifice",
+      "world": "Cross-setting",
+      "colors": [
+        "W",
+        "U",
+        "B",
+        "R"
+      ],
+      "core_color": "WUBR",
+      "secondary_colors": [
+        "W",
+        "U",
+        "B",
+        "R"
+      ],
+      "routing": {
+        "color_identity": "WUBR",
+        "label": "Yore",
+        "suppress_directory_links": true
+      },
+      "core_tension": "Yore refuses to let natural limits be final, but engineered agency can become overreach when every body, grave, rule, and spark is treated as material to rebuild.",
+      "identity_blend": "White structure, Blue optimization, Black refusal, and Red heat organized into artifice against natural surrender.",
+      "display": {
+        "key": "YORE",
+        "name": "Yore / Artifice",
+        "institution_type": "four_color",
+        "world": "Cross-setting",
+        "colors": [
+          "W",
+          "U",
+          "B",
+          "R"
+        ],
+        "accent": "#d9b15f",
+        "banner": "linear-gradient(150deg,rgba(217,177,95,0.38) 0%,rgba(73,104,146,0.30) 36%,rgba(100,42,54,0.28) 70%,rgba(18,23,33,0.16) 100%)",
+        "tagline": "Rewrite the limit. Keep the engine honest.",
+        "philosophy": "Yore believes the given world is not the final world. Structure, knowledge, ambition, and heat can build a machine of agency where nature would have asked for surrender.",
+        "lore_summary": "Yore / Artifice is Vox Mana's four-color without Green expression for civilization, technology, artifice, progress, and engineered agency against natural limits.",
+        "core_tension": "Yore refuses to let natural limits be final, but engineered agency can become overreach when every body, grave, rule, and spark is treated as material to rebuild.",
+        "affinity": {
+          "drawn_to": [
+            "Systems that can be rebuilt instead of merely accepted",
+            "Artifact, archive, contract, forge, and laboratory language",
+            "Resource conversion that feels like constructed continuity",
+            "Progress that keeps agency alive under pressure"
+          ],
+          "repelled_by": [
+            "Natural surrender treated as sacred by default",
+            "Organic belonging as the center of the answer",
+            "Generic artifact preference without a missing-Green worldview",
+            "Generic recursion or optimization without engineered agency"
+          ],
+          "core_question": "What can be rebuilt when nature is not allowed to have the final word?",
+          "interview_tells": [
+            "Talks about systems, machines, archives, and engineered continuity",
+            "Treats limits as design constraints rather than endings",
+            "Likes artifacts or recursion because they feel like agency, not because they are generically powerful"
+          ]
+        },
+        "decree_voice": {
+          "tone": "Precise, restless, engineered, and luminous with controlled heat.",
+          "signature_line": "The engine is not sacred. The choice to build it is."
+        },
+        "archetypes": [
+          {
+            "name": "Engineered Agency",
+            "desc": "Builds systems that let structure, knowledge, ambition, and heat push past natural surrender."
+          },
+          {
+            "name": "Artifice And Archive",
+            "desc": "Turns tools, records, costs, and memories into machinery for a future that can still be chosen."
+          },
+          {
+            "name": "Controlled Overreach",
+            "desc": "Carries the shadow risk of treating every limit as raw material."
+          }
+        ],
+        "flavor_search_terms": [
+          "artifice",
+          "artifact",
+          "machine",
+          "engine",
+          "forge",
+          "archive",
+          "memory",
+          "progress",
+          "rebuild",
+          "construct",
+          "technology",
+          "civilization",
+          "invent",
+          "invention"
+        ],
+        "land_base": {
+          "premium": [
+            "Tundra",
+            "Underground Sea",
+            "Volcanic Island",
+            "Badlands"
+          ],
+          "midrange": [
+            "Hallowed Fountain",
+            "Watery Grave",
+            "Steam Vents",
+            "Blood Crypt"
+          ],
+          "budget": [
+            "Path of Ancestry",
+            "Crumbling Necropolis",
+            "Evolving Wilds",
+            "Terramorphic Expanse"
+          ],
+          "utility": [
+            "Command Tower",
+            "Exotic Orchard",
+            "Spire of Industry",
+            "Inventors' Fair"
+          ],
+          "optimal": "Tundra / Underground Sea / Volcanic Island / Badlands / Command Tower / Exotic Orchard",
+          "mid": "Hallowed Fountain / Watery Grave / Steam Vents / Blood Crypt / Sacred Foundry",
+          "budget_line": "Path of Ancestry / Crumbling Necropolis / Evolving Wilds / Terramorphic Expanse / basics",
+          "utility_line": "Command Tower / Exotic Orchard / Spire of Industry / Inventors' Fair"
+        }
+      },
+      "display_code": "YORE",
+      "aliases": [
+        "YORE"
+      ],
+      "placement_eligible": true,
+      "preview_eligible": false
+    },
+    "GLINT": {
+      "key": "GLINT",
+      "active": true,
+      "kind": "four_color",
+      "name": "Glint / Chaos",
+      "world": "Cross-setting",
+      "colors": [
+        "U",
+        "B",
+        "R",
+        "G"
+      ],
+      "core_color": "UBRG",
+      "secondary_colors": [
+        "U",
+        "B",
+        "R",
+        "G"
+      ],
+      "routing": {
+        "color_identity": "UBRG",
+        "label": "Glint",
+        "suppress_directory_links": true
+      },
+      "core_tension": "Glint learns, feeds, and grows under pressure without asking civic restraint for permission, but appetite and improvisation can become predatory when nothing above the self is trusted to hold the world steady.",
+      "identity_blend": "Blue adaptation, Black appetite, Red ignition, and Green living force moving without White-style civic restraint.",
+      "display": {
+        "key": "GLINT",
+        "name": "Glint / Chaos",
+        "institution_type": "four_color",
+        "world": "Cross-setting",
+        "colors": [
+          "U",
+          "B",
+          "R",
+          "G"
+        ],
+        "accent": "#58b88a",
+        "banner": "linear-gradient(150deg,rgba(78,163,180,0.34) 0%,rgba(34,88,64,0.30) 34%,rgba(132,48,68,0.28) 68%,rgba(20,24,34,0.18) 100%)",
+        "tagline": "Ride the surge. Keep the edge alive.",
+        "philosophy": "Glint believes the world should stay alive long enough to learn from pressure. Appetite, leverage, ignition, and growth refuse to let civic restraint define the only honest future.",
+        "lore_summary": "Glint / Chaos is Vox Mana's four-color without White expression for adaptive appetite, volatility, living force, and storm-fed opportunity under pressure.",
+        "core_tension": "Glint learns, feeds, and grows under pressure without asking civic restraint for permission, but appetite and improvisation can become predatory when nothing above the self is trusted to hold the world steady.",
+        "affinity": {
+          "drawn_to": [
+            "Power that stays adaptive, hungry, and alive under pressure",
+            "Storm, maelstrom, and surge language that keeps learning in motion",
+            "Leverage, improvisation, and volatility that still feel alive instead of mechanical",
+            "Living-force language that refuses White-style civic restraint"
+          ],
+          "repelled_by": [
+            "Stable public order, fairness, duty, or peace-through-law as the center",
+            "Generic chaos or cascade without the full non-White worldview",
+            "Near-match Grixis, Jund, Temur, or Sultai language without the full UBRG frame",
+            "Yidris, Nephilim, or color identity used as institutional proof"
+          ],
+          "core_question": "What do you become when hunger learns faster than order can cage it?",
+          "interview_tells": [
+            "Talks about appetite, volatility, and living pressure as parts of the same answer",
+            "Treats knowledge as something learned under pressure for advantage rather than for civic calm",
+            "Needs Blue intelligence, Black appetite, Red ignition, and Green living force all at once"
+          ]
+        },
+        "decree_voice": {
+          "tone": "Storm-lit, feral, opportunistic, and alive with predatory intelligence.",
+          "signature_line": "If the surge can learn, it can choose."
+        },
+        "archetypes": [
+          {
+            "name": "Adaptive Appetite",
+            "desc": "Learns, feeds, and grows under pressure before civic restraint can stabilize the field."
+          },
+          {
+            "name": "Storm-Fed Opportunity",
+            "desc": "Turns volatility, leverage, and living force into momentum that keeps changing where the safe line is."
+          },
+          {
+            "name": "Predatory Overreach",
+            "desc": "Carries the shadow risk of letting appetite and improvisation become destabilizing."
+          }
+        ],
+        "flavor_search_terms": [
+          "maelstrom",
+          "storm",
+          "surge",
+          "hunger",
+          "predatory",
+          "adapt",
+          "volatility",
+          "living force",
+          "current",
+          "feral"
+        ],
+        "land_base": {
+          "premium": [
+            "Underground Sea",
+            "Volcanic Island",
+            "Tropical Island",
+            "Badlands"
+          ],
+          "midrange": [
+            "Watery Grave",
+            "Steam Vents",
+            "Breeding Pool",
+            "Blood Crypt"
+          ],
+          "budget": [
+            "Path of Ancestry",
+            "Opulent Palace",
+            "Savage Lands",
+            "Evolving Wilds"
+          ],
+          "utility": [
+            "Command Tower",
+            "Exotic Orchard",
+            "Mana Confluence",
+            "Reflecting Pool"
+          ],
+          "optimal": "Underground Sea / Volcanic Island / Tropical Island / Badlands / Command Tower / Exotic Orchard",
+          "mid": "Watery Grave / Steam Vents / Breeding Pool / Blood Crypt / Overgrown Tomb",
+          "budget_line": "Path of Ancestry / Opulent Palace / Savage Lands / Evolving Wilds / basics",
+          "utility_line": "Command Tower / Exotic Orchard / Mana Confluence / Reflecting Pool"
+        }
+      },
+      "display_code": "GLINT",
+      "aliases": [
+        "GLINT"
+      ],
+      "placement_eligible": true,
+      "preview_eligible": false
+    },
+    "DUNE": {
+      "key": "DUNE",
+      "active": true,
+      "kind": "four_color",
+      "name": "Dune / Aggression",
+      "world": "Cross-setting",
+      "colors": [
+        "B",
+        "R",
+        "G",
+        "W"
+      ],
+      "core_color": "BRGW",
+      "secondary_colors": [
+        "B",
+        "R",
+        "G",
+        "W"
+      ],
+      "routing": {
+        "color_identity": "BRGW",
+        "label": "Dune",
+        "suppress_directory_links": true
+      },
+      "core_tension": "Dune claims ground through coordinated force before detached contemplation can cool the moment, but common-front pressure can become domination when every body, cost, and opening is treated as something to spend forward.",
+      "identity_blend": "Black cost-bearing conquest, Red ignition, Green survival-minded multiplication, and White line organized into missing-Blue territorial force.",
+      "display": {
+        "key": "DUNE",
+        "name": "Dune / Aggression",
+        "institution_type": "four_color",
+        "world": "Cross-setting",
+        "colors": [
+          "B",
+          "R",
+          "G",
+          "W"
+        ],
+        "accent": "#c78154",
+        "banner": "linear-gradient(150deg,rgba(155,97,86,0.34) 0%,rgba(194,103,53,0.30) 30%,rgba(92,134,72,0.28) 64%,rgba(220,206,164,0.18) 100%)",
+        "tagline": "Take the field. Keep the line moving.",
+        "philosophy": "Dune believes presence should claim ground before detached contemplation can cool the moment. White holds the line, Black authorizes the cost, Red keeps ignition immediate, and Green keeps bodies and pressure multiplying.",
+        "lore_summary": "Dune / Aggression is Vox Mana's four-color without Blue expression for organized territorial pressure, direct action, common-front force, and survival-minded multiplication without Blue-style distance.",
+        "core_tension": "Dune claims ground through coordinated force before detached contemplation can cool the moment, but common-front pressure can become domination when every body, cost, and opening is treated as something to spend forward.",
+        "affinity": {
+          "drawn_to": [
+            "Lines, formations, and bodies already moving together under pressure",
+            "Territory, momentum, and conflict language that makes presence itself feel decisive",
+            "Costs that keep a common front alive instead of making peace the first answer",
+            "Growth or multiplication that reinforces pressure rather than retreat"
+          ],
+          "repelled_by": [
+            "Detached contemplation treated as the cleanest answer by default",
+            "Generic go-wide, combat, or token language without the missing-Blue worldview",
+            "Nearby Jund, Naya, Mardu, Abzan, or Glint signals without the full BRGW line",
+            "Nephilim, commander product texture, or color identity used as institutional proof"
+          ],
+          "core_question": "What ground is worth claiming before distance can talk the line into standing still?",
+          "interview_tells": [
+            "Talks about pressure, territory, solidarity, and motion as the same answer",
+            "Needs White line, Black cost, Red ignition, and Green persistence all at once",
+            "Treats overthinking as the thing that lets the field be lost"
+          ]
+        },
+        "decree_voice": {
+          "tone": "Martial, grounded, urgent, and heavy with force that has already decided to move.",
+          "signature_line": "The field belongs to the force already crossing it."
+        },
+        "archetypes": [
+          {
+            "name": "Organized Territorial Pressure",
+            "desc": "Turns line, cost, ignition, and multiplication into force that claims ground before distance can cool it."
+          },
+          {
+            "name": "Common-Front Momentum",
+            "desc": "Builds a shared front where solidarity matters because it is backed by bodily pressure and consequence-bearing action."
+          },
+          {
+            "name": "Conquest Overreach",
+            "desc": "Carries the shadow risk of mistaking every opening, body, or common cause for ground that must be taken."
+          }
+        ],
+        "flavor_search_terms": [
+          "territory",
+          "line",
+          "advance",
+          "pressure",
+          "conquest",
+          "common front",
+          "formation",
+          "ignition",
+          "survival",
+          "multiplication"
+        ],
+        "land_base": {
+          "premium": [
+            "Badlands",
+            "Taiga",
+            "Savannah",
+            "Scrubland"
+          ],
+          "midrange": [
+            "Blood Crypt",
+            "Stomping Ground",
+            "Temple Garden",
+            "Godless Shrine"
+          ],
+          "budget": [
+            "Path of Ancestry",
+            "Jungle Shrine",
+            "Nomad Outpost",
+            "Evolving Wilds"
+          ],
+          "utility": [
+            "Command Tower",
+            "Exotic Orchard",
+            "Reflecting Pool",
+            "Mana Confluence"
+          ],
+          "optimal": "Badlands / Taiga / Savannah / Scrubland / Command Tower / Exotic Orchard",
+          "mid": "Blood Crypt / Stomping Ground / Temple Garden / Godless Shrine / Sacred Foundry",
+          "budget_line": "Path of Ancestry / Jungle Shrine / Nomad Outpost / Evolving Wilds / basics",
+          "utility_line": "Command Tower / Exotic Orchard / Reflecting Pool / Mana Confluence"
+        }
+      },
+      "display_code": "DUNE",
+      "aliases": [
+        "DUNE"
+      ],
+      "placement_eligible": true,
+      "preview_eligible": false
+    },
+    "INK": {
+      "key": "INK",
+      "active": true,
+      "kind": "four_color",
+      "name": "Ink / Altruism",
+      "world": "Cross-setting",
+      "colors": [
+        "R",
+        "G",
+        "W",
+        "U"
+      ],
+      "core_color": "RGWU",
+      "secondary_colors": [
+        "R",
+        "G",
+        "W",
+        "U"
+      ],
+      "routing": {
+        "color_identity": "RGWU",
+        "label": "Ink",
+        "suppress_directory_links": true
+      },
+      "core_tension": "Ink keeps resources, knowledge, and care moving through a defended commons, but protected generosity can become self-erasure when private need is mistrusted too strongly.",
+      "identity_blend": "Red care, Green reciprocity, White civic promise, and Blue open knowledge organized into missing-Black public abundance.",
+      "display": {
+        "key": "INK",
+        "name": "Ink / Altruism",
+        "institution_type": "four_color",
+        "world": "Cross-setting",
+        "colors": [
+          "R",
+          "G",
+          "W",
+          "U"
+        ],
+        "accent": "#69b99a",
+        "banner": "linear-gradient(150deg,rgba(88,166,132,0.34) 0%,rgba(219,190,116,0.28) 32%,rgba(83,126,178,0.28) 66%,rgba(174,75,74,0.18) 100%)",
+        "tagline": "Keep the commons guarded. Keep the gift moving.",
+        "philosophy": "Ink believes abundance should circulate through a defended commons rather than become private leverage. Red keeps care present, Green keeps reciprocity alive, White gives public promise, and Blue opens knowledge without letting Black-style private hoarding define the center.",
+        "lore_summary": "Ink / Altruism is Vox Mana's four-color without Black expression for protected public abundance, open knowledge, community benefit, and generosity guarded from capture.",
+        "core_tension": "Ink keeps resources, knowledge, and care moving through a defended commons, but protected generosity can become self-erasure when private need is mistrusted too strongly.",
+        "affinity": {
+          "drawn_to": [
+            "Shared resources protected from capture",
+            "Open knowledge, public memory, and civic generosity",
+            "Group-benefit language that still honors consent and guardrails",
+            "Abundance that circulates instead of becoming private leverage"
+          ],
+          "repelled_by": [
+            "Private hoarding or personal advantage as the center of the answer",
+            "Generic group-hug friendliness without a missing-Black worldview",
+            "Public archive imagery without care, reciprocity, and protection",
+            "Kynaios, Ink-Treader, or color identity used as naming authority"
+          ],
+          "core_question": "What gift is worth protecting so it can keep moving through the commons?",
+          "interview_tells": [
+            "Talks about commons, open knowledge, public memory, and shared resources as one protected system",
+            "Wants generosity to circulate without letting the table become capture-prone",
+            "Needs Red care, Green reciprocity, White civic promise, and Blue open knowledge all at once"
+          ]
+        },
+        "decree_voice": {
+          "tone": "Civic, generous, archival, and quietly guarded.",
+          "signature_line": "The commons is not a vault. Guard it so the gift can move."
+        },
+        "archetypes": [
+          {
+            "name": "Protected Public Abundance",
+            "desc": "Keeps resources, knowledge, and care circulating through a defended commons."
+          },
+          {
+            "name": "Open Knowledge Pact",
+            "desc": "Treats archives, maps, memory, and learning as public goods that still need boundaries."
+          },
+          {
+            "name": "Self-Erasure Risk",
+            "desc": "Carries the shadow risk of mistaking every private need for selfish capture."
+          }
+        ],
+        "flavor_search_terms": [
+          "commons",
+          "archive",
+          "knowledge",
+          "share",
+          "shared",
+          "gift",
+          "generosity",
+          "abundance",
+          "community",
+          "public",
+          "memory",
+          "protect"
+        ],
+        "land_base": {
+          "premium": [
+            "Volcanic Island",
+            "Taiga",
+            "Savannah",
+            "Tundra"
+          ],
+          "midrange": [
+            "Steam Vents",
+            "Stomping Ground",
+            "Temple Garden",
+            "Hallowed Fountain"
+          ],
+          "budget": [
+            "Path of Ancestry",
+            "Jungle Shrine",
+            "Mystic Monastery",
+            "Evolving Wilds"
+          ],
+          "utility": [
+            "Command Tower",
+            "Exotic Orchard",
+            "Reflecting Pool",
+            "Mana Confluence"
+          ],
+          "optimal": "Volcanic Island / Taiga / Savannah / Tundra / Command Tower / Exotic Orchard",
+          "mid": "Steam Vents / Stomping Ground / Temple Garden / Hallowed Fountain / Breeding Pool",
+          "budget_line": "Path of Ancestry / Jungle Shrine / Mystic Monastery / Evolving Wilds / basics",
+          "utility_line": "Command Tower / Exotic Orchard / Reflecting Pool / Mana Confluence"
+        }
+      },
+      "display_code": "INK",
+      "aliases": [
+        "INK"
+      ],
+      "placement_eligible": true,
+      "preview_eligible": false
+    },
+    "WITCH": {
+      "key": "WITCH",
+      "active": true,
+      "kind": "four_color",
+      "name": "Witch / Growth",
+      "world": "Cross-setting",
+      "colors": [
+        "G",
+        "W",
+        "U",
+        "B"
+      ],
+      "core_color": "GWUB",
+      "secondary_colors": [
+        "G",
+        "W",
+        "U",
+        "B"
+      ],
+      "routing": {
+        "color_identity": "GWUB",
+        "label": "Witch",
+        "suppress_directory_links": true
+      },
+      "core_tension": "Witch cultivates protected growth through structure, calculation, and ambition, but patient planning can become sterile control when Red-style impulse is excluded too completely.",
+      "identity_blend": "Green cultivation, White structure, Blue calculation, and Black ambition organized into missing-Red patient inevitability.",
+      "display": {
+        "key": "WITCH",
+        "name": "Witch / Growth",
+        "institution_type": "four_color",
+        "world": "Cross-setting",
+        "colors": [
+          "G",
+          "W",
+          "U",
+          "B"
+        ],
+        "accent": "#8fbf74",
+        "banner": "linear-gradient(150deg,rgba(106,154,92,0.34) 0%,rgba(218,205,157,0.24) 30%,rgba(74,121,169,0.28) 62%,rgba(72,42,80,0.22) 100%)",
+        "tagline": "Let the garden wait. Count every root.",
+        "philosophy": "Witch believes the future should be cultivated before it is claimed. Green grows the root, White protects the trellis, Blue measures the method, and Black keeps ambition aimed at inevitability without letting Red-style impulse take command.",
+        "lore_summary": "Witch / Growth is Vox Mana's four-color without Red expression for patient cultivation, calculated expansion, protected accumulation, and ambition disciplined into long-horizon growth.",
+        "core_tension": "Witch cultivates protected growth through structure, calculation, and ambition, but patient planning can become sterile control when Red-style impulse is excluded too completely.",
+        "affinity": {
+          "drawn_to": [
+            "Small investments protected until they become inevitability",
+            "Garden, ritual, ledger, experiment, counter, and trellis language",
+            "Growth shaped by structure, knowledge, and ambition",
+            "Plans that win because they were protected before panic began"
+          ],
+          "repelled_by": [
+            "Impulse, spectacle, haste, or emotional release as the center",
+            "Generic counters or proliferate without the missing-Red worldview",
+            "Generic Atraxa, infect, superfriends, or Phyrexia-only shortcuts",
+            "Growth, Witch-Maw, or color identity used as public naming authority"
+          ],
+          "core_question": "What future is worth cultivating until impulse can no longer interrupt it?",
+          "interview_tells": [
+            "Talks about patience, cultivation, protection, and inevitability as one system",
+            "Wants counters or proliferate texture because small things can be guarded into scale",
+            "Needs Green cultivation, White structure, Blue calculation, and Black ambition all at once"
+          ]
+        },
+        "decree_voice": {
+          "tone": "Patient, ritual, botanical, calculating, and calm enough to feel inexorable.",
+          "signature_line": "The root remembers what the spark forgot."
+        },
+        "archetypes": [
+          {
+            "name": "Patient Cultivation",
+            "desc": "Protects small advantages, tends them through structure, and lets time make the table answer."
+          },
+          {
+            "name": "Calculated Expansion",
+            "desc": "Turns knowledge, ambition, and patient growth into a plan that scales before it reveals itself."
+          },
+          {
+            "name": "Sterile Control Risk",
+            "desc": "Carries the shadow risk of excluding impulse so completely that living growth becomes control."
+          }
+        ],
+        "flavor_search_terms": [
+          "growth",
+          "root",
+          "garden",
+          "ritual",
+          "cultivate",
+          "counter",
+          "proliferate",
+          "patient",
+          "inevitable",
+          "trellis",
+          "experiment",
+          "scheme"
+        ],
+        "land_base": {
+          "premium": [
+            "Bayou",
+            "Savannah",
+            "Tundra",
+            "Underground Sea"
+          ],
+          "midrange": [
+            "Overgrown Tomb",
+            "Temple Garden",
+            "Hallowed Fountain",
+            "Watery Grave"
+          ],
+          "budget": [
+            "Path of Ancestry",
+            "Sandsteppe Citadel",
+            "Opulent Palace",
+            "Evolving Wilds"
+          ],
+          "utility": [
+            "Command Tower",
+            "Exotic Orchard",
+            "Reflecting Pool",
+            "Mana Confluence"
+          ],
+          "optimal": "Bayou / Savannah / Tundra / Underground Sea / Command Tower / Exotic Orchard",
+          "mid": "Overgrown Tomb / Temple Garden / Hallowed Fountain / Watery Grave / Breeding Pool",
+          "budget_line": "Path of Ancestry / Sandsteppe Citadel / Opulent Palace / Evolving Wilds / basics",
+          "utility_line": "Command Tower / Exotic Orchard / Reflecting Pool / Mana Confluence"
+        }
+      },
+      "display_code": "WITCH",
+      "aliases": [
+        "WITCH"
+      ],
+      "placement_eligible": true,
+      "preview_eligible": false
+    },
+    "COLORLESS": {
+      "key": "COLORLESS",
+      "active": true,
+      "kind": "colorless",
+      "name": "Colorless",
+      "world": "Cross-plane",
+      "colors": [],
+      "core_color": "C",
+      "secondary_colors": [],
+      "routing": {
+        "color_identity": "C",
+        "label": "Colorless",
+        "suppress_directory_links": true
+      },
+      "core_tension": "Colorless gains clarity by standing outside WUBRG, but loses clarity the moment outside-ness becomes a generic catch-all.",
+      "identity_blend": "Outside-WUBRG precision held through chosen restriction, machine logic, void, Wastes austerity, Eldrazi scale, and strict generic/colorless separation.",
+      "display": {
+        "key": "COLORLESS",
+        "name": "Colorless",
+        "institution_type": "colorless",
+        "world": "Cross-plane",
+        "colors": [],
+        "accent": "#a7ada4",
+        "banner": "linear-gradient(150deg,rgba(180,184,172,0.30) 0%,rgba(100,107,108,0.24) 42%,rgba(46,42,58,0.20) 100%)",
+        "tagline": "Outside the wheel. Not above it.",
+        "philosophy": "Colorless asks what remains when the five colors are not the grammar of the answer: the artifact that acts without appetite, the void that does not negotiate, the Wastes where colored mana has been stripped away, and the detached perspective that must not become superiority over color.",
+        "lore_summary": "Colorless is Vox Mana's controlled outside-WUBRG expression: governed as its own placeable product lane, not a sixth color, for chosen restriction, machine logic, void, desolation, and precise colorless/generic separation.",
+        "core_tension": "Colorless gains clarity by standing outside WUBRG, but loses clarity the moment outside-ness becomes a generic catch-all.",
+        "affinity": {
+          "drawn_to": [
+            "A deliberate identity outside WUBRG rather than a missing color",
+            "A lane governed like its own constraint without becoming a sixth color",
+            "The restriction puzzle of strict non-color deckbuilding",
+            "Artifact machinery, Wastes austerity, Eldrazi scale, or clean mana systems kept as separate branches",
+            "Precise distinctions between generic mana, colorless mana, artifacts, Eldrazi, Wastes, and Devoid"
+          ],
+          "repelled_by": [
+            "Treating Colorless as a sixth color or superior form of WUBRG",
+            "Generic artifact preference without outside-WUBRG precision",
+            "Generic mana costs treated as colorless mana",
+            "Five-color Eldrazi, Phyrexia, Devoid, or Wastes treated as automatic Colorless proof"
+          ],
+          "core_question": "What remains compelling when the color wheel is not the language of the answer?",
+          "interview_tells": [
+            "Names the appeal of the restriction itself rather than only artifacts or large mana costs",
+            "Separates machine, void, Wastes, Eldrazi, and Devoid branches instead of collapsing them",
+            "Frames Colorless as outside or orthogonal to WUBRG, not above it"
+          ]
+        },
+        "decree_voice": {
+          "tone": "Spare, precise, alien, instrumental, and austere without becoming empty.",
+          "signature_line": "The absence is not empty. It is exact."
+        },
+        "archetypes": [
+          {
+            "name": "Chosen Restriction",
+            "desc": "Finds creativity in the strict outside-WUBRG constraint and the precision it demands."
+          },
+          {
+            "name": "Machine And Void",
+            "desc": "Keeps artifact function, Eldrazi alienness, Wastes austerity, and clean mana systems distinct."
+          },
+          {
+            "name": "Boundary Discipline",
+            "desc": "Refuses to let generic mana, cards asking for a color, artifacts, Devoid, five-color Eldrazi, or Phyrexia become Colorless proof."
+          }
+        ],
+        "flavor_search_terms": [
+          "colorless",
+          "wastes",
+          "eldrazi",
+          "dust",
+          "void",
+          "artifact",
+          "machine",
+          "desolate",
+          "austere"
+        ],
+        "land_base": {
+          "premium": [
+            "Eldrazi Temple",
+            "Urza's Tower",
+            "Urza's Power Plant",
+            "Urza's Mine"
+          ],
+          "midrange": [
+            "Temple of the False God"
+          ],
+          "budget": [
+            "Wastes"
+          ],
+          "utility": [],
+          "optimal": "Eldrazi Temple / Urza's Tower / Urza's Power Plant / Urza's Mine / Wastes",
+          "mid": "Eldrazi Temple / Temple of the False God / Wastes",
+          "budget_line": "Wastes",
+          "utility_line": "Eldrazi Temple / Temple of the False God / Wastes"
+        }
+      },
+      "display_code": "C",
+      "aliases": [
+        "COLORLESS"
       ],
       "placement_eligible": true,
       "preview_eligible": false

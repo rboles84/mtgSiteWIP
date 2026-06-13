@@ -1,0 +1,228 @@
+{
+  "schema_version": "1.0.0",
+  "faction_id": "ink",
+  "faction_name": "Ink / Altruism",
+  "source_review_date": "2026-06-12",
+  "last_updated": "2026-06-12",
+  "sources": [
+    {
+      "source_id": "src_vm_ink_source_ledger_20260604",
+      "title": "Ink Source Ledger",
+      "author": "Vox Mana research packet",
+      "publisher_or_site": "Local repository",
+      "publication_date": "2026-06-03",
+      "url_or_repository_path": "docs/research/ink/ink-source-ledger.md",
+      "source_type": "Curated source ledger",
+      "source_role": "shaping-only",
+      "reliability": "Primary local source-role ledger",
+      "notes": "Defines Ink source roles, support-only Commander texture, discovery-only draft quarantine, and downstream limits. It shapes the raw packet but does not back raw claims by itself."
+    },
+    {
+      "source_id": "src_vm_ink_evidence_ledger_20260604",
+      "title": "Ink Evidence Ledger",
+      "author": "Vox Mana research packet",
+      "publisher_or_site": "Local repository",
+      "publication_date": "2026-06-03",
+      "url_or_repository_path": "docs/research/ink/ink-evidence-ledger.md",
+      "source_type": "Curated evidence ledger",
+      "source_role": "claim-bearing",
+      "reliability": "Primary local evidence ledger",
+      "claim_bearing_evidence_rows": [
+        "INK-EVID-001",
+        "INK-EVID-002",
+        "INK-EVID-003",
+        "INK-EVID-004",
+        "INK-EVID-007",
+        "INK-EVID-010"
+      ],
+      "notes": "Primary normalized evidence row index for VM-261 raw claims. Only the listed claim-bearing INK-EVID rows may support raw claims; all other rows remain support, shaping, synthesis, manual-fill, discovery, or non-proof records."
+    },
+    {
+      "source_id": "src_vm_ink_vm258_scope_card_20260603",
+      "title": "VM-258 Ink Source Packet And Evidence Ledger Done Card",
+      "author": "Vox Mana Kanban",
+      "publisher_or_site": "Local repository",
+      "publication_date": "2026-06-03",
+      "url_or_repository_path": "docs/kanban/done/VM-258-ink-source-packet-and-evidence-ledger.md",
+      "source_type": "Kanban scope record",
+      "source_role": "claim-bearing",
+      "reliability": "Scope-bound authorization record",
+      "claim_bearing_evidence_rows": [
+        "INK-EVID-001",
+        "INK-EVID-002"
+      ],
+      "notes": "Scope record for source-packet approval, non-live Ink status, and RGWU metadata/query-only guardrails. Use this source only for lifecycle, scope, and public-interface boundary support."
+    },
+    {
+      "source_id": "src_vm263_ink_runtime_promotion_20260604",
+      "title": "VM-263 Ink Controlled Runtime Promotion",
+      "author": "Vox Mana project card",
+      "publisher_or_site": "Local repository",
+      "publication_date": "2026-06-04",
+      "url_or_repository_path": "docs/kanban/done/VM-263-ink-controlled-runtime-promotion.md",
+      "source_type": "Project lifecycle decision",
+      "source_role": "shaping-only",
+      "reliability": "Primary local project decision",
+      "notes": "Used only to resolve live/generated lifecycle metadata after the VM-261 source packet and VM-262 review gate. It is not lore evidence, card evidence, Commander evidence, placement-axis support, inhibitor-trap support, mechanics support, discriminator support, or support for color-code public aliases."
+    },
+    {
+      "source_id": "src_vm_four_color_reference_audit_20260604",
+      "title": "Canon Inventory Four-Color Reference Audit",
+      "author": "Vox Mana canon audit",
+      "publisher_or_site": "Local repository",
+      "publication_date": "Local capture",
+      "url_or_repository_path": "docs/research/canon/canon-inventory-four-color-reference-audit.md",
+      "source_type": "Repo-truth canon audit",
+      "source_role": "claim-bearing",
+      "reliability": "Primary repo-truth audit for VM-258 framing",
+      "claim_bearing_evidence_rows": [
+        "INK-EVID-002",
+        "INK-EVID-003",
+        "INK-EVID-004",
+        "INK-EVID-007",
+        "INK-EVID-010"
+      ],
+      "notes": "Claim-bearing only for the approved Ink framing rows. It does not authorize runtime promotion, exact card facts, Commander proof, public aliases, or placement output."
+    },
+    {
+      "source_id": "src_vm_four_color_identity_dossier_md_20260604",
+      "title": "Magic Four-Color Identity Dossier",
+      "author": "Vox Mana research synthesis",
+      "publisher_or_site": "Local repository",
+      "publication_date": "Local capture",
+      "url_or_repository_path": "docs/research/canon/misc/Magic Four-Color Identity Dossier.md",
+      "source_type": "Repo synthesis",
+      "source_role": "support-only",
+      "reliability": "Support-only unless cross-checked by claim-bearing rows",
+      "notes": "May support already-bounded missing-Black, Ink-Treader, Kynaios, and overclaim-warning language. It is not raw-claim proof or factual/canon authority by itself."
+    },
+    {
+      "source_id": "src_vm_ink_commander_deck_list_20260604",
+      "title": "Commander Deck List - Stalwart Unity Support Row",
+      "author": "Local Commander support capture",
+      "publisher_or_site": "Local repository",
+      "publication_date": "Local capture",
+      "url_or_repository_path": "docs/research/canon/misc/commander_deck_list.txt",
+      "source_type": "Local product support",
+      "source_role": "support-only",
+      "reliability": "Commander support-only",
+      "notes": "Confirms Stalwart Unity, Kynaios and Tiro of Meletis, WURG support-source order, and Commander 2016 as local support texture. Not lore proof, legality proof, raw-claim proof, or runtime authorization."
+    },
+    {
+      "source_id": "src_vm_commander_recommendations_stalwart_unity_20260604",
+      "title": "Vox Mana Second Commander Recommendations - Stalwart Unity / Kynaios Row",
+      "author": "Vox Mana Commander data",
+      "publisher_or_site": "Local repository",
+      "publication_date": "Local data row",
+      "url_or_repository_path": "docs/research/vox_mana_second_commander_recommendations_enhanced.jsonl (content-matched deckName Stalwart Unity and mainCommander Kynaios and Tiro of Meletis)",
+      "source_type": "Commander support row",
+      "source_role": "support-only",
+      "reliability": "Commander support-only",
+      "notes": "May support Stalwart Unity, Kynaios and Tiro, group-hug, and shared-resource Commander texture. Not lore proof, legality proof, recommendation proof, or runtime authorization."
+    },
+    {
+      "source_id": "src_vm_ink_precons_source_json_20260604",
+      "title": "Vox Mana Precons Source Data - Stalwart Unity Support Texture",
+      "author": "Vox Mana precon data",
+      "publisher_or_site": "Local repository",
+      "publication_date": "Local capture",
+      "url_or_repository_path": "data/precons/vox-mana-precons.source.json",
+      "source_type": "Local precon support data",
+      "source_role": "support-only",
+      "reliability": "Precon support-only",
+      "notes": "Supports Stalwart Unity deck texture and local Commander framing only. Not raw-claim proof, lore proof, or placement authority."
+    },
+    {
+      "source_id": "src_vm_ink_precon_catalog_json_20260604",
+      "title": "Vox Mana Precon Catalog - Stalwart Unity Support Texture",
+      "author": "Vox Mana precon data",
+      "publisher_or_site": "Local repository",
+      "publication_date": "Local capture",
+      "url_or_repository_path": "data/precons/vox-mana-precon-catalog.json",
+      "source_type": "Local precon catalog",
+      "source_role": "support-only",
+      "reliability": "Precon support-only",
+      "notes": "Supports Stalwart Unity catalog texture only. Not raw-claim proof, lore proof, or runtime authorization."
+    },
+    {
+      "source_id": "src_vm_ink_identity_md_20260604",
+      "title": "Ink / Altruism Identity",
+      "author": "Vox Mana architecture docs",
+      "publisher_or_site": "Local repository",
+      "publication_date": "2026-06-04",
+      "url_or_repository_path": "docs/architecture/colors/ink/identity.md",
+      "source_type": "Architecture prose",
+      "source_role": "shaping-only",
+      "reliability": "Docs-only parity guidance",
+      "notes": "May shape profile and placement language. Must not be used as raw-claim evidence."
+    },
+    {
+      "source_id": "src_vm_ink_metaphysics_md_20260604",
+      "title": "Ink / Altruism Metaphysics",
+      "author": "Vox Mana architecture docs",
+      "publisher_or_site": "Local repository",
+      "publication_date": "2026-06-04",
+      "url_or_repository_path": "docs/architecture/colors/ink/metaphysics.md",
+      "source_type": "Architecture prose",
+      "source_role": "shaping-only",
+      "reliability": "Docs-only parity guidance",
+      "notes": "May shape profile and placement language. Must not be used as raw-claim evidence."
+    },
+    {
+      "source_id": "src_vm_ink_manual_fill_20260604",
+      "title": "Ink Manual Fill",
+      "author": "Vox Mana research packet",
+      "publisher_or_site": "Local repository",
+      "publication_date": "2026-06-03",
+      "url_or_repository_path": "docs/research/ink/ink-manual-fill.md",
+      "source_type": "Manual-fill queue",
+      "source_role": "discovery-only",
+      "reliability": "Gap-tracking document",
+      "notes": "Tracks deferred work and packet drift. It is not raw-claim evidence."
+    }
+  ],
+  "quarantine_traceability": [
+    {
+      "quarantine_id": "ink_quarantine_discovery_001",
+      "title": "Ink Deep Research Report",
+      "url_or_repository_path": "docs/research/ink/ink-deep-research-report.md",
+      "source_role": "discovery-only",
+      "sha256": "7260F51FD5094E8D438F826C13A5CBCAB2A26694C2DD906625B1A27A40B45DDF",
+      "notes": "Quarantine traceability only. This record intentionally has no source_id and cannot be cited by raw claims."
+    },
+    {
+      "quarantine_id": "ink_quarantine_discovery_002",
+      "title": "Ink-Treader Research Packet HTML",
+      "url_or_repository_path": "docs/research/ink/ink-treader-research-packet.html",
+      "source_role": "discovery-only",
+      "sha256": "FEBE6FFD81E7187F940BB9299419D48139D4C2B95A2B020E46421BF6F83B9253",
+      "notes": "Quarantine traceability only. This record intentionally has no source_id and cannot be cited by raw claims."
+    },
+    {
+      "quarantine_id": "ink_quarantine_discovery_003",
+      "title": "Ink Altruism RGWU Research Report",
+      "url_or_repository_path": "docs/research/ink/ink_altruism_rgwu_research_report.md",
+      "source_role": "discovery-only",
+      "sha256": "C6DF6D837DF95C7831F74ECCA5D78A42AB8ABA90C6B951F36F050A3CFBF02C51",
+      "notes": "Quarantine traceability only. This record intentionally has no source_id and cannot be cited by raw claims."
+    }
+  ],
+  "not_used_or_rejected_sources": [
+    {
+      "source_id": "src_vm_ink_architecture_docs_as_claims",
+      "reason": "VM-259 and VM-260 architecture docs are shaping-only and cannot be cited as raw-claim proof."
+    },
+    {
+      "source_id": "src_vm_ink_commander_and_precon_rows_as_claims",
+      "reason": "Commander rows, precon rows, and support-texture material remain support-only and cannot become raw claims."
+    },
+    {
+      "source_id": "src_vm_ink_manual_fill_rows_as_claims",
+      "reason": "Manual-fill rows track gaps and must not become raw claims before review."
+    },
+    {
+      "source_id": "src_vm_ink_discovery_drafts_as_claims",
+      "reason": "The preserved Ink drafts remain discovery-only quarantine records without source IDs and cannot be cited as raw-claim evidence."
+    }
+  ]
+}

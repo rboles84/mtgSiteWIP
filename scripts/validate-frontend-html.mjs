@@ -192,12 +192,12 @@ expectAbsent(
   "archscry/index.html should not ship inline <style> blocks"
 );
 expect(
-  sources.home.includes('<link rel="stylesheet" href="./assets/css/newindex2.css" />'),
-  'index.html should load "./assets/css/newindex2.css"'
+  sources.home.includes('<link rel="stylesheet" href="./assets/css/home.css" />'),
+  'index.html should load "./assets/css/home.css"'
 );
 expect(
-  sources.home.includes('<script src="./assets/js/newindex2.js" defer></script>'),
-  'index.html should load "./assets/js/newindex2.js" as a deferred external script'
+  sources.home.includes('<script src="./assets/js/home.js" defer></script>'),
+  'index.html should load "./assets/js/home.js" as a deferred external script'
 );
 expectAbsent(
   sources.home,
@@ -227,11 +227,11 @@ expect(
   "strategium/index.html should not ship executable inline <script> blocks"
 );
 
-const newindexTopbarLinkIndex = sources.home.indexOf('./assets/css/topbar.css');
-const newindexRouteCssIndex = sources.home.indexOf('./assets/css/newindex2.css');
+const homeTopbarLinkIndex = sources.home.indexOf('./assets/css/topbar.css');
+const homeRouteCssIndex = sources.home.indexOf('./assets/css/home.css');
 expect(
-  newindexTopbarLinkIndex !== -1 && newindexRouteCssIndex !== -1 && newindexTopbarLinkIndex < newindexRouteCssIndex,
-  "index.html should load topbar.css before newindex2.css"
+  homeTopbarLinkIndex !== -1 && homeRouteCssIndex !== -1 && homeTopbarLinkIndex < homeRouteCssIndex,
+  "index.html should load topbar.css before home.css"
 );
 
 const archscryLastStylesheetTagIndex = sources.archscry.lastIndexOf('<link rel="stylesheet"');

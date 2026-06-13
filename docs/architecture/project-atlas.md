@@ -6,7 +6,7 @@ Vox Mana is an unofficial Magic: The Gathering fan site that combines a themed s
 
 | Route | File | Purpose | Primary runtime |
 |---|---|---|---|
-| `/` | `index.html` | Canonical home gateway and Identity Signal showcase. | `assets/js/graph.js`, `assets/js/newindex2.js`, `assets/js/reduce-motion.js`, `assets/js/vm-topbar.js` |
+| `/` | `index.html` | Canonical home gateway and Identity Signal showcase. | `assets/js/graph.js`, `assets/js/home.js`, `assets/js/reduce-motion.js`, `assets/js/vm-topbar.js` |
 | `/archscry/` | `archscry/index.html` | Placement experience: landing, quick adaptive reading, dossier result, archived Scrying Terminal. | `assets/js/index.js`, `assets/js/shared.js`, `assets/js/adaptive-placement.js` |
 | `/maze/` | `maze/index.html` | The Implicit Maze premium Scryfall search console. | `assets/css/maze.css`, `assets/js/vm-rich-atmosphere.js`, `research/research-init.js`, and imported research modules |
 | `/apocrypha/` | `apocrypha/index.html` | Canonical Apocrypha Archive Console and public provenance page. | `assets/css/apocrypha.css`, `assets/js/apocrypha.js`, shared topbar, and reduce-motion |
@@ -16,13 +16,15 @@ Vox Mana is an unofficial Magic: The Gathering fan site that combines a themed s
 | `/terms/` | `terms/index.html` | Terms of service with project-specific glossary text. | `assets/css/legal.css`, gateway background shell, shared topbar and atmosphere scripts |
 | `http://127.0.0.1:4783/` | External tools workspace | Local command and source-review queue panel. | `C:\dev\projectFiles\voxmana-tools` |
 
+`index.html` is the canonical Home route. The live Home stack uses `home.css` and `home.js`; any remaining legacy preview-era names belong to historical records only.
+
 ## Runtime Layers
 
 | Layer | Files | Responsibility |
 |---|---|---|
 | Static shells | `index.html`, `archscry/index.html`, `maze/index.html`, `apocrypha/index.html`, `strategium/index.html`, `library/index.html`, policy pages | Define route-specific DOM, preload assets, script entrypoints, and inline handler hooks. |
 | Shared visual system | `assets/css/tokens.css`, `assets/css/fonts.css`, `assets/css/layout.css`, `assets/css/animations.css`, `assets/css/topbar.css`, `assets/css/atmosphere.css`, `assets/css/components.css` | Site tokens, progressive OKLCH fallbacks, teal-only Display P3 accent overrides, a conservative fluid spacing/type pilot, a layered shared layout bridge, canonical imported live keyframes, shared font loading, topbar, atmospheric canvas, and reusable panels/buttons/chips/progress treatments. |
-| Home route | `assets/css/newindex2.css`, `assets/js/newindex2.js`, `index.html` | Canonical home shell styling and behavior extracted from the former preview-page inline CSS/JS while still reusing shared tokens, layout, topbar, local `graph.js`, `data/identity-layers.json` preview metadata, and `data/factions.json` lore notes. |
+| Home route | `assets/css/home.css`, `assets/js/home.js`, `index.html` | Canonical home shell styling and behavior extracted from the former preview-page inline CSS/JS while still reusing shared tokens, layout, topbar, local `graph.js`, `data/identity-layers.json` preview metadata, and `data/factions.json` lore notes. |
 | Archscry route shell | `assets/css/archscry.css`, `archscry/index.html` | Route-local Archscry shell, dossier, and responsive styles extracted from the former inline `archscry/index.html` CSS while still reusing shared tokens, layout, topbar, atmosphere, and shared components. |
 | Strategium route shell | `assets/css/strategium.css`, `assets/js/strategium.js`, `strategium/index.html` | Route-local Strategium shell styling and behavior extracted from the former inline `strategium/index.html` CSS/JS while preserving the Commander console, readiness checklist, archetype library, route-local atmosphere, and shared topbar/reduce-motion bridge. |
 | Apocrypha route shell | `assets/css/apocrypha.css`, `assets/js/apocrypha.js`, `apocrypha/index.html` | Route-local Apocrypha public reference library shell, rail, return dock, archive atmosphere, and hero/reference styling while preserving `/library/` as a compatibility alias. |
@@ -96,7 +98,7 @@ Vox Mana is an unofficial Magic: The Gathering fan site that combines a themed s
 | Test suite | `npm test` | Runs parser, builder, mode, syntax, and placement checks. |
 | Placement tests | `npm run test:placement` | Runs adaptive placement model/golden-path assertions. |
 | Bias simulation | `npm run test:bias` / `npm run test:bias:all` | Writes quick-reading bias reports under `test-results/`. |
-| Home visual regression | `npm run test:visual:newindex2:baseline` / `npm run test:visual:newindex2` | Captures deterministic root-home baseline/current screenshots plus console contracts and compares them with a small pixel-diff budget. |
+| Home visual regression | `npm run test:visual:home:baseline` / `npm run test:visual:home` | Captures deterministic root-home baseline/current screenshots plus console contracts and compares them with a small pixel-diff budget. |
 | Archscry visual regression | `npm run test:visual:archscry:baseline` / `npm run test:visual:archscry` | Captures deterministic Archscry landing and dossier screenshots plus console contracts and compares them with a small pixel-diff budget. |
 | Strategium visual regression | `npm run test:visual:strategium:baseline` / `npm run test:visual:strategium` | Captures deterministic Strategium landing, active console, and archetype-library screenshots plus console contracts and compares them with a small pixel-diff budget. |
 | Apocrypha visual regression | `npm run test:visual:apocrypha:baseline` / `npm run test:visual:apocrypha` | Captures deterministic Apocrypha hero and reference-library screenshots plus console contracts and compares them with a small pixel-diff budget. |
@@ -110,6 +112,6 @@ Vox Mana is an unofficial Magic: The Gathering fan site that combines a themed s
 - Generated faction artifacts must be treated as outputs; edit raw/display sources first, then regenerate.
 - Generated precon artifacts must be treated as outputs; edit `data/precons/vox-mana-precons.source.json` or `data/taxonomy/vox-mana-precon-themes.json` first, then regenerate.
 - Mono-aware identity metadata originates in `data/identity-layers.json`; do not hand-edit generated `layered_identity` blocks downstream.
-- Placement domains are currently a docs-only architecture concept. The live placement set is the original 20-expression `ravnica_strixhaven` baseline plus the Bant shard pilot, and no runtime or generated artifact exposes a live `domain` field yet.
+- Placement domains are currently a docs-only architecture concept. The live placement set is 30 expressions: the original 20-expression `ravnica_strixhaven` Home preview baseline plus five live Alara shard pilots and five live wedge pilots, and no runtime or generated artifact exposes a live `domain` field yet.
 - Docs should describe current dirty working-tree behavior, not only `main` or the last committed state.
 - External Commander directory links are presenter-layer routes. Strixhaven colleges intentionally map to their guild/color analogs for EDHREC and MTGDecks directories.

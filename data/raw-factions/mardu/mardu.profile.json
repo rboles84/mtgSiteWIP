@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "profile_version": "0.1.0",
+  "profile_version": "0.1.1",
   "faction_id": "mardu",
   "faction_name": "Mardu Horde",
   "faction_type": "wedge",
@@ -11,10 +11,10 @@
     "Black"
   ],
   "color_pair_or_group": "RWB/WBR wedge metadata only",
-  "source_review_date": "2026-05-31",
+  "source_review_date": "2026-06-05",
   "last_full_review": "2026-05-31",
-  "last_incremental_review": "2026-05-31",
-  "last_updated": "2026-05-31",
+  "last_incremental_review": "2026-06-12",
+  "last_updated": "2026-06-12",
   "site_surface": {
     "display_name": "Mardu Horde",
     "short_summary": "Mardu Horde is a source-authored, review-gated Tarkir wedge packet for Red-centered speed, war-bound action, earned names, total commitment, Khans-era raiding, Alesha bridge context, and strict Kolaghan and Dragonstorm boundaries.",
@@ -45,8 +45,8 @@
       "Decree of Thunder",
       "Lightning Proving",
       "Source-authored",
-      "Review-gated",
-      "Non-live"
+      "Source-durable repair",
+      "Live after VM-228"
     ],
     "tone_words": [
       "fast",
@@ -75,7 +75,7 @@
     "best_for": [
       "readers drawn to speed, total commitment, martial code, earned names, and decisive action",
       "players who like attack pressure, sacrifice texture, token pressure, recursion, and legendary play as support-only Commander vocabulary",
-      "reviewers checking that Mardu stays separate from generic RWB/WBR, Kolaghan continuity, Dragonstorm backfill, Commander products, color-pair overreach, seed files, and runtime readiness"
+      "reviewers checking that Mardu stays separate from generic RWB/WBR, Kolaghan continuity, Dragonstorm backfill, Commander products, color-pair overreach, seed files, and public color-code aliases"
     ],
     "content_warnings_or_sensitivity_notes": [
       "Mardu material can involve raiding, conquest, brutality, war names, strict martial hierarchy, plunder, dragon conflict, and modern survival after violence. This packet keeps exact mechanics, card facts, Commander legality, full biographies, and detailed Dragonstorm chronology deferred."
@@ -249,7 +249,26 @@
     ],
     "notes": "Pair and wedge language is shaping-only VM-225 guidance and does not create live placement scoring."
   },
+  "profile": {
+    "overview": "Mardu Horde is Vox Mana's live Tarkir wedge expression for Red-centered speed under a war code: decisive action, earned names, White formation, and Black opportunity moving before the opening closes.",
+    "philosophy": "Mardu treats identity as action under pressure. Red supplies speed, attack, and total commitment; White gives the charge formation, oath, and martial order; Black makes opportunity, survival, and ruthless advantage impossible to ignore.",
+    "core_tension": "Mardu's virtue is decisive action bound to a war code, but that speed can become conquest, overextension, or cruelty when commitment outruns the oath that gives it shape.",
+    "mechanics_and_play_pattern": "Raid-like commitment, dash-like pressure, attack momentum, sacrifice texture, recursion, and token pressure can express Mardu only when tied to speed, war-code, and Tarkir Horde evidence; exact card mechanics remain manual-fill.",
+    "claim_ids": [
+      "mardu_claim_0001",
+      "mardu_claim_0002",
+      "mardu_claim_0003",
+      "mardu_claim_0004",
+      "mardu_claim_0005",
+      "mardu_claim_0006",
+      "mardu_claim_0007",
+      "mardu_claim_0008",
+      "mardu_claim_0009",
+      "mardu_claim_0010"
+    ]
+  },
   "mechanics": {
+    "summary": "Raid-like commitment, dash-like pressure, attack momentum, sacrifice texture, recursion, and token pressure can express Mardu only when tied to speed, war-code, and Tarkir Horde evidence; exact card mechanics remain manual-fill.",
     "supported_texture": [
       "speed",
       "action",
@@ -302,9 +321,11 @@
       "seed-file prose",
       "exact mechanics without validation"
     ],
-    "runtime_status": "source_authored_review_gated",
-    "placement_status": "not_placement_eligible",
+    "runtime_status": "source_authored_live_repair",
+    "placement_status": "live_after_vm228_source_repair",
     "preview_eligible": false,
+    "placement_eligible": true,
+    "live_pilot": true,
     "claim_ids": [
       "mardu_claim_0001",
       "mardu_claim_0010"
@@ -335,7 +356,12 @@
       "mardu_claim_0008",
       "mardu_claim_0009",
       "mardu_claim_0010"
-    ]
+    ],
+    "placement_status": "live_after_vm228_source_repair",
+    "placement_eligible": true,
+    "preview_eligible": false,
+    "live_pilot": true,
+    "notes": "VM-299 repairs Mardu source durability after VM-228 live promotion and VM-296 generated-authoring contamination. The durable raw claim floor remains ten approved raw claims; exact card mechanics, Commander legality, full biographies, and detailed Dragonstorm chronology remain manual-fill/support-only."
   },
   "research_limitations": {
     "manual_review_required": true,
@@ -366,32 +392,168 @@
     ]
   },
   "commander_compass": {
-    "review_status": "support_only",
+    "schema_version": "1.0.0",
+    "source_research_file": "docs/research/vox_mana_second_commander_recommendations_enhanced.jsonl",
+    "last_reviewed": "2026-06-12",
+    "review_status": "support_only_live_pilot_curation",
     "exact_color_sets": [
       "Red; White; Black",
       "White; Black; Red"
     ],
-    "support_decks": [
-      "Revival Trance",
-      "Mardu Surge",
-      "Most Wanted",
-      "Hail, Caesar",
-      "Vampiric Bloodlust",
-      "Heavenly Inferno",
-      "Ruthless Regiment",
-      "Legends' Legacy"
+    "recommendation_philosophy": "Use Mardu Commander guidance as product/operator support only: exact White/Black/Red or Red/White/Black deck rows can express speed, attack pressure, sacrifice depth, token aggression, reanimator pressure, Outlaw/Treasure pressure, Vampire or Human combat, large attack triggers, and legendary-matters play. These rows do not create Mardu canon, Tarkir lore proof, Commander legality proof, placement evidence, or public color-code aliases.",
+    "identity_basis": {
+      "owned_themes": [
+        "Red-centered speed and immediate commitment",
+        "White martial structure and token formation",
+        "Black opportunity, sacrifice, and value from cost",
+        "war-bound pressure as support texture"
+      ],
+      "allowed_phrases": [
+        "Mardu support fit",
+        "war-bound pressure",
+        "attacking tokens",
+        "sacrifice depth",
+        "aristocrats pressure",
+        "legendary combat",
+        "combat-first value"
+      ],
+      "avoid_or_contrast_phrases": [
+        "Mardu Commander row as Tarkir canon",
+        "Commander legality proof",
+        "generic RWB/WBR color identity as placement evidence",
+        "Kolaghan continuity",
+        "Dragonstorm backfill",
+        "exact mechanics as raw claims"
+      ],
+      "adjacent_overlap_notes": [
+        "Sacrifice and aristocrats texture must stay operator support and not become Sultai resource-conversion proof or Rakdos spectacle proof.",
+        "Token aggression overlaps Boros and Abzan support surfaces, but Mardu keeps it tied to speed, total commitment, and Black opportunity.",
+        "Legendary and Human lanes are Commander texture only and do not expand Mardu lore or timeline evidence."
+      ],
+      "supporting_claim_ids": [
+        "mardu_claim_0002",
+        "mardu_claim_0003",
+        "mardu_claim_0010"
+      ],
+      "supporting_source_ids": [
+        "src_vm_second_commander_recommendations_rwb_wbr",
+        "src_vm_mardu_manual_fill_20260531",
+        "src_vm_mardu_identity_md_20260531"
+      ]
+    },
+    "native_fit_commanders": [
+      {
+        "exact_card_name": "Zurgo Stormrender",
+        "display_name": "Zurgo Stormrender",
+        "color_identity": [
+          "W",
+          "B",
+          "R"
+        ],
+        "recommendation_type": "Support-Only Commander Row",
+        "archetype_tags": [
+          "Attacking Tokens",
+          "Sacrifice",
+          "Aggro"
+        ],
+        "why_this_fits": "The local Commander workbook row for Mardu Surge supports attacking tokens, sacrifice, and aggressive combat as Mardu operator texture.",
+        "source_basis": "src_vm_second_commander_recommendations_rwb_wbr; Mardu Surge row",
+        "confidence": "Support-only",
+        "caution_notes": "Not lore proof, not exact legality proof, and not placement evidence."
+      },
+      {
+        "exact_card_name": "Alesha, Who Smiles at Death",
+        "display_name": "Alesha, Who Smiles at Death",
+        "color_identity": [
+          "W",
+          "B",
+          "R"
+        ],
+        "recommendation_type": "Support-Only Commander Row",
+        "archetype_tags": [
+          "Reanimation",
+          "Combat",
+          "Recursion"
+        ],
+        "why_this_fits": "The local Commander workbook names Alesha in Mardu Surge support context, aligning recursion and combat pressure with Mardu operator texture.",
+        "source_basis": "src_vm_second_commander_recommendations_rwb_wbr; Mardu Surge row",
+        "confidence": "Support-only",
+        "caution_notes": "Keep Alesha biography and timeline claims in the raw evidence ledger, not the Commander row."
+      },
+      {
+        "exact_card_name": "Edgar Markov",
+        "display_name": "Edgar Markov",
+        "color_identity": [
+          "W",
+          "B",
+          "R"
+        ],
+        "recommendation_type": "Support-Only Commander Row",
+        "archetype_tags": [
+          "Vampire Tribal",
+          "Tokens",
+          "Aggro"
+        ],
+        "why_this_fits": "The local Commander workbook row for Vampiric Bloodlust supports relentless token-forward Vampire pressure as Mardu operator texture.",
+        "source_basis": "src_vm_second_commander_recommendations_rwb_wbr; Vampiric Bloodlust row",
+        "confidence": "Support-only",
+        "caution_notes": "Not Tarkir lore evidence and not a Mardu placement shortcut."
+      }
     ],
-    "support_language": [
-      "attacking tokens",
-      "sacrifice",
-      "aristocrats",
-      "reanimator",
-      "Outlaws and Treasure",
-      "Vampire tribal",
-      "large-threat attack triggers",
-      "Human tribal",
-      "legendary permanents"
+    "archetype_lanes": [
+      {
+        "lane": "Attacking tokens plus sacrifice",
+        "support_decks": [
+          "Mardu Surge",
+          "Hail, Caesar",
+          "Ruthless Regiment"
+        ],
+        "support_language": [
+          "attacking tokens",
+          "sacrifice",
+          "aristocrats",
+          "aggressive combat"
+        ],
+        "source_basis": "src_vm_second_commander_recommendations_rwb_wbr"
+      },
+      {
+        "lane": "Reanimator and graveyard pressure",
+        "support_decks": [
+          "Revival Trance"
+        ],
+        "support_language": [
+          "self-mill",
+          "discard",
+          "reanimation"
+        ],
+        "source_basis": "src_vm_second_commander_recommendations_rwb_wbr"
+      },
+      {
+        "lane": "Tribal, legendary, and attack-trigger pressure",
+        "support_decks": [
+          "Most Wanted",
+          "Vampiric Bloodlust",
+          "Heavenly Inferno",
+          "Legends' Legacy"
+        ],
+        "support_language": [
+          "Outlaws and Treasure",
+          "Vampire tribal",
+          "large-threat attack triggers",
+          "legendary permanents"
+        ],
+        "source_basis": "src_vm_second_commander_recommendations_rwb_wbr"
+      }
     ],
-    "notes": "Commander Compass material is product/operator support only. It is not Mardu canon evidence, not setting proof, and not raw-claim input."
+    "link_targets": {
+      "edhrec_commander_index": "https://edhrec.com/commanders/mardu",
+      "mtgdecks_color_identity": "https://mtgdecks.net/Commander/mardu-commanders",
+      "scryfall_commander_search": "https://scryfall.com/search?q=id%3Drwb+is%3Acommander+f%3Acommander",
+      "archidekt_color_search": "https://archidekt.com/search/decks?colors=RWB&deckFormat=3&orderBy=-updatedAt&page=1"
+    },
+    "merge_notes": {
+      "support_only_boundary": "Commander/deck/operator material remains support texture only and must not be used as lore, canon, or placement proof.",
+      "deck_links_status": "External index links are provided as Commander support navigation targets only, not evidence rows."
+    }
   }
 }

@@ -19,8 +19,8 @@ Contain the Home hero horizontal overflow caused by the identity radar glow/cont
 - `docs/kanban/done/VM-147A-home-route-css-js-risk-reduction.md`
 - `docs/reference/manual-test-cases.md`
 - `index.html`
-- `assets/css/newindex2.css`
-- `scripts/visual-regression-newindex2.mjs`
+- `assets/css/home.css`
+- `scripts/visual-regression-home.mjs`
 
 ## Problem Evidence
 
@@ -32,10 +32,10 @@ Contain the Home hero horizontal overflow caused by the identity radar glow/cont
 
 ## In Scope
 
-- `assets/css/newindex2.css` selectors directly responsible for Home hero radar/glow/container overflow.
+- `assets/css/home.css` selectors directly responsible for Home hero radar/glow/container overflow.
 - `index.html` only if needed to confirm the Home hero/radar DOM structure; avoid markup changes unless a minimal accessibility-neutral wrapper/attribute fix is proven necessary.
 - `docs/reference/manual-test-cases.md` only if Home overflow QA steps need a small clarification.
-- `scripts/visual-regression-newindex2.mjs` only if a small Home-specific viewport measurement guard is clearly justified.
+- `scripts/visual-regression-home.mjs` only if a small Home-specific viewport measurement guard is clearly justified.
 
 ## Out Of Scope
 
@@ -44,7 +44,7 @@ Contain the Home hero horizontal overflow caused by the identity radar glow/cont
 - Visual redesign of the Home hero.
 - Chart.js loading strategy or chart configuration.
 - `assets/js/graph.js`.
-- `assets/js/newindex2.js` unless a verified overflow measurement hook is absolutely required; prefer CSS-only containment.
+- `assets/js/home.js` unless a verified overflow measurement hook is absolutely required; prefer CSS-only containment.
 - `assets/js/index.js`.
 - Shared CSS/JS normalization.
 - Maze, Archscry, Scryfall parser, placement scoring, precon data, Supabase/session contracts, or generated data.
@@ -55,7 +55,7 @@ Contain the Home hero horizontal overflow caused by the identity radar glow/cont
 2. Record `documentElement.clientWidth`, `documentElement.scrollWidth`, whether horizontal scrolling is possible, and the top overflow candidates with selector/bounds.
 3. Test a minimal Home-local containment change aimed only at the radar/glow/container overflow.
 4. Re-run the same viewport measurements after the fix.
-5. Run `npm.cmd run test:visual:newindex2` and record the exact mobile/tablet/desktop mismatch counts.
+5. Run `npm.cmd run test:visual:home` and record the exact mobile/tablet/desktop mismatch counts.
 6. If the only complete fix requires meaningful hero glow changes or exceeds the visual-regression budget, do not force it; document the result and leave a design decision note.
 
 ## Acceptance Criteria
@@ -67,18 +67,18 @@ Contain the Home hero horizontal overflow caused by the identity radar glow/cont
 - The identity radar still renders through existing Chart.js behavior.
 - No Chart.js loading or configuration change is made.
 - `assets/js/graph.js` and `assets/js/index.js` remain untouched.
-- `npm.cmd run test:visual:newindex2` passes, with exact mismatch counts documented.
+- `npm.cmd run test:visual:home` passes, with exact mismatch counts documented.
 - If visual drift exceeds the existing budget or materially changes the intended hero glow, the fix is not shipped without an explicit visual baseline/design decision.
 
 ## Verification
 
 - Before/after viewport measurement probe covering mobile, tablet, desktop, and 800px.
-- `npm.cmd run test:visual:newindex2`
+- `npm.cmd run test:visual:home`
 - `npm.cmd run test:frontend-smoke`
 - Manual Home QA for `/` and `/index.html`, including hero, identity radar, reduced motion, and horizontal scroll.
 
 ## Notes
 
 - Treat this as a visual defect with measurement evidence, not a continuation of VM-147A cleanup.
-- Preserve historical Home asset names: `assets/css/newindex2.css` and `assets/js/newindex2.js`.
+- Use canonical Home asset names: `assets/css/home.css` and `assets/js/home.js`.
 - Preserve the Home Mana Lens behavior, including registry-backed identities, cycle timing, hover/focus pause, hidden-tab pause, and reduced-motion `Still`.

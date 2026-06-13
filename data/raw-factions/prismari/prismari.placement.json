@@ -90,6 +90,42 @@
       ],
       "confidence": "Medium",
       "notes": "Question is placement-engine guidance, not canon text."
+    },
+    {
+      "question_id": "prismari_q3",
+      "question": "When a pattern is correct but lifeless, do you prove it more carefully or make it land as an experience?",
+      "purpose": "Separates Prismari expressive performance from Quandrix proof and abstract model logic.",
+      "answer_pattern_that_supports_this_faction": "The answer centers art, performance, elemental spectacle, felt expression, or technique in service of emotion.",
+      "answer_pattern_that_weakens_this_faction": "The answer centers proof, mathematical model, hidden structure, or abstraction before experience.",
+      "related_factions_to_compare": [
+        "Quandrix College"
+      ],
+      "claim_ids": [
+        "prismari_claim_002",
+        "prismari_claim_003",
+        "prismari_claim_004",
+        "prismari_claim_006"
+      ],
+      "confidence": "Medium",
+      "notes": "Question is placement-engine guidance grounded in claim-bearing Prismari rows, not canon text."
+    },
+    {
+      "question_id": "prismari_q4",
+      "question": "When language can move a room, should it become a precise argument, a public performance, or an elemental spectacle?",
+      "purpose": "Separates Prismari art and elemental performance from Silverquill rhetorical influence.",
+      "answer_pattern_that_supports_this_faction": "The answer centers art, performance, elemental spectacle, movement, emotion, or expressive force.",
+      "answer_pattern_that_weakens_this_faction": "The answer centers precise rhetoric, status, reputation, leadership, or word-magic influence.",
+      "related_factions_to_compare": [
+        "Silverquill College"
+      ],
+      "claim_ids": [
+        "prismari_claim_002",
+        "prismari_claim_003",
+        "prismari_claim_004",
+        "prismari_claim_006"
+      ],
+      "confidence": "Medium",
+      "notes": "Question is placement-engine guidance grounded in claim-bearing Prismari rows, not canon text."
     }
   ],
   "chatbot_guidance": {
@@ -105,7 +141,9 @@
     ],
     "questions_to_ask_when_uncertain": [
       "When has making something beautiful mattered more than making it efficient?",
-      "Do you perfect the technique first, or throw the feeling into the room and refine later?"
+      "Do you perfect the technique first, or throw the feeling into the room and refine later?",
+      "When a pattern is correct but lifeless, do you prove it more carefully or make it land as an experience?",
+      "When language can move a room, should it become a precise argument, a public performance, or an elemental spectacle?"
     ],
     "do_not_overweight": [
       "Do not overfit a single color preference.",
@@ -384,5 +422,34 @@
     "false_positive_guardrail": "Do not award for generic spectacle if the answer is provocation, engineering, or rhetoric.",
     "smoke_test_note": "Used by lore review scripts as metadata-level calibration guidance; production placement may use richer weighted logic."
   },
-  "collision_guidance": []
+  "collision_guidance": [
+    {
+      "collision_id": "collision_prismari_vs_quandrix_placement_ready",
+      "against": "quandrix",
+      "lateral_inhibition": false,
+      "separator": "Prismari makes the pattern land as art and experience; Quandrix proves the pattern through model and abstraction.",
+      "ask": "When a pattern is correct but lifeless, do you prove it more carefully or make it land as an experience?",
+      "suppress_if": "the answer centers proof, mathematical models, hidden structure, or abstraction before performance",
+      "evidence_claim_ids": [
+        "prismari_claim_002",
+        "prismari_claim_003",
+        "prismari_claim_004",
+        "prismari_claim_006"
+      ]
+    },
+    {
+      "collision_id": "collision_prismari_vs_silverquill_placement_ready",
+      "against": "silverquill",
+      "lateral_inhibition": false,
+      "separator": "Prismari moves the room through art, performance, and elemental spectacle; Silverquill moves the room through precise words and public influence.",
+      "ask": "When language can move a room, should it become a precise argument, a public performance, or an elemental spectacle?",
+      "suppress_if": "the answer centers rhetoric, reputation, leadership, or word-magic influence before expressive art",
+      "evidence_claim_ids": [
+        "prismari_claim_002",
+        "prismari_claim_003",
+        "prismari_claim_004",
+        "prismari_claim_006"
+      ]
+    }
+  ]
 }

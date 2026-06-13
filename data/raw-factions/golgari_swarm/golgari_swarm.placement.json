@@ -90,6 +90,28 @@
       ],
       "confidence": "Medium",
       "notes": "Question is placement-engine guidance, not canon text."
+    },
+    {
+      "question_id": "golgari_q3",
+      "question": "When something is discarded, do you preserve it, mourn it, study it, consume it, or make it feed the next cycle?",
+      "purpose": "Separates Golgari decay, reclamation, and cycle logic from generic resilience, generic nature, Witherbloom study, Abzan endurance, or Jund survival.",
+      "answer_pattern_that_supports_this_faction": "The answer centers decay as useful truth, reclaimed waste, death feeding life, undercity survival, or endings becoming material for renewal.",
+      "answer_pattern_that_weakens_this_faction": "The answer centers clean preservation, generic nature, abstract study, long endurance, appetite, or survival without decay, reclamation, or cycle logic.",
+      "related_factions_to_compare": [
+        "Witherbloom College",
+        "Abzan Houses",
+        "Jund",
+        "Selesnya Conclave"
+      ],
+      "claim_ids": [
+        "golgari_swarm_claim_001",
+        "golgari_swarm_claim_002",
+        "golgari_swarm_claim_003",
+        "golgari_swarm_claim_006",
+        "golgari_swarm_claim_007"
+      ],
+      "confidence": "Medium",
+      "notes": "VM-344 discriminator repair; source-backed by existing official Golgari identity, undergrowth, food-production, and placement claims."
     }
   ],
   "chatbot_guidance": {

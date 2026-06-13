@@ -13,8 +13,8 @@
   "color_pair_or_group": "GUR wedge metadata only",
   "source_review_date": "2026-05-31",
   "last_full_review": "2026-05-31",
-  "last_incremental_review": "2026-05-31",
-  "last_updated": "2026-05-31",
+  "last_incremental_review": "2026-06-09",
+  "last_updated": "2026-06-09",
   "site_surface": {
     "display_name": "Temur Frontier",
     "short_summary": "Temur Frontier is a VM-208 live-pilot Tarkir wedge packet for Green-centered GUR survival, instinct, mental fortitude, shamanic listening, elemental memory, and harsh-terrain endurance.",
@@ -221,7 +221,99 @@
       "notes": "Modern details stay timeline-labeled and do not backfill Khans-era Temur without direct evidence."
     }
   ],
-  "key_figures": [],
+  "key_figures": [
+    {
+      "name": "Surrak Dragonclaw",
+      "status": "Khans-era Dragonclaw and clan-defense story anchor",
+      "summary": "Source-bound as a Khans-era named Temur anchor and Awakening the Bear story figure tied to wild reverence, brutal pragmatism, and Dragonclaw mythic texture.",
+      "claim_ids": [
+        "temur_claim_0004"
+      ],
+      "evidence_rows": [
+        "TEMUR-EVID-010",
+        "TEMUR-EVID-018"
+      ],
+      "source_ids": [
+        "src_wotc_tarkir_khans_pg_part_2",
+        "src_wotc_tarkir_story_awakening_the_bear"
+      ],
+      "limitations": "Keep to the captured guide and story floor; full biography, exact card facts, Commander reputation, and card text remain manual-fill material."
+    },
+    {
+      "name": "Yasova Dragonclaw",
+      "status": "Fate Reforged and Khanfall transition anchor",
+      "summary": "Source-bound as a Fate Reforged Temur khan and Khanfall survival-bargain figure in the transition pressure between Temur and Atarka contexts.",
+      "claim_ids": [
+        "temur_claim_0006"
+      ],
+      "evidence_rows": [
+        "TEMUR-EVID-012",
+        "TEMUR-EVID-014"
+      ],
+      "source_ids": [
+        "src_wotc_tarkir_fate_reforged_pg",
+        "src_wotc_tarkir_story_khanfall"
+      ],
+      "limitations": "Use as era-specific bridge evidence only; full Bolas-manipulation arc, regret narrative, exact card facts, and card text remain manual-fill material."
+    },
+    {
+      "name": "The Dragonclaw",
+      "status": "Timeline-labeled lay leadership role",
+      "summary": "Source-bound as a Khans-era named clan-structure anchor and modern Dragonstorm-era leadership role paired with the Twice Whisperer.",
+      "claim_ids": [
+        "temur_claim_0004",
+        "temur_claim_0008"
+      ],
+      "evidence_rows": [
+        "TEMUR-EVID-009",
+        "TEMUR-EVID-021"
+      ],
+      "source_ids": [
+        "src_wotc_tarkir_khans_pg_part_2",
+        "src_wotc_tarkir_dragonstorm_pg_part_2"
+      ],
+      "limitations": "Treat as an institutional role, not a single continuous biography; do not collapse Khans-era, Fate Reforged, Atarka, and modern Dragonstorm timeline conditions."
+    },
+    {
+      "name": "The One Who Whispers Twice / Twice Whisperer",
+      "status": "Timeline-labeled spiritual leadership role",
+      "summary": "Source-bound as a Khans-era clan-structure office and modern Dragonstorm-era spiritual leadership role paired with the Dragonclaw.",
+      "claim_ids": [
+        "temur_claim_0004",
+        "temur_claim_0008"
+      ],
+      "evidence_rows": [
+        "TEMUR-EVID-009",
+        "TEMUR-EVID-021"
+      ],
+      "source_ids": [
+        "src_wotc_tarkir_khans_pg_part_2",
+        "src_wotc_tarkir_dragonstorm_pg_part_2"
+      ],
+      "limitations": "Treat as an institutional role; individual officeholders and detailed governance remain manual-fill material."
+    },
+    {
+      "name": "Whisperers and the Wide Whisper",
+      "status": "Shamanic memory and elemental-listening institution",
+      "summary": "Source-bound through Khans-era whisperers, frozen ancestor memory, Wide Whisper knowledge, hidden preservation of ancient traditions, and modern Temur guidance through the Endless Song.",
+      "claim_ids": [
+        "temur_claim_0005",
+        "temur_claim_0008",
+        "temur_claim_0009"
+      ],
+      "evidence_rows": [
+        "TEMUR-EVID-008",
+        "TEMUR-EVID-017",
+        "TEMUR-EVID-023"
+      ],
+      "source_ids": [
+        "src_wotc_tarkir_khans_pg_part_2",
+        "src_wotc_tarkir_dragons_pg_part_2",
+        "src_wotc_tarkir_dragonstorm_pg_part_2"
+      ],
+      "limitations": "Keep Khans-era Wide Whisper and modern Endless Song material timeline-labeled; exact Endless Song temporal mechanics remain manual-fill material."
+    }
+  ],
   "canonical_flavor_text": [],
   "views_on_other_factions": [
     {

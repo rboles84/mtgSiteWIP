@@ -4,7 +4,7 @@
   "faction_id": "naya",
   "faction_name": "Naya",
   "based_on_profile_version": "0.1.0",
-  "last_updated": "2026-05-30",
+  "last_updated": "2026-06-12",
   "placement_summary": "Naya is a VM-188 live-pilot placement packet for the NAYA shard expression. Its strongest source-bound signals are Green-centered life, nature, growth, ecosystem belonging, White larger-picture care, Red feral instinct and loyalty, Blue/Black absence, and anti-flattening boundaries.",
   "moral_and_psychological_profile": {
     "summary": "Vox Mana models Naya as abundance through living-world belonging, instinctive bond, and care for the larger natural whole. This is project interpretation from VM-181 through VM-183, not official canon; VM-188 enables it as a bounded live pilot.",
@@ -113,7 +113,67 @@
     "The answer is mainly generic RGW, generic battlecruiser, generic tokens, Cabaretti style, or Commander product flavor.",
     "The answer centers public honor hierarchy, engineered control, self-interested extraction, civilization rejection, or Jund-style consumption."
   ],
-  "discriminator_questions": [],
+  "discriminator_questions": [
+    {
+      "question_id": "naya_discriminator_0001",
+      "question": "Is the appeal a living ecosystem growing into abundance, or instinct and appetite carrying consequence?",
+      "purpose": "Separates Naya Green-centered living abundance from Jund Red-centered instinct and appetite.",
+      "answer_pattern_that_supports_this_faction": "Supports Naya when life, growth, ecosystem belonging, White care, and Red loyalty are the center.",
+      "answer_pattern_that_weakens_this_faction": "Weakens Naya when the answer centers gut instinct, self-interest, appetite, destructive release, or survival consequence without larger-picture care.",
+      "collision_targets": [
+        "JUND"
+      ],
+      "claim_ids": [
+        "naya_claim_0003",
+        "naya_claim_0004",
+        "naya_claim_0005",
+        "naya_claim_0006",
+        "naya_claim_0007"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "question_id": "naya_discriminator_0002",
+      "question": "Should the community protect a refined champion, or follow the larger living world through instinct, growth, and care?",
+      "purpose": "Separates Naya living abundance from Bant public champion/order framing.",
+      "answer_pattern_that_supports_this_faction": "Supports Naya when the answer centers role and place in a living whole, natural growth, creature care, feral instinct, and loyalty.",
+      "answer_pattern_that_weakens_this_faction": "Weakens Naya when the answer centers public honor, sanctioned excellence, supported champions, or Blue planning and refinement.",
+      "collision_targets": [
+        "BANT"
+      ],
+      "claim_ids": [
+        "naya_claim_0003",
+        "naya_claim_0004",
+        "naya_claim_0005",
+        "naya_claim_0006",
+        "naya_claim_0008"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "question_id": "naya_discriminator_0003",
+      "question": "Is scale serving a living world of growth, instinct, and care, or only a big-creature, token, or style signal?",
+      "purpose": "Separates Naya Green-centered living abundance from generic RGW size, token, battlecruiser, and Cabaretti-style false positives.",
+      "answer_pattern_that_supports_this_faction": "Supports Naya when size, tokens, creatures, instinct, or loyalty are tied to life, growth, ecosystem belonging, and White larger-picture care.",
+      "answer_pattern_that_weakens_this_faction": "Weakens Naya when the answer centers generic big creatures, generic tokens, casual battlecruiser scale, social glamour, or same-color comparators without Green-centered living abundance.",
+      "collision_targets": [
+        "selesnya_conclave",
+        "gruul_clans",
+        "boros_legion",
+        "Cabaretti",
+        "generic_big_creatures",
+        "generic_tokens"
+      ],
+      "claim_ids": [
+        "naya_claim_0003",
+        "naya_claim_0004",
+        "naya_claim_0005",
+        "naya_claim_0006",
+        "naya_claim_0008"
+      ],
+      "confidence": "Medium"
+    }
+  ],
   "chatbot_guidance": {
     "how_to_recognize_match": [
       "VM-188 live-pilot guidance: Naya language should combine Green-centered life and growth with White larger-picture care and Red instinct.",
@@ -232,5 +292,30 @@
     "false_positive_guardrail": "Do not treat support-only mechanics, Commander/operator rows, manual-fill lore, comparator factions, or color composition alone as Naya evidence.",
     "smoke_test_note": "VM-188 wires Naya into generated placement data as a controlled live pilot through the approved build path."
   },
-  "collision_guidance": []
+  "collision_guidance": [
+    {
+      "collision_id": "collision_naya_jund_live",
+      "against": "jund",
+      "separator": "Naya centers life, growth, ecosystem belonging, and White larger-picture care; Jund centers Red instinct, self-interest, appetite, and consequence.",
+      "ask": "Is the answer about belonging to the living whole, or following instinct and appetite through pressure?",
+      "claim_ids": [
+        "naya_claim_0003",
+        "naya_claim_0005",
+        "naya_claim_0006"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "collision_id": "collision_naya_bant_live",
+      "against": "bant",
+      "separator": "Naya follows Green-centered life and Red instinct held by White care; Bant follows White-centered communal order, public honor, and Blue refinement.",
+      "ask": "Does the answer want the living world to lead, or the community to sanction one refined line of action?",
+      "claim_ids": [
+        "naya_claim_0003",
+        "naya_claim_0006",
+        "naya_claim_0008"
+      ],
+      "confidence": "Medium"
+    }
+  ]
 }

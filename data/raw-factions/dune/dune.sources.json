@@ -1,0 +1,214 @@
+{
+  "schema_version": "1.0.0",
+  "faction_id": "dune",
+  "faction_name": "Dune / Aggression",
+  "source_review_date": "2026-06-12",
+  "last_updated": "2026-06-12",
+  "sources": [
+    {
+      "source_id": "src_vm_dune_source_ledger_20260603",
+      "title": "Dune Source Ledger",
+      "author": "Vox Mana research packet",
+      "publisher_or_site": "Local repository",
+      "publication_date": "2026-06-03",
+      "url_or_repository_path": "docs/research/dune/dune-source-ledger.md",
+      "source_type": "Curated source ledger",
+      "source_role": "shaping-only",
+      "reliability": "Primary local source-role ledger",
+      "notes": "Defines Dune source roles, support-only Commander texture, discovery-only draft quarantine, and downstream limits. It shapes the raw packet but does not back raw claims by itself."
+    },
+    {
+      "source_id": "src_vm_dune_evidence_ledger_20260603",
+      "title": "Dune Evidence Ledger",
+      "author": "Vox Mana research packet",
+      "publisher_or_site": "Local repository",
+      "publication_date": "2026-06-03",
+      "url_or_repository_path": "docs/research/dune/dune-evidence-ledger.md",
+      "source_type": "Curated evidence ledger",
+      "source_role": "claim-bearing",
+      "reliability": "Primary local evidence ledger",
+      "claim_bearing_evidence_rows": [
+        "DUNE-EVID-001",
+        "DUNE-EVID-002",
+        "DUNE-EVID-003",
+        "DUNE-EVID-004",
+        "DUNE-EVID-007",
+        "DUNE-EVID-010"
+      ],
+      "notes": "Primary normalized evidence row index for VM-255 raw claims. DUNE is the future Vox Mana expression label, Aggression is Commander 2016 paired-framing support text only, Aggression is not a public alias, and BRGW, WBRG, and all same-color permutations remain metadata/query-only."
+    },
+    {
+      "source_id": "src_vm_dune_vm252_scope_card_20260603",
+      "title": "VM-252 Dune Source Packet And Evidence Ledger Done Card",
+      "author": "Vox Mana Kanban",
+      "publisher_or_site": "Local repository",
+      "publication_date": "2026-06-03",
+      "url_or_repository_path": "docs/kanban/done/VM-252-dune-source-packet-and-evidence-ledger.md",
+      "source_type": "Kanban scope record",
+      "source_role": "claim-bearing",
+      "reliability": "Scope-bound authorization record",
+      "claim_bearing_evidence_rows": [
+        "DUNE-EVID-001",
+        "DUNE-EVID-002"
+      ],
+      "notes": "Scope record for source-packet approval, non-live Dune status, and BRGW metadata/query-only guardrails. DUNE is the future Vox Mana expression label; use this source only for lifecycle, scope, and public-interface boundary support."
+    },
+    {
+      "source_id": "src_vm257_dune_runtime_promotion_20260603",
+      "title": "VM-257 - Dune Controlled Runtime Promotion",
+      "author": "Vox Mana project card",
+      "publisher_or_site": "Local repository",
+      "publication_date": "2026-06-03",
+      "url_or_repository_path": "docs/kanban/done/VM-257-dune-controlled-runtime-promotion.md",
+      "source_type": "Project lifecycle decision",
+      "source_role": "shaping-only",
+      "reliability": "Primary local project decision",
+      "notes": "Used only to resolve live/generated lifecycle metadata after the VM-255 source packet and VM-256 review gate. It is not lore evidence, card evidence, Commander evidence, or support for color-code public aliases."
+    },
+    {
+      "source_id": "src_vm_four_color_reference_audit_20260603",
+      "title": "Canon Inventory Four-Color Reference Audit",
+      "author": "Vox Mana canon audit",
+      "publisher_or_site": "Local repository",
+      "publication_date": "Local capture",
+      "url_or_repository_path": "docs/research/canon/canon-inventory-four-color-reference-audit.md",
+      "source_type": "Repo-truth canon audit",
+      "source_role": "claim-bearing",
+      "reliability": "Primary repo-truth audit for VM-252 framing",
+      "claim_bearing_evidence_rows": [
+        "DUNE-EVID-002",
+        "DUNE-EVID-003",
+        "DUNE-EVID-004",
+        "DUNE-EVID-007",
+        "DUNE-EVID-010"
+      ],
+      "notes": "Claim-bearing only for the approved Dune framing rows. It does not authorize runtime promotion, exact card facts, Commander proof, public aliases, or placement-ready output."
+    },
+    {
+      "source_id": "src_vm_four_color_identity_dossier_md_20260603",
+      "title": "Magic Four-Color Identity Dossier",
+      "author": "Vox Mana research synthesis",
+      "publisher_or_site": "Local repository",
+      "publication_date": "Local capture",
+      "url_or_repository_path": "docs/research/canon/misc/Magic Four-Color Identity Dossier.md",
+      "source_type": "Repo synthesis",
+      "source_role": "support-only",
+      "reliability": "Support-only unless cross-checked by claim-bearing rows",
+      "notes": "May support already-bounded missing-Blue, Dune-Brood, and overclaim-warning language. It is not raw-claim proof or factual/canon authority by itself."
+    },
+    {
+      "source_id": "src_vm_dune_commander_deck_list_20260603",
+      "title": "Commander Deck List - Open Hostility Support Row",
+      "author": "Local Commander support capture",
+      "publisher_or_site": "Local repository",
+      "publication_date": "Local capture",
+      "url_or_repository_path": "docs/research/canon/misc/commander_deck_list.txt",
+      "source_type": "Local product support",
+      "source_role": "support-only",
+      "reliability": "Commander support-only",
+      "notes": "Confirms Open Hostility, Saskia the Unyielding, WBRG support-source order, and Commander 2016 as local support texture. Not lore proof, legality proof, raw-claim proof, or runtime authorization."
+    },
+    {
+      "source_id": "src_vm_commander_recommendations_saskia_20260603",
+      "title": "Vox Mana Second Commander Recommendations - Saskia Row",
+      "author": "Vox Mana Commander data",
+      "publisher_or_site": "Local repository",
+      "publication_date": "Local data row",
+      "url_or_repository_path": "docs/research/vox_mana_second_commander_recommendations_enhanced.jsonl:52",
+      "source_type": "Commander support row",
+      "source_role": "support-only",
+      "reliability": "Commander support-only",
+      "notes": "May support Saskia, combat-pressure, and four-color-without-Blue Commander texture. Not lore proof, legality proof, recommendation proof, or runtime authorization."
+    },
+    {
+      "source_id": "src_vm_dune_precons_source_json_20260603",
+      "title": "Vox Mana Precons Source Data - Open Hostility Support Texture",
+      "author": "Vox Mana precon data",
+      "publisher_or_site": "Local repository",
+      "publication_date": "Local capture",
+      "url_or_repository_path": "data/precons/vox-mana-precons.source.json",
+      "source_type": "Local precon support data",
+      "source_role": "support-only",
+      "reliability": "Precon support-only",
+      "notes": "Supports Open Hostility deck texture and local Commander framing only. Not raw-claim proof, lore proof, or placement authority."
+    },
+    {
+      "source_id": "src_vm_dune_precon_catalog_json_20260603",
+      "title": "Vox Mana Precon Catalog - Open Hostility Support Texture",
+      "author": "Vox Mana precon data",
+      "publisher_or_site": "Local repository",
+      "publication_date": "Local capture",
+      "url_or_repository_path": "data/precons/vox-mana-precon-catalog.json",
+      "source_type": "Local precon catalog",
+      "source_role": "support-only",
+      "reliability": "Precon support-only",
+      "notes": "Supports Open Hostility catalog texture only. Not raw-claim proof, lore proof, or runtime authorization."
+    },
+    {
+      "source_id": "src_vm_dune_identity_md_20260603",
+      "title": "Dune / Aggression Identity",
+      "author": "Vox Mana architecture docs",
+      "publisher_or_site": "Local repository",
+      "publication_date": "2026-06-03",
+      "url_or_repository_path": "docs/architecture/colors/dune/identity.md",
+      "source_type": "Architecture prose",
+      "source_role": "shaping-only",
+      "reliability": "Docs-only parity guidance",
+      "notes": "May shape profile and placement language. Must not be used as raw-claim evidence."
+    },
+    {
+      "source_id": "src_vm_dune_metaphysics_md_20260603",
+      "title": "Dune / Aggression Metaphysics",
+      "author": "Vox Mana architecture docs",
+      "publisher_or_site": "Local repository",
+      "publication_date": "2026-06-03",
+      "url_or_repository_path": "docs/architecture/colors/dune/metaphysics.md",
+      "source_type": "Architecture prose",
+      "source_role": "shaping-only",
+      "reliability": "Docs-only parity guidance",
+      "notes": "May shape profile and placement language. Must not be used as raw-claim evidence."
+    },
+    {
+      "source_id": "src_vm_dune_manual_fill_20260603",
+      "title": "Dune Manual Fill",
+      "author": "Vox Mana research packet",
+      "publisher_or_site": "Local repository",
+      "publication_date": "2026-06-03",
+      "url_or_repository_path": "docs/research/dune/dune-manual-fill.md",
+      "source_type": "Manual-fill queue",
+      "source_role": "shaping-only",
+      "reliability": "Gap-tracking document",
+      "notes": "Tracks deferred work and packet drift. It is not raw-claim evidence."
+    },
+    {
+      "source_id": "src_vm_dune_brood_research_packet_html_20260603",
+      "title": "Dune-Brood Research Packet HTML",
+      "author": "Unmanaged discovery export",
+      "publisher_or_site": "Local repository",
+      "publication_date": "Local discovery export",
+      "url_or_repository_path": "docs/research/dune/dune-brood-research-packet.html",
+      "source_type": "Unmanaged discovery export",
+      "source_role": "discovery-only",
+      "reliability": "Discovery-only",
+      "notes": "Preserved as a lead for later audit. Not raw-claim evidence, canon, or approved synthesis."
+    }
+  ],
+  "not_used_or_rejected_sources": [
+    {
+      "source_id": "src_vm_dune_architecture_docs_as_claims",
+      "reason": "VM-253 and VM-254 architecture docs are shaping-only and cannot be cited as raw-claim proof."
+    },
+    {
+      "source_id": "src_vm_dune_commander_and_precon_rows_as_claims",
+      "reason": "Commander rows, precon rows, and support-texture material remain support-only and cannot become raw claims."
+    },
+    {
+      "source_id": "src_vm_dune_manual_fill_rows_as_claims",
+      "reason": "Manual-fill rows track gaps and must not become raw claims before review."
+    },
+    {
+      "source_id": "src_vm_dune_discovery_draft_as_claims",
+      "reason": "The preserved Dune HTML draft remains discovery-only and cannot be cited as raw-claim evidence."
+    }
+  ]
+}

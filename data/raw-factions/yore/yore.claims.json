@@ -1,0 +1,114 @@
+{
+  "schema_version": "1.0.0",
+  "faction_id": "yore",
+  "faction_name": "Yore / Artifice",
+  "source_review_date": "2026-06-09",
+  "last_updated": "2026-06-09",
+  "claim_count": 5,
+  "claim_quality_summary": {
+    "claim_basis": "Existing VM-240 claim-bearing evidence rows, with VM-245 used only for live lifecycle metadata.",
+    "support_material_policy": "Support-only, shaping-only, discovery-only, Commander/operator, architecture, seed, user-added source-material, and manual-fill material may appear only in bounded profile or review notes.",
+    "evidence_quality": "High for lifecycle, naming, missing-color, artifice framing, and Yore-Tiller boundary guardrails; low or deferred for exact card facts, Commander legality, Breya lore, cEDH claims, and public placement readiness.",
+    "known_limitations": [
+      "Direct official Yore-Tiller card facts remain Manual fill required.",
+      "Breya and Commander 2016 product/lore grounding remains support-only.",
+      "Cult of Yore narrative boundary remains Manual fill required.",
+      "Adjacent separators remain architecture guidance, not raw claim evidence.",
+      "Commander legality and exact recommendations remain deferred.",
+      "Four-color naming authority remains bounded by VM-240 clarification."
+    ],
+    "claim_ids": [
+      "yore_claim_0001",
+      "yore_claim_0002",
+      "yore_claim_0003",
+      "yore_claim_0004",
+      "yore_claim_0005"
+    ]
+  },
+  "claims": [
+    {
+      "claim_id": "yore_claim_0001",
+      "faction_id": "yore",
+      "claim_type": "identity_lifecycle_boundary",
+      "statement": "Yore / Artifice is the WUBR/non-Green four-color identity using YORE as the project expression key; VM-245 later promoted YORE to the live public/generated key, while WUBR and all same-color permutations remain metadata/query-only and do not become aliases or public interface keys.",
+      "canon_status": "Source-supported identity with lifecycle boundary",
+      "source_ids": [
+        "src_vm_yore_evidence_ledger_20260602",
+        "src_vm_yore_vm240_scope_card_20260602",
+        "src_vm245_yore_runtime_promotion_20260602"
+      ],
+      "evidence_rows": [
+        "YORE-EVID-001",
+        "YORE-EVID-002",
+        "YORE-EVID-010"
+      ],
+      "confidence": "High",
+      "notes": "VM-301 updates the lifecycle sentence after VM-245 while preserving the evidence floor and color-code boundary. WUBR and all same-color permutations remain metadata/query-only and are not aliases, route keys, fixture keys, Home preview keys, Maze keys, Supabase keys, schema keys, or public color-code interfaces."
+    },
+    {
+      "claim_id": "yore_claim_0002",
+      "faction_id": "yore",
+      "claim_type": "naming_guardrail",
+      "statement": "YORE is Vox Mana's Nephilim-derived expression label for WUBR/non-Green, while Artifice is the Commander 2016 theme texture for the same color quadruple; neither term should be presented as the official, exclusive, or universally accepted MTG name for WUBR.",
+      "canon_status": "Vox Mana naming policy with source-bound guardrail",
+      "source_ids": [
+        "src_vm_yore_evidence_ledger_20260602",
+        "src_vm_four_color_reference_audit_20260602"
+      ],
+      "evidence_rows": [
+        "YORE-EVID-002",
+        "YORE-EVID-010"
+      ],
+      "confidence": "High",
+      "notes": "Do not create public aliases from this naming policy. WUBR and all permutations remain metadata/query-only."
+    },
+    {
+      "claim_id": "yore_claim_0003",
+      "faction_id": "yore",
+      "claim_type": "missing_color_identity",
+      "statement": "The Yore / Artifice WUBR four-color lane is framed by the color it excludes: Green.",
+      "canon_status": "Source-bound four-color framing",
+      "source_ids": [
+        "src_vm_yore_evidence_ledger_20260602",
+        "src_vm_four_color_reference_audit_20260602"
+      ],
+      "evidence_rows": [
+        "YORE-EVID-003"
+      ],
+      "confidence": "High",
+      "notes": "Missing-color framing is identity structure, not a canon faction claim."
+    },
+    {
+      "claim_id": "yore_claim_0004",
+      "faction_id": "yore",
+      "claim_type": "artifice_civilization_frame",
+      "statement": "The current Yore / Artifice frame centers civilization, technology, artifice, and progress over natural acceptance and organic limits.",
+      "canon_status": "Source-bound with Vox Mana synthesis boundary",
+      "source_ids": [
+        "src_vm_yore_evidence_ledger_20260602",
+        "src_vm_four_color_reference_audit_20260602"
+      ],
+      "evidence_rows": [
+        "YORE-EVID-004"
+      ],
+      "confidence": "Medium",
+      "notes": "Use as high-level identity framing only. Do not treat generic artifact decks, Breya decks, Phyrexia, Thran, or cEDH shells as Yore from this claim alone."
+    },
+    {
+      "claim_id": "yore_claim_0005",
+      "faction_id": "yore",
+      "claim_type": "yore_tiller_boundary",
+      "statement": "Yore-Tiller Nephilim is the Nephilim/card anchor for Yore, but Nephilim should remain historical/card-identity anchors rather than Vox Mana factions, civilizations, doctrines, institutions, or placement authorities.",
+      "canon_status": "Source-bound anchor with guardrail",
+      "source_ids": [
+        "src_vm_yore_evidence_ledger_20260602",
+        "src_vm_four_color_reference_audit_20260602"
+      ],
+      "evidence_rows": [
+        "YORE-EVID-005"
+      ],
+      "confidence": "Medium",
+      "notes": "Exact official Yore-Tiller card facts and Cult of Yore narrative boundaries remain Manual fill required before deeper raw or public copy."
+    }
+  ]
+}

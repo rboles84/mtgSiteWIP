@@ -1,0 +1,115 @@
+{
+  "schema_version": "1.0.0",
+  "faction_id": "glint",
+  "faction_name": "Glint / Chaos",
+  "source_review_date": "2026-06-09",
+  "last_updated": "2026-06-09",
+  "claim_count": 5,
+  "claim_quality_summary": {
+    "claim_basis": "Existing VM-246 claim-bearing evidence rows only, with VM-251 used only for lifecycle/live-status metadata; VM-276 adds support-only local card-data validation without widening raw-claim authority.",
+    "support_material_policy": "Support-only, shaping-only, discovery-only, Commander/operator, architecture, unmanaged draft, and manual-fill material may appear only in bounded profile or review notes.",
+    "evidence_quality": "High for lifecycle, naming, missing-color, Glint-Eye boundary, and non-White framing guardrails; improved but still support-only for exact local Glint-Eye and Yidris card facts; low or deferred for Commander legality, Yidris lore, Commander 2016 article grounding, adjacent separator raw proof, and broader philosophical authority.",
+    "known_limitations": [
+      "Exact local Glint-Eye and Yidris card-data validation is now available support-only and does not by itself widen raw claims.",
+      "Yidris lore and Commander 2016 product/article grounding remain support-only.",
+      "Commander 2016 Chaos article grounding remains Manual fill required.",
+      "Adjacent separators remain architecture guidance, not raw claim evidence.",
+      "Commander legality and exact recommendations remain deferred.",
+      "Four-color naming authority remains bounded by VM-246 clarification.",
+      "Long-form psychology remains synthesis-bound and should stay conservative."
+    ],
+    "claim_ids": [
+      "glint_claim_0001",
+      "glint_claim_0002",
+      "glint_claim_0003",
+      "glint_claim_0004",
+      "glint_claim_0005"
+    ]
+  },
+  "claims": [
+    {
+      "claim_id": "glint_claim_0001",
+      "faction_id": "glint",
+      "claim_type": "identity_lifecycle_boundary",
+      "statement": "Glint / Chaos is the source-authored UBRG/non-White four-color lane using GLINT as the project expression key; VM-251 later promoted GLINT to the live public/generated key, while UBRG and all same-color permutations remain metadata-query-only and do not become aliases, route keys, fixture keys, Home preview keys, Maze keys, Supabase keys, schema keys, or public color-code interfaces.",
+      "canon_status": "Vox Mana lifecycle and public-interface boundary",
+      "source_ids": [
+        "src_vm_glint_evidence_ledger_20260602",
+        "src_vm_glint_vm246_scope_card_20260602",
+        "src_vm251_glint_runtime_promotion_20260603"
+      ],
+      "evidence_rows": [
+        "GLINT-EVID-001",
+        "GLINT-EVID-002",
+        "GLINT-EVID-010"
+      ],
+      "confidence": "High",
+      "notes": "VM-303 updates the lifecycle sentence after VM-251 while preserving the evidence floor and color-code boundary. VM-251 is used only for lifecycle/live-status metadata, not placement axes, inhibitor traps, mechanics, lore, Commander identity, or discriminator support."
+    },
+    {
+      "claim_id": "glint_claim_0002",
+      "faction_id": "glint",
+      "claim_type": "naming_guardrail",
+      "statement": "GLINT is Vox Mana's Nephilim-derived expression label for UBRG/non-White, while Chaos is the Commander 2016 support/theme texture for the same color quadruple; neither term should be presented as the official, exclusive, or universally accepted MTG name for UBRG.",
+      "canon_status": "Vox Mana naming policy with source-bound guardrail",
+      "source_ids": [
+        "src_vm_glint_evidence_ledger_20260602",
+        "src_vm_four_color_reference_audit_20260602"
+      ],
+      "evidence_rows": [
+        "GLINT-EVID-002",
+        "GLINT-EVID-010"
+      ],
+      "confidence": "High",
+      "notes": "Do not create public aliases from this naming policy. UBRG and all permutations remain metadata/query-only."
+    },
+    {
+      "claim_id": "glint_claim_0003",
+      "faction_id": "glint",
+      "claim_type": "missing_color_identity",
+      "statement": "The Glint / Chaos UBRG four-color lane is framed by the color it excludes: White.",
+      "canon_status": "Source-bound four-color framing",
+      "source_ids": [
+        "src_vm_glint_evidence_ledger_20260602",
+        "src_vm_four_color_reference_audit_20260602"
+      ],
+      "evidence_rows": [
+        "GLINT-EVID-003"
+      ],
+      "confidence": "High",
+      "notes": "Missing-color framing is identity structure, not a canon faction claim."
+    },
+    {
+      "claim_id": "glint_claim_0004",
+      "faction_id": "glint",
+      "claim_type": "glint_eye_boundary",
+      "statement": "Glint-Eye Nephilim is the Nephilim/card anchor for Glint, but Nephilim should remain historical/card-identity anchors rather than Vox Mana factions, institutions, doctrines, or placement authorities.",
+      "canon_status": "Source-bound anchor with guardrail",
+      "source_ids": [
+        "src_vm_glint_evidence_ledger_20260602",
+        "src_vm_four_color_reference_audit_20260602"
+      ],
+      "evidence_rows": [
+        "GLINT-EVID-004"
+      ],
+      "confidence": "Medium",
+      "notes": "Exact local card-data validation now exists via a support-only local card-data source, but the raw-claim authority for this boundary remains the approved VM-246 claim-bearing floor."
+    },
+    {
+      "claim_id": "glint_claim_0005",
+      "faction_id": "glint",
+      "claim_type": "missing_white_order_frame",
+      "statement": "The current Glint / Chaos frame may discuss rejection of White-style imposed order, communal obligation, and civic restraint in favor of appetite, adaptation, force, and volatility, but detailed psychology remains bounded and should not be canonized beyond the approved evidence floor.",
+      "canon_status": "Source-bound framing with synthesis boundary",
+      "source_ids": [
+        "src_vm_glint_evidence_ledger_20260602",
+        "src_vm_four_color_reference_audit_20260602"
+      ],
+      "evidence_rows": [
+        "GLINT-EVID-006"
+      ],
+      "confidence": "Medium",
+      "notes": "Use as high-level identity framing only. Keep long-form metaphysics and psychology conservative and explicitly bounded."
+    }
+  ]
+}

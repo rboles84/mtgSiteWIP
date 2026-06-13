@@ -1,0 +1,965 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Architecture of Artifice // WUBR Color Identity Dossier</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        obsidian: {
+                            50: '#f4f6f8',
+                            100: '#e7ebf0',
+                            200: '#cbd4e1',
+                            300: '#a1b1cb',
+                            400: '#7189b0',
+                            500: '#4e6992',
+                            600: '#3c5275',
+                            700: '#31425f',
+                            800: '#2c374e',
+                            900: '#1a202c',
+                            950: '#0b0d12',
+                        },
+                        carmot: {
+                            50: '#fef2f2',
+                            100: '#fee2e2',
+                            200: '#fecaca',
+                            300: '#fca5a5',
+                            400: '#f87171',
+                            500: '#ef4444',
+                            600: '#dc2626',
+                            700: '#b91c1c',
+                            800: '#991b1b',
+                            950: '#3b0707',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Geist', 'Inter', 'system-ui', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'Fira Code', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom scrollbar to match the high-tech terminal theme */
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0b0d12;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #31425f;
+            border-radius: 3px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #ef4444;
+        }
+        .glow-blue {
+            box-shadow: 0 0 15px rgba(56, 189, 248, 0.15);
+        }
+        .glow-red {
+            box-shadow: 0 0 15px rgba(239, 68, 68, 0.15);
+        }
+        .glow-white {
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.05);
+        }
+    </style>
+</head>
+<body class="bg-obsidian-950 text-slate-100 font-sans selection:bg-rose-500 selection:text-white antialiased">
+
+    <!-- Top Navigation Header -->
+    <header class="sticky top-0 z-50 w-full border-b border-obsidian-800 bg-obsidian-950/85 backdrop-blur-md px-6 py-4 flex items-center justify-between">
+        <div class="flex items-center space-x-3">
+            <!-- WUBR Spheres of Artifice Icon -->
+            <div class="relative flex items-center justify-center w-8 h-8">
+                <span class="absolute w-2 h-2 rounded-full bg-slate-100 -translate-y-2.5"></span>
+                <span class="absolute w-2 h-2 rounded-full bg-sky-400 translate-x-2.5"></span>
+                <span class="absolute w-2 h-2 rounded-full bg-slate-800 translate-y-2.5 border border-obsidian-700"></span>
+                <span class="absolute w-2 h-2 rounded-full bg-carmot-500 -translate-x-2.5"></span>
+                <span class="w-1 h-1 rounded-full bg-amber-500 opacity-20"></span> <!-- Missing Green Center -->
+            </div>
+            <div>
+                <span class="text-xs font-mono tracking-widest text-sky-400 block uppercase">Vox Mana // Dossier</span>
+                <h1 class="text-sm font-bold tracking-wider font-mono text-slate-100 uppercase">WUBR (Yore-Artifice) Identity</h1>
+            </div>
+        </div>
+        <div class="hidden md:flex items-center space-x-6 text-xs font-mono text-slate-400">
+            <a href="#philosophy" class="hover:text-sky-400 transition-colors">Philosophy</a>
+            <a href="#history" class="hover:text-sky-400 transition-colors">History</a>
+            <a href="#mechanics" class="hover:text-sky-400 transition-colors">Carmot Forge</a>
+            <a href="#competitive" class="hover:text-sky-400 transition-colors">Blue Farm</a>
+            <a href="#dossier" class="px-3 py-1.5 rounded border border-carmot-600/50 bg-carmot-950/30 text-carmot-400 hover:bg-carmot-500 hover:text-white hover:border-carmot-500 transition-all">Compile Dossier</a>
+        </div>
+    </header>
+
+    <div class="flex min-h-screen">
+        <!-- Sidebar Navigation -->
+        <aside class="hidden lg:block w-72 border-r border-obsidian-800 bg-obsidian-950/50 p-6 space-y-8 sticky top-[73px] h-[calc(100vh-73px)] overflow-y-auto">
+            <div>
+                <h3 class="text-[10px] font-mono uppercase tracking-wider text-slate-500 mb-3">Core Identity Axiom</h3>
+                <p class="text-xs text-slate-400 leading-relaxed border-l border-sky-500 pl-3">
+                    The absolute triumph of synthetic intelligence and organized orchestration over biological limits.
+                </p>
+            </div>
+
+            <nav class="space-y-1">
+                <h3 class="text-[10px] font-mono uppercase tracking-wider text-slate-500 mb-3">Dossier Contents</h3>
+                <a href="#philosophy" class="flex items-center space-x-3 px-3 py-2 text-xs rounded-lg hover:bg-obsidian-900 transition-colors group">
+                    <span class="w-1.5 h-1.5 rounded-full bg-slate-100 group-hover:scale-125 transition-transform"></span>
+                    <span class="text-slate-300 group-hover:text-white">Philosophical Axioms</span>
+                </a>
+                <a href="#history" class="flex items-center space-x-3 px-3 py-2 text-xs rounded-lg hover:bg-obsidian-900 transition-colors group">
+                    <span class="w-1.5 h-1.5 rounded-full bg-sky-400 group-hover:scale-125 transition-transform"></span>
+                    <span class="text-slate-300 group-hover:text-white">Design History</span>
+                </a>
+                <a href="#mechanics" class="flex items-center space-x-3 px-3 py-2 text-xs rounded-lg hover:bg-obsidian-900 transition-colors group">
+                    <span class="w-1.5 h-1.5 rounded-full bg-carmot-500 group-hover:scale-125 transition-transform"></span>
+                    <span class="text-slate-300 group-hover:text-white">Carmot Forge (Breya)</span>
+                </a>
+                <a href="#competitive" class="flex items-center space-x-3 px-3 py-2 text-xs rounded-lg hover:bg-obsidian-900 transition-colors group">
+                    <span class="w-1.5 h-1.5 rounded-full bg-amber-500 group-hover:scale-125 transition-transform"></span>
+                    <span class="text-slate-300 group-hover:text-white">Blue Farm Interactive</span>
+                </a>
+                <a href="#dossier" class="flex items-center space-x-3 px-3 py-2 text-xs rounded-lg hover:bg-obsidian-900 transition-colors group">
+                    <span class="w-1.5 h-1.5 rounded-full bg-purple-500 group-hover:scale-125 transition-transform"></span>
+                    <span class="text-slate-300 group-hover:text-white">Dossier Workspace</span>
+                </a>
+                <a href="#comparisons" class="flex items-center space-x-3 px-3 py-2 text-xs rounded-lg hover:bg-obsidian-900 transition-colors group">
+                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 group-hover:scale-125 transition-transform"></span>
+                    <span class="text-slate-300 group-hover:text-white">Comparing 4-Color Systems</span>
+                </a>
+            </nav>
+
+            <div class="pt-6 border-t border-obsidian-900">
+                <div class="rounded-lg bg-obsidian-900/50 p-4 border border-obsidian-800 text-xs">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="font-mono text-[10px] text-sky-400 uppercase font-bold">System Status</span>
+                        <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                    </div>
+                    <p class="text-slate-400 leading-relaxed font-mono text-[11px]">
+                        Analyzing active components:<br>
+                        - W: Order / Law<br>
+                        - U: Optimization<br>
+                        - B: Self-Interest<br>
+                        - R: Kinetic Velocity<br>
+                        - G: <span class="text-red-500 line-through">Excised</span>
+                    </p>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content Stream -->
+        <main class="flex-1 px-4 md:px-8 py-10 max-w-5xl space-y-24 overflow-x-hidden">
+
+            <!-- Hero Section / Title -->
+            <section class="space-y-6 pt-4 border-l-2 border-sky-500 pl-4 md:pl-6">
+                <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-sky-500/10 border border-sky-500/20 text-sky-400 text-xs font-mono">
+                    <span class="w-1.5 h-1.5 rounded-full bg-sky-400 animate-pulse"></span>
+                    <span>VOX MANA CLASSIFIED DOSSIER</span>
+                </div>
+                <h1 class="text-4xl md:text-5xl font-black font-mono tracking-tight text-white leading-tight">
+                    THE ARCHITECTURE OF ARTIFICE
+                </h1>
+                <p class="text-slate-400 text-base md:text-lg max-w-3xl leading-relaxed">
+                    A rigorous philosophical and mechanical analysis of the <strong class="text-slate-100">WUBR (Yore / Artifice)</strong> color identity—defined fundamentally by its absolute rejection of nature, biological destiny, and the ecological cycle.
+                </p>
+                <div class="flex flex-wrap gap-2 pt-2">
+                    <span class="px-2.5 py-1 text-xs font-mono rounded bg-slate-900 text-slate-300 border border-slate-800">W: WHITE (ORDER)</span>
+                    <span class="px-2.5 py-1 text-xs font-mono rounded bg-sky-950 text-sky-400 border border-sky-900">U: BLUE (INTELLECT)</span>
+                    <span class="px-2.5 py-1 text-xs font-mono rounded bg-obsidian-900 text-slate-400 border border-obsidian-800">B: BLACK (AMBITION)</span>
+                    <span class="px-2.5 py-1 text-xs font-mono rounded bg-carmot-950 text-carmot-400 border border-carmot-900">R: RED (KINETICS)</span>
+                    <span class="px-2.5 py-1 text-xs font-mono rounded bg-red-950/25 text-red-500 line-through border border-red-950/50">G: EXCLUDED (NATURE)</span>
+                </div>
+            </section>
+
+            <!-- Philosophy Section -->
+            <section id="philosophy" class="space-y-8 scroll-mt-24">
+                <div class="flex items-center space-x-4 border-b border-obsidian-800 pb-3">
+                    <span class="font-mono text-2xl text-sky-400 font-bold">01 /</span>
+                    <h2 class="text-xl font-bold tracking-wider uppercase font-mono text-white">Philosophical Axioms</h2>
+                </div>
+
+                <p class="text-slate-400 leading-relaxed max-w-3xl">
+                    In MTG color theory, Green represents biological determinism and passive acceptance. By completely excising Green, the <strong class="text-sky-400">WUBR identity</strong> operates in a vacuum where natural cycles are treated as mere design flaws. The synergy of the remaining four colors constructs a hyper-civilized, transaction-driven, and highly optimized world where existence is systematically re-engineered.
+                </p>
+
+                <!-- Interactive Comparison Deck -->
+                <div class="grid md:grid-cols-2 gap-6 pt-4">
+                    <!-- Artifice Panel (Non-Green) -->
+                    <div class="bg-obsidian-900 border border-sky-500/20 rounded-xl p-6 relative overflow-hidden glow-blue">
+                        <div class="absolute top-0 right-0 w-24 h-24 bg-sky-500/5 rounded-full blur-2xl"></div>
+                        <div class="flex items-center space-x-3 mb-4">
+                            <span class="p-2 rounded bg-sky-500/10 text-sky-400">
+                                <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" /></svg>
+                            </span>
+                            <h3 class="font-mono font-bold text-slate-100">THE SYNTHETIC WORLDVIEW (WUBR)</h3>
+                        </div>
+                        <ul class="space-y-4 text-xs">
+                            <li class="flex items-start space-x-2">
+                                <span class="text-sky-400 font-mono mt-0.5">&gt;</span>
+                                <span class="text-slate-300"><strong class="text-white">Active Re-engineering:</strong> Evolution is self-directed and actively designed, bypassing slow, natural adaptation.</span>
+                            </li>
+                            <li class="flex items-start space-x-2">
+                                <span class="text-sky-400 font-mono mt-0.5">&gt;</span>
+                                <span class="text-slate-300"><strong class="text-white">Negotiable Mortality:</strong> Death and decay are not inevitable constants; they are systemic loops to be bridged or overcome.</span>
+                            </li>
+                            <li class="flex items-start space-x-2">
+                                <span class="text-sky-400 font-mono mt-0.5">&gt;</span>
+                                <span class="text-slate-300"><strong class="text-white">Optimization & Control:</strong> Resources, physical bodies, and social structures must be continuously tuned to peak efficiency.</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Green Panel (Excised) -->
+                    <div class="bg-obsidian-950/60 border border-red-950/40 rounded-xl p-6 relative overflow-hidden">
+                        <div class="absolute top-0 right-0 w-24 h-24 bg-red-950/5 rounded-full blur-2xl"></div>
+                        <div class="flex items-center space-x-3 mb-4">
+                            <span class="p-2 rounded bg-red-950/20 text-red-500">
+                                <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707m0-12.728l.707.707m12.728 12.728l.707.707M12 8a4 4 0 100 8 4 4 0 000-8z" /></svg>
+                            </span>
+                            <h3 class="font-mono font-bold text-red-400">THE EXCISED WORLDVIEW (GREEN)</h3>
+                        </div>
+                        <ul class="space-y-4 text-xs opacity-75">
+                            <li class="flex items-start space-x-2">
+                                <span class="text-red-500 font-mono mt-0.5">&gt;</span>
+                                <span class="text-slate-400"><strong class="text-red-300">Natural Submission:</strong> Acceptance of life as it unfolds organically; bowing to destiny.</span>
+                            </li>
+                            <li class="flex items-start space-x-2">
+                                <span class="text-red-500 font-mono mt-0.5">&gt;</span>
+                                <span class="text-slate-400"><strong class="text-red-300">Inherent Sacredness:</strong> The biological body and earth are whole and complete; modifying them is a sacrilege.</span>
+                            </li>
+                            <li class="flex items-start space-x-2">
+                                <span class="text-red-500 font-mono mt-0.5">&gt;</span>
+                                <span class="text-slate-400"><strong class="text-red-300">Ecological Balance:</strong> Growth is seasonal, linear, and interdependent with natural decay.</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Color Contributions Grid -->
+                <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 pt-6">
+                    <div class="p-4 rounded-lg bg-obsidian-900 border border-slate-800">
+                        <div class="text-sm font-bold text-slate-200 mb-1 font-mono">WHITE (W)</div>
+                        <p class="text-[11px] text-slate-400 leading-relaxed">
+                            Systemic order and community architecture. Shapes individual effort into massive, cohesive municipal engines.
+                        </p>
+                    </div>
+                    <div class="p-4 rounded-lg bg-obsidian-900 border border-sky-950">
+                        <div class="text-sm font-bold text-sky-400 mb-1 font-mono">BLUE (U)</div>
+                        <p class="text-[11px] text-slate-400 leading-relaxed">
+                            Relentless intellect and empirical testing. Optimizes every process to escape physical and natural parameters.
+                        </p>
+                    </div>
+                    <div class="p-4 rounded-lg bg-obsidian-900 border border-obsidian-800">
+                        <div class="text-sm font-bold text-slate-400 mb-1 font-mono">BLACK (B)</div>
+                        <p class="text-[11px] text-slate-400 leading-relaxed">
+                            Ruthless ambition and transaction. Converts life, death, and souls into interchangeable, spendable resources.
+                        </p>
+                    </div>
+                    <div class="p-4 rounded-lg bg-obsidian-900 border border-carmot-950">
+                        <div class="text-sm font-bold text-carmot-400 mb-1 font-mono">RED (R)</div>
+                        <p class="text-[11px] text-slate-400 leading-relaxed">
+                            Kinetic disruption and passion. Prevents cold static gridlock by feeding raw explosive innovation and volatile creation.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Design History & Naming Section -->
+            <section id="history" class="space-y-8 scroll-mt-24">
+                <div class="flex items-center space-x-4 border-b border-obsidian-800 pb-3">
+                    <span class="font-mono text-2xl text-sky-400 font-bold">02 /</span>
+                    <h2 class="text-xl font-bold tracking-wider uppercase font-mono text-white">Design & Historical Basis</h2>
+                </div>
+
+                <div class="space-y-4 text-slate-400 leading-relaxed">
+                    <p>
+                        Wizards of the Coast designers have long acknowledged that four-color cards represent the absolute frontier of color-pie design. The core design challenge is that a four-color card is philosophically defined by the *omission* of the fifth color, but card mechanics are designed using *active permissions*.
+                    </p>
+                    <p>
+                        Consequently, WUBR designs are incredibly rare, centered around two primary touchpoints: the ancient <strong class="text-white">Yore-Tiller Nephilim</strong> from *Guildpact* and the hyper-flexible <strong class="text-white">Breya, Etherium Shaper</strong> from *Commander 2016*.
+                    </p>
+                </div>
+
+                <!-- Interactive Timeline / Cards -->
+                <div class="grid md:grid-cols-2 gap-6 pt-4">
+                    <!-- Yore-Tiller Nephilim Card Detail -->
+                    <div class="bg-obsidian-900 border border-obsidian-800 rounded-xl p-6 flex flex-col justify-between">
+                        <div>
+                            <div class="flex justify-between items-start mb-4">
+                                <span class="px-2 py-0.5 rounded text-[10px] font-mono bg-amber-500/10 text-amber-500 border border-amber-500/20">GUILDPACT (2006)</span>
+                                <span class="text-xs font-mono text-slate-400 font-bold">WUBR</span>
+                            </div>
+                            <h3 class="text-lg font-mono font-black text-slate-100 mb-2">Yore-Tiller Nephilim</h3>
+                            <p class="text-xs text-slate-400 italic mb-4">
+                                "Whenever Yore-Tiller Nephilim attacks, you may return target creature card from your graveyard to the battlefield tapped and attacking."
+                            </p>
+                            <p class="text-xs text-slate-300 leading-relaxed">
+                                The name **Yore** evokes memory, excavation, and recursion. Mechanically, it subverts Green's peaceful natural cycle of biological decay: a dead creature is violently reanimated, denied decomposition, and forced straight back into physical warfare.
+                            </p>
+                        </div>
+                        <div class="mt-6 pt-4 border-t border-obsidian-850 flex items-center justify-between text-[11px] font-mono text-slate-500">
+                            <span>Target: Graveyard-to-Battlefield</span>
+                            <span>Rare / Legality: Legal</span>
+                        </div>
+                    </div>
+
+                    <!-- Breya Card Detail -->
+                    <div class="bg-obsidian-900 border border-carmot-600/30 rounded-xl p-6 flex flex-col justify-between relative glow-red">
+                        <div class="absolute -top-px left-6 right-6 h-[2px] bg-gradient-to-r from-sky-400 via-carmot-500 to-slate-100"></div>
+                        <div>
+                            <div class="flex justify-between items-start mb-4">
+                                <span class="px-2 py-0.5 rounded text-[10px] font-mono bg-carmot-500/15 text-carmot-400 border border-carmot-500/25">COMMANDER 2016</span>
+                                <span class="text-xs font-mono text-slate-400 font-bold">WUBR</span>
+                            </div>
+                            <h3 class="text-lg font-mono font-black text-slate-100 mb-2">Breya, Etherium Shaper</h3>
+                            <p class="text-xs text-slate-400 italic mb-4">
+                                "When Breya enters the battlefield, create two 1/1 blue Thopter artifact creature tokens... Pay {2}, Sacrifice two artifacts: Choose one — Gain 5 life, Target creature gets -4/-4, or Deal 3 damage."
+                            </p>
+                            <p class="text-xs text-slate-300 leading-relaxed">
+                                Hailing from Esper (WUB), Breya integrated the red element **Carmot** (from Jund) to synthesize limitless Etherium. Breya operates as a perfectly closed mechanical loop, using her manufactured children as fuel to bend life, death, and elements to her will.
+                            </p>
+                        </div>
+                        <div class="mt-6 pt-4 border-t border-obsidian-850 flex items-center justify-between text-[11px] font-mono text-slate-500">
+                            <span>Target: Artifact Sacrifice Engine</span>
+                            <span>Mythic / Legality: Legal</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Design Ledger Table -->
+                <div class="overflow-x-auto rounded-lg border border-obsidian-800">
+                    <table class="w-full text-left text-xs font-mono">
+                        <thead class="bg-obsidian-900 text-slate-300 border-b border-obsidian-800">
+                            <tr>
+                                <th class="p-3">Card Name</th>
+                                <th class="p-3">Mana Cost</th>
+                                <th class="p-3">Release Set</th>
+                                <th class="p-3">Mechanism</th>
+                                <th class="p-3 text-right">Dossier Relevance</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-obsidian-900 bg-obsidian-950/40 text-slate-400">
+                            <tr>
+                                <td class="p-3 font-bold text-slate-200">Yore-Tiller Nephilim</td>
+                                <td class="p-3 text-sky-400">WUBR</td>
+                                <td class="p-3">Guildpact (GPX)</td>
+                                <td class="p-3">Graveyard Reanimation</td>
+                                <td class="p-3 text-right text-slate-300">Origin of the "Yore" moniker</td>
+                            </tr>
+                            <tr>
+                                <td class="p-3 font-bold text-slate-200">Breya, Etherium Shaper</td>
+                                <td class="p-3 text-sky-400">WUBR</td>
+                                <td class="p-3">Commander 2016</td>
+                                <td class="p-3">Token Fab & Sacrifice Loops</td>
+                                <td class="p-3 text-right text-slate-300">First true WUBR Commander</td>
+                            </tr>
+                            <tr>
+                                <td class="p-3 font-bold text-slate-200">Cecily, Haunted Mage</td>
+                                <td class="p-3 text-sky-400">2WUBR</td>
+                                <td class="p-3">SLD (Friends Forever)</td>
+                                <td class="p-3">Spells & Hand Size Manipulation</td>
+                                <td class="p-3 text-right text-slate-300">Modular design variant</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Interactive Carmot Forge (Breya's Loop) Section -->
+            <section id="mechanics" class="space-y-8 scroll-mt-24">
+                <div class="flex items-center space-x-4 border-b border-obsidian-800 pb-3">
+                    <span class="font-mono text-2xl text-sky-400 font-bold">03 /</span>
+                    <h2 class="text-xl font-bold tracking-wider uppercase font-mono text-white">The Carmot Forge Engine</h2>
+                </div>
+
+                <p class="text-slate-400 leading-relaxed max-w-3xl">
+                    To understand the play pattern of Artifice, interact with the **Carmot Forge Engine**. Unlike Green which relies on passive generation of mana (like growing trees), the WUBR system manufactures synthetic tokens and immediately turns them into industrial fuel.
+                </p>
+
+                <!-- Interactive Widget Frame -->
+                <div class="bg-obsidian-900 border border-obsidian-800 rounded-xl p-6 glow-white">
+                    <div class="grid md:grid-cols-3 gap-6">
+
+                        <!-- Left Panel: Forge Controls -->
+                        <div class="space-y-4">
+                            <h3 class="text-xs font-mono uppercase tracking-widest text-carmot-400 font-bold">Forge Controls</h3>
+
+                            <div class="space-y-2">
+                                <button onclick="forgeEngine.manufacture()" class="w-full text-left p-3 rounded-lg bg-sky-950/40 border border-sky-800 hover:border-sky-400 hover:bg-sky-900/40 transition-all text-xs font-mono">
+                                    <span class="block font-bold text-slate-200">+ Manufacture Thopters</span>
+                                    <span class="text-[10px] text-sky-400">Simulates Breya's entry on state.</span>
+                                </button>
+                                <button onclick="forgeEngine.transmute()" class="w-full text-left p-3 rounded-lg bg-rose-950/40 border border-rose-800 hover:border-rose-500 hover:bg-rose-900/40 transition-all text-xs font-mono">
+                                    <span class="block font-bold text-slate-200">- Transmute Material</span>
+                                    <span class="text-[10px] text-carmot-400">Sacrifice 2 Thopters to trigger power.</span>
+                                </button>
+                                <button onclick="forgeEngine.activateAshnods()" class="w-full text-left p-3 rounded-lg bg-amber-950/20 border border-amber-800/40 hover:border-amber-400 hover:bg-amber-900/20 transition-all text-xs font-mono">
+                                    <span class="block font-bold text-slate-200">☄ Activate Ashnod's Altar</span>
+                                    <span class="text-[10px] text-amber-500">Sacrifice Thopter for 2 Colorless Mana.</span>
+                                </button>
+                                <button onclick="forgeEngine.reset()" class="w-full text-center py-2 rounded text-[10px] font-mono text-slate-500 hover:text-slate-300 hover:bg-obsidian-950 transition-all">
+                                    Reset Assembly Line
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Center Panel: Live Readouts (State Indicators) -->
+                        <div class="space-y-4 bg-obsidian-950/80 p-5 rounded-xl border border-obsidian-850 flex flex-col justify-between">
+                            <div>
+                                <h3 class="text-xs font-mono uppercase tracking-widest text-slate-400 font-bold mb-3">Live System Status</h3>
+                                <div class="space-y-3 font-mono">
+                                    <div class="flex justify-between items-center text-xs">
+                                        <span class="text-slate-500">Thopters Available:</span>
+                                        <span id="thopter-count" class="text-lg font-bold text-sky-400">2</span>
+                                    </div>
+                                    <div class="flex justify-between items-center text-xs">
+                                        <span class="text-slate-500">Mana Pool (Colorless):</span>
+                                        <span id="mana-count" class="text-lg font-bold text-amber-500">0</span>
+                                    </div>
+                                    <div class="flex justify-between items-center text-xs">
+                                        <span class="text-slate-500">Engine Life-Force:</span>
+                                        <span id="life-count" class="text-lg font-bold text-emerald-400">40</span>
+                                    </div>
+                                    <div class="flex justify-between items-center text-xs">
+                                        <span class="text-slate-500">Target Integrity:</span>
+                                        <span id="target-count" class="text-lg font-bold text-slate-300">20</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="p-2.5 rounded bg-sky-950/20 border border-sky-800/20 text-[11px] text-sky-400 font-mono leading-tight">
+                                <span class="font-bold block uppercase mb-0.5">// Reactor Output //</span>
+                                <span id="forge-log">Forge online. System is ready to fabricate.</span>
+                            </div>
+                        </div>
+
+                        <!-- Right Panel: Visual Reactor -->
+                        <div class="bg-obsidian-950 rounded-xl border border-obsidian-850 p-5 flex flex-col items-center justify-center text-center space-y-4">
+                            <span class="text-[10px] font-mono tracking-widest text-slate-500 uppercase">Interactive Reactor Matrix</span>
+                            <div class="relative w-28 h-28 flex items-center justify-center">
+                                <!-- Ring animations depending on status -->
+                                <div id="reactor-outer" class="absolute inset-0 rounded-full border-2 border-dashed border-sky-500/30 animate-[spin_20s_linear_infinite]"></div>
+                                <div id="reactor-inner" class="absolute w-20 h-20 rounded-full border border-carmot-500/20 animate-[spin_10s_linear_infinite_reverse]"></div>
+                                <div id="reactor-core" class="w-12 h-12 rounded-full bg-sky-500/10 flex items-center justify-center border border-sky-400/40 shadow-inner">
+                                    <svg class="w-6 h-6 text-sky-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
+                                </div>
+                            </div>
+                            <p class="text-[10px] font-mono text-slate-400 leading-relaxed">
+                                Observe how adding Red (Carmot) as an unstable catalyst unlocks the white, blue, and black feedback loops.
+                            </p>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+            <!-- Competitive Apex (Blue Farm cEDH) -->
+            <section id="competitive" class="space-y-8 scroll-mt-24">
+                <div class="flex items-center space-x-4 border-b border-obsidian-800 pb-3">
+                    <span class="font-mono text-2xl text-sky-400 font-bold">04 /</span>
+                    <h2 class="text-xl font-bold tracking-wider uppercase font-mono text-white">cEDH Hegemony: Blue Farm</h2>
+                </div>
+
+                <div class="space-y-4 text-slate-400 leading-relaxed">
+                    <p>
+                        In the absolute highest tier of competitive Commander, the WUBR identity is defined by **Blue Farm**—the premier midrange strategy utilizing the pairing of <strong class="text-white">Tymna the Weaver</strong> (White-Black) and <strong class="text-white">Kraum, Ludevic's Opus</strong> (Blue-Red).
+                    </p>
+                    <p>
+                        While green strategies rely on physical acceleration via creature-based mana dorks, Blue Farm completely bypasses this by utilizing high-velocity card advantages (Rhystic Study, Mystic Remora) and converting life directly into raw tactical momentum with **Ad Nauseam**.
+                    </p>
+                </div>
+
+                <!-- Ad Nauseam Simulator Widget -->
+                <div class="bg-obsidian-900 border border-obsidian-800 rounded-xl p-6">
+                    <div class="flex flex-col md:flex-row justify-between items-start md:items-center border-b border-obsidian-850 pb-4 mb-6">
+                        <div>
+                            <h3 class="text-sm font-mono font-black text-slate-100 uppercase">Ad Nauseam Velocity Simulator</h3>
+                            <p class="text-xs text-slate-400 mt-0.5">Simulate resolving a cEDH Ad Nauseam. Convert life to physical cards.</p>
+                        </div>
+                        <div class="flex space-x-4 mt-4 md:mt-0">
+                            <div class="font-mono text-xs">
+                                <span class="text-slate-500">Current Life:</span>
+                                <span id="nauseam-life" class="text-rose-500 font-bold block text-lg">40</span>
+                            </div>
+                            <div class="font-mono text-xs">
+                                <span class="text-slate-500">Cards Drawn:</span>
+                                <span id="nauseam-cards" class="text-sky-400 font-bold block text-lg">0</span>
+                            </div>
+                            <div class="font-mono text-xs">
+                                <span class="text-slate-500">Average CMC:</span>
+                                <span id="nauseam-cmc" class="text-slate-200 font-bold block text-lg">1.33</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grid md:grid-cols-3 gap-6">
+                        <!-- Play Panel -->
+                        <div class="space-y-4">
+                            <button id="btn-flip" onclick="adNauseam.flip()" class="w-full py-3 rounded-lg bg-purple-950/40 border border-purple-800 hover:border-purple-400 text-xs font-mono font-bold tracking-wider text-purple-300 transition-all uppercase">
+                                ☠ Flip Next Card ☠
+                            </button>
+                            <button id="btn-stop" onclick="adNauseam.stop()" class="w-full py-2.5 rounded bg-slate-950 border border-slate-800 text-slate-400 hover:text-white transition-all text-[11px] font-mono">
+                                Stop & Attempt Victory Loop
+                            </button>
+                            <button onclick="adNauseam.reset()" class="w-full py-1 text-[10px] text-slate-500 hover:text-slate-300 transition-colors font-mono">
+                                Reset Deck
+                            </button>
+                        </div>
+
+                        <!-- Active Hand Visualizer -->
+                        <div class="md:col-span-2 bg-obsidian-950 rounded-xl border border-obsidian-850 p-5 flex flex-col justify-between">
+                            <div>
+                                <h4 class="text-xs font-mono text-slate-400 mb-3 uppercase tracking-wider">// Active Hand Accumulation //</h4>
+                                <div id="hand-cards-container" class="flex flex-wrap gap-2 min-h-[60px] items-center justify-start text-xs text-slate-500 font-mono">
+                                    <span class="text-[10px] tracking-widest opacity-60">CAST AD NAUSEAM TO BEGIN FLOODING THE STACK.</span>
+                                </div>
+                            </div>
+                            <div id="nauseam-feedback" class="mt-4 p-3 rounded bg-purple-950/15 border border-purple-900/30 text-xs text-purple-400 font-mono">
+                                Stack Status: Standby. Ready to resolve spell.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Dossier Workspace / Interactive Export -->
+            <section id="dossier" class="space-y-8 scroll-mt-24">
+                <div class="flex items-center space-x-4 border-b border-obsidian-800 pb-3">
+                    <span class="font-mono text-2xl text-sky-400 font-bold">05 /</span>
+                    <h2 class="text-xl font-bold tracking-wider uppercase font-mono text-white">Vox Mana Dossier Workspace</h2>
+                </div>
+
+                <p class="text-slate-400 leading-relaxed max-w-3xl">
+                    Configure your definitive **Yore / Artifice** research packet. Select keywords, configure focus parameters, and generate a highly tailored output ready to be shared with the Vox Mana archive.
+                </p>
+
+                <!-- Configuration panel -->
+                <div class="bg-obsidian-900 border border-obsidian-800 rounded-xl p-6 space-y-6">
+                    <div class="grid sm:grid-cols-2 gap-6">
+                        <!-- Left configuration -->
+                        <div class="space-y-4">
+                            <h3 class="text-xs font-mono uppercase tracking-widest text-slate-400 font-bold">Configure Focus</h3>
+
+                            <div class="space-y-3">
+                                <div>
+                                    <label class="block text-[11px] font-mono text-slate-500 uppercase mb-2">Primary Theoretical Directive</label>
+                                    <select id="dossier-directive" onchange="dossierBuilder.update()" class="w-full px-3 py-2 bg-obsidian-950 border border-obsidian-800 rounded text-xs text-slate-300 font-mono focus:outline-none focus:border-sky-500">
+                                        <option value="engine-mastery">System Mastery & Finite Loops</option>
+                                        <option value="anti-green">Excision of Nature & Biological Sins</option>
+                                        <option value="competitive">Hegemony of non-Green cEDH Strategies</option>
+                                        <option value="creative">Creative Refractions & The Synthetic Afterlife</option>
+                                    </select>
+                                </div>
+
+                                <div class="space-y-2">
+                                    <label class="block text-[11px] font-mono text-slate-500 uppercase">Include Technical Exhibits</label>
+                                    <div class="flex flex-wrap gap-2">
+                                        <button onclick="dossierBuilder.toggleEx('Yore-Tiller')" id="ex-yore" class="px-2.5 py-1 text-[11px] font-mono rounded border border-sky-900 bg-sky-950/20 text-sky-400 transition-all">
+                                            [+] Yore-Tiller Recursion
+                                        </button>
+                                        <button onclick="dossierBuilder.toggleEx('Breya-Forge')" id="ex-breya" class="px-2.5 py-1 text-[11px] font-mono rounded border border-sky-900 bg-sky-950/20 text-sky-400 transition-all">
+                                            [+] Carmot Synthetic Loop
+                                        </button>
+                                        <button onclick="dossierBuilder.toggleEx('Blue-Farm')" id="ex-blue" class="px-2.5 py-1 text-[11px] font-mono rounded border border-sky-900 bg-sky-950/20 text-sky-400 transition-all">
+                                            [+] Blue Farm Metagame
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Right configuration: Creative Theme selection -->
+                        <div class="space-y-4">
+                            <h3 class="text-xs font-mono uppercase tracking-widest text-slate-400 font-bold">Creative Atmosphere</h3>
+                            <div class="grid grid-cols-2 gap-2 text-[10px] font-mono">
+                                <button onclick="dossierBuilder.setTheme('Clinical')" id="theme-clinical" class="p-2 border text-left rounded transition-all bg-sky-950/20 text-sky-400 border-sky-500/40">
+                                    <span class="block font-bold uppercase mb-0.5">Clinical Chrome</span>
+                                    <span>Reflective lab walls, flawless geometries.</span>
+                                </button>
+                                <button onclick="dossierBuilder.setTheme('Carmot')" id="theme-carmot" class="p-2 border border-obsidian-800 text-slate-500 text-left rounded hover:border-slate-500 transition-all">
+                                    <span class="block font-bold uppercase mb-0.5 text-slate-400">Blood-Lit Labs</span>
+                                    <span>Molten carmot, dark shadows, ticking cogwheels.</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Rendered Document Workspace -->
+                    <div class="bg-obsidian-950 rounded-xl border border-obsidian-850 overflow-hidden">
+                        <div class="flex items-center justify-between px-4 py-3 bg-obsidian-900 border-b border-obsidian-850">
+                            <span class="text-xs font-mono text-slate-400 font-bold uppercase tracking-wider">// Rendered Dossier Output //</span>
+                            <button onclick="dossierBuilder.copy()" class="px-3 py-1 bg-sky-500 hover:bg-sky-400 text-slate-950 font-mono text-[10px] font-bold rounded transition-all">
+                                Copy to Clipboard
+                            </button>
+                        </div>
+                        <div class="p-6">
+                            <pre id="dossier-text" class="text-xs font-mono text-slate-300 whitespace-pre-wrap leading-relaxed select-all">Loading dossier generator...</pre>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Comparisons Section -->
+            <section id="comparisons" class="space-y-8 scroll-mt-24">
+                <div class="flex items-center space-x-4 border-b border-obsidian-800 pb-3">
+                    <span class="font-mono text-2xl text-sky-400 font-bold">06 /</span>
+                    <h2 class="text-xl font-bold tracking-wider uppercase font-mono text-white">Comparing 4-Color Identities</h2>
+                </div>
+
+                <p class="text-slate-400 leading-relaxed max-w-3xl">
+                    WUBR is defined specifically by its non-Green nature. Compare it with the other four-color configurations to appreciate its mechanical and narrative distinctiveness.
+                </p>
+
+                <div class="grid sm:grid-cols-2 gap-4">
+                    <div class="p-4 rounded-lg bg-obsidian-900 border border-obsidian-800">
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="text-xs font-mono font-bold text-sky-400">WUBR (Yore / Artifice)</span>
+                            <span class="text-[10px] font-mono text-red-500">[EXCLUDES GREEN]</span>
+                        </div>
+                        <p class="text-[11px] text-slate-400 leading-relaxed">
+                            <strong>Dossier Specialty:</strong> The total dominance of synthetic engines, artificial networks, modular recursion loops, and high-velocity stack manipulation over natural, biological progression.
+                        </p>
+                    </div>
+
+                    <div class="p-4 rounded-lg bg-obsidian-900 border border-obsidian-850">
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="text-xs font-mono font-bold text-emerald-400">UBRG (Glint / Chaos)</span>
+                            <span class="text-[10px] font-mono text-slate-500">[EXCLUDES WHITE]</span>
+                        </div>
+                        <p class="text-[11px] text-slate-400 leading-relaxed">
+                            <strong>Contrast:</strong> Represents raw adaptation and uncontrolled organic growth combined with dynamic blue evolution, completely lacking White's structured systems and legislative networks.
+                        </p>
+                    </div>
+
+                    <div class="p-4 rounded-lg bg-obsidian-900 border border-obsidian-850">
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="text-xs font-mono font-bold text-amber-500">BRGW (Dune / Aggression)</span>
+                            <span class="text-[10px] font-mono text-slate-500">[EXCLUDES BLUE]</span>
+                        </div>
+                        <p class="text-[11px] text-slate-400 leading-relaxed">
+                            <strong>Contrast:</strong> Unfettered raw survival, pack hierarchy, physical territory, and bloodlines, without Blue's intellectual detachment, clinical testing, or etherium modification.
+                        </p>
+                    </div>
+
+                    <div class="p-4 rounded-lg bg-obsidian-900 border border-obsidian-850">
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="text-xs font-mono font-bold text-purple-400">GWUB (Witch / Growth)</span>
+                            <span class="text-[10px] font-mono text-slate-500">[EXCLUDES RED]</span>
+                        </div>
+                        <p class="text-[11px] text-slate-400 leading-relaxed">
+                            <strong>Contrast:</strong> Eternal growth, total community integration, and patient, unyielding stagnation, lacking Red's volatile, disruptive sparks of innovative crisis.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Bibliography & Standard Metadata -->
+            <footer class="pt-8 border-t border-obsidian-900 text-[11px] font-mono text-slate-500 space-y-4">
+                <div>
+                    <h4 class="text-slate-400 uppercase font-bold mb-2">Primary Reference Ledger (Bibliography)</h4>
+                    <ul class="space-y-1.5">
+                        <li>[1] Wizards of the Coast, "Guilds and Guildpact Lore Archive", March 2006.</li>
+                        <li>[2] Wizards of the Coast, "Commander 2016 Edition Release Notes", November 2016.</li>
+                        <li>[3] Rosewater, Mark. "Making Magic: Designing for Four-Colors", Wizards of the Coast, 2016.</li>
+                        <li>[4] MTG Wiki, "Four-color color identity structure and mechanics reference", 2026.</li>
+                        <li>[5] Gatherer Database, "Yore-Tiller Nephilim (Guildpact Item #107093)", WotC Official.</li>
+                        <li>[6] Scryfall MTG Search Engine, "Breya, Etherium Shaper Product Printing Details."</li>
+                        <li>[7] Rosewater, Mark. Blogatog - "Answering the 4-Color Problem", Tumblr Archive, 2018.</li>
+                        <li>[8] EDHREC, "Breya, Etherium Shaper Metagame Archetype Summary Data", 2026.</li>
+                        <li>[9] Competitive Commander (cEDH) Database, "Tymna/Kraum Midrange (Blue Farm) Tier Analysis", 2026.</li>
+                    </ul>
+                </div>
+                <div class="text-[10px] text-slate-600">
+                    This dossier is an independent production of Vox Mana. All trademarks, game terms, and cards referenced are properties of their respective owners. Generated for research purposes only.
+                </div>
+            </footer>
+
+        </main>
+    </div>
+
+    <!-- Active Core Logic Engines -->
+    <script>
+        // 1. Carmot Forge State Machine
+        const forgeEngine = {
+            state: {
+                thopters: 2,
+                mana: 0,
+                life: 40,
+                targetLife: 20
+            },
+            updateUI() {
+                document.getElementById('thopter-count').textContent = this.state.thopters;
+                document.getElementById('mana-count').textContent = this.state.mana;
+                document.getElementById('life-count').textContent = this.state.life;
+                document.getElementById('target-count').textContent = this.state.targetLife;
+
+                // Visual indicators based on states
+                const outer = document.getElementById('reactor-outer');
+                const inner = document.getElementById('reactor-inner');
+                const core = document.getElementById('reactor-core');
+
+                if (this.state.thopters > 4 || this.state.mana > 4) {
+                    outer.className = "absolute inset-0 rounded-full border-2 border-dashed border-rose-500/60 animate-[spin_5s_linear_infinite]";
+                    inner.className = "absolute w-20 h-20 rounded-full border border-sky-400/50 animate-[spin_3s_linear_infinite_reverse]";
+                    core.className = "w-12 h-12 rounded-full bg-rose-500/20 flex items-center justify-center border border-rose-400 shadow-lg shadow-rose-500/30";
+                } else {
+                    outer.className = "absolute inset-0 rounded-full border-2 border-dashed border-sky-500/30 animate-[spin_20s_linear_infinite]";
+                    inner.className = "absolute w-20 h-20 rounded-full border border-carmot-500/20 animate-[spin_10s_linear_infinite_reverse]";
+                    core.className = "w-12 h-12 rounded-full bg-sky-500/10 flex items-center justify-center border border-sky-400/40 shadow-inner";
+                }
+            },
+            log(msg) {
+                document.getElementById('forge-log').textContent = msg;
+            },
+            manufacture() {
+                this.state.thopters += 2;
+                this.log("Entering Battlefied. Assembling 2 synthetic Thopter tokens.");
+                this.updateUI();
+            },
+            transmute() {
+                if (this.state.thopters >= 2) {
+                    this.state.thopters -= 2;
+                    // Prompt choice simulated
+                    const r = Math.floor(Math.random() * 3);
+                    if (r === 0) {
+                        this.state.life += 5;
+                        this.log("Sacrificed 2 Thopters: Gained 5 Life (W alignment).");
+                    } else if (r === 1) {
+                        this.state.targetLife = Math.max(0, this.state.targetLife - 4);
+                        this.log("Sacrificed 2 Thopters: Opponent target takes -4/-4 (B alignment).");
+                    } else {
+                        this.state.targetLife = Math.max(0, this.state.targetLife - 3);
+                        this.log("Sacrificed 2 Thopters: Dealt 3 damage to opponent (R alignment).");
+                    }
+                } else {
+                    this.log("Insufficent material. Synthesis blocked.");
+                }
+                this.updateUI();
+            },
+            activateAshnods() {
+                if (this.state.thopters >= 1) {
+                    this.state.thopters -= 1;
+                    this.state.mana += 2;
+                    this.log("Ashnod's Altar triggered. Dissolved Thopter into {2} Colorless mana.");
+                } else {
+                    this.log("No Thopters available to feed Altar.");
+                }
+                this.updateUI();
+            },
+            reset() {
+                this.state = { thopters: 2, mana: 0, life: 40, targetLife: 20 };
+                this.log("Assembly line components reset to base standard.");
+                this.updateUI();
+            }
+        };
+
+        // 2. Competitive Ad Nauseam Simulator Engine
+        const adNauseam = {
+            deck: [
+                { name: "Mana Crypt", cmc: 0, desc: "Fast artifact mana" },
+                { name: "Chrome Mox", cmc: 0, desc: "Fast imprint mana" },
+                { name: "Mox Opal", cmc: 0, desc: "Fast metalcraft mana" },
+                { name: "Silence", cmc: 1, desc: "W Stack freeze" },
+                { name: "Mystic Remora", cmc: 1, desc: "U Value engine" },
+                { name: "Swan Song", cmc: 1, desc: "U Negate spell" },
+                { name: "Dark Ritual", cmc: 1, desc: "B Mana burst" },
+                { name: "Demonic Tutor", cmc: 2, desc: "B Card lookup" },
+                { name: "Underworld Breach", cmc: 2, desc: "R Graveyard breach" },
+                { name: "Tainted Pact", cmc: 2, desc: "B Instant tutor" },
+                { name: "Fierce Guardianship", cmc: 3, desc: "U Free counter" },
+                { name: "Grand Abolisher", cmc: 2, desc: "W Turn protector" },
+                { name: "Force of Will", cmc: 5, desc: "U Hard counter" }
+            ],
+            state: {
+                life: 40,
+                cardsDrawn: 0,
+                hand: [],
+                active: true
+            },
+            updateUI() {
+                document.getElementById('nauseam-life').textContent = this.state.life;
+                document.getElementById('nauseam-cards').textContent = this.state.cardsDrawn;
+
+                const container = document.getElementById('hand-cards-container');
+                if (this.state.hand.length === 0) {
+                    container.innerHTML = '<span class="text-[10px] tracking-widest opacity-60">CAST AD NAUSEAM TO BEGIN FLOODING THE STACK.</span>';
+                } else {
+                    container.innerHTML = this.state.hand.map(card => `
+                        <span class="px-2 py-1 rounded bg-purple-950/40 text-purple-300 border border-purple-800/60 flex items-center space-x-1.5 font-mono text-[11px]">
+                            <span class="font-bold">${card.name}</span>
+                            <span class="text-rose-400 font-bold text-[10px]">[${card.cmc}]</span>
+                        </span>
+                    `).join('');
+                }
+            },
+            log(msg) {
+                document.getElementById('nauseam-feedback').textContent = msg;
+            },
+            flip() {
+                if (!this.state.active) return;
+
+                if (this.state.life <= 0) {
+                    this.log("System Failure: Life total has plummeted to 0. Self-destruction verified.");
+                    return;
+                }
+
+                // Pick a random card from library
+                const card = this.deck[Math.floor(Math.random() * this.deck.length)];
+                this.state.life -= card.cmc;
+                this.state.cardsDrawn += 1;
+                this.state.hand.push(card);
+
+                if (this.state.life <= 0) {
+                    this.state.active = false;
+                    this.log(`Flipped: ${card.name} (${card.cmc} CMC). Your life dropped to 0! You died to your own ambition.`);
+                    document.getElementById('btn-flip').disabled = true;
+                    document.getElementById('btn-stop').disabled = true;
+                } else {
+                    this.log(`Flipped: ${card.name} (${card.cmc} CMC). Resolved to active hand.`);
+                }
+                this.updateUI();
+            },
+            stop() {
+                if (!this.state.active || this.state.cardsDrawn === 0) return;
+                this.state.active = false;
+
+                // See if they have breach + LED + Freeze equivalents
+                const hasBreach = this.state.hand.some(c => c.name === "Underworld Breach");
+                const hasMana = this.state.hand.some(c => c.cmc === 0);
+
+                if (hasBreach && hasMana) {
+                    this.log(`Stopped successfully at ${this.state.life} life. Hand contains Underworld Breach and fast mana! Winning combo secured.`);
+                } else {
+                    this.log(`Stopped successfully at ${this.state.life} life. No clean Breach lines found; attempting value grind with drawn materials.`);
+                }
+                document.getElementById('btn-flip').disabled = true;
+                document.getElementById('btn-stop').disabled = true;
+            },
+            reset() {
+                this.state = { life: 40, cardsDrawn: 0, hand: [], active: true };
+                this.log("Library shuffled. Standard Ad Nauseam catalyst primed.");
+                document.getElementById('btn-flip').disabled = false;
+                document.getElementById('btn-stop').disabled = false;
+                this.updateUI();
+            }
+        };
+
+        // 3. Dossier Exporter Engine
+        const dossierBuilder = {
+            state: {
+                directive: "engine-mastery",
+                theme: "Clinical",
+                exhibits: ["Yore-Tiller", "Breya-Forge"]
+            },
+            toggleEx(ex) {
+                const index = this.state.exhibits.indexOf(ex);
+                if (index > -1) {
+                    this.state.exhibits.splice(index, 1);
+                    document.getElementById(`ex-${ex.split('-')[0].toLowerCase()}`).className = "px-2.5 py-1 text-[11px] font-mono rounded border border-obsidian-800 bg-obsidian-950 text-slate-500 transition-all";
+                } else {
+                    this.state.exhibits.push(ex);
+                    document.getElementById(`ex-${ex.split('-')[0].toLowerCase()}`).className = "px-2.5 py-1 text-[11px] font-mono rounded border border-sky-900 bg-sky-950/20 text-sky-400 transition-all";
+                }
+                this.update();
+            },
+            setTheme(theme) {
+                this.state.theme = theme;
+                const cli = document.getElementById('theme-clinical');
+                const car = document.getElementById('theme-carmot');
+
+                if (theme === 'Clinical') {
+                    cli.className = "p-2 border text-left rounded transition-all bg-sky-950/20 text-sky-400 border-sky-500/40";
+                    car.className = "p-2 border border-obsidian-800 text-slate-500 text-left rounded hover:border-slate-500 transition-all";
+                } else {
+                    car.className = "p-2 border text-left rounded transition-all bg-rose-950/20 text-rose-400 border-rose-500/40";
+                    cli.className = "p-2 border border-obsidian-800 text-slate-500 text-left rounded hover:border-slate-500 transition-all";
+                }
+                this.update();
+            },
+            update() {
+                const dirSelect = document.getElementById('dossier-directive');
+                this.state.directive = dirSelect.value;
+
+                let content = `VOX MANA CLASSIFIED DOSSIER // IDENTIFICATION PROTOCOL: WUBR (YORE-ARTIFICE)\n`;
+                content += `========================================================================\n`;
+                content += `AUTHORIZATION LEVEL: ARCHITECT\n`;
+                content += `CREATIVE DIRECTIVE: ${this.state.directive.toUpperCase()}\n`;
+                content += `ATMOSPHERIC TENSION: ${this.state.theme.toUpperCase()}\n\n`;
+
+                content += `I. WORLDVIEW THESIS\n`;
+                if (this.state.directive === 'engine-mastery') {
+                    content += `The WUBR universe is built on the absolute logic of the feedback loop. By rejecting Green's\n`;
+                    content += `destined decomposition, every body, node, and resource is engineered as a perpetual kinetic engine.\n`;
+                } else if (this.state.directive === 'anti-green') {
+                    content += `WUBR defined purely by its violent non-Green margins. It represents the elimination of biological\n`;
+                    content += `resignation. The forest is flattened, analyzed as raw carbon, and repurposed as high-performance artifice.\n`;
+                } else if (this.state.directive === 'competitive') {
+                    content += `Tactical analysis demonstrates the superiority of non-Green stack control. Eschewing land ramp,\n`;
+                    content += `the pilot leverages pure transactional card engines and high-volume stack interaction to enforce victories.\n`;
+                } else {
+                    content += `An aesthetic study of brass reliquaries and artificial saints. Organics are replaced by cold plates\n`;
+                    content += `and clockwork lungs. Death is merely an operational state waiting for re-routing to begin anew.\n`;
+                }
+
+                if (this.state.exhibits.length > 0) {
+                    content += `\nII. SYSTEM TECHNICAL EXHIBITS\n`;
+                    if (this.state.exhibits.includes("Yore-Tiller")) {
+                        content += `- Exhibit Yore-T-01: Ancestral reanimation loops denying biological release to dead constructs.\n`;
+                    }
+                    if (this.state.exhibits.includes("Breya-Forge")) {
+                        content += `- Exhibit Carmot-B-02: Self-sacrificing recursive material loops converting tokens directly to tactical energy.\n`;
+                    }
+                    if (this.state.exhibits.includes("Blue-Farm")) {
+                        content += `- Exhibit Farm-TK-03: Peerless cEDH performance using life conversion indexes for continuous card velocity.\n`;
+                    }
+                }
+
+                content += `\nIII. KEYWORD TAGS\n`;
+                content += `[SYSTEM MASTER] [CLOSED FEEDBACK LOOPS] [CARMOT FUSION] [ANTI-GREEN AXIOM] [TRANSACTIONAL VALUE]\n\n`;
+                content += `IV. EXCLUSION MATRIX (What this identity is not)\n`;
+                content += `1. Not organic growth; all resources are synthetic.\n`;
+                content += `2. Not biological preservation; bodies are raw blueprints.\n`;
+                content += `3. Not natural destiny; history is actively written and optimized.\n`;
+                content += `4. Not peaceful acceptance; elements are violently forged.\n`;
+                content += `5. Not ecological balance; the world is a machine.\n`;
+
+                document.getElementById('dossier-text').textContent = content;
+            },
+            copy() {
+                const text = document.getElementById('dossier-text').textContent;
+                // Workaround wrapper for browser security contexts
+                const tempTextArea = document.createElement("textarea");
+                tempTextArea.value = text;
+                document.body.appendChild(tempTextArea);
+                tempTextArea.select();
+                document.execCommand("copy");
+                document.body.removeChild(tempTextArea);
+
+                const btn = event.target;
+                const originalText = btn.textContent;
+                btn.textContent = "COPIED TO ARCHIVE!";
+                btn.className = "px-3 py-1 bg-emerald-500 text-slate-950 font-mono text-[10px] font-bold rounded transition-all";
+                setTimeout(() => {
+                    btn.textContent = originalText;
+                    btn.className = "px-3 py-1 bg-sky-500 hover:bg-sky-400 text-slate-950 font-mono text-[10px] font-bold rounded transition-all";
+                }, 2000);
+            }
+        };
+
+        // Initialize state on load
+        window.onload = function() {
+            forgeEngine.updateUI();
+            adNauseam.reset();
+            dossierBuilder.update();
+        };
+    </script>
+
+</body>
+</html>

@@ -4,7 +4,7 @@
   "faction_id": "esper",
   "faction_name": "Esper",
   "based_on_profile_version": "1.0.0",
-  "last_updated": "2026-05-30",
+  "last_updated": "2026-06-12",
   "placement_summary": "Esper is a live-pilot placement profile for the ESPER shard expression. Its strongest signals are Blue-centered perfectibility, knowledge, planning, applied information, White ordered improvement, and Black focused control.",
   "moral_and_psychological_profile": {
     "summary": "Vox Mana models Esper as Blue-centered perfectibility through knowledge, planning, ordered improvement, and focused control. This is descriptive architecture for the live pilot, not official canon and not standalone scoring data.",
@@ -102,7 +102,57 @@
     "The answer is mainly civic procedure, secrecy, debt, generic WUB, or generic artifact value.",
     "The answer centers impulse, natural acceptance, big-creature immediacy, predatory appetite, or spontaneous passion."
   ],
-  "discriminator_questions": [],
+  "discriminator_questions": [
+    {
+      "question_id": "esper_discriminator_0001",
+      "question": "Is the ideal a living communal order or a designed system optimized through knowledge, structure, and focused control?",
+      "purpose": "Separates Esper designed control from Bant living communal order.",
+      "answer_pattern_that_supports_this_faction": "Supports Esper when the answer centers Blue-led perfectibility, planning, ordered improvement, and Black-supported focused control.",
+      "answer_pattern_that_weakens_this_faction": "Weakens Esper when the answer centers public honor, supported champions, creature-community protection, or Green living acceptance.",
+      "collision_targets": [
+        "BANT"
+      ],
+      "claim_ids": [
+        "esper_claim_0003",
+        "esper_claim_0005",
+        "esper_claim_0006",
+        "esper_claim_0007"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "question_id": "esper_discriminator_0002",
+      "question": "Does information become a perfected design, or leverage for survival in a hostile world?",
+      "purpose": "Separates Esper perfectibility-through-design from Grixis survival-through-leverage.",
+      "answer_pattern_that_supports_this_faction": "Supports Esper when the user wants information to optimize, improve, and govern the system.",
+      "answer_pattern_that_weakens_this_faction": "Weakens Esper when information is mainly weakness analysis, urgent survival, self-advocacy, or volatility.",
+      "collision_targets": [
+        "GRIXIS"
+      ],
+      "claim_ids": [
+        "esper_claim_0003",
+        "esper_claim_0004",
+        "esper_claim_0006"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "question_id": "esper_discriminator_0003",
+      "question": "Is the order mainly lawful procedure, or a knowledge-built system for optimization and focused control?",
+      "purpose": "Separates Esper designed optimization from Azorius civic procedure.",
+      "answer_pattern_that_supports_this_faction": "Supports Esper when rules, structure, and knowledge are used to improve, optimize, and govern the system through focused control.",
+      "answer_pattern_that_weakens_this_faction": "Weakens Esper when the answer centers procedure, legality, fairness-by-process, or institutional order without Black-supported control and Blue-centered perfectibility.",
+      "collision_targets": [
+        "azorius_senate"
+      ],
+      "claim_ids": [
+        "esper_claim_0003",
+        "esper_claim_0005",
+        "esper_claim_0006"
+      ],
+      "confidence": "Medium"
+    }
+  ],
   "chatbot_guidance": {
     "how_to_recognize_match": [
       "Treat Esper as a live-pilot match only when the answer combines Blue-centered perfectibility with White ordered improvement and Black focused control.",

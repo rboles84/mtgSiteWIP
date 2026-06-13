@@ -1,0 +1,239 @@
+{
+  "schema_version": "1.0.0",
+  "faction_id": "ink",
+  "faction_name": "Ink / Altruism",
+  "last_updated": "2026-06-12",
+  "audit_summary": {
+    "raw_packet_created": true,
+    "raw_claim_count": 5,
+    "source_evidence_rows_used": [
+      "INK-EVID-001",
+      "INK-EVID-002",
+      "INK-EVID-003",
+      "INK-EVID-004",
+      "INK-EVID-007",
+      "INK-EVID-010"
+    ],
+    "excluded_evidence_rows": [
+      "INK-EVID-005",
+      "INK-EVID-006",
+      "INK-EVID-008",
+      "INK-EVID-009",
+      "INK-MF-001",
+      "INK-MF-002",
+      "INK-MF-003",
+      "INK-MF-004",
+      "INK-MF-005",
+      "INK-MF-006",
+      "INK-MF-007",
+      "INK-MF-008",
+      "INK-MF-009",
+      "INK-MF-010",
+      "INK-MF-011",
+      "INK-MF-012",
+      "INK-MF-013"
+    ],
+    "support_bound_rows_used_for_profile_texture": [
+      "INK-EVID-005",
+      "INK-EVID-006"
+    ],
+    "support_only_rows_as_claims": false,
+    "manual_fill_rows_as_claims": false,
+    "architecture_docs_as_raw_claim_evidence": false,
+    "commander_rows_as_raw_claims": false,
+    "discovery_draft_files_as_raw_claim_evidence": false,
+    "generated_html_as_raw_claim_evidence": false,
+    "builder_mapping_changed": false,
+    "generated_artifacts_changed": false,
+    "runtime_files_changed": false,
+    "status": "source_grounded_live_repair",
+    "placement_status": "live_after_vm263_source_repair",
+    "placement_ready_pass": "VM-304",
+    "ink_future_planned_only": false,
+    "rgwu_wurg_and_permutations_metadata_query_only": true,
+    "raw_key_mapping_updated": false,
+    "build_factions_run": true,
+    "placement_eligible": true,
+    "preview_eligible": false,
+    "live_pilot": true
+  },
+  "changes": [
+    {
+      "change_id": "ink_change_001",
+      "change_type": "VM-261 Initial Non-Live Raw Packet",
+      "change_date": "2026-06-04",
+      "summary": "Created the Ink / Altruism review-gated, non-live raw-faction packet from approved VM-258 evidence rows while preserving VM-259 and VM-260 architecture as shaping-only, Commander and precon texture as support-only, the three unmanaged Ink drafts as discovery-only quarantine records without source IDs, RGWU and permutations as metadata-query-only, and no runtime, generated, or builder changes.",
+      "sources_added": [
+        "src_vm_ink_source_ledger_20260604",
+        "src_vm_ink_evidence_ledger_20260604",
+        "src_vm_ink_vm258_scope_card_20260603",
+        "src_vm_four_color_reference_audit_20260604",
+        "src_vm_four_color_identity_dossier_md_20260604",
+        "src_vm_ink_commander_deck_list_20260604",
+        "src_vm_commander_recommendations_stalwart_unity_20260604",
+        "src_vm_ink_precons_source_json_20260604",
+        "src_vm_ink_precon_catalog_json_20260604",
+        "src_vm_ink_identity_md_20260604",
+        "src_vm_ink_metaphysics_md_20260604",
+        "src_vm_ink_manual_fill_20260604"
+      ],
+      "quarantine_records_added": [
+        "ink_quarantine_discovery_001",
+        "ink_quarantine_discovery_002",
+        "ink_quarantine_discovery_003"
+      ],
+      "sources_updated": [],
+      "claims_added": [
+        "ink_claim_0001",
+        "ink_claim_0002",
+        "ink_claim_0003",
+        "ink_claim_0004",
+        "ink_claim_0005"
+      ],
+      "claims_updated": [],
+      "claims_superseded": [],
+      "claims_contradicted": [],
+      "profile_fields_updated": [
+        "site_surface",
+        "core_identity",
+        "structure",
+        "great_tension",
+        "historical_timeline",
+        "key_figures",
+        "canonical_flavor_text",
+        "views_on_other_factions",
+        "mechanics",
+        "search_and_filter_metadata",
+        "data_quality",
+        "research_limitations",
+        "commander_compass"
+      ],
+      "placement_fields_updated": [
+        "placement_summary",
+        "moral_and_psychological_profile",
+        "placement_axes",
+        "core_values",
+        "behavioral_signals",
+        "inhibitor_traits",
+        "good_fit_indicators",
+        "ideal_fit_indicators",
+        "poor_fit_indicators",
+        "discriminator_questions",
+        "chatbot_guidance",
+        "placement_quality",
+        "color_identity",
+        "calibration_tuning",
+        "collision_guidance"
+      ],
+      "manual_review_required": [
+        "Verify exact official Ink-Treader card facts before exact card copy.",
+        "Keep Kynaios and Tiro / Stalwart Unity / Commander 2016 product or lore grounding support-only until direct sources are captured.",
+        "Keep Altruism commentary support-only until direct local capture exists.",
+        "Keep all Ink manual-fill topics excluded from raw-claim evidence, including the unresolved INK-MF-010 / INK-MF-011 drift topics.",
+        "Keep adjacent separators as architecture guidance while packet drift remains unresolved.",
+        "Keep Commander legality, exact card data, recommendations, rankings, and metagame claims deferred.",
+        "Keep Altruism paired-framing only and non-public.",
+        "Keep RGWU, WURG, and all same-color permutations metadata-query-only.",
+        "Keep INK future/planned only and non-live."
+      ],
+      "notes": "INK is the Vox Mana expression/research label, Altruism is Commander 2016 support/theme framing only, Altruism is not a public alias or exclusive official name, RGWU and WURG remain metadata-query-only, no repair was made to packet-level manual-fill drift, and no builder, runtime, generated, schema, navigation, fixture, test, or placement-model surfaces were edited."
+    },
+    {
+      "change_id": "ink_change_002",
+      "change_type": "VM-304 Source-First Live Placement Repair",
+      "change_date": "2026-06-09",
+      "summary": "Source-backed INK's current generated profile and placement output after VM-263 without adding claims, weakening VM-300, or hand-editing generated JSON.",
+      "sources_added": [
+        "src_vm263_ink_runtime_promotion_20260604"
+      ],
+      "quarantine_records_added": [],
+      "sources_updated": [
+        "src_vm_ink_evidence_ledger_20260604",
+        "src_vm_ink_vm258_scope_card_20260603",
+        "src_vm_four_color_reference_audit_20260604"
+      ],
+      "claims_added": [],
+      "claims_updated": [
+        "ink_claim_0001"
+      ],
+      "claims_superseded": [],
+      "claims_contradicted": [],
+      "profile_fields_updated": [
+        "profile_version",
+        "source_review_date",
+        "last_incremental_review",
+        "profile",
+        "mechanics.summary",
+        "search_and_filter_metadata",
+        "data_quality"
+      ],
+      "placement_fields_updated": [
+        "placement_profile_version",
+        "placement_model_version",
+        "based_on_profile_version",
+        "placement_summary",
+        "inhibitor_traps",
+        "good_fit_indicators",
+        "poor_fit_indicators",
+        "discriminator_questions",
+        "chatbot_guidance.how_to_recognize_mismatch",
+        "chatbot_guidance.calibration_note",
+        "placement_quality",
+        "calibration_tuning"
+      ],
+      "support_only_rows_used": [
+        "INK-EVID-005",
+        "INK-EVID-006"
+      ],
+      "manual_review_required": [
+        "Keep VM-263 as lifecycle/live-status provenance only.",
+        "Keep exactly five INK claims unless a future approved evidence-promotion card changes that floor.",
+        "Keep INK-EVID-005 and INK-EVID-006 support-only and labeled as Commander/profile/mechanics texture.",
+        "Do not treat Altruism, Kynaios, Stalwart Unity, Ink-Treader, RGWU, WURG, same-color identity, or discovery drafts as naming authority, lore proof, public aliases, or raw-claim proof.",
+        "Keep Supabase context isolation as a separate follow-up; VM-304 must restore any non-INK context drift produced by rebuild."
+      ],
+      "notes": "VM-304 repairs source/generated durability for INK only. It does not edit data/factions.json, routes, Maze behavior, flavor snippets, public display, deck links, schemas, Supabase source truth, or other faction raw packets."
+    },
+    {
+      "change_id": "ink_change_003",
+      "change_type": "VM-348 Four-Color Source-Bound Cohort Repair",
+      "change_date": "2026-06-12",
+      "summary": "Normalized four-color source roles, added source-backed ring discriminator and collision guidance coverage, added support-only Commander/deck dossier data, and prepared raw enrichment for builder-surfaced generated output without changing the five-claim floor.",
+      "sources_added": [],
+      "sources_updated": [
+        "src_vm263_ink_runtime_promotion_20260604",
+        "src_vm_ink_manual_fill_20260604"
+      ],
+      "claims_added": [],
+      "claims_updated": [],
+      "claims_superseded": [],
+      "claims_contradicted": [],
+      "profile_fields_updated": [
+        "profile_version",
+        "source_review_date",
+        "last_incremental_review",
+        "commander_compass",
+        "deck_links",
+        "research_links"
+      ],
+      "placement_fields_updated": [
+        "placement_profile_version",
+        "placement_model_version",
+        "based_on_profile_version",
+        "discriminator_questions",
+        "collision_guidance"
+      ],
+      "support_only_rows_used": [
+        "src_vm_commander_recommendations_stalwart_unity_20260604",
+        "src_vm_four_color_identity_dossier_md_20260604"
+      ],
+      "manual_review_required": [
+        "Keep claim_count at exactly 5.",
+        "Keep Commander/deck/operator material support-only and out of lore, placement, Crucible, discriminator-proof, claim, route, alias, and naming authority.",
+        "Keep unmanaged discovery drafts discovery-only unless a future source-intake card audits and promotes them.",
+        "Keep ring collision guidance lateral_inhibition:false unless a future approved calibration card strengthens suppression deliberately."
+      ],
+      "notes": "VM-348 is a source-bound cohort repair. It adds no web intake, no raw claims, no generated hand edits, no public aliases, no Home preview membership, and no route changes."
+    }
+  ]
+}

@@ -3,7 +3,7 @@ import { readFile } from "node:fs/promises";
 
 const files = [
   "assets/js/index.js",
-  "assets/js/newindex2.js",
+  "assets/js/home.js",
   "assets/js/strategium.js",
   "research/research-init.js",
   "research/research-ui.js",

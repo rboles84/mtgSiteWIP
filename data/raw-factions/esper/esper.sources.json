@@ -3,7 +3,7 @@
   "faction_id": "esper",
   "faction_name": "Esper",
   "source_review_date": "2026-05-30",
-  "last_updated": "2026-05-30",
+  "last_updated": "2026-06-12",
   "sources": [
     {
       "source_id": "src_vm_esper_source_ledger_20260529",
@@ -13,6 +13,7 @@
       "publication_date": "2026-05-29",
       "url_or_repository_path": "docs/research/esper/esper-source-ledger.md",
       "source_type": "Curated source ledger",
+      "source_role": "shaping-only",
       "reliability": "Primary local research ledger",
       "notes": "Defines the Esper source hierarchy, support-only boundaries, manual-fill limits, and Commander/operator-only source policy."
     },
@@ -24,6 +25,7 @@
       "publication_date": "2026-05-29",
       "url_or_repository_path": "docs/research/esper/esper-evidence-ledger.md",
       "source_type": "Curated evidence ledger",
+      "source_role": "claim-bearing",
       "reliability": "Primary local evidence ledger",
       "notes": "Maps Esper claims to source tiers, confidence/status, promoted/support-only/manual-fill classification, and evidence row IDs."
     },
@@ -35,6 +37,7 @@
       "publication_date": "2026-05-29",
       "url_or_repository_path": "docs/research/esper/esper-research-dossier.md",
       "source_type": "Curated research dossier",
+      "source_role": "shaping-only",
       "reliability": "Primary local synthesis with explicit boundaries",
       "notes": "Summarizes the conservative Esper identity floor, source limits, and manual-fill queue without making Esper live."
     },
@@ -46,6 +49,7 @@
       "publication_date": "2026-05-29",
       "url_or_repository_path": "docs/research/esper/esper-reliability-audit.md",
       "source_type": "Reliability audit",
+      "source_role": "shaping-only",
       "reliability": "Primary local audit",
       "notes": "Records which Esper topics are promoted, support-only, or manual fill and warns against using draft/presentation artifacts as evidence."
     },
@@ -57,6 +61,7 @@
       "publication_date": "2026-05-29",
       "url_or_repository_path": "docs/research/esper/esper-manual-fill.md",
       "source_type": "Manual-fill queue",
+      "source_role": "support-only",
       "reliability": "Limitations ledger only",
       "notes": "Records deferred Esper topics. It is not raw-claim evidence."
     },
@@ -68,6 +73,7 @@
       "publication_date": "Local capture, original date not restated in VM-163 packet",
       "url_or_repository_path": "docs/research/canon/mark_rosewater_official_three_color/Esper_Striving For Perfection _ Magic_ The Gathering.md",
       "source_type": "Official Wizards design article capture",
+      "source_role": "claim-bearing",
       "reliability": "Primary / official design commentary",
       "notes": "Directly read local capture. Supports Esper as white-blue-black, WUB color direction, Blue center/design lens, Blue philosophy, White and Black ally roles, and Red/Green missing-pressure design commentary."
     },
@@ -79,6 +85,7 @@
       "publication_date": "2026-05-28",
       "url_or_repository_path": "docs/analysis/canon-inventory-three-color-reference-audit.md",
       "source_type": "Canon inventory and discovery audit",
+      "source_role": "shaping-only",
       "reliability": "Repository inventory / discovery aid",
       "notes": "Identifies the official Esper Rosewater file as the primary identity source and records the Alara protocol material as support/discovery context."
     },
@@ -90,6 +97,7 @@
       "publication_date": "2026-05-29",
       "url_or_repository_path": "docs/architecture/colors/esper/identity.md",
       "source_type": "Vox Mana architecture doc",
+      "source_role": "shaping-only",
       "reliability": "Project architecture synthesis from VM-163 evidence",
       "notes": "May shape profile and placement prose. It is not Magic canon and should not replace direct evidence rows for raw claims."
     },
@@ -101,6 +109,7 @@
       "publication_date": "2026-05-29",
       "url_or_repository_path": "docs/architecture/colors/esper/metaphysics.md",
       "source_type": "Vox Mana metaphysics doc",
+      "source_role": "shaping-only",
       "reliability": "Project metaphysics synthesis from VM-163 evidence",
       "notes": "May shape Vox Mana metaphysical profile fields. It is explicitly not Wizards or MTG canon."
     },
@@ -112,6 +121,7 @@
       "publication_date": "2026-05-29",
       "url_or_repository_path": "docs/research/esper/esper-lore-source-packet.md",
       "source_type": "Compiled research aid",
+      "source_role": "support-only",
       "reliability": "Research aid only",
       "notes": "Restored active-path research aid and review-bounded support note. VM-171 treats docs/research/esper/ as the canonical packet location. Do not cite this file instead of the evidence ledger for raw claims, and do not use expanded lore as live routing evidence."
     },
@@ -123,6 +133,7 @@
       "publication_date": "Unknown local capture date",
       "url_or_repository_path": "docs/research/canon/guild_research/Alara Shards Lore Dossier Protocol.rtf",
       "source_type": "Alara shard support packet",
+      "source_role": "support-only",
       "reliability": "Support-only unless independently backed by promoted rows",
       "notes": "May support discovery and topic queues such as artifacts/filigree and shard context. It must not support canon claims in this raw packet without promoted evidence rows."
     },
@@ -134,6 +145,7 @@
       "publication_date": "Unknown local authoring date",
       "url_or_repository_path": "docs/architecture/system/cross-color-dynamics.md",
       "source_type": "Vox Mana architecture support",
+      "source_role": "support-only",
       "reliability": "Support-only for separator/operator language",
       "notes": "May shape future separator and operator prose. It is not canon lore evidence."
     },
@@ -145,6 +157,7 @@
       "publication_date": "2026-05-29",
       "url_or_repository_path": "docs/research/vox_mana_second_commander_recommendations_enhanced.jsonl",
       "source_type": "Commander/operator support",
+      "source_role": "support-only",
       "reliability": "Product/operator support only",
       "notes": "ESP-SRC-006. VM-163 found 10 WUB rows and evidence rows ESPER-013, ESPER-014, and ESPER-015. Use only for Commander/operator and placement-planning fields."
     }

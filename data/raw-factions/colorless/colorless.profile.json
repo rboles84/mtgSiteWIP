@@ -1,0 +1,401 @@
+{
+  "schema_version": "1.0.0",
+  "profile_version": "0.1.3",
+  "faction_id": "colorless",
+  "faction_name": "Colorless",
+  "faction_type": "colorless",
+  "plane_or_setting": "Cross-plane; Zendikar/Wastes, Eldrazi, artifacts, Ugin, and Karn remain bounded branches",
+  "color_identity": [],
+  "color_pair_or_group": "Colorless / no WUBRG colors; {C} support tracked separately; generic mana is not colorless mana",
+  "source_review_date": "2026-06-10",
+  "last_full_review": "2026-06-10",
+  "last_incremental_review": "2026-06-11",
+  "last_updated": "2026-06-11",
+  "core_identity": {
+    "short_form": "Outside WUBRG: absence, machinery, void, desolation, and transcendence held as separate branches.",
+    "identity_frame": "Colorless is Vox Mana's VM-334-ratified controlled non-color identity for magic and objects outside the five-color philosophical wheel, with strict separation between colorless mana, generic mana costs, artifacts, Eldrazi, Wastes, Devoid, strict Commander constraints, and support-bound Ugin/Karn or named-card texture.",
+    "naming_boundary": "COLORLESS is a controlled placeable Layer 1 expression key with colors: [], core_color: \"C\", placement_eligible: true, preview_eligible: false, directory links suppressed, and aliases limited to [\"COLORLESS\"]. It is not a public route, Home preview key, lowercase alias, or public directory link.",
+    "claim_ids": [
+      "colorless_claim_0001",
+      "colorless_claim_0002",
+      "colorless_claim_0003",
+      "colorless_claim_0004",
+      "colorless_claim_0005",
+      "colorless_claim_0006",
+      "colorless_claim_0007",
+      "colorless_claim_0008"
+    ]
+  },
+  "structure": {
+    "identity_class": "colorless",
+    "color_identity": [],
+    "primary_boundary": "Not a color, not mono-color, not five-color, and not a sixth color.",
+    "branches": [
+      {
+        "branch": "rules_and_mana",
+        "summary": "Object colorlessness, colorless mana represented by {C}, and generic mana costs are related but distinct.",
+        "claim_ids": [
+          "colorless_claim_0003"
+        ]
+      },
+      {
+        "branch": "artifacts_and_function",
+        "summary": "Artifacts can express Colorless function and instrumentality, but artifacts and Colorless identity are not equivalent.",
+        "claim_ids": [
+          "colorless_claim_0004"
+        ]
+      },
+      {
+        "branch": "eldrazi_and_void",
+        "summary": "Eldrazi colorlessness can mark alien outside-color design, but Eldrazi are not artifacts and not all Colorless meaning.",
+        "claim_ids": [
+          "colorless_claim_0004",
+          "colorless_claim_0005"
+        ]
+      },
+      {
+        "branch": "wastes_and_desolation",
+        "summary": "Wastes can support the terrain/desolation branch, but Wastes are not all of Colorless.",
+        "claim_ids": [
+          "colorless_claim_0003",
+          "colorless_claim_0004"
+        ]
+      },
+      {
+        "branch": "ugin_karn_and_transcendence",
+        "summary": "Ugin and Karn may appear only as support-bound branch texture until direct lore grounding is added.",
+        "claim_ids": [
+          "colorless_claim_0004"
+        ],
+        "manual_fill": [
+          "COLORLESS-MF-005"
+        ]
+      },
+      {
+        "branch": "player_fit_and_strategy",
+        "summary": "Colorless can attract players through restriction puzzles, artifact machinery, Eldrazi spectacle, austere mana systems, and resource-denial or engine-expression play, but this is Vox Mana synthesis rather than official color philosophy.",
+        "claim_ids": [
+          "colorless_claim_0006"
+        ]
+      },
+      {
+        "branch": "strict_commander_and_devoid_boundaries",
+        "summary": "Strict Colorless Commander constraints, Devoid object colorlessness, and five-color Eldrazi support must be separated before any user-facing deck or placement work.",
+        "claim_ids": [
+          "colorless_claim_0007",
+          "colorless_claim_0008"
+        ],
+        "manual_fill": [
+          "COLORLESS-MF-014"
+        ]
+      }
+    ],
+    "non_faction_boundary": "Colorless is not an official faction, plane, civilization, guild, school, doctrine, or organized institution."
+  },
+  "great_tension": {
+    "gift": "Colorless can name what stands outside the local argument of the color wheel: tool, absence, alienness, residue, or perspective uncolored by the usual pressures.",
+    "shadow": "If treated carelessly, it collapses into a vague neutral everything-bucket where generic mana, artifacts, Eldrazi, Wastes, and transcendence all blur together.",
+    "boundary": "This is Vox Mana synthesis over VM-308 evidence, not direct MTG canon."
+  },
+  "historical_timeline": [
+    {
+      "label": "Rules and design floor",
+      "summary": "VM-308 supports a local boundary between colorless objects, colorless mana, and generic mana costs.",
+      "boundary": "Exact current rules citations and official Oath/Wastes source mapping remain manual-fill gaps."
+    },
+    {
+      "label": "Devoid and Eldrazi support",
+      "summary": "Devoid and Eldrazi colorlessness support an outside-color design branch.",
+      "boundary": "Do not overgeneralize Devoid or Eldrazi into all Colorless meaning."
+    },
+    {
+      "label": "Wastes branch",
+      "summary": "Wastes support a Colorless mana terrain/desolation branch.",
+      "boundary": "Wastes card facts and rulings remain manual-fill gaps before polished public use."
+    },
+    {
+      "label": "Commander support",
+      "summary": "Eldrazi Unbound is the only direct Colorless Commander support row identified in the enhanced JSONL.",
+      "boundary": "Support-only; official product proof and broad Commander claims remain deferred."
+    },
+    {
+      "label": "VM-324 sourced readiness intake",
+      "summary": "The sourced notes added positive attraction material and sharper Devoid, Commander, and five-color Eldrazi false-positive boundaries while Colorless was still pending promotion.",
+      "boundary": "VM-326 later reviewed the raw packet and VM-334 now controls Colorless product status; the intake still does not authorize public route, Home preview, Commander Compass, or broad recommendation expansion."
+    }
+  ],
+  "key_figures": [
+    {
+      "name": "Ugin",
+      "role": "Support-bound branch texture",
+      "boundary": "Manual fill required for direct lore grounding before raw/public lore claims."
+    },
+    {
+      "name": "Karn",
+      "role": "Support-bound branch texture",
+      "boundary": "Manual fill required for direct lore grounding before raw/public lore claims."
+    },
+    {
+      "name": "Zhulodok, Void Gorger",
+      "role": "Commander support texture from Eldrazi Unbound row",
+      "boundary": "Support-only; not official product proof, recommendation proof, or broad Commander viability proof."
+    },
+    {
+      "name": "Omarthis, Ghostfire Initiate",
+      "role": "Commander support texture from Eldrazi Unbound row",
+      "boundary": "Support-only; not official product proof, recommendation proof, or broad Commander viability proof."
+    },
+    {
+      "name": "Karn, Silver Golem",
+      "role": "Support candidate for artifact-machine texture from VM-324 intake",
+      "boundary": "Named-card Oracle text and Commander legality remain Manual fill required before public recommendations."
+    },
+    {
+      "name": "Liberator, Urza's Battlethopter",
+      "role": "Support candidate for colorless/artifact-engine texture from VM-324 intake",
+      "boundary": "Named-card Oracle text and Commander legality remain Manual fill required before public recommendations."
+    },
+    {
+      "name": "Ulalek, Fused Atrocity",
+      "role": "Five-color Eldrazi comparator, not strict Colorless proof",
+      "boundary": "Use only to separate colorless-feeling Eldrazi gameplay from strict Colorless Commander identity."
+    }
+  ],
+  "canonical_flavor_text": {
+    "source_bound_summary": "Colorless is a controlled placeable raw packet for outside-WUBRG identity, strict generic/colorless separation, branch-separated artifacts, Eldrazi, Wastes, Devoid, strict Commander constraints, five-color Eldrazi separation, and support-bound Commander/Ugin/Karn texture.",
+    "vox_mana_synthesis": "The uncolored path is not empty because it lacks meaning; it is dangerous because every meaning arrives without the color wheel to name it.",
+    "boundary": "Use synthesis only as profile language, not canon proof, public copy, or raw claim authority."
+  },
+  "profile": {
+    "overview": "Colorless is Vox Mana's controlled placeable non-color identity for absence, machinery, void, desolation, and chosen restriction outside WUBRG, while keeping each branch separate and public expansion gated.",
+    "philosophy": "Colorless asks what remains when the five colors are not the grammar of the answer: the artifact that acts without appetite, the void that does not negotiate, the Wastes where colored mana has been stripped away, and the detached perspective that must not become superiority over color.",
+    "core_tension": "Colorless gains clarity by standing outside WUBRG, but loses clarity the moment outside-ness becomes a generic catch-all.",
+    "mechanics_and_play_pattern": "Colorless profile texture may discuss {C}, generic-mana separation, Wastes, Devoid, artifacts, Eldrazi, support-only Commander texture, restriction puzzles, artifact engines, and titan-scale spectacle, but these terms do not become interchangeable and do not authorize Home preview, public routes, public aliases, Commander Compass, or broad deck recommendations.",
+    "claim_ids": [
+      "colorless_claim_0001",
+      "colorless_claim_0002",
+      "colorless_claim_0003",
+      "colorless_claim_0004",
+      "colorless_claim_0005",
+      "colorless_claim_0006",
+      "colorless_claim_0007",
+      "colorless_claim_0008"
+    ]
+  },
+  "mechanics": {
+    "summary": "Mechanics and card-type texture can support Colorless only when they preserve the distinction between object colorlessness, specifically colorless mana, generic mana costs, artifacts, Eldrazi, Wastes, Devoid design support, strict Commander constraints, and five-color Eldrazi comparator boundaries.",
+    "source_bound_texture": [
+      "objects with no color",
+      "{C} as specifically colorless mana",
+      "generic mana as a cost requirement rather than a mana type",
+      "Wastes as Colorless mana terrain/desolation support",
+      "Devoid as Eldrazi colorless design support",
+      "artifact/function branch with colored-artifact caution",
+      "strict Colorless Commander as a color-identity restriction, not generic artifact legality",
+      "Devoid object colorlessness with Commander color-identity caution",
+      "five-color Eldrazi as comparator, not strict Colorless proof"
+    ],
+    "support_only_texture": [
+      "Eldrazi Unbound Commander support",
+      "Zhulodok, Void Gorger support texture",
+      "Omarthis, Ghostfire Initiate support texture",
+      "Ugin/Karn transcendence branch texture",
+      "Karn, Silver Golem support candidate",
+      "Liberator, Urza's Battlethopter support candidate",
+      "Ulalek, Fused Atrocity five-color comparator texture"
+    ],
+    "deferred": [
+      "current official rules citations",
+      "official Oath of the Gatewatch source mapping for {C} and Wastes",
+      "Wastes Oracle/ruling details",
+      "official Eldrazi Unbound product proof",
+      "Ugin/Karn direct lore grounding",
+      "Eldrazi titan lore details",
+      "broad artifact-history claims",
+      "runtime/schema representation",
+      "Phyrexia false-positive discriminator grounding",
+      "named-card Oracle and Commander legality verification",
+      "current price and metagame claims",
+      "public Colorless route, Home preview, and broader recommendation UX"
+    ],
+    "claim_ids": [
+      "colorless_claim_0002",
+      "colorless_claim_0003",
+      "colorless_claim_0004",
+      "colorless_claim_0005",
+      "colorless_claim_0006",
+      "colorless_claim_0007",
+      "colorless_claim_0008"
+    ]
+  },
+  "views_on_other_factions": {
+    "near_match_boundaries": [
+      "Five-color fullness is not Colorless absence or outside-ness.",
+      "Mono-color purity is not Colorless non-coloration.",
+      "Generic mana costs are not colorless mana requirements.",
+      "Colorless mana requirements are not the whole Colorless identity.",
+      "Artifacts and colored artifacts are not equivalent to Colorless identity.",
+      "Eldrazi are not all of Colorless and not artifact neutrality.",
+      "Wastes are not all of Colorless.",
+      "Ugin/Karn texture requires manual-fill caution before detailed lore claims.",
+      "Phyrexia is distinction-only context, not Colorless proof.",
+      "Devoid design support does not define every Colorless card.",
+      "Eldrazi Unbound is Commander support-only and does not prove broad Commander viability.",
+      "Strict Colorless Commander is not the same as five-color Eldrazi Commander.",
+      "Devoid object colorlessness is not the same as Colorless deck legality.",
+      "Artifact combo attraction is not automatically Colorless identity attraction.",
+      "Resource denial or prison play is not Colorless proof without outside-WUBRG and branch-boundary signals."
+    ],
+    "source_role": "Architecture shaping from VM-310, reduced to raw boundary language through VM-308 evidence rows."
+  },
+  "commander_compass": {
+    "status": "support-only / candidate expansion",
+    "anchors": [
+      "Eldrazi Unbound",
+      "Zhulodok, Void Gorger",
+      "Omarthis, Ghostfire Initiate",
+      "Karn, Silver Golem",
+      "Liberator, Urza's Battlethopter",
+      "Ulalek, Fused Atrocity (five-color comparator only)"
+    ],
+    "allowed_use": "Commander-first readability, candidate-list planning, and operator-support shaping as support texture only.",
+    "not_allowed": "Lore proof, legality proof, exact recommendation proof, official product proof, price proof, metagame proof, runtime authorization, placement eligibility, or raw claim expansion without source-bound evidence."
+  },
+  "search_and_filter_metadata": {
+    "future_expression_name": "COLORLESS",
+    "future_expression_name_status": "VM-334-ratified controlled placeable expression key. COLORLESS remains preview-ineligible, directory-link suppressed, and not approved as a public route, lowercase alias, Home preview key, Supabase manual-context expansion, schema expansion, or public interface expansion.",
+    "metadata_query_only_terms": [
+      "COLORLESS",
+      "colorless",
+      "{C}",
+      "Wastes"
+    ],
+    "source_status": "source_grounded_vm334_controlled_placeable",
+    "placement_status": "controlled_placeable",
+    "preview_eligible": false,
+    "review_gated": true,
+    "placement_eligible": true,
+    "live_pilot": true,
+    "claim_ids": [
+      "colorless_claim_0001",
+      "colorless_claim_0002",
+      "colorless_claim_0003",
+      "colorless_claim_0004",
+      "colorless_claim_0005",
+      "colorless_claim_0006",
+      "colorless_claim_0007",
+      "colorless_claim_0008"
+    ]
+  },
+  "site_surface": {
+    "display_name": "Colorless",
+    "short_summary": "Colorless is a controlled placeable raw packet for outside-WUBRG identity, precise colorless/generic separation, branch-separated artifacts, Eldrazi, Wastes, Devoid, strict Commander constraints, and support-only attraction texture.",
+    "one_sentence_identity": "Colorless stands outside the color wheel as a chosen restriction, machine logic, void, or austere mana path without becoming a sixth color or a catch-all for everything uncolored.",
+    "tagline": "Outside the wheel. Not above it.",
+    "primary_tags": [
+      "Colorless",
+      "Controlled placeable",
+      "Outside WUBRG",
+      "Generic/colorless distinction",
+      "{C}",
+      "Wastes",
+      "Artifacts boundary",
+      "Eldrazi boundary",
+      "Devoid boundary",
+      "Strict Commander boundary",
+      "Devoid caution",
+      "Restriction puzzle"
+    ],
+    "secondary_tags": [
+      "Ugin support-bound",
+      "Karn support-bound",
+      "Eldrazi Unbound support-only",
+      "Five-color comparator",
+      "Phyrexia separator",
+      "Manual fill required",
+      "Karn candidate support",
+      "Liberator candidate support",
+      "Ulalek five-color comparator",
+      "VM-334 lifecycle authority"
+    ],
+    "tone_words": [
+      "spare",
+      "precise",
+      "alien",
+      "instrumental",
+      "desolate",
+      "transcendent",
+      "bounded",
+      "austere",
+      "challenging",
+      "constructed"
+    ],
+    "best_for": [
+      "reviewers checking no-conflation boundaries between generic mana, colorless mana, artifacts, Eldrazi, Wastes, Devoid, Commander identity, and Colorless identity",
+      "agents checking controlled Colorless dossier copy against VM-334 lifecycle boundaries",
+      "profile shaping that needs positive Colorless attraction language while staying source-bound and public-expansion gated",
+      "placement authors separating artifact-machine, Wastes/desolation, Eldrazi spectacle, and strict Commander constraints"
+    ],
+    "avoid_for": [
+      "Home preview",
+      "public aliases",
+      "public routes",
+      "directory links",
+      "broader URL expansion",
+      "Commander viability claims",
+      "official product claims",
+      "schema or builder validation",
+      "named-card legality advice",
+      "deck-buying advice",
+      "Home or public-discovery rendering assumptions"
+    ]
+  },
+  "data_quality": {
+    "review_gated": true,
+    "placement_eligible": true,
+    "preview_eligible": false,
+    "live_pilot": true,
+    "raw_packet_status": "vm337_controlled_dossier_expansion",
+    "source_basis": "VM-308 COLORLESS-EVID rows plus VM-324 COLORLESS-SRC-018 intake rows and VM-334 lifecycle authority; VM-309/VM-310 architecture is shaping-only",
+    "manual_fill_required": [
+      "COLORLESS-MF-001",
+      "COLORLESS-MF-002",
+      "COLORLESS-MF-003",
+      "COLORLESS-MF-004",
+      "COLORLESS-MF-005",
+      "COLORLESS-MF-006",
+      "COLORLESS-MF-007",
+      "COLORLESS-MF-008",
+      "COLORLESS-MF-009",
+      "COLORLESS-MF-010",
+      "COLORLESS-MF-011",
+      "COLORLESS-MF-012",
+      "COLORLESS-MF-013",
+      "COLORLESS-MF-014",
+      "COLORLESS-MF-015",
+      "COLORLESS-MF-016"
+    ],
+    "claim_ids": [
+      "colorless_claim_0001",
+      "colorless_claim_0002",
+      "colorless_claim_0003",
+      "colorless_claim_0004",
+      "colorless_claim_0005",
+      "colorless_claim_0006",
+      "colorless_claim_0007",
+      "colorless_claim_0008"
+    ]
+  },
+  "research_limitations": [
+    "Do not treat controlled placeability as Home preview, public route, public alias, directory link, Commander Compass, or broader recommendation approval.",
+    "Do not treat VM-334 as lore, rules, Commander, card, legality, or deck evidence.",
+    "Do not cite VM-309/VM-310 architecture docs as claim-bearing evidence.",
+    "Do not copy generated placement, profile, or context language into this packet.",
+    "Do not treat support-only Commander data as broad Commander proof.",
+    "Do not stage or normalize canon relocation deletes.",
+    "Do not inspect or use colorless.webp as evidence.",
+    "Do not treat VM-324 readiness repair as public expansion approval.",
+    "Do not treat COLORLESS-SRC-018 as sole authority for card legality, Commander legality, Oracle text, prices, metagame claims, or public deck advice.",
+    "Do not treat controlled dossier expansion as approval for generated hand edits, schema expansion, Supabase manual-context expansion, public routes, or image edits."
+  ]
+}

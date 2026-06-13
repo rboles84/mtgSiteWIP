@@ -447,6 +447,20 @@
         "witherbloom_claim_002",
         "witherbloom_claim_003"
       ]
+    },
+    {
+      "collision_id": "collision_witherbloom_vs_quandrix_placement_ready",
+      "against": "quandrix",
+      "lateral_inhibition": false,
+      "separator": "Witherbloom studies practical life/death essence in bodies, remedies, and fieldwork; Quandrix proves the abstract pattern beneath reality.",
+      "ask": "A living system behaves strangely. Do you trust the equation beneath it or the messy exchange of life and death?",
+      "suppress_if": "the answer centers mathematical proof, abstract models, hidden structures, or theoretical metaphysics before embodied essence",
+      "evidence_claim_ids": [
+        "witherbloom_claim_002",
+        "witherbloom_claim_003",
+        "witherbloom_claim_005",
+        "witherbloom_claim_006"
+      ]
     }
   ]
 }

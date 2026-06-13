@@ -181,6 +181,12 @@ function collectMessages(results, predicate) {
   );
 }
 
+function collectBucketMessages(results, bucketKey) {
+  return results.flatMap((result) =>
+    (result.auditBuckets?.[bucketKey] || []).map((message) => `${result.fileName}: ${message}`)
+  );
+}
+
 function collectCommanderCandidateSources(results) {
   return results.map((result) =>
     `${result.fileName}: ${result.commanderRecommendationSource || "fallback"}; recommendations: ${result.commanderRecommendationCount || 0}`
@@ -291,6 +297,9 @@ export function buildAuditReport(results) {
   const failureCount = results.filter((result) => result.failures.length).length;
   const warningCount = results.filter((result) => !result.failures.length && result.warnings.length).length;
   const passCount = results.filter((result) => !result.failures.length && !result.warnings.length).length;
+  const contentRegressions = collectBucketMessages(results, "contentRegressions");
+  const contractFailures = collectBucketMessages(results, "contractFailures");
+  const advisoryWarnings = collectBucketMessages(results, "advisoryWarnings");
   const bannedFailures = collectMessages(results, (message) => /banned phrase|regression phrase|graveyard thesis/i.test(message));
   const bleedWarnings = collectMessages(results, (message) => /Possible language bleed/i.test(message));
   const reviewRuleWarnings = collectMessages(results, (message) => /Review rule:/i.test(message));
@@ -322,6 +331,15 @@ export function buildAuditReport(results) {
     `- Pass count: ${passCount}`,
     `- Warning count: ${warningCount}`,
     `- Fail count: ${failureCount}`,
+    "",
+    "## Content Regressions",
+    sectionList(contentRegressions),
+    "",
+    "## Contract Failures",
+    sectionList(contractFailures),
+    "",
+    "## Optional Content Gaps / Advisory Warnings",
+    sectionList(advisoryWarnings),
     "",
     "## Banned Phrase Failures",
     sectionList(bannedFailures),

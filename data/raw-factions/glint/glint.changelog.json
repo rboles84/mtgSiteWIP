@@ -1,0 +1,267 @@
+{
+  "schema_version": "1.0.0",
+  "faction_id": "glint",
+  "faction_name": "Glint / Chaos",
+  "last_updated": "2026-06-12",
+  "audit_summary": {
+    "raw_packet_created": true,
+    "raw_claim_count": 5,
+    "source_evidence_rows_used": [
+      "GLINT-EVID-001",
+      "GLINT-EVID-002",
+      "GLINT-EVID-003",
+      "GLINT-EVID-004",
+      "GLINT-EVID-006",
+      "GLINT-EVID-010"
+    ],
+    "support_bound_rows_used_for_profile_texture": [
+      "GLINT-EVID-005",
+      "GLINT-EVID-011",
+      "GLINT-EVID-012"
+    ],
+    "excluded_evidence_rows": [
+      "GLINT-EVID-005",
+      "GLINT-EVID-007",
+      "GLINT-EVID-008",
+      "GLINT-EVID-009",
+      "GLINT-EVID-011",
+      "GLINT-EVID-012",
+      "GLINT-MF-001",
+      "GLINT-MF-002",
+      "GLINT-MF-003",
+      "GLINT-MF-004",
+      "GLINT-MF-005",
+      "GLINT-MF-006",
+      "GLINT-MF-007",
+      "GLINT-MF-008",
+      "GLINT-MF-009"
+    ],
+    "support_only_rows_as_claims": false,
+    "manual_fill_rows_as_claims": false,
+    "architecture_docs_as_raw_claim_evidence": false,
+    "commander_rows_as_raw_claims": false,
+    "discovery_draft_files_as_raw_claim_evidence": false,
+    "generated_html_as_raw_claim_evidence": false,
+    "builder_mapping_changed": false,
+    "generated_artifacts_changed": true,
+    "runtime_files_changed": false,
+    "status": "source_grounded_live_repair",
+    "placement_status": "live_after_vm251_source_repair",
+    "placement_ready_pass": "VM-303",
+    "glint_future_planned_only": false,
+    "ubrg_and_permutations_metadata_query_only": true,
+    "raw_key_mapping_updated": false,
+    "build_factions_run": true,
+    "placement_eligible": true,
+    "preview_eligible": false,
+    "live_pilot": true
+  },
+  "changes": [
+    {
+      "change_id": "glint_change_001",
+      "change_type": "VM-249 Initial Non-Live Raw Packet",
+      "change_date": "2026-06-02",
+      "summary": "Created the Glint / Chaos review-gated, non-live raw-faction packet from approved VM-246 evidence rows while preserving VM-247 and VM-248 architecture as shaping-only, Yidris Commander texture as support-only, unmanaged drafts as discovery-only, UBRG/permutations as metadata/query-only, and no runtime, generated, or builder changes.",
+      "sources_added": [
+        "src_vm_glint_source_ledger_20260602",
+        "src_vm_glint_evidence_ledger_20260602",
+        "src_vm_glint_vm246_scope_card_20260602",
+        "src_vm_four_color_reference_audit_20260602",
+        "src_vm_four_color_identity_dossier_md_20260602",
+        "src_vm_glint_commander_deck_list_20260602",
+        "src_vm_commander_recommendations_yidris_20260602",
+        "src_vm_glint_identity_md_20260602",
+        "src_vm_glint_metaphysics_md_20260602",
+        "src_vm_glint_manual_fill_20260602",
+        "src_vm_glint_ubrg_identity_research_packet_20260602",
+        "src_vm_glint_eye_research_packet_html_20260602",
+        "src_vm_the_dynamics_of_entropy_html_20260602"
+      ],
+      "sources_updated": [],
+      "claims_added": [
+        "glint_claim_0001",
+        "glint_claim_0002",
+        "glint_claim_0003",
+        "glint_claim_0004",
+        "glint_claim_0005"
+      ],
+      "claims_updated": [],
+      "claims_superseded": [],
+      "claims_contradicted": [],
+      "profile_fields_updated": [
+        "site_surface",
+        "core_identity",
+        "structure",
+        "great_tension",
+        "historical_timeline",
+        "key_figures",
+        "canonical_flavor_text",
+        "views_on_other_factions",
+        "mechanics",
+        "search_and_filter_metadata",
+        "data_quality",
+        "research_limitations",
+        "commander_compass"
+      ],
+      "placement_fields_updated": [
+        "placement_summary",
+        "moral_and_psychological_profile",
+        "placement_axes",
+        "core_values",
+        "behavioral_signals",
+        "inhibitor_traits",
+        "good_fit_indicators",
+        "ideal_fit_indicators",
+        "poor_fit_indicators",
+        "discriminator_questions",
+        "chatbot_guidance",
+        "placement_quality",
+        "color_identity",
+        "calibration_tuning",
+        "collision_guidance"
+      ],
+      "manual_review_required": [
+        "Verify exact official Glint-Eye card facts before exact card copy.",
+        "Keep Yidris and Commander 2016 product or lore grounding support-only until direct sources are captured.",
+        "Keep Commander 2016 Chaos article grounding deferred.",
+        "Keep adjacent separators as architecture guidance until source review.",
+        "Keep Commander legality, exact card data, recommendations, and metagame claims deferred.",
+        "Keep long-form psychology conservative and explicitly bounded.",
+        "Keep UBRG and all 23 same-color permutations metadata/query-only.",
+        "Keep GLINT future/planned only and non-live."
+      ],
+      "notes": "This initial packet intentionally leaves placement_axes empty, keeps Glint source-grounded, review-gated, non-live, and generated from no runtime builder, and does not edit builder, runtime, generated, schema, navigation, fixture, or placement-model surfaces."
+    },
+    {
+      "change_id": "glint_change_002",
+      "change_type": "VM-276 Source Enrichment And Live-State Reconciliation",
+      "change_date": "2026-06-03",
+      "summary": "Added support-only local card-data validation for Glint-Eye Nephilim and Yidris, narrowed the related manual-fill gaps, preserved the original five claim-bearing raw claims, reconciled current-state raw profile and placement wording to GLINT's VM-251 live pilot status, and rebuilt only the approved generated surfaces through the sanctioned build path.",
+      "sources_added": [
+        "src_vm_glint_scryfall_oracle_cards_20260603"
+      ],
+      "sources_updated": [],
+      "claims_added": [],
+      "claims_updated": [
+        "glint_claim_0004"
+      ],
+      "claims_superseded": [],
+      "claims_contradicted": [],
+      "profile_fields_updated": [
+        "historical_timeline",
+        "canonical_flavor_text",
+        "mechanics",
+        "search_and_filter_metadata",
+        "site_surface",
+        "data_quality",
+        "research_limitations"
+      ],
+      "placement_fields_updated": [
+        "placement_summary",
+        "moral_and_psychological_profile",
+        "chatbot_guidance",
+        "placement_quality",
+        "color_identity",
+        "calibration_tuning"
+      ],
+      "manual_review_required": [
+        "Keep exact local card-data validation support-only unless a later evidence-promotion card explicitly changes that role.",
+        "Keep Yidris lore and Commander 2016 Chaos article grounding deferred until stronger direct official capture exists.",
+        "Keep four-color naming authority and long-form missing-White philosophy bounded.",
+        "Keep adjacent separators descriptive unless stronger source support is promoted.",
+        "Keep Commander legality, exact recommendations, and Commander-directory certainty deferred.",
+        "Keep UBRG and all 23 same-color permutations metadata/query-only.",
+        "Keep GLINT as the only live key, with no route or Home preview expansion."
+      ],
+      "notes": "VM-276 preserves the original VM-249 claim provenance, does not add raw claims, does not broaden placement mechanics, and updates generated surfaces only through approved builders. Runtime JS source files, routes, aliases, Home preview, and schema shape remain untouched."
+    },
+    {
+      "change_id": "glint_change_003",
+      "change_type": "VM-303 Source-First Placement/Profile Durability Repair",
+      "change_date": "2026-06-09",
+      "summary": "Source-backed current generated GLINT placement/profile output by adding lifecycle-only VM-251 provenance, builder-readable five-claim profile backing, approved-evidence mechanics summary, raw-owned inhibitor traps, calibration axes, discriminator supports/weakens, collision targets, and claim references without adding a sixth claim or using generated files as source truth.",
+      "sources_added": [
+        "src_vm251_glint_runtime_promotion_20260603"
+      ],
+      "sources_updated": [],
+      "claims_added": [],
+      "claims_updated": [
+        "glint_claim_0001"
+      ],
+      "claims_superseded": [],
+      "claims_contradicted": [],
+      "profile_fields_updated": [
+        "profile_version",
+        "source_review_date",
+        "profile",
+        "mechanics.summary",
+        "search_and_filter_metadata",
+        "data_quality"
+      ],
+      "placement_fields_updated": [
+        "placement_profile_version",
+        "placement_model_version",
+        "based_on_profile_version",
+        "inhibitor_traps",
+        "discriminator_questions",
+        "chatbot_guidance.how_to_recognize_mismatch",
+        "chatbot_guidance.calibration_note",
+        "placement_quality",
+        "calibration_tuning"
+      ],
+      "support_only_rows_used": [
+        "GLINT-EVID-005",
+        "GLINT-EVID-011",
+        "GLINT-EVID-012"
+      ],
+      "manual_review_required": [
+        "Keep VM-251 lifecycle-only; do not use it for placement axes, inhibitor traps, mechanics, lore, Commander identity, or discriminator support.",
+        "Keep support-only Yidris, Entropic Uprising, Glint-Eye local card data, cascade, and maelstrom language as bounded texture, not raw-claim proof.",
+        "Keep exactly five GLINT claims unless a future approved evidence-promotion card documents an exception.",
+        "Keep UBRG and all same-color permutations metadata-query-only.",
+        "Do not accept generated Supabase context drift unless a future card explicitly resolves the non-isolated context output."
+      ],
+      "notes": "VM-303 repairs generated/source durability for GLINT through raw source edits only. It does not hand-edit generated placement output, weaken VM-300, add routes, change Home preview membership, update flavor snippets, or alter schema shape."
+    },
+    {
+      "change_id": "glint_change_004",
+      "change_type": "VM-348 Four-Color Source-Bound Cohort Repair",
+      "change_date": "2026-06-12",
+      "summary": "Normalized four-color source roles, added source-backed ring discriminator and collision guidance coverage, added support-only Commander/deck dossier data, and prepared raw enrichment for builder-surfaced generated output without changing the five-claim floor.",
+      "sources_added": [],
+      "sources_updated": [
+        "src_vm251_glint_runtime_promotion_20260603"
+      ],
+      "claims_added": [],
+      "claims_updated": [],
+      "claims_superseded": [],
+      "claims_contradicted": [],
+      "profile_fields_updated": [
+        "profile_version",
+        "source_review_date",
+        "last_incremental_review",
+        "commander_compass",
+        "deck_links",
+        "research_links"
+      ],
+      "placement_fields_updated": [
+        "placement_profile_version",
+        "placement_model_version",
+        "based_on_profile_version",
+        "discriminator_questions",
+        "collision_guidance"
+      ],
+      "support_only_rows_used": [
+        "src_vm_commander_recommendations_yidris_20260602",
+        "src_vm_four_color_identity_dossier_md_20260602"
+      ],
+      "manual_review_required": [
+        "Keep claim_count at exactly 5.",
+        "Keep Commander/deck/operator material support-only and out of lore, placement, Crucible, discriminator-proof, claim, route, alias, and naming authority.",
+        "Keep unmanaged discovery drafts discovery-only unless a future source-intake card audits and promotes them.",
+        "Keep ring collision guidance lateral_inhibition:false unless a future approved calibration card strengthens suppression deliberately."
+      ],
+      "notes": "VM-348 is a source-bound cohort repair. It adds no web intake, no raw claims, no generated hand edits, no public aliases, no Home preview membership, and no route changes."
+    }
+  ]
+}

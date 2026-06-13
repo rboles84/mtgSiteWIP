@@ -1,0 +1,217 @@
+{
+  "schema_version": "1.0.0",
+  "faction_id": "yore",
+  "faction_name": "Yore / Artifice",
+  "last_updated": "2026-06-12",
+  "audit_summary": {
+    "raw_packet_created": true,
+    "raw_claim_count": 5,
+    "source_evidence_rows_used": [
+      "YORE-EVID-001",
+      "YORE-EVID-002",
+      "YORE-EVID-003",
+      "YORE-EVID-004",
+      "YORE-EVID-005",
+      "YORE-EVID-010"
+    ],
+    "support_bound_rows_used_for_profile_texture": [
+      "YORE-EVID-006"
+    ],
+    "excluded_evidence_rows": [
+      "YORE-EVID-007",
+      "YORE-EVID-008",
+      "YORE-EVID-009",
+      "YORE-MF-001",
+      "YORE-MF-002",
+      "YORE-MF-003",
+      "YORE-MF-004",
+      "YORE-MF-005",
+      "YORE-MF-006",
+      "YORE-MF-009"
+    ],
+    "support_only_rows_as_claims": false,
+    "manual_fill_rows_as_claims": false,
+    "architecture_docs_as_raw_claim_evidence": false,
+    "commander_rows_as_raw_claims": false,
+    "seed_files_as_raw_claim_evidence": false,
+    "generated_html_as_raw_claim_evidence": false,
+    "user_added_source_material_as_raw_claim_evidence": false,
+    "builder_mapping_changed": false,
+    "generated_artifacts_changed": false,
+    "runtime_files_changed": false,
+    "status": "source_grounded_live_repair",
+    "placement_status": "live_after_vm245_source_repair",
+    "placement_ready_pass": "VM-301",
+    "yore_live_key_after_vm245": true,
+    "wubr_and_permutations_metadata_query_only": true,
+    "raw_key_mapping_updated": false,
+    "build_factions_run": false,
+    "placement_eligible": true,
+    "preview_eligible": false,
+    "live_pilot": true
+  },
+  "changes": [
+    {
+      "change_id": "yore_change_001",
+      "change_type": "VM-243 Initial Non-Live Raw Packet",
+      "change_date": "2026-06-02",
+      "summary": "Created Yore / Artifice review-gated, non-live raw-faction packet from approved VM-240 evidence rows while preserving VM-241/VM-242 architecture, support-only Commander texture, discovery-only seed material, manual-fill rows, WUBR metadata/query-only forms, and no-runtime/no-generated boundaries.",
+      "sources_added": [
+        "src_vm_yore_source_ledger_20260602",
+        "src_vm_yore_evidence_ledger_20260602",
+        "src_vm_yore_vm240_scope_card_20260602",
+        "src_vm_four_color_reference_audit_20260602",
+        "src_vm_four_color_identity_dossier_md_20260602",
+        "src_vm_commander_recommendations_breya_20260602",
+        "src_vm_yore_identity_md_20260602",
+        "src_vm_yore_metaphysics_md_20260602",
+        "src_vm_yore_manual_fill_20260602",
+        "src_vm_yore_seed_wubr_research_20260602",
+        "src_vm_yore_seed_terminal_html_20260602",
+        "src_vm_yore_user_source_material_20260602"
+      ],
+      "sources_updated": [],
+      "claims_added": [
+        "yore_claim_0001",
+        "yore_claim_0002",
+        "yore_claim_0003",
+        "yore_claim_0004",
+        "yore_claim_0005"
+      ],
+      "claims_updated": [],
+      "claims_superseded": [],
+      "claims_contradicted": [],
+      "profile_fields_updated": [
+        "site_surface",
+        "core_identity",
+        "structure",
+        "great_tension",
+        "historical_timeline",
+        "key_figures",
+        "canonical_flavor_text",
+        "views_on_other_factions",
+        "mechanics",
+        "search_and_filter_metadata",
+        "data_quality",
+        "research_limitations",
+        "commander_compass"
+      ],
+      "placement_fields_updated": [
+        "placement_summary",
+        "moral_and_psychological_profile",
+        "placement_axes",
+        "core_values",
+        "behavioral_signals",
+        "inhibitor_traits",
+        "good_fit_indicators",
+        "ideal_fit_indicators",
+        "poor_fit_indicators",
+        "discriminator_questions",
+        "chatbot_guidance",
+        "placement_quality",
+        "color_identity",
+        "calibration_tuning",
+        "collision_guidance"
+      ],
+      "manual_review_required": [
+        "Verify exact official Yore-Tiller card facts before exact card copy.",
+        "Keep Breya and Commander 2016 product/lore grounding support-only until direct sources are captured.",
+        "Keep Cult of Yore narrative boundary deferred.",
+        "Keep adjacent separators as architecture guidance until source review.",
+        "Keep Commander legality, exact card data, recommendations, cEDH optimization, and metagame claims deferred.",
+        "Carry forward VM-240 manual-fill topic-number drift instead of repairing it in VM-243.",
+        "Keep WUBR and all 23 same-color permutations metadata/query-only.",
+        "Keep YORE future/planned only and non-live."
+      ],
+      "notes": "This initial packet intentionally leaves placement_axes empty, keeps Yore source-grounded, review-gated, non-live, and generated from no runtime builder, and does not edit builder/runtime/generated/schema/navigation/fixture/test surfaces."
+    },
+    {
+      "change_id": "yore_change_002",
+      "change_type": "VM-301 Source-Durable Live Repair",
+      "change_date": "2026-06-09",
+      "summary": "Repaired Yore raw source durability after VM-245 live promotion, VM-273 live copy polish, and VM-300 guardrail validation showed generated placement copy ahead of raw placement/profile backing.",
+      "sources_added": [
+        "src_vm245_yore_runtime_promotion_20260602"
+      ],
+      "sources_updated": [
+        "yore.sources.json source_review_date and last_updated"
+      ],
+      "claims_added": [],
+      "claims_updated": [
+        "yore_claim_0001 lifecycle sentence and notes"
+      ],
+      "claims_superseded": [],
+      "claims_contradicted": [],
+      "profile_fields_updated": [
+        "profile_version",
+        "source_review_date",
+        "last_incremental_review",
+        "mechanics.summary",
+        "search_and_filter_metadata",
+        "site_surface",
+        "data_quality",
+        "profile"
+      ],
+      "placement_fields_updated": [
+        "placement_profile_version",
+        "placement_model_version",
+        "based_on_profile_version",
+        "placement_summary",
+        "good_fit_indicators",
+        "poor_fit_indicators",
+        "discriminator_questions",
+        "chatbot_guidance",
+        "placement_quality",
+        "calibration_tuning"
+      ],
+      "manual_review_required": [
+        "Keep exact Yore-Tiller card facts deferred until direct card-source capture.",
+        "Keep Breya, Invent Superiority, artifacts, recursion, sacrifice, combo, and cEDH texture support-only unless separately audited.",
+        "Keep Cult of Yore narrative boundary deferred.",
+        "Keep Commander legality, exact recommendations, EDHREC, rankings, and metagame claims deferred.",
+        "Keep WUBR and all same-color permutations metadata/query-only and non-public."
+      ],
+      "notes": "VM-301 keeps the raw claim count at exactly five claims. It does not add lore authority, deck-link authority, public color-code aliases, Home preview eligibility, Maze behavior, route changes, schema changes, or generated-output hand edits."
+    },
+    {
+      "change_id": "yore_change_003",
+      "change_type": "VM-348 Four-Color Source-Bound Cohort Repair",
+      "change_date": "2026-06-12",
+      "summary": "Normalized four-color source roles, added source-backed ring discriminator and collision guidance coverage, added support-only Commander/deck dossier data, and prepared raw enrichment for builder-surfaced generated output without changing the five-claim floor.",
+      "sources_added": [],
+      "sources_updated": [
+        "src_vm245_yore_runtime_promotion_20260602"
+      ],
+      "claims_added": [],
+      "claims_updated": [],
+      "claims_superseded": [],
+      "claims_contradicted": [],
+      "profile_fields_updated": [
+        "profile_version",
+        "source_review_date",
+        "last_incremental_review",
+        "commander_compass",
+        "deck_links",
+        "research_links"
+      ],
+      "placement_fields_updated": [
+        "placement_profile_version",
+        "placement_model_version",
+        "based_on_profile_version",
+        "discriminator_questions",
+        "collision_guidance"
+      ],
+      "support_only_rows_used": [
+        "src_vm_commander_recommendations_breya_20260602",
+        "src_vm_four_color_identity_dossier_md_20260602"
+      ],
+      "manual_review_required": [
+        "Keep claim_count at exactly 5.",
+        "Keep Commander/deck/operator material support-only and out of lore, placement, Crucible, discriminator-proof, claim, route, alias, and naming authority.",
+        "Keep unmanaged discovery drafts discovery-only unless a future source-intake card audits and promotes them.",
+        "Keep ring collision guidance lateral_inhibition:false unless a future approved calibration card strengthens suppression deliberately."
+      ],
+      "notes": "VM-348 is a source-bound cohort repair. It adds no web intake, no raw claims, no generated hand edits, no public aliases, no Home preview membership, and no route changes."
+    }
+  ]
+}

@@ -2,8 +2,30 @@
   "schema_version": "1.0.0",
   "faction_id": "grixis",
   "faction_name": "Grixis",
-  "last_updated": "2026-05-30",
+  "last_updated": "2026-06-12",
   "changes": [
+    {
+      "change_id": "grixis_change_003",
+      "change_type": "VM-352 Source-Backed Discriminator Repair",
+      "change_date": "2026-06-12",
+      "summary": "Added one source-backed discriminator separating Grixis Black-centered survival leverage from Dimir secrecy, Rakdos appetite, and Izzet experiment false positives.",
+      "sources_added": [],
+      "sources_updated": [],
+      "claims_added": [],
+      "claims_updated": [],
+      "claims_superseded": [],
+      "claims_contradicted": [],
+      "profile_fields_updated": [],
+      "placement_fields_updated": [
+        "discriminator_questions"
+      ],
+      "manual_review_required": [
+        "Keep detailed Grixis lore, vis economy, named figures, chronology, and exact card text deferred.",
+        "Keep UBR metadata-only; GRIXIS remains the live expression key.",
+        "Do not add a new Crucible from this discriminator unless a later card records reproducible/source-backed close-call confusion."
+      ],
+      "notes": "Matrix classification: backed-repair in docs/reference/shard-clan-source-readiness-matrix.md. No new sources, claims, routes, Home preview surfaces, Commander recommendations, or generated-file hand edits."
+    },
     {
       "change_id": "grixis_change_001",
       "change_type": "VM-166 Initial Source-Only Raw Packet",

@@ -1,0 +1,1016 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Dynamics of Entropy - UBRG Taxonomy</title>
+    <!-- Tailwind CSS for modern utility layout -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font styling -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #030307;
+            color: #e2e8f0;
+            overflow-x: hidden;
+        }
+        .font-mono-custom {
+            font-family: 'Fira Code', monospace;
+        }
+        /* Custom scrollbar to keep layout organic */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #030307;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1e1b4b;
+            border-radius: 3px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #312e81;
+        }
+
+        /* Ambient glows corresponding to UBRG */
+        .glow-u { box-shadow: 0 0 30px rgba(59, 130, 246, 0.15); border-color: rgba(59, 130, 246, 0.4); }
+        .glow-b { box-shadow: 0 0 30px rgba(168, 85, 247, 0.15); border-color: rgba(168, 85, 247, 0.4); }
+        .glow-r { box-shadow: 0 0 30px rgba(239, 68, 68, 0.15); border-color: rgba(239, 68, 68, 0.4); }
+        .glow-g { box-shadow: 0 0 30px rgba(34, 197, 94, 0.15); border-color: rgba(34, 197, 94, 0.4); }
+
+        /* The Great Stax Lock - Symmetrical, Grid-like, Clinical White Pressure overlay */
+        .stax-overlay {
+            background-image: linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+                              linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+            background-size: 20px 20px;
+            pointer-events: none;
+            transition: opacity 1s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* Keyframe animations for erratic chaotic structures */
+        @keyframes drift {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(8px, -12px) scale(1.05); }
+        }
+        @keyframes unstable-pulse {
+            0%, 100% { opacity: 0.2; transform: scale(1); }
+            50% { opacity: 0.6; transform: scale(1.08); }
+        }
+        .drift-element {
+            animation: drift 8s ease-in-out infinite;
+        }
+        .pulse-ambient {
+            animation: unstable-pulse 4s infinite ease-in-out;
+        }
+
+        /* Custom switch styling */
+        .glass-card {
+            background: rgba(10, 10, 18, 0.75);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .glass-card:hover {
+            border-color: rgba(255, 255, 255, 0.12);
+            transform: translateY(-2px);
+        }
+
+        /* Stax Mode Active classes */
+        .stax-active {
+            filter: grayscale(0.85) contrast(1.1) !important;
+            font-family: monospace !important;
+            transition: all 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .stax-active .glass-card {
+            border-radius: 0px !important;
+            box-shadow: none !important;
+            border-color: rgba(255, 255, 255, 0.2) !important;
+        }
+        .stax-active .interactive-node {
+            border-radius: 0px !important;
+            clip-path: none !important;
+        }
+    </style>
+</head>
+<body class="min-h-screen relative font-sans selection:bg-purple-900 selection:text-emerald-300">
+
+    <!-- Global Background Elements -->
+    <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+        <div class="absolute -top-40 -left-40 w-96 h-96 bg-blue-900/10 rounded-full blur-[120px] pulse-ambient"></div>
+        <div class="absolute top-1/2 right-10 w-80 h-80 bg-emerald-900/10 rounded-full blur-[100px] pulse-ambient" style="animation-delay: 1.5s;"></div>
+        <div class="absolute bottom-10 left-1/3 w-96 h-96 bg-red-900/10 rounded-full blur-[130px] pulse-ambient" style="animation-delay: 3s;"></div>
+    </div>
+
+    <!-- Symmetrical Stax Grid Overlay (Activated by Slider) -->
+    <div id="staxGrid" class="fixed inset-0 z-40 stax-overlay opacity-0"></div>
+
+    <header class="relative z-10 border-b border-white/5 bg-slate-950/60 backdrop-blur-md px-6 py-4">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+            <div>
+                <div class="flex items-center gap-3">
+                    <span class="px-2 py-0.5 text-xs font-mono-custom bg-purple-500/10 text-purple-400 border border-purple-500/20 rounded">VOX MANA // DOSSIER</span>
+                    <span class="text-xs font-mono-custom text-slate-500">SYS: VER_2.5.0</span>
+                </div>
+                <h1 class="text-2xl font-extrabold tracking-tight bg-gradient-to-r from-blue-400 via-purple-400 to-emerald-400 bg-clip-text text-transparent mt-1">
+                    THE DYNAMICS OF ENTROPY
+                </h1>
+                <p class="text-xs text-slate-400 font-mono-custom mt-0.5">Taxonomy of the UBRG (Glint/Chaos) Color Identity</p>
+            </div>
+
+            <!-- THE WHITE EXCLUSION CONTROLLER (STAX SLIDER) -->
+            <div class="flex items-center gap-4 bg-black/40 border border-white/10 px-4 py-2 rounded-xl w-full md:w-auto">
+                <div class="flex flex-col text-right">
+                    <span class="text-xs font-semibold uppercase tracking-wider" id="staxLabel">Excluded White Pressure</span>
+                    <span class="text-[10px] text-slate-400 font-mono-custom" id="staxStateText">CHAOS UNLEASHED (0% ORDER)</span>
+                </div>
+                <div class="relative flex items-center">
+                    <input type="range" id="staxSlider" min="0" max="100" value="0"
+                           class="w-32 accent-purple-500 bg-slate-800 h-1.5 rounded-lg cursor-pointer">
+                </div>
+                <div id="staxStatusIndicator" class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></div>
+            </div>
+        </div>
+    </header>
+
+    <main class="relative z-10 max-w-7xl mx-auto p-4 md:p-6 grid grid-cols-1 lg:grid-cols-12 gap-6 pb-24">
+
+        <!-- LEFT COLUMN: The Interactive Maelstrom Node Canvas (40% width on lg) -->
+        <section class="lg:col-span-5 flex flex-col gap-6">
+
+            <!-- Real-time Physics Simulator Container -->
+            <div class="glass-card p-4 rounded-2xl flex flex-col relative overflow-hidden group">
+                <div class="flex items-center justify-between mb-2">
+                    <h2 class="text-sm font-semibold tracking-wider uppercase text-slate-300 flex items-center gap-2">
+                        <span class="w-2 h-2 rounded-full bg-blue-500 animate-ping"></span>
+                        The Maelstrom Engine
+                    </h2>
+                    <span class="text-[10px] font-mono-custom text-slate-400">CLICK CANVAS TO SPARK INSTABILITY</span>
+                </div>
+
+                <p class="text-xs text-slate-400 mb-4">
+                    Visualizing the interaction of <strong>Blue (Cognition)</strong>, <strong>Black (Ego)</strong>, <strong>Red (Impulse)</strong>, and <strong>Green (Evolution)</strong>. Adjust the gravitational orbit vectors.
+                </p>
+
+                <!-- Interactive Canvas -->
+                <div class="relative bg-black/60 rounded-xl overflow-hidden aspect-square border border-white/5">
+                    <canvas id="maelstromCanvas" class="w-full h-full cursor-crosshair"></canvas>
+
+                    <!-- Dynamic Readouts overlaying Canvas -->
+                    <div class="absolute bottom-3 left-3 right-3 flex justify-between gap-1 pointer-events-none">
+                        <div class="bg-black/80 px-2 py-1 rounded text-[10px] font-mono-custom border border-blue-500/30 text-blue-400 flex flex-col">
+                            <span>U_COGNITION</span>
+                            <span id="readoutU" class="font-bold">1.0x</span>
+                        </div>
+                        <div class="bg-black/80 px-2 py-1 rounded text-[10px] font-mono-custom border border-purple-500/30 text-purple-400 flex flex-col">
+                            <span>B_AMBITION</span>
+                            <span id="readoutB" class="font-bold">1.0x</span>
+                        </div>
+                        <div class="bg-black/80 px-2 py-1 rounded text-[10px] font-mono-custom border border-red-500/30 text-red-400 flex flex-col">
+                            <span>R_MOMENTUM</span>
+                            <span id="readoutR" class="font-bold">1.0x</span>
+                        </div>
+                        <div class="bg-black/80 px-2 py-1 rounded text-[10px] font-mono-custom border border-emerald-500/30 text-emerald-400 flex flex-col">
+                            <span>G_MUTATION</span>
+                            <span id="readoutG" class="font-bold">1.0x</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Color node tuning controllers -->
+                <div class="grid grid-cols-2 gap-3 mt-4">
+                    <div class="p-2 bg-slate-950/40 rounded-lg border border-blue-500/10">
+                        <div class="flex justify-between text-[11px] mb-1">
+                            <span class="text-blue-400 font-semibold font-mono-custom">Blue Gravity</span>
+                            <span id="valU" class="text-slate-400 font-mono-custom">50%</span>
+                        </div>
+                        <input type="range" id="sliderU" min="10" max="150" value="50" class="w-full accent-blue-500 bg-slate-800 h-1 rounded">
+                    </div>
+                    <div class="p-2 bg-slate-950/40 rounded-lg border border-purple-500/10">
+                        <div class="flex justify-between text-[11px] mb-1">
+                            <span class="text-purple-400 font-semibold font-mono-custom">Black Gravity</span>
+                            <span id="valB" class="text-slate-400 font-mono-custom">50%</span>
+                        </div>
+                        <input type="range" id="sliderB" min="10" max="150" value="50" class="w-full accent-purple-500 bg-slate-800 h-1 rounded">
+                    </div>
+                    <div class="p-2 bg-slate-950/40 rounded-lg border border-red-500/10">
+                        <div class="flex justify-between text-[11px] mb-1">
+                            <span class="text-red-400 font-semibold font-mono-custom">Red Gravity</span>
+                            <span id="valR" class="text-slate-400 font-mono-custom">50%</span>
+                        </div>
+                        <input type="range" id="sliderR" min="10" max="150" value="50" class="w-full accent-red-500 bg-slate-800 h-1 rounded">
+                    </div>
+                    <div class="p-2 bg-slate-950/40 rounded-lg border border-emerald-500/10">
+                        <div class="flex justify-between text-[11px] mb-1">
+                            <span class="text-emerald-400 font-semibold font-mono-custom">Green Gravity</span>
+                            <span id="valG" class="text-slate-400 font-mono-custom">50%</span>
+                        </div>
+                        <input type="range" id="sliderG" min="10" max="150" value="50" class="w-full accent-emerald-500 bg-slate-800 h-1 rounded">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Glint / Chaos Historical Anchors -->
+            <div class="glass-card p-5 rounded-2xl flex flex-col">
+                <h3 class="text-sm font-semibold tracking-wider uppercase text-slate-300 mb-3 border-b border-white/5 pb-2">
+                    Historical Catalysts
+                </h3>
+
+                <!-- Glint Tab -->
+                <div class="mb-4 bg-slate-950/50 p-3 rounded-xl border border-blue-500/10">
+                    <div class="flex items-center justify-between mb-1">
+                        <span class="text-xs font-mono-custom text-blue-400">Glint-Eye Nephilim (Guildpact)</span>
+                        <span class="text-[10px] bg-blue-500/10 text-blue-300 px-1.5 py-0.5 rounded">UBRG Core</span>
+                    </div>
+                    <p class="text-xs text-slate-300 leading-relaxed">
+                        The origin of the colloquial "Glint" label. It pairs saboteur card draw with continuous sensory appetite. Its mechanic turns resource discarding immediately into biological survival power: <em class="text-slate-400">"When it awoke, it shook the plane with the thunder of its craving."</em>
+                    </p>
+                </div>
+
+                <!-- Yidris Tab -->
+                <div class="bg-slate-950/50 p-3 rounded-xl border border-red-500/10">
+                    <div class="flex items-center justify-between mb-1">
+                        <span class="text-xs font-mono-custom text-red-400">Yidris, Maelstrom Wielder (C16)</span>
+                        <span class="text-[10px] bg-red-500/10 text-red-300 px-1.5 py-0.5 rounded">Chaos Theme</span>
+                    </div>
+                    <p class="text-xs text-slate-300 leading-relaxed">
+                        A conduit for Alara's volatile Maelstrom. Born mutated, Yidris channels environmental entropic momentum rather than struggling against it, establishing cascade chains that turn each spell cast into a tumbling sequence of unchecked consequences.
+                    </p>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- RIGHT COLUMN: Interactive Identity Dossier & Sandbox (70% width on lg) -->
+        <section class="lg:col-span-7 flex flex-col gap-6">
+
+            <!-- PHILOSOPHICAL SPECTRUM (Interactive Selector) -->
+            <div class="glass-card p-6 rounded-2xl relative overflow-hidden">
+                <h2 class="text-lg font-bold tracking-tight text-white mb-4">
+                    The Taxonomy of Non-White Philosophical Stances
+                </h2>
+                <p class="text-xs text-slate-400 mb-6">
+                    Click any philosophical node below to inject its specific ratio of intelligence, adaptation, ambition, and momentum directly into the Maelstrom Engine and read its tactical profile.
+                </p>
+
+                <!-- Interactive Hex/Pill Grid -->
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-3 mb-6" id="philosophicalGrid">
+                    <button class="interactive-node p-3 rounded-xl bg-blue-950/30 hover:bg-blue-950/50 border border-blue-500/20 text-left transition-all duration-300 hover:scale-[1.02]" data-profile="genius">
+                        <span class="text-xs font-mono-custom text-blue-400 block mb-1">I.</span>
+                        <span class="text-xs font-bold block text-slate-200">Wild Genius</span>
+                        <span class="text-[9px] text-slate-500 block font-mono-custom mt-2">BLUE dominant</span>
+                    </button>
+                    <button class="interactive-node p-3 rounded-xl bg-purple-950/30 hover:bg-purple-950/50 border border-purple-500/20 text-left transition-all duration-300 hover:scale-[1.02]" data-profile="predatory">
+                        <span class="text-xs font-mono-custom text-purple-400 block mb-1">II.</span>
+                        <span class="text-xs font-bold block text-slate-200">Predatory Adaptation</span>
+                        <span class="text-[9px] text-slate-500 block font-mono-custom mt-2">BLACK-GREEN dominant</span>
+                    </button>
+                    <button class="interactive-node p-3 rounded-xl bg-red-950/30 hover:bg-red-950/50 border border-red-500/20 text-left transition-all duration-300 hover:scale-[1.02]" data-profile="unleashed">
+                        <span class="text-xs font-mono-custom text-red-400 block mb-1">III.</span>
+                        <span class="text-xs font-bold block text-slate-200">Unleashed Magic</span>
+                        <span class="text-[9px] text-slate-500 block font-mono-custom mt-2">RED-BLUE dominant</span>
+                    </button>
+                    <button class="interactive-node p-3 rounded-xl bg-emerald-950/30 hover:bg-emerald-950/50 border border-emerald-500/20 text-left transition-all duration-300 hover:scale-[1.02]" data-profile="ambition">
+                        <span class="text-xs font-mono-custom text-emerald-400 block mb-1">IV.</span>
+                        <span class="text-xs font-bold block text-slate-200">Natural Ambition</span>
+                        <span class="text-[9px] text-slate-500 block font-mono-custom mt-2">GREEN-BLACK dominant</span>
+                    </button>
+                </div>
+
+                <!-- Dynamic Profile Explainer Card -->
+                <div class="bg-black/60 p-5 rounded-xl border border-white/5 relative" id="profileViewer">
+                    <div class="flex items-center gap-3 mb-2">
+                        <h4 class="font-bold text-white text-base" id="profileTitle">Wild Genius</h4>
+                        <span class="text-[10px] font-mono-custom px-2 py-0.5 rounded bg-blue-900/30 text-blue-400" id="profileTag">INTELLECT WITHOUT SAFETY PROTOCOLS</span>
+                    </div>
+                    <p class="text-sm text-slate-300 leading-relaxed mb-4" id="profileBody">
+                        In this state, intellect (Blue) is entirely divorced from ethics (White). The system does not construct containment fields; it demands to see what happens when the anomaly breaches. Discovery of objective reality takes absolute precedence over stability, social cohesion, or the survival of artificial protocols.
+                    </p>
+                    <div class="grid grid-cols-2 gap-4 border-t border-white/5 pt-3 text-xs">
+                        <div>
+                            <span class="text-[10px] text-slate-500 uppercase font-mono-custom block">Core Impetus</span>
+                            <span class="text-slate-300" id="profileImpetus">Infinite cognitive boundary testing</span>
+                        </div>
+                        <div>
+                            <span class="text-[10px] text-slate-500 uppercase font-mono-custom block">Systemic Failure Mode</span>
+                            <span class="text-slate-300" id="profileFailure">Catastrophic feedback loops without safety dampeners</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CASCADE SPELL CHAIN SANDBOX (Interactive Simulation) -->
+            <div class="glass-card p-6 rounded-2xl flex flex-col relative overflow-hidden">
+                <div class="absolute -top-12 -right-12 w-40 h-40 bg-purple-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+                <div class="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-4">
+                    <div>
+                        <h2 class="text-lg font-bold text-white flex items-center gap-2">
+                            <svg class="w-5 h-5 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                            Cascade Spell Chain Sandbox
+                        </h2>
+                        <p class="text-xs text-slate-400">Cast anomalies to trigger continuous cascade chains down the entropic stack.</p>
+                    </div>
+                    <button id="castSpellBtn" class="px-5 py-2.5 rounded-xl bg-gradient-to-r from-red-600 to-purple-600 hover:from-red-500 hover:to-purple-500 text-white font-mono-custom text-xs font-bold tracking-wide shadow-lg hover:shadow-purple-500/20 active:scale-[0.98] transition-all">
+                        CAST HIGH-VARIANCE ANOMALY
+                    </button>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-12 gap-4">
+
+                    <!-- Spell Cast Stack Terminal (List of cascades) -->
+                    <div class="md:col-span-8 flex flex-col bg-slate-950/80 border border-white/5 rounded-xl overflow-hidden min-h-[250px] max-h-[300px]">
+                        <div class="px-3 py-2 bg-slate-900 border-b border-white/5 flex items-center justify-between">
+                            <span class="text-[10px] font-mono-custom text-slate-400">STACK RESOLUTION LOG</span>
+                            <span id="stormCounter" class="text-[10px] font-mono-custom bg-purple-900/40 text-purple-400 px-2 py-0.5 rounded border border-purple-500/20">STORM: 0</span>
+                        </div>
+                        <div class="p-3 overflow-y-auto flex flex-col gap-2 font-mono-custom text-xs flex-grow" id="spellStack">
+                            <div class="text-slate-500 text-center py-12">The stack is currently empty. Cast an anomaly to begin the cascade loop.</div>
+                        </div>
+                    </div>
+
+                    <!-- Sandbox Stat Board -->
+                    <div class="md:col-span-4 flex flex-col justify-between bg-slate-950/40 p-4 rounded-xl border border-white/5">
+                        <div class="flex flex-col gap-4">
+                            <div>
+                                <span class="text-[10px] text-slate-500 uppercase font-mono-custom">Engine Status</span>
+                                <div class="text-sm font-bold text-slate-300 mt-1 flex items-center gap-1.5">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                                    ENTROPIC COMPLIANCE
+                                </div>
+                            </div>
+                            <div>
+                                <span class="text-[10px] text-slate-500 uppercase font-mono-custom">Total Accumulated Power</span>
+                                <div id="totalPowerStat" class="text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-emerald-400 mt-1 font-mono-custom">
+                                    0
+                                </div>
+                            </div>
+                            <div>
+                                <span class="text-[10px] text-slate-500 uppercase font-mono-custom text-slate-400 block mb-1">Active Motifs Generated</span>
+                                <div class="flex flex-wrap gap-1" id="activeMotifsBox">
+                                    <span class="text-[9px] bg-slate-900 text-slate-400 px-1.5 py-0.5 rounded border border-white/5">None yet</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button id="clearStackBtn" class="mt-4 py-1.5 rounded bg-slate-900 hover:bg-slate-800 border border-white/10 text-[10px] font-mono-custom text-slate-400 transition-colors">
+                            WIPE STACK
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- VOX MANA DOSSIER WRAP-UP (Official summary matrix) -->
+            <div class="glass-card p-6 rounded-2xl flex flex-col relative">
+                <h3 class="text-base font-bold text-white mb-4 flex items-center gap-2">
+                    <svg class="w-5 h-5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                    Vox Mana Dossier Blueprint
+                </h3>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs mb-6">
+                    <div class="bg-slate-950/50 p-4 rounded-xl border border-white/5">
+                        <span class="text-[10px] font-mono-custom text-slate-500 uppercase block mb-1">ONE-SENTENCE IDENTITY</span>
+                        <p class="text-slate-300 font-semibold italic">
+                            "Existence is a continuous, self-reinforcing torrent of energy, adaptation, and information that resists any attempt at artificial crystallization."
+                        </p>
+                    </div>
+                    <div class="bg-slate-950/50 p-4 rounded-xl border border-white/5">
+                        <span class="text-[10px] font-mono-custom text-slate-500 uppercase block mb-1">SYSTEMIC COMPARATIVE PROFILE</span>
+                        <div class="flex flex-col gap-1 text-[10px] font-mono-custom text-slate-400 mt-1">
+                            <div class="flex justify-between"><span>vs. WUBR (Yore)</span><span class="text-blue-400">Rejects Artificial Tech</span></div>
+                            <div class="flex justify-between"><span>vs. BRGW (Dune)</span><span class="text-red-400">Retains Deep Intelligence</span></div>
+                            <div class="flex justify-between"><span>vs. RGWU (Ink)</span><span class="text-purple-400">Discards Collective Altruism</span></div>
+                            <div class="flex justify-between"><span>vs. GWUB (Witch)</span><span class="text-emerald-400">Embraces Volatile Impulse</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-xs">
+                    <div>
+                        <h4 class="font-bold text-slate-300 uppercase tracking-wider mb-2 font-mono-custom text-[10px]">What UBRG Is Not:</h4>
+                        <ul class="space-y-1.5 text-slate-400 list-disc pl-4">
+                            <li><strong class="text-slate-200">Not Mindless Cruelty:</strong> Ambition is treated as an organic, thermal drive rather than malice.</li>
+                            <li><strong class="text-slate-200">Not Standard Agriculture:</strong> Growth is evolutionary and competitive, bypassing domestic security.</li>
+                            <li><strong class="text-slate-200">Not Symmetrical Order:</strong> Refuses flat control paradigms or artificial safety frameworks.</li>
+                            <li><strong class="text-slate-200">Not Static Supremacy:</strong> Prefers the momentum of transit over the security of holding static fortresses.</li>
+                            <li><strong class="text-slate-200">Not Pacifist Isolation:</strong> Intellect and appetite are integrated directly into local food chains.</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-slate-300 uppercase tracking-wider mb-2 font-mono-custom text-[10px]">Active Taxonomic Tags:</h4>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-2 py-1 rounded bg-blue-900/20 text-blue-300 border border-blue-500/20 font-mono-custom text-[10px]">COGNITIVE-MAELSTROM</span>
+                            <span class="px-2 py-1 rounded bg-purple-900/20 text-purple-300 border border-purple-500/20 font-mono-custom text-[10px]">ADAPTIVE-PREDATION</span>
+                            <span class="px-2 py-1 rounded bg-red-900/20 text-red-300 border border-red-500/20 font-mono-custom text-[10px]">KINETIC-SURRENDER</span>
+                            <span class="px-2 py-1 rounded bg-emerald-900/20 text-emerald-300 border border-emerald-500/20 font-mono-custom text-[10px]">ORGANIC-ENTROPY</span>
+                            <span class="px-2 py-1 rounded bg-slate-900 text-slate-300 border border-white/10 font-mono-custom text-[10px]">NON-WHITE-SOVEREIGNTY</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="relative z-10 border-t border-white/5 bg-slate-950 px-6 py-6 text-center text-xs text-slate-500 font-mono-custom">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+            <span>VOX MANA // ENTROPIC TAXONOMY LABS © 2026</span>
+            <div class="flex gap-4">
+                <a href="#" class="hover:text-purple-400 transition-colors">Dossier Mainframe</a>
+                <span>•</span>
+                <a href="#" class="hover:text-emerald-400 transition-colors">Nephilim Database</a>
+                <span>•</span>
+                <a href="#" class="hover:text-blue-400 transition-colors">Maelstrom Dynamics</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Interactive JS Engine -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+
+            // --- STATE MANAGEMENT ---
+            const state = {
+                orderLevel: 0, // 0 = Chaos (UBRG), 100 = Total Order (White stax lock)
+                gravity: {
+                    U: 0.5,
+                    B: 0.5,
+                    R: 0.5,
+                    G: 0.5
+                },
+                stormCount: 0,
+                accumulatedPower: 0,
+                activeProfile: 'genius'
+            };
+
+            // Spell options database for the Cascade Engine
+            const spells = [
+                { name: "Incurable Mutation", cost: 6, power: 12, colors: ['G','B'], desc: "Yidris-aligned somatic rewrite." },
+                { name: "Maelstrom Conflux", cost: 5, power: 10, colors: ['U','R','G'], desc: "Raw planar boundary rupture." },
+                { name: "Glint-Eye Harvest", cost: 4, power: 8, colors: ['U','B'], desc: "Draw-card kinetic feed loop." },
+                { name: "Storm Jungle Conduit", cost: 3, power: 6, colors: ['R','G'], desc: "Copper bark copper-veined spark ignition." },
+                { name: "Sovereign Venom Elixir", cost: 2, power: 4, colors: ['B'], desc: "High-variance self-toxicity dose." },
+                { name: "Feral Equation", cost: 1, power: 2, colors: ['U'], desc: "Predictive predator sensory calculations." },
+                { name: "Ancestral Instability", cost: 0, power: 5, colors: [], desc: "Zero-mana entropic suspension resolved." },
+                { name: "Living Endloop", cost: 0, power: 9, colors: ['B','G'], desc: "Sudden temporal mass graveyard displacement." }
+            ];
+
+            const philosophicalProfiles = {
+                genius: {
+                    title: "Wild Genius",
+                    tag: "INTELLECT WITHOUT SAFETY PROTOCOLS",
+                    body: "In this state, intellect (Blue) is entirely divorced from ethics (White). The system does not construct containment fields; it demands to see what happens when the anomaly breaches. Discovery of objective reality takes absolute precedence over stability, social cohesion, or the survival of artificial protocols.",
+                    impetus: "Infinite cognitive boundary testing",
+                    failure: "Catastrophic feedback loops without safety dampeners",
+                    gravs: { U: 1.3, B: 0.6, R: 0.5, G: 0.4 }
+                },
+                predatory: {
+                    title: "Predatory Adaptation",
+                    tag: "SURVIVAL STRIPPED OF EMPATHY",
+                    body: "When Black's survival instincts merge with Green's biological food chain, existence crystallizes into deep competition. Empathy is discarded. The focus shifts entirely to genetic and tactical supremacy: consuming surrounding structural limits and converting them into direct somatic growth.",
+                    impetus: "Ruthless ecological integration",
+                    failure: "Complete local resource cannibalization",
+                    gravs: { U: 0.4, B: 1.2, R: 0.4, G: 1.2 }
+                },
+                unleashed: {
+                    title: "Unleashed Magic",
+                    tag: "MAXIMUM MOMENTUM IN THE EYE OF THE STORM",
+                    body: "When Red's desire for immediate freedom fuses with Blue's understanding of elemental arrays, magic escapes institutional control. Spells are not organized into standard hierarchies; they are fired as chaotic cascades, leaving trails of living auroras and scorched volcanic wetlands.",
+                    impetus: "Thermodynamic velocity amplification",
+                    failure: "Total energetic burn-through and system vaporization",
+                    gravs: { U: 1.0, B: 0.3, R: 1.4, G: 0.3 }
+                },
+                ambition: {
+                    title: "Naturalized Ambition",
+                    tag: "GROWTH UNFALSIFIED BY MORAL FRAMEWORKS",
+                    body: "A combination where ambition is viewed not as a moral failing, but as a basic physical law of evolution. Like a deep forest canopy overgrowing its surrounding valleys, the system seeks to expand simply because it possesses the resource utility to do so.",
+                    impetus: "Unconstrained organic expansion",
+                    failure: "Cancerous mutation exceeding somatic carrying capacity",
+                    gravs: { U: 0.3, B: 1.1, R: 0.6, G: 1.2 }
+                }
+            };
+
+            // --- DOM ELEMENTS ---
+            const staxSlider = document.getElementById('staxSlider');
+            const staxGrid = document.getElementById('staxGrid');
+            const staxLabel = document.getElementById('staxLabel');
+            const staxStateText = document.getElementById('staxStateText');
+            const staxIndicator = document.getElementById('staxStatusIndicator');
+
+            const sliderU = document.getElementById('sliderU');
+            const sliderB = document.getElementById('sliderB');
+            const sliderR = document.getElementById('sliderR');
+            const sliderG = document.getElementById('sliderG');
+
+            const valU = document.getElementById('valU');
+            const valB = document.getElementById('valB');
+            const valR = document.getElementById('valR');
+            const valG = document.getElementById('valG');
+
+            const readoutU = document.getElementById('readoutU');
+            const readoutB = document.getElementById('readoutB');
+            const readoutR = document.getElementById('readoutR');
+            const readoutG = document.getElementById('readoutG');
+
+            const profileTitle = document.getElementById('profileTitle');
+            const profileTag = document.getElementById('profileTag');
+            const profileBody = document.getElementById('profileBody');
+            const profileImpetus = document.getElementById('profileImpetus');
+            const profileFailure = document.getElementById('profileFailure');
+            const philosophicalButtons = document.querySelectorAll('.interactive-node');
+
+            const castSpellBtn = document.getElementById('castSpellBtn');
+            const clearStackBtn = document.getElementById('clearStackBtn');
+            const spellStack = document.getElementById('spellStack');
+            const stormCounter = document.getElementById('stormCounter');
+            const totalPowerStat = document.getElementById('totalPowerStat');
+            const activeMotifsBox = document.getElementById('activeMotifsBox');
+
+            const canvas = document.getElementById('maelstromCanvas');
+            const ctx = canvas.getContext('2d');
+
+            // --- CANVAS PHYSICS & ANIMATION ---
+            let particles = [];
+            let gravityNodes = {
+                U: { x: 0, y: 0, color: '#3b82f6', targetPower: 0.5, currentPower: 0.5, name: 'Cognition' },
+                B: { x: 0, y: 0, color: '#a855f7', targetPower: 0.5, currentPower: 0.5, name: 'Ego' },
+                R: { x: 0, y: 0, color: '#ef4444', targetPower: 0.5, currentPower: 0.5, name: 'Impulse' },
+                G: { x: 0, y: 0, color: '#22c55e', targetPower: 0.5, currentPower: 0.5, name: 'Evolution' }
+            };
+
+            function resizeCanvas() {
+                const rect = canvas.parentNode.getBoundingClientRect();
+                canvas.width = rect.width * window.devicePixelRatio;
+                canvas.height = rect.width * window.devicePixelRatio; // Keep it square
+                ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
+
+                const w = rect.width;
+                const h = rect.width;
+
+                // Position gravity nodes in a dynamic cross orbit pattern
+                gravityNodes.U.x = w * 0.3; gravityNodes.U.y = h * 0.3;
+                gravityNodes.B.x = w * 0.7; gravityNodes.B.y = h * 0.3;
+                gravityNodes.R.x = w * 0.3; gravityNodes.R.y = h * 0.7;
+                gravityNodes.G.x = w * 0.7; gravityNodes.G.y = h * 0.7;
+            }
+
+            function createParticle(x, y, dx, dy, color) {
+                return {
+                    x: x || Math.random() * canvas.width / window.devicePixelRatio,
+                    y: y || Math.random() * canvas.height / window.devicePixelRatio,
+                    vx: dx || (Math.random() - 0.5) * 2,
+                    vy: dy || (Math.random() - 0.5) * 2,
+                    color: color || '#8b5cf6',
+                    life: 1.0,
+                    size: Math.random() * 2 + 1,
+                    trail: []
+                };
+            }
+
+            // Populate initial particle system
+            function initParticles() {
+                particles = [];
+                for (let i = 0; i < 150; i++) {
+                    particles.push(createParticle());
+                }
+            }
+
+            function animate() {
+                const w = canvas.width / window.devicePixelRatio;
+                const h = canvas.height / window.devicePixelRatio;
+
+                // Clear with slight alpha to produce beautiful organic trails
+                ctx.fillStyle = `rgba(3, 3, 7, ${0.15 + (state.orderLevel / 100) * 0.85})`;
+                ctx.fillRect(0, 0, w, h);
+
+                // Draw connecting orbital energy paths if not frozen
+                if (state.orderLevel < 95) {
+                    ctx.strokeStyle = 'rgba(255, 255, 255, 0.02)';
+                    ctx.beginPath();
+                    ctx.moveTo(gravityNodes.U.x, gravityNodes.U.y);
+                    ctx.lineTo(gravityNodes.B.x, gravityNodes.B.y);
+                    ctx.lineTo(gravityNodes.G.x, gravityNodes.G.y);
+                    ctx.lineTo(gravityNodes.R.x, gravityNodes.R.y);
+                    ctx.closePath();
+                    ctx.stroke();
+                }
+
+                // Node values interpolation & drawing
+                Object.keys(gravityNodes).forEach(key => {
+                    const node = gravityNodes[key];
+                    // Interpolate towards target power values
+                    node.currentPower += (node.targetPower - node.currentPower) * 0.1;
+
+                    // Skip node drawing if frozen completely
+                    if (state.orderLevel > 98) return;
+
+                    // Pulse effect
+                    const pulseRadius = 12 + node.currentPower * 15 + Math.sin(Date.now() * 0.005) * 3;
+
+                    // Draw outer aura
+                    const gradient = ctx.createRadialGradient(node.x, node.y, 2, node.x, node.y, pulseRadius);
+                    gradient.addColorStop(0, node.color + '44');
+                    gradient.addColorStop(1, node.color + '00');
+                    ctx.fillStyle = gradient;
+                    ctx.beginPath();
+                    ctx.arc(node.x, node.y, pulseRadius, 0, Math.PI * 2);
+                    ctx.fill();
+
+                    // Core marker
+                    ctx.fillStyle = node.color;
+                    ctx.beginPath();
+                    ctx.arc(node.x, node.y, 4, 0, Math.PI * 2);
+                    ctx.fill();
+
+                    // Display tiny node label
+                    ctx.fillStyle = 'rgba(255,255,255,0.4)';
+                    ctx.font = '9px monospace';
+                    ctx.fillText(key, node.x - 3, node.y - 8);
+                });
+
+                // Update & draw particles
+                particles.forEach((p, idx) => {
+                    // Symmetrical stax lock freezes everything
+                    const speedMultiplier = Math.max(0, 1 - (state.orderLevel / 100));
+
+                    if (speedMultiplier > 0) {
+                        // Calculate orbital forces from all nodes
+                        Object.keys(gravityNodes).forEach(key => {
+                            const node = gravityNodes[key];
+                            const dx = node.x - p.x;
+                            const dy = node.y - p.y;
+                            const distSq = dx * dx + dy * dy + 100; // soft factor to prevent division by zero
+                            const force = (node.currentPower * 12) / distSq;
+
+                            p.vx += dx * force * speedMultiplier;
+                            p.vy += dy * force * speedMultiplier;
+                        });
+
+                        // Add slight organic noise/drift
+                        p.vx += (Math.random() - 0.5) * 0.1;
+                        p.vy += (Math.random() - 0.5) * 0.1;
+
+                        // Apply drag/friction
+                        p.vx *= 0.98;
+                        p.vy *= 0.98;
+
+                        // Position step
+                        p.x += p.vx * speedMultiplier;
+                        p.y += p.vy * speedMultiplier;
+
+                        // Boundaries
+                        if (p.x < 0 || p.x > w) p.vx *= -1;
+                        if (p.y < 0 || p.y > h) p.vy *= -1;
+                    }
+
+                    // Store historical trail
+                    if (speedMultiplier > 0.1) {
+                        p.trail.push({ x: p.x, y: p.y });
+                        if (p.trail.length > 5) p.trail.shift();
+                    }
+
+                    // Render trail
+                    if (p.trail.length > 1) {
+                        ctx.beginPath();
+                        ctx.strokeStyle = p.color + '44';
+                        ctx.lineWidth = p.size * 0.5;
+                        ctx.moveTo(p.trail[0].x, p.trail[0].y);
+                        for (let i = 1; i < p.trail.length; i++) {
+                            ctx.lineTo(p.trail[i].x, p.trail[i].y);
+                        }
+                        ctx.stroke();
+                    }
+
+                    // Render node particle itself
+                    ctx.fillStyle = p.color;
+                    ctx.beginPath();
+                    ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+                    ctx.fill();
+
+                    // If particle reaches end of lifetime, regenerate it randomly unless locked
+                    if (speedMultiplier === 0) return;
+                    p.life -= 0.001;
+                    if (p.life <= 0) {
+                        particles[idx] = createParticle();
+                    }
+                });
+
+                requestAnimationFrame(animate);
+            }
+
+            // Inject a manual blast of particles on tap/click
+            canvas.addEventListener('mousedown', (e) => {
+                if (state.orderLevel > 90) return; // Stax mode prevents interference
+                const rect = canvas.getBoundingClientRect();
+                const mouseX = e.clientX - rect.left;
+                const mouseY = e.clientY - rect.top;
+
+                const colors = ['#3b82f6', '#a855f7', '#ef4444', '#22c55e'];
+                for (let i = 0; i < 20; i++) {
+                    const angle = Math.random() * Math.PI * 2;
+                    const speed = Math.random() * 4 + 2;
+                    particles.push(createParticle(
+                        mouseX,
+                        mouseY,
+                        Math.cos(angle) * speed,
+                        Math.sin(angle) * speed,
+                        colors[Math.floor(Math.random() * colors.length)]
+                    ));
+                }
+
+                // Temporarily spark chaos
+                state.accumulatedPower += 5;
+                updateStats();
+            });
+
+            // Handle touch events for responsive screens
+            canvas.addEventListener('touchstart', (e) => {
+                if (e.touches.length > 0) {
+                    const rect = canvas.getBoundingClientRect();
+                    const touchX = e.touches[0].clientX - rect.left;
+                    const touchY = e.touches[0].clientY - rect.top;
+
+                    const colors = ['#3b82f6', '#a855f7', '#ef4444', '#22c55e'];
+                    for (let i = 0; i < 15; i++) {
+                        const angle = Math.random() * Math.PI * 2;
+                        const speed = Math.random() * 3 + 1.5;
+                        particles.push(createParticle(
+                            touchX,
+                            touchY,
+                            Math.cos(angle) * speed,
+                            Math.sin(angle) * speed,
+                            colors[Math.floor(Math.random() * colors.length)]
+                        ));
+                    }
+                    state.accumulatedPower += 3;
+                    updateStats();
+                }
+            });
+
+            // --- STAX ORDER LOCK INTERACTION ---
+            staxSlider.addEventListener('input', (e) => {
+                const val = parseInt(e.target.value);
+                state.orderLevel = val;
+
+                // Adjust overlay opacity
+                staxGrid.style.opacity = (val / 100).toString();
+
+                // Modify DOM styles and fonts based on order
+                if (val > 50) {
+                    document.body.classList.add('stax-active');
+                    staxIndicator.className = "w-2.5 h-2.5 rounded-full bg-slate-100 border border-slate-400";
+                    staxLabel.textContent = "White Symmetrical Stax Lock";
+                    staxStateText.textContent = `SYSTEM CRYSTALLIZED (${val}% SYMMETRY)`;
+                    staxStateText.classList.add('text-slate-100');
+                    staxStateText.classList.remove('text-slate-400');
+                } else {
+                    document.body.classList.remove('stax-active');
+                    staxIndicator.className = "w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse";
+                    staxLabel.textContent = "Excluded White Pressure";
+                    staxStateText.textContent = val === 0 ? "CHAOS UNLEASHED (0% ORDER)" : `STABILITY DRIFTING (${val}% ORDER)`;
+                    staxStateText.classList.remove('text-slate-100');
+                    staxStateText.classList.add('text-slate-400');
+                }
+
+                // Adjust node readouts visually to reflect system crystallization
+                if (val > 90) {
+                    readoutU.textContent = "STAX";
+                    readoutB.textContent = "STAX";
+                    readoutR.textContent = "STAX";
+                    readoutG.textContent = "STAX";
+                } else {
+                    updateNodeReadouts();
+                }
+            });
+
+            // --- GRAVITY SLIDERS ---
+            function setupSliders() {
+                const bindSlider = (slider, valDisp, gravityKey) => {
+                    slider.addEventListener('input', (e) => {
+                        const score = parseInt(e.target.value) / 100;
+                        state.gravity[gravityKey] = score;
+                        valDisp.textContent = `${Math.round(score * 100)}%`;
+                        gravityNodes[gravityKey].targetPower = score;
+                        updateNodeReadouts();
+                    });
+                };
+
+                bindSlider(sliderU, valU, 'U');
+                bindSlider(sliderB, valB, 'B');
+                bindSlider(sliderR, valR, 'R');
+                bindSlider(sliderG, valG, 'G');
+            }
+
+            function updateNodeReadouts() {
+                if (state.orderLevel > 90) return;
+                readoutU.textContent = `${(state.gravity.U * 2).toFixed(1)}x`;
+                readoutB.textContent = `${(state.gravity.B * 2).toFixed(1)}x`;
+                readoutR.textContent = `${(state.gravity.R * 2).toFixed(1)}x`;
+                readoutG.textContent = `${(state.gravity.G * 2).toFixed(1)}x`;
+            }
+
+            // --- PHILOSOPHICAL NODE SWITCHER ---
+            philosophicalButtons.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const profileKey = btn.getAttribute('data-profile');
+                    state.activeProfile = profileKey;
+
+                    // Highlight active button
+                    philosophicalButtons.forEach(b => b.classList.remove('ring-2', 'ring-purple-500', 'bg-slate-900'));
+                    btn.classList.add('ring-2', 'ring-purple-500', 'bg-slate-900');
+
+                    const prof = philosophicalProfiles[profileKey];
+                    if (!prof) return;
+
+                    // Morph viewer data
+                    profileTitle.textContent = prof.title;
+                    profileTag.textContent = prof.tag;
+                    profileBody.textContent = prof.body;
+                    profileImpetus.textContent = prof.impetus;
+                    profileFailure.textContent = prof.failure;
+
+                    // Color coordinate tag background
+                    profileTag.className = "text-[10px] font-mono-custom px-2 py-0.5 rounded";
+                    if (profileKey === 'genius') {
+                        profileTag.classList.add('bg-blue-900/30', 'text-blue-400');
+                    } else if (profileKey === 'predatory') {
+                        profileTag.classList.add('bg-purple-900/30', 'text-purple-400');
+                    } else if (profileKey === 'unleashed') {
+                        profileTag.classList.add('bg-red-900/30', 'text-red-400');
+                    } else if (profileKey === 'ambition') {
+                        profileTag.classList.add('bg-emerald-900/30', 'text-emerald-400');
+                    }
+
+                    // Feed gravity settings into physics sliders and engine
+                    Object.keys(prof.gravs).forEach(key => {
+                        state.gravity[key] = prof.gravs[key];
+                        gravityNodes[key].targetPower = prof.gravs[key];
+
+                        // Update DOM controls
+                        const mappedVal = Math.round(prof.gravs[key] * 100);
+                        if (key === 'U') { sliderU.value = mappedVal; valU.textContent = `${mappedVal}%`; }
+                        if (key === 'B') { sliderB.value = mappedVal; valB.textContent = `${mappedVal}%`; }
+                        if (key === 'R') { sliderR.value = mappedVal; valR.textContent = `${mappedVal}%`; }
+                        if (key === 'G') { sliderG.value = mappedVal; valG.textContent = `${mappedVal}%`; }
+                    });
+
+                    updateNodeReadouts();
+
+                    // Instability shockwave particles
+                    const w = canvas.width / window.devicePixelRatio;
+                    const h = canvas.height / window.devicePixelRatio;
+                    for (let i = 0; i < 40; i++) {
+                        particles.push(createParticle(w / 2, h / 2, (Math.random() - 0.5) * 6, (Math.random() - 0.5) * 6));
+                    }
+                });
+            });
+
+            // --- CASCADE SPELL CHAIN SIMULATOR ---
+            const creativeMotifs = [
+                "Storm Jungle Aura", "Bioluminescent Swamp", "Copper-Veined Circuitry",
+                "Spell-Eating Predator Nest", "Overgrown Steam-Lab", "Volcanic Wet-Sparks",
+                "Blackwater Torrent", "Sovereign Catalyst Pool"
+            ];
+
+            const activeMotifs = new Set();
+
+            castSpellBtn.addEventListener('click', () => {
+                if (state.orderLevel > 95) {
+                    // Symmetrical stax lock prevents cascade loops
+                    addTerminalMessage("SYSTEM CRISIS: White stax-lock prevents cascade logic. Cleanse order to initiate chains.", "text-slate-100 bg-red-950/20 border border-red-900/50");
+                    return;
+                }
+
+                // Clear empty stack note
+                if (state.stormCount === 0) {
+                    spellStack.innerHTML = '';
+                }
+
+                state.stormCount++;
+                stormCounter.textContent = `STORM: ${state.stormCount}`;
+
+                // Select a random starter spell
+                const initialSpell = spells[Math.floor(Math.random() * spells.length)];
+                castSpellEffect(initialSpell, initialSpell.cost);
+            });
+
+            function castSpellEffect(spell, costLimit) {
+                // Render initial cast
+                const div = document.createElement('div');
+                div.className = "p-2 rounded border border-white/5 bg-slate-900/40 flex flex-col gap-1 transition-all duration-300 transform translate-x-1";
+
+                // Color accent bar
+                let borderCol = "border-l-4 border-l-purple-500";
+                if (spell.colors.includes('U')) borderCol = "border-l-4 border-l-blue-500";
+                if (spell.colors.includes('R')) borderCol = "border-l-4 border-l-red-500";
+                if (spell.colors.includes('G')) borderCol = "border-l-4 border-l-emerald-500";
+                div.className += ` ${borderCol}`;
+
+                div.innerHTML = `
+                    <div class="flex items-center justify-between">
+                        <span class="font-bold text-slate-200">${spell.name}</span>
+                        <span class="text-[10px] text-slate-500">CMC: ${spell.cost}</span>
+                    </div>
+                    <p class="text-[10px] text-slate-400 italic">${spell.desc}</p>
+                `;
+
+                spellStack.appendChild(div);
+                spellStack.scrollTop = spellStack.scrollHeight;
+
+                // Adjust global stats
+                state.accumulatedPower += spell.power;
+                updateStats();
+
+                // Particles
+                const colors = ['#3b82f6', '#a855f7', '#ef4444', '#22c55e'];
+                const randColor = colors[Math.floor(Math.random() * colors.length)];
+                const w = canvas.width / window.devicePixelRatio;
+                const h = canvas.height / window.devicePixelRatio;
+                for (let i = 0; i < 10; i++) {
+                    particles.push(createParticle(w/2, h/2, (Math.random() - 0.5) * 4, (Math.random() - 0.5) * 4, randColor));
+                }
+
+                // Add random motif to generated dashboard
+                if (Math.random() > 0.4) {
+                    const randomMotif = creativeMotifs[Math.floor(Math.random() * creativeMotifs.length)];
+                    activeMotifs.add(randomMotif);
+                    updateMotifDisplay();
+                }
+
+                // Check for CASCADE TRIGGER
+                // In MTG, cascade triggers on casting a spell with cascade.
+                // Yidris grants Cascade to all spells with CMC lower than the original.
+                // We'll simulate a 70% chance to Cascade into a cheaper spell if one exists.
+                setTimeout(() => {
+                    const availableCascades = spells.filter(s => s.cost < costLimit);
+                    if (availableCascades.length > 0 && Math.random() > 0.3) {
+                        const cascadeSpell = availableCascades[Math.floor(Math.random() * availableCascades.length)];
+
+                        addTerminalMessage(`↳ CASCADE TRIGGER RESOLVING (Looking for CMC < ${costLimit})`, "text-purple-400 font-bold tracking-wider");
+
+                        setTimeout(() => {
+                            castSpellEffect(cascadeSpell, cascadeSpell.cost);
+                        }, 500);
+                    } else {
+                        addTerminalMessage("↳ Cascade chain stabilized.", "text-slate-500");
+                    }
+                }, 400);
+            }
+
+            function addTerminalMessage(text, className) {
+                const div = document.createElement('div');
+                div.className = `p-1 text-[10px] ${className || 'text-slate-400'}`;
+                div.textContent = text;
+                spellStack.appendChild(div);
+                spellStack.scrollTop = spellStack.scrollHeight;
+            }
+
+            function updateStats() {
+                totalPowerStat.textContent = state.accumulatedPower;
+            }
+
+            function updateMotifDisplay() {
+                if (activeMotifs.size === 0) {
+                    activeMotifsBox.innerHTML = '<span class="text-[9px] bg-slate-900 text-slate-400 px-1.5 py-0.5 rounded border border-white/5">None yet</span>';
+                    return;
+                }
+                activeMotifsBox.innerHTML = '';
+                activeMotifs.forEach(motif => {
+                    const span = document.createElement('span');
+                    span.className = "text-[9px] bg-purple-900/10 text-purple-300 px-1.5 py-0.5 rounded border border-purple-500/20";
+                    span.textContent = motif;
+                    activeMotifsBox.appendChild(span);
+                });
+            }
+
+            clearStackBtn.addEventListener('click', () => {
+                spellStack.innerHTML = '<div class="text-slate-500 text-center py-12">The stack is currently empty. Cast an anomaly to begin the cascade loop.</div>';
+                state.stormCount = 0;
+                state.accumulatedPower = 0;
+                stormCounter.textContent = 'STORM: 0';
+                updateStats();
+                activeMotifs.clear();
+                updateMotifDisplay();
+            });
+
+            // Initialize app
+            window.addEventListener('resize', resizeCanvas);
+            resizeCanvas();
+            initParticles();
+            setupSliders();
+            updateNodeReadouts();
+
+            // Set up default button highlight
+            document.querySelector('[data-profile="genius"]').classList.add('ring-2', 'ring-purple-500', 'bg-slate-900');
+
+            // Boot loop
+            animate();
+        });
+    </script>
+</body>
+</html>

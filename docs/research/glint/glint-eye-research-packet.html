@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Glint-Eye — UBRG Research Packet</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Unbounded:wght@300;400;700;900&family=DM+Serif+Display:ital@0;1&family=DM+Serif+Text:ital@0;1&display=swap');
+
+  :root {
+    --blue:    #2E86C1;
+    --black:   #3D0C5C;
+    --red:     #E74C3C;
+    --green:   #27AE60;
+    --bg:      #07040D;
+    --surface: rgba(18,8,30,0.9);
+    --border:  rgba(130,60,200,0.3);
+    --accent:  #9B59B6;
+    --gold:    #D4AC0D;
+    --parch:   #ECE0F8;
+    --muted:   #7D6B94;
+    --absent:  #F0F0F0;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background-color: var(--bg);
+    color: var(--parch);
+    font-family: 'DM Serif Text', Georgia, serif;
+    font-size: 1.05rem;
+    line-height: 1.7;
+    background-image:
+      radial-gradient(ellipse 55% 45% at 80% 5%,  rgba(46,134,193,0.13) 0%, transparent 55%),
+      radial-gradient(ellipse 45% 55% at 10% 90%, rgba(39,174,96,0.10) 0%, transparent 55%),
+      radial-gradient(ellipse 60% 40% at 50% 50%, rgba(155,89,182,0.07) 0%, transparent 70%),
+      radial-gradient(ellipse 30% 30% at 90% 60%, rgba(231,76,60,0.08) 0%, transparent 45%),
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+    min-height: 100vh;
+  }
+
+  .page-wrap {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 3rem 2rem 5rem;
+  }
+
+  /* ── HEADER ── */
+  header {
+    text-align: center;
+    padding: 3rem 0 2rem;
+  }
+
+  .pip-row {
+    display: flex;
+    justify-content: center;
+    gap: 0.6rem;
+    margin-bottom: 1.4rem;
+  }
+
+  .pip {
+    width: 22px; height: 22px;
+    border-radius: 50%;
+    border: 2px solid;
+    display: inline-block;
+  }
+  .pip-u { background: #1a5a9a; border-color: var(--blue); }
+  .pip-b { background: #3D0C5C; border-color: #7a3aaa; }
+  .pip-r { background: #8a1a12; border-color: var(--red); }
+  .pip-g { background: #155a30; border-color: var(--green); }
+
+  .faction-label {
+    font-family: 'Unbounded', sans-serif;
+    font-size: 0.6rem;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--accent);
+    opacity: 0.7;
+    margin-bottom: 0.6rem;
+  }
+
+  h1 {
+    font-family: 'Unbounded', sans-serif;
+    font-size: clamp(2.4rem, 7vw, 4rem);
+    font-weight: 900;
+    color: var(--parch);
+    letter-spacing: -0.02em;
+    line-height: 1;
+    text-shadow:
+      0 0 60px rgba(155,89,182,0.5),
+      0 0 20px rgba(46,134,193,0.3),
+      0 2px 6px rgba(0,0,0,0.8);
+  }
+
+  h1 span.accent { color: var(--accent); }
+
+  .subtitle {
+    font-family: 'Unbounded', sans-serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.25em;
+    color: var(--muted);
+    margin-top: 0.7rem;
+    text-transform: uppercase;
+  }
+
+  .divider {
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--blue), var(--accent), var(--red), var(--green), transparent);
+    opacity: 0.35;
+    margin: 1.5rem 0;
+  }
+
+  /* ── SECTIONS ── */
+  .section { margin-bottom: 2.5rem; }
+
+  h2 {
+    font-family: 'Unbounded', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+  }
+
+  h2::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, var(--accent), transparent);
+    opacity: 0.3;
+  }
+
+  /* ── STAT GRID ── */
+  .stat-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(155px, 1fr));
+    gap: 1px;
+    border: 1px solid var(--border);
+    background: var(--border);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+
+  .stat-cell {
+    background: var(--surface);
+    padding: 1rem 1.2rem;
+  }
+
+  .stat-cell .label {
+    font-family: 'Unbounded', sans-serif;
+    font-size: 0.55rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 0.35rem;
+  }
+
+  .stat-cell .value {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.05rem;
+    color: var(--parch);
+  }
+
+  /* ── PANEL ── */
+  .panel {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 1.5rem 1.8rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .panel::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--blue), var(--black), var(--red), var(--green));
+    opacity: 0.7;
+  }
+
+  /* ── COLOR GRID ── */
+  .color-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+
+  .color-entry {
+    border-left: 3px solid;
+    padding-left: 1rem;
+  }
+  .color-entry.c-u { border-color: var(--blue); }
+  .color-entry.c-b { border-color: #9b59b6; }
+  .color-entry.c-r { border-color: var(--red); }
+  .color-entry.c-g { border-color: var(--green); }
+
+  .color-entry .color-name {
+    font-family: 'Unbounded', sans-serif;
+    font-size: 0.6rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 0.25rem;
+  }
+  .color-entry.c-u .color-name { color: var(--blue); }
+  .color-entry.c-b .color-name { color: #b070e0; }
+  .color-entry.c-r .color-name { color: var(--red); }
+  .color-entry.c-g .color-name { color: var(--green); }
+
+  .color-entry .color-desc {
+    font-size: 0.9rem;
+    color: rgba(236,224,248,0.82);
+    font-style: italic;
+  }
+
+  /* ── ABSENCE CALLOUT ── */
+  .absence-callout {
+    background: linear-gradient(135deg, rgba(255,255,255,0.06), rgba(240,240,240,0.03));
+    border: 1px solid rgba(240,240,240,0.2);
+    border-radius: 6px;
+    padding: 1.1rem 1.4rem;
+    margin-top: 1rem;
+  }
+
+  .absence-callout .header {
+    font-family: 'Unbounded', sans-serif;
+    font-size: 0.6rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #c8c8c8;
+    margin-bottom: 0.35rem;
+  }
+
+  .absence-callout p {
+    font-size: 0.92rem;
+    color: rgba(236,224,248,0.72);
+    font-style: italic;
+  }
+
+  /* ── CARD TEXT BLOCK ── */
+  .card-text-block {
+    border-left: 3px solid var(--accent);
+    padding: 0.8rem 1.4rem;
+    margin: 1rem 0;
+    background: rgba(155,89,182,0.07);
+    border-radius: 0 4px 4px 0;
+  }
+
+  .card-text-block p {
+    font-style: italic;
+    font-size: 1rem;
+    color: rgba(236,224,248,0.9);
+  }
+
+  .card-text-block cite {
+    display: block;
+    margin-top: 0.4rem;
+    font-size: 0.78rem;
+    font-style: normal;
+    color: var(--muted);
+    font-family: 'Unbounded', sans-serif;
+    letter-spacing: 0.05em;
+  }
+
+  /* ── COMMANDER CARDS ── */
+  .commander-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .commander-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 1.2rem 1.5rem;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 0.5rem 1.5rem;
+    align-items: start;
+  }
+
+  .commander-card.featured {
+    border-color: rgba(155,89,182,0.6);
+    background: linear-gradient(135deg, rgba(30,10,50,0.95), rgba(18,8,30,0.98));
+  }
+
+  .commander-card .cmd-name {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.05rem;
+    color: var(--parch);
+    margin-bottom: 0.1rem;
+  }
+
+  .commander-card .cmd-type {
+    font-family: 'Unbounded', sans-serif;
+    font-size: 0.58rem;
+    color: var(--muted);
+    letter-spacing: 0.05em;
+    margin-bottom: 0.5rem;
+  }
+
+  .commander-card .cmd-desc {
+    font-size: 0.92rem;
+    color: rgba(236,224,248,0.82);
+    line-height: 1.55;
+  }
+
+  .commander-card .cmd-meta {
+    text-align: right;
+    min-width: 88px;
+  }
+
+  .deck-count {
+    font-family: 'Unbounded', sans-serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--accent);
+    display: block;
+  }
+
+  .deck-label {
+    font-family: 'Unbounded', sans-serif;
+    font-size: 0.55rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .tag {
+    display: inline-block;
+    background: rgba(155,89,182,0.15);
+    border: 1px solid rgba(155,89,182,0.35);
+    border-radius: 3px;
+    font-family: 'Unbounded', sans-serif;
+    font-size: 0.55rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #c090e8;
+    padding: 1px 6px;
+    margin: 2px 2px 0 0;
+  }
+
+  .tag.blue  { background: rgba(46,134,193,0.15);  border-color: rgba(46,134,193,0.35);  color: #7ab5e0; }
+  .tag.red   { background: rgba(231,76,60,0.15);   border-color: rgba(231,76,60,0.35);   color: #e08080; }
+  .tag.green { background: rgba(39,174,96,0.15);   border-color: rgba(39,174,96,0.35);   color: #70c890; }
+  .tag.gold  { background: rgba(212,172,13,0.15);  border-color: rgba(212,172,13,0.35);  color: var(--gold); }
+
+  /* ── TWO-COL ── */
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  .callout-box {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 1.2rem 1.5rem;
+  }
+
+  .callout-box h3 {
+    font-family: 'Unbounded', sans-serif;
+    font-size: 0.62rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.7rem;
+  }
+
+  .callout-box ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .callout-box ul li {
+    padding: 0.25rem 0 0.25rem 1.1rem;
+    font-size: 0.9rem;
+    color: rgba(236,224,248,0.82);
+    position: relative;
+  }
+
+  .callout-box ul li::before {
+    content: '◆';
+    position: absolute;
+    left: 0;
+    font-size: 0.5rem;
+    top: 0.55rem;
+    color: var(--accent);
+    opacity: 0.5;
+  }
+
+  .callout-box.strengths { border-left: 3px solid rgba(39,174,96,0.5); }
+  .callout-box.weaknesses { border-left: 3px solid rgba(231,76,60,0.5); }
+
+  /* ── TABLE ── */
+  .arch-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+  }
+
+  .arch-table th {
+    font-family: 'Unbounded', sans-serif;
+    font-size: 0.58rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    padding: 0.6rem 0.8rem;
+    text-align: left;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .arch-table td {
+    padding: 0.65rem 0.8rem;
+    border-bottom: 1px solid rgba(155,89,182,0.1);
+    color: rgba(236,224,248,0.82);
+    vertical-align: top;
+  }
+
+  .arch-table tr:last-child td { border-bottom: none; }
+  .arch-table tr:hover td { background: rgba(155,89,182,0.04); }
+
+  .arch-table td:first-child {
+    font-family: 'DM Serif Display', serif;
+    font-size: 0.95rem;
+    color: var(--parch);
+    white-space: nowrap;
+  }
+
+  /* ── COMBO GRID ── */
+  .combo-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  .combo-entry {
+    border-top: 2px solid var(--accent);
+    padding-top: 0.7rem;
+    opacity: 0.95;
+  }
+
+  .combo-entry .combo-name {
+    font-family: 'Unbounded', sans-serif;
+    font-size: 0.62rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.35rem;
+  }
+
+  .combo-entry p {
+    font-size: 0.88rem;
+    color: rgba(236,224,248,0.8);
+    line-height: 1.5;
+  }
+
+  /* ── FOOTNOTE ── */
+  .footnote {
+    font-size: 0.75rem;
+    color: var(--muted);
+    font-style: italic;
+    margin-top: 0.6rem;
+    padding-top: 0.6rem;
+    border-top: 1px solid rgba(155,89,182,0.12);
+  }
+
+  @media (max-width: 600px) {
+    .two-col, .color-row, .combo-grid { grid-template-columns: 1fr; }
+    .commander-card { grid-template-columns: 1fr; }
+    .commander-card .cmd-meta { text-align: left; }
+  }
+</style>
+</head>
+<body>
+<div class="page-wrap">
+
+  <header>
+    <div class="pip-row">
+      <span class="pip pip-u" title="Blue"></span>
+      <span class="pip pip-b" title="Black"></span>
+      <span class="pip pip-r" title="Red"></span>
+      <span class="pip pip-g" title="Green"></span>
+    </div>
+    <div class="faction-label">Four-Color Faction · Research Packet</div>
+    <h1><span class="accent">Glint</span>-Eye</h1>
+    <div class="subtitle">U B R G — The Whiteless Quadrant · Chaos</div>
+    <div class="divider"></div>
+  </header>
+
+  <!-- AT A GLANCE -->
+  <section class="section">
+    <h2>At a Glance</h2>
+    <div class="stat-grid">
+      <div class="stat-cell">
+        <div class="label">Formal Name</div>
+        <div class="value">Glint-Eye</div>
+      </div>
+      <div class="stat-cell">
+        <div class="label">Also Called</div>
+        <div class="value">Dark-Temur · Whiteless</div>
+      </div>
+      <div class="stat-cell">
+        <div class="label">Missing Color</div>
+        <div class="value" style="color:#d0d0d0">White</div>
+      </div>
+      <div class="stat-cell">
+        <div class="label">Mechanic Theme</div>
+        <div class="value">Chaos</div>
+      </div>
+      <div class="stat-cell">
+        <div class="label">Named For</div>
+        <div class="value">Glint-Eye Nephilim</div>
+      </div>
+      <div class="stat-cell">
+        <div class="label">Nephilim Set</div>
+        <div class="value">Guildpact (2006)</div>
+      </div>
+      <div class="stat-cell">
+        <div class="label">Nephilim Stats</div>
+        <div class="value">2/2 · Rare</div>
+      </div>
+      <div class="stat-cell">
+        <div class="label">Top Commander</div>
+        <div class="value">Yidris (9,449 decks)</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COLOR IDENTITY -->
+  <section class="section">
+    <h2>Color Identity</h2>
+    <div class="panel">
+      <p style="font-size:0.95rem; color:rgba(236,224,248,0.82);">
+        Glint-Eye is defined by its rejection of order and law. The four colors present share a hunger for freedom, power, and change — they pursue their goals without apology or structure. The combination is feral, intellectually voracious, and explosively unpredictable.
+      </p>
+      <div class="color-row">
+        <div class="color-entry c-u">
+          <div class="color-name">🔵 Blue — Knowledge</div>
+          <div class="color-desc">Intellect, card draw, manipulation, counterspells, and deliberate scheming. The planner of the chaos engine.</div>
+        </div>
+        <div class="color-entry c-b">
+          <div class="color-name">🟣 Black — Power</div>
+          <div class="color-desc">Ambition, ruthlessness, tutors, reanimation, and sacrifice. Willing to pay any cost for advantage.</div>
+        </div>
+        <div class="color-entry c-r">
+          <div class="color-name">🔴 Red — Passion</div>
+          <div class="color-desc">Aggression, haste, impulse, chaos effects, and direct damage. The ignition source of every wild swing.</div>
+        </div>
+        <div class="color-entry c-g">
+          <div class="color-name">🟢 Green — Nature</div>
+          <div class="color-desc">Ramp, big creatures, and organic inevitability. Provides the mana and bodies to fuel the chaos engine.</div>
+        </div>
+      </div>
+      <div class="absence-callout">
+        <div class="header">⬜ The Absent Color: White</div>
+        <p>White provides order, law, and collective morality — board wipes that affect all players equally, exile-based removal, life gain, and prison effects. Glint-Eye's rejection of white means the combination is "free, chaotic, zealous, and ever-changing. However, in lacking structure, it may fall victim to its own frenetic unpredictability."</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ORIGIN -->
+  <section class="section">
+    <h2>Origin — The Nephilim</h2>
+    <div class="panel">
+      <p style="margin-bottom:0.8rem; font-size:0.95rem; color:rgba(236,224,248,0.82);">
+        Glint-Eye Nephilim is a Rare 2/2 for UBRG from <em>Guildpact</em> (2006), illustrated by Mark Zug. It was reprinted in Commander 2016 (card #201) and again in Dominaria United Commander (DMC, card #152).
+      </p>
+
+      <div class="card-text-block">
+        <p>Whenever Glint-Eye Nephilim deals combat damage to a player, draw that many cards. {1}, Discard a card: Glint-Eye Nephilim gets +1/+1 until end of turn.</p>
+        <cite>— Glint-Eye Nephilim, Guildpact (2006)</cite>
+      </div>
+
+      <p style="font-size:0.92rem; color:rgba(236,224,248,0.72); margin-top:0.8rem;">
+        The ability is a self-reinforcing damage engine: use black mana and a discard to pump the Nephilim, deal combat damage, draw cards equal to the damage dealt, use those cards to pump again. In practice the 2/2 body is fragile without evasion — "its ability is okay but it doesn't come with much evasion to make it game-breaking." Voltron or evasion-granting auras (Alpha Authority, Canopy Cover) are essential support lines. Like all Nephilim, it is not officially legal as a Commander without a house rule.
+      </p>
+      <p class="footnote">Note: The discard-to-pump paired with card draw on damage pairs naturally with madness, flashback, and looting synergies — the mechanical seeds of the Chaos theme carried forward to Yidris.</p>
+    </div>
+  </section>
+
+  <!-- KEY COMMANDERS -->
+  <section class="section">
+    <h2>Key Commanders</h2>
+    <div class="commander-list">
+
+      <div class="commander-card featured">
+        <div>
+          <div class="cmd-name">Yidris, Maelstrom Wielder</div>
+          <div class="cmd-type">Legendary Creature — Ogre Wizard · Commander 2016</div>
+          <div class="cmd-desc">
+            A 5/4 Trampler for UBRG. The sole dedicated UBRG legendary creature. When Yidris deals combat damage to an opponent, each subsequent spell you cast from your hand this turn gains cascade. Cascade is widely regarded as one of Magic's most powerful mechanics — casting spells for free chains into more free spells. Double strike or extra attack steps multiply cascade triggers, making each combat an engine of exponential value. Protecting Yidris (hexproof, totem armor) is priority one since the entire deck's value engine lives on him.
+          </div>
+          <div style="margin-top:0.6rem;">
+            <span class="tag gold">Chaos Theme</span>
+            <span class="tag blue">Cascade</span>
+            <span class="tag">Storm</span>
+            <span class="tag red">Aggro-Value</span>
+          </div>
+        </div>
+        <div class="cmd-meta">
+          <span class="deck-count">9,449</span>
+          <span class="deck-label">EDHREC Decks</span>
+        </div>
+      </div>
+
+      <div class="commander-card">
+        <div>
+          <div class="cmd-name">Thrasios, Triton Hero // Vial Smasher the Fierce</div>
+          <div class="cmd-type">Partner Pairing — Commander 2016</div>
+          <div class="cmd-desc">
+            The second most popular UBRG build. Thrasios offers repeatable card advantage and mana filtering using blue/green ramp; Vial Smasher deals free damage to a random opponent whenever you cast your first spell each turn. Together they cover card selection, ramp, and a persistent pressure clock. The Simic backbone (Thrasios) with the Rakdos aggression of Vial Smasher creates a high-value, high-variance mid-range threat. Historically a cEDH staple pairing.
+          </div>
+          <div style="margin-top:0.6rem;">
+            <span class="tag blue">Partner</span>
+            <span class="tag">Value</span>
+            <span class="tag red">cEDH</span>
+            <span class="tag green">Ramp</span>
+          </div>
+        </div>
+        <div class="cmd-meta">
+          <span class="deck-count">4,597</span>
+          <span class="deck-label">EDHREC Decks</span>
+        </div>
+      </div>
+
+      <div class="commander-card">
+        <div>
+          <div class="cmd-name">Cecily, Haunted Mage // Elmar, Ulvenwald Informant</div>
+          <div class="cmd-type">Partner Pairing — Innistrad: Midnight Hunt Commander</div>
+          <div class="cmd-desc">
+            A rising Partner pairing reaching UBRG. Cecily generates value off spell casts; Elmar punishes opponents for tapping permanents. Together they create a grindy, attrition-focused midrange shell that leverages green's ramp and black's disruption. Popular with players who want UBRG without the all-in cascade identity of Yidris.
+          </div>
+          <div style="margin-top:0.6rem;">
+            <span class="tag blue">Partner</span>
+            <span class="tag">Midrange</span>
+            <span class="tag">Attrition</span>
+          </div>
+        </div>
+        <div class="cmd-meta">
+          <span class="deck-count">1,070</span>
+          <span class="deck-label">EDHREC Decks</span>
+        </div>
+      </div>
+
+      <div class="commander-card">
+        <div>
+          <div class="cmd-name">Glint-Eye Nephilim</div>
+          <div class="cmd-type">Creature — Nephilim · Guildpact (House Rule Commander)</div>
+          <div class="cmd-desc">
+            The quadrant's namesake. Not officially legal as Commander, but playable under house rules. Best supported by evasion (trample, shadow, unblockable), discard synergies (madness, flashback, Survival of the Fittest), and voltron-style pump spells that capitalize on the damage-to-draw trigger. Combines uniquely with Deadeye Navigator and Eternal Witness for recursive value.
+          </div>
+          <div style="margin-top:0.6rem;">
+            <span class="tag">House Rules</span>
+            <span class="tag">Voltron</span>
+            <span class="tag red">Wheels</span>
+          </div>
+        </div>
+        <div class="cmd-meta">
+          <span class="deck-count">2,601</span>
+          <span class="deck-label">EDHREC Decks</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- STRENGTHS & WEAKNESSES -->
+  <section class="section">
+    <h2>Strengths &amp; Weaknesses</h2>
+    <div class="two-col">
+      <div class="callout-box strengths">
+        <h3>Strengths</h3>
+        <ul>
+          <li>Green provides the best ramp in the game — the one quadrant asset Yore lacks entirely</li>
+          <li>Blue + black = deep card draw, tutors, and counterspell access</li>
+          <li>Cascade is one of Magic's most broken mechanics when enabled consistently</li>
+          <li>Graveyard resilience: black recursion + green value loops</li>
+          <li>Red + green big threats and haste enablers close games fast</li>
+          <li>Immense combo density — multiple infinite-mana and infinite-draw lines available</li>
+        </ul>
+      </div>
+      <div class="callout-box weaknesses">
+        <h3>Weaknesses</h3>
+        <ul>
+          <li>No white means no efficient board wipes (Wrath, Farewell) or mass exile</li>
+          <li>Limited enchantment removal — green handles artifacts/enchantments but less cleanly than white exile</li>
+          <li>No life gain means aggressive strategies can race you down before your engine fires</li>
+          <li>Yidris is fragile — removal of the commander collapses the primary value engine</li>
+          <li>Cascade chains can fizzle on poor luck; inherently high variance</li>
+          <li>"May fall victim to its own frenetic unpredictability" — the Chaos theme is real</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ARCHETYPES -->
+  <section class="section">
+    <h2>Common Archetypes</h2>
+    <div class="panel" style="padding:0; overflow:hidden;">
+      <table class="arch-table">
+        <thead>
+          <tr>
+            <th>Archetype</th>
+            <th>Core Strategy</th>
+            <th>Key Enablers</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Cascade Storm</td>
+            <td>Connect with Yidris, then chain cascade triggers through a stack of cheap spells to build overwhelming advantage</td>
+            <td>Yidris, Bloodbraid Elf, Shardless Agent, Violent Outburst, Maelstrom Wanderer</td>
+          </tr>
+          <tr>
+            <td>Chaos / Wheel</td>
+            <td>Disrupt the game state with random or symmetrical chaos effects; wheel spells reset hands and punish greedy opponents</td>
+            <td>Yidris, Wheel of Fortune, Whims of the Fates, Possibility Storm, Thieves' Auction</td>
+          </tr>
+          <tr>
+            <td>Reanimator / Cascade</td>
+            <td>Fill graveyard via cycling and discard, then cascade into Living End or Crashing Footfalls for free mass reanimation</td>
+            <td>Yidris, Living End, Violent Outburst, Archfiend of Ifnir, Striped Riverwinder</td>
+          </tr>
+          <tr>
+            <td>Sultai + Black Value</td>
+            <td>Leverage Temur's ramp and card advantage with black disruption and tutors for a grindy "good stuff" pile</td>
+            <td>Thrasios, Vial Smasher, Rashmi, Eternal Witness, Oracle of Mul Daya</td>
+          </tr>
+          <tr>
+            <td>Voltron</td>
+            <td>Equip or enchant Glint-Eye Nephilim with evasion and pump to connect for massive card draw, then dump hand back into pump</td>
+            <td>Glint-Eye Nephilim, Alpha Authority, Canopy Cover, Rancor, Berserk</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- COMBOS -->
+  <section class="section">
+    <h2>Notable Cascade &amp; Combo Lines</h2>
+    <div class="panel">
+      <p style="font-size:0.9rem; color:rgba(236,224,248,0.7); margin-bottom:1.1rem;">Glint-Eye's combo density is high, with multiple competitive lines available:</p>
+      <div class="combo-grid">
+        <div class="combo-entry">
+          <div class="combo-name">Living End Cascade</div>
+          <p>Cast Violent Outburst (instant, cascade) or Demonic Dread on opponent's turn → cascade into Living End (suspended, no CMC) → all creatures are cycled and reanimated. The Modern combo translated to Commander scale.</p>
+        </div>
+        <div class="combo-entry">
+          <div class="combo-name">Double Strike Cascade Chain</div>
+          <p>Grant Yidris double strike (Temur Battle Rage, Unleash Fury) → Yidris deals damage twice → all subsequent spells get cascade twice. A single turn can generate 6–10 free spells from a hand of three.</p>
+        </div>
+        <div class="combo-entry">
+          <div class="combo-name">Maelstrom Wanderer</div>
+          <p>The 8-mana 7/5 cascades twice on cast — and is a natural Yidris cascade target. Cascading into it generates two more free spells and grants haste to all creatures, enabling immediate further Yidris attacks.</p>
+        </div>
+        <div class="combo-entry">
+          <div class="combo-name">Throes of Chaos Recursion</div>
+          <p>Throes of Chaos can be retrace (cast from graveyard by discarding a land), each cast cascading again. With Yidris in play and Throes in graveyard, each land drop becomes a cascade trigger.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VOXMANA NOTES -->
+  <section class="section">
+    <h2>Vox Mana Design Notes</h2>
+    <div class="panel">
+      <p style="font-size:0.95rem; color:rgba(236,224,248,0.82); margin-bottom:0.8rem;">Considerations for placement signals and faction representation:</p>
+      <ul style="list-style:none; padding:0; display:flex; flex-direction:column; gap:0.7rem;">
+        <li style="padding-left:1.4rem; position:relative; font-size:0.92rem; color:rgba(236,224,248,0.8);"><span style="position:absolute;left:0;color:var(--accent);">◆</span> Glint-Eye's defining negative signal is <strong style="color:#d0d0d0;">absent white</strong>: players who reject structure, rules enforcement, life gain, and collective fairness score toward this quadrant. "No prison decks, no stax, no equalizing board wipes" is the Glint-Eye headspace.</li>
+        <li style="padding-left:1.4rem; position:relative; font-size:0.92rem; color:rgba(236,224,248,0.8);"><span style="position:absolute;left:0;color:var(--accent);">◆</span> The <strong>Chaos</strong> label from Commander 2016 is the strongest thematic anchor. Cascade, wheels, random effects, and high-variance plays are the mechanical grammar. Players who enjoy "seeing what happens" map here naturally.</li>
+        <li style="padding-left:1.4rem; position:relative; font-size:0.92rem; color:rgba(236,224,248,0.8);"><span style="position:absolute;left:0;color:var(--accent);">◆</span> Contrast with Yore (Artifice): both are calculating and complex, but Yore controls the board; Glint-Eye <em>detonates</em> it. Yore builds the machine; Glint-Eye cascades through the junk pile.</li>
+        <li style="padding-left:1.4rem; position:relative; font-size:0.92rem; color:rgba(236,224,248,0.8);"><span style="position:absolute;left:0;color:var(--accent);">◆</span> Dark-Temur is a useful alternate label: Temur (UBR) + black = Glint-Eye. Players who love Temur's "big spells, big draw" energy but crave black's tutors and recursion end up here.</li>
+        <li style="padding-left:1.4rem; position:relative; font-size:0.92rem; color:rgba(236,224,248,0.8);"><span style="position:absolute;left:0;color:var(--accent);">◆</span> Commander pool is thin: Yidris dominates (~60%+ of UBRG EDHREC volume) and Thrasios/Vial Smasher takes most of the remainder. Players seeking variety have a smaller pool than most quadrants — a good recommendation hook for Partner exploration.</li>
+        <li style="padding-left:1.4rem; position:relative; font-size:0.92rem; color:rgba(236,224,248,0.8);"><span style="position:absolute;left:0;color:var(--accent);">◆</span> Personality fit: Johnny players (combo craftsmen) and Chaos players (who enjoy randomness as a feature, not a bug) are the primary profiles. Timmy is present via green's big threats. Spike appears mainly at the cEDH Thrasios/Vial Smasher tier.</li>
+        <li style="padding-left:1.4rem; position:relative; font-size:0.92rem; color:rgba(236,224,248,0.8);"><span style="position:absolute;left:0;color:var(--accent);">◆</span> Faction tension: Glint-Eye and Ink-Treader (WURG) share blue, red, and green. The differentiator is black's ruthlessness vs. white's structure. A player who loves Temur but wants darker, more destructive tools is Glint-Eye; one who wants Temur with order and lifegain is Ink-Treader.</li>
+      </ul>
+    </div>
+  </section>
+
+  <div class="footnote" style="font-size:0.72rem; margin-top:2rem; line-height:1.8; font-family:'Unbounded',sans-serif; letter-spacing:0.03em;">
+    <strong style="letter-spacing:0.15em; color:var(--muted);">SOURCES</strong><br>
+    MTG Wiki — Nephilim, Multicolored · Scryfall — Glint-Eye Nephilim (GPT #115, C16 #201, DMC #152) · EDH Wiki (Fandom) — Glint-Eye · EDHREC — Top Glint-Eye Commanders, Yidris Commander pages (Cascade, Chaos, Wheels tags) · EDHREC Articles — Commander Showdown: Yidris vs Maelstrom Wanderer (2017); Yidris Living End Deck Tech (2026) · MTG Salvation Forums — Glint-Eye EDH (2011), Yidris Organised Chaos · Eneba — MTG Color Combinations 2026 · Magic Madhouse — Deep Dive on Colour Combinations
+  </div>
+
+</div>
+</body>
+</html>

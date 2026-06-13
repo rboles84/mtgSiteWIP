@@ -4,6 +4,7 @@ import { stripApiMetadataFromQuery } from "./scryfall-parser.js";
 import { buildScryfallApiSearchUrl } from "./research-search.js";
 import { buildScryfallWebSearchUrl, parseAlternativeApi, renderQueryInspector, serializeAlternativeApi } from "./research-ui.js";
 import {
+  buildDossierMazePathEntries,
   mazeSearchLink,
   isMazeOperatorQuery,
   resolveMazeLaunchState,
@@ -11,6 +12,8 @@ import {
   resolveMazePathType,
   resolveMazePlainReadingQuery,
 } from "../assets/js/maze-handoff.js";
+
+const LIVE_FOUR_COLOR_EXACT_COMMANDER_FORBIDDEN_FILTERS = /(?:\bo:|\bft:|\bstorm\b|spell chain|\bknowledge\b|\bstudy\b|\bhungry\b|\bdevouring\b|\baggro\b|\baggressive\b)/i;
 
 const mazeHtml = readFileSync(new URL("../maze/index.html", import.meta.url), "utf8");
 assert.doesNotMatch(mazeHtml, /id="mode-help-btn"/);
@@ -78,6 +81,31 @@ assert.equal(mazeLink.plainReadingQuery, "Board Wipes");
 assert.equal(mazeLink.operatorQuery, "otag:board-wipe");
 assert.equal(mazeLink.url, "/maze/?q=otag%3Aboard-wipe");
 
+const colorlessDossierMazePaths = buildDossierMazePathEntries({
+  identity: "C",
+  factionName: "Colorless",
+  identityHint: "C",
+});
+assert.deepEqual(
+  colorlessDossierMazePaths.map((entry) => entry.query),
+  [
+    "id=c is:commander f:commander",
+    "id<=c f:commander -is:commander (t:artifact OR o:{C} OR o:\"colorless mana\" OR o:Eldrazi)",
+    "id<=c f:commander (ft:cosmic OR ft:void OR ft:waste OR ft:wastes OR ft:eldrazi)",
+    "-id<=c is:commander f:commander (t:artifact OR o:\"colorless mana\" OR o:Eldrazi OR o:artifact)",
+  ],
+  "expected Colorless dossier Maze paths to use strict C/id<=c lanes"
+);
+assert.deepEqual(
+  colorlessDossierMazePaths.map((entry) => entry.label),
+  ["Colorless identity", "Colorless support cards", "Colorless story echoes", "Outside-color stretch"],
+  "expected Colorless dossier Maze labels to avoid WU fallback labels"
+);
+assert.ok(
+  colorlessDossierMazePaths.every((entry) => !/\bwu\b/i.test(`${entry.query} ${entry.plainReadingQuery} ${entry.hint}`)),
+  "expected Colorless dossier Maze paths never to fall back to WU"
+);
+
 const inspectorUrl = new URL(buildScryfallWebSearchUrl("banned:modern", {
   unique: "cards",
   order: "released",
@@ -97,8 +125,13 @@ assert.equal(stripApiMetadataFromQuery("otag:board-wipe order:released direction
 
 await runMazeDomMetadataCases();
 await runLiveShardDossierSidebarCases();
+await runColorlessStaleWuRestoreCase();
+await runLiveFourColorArchscryCases();
+await runConflictingFourColorActiveFitCase();
+await runStaleFourColorLabelRestoreCase();
 await runMarduArchscryOperatorPrecedenceCase();
 await runJeskaiArchscryOperatorPrecedenceCase();
+await runTechnicalRgwuPublicGuardCase();
 await runMazeUrlBootCase();
 
 console.log("Maze search metadata helper cases passed.");
@@ -587,6 +620,336 @@ async function runLiveShardDossierSidebarCases() {
   await runTemurQueryInferredSidebarCase();
 }
 
+async function runColorlessStaleWuRestoreCase() {
+  const dom = installMazeDomHarness();
+  await import("./research-init.js?colorless-stale-wu-restore");
+  const staleOperator = 'id=wu is:commander f:commander (o:"+1/+1 counter" OR o:lifegain OR o:"return target")';
+  const stalePlain = "Colorless commanders with exactly white-blue identity";
+  const encodedOperator = encodeURIComponent(staleOperator);
+  const encodedPlain = encodeURIComponent(stalePlain);
+  const encodedReturn = encodeURIComponent("../archscry/index.html?from=maze&view=COLORLESS#maze-discovery-paths");
+
+  window.location.search = `?from=archscry&guild=WU&fit=COLORLESS&factionName=Colorless&readingId=colorless-reading&pathType=commanders-that-fit&plainReadingQuery=${encodedPlain}&operatorQuery=${encodedOperator}&returnUrl=${encodedReturn}`;
+  window.location.href = `http://localhost/maze/index.html${window.location.search}`;
+  dom.setLocalStorageItem("vm_archscry_maze_handoff_v1", JSON.stringify({
+    fit: "WU",
+    guild: "WU",
+    factionName: "Azorius Senate",
+    returnUrl: "../archscry/index.html",
+    operatorQuery: staleOperator,
+    plainReadingQuery: stalePlain,
+    placementResult: {
+      faction: "WU",
+      faction_name: "Azorius Senate",
+      mana_scores: { W: 8, U: 7, B: 0, R: 0, G: 0 },
+      evidence_trail: [{
+        signal: "family order lifegain return target",
+        answer_title: "Stale white-blue handoff residue",
+        prompt: "Which old identity should not survive active Colorless?"
+      }]
+    }
+  }));
+  await dom.dispatchWindowEvent("load");
+  await new Promise((resolve) => setTimeout(resolve, 0));
+
+  const launchUrl = dom.fetchUrls
+    .map((url) => new URL(url, "http://localhost"))
+    .find((url) => url.origin + url.pathname === "https://api.scryfall.com/cards/search");
+  assert.ok(launchUrl, "expected Colorless Archscry launch to execute a query");
+  assert.equal(
+    launchUrl.searchParams.get("q"),
+    "id=c is:commander f:commander",
+    "expected active Colorless launch to replace stale WU operator syntax"
+  );
+  assert.equal(document.body.dataset.mazeMode, "ai");
+  assert.equal(
+    document.getElementById("search-input").value,
+    "Colorless commanders with strict Colorless identity",
+    "expected active Colorless launch to replace stale white-blue plain text"
+  );
+
+  const readingPaths = [...document.getElementById("reading-path-list").children];
+  assert.equal(readingPaths.length, 4, "expected Colorless sidebar to expose four Colorless lanes");
+  assert.deepEqual(
+    readingPaths.map((path) => path.dataset.query),
+    [
+      "id=c is:commander f:commander",
+      "id<=c f:commander -is:commander (t:artifact OR o:{C} OR o:\"colorless mana\" OR o:Eldrazi)",
+      "id<=c f:commander (ft:cosmic OR ft:void OR ft:waste OR ft:wastes OR ft:eldrazi)",
+      "-id<=c is:commander f:commander (t:artifact OR o:\"colorless mana\" OR o:Eldrazi OR o:artifact)",
+    ],
+    "expected active Colorless sidebar to use C/id<=c lanes"
+  );
+  assert.equal(readingPaths[0].children.at(-1).textContent, "C");
+  assert.equal(readingPaths[1].textContent.replace(readingPaths[1].children.at(-1).textContent, ""), "Colorless support cards");
+
+  const sidebarText = readingPaths.map((path) => `${path.textContent} ${path.dataset.query} ${path.dataset.plainReadingQuery}`).join(" ");
+  assert.doesNotMatch(sidebarText, /\bid=wu\b|\bid<=wu\b|white-blue identity|\bWU\b|\+1\/\+1 counter|lifegain|return target/i);
+
+  const storedActiveHandoff = JSON.parse(dom.getLocalStorageItem("vm_archscry_maze_handoff_v1"));
+  assert.equal(storedActiveHandoff.fit, "COLORLESS");
+  assert.equal(storedActiveHandoff.guild, "COLORLESS");
+  assert.equal(storedActiveHandoff.factionName, "Colorless");
+  assert.equal(storedActiveHandoff.sourceFaction, "WU");
+  assert.equal(storedActiveHandoff.operatorQuery, "id=c is:commander f:commander");
+  assert.equal(storedActiveHandoff.pathType, "colorless-identity");
+  assert.equal(storedActiveHandoff.plainReadingQuery, "Colorless commanders with strict Colorless identity");
+  assert.equal(
+    storedActiveHandoff.placementResult.faction,
+    "WU",
+    "active Colorless sidebar should not mutate the stored stale placement result"
+  );
+}
+
+async function runLiveFourColorArchscryCases() {
+  const cases = [
+    {
+      key: "YORE",
+      name: "Yore",
+      operatorIdentity: "rubw",
+      canonicalIdentity: "wubr",
+      words: "white-blue-black-red",
+      storedKey: "WG",
+      storedName: "Selesnya Conclave",
+      storedScores: { W: 8, U: 0, B: 0, R: 0, G: 7 },
+      visibleHint: "Yore",
+    },
+    {
+      key: "GLINT",
+      name: "Glint",
+      operatorIdentity: "grbu",
+      canonicalIdentity: "ubrg",
+      words: "blue-black-red-green",
+      storedKey: "WB",
+      storedName: "Orzhov Syndicate",
+      storedScores: { W: 8, U: 0, B: 7, R: 0, G: 0 },
+      visibleHint: "Glint",
+    },
+    {
+      key: "DUNE",
+      name: "Dune",
+      operatorIdentity: "wrgb",
+      canonicalIdentity: "brgw",
+      words: "black-red-green-white",
+      storedKey: "WU",
+      storedName: "Azorius Senate",
+      storedScores: { W: 8, U: 7, B: 0, R: 0, G: 0 },
+      visibleHint: "Dune",
+    },
+    {
+      key: "INK",
+      name: "Ink",
+      operatorIdentity: "uwgr",
+      canonicalIdentity: "rgwu",
+      words: "red-green-white-blue",
+      storedKey: "WU",
+      storedName: "Azorius Senate",
+      storedScores: { W: 8, U: 7, B: 0, R: 0, G: 0 },
+      visibleHint: "Ink",
+    },
+    {
+      key: "WITCH",
+      name: "Witch",
+      operatorIdentity: "wubg",
+      canonicalIdentity: "gwub",
+      words: "green-white-blue-black",
+      storedKey: "BR",
+      storedName: "Rakdos Cult",
+      storedScores: { W: 0, U: 0, B: 8, R: 7, G: 0 },
+      visibleHint: "Witch",
+    },
+  ];
+
+  for (const testCase of cases) {
+    const dom = installMazeDomHarness();
+    await import(`./research-init.js?${testCase.key.toLowerCase()}-four-color-archscry`);
+    const operatorQuery = `id=${testCase.operatorIdentity} is:commander f:commander (o:draw OR o:token OR o:graveyard OR o:sacrifice)`;
+    const expectedExactQuery = `id=${testCase.canonicalIdentity} is:commander f:commander`;
+    const plainReadingQuery = `${testCase.name} commanders with exactly ${testCase.words} identity`;
+    const encodedOperator = encodeURIComponent(operatorQuery);
+    const encodedPlain = encodeURIComponent(plainReadingQuery);
+    const encodedReturn = encodeURIComponent(`../archscry/index.html?from=maze&view=${testCase.key}#maze-discovery-paths`);
+
+    window.location.search = `?from=archscry&guild=${testCase.storedKey}&readingId=${testCase.key.toLowerCase()}-reading&pathType=commanders-that-fit&plainReadingQuery=${encodedPlain}&operatorQuery=${encodedOperator}&returnUrl=${encodedReturn}`;
+    window.location.href = `http://localhost/maze/index.html${window.location.search}`;
+    dom.setLocalStorageItem("vm_archscry_maze_handoff_v1", JSON.stringify({
+      returnUrl: "../archscry/index.html",
+      placementResult: {
+        faction: testCase.storedKey,
+        faction_name: testCase.storedName,
+        mana_scores: testCase.storedScores,
+        evidence_trail: [{
+          signal: "stored pre-four-color result",
+          answer_title: "Keep the older lane out of the way",
+          prompt: "Which handoff owns the current search?",
+        }]
+      }
+    }));
+    await dom.dispatchWindowEvent("load");
+    await new Promise((resolve) => setTimeout(resolve, 0));
+
+    const launchUrl = dom.fetchUrls
+      .map((url) => new URL(url, "http://localhost"))
+      .find((url) => url.origin + url.pathname === "https://api.scryfall.com/cards/search");
+    assert.ok(launchUrl, `expected ${testCase.key} Archscry launch to execute an operator query`);
+    assert.equal(
+      launchUrl.searchParams.get("q"),
+      expectedExactQuery,
+      `expected ${testCase.key} launch query to normalize to the broad exact commander lane`
+    );
+    assert.equal(document.body.dataset.mazeMode, "raw");
+    assert.equal(
+      document.getElementById("search-input").value,
+      expectedExactQuery,
+      `expected ${testCase.key} visible Maze input to stay on broad exact commander syntax`
+    );
+
+    const readingPaths = [...document.getElementById("reading-path-list").children];
+    const visibleSidebarText = readingPaths.map((path) => path.textContent).join(" ");
+    const sidebarStateText = readingPaths
+      .map((path) => `${path.textContent} ${path.dataset.query} ${path.dataset.plainReadingQuery}`)
+      .join(" ");
+    assert.equal(readingPaths.length, 3);
+    assert.equal(readingPaths[0].children.at(-1).textContent, testCase.visibleHint);
+    assert.equal(readingPaths[0].dataset.query, expectedExactQuery);
+    assert.doesNotMatch(readingPaths[0].dataset.query, LIVE_FOUR_COLOR_EXACT_COMMANDER_FORBIDDEN_FILTERS);
+    assert.match(
+      readingPaths[0].dataset.plainReadingQuery,
+      new RegExp(`${testCase.name} commanders with exactly ${testCase.words} identity`, "i")
+    );
+    assert.ok(readingPaths.every((path) => path.dataset.pathType !== "weird-stretch-commanders"));
+    assert.ok(
+      readingPaths.every((path) => !/\/(?:wubr|ubrg|brgw|rgwu|gwub|WUBR|UBRG|BRGW|RGWU|GWUB)\//.test(`${path.textContent} ${path.dataset.plainReadingQuery}`)),
+      `expected ${testCase.key} visible path labels to avoid public raw color-code route language`
+    );
+    assert.doesNotMatch(
+      visibleSidebarText,
+      new RegExp(`\\b${testCase.storedKey}\\b|${testCase.storedName}|WBRG|UBRG|BRGW|RGWU|GWUB`, "i"),
+      `expected ${testCase.key} visible sidebar labels to avoid stale source or color-code labels`
+    );
+    if (testCase.key === "INK") {
+      assert.doesNotMatch(
+        sidebarStateText,
+        /\bid=wu\b|\bid<=wu\b|\bWU\b|Azorius/i,
+        "expected Ink reading paths to avoid stale WU query, label, and adjacent-fit context"
+      );
+    }
+
+    const storedActiveHandoff = JSON.parse(dom.getLocalStorageItem("vm_archscry_maze_handoff_v1"));
+    assert.equal(storedActiveHandoff.fit, testCase.key);
+    assert.equal(storedActiveHandoff.guild, testCase.key);
+    assert.equal(storedActiveHandoff.factionName, testCase.visibleHint);
+    assert.equal(storedActiveHandoff.sourceFaction, "");
+    assert.equal(storedActiveHandoff.operatorQuery, expectedExactQuery);
+    assert.equal(Object.prototype.hasOwnProperty.call(storedActiveHandoff, "placementResult"), false);
+    if (testCase.key === "INK") {
+      assert.doesNotMatch(
+        JSON.stringify(storedActiveHandoff),
+        /\bid=wu\b|\bid<=wu\b|\bWU\b|Azorius/i,
+        "expected Ink stored handoff state to clear stale WU placement and localStorage context"
+      );
+    }
+  }
+}
+
+async function runConflictingFourColorActiveFitCase() {
+  const dom = installMazeDomHarness();
+  await import("./research-init.js?glint-conflicting-source-active-fit");
+  const operatorQuery = 'id=ubrg is:commander f:commander (o:storm OR o:"spell chain" OR o:aggro OR o:aggressive)';
+  const expectedExactQuery = "id=ubrg is:commander f:commander";
+  const plainReadingQuery = "Glint commanders with exactly blue-black-red-green identity";
+  const encodedOperator = encodeURIComponent(operatorQuery);
+  const encodedPlain = encodeURIComponent(plainReadingQuery);
+  const encodedReturn = encodeURIComponent("../archscry/index.html?from=maze&view=GLINT&readingId=2026-05-10-quick-dune-100#maze-discovery-paths");
+
+  window.location.search = `?q=${encodedOperator}&from=archscry&readingId=2026-05-10-quick-dune-100&guild=DUNE&fit=GLINT&factionName=Glint&readingTitle=Glint+dossier&pathType=commanders-that-fit&plainReadingQuery=${encodedPlain}&operatorQuery=${encodedOperator}&returnUrl=${encodedReturn}`;
+  window.location.href = `http://localhost/maze/index.html${window.location.search}`;
+  dom.setLocalStorageItem("vm_archscry_maze_handoff_v1", JSON.stringify({
+    fit: "WB",
+    guild: "WB",
+    factionName: "Orzhov Syndicate",
+    returnUrl: "../archscry/index.html",
+    placementResult: {
+      faction: "WB",
+      faction_name: "Orzhov Syndicate",
+      mana_scores: { W: 8, U: 0, B: 7, R: 0, G: 0 },
+      evidence_trail: [{
+        signal: "stored white-black residue",
+        answer_title: "This should not survive active Glint",
+        prompt: "Which identity owns the sidebar?"
+      }]
+    }
+  }));
+  await dom.dispatchWindowEvent("load");
+  await new Promise((resolve) => setTimeout(resolve, 0));
+
+  const launchUrl = dom.fetchUrls
+    .map((url) => new URL(url, "http://localhost"))
+    .find((url) => url.origin + url.pathname === "https://api.scryfall.com/cards/search");
+  assert.ok(launchUrl, "expected conflicted Glint Archscry link to execute the operator query");
+  assert.equal(launchUrl.searchParams.get("q"), expectedExactQuery);
+  assert.equal(document.body.dataset.mazeMode, "raw");
+  assert.equal(document.getElementById("search-input").value, expectedExactQuery);
+
+  const readingPaths = [...document.getElementById("reading-path-list").children];
+  const visibleSidebarText = readingPaths.map((path) => path.textContent).join(" ");
+  const sidebarText = readingPaths.map((path) => `${path.textContent} ${path.dataset.query} ${path.dataset.plainReadingQuery}`).join(" ");
+  assert.equal(readingPaths.length, 3);
+  assert.equal(readingPaths[0].children.at(-1).textContent, "Glint");
+  assert.equal(readingPaths[0].dataset.query, expectedExactQuery);
+  assert.doesNotMatch(readingPaths[0].dataset.query, LIVE_FOUR_COLOR_EXACT_COMMANDER_FORBIDDEN_FILTERS);
+  assert.doesNotMatch(sidebarText, /\bWB\b|Orzhov|white-black|Dune|DUNE/i);
+  assert.doesNotMatch(visibleSidebarText, /\b(?:WBRG|UBRG|BRGW)\b/i);
+
+  const storedActiveHandoff = JSON.parse(dom.getLocalStorageItem("vm_archscry_maze_handoff_v1"));
+  assert.equal(storedActiveHandoff.fit, "GLINT");
+  assert.equal(storedActiveHandoff.guild, "GLINT");
+  assert.equal(storedActiveHandoff.sourceFaction, "DUNE");
+  assert.equal(storedActiveHandoff.factionName, "Glint");
+  assert.equal(storedActiveHandoff.operatorQuery, expectedExactQuery);
+}
+
+async function runStaleFourColorLabelRestoreCase() {
+  const dom = installMazeDomHarness();
+  await import("./research-init.js?stale-four-color-label-restore");
+  const operatorQuery = "id=wubr is:commander f:commander (o:artifact OR o:sacrifice)";
+  const expectedExactQuery = "id=wubr is:commander f:commander";
+  const encodedOperator = encodeURIComponent(operatorQuery);
+  const encodedReturn = encodeURIComponent("../archscry/index.html?from=maze&view=YORE#maze-discovery-paths");
+
+  window.location.search = `?from=archscry&guild=WBRG&fit=YORE&factionName=WBRG&readingId=stale-yore-reading&pathType=commanders-that-fit&plainReadingQuery=WBRG+commanders&operatorQuery=${encodedOperator}&returnUrl=${encodedReturn}`;
+  window.location.href = `http://localhost/maze/index.html${window.location.search}`;
+  dom.setLocalStorageItem("vm_archscry_maze_handoff_v1", JSON.stringify({
+    fit: "WBRG",
+    guild: "WBRG",
+    factionName: "WBRG",
+    sourceFaction: "UBRG",
+    returnUrl: "../archscry/index.html",
+    placementResult: {
+      faction: "WBRG",
+      faction_name: "WBRG",
+      mana_scores: { W: 8, U: 0, B: 8, R: 7, G: 7 },
+      evidence_trail: []
+    }
+  }));
+  await dom.dispatchWindowEvent("load");
+  await new Promise((resolve) => setTimeout(resolve, 0));
+
+  const readingPaths = [...document.getElementById("reading-path-list").children];
+  const visibleSidebarText = readingPaths.map((path) => path.textContent).join(" ");
+  assert.equal(readingPaths.length, 3);
+  assert.equal(readingPaths[0].children.at(-1).textContent, "Yore");
+  assert.equal(readingPaths[0].dataset.query, expectedExactQuery);
+  assert.doesNotMatch(visibleSidebarText, /\b(?:WBRG|UBRG|BRGW|WG|WB|WU)\b|Dune|Glint/i);
+
+  const storedActiveHandoff = JSON.parse(dom.getLocalStorageItem("vm_archscry_maze_handoff_v1"));
+  assert.equal(storedActiveHandoff.fit, "YORE");
+  assert.equal(storedActiveHandoff.guild, "YORE");
+  assert.equal(storedActiveHandoff.factionName, "Yore");
+  assert.equal(storedActiveHandoff.sourceFaction, "DUNE");
+  assert.equal(storedActiveHandoff.operatorQuery, expectedExactQuery);
+}
+
 async function runTemurQueryInferredSidebarCase() {
   const dom = installMazeDomHarness();
   await import("./research-init.js?temur-query-inferred-sidebar");
@@ -711,6 +1074,39 @@ async function runJeskaiArchscryOperatorPrecedenceCase() {
 
   const sidebarText = readingPaths.map((path) => `${path.textContent} ${path.dataset.query} ${path.dataset.plainReadingQuery}`).join(" ");
   assert.doesNotMatch(sidebarText, /\bc=wu\b.*\bc=ur\b.*\bc=wur\b.*\bf:commander\b/i);
+}
+
+async function runTechnicalRgwuPublicGuardCase() {
+  const dom = installMazeDomHarness();
+  await import("./research-init.js?technical-rgwu-public-guard");
+  const operatorQuery = "id=rgwu is:commander f:commander (o:draw OR o:ramp)";
+  const expectedExactQuery = "id=rgwu is:commander f:commander";
+  window.location.search = `?from=archscry&fit=RGWU&factionName=RGWU&readingId=rgwu-reading&pathType=commanders-that-fit&operatorQuery=${encodeURIComponent(operatorQuery)}&returnUrl=..%2Farchscry%2Findex.html`;
+  window.location.href = `http://localhost/maze/index.html${window.location.search}`;
+  dom.setLocalStorageItem("vm_archscry_maze_handoff_v1", JSON.stringify({
+    returnUrl: "../archscry/index.html",
+    placementResult: {}
+  }));
+  await dom.dispatchWindowEvent("load");
+  await new Promise((resolve) => setTimeout(resolve, 0));
+
+  const readingPaths = [...document.getElementById("reading-path-list").children];
+  const visibleSidebarText = readingPaths.map((path) => path.textContent).join(" ");
+  assert.equal(readingPaths.length, 3, "expected technical RGWU handoff to resolve to live Ink sidebar rendering");
+  assert.equal(readingPaths[0].children.at(-1).textContent, "Ink");
+  assert.equal(readingPaths[0].dataset.query, expectedExactQuery);
+  assert.doesNotMatch(visibleSidebarText, /\bRGWU\b/i, "expected raw RGWU not to become a public Maze label");
+  assert.ok(
+    readingPaths.every((path) => !/\/(?:rgwu|RGWU)\//.test(`${path.textContent} ${path.dataset.plainReadingQuery}`)),
+    "expected raw RGWU not to become a public route or directory path"
+  );
+
+  const storedActiveHandoff = JSON.parse(dom.getLocalStorageItem("vm_archscry_maze_handoff_v1"));
+  assert.equal(storedActiveHandoff.fit, "INK");
+  assert.equal(storedActiveHandoff.guild, "INK");
+  assert.equal(storedActiveHandoff.factionName, "Ink");
+  assert.equal(storedActiveHandoff.operatorQuery, expectedExactQuery);
+  assert.doesNotMatch(JSON.stringify(storedActiveHandoff), /"fit":"RGWU"|"guild":"RGWU"|"factionName":"RGWU"/i);
 }
 
 async function runMazeUrlBootCase() {

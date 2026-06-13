@@ -296,30 +296,51 @@ const COMMANDER_PATH_RULES = [
 
 const CURATED_LEGENDARY_CREATURE_STAPLES = new Set([
   "adrix and nev twincasters",
+  "alesha who smiles at death",
+  "anafenza the foremost",
+  "animar soul of elements",
   "aurelia the warleader",
   "beledros witherbloom",
+  "breya etherium shaper",
   "breena the demagogue",
+  "chulane teller of tales",
   "dina soul steeper",
+  "doran the siege tower",
+  "elsha of the infinite",
   "galazeth prismari",
   "hofri ghostforge",
+  "kaalia of the vast",
+  "kalamax the stormsire",
+  "karador ghost chieftain",
   "killian ink duelist",
   "kroxa titan of death s hunger",
+  "kynaios and tiro of meletis",
   "lavinia of the tenth",
   "lazav dimir mastermind",
   "marath will of the wild",
+  "muldrotha the gravetide",
+  "narset enlightened master",
   "pantlaza sun favored",
   "prime speaker zegana",
   "quintorius field historian",
+  "rafiq of the many",
   "rootha mercurial artist",
+  "saskia the unyielding",
   "shalai and hallar",
   "shadrix silverquill",
+  "sidisi brood tyrant",
+  "surrak dragonclaw",
   "tanazir quandrix",
+  "the mimeoplasm",
   "thalia guardian of thraben",
   "trostani selesnya s voice",
+  "tuvasa the sunlit",
   "uro titan of nature s wrath",
   "veyran voice of duality",
   "vito thorn of the dusk rose",
   "willowdusk essence seer",
+  "yidris maelstrom wielder",
+  "zurgo helmsmasher",
   "zimone quandrix prodigy",
 ]);
 
@@ -367,7 +388,7 @@ const PACKAGE_QUERIES = [
   },
 ];
 
-const ACTION_CUE_PATTERN = /\b(slow down|rebuild|hold|protect|buy time|draw|remove|wait|sequence)\b/i;
+const ACTION_CUE_PATTERN = /\b(slow down|rebuild|hold|protect|buy time|draw|remove|wait|sequence|set up|convert|commit|develop|keep|spend)\b/i;
 const LAND_COUNT_PATTERNS = [
   /\b[2-9]x\s+/i,
   /\bx\s*[2-9]\b/i,
@@ -869,7 +890,142 @@ export const COMMANDER_FACTION_GUIDANCE = {
     tableCautionText: "Develop the stance first, keep interaction ready, and spend the decisive spell only when it lets insight become action without losing restraint.",
     tableCautionReviewRule: "If text sounds like generic same-color goodstuff, Ojutai continuity, Dragonstorm backfill, Commander products as canon, or mechanics-as-canon, rebind it to VM-229 through VM-233 source boundaries.",
   },
+  YORE: {
+    key: "YORE",
+    shortName: "Yore",
+    ownedThemes: ["engineered agency", "artifice", "civilization", "technology", "progress", "constructed continuity", "refusal of natural surrender", "artifact engines", "recursion texture"],
+    allowedPhrases: ["four-color without Green", "engineered agency", "artifice", "civilization", "technology", "progress", "refusal of natural surrender", "constructed continuity"],
+    bannedPhrases: ["official MTG faction", "official universal WUBR name", "Cult of Yore equivalence", "Breya proves Yore lore", "cEDH proof", "Commander legality proof", "generic WUBR goodstuff", "generic artifact deck"],
+    bleedWarningTerms: ["generic artifacts", "generic recursion", "generic WUBR", "Breya-only", "Cult of Yore", "Thran", "Phyrexia", "Esper perfection", "Sultai resource conversion"],
+    bleedWarnings: ["avoid collapsing Yore into generic artifacts, generic recursion, Breya-only artifacts, Cult of Yore, Thran, Phyrexia, Esper, Grixis, Jeskai, Mardu, Sultai, or WUBR goodstuff"],
+    preferredArchetypeTags: ["Artifacts", "Aristocrats", "Control"],
+    starterSearchTags: ["Artifacts", "Aristocrats", "Control"],
+    commanderPlan: "turns artifacts, sacrifice, recursion, and controlled engines into table texture for engineered agency against natural surrender",
+    spellcraftIdentity: "Use artifacts, sacrifice, recursion, control, value engines, and precise combo texture as Commander-facing ways to show artifice and constructed continuity. They are table texture, not the source of the name or identity.",
+    tableCautionText: "Build the engine carefully, protect the piece that keeps agency online, and avoid treating every artifact or graveyard line as Yore unless it carries the four-color without Green worldview.",
+    tableCautionReviewRule: "If text sounds like generic WUBR goodstuff, Breya as lore proof, Cult of Yore equivalence, cEDH proof, or mechanics-as-canon, rebind it to VM-240 through VM-244 source boundaries.",
+  },
+  GLINT: {
+    key: "GLINT",
+    shortName: "Glint",
+    ownedThemes: ["adaptive appetite", "volatility", "living force", "missing White pressure", "improvisation", "storm-fed growth", "predatory current", "maelstrom texture"],
+    allowedPhrases: ["four-color without White", "adaptive appetite", "living force under pressure", "storm-fed growth", "volatility with intelligence", "source-bound Glint / Chaos"],
+    bannedPhrases: ["official MTG faction", "official universal UBRG name", "Chaos proves a universal name", "Yidris proves Glint lore", "Commander legality proof", "generic UBRG goodstuff", "generic chaos deck"],
+    bleedWarningTerms: ["generic UBRG", "generic chaos", "generic cascade", "Yidris-only", "Glint-Eye institution", "Grixis cruelty", "Jund appetite", "Temur experimentation", "Sultai exploitation", "Omnath value shell"],
+    bleedWarnings: ["avoid collapsing Glint into generic UBRG goodstuff, generic chaos, generic cascade, Yidris-only shells, Glint-Eye institutional claims, Grixis, Jund, Temur, Sultai, or Omnath/non-Black four-color value"],
+    preferredArchetypeTags: ["Spellslinger", "Aggro", "Midrange"],
+    starterSearchTags: ["Spellslinger", "Aggro", "Midrange"],
+    commanderPlan: "turns volatility, pressure, living-force adaptation, and opportunistic bursts into table texture for a storm-fed identity that refuses White-style civic restraint",
+    spellcraftIdentity: "Cascade-adjacent turns, combat-damage spell momentum, volatile sequencing, pressure-based value, and adaptive creature or spell engines can give Commander table texture to Glint's appetite, intelligence, ignition, and living-force plan. They are table texture, not the source of the name or identity.",
+    tableCautionText: "Keep the pressure alive, but do not mistake every high-variance or cascade shell for Glint unless the full non-White frame, adaptive appetite, and living-force pressure are all present.",
+    tableCautionReviewRule: "If text sounds like generic UBRG goodstuff, generic chaos or cascade, Yidris as lore proof, Glint-Eye as an institution, or mechanics-as-canon, rebind it to VM-246 through VM-250 source boundaries.",
+  },
+  DUNE: {
+    key: "DUNE",
+    shortName: "Dune",
+    ownedThemes: ["organized territorial pressure", "force-backed solidarity", "missing Blue pressure", "common front", "cost-bearing conquest", "survival-minded multiplication", "line pressure"],
+    allowedPhrases: ["four-color without Blue", "organized territorial pressure", "force-backed solidarity", "common-front force", "missing-Blue pressure", "source-bound Dune"],
+    bannedPhrases: ["official MTG faction", "official universal BRGW name", "Aggression as public alias", "Saskia proves Dune lore", "Commander legality proof", "generic BRGW goodstuff", "generic combat shell"],
+    bleedWarningTerms: ["generic BRGW", "generic go-wide", "generic tokens", "generic combat", "Saskia-only", "Dune-Brood institution", "Jund appetite", "Naya belonging", "Mardu raid-speed", "Abzan endurance", "Glint adaptation"],
+    bleedWarnings: ["avoid collapsing Dune into generic BRGW goodstuff, generic go-wide or combat shells, Saskia-only shells, Dune-Brood institutional claims, Jund, Naya, Mardu, Abzan, Glint, or Blue-present four-color value piles"],
+    preferredArchetypeTags: ["Aggro", "Tokens", "Midrange"],
+    starterSearchTags: ["Aggro", "Tokens", "Midrange"],
+    commanderPlan: "turns coordinated combat pressure, cost-bearing aggression, survival-minded multiplication, and multi-front force into table texture for organized territorial pressure without Blue-style distance",
+    spellcraftIdentity: "Go-wide pressure, multi-front combat, token-like multiplication, attack triggers, and disciplined threat sequencing can give Commander table texture to Dune's line, cost, ignition, and persistence. They are table texture, not the source of the name or identity.",
+    tableCautionText: "Keep the line moving, but do not mistake every combat shell, token deck, or same-color pile for Dune unless the full non-Blue territorial frame and force-backed solidarity are both present.",
+    tableCautionReviewRule: "If text sounds like generic BRGW goodstuff, Aggression as a public alias, Saskia as lore proof, Dune-Brood as an institution, or mechanics-as-canon, rebind it to VM-252 through VM-256 source boundaries.",
+  },
+  INK: {
+    key: "INK",
+    shortName: "Ink",
+    ownedThemes: ["protected public abundance", "open knowledge", "guarded generosity", "public commons", "community benefit", "anti-hoarding boundary", "group-hug table texture"],
+    allowedPhrases: ["four-color without Black", "protected public abundance", "open knowledge", "guarded generosity", "public commons", "community benefit", "Ink / Altruism display framing"],
+    bannedPhrases: ["official MTG faction", "official universal same-color name", "Altruism as public alias", "Kynaios proves Ink lore", "Ink-Treader institution", "Commander legality proof", "generic same-color goodstuff", "generic group-hug deck"],
+    bleedWarningTerms: ["generic same-color", "generic group-hug", "generic public archive", "Kynaios-only", "Stalwart Unity", "Ink-Treader-only", "Bant order", "Jeskai discipline", "Naya belonging", "Temur attunement", "Dune force", "Glint appetite"],
+    bleedWarnings: ["avoid collapsing Ink into generic same-color goodstuff, generic group-hug, generic public-archive shells, Kynaios-only texture, Ink-Treader-only texture, Bant, Jeskai, Naya, Temur, Dune, Glint, or Altruism as a public alias"],
+    preferredArchetypeTags: ["Group Hug", "Politics", "Ramp"],
+    starterSearchTags: ["Group Hug", "Politics", "Ramp"],
+    commanderPlan: "turns shared resources, politics, ramp, draw, and table reciprocity into Commander texture for guarded public abundance without letting the gift become private leverage",
+    spellcraftIdentity: "Group-hug exchanges, political incentives, shared-card or shared-mana texture, ramp, and carefully guarded reciprocity can give Commander table texture to Ink's open knowledge and public commons plan. They are table texture, not the source of the name or identity.",
+    tableCautionText: "Keep the commons guarded, but do not mistake every group-hug, Kynaios, Ink-Treader, or same-color pile for Ink unless the full non-Black anti-hoarding frame and protected public-abundance boundary are both present.",
+    tableCautionReviewRule: "If text sounds like generic same-color goodstuff, Altruism as a public alias, Kynaios as lore proof, Ink-Treader as an institution, or mechanics-as-canon, rebind it to VM-258 through VM-262 source boundaries.",
+  },
+  WITCH: {
+    key: "WITCH",
+    shortName: "Witch",
+    ownedThemes: ["patient cultivation", "calculated expansion", "protected growth", "systematic accumulation", "missing Red pressure", "ambition under structure", "proliferate texture", "counter scaling"],
+    allowedPhrases: ["four-color without Red", "patient cultivation", "calculated expansion", "protected growth", "systematic accumulation", "Witch / Growth display framing"],
+    bannedPhrases: ["official MTG faction", "official universal GWUB name", "Growth as public alias", "Atraxa proves Witch lore", "Witch-Maw institution", "Commander legality proof", "generic GWUB goodstuff", "generic counters deck"],
+    bleedWarningTerms: ["generic GWUB", "generic counters", "generic proliferate", "Atraxa-only", "Breed Lethality", "Witch-Maw-only", "infect-only", "superfriends-only", "Phyrexia-only", "Bant order", "Esper control", "Sultai ambition", "Abzan endurance"],
+    bleedWarnings: ["avoid collapsing Witch into generic GWUB goodstuff, generic counters or proliferate, Atraxa-only texture, Breed Lethality, Witch-Maw-only texture, infect-only, superfriends-only, Phyrexia-only, Bant, Esper, Sultai, Abzan, Growth as public alias, or same-color piles"],
+    preferredArchetypeTags: ["Counters Matter", "Midrange", "Control"],
+    starterSearchTags: ["Counters Matter", "Midrange", "Control"],
+    commanderPlan: "turns protected counters, proliferate texture, value engines, and long-horizon resource growth into table texture for calculated inevitability without Red-style impulse",
+    spellcraftIdentity: "Counters, proliferate texture, protected engines, recursion-adjacent value, and scaling board development can give Commander table texture to Witch's cultivation, structure, calculation, and ambition. They are table texture, not the source of the name or identity.",
+    tableCautionText: "Cultivate patiently, protect the engine, and do not mistake every Atraxa, counter, proliferate, infect, superfriends, or same-color pile for Witch unless the full non-Red protected-growth worldview is present.",
+    tableCautionReviewRule: "If text sounds like generic GWUB goodstuff, Growth as a public alias, Atraxa as lore proof, Witch-Maw as an institution, Breed Lethality as naming authority, or mechanics-as-canon, rebind it to VM-264 through VM-268 source boundaries.",
+  },
+  COLORLESS: {
+    key: "COLORLESS",
+    shortName: "Colorless",
+    ownedThemes: ["outside-WUBRG precision", "chosen restriction", "true colorless mana", "Wastes", "artifact engines", "utility lands", "Eldrazi scale", "generic/colorless separation", "five-color Eldrazi separator"],
+    allowedPhrases: ["outside WUBRG", "chosen restriction", "true {C}", "Wastes", "artifact engines", "colorless finishers", "limits become the plan"],
+    bannedPhrases: ["sixth color", "superior to WUBRG", "generic mana is colorless", "artifact equals Colorless", "five-color Eldrazi proves Colorless", "discard pile like a second hand", "stock the graveyard", "buy cards back", "make removal feel temporary", "The pilot", "recognizable Commander table role"],
+    bleedWarningTerms: ["generic mana", "devoid", "five-color Eldrazi", "Ulalek", "Eldrazi Incursion", "Phyrexia", "colored artifacts", "all artifacts"],
+    bleedWarnings: ["avoid collapsing true {C}, generic mana, artifacts, Eldrazi, Wastes, Devoid, Phyrexia, or five-color Eldrazi into one Colorless identity"],
+    preferredArchetypeTags: ["Artifacts", "Big Mana", "Ramp"],
+    starterSearchTags: ["Artifacts", "Big Mana", "Ramp"],
+    commanderPlan: "starts with the outside-WUBRG constraint: build reliable {C}, then make mana rocks, utility lands, and colorless finishers prove why the limit was chosen",
+    spellcraftIdentity: "Wastes, true {C} sources, mana rocks, utility lands, artifact engines, and colorless finishers create strict Colorless footing while generic costs, Devoid, artifacts, and five-color Eldrazi stay separate.",
+    tableCautionText: "Develop Wastes, true {C} sources, and mana rocks first, keep generic costs separate, and verify artifacts, Devoid, Eldrazi, or five-color Eldrazi before calling them native Colorless.",
+    tableCautionReviewRule: "If text treats Colorless as a sixth color, WUBRG mastery, generic mana, all artifacts, Devoid, Phyrexia, or five-color Eldrazi, rebind it to VM-324, VM-326, VM-334, and VM-337 source boundaries.",
+  },
 };
+
+const SUMMARY_STRIP_LABELS = Object.freeze({
+  adjacentFit: "Adjacent fit",
+  whereThisLeads: "Where this leads",
+  playPattern: "Play pattern",
+});
+
+const SUMMARY_PLACEHOLDER_RE = /\b(todo|tbd|placeholder|missing)\b/i;
+const SUMMARY_COMPARE_WORD_RE = /[a-z0-9+]+/gi;
+const SUMMARY_GENERIC_OPPONENT_READ =
+  "Opponents experience the deck through its repeated play patterns and the choices it forces.";
+
+// Display fallbacks only. These values protect the summary strip from going blank;
+// they are not packet truth, canon, or source authority.
+const SUMMARY_STRIP_DISPLAY_OVERRIDES = new Map([
+  ["YORE", {
+    whereThisLeadsHeading: "Rebuild the engine",
+    playPatternHeading: "Keep agency online",
+  }],
+  ["GLINT", {
+    whereThisLeadsHeading: "Feed the opening",
+    playPatternHeading: "Keep the pressure live",
+  }],
+  ["DUNE", {
+    whereThisLeadsHeading: "Take the field early",
+    playPatternHeading: "Hold the line in public",
+  }],
+  ["INK", {
+    whereThisLeadsHeading: "Guard the commons",
+    playPatternHeading: "Keep the gift moving",
+  }],
+  ["WITCH", {
+    whereThisLeadsHeading: "Cultivate the engine",
+    playPatternHeading: "Let advantage root",
+  }],
+  ["COLORLESS", {
+    whereThisLeadsHeading: "Build outside the wheel",
+    playPatternHeading: "Make limits into structure",
+    tags: ["Artifacts", "Big Mana", "Ramp"],
+  }],
+]);
+
+// Display fallbacks only. These entries keep mocked or incomplete reads renderable
+// and should never be treated as source authority.
+const SUMMARY_STRIP_FALLBACKS = Object.freeze({});
 
 function normalizeTagText(value) {
   return String(value || "")
@@ -980,15 +1136,36 @@ function commanderStapleDescription(name, faction) {
   const displayName = cardDisplayName(name);
   const specific = {
     "Adrix and Nev, Twincasters": "Token doubling gives Quandrix a clean route from one small equation to a board state the table can no longer calculate.",
+    "Alesha, Who Smiles at Death": "Turns Mardu attack pressure into recursion for small creatures, keeping speed, war-name commitment, and ruthless opportunity on the same line.",
+    "Anafenza, the Foremost": "Puts Abzan counters, family endurance, and graveyard denial on one aggressive body while staying anchored to house continuity.",
+    "Animar, Soul of Elements": "Makes Temur's earned strength visible through creature growth and cost reduction, rewarding a board that listens before it becomes huge.",
+    "Breya, Etherium Shaper": "Gives Yore a conservative support-only face for artifact engines, constructed continuity, and engineered agency without making Breya the source of Yore lore.",
     "Breena, the Demagogue": "Turns table politics into cards and counters, exactly where Silverquill wants its social leverage to become visible.",
+    "Chulane, Teller of Tales": "Turns Bant creature casts into cards, lands, and reusable support, keeping refinement and living order attached to a visible board.",
     "Dina, Soul Steeper": "Converts life gain into table-wide drain, giving Witherbloom a simple engine for life and death as one economy.",
+    "Doran, the Siege Tower": "Lets Abzan endurance become pressure by turning toughness and defensive patience into a practical way to end the game.",
+    "Elsha of the Infinite": "Keeps Jeskai spellcraft disciplined by turning the top of the library into a trained noncreature-spell line with flash timing.",
+    "Kaalia of the Vast": "Converts Mardu's decisive opening into immediate combat pressure, with a clear caveat that the line is swingy and removal-prone.",
+    "Kalamax, the Stormsire": "Lets Temur copy the instant that matters, turning patience, signal-reading, and elemental force into one explosive turn.",
+    "Karador, Ghost Chieftain": "Keeps Abzan's dead useful for the house by turning graveyard recursion into long-game continuity instead of generic value.",
     "Killian, Ink Duelist": "Rewards targeted pressure and cheap interaction, giving Silverquill a focused combat-negotiation commander.",
+    "Kynaios and Tiro of Meletis": "Gives Ink a conservative support-only face for guarded public abundance, shared resources, and political generosity without making the card the source of Ink lore.",
     "Marath, Will of the Wild": "Gives Naya a flexible creature-forward mana sink where counters, bodies, and damage stay tied to living-board pressure.",
+    "Muldrotha, the Gravetide": "Turns Sultai resource conversion into repeatable graveyard access, making every spent permanent a calculated future advantage.",
+    "Narset, Enlightened Master": "Lets Jeskai trained insight become action through combat-triggered spellcasting, with a caveat against turning the path into extra-turns autopilot.",
     "Pantlaza, Sun-Favored": "Turns creature-forward scale into fresh momentum, letting Naya grow mana and keep the living board moving through Dinosaur pressure.",
+    "Rafiq of the Many": "Focuses Bant support behind one honorable champion, making exalted pressure and public trust visible in combat.",
     "Rootha, Mercurial Artist": "Copies the expressive spell that matters, letting Prismari make one big performance echo twice.",
+    "Saskia the Unyielding": "Gives Dune a conservative support-only face for coordinated combat pressure and force-backed solidarity without making Saskia the source of Dune lore.",
     "Shalai and Hallar": "Makes counters visible as protective pressure, giving Naya a clean support line from growth to table impact.",
+    "Sidisi, Brood Tyrant": "Turns Sultai self-mill into bodies and leverage, keeping necromantic utility tied to Sidisi-era ambition.",
+    "Surrak Dragonclaw": "Gives Temur a clean ferocious face: uncounterable creature pressure, flash timing, and earned strength in one support line.",
+    "The Mimeoplasm": "Makes Sultai graveyards into selective material, turning dead creatures into one calculated threat.",
+    "Tuvasa the Sunlit": "Offers Bant an enchantress champion whose growth stays tied to refinement, protection, and visible support.",
     "Veyran, Voice of Duality": "Doubles magecraft-style triggers so Prismari and Izzet spell turns become louder without losing velocity.",
     "Willowdusk, Essence Seer": "Turns life-total swings into counters, making Witherbloom's healing and harm visible in combat.",
+    "Yidris, Maelstrom Wielder": "Gives Glint a conservative support-only face for cascade pressure, volatility, and storm-fed adaptation without making Yidris the source of Glint lore.",
+    "Zurgo Helmsmasher": "Turns Mardu speed and total commitment into a direct commander plan that asks the table to answer the charge immediately.",
     "Zimone, Quandrix Prodigy": "Rewards land drops and card flow, giving Quandrix ramp decks a steady way to keep the math moving.",
   };
 
@@ -1084,7 +1261,7 @@ function basicLandGuidance(colors = []) {
   };
   const basics = MANA_ORDER.filter((color) => colorSet.has(color)).map((color) => labels[color]);
   if (!basics.length) {
-    return "Tune basics to your color pips after the nonbasic shell is chosen.";
+    return "Start with Wastes, true {C} sources, and mana rocks before utility lands. Generic costs are not colorless mana, Command Tower cannot choose colorless, and Reflecting Pool-style effects need another {C} source before they help.";
   }
   return `Tune ${basics.join(" and ")} to your early pips after the nonbasic shell, ramp package, and utility lands are chosen.`;
 }
@@ -1284,9 +1461,12 @@ function getTagCategory(catalog, tagName) {
   return catalog?.categoryByName?.get(tagName) || "other";
 }
 
-function tagLaneLabel(lane, tagName, category) {
+function tagLaneLabel(lane, tagName, category, factionKey = "") {
   if (lane === "budget") {
-    return tagName === "Budget" ? "Budget-friendly Commander builds" : "Midrange Commander shells";
+    if (tagName === "Budget") return "Budget-friendly Commander builds";
+    return String(factionKey || "").toUpperCase() === "COLORLESS"
+      ? `${tagName} deckbuilder lane`
+      : "Midrange Commander shells";
   }
 
   const categoryLabels = {
@@ -1299,7 +1479,7 @@ function tagLaneLabel(lane, tagName, category) {
   return `${tagName} ${categoryLabels[category] || "utility"} lane`;
 }
 
-function addTagLane(lanes, seen, catalog, tagName, lane, source, priority) {
+function addTagLane(lanes, seen, catalog, tagName, lane, source, priority, factionKey = "") {
   const canonical = ensureCatalogTag(catalog, tagName);
   if (!canonical || seen.has(canonical)) {
     return;
@@ -1312,7 +1492,7 @@ function addTagLane(lanes, seen, catalog, tagName, lane, source, priority) {
     category,
     source,
     priority,
-    label: tagLaneLabel(lane, canonical, category),
+    label: tagLaneLabel(lane, canonical, category, factionKey),
   });
   seen.add(canonical);
 }
@@ -1553,6 +1733,18 @@ export function getExternalDeckRoutingAlias(source) {
       mtgDecksUrl: `https://mtgdecks.net/Commander/${routedIdentity.mtgdecks_slug || guild}-commanders`,
     };
   }
+  if (routedIdentity?.suppress_directory_links) {
+    return {
+      guild: "",
+      colorIdentity: routedIdentity.color_identity || getColorIdentity(
+        source && typeof source === "object" && !Array.isArray(source) ? (source.colors || source.key) : source
+      ),
+      label: routedIdentity.label || "Commander",
+      edhrecUrl: "",
+      mtgDecksUrl: "",
+      suppressDirectoryLinks: true,
+    };
+  }
 
   const matched = keyCandidates
     .map(normalizeRoutingKey)
@@ -1591,12 +1783,13 @@ export function buildMtgDecksCommanderUrl(name) {
  */
 export function buildArchidektDeckSearchUrl({
   colors,
+  colorIdentity = "",
   deckFormatCommander = DEFAULT_COMMANDER_DECK_FORMAT,
   deckTagName = "",
   commanderName = "",
 }) {
   const params = new URLSearchParams();
-  params.set("colors", getColorIdentity(colors));
+  params.set("colors", String(colorIdentity || getColorIdentity(colors) || "").toUpperCase());
   params.set("deckFormat", String(deckFormatCommander));
   if (deckTagName) {
     params.set("deckTagName", deckTagName);
@@ -1642,6 +1835,9 @@ export function getServiceChipMeta(link) {
 export function buildCommanderDirectoryLinks(faction) {
   const alias = getExternalDeckRoutingAlias(faction);
   const links = [];
+  if (alias.suppressDirectoryLinks) {
+    return links;
+  }
 
   links.push({
     service: "edhrec",
@@ -1698,6 +1894,7 @@ function commanderCompassCandidateDescription(candidate) {
 function sourceLabelForCandidateSource(source) {
   if (source === "commander_compass") return "commander_compass";
   if (source === "deck-link") return "named Commander deck link";
+  if (source === "colorless-orientation") return "strict Colorless orientation";
   if (source === "staple") return "starter legendary whitelist";
   return "fallback";
 }
@@ -1741,6 +1938,7 @@ export function collectCommanderPreviewCandidates(faction, options = {}) {
     recommendationType = "",
     skipIf = "",
     whyThisFits = "",
+    displayTags = [],
   }) => {
     const displayName = cardDisplayName(name);
     const key = normalizeTagText(displayName);
@@ -1767,6 +1965,7 @@ export function collectCommanderPreviewCandidates(faction, options = {}) {
       recommendationType,
       skipIf,
       whyThisFits,
+      displayTags: Array.isArray(displayTags) ? displayTags.filter(Boolean) : [],
     });
     dedupeKeys.forEach((dedupeKey) => seen.add(dedupeKey));
   };
@@ -1801,6 +2000,26 @@ export function collectCommanderPreviewCandidates(faction, options = {}) {
       });
     });
 
+  if (String(faction?.key || "").toUpperCase() === "COLORLESS") {
+    [
+      {
+        name: "Zhulodok, Void Gorger",
+        desc: "Strict Colorless orientation: shows the Eldrazi Unbound lane for Wastes, true {C}, mana rocks, and expensive colorless spells without making five-color Eldrazi native support.",
+        displayTags: ["Strict Colorless", "Wastes + {C}", "Eldrazi Scale"],
+      },
+      {
+        name: "Omarthis, Ghostfire Initiate",
+        desc: "Strict Colorless orientation: a second official Colorless support example for the same boundary, useful when comparing artifact-engine growth to Eldrazi-scale payoffs.",
+        displayTags: ["Strict Colorless", "Colorless Growth", "Boundary Example"],
+      },
+    ].forEach((candidate) => {
+      addCandidate({
+        ...candidate,
+        source: "colorless-orientation",
+      });
+    });
+  }
+
   (faction?.staples?.creatures || []).forEach((name) => {
     if (CURATED_LEGENDARY_CREATURE_STAPLES.has(normalizeTagText(name))) {
       addCandidate({
@@ -1830,31 +2049,32 @@ export function collectArchidektTagLanes({
   const lanes = [];
   const seen = new Set();
   const budget = normalizeTagText(starterProfile?.budget_band || "");
+  const factionKey = String(faction?.key || "").toUpperCase();
 
   if (budget === "budget") {
-    addTagLane(lanes, seen, catalog, "Budget", "budget", "starter profile", 10);
+    addTagLane(lanes, seen, catalog, "Budget", "budget", "starter profile", 10, factionKey);
   } else if (["mid", "mid-range", "midrange"].includes(budget)) {
-    addTagLane(lanes, seen, catalog, "Midrange", "budget", "starter profile", 10);
+    addTagLane(lanes, seen, catalog, factionKey === "COLORLESS" ? "Big Mana" : "Midrange", "budget", "starter profile", 10, factionKey);
   }
 
   (faction?.archetypes || []).forEach((item, index) => {
     [item.name, item.desc].forEach((text) => {
       const tag = resolveRuleTag(catalog, text, ARCHETYPE_TEXT_RULES) || resolveArchidektTagName(catalog, text);
-      addTagLane(lanes, seen, catalog, tag, "archetype", item.name, 20 + index);
+      addTagLane(lanes, seen, catalog, tag, "archetype", item.name, 20 + index, factionKey);
     });
   });
 
   const mechanicsText = modelFaction?.identity?.mechanics || "";
   ARCHETYPE_TEXT_RULES.forEach((rule, index) => {
     if (rule.patterns.some((pattern) => includesRulePattern(mechanicsText, pattern))) {
-      addTagLane(lanes, seen, catalog, rule.tag, "mechanic", "mechanics summary", 40 + index);
+      addTagLane(lanes, seen, catalog, rule.tag, "mechanic", "mechanics summary", 40 + index, factionKey);
     }
   });
 
   (placementResult?.evidence_trail || []).slice(-5).forEach((entry, index) => {
     const evidenceText = [entry.signal, entry.answer_title, entry.prompt].filter(Boolean).join(" ");
     const tag = resolveRuleTag(catalog, evidenceText, EVIDENCE_TEXT_RULES);
-    addTagLane(lanes, seen, catalog, tag, "evidence", entry.signal || entry.answer_title, 60 + index);
+    addTagLane(lanes, seen, catalog, tag, "evidence", entry.signal || entry.answer_title, 60 + index, factionKey);
   });
 
   return lanes
@@ -1882,7 +2102,9 @@ export function buildArchidektSearchLinks({
   commanderName = "",
 }) {
   const colors = faction?.colors || faction?.key || "";
-  const deckSearchLabel = getExternalDeckRoutingAlias(faction).label || getColorIdentity(colors) || "Commander";
+  const deckRouting = getExternalDeckRoutingAlias(faction);
+  const technicalColorIdentity = deckRouting.colorIdentity || getColorIdentity(colors) || "";
+  const deckSearchLabel = deckRouting.label || getColorIdentity(colors) || "Commander";
   const deckFormatCommander = catalog?.deckFormatCommander || DEFAULT_COMMANDER_DECK_FORMAT;
   const tagLanes = collectArchidektTagLanes({
     catalog,
@@ -1897,7 +2119,7 @@ export function buildArchidektSearchLinks({
       kind: "archidekt-base",
       service: "archidekt",
       label: `${deckSearchLabel} Commander decks`,
-      url: buildArchidektDeckSearchUrl({ colors, deckFormatCommander, commanderName }),
+      url: buildArchidektDeckSearchUrl({ colors, colorIdentity: technicalColorIdentity, deckFormatCommander, commanderName }),
     },
     ...tagLanes.map((lane) => ({
       kind: "archidekt-tag",
@@ -1907,6 +2129,7 @@ export function buildArchidektSearchLinks({
       label: lane.label,
       url: buildArchidektDeckSearchUrl({
         colors,
+        colorIdentity: technicalColorIdentity,
         deckFormatCommander,
         deckTagName: lane.tagName,
         commanderName,
@@ -1970,21 +2193,60 @@ export function buildReadingOmens({
   activeFactionKey = "",
   limit = 4,
 } = {}) {
-  return (evidenceTrail || [])
+  const activeKey = String(activeFactionKey || "").toUpperCase();
+  const sourceEntries = (evidenceTrail || [])
     .slice(-limit)
-    .map((entry, index) => {
+    .map((entry, index) => ({ entry, index }));
+  const omens = sourceEntries
+    .map(({ entry, index }) => {
       const answerTitle = entry?.answer_title || "A table choice";
       const names = positiveFactionNames(entry, factions, activeFactionKey);
       const echo = names.length
         ? ` It ${names.length > 1 ? "echoed" : "was answered by"} ${names.join(" and ")}.`
         : "";
+      const copy = activeKey === "COLORLESS"
+        ? colorlessOmenCopy(entry)
+        : `${omenPhraseForEntry(entry)}${echo}`;
 
       return {
         title: `Signal ${index + 1}`,
         answerTitle,
-        copy: `${omenPhraseForEntry(entry)}${echo}`,
+        copy,
       };
     });
+  if (activeKey !== "COLORLESS") return omens;
+
+  const seen = new Set();
+  return omens.filter((omen) => {
+    const key = normalizeDisplayName(`${omen.answerTitle} ${omen.copy}`);
+    if (!key || seen.has(key)) return false;
+    seen.add(key);
+    return true;
+  }).map((omen, index) => ({ ...omen, title: `Signal ${index + 1}` }));
+}
+
+function colorlessOmenCopy(entry = {}) {
+  const text = [
+    entry.signal,
+    entry.answer_title,
+    entry.prompt,
+  ].filter(Boolean).join(" ").toLowerCase();
+  if (/wastes?|true \{?c\}?|colorless mana|clean mana/.test(text)) {
+    return "This signal pointed toward true {C} discipline: Wastes, clean colorless sources, and deck limits that become structure instead of generic mana looseness.";
+  }
+  if (/artifact|engine|machinery|utility|infrastructure|ramp|big mana/.test(text)) {
+    return "This signal pointed toward infrastructure first: artifact engines, utility lands, ramp, and ahead-of-schedule threats rather than a normal color curve.";
+  }
+  if (/eldrazi|void|cosmic|waste|devoid|five-color|ulalek/.test(text)) {
+    return "This signal needed Colorless boundary work: Eldrazi scale can matter, but Devoid and five-color Eldrazi stay separate from strict Colorless identity.";
+  }
+  if (/limit|restriction|constraint|outside|wheel|wubrg/.test(text)) {
+    return "This signal favored the chosen limit itself: a deck plan that becomes sharper because the five colors are not available as shortcuts.";
+  }
+  if (/structure|patience|order|discipline|precision/.test(text)) {
+    return "This signal pointed toward precision under constraint: every slot has to justify itself because Colorless cannot lean on normal color access.";
+  }
+  return "This signal treated absence as a rule, not a blank: the appeal was building a whole Commander plan from what the color wheel leaves outside.";
 }
 
 /**
@@ -2099,6 +2361,43 @@ function buildStarterCards(faction) {
     creatures: uniqueByDisplayName(faction?.staples?.creatures || []),
     spells: uniqueByDisplayName(faction?.staples?.spells || []),
     permanents: uniqueByDisplayName(faction?.staples?.permanents || []),
+  };
+}
+
+function hasStarterCardReferences(starterCards = {}) {
+  return ["creatures", "spells", "permanents"].some((group) => (starterCards[group] || []).length);
+}
+
+/**
+ * Commander dossier audit contract:
+ * - always required: core faction identity, Commander path, land recommendations, and package-search surfaces
+ * - capability-gated: starter cards only when authored; public Commander directory links only when not intentionally suppressed
+ * - intentionally suppressible: empty starter-card panels and four-color public Commander directory links
+ */
+function buildDossierAuditSectionContract({
+  faction,
+  starterCards = {},
+  commanderStartLinks = [],
+  archidektLinks = [],
+} = {}) {
+  const routingAlias = getExternalDeckRoutingAlias(faction);
+  const starterCardsRenderable = hasStarterCardReferences(starterCards);
+  const directoryLinksSuppressed = Boolean(routingAlias.suppressDirectoryLinks);
+
+  return {
+    starterCards: {
+      required: starterCardsRenderable,
+      starterCardsRenderable,
+    },
+    commanderDirectoryLinks: {
+      required: !directoryLinksSuppressed,
+      suppressed: directoryLinksSuppressed,
+      hasLinks: Boolean((commanderStartLinks || []).length),
+    },
+    alternativeCommanderDiscovery: {
+      required: directoryLinksSuppressed,
+      hasArchidektLinks: Boolean((archidektLinks || []).length),
+    },
   };
 }
 
@@ -2223,6 +2522,437 @@ function buildAdjacentReason({ adjacentReason, activeMatch, faction, primaryFact
   return `${faction.name} stayed close to the same reading because it can translate those choices into ${targetThemes || "a neighboring Commander plan"}.`;
 }
 
+function summaryStripOverride(key) {
+  return SUMMARY_STRIP_DISPLAY_OVERRIDES.get(String(key || "").toUpperCase()) || null;
+}
+
+function summaryStripFallback(key) {
+  return SUMMARY_STRIP_FALLBACKS[String(key || "").toUpperCase()] || null;
+}
+
+function extractFirstSentence(value) {
+  const text = String(value || "").replace(/\s+/g, " ").trim();
+  if (!text) {
+    return "";
+  }
+  const match = text.match(/^.*?[.!?](?=\s|$)/);
+  return (match ? match[0] : text).trim();
+}
+
+function normalizeSummaryCompareText(value) {
+  return (String(value || "").toLowerCase().match(SUMMARY_COMPARE_WORD_RE) || []).join(" ").trim();
+}
+
+function hasPlaceholderSummaryText(value) {
+  return SUMMARY_PLACEHOLDER_RE.test(String(value || ""));
+}
+
+function hasUsableSummaryText(value) {
+  const text = String(value || "").trim();
+  return Boolean(text) && !hasPlaceholderSummaryText(text);
+}
+
+function isGenericContrastCopy(value) {
+  const normalized = normalizeDisplayName(value);
+  return normalized.includes(normalizeDisplayName("What does this path do with the same tension?")) &&
+    normalized.includes(normalizeDisplayName("moves toward its own Commander expression"));
+}
+
+function summaryTextsOverlap(left, right) {
+  const leftText = normalizeSummaryCompareText(left);
+  const rightText = normalizeSummaryCompareText(right);
+  if (!leftText || !rightText) {
+    return false;
+  }
+  if (leftText === rightText || leftText.includes(rightText) || rightText.includes(leftText)) {
+    return true;
+  }
+
+  const leftWords = new Set(leftText.split(" ").filter((word) => word.length >= 5));
+  const rightWords = new Set(rightText.split(" ").filter((word) => word.length >= 5));
+  if (!leftWords.size || !rightWords.size) {
+    return false;
+  }
+
+  let shared = 0;
+  leftWords.forEach((word) => {
+    if (rightWords.has(word)) {
+      shared += 1;
+    }
+  });
+  return shared / Math.min(leftWords.size, rightWords.size) >= 0.6;
+}
+
+function factionColorList(faction) {
+  if (Array.isArray(faction?.colors) && faction.colors.length) {
+    return faction.colors.map((color) => String(color || "").toUpperCase()).filter(Boolean);
+  }
+  const identity = getColorIdentity(faction?.colors || faction?.key || "");
+  return identity.split("").filter((color) => MANA_ORDER.includes(color));
+}
+
+function selectColorFallbackAdjacentKey({ activeKey, activeFaction, factions = {} }) {
+  const colors = factionColorList(activeFaction);
+  const candidates = Object.values(factions || {})
+    .filter((entry) => entry?.key && entry.key !== activeKey)
+    .map((entry) => {
+      const candidateColors = factionColorList(entry);
+      const sharedColors = candidateColors.filter((color) => colors.includes(color)).length;
+      const countGap = Math.abs(candidateColors.length - colors.length);
+      const sameInstitution = entry.institution_type === activeFaction?.institution_type ? 0.25 : 0;
+      return {
+        key: entry.key,
+        sharedColors,
+        countGap,
+        sameInstitution,
+      };
+    })
+    .filter((entry) => entry.sharedColors > 0)
+    .sort((left, right) =>
+      right.sharedColors - left.sharedColors ||
+      left.countGap - right.countGap ||
+      right.sameInstitution - left.sameInstitution ||
+      String(left.key).localeCompare(String(right.key))
+    );
+
+  return candidates[0]?.key || "";
+}
+
+function safeSummaryPresentation(faction, presentForFaction) {
+  if (typeof presentForFaction !== "function") {
+    return null;
+  }
+  try {
+    return presentForFaction(faction);
+  } catch {
+    return null;
+  }
+}
+
+function buildWhereThisLeadsFallbackBody({ faction, guidance }) {
+  const plan = compactSentence(guidance?.commanderPlan || "");
+  if (plan) {
+    return sentenceCase(cleanSentenceFragment(plan));
+  }
+  return `${faction?.name || "This identity"} usually points toward a Commander plan that makes its pressure visible early and repeatable over a full table.`;
+}
+
+function buildPlayPatternFallbackBody({ faction, guidance, tableCautionText }) {
+  const caution = compactSentence(tableCautionText || guidance?.tableCautionText || "");
+  if (caution) {
+    return caution;
+  }
+  return `Opponents usually read ${faction?.name || "this identity"} through the pressure it keeps visible, so the pilot wants a clear engine and a plan for the table's first answer.`;
+}
+
+function buildTableExperienceSentence(factionName, tableExperience) {
+  const fragment = cleanSentenceFragment(tableExperience);
+  if (!fragment) {
+    return "";
+  }
+  if (/^infrastructure first\b/i.test(fragment)) {
+    return `In play, ${factionName} wants to build ${lowerInitial(fragment)}.`;
+  }
+  if (/^(a|an|the)\b/i.test(fragment)) {
+    return `${factionName} feels like ${lowerInitial(fragment)}.`;
+  }
+  if (/^(turns|builds|keeps|takes|makes|listens|survives|endures|measures|learns|assembles|grows|feeds|forces|protects|treats|adapts|commits|chooses)\b/i.test(fragment)) {
+    return `${factionName} ${fragment}.`;
+  }
+  return `In play, ${factionName} wants to ${lowerInitial(fragment)}.`;
+}
+
+function buildAdjacentFallbackCopy({ activeFaction, targetName, isPrimary, fallback }) {
+  if (hasUsableSummaryText(fallback?.adjacentRelationshipCopy)) {
+    return compactSentence(fallback.adjacentRelationshipCopy);
+  }
+  if (isPrimary) {
+    return `${targetName} stayed nearby because the same reading can bend toward ${targetName}'s Commander texture without replacing ${activeFaction?.name || "the primary path"}.`;
+  }
+  return `${targetName} is the comparison point because this adjacent view should stay tied to the original reading instead of drifting into a disconnected result.`;
+}
+
+function cleanWhereThisLeadsBody({ text, faction, guidance, fallback }) {
+  const normalized = String(text || "").replace(/\s+/g, " ").trim();
+  if (!normalized) {
+    return "";
+  }
+
+  const exactPrefixes = [
+    `${faction?.name || ""} wants a Commander deck that `,
+    `${guidance?.shortName || ""} wants a Commander deck that `,
+    "This path wants a Commander deck that ",
+  ].filter(Boolean);
+  const prefix = exactPrefixes.find((candidate) => normalized.startsWith(candidate)) || "";
+  const stripped = prefix ? normalized.slice(prefix.length).trim() : normalized;
+  const sentence = sentenceCase(cleanSentenceFragment(extractFirstSentence(stripped)));
+
+  if (
+    !hasUsableSummaryText(sentence) ||
+    sentence.length < 24 ||
+    /^[,.;:!?-]/.test(sentence) ||
+    /^(And|But|Or)\b/i.test(sentence)
+  ) {
+    return hasUsableSummaryText(fallback?.whereThisLeadsBody)
+      ? compactSentence(fallback.whereThisLeadsBody)
+      : "";
+  }
+
+  return compactSentence(sentence);
+}
+
+function summaryTags({ guidance, override }) {
+  return unique([
+    ...(override?.tags || []),
+    ...((guidance?.starterSearchTags || []).length ? guidance.starterSearchTags : guidance?.preferredArchetypeTags || []),
+  ]).filter(Boolean).slice(0, 3);
+}
+
+export function resolveSignalBand(score) {
+  const numeric = typeof score === "number" ? score : Number(score);
+  if (!Number.isFinite(numeric) || numeric < 0 || numeric > 1) {
+    return {
+      signalBand: "related",
+      signalLabel: "Related adjacent signal",
+    };
+  }
+  if (numeric >= 0.6) {
+    return {
+      signalBand: "strong",
+      signalLabel: "Strong adjacent signal",
+    };
+  }
+  if (numeric >= 0.3) {
+    return {
+      signalBand: "moderate",
+      signalLabel: "Moderate adjacent signal",
+    };
+  }
+  if (numeric > 0) {
+    return {
+      signalBand: "emerging",
+      signalLabel: "Emerging adjacent signal",
+    };
+  }
+  return {
+    signalBand: "related",
+    signalLabel: "Related adjacent signal",
+  };
+}
+
+export function resolveSummaryAdjacentFit({
+  factions = {},
+  placementModel = null,
+  placementResult = null,
+  activeKey = "",
+  primaryKey = "",
+  activeFaction = null,
+  primaryFaction = null,
+  isPrimary = true,
+  reasonItStayedClose = "",
+  buildContrastCopy = null,
+} = {}) {
+  const activeFactionRecord = activeFaction?.record || activeFaction || factions?.[activeKey] || null;
+  const primaryFactionRecord = primaryFaction?.record || primaryFaction || factions?.[primaryKey] || activeFactionRecord || null;
+  const override = summaryStripOverride(activeKey);
+  const fallback = summaryStripFallback(activeKey);
+  const adjacentMatches = placementResult?.adjacent_matches || [];
+
+  let targetMatch = null;
+  if (isPrimary) {
+    targetMatch = adjacentMatches.find((match) => match?.faction && match.faction !== activeKey) || null;
+  } else if (primaryKey && primaryKey !== activeKey) {
+    targetMatch = activeMatchForResult(placementResult, primaryKey);
+  }
+
+  if (!targetMatch) {
+    targetMatch = adjacentMatches
+      .filter((match) => match?.faction && match.faction !== activeKey)
+      .sort((left, right) =>
+        Number(left?.rank || Number.MAX_SAFE_INTEGER) - Number(right?.rank || Number.MAX_SAFE_INTEGER) ||
+        Number(right?.confidence || 0) - Number(left?.confidence || 0) ||
+        Number(right?.score || 0) - Number(left?.score || 0)
+      )[0] || null;
+  }
+
+  let targetKey = String(targetMatch?.faction || "").toUpperCase();
+  if (!targetKey || targetKey === activeKey) {
+    targetKey = String(
+      override?.adjacentTargetKey ||
+      (primaryKey && primaryKey !== activeKey ? primaryKey : "") ||
+      selectColorFallbackAdjacentKey({ activeKey, activeFaction: activeFactionRecord, factions })
+    ).toUpperCase();
+  }
+  if (!targetKey || targetKey === activeKey) {
+    targetKey = String(fallback?.adjacentTargetKey || "").toUpperCase();
+  }
+
+  const targetFaction = factions?.[targetKey] || null;
+  const targetName = targetFaction?.name || targetMatch?.faction_name || override?.adjacentTargetName || targetKey || "Related path";
+  const signal = resolveSignalBand(targetMatch?.confidence);
+  const modelFaction = targetKey ? placementModel?.factions?.[targetKey] || null : null;
+  const contrastCopy = typeof buildContrastCopy === "function" && primaryFactionRecord && activeFactionRecord
+    ? (isPrimary
+        ? buildContrastCopy(activeFactionRecord, targetFaction || targetMatch || { key: targetKey, name: targetName })
+        : buildContrastCopy(primaryFactionRecord, activeFactionRecord))
+    : "";
+  const explainedCopy = targetKey && targetKey !== activeKey && targetFaction
+    ? explainAdjacentFit({
+        match: targetMatch || { faction: targetKey },
+        matchFaction: targetFaction,
+        primaryFaction: primaryFactionRecord || activeFactionRecord || targetFaction,
+        placementResult,
+        modelFaction,
+      })
+    : "";
+  const relationshipCopy = [
+    isGenericContrastCopy(contrastCopy) ? "" : contrastCopy,
+    isPrimary ? explainedCopy : reasonItStayedClose,
+    targetMatch?.reason,
+    buildAdjacentFallbackCopy({
+      activeFaction: activeFactionRecord,
+      targetName,
+      isPrimary,
+      fallback,
+    }),
+  ].map(compactSentence).find(hasUsableSummaryText) || buildAdjacentFallbackCopy({
+    activeFaction: activeFactionRecord,
+    targetName,
+    isPrimary,
+    fallback,
+  });
+
+  return {
+    label: SUMMARY_STRIP_LABELS.adjacentFit,
+    heading: targetName,
+    signalBand: signal.signalBand,
+    signalLabel: signal.signalLabel,
+    relationshipCopy,
+    targetKey: targetKey || "RELATED",
+    targetName,
+  };
+}
+
+export function buildWhereThisLeadsSummary({
+  faction = null,
+  dossier = null,
+  commanderLane = null,
+  guidance = null,
+} = {}) {
+  const activeFaction = faction?.record || faction || dossier?.faction?.record || dossier?.faction || {};
+  const key = String(activeFaction?.key || dossier?.targetFactionKey || "").toUpperCase();
+  const override = summaryStripOverride(key);
+  const fallback = summaryStripFallback(key);
+  const heading = override?.whereThisLeadsHeading || `${guidance?.shortName || activeFaction?.name || "This path"} deck direction`;
+  const bodySource = commanderLane?.copy || dossier?.commanderPath?.copy || "";
+  const cleanedBody = cleanWhereThisLeadsBody({
+    text: bodySource,
+    faction: activeFaction,
+    guidance,
+    fallback,
+  });
+  const body = hasUsableSummaryText(cleanedBody)
+    ? cleanedBody
+    : (hasUsableSummaryText(fallback?.whereThisLeadsBody)
+        ? compactSentence(fallback.whereThisLeadsBody)
+        : buildWhereThisLeadsFallbackBody({ faction: activeFaction, guidance }));
+  return {
+    label: SUMMARY_STRIP_LABELS.whereThisLeads,
+    heading,
+    body,
+    tags: summaryTags({ guidance, override }),
+  };
+}
+
+export function buildPlayPatternSummary({
+  faction = null,
+  dossier = null,
+  guidance = null,
+  whereThisLeads = null,
+  presentationForFaction = null,
+} = {}) {
+  const activeFaction = faction?.record || faction || dossier?.faction?.record || dossier?.faction || {};
+  const key = String(activeFaction?.key || dossier?.targetFactionKey || "").toUpperCase();
+  const override = summaryStripOverride(key);
+  const fallback = summaryStripFallback(key);
+  const presentation = safeSummaryPresentation(activeFaction, presentationForFaction);
+  const tableCautionText = dossier?.commanderPath?.tableCautionText || guidance?.tableCautionText || "";
+  const tableExperience = cleanSentenceFragment(presentation?.tableExperience || "");
+  const opponentRead = String(presentation?.opponentRead || "").trim();
+  const bodyCandidates = [
+    tableExperience && normalizeDisplayName(tableExperience) !== normalizeDisplayName("a recognizable Commander table role")
+      ? buildTableExperienceSentence(activeFaction?.name || "This identity", tableExperience)
+      : "",
+    opponentRead && normalizeDisplayName(opponentRead) !== normalizeDisplayName(SUMMARY_GENERIC_OPPONENT_READ)
+      ? compactSentence(opponentRead)
+      : "",
+    compactSentence(tableCautionText),
+  ].filter(hasUsableSummaryText);
+  let body = compactSentence(bodyCandidates.slice(0, 2).join(" ").trim());
+
+  if (!hasUsableSummaryText(body) || summaryTextsOverlap(whereThisLeads?.body, body)) {
+    body = hasUsableSummaryText(fallback?.playPatternBody)
+      ? compactSentence(fallback.playPatternBody)
+      : buildPlayPatternFallbackBody({ faction: activeFaction, guidance, tableCautionText });
+  }
+
+  if (summaryTextsOverlap(whereThisLeads?.body, body)) {
+    body = buildPlayPatternFallbackBody({ faction: activeFaction, guidance, tableCautionText });
+  }
+
+  return {
+    label: SUMMARY_STRIP_LABELS.playPattern,
+    heading: override?.playPatternHeading || `${guidance?.shortName || activeFaction?.name || "This path"} at the table`,
+    body,
+  };
+}
+
+export function buildResultSummaryStrip({
+  factions = {},
+  placementModel = null,
+  placementResult = null,
+  dossier = null,
+  activeKey = "",
+  primaryKey = "",
+  presentationForFaction = null,
+  buildContrastCopy = null,
+} = {}) {
+  const activeFaction = dossier?.faction?.record || dossier?.faction || factions?.[activeKey] || null;
+  const primaryFaction = dossier?.primaryFaction?.record || factions?.[primaryKey] || activeFaction || null;
+  const guidance = dossier?.commanderPath?.guidance || getCommanderFactionGuidance(activeFaction) || getCommanderFactionGuidance(primaryFaction) || null;
+  const adjacentFit = resolveSummaryAdjacentFit({
+    factions,
+    placementModel,
+    placementResult,
+    activeKey,
+    primaryKey,
+    activeFaction,
+    primaryFaction,
+    isPrimary: dossier?.isPrimary !== false,
+    reasonItStayedClose: dossier?.reasonItStayedClose || "",
+    buildContrastCopy,
+  });
+  const whereThisLeads = buildWhereThisLeadsSummary({
+    faction: activeFaction,
+    dossier,
+    commanderLane: dossier?.commanderLane,
+    guidance,
+  });
+  const playPattern = buildPlayPatternSummary({
+    faction: activeFaction,
+    dossier,
+    guidance,
+    whereThisLeads,
+    presentationForFaction,
+  });
+
+  return {
+    adjacentFit,
+    whereThisLeads,
+    playPattern,
+  };
+}
+
 function withoutLeadingArticle(value) {
   return String(value || "").replace(/^\s*(the|a|an)\s+/i, "").trim();
 }
@@ -2235,6 +2965,8 @@ export function buildCommanderDossier({
   targetFactionKey = "",
   starterProfile,
   adjacentReason = "",
+  summaryPresentationForFaction = null,
+  summaryContrastCopyBuilder = null,
 } = {}) {
   if (!placementResult) {
     throw new Error("buildCommanderDossier requires a placementResult.");
@@ -2272,6 +3004,13 @@ export function buildCommanderDossier({
   });
   const packageLinks = buildCommanderPackageLinks(faction);
   const commanderStartLinks = buildCommanderDirectoryLinks(faction);
+  const starterCards = buildStarterCards(faction);
+  const auditContract = buildDossierAuditSectionContract({
+    faction,
+    starterCards,
+    commanderStartLinks,
+    archidektLinks: packageLinks.archidekt,
+  });
   const commanderRecommendations = uniqueObjectsBy(
     collectCommanderPreviewCandidates(faction, { limit: 3 }),
     (candidate) => normalizeDisplayName(candidate?.name || "")
@@ -2308,7 +3047,7 @@ export function buildCommanderDossier({
     reasonItStayedClose,
   });
 
-  return {
+  const baseDossier = {
     version: "commander-dossier-v1",
     sourceModelVersion: placementResult.model_version || "",
     mode: isPrimary ? "primary" : "adjacent",
@@ -2372,10 +3111,11 @@ export function buildCommanderDossier({
       guidance,
     },
     archetypes: buildArchetypes(faction),
-    starterCards: buildStarterCards(faction),
+    starterCards,
     landRecommendations: buildCommanderLandRecommendations(faction),
     commanderRecommendations,
     commanderRecommendationSource,
+    auditContract,
     links: {
       commanderStart: commanderStartLinks,
       archidekt: archidektSearchLinks,
@@ -2389,6 +3129,20 @@ export function buildCommanderDossier({
       placementModel,
       activeKey,
       isPrimary,
+    }),
+  };
+
+  return {
+    ...baseDossier,
+    resultSummaryStrip: buildResultSummaryStrip({
+      factions,
+      placementModel,
+      placementResult,
+      dossier: baseDossier,
+      activeKey,
+      primaryKey,
+      presentationForFaction: summaryPresentationForFaction,
+      buildContrastCopy: summaryContrastCopyBuilder,
     }),
   };
 }
@@ -2419,6 +3173,26 @@ function preconIdentityKey(value) {
   if (!text) return "";
   if (text === "COLORLESS") return "C";
   return ["W", "U", "B", "R", "G", "C"].filter((code) => text.includes(code)).join("");
+}
+
+function activePreconIdentityKey(faction, dossier) {
+  const explicit = [
+    faction?.routing?.color_identity,
+    faction?.identity?.routing?.color_identity,
+    faction?.display_code,
+    faction?.colorIdentity,
+    dossier?.faction?.colorIdentity,
+  ].map(preconIdentityKey).find(Boolean);
+  if (explicit) {
+    return explicit;
+  }
+
+  const key = activePreconFactionKey(faction, dossier);
+  if (key === "COLORLESS") {
+    return "C";
+  }
+
+  return preconIdentityKey(faction?.colors || dossier?.faction?.colors || "");
 }
 
 function identitySet(identityKey) {
@@ -2709,7 +3483,7 @@ const SULTAI_PRECON_FIT_SUMMARIES = new Map([
   ],
   [
     "devour for power",
-    "Sultai Commander fit with graveyard construction and recursion: let the graveyard become leverage while avoiding generic same-color goodstuff.",
+    "Sultai Commander fit with graveyard construction and recursion: let the graveyard become leverage while keeping the pressure distinctly Sultai.",
   ],
   [
     "enhanced evolution",
@@ -2795,16 +3569,66 @@ const GRIXIS_PRECON_FIT_SUMMARIES = new Map([
   ],
 ]);
 
+const GLINT_PRECON_FIT_SUMMARIES = new Map([
+  [
+    "entropic uprising",
+    "Exact Glint color fit with combat-damage spell momentum, cascade pressure, and Yidris-led volatility. Product-support only: this deck shows one storm-fed Commander texture for Glint, not a universal definition.",
+  ],
+  [
+    "draconic domination",
+    "Stretch option that explores dragon-led pressure through a neighboring five-color lane. It can rhyme with Glint's appetite and volatility, but adding White makes it broader than Glint.",
+  ],
+  [
+    "painbow",
+    "Stretch option that explores domain-style overflow through a neighboring five-color lane. It can echo Glint's pressure, but adding White makes it a broader five-color frame rather than preserved Glint.",
+  ],
+]);
+
+const GLINT_PRECON_RECOMMENDED_FOR_OVERRIDES = new Map([
+  [
+    "entropic uprising",
+    "Players who want storm-fed sequencing, combat-damage spell momentum, and a volatile four-color deck that still feels intentional.",
+  ],
+]);
+
+function buildPreconRecommendedForOverride({ precon, activeFactionKey = "" }) {
+  const factionKey = String(activeFactionKey || "").toUpperCase();
+  if (factionKey === "GLINT") {
+    return GLINT_PRECON_RECOMMENDED_FOR_OVERRIDES.get(normalizeDisplayName(precon?.deckName || "")) || "";
+  }
+  if (factionKey === "COLORLESS" && normalizeDisplayName(precon?.deckName || "") === "eldrazi unbound") {
+    return "Players who want strict Colorless constraint, Wastes and true {C} discipline, artifact engines, and Eldrazi-scale finishers without five-color Eldrazi bleed.";
+  }
+  return "";
+}
+
 function buildPreconFitSummary({ precon, lane, factionName, matchedThemes, stretchColors, activeFactionKey = "" }) {
   const themeList = matchedThemes.length
     ? matchedThemes
     : [precon?.normalizedThemes?.primary?.displayName || precon?.rawPrimaryTheme || "theme-forward"];
   const themeText = themeList.join(" and ").toLowerCase();
+  const factionKey = String(activeFactionKey || "").toUpperCase();
+  if (factionKey === "GLINT") {
+    const glintOverride = GLINT_PRECON_FIT_SUMMARIES.get(normalizeDisplayName(precon?.deckName || ""));
+    if (glintOverride) {
+      return glintOverride;
+    }
+    if (lane === "stretch") {
+      const stretchText = stretchColors.length ? stretchColors.join(" and ") : "an extra color";
+      return `Stretch option that explores ${themeText} through a neighboring lane. It can rhyme with Glint's pressure, but adding ${stretchText} makes it broader than Glint itself.`;
+    }
+    return `Exact Glint color fit with ${themeText} lines that reinforce storm-fed pressure and adaptive appetite as product-support Commander texture.`;
+  }
+  if (factionKey === "COLORLESS") {
+    if (normalizeDisplayName(precon?.deckName || "") === "eldrazi unbound") {
+      return "Strict Colorless support fit: Eldrazi Unbound offers Zhulodok, Void Gorger as a colorless Commander starting point while keeping Eldrazi Incursion and Ulalek in five-color comparator territory.";
+    }
+    return `Strict Colorless support fit with ${themeText} lines that must preserve true {C}, Wastes, artifacts, Eldrazi, and five-color Eldrazi as separate checks.`;
+  }
   if (lane === "stretch") {
     const stretchText = stretchColors.length ? stretchColors.join(" and ") : "an extra color";
     return `Stretch option that keeps ${factionName}'s core identity intact while adding ${stretchText} for ${themeText} lines.`;
   }
-  const factionKey = String(activeFactionKey || "").toUpperCase();
   if (factionKey === "BANT") {
     return BANT_PRECON_FIT_SUMMARIES.get(normalizeDisplayName(precon?.deckName || "")) ||
       `Bant support fit with ${themeText} lines that reinforce public trust, refined protection, living order, and a worthy supported line of action.`;
@@ -2897,6 +3721,31 @@ export function selectPreconPreviewRecommendations(preconRecommendations = {}, l
   };
 }
 
+export function buildCommanderDeckStartFallbackCandidates(preconRecommendations = {}, limit = 2) {
+  const safeLimit = Number.isFinite(limit) ? Math.max(0, Math.floor(limit)) : 2;
+  const exactPrecons = ["nativeExact", "otherExact"].flatMap((group) =>
+    Array.isArray(preconRecommendations?.[group]) ? preconRecommendations[group] : []
+  );
+  const seen = new Set();
+  const candidates = [];
+
+  exactPrecons.forEach((precon) => {
+    if (candidates.length >= safeLimit) return;
+    const name = cardDisplayName(precon?.mainCommander || precon?.commanderSearchQuery || "");
+    const key = normalizeTagText(name);
+    if (!name || !key || seen.has(key)) return;
+    seen.add(key);
+    candidates.push({
+      name,
+      desc: `${precon?.deckName || "This exact-color precon"} offers ${name} as a commander-first starting point for this dossier.`,
+      source: "precon-exact-fallback",
+      preconDeckName: precon?.deckName || "",
+    });
+  });
+
+  return candidates;
+}
+
 export function buildPreconRecommendations({
   faction,
   dossier,
@@ -2906,8 +3755,8 @@ export function buildPreconRecommendations({
   preconThemeTaxonomy = null,
 } = {}) {
   const precons = Array.isArray(preconCatalog?.precons) ? preconCatalog.precons : [];
-  const activeIdentity = preconIdentityKey(faction?.colors || faction?.colorIdentity || dossier?.faction?.colorIdentity || "");
   const activeFactionKey = activePreconFactionKey(faction, dossier);
+  const activeIdentity = activePreconIdentityKey(faction, dossier);
   if (!precons.length || !activeIdentity) {
     return { nativeExact: [], otherExact: [], stretch: [], hasAny: false };
   }
@@ -2942,10 +3791,14 @@ export function buildPreconRecommendations({
       const primaryThemeMeta = primaryTheme
         ? themeLookup.get(normalizeDisplayName(primaryTheme.key || ""))
         : null;
-      const nativeExact = lane === "exact" &&
+      const colorlessNativeExact = lane === "exact" &&
+        activeFactionKey === "COLORLESS" &&
+        candidateIdentity === "C" &&
+        normalizeDisplayName(precon?.deckName || "") === "eldrazi unbound";
+      const nativeExact = colorlessNativeExact || (lane === "exact" &&
         activeFactionKey &&
         Array.isArray(precon?.factionRefs) &&
-        precon.factionRefs.includes(activeFactionKey);
+        precon.factionRefs.includes(activeFactionKey));
       const group = lane === "stretch" ? "stretch" : (nativeExact ? "nativeExact" : "otherExact");
 
       return {
@@ -2959,6 +3812,10 @@ export function buildPreconRecommendations({
           factionName: faction?.name || dossier?.faction?.name || "this reading",
           matchedThemes: themeSignals.matchedThemes,
           stretchColors,
+          activeFactionKey,
+        }),
+        recommendedForOverride: buildPreconRecommendedForOverride({
+          precon,
           activeFactionKey,
         }),
         skipSummary: precon?.recommendationProfile?.notRecommendedFor || "",
@@ -3203,10 +4060,16 @@ function auditAdjacentFitLanguage(dossier, failures, warnings) {
   });
 }
 
-function auditRequiredSections(dossier, failures) {
+function auditRequiredSections(dossier, failures, warnings) {
   const commanderPath = dossier.commanderPath || {};
   const starterCards = dossier.starterCards || {};
   const lands = dossier.landRecommendations || {};
+  const auditContract = dossier.auditContract || buildDossierAuditSectionContract({
+    faction: dossier.faction?.record || dossier.faction,
+    starterCards,
+    commanderStartLinks: dossier.links?.commanderStart || [],
+    archidektLinks: dossier.links?.archidekt || [],
+  });
   const required = [
     ["expression name", dossier.faction?.name],
     ["tagline", dossier.faction?.tagline],
@@ -3217,12 +4080,24 @@ function auditRequiredSections(dossier, failures) {
     ["spellcraft/gameplay identity", commanderPath.spellcraft],
     ["table caution", commanderPath.tableCautionText],
     ["archetypes", dossier.archetypes?.length],
-    ["starter cards", Object.values(starterCards).some((items) => items?.length)],
     ["land recommendations", ["premium", "midrange", "budget", "utility"].some((tier) => lands[tier]?.length)],
-    ["Commander deck-start links", dossier.links?.commanderStart?.length],
     ["Maze package searches", dossier.links?.maze?.length],
     ["Scryfall package searches", dossier.links?.scryfall?.length],
   ];
+
+  if (auditContract.starterCards?.required) {
+    required.push(["starter cards", hasStarterCardReferences(starterCards)]);
+  } else {
+    warnings.push("Advisory content gap: starter cards are not authored for this dossier, so the runtime hides the starter-card panel.");
+  }
+
+  if (auditContract.commanderDirectoryLinks?.required) {
+    required.push(["Commander deck-start links", dossier.links?.commanderStart?.length]);
+  }
+
+  if (auditContract.alternativeCommanderDiscovery?.required) {
+    required.push(["alternative Commander discovery surface", dossier.links?.archidekt?.length]);
+  }
 
   if (dossier.isPrimary) {
     required.push(["adjacent fits where configured", Array.isArray(dossier.adjacentFits)]);
@@ -3255,6 +4130,48 @@ function auditTableCaution(dossier, failures, warnings) {
   if (!ACTION_CUE_PATTERN.test(text)) {
     failures.push(`tableCautionText lacks a practical action cue: "${text}".`);
   }
+}
+
+function auditResultSummaryStrip(dossier, failures) {
+  const strip = dossier.resultSummaryStrip || null;
+  if (!strip) {
+    failures.push("Missing resultSummaryStrip.");
+    return;
+  }
+
+  const adjacent = strip.adjacentFit || {};
+  const direction = strip.whereThisLeads || {};
+  const pattern = strip.playPattern || {};
+  const requiredFields = [
+    ["resultSummaryStrip.adjacentFit.label", adjacent.label],
+    ["resultSummaryStrip.adjacentFit.heading", adjacent.heading],
+    ["resultSummaryStrip.adjacentFit.signalBand", adjacent.signalBand],
+    ["resultSummaryStrip.adjacentFit.signalLabel", adjacent.signalLabel],
+    ["resultSummaryStrip.adjacentFit.relationshipCopy", adjacent.relationshipCopy],
+    ["resultSummaryStrip.adjacentFit.targetName", adjacent.targetName],
+    ["resultSummaryStrip.whereThisLeads.label", direction.label],
+    ["resultSummaryStrip.whereThisLeads.heading", direction.heading],
+    ["resultSummaryStrip.whereThisLeads.body", direction.body],
+    ["resultSummaryStrip.playPattern.label", pattern.label],
+    ["resultSummaryStrip.playPattern.heading", pattern.heading],
+    ["resultSummaryStrip.playPattern.body", pattern.body],
+  ];
+
+  requiredFields.forEach(([label, value]) => {
+    if (!hasUsableSummaryText(value)) {
+      failures.push(`Missing result summary field: ${label}.`);
+    }
+  });
+
+  if (adjacent.targetKey && adjacent.targetKey === dossier.targetFactionKey) {
+    failures.push("resultSummaryStrip.adjacentFit.targetKey matched the current dossier faction.");
+  }
+
+  requiredFields.forEach(([label, value]) => {
+    if (hasPlaceholderSummaryText(value)) {
+      failures.push(`Placeholder summary-strip copy remained in ${label}: "${value}".`);
+    }
+  });
 }
 
 function auditLandCounts(dossier, failures, warnings) {
@@ -3410,18 +4327,51 @@ function auditPolishWarnings(dossier, text, warnings) {
   });
 }
 
+function classifyAuditMessage(message, severity = "warning") {
+  if (/^Advisory content gap:/i.test(message)) {
+    return "advisoryWarnings";
+  }
+  if (/banned phrase|regression phrase|graveyard thesis/i.test(message)) {
+    return "contentRegressions";
+  }
+  if (severity === "failure") {
+    return "contractFailures";
+  }
+  return "otherWarnings";
+}
+
+function summarizeAuditBuckets(failures = [], warnings = []) {
+  const buckets = {
+    contentRegressions: [],
+    contractFailures: [],
+    advisoryWarnings: [],
+    otherWarnings: [],
+  };
+
+  failures.forEach((message) => {
+    buckets[classifyAuditMessage(message, "failure")].push(message);
+  });
+  warnings.forEach((message) => {
+    buckets[classifyAuditMessage(message, "warning")].push(message);
+  });
+
+  return buckets;
+}
+
 export function auditCommanderDossier(dossier) {
   const failures = [];
   const warnings = [];
   const text = renderCommanderDossierText(dossier);
 
-  auditRequiredSections(dossier, failures);
+  auditRequiredSections(dossier, failures, warnings);
   auditTableCaution(dossier, failures, warnings);
+  auditResultSummaryStrip(dossier, failures);
   auditLandCounts(dossier, failures, warnings);
   auditDuplicates(dossier, warnings);
   auditFactionLanguage(dossier, failures, warnings);
   auditSpecificRegressions(dossier, text, failures);
   auditPolishWarnings(dossier, text, warnings);
+  const auditBuckets = summarizeAuditBuckets(failures, warnings);
 
   return {
     id: `${dossier.primaryFactionKey}.${dossier.mode}.${dossier.targetFactionKey}`,
@@ -3433,6 +4383,7 @@ export function auditCommanderDossier(dossier) {
     status: failures.length ? "fail" : warnings.length ? "warning" : "pass",
     failures,
     warnings,
+    auditBuckets,
     sourceLandWarnings: (dossier.landRecommendations?.suppressedQuantities || []).map((entry) => ({
       sourceFactionKey: dossier.targetFactionKey,
       sourceFactionName: dossier.faction?.name || dossier.targetFactionKey,

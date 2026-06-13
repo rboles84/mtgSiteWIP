@@ -1,0 +1,229 @@
+{
+  "schema_version": "1.0.0",
+  "faction_id": "colorless",
+  "faction_name": "Colorless",
+  "source_review_date": "2026-06-10",
+  "last_updated": "2026-06-11",
+  "claim_count": 8,
+  "claim_quality_summary": {
+    "claim_basis": "Existing VM-308 COLORLESS-EVID rows plus VM-324 COLORLESS-SRC-018 intake rows and VM-334 lifecycle authority, with VM-309/VM-310 architecture used as shaping context but not claim-bearing evidence.",
+    "claim_bearing_rows_used_as_raw_proof": [
+      "COLORLESS-EVID-001",
+      "COLORLESS-EVID-006",
+      "COLORLESS-EVID-007",
+      "COLORLESS-EVID-008",
+      "COLORLESS-EVID-009",
+      "COLORLESS-EVID-010",
+      "COLORLESS-EVID-011",
+      "COLORLESS-EVID-012",
+      "COLORLESS-EVID-013",
+      "COLORLESS-EVID-016",
+      "COLORLESS-EVID-018",
+      "COLORLESS-EVID-019",
+      "COLORLESS-EVID-020",
+      "COLORLESS-EVID-021",
+      "COLORLESS-EVID-025"
+    ],
+    "support_boundary_rows_used_as_limitations": [
+      "COLORLESS-EVID-014",
+      "COLORLESS-EVID-015",
+      "COLORLESS-EVID-017",
+      "COLORLESS-EVID-022",
+      "COLORLESS-EVID-023",
+      "COLORLESS-EVID-024"
+    ],
+    "support_material_policy": "Support-only, shaping-only, architecture, discovery, visual, relocation, Commander, generated, and manual-fill material may appear only as boundary, limitation, or traceability context.",
+    "evidence_quality": "High for lifecycle and controlled-placeable product boundaries; medium for local generic/colorless, {C}, Wastes, Devoid, artifact, Eldrazi, strict Commander, five-color comparator, and not-sixth-color boundaries because exact Oracle, legality, current rules, and public deck advice remain manual-fill constrained.",
+    "known_limitations": [
+      "Current Comprehensive Rules citations remain Manual fill required.",
+      "Official Oath of the Gatewatch source mapping for {C} and Wastes remains Manual fill required.",
+      "Wastes Oracle/ruling details remain Manual fill required.",
+      "Eldrazi Unbound is Commander support-only until official product proof is added.",
+      "Ugin/Karn lore specifics remain support-bound and Manual fill required.",
+      "Eldrazi titan lore details remain Manual fill required.",
+      "Colored artifact history and broad artifact claims remain caution-bound.",
+      "Canon relocation mapping remains unresolved.",
+      "Future product and Semnia notes remain excluded.",
+      "Generic mana, colorless mana, artifacts, and Colorless identity must not be treated as interchangeable concepts.",
+      "Phyrexia false-positive grounding remains Manual fill required beyond distinction-only context.",
+      "Named-card Oracle text and Commander legality require card-by-card verification before public recommendations or exact rules copy.",
+      "Current price and metagame claims require fresh data before deck-buying advice.",
+      "Manual browser QA remains useful for controlled Colorless dossier copy, but generated/public expansion remains out of scope.",
+      "VM-334 is lifecycle and product-governance authority only, not MTG lore, rules, Commander, card, legality, or deck evidence."
+    ],
+    "claim_ids": [
+      "colorless_claim_0001",
+      "colorless_claim_0002",
+      "colorless_claim_0003",
+      "colorless_claim_0004",
+      "colorless_claim_0005",
+      "colorless_claim_0006",
+      "colorless_claim_0007",
+      "colorless_claim_0008"
+    ]
+  },
+  "claims": [
+    {
+      "claim_id": "colorless_claim_0001",
+      "faction_id": "colorless",
+      "claim_type": "identity_lifecycle_boundary",
+      "statement": "Colorless is source-authored and VM-334-ratified as a controlled placeable Layer 1 identity: COLORLESS is active for controlled placement and dossier-visible output with colors: [], core_color: \"C\", placement_eligible: true, preview_eligible: false, directory links suppressed, and no public route, public alias, Home preview, Supabase manual-context, schema, or image expansion approved by this lifecycle claim.",
+      "canon_status": "Vox Mana lifecycle and public-interface boundary",
+      "source_ids": [
+        "COLORLESS-SCOPE-003",
+        "COLORLESS-SCOPE-004",
+        "COLORLESS-SCOPE-005"
+      ],
+      "evidence_rows": [
+        "COLORLESS-EVID-001",
+        "COLORLESS-EVID-018",
+        "COLORLESS-EVID-025"
+      ],
+      "confidence": "High",
+      "notes": "Use this claim only for Colorless product lifecycle and controlled-surface boundaries. It does not authorize Home preview, public routing, public aliases, schema changes, Supabase manual-context expansion, image edits, or lore/rules evidence."
+    },
+    {
+      "claim_id": "colorless_claim_0002",
+      "faction_id": "colorless",
+      "claim_type": "non_color_identity_boundary",
+      "statement": "Colorless should be framed as outside or orthogonal to the WUBRG color wheel: it is not a color, not a mono-color identity, not a sixth color, and not superior to or complete mastery of WUBRG.",
+      "canon_status": "Source-bound identity boundary with Vox Mana phrasing",
+      "source_ids": [
+        "COLORLESS-SRC-010",
+        "COLORLESS-SRC-012",
+        "COLORLESS-SRC-017",
+        "COLORLESS-CANON-001",
+        "COLORLESS-CANON-003"
+      ],
+      "evidence_rows": [
+        "COLORLESS-EVID-006",
+        "COLORLESS-EVID-016",
+        "COLORLESS-EVID-018"
+      ],
+      "confidence": "Medium",
+      "notes": "The outside/orthogonal wording is architecture-aligned Vox Mana synthesis over VM-308 boundaries. Do not convert this into official MTG philosophy beyond the cited local evidence floor."
+    },
+    {
+      "claim_id": "colorless_claim_0003",
+      "faction_id": "colorless",
+      "claim_type": "rules_and_concept_boundary",
+      "statement": "Object colorlessness, specifically colorless mana represented by {C}, generic mana costs, and Vox Mana's Colorless identity are related but distinct concepts; generic mana is not a type of mana and must not be collapsed into colorless mana or Colorless identity.",
+      "canon_status": "Source-bound rules/concept boundary with manual-fill caution",
+      "source_ids": [
+        "COLORLESS-SRC-010",
+        "COLORLESS-SRC-012",
+        "COLORLESS-SRC-017",
+        "COLORLESS-CANON-001"
+      ],
+      "evidence_rows": [
+        "COLORLESS-EVID-007",
+        "COLORLESS-EVID-008",
+        "COLORLESS-EVID-009"
+      ],
+      "confidence": "Medium",
+      "notes": "Exact current Comprehensive Rules citations, Oath of the Gatewatch source mapping, and Wastes Oracle/ruling details remain COLORLESS-MF-001, COLORLESS-MF-002, and COLORLESS-MF-003 limitations."
+    },
+    {
+      "claim_id": "colorless_claim_0004",
+      "faction_id": "colorless",
+      "claim_type": "branch_separation_boundary",
+      "statement": "Colorless raw profile language may distinguish artifacts/function, Eldrazi/void, Wastes/desolation, and Devoid/design support as separate branches, but artifacts are not equivalent to Colorless identity, Eldrazi are not artifacts, Wastes are not all of Colorless, and Devoid design support should not be overgeneralized to all Colorless meaning.",
+      "canon_status": "Source-bound branch boundary with synthesis caution",
+      "source_ids": [
+        "COLORLESS-SRC-008",
+        "COLORLESS-SRC-010",
+        "COLORLESS-SRC-012",
+        "COLORLESS-SRC-017",
+        "COLORLESS-CANON-001"
+      ],
+      "evidence_rows": [
+        "COLORLESS-EVID-010",
+        "COLORLESS-EVID-011",
+        "COLORLESS-EVID-012",
+        "COLORLESS-EVID-013"
+      ],
+      "confidence": "Medium",
+      "notes": "Ugin/Karn may appear only as support-bound branch texture with COLORLESS-EVID-014 and COLORLESS-MF-005 limitations. Do not make detailed Ugin/Karn lore claims in VM-311."
+    },
+    {
+      "claim_id": "colorless_claim_0005",
+      "faction_id": "colorless",
+      "claim_type": "support_and_comparator_boundary",
+      "statement": "Commander, five-color Eldrazi, and Phyrexia material must remain bounded: Eldrazi Unbound is support-only Colorless Commander texture, Eldrazi Incursion is five-color comparator support, Phyrexia is distinction-only context, and none of these independently authorizes broad Commander viability, lore proof, placement eligibility, or raw claim expansion.",
+      "canon_status": "Support/comparator boundary, not broad Commander proof",
+      "source_ids": [
+        "COLORLESS-CMD-001",
+        "COLORLESS-CMD-002",
+        "COLORLESS-SRC-009",
+        "COLORLESS-CANON-001",
+        "COLORLESS-SCOPE-003",
+        "COLORLESS-SCOPE-004"
+      ],
+      "evidence_rows": [
+        "COLORLESS-EVID-015",
+        "COLORLESS-EVID-017",
+        "COLORLESS-EVID-018"
+      ],
+      "confidence": "Low",
+      "notes": "COLORLESS-EVID-015 and COLORLESS-EVID-017 are cited only for support/comparator boundaries, not as proof of broad Commander viability, official product facts, or Phyrexia/Colorless equivalence. Official Eldrazi Unbound product proof remains COLORLESS-MF-004."
+    },
+    {
+      "claim_id": "colorless_claim_0006",
+      "faction_id": "colorless",
+      "claim_type": "player_fit_attraction_boundary",
+      "statement": "Colorless can be used as controlled placement attraction for players drawn to a chosen restriction outside WUBRG: artifact-machine problem solving, Eldrazi scale, Wastes or terrain austerity, clean mana systems, resource denial, or engine-expression play. This is Vox Mana placement synthesis, not official MTG color philosophy.",
+      "canon_status": "Vox Mana player-fit synthesis over sourced design and psychographic material",
+      "source_ids": [
+        "COLORLESS-SRC-018",
+        "COLORLESS-SRC-012",
+        "COLORLESS-CANON-001"
+      ],
+      "evidence_rows": [
+        "COLORLESS-EVID-019",
+        "COLORLESS-EVID-022",
+        "COLORLESS-EVID-023",
+        "COLORLESS-EVID-018"
+      ],
+      "confidence": "Medium",
+      "notes": "Use as controlled dossier and placement-axis material only. Do not present as official Wizards Colorless psychology, public deck advice, or broad recommendation authorization."
+    },
+    {
+      "claim_id": "colorless_claim_0007",
+      "faction_id": "colorless",
+      "claim_type": "strict_commander_constraint_boundary",
+      "statement": "Strict Colorless Commander placement must preserve commander color-identity constraints: a colorless commander does not authorize colored color identities, and named commanders or card directions from source notes remain support candidates until official card data and legality are verified.",
+      "canon_status": "Source-bound Commander boundary with manual-fill caution",
+      "source_ids": [
+        "COLORLESS-SRC-018",
+        "COLORLESS-CMD-001"
+      ],
+      "evidence_rows": [
+        "COLORLESS-EVID-020",
+        "COLORLESS-EVID-015",
+        "COLORLESS-EVID-018"
+      ],
+      "confidence": "Medium",
+      "notes": "May shape strict-colorless versus merely colorless-feeling Commander questions. Exact card legality, product proof, and recommendation proof remain COLORLESS-MF-004 and COLORLESS-MF-014."
+    },
+    {
+      "claim_id": "colorless_claim_0008",
+      "faction_id": "colorless",
+      "claim_type": "devoid_and_five_color_false_positive_boundary",
+      "statement": "Devoid and five-color Eldrazi can create colorless-feeling gameplay without proving strict Colorless identity: Devoid object colorlessness and Ulalek/Eldrazi Incursion five-color identity are false-positive separators, not proof that COLORLESS should place, route, or recommend broadly.",
+      "canon_status": "Source-bound design/comparator boundary with audit caution",
+      "source_ids": [
+        "COLORLESS-SRC-018",
+        "COLORLESS-SRC-008",
+        "COLORLESS-CMD-002"
+      ],
+      "evidence_rows": [
+        "COLORLESS-EVID-010",
+        "COLORLESS-EVID-021",
+        "COLORLESS-EVID-015",
+        "COLORLESS-EVID-018"
+      ],
+      "confidence": "Medium",
+      "notes": "Use for false-positive testing and controlled discriminator copy only. Do not turn five-color Eldrazi support into strict Colorless proof."
+    }
+  ]
+}

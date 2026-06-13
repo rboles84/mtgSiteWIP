@@ -4,7 +4,7 @@
 
 Vox Mana now uses a raw-plus-generated data flow:
 
-- `data/identity-layers.json` is the canonical identity-layer source for mono colors, expression routing, shared color language, and the Home identity preview registry.
+- `data/identity-layers.json` is the canonical identity-layer registry for mono colors, expression routing, shared color language, and the Home identity preview registry.
 - `data/identity-layers.schema.json` describes the identity-layer and Home preview registry contract.
 - `data/precons/vox-mana-precons.source.json` is the canonical precon source catalog for Archscry dossier recommendations.
 - `data/precons/vox-mana-precons.source.schema.json` describes the hand-authored precon source contract.
@@ -22,9 +22,15 @@ After changing identity layers, raw faction data, or display data, run `npm run 
 
 After changing the precon source catalog or precon theme taxonomy, run `npm run build:precons` from `C:\dev\mtgSiteWIP`.
 
+Source-first faction quality passes must also satisfy the source-bound gold standard and VM-300 source/generated guardrail contract in [Source / Generated Guardrails](source-generated-guardrails.md). Generated/runtime surfaces, including `data/factions.json`, generated placement JSON, generated identity layers, generated Supabase context, generated snippets/flavor output, hardcoded dossier copy, existing Archscry UI output, and existing display affinity copy are comparison targets only; they are not canonical source inputs for display parity, placement, calibration, discriminator, Commander support, or claim-backed profile fields.
+
+VM-335 records mono colors as a transitional Layer 1 exception: W/U/B/R/G remain active registry/runtime identities through `data/identity-layers.json`, but registry authorship is not VM-325 claim evidence. Future mono parity repair requires separately approved raw packets, claim ledgers, or source-intake promotion before mono display, placement, Commander, or discriminator fields may be treated as source-backed.
+
 ## Identity preview registry
 
-`data/identity-layers.json` owns the canonical Home preview metadata for the current 20-expression carousel. `assets/js/newindex2.js` fetches this registry, selects entries where `preview_eligible` is `true`, sorts by `preview_order`, and keeps `data/factions.json` as the lore-note source. VM-160 adds `BANT` as a live placement expression with `preview_eligible: false`, so Home preview order remains unchanged.
+`data/identity-layers.json` owns the canonical Home preview metadata for the current 20-expression carousel. `assets/js/home.js` fetches this registry, selects entries where `preview_eligible` is `true`, sorts by `preview_order`, and keeps `data/factions.json` as the lore-note source. VM-334 ratifies the current live placement set as 36 expressions; shards, wedges, four-color identities, and `COLORLESS` remain `preview_eligible: false`, so Home preview order remains unchanged.
+
+For mono colors, the same registry owns active membership, routing metadata, and display-generation inputs. It does not authorize new mono runtime copy, generated parity repair, raw packet creation, claim-ledger creation, validator mapping, builder migration, or placement discriminator repair.
 
 Every expression entry must include:
 
@@ -236,10 +242,44 @@ All result-producing paths should converge on this shape:
 
 Notes:
 
-- `institution_type` uses the identity-layer institution enum: `guild`, `college`, `color`, `shard`, `wedge`, `four_color`, `five_color`, or `colorless`. Current placement outputs use the active 21-expression set: guilds, colleges, mono colors, and the Bant shard pilot.
+- `institution_type` uses the identity-layer institution enum: `guild`, `college`, `color`, `shard`, `wedge`, `four_color`, `five_color`, or `colorless`. Current placement outputs use the active 36-expression set: mono colors, guilds, colleges, shards, wedges, four-color identities, and controlled placeable `COLORLESS`.
 - `identity` is the layered identity block used by dossier rendering, routing, and compatibility recovery.
 - `color_weights` is an optional field. Phase 0 does not fabricate or approximate it when the current scoring model cannot derive it accurately.
 - `top_matches` and `adjacent_matches` should carry `identity` entries so the presenter layer does not need to infer mono or pair structure from display names alone.
+
+## Commander dossier result summary strip
+
+`assets/js/commander-dossier.js` now builds a DOM-free `resultSummaryStrip` contract before `assets/js/index.js` renders the Archscry placement strip.
+
+The renderer should consume the completed summary object only. It should not perform adjacent selection, signal-band parsing, copy cleanup, or fallback resolution inside the DOM layer.
+
+`resultSummaryStrip` contains:
+
+- `adjacentFit`
+  - `label`
+  - `heading`
+  - `signalBand`
+  - `signalLabel`
+  - `relationshipCopy`
+  - `targetKey`
+  - `targetName`
+- `whereThisLeads`
+  - `label`
+  - `heading`
+  - `body`
+  - `tags`
+- `playPattern`
+  - `label`
+  - `heading`
+  - `body`
+
+Contract notes:
+
+- `adjacentFit.targetKey` must never equal the current dossier faction key.
+- `signalBand` uses `strong`, `moderate`, `emerging`, and `related`.
+- Non-numeric, missing, `NaN`, `null`, `undefined`, or out-of-range adjacent scores are treated as no reliable score and resolve to `related`.
+- `whereThisLeads.tags` may be empty; the renderer should hide the tag row instead of filling it with placeholder copy.
+- Local summary-strip fallbacks are display-only and are not packet truth, canon, or source authority.
 
 ## Profile storage
 

@@ -1,0 +1,347 @@
+{
+  "schema_version": "1.0.0",
+  "placement_profile_version": "0.1.2",
+  "placement_model_version": "0.1.2",
+  "based_on_profile_version": "0.1.2",
+  "faction_id": "ink",
+  "faction_name": "Ink / Altruism",
+  "last_updated": "2026-06-12",
+  "color_identity": {
+    "colors": [
+      "Red",
+      "Green",
+      "White",
+      "Blue"
+    ],
+    "metadata_query_only_forms": [
+      "RGWU",
+      "RGUW",
+      "RWGU",
+      "RWUG",
+      "RUGW",
+      "RUWG",
+      "GRWU",
+      "GRUW",
+      "GWRU",
+      "GWUR",
+      "GURW",
+      "GUWR",
+      "WRGU",
+      "WRUG",
+      "WGRU",
+      "WGUR",
+      "WURG",
+      "WUGR",
+      "URGW",
+      "URWG",
+      "UGRW",
+      "UGWR",
+      "UWRG",
+      "UWGR",
+      "rgwu",
+      "rguw",
+      "rwgu",
+      "rwug",
+      "rugw",
+      "ruwg",
+      "grwu",
+      "gruw",
+      "gwru",
+      "gwur",
+      "gurw",
+      "guwr",
+      "wrgu",
+      "wrug",
+      "wgru",
+      "wgur",
+      "wurg",
+      "wugr",
+      "urgw",
+      "urwg",
+      "ugrw",
+      "ugwr",
+      "uwrg",
+      "uwgr"
+    ],
+    "future_expression_name": "INK",
+    "future_expression_name_status": "Historical field name retained; INK is now the live public expression key after VM-263, while Altruism remains support/display framing and RGWU, WURG, and all same-color permutations remain metadata-query-only."
+  },
+  "placement_summary": "Ink / Altruism is a live-pilot placement profile for the INK four-color expression: protected public abundance, open knowledge, community benefit, shared resources guarded from capture, and missing-Black pressure without private hoarding as the center.",
+  "moral_and_psychological_profile": {
+    "primary_drive": "Keep resources, knowledge, and care circulating through a protected commons rather than a private vault.",
+    "ethical_pressure": "Generosity can become capture-prone or self-erasing if the commons cannot defend consent, limits, and personal need.",
+    "core_boundary": "Placement language is review-gated guidance only, not scoring data."
+  },
+  "placement_axes": [],
+  "core_values": [
+    "shared prosperity",
+    "community benefit",
+    "protected generosity",
+    "open knowledge",
+    "public abundance",
+    "resistance to private hoarding"
+  ],
+  "behavioral_signals": [
+    "wants the table, archive, or community to benefit rather than letting one private actor capture the value",
+    "uses commons, gift, public memory, reciprocity, open learning, and guarded abundance language with missing-Black pressure",
+    "treats knowledge and resources as things to circulate with protection rather than hoard as leverage"
+  ],
+  "inhibitor_traits": [
+    "private advantage, personal sovereignty, or hoarding as the center",
+    "generic group-hug or shared-resource language without the missing-Black worldview",
+    "nearby Bant, Jeskai, Naya, Temur, Dune, or Witch language without the full RGWU/non-Black frame",
+    "Kynaios, Stalwart Unity, Altruism, Ink-Treader, or RGWU color identity used as proof without approved evidence"
+  ],
+  "inhibitor_traps": [
+    "Treats private need, guarded consent, or personal limits as selfish by default when the gift needs protection in order to keep moving.",
+    "The user only mentions shared resources, group-hug, public archives, Kynaios, Ink-Treader, or same-color grouping without the full non-Black protected-commons worldview.",
+    "The user treats Altruism, Kynaios, Stalwart Unity, Ink-Treader, or same-color identity as naming authority.",
+    "The user centers private advantage, hoarding, or personal sovereignty as the thing that should lead the answer."
+  ],
+  "good_fit_indicators": [
+    "protected public abundance",
+    "open knowledge joined to community benefit",
+    "shared resources guarded from capture",
+    "explicit non-Black public-commons boundary preserved"
+  ],
+  "ideal_fit_indicators": [
+    "the answer needs Red care, Green reciprocity, White civic protection, and Blue open knowledge all at once",
+    "the appeal is a defended commons rather than generic generosity or color identity",
+    "the user wants abundance to circulate while accepting the shadow risk of self-erasure or naive openness"
+  ],
+  "poor_fit_indicators": [
+    "generic same-color goodstuff",
+    "generic group-hug shells",
+    "generic public archive imagery",
+    "generic shared resources without the missing-Black worldview",
+    "Kynaios-only identity",
+    "Ink-Treader-only identity",
+    "Bant order and learning without Red immediacy",
+    "Jeskai discipline and expression without Green reciprocity",
+    "Naya embodied community without Blue open knowledge",
+    "Temur vitality and study without White civic promise",
+    "Dune force or Glint volatility treated as Ink proof",
+    "Altruism or same-color code treated as public naming authority"
+  ],
+  "discriminator_questions": [
+    {
+      "question_id": "ink_disc_001",
+      "question": "Is the appeal generosity itself, or generosity plus protection from capture under a missing-Black frame?",
+      "positive_signal": "Generosity joined to protected abundance, open knowledge, and resistance to private hoarding.",
+      "negative_signal": "Group-hug, shared resources, or friendliness by itself.",
+      "purpose": "Separates source-bounded Ink identity from generic generosity, group-hug, shared resources, public archive imagery, Kynaios-only texture, or Ink-Treader-only anchoring.",
+      "answer_pattern_that_supports_this_faction": "Supports Ink when generosity, shared resources, or open knowledge are tied to protection from capture, community benefit, guarded commons, missing-Black pressure, and the full RGWU/non-Black worldview.",
+      "answer_pattern_that_weakens_this_faction": "Weakens Ink when the user only wants group-hug, shared resources, public archives, Kynaios, Ink-Treader, Altruism, same-color grouping, or friendliness without the non-Black protected-commons frame.",
+      "collision_targets": [
+        "WU",
+        "UR",
+        "UG",
+        "WG",
+        "WR",
+        "RG",
+        "BANT",
+        "JESKAI",
+        "NAYA",
+        "TEMUR",
+        "GLINT",
+        "DUNE"
+      ],
+      "claim_ids": [
+        "ink_claim_0001",
+        "ink_claim_0003",
+        "ink_claim_0005"
+      ]
+    },
+    {
+      "question_id": "ink_disc_002",
+      "question": "Does the answer need all four present colors plus missing Black, or would a nearer Bant, Jeskai, Naya, Temur, Dune, Witch, or Kynaios-only frame explain it better?",
+      "positive_signal": "The answer needs the full RGWU/non-Black commons.",
+      "negative_signal": "A nearby shard, wedge, pair, four-color comparison, or Commander shell explains the center better.",
+      "purpose": "Tests the four-color threshold so INK is not awarded for adjacent shards, wedges, pairs, Dune force, Glint volatility, Kynaios-only shells, or generic same-color goodstuff.",
+      "answer_pattern_that_supports_this_faction": "Supports Ink when Red care, Green reciprocity, White civic promise, Blue open knowledge, and explicit missing-Black refusal of private hoarding all matter together.",
+      "answer_pattern_that_weakens_this_faction": "Weakens Ink when Bant, Jeskai, Naya, Temur, Dune, Glint, a two-color pair, Kynaios-only support texture, or generic same-color goodstuff explains the center better.",
+      "collision_targets": [
+        "WU",
+        "UR",
+        "UG",
+        "WG",
+        "WR",
+        "RG",
+        "BANT",
+        "JESKAI",
+        "NAYA",
+        "TEMUR",
+        "GLINT",
+        "DUNE"
+      ],
+      "claim_ids": [
+        "ink_claim_0001",
+        "ink_claim_0002",
+        "ink_claim_0003",
+        "ink_claim_0004",
+        "ink_claim_0005"
+      ]
+    },
+    {
+      "question_id": "ink_disc_003",
+      "question": "Is the answer protected generosity and open knowledge without private hoarding, or Dune's force or Witch's patient accumulation?",
+      "purpose": "Separates Ink from adjacent four-color peers in the source-bound missing-Black ring.",
+      "answer_pattern_that_supports_this_faction": "Supports Ink when shared prosperity, community benefit, protected generosity, open knowledge, and missing-Black refusal of private hoarding all matter together.",
+      "answer_pattern_that_weakens_this_faction": "Weakens Ink when the center is Dune's immediate organized force or Witch's protected long-horizon accumulation instead of a guarded commons.",
+      "collision_targets": [
+        "DUNE",
+        "WITCH"
+      ],
+      "lateral_inhibition": false,
+      "claim_ids": [
+        "ink_claim_0003",
+        "ink_claim_0005"
+      ],
+      "positive_signal": "Protected commons without private hoarding.",
+      "negative_signal": "Immediate force or patient accumulation explains the center better.",
+      "confidence": "Medium"
+    }
+  ],
+  "chatbot_guidance": {
+    "allowed": [
+      "Use Ink as source-grounded live-pilot identity language.",
+      "Describe Kynaios and Tiro, Stalwart Unity, Altruism, group-hug, shared-resource, and table-politics readability as support-only when needed.",
+      "Use Manual fill required where exact card facts or public copy need stronger evidence."
+    ],
+    "not_allowed": [
+      "Do not say Ink is an official MTG faction.",
+      "Do not say Ink or Altruism is the official universal RGWU name.",
+      "Do not route to Ink from generic group-hug, generic shared resources, generic same-color identity, Kynaios, Ink-Treader, or Altruism alone.",
+      "Do not treat Commander/operator material as lore proof.",
+      "Do not promote Altruism, RGWU, WURG, or same-color permutations as public aliases."
+    ],
+    "how_to_recognize_mismatch": [
+      "Treats private need, guarded consent, or personal limits as selfish by default when the gift needs protection in order to keep moving.",
+      "The user only mentions shared resources, group-hug, public archives, Kynaios, Ink-Treader, or same-color grouping without the full non-Black protected-commons worldview.",
+      "The user treats Altruism, Kynaios, Stalwart Unity, Ink-Treader, or same-color identity as naming authority.",
+      "The user centers private advantage, hoarding, or personal sovereignty as the thing that should lead the answer."
+    ],
+    "calibration_note": "Do not award Ink for generic group-hug, generic shared resources, public archive imagery, Kynaios familiarity, Ink-Treader anchoring alone, Altruism/same-color naming, RGWU/WURG goodstuff, or adjacent shard/wedge/four-color language. Require the full four-color without Black synthesis: protected public abundance, open knowledge, community benefit, shared resources guarded from capture, Red care, Green reciprocity, White civic promise, Blue open knowledge, and refusal of Black-style private hoarding."
+  },
+  "placement_quality": {
+    "strongest_evidence_areas": [
+      "lifecycle and metadata boundary",
+      "naming guardrail",
+      "missing-Black identity frame",
+      "Ink-Treader anchor boundary",
+      "bounded shared-prosperity and open-knowledge frame"
+    ],
+    "weakest_evidence_areas": [
+      "exact card facts",
+      "Commander legality",
+      "Kynaios lore",
+      "Commander 2016 article grounding",
+      "adjacent separator raw evidence",
+      "long-form public-memory symbolism and strategy"
+    ],
+    "manual_review_recommended": true,
+    "review_gated": false,
+    "placement_status": "live_after_vm263_source_repair",
+    "placement_eligible": true,
+    "preview_eligible": false,
+    "calibration_tuning_status": "source_authored_live_repair",
+    "last_placement_ready_pass": "VM-304",
+    "live_pilot": true,
+    "notes": "VM-304 source-backs the current generated INK placement/profile output while preserving the five-claim floor, support-only Commander/mechanics texture, RGWU/WURG metadata-only boundary, and no source use of Altruism, Kynaios, Stalwart Unity, Ink-Treader, same-color identity, or discovery drafts as naming authority."
+  },
+  "calibration_tuning": {
+    "status": "source_authored_live_repair",
+    "reason": "VM-304 source-backs INK placement vocabulary so generated placement axes no longer outrun raw source backing after VM-263 live promotion.",
+    "required_positive_evidence_terms": [
+      "protected",
+      "public abundance",
+      "open knowledge",
+      "community benefit",
+      "shared resources",
+      "guarded commons",
+      "protected generosity",
+      "four-color",
+      "without Black",
+      "missing-Black",
+      "Red care",
+      "Green reciprocity",
+      "White civic promise",
+      "Blue open knowledge",
+      "commons",
+      "gift",
+      "capture"
+    ],
+    "required_positive_min_hits": 2,
+    "strengthen_when_user_centers": [
+      "The user returns to protected public abundance, open knowledge, community benefit, and shared resources guarded from capture.",
+      "The user treats group-hug, shared resources, Kynaios, Stalwart Unity, or public-archive texture as support texture rather than standalone identity proof.",
+      "The user needs Red care, Green reciprocity, White civic promise, and Blue open knowledge together.",
+      "The user frames refusal of Black private advantage, hoarding, or personal sovereignty as identity language.",
+      "The user preserves the four-color without Black boundary instead of collapsing into Bant, Jeskai, Naya, Temur, Dune, Glint, a two-color pair, or generic same-color goodstuff."
+    ],
+    "suppress_when_user_centers": [
+      "The user centers private advantage, hoarding, personal sovereignty, or Black-style leverage as the leading value.",
+      "The user mentions only shared resources, group-hug, public archives, Kynaios, Ink-Treader, Altruism, or same-color grouping without the missing-Black worldview.",
+      "The user treats Altruism, Kynaios, Stalwart Unity, Ink-Treader, RGWU, WURG, same-color identity, or color-code language as official public naming authority.",
+      "The user resolves more cleanly into Bant, Jeskai, Naya, Temur, Dune, Glint, a two-color pair, or generic same-color goodstuff."
+    ],
+    "false_positive_guardrail": "Do not award Ink for generic group-hug, generic shared resources, public archive imagery, Kynaios familiarity, Ink-Treader anchoring alone, Altruism/same-color naming, RGWU/WURG goodstuff, or adjacent shard/wedge/four-color language. Require the full four-color without Black synthesis: protected public abundance, open knowledge, community benefit, shared resources guarded from capture, Red care, Green reciprocity, White civic promise, Blue open knowledge, and refusal of Black-style private hoarding.",
+    "broad_match_penalty": 0.12
+  },
+  "collision_guidance": {
+    "review_triggers": [
+      "Bant",
+      "Jeskai",
+      "Naya",
+      "Temur",
+      "Dune",
+      "Witch",
+      "Kynaios-only shells",
+      "Ink-Treader-only anchors",
+      "generic group-hug",
+      "generic public archive imagery",
+      "generic RGWU goodstuff"
+    ],
+    "rule": "Treat these as collision or false-positive review triggers, not automatic Ink placement.",
+    "pairs": [
+      {
+        "collision_id": "collision_ink_dune_four_color_ring",
+        "against": "DUNE",
+        "lateral_inhibition": false,
+        "separator": "Ink centers non-Black protected generosity, shared prosperity, and open knowledge; Dune centers non-Blue direct action, territorial pressure, and organized force.",
+        "ask": "Is the answer protecting shared benefit, or organizing force before delay costs the opening?",
+        "evidence_claim_ids": [
+          "ink_claim_0003",
+          "ink_claim_0005",
+          "dune_claim_0003",
+          "dune_claim_0005"
+        ],
+        "supporting_source_ids": [
+          "src_vm_ink_evidence_ledger_20260604",
+          "src_vm_four_color_reference_audit_20260604",
+          "src_vm_dune_evidence_ledger_20260603",
+          "src_vm_four_color_reference_audit_20260603"
+        ]
+      },
+      {
+        "collision_id": "collision_ink_witch_four_color_ring",
+        "against": "WITCH",
+        "lateral_inhibition": false,
+        "separator": "Ink protects a commons against private hoarding; Witch protects patient accumulation, calculation, ambition, and long-horizon growth against Red impulse.",
+        "ask": "Is the answer a shared good kept open, or a cultivated position becoming inevitable?",
+        "evidence_claim_ids": [
+          "ink_claim_0003",
+          "ink_claim_0005",
+          "witch_claim_0003",
+          "witch_claim_0005"
+        ],
+        "supporting_source_ids": [
+          "src_vm_ink_evidence_ledger_20260604",
+          "src_vm_four_color_reference_audit_20260604",
+          "src_vm_witch_evidence_ledger_20260604",
+          "src_vm_four_color_reference_audit_20260604"
+        ]
+      }
+    ]
+  }
+}

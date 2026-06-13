@@ -2,7 +2,8 @@ import { readdir, readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const modulePath = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(modulePath);
 const repoRoot = path.resolve(__dirname, "..");
 const rawRoot = path.join(repoRoot, "data", "raw-factions");
 const displayPath = path.join(repoRoot, "data", "factions.json");
@@ -28,6 +29,12 @@ const RAW_TO_KEY = {
   sultai: "SULTAI",
   mardu: "MARDU",
   jeskai: "JESKAI",
+  yore: "YORE",
+  glint: "GLINT",
+  dune: "DUNE",
+  ink: "INK",
+  witch: "WITCH",
+  colorless: "COLORLESS",
   golgari_swarm: "BG",
   gruul_clans: "RG",
   house_dimir: "UB",
@@ -43,6 +50,40 @@ const RAW_TO_KEY = {
 };
 
 const KEY_TO_RAW = Object.fromEntries(Object.entries(RAW_TO_KEY).map(([raw, key]) => [key, raw]));
+
+const RAW_PROFILE_ENRICHMENT_KEYS = new Set([
+  "YORE",
+  "GLINT",
+  "DUNE",
+  "INK",
+  "WITCH",
+  "LOREHOLD",
+  "BANT",
+  "ESPER",
+  "GRIXIS",
+  "JUND",
+  "NAYA",
+  "ABZAN",
+  "TEMUR",
+  "SULTAI",
+  "MARDU",
+  "JESKAI",
+]);
+
+const SUPPRESS_UNBACKED_PUBLIC_RICHNESS_KEYS = new Set([
+  "PRISMARI",
+  "QUANDRIX",
+  "SILVERQUILL",
+  "WITHERBLOOM",
+]);
+
+const SUPPRESS_UNBACKED_FLAVOR_ANCHOR_KEYS = new Set([
+  "YORE",
+  "GLINT",
+  "DUNE",
+  "INK",
+  "WITCH",
+]);
 
 const BIOLOGICAL_PRIORS = {
   W: {
@@ -245,6 +286,54 @@ const BIOLOGICAL_PRIORS = {
     inhibitor_trigger:
       "Mistakes practice, restraint, or study for the whole answer when trained insight is asking to move.",
   },
+  YORE: {
+    archetype: "The Engineered Agency Architect",
+    primary_foundation: "Authority",
+    secondary_foundation: "Liberty",
+    risk_signal: "high over-optimization risk",
+    inhibitor_trigger:
+      "Treats natural closure, organic belonging, or patient growth as final when agency is asking for a constructed answer.",
+  },
+  GLINT: {
+    archetype: "The Storm-Fed Opportunist",
+    primary_foundation: "Liberty",
+    secondary_foundation: "Sanctity",
+    risk_signal: "high predation-volatility risk",
+    inhibitor_trigger:
+      "Treats civic restraint, imposed order, or stabilizing duty as the only trustworthy answer when appetite, adaptation, and living force are asking to move first.",
+  },
+  DUNE: {
+    archetype: "The Common-Front Linebreaker",
+    primary_foundation: "Loyalty",
+    secondary_foundation: "Liberty",
+    risk_signal: "high force-forward risk",
+    inhibitor_trigger:
+      "Mistakes detached contemplation, delay, or perfect modeling for the only adult answer when the line needs bodies, cost, ignition, and persistence moving together now.",
+  },
+  INK: {
+    archetype: "The Commons Keeper",
+    primary_foundation: "Care",
+    secondary_foundation: "Fairness",
+    risk_signal: "high self-erasure risk",
+    inhibitor_trigger:
+      "Treats private need, guarded consent, or personal limits as selfish by default when the gift needs protection in order to keep moving.",
+  },
+  WITCH: {
+    archetype: "The Patient Cultivation Schemer",
+    primary_foundation: "Authority",
+    secondary_foundation: "Care",
+    risk_signal: "high sterile-control risk",
+    inhibitor_trigger:
+      "Treats speed, impulse, spectacle, or emotional release as the center when patient cultivation is asking for protected, calculated growth.",
+  },
+  COLORLESS: {
+    archetype: "The Outside-System Architect",
+    primary_foundation: "Precision",
+    secondary_foundation: "Constraint",
+    risk_signal: "high conflation risk",
+    inhibitor_trigger:
+      "Collapses generic mana, colorless mana, artifacts, Eldrazi, Wastes, Devoid, five-color Eldrazi, or Phyrexia into one undifferentiated Colorless identity.",
+  },
   SILVERQUILL: {
     archetype: "The Rhetorical Status Shaper",
     primary_foundation: "Authority",
@@ -311,6 +400,12 @@ const KNOWN_LATERAL_INHIBITION = {
   SULTAI: ["UB", "BG", "UG", "GRIXIS", "JUND", "BANT", "ABZAN", "TEMUR", "WITHERBLOOM", "MARDU"],
   MARDU: ["WR", "WB", "BR", "NAYA", "JUND", "ABZAN", "TEMUR", "SULTAI"],
   JESKAI: ["WU", "UR", "WR", "BANT", "ESPER", "GRIXIS", "NAYA", "TEMUR", "MARDU", "SULTAI"],
+  YORE: ["WU", "UB", "BR", "UR", "WB", "WR", "ESPER", "GRIXIS", "JESKAI", "MARDU", "SULTAI"],
+  GLINT: ["UB", "UR", "UG", "BR", "BG", "RG", "GRIXIS", "JUND", "TEMUR", "SULTAI"],
+  DUNE: ["BR", "BG", "WB", "RG", "WR", "WG", "JUND", "NAYA", "ABZAN", "MARDU", "GLINT"],
+  INK: ["WU", "UR", "UG", "WG", "WR", "RG", "BANT", "JESKAI", "NAYA", "TEMUR", "GLINT", "DUNE"],
+  WITCH: ["WU", "UB", "BG", "WG", "UG", "WB", "BANT", "ESPER", "SULTAI", "ABZAN", "YORE", "GLINT", "DUNE", "INK"],
+  COLORLESS: ["W", "U", "B", "R", "G", "YORE", "ESPER", "WITCH"],
   QUANDRIX: ["UG", "UR", "LOREHOLD"],
   BG: ["WITHERBLOOM", "WG", "WB", "JUND", "ABZAN", "SULTAI"],
   WITHERBLOOM: ["BG", "UG", "WG", "JUND", "ABZAN", "SULTAI"],
@@ -318,6 +413,247 @@ const KNOWN_LATERAL_INHIBITION = {
   RG: ["BR", "WG", "WITHERBLOOM", "JUND", "TEMUR"],
   LOREHOLD: ["WR", "WU", "QUANDRIX"],
   SILVERQUILL: ["WB", "WU", "PRISMARI", "UB"],
+};
+
+const LIVE_PLACEMENT_COPY_OVERRIDES = {
+  YORE: {
+    goodFitIndicators: [
+      "engineered agency against natural limits",
+      "artifice and technology as identity frame",
+      "resource conversion as constructed continuity",
+      "four-color without Green frame explicitly preserved",
+    ],
+    poorFitIndicators: [
+      "artifact preference without the four-color without Green worldview",
+      "recursion preference without engineered agency",
+      "artifact civilization without White structure, Blue optimization, Black refusal, and Red heat",
+      "natural lifecycle or organic belonging as the center of the answer",
+      "single-commander artifact identity treated as the whole frame",
+      "same-color goodstuff without Yore's missing-Green refusal",
+      "adjacent Yore phrases treated as a four-color faction",
+    ],
+    chatbotGuidance: {
+      use_when: [
+        "A user centers four-color without Green, engineered agency, artifice, civilization, technology, progress, or refusal of natural surrender.",
+        "A user frames artifacts, recursion, sacrifice, or value engines as constructed agency rather than generic power.",
+        "A user distinguishes Yore from Esper, Grixis, Jeskai, Mardu, Sultai, and artifact-only shells.",
+      ],
+      avoid_when: [
+        "The user only mentions artifacts, recursion, sacrifice, or optimization without a missing-Green worldview.",
+        "The user treats a single commander, support product, or name-adjacent phrase as enough to define Yore.",
+        "The user centers natural lifecycle, organic belonging, or Green-rooted continuity.",
+      ],
+      claim_boundaries: [
+        "Use Commander examples as table texture, not identity sources.",
+        "Keep the four-letter color code as technical routing data only.",
+        "Do not turn Yore into a Wizards-published faction or universal color-name claim.",
+      ],
+    },
+  },
+  GLINT: {
+    goodFitIndicators: [
+      "adaptive appetite under pressure",
+      "living force without White-style civic restraint",
+      "volatility and improvisation as identity frame",
+      "explicit UBRG/non-White boundary preserved",
+    ],
+    poorFitIndicators: [
+      "generic UBRG goodstuff",
+      "generic chaos",
+      "generic cascade",
+      "generic high-variance decks",
+      "Yidris-only identity",
+      "Grixis cruelty without Green living force",
+      "Jund predation without Blue adaptive intelligence",
+      "Temur experimentation without Black appetite",
+      "Sultai exploitation without Red ignition",
+      "Omnath or non-Black four-color value shells",
+      "Glint-Eye or Nephilim language treated as institutional proof",
+    ],
+    chatbotGuidance: {
+      use_when: [
+        "A user centers adaptive appetite, volatility, living force, or missing-White pressure rather than civic restraint.",
+        "A user needs Blue intelligence, Black appetite, Red ignition, and Green living force together.",
+        "A user distinguishes Glint from Grixis, Jund, Temur, Sultai, Omnath/non-Black four-color value, and generic chaos or cascade.",
+      ],
+      avoid_when: [
+        "The user only mentions generic chaos, cascade, high-variance play, or Yidris without the full non-White frame.",
+        "The user treats Glint-Eye, Nephilim, or Yidris as institutional proof.",
+        "The user centers White-style order, fairness, duty, or stability.",
+      ],
+      claim_boundaries: [
+        "Use Commander examples as table texture, not identity sources.",
+        "Keep the four-letter color code as technical routing data only.",
+        "Do not turn Glint or Chaos into a Wizards-published faction or universal color-name claim.",
+      ],
+    },
+  },
+  DUNE: {
+    goodFitIndicators: [
+      "organized territorial force",
+      "cost-bearing solidarity under pressure",
+      "immediate strike pressure",
+      "survival-minded multiplication",
+      "explicit BRGW/non-Blue boundary preserved",
+    ],
+    poorFitIndicators: [
+      "generic BRGW goodstuff",
+      "generic go-wide shells",
+      "generic tokens",
+      "generic combat pressure",
+      "Saskia-only identity",
+      "Jund predation without White line",
+      "Naya abundance without Black conquest pressure",
+      "Mardu raid-speed without Green survival-minded multiplication",
+      "Abzan endurance without Red ignition",
+      "Glint volatility or appetite with Blue present",
+      "Dune-Brood or Nephilim language treated as institutional proof",
+    ],
+    chatbotGuidance: {
+      use_when: [
+        "A user centers organized territorial pressure, cost-bearing solidarity, immediate strike pressure, or survival-minded multiplication without Blue-style distance.",
+        "A user needs White line, Black cost, Red ignition, and Green persistence all at once.",
+        "A user distinguishes Dune from Jund, Naya, Mardu, Abzan, Glint, Saskia-only shells, and generic BRGW combat piles.",
+      ],
+      avoid_when: [
+        "The user only mentions generic combat, tokens, or go-wide pressure without the missing-Blue worldview.",
+        "The user treats Saskia, Open Hostility, Dune-Brood, or color identity alone as enough to define Dune.",
+        "The user centers detached contemplation, Blue adaptation, or stable distance as the thing that should lead the answer.",
+      ],
+      claim_boundaries: [
+        "Use Commander examples as table texture, not identity sources.",
+        "Keep the four-letter color code as technical routing data only.",
+        "Do not turn Dune or Aggression into a Wizards-published faction or universal color-name claim.",
+      ],
+    },
+  },
+  INK: {
+    goodFitIndicators: [
+      "protected public abundance",
+      "open knowledge joined to community benefit",
+      "shared resources guarded from capture",
+      "explicit non-Black public-commons boundary preserved",
+    ],
+    poorFitIndicators: [
+      "generic same-color goodstuff",
+      "generic group-hug shells",
+      "generic public archive imagery",
+      "generic shared resources without the missing-Black worldview",
+      "Kynaios-only identity",
+      "Ink-Treader-only identity",
+      "Bant order and learning without Red immediacy",
+      "Jeskai discipline and expression without Green reciprocity",
+      "Naya embodied community without Blue open knowledge",
+      "Temur vitality and study without White civic promise",
+      "Dune force or Glint volatility treated as Ink proof",
+      "Altruism or same-color code treated as public naming authority",
+    ],
+    chatbotGuidance: {
+      use_when: [
+        "A user centers protected generosity, public abundance, open knowledge, or shared resources guarded from capture under a missing-Black frame.",
+        "A user needs Red care, Green reciprocity, White civic promise, and Blue open knowledge together.",
+        "A user distinguishes Ink from Bant, Jeskai, Naya, Temur, Dune, Glint, Kynaios-only shells, Ink-Treader-only anchors, and generic group-hug.",
+      ],
+      avoid_when: [
+        "The user only mentions shared resources, group-hug, public archives, Kynaios, Ink-Treader, or same-color grouping without the full non-Black protected-commons worldview.",
+        "The user treats Altruism, Kynaios, Stalwart Unity, Ink-Treader, or same-color identity as naming authority.",
+        "The user centers private advantage, hoarding, or personal sovereignty as the thing that should lead the answer.",
+      ],
+      claim_boundaries: [
+        "Use Commander examples as table texture, not identity sources.",
+        "Keep the four-letter color code as technical routing data only.",
+        "Do not turn Ink or Altruism into a Wizards-published faction or universal color-name claim.",
+      ],
+    },
+  },
+  WITCH: {
+    goodFitIndicators: [
+      "patient cultivation protected by structure",
+      "calculated growth without Red-style impulse",
+      "knowledge optimized into long-horizon advantage",
+      "ambition disciplined into planned inevitability",
+      "explicit four-color without Red boundary preserved",
+    ],
+    poorFitIndicators: [
+      "generic same-color goodstuff",
+      "generic counters or proliferate shells",
+      "generic Atraxa-only shells",
+      "infect-only identity",
+      "superfriends-only identity",
+      "Phyrexia-only identity",
+      "Witch-Maw-only identity",
+      "Growth-only naming",
+      "Bant order and growth without Black ambition",
+      "Esper structure and control without Green cultivation",
+      "Sultai growth and ambition without White structure",
+      "Abzan endurance and family structure without Blue calculation",
+      "Yore, Glint, Dune, or Ink three-color-overlap readings treated as Witch proof",
+    ],
+    chatbotGuidance: {
+      use_when: [
+        "A user centers patient cultivation, protected growth, calculated expansion, or slow inevitability under a missing-Red frame.",
+        "A user needs Green cultivation, White structure, Blue calculation, and Black ambition together.",
+        "A user distinguishes Witch from Bant, Esper, Sultai, Abzan, Yore, Glint, Dune, Ink, generic Atraxa goodstuff, generic counters, proliferate, infect, superfriends, and Phyrexia-only readings.",
+      ],
+      avoid_when: [
+        "The user only mentions counters, proliferate, Atraxa, infect, superfriends, or same-color grouping without the full non-Red protected-cultivation worldview.",
+        "The user treats Growth, Atraxa, Breed Lethality, Witch-Maw, or same-color identity as naming authority.",
+        "The user centers impulse, spectacle, haste, emotional release, or living in the moment as the thing that should lead the answer.",
+      ],
+      claim_boundaries: [
+        "Use Commander examples as table texture, not identity sources.",
+        "Keep the four-letter color code as technical routing data only.",
+        "Do not turn Witch or Growth into a Wizards-published faction or universal color-name claim.",
+      ],
+    },
+  },
+  COLORLESS: {
+    goodFitIndicators: [
+      "explicit outside-WUBRG framing without sixth-color language",
+      "explicit generic mana versus colorless mana distinction",
+      "branch-separated artifacts, Eldrazi, Wastes, Devoid, and Ugin/Karn texture",
+      "Commander examples kept support-only",
+      "five-color and Phyrexia kept as comparator or separator context rather than proof",
+      "positive attraction to a chosen outside-WUBRG restriction",
+      "clear branch preference among artifact machinery, Eldrazi spectacle, Wastes austerity, clean mana, or resource-denial pressure",
+      "strict Colorless Commander constraints understood as part of the appeal rather than a deckbuilding accident",
+    ],
+    poorFitIndicators: [
+      "generic same-color or generic mana goodstuff",
+      "artifact-only identity",
+      "Eldrazi-only identity",
+      "Wastes-only identity",
+      "Devoid-only identity",
+      "Ugin-only or Karn-only lore claims without direct evidence",
+      "five-color Eldrazi framing",
+      "Phyrexia-only framing",
+      "Commander product proof or legality claims beyond current support-only rows",
+      "positive sixth-color framing",
+      "public route or Home preview readiness language",
+      "Devoid as strict Commander legality proof",
+      "five-color Eldrazi as strict Colorless identity",
+      "named-card legality or exact Oracle claims without verification",
+      "current price or metagame advice from raw intake material",
+    ],
+    chatbotGuidance: {
+      use_when: [
+        "Use Colorless as inviting when the user is drawn to the restriction itself, artifact machinery, Eldrazi spectacle, Wastes austerity, clean mana, or resource-denial pressure with boundaries intact.",
+        "Use strict Commander and Devoid/five-color Eldrazi distinctions as false-positive checks.",
+      ],
+      avoid_when: [
+        "The answer says colorless because the deck has many generic mana costs rather than actual {C} requirements or Colorless identity.",
+        "The answer names artifacts but ignores colored artifacts, artifact civilizations, and the artifact/Colorless distinction.",
+        "The answer names Eldrazi but turns five-color Eldrazi support or Eldrazi Incursion into Colorless proof.",
+        "The answer treats outside the color wheel as above the color wheel.",
+      ],
+      claim_boundaries: [
+        "Use VM-308 evidence rows as authority.",
+        "Treat VM-309/VM-310 docs as shaping context only.",
+        "Support-only Commander rows cannot authorize raw claims or broad Commander viability.",
+        "Generated artifacts are not source truth.",
+      ],
+    },
+  },
 };
 
 const QUESTION_BANK = {
@@ -346,7 +682,7 @@ const QUESTION_BANK = {
           title: "Information advantage",
           copy: "Read the room, hold your position, and act when the hidden structure is visible.",
           signal: "hidden information",
-          likelihoods: { U: 0.95, UB: 0.9, B: 0.75, ESPER: 0.75, GRIXIS: 0.65, WB: 0.65, QUANDRIX: 0.25 },
+          likelihoods: { U: 0.95, UB: 0.9, B: 0.75, ESPER: 0.75, GRIXIS: 0.65, WB: 0.65, QUANDRIX: 0.35 },
           suppresses: { WR: 0.3, BR: 0.25 },
         },
         {
@@ -411,6 +747,48 @@ const QUESTION_BANK = {
           signal: "disciplined insight into action",
           likelihoods: { JESKAI: 0.95, U: 0.55, UR: 0.45, WU: 0.4, WR: 0.35 },
           suppresses: { MARDU: 0.3, TEMUR: 0.25, SULTAI: 0.25 },
+        },
+        {
+          title: "The engineered answer",
+          copy: "Trust begins with the machine you can build: structure, knowledge, cost, and heat refusing to let the limit stay final.",
+          signal: "engineered agency against natural surrender",
+          likelihoods: { YORE: 0.95, WU: 0.4, UB: 0.4, UR: 0.4, WB: 0.35, BR: 0.35, ESPER: 0.3, GRIXIS: 0.3, JESKAI: 0.25 },
+          suppresses: { G: 0.45, NAYA: 0.35, TEMUR: 0.3, SULTAI: 0.25 },
+        },
+        {
+          title: "The living surge",
+          copy: "Trust begins with the current that can learn, feed, and move before civic order turns the opening inert.",
+          signal: "adaptive appetite under pressure",
+          likelihoods: { GLINT: 0.95, UG: 0.45, BR: 0.45, UR: 0.4, BG: 0.4, RG: 0.4, GRIXIS: 0.35, JUND: 0.35, TEMUR: 0.35, SULTAI: 0.35 },
+          suppresses: { W: 0.45, WU: 0.4, WG: 0.35, WR: 0.3, BANT: 0.25, ABZAN: 0.25 },
+        },
+        {
+          title: "The line already moving",
+          copy: "Trust begins with the front that can claim ground now: White line, Black cost, Red ignition, and Green persistence moving before distance can cool the field.",
+          signal: "organized territorial force before detached contemplation",
+          likelihoods: { DUNE: 0.95, BR: 0.45, RG: 0.45, WG: 0.4, WB: 0.4, WR: 0.35, BG: 0.35, NAYA: 0.35, MARDU: 0.35, ABZAN: 0.3, JUND: 0.3 },
+          suppresses: { U: 0.45, WU: 0.35, UG: 0.3, GLINT: 0.25 },
+        },
+        {
+          title: "The guarded commons",
+          copy: "Trust begins with the gift that can keep moving because the commons is protected from capture.",
+          signal: "protected public abundance under missing Black",
+          likelihoods: { INK: 0.95, WG: 0.45, WU: 0.45, UG: 0.4, UR: 0.35, WR: 0.35, RG: 0.35, BANT: 0.3, NAYA: 0.3 },
+          suppresses: { B: 0.45, UB: 0.35, BR: 0.3, BG: 0.3, GLINT: 0.25, DUNE: 0.25 },
+        },
+        {
+          title: "The cultivated future",
+          copy: "Trust begins with the garden that can be protected, measured, and grown until impulse no longer gets to interrupt the plan.",
+          signal: "patient cultivation under missing Red",
+          likelihoods: { WITCH: 0.95, WG: 0.45, WU: 0.45, UG: 0.4, WB: 0.4, UB: 0.35, BG: 0.35, BANT: 0.3, ESPER: 0.3, SULTAI: 0.3, ABZAN: 0.3 },
+          suppresses: { R: 0.5, BR: 0.35, RG: 0.35, UR: 0.3, WR: 0.3, GLINT: 0.25, DUNE: 0.25, INK: 0.2 },
+        },
+        {
+          title: "The outside constraint",
+          copy: "Trust begins with the rule that the color wheel is not the grammar of the answer.",
+          signal: "outside-WUBRG restriction",
+          likelihoods: { COLORLESS: 0.95 },
+          suppresses: { W: 0.35, U: 0.35, B: 0.35, R: 0.35, G: 0.35, YORE: 0.25, ESPER: 0.25, WITCH: 0.25 },
         },
       ],
     },
@@ -503,6 +881,48 @@ const QUESTION_BANK = {
           signal: "cunning disciplined into motion",
           likelihoods: { JESKAI: 0.95, U: 0.55, UR: 0.45, WU: 0.4, WR: 0.35 },
           suppresses: { MARDU: 0.3, SULTAI: 0.25, TEMUR: 0.25 },
+        },
+        {
+          title: "Power that rebuilds the limit",
+          copy: "Power is honest when a body, rule, memory, or machine can be rebuilt into agency instead of accepted as final.",
+          signal: "constructed intervention over natural finality",
+          likelihoods: { YORE: 0.95, WU: 0.45, UB: 0.45, BR: 0.4, UR: 0.4, WB: 0.35, ESPER: 0.35, GRIXIS: 0.3 },
+          suppresses: { G: 0.45, NAYA: 0.35, TEMUR: 0.35, SULTAI: 0.2 },
+        },
+        {
+          title: "Power that stays alive",
+          copy: "The cleanest power learns in motion, feeds under pressure, and grows without asking order to bless it first.",
+          signal: "living force without civic restraint",
+          likelihoods: { GLINT: 0.95, UG: 0.45, BR: 0.45, BG: 0.4, UR: 0.4, RG: 0.4, GRIXIS: 0.35, JUND: 0.35, TEMUR: 0.35, SULTAI: 0.35 },
+          suppresses: { W: 0.45, WU: 0.4, WG: 0.35, WR: 0.3, BANT: 0.25, ABZAN: 0.25 },
+        },
+        {
+          title: "Power that holds the field",
+          copy: "The cleanest power keeps the line intact: solidarity, cost, ignition, and growth pushing together before analysis turns presence into hesitation.",
+          signal: "force-backed solidarity under pressure",
+          likelihoods: { DUNE: 0.95, BR: 0.45, RG: 0.45, WG: 0.4, WB: 0.4, WR: 0.35, BG: 0.35, NAYA: 0.35, MARDU: 0.35, ABZAN: 0.3, JUND: 0.3 },
+          suppresses: { U: 0.45, WU: 0.35, UG: 0.3, GLINT: 0.25 },
+        },
+        {
+          title: "Power that keeps the gift moving",
+          copy: "Power is honest when it opens knowledge, protects reciprocity, and keeps abundance circulating without becoming private leverage.",
+          signal: "guarded generosity as public power",
+          likelihoods: { INK: 0.95, WU: 0.45, WG: 0.45, UG: 0.4, UR: 0.35, WR: 0.35, RG: 0.35, BANT: 0.3, JESKAI: 0.25, NAYA: 0.25 },
+          suppresses: { B: 0.45, UB: 0.35, BR: 0.3, BG: 0.3, GLINT: 0.25, DUNE: 0.25 },
+        },
+        {
+          title: "Power that compounds",
+          copy: "Power is honest when small, protected investments are cultivated until every counter, card, and resource becomes part of the same inevitable plan.",
+          signal: "protected accumulation into inevitability",
+          likelihoods: { WITCH: 0.95, WG: 0.45, WU: 0.45, UG: 0.4, WB: 0.4, UB: 0.35, BG: 0.35, BANT: 0.3, ESPER: 0.3, SULTAI: 0.3, ABZAN: 0.3 },
+          suppresses: { R: 0.5, BR: 0.35, RG: 0.35, UR: 0.3, WR: 0.3, GLINT: 0.25, DUNE: 0.25, INK: 0.2 },
+        },
+        {
+          title: "Power that stays uncolored",
+          copy: "Power is honest when the absence itself is the discipline: not five colors, not a sixth color, and not a shortcut for generic costs.",
+          signal: "non-color precision",
+          likelihoods: { COLORLESS: 0.95 },
+          suppresses: { W: 0.35, U: 0.35, B: 0.35, R: 0.35, G: 0.35, YORE: 0.25, ESPER: 0.25, WITCH: 0.25 },
         },
       ],
     },
@@ -603,6 +1023,48 @@ const QUESTION_BANK = {
           likelihoods: { JESKAI: 0.95, U: 0.55, WU: 0.45, UR: 0.4, WR: 0.35 },
           suppresses: { MARDU: 0.3, SULTAI: 0.25, GRIXIS: 0.25 },
         },
+        {
+          title: "The system that can be rebuilt",
+          copy: "Attention goes to the engine under the surface: what can be redesigned, reclaimed, mechanized, or made to choose again.",
+          signal: "system rebuilt through artifice",
+          likelihoods: { YORE: 0.95, UB: 0.45, UR: 0.45, WU: 0.4, WB: 0.35, BR: 0.35, ESPER: 0.3, GRIXIS: 0.3 },
+          suppresses: { G: 0.45, NAYA: 0.35, TEMUR: 0.3, SULTAI: 0.25 },
+        },
+        {
+          title: "The live opening",
+          copy: "Attention goes to the storm current: what can learn, exploit, mutate, and ignite before the moment gets domesticated.",
+          signal: "living leverage under volatility",
+          likelihoods: { GLINT: 0.95, UG: 0.45, UB: 0.4, BR: 0.4, UR: 0.4, BG: 0.4, RG: 0.35, GRIXIS: 0.35, JUND: 0.35, TEMUR: 0.35, SULTAI: 0.35 },
+          suppresses: { W: 0.45, WU: 0.35, WG: 0.35, WR: 0.3, BANT: 0.25, ABZAN: 0.25 },
+        },
+        {
+          title: "The ground the line can take",
+          copy: "Attention goes to bodies, costs, pressure lines, and the patch of field that becomes yours if the common front moves before distance intervenes.",
+          signal: "territorial opening through organized force",
+          likelihoods: { DUNE: 0.95, BR: 0.45, RG: 0.45, WG: 0.4, WB: 0.4, WR: 0.35, BG: 0.35, NAYA: 0.35, MARDU: 0.35, ABZAN: 0.3, JUND: 0.3 },
+          suppresses: { U: 0.45, WU: 0.35, UG: 0.3, GLINT: 0.25 },
+        },
+        {
+          title: "The shared resource",
+          copy: "Attention goes to the archive, meal, map, promise, or care that should circulate without being captured by one private hand.",
+          signal: "open knowledge and shared care guarded from capture",
+          likelihoods: { INK: 0.95, WU: 0.45, WG: 0.45, UG: 0.4, UR: 0.35, WR: 0.35, RG: 0.35, BANT: 0.3, TEMUR: 0.25, NAYA: 0.25 },
+          suppresses: { B: 0.45, UB: 0.35, BR: 0.3, BG: 0.3, GLINT: 0.25, DUNE: 0.25 },
+        },
+        {
+          title: "The long plan",
+          copy: "Attention goes to the root, trellis, ledger, and experiment: what can be tended now so the future becomes too established to uproot.",
+          signal: "long-horizon cultivation and calculation",
+          likelihoods: { WITCH: 0.95, WG: 0.45, WU: 0.45, UG: 0.4, WB: 0.4, UB: 0.35, BG: 0.35, BANT: 0.3, ESPER: 0.3, SULTAI: 0.3, ABZAN: 0.3 },
+          suppresses: { R: 0.5, BR: 0.35, RG: 0.35, UR: 0.3, WR: 0.3, GLINT: 0.25, DUNE: 0.25, INK: 0.2 },
+        },
+        {
+          title: "The branch boundary",
+          copy: "Attention goes to whether the pull is machine, void, Wastes, Eldrazi scale, or clean mana without letting one branch explain all of Colorless.",
+          signal: "Colorless branch discipline",
+          likelihoods: { COLORLESS: 0.95 },
+          suppresses: { W: 0.35, U: 0.35, B: 0.35, R: 0.35, G: 0.35, YORE: 0.25, ESPER: 0.25, WITCH: 0.25 },
+        },
       ],
     },
     {
@@ -694,6 +1156,48 @@ const QUESTION_BANK = {
           signal: "monastery practice as shared action",
           likelihoods: { JESKAI: 0.95, U: 0.55, WU: 0.45, UR: 0.4, WR: 0.35 },
           suppresses: { MARDU: 0.3, SULTAI: 0.25, TEMUR: 0.25 },
+        },
+        {
+          title: "A workshop against surrender",
+          copy: "The cost is bearable when the workbench, archive, contract, and forge keep agency alive where nature would have closed the case.",
+          signal: "workshop archive forge against surrender",
+          likelihoods: { YORE: 0.95, WU: 0.4, UB: 0.4, UR: 0.4, WB: 0.35, BR: 0.35, MARDU: 0.25, JESKAI: 0.25 },
+          suppresses: { G: 0.45, NAYA: 0.35, TEMUR: 0.35, SULTAI: 0.2 },
+        },
+        {
+          title: "A storm worth riding",
+          copy: "The cost is bearable when the surge keeps appetite, adaptation, ignition, and living force in the same current without civic restraint freezing it still.",
+          signal: "non-white four-color surge",
+          likelihoods: { GLINT: 0.95, UG: 0.45, BR: 0.45, UR: 0.4, BG: 0.4, RG: 0.4, GRIXIS: 0.35, JUND: 0.35, TEMUR: 0.35, SULTAI: 0.35 },
+          suppresses: { W: 0.45, WU: 0.4, WG: 0.35, WR: 0.3, BANT: 0.25, ABZAN: 0.25 },
+        },
+        {
+          title: "A common front worth paying for",
+          copy: "The cost is bearable when line, conquest, ignition, and persistence keep the formation moving together before contemplation turns the opening cold.",
+          signal: "common front under cost-bearing pressure",
+          likelihoods: { DUNE: 0.95, BR: 0.45, RG: 0.45, WG: 0.4, WB: 0.4, WR: 0.35, BG: 0.35, NAYA: 0.35, MARDU: 0.35, ABZAN: 0.3, JUND: 0.3 },
+          suppresses: { U: 0.45, WU: 0.35, UG: 0.3, GLINT: 0.25 },
+        },
+        {
+          title: "A commons worth guarding",
+          copy: "The cost is bearable when shared knowledge, care, and abundance stay open because someone protects them from capture.",
+          signal: "belonging through protected public abundance",
+          likelihoods: { INK: 0.95, WG: 0.45, WU: 0.45, UG: 0.4, UR: 0.35, WR: 0.35, RG: 0.35, BANT: 0.3, NAYA: 0.3 },
+          suppresses: { B: 0.45, UB: 0.35, BR: 0.3, BG: 0.3, GLINT: 0.25, DUNE: 0.25 },
+        },
+        {
+          title: "A garden worth binding",
+          copy: "The cost is bearable when structure, study, and ambition keep the garden alive long enough for patient growth to become inevitable.",
+          signal: "protected garden as long-horizon belonging",
+          likelihoods: { WITCH: 0.95, WG: 0.45, WU: 0.45, UG: 0.4, WB: 0.4, UB: 0.35, BG: 0.35, BANT: 0.3, ESPER: 0.3, SULTAI: 0.3, ABZAN: 0.3 },
+          suppresses: { R: 0.5, BR: 0.35, RG: 0.35, UR: 0.3, WR: 0.3, GLINT: 0.25, DUNE: 0.25, INK: 0.2 },
+        },
+        {
+          title: "A restriction worth choosing",
+          copy: "The cost is bearable when being outside WUBRG is the appeal, not a consolation prize or a catch-all for artifacts.",
+          signal: "chosen non-color restriction",
+          likelihoods: { COLORLESS: 0.95 },
+          suppresses: { W: 0.35, U: 0.35, B: 0.35, R: 0.35, G: 0.35, YORE: 0.25, ESPER: 0.25, WITCH: 0.25 },
         },
       ],
     },
@@ -2171,6 +2675,376 @@ const QUESTION_BANK = {
       ],
     },
     {
+      id: "hall_YORE_engineered_agency",
+      stage: "hall",
+      faction: "YORE",
+      eyebrow: "Hall - Yore",
+      prompt: "A limit looks natural, final, or inherited. What makes pushing past it trustworthy?",
+      answers: [
+        {
+          title: "Build the agency machine",
+          copy: "The answer is trustworthy when structure, knowledge, cost, and heat become a designed way to keep choice alive.",
+          signal: "engineered agency against finality",
+          likelihoods: { YORE: 0.95, WU: 0.45, UB: 0.45, UR: 0.45, WB: 0.4, BR: 0.4 },
+          suppresses: { G: 0.45, NAYA: 0.35, TEMUR: 0.35, SULTAI: 0.25 },
+        },
+        {
+          title: "Perfect the artifact",
+          copy: "The artifact matters because it makes a cleaner, more controlled future.",
+          signal: "artifact perfection without Red heat",
+          likelihoods: { ESPER: 0.85, WU: 0.45, UB: 0.45, WB: 0.4 },
+          suppresses: { YORE: 0.35 },
+        },
+        {
+          title: "Use the hidden cost",
+          copy: "The limit matters because it can become leverage before anyone else names it.",
+          signal: "resource conversion without civic artifice",
+          likelihoods: { SULTAI: 0.75, GRIXIS: 0.6, UB: 0.45, B: 0.4 },
+          suppresses: { YORE: 0.3 },
+        },
+        {
+          title: "Listen for the living answer",
+          copy: "The limit may be a signal from life, terrain, body, or belonging rather than a problem to mechanize.",
+          signal: "natural signal over constructed agency",
+          likelihoods: { TEMUR: 0.75, NAYA: 0.65, G: 0.6 },
+          suppresses: { YORE: 0.45 },
+        },
+      ],
+    },
+    {
+      id: "hall_YORE_artifice_boundary",
+      stage: "hall",
+      faction: "YORE",
+      eyebrow: "Hall - Yore",
+      prompt: "The answer involves artifacts, recursion, or optimization. What keeps it from being generic machinery?",
+      answers: [
+        {
+          title: "The machine refuses surrender",
+          copy: "Artifacts and recursion matter because they turn natural closure into constructed continuity and agency.",
+          signal: "artifice as refusal of natural surrender",
+          likelihoods: { YORE: 0.95, UR: 0.45, UB: 0.45, WB: 0.4, BR: 0.4 },
+          suppresses: { ESPER: 0.25, GRIXIS: 0.25, JESKAI: 0.25, MARDU: 0.25, SULTAI: 0.25 },
+        },
+        {
+          title: "The deck just likes artifacts",
+          copy: "The pull is the card type or engine efficiency, not the missing-Green worldview.",
+          signal: "generic artifact preference",
+          likelihoods: { ESPER: 0.65, UR: 0.45 },
+          suppresses: { YORE: 0.45 },
+        },
+        {
+          title: "The graveyard is the center",
+          copy: "The pull is reuse, death value, or recursion before artifice and constructed agency enter the frame.",
+          signal: "generic recursion preference",
+          likelihoods: { SULTAI: 0.75, GRIXIS: 0.55, BG: 0.4, UB: 0.4 },
+          suppresses: { YORE: 0.35 },
+        },
+        {
+          title: "The charge needs a name",
+          copy: "The pull is speed, oath, and a coordinated opening more than a rebuilt system.",
+          signal: "martial opening over artifice",
+          likelihoods: { MARDU: 0.75, WR: 0.45, BR: 0.4 },
+          suppresses: { YORE: 0.3 },
+        },
+      ],
+    },
+    {
+      id: "hall_GLINT_living_force",
+      stage: "hall",
+      faction: "GLINT",
+      eyebrow: "Hall - Glint",
+      prompt: "The table is unstable and the opening is real. What keeps the surge from collapsing into generic chaos?",
+      answers: [
+        {
+          title: "Keep the living pressure learning",
+          copy: "The surge matters because appetite, adaptation, force, and volatility stay tied to a living answer rather than random variance.",
+          signal: "living force under pressure rather than generic chaos",
+          likelihoods: { GLINT: 0.95, UG: 0.45, UR: 0.4, BR: 0.4, BG: 0.4, RG: 0.35 },
+          suppresses: { PRISMARI: 0.35, TEMUR: 0.3, GRIXIS: 0.25 },
+        },
+        {
+          title: "Let variance tell the story",
+          copy: "The appeal is the spectacle itself: swingy turns, stack chaos, and the feeling that anything might happen.",
+          signal: "variance without the non-White frame",
+          likelihoods: { UR: 0.75, PRISMARI: 0.7, JESKAI: 0.35 },
+          suppresses: { GLINT: 0.45 },
+        },
+        {
+          title: "Feed the strongest instinct",
+          copy: "The opening matters because hunger should take what it can before anyone else does.",
+          signal: "appetite without adaptive intelligence",
+          likelihoods: { JUND: 0.75, BR: 0.45, SULTAI: 0.4, BG: 0.35 },
+          suppresses: { GLINT: 0.35 },
+        },
+        {
+          title: "Hear the storm before acting",
+          copy: "The opening matters because terrain, weather, and elemental signal should guide force before appetite enters the frame.",
+          signal: "attunement without Black appetite",
+          likelihoods: { TEMUR: 0.75, UG: 0.4, RG: 0.4 },
+          suppresses: { GLINT: 0.3 },
+        },
+      ],
+    },
+    {
+      id: "hall_GLINT_missing_white",
+      stage: "hall",
+      faction: "GLINT",
+      eyebrow: "Hall - Glint",
+      prompt: "A powerful engine keeps learning and feeding. What proves it is Glint rather than a nearby shell?",
+      answers: [
+        {
+          title: "It refuses civic restraint",
+          copy: "The engine matters because White-style order, duty, and stability are not allowed to tell appetite and living force what they may become.",
+          signal: "missing white as active boundary",
+          likelihoods: { GLINT: 0.95, BR: 0.45, UG: 0.45, BG: 0.4, UR: 0.4 },
+          suppresses: { BANT: 0.35, ABZAN: 0.35, WU: 0.35, WG: 0.35, WR: 0.25 },
+        },
+        {
+          title: "It is cruel and clever",
+          copy: "The engine matters because hidden leverage, pressure, and survival advantage stay ahead of everyone else.",
+          signal: "grixis pressure without Green life",
+          likelihoods: { GRIXIS: 0.8, UB: 0.45, UR: 0.4, BR: 0.4 },
+          suppresses: { GLINT: 0.35 },
+        },
+        {
+          title: "It is hungry and feral",
+          copy: "The engine matters because instinct and appetite deserve the kill before reflective adaptation slows them down.",
+          signal: "jund appetite without Blue intelligence",
+          likelihoods: { JUND: 0.8, BR: 0.45, BG: 0.4, RG: 0.4 },
+          suppresses: { GLINT: 0.35 },
+        },
+        {
+          title: "It is adaptive and wild",
+          copy: "The engine matters because experimentation, instinct, and elemental force stay alive without needing Black predation.",
+          signal: "temur experimentation without Black appetite",
+          likelihoods: { TEMUR: 0.8, UG: 0.45, UR: 0.4, RG: 0.4 },
+          suppresses: { GLINT: 0.35 },
+        },
+      ],
+    },
+    {
+      id: "hall_DUNE_territorial_force",
+      stage: "hall",
+      faction: "DUNE",
+      eyebrow: "Hall - Dune",
+      prompt: "The line could stop to study, negotiate, or wait. What makes moving first feel trustworthy?",
+      answers: [
+        {
+          title: "Claim the ground now",
+          copy: "Motion is trustworthy when White line, Black cost, Red ignition, and Green persistence all press the same field before distance can cool it.",
+          signal: "organized territorial pressure before detached contemplation",
+          likelihoods: { DUNE: 0.95, BR: 0.45, RG: 0.45, WG: 0.4, WB: 0.4, WR: 0.35 },
+          suppresses: { GLINT: 0.35, JUND: 0.3, NAYA: 0.3, MARDU: 0.25, ABZAN: 0.25 },
+        },
+        {
+          title: "Take what instinct wants",
+          copy: "Motion is trustworthy because appetite and survival should strike before anyone civilizes the opening.",
+          signal: "jund instinct over common-front line",
+          likelihoods: { JUND: 0.8, BR: 0.45, RG: 0.4, BG: 0.4 },
+          suppresses: { DUNE: 0.35 },
+        },
+        {
+          title: "Protect the living whole",
+          copy: "Motion is trustworthy when the charge serves abundance, belonging, and the life that must stay sheltered.",
+          signal: "naya belonging over black conquest pressure",
+          likelihoods: { NAYA: 0.8, WG: 0.45, RG: 0.4, WR: 0.4 },
+          suppresses: { DUNE: 0.35 },
+        },
+        {
+          title: "Let the opening learn while it moves",
+          copy: "Motion is trustworthy when appetite adapts in real time and volatility keeps the field alive.",
+          signal: "glint adaptation with blue present",
+          likelihoods: { GLINT: 0.8, UG: 0.45, UR: 0.4, BG: 0.4 },
+          suppresses: { DUNE: 0.35 },
+        },
+      ],
+    },
+    {
+      id: "hall_DUNE_missing_blue",
+      stage: "hall",
+      faction: "DUNE",
+      eyebrow: "Hall - Dune",
+      prompt: "A force can be coordinated, hungry, alive, and immediate. What proves it is Dune rather than a nearby shell?",
+      answers: [
+        {
+          title: "It refuses detached contemplation",
+          copy: "The force matters because the line claims ground before Blue-style distance, modeling, or cool delay can take command.",
+          signal: "missing blue as territorial-pressure boundary",
+          likelihoods: { DUNE: 0.95, BR: 0.45, RG: 0.45, WG: 0.4, WB: 0.4, WR: 0.35 },
+          suppresses: { GLINT: 0.35, ABZAN: 0.3, MARDU: 0.3, JUND: 0.25, NAYA: 0.25 },
+        },
+        {
+          title: "It is the charge with a name",
+          copy: "The force matters because speed, oath, and ruthless commitment move first under a war-coded opening.",
+          signal: "mardu speed without green multiplication",
+          likelihoods: { MARDU: 0.8, WR: 0.45, BR: 0.4, WB: 0.35 },
+          suppresses: { DUNE: 0.35 },
+        },
+        {
+          title: "It is the house that endures",
+          copy: "The force matters because lineage, endurance, and survival keep pressure answerable to the living house.",
+          signal: "abzan endurance without red ignition",
+          likelihoods: { ABZAN: 0.8, WB: 0.45, WG: 0.4, BG: 0.4 },
+          suppresses: { DUNE: 0.35 },
+        },
+        {
+          title: "It is the current that adapts",
+          copy: "The force matters because learning, appetite, volatility, and living growth keep mutating before order can pin them down.",
+          signal: "glint volatility with blue present",
+          likelihoods: { GLINT: 0.8, UG: 0.45, UR: 0.4, BG: 0.4 },
+          suppresses: { DUNE: 0.35 },
+        },
+      ],
+    },
+    {
+      id: "hall_INK_protected_abundance",
+      stage: "hall",
+      faction: "INK",
+      eyebrow: "Hall - Ink",
+      prompt: "A gift, archive, or shared resource could help everyone, but it could also be captured. What makes sharing trustworthy?",
+      answers: [
+        {
+          title: "Guard the commons",
+          copy: "Sharing is trustworthy when generosity has a public boundary that keeps knowledge, care, and resources from becoming private leverage.",
+          signal: "protected public abundance",
+          likelihoods: { INK: 0.95, WU: 0.45, WG: 0.45, UG: 0.4, UR: 0.35, WR: 0.35, RG: 0.35, BANT: 0.25, NAYA: 0.25 },
+          suppresses: { B: 0.45, UB: 0.35, BR: 0.3, BG: 0.3, GLINT: 0.25, DUNE: 0.25 },
+        },
+        {
+          title: "Let appetite take the opening",
+          copy: "The shared thing is only useful if the hungriest force can convert it before the table slows it down.",
+          signal: "appetite over protected reciprocity",
+          likelihoods: { GLINT: 0.75, JUND: 0.55, BR: 0.4, BG: 0.35 },
+          suppresses: { INK: 0.35 },
+        },
+        {
+          title: "Hold the line by force",
+          copy: "The resource stays honest when pressure, cost, and bodies keep the field claimed before distance can bargain it away.",
+          signal: "force-backed line over open commons",
+          likelihoods: { DUNE: 0.75, WR: 0.4, RG: 0.4, WB: 0.35 },
+          suppresses: { INK: 0.35 },
+        },
+        {
+          title: "Make the process public",
+          copy: "Trust comes from transparent procedure, shared records, and rules that everyone can audit.",
+          signal: "procedure-first public process",
+          likelihoods: { WU: 0.75, BANT: 0.45, W: 0.35, U: 0.35 },
+          suppresses: { INK: 0.2 },
+        },
+      ],
+    },
+    {
+      id: "hall_INK_missing_black",
+      stage: "hall",
+      faction: "INK",
+      eyebrow: "Hall - Ink",
+      prompt: "The table wants abundance, knowledge, and care to circulate. What proves the center is Ink rather than generic group-hug?",
+      answers: [
+        {
+          title: "It resists private capture",
+          copy: "The center is Ink when shared resources remain open because Black-style private hoarding is not allowed to define the gift.",
+          signal: "missing Black as anti-hoarding boundary",
+          likelihoods: { INK: 0.95, WU: 0.45, WG: 0.45, UG: 0.4, RG: 0.35, UR: 0.35, WR: 0.35 },
+          suppresses: { B: 0.45, UB: 0.35, BR: 0.3, BG: 0.3 },
+        },
+        {
+          title: "Everyone just gets more",
+          copy: "The table mainly wants more cards, mana, and favors without asking what keeps those gifts from being captured.",
+          signal: "generic group-hug abundance",
+          likelihoods: { WG: 0.55, BANT: 0.4, NAYA: 0.35 },
+          suppresses: { INK: 0.35 },
+        },
+        {
+          title: "The archive is the whole point",
+          copy: "The answer centers knowledge itself, treating the record as the identity rather than one protected public good among several.",
+          signal: "public archive shortcut",
+          likelihoods: { U: 0.55, WU: 0.45, BANT: 0.35 },
+          suppresses: { INK: 0.25 },
+        },
+        {
+          title: "One card carries it",
+          copy: "A single card or commander is being asked to carry the whole identity instead of serving as bounded Commander texture.",
+          signal: "single-anchor shortcut",
+          likelihoods: { WG: 0.4, UR: 0.35 },
+          suppresses: { INK: 0.45 },
+        },
+      ],
+    },
+    {
+      id: "hall_WITCH_patient_cultivation",
+      stage: "hall",
+      faction: "WITCH",
+      eyebrow: "Hall - Witch",
+      prompt: "A small investment could become inevitable if it survives long enough. What makes that patience trustworthy?",
+      answers: [
+        {
+          title: "Let the roots keep the ledger",
+          copy: "Patience is trustworthy when growth, structure, calculation, and ambition all protect the same future before impulse can scatter it.",
+          signal: "patient cultivation protected by structure",
+          likelihoods: { WITCH: 0.95, WG: 0.45, WU: 0.45, UG: 0.4, WB: 0.4, UB: 0.35, BG: 0.35 },
+          suppresses: { R: 0.45, BR: 0.35, RG: 0.35, UR: 0.3, GLINT: 0.3, DUNE: 0.25, INK: 0.2 },
+        },
+        {
+          title: "Perfect the public order",
+          copy: "The patient thing matters because law, process, and improvement can keep the group legible.",
+          signal: "bant order without Black ambition",
+          likelihoods: { BANT: 0.8, WU: 0.45, WG: 0.4 },
+          suppresses: { WITCH: 0.35 },
+        },
+        {
+          title: "Turn the hidden resource",
+          copy: "The patient thing matters because every secret, grave, and opportunity can become leverage.",
+          signal: "sultai leverage without White structure",
+          likelihoods: { SULTAI: 0.8, UB: 0.45, BG: 0.4 },
+          suppresses: { WITCH: 0.35 },
+        },
+        {
+          title: "Make the commons flourish",
+          copy: "The patient thing matters because shared abundance should keep circulating rather than becoming one private plan.",
+          signal: "ink commons over private inevitability",
+          likelihoods: { INK: 0.75, WU: 0.4, WG: 0.4, UG: 0.35 },
+          suppresses: { WITCH: 0.3 },
+        },
+      ],
+    },
+    {
+      id: "hall_WITCH_missing_red",
+      stage: "hall",
+      faction: "WITCH",
+      eyebrow: "Hall - Witch",
+      prompt: "The plan is alive, protected, and ambitious. What proves it is Witch rather than a nearby shell or a Red-touched surge?",
+      answers: [
+        {
+          title: "Keep the spark out of command",
+          copy: "The center is Witch when impulse, spectacle, haste, and emotional release are excluded so cultivation can remain protected and calculated.",
+          signal: "missing Red as active cultivation boundary",
+          likelihoods: { WITCH: 0.95, WG: 0.45, WU: 0.45, UG: 0.4, WB: 0.4, UB: 0.35, BG: 0.35 },
+          suppresses: { R: 0.5, BR: 0.4, RG: 0.4, UR: 0.35, WR: 0.35, GLINT: 0.35, DUNE: 0.3 },
+        },
+        {
+          title: "Let the surge keep learning",
+          copy: "The plan matters because appetite, volatility, and living force should adapt in motion.",
+          signal: "glint surge with Red present",
+          likelihoods: { GLINT: 0.8, UR: 0.45, BR: 0.4, RG: 0.35 },
+          suppresses: { WITCH: 0.35 },
+        },
+        {
+          title: "Take the field before delay",
+          copy: "The plan matters because bodies, cost, ignition, and pressure must claim ground now.",
+          signal: "dune pressure with Red present",
+          likelihoods: { DUNE: 0.8, BR: 0.45, RG: 0.4, WR: 0.35 },
+          suppresses: { WITCH: 0.35 },
+        },
+        {
+          title: "Count only the counters",
+          copy: "The appeal is mainly proliferate, counters, or one famous commander rather than the full missing-Red worldview.",
+          signal: "generic counters shortcut",
+          likelihoods: { UG: 0.55, BANT: 0.35, SULTAI: 0.35 },
+          suppresses: { WITCH: 0.45 },
+        },
+      ],
+    },
+    {
       id: "hall_WR_protection",
       stage: "hall",
       faction: "WR",
@@ -2391,6 +3265,73 @@ const QUESTION_BANK = {
           suppresses: { WITHERBLOOM: 0.25 },
         },
       ],
+    },
+    {
+      id: "hall_COLORLESS_outside_wubrg",
+      stage: "hall",
+      faction: "COLORLESS",
+      eyebrow: "Hall - Colorless",
+      prompt: "When the color wheel stops being the right language, what makes the restriction feel worth choosing?",
+      answers: [
+        {
+          title: "Stay outside the wheel",
+          copy: "The absence is the discipline: exact mana, exact boundaries, and no need to translate the experience into WUBRG.",
+          signal: "outside-WUBRG precision",
+          likelihoods: { COLORLESS: 0.95 },
+          suppresses: { W: 0.35, U: 0.35, B: 0.35, R: 0.35, G: 0.35, YORE: 0.25, ESPER: 0.25, WITCH: 0.25 }
+        },
+        {
+          title: "Build the artifact engine",
+          copy: "The machine matters most when its parts assemble into repeatable function, even if the deck still wants colored purposes.",
+          signal: "artifact engine without strict Colorless boundary",
+          likelihoods: { YORE: 0.65, ESPER: 0.55 },
+          suppresses: { COLORLESS: 0.45 }
+        },
+        {
+          title: "Use every color",
+          copy: "The pull is fullness: every tool, every color, and a deck that answers limitation by expanding the palette.",
+          signal: "five-color fullness",
+          likelihoods: { W: 0.3, U: 0.3, B: 0.3, R: 0.3, G: 0.3 },
+          suppresses: { COLORLESS: 0.65 }
+        }
+      ]
+    },
+    {
+      id: "hall_COLORLESS_branch_boundary",
+      stage: "hall",
+      faction: "COLORLESS",
+      eyebrow: "Hall - Colorless",
+      prompt: "Which branch keeps its shape when Colorless is not allowed to collapse into a catch-all?",
+      answers: [
+        {
+          title: "Chosen restriction",
+          copy: "The appeal is the clean line: colorless mana, generic costs, artifacts, Eldrazi, Wastes, and Devoid stay related but separate.",
+          signal: "strict branch separation",
+          likelihoods: { COLORLESS: 0.95 },
+          suppresses: { W: 0.3, U: 0.3, B: 0.3, R: 0.3, G: 0.3, YORE: 0.25, ESPER: 0.25, WITCH: 0.25 }
+        },
+        {
+          title: "Only artifacts",
+          copy: "The attraction is machine function first, with colorlessness as a useful texture rather than the identity boundary.",
+          signal: "artifact-only false positive",
+          likelihoods: { YORE: 0.65, ESPER: 0.55 },
+          suppresses: { COLORLESS: 0.5 }
+        },
+        {
+          title: "Five-color Eldrazi",
+          copy: "The Eldrazi mood is real, but the deck still wants all five colors rather than strict outside-WUBRG discipline.",
+          signal: "five-color Eldrazi false positive",
+          likelihoods: { W: 0.25, U: 0.25, B: 0.25, R: 0.25, G: 0.25 },
+          suppresses: { COLORLESS: 0.7 }
+        },
+        {
+          title: "Phyrexian aesthetics",
+          copy: "The metallic, body-horror, oil-stained read belongs to a different distinction track unless evidence says otherwise.",
+          signal: "Phyrexia distinction gap",
+          likelihoods: { WITCH: 0.55, ESPER: 0.45 },
+          suppresses: { COLORLESS: 0.55 }
+        }
+      ]
     },
   ],
   crucible: [
@@ -2703,6 +3644,50 @@ const QUESTION_BANK = {
       ],
     },
     {
+      id: "crucible_PRISMARI_QUANDRIX",
+      stage: "crucible",
+      pair: ["PRISMARI", "QUANDRIX"],
+      eyebrow: "Crucible - Expression or Proof",
+      prompt: "When a pattern is correct but lifeless, do you prove it more carefully or make it land as an experience?",
+      answers: [
+        { title: "Make it land", copy: "The proof matters when it becomes an unforgettable experience.", signal: "expression as proof", likelihoods: { PRISMARI: 0.95 }, suppresses: { QUANDRIX: 0.75 } },
+        { title: "Prove the model", copy: "The experience matters after the pattern is understood.", signal: "model as proof", likelihoods: { QUANDRIX: 0.95 }, suppresses: { PRISMARI: 0.75 } },
+      ],
+    },
+    {
+      id: "crucible_PRISMARI_SILVERQUILL",
+      stage: "crucible",
+      pair: ["PRISMARI", "SILVERQUILL"],
+      eyebrow: "Crucible - Performance or Rhetoric",
+      prompt: "When language can move a room, should it become a precise argument, a public performance, or an elemental spectacle?",
+      answers: [
+        { title: "Elemental performance", copy: "Move the room through art, scale, emotion, and spectacle.", signal: "expressive performance", likelihoods: { PRISMARI: 0.95 }, suppresses: { SILVERQUILL: 0.75 } },
+        { title: "Precise argument", copy: "Move the room through words sharp enough to change perception.", signal: "rhetorical influence", likelihoods: { SILVERQUILL: 0.95 }, suppresses: { PRISMARI: 0.75 } },
+      ],
+    },
+    {
+      id: "crucible_LOREHOLD_QUANDRIX",
+      stage: "crucible",
+      pair: ["LOREHOLD", "QUANDRIX"],
+      eyebrow: "Crucible - Record or Model",
+      prompt: "When a mystery has both an elegant theory and an old artifact record, which one leads your next move?",
+      answers: [
+        { title: "The artifact record", copy: "Follow the relic, the ruin, and the primary-source trace.", signal: "material history", likelihoods: { LOREHOLD: 0.95 }, suppresses: { QUANDRIX: 0.75 } },
+        { title: "The elegant model", copy: "Follow the hidden pattern until the whole system explains itself.", signal: "abstract proof", likelihoods: { QUANDRIX: 0.95 }, suppresses: { LOREHOLD: 0.75 } },
+      ],
+    },
+    {
+      id: "crucible_QUANDRIX_WITHERBLOOM",
+      stage: "crucible",
+      pair: ["QUANDRIX", "WITHERBLOOM"],
+      eyebrow: "Crucible - Equation or Essence",
+      prompt: "A living system behaves strangely. Do you trust the equation beneath it or the messy exchange of life and death?",
+      answers: [
+        { title: "The equation", copy: "The living system is clearest when its hidden pattern is proven.", signal: "abstract pattern", likelihoods: { QUANDRIX: 0.95 }, suppresses: { WITHERBLOOM: 0.75 } },
+        { title: "The exchange", copy: "The living system is clearest through bodies, remedies, poisons, and cost.", signal: "embodied essence", likelihoods: { WITHERBLOOM: 0.95 }, suppresses: { QUANDRIX: 0.75 } },
+      ],
+    },
+    {
       id: "crucible_BR_RG",
       stage: "crucible",
       pair: ["BR", "RG"],
@@ -2711,6 +3696,193 @@ const QUESTION_BANK = {
       answers: [
         { title: "Expose through performance", copy: "Make the lie watch itself burn.", signal: "transgressive theater", likelihoods: { BR: 0.95 }, suppresses: { RG: 0.95 } },
         { title: "Refuse domestication", copy: "No stage, no permission, no cage.", signal: "wild refusal", likelihoods: { RG: 0.95 }, suppresses: { BR: 0.95 } },
+      ],
+    },
+    {
+      id: "crucible_BANT_ESPER",
+      stage: "crucible",
+      pair: ["BANT", "ESPER"],
+      eyebrow: "Crucible - Living Order or Designed Perfection",
+      prompt: "Should order protect a living community, or perfect a designed system?",
+      answers: [
+        { title: "Protect the living community", copy: "The ideal matters because the people and the champion remain answerable to each other.", signal: "living communal order", likelihoods: { BANT: 0.95 }, suppresses: { ESPER: 0.85 } },
+        { title: "Perfect the designed system", copy: "The ideal matters because knowledge, structure, and control can optimize the whole.", signal: "designed perfectibility", likelihoods: { ESPER: 0.95 }, suppresses: { BANT: 0.85 } },
+      ],
+    },
+    {
+      id: "crucible_ESPER_GRIXIS",
+      stage: "crucible",
+      pair: ["ESPER", "GRIXIS"],
+      eyebrow: "Crucible - Optimization or Leverage",
+      prompt: "Does information matter most because it perfects the system, or because it reveals the weakness that lets you survive?",
+      answers: [
+        { title: "Perfect the system", copy: "Information becomes design, improvement, and focused control.", signal: "information as optimization", likelihoods: { ESPER: 0.95 }, suppresses: { GRIXIS: 0.85 } },
+        { title: "Find the weakness", copy: "Information becomes survival leverage before the opening vanishes.", signal: "information as survival leverage", likelihoods: { GRIXIS: 0.95 }, suppresses: { ESPER: 0.85 } },
+      ],
+    },
+    {
+      id: "crucible_GRIXIS_JUND",
+      stage: "crucible",
+      pair: ["GRIXIS", "JUND"],
+      eyebrow: "Crucible - Calculated Survival or Gut Instinct",
+      prompt: "When pressure rises, do you calculate the survival leverage or follow the gut that refuses restraint?",
+      answers: [
+        { title: "Calculate the leverage", copy: "Survival comes from weakness analysis, information, and urgent agency.", signal: "calculated survival", likelihoods: { GRIXIS: 0.95 }, suppresses: { JUND: 0.85 } },
+        { title: "Follow the gut", copy: "The honest motion comes from instinct, appetite, and the consequence of being unrestrained.", signal: "gut-instinct appetite", likelihoods: { JUND: 0.95 }, suppresses: { GRIXIS: 0.85 } },
+      ],
+    },
+    {
+      id: "crucible_JUND_NAYA",
+      stage: "crucible",
+      pair: ["JUND", "NAYA"],
+      eyebrow: "Crucible - Appetite or Abundance",
+      prompt: "Is instinct true because appetite and consequence are real, or because the living whole already knows how to grow?",
+      answers: [
+        { title: "Appetite and consequence", copy: "The world answers to instinct, personal need, and survival pressure.", signal: "instinct as appetite", likelihoods: { JUND: 0.95 }, suppresses: { NAYA: 0.85 } },
+        { title: "The living whole", copy: "Instinct belongs to growth, care, ecosystem, and creature bond.", signal: "instinct as living abundance", likelihoods: { NAYA: 0.95 }, suppresses: { JUND: 0.85 } },
+      ],
+    },
+    {
+      id: "crucible_NAYA_BANT",
+      stage: "crucible",
+      pair: ["NAYA", "BANT"],
+      eyebrow: "Crucible - Living Whole or Honored Champion",
+      prompt: "Should the group follow the larger living world, or support one honorable line of action?",
+      answers: [
+        { title: "Follow the living world", copy: "Life, growth, role, place, instinct, and care lead the answer.", signal: "living-world abundance", likelihoods: { NAYA: 0.95 }, suppresses: { BANT: 0.85 } },
+        { title: "Support the worthy line", copy: "Public honor, refinement, and communal backing make the action legitimate.", signal: "supported champion", likelihoods: { BANT: 0.95 }, suppresses: { NAYA: 0.85 } },
+      ],
+    },
+    {
+      id: "crucible_ABZAN_MARDU",
+      stage: "crucible",
+      pair: ["ABZAN", "MARDU"],
+      eyebrow: "Crucible - Endure or Charge",
+      prompt: "When the house is under pressure, do you outlast for the generations, or charge before the opening closes?",
+      answers: [
+        { title: "Outlast for the generations", copy: "Family, ancestors, defense, and patience keep the house alive.", signal: "family endurance", likelihoods: { ABZAN: 0.95 }, suppresses: { MARDU: 0.85 } },
+        { title: "Charge before it closes", copy: "Speed, code, formation, and total commitment take the field now.", signal: "war-bound speed", likelihoods: { MARDU: 0.95 }, suppresses: { ABZAN: 0.85 } },
+      ],
+    },
+    {
+      id: "crucible_ABZAN_SULTAI",
+      stage: "crucible",
+      pair: ["ABZAN", "SULTAI"],
+      eyebrow: "Crucible - Ancestor or Resource",
+      prompt: "Do the dead bind you to preserve the house, or become material that can be converted into power?",
+      answers: [
+        { title: "Preserve the house", copy: "Ancestors, Kin-Trees, perennation, and duty keep continuity alive.", signal: "ancestor continuity", likelihoods: { ABZAN: 0.95 }, suppresses: { SULTAI: 0.85 } },
+        { title: "Convert the material", copy: "The dead, secrets, costs, and openings can all become advantage.", signal: "ruthless conversion", likelihoods: { SULTAI: 0.95 }, suppresses: { ABZAN: 0.85 } },
+      ],
+    },
+    {
+      id: "crucible_TEMUR_SULTAI",
+      stage: "crucible",
+      pair: ["TEMUR", "SULTAI"],
+      eyebrow: "Crucible - Listen or Convert",
+      prompt: "Does survival begin by listening to the wild signal, or by converting every available resource?",
+      answers: [
+        { title: "Listen to the wild", copy: "Land, body, ancestors, weather, and elemental memory tell you how to survive.", signal: "attuned survival", likelihoods: { TEMUR: 0.95 }, suppresses: { SULTAI: 0.85 } },
+        { title: "Convert the resource", copy: "Bodies, secrets, costs, and opportunities become tools for advantage.", signal: "calculated conversion", likelihoods: { SULTAI: 0.95 }, suppresses: { TEMUR: 0.85 } },
+      ],
+    },
+    {
+      id: "crucible_TEMUR_MARDU",
+      stage: "crucible",
+      pair: ["TEMUR", "MARDU"],
+      eyebrow: "Crucible - Wild Signal or War Signal",
+      prompt: "Do you wait for the wild signal, or move in formation before hesitation breaks the opening?",
+      answers: [
+        { title: "Wait for the wild signal", copy: "Instinct and mental fortitude come from listening before motion.", signal: "survival by listening", likelihoods: { TEMUR: 0.95 }, suppresses: { MARDU: 0.85 } },
+        { title: "Move in formation", copy: "The opening is real only if the charge reaches it in time.", signal: "coordinated immediate action", likelihoods: { MARDU: 0.95 }, suppresses: { TEMUR: 0.85 } },
+      ],
+    },
+    {
+      id: "crucible_JESKAI_MARDU",
+      stage: "crucible",
+      pair: ["JESKAI", "MARDU"],
+      eyebrow: "Crucible - Trained Line or War Charge",
+      prompt: "Should the action wait for trained insight, or take the opening before thought slows the field?",
+      answers: [
+        { title: "Wait for trained insight", copy: "Discipline, knowledge, and practice release action with precision.", signal: "disciplined action", likelihoods: { JESKAI: 0.95 }, suppresses: { MARDU: 0.85 } },
+        { title: "Take the opening", copy: "Speed, code, and total commitment matter because delay loses the fight.", signal: "immediate commitment", likelihoods: { MARDU: 0.95 }, suppresses: { JESKAI: 0.85 } },
+      ],
+    },
+    {
+      id: "crucible_JESKAI_SULTAI",
+      stage: "crucible",
+      pair: ["JESKAI", "SULTAI"],
+      eyebrow: "Crucible - Discipline or Secret",
+      prompt: "Does insight become trained action, or private advantage converted from secrets and costs?",
+      answers: [
+        { title: "Trained action", copy: "Knowledge becomes discipline, timing, protection, and precise motion.", signal: "insight through discipline", likelihoods: { JESKAI: 0.95 }, suppresses: { SULTAI: 0.85 } },
+        { title: "Private advantage", copy: "Secrets, costs, and the dead become usable material.", signal: "insight as conversion", likelihoods: { SULTAI: 0.95 }, suppresses: { JESKAI: 0.85 } },
+      ],
+    },
+    {
+      id: "crucible_JESKAI_TEMUR",
+      stage: "crucible",
+      pair: ["JESKAI", "TEMUR"],
+      eyebrow: "Crucible - Monastery or Wild",
+      prompt: "Is the truth found through disciplined practice, or through listening to land, body, and old memory?",
+      answers: [
+        { title: "Disciplined practice", copy: "The Way trains perception until action can be precise.", signal: "monastic training", likelihoods: { JESKAI: 0.95 }, suppresses: { TEMUR: 0.85 } },
+        { title: "Land, body, and memory", copy: "The living wild teaches survival before formal practice does.", signal: "wild attunement", likelihoods: { TEMUR: 0.95 }, suppresses: { JESKAI: 0.85 } },
+      ],
+    },
+    {
+      id: "crucible_YORE_GLINT",
+      stage: "crucible",
+      pair: ["YORE", "GLINT"],
+      eyebrow: "Crucible - Constructed Agency or Living Volatility",
+      prompt: "Should the answer outbuild natural limits, or move through appetite, adaptation, and volatility without imposed order?",
+      answers: [
+        { title: "Outbuild the limit", copy: "Civilization, technology, artifice, and progress refuse natural closure.", signal: "constructed agency", likelihoods: { YORE: 0.95 }, suppresses: { GLINT: 0.85 } },
+        { title: "Follow the volatility", copy: "Appetite, adaptation, force, and living motion refuse civic restraint.", signal: "living volatility", likelihoods: { GLINT: 0.95 }, suppresses: { YORE: 0.85 } },
+      ],
+    },
+    {
+      id: "crucible_GLINT_DUNE",
+      stage: "crucible",
+      pair: ["GLINT", "DUNE"],
+      eyebrow: "Crucible - Volatility or Force",
+      prompt: "Does the answer become through living volatility, or take ground through immediate organized force?",
+      answers: [
+        { title: "Become through volatility", copy: "Appetite, adaptation, and living force keep changing shape.", signal: "adaptive volatility", likelihoods: { GLINT: 0.95 }, suppresses: { DUNE: 0.85 } },
+        { title: "Take ground now", copy: "Direct action, physical momentum, and territorial pressure move before delay can answer.", signal: "territorial force", likelihoods: { DUNE: 0.95 }, suppresses: { GLINT: 0.85 } },
+      ],
+    },
+    {
+      id: "crucible_DUNE_INK",
+      stage: "crucible",
+      pair: ["DUNE", "INK"],
+      eyebrow: "Crucible - Territorial Force or Guarded Commons",
+      prompt: "Is the answer trying to take and hold ground, or protect a shared good from private capture?",
+      answers: [
+        { title: "Take and hold ground", copy: "Urgency becomes direct action, organized force, and territorial pressure.", signal: "organized force", likelihoods: { DUNE: 0.95 }, suppresses: { INK: 0.85 } },
+        { title: "Protect the commons", copy: "Shared prosperity, protected generosity, and open knowledge stay available.", signal: "guarded commons", likelihoods: { INK: 0.95 }, suppresses: { DUNE: 0.85 } },
+      ],
+    },
+    {
+      id: "crucible_INK_WITCH",
+      stage: "crucible",
+      pair: ["INK", "WITCH"],
+      eyebrow: "Crucible - Shared Good or Patient Accumulation",
+      prompt: "Should the answer keep the commons open, or cultivate a protected position until it becomes inevitable?",
+      answers: [
+        { title: "Keep it open", copy: "Community benefit, protected generosity, and open knowledge resist private hoarding.", signal: "protected commons", likelihoods: { INK: 0.95 }, suppresses: { WITCH: 0.85 } },
+        { title: "Make it inevitable", copy: "Patience, calculation, ambition, and cultivated growth reach critical mass.", signal: "patient accumulation", likelihoods: { WITCH: 0.95 }, suppresses: { INK: 0.85 } },
+      ],
+    },
+    {
+      id: "crucible_WITCH_YORE",
+      stage: "crucible",
+      pair: ["WITCH", "YORE"],
+      eyebrow: "Crucible - Cultivated Inevitability or Engineered Intervention",
+      prompt: "Does the answer grow a protected position into inevitability, or engineer a way past natural limits?",
+      answers: [
+        { title: "Grow the inevitability", copy: "Patient cultivation, calculation, and long-horizon accumulation cross a quiet threshold.", signal: "cultivated inevitability", likelihoods: { WITCH: 0.95 }, suppresses: { YORE: 0.85 } },
+        { title: "Engineer the answer", copy: "Civilization, technology, artifice, and progress intervene against organic limits.", signal: "engineered intervention", likelihoods: { YORE: 0.95 }, suppresses: { WITCH: 0.85 } },
       ],
     },
   ],
@@ -2827,11 +3999,23 @@ function normalizeQuestion(rawQuestion, fallbackFactionKey, index) {
     collision_targets: collisionTargets,
     evidence_claim_ids: rawQuestion.claim_ids || rawQuestion.evidence_claim_ids || [],
     confidence: rawQuestion.confidence || "Medium",
+    ...(rawQuestion.lateral_inhibition === false ? { lateral_inhibition: false } : {}),
   };
 }
 
 function collisionGuidanceList(placement = {}) {
-  return Array.isArray(placement.collision_guidance) ? placement.collision_guidance : [];
+  const guidance = placement.collision_guidance;
+  if (Array.isArray(guidance)) {
+    return guidance;
+  }
+  if (guidance && typeof guidance === "object" && Array.isArray(guidance.pairs)) {
+    return guidance.pairs.map((entry) => ({
+      ...(guidance.review_triggers ? { review_triggers: cloneJson(guidance.review_triggers) } : {}),
+      ...(guidance.rule ? { rule: guidance.rule } : {}),
+      ...entry,
+    }));
+  }
+  return [];
 }
 
 function unique(values) {
@@ -2855,14 +4039,19 @@ function colorLayerFor(identityLayers = {}, code) {
   return identityLayers.colors?.[normalizeColor(code)] || null;
 }
 
+function hasAggregateCoreColor(coreColor) {
+  return !["W", "U", "B", "R", "G"].includes(normalizeColor(coreColor));
+}
+
 function buildLayeredIdentity({ key, name, expressionMeta }) {
   const colors = (expressionMeta?.colors || []).map(normalizeColor).filter(Boolean);
   const secondaryColors = (expressionMeta?.secondary_colors || []).map(normalizeColor).filter(Boolean);
+  const coreColor = normalizeColor(expressionMeta?.core_color || colors[0] || "");
   const purity = colors.length === 1 ? 1 : null;
   return {
-    core_color: normalizeColor(expressionMeta?.core_color || colors[0] || ""),
+    core_color: coreColor,
     secondary_colors: secondaryColors,
-    secondary_color: secondaryColors[0] || null,
+    secondary_color: hasAggregateCoreColor(coreColor) ? null : secondaryColors[0] || null,
     expression_key: key,
     expression_name: expressionMeta?.name || name,
     expression_kind: expressionMeta?.kind || "expression",
@@ -2943,6 +4132,19 @@ function cloneJson(value) {
   return value === undefined ? undefined : JSON.parse(JSON.stringify(value));
 }
 
+function stripUnbackedPublicRichness(display, key) {
+  const stripped = cloneJson(display || {});
+  if (!SUPPRESS_UNBACKED_PUBLIC_RICHNESS_KEYS.has(key)) {
+    return stripped;
+  }
+
+  delete stripped.raw_enrichment;
+  delete stripped.commander_compass;
+  delete stripped.deck_links;
+  delete stripped.research_links;
+  return stripped;
+}
+
 function pickFields(source, fields) {
   const result = {};
   fields.forEach((field) => {
@@ -2953,11 +4155,65 @@ function pickFields(source, fields) {
   return result;
 }
 
+function sanitizeRawProfileEnrichment(enrichment, key) {
+  const sanitized = cloneJson(enrichment || {});
+  if (SUPPRESS_UNBACKED_FLAVOR_ANCHOR_KEYS.has(key)) {
+    delete sanitized.canonical_flavor_text;
+  }
+
+  if (key === "BANT" && sanitized.search_and_filter_metadata) {
+    const metadata = cloneJson(sanitized.search_and_filter_metadata);
+    if (typeof metadata.live_identity_note === "string") {
+      metadata.live_identity_note = metadata.live_identity_note.replace(/\bWUG\b/g, "Bant color-direction metadata");
+    }
+    sanitized.search_and_filter_metadata = metadata;
+  }
+
+  return sanitized;
+}
+
+function buildRawProfileEnrichment(profile, key = "") {
+  if (!profile || typeof profile !== "object") {
+    return null;
+  }
+
+  const enrichment = pickFields(profile, [
+    "historical_timeline",
+    "key_figures",
+    "canonical_flavor_text",
+    "views_on_other_factions",
+    "search_and_filter_metadata",
+  ]);
+  if (profile.data_quality?.raw_enrichment) {
+    enrichment.data_quality = cloneJson(profile.data_quality.raw_enrichment);
+  }
+
+  return Object.keys(enrichment).length ? sanitizeRawProfileEnrichment(enrichment, key) : null;
+}
+
 function sanitizeCommanderCompassCandidate(candidate) {
   return pickFields(candidate, COMMANDER_COMPASS_CANDIDATE_FIELDS);
 }
 
-function sanitizeCommanderCompass(compass) {
+function sanitizeCommanderCompassLinkTargets(linkTargets, key) {
+  const sanitized = cloneJson(linkTargets || {
+    edhrec_commander_index: "",
+    mtgdecks_color_identity: "",
+    scryfall_commander_search: "",
+    archidekt_color_search: "",
+  });
+  if (key === "BANT") {
+    if (typeof sanitized.scryfall_commander_search === "string") {
+      sanitized.scryfall_commander_search = sanitized.scryfall_commander_search.replace(/id%3Dwug/gi, "id%3Dgwu");
+    }
+    if (typeof sanitized.archidekt_color_search === "string") {
+      sanitized.archidekt_color_search = sanitized.archidekt_color_search.replace(/colors=WUG/g, "colors=GWU");
+    }
+  }
+  return sanitized;
+}
+
+function sanitizeCommanderCompass(compass, key = "") {
   if (!compass || typeof compass !== "object") {
     return null;
   }
@@ -2990,12 +4246,7 @@ function sanitizeCommanderCompass(compass) {
   sanitized.archetype_lanes = Array.isArray(compass.archetype_lanes)
     ? cloneJson(compass.archetype_lanes)
     : [];
-  sanitized.link_targets = cloneJson(compass.link_targets || {
-    edhrec_commander_index: "",
-    mtgdecks_color_identity: "",
-    scryfall_commander_search: "",
-    archidekt_color_search: "",
-  });
+  sanitized.link_targets = sanitizeCommanderCompassLinkTargets(compass.link_targets, key);
   sanitized.merge_notes = cloneJson(compass.merge_notes || {});
 
   return sanitized;
@@ -3024,8 +4275,16 @@ function attachCommanderCompass(displayData, rawRecords) {
     if (!key || !displayFaction) {
       return;
     }
+    if (key === "COLORLESS") {
+      delete displayFaction.commander_compass;
+      return;
+    }
+    if (SUPPRESS_UNBACKED_PUBLIC_RICHNESS_KEYS.has(key)) {
+      delete displayFaction.commander_compass;
+      return;
+    }
 
-    const commanderCompass = sanitizeCommanderCompass(raw.profile?.commander_compass);
+    const commanderCompass = sanitizeCommanderCompass(raw.profile?.commander_compass, key);
     if (commanderCompassHasCuratedData(commanderCompass)) {
       displayFaction.commander_compass = commanderCompass;
     } else if (key === "NAYA" && displayFaction.commander_compass) {
@@ -3050,15 +4309,21 @@ function buildFactionRecord({ key, rawId, placement, profile, display, expressio
     });
   const calibration = placement.calibration_tuning || {};
   const rawQuestions = placement.discriminator_questions || [];
+  const liveCopyOverride = LIVE_PLACEMENT_COPY_OVERRIDES[key] || {};
   const collisionTargets = [
     ...(KNOWN_LATERAL_INHIBITION[key] || []),
-    ...normalizedCollisionGuidance.map(({ target }) => target),
-    ...rawQuestions.flatMap((question) => question.collision_targets || []).map(normalizeTarget),
+    ...normalizedCollisionGuidance
+      .filter(({ entry }) => entry.lateral_inhibition !== false)
+      .map(({ target }) => target),
+    ...rawQuestions
+      .filter((question) => question.lateral_inhibition !== false)
+      .flatMap((question) => question.collision_targets || [])
+      .map(normalizeTarget),
   ];
   const goodFit = normalizeIndicatorList(
-    placement.good_fit_indicators || placement.ideal_fit_indicators || []
+    liveCopyOverride.goodFitIndicators || placement.good_fit_indicators || placement.ideal_fit_indicators || []
   );
-  const poorFit = normalizeIndicatorList(placement.poor_fit_indicators || []);
+  const poorFit = normalizeIndicatorList(liveCopyOverride.poorFitIndicators || placement.poor_fit_indicators || []);
   const layeredIdentity = buildLayeredIdentity({
     key,
     name: display?.name || placement.faction_name || profile.faction_name,
@@ -3082,14 +4347,20 @@ function buildFactionRecord({ key, rawId, placement, profile, display, expressio
     world: display?.world || expressionMeta?.world || profile.plane_or_setting || "Ravnica",
     colors: factionColors,
     identity: {
-      summary: profile.core_identity?.summary || profile.profile?.overview || display?.lore_summary || "",
-      philosophy: profile.core_identity?.philosophy || profile.profile?.philosophy || display?.philosophy || "",
+      summary: liveCopyOverride.goodFitIndicators
+        ? display?.lore_summary || profile.core_identity?.summary || profile.profile?.overview || ""
+        : profile.core_identity?.summary || profile.profile?.overview || display?.lore_summary || "",
+      philosophy: liveCopyOverride.goodFitIndicators
+        ? display?.philosophy || profile.core_identity?.philosophy || profile.profile?.philosophy || ""
+        : profile.core_identity?.philosophy || profile.profile?.philosophy || display?.philosophy || "",
       central_tension:
-        profile.core_identity?.central_tension ||
-        profile.profile?.core_tension ||
-        display?.core_tension ||
-        "",
-      display_tagline: profile.site_surface?.tagline || display?.tagline || "",
+        liveCopyOverride.goodFitIndicators
+          ? display?.core_tension || profile.core_identity?.central_tension || profile.profile?.core_tension || ""
+          : profile.core_identity?.central_tension ||
+            profile.profile?.core_tension ||
+            display?.core_tension ||
+            "",
+      display_tagline: liveCopyOverride.goodFitIndicators ? display?.tagline || profile.site_surface?.tagline || "" : profile.site_surface?.tagline || display?.tagline || "",
       mechanics: profile.mechanics?.summary || profile.profile?.mechanics_and_play_pattern || "",
     },
     layered_identity: layeredIdentity,
@@ -3107,7 +4378,7 @@ function buildFactionRecord({ key, rawId, placement, profile, display, expressio
     poor_fit_indicators: poorFit,
     inhibitor_traps: unique([
       BIOLOGICAL_PRIORS[key]?.inhibitor_trigger,
-      ...(placement.chatbot_guidance?.how_to_recognize_mismatch || []),
+      ...(liveCopyOverride.chatbotGuidance?.avoid_when || placement.chatbot_guidance?.how_to_recognize_mismatch || []),
       ...poorFit,
     ]),
     discriminator_questions: rawQuestions.map((question, index) =>
@@ -3115,12 +4386,13 @@ function buildFactionRecord({ key, rawId, placement, profile, display, expressio
     ),
     lateral_inhibition_targets: unique(collisionTargets).filter((target) => target !== key),
     collision_guidance: normalizedCollisionGuidance.map(({ entry, target }) => ({
+      ...cloneJson(entry),
       collision_id: entry.collision_id || "",
       against: target,
       separator: entry.separator || "",
       ask: entry.ask || "",
     })),
-    chatbot_guidance: placement.chatbot_guidance || {},
+    chatbot_guidance: liveCopyOverride.chatbotGuidance || placement.chatbot_guidance || {},
     canon_guardrails: {
       never_claim_as_canon: placement.chatbot_guidance?.never_claim_as_canon || [
         "Psychological placement categories are Vox Mana interpretation, not official Wizards canon.",
@@ -3149,13 +4421,14 @@ function buildPlacementModel(displayData, rawRecords, identityLayers) {
   for (const rawId of Object.keys(RAW_TO_KEY)) {
     const key = RAW_TO_KEY[rawId];
     const raw = rawRecords[rawId];
+    const expressionMeta = expressionMetaFor(identityLayers, key);
     factions[key] = buildFactionRecord({
       key,
       rawId,
       placement: raw.placement,
       profile: raw.profile,
-      display: displayData.factions[key],
-      expressionMeta: expressionMetaFor(identityLayers, key),
+      display: displayData.factions[key] || structuredClone(expressionMeta?.display || {}),
+      expressionMeta,
     });
   }
 
@@ -3223,7 +4496,7 @@ function buildPlacementModel(displayData, rawRecords, identityLayers) {
   };
 }
 
-function buildFactionContext(model, displayData) {
+export function buildFactionContext(model, displayData) {
   const context = {};
   for (const [key, faction] of Object.entries(model.factions)) {
     const display = displayData.factions[key] || {};
@@ -3252,7 +4525,189 @@ function buildFactionContext(model, displayData) {
   return context;
 }
 
+export function parseBuildFactionArtifactsArgs(argv = []) {
+  const options = {
+    contextTargets: null,
+  };
+
+  for (const arg of argv) {
+    if (arg.startsWith("--context-targets=")) {
+      const value = arg.slice("--context-targets=".length);
+      options.contextTargets = normalizeContextTargets(value);
+      continue;
+    }
+    throw new Error(`Unknown build-faction-artifacts argument: ${arg}`);
+  }
+
+  return options;
+}
+
+export function normalizeContextTargets(value) {
+  const rawTargets = Array.isArray(value) ? value : String(value || "").split(",");
+  const targets = [];
+  const seen = new Set();
+  for (const rawTarget of rawTargets) {
+    const target = String(rawTarget || "").trim().toUpperCase();
+    if (!target || seen.has(target)) {
+      continue;
+    }
+    targets.push(target);
+    seen.add(target);
+  }
+  if (!targets.length) {
+    throw new Error("--context-targets requires at least one faction key");
+  }
+  return targets;
+}
+
+function assertPlainObject(value, label) {
+  if (!value || typeof value !== "object" || Array.isArray(value)) {
+    throw new Error(`${label} must be a JSON object`);
+  }
+}
+
+function findJsonValueEnd(source, valueStart, label) {
+  const opening = source[valueStart];
+  const matching = {
+    "{": "}",
+    "[": "]",
+  };
+  if (!matching[opening]) {
+    throw new Error(`${label} must start with a JSON object or array`);
+  }
+
+  const stack = [opening];
+  let inString = false;
+  let escaping = false;
+
+  for (let index = valueStart + 1; index < source.length; index += 1) {
+    const char = source[index];
+
+    if (inString) {
+      if (escaping) {
+        escaping = false;
+      } else if (char === "\\") {
+        escaping = true;
+      } else if (char === "\"") {
+        inString = false;
+      }
+      continue;
+    }
+
+    if (char === "\"") {
+      inString = true;
+      continue;
+    }
+
+    if (matching[char]) {
+      stack.push(char);
+      continue;
+    }
+
+    const expectedClosing = matching[stack[stack.length - 1]];
+    if (char === expectedClosing) {
+      stack.pop();
+      if (!stack.length) {
+        return index + 1;
+      }
+      continue;
+    }
+
+    if (char === "}" || char === "]") {
+      throw new Error(`${label} has mismatched JSON brackets`);
+    }
+  }
+
+  throw new Error(`${label} JSON value is incomplete`);
+}
+
+function parseExportedJsonConst(source, exportName) {
+  const marker = `export const ${exportName} = `;
+  const markerStart = source.indexOf(marker);
+  if (markerStart === -1) {
+    throw new Error(`Missing ${exportName} export`);
+  }
+  let valueStart = markerStart + marker.length;
+  while (/\s/.test(source[valueStart] || "")) {
+    valueStart += 1;
+  }
+
+  const valueEnd = findJsonValueEnd(source, valueStart, exportName);
+  const trailer = source.slice(valueEnd);
+  if (!/^\s+as const;/.test(trailer)) {
+    throw new Error(`${exportName} export must end with "as const;"`);
+  }
+
+  try {
+    return JSON.parse(source.slice(valueStart, valueEnd));
+  } catch (error) {
+    throw new Error(`Could not parse ${exportName}: ${error.message}`);
+  }
+}
+
+export function parseFactionContextModule(source) {
+  const factionContext = parseExportedJsonConst(source, "FACTION_CONTEXT");
+  const placementModelMeta = parseExportedJsonConst(source, "PLACEMENT_MODEL_META");
+  assertPlainObject(factionContext, "FACTION_CONTEXT");
+  assertPlainObject(placementModelMeta, "PLACEMENT_MODEL_META");
+  return {
+    factionContext,
+    placementModelMeta,
+  };
+}
+
+export function renderFactionContextModule({ factionContext, placementModelMeta }) {
+  assertPlainObject(factionContext, "FACTION_CONTEXT");
+  assertPlainObject(placementModelMeta, "PLACEMENT_MODEL_META");
+  return `/**\n * Generated by tools/build-faction-artifacts.mjs.\n * Keep lore and placement updates in data/raw-factions and data/factions.json.\n */\nexport const FACTION_CONTEXT = ${JSON.stringify(factionContext, null, 2)} as const;\n\nexport const PLACEMENT_MODEL_META = ${JSON.stringify(placementModelMeta, null, 2)} as const;\n`;
+}
+
+export function assertOnlyContextTargetsChanged(beforeContext, afterContext, targets) {
+  assertPlainObject(beforeContext, "before FACTION_CONTEXT");
+  assertPlainObject(afterContext, "after FACTION_CONTEXT");
+  const targetSet = new Set(normalizeContextTargets(targets));
+  const beforeKeys = Object.keys(beforeContext);
+  const afterKeys = Object.keys(afterContext);
+
+  if (JSON.stringify(beforeKeys) !== JSON.stringify(afterKeys)) {
+    throw new Error("Targeted context merge changed FACTION_CONTEXT key order or key set");
+  }
+
+  for (const key of beforeKeys) {
+    if (targetSet.has(key)) {
+      continue;
+    }
+    if (JSON.stringify(beforeContext[key]) !== JSON.stringify(afterContext[key])) {
+      throw new Error(`Targeted context merge would change non-target FACTION_CONTEXT entry ${key}`);
+    }
+  }
+}
+
+export function mergeFactionContextEntries({ existingContext, freshContext, targets }) {
+  assertPlainObject(existingContext, "existing FACTION_CONTEXT");
+  assertPlainObject(freshContext, "fresh FACTION_CONTEXT");
+  const normalizedTargets = normalizeContextTargets(targets);
+
+  for (const target of normalizedTargets) {
+    if (!Object.prototype.hasOwnProperty.call(existingContext, target)) {
+      throw new Error(`Target ${target} is missing from existing FACTION_CONTEXT`);
+    }
+    if (!Object.prototype.hasOwnProperty.call(freshContext, target)) {
+      throw new Error(`Target ${target} is missing from fresh FACTION_CONTEXT`);
+    }
+  }
+
+  const targetSet = new Set(normalizedTargets);
+  const merged = {};
+  for (const [key, value] of Object.entries(existingContext)) {
+    merged[key] = targetSet.has(key) ? freshContext[key] : value;
+  }
+  assertOnlyContextTargetsChanged(existingContext, merged, normalizedTargets);
+  return merged;
+}
+
 async function main() {
+  const options = parseBuildFactionArtifactsArgs(process.argv.slice(2));
   const rawDirs = (await readdir(rawRoot, { withFileTypes: true }))
     .filter((entry) => entry.isDirectory())
     .map((entry) => entry.name)
@@ -3291,14 +4746,34 @@ async function main() {
 
   Object.entries(model.factions).forEach(([key, faction]) => {
     const expressionMeta = expressionMetaFor(identityLayers, key);
-    const expressionDisplay = structuredClone(expressionMeta?.display || {});
-    const existingDisplay = displayData.factions[key] || {};
+    const expressionDisplay = stripUnbackedPublicRichness(structuredClone(expressionMeta?.display || {}), key);
+    const existingDisplay = stripUnbackedPublicRichness(displayData.factions[key] || {}, key);
     const rawManaged = Object.values(RAW_TO_KEY).includes(key);
+    const rawProfileEnrichment = RAW_PROFILE_ENRICHMENT_KEYS.has(key)
+      ? buildRawProfileEnrichment(rawRecords[KEY_TO_RAW[key]]?.profile, key)
+      : null;
+    const suppressUnbackedPublicRichness = SUPPRESS_UNBACKED_PUBLIC_RICHNESS_KEYS.has(key);
+    const rawProfileDeckLinks = rawManaged && !suppressUnbackedPublicRichness && Array.isArray(rawRecords[KEY_TO_RAW[key]]?.profile?.deck_links)
+      ? cloneJson(rawRecords[KEY_TO_RAW[key]].profile.deck_links)
+      : null;
+    const rawProfileResearchLinks = rawManaged && !suppressUnbackedPublicRichness && rawRecords[KEY_TO_RAW[key]]?.profile?.research_links
+      ? cloneJson(rawRecords[KEY_TO_RAW[key]].profile.research_links)
+      : {};
+    const expressionEdhrecSlug = suppressUnbackedPublicRichness
+      ? null
+      : expressionMeta?.routing?.edhrec_slug;
     const displayCommanderCompass = key === "NAYA"
       ? expressionDisplay.commander_compass
       : (commanderCompassHasCuratedData(existingDisplay.commander_compass)
           ? existingDisplay.commander_compass
           : expressionDisplay.commander_compass);
+    const colorlessDisplayOverrides = key === "COLORLESS"
+      ? {
+          lore_summary: expressionDisplay.lore_summary || existingDisplay.lore_summary,
+          affinity: expressionDisplay.affinity || existingDisplay.affinity,
+          archetypes: expressionDisplay.archetypes || existingDisplay.archetypes,
+        }
+      : {};
     const displayBase = ["NAYA", "ABZAN", "TEMUR", "SULTAI", "MARDU", "JESKAI"].includes(key)
       ? {
           ...existingDisplay,
@@ -3310,8 +4785,11 @@ async function main() {
       : {
           ...expressionDisplay,
           ...existingDisplay,
+          ...colorlessDisplayOverrides,
           staples: existingDisplay.staples || expressionDisplay.staples,
-          land_base: existingDisplay.land_base || expressionDisplay.land_base,
+          land_base: key === "COLORLESS"
+            ? expressionDisplay.land_base || existingDisplay.land_base
+            : existingDisplay.land_base || expressionDisplay.land_base,
           commander_compass: rawManaged ? undefined : displayCommanderCompass,
         };
     displayData.factions[key] = {
@@ -3323,8 +4801,11 @@ async function main() {
       colors: displayBase.colors || faction.colors,
       research_links: {
         ...(displayBase.research_links || {}),
-        ...(expressionMeta?.routing?.edhrec_slug ? { edhrec_slug: expressionMeta.routing.edhrec_slug } : {}),
+        ...rawProfileResearchLinks,
+        ...(expressionEdhrecSlug ? { edhrec_slug: expressionEdhrecSlug } : {}),
       },
+      ...(rawProfileDeckLinks ? { deck_links: rawProfileDeckLinks } : {}),
+      ...(rawProfileEnrichment ? { raw_enrichment: rawProfileEnrichment } : {}),
       identity: faction.layered_identity,
       identity_blend: expressionMeta?.identity_blend || "",
     };
@@ -3333,11 +4814,33 @@ async function main() {
   displayData._meta.factions = Object.keys(model.factions).length;
   const factionContext = buildFactionContext(model, displayData);
 
+  if (options.contextTargets) {
+    const existingContextModule = parseFactionContextModule(await readFile(factionContextPath, "utf8"));
+    const mergedContext = mergeFactionContextEntries({
+      existingContext: existingContextModule.factionContext,
+      freshContext: factionContext,
+      targets: options.contextTargets,
+    });
+    const ts = renderFactionContextModule({
+      factionContext: mergedContext,
+      placementModelMeta: existingContextModule.placementModelMeta,
+    });
+    await writeFile(factionContextPath, ts);
+
+    console.log(`Built ${Object.keys(model.factions).length} faction placement records.`);
+    console.log(`Merged targeted Supabase context entries: ${options.contextTargets.join(", ")}`);
+    console.log(`Wrote ${path.relative(repoRoot, factionContextPath)}`);
+    return;
+  }
+
   await writeJson(displayPath, displayData);
   await writeJson(placementModelPath, model);
   await writeJson(placementSchemaPath, PLACEMENT_SCHEMA);
 
-  const ts = `/**\n * Generated by tools/build-faction-artifacts.mjs.\n * Keep lore and placement updates in data/raw-factions and data/factions.json.\n */\nexport const FACTION_CONTEXT = ${JSON.stringify(factionContext, null, 2)} as const;\n\nexport const PLACEMENT_MODEL_META = ${JSON.stringify(model._meta, null, 2)} as const;\n`;
+  const ts = renderFactionContextModule({
+    factionContext,
+    placementModelMeta: model._meta,
+  });
   await writeFile(factionContextPath, ts);
 
   console.log(`Built ${Object.keys(model.factions).length} faction placement records.`);
@@ -3346,7 +4849,9 @@ async function main() {
   console.log(`Wrote ${path.relative(repoRoot, factionContextPath)}`);
 }
 
-main().catch((error) => {
-  console.error(error);
-  process.exitCode = 1;
-});
+if (process.argv[1] && path.resolve(process.argv[1]) === modulePath) {
+  main().catch((error) => {
+    console.error(error);
+    process.exitCode = 1;
+  });
+}

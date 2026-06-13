@@ -1,0 +1,449 @@
+{
+  "schema_version": "1.0.0",
+  "profile_version": "0.1.2",
+  "faction_id": "ink",
+  "faction_name": "Ink / Altruism",
+  "faction_type": "four-color",
+  "color_identity": [
+    "Red",
+    "Green",
+    "White",
+    "Blue"
+  ],
+  "color_pair_or_group": "RGWU four-color metadata only; all 24 RGWU permutations metadata/query-only",
+  "plane_or_setting": "Cross-setting; Ravnica historical anchor; Commander 2016 support texture",
+  "last_updated": "2026-06-12",
+  "source_review_date": "2026-06-12",
+  "last_full_review": "2026-06-04",
+  "last_incremental_review": "2026-06-12",
+  "core_identity": {
+    "short_form": "RGWU without Black: protected public abundance rather than private hoarding.",
+    "identity_frame": "Ink / Altruism uses the missing-Black frame to describe Red care, Green reciprocity, White civic promise, Blue open knowledge, and a guarded commons that resists private enclosure.",
+    "naming_boundary": "INK is Vox Mana's expression/research label, Altruism is Commander 2016 support/theme framing only, neither is the official or exclusive RGWU name, and RGWU, WURG, and all same-color permutations remain metadata/query-only.",
+    "claim_ids": [
+      "ink_claim_0001",
+      "ink_claim_0002",
+      "ink_claim_0003",
+      "ink_claim_0004",
+      "ink_claim_0005"
+    ]
+  },
+  "structure": {
+    "identity_class": "four-color",
+    "missing_color": "Black",
+    "present_colors": [
+      "Red",
+      "Green",
+      "White",
+      "Blue"
+    ],
+    "primary_anchor": "Ink-Treader Nephilim as bounded historical/card anchor",
+    "support_texture": [
+      "shared prosperity",
+      "community benefit",
+      "protected generosity",
+      "open knowledge",
+      "public abundance",
+      "group-hug Commander texture",
+      "Stalwart Unity support texture"
+    ],
+    "non_faction_boundary": "Ink is not an official faction, plane, civilization, doctrine, institution, or organized school."
+  },
+  "great_tension": {
+    "gift": "Resources, knowledge, and care circulate through a protected commons rather than being locked behind private advantage.",
+    "shadow": "If private need is mistrusted too strongly, protected generosity can confuse necessary self-claiming with selfishness.",
+    "boundary": "This is Vox Mana/source synthesis, not direct canon doctrine."
+  },
+  "historical_timeline": [
+    {
+      "label": "Nephilim-era anchor",
+      "summary": "Ink-Treader Nephilim provides the card-identity anchor for the lane.",
+      "boundary": "Not a civilization, doctrine, naming authority, or placement authority; exact official card facts remain Manual fill required."
+    },
+    {
+      "label": "Commander 2016 support texture",
+      "summary": "Altruism and Kynaios and Tiro / Stalwart Unity support shared-resource, table-politics, and public-benefit Commander readability.",
+      "boundary": "Support-only; not lore proof, legality proof, runtime authorization, recommendation proof, or independent identity proof."
+    }
+  ],
+  "key_figures": [
+    {
+      "name": "Ink-Treader Nephilim",
+      "role": "Historical/card anchor",
+      "boundary": "Not an Ink faction founder, institution, doctrine source, or naming authority."
+    },
+    {
+      "name": "Kynaios and Tiro of Meletis",
+      "role": "Commander support texture",
+      "boundary": "Support-only; not proof of Ink lore or official naming."
+    }
+  ],
+  "canonical_flavor_text": {
+    "source_bound_summary": "Ink / Altruism is the RGWU/non-Black raw packet for protected generosity, open knowledge, bounded Ink-Treader anchoring, and strict non-live public-interface boundaries.",
+    "vox_mana_synthesis": "The commons remembers what the vault tries to keep.",
+    "boundary": "Use synthesis only as profile language, not as raw canon proof. Do not invent or quote unsupported flavor text."
+  },
+  "profile": {
+    "overview": "Ink / Altruism is Vox Mana's RGWU/non-Black expression for protected public abundance, open knowledge, community benefit, shared resources guarded from capture, and generosity protected from private enclosure.",
+    "philosophy": "Ink wants resources, knowledge, and care to circulate through a defended commons rather than become private leverage; Red keeps care present, Green keeps reciprocity alive, White gives public promise, and Blue opens knowledge without letting Black-style private hoarding define the center.",
+    "core_tension": "Ink keeps the gift moving through protected public abundance, but generosity can become self-erasure when private need, guarded consent, or personal limits are treated as selfish by default.",
+    "mechanics_and_play_pattern": "Missing-Black four-color pressure, protected public abundance, open knowledge, shared resources, reciprocity, group-hug/table-politics support texture, and guarded commons play can express Ink only when they serve the full RGWU/non-Black worldview of Red care, Green reciprocity, White civic promise, and Blue open knowledge without Black-style private hoarding; group-hug, public archives, Kynaios, Ink-Treader, Altruism, or same-color identity alone do not define the identity.",
+    "claim_ids": [
+      "ink_claim_0001",
+      "ink_claim_0002",
+      "ink_claim_0003",
+      "ink_claim_0004",
+      "ink_claim_0005"
+    ]
+  },
+  "mechanics": {
+    "summary": "Missing-Black four-color pressure, protected public abundance, open knowledge, shared resources, reciprocity, group-hug/table-politics support texture, and guarded commons play can express Ink only when they serve the full RGWU/non-Black worldview of Red care, Green reciprocity, White civic promise, and Blue open knowledge without Black-style private hoarding; group-hug, public archives, Kynaios, Ink-Treader, Altruism, or same-color identity alone do not define the identity.",
+    "source_bound_texture": [
+      "missing-Black four-color framing",
+      "shared prosperity",
+      "community benefit",
+      "protected generosity",
+      "open knowledge"
+    ],
+    "support_only_texture": [
+      "group-hug Commander play",
+      "shared resources",
+      "political reciprocity",
+      "Stalwart Unity Commander texture",
+      "Altruism support framing"
+    ],
+    "deferred": [
+      "exact Ink-Treader card facts",
+      "exact Commander legality",
+      "exact recommendations",
+      "exact Commander 2016 article claims",
+      "card-level group-hug or table-politics claims"
+    ]
+  },
+  "views_on_other_factions": {
+    "pair_overlap_boundaries": [
+      "Azorius order and knowledge alone are not Ink.",
+      "Izzet curiosity and invention alone are not Ink.",
+      "Simic adaptation and living systems alone are not Ink.",
+      "Selesnya community and belonging alone are not Ink.",
+      "Boros public defense and urgent action alone are not Ink.",
+      "Gruul vitality and anti-enclosure force alone are not Ink."
+    ],
+    "near_match_boundaries": [
+      "Bant lacks Red immediacy and emotional presence.",
+      "Jeskai lacks Green reciprocity and living return.",
+      "Naya lacks Blue open knowledge and archive.",
+      "Temur lacks White civic promise and protective structure.",
+      "Dune-facing comparison is architecture-only and not proof of Ink.",
+      "Witch-facing comparison is architecture-only and not proof of Ink.",
+      "Kynaios-only shells are review triggers, not proof.",
+      "Ink-Treader-only anchors are review triggers, not proof.",
+      "Generic group-hug or public-archive shells are review triggers, not proof.",
+      "Generic RGWU goodstuff is a review trigger, not proof."
+    ],
+    "source_role": "Shaping-only parity guidance from VM-260."
+  },
+  "commander_compass": {
+    "schema_version": "1.0.0",
+    "source_research_file": "docs/research/vox_mana_second_commander_recommendations_enhanced.jsonl",
+    "last_reviewed": "2026-06-12",
+    "review_status": "support_only_live_pilot_curation",
+    "recommendation_philosophy": "Use INK Commander guidance as product/operator support only: the local Stalwart Unity / Kynaios and Tiro of Meletis support row can express Stalwart Unity, Kynaios and Tiro, group-hug, and shared-resource Commander texture. These rows do not create lore proof, naming authority, Commander legality proof, placement evidence, public aliases, or claim authority.",
+    "identity_basis": {
+      "owned_themes": [
+        "RGWU/non-Black protected generosity",
+        "group-hug and shared-resource texture as support-only Commander vocabulary",
+        "open knowledge without private hoarding"
+      ],
+      "allowed_phrases": [
+        "Ink support fit",
+        "group hug texture",
+        "shared resources",
+        "protected commons"
+      ],
+      "avoid_or_contrast_phrases": [
+        "Kynaios and Tiro as Ink lore proof",
+        "Stalwart Unity as naming authority",
+        "Commander legality proof",
+        "generosity preference as placement evidence"
+      ],
+      "adjacent_overlap_notes": [
+        "Group-hug texture overlaps Bant, Jeskai, Naya, and Temur; Ink support wording keeps the non-Black protected-commons boundary visible."
+      ],
+      "supporting_claim_ids": [
+        "ink_claim_0002",
+        "ink_claim_0003",
+        "ink_claim_0005"
+      ],
+      "supporting_source_ids": [
+        "src_vm_commander_recommendations_stalwart_unity_20260604",
+        "src_vm_four_color_identity_dossier_md_20260604"
+      ]
+    },
+    "support_decks": [
+      "Stalwart Unity"
+    ],
+    "support_language": [
+      "group hug",
+      "politics",
+      "shared resources",
+      "open knowledge"
+    ],
+    "native_fit_commanders": [
+      {
+        "exact_card_name": "Kynaios and Tiro of Meletis",
+        "display_name": "Kynaios and Tiro of Meletis",
+        "scryfall_uri": "https://scryfall.com/card/c16/36/kynaios-and-tiro-of-meletis?utm_source=api",
+        "edhrec_uri": "https://edhrec.com/commanders/kynaios-and-tiro-of-meletis",
+        "color_identity": [
+          "R",
+          "G",
+          "W",
+          "U"
+        ],
+        "commander_legal": true,
+        "recommendation_type": "Support-Only Commander Row",
+        "archetype_tags": [
+          "group hug",
+          "politics",
+          "shared resources",
+          "open knowledge"
+        ],
+        "why_this_fits": "The approved local Commander support row for Stalwart Unity supports Stalwart Unity, Kynaios and Tiro, group-hug, and shared-resource Commander texture for the INK lane.",
+        "skip_if": "Skip if the user needs lore proof, naming authority, exact legality proof, placement evidence, or metagame certainty rather than support-only Commander texture.",
+        "gameplay_summary": "Commander support texture for group-hug, shared resources, and open-knowledge politics. Use only as a support starting point for the Ink lane.",
+        "faction_identity_terms": [
+          "Ink support fit",
+          "group hug texture",
+          "shared resources",
+          "protected commons"
+        ],
+        "source_basis": "src_vm_commander_recommendations_stalwart_unity_20260604; docs/research/vox_mana_second_commander_recommendations_enhanced.jsonl (content-matched deckName Stalwart Unity and mainCommander Kynaios and Tiro of Meletis)",
+        "confidence": "Support-only",
+        "caution_notes": "Support-only Commander material; not lore, canon, placement, claim, route, alias, or public naming authority."
+      }
+    ],
+    "weird_stretch_commanders": [],
+    "budget_friendly_commanders": [],
+    "advanced_complexity_commanders": [],
+    "iconic_lore_forward_commanders": [],
+    "not_recommended_or_deprioritized": [
+      {
+        "reason": "Kynaios and Tiro as Ink lore proof"
+      },
+      {
+        "reason": "Stalwart Unity as naming authority"
+      },
+      {
+        "reason": "Commander legality proof"
+      },
+      {
+        "reason": "generosity preference as placement evidence"
+      }
+    ],
+    "archetype_lanes": [
+      {
+        "lane": "Stalwart Unity support texture",
+        "support_decks": [
+          "Stalwart Unity"
+        ],
+        "support_language": [
+          "group hug",
+          "politics",
+          "shared resources",
+          "open knowledge"
+        ],
+        "source_basis": "src_vm_commander_recommendations_stalwart_unity_20260604"
+      }
+    ],
+    "link_targets": {
+      "edhrec_commander_index": "https://edhrec.com/commanders/kynaios-and-tiro-of-meletis",
+      "mtgdecks_color_identity": "",
+      "scryfall_commander_search": "https://scryfall.com/search?q=id%3Drgwu+is%3Acommander+f%3Acommander",
+      "archidekt_color_search": "https://archidekt.com/search/decks?colors=RGWU&deckFormat=3&orderBy=-updatedAt&page=1"
+    },
+    "merge_notes": {
+      "support_only_boundary": "Commander/deck/operator material remains support texture only and must not be used as lore, canon, placement, Crucible, discriminator, claim, route, alias, or naming proof.",
+      "deck_links_status": "External links are Commander support navigation targets only, not evidence rows."
+    }
+  },
+  "search_and_filter_metadata": {
+    "future_expression_name": "INK",
+    "future_expression_name_status": "Historical field name retained; INK is now the live public expression key after VM-263, while Altruism remains support/display framing and RGWU, WURG, and all same-color permutations remain metadata-query-only.",
+    "metadata_query_only_terms": [
+      "RGWU",
+      "RGUW",
+      "RWGU",
+      "RWUG",
+      "RUGW",
+      "RUWG",
+      "GRWU",
+      "GRUW",
+      "GWRU",
+      "GWUR",
+      "GURW",
+      "GUWR",
+      "WRGU",
+      "WRUG",
+      "WGRU",
+      "WGUR",
+      "WURG",
+      "WUGR",
+      "URGW",
+      "URWG",
+      "UGRW",
+      "UGWR",
+      "UWRG",
+      "UWGR",
+      "rgwu",
+      "rguw",
+      "rwgu",
+      "rwug",
+      "rugw",
+      "ruwg",
+      "grwu",
+      "gruw",
+      "gwru",
+      "gwur",
+      "gurw",
+      "guwr",
+      "wrgu",
+      "wrug",
+      "wgru",
+      "wgur",
+      "wurg",
+      "wugr",
+      "urgw",
+      "urwg",
+      "ugrw",
+      "ugwr",
+      "uwrg",
+      "uwgr"
+    ],
+    "source_status": "source_grounded_live_repair",
+    "placement_status": "live_after_vm263_source_repair",
+    "preview_eligible": false,
+    "review_gated": false,
+    "placement_eligible": true,
+    "live_pilot": true,
+    "claim_ids": [
+      "ink_claim_0001",
+      "ink_claim_0002",
+      "ink_claim_0003",
+      "ink_claim_0004",
+      "ink_claim_0005"
+    ]
+  },
+  "site_surface": {
+    "display_name": "Ink / Altruism",
+    "short_summary": "Ink / Altruism is a source-grounded, review-gated RGWU/non-Black raw packet for protected generosity, open knowledge, and strict non-live public-interface boundaries.",
+    "one_sentence_identity": "Ink keeps the gift moving without letting the vault claim it.",
+    "tagline": "Keep the commons guarded. Keep the key dark until review.",
+    "primary_tags": [
+      "Ink",
+      "Altruism support texture",
+      "RGWU metadata",
+      "Four-color",
+      "Non-Black",
+      "Source-grounded",
+      "Review-gated",
+      "Non-live"
+    ],
+    "secondary_tags": [
+      "Shared prosperity",
+      "Community benefit",
+      "Protected generosity",
+      "Open knowledge",
+      "Ink-Treader boundary",
+      "Commander support-only",
+      "Metadata-query-only permutations"
+    ],
+    "tone_words": [
+      "generous",
+      "civic",
+      "reciprocal",
+      "protective",
+      "open",
+      "communal",
+      "archival",
+      "abundance-bound"
+    ],
+    "visual_keywords": [
+      "inked public archive",
+      "guarded feast",
+      "commons under lanterns",
+      "shared maps and open books",
+      "living civic script",
+      "non-Black RGWU"
+    ],
+    "best_for": [
+      "reviewers checking Ink's source-grounded raw packet boundary",
+      "future authors preserving the difference between Ink identity, Altruism support texture, and RGWU metadata",
+      "Commander-first language that likes shared resources and public benefit while keeping those anchors support-only"
+    ],
+    "content_warnings_or_sensitivity_notes": [
+      "Ink language can involve communal obligation, protected generosity, and resistance to private hoarding. Exact card facts, Commander legality, recommendations, and stronger product or article grounding remain deferred."
+    ],
+    "claim_ids": [
+      "ink_claim_0001",
+      "ink_claim_0002",
+      "ink_claim_0003",
+      "ink_claim_0004",
+      "ink_claim_0005"
+    ]
+  },
+  "data_quality": {
+    "strongest_evidence_areas": [
+      "Ink lifecycle and live public-interface boundary after VM-263",
+      "RGWU metadata/query-only boundary",
+      "INK/Altruism naming guardrail",
+      "missing-Black four-color frame",
+      "Ink-Treader Nephilim boundary as card anchor, not institutional authority",
+      "bounded shared-prosperity and open-knowledge frame"
+    ],
+    "weakest_evidence_areas": [
+      "direct official Ink-Treader card facts",
+      "Kynaios and Tiro lore and Commander 2016 product or article grounding",
+      "Altruism commentary beyond support rows",
+      "adjacent separator raw evidence",
+      "Commander legality and exact recommendations",
+      "long-form metaphysics, public-memory symbolism, strategy, and competitive claims"
+    ],
+    "manual_review_recommended": true,
+    "review_gated": false,
+    "placement_eligible": true,
+    "preview_eligible": false,
+    "live_pilot": true,
+    "notes": "VM-304 preserves the original five-claim floor while source-backing INK's current generated profile and placement state after VM-263. Altruism, RGWU, WURG, same-color permutations, Kynaios, Stalwart Unity, Ink-Treader, support-only rows, and discovery drafts remain bounded and cannot prove placement or public naming."
+  },
+  "research_limitations": [
+    "Do not use VM-259 or VM-260 architecture docs as raw-claim evidence.",
+    "Do not use Commander rows, precon support data, support-only synthesis, or manual-fill rows as raw-claim evidence.",
+    "Do not use Kynaios, Stalwart Unity, Altruism, group-hug texture, or generic RGWU goodstuff as proof of Ink lore.",
+    "Do not use unmanaged Ink drafts as source authority; they are quarantine records only.",
+    "Adjacent separators remain architecture guidance while the packet's INK-MF-010 / INK-MF-011 drift remains unresolved."
+  ],
+  "deck_links": [
+    {
+      "fmt": "Commander",
+      "name": "Kynaios and Tiro of Meletis",
+      "desc": "Commander support texture for group-hug, shared resources, and open-knowledge politics. Use only as a support starting point for the Ink lane.",
+      "mtgg": null,
+      "edhrec": "https://edhrec.com/commanders/kynaios-and-tiro-of-meletis",
+      "mtgd": null
+    },
+    {
+      "fmt": "Commander",
+      "name": "Stalwart Unity (Precon)",
+      "desc": "Commander 2016 support texture for Kynaios and Tiro shared-resource play. Treat as support-only deck context, not lore proof or naming authority.",
+      "mtgg": null,
+      "edhrec": "https://edhrec.com/decks/stalwart-unity",
+      "mtgd": null
+    }
+  ],
+  "research_links": {
+    "source_packet": "data/raw-factions/ink/ink.sources.json",
+    "support_dossier": "docs/research/canon/misc/Magic Four-Color Identity Dossier.md",
+    "commander_support_row": "docs/research/vox_mana_second_commander_recommendations_enhanced.jsonl (content-matched deckName Stalwart Unity and mainCommander Kynaios and Tiro of Meletis)"
+  }
+}

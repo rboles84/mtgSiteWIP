@@ -41,11 +41,33 @@ for (const check of routeChecks) {
 
 const mazeSource = await readFile(path.resolve(root, "maze/index.html"), "utf8");
 const homeSource = await readFile(path.resolve(root, "index.html"), "utf8");
-const homeRuntimeSource = await readFile(path.resolve(root, "assets/js/newindex2.js"), "utf8");
+const homeRuntimeSource = await readFile(path.resolve(root, "assets/js/home.js"), "utf8");
 const identityLayerSource = await readFile(path.resolve(root, "data/identity-layers.json"), "utf8");
 const identityLayerData = JSON.parse(identityLayerSource);
 const archscrySource = await readFile(path.resolve(root, "archscry/index.html"), "utf8");
 const archscryRuntimeSource = await readFile(path.resolve(root, "assets/js/index.js"), "utf8");
+const currentStateHomeNamingFiles = [
+  "index.html",
+  "package.json",
+  "assets/css/home.css",
+  "assets/js/home.js",
+  "scripts/visual-regression-home.mjs",
+  "scripts/lighthouse-home.mjs",
+  "scripts/validate-frontend-html.mjs",
+  "scripts/lint-frontend-js.mjs",
+  "docs/design/asset-manifest.md",
+  "docs/architecture/project-atlas.md",
+  "docs/architecture/route-ownership-matrix.md",
+  "docs/architecture/data-flow-map.md",
+  "docs/architecture/cdn-font-dependency-review.md",
+  "docs/reference/data-contracts.md",
+  "docs/reference/manual-test-cases.md",
+  "docs/diagrams/route-map.mmd",
+  "docs/diagrams/route-map.svg",
+  "docs/diagrams/project-architecture.mmd",
+  "docs/diagrams/project-architecture.svg",
+  "docs/kanban/backlog/VM-154-home-hero-horizontal-overflow-containment.md",
+];
 const previewEntries = Object.entries(identityLayerData.expressions ?? {})
   .filter(([, expression]) => expression?.preview_eligible === true)
   .sort((left, right) => Number(left[1].preview_order) - Number(right[1].preview_order));
@@ -142,6 +164,15 @@ for (const idPrefix of ["cmd_", "sc_", "ss_", "sp_", "lp_", "lm_", "lb_", "lu_"]
 }
 if (mazeSource.includes('role="menu"') || archscrySource.includes('role="menu"')) {
   failures.push("Shared topbar smoke check failed: site navigation should not use application menu roles");
+}
+
+const legacyHomeNamingPattern = new RegExp(["new", "index2"].join(""), "i");
+
+for (const file of currentStateHomeNamingFiles) {
+  const source = await readFile(path.resolve(root, file), "utf8");
+  if (legacyHomeNamingPattern.test(source)) {
+    failures.push(`Canonical Home naming smoke check failed: stale legacy Home naming remains in ${file}`);
+  }
 }
 
 if (failures.length) {

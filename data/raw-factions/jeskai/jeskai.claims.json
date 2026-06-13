@@ -2,26 +2,27 @@
   "schema_version": "1.0.0",
   "faction_id": "jeskai",
   "faction_name": "Jeskai Way",
-  "source_review_date": "2026-05-31",
-  "last_updated": "2026-05-31",
+  "source_review_date": "2026-06-05",
+  "last_updated": "2026-06-05",
   "claim_count": 10,
   "claims": [
     {
       "claim_id": "jeskai_claim_0001",
       "faction_id": "jeskai",
       "claim_type": "identity_lifecycle_boundary",
-      "statement": "Jeskai Way is the blue-red-white Tarkir wedge identity using JESKAI as a future/planned expression name only, while URW, WUR, RWU, UWR, RUW, and WRU remain metadata/query-only and JESKAI remains source-authored, review-gated, and non-live in VM-232.",
+      "statement": "Jeskai Way is the blue-red-white Tarkir wedge identity using JESKAI as the project expression key; VM-234 later promoted JESKAI to the live public/generated key, while URW, WUR, RWU, UWR, RUW, and WRU remain metadata/query-only and do not become aliases or public interface keys.",
       "canon_status": "Source-supported identity with lifecycle boundary",
       "source_ids": [
         "src_vm_jeskai_evidence_ledger_20260531",
-        "src_wotc_rosewater_jeskai_smart_thinking"
+        "src_wotc_rosewater_jeskai_smart_thinking",
+        "src_vm234_jeskai_runtime_promotion_20260531"
       ],
       "evidence_rows": [
         "JESKAI-EVID-001",
         "JESKAI-EVID-022"
       ],
       "confidence": "High",
-      "notes": "JESKAI is not a live key, alias, placement key, generated key, route key, fixture key, lookup key, Home preview key, Maze key, Supabase key, schema key, or public interface."
+      "notes": "VM-299 updates the lifecycle sentence after VM-234 while preserving the evidence floor and color-code boundary. URW/WUR/RWU/UWR/RUW/WRU remain metadata/query-only and are not aliases, route keys, fixture keys, Home preview keys, Maze keys, Supabase keys, schema keys, or public color-code interfaces."
     },
     {
       "claim_id": "jeskai_claim_0002",

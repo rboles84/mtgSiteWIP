@@ -1,0 +1,109 @@
+{
+  "schema_version": "vox-mana-animation-spec-v1",
+  "identity": "silverquill",
+  "motion_thesis": "A phrase becomes ink, ink becomes status, and status redirects the table.",
+  "core_axiom": "Words are weapons, shields, contracts, applause, and verdicts; the winning line changes status in public.",
+  "motion_model": "whisper -> stroke -> spotlight -> verdict -> inkling release",
+  "palette": {
+    "void_ink": "#070607",
+    "stage_black": "#111015",
+    "parchment_white": "#f2e9d8",
+    "silver_edge": "#d7d9e2",
+    "ink_shadow": "#241327",
+    "plum_black": "#3b173f",
+    "spotlight_gold": "#d8b35f",
+    "rose_stage": "#6e2347",
+    "inkling_violet": "#8f5cff",
+    "verdict_white": "#fff7e8",
+    "blood_ink": "#7b1e2d",
+    "grid_line": "rgba(215, 217, 226, 0.18)",
+    "glow_ink": "rgba(143, 92, 255, 0.32)",
+    "glow_spotlight": "rgba(216, 179, 95, 0.28)",
+    "shadow_depth": "rgba(0, 0, 0, 0.78)"
+  },
+  "timing": {
+    "whisper_in": "180ms",
+    "ink_stroke": "360ms",
+    "spotlight_snap": "420ms",
+    "verdict_drop": "520ms",
+    "inkling_release": "700ms",
+    "reduced_motion_fade": "180ms"
+  },
+  "keyframes": [
+    {
+      "name": "vm-silverquill-ink-stroke",
+      "purpose": "Draws calligraphic strokes behind headers and identity sigils."
+    },
+    {
+      "name": "vm-silverquill-spotlight-snap",
+      "purpose": "Snaps the active placement card into a stage-lit focus state."
+    },
+    {
+      "name": "vm-silverquill-verdict-drop",
+      "purpose": "Drops a thin vertical verdict line before a modal decision or recommendation."
+    },
+    {
+      "name": "vm-silverquill-status-mark",
+      "purpose": "Applies a small silver/gold mark to counter, rank, or mentor signals."
+    },
+    {
+      "name": "vm-silverquill-inkling-release",
+      "purpose": "Releases subtle wing/ink particles from token or death-conversion panels."
+    },
+    {
+      "name": "vm-silverquill-rhetoric-ripple",
+      "purpose": "Moves a social-pressure ripple from the active choice into adjacent recommendations."
+    },
+    {
+      "name": "vm-silverquill-signature-flourish",
+      "purpose": "Finishes CTA lines with a fast handwritten flourish."
+    }
+  ],
+  "component_states": {
+    "placement_card": {
+      "entrance": [
+        "vm-silverquill-ink-stroke",
+        "vm-silverquill-spotlight-snap"
+      ],
+      "idle": "low-opacity ink shimmer at the card edge",
+      "hover": "silver edge brightens; one calligraphic stroke curls behind the title",
+      "active": "spotlight glow plus status mark on the primary identity chip"
+    },
+    "rhetoric_panel": {
+      "reveal_sequence": [
+        "claim appears",
+        "counterclaim slides in",
+        "verdict line drops",
+        "recommendation signs with flourish"
+      ],
+      "copy_style": "short, stage-ready lines with strong verbs and no generic Orzhov tax jargon"
+    },
+    "inkling_token_card": {
+      "entrance": "vm-silverquill-inkling-release",
+      "hover": "wing-shaped ink trace expands outward",
+      "selected": "token count chip receives a silver status mark"
+    },
+    "maze_link": {
+      "terms": [
+        "rhetoric",
+        "inkling",
+        "counter",
+        "drain",
+        "politics",
+        "aura",
+        "goad",
+        "verdict"
+      ],
+      "advanced_behavior": "raw operators stay hidden until expanded by an advanced player"
+    }
+  },
+  "accessibility": {
+    "reduced_motion": [
+      "disable inkling particles",
+      "replace spotlight snap with opacity fade",
+      "stop looping rhetoric ripple"
+    ],
+    "contrast_notes": "Use parchment/silver text on dark ink panels; avoid low-contrast plum text on black.",
+    "no_motion_equivalent": "Use static status marks, stroke dividers, and clear section labels."
+  }
+}

@@ -2,8 +2,8 @@
   "schema_version": "1.0.0",
   "faction_id": "mardu",
   "faction_name": "Mardu Horde",
-  "source_review_date": "2026-05-31",
-  "last_updated": "2026-05-31",
+  "source_review_date": "2026-06-05",
+  "last_updated": "2026-06-12",
   "sources": [
     {
       "source_id": "src_vm_mardu_source_ledger_20260531",
@@ -76,6 +76,18 @@
         "MARDU-EVID-003"
       ],
       "notes": "Primary design source for red-white-black wedge identity, Red as design center, and speed as Mardu attribute."
+    },
+    {
+      "source_id": "src_vm228_mardu_runtime_promotion_20260531",
+      "title": "VM-228 - Mardu Horde Controlled Runtime Promotion",
+      "author": "Vox Mana project card",
+      "publisher_or_site": "Local repository",
+      "publication_date": "2026-05-31",
+      "url_or_repository_path": "docs/kanban/done/VM-228-mardu-horde-controlled-runtime-promotion.md",
+      "source_type": "Project lifecycle decision",
+      "source_role": "shaping-only",
+      "reliability": "Primary local project decision",
+      "notes": "Used only to resolve live/generated lifecycle metadata after the VM-226 source packet, VM-227 review blocker, and VM-235 repair re-review. It is not lore evidence, card evidence, Commander evidence, or support for color-code public aliases."
     },
     {
       "source_id": "src_wotc_tarkir_khans_pg_part_2",

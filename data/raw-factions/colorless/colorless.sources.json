@@ -1,0 +1,337 @@
+{
+  "schema_version": "1.0.0",
+  "faction_id": "colorless",
+  "faction_name": "Colorless",
+  "source_review_date": "2026-06-10",
+  "last_updated": "2026-06-11",
+  "source_identifier_policy": "VM-337 adds COLORLESS-SCOPE-005 from VM-334 product-governance authority while preserving existing VM-308/VM-311/VM-324 identifiers. Future source, evidence, and manual-fill IDs must remain ledger-managed.",
+  "sources": [
+    {
+      "source_id": "COLORLESS-SCOPE-003",
+      "title": "Source / Generated Guardrails",
+      "author": "Vox Mana repo contract",
+      "publisher_or_site": "Local repository",
+      "publication_date": "Local repo contract",
+      "url_or_repository_path": "docs/reference/source-generated-guardrails.md",
+      "source_type": "Repo contract",
+      "source_role": "governance-bound",
+      "reliability": "Primary source/generated boundary",
+      "claim_bearing_evidence_rows": [
+        "COLORLESS-EVID-001",
+        "COLORLESS-EVID-018"
+      ],
+      "notes": "Used only for lifecycle and source/generated boundaries. Generated output is not raw source authority."
+    },
+    {
+      "source_id": "COLORLESS-SCOPE-004",
+      "title": "Data Contracts",
+      "author": "Vox Mana repo contract",
+      "publisher_or_site": "Local repository",
+      "publication_date": "Local repo contract",
+      "url_or_repository_path": "docs/reference/data-contracts.md",
+      "source_type": "Repo contract",
+      "source_role": "governance-bound",
+      "reliability": "Primary data-layer boundary",
+      "claim_bearing_evidence_rows": [
+        "COLORLESS-EVID-001",
+        "COLORLESS-EVID-018"
+      ],
+      "notes": "May be used to state VM-311 public-interface limits. Do not infer runtime or builder support from enum-like strings."
+    },
+    {
+      "source_id": "COLORLESS-SCOPE-005",
+      "title": "Colorless Product Decision Gate",
+      "author": "Vox Mana product governance",
+      "publisher_or_site": "Local repository",
+      "publication_date": "2026-06-11",
+      "url_or_repository_path": "docs/architecture/colors/colorless/product-decision-gate.md",
+      "source_type": "Product governance decision",
+      "source_role": "lifecycle-product-governance",
+      "reliability": "Primary Colorless product-status contract from VM-334",
+      "claim_bearing_evidence_rows": [
+        "COLORLESS-EVID-025"
+      ],
+      "notes": "Records COLORLESS as a controlled placeable Layer 1 identity with preview and public-route suppression. Use only for product lifecycle, registry, routing, and controlled-surface boundaries; not as MTG lore, rules, Commander, card, legality, or deck evidence."
+    },
+    {
+      "source_id": "COLORLESS-SRC-008",
+      "title": "Colorless - Concept vs. Execution",
+      "author": "Mark Rosewater capture",
+      "publisher_or_site": "Local repository source-material capture",
+      "publication_date": "Local capture",
+      "url_or_repository_path": "docs/research/colorless/source-material/Colorless - Concept vs. Execution _ MAGIC_ THE GATHERING_markRosewater.md",
+      "source_type": "Official design article capture",
+      "source_role": "claim-bearing",
+      "reliability": "Claim-bearing design source from VM-308",
+      "claim_bearing_evidence_rows": [
+        "COLORLESS-EVID-010",
+        "COLORLESS-EVID-012"
+      ],
+      "notes": "Supports Devoid/colorless design rationale and Eldrazi colorless execution. It does not authorize broad Colorless identity by itself."
+    },
+    {
+      "source_id": "COLORLESS-SRC-010",
+      "title": "colorless.txt",
+      "author": "Local rules/mechanics capture",
+      "publisher_or_site": "Local repository source-material capture",
+      "publication_date": "Local capture",
+      "url_or_repository_path": "docs/research/colorless/source-material/colorless.txt",
+      "source_type": "Rules/mechanics capture",
+      "source_role": "claim-bearing-with-audit-caution",
+      "reliability": "Claim-bearing in VM-308 with manual-fill caution for exact official citations",
+      "claim_bearing_evidence_rows": [
+        "COLORLESS-EVID-006",
+        "COLORLESS-EVID-007",
+        "COLORLESS-EVID-008",
+        "COLORLESS-EVID-009",
+        "COLORLESS-EVID-013"
+      ],
+      "notes": "Supports core local distinctions around colorless, generic mana, {C}, and Wastes. Exact official rule/card citations remain manual-fill gaps."
+    },
+    {
+      "source_id": "COLORLESS-SRC-012",
+      "title": "colorless_magic_cleaned.md",
+      "author": "Vox Mana cleaned research compilation",
+      "publisher_or_site": "Local repository source-material capture",
+      "publication_date": "Local capture",
+      "url_or_repository_path": "docs/research/colorless/source-material/colorless_magic_cleaned.md",
+      "source_type": "Cleaned research compilation",
+      "source_role": "claim-bearing-with-audit-caution",
+      "reliability": "VM-035 source floor carried into VM-308 with caution",
+      "claim_bearing_evidence_rows": [
+        "COLORLESS-EVID-006",
+        "COLORLESS-EVID-007",
+        "COLORLESS-EVID-008",
+        "COLORLESS-EVID-009",
+        "COLORLESS-EVID-010",
+        "COLORLESS-EVID-011",
+        "COLORLESS-EVID-012",
+        "COLORLESS-EVID-013"
+      ],
+      "notes": "Supports core mechanics and branch separation when cross-checked by VM-308 evidence rows. It is not enough for detailed Ugin/Karn lore."
+    },
+    {
+      "source_id": "COLORLESS-SRC-017",
+      "title": "The Colorless Mana Symbol",
+      "author": "Local rules/mechanics capture",
+      "publisher_or_site": "Local repository source-material capture",
+      "publication_date": "Local capture",
+      "url_or_repository_path": "docs/research/colorless/source-material/The Colorless Mana Symbol.txt",
+      "source_type": "Rules/mechanics capture",
+      "source_role": "claim-bearing-with-audit-caution",
+      "reliability": "Claim-bearing in VM-308 with official-citation manual-fill gaps",
+      "claim_bearing_evidence_rows": [
+        "COLORLESS-EVID-006",
+        "COLORLESS-EVID-007",
+        "COLORLESS-EVID-008",
+        "COLORLESS-EVID-009",
+        "COLORLESS-EVID-013"
+      ],
+      "notes": "Supports {C}, Wastes, and generic-vs-colorless boundaries while leaving official Oath, Oracle, and rules citations for later review."
+    },
+    {
+      "source_id": "COLORLESS-SRC-018",
+      "title": "Colorless MTG Notes - Clean Sourced Version",
+      "author": "User-provided sourced intake notes",
+      "publisher_or_site": "Local audit intake copied from C:/Users/obake/Downloads",
+      "publication_date": "2026-06-10 intake",
+      "url_or_repository_path": "docs/research/colorless/source-material/colorless_mtg_notes_sourced_v2.md",
+      "source_type": "Sourced audit intake packet",
+      "source_role": "claim-bearing-with-audit-caution / support-shaping",
+      "reliability": "Useful VM-324 intake source when its cited primary sources are represented in the evidence ledger; not standalone authority for card legality, Commander legality, Oracle text, prices, metagame claims, or public deck advice.",
+      "claim_bearing_evidence_rows": [
+        "COLORLESS-EVID-019",
+        "COLORLESS-EVID-020",
+        "COLORLESS-EVID-021"
+      ],
+      "support_evidence_rows": [
+        "COLORLESS-EVID-022",
+        "COLORLESS-EVID-023",
+        "COLORLESS-EVID-024"
+      ],
+      "notes": "Supports readiness repair by supplying sourced false-positive boundaries and positive attraction material. Use only with evidence-row boundaries and manual-fill caveats intact."
+    },
+    {
+      "source_id": "COLORLESS-CANON-001",
+      "title": "MTG Five-Color And Colorless Dossier",
+      "author": "Vox Mana canon dossier",
+      "publisher_or_site": "Local repository",
+      "publication_date": "Local capture",
+      "url_or_repository_path": "docs/research/canon/misc/mtg_five_color_and_colorless_dossier.md",
+      "source_type": "Repo canon dossier",
+      "source_role": "claim-bearing-boundary-support",
+      "reliability": "Best current repo-truth boundary for five-color versus Colorless",
+      "claim_bearing_evidence_rows": [
+        "COLORLESS-EVID-006",
+        "COLORLESS-EVID-007",
+        "COLORLESS-EVID-008",
+        "COLORLESS-EVID-009",
+        "COLORLESS-EVID-010",
+        "COLORLESS-EVID-011",
+        "COLORLESS-EVID-012",
+        "COLORLESS-EVID-013",
+        "COLORLESS-EVID-016"
+      ],
+      "support_evidence_rows": [
+        "COLORLESS-EVID-017"
+      ],
+      "notes": "Supports branch separation and five-color/Colorless distinction. Phyrexia material remains distinction-only unless later evidence approves specific claims."
+    },
+    {
+      "source_id": "COLORLESS-CANON-003",
+      "title": "Canon Inventory Four-Color Reference Audit",
+      "author": "Vox Mana canon audit",
+      "publisher_or_site": "Local repository",
+      "publication_date": "Local capture",
+      "url_or_repository_path": "docs/research/canon/canon-inventory-four-color-reference-audit.md",
+      "source_type": "Repo audit",
+      "source_role": "comparator-only",
+      "reliability": "Comparator support only",
+      "claim_bearing_evidence_rows": [
+        "COLORLESS-EVID-016"
+      ],
+      "notes": "Used only to distinguish five-color fullness from Colorless absence. It is not Colorless identity proof by itself."
+    },
+    {
+      "source_id": "COLORLESS-CMD-001",
+      "title": "Vox Mana Second Commander Recommendations - Eldrazi Unbound Row",
+      "author": "Vox Mana Commander support data",
+      "publisher_or_site": "Local repository",
+      "publication_date": "Local data row",
+      "url_or_repository_path": "docs/research/vox_mana_second_commander_recommendations_enhanced.jsonl:113",
+      "source_type": "Commander support row",
+      "source_role": "support-only",
+      "reliability": "Commander support-only",
+      "support_evidence_rows": [
+        "COLORLESS-EVID-015"
+      ],
+      "notes": "May shape Commander texture around Eldrazi Unbound, Zhulodok, Void Gorger, and Omarthis, Ghostfire Initiate. Not lore proof, official product proof, recommendation proof, legality proof, or raw claim authority."
+    },
+    {
+      "source_id": "COLORLESS-CMD-002",
+      "title": "Vox Mana Second Commander Recommendations - Eldrazi Incursion Row",
+      "author": "Vox Mana Commander support data",
+      "publisher_or_site": "Local repository",
+      "publication_date": "Local data row",
+      "url_or_repository_path": "docs/research/vox_mana_second_commander_recommendations_enhanced.jsonl:23",
+      "source_type": "Commander comparator row",
+      "source_role": "comparator-support-only",
+      "reliability": "Commander comparator support-only",
+      "support_evidence_rows": [
+        "COLORLESS-EVID-015"
+      ],
+      "notes": "May be used only to distinguish five-color Eldrazi support from Colorless support. Not Colorless proof."
+    },
+    {
+      "source_id": "COLORLESS-SRC-009",
+      "title": "colorless and phyexian research.md",
+      "author": "Local synthesis",
+      "publisher_or_site": "Local repository source-material capture",
+      "publication_date": "Local capture",
+      "url_or_repository_path": "docs/research/colorless/source-material/colorless and phyexian research.md",
+      "source_type": "Distinction synthesis",
+      "source_role": "distinction-only",
+      "reliability": "Separator context only",
+      "support_evidence_rows": [
+        "COLORLESS-EVID-017"
+      ],
+      "notes": "May support Phyrexia/Colorless separation only. It is not Colorless proof."
+    },
+    {
+      "source_id": "COLORLESS-SRC-011",
+      "title": "colorless_identity.md",
+      "author": "Vox Mana synthesis",
+      "publisher_or_site": "Local repository source-material capture",
+      "publication_date": "Local capture",
+      "url_or_repository_path": "docs/research/colorless/source-material/colorless_identity.md",
+      "source_type": "Vox Mana synthesis",
+      "source_role": "shaping-only",
+      "reliability": "Architecture/profile shaping only",
+      "notes": "May shape profile tone only after VM-308 evidence links are preserved. Must not be used as claim-bearing evidence."
+    },
+    {
+      "source_id": "COLORLESS-SRC-013",
+      "title": "colorless_metaphysics.md",
+      "author": "Vox Mana synthesis",
+      "publisher_or_site": "Local repository source-material capture",
+      "publication_date": "Local capture",
+      "url_or_repository_path": "docs/research/colorless/source-material/colorless_metaphysics.md",
+      "source_type": "Vox Mana synthesis",
+      "source_role": "shaping-only",
+      "reliability": "Architecture/profile shaping only",
+      "notes": "May shape metaphysical profile language only as labeled Vox Mana synthesis. Must not be used as claim-bearing evidence."
+    },
+    {
+      "source_id": "COLORLESS-SRC-014",
+      "title": "combined_colorless.md",
+      "author": "Mixed bundle",
+      "publisher_or_site": "Local repository source-material capture",
+      "publication_date": "Local capture",
+      "url_or_repository_path": "docs/research/colorless/source-material/combined_colorless.md",
+      "source_type": "Mixed duplicate bundle",
+      "source_role": "discovery-only",
+      "reliability": "Discovery-only",
+      "notes": "Duplicate/synthesis bundle. Not raw claim evidence."
+    }
+  ],
+  "manual_fill_references": [
+    "COLORLESS-MF-001",
+    "COLORLESS-MF-002",
+    "COLORLESS-MF-003",
+    "COLORLESS-MF-004",
+    "COLORLESS-MF-005",
+    "COLORLESS-MF-006",
+    "COLORLESS-MF-007",
+    "COLORLESS-MF-008",
+    "COLORLESS-MF-009",
+    "COLORLESS-MF-010",
+    "COLORLESS-MF-011",
+    "COLORLESS-MF-012",
+    "COLORLESS-MF-013",
+    "COLORLESS-MF-014",
+    "COLORLESS-MF-015",
+    "COLORLESS-MF-016"
+  ],
+  "shaping_context_paths": [
+    "docs/architecture/colors/colorless/identity.md",
+    "docs/architecture/colors/colorless/metaphysics.md"
+  ],
+  "quarantine_traceability": [
+    {
+      "quarantine_id": "colorless_quarantine_relocation_001",
+      "path_or_pattern": "docs/research/canon/colorless/**",
+      "source_role": "relocation-risk-only",
+      "reason": "The old canon Colorless path appears deleted while docs/research/colorless/ exists untracked. VM-311 does not stage or normalize the relocation."
+    },
+    {
+      "quarantine_id": "colorless_quarantine_visual_001",
+      "path_or_pattern": "assets/img/identity-hero/colorless.webp",
+      "source_role": "visual-out-of-scope",
+      "reason": "Target-adjacent dirty visual material. Not evidence, not source material, and not cleanup scope."
+    },
+    {
+      "quarantine_id": "colorless_quarantine_future_notes_001",
+      "path_or_pattern": "Future product, Semnia, and unsupported notes in the Colorless source bundle",
+      "source_role": "excluded",
+      "reason": "Unverified or off-topic material remains excluded unless a later evidence card approves it."
+    }
+  ],
+  "exclusion_policy": [
+    {
+      "excluded_material": "VM-309/VM-310 architecture docs",
+      "reason": "Architecture docs may shape notes and profile language only. They are not claim-bearing evidence in colorless.claims.json."
+    },
+    {
+      "excluded_material": "Generated placement/profile/context output",
+      "reason": "Generated output is not source truth and must not be copied into this raw packet."
+    },
+    {
+      "excluded_material": "Support-only Commander rows",
+      "reason": "Commander rows may shape texture or comparator boundaries only; they cannot independently authorize raw claims or broad Commander viability."
+    },
+    {
+      "excluded_material": "Unverified exact named-card legality, Oracle text, current price, and metagame advice from COLORLESS-SRC-018",
+      "reason": "VM-324 intake notes can shape readiness, but exact card legality, Commander legality, Oracle text, prices, and metagame claims require separate verification before public or raw-positive use."
+    }
+  ]
+}

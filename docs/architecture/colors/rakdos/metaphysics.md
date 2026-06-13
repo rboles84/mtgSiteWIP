@@ -30,11 +30,19 @@ The metaphysical foundations are:
 - Patronage: power is theatrical, unstable, and shaped by the terms of the act.
 - Anti-drift: chaos alone is not enough; the signal must preserve performance, sensation, transgression, and danger.
 
+Performance is truth pressure. Rakdos does not merely value expression; it values expression that forces a hidden preference, hypocrisy, or appetite into the open. The source-backed placement boundary is therefore not "chaos" by itself, but performance, sensation, transgression, or theatrical truth-seeking under visible risk.
+
+Spectacle is the social valve. The guild's approved profile holds two pressures together: it is a pressure release for social constraint and a dangerous cult of spectacle, violence, hedonism, and anti-authoritarian expression. Vox Mana keeps both halves active. If only release remains, the reading becomes generic Red-Black volatility; if only danger remains, it loses the public, theatrical valve that makes Rakdos distinct.
+
+Cost, audience, and consequence form the core triangle. A Rakdos act becomes metaphysically legible when it has a witness, asks for a price, and changes the room after the price is paid. The spectacle mechanic is the cleanest mechanical mirror because permission arrives only after life has been lost. Unleash can be read as an adjacent mirror only at the architecture level: force becomes more immediate as restraint is abandoned. That analogy must not become a new raw placement claim without source-ledger promotion.
+
 ## Vox Mana Read
 
 This is a compression-only Vox Mana read. It adds no new nouns, mechanics, or doctrine; it is architecture language for placement and discovery, not official faction doctrine.
 
 Rakdos asks what desire looks like after comfort is gone. Its metaphysical unit is the public cost: the wound, payment, sacrifice, discarded plan, risky bargain, or life-loss gate that makes appetite impossible to pretend away.
+
+For user experience, this means Rakdos should feel sharpest when a result names the act, the audience, and the consequence. "I like chaos" is thin. "I want the joke, danger, or performance to expose what everyone is politely avoiding" is the stronger Rakdos signal.
 
 ## Structural & Mechanical Architecture
 
@@ -42,19 +50,16 @@ Rakdos asks what desire looks like after comfort is gone. Its metaphysical unit 
 
 This architecture translates source-backed mechanical and placement signals into a project matrix for Maze, Scryfall, and Commander recommendation flows.
 
-| Structure | Mechanical signal | Metaphysical read | Evidence basis |
+| Structure | Mechanical or placement signal | Metaphysical read | Evidence basis |
 |---|---|---|---|
-| Spectacle | Opponent life-loss gates, discounted or unlocked plays | Permission arrives after consequence | `data/raw-factions/cult_of_rakdos/cult_of_rakdos.profile.json:17`; `docs/research/rakdos/rakdos-narrative-taxonomy.md:22` |
-| Appetite | Life payment, impulse access, aggressive choice | Want is honest data when it accepts cost | `data/factions.json:2175`; `docs/research/rakdos/rakdos-narrative-taxonomy.md:23` |
-| Unleash | More power now, defensive restraint lost | Force chooses immediacy over safety | `docs/research/rakdos/rakdos-narrative-taxonomy.md:24` |
-| Sacrifice | Dies triggers, damage, cards, treasure after death | Things become meaningful when spent | `docs/reference/commander-faction-guidance.md:76-77`; `docs/research/rakdos/rakdos-narrative-taxonomy.md:25` |
-| Discard | Hand attack, hellbent-adjacent pressure, no plans backstage | Private intention becomes public improvisation | `docs/reference/commander-faction-guidance.md:77`; `docs/research/rakdos/rakdos-narrative-taxonomy.md:26` |
-| Punishment | Blocking punishment, goad, life drain, excess punished | Hesitation and excess pay a cover charge | `docs/research/rakdos/rakdos-narrative-taxonomy.md:27` |
-| Carnival | Attack incentives, multiplayer pressure, audience participation | The table becomes part of the act | `docs/research/rakdos/rakdos-narrative-taxonomy.md:28` |
-| Demonic patronage | Demons, devils, risky advantage, choice pressure | Power is granted with teeth | `data/raw-factions/cult_of_rakdos/cult_of_rakdos.profile.json:16`; `docs/research/rakdos/rakdos-narrative-taxonomy.md:29` |
-| Resource-fire | Treasure, cost reduction, impulse access, sacrifice draw | Mana, cards, bodies, and life become fuel | `docs/research/rakdos/rakdos-narrative-taxonomy.md:32`; `docs/research/rakdos/rakdos-structural-matrix.csv:2-57` |
+| Performance venue | Performances, rings, clubs, festivals, and the demon Rakdos | Truth needs a stage and a risky social container | `data/raw-factions/cult_of_rakdos/cult_of_rakdos.profile.json` `structure`; `data/raw-factions/cult_of_rakdos/cult_of_rakdos.placement.json` `rakdos_q1` |
+| Social valve | Spectacle, violence, hedonism, and anti-authoritarian expression held together | Release is not random; it exposes pressure the social order could not absorb | `data/raw-factions/cult_of_rakdos/cult_of_rakdos.profile.json` `great_tension`; `data/raw-factions/cult_of_rakdos/cult_of_rakdos.placement.json` `rakdos_q3` |
+| Spectacle gate | Opponent life-loss gates a later payoff | Permission arrives after consequence | `data/raw-factions/cult_of_rakdos/cult_of_rakdos.profile.json` `mechanics`; `data/raw-factions/cult_of_rakdos/cult_of_rakdos.sources.json` `src_wotc_ravnica_allegiance_mechanics_2018` |
+| Appetite under witness | Sensation, danger, transgression, and theatrical truth-seeking | Desire becomes evidence when it accepts public cost | `data/raw-factions/cult_of_rakdos/cult_of_rakdos.placement.json` `placement_summary`; `data/raw-factions/cult_of_rakdos/cult_of_rakdos.placement.json` `rakdos_q3` |
+| Unleash mirror | Support-only mechanics context and search metadata, not a new claim | Abandoned restraint can mirror immediacy, but cannot justify new placement fields alone | `data/raw-factions/cult_of_rakdos/cult_of_rakdos.sources.json` `src_wotc_dragons_maze_mechanics_2013`; `data/raw-factions/cult_of_rakdos/cult_of_rakdos.profile.json` `search_and_filter_metadata` |
+| Demonic patronage | The guild is organized around the demon Rakdos | Power is charismatic, dangerous, theatrical, and personally costly | `data/raw-factions/cult_of_rakdos/cult_of_rakdos.profile.json` `structure`; `data/raw-factions/cult_of_rakdos/cult_of_rakdos.profile.json` `key_figures` |
 
-The structural matrix in `docs/research/rakdos/` is used here as project architecture and card-search prior art. Its tiering notes separate strict Rakdos/Ravnica guild anchors, mechanic-canonical cards, and black-red adjacent Commander anchors so the architecture does not overclaim canon status (`docs/research/rakdos/README.md:17-20`).
+Generated display files, dossier snippets, and existing public copy are not evidence for this table. They can reveal where Rakdos feels thin to a user, but the repair path must continue to run through raw packets, source rows, or a future source-intake card.
 
 ## Ludological Matrix Mapping
 

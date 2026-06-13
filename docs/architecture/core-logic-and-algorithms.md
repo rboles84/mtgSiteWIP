@@ -8,7 +8,7 @@ Files: `assets/js/adaptive-placement.js`, `data/placement-model.json`, plus the 
 
 The adaptive placement engine treats each faction as a hypothesis with an equal log prior. Each answer carries likelihoods for one or more factions. The engine converts likelihoods into configured log-score deltas, applies positive and negative evidence, optionally suppresses lookalike factions through lateral inhibition, prunes poison-pill matches, and converts scores into probabilities through softmax.
 
-The shipped engine currently operates without live domain-aware routing across the active 21-expression set: the original 20-expression Ravnica/Strixhaven/mono baseline plus the Bant shard pilot. The baseline-domain decision is documented as `ravnica_strixhaven` in [Placement Domains](placement-domains.md). There is no live `domain` field in runtime contracts and no upfront domain selector in the current Archscry flow.
+The shipped engine currently operates without live domain-aware routing across the active 30-expression set: the original 20-expression Ravnica/Strixhaven/mono Home preview baseline plus five live Alara shard pilots and five live wedge pilots. The baseline-domain decision is documented as `ravnica_strixhaven` in [Placement Domains](placement-domains.md). There is no live `domain` field in runtime contracts and no upfront domain selector in the current Archscry flow.
 
 Main flow:
 
@@ -214,7 +214,7 @@ Important transforms:
 - Good/poor indicators and inhibitor traps are flattened to plain lists.
 - Context is condensed for prompt use while keeping display metadata.
 
-Future domain modeling may eventually add metadata above the current expression set, but this build currently emits the live 21-expression set without a `domain` field. Any future split between Ravnica and Strixhaven must be treated as a separate architecture decision because it would change question routing, adjacent-fit behavior, and dossier language.
+Future domain modeling may eventually add metadata above the current expression set, but this build currently emits the live 30-expression set without a `domain` field. Any future split between Ravnica and Strixhaven must be treated as a separate architecture decision because it would change question routing, adjacent-fit behavior, and dossier language.
 
 ## Command Panel
 

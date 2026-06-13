@@ -1,0 +1,339 @@
+{
+  "schema_version": "1.0.0",
+  "placement_profile_version": "0.1.2",
+  "placement_model_version": "0.1.2",
+  "based_on_profile_version": "0.1.2",
+  "faction_id": "glint",
+  "faction_name": "Glint / Chaos",
+  "last_updated": "2026-06-12",
+  "color_identity": {
+    "colors": [
+      "Blue",
+      "Black",
+      "Red",
+      "Green"
+    ],
+    "metadata_query_only_forms": [
+      "UBRG",
+      "UBGR",
+      "URBG",
+      "URGB",
+      "UGBR",
+      "UGRB",
+      "BURG",
+      "BUGR",
+      "BRUG",
+      "BRGU",
+      "BGUR",
+      "BGRU",
+      "RUBG",
+      "RUGB",
+      "RBUG",
+      "RBGU",
+      "RGUB",
+      "RGBU",
+      "GUBR",
+      "GURB",
+      "GBUR",
+      "GBRU",
+      "GRUB",
+      "GRBU",
+      "ubrg",
+      "ubgr",
+      "urbg",
+      "urgb",
+      "ugbr",
+      "ugrb",
+      "burg",
+      "bugr",
+      "brug",
+      "brgu",
+      "bgur",
+      "bgru",
+      "rubg",
+      "rugb",
+      "rbug",
+      "rbgu",
+      "rgub",
+      "rgbu",
+      "gubr",
+      "gurb",
+      "gbur",
+      "gbru",
+      "grub",
+      "grbu"
+    ],
+    "future_expression_name": "GLINT",
+    "future_expression_name_status": "Historical field name retained; GLINT is now the live public expression key after VM-251, while UBRG and all same-color permutations remain metadata/query-only."
+  },
+  "placement_summary": "Glint / Chaos is a live-pilot placement profile for the GLINT four-color expression: adaptive appetite, volatility, living force, and missing-White pressure without civic restraint.",
+  "moral_and_psychological_profile": {
+    "primary_drive": "Seize, learn, and grow through instability before civic order can pin the moment down.",
+    "ethical_pressure": "Appetite and adaptation can become predatory when nothing above the self is trusted to stabilize the world.",
+    "core_boundary": "Placement language remains source-bound guidance only, not standalone scoring data."
+  },
+  "placement_axes": [],
+  "core_values": [
+    "adaptive appetite",
+    "volatility",
+    "living force",
+    "self-directed force",
+    "improvisation",
+    "refusal of imposed order"
+  ],
+  "behavioral_signals": [
+    "wants power that stays adaptive, hungry, and alive rather than socially stabilized",
+    "uses storm, maelstrom, appetite, leverage, volatility, and living-force language with missing-White pressure",
+    "treats knowledge as something learned under pressure for advantage rather than for civic calm"
+  ],
+  "inhibitor_traits": [
+    "stable public order, fairness, duty, or peace-through-law as the center",
+    "generic chaos or cascade without the missing-White worldview",
+    "nearby Grixis, Jund, Temur, or Sultai language without the full UBRG/non-White frame",
+    "Yidris, chaos, or UBRG color identity used as proof without approved evidence"
+  ],
+  "inhibitor_traps": [
+    "Treats civic restraint, imposed order, or stabilizing duty as the only trustworthy answer when appetite, adaptation, and living force are asking to move first.",
+    "The user only mentions generic chaos, cascade, high-variance play, or Yidris without the full non-White frame.",
+    "The user treats Glint-Eye, Nephilim, or Yidris as institutional proof.",
+    "The user centers White-style order, fairness, duty, or stability."
+  ],
+  "good_fit_indicators": [
+    "adaptive appetite under pressure",
+    "living force without White-style civic restraint",
+    "volatility and improvisation as identity frame",
+    "explicit UBRG/non-White boundary preserved"
+  ],
+  "ideal_fit_indicators": [
+    "the answer centers learning, feeding, and growing through instability instead of stabilizing for the collective",
+    "Blue intelligence, Black appetite, Red ignition, and Green living force all feel necessary to the frame",
+    "the user wants force that remains alive, opportunistic, and unlicensed while accepting the shadow risk of predation"
+  ],
+  "poor_fit_indicators": [
+    "generic UBRG goodstuff",
+    "generic chaos",
+    "generic cascade",
+    "generic high-variance decks",
+    "Yidris-only identity",
+    "Grixis cruelty without Green living force",
+    "Jund predation without Blue adaptive intelligence",
+    "Temur experimentation without Black appetite",
+    "Sultai exploitation without Red ignition",
+    "Omnath or non-Black four-color value shells",
+    "Glint-Eye or Nephilim language treated as institutional proof"
+  ],
+  "discriminator_questions": [
+    {
+      "question_id": "glint_disc_001",
+      "question": "Is the appeal volatility itself, or volatility plus appetite, adaptation, and living force under a missing-White frame?",
+      "positive_signal": "Volatility joined to appetite, adaptation, living force, and missing-White pressure.",
+      "negative_signal": "Variance, chaos, or cascade by itself.",
+      "purpose": "Separates source-bounded Glint identity from generic chaos, cascade, high-variance play, or Yidris-only texture.",
+      "answer_pattern_that_supports_this_faction": "Supports Glint when volatility is tied to appetite, adaptation, living force, missing-White pressure, and the full UBRG/non-White worldview.",
+      "answer_pattern_that_weakens_this_faction": "Weakens Glint when the user only wants variance, chaos, cascade, Yidris, or high-variance play without the missing-White frame.",
+      "collision_targets": [
+        "UB",
+        "UR",
+        "UG",
+        "BR",
+        "BG",
+        "RG",
+        "GRIXIS",
+        "JUND",
+        "TEMUR",
+        "SULTAI"
+      ],
+      "claim_ids": [
+        "glint_claim_0001",
+        "glint_claim_0003",
+        "glint_claim_0005"
+      ]
+    },
+    {
+      "question_id": "glint_disc_002",
+      "question": "Does the answer need all four present colors plus missing White, or would a nearer Grixis, Jund, Temur, Sultai, or Omnath-style frame explain it better?",
+      "positive_signal": "The answer needs the full UBRG/non-White storm.",
+      "negative_signal": "A nearby shard, wedge, pair, or non-Black four-color shell explains the center better.",
+      "purpose": "Tests the four-color threshold so GLINT is not awarded for an adjacent shard, wedge, pair, Omnath-style value shell, or generic UBRG goodstuff.",
+      "answer_pattern_that_supports_this_faction": "Supports Glint when Blue adaptation, Black appetite, Red ignition, Green living force, and explicit missing-White refusal of civic restraint all matter together.",
+      "answer_pattern_that_weakens_this_faction": "Weakens Glint when Grixis, Jund, Temur, Sultai, a two-color pair, Omnath/non-Black value, or generic goodstuff explains the center better.",
+      "collision_targets": [
+        "UB",
+        "UR",
+        "UG",
+        "BR",
+        "BG",
+        "RG",
+        "GRIXIS",
+        "JUND",
+        "TEMUR",
+        "SULTAI"
+      ],
+      "claim_ids": [
+        "glint_claim_0001",
+        "glint_claim_0002",
+        "glint_claim_0003",
+        "glint_claim_0004",
+        "glint_claim_0005"
+      ]
+    },
+    {
+      "question_id": "glint_disc_003",
+      "question": "Is the pull living volatility without imposed order, or Yore's constructed agency or Dune's direct territorial force?",
+      "purpose": "Separates Glint from adjacent four-color peers in the source-bound missing-White ring.",
+      "answer_pattern_that_supports_this_faction": "Supports Glint when appetite, adaptation, force, volatility, and missing-White refusal of civic restraint all matter together.",
+      "answer_pattern_that_weakens_this_faction": "Weakens Glint when the answer centers Yore constructed progress against nature or Dune non-Blue territorial combat pressure.",
+      "collision_targets": [
+        "YORE",
+        "DUNE"
+      ],
+      "lateral_inhibition": false,
+      "claim_ids": [
+        "glint_claim_0003",
+        "glint_claim_0005"
+      ],
+      "positive_signal": "Living volatility without imposed civic order.",
+      "negative_signal": "Constructed progress or direct territorial force explains the center better.",
+      "confidence": "Medium"
+    }
+  ],
+  "chatbot_guidance": {
+    "allowed": [
+      "Use Glint as source-grounded live-pilot identity language.",
+      "Describe Yidris, Entropic Uprising, cascade, volatility, and non-White four-color greed/value texture as support-only when needed.",
+      "Use exact local Glint-Eye and Yidris card facts only as support-bound copy when needed, and keep stronger article grounding deferred."
+    ],
+    "not_allowed": [
+      "Do not say Glint is an official MTG faction.",
+      "Do not say Glint or Chaos is the official universal UBRG name.",
+      "Do not route to Glint from generic chaos, generic cascade, generic UBRG, or Yidris alone.",
+      "Do not treat Commander/operator material or support-only local card data as lore proof."
+    ],
+    "how_to_recognize_mismatch": [
+      "Treats civic restraint, imposed order, or stabilizing duty as the only trustworthy answer when appetite, adaptation, and living force are asking to move first.",
+      "The user only mentions generic chaos, cascade, high-variance play, or Yidris without the full non-White frame.",
+      "The user treats Glint-Eye, Nephilim, or Yidris as institutional proof.",
+      "The user centers White-style order, fairness, duty, or stability."
+    ],
+    "calibration_note": "Do not award Glint for generic chaos, cascade, high-variance play, Yidris familiarity, Glint-Eye/Nephilim anchoring alone, UBRG goodstuff, or adjacent shard/wedge language. Require the full four-color without White synthesis: adaptive appetite, volatility, living force, Blue adaptation, Black appetite, Red ignition, Green living force, and refusal of White-style civic restraint."
+  },
+  "placement_quality": {
+    "strongest_evidence_areas": [
+      "lifecycle and metadata boundary",
+      "naming guardrail",
+      "missing-White identity frame",
+      "Glint-Eye anchor boundary",
+      "bounded anti-imposed-order frame"
+    ],
+    "weakest_evidence_areas": [
+      "stronger direct official card/article capture",
+      "Commander legality",
+      "Yidris lore",
+      "Commander 2016 article grounding",
+      "adjacent separator raw evidence",
+      "long-form psychology"
+    ],
+    "manual_review_recommended": true,
+    "review_gated": false,
+    "placement_status": "live_after_vm251_source_repair",
+    "placement_eligible": true,
+    "preview_eligible": false,
+    "calibration_tuning_status": "source_authored_live_repair",
+    "last_placement_ready_pass": "VM-303",
+    "live_pilot": true,
+    "notes": "VM-303 source-backs the current generated GLINT placement/profile output while preserving the five-claim floor, support-only card/mechanics texture, UBRG metadata-only boundary, and no-route/Home-preview policy."
+  },
+  "calibration_tuning": {
+    "status": "source_authored_live_repair",
+    "reason": "VM-303 source-backs GLINT placement vocabulary so generated placement axes no longer outrun raw source backing.",
+    "required_positive_evidence_terms": [
+      "adaptive",
+      "appetite",
+      "volatility",
+      "living force",
+      "improvisation",
+      "four-color",
+      "without White",
+      "missing-White",
+      "Blue adaptation",
+      "Black appetite",
+      "Red ignition",
+      "Green living force",
+      "cascade",
+      "maelstrom",
+      "unlicensed",
+      "civic restraint"
+    ],
+    "required_positive_min_hits": 2,
+    "strengthen_when_user_centers": [
+      "The user returns to adaptive appetite, volatility, and living force without civic restraint.",
+      "The user treats chaos, cascade, maelstrom, or high-variance turns as support texture rather than standalone identity proof.",
+      "The user needs Blue adaptation, Black appetite, Red ignition, and Green living force together.",
+      "The user frames refusal of White order, fairness, duty, or civic stability as identity language.",
+      "The user preserves the four-color without White boundary instead of collapsing into a nearby shard, wedge, pair, or generic UBRG goodstuff."
+    ],
+    "suppress_when_user_centers": [
+      "The user centers White order, fairness, duty, stability, communal obligation, or peace-through-law.",
+      "The user mentions only chaos, cascade, high variance, Yidris, or Glint-Eye without the missing-White worldview.",
+      "The user treats Glint-Eye, Nephilim, Yidris, Chaos, UBRG, or color-code language as institutional or official proof.",
+      "The user resolves more cleanly into Grixis, Jund, Temur, Sultai, Omnath/non-Black value, a two-color pair, or generic goodstuff."
+    ],
+    "false_positive_guardrail": "Do not award Glint for generic chaos, cascade, high-variance play, Yidris familiarity, Glint-Eye/Nephilim anchoring alone, UBRG goodstuff, or adjacent shard/wedge language. Require the full four-color without White synthesis: adaptive appetite, volatility, living force, Blue adaptation, Black appetite, Red ignition, Green living force, and refusal of White-style civic restraint.",
+    "broad_match_penalty": 0.12
+  },
+  "collision_guidance": {
+    "review_triggers": [
+      "Grixis",
+      "Jund",
+      "Temur",
+      "Sultai",
+      "Omnath/non-Black four-color value",
+      "Yidris-only shells",
+      "generic chaos",
+      "generic cascade",
+      "generic high-variance decks",
+      "generic UBRG goodstuff"
+    ],
+    "rule": "Treat these as collision or false-positive review triggers, not automatic Glint placement.",
+    "pairs": [
+      {
+        "collision_id": "collision_glint_yore_four_color_ring",
+        "against": "YORE",
+        "lateral_inhibition": false,
+        "separator": "Glint centers missing-White appetite, adaptation, living force, and volatility; Yore centers missing-Green artifice, civilization, technology, and constructed continuity.",
+        "ask": "Is the answer alive because it refuses imposed order, or built because it refuses natural closure?",
+        "evidence_claim_ids": [
+          "glint_claim_0003",
+          "glint_claim_0005",
+          "yore_claim_0003",
+          "yore_claim_0004"
+        ],
+        "supporting_source_ids": [
+          "src_vm_glint_evidence_ledger_20260602",
+          "src_vm_four_color_reference_audit_20260602",
+          "src_vm_yore_evidence_ledger_20260602",
+          "src_vm_four_color_reference_audit_20260602"
+        ]
+      },
+      {
+        "collision_id": "collision_glint_dune_four_color_ring",
+        "against": "DUNE",
+        "lateral_inhibition": false,
+        "separator": "Glint's motion is adaptive, volatile, and appetite-driven; Dune's motion is direct, territorial, organized force without Blue delay.",
+        "ask": "Is the answer becoming through volatility, or taking ground through immediate force?",
+        "evidence_claim_ids": [
+          "glint_claim_0003",
+          "glint_claim_0005",
+          "dune_claim_0003",
+          "dune_claim_0005"
+        ],
+        "supporting_source_ids": [
+          "src_vm_glint_evidence_ledger_20260602",
+          "src_vm_four_color_reference_audit_20260602",
+          "src_vm_dune_evidence_ledger_20260603",
+          "src_vm_four_color_reference_audit_20260603"
+        ]
+      }
+    ]
+  }
+}

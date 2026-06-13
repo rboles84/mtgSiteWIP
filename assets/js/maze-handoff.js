@@ -112,6 +112,43 @@ export function buildDossierMazePathEntries({
   const identityText = identityToWords(normalizedIdentity);
   const readingName = String(factionName || "this reading").trim() || "this reading";
 
+  if (normalizedIdentity === "c") {
+    return [
+      {
+        label: "Colorless identity",
+        sidebarLabel: "Colorless identity",
+        hint: "C",
+        pathType: "colorless-identity",
+        query: "id=c is:commander f:commander",
+        plainReadingQuery: `${readingName} commanders with strict Colorless identity`
+      },
+      {
+        label: "Colorless support cards",
+        sidebarLabel: "Colorless support cards",
+        hint: "noncommander support",
+        pathType: "colorless-noncommander-support",
+        query: "id<=c f:commander -is:commander (t:artifact OR o:{C} OR o:\"colorless mana\" OR o:Eldrazi)",
+        plainReadingQuery: `${readingName} Colorless-legal noncommander support cards`
+      },
+      {
+        label: "Colorless story echoes",
+        sidebarLabel: "Colorless story echoes",
+        hint: "void, Wastes, Eldrazi",
+        pathType: "colorless-story-echoes",
+        query: "id<=c f:commander (ft:cosmic OR ft:void OR ft:waste OR ft:wastes OR ft:eldrazi)",
+        plainReadingQuery: `${readingName} Colorless story echoes`
+      },
+      {
+        label: "Outside-color stretch",
+        sidebarLabel: "Outside-color stretch",
+        hint: "not native Colorless",
+        pathType: "outside-color-stretch",
+        query: "-id<=c is:commander f:commander (t:artifact OR o:\"colorless mana\" OR o:Eldrazi OR o:artifact)",
+        plainReadingQuery: `${readingName} outside-color commander stretch`
+      }
+    ];
+  }
+
   const entries = [
     {
       label: "commanders that fit",

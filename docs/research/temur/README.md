@@ -8,7 +8,7 @@ This folder is the approved Temur research root created by VM-203. It records th
 
 ## Source-Drop Boundary
 
-The restored unmanaged source drop was corrected from:
+The restored source-drop path was corrected by VM-203 from:
 
 - `docs/research/temur fontier/`
 
@@ -16,7 +16,9 @@ to:
 
 - `docs/research/temur frontier/`
 
-After the VM-203 rename, `docs/research/temur frontier/` remains an unmanaged restored source drop. Its three seed artifacts were copied, without content edits, into `docs/research/temur/source-material/`.
+The canonical preserved copies now live in `docs/research/temur/source-material/`. The former `docs/research/temur frontier/` path is only a tombstone redirect after duplicate artifacts were verified byte-identical to the canonical copies and removed from that folder.
+
+New Temur research references should use `docs/research/temur/` and `docs/research/temur/source-material/`.
 
 ## Packet Files
 
@@ -27,7 +29,7 @@ After the VM-203 rename, `docs/research/temur frontier/` remains an unmanaged re
 - `temur-seed-source-crosscheck.md` - typo-path correction, copied packet paths, hashes, and source-drop treatment.
 - `temur-research-dossier.md` - conservative source-bound dossier for future authoring.
 - `temur-lore-source-packet.md` - VM-203 airlock packet notes for the next Temur cards.
-- `source-material/` - byte-preserved seed artifact copies.
+- `source-material/` - canonical byte-preserved seed artifact copies.
 
 ## Stop Gate
 

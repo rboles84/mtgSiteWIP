@@ -446,6 +446,48 @@
         "quandrix_claim_002",
         "quandrix_claim_003"
       ]
+    },
+    {
+      "collision_id": "collision_quandrix_vs_prismari_placement_ready",
+      "against": "prismari",
+      "lateral_inhibition": false,
+      "separator": "Quandrix proves the hidden model; Prismari makes the pattern land as expressive art.",
+      "ask": "When a pattern is correct but lifeless, do you prove it more carefully or make it land as an experience?",
+      "suppress_if": "the answer centers performance, elemental spectacle, emotion, or art before proof",
+      "evidence_claim_ids": [
+        "quandrix_claim_002",
+        "quandrix_claim_003",
+        "quandrix_claim_005",
+        "quandrix_claim_006"
+      ]
+    },
+    {
+      "collision_id": "collision_quandrix_vs_lorehold_placement_ready",
+      "against": "lorehold",
+      "lateral_inhibition": false,
+      "separator": "Quandrix trusts the abstract model; Lorehold trusts material evidence, records, relics, and field history.",
+      "ask": "When a mystery has both an elegant theory and an old artifact record, which one leads your next move?",
+      "suppress_if": "the answer centers ruins, records, relics, primary-source traces, or historical stewardship before proof",
+      "evidence_claim_ids": [
+        "quandrix_claim_002",
+        "quandrix_claim_003",
+        "quandrix_claim_005",
+        "quandrix_claim_006"
+      ]
+    },
+    {
+      "collision_id": "collision_quandrix_vs_witherbloom_placement_ready",
+      "against": "witherbloom",
+      "lateral_inhibition": false,
+      "separator": "Quandrix abstracts living systems into patterns and proofs; Witherbloom studies embodied life/death exchange through practical essence craft.",
+      "ask": "A living system behaves strangely. Do you trust the equation beneath it or the messy exchange of life and death?",
+      "suppress_if": "the answer centers bodies, remedies, poisons, fieldwork, or life/death essence before abstract proof",
+      "evidence_claim_ids": [
+        "quandrix_claim_002",
+        "quandrix_claim_003",
+        "quandrix_claim_005",
+        "quandrix_claim_006"
+      ]
     }
   ]
 }

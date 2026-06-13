@@ -1,0 +1,171 @@
+{
+  "schema_version": "vox-mana-narrative-taxonomy-v1",
+  "identity": "silverquill",
+  "core_axiom": "Words are weapons, shields, contracts, applause, and verdicts; the winning line changes status in public.",
+  "primary_tension": "uplift versus humiliation; leadership as protection versus influence as domination.",
+  "placement_mode": "You read the world as a room full of claims, reputations, obligations, and vulnerable speakers. The right action is to choose the line that changes status in public.",
+  "axes": [
+    {
+      "axis": "Word-Magic as Force",
+      "narrative_question": "When does language become a weapon or shield?",
+      "mechanical_expression": "targeted spells, protection tricks, removal, modal commands",
+      "ui_signal": "say the line that changes the room"
+    },
+    {
+      "axis": "Status Counters",
+      "narrative_question": "How does reputation become visible?",
+      "mechanical_expression": "+1/+1 counters, counter transfer, rank marks, Tenured Inkcaster",
+      "ui_signal": "mark the speaker"
+    },
+    {
+      "axis": "Inkling Materialization",
+      "narrative_question": "When does a thought become a flying body?",
+      "mechanical_expression": "Inkling tokens, Inkshield, Dramatic Finale, Felisa",
+      "ui_signal": "ink takes wing"
+    },
+    {
+      "axis": "Public Verdict",
+      "narrative_question": "Who gets the final word?",
+      "mechanical_expression": "Vanishing Verse, Closing Statement, Promise of Loyalty, Silverquill Command",
+      "ui_signal": "drop the verdict line"
+    },
+    {
+      "axis": "Political Combat",
+      "narrative_question": "Can the table be convinced to fight somewhere else?",
+      "mechanical_expression": "Breena, Combat Calligrapher, goad, attack deterrence",
+      "ui_signal": "redirect the audience"
+    },
+    {
+      "axis": "Life as Applause or Cost",
+      "narrative_question": "What does influence cost?",
+      "mechanical_expression": "lifelink, drain, Stinging Study, Tenured Inkcaster",
+      "ui_signal": "spend life, gain leverage"
+    },
+    {
+      "axis": "Uplift versus Humiliation",
+      "narrative_question": "Is the speech protective or cruel?",
+      "mechanical_expression": "Shaile // Embrose, Humiliate, Guiding Voice, Exhilarating Elocution",
+      "ui_signal": "praise or cut"
+    }
+  ],
+  "archetypes": [
+    {
+      "name": "The Ink Duelist",
+      "drive": "turn precise targeting into tempo and combat pressure",
+      "cards": [
+        "Killian, Ink Duelist",
+        "Killian’s Confidence",
+        "Masterful Flourish",
+        "Guiding Voice"
+      ],
+      "narrative_line": "The right word is cheaper when it names exactly who it is meant to change.",
+      "use_for": [
+        "target-matter recommendations",
+        "cheap spell panels",
+        "duel-flavored commander paths"
+      ]
+    },
+    {
+      "name": "The Demagogue",
+      "drive": "make the table perform the pressure for you",
+      "cards": [
+        "Breena, the Demagogue",
+        "Combat Calligrapher",
+        "Cunning Rhetoric",
+        "Promise of Loyalty"
+      ],
+      "narrative_line": "The strongest speaker does not always attack; sometimes they aim the audience.",
+      "use_for": [
+        "political combat",
+        "multiplayer social-pressure copy",
+        "goad/attack-deterrent links"
+      ]
+    },
+    {
+      "name": "The Inkling Court",
+      "drive": "turn death, defense, or spectacle into flying ink bodies",
+      "cards": [
+        "Inkshield",
+        "Dramatic Finale",
+        "Felisa, Fang of Silverquill",
+        "Blot Out the Sky"
+      ],
+      "narrative_line": "The idea survives because it takes wing after the body falls.",
+      "use_for": [
+        "token panels",
+        "death-to-token loops",
+        "Inkling animation states"
+      ]
+    },
+    {
+      "name": "The Dean’s Split",
+      "drive": "teach through radiance, shadow, praise, and punishment",
+      "cards": [
+        "Shaile, Dean of Radiance // Embrose, Dean of Shadow",
+        "Nils, Discipline Enforcer",
+        "Humiliate",
+        "Exhilarating Elocution"
+      ],
+      "narrative_line": "Silverquill pedagogy asks whether the student needs encouragement or a scar.",
+      "use_for": [
+        "identity panels",
+        "mentor/discipline cards",
+        "counter-as-status sections"
+      ]
+    },
+    {
+      "name": "The Final Word",
+      "drive": "use removal and modal authority as rhetorical closure",
+      "cards": [
+        "Vanishing Verse",
+        "Closing Statement",
+        "Silverquill Command",
+        "Moment of Reckoning"
+      ],
+      "narrative_line": "A verdict is a sentence that changes who remains in the conversation.",
+      "use_for": [
+        "interaction recommendations",
+        "modal spell UI",
+        "verdict keyframes"
+      ]
+    },
+    {
+      "name": "The Brokered Promise",
+      "drive": "convert obligation, promises, and resources into influence",
+      "cards": [
+        "Fain, the Broker",
+        "Scholarship Sponsor",
+        "Scriv, the Obligator",
+        "Silverquill, the Disputant"
+      ],
+      "narrative_line": "Every promise creates leverage; every leverage point asks for payment.",
+      "use_for": [
+        "resource conversion",
+        "current SOS anchors",
+        "contract/obligation copy"
+      ]
+    }
+  ],
+  "anti_drift": [
+    {
+      "drift": "Generic Orzhov taxes",
+      "correction": "Tie taxes and deterrents to rhetoric, status, obligation, or public cost."
+    },
+    {
+      "drift": "Generic aristocrats",
+      "correction": "When death matters, show what the death writes: Inklings, counters, applause, or verdicts."
+    },
+    {
+      "drift": "Azorius law/control",
+      "correction": "Silverquill constrains socially and rhetorically; it does not build a bureaucracy."
+    },
+    {
+      "drift": "Rakdos performance",
+      "correction": "Silverquill performance is controlled, elite, and persuasive, not chaotic spectacle."
+    },
+    {
+      "drift": "Flat black-white UI",
+      "correction": "Use ink, parchment, silver, plum, stage light, and calligraphic motion."
+    }
+  ]
+}

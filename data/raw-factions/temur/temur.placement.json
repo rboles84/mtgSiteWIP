@@ -4,7 +4,7 @@
   "faction_id": "temur",
   "faction_name": "Temur Frontier",
   "based_on_profile_version": "0.1.0",
-  "last_updated": "2026-05-31",
+  "last_updated": "2026-06-12",
   "placement_summary": "Temur Frontier is a VM-208 live-pilot raw packet. Its strongest source-bound signals are Green-centered GUR Tarkir identity, savagery, instinct, mental fortitude, Qal Sisma survival, shamanic listening, elemental memory, modern Dragonstorm timeline labeling, and false-positive boundaries against generic GUR, Atarka Clan continuity, Commander products, Dragonstorm backfill, and seed files.",
   "moral_and_psychological_profile": {
     "summary": "Vox Mana models Temur as survival through instinct, listening, endurance, and living-world attunement. This is project interpretation from normalized TEMUR evidence plus VM-204/VM-205 shaping docs, not official canon, with live-pilot placement behavior bounded by VM-208.",
@@ -110,7 +110,59 @@
     "The answer centers generic dragon/ramp/copy play, Atarka Clan, or Commander product flavor.",
     "The answer requires exact card facts, Commander legality, detailed biography, exact Endless Song mechanics, detailed governance, or dragon diplomacy not promoted in TEMUR evidence rows."
   ],
-  "discriminator_questions": [],
+  "discriminator_questions": [
+    {
+      "question_id": "temur_discriminator_0001",
+      "question": "Do you survive by listening to terrain, memory, and instinct, or by converting every available resource into advantage?",
+      "purpose": "Separates Temur attuned survival from Sultai resource conversion.",
+      "answer_pattern_that_supports_this_faction": "Supports Temur when the answer centers Qal Sisma survival, instinct, mental fortitude, whisperers, Wide Whisper, and elemental memory.",
+      "answer_pattern_that_weakens_this_faction": "Weakens Temur when the answer centers ruthlessness, necromancy, using the dead, theft, denial, or opportunity-seeking conversion.",
+      "collision_targets": [
+        "SULTAI"
+      ],
+      "claim_ids": [
+        "temur_claim_0002",
+        "temur_claim_0004",
+        "temur_claim_0005",
+        "temur_claim_0010"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "question_id": "temur_discriminator_0002",
+      "question": "Is the right move learned from the wild signal, or chosen as a charge before hesitation breaks the opening?",
+      "purpose": "Separates Temur survival through attunement from Mardu speed and commitment.",
+      "answer_pattern_that_supports_this_faction": "Supports Temur when the answer listens first to land, body, weather, ancestors, animals, and elemental memory.",
+      "answer_pattern_that_weakens_this_faction": "Weakens Temur when the answer centers early pressure, war names, formation, speed, and total commitment.",
+      "collision_targets": [
+        "MARDU"
+      ],
+      "claim_ids": [
+        "temur_claim_0002",
+        "temur_claim_0003",
+        "temur_claim_0004",
+        "temur_claim_0005"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "question_id": "temur_discriminator_0003",
+      "question": "Does insight come from trained discipline and monastic practice, or from survival attunement to land, body, and old memory?",
+      "purpose": "Separates Temur listening and elemental memory from Jeskai disciplined cunning.",
+      "answer_pattern_that_supports_this_faction": "Supports Temur when mental strength belongs to survival, instinct, Qal Sisma pressure, whisperers, and elemental memory.",
+      "answer_pattern_that_weakens_this_faction": "Weakens Temur when insight is primarily Blue-centered discipline, martial practice, monastery training, or precise prepared action.",
+      "collision_targets": [
+        "JESKAI"
+      ],
+      "claim_ids": [
+        "temur_claim_0002",
+        "temur_claim_0003",
+        "temur_claim_0005",
+        "temur_claim_0010"
+      ],
+      "confidence": "Medium"
+    }
+  ],
   "chatbot_guidance": {
     "how_to_recognize_match": [
       "VM-208 live-pilot guidance: Temur language should combine Green-centered GUR Tarkir Temur Frontier with survival, instinct, mental fortitude, shamanic listening, and elemental memory.",
@@ -232,5 +284,39 @@
     "smoke_test_note": "VM-208 wires Temur into generated placement data through the approved builder path only.",
     "review_note": "VM-208 adds one live-pilot expression key through the approved builder path only. It does not add Home preview membership, routes, Maze route keys, schema fields, fixtures, or color-code public aliases."
   },
-  "collision_guidance": []
+  "collision_guidance": [
+    {
+      "collision_id": "collision_temur_sultai_live",
+      "against": "sultai",
+      "separator": "Temur survives by listening to the wild, memory, terrain, and elemental signals; Sultai converts opportunity, death, secrets, and costs into advantage.",
+      "ask": "Is survival a relationship with the living wild, or a calculation about what can be converted?",
+      "claim_ids": [
+        "temur_claim_0004",
+        "temur_claim_0005"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "collision_id": "collision_temur_mardu_live",
+      "against": "mardu",
+      "separator": "Temur moves from instinctive attunement, mental fortitude, and survival in harsh land; Mardu moves from speed, formation, war code, and immediate commitment.",
+      "ask": "Does the answer listen before it moves, or move before the gap closes?",
+      "claim_ids": [
+        "temur_claim_0002",
+        "temur_claim_0004"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "collision_id": "collision_temur_jeskai_live",
+      "against": "jeskai",
+      "separator": "Temur joins instinct and mental fortitude to survival through the living wild; Jeskai joins discipline, knowledge, and trained action to Blue-centered cunning.",
+      "ask": "Is the insight trained in the monastery, or heard through land, body, and memory?",
+      "claim_ids": [
+        "temur_claim_0002",
+        "temur_claim_0005"
+      ],
+      "confidence": "Medium"
+    }
+  ]
 }

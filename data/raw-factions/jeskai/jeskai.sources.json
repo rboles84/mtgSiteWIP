@@ -2,8 +2,8 @@
   "schema_version": "1.0.0",
   "faction_id": "jeskai",
   "faction_name": "Jeskai Way",
-  "source_review_date": "2026-05-31",
-  "last_updated": "2026-05-31",
+  "source_review_date": "2026-06-05",
+  "last_updated": "2026-06-12",
   "sources": [
     {
       "source_id": "src_vm_jeskai_source_ledger_20260531",
@@ -66,6 +66,18 @@
         "JESKAI-EVID-003"
       ],
       "notes": "Primary design source for Blue-centered Jeskai wedge identity, Red and White support roles, and cunning as broad design vocabulary."
+    },
+    {
+      "source_id": "src_vm234_jeskai_runtime_promotion_20260531",
+      "title": "VM-234 - Jeskai Way Controlled Runtime Promotion",
+      "author": "Vox Mana project card",
+      "publisher_or_site": "Local repository",
+      "publication_date": "2026-05-31",
+      "url_or_repository_path": "docs/kanban/done/VM-234-jeskai-way-controlled-runtime-promotion.md",
+      "source_type": "Project lifecycle decision",
+      "source_role": "shaping-only",
+      "reliability": "Primary local project decision",
+      "notes": "Used only to resolve live/generated lifecycle metadata after the VM-232 source packet and VM-233 review gate. It is not lore evidence, card evidence, Commander evidence, or support for color-code public aliases."
     },
     {
       "source_id": "src_wotc_tarkir_khans_pg_part_1",
@@ -196,7 +208,7 @@
       "publication_date": "2026-05-31",
       "url_or_repository_path": "docs/research/jeskai/jeskai-manual-fill.md",
       "source_type": "Manual-fill register",
-      "source_role": "manual-fill",
+      "source_role": "support-only",
       "reliability": "Gap register only",
       "notes": "Tracks unsupported or thin claims. It is not raw-claim evidence."
     },
@@ -280,7 +292,7 @@
       "publication_date": "Preserved input",
       "url_or_repository_path": "docs/research/jeskai/source-material/jeskai_way_research_report.html",
       "source_type": "Generated preserved seed input",
-      "source_role": "excluded-from-raw-claims",
+      "source_role": "discovery-only",
       "reliability": "Generated HTML cannot cite itself as canon",
       "notes": "Preserved input only and excluded from raw-claim evidence."
     }
@@ -298,12 +310,12 @@
     },
     {
       "source_or_topic": "JESKAI-EVID-021 Vox Mana synthesis row",
-      "source_role": "excluded-from-raw-claims",
+      "source_role": "discovery-only",
       "reason": "Vox Mana synthesis may shape interpretation but cannot become independent raw-claim evidence."
     },
     {
       "source_or_topic": "JESKAI-CMD, JESKAI-MF, and JESKAI-SRC identifiers",
-      "source_role": "excluded-from-raw-claims",
+      "source_role": "discovery-only",
       "reason": "Raw claims cite approved evidence rows only, not Commander rows, manual-fill rows, or source ledger row IDs."
     }
   ]

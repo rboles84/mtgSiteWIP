@@ -26,6 +26,82 @@ const CROSSOVER_SET_CODES = new Set([
   "who",
   "40k",
 ]);
+const FACTION_FLAVOR_CARD_PREFERENCES = {
+  GLINT: {
+    prefer: [
+      "Yidris, Maelstrom Wielder",
+    ],
+    exclude: [
+      "Chaos Warp",
+    ],
+  },
+  INK: {
+    prefer: [
+      "Aberrant Manawurm",
+      "Access Denied",
+    ],
+    exclude: [
+      "Kynaios and Tiro of Meletis",
+      "Stalwart Unity",
+      "Ink-Treader Nephilim",
+    ],
+    text_exclude: [
+      "Altruism",
+      "RGWU",
+      "WURG",
+      "Kynaios",
+      "Stalwart Unity",
+      "Ink-Treader",
+    ],
+  },
+  YORE: {
+    prefer: [
+      "Ayara, Widow of the Realm // Ayara, Furnace Queen",
+      "Abandoned Sarcophagus",
+    ],
+    exclude: [
+      "Abrade",
+      "Abandon the Post",
+    ],
+  },
+  WITCH: {
+    prefer: [
+      "Abyssal Harvester",
+      "Agent of Horizons",
+      "Assassin's Trophy",
+    ],
+    exclude: [
+      "Atraxa, Grand Unifier",
+      "Atraxa, Praetors' Voice",
+      "Breed Lethality",
+      "Witch-Maw Nephilim",
+    ],
+    text_exclude: [
+      "Atraxa",
+      "Breed Lethality",
+      "GWUB",
+      "Witch-Maw",
+      "WUBG",
+    ],
+  },
+  COLORLESS: {
+    prefer: [
+      "All Is Dust",
+      "Adarkar Sentinel",
+      "Bane of Bala Ged",
+      "Breaker of Armies",
+    ],
+    exclude: [
+      "Ashnod's Coupon",
+      "Ulalek, Fused Atrocity",
+    ],
+    text_exclude: [
+      "Phyrexian",
+      "Phyrexia",
+      "Ulalek",
+    ],
+  },
+};
 const COMMON_WORDS = new Set([
   "and", "the", "for", "with", "into", "from", "that", "this", "when", "your", "you",
   "are", "not", "but", "can", "all", "its", "their", "through", "where", "while",
@@ -111,7 +187,9 @@ function factionThemeWords(faction) {
 
 function factionSearchTerms(faction) {
   const isCollege = String(faction?.institution_type || faction?.identity?.expression_kind || "").toLowerCase() === "college";
+  const flavorSearchTerms = Array.isArray(faction?.flavor_search_terms) ? faction.flavor_search_terms : [];
   return unique([
+    ...flavorSearchTerms,
     faction.key,
     faction.name,
     String(faction.name || "").replace(/\s+(College|Senate|Clans|Conclave|Syndicate|League|Swarm|Combine|Legion)$/i, ""),
@@ -180,6 +258,43 @@ function addCandidate(candidates, seen, candidate) {
   candidates.push(candidate);
 }
 
+function flavorCardPreferencesForFaction(factionKey) {
+  return FACTION_FLAVOR_CARD_PREFERENCES[String(factionKey || "").toUpperCase()] || {};
+}
+
+function isExcludedFlavorCardForFaction(card, factionKey) {
+  const preferences = flavorCardPreferencesForFaction(factionKey);
+  const blockedByName = (preferences.exclude || [])
+    .some((name) => cardNameMatches(card, name));
+  const haystack = normalizeText([
+    card?.name,
+    card?.type_line,
+    card?.flavor_excerpt,
+    card?.oracle_excerpt,
+  ].join(" "));
+  const blockedByText = (preferences.text_exclude || [])
+    .some((term) => haystack.includes(normalizeText(term)));
+  return blockedByName || blockedByText;
+}
+
+function addPreferredFlavorCandidates({ candidates, seen, faction, factionIdentity, commanderCards, flavorCards }) {
+  const preferences = flavorCardPreferencesForFaction(faction.key).prefer || [];
+  preferences.forEach((name, index) => {
+    const score = 430 - index * 10;
+    const card =
+      flavorCards.find((candidate) => cardNameMatches(candidate, name)) ||
+      commanderCards.find((candidate) => cardNameMatches(candidate, name));
+    if (
+      isUsableFlavorCard(card) &&
+      isCardIdentitySubset(card, factionIdentity) &&
+      !isExcludedFlavorCardForFaction(card, faction.key)
+    ) {
+      const sourceType = flavorCards.includes(card) ? "matched_card" : "matched_commander";
+      addCandidate(candidates, seen, candidateFromCard(card, faction.key, sourceType, score));
+    }
+  });
+}
+
 function resolvedCoreTension(faction, identityLayers) {
   const expressionKey = faction?.identity?.expression_key || faction?.key;
   const expression = identityLayers.expressions?.[expressionKey] || {};
@@ -221,15 +336,18 @@ function buildSnippetsForFaction({ faction, commanderCards, flavorCards }) {
     .map((candidate) => candidate.exact_card_name || candidate.display_name)
     .filter(Boolean);
 
+  addPreferredFlavorCandidates({ candidates, seen, faction, factionIdentity, commanderCards, flavorCards });
+
   nativeNames.forEach((name, index) => {
     const card = commanderCards.find((candidate) => cardNameMatches(candidate, name));
-    if (isUsableFlavorCard(card) && isCardIdentitySubset(card, factionIdentity)) {
+    if (isUsableFlavorCard(card) && isCardIdentitySubset(card, factionIdentity) && !isExcludedFlavorCardForFaction(card, faction.key)) {
       addCandidate(candidates, seen, candidateFromCard(card, faction.key, "native_commander", 300 - index));
     }
   });
 
   commanderCards
     .filter(isUsableFlavorCard)
+    .filter((card) => !isExcludedFlavorCardForFaction(card, faction.key))
     .filter((card) => cardIdentityKey(card) === factionIdentity)
     .map((card) => ({
       card,
@@ -243,6 +361,7 @@ function buildSnippetsForFaction({ faction, commanderCards, flavorCards }) {
 
   flavorCards
     .filter(isUsableFlavorCard)
+    .filter((card) => !isExcludedFlavorCardForFaction(card, faction.key))
     .filter((card) => isCardIdentitySubset(card, factionIdentity))
     .map((card) => {
       const cardIdentity = cardIdentityKey(card);

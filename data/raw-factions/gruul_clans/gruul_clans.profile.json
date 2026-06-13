@@ -13,7 +13,7 @@
   "source_review_date": "2026-05-09",
   "last_full_review": "2026-05-09",
   "last_incremental_review": "2026-05-09",
-  "last_updated": "2026-05-13T21:14:06.308Z",
+  "last_updated": "2026-06-09T00:00:00.000Z",
   "site_surface": {
     "display_name": "Gruul Clans",
     "short_summary": "A loose red-green alliance of Ravnican clans rooted in the Rubblebelt, the Gruul are former stewards of the wild who became anti-civilization raiders after their lands and role were crushed by the city.",
@@ -749,8 +749,40 @@
       "notes": "Boros-file perspective."
     }
   ],
-  "mechanics": [
-    {
+  "mechanics": {
+    "summary": "Riot and bloodrush are the source-backed Gruul mechanics expression: riot turns immediacy into a choice between haste and added force, while bloodrush turns a creature card in hand into direct combat pressure for an attacking creature. Use these mechanics to reinforce Gruul's dispossession, wildness, clan pressure, and direct action; do not promote unrelated search metadata terms as Gruul mechanics without a future approved source pass.",
+    "source_bound_texture": [
+      "riot",
+      "bloodrush",
+      "haste or added force",
+      "attacking-creature pressure",
+      "direct combat action",
+      "clan pressure"
+    ],
+    "supporting_claim_ids": [
+      "claim_gruul_clans_mechanic_0040",
+      "claim_gruul_clans_philosophy_0041",
+      "claim_gruul_clans_mechanic_0042",
+      "claim_gruul_clans_mechanic_0043",
+      "claim_gruul_clans_mechanic_0044",
+      "claim_gruul_clans_placement_0001",
+      "claim_gruul_clans_placement_0002"
+    ],
+    "supporting_sources": [
+      "src_gruul_clans_0004",
+      "src_gruul_clans_0005",
+      "src_gruul_clans_0006",
+      "src_gruul_clans_0007",
+      "VM-039",
+      "VM-040"
+    ],
+    "not_promoted_terms": [
+      "bloodthirst",
+      "surveil",
+      "adapt"
+    ],
+    "entries": [
+      {
       "mechanic_id": "mech_riot",
       "mechanic_name": "Riot",
       "associated_set": "Ravnica Allegiance; Ravnica Remastered reprint/rules support",
@@ -763,7 +795,7 @@
       "confidence": "High",
       "notes": "Use current Comprehensive Rules for future rules-critical updates."
     },
-    {
+      {
       "mechanic_id": "mech_bloodrush",
       "mechanic_name": "Bloodrush",
       "associated_set": "Gatecrash; Dragon's Maze",
@@ -775,8 +807,9 @@
       ],
       "confidence": "High",
       "notes": "Ability-word details vary by card."
-    }
-  ],
+      }
+    ]
+  },
   "search_and_filter_metadata": {
     "aliases": [
       "Gruul",

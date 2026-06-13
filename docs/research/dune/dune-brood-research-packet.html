@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dune — BRGW Research Packet</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Pirata+One&family=IM+Fell+English:ital@0;1&family=IM+Fell+English+SC&display=swap');
+
+  :root {
+    --black:   #2C0A0A;
+    --red:     #C0392B;
+    --green:   #6B8C2A;
+    --white:   #E8D8A0;
+    --sand:    #C9A84C;
+    --dust:    #8B7340;
+    --blood:   #7A1A1A;
+    --bg:      #0D0804;
+    --surface: rgba(20,12,4,0.92);
+    --border:  rgba(201,168,76,0.28);
+    --parch:   #E8D8A0;
+    --muted:   #8A7850;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background-color: var(--bg);
+    color: var(--parch);
+    font-family: 'IM Fell English', Georgia, serif;
+    font-size: 1.05rem;
+    line-height: 1.7;
+    background-image:
+      radial-gradient(ellipse 70% 30% at 50% 0%, rgba(192,57,43,0.12) 0%, transparent 60%),
+      radial-gradient(ellipse 40% 50% at 10% 70%, rgba(107,140,42,0.09) 0%, transparent 55%),
+      radial-gradient(ellipse 50% 40% at 90% 85%, rgba(201,168,76,0.10) 0%, transparent 55%),
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='500' height='500'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='500' height='500' filter='url(%23n)' opacity='0.045'/%3E%3C/svg%3E");
+    min-height: 100vh;
+  }
+
+  .page-wrap {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 3rem 2rem 5rem;
+  }
+
+  /* ── HEADER ── */
+  header {
+    text-align: center;
+    padding: 3rem 0 2rem;
+    position: relative;
+  }
+
+  .pip-row {
+    display: flex;
+    justify-content: center;
+    gap: 0.6rem;
+    margin-bottom: 1.4rem;
+  }
+
+  .pip {
+    width: 22px; height: 22px;
+    border-radius: 50%;
+    border: 2px solid;
+    display: inline-block;
+  }
+  .pip-b { background: #2a0808; border-color: #7a2a2a; }
+  .pip-r { background: #7a1a0a; border-color: var(--red); }
+  .pip-g { background: #2a3a0a; border-color: var(--green); }
+  .pip-w { background: #5a4a20; border-color: var(--white); }
+
+  .faction-label {
+    font-family: 'IM Fell English SC', serif;
+    font-size: 0.78rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--dust);
+    margin-bottom: 0.5rem;
+  }
+
+  h1 {
+    font-family: 'Pirata One', cursive;
+    font-size: clamp(3rem, 9vw, 5.5rem);
+    font-weight: 400;
+    color: var(--parch);
+    letter-spacing: 0.04em;
+    line-height: 1;
+    text-shadow:
+      0 0 60px rgba(192,57,43,0.45),
+      0 0 20px rgba(201,168,76,0.25),
+      2px 3px 8px rgba(0,0,0,0.9);
+  }
+
+  h1 span.accent { color: var(--sand); }
+
+  .subtitle {
+    font-family: 'IM Fell English SC', serif;
+    font-size: 0.88rem;
+    letter-spacing: 0.18em;
+    color: var(--muted);
+    margin-top: 0.5rem;
+  }
+
+  .flavor-line {
+    font-style: italic;
+    font-size: 0.92rem;
+    color: rgba(232,216,160,0.6);
+    margin-top: 0.6rem;
+    letter-spacing: 0.02em;
+  }
+
+  .divider {
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--blood), var(--sand), var(--green), transparent);
+    opacity: 0.45;
+    margin: 1.5rem 0;
+  }
+
+  /* ── SECTIONS ── */
+  .section { margin-bottom: 2.5rem; }
+
+  h2 {
+    font-family: 'IM Fell English SC', serif;
+    font-size: 0.92rem;
+    font-weight: 400;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--sand);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+  }
+
+  h2::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, var(--sand), transparent);
+    opacity: 0.3;
+  }
+
+  /* ── STAT GRID ── */
+  .stat-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(155px, 1fr));
+    gap: 1px;
+    border: 1px solid var(--border);
+    background: var(--border);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+
+  .stat-cell {
+    background: var(--surface);
+    padding: 1rem 1.2rem;
+  }
+
+  .stat-cell .label {
+    font-family: 'IM Fell English SC', serif;
+    font-size: 0.68rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 0.3rem;
+  }
+
+  .stat-cell .value {
+    font-size: 1rem;
+    color: var(--parch);
+  }
+
+  /* ── PANEL ── */
+  .panel {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 1.5rem 1.8rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .panel::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--blood), var(--red), var(--green), var(--white));
+    opacity: 0.65;
+  }
+
+  /* ── COLOR ROW ── */
+  .color-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+
+  .color-entry {
+    border-left: 3px solid;
+    padding-left: 1rem;
+  }
+  .color-entry.c-b { border-color: #8a3030; }
+  .color-entry.c-r { border-color: var(--red); }
+  .color-entry.c-g { border-color: var(--green); }
+  .color-entry.c-w { border-color: var(--white); }
+
+  .color-entry .color-name {
+    font-family: 'IM Fell English SC', serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 0.2rem;
+  }
+  .color-entry.c-b .color-name { color: #c07070; }
+  .color-entry.c-r .color-name { color: var(--red); }
+  .color-entry.c-g .color-name { color: #90b840; }
+  .color-entry.c-w .color-name { color: var(--white); }
+
+  .color-entry .color-desc {
+    font-size: 0.9rem;
+    color: rgba(232,216,160,0.8);
+    font-style: italic;
+  }
+
+  /* ── ABSENCE BOX ── */
+  .absence-box {
+    background: linear-gradient(135deg, rgba(46,134,193,0.07), rgba(20,50,80,0.05));
+    border: 1px solid rgba(46,134,193,0.22);
+    border-radius: 4px;
+    padding: 1.1rem 1.4rem;
+    margin-top: 1rem;
+  }
+
+  .absence-box .header {
+    font-family: 'IM Fell English SC', serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #5090b0;
+    margin-bottom: 0.35rem;
+  }
+
+  .absence-box p {
+    font-size: 0.92rem;
+    color: rgba(232,216,160,0.68);
+    font-style: italic;
+  }
+
+  /* ── CARD TEXT ── */
+  .card-text-block {
+    border-left: 3px solid var(--sand);
+    padding: 0.8rem 1.4rem;
+    margin: 1rem 0;
+    background: rgba(201,168,76,0.07);
+    border-radius: 0 4px 4px 0;
+  }
+
+  .card-text-block p {
+    font-style: italic;
+    font-size: 1rem;
+    color: rgba(232,216,160,0.92);
+  }
+
+  .card-text-block .flavor {
+    margin-top: 0.5rem;
+    color: rgba(232,216,160,0.6);
+    font-size: 0.9rem;
+  }
+
+  .card-text-block cite {
+    display: block;
+    margin-top: 0.4rem;
+    font-size: 0.75rem;
+    font-style: normal;
+    color: var(--muted);
+    font-family: 'IM Fell English SC', serif;
+    letter-spacing: 0.08em;
+  }
+
+  /* ── COMMANDERS ── */
+  .commander-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .commander-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 1.2rem 1.5rem;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 0.5rem 1.5rem;
+    align-items: start;
+  }
+
+  .commander-card.featured {
+    border-color: rgba(201,168,76,0.5);
+    background: linear-gradient(135deg, rgba(30,12,4,0.97), rgba(20,8,4,0.97));
+  }
+
+  .commander-card .cmd-name {
+    font-family: 'IM Fell English SC', serif;
+    font-size: 1rem;
+    color: var(--parch);
+    margin-bottom: 0.15rem;
+    letter-spacing: 0.05em;
+  }
+
+  .commander-card .cmd-type {
+    font-size: 0.8rem;
+    color: var(--muted);
+    font-style: italic;
+    margin-bottom: 0.4rem;
+  }
+
+  .commander-card .cmd-desc {
+    font-size: 0.92rem;
+    color: rgba(232,216,160,0.82);
+    line-height: 1.55;
+  }
+
+  .commander-card .cmd-meta {
+    text-align: right;
+    min-width: 90px;
+  }
+
+  .deck-count {
+    font-family: 'Pirata One', cursive;
+    font-size: 1.6rem;
+    color: var(--sand);
+    display: block;
+    line-height: 1;
+  }
+
+  .deck-label {
+    font-family: 'IM Fell English SC', serif;
+    font-size: 0.62rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .tag {
+    display: inline-block;
+    background: rgba(201,168,76,0.12);
+    border: 1px solid rgba(201,168,76,0.28);
+    border-radius: 2px;
+    font-family: 'IM Fell English SC', serif;
+    font-size: 0.68rem;
+    letter-spacing: 0.1em;
+    color: var(--sand);
+    padding: 1px 6px;
+    margin: 2px 2px 0 0;
+  }
+
+  .tag.red   { background: rgba(192,57,43,0.15); border-color: rgba(192,57,43,0.3); color: #e08080; }
+  .tag.green { background: rgba(107,140,42,0.15); border-color: rgba(107,140,42,0.3); color: #a0c050; }
+  .tag.white { background: rgba(232,216,160,0.1); border-color: rgba(232,216,160,0.25); color: #d0c080; }
+  .tag.black { background: rgba(122,26,26,0.2); border-color: rgba(122,26,26,0.4); color: #c08080; }
+
+  /* ── TWO-COL ── */
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  .callout-box {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 1.2rem 1.5rem;
+  }
+
+  .callout-box h3 {
+    font-family: 'IM Fell English SC', serif;
+    font-size: 0.78rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--sand);
+    margin-bottom: 0.7rem;
+  }
+
+  .callout-box ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .callout-box ul li {
+    padding: 0.25rem 0 0.25rem 1.2rem;
+    font-size: 0.9rem;
+    color: rgba(232,216,160,0.82);
+    position: relative;
+  }
+
+  .callout-box ul li::before {
+    content: '⚔';
+    position: absolute;
+    left: 0;
+    font-size: 0.55rem;
+    top: 0.55rem;
+    color: var(--sand);
+    opacity: 0.5;
+  }
+
+  .callout-box.strengths { border-left: 3px solid rgba(107,140,42,0.55); }
+  .callout-box.weaknesses { border-left: 3px solid rgba(46,134,193,0.45); }
+
+  /* ── TABLE ── */
+  .arch-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+  }
+
+  .arch-table th {
+    font-family: 'IM Fell English SC', serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--sand);
+    padding: 0.6rem 0.8rem;
+    text-align: left;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .arch-table td {
+    padding: 0.65rem 0.8rem;
+    border-bottom: 1px solid rgba(201,168,76,0.1);
+    color: rgba(232,216,160,0.8);
+    vertical-align: top;
+  }
+
+  .arch-table tr:last-child td { border-bottom: none; }
+  .arch-table tr:hover td { background: rgba(201,168,76,0.04); }
+
+  .arch-table td:first-child {
+    font-family: 'IM Fell English SC', serif;
+    font-size: 0.88rem;
+    color: var(--parch);
+    white-space: nowrap;
+  }
+
+  /* ── STRATEGY NOTES ── */
+  .strategy-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  .strat-entry {
+    border-top: 2px solid var(--sand);
+    padding-top: 0.7rem;
+  }
+
+  .strat-entry .strat-name {
+    font-family: 'IM Fell English SC', serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--sand);
+    margin-bottom: 0.35rem;
+  }
+
+  .strat-entry p {
+    font-size: 0.88rem;
+    color: rgba(232,216,160,0.78);
+    line-height: 1.5;
+  }
+
+  /* ── FOOTNOTE ── */
+  .footnote {
+    font-size: 0.78rem;
+    color: var(--muted);
+    font-style: italic;
+    margin-top: 0.6rem;
+    padding-top: 0.6rem;
+    border-top: 1px solid rgba(201,168,76,0.1);
+  }
+
+  @media (max-width: 600px) {
+    .two-col, .color-row, .strategy-grid { grid-template-columns: 1fr; }
+    .commander-card { grid-template-columns: 1fr; }
+    .commander-card .cmd-meta { text-align: left; }
+  }
+</style>
+</head>
+<body>
+<div class="page-wrap">
+
+  <header>
+    <div class="pip-row">
+      <span class="pip pip-b" title="Black"></span>
+      <span class="pip pip-r" title="Red"></span>
+      <span class="pip pip-g" title="Green"></span>
+      <span class="pip pip-w" title="White"></span>
+    </div>
+    <div class="faction-label">Four-Color Faction · Research Packet</div>
+    <h1><span class="accent">Dune</span>-Brood</h1>
+    <div class="subtitle">B R G W — The Blueless Quadrant · Aggression</div>
+    <div class="flavor-line">"When it awoke, it spawned nameless thousands to herald its arrival."</div>
+    <div class="divider"></div>
+  </header>
+
+  <!-- AT A GLANCE -->
+  <section class="section">
+    <h2>At a Glance</h2>
+    <div class="stat-grid">
+      <div class="stat-cell">
+        <div class="label">Formal Name</div>
+        <div class="value">Dune-Brood</div>
+      </div>
+      <div class="stat-cell">
+        <div class="label">Also Called</div>
+        <div class="value">Non-Blue · Blueless</div>
+      </div>
+      <div class="stat-cell">
+        <div class="label">Missing Color</div>
+        <div class="value" style="color:#5090b0">Blue</div>
+      </div>
+      <div class="stat-cell">
+        <div class="label">Mechanic Theme</div>
+        <div class="value">Aggression</div>
+      </div>
+      <div class="stat-cell">
+        <div class="label">Named For</div>
+        <div class="value">Dune-Brood Nephilim</div>
+      </div>
+      <div class="stat-cell">
+        <div class="label">Nephilim Set</div>
+        <div class="value">Guildpact (2006)</div>
+      </div>
+      <div class="stat-cell">
+        <div class="label">Nephilim Stats</div>
+        <div class="value">3/3 · Rare</div>
+      </div>
+      <div class="stat-cell">
+        <div class="label">Top Commander</div>
+        <div class="value">Saskia (7,672 decks)</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COLOR IDENTITY -->
+  <section class="section">
+    <h2>Color Identity</h2>
+    <div class="panel">
+      <p style="font-size:0.95rem; color:rgba(232,216,160,0.82);">
+        Dune-Brood is the most martially complete color combination in Magic — ambition to conquer, passion to fight, strength to overwhelm, and community to forge armies. Everything the combination does is in service of the battlefield. It acts; it does not contemplate.
+      </p>
+      <div class="color-row">
+        <div class="color-entry c-b">
+          <div class="color-name">🔴 Black — Ambition</div>
+          <div class="color-desc">Ruthless execution, sacrifice for gain, efficient removal, and willingness to pay any cost for victory. Conquest has a price; Dune pays it.</div>
+        </div>
+        <div class="color-entry c-r">
+          <div class="color-name">🔴 Red — Passion</div>
+          <div class="color-desc">Haste, aggression, direct damage, and total commitment. Red fights now, without hesitation or calculation.</div>
+        </div>
+        <div class="color-entry c-g">
+          <div class="color-name">🟢 Green — Strength</div>
+          <div class="color-desc">Natural might, land ramp, large bodies, and the power of sheer numbers. The engine fueling the army's scale.</div>
+        </div>
+        <div class="color-entry c-w">
+          <div class="color-name">⬜ White — Community</div>
+          <div class="color-desc">Tokens, anthems, coordination, and the bonds of a fighting force. White turns individual combatants into an unstoppable mass.</div>
+        </div>
+      </div>
+      <div class="absence-box">
+        <div class="header">🔵 The Absent Color: Blue</div>
+        <p>Blue provides intellect, patience, planning, card selection, and counterspells — solving problems through superior information rather than superior force. Dune's rejection of blue is the rejection of intellectualism itself: thinking wastes time better spent acting, and planning betrays doubt. Problems are solved here through overwhelming force, not clever maneuvering. If the strategy isn't working, more violence is applied.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ORIGIN -->
+  <section class="section">
+    <h2>Origin — The Nephilim</h2>
+    <div class="panel">
+      <p style="margin-bottom:0.8rem; font-size:0.95rem; color:rgba(232,216,160,0.82);">
+        Dune-Brood Nephilim is a Rare 3/3 for BRGW from <em>Guildpact</em> (2006), card #110, illustrated by Jim Murray. Its art bears a strong resemblance to a painting by Polish surrealist Zdzisław Beksiński — appropriate for a creature venerated as an Old God before the Guilds were formed. It is the mechanically strongest of the five Nephilim for its intended purpose, with an ability that escalates rapidly if it connects.
+      </p>
+
+      <div class="card-text-block">
+        <p>Whenever Dune-Brood Nephilim deals combat damage to a player, create a 1/1 colorless Sand creature token for each land you control.</p>
+        <p class="flavor">"When it awoke, it spawned nameless thousands to herald its arrival."</p>
+        <cite>— Dune-Brood Nephilim, Guildpact (2006)</cite>
+      </div>
+
+      <p style="font-size:0.92rem; color:rgba(232,216,160,0.72); margin-top:0.8rem;">
+        A single connection in the mid-game with 8–10 lands in play generates 8–10 tokens in one swing — one of the highest token payoffs ever printed on a combat damage trigger. Unlike Glint-Eye (which requires pump setup) or Yore-Tiller (fragile 2/2), Dune-Brood arrives as a 3/3 and produces tokens in the colors best suited to giving it evasion: green provides trample and enchantment-based buffs; white provides flying and vigilance effects. The token army it creates then feeds white's anthem effects and black's sacrifice synergies. It has appeared in episodes of <em>Game Knights</em> under house-rule Commander and is considered by many the most playable of the five Nephilim as a general.
+      </p>
+      <p class="footnote">Note: Like all Nephilim, Dune-Brood is not officially legal as a Commander. Mark Rosewater has stated that with hindsight they should have been printed as Legendary — a widely shared sentiment.</p>
+    </div>
+  </section>
+
+  <!-- KEY COMMANDERS -->
+  <section class="section">
+    <h2>Key Commanders</h2>
+    <div class="commander-list">
+
+      <div class="commander-card featured">
+        <div>
+          <div class="cmd-name">Saskia the Unyielding</div>
+          <div class="cmd-type">Legendary Creature — Human Soldier · Commander 2016</div>
+          <div class="cmd-desc">
+            The sole dedicated BRGW legendary creature. A 3/4 with vigilance and haste — she enters attacking immediately, and when she enters the battlefield you choose an opponent. Whenever any creature you control deals combat damage to a player, Saskia causes that creature to also deal that much damage to the chosen opponent. In a four-player pod, this effectively reduces the life total you must attack through by a third. Particularly dangerous with double strike, lifelink, and high-power creatures, and creates instant political pressure on whoever is chosen. Her tags on EDHREC are Legends, Aggro, Humans, and Extra Combats — a broad identity that accommodates many builds.
+          </div>
+          <div style="margin-top:0.6rem;">
+            <span class="tag red">Aggression</span>
+            <span class="tag">Legends</span>
+            <span class="tag white">Humans</span>
+            <span class="tag">Extra Combats</span>
+            <span class="tag">Forced Combat</span>
+          </div>
+        </div>
+        <div class="cmd-meta">
+          <span class="deck-count">7,672</span>
+          <span class="deck-label">EDHREC Decks</span>
+        </div>
+      </div>
+
+      <div class="commander-card">
+        <div>
+          <div class="cmd-name">Tana, the Bloodsower // Tymna the Weaver</div>
+          <div class="cmd-type">Partner Pairing — Commander 2016 / Battlebond</div>
+          <div class="cmd-desc">
+            The most popular Partner pairing at BRGW. Tana is a 2/2 Elf Druid with trample: whenever she deals combat damage to a player, create that many 1/1 green Saproling tokens — an escalating army generator that rewards repeated combat. Tymna draws cards equal to the number of opponents damaged by your creatures during combat. Together they create a self-sustaining loop of tokens → card draw → more tokens. The Tana side echoes the Dune-Brood Nephilim fantasy at a more accessible power level.
+          </div>
+          <div style="margin-top:0.6rem;">
+            <span class="tag">Partner</span>
+            <span class="tag green">Tokens</span>
+            <span class="tag">Go-Wide</span>
+            <span class="tag red">Combat</span>
+          </div>
+        </div>
+        <div class="cmd-meta">
+          <span class="deck-count">2,746</span>
+          <span class="deck-label">EDHREC Decks</span>
+        </div>
+      </div>
+
+      <div class="commander-card">
+        <div>
+          <div class="cmd-name">Bruse Tarl, Boorish Herder // Ikra Shidiqi, the Usurper</div>
+          <div class="cmd-type">Partner Pairing — Commander 2016</div>
+          <div class="cmd-desc">
+            A combat-multiplier pairing. Bruse Tarl grants one of your creatures double strike and lifelink when he enters and at the start of each combat. Ikra Shidiqi grants creatures with toughness 4 or greater lifelink and lets you gain life equal to a creature's toughness when it deals combat damage. Together they create a lifelink-doubling engine where a single swinging creature both attacks hard and replenishes your life total dramatically.
+          </div>
+          <div style="margin-top:0.6rem;">
+            <span class="tag">Partner</span>
+            <span class="tag white">Lifelink</span>
+            <span class="tag red">Double Strike</span>
+          </div>
+        </div>
+        <div class="cmd-meta">
+          <span class="deck-count">908</span>
+          <span class="deck-label">EDHREC Decks</span>
+        </div>
+      </div>
+
+      <div class="commander-card">
+        <div>
+          <div class="cmd-name">Dune-Brood Nephilim</div>
+          <div class="cmd-type">Creature — Nephilim · Guildpact (House Rule Commander)</div>
+          <div class="cmd-desc">
+            The namesake. 3/3 for BRGW — the largest of the five Nephilim by base stats. Token production scales with lands in play, making it exponentially more threatening as the game progresses. Best supported by evasion (trample enchantments, flying tokens, Sidar Kondo of Jamuraa-type effects), anthems (Honor of the Pure, Cathars' Crusade), and sacrifice synergies that turn the Sand tokens into resources. Appeared on Game Knights and remains a beloved casual Commander at house-rule tables.
+          </div>
+          <div style="margin-top:0.6rem;">
+            <span class="tag">House Rules</span>
+            <span class="tag green">Tokens</span>
+            <span class="tag">Sand</span>
+            <span class="tag white">Anthems</span>
+          </div>
+        </div>
+        <div class="cmd-meta">
+          <span class="deck-count">~2K+</span>
+          <span class="deck-label">EDHREC Decks</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- STRENGTHS / WEAKNESSES -->
+  <section class="section">
+    <h2>Strengths &amp; Weaknesses</h2>
+    <div class="two-col">
+      <div class="callout-box strengths">
+        <h3>Strengths</h3>
+        <ul>
+          <li>Green provides the best ramp and mana acceleration, enabling explosive early deployment</li>
+          <li>White and green together produce the most efficient token generation in the game</li>
+          <li>White anthems (Cathars' Crusade, Glorious Anthem) scale devastatingly with wide boards</li>
+          <li>Black provides efficient removal, sacrifice synergies, and recursive threats</li>
+          <li>Red closes games fast with haste, extra combat steps, and direct damage</li>
+          <li>Access to the best aggressive creatures across four colors — combat rewards compounding</li>
+          <li>Saskia's damage doubling effectively reduces opponent life totals without attacking them directly</li>
+        </ul>
+      </div>
+      <div class="callout-box weaknesses">
+        <h3>Weaknesses</h3>
+        <ul>
+          <li>No blue means no counterspells — combo decks can resolve threats through your removal suite</li>
+          <li>No card selection (scry, brainstorm, cantrips) — relies on green draw engines and black tutors for consistency</li>
+          <li>Wide boards are vulnerable to mass exile (Farewell) — which you also can't cast</li>
+          <li>Aggro traditionally struggles in Commander's 40-life, 4-player format without Saskia's damage shortcut</li>
+          <li>Linear strategies are predictable — tables will target the aggro player first</li>
+          <li>No countermagic makes you vulnerable to the one blue player at the table</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ARCHETYPES -->
+  <section class="section">
+    <h2>Common Archetypes</h2>
+    <div class="panel" style="padding:0; overflow:hidden;">
+      <table class="arch-table">
+        <thead>
+          <tr>
+            <th>Archetype</th>
+            <th>Core Strategy</th>
+            <th>Key Enablers</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Go-Wide Tokens</td>
+            <td>Flood the board with tokens from multiple sources, then pump them simultaneously for lethal swings</td>
+            <td>Tana, Dune-Brood Nephilim, Parallel Lives, Cathars' Crusade, Craterhoof Behemoth</td>
+          </tr>
+          <tr>
+            <td>Aggressive Combat</td>
+            <td>Deploy haste threats and combat multipliers for repeated devastating swings, targeting the most dangerous opponent with Saskia</td>
+            <td>Saskia, Gisela, Blade of Goldnight, Aurelia the Warleader, Savage Beating</td>
+          </tr>
+          <tr>
+            <td>Legends Typal</td>
+            <td>Play legendary creatures for synergy, copy effects, and incremental advantage — all supported by Saskia's aggressive chassis</td>
+            <td>Saskia, Helm of the Host, Mirror Gallery, Odric, Lunarch Marshal</td>
+          </tr>
+          <tr>
+            <td>Humans Typal</td>
+            <td>Play a dense human tribal package leveraging white and black's extensive human support, attacking with buffs and synergy</td>
+            <td>Saskia, Katilda, Kyler, General Kudro of Drannith, Champion of Lambholt</td>
+          </tr>
+          <tr>
+            <td>Aristocrats</td>
+            <td>Generate token armies with Tana/Tymna, then sacrifice them for incremental damage and value through death triggers</td>
+            <td>Tana, Zulaport Cutthroat, Viscera Seer, Goblin Bombardment, Dictate of Erebos</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- KEY STRATEGIC LINES -->
+  <section class="section">
+    <h2>Key Strategic Lines</h2>
+    <div class="panel">
+      <p style="font-size:0.9rem; color:rgba(232,216,160,0.68); margin-bottom:1.1rem;">Representative win conditions and game-defining plays for Dune-Brood:</p>
+      <div class="strategy-grid">
+        <div class="strat-entry">
+          <div class="strat-name">Saskia + Double Strike</div>
+          <p>Bruse Tarl grants a creature double strike and lifelink → Saskia's passive deals that damage to a second opponent → effectively dealing quadruple damage (two combat hits × two opponents). A 5-power creature with double strike and Saskia kills two players in one swing from 20.</p>
+        </div>
+        <div class="strat-entry">
+          <div class="strat-name">Tana Token Avalanche</div>
+          <p>Tana connects with trample → creates 3 Saprolings → Parallel Lives doubles them to 6 → Cathars' Crusade triggers six times, stacking counters on the whole board → follow-up Craterhoof Behemoth for lethal. Scalable across turns.</p>
+        </div>
+        <div class="strat-entry">
+          <div class="strat-name">Dune-Brood Land Scaling</div>
+          <p>Hit with Nephilim at 12 lands → create 12 Sand tokens. Attach Sidar Kondo of Jamuraa-style evasion so tokens can swing unblocked → another 12 tokens → Shared Animosity or Eldrazi Monument seals the game before opponents stabilize.</p>
+        </div>
+        <div class="strat-entry">
+          <div class="strat-name">Extra Combat Kills</div>
+          <p>Aurelia, the Warleader gives two full combat phases per swing → Savage Beating or Moraug gives more → with Saskia in play, each extra combat is additional damage to the targeted opponent without additional attackers needed.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VOXMANA NOTES -->
+  <section class="section">
+    <h2>Vox Mana Design Notes</h2>
+    <div class="panel">
+      <p style="font-size:0.95rem; color:rgba(232,216,160,0.82); margin-bottom:0.8rem;">Placement signal considerations and design hooks:</p>
+      <ul style="list-style:none; padding:0; display:flex; flex-direction:column; gap:0.7rem;">
+        <li style="padding-left:1.5rem; position:relative; font-size:0.92rem; color:rgba(232,216,160,0.8);"><span style="position:absolute;left:0;color:var(--sand);">⚔</span> Dune's defining negative signal is <strong style="color:#5090b0;">absent blue</strong>: players who reject patience, card selection, countermagic, and "thinking before acting" score toward this quadrant. "I would rather attack than pass" is the Dune mindset.</li>
+        <li style="padding-left:1.5rem; position:relative; font-size:0.92rem; color:rgba(232,216,160,0.8);"><span style="position:absolute;left:0;color:var(--sand);">⚔</span> The <strong>Aggression</strong> label is the clearest of the five Commander 2016 themes — combat, tokens, and going-wide are universally understood game actions. Lowest conceptual barrier to entry of any Dune commander option.</li>
+        <li style="padding-left:1.5rem; position:relative; font-size:0.92rem; color:rgba(232,216,160,0.8);"><span style="position:absolute;left:0;color:var(--sand);">⚔</span> Contrast with Ink-Treader (WURG): both include white and green tokens, but Ink-Treader keeps blue's planning and card selection. Dune trades that for black's ruthlessness and red's haste. If the player wants "big attack with smart decisions," it's Ink; if they want "big attack <em>right now</em>," it's Dune.</li>
+        <li style="padding-left:1.5rem; position:relative; font-size:0.92rem; color:rgba(232,216,160,0.8);"><span style="position:absolute;left:0;color:var(--sand);">⚔</span> The Nephilim flavor text — "spawned nameless thousands" — is among the best flavor-to-mechanics alignments in Magic. It should be surfaced in any lore-facing presentation of this faction. The Sand token type is unique and evocative.</li>
+        <li style="padding-left:1.5rem; position:relative; font-size:0.92rem; color:rgba(232,216,160,0.8);"><span style="position:absolute;left:0;color:var(--sand);">⚔</span> Commander pool breadth: Saskia (~59% of BRGW EDHREC volume), Tana/Tymna (~21%), then a long tail of Partner pairings. The quadrant has more Partner variation than Yore but less than Glint-Eye. Recommendation diversity is possible through Partner exploration.</li>
+        <li style="padding-left:1.5rem; position:relative; font-size:0.92rem; color:rgba(232,216,160,0.8);"><span style="position:absolute;left:0;color:var(--sand);">⚔</span> Personality fit: Timmy players (big creatures, overwhelming armies, smashing faces) are the primary profile. Johnny appears in the Aristocrats and extra combat loops. Spike is present but limited — without blue, competitive cEDH in this color set is weaker than Glint-Eye or Yore.</li>
+        <li style="padding-left:1.5rem; position:relative; font-size:0.92rem; color:rgba(232,216,160,0.8);"><span style="position:absolute;left:0;color:var(--sand);">⚔</span> Placement quiz signals: <em>prefers attacking to blocking, likes tokens/armies, values speed over control, doesn't care about counterspells, wants to win through combat damage specifically</em>. All of these cleanly route to Dune over Glint-Eye (ramp + chaos) or Yore (artifacts + control).</li>
+      </ul>
+    </div>
+  </section>
+
+  <div class="footnote" style="font-size:0.75rem; margin-top:2rem; line-height:1.8;">
+    <strong style="font-family:'IM Fell English SC',serif; letter-spacing:0.15em; color:var(--muted);">Sources</strong><br>
+    MTG Wiki — Nephilim, Multicolored · Scryfall — Dune-Brood Nephilim (GPT #110) · CardTrader — Dune-Brood Nephilim card data · EDHREC — Top Dune-Brood Commanders, Saskia Commander page (Legends/Aggro/Humans/Extra Combats), Tana+Tymna · Commander's Herald — Breaking the Rules: Dune-Brood Nephilim (2022); Recross the Paths: Saskia Angel deck · Draftsim — Nephilim Ranked + Lore (2022), Saskia EDH Deck Guide (2024) · Bell of Lost Souls — Top 5 Dune-Brood Commanders (2024) · Color Pie Friday — Four-Color Philosophies (loreleywrites Tumblr)
+  </div>
+
+</div>
+</body>
+</html>

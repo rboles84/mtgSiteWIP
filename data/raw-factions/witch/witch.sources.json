@@ -1,0 +1,234 @@
+{
+  "schema_version": "1.0.0",
+  "faction_id": "witch",
+  "faction_name": "Witch / Growth",
+  "source_review_date": "2026-06-12",
+  "last_updated": "2026-06-12",
+  "sources": [
+    {
+      "source_id": "src_vm_witch_source_ledger_20260604",
+      "title": "Witch Source Ledger",
+      "author": "Vox Mana research packet",
+      "publisher_or_site": "Local repository",
+      "publication_date": "2026-06-04",
+      "url_or_repository_path": "docs/research/witch/witch-source-ledger.md",
+      "source_type": "Curated source ledger",
+      "source_role": "shaping-only",
+      "reliability": "Primary local source-role ledger",
+      "notes": "Defines Witch source roles, support-only Commander texture, discovery-only draft quarantine, and downstream limits. It shapes the raw packet but does not back raw claims by itself."
+    },
+    {
+      "source_id": "src_vm_witch_evidence_ledger_20260604",
+      "title": "Witch Evidence Ledger",
+      "author": "Vox Mana research packet",
+      "publisher_or_site": "Local repository",
+      "publication_date": "2026-06-04",
+      "url_or_repository_path": "docs/research/witch/witch-evidence-ledger.md",
+      "source_type": "Curated evidence ledger",
+      "source_role": "claim-bearing",
+      "reliability": "Primary local evidence ledger",
+      "claim_bearing_evidence_rows": [
+        "WITCH-EVID-001",
+        "WITCH-EVID-002",
+        "WITCH-EVID-003",
+        "WITCH-EVID-004",
+        "WITCH-EVID-005",
+        "WITCH-EVID-007",
+        "WITCH-EVID-010"
+      ],
+      "notes": "Primary normalized evidence row index for VM-267 raw claims. Only the listed WITCH-EVID rows may support raw claims; all other rows remain support, shaping, synthesis, manual-fill, discovery, or non-proof records."
+    },
+    {
+      "source_id": "src_vm_witch_vm264_scope_card_20260604",
+      "title": "VM-264 Witch Source Packet And Evidence Ledger Done Card",
+      "author": "Vox Mana Kanban",
+      "publisher_or_site": "Local repository",
+      "publication_date": "2026-06-04",
+      "url_or_repository_path": "docs/kanban/done/VM-264-witch-source-packet-and-evidence-ledger.md",
+      "source_type": "Kanban scope record",
+      "source_role": "claim-bearing",
+      "reliability": "Scope-bound authorization record",
+      "claim_bearing_evidence_rows": [
+        "WITCH-EVID-001",
+        "WITCH-EVID-002"
+      ],
+      "notes": "Scope record for source-packet approval, non-live Witch status, and GWUB metadata/query-only guardrails. Use this source only for lifecycle, scope, and public-interface boundary support."
+    },
+    {
+      "source_id": "src_vm_four_color_reference_audit_20260604",
+      "title": "Canon Inventory Four-Color Reference Audit",
+      "author": "Vox Mana canon audit",
+      "publisher_or_site": "Local repository",
+      "publication_date": "Local capture",
+      "url_or_repository_path": "docs/research/canon/canon-inventory-four-color-reference-audit.md",
+      "source_type": "Repo-truth canon audit",
+      "source_role": "claim-bearing",
+      "reliability": "Primary repo-truth audit for VM-264 framing",
+      "claim_bearing_evidence_rows": [
+        "WITCH-EVID-002",
+        "WITCH-EVID-003",
+        "WITCH-EVID-004",
+        "WITCH-EVID-005",
+        "WITCH-EVID-007",
+        "WITCH-EVID-010"
+      ],
+      "notes": "Claim-bearing only for the approved Witch framing rows. It does not authorize runtime promotion, exact card facts, Commander proof, public aliases, or placement output."
+    },
+    {
+      "source_id": "src_vm_four_color_identity_dossier_md_20260604",
+      "title": "Magic Four-Color Identity Dossier",
+      "author": "Vox Mana research synthesis",
+      "publisher_or_site": "Local repository",
+      "publication_date": "Local capture",
+      "url_or_repository_path": "docs/research/canon/misc/Magic Four-Color Identity Dossier.md",
+      "source_type": "Repo synthesis",
+      "source_role": "support-only",
+      "reliability": "Support-only unless cross-checked by claim-bearing rows",
+      "notes": "May support already-bounded Witch/Growth, missing-Red, Witch-Maw, Atraxa, and overclaim-warning language. It is not raw-claim proof or factual/canon authority by itself."
+    },
+    {
+      "source_id": "src_vm_witch_commander_deck_list_20260604",
+      "title": "Commander Deck List - Breed Lethality Support Row",
+      "author": "Local Commander support capture",
+      "publisher_or_site": "Local repository",
+      "publication_date": "Local capture",
+      "url_or_repository_path": "docs/research/canon/misc/commander_deck_list.txt",
+      "source_type": "Local product support",
+      "source_role": "support-only",
+      "reliability": "Commander support-only",
+      "notes": "Confirms Breed Lethality, Atraxa, Praetors' Voice, WUBG support-source order, and Commander 2016 as local support texture. Not lore proof, legality proof, raw-claim proof, or runtime authorization."
+    },
+    {
+      "source_id": "src_vm_commander_recommendations_breed_lethality_20260604",
+      "title": "Vox Mana Second Commander Recommendations - Breed Lethality / Atraxa Row",
+      "author": "Vox Mana Commander data",
+      "publisher_or_site": "Local repository",
+      "publication_date": "Local data row",
+      "url_or_repository_path": "docs/research/vox_mana_second_commander_recommendations_enhanced.jsonl (content-matched deckName Breed Lethality and mainCommander Atraxa, Praetors' Voice)",
+      "source_type": "Commander support row",
+      "source_role": "support-only",
+      "reliability": "Commander support-only",
+      "notes": "May support Breed Lethality, Atraxa, proliferate, counters, and scaling-growth Commander texture. Not lore proof, legality proof, recommendation proof, or runtime authorization."
+    },
+    {
+      "source_id": "src_vm_witch_precons_source_json_20260604",
+      "title": "Vox Mana Precons Source Data - Breed Lethality Support Texture",
+      "author": "Vox Mana precon data",
+      "publisher_or_site": "Local repository",
+      "publication_date": "Local capture",
+      "url_or_repository_path": "data/precons/vox-mana-precons.source.json",
+      "source_type": "Local precon support data",
+      "source_role": "support-only",
+      "reliability": "Precon support-only",
+      "notes": "Supports Breed Lethality deck texture and local Commander framing only. Not raw-claim proof, lore proof, or placement authority."
+    },
+    {
+      "source_id": "src_vm_witch_precon_catalog_json_20260604",
+      "title": "Vox Mana Precon Catalog - Breed Lethality Support Texture",
+      "author": "Vox Mana precon data",
+      "publisher_or_site": "Local repository",
+      "publication_date": "Local capture",
+      "url_or_repository_path": "data/precons/vox-mana-precon-catalog.json",
+      "source_type": "Local precon catalog",
+      "source_role": "support-only",
+      "reliability": "Precon support-only",
+      "notes": "Supports Breed Lethality catalog texture only. Not raw-claim proof, lore proof, or runtime authorization."
+    },
+    {
+      "source_id": "src_vm_witch_identity_md_20260604",
+      "title": "Witch / Growth Identity",
+      "author": "Vox Mana architecture docs",
+      "publisher_or_site": "Local repository",
+      "publication_date": "2026-06-04",
+      "url_or_repository_path": "docs/architecture/colors/witch/identity.md",
+      "source_type": "Architecture prose",
+      "source_role": "shaping-only",
+      "reliability": "Docs-only parity guidance",
+      "notes": "May shape profile and placement language only where it traces back to VM-264 evidence or clearly marked synthesis. Must not be used as raw-claim evidence."
+    },
+    {
+      "source_id": "src_vm_witch_metaphysics_md_20260604",
+      "title": "Witch / Growth Metaphysics",
+      "author": "Vox Mana architecture docs",
+      "publisher_or_site": "Local repository",
+      "publication_date": "2026-06-04",
+      "url_or_repository_path": "docs/architecture/colors/witch/metaphysics.md",
+      "source_type": "Architecture prose",
+      "source_role": "shaping-only",
+      "reliability": "Docs-only parity guidance",
+      "notes": "May shape profile and placement language only where it traces back to VM-264 evidence or clearly marked synthesis. Must not be used as raw-claim evidence."
+    },
+    {
+      "source_id": "src_vm_witch_manual_fill_20260604",
+      "title": "Witch Manual Fill",
+      "author": "Vox Mana research packet",
+      "publisher_or_site": "Local repository",
+      "publication_date": "2026-06-04",
+      "url_or_repository_path": "docs/research/witch/witch-manual-fill.md",
+      "source_type": "Manual-fill queue",
+      "source_role": "discovery-only",
+      "reliability": "Gap-tracking document",
+      "notes": "Tracks deferred work and packet drift. It is not raw-claim evidence."
+    },
+    {
+      "source_id": "src_vm_mtg_lore_research_enhanced_final_20260604",
+      "title": "MTG Lore Research Enhanced Final",
+      "author": "Vox Mana lore compendium",
+      "publisher_or_site": "Local repository",
+      "publication_date": "Local capture",
+      "url_or_repository_path": "docs/research/canon/misc/MTG_Lore_Research_Enhanced_Final.md",
+      "source_type": "Broad lore compendium",
+      "source_role": "shaping-only",
+      "reliability": "Source-lead only for Witch",
+      "notes": "May inform future source capture and cross-plane texture. Not standalone raw-claim proof."
+    }
+  ],
+  "quarantine_traceability": [
+    {
+      "quarantine_id": "witch_quarantine_discovery_001",
+      "title": "GWUB Four-Color Identity Research",
+      "url_or_repository_path": "docs/research/witch/GWUB Four-Color Identity Research.md",
+      "source_role": "discovery-only",
+      "sha256": "CD14712FD3AAAAD2BF72DF02EDB07E838B0DDA5719125B8615ACE0F6A1011993",
+      "notes": "Quarantine traceability only. This record intentionally has no source_id and cannot be cited by raw claims."
+    },
+    {
+      "quarantine_id": "witch_quarantine_discovery_002",
+      "title": "The Systemic Altar HTML",
+      "url_or_repository_path": "docs/research/witch/the_systemic_altar.html",
+      "source_role": "discovery-only",
+      "sha256": "C44834D06790665AA35F142ABD601ED57E5CCE63A715246B71C632CF2C2D92D0",
+      "notes": "Quarantine traceability only. This record intentionally has no source_id and cannot be cited by raw claims."
+    },
+    {
+      "quarantine_id": "witch_quarantine_discovery_003",
+      "title": "Witch-Maw Research Packet HTML",
+      "url_or_repository_path": "docs/research/witch/witch-maw-research-packet.html",
+      "source_role": "discovery-only",
+      "sha256": "931408844A89048E3ADA235D13C18FD65F383203088307516213813D220B2C30",
+      "notes": "Quarantine traceability only. This record intentionally has no source_id and cannot be cited by raw claims."
+    }
+  ],
+  "not_used_or_rejected_sources": [
+    {
+      "source_id": "src_vm_witch_architecture_docs_as_claims",
+      "reason": "VM-265 and VM-266 architecture docs are shaping-only and cannot be cited as raw-claim proof."
+    },
+    {
+      "source_id": "src_vm_witch_commander_and_precon_rows_as_claims",
+      "reason": "Commander rows, precon rows, and support-texture material remain support-only and cannot become raw claims."
+    },
+    {
+      "source_id": "src_vm_witch_manual_fill_rows_as_claims",
+      "reason": "Manual-fill rows track gaps and must not become raw claims before review."
+    },
+    {
+      "source_id": "src_vm_witch_synthesis_rows_as_claims",
+      "reason": "Vox Mana synthesis may shape bounded prose but is not standalone raw proof in VM-267."
+    },
+    {
+      "source_id": "src_vm_witch_discovery_drafts_as_claims",
+      "reason": "The preserved Witch drafts remain discovery-only quarantine records without source IDs and cannot be cited as raw-claim evidence."
+    }
+  ]
+}

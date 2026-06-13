@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "profile_version": "0.1.0",
+  "profile_version": "0.1.1",
   "faction_id": "jeskai",
   "faction_name": "Jeskai Way",
   "faction_type": "wedge",
@@ -11,10 +11,10 @@
     "White"
   ],
   "color_pair_or_group": "URW/WUR/RWU/UWR/RUW/WRU wedge metadata only",
-  "source_review_date": "2026-05-31",
+  "source_review_date": "2026-06-05",
   "last_full_review": "2026-05-31",
-  "last_incremental_review": "2026-05-31",
-  "last_updated": "2026-05-31",
+  "last_incremental_review": "2026-06-12",
+  "last_updated": "2026-06-12",
   "site_surface": {
     "display_name": "Jeskai Way",
     "short_summary": "Jeskai Way is a source-authored, review-gated Tarkir wedge packet for Blue-centered cunning, disciplined martial practice, Red action, White structure, Khans-era monasteries and Ways, Narset and Shu Yun timeline boundaries, Ojutai discontinuity, and modern Dragonstorm revival boundaries.",
@@ -33,7 +33,7 @@
       "Blue-centered",
       "Cunning",
       "Discipline",
-      "JESKAI future/planned only"
+      "JESKAI live key"
     ],
     "secondary_tags": [
       "Monasteries",
@@ -47,8 +47,8 @@
       "Ojutai discontinuity",
       "Modern Dragonstorm Jeskai",
       "Source-authored",
-      "Review-gated",
-      "Non-live"
+      "Source-durable repair",
+      "Live after VM-234"
     ],
     "tone_words": [
       "disciplined",
@@ -77,11 +77,29 @@
     "best_for": [
       "readers drawn to discipline, precision, martial study, insight, restrained action, and source-bound Tarkir clan identity",
       "players who like spells, prowess-like tempo, protection, copies, artifacts, energy, cycling, or time counters as support-only Commander vocabulary",
-      "reviewers checking that Jeskai stays separate from generic color-code metadata, Ojutai continuity, seed files, generated HTML, Commander products, unsupported mechanics, and runtime promotion"
+      "reviewers checking that Jeskai stays separate from generic color-code metadata, Ojutai continuity, seed files, generated HTML, Commander products, unsupported mechanics, and public color-code aliases"
     ],
     "content_warnings_or_sensitivity_notes": [
       "Jeskai material can involve martial hierarchy, clan erasure, dragonlord oppression, religious or philosophical conflict, and timeline discontinuity. This packet keeps exact mechanics, card facts, Commander legality, full Narset or Shu Yun biographies, complete six-fire doctrine, and complete three-Ways hierarchy deferred."
     ],
+    "claim_ids": [
+      "jeskai_claim_0001",
+      "jeskai_claim_0002",
+      "jeskai_claim_0003",
+      "jeskai_claim_0004",
+      "jeskai_claim_0005",
+      "jeskai_claim_0006",
+      "jeskai_claim_0007",
+      "jeskai_claim_0008",
+      "jeskai_claim_0009",
+      "jeskai_claim_0010"
+    ]
+  },
+  "profile": {
+    "overview": "Jeskai Way is Vox Mana's live Tarkir wedge expression for Blue-centered disciplined cunning: knowledge, training, Red action, and White accountability moving together without collapsing into generic same-color spellslinger play.",
+    "philosophy": "Jeskai treats action as something that should be trained before it is released. Blue keeps knowledge, perfection, and cunning centered; Red gives insight the courage to move; White gives that motion form, restraint, and responsibility to the people it touches.",
+    "core_tension": "Jeskai's virtue is trained insight moving with precision, courage, compassion, and restraint, but that discipline can become empty delay when practice forgets the moment it was meant to serve.",
+    "mechanics_and_play_pattern": "Prowess-like spell interaction, protective tricks, tempo play, concealment magic, and trained martial timing can express Jeskai only when tied to disciplined cunning and Tarkir Way evidence; exact card mechanics remain manual-fill.",
     "claim_ids": [
       "jeskai_claim_0001",
       "jeskai_claim_0002",
@@ -257,6 +275,7 @@
     "notes": "Pair and wedge language is shaping-only architecture guidance and does not create placement scoring."
   },
   "mechanics": {
+    "summary": "Prowess-like spell interaction, protective tricks, tempo play, concealment magic, and trained martial timing can express Jeskai only when tied to disciplined cunning and Tarkir Way evidence; exact card mechanics remain manual-fill.",
     "supported_texture": [
       "cunning",
       "knowledge",
@@ -286,7 +305,7 @@
   },
   "search_and_filter_metadata": {
     "future_expression_name": "JESKAI",
-    "future_expression_name_status": "future/planned only; not a live key, alias, generated key, route key, placement key, fixture key, Home preview key, Maze key, Supabase key, schema key, or public interface",
+    "future_expression_name_status": "live public/generated key after VM-234; not a color-code alias, route key, Home preview key, Maze color-code key, schema key, or public color-code interface",
     "metadata_query_only_terms": [
       "URW",
       "WUR",
@@ -301,12 +320,12 @@
       "ruw",
       "wru"
     ],
-    "source_status": "source_authored_review_gated",
-    "placement_status": "not_placement_eligible",
+    "source_status": "source_authored_live_repair",
+    "placement_status": "live_after_vm234_source_repair",
     "preview_eligible": false,
-    "review_gated": true,
-    "placement_eligible": false,
-    "live_pilot": false,
+    "review_gated": false,
+    "placement_eligible": true,
+    "live_pilot": true,
     "claim_ids": [
       "jeskai_claim_0001",
       "jeskai_claim_0010"
@@ -333,11 +352,12 @@
       "Commander/operator material beyond support-only language"
     ],
     "manual_review_recommended": true,
-    "review_gated": true,
-    "placement_eligible": false,
+    "placement_status": "live_after_vm234_source_repair",
+    "review_gated": false,
+    "placement_eligible": true,
     "preview_eligible": false,
-    "live_pilot": false,
-    "notes": "VM-232 creates source-authored raw JSON only. JESKAI is not placement-ready, not preview-ready, not generated, and not live. Manual fill required remains for exact mechanics, complete six-fire doctrine, complete three-Ways hierarchy, Narset biography, Shu Yun biography, and unsupported Ojutai continuity."
+    "live_pilot": true,
+    "notes": "VM-299 repairs Jeskai source durability after VM-234 live promotion and VM-294 generated-authoring contamination. The durable raw claim floor remains ten approved raw claims; manual fill required remains for exact mechanics, complete six-fire doctrine, complete three-Ways hierarchy, Narset biography, Shu Yun biography, and unsupported Ojutai continuity."
   },
   "research_limitations": [
     "VM-229 remains the sole claim-bearing Jeskai evidence packet.",
@@ -347,10 +367,168 @@
     "Manual-fill rows remain gaps rather than raw claims."
   ],
   "commander_compass": {
-    "status": "support-only",
-    "summary": "Commander product rows can later support operator or play-pattern texture for URW/WUR shells, but they do not prove lore, canon, legality, placement readiness, or public interface status.",
-    "claim_ids": [
-      "jeskai_claim_0010"
-    ]
+    "schema_version": "1.0.0",
+    "source_research_file": "docs/research/vox_mana_second_commander_recommendations_enhanced.jsonl",
+    "last_reviewed": "2026-06-12",
+    "review_status": "support_only_live_pilot_curation",
+    "recommendation_philosophy": "Use Jeskai Commander guidance as product/operator support only: exact White/Blue/Red deck rows can express disciplined sequencing, spellslinger/prowess turns, artifact and counter engines, copy-token creativity, suspend or time-counter planning, planeswalker/proliferate value, Human combat, and convoke-style coordinated casting. These rows do not create Jeskai canon, Tarkir lore proof, Commander legality proof, placement evidence, or public color-code aliases.",
+    "identity_basis": {
+      "owned_themes": [
+        "Blue-centered discipline and planning",
+        "Red action and explosive release",
+        "White structure, protection, and coordinated form",
+        "trained sequencing as support texture"
+      ],
+      "allowed_phrases": [
+        "Jeskai support fit",
+        "disciplined sequencing",
+        "trained spell release",
+        "prowess-style pressure",
+        "copy-token creativity",
+        "time-counter planning",
+        "coordinated casting"
+      ],
+      "avoid_or_contrast_phrases": [
+        "Jeskai Commander row as Tarkir canon",
+        "Commander legality proof",
+        "generic URW/WUR/RWU/UWR/RUW/WRU color identity as placement evidence",
+        "Ojutai continuity",
+        "Dragonstorm backfill",
+        "exact mechanics as raw claims"
+      ],
+      "adjacent_overlap_notes": [
+        "Spellslinger texture overlaps Izzet, but Jeskai support rows keep White structure and disciplined sequencing visible.",
+        "Token and convoke support can overlap Naya or Boros surfaces, but Jeskai keeps the lane tied to trained action and Blue-centered planning.",
+        "Planeswalker, artifact, energy, and time-counter rows are Commander operator texture only and do not expand Jeskai lore or timeline evidence."
+      ],
+      "supporting_claim_ids": [
+        "jeskai_claim_0002",
+        "jeskai_claim_0003",
+        "jeskai_claim_0010"
+      ],
+      "supporting_source_ids": [
+        "src_vm_second_commander_recommendations_wur_urw",
+        "src_vm_jeskai_manual_fill_20260531",
+        "src_vm_jeskai_identity_md_20260531"
+      ]
+    },
+    "native_fit_commanders": [
+      {
+        "exact_card_name": "Shiko and Narset, Unified",
+        "display_name": "Shiko and Narset, Unified",
+        "color_identity": [
+          "W",
+          "U",
+          "R"
+        ],
+        "recommendation_type": "Support-Only Commander Row",
+        "archetype_tags": [
+          "Spellslinger",
+          "Prowess",
+          "Copy Effects"
+        ],
+        "why_this_fits": "The local Commander workbook row for Jeskai Striker supports extra spells, prowess, and spell copying as Jeskai operator texture.",
+        "source_basis": "src_vm_second_commander_recommendations_wur_urw; Jeskai Striker row",
+        "confidence": "Support-only",
+        "caution_notes": "Not lore proof, not exact legality proof, and not placement evidence."
+      },
+      {
+        "exact_card_name": "Narset, Enlightened Master",
+        "display_name": "Narset, Enlightened Master",
+        "color_identity": [
+          "W",
+          "U",
+          "R"
+        ],
+        "recommendation_type": "Support-Only Commander Row",
+        "archetype_tags": [
+          "Spellslinger",
+          "Combat Trigger",
+          "Explosive Turns"
+        ],
+        "why_this_fits": "The local Commander workbook names Narset in the Jeskai Striker row as support for spell-sequencing and explosive turn texture.",
+        "source_basis": "src_vm_second_commander_recommendations_wur_urw; Jeskai Striker row",
+        "confidence": "Support-only",
+        "caution_notes": "Keep Narset lore and timeline claims in the raw evidence ledger, not the Commander row."
+      },
+      {
+        "exact_card_name": "Kasla, the Broken Halo",
+        "display_name": "Kasla, the Broken Halo",
+        "color_identity": [
+          "W",
+          "U",
+          "R"
+        ],
+        "recommendation_type": "Support-Only Commander Row",
+        "archetype_tags": [
+          "Convoke",
+          "Go-Wide",
+          "Coordinated Casting"
+        ],
+        "why_this_fits": "The local Commander workbook row for Divine Convocation supports coordinated convoke casting as Jeskai operator texture.",
+        "source_basis": "src_vm_second_commander_recommendations_wur_urw; Divine Convocation row",
+        "confidence": "Support-only",
+        "caution_notes": "Not Tarkir lore evidence and not a Jeskai placement shortcut."
+      }
+    ],
+    "archetype_lanes": [
+      {
+        "lane": "Spellslinger, prowess, and copy effects",
+        "support_decks": [
+          "Jeskai Striker",
+          "Timey-Wimey"
+        ],
+        "support_language": [
+          "extra spells",
+          "prowess",
+          "spell copying",
+          "suspend",
+          "time counters"
+        ],
+        "source_basis": "src_vm_second_commander_recommendations_wur_urw"
+      },
+      {
+        "lane": "Artifact, energy, counters, and proliferate planning",
+        "support_decks": [
+          "Counter Intelligence",
+          "Creative Energy",
+          "Planeswalker Party"
+        ],
+        "support_language": [
+          "artifacts",
+          "proliferate",
+          "energy counters",
+          "planeswalkers",
+          "loyalty counters"
+        ],
+        "source_basis": "src_vm_second_commander_recommendations_wur_urw"
+      },
+      {
+        "lane": "Token, Human, and coordinated casting shells",
+        "support_decks": [
+          "Family Matters",
+          "Riders of Rohan",
+          "Divine Convocation"
+        ],
+        "support_language": [
+          "copy tokens",
+          "go-wide board presence",
+          "Human tribal",
+          "Monarch",
+          "Convoke"
+        ],
+        "source_basis": "src_vm_second_commander_recommendations_wur_urw"
+      }
+    ],
+    "link_targets": {
+      "edhrec_commander_index": "https://edhrec.com/commanders/jeskai",
+      "mtgdecks_color_identity": "https://mtgdecks.net/Commander/jeskai-commanders",
+      "scryfall_commander_search": "https://scryfall.com/search?q=id%3Durw+is%3Acommander+f%3Acommander",
+      "archidekt_color_search": "https://archidekt.com/search/decks?colors=URW&deckFormat=3&orderBy=-updatedAt&page=1"
+    },
+    "merge_notes": {
+      "support_only_boundary": "Commander/deck/operator material remains support texture only and must not be used as lore, canon, or placement proof.",
+      "deck_links_status": "External index links are provided as Commander support navigation targets only, not evidence rows."
+    }
   }
 }

@@ -13,7 +13,7 @@
   "source_review_date": "2026-05-09",
   "last_full_review": "2026-05-09",
   "last_incremental_review": "2026-05-09",
-  "last_updated": "2026-05-13T21:14:06.308Z",
+  "last_updated": "2026-06-09T00:00:00.000Z",
   "site_surface": {
     "display_name": "Izzet League",
     "short_summary": "Blue-red Ravnican guild of elemental science, civic engineering, volatile invention, and crisis-scale experimentation under the long shadow of Niv-Mizzet and Ral Zarek.",
@@ -916,8 +916,49 @@
       "notes": "Based on one inspected story; do not generalize as universal."
     }
   ],
-  "mechanics": [
-    {
+  "mechanics": {
+    "summary": "Replicate, overload, and jump-start are the source-backed Izzet mechanics expression: scalable spell copying, spells powered from single targets into sweeping effects, and second-chance instant or sorcery casting. Mizzium devices and the resonator network are story-technology texture rather than standalone rules mechanics, and should only support Izzet when they point back to experimental invention, spellcraft, and volatile civic engineering.",
+    "source_bound_texture": [
+      "replicate",
+      "overload",
+      "jump-start",
+      "instant and sorcery emphasis",
+      "spell-scaling",
+      "mizzium story technology",
+      "resonator network story technology"
+    ],
+    "supporting_claim_ids": [
+      "claim_izzet_league_0046",
+      "claim_izzet_league_0047",
+      "claim_izzet_league_0048",
+      "claim_izzet_league_0049",
+      "claim_izzet_league_0050",
+      "claim_izzet_league_0051",
+      "claim_izzet_league_0052",
+      "claim_izzet_league_0065",
+      "claim_izzet_league_0076",
+      "claim_izzet_league_0078",
+      "claim_izzet_league_0083",
+      "claim_izzet_league_0090",
+      "claim_izzet_league_0092",
+      "claim_izzet_league_0093",
+      "claim_izzet_league_0094",
+      "claim_izzet_league_0097"
+    ],
+    "supporting_sources": [
+      "src_izzet_league_0004",
+      "src_izzet_league_0005",
+      "src_izzet_league_0006",
+      "src_izzet_league_0008",
+      "src_izzet_league_0009",
+      "src_izzet_league_0014",
+      "VM-043"
+    ],
+    "not_promoted_terms": [
+      "ward"
+    ],
+    "entries": [
+      {
       "mechanic_id": "mech_replicate",
       "mechanic_name": "Replicate",
       "associated_set": "Guildpact / original Ravnica block",
@@ -930,7 +971,7 @@
       "confidence": "High",
       "notes": ""
     },
-    {
+      {
       "mechanic_id": "mech_overload",
       "mechanic_name": "Overload",
       "associated_set": "Return to Ravnica",
@@ -943,7 +984,7 @@
       "confidence": "High",
       "notes": ""
     },
-    {
+      {
       "mechanic_id": "mech_jump_start",
       "mechanic_name": "Jump-start",
       "associated_set": "Guilds of Ravnica",
@@ -956,7 +997,7 @@
       "confidence": "High",
       "notes": ""
     },
-    {
+      {
       "mechanic_id": "mech_mizzium_augmentation",
       "mechanic_name": "Mizzium augmentation",
       "associated_set": "Story-local technology",
@@ -973,7 +1014,7 @@
       "confidence": "Medium",
       "notes": "Not a game mechanic; stored here as lore technology metadata."
     },
-    {
+      {
       "mechanic_id": "mech_resonator_network",
       "mechanic_name": "Resonator network",
       "associated_set": "The Gathering Storm",
@@ -987,8 +1028,9 @@
       ],
       "confidence": "Medium",
       "notes": "Story technology, not rules text."
-    }
-  ],
+      }
+    ]
+  },
   "search_and_filter_metadata": {
     "aliases": [
       "Izzet",

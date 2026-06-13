@@ -1,0 +1,1088 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Systemic Altar: A GWUB Color Identity Dossier</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome for Premium Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        cinzel: ['Cinzel', 'serif'],
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                    colors: {
+                        gwub: {
+                            deep: '#070c0e',
+                            dark: '#0e171b',
+                            teal: '#14b8a6', // Blue-Green / Growth
+                            emerald: '#10b981', // Green / Biology
+                            bone: '#f1f5f9', // White / Order
+                            obsidian: '#020617', // Black / Ambition
+                            glow: 'rgba(20, 184, 166, 0.15)'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom scrollbar matching GWUB theme */
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #070c0e;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #14b8a6;
+            border-radius: 3px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #0d9488;
+        }
+
+        /* Pulse and glow animations */
+        @keyframes pulse-glow {
+            0%, 100% { filter: drop-shadow(0 0 8px rgba(20, 184, 166, 0.4)); }
+            50% { filter: drop-shadow(0 0 16px rgba(16, 185, 129, 0.7)); }
+        }
+        .glowing-element {
+            animation: pulse-glow 4s infinite ease-in-out;
+        }
+
+        .tab-active {
+            border-bottom-color: #14b8a6;
+            color: #f1f5f9;
+            background: rgba(20, 184, 166, 0.05);
+        }
+
+        /* Ambient background grid */
+        .grid-bg {
+            background-size: 40px 40px;
+            background-image: linear-gradient(to right, rgba(20, 184, 166, 0.03) 1px, transparent 1px),
+                              linear-gradient(to bottom, rgba(20, 184, 166, 0.03) 1px, transparent 1px);
+        }
+    </style>
+</head>
+<body class="bg-gwub-deep text-slate-300 font-sans selection:bg-gwub-teal selection:text-gwub-obsidian overflow-x-hidden min-h-screen grid-bg">
+
+    <!-- Header Section -->
+    <header class="border-b border-gwub-teal/20 bg-gwub-obsidian/80 backdrop-blur-md sticky top-0 z-50 px-4 py-3">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+            <div class="flex items-center gap-3">
+                <div class="h-10 w-10 rounded-lg border border-gwub-teal/40 flex items-center justify-center bg-gwub-teal/10 relative overflow-hidden group">
+                    <div class="absolute inset-0 bg-gradient-to-tr from-teal-500 to-emerald-500 opacity-20 group-hover:opacity-40 transition-opacity"></div>
+                    <i class="fa-solid fa-seedling text-gwub-teal text-lg glowing-element"></i>
+                </div>
+                <div>
+                    <h1 class="font-cinzel text-xl font-bold tracking-widest text-gwub-bone">VOX MANA</h1>
+                    <p class="text-xs text-gwub-teal/70 font-mono tracking-wider">DOSSIER // WITCH-GROWTH (GWUB)</p>
+                </div>
+            </div>
+
+            <div class="flex items-center gap-4">
+                <div class="flex items-center gap-2 bg-gwub-deep border border-gwub-teal/20 px-3 py-1.5 rounded-full text-xs font-mono text-gwub-bone">
+                    <span class="inline-block w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                    SYSTEMS STATUS: OPTIMIZED
+                </div>
+                <button id="soundToggle" class="px-4 py-1.5 border border-gwub-teal/30 hover:border-gwub-teal/60 rounded-full text-xs font-mono hover:text-gwub-bone bg-gwub-teal/5 hover:bg-gwub-teal/10 transition flex items-center gap-2">
+                    <i class="fa-solid fa-volume-xmark" id="soundIcon"></i>
+                    <span id="soundText">AMBIENT DRONE: OFF</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Workspace -->
+    <main class="max-w-7xl mx-auto px-4 py-6 grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+
+        <!-- Left Column: The 3D Altar Viewport & Parameters Controls -->
+        <section class="lg:col-span-5 flex flex-col gap-6 sticky top-[84px]">
+
+            <!-- Three.js Canvas Container -->
+            <div class="border border-gwub-teal/20 rounded-2xl overflow-hidden bg-gwub-obsidian flex flex-col relative h-[450px]">
+                <div class="absolute top-4 left-4 z-10 pointer-events-none">
+                    <span class="bg-gwub-obsidian/85 border border-gwub-teal/30 text-gwub-teal px-2.5 py-1 rounded text-[10px] font-mono tracking-widest">
+                        3D VIRTUAL ALTAR SIMULATION
+                    </span>
+                </div>
+                <div class="absolute bottom-4 right-4 z-10 bg-gwub-obsidian/80 border border-gwub-teal/20 p-2.5 rounded-lg text-[10px] font-mono text-slate-400 max-w-[180px] pointer-events-none">
+                    <p class="mb-1"><i class="fa-solid fa-circle-info mr-1 text-gwub-teal"></i> Drag mouse to rotate.</p>
+                    <p>Scrolled values affect the organic particle growth below.</p>
+                </div>
+                <div id="canvas-container" class="w-full h-full cursor-grab active:cursor-grabbing">
+                    <!-- Three.js renders here -->
+                </div>
+            </div>
+
+            <!-- Parametric Growth Panel -->
+            <div class="border border-gwub-teal/20 rounded-2xl p-5 bg-gwub-obsidian/90 backdrop-blur-sm">
+                <div class="flex items-center justify-between mb-4 pb-2 border-b border-gwub-teal/10">
+                    <h3 class="font-cinzel text-sm font-bold tracking-wider text-gwub-bone flex items-center gap-2">
+                        <i class="fa-solid fa-sliders text-gwub-teal"></i> ALCHEMICAL PARAMETERS
+                    </h3>
+                    <span class="text-[10px] font-mono text-gwub-teal">ADJUST SYSTEMIC COMPOSITION</span>
+                </div>
+
+                <div class="space-y-4">
+                    <!-- Parameter 1: Growth Speed (Green) -->
+                    <div>
+                        <div class="flex justify-between text-xs font-mono mb-1">
+                            <span class="text-emerald-400 flex items-center gap-1">
+                                <i class="fa-solid fa-seedling"></i> Biological Growth Rate
+                            </span>
+                            <span id="val-growth" class="text-gwub-bone">50%</span>
+                        </div>
+                        <input type="range" id="param-growth" min="10" max="150" value="50" class="w-full accent-emerald-500 bg-gwub-deep rounded-lg appearance-none h-1 cursor-pointer">
+                        <p class="text-[10px] text-slate-500 mt-1 font-sans">Controls the generation rate of climbing organic particle nodes.</p>
+                    </div>
+
+                    <!-- Parameter 2: Structural Rigidity (White) -->
+                    <div>
+                        <div class="flex justify-between text-xs font-mono mb-1">
+                            <span class="text-slate-300 flex items-center gap-1">
+                                <i class="fa-solid fa-building-columns"></i> Structural Rigidity
+                            </span>
+                            <span id="val-structure" class="text-gwub-bone">40%</span>
+                        </div>
+                        <input type="range" id="param-structure" min="5" max="100" value="40" class="w-full accent-slate-300 bg-gwub-deep rounded-lg appearance-none h-1 cursor-pointer">
+                        <p class="text-[10px] text-slate-500 mt-1 font-sans">Alters the magnetic pull towards the symmetrical bone-white axis.</p>
+                    </div>
+
+                    <!-- Parameter 3: Systemic Optimization (Blue) -->
+                    <div>
+                        <div class="flex justify-between text-xs font-mono mb-1">
+                            <span class="text-cyan-400 flex items-center gap-1">
+                                <i class="fa-solid fa-microscope"></i> Systemic Optimization
+                            </span>
+                            <span id="val-optimize" class="text-gwub-bone">60%</span>
+                        </div>
+                        <input type="range" id="param-optimize" min="10" max="200" value="60" class="w-full accent-cyan-400 bg-gwub-deep rounded-lg appearance-none h-1 cursor-pointer">
+                        <p class="text-[10px] text-slate-500 mt-1 font-sans">Regulates math precision and geometric neatness of the orbits.</p>
+                    </div>
+
+                    <!-- Parameter 4: Dark Ambition (Black) -->
+                    <div>
+                        <div class="flex justify-between text-xs font-mono mb-1">
+                            <span class="text-purple-400 flex items-center gap-1">
+                                <i class="fa-solid fa-skull"></i> Resource Harvesting
+                            </span>
+                            <span id="val-ambition" class="text-gwub-bone">75%</span>
+                        </div>
+                        <input type="range" id="param-ambition" min="5" max="150" value="75" class="w-full accent-purple-400 bg-gwub-deep rounded-lg appearance-none h-1 cursor-pointer">
+                        <p class="text-[10px] text-slate-500 mt-1 font-sans">Governs the density and light-absorbing particle energy fields.</p>
+                    </div>
+                </div>
+
+                <div class="mt-5 pt-3 border-t border-gwub-teal/10 flex justify-end gap-2">
+                    <button id="resetParams" class="px-3 py-1.5 border border-gwub-teal/20 rounded hover:border-gwub-teal/50 hover:bg-gwub-teal/5 text-xs font-mono transition">
+                        Restore Equilibrium
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Right Column: Interactive Dossier & Resource Engine -->
+        <section class="lg:col-span-7 flex flex-col gap-6">
+
+            <!-- Quick View Stats Banner -->
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+                <div class="border border-gwub-teal/15 p-3 rounded-xl bg-gwub-obsidian/40 flex flex-col justify-center items-center text-center">
+                    <span class="text-[10px] font-mono text-slate-400 tracking-wider">EXCLUDED VECTOR</span>
+                    <span class="font-cinzel text-lg font-bold text-red-500 tracking-widest flex items-center gap-1.5 mt-1">
+                        <i class="fa-solid fa-ban"></i> RED
+                    </span>
+                    <span class="text-[9px] font-mono text-slate-500 mt-0.5">No Impulse / Chaos</span>
+                </div>
+                <div class="border border-gwub-teal/15 p-3 rounded-xl bg-gwub-obsidian/40 flex flex-col justify-center items-center text-center">
+                    <span class="text-[10px] font-mono text-slate-400 tracking-wider">ANCIENT MONIKER</span>
+                    <span class="font-cinzel text-lg font-bold text-teal-400 tracking-widest mt-1">WITCH</span>
+                    <span class="text-[9px] font-mono text-slate-500 mt-0.5">Nephilim Heritage</span>
+                </div>
+                <div class="border border-gwub-teal/15 p-3 rounded-xl bg-gwub-obsidian/40 flex flex-col justify-center items-center text-center">
+                    <span class="text-[10px] font-mono text-slate-400 tracking-wider">PRODUCT FOCUS</span>
+                    <span class="font-cinzel text-lg font-bold text-emerald-400 tracking-widest mt-1">GROWTH</span>
+                    <span class="text-[9px] font-mono text-slate-500 mt-0.5">Counters / Scaling</span>
+                </div>
+                <div class="border border-gwub-teal/15 p-3 rounded-xl bg-gwub-obsidian/40 flex flex-col justify-center items-center text-center">
+                    <span class="text-[10px] font-mono text-slate-400 tracking-wider">PRIMARY ANCHOR</span>
+                    <span class="font-cinzel text-lg font-bold text-indigo-400 tracking-widest mt-1">ATRAXA</span>
+                    <span class="text-[9px] font-mono text-slate-500 mt-0.5">Praetors' Voice</span>
+                </div>
+            </div>
+
+            <!-- The Interactive Alchemist Engine Widget -->
+            <div class="border border-gwub-teal/20 rounded-2xl p-5 bg-gradient-to-br from-gwub-obsidian to-gwub-dark relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-32 h-32 bg-gwub-teal/5 rounded-full blur-2xl"></div>
+
+                <div class="flex items-center justify-between mb-4">
+                    <div>
+                        <h3 class="font-cinzel text-sm font-bold tracking-widest text-gwub-bone">THE SYSTEMIC INCUBATOR</h3>
+                        <p class="text-xs text-slate-400 font-mono">Synthesize inevitability, cleanse impulse.</p>
+                    </div>
+                    <div class="flex items-center gap-1.5 font-mono text-[10px] bg-gwub-deep border border-gwub-teal/20 px-2.5 py-1 rounded">
+                        <span>VOLATILITY:</span>
+                        <span id="volatilityPercent" class="text-red-400 font-bold">100%</span>
+                    </div>
+                </div>
+
+                <!-- Simulation Interactive Interface -->
+                <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-4">
+                    <button onclick="incubate('green')" class="bg-emerald-950/40 hover:bg-emerald-950/80 border border-emerald-500/20 hover:border-emerald-500/50 p-2.5 rounded-lg text-center transition flex flex-col items-center gap-1">
+                        <i class="fa-solid fa-seedling text-emerald-400 text-sm"></i>
+                        <span class="text-[10px] font-mono text-slate-300">Sow Seed</span>
+                        <span id="greenResource" class="text-xs font-mono text-emerald-400">0</span>
+                    </button>
+                    <button onclick="incubate('white')" class="bg-slate-900/40 hover:bg-slate-900/80 border border-slate-500/20 hover:border-slate-500/50 p-2.5 rounded-lg text-center transition flex flex-col items-center gap-1">
+                        <i class="fa-solid fa-gavel text-slate-300 text-sm"></i>
+                        <span class="text-[10px] font-mono text-slate-300">Enforce Order</span>
+                        <span id="whiteResource" class="text-xs font-mono text-slate-300">0</span>
+                    </button>
+                    <button onclick="incubate('blue')" class="bg-cyan-950/40 hover:bg-cyan-950/80 border border-cyan-500/20 hover:border-cyan-500/50 p-2.5 rounded-lg text-center transition flex flex-col items-center gap-1">
+                        <i class="fa-solid fa-microscope text-cyan-400 text-sm"></i>
+                        <span class="text-[10px] font-mono text-slate-300">Refine Flow</span>
+                        <span id="blueResource" class="text-xs font-mono text-cyan-400">0</span>
+                    </button>
+                    <button onclick="incubate('black')" class="bg-purple-950/40 hover:bg-purple-950/80 border border-purple-500/20 hover:border-purple-500/50 p-2.5 rounded-lg text-center transition flex flex-col items-center gap-1">
+                        <i class="fa-solid fa-flask text-purple-400 text-sm"></i>
+                        <span class="text-[10px] font-mono text-slate-300">Harvest Power</span>
+                        <span id="blackResource" class="text-xs font-mono text-purple-400">0</span>
+                    </button>
+                </div>
+
+                <!-- Simulation progress / Status -->
+                <div class="bg-gwub-deep/80 border border-gwub-teal/10 rounded-xl p-3 flex flex-col sm:flex-row justify-between items-center gap-4">
+                    <div class="w-full sm:w-2/3">
+                        <div class="flex justify-between text-[10px] font-mono mb-1">
+                            <span class="text-slate-400">SYSTEMIC EQUILIBRIUM COAXING:</span>
+                            <span id="systemicProgressText" class="text-gwub-teal font-bold">0%</span>
+                        </div>
+                        <div class="w-full bg-slate-950 rounded-full h-1.5 overflow-hidden">
+                            <div id="systemicProgressBar" class="bg-gradient-to-r from-emerald-500 via-teal-500 to-indigo-500 h-full w-0 transition-all duration-300"></div>
+                        </div>
+                    </div>
+                    <button onclick="optimizeAltar()" class="w-full sm:w-auto px-4 py-2 bg-gwub-teal text-gwub-obsidian hover:bg-teal-400 rounded-lg text-xs font-mono font-bold tracking-wider transition text-center shrink-0">
+                        OPTIMIZE VESSEL
+                    </button>
+                </div>
+
+                <div id="simulationFeedback" class="text-[10px] text-slate-500 italic mt-2 font-mono text-center">
+                    Feed the system balanced parts of Green, White, Blue, and Black to prune the volatility of chaos.
+                </div>
+            </div>
+
+            <!-- Tabbed Navigation Panel -->
+            <div class="border border-gwub-teal/20 rounded-2xl bg-gwub-obsidian overflow-hidden">
+                <nav class="flex border-b border-gwub-teal/10 overflow-x-auto text-xs font-mono">
+                    <button onclick="switchTab('philosophy')" id="tab-philosophy" class="px-4 py-3 shrink-0 text-slate-400 hover:text-gwub-bone border-b-2 border-transparent transition duration-200 tab-active">
+                        PHILOSOPHY
+                    </button>
+                    <button onclick="switchTab('history')" id="tab-history" class="px-4 py-3 shrink-0 text-slate-400 hover:text-gwub-bone border-b-2 border-transparent transition duration-200">
+                        HISTORICAL CONTEXT
+                    </button>
+                    <button onclick="switchTab('mechanics')" id="tab-mechanics" class="px-4 py-3 shrink-0 text-slate-400 hover:text-gwub-bone border-b-2 border-transparent transition duration-200">
+                        MECHANICS
+                    </button>
+                    <button onclick="switchTab('taxonomy')" id="tab-taxonomy" class="px-4 py-3 shrink-0 text-slate-400 hover:text-gwub-bone border-b-2 border-transparent transition duration-200">
+                        CARD LEDGER
+                    </button>
+                    <button onclick="switchTab('dossier')" id="tab-dossier" class="px-4 py-3 shrink-0 text-slate-400 hover:text-gwub-bone border-b-2 border-transparent transition duration-200">
+                        VOX DOSSIER
+                    </button>
+                </nav>
+
+                <!-- Tab Contents Container -->
+                <div class="p-6">
+
+                    <!-- Tab: Philosophy -->
+                    <div id="content-philosophy" class="space-y-6">
+                        <div class="border-l-2 border-gwub-teal/40 pl-4">
+                            <h4 class="font-cinzel text-lg font-bold text-gwub-bone">The Non-Red Worldview</h4>
+                            <p class="text-sm text-slate-400 font-mono mt-1">Inevitability through absolute exclusion of volatility.</p>
+                        </div>
+                        <p class="text-sm leading-relaxed text-slate-300">
+                            The GWUB worldview emerges from the structural alignment of biological evolution, collective law, analytical empirical perfection, and cold transaction. It is modeling the cosmos as a complex but entirely solvable system:
+                        </p>
+                        <div class="bg-gwub-deep border border-gwub-teal/10 rounded-xl p-4 font-mono text-xs text-center text-gwub-teal">
+                            $$\text{GWUB} = (\text{Green} \cap \text{White} \cap \text{Blue} \cap \text{Black}) \setminus \text{Red}$$
+                        </div>
+
+                        <h5 class="text-xs font-mono text-gwub-bone tracking-widest uppercase">The Four Contributing Pillars:</h5>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div class="bg-emerald-950/10 border border-emerald-500/10 p-3 rounded-xl">
+                                <span class="text-xs font-bold text-emerald-400 font-mono"><i class="fa-solid fa-seedling mr-1"></i> Green (Biology)</span>
+                                <p class="text-xs text-slate-400 mt-1">Provides baseline understanding of organic development, biological lifecycles, and exponential physical scale.</p>
+                            </div>
+                            <div class="bg-slate-900 border border-slate-500/10 p-3 rounded-xl">
+                                <span class="text-xs font-bold text-slate-300 font-mono"><i class="fa-solid fa-gavel mr-1"></i> White (Structure)</span>
+                                <p class="text-xs text-slate-400 mt-1">Synthesizes collective unity, social frameworks, and clean boundaries, transforming wild biology into structured civilization.</p>
+                            </div>
+                            <div class="bg-cyan-950/10 border border-cyan-500/10 p-3 rounded-xl">
+                                <span class="text-xs font-bold text-cyan-400 font-mono"><i class="fa-solid fa-microscope mr-1"></i> Blue (Optimization)</span>
+                                <p class="text-xs text-slate-400 mt-1">Applies analytical rigor, empirical data, and precision-focused editing to make growth systematic rather than accidental.</p>
+                            </div>
+                            <div class="bg-purple-950/10 border border-purple-500/10 p-3 rounded-xl">
+                                <span class="text-xs font-bold text-purple-400 font-mono"><i class="fa-solid fa-flask mr-1"></i> Black (Ambition)</span>
+                                <p class="text-xs text-slate-400 mt-1">Injects self-preservation, direct resource transactionalism, and the uncompromising will to secure absolute system dominance.</p>
+                            </div>
+                        </div>
+
+                        <div class="border-t border-gwub-teal/10 pt-4">
+                            <h5 class="text-xs font-mono text-gwub-bone tracking-widest uppercase mb-2">The Excision of Red:</h5>
+                            <p class="text-xs text-slate-400 leading-relaxed">
+                                Red represents immediate emotional response, spontaneity, raw chaotic impulses, and wild rebellion. By excising it, White ceases to be an emotional crusade and becomes a cold bureaucracy. Green is decoupled from raw, chaotic nature and becomes a laboratory nursery. Blue's curiosity becomes clinical and institutionalized. Black's malicious drive is completely detached from hot-headed rage, transforming into a systemic harvesting of resources over decades.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Tab: History -->
+                    <div id="content-history" class="space-y-6 hidden">
+                        <div class="border-l-2 border-gwub-teal/40 pl-4">
+                            <h4 class="font-cinzel text-lg font-bold text-gwub-bone">Origin of the Names</h4>
+                            <p class="text-sm text-slate-400 font-mono mt-1">Tracing "Witch" and "Growth" through design history.</p>
+                        </div>
+
+                        <div class="space-y-4 text-sm text-slate-300">
+                            <div class="p-4 bg-gwub-deep/55 border border-gwub-teal/15 rounded-xl">
+                                <div class="flex justify-between items-start mb-2">
+                                    <span class="font-cinzel font-bold text-teal-400">1. THE "WITCH" MONIKER (2006)</span>
+                                    <span class="text-[10px] font-mono text-slate-500">Guildpact Cycle</span>
+                                </div>
+                                <p class="text-xs text-slate-400 leading-relaxed mb-3">
+                                    Coined colloquially by the player community from <span class="text-gwub-bone font-mono">Witch-Maw Nephilim</span>, part of a unique cycle of non-legendary four-color creatures printed in the Guildpact set.
+                                </p>
+                                <div class="p-3 bg-gwub-dark/85 border-l-2 border-teal-500/30 text-xs font-mono text-slate-300 rounded">
+                                    "When it awoke, it shattered the hillsides to make way for its passage."
+                                    <span class="block text-[10px] text-slate-500 mt-1">— Flavor text, Witch-Maw Nephilim</span>
+                                </div>
+                            </div>
+
+                            <div class="p-4 bg-gwub-deep/55 border border-gwub-teal/15 rounded-xl">
+                                <div class="flex justify-between items-start mb-2">
+                                    <span class="font-cinzel font-bold text-emerald-400">2. THE "GROWTH" VECTOR (2016)</span>
+                                    <span class="text-[10px] font-mono text-slate-500">Commander 2016</span>
+                                </div>
+                                <p class="text-xs text-slate-400 leading-relaxed">
+                                    Officially coined by Wizards of the Coast as a marketing and product theme descriptor for the preconstructed deck <span class="text-gwub-bone font-mono">"Breed Lethality"</span> commanded by <span class="text-gwub-bone font-mono">Atraxa, Praetors' Voice</span>. The theme highlighted biological scaling, proliferation, and slow, crushing counter-based optimization.
+                                </p>
+                            </div>
+
+                            <div class="p-4 bg-gwub-deep/55 border border-gwub-teal/15 rounded-xl">
+                                <h5 class="text-xs font-mono text-gwub-bone tracking-wider uppercase mb-2">The Naming Paradox:</h5>
+                                <p class="text-xs text-slate-400 leading-relaxed">
+                                    Because four-color cards are incredibly rare and design-intensive, Wizards of the Coast has never formally canonized in-universe faction names for the quad-color identities (such as they did with Ravnica guilds or Tarkir clans). Thus, the playerbase balances these two descriptors depending on whether they focus on the flavor (Witch) or mechanical engine (Growth).
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tab: Mechanics -->
+                    <div id="content-mechanics" class="space-y-6 hidden">
+                        <div class="border-l-2 border-gwub-teal/40 pl-4">
+                            <h4 class="font-cinzel text-lg font-bold text-gwub-bone">Core Mechanical Patterns</h4>
+                            <p class="text-sm text-slate-400 font-mono mt-1">How systemic growth manifests on the battlefield.</p>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div class="border border-gwub-teal/10 p-4 rounded-xl bg-gwub-deep/40">
+                                <span class="text-xs font-bold text-gwub-bone font-mono flex items-center gap-1.5">
+                                    <i class="fa-solid fa-arrows-spin text-teal-400"></i> Proliferate & Scaling
+                                </span>
+                                <p class="text-xs text-slate-400 mt-1.5 leading-relaxed">
+                                    Instead of explosive outbursts, GWUB duplicates existing assets. Proliferate handles +1/+1 counters, planeswalker loyalty, charge counters, and poison counters without creating unstable kinetic reactions.
+                                </p>
+                            </div>
+
+                            <div class="border border-gwub-teal/10 p-4 rounded-xl bg-gwub-deep/40">
+                                <span class="text-xs font-bold text-gwub-bone font-mono flex items-center gap-1.5">
+                                    <i class="fa-solid fa-shield-halved text-emerald-400"></i> Keyword Conjunction
+                                </span>
+                                <p class="text-xs text-slate-400 mt-1.5 leading-relaxed">
+                                    Atraxa represents the pristine alignment of all four elements: flying (Blue), vigilance (White), lifelink (White/Black), and deathtouch (Black/Green). Together, they form an impenetrable defensive and offensive fortress.
+                                </p>
+                            </div>
+
+                            <div class="border border-gwub-teal/10 p-4 rounded-xl bg-gwub-deep/40">
+                                <span class="text-xs font-bold text-gwub-bone font-mono flex items-center gap-1.5">
+                                    <i class="fa-solid fa-mask text-purple-400"></i> The Poison/Infect Axis
+                                </span>
+                                <p class="text-xs text-slate-400 mt-1.5 leading-relaxed">
+                                    Toxic, infect, and poison counters offer the ultimate realization of patient biological victory. GWUB decks place a single poison indicator on opponents, then systematically proliferate it until systemic failure.
+                                </p>
+                            </div>
+
+                            <div class="border border-gwub-teal/10 p-4 rounded-xl bg-gwub-deep/40">
+                                <span class="text-xs font-bold text-gwub-bone font-mono flex items-center gap-1.5">
+                                    <i class="fa-solid fa-scale-balanced text-slate-300"></i> Resource Inlay (Stax)
+                                </span>
+                                <p class="text-xs text-slate-400 mt-1.5 leading-relaxed">
+                                    Because time is their ally, GWUB decks slow down the pace of the match using stax elements. They convert structural taxing into complete inevitability by out-scaling the delayed game.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Mini Radar/Comparison Chart (Custom SVG) -->
+                        <div class="border border-gwub-teal/15 p-4 rounded-xl bg-gwub-deep/50 mt-4">
+                            <h5 class="text-xs font-mono text-gwub-bone tracking-widest uppercase mb-3 text-center">4-Color Identity Comparison</h5>
+                            <div class="flex flex-col sm:flex-row items-center justify-around gap-4">
+                                <div class="w-full max-w-[200px]">
+                                    <!-- Dynamic SVG bar chart illustrating profile -->
+                                    <svg viewBox="0 0 100 80" class="w-full">
+                                        <!-- Patience -->
+                                        <text x="0" y="10" class="fill-slate-400 font-mono text-[6px]">Patience</text>
+                                        <rect x="0" y="14" width="95" height="4" class="fill-teal-500 rounded"></rect>
+                                        <!-- Structure -->
+                                        <text x="0" y="28" class="fill-slate-400 font-mono text-[6px]">Structure</text>
+                                        <rect x="0" y="32" width="85" height="4" class="fill-slate-300 rounded"></rect>
+                                        <!-- Chaos -->
+                                        <text x="0" y="46" class="fill-slate-400 font-mono text-[6px]">Chaos/Impulse</text>
+                                        <rect x="0" y="50" width="5" height="4" class="fill-red-500 rounded"></rect>
+                                        <!-- Symmetrical Scale -->
+                                        <text x="0" y="64" class="fill-slate-400 font-mono text-[6px]">Scaling</text>
+                                        <rect x="0" y="68" width="90" height="4" class="fill-emerald-500 rounded"></rect>
+                                    </svg>
+                                </div>
+                                <div class="text-[11px] font-mono text-slate-400 space-y-1">
+                                    <p class="text-teal-400"><strong class="text-gwub-bone">GWUB (Growth)</strong>: Absolute Patience & Scaling.</p>
+                                    <p class="text-slate-400"><strong class="text-gwub-bone">WUBR (Artifice)</strong>: High technology, artificial creation.</p>
+                                    <p class="text-red-400"><strong class="text-gwub-bone">UBRG (Chaos)</strong>: Wild randomness & dynamic velocity.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tab: Card Ledger -->
+                    <div id="content-taxonomy" class="space-y-6 hidden">
+                        <div class="border-l-2 border-gwub-teal/40 pl-4 flex justify-between items-center">
+                            <div>
+                                <h4 class="font-cinzel text-lg font-bold text-gwub-bone">Card Evidence Ledger</h4>
+                                <p class="text-sm text-slate-400 font-mono mt-1">Verified native GWUB designs in game history.</p>
+                            </div>
+                            <span class="text-xs font-mono text-gwub-teal">3 NATIVE CARDS FOUND</span>
+                        </div>
+
+                        <!-- Card Ledger Filter Tool -->
+                        <div class="flex gap-2">
+                            <input type="text" id="ledgerSearch" placeholder="Filter cards..." class="w-full bg-gwub-deep border border-gwub-teal/20 rounded-lg px-3 py-1.5 text-xs font-mono focus:outline-none focus:border-gwub-teal/60">
+                        </div>
+
+                        <!-- Interactive Grid/List -->
+                        <div class="space-y-4" id="ledgerContainer">
+
+                            <!-- Card 1 -->
+                            <div class="border border-gwub-teal/15 p-4 rounded-xl bg-gwub-deep/30 hover:border-gwub-teal/30 transition duration-300 card-entry" data-name="Atraxa, Praetors' Voice">
+                                <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 mb-2 pb-2 border-b border-gwub-teal/10">
+                                    <div>
+                                        <span class="font-cinzel font-bold text-gwub-bone text-base">Atraxa, Praetors' Voice</span>
+                                        <span class="block text-[10px] text-indigo-400 font-mono mt-0.5">COMMANDER 2016 // MYTHIC RARE</span>
+                                    </div>
+                                    <div class="text-xs font-mono bg-gwub-deep px-2.5 py-1 rounded border border-gwub-teal/20 text-teal-400">
+                                        GWUB
+                                    </div>
+                                </div>
+                                <p class="text-xs text-slate-300 font-mono leading-relaxed mb-3">
+                                    Flying, vigilance, deathtouch, lifelink. At the beginning of your end step, proliferate. (Choose any number of permanent and/or players with counters on them, then give each another counter of each kind already there.)
+                                </p>
+                                <div class="flex flex-wrap justify-between items-center gap-2 text-[10px] font-mono text-slate-500">
+                                    <span>Stats: 4/4 Flying Angel</span>
+                                    <a href="https://scryfall.com/card/c16/28/atraxa-praetors-voice" target="_blank" class="text-gwub-teal hover:underline flex items-center gap-1">
+                                        View on Scryfall <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <!-- Card 2 -->
+                            <div class="border border-gwub-teal/15 p-4 rounded-xl bg-gwub-deep/30 hover:border-gwub-teal/30 transition duration-300 card-entry" data-name="Witch-Maw Nephilim">
+                                <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 mb-2 pb-2 border-b border-gwub-teal/10">
+                                    <div>
+                                        <span class="font-cinzel font-bold text-gwub-bone text-base">Witch-Maw Nephilim</span>
+                                        <span class="block text-[10px] text-amber-500 font-mono mt-0.5">GUILDPACT (2006) // RARE</span>
+                                    </div>
+                                    <div class="text-xs font-mono bg-gwub-deep px-2.5 py-1 rounded border border-gwub-teal/20 text-teal-400">
+                                        GWUB
+                                    </div>
+                                </div>
+                                <p class="text-xs text-slate-300 font-mono leading-relaxed mb-3">
+                                    Whenever you cast a spell, you may put two +1/+1 counters on Witch-Maw Nephilim. Whenever Witch-Maw Nephilim attacks, if its power is 10 or greater, it has trample until end of turn.
+                                </p>
+                                <div class="flex flex-wrap justify-between items-center gap-2 text-[10px] font-mono text-slate-500">
+                                    <span>Stats: 1/1 Nephilim</span>
+                                    <a href="https://scryfall.com/card/gpt/138/witch-maw-nephilim" target="_blank" class="text-gwub-teal hover:underline flex items-center gap-1">
+                                        View on Scryfall <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <!-- Card 3 -->
+                            <div class="border border-gwub-teal/15 p-4 rounded-xl bg-gwub-deep/30 hover:border-gwub-teal/30 transition duration-300 card-entry" data-name="Atraxa, Grand Unifier">
+                                <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 mb-2 pb-2 border-b border-gwub-teal/10">
+                                    <div>
+                                        <span class="font-cinzel font-bold text-gwub-bone text-base">Atraxa, Grand Unifier</span>
+                                        <span class="block text-[10px] text-purple-400 font-mono mt-0.5">PHYREXIA: ALL WILL BE ONE (2023) // MYTHIC</span>
+                                    </div>
+                                    <div class="text-xs font-mono bg-gwub-deep px-2.5 py-1 rounded border border-gwub-teal/20 text-teal-400">
+                                        3GWUB
+                                    </div>
+                                </div>
+                                <p class="text-xs text-slate-300 font-mono leading-relaxed mb-3">
+                                    Flying, vigilance, deathtouch, lifelink. When Atraxa, Grand Unifier enters the battlefield, reveal the top ten cards of your library. For each card type, you may put a card of that type from among the revealed cards into your hand. Put the rest on the bottom of your library in a random order.
+                                </p>
+                                <div class="flex flex-wrap justify-between items-center gap-2 text-[10px] font-mono text-slate-500">
+                                    <span>Stats: 7/7 Flying Angel</span>
+                                    <a href="https://scryfall.com/card/one/196/atraxa-grand-unifier" target="_blank" class="text-gwub-teal hover:underline flex items-center gap-1">
+                                        View on Scryfall <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                                    </a>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- Tab: Dossier -->
+                    <div id="content-dossier" class="space-y-6 hidden">
+                        <div class="border-l-2 border-gwub-teal/40 pl-4">
+                            <h4 class="font-cinzel text-lg font-bold text-gwub-bone">Vox Mana Identity Dossier</h4>
+                            <p class="text-sm text-slate-400 font-mono mt-1">Polished, mythic, and analytical character sheet.</p>
+                        </div>
+
+                        <div class="space-y-5 text-sm text-slate-300">
+                            <div>
+                                <h5 class="text-xs font-mono text-gwub-teal uppercase tracking-widest mb-1.5">IDENTITY STATEMENT:</h5>
+                                <p class="font-cinzel text-base font-bold text-gwub-bone tracking-wide border-l border-teal-500/30 pl-3 italic">
+                                    "The systematic cultivation of life, structure, and ambition into an unyielding, compounding engine of absolute inevitability."
+                                </p>
+                            </div>
+
+                            <div>
+                                <h5 class="text-xs font-mono text-slate-400 uppercase tracking-widest mb-1">WORLDVIEW:</h5>
+                                <p class="leading-relaxed text-slate-300">
+                                    The cosmos is not a series of chaotic accidents, immediate emotional outbursts, or sudden, violent revolutions; it is a grand, developing equation that can be systematically solved through patience and absolute optimization. True power lies at the intersection where organic life and social structure are subjected to rigorous, intellectual refinement and fueled by a silent, uncompromising ambition. By discarding the volatile friction of immediate impulse, one can align with the slow, crushing gears of systemic evolution. Progress is achieved not by burning brightly in a brief flash of passion, but by planting the seeds of strategic advantage, protecting them with unyielding order, and allowing them to expand until they have consumed the entire horizon.
+                                </p>
+                            </div>
+
+                            <div>
+                                <h5 class="text-xs font-mono text-slate-400 uppercase tracking-widest mb-1">PLAY PATTERN:</h5>
+                                <p class="leading-relaxed text-slate-300">
+                                    In practice, this identity manifests as a defensive, highly compounding control engine that transforms the passage of time into an unstoppable weapon. The deck establishes early, quiet infrastructure—deploying taxing stax pieces, securing steady card flow, and planting the initial seeds of mechanical counters. Once these foundational components are secured, the play pattern shifts into a relentless phase of multiplication. By utilizing proliferation, incremental resource-draining, and systematic counter-stacking, the player constructs a towering, impenetrable board state. Opponents are systematically squeezed out of the game, forced to watch passive value engines turn minor investments into a massive, permanent army of towering threats, loyal planeswalkers, or creeping, inevitable poison.
+                                </p>
+                            </div>
+
+                            <div>
+                                <h5 class="text-xs font-mono text-slate-400 uppercase tracking-widest mb-1">VISUAL IDENTITY:</h5>
+                                <p class="leading-relaxed text-slate-300">
+                                    The visual representation of this worldview is defined by the marriage of clinical, sterile architecture and deep, dark, highly structured biological evolution. Scenes depict sprawling glasshouse conservatories constructed from pale, bone-white stone and polished silver, housing geometric gardens of bioluminescent, deep teal and viridian flora. Perfect, symmetrical water canals flow with dark, alchemical nutrients, feeding slow-creeping vines that wrap meticulously around structural arches to reinforce them. Cultivators dress in orderly, expressionless white porcelain masks and heavy, dark emerald vestments, pruning growth with silver surgical precision. There is a complete absence of erratic flames, jagged edges, or chaotic motion, replaced instead by the calm, twilight glow of systematic evolution.
+                                </p>
+                            </div>
+
+                            <div class="pt-4 border-t border-gwub-teal/10">
+                                <h5 class="text-xs font-mono text-gwub-bone tracking-widest uppercase mb-2">CRITICAL EXCLUSIONS (WHAT THIS IS NOT):</h5>
+                                <ul class="space-y-1.5 text-xs text-slate-400 list-disc list-inside">
+                                    <li><strong class="text-red-400">Not an aggressive combat strategy:</strong> Rejects low-to-the-ground, reckless attacking plans.</li>
+                                    <li><strong class="text-red-400">Not a chaotic spellslinger deck:</strong> No high-variance, single-turn explosive loops.</li>
+                                    <li><strong class="text-red-400">Not an emotional or heroic crusade:</strong> Decisions are entirely detached, transactional, and structured.</li>
+                                    <li><strong class="text-red-400">Not a wild preservationist cult:</strong> Seeks to domesticate, edit, and optimize nature.</li>
+                                    <li><strong class="text-red-400">Not a high-risk gamble:</strong> Eliminates random coin-flips or chaotic cascades.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Aesthetic Palette Inspirations -->
+            <div class="border border-gwub-teal/20 rounded-2xl p-5 bg-gwub-obsidian/40">
+                <h4 class="font-cinzel text-xs font-bold tracking-widest text-gwub-bone mb-3">CULTIVATED VISUAL PALETTE</h4>
+                <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 text-center">
+                    <div class="border border-emerald-500/20 p-2.5 rounded-lg bg-emerald-950/20 flex flex-col items-center">
+                        <span class="w-4 h-4 rounded-full bg-emerald-500 mb-1"></span>
+                        <span class="text-[10px] font-mono text-emerald-400">Viridian Forest</span>
+                        <span class="text-[8px] text-slate-500">Biological Growth</span>
+                    </div>
+                    <div class="border border-slate-500/20 p-2.5 rounded-lg bg-slate-900 flex flex-col items-center">
+                        <span class="w-4 h-4 rounded-full bg-slate-300 mb-1"></span>
+                        <span class="text-[10px] font-mono text-slate-300">Bone White</span>
+                        <span class="text-[8px] text-slate-500">Structural Grid</span>
+                    </div>
+                    <div class="border border-cyan-500/20 p-2.5 rounded-lg bg-cyan-950/20 flex flex-col items-center">
+                        <span class="w-4 h-4 rounded-full bg-cyan-400 mb-1"></span>
+                        <span class="text-[10px] font-mono text-cyan-400">Alchemical Teal</span>
+                        <span class="text-[8px] text-slate-500">Empirical Flow</span>
+                    </div>
+                    <div class="border border-purple-500/20 p-2.5 rounded-lg bg-purple-950/20 flex flex-col items-center">
+                        <span class="w-4 h-4 rounded-full bg-purple-800 mb-1"></span>
+                        <span class="text-[10px] font-mono text-purple-400">Obsidian Rot</span>
+                        <span class="text-[8px] text-slate-500">Dark Harvesting</span>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-gwub-teal/20 mt-12 py-6 bg-gwub-obsidian/60 text-center text-xs font-mono text-slate-500">
+        <p>THE SYSTEMIC ALTAR // VOX MANA 2026 // ADAPT AND EVOLVE DETACHED FROM PASSION</p>
+    </footer>
+
+    <!-- Three.js CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script>
+        // Tab system
+        function switchTab(tabName) {
+            const tabs = ['philosophy', 'history', 'mechanics', 'taxonomy', 'dossier'];
+            tabs.forEach(tab => {
+                const button = document.getElementById(`tab-${tab}`);
+                const content = document.getElementById(`content-${tab}`);
+                if (tab === tabName) {
+                    button.classList.add('tab-active');
+                    content.classList.remove('hidden');
+                } else {
+                    button.classList.remove('tab-active');
+                    content.classList.add('hidden');
+                }
+            });
+        }
+
+        // Card Ledger Filter system
+        const searchInput = document.getElementById('ledgerSearch');
+        searchInput.addEventListener('input', (e) => {
+            const query = e.target.value.toLowerCase();
+            const entries = document.querySelectorAll('.card-entry');
+            entries.forEach(entry => {
+                const name = entry.getAttribute('data-name').toLowerCase();
+                const text = entry.innerText.toLowerCase();
+                if (name.includes(query) || text.includes(query)) {
+                    entry.classList.remove('hidden');
+                } else {
+                    entry.classList.add('hidden');
+                }
+            });
+        });
+
+        // Interactive "Systemic Incubator" mini game logic
+        let resources = { green: 0, white: 0, blue: 0, black: 0 };
+        let volatility = 100;
+        let progress = 0;
+
+        function updateSimUI() {
+            document.getElementById('greenResource').innerText = resources.green;
+            document.getElementById('whiteResource').innerText = resources.white;
+            document.getElementById('blueResource').innerText = resources.blue;
+            document.getElementById('blackResource').innerText = resources.black;
+
+            document.getElementById('volatilityPercent').innerText = volatility + '%';
+            document.getElementById('systemicProgressText').innerText = progress + '%';
+            document.getElementById('systemicProgressBar').style.width = progress + '%';
+        }
+
+        function incubate(type) {
+            resources[type]++;
+            // Decrease volatility slightly per add
+            volatility = Math.max(0, volatility - 2);
+            // Increase base progress slightly
+            progress = Math.min(100, Math.floor((resources.green + resources.white + resources.blue + resources.black) * 2.5));
+            updateSimUI();
+
+            // Adjust Three.js variables based on interaction!
+            if (type === 'green') {
+                document.getElementById('param-growth').value = Math.min(150, parseInt(document.getElementById('param-growth').value) + 4);
+                updateParam('growth');
+            } else if (type === 'white') {
+                document.getElementById('param-structure').value = Math.min(100, parseInt(document.getElementById('param-structure').value) + 3);
+                updateParam('structure');
+            } else if (type === 'blue') {
+                document.getElementById('param-optimize').value = Math.min(200, parseInt(document.getElementById('param-optimize').value) + 5);
+                updateParam('optimize');
+            } else if (type === 'black') {
+                document.getElementById('param-ambition').value = Math.min(150, parseInt(document.getElementById('param-ambition').value) + 4);
+                updateParam('ambition');
+            }
+
+            synthFrequency(type);
+        }
+
+        function optimizeAltar() {
+            // Check for balance
+            const values = Object.values(resources);
+            const total = values.reduce((a, b) => a + b, 0);
+            if (total === 0) {
+                document.getElementById('simulationFeedback').innerText = "Vessel empty. Incubate resources first.";
+                return;
+            }
+
+            const min = Math.min(...values);
+            const max = Math.max(...values);
+            const variance = max - min;
+
+            if (variance <= 3 && total > 8) {
+                volatility = 0;
+                progress = 100;
+                document.getElementById('simulationFeedback').innerHTML = "<span class='text-emerald-400 font-bold'>SYSTEM HARMONY COMPLETED.</span> Inevitability unlocked. Impulse pruned.";
+                triggerSynthFanfare();
+            } else if (total > 0) {
+                // Approximate calculation towards stabilization
+                progress = Math.min(95, Math.floor((100 - (variance * 10)) * (total / 20)));
+                progress = Math.max(10, progress);
+                volatility = 100 - progress;
+                document.getElementById('simulationFeedback').innerText = `System imbalance detected (Variance: ${variance}). Balance all four vectors equally.`;
+            }
+            updateSimUI();
+        }
+
+        // Web Audio API Synthesizer Drone
+        let audioCtx = null;
+        let droneOsc = null;
+        let droneGain = null;
+        let synthActive = false;
+
+        function initSynth() {
+            try {
+                audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+
+                droneOsc = audioCtx.createOscillator();
+                droneGain = audioCtx.createGain();
+
+                droneOsc.type = 'triangle';
+                droneOsc.frequency.setValueAtTime(65.41, audioCtx.currentTime); // C2 (deep resonant frequency)
+
+                droneGain.gain.setValueAtTime(0.05, audioCtx.currentTime);
+
+                droneOsc.connect(droneGain);
+                droneGain.connect(audioCtx.destination);
+
+                droneOsc.start();
+                synthActive = true;
+
+                document.getElementById('soundIcon').className = 'fa-solid fa-volume-high text-gwub-teal';
+                document.getElementById('soundText').innerText = 'AMBIENT DRONE: ON';
+            } catch(e) {
+                console.error("Audio Context could not start", e);
+            }
+        }
+
+        function synthFrequency(type) {
+            if (!synthActive || !audioCtx) return;
+            // Play a localized short harmonic bell tone representing optimization
+            let freq = 220; // Default
+            if (type === 'green') freq = 164.81; // E3 (Earth/Biology)
+            if (type === 'white') freq = 220.00; // A3 (Structure/Law)
+            if (type === 'blue') freq = 293.66; // D4 (Intellect)
+            if (type === 'black') freq = 110.00; // A2 (Ambition/Depth)
+
+            const osc = audioCtx.createOscillator();
+            const gainNode = audioCtx.createGain();
+
+            osc.type = 'sine';
+            osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
+
+            gainNode.gain.setValueAtTime(0.08, audioCtx.currentTime);
+            gainNode.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 1.5);
+
+            osc.connect(gainNode);
+            gainNode.connect(audioCtx.destination);
+            osc.start();
+            osc.stop(audioCtx.currentTime + 1.6);
+        }
+
+        function triggerSynthFanfare() {
+            if (!synthActive || !audioCtx) return;
+            // Play rising chord of systemic perfection (Arpeggio)
+            const notes = [130.81, 164.81, 196.00, 246.94, 329.63]; // C minor 7 / major 7 structures
+            notes.forEach((freq, idx) => {
+                setTimeout(() => {
+                    const osc = audioCtx.createOscillator();
+                    const gainNode = audioCtx.createGain();
+                    osc.type = 'triangle';
+                    osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
+                    gainNode.gain.setValueAtTime(0.05, audioCtx.currentTime);
+                    gainNode.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 2.0);
+                    osc.connect(gainNode);
+                    gainNode.connect(audioCtx.destination);
+                    osc.start();
+                    osc.stop(audioCtx.currentTime + 2.1);
+                }, idx * 150);
+            });
+        }
+
+        const soundToggle = document.getElementById('soundToggle');
+        soundToggle.addEventListener('click', () => {
+            if (!audioCtx) {
+                initSynth();
+            } else {
+                if (audioCtx.state === 'suspended') {
+                    audioCtx.resume();
+                    document.getElementById('soundIcon').className = 'fa-solid fa-volume-high text-gwub-teal';
+                    document.getElementById('soundText').innerText = 'AMBIENT DRONE: ON';
+                    synthActive = true;
+                } else if (audioCtx.state === 'running') {
+                    audioCtx.suspend();
+                    document.getElementById('soundIcon').className = 'fa-solid fa-volume-xmark';
+                    document.getElementById('soundText').innerText = 'AMBIENT DRONE: OFF';
+                    synthActive = false;
+                }
+            }
+        });
+
+        // Parameters interactive updates
+        function updateParam(id) {
+            const val = document.getElementById(`param-${id}`).value;
+            document.getElementById(`val-${id}`).innerText = val + '%';
+
+            // Dynamic Web Audio modulating frequency on slider change
+            if (synthActive && droneOsc) {
+                const multiplier = 1 + (val / 100);
+                droneOsc.frequency.setValueAtTime(65.41 * multiplier, audioCtx.currentTime);
+            }
+        }
+
+        ['growth', 'structure', 'optimize', 'ambition'].forEach(param => {
+            document.getElementById(`param-${param}`).addEventListener('input', () => updateParam(param));
+        });
+
+        document.getElementById('resetParams').addEventListener('click', () => {
+            document.getElementById('param-growth').value = 50;
+            document.getElementById('param-structure').value = 40;
+            document.getElementById('param-optimize').value = 60;
+            document.getElementById('param-ambition').value = 75;
+            ['growth', 'structure', 'optimize', 'ambition'].forEach(param => updateParam(param));
+        });
+
+
+        // Three.js 3D Altar Implementation
+        let scene, camera, renderer, particles, column, lightRing;
+        const container = document.getElementById('canvas-container');
+
+        function init3D() {
+            // Scene Setup
+            scene = new THREE.Scene();
+            scene.fog = new THREE.FogExp2(0x070c0e, 0.05);
+
+            // Camera Setup
+            camera = new THREE.PerspectiveCamera(60, container.clientWidth / container.clientHeight, 0.1, 100);
+            camera.position.set(0, 3, 7);
+
+            // Renderer
+            renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+            renderer.setSize(container.clientWidth, container.clientHeight);
+            renderer.setPixelRatio(window.devicePixelRatio);
+            container.appendChild(renderer.domElement);
+
+            // Symmetrical Bone-White Central Altar Column
+            const columnGeo = new THREE.CylinderGeometry(0.8, 1, 6, 32);
+            const columnMat = new THREE.MeshStandardMaterial({
+                color: 0xe2e8f0,
+                roughness: 0.2,
+                metalness: 0.1,
+                bumpScale: 0.05
+            });
+            column = new THREE.Mesh(columnGeo, columnMat);
+            scene.add(column);
+
+            // Alchemical Base Ring (Symmetrical Basin)
+            const ringGeo = new THREE.CylinderGeometry(2, 2.2, 0.4, 32);
+            const ringMat = new THREE.MeshStandardMaterial({
+                color: 0x0f172a,
+                roughness: 0.8,
+                metalness: 0.9
+            });
+            const baseRing = new THREE.Mesh(ringGeo, ringMat);
+            baseRing.position.y = -3;
+            scene.add(baseRing);
+
+            // Glowing teal alchemical fluid pool in basin
+            const poolGeo = new THREE.CylinderGeometry(1.9, 1.9, 0.1, 32);
+            const poolMat = new THREE.MeshBasicMaterial({
+                color: 0x14b8a6,
+                transparent: true,
+                opacity: 0.6
+            });
+            const pool = new THREE.Mesh(poolGeo, poolMat);
+            pool.position.y = -2.8;
+            scene.add(pool);
+
+            // Lights
+            const ambientLight = new THREE.AmbientLight(0x0a1e20, 1.5);
+            scene.add(ambientLight);
+
+            const directLight = new THREE.DirectionalLight(0xe2e8f0, 2);
+            directLight.position.set(5, 10, 5);
+            scene.add(directLight);
+
+            const tealGlowLight = new THREE.PointLight(0x14b8a6, 3, 10);
+            tealGlowLight.position.set(0, -2, 0);
+            scene.add(tealGlowLight);
+
+            // Climbing Glowing Biological Particle System (Vines)
+            const pCount = 800;
+            const geom = new THREE.BufferGeometry();
+            const positions = [];
+            const colors = [];
+
+            const colorTeal = new THREE.Color(0x14b8a6);
+            const colorGreen = new THREE.Color(0x10b981);
+
+            for(let i = 0; i < pCount; i++) {
+                // Generate a helix-like crawling trajectory representing growing vines
+                const theta = (i / pCount) * Math.PI * 24; // Spiral wraps
+                const height = ((i / pCount) * 6) - 3; // Climbing y-axis from bottom to top
+
+                // Add some radial noise based on height
+                const radius = 1.1 + Math.sin(theta * 0.2) * 0.15;
+                const x = Math.cos(theta) * radius;
+                const z = Math.sin(theta) * radius;
+
+                positions.push(x, height, z);
+
+                // Blend colors green-teal
+                const mixedColor = colorTeal.clone().lerp(colorGreen, Math.random());
+                colors.push(mixedColor.r, mixedColor.g, mixedColor.b);
+            }
+
+            geom.setAttribute('position', new THREE.Float32BufferAttribute(positions, 3));
+            geom.setAttribute('color', new THREE.Float32BufferAttribute(colors, 3));
+
+            const pMaterial = new THREE.PointsMaterial({
+                size: 0.08,
+                vertexColors: true,
+                transparent: true,
+                opacity: 0.9,
+                blending: THREE.AdditiveBlending
+            });
+
+            particles = new THREE.Points(geom, pMaterial);
+            scene.add(particles);
+
+            // Interaction state variables
+            let isDragging = false;
+            let previousMousePosition = { x: 0, y: 0 };
+            let targetRotationY = 0;
+            let targetRotationX = 0;
+
+            // Desktop Mouse Controls
+            container.addEventListener('mousedown', (e) => {
+                isDragging = true;
+                previousMousePosition = { x: e.clientX, y: e.clientY };
+            });
+
+            container.addEventListener('mousemove', (e) => {
+                if (!isDragging) return;
+                const deltaMove = {
+                    x: e.clientX - previousMousePosition.x,
+                    y: e.clientY - previousMousePosition.y
+                };
+
+                targetRotationY += deltaMove.x * 0.005;
+                targetRotationX += deltaMove.y * 0.005;
+                targetRotationX = Math.max(-Math.PI / 6, Math.min(Math.PI / 3, targetRotationX)); // lock vertical axis limits
+
+                previousMousePosition = { x: e.clientX, y: e.clientY };
+            });
+
+            window.addEventListener('mouseup', () => {
+                isDragging = false;
+            });
+
+            // Touch support for responsive devices
+            container.addEventListener('touchstart', (e) => {
+                if(e.touches.length === 1) {
+                    isDragging = true;
+                    previousMousePosition = { x: e.touches[0].clientX, y: e.touches[0].clientY };
+                }
+            });
+
+            container.addEventListener('touchmove', (e) => {
+                if (!isDragging || e.touches.length !== 1) return;
+                const deltaMove = {
+                    x: e.touches[0].clientX - previousMousePosition.x,
+                    y: e.touches[0].clientY - previousMousePosition.y
+                };
+
+                targetRotationY += deltaMove.x * 0.008;
+                targetRotationX += deltaMove.y * 0.008;
+                targetRotationX = Math.max(-Math.PI / 6, Math.min(Math.PI / 3, targetRotationX));
+
+                previousMousePosition = { x: e.touches[0].clientX, y: e.touches[0].clientY };
+            });
+
+            window.addEventListener('touchend', () => {
+                isDragging = false;
+            });
+
+            // Resizing window handler
+            window.addEventListener('resize', onWindowResize);
+
+            // Animation Loop
+            let clock = new THREE.Clock();
+
+            function animate() {
+                requestAnimationFrame(animate);
+
+                const elapsed = clock.getElapsedTime();
+
+                // Pull parameters directly from DOM Sliders
+                const growthSpeed = parseInt(document.getElementById('param-growth').value) / 100;
+                const rigidity = parseInt(document.getElementById('param-structure').value) / 100;
+                const optimize = parseInt(document.getElementById('param-optimize').value) / 100;
+                const ambition = parseInt(document.getElementById('param-ambition').value) / 100;
+
+                // Animate rotating column base
+                column.rotation.y = elapsed * 0.1 * optimize;
+
+                // Modulate climbing particle system positions based on parametric sliders
+                const positionsAttr = particles.geometry.attributes.position;
+                for (let i = 0; i < pCount; i++) {
+                    const theta = (i / pCount) * Math.PI * 24 + (elapsed * growthSpeed * 0.5);
+                    const height = ((i / pCount) * 6) - 3;
+
+                    // Rigidity tightens the spiral radius towards the central column, Ambition adds dispersion wave noise
+                    const baseRadius = 1.05 + (1.0 - rigidity) * 0.4;
+                    const noise = Math.sin(theta * 0.5 + elapsed * 2) * 0.08 * ambition;
+
+                    const x = Math.cos(theta) * (baseRadius + noise);
+                    const z = Math.sin(theta) * (baseRadius + noise);
+
+                    positionsAttr.setX(i, x);
+                    positionsAttr.setY(i, height);
+                    positionsAttr.setZ(i, z);
+                }
+                positionsAttr.needsUpdate = true;
+
+                // Gentle camera orbit smoothing
+                camera.position.x += (Math.sin(targetRotationY) * 7 - camera.position.x) * 0.05;
+                camera.position.z += (Math.cos(targetRotationY) * 7 - camera.position.z) * 0.05;
+                camera.position.y += ((3 + Math.sin(targetRotationX) * 4) - camera.position.y) * 0.05;
+                camera.lookAt(0, 0, 0);
+
+                renderer.render(scene, camera);
+            }
+
+            animate();
+        }
+
+        function onWindowResize() {
+            camera.aspect = container.clientWidth / container.clientHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(container.clientWidth, container.clientHeight);
+        }
+
+        window.onload = function() {
+            init3D();
+        };
+    </script>
+</body>
+</html>

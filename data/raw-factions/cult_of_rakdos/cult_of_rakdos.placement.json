@@ -90,6 +90,27 @@
       ],
       "confidence": "Medium",
       "notes": "Question is placement-engine guidance, not canon text."
+    },
+    {
+      "question_id": "rakdos_q3",
+      "question": "When you break decorum, is it to expose a truth onstage, or only to release heat?",
+      "purpose": "Separates Rakdos theatrical truth and transgressive spectacle from generic chaos, grief, sacrifice, reckless emotion, or red-black aggression.",
+      "answer_pattern_that_supports_this_faction": "The answer treats performance, spectacle, provocation, or transgression as a way to reveal hypocrisy, intensify truth, or make restraint feel false.",
+      "answer_pattern_that_weakens_this_faction": "The answer centers grief, sacrifice, reckless anger, violence, or generic chaos without performance, spectacle, or truth-telling pressure.",
+      "related_factions_to_compare": [
+        "Golgari Swarm",
+        "Jund",
+        "Mardu Horde",
+        "Orzhov Syndicate"
+      ],
+      "claim_ids": [
+        "cult_of_rakdos_claim_001",
+        "cult_of_rakdos_claim_002",
+        "cult_of_rakdos_claim_005",
+        "cult_of_rakdos_claim_006"
+      ],
+      "confidence": "Medium",
+      "notes": "VM-344 discriminator repair; source-backed by existing official Rakdos identity, spectacle, and placement claims."
     }
   ],
   "chatbot_guidance": {

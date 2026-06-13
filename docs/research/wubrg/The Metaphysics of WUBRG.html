@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MTG Metaphysics: Guilds, Colleges, and The Void</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;800&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <!-- Chosen Palette: Warm Antiquity (Parchment, Ink, and Subtle Mana Accents) -->
+    <!-- Application Structure Plan: The application uses a lateral, tab-based navigation system to divide the massive philosophical text into its three distinct ludological structures: The Civic (Ravnica), The Academic (Strixhaven), and The Cosmic/Corrupt (The Void & Phyrexia). Within each section, a Master-Detail interactive layout is employed. Users select a specific faction/entity from a list, which dynamically populates a central reading pane and generates a corresponding ludological chart (Radar for Guilds, Bar for Colleges, Doughnut for Void). This approach prevents the user from being overwhelmed by a wall of text, encourages active exploration of each philosophy, and provides immediate visual context to the qualitative playstyle data described in the report. -->
+    <!-- Visualization & Content Choices:
+         1. Report Info: Guild Playstyles -> Goal: Compare structural attributes -> Viz: Radar Chart (Chart.js) -> Interaction: Select Guild to update -> Justification: Radar charts perfectly map the multifaceted nature of MTG strategies (Aggro, Control, Synergy, Value, Resilience). -> Library: Chart.js Canvas. NO SVG used.
+         2. Report Info: Strixhaven Dialectics -> Goal: Show tension between two opposing colors -> Viz: Grouped Bar Chart (Chart.js) -> Interaction: Select College to update -> Justification: A bar chart visually represents the 'clash' and 'synthesis' of the two opposing ideologies across game metrics. -> Library: Chart.js Canvas. NO SVG used.
+         3. Report Info: Void/Phyrexia Hierarchy -> Goal: Illustrate the branching of colorlessness -> Viz: Interactive HTML/Tailwind layout with nested data -> Interaction: Click tabs to switch between Artifacts, Eldrazi, and Phyrexia paradigms -> Justification: Text-heavy cosmic philosophy is best served by clean typographic hierarchy and state-driven reveal. -> Method: Vanilla JS DOM manipulation. NO SVG used. -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        parchment: {
+                            50: '#fbfaf8',
+                            100: '#f4f1ea',
+                            200: '#eadecf',
+                            300: '#dfcab1',
+                            400: '#d1b18e',
+                            800: '#5c452e',
+                            900: '#4b3927'
+                        },
+                        ink: '#2c2a25',
+                        mana: {
+                            w: '#f8f6d8',
+                            u: '#c1d8e9',
+                            b: '#bab1ab',
+                            r: '#e49977',
+                            g: '#a3c095',
+                            c: '#d3d3d3'
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['Cinzel', 'serif'],
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { background-color: #f4f1ea; color: #2c2a25; }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 35vh;
+            max-height: 350px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 400px;
+                max-height: 450px;
+                max-width: 600px;
+            }
+        }
+        .mana-dot { display: inline-block; width: 12px; height: 12px; border-radius: 50%; border: 1px solid #000; margin-right: 4px; }
+        .nav-btn.active { border-bottom: 2px solid #5c452e; font-weight: 600; color: #5c452e; }
+        .faction-btn.active { background-color: #eadecf; border-left: 4px solid #5c452e; font-weight: 600; }
+
+        .fade-in { animation: fadeIn 0.4s ease-in-out; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
+</head>
+<body class="font-sans antialiased min-h-screen flex flex-col">
+
+    <header class="bg-parchment-200 shadow-sm py-6 border-b border-parchment-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h1 class="text-3xl md:text-5xl font-serif font-bold text-parchment-900 tracking-wide uppercase">The Metaphysics of WUBRG</h1>
+            <p class="mt-2 text-lg text-parchment-800 max-w-3xl mx-auto">A Ludological and Philosophical Analysis of the Magic: The Gathering Color Pie</p>
+        </div>
+    </header>
+
+    <nav class="bg-parchment-100 border-b border-parchment-300 sticky top-0 z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-center space-x-8">
+                <button onclick="switchTab('intro')" id="tab-intro" class="nav-btn active py-4 px-2 text-parchment-800 hover:text-parchment-900 transition-colors">Introduction</button>
+                <button onclick="switchTab('ravnica')" id="tab-ravnica" class="nav-btn py-4 px-2 text-parchment-800 hover:text-parchment-900 transition-colors">Ravnica Guilds</button>
+                <button onclick="switchTab('strixhaven')" id="tab-strixhaven" class="nav-btn py-4 px-2 text-parchment-800 hover:text-parchment-900 transition-colors">Strixhaven Colleges</button>
+                <button onclick="switchTab('void')" id="tab-void" class="nav-btn py-4 px-2 text-parchment-800 hover:text-parchment-900 transition-colors">The Void & Phyrexia</button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 w-full">
+
+        <section id="sec-intro" class="fade-in block">
+            <div class="bg-white rounded-xl shadow-md border border-parchment-200 p-8 md:p-12 text-lg leading-relaxed space-y-6">
+                <h2 class="text-2xl font-serif font-bold text-parchment-900 mb-4 border-b pb-2">The Structural Architecture of Reality</h2>
+                <p>The structural framework of <em>Magic: The Gathering</em> is anchored in the five-color wheel—an elegant, closed-loop classification system that maps human psychology, ethics, and conflict onto competitive game systems. Known by the acronym <strong>WUBRG</strong> (White, Blue, Black, Red, Green), this system transcends mere cosmetic flavor or beginner-level archetypes.</p>
+                <p>It operates as a set of unyielding philosophical truths that govern both narrative design and mechanical play. Each color represents a distinct thesis on how the universe should function, utilizing tailored mechanics to impose its specific worldview onto the game state.</p>
+                <p>When colors merge, they don't just sit next to each other—they create an entirely new psychological profile. This application explores how these intersections manifest ludologically and philosophically across three paradigms:</p>
+                <ul class="list-disc pl-6 space-y-2 mt-4 text-parchment-800">
+                    <li><strong>Ravnica:</strong> The civic, pragmatic cooperation of colors to build and control a metropolitan civilization.</li>
+                    <li><strong>Strixhaven:</strong> The academic, ideological dialectic of opposing colors in a lifelong intellectual debate.</li>
+                    <li><strong>The Void:</strong> The terrifying metaphysics of colorlessness, artificiality, and the cosmic hunger that seeks to erase the pie entirely.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="sec-ravnica" class="fade-in hidden">
+            <div class="mb-8">
+                <h2 class="text-3xl font-serif font-bold text-parchment-900 mb-2">The 10 Guilds of Ravnica</h2>
+                <p class="text-lg text-parchment-800">This section explores where color philosophies merge to build, manage, and control a civilization. Select a guild from the directory below to analyze its core drive, emotional tone, and ludological footprint. The radar chart quantifies its playstyle across five key axes: Aggression, Control, Value (Card Draw/Ramp), Synergy, and Resilience.</p>
+            </div>
+
+            <div class="flex flex-col lg:flex-row gap-8">
+                <div class="lg:w-1/3 bg-white rounded-xl shadow-md border border-parchment-200 overflow-hidden">
+                    <div class="bg-parchment-200 px-4 py-3 border-b border-parchment-300 font-serif font-bold">Guild Directory</div>
+                    <div id="guild-list" class="flex flex-col"></div>
+                </div>
+
+                <div class="lg:w-2/3 bg-white rounded-xl shadow-md border border-parchment-200 p-6 flex flex-col">
+                    <div id="guild-content" class="flex-grow space-y-4">
+                        <h3 class="text-xl font-serif font-bold text-parchment-400 italic">Select a guild to analyze its metaphysical profile.</h3>
+                    </div>
+                    <div class="mt-8 border-t border-parchment-200 pt-6">
+                        <h4 class="text-sm uppercase tracking-widest text-parchment-800 font-bold mb-4 text-center">Ludological Footprint</h4>
+                        <div class="chart-container">
+                            <canvas id="guildChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="sec-strixhaven" class="fade-in hidden">
+            <div class="mb-8">
+                <h2 class="text-3xl font-serif font-bold text-parchment-900 mb-2">The 5 Colleges of Strixhaven</h2>
+                <p class="text-lg text-parchment-800">This section examines the academic, philosophical dialectics where enemy colors collide. Instead of blending seamlessly, these pairs argue. Select a college to explore the tension between its two ideologies. The chart visualizes how the distinct mechanics of both colors contribute to the resulting college strategy.</p>
+            </div>
+
+            <div class="flex flex-col lg:flex-row gap-8">
+                <div class="lg:w-1/3 bg-white rounded-xl shadow-md border border-parchment-200 overflow-hidden">
+                    <div class="bg-parchment-200 px-4 py-3 border-b border-parchment-300 font-serif font-bold">College Directory</div>
+                    <div id="college-list" class="flex flex-col"></div>
+                </div>
+
+                <div class="lg:w-2/3 bg-white rounded-xl shadow-md border border-parchment-200 p-6 flex flex-col">
+                    <div id="college-content" class="flex-grow space-y-4">
+                        <h3 class="text-xl font-serif font-bold text-parchment-400 italic">Select a college to review the dialectic.</h3>
+                    </div>
+                    <div class="mt-8 border-t border-parchment-200 pt-6">
+                        <h4 class="text-sm uppercase tracking-widest text-parchment-800 font-bold mb-4 text-center">Dialectical Playstyle Metrics</h4>
+                        <div class="chart-container">
+                            <canvas id="collegeChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="sec-void" class="fade-in hidden">
+            <div class="mb-8">
+                <h2 class="text-3xl font-serif font-bold text-parchment-900 mb-2">The Metaphysics of the Void</h2>
+                <p class="text-lg text-parchment-800">Colorlessness is not a sixth philosophy; it is the fundamental absence of one. If WUBRG represents human emotion, the Void represents forces that are entirely artificial, primeval, or cosmic. This section deconstructs the Machine, the Eldrazi, and the horrifying Phyrexian synthesis.</p>
+            </div>
+
+            <div class="bg-ink text-parchment-100 rounded-xl shadow-2xl overflow-hidden border border-gray-800">
+                <div class="flex border-b border-gray-700 bg-gray-900 overflow-x-auto">
+                    <button onclick="switchVoidTab('artifacts')" id="vtab-artifacts" class="px-6 py-4 font-serif font-bold hover:bg-gray-800 transition-colors whitespace-nowrap text-parchment-300 border-b-2 border-parchment-400">The Machine</button>
+                    <button onclick="switchVoidTab('eldrazi')" id="vtab-eldrazi" class="px-6 py-4 font-serif font-bold hover:bg-gray-800 transition-colors whitespace-nowrap text-gray-500 border-b-2 border-transparent">The Eldrazi</button>
+                    <button onclick="switchVoidTab('phyrexia')" id="vtab-phyrexia" class="px-6 py-4 font-serif font-bold hover:bg-gray-800 transition-colors whitespace-nowrap text-gray-500 border-b-2 border-transparent">Phyrexia</button>
+                </div>
+
+                <div class="p-8">
+                    <div id="void-artifacts" class="void-content block fade-in">
+                        <h3 class="text-2xl font-serif text-white mb-4">The Machine: Artifacts & Construct Colorlessness</h3>
+                        <p class="italic text-parchment-400 mb-6 border-l-4 border-parchment-400 pl-4">The Dialectic: Ingenuity vs. Identity. The machine operates entirely without a soul. It represents pure, unaligned utility.</p>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                            <div class="space-y-4">
+                                <p><strong>Core Drive:</strong> Efficiency, optimization, and the bypass of natural limitations.</p>
+                                <p><strong>Belief:</strong> The universe is a collection of parts waiting to be assembled. Ideology is a flaw in the design; function dictates form, and everything can be engineered.</p>
+                                <p><strong>Playstyle (Fast Mana, Combo Engines, & Voltron):</strong> Bypassing traditional color restrictions to generate immense mana, assembling interlocking pieces of a mechanical engine, or building a single, unstoppable Juggernaut covered in equipment.</p>
+                                <p><strong>Emotional Tone:</strong> Amoral, utilitarian, rhythmic, and cold.</p>
+                                <div class="bg-gray-800 p-4 rounded-lg border border-gray-700">
+                                    <p class="text-sm font-serif italic text-parchment-300">"The forge does not care who stokes the fire, only that the metal bends."</p>
+                                </div>
+                            </div>
+                            <div class="flex flex-col items-center justify-center">
+                                <div class="w-32 h-32 rounded-full border-4 border-gray-600 border-dashed flex items-center justify-center mb-4">
+                                    <span class="text-4xl text-gray-400">⚙️</span>
+                                </div>
+                                <p class="text-sm text-gray-400 text-center">Signals: Mana rocks, equipment, modular tokens, enters-tapped restrictions.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="void-eldrazi" class="void-content hidden fade-in">
+                        <h3 class="text-2xl font-serif text-white mb-4">The Cosmic: Eldrazi & Void Colorlessness</h3>
+                        <p class="italic text-purple-400 mb-6 border-l-4 border-purple-500 pl-4">The Dialectic: Reality vs. Non-Existence. This is the absolute inversion of the color pie itself. The cosmic colorless represents the vacuum that waits to swallow it all.</p>
+
+                        <div class="mb-8 space-y-2">
+                            <p><strong>Core Drive:</strong> Absolute consumption and the erasure of form.</p>
+                            <p><strong>Belief:</strong> Reality is a temporary aberration. Colors, morals, and histories are just friction on the surface of a blank canvas that must be wiped clean.</p>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                            <div class="bg-gray-800 p-4 rounded-lg border border-gray-700 hover:border-purple-500 transition-colors cursor-pointer" onclick="updateEldraziChart(0)">
+                                <h4 class="font-bold text-white mb-2">Ulamog</h4>
+                                <p class="text-xs text-gray-400 uppercase tracking-widest mb-2">The Infinite Gyre</p>
+                                <p class="text-sm text-parchment-200">Consumption. Physical destruction. Exiles permanents. Matter becomes dust.</p>
+                            </div>
+                            <div class="bg-gray-800 p-4 rounded-lg border border-gray-700 hover:border-purple-500 transition-colors cursor-pointer" onclick="updateEldraziChart(1)">
+                                <h4 class="font-bold text-white mb-2">Kozilek</h4>
+                                <p class="text-xs text-gray-400 uppercase tracking-widest mb-2">The Butcher of Truth</p>
+                                <p class="text-sm text-parchment-200">Distortion. Warping time/gravity. Mind-warping control, paradoxical card draw.</p>
+                            </div>
+                            <div class="bg-gray-800 p-4 rounded-lg border border-gray-700 hover:border-purple-500 transition-colors cursor-pointer" onclick="updateEldraziChart(2)">
+                                <h4 class="font-bold text-white mb-2">Emrakul</h4>
+                                <p class="text-xs text-gray-400 uppercase tracking-widest mb-2">The Promised End</p>
+                                <p class="text-sm text-parchment-200">Replication/Corruption. Flesh-warping mutation. Strips player autonomy.</p>
+                            </div>
+                        </div>
+
+                        <div class="mt-8 border-t border-gray-700 pt-6">
+                            <h4 class="text-sm uppercase tracking-widest text-gray-400 font-bold mb-4 text-center" id="eldrazi-chart-title">Eldrazi Ludological Threat Vectors</h4>
+                            <div class="chart-container">
+                                <canvas id="eldraziChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="void-phyrexia" class="void-content hidden fade-in">
+                        <h3 class="text-2xl font-serif text-green-500 mb-4">Phyrexia: The Synthesis of Corruption</h3>
+                        <p class="italic text-gray-400 mb-6 border-l-4 border-green-600 pl-4">Phyrexia does not want to destroy the color pie; it wants to infect, subjugate, and distort it. Forced unification through biomechanical assimilation (Compleation).</p>
+
+                        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+                            <div>
+                                <h4 class="font-bold text-white mb-2 border-b border-gray-700 pb-1">Old Phyrexia (Mono-Black)</h4>
+                                <p class="text-sm text-parchment-200">The absolute, logical extreme of Black’s philosophy: Power through ruthlessness. Viewed organic life as a flawed draft to be hollowed out and rebuilt into an optimized cybernetic army.</p>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-white mb-2 border-b border-gray-700 pb-1">The Mechanics</h4>
+                                <p class="text-sm text-parchment-200"><strong>Glistening Oil:</strong> Viral mutagen turning biology to metal.<br><strong>Phyrexian Mana:</strong> Pay 2 life instead of mana. The ultimate bargain: flesh is expendable.</p>
+                            </div>
+                        </div>
+
+                        <h4 class="font-bold text-white text-lg mb-4 text-center uppercase tracking-widest">New Phyrexia: The Twisted Color Pie</h4>
+                        <div class="grid grid-cols-1 md:grid-cols-5 gap-4">
+                            <div class="bg-gray-800 p-3 rounded border border-gray-700 text-center">
+                                <div class="w-6 h-6 mx-auto rounded-full bg-mana-w mb-2 shadow-[0_0_10px_#f8f6d8]"></div>
+                                <h5 class="text-sm font-bold text-white">Elesh Norn</h5>
+                                <p class="text-xs text-gray-400 mt-1">Order twisted into blinding religious fascism. "Unity".</p>
+                            </div>
+                            <div class="bg-gray-800 p-3 rounded border border-gray-700 text-center">
+                                <div class="w-6 h-6 mx-auto rounded-full bg-mana-u mb-2 shadow-[0_0_10px_#c1d8e9]"></div>
+                                <h5 class="text-sm font-bold text-white">Jin-Gitaxias</h5>
+                                <p class="text-xs text-gray-400 mt-1">Knowledge twisted into cold, industrial vivisection. "Data".</p>
+                            </div>
+                            <div class="bg-gray-800 p-3 rounded border border-gray-700 text-center">
+                                <div class="w-6 h-6 mx-auto rounded-full bg-mana-b mb-2 shadow-[0_0_10px_#bab1ab]"></div>
+                                <h5 class="text-sm font-bold text-white">Sheoldred</h5>
+                                <p class="text-xs text-gray-400 mt-1">Opportunity twisted into absolute social Darwinism. "Ambition".</p>
+                            </div>
+                            <div class="bg-gray-800 p-3 rounded border border-gray-700 text-center">
+                                <div class="w-6 h-6 mx-auto rounded-full bg-mana-r mb-2 shadow-[0_0_10px_#e49977]"></div>
+                                <h5 class="text-sm font-bold text-white">Urabrask</h5>
+                                <p class="text-xs text-gray-400 mt-1">Emotion twisted into isolated, aggressive industry. The systemic anomaly.</p>
+                            </div>
+                            <div class="bg-gray-800 p-3 rounded border border-gray-700 text-center">
+                                <div class="w-6 h-6 mx-auto rounded-full bg-mana-g mb-2 shadow-[0_0_10px_#a3c095]"></div>
+                                <h5 class="text-sm font-bold text-white">Vorinclex</h5>
+                                <p class="text-xs text-gray-400 mt-1">Nature twisted into pure, cybernetic apex predation. "Survival".</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-parchment-900 text-parchment-300 py-6 mt-12">
+        <div class="max-w-7xl mx-auto px-4 text-center text-sm">
+            <p>A Ludological Database built on WUBRG metaphysics. HTML/JS Canvas rendered. No SVGs.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Data Definitions
+        const colorMap = {
+            'White': { hex: '#f8f6d8', border: '#d1cda3' },
+            'Blue':  { hex: '#c1d8e9', border: '#7dafd3' },
+            'Black': { hex: '#bab1ab', border: '#6a6562' },
+            'Red':   { hex: '#e49977', border: '#c95f36' },
+            'Green': { hex: '#a3c095', border: '#5b8a47' },
+        };
+
+        const guilds = [
+            {
+                name: "Azorius Senate", colors: ["White", "Blue"],
+                drive: "Perfection through governance and absolute control.",
+                belief: "Peace and structural perfection are achieved when every action is codified, analyzed, and regulated by law. Chaos is the ultimate efficiency leak.",
+                playstyle: "Control & Stax (Pillow-Fort). Utilizing counterspells, taxing effects, detaining threats, and symmetry-breaking restrictions to slow the game.",
+                tone: "Dispassionate, bureaucratic, rigid, and clinical.",
+                vox: "The law is a flawless mirror; any deviation from it is a flaw in you.",
+                signals: "Rules-setting enchantments, 'cannot attack' modifiers, tapping/freezing mechanics.",
+                stats: [1, 9, 6, 4, 3] // Aggro, Control, Value, Synergy, Resilience
+            },
+            {
+                name: "House Dimir", colors: ["Blue", "Black"],
+                drive: "Omnipotence through the monopoly of information.",
+                belief: "Knowledge is the ultimate currency. True power is held by those who operate unseen in the shadows.",
+                playstyle: "Mill, Saboteur, & Theft. Manipulating the opponent’s deck, discarding their thoughts, and weaponizing their own resources.",
+                tone: "Paranoiac, whispered, Machiavellian, and enigmatic.",
+                vox: "You cannot protect a secret you don't even remember having.",
+                signals: "Mill mechanics, card-draw tied to combat damage, hand disruption, unblockable creatures.",
+                stats: [3, 7, 7, 5, 2]
+            },
+            {
+                name: "Cult of Rakdos", colors: ["Black", "Red"],
+                drive: "Absolute individual freedom through uninhibited hedonism and chaos.",
+                belief: "Life is short, cruel, and ultimately meaningless—therefore, one must burn as brightly, violently, and authentically as possible.",
+                playstyle: "Aggro-Sacrifice & Burn. Forcing a breakneck pace where resources are aggressively liquidated for immediate damage.",
+                tone: "Sadomasochistic, ecstatic, nihilistic, and explosive.",
+                vox: "Entertain us, or become the entertainment. Either way, there will be blood.",
+                signals: "High-power/low-toughness creatures, direct damage, sacrifice outlets.",
+                stats: [9, 2, 4, 6, 2]
+            },
+            {
+                name: "Gruul Clans", colors: ["Red", "Green"],
+                drive: "Liberation through the destruction of artificial constraints.",
+                belief: "Civilization is an unnatural cage that smothers the soul; survival of the fittest is the only honest, divine law.",
+                playstyle: "Stompy & Midrange Aggro. Deploying oversized, hasty creatures that smash through defenses.",
+                tone: "Primal, feral, righteously furious, and untamed.",
+                vox: "Your walls will crumble. Your laws will burn. The wild will reclaim it all.",
+                signals: "Trample, Haste, 'cannot be countered' clauses, anti-artifact destruction.",
+                stats: [8, 1, 5, 4, 6]
+            },
+            {
+                name: "Selesnya Conclave", colors: ["Green", "White"],
+                drive: "Harmonious unity through the erasure of the individual ego.",
+                belief: "We are all individual threads in a grand interconnected living tapestry; true peace is found in submitting to the collective.",
+                playstyle: "Go-Wide Tokens & Anthems. Creating a massive presence of small creatures that bolster one another.",
+                tone: "Serene, communal, fiercely protective, and subtly cult-like.",
+                vox: "In the Conclave, you are never alone. Out of the Conclave, you are nothing.",
+                signals: "Token generation, Anthem effects (+1/+1 to all), life gain.",
+                stats: [6, 2, 5, 9, 7]
+            },
+            {
+                name: "Orzhov Syndicate", colors: ["White", "Black"],
+                drive: "Eternal wealth and absolute dominion over life and death.",
+                belief: "Structure, ritual, and hierarchy are perfect systems, but they exist entirely to serve the self-interest of the elite.",
+                playstyle: "Bleed & Drain. Utilizing small life-drain effects, recursive spirits, and cheap removal to slowly starve opponents.",
+                tone: "Pompous, morbidly transactional, hypocritical, and solemn.",
+                vox: "Death is not an escape from your obligations; it is merely a restructuring of your debt.",
+                signals: "Life-drain (Extort), graveyard recursion, exile-based spot removal.",
+                stats: [2, 8, 5, 6, 9]
+            },
+            {
+                name: "Izzet League", colors: ["Blue", "Red"],
+                drive: "Epiphany through reckless, hyper-accelerated experimentation.",
+                belief: "Pure intellect is fueled by passion. The greatest breakthroughs happen at the intersection of genius, hazard, and chaos.",
+                playstyle: "Spellslinger & Tempo. Chaining cheap instants and sorceries to trigger explosive turns.",
+                tone: "Hyperactive, manic, brilliant, and volatile.",
+                vox: "Why test it a hundred times in a lab when we can test it once, spectacularly, in public?",
+                signals: "'Instants and sorceries matter' triggers, copy spells, impulsive card draw.",
+                stats: [5, 4, 8, 8, 2]
+            },
+            {
+                name: "Golgari Swarm", colors: ["Black", "Green"],
+                drive: "Infinite growth fueled by the inevitability of decay.",
+                belief: "Death is not an end, but the most fertile soil for new life.",
+                playstyle: "Graveyard Midrange. Treating the graveyard as an extended second hand, growing stronger as resources die.",
+                tone: "Stoic, patient, morbid, and ruthlessly utilitarian.",
+                vox: "Every empire eventually becomes our fertilizer. We can wait.",
+                signals: "Self-mill, reanimation, power/toughness tied to graveyard size.",
+                stats: [4, 4, 7, 7, 9]
+            },
+            {
+                name: "Boros Legion", colors: ["Red", "White"],
+                drive: "Justice enforced through overwhelming tactical force.",
+                belief: "True peace is a right that must be fiercely fought for; righteousness is meaningless without a sword.",
+                playstyle: "Fast, Linear Aggro. Highly synergistic, low-cost creatures that attack in disciplined battalions.",
+                tone: "Zealous, heroic, disciplined, and unyielding.",
+                vox: "Justice does not negotiate. It strikes.",
+                signals: "Combat-phase manipulation, attacking bonuses, direct red/white removal.",
+                stats: [9, 3, 2, 7, 3]
+            },
+            {
+                name: "Simic Combine", colors: ["Green", "Blue"],
+                drive: "The acceleration of evolution toward physical and magical perfection.",
+                belief: "Nature is a blueprint, but moves too slowly; we must re-engineer biology to its highest potential.",
+                playstyle: "Ramp & +1/+1 Counter Engines. Generating mana and card advantage while mutating creatures into monolithic threats.",
+                tone: "Coldly curious, adaptive, clinical, and entirely detached from morality.",
+                vox: "Why settle for the form nature gave you when tomorrow you could be something better?",
+                signals: "+1/+1 counter placement, drawing cards on enter, land ramp.",
+                stats: [5, 3, 9, 8, 6]
+            }
+        ];
+
+        const colleges = [
+            {
+                name: "Silverquill", colors: ["White", "Black"],
+                dialectic: "The Weaponization of the Word. White's community clashes with Black's dominance.",
+                drive: "Social dominance through linguistic and magical eloquence.",
+                playstyle: "Aggressive Politics & Counter-Distribution. Evasive creatures and strict choices forced on opponents.",
+                tone: "Witty, biting, elegant, and fiercely competitive.",
+                vox: "A dagger can only pierce the heart. My words can dissect your reputation for generations.",
+                signals: "Evasive creatures, +1/+1 counters paired with lose-life mechanics, political choices.",
+                stats: { labels: ["Removal", "Evasion", "Politics"], c1: [6, 4, 8], c2: [8, 3, 7] }
+            },
+            {
+                name: "Prismari", colors: ["Blue", "Red"],
+                dialectic: "Artistry vs. Element. Blue's perfectionism collides with Red's emotional expression.",
+                drive: "Flawless self-expression through grand elemental spectacles.",
+                playstyle: "Big Spells & Big Mana. Sculpting hands to cast massive cinematic sorceries.",
+                tone: "Dramatic, passionate, perfectionist, and flamboyant.",
+                vox: "If my magic doesn't take your breath away, I have failed as a mage.",
+                signals: "High-mana instants/sorceries, Treasure generation, spell-damage triggers.",
+                stats: { labels: ["Card Draw", "Direct Dmg", "Mana Gen"], c1: [9, 2, 4], c2: [4, 9, 7] }
+            },
+            {
+                name: "Witherbloom", colors: ["Black", "Green"],
+                dialectic: "The Essence of Life and Death. Black's exploitation clashes with Green's organic timeline.",
+                drive: "Mastery over the biological cycle of vitality and rot.",
+                playstyle: "Life-Gain/Loss Synergy. Gaining life as currency, sacrificing Pests to drain essence.",
+                tone: "Earthy, grim, nurturing yet morbid, and completely pragmatic.",
+                vox: "We study the swamp because the line between medicine and poison is just a matter of dosage.",
+                signals: "Token sacrifice (Pests), life gain/loss triggers, drain mechanics.",
+                stats: { labels: ["Sacrifice", "Life Gain", "Recursion"], c1: [9, 3, 8], c2: [4, 9, 6] }
+            },
+            {
+                name: "Lorehold", colors: ["Red", "White"],
+                dialectic: "Archaeology and Adventure. Red's chaotic discovery clashes with White's rigid historical order.",
+                drive: "Resurrecting the truths of history to empower the present.",
+                playstyle: "Graveyard Artifacts & Spirits. Manipulating cards leaving the graveyard.",
+                tone: "Adventurous, scholarly, enthusiastic, and reverent.",
+                vox: "Do not just read history. Call it forth to fight by your side.",
+                signals: "Leaves graveyard triggers, Spirit tokens, historic synergies.",
+                stats: { labels: ["Aggression", "Recursion", "Artifacts"], c1: [8, 5, 7], c2: [6, 6, 8] }
+            },
+            {
+                name: "Quandrix", colors: ["Green", "Blue"],
+                dialectic: "Numerology and Nature. Green's mass/growth clashes with Blue's abstract math.",
+                drive: "Unlocking the mathematical equations that govern the multiverse.",
+                playstyle: "Math-Scaling & Token Multiplication. Fractal tokens and massive thresholds.",
+                tone: "Intellectual, abstract, fascinated, and calculating.",
+                vox: "Reality is just a rough draft. Math is the underlying truth.",
+                signals: "Fractal tokens, variable power/toughness, land-count thresholds.",
+                stats: { labels: ["Scaling Power", "Ramp", "Card Adv."], c1: [9, 8, 4], c2: [5, 4, 9] }
+            }
+        ];
+
+        const eldraziStats = [
+            { name: "Ulamog", label: "Consumption", stats: [10, 2, 2], colors: ['rgba(200,200,200,0.8)', '#333', '#333'] },
+            { name: "Kozilek", label: "Distortion", stats: [2, 10, 2], colors: ['#333', 'rgba(150,100,200,0.8)', '#333'] },
+            { name: "Emrakul", label: "Corruption", stats: [2, 2, 10], colors: ['#333', '#333', 'rgba(250,100,150,0.8)'] }
+        ];
+
+        // State & Instances
+        let guildChartInst = null;
+        let collegeChartInst = null;
+        let eldraziChartInst = null;
+
+        // Navigation
+        function switchTab(tabId) {
+            document.querySelectorAll('section').forEach(sec => sec.classList.add('hidden'));
+            document.getElementById(`sec-${tabId}`).classList.remove('hidden');
+
+            document.querySelectorAll('.nav-btn').forEach(btn => btn.classList.remove('active'));
+            document.getElementById(`tab-${tabId}`).classList.add('active');
+
+            // Initial renders if needed
+            if(tabId === 'ravnica' && !guildChartInst) selectGuild(0);
+            if(tabId === 'strixhaven' && !collegeChartInst) selectCollege(0);
+            if(tabId === 'void' && !eldraziChartInst) updateEldraziChart(0);
+        }
+
+        function switchVoidTab(tabId) {
+            document.querySelectorAll('.void-content').forEach(el => el.classList.add('hidden'));
+            document.getElementById(`void-${tabId}`).classList.remove('hidden');
+
+            ['artifacts', 'eldrazi', 'phyrexia'].forEach(t => {
+                let btn = document.getElementById(`vtab-${t}`);
+                if(t === tabId) {
+                    btn.classList.add('text-parchment-300', 'border-parchment-400');
+                    btn.classList.remove('text-gray-500', 'border-transparent');
+                } else {
+                    btn.classList.remove('text-parchment-300', 'border-parchment-400');
+                    btn.classList.add('text-gray-500', 'border-transparent');
+                }
+            });
+        }
+
+        // DOM Population
+        function initApp() {
+            // Populate Guild List
+            const guildListContainer = document.getElementById('guild-list');
+            guilds.forEach((g, idx) => {
+                let btn = document.createElement('button');
+                btn.className = 'faction-btn text-left px-4 py-3 border-b border-parchment-200 hover:bg-parchment-100 transition-colors flex items-center';
+                btn.onclick = () => selectGuild(idx);
+                btn.id = `g-btn-${idx}`;
+
+                let dots = g.colors.map(c => `<span class="mana-dot" style="background-color: ${colorMap[c].hex}"></span>`).join('');
+                btn.innerHTML = `<div class="w-12">${dots}</div> <span>${g.name}</span>`;
+                guildListContainer.appendChild(btn);
+            });
+
+            // Populate College List
+            const collegeListContainer = document.getElementById('college-list');
+            colleges.forEach((c, idx) => {
+                let btn = document.createElement('button');
+                btn.className = 'faction-btn text-left px-4 py-3 border-b border-parchment-200 hover:bg-parchment-100 transition-colors flex items-center';
+                btn.onclick = () => selectCollege(idx);
+                btn.id = `c-btn-${idx}`;
+
+                let dots = c.colors.map(co => `<span class="mana-dot" style="background-color: ${colorMap[co].hex}"></span>`).join('');
+                btn.innerHTML = `<div class="w-12">${dots}</div> <span>${c.name}</span>`;
+                collegeListContainer.appendChild(btn);
+            });
+
+            // Set defaults config for Chart.js
+            Chart.defaults.font.family = 'Inter, sans-serif';
+            Chart.defaults.color = '#5c452e';
+        }
+
+        function selectGuild(idx) {
+            document.querySelectorAll('#guild-list .faction-btn').forEach(btn => btn.classList.remove('active'));
+            document.getElementById(`g-btn-${idx}`).classList.add('active');
+
+            const g = guilds[idx];
+            const content = `
+                <div class="flex items-center mb-2">
+                    ${g.colors.map(c => `<span class="w-4 h-4 rounded-full border border-gray-600 mr-2 shadow-sm" style="background-color: ${colorMap[c].hex}"></span>`).join('')}
+                    <h3 class="text-2xl font-serif font-bold text-parchment-900">${g.name}</h3>
+                </div>
+                <p class="text-sm uppercase tracking-widest text-parchment-800 font-bold mb-4">${g.colors.join(' / ')}</p>
+                <div class="space-y-3 text-parchment-900">
+                    <p><strong>Core Drive:</strong> ${g.drive}</p>
+                    <p><strong>Belief:</strong> ${g.belief}</p>
+                    <p><strong>Playstyle:</strong> ${g.playstyle}</p>
+                    <p><strong>Emotional Tone:</strong> ${g.tone}</p>
+                    <div class="bg-parchment-100 p-4 rounded-lg border border-parchment-300 italic text-parchment-800 my-4 shadow-inner">
+                        "${g.vox}"
+                    </div>
+                    <p class="text-sm"><strong>Key Signals:</strong> ${g.signals}</p>
+                </div>
+            `;
+            document.getElementById('guild-content').innerHTML = content;
+
+            // Render Chart
+            const ctx = document.getElementById('guildChart').getContext('2d');
+            if (guildChartInst) guildChartInst.destroy();
+
+            let colorHex = colorMap[g.colors[0]].hex;
+            let borderColor = colorMap[g.colors[0]].border;
+
+            guildChartInst = new Chart(ctx, {
+                type: 'radar',
+                data: {
+                    labels: ['Aggression', 'Control', 'Value (Card Draw/Ramp)', 'Synergy', 'Resilience'],
+                    datasets: [{
+                        label: `${g.name} Mechanics`,
+                        data: g.stats,
+                        backgroundColor: `${colorHex}88`,
+                        borderColor: borderColor,
+                        pointBackgroundColor: colorMap[g.colors[1]].hex,
+                        pointBorderColor: '#000',
+                        borderWidth: 2
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        r: {
+                            angleLines: { color: 'rgba(92, 69, 46, 0.2)' },
+                            grid: { color: 'rgba(92, 69, 46, 0.2)' },
+                            pointLabels: { font: { size: 11, weight: 'bold' } },
+                            ticks: { display: false, min: 0, max: 10 }
+                        }
+                    },
+                    plugins: { legend: { display: false } }
+                }
+            });
+        }
+
+        function selectCollege(idx) {
+            document.querySelectorAll('#college-list .faction-btn').forEach(btn => btn.classList.remove('active'));
+            document.getElementById(`c-btn-${idx}`).classList.add('active');
+
+            const c = colleges[idx];
+            const content = `
+                <div class="flex items-center mb-2">
+                    ${c.colors.map(co => `<span class="w-4 h-4 rounded-full border border-gray-600 mr-2 shadow-sm" style="background-color: ${colorMap[co].hex}"></span>`).join('')}
+                    <h3 class="text-2xl font-serif font-bold text-parchment-900">${c.name}</h3>
+                </div>
+                <p class="text-sm uppercase tracking-widest text-parchment-800 font-bold mb-4">${c.colors.join(' vs ')}</p>
+
+                <div class="bg-parchment-200 border-l-4 border-parchment-800 p-3 mb-4 text-parchment-900 italic text-sm">
+                    <strong>The Dialectic:</strong> ${c.dialectic}
+                </div>
+
+                <div class="space-y-3 text-parchment-900">
+                    <p><strong>Core Drive:</strong> ${c.drive}</p>
+                    <p><strong>Playstyle:</strong> ${c.playstyle}</p>
+                    <p><strong>Emotional Tone:</strong> ${c.tone}</p>
+                    <div class="bg-parchment-100 p-4 rounded-lg border border-parchment-300 italic text-parchment-800 my-4 shadow-inner">
+                        "${c.vox}"
+                    </div>
+                </div>
+            `;
+            document.getElementById('college-content').innerHTML = content;
+
+            // Render Chart
+            const ctx = document.getElementById('collegeChart').getContext('2d');
+            if (collegeChartInst) collegeChartInst.destroy();
+
+            collegeChartInst = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: c.stats.labels,
+                    datasets: [
+                        {
+                            label: `${c.colors[0]} Influence`,
+                            data: c.stats.c1,
+                            backgroundColor: colorMap[c.colors[0]].hex,
+                            borderColor: colorMap[c.colors[0]].border,
+                            borderWidth: 1
+                        },
+                        {
+                            label: `${c.colors[1]} Influence`,
+                            data: c.stats.c2,
+                            backgroundColor: colorMap[c.colors[1]].hex,
+                            borderColor: colorMap[c.colors[1]].border,
+                            borderWidth: 1
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: { beginAtZero: true, max: 10, grid: { color: 'rgba(92, 69, 46, 0.1)' } },
+                        x: { grid: { display: false } }
+                    },
+                    plugins: {
+                        legend: { position: 'bottom' }
+                    }
+                }
+            });
+        }
+
+        function updateEldraziChart(idx) {
+            const data = eldraziStats[idx];
+            document.getElementById('eldrazi-chart-title').innerText = `${data.name} - ${data.label} Vector`;
+
+            const ctx = document.getElementById('eldraziChart').getContext('2d');
+            Chart.defaults.color = '#9ca3af'; // light text for dark mode chart
+
+            if (eldraziChartInst) eldraziChartInst.destroy();
+
+            eldraziChartInst = new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Consumption', 'Distortion', 'Corruption'],
+                    datasets: [{
+                        data: data.stats,
+                        backgroundColor: data.colors,
+                        borderColor: '#1f2937', // gray-800 matching background
+                        borderWidth: 2
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    cutout: '70%',
+                    plugins: {
+                        legend: { position: 'right', labels: { color: '#d1d5db' } }
+                    }
+                }
+            });
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            initApp();
+        });
+
+    </script>
+</body>
+</html>

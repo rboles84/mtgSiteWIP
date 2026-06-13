@@ -1,17 +1,17 @@
 # Temur Seed Source Crosscheck
 
-Status: VM-203 post-rename source-drop audit. Temur remains non-live.
+Status: VM-203 post-rename source-drop audit with later folder consolidation. Temur remains non-live.
 
 ## Scope
 
-VM-203 corrected the restored unmanaged Temur source-drop typo path and copied the three seed artifacts into the approved source packet without editing their contents.
+VM-203 corrected the restored unmanaged Temur source-drop typo path and copied the three seed artifacts into the approved source packet without editing their contents. A later Temur research folder consolidation verified the duplicate files byte-identical to the canonical copies, removed the duplicates, and left `docs/research/temur frontier/` as a tombstone redirect.
 
 ## Path Correction
 
 | Item | Path | VM-203 Result |
 |---|---|---|
 | Pre-VM-203 typo path | `docs/research/temur fontier/` | Existed before rename. |
-| Corrected unmanaged source-drop path | `docs/research/temur frontier/` | Created by renaming the typo path. Remains unmanaged source drop. |
+| Former restored source-drop path | `docs/research/temur frontier/` | Created by renaming the typo path. Now retained only as a tombstone redirect after consolidation. |
 | Approved packet root | `docs/research/temur/` | Created by VM-203. |
 
 ## Required Path Guards
@@ -28,13 +28,13 @@ VM-203 corrected the restored unmanaged Temur source-drop typo path and copied t
 
 ## Copied Seed Artifacts
 
-VM-203 copied, not moved, these files from the corrected source-drop path into `docs/research/temur/source-material/`. The copied hashes match the corrected source-drop originals.
+VM-203 copied, not moved, these files from the corrected source-drop path into `docs/research/temur/source-material/`. During folder consolidation, the duplicate files were re-verified byte-identical to the canonical copies and removed from the former source-drop path.
 
-| Corrected Source Drop Path | Approved Packet Copy | SHA-256 | Result |
+| Former Source Drop Path | Approved Packet Copy | SHA-256 | Result |
 |---|---|---|---|
-| `docs/research/temur frontier/Temur Frontier Research Report.md` | `docs/research/temur/source-material/Temur Frontier Research Report.md` | `215CDA892F4D4AA4DB437B5972588A2444484B25B4F73EB3AD5F8B4492DCC879` | Byte-identical copy. |
-| `docs/research/temur frontier/temur-frontier-lore-source-packet.md` | `docs/research/temur/source-material/temur-frontier-lore-source-packet.md` | `A412912DF55FFE20F3F74D26D84FC101E6FC02CEC11E7981264D5E5F0D9D1BA2` | Byte-identical copy. |
-| `docs/research/temur frontier/temur_research_report.html` | `docs/research/temur/source-material/temur_research_report.html` | `7A0D0A91B6499654033193853034C6CC256562DDC210BDB5945B99E4A1FAC1E9` | Byte-identical copy. |
+| `docs/research/temur frontier/Temur Frontier Research Report.md` | `docs/research/temur/source-material/Temur Frontier Research Report.md` | `2797D4A7656DCF5471B2BD3CF74D00A3067E172F6E8E5D8B69F32E73D12436A6` | Canonical copy verified; duplicate removed after byte-identical check. |
+| `docs/research/temur frontier/temur-frontier-lore-source-packet.md` | `docs/research/temur/source-material/temur-frontier-lore-source-packet.md` | `A412912DF55FFE20F3F74D26D84FC101E6FC02CEC11E7981264D5E5F0D9D1BA2` | Canonical copy verified; duplicate removed after byte-identical check. |
+| `docs/research/temur frontier/temur_research_report.html` | `docs/research/temur/source-material/temur_research_report.html` | `829955B9D0AFD5838DEAD2E8C12C27EC1264E322890395364F83940034428D8F` | Canonical copy verified; duplicate removed after byte-identical check. |
 
 ## Source Crosscheck
 
@@ -56,4 +56,4 @@ VM-203 promoted only local, inspected sources that either identify themselves as
 
 ## Result
 
-No seed artifact was edited during VM-203. The corrected unmanaged source-drop path and the approved copied packet paths are recorded above. The approved Temur packet is conservative relative to the seed folder: it promotes only local official captures already present in the repo and leaves seed-only mechanics, card facts, community interpretation, and uncaptured story details in `Manual fill required` or `Support-only` territory.
+No seed artifact was edited during VM-203 or during folder consolidation. The former source-drop path and the approved canonical packet paths are recorded above. The approved Temur packet is conservative relative to the seed artifacts: it promotes only local official captures already present in the repo and leaves seed-only mechanics, card facts, community interpretation, and uncaptured story details in `Manual fill required` or `Support-only` territory.

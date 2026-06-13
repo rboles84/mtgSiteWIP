@@ -3,18 +3,25 @@ import { existsSync } from "node:fs";
 import { readFile } from "node:fs/promises";
 
 import {
+  buildHeroNarrative,
+  buildReadingSignalCopy,
   buildTagExplanationSummaries,
   presentationForFaction,
   selectReadingTagRefs,
 } from "../assets/js/archscry-presentation.js";
 import {
+  auditCommanderDossier,
+  buildCommanderDeckStartFallbackCandidates,
   buildCommanderDossier,
+  buildCommanderDirectoryLinks,
   buildCommanderLandRecommendations,
+  buildPlayPatternSummary,
   buildReadingOmens,
   buildPreconRecommendations,
   collectCommanderPreviewCandidates,
   createArchidektTagCatalog,
   getCommanderFactionGuidance,
+  getExternalDeckRoutingAlias,
   hasRenderableLandTier,
   renderCommanderDossierText,
   selectPreconPreviewRecommendations,
@@ -35,6 +42,61 @@ const preconCatalog = JSON.parse(await readFile(new URL("../data/precons/vox-man
 const preconThemeTaxonomy = JSON.parse(await readFile(new URL("../data/taxonomy/vox-mana-precon-themes.json", import.meta.url), "utf8"));
 const deckTagData = JSON.parse(await readFile(new URL("../data/deck-tags_expanded.json", import.meta.url), "utf8"));
 const deckTagCatalog = createArchidektTagCatalog(deckTagData);
+const fourColorRawIds = ["yore", "glint", "dune", "ink", "witch"];
+const fourColorRawPackets = {};
+for (const rawId of fourColorRawIds) {
+  fourColorRawPackets[rawId] = {
+    claims: JSON.parse(await readFile(new URL(`../data/raw-factions/${rawId}/${rawId}.claims.json`, import.meta.url), "utf8")),
+    sources: JSON.parse(await readFile(new URL(`../data/raw-factions/${rawId}/${rawId}.sources.json`, import.meta.url), "utf8")),
+    profile: JSON.parse(await readFile(new URL(`../data/raw-factions/${rawId}/${rawId}.profile.json`, import.meta.url), "utf8")),
+    placement: JSON.parse(await readFile(new URL(`../data/raw-factions/${rawId}/${rawId}.placement.json`, import.meta.url), "utf8")),
+  };
+}
+const vm348AllowedSourceRoles = new Set(["claim-bearing", "support-only", "shaping-only", "discovery-only"]);
+Object.entries(fourColorRawPackets).forEach(([rawId, packet]) => {
+  assert.equal(packet.claims.claims.length, 5, `${rawId} should keep the VM-348 five-claim floor`);
+  (packet.sources.sources || []).forEach((source) => {
+    assert.ok(
+      vm348AllowedSourceRoles.has(source.source_role),
+      `${rawId} source ${source.source_id} has nonstandard source_role ${source.source_role}`
+    );
+  });
+  assert.equal(
+    packet.profile.commander_compass?.review_status,
+    "support_only_live_pilot_curation",
+    `${rawId} should carry support-only Commander Compass raw curation`
+  );
+  assert.ok(
+    (packet.placement.collision_guidance?.pairs || []).every((entry) => entry.lateral_inhibition === false),
+    `${rawId} VM-348 ring collision pairs should avoid broad lateral inhibition`
+  );
+});
+
+const nonLoreholdCollegeKeys = ["PRISMARI", "QUANDRIX", "SILVERQUILL", "WITHERBLOOM"];
+nonLoreholdCollegeKeys.forEach((key) => {
+  const faction = factionsData.factions[key];
+  assert.ok(faction, `expected ${key} to exist in generated faction data`);
+  assert.ok(!faction.raw_enrichment, `expected ${key} raw enrichment to stay suppressed until source-matrix backed`);
+  assert.ok(!faction.commander_compass, `expected ${key} Commander Compass to stay suppressed until Commander/product rows are approved`);
+  assert.ok(!Array.isArray(faction.deck_links) || faction.deck_links.length === 0, `expected ${key} deck links to stay suppressed until source-backed`);
+  assert.deepEqual(Object.keys(faction.research_links || {}), [], `expected ${key} research links to stay suppressed until source-backed`);
+});
+
+["MARDU", "JESKAI"].forEach((key) => {
+  const faction = factionsData.factions[key];
+  assert.ok(faction.commander_compass?.link_targets, `expected ${key} to preserve support-only Compass link targets`);
+  assert.ok(!Array.isArray(faction.deck_links) || faction.deck_links.length === 0, `expected ${key} top-level deck links to stay absent until approved`);
+  assert.deepEqual(Object.keys(faction.research_links || {}), [], `expected ${key} top-level research links to stay absent until approved`);
+});
+
+["ABZAN", "TEMUR", "SULTAI"].forEach((key) => {
+  assert.ok(!factionsData.factions[key].commander_compass, `expected ${key} public Commander Compass to stay absent until approved`);
+});
+
+["YORE", "GLINT", "DUNE", "INK", "WITCH"].forEach((key) => {
+  const flavorAnchors = factionsData.factions[key].raw_enrichment?.canonical_flavor_text || [];
+  assert.equal(flavorAnchors.length, 0, `expected ${key} four-color flavor anchors to remain absent until source-backed`);
+});
 
 globalThis.VM_SESSION = { profile: null, username: "" };
 globalThis.window = {
@@ -75,6 +137,9 @@ const {
   identityMetaLabelForDisplay,
   selectCuratedFlavorEchoesForFaction,
 } = await import("../assets/js/index.js");
+const {
+  renderDossierRadarSection,
+} = await import("../assets/js/dossier-radar.js");
 
 const snapshotStart = indexSource.indexOf("function buildPlacementSnapshotHtml");
 const snapshotEnd = indexSource.indexOf("function normalizeDossierSegment", snapshotStart);
@@ -95,15 +160,19 @@ const preconRendererStart = indexSource.indexOf("function buildPreconLinks");
 const preconRendererEnd = indexSource.indexOf("function writeArchscryDossierHandoff", preconRendererStart);
 const preconRendererSource = indexSource.slice(preconRendererStart, preconRendererEnd);
 
-assert.match(indexSource, /Open Start Here first/, "expected the placement snapshot to orient new readers toward Start Here first");
 assert.match(indexSource, /Belief/, "expected Layered Identity to start with a Belief card");
 assert.match(indexSource, /Tension/, "expected Layered Identity to include a Tension card");
 assert.match(indexSource, /Self-Check/, "expected Layered Identity to include a Self-Check card");
 assert.match(indexSource, /identity-story-card--belief/, "expected Belief to be the weighted primary identity card");
 assert.doesNotMatch(indexSource, /identity-expression-glyph|formatPurity|Color focus|Pending color calibration|<div class="starter-title">Color Focus<\/div>/, "expected expression glyph and percentage-style copy to be removed from Layered Identity");
 assert.match(indexSource, /What This Looks Like In Cards/, "expected Flavor Echoes to be renamed for new players");
-assert.match(indexSource, /How this usually starts/, "expected the snapshot to expose a newcomer-facing commander starting cue");
-assert.doesNotMatch(snapshotSource, /commanderLane\.title/, "expected the placement snapshot to stop using commanderLane.title directly");
+assert.match(snapshotSource, /Adjacent fit/, "expected the result summary strip to render the adjacent-fit card");
+assert.match(snapshotSource, /Where this leads/, "expected the result summary strip to render the Commander-direction card");
+assert.match(snapshotSource, /Play pattern/, "expected the result summary strip to render the table-behavior card");
+assert.match(snapshotSource, /resultSummaryStrip/, "expected the renderer to consume the dossier resultSummaryStrip contract");
+assert.match(indexSource, /data-summary-tags-row/, "expected the result summary strip to expose a stable tag-row hook");
+assert.doesNotMatch(snapshotSource, /Current fit|First stop|How this usually starts/, "expected the old four-card snapshot labels to be removed");
+assert.doesNotMatch(snapshotSource, /buildManaPipsHtml|getColorIdentity|colorIdentityNames|commanderStartSnapshotCopy|<button|buildActionAttrs|Open Start Here/, "expected the renderer to avoid raw strip selection/copy helpers, compact identity display, and CTA rendering");
 assert.match(indexSource, /Signals From Your Answers/, "expected Reading Omens to be renamed for new players");
 assert.match(indexSource, /Commander Lanes/, "expected Playstyle Archetypes to be renamed Commander Lanes");
 assert.match(indexSource, /precons\/vox-mana-precon-catalog\.json/, "expected Archscry to load the generated precon catalog");
@@ -120,10 +189,13 @@ assert.match(preconRendererSource, /Display other \$\{remainingCount\}/, "expect
 assert.match(preconRendererSource, /Show first \$\{preview\.visible\.length\} precons/, "expected overflow control to swap back to the first visible precons");
 assert.match(preconRendererSource, /toggle-precon-preview/, "expected precon reveal controls to use the shared Archscry action handler");
 assert.match(preconRendererSource, /data-precon-preview-grid="remaining" hidden/, "expected remaining precons to render as a hidden swappable grid");
+assert.match(preconRendererSource, /recommendedForOverride \|\| precon\?\.recommendationProfile\?\.recommendedFor/, "expected compact precon cards to honor dossier-local recommended-for overrides before raw catalog copy");
 assert.match(indexSource, /function togglePreconPreview/, "expected precon reveal to toggle in place without rerendering the dossier");
 assert.match(preconRendererSource, /No validated precon recommendations are available for this dossier yet/, "expected compact precon empty state copy");
 assert.doesNotMatch(preconRendererSource, /Skip if|precons=1|#precons|Full precon browsing can be added later/, "expected compact precons to avoid bulky skip blocks, Apocrypha routing, and dead-end overflow copy");
 assert.doesNotMatch(preconRendererSource, /renderResult\(activeViewKey\)|setPreconPreviewExpanded/, "expected precon reveal toggles to avoid full dossier rerenders and scroll jumps");
+assert.match(indexSource, /and the frontier still widens/, "expected the Archscry frontier footer to use the truthful widened-frontier copy");
+assert.doesNotMatch(indexSource, /ten Ravnican guilds, five Strixhaven colleges, and one mono color path|ten Ravnican guilds, five Strixhaven colleges, and \$\{activeMonoCount\} mono color paths|ten Ravnican guilds and five Strixhaven colleges/, "expected the stale partial subgroup math footer variants to stay out of the live Archscry page");
 assert.match(indexSource, /data-dossier-utility-actions/, "expected focus-mode utility actions to be rendered");
 assert.match(indexSource, /window\.confirm\(confirmMessage\)/, "expected retake to require confirmation through the shared handler");
 assert.doesNotMatch(indexSource, /signal-technical/, "expected standalone signal-technical copy to be removed from live output");
@@ -143,11 +215,15 @@ assert.doesNotMatch(radarSource, /dossierDatasetPills/, "expected the lower doss
 assert.doesNotMatch(radarSource, /dossierTierLabels|tierLabels/, "expected radar tier labels to be removed from the live dossier chart");
 assert.doesNotMatch(radarSource, /vm-faction-signal-panel/, "expected the decorative faction signal companion panel to be removed");
 assert.match(radarSource, /Cards That Sound Like This/, "expected the radar companion area to render card flavor voices");
+assert.match(radarSource, /COLORLESS/, "expected the radar companion area to branch Colorless away from duplicated card voices");
+assert.match(radarSource, /Colorless Matrix Boundary/, "expected Colorless radar companion copy to explain the card-example boundary");
 assert.match(radarSource, /data-archscry-card-voices/, "expected card voices to expose a stable data hook");
 assert.match(radarSource, /not a raw mana-score ledger/, "expected the matrix note to describe the authored profile source");
 assert.match(archscryCssSource, /card-preview-overlay/, "expected starter and land cards to use an unclipped preview overlay");
 assert.match(archscryCssSource, /precon-grid\.is-compact/, "expected Archscry CSS to style the compact precon preview grid");
 assert.match(archscryCssSource, /precon-grid\.is-compact\[hidden\]\s*\{\s*display:\s*none/, "expected hidden precon preview grids to remain visually hidden despite compact grid display styles");
+assert.match(archscryCssSource, /grid-template-columns:\s*minmax\(0,\s*25fr\)\s*minmax\(0,\s*45fr\)\s*minmax\(0,\s*30fr\)/, "expected the result summary strip to use the weighted three-card desktop layout");
+assert.match(archscryCssSource, /\.dossier-snapshot-tags\[hidden\]\s*\{\s*display:\s*none/, "expected empty result-summary tag rows to stay visually hidden");
 assert.match(archscryCssSource, /precon-badge\.is-native/, "expected Archscry CSS to distinguish native-fit precon badges");
 assert.match(archscryCssSource, /precon-reveal-btn/, "expected Archscry CSS to style the reveal remaining precons control");
 assert.doesNotMatch(archscryCssSource, /\.staple-img:hover\{[^}]*transform:scale\(3\)/, "expected starter card hover to stop scaling inside clipped panels");
@@ -276,9 +352,39 @@ function assertManaBaseResolvesWithinIdentity(key) {
 
 const currentFactionKeys = Object.keys(factionsData.factions || {});
 const expectedFactionCount = factionsData._meta?.factions;
-const livePilotKeys = ["BANT", "ESPER", "GRIXIS", "JUND", "NAYA", "ABZAN", "TEMUR", "SULTAI", "MARDU", "JESKAI"];
-const blockedColorCodes = ["WUG", "WUB", "UBR", "BRG", "RGW", "WBG", "WGB", "BWG", "BGW", "GWB", "GBW", "GUR", "GRU", "UGR", "URG", "RGU", "RUG", "BGU", "BUG", "UBG", "UGB", "GBU", "GUB", "RWB", "RBW", "WRB", "WBR", "BRW", "BWR", "URW", "WUR", "RWU", "UWR", "RUW", "WRU"];
-assert.equal(expectedFactionCount, 30, "expected Archscry faction metadata to include the Bant, Esper, Grixis, Jund, Naya, Abzan, Temur, Sultai, Mardu, and Jeskai pilots");
+const livePilotKeys = ["BANT", "ESPER", "GRIXIS", "JUND", "NAYA", "ABZAN", "TEMUR", "SULTAI", "MARDU", "JESKAI", "YORE", "GLINT", "DUNE", "INK", "WITCH", "COLORLESS"];
+const wubrPermutations = ["WUBR", "WURB", "WBUR", "WBRU", "WRUB", "WRBU", "UWBR", "UWRB", "UBWR", "UBRW", "URWB", "URBW", "BWUR", "BWRU", "BUWR", "BURW", "BRWU", "BRUW", "RWUB", "RWBU", "RUWB", "RUBW", "RBWU", "RBUW"];
+const ubrgPermutations = ["UBRG", "UBGR", "URBG", "URGB", "UGBR", "UGRB", "BURG", "BUGR", "BRUG", "BRGU", "BGUR", "BGRU", "RUBG", "RUGB", "RBUG", "RBGU", "RGUB", "RGBU", "GUBR", "GURB", "GBUR", "GBRU", "GRUB", "GRBU"];
+const brgwPermutations = ["BRGW", "BRWG", "BGRW", "BGWR", "BWRG", "BWGR", "RBGW", "RBWG", "RGBW", "RGWB", "RWBG", "RWGB", "GBRW", "GBWR", "GRBW", "GRWB", "GWBR", "GWRB", "WBRG", "WBGR", "WRBG", "WRGB", "WGBR", "WGRB"];
+const rgwuPermutations = ["RGWU", "RGUW", "RWGU", "RWUG", "RUGW", "RUWG", "GRWU", "GRUW", "GWRU", "GWUR", "GURW", "GUWR", "WRGU", "WRUG", "WGRU", "WGUR", "WURG", "WUGR", "URGW", "URWG", "UGRW", "UGWR", "UWRG", "UWGR"];
+const gwubPermutations = ["GWUB", "GWBU", "GUWB", "GUBW", "GBWU", "GBUW", "WGUB", "WGBU", "WUGB", "WUBG", "WBGU", "WBUG", "UGWB", "UGBW", "UWGB", "UWBG", "UBGW", "UBWG", "BGWU", "BGUW", "BWGU", "BWUG", "BUGW", "BUWG"];
+const blockedColorCodes = [
+  "WUG", "WUB", "UBR", "BRG", "RGW",
+  "WBG", "WGB", "BWG", "BGW", "GWB", "GBW",
+  "GUR", "GRU", "UGR", "URG", "RGU", "RUG",
+  "BGU", "BUG", "UBG", "UGB", "GBU", "GUB",
+  "RWB", "RBW", "WRB", "WBR", "BRW", "BWR",
+  "URW", "WUR", "RWU", "UWR", "RUW", "WRU",
+  ...wubrPermutations,
+  ...wubrPermutations.map((code) => code.toLowerCase()),
+  ...ubrgPermutations,
+  ...ubrgPermutations.map((code) => code.toLowerCase()),
+  ...brgwPermutations,
+  ...brgwPermutations.map((code) => code.toLowerCase()),
+  ...rgwuPermutations,
+  ...rgwuPermutations.map((code) => code.toLowerCase()),
+  ...gwubPermutations,
+  ...gwubPermutations.map((code) => code.toLowerCase()),
+  "yore",
+  "glint",
+  "chaos",
+  "dune",
+  "aggression",
+  "altruism",
+  "GROWTH",
+  "growth",
+];
+assert.equal(expectedFactionCount, 36, "expected Archscry faction metadata to include the Bant, Esper, Grixis, Jund, Naya, Abzan, Temur, Sultai, Mardu, Jeskai, Yore, Glint, Dune, Ink, Witch, and Colorless placement identities");
 assert.equal(currentFactionKeys.length, expectedFactionCount, "expected the current Archscry faction set to match generated metadata");
 livePilotKeys.forEach((key) => {
   assert.ok(currentFactionKeys.includes(key), `expected the current Archscry faction set to include the ${key} pilot key`);
@@ -291,6 +397,46 @@ assert.deepEqual(identityLayers.expressions.TEMUR.aliases, ["TEMUR"], "expected 
 assert.deepEqual(identityLayers.expressions.SULTAI.aliases, ["SULTAI"], "expected SULTAI to expose only its canonical public alias");
 assert.deepEqual(identityLayers.expressions.MARDU.aliases, ["MARDU"], "expected MARDU to expose only its canonical public alias");
 assert.deepEqual(identityLayers.expressions.JESKAI.aliases, ["JESKAI"], "expected JESKAI to expose only its canonical public alias");
+assert.deepEqual(identityLayers.expressions.YORE.aliases, ["YORE"], "expected YORE to expose only its canonical public alias");
+assert.deepEqual(identityLayers.expressions.GLINT.aliases, ["GLINT"], "expected GLINT to expose only its canonical public alias");
+assert.deepEqual(identityLayers.expressions.DUNE.aliases, ["DUNE"], "expected DUNE to expose only its canonical public alias");
+assert.deepEqual(identityLayers.expressions.INK.aliases, ["INK"], "expected INK to expose only its canonical public alias");
+assert.deepEqual(identityLayers.expressions.WITCH.aliases, ["WITCH"], "expected WITCH to expose only its canonical public alias");
+assert.deepEqual(identityLayers.expressions.COLORLESS.aliases, ["COLORLESS"], "expected COLORLESS to expose only its canonical internal self-alias");
+assert.deepEqual(identityLayers.expressions.COLORLESS.colors, [], "expected COLORLESS to remain outside WUBRG color arrays");
+assert.deepEqual(identityLayers.expressions.COLORLESS.secondary_colors, [], "expected COLORLESS not to synthesize secondary WUBRG colors");
+assert.equal(identityLayers.expressions.COLORLESS.core_color, "C", "expected COLORLESS to use C only as the technical core marker");
+assert.equal(identityLayers.expressions.COLORLESS.routing?.suppress_directory_links, true, "expected COLORLESS routing to suppress public directory links");
+assert.ok(!factionsData.factions.COLORLESS.raw_enrichment, "expected COLORLESS generated faction data not to expose raw enrichment before a public richness gate");
+assert.ok(!Array.isArray(factionsData.factions.COLORLESS.deck_links) || factionsData.factions.COLORLESS.deck_links.length === 0, "expected COLORLESS generated faction data not to expose deck links before a public richness gate");
+assert.deepEqual(Object.keys(factionsData.factions.COLORLESS.research_links || {}), [], "expected COLORLESS generated faction data not to expose research links before a public richness gate");
+assert.ok(!factionsData.factions.COLORLESS.commander_compass, "expected COLORLESS generated faction data not to expose support-only Commander compass material");
+assert.ok(factionsData.factions.COLORLESS.land_base, "expected COLORLESS to expose source-backed mana-base display metadata after VM-329");
+assert.match(factionsData.factions.COLORLESS.lore_summary, /governed as its own placeable product lane, not a sixth color/i, "expected COLORLESS generated display copy to inherit registry-owned VM-337 product framing");
+assert.match(
+  factionsData.factions.COLORLESS.archetypes?.find((item) => item.name === "Boundary Discipline")?.desc || "",
+  /cards asking for a color/i,
+  "expected COLORLESS generated display copy to preserve the mana-source false-positive boundary"
+);
+const allowedColorlessCruciblePairs = new Set(["COLORLESS/YORE", "COLORLESS/ESPER", "COLORLESS/WITCH"]);
+const colorlessCrucibles = (placementModel.question_bank?.crucible || []).filter((question) =>
+  (question.pair || []).includes("COLORLESS")
+);
+colorlessCrucibles.forEach((question) => {
+  const normalizedPair = [...question.pair].sort((left, right) => {
+    if (left === "COLORLESS") return -1;
+    if (right === "COLORLESS") return 1;
+    return left.localeCompare(right);
+  }).join("/");
+  assert.ok(
+    allowedColorlessCruciblePairs.has(normalizedPair),
+    `expected ${question.id} to stay inside the approved Colorless candidate pair set`
+  );
+});
+assert.ok(
+  !colorlessCrucibles.some((question) => (question.pair || []).includes("WUBRG")),
+  "expected no COLORLESS/WUBRG Crucible before five-color exists"
+);
 blockedColorCodes.forEach((code) => {
   assert.ok(!identityLayers.expressions?.[code], `expected ${code} not to be a public expression key`);
   assert.ok(!factionsData.factions?.[code], `expected ${code} not to be a generated faction key`);
@@ -341,6 +487,12 @@ assertLegalSnippetVoices("TEMUR");
 assertLegalSnippetVoices("SULTAI");
 assertLegalSnippetVoices("MARDU");
 assertLegalSnippetVoices("JESKAI");
+assertLegalSnippetVoices("YORE");
+assertLegalSnippetVoices("GLINT");
+assertLegalSnippetVoices("DUNE");
+assertLegalSnippetVoices("INK");
+assertLegalSnippetVoices("WITCH");
+assertLegalSnippetVoices("COLORLESS");
 const abzanCuratedEchoes = selectCuratedFlavorEchoesForFaction({
   faction: factionsData.factions.ABZAN,
   snippets: flavorSnippets.snippets,
@@ -362,7 +514,217 @@ assert.doesNotMatch(
   /A-Hobbling Zombie|Adorned Crocodile|Aphemia, the Cacophony|\u00e2\u20ac\u201d/i,
   "expected Abzan card examples to avoid broad tag-match misses and mojibake"
 );
-currentFactionKeys.forEach(assertManaBaseResolvesWithinIdentity);
+const colorlessCuratedEchoes = selectCuratedFlavorEchoesForFaction({
+  faction: factionsData.factions.COLORLESS,
+  snippets: flavorSnippets.snippets,
+  flavorCards: cardFlavorIndex.cards,
+  tagRefs: [
+    { category: "archetype", tag: "Artifacts" },
+    { category: "archetype", tag: "Big Mana" },
+    { category: "archetype", tag: "Ramp" },
+  ],
+});
+const colorlessEchoTagsByCard = new Map(colorlessCuratedEchoes.map((entry) => [
+  entry.card.name,
+  entry.tagMatches.map((ref) => `${ref.category}:${ref.tag}`),
+]));
+assert.deepEqual(
+  colorlessEchoTagsByCard.get("All Is Dust"),
+  ["identity:cosmic", "mechanical:exile", "lore-tone:inevitable"],
+  "expected All Is Dust to use void/exile/inevitability tags instead of broad Artifacts/Aggro tags"
+);
+assert.ok(
+  !(colorlessEchoTagsByCard.get("Bane of Bala Ged") || []).some((tag) => /artifacts|aggro/i.test(tag)),
+  "expected Bane of Bala Ged not to display as an artifact or aggro example"
+);
+currentFactionKeys
+  .forEach(assertManaBaseResolvesWithinIdentity);
+const colorlessPlacementResult = {
+  faction: "COLORLESS",
+  confidence: 0.92,
+  scores: { COLORLESS: 1 },
+  tag_refs: [
+    { category: "archetype", tag: "Artifacts" },
+    { category: "archetype", tag: "Big Mana" },
+    { category: "archetype", tag: "Ramp" },
+  ],
+  starter_profile: {
+    budget_band: "mid",
+    experience_level: "returning",
+  },
+};
+const colorlessGuidance = getCommanderFactionGuidance(factionsData.factions.COLORLESS);
+assert.equal(colorlessGuidance.shortName, "Colorless", "expected Colorless commander guidance to be keyed");
+assert.deepEqual(colorlessGuidance.starterSearchTags, ["Artifacts", "Big Mana", "Ramp"], "expected Colorless to prefer artifact, big-mana, and ramp deck-start tags");
+assert.match(colorlessGuidance.tableCautionText, /Develop Wastes, true \{C\} sources, and mana rocks first/i, "expected Colorless caution copy to protect true colorless mana");
+assert.match(colorlessGuidance.tableCautionText, /keep generic costs separate/i, "expected Colorless caution copy to preserve generic-vs-colorless separation");
+assert.equal(presentationForFaction(factionsData.factions.COLORLESS).tableRole, "The Engine Builder", "expected Colorless presentation role to avoid generic fallback roles");
+assert.doesNotMatch(
+  presentationForFaction(factionsData.factions.COLORLESS).direction,
+  /Colorless Commander expression/i,
+  "expected Colorless direction copy to use outside-WUBRG deckbuilding language"
+);
+const colorlessHeroResult = {
+  faction: "COLORLESS",
+  confidence: 0.91,
+  top_matches: [{ faction: "COLORLESS", confidence: 0.91 }],
+  adjacent_matches: [{ faction: "ABZAN", confidence: 0.68 }],
+};
+const colorlessHeroDossier = {
+  isPrimary: true,
+  targetFactionKey: "COLORLESS",
+  primaryFactionKey: "COLORLESS",
+};
+const colorlessHeroCopy = buildHeroNarrative({
+  dossier: colorlessHeroDossier,
+  faction: factionsData.factions.COLORLESS,
+  result: colorlessHeroResult,
+  factions: factionsData.factions,
+});
+assert.match(colorlessHeroCopy, /Build outside the wheel/i);
+assert.match(colorlessHeroCopy, /Colorless turns pressure into infrastructure/i);
+assert.doesNotMatch(colorlessHeroCopy, /turns that pressure into spend the early turns/i);
+const colorlessSignalCopy = buildReadingSignalCopy({
+  dossier: colorlessHeroDossier,
+  faction: factionsData.factions.COLORLESS,
+  result: colorlessHeroResult,
+  factions: factionsData.factions,
+});
+assert.match(colorlessSignalCopy, /Colorless led with a strong signal/i);
+assert.match(colorlessSignalCopy, /strict construction problem/i);
+assert.match(colorlessSignalCopy, /outside the usual five-color vocabulary/i);
+assert.doesNotMatch(colorlessSignalCopy, /one-note.*both .* and /i);
+const colorlessDuplicateOmens = buildReadingOmens({
+  activeFactionKey: "COLORLESS",
+  evidenceTrail: [
+    { signal: "true {C} Wastes clean mana", answer_title: "Choose the restriction", prompt: "What makes the deck honest?" },
+    { signal: "true {C} Wastes clean mana", answer_title: "Choose the restriction", prompt: "What makes the deck honest?" },
+  ],
+});
+assert.equal(colorlessDuplicateOmens.length, 1, "expected Colorless reading signals to dedupe repeated answer entries");
+assert.match(colorlessDuplicateOmens[0].copy, /true \{C\} discipline/i);
+const colorlessRenderState = buildDossierRenderState({
+  starterCards: {},
+  colors: factionsData.factions.COLORLESS.colors,
+});
+assert.match(
+  colorlessRenderState.basicLandCopy,
+  /Wastes.*true \{C\}.*mana rocks/i,
+  "expected Colorless Mana Base basics guidance to center Wastes and true colorless sources"
+);
+assert.match(colorlessRenderState.basicLandCopy, /Generic costs are not colorless mana/i, "expected Colorless basics guidance to preserve the generic versus colorless boundary");
+assert.match(colorlessRenderState.basicLandCopy, /effects that ask for a color will not make \{C\}/i, "expected Colorless basics guidance to warn about color-asking mana effects");
+assert.match(colorlessRenderState.basicLandCopy, /Command Tower cannot choose colorless/i, "expected Colorless basics guidance to include Command Tower caution");
+assert.match(colorlessRenderState.basicLandCopy, /Reflecting Pool-style effects need another \{C\} source/i, "expected Colorless basics guidance to keep Reflecting Pool-style effects as caution copy");
+assert.match(indexSource, /Best when you need true \{C\} early/, "expected Colorless Premium mana-base copy to be meaningful");
+assert.match(indexSource, /The practical upgrade lane: Wastes, proven colorless sources/, "expected Colorless Midrange mana-base copy to be meaningful");
+assert.match(indexSource, /Start with Wastes and reliable colorless production first/, "expected Colorless Budget mana-base copy to be meaningful");
+assert.match(indexSource, /Reflecting Pool-style effects need another source that can make \{C\}/, "expected Colorless Utility mana-base copy to keep Reflecting Pool-style effects as caution copy");
+const colorlessDossier = buildCommanderDossier({
+  factions: factionsData.factions,
+  placementModel,
+  deckTagCatalog,
+  placementResult: colorlessPlacementResult,
+  starterProfile: colorlessPlacementResult.starter_profile,
+});
+const colorlessDossierText = renderCommanderDossierText(colorlessDossier);
+const colorlessPlayPatternSummary = buildPlayPatternSummary({
+  faction: factionsData.factions.COLORLESS,
+  presentationForFaction,
+});
+assert.match(colorlessDossierText, /starts with the outside-WUBRG constraint/i);
+assert.match(colorlessDossierText, /Develop Wastes, true \{C\} sources, and mana rocks first/i);
+assert.match(colorlessPlayPatternSummary.body, /wants to build infrastructure first/i, "expected Colorless play-pattern copy to be verb-led");
+assert.doesNotMatch(colorlessPlayPatternSummary.body, /wants to infrastructure first/i, "expected Colorless play-pattern copy not to use noun-led grammar");
+assert.doesNotMatch(
+  colorlessDossierText,
+  /discard pile like a second hand|stock the graveyard|buy cards back|make removal feel temporary|The pilot|recognizable Commander table role/i,
+  "expected Colorless dossier text to avoid inherited graveyard or generic fallback copy"
+);
+assert.deepEqual(
+  colorlessDossier.commanderRecommendations.map((candidate) => candidate.name),
+  ["Zhulodok, Void Gorger", "Omarthis, Ghostfire Initiate"],
+  "expected Colorless Start Here to render strict source-backed Commander orientation cards"
+);
+assert.deepEqual(
+  colorlessDossier.commanderRecommendations.map((candidate) => candidate.displayTags),
+  [
+    ["Strict Colorless", "Wastes + {C}", "Eldrazi Scale"],
+    ["Strict Colorless", "Colorless Growth", "Boundary Example"],
+  ],
+  "expected Colorless Commander orientation cards to use controlled orientation chips"
+);
+assert.doesNotMatch(
+  colorlessDossier.commanderRecommendations.flatMap((candidate) => candidate.displayTags || []).join(" "),
+  /\b(Combo|Chaos|Counters|Death)\b/i,
+  "expected Colorless Commander orientation chips not to inherit broad detected card tags"
+);
+assert.equal(colorlessDossier.commanderRecommendationSource, "strict Colorless orientation (2)");
+assert.doesNotMatch(
+  colorlessDossier.commanderRecommendations.map((candidate) => candidate.desc).join(" "),
+  /buy|pickup|staple package|metagame|price/i,
+  "expected Colorless orientation cards not to become deck-buying advice"
+);
+const colorlessPrecons = buildPreconRecommendations({
+  faction: factionsData.factions.COLORLESS,
+  dossier: colorlessDossier,
+  readingTagRefs: colorlessPlacementResult.tag_refs,
+  preconCatalog,
+  preconThemeTaxonomy,
+});
+assert.ok(
+  colorlessPrecons.nativeExact.some((precon) =>
+    precon.deckName === "Eldrazi Unbound" &&
+    precon.mainCommander === "Zhulodok, Void Gorger"
+  ),
+  "expected Eldrazi Unbound and Zhulodok, Void Gorger to surface as strict Colorless support"
+);
+const colorlessNativeDeckNames = [
+  ...colorlessPrecons.nativeExact,
+  ...colorlessPrecons.otherExact,
+  ...colorlessPrecons.stretch,
+].map((precon) => `${precon.deckName} ${precon.mainCommander}`);
+assert.ok(
+  colorlessNativeDeckNames.every((value) => !/Eldrazi Incursion|Ulalek/i.test(value)),
+  "expected Eldrazi Incursion and Ulalek not to surface as native Colorless"
+);
+const normalizedDeckLinks = [
+  ...(colorlessDossier.links?.commanderStart || []),
+  ...(colorlessDossier.links?.archidekt || []),
+].map((link) => {
+  const parsed = new URL(link.url, "https://vox-mana.local");
+  parsed.hash = "";
+  parsed.searchParams.sort();
+  return `${String(link.service || "").toLowerCase()}:${parsed.pathname}${parsed.search}`;
+});
+assert.equal(
+  normalizedDeckLinks.length,
+  new Set(normalizedDeckLinks).size,
+  "expected Colorless Commander Deck Starts not to render duplicate normalized service + URL/query links"
+);
+const colorlessArchidektLabels = (colorlessDossier.links?.archidekt || []).map((link) => link.label).join(" | ");
+assert.doesNotMatch(colorlessArchidektLabels, /Midrange Commander shells/i, "expected Colorless deck-start links to avoid broad Midrange shell language");
+assert.match(colorlessArchidektLabels, /Big Mana deckbuilder lane/i, "expected Colorless mid-budget deck-start lane to stay strict Colorless-safe");
+assert.match(indexSource, /candidate\.displayTags\?\.length/, "expected Commander preview cards to prefer controlled display chips when present");
+assert.match(indexSource, /commander-placeholder" id="\$\{id\}" aria-label=/, "expected Commander preview placeholders to stay accessible without visible duplicate card names");
+assert.doesNotMatch(indexSource, /commander-placeholder" id="\$\{id\}">\$\{candidate\.name\}/, "expected Commander preview placeholders not to duplicate card names in copy-paste output");
+assert.match(indexSource, /land-placeholder" id="\$\{id\}" aria-label=/, "expected land placeholders to stay accessible without visible duplicate land names");
+assert.doesNotMatch(indexSource, /land-placeholder" id="\$\{id\}">\$\{name\}/, "expected land placeholders not to duplicate land names in copy-paste output");
+assert.match(indexSource, /<div class="starter-title">Wastes First<\/div>/, "expected Colorless Mana Base panel to include a Wastes-first primer card");
+assert.match(indexSource, /<div class="starter-title">Rocks And Sources<\/div>/, "expected Colorless Mana Base panel to explain mana rocks and true sources");
+assert.match(indexSource, /<div class="starter-title">Color-Choice Caution<\/div>/, "expected Colorless Mana Base panel to include Command Tower and Reflecting Pool cautions");
+assert.match(indexSource, /Practical Upgrade Lane/, "expected Colorless midrange mana tier to avoid duplicate Midrange heading text");
+assert.doesNotMatch(indexSource, /<div class="land-tier-label">Midrange<\/div>[\s\S]{0,180}\$\{landLaneCopy\.midrange\}/, "expected Colorless midrange tier to use a clearer label than repeated Midrange");
+const colorlessRadarHtml = renderDossierRadarSection({
+  result: colorlessPlacementResult,
+  faction: factionsData.factions.COLORLESS,
+  flavorSnippets: flavorSnippets.snippets.COLORLESS,
+});
+assert.doesNotMatch(colorlessRadarHtml, /Cards That Sound Like This/, "expected Colorless not to duplicate the card-example voice panel");
+assert.match(colorlessRadarHtml, /Colorless Matrix Boundary/, "expected Colorless card voice slot to explain the matrix boundary instead");
+assert.match(colorlessRadarHtml, /outside the five-color grammar/i, "expected Colorless matrix copy to avoid active color pressure language");
+assert.match(colorlessRadarHtml, /generic costs, and five-color Eldrazi do not repeat as one interchangeable voice/i, "expected Colorless Matrix Boundary copy to preserve generic and five-color Eldrazi separators");
+assert.doesNotMatch(colorlessRadarHtml, /active color pressures/i, "expected Colorless matrix copy not to imply blended color identity");
 ["BANT", "ESPER", "GRIXIS", "JUND", "NAYA"].forEach(assertStarterUxCardsResolveWithinIdentity);
 assert.ok(
   !(flavorSnippets.snippets?.GRIXIS || []).some((snippet) => snippet.card_name === "Bant Sureblade"),
@@ -415,13 +777,13 @@ assert.equal(
 );
 assert.equal(
   bantCommanderCompass.link_targets?.scryfall_commander_search,
-  "https://scryfall.com/search?q=id%3Dwug+is%3Acommander+f%3Acommander",
+  "https://scryfall.com/search?q=id%3Dgwu+is%3Acommander+f%3Acommander",
   "expected Bant commander discovery to use exact identity"
 );
 assert.match(
   bantCommanderCompass.link_targets?.archidekt_color_search || "",
-  /colors=WUG/,
-  "expected Bant Archidekt support reference to keep WUG as query metadata"
+  /colors=GWU/,
+  "expected Bant Archidekt support reference to use sanitized exact-identity query metadata"
 );
 assert.doesNotMatch(
   JSON.stringify(bantCommanderCompass.link_targets || {}),
@@ -1266,6 +1628,171 @@ assert.match(
   "expected Cabaretti Cacophony to be framed only as same-color support/style comparator"
 );
 
+const glint = factionsData.factions.GLINT;
+const glintDossier = buildCommanderDossier({
+  factions: factionsData.factions,
+  placementModel,
+  deckTagCatalog,
+  placementResult: {
+    faction: "GLINT",
+    confidence: 0.64,
+    starter_profile: {
+      budget_band: "mid",
+      experience_level: "returning",
+    },
+    top_matches: [{ faction: "GLINT", confidence: 0.64 }],
+    adjacent_matches: [{ faction: "B", confidence: 0.45 }],
+    evidence_trail: [
+      {
+        faction: "GLINT",
+        signal: "adaptive appetite, volatility with intelligence, living force, and refusal to let order freeze the opening",
+        answer_title: "The living surge",
+        prompt: "When pressure rises, what do you trust first?",
+      },
+    ],
+  },
+  faction: glint,
+});
+const glintPreconRecommendations = buildPreconRecommendations({
+  faction: glint,
+  dossier: glintDossier,
+  readingTagRefs: [
+    { category: "mechanical", tag: "spellslinger" },
+    { category: "playstyle", tag: "aggro" },
+  ],
+  starterProfile: { budget_band: "mid", experience_level: "returning" },
+  preconCatalog,
+  preconThemeTaxonomy,
+});
+const glintPreconPool = [
+  ...(glintPreconRecommendations.nativeExact || []),
+  ...(glintPreconRecommendations.otherExact || []),
+  ...(glintPreconRecommendations.stretch || []),
+];
+const glintPreconsByName = new Map(glintPreconPool.map((precon) => [precon.deckName, precon]));
+const entropicUprising = glintPreconsByName.get("Entropic Uprising");
+assert.ok(entropicUprising, "expected Entropic Uprising to remain available as the exact-color Glint support precon");
+assert.match(entropicUprising.fitSummary || "", /Product-support only/i);
+assert.match(entropicUprising.fitSummary || "", /storm-fed Commander texture/i);
+assert.doesNotMatch(entropicUprising.fitSummary || "", /Exact UBRG|chaos lines|core identity intact while adding White/i);
+assert.match(entropicUprising.recommendedForOverride || "", /storm-fed sequencing, combat-damage spell momentum/i);
+assert.doesNotMatch(entropicUprising.recommendedForOverride || "", /chaotic, unpredictable games/i);
+const draconicDomination = glintPreconsByName.get("Draconic Domination");
+assert.ok(draconicDomination, "expected Draconic Domination to remain available as a Glint stretch precon");
+assert.match(draconicDomination.fitSummary || "", /neighboring five-color lane/i);
+assert.doesNotMatch(draconicDomination.fitSummary || "", /core identity intact while adding White/i);
+const painbow = glintPreconsByName.get("Painbow");
+assert.ok(painbow, "expected Painbow to remain available as a Glint stretch precon");
+assert.match(painbow.fitSummary || "", /broader five-color frame/i);
+assert.doesNotMatch(painbow.fitSummary || "", /core identity intact while adding White/i);
+const entropicUprisingSnapshot = JSON.parse(JSON.stringify(preconCatalog.precons.find((precon) => precon.deckName === "Entropic Uprising")));
+
+function buildFourColorPreconFallbackFixture({
+  key,
+  signal,
+  answerTitle,
+  prompt,
+  tagRefs,
+}) {
+  const faction = factionsData.factions[key];
+  const dossier = buildCommanderDossier({
+    factions: factionsData.factions,
+    placementModel,
+    deckTagCatalog,
+    placementResult: {
+      faction: key,
+      confidence: 0.63,
+      starter_profile: {
+        budget_band: "mid",
+        experience_level: "returning",
+      },
+      top_matches: [{ faction: key, confidence: 0.63 }],
+      adjacent_matches: [{ faction: "B", confidence: 0.41 }],
+      evidence_trail: [{ faction: key, signal, answer_title: answerTitle, prompt }],
+    },
+    faction,
+  });
+  const preconRecommendations = buildPreconRecommendations({
+    faction,
+    dossier,
+    readingTagRefs: tagRefs,
+    starterProfile: { budget_band: "mid", experience_level: "returning" },
+    preconCatalog,
+    preconThemeTaxonomy,
+  });
+  const fallbackCandidates = buildCommanderDeckStartFallbackCandidates(preconRecommendations);
+  return { faction, dossier, preconRecommendations, fallbackCandidates };
+}
+
+const yoreFallbackFixture = buildFourColorPreconFallbackFixture({
+  key: "YORE",
+  signal: "engineered agency, reconstruction, and artifice under a missing-Green frame",
+  answerTitle: "The engineered answer",
+  prompt: "When pressure rises, what do you trust first?",
+  tagRefs: [
+    { category: "mechanical", tag: "artifacts" },
+    { category: "playstyle", tag: "control" },
+  ],
+});
+assert.deepEqual(
+  yoreFallbackFixture.fallbackCandidates.map((candidate) => candidate.name),
+  ["Breya, Etherium Shaper"],
+  "expected Yore fallback commander links to come from the exact-color rendered precon set"
+);
+assert.equal(
+  yoreFallbackFixture.dossier.links.commanderStart.length,
+  0,
+  "expected Yore primary dossiers to keep public commander directory links suppressed"
+);
+assert.ok(
+  yoreFallbackFixture.dossier.links.archidekt.length > 0,
+  "expected Yore primary dossiers to keep an alternative Commander discovery surface"
+);
+const yorePrimaryAudit = auditCommanderDossier(yoreFallbackFixture.dossier);
+assert.ok(
+  !yorePrimaryAudit.failures.some((message) => /starter cards|Commander deck-start links/i.test(message)),
+  "expected Yore primary audit to stop failing on intentionally hidden starter cards and suppressed public commander directory links"
+);
+assert.ok(
+  !yorePrimaryAudit.warnings.some((message) => /Advisory content gap: starter cards are not authored/i.test(message)),
+  "expected Yore primary audit to stop warning once starter cards are authored"
+);
+assert.ok(
+  yoreFallbackFixture.dossier.starterCards.creatures.includes("Breya, Etherium Shaper"),
+  "expected Yore primary dossier to expose authored starter cards after VM-292 content repair"
+);
+
+const glintFallbackCandidates = buildCommanderDeckStartFallbackCandidates(glintPreconRecommendations);
+assert.deepEqual(
+  glintFallbackCandidates.map((candidate) => candidate.name),
+  ["Yidris, Maelstrom Wielder"],
+  "expected Glint fallback commander links to come from the exact-color rendered precon set"
+);
+
+const duneFallbackFixture = buildFourColorPreconFallbackFixture({
+  key: "DUNE",
+  signal: "force-backed solidarity, territorial pressure, and coordinated strike momentum under a missing-Blue frame",
+  answerTitle: "The charge before the gap closes",
+  prompt: "When pressure rises, what do you trust first?",
+  tagRefs: [
+    { category: "mechanical", tag: "tokens" },
+    { category: "playstyle", tag: "aggro" },
+  ],
+});
+assert.deepEqual(
+  duneFallbackFixture.fallbackCandidates.map((candidate) => candidate.name),
+  ["Saskia the Unyielding"],
+  "expected Dune fallback commander links to come from the exact-color rendered precon set"
+);
+assert.deepEqual(
+  preconCatalog.precons.find((precon) => precon.deckName === "Entropic Uprising"),
+  entropicUprisingSnapshot,
+  "expected commander deck-start fallback candidates to stay presentation-only and avoid mutating canonical precon data"
+);
+assert.equal(factionsData.factions.GLINT.commanderDeckStartFallbackCandidates, undefined);
+assert.equal(factionsData.factions.YORE.commanderDeckStartFallbackCandidates, undefined);
+assert.equal(factionsData.factions.DUNE.commanderDeckStartFallbackCandidates, undefined);
+
 const abzan = factionsData.factions.ABZAN;
 const abzanEvidenceTrail = [
   {
@@ -1342,6 +1869,70 @@ assert.doesNotMatch(
   abzanVisibleText,
   /Dromoka Commander|generic WBG|Orzhov Commander decks|Golgari Commander decks|Selesnya Commander decks|Exact WBG/i,
   "expected Abzan dossier copy not to relabel the result as Dromoka, generic WBG, or adjacent pairs"
+);
+const abzanAudit = auditCommanderDossier(abzanDossier);
+assert.ok(
+  !abzanAudit.failures.some((message) => /starter cards/i.test(message)),
+  "expected Abzan primary audit to stop failing when starter cards are intentionally unauthored and hidden"
+);
+assert.ok(
+  !abzanAudit.warnings.some((message) => /Advisory content gap: starter cards are not authored/i.test(message)),
+  "expected Abzan primary audit to stop warning once starter cards are authored"
+);
+assert.ok(
+  abzanDossier.starterCards.creatures.includes("Anafenza, the Foremost"),
+  "expected Abzan primary dossier to expose authored starter cards after VM-292 content repair"
+);
+const yoreAdjacentAbzanDossier = buildCommanderDossier({
+  factions: factionsData.factions,
+  placementModel,
+  deckTagCatalog,
+  placementResult: {
+    faction: "YORE",
+    confidence: 0.63,
+    decree: "Yore reconstructs the opening through engineered agency, but this nearby fit keeps pointing toward house continuity and family endurance.",
+    starter_profile: {
+      budget_band: "mid",
+      experience_level: "returning",
+    },
+    top_matches: [
+      {
+        faction: "YORE",
+        faction_name: "Yore Artifice",
+        confidence: 0.63,
+      },
+    ],
+    adjacent_matches: [
+      {
+        faction: "ABZAN",
+        faction_name: "Abzan Houses",
+        confidence: 0.42,
+      },
+    ],
+    evidence_trail: [
+      {
+        faction: "YORE",
+        signal: "engineered agency, reconstruction, and artifice under a missing-Green frame",
+        answer_title: "The engineered answer",
+        prompt: "When pressure rises, what do you trust first?",
+      },
+    ],
+  },
+  targetFactionKey: "ABZAN",
+  adjacentReason: "Regression fixture: a Yore reading can sit near Abzan house continuity while validating starter-card capabilities against the active viewed target.",
+});
+const yoreAdjacentAbzanAudit = auditCommanderDossier(yoreAdjacentAbzanDossier);
+assert.ok(
+  !yoreAdjacentAbzanAudit.failures.some((message) => /starter cards/i.test(message)),
+  "expected adjacent dossier audit to validate starter-card capabilities against the active viewed target faction"
+);
+assert.ok(
+  !yoreAdjacentAbzanAudit.warnings.some((message) => /Advisory content gap: starter cards are not authored/i.test(message)),
+  "expected adjacent Abzan dossier audit to stop warning once active target starter cards are authored"
+);
+assert.ok(
+  yoreAdjacentAbzanDossier.starterCards.creatures.includes("Anafenza, the Foremost"),
+  "expected adjacent Abzan dossier to expose active-target starter cards after VM-292 content repair"
 );
 
 const temurEvidenceTrail = [
@@ -1512,6 +2103,17 @@ assert.doesNotMatch(
   `${sultaiVisibleText} ${sultaiPresentationText} ${sultaiIdentityMeta}`,
   /\b(?:BGU|BUG|UBG|UGB|GBU|GUB)\b|Exact BGU|generic BGU|generic three-color goodstuff|Silumgar.*continuity|Dragonstorm backfill|Commander products as canon|canon proof|lore proof|card legality|placement evidence|raw-claim evidence|metadata|review language|mechanics-as-canon|\/sultai\/|\/bgu\//i,
   "expected Sultai visible copy to avoid public BGU labels, route-like paths, internal caveats, Silumgar continuity, Dragonstorm backfill, and Commander-canon leakage"
+);
+const tamperedSultaiDossier = JSON.parse(JSON.stringify(sultaiDossier));
+tamperedSultaiDossier.commanderPath.copy = "Sultai Commander fit with graveyard construction and recursion: let the graveyard become leverage while avoiding generic same-color goodstuff.";
+const tamperedSultaiAudit = auditCommanderDossier(tamperedSultaiDossier);
+assert.ok(
+  tamperedSultaiAudit.failures.some((message) => /Banned phrase for Sultai.*generic same-color goodstuff/i.test(message)),
+  "expected banned Sultai phrasing to remain a hard audit failure"
+);
+assert.ok(
+  tamperedSultaiAudit.auditBuckets.contentRegressions.some((message) => /generic same-color goodstuff/i.test(message)),
+  "expected banned Sultai phrasing to remain classified as a content regression"
 );
 
 const marduEvidenceTrail = [
@@ -1762,10 +2364,13 @@ assert.match(indexSource, /style="background:\$\{heroBannerBackgroundForFaction\
 assert.doesNotMatch(indexSource, /data-commander-directory-links/, "expected Start Here to stop rendering duplicate commander directory service links");
 assert.match(commanderPreviewSource, /Commander starting points/, "expected Start Here to keep the commander starting-point guidance block");
 assert.match(commanderPreviewSource, /commander-preview-grid/, "expected Start Here to keep commander preview cards");
+assert.match(commanderPreviewSource, /commanderPreviewCandidates\.length\s*\?/, "expected Commander starting points to render only when preview candidates exist");
 assert.doesNotMatch(commanderPreviewSource, /starter-links|data-commander-directory-links/, "expected Start Here to remove the external commander directory service block");
 assert.match(deckDiscoveryGroupsSource, /service:\s*"edhrec"/, "expected Commander Deck Starts to keep the EDHREC service group");
 assert.match(deckDiscoveryGroupsSource, /service:\s*"archidekt"/, "expected Commander Deck Starts to keep the Archidekt service group");
 assert.match(deckDiscoveryGroupsSource, /service:\s*"mtgdecks"/, "expected Commander Deck Starts to keep the MTGDecks service group");
+assert.match(deckDiscoveryGroupsSource, /commanderFallbackCandidates/, "expected Commander Deck Starts to honor dossier-local commander fallback candidates when directory links are suppressed");
+assert.doesNotMatch(indexSource, /\/Commander\/(?:ubrg|wubr|brgw|rgwu|gwub|UBRG|WUBR|BRGW|RGWU|GWUB)\b/, "expected four-color Commander Deck Starts never to emit color-code Commander directory links");
 assert.match(archscryCssSource, /\.guild-banner\[data-hero-background="identity-image"\]::before\s*\{\s*content:\s*none;\s*\}/, "expected a generic image-backed hero overlay suppression override");
 assert.doesNotMatch(archscryCssSource, /\[data-faction-key="JESKAI"\]::before/, "expected the VM-271 rollout to remove the hard-coded Jeskai overlay override");
 assert.doesNotMatch(indexSource, /<div class="land-tier-label">Basics<\/div>/, "expected Basics to appear once through the active mana-base tab, not as a duplicate inner label");
@@ -1787,6 +2392,11 @@ const expectedIdentityHeroSlugs = Object.freeze({
   SULTAI: "sultai",
   TEMUR: "temur",
   WITHERBLOOM: "witherbloom",
+  DUNE: "dune",
+  GLINT: "glint",
+  WITCH: "witch",
+  YORE: "yore",
+  COLORLESS: "colorless",
   WU: "azorius",
   UB: "dimir",
   BR: "rakdos",
@@ -1816,11 +2426,13 @@ const assertBackgroundLayerOrder = (background, layers, message) => {
   });
 };
 
-assert.equal(expectedIdentityHeroEntries.length, 30, "expected the identity hero slug coverage list to contain exactly 30 dossier-backed entries");
+const heroExcludedFactionKeys = new Set(["WUBRG", "INK"]);
+const heroBackedFactionKeys = Object.keys(factionsData.factions).filter((key) => !heroExcludedFactionKeys.has(key));
+assert.equal(expectedIdentityHeroEntries.length, 35, "expected the identity hero slug coverage list to contain exactly 35 asset-backed dossier entries");
 assert.deepEqual(
-  Object.keys(factionsData.factions).sort(),
+  heroBackedFactionKeys.sort(),
   Object.keys(expectedIdentityHeroSlugs).sort(),
-  "expected every current dossier-backed faction key to have an identity hero slug"
+  "expected every current asset-backed dossier faction key to have an identity hero slug"
 );
 expectedIdentityHeroEntries.forEach(([key, slug]) => {
   assert.equal(heroBannerImageSlugForFaction({ key }), slug, `expected ${key} to resolve to ${slug}`);
@@ -1829,7 +2441,7 @@ expectedIdentityHeroEntries.forEach(([key, slug]) => {
   assert.ok(browserUrl.endsWith(`${slug}.webp`), `expected ${key} browser URL to include the resolved slug`);
   assert.ok(existsSync(new URL(`../assets/img/identity-hero/${slug}.webp`, import.meta.url)), `expected identity hero asset to exist for ${key}`);
 });
-["COLORLESS", "WUBRG", "YORE", "GLINT", "DUNE", "INK", "WITCH"].forEach((key) => {
+["WUBRG", "INK"].forEach((key) => {
   assert.equal(heroBannerImageSlugForFaction({ key }), "", `expected ${key} to remain outside the current dossier-backed hero rollout`);
 });
 assert.equal(heroBannerImageSlugForFaction(null), "", "expected null faction input to resolve to no hero slug");
@@ -1850,9 +2462,9 @@ assert.equal(
   "expected WU with a banner to compose overlay + image + unchanged banner"
 );
 assert.equal(
-  heroBannerBackgroundForFaction({ key: "COLORLESS", banner: sampleBanner }),
-  sampleBanner,
-  "expected COLORLESS to remain unmapped and preserve the existing banner fallback"
+  normalizeCssStack(heroBannerBackgroundForFaction({ key: "COLORLESS", banner: sampleBanner })),
+  normalizeCssStack(`${identityHeroOverlay}, ${identityHeroImageLayer("colorless")}, ${sampleBanner}`),
+  "expected COLORLESS to use the approved dossier hero asset while preserving the existing banner fallback"
 );
 assert.equal(
   heroBannerBackgroundForFaction({ banner: sampleBanner }),
@@ -1876,6 +2488,26 @@ assertBackgroundLayerOrder(
   heroBannerBackgroundForFaction(factionsData.factions.MARDU),
   [identityHeroOverlay, identityHeroImageLayer("mardu"), factionsData.factions.MARDU.banner],
   "expected Mardu to receive the shared image-backed identity hero treatment"
+);
+assertBackgroundLayerOrder(
+  heroBannerBackgroundForFaction(factionsData.factions.YORE),
+  [identityHeroOverlay, identityHeroImageLayer("yore"), factionsData.factions.YORE.banner],
+  "expected Yore to receive the shared image-backed identity hero treatment"
+);
+assertBackgroundLayerOrder(
+  heroBannerBackgroundForFaction(factionsData.factions.GLINT),
+  [identityHeroOverlay, identityHeroImageLayer("glint"), factionsData.factions.GLINT.banner],
+  "expected Glint to receive the shared image-backed identity hero treatment"
+);
+assertBackgroundLayerOrder(
+  heroBannerBackgroundForFaction(factionsData.factions.DUNE),
+  [identityHeroOverlay, identityHeroImageLayer("dune"), factionsData.factions.DUNE.banner],
+  "expected Dune to receive the shared image-backed identity hero treatment"
+);
+assertBackgroundLayerOrder(
+  heroBannerBackgroundForFaction(factionsData.factions.WITCH),
+  [identityHeroOverlay, identityHeroImageLayer("witch"), factionsData.factions.WITCH.banner],
+  "expected Witch to receive the shared image-backed identity hero treatment"
 );
 
 const blankJundRenderState = buildDossierRenderState({
@@ -1996,6 +2628,17 @@ const taxonomy = {
       new_player_note: "Tokens are extra permanents created by cards.",
       typical_actions: ["make repeated bodies"],
     },
+    {
+      category: "playstyle",
+      tag: "aggro",
+      display_name: "Aggro",
+      aliases: ["aggressive"],
+      canonical_definition: "Applying early pressure before slower decks stabilize.",
+      vox_mana_interpretation: "Pressure that makes the table answer quickly.",
+      table_feel: "The table has to react before comfort becomes a plan.",
+      new_player_note: "Aggro usually means proactive pressure.",
+      typical_actions: ["commit threats early"],
+    },
   ],
 };
 
@@ -2050,5 +2693,15 @@ assert.match(
   /points more clearly/i,
   "expected thin-evidence fallback copy to stay conservative"
 );
+
+const colorlessAggroSummary = buildTagExplanationSummaries({
+  tagRefs: [{ category: "playstyle", tag: "aggro" }],
+  faction: factionsData.factions.COLORLESS,
+  taxonomy,
+  limit: 1,
+});
+assert.equal(colorlessAggroSummary[0].title, "Pressure");
+assert.match(colorlessAggroSummary[0].copy, /early infrastructure/i);
+assert.doesNotMatch(colorlessAggroSummary[0].copy, /attack early|curve out threats|punish slow setup/i);
 
 console.log("PASS archscry dossier follow-up tests");

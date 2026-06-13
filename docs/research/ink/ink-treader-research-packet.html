@@ -1,0 +1,868 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ink-Treader — RGWU Research Packet</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Libre+Baskerville+Italic&family=Josefin+Sans:wght@300;400;600;700&display=swap');
+
+  :root {
+    --red:     #B03020;
+    --green:   #3A7A40;
+    --white:   #D8C888;
+    --blue:    #2060A0;
+    --sun:     #D4A020;
+    --leaf:    #60A848;
+    --sky:     #5090C8;
+    --bg:      #08100C;
+    --surface: rgba(12,20,14,0.92);
+    --border:  rgba(180,160,80,0.25);
+    --parch:   #E8F0E0;
+    --muted:   #708870;
+    --accent:  #90C850;
+    --warm:    #D09040;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background-color: var(--bg);
+    color: var(--parch);
+    font-family: 'Libre Baskerville', Georgia, serif;
+    font-size: 1rem;
+    line-height: 1.75;
+    background-image:
+      radial-gradient(ellipse 60% 40% at 20% 10%, rgba(58,122,64,0.13) 0%, transparent 60%),
+      radial-gradient(ellipse 45% 50% at 80% 80%, rgba(32,96,160,0.10) 0%, transparent 55%),
+      radial-gradient(ellipse 50% 30% at 70% 0%, rgba(212,160,32,0.08) 0%, transparent 45%),
+      radial-gradient(ellipse 35% 45% at 5% 90%, rgba(176,48,32,0.07) 0%, transparent 50%),
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.5' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E");
+    min-height: 100vh;
+  }
+
+  .page-wrap {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 3rem 2rem 5rem;
+  }
+
+  /* ── HEADER ── */
+  header {
+    text-align: center;
+    padding: 3rem 0 2rem;
+  }
+
+  .pip-row {
+    display: flex;
+    justify-content: center;
+    gap: 0.6rem;
+    margin-bottom: 1.4rem;
+  }
+
+  .pip {
+    width: 22px; height: 22px;
+    border-radius: 50%;
+    border: 2px solid;
+    display: inline-block;
+  }
+  .pip-r { background: #701010; border-color: var(--red); }
+  .pip-g { background: #183018; border-color: var(--green); }
+  .pip-w { background: #504820; border-color: var(--white); }
+  .pip-u { background: #0c2848; border-color: var(--blue); }
+
+  .faction-label {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 0.68rem;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 0.5rem;
+  }
+
+  h1 {
+    font-family: 'Libre Baskerville', serif;
+    font-size: clamp(2.4rem, 7vw, 4.5rem);
+    font-weight: 700;
+    font-style: italic;
+    color: var(--parch);
+    letter-spacing: 0.02em;
+    line-height: 1.05;
+    text-shadow:
+      0 0 70px rgba(144,200,80,0.3),
+      0 0 25px rgba(212,160,32,0.2),
+      0 2px 8px rgba(0,0,0,0.8);
+  }
+
+  h1 span.accent { color: var(--accent); font-style: normal; }
+
+  .subtitle {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-top: 0.5rem;
+  }
+
+  .flavor-line {
+    font-style: italic;
+    font-size: 0.95rem;
+    color: rgba(232,240,224,0.5);
+    margin-top: 0.7rem;
+    max-width: 540px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .divider {
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--red), var(--green), var(--white), var(--blue), transparent);
+    opacity: 0.3;
+    margin: 1.5rem 0;
+  }
+
+  /* ── SECTIONS ── */
+  .section { margin-bottom: 2.5rem; }
+
+  h2 {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+  }
+
+  h2::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, var(--accent), transparent);
+    opacity: 0.25;
+  }
+
+  /* ── STAT GRID ── */
+  .stat-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(155px, 1fr));
+    gap: 1px;
+    border: 1px solid var(--border);
+    background: var(--border);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+
+  .stat-cell {
+    background: var(--surface);
+    padding: 1rem 1.2rem;
+  }
+
+  .stat-cell .label {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 0.58rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 0.3rem;
+  }
+
+  .stat-cell .value {
+    font-size: 0.98rem;
+    color: var(--parch);
+  }
+
+  /* ── PANEL ── */
+  .panel {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 5px;
+    padding: 1.5rem 1.8rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .panel::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--red), var(--green), var(--white), var(--blue));
+    opacity: 0.55;
+  }
+
+  /* ── COLOR ROW ── */
+  .color-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+
+  .color-entry {
+    border-left: 3px solid;
+    padding-left: 1rem;
+  }
+  .color-entry.c-r { border-color: var(--red); }
+  .color-entry.c-g { border-color: var(--green); }
+  .color-entry.c-w { border-color: #c0a860; }
+  .color-entry.c-u { border-color: var(--blue); }
+
+  .color-entry .color-name {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 0.62rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    margin-bottom: 0.2rem;
+  }
+  .color-entry.c-r .color-name { color: #d07060; }
+  .color-entry.c-g .color-name { color: var(--leaf); }
+  .color-entry.c-w .color-name { color: var(--white); }
+  .color-entry.c-u .color-name { color: var(--sky); }
+
+  .color-entry .color-desc {
+    font-size: 0.9rem;
+    color: rgba(232,240,224,0.78);
+    font-style: italic;
+  }
+
+  /* ── ABSENCE BOX ── */
+  .absence-box {
+    background: linear-gradient(135deg, rgba(44,16,64,0.12), rgba(22,8,32,0.08));
+    border: 1px solid rgba(128,80,180,0.22);
+    border-radius: 4px;
+    padding: 1.1rem 1.4rem;
+    margin-top: 1rem;
+  }
+
+  .absence-box .header {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 0.62rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #a070c8;
+    margin-bottom: 0.35rem;
+  }
+
+  .absence-box p {
+    font-size: 0.92rem;
+    color: rgba(232,240,224,0.68);
+    font-style: italic;
+  }
+
+  /* ── CARD TEXT ── */
+  .card-text-block {
+    border-left: 3px solid var(--accent);
+    padding: 0.8rem 1.4rem;
+    margin: 1rem 0;
+    background: rgba(144,200,80,0.06);
+    border-radius: 0 4px 4px 0;
+  }
+
+  .card-text-block p {
+    font-style: italic;
+    font-size: 1rem;
+    color: rgba(232,240,224,0.92);
+  }
+
+  .card-text-block .flavor {
+    margin-top: 0.5rem;
+    color: rgba(232,240,224,0.52);
+    font-size: 0.9rem;
+  }
+
+  .card-text-block cite {
+    display: block;
+    margin-top: 0.4rem;
+    font-size: 0.72rem;
+    font-style: normal;
+    color: var(--muted);
+    font-family: 'Josefin Sans', sans-serif;
+    letter-spacing: 0.08em;
+  }
+
+  /* ── COMMANDER CARDS ── */
+  .commander-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .commander-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 5px;
+    padding: 1.2rem 1.5rem;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 0.5rem 1.5rem;
+    align-items: start;
+  }
+
+  .commander-card.featured { border-color: rgba(144,200,80,0.45); }
+  .commander-card.featured2 { border-color: rgba(212,160,32,0.35); }
+  .commander-card.featured3 { border-color: rgba(80,144,200,0.35); }
+
+  .commander-card .cmd-name {
+    font-family: 'Libre Baskerville', serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--parch);
+    margin-bottom: 0.1rem;
+  }
+
+  .commander-card .cmd-type {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 0.6rem;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin-bottom: 0.45rem;
+  }
+
+  .commander-card .cmd-desc {
+    font-size: 0.92rem;
+    color: rgba(232,240,224,0.82);
+    line-height: 1.6;
+  }
+
+  .commander-card .cmd-meta {
+    text-align: right;
+    min-width: 90px;
+  }
+
+  .deck-count {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--accent);
+    display: block;
+    line-height: 1;
+  }
+
+  .deck-label {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 0.55rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .tag {
+    display: inline-block;
+    background: rgba(144,200,80,0.1);
+    border: 1px solid rgba(144,200,80,0.26);
+    border-radius: 3px;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 0.58rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+    padding: 1px 6px;
+    margin: 2px 2px 0 0;
+  }
+
+  .tag.blue  { background: rgba(32,96,160,0.15); border-color: rgba(32,96,160,0.3); color: var(--sky); }
+  .tag.red   { background: rgba(176,48,32,0.15); border-color: rgba(176,48,32,0.3); color: #d08070; }
+  .tag.white { background: rgba(212,200,136,0.1); border-color: rgba(212,200,136,0.28); color: var(--white); }
+  .tag.warm  { background: rgba(212,144,32,0.12); border-color: rgba(212,144,32,0.28); color: var(--warm); }
+
+  /* ── TWO-COL ── */
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  .callout-box {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 5px;
+    padding: 1.2rem 1.5rem;
+  }
+
+  .callout-box h3 {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.7rem;
+  }
+
+  .callout-box ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .callout-box ul li {
+    padding: 0.25rem 0 0.25rem 1.2rem;
+    font-size: 0.9rem;
+    color: rgba(232,240,224,0.82);
+    position: relative;
+  }
+
+  .callout-box ul li::before {
+    content: '◇';
+    position: absolute;
+    left: 0;
+    font-size: 0.55rem;
+    top: 0.55rem;
+    color: var(--accent);
+    opacity: 0.55;
+  }
+
+  .callout-box.strengths { border-left: 3px solid rgba(144,200,80,0.55); }
+  .callout-box.weaknesses { border-left: 3px solid rgba(128,80,180,0.45); }
+
+  /* ── TABLE ── */
+  .arch-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+  }
+
+  .arch-table th {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 0.6rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    padding: 0.6rem 0.8rem;
+    text-align: left;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .arch-table td {
+    padding: 0.65rem 0.8rem;
+    border-bottom: 1px solid rgba(144,200,80,0.08);
+    color: rgba(232,240,224,0.78);
+    vertical-align: top;
+  }
+
+  .arch-table tr:last-child td { border-bottom: none; }
+  .arch-table tr:hover td { background: rgba(144,200,80,0.04); }
+
+  .arch-table td:first-child {
+    font-family: 'Libre Baskerville', serif;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--parch);
+    white-space: nowrap;
+  }
+
+  /* ── DIVERSITY NOTE ── */
+  .diversity-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.8rem;
+    margin-top: 0.8rem;
+  }
+
+  .div-chip {
+    background: rgba(144,200,80,0.07);
+    border: 1px solid rgba(144,200,80,0.2);
+    border-radius: 4px;
+    padding: 0.7rem 0.9rem;
+  }
+
+  .div-chip .dc-name {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 0.6rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.2rem;
+  }
+
+  .div-chip p {
+    font-size: 0.82rem;
+    color: rgba(232,240,224,0.72);
+    font-style: italic;
+    line-height: 1.45;
+  }
+
+  /* ── FOOTNOTE ── */
+  .footnote {
+    font-size: 0.76rem;
+    color: var(--muted);
+    font-style: italic;
+    margin-top: 0.6rem;
+    padding-top: 0.6rem;
+    border-top: 1px solid rgba(144,200,80,0.1);
+  }
+
+  @media (max-width: 600px) {
+    .two-col, .color-row, .diversity-grid { grid-template-columns: 1fr; }
+    .commander-card { grid-template-columns: 1fr; }
+    .commander-card .cmd-meta { text-align: left; }
+    .diversity-grid { grid-template-columns: 1fr 1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="page-wrap">
+
+  <header>
+    <div class="pip-row">
+      <span class="pip pip-r" title="Red"></span>
+      <span class="pip pip-g" title="Green"></span>
+      <span class="pip pip-w" title="White"></span>
+      <span class="pip pip-u" title="Blue"></span>
+    </div>
+    <div class="faction-label">Four-Color Faction · Research Packet</div>
+    <h1><span class="accent">Ink</span>-Treader</h1>
+    <div class="subtitle">R G W U — The Blackless Quadrant · Altruism</div>
+    <div class="flavor-line">"When it awoke, the mirrors of the world reflected only darkness."</div>
+    <div class="divider"></div>
+  </header>
+
+  <!-- AT A GLANCE -->
+  <section class="section">
+    <h2>At a Glance</h2>
+    <div class="stat-grid">
+      <div class="stat-cell">
+        <div class="label">Formal Name</div>
+        <div class="value">Ink-Treader</div>
+      </div>
+      <div class="stat-cell">
+        <div class="label">Also Called</div>
+        <div class="value">Non-Black · Blackless</div>
+      </div>
+      <div class="stat-cell">
+        <div class="label">Missing Color</div>
+        <div class="value" style="color:#a070c8">Black</div>
+      </div>
+      <div class="stat-cell">
+        <div class="label">Mechanic Theme</div>
+        <div class="value">Altruism</div>
+      </div>
+      <div class="stat-cell">
+        <div class="label">Named For</div>
+        <div class="value">Ink-Treader Nephilim</div>
+      </div>
+      <div class="stat-cell">
+        <div class="label">Nephilim Set</div>
+        <div class="value">Guildpact (2006)</div>
+      </div>
+      <div class="stat-cell">
+        <div class="label">Nephilim Stats</div>
+        <div class="value">3/3 · Rare</div>
+      </div>
+      <div class="stat-cell">
+        <div class="label">Total EDHREC</div>
+        <div class="value" style="font-size:0.88rem">~53K+ (top 3 cmds)</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COLOR IDENTITY -->
+  <section class="section">
+    <h2>Color Identity</h2>
+    <div class="panel">
+      <p style="font-size:0.97rem; color:rgba(232,240,224,0.82);">
+        Ink-Treader is the most internally diverse of the five quadrants, hosting three major named commanders with entirely different strategies. What unites them is the rejection of black's self-interest: the combination channels passion, abundance, order, and knowledge outward — toward other players, toward shared success, toward collective flourishing.
+      </p>
+      <div class="color-row">
+        <div class="color-entry c-r">
+          <div class="color-name">🔴 Red — Passion</div>
+          <div class="color-desc">Emotional investment, creative energy, haste, and the drive to act. Here passion is channeled into generosity rather than aggression.</div>
+        </div>
+        <div class="color-entry c-g">
+          <div class="color-name">🟢 Green — Growth</div>
+          <div class="color-desc">Natural abundance, ramp, and organic expansion. Green's generosity produces more than any single player needs — enough to share.</div>
+        </div>
+        <div class="color-entry c-w">
+          <div class="color-name">⬜ White — Community</div>
+          <div class="color-desc">Collective bonds, shared resources, structure, and the creation of token armies that serve communal goals.</div>
+        </div>
+        <div class="color-entry c-u">
+          <div class="color-name">🔵 Blue — Knowledge</div>
+          <div class="color-desc">Information shared rather than hoarded, card draw distributed to all, and wisdom applied to elevate the whole table.</div>
+        </div>
+      </div>
+      <div class="absence-box">
+        <div class="header">🟣 The Absent Color: Black</div>
+        <p>Black provides self-interest, ambition, tutors, and the willingness to advance personally at others' expense. Ink-Treader's rejection of black is the rejection of hoarding power. Every resource, every card, every advantage in this identity is oriented outward — shared meals rather than private feasts, open libraries rather than locked vaults. The combination can still win and win decisively, but it reaches victory by lifting others up rather than dragging them down.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ORIGIN -->
+  <section class="section">
+    <h2>Origin — The Nephilim</h2>
+    <div class="panel">
+      <p style="margin-bottom:0.8rem; font-size:0.95rem; color:rgba(232,240,224,0.82);">
+        Ink-Treader Nephilim is a Rare 3/3 for RGWU from <em>Guildpact</em> (2006), card #117, illustrated by Christopher Moeller. Its ability is one of the most unusual spell-copy effects ever printed — and notably, an earlier version of it had been printed as a mono-red card, making it the least mechanically "four-color" of the Nephilim cycle by original design. Its rulings are complex and counterintuitive.
+      </p>
+
+      <div class="card-text-block">
+        <p>Whenever a player casts an instant or sorcery spell, if that spell targets only this creature, copy the spell for each other creature that spell could target. Each copy targets a different one of those creatures.</p>
+        <p class="flavor">"When it awoke, the mirrors of the world reflected only darkness."</p>
+        <cite>— Ink-Treader Nephilim, Guildpact (2006)</cite>
+      </div>
+
+      <p style="font-size:0.92rem; color:rgba(232,240,224,0.72); margin-top:0.8rem;">
+        The ability is simultaneously the most explosive and the most dangerous: a single Giant Growth targeting Ink-Treader copies for every creature on the board — your army all grows at once. But a single Murder cast by an opponent also copies for every creature they can target. This "everything applies to everyone" mechanic is the original mechanical seed of the Altruism identity: the Nephilim doesn't pick sides. Whatever effect is applied to it radiates outward to all. The interaction with copies is mandatory — you cannot turn it off.
+      </p>
+      <p class="footnote">Note: Ink-Treader Nephilim's ability triggers "whenever a player casts" — not just you. An opponent's removal spell targeting it will copy for all your other creatures. This makes protection (hexproof, shroud) essential in any Nephilim build.</p>
+    </div>
+  </section>
+
+  <!-- THE THREE FACES -->
+  <section class="section">
+    <h2>Three Distinct Identities</h2>
+    <div class="panel">
+      <p style="font-size:0.95rem; color:rgba(232,240,224,0.8); margin-bottom:1rem;">
+        Ink-Treader is the only quadrant with three major dedicated legendary creatures — each representing a genuinely different deck philosophy — plus a robust Partner pairing scene. Together they make it the most strategically diverse of the five four-color identities.
+      </p>
+      <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:0.8rem;">
+        <div style="border-top:2px solid var(--warm); padding-top:0.6rem;">
+          <div style="font-family:'Josefin Sans',sans-serif; font-size:0.62rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--warm); margin-bottom:0.3rem;">Aragorn</div>
+          <p style="font-size:0.85rem; color:rgba(232,240,224,0.78); font-style:italic;">Multicolor rewards, legendary toolbox, token generation, and combat triggers</p>
+        </div>
+        <div style="border-top:2px solid var(--sky); padding-top:0.6rem;">
+          <div style="font-family:'Josefin Sans',sans-serif; font-size:0.62rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--sky); margin-bottom:0.3rem;">Omnath</div>
+          <p style="font-size:0.85rem; color:rgba(232,240,224,0.78); font-style:italic;">Landfall, ramp, life gain, damage, and the most efficient mana payoff in Commander</p>
+        </div>
+        <div style="border-top:2px solid var(--accent); padding-top:0.6rem;">
+          <div style="font-family:'Josefin Sans',sans-serif; font-size:0.62rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--accent); margin-bottom:0.3rem;">Kynaios & Tiro</div>
+          <p style="font-size:0.85rem; color:rgba(232,240,224,0.78); font-style:italic;">Group hug, symmetrical draw, land drops for all, and political play</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- KEY COMMANDERS -->
+  <section class="section">
+    <h2>Key Commanders</h2>
+    <div class="commander-list">
+
+      <div class="commander-card featured">
+        <div>
+          <div class="cmd-name">Aragorn, the Uniter</div>
+          <div class="cmd-type">Legendary Creature — Human Noble · The Lord of the Rings: Tales of Middle-earth (2023)</div>
+          <div class="cmd-desc">
+            A 5/5 for RGWU. When you cast a white spell, create a 1/1 white Human Soldier token. When you cast a blue spell, scry 2. When you cast a red spell, Aragorn deals 3 damage to target opponent. When you cast a green spell, target creature gets +4/+4 until end of turn. Every color of the identity generates a distinct type of value — tokens, card selection, direct damage, and pump — rewarding a multicolored spell suite. Best built with spells that hit multiple trigger conditions, legendary creatures benefiting from the Human tokens, and combat packages exploiting the consistent pump effect.
+          </div>
+          <div style="margin-top:0.6rem;">
+            <span class="tag warm">Legends</span>
+            <span class="tag white">Humans</span>
+            <span class="tag">Tokens</span>
+            <span class="tag blue">Multicolor</span>
+            <span class="tag red">Combat</span>
+          </div>
+        </div>
+        <div class="cmd-meta">
+          <span class="deck-count">21,458</span>
+          <span class="deck-label">EDHREC Decks</span>
+        </div>
+      </div>
+
+      <div class="commander-card featured2">
+        <div>
+          <div class="cmd-name">Omnath, Locus of Creation</div>
+          <div class="cmd-type">Legendary Creature — Elemental · Zendikar Rising (2020)</div>
+          <div class="cmd-desc">
+            A 4/4 for RGWU. When it enters the battlefield, draw a card. Landfall triggers on each land that enters under your control: the first trigger each turn gains 4 life; the second adds {R}{G}{W}{U} to your mana pool; the third deals 4 damage to each opponent and planeswalker you don't control. Three different landfall payoffs compounding each turn — life buffer, mana ramp for big spells, and a damage clock — all from the same 4-mana creature. Banned in several non-Commander formats at various points due to its efficiency. The quintessential "good stuff" engine for the color identity.
+          </div>
+          <div style="margin-top:0.6rem;">
+            <span class="tag">Landfall</span>
+            <span class="tag warm">Ramp</span>
+            <span class="tag">Life Gain</span>
+            <span class="tag red">Damage</span>
+            <span class="tag blue">Good Stuff</span>
+          </div>
+        </div>
+        <div class="cmd-meta">
+          <span class="deck-count">17,805</span>
+          <span class="deck-label">EDHREC Decks</span>
+        </div>
+      </div>
+
+      <div class="commander-card featured3">
+        <div>
+          <div class="cmd-name">Kynaios and Tiro of Meletis</div>
+          <div class="cmd-type">Legendary Creature — Human Soldier · Commander 2016</div>
+          <div class="cmd-desc">
+            A 2/8 for RGWU. At the beginning of your end step, draw a card, then each player may put a land onto the battlefield from their hand. Each opponent who didn't put a land in draws a card instead. The Altruism commander incarnate — they give everyone resources, prioritizing the table's enjoyment. Their 2/8 statline signals a defensive card unlikely to threaten commander damage, encouraging opponents to leave them in play for shared benefit. The high toughness makes them extremely difficult to kill in combat. Groups hugs and political play define the archetype: opponents are hesitant to attack the player giving them free cards and lands.
+          </div>
+          <div style="margin-top:0.6rem;">
+            <span class="tag">Group Hug</span>
+            <span class="tag blue">Wheels</span>
+            <span class="tag warm">Lands Matter</span>
+            <span class="tag white">Pillow Fort</span>
+            <span class="tag">Political</span>
+          </div>
+        </div>
+        <div class="cmd-meta">
+          <span class="deck-count">12,109</span>
+          <span class="deck-label">EDHREC Decks</span>
+        </div>
+      </div>
+
+      <div class="commander-card">
+        <div>
+          <div class="cmd-name">Ink-Treader Nephilim</div>
+          <div class="cmd-type">Creature — Nephilim · Guildpact (House Rule Commander)</div>
+          <div class="cmd-desc">
+            The namesake. A 3/3 — the second-largest of the five Nephilim by base stats. Best built as a spell-copy engine: buff spells targeting Ink-Treader copy for every creature on your side; protection (hexproof, shroud) prevents opponents from weaponizing the trigger. Particularly explosive with pump spells (everyone gets +3/+3), cantrips (everyone draws), and one-sided buff effects. The community notes its ability was mechanically a mono-red effect previously — it is the least "four-colored" Nephilim by strict color pie standards.
+          </div>
+          <div style="margin-top:0.6rem;">
+            <span class="tag">House Rules</span>
+            <span class="tag red">Spell Copy</span>
+            <span class="tag white">Pump</span>
+          </div>
+        </div>
+        <div class="cmd-meta">
+          <span class="deck-count">~3K</span>
+          <span class="deck-label">EDHREC Decks</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- STRENGTHS & WEAKNESSES -->
+  <section class="section">
+    <h2>Strengths &amp; Weaknesses</h2>
+    <div class="two-col">
+      <div class="callout-box strengths">
+        <h3>Strengths</h3>
+        <ul>
+          <li>Green provides the best land ramp and mana acceleration; Omnath's landfall makes ramp directly offensive</li>
+          <li>White provides mass removal, token generation, and community buffs</li>
+          <li>Blue provides card draw, counterspells, and scry/selection without black's self-service framing</li>
+          <li>Red provides aggression and haste to close games the moment the engine fires</li>
+          <li>Most commander-diverse quadrant — three viable named legendaries covering three distinct strategies</li>
+          <li>Kynaios's political capital makes it the hardest quadrant to attack — opponents keep the group hugger alive</li>
+          <li>Omnath's landfall is simultaneously ramp, lifegain, and a damage clock — the most efficient 4-color payoff card</li>
+        </ul>
+      </div>
+      <div class="callout-box weaknesses">
+        <h3>Weaknesses</h3>
+        <ul>
+          <li>No black means no tutors — consistency relies on blue's draw and green's ramp rather than targeted search</li>
+          <li>No black means no efficient reanimation — creatures that die stay dead</li>
+          <li>Group hug (Kynaios) builds opponents' power as well as your own — risk of losing to someone else's escalated engine</li>
+          <li>No sacrifice synergies beyond red's impulse effects — no aristocrats or recurring death triggers</li>
+          <li>Omnath was banned in multiple formats — remains a threat perception magnet at Commander tables</li>
+          <li>Ink-Treader's ability is double-edged — opponents can weaponize it with targeted removal</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ARCHETYPES -->
+  <section class="section">
+    <h2>Common Archetypes</h2>
+    <div class="panel" style="padding:0; overflow:hidden;">
+      <table class="arch-table">
+        <thead>
+          <tr>
+            <th>Archetype</th>
+            <th>Core Strategy</th>
+            <th>Key Enablers</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Landfall</td>
+            <td>Play and fetch lands repeatedly each turn to trigger Omnath's three landfall abilities: life, mana, and damage</td>
+            <td>Omnath, Lotus Cobra, Oracle of Mul Daya, Exploration, Scute Swarm, Felidar Retreat</td>
+          </tr>
+          <tr>
+            <td>Multicolor Matters</td>
+            <td>Fill the deck with spells of all four colors to trigger every one of Aragorn's cast triggers simultaneously</td>
+            <td>Aragorn, Knight of New Alara, Fallaji Wayfarer, Maelstrom Nexus, Conflux</td>
+          </tr>
+          <tr>
+            <td>Legends Typal</td>
+            <td>Play dense legendary creature package; Aragorn's Human token creation and combat rewards scale with legendary synergies</td>
+            <td>Aragorn, Mirror Room, Helm of the Host, Rienne Angel of Rebirth, Odric Lunarch Marshal</td>
+          </tr>
+          <tr>
+            <td>Group Hug</td>
+            <td>Provide resources freely to all opponents via symmetrical draw and land drops; build political capital; win via alternate win conditions or simply outscaling</td>
+            <td>Kynaios and Tiro, Howling Mine, Temple Bell, Mana Flare, Minds Aglow, Selvala Explorer Returned</td>
+          </tr>
+          <tr>
+            <td>Spell Copy</td>
+            <td>Target Ink-Treader Nephilim with buff instants to copy them across your entire army; protect from opponent weaponization</td>
+            <td>Ink-Treader, Lightning Greaves, Giant Growth, Berserk, Seeds of Strength, Alpha Authority</td>
+          </tr>
+          <tr>
+            <td>Wheels / Pillow Fort</td>
+            <td>Force hand resets via wheel effects to refresh your own powerful hand while sharing the pain; defend with pillowfort enchantments</td>
+            <td>Kynaios and Tiro, Wheel of Fortune, Reforge the Soul, Ghostly Prison, Propaganda, Sphere of Safety</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- STRATEGIC DIVERSITY NOTE -->
+  <section class="section">
+    <h2>What Makes Ink-Treader Unique</h2>
+    <div class="panel">
+      <p style="font-size:0.95rem; color:rgba(232,240,224,0.82); margin-bottom:1rem;">
+        No other four-color identity spans this range of strategies under a single color combination. The three major commanders have near-zero strategic overlap:
+      </p>
+      <div class="diversity-grid">
+        <div class="div-chip">
+          <div class="dc-name">Power Bracket</div>
+          <p>Omnath sits near the top of fair Commander (banned in competitive formats); Aragorn is high-power; Kynaios is explicitly casual-friendly. The quadrant covers the full power spectrum.</p>
+        </div>
+        <div class="div-chip">
+          <div class="dc-name">Win Condition</div>
+          <p>Aragorn wins through combat and value accumulation. Omnath wins through damage clock plus mana dominance. Kynaios wins through political maneuvering and alternate win-cons.</p>
+        </div>
+        <div class="div-chip">
+          <div class="dc-name">Table Dynamics</div>
+          <p>Aragorn is a threat to be removed. Omnath is a threat that tables rush to answer. Kynaios is the commander tables vote to keep alive — the only four-color identity with a genuinely political social dynamic.</p>
+        </div>
+        <div class="div-chip">
+          <div class="dc-name">Playstyle</div>
+          <p>Omnath is Timmy's paradise: big mana, big numbers, big moments. Aragorn is Johnny's playground: building complex multicolor chains. Kynaios is the social player's home.</p>
+        </div>
+        <div class="div-chip">
+          <div class="dc-name">Group Hug Anchor</div>
+          <p>Ink-Treader is the only four-color identity with a dedicated group hug commander. It is the faction of choice for players who want to create fun rather than win efficiently.</p>
+        </div>
+        <div class="div-chip">
+          <div class="dc-name">Volume</div>
+          <p>With ~53K decks across the top three commanders (plus 3K+ from other sources), Ink-Treader rivals Witch-Maw in raw volume and surpasses all other quadrants combined.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VOXMANA NOTES -->
+  <section class="section">
+    <h2>Vox Mana Design Notes</h2>
+    <div class="panel">
+      <p style="font-size:0.95rem; color:rgba(232,240,224,0.82); margin-bottom:0.9rem;">Placement signal considerations and design hooks:</p>
+      <ul style="list-style:none; padding:0; display:flex; flex-direction:column; gap:0.7rem;">
+        <li style="padding-left:1.5rem; position:relative; font-size:0.92rem; color:rgba(232,240,224,0.8);"><span style="position:absolute;left:0;color:var(--accent);">◇</span> Ink-Treader's defining negative signal is <strong style="color:#a070c8;">absent black</strong>: players who reject personal ambition, tutors, and "win at any cost" strategies score here. "I don't need to win to have fun" and "I want everyone at the table to have a good time" are strong Ink-Treader placer phrases.</li>
+        <li style="padding-left:1.5rem; position:relative; font-size:0.92rem; color:rgba(232,240,224,0.8);"><span style="position:absolute;left:0;color:var(--accent);">◇</span> The <strong>Altruism</strong> label is the most thematically distinctive of the five — no other Commander 2016 theme directly addresses table philosophy. Group hug is a playstyle, not just a mechanic. A placement quiz can ask directly: "Do you want to give your opponents cards?" and route strong yes answers here.</li>
+        <li style="padding-left:1.5rem; position:relative; font-size:0.92rem; color:rgba(232,240,224,0.8);"><span style="position:absolute;left:0;color:var(--accent);">◇</span> Contrast with Witch-Maw (GWUB): both include white, green, and blue, but Witch-Maw keeps black's patient self-advancement and trades red's passion for methodical control. Ink-Treader keeps red's emotion and generosity, rejecting black's self-serving ambition. Same three colors, fundamentally different values.</li>
+        <li style="padding-left:1.5rem; position:relative; font-size:0.92rem; color:rgba(232,240,224,0.8);"><span style="position:absolute;left:0;color:var(--accent);">◇</span> Contrast with Dune-Brood (BRGW): both include red, green, and white, but Dune trades blue's knowledge for black's ruthlessness. Ink-Treader keeps the planning (blue), rejects the self-interest (black). Same three colors, one wants to overwhelm through force; the other wants to share and elevate.</li>
+        <li style="padding-left:1.5rem; position:relative; font-size:0.92rem; color:rgba(232,240,224,0.8);"><span style="position:absolute;left:0;color:var(--accent);">◇</span> Recommendation diversity: Ink-Treader offers the widest range of <em>power levels</em> within a single quadrant — Kynaios for casual tables, Omnath for high-power, Aragorn for mid-power legends/multicolor builds. Matching the player's self-reported power level is a strong second-order recommendation hook here.</li>
+        <li style="padding-left:1.5rem; position:relative; font-size:0.92rem; color:rgba(232,240,224,0.8);"><span style="position:absolute;left:0;color:var(--accent);">◇</span> Placement quiz signals: <em>values table enjoyment over personal win rate, attracted to landfall/ramp abundance, enjoys multicolor deckbuilding, prefers political play to cutthroat competition, wants to draw cards and share resources, dislikes tutors</em>. Any of these route to Ink-Treader.</li>
+        <li style="padding-left:1.5rem; position:relative; font-size:0.92rem; color:rgba(232,240,224,0.8);"><span style="position:absolute;left:0;color:var(--accent);">◇</span> Note for quiz design: Omnath was briefly banned in Standard, Pioneer, and Historic after Zendikar Rising. Players who mention "the banned Omnath" have a strong prior relationship with this quadrant. It's a useful implicit identifier.</li>
+      </ul>
+    </div>
+  </section>
+
+  <div class="footnote" style="font-size:0.73rem; margin-top:2rem; line-height:1.85; font-family:'Josefin Sans',sans-serif; letter-spacing:0.04em;">
+    <strong style="letter-spacing:0.15em; color:var(--muted);">Sources</strong><br>
+    MTG Wiki — Nephilim, Guildpact · Scryfall — Ink-Treader Nephilim (GPT #117), Aragorn the Uniter (LTR #192), Omnath Locus of Creation · Gatherer — Ink-Treader Nephilim rulings (2006-02-01) · EDHREC — Top Ink-Treader Commanders, Kynaios and Tiro Commander page (Group Hug/Wheels/Lands/Pillow Fort tags), Aragorn the Uniter Commander page · Cardmarket Insight — When a Hug Doesn't Mean Love: Kynaios and Tiro Deck Tech (2018) · Draftsim — Aragorn the Uniter Commander Deck Guide (2025) · Bell of Lost Souls — Top 5 Ink-Treader Commanders (referenced via commander list data)
+  </div>
+
+</div>
+</body>
+</html>

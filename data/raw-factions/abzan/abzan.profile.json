@@ -13,8 +13,8 @@
   "color_pair_or_group": "WBG wedge metadata only",
   "source_review_date": "2026-05-31",
   "last_full_review": "2026-05-31",
-  "last_incremental_review": "2026-05-31",
-  "last_updated": "2026-05-31",
+  "last_incremental_review": "2026-06-09",
+  "last_updated": "2026-06-09",
   "site_surface": {
     "display_name": "Abzan Houses",
     "short_summary": "Abzan Houses is a VM-202 live-pilot Tarkir wedge packet for White-centered WBG endurance, family continuity, ancestor obligation, perennation, and defensive patience.",
@@ -216,7 +216,89 @@
       "notes": "Exact campaign chronology and long-term ecology remain deferred."
     }
   ],
-  "key_figures": [],
+  "key_figures": [
+    {
+      "name": "Anafenza",
+      "status": "Khans-era named anchor and Dromoka-era suppression boundary",
+      "summary": "Source-bound as a Khans-era Abzan named anchor; later Dromoka-era material is contrast and suppression context around kin-tree worship, not Dromoka-as-Abzan continuity.",
+      "claim_ids": [
+        "abzan_claim_0004",
+        "abzan_claim_0005"
+      ],
+      "evidence_rows": [
+        "ABZAN-EVID-008",
+        "ABZAN-EVID-012"
+      ],
+      "source_ids": [
+        "src_wotc_tarkir_khans_pg_part_1",
+        "src_wotc_tarkir_dragons_pg_part_2"
+      ],
+      "limitations": "Do not expand into full biography, exact card facts, or Dromoka continuity without manual-fill review."
+    },
+    {
+      "name": "Gvar Barzeel",
+      "status": "Khans-era named anchor",
+      "summary": "Source-bound as a Khans-era Abzan named anchor in the same local guide evidence row that anchors Anafenza and major Abzan places.",
+      "claim_ids": [
+        "abzan_claim_0004"
+      ],
+      "evidence_rows": [
+        "ABZAN-EVID-008"
+      ],
+      "source_ids": [
+        "src_wotc_tarkir_khans_pg_part_1"
+      ],
+      "limitations": "Keep to named-anchor status; detailed biography and card facts remain deferred."
+    },
+    {
+      "name": "Daghatar",
+      "status": "Fate Reforged and Khanfall transition anchor",
+      "summary": "Source-bound in Fate Reforged Abzan context and Khanfall transition material as part of the dragon-threat and Dromoka-capitulation boundary.",
+      "claim_ids": [
+        "abzan_claim_0004",
+        "abzan_claim_0005"
+      ],
+      "evidence_rows": [
+        "ABZAN-EVID-009",
+        "ABZAN-EVID-013"
+      ],
+      "source_ids": [
+        "src_wotc_tarkir_fate_reforged_pg",
+        "src_wotc_tarkir_story_khanfall"
+      ],
+      "limitations": "Use as a transition-boundary figure only; do not make Dromoka's brood Abzan Houses continuity."
+    },
+    {
+      "name": "Reyhan",
+      "status": "Khanfall Abzan holdout anchor",
+      "summary": "Source-bound in Khanfall as styling herself khan of the Abzan after Daghatar took most of the clan with him, preserving the holdout thread under pressure.",
+      "claim_ids": [
+        "abzan_claim_0005"
+      ],
+      "evidence_rows": [
+        "ABZAN-EVID-013"
+      ],
+      "source_ids": [
+        "src_wotc_tarkir_story_khanfall"
+      ],
+      "limitations": "Do not import Commander partner or card-product details into lore proof under this pass."
+    },
+    {
+      "name": "Felothar of House Zanhar",
+      "status": "Modern Dragonstorm-era khan anchor",
+      "summary": "Source-bound as the modern Abzan khan selected by the Council of Houses because of rebellion leadership and ancestral ties to Reyhan.",
+      "claim_ids": [
+        "abzan_claim_0006"
+      ],
+      "evidence_rows": [
+        "ABZAN-EVID-017"
+      ],
+      "source_ids": [
+        "src_wotc_tarkir_dragonstorm_pg_part_1"
+      ],
+      "limitations": "Keep to the captured guide row; individual biography beyond guide text remains manual-fill material."
+    }
+  ],
   "canonical_flavor_text": [],
   "views_on_other_factions": [
     {
