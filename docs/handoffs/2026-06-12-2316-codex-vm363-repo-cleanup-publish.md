@@ -241,7 +241,14 @@ Key staged checks:
 
 ## Commit And Push
 
-Pending.
+- Main bundle commit: `8cf770221e7fcf42423a9c6a39c120111c7406a9`
+- Commit message: `Publish verified source-bound cleanup bundle`
+- Pushed branch: `origin/feature/ui-refactor-exploration`
+- Push result: `72110e7..8cf7702 feature/ui-refactor-exploration -> feature/ui-refactor-exploration`
+- Post-push branch check: `git rev-list --left-right --count HEAD...origin/feature/ui-refactor-exploration` returned `0 0`.
+- Post-push status before VM-363 closeout edits: `git status --short --branch` reported only `## feature/ui-refactor-exploration...origin/feature/ui-refactor-exploration`.
+- VM-363 was moved to Done only after the main bundle push and clean status were confirmed.
+- Closeout note: this handoff/card move requires a small follow-up documentation commit because the pushed commit hash and clean status could not be recorded before the main bundle existed and was pushed.
 
 ## Not Touched
 
@@ -263,7 +270,7 @@ Codex
 
 ## Related Kanban Card, Docs, Or Plans
 
-- `docs/kanban/in-progress/VM-363-repo-cleanup-verified-publish-bundle.md`
+- `docs/kanban/done/VM-363-repo-cleanup-verified-publish-bundle.md`
 - `docs/handoffs/HANDOFF_INDEX.md`
 - `docs/research/colorless/colorless-canon-relocation-map.md`
 - `docs/research/temur/temur-seed-source-crosscheck.md`

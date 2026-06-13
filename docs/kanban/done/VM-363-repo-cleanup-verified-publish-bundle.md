@@ -2,7 +2,7 @@
 
 ## Status
 
-In Progress
+Done
 
 ## Summary
 
@@ -48,10 +48,10 @@ Excluded:
 - [x] Confirm local branch is not behind/diverged from `origin/feature/ui-refactor-exploration`.
 - [x] Stage only classified allowed files, using `git add -f` only for listed ignored canon docs.
 - [x] Confirm staged name-status, ignored canon handling, tracked canon docs, deletion dispositions, and no excluded scratch staged.
-- [ ] Commit the verified bundle.
-- [ ] Push to `origin/feature/ui-refactor-exploration`.
-- [ ] Confirm pushed branch and clean status.
-- [ ] Move VM-363 to Done only after push and clean status.
+- [x] Commit the verified bundle.
+- [x] Push to `origin/feature/ui-refactor-exploration`.
+- [x] Confirm pushed branch and clean status.
+- [x] Move VM-363 to Done only after push and clean status.
 
 ## Required Gates
 
@@ -77,3 +77,6 @@ Excluded:
 
 - Starting branch confirmed with `git status --short --branch`: `feature/ui-refactor-exploration...origin/feature/ui-refactor-exploration`.
 - VM-363 occupancy check found no existing repo references before this card was created.
+- Main bundle commit: `8cf770221e7fcf42423a9c6a39c120111c7406a9`.
+- Pushed branch: `origin/feature/ui-refactor-exploration`.
+- Final pre-closeout status after main push: clean, with `git rev-list --left-right --count HEAD...origin/feature/ui-refactor-exploration` returning `0 0`.

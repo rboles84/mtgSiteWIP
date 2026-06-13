@@ -27,7 +27,7 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 ## In Progress
 
-- [VM-363 - Repo Cleanup And Verified Publish Bundle](in-progress/VM-363-repo-cleanup-verified-publish-bundle.md)
+- No cards currently in progress.
 
 ## Blocked
 
@@ -37,6 +37,7 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 Historical note: `VM-044` is a preserved historical duplicate ID and `VM-049` is an intentional preserved duplicate pairing per the handoff trail. `VM-197` also has a user-declared Abzan stack duplicate while preserving the existing Alara VM-197 card. `VM-215` has a manual-QA Abzan repair duplicate; the former Jeskai VM-215 through VM-220 reservation was repaired to VM-229 through VM-234 on 2026-05-31.
 
+- [VM-363 - Repo Cleanup And Verified Publish Bundle](done/VM-363-repo-cleanup-verified-publish-bundle.md)
 - [VM-361 - Mono Color Official Source Inventory](done/VM-361-mono-color-official-source-inventory.md)
 - [VM-362 - Colorless Public Richness Decision Gate](done/VM-362-colorless-public-richness-decision-gate.md)
 - [VM-355 - Thickness Rebuild Validation And Handoff](done/VM-355-thickness-rebuild-validation-handoff.md)
