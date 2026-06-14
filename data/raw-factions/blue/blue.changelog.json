@@ -1,0 +1,16 @@
+{
+  "schema_version": "1.0.0",
+  "faction_id": "blue",
+  "entries": [
+    {
+      "date": "2026-06-13",
+      "change_type": "mono_gold_promotion",
+      "summary": "Created source-backed mono-blue raw source, claim, profile, placement, and changelog packets from the promoted mono_upgrade source-intake bundle.",
+      "related_card": "VM-377",
+      "tests": [
+        "pending"
+      ],
+      "notes": "Commander candidate support remains deferred until current Scryfall/Gatherer/Commander legality verification."
+    }
+  ]
+}

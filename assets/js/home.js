@@ -112,7 +112,7 @@ function heroManaPreviewKindLabel(kind) {
     case "four_color":
       return "Four-color";
     case "five_color":
-      return "Five-color";
+      return "Five-Color";
     case "colorless":
       return "Colorless";
     default:

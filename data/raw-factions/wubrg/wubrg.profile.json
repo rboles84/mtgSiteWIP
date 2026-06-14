@@ -1,0 +1,583 @@
+{
+  "schema_version": "1.0.0",
+  "profile_version": "0.1.1",
+  "faction_id": "wubrg",
+  "faction_name": "Five-Color / WUBRG",
+  "faction_type": "five_color",
+  "color_identity": [
+    "White",
+    "Blue",
+    "Black",
+    "Red",
+    "Green"
+  ],
+  "color_pair_or_group": "WUBRG five-color identity; Five-Color public label; WUBRG technical/internal key",
+  "plane_or_setting": "Cross-setting; no single official faction, plane, guild, college, or civilization",
+  "last_updated": "2026-06-13",
+  "source_review_date": "2026-06-13",
+  "last_full_review": "2026-06-13",
+  "last_incremental_review": "2026-06-13",
+  "core_identity": {
+    "short_form": "Five-Color is all five colors present: breadth, coalition, synthesis, and every tool negotiated under constraint.",
+    "summary": "Five-Color / WUBRG is Vox Mana's controlled expression for full color access, coalition, synthesis, spectrum, and totality without turning those ideas into an official faction or superiority claim.",
+    "philosophy": "Five-Color asks what happens when every color is allowed to speak and none can pretend it is the whole answer. Its strength is breadth; its risk is dilution, contradiction, or goodstuff drift.",
+    "central_tension": "Five-Color can integrate every tool into one living plan, but it can also lose identity if breadth becomes mere accumulation.",
+    "identity_frame": "Use Five-Color as public-facing language and WUBRG as technical metadata. Keep all lore, Commander, and deck claims source-bound.",
+    "claim_ids": [
+      "wubrg_claim_0001",
+      "wubrg_claim_0002",
+      "wubrg_claim_0003",
+      "wubrg_claim_0004",
+      "wubrg_claim_0005",
+      "wubrg_claim_0006",
+      "wubrg_claim_0007",
+      "wubrg_claim_0008"
+    ]
+  },
+  "structure": {
+    "identity_class": "five-color",
+    "missing_color": null,
+    "present_colors": [
+      "White",
+      "Blue",
+      "Black",
+      "Red",
+      "Green"
+    ],
+    "primary_anchor": "Commander color identity and official Five-Color product labeling",
+    "support_texture": [
+      "full color access",
+      "coalition and synthesis",
+      "domain, converge, and sunburst texture",
+      "WUBRG costs and activations",
+      "basic-land-type and multicolor payoffs",
+      "support-only WUBRG Commander decks"
+    ],
+    "non_faction_boundary": "Five-Color / WUBRG is not an official faction, plane, civilization, guild, college, doctrine, or single personality."
+  },
+  "great_tension": {
+    "gift": "Every color can contribute a needed answer, so the identity can solve problems through breadth rather than purity.",
+    "shadow": "If every tool is included without a reason, Five-Color collapses into unfocused goodstuff or false total mastery.",
+    "boundary": "This is Vox Mana synthesis and Commander-facing source interpretation, not official Wizards canon doctrine."
+  },
+  "historical_timeline": [
+    {
+      "label": "Color identity and five-color deck construction",
+      "summary": "Commander color identity makes WUBRG deck access meaningful at the deck-construction layer.",
+      "boundary": "Official format support only; not a named-card legality or recommendation claim."
+    },
+    {
+      "label": "Official Five-Color product labeling",
+      "summary": "Official Commander product pages use Five-Color and White-Blue-Black-Red-Green labels for WUBRG support decks such as Sliver Swarm.",
+      "boundary": "Product label support; not a universal WUBRG philosophy."
+    },
+    {
+      "label": "Vox Mana controlled promotion",
+      "summary": "VM-367 promotes WUBRG only after Layer 2 evidence review and keeps Home/public-route expansion out of scope.",
+      "boundary": "Product governance only."
+    }
+  ],
+  "key_figures": [
+    {
+      "name": "Five-Color commanders",
+      "role": "Commander support lane",
+      "boundary": "Named commanders are support-only unless each card/source claim is manually verified."
+    },
+    {
+      "name": "Eldrazi Incursion, Draconic Domination, Sliver Swarm, Painbow, Turtle Power!, and Dance of the Elements",
+      "role": "Official decklist-supported WUBRG precon references",
+      "boundary": "Deck and product support only; not lore proof, philosophy proof, placement proof, legality proof, popularity proof, ranking proof, metagame proof, or recommendation-quality proof."
+    }
+  ],
+  "canonical_flavor_text": {
+    "source_bound_summary": "Five-Color is source-bound here as a deck-construction and Vox Mana synthesis identity for full color access, coalition, breadth, and false-positive discipline.",
+    "vox_mana_synthesis": "All five voices enter the room; the work is deciding which one leads now.",
+    "boundary": "Synthesis only. Do not invent official WUBRG flavor text or canon doctrine."
+  },
+  "mechanics": {
+    "source_bound_texture": [
+      "Commander WUBRG color identity",
+      "full deck-level color access",
+      "individual card color-pie limits",
+      "Five-Color product label support"
+    ],
+    "support_only_texture": [
+      "domain",
+      "converge",
+      "sunburst",
+      "WUBRG costs and activations",
+      "basic-land-type payoffs",
+      "multicolor payoffs",
+      "mana-fixing and color access infrastructure"
+    ],
+    "deferred": [
+      "exact Oracle claims for named cards",
+      "current legality for named commanders",
+      "popularity, rankings, price, metagame, and cEDH claims"
+    ],
+    "summary": "Five-Color mechanics texture can include domain, converge, sunburst, WUBRG costs or activations, multicolor payoffs, basic-land-type checks, and mana infrastructure, but specific cards remain manual-verify support until exact sources are captured."
+  },
+  "views_on_other_factions": {
+    "pair_overlap_boundaries": [
+      "A single color's priority alone is not Five-Color.",
+      "A guild or college overlap is not Five-Color unless all five colors remain present and meaningful.",
+      "Commander support links do not turn deck preference into placement evidence."
+    ],
+    "near_match_boundaries": [
+      "Colorless is outside-WUBRG restriction, not WUBRG totality.",
+      "Four-color identities are missing-color frames; WUBRG has no missing color.",
+      "Five-color Eldrazi support is not Colorless proof.",
+      "Generic goodstuff is a false positive unless the user values integration and tradeoffs.",
+      "Mana fixing alone is not Five-Color identity.",
+      "A WUBRG commander row is support-only unless the identity claim is separately sourced."
+    ],
+    "source_role": "Layer 2 boundary support from WUBRG packet and Colorless/WUBRG separation notes."
+  },
+  "commander_compass": {
+    "schema_version": "1.0.0",
+    "source_research_file": "docs/research/vox_mana_second_commander_recommendations_enhanced.jsonl",
+    "last_reviewed": "2026-06-13",
+    "review_status": "support_only_live_pilot_curation",
+    "recommendation_philosophy": "Use WUBRG Commander guidance as product/operator support only. Local JSONL rows and external links can help users browse Five-Color Commander decks, but they do not create lore proof, placement proof, current legality proof, popularity proof, or metagame advice.",
+    "identity_basis": {
+      "owned_themes": [
+        "all five colors present",
+        "coalition and synthesis",
+        "mana infrastructure and color access",
+        "breadth with tradeoffs"
+      ],
+      "allowed_phrases": [
+        "Five-Color support fit",
+        "WUBRG commander identity",
+        "full color access",
+        "support-only precon reference"
+      ],
+      "avoid_or_contrast_phrases": [
+        "official WUBRG faction",
+        "WUBRG is superior",
+        "goodstuff proves the identity",
+        "five-color Eldrazi proves Colorless",
+        "support rows prove legality or recommendation quality"
+      ],
+      "adjacent_overlap_notes": [
+        "WUBRG can overlap every identity mechanically, so copy must explain the full-color integration rather than padding with examples."
+      ],
+      "supporting_claim_ids": [
+        "wubrg_claim_0002",
+        "wubrg_claim_0006",
+        "wubrg_claim_0007",
+        "wubrg_claim_0008"
+      ],
+      "supporting_source_ids": [
+        "WUBRG-CMD-001",
+        "WUBRG-OFF-004",
+        "WUBRG-OFF-005",
+        "WUBRG-OFF-006",
+        "WUBRG-OFF-007",
+        "WUBRG-OFF-008",
+        "WUBRG-OFF-009",
+        "WUBRG-SUP-005"
+      ]
+    },
+    "support_decks": [
+      "Eldrazi Incursion",
+      "Draconic Domination",
+      "Sliver Swarm",
+      "Painbow",
+      "Turtle Power!",
+      "Dance of the Elements"
+    ],
+    "support_language": [
+      "five-color access",
+      "mana infrastructure",
+      "multicolor payoffs",
+      "coalition play",
+      "deck-level breadth"
+    ],
+    "native_fit_commanders": [
+      {
+        "exact_card_name": "Ulalek, Fused Atrocity",
+        "display_name": "Ulalek, Fused Atrocity",
+        "scryfall_uri": "https://scryfall.com/search?q=%21%22Ulalek%2C%20Fused%20Atrocity%22",
+        "edhrec_uri": "https://edhrec.com/commanders/ulalek-fused-atrocity",
+        "color_identity": [
+          "W",
+          "U",
+          "B",
+          "R",
+          "G"
+        ],
+        "commander_legal": null,
+        "recommendation_type": "Support-Only Commander Row",
+        "archetype_tags": [
+          "Eldrazi Incursion",
+          "five-color support",
+          "mana infrastructure"
+        ],
+        "why_this_fits": "The local enhanced JSONL row and official Modern Horizons 3 decklist support Eldrazi Incursion as WUBRG support context.",
+        "skip_if": "Skip if the user is asking for strict Colorless proof, current legality proof, or metagame strength.",
+        "gameplay_summary": "Support-only five-color Eldrazi browsing lane with a strict boundary from Colorless placement proof.",
+        "faction_identity_terms": [
+          "Five-Color support fit",
+          "WUBRG commander identity"
+        ],
+        "source_basis": "WUBRG-CMD-001; WUBRG-OFF-005",
+        "confidence": "Support-only",
+        "caution_notes": "Not lore proof, Colorless proof, legality proof, or recommendation-quality proof."
+      },
+      {
+        "exact_card_name": "The Ur-Dragon",
+        "display_name": "The Ur-Dragon",
+        "scryfall_uri": "https://scryfall.com/search?q=%21%22The%20Ur-Dragon%22",
+        "edhrec_uri": "https://edhrec.com/commanders/the-ur-dragon",
+        "color_identity": [
+          "W",
+          "U",
+          "B",
+          "R",
+          "G"
+        ],
+        "commander_legal": null,
+        "recommendation_type": "Support-Only Commander Row",
+        "archetype_tags": [
+          "Draconic Domination",
+          "five-color dragon tribal",
+          "support-only precon reference"
+        ],
+        "why_this_fits": "The local enhanced JSONL row, official Commander 2017 decklist, and local commander-identity cross-check support Draconic Domination as WUBRG support context.",
+        "skip_if": "Skip if the user needs current legality proof, popularity proof, metagame strength, or WUBRG lore proof.",
+        "gameplay_summary": "Support-only dragon-tribal WUBRG precon lane with source-bounded deck/product texture.",
+        "faction_identity_terms": [
+          "Five-Color support fit",
+          "WUBRG commander identity"
+        ],
+        "source_basis": "WUBRG-CMD-001; WUBRG-OFF-008; WUBRG-SUP-005",
+        "confidence": "Support-only",
+        "caution_notes": "Not lore proof, legality proof, ranking proof, metagame proof, representative play-pattern proof, or recommendation-quality proof."
+      },
+      {
+        "exact_card_name": "Sliver Gravemother",
+        "display_name": "Sliver Gravemother",
+        "scryfall_uri": "https://scryfall.com/search?q=%21%22Sliver%20Gravemother%22",
+        "edhrec_uri": "https://edhrec.com/commanders/sliver-gravemother",
+        "color_identity": [
+          "W",
+          "U",
+          "B",
+          "R",
+          "G"
+        ],
+        "commander_legal": null,
+        "recommendation_type": "Support-Only Commander Row",
+        "archetype_tags": [
+          "Sliver Swarm",
+          "five-color tribal",
+          "coalition board"
+        ],
+        "why_this_fits": "Official Commander Masters source labels Sliver Swarm Five-Color and the local row matches the WUBRG support deck.",
+        "skip_if": "Skip if the user needs exact current legality or a non-tribal Five-Color lane.",
+        "gameplay_summary": "Support-only Sliver Swarm browsing lane for five-color tribal breadth.",
+        "faction_identity_terms": [
+          "Five-Color support fit",
+          "full color access"
+        ],
+        "source_basis": "WUBRG-CMD-001; WUBRG-OFF-004",
+        "confidence": "Support-only",
+        "caution_notes": "Not lore proof, ranking proof, or universal WUBRG doctrine."
+      },
+      {
+        "exact_card_name": "Jared Carthalion",
+        "display_name": "Jared Carthalion",
+        "scryfall_uri": "https://scryfall.com/search?q=%21%22Jared%20Carthalion%22",
+        "edhrec_uri": "https://edhrec.com/commanders/jared-carthalion",
+        "color_identity": [
+          "W",
+          "U",
+          "B",
+          "R",
+          "G"
+        ],
+        "commander_legal": null,
+        "recommendation_type": "Support-Only Commander Row",
+        "archetype_tags": [
+          "Painbow",
+          "five-color matters",
+          "domain texture"
+        ],
+        "why_this_fits": "The local enhanced JSONL row, official Dominaria United Commander decklist, and local commander-identity cross-check support Painbow as WUBRG support context.",
+        "skip_if": "Skip if the user needs exact legality, a lore-forward canon claim, or a guarantee that five-color means the best or most complete identity.",
+        "gameplay_summary": "Support-only five-color-matters precon lane for domain and WUBRG product texture.",
+        "faction_identity_terms": [
+          "Five-Color support fit",
+          "full color access"
+        ],
+        "source_basis": "WUBRG-CMD-001; WUBRG-OFF-009; WUBRG-SUP-005",
+        "confidence": "Support-only",
+        "caution_notes": "Not lore proof, legality proof, popularity proof, deck-quality proof, or universal WUBRG doctrine."
+      },
+      {
+        "exact_card_name": "Heroes in a Half Shell",
+        "display_name": "Heroes in a Half Shell",
+        "scryfall_uri": "https://scryfall.com/search?q=%21%22Heroes%20in%20a%20Half%20Shell%22",
+        "edhrec_uri": "",
+        "color_identity": [
+          "W",
+          "U",
+          "B",
+          "R",
+          "G"
+        ],
+        "commander_legal": null,
+        "recommendation_type": "Support-Only Commander Row",
+        "archetype_tags": [
+          "Turtle Power!",
+          "team deck",
+          "five-color support"
+        ],
+        "why_this_fits": "The local enhanced JSONL row and official TMNT decklist support Turtle Power! as WUBRG support context.",
+        "skip_if": "Skip if the user wants evergreen Magic lore proof rather than Universes Beyond Commander support.",
+        "gameplay_summary": "Support-only team/cooperation WUBRG precon lane.",
+        "faction_identity_terms": [
+          "Five-Color support fit",
+          "coalition play"
+        ],
+        "source_basis": "WUBRG-CMD-001; WUBRG-OFF-006",
+        "confidence": "Support-only",
+        "caution_notes": "Not lore proof, legality proof, or recommendation-quality proof."
+      },
+      {
+        "exact_card_name": "Ashling, the Limitless",
+        "display_name": "Ashling, the Limitless",
+        "scryfall_uri": "https://scryfall.com/search?q=%21%22Ashling%2C%20the%20Limitless%22",
+        "edhrec_uri": "",
+        "color_identity": [
+          "W",
+          "U",
+          "B",
+          "R",
+          "G"
+        ],
+        "commander_legal": null,
+        "recommendation_type": "Support-Only Commander Row",
+        "archetype_tags": [
+          "Dance of the Elements",
+          "five-color support",
+          "elemental texture"
+        ],
+        "why_this_fits": "The local enhanced JSONL row and official Lorwyn Eclipsed decklist support Dance of the Elements as WUBRG support context.",
+        "skip_if": "Skip if the user needs exact card legality or a non-product Commander claim.",
+        "gameplay_summary": "Support-only WUBRG precon lane for element/color breadth.",
+        "faction_identity_terms": [
+          "Five-Color support fit",
+          "full color access"
+        ],
+        "source_basis": "WUBRG-CMD-001; WUBRG-OFF-007",
+        "confidence": "Support-only",
+        "caution_notes": "Not lore proof, legality proof, or universal WUBRG doctrine."
+      }
+    ],
+    "weird_stretch_commanders": [],
+    "budget_friendly_commanders": [],
+    "advanced_complexity_commanders": [],
+    "iconic_lore_forward_commanders": [],
+    "not_recommended_or_deprioritized": [
+      {
+        "name": "Golos, Tireless Pilgrim",
+        "reason": "Current legality caution; do not recommend from stale five-color notes."
+      }
+    ],
+    "archetype_lanes": [
+      {
+        "name": "Five-color tribal",
+        "support_basis": "Sliver Swarm and Draconic Domination support rows plus official product/decklist sources",
+        "boundary": "Support-only browsing lane, not lore proof."
+      },
+      {
+        "name": "Five-color matters / domain support",
+        "support_basis": "Painbow support row and official Dominaria United Commander decklist",
+        "boundary": "Product support only; exact card and play-pattern claims remain manual-verify."
+      },
+      {
+        "name": "Five-color Eldrazi support",
+        "support_basis": "Eldrazi Incursion support row and official decklist",
+        "boundary": "Not Colorless proof."
+      },
+      {
+        "name": "Coalition/team precon support",
+        "support_basis": "Turtle Power! and Dance of the Elements support rows",
+        "boundary": "Product support only."
+      }
+    ],
+    "link_targets": {
+      "edhrec_commander_index": "https://edhrec.com/commanders/wubrg",
+      "mtgdecks_color_identity": "https://mtgdecks.net/Commander/five-commanders",
+      "scryfall_commander_search": "https://scryfall.com/search?q=id%3Dwubrg+is%3Acommander+f%3Acommander",
+      "archidekt_color_search": "https://archidekt.com/search/decks?colors=WUBRG&deckFormat=3&orderBy=-updatedAt&page=1"
+    },
+    "merge_notes": {
+      "source_role": "support-only",
+      "deck_links_status": "External links are Commander support navigation targets only, not evidence rows."
+    }
+  },
+  "search_and_filter_metadata": {
+    "future_expression_name": "WUBRG",
+    "future_expression_name_status": "VM-367 controlled live placement expression; WUBRG is the internal/display code and Five-Color is the preferred public label.",
+    "metadata_query_only_terms": [
+      "WUBRG",
+      "Five-Color",
+      "five-color",
+      "wubrg"
+    ],
+    "source_status": "source_grounded_layer2_gold_packet",
+    "placement_status": "controlled_live_after_vm367",
+    "preview_eligible": false,
+    "review_gated": false,
+    "placement_eligible": true,
+    "live_pilot": true,
+    "claim_ids": [
+      "wubrg_claim_0001",
+      "wubrg_claim_0002",
+      "wubrg_claim_0003",
+      "wubrg_claim_0004",
+      "wubrg_claim_0005",
+      "wubrg_claim_0006",
+      "wubrg_claim_0007"
+    ],
+    "scryfall_queries": {
+      "exact_commander": "id=wubrg is:commander f:commander",
+      "grouped_wubrg_cost_or_activation": "f:commander (mana:{W}{U}{B}{R}{G} OR o:\"{W}{U}{B}{R}{G}\")",
+      "broader_five_symbol_oracle_discovery": "f:commander o:{W} o:{U} o:{B} o:{R} o:{G}"
+    }
+  },
+  "site_surface": {
+    "display_name": "Five-Color / WUBRG",
+    "short_summary": "Five-Color is full WUBRG access: every color present, every tool negotiated, and every support claim kept source-bound.",
+    "one_sentence_identity": "Five-Color does not choose one voice; it builds a table where all five must answer for the plan.",
+    "tagline": "Every color present. Every shortcut questioned.",
+    "primary_tags": [
+      "Five-Color",
+      "WUBRG",
+      "Commander color identity",
+      "Controlled Layer 1",
+      "Source-grounded"
+    ],
+    "secondary_tags": [
+      "coalition",
+      "synthesis",
+      "domain texture",
+      "converge texture",
+      "sunburst texture"
+    ]
+  },
+  "data_quality": {
+    "strongest_evidence_areas": [
+      "Commander color-identity deck-construction rules",
+      "Five-Color public/product label",
+      "source-generated and no-padding governance",
+      "WUBRG exact Maze query contract",
+      "Colorless and four-color boundary separation"
+    ],
+    "weakest_evidence_areas": [
+      "exact Oracle claims for specific WUBRG cards",
+      "current named-card legality",
+      "popularity, price, metagame, and cEDH claims"
+    ],
+    "manual_review_recommended": true,
+    "review_gated": false,
+    "placement_eligible": true,
+    "preview_eligible": false,
+    "live_pilot": true,
+    "notes": "VM-367 adds WUBRG only after Layer 2 gold readiness. Empty/deferred fields are intentional when evidence is not source-backed.",
+    "source_status": "source_grounded_layer2_gold_packet",
+    "raw_enrichment": {
+      "status": "approved_for_controlled_layer1",
+      "preview_eligible": false,
+      "public_route_eligible": false
+    }
+  },
+  "research_limitations": [
+    "Do not use local WUBRG essays as raw-claim evidence unless their individual claims are mapped to captured sources.",
+    "Do not use generated/runtime JSON, dossier output, or placement output as lore evidence.",
+    "Do not use Commander support rows as placement proof, lore proof, legality proof, or recommendation-quality proof.",
+    "Do not use product anchors as color philosophy, metaphysics, lore proof, or representative Five-Color play-pattern proof.",
+    "Do not use WUBRG as a public Home preview or route expansion.",
+    "Do not treat WUBRG as a universal superset, best identity, endpoint identity, completion state, or default high-complexity answer.",
+    "Do not pad WUBRG with weak claims to match other identities."
+  ],
+  "profile": {
+    "overview": "Five-Color / WUBRG is Vox Mana's controlled expression for all five colors present: breadth, coalition, synthesis, totality, and the responsibility to keep every included tool source-bound.",
+    "philosophy": "Five-Color believes the answer may need every color, but not every color at once and not every tool without a reason. White asks for structure, Blue for understanding, Black for agency, Red for motion, and Green for belonging; WUBRG is the negotiation among them.",
+    "core_tension": "Five-Color can hold every color in one plan, but it must resist becoming generic accumulation, false superiority, or unfocused goodstuff.",
+    "mechanics_and_play_pattern": "Domain, converge, sunburst, WUBRG costs or activations, multicolor payoffs, basic-land-type checks, and mana infrastructure can express Five-Color play, but individual cards and Commander claims remain manually verified support.",
+    "claim_ids": [
+      "wubrg_claim_0001",
+      "wubrg_claim_0002",
+      "wubrg_claim_0003",
+      "wubrg_claim_0004",
+      "wubrg_claim_0005",
+      "wubrg_claim_0006",
+      "wubrg_claim_0007",
+      "wubrg_claim_0008"
+    ]
+  },
+  "deck_links": [
+    {
+      "fmt": "Commander",
+      "name": "Eldrazi Incursion (Precon)",
+      "desc": "Support-only WUBRG precon reference from local JSONL and official Modern Horizons 3 decklist. Not Colorless proof.",
+      "mtgg": "https://magic.wizards.com/en/news/announcements/modern-horizons-3-commander-decklists",
+      "edhrec": "https://edhrec.com/precon/eldrazi-incursion",
+      "mtgd": "https://mtgdecks.net/Commander/five-commanders"
+    },
+    {
+      "fmt": "Commander",
+      "name": "Draconic Domination (Precon)",
+      "desc": "Support-only WUBRG precon reference from local JSONL and official Commander 2017 decklist. Product texture only.",
+      "mtgg": "https://magic.wizards.com/en/news/feature/commander-2017-edition-decklists-2017-08-11",
+      "edhrec": "https://edhrec.com/precon/draconic-domination",
+      "mtgd": "https://mtgdecks.net/Commander/five-commanders"
+    },
+    {
+      "fmt": "Commander",
+      "name": "Sliver Swarm (Precon)",
+      "desc": "Support-only WUBRG precon reference from local JSONL and official Commander Masters Five-Color decklist label.",
+      "mtgg": "https://magic.wizards.com/en/news/announcements/commander-masters-commander-decklists",
+      "edhrec": null,
+      "mtgd": "https://mtgdecks.net/Commander/five-commanders"
+    },
+    {
+      "fmt": "Commander",
+      "name": "Painbow (Precon)",
+      "desc": "Support-only WUBRG precon reference from local JSONL and official Dominaria United Commander decklist. Product texture only.",
+      "mtgg": "https://magic.wizards.com/en/news/feature/dominaria-united-commander-decklists-2022-08-19",
+      "edhrec": null,
+      "mtgd": "https://mtgdecks.net/Commander/five-commanders"
+    },
+    {
+      "fmt": "Commander",
+      "name": "Turtle Power! (Precon)",
+      "desc": "Support-only WUBRG precon reference from local JSONL and official TMNT decklist.",
+      "mtgg": "https://magic.wizards.com/en/news/announcements/teenage-mutant-ninja-turtles-commander-decklist",
+      "edhrec": null,
+      "mtgd": "https://mtgdecks.net/Commander/five-commanders"
+    },
+    {
+      "fmt": "Commander",
+      "name": "Dance of the Elements (Precon)",
+      "desc": "Support-only WUBRG precon reference from local JSONL and official Lorwyn Eclipsed decklist.",
+      "mtgg": "https://magic.wizards.com/en/news/announcements/lorwyn-eclipsed-commander-decklists",
+      "edhrec": null,
+      "mtgd": "https://mtgdecks.net/Commander/five-commanders"
+    }
+  ],
+  "research_links": {
+    "source_packet": "data/raw-factions/wubrg/wubrg.sources.json",
+    "layer2_packet": "docs/research/wubrg/wubrg-layer2-gold-findings.md",
+    "commander_support_row": "docs/research/vox_mana_second_commander_recommendations_enhanced.jsonl (WUBRG rows)",
+    "mtgdecks_five_color": "https://mtgdecks.net/Commander/five-commanders",
+    "archidekt_wubrg_search": "https://archidekt.com/search/decks?colors=WUBRG&deckFormat=3&orderBy=-updatedAt&page=1",
+    "scryfall_exact_commander": "https://scryfall.com/search?q=id%3Dwubrg+is%3Acommander+f%3Acommander",
+    "scryfall_grouped_cost_activation": "https://scryfall.com/search?q=f%3Acommander+%28mana%3A%7BW%7D%7BU%7D%7BB%7D%7BR%7D%7BG%7D+OR+o%3A%22%7BW%7D%7BU%7D%7BB%7D%7BR%7D%7BG%7D%22%29",
+    "scryfall_broader_five_symbol_oracle_discovery": "https://scryfall.com/search?q=f%3Acommander+o%3A%7BW%7D+o%3A%7BU%7D+o%3A%7BB%7D+o%3A%7BR%7D+o%3A%7BG%7D"
+  }
+}

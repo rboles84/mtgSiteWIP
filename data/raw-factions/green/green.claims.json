@@ -1,0 +1,178 @@
+{
+  "schema_version": "1.0.0",
+  "faction_id": "green",
+  "faction_name": "Green",
+  "source_review_date": "2026-06-13",
+  "claim_count": 8,
+  "claims": [
+    {
+      "claim_id": "green_claim_0001",
+      "faction_id": "green",
+      "claim_type": "source_authority_boundary",
+      "statement": "Green is promoted from transitional mono status only through this source-intake bundle, claim ledger, raw profile, raw placement packet, and generated QA; identity-layer or runtime text alone is not evidence.",
+      "canon_status": "Vox Mana governance",
+      "source_ids": [
+        "VM-377"
+      ],
+      "evidence_rows": [
+        "green_evid_0013"
+      ],
+      "confidence": "High"
+    },
+    {
+      "claim_id": "green_claim_0002",
+      "faction_id": "green",
+      "claim_type": "philosophy_goal",
+      "statement": "Green seeks acceptance of the natural order, believing the world already contains the answers and each being has an innate role.",
+      "canon_status": "Official color philosophy, paraphrased",
+      "source_ids": [
+        "MONO-G-2015",
+        "MONO-G-2025"
+      ],
+      "evidence_rows": [
+        "green_evid_0001",
+        "green_evid_0005"
+      ],
+      "anchor_ids": [
+        "G2015-Q1",
+        "G2015-Q1b",
+        "G2025-a",
+        "G2025-b"
+      ],
+      "confidence": "High"
+    },
+    {
+      "claim_id": "green_claim_0003",
+      "faction_id": "green",
+      "claim_type": "philosophy_means",
+      "statement": "Green's means are nature itself: creatures, land, growth, life, interdependence, instinct, and slow purposeful evolution rather than artificial reinvention.",
+      "canon_status": "Official color philosophy, paraphrased",
+      "source_ids": [
+        "MONO-G-2015",
+        "MONO-G-2025"
+      ],
+      "evidence_rows": [
+        "green_evid_0002",
+        "green_evid_0006"
+      ],
+      "anchor_ids": [
+        "G2015-Q2",
+        "G2025-c",
+        "G2025-d"
+      ],
+      "confidence": "High"
+    },
+    {
+      "claim_id": "green_claim_0004",
+      "faction_id": "green",
+      "claim_type": "cares_and_threats",
+      "statement": "Green centers life, growth, nature, truth, community, interdependence, the past, wisdom, ancestry, tradition, instinct, animals, and plants; it despises unnatural change and artificial disruption.",
+      "canon_status": "Official color philosophy, paraphrased",
+      "source_ids": [
+        "MONO-G-2015",
+        "MONO-G-2025"
+      ],
+      "evidence_rows": [
+        "green_evid_0003",
+        "green_evid_0007"
+      ],
+      "anchor_ids": [
+        "G2015-Q3",
+        "G2015-Q4",
+        "G2025-c"
+      ],
+      "confidence": "High"
+    },
+    {
+      "claim_id": "green_claim_0005",
+      "faction_id": "green",
+      "claim_type": "relationships",
+      "statement": "Green is allied with White through community and with Red through instinct and wild action; it opposes Blue's nurture/artifice/future obsession and Black's self-interest/free-will assertion against natural responsibility.",
+      "canon_status": "Official color philosophy, paraphrased",
+      "source_ids": [
+        "MONO-G-2015",
+        "MONO-G-2025"
+      ],
+      "evidence_rows": [
+        "green_evid_0004",
+        "green_evid_0008"
+      ],
+      "anchor_ids": [
+        "G2015-Q5",
+        "G2015-Q5b",
+        "G2025-e",
+        "G2025-f",
+        "G2025-g",
+        "G2025-h"
+      ],
+      "confidence": "High"
+    },
+    {
+      "claim_id": "green_claim_0006",
+      "faction_id": "green",
+      "claim_type": "strength_weakness",
+      "statement": "Green's strength is certainty in the natural system, interconnection, primal power, mana, and creatures; its weakness is over-reliance on that system, especially when creatures are not the answer.",
+      "canon_status": "Official color philosophy, paraphrased",
+      "source_ids": [
+        "MONO-G-2015",
+        "MONO-G-2025"
+      ],
+      "evidence_rows": [
+        "green_evid_0004",
+        "green_evid_0008"
+      ],
+      "anchor_ids": [
+        "G2015-Q6",
+        "G2025-i"
+      ],
+      "confidence": "High"
+    },
+    {
+      "claim_id": "green_claim_0007",
+      "faction_id": "green",
+      "claim_type": "mechanical_texture",
+      "statement": "Green's mechanical texture includes efficient creatures, +1/+1 counters, mana and lands, Fight/Bite, reach, trample, artifact and enchantment destruction, card draw or filtering tied to creatures and lands, and anti-flying tools.",
+      "canon_status": "Official mechanical color pie snapshot, paraphrased",
+      "source_ids": [
+        "MECH-CP-2021",
+        "MECH-CP-2021-CHG"
+      ],
+      "evidence_rows": [
+        "green_evid_0009",
+        "green_evid_0010",
+        "green_evid_0011"
+      ],
+      "anchor_ids": [
+        "MECH-removal",
+        "MECH-carddraw",
+        "MECH-antiflying",
+        "CHG-carddraw",
+        "CHG-cardfilter"
+      ],
+      "confidence": "Medium-High",
+      "notes": "Mechanical Color Pie 2021 is a dated snapshot and must be overridden by later verified sources where needed."
+    },
+    {
+      "claim_id": "green_claim_0008",
+      "faction_id": "green",
+      "claim_type": "commander_boundary",
+      "statement": "The three native mono-green Commander support rows in this packet were verified through current Scryfall exact-name checks on 2026-06-13 for name, mono-G color identity, legendary creature type line, and Commander legality; they remain support/navigation rows rather than color philosophy or profile-axis evidence.",
+      "canon_status": "Rules and Vox Mana boundary",
+      "source_ids": [
+        "RULES-CR",
+        "VM-377",
+        "SCRYFALL-G-2026-06-13"
+      ],
+      "evidence_rows": [
+        "green_evid_0012",
+        "green_evid_0013",
+        "green_evid_0014"
+      ],
+      "anchor_ids": [
+        "CR-903.3",
+        "CR-903.4"
+      ],
+      "confidence": "High for current Scryfall support status; not evidence for popularity, price, metagame, deck quality, philosophy, or profile axes"
+    }
+  ]
+}

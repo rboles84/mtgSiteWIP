@@ -1,0 +1,181 @@
+{
+  "schema_version": "1.0.0",
+  "faction_id": "blue",
+  "faction_name": "Blue",
+  "source_review_date": "2026-06-13",
+  "claim_count": 8,
+  "claims": [
+    {
+      "claim_id": "blue_claim_0001",
+      "faction_id": "blue",
+      "claim_type": "source_authority_boundary",
+      "statement": "Blue is promoted from transitional mono status only through this source-intake bundle, claim ledger, raw profile, raw placement packet, and generated QA; identity-layer or runtime text alone is not evidence.",
+      "canon_status": "Vox Mana governance",
+      "source_ids": [
+        "VM-377"
+      ],
+      "evidence_rows": [
+        "blue_evid_0013"
+      ],
+      "confidence": "High"
+    },
+    {
+      "claim_id": "blue_claim_0002",
+      "faction_id": "blue",
+      "claim_type": "philosophy_goal",
+      "statement": "Blue seeks perfection through the belief that people can become more than they are by learning, choosing, improving, and using tools.",
+      "canon_status": "Official color philosophy, paraphrased",
+      "source_ids": [
+        "MONO-U-2015",
+        "MONO-U-2025"
+      ],
+      "evidence_rows": [
+        "blue_evid_0001",
+        "blue_evid_0005"
+      ],
+      "anchor_ids": [
+        "U2015-Q1",
+        "U2015-Q1b",
+        "U2025-a",
+        "U2025-e"
+      ],
+      "confidence": "High"
+    },
+    {
+      "claim_id": "blue_claim_0003",
+      "faction_id": "blue",
+      "claim_type": "philosophy_means",
+      "statement": "Blue's means are knowledge, information, education, experimentation, tools, technology, and deliberate decision-making.",
+      "canon_status": "Official color philosophy, paraphrased",
+      "source_ids": [
+        "MONO-U-2015",
+        "MONO-U-2025"
+      ],
+      "evidence_rows": [
+        "blue_evid_0002",
+        "blue_evid_0006"
+      ],
+      "anchor_ids": [
+        "U2015-Q2",
+        "U2025-b",
+        "U2025-c",
+        "U2025-d"
+      ],
+      "confidence": "High"
+    },
+    {
+      "claim_id": "blue_claim_0004",
+      "faction_id": "blue",
+      "claim_type": "cares_and_threats",
+      "statement": "Blue centers mind, memory, control, subtlety, complexity, technology, artifice, illusion, and careful systems; it despises impulse, instinct, and tradition when they obstruct improvement.",
+      "canon_status": "Official color philosophy, paraphrased",
+      "source_ids": [
+        "MONO-U-2015",
+        "MONO-U-2025"
+      ],
+      "evidence_rows": [
+        "blue_evid_0003",
+        "blue_evid_0007"
+      ],
+      "anchor_ids": [
+        "U2015-Q3",
+        "U2015-Q4",
+        "U2025-h",
+        "U2025-i"
+      ],
+      "confidence": "High"
+    },
+    {
+      "claim_id": "blue_claim_0005",
+      "faction_id": "blue",
+      "claim_type": "relationships",
+      "statement": "Blue is allied with White through planning and systems and with Black through self-directed improvement and pragmatic knowledge use; it opposes Red's impulsive emotion and Green's nature/destiny frame.",
+      "canon_status": "Official color philosophy, paraphrased",
+      "source_ids": [
+        "MONO-U-2015",
+        "MONO-U-2025"
+      ],
+      "evidence_rows": [
+        "blue_evid_0004",
+        "blue_evid_0008"
+      ],
+      "anchor_ids": [
+        "U2015-Q5",
+        "U2015-Q5b",
+        "U2025-f",
+        "U2025-g",
+        "U2025-h",
+        "U2025-i"
+      ],
+      "confidence": "High"
+    },
+    {
+      "claim_id": "blue_claim_0006",
+      "faction_id": "blue",
+      "claim_type": "strength_weakness",
+      "statement": "Blue's strength is knowledge used for foresight, control, and flexible answers; its weakness is needing time, becoming passive/reactive, and being vulnerable to fast or indirect pressure.",
+      "canon_status": "Official color philosophy, paraphrased",
+      "source_ids": [
+        "MONO-U-2015",
+        "MONO-U-2025"
+      ],
+      "evidence_rows": [
+        "blue_evid_0004",
+        "blue_evid_0008"
+      ],
+      "anchor_ids": [
+        "U2015-Q6",
+        "U2025-j"
+      ],
+      "confidence": "High"
+    },
+    {
+      "claim_id": "blue_claim_0007",
+      "faction_id": "blue",
+      "claim_type": "mechanical_texture",
+      "statement": "Blue's mechanical texture includes card draw and filtering, counterspells, copying, bounce, theft, flying, artifacts, instants and sorceries, and avoiding direct creature destruction.",
+      "canon_status": "Official mechanical color pie snapshot, paraphrased",
+      "source_ids": [
+        "MECH-CP-2021",
+        "GOV-COC-2024"
+      ],
+      "evidence_rows": [
+        "blue_evid_0009",
+        "blue_evid_0010",
+        "blue_evid_0011"
+      ],
+      "anchor_ids": [
+        "MECH-carddraw",
+        "MECH-counters",
+        "MECH-flying",
+        "MECH-removal",
+        "MECH-artifact-friendly",
+        "COC-mandate"
+      ],
+      "confidence": "Medium-High",
+      "notes": "Mechanical Color Pie 2021 is a dated snapshot and must be overridden by later verified sources where needed."
+    },
+    {
+      "claim_id": "blue_claim_0008",
+      "faction_id": "blue",
+      "claim_type": "commander_boundary",
+      "statement": "The three native mono-blue Commander support rows in this packet were verified through current Scryfall exact-name checks on 2026-06-13 for name, mono-U color identity, legendary creature type line, and Commander legality; they remain support/navigation rows rather than color philosophy or profile-axis evidence.",
+      "canon_status": "Rules and Vox Mana boundary",
+      "source_ids": [
+        "RULES-CR",
+        "VM-377",
+        "SCRYFALL-U-2026-06-13"
+      ],
+      "evidence_rows": [
+        "blue_evid_0012",
+        "blue_evid_0013",
+        "blue_evid_0014"
+      ],
+      "anchor_ids": [
+        "CR-903.3",
+        "CR-903.4"
+      ],
+      "confidence": "High for current Scryfall support status; not evidence for popularity, price, metagame, deck quality, philosophy, or profile axes"
+    }
+  ]
+}

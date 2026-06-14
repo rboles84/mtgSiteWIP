@@ -1,0 +1,281 @@
+{
+  "schema_version": "1.0.0",
+  "profile_version": "1.0.0",
+  "faction_id": "green",
+  "faction_name": "Green",
+  "faction_type": "color",
+  "color_identity": [
+    "G"
+  ],
+  "color_pair_or_group": "Mono Green",
+  "plane_or_setting": "The Color Pie",
+  "last_updated": "2026-06-13",
+  "source_review_date": "2026-06-13",
+  "last_full_review": "2026-06-13",
+  "core_identity": {
+    "short_form": "Green seeks acceptance through nature, instinct, growth, and belonging.",
+    "summary": "Green is the mono-color expression of the living web: it trusts that the world already has shape, that beings have innate roles, and that strength comes from growing into what is natural.",
+    "philosophy": "Green asks what is already true beneath ambition, artifice, and fear. It does not reject change, but it prefers change that unfolds from nature's own pattern.",
+    "central_tension": "Green can offer deep belonging and primal power, but it can over-trust the existing system or become helpless when its chosen creatures and natural tools fail.",
+    "claim_ids": [
+      "green_claim_0001",
+      "green_claim_0002",
+      "green_claim_0003",
+      "green_claim_0004",
+      "green_claim_0005",
+      "green_claim_0006",
+      "green_claim_0007",
+      "green_claim_0008"
+    ]
+  },
+  "structure": {
+    "identity_class": "mono_color",
+    "present_colors": [
+      "G"
+    ],
+    "primary_anchor": "acceptance through nature and interdependence",
+    "support_texture": [
+      "creatures",
+      "lands and mana",
+      "growth",
+      "instinct",
+      "tradition",
+      "artifact/enchantment removal",
+      "Fight and trample"
+    ],
+    "non_faction_boundary": "Green is an official color philosophy and mechanical color-pie identity, not a single plane, faction, personality type, or commander recommendation list."
+  },
+  "great_tension": {
+    "gift": "Green remembers that life already belongs to something larger than itself.",
+    "shadow": "Green can call a system natural when it is only familiar.",
+    "boundary": "This is Vox Mana synthesis from official color philosophy, not official psychometrics."
+  },
+  "mechanics": {
+    "source_bound_texture": [
+      "creatures and counters",
+      "mana and land access",
+      "Fight and Bite",
+      "reach and trample",
+      "artifact and enchantment destruction",
+      "creature-tied draw and filtering",
+      "anti-flying tools"
+    ],
+    "summary": "Green commonly plays through creatures, mana, lands, growth, combat through bodies, and natural answers to artificial or airborne threats.",
+    "claim_ids": [
+      "green_claim_0007"
+    ]
+  },
+  "site_surface": {
+    "display_name": "Green",
+    "short_summary": "Green trusts nature, instinct, growth, and the web of life to reveal what each being already is.",
+    "one_sentence_identity": "Green is the root that knows the forest before the map is drawn.",
+    "tagline": "Become what you already are.",
+    "primary_tags": [
+      "nature",
+      "acceptance",
+      "growth",
+      "instinct",
+      "belonging"
+    ],
+    "secondary_tags": [
+      "creatures",
+      "lands",
+      "mana",
+      "trample",
+      "fight"
+    ]
+  },
+  "data_quality": {
+    "source_status": "source_grounded_mono_gold_packet",
+    "manual_review_recommended": true,
+    "placement_eligible": true,
+    "preview_eligible": true,
+    "commander_candidate_status": "current_scryfall_verified_support_only_2026-06-13",
+    "notes": "Three native mono-green commander rows are retained only after current Scryfall verification on 2026-06-13. Deck links remain intentionally empty; these rows do not prove color philosophy or Vox Mana placement axes."
+  },
+  "research_limitations": [
+    "Do not treat Green as anti-change in an absolute sense; sources frame Green as accepting slow, purposeful natural evolution.",
+    "Do not treat Vox Mana placement axes as official Wizards scores.",
+    "Do not promote candidate commanders without current card/legal verification.",
+    "Do not use generated runtime files as claim evidence."
+  ],
+  "profile": {
+    "overview": "Green is the color of acceptance, nature, growth, instinct, interdependence, tradition, and belonging.",
+    "philosophy": "Green believes the world is already a living system and that peace comes from discovering and fulfilling one's place in it.",
+    "core_tension": "Green's certainty in the natural order can become over-reliance on familiar systems or resistance to needed change.",
+    "mechanics_and_play_pattern": "Green commonly expresses itself through creatures, lands, mana, counters, Fight/Bite, reach, trample, and natural answers to artifacts, enchantments, and fliers.",
+    "claim_ids": [
+      "green_claim_0001",
+      "green_claim_0002",
+      "green_claim_0003",
+      "green_claim_0004",
+      "green_claim_0005",
+      "green_claim_0006",
+      "green_claim_0007",
+      "green_claim_0008"
+    ]
+  },
+  "deck_links": [],
+  "research_links": {
+    "source_manifest": "docs/research/mono_upgrade/00_SOURCES_MANIFEST.md",
+    "source_digest": "docs/research/mono_upgrade/14_green.md",
+    "mechanical_digest": "docs/research/mono_upgrade/20_mechanical_color_pie_2021.md",
+    "rules_digest": "docs/research/mono_upgrade/30_commander_and_rules.md",
+    "source_packet": "data/raw-factions/green/green.sources.json",
+    "claim_packet": "data/raw-factions/green/green.claims.json"
+  },
+  "commander_compass": {
+    "schema_version": "1.0.0",
+    "source_research_file": "docs/research/mono_upgrade/00_SOURCES_MANIFEST.md and Scryfall exact-name API checks on 2026-06-13",
+    "last_reviewed": "2026-06-13",
+    "review_status": "current_scryfall_verified_support_only",
+    "recommendation_philosophy": "Use these three green commanders as current verified mono-green support/navigation rows only. They do not define Green philosophy, Vox Mana profile-axis scores, popularity, price, metagame strength, or deck quality.",
+    "identity_basis": {
+      "owned_themes": [
+        "organic growth",
+        "natural scale",
+        "ramp",
+        "creatures",
+        "lands"
+      ],
+      "allowed_phrases": [
+        "mono-green Commander support",
+        "current Scryfall-verified support",
+        "support-only commander candidate"
+      ],
+      "avoid_or_contrast_phrases": [
+        "commander row as philosophy proof",
+        "commander row as profile-axis evidence",
+        "popularity, price, metagame, or deck-quality claim without dated evidence"
+      ],
+      "adjacent_overlap_notes": [
+        "Use the raw placement discriminator questions for mono/guild/five-color boundary work; commander rows are support only."
+      ],
+      "supporting_claim_ids": [
+        "green_claim_0008"
+      ],
+      "supporting_source_ids": [
+        "RULES-CR",
+        "SCRYFALL-G-2026-06-13"
+      ]
+    },
+    "native_fit_commanders": [
+      {
+        "exact_card_name": "Azusa, Lost but Seeking",
+        "display_name": "Azusa, Lost but Seeking",
+        "scryfall_uri": "https://scryfall.com/card/cmm/274/azusa-lost-but-seeking?utm_source=api",
+        "edhrec_uri": "https://edhrec.com/commanders/azusa-lost-but-seeking",
+        "color_identity": [
+          "G"
+        ],
+        "commander_legal": true,
+        "recommendation_type": "Current Scryfall-Verified Support",
+        "archetype_tags": [
+          "Lands",
+          "Ramp"
+        ],
+        "why_this_fits": "Makes Green's patience literal by turning extra land drops into steady, natural acceleration.",
+        "skip_if": "You want creature combat to be the first identity signal rather than lands and resource growth.",
+        "gameplay_summary": "Plays additional lands each turn, letting the deck root early and reach large green spells ahead of the table.",
+        "faction_identity_terms": [
+          "organic growth",
+          "natural scale",
+          "ramp",
+          "creatures",
+          "lands"
+        ],
+        "source_basis": "SCRYFALL-G-2026-06-13; RULES-CR; green_claim_0008",
+        "confidence": "Current Scryfall verification on 2026-06-13; support-only",
+        "caution_notes": "Verified for name, mono-color identity, legendary creature type line, and Commander legality in Scryfall on 2026-06-13. This is support/navigation, not color philosophy evidence."
+      },
+      {
+        "exact_card_name": "Selvala, Heart of the Wilds",
+        "display_name": "Selvala, Heart of the Wilds",
+        "scryfall_uri": "https://scryfall.com/card/ecc/116/selvala-heart-of-the-wilds?utm_source=api",
+        "edhrec_uri": "https://edhrec.com/commanders/selvala-heart-of-the-wilds",
+        "color_identity": [
+          "G"
+        ],
+        "commander_legal": true,
+        "recommendation_type": "Current Scryfall-Verified Support",
+        "archetype_tags": [
+          "Ramp",
+          "Big Mana"
+        ],
+        "why_this_fits": "Converts creature size into mana and cards, letting living scale become the resource engine.",
+        "skip_if": "You dislike decks that can become high-power mana engines quickly.",
+        "gameplay_summary": "Rewards large creatures with cards and taps for mana based on the greatest power among creatures.",
+        "faction_identity_terms": [
+          "organic growth",
+          "natural scale",
+          "ramp",
+          "creatures",
+          "lands"
+        ],
+        "source_basis": "SCRYFALL-G-2026-06-13; RULES-CR; green_claim_0008",
+        "confidence": "Current Scryfall verification on 2026-06-13; support-only",
+        "caution_notes": "Verified for name, mono-color identity, legendary creature type line, and Commander legality in Scryfall on 2026-06-13. This is support/navigation, not color philosophy evidence."
+      },
+      {
+        "exact_card_name": "Goreclaw, Terror of Qal Sisma",
+        "display_name": "Goreclaw, Terror of Qal Sisma",
+        "scryfall_uri": "https://scryfall.com/card/cmm/293/goreclaw-terror-of-qal-sisma?utm_source=api",
+        "edhrec_uri": "https://edhrec.com/commanders/goreclaw-terror-of-qal-sisma",
+        "color_identity": [
+          "G"
+        ],
+        "commander_legal": true,
+        "recommendation_type": "Current Scryfall-Verified Support",
+        "archetype_tags": [
+          "Big Creatures",
+          "Trample"
+        ],
+        "why_this_fits": "Keeps mono-Green centered on apex creatures, natural scale, and combat that follows from size.",
+        "skip_if": "You want landfall or card-draw engines more than creature-cost reduction and attacks.",
+        "gameplay_summary": "Discounts large creatures, then gives your high-power attackers trample and a temporary boost in combat.",
+        "faction_identity_terms": [
+          "organic growth",
+          "natural scale",
+          "ramp",
+          "creatures",
+          "lands"
+        ],
+        "source_basis": "SCRYFALL-G-2026-06-13; RULES-CR; green_claim_0008",
+        "confidence": "Current Scryfall verification on 2026-06-13; support-only",
+        "caution_notes": "Verified for name, mono-color identity, legendary creature type line, and Commander legality in Scryfall on 2026-06-13. This is support/navigation, not color philosophy evidence."
+      }
+    ],
+    "weird_stretch_commanders": [],
+    "budget_friendly_commanders": [],
+    "advanced_complexity_commanders": [],
+    "iconic_lore_forward_commanders": [],
+    "not_recommended_or_deprioritized": [],
+    "archetype_lanes": [
+      {
+        "name": "Lands / Ramp",
+        "support_basis": "Azusa, Lost but Seeking passed current Scryfall mono-color Commander support checks on 2026-06-13.",
+        "boundary": "Support/navigation only; not philosophy, placement-axis, popularity, price, or deck-quality proof."
+      },
+      {
+        "name": "Ramp / Big Mana",
+        "support_basis": "Selvala, Heart of the Wilds passed current Scryfall mono-color Commander support checks on 2026-06-13.",
+        "boundary": "Support/navigation only; not philosophy, placement-axis, popularity, price, or deck-quality proof."
+      },
+      {
+        "name": "Big Creatures / Trample",
+        "support_basis": "Goreclaw, Terror of Qal Sisma passed current Scryfall mono-color Commander support checks on 2026-06-13.",
+        "boundary": "Support/navigation only; not philosophy, placement-axis, popularity, price, or deck-quality proof."
+      }
+    ],
+    "link_targets": {
+      "edhrec_commander_index": "https://edhrec.com/commanders/g",
+      "mtgdecks_color_identity": "https://mtgdecks.net/Commander/g-commanders",
+      "scryfall_commander_search": "https://scryfall.com/search?q=id%3Dg+is%3Acommander+f%3Acommander",
+      "archidekt_color_search": "https://archidekt.com/search/decks?colors=G&deckFormat=3&orderBy=-updatedAt&page=1"
+    },
+    "merge_notes": {
+      "source_role": "current verified support-only",
+      "deck_links_status": "Deck links remain empty; Commander Compass rows carry the verified support candidates."
+    }
+  }
+}

@@ -37,6 +37,7 @@ Status: VM-200 evidence ledger. Abzan remains non-live and review-gated.
 | ABZAN-EVID-029 | Guardrail | The three source-material seed artifacts are useful as discovery files, not evidence. Their claims must be independently rebound to approved source rows or marked `Manual fill required`. | ABZAN-SRC-014 through ABZAN-SRC-016 | Source hygiene rule. |
 | ABZAN-EVID-030 | Vox Mana synthesis | Vox Mana may later frame Abzan as White-centered continuity through family, oath, memory, endurance, practical defense, and death-transcending obligation, provided this is labeled as synthesis and tied to the evidence rows above. | ABZAN-EVID-001 through ABZAN-EVID-024 | Label as Vox Mana synthesis; not MTG canon. |
 | ABZAN-EVID-031 | Guardrail | VM-200 leaves Abzan non-live: no architecture docs, raw-faction JSON, runtime keys, generated artifacts, schemas, Maze changes, route changes, Home preview changes, placement model changes, or Supabase changes. | VM-200 scope | Stop gate. |
+| ABZAN-EVID-032 | Support-only | The official Tarkir: Dragonstorm Commander decklist verifies `Abzan Armor` as a product deck with `Felothar the Steadfast` as face commander and `Betor, Ancestor's Voice` as featured commander. | ABZAN-SRC-017 | Product/deck navigation only; not Tarkir canon, popularity, metagame, legality, or placement evidence. |
 
 ## Manual-Fill Rows
 

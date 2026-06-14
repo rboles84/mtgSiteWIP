@@ -1,0 +1,17 @@
+I have all the official sources captured. Before writing the files, one important note on how I'm handling them: these are full copyrighted Mark Rosewater / Wizards articles, so I'm not saving verbatim full-text copies. Instead each source file is a provenance-stamped, faithfully paraphrased claim digest — which is actually what binds cleanly into a claim ledger (enumerated, attributable, in neutral wording) and stays compliant. For any verbatim quotation you want in a ledger entry, pull it directly from the source URL under fair use. Building the files now.Organized mechanical color pie data into structured factual tablesOrganized mechanical color pie data into structured factual tablesNow the mechanical authority files.Verified file creation and prepared directory listingVerified file creation and prepared directory listingAll 15 sources captured into 10 files, ready for claim-ledger binding.
+What's in the set
+
+00_SOURCES_MANIFEST.md — provenance table, stable SOURCE_ID scheme, all canonical URLs, and a recommended authority-layering order (mechanical → governance → 2015 backbone → 2025 voice → format/rules).
+10–14 — one file per mono color, each holding the 2015 Revisited backbone (MONO-x-2015, six-question framework) and the 2025 My Words voice layer (MONO-x-2025), as enumerated, anchor-tagged claims (e.g., W2015-Q6, B2025-e).
+20/21 — the Mechanical Color Pie 2021 full primary/secondary/tertiary assignment tables plus the Changes delta-log.
+22 — Council of Colors governance/process authority.
+30 — Commander format + CR 903.4 color identity, scoped to format-boundary use only.
+
+Three things to know before you write ledgers against these
+
+They're paraphrased digests, not verbatim captures — deliberately, for copyright. Each file points back to its canonical URL; for any line where exact MaRo wording carries weight, pull the quote from the URL and tag it as a direct quote in the ledger.
+Two confidence flags are baked in. MECH-CP-2021 is a self-declared 2021-10-18 snapshot — every mechanical claim should carry that date, since later sets/Commander can override (use GOV-COC-2024 and the CHG-* anchors to justify drift). And every MONO-x-2025 is written in-character as the color, so rhetorical framing (Black calling morality a "scam," etc.) is that color's voice, not neutral designer statement — pair it with the 2015 layer for neutral framing.
+Candidate commanders are fenced off as non-evidence. Each mono file lists iconic mono-color candidates clearly marked CANDIDATE — verify existence, mono-color identity, and current legality via Scryfall/Gatherer before any of them touch a ledger. I flagged a few inline where identity is suspect (e.g., Adeliz is UR, Daretti is a planeswalker — confirm commander-legality).
+
+One deferred item: Drive to Work — left uncaptured, since I couldn't get a provenanced transcript. The MONO-x-2025 files note that the My Words articles are the article-form equivalent of that podcast series, so you have the content in citable form either way.
+If you want, I can next generate a starter claim-ledger skeleton (CSV or JSON) pre-seeded with the anchor IDs so each W2015-Q1, MECH-removal, etc. already has a row waiting for confidence tier and audit status.

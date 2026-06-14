@@ -249,17 +249,145 @@
     "source_role": "Architecture shaping from VM-310, reduced to raw boundary language through VM-308 evidence rows."
   },
   "commander_compass": {
-    "status": "support-only / candidate expansion",
-    "anchors": [
-      "Eldrazi Unbound",
-      "Zhulodok, Void Gorger",
-      "Omarthis, Ghostfire Initiate",
-      "Karn, Silver Golem",
-      "Liberator, Urza's Battlethopter",
-      "Ulalek, Fused Atrocity (five-color comparator only)"
+    "schema_version": "1.0.0",
+    "source_research_file": "docs/research/vox_mana_second_commander_recommendations_enhanced.jsonl; docs/research/colorless/colorless_Commander_ColorlessStaples_ManaStaples.txt review-context-only",
+    "last_reviewed": "2026-06-13",
+    "review_status": "support_only_controlled_richness",
+    "recommendation_philosophy": "Support-only orientation for strict Colorless Commander context, Eldrazi Unbound product texture, and source-navigation review. VM-372 does not approve lore, legality, popularity, metagame, price, deck quality, broad recommendation, public route, Home preview, directory, alias, schema, or API expansion.",
+    "identity_basis": {
+      "summary": "Strict Colorless Commander rows may support the outside-WUBRG restriction branch only when the row has exact current-source checks and stays detached from broad recommendation quality.",
+      "owned_themes": [
+        "strict Colorless identity",
+        "outside-WUBRG restriction",
+        "Eldrazi Unbound support texture",
+        "Wastes and colorless mana boundary context"
+      ],
+      "allowed_phrases": [
+        "support-only strict Colorless row",
+        "official Eldrazi Unbound decklist context",
+        "current exact id:c source check",
+        "source-context research link"
+      ],
+      "avoid_phrases": [
+        "best Colorless commander",
+        "popular Colorless commander",
+        "metagame staple",
+        "price guide",
+        "legality assertion",
+        "broad recommendation"
+      ],
+      "supporting_claim_ids": [
+        "colorless_claim_0005",
+        "colorless_claim_0007",
+        "colorless_claim_0008"
+      ],
+      "supporting_source_ids": [
+        "COLORLESS-OFF-004",
+        "COLORLESS-OFF-005",
+        "COLORLESS-CMD-001",
+        "COLORLESS-SCOPE-005"
+      ]
+    },
+    "native_fit_commanders": [
+      {
+        "exact_card_name": "Zhulodok, Void Gorger",
+        "display_name": "Zhulodok, Void Gorger",
+        "type_line": "Legendary Creature - Eldrazi",
+        "scryfall_uri": "https://scryfall.com/card/cmm/704/zhulodok-void-gorger?utm_source=api",
+        "edhrec_uri": "",
+        "color_identity": [],
+        "commander_legal": null,
+        "recommendation_type": "Support-Only Commander Row",
+        "archetype_tags": [
+          "Strict Colorless",
+          "Eldrazi Unbound",
+          "Colorless mana value support"
+        ],
+        "why_this_fits": "The official Commander Masters Eldrazi Unbound decklist names Zhulodok in its Colorless deck, and the 2026-06-13 exact Scryfall id:c check returned this card name with empty color identity.",
+        "skip_if": "Skip when the user needs legality, popularity, metagame, price, deck quality, broad recommendation, or non-Colorless/five-color Eldrazi claims.",
+        "gameplay_summary": "Support-only orientation around expensive colorless spells and Eldrazi Unbound decklist context; no optimization or power assertion.",
+        "faction_identity_terms": [
+          "Strict Colorless support",
+          "outside-WUBRG restriction",
+          "Eldrazi Unbound support row"
+        ],
+        "source_basis": "COLORLESS-OFF-004; COLORLESS-OFF-005; COLORLESS-CMD-001; 2026-06-13 current Scryfall exact id:c check",
+        "confidence": "Support-only",
+        "caution_notes": "No legality, recommendation-quality, popularity, metagame, price, or lore assertion is made by this support row."
+      },
+      {
+        "exact_card_name": "Omarthis, Ghostfire Initiate",
+        "display_name": "Omarthis, Ghostfire Initiate",
+        "type_line": "Legendary Creature - Spirit Snake",
+        "scryfall_uri": "https://scryfall.com/card/cmm/708/omarthis-ghostfire-initiate?utm_source=api",
+        "edhrec_uri": "",
+        "color_identity": [],
+        "commander_legal": null,
+        "recommendation_type": "Support-Only Commander Row",
+        "archetype_tags": [
+          "Strict Colorless",
+          "Eldrazi Unbound",
+          "Colorless growth support"
+        ],
+        "why_this_fits": "The official Commander Masters Eldrazi Unbound decklist names Omarthis in its Colorless deck, and the 2026-06-13 exact Scryfall id:c check returned this card name with empty color identity.",
+        "skip_if": "Skip when the user needs legality, popularity, metagame, price, deck quality, broad recommendation, or non-Colorless/five-color Eldrazi claims.",
+        "gameplay_summary": "Support-only orientation around scalable Colorless growth inside Eldrazi Unbound decklist context; no optimization or power assertion.",
+        "faction_identity_terms": [
+          "Strict Colorless support",
+          "outside-WUBRG restriction",
+          "Eldrazi Unbound support row"
+        ],
+        "source_basis": "COLORLESS-OFF-004; COLORLESS-OFF-005; COLORLESS-CMD-001; 2026-06-13 current Scryfall exact id:c check",
+        "confidence": "Support-only",
+        "caution_notes": "No legality, recommendation-quality, popularity, metagame, price, or lore assertion is made by this support row."
+      }
     ],
-    "allowed_use": "Commander-first readability, candidate-list planning, and operator-support shaping as support texture only.",
-    "not_allowed": "Lore proof, legality proof, exact recommendation proof, official product proof, price proof, metagame proof, runtime authorization, placement eligibility, or raw claim expansion without source-bound evidence."
+    "weird_stretch_commanders": [],
+    "budget_friendly_commanders": [],
+    "advanced_complexity_commanders": [],
+    "iconic_lore_forward_commanders": [],
+    "not_recommended_or_deprioritized": [],
+    "archetype_lanes": [
+      {
+        "name": "Eldrazi Unbound support",
+        "summary": "A source-context lane for the named official Colorless precon and its two exact strict-Colorless rows.",
+        "boundary": "Do not expand this lane into broad staples, Colorless commander ranking, EDHREC, MTGDecks, directory, route, Home preview, alias, legality, price, popularity, or metagame output."
+      }
+    ],
+    "link_targets": {
+      "edhrec_commander_index": "",
+      "mtgdecks_color_identity": "",
+      "scryfall_zhulodok_exact_id_c": "https://scryfall.com/search?q=%21%22Zhulodok%2C%20Void%20Gorger%22%20id%3Ac",
+      "scryfall_omarthis_exact_id_c": "https://scryfall.com/search?q=%21%22Omarthis%2C%20Ghostfire%20Initiate%22%20id%3Ac",
+      "archidekt_color_search": ""
+    },
+    "merge_notes": [
+      "VM-372 approves only support-only controlled richness for commander_compass, the single named official precon deck_links row, and research_links.",
+      "commander_legal: null is intentional because VM-372 does not introduce legality assertions; legality remains outside the support-only row contract unless backed by a future source/governance card.",
+      "Use exact-name Scryfall checks with !\"Zhulodok, Void Gorger\" id:c and !\"Omarthis, Ghostfire Initiate\" id:c, or equivalent API URL-encoded queries. Assert only returned card names and empty color_identity.",
+      "Do not use broader id:c is:commander results as implementation input.",
+      "The local Colorless staples file was reviewed as context only; broad staple lists, mana-staple framing, and best-card framing were not promoted."
+    ]
+  },
+  "deck_links": [
+    {
+      "fmt": "Commander",
+      "name": "Eldrazi Unbound (Precon)",
+      "desc": "Support-only official Commander Masters Colorless decklist reference for Zhulodok, Omarthis, and Wastes. Not purchasing advice, price, power, popularity, metagame, legality, or recommendation-quality proof.",
+      "mtgg": "https://magic.wizards.com/en/news/announcements/commander-masters-commander-decklists",
+      "edhrec": null,
+      "mtgd": null
+    }
+  ],
+  "research_links": {
+    "source_packet": "data/raw-factions/colorless/colorless.sources.json",
+    "layer2_packet": "docs/research/colorless/colorless-layer2-gold-findings.md",
+    "official_commander_masters_decklist": "https://magic.wizards.com/en/news/announcements/commander-masters-commander-decklists",
+    "gatherer_zhulodok": "https://gatherer.wizards.com/Pages/Card/Details.aspx?name=Zhulodok,%20Void%20Gorger",
+    "gatherer_omarthis": "https://gatherer.wizards.com/Pages/Card/Details.aspx?name=Omarthis,%20Ghostfire%20Initiate",
+    "scryfall_exact_zhulodok_id_c": "https://api.scryfall.com/cards/search?q=!%22Zhulodok%2C%20Void%20Gorger%22%20id%3Ac",
+    "scryfall_exact_omarthis_id_c": "https://api.scryfall.com/cards/search?q=!%22Omarthis%2C%20Ghostfire%20Initiate%22%20id%3Ac",
+    "local_staples_review_context": "docs/research/colorless/colorless_Commander_ColorlessStaples_ManaStaples.txt"
   },
   "search_and_filter_metadata": {
     "future_expression_name": "COLORLESS",

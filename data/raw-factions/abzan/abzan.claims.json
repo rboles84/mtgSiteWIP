@@ -3,8 +3,8 @@
   "faction_id": "abzan",
   "faction_name": "Abzan Houses",
   "source_review_date": "2026-05-31",
-  "last_updated": "2026-05-31",
-  "claim_count": 10,
+  "last_updated": "2026-06-13",
+  "claim_count": 11,
   "claims": [
     {
       "claim_id": "abzan_claim_0001",
@@ -187,6 +187,18 @@
       ],
       "confidence": "High",
       "notes": "This is a false-positive and lifecycle guardrail. It does not make Abzan runtime-live, placement-eligible, or generated."
+    },
+    {
+      "claim_id": "abzan_claim_0011",
+      "faction_id": "abzan",
+      "claim_type": "commander_product_support",
+      "statement": "The official Tarkir: Dragonstorm Commander Decklists page verifies Abzan Armor as a White; Black; Green Commander deck with Felothar the Steadfast as face commander and Betor, Ancestor's Voice as featured commander.",
+      "canon_status": "Support-only product row",
+      "source_ids": [
+        "src_wotc_tarkir_dragonstorm_commander_decklists_20250325"
+      ],
+      "confidence": "High",
+      "notes": "Decklist support is product/navigation only. It is not Tarkir canon proof, popularity proof, metagame proof, legality proof, or placement evidence."
     }
   ],
   "claim_quality_summary": {

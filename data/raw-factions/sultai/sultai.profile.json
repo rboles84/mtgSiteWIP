@@ -11,10 +11,10 @@
     "Blue"
   ],
   "color_pair_or_group": "BGU wedge metadata only",
-  "source_review_date": "2026-05-31",
+  "source_review_date": "2026-06-13",
   "last_full_review": "2026-05-31",
-  "last_incremental_review": "2026-06-09",
-  "last_updated": "2026-06-09",
+  "last_incremental_review": "2026-06-13",
+  "last_updated": "2026-06-13",
   "site_surface": {
     "display_name": "Sultai Brood",
     "short_summary": "Sultai Brood is a source-authored, review-gated Tarkir wedge packet for Black-centered BGU ruthlessness, opportunity, graveyard/resource conversion, necromancy, Sidisi-era ambition, and strict Silumgar and Dragonstorm boundaries.",
@@ -419,9 +419,9 @@
     "architecture_review_status": "Sultai VM-210 and VM-211 reviewed as shaping-only architecture input.",
     "raw_packet_status": "vm214_live_pilot_source_bound",
     "generation_status": "generated_through_vm214_build_path",
-    "claim_count": 10,
+    "claim_count": 11,
     "claim_basis": "Normalized SULTAI promoted rows plus allowed guardrail/lifecycle boundary rows only.",
-    "support_material_policy": "Support-only, manual-fill, discovery-only, Commander/operator, seed, generated report, architecture, dossier, and direct source-row material may appear only in bounded review notes.",
+    "support_material_policy": "Support-only, manual-fill, discovery-only, Commander/operator, seed, generated report, architecture, dossier, and direct source-row material may appear only in bounded review notes. VM-380 official decklist rows support only product/deck navigation, face/featured commander names, and gallery links.",
     "evidence_quality": "High for source-bound Sultai identity, Khans-era floor, Silumgar boundary, modern guide, and guardrail claims; low for exact card facts and deferred detailed lore.",
     "known_limitations": [
       "Exact delve card facts are not validated",
@@ -430,7 +430,8 @@
       "Tasigur's full biography and Khanfall consequences are deferred",
       "Detailed named-character biographies are deferred",
       "Exact Dragonstorm story chronology is deferred",
-      "Commander/operator rows are support-only"
+      "Commander/operator rows are support-only",
+      "Commander product rows are support-only and do not prove Tarkir canon, popularity, metagame, legality, or placement evidence."
     ],
     "claim_ids": [
       "sultai_claim_0001",
@@ -458,7 +459,8 @@
       "Generic BGU as Sultai Brood",
       "Silumgar clan as Sultai Brood continuity",
       "Modern Dragonstorm details as Khans-era backfill",
-      "Color-pair philosophy files as Tarkir lore proof"
+      "Color-pair philosophy files as Tarkir lore proof",
+      "Commander product rows as Tarkir canon or broad recommendation proof"
     ],
     "excluded_as_raw_claim_evidence": [
       "Commander/operator rows",
@@ -469,34 +471,197 @@
       "direct SULTAI-SRC rows",
       "seed files",
       "generated reports",
-      "Vox Mana synthesis rows"
+      "Vox Mana synthesis rows",
+      "official Commander decklists beyond product/navigation facts"
     ]
   },
   "commander_compass": {
-    "review_status": "support_only",
+    "schema_version": "1.0.0",
+    "source_research_file": "docs/research/VM-378-379-380_source-intake.md",
+    "last_reviewed": "2026-06-13",
+    "review_status": "support_only_product_navigation",
     "exact_color_set": "Black; Green; Blue",
+    "recommendation_philosophy": "Use Sultai Arisen Commander data only as official product/navigation support for exact Black; Green; Blue Tarkir: Dragonstorm product commanders. This does not establish Tarkir canon, popularity, metagame, legality, or placement evidence.",
+    "identity_basis": {
+      "owned_themes": [
+        "graveyard casting",
+        "self-mill",
+        "graveyard resource conversion",
+        "Sultai product navigation"
+      ],
+      "allowed_phrases": [
+        "SULTAI product support",
+        "Sultai Arisen",
+        "graveyard casting",
+        "self-mill",
+        "graveyard resource conversion"
+      ],
+      "avoid_or_contrast_phrases": [
+        "Commander product row as Tarkir canon",
+        "Commander legality proof",
+        "generic color identity as placement evidence",
+        "clan leader + Spirit Dragon as lore proof"
+      ],
+      "adjacent_overlap_notes": [
+        "Product/deck rows are support-only navigation, not evidence for clan society, canon identity, or placement scoring.",
+        "Clan leader and Spirit Dragon names are product anchors only unless a later card promotes stronger canon rows."
+      ],
+      "supporting_claim_ids": [
+        "sultai_claim_0001",
+        "sultai_claim_0002",
+        "sultai_claim_0010",
+        "sultai_claim_0011"
+      ],
+      "supporting_source_ids": [
+        "src_vm_second_commander_recommendations_bgu",
+        "src_wotc_tarkir_dragonstorm_commander_decklists_20250325"
+      ]
+    },
     "support_decks": [
-      "Sultai Arisen",
-      "Grand Larceny",
-      "Mutant Menace",
-      "Faceless Menace",
-      "Devour for Power",
-      "Enhanced Evolution"
+      "Sultai Arisen"
     ],
     "support_language": [
-      "graveyard value",
+      "graveyard casting",
       "self-mill",
-      "theft",
-      "exile-casting",
-      "mill",
-      "rad counters",
-      "morph",
-      "hidden information",
-      "graveyard construction",
-      "mutate",
-      "recursion",
-      "complex creature value"
+      "graveyard resource conversion",
+      "Sultai product navigation"
     ],
-    "notes": "Commander Compass material is product/operator support only. It is not Sultai canon evidence, not setting proof, and not raw-claim input."
+    "native_fit_commanders": [
+      {
+        "exact_card_name": "Kotis, Sibsig Champion",
+        "display_name": "Kotis, Sibsig Champion",
+        "scryfall_uri": "https://scryfall.com/card/tdc/5/kotis-sibsig-champion?utm_source=api",
+        "color_identity": [
+          "B",
+          "G",
+          "U"
+        ],
+        "recommendation_type": "Support-Only Product Commander",
+        "archetype_tags": [
+          "official product row",
+          "Sultai Arisen",
+          "graveyard casting",
+          "self-mill"
+        ],
+        "why_this_fits": "The official Tarkir: Dragonstorm decklist identifies Kotis, Sibsig Champion as the face commander for Sultai Arisen.",
+        "skip_if": "Use only for official product navigation or support-only deck exploration; do not use as metagame, popularity, legality, or lore proof.",
+        "gameplay_summary": "Use as official deck/product navigation only; no independent power, popularity, legality, metagame, or lore claim is made.",
+        "faction_identity_terms": [
+          "SULTAI",
+          "Sultai Arisen",
+          "graveyard casting",
+          "self-mill"
+        ],
+        "type_line": "Legendary Creature — Zombie Warrior",
+        "source_basis": {
+          "source_ids": [
+            "src_vm_second_commander_recommendations_bgu",
+            "src_wotc_tarkir_dragonstorm_commander_decklists_20250325"
+          ],
+          "claim_ids": [
+            "sultai_claim_0011"
+          ],
+          "support_only": true,
+          "boundary": "Official product/card-data support only."
+        },
+        "confidence": "High for product/card identity; support-only for recommendation texture.",
+        "caution_notes": [
+          "Does not prove canon lore or character biography.",
+          "Does not prove popularity, power level, legality, or metagame position."
+        ]
+      },
+      {
+        "exact_card_name": "Teval, the Balanced Scale",
+        "display_name": "Teval, the Balanced Scale",
+        "scryfall_uri": "https://scryfall.com/card/tdc/8/teval-the-balanced-scale?utm_source=api",
+        "color_identity": [
+          "B",
+          "G",
+          "U"
+        ],
+        "recommendation_type": "Support-Only Product Commander",
+        "archetype_tags": [
+          "official product row",
+          "Sultai Arisen",
+          "graveyard casting",
+          "self-mill"
+        ],
+        "why_this_fits": "The official Tarkir: Dragonstorm decklist identifies Teval, the Balanced Scale as the featured commander for Sultai Arisen.",
+        "skip_if": "Use only for official product navigation or support-only deck exploration; do not use as metagame, popularity, legality, or lore proof.",
+        "gameplay_summary": "Use as official deck/product navigation only; no independent power, popularity, legality, metagame, or lore claim is made.",
+        "faction_identity_terms": [
+          "SULTAI",
+          "Sultai Arisen",
+          "graveyard casting",
+          "self-mill"
+        ],
+        "type_line": "Legendary Creature — Spirit Dragon",
+        "source_basis": {
+          "source_ids": [
+            "src_vm_second_commander_recommendations_bgu",
+            "src_wotc_tarkir_dragonstorm_commander_decklists_20250325"
+          ],
+          "claim_ids": [
+            "sultai_claim_0011"
+          ],
+          "support_only": true,
+          "boundary": "Official product/card-data support only."
+        },
+        "confidence": "High for product/card identity; support-only for recommendation texture.",
+        "caution_notes": [
+          "Does not prove canon lore or character biography.",
+          "Does not prove popularity, power level, legality, or metagame position."
+        ]
+      }
+    ],
+    "weird_stretch_commanders": [],
+    "budget_friendly_commanders": [],
+    "advanced_complexity_commanders": [],
+    "iconic_lore_forward_commanders": [],
+    "not_recommended_or_deprioritized": [],
+    "archetype_lanes": [
+      {
+        "lane": "Sultai Arisen product lane",
+        "commanders": [
+          "Kotis, Sibsig Champion",
+          "Teval, the Balanced Scale"
+        ],
+        "support_only": true,
+        "source_ids": [
+          "src_wotc_tarkir_dragonstorm_commander_decklists_20250325"
+        ],
+        "notes": "Official decklist support only; not Tarkir canon, popularity, metagame, legality, or broad recommendation proof."
+      }
+    ],
+    "link_targets": {
+      "official_decklist": "https://magic.wizards.com/en/news/announcements/tarkir-dragonstorm-commander-decklists",
+      "official_deck_gallery": "https://magic.wizards.com/en/products/tarkir-dragonstorm/card-image-gallery?cigproduct=tdm-products-sultai-arisen",
+      "scryfall_commander_search": "https://scryfall.com/search?q=id%3Dbgu+is%3Acommander+f%3Acommander",
+      "edhrec_commander_index": "",
+      "mtgdecks_color_identity": "",
+      "archidekt_color_search": ""
+    },
+    "merge_notes": {
+      "support_boundary": "VM-380 surfaces Compass data only from official product and existing support-only Commander rows.",
+      "deferred": "Clan leader + Spirit Dragon anchors are product/navigation only, not Tarkir canon proof."
+    }
+  },
+  "deck_links": [
+    {
+      "fmt": "Commander",
+      "name": "Sultai Arisen (Precon)",
+      "desc": "Official Tarkir: Dragonstorm Commander decklist reference for Kotis, Sibsig Champion and Teval, the Balanced Scale, with deck and gallery navigation for Sultai Arisen.",
+      "mtgg": "https://magic.wizards.com/en/news/announcements/tarkir-dragonstorm-commander-decklists",
+      "edhrec": null,
+      "mtgd": null,
+      "gallery": "https://magic.wizards.com/en/products/tarkir-dragonstorm/card-image-gallery?cigproduct=tdm-products-sultai-arisen"
+    }
+  ],
+  "research_links": {
+    "source_packet": "data/raw-factions/sultai/sultai.sources.json",
+    "official_tarkir_dragonstorm_commander_decklist": "https://magic.wizards.com/en/news/announcements/tarkir-dragonstorm-commander-decklists",
+    "official_deck_gallery": "https://magic.wizards.com/en/products/tarkir-dragonstorm/card-image-gallery?cigproduct=tdm-products-sultai-arisen",
+    "scryfall_exact_commander_search": "https://scryfall.com/search?q=id%3Dbgu+is%3Acommander+f%3Acommander",
+    "support_boundary": "Official product/deck navigation only; not Tarkir canon proof."
   }
 }

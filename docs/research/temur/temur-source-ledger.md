@@ -20,6 +20,7 @@ Status: VM-203 approved source ledger. Temur remains non-live and review-gated.
 | TEMUR-SRC-012 | Seed | `docs/research/temur/source-material/Temur Frontier Research Report.md`, originally copied from former `docs/research/temur frontier/Temur Frontier Research Report.md` | Discovery material and claim queue. | Not approved evidence. Every claim requires independent evidence-row promotion. |
 | TEMUR-SRC-013 | Seed | `docs/research/temur/source-material/temur-frontier-lore-source-packet.md`, originally copied from former `docs/research/temur frontier/temur-frontier-lore-source-packet.md` | Discovery material, candidate source map, and open-thread queue. | Not approved evidence. Packet-shaped wording cannot cite itself. |
 | TEMUR-SRC-014 | Seed | `docs/research/temur/source-material/temur_research_report.html`, originally copied from former `docs/research/temur frontier/temur_research_report.html` | Structure-only discovery material. | Generated HTML cannot be canon evidence. |
+| TEMUR-SRC-015 | 2P | `https://magic.wizards.com/en/news/announcements/tarkir-dragonstorm-commander-decklists` | Official Tarkir: Dragonstorm Commander product row for `Temur Roar`, `Eshki, Temur's Roar`, `Ureni of the Unwritten`, deck name, color identity, and gallery/deck navigation. | Support-only. Not Tarkir canon, Temur lore, commander legality proof, popularity proof, metagame proof, or placement evidence. |
 
 ## Exact GUR Commander Support Extraction
 

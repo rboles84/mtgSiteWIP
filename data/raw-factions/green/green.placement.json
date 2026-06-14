@@ -1,0 +1,266 @@
+{
+  "schema_version": "1.0.0",
+  "placement_profile_version": "1.0.0",
+  "placement_model_version": "1.0.0",
+  "based_on_profile_version": "1.0.0",
+  "faction_id": "green",
+  "faction_name": "Green",
+  "last_updated": "2026-06-13",
+  "color_identity": [
+    "G"
+  ],
+  "placement_summary": "Green is a strong fit when a user wants nature, instinct, belonging, growth, tradition, interdependence, and acceptance of an innate role in a larger living system.",
+  "moral_and_psychological_profile": {
+    "primary_drive": "Discover and fulfill the role that already belongs to the self within nature's larger web.",
+    "ethical_pressure": "Acceptance can become complacency when the existing system is mistaken for the only possible truth.",
+    "core_boundary": "Placement language is Vox Mana interpretation from source-backed color philosophy, not official personality canon."
+  },
+  "placement_axes": [
+    {
+      "axis_id": "axis_natural_belonging",
+      "label": "Natural Belonging",
+      "description": "Measures how much the user centers innate role, interdependence, and belonging to a living system.",
+      "low_end_label": "self-authored optimization",
+      "high_end_label": "discovered role",
+      "faction_position": 90,
+      "rationale": "Green's goal centers acceptance of the natural order and each being's role.",
+      "claim_ids": [
+        "green_claim_0002",
+        "green_claim_0003"
+      ],
+      "confidence": "High"
+    },
+    {
+      "axis_id": "axis_instinct_over_artifice",
+      "label": "Instinct Over Artifice",
+      "description": "Separates Green's trust in nature and instinct from Blue's tools/artifice and Black's self-made power.",
+      "low_end_label": "artificial self-authorship",
+      "high_end_label": "natural wisdom",
+      "faction_position": 86,
+      "rationale": "Green cares about nature, instinct, tradition, and despises unnatural change.",
+      "claim_ids": [
+        "green_claim_0004",
+        "green_claim_0005"
+      ],
+      "confidence": "High"
+    },
+    {
+      "axis_id": "axis_overreliance_shadow",
+      "label": "Overreliance Shadow",
+      "description": "Tracks whether trust in nature becomes inflexibility or dependence on creatures and familiar systems.",
+      "low_end_label": "adaptive growth",
+      "high_end_label": "system dependency",
+      "faction_position": 67,
+      "rationale": "Green's source-backed weakness is over-reliance on the natural system, especially creatures.",
+      "claim_ids": [
+        "green_claim_0006"
+      ],
+      "confidence": "Medium-High"
+    }
+  ],
+  "core_values": [
+    "nature",
+    "acceptance",
+    "growth",
+    "instinct",
+    "interdependence",
+    "tradition",
+    "wisdom",
+    "belonging"
+  ],
+  "behavioral_signals": [
+    "the user wants to discover what already fits rather than reinvent the self",
+    "the user values instinct, ancestry, or tradition",
+    "the user treats community as interdependence rather than imposed law",
+    "the user trusts slow natural growth over artificial optimization",
+    "the user wants creature, land, or growth-based texture"
+  ],
+  "inhibitor_traits": [
+    "blank-slate self-authorship over innate identity",
+    "power seized against responsibility",
+    "rules imposed over natural relation",
+    "impulse without rootedness",
+    "nature language used only as generic life or healing"
+  ],
+  "inhibitor_traps": [
+    "The answer says Green because it mentions growth but has no nature, role, or interdependence.",
+    "The answer treats Green as anti-change in every form rather than slow natural evolution.",
+    "The answer trusts instinct only as impulse, not as place in a larger system.",
+    "The answer rejects every tool as unnatural even when adaptation is needed."
+  ],
+  "good_fit_indicators": [
+    "acceptance of role or innate nature",
+    "interdependence and the web of life",
+    "instinct, tradition, ancestry, or wisdom of the past",
+    "creatures, lands, mana, growth, and natural scale",
+    "suspicion of artifice or unnatural change",
+    "slow purposeful evolution over forced reinvention"
+  ],
+  "ideal_fit_indicators": [
+    "the user wants to belong before they optimize",
+    "the user trusts natural systems and relationships",
+    "the user sees strength in growth, creatures, and land",
+    "the user wants to discover a role rather than invent one from nothing"
+  ],
+  "poor_fit_indicators": [
+    "blank-slate reinvention through tools",
+    "self-interest and power over responsibility",
+    "law as imposed order over natural relation",
+    "emotion-first action without rootedness",
+    "growth used as generic positivity without nature or role"
+  ],
+  "discriminator_questions": [
+    {
+      "question_id": "green_disc_001",
+      "question": "Is the user seeking a role within a larger living system, or trying to author themselves from scratch?",
+      "purpose": "Separates Green from Blue.",
+      "answer_pattern_that_supports_this_faction": "Supports Green when the user wants to discover innate place, relationship, and natural fit.",
+      "answer_pattern_that_weakens_this_faction": "Weakens Green when the user wants blank-slate optimization or artificial self-authorship.",
+      "collision_targets": [
+        "U"
+      ],
+      "claim_ids": [
+        "green_claim_0002",
+        "green_claim_0003",
+        "green_claim_0005"
+      ],
+      "confidence": "High",
+      "lateral_inhibition": false
+    },
+    {
+      "question_id": "green_disc_002",
+      "question": "Is growth rooted in nature and interdependence, or is it just generic improvement?",
+      "purpose": "Separates Green from generic growth language.",
+      "answer_pattern_that_supports_this_faction": "Supports Green when growth is tied to nature, creatures, lands, tradition, instinct, or belonging.",
+      "answer_pattern_that_weakens_this_faction": "Weakens Green when growth is abstract optimization without natural relation.",
+      "collision_targets": [
+        "U",
+        "W"
+      ],
+      "claim_ids": [
+        "green_claim_0003",
+        "green_claim_0004",
+        "green_claim_0007"
+      ],
+      "confidence": "High",
+      "lateral_inhibition": false
+    },
+    {
+      "question_id": "green_disc_003",
+      "question": "Does acceptance become wisdom, or is it refusing needed adaptation?",
+      "purpose": "Catches Green's over-reliance shadow.",
+      "answer_pattern_that_supports_this_faction": "Supports Green when the user accepts natural limits while allowing slow purposeful evolution.",
+      "answer_pattern_that_weakens_this_faction": "Weakens Green when the answer uses nature to avoid all change or hard problems.",
+      "collision_targets": [
+        "B",
+        "U"
+      ],
+      "claim_ids": [
+        "green_claim_0006"
+      ],
+      "confidence": "Medium",
+      "lateral_inhibition": false
+    },
+    {
+      "question_id": "green_disc_004",
+      "question": "Are creatures, lands, mana, Fight/Bite, or natural removal being used as Green texture rather than Commander legality proof?",
+      "purpose": "Keeps mechanical and Commander support source-bound.",
+      "answer_pattern_that_supports_this_faction": "Supports Green when mechanics are treated as dated color-pie texture and commander examples remain unpromoted.",
+      "answer_pattern_that_weakens_this_faction": "Weakens Green when candidate commanders or stale deck notes are treated as verified Layer 2 support.",
+      "collision_targets": [
+        "WUBRG",
+        "COLORLESS"
+      ],
+      "claim_ids": [
+        "green_claim_0007",
+        "green_claim_0008"
+      ],
+      "confidence": "High",
+      "lateral_inhibition": false
+    }
+  ],
+  "collision_guidance": {
+    "rule": "Green is acceptance, nature, instinct, role, and interdependence, not generic growth or life gain alone.",
+    "review_triggers": [
+      "generic growth",
+      "anti-change oversimplification",
+      "candidate commander claims",
+      "rules language used as exact legality without CR verification"
+    ],
+    "pairs": [
+      {
+        "collision_id": "green_vs_blue",
+        "against": "U",
+        "separator": "Green discovers innate role; Blue authors the future self through tools and knowledge.",
+        "ask": "Does the user trust nature's given pattern or the mind's ability to remake it?",
+        "lateral_inhibition": false,
+        "claim_ids": [
+          "green_claim_0005"
+        ]
+      },
+      {
+        "collision_id": "green_vs_black",
+        "against": "B",
+        "separator": "Green accepts responsibility within the web; Black seizes agency against imposed limits.",
+        "ask": "Does the user want to fulfill a place or claim power for the self?",
+        "lateral_inhibition": false,
+        "claim_ids": [
+          "green_claim_0005"
+        ]
+      }
+    ]
+  },
+  "calibration_tuning": {
+    "required_positive_evidence_terms": [
+      "nature",
+      "acceptance",
+      "instinct",
+      "growth",
+      "interdependence",
+      "role",
+      "tradition",
+      "land"
+    ],
+    "required_positive_min_hits": 2,
+    "strengthen_when_user_centers": [
+      "discovered role",
+      "web of life",
+      "creatures and lands",
+      "slow purposeful evolution",
+      "wisdom of nature or ancestry"
+    ],
+    "suppress_when_user_centers": [
+      "blank-slate optimization",
+      "self-interest over responsibility",
+      "rules imposed over relationship",
+      "generic healing or growth without nature"
+    ],
+    "false_positive_guardrail": "Do not place Green for life, healing, or growth alone; require nature, role, instinct, interdependence, or natural-system trust.",
+    "broad_match_penalty": 0.13
+  },
+  "chatbot_guidance": {
+    "use_when": [
+      "Use Green when the user centers nature, instinct, role, acceptance, creatures, lands, growth, or interdependence.",
+      "Frame Green as belonging to a living system, not generic positivity.",
+      "Keep commander candidates deferred unless current legality verification is done."
+    ],
+    "avoid_when": [
+      "The user wants blank-slate optimization through tools.",
+      "The user wants self-interest and power over responsibility.",
+      "The answer only contains generic growth, life, or healing without natural-system logic."
+    ],
+    "how_to_recognize_mismatch": [
+      "blank-slate reinvention through tools",
+      "self-interest and power over responsibility",
+      "law as imposed order over natural relation",
+      "emotion-first action without rootedness",
+      "candidate commander names treated as verified evidence"
+    ],
+    "calibration_note": "Green should rise only when nature, instinct, role, interdependence, or natural growth drive the answer.",
+    "never_claim_as_canon": [
+      "Green opposes every kind of change.",
+      "Vox Mana placement axes are official Wizards color-pie scores.",
+      "A candidate mono-green commander is Layer 2 support without current verification."
+    ]
+  }
+}

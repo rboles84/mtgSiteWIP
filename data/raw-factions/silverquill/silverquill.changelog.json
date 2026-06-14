@@ -2,7 +2,7 @@
   "schema_version": "1.0.0",
   "faction_id": "silverquill",
   "faction_name": "Silverquill College",
-  "last_updated": "2026-05-10T02:56:03.254Z",
+  "last_updated": "2026-06-13",
   "changes": [
     {
       "change_id": "change_silverquill_placement_ready_20260510025603",
@@ -99,16 +99,49 @@
         "Review corpus-derived placement signals during schema, calibration, and collision passes."
       ],
       "notes": "Queries run: 16. Duplicate story sources skipped: 228."
+    },
+    {
+      "change_id": "silverquill_change_vm378_source_bound_richness_20260613",
+      "change_type": "VM-378 Source-Bound UX Richness Repair",
+      "change_date": "2026-06-13",
+      "summary": "Added support-only official product/card-data richness for SILVERQUILL: guide speaker, Silverquill Influence commanders, per-card flavor summaries, deck links, research links, and a support-only Commander Compass.",
+      "sources_added": [
+        "src_wotc_secrets_strixhaven_commander_decklists_20260401",
+        "src_scryfall_oracle_cards_local_strixhaven_20260613"
+      ],
+      "sources_updated": [],
+      "claims_added": [
+        "silverquill_claim_0017",
+        "silverquill_claim_0018"
+      ],
+      "claims_updated": [],
+      "claims_superseded": [],
+      "claims_contradicted": [],
+      "profile_fields_updated": [
+        "key_figures",
+        "canonical_flavor_text",
+        "deck_links",
+        "research_links",
+        "commander_compass",
+        "search_and_filter_metadata",
+        "data_quality",
+        "research_limitations"
+      ],
+      "placement_fields_updated": [],
+      "manual_review_required": [
+        "Keep discovery-only story figures, deans/founders, and long flavor text deferred until direct source rows are promoted."
+      ],
+      "notes": "No public API, schema, route, Home preview, alias, hero, unrelated placement expansion, staging, or commit changes."
     }
   ],
   "audit_summary": {
     "faction_researched": "Silverquill College",
     "plane_or_setting": "Arcavios / Strixhaven",
-    "number_of_sources_reviewed": 13,
+    "number_of_sources_reviewed": 15,
     "number_of_official_sources_used": 3,
     "number_of_repository_archive_sources_used": 10,
     "number_of_secondary_discovery_sources_used": 0,
-    "number_of_claims_verified": 15,
+    "number_of_claims_verified": 18,
     "number_of_claims_marked_uncertain": 0,
     "sections_with_limited_evidence": [
       "deep story episode coverage",
@@ -116,7 +149,7 @@
     ],
     "conflicting_sources_found": [],
     "assumptions_removed_during_validation": [],
-    "overall_confidence_rating": "Medium",
+    "overall_confidence_rating": "Medium-High for bounded public richness; support-only for Commander/deck surfaces.",
     "last_placement_ready_pass": "2026-05-10T02:56:03.254Z"
   }
 }

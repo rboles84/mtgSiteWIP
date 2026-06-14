@@ -6,6 +6,8 @@
 
 > **Roster calibration:** The live model carries **35** expression keys (5 mono + 10 guild + 5 college + 5 shard + 5 wedge + 5 four-color), not 32. The framework below is roster-size-agnostic — it works identically for 30, 32, or 35 — but the four-/five-color expressions need special handling (see §4), since those are exactly the ones naïve compression breaks.
 
+> **2026-06-13 current-state note:** The live placement model now carries **37** expression keys after the controlled `COLORLESS`, `WUBRG`, and mono source-authority work. The 35-expression simulation below is retained as the historical baseline for the original vector-Gate research, but Appendix C supersedes it for implementation readiness. In the 37-expression model, `COLORLESS` cannot be represented by WUBRG color loadings alone, and `WUBRG` must require balanced all-five integration rather than passive benefit from every lit color.
+
 ---
 
 ## 1. The Compression Framework
@@ -175,6 +177,7 @@ That is the whole thesis in one trace: **four honest, low-friction answers → a
 - **(a) — DONE.** See Appendix A.
 - **(b) — DONE.** See Appendix B. Result: **35/35 reachable in top-5** at the right propagation setting.
 - **(c)** Calibrate the four-/five-color `broad_match_penalty` so YORE / GLINT / DUNE / INK / WITCH stay reachable but never over-trigger. **Appendix B pre-answers the headline: the penalty must NOT live in the Gate.**
+- **(d) — DONE for current roster.** See Appendix C. Result: the Appendix A vector Gate reaches **36/37** under `sqrt`, Gate `bmp = 0`; the only miss is `COLORLESS`, which proves the boundary-signal requirement rather than disproving the vector Gate.
 
 ---
 
@@ -367,3 +370,130 @@ Therefore broad-match suppression belongs in **Hall/Crucible** (where it already
 - **No runaway breadth:** four-color rank-1 thefts = 0.
 - **Watch list (rank-5, thinnest Gate margin):** **TEMUR** and **WITCH**. They depend most on near-optimal answers plus a strong Hall follow-up; they are the first to fall out of top-5 under any noise or penalty. If real user data shows either dropping, the fix is a sharper *Hall* question, not a Gate change.
 - **Scope caveat:** this validates the Gate as a *prior-setter* (seats the faction for Hall). Full Gate→Hall→Crucible golden-path equivalence with the live `quick-reading-tests.js` assertions is a separate simulation, since it requires porting Hall/Crucible to the color-propagation model.
+
+---
+
+## Appendix C - 37-expression current-state rerun
+
+> Rerun date: 2026-06-13. Inputs: current `data/placement-model.json` with `_meta.faction_count = 37`, current `likelihood_to_delta`, and the runtime nearest-bucket behavior in `assets/js/adaptive-placement.js`. No builder rebuild or generated artifact change was performed. The simulation uses the Appendix A.3 corrected Gate vectors as-is, without adding a new `COLORLESS` boundary scalar or `WUBRG` balance scalar.
+
+### C.0 - Current roster implication
+
+The current active expression set is no longer the 35-expression roster used by Appendix B. It is:
+
+- 5 mono colors
+- 10 Ravnica guild expressions
+- 5 Strixhaven college expressions
+- 5 shards
+- 5 wedges
+- 5 four-color expressions
+- `WUBRG`
+- `COLORLESS`
+
+That means the vector-Gate question is no longer simply "can color loadings seat every color-bearing faction for Hall?" It is now two questions:
+
+1. Can WUBRG vectors still seat the 35 ordinary color-bearing expressions without broad-expression sinks?
+2. What special boundary logic is required for `WUBRG` and `COLORLESS`?
+
+The answer is: the color-bearing Gate still works best under `sqrt`, Gate `bmp = 0`, but `COLORLESS` requires explicit outside-WUBRG evidence and `WUBRG` requires a balance/integration rule.
+
+### C.1 - Propagation sweep against 37 expressions
+
+Coverage uses the same generous golden-path method as Appendix B: each target chooses the option in each Gate that maximizes its own evidence, then the full 37-expression roster is ranked after those four choices.
+
+| mode | Gate bmp | top-1 | top-3 | top-5 | misses |
+|---|---:|---:|---:|---:|---|
+| sum | 0 | 13/37 | 28/37 | 34/37 | W, G, COLORLESS |
+| sum | 0.05 | 14/37 | 29/37 | 34/37 | W, G, COLORLESS |
+| sum | 0.12 | 15/37 | 31/37 | 35/37 | W, COLORLESS |
+| sum | 0.25 | 14/37 | 30/37 | 34/37 | GLINT, COLORLESS, WUBRG |
+| **sqrt** | **0** | **14/37** | **34/37** | **36/37** | **COLORLESS** |
+| sqrt | 0.05 | 14/37 | 29/37 | 32/37 | TEMUR, GLINT, WITCH, COLORLESS, WUBRG |
+| sqrt | 0.12 | 14/37 | 24/37 | 29/37 | TEMUR, JESKAI, YORE, GLINT, INK, WITCH, COLORLESS, WUBRG |
+| sqrt | 0.25 | 7/37 | 19/37 | 22/37 | BANT, ESPER, GRIXIS, ABZAN, TEMUR, SULTAI, MARDU, JESKAI, YORE, GLINT, DUNE, INK, WITCH, COLORLESS, WUBRG |
+| avg | 0 | 5/37 | 20/37 | 28/37 | TEMUR, JESKAI, YORE, GLINT, DUNE, INK, WITCH, COLORLESS, WUBRG |
+
+**Verdict:** Appendix B's main propagation conclusion still holds for color-bearing expressions: `sqrt`, Gate `bmp = 0` is the least-bad and still the only clean setting. What changes is the pass/fail label: the current color-only Gate is **36/37**, not 37/37, because `COLORLESS` has no WUBRG colors to score.
+
+### C.2 - Special-expression behavior
+
+Under the recommended color-only setting (`sqrt`, Gate `bmp = 0`):
+
+| target | ideal path result | implication |
+|---|---|---|
+| `COLORLESS` | rank 19; final top five = B, ESPER, UB, SILVERQUILL, WB | WUBRG vectors cannot recover Colorless. A source Gate answer needs an `outside_wubrg` boundary signal, or Colorless must remain a documented calibration exception. |
+| `WUBRG` | rank 2; final top five = DUNE, WUBRG, MARDU, YORE, NAYA | Five-color is reachable but not safely modeled as an ordinary five-color sum. It needs balanced/all-five integration rather than generic multi-color mass. |
+
+This updates the earlier implementation rule:
+
+- Gate source answers remain WUBRG-vector-first.
+- `COLORLESS` needs an explicit outside-WUBRG boundary channel or a documented exception.
+- `WUBRG` needs an integration/balance channel, such as requiring moderate positive evidence across all five colors and penalizing high variance or merely opportunistic breadth.
+
+### C.3 - Overtrigger sweep
+
+All possible Appendix A.3 Gate paths were enumerated: `5 x 4 x 5 x 4 = 400` paths. Counts below show how often each watched broad expression appears at rank 1, top 3, or top 5 under `sqrt`, Gate `bmp = 0`.
+
+| expression | rank 1 | top 3 | top 5 | reading |
+|---|---:|---:|---:|---|
+| `WUBRG` | 2/400 | 9/400 | 13/400 | Not a runaway, but still needs balanced-integration gating because it can win without explicit all-five intent. |
+| `COLORLESS` | 0/400 | 0/400 | 0/400 | Completely unreachable by color vectors alone. |
+| `YORE` | 6/400 | 15/400 | 30/400 | Reachable without becoming a sink. |
+| `GLINT` | 3/400 | 8/400 | 21/400 | Reachable; not overfed. |
+| `DUNE` | 6/400 | 28/400 | 54/400 | High broad-neighborhood presence; watch in Hall routing. |
+| `INK` | 9/400 | 26/400 | 53/400 | Highest rank-1 broad expression in this sweep; watch in Hall routing. |
+| `WITCH` | 7/400 | 21/400 | 45/400 | Reachable; still a thinnest-margin case in golden-path coverage. |
+
+The four-color cohort still does not collapse the Gate by itself, but `DUNE`, `INK`, and `WITCH` remain the highest-attention broad expressions. The fix should be Hall/Crucible discrimination and broad-result diagnostics, not Gate-level `bmp`; any nonzero Gate `bmp` immediately ejects valid multi-color targets.
+
+### C.4 - Hall-routing snapshots after each Gate
+
+These snapshots show the top five routing pool after each Gate step for watched ideal paths under `sqrt`, Gate `bmp = 0`.
+
+| target | after Gate I | after Gate II | after Gate III | after Gate IV |
+|---|---|---|---|---|
+| `COLORLESS` | BR, GRIXIS, B, R, UB | GRIXIS, UB, PRISMARI, UR, U | UB, B, ESPER, U, SILVERQUILL | B, ESPER, UB, SILVERQUILL, WB |
+| `WUBRG` | WUBRG, DUNE, GLINT, INK, WITCH | ESPER, WU, WITCH, YORE, WUBRG | WUBRG, WITCH, YORE, ESPER, INK | DUNE, WUBRG, MARDU, YORE, NAYA |
+| `YORE` | BR, GRIXIS, B, R, PRISMARI | GRIXIS, UB, YORE, PRISMARI, UR | GRIXIS, YORE, UB, GLINT, PRISMARI | MARDU, YORE, DUNE, WUBRG, LOREHOLD |
+| `GLINT` | BR, GRIXIS, B, R, PRISMARI | BR, JUND, R, MARDU, GRIXIS | BR, JUND, MARDU, GRIXIS, DUNE | BR, JUND, GLINT, GRIXIS, WUBRG |
+| `DUNE` | WUBRG, DUNE, GLINT, INK, WITCH | JUND, RG, BG, WITHERBLOOM, DUNE | JUND, RG, DUNE, BG, WITHERBLOOM | DUNE, JUND, NAYA, RG, ABZAN |
+| `INK` | WG, BANT, G, W, QUANDRIX | BANT, WG, WU, QUANDRIX, UG | BANT, INK, WG, WU, NAYA | NAYA, WG, INK, BANT, W |
+| `WITCH` | WG, BANT, G, W, QUANDRIX | BANT, WG, WU, QUANDRIX, UG | BANT, WITCH, WG, WU, QUANDRIX | WG, BANT, W, ABZAN, WITCH |
+| `TEMUR` | WG, BANT, G, W, QUANDRIX | BANT, WG, WU, QUANDRIX, UG | BANT, INK, WG, WU, NAYA | BANT, INK, QUANDRIX, UG, TEMUR |
+| `JESKAI` | WG, BANT, G, W, QUANDRIX | WU, BANT, W, U, JESKAI | WU, BANT, JESKAI, INK, W | W, WU, JESKAI, BANT, INK |
+
+Routing interpretation:
+
+- `COLORLESS` never enters its own Hall pool under color-only propagation.
+- `WUBRG` enters the pool early, but its final ideal path is still led by `DUNE`.
+- `TEMUR` and `WITCH` remain rank-5 stress cases.
+- `INK` and `DUNE` are the broad expressions most likely to crowd nearby routes.
+
+### C.5 - Same-color duplicate check
+
+Because the proposed Gate is intentionally color-vector-first, same-color duplicate pairs remain exactly tied after Gate. This is correct: Gate should establish color neighborhood, while Hall and Crucible separate institutional expression.
+
+| same-color pair | Gate score relation under `sqrt`, `bmp = 0` | conclusion |
+|---|---|---|
+| `WR` / `LOREHOLD` | tied at 3.649 | Must be separated later by Hall/Crucible. |
+| `UR` / `PRISMARI` | tied at 3.182 | Must be separated later by Hall/Crucible. |
+| `UG` / `QUANDRIX` | tied at 3.132 | Must be separated later by Hall/Crucible. |
+| `WB` / `SILVERQUILL` | tied at 3.295 | Must be separated later by Hall/Crucible. |
+| `BG` / `WITHERBLOOM` | tied at 3.741 | Must be separated later by Hall/Crucible. |
+
+This confirms the phase boundary: **Gate is color-coordinate inference; Hall and Crucible remain faction-specific.**
+
+### C.6 - Current implementation-readiness verdict
+
+The WUBRG-vector Gate still fits the Vox Mana architecture, but only with two corrections:
+
+1. **Do not treat `COLORLESS` as an ordinary vector target.** It needs an explicit outside-WUBRG boundary signal or a tightly documented Gate calibration exception.
+2. **Do not treat `WUBRG` as an ordinary additive five-color target.** It needs balanced all-five integration, not passive benefit from every lit color.
+
+Implementation should therefore proceed only as a non-live simulator/comparison path until the following are true:
+
+- 37/37 reachability is demonstrated with the boundary/integration channels included.
+- Per-Gate snapshots are emitted for Gate I, II, III, and IV.
+- `DUNE`, `INK`, `WITCH`, `WUBRG`, and `COLORLESS` overtrigger reports are reviewed.
+- Same-color duplicate pairs are confirmed to remain Hall/Crucible-resolved.
+- The Appendix A vector table is reconciled with the runtime neutral bucket: `.45` maps to delta `0`, while several Appendix A midpoint cells use `.55`, which maps to positive pressure in the current engine. Before source authoring, either keep vectors in runtime likelihood-bucket space or explicitly transform the Appendix A research vectors so neutral means `.45`.

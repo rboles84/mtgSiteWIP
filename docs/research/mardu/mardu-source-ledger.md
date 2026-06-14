@@ -22,6 +22,7 @@ Status: VM-223 approved source ledger. Mardu remains docs-only, non-live, and re
 | MARDU-SRC-014 | Seed | `docs/research/mardu/source-material/Mardu Horde Deep Research Report.md` copied from `docs/research/mardu horde/Mardu Horde Deep Research Report.md` | Discovery material and claim queue. | discovery-only. Not approved evidence. Every claim requires independent evidence-row promotion. |
 | MARDU-SRC-015 | Seed | `docs/research/mardu/source-material/mardu-horde-lore-source-packet.md` copied from `docs/research/mardu horde/mardu-horde-lore-source-packet.md` | Discovery material, candidate source map, and open-thread queue. | discovery-only. Not approved evidence. Packet-shaped wording cannot cite itself. |
 | MARDU-SRC-016 | Seed | `docs/research/mardu/source-material/mardu_horde_tactical_archive.html` copied from `docs/research/mardu horde/mardu_horde_tactical_archive.html` | Discovery material and HTML tactical synthesis. | discovery-only. Not approved evidence. Generated or report-shaped wording cannot cite itself. |
+| MARDU-SRC-017 | 2P | `https://magic.wizards.com/en/news/announcements/tarkir-dragonstorm-commander-decklists` | Official Tarkir: Dragonstorm Commander product row for `Mardu Surge`, `Zurgo Stormrender`, `Neriv, Crackling Vanguard`, deck name, color identity, and gallery/deck navigation. | Support-only. Not Tarkir canon, Mardu lore, commander legality proof, popularity proof, metagame proof, or placement evidence. |
 
 ## Exact RWB/WBR Commander Support Extraction
 

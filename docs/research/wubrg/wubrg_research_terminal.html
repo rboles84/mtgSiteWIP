@@ -1,0 +1,1163 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WUBRG / Five-Color MTG Research Terminal</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <!-- Three.js CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Cinzel', 'serif'],
+                        mono: ['Fira Code', 'monospace'],
+                    },
+                    colors: {
+                        mtg: {
+                            white: '#f9fafb',
+                            blue: '#0ea5e9',
+                            black: '#a855f7', // styled as deep shadow purple/black
+                            red: '#ef4444',
+                            green: '#22c55e',
+                            gold: '#eab308'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom styles & glowing utility classes */
+        body {
+            background-color: #0b0f19;
+            color: #f3f4f6;
+        }
+        .text-glow-white { text-shadow: 0 0 10px rgba(255, 255, 255, 0.4); }
+        .text-glow-blue { text-shadow: 0 0 10px rgba(14, 165, 233, 0.6); }
+        .text-glow-black { text-shadow: 0 0 10px rgba(168, 85, 247, 0.6); }
+        .text-glow-red { text-shadow: 0 0 10px rgba(239, 68, 68, 0.6); }
+        .text-glow-green { text-shadow: 0 0 10px rgba(34, 197, 94, 0.6); }
+        .text-glow-gold { text-shadow: 0 0 10px rgba(234, 179, 8, 0.6); }
+
+        .border-glow-white { border-color: rgba(255,255,255,0.2); box-shadow: 0 0 15px rgba(255,255,255,0.05); }
+        .border-glow-blue { border-color: rgba(14, 165, 233, 0.2); box-shadow: 0 0 15px rgba(14, 165, 233, 0.1); }
+        .border-glow-black { border-color: rgba(168, 85, 247, 0.2); box-shadow: 0 0 15px rgba(168, 85, 247, 0.1); }
+        .border-glow-red { border-color: rgba(239, 68, 68, 0.2); box-shadow: 0 0 15px rgba(239, 68, 68, 0.1); }
+        .border-glow-green { border-color: rgba(34, 197, 94, 0.2); box-shadow: 0 0 15px rgba(34, 197, 94, 0.1); }
+
+        .bg-glass {
+            background: rgba(15, 23, 42, 0.65);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: rgba(15, 23, 42, 0.3);
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: rgba(148, 163, 184, 0.3);
+            border-radius: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: rgba(148, 163, 184, 0.5);
+        }
+    </style>
+</head>
+<body class="font-sans antialiased selection:bg-purple-900 selection:text-purple-100 overflow-x-hidden">
+
+    <!-- TOP HEADER / NAV -->
+    <header class="fixed top-0 left-0 w-full z-50 bg-glass border-b border-slate-800/80">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <div class="flex space-x-1 items-center bg-slate-900/80 px-2 py-1 rounded-md border border-slate-700/50 text-xs tracking-wider font-mono">
+                    <span class="text-white text-glow-white font-bold">W</span>
+                    <span class="text-mtg-blue text-glow-blue font-bold">U</span>
+                    <span class="text-mtg-black text-glow-black font-bold">B</span>
+                    <span class="text-mtg-red text-glow-red font-bold">R</span>
+                    <span class="text-mtg-green text-glow-green font-bold">G</span>
+                </div>
+                <h1 class="font-serif text-lg font-bold tracking-widest hidden sm:block bg-gradient-to-r from-slate-100 via-slate-300 to-slate-400 bg-clip-text text-transparent">VOX MANA</h1>
+            </div>
+            <nav class="hidden md:flex space-x-6 text-sm font-medium text-slate-400">
+                <a href="#nexus" class="hover:text-white transition-colors">3D Nexus</a>
+                <a href="#summary" class="hover:text-white transition-colors">Executive Summary</a>
+                <a href="#rules" class="hover:text-white transition-colors">Rules & Identity</a>
+                <a href="#philosophy" class="hover:text-white transition-colors">Philosophy Matrix</a>
+                <a href="#claims" class="hover:text-white transition-colors">Claims Ledger</a>
+                <a href="#examples" class="hover:text-white transition-colors">Examples</a>
+                <a href="#governance" class="hover:text-white transition-colors">Governance</a>
+            </nav>
+            <div class="flex items-center gap-2">
+                <span class="text-xs bg-purple-900/30 text-purple-300 border border-purple-500/20 px-2.5 py-1 rounded-full font-mono">
+                    <i class="fa-solid fa-circle-check text-purple-400 mr-1"></i>Tier 1 & 2 Governed
+                </span>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO & 3D INTERACTIVE NEXUS -->
+    <section id="nexus" class="relative pt-16 min-h-screen flex flex-col justify-between overflow-hidden">
+        <!-- 3D Canvas Container -->
+        <div id="canvas-container" class="absolute inset-0 w-full h-full z-0 pointer-events-auto"></div>
+
+        <!-- HTML Overlay UI -->
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-10 pb-8 flex-grow flex flex-col justify-between pointer-events-none">
+            <!-- Left Side / Top Title Overlay -->
+            <div class="max-w-xl space-y-4 mt-8 pointer-events-auto bg-slate-950/40 backdrop-blur-sm p-6 rounded-xl border border-slate-800/50">
+                <h2 class="font-serif text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-wider leading-tight text-white">
+                    FIVE-COLOR<br>
+                    <span class="text-transparent bg-gradient-to-r from-slate-300 via-indigo-200 to-emerald-300 bg-clip-text">WUBRG IDENTITY</span>
+                </h2>
+                <p class="text-slate-300 text-sm sm:text-base leading-relaxed font-light">
+                    An advanced structural evaluation of the five-color identity layer in Magic: The Gathering. Built exclusively from validated rules frameworks, design policies, and primary worldbuilding logs.
+                </p>
+                <div class="flex flex-wrap gap-2 pt-2">
+                    <button onclick="focusOnSphere('W')" class="px-3 py-1.5 rounded-md bg-slate-900/90 text-white text-xs font-mono border border-slate-700/80 hover:border-white transition-all flex items-center gap-1.5">
+                        <span class="w-2.5 h-2.5 rounded-full bg-slate-100 border border-slate-300 shadow-[0_0_8px_rgba(255,255,255,0.5)]"></span> White
+                    </button>
+                    <button onclick="focusOnSphere('U')" class="px-3 py-1.5 rounded-md bg-slate-900/90 text-white text-xs font-mono border border-slate-700/80 hover:border-mtg-blue transition-all flex items-center gap-1.5">
+                        <span class="w-2.5 h-2.5 rounded-full bg-mtg-blue shadow-[0_0_8px_rgba(14,165,233,0.5)]"></span> Blue
+                    </button>
+                    <button onclick="focusOnSphere('B')" class="px-3 py-1.5 rounded-md bg-slate-900/90 text-white text-xs font-mono border border-slate-700/80 hover:border-mtg-black transition-all flex items-center gap-1.5">
+                        <span class="w-2.5 h-2.5 rounded-full bg-mtg-black shadow-[0_0_8px_rgba(168,85,247,0.5)]"></span> Black
+                    </button>
+                    <button onclick="focusOnSphere('R')" class="px-3 py-1.5 rounded-md bg-slate-900/90 text-white text-xs font-mono border border-slate-700/80 hover:border-mtg-red transition-all flex items-center gap-1.5">
+                        <span class="w-2.5 h-2.5 rounded-full bg-mtg-red shadow-[0_0_8px_rgba(239,68,68,0.5)]"></span> Red
+                    </button>
+                    <button onclick="focusOnSphere('G')" class="px-3 py-1.5 rounded-md bg-slate-900/90 text-white text-xs font-mono border border-slate-700/80 hover:border-mtg-green transition-all flex items-center gap-1.5">
+                        <span class="w-2.5 h-2.5 rounded-full bg-mtg-green shadow-[0_0_8px_rgba(34,197,94,0.5)]"></span> Green
+                    </button>
+                    <button onclick="resetCameraFocus()" class="px-3 py-1.5 rounded-md bg-indigo-950/80 text-indigo-300 text-xs font-mono border border-indigo-700/50 hover:bg-indigo-900 transition-all">
+                        <i class="fa-solid fa-arrows-spin mr-1"></i> Reset View
+                    </button>
+                </div>
+            </div>
+
+            <!-- Bottom Interactive Notice & Scroll Down -->
+            <div class="flex flex-col md:flex-row items-center justify-between gap-4 mt-auto pointer-events-auto bg-slate-950/80 backdrop-blur-md p-4 rounded-xl border border-slate-800/80">
+                <div class="flex items-center gap-3 text-xs text-slate-400">
+                    <span class="flex h-3 w-3 relative">
+                      <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-indigo-400 opacity-75"></span>
+                      <span class="relative inline-flex rounded-full h-3 w-3 bg-indigo-500"></span>
+                    </span>
+                    <span><strong>Interactivity:</strong> Click and drag on the 3D canvas above to rotate the celestial WUBRG network. Scroll down for deep-dive datasets.</span>
+                </div>
+                <a href="#summary" class="text-xs font-medium text-slate-300 hover:text-white flex items-center gap-2 bg-slate-900 px-3 py-1.5 rounded-md border border-slate-700/50 hover:bg-slate-800 transition-all">
+                    Explore Evidence <i class="fa-solid fa-arrow-down animate-bounce text-indigo-400"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- EXECUTIVE SUMMARY -->
+    <section id="summary" class="py-24 relative bg-slate-950 border-t border-slate-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto space-y-4 mb-16">
+                <span class="text-xs uppercase tracking-widest font-mono text-indigo-400">Governance Framework</span>
+                <h3 class="font-serif text-3xl sm:text-4xl font-bold text-white">Executive Summary</h3>
+                <div class="h-0.5 w-16 bg-gradient-to-r from-transparent via-indigo-500 to-transparent mx-auto"></div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+                <!-- Main Statement Card -->
+                <div class="lg:col-span-7 bg-glass rounded-2xl border border-slate-800 p-8 flex flex-col justify-between">
+                    <div class="space-y-6">
+                        <div class="flex items-center gap-2">
+                            <i class="fa-solid fa-circle text-xs text-indigo-400 animate-pulse"></i>
+                            <span class="text-xs font-mono text-slate-400 uppercase tracking-widest">Active Hypothesis</span>
+                        </div>
+                        <h4 class="font-serif text-2xl font-bold leading-relaxed text-slate-100">
+                            "WUBRG operates as a totalizing, unfragmented synthesis of the natural order."
+                        </h4>
+                        <p class="text-slate-300 leading-relaxed text-sm">
+                            Vetted evidence confirms that while a five-color identity grants a deck absolute rules access to the entire mechanical color pie, individual cards within that system remain strictly bound by their respective color-pie limitations. Rather than existing as a localized faction with a singular creative personality, five-color functions as a massive structural integration framework.
+                        </p>
+                    </div>
+                    <div class="grid grid-cols-2 gap-4 mt-8 pt-8 border-t border-slate-800/80">
+                        <div>
+                            <span class="block text-xl font-bold font-serif text-white">100%</span>
+                            <span class="text-xs text-slate-400">Color-Pie Access</span>
+                        </div>
+                        <div>
+                            <span class="block text-xl font-bold font-serif text-white">Tier 1 & 2</span>
+                            <span class="text-xs text-slate-400">Verified Alignment</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Fast Facts Sidebar -->
+                <div class="lg:col-span-5 flex flex-col gap-4">
+                    <div class="bg-gradient-to-r from-slate-900 to-indigo-950/30 rounded-xl border border-slate-800 p-6 flex items-start gap-4">
+                        <div class="p-3 bg-slate-800/80 rounded-lg text-indigo-400">
+                            <i class="fa-solid fa-cube text-lg"></i>
+                        </div>
+                        <div>
+                            <h5 class="font-bold text-sm text-slate-200">Database Shorthand</h5>
+                            <p class="text-xs text-slate-400 mt-1">"WUBRG" represents the technical, rules-derived sequence (White, Blue, Black, Red, Green) used strictly in back-end environments and mechanical costings.</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-gradient-to-r from-slate-900 to-emerald-950/30 rounded-xl border border-slate-800 p-6 flex items-start gap-4">
+                        <div class="p-3 bg-slate-800/80 rounded-lg text-emerald-400">
+                            <i class="fa-solid fa-users text-lg"></i>
+                        </div>
+                        <div>
+                            <h5 class="font-bold text-sm text-slate-200">Consumer Standard Label</h5>
+                            <p class="text-xs text-slate-400 mt-1">"Five-Color" is the official consumer-facing nomenclature utilized in product announcements, commander decklines, and retail packaging.</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-gradient-to-r from-slate-900 to-purple-950/30 rounded-xl border border-slate-800 p-6 flex items-start gap-4">
+                        <div class="p-3 bg-slate-800/80 rounded-lg text-purple-400">
+                            <i class="fa-solid fa-network-wired text-lg"></i>
+                        </div>
+                        <div>
+                            <h5 class="font-bold text-sm text-slate-200">Thematic Expressions</h5>
+                            <p class="text-xs text-slate-400 mt-1">Primarily expressed through structures of high coalition (converging factions), world-space integration (TMNT), or raw environmental power (Slivers).</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- RULES & IDENTITY -->
+    <section id="rules" class="py-24 relative bg-slate-900/60">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+
+                <div class="lg:col-span-5 space-y-6">
+                    <span class="text-xs uppercase tracking-widest font-mono text-purple-400">Section 903.4</span>
+                    <h3 class="font-serif text-3xl sm:text-4xl font-bold text-white">Rules & Identity Parameters</h3>
+                    <p class="text-slate-300 text-sm leading-relaxed">
+                        Comprehensive Rules define <strong>Color Identity</strong> under Rule 903.4. This forms the absolute baseline of our data architectures. Unlike normal game rules where a card's active state defines its colors, identity is additive, evaluating all available symbols across both faces of a card before play begins.
+                    </p>
+                    <div class="space-y-4">
+                        <div class="flex gap-3 items-start">
+                            <span class="w-5 h-5 rounded-full bg-slate-800 text-slate-300 font-mono text-[10px] flex items-center justify-center border border-slate-700 shrink-0 mt-0.5">I</span>
+                            <div>
+                                <h6 class="text-sm font-semibold text-slate-200">Additive Mechanics</h6>
+                                <p class="text-xs text-slate-400 mt-0.5">Established globally from casting costs, indicator dots, rules text symbols, and characteristic-defining abilities.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-3 items-start">
+                            <span class="w-5 h-5 rounded-full bg-slate-800 text-slate-300 font-mono text-[10px] flex items-center justify-center border border-slate-700 shrink-0 mt-0.5">II</span>
+                            <div>
+                                <h6 class="text-sm font-semibold text-slate-200">Double-Faced Scope (903.4d)</h6>
+                                <p class="text-xs text-slate-400 mt-0.5">Calculates color symbols found on the front side and the back side together. Crucial for MDFCs/TDFCs.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-3 items-start">
+                            <span class="w-5 h-5 rounded-full bg-slate-800 text-slate-300 font-mono text-[10px] flex items-center justify-center border border-slate-700 shrink-0 mt-0.5">III</span>
+                            <div>
+                                <h6 class="text-sm font-semibold text-slate-200">The Devoid Safeguard</h6>
+                                <p class="text-xs text-slate-400 mt-0.5">In-game "colorless" designators (Devoid) do not override color identity calculation rules for deck building.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-7">
+                    <!-- Interactive Deck Sandbox Concept -->
+                    <div class="bg-glass rounded-2xl border border-slate-800 p-6 md:p-8 space-y-6">
+                        <div class="flex items-center justify-between border-b border-slate-800 pb-4">
+                            <span class="text-xs font-mono text-slate-400"><i class="fa-solid fa-code mr-1.5"></i> Comprehensive Rulebook Excerpts</span>
+                            <span class="text-xs text-emerald-400 bg-emerald-950/40 px-2 py-0.5 rounded border border-emerald-500/20 font-mono">Tier 1 Verified</span>
+                        </div>
+
+                        <div class="space-y-4 font-mono text-xs">
+                            <div class="bg-slate-950/80 p-4 rounded-lg border border-slate-800 space-y-1.5">
+                                <span class="text-indigo-400">CR 903.4</span>
+                                <p class="text-slate-300 leading-relaxed">
+                                    "The color identity of a card is the color or colors of any mana symbols in its mana cost or rules text, plus any colors defined by its characteristic-defining abilities..."
+                                </p>
+                            </div>
+                            <div class="bg-slate-950/80 p-4 rounded-lg border border-slate-800 space-y-1.5">
+                                <span class="text-indigo-400">CR 903.4d</span>
+                                <p class="text-slate-300 leading-relaxed">
+                                    "The color identity of a double-faced card is calculated from the faces of both sides combined..."
+                                </p>
+                            </div>
+                            <div class="bg-slate-950/80 p-4 rounded-lg border border-slate-800 space-y-1.5">
+                                <span class="text-indigo-400">CR 903.5d</span>
+                                <p class="text-slate-300 leading-relaxed">
+                                    "A card with a basic land type may be included in a Commander deck only if each color of mana it can produce is included in the commander's color identity."
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="p-4 rounded-lg bg-indigo-950/20 border border-indigo-500/10 text-xs text-indigo-300 leading-relaxed">
+                            <i class="fa-solid fa-circle-exclamation mr-1.5"></i> <strong>Governance Limit:</strong> Never conflate deck eligibility constraints with a card's actual color attributes in game calculations.
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- PHILOSOPHY MATRIX -->
+    <section id="philosophy" class="py-24 relative bg-slate-950">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto space-y-4 mb-16">
+                <span class="text-xs uppercase tracking-widest font-mono text-mtg-blue">The Core Tenets</span>
+                <h3 class="font-serif text-3xl sm:text-4xl font-bold text-white">The WUBRG Philosophy Matrix</h3>
+                <p class="text-slate-400 text-sm">
+                    Analyze the individual values that fuel the 3D nexus. When layered together, these competing desires create a self-regulating synthesis.
+                </p>
+                <div class="h-0.5 w-16 bg-gradient-to-r from-transparent via-mtg-blue to-transparent mx-auto"></div>
+            </div>
+
+            <!-- Color Selector Row -->
+            <div class="grid grid-cols-5 gap-2 md:gap-4 mb-8">
+                <!-- White -->
+                <button onclick="setActivePhilosophy('W')" id="btn-W" class="p-3 rounded-xl border border-slate-800 bg-slate-900/40 text-center hover:border-slate-400 transition-all active-phi-btn">
+                    <span class="block text-2xl mb-1 text-slate-100"><i class="fa-regular fa-sun"></i></span>
+                    <span class="text-[10px] md:text-xs font-semibold uppercase tracking-widest font-mono">White</span>
+                </button>
+                <!-- Blue -->
+                <button onclick="setActivePhilosophy('U')" id="btn-U" class="p-3 rounded-xl border border-slate-800 bg-slate-900/40 text-center hover:border-mtg-blue transition-all">
+                    <span class="block text-2xl mb-1 text-mtg-blue"><i class="fa-solid fa-droplet"></i></span>
+                    <span class="text-[10px] md:text-xs font-semibold uppercase tracking-widest font-mono">Blue</span>
+                </button>
+                <!-- Black -->
+                <button onclick="setActivePhilosophy('B')" id="btn-B" class="p-3 rounded-xl border border-slate-800 bg-slate-900/40 text-center hover:border-mtg-black transition-all">
+                    <span class="block text-2xl mb-1 text-mtg-black"><i class="fa-solid fa-skull"></i></span>
+                    <span class="text-[10px] md:text-xs font-semibold uppercase tracking-widest font-mono">Black</span>
+                </button>
+                <!-- Red -->
+                <button onclick="setActivePhilosophy('R')" id="btn-R" class="p-3 rounded-xl border border-slate-800 bg-slate-900/40 text-center hover:border-mtg-red transition-all">
+                    <span class="block text-2xl mb-1 text-mtg-red"><i class="fa-solid fa-fire"></i></span>
+                    <span class="text-[10px] md:text-xs font-semibold uppercase tracking-widest font-mono">Red</span>
+                </button>
+                <!-- Green -->
+                <button onclick="setActivePhilosophy('G')" id="btn-G" class="p-3 rounded-xl border border-slate-800 bg-slate-900/40 text-center hover:border-mtg-green transition-all">
+                    <span class="block text-2xl mb-1 text-mtg-green"><i class="fa-solid fa-tree"></i></span>
+                    <span class="text-[10px] md:text-xs font-semibold uppercase tracking-widest font-mono">Green</span>
+                </button>
+            </div>
+
+            <!-- Display Screen for Selected Philosophy -->
+            <div id="philosophy-viewer" class="bg-glass rounded-2xl border border-slate-800 p-6 md:p-10 transition-all duration-300">
+                <!-- Dynamically populated via JS -->
+            </div>
+
+            <!-- Interactive Synthesis Box -->
+            <div class="mt-8 bg-gradient-to-r from-slate-900 to-indigo-950/20 rounded-2xl border border-indigo-500/10 p-6 md:p-8">
+                <div class="flex flex-col lg:flex-row gap-6 justify-between items-start lg:items-center">
+                    <div class="space-y-2 max-w-2xl">
+                        <span class="text-[10px] font-mono text-indigo-400 uppercase tracking-widest bg-indigo-950/60 px-2.5 py-1 rounded-md border border-indigo-500/10">WUBRG Synthesis Pattern</span>
+                        <h4 class="font-serif text-xl font-bold text-white">Full-Spectrum Ideological Balance</h4>
+                        <p class="text-slate-300 text-xs sm:text-sm leading-relaxed">
+                            Unlike four-color systems defined by what they <em>lack</em>, WUBRG features no blind spots. By incorporating all five viewpoints, the system enters a self-regulating grid of continuous structural push-and-pull.
+                        </p>
+                    </div>
+                    <div class="flex flex-wrap gap-3">
+                        <span class="text-xs bg-slate-900 border border-slate-800 px-3 py-1.5 rounded-lg text-slate-300"><strong>vs Colorless:</strong> Active alignment, not void</span>
+                        <span class="text-xs bg-slate-900 border border-slate-800 px-3 py-1.5 rounded-lg text-slate-300"><strong>vs Four-Color:</strong> Total unfragmented integration</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CLAIM LEDGER -->
+    <section id="claims" class="py-24 relative bg-slate-900/40">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-4 mb-12">
+                <div class="space-y-4">
+                    <span class="text-xs uppercase tracking-widest font-mono text-emerald-400">Evidence Audit</span>
+                    <h3 class="font-serif text-3xl sm:text-4xl font-bold text-white">Validated Claims Ledger</h3>
+                    <p class="text-slate-400 text-sm max-w-xl">
+                        Audit claims level classification mapped to reliable primary rules documentation, set-design records, and creative lore pillars.
+                    </p>
+                </div>
+                <!-- Filtering Tools -->
+                <div class="flex flex-wrap gap-2">
+                    <button onclick="filterClaims('all')" id="claim-filter-all" class="px-3 py-1.5 text-xs font-mono rounded bg-indigo-600 text-white hover:bg-indigo-700 transition-all">All Claims</button>
+                    <button onclick="filterClaims('Supported')" id="claim-filter-Supported" class="px-3 py-1.5 text-xs font-mono rounded bg-slate-900 text-slate-400 hover:text-white border border-slate-800 hover:border-slate-700 transition-all">Supported</button>
+                    <button onclick="filterClaims('Interpretive')" id="claim-filter-Interpretive" class="px-3 py-1.5 text-xs font-mono rounded bg-slate-900 text-slate-400 hover:text-white border border-slate-800 hover:border-slate-700 transition-all">Interpretive</button>
+                </div>
+            </div>
+
+            <!-- Ledger Grid -->
+            <div id="ledger-container" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Dynamically populated via JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- OFFICIAL EXAMPLES -->
+    <section id="examples" class="py-24 relative bg-slate-950">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto space-y-4 mb-16">
+                <span class="text-xs uppercase tracking-widest font-mono text-mtg-gold">Vetted Models</span>
+                <h3 class="font-serif text-3xl sm:text-4xl font-bold text-white">Official Five-Color Models</h3>
+                <p class="text-slate-400 text-sm">
+                    Specific historical cards, sets, and products analyzed to trace how WUBRG rules identity is validated and expressed under official system parameters.
+                </p>
+                <div class="h-0.5 w-16 bg-gradient-to-r from-transparent via-mtg-gold to-transparent mx-auto"></div>
+            </div>
+
+            <!-- Desktop View Cards -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <!-- Sliver Swarm -->
+                <div class="bg-glass rounded-2xl border border-slate-800 p-6 flex flex-col justify-between hover:border-slate-700 transition-all duration-300">
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between">
+                            <span class="text-[10px] font-mono text-mtg-gold bg-mtg-gold/10 px-2 py-1 rounded border border-mtg-gold/20">Product & Deck</span>
+                            <span class="text-[10px] font-mono text-slate-500">Tier 1 Source</span>
+                        </div>
+                        <h4 class="font-serif text-xl font-bold text-slate-100">Sliver Swarm Deck</h4>
+                        <div class="space-y-2 text-xs">
+                            <p class="text-slate-300 leading-relaxed">
+                                Represents a core case-study of high tribal synergy holding a unified five-color mana base together. Employs "Five-Color" naming standards directly on primary consumer product packaging.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-slate-800/80">
+                        <div class="text-[11px] font-mono text-slate-400">
+                            <strong>Evidence Role:</strong> Product & Deckbuilding
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Morophon -->
+                <div class="bg-glass rounded-2xl border border-slate-800 p-6 flex flex-col justify-between hover:border-slate-700 transition-all duration-300">
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between">
+                            <span class="text-[10px] font-mono text-indigo-400 bg-indigo-950/40 px-2 py-1 rounded border border-indigo-500/20">Card Design</span>
+                            <span class="text-[10px] font-mono text-slate-500">Tier 1 & 2 Source</span>
+                        </div>
+                        <h4 class="font-serif text-xl font-bold text-slate-100">Morophon, the Boundless</h4>
+                        <div class="space-y-2 text-xs">
+                            <p class="text-slate-300 leading-relaxed">
+                                Illustrates how generic casting cost cards establish five-color identities by using colored symbols in their rules text. Integrates cost reductions specifically to incentivize multi-color play.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-slate-800/80">
+                        <div class="text-[11px] font-mono text-slate-400">
+                            <strong>Evidence Role:</strong> Design & Color Pie
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Conflux -->
+                <div class="bg-glass rounded-2xl border border-slate-800 p-6 flex flex-col justify-between hover:border-slate-700 transition-all duration-300">
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between">
+                            <span class="text-[10px] font-mono text-emerald-400 bg-emerald-950/40 px-2 py-1 rounded border border-emerald-500/20">World & Magic</span>
+                            <span class="text-[10px] font-mono text-slate-500">Tier 1 & 2 Source</span>
+                        </div>
+                        <h4 class="font-serif text-xl font-bold text-slate-100">Conflux Card</h4>
+                        <div class="space-y-2 text-xs">
+                            <p class="text-slate-300 leading-relaxed">
+                                Commemorates the full assembly of all five distinct colors as a massive, world-altering event. Serves as a perfect mechanical case of escalating power derived from complete color convergence.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-slate-800/80">
+                        <div class="text-[11px] font-mono text-slate-400">
+                            <strong>Evidence Role:</strong> Worldbuilding & Lore
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NAMING RECOMMENDATION / SEARCH ALIASES -->
+    <section id="naming" class="py-24 relative bg-slate-900/60">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+                <div class="lg:col-span-5 space-y-6">
+                    <span class="text-xs uppercase tracking-widest font-mono text-mtg-blue">Taxonomy Systems</span>
+                    <h3 class="font-serif text-3xl sm:text-4xl font-bold text-white">Taxonomy & Label Governance</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Establishing clear internal technical structures and outward-facing communication terms is critical to prevent database and user confusion. Use the verified parameters below.
+                    </p>
+
+                    <div class="bg-slate-950/80 p-5 rounded-xl border border-slate-800 space-y-3 font-mono text-xs">
+                        <span class="text-red-400 uppercase tracking-widest font-semibold"><i class="fa-solid fa-ban mr-1"></i> Avoid These Terms</span>
+                        <ul class="space-y-1.5 text-slate-300 list-disc list-inside">
+                            <li>Rainbow (strictly colloquial / informal)</li>
+                            <li>Colorless (contradictory mechanical rules)</li>
+                            <li>Custom single-word faction name (unsupported in lore)</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <div class="p-6 bg-glass border border-slate-800 rounded-2xl space-y-3">
+                        <div class="w-8 h-8 rounded-lg bg-indigo-950/60 border border-indigo-500/20 flex items-center justify-center text-indigo-400 font-mono text-xs">
+                            K
+                        </div>
+                        <h4 class="font-bold text-sm text-slate-200">Recommended Internal Key</h4>
+                        <div class="p-2.5 bg-slate-950/80 rounded font-mono text-xs text-indigo-300 border border-slate-800">
+                            WUBRG
+                        </div>
+                        <p class="text-xs text-slate-400 leading-relaxed">
+                            Primary technical, database-level key mapped directly to rules systems.
+                        </p>
+                    </div>
+
+                    <div class="p-6 bg-glass border border-slate-800 rounded-2xl space-y-3">
+                        <div class="w-8 h-8 rounded-lg bg-emerald-950/60 border border-emerald-500/20 flex items-center justify-center text-emerald-400 font-mono text-xs">
+                            L
+                        </div>
+                        <h4 class="font-bold text-sm text-slate-200">Recommended Public Label</h4>
+                        <div class="p-2.5 bg-slate-950/80 rounded font-mono text-xs text-emerald-300 border border-slate-800">
+                            Five-Color
+                        </div>
+                        <p class="text-xs text-slate-400 leading-relaxed">
+                            Official consumer-facing naming standard for high clarity in menus, filters, and cards.
+                        </p>
+                    </div>
+
+                    <div class="p-6 bg-glass border border-slate-800 rounded-2xl sm:col-span-2 space-y-3">
+                        <div class="flex items-center gap-2">
+                            <div class="w-8 h-8 rounded-lg bg-purple-950/60 border border-purple-500/20 flex items-center justify-center text-purple-400 font-mono text-xs">
+                                S
+                            </div>
+                            <h4 class="font-bold text-sm text-slate-200">Recommended Search Aliases</h4>
+                        </div>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-2 py-1 bg-slate-950 rounded font-mono text-[10px] text-slate-300 border border-slate-800">Five-color identity</span>
+                            <span class="px-2 py-1 bg-slate-950 rounded font-mono text-[10px] text-slate-300 border border-slate-800">All five colors</span>
+                            <span class="px-2 py-1 bg-slate-950 rounded font-mono text-[10px] text-slate-300 border border-slate-800">WUBRG</span>
+                            <span class="px-2 py-1 bg-slate-950 rounded font-mono text-[10px] text-slate-300 border border-slate-800">Five color</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SOURE INVENTORY -->
+    <section class="py-24 relative bg-slate-950">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto space-y-4 mb-16">
+                <span class="text-xs uppercase tracking-widest font-mono text-slate-400">Database Reference</span>
+                <h3 class="font-serif text-3xl sm:text-4xl font-bold text-white">Primary Source Inventory</h3>
+                <div class="h-0.5 w-16 bg-gradient-to-r from-transparent via-slate-600 to-transparent mx-auto"></div>
+            </div>
+
+            <!-- Table Layout -->
+            <div class="overflow-x-auto rounded-xl border border-slate-800 bg-glass custom-scrollbar">
+                <table class="w-full text-left border-collapse text-xs">
+                    <thead>
+                        <tr class="bg-slate-900/60 border-b border-slate-800 text-slate-300 font-mono uppercase tracking-wider text-[10px]">
+                            <th class="p-4">Title</th>
+                            <th class="p-4">Author / Publisher</th>
+                            <th class="p-4">Tier</th>
+                            <th class="p-4">Evidence Mapping</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-slate-800/50 text-slate-300">
+                        <tr>
+                            <td class="p-4 font-bold text-white">Magic Comprehensive Rules</td>
+                            <td class="p-4 text-slate-400">Wizards of the Coast</td>
+                            <td class="p-4"><span class="px-2 py-0.5 rounded bg-emerald-950/40 text-emerald-300 border border-emerald-500/20 font-mono">Tier 1</span></td>
+                            <td class="p-4 text-slate-400">Color identity definitions, double-faced cards (CR 903.4), basic land type parameters.</td>
+                        </tr>
+                        <tr>
+                            <td class="p-4 font-bold text-white">Mechanical Color Pie 2021</td>
+                            <td class="p-4 text-slate-400">Mark Rosewater / WotC</td>
+                            <td class="p-4"><span class="px-2 py-0.5 rounded bg-emerald-950/40 text-emerald-300 border border-emerald-500/20 font-mono">Tier 1</span></td>
+                            <td class="p-4 text-slate-400">Primary, secondary, and tertiary mechanical access across the five colors.</td>
+                        </tr>
+                        <tr>
+                            <td class="p-4 font-bold text-white">Color Philosophy Revisited</td>
+                            <td class="p-4 text-slate-400">Mark Rosewater / WotC</td>
+                            <td class="p-4"><span class="px-2 py-0.5 rounded bg-amber-950/40 text-amber-300 border border-amber-500/20 font-mono">Tier 2</span></td>
+                            <td class="p-4 text-slate-400">Core values, desires, methods, and failure modes of each individual color.</td>
+                        </tr>
+                        <tr>
+                            <td class="p-4 font-bold text-white">Commander Masters Decklists</td>
+                            <td class="p-4 text-slate-400">Wizards of the Coast</td>
+                            <td class="p-4"><span class="px-2 py-0.5 rounded bg-emerald-950/40 text-emerald-300 border border-emerald-500/20 font-mono">Tier 1</span></td>
+                            <td class="p-4 text-slate-400">Verification of "Five-Color" naming conventions in official products.</td>
+                        </tr>
+                        <tr>
+                            <td class="p-4 font-bold text-white">Shadowmoor Meets Eye Part I</td>
+                            <td class="p-4 text-slate-400">Mark Rosewater / WotC</td>
+                            <td class="p-4"><span class="px-2 py-0.5 rounded bg-amber-950/40 text-amber-300 border border-amber-500/20 font-mono">Tier 2</span></td>
+                            <td class="p-4 text-slate-400">Historical context for five-color mechanical themes like Domain.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- VOX MANA SAFE INTERPRETATION & GOVERNANCE -->
+    <section id="governance" class="py-24 relative bg-slate-900/60">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-stretch">
+                <!-- Safe Boundaries -->
+                <div class="lg:col-span-6 bg-glass border border-slate-800 rounded-2xl p-8 space-y-6">
+                    <h3 class="font-serif text-2xl font-bold text-white">Safe Vox Interpretation</h3>
+                    <p class="text-xs text-slate-400 leading-relaxed">
+                        To maintain high database fidelity, restrict system logic and copywriting precisely to these boundaries.
+                    </p>
+                    <div class="space-y-4 font-mono text-xs">
+                        <div class="flex gap-3 items-start bg-slate-950/60 p-3 rounded border border-slate-800/80">
+                            <span class="text-emerald-400"><i class="fa-solid fa-square-check"></i></span>
+                            <div>
+                                <span class="text-slate-200 font-bold block">Strictly Allowed</span>
+                                <p class="text-slate-400 mt-0.5">Defining five-color as complete deck-level rules access, mechanical synthesis, or thematic coalitions.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-3 items-start bg-slate-950/60 p-3 rounded border border-slate-800/80">
+                            <span class="text-red-400"><i class="fa-solid fa-square-xmark"></i></span>
+                            <div>
+                                <span class="text-slate-200 font-bold block">Strictly Disallowed</span>
+                                <p class="text-slate-400 mt-0.5">Claiming WUBRG has a single cultural personality, is inherently "superior" to mono-color, or bypasses standard card-level color pie limits.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Final Recommendation Card -->
+                <div class="lg:col-span-6 bg-gradient-to-br from-indigo-950/50 to-slate-900 border border-indigo-500/10 rounded-2xl p-8 flex flex-col justify-between">
+                    <div class="space-y-6">
+                        <div class="flex items-center gap-2">
+                            <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                            <span class="text-xs font-mono text-indigo-300 uppercase tracking-widest">Final Governance Verdict</span>
+                        </div>
+                        <h4 class="font-serif text-2xl font-bold text-white">Ready for Integration Layer</h4>
+                        <p class="text-slate-300 text-sm leading-relaxed">
+                            WUBRG is fully approved as an active, placeable identity layer in the Vox Mana database. However, it must be governed as a *technical integration layer* rather than a narrative cultural faction. Set public labels to <strong>"Five-Color"</strong> and retain <strong>"WUBRG"</strong> as an advanced internal key.
+                        </p>
+                    </div>
+
+                    <div class="mt-8">
+                        <span class="block text-xs font-mono text-slate-400">Governance Status:</span>
+                        <div class="flex items-center gap-2 mt-1">
+                            <i class="fa-solid fa-shield-halved text-indigo-400 text-lg"></i>
+                            <span class="text-sm font-semibold text-white">Vetted & Lock-Approved</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-slate-950 border-t border-slate-900 py-12 text-center text-xs text-slate-500">
+        <div class="max-w-7xl mx-auto px-4 space-y-4">
+            <div class="flex space-x-1 justify-center items-center font-mono tracking-widest">
+                <span class="text-white">W</span>
+                <span class="text-mtg-blue">U</span>
+                <span class="text-mtg-black">B</span>
+                <span class="text-mtg-red">R</span>
+                <span class="text-mtg-green">G</span>
+            </div>
+            <p>VOX MANA structural research logs. All card names, rules terminology, and setting assets remain the primary intellectual property of Wizards of the Coast.</p>
+        </div>
+    </footer>
+
+    <!-- LOGIC & CONTROLLERS SCRIPT -->
+    <script>
+        // --- DATA OBJECTS ---
+        const colorPhilosophies = {
+            'W': {
+                name: "White",
+                icon: "fa-regular fa-sun",
+                colorClass: "text-white text-glow-white",
+                borderClass: "border-glow-white",
+                value: "Order & Cooperation",
+                desire: "Peace",
+                methods: "Establishing rigid structures, moral and civil codes, self-sacrifice, and military coordination.",
+                failures: "Extreme inflexibility, severe disregard for the individual, obsession with trivial rules, authoritarianism.",
+                source: "Color Philosophy Revisited, Mark Rosewater (2015)",
+                synthesis: "In a WUBRG system, White provides the essential organizational structure, law, and cooperative framework needed to hold the other four volatile alignments together."
+            },
+            'U': {
+                name: "Blue",
+                icon: "fa-solid fa-droplet",
+                colorClass: "text-mtg-blue text-glow-blue",
+                borderClass: "border-glow-blue",
+                value: "Knowledge & Logic",
+                desire: "Perfection",
+                methods: "Education, continuous information gathering, careful manipulation, and temporal or mental control.",
+                failures: "Extreme passivity, over-analysis leading to paralysis, detachment from emotional reality.",
+                source: "Color Philosophy Revisited, Mark Rosewater (2015)",
+                synthesis: "In a WUBRG system, Blue acts as the logical architect, designing strategies, predicting outcomes, and preventing catastrophic emotional volatility."
+            },
+            'B': {
+                name: "Black",
+                icon: "fa-solid fa-skull",
+                colorClass: "text-mtg-black text-glow-black",
+                borderClass: "border-glow-black",
+                value: "Pragmatism & Individualism",
+                desire: "Power / Self-Interest",
+                methods: "Leveraging decay and death, calculated elimination of obstacles, fear, and ruthless risk-taking.",
+                failures: "Self-destruction, absolute isolation, total lack of moral boundaries leading to swift ruin.",
+                source: "Color Philosophy Revisited, Mark Rosewater (2015)",
+                synthesis: "In a WUBRG system, Black provides raw, uninhibited ambition and absolute pragmatismâ€”the willingness to use any asset to achieve survival."
+            },
+            'R': {
+                name: "Red",
+                icon: "fa-solid fa-fire",
+                colorClass: "text-mtg-red text-glow-red",
+                borderClass: "border-glow-red",
+                value: "Emotion & Impulse",
+                desire: "Freedom",
+                methods: "Relentless action, immediate emotional expression, chaotic physical or magical destruction.",
+                failures: "Extreme short-sightedness, highly fragile plans, complete inability to coordinate or delay gratification.",
+                source: "Color Philosophy Revisited, Mark Rosewater (2015)",
+                synthesis: "In a WUBRG system, Red contributes the vital fuel of dynamic passion, direct emotional energy, and speed, breaking Blue/White stagnation."
+            },
+            'G': {
+                name: "Green",
+                icon: "fa-solid fa-tree",
+                colorClass: "text-mtg-green text-glow-green",
+                borderClass: "border-glow-green",
+                value: "Acceptance & Harmony",
+                desire: "Acceptance of Natural Order",
+                methods: "Bonding with wild systems, environmental integration, land optimization (mana-ramp), rejuvenation.",
+                failures: "Inability to solve artificial problems, extreme passivity in the face of progressive change.",
+                source: "Color Philosophy Revisited, Mark Rosewater (2015)",
+                synthesis: "In a WUBRG system, Green acts as the anchor, establishing a natural, balanced foundation and channeling infinite raw energy."
+            }
+        };
+
+        const claims = [
+            {
+                id: 1,
+                title: "Additive Color Identity",
+                text: "Color identity is established before play begins and calculated additively by combining all card faces, characteristic-defining abilities, rules text symbols, and indicators.",
+                status: "Supported",
+                tier: "Tier 1",
+                source: "Comprehensive Rules Section 903.4"
+            },
+            {
+                id: 2,
+                title: "Color Pie Card Strictness",
+                text: "While a five-color commander allows complete mechanical access across the whole deck, individual card designs within the deck remain bound by color-pie limits.",
+                status: "Supported",
+                tier: "Tier 1",
+                source: "Mechanical Color Pie 2021"
+            },
+            {
+                id: 3,
+                title: "Unified Faction Status",
+                text: "Five-color represents a unified cultural faction with a singular lore personality, similar to Ravnica guilds or Alara Shards.",
+                status: "Interpretive",
+                tier: "Tier 2",
+                source: "TMNT Commander Design Retrospective"
+            },
+            {
+                id: 4,
+                title: "Internal vs Public Naming",
+                text: "Official literature reserves 'WUBRG' primarily as an internal key or technical reduction indicator, preferring 'Five-Color' on product packaging.",
+                status: "Supported",
+                tier: "Tier 1 & Tier 2",
+                source: "Commander Masters Packaging & Morophon Reviews"
+            }
+        ];
+
+        // --- RENDER PHILOSOPHY VIEW ---
+        function setActivePhilosophy(colorKey) {
+            // Update button borders
+            document.querySelectorAll('.active-phi-btn').forEach(btn => btn.classList.remove('active-phi-btn'));
+            const activeBtn = document.getElementById(`btn-${colorKey}`);
+            if (activeBtn) activeBtn.classList.add('active-phi-btn');
+
+            const data = colorPhilosophies[colorKey];
+            const viewer = document.getElementById('philosophy-viewer');
+
+            viewer.className = `bg-glass rounded-2xl border ${data.borderClass} p-6 md:p-10 transition-all duration-300`;
+            viewer.innerHTML = `
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                    <div class="lg:col-span-4 space-y-4">
+                        <div class="flex items-center gap-3">
+                            <span class="text-4xl ${data.colorClass}"><i class="${data.icon}"></i></span>
+                            <h4 class="font-serif text-2xl font-bold text-white">${data.name}</h4>
+                        </div>
+                        <div class="space-y-1">
+                            <span class="text-[10px] font-mono uppercase tracking-widest text-slate-500 block">Core Value</span>
+                            <span class="text-sm font-semibold text-slate-200">${data.value}</span>
+                        </div>
+                        <div class="space-y-1">
+                            <span class="text-[10px] font-mono uppercase tracking-widest text-slate-500 block">Ultimate Desire</span>
+                            <span class="text-sm font-semibold text-slate-200">${data.desire}</span>
+                        </div>
+                    </div>
+                    <div class="lg:col-span-8 space-y-6">
+                        <div class="space-y-2">
+                            <span class="text-[10px] font-mono uppercase tracking-widest text-slate-500 block">Tactical Methods</span>
+                            <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">${data.methods}</p>
+                        </div>
+                        <div class="space-y-2">
+                            <span class="text-[10px] font-mono uppercase tracking-widest text-slate-500 block">System Failure Mode</span>
+                            <p class="text-xs sm:text-sm text-red-400/90 leading-relaxed font-mono">${data.failures}</p>
+                        </div>
+                        <div class="pt-4 border-t border-slate-800/80 space-y-2">
+                            <span class="text-[10px] font-mono uppercase tracking-widest text-slate-500 block">Integration Synthesis</span>
+                            <p class="text-xs sm:text-sm text-indigo-200 italic leading-relaxed">${data.synthesis}</p>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        // --- RENDER CLAIMS LEDGER ---
+        function filterClaims(status) {
+            // Update button styles
+            const buttons = ['all', 'Supported', 'Interpretive'];
+            buttons.forEach(btn => {
+                const el = document.getElementById(`claim-filter-${btn}`);
+                if (btn === status) {
+                    el.className = "px-3 py-1.5 text-xs font-mono rounded bg-indigo-600 text-white transition-all";
+                } else {
+                    el.className = "px-3 py-1.5 text-xs font-mono rounded bg-slate-900 text-slate-400 hover:text-white border border-slate-800 hover:border-slate-700 transition-all";
+                }
+            });
+
+            const container = document.getElementById('ledger-container');
+            container.innerHTML = '';
+
+            const filtered = status === 'all' ? claims : claims.filter(c => c.status === status);
+
+            filtered.forEach(claim => {
+                const isSupported = claim.status === 'Supported';
+                const statusBadge = isSupported
+                    ? `<span class="text-[10px] font-mono bg-emerald-950/40 text-emerald-400 border border-emerald-500/20 px-2 py-0.5 rounded">Supported</span>`
+                    : `<span class="text-[10px] font-mono bg-amber-950/40 text-amber-400 border border-amber-500/20 px-2 py-0.5 rounded">Interpretive</span>`;
+
+                const borderClass = isSupported ? 'border-emerald-500/10' : 'border-amber-500/10';
+
+                container.innerHTML += `
+                    <div class="bg-glass rounded-xl border ${borderClass} p-5 space-y-4 hover:scale-[1.01] transition-all duration-300">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-mono text-indigo-400">Claim 0${claim.id}</span>
+                            ${statusBadge}
+                        </div>
+                        <h4 class="font-serif text-lg font-bold text-white">${claim.title}</h4>
+                        <p class="text-xs text-slate-300 leading-relaxed">${claim.text}</p>
+                        <div class="pt-3 border-t border-slate-800/80 flex justify-between items-center text-[10px] text-slate-400 font-mono">
+                            <span><strong>Source:</strong> ${claim.source}</span>
+                            <span>${claim.tier}</span>
+                        </div>
+                    </div>
+                `;
+            });
+        }
+
+        // --- THREE.JS INTERACTIVE NEXUS ENGINE ---
+        let scene, camera, renderer;
+        let points = [];
+        let particles;
+        const radius = 5.5;
+        let currentFocus = null;
+        let targetRotationX = 0;
+        let targetRotationY = 0;
+        let rotationX = 0;
+        let rotationY = 0;
+        let isUserInteracting = false;
+        let previousMousePosition = { x: 0, y: 0 };
+
+        // Define exact color nodes representing WUBRG order (Star Pentagon layout)
+        const nodeColors = [
+            { id: 'W', name: 'White', color: 0xfaf0e6, angle: 0 },
+            { id: 'U', name: 'Blue', color: 0x0ea5e9, angle: (Math.PI * 2) / 5 },
+            { id: 'B', name: 'Black', color: 0xa855f7, angle: ((Math.PI * 2) / 5) * 2 },
+            { id: 'R', name: 'Red', color: 0xef4444, angle: ((Math.PI * 2) / 5) * 3 },
+            { id: 'G', name: 'Green', color: 0x22c55e, angle: ((Math.PI * 2) / 5) * 4 }
+        ];
+
+        function initThreeJS() {
+            const container = document.getElementById('canvas-container');
+            const width = container.clientWidth;
+            const height = container.clientHeight;
+
+            // Scene
+            scene = new THREE.Scene();
+            scene.fog = new THREE.FogExp2(0x0b0f19, 0.04);
+
+            // Camera
+            camera = new THREE.PerspectiveCamera(45, width / height, 0.1, 100);
+            camera.position.set(0, 3, 13);
+            camera.lookAt(0, 0, 0);
+
+            // Renderer
+            renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+            renderer.setSize(width, height);
+            renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+            container.appendChild(renderer.domElement);
+
+            // Lights
+            const ambientLight = new THREE.AmbientLight(0xffffff, 0.6);
+            scene.add(ambientLight);
+
+            const pointLightLeft = new THREE.PointLight(0x6366f1, 2, 20);
+            pointLightLeft.position.set(-6, 2, 4);
+            scene.add(pointLightLeft);
+
+            const pointLightRight = new THREE.PointLight(0x06b6d4, 2, 20);
+            pointLightRight.position.set(6, -2, 4);
+            scene.add(pointLightRight);
+
+            // Create Star Dust Background (Mana Particles)
+            const particleCount = 1200;
+            const particleGeo = new THREE.BufferGeometry();
+            const positions = new Float32Array(particleCount * 3);
+            const colors = new Float32Array(particleCount * 3);
+
+            for (let i = 0; i < particleCount; i++) {
+                // Outer distribution
+                positions[i * 3] = (Math.random() - 0.5) * 35;
+                positions[i * 3 + 1] = (Math.random() - 0.5) * 35;
+                positions[i * 3 + 2] = (Math.random() - 0.5) * 35;
+
+                // Color tint mix of WUBRG spectra
+                const randColor = nodeColors[Math.floor(Math.random() * 5)].color;
+                const c = new THREE.Color(randColor);
+                colors[i * 3] = c.r;
+                colors[i * 3 + 1] = c.g;
+                colors[i * 3 + 2] = c.b;
+            }
+
+            particleGeo.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+            particleGeo.setAttribute('color', new THREE.BufferAttribute(colors, 3));
+
+            // Custom soft star texture
+            const pMaterial = new THREE.PointsMaterial({
+                size: 0.1,
+                vertexColors: true,
+                transparent: true,
+                opacity: 0.8
+            });
+
+            particles = new THREE.Points(particleGeo, pMaterial);
+            scene.add(particles);
+
+            // Group to rotate everything safely
+            const nexusGroup = new THREE.Group();
+            scene.add(nexusGroup);
+
+            // Add the 5 WUBRG Spheres
+            nodeColors.forEach((node) => {
+                const nodeGroup = new THREE.Group();
+
+                // Calculate position on pentagram circle
+                const x = Math.sin(node.angle) * radius;
+                const y = Math.cos(node.angle) * radius;
+                const z = 0;
+                nodeGroup.position.set(x, y, z);
+
+                // Central Sphere
+                const sphereGeo = new THREE.SphereGeometry(0.35, 32, 32);
+                const sphereMat = new THREE.MeshBasicMaterial({
+                    color: node.color,
+                });
+                const sphereMesh = new THREE.Mesh(sphereGeo, sphereMat);
+                nodeGroup.add(sphereMesh);
+
+                // Outer Glowing Halo Ring
+                const ringGeo = new THREE.RingGeometry(0.45, 0.5, 30);
+                const ringMat = new THREE.MeshBasicMaterial({
+                    color: node.color,
+                    side: THREE.DoubleSide,
+                    transparent: true,
+                    opacity: 0.5
+                });
+                const ringMesh = new THREE.Mesh(ringGeo, ringMat);
+                nodeGroup.add(ringMesh);
+
+                nexusGroup.add(nodeGroup);
+                points.push({ group: nodeGroup, id: node.id, color: node.color });
+            });
+
+            // Draw Nexus Connections (All-to-All Pentagram Star and Outer Circle)
+            const lineMat = new THREE.LineBasicMaterial({
+                color: 0x475569,
+                transparent: true,
+                opacity: 0.25
+            });
+
+            // Outer Circle Connections
+            for (let i = 0; i < points.length; i++) {
+                const p1 = points[i].group.position;
+                const p2 = points[(i + 1) % points.length].group.position;
+
+                const lineGeo = new THREE.BufferGeometry().setFromPoints([p1, p2]);
+                const line = new THREE.Line(lineGeo, lineMat);
+                nexusGroup.add(line);
+            }
+
+            // Star Pentagram Lines
+            for (let i = 0; i < points.length; i++) {
+                const p1 = points[i].group.position;
+                const p2 = points[(i + 2) % points.length].group.position;
+
+                const lineGeo = new THREE.BufferGeometry().setFromPoints([p1, p2]);
+                const line = new THREE.Line(lineGeo, lineMat);
+                nexusGroup.add(line);
+            }
+
+            // Save reference to main group
+            window.nexusGroup = nexusGroup;
+
+            // DRAG INTERACTIONS (Camera orbit rotation controls)
+            container.addEventListener('mousedown', (e) => {
+                isUserInteracting = true;
+                previousMousePosition = { x: e.clientX, y: e.clientY };
+            });
+
+            container.addEventListener('mousemove', (e) => {
+                if (!isUserInteracting) return;
+                const deltaMove = {
+                    x: e.clientX - previousMousePosition.x,
+                    y: e.clientY - previousMousePosition.y
+                };
+
+                targetRotationY += deltaMove.x * 0.005;
+                targetRotationX += deltaMove.y * 0.005;
+
+                previousMousePosition = { x: e.clientX, y: e.clientY };
+            });
+
+            window.addEventListener('mouseup', () => {
+                isUserInteracting = false;
+            });
+
+            // Touch events for tablet / mobile devices
+            container.addEventListener('touchstart', (e) => {
+                isUserInteracting = true;
+                if(e.touches.length > 0) {
+                    previousMousePosition = { x: e.touches[0].clientX, y: e.touches[0].clientY };
+                }
+            });
+
+            container.addEventListener('touchmove', (e) => {
+                if (!isUserInteracting || e.touches.length === 0) return;
+                const deltaMove = {
+                    x: e.touches[0].clientX - previousMousePosition.x,
+                    y: e.touches[0].clientY - previousMousePosition.y
+                };
+
+                targetRotationY += deltaMove.x * 0.005;
+                targetRotationX += deltaMove.y * 0.005;
+
+                previousMousePosition = { x: e.touches[0].clientX, y: e.touches[0].clientY };
+            });
+
+            container.addEventListener('touchend', () => {
+                isUserInteracting = false;
+            });
+
+            // Window Resizing
+            window.addEventListener('resize', onWindowResize);
+        }
+
+        function onWindowResize() {
+            const container = document.getElementById('canvas-container');
+            const width = container.clientWidth;
+            const height = container.clientHeight;
+
+            camera.aspect = width / height;
+            camera.updateProjectionMatrix();
+
+            renderer.setSize(width, height);
+        }
+
+        // Camera animators
+        function focusOnSphere(id) {
+            currentFocus = points.find(p => p.id === id);
+
+            // Switch current active philosophy screen content simultaneously!
+            setActivePhilosophy(id);
+        }
+
+        function resetCameraFocus() {
+            currentFocus = null;
+        }
+
+        // Standard Game / Simulation Animation Loop
+        function animate() {
+            requestAnimationFrame(animate);
+
+            const time = Date.now() * 0.001;
+
+            // Rotate star particles
+            if (particles) {
+                particles.rotation.y += 0.0003;
+                particles.rotation.z += 0.0001;
+            }
+
+            // Animate local node floating speeds for dynamic magical organic feel
+            points.forEach((pt, index) => {
+                pt.group.position.z = Math.sin(time + index) * 0.15;
+                pt.group.scale.setScalar(1 + Math.sin(time * 2 + index) * 0.05);
+            });
+
+            // Smoothly ease camera rotations to targets
+            rotationX += (targetRotationX - rotationX) * 0.05;
+            rotationY += (targetRotationY - rotationY) * 0.05;
+
+            if (window.nexusGroup) {
+                window.nexusGroup.rotation.x = rotationX;
+                window.nexusGroup.rotation.y = rotationY;
+
+                // Slow ambient spin when user is inactive
+                if (!isUserInteracting && !currentFocus) {
+                    targetRotationY += 0.0012;
+                }
+            }
+
+            // Smoothly animate focus position if selected
+            if (currentFocus) {
+                // Calculate selected node global location coordinates
+                const nodePos = new THREE.Vector3();
+                currentFocus.group.getWorldPosition(nodePos);
+
+                // Offset camera viewpoint to look closely at selected color
+                const targetCameraPos = new THREE.Vector3()
+                    .copy(nodePos)
+                    .add(new THREE.Vector3(0, 1.2, 3.5));
+
+                camera.position.lerp(targetCameraPos, 0.06);
+
+                const focusLookTarget = new THREE.Vector3().copy(nodePos);
+                camera.lookAt(focusLookTarget);
+            } else {
+                // Ease back safely to default global vista view
+                const defaultPos = new THREE.Vector3(0, 3, 13);
+                camera.position.lerp(defaultPos, 0.05);
+                camera.lookAt(0, 0, 0);
+            }
+
+            renderer.render(scene, camera);
+        }
+
+        // Start animation loops upon system fully loaded
+        window.onload = function () {
+            // Render interactive structures
+            setActivePhilosophy('W');
+            filterClaims('all');
+
+            // Boot WebGL canvas
+            initThreeJS();
+            animate();
+        };
+    </script>
+</body>
+</html>

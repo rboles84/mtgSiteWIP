@@ -2,8 +2,8 @@
   "schema_version": "1.0.0",
   "faction_id": "quandrix",
   "faction_name": "Quandrix College",
-  "source_review_date": "2026-05-09",
-  "last_updated": "2026-05-09",
+  "source_review_date": "2026-06-13",
+  "last_updated": "2026-06-13",
   "sources": [
     {
       "source_id": "src_wotc_planeswalkers_guide_strixhaven_2021",
@@ -249,6 +249,32 @@
         "Nev"
       ],
       "set_name": "Duskmourn: House of Horror"
+    },
+    {
+      "source_id": "src_wotc_secrets_strixhaven_commander_decklists_20260401",
+      "source_role": "support-only",
+      "title": "Secrets of Strixhaven Commander Decklists",
+      "author": "Jubilee Finnegan",
+      "publisher_or_site": "Magic: The Gathering",
+      "publication_date": "2026-04-01",
+      "access_date": "2026-06-13",
+      "url_or_repository_path": "https://magic.wizards.com/en/news/announcements/secrets-of-strixhaven-commander-decklists",
+      "source_type": "Official Commander product decklist",
+      "reliability": "Primary / official product support",
+      "notes": "Verified official page for deck names, color pairs, face commanders, featured commanders, and deck/gallery navigation. Support-only: not lore, popularity, metagame, legality, or canon identity proof."
+    },
+    {
+      "source_id": "src_scryfall_oracle_cards_local_strixhaven_20260613",
+      "source_role": "support-only",
+      "title": "Local Scryfall Oracle Cards - Strixhaven flavor anchors",
+      "author": "Scryfall local data mirror",
+      "publisher_or_site": "Local repository",
+      "publication_date": "Local data snapshot",
+      "access_date": "2026-06-13",
+      "url_or_repository_path": "data/scryfall/raw/oracle-cards.json",
+      "source_type": "Local card-data source",
+      "reliability": "Card facts and flavor-anchor support only",
+      "notes": "Supports card names, set/collector identifiers, Scryfall URIs, and short per-card flavor summaries. Does not promote long flavor blocks, lore biographies, popularity, metagame, legality, or canon identity claims."
     }
   ]
 }

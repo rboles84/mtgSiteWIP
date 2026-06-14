@@ -1316,6 +1316,7 @@ const IDENTITY_HERO_SLUG_BY_FACTION_KEY = Object.freeze({
   WITCH: "witch",
   YORE: "yore",
   COLORLESS: "colorless",
+  WUBRG: "wubrg",
   WU: "azorius",
   UB: "dimir",
   BR: "rakdos",
@@ -1469,7 +1470,7 @@ function buildPreconLinks(precon) {
     },
     {
       service: "mtgdecks",
-      label: "Find decklists",
+      label: "Browse examples",
       url: buildMtgDecksCommanderUrl(precon.mainCommander),
     },
   ]);
@@ -1528,7 +1529,7 @@ function buildPreconCardHtml(precon) {
   const previewGroup = precon?.previewGroup || precon?.group || (precon?.lane === "stretch" ? "stretch" : "otherExact");
   const badge = PRECON_BADGE_META[previewGroup] || PRECON_BADGE_META.otherExact;
   const fitSummary = wordExcerpt(precon?.fitSummary || precon?.tablePerception || "", 24);
-  const bestFor = wordExcerpt(precon?.recommendedForOverride || precon?.recommendationProfile?.recommendedFor || "", 18);
+  const startingLaneFor = wordExcerpt(precon?.recommendedForOverride || precon?.recommendationProfile?.recommendedFor || "", 18);
   const chips = preconPreviewChips(precon);
 
   return `
@@ -1541,7 +1542,7 @@ function buildPreconCardHtml(precon) {
       <div class="precon-commander">Main commander: ${escapeHtml(precon.mainCommander)}</div>
       ${chips.length ? `<div class="precon-chip-row">${chips.map((chip) => `<span class="precon-chip">${escapeHtml(chip)}</span>`).join("")}</div>` : ""}
       ${fitSummary ? `<div class="precon-copy">${escapeHtml(fitSummary)}</div>` : ""}
-      ${bestFor ? `<div class="precon-best-for"><span>Best for:</span> ${escapeHtml(bestFor)}</div>` : ""}
+      ${startingLaneFor ? `<div class="precon-best-for"><span>Good starting lane for:</span> ${escapeHtml(startingLaneFor)}</div>` : ""}
       <div class="precon-links">${buildLinkButtons(buildPreconLinks(precon))}</div>
     </div>`;
 }
@@ -1551,8 +1552,8 @@ function buildPreconSectionHtml(preconRecommendations) {
   if (!preconRecommendations?.hasAny || !preview.visible.length) {
     return `
       <div class="precons-section">
-        <div class="section-label">Recommended Precon Decks</div>
-        <div class="precon-empty">No validated precon recommendations are available for this dossier yet.</div>
+        <div class="section-label">Precon Starting Points</div>
+        <div class="precon-empty">No support-pool precon starting points are available for this dossier yet.</div>
       </div>`;
   }
 
@@ -1569,9 +1570,9 @@ function buildPreconSectionHtml(preconRecommendations) {
 
   return `
     <div class="precons-section">
-      <div class="section-label">Recommended Precon Decks</div>
-      <div class="precon-intro">Ready-made Commander decks that match this dossier's color identity, faction pressure, and validated mechanics.</div>
-      <div class="precon-meta">Showing the strongest starting points from this recommendation pool.</div>
+      <div class="section-label">Precon Starting Points</div>
+      <div class="precon-intro">Ready-made Commander decks from the support pool that share this dossier's color identity, faction pressure, or validated mechanics.</div>
+      <div class="precon-meta">Showing the closest available starting points from the support pool.</div>
       <div class="precon-grid is-compact" data-precon-preview-grid="primary">${preview.visible.map((precon) => buildPreconCardHtml(precon)).join("")}</div>
       ${canExpand ? `<div class="precon-grid is-compact" data-precon-preview-grid="remaining" hidden>${preview.remaining.map((precon) => buildPreconCardHtml(precon)).join("")}</div>` : ""}
       ${canExpand ? `
@@ -2108,6 +2109,7 @@ export function selectCuratedFlavorEchoesForFaction({
   faction,
   snippets = {},
   flavorCards = [],
+  commanderCards = [],
   tagRefs = [],
 } = {}) {
   const key = faction?.key || faction?.identity?.expression_key || "";
@@ -2115,7 +2117,10 @@ export function selectCuratedFlavorEchoesForFaction({
   if (curated.length < 2) return [];
   const fallbackTags = uniqueTagRefs(tagRefs).slice(0, 3);
   return curated.slice(0, 3).map((snippet) => {
-    const indexedCard = resolveIndexedFlavorCardForSnippet(snippet, flavorCards) || {};
+    const indexedCard =
+      resolveIndexedFlavorCardForSnippet(snippet, flavorCards) ||
+      resolveIndexedFlavorCardForSnippet(snippet, commanderCards) ||
+      {};
     const cardName = snippet.card_name || indexedCard.name || "";
     return {
       card: {
@@ -2143,6 +2148,7 @@ function selectFlavorEchoes({ faction, tagRefs }) {
     faction,
     snippets: APP_STATE.archscryFlavorSnippets?.snippets || {},
     flavorCards: APP_STATE.scryfallFlavorIndex?.cards || [],
+    commanderCards: APP_STATE.scryfallCommanderIndex?.commanders || [],
     tagRefs,
   });
   if (curated.length >= 2) return curated;

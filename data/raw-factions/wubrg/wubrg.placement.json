@@ -1,0 +1,363 @@
+{
+  "schema_version": "1.0.0",
+  "placement_profile_version": "0.1.0",
+  "placement_model_version": "0.1.0",
+  "based_on_profile_version": "0.1.0",
+  "faction_id": "wubrg",
+  "faction_name": "Five-Color / WUBRG",
+  "last_updated": "2026-06-13",
+  "color_identity": {
+    "colors": [
+      "W",
+      "U",
+      "B",
+      "R",
+      "G"
+    ],
+    "future_expression_name": "WUBRG",
+    "future_expression_name_status": "VM-367 controlled placeable expression key: colors [W,U,B,R,G], placement_eligible true, preview_eligible false, no public route expansion, and Five-Color public label."
+  },
+  "placement_summary": "Five-Color / WUBRG is a controlled placeable raw placement packet for users whose answers consistently value all five colors being present, negotiated, and source-bound rather than merely wanting broad goodstuff, mana fixing, or the strongest available deck.",
+  "moral_and_psychological_profile": {
+    "primary_drive": "Integrate every available color because the problem feels too alive, social, tactical, emotional, and material for one color or one missing-color frame.",
+    "ethical_pressure": "Full access becomes misleading when every tool is included without tradeoffs, evidence, or a reason for each color to matter.",
+    "core_boundary": "Placement language is Vox Mana synthesis, not official personality canon, deck-buying advice, or broad Commander recommendation authority."
+  },
+  "placement_axes": [
+    {
+      "axis_id": "axis_full_spectrum_integration",
+      "label": "Full-Spectrum Integration",
+      "description": "Measures whether the user wants all five colors actively present and negotiated rather than one color, a guild, a shard, a wedge, a four-color missing-color frame, or Colorless restriction.",
+      "low_end_label": "Partial color frame",
+      "high_end_label": "All colors present",
+      "faction_position": 90,
+      "rationale": "Layer 2 evidence supports WUBRG as full color access and Vox Mana synthesis, not official faction doctrine.",
+      "claim_ids": [
+        "wubrg_claim_0002",
+        "wubrg_claim_0004"
+      ],
+      "confidence": "High",
+      "notes": "Controlled placement only."
+    },
+    {
+      "axis_id": "axis_breadth_vs_dilution",
+      "label": "Breadth vs Dilution",
+      "description": "Separates principled five-color breadth from generic goodstuff, accumulation, or support-link padding.",
+      "low_end_label": "Unfocused accumulation",
+      "high_end_label": "Reasoned breadth",
+      "faction_position": 72,
+      "rationale": "The WUBRG packet requires no field-count padding and treats weak deck/search claims as support-only.",
+      "claim_ids": [
+        "wubrg_claim_0001",
+        "wubrg_claim_0007"
+      ],
+      "confidence": "Medium-High",
+      "notes": "Do not reward goodstuff-only answers."
+    },
+    {
+      "axis_id": "axis_deck_access_vs_card_bounds",
+      "label": "Deck Access vs Card Bounds",
+      "description": "Tests whether the user understands that full Commander color access does not erase individual card, color-pie, or legality boundaries.",
+      "low_end_label": "All tools without limits",
+      "high_end_label": "Full access with rules",
+      "faction_position": 78,
+      "rationale": "Official Commander and color-pie sources support deck-level access with individual-card boundaries.",
+      "claim_ids": [
+        "wubrg_claim_0002",
+        "wubrg_claim_0003"
+      ],
+      "confidence": "High",
+      "notes": "Named-card claims remain manual-fill."
+    },
+    {
+      "axis_id": "axis_coalition_vs_superiority",
+      "label": "Coalition vs Superiority",
+      "description": "Separates Five-Color coalition and synthesis from claims that WUBRG is above, beyond, or better than other identities.",
+      "low_end_label": "False total mastery",
+      "high_end_label": "Coalition under tension",
+      "faction_position": 76,
+      "rationale": "WUBRG evidence supports synthesis language but bars superiority and official-doctrine claims.",
+      "claim_ids": [
+        "wubrg_claim_0004",
+        "wubrg_claim_0007"
+      ],
+      "confidence": "Medium",
+      "notes": "Use as false-positive check against totalizing language."
+    }
+  ],
+  "core_values": [
+    "all five colors present",
+    "integration with tradeoffs",
+    "source-bound breadth",
+    "coalition without superiority",
+    "Commander color-identity precision",
+    "mechanics as support texture",
+    "Colorless and four-color boundary discipline"
+  ],
+  "behavioral_signals": [
+    "the user explicitly wants every color involved rather than one color, pair, shard, wedge, four-color, or Colorless lane",
+    "the user values coalition, synthesis, or full-spectrum problem solving more than raw power",
+    "the user can name tradeoffs created by needing all five colors",
+    "the user treats mana infrastructure as a cost and discipline rather than a free upgrade",
+    "the user keeps Commander deck support separate from lore proof and placement proof",
+    "the user distinguishes Five-Color fullness from Colorless restriction and four-color missing-color identity"
+  ],
+  "inhibitor_traits": [
+    "WUBRG treated as superior to all other identities",
+    "generic goodstuff treated as full-spectrum synthesis",
+    "mana fixing treated as the whole identity",
+    "five-color Eldrazi treated as Colorless proof",
+    "Commander support rows treated as lore, legality, placement, popularity, or recommendation proof",
+    "local essays treated as official WUBRG doctrine",
+    "individual cards treated as color-pie unbounded because the deck has all five colors",
+    "Expands until every answer is included, even when the plan no longer has a center."
+  ],
+  "inhibitor_traps": [
+    "The answer says five-color because it wants every powerful card, not because all five colors are meaningfully present.",
+    "The answer treats WUBRG as official canon philosophy or an official faction.",
+    "The answer treats WUBRG as above the color pie or superior to Colorless, mono-color, guild, shard, wedge, or four-color identities.",
+    "The answer uses five-color Eldrazi, Ulalek, or Eldrazi Incursion as strict Colorless proof.",
+    "The answer asks for current legality, rankings, prices, or metagame advice from support-only rows.",
+    "The answer treats broad Scryfall query hits as verified card claims."
+  ],
+  "good_fit_indicators": [
+    "explicit all-five-colors-present framing",
+    "full-spectrum integration with tradeoffs",
+    "coalition or synthesis language without superiority",
+    "Commander color identity understood as deck construction, not lore proof",
+    "mechanics texture kept support-only until named cards are verified",
+    "Colorless and four-color boundaries kept clear",
+    "mana infrastructure treated as meaningful discipline rather than automatic access"
+  ],
+  "ideal_fit_indicators": [
+    "the user wants White structure, Blue understanding, Black agency, Red motion, and Green belonging to all matter in one plan",
+    "the user asks for breadth but also asks what each color is doing there",
+    "the user finds the negotiation among all five colors more interesting than the strongest individual line",
+    "the user treats support decks as navigation aids while keeping lore and legality claims sourced"
+  ],
+  "poor_fit_indicators": [
+    "generic goodstuff-only preference",
+    "mana fixing or color access without identity reason",
+    "WUBRG superiority or total mastery language",
+    "official WUBRG faction, doctrine, or personality claims",
+    "Colorless conflation",
+    "four-color missing-color framing",
+    "five-color Eldrazi as strict Colorless proof",
+    "Commander product proof or legality claims beyond current support-only rows",
+    "current price, ranking, popularity, cEDH, or metagame advice without dated current verification",
+    "specific WUBRG card claims from broad query results without manual verification"
+  ],
+  "discriminator_questions": [
+    {
+      "question_id": "wubrg_disc_001",
+      "question": "Does the answer need all five colors present, or is one color, pair, shard, wedge, four-color, or Colorless lane doing the real work?",
+      "purpose": "Separates WUBRG fullness from partial color frames and Colorless restriction.",
+      "answer_pattern_that_supports_this_faction": "Supports WUBRG when the user explicitly wants all five colors active and meaningful in one plan.",
+      "answer_pattern_that_weakens_this_faction": "Weakens WUBRG when the answer only needs one color cluster, a missing-color frame, or outside-WUBRG restriction.",
+      "collision_targets": [
+        "COLORLESS",
+        "YORE",
+        "GLINT",
+        "DUNE",
+        "INK",
+        "WITCH",
+        "BANT",
+        "ESPER",
+        "GRIXIS",
+        "JUND",
+        "NAYA",
+        "ABZAN",
+        "TEMUR",
+        "SULTAI",
+        "MARDU",
+        "JESKAI"
+      ],
+      "claim_ids": [
+        "wubrg_claim_0002",
+        "wubrg_claim_0004",
+        "wubrg_claim_0007"
+      ],
+      "confidence": "High"
+    },
+    {
+      "question_id": "wubrg_disc_002",
+      "question": "Is the breadth purposeful, or is the answer just collecting every strong card and calling the pile an identity?",
+      "purpose": "Separates full-spectrum synthesis from generic goodstuff.",
+      "answer_pattern_that_supports_this_faction": "Supports WUBRG when the user can explain why each color belongs and what tradeoff full access creates.",
+      "answer_pattern_that_weakens_this_faction": "Weakens WUBRG when power, access, or card quality replaces identity reason.",
+      "collision_targets": [
+        "W",
+        "U",
+        "B",
+        "R",
+        "G"
+      ],
+      "claim_ids": [
+        "wubrg_claim_0001",
+        "wubrg_claim_0007"
+      ],
+      "confidence": "Medium-High"
+    },
+    {
+      "question_id": "wubrg_disc_003",
+      "question": "Does full deck access stay bounded by card color identity, color-pie limits, and current legality checks?",
+      "purpose": "Protects WUBRG from turning deck-level access into unbounded card or legality claims.",
+      "answer_pattern_that_supports_this_faction": "Supports WUBRG when the user treats all-five access as Commander deck construction while preserving individual card boundaries.",
+      "answer_pattern_that_weakens_this_faction": "Weakens WUBRG when the user assumes every card, legality claim, or mechanical claim is automatically available because the deck is five-color.",
+      "collision_targets": [
+        "COLORLESS",
+        "YORE",
+        "GLINT",
+        "DUNE",
+        "INK",
+        "WITCH"
+      ],
+      "claim_ids": [
+        "wubrg_claim_0002",
+        "wubrg_claim_0003",
+        "wubrg_claim_0006"
+      ],
+      "confidence": "High"
+    },
+    {
+      "question_id": "wubrg_disc_004",
+      "question": "Is WUBRG being framed as coalition and synthesis, or as the best, highest, or final form of the color pie?",
+      "purpose": "Separates healthy Five-Color synthesis from superiority and total-mastery language.",
+      "answer_pattern_that_supports_this_faction": "Supports WUBRG when the user wants all five colors held in tension without making them superior to other identities.",
+      "answer_pattern_that_weakens_this_faction": "Weakens WUBRG when it becomes a claim of superiority, official doctrine, or total mastery.",
+      "collision_targets": [
+        "COLORLESS",
+        "W",
+        "U",
+        "B",
+        "R",
+        "G"
+      ],
+      "claim_ids": [
+        "wubrg_claim_0004",
+        "wubrg_claim_0007"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "question_id": "wubrg_disc_005",
+      "question": "Are Commander decks and search links being used as support navigation, or as proof of lore, legality, popularity, or placement?",
+      "purpose": "Keeps WUBRG support-only deck and search material in its proper role.",
+      "answer_pattern_that_supports_this_faction": "Supports WUBRG when the user accepts deck/search rows as browsing support and asks for manual verification before exact claims.",
+      "answer_pattern_that_weakens_this_faction": "Weakens WUBRG when support rows or external links are treated as source proof for lore, legality, rankings, price, or deck quality.",
+      "collision_targets": [
+        "COLORLESS",
+        "YORE",
+        "GLINT",
+        "DUNE",
+        "INK",
+        "WITCH"
+      ],
+      "claim_ids": [
+        "wubrg_claim_0005",
+        "wubrg_claim_0006",
+        "wubrg_claim_0007"
+      ],
+      "confidence": "Medium"
+    }
+  ],
+  "collision_guidance": {
+    "rule": "Treat WUBRG as all five colors present, not as Colorless, four-color, generic goodstuff, or official doctrine.",
+    "review_triggers": [
+      "support-only deck claims",
+      "broad Scryfall query result claims",
+      "superiority language",
+      "Colorless conflation",
+      "missing-color language"
+    ],
+    "pairs": [
+      {
+        "collision_id": "wubrg_vs_colorless",
+        "against": "COLORLESS",
+        "separator": "WUBRG is all five colors present; Colorless is outside-WUBRG restriction.",
+        "ask": "Does the user want every color available, or do they want the absence and constraint of color?",
+        "lateral_inhibition": true,
+        "canonical_pair_key": "COLORLESS/WUBRG",
+        "crucible_candidate": true,
+        "claim_ids": [
+          "wubrg_claim_0007",
+          "colorless_claim_0002",
+          "colorless_claim_0005",
+          "colorless_claim_0008"
+        ],
+        "placement_confusion_reproduced": "VM-369 reproduced WUBRG and COLORLESS as top two candidates after paired Hall answers, with a 0.0178 probability gap and needsCrucible=true before a pair-specific Crucible existed."
+      },
+      {
+        "collision_id": "wubrg_vs_four_color",
+        "against": "YORE",
+        "separator": "Four-color identities are defined by a missing color; WUBRG has no missing color.",
+        "ask": "Is the missing color meaningful, or does the user want the whole color wheel present?",
+        "lateral_inhibition": true
+      },
+      {
+        "collision_id": "wubrg_vs_goodstuff",
+        "against": "W",
+        "separator": "Goodstuff or single-color taste is not Five-Color synthesis.",
+        "ask": "Can the user explain what each color contributes?",
+        "lateral_inhibition": true
+      }
+    ]
+  },
+  "calibration_tuning": {
+    "required_positive_evidence_terms": [
+      "all five colors present",
+      "full-spectrum integration",
+      "coalition or synthesis",
+      "Commander color identity precision",
+      "breadth with tradeoffs"
+    ],
+    "required_positive_min_hits": 2,
+    "strengthen_when_user_centers": [
+      "every color has a role",
+      "mana infrastructure as discipline",
+      "domain, converge, sunburst, or WUBRG texture with source boundaries",
+      "support-only Commander browsing with manual verification",
+      "Five-Color label over WUBRG as public copy"
+    ],
+    "suppress_when_user_centers": [
+      "generic goodstuff-only",
+      "WUBRG superiority",
+      "official WUBRG faction or doctrine",
+      "Colorless conflation",
+      "four-color missing-color framing",
+      "specific card, legality, price, ranking, or metagame claims without verification"
+    ],
+    "false_positive_guardrail": "Do not place WUBRG when the answer only wants power, fixing, generic access, Colorless restriction, or a missing-color frame; require all-five integration and source-bound tradeoff awareness.",
+    "broad_match_penalty": 0.16
+  },
+  "chatbot_guidance": {
+    "use_when": [
+      "Use WUBRG when the user clearly wants all five colors present and meaningful.",
+      "Use Five-Color as public-facing language, with WUBRG as technical shorthand.",
+      "Use Commander, deck, MTGDecks, Archidekt, and Scryfall material only as bounded support navigation."
+    ],
+    "avoid_when": [
+      "The answer only names good cards, fixing, or broad access.",
+      "The answer treats WUBRG as official faction lore or superiority.",
+      "The answer is really Colorless, four-color, or a single color cluster.",
+      "The answer needs exact legality, card text, rankings, price, or metagame advice without current verification."
+    ],
+    "how_to_recognize_mismatch": [
+      "generic goodstuff-only preference",
+      "mana fixing or color access without identity reason",
+      "WUBRG superiority or total mastery language",
+      "official WUBRG faction, doctrine, or personality claims",
+      "Colorless conflation",
+      "four-color missing-color framing",
+      "Commander product proof or legality claims beyond current support-only rows",
+      "specific WUBRG card claims from broad query results without manual verification"
+    ],
+    "calibration_note": "Do not place WUBRG when the answer only wants power, fixing, generic access, Colorless restriction, or a missing-color frame; require all-five integration and source-bound tradeoff awareness.",
+    "never_claim_as_canon": [
+      "WUBRG is an official faction, guild, college, plane, civilization, or single doctrine.",
+      "Five-Color is superior to other identities.",
+      "Support-only Commander rows prove lore, legality, placement, popularity, or deck quality.",
+      "Generated/runtime artifacts are source evidence."
+    ]
+  }
+}

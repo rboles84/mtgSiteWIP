@@ -11,10 +11,10 @@
     "Red"
   ],
   "color_pair_or_group": "GUR wedge metadata only",
-  "source_review_date": "2026-05-31",
+  "source_review_date": "2026-06-13",
   "last_full_review": "2026-05-31",
-  "last_incremental_review": "2026-06-09",
-  "last_updated": "2026-06-09",
+  "last_incremental_review": "2026-06-13",
+  "last_updated": "2026-06-13",
   "site_surface": {
     "display_name": "Temur Frontier",
     "short_summary": "Temur Frontier is a VM-208 live-pilot Tarkir wedge packet for Green-centered GUR survival, instinct, mental fortitude, shamanic listening, elemental memory, and harsh-terrain endurance.",
@@ -425,9 +425,9 @@
     "architecture_review_status": "Temur VM-204 and VM-205 reviewed as shaping-only architecture input.",
     "raw_packet_status": "vm208_live_pilot_source_bound",
     "generation_status": "wired_through_approved_builder_path",
-    "claim_count": 10,
+    "claim_count": 11,
     "claim_basis": "Normalized TEMUR promoted and guardrail evidence rows only.",
-    "support_material_policy": "Support-only, manual-fill, discovery-only, Commander/operator, seed, generated report, architecture, dossier, and direct source-row material may appear only in bounded review notes.",
+    "support_material_policy": "Support-only, manual-fill, discovery-only, Commander/operator, seed, generated report, architecture, dossier, and direct source-row material may appear only in bounded review notes. VM-380 official decklist rows support only product/deck navigation, face/featured commander names, and gallery links.",
     "evidence_quality": "High for source-bound Temur identity, Khans-era floor, modern guide, and guardrail claims; low for exact card facts and deferred detailed lore.",
     "known_limitations": [
       "Exact Ferocious and Formidable card facts are not validated",
@@ -436,7 +436,8 @@
       "Detailed modern governance is deferred",
       "Detailed clan dragon diplomacy is deferred",
       "Exact modern character biographies are deferred",
-      "Commander/operator rows are support-only"
+      "Commander/operator rows are support-only",
+      "Commander product rows are support-only and do not prove Tarkir canon, popularity, metagame, legality, or placement evidence."
     ],
     "claim_ids": [
       "temur_claim_0001",
@@ -464,7 +465,8 @@
       "Commander products as Tarkir Temur canon or Commander legality proof",
       "Generic GUR as Temur Frontier",
       "Atarka Clan as Temur Frontier continuity",
-      "Modern Dragonstorm details as Khans-era backfill"
+      "Modern Dragonstorm details as Khans-era backfill",
+      "Commander product rows as Tarkir canon or broad recommendation proof"
     ],
     "excluded_as_raw_claim_evidence": [
       "Commander/operator rows",
@@ -474,34 +476,197 @@
       "manual-fill rows",
       "direct TEMUR-SRC rows",
       "seed files",
-      "generated reports"
+      "generated reports",
+      "official Commander decklists beyond product/navigation facts"
     ]
   },
   "commander_compass": {
-    "review_status": "support_only",
+    "schema_version": "1.0.0",
+    "source_research_file": "docs/research/VM-378-379-380_source-intake.md",
+    "last_reviewed": "2026-06-13",
+    "review_status": "support_only_product_navigation",
     "exact_color_set": "Green; Blue; Red",
+    "recommendation_philosophy": "Use Temur Roar Commander data only as official product/navigation support for exact Green; Blue; Red Tarkir: Dragonstorm product commanders. This does not establish Tarkir canon, popularity, metagame, legality, or placement evidence.",
+    "identity_basis": {
+      "owned_themes": [
+        "large creatures",
+        "Dragons",
+        "counters/card draw support",
+        "Temur product navigation"
+      ],
+      "allowed_phrases": [
+        "TEMUR product support",
+        "Temur Roar",
+        "large creatures",
+        "Dragons",
+        "counters/card draw support"
+      ],
+      "avoid_or_contrast_phrases": [
+        "Commander product row as Tarkir canon",
+        "Commander legality proof",
+        "generic color identity as placement evidence",
+        "clan leader + Spirit Dragon as lore proof"
+      ],
+      "adjacent_overlap_notes": [
+        "Product/deck rows are support-only navigation, not evidence for clan society, canon identity, or placement scoring.",
+        "Clan leader and Spirit Dragon names are product anchors only unless a later card promotes stronger canon rows."
+      ],
+      "supporting_claim_ids": [
+        "temur_claim_0001",
+        "temur_claim_0002",
+        "temur_claim_0010",
+        "temur_claim_0011"
+      ],
+      "supporting_source_ids": [
+        "src_vm_second_commander_recommendations_gur",
+        "src_wotc_tarkir_dragonstorm_commander_decklists_20250325"
+      ]
+    },
     "support_decks": [
-      "Temur Roar",
-      "Living Energy",
-      "Mirror Mastery",
-      "Arcane Maelstrom",
-      "Paradox Power",
-      "Tinker Time",
-      "Tyranid Swarm"
+      "Temur Roar"
     ],
     "support_language": [
-      "dragons",
-      "ramp",
-      "energy",
-      "artifacts",
-      "copying spells and creatures",
-      "instants matter",
-      "non-hand casting",
-      "artifact tokens",
-      "counters",
-      "X-spells",
-      "ravenous"
+      "large creatures",
+      "Dragons",
+      "counters/card draw support",
+      "Temur product navigation"
     ],
-    "notes": "Commander Compass material is product/operator support only. It is not Temur canon evidence, not setting proof, and not raw-claim input."
+    "native_fit_commanders": [
+      {
+        "exact_card_name": "Eshki, Temur's Roar",
+        "display_name": "Eshki, Temur's Roar",
+        "scryfall_uri": "https://scryfall.com/card/tdc/3/eshki-temurs-roar?utm_source=api",
+        "color_identity": [
+          "G",
+          "R",
+          "U"
+        ],
+        "recommendation_type": "Support-Only Product Commander",
+        "archetype_tags": [
+          "official product row",
+          "Temur Roar",
+          "large creatures",
+          "Dragons"
+        ],
+        "why_this_fits": "The official Tarkir: Dragonstorm decklist identifies Eshki, Temur's Roar as the face commander for Temur Roar.",
+        "skip_if": "Use only for official product navigation or support-only deck exploration; do not use as metagame, popularity, legality, or lore proof.",
+        "gameplay_summary": "Use as official deck/product navigation only; no independent power, popularity, legality, metagame, or lore claim is made.",
+        "faction_identity_terms": [
+          "TEMUR",
+          "Temur Roar",
+          "large creatures",
+          "Dragons"
+        ],
+        "type_line": "Legendary Creature — Human Warrior",
+        "source_basis": {
+          "source_ids": [
+            "src_vm_second_commander_recommendations_gur",
+            "src_wotc_tarkir_dragonstorm_commander_decklists_20250325"
+          ],
+          "claim_ids": [
+            "temur_claim_0011"
+          ],
+          "support_only": true,
+          "boundary": "Official product/card-data support only."
+        },
+        "confidence": "High for product/card identity; support-only for recommendation texture.",
+        "caution_notes": [
+          "Does not prove canon lore or character biography.",
+          "Does not prove popularity, power level, legality, or metagame position."
+        ]
+      },
+      {
+        "exact_card_name": "Ureni of the Unwritten",
+        "display_name": "Ureni of the Unwritten",
+        "scryfall_uri": "https://scryfall.com/card/tdc/9/ureni-of-the-unwritten?utm_source=api",
+        "color_identity": [
+          "G",
+          "R",
+          "U"
+        ],
+        "recommendation_type": "Support-Only Product Commander",
+        "archetype_tags": [
+          "official product row",
+          "Temur Roar",
+          "large creatures",
+          "Dragons"
+        ],
+        "why_this_fits": "The official Tarkir: Dragonstorm decklist identifies Ureni of the Unwritten as the featured commander for Temur Roar.",
+        "skip_if": "Use only for official product navigation or support-only deck exploration; do not use as metagame, popularity, legality, or lore proof.",
+        "gameplay_summary": "Use as official deck/product navigation only; no independent power, popularity, legality, metagame, or lore claim is made.",
+        "faction_identity_terms": [
+          "TEMUR",
+          "Temur Roar",
+          "large creatures",
+          "Dragons"
+        ],
+        "type_line": "Legendary Creature — Spirit Dragon",
+        "source_basis": {
+          "source_ids": [
+            "src_vm_second_commander_recommendations_gur",
+            "src_wotc_tarkir_dragonstorm_commander_decklists_20250325"
+          ],
+          "claim_ids": [
+            "temur_claim_0011"
+          ],
+          "support_only": true,
+          "boundary": "Official product/card-data support only."
+        },
+        "confidence": "High for product/card identity; support-only for recommendation texture.",
+        "caution_notes": [
+          "Does not prove canon lore or character biography.",
+          "Does not prove popularity, power level, legality, or metagame position."
+        ]
+      }
+    ],
+    "weird_stretch_commanders": [],
+    "budget_friendly_commanders": [],
+    "advanced_complexity_commanders": [],
+    "iconic_lore_forward_commanders": [],
+    "not_recommended_or_deprioritized": [],
+    "archetype_lanes": [
+      {
+        "lane": "Temur Roar product lane",
+        "commanders": [
+          "Eshki, Temur's Roar",
+          "Ureni of the Unwritten"
+        ],
+        "support_only": true,
+        "source_ids": [
+          "src_wotc_tarkir_dragonstorm_commander_decklists_20250325"
+        ],
+        "notes": "Official decklist support only; not Tarkir canon, popularity, metagame, legality, or broad recommendation proof."
+      }
+    ],
+    "link_targets": {
+      "official_decklist": "https://magic.wizards.com/en/news/announcements/tarkir-dragonstorm-commander-decklists",
+      "official_deck_gallery": "https://magic.wizards.com/en/products/tarkir-dragonstorm/card-image-gallery?cigproduct=tdm-products-temur-roar",
+      "scryfall_commander_search": "https://scryfall.com/search?q=id%3Dgur+is%3Acommander+f%3Acommander",
+      "edhrec_commander_index": "",
+      "mtgdecks_color_identity": "",
+      "archidekt_color_search": ""
+    },
+    "merge_notes": {
+      "support_boundary": "VM-380 surfaces Compass data only from official product and existing support-only Commander rows.",
+      "deferred": "Clan leader + Spirit Dragon anchors are product/navigation only, not Tarkir canon proof."
+    }
+  },
+  "deck_links": [
+    {
+      "fmt": "Commander",
+      "name": "Temur Roar (Precon)",
+      "desc": "Official Tarkir: Dragonstorm Commander decklist reference for Eshki, Temur's Roar and Ureni of the Unwritten, with deck and gallery navigation for Temur Roar.",
+      "mtgg": "https://magic.wizards.com/en/news/announcements/tarkir-dragonstorm-commander-decklists",
+      "edhrec": null,
+      "mtgd": null,
+      "gallery": "https://magic.wizards.com/en/products/tarkir-dragonstorm/card-image-gallery?cigproduct=tdm-products-temur-roar"
+    }
+  ],
+  "research_links": {
+    "source_packet": "data/raw-factions/temur/temur.sources.json",
+    "official_tarkir_dragonstorm_commander_decklist": "https://magic.wizards.com/en/news/announcements/tarkir-dragonstorm-commander-decklists",
+    "official_deck_gallery": "https://magic.wizards.com/en/products/tarkir-dragonstorm/card-image-gallery?cigproduct=tdm-products-temur-roar",
+    "scryfall_exact_commander_search": "https://scryfall.com/search?q=id%3Dgur+is%3Acommander+f%3Acommander",
+    "support_boundary": "Official product/deck navigation only; not Tarkir canon proof."
   }
 }

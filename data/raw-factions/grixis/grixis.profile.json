@@ -11,10 +11,10 @@
     "Red"
   ],
   "color_pair_or_group": "UBR shard metadata only",
-  "source_review_date": "2026-05-30",
+  "source_review_date": "2026-06-13",
   "last_full_review": "2026-05-30",
-  "last_incremental_review": null,
-  "last_updated": "2026-05-30",
+  "last_incremental_review": "2026-06-13",
+  "last_updated": "2026-06-13",
   "site_surface": {
     "display_name": "Grixis",
     "short_summary": "Grixis is a VM-168 live-pilot Alara shard expression for Black-centered UBR survival through self-advocacy, Blue calculation, Red immediacy, and source-bound volatility.",
@@ -180,10 +180,166 @@
       ],
       "confidence": "High",
       "notes": "Detailed chronology remains deferred."
+    },
+    {
+      "event_id": "event_grixis_0002",
+      "event": "Official Alara overview frames Grixis as an undead-infested hellscape among the five formerly separated shards.",
+      "date_or_era": "Pre-Conflux / shard-separated Alara overview",
+      "claim_ids": [
+        "grixis_claim_0009"
+      ],
+      "source_ids": [
+        "src_wotc_alara_plane_overview_20260530"
+      ],
+      "confidence": "High",
+      "notes": "Broad official texture only; detailed geography remains deferred."
+    },
+    {
+      "event_id": "event_grixis_0003",
+      "event": "Necromancy was unknown on Jund before the Conflux and was identified as the sole province of Grixis.",
+      "date_or_era": "Before the Conflux",
+      "claim_ids": [
+        "grixis_claim_0010"
+      ],
+      "source_ids": [
+        "src_wotc_all_cairns_of_jund_20151104"
+      ],
+      "confidence": "High",
+      "notes": "Narrow necromancy dimension only; unearth/vis metaphysics remain deferred."
+    },
+    {
+      "event_id": "event_grixis_0004",
+      "event": "After the shards converged, Grixis undead assaulted other shards to maim, enslave, and drain life energy.",
+      "date_or_era": "Conflux / post-Conflux overview",
+      "claim_ids": [
+        "grixis_claim_0011"
+      ],
+      "source_ids": [
+        "src_wotc_alara_plane_overview_20260530"
+      ],
+      "confidence": "High",
+      "notes": "Broad event texture only; granular campaign chronology remains deferred."
     }
   ],
-  "key_figures": [],
-  "canonical_flavor_text": [],
+  "key_figures": [
+    {
+      "character_id": "card_sedris_the_traitor_king",
+      "name": "Sedris, the Traitor King",
+      "role": "UBR legendary Zombie Warrior card-data anchor with unearth-granting text.",
+      "relationship_to_faction": "Support-only card-data anchor for Grixis texture; biography, Vithia, Sedraxis, and rulership claims remain source-intake-needed.",
+      "claim_ids": [
+        "grixis_claim_0010"
+      ],
+      "evidence_rows": [
+        "GRIXIS-012",
+        "GRIXIS-MF-003"
+      ],
+      "source_ids": [
+        "src_scryfall_oracle_cards_local_grixis_20260613"
+      ],
+      "confidence": "High for card facts; not lore proof.",
+      "notes": "Do not claim Sedris was king of Vithia or ruler of Sedraxis without future official capture."
+    },
+    {
+      "character_id": "card_thraximundar",
+      "name": "Thraximundar",
+      "role": "UBR legendary Zombie Assassin card-data anchor with haste and sacrifice-pressure text.",
+      "relationship_to_faction": "Support-only card-data anchor for Grixis texture; biography, mount, and political role remain source-intake-needed.",
+      "claim_ids": [
+        "grixis_claim_0010"
+      ],
+      "evidence_rows": [
+        "GRIXIS-013",
+        "GRIXIS-MF-007"
+      ],
+      "source_ids": [
+        "src_scryfall_oracle_cards_local_grixis_20260613"
+      ],
+      "confidence": "High for card facts; not lore proof.",
+      "notes": "Do not promote precise biography or in-world office from local card data alone."
+    },
+    {
+      "character_id": "card_malfegor",
+      "name": "Malfegor",
+      "role": "Demon Dragon card-data/support anchor in Grixis-colored attrition-resource-loss review material.",
+      "relationship_to_faction": "Support-only card-data anchor; Asha, Bolas generalship, Bant invasion, and death claims remain source-intake-needed.",
+      "claim_ids": [
+        "grixis_claim_0006"
+      ],
+      "evidence_rows": [
+        "GRIXIS-014",
+        "GRIXIS-MF-005"
+      ],
+      "source_ids": [
+        "src_scryfall_oracle_cards_local_grixis_20260613"
+      ],
+      "confidence": "Medium-High for card facts; not lore proof.",
+      "notes": "Do not promote Malfegor story biography without official source capture."
+    }
+  ],
+  "canonical_flavor_text": [
+    {
+      "card_name": "Grixis Battlemage",
+      "set": "ALA",
+      "collector_number": "78",
+      "scryfall_uri": "https://scryfall.com/card/ala/78/grixis-battlemage?utm_source=api",
+      "short_excerpt_or_summary": "Card flavor anchors Grixis Vitals who avoid undeath as desperate, inventive survivors.",
+      "is_exact_excerpt": false,
+      "claim_ids": [
+        "grixis_claim_0009",
+        "grixis_claim_0010"
+      ],
+      "source_ids": [
+        "src_scryfall_oracle_cards_local_grixis_20260613"
+      ],
+      "notes": "VM-378/379 card-flavor anchor verified through local Scryfall data; summary only, no long flavor text copied into public/generated surfaces."
+    },
+    {
+      "card_name": "Sedris, the Traitor King",
+      "set": "2X2",
+      "collector_number": "274",
+      "scryfall_uri": "https://scryfall.com/card/2x2/274/sedris-the-traitor-king?utm_source=api",
+      "short_excerpt_or_summary": "Card flavor anchors Sedris through grave-rising undeath imagery without promoting biography or rulership.",
+      "is_exact_excerpt": false,
+      "claim_ids": [
+        "grixis_claim_0010"
+      ],
+      "source_ids": [
+        "src_scryfall_oracle_cards_local_grixis_20260613"
+      ],
+      "notes": "VM-378/379 card-flavor anchor verified through local Scryfall data; summary only, no long flavor text copied into public/generated surfaces."
+    },
+    {
+      "card_name": "Thraximundar",
+      "set": "2X2",
+      "collector_number": "287",
+      "scryfall_uri": "https://scryfall.com/card/2x2/287/thraximundar?utm_source=api",
+      "short_excerpt_or_summary": "Card flavor anchors Thraximundar through a blood-red name gloss without promoting a full biography.",
+      "is_exact_excerpt": false,
+      "claim_ids": [
+        "grixis_claim_0010"
+      ],
+      "source_ids": [
+        "src_scryfall_oracle_cards_local_grixis_20260613"
+      ],
+      "notes": "VM-378/379 card-flavor anchor verified through local Scryfall data; summary only, no long flavor text copied into public/generated surfaces."
+    },
+    {
+      "card_name": "Malfegor",
+      "set": "IMA",
+      "collector_number": "205",
+      "scryfall_uri": "https://scryfall.com/card/ima/205/malfegor?utm_source=api",
+      "short_excerpt_or_summary": "Card flavor anchors Malfegor as Demon Dragon tension without promoting Asha/Bolas/story-role claims.",
+      "is_exact_excerpt": false,
+      "claim_ids": [
+        "grixis_claim_0006"
+      ],
+      "source_ids": [
+        "src_scryfall_oracle_cards_local_grixis_20260613"
+      ],
+      "notes": "VM-378/379 card-flavor anchor verified through local Scryfall data; summary only, no long flavor text copied into public/generated surfaces."
+    }
+  ],
   "views_on_other_factions": [
     {
       "faction": "Maestros",
@@ -240,13 +396,29 @@
       "weakness analysis",
       "immediacy",
       "zeal",
-      "volatility"
+      "volatility",
+      "undead-infested hellscape",
+      "necromancy",
+      "Conflux undead assault",
+      "life energy drain"
     ],
-    "known_mechanics": [],
-    "known_characters": [],
-    "known_locations": [],
+    "known_mechanics": [
+      "unearth card-data support",
+      "sacrifice-pressure card-data support"
+    ],
+    "known_characters": [
+      "Sedris, the Traitor King",
+      "Thraximundar",
+      "Malfegor"
+    ],
+    "known_locations": [
+      "Grixis"
+    ],
     "sets_or_story_arcs": [
-      "Shards of Alara context only"
+      "Shards of Alara context only",
+      "Alara plane overview",
+      "All the Cairns of Jund",
+      "Conflux overview"
     ],
     "tags": [
       "source-authored",
@@ -266,14 +438,16 @@
     "architecture_review_status": "VM-165 reviewed and accepted as project architecture input only.",
     "raw_packet_status": "vm168_live_pilot_source_bound",
     "generation_status": "wired_through_approved_builder_path",
-    "claim_count": 8,
-    "claim_basis": "VM-164 promoted/evidence-bound rows only.",
+    "claim_count": 11,
+    "claim_basis": "VM-164 promoted design rows plus VM-379 local official Alara captures for broad Grixis story texture.",
     "support_material_policy": "Support-only, manual-fill, discovery-only, and comparator-only material may appear only in bounded review notes.",
     "known_limitations": [
       "Detailed story-world lore remains deferred.",
       "Support-only mechanics and Commander/operator material are not raw claims.",
       "Live placement calibration is limited to VM-168 live-pilot metadata.",
-      "Generated artifacts are produced only through the approved build path."
+      "Generated artifacts are produced only through the approved build path.",
+      "Vithia/Sedraxis, full vis economy, Bolas staging, Nefarox cults, and detailed Sedris/Malfegor/Thraximundar biographies remain source-intake-needed.",
+      "Grixis figure/flavor anchors are support-only card-data summaries, not biography or canon-lore expansions."
     ],
     "claim_ids": [
       "grixis_claim_0001",
@@ -283,8 +457,28 @@
       "grixis_claim_0005",
       "grixis_claim_0006",
       "grixis_claim_0007",
-      "grixis_claim_0008"
-    ]
+      "grixis_claim_0008",
+      "grixis_claim_0009",
+      "grixis_claim_0010",
+      "grixis_claim_0011"
+    ],
+    "raw_enrichment": {
+      "review_date": "2026-06-13",
+      "source_basis": "VM-379 local official Alara captures + local Scryfall support-only card anchors",
+      "key_figures_added": 3,
+      "historical_timeline_entries": 4,
+      "canonical_flavor_text_entries": 4,
+      "relationship_entries": 2,
+      "known_characters": 3,
+      "known_mechanics": 2,
+      "story_arcs": 4,
+      "usable_source_backed_dimensions": [
+        "official undead hellscape texture",
+        "official pre-Conflux necromancy dimension",
+        "official post-Conflux undead assault/life-drain dimension"
+      ],
+      "deferred_claims": "Vithia/Sedraxis, full vis economy, Bolas staging, Nefarox cults, and detailed Sedris/Malfegor/Thraximundar biographies remain source-intake-needed."
+    }
   },
   "research_limitations": {
     "manual_fill_required": [
@@ -296,7 +490,12 @@
       "Kess and other figure details",
       "Conflux chronology",
       "Unearth as narrative theory",
-      "Cruel Ultimatum as vis interpretation"
+      "Cruel Ultimatum as vis interpretation",
+      "Vithia/Sedraxis and detailed geography",
+      "Full vis economy and physiology beyond local card-data term support",
+      "Bolas staging-ground or Grixis-operator claims",
+      "Nefarox cults and detailed New Alara cult chronology",
+      "Sedris, Malfegor, and Thraximundar biographies beyond support-only card facts"
     ],
     "do_not_use_as_claim_basis": [
       "Maestros comparator material",

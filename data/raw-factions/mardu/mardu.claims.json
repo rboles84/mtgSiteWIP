@@ -3,8 +3,8 @@
   "faction_id": "mardu",
   "faction_name": "Mardu Horde",
   "source_review_date": "2026-06-05",
-  "last_updated": "2026-06-05",
-  "claim_count": 10,
+  "last_updated": "2026-06-13",
+  "claim_count": 11,
   "claims": [
     {
       "claim_id": "mardu_claim_0001",
@@ -190,6 +190,18 @@
       ],
       "confidence": "High",
       "notes": "This is a false-positive and lifecycle guardrail. Commander/operator rows are excluded by source-role policy and are not cited as raw-claim evidence."
+    },
+    {
+      "claim_id": "mardu_claim_0011",
+      "faction_id": "mardu",
+      "claim_type": "commander_product_support",
+      "statement": "The official Tarkir: Dragonstorm Commander Decklists page verifies Mardu Surge as a Red; White; Black Commander deck with Zurgo Stormrender as face commander and Neriv, Crackling Vanguard as featured commander.",
+      "canon_status": "Support-only product row",
+      "source_ids": [
+        "src_wotc_tarkir_dragonstorm_commander_decklists_20250325"
+      ],
+      "confidence": "High",
+      "notes": "Decklist support is product/navigation only. It is not Tarkir canon proof, popularity proof, metagame proof, legality proof, or placement evidence."
     }
   ],
   "claim_quality_summary": {

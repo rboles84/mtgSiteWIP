@@ -1,0 +1,180 @@
+{
+  "schema_version": "1.0.0",
+  "faction_id": "red",
+  "faction_name": "Red",
+  "source_review_date": "2026-06-13",
+  "claim_count": 8,
+  "claims": [
+    {
+      "claim_id": "red_claim_0001",
+      "faction_id": "red",
+      "claim_type": "source_authority_boundary",
+      "statement": "Red is promoted from transitional mono status only through this source-intake bundle, claim ledger, raw profile, raw placement packet, and generated QA; identity-layer or runtime text alone is not evidence.",
+      "canon_status": "Vox Mana governance",
+      "source_ids": [
+        "VM-377"
+      ],
+      "evidence_rows": [
+        "red_evid_0013"
+      ],
+      "confidence": "High"
+    },
+    {
+      "claim_id": "red_claim_0002",
+      "faction_id": "red",
+      "claim_type": "philosophy_goal",
+      "statement": "Red seeks freedom by listening to emotion, living fully in the moment, and acting on desire rather than suppressing it.",
+      "canon_status": "Official color philosophy, paraphrased",
+      "source_ids": [
+        "MONO-R-2015",
+        "MONO-R-2025"
+      ],
+      "evidence_rows": [
+        "red_evid_0001",
+        "red_evid_0005"
+      ],
+      "anchor_ids": [
+        "R2015-Q1",
+        "R2025-a",
+        "R2025-b",
+        "R2025-c"
+      ],
+      "confidence": "High"
+    },
+    {
+      "claim_id": "red_claim_0003",
+      "faction_id": "red",
+      "claim_type": "philosophy_means",
+      "statement": "Red's means are action, speed, emotional honesty, destruction when barriers must be broken, and a willingness to learn through doing.",
+      "canon_status": "Official color philosophy, paraphrased",
+      "source_ids": [
+        "MONO-R-2015",
+        "MONO-R-2025"
+      ],
+      "evidence_rows": [
+        "red_evid_0002",
+        "red_evid_0006"
+      ],
+      "anchor_ids": [
+        "R2015-Q2",
+        "R2025-b",
+        "R2025-c",
+        "R2025-e"
+      ],
+      "confidence": "High"
+    },
+    {
+      "claim_id": "red_claim_0004",
+      "faction_id": "red",
+      "claim_type": "cares_and_threats",
+      "statement": "Red centers emotion, impulse, passion, humor, spontaneity, romance, violence, destruction, and vivid experience; it despises frustration, restriction, boredom, and inaction.",
+      "canon_status": "Official color philosophy, paraphrased",
+      "source_ids": [
+        "MONO-R-2015",
+        "MONO-R-2025"
+      ],
+      "evidence_rows": [
+        "red_evid_0003",
+        "red_evid_0007"
+      ],
+      "anchor_ids": [
+        "R2015-Q3",
+        "R2015-Q4",
+        "R2025-g"
+      ],
+      "confidence": "High"
+    },
+    {
+      "claim_id": "red_claim_0005",
+      "faction_id": "red",
+      "claim_type": "relationships",
+      "statement": "Red is allied with Black through action, risk, destruction, and self-directed desire and with Green through instinct, wildness, and natural action; it opposes White's rules and Blue's overthinking.",
+      "canon_status": "Official color philosophy, paraphrased",
+      "source_ids": [
+        "MONO-R-2015",
+        "MONO-R-2025"
+      ],
+      "evidence_rows": [
+        "red_evid_0004",
+        "red_evid_0008"
+      ],
+      "anchor_ids": [
+        "R2015-Q5",
+        "R2015-Q5b",
+        "R2025-d",
+        "R2025-e",
+        "R2025-f",
+        "R2025-h"
+      ],
+      "confidence": "High"
+    },
+    {
+      "claim_id": "red_claim_0006",
+      "faction_id": "red",
+      "claim_type": "strength_weakness",
+      "statement": "Red's strength is clarity, passion, speed, aggression, and willingness to act; its weakness is short-sightedness and dealing with consequences after the fact.",
+      "canon_status": "Official color philosophy, paraphrased",
+      "source_ids": [
+        "MONO-R-2015",
+        "MONO-R-2025"
+      ],
+      "evidence_rows": [
+        "red_evid_0004",
+        "red_evid_0008"
+      ],
+      "anchor_ids": [
+        "R2015-Q6",
+        "R2025-i"
+      ],
+      "confidence": "High"
+    },
+    {
+      "claim_id": "red_claim_0007",
+      "faction_id": "red",
+      "claim_type": "mechanical_texture",
+      "statement": "Red's mechanical texture includes direct damage, artifact destruction, haste, first strike, extra attacks, forced attacks, temporary mana, impulsive draw, rummaging, Treasure, copying spells, and temporary theft.",
+      "canon_status": "Official mechanical color pie snapshot, paraphrased",
+      "source_ids": [
+        "MECH-CP-2021",
+        "GOV-COC-2024"
+      ],
+      "evidence_rows": [
+        "red_evid_0009",
+        "red_evid_0010",
+        "red_evid_0011"
+      ],
+      "anchor_ids": [
+        "MECH-removal",
+        "MECH-carddraw",
+        "MECH-antiflying",
+        "MECH-artifact-friendly",
+        "COC-shift-commander",
+        "COC-gaps"
+      ],
+      "confidence": "Medium-High",
+      "notes": "Mechanical Color Pie 2021 is a dated snapshot and must be overridden by later verified sources where needed."
+    },
+    {
+      "claim_id": "red_claim_0008",
+      "faction_id": "red",
+      "claim_type": "commander_boundary",
+      "statement": "The three native mono-red Commander support rows in this packet were verified through current Scryfall exact-name checks on 2026-06-13 for name, mono-R color identity, legendary creature type line, and Commander legality; they remain support/navigation rows rather than color philosophy or profile-axis evidence.",
+      "canon_status": "Rules and Vox Mana boundary",
+      "source_ids": [
+        "RULES-CR",
+        "VM-377",
+        "SCRYFALL-R-2026-06-13"
+      ],
+      "evidence_rows": [
+        "red_evid_0012",
+        "red_evid_0013",
+        "red_evid_0014"
+      ],
+      "anchor_ids": [
+        "CR-903.3",
+        "CR-903.4"
+      ],
+      "confidence": "High for current Scryfall support status; not evidence for popularity, price, metagame, deck quality, philosophy, or profile axes"
+    }
+  ]
+}

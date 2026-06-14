@@ -1,0 +1,280 @@
+{
+  "schema_version": "1.0.0",
+  "profile_version": "1.0.0",
+  "faction_id": "black",
+  "faction_name": "Black",
+  "faction_type": "color",
+  "color_identity": [
+    "B"
+  ],
+  "color_pair_or_group": "Mono Black",
+  "plane_or_setting": "The Color Pie",
+  "last_updated": "2026-06-13",
+  "source_review_date": "2026-06-13",
+  "last_full_review": "2026-06-13",
+  "core_identity": {
+    "short_form": "Black seeks power by facing the world as it is and using every available resource.",
+    "summary": "Black is the mono-color expression of agency under harsh conditions: it looks at fear, death, ambition, cost, and opportunity without flinching.",
+    "philosophy": "Black asks who benefits when you pretend the world is fair. It believes survival and thriving require self-advocacy, resource conversion, and freedom from inherited taboos.",
+    "central_tension": "Black can be brutally honest about power, but the tools that free it can also consume it.",
+    "claim_ids": [
+      "black_claim_0001",
+      "black_claim_0002",
+      "black_claim_0003",
+      "black_claim_0004",
+      "black_claim_0005",
+      "black_claim_0006",
+      "black_claim_0007",
+      "black_claim_0008"
+    ]
+  },
+  "structure": {
+    "identity_class": "mono_color",
+    "present_colors": [
+      "B"
+    ],
+    "primary_anchor": "power through self-interest and opportunity",
+    "support_texture": [
+      "ambition",
+      "resource conversion",
+      "death and decay",
+      "sacrifice",
+      "discard and removal",
+      "reanimation and recursion"
+    ],
+    "non_faction_boundary": "Black is an official color philosophy and mechanical color-pie identity, not a single plane, faction, personality type, or commander recommendation list."
+  },
+  "great_tension": {
+    "gift": "Black refuses comforting lies about power and cost.",
+    "shadow": "Black can turn every bond into leverage and every risk into a debt coming due.",
+    "boundary": "This is Vox Mana synthesis from official color philosophy, not official psychometrics."
+  },
+  "mechanics": {
+    "source_bound_texture": [
+      "creature destruction",
+      "discard",
+      "sacrifice",
+      "reanimation",
+      "graveyard use",
+      "life as cost",
+      "drain and lifelink"
+    ],
+    "summary": "Black commonly plays by converting life, creatures, cards, death, and risk into advantage.",
+    "claim_ids": [
+      "black_claim_0007"
+    ]
+  },
+  "site_surface": {
+    "display_name": "Black",
+    "short_summary": "Black faces power, cost, death, and ambition directly, then asks what can be made from them.",
+    "one_sentence_identity": "Black is the hand reaching into the dark because the prize is still there.",
+    "tagline": "Pay the cost. Take the power.",
+    "primary_tags": [
+      "power",
+      "ambition",
+      "opportunity",
+      "sacrifice",
+      "agency"
+    ],
+    "secondary_tags": [
+      "removal",
+      "discard",
+      "reanimation",
+      "lifegain drain",
+      "graveyard"
+    ]
+  },
+  "data_quality": {
+    "source_status": "source_grounded_mono_gold_packet",
+    "manual_review_recommended": true,
+    "placement_eligible": true,
+    "preview_eligible": true,
+    "commander_candidate_status": "current_scryfall_verified_support_only_2026-06-13",
+    "notes": "Three native mono-black commander rows are retained only after current Scryfall verification on 2026-06-13. Deck links remain intentionally empty; these rows do not prove color philosophy or Vox Mana placement axes."
+  },
+  "research_limitations": [
+    "Do not moralize Black as objective evil.",
+    "Do not treat Vox Mana placement axes as official Wizards scores.",
+    "Do not promote candidate commanders without current card/legal verification.",
+    "Do not use generated runtime files as claim evidence."
+  ],
+  "profile": {
+    "overview": "Black is the color of power, opportunity, self-interest, death, and resource conversion.",
+    "philosophy": "Black believes no one can advocate for you better than you, and that refusing available tools only leaves power in someone else's hands.",
+    "core_tension": "Black's clarity about cost can become self-consuming risk or total instrumentalization.",
+    "mechanics_and_play_pattern": "Black commonly expresses itself through removal, discard, sacrifice, graveyard recursion, life payments, drain, and reanimation.",
+    "claim_ids": [
+      "black_claim_0001",
+      "black_claim_0002",
+      "black_claim_0003",
+      "black_claim_0004",
+      "black_claim_0005",
+      "black_claim_0006",
+      "black_claim_0007",
+      "black_claim_0008"
+    ]
+  },
+  "deck_links": [],
+  "research_links": {
+    "source_manifest": "docs/research/mono_upgrade/00_SOURCES_MANIFEST.md",
+    "source_digest": "docs/research/mono_upgrade/12_black.md",
+    "mechanical_digest": "docs/research/mono_upgrade/20_mechanical_color_pie_2021.md",
+    "rules_digest": "docs/research/mono_upgrade/30_commander_and_rules.md",
+    "source_packet": "data/raw-factions/black/black.sources.json",
+    "claim_packet": "data/raw-factions/black/black.claims.json"
+  },
+  "commander_compass": {
+    "schema_version": "1.0.0",
+    "source_research_file": "docs/research/mono_upgrade/00_SOURCES_MANIFEST.md and Scryfall exact-name API checks on 2026-06-13",
+    "last_reviewed": "2026-06-13",
+    "review_status": "current_scryfall_verified_support_only",
+    "recommendation_philosophy": "Use these three black commanders as current verified mono-black support/navigation rows only. They do not define Black philosophy, Vox Mana profile-axis scores, popularity, price, metagame strength, or deck quality.",
+    "identity_basis": {
+      "owned_themes": [
+        "life",
+        "sacrifice",
+        "graveyard",
+        "resource conversion",
+        "cost"
+      ],
+      "allowed_phrases": [
+        "mono-black Commander support",
+        "current Scryfall-verified support",
+        "support-only commander candidate"
+      ],
+      "avoid_or_contrast_phrases": [
+        "commander row as philosophy proof",
+        "commander row as profile-axis evidence",
+        "popularity, price, metagame, or deck-quality claim without dated evidence"
+      ],
+      "adjacent_overlap_notes": [
+        "Use the raw placement discriminator questions for mono/guild/five-color boundary work; commander rows are support only."
+      ],
+      "supporting_claim_ids": [
+        "black_claim_0008"
+      ],
+      "supporting_source_ids": [
+        "RULES-CR",
+        "SCRYFALL-B-2026-06-13"
+      ]
+    },
+    "native_fit_commanders": [
+      {
+        "exact_card_name": "K'rrik, Son of Yawgmoth",
+        "display_name": "K'rrik, Son of Yawgmoth",
+        "scryfall_uri": "https://scryfall.com/card/mh3/274/krrik-son-of-yawgmoth?utm_source=api",
+        "edhrec_uri": "https://edhrec.com/commanders/krrik-son-of-yawgmoth",
+        "color_identity": [
+          "B"
+        ],
+        "commander_legal": true,
+        "recommendation_type": "Current Scryfall-Verified Support",
+        "archetype_tags": [
+          "Life Gain",
+          "Combo"
+        ],
+        "why_this_fits": "Makes Black's life-as-resource principle literal by turning life into black mana and momentum.",
+        "skip_if": "You want a slower control shell instead of a high-risk engine deck.",
+        "gameplay_summary": "Pays life for black costs, grows from black spells, and rewards tight sequencing around risk.",
+        "faction_identity_terms": [
+          "life",
+          "sacrifice",
+          "graveyard",
+          "resource conversion",
+          "cost"
+        ],
+        "source_basis": "SCRYFALL-B-2026-06-13; RULES-CR; black_claim_0008",
+        "confidence": "Current Scryfall verification on 2026-06-13; support-only",
+        "caution_notes": "Verified for name, mono-color identity, legendary creature type line, and Commander legality in Scryfall on 2026-06-13. This is support/navigation, not color philosophy evidence."
+      },
+      {
+        "exact_card_name": "Ayara, First of Locthwain",
+        "display_name": "Ayara, First of Locthwain",
+        "scryfall_uri": "https://scryfall.com/card/eld/75/ayara-first-of-locthwain?utm_source=api",
+        "edhrec_uri": "https://edhrec.com/commanders/ayara-first-of-locthwain",
+        "color_identity": [
+          "B"
+        ],
+        "commander_legal": true,
+        "recommendation_type": "Current Scryfall-Verified Support",
+        "archetype_tags": [
+          "Aristocrats",
+          "Lifegain"
+        ],
+        "why_this_fits": "Turns bodies into drain, cards, and repeatable exchange without leaving mono-black's center.",
+        "skip_if": "You dislike creature loops or sacrifice-based value engines.",
+        "gameplay_summary": "Rewards black creatures entering, drains each opponent, and converts extra creatures into cards.",
+        "faction_identity_terms": [
+          "life",
+          "sacrifice",
+          "graveyard",
+          "resource conversion",
+          "cost"
+        ],
+        "source_basis": "SCRYFALL-B-2026-06-13; RULES-CR; black_claim_0008",
+        "confidence": "Current Scryfall verification on 2026-06-13; support-only",
+        "caution_notes": "Verified for name, mono-color identity, legendary creature type line, and Commander legality in Scryfall on 2026-06-13. This is support/navigation, not color philosophy evidence."
+      },
+      {
+        "exact_card_name": "Chainer, Dementia Master",
+        "display_name": "Chainer, Dementia Master",
+        "scryfall_uri": "https://scryfall.com/card/cmm/144/chainer-dementia-master?utm_source=api",
+        "edhrec_uri": "https://edhrec.com/commanders/chainer-dementia-master",
+        "color_identity": [
+          "B"
+        ],
+        "commander_legal": true,
+        "recommendation_type": "Current Scryfall-Verified Support",
+        "archetype_tags": [
+          "Reanimator",
+          "Control"
+        ],
+        "why_this_fits": "Uses life and mana to turn graveyards into an active board resource.",
+        "skip_if": "You want a low-maintenance creature deck rather than graveyard management.",
+        "gameplay_summary": "Reanimates creatures from graveyards and makes death a resource line the table must respect.",
+        "faction_identity_terms": [
+          "life",
+          "sacrifice",
+          "graveyard",
+          "resource conversion",
+          "cost"
+        ],
+        "source_basis": "SCRYFALL-B-2026-06-13; RULES-CR; black_claim_0008",
+        "confidence": "Current Scryfall verification on 2026-06-13; support-only",
+        "caution_notes": "Verified for name, mono-color identity, legendary creature type line, and Commander legality in Scryfall on 2026-06-13. This is support/navigation, not color philosophy evidence."
+      }
+    ],
+    "weird_stretch_commanders": [],
+    "budget_friendly_commanders": [],
+    "advanced_complexity_commanders": [],
+    "iconic_lore_forward_commanders": [],
+    "not_recommended_or_deprioritized": [],
+    "archetype_lanes": [
+      {
+        "name": "Life Gain / Combo",
+        "support_basis": "K'rrik, Son of Yawgmoth passed current Scryfall mono-color Commander support checks on 2026-06-13.",
+        "boundary": "Support/navigation only; not philosophy, placement-axis, popularity, price, or deck-quality proof."
+      },
+      {
+        "name": "Aristocrats / Lifegain",
+        "support_basis": "Ayara, First of Locthwain passed current Scryfall mono-color Commander support checks on 2026-06-13.",
+        "boundary": "Support/navigation only; not philosophy, placement-axis, popularity, price, or deck-quality proof."
+      },
+      {
+        "name": "Reanimator / Control",
+        "support_basis": "Chainer, Dementia Master passed current Scryfall mono-color Commander support checks on 2026-06-13.",
+        "boundary": "Support/navigation only; not philosophy, placement-axis, popularity, price, or deck-quality proof."
+      }
+    ],
+    "link_targets": {
+      "edhrec_commander_index": "https://edhrec.com/commanders/b",
+      "mtgdecks_color_identity": "https://mtgdecks.net/Commander/b-commanders",
+      "scryfall_commander_search": "https://scryfall.com/search?q=id%3Db+is%3Acommander+f%3Acommander",
+      "archidekt_color_search": "https://archidekt.com/search/decks?colors=B&deckFormat=3&orderBy=-updatedAt&page=1"
+    },
+    "merge_notes": {
+      "source_role": "current verified support-only",
+      "deck_links_status": "Deck links remain empty; Commander Compass rows carry the verified support candidates."
+    }
+  }
+}

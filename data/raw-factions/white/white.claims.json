@@ -1,0 +1,178 @@
+{
+  "schema_version": "1.0.0",
+  "faction_id": "white",
+  "faction_name": "White",
+  "source_review_date": "2026-06-13",
+  "claim_count": 8,
+  "claims": [
+    {
+      "claim_id": "white_claim_0001",
+      "faction_id": "white",
+      "claim_type": "source_authority_boundary",
+      "statement": "White is promoted from transitional mono status only through this source-intake bundle, claim ledger, raw profile, raw placement packet, and generated QA; identity-layer or runtime text alone is not evidence.",
+      "canon_status": "Vox Mana governance",
+      "source_ids": [
+        "VM-377"
+      ],
+      "evidence_rows": [
+        "white_evid_0013"
+      ],
+      "confidence": "High"
+    },
+    {
+      "claim_id": "white_claim_0002",
+      "faction_id": "white",
+      "claim_type": "philosophy_goal",
+      "statement": "White seeks peace and reduced suffering by asking individuals to prioritize the group and coordinate around shared needs.",
+      "canon_status": "Official color philosophy, paraphrased",
+      "source_ids": [
+        "MONO-W-2015",
+        "MONO-W-2025"
+      ],
+      "evidence_rows": [
+        "white_evid_0001",
+        "white_evid_0005"
+      ],
+      "anchor_ids": [
+        "W2015-Q1",
+        "W2015-Q1b",
+        "W2025-a",
+        "W2025-b"
+      ],
+      "confidence": "High"
+    },
+    {
+      "claim_id": "white_claim_0003",
+      "faction_id": "white",
+      "claim_type": "philosophy_means",
+      "statement": "White's primary means are structure, law, morality, incentives, and institutions that restrain individual choice toward collective order.",
+      "canon_status": "Official color philosophy, paraphrased",
+      "source_ids": [
+        "MONO-W-2015",
+        "MONO-W-2025"
+      ],
+      "evidence_rows": [
+        "white_evid_0002",
+        "white_evid_0006"
+      ],
+      "anchor_ids": [
+        "W2015-Q2",
+        "W2015-Q2b",
+        "W2025-d",
+        "W2025-e"
+      ],
+      "confidence": "High"
+    },
+    {
+      "claim_id": "white_claim_0004",
+      "faction_id": "white",
+      "claim_type": "cares_and_threats",
+      "statement": "White's thematic center includes community, honor, defense, cooperation, law, religion, government, military order, and charity; it treats selfishness and recklessness as chief threats.",
+      "canon_status": "Official color philosophy, paraphrased",
+      "source_ids": [
+        "MONO-W-2015",
+        "MONO-W-2025"
+      ],
+      "evidence_rows": [
+        "white_evid_0003",
+        "white_evid_0007"
+      ],
+      "anchor_ids": [
+        "W2015-Q3",
+        "W2015-Q4",
+        "W2025-e"
+      ],
+      "confidence": "High"
+    },
+    {
+      "claim_id": "white_claim_0005",
+      "faction_id": "white",
+      "claim_type": "relationships",
+      "statement": "White is allied with Blue through planning, systems, and rules and with Green through community and creature-centered interdependence; it opposes Black's self-interest and Red's reckless freedom.",
+      "canon_status": "Official color philosophy, paraphrased",
+      "source_ids": [
+        "MONO-W-2015",
+        "MONO-W-2025"
+      ],
+      "evidence_rows": [
+        "white_evid_0004",
+        "white_evid_0008"
+      ],
+      "anchor_ids": [
+        "W2015-Q5",
+        "W2015-Q5b",
+        "W2025-f",
+        "W2025-g",
+        "W2025-h",
+        "W2025-i"
+      ],
+      "confidence": "High"
+    },
+    {
+      "claim_id": "white_claim_0006",
+      "faction_id": "white",
+      "claim_type": "strength_weakness",
+      "statement": "White's strength is organized, distributed, group-effective structure; its weakness is rigidity, over-prescription, and poor adaptation to the unexpected or individual edge case.",
+      "canon_status": "Official color philosophy, paraphrased",
+      "source_ids": [
+        "MONO-W-2015",
+        "MONO-W-2025"
+      ],
+      "evidence_rows": [
+        "white_evid_0004",
+        "white_evid_0008"
+      ],
+      "anchor_ids": [
+        "W2015-Q6",
+        "W2025-j"
+      ],
+      "confidence": "High"
+    },
+    {
+      "claim_id": "white_claim_0007",
+      "faction_id": "white",
+      "claim_type": "mechanical_texture",
+      "statement": "White's mechanical texture includes rules-setting, taxing, protection, lifegain, small-creature/team play, exile or conditional creature answers, enchantment ties, and slow once-per-turn card draw as a modern Commander-aware adjustment.",
+      "canon_status": "Official mechanical color pie snapshot, paraphrased",
+      "source_ids": [
+        "MECH-CP-2021",
+        "GOV-COC-2024"
+      ],
+      "evidence_rows": [
+        "white_evid_0009",
+        "white_evid_0010",
+        "white_evid_0011"
+      ],
+      "anchor_ids": [
+        "MECH-carddraw",
+        "MECH-counters",
+        "MECH-removal",
+        "COC-shift-commander"
+      ],
+      "confidence": "Medium-High",
+      "notes": "Mechanical Color Pie 2021 is a dated snapshot and must be overridden by later verified sources where needed."
+    },
+    {
+      "claim_id": "white_claim_0008",
+      "faction_id": "white",
+      "claim_type": "commander_boundary",
+      "statement": "The three native mono-white Commander support rows in this packet were verified through current Scryfall exact-name checks on 2026-06-13 for name, mono-W color identity, legendary creature type line, and Commander legality; they remain support/navigation rows rather than color philosophy or profile-axis evidence.",
+      "canon_status": "Rules and Vox Mana boundary",
+      "source_ids": [
+        "RULES-CR",
+        "VM-377",
+        "SCRYFALL-W-2026-06-13"
+      ],
+      "evidence_rows": [
+        "white_evid_0012",
+        "white_evid_0013",
+        "white_evid_0014"
+      ],
+      "anchor_ids": [
+        "CR-903.3",
+        "CR-903.4"
+      ],
+      "confidence": "High for current Scryfall support status; not evidence for popularity, price, metagame, deck quality, philosophy, or profile axes"
+    }
+  ]
+}

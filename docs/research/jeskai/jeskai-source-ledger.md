@@ -25,6 +25,7 @@ Permutation handling: `URW`, `WUR`, `RWU`, `UWR`, `RUW`, and `WRU` remain metada
 | JESKAI-SRC-015 | Seed: deep research report | `docs/research/jeskai/source-material/Jeskai Way Deep Research Report.md` | Preserved seed input | Discovery-only crosscheck candidate | Not approved evidence unless audited |
 | JESKAI-SRC-016 | Seed: lore source packet | `docs/research/jeskai/source-material/jeskai-way-lore-source-packet.md` | Preserved seed input | Discovery-only crosscheck candidate | Not approved evidence unless audited |
 | JESKAI-SRC-017 | Seed: HTML report | `docs/research/jeskai/source-material/jeskai_way_research_report.html` | Preserved seed input | Discovery-only crosscheck candidate | Generated HTML cannot cite itself as canon |
+| JESKAI-SRC-018 | Official Tarkir: Dragonstorm Commander decklists | `https://magic.wizards.com/en/news/announcements/tarkir-dragonstorm-commander-decklists` | Official Commander product decklist | `Jeskai Striker`, `Shiko and Narset, Unified`, `Elsha, Threefold Master`, deck name, color identity, and gallery/deck navigation | support-only; not Tarkir canon, commander legality proof, popularity proof, metagame proof, or placement evidence |
 
 ## Official Evidence Anchors
 

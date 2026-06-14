@@ -2,8 +2,8 @@
   "schema_version": "1.0.0",
   "faction_id": "mardu",
   "faction_name": "Mardu Horde",
-  "source_review_date": "2026-06-05",
-  "last_updated": "2026-06-12",
+  "source_review_date": "2026-06-13",
+  "last_updated": "2026-06-13",
   "sources": [
     {
       "source_id": "src_vm_mardu_source_ledger_20260531",
@@ -291,6 +291,19 @@
       "source_role": "support-only",
       "reliability": "Product/operator support only",
       "notes": "May support player-facing operator vocabulary only. It is not Tarkir lore evidence, raw-claim evidence, Commander legality proof, or exact decklist validation."
+    },
+    {
+      "source_id": "src_wotc_tarkir_dragonstorm_commander_decklists_20250325",
+      "source_role": "support-only",
+      "title": "Tarkir: Dragonstorm Commander Decklists",
+      "author": "Wizards of the Coast",
+      "publisher_or_site": "Magic: The Gathering",
+      "publication_date": "2025-03-25",
+      "access_date": "2026-06-13",
+      "url_or_repository_path": "https://magic.wizards.com/en/news/announcements/tarkir-dragonstorm-commander-decklists",
+      "source_type": "Official Commander product decklist",
+      "reliability": "Primary / official product support",
+      "notes": "Verified official page for Tarkir: Dragonstorm deck names, color identities, face commanders, featured commanders, release/product navigation, and galleries. Support-only: not Tarkir canon, popularity, metagame, legality, or placement evidence."
     }
   ],
   "not_used_or_rejected_sources": [

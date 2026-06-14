@@ -8,7 +8,9 @@ const repoRoot = path.resolve(__dirname, "..");
 const RAW_TO_KEY = {
   abzan: "ABZAN",
   azorius_senate: "WU",
+  black: "B",
   bant: "BANT",
+  blue: "U",
   boros_legion: "WR",
   colorless: "COLORLESS",
   cult_of_rakdos: "BR",
@@ -16,6 +18,7 @@ const RAW_TO_KEY = {
   esper: "ESPER",
   glint: "GLINT",
   golgari_swarm: "BG",
+  green: "G",
   grixis: "GRIXIS",
   gruul_clans: "RG",
   house_dimir: "UB",
@@ -29,6 +32,7 @@ const RAW_TO_KEY = {
   orzhov_syndicate: "WB",
   prismari: "PRISMARI",
   quandrix: "QUANDRIX",
+  red: "R",
   selesnya_conclave: "WG",
   silverquill: "SILVERQUILL",
   simic_combine: "UG",
@@ -36,6 +40,8 @@ const RAW_TO_KEY = {
   temur: "TEMUR",
   witch: "WITCH",
   witherbloom: "WITHERBLOOM",
+  wubrg: "WUBRG",
+  white: "W",
   yore: "YORE",
 };
 

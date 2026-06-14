@@ -40,13 +40,13 @@ Non-canonical comparison targets include:
 
 Existing generated/runtime values may be preserved only if they trace back to official researched data. If no source path exists, preservation must be classified as `blocked-noncanonical` or converted into a source-intake task.
 
-## Mono Transitional Authority
+## Mono Raw-Managed Authority
 
-VM-335 records W/U/B/R/G as a transitional Layer 1 exception. Mono colors remain active registry/runtime identities, but their current active status does not make mono registry copy claim evidence under VM-325.
+VM-335 originally recorded W/U/B/R/G as a transitional Layer 1 exception. VM-377 promotes the mono source-intake bundle and adds raw-managed source, claim, profile, placement, and changelog packets for all five mono colors.
 
-For mono colors, `data/identity-layers.json` is authoritative for active registry membership, routing metadata, shared color language, Home preview metadata, and builder-fed display generation. It is not claim evidence for parity repair, placement discrimination, Commander guidance, lore facts, or source-backed profile claims.
+For mono colors, `data/identity-layers.json` remains authoritative for active registry membership, routing metadata, shared color language, Home preview metadata, and builder-fed display generation. It is still not claim evidence for parity repair, placement discrimination, Commander guidance, lore facts, or source-backed profile claims.
 
-Future mono parity repair requires separately approved raw packets, claim ledgers, or source-intake promotion before generated/display/runtime fields can be treated as source-backed. VM-335 does not authorize mono runtime copy, generated parity repairs, raw packets, claim ledgers, validator mappings, builder migrations, or placement discriminator repairs.
+The source-backed mono authority now lives in `docs/research/mono_upgrade/` and `data/raw-factions/{white,blue,black,red,green}/`. VM-377 also verifies the three retained native Commander Compass support rows per mono color against current Scryfall data on 2026-06-13. These Commander rows are support/navigation only; they do not define color philosophy, profile-axis scores, popularity, price, metagame strength, or deck quality.
 
 ## Work Mode Rules
 
@@ -68,7 +68,7 @@ Future mono parity repair requires separately approved raw packets, claim ledger
 
 ## Cohort Defaults
 
-- Mono colors: VM-335 keeps W/U/B/R/G active under a transitional Layer 1 registry exception. Source-backed mono parity repair still requires separately approved raw packets, claim ledgers, or source-intake promotion first.
+- Mono colors: VM-377 makes W/U/B/R/G raw-managed and source-backed through promoted source intake, claim ledgers, raw profiles, raw placement packets, builder/validator mapping, generated rebuild, and QA. The identity-layer registry remains routing/display input only.
 - Guilds: mostly parity-ready for normalization; new facts, figures, flavor, placement claims, or Commander guidance still require explicit source support.
 - Strixhaven: normalize existing source structure first; enrich only where raw/research support exists.
 - Shards: placement repair lane first; figures/flavor only from explicit raw/research support.

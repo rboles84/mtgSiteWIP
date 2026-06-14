@@ -42,6 +42,7 @@ Status: VM-209 evidence ledger. Sultai remains docs-only, non-live, and review-g
 | SULTAI-EVID-034 | Guardrail | The two source-material seed artifacts are discovery-only, not evidence. Their claims must be independently rebound to approved source rows or marked `Manual fill required`. | SULTAI-SRC-013 through SULTAI-SRC-014 | Source hygiene rule. |
 | SULTAI-EVID-035 | Vox Mana synthesis | Vox Mana may later frame Sultai as Black-centered BGU ruthlessness using Green life/death/resource cycles and Blue calculation, but VM-209 records this only as labeled synthesis for VM-210 consideration. | SULTAI-EVID-001 through SULTAI-EVID-033 | Label as Vox Mana synthesis; not MTG canon. |
 | SULTAI-EVID-036 | Guardrail | VM-209 leaves Sultai non-live: no architecture docs, raw-faction JSON, runtime keys, generated artifacts, schemas, Maze changes, route changes, Home preview changes, placement model changes, or Supabase changes. | VM-209 scope | Stop gate. |
+| SULTAI-EVID-037 | Support-only | The official Tarkir: Dragonstorm Commander decklist verifies `Sultai Arisen` as a product deck with `Kotis, Sibsig Champion` as face commander and `Teval, the Balanced Scale` as featured commander. | SULTAI-SRC-015 | Product/deck navigation only; not Tarkir canon, popularity, metagame, legality, or placement evidence. |
 
 ## Manual-Fill Rows
 

@@ -3,8 +3,8 @@
   "faction_id": "jeskai",
   "faction_name": "Jeskai Way",
   "source_review_date": "2026-06-05",
-  "last_updated": "2026-06-05",
-  "claim_count": 10,
+  "last_updated": "2026-06-13",
+  "claim_count": 11,
   "claims": [
     {
       "claim_id": "jeskai_claim_0001",
@@ -188,6 +188,18 @@
       ],
       "confidence": "High",
       "notes": "This is a false-positive and lifecycle guardrail. Commander/operator rows, manual-fill rows, source rows, seed rows, and Vox Mana synthesis rows are excluded by source-role policy and are not cited as raw-claim evidence."
+    },
+    {
+      "claim_id": "jeskai_claim_0011",
+      "faction_id": "jeskai",
+      "claim_type": "commander_product_support",
+      "statement": "The official Tarkir: Dragonstorm Commander Decklists page verifies Jeskai Striker as a White; Blue; Red Commander deck with Shiko and Narset, Unified as face commander and Elsha, Threefold Master as featured commander.",
+      "canon_status": "Support-only product row",
+      "source_ids": [
+        "src_wotc_tarkir_dragonstorm_commander_decklists_20250325"
+      ],
+      "confidence": "High",
+      "notes": "Decklist support is product/navigation only. It is not Tarkir canon proof, popularity proof, metagame proof, legality proof, or placement evidence."
     }
   ],
   "claim_quality_summary": {

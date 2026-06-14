@@ -1,0 +1,192 @@
+{
+  "schema_version": "1.0.0",
+  "faction_id": "green",
+  "faction_name": "Green",
+  "source_review_date": "2026-06-13",
+  "source_intake_bundle": "docs/research/mono_upgrade",
+  "sources": [
+    {
+      "source_id": "MONO-G-2015",
+      "title": "It's Not Easy Being Green Revisited",
+      "author": "Mark Rosewater",
+      "publisher_or_site": "Wizards of the Coast",
+      "publication_date": "2015-08-10",
+      "capture_date": "2026-06-13",
+      "canonical_url": "https://magic.wizards.com/en/news/making-magic/its-not-easy-being-green-revisited-2015-08-10",
+      "digest_path": "docs/research/mono_upgrade/14_green.md",
+      "local_pdf_capture_path": "docs/research/mono_upgrade/It's Not Easy Being Green Revisited _ MAGIC_ THE GATHERING.pdf",
+      "local_pdf_sha256": "944B7BC095106EBF0011EFFAD2852DAFA79F5B377CBB34F73DC25CEFF9C0B584",
+      "source_role": "philosophy_backbone",
+      "source_tier": "gold_official_article",
+      "claim_bearing_evidence_rows": [
+        "green_evid_0001",
+        "green_evid_0002",
+        "green_evid_0003",
+        "green_evid_0004"
+      ],
+      "anchor_ids": [
+        "G2015-Q1",
+        "G2015-Q1b",
+        "G2015-Q2",
+        "G2015-Q3",
+        "G2015-Q4",
+        "G2015-Q5",
+        "G2015-Q5b",
+        "G2015-Q6"
+      ]
+    },
+    {
+      "source_id": "MONO-G-2025",
+      "title": "My Words: Green",
+      "author": "Mark Rosewater",
+      "publisher_or_site": "Wizards of the Coast",
+      "publication_date": "2025-12-01",
+      "capture_date": "2026-06-13",
+      "canonical_url": "https://magic.wizards.com/en/news/making-magic/my-words-green",
+      "digest_path": "docs/research/mono_upgrade/14_green.md",
+      "local_pdf_capture_path": "docs/research/mono_upgrade/My Words_ Green.pdf",
+      "local_pdf_sha256": "6CE2F543B0A3E94A5744448361236A378ACE55D5C9CA0248D12C25D2D56CA17D",
+      "source_role": "current_voice_update",
+      "source_tier": "gold_official_article",
+      "claim_bearing_evidence_rows": [
+        "green_evid_0005",
+        "green_evid_0006",
+        "green_evid_0007",
+        "green_evid_0008"
+      ],
+      "anchor_ids": [
+        "G2025-a",
+        "G2025-b",
+        "G2025-c",
+        "G2025-d",
+        "G2025-e",
+        "G2025-f",
+        "G2025-g",
+        "G2025-h",
+        "G2025-i"
+      ]
+    },
+    {
+      "source_id": "MECH-CP-2021",
+      "title": "Mechanical Color Pie 2021",
+      "author": "Mark Rosewater with the Council of Colors",
+      "publisher_or_site": "Wizards of the Coast",
+      "publication_date": "2021-10-18",
+      "capture_date": "2026-06-13",
+      "canonical_url": "https://magic.wizards.com/en/news/making-magic/mechanical-color-pie-2021",
+      "digest_path": "docs/research/mono_upgrade/20_mechanical_color_pie_2021.md",
+      "local_pdf_capture_path": "docs/research/mono_upgrade/Mechanical Color Pie 20211.pdf",
+      "local_pdf_sha256": "F5C50A7FC501E3613D91E28FB95475DC32A9ACA0F3D2454EA0CF73F2D3F3F5DF",
+      "source_role": "mechanical_authority",
+      "source_tier": "gold_official_article_snapshot",
+      "claim_bearing_evidence_rows": [
+        "green_evid_0009",
+        "green_evid_0010"
+      ],
+      "anchor_ids": [
+        "MECH-removal",
+        "MECH-carddraw",
+        "MECH-antiflying"
+      ],
+      "notes": "The filename appears to have a 20211 typo; path is preserved and annotated in the manifest."
+    },
+    {
+      "source_id": "MECH-CP-2021-CHG",
+      "title": "Mechanical Color Pie 2021 Changes",
+      "author": "Mark Rosewater with the Council of Colors",
+      "publisher_or_site": "Wizards of the Coast",
+      "publication_date": "2021-10-18",
+      "capture_date": "2026-06-13",
+      "canonical_url": "https://magic.wizards.com/en/news/making-magic/mechanical-color-pie-2021-changes",
+      "digest_path": "docs/research/mono_upgrade/21_mechanical_color_pie_2021_changes.md",
+      "local_pdf_capture_path": "docs/research/mono_upgrade/Mechanical Color Pie 2021 Changes.pdf",
+      "local_pdf_sha256": "85B6EDE720BA02ABF832193ACCC4B59F6B0DB75D6AE712408C682E8863857832",
+      "source_role": "mechanical_change_log",
+      "source_tier": "gold_official_article_snapshot",
+      "claim_bearing_evidence_rows": [
+        "green_evid_0011"
+      ],
+      "anchor_ids": [
+        "CHG-carddraw",
+        "CHG-cardfilter",
+        "CHG-counter-ability"
+      ]
+    },
+    {
+      "source_id": "RULES-CR",
+      "title": "Comprehensive Rules",
+      "publisher_or_site": "Wizards of the Coast",
+      "publication_date": "living_document",
+      "capture_date": "2026-06-13",
+      "canonical_url": "https://magic.wizards.com/en/rules",
+      "digest_path": "docs/research/mono_upgrade/30_commander_and_rules.md",
+      "local_pdf_capture_path": null,
+      "local_pdf_sha256": null,
+      "source_role": "commander_rules_boundary",
+      "source_tier": "gold_official_living_rules",
+      "claim_bearing_evidence_rows": [
+        "green_evid_0012"
+      ],
+      "anchor_ids": [
+        "CR-903.3",
+        "CR-903.4",
+        "CR-usage-note"
+      ]
+    },
+    {
+      "source_id": "VM-377",
+      "title": "Mono Gold Source Intake Planning",
+      "publisher_or_site": "Vox Mana repo",
+      "publication_date": "2026-06-13",
+      "repository_path": "docs/kanban/in-progress/VM-377-mono-gold-source-intake-planning.md",
+      "source_role": "project_governance",
+      "source_tier": "vox_mana_planning_authority",
+      "claim_bearing_evidence_rows": [
+        "green_evid_0013"
+      ]
+    },
+    {
+      "source_id": "SCRYFALL-G-2026-06-13",
+      "title": "Scryfall exact-name current checks for mono-green commander candidates",
+      "publisher_or_site": "Scryfall",
+      "access_date": "2026-06-13",
+      "source_role": "current_card_legality_verification",
+      "source_tier": "current_card_database",
+      "claim_bearing_evidence_rows": [
+        "green_evid_0014"
+      ],
+      "verified_cards": [
+        {
+          "name": "Azusa, Lost but Seeking",
+          "color_identity": "G",
+          "commander": "legal",
+          "type_line": "Legendary Creature - Human Monk",
+          "scryfall_uri": "https://scryfall.com/card/cmm/274/azusa-lost-but-seeking?utm_source=api"
+        },
+        {
+          "name": "Selvala, Heart of the Wilds",
+          "color_identity": "G",
+          "commander": "legal",
+          "type_line": "Legendary Creature - Elf Scout",
+          "scryfall_uri": "https://scryfall.com/card/ecc/116/selvala-heart-of-the-wilds?utm_source=api"
+        },
+        {
+          "name": "Goreclaw, Terror of Qal Sisma",
+          "color_identity": "G",
+          "commander": "legal",
+          "type_line": "Legendary Creature - Bear",
+          "scryfall_uri": "https://scryfall.com/card/cmm/293/goreclaw-terror-of-qal-sisma?utm_source=api"
+        }
+      ],
+      "notes": "Checked exact name, type_line, color_identity, and legalities.commander through the Scryfall API on 2026-06-13."
+    }
+  ],
+  "source_intake_boundary": {
+    "digest_markdown_role": "claim-digest/source-intake material",
+    "pdf_role": "local official capture evidence",
+    "readme_role": "process chatter, not source evidence",
+    "exact_quote_policy": "Pull exact quotes only from canonical URLs or local PDF captures under fair use.",
+    "commander_policy": "Do not promote commander candidates without current Scryfall/Gatherer/Commander legality verification.",
+    "axis_policy": "Official color sources support philosophy and mechanical claims; Vox Mana placement-axis values remain interpretation."
+  }
+}

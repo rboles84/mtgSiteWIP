@@ -29,6 +29,7 @@ Evidence rule: Use local official/repo-truth captures only for claim-bearing row
 | JESKAI-EVID-020 | The seed files were copied with SHA-256 equivalence and remain preserved inputs. | `JESKAI-SRC-015`, `JESKAI-SRC-016`, `JESKAI-SRC-017`; `jeskai-seed-crosscheck.md` | discovery-only | Not approved evidence unless audited claim-by-claim |
 | JESKAI-EVID-021 | Vox Mana synthesis may frame Jeskai as disciplined Blue-centered cunning coordinating Red action and White structure. | `JESKAI-EVID-001`, `JESKAI-EVID-002`, `JESKAI-EVID-003` | Vox Mana synthesis | Do not present as a direct source quotation |
 | JESKAI-EVID-022 | VM-229 does not authorize public/live promotion, raw JSON, architecture, generated outputs, Maze, Home, Supabase, route, fixture, schema, or runtime edits. | VM-229 plan and card | Scope-bound | Enforced by leakage scan |
+| JESKAI-EVID-023 | The official Tarkir: Dragonstorm Commander decklist verifies `Jeskai Striker` as a product deck with `Shiko and Narset, Unified` as face commander and `Elsha, Threefold Master` as featured commander. | `JESKAI-SRC-018` | support-only | Product/deck navigation only; not Tarkir canon, popularity, metagame, legality, or placement evidence |
 
 ## Manual Fill Flags
 

@@ -101,6 +101,24 @@ const FACTION_FLAVOR_CARD_PREFERENCES = {
       "Ulalek",
     ],
   },
+  WUBRG: {
+    prefer: [
+      "Coalition Victory",
+      "Command Tower",
+      "Heroes in a Half Shell",
+      "Jodah, the Unifier",
+      "Sliver Gravemother",
+      "Go-Shintai of Life's Origin",
+      "Ramos, Dragon Engine",
+      "The Ur-Dragon",
+    ],
+    exclude: [
+      "Golos, Tireless Pilgrim",
+    ],
+    text_exclude: [
+      "Golos",
+    ],
+  },
 };
 const COMMON_WORDS = new Set([
   "and", "the", "for", "with", "into", "from", "that", "this", "when", "your", "you",

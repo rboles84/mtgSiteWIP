@@ -1,0 +1,483 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VM-365 Full Test Sweep</title>
+<style>:root { color-scheme: light dark; --bg: #f8fafc; --panel: #ffffff; --text: #172033; --muted: #657084; --line: #d8dee9; --pass: #176b3a; --pass-bg: #e8f7ee; --fail: #a83232; --fail-bg: #fdecec; --timeout: #8a5a00; --timeout-bg: #fff4d6; }
+* { box-sizing: border-box; }
+body { margin: 0; font-family: Inter, Segoe UI, Arial, sans-serif; background: var(--bg); color: var(--text); line-height: 1.45; }
+header { padding: 32px 40px 20px; border-bottom: 1px solid var(--line); background: var(--panel); }
+h1 { margin: 0 0 8px; font-size: 28px; letter-spacing: 0; }
+.meta { color: var(--muted); margin: 0; }
+main { max-width: 1180px; margin: 0 auto; padding: 24px 28px 48px; }
+.summary { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; margin-bottom: 24px; }
+.metric { background: var(--panel); border: 1px solid var(--line); border-radius: 8px; padding: 16px; }
+.metric strong { display: block; font-size: 26px; margin-top: 4px; }
+table { width: 100%; border-collapse: collapse; background: var(--panel); border: 1px solid var(--line); border-radius: 8px; overflow: hidden; }
+th, td { padding: 10px 12px; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+th { background: rgba(101, 112, 132, 0.08); font-size: 13px; text-transform: uppercase; color: var(--muted); }
+tr.pass td:nth-child(3) { color: var(--pass); font-weight: 700; }
+tr.fail td:nth-child(3) { color: var(--fail); font-weight: 700; }
+tr.timeout td:nth-child(3) { color: var(--timeout); font-weight: 700; }
+code { font-family: Consolas, ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 0.94em; }
+.detail { margin-top: 18px; padding: 16px; border: 1px solid var(--line); border-left-width: 6px; border-radius: 8px; background: var(--panel); }
+.detail.pass { border-left-color: var(--pass); }
+.detail.fail { border-left-color: var(--fail); }
+.detail.timeout { border-left-color: var(--timeout); }
+h2 { margin: 26px 0 10px; font-size: 20px; }
+h3 { margin: 0 0 8px; }
+h4 { margin: 14px 0 6px; color: var(--muted); }
+pre { white-space: pre-wrap; overflow-wrap: anywhere; background: rgba(101, 112, 132, 0.08); border: 1px solid var(--line); border-radius: 6px; padding: 12px; max-height: 420px; overflow: auto; }
+.status { margin: 12px 0 0; padding: 12px; border-radius: 8px; background: rgba(101, 112, 132, 0.08); }
+@media (prefers-color-scheme: dark) { :root { --bg: #10141f; --panel: #171d2b; --text: #e7edf7; --muted: #a8b2c3; --line: #30394b; --pass-bg: #143322; --fail-bg: #3a1b1b; --timeout-bg: #332810; } a { color: #8eb7ff; } }</style>
+</head>
+<body>
+<header>
+<h1>VM-365 Full Test Sweep</h1>
+<p class="meta">Generated 2026-06-12T23:59:46.4923542-06:00 from C:\dev\mtgSiteWIP</p>
+</header>
+<main>
+<section class="summary">
+<div class="metric">Finite commands<strong>28</strong></div>
+<div class="metric">Passed<strong>27</strong></div>
+<div class="metric">Failed<strong>1</strong></div>
+<div class="metric">Timed out<strong>0</strong></div>
+<div class="metric">Skipped<strong>1</strong></div>
+<div class="metric">Duration<strong>100.2s</strong></div>
+</section>
+<h2>Command Results</h2>
+<table><thead><tr><th>Name</th><th>Command</th><th>Status</th><th>Exit</th><th>Duration</th><th>Logs</th></tr></thead><tbody>
+<tr class="pass"><td>lint:html</td><td><code>npm.cmd run lint:html</code></td><td>pass</td><td>0</td><td>0.34s</td><td><a href="C:\dev\mtgSiteWIP\artifacts\test-reports\vm365-full-test-sweep\logs\01-lint_html.stdout.log">stdout</a> <a href="C:\dev\mtgSiteWIP\artifacts\test-reports\vm365-full-test-sweep\logs\01-lint_html.stderr.log">stderr</a></td></tr>
+<tr class="pass"><td>lint:js</td><td><code>npm.cmd run lint:js</code></td><td>pass</td><td>0</td><td>0.49s</td><td><a href="C:\dev\mtgSiteWIP\artifacts\test-reports\vm365-full-test-sweep\logs\02-lint_js.stdout.log">stdout</a> <a href="C:\dev\mtgSiteWIP\artifacts\test-reports\vm365-full-test-sweep\logs\02-lint_js.stderr.log">stderr</a></td></tr>
+<tr class="pass"><td>audit:factions</td><td><code>npm.cmd run audit:factions</code></td><td>pass</td><td>0</td><td>0.33s</td><td><a href="C:\dev\mtgSiteWIP\artifacts\test-reports\vm365-full-test-sweep\logs\03-audit_factions.stdout.log">stdout</a> <a href="C:\dev\mtgSiteWIP\artifacts\test-reports\vm365-full-test-sweep\logs\03-audit_factions.stderr.log">stderr</a></td></tr>
+<tr class="pass"><td>dossier:audit</td><td><code>npm.cmd run dossier:audit</code></td><td>pass</td><td>0</td><td>0.7s</td><td><a href="C:\dev\mtgSiteWIP\artifacts\test-reports\vm365-full-test-sweep\logs\04-dossier_audit.stdout.log">stdout</a> <a href="C:\dev\mtgSiteWIP\artifacts\test-reports\vm365-full-test-sweep\logs\04-dossier_audit.stderr.log">stderr</a></td></tr>
+<tr class="pass"><td>validate:source-generated</td><td><code>npm.cmd run validate:source-generated</code></td><td>pass</td><td>0</td><td>0.31s</td><td><a href="C:\dev\mtgSiteWIP\artifacts\test-reports\vm365-full-test-sweep\logs\05-validate_source-generated.stdout.log">stdout</a> <a href="C:\dev\mtgSiteWIP\artifacts\test-reports\vm365-full-test-sweep\logs\05-validate_source-generated.stderr.log">stderr</a></td></tr>
+<tr class="pass"><td>validate:mono-color-markdown</td><td><code>node research/validate-mono-color-markdown.mjs</code></td><td>pass</td><td>0</td><td>0.07s</td><td><a href="C:\dev\mtgSiteWIP\artifacts\test-reports\vm365-full-test-sweep\logs\06-validate_mono-color-markdown.stdout.log">stdout</a> <a href="C:\dev\mtgSiteWIP\artifacts\test-reports\vm365-full-test-sweep\logs\06-validate_mono-color-markdown.stderr.log">stderr</a></td></tr>
+<tr class="pass"><td>validate:colorless-markdown</td><td><code>node research/validate-colorless-markdown.mjs</code></td><td>pass</td><td>0</td><td>0.07s</td><td><a href="C:\dev\mtgSiteWIP\artifacts\test-reports\vm365-full-test-sweep\logs\07-validate_colorless-markdown.stdout.log">stdout</a> <a href="C:\dev\mtgSiteWIP\artifacts\test-reports\vm365-full-test-sweep\logs\07-validate_colorless-markdown.stderr.log">stderr</a></td></tr>
+<tr class="pass"><td>test</td><td><code>npm.cmd test</code></td><td>pass</td><td>0</td><td>3.2s</td><td><a href="C:\dev\mtgSiteWIP\artifacts\test-reports\vm365-full-test-sweep\logs\08-test.stdout.log">stdout</a> <a href="C:\dev\mtgSiteWIP\artifacts\test-reports\vm365-full-test-sweep\logs\08-test.stderr.log">stderr</a></td></tr>
+<tr class="pass"><td>test:builder</td><td><code>npm.cmd run test:builder</code></td><td>pass</td><td>0</td><td>0.31s</td><td><a href="C:\dev\mtgSiteWIP\artifacts\test-reports\vm365-full-test-sweep\logs\09-test_builder.stdout.log">stdout</a> <a href="C:\dev\mtgSiteWIP\artifacts\test-reports\vm365-full-test-sweep\logs\09-test_builder.stderr.log">stderr</a></td></tr>
+<tr class="pass"><td>test:faction-context-isolation</td><td><code>npm.cmd run test:faction-context-isolation</code></td><td>pass</td><td>0</td><td>0.31s</td><td><a href="C:\dev\mtgSiteWIP\artifacts\test-reports\vm365-full-test-sweep\logs\10-test_faction-context-isolation.stdout.log">stdout</a> <a href="C:\dev\mtgSiteWIP\artifacts\test-reports\vm365-full-test-sweep\logs\10-test_faction-context-isolation.stderr.log">stderr</a></td></tr>
+<tr class="pass"><td>test:source-generated</td><td><code>npm.cmd run test:source-generated</code></td><td>pass</td><td>0</td><td>0.57s</td><td><a href="C:\dev\mtgSiteWIP\artifacts\test-reports\vm365-full-test-sweep\logs\11-test_source-generated.stdout.log">stdout</a> <a href="C:\dev\mtgSiteWIP\artifacts\test-reports\vm365-full-test-sweep\logs\11-test_source-generated.stderr.log">stderr</a></td></tr>
+<tr class="pass"><td>test:bias</td><td><code>npm.cmd run test:bias</code></td><td>pass</td><td>0</td><td>0.71s</td><td><a href="C:\dev\mtgSiteWIP\artifacts\test-reports\vm365-full-test-sweep\logs\12-test_bias.stdout.log">stdout</a> <a href="C:\dev\mtgSiteWIP\artifacts\test-reports\vm365-full-test-sweep\logs\12-test_bias.stderr.log">stderr</a></td></tr>
+<tr class="pass"><td>test:bias:all</td><td><code>npm.cmd run test:bias:all</code></td><td>pass</td><td>0</td><td>0.44s</td><td><a href="C:\dev\mtgSiteWIP\artifacts\test-reports\vm365-full-test-sweep\logs\13-test_bias_all.stdout.log">stdout</a> <a href="C:\dev\mtgSiteWIP\artifacts\test-reports\vm365-full-test-sweep\logs\13-test_bias_all.stderr.log">stderr</a></td></tr>
+<tr class="pass"><td>test:frontend-smoke</td><td><code>npm.cmd run test:frontend-smoke</code></td><td>pass</td><td>0</td><td>0.33s</td><td><a href="C:\dev\mtgSiteWIP\artifacts\test-reports\vm365-full-test-sweep\logs\14-test_frontend-smoke.stdout.log">stdout</a> <a href="C:\dev\mtgSiteWIP\artifacts\test-reports\vm365-full-test-sweep\logs\14-test_frontend-smoke.stderr.log">stderr</a></td></tr>
+<tr class="pass"><td>test:visual:apocrypha</td><td><code>npm.cmd run test:visual:apocrypha</code></td><td>pass</td><td>0</td><td>5.84s</td><td><a href="C:\dev\mtgSiteWIP\artifacts\test-reports\vm365-full-test-sweep\logs\15-test_visual_apocrypha.stdout.log">stdout</a> <a href="C:\dev\mtgSiteWIP\artifacts\test-reports\vm365-full-test-sweep\logs\15-test_visual_apocrypha.stderr.log">stderr</a></td></tr>
+<tr class="pass"><td>test:visual:apocrypha:baseline</td><td><code>npm.cmd run test:visual:apocrypha:baseline</code></td><td>pass</td><td>0</td><td>5.38s</td><td><a href="C:\dev\mtgSiteWIP\artifacts\test-reports\vm365-full-test-sweep\logs\16-test_visual_apocrypha_baseline.stdout.log">stdout</a> <a href="C:\dev\mtgSiteWIP\artifacts\test-reports\vm365-full-test-sweep\logs\16-test_visual_apocrypha_baseline.stderr.log">stderr</a></td></tr>
+<tr class="pass"><td>test:visual:archscry</td><td><code>npm.cmd run test:visual:archscry</code></td><td>pass</td><td>0</td><td>21.54s</td><td><a href="C:\dev\mtgSiteWIP\artifacts\test-reports\vm365-full-test-sweep\logs\17-test_visual_archscry.stdout.log">stdout</a> <a href="C:\dev\mtgSiteWIP\artifacts\test-reports\vm365-full-test-sweep\logs\17-test_visual_archscry.stderr.log">stderr</a></td></tr>
+<tr class="pass"><td>test:visual:archscry:baseline</td><td><code>npm.cmd run test:visual:archscry:baseline</code></td><td>pass</td><td>0</td><td>17.13s</td><td><a href="C:\dev\mtgSiteWIP\artifacts\test-reports\vm365-full-test-sweep\logs\18-test_visual_archscry_baseline.stdout.log">stdout</a> <a href="C:\dev\mtgSiteWIP\artifacts\test-reports\vm365-full-test-sweep\logs\18-test_visual_archscry_baseline.stderr.log">stderr</a></td></tr>
+<tr class="pass"><td>test:visual:strategium</td><td><code>npm.cmd run test:visual:strategium</code></td><td>pass</td><td>0</td><td>5.72s</td><td><a href="C:\dev\mtgSiteWIP\artifacts\test-reports\vm365-full-test-sweep\logs\19-test_visual_strategium.stdout.log">stdout</a> <a href="C:\dev\mtgSiteWIP\artifacts\test-reports\vm365-full-test-sweep\logs\19-test_visual_strategium.stderr.log">stderr</a></td></tr>
+<tr class="pass"><td>test:visual:strategium:baseline</td><td><code>npm.cmd run test:visual:strategium:baseline</code></td><td>pass</td><td>0</td><td>4.87s</td><td><a href="C:\dev\mtgSiteWIP\artifacts\test-reports\vm365-full-test-sweep\logs\20-test_visual_strategium_baseline.stdout.log">stdout</a> <a href="C:\dev\mtgSiteWIP\artifacts\test-reports\vm365-full-test-sweep\logs\20-test_visual_strategium_baseline.stderr.log">stderr</a></td></tr>
+<tr class="fail"><td>test:lighthouse:home</td><td><code>npm.cmd run test:lighthouse:home</code></td><td>fail</td><td>1</td><td>17.31s</td><td><a href="C:\dev\mtgSiteWIP\artifacts\test-reports\vm365-full-test-sweep\logs\21-test_lighthouse_home.stdout.log">stdout</a> <a href="C:\dev\mtgSiteWIP\artifacts\test-reports\vm365-full-test-sweep\logs\21-test_lighthouse_home.stderr.log">stderr</a></td></tr>
+<tr class="pass"><td>test:mode</td><td><code>npm.cmd run test:mode</code></td><td>pass</td><td>0</td><td>0.31s</td><td><a href="C:\dev\mtgSiteWIP\artifacts\test-reports\vm365-full-test-sweep\logs\22-test_mode.stdout.log">stdout</a> <a href="C:\dev\mtgSiteWIP\artifacts\test-reports\vm365-full-test-sweep\logs\22-test_mode.stderr.log">stderr</a></td></tr>
+<tr class="pass"><td>test:parser</td><td><code>npm.cmd run test:parser</code></td><td>pass</td><td>0</td><td>0.45s</td><td><a href="C:\dev\mtgSiteWIP\artifacts\test-reports\vm365-full-test-sweep\logs\23-test_parser.stdout.log">stdout</a> <a href="C:\dev\mtgSiteWIP\artifacts\test-reports\vm365-full-test-sweep\logs\23-test_parser.stderr.log">stderr</a></td></tr>
+<tr class="pass"><td>test:placement</td><td><code>npm.cmd run test:placement</code></td><td>pass</td><td>0</td><td>0.56s</td><td><a href="C:\dev\mtgSiteWIP\artifacts\test-reports\vm365-full-test-sweep\logs\24-test_placement.stdout.log">stdout</a> <a href="C:\dev\mtgSiteWIP\artifacts\test-reports\vm365-full-test-sweep\logs\24-test_placement.stderr.log">stderr</a></td></tr>
+<tr class="pass"><td>test:presentation-snapshots</td><td><code>npm.cmd run test:presentation-snapshots</code></td><td>pass</td><td>0</td><td>0.56s</td><td><a href="C:\dev\mtgSiteWIP\artifacts\test-reports\vm365-full-test-sweep\logs\25-test_presentation-snapshots.stdout.log">stdout</a> <a href="C:\dev\mtgSiteWIP\artifacts\test-reports\vm365-full-test-sweep\logs\25-test_presentation-snapshots.stderr.log">stderr</a></td></tr>
+<tr class="pass"><td>test:visual:home</td><td><code>npm.cmd run test:visual:home</code></td><td>pass</td><td>0</td><td>5.7s</td><td><a href="C:\dev\mtgSiteWIP\artifacts\test-reports\vm365-full-test-sweep\logs\26-test_visual_home.stdout.log">stdout</a> <a href="C:\dev\mtgSiteWIP\artifacts\test-reports\vm365-full-test-sweep\logs\26-test_visual_home.stderr.log">stderr</a></td></tr>
+<tr class="pass"><td>test:visual:home:baseline</td><td><code>npm.cmd run test:visual:home:baseline</code></td><td>pass</td><td>0</td><td>6.17s</td><td><a href="C:\dev\mtgSiteWIP\artifacts\test-reports\vm365-full-test-sweep\logs\27-test_visual_home_baseline.stdout.log">stdout</a> <a href="C:\dev\mtgSiteWIP\artifacts\test-reports\vm365-full-test-sweep\logs\27-test_visual_home_baseline.stderr.log">stderr</a></td></tr>
+<tr class="pass"><td>test:syntax</td><td><code>npm.cmd run test:syntax</code></td><td>pass</td><td>0</td><td>0.33s</td><td><a href="C:\dev\mtgSiteWIP\artifacts\test-reports\vm365-full-test-sweep\logs\28-test_syntax.stdout.log">stdout</a> <a href="C:\dev\mtgSiteWIP\artifacts\test-reports\vm365-full-test-sweep\logs\28-test_syntax.stderr.log">stderr</a></td></tr>
+</tbody></table>
+<h2>Skipped Commands</h2>
+<table><thead><tr><th>Name</th><th>Command</th><th>Reason</th></tr></thead><tbody>
+<tr><td>test:watch</td><td><code>npm.cmd run test:watch</code></td><td>Skipped intentionally because it launches a non-terminating npm test -- --watch session.</td></tr>
+</tbody></table>
+<h2>Git Status Before Sweep</h2>
+<pre>## feature/ui-refactor-exploration...origin/feature/ui-refactor-exploration
+ M docs/audits/lighthouse-home.html
+ M docs/handoffs/HANDOFF_INDEX.md
+ M docs/kanban/board.md
+ D docs/kanban/in-progress/VM-364-archscry-identity-matrix-data-map.md
+?? docs/audits/2026-06-12-vm365-full-test-sweep.html
+?? docs/handoffs/2026-06-12-2347-codex-vm365-full-test-html-report.md
+?? docs/handoffs/2026-06-12-2352-codex-js-html-css-test-inventory.md
+?? docs/handoffs/2026-06-13-0047-codex-archscry-identity-matrix-data-map.md
+?? docs/kanban/done/VM-364-archscry-identity-matrix-data-map.md
+?? docs/kanban/done/VM-366-js-html-css-test-inventory.md
+?? docs/kanban/in-progress/VM-365-full-test-sweep-html-report.md
+?? docs/reference/archscry-identity-matrix-data-map.md</pre>
+<h2>Git Status After Sweep</h2>
+<pre>## feature/ui-refactor-exploration...origin/feature/ui-refactor-exploration
+ M docs/audits/lighthouse-home.html
+ M docs/handoffs/HANDOFF_INDEX.md
+ M docs/kanban/board.md
+ D docs/kanban/in-progress/VM-364-archscry-identity-matrix-data-map.md
+?? docs/audits/2026-06-12-vm365-full-test-sweep.html
+?? docs/handoffs/2026-06-12-2347-codex-vm365-full-test-html-report.md
+?? docs/handoffs/2026-06-12-2352-codex-js-html-css-test-inventory.md
+?? docs/handoffs/2026-06-13-0047-codex-archscry-identity-matrix-data-map.md
+?? docs/kanban/done/VM-364-archscry-identity-matrix-data-map.md
+?? docs/kanban/done/VM-366-js-html-css-test-inventory.md
+?? docs/kanban/in-progress/VM-365-full-test-sweep-html-report.md
+?? docs/reference/archscry-identity-matrix-data-map.md</pre>
+<h2>Detailed Output Tails</h2>
+<section class="detail pass"><h3>lint:html</h3><p><code>npm.cmd run lint:html</code></p><p>Status: <strong>pass</strong>; exit code: <strong>0</strong>; duration: <strong>0.34s</strong></p><h4>stdout tail</h4><pre>
+&gt; lint:html
+&gt; node scripts/validate-frontend-html.mjs
+
+Frontend HTML validation passed for public script deferral, intrinsic image sizing, landmarks, navigation semantics, Maze, Archscry, Strategium, Library, Privacy, and Terms.
+</pre><h4>stderr tail</h4><pre></pre></section>
+<section class="detail pass"><h3>lint:js</h3><p><code>npm.cmd run lint:js</code></p><p>Status: <strong>pass</strong>; exit code: <strong>0</strong>; duration: <strong>0.49s</strong></p><h4>stdout tail</h4><pre>
+&gt; lint:js
+&gt; node scripts/lint-frontend-js.mjs
+
+Frontend JS lint passed for 5 files.
+</pre><h4>stderr tail</h4><pre></pre></section>
+<section class="detail pass"><h3>audit:factions</h3><p><code>npm.cmd run audit:factions</code></p><p>Status: <strong>pass</strong>; exit code: <strong>0</strong>; duration: <strong>0.33s</strong></p><h4>stdout tail</h4><pre>[enrichment:audit] glint: figures=2, timeline=2, flavor=1, views=0, characters=2, mechanics=1, arcs=0
+[enrichment:audit] golgari_swarm: figures=4, timeline=1, flavor=1, views=0, characters=4, mechanics=1, arcs=4
+[enrichment:audit] grixis: figures=0, timeline=1, flavor=1, views=2, characters=0, mechanics=2, arcs=0
+[enrichment:audit] gruul_clans: figures=9, timeline=8, flavor=1, views=6, characters=12, mechanics=5, arcs=6
+[enrichment:audit] house_dimir: figures=4, timeline=1, flavor=1, views=0, characters=4, mechanics=2, arcs=4
+[enrichment:audit] ink: figures=2, timeline=2, flavor=1, views=0, characters=2, mechanics=0, arcs=0
+[enrichment:audit] izzet_league: figures=15, timeline=15, flavor=1, views=6, characters=15, mechanics=4, arcs=2
+[enrichment:audit] jeskai: figures=3, timeline=4, flavor=1, views=0, characters=3, mechanics=1, arcs=0
+[enrichment:audit] jund: figures=0, timeline=1, flavor=1, views=2, characters=0, mechanics=1, arcs=0
+[enrichment:audit] lorehold: figures=11, timeline=8, flavor=4, views=0, characters=13, mechanics=13, arcs=3
+[enrichment:audit] mardu: figures=3, timeline=4, flavor=1, views=0, characters=3, mechanics=1, arcs=0
+[enrichment:audit] naya: figures=0, timeline=1, flavor=1, views=2, characters=0, mechanics=0, arcs=0
+[enrichment:audit] orzhov_syndicate: figures=5, timeline=0, flavor=1, views=0, characters=5, mechanics=2, arcs=6
+[enrichment:audit] prismari: figures=2, timeline=0, flavor=1, views=0, characters=2, mechanics=3, arcs=2
+[enrichment:audit] quandrix: figures=5, timeline=0, flavor=1, views=0, characters=5, mechanics=0, arcs=3
+[enrichment:audit] selesnya_conclave: figures=3, timeline=1, flavor=1, views=0, characters=3, mechanics=2, arcs=6
+[enrichment:audit] silverquill: figures=4, timeline=0, flavor=1, views=0, characters=4, mechanics=1, arcs=2
+[enrichment:audit] simic_combine: figures=4, timeline=0, flavor=1, views=0, characters=4, mechanics=2, arcs=7
+[enrichment:audit] sultai: figures=5, timeline=3, flavor=1, views=2, characters=5, mechanics=1, arcs=0
+[enrichment:audit] temur: figures=5, timeline=3, flavor=1, views=2, characters=5, mechanics=0, arcs=0
+[enrichment:audit] witch: figures=2, timeline=2, flavor=1, views=0, characters=2, mechanics=0, arcs=0
+[enrichment:audit] witherbloom: figures=4, timeline=0, flavor=1, views=0, characters=4, mechanics=2, arcs=4
+[enrichment:audit] yore: figures=2, timeline=2, flavor=1, views=0, characters=2, mechanics=0, arcs=0
+</pre><h4>stderr tail</h4><pre></pre></section>
+<section class="detail pass"><h3>dossier:audit</h3><p><code>npm.cmd run dossier:audit</code></p><p>Status: <strong>pass</strong>; exit code: <strong>0</strong>; duration: <strong>0.7s</strong></p><h4>stdout tail</h4><pre>
+&gt; dossier:audit
+&gt; node research/audit-dossiers.mjs
+
+Audited 36 primary Commander dossiers and 74 adjacent dossiers.
+Pass: 0; warnings: 110; failures: 0.
+Wrote artifacts/dossier-snapshots/dossier-audit-report.md.
+</pre><h4>stderr tail</h4><pre></pre></section>
+<section class="detail pass"><h3>validate:source-generated</h3><p><code>npm.cmd run validate:source-generated</code></p><p>Status: <strong>pass</strong>; exit code: <strong>0</strong>; duration: <strong>0.31s</strong></p><h4>stdout tail</h4><pre>
+&gt; validate:source-generated
+&gt; node research/validate-source-generated-guardrails.mjs
+
+PASS JESKAI (jeskai)
+  ! inhibitor_traps[model_owned]: One inhibitor trap is backed by the builder&#39;s model-owned biological prior rather than raw placement text.
+    {&quot;model_owned_entry&quot;:&quot;Mistakes practice, restraint, or study for the whole answer when trained insight is asking to move.&quot;}
+PASS MARDU (mardu)
+  ! inhibitor_traps[model_owned]: One inhibitor trap is backed by the builder&#39;s model-owned biological prior rather than raw placement text.
+    {&quot;model_owned_entry&quot;:&quot;Waits for permission, comfort, or perfect safety when the honest opening asks for decisive action under a code.&quot;}
+Source/generated guardrail validation passed for JESKAI, MARDU (2 warning(s)).
+</pre><h4>stderr tail</h4><pre></pre></section>
+<section class="detail pass"><h3>validate:mono-color-markdown</h3><p><code>node research/validate-mono-color-markdown.mjs</code></p><p>Status: <strong>pass</strong>; exit code: <strong>0</strong>; duration: <strong>0.07s</strong></p><h4>stdout tail</h4><pre>PASS mono-color markdown validation: 5 color set(s), 10 file(s).
+</pre><h4>stderr tail</h4><pre></pre></section>
+<section class="detail pass"><h3>validate:colorless-markdown</h3><p><code>node research/validate-colorless-markdown.mjs</code></p><p>Status: <strong>pass</strong>; exit code: <strong>0</strong>; duration: <strong>0.07s</strong></p><h4>stdout tail</h4><pre>PASS colorless markdown validation: 1 source set, 2 file(s).
+</pre><h4>stderr tail</h4><pre></pre></section>
+<section class="detail pass"><h3>test</h3><p><code>npm.cmd test</code></p><p>Status: <strong>pass</strong>; exit code: <strong>0</strong>; duration: <strong>3.2s</strong></p><h4>stdout tail</h4><pre>PASS commander identity and mana: black and red commander identity creature cards mana value 2 or less
+PASS operator hand fixture: creature cards Oracle text matching named cards while avoiding lands excluding Oracle text matching search your hand or library, excluding oracle text containing draft, excluding oracle text matching common named-card false positives, excluding oracle text containing meld, excluding oracle text matching deck-construction exception wording, excluding oracle text matching named-card graveyard loops, and excluding oracle text matching named-creature attack or block restrictions
+PASS negated oracle and regex: creature cards Oracle text matching destroy creature excluding Oracle text matching search your hand or library
+PASS commander identity format rarity and mana: black and red commander identity creature cards commander legal common mana value 2 or less
+PASS dossier exact Grixis commander candidates: Grixis commanders with exactly blue-black-red identity oracle text containing discard, oracle text containing hand attack, oracle text containing sacrifice, oracle text containing sac outlets, oracle text containing aggro, oracle text containing aggressive, oracle text containing control, or oracle text containing permission commander legal
+PASS dossier support excludes commanders and lands: red commander identity oracle text containing graveyard, oracle text containing sacrifice, oracle text containing draw, or oracle text containing token excluding commander candidates and excluding land cards commander legal
+PASS dossier flavor echoes: red commander identity flavor text containing death, flavor text containing secret, flavor text containing growth, or flavor text containing law commander legal
+PASS dossier outside identity stretch: commander candidates oracle text containing graveyard or oracle text containing sacrifice outside red commander identity commander legal
+PASS legacy ci identity and negated type: red commander identity oracle text containing graveyard or oracle text containing sacrifice excluding legendary cards commander legal
+PASS unhandled raw syntax is preserved: name:/^ajani/
+
+14 syntax translation cases passed.
+PASS smart to raw shows compiled query: c:rg kw:deathtouch
+PASS raw to smart restores smart phrase: red and green with deathtouch
+PASS raw syntax paste reverse translates: red or green with no outside colors with deathtouch
+PASS raw syntax complex translation is clean: creature cards Oracle text matching destroy creature excluding Oracle text matching search your hand or library
+PASS unsent smart text is not overwritten by stale query: new search text
+
+5 mode cases passed.
+Maze search metadata helper cases passed.
+PASS precon artifact tests
+PASS archscry dossier follow-up tests
+PASS presentation snapshot tests: 16 fixed cases
+</pre><h4>stderr tail</h4><pre></pre></section>
+<section class="detail pass"><h3>test:builder</h3><p><code>npm.cmd run test:builder</code></p><p>Status: <strong>pass</strong>; exit code: <strong>0</strong>; duration: <strong>0.31s</strong></p><h4>stdout tail</h4><pre>
+&gt; test:builder
+&gt; node research/research-builder-tests.js
+
+PASS screenshot builder combo: c=w (t:instant OR t:enchantment OR t:artifact) f:pioneer r:c (kw:menace OR kw:deathtouch)
+PASS comma and text splits into separate keywords: menace, deathtouch, flying
+PASS multi-word keyword is quoted: c&lt;=wu (kw:&quot;first strike&quot; OR kw:ward)
+PASS commander identity colors: id&lt;=rg t:creature
+PASS colorless stays colorless syntax: c:c t:artifact
+PASS mana value range: c&gt;=b mv&gt;=2 mv&lt;=5
+
+6 builder cases passed.
+</pre><h4>stderr tail</h4><pre></pre></section>
+<section class="detail pass"><h3>test:faction-context-isolation</h3><p><code>npm.cmd run test:faction-context-isolation</code></p><p>Status: <strong>pass</strong>; exit code: <strong>0</strong>; duration: <strong>0.31s</strong></p><h4>stdout tail</h4><pre>
+&gt; test:faction-context-isolation
+&gt; node research/faction-context-isolation-tests.js
+
+Faction context isolation helper tests passed.
+</pre><h4>stderr tail</h4><pre></pre></section>
+<section class="detail pass"><h3>test:source-generated</h3><p><code>npm.cmd run test:source-generated</code></p><p>Status: <strong>pass</strong>; exit code: <strong>0</strong>; duration: <strong>0.57s</strong></p><h4>stdout tail</h4><pre>
+&gt; test:source-generated
+&gt; node research/validate-source-generated-guardrails.mjs
+
+PASS JESKAI (jeskai)
+  ! inhibitor_traps[model_owned]: One inhibitor trap is backed by the builder&#39;s model-owned biological prior rather than raw placement text.
+    {&quot;model_owned_entry&quot;:&quot;Mistakes practice, restraint, or study for the whole answer when trained insight is asking to move.&quot;}
+PASS MARDU (mardu)
+  ! inhibitor_traps[model_owned]: One inhibitor trap is backed by the builder&#39;s model-owned biological prior rather than raw placement text.
+    {&quot;model_owned_entry&quot;:&quot;Waits for permission, comfort, or perfect safety when the honest opening asks for decisive action under a code.&quot;}
+Source/generated guardrail validation passed for JESKAI, MARDU (2 warning(s)).
+</pre><h4>stderr tail</h4><pre></pre></section>
+<section class="detail pass"><h3>test:bias</h3><p><code>npm.cmd run test:bias</code></p><p>Status: <strong>pass</strong>; exit code: <strong>0</strong>; duration: <strong>0.71s</strong></p><h4>stdout tail</h4><pre>│ 16      │ &#39;SILVERQUILL&#39; │ &#39;Silverquill College&#39; │ &#39;college&#39;    │ 2     │ &#39;2%&#39;       │
+│ 17      │ &#39;SULTAI&#39;      │ &#39;Sultai Brood&#39;        │ &#39;wedge&#39;      │ 2     │ &#39;2%&#39;       │
+│ 18      │ &#39;UG&#39;          │ &#39;Simic Combine&#39;       │ &#39;guild&#39;      │ 2     │ &#39;2%&#39;       │
+│ 19      │ &#39;W&#39;           │ &#39;White&#39;               │ &#39;color&#39;      │ 2     │ &#39;2%&#39;       │
+│ 20      │ &#39;WG&#39;          │ &#39;Selesnya Conclave&#39;   │ &#39;guild&#39;      │ 2     │ &#39;2%&#39;       │
+│ 21      │ &#39;WU&#39;          │ &#39;Azorius Senate&#39;      │ &#39;guild&#39;      │ 2     │ &#39;2%&#39;       │
+│ 22      │ &#39;GRIXIS&#39;      │ &#39;Grixis&#39;              │ &#39;shard&#39;      │ 1     │ &#39;1%&#39;       │
+│ 23      │ &#39;MARDU&#39;       │ &#39;Mardu Horde&#39;         │ &#39;wedge&#39;      │ 1     │ &#39;1%&#39;       │
+│ 24      │ &#39;PRISMARI&#39;    │ &#39;Prismari College&#39;    │ &#39;college&#39;    │ 1     │ &#39;1%&#39;       │
+│ 25      │ &#39;QUANDRIX&#39;    │ &#39;Quandrix College&#39;    │ &#39;college&#39;    │ 1     │ &#39;1%&#39;       │
+│ 26      │ &#39;U&#39;           │ &#39;Blue&#39;                │ &#39;color&#39;      │ 1     │ &#39;1%&#39;       │
+│ 27      │ &#39;ABZAN&#39;       │ &#39;Abzan Houses&#39;        │ &#39;wedge&#39;      │ 0     │ &#39;0%&#39;       │
+│ 28      │ &#39;BANT&#39;        │ &#39;Bant&#39;                │ &#39;shard&#39;      │ 0     │ &#39;0%&#39;       │
+│ 29      │ &#39;ESPER&#39;       │ &#39;Esper&#39;               │ &#39;shard&#39;      │ 0     │ &#39;0%&#39;       │
+│ 30      │ &#39;JUND&#39;        │ &#39;Jund&#39;                │ &#39;shard&#39;      │ 0     │ &#39;0%&#39;       │
+│ 31      │ &#39;LOREHOLD&#39;    │ &#39;Lorehold College&#39;    │ &#39;college&#39;    │ 0     │ &#39;0%&#39;       │
+│ 32      │ &#39;NAYA&#39;        │ &#39;Naya&#39;                │ &#39;shard&#39;      │ 0     │ &#39;0%&#39;       │
+│ 33      │ &#39;TEMUR&#39;       │ &#39;Temur Frontier&#39;      │ &#39;wedge&#39;      │ 0     │ &#39;0%&#39;       │
+│ 34      │ &#39;WITHERBLOOM&#39; │ &#39;Witherbloom College&#39; │ &#39;college&#39;    │ 0     │ &#39;0%&#39;       │
+│ 35      │ &#39;WR&#39;          │ &#39;Boros Legion&#39;        │ &#39;guild&#39;      │ 0     │ &#39;0%&#39;       │
+└─────────┴───────────────┴───────────────────────┴──────────────┴───────┴────────────┘
+Wrote /C:/dev/mtgSiteWIP/test-results/quick-reading-bias/latest.json
+Wrote /C:/dev/mtgSiteWIP/test-results/quick-reading-bias/seeded-random.json
+</pre><h4>stderr tail</h4><pre></pre></section>
+<section class="detail pass"><h3>test:bias:all</h3><p><code>npm.cmd run test:bias:all</code></p><p>Status: <strong>pass</strong>; exit code: <strong>0</strong>; duration: <strong>0.44s</strong></p><h4>stdout tail</h4><pre>│ 16      │ &#39;NAYA&#39;        │ &#39;Naya&#39;                │ &#39;shard&#39;      │ 1     │ &#39;2.78%&#39;    │
+│ 17      │ &#39;PRISMARI&#39;    │ &#39;Prismari College&#39;    │ &#39;college&#39;    │ 1     │ &#39;2.78%&#39;    │
+│ 18      │ &#39;QUANDRIX&#39;    │ &#39;Quandrix College&#39;    │ &#39;college&#39;    │ 1     │ &#39;2.78%&#39;    │
+│ 19      │ &#39;R&#39;           │ &#39;Red&#39;                 │ &#39;color&#39;      │ 1     │ &#39;2.78%&#39;    │
+│ 20      │ &#39;RG&#39;          │ &#39;Gruul Clans&#39;         │ &#39;guild&#39;      │ 1     │ &#39;2.78%&#39;    │
+│ 21      │ &#39;SILVERQUILL&#39; │ &#39;Silverquill College&#39; │ &#39;college&#39;    │ 1     │ &#39;2.78%&#39;    │
+│ 22      │ &#39;SULTAI&#39;      │ &#39;Sultai Brood&#39;        │ &#39;wedge&#39;      │ 1     │ &#39;2.78%&#39;    │
+│ 23      │ &#39;TEMUR&#39;       │ &#39;Temur Frontier&#39;      │ &#39;wedge&#39;      │ 1     │ &#39;2.78%&#39;    │
+│ 24      │ &#39;U&#39;           │ &#39;Blue&#39;                │ &#39;color&#39;      │ 1     │ &#39;2.78%&#39;    │
+│ 25      │ &#39;UB&#39;          │ &#39;House Dimir&#39;         │ &#39;guild&#39;      │ 1     │ &#39;2.78%&#39;    │
+│ 26      │ &#39;UG&#39;          │ &#39;Simic Combine&#39;       │ &#39;guild&#39;      │ 1     │ &#39;2.78%&#39;    │
+│ 27      │ &#39;UR&#39;          │ &#39;Izzet League&#39;        │ &#39;guild&#39;      │ 1     │ &#39;2.78%&#39;    │
+│ 28      │ &#39;W&#39;           │ &#39;White&#39;               │ &#39;color&#39;      │ 1     │ &#39;2.78%&#39;    │
+│ 29      │ &#39;WB&#39;          │ &#39;Orzhov Syndicate&#39;    │ &#39;guild&#39;      │ 1     │ &#39;2.78%&#39;    │
+│ 30      │ &#39;WG&#39;          │ &#39;Selesnya Conclave&#39;   │ &#39;guild&#39;      │ 1     │ &#39;2.78%&#39;    │
+│ 31      │ &#39;WITCH&#39;       │ &#39;Witch / Growth&#39;      │ &#39;four_color&#39; │ 1     │ &#39;2.78%&#39;    │
+│ 32      │ &#39;WITHERBLOOM&#39; │ &#39;Witherbloom College&#39; │ &#39;college&#39;    │ 1     │ &#39;2.78%&#39;    │
+│ 33      │ &#39;WR&#39;          │ &#39;Boros Legion&#39;        │ &#39;guild&#39;      │ 1     │ &#39;2.78%&#39;    │
+│ 34      │ &#39;WU&#39;          │ &#39;Azorius Senate&#39;      │ &#39;guild&#39;      │ 1     │ &#39;2.78%&#39;    │
+│ 35      │ &#39;YORE&#39;        │ &#39;Yore / Artifice&#39;     │ &#39;four_color&#39; │ 1     │ &#39;2.78%&#39;    │
+└─────────┴───────────────┴───────────────────────┴──────────────┴───────┴────────────┘
+Wrote /C:/dev/mtgSiteWIP/test-results/quick-reading-bias/latest.json
+Wrote /C:/dev/mtgSiteWIP/test-results/quick-reading-bias/golden-paths.json
+</pre><h4>stderr tail</h4><pre></pre></section>
+<section class="detail pass"><h3>test:frontend-smoke</h3><p><code>npm.cmd run test:frontend-smoke</code></p><p>Status: <strong>pass</strong>; exit code: <strong>0</strong>; duration: <strong>0.33s</strong></p><h4>stdout tail</h4><pre>
+&gt; test:frontend-smoke
+&gt; node scripts/frontend-smoke.mjs
+
+Frontend smoke checks passed for home, Maze, Archscry, Library alias, Privacy, and Terms.
+</pre><h4>stderr tail</h4><pre></pre></section>
+<section class="detail pass"><h3>test:visual:apocrypha</h3><p><code>npm.cmd run test:visual:apocrypha</code></p><p>Status: <strong>pass</strong>; exit code: <strong>0</strong>; duration: <strong>5.84s</strong></p><h4>stdout tail</h4><pre>
+&gt; test:visual:apocrypha
+&gt; node scripts/visual-regression-apocrypha.mjs --mode=compare
+
+hero-desktop: 0 mismatched pixels
+hero-mobile: 0 mismatched pixels
+references-desktop: 0 mismatched pixels
+Visual comparison passed within the 400-pixel budget for all captures.
+</pre><h4>stderr tail</h4><pre></pre></section>
+<section class="detail pass"><h3>test:visual:apocrypha:baseline</h3><p><code>npm.cmd run test:visual:apocrypha:baseline</code></p><p>Status: <strong>pass</strong>; exit code: <strong>0</strong>; duration: <strong>5.38s</strong></p><h4>stdout tail</h4><pre>
+&gt; test:visual:apocrypha:baseline
+&gt; node scripts/visual-regression-apocrypha.mjs --mode=baseline
+
+Baseline screenshots written to C:\dev\mtgSiteWIP\artifacts\visual-regression\apocrypha\baseline
+Baseline console contract written to C:\dev\mtgSiteWIP\artifacts\visual-regression\apocrypha\baseline\console-baseline.json
+</pre><h4>stderr tail</h4><pre></pre></section>
+<section class="detail pass"><h3>test:visual:archscry</h3><p><code>npm.cmd run test:visual:archscry</code></p><p>Status: <strong>pass</strong>; exit code: <strong>0</strong>; duration: <strong>21.54s</strong></p><h4>stdout tail</h4><pre>Capturing dossier-starter-cards-mobile
+Capturing dossier-starter-cards-desktop
+Capturing dossier-mana-base-mobile
+Capturing dossier-mana-base-desktop
+Capturing dossier-view-all-mobile
+Capturing dossier-view-all-desktop
+landing-mobile: 0 mismatched pixels
+landing-desktop: 0 mismatched pixels
+dossier-placement-mobile: 0 mismatched pixels
+dossier-placement-desktop: 0 mismatched pixels
+dossier-why-mobile: 0 mismatched pixels
+dossier-why-desktop: 0 mismatched pixels
+dossier-start-mobile: 0 mismatched pixels
+dossier-start-desktop: 0 mismatched pixels
+dossier-commander-deck-starts-mobile: 0 mismatched pixels
+dossier-commander-deck-starts-desktop: 0 mismatched pixels
+dossier-starter-cards-mobile: 0 mismatched pixels
+dossier-starter-cards-desktop: 0 mismatched pixels
+dossier-mana-base-mobile: 0 mismatched pixels
+dossier-mana-base-desktop: 0 mismatched pixels
+dossier-view-all-mobile: 0 mismatched pixels
+dossier-view-all-desktop: 0 mismatched pixels
+Visual comparison passed within the 400-pixel budget for all captures.
+</pre><h4>stderr tail</h4><pre></pre></section>
+<section class="detail pass"><h3>test:visual:archscry:baseline</h3><p><code>npm.cmd run test:visual:archscry:baseline</code></p><p>Status: <strong>pass</strong>; exit code: <strong>0</strong>; duration: <strong>17.13s</strong></p><h4>stdout tail</h4><pre>
+&gt; test:visual:archscry:baseline
+&gt; node scripts/visual-regression-archscry.mjs --mode=baseline
+
+Capturing landing-mobile
+Capturing landing-desktop
+Capturing dossier-placement-mobile
+Capturing dossier-placement-desktop
+Capturing dossier-why-mobile
+Capturing dossier-why-desktop
+Capturing dossier-start-mobile
+Capturing dossier-start-desktop
+Capturing dossier-commander-deck-starts-mobile
+Capturing dossier-commander-deck-starts-desktop
+Capturing dossier-starter-cards-mobile
+Capturing dossier-starter-cards-desktop
+Capturing dossier-mana-base-mobile
+Capturing dossier-mana-base-desktop
+Capturing dossier-view-all-mobile
+Capturing dossier-view-all-desktop
+Baseline screenshots written to C:\dev\mtgSiteWIP\artifacts\visual-regression\archscry\baseline
+Baseline console contract written to C:\dev\mtgSiteWIP\artifacts\visual-regression\archscry\baseline\console-baseline.json
+</pre><h4>stderr tail</h4><pre></pre></section>
+<section class="detail pass"><h3>test:visual:strategium</h3><p><code>npm.cmd run test:visual:strategium</code></p><p>Status: <strong>pass</strong>; exit code: <strong>0</strong>; duration: <strong>5.72s</strong></p><h4>stdout tail</h4><pre>
+&gt; test:visual:strategium
+&gt; node scripts/visual-regression-strategium.mjs --mode=compare
+
+landing-desktop: 0 mismatched pixels
+landing-mobile: 0 mismatched pixels
+console-pod-readiness: 0 mismatched pixels
+library-search: 0 mismatched pixels
+Visual comparison passed within the 400-pixel budget for all captures.
+</pre><h4>stderr tail</h4><pre></pre></section>
+<section class="detail pass"><h3>test:visual:strategium:baseline</h3><p><code>npm.cmd run test:visual:strategium:baseline</code></p><p>Status: <strong>pass</strong>; exit code: <strong>0</strong>; duration: <strong>4.87s</strong></p><h4>stdout tail</h4><pre>
+&gt; test:visual:strategium:baseline
+&gt; node scripts/visual-regression-strategium.mjs --mode=baseline
+
+Baseline screenshots written to C:\dev\mtgSiteWIP\artifacts\visual-regression\strategium\baseline
+Baseline console contract written to C:\dev\mtgSiteWIP\artifacts\visual-regression\strategium\baseline\console-baseline.json
+</pre><h4>stderr tail</h4><pre></pre></section>
+<section class="detail fail"><h3>test:lighthouse:home</h3><p><code>npm.cmd run test:lighthouse:home</code></p><p>Status: <strong>fail</strong>; exit code: <strong>1</strong>; duration: <strong>17.31s</strong></p><h4>stdout tail</h4><pre>
+&gt; test:lighthouse:home
+&gt; node scripts/lighthouse-home.mjs
+
+chromePath: C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe
+Lighthouse desktop scores for http://127.0.0.1:62924/index.html
+Performance: 86
+Accessibility: 96
+Browser path: C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe
+Report saved to docs/audits/lighthouse-home.html
+</pre><h4>stderr tail</h4><pre>2026-06-13T05:59:28.942Z LH:status Auditing: Minify CSS
+2026-06-13T05:59:28.953Z LH:status Auditing: Minify JavaScript
+2026-06-13T05:59:28.973Z LH:status Auditing: Reduce unused CSS
+2026-06-13T05:59:28.975Z LH:status Auditing: Reduce unused JavaScript
+2026-06-13T05:59:28.977Z LH:status Auditing: Use efficient cache lifetimes
+2026-06-13T05:59:28.979Z LH:status Auditing: Layout shift culprits
+2026-06-13T05:59:28.980Z LH:status Auditing: Document request latency
+2026-06-13T05:59:28.981Z LH:status Auditing: Optimize DOM size
+2026-06-13T05:59:28.982Z LH:status Auditing: Duplicated JavaScript
+2026-06-13T05:59:28.983Z LH:status Auditing: Font display
+2026-06-13T05:59:28.984Z LH:status Auditing: Forced reflow
+2026-06-13T05:59:28.985Z LH:status Auditing: Improve image delivery
+2026-06-13T05:59:28.986Z LH:status Auditing: INP breakdown
+2026-06-13T05:59:28.987Z LH:status Auditing: LCP breakdown
+2026-06-13T05:59:28.988Z LH:status Auditing: LCP request discovery
+2026-06-13T05:59:28.989Z LH:status Auditing: Legacy JavaScript
+2026-06-13T05:59:28.991Z LH:status Auditing: Network dependency tree
+2026-06-13T05:59:28.992Z LH:status Auditing: Render-blocking requests
+2026-06-13T05:59:28.993Z LH:status Auditing: 3rd parties
+2026-06-13T05:59:29.014Z LH:status Auditing: Optimize viewport for mobile
+2026-06-13T05:59:29.015Z LH:status Generating results...
+Expected Lighthouse Performance and Accessibility scores to be at least 90.
+2026-06-13T05:59:29.050Z LH:ChromeLauncher Killing Chrome instance 32744
+</pre></section>
+<section class="detail pass"><h3>test:mode</h3><p><code>npm.cmd run test:mode</code></p><p>Status: <strong>pass</strong>; exit code: <strong>0</strong>; duration: <strong>0.31s</strong></p><h4>stdout tail</h4><pre>
+&gt; test:mode
+&gt; node research/research-mode-tests.js
+
+PASS smart to raw shows compiled query: c:rg kw:deathtouch
+PASS raw to smart restores smart phrase: red and green with deathtouch
+PASS raw syntax paste reverse translates: red or green with no outside colors with deathtouch
+PASS raw syntax complex translation is clean: creature cards Oracle text matching destroy creature excluding Oracle text matching search your hand or library
+PASS unsent smart text is not overwritten by stale query: new search text
+
+5 mode cases passed.
+</pre><h4>stderr tail</h4><pre></pre></section>
+<section class="detail pass"><h3>test:parser</h3><p><code>npm.cmd run test:parser</code></p><p>Status: <strong>pass</strong>; exit code: <strong>0</strong>; duration: <strong>0.45s</strong></p><h4>stdout tail</h4><pre>PASS produces mana: produces:any
+PASS produces red green mana: produces:rg
+PASS unique cards metadata: *
+PASS include extras: include:extras
+PASS prefer newest: prefer:newest
+PASS prefer old: prefer:oldest
+PASS newest cards sorting metadata: *
+PASS is commander: is:commander
+PASS commander legal: f:commander
+PASS power 2 or less: pow&lt;=2
+PASS toughness 3 or less: tou&lt;=3
+PASS power less than strict: pow&lt;3
+PASS power greater than strict: pow&gt;4
+PASS toughness explicit less or equal: tou&lt;=3
+PASS toughness explicit greater or equal: tou&gt;=5
+PASS no duplicate oracle or terms: otag:draw
+PASS lifegain payoff: c:wb o:&quot;gain life&quot;
+PASS garbage input: banana chair lightning friendship
+PASS empty input:
+PASS punctuation only: ??? !!!
+PASS nonsense with one valid term: c:u
+
+115 parser cases passed.
+</pre><h4>stderr tail</h4><pre></pre></section>
+<section class="detail pass"><h3>test:placement</h3><p><code>npm.cmd run test:placement</code></p><p>Status: <strong>pass</strong>; exit code: <strong>0</strong>; duration: <strong>0.56s</strong></p><h4>stdout tail</h4><pre>
+&gt; test:placement
+&gt; node assets/js/quick-reading-tests.js
+
+PASS adaptive placement tests: 36 factions, 36 golden paths
+</pre><h4>stderr tail</h4><pre></pre></section>
+<section class="detail pass"><h3>test:presentation-snapshots</h3><p><code>npm.cmd run test:presentation-snapshots</code></p><p>Status: <strong>pass</strong>; exit code: <strong>0</strong>; duration: <strong>0.56s</strong></p><h4>stdout tail</h4><pre>
+&gt; test:presentation-snapshots
+&gt; node research/presentation-snapshot-tests.js
+
+PASS presentation snapshot tests: 16 fixed cases
+</pre><h4>stderr tail</h4><pre></pre></section>
+<section class="detail pass"><h3>test:visual:home</h3><p><code>npm.cmd run test:visual:home</code></p><p>Status: <strong>pass</strong>; exit code: <strong>0</strong>; duration: <strong>5.7s</strong></p><h4>stdout tail</h4><pre>
+&gt; test:visual:home
+&gt; node scripts/visual-regression-home.mjs --mode=compare
+
+mobile: 1 mismatched pixels
+tablet: 163 mismatched pixels
+desktop: 126 mismatched pixels
+Visual comparison passed within the 300-pixel budget for all viewports.
+</pre><h4>stderr tail</h4><pre></pre></section>
+<section class="detail pass"><h3>test:visual:home:baseline</h3><p><code>npm.cmd run test:visual:home:baseline</code></p><p>Status: <strong>pass</strong>; exit code: <strong>0</strong>; duration: <strong>6.17s</strong></p><h4>stdout tail</h4><pre>
+&gt; test:visual:home:baseline
+&gt; node scripts/visual-regression-home.mjs --mode=baseline
+
+Baseline screenshots written to C:\dev\mtgSiteWIP\artifacts\visual-regression\home\baseline
+Baseline console contract written to C:\dev\mtgSiteWIP\artifacts\visual-regression\home\baseline\console-baseline.json
+</pre><h4>stderr tail</h4><pre></pre></section>
+<section class="detail pass"><h3>test:syntax</h3><p><code>npm.cmd run test:syntax</code></p><p>Status: <strong>pass</strong>; exit code: <strong>0</strong>; duration: <strong>0.33s</strong></p><h4>stdout tail</h4><pre>
+&gt; test:syntax
+&gt; node research/research-syntax-language-tests.js
+
+PASS color and keyword syntax: red and green with deathtouch
+PASS exact color with type and rarity: exactly white creature cards pioneer legal common with menace
+PASS keyword or group: exactly white with menace or deathtouch
+PASS type or group: exactly white instant cards, enchantment cards, or artifact cards
+PASS commander identity and mana: black and red commander identity creature cards mana value 2 or less
+PASS operator hand fixture: creature cards Oracle text matching named cards while avoiding lands excluding Oracle text matching search your hand or library, excluding oracle text containing draft, excluding oracle text matching common named-card false positives, excluding oracle text containing meld, excluding oracle text matching deck-construction exception wording, excluding oracle text matching named-card graveyard loops, and excluding oracle text matching named-creature attack or block restrictions
+PASS negated oracle and regex: creature cards Oracle text matching destroy creature excluding Oracle text matching search your hand or library
+PASS commander identity format rarity and mana: black and red commander identity creature cards commander legal common mana value 2 or less
+PASS dossier exact Grixis commander candidates: Grixis commanders with exactly blue-black-red identity oracle text containing discard, oracle text containing hand attack, oracle text containing sacrifice, oracle text containing sac outlets, oracle text containing aggro, oracle text containing aggressive, oracle text containing control, or oracle text containing permission commander legal
+PASS dossier support excludes commanders and lands: red commander identity oracle text containing graveyard, oracle text containing sacrifice, oracle text containing draw, or oracle text containing token excluding commander candidates and excluding land cards commander legal
+PASS dossier flavor echoes: red commander identity flavor text containing death, flavor text containing secret, flavor text containing growth, or flavor text containing law commander legal
+PASS dossier outside identity stretch: commander candidates oracle text containing graveyard or oracle text containing sacrifice outside red commander identity commander legal
+PASS legacy ci identity and negated type: red commander identity oracle text containing graveyard or oracle text containing sacrifice excluding legendary cards commander legal
+PASS unhandled raw syntax is preserved: name:/^ajani/
+
+14 syntax translation cases passed.
+</pre><h4>stderr tail</h4><pre></pre></section>
+</main>
+</body>
+</html>

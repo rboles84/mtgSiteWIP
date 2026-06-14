@@ -8,7 +8,7 @@
     "black",
     "green"
   ],
-  "last_updated": "2026-05-13T21:14:06.308Z",
+  "last_updated": "2026-06-13",
   "profile": {
     "overview": "Witherbloom College is a black-green college associated with Arcavios / Strixhaven.",
     "philosophy": "Life and death are living essences to study, brew, heal with, bargain with, and weaponize.",
@@ -38,8 +38,8 @@
     ]
   },
   "profile_version": "1.0.0",
-  "source_review_date": "2026-05-09",
-  "last_incremental_review": "2026-05-09",
+  "source_review_date": "2026-06-13",
+  "last_incremental_review": "2026-06-13",
   "core_identity": {
     "summary": "Witherbloom College is a black-green college associated with Arcavios / Strixhaven.",
     "philosophy": "Life and death are living essences to study, brew, heal with, bargain with, and weaponize.",
@@ -89,112 +89,98 @@
   "historical_timeline": [],
   "key_figures": [
     {
-      "character_id": "char_dina",
-      "name": "Dina",
-      "role": "Named Witherbloom figure in archive evidence.",
-      "relationship_to_faction": "Appears in source-backed evidence for this faction.",
+      "character_id": "char_sabain_croctooth",
+      "name": "Sabain Croctooth",
+      "role": "Witherbloom professor of blood studies quoted in the official Strixhaven guide.",
+      "relationship_to_faction": "Official guide speaker for Witherbloom texture; not a complete leadership roster.",
       "claim_ids": [
-        "witherbloom_claim_0007",
-        "witherbloom_claim_0009",
-        "witherbloom_claim_0010",
-        "witherbloom_claim_0012",
-        "witherbloom_claim_0013",
-        "witherbloom_claim_0014",
-        "witherbloom_claim_0015",
-        "witherbloom_claim_0016"
+        "witherbloom_claim_001",
+        "witherbloom_claim_002",
+        "witherbloom_claim_003",
+        "witherbloom_claim_004"
       ],
       "source_ids": [
-        "src_mtg_stories_the_chains_that_bind_5673ab04",
-        "src_mtg_stories_episode_4_put_to_the_test_8c6b8d55",
-        "src_mtg_stories_down_to_the_lake_alone_520df369",
-        "src_mtg_stories_episode_3_extracurriculars_39c7efc0",
-        "src_mtg_stories_a_silent_voice_calls_36854b19",
-        "src_mtg_stories_episode_1_penmanship_practice_f245144d",
-        "src_mtg_stories_episode_1_out_of_this_wood_200b2e5d",
-        "src_mtg_stories_homecoming_ce00b8af"
+        "src_wotc_planeswalkers_guide_strixhaven_2021"
       ],
-      "confidence": "Medium",
-      "notes": ""
+      "confidence": "High",
+      "notes": "VM-378 keeps unsupported leadership details deferred unless separately confirmed."
     },
     {
-      "character_id": "char_lisette",
-      "name": "Lisette",
-      "role": "Named Witherbloom figure in archive evidence.",
-      "relationship_to_faction": "Appears in source-backed evidence for this faction.",
+      "character_id": "card_dina_essence_brewer",
+      "name": "Dina, Essence Brewer",
+      "role": "Face commander for Witherbloom Pestilence in the official Secrets of Strixhaven Commander decklist.",
+      "relationship_to_faction": "Support-only product/navigation anchor; not a lore biography or popularity claim.",
       "claim_ids": [
-        "witherbloom_claim_0007",
-        "witherbloom_claim_0008",
-        "witherbloom_claim_0011"
+        "witherbloom_claim_0017"
       ],
       "source_ids": [
-        "src_mtg_stories_the_chains_that_bind_5673ab04",
-        "src_mtg_stories_episode_2_lessons_988edeb7",
-        "src_mtg_stories_episode_1_class_is_in_session_bd3caf13"
+        "src_wotc_secrets_strixhaven_commander_decklists_20260401",
+        "src_scryfall_oracle_cards_local_strixhaven_20260613"
       ],
-      "confidence": "Medium",
-      "notes": ""
+      "confidence": "High for product/card fact; support-only for lore and recommendations.",
+      "notes": "Product row can support deck availability, commander name, and navigation only."
     },
     {
-      "character_id": "char_valentin",
-      "name": "Valentin",
-      "role": "Named Witherbloom figure in archive evidence.",
-      "relationship_to_faction": "Appears in source-backed evidence for this faction.",
+      "character_id": "card_gorma_the_gullet",
+      "name": "Gorma, the Gullet",
+      "role": "Featured commander for Witherbloom Pestilence in the official Secrets of Strixhaven Commander decklist.",
+      "relationship_to_faction": "Support-only product/navigation anchor; not a lore biography or popularity claim.",
       "claim_ids": [
-        "witherbloom_claim_0007",
-        "witherbloom_claim_0008"
+        "witherbloom_claim_0017"
       ],
       "source_ids": [
-        "src_mtg_stories_the_chains_that_bind_5673ab04",
-        "src_mtg_stories_episode_2_lessons_988edeb7"
+        "src_wotc_secrets_strixhaven_commander_decklists_20260401",
+        "src_scryfall_oracle_cards_local_strixhaven_20260613"
       ],
-      "confidence": "Medium",
-      "notes": ""
-    },
-    {
-      "character_id": "char_beledros_witherbloom",
-      "name": "Beledros Witherbloom",
-      "role": "Named Witherbloom figure in archive evidence.",
-      "relationship_to_faction": "Appears in source-backed evidence for this faction.",
-      "claim_ids": [
-        "witherbloom_claim_0008"
-      ],
-      "source_ids": [
-        "src_mtg_stories_episode_2_lessons_988edeb7"
-      ],
-      "confidence": "Medium",
-      "notes": ""
+      "confidence": "High for product/card fact; support-only for lore and recommendations.",
+      "notes": "Product row can support deck availability, commander name, and navigation only."
     }
   ],
   "canonical_flavor_text": [
     {
-      "card_name": "Witherbloom College dossier anchor",
-      "set": "Arcavios / Strixhaven",
-      "short_excerpt_or_summary": "Life and death are living essences to study, brew, heal with, bargain with, and weaponize.",
+      "card_name": "Witherbloom Campus",
+      "set": "SOC",
+      "collector_number": "423",
+      "scryfall_uri": "https://scryfall.com/card/soc/423/witherbloom-campus?utm_source=api",
+      "short_excerpt_or_summary": "Campus flavor anchors Witherbloom to life/death energies and essence studies.",
       "is_exact_excerpt": false,
       "claim_ids": [
-        "witherbloom_claim_0007",
-        "witherbloom_claim_0008",
-        "witherbloom_claim_0009",
-        "witherbloom_claim_0010",
-        "witherbloom_claim_0011",
-        "witherbloom_claim_0012",
-        "witherbloom_claim_0013",
-        "witherbloom_claim_0014"
+        "witherbloom_claim_0018"
       ],
       "source_ids": [
-        "src_mtg_stories_the_chains_that_bind_5673ab04",
-        "src_mtg_stories_episode_2_lessons_988edeb7",
-        "src_mtg_stories_episode_4_put_to_the_test_8c6b8d55",
-        "src_mtg_stories_down_to_the_lake_alone_520df369",
-        "src_mtg_stories_episode_1_class_is_in_session_bd3caf13",
-        "src_mtg_stories_episode_3_extracurriculars_39c7efc0",
-        "src_mtg_stories_a_silent_voice_calls_36854b19",
-        "src_mtg_stories_episode_1_penmanship_practice_f245144d",
-        "src_wotc_planeswalkers_guide_strixhaven_2021",
-        "src_wotc_strixhaven_product_page_2021",
-        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026"
+        "src_scryfall_oracle_cards_local_strixhaven_20260613"
       ],
-      "notes": "Derived from the faction's raw dossier copy so the flavor layer stays evidence-backed and reusable for Commander Compass."
+      "notes": "VM-378/379 card-flavor anchor verified through local Scryfall data; summary only, no long flavor text copied into public/generated surfaces."
+    },
+    {
+      "card_name": "Witherbloom Apprentice",
+      "set": "STX",
+      "collector_number": "247",
+      "scryfall_uri": "https://scryfall.com/card/stx/247/witherbloom-apprentice?utm_source=api",
+      "short_excerpt_or_summary": "Apprentice flavor anchors the fragility and intensity of living essence.",
+      "is_exact_excerpt": false,
+      "claim_ids": [
+        "witherbloom_claim_0018"
+      ],
+      "source_ids": [
+        "src_scryfall_oracle_cards_local_strixhaven_20260613"
+      ],
+      "notes": "VM-378/379 card-flavor anchor verified through local Scryfall data; summary only, no long flavor text copied into public/generated surfaces."
+    },
+    {
+      "card_name": "Witherbloom Pledgemage",
+      "set": "STX",
+      "collector_number": "249",
+      "scryfall_uri": "https://scryfall.com/card/stx/249/witherbloom-pledgemage?utm_source=api",
+      "short_excerpt_or_summary": "Pledgemage flavor anchors death as energy transfer and pest-harvest magic.",
+      "is_exact_excerpt": false,
+      "claim_ids": [
+        "witherbloom_claim_0018"
+      ],
+      "source_ids": [
+        "src_scryfall_oracle_cards_local_strixhaven_20260613"
+      ],
+      "notes": "VM-378/379 card-flavor anchor verified through local Scryfall data; summary only, no long flavor text copied into public/generated surfaces."
     }
   ],
   "views_on_other_factions": [],
@@ -212,15 +198,12 @@
       "Witherbloom",
       "Witherbloom College",
       "Dina",
-      "Lisette",
-      "Valentin",
       "pest",
       "essence",
       "bayou",
       "swamp",
       "growth",
       "learn",
-      "Beledros Witherbloom",
       "death magic",
       "Arcavios / Strixhaven",
       "exploit",
@@ -228,24 +211,33 @@
       "Strixhaven: School of Mages",
       "Secrets of Strixhaven",
       "Lorwyn Eclipsed",
-      "Dominaria United"
+      "Dominaria United",
+      "Witherbloom Pestilence",
+      "Dina, Essence Brewer",
+      "Gorma, the Gullet",
+      "Witherbloom Campus",
+      "Witherbloom Apprentice",
+      "Witherbloom Pledgemage"
     ],
     "story_corpus_paths_added": 10,
     "known_characters": [
-      "Dina",
-      "Lisette",
-      "Valentin",
-      "Beledros Witherbloom"
+      "Sabain Croctooth",
+      "Dina, Essence Brewer",
+      "Gorma, the Gullet"
     ],
     "known_mechanics": [
       "exploit",
-      "lesson"
+      "lesson",
+      "essence studies",
+      "life and death exchange",
+      "pests and components"
     ],
     "sets_or_story_arcs": [
       "Strixhaven: School of Mages",
       "Secrets of Strixhaven",
       "Lorwyn Eclipsed",
-      "Dominaria United"
+      "Dominaria United",
+      "Secrets of Strixhaven Commander"
     ]
   },
   "data_quality": {
@@ -266,228 +258,212 @@
       ]
     },
     "raw_enrichment": {
-      "review_date": "2026-05-13T21:14:06.308Z",
-      "source_basis": "data/raw-factions claims.json + sources.json",
-      "key_figures_added": 0,
+      "review_date": "2026-06-13",
+      "source_basis": "VM-378 official guide + official Secrets of Strixhaven Commander decklist + local Scryfall card-data anchors",
+      "key_figures_added": 3,
       "historical_timeline_entries": 0,
-      "canonical_flavor_text_entries": 1,
+      "canonical_flavor_text_entries": 3,
       "relationship_entries": 0,
-      "known_characters": 4,
-      "known_mechanics": 2,
-      "story_arcs": 4
+      "known_characters": 3,
+      "known_mechanics": 5,
+      "story_arcs": 5,
+      "support_only_surfaces": [
+        "commander_compass",
+        "deck_links",
+        "research_links"
+      ],
+      "deferred_claims": "Discovery-only story figures, deans/founders, and long flavor text remain source-intake-needed."
     }
   },
   "research_limitations": [
-    "MTG-Stories repository entries are treated as searchable archive copies; official Wizards pages should remain the primary canon authority when available."
+    "MTG-Stories repository entries are treated as searchable archive copies; official Wizards pages should remain the primary canon authority when available.",
+    "VM-378 promotes only official guide speakers, official product deck rows, and local Scryfall card/flavor anchors for public richness.",
+    "Discovery-only story-corpus figures, dean/founder statuses, and long flavor text remain source-intake-needed."
   ],
   "commander_compass": {
     "schema_version": "1.0.0",
-    "source_research_file": "witherbloom.commander_compass.research.json",
-    "last_reviewed": "2026-05-14",
-    "review_status": "reviewed_not_canonical_lore",
-    "recommendation_philosophy": "Priority given to 2026 Elder Dragons as flagship 'Native Fit' options, with 2021 staples as 'Iconic' or 'Advanced' pivots.",
+    "source_research_file": "docs/research/VM-378-379-380_source-intake.md",
+    "last_reviewed": "2026-06-13",
+    "review_status": "support_only_product_navigation",
+    "recommendation_philosophy": "Use Witherbloom Pestilence Commander data only as official product/navigation support for exact Black-Green Strixhaven commanders. This does not establish lore, popularity, metagame, legality, or canon identity claims.",
     "identity_basis": {
       "owned_themes": [
-        "Witherbloom is the college of essence studies. They study the cycle of life and death, often utilizing 'Pest' creatures, life-gain/drain mechanics, and sacrificing permanents for growth."
+        "essence studies",
+        "life and death exchange",
+        "pests and components",
+        "remedies and poisons"
       ],
       "allowed_phrases": [
-        "witherbloom college",
-        "witherbloom mage"
+        "Witherbloom product support",
+        "College of Essence Studies",
+        "life and death exchange"
       ],
       "avoid_or_contrast_phrases": [
-        "Ravnica guilds",
-        "generic mana"
+        "Beledros founder status",
+        "generic Golgari graveyard value as Witherbloom proof",
+        "dean claims without direct backing"
       ],
       "adjacent_overlap_notes": [
-        "Shares spell-focused identity with Prismari/Quandrix but with different mechanical execution."
+        "Product commanders are support surfaces only; placement still follows the official college guide and raw placement claims.",
+        "Deck/product language should not override college lore boundaries or source-role classifications."
       ],
       "supporting_claim_ids": [
-        "witherbloom_claim_0007",
-        "witherbloom_claim_0008",
-        "witherbloom_claim_0009",
-        "witherbloom_claim_0010",
-        "witherbloom_claim_0011",
-        "witherbloom_claim_0012",
-        "witherbloom_claim_0013",
-        "witherbloom_claim_0014",
-        "witherbloom_claim_0015",
-        "witherbloom_claim_0016"
+        "witherbloom_claim_001",
+        "witherbloom_claim_002",
+        "witherbloom_claim_003",
+        "witherbloom_claim_004",
+        "witherbloom_claim_006",
+        "witherbloom_claim_0017",
+        "witherbloom_claim_0018"
       ],
       "supporting_source_ids": [
-        "src_mtg_stories_the_chains_that_bind_5673ab04",
-        "src_mtg_stories_episode_2_lessons_988edeb7",
-        "src_mtg_stories_episode_4_put_to_the_test_8c6b8d55",
-        "src_mtg_stories_down_to_the_lake_alone_520df369",
-        "src_mtg_stories_episode_1_class_is_in_session_bd3caf13",
-        "src_mtg_stories_episode_3_extracurriculars_39c7efc0",
-        "src_mtg_stories_a_silent_voice_calls_36854b19",
-        "src_mtg_stories_episode_1_penmanship_practice_f245144d",
-        "src_mtg_stories_episode_1_out_of_this_wood_200b2e5d",
-        "src_mtg_stories_homecoming_ce00b8af"
+        "src_wotc_planeswalkers_guide_strixhaven_2021",
+        "src_wotc_secrets_strixhaven_commander_decklists_20260401",
+        "src_scryfall_oracle_cards_local_strixhaven_20260613"
       ]
     },
     "native_fit_commanders": [
       {
-        "exact_card_name": "Witherbloom, the Balancer",
-        "display_name": "Witherbloom, the Balancer",
-        "scryfall_uri": "https://scryfall.com/card/sos/245/witherbloom-the-balancer",
-        "edhrec_uri": "https://edhrec.com/commanders/witherbloom-the-balancer",
+        "exact_card_name": "Dina, Essence Brewer",
+        "display_name": "Dina, Essence Brewer",
+        "scryfall_uri": "https://scryfall.com/card/soc/1/dina-essence-brewer?utm_source=api",
         "color_identity": [
           "B",
           "G"
         ],
-        "commander_legal": true,
-        "recommendation_type": "Native Fit",
+        "recommendation_type": "Support-Only Product Commander",
         "archetype_tags": [
-          "Affinity",
-          "Aristocrats",
-          "Tokens"
+          "official product row",
+          "Witherbloom Pestilence",
+          "essence studies",
+          "life and death exchange"
         ],
-        "why_this_fits": "Balances the college's 'wide' board (Pests) with powerful 'tall' spells via the Affinity for Creatures mechanic.",
-        "skip_if": "Your deck does not generate a high volume of small creature tokens.",
-        "gameplay_summary": "An 8-mana dragon that becomes very cheap with a board of Pests, then makes all your spells similarly affordable.",
+        "why_this_fits": "The official decklist identifies Dina, Essence Brewer as the face commander for Witherbloom Pestilence.",
+        "skip_if": "Use only for official product navigation or support-only deck exploration; do not use as metagame, popularity, legality, or lore proof.",
+        "gameplay_summary": "Use as official deck/product navigation only; no independent power, popularity, legality, or metagame claim is made.",
         "faction_identity_terms": [
-          "Essence Studies",
-          "Balance",
-          "Affinity"
+          "WITHERBLOOM",
+          "Witherbloom Pestilence",
+          "essence studies",
+          "life and death exchange"
         ],
+        "type_line": "Legendary Creature — Dryad Druid",
         "source_basis": {
-          "card_data": [
-            "TCGplayer Witherbloom Guide"
+          "source_ids": [
+            "src_wotc_planeswalkers_guide_strixhaven_2021",
+            "src_wotc_secrets_strixhaven_commander_decklists_20260401",
+            "src_scryfall_oracle_cards_local_strixhaven_20260613"
           ],
-          "lore_or_identity": [
-            "Planeswalker's Guide to Secrets of Strixhaven"
+          "claim_ids": [
+            "witherbloom_claim_0017"
           ],
-          "commander_product_relevance": [],
-          "existing_repo_claim_ids": [
-            "witherbloom_claim_0007",
-            "witherbloom_claim_0008",
-            "witherbloom_claim_0009",
-            "witherbloom_claim_0010",
-            "witherbloom_claim_0011",
-            "witherbloom_claim_0012",
-            "witherbloom_claim_0013",
-            "witherbloom_claim_0014",
-            "witherbloom_claim_0015",
-            "witherbloom_claim_0016"
-          ],
-          "existing_repo_source_ids": [
-            "src_mtg_stories_the_chains_that_bind_5673ab04",
-            "src_mtg_stories_episode_2_lessons_988edeb7",
-            "src_mtg_stories_episode_4_put_to_the_test_8c6b8d55",
-            "src_mtg_stories_down_to_the_lake_alone_520df369",
-            "src_mtg_stories_episode_1_class_is_in_session_bd3caf13",
-            "src_mtg_stories_episode_3_extracurriculars_39c7efc0",
-            "src_mtg_stories_a_silent_voice_calls_36854b19",
-            "src_mtg_stories_episode_1_penmanship_practice_f245144d",
-            "src_mtg_stories_episode_1_out_of_this_wood_200b2e5d",
-            "src_mtg_stories_homecoming_ce00b8af"
-          ]
+          "support_only": true,
+          "boundary": "Official product/card-data support only."
         },
-        "confidence": "High",
-        "caution_notes": [],
-        "type_line": "Legendary Creature — Elder Dragon"
+        "confidence": "High for product/card identity; support-only for recommendation texture.",
+        "caution_notes": [
+          "Does not prove canon lore or character biography.",
+          "Does not prove popularity, power level, legality, or metagame position."
+        ]
+      },
+      {
+        "exact_card_name": "Gorma, the Gullet",
+        "display_name": "Gorma, the Gullet",
+        "scryfall_uri": "https://scryfall.com/card/soc/3/gorma-the-gullet?utm_source=api",
+        "color_identity": [
+          "B",
+          "G"
+        ],
+        "recommendation_type": "Support-Only Product Commander",
+        "archetype_tags": [
+          "official product row",
+          "Witherbloom Pestilence",
+          "essence studies",
+          "life and death exchange"
+        ],
+        "why_this_fits": "The official decklist identifies Gorma, the Gullet as the featured commander for Witherbloom Pestilence.",
+        "skip_if": "Use only for official product navigation or support-only deck exploration; do not use as metagame, popularity, legality, or lore proof.",
+        "gameplay_summary": "Use as official deck/product navigation only; no independent power, popularity, legality, or metagame claim is made.",
+        "faction_identity_terms": [
+          "WITHERBLOOM",
+          "Witherbloom Pestilence",
+          "essence studies",
+          "life and death exchange"
+        ],
+        "type_line": "Legendary Creature — Pest Frog",
+        "source_basis": {
+          "source_ids": [
+            "src_wotc_planeswalkers_guide_strixhaven_2021",
+            "src_wotc_secrets_strixhaven_commander_decklists_20260401",
+            "src_scryfall_oracle_cards_local_strixhaven_20260613"
+          ],
+          "claim_ids": [
+            "witherbloom_claim_0017"
+          ],
+          "support_only": true,
+          "boundary": "Official product/card-data support only."
+        },
+        "confidence": "High for product/card identity; support-only for recommendation texture.",
+        "caution_notes": [
+          "Does not prove canon lore or character biography.",
+          "Does not prove popularity, power level, legality, or metagame position."
+        ]
       }
     ],
     "weird_stretch_commanders": [],
-    "budget_friendly_commanders": [
-      {
-        "exact_card_name": "Dina, Essence Brewer",
-        "display_name": "Dina, Essence Brewer",
-        "scryfall_uri": "https://scryfall.com/card/soc/1/dina-essence-brewer",
-        "edhrec_uri": "https://edhrec.com/commanders/dina-essence-brewer",
-        "color_identity": [
-          "B",
-          "G"
-        ],
-        "commander_legal": true,
-        "recommendation_type": "Budget Friendly",
-        "archetype_tags": [
-          "Life Gain",
-          "Aristocrats",
-          "Counters",
-          "Card Draw"
-        ],
-        "why_this_fits": "A 2026 upgrade to one of the college's most recognizable students, linking Witherbloom sacrifice to cards, life gain, and growth counters.",
-        "skip_if": "You want a high-impact combat commander; Dina is a value/combo engine.",
-        "gameplay_summary": "Rewards creature sacrifice with once-per-turn card draw, then turns another sacrificed creature into life gain and +1/+1 counters.",
-        "faction_identity_terms": [
-          "Essence Brewer",
-          "Pest"
-        ],
-        "source_basis": {
-          "card_data": [
-            "Secrets of Strixhaven Commander Decklists"
-          ],
-          "commander_product_relevance": [
-            "EDHREC Witherbloom Pestilence Guide"
-          ],
-          "lore_or_identity": [],
-          "existing_repo_claim_ids": [
-            "witherbloom_claim_0007",
-            "witherbloom_claim_0009",
-            "witherbloom_claim_0010",
-            "witherbloom_claim_0012",
-            "witherbloom_claim_0013",
-            "witherbloom_claim_0014",
-            "witherbloom_claim_0015",
-            "witherbloom_claim_0016"
-          ],
-          "existing_repo_source_ids": [
-            "src_mtg_stories_the_chains_that_bind_5673ab04",
-            "src_mtg_stories_episode_4_put_to_the_test_8c6b8d55",
-            "src_mtg_stories_down_to_the_lake_alone_520df369",
-            "src_mtg_stories_episode_3_extracurriculars_39c7efc0",
-            "src_mtg_stories_a_silent_voice_calls_36854b19",
-            "src_mtg_stories_episode_1_penmanship_practice_f245144d",
-            "src_mtg_stories_episode_1_out_of_this_wood_200b2e5d",
-            "src_mtg_stories_homecoming_ce00b8af"
-          ]
-        },
-        "confidence": "High",
-        "caution_notes": [],
-        "type_line": "Legendary Creature — Dryad Druid"
-      }
-    ],
+    "budget_friendly_commanders": [],
     "advanced_complexity_commanders": [],
     "iconic_lore_forward_commanders": [],
     "not_recommended_or_deprioritized": [
       {
-        "name": "Zimone and Dina",
-        "reason": "Off-color (Sultai) for pure Witherbloom College (UG/BG).",
-        "could_still_be_used_if": "Building a multi-faction theme deck.",
-        "confidence": "High"
+        "name": "Unverified dean/founder/story-corpus candidates",
+        "reason": "VM-378 keeps unverified leadership and discovery-only story candidates deferred unless direct source rows are promoted."
       }
     ],
     "archetype_lanes": [
       {
-        "lane_name": "Pestilential Sacrifice",
-        "description": "Generating a swarm of Pests and sacrificing creatures for card draw, life gain, counters, and attrition value.",
-        "recommended_for": "Players who enjoy 'death by a thousand cuts' and sacrifice engines.",
-        "skip_if": "You dislike token management or slow attrition wins.",
-        "example_commanders": [
+        "lane": "Witherbloom Pestilence product lane",
+        "commanders": [
           "Dina, Essence Brewer",
-          "Beledros Witherbloom"
+          "Gorma, the Gullet"
         ],
-        "supporting_identity_terms": [
-          "Pest",
-          "Sacrifice"
+        "support_only": true,
+        "source_ids": [
+          "src_wotc_secrets_strixhaven_commander_decklists_20260401"
         ],
-        "complexity": "Medium",
-        "budget_friendliness": "High"
+        "notes": "Official decklist support only; not lore, popularity, metagame, legality, or broad recommendation proof."
       }
     ],
     "link_targets": {
-      "edhrec_commander_index": "https://edhrec.com/commanders/witherbloom",
-      "mtgdecks_color_identity": "https://mtgdecks.net/Commander/BG",
-      "scryfall_commander_search": "https://scryfall.com/search?q=is%3Acommander+color%3DBG",
-      "archidekt_color_search": "https://archidekt.com/search/decks?colors=BG"
+      "official_decklist": "https://magic.wizards.com/en/news/announcements/secrets-of-strixhaven-commander-decklists",
+      "official_deck_gallery": "https://magic.wizards.com/en/products/secrets-of-strixhaven/card-image-gallery?cigproduct=sos-products-commander-deck-3-witherbloom",
+      "scryfall_commander_search": "https://scryfall.com/search?q=id%3Dbg+is%3Acommander+f%3Acommander",
+      "edhrec_commander_index": "",
+      "mtgdecks_color_identity": "",
+      "archidekt_color_search": ""
     },
     "merge_notes": {
-      "product_guidance_not_canon": true,
-      "commander_legality_validated": true,
-      "scryfall_card_pages_validated": true,
-      "do_not_use_as_claim_source": true
+      "support_boundary": "VM-378 surfaces Compass data only after official product and local card-data support rows were recorded.",
+      "deferred": "Story-corpus-only figures and unverified dean/founder statuses remain source-intake-needed."
     }
+  },
+  "deck_links": [
+    {
+      "fmt": "Commander",
+      "name": "Witherbloom Pestilence (Precon)",
+      "desc": "Official Secrets of Strixhaven Commander decklist reference for Dina, Essence Brewer and Gorma, the Gullet, with deck and gallery navigation for Witherbloom Pestilence.",
+      "mtgg": "https://magic.wizards.com/en/news/announcements/secrets-of-strixhaven-commander-decklists",
+      "edhrec": null,
+      "mtgd": null,
+      "gallery": "https://magic.wizards.com/en/products/secrets-of-strixhaven/card-image-gallery?cigproduct=sos-products-commander-deck-3-witherbloom"
+    }
+  ],
+  "research_links": {
+    "source_packet": "data/raw-factions/witherbloom/witherbloom.sources.json",
+    "official_strixhaven_guide_2021": "https://magic.wizards.com/en/news/feature/planeswalkers-guide-strixhaven-2021-04-01",
+    "official_secrets_strixhaven_commander_decklist": "https://magic.wizards.com/en/news/announcements/secrets-of-strixhaven-commander-decklists",
+    "official_deck_gallery": "https://magic.wizards.com/en/products/secrets-of-strixhaven/card-image-gallery?cigproduct=sos-products-commander-deck-3-witherbloom",
+    "scryfall_exact_commander_search": "https://scryfall.com/search?q=id%3Dbg+is%3Acommander+f%3Acommander",
+    "scryfall_flavor_anchor_context": "data/scryfall/raw/oracle-cards.json (Witherbloom Campus, Witherbloom Apprentice, Witherbloom Pledgemage)"
   }
 }

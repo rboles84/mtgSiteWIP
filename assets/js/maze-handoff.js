@@ -149,6 +149,35 @@ export function buildDossierMazePathEntries({
     ];
   }
 
+  if (normalizedIdentity === "wubrg") {
+    return [
+      {
+        label: "commanders that fit",
+        sidebarLabel: "Commanders that fit this reading",
+        hint: "WUBRG",
+        pathType: "commanders-that-fit",
+        query: "id=wubrg is:commander f:commander",
+        plainReadingQuery: `${readingName} commanders with exactly white-blue-black-red-green identity`
+      },
+      {
+        label: "cards that support this shape",
+        sidebarLabel: "Cards that support this shape",
+        hint: "five-color support",
+        pathType: "support-cards",
+        query: "id<=wubrg f:commander -is:commander -t:land (o:domain OR o:converge OR o:sunburst OR o:\"basic land type\" OR o:\"basic land types\" OR mana:{W}{U}{B}{R}{G} OR o:\"{W}{U}{B}{R}{G}\")",
+        plainReadingQuery: `${readingName} support cards in WUBRG Commander identity`
+      },
+      {
+        label: "flavor echoes",
+        sidebarLabel: "Flavor echoes",
+        hint: "coalition, domain, spectrum",
+        pathType: "flavor-echoes",
+        query: "id<=wubrg f:commander (ft:coalition OR ft:domain OR ft:spectrum OR ft:unite OR ft:world)",
+        plainReadingQuery: `${readingName} flavor and story echoes across all five colors`
+      }
+    ];
+  }
+
   const entries = [
     {
       label: "commanders that fit",

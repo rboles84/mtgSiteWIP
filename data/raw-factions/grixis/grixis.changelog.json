@@ -2,7 +2,7 @@
   "schema_version": "1.0.0",
   "faction_id": "grixis",
   "faction_name": "Grixis",
-  "last_updated": "2026-06-12",
+  "last_updated": "2026-06-13",
   "changes": [
     {
       "change_id": "grixis_change_003",
@@ -147,11 +147,46 @@
         "Keep UBR as metadata only, not a live key or alias."
       ],
       "notes": "VM-168 promotion metadata does not add lore sources, raw claims, Commander facts, evidence rows, route pages, Home cards, Maze routes, schema domain fields, or manual Supabase source edits."
+    },
+    {
+      "change_id": "grixis_change_vm379_source_depth_repair_20260613",
+      "change_type": "VM-379 Grixis Source Depth Repair",
+      "change_date": "2026-06-13",
+      "summary": "Promoted three local official Grixis story dimensions from verified Alara captures and added bounded support-only card figure/flavor anchors.",
+      "sources_added": [
+        "src_wotc_alara_plane_overview_20260530",
+        "src_wotc_all_cairns_of_jund_20151104",
+        "src_scryfall_oracle_cards_local_grixis_20260613"
+      ],
+      "sources_updated": [
+        "src_vm_grixis_lore_source_packet_20260530"
+      ],
+      "claims_added": [
+        "grixis_claim_0009",
+        "grixis_claim_0010",
+        "grixis_claim_0011"
+      ],
+      "claims_updated": [],
+      "claims_superseded": [],
+      "claims_contradicted": [],
+      "profile_fields_updated": [
+        "historical_timeline",
+        "key_figures",
+        "canonical_flavor_text",
+        "search_and_filter_metadata",
+        "data_quality",
+        "research_limitations"
+      ],
+      "placement_fields_updated": [],
+      "manual_review_required": [
+        "Vithia/Sedraxis, full vis economy, Bolas staging, Nefarox cults, and detailed Sedris/Malfegor/Thraximundar biographies remain source-intake-needed."
+      ],
+      "notes": "No public API, schema, route, Home preview, alias, hero, unrelated placement expansion, staging, or commit changes."
     }
   ],
   "audit_summary": {
     "raw_packet_created": true,
-    "raw_claim_count": 8,
+    "raw_claim_count": 11,
     "source_evidence_rows_used": [
       "GRIXIS-001",
       "GRIXIS-002",
@@ -160,9 +195,12 @@
       "GRIXIS-005",
       "GRIXIS-006",
       "GRIXIS-007",
-      "GRIXIS-008"
+      "GRIXIS-008",
+      "GRIXIS-030",
+      "GRIXIS-031",
+      "GRIXIS-032"
     ],
-    "support_only_rows_promoted": false,
+    "support_only_rows_promoted": true,
     "manual_fill_rows_promoted": false,
     "maestros_used_as_grixis_evidence": false,
     "raw_to_key_updated": true,

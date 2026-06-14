@@ -5,7 +5,7 @@
   "based_on_profile_version": "0.1.3",
   "faction_id": "colorless",
   "faction_name": "Colorless",
-  "last_updated": "2026-06-11",
+  "last_updated": "2026-06-13",
   "color_identity": {
     "colors": [],
     "future_expression_name": "COLORLESS",
@@ -352,6 +352,24 @@
       "named-card legality overreach",
       "current price or metagame advice"
     ],
-    "source_role": "VM-337 controlled dossier expansion over VM-324 intake and VM-334 lifecycle authority, with managed evidence/manual-fill boundaries and no public expansion approval."
+    "source_role": "VM-337 controlled dossier expansion over VM-324 intake and VM-334 lifecycle authority, with managed evidence/manual-fill boundaries and no public expansion approval.",
+    "pairs": [
+      {
+        "collision_id": "colorless_vs_wubrg",
+        "against": "WUBRG",
+        "separator": "Colorless is a chosen outside-WUBRG restriction; WUBRG is all five colors present and negotiated.",
+        "ask": "Is the appeal the absence and constraint of color, or every color having a role?",
+        "lateral_inhibition": true,
+        "canonical_pair_key": "COLORLESS/WUBRG",
+        "crucible_candidate": true,
+        "claim_ids": [
+          "colorless_claim_0002",
+          "colorless_claim_0005",
+          "colorless_claim_0008",
+          "wubrg_claim_0007"
+        ],
+        "placement_confusion_reproduced": "VM-369 reproduced WUBRG and COLORLESS as top two candidates after paired Hall answers, with a 0.0178 probability gap and needsCrucible=true before a pair-specific Crucible existed."
+      }
+    ]
   }
 }

@@ -2,7 +2,7 @@
   "schema_version": "1.0.0",
   "faction_id": "colorless",
   "faction_name": "Colorless",
-  "last_updated": "2026-06-11",
+  "last_updated": "2026-06-13",
   "audit_summary": {
     "raw_packet_created": true,
     "raw_claim_count": 8,
@@ -73,7 +73,7 @@
     "identity_layers_changed": true,
     "placement_model_changed": true,
     "schema_files_changed": false,
-    "status": "vm337_controlled_dossier_expansion",
+    "status": "vm372_support_only_controlled_richness",
     "placement_status": "controlled_placeable",
     "placement_ready_pass": "VM-326/VM-334",
     "colorless_future_planned_only": false,
@@ -84,9 +84,42 @@
     "live_pilot": true,
     "raw_hash_baseline_invalidated_by_vm324": true,
     "raw_hash_baseline_invalidated_by_vm337": true,
-    "next_review_gate_required": "Manual browser QA and separate approval before Home preview, public routes, public aliases, Commander Compass, or broad recommendations"
+    "next_review_gate_required": "Manual browser QA and separate approval before Home preview, public routes, public aliases, directory links, hero assets, schema/API expansion, broad recommendations, or additional Commander/deck/research expansion"
   },
   "changes": [
+    {
+      "change_id": "colorless_change_005",
+      "change_type": "VM-372 Colorless Support-Only Controlled Richness",
+      "change_date": "2026-06-13",
+      "summary": "Approved only support-only controlled Colorless commander_compass rows, one named official Eldrazi Unbound precon deck link, and source-context research links.",
+      "claims_added": [],
+      "claims_updated": [],
+      "profile_fields_updated": [
+        "commander_compass",
+        "deck_links",
+        "research_links"
+      ],
+      "manual_review_required": [
+        "Keep Commander rows support-only, with commander_legal intentionally null until separate source/governance approval.",
+        "Keep EDHREC, MTGDecks, broad browse links, recommendation links, directory links, Home preview, public routes, aliases, hero assets, and schema/API expansion suppressed."
+      ],
+      "notes": "VM-372 used current official Commander Masters decklist review and exact-name Scryfall id:c checks for Zhulodok, Void Gorger and Omarthis, Ghostfire Initiate. The local Colorless staples file was reviewed as context only and did not promote broad staple or best-card content."
+    },
+    {
+      "change_id": "colorless_change_004",
+      "change_type": "VM-369 COLORLESS/WUBRG Crucible Readiness",
+      "change_date": "2026-06-13",
+      "summary": "Recorded source-bound Colorless/WUBRG collision guidance for exactly one canonical placement Crucible without approving Colorless public richness or broader recommendation surfaces.",
+      "claims_added": [],
+      "claims_updated": [],
+      "placement_fields_updated": [
+        "collision_guidance"
+      ],
+      "manual_review_required": [
+        "Keep Colorless public route, Home preview, aliases, Commander Compass, deck links, research links, directory links, schema/API expansion, and broad recommendation behavior blocked unless a later card explicitly approves them."
+      ],
+      "notes": "VM-369 uses colorless_claim_0002, colorless_claim_0005, colorless_claim_0008, and wubrg_claim_0007 only as boundary support for the single canonical COLORLESS/WUBRG placement Crucible."
+    },
     {
       "change_id": "colorless_change_001",
       "change_type": "VM-311 Initial Non-Live Raw Packet",

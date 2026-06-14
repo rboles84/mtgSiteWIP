@@ -100,6 +100,7 @@ const DOSSIER_COLOR_IDENTITIES = new Map([
   ["DUNE", "brgw"],
   ["INK", "rgwu"],
   ["WITCH", "gwub"],
+  ["WUBRG", "wubrg"],
   ["COLORLESS", "c"]
 ]);
 const LIVE_FOUR_COLOR_DOSSIER_CONFIG = Object.freeze([
@@ -108,6 +109,7 @@ const LIVE_FOUR_COLOR_DOSSIER_CONFIG = Object.freeze([
   { key: "DUNE", canonicalIdentity: "brgw", displayName: "Dune" },
   { key: "INK", canonicalIdentity: "rgwu", displayName: "Ink" },
   { key: "WITCH", canonicalIdentity: "gwub", displayName: "Witch" },
+  { key: "WUBRG", canonicalIdentity: "wubrg", displayName: "Five-Color" },
 ]);
 const LIVE_FOUR_COLOR_DOSSIER_KEYS = new Set(LIVE_FOUR_COLOR_DOSSIER_CONFIG.map((entry) => entry.key));
 const DOSSIER_NAME_TO_KEY = new Map([
@@ -135,6 +137,9 @@ const DOSSIER_NAME_TO_KEY = new Map([
   ["INK", "INK"],
   ["INK ALTRUISM", "INK"],
   ["WITCH", "WITCH"],
+  ["WUBRG", "WUBRG"],
+  ["FIVE COLOR", "WUBRG"],
+  ["FIVE-COLOR", "WUBRG"],
   ["COLORLESS", "COLORLESS"],
 ]);
 const DOSSIER_COLOR_CODE_TO_KEY = new Map([
@@ -202,6 +207,7 @@ const DOSSIER_VISIBLE_IDENTITY_HINTS = new Map([
   ["DUNE", "Dune"],
   ["INK", "Ink"],
   ["WITCH", "Witch"],
+  ["WUBRG", "WUBRG"],
   ["COLORLESS", "C"],
 ]);
 const DOSSIER_DISPLAY_NAMES = new Map([
@@ -220,11 +226,12 @@ const DOSSIER_DISPLAY_NAMES = new Map([
   ["DUNE", "Dune"],
   ["INK", "Ink"],
   ["WITCH", "Witch"],
+  ["WUBRG", "Five-Color"],
   ["COLORLESS", "Colorless"],
 ]);
-const DOSSIER_NO_STRETCH_KEYS = new Set(["GRIXIS", "JUND", "NAYA", "ABZAN", "TEMUR", "SULTAI", "MARDU", "JESKAI", "YORE", "GLINT", "DUNE", "INK", "WITCH"]);
-const DOSSIER_QUERY_IDENTITIES = new Set(["rgw", "wbg", "gur", "bgu", "rwb", "urw", "wubr", "ubrg", "brgw", "rgwu", "gwub"]);
-const LIVE_FOUR_COLOR_EXACT_COMMANDER_QUERY_IDENTITIES = new Set(["wubr", "ubrg", "brgw", "rgwu", "gwub"]);
+const DOSSIER_NO_STRETCH_KEYS = new Set(["GRIXIS", "JUND", "NAYA", "ABZAN", "TEMUR", "SULTAI", "MARDU", "JESKAI", "YORE", "GLINT", "DUNE", "INK", "WITCH", "WUBRG"]);
+const DOSSIER_QUERY_IDENTITIES = new Set(["rgw", "wbg", "gur", "bgu", "rwb", "urw", "wubr", "ubrg", "brgw", "rgwu", "gwub", "wubrg"]);
+const LIVE_FOUR_COLOR_EXACT_COMMANDER_QUERY_IDENTITIES = new Set(["wubr", "ubrg", "brgw", "rgwu", "gwub", "wubrg"]);
 const MANA_SYMBOL_WORDS = {
   w: "white",
   u: "blue",
@@ -2038,7 +2045,7 @@ function identityWordsForOverride(identity) {
 }
 
 function canonicalizeLiveFourColorOperatorQuery(query) {
-  return String(query || "").replace(/(-?id(?:<=|=))([wubrg]{4})\b/ig, (full, prefix, code) => {
+  return String(query || "").replace(/(-?id(?:<=|=))([wubrg]{4,5})\b/ig, (full, prefix, code) => {
     const resolvedKey = resolveDossierActiveKey(code);
     if (!LIVE_FOUR_COLOR_DOSSIER_KEYS.has(resolvedKey)) {
       return full;

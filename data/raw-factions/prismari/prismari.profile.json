@@ -8,7 +8,7 @@
     "blue",
     "red"
   ],
-  "last_updated": "2026-05-13T21:14:06.308Z",
+  "last_updated": "2026-06-13",
   "profile": {
     "overview": "Prismari College is a blue-red college associated with Arcavios / Strixhaven.",
     "philosophy": "Magic and art are the same act when craft, emotion, spectacle, and elemental force become expression.",
@@ -38,8 +38,8 @@
     ]
   },
   "profile_version": "1.0.0",
-  "source_review_date": "2026-05-09",
-  "last_incremental_review": "2026-05-09",
+  "source_review_date": "2026-06-13",
+  "last_incremental_review": "2026-06-13",
   "core_identity": {
     "summary": "Prismari College is a blue-red college associated with Arcavios / Strixhaven.",
     "philosophy": "Magic and art are the same act when craft, emotion, spectacle, and elemental force become expression.",
@@ -89,70 +89,98 @@
   "historical_timeline": [],
   "key_figures": [
     {
-      "character_id": "char_rootha",
-      "name": "Rootha",
-      "role": "Named Prismari figure in archive evidence.",
-      "relationship_to_faction": "Appears in source-backed evidence for this faction.",
+      "character_id": "char_brodd_scaldbreath",
+      "name": "Brodd Scaldbreath",
+      "role": "Prismari professor emeritus quoted in the official Strixhaven guide.",
+      "relationship_to_faction": "Official guide speaker for Prismari texture; not a comprehensive leadership proof.",
       "claim_ids": [
-        "prismari_claim_0007",
-        "prismari_claim_0008"
+        "prismari_claim_001",
+        "prismari_claim_002",
+        "prismari_claim_003",
+        "prismari_claim_004"
       ],
       "source_ids": [
-        "src_mtg_stories_a_living_flame_92d3419c",
-        "src_mtg_stories_a_cry_of_magic_2e64d07c"
+        "src_wotc_planeswalkers_guide_strixhaven_2021"
       ],
-      "confidence": "Medium",
-      "notes": ""
+      "confidence": "High",
+      "notes": "VM-378 promotes only the official guide speaker role. Leadership details remain deferred."
     },
     {
-      "character_id": "char_uvilda",
-      "name": "Uvilda",
-      "role": "Named Prismari figure in archive evidence.",
-      "relationship_to_faction": "Appears in source-backed evidence for this faction.",
+      "character_id": "card_rootha_mastering_the_moment",
+      "name": "Rootha, Mastering the Moment",
+      "role": "Face commander for Prismari Artistry in the official Secrets of Strixhaven Commander decklist.",
+      "relationship_to_faction": "Support-only product/navigation anchor; not a lore biography or popularity claim.",
       "claim_ids": [
-        "prismari_claim_0008",
-        "prismari_claim_0010",
-        "prismari_claim_0015"
+        "prismari_claim_0017"
       ],
       "source_ids": [
-        "src_mtg_stories_a_cry_of_magic_2e64d07c",
-        "src_mtg_stories_episode_4_put_to_the_test_8c6b8d55",
-        "src_mtg_stories_episode_5_final_exam_6511a68e"
+        "src_wotc_secrets_strixhaven_commander_decklists_20260401",
+        "src_scryfall_oracle_cards_local_strixhaven_20260613"
       ],
-      "confidence": "Medium",
-      "notes": ""
+      "confidence": "High for product/card fact; support-only for lore and recommendations.",
+      "notes": "Product row can support deck availability, commander name, and navigation only."
+    },
+    {
+      "character_id": "card_muddle_the_ever_changing",
+      "name": "Muddle, the Ever-Changing",
+      "role": "Featured commander for Prismari Artistry in the official Secrets of Strixhaven Commander decklist.",
+      "relationship_to_faction": "Support-only product/navigation anchor; not a lore biography or popularity claim.",
+      "claim_ids": [
+        "prismari_claim_0017"
+      ],
+      "source_ids": [
+        "src_wotc_secrets_strixhaven_commander_decklists_20260401",
+        "src_scryfall_oracle_cards_local_strixhaven_20260613"
+      ],
+      "confidence": "High for product/card fact; support-only for lore and recommendations.",
+      "notes": "Product row can support deck availability, commander name, and navigation only."
     }
   ],
   "canonical_flavor_text": [
     {
-      "card_name": "Prismari College dossier anchor",
-      "set": "Arcavios / Strixhaven",
-      "short_excerpt_or_summary": "Magic and art are the same act when craft, emotion, spectacle, and elemental force become expression.",
+      "card_name": "Prismari Campus",
+      "set": "SOC",
+      "collector_number": "394",
+      "scryfall_uri": "https://scryfall.com/card/soc/394/prismari-campus?utm_source=api",
+      "short_excerpt_or_summary": "Campus flavor anchors Prismari to elemental arts and spellcraft as expression.",
       "is_exact_excerpt": false,
       "claim_ids": [
-        "prismari_claim_0007",
-        "prismari_claim_0008",
-        "prismari_claim_0009",
-        "prismari_claim_0010",
-        "prismari_claim_0011",
-        "prismari_claim_0012",
-        "prismari_claim_0013",
-        "prismari_claim_0014"
+        "prismari_claim_0018"
       ],
       "source_ids": [
-        "src_mtg_stories_a_living_flame_92d3419c",
-        "src_mtg_stories_a_cry_of_magic_2e64d07c",
-        "src_mtg_stories_the_chains_that_bind_5673ab04",
-        "src_mtg_stories_episode_4_put_to_the_test_8c6b8d55",
-        "src_mtg_stories_the_mentor_37155db5",
-        "src_mtg_stories_episode_1_class_is_in_session_bd3caf13",
-        "src_mtg_stories_episode_2_lessons_988edeb7",
-        "src_mtg_stories_episode_3_extracurriculars_39c7efc0",
-        "src_wotc_planeswalkers_guide_strixhaven_2021",
-        "src_wotc_strixhaven_product_page_2021",
-        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026"
+        "src_scryfall_oracle_cards_local_strixhaven_20260613"
       ],
-      "notes": "Derived from the faction's raw dossier copy so the flavor layer stays evidence-backed and reusable for Commander Compass."
+      "notes": "VM-378/379 card-flavor anchor verified through local Scryfall data; summary only, no long flavor text copied into public/generated surfaces."
+    },
+    {
+      "card_name": "Prismari Apprentice",
+      "set": "STX",
+      "collector_number": "213",
+      "scryfall_uri": "https://scryfall.com/card/stx/213/prismari-apprentice?utm_source=api",
+      "short_excerpt_or_summary": "Apprentice flavor anchors creative risk and expressive spectacle.",
+      "is_exact_excerpt": false,
+      "claim_ids": [
+        "prismari_claim_0018"
+      ],
+      "source_ids": [
+        "src_scryfall_oracle_cards_local_strixhaven_20260613"
+      ],
+      "notes": "VM-378/379 card-flavor anchor verified through local Scryfall data; summary only, no long flavor text copied into public/generated surfaces."
+    },
+    {
+      "card_name": "Prismari Pledgemage",
+      "set": "STX",
+      "collector_number": "215",
+      "scryfall_uri": "https://scryfall.com/card/stx/215/prismari-pledgemage?utm_source=api",
+      "short_excerpt_or_summary": "Pledgemage flavor anchors courage to share a creation.",
+      "is_exact_excerpt": false,
+      "claim_ids": [
+        "prismari_claim_0018"
+      ],
+      "source_ids": [
+        "src_scryfall_oracle_cards_local_strixhaven_20260613"
+      ],
+      "notes": "VM-378/379 card-flavor anchor verified through local Scryfall data; summary only, no long flavor text copied into public/generated surfaces."
     }
   ],
   "views_on_other_factions": [],
@@ -175,27 +203,37 @@
       "expression",
       "learn",
       "Prismari College",
-      "Uvilda",
       "Arcavios / Strixhaven",
       "spectacle",
       "mentor",
       "lesson",
       "Strixhaven: School of Mages",
-      "Secrets of Strixhaven"
+      "Secrets of Strixhaven",
+      "Prismari Artistry",
+      "Rootha, Mastering the Moment",
+      "Muddle, the Ever-Changing",
+      "Prismari Campus",
+      "Prismari Apprentice",
+      "Prismari Pledgemage"
     ],
     "story_corpus_paths_added": 10,
     "known_characters": [
-      "Rootha",
-      "Uvilda"
+      "Brodd Scaldbreath",
+      "Rootha, Mastering the Moment",
+      "Muddle, the Ever-Changing"
     ],
     "known_mechanics": [
       "spectacle",
       "mentor",
-      "lesson"
+      "lesson",
+      "elemental arts",
+      "magic-as-art expression",
+      "technique under emotion"
     ],
     "sets_or_story_arcs": [
       "Strixhaven: School of Mages",
-      "Secrets of Strixhaven"
+      "Secrets of Strixhaven",
+      "Secrets of Strixhaven Commander"
     ]
   },
   "data_quality": {
@@ -216,227 +254,212 @@
       ]
     },
     "raw_enrichment": {
-      "review_date": "2026-05-13T21:14:06.308Z",
-      "source_basis": "data/raw-factions claims.json + sources.json",
-      "key_figures_added": 0,
+      "review_date": "2026-06-13",
+      "source_basis": "VM-378 official guide + official Secrets of Strixhaven Commander decklist + local Scryfall card-data anchors",
+      "key_figures_added": 3,
       "historical_timeline_entries": 0,
-      "canonical_flavor_text_entries": 1,
+      "canonical_flavor_text_entries": 3,
       "relationship_entries": 0,
-      "known_characters": 2,
-      "known_mechanics": 3,
-      "story_arcs": 2
+      "known_characters": 3,
+      "known_mechanics": 6,
+      "story_arcs": 3,
+      "support_only_surfaces": [
+        "commander_compass",
+        "deck_links",
+        "research_links"
+      ],
+      "deferred_claims": "Discovery-only story figures, deans/founders, and long flavor text remain source-intake-needed."
     }
   },
   "research_limitations": [
-    "MTG-Stories repository entries are treated as searchable archive copies; official Wizards pages should remain the primary canon authority when available."
+    "MTG-Stories repository entries are treated as searchable archive copies; official Wizards pages should remain the primary canon authority when available.",
+    "VM-378 promotes only official guide speakers, official product deck rows, and local Scryfall card/flavor anchors for public richness.",
+    "Discovery-only story-corpus figures, dean/founder statuses, and long flavor text remain source-intake-needed."
   ],
   "commander_compass": {
     "schema_version": "1.0.0",
-    "source_research_file": "prismari.commander_compass.research.json",
-    "last_reviewed": "2026-05-14",
-    "review_status": "reviewed_not_canonical_lore",
-    "recommendation_philosophy": "Priority given to 2026 Elder Dragons as flagship 'Native Fit' options, with 2021 staples as 'Iconic' or 'Advanced' pivots.",
+    "source_research_file": "docs/research/VM-378-379-380_source-intake.md",
+    "last_reviewed": "2026-06-13",
+    "review_status": "support_only_product_navigation",
+    "recommendation_philosophy": "Use Prismari Artistry Commander data only as official product/navigation support for exact Blue-Red Strixhaven commanders. This does not establish lore, popularity, metagame, legality, or canon identity claims.",
     "identity_basis": {
       "owned_themes": [
-        "Prismari is the college of elemental arts. For them, magic is performance and self-expression. Mechanically, they focus on high-mana instants and sorceries, Treasure generation, and Storm."
+        "elemental arts",
+        "magic-as-art expression",
+        "technique under emotion",
+        "large spell spectacle"
       ],
       "allowed_phrases": [
-        "prismari college",
-        "prismari mage"
+        "Prismari product support",
+        "College of Elemental Arts",
+        "spellcraft as expression"
       ],
       "avoid_or_contrast_phrases": [
-        "Ravnica guilds",
-        "generic mana"
+        "Prismari dean claims",
+        "Galazeth founder status",
+        "generic Izzet spellslinger as Prismari proof"
       ],
       "adjacent_overlap_notes": [
-        "Shares spell-focused identity with Prismari/Quandrix but with different mechanical execution."
+        "Product commanders are support surfaces only; placement still follows the official college guide and raw placement claims.",
+        "Deck/product language should not override college lore boundaries or source-role classifications."
       ],
       "supporting_claim_ids": [
-        "prismari_claim_0007",
-        "prismari_claim_0008",
-        "prismari_claim_0009",
-        "prismari_claim_0010",
-        "prismari_claim_0011",
-        "prismari_claim_0012",
-        "prismari_claim_0013",
-        "prismari_claim_0014",
-        "prismari_claim_0015"
+        "prismari_claim_001",
+        "prismari_claim_002",
+        "prismari_claim_003",
+        "prismari_claim_004",
+        "prismari_claim_006",
+        "prismari_claim_0017",
+        "prismari_claim_0018"
       ],
       "supporting_source_ids": [
-        "src_mtg_stories_a_living_flame_92d3419c",
-        "src_mtg_stories_a_cry_of_magic_2e64d07c",
-        "src_mtg_stories_the_chains_that_bind_5673ab04",
-        "src_mtg_stories_episode_4_put_to_the_test_8c6b8d55",
-        "src_mtg_stories_the_mentor_37155db5",
-        "src_mtg_stories_episode_1_class_is_in_session_bd3caf13",
-        "src_mtg_stories_episode_2_lessons_988edeb7",
-        "src_mtg_stories_episode_3_extracurriculars_39c7efc0",
-        "src_mtg_stories_episode_5_final_exam_6511a68e"
+        "src_wotc_planeswalkers_guide_strixhaven_2021",
+        "src_wotc_secrets_strixhaven_commander_decklists_20260401",
+        "src_scryfall_oracle_cards_local_strixhaven_20260613"
       ]
     },
     "native_fit_commanders": [
       {
-        "exact_card_name": "Prismari, the Inspiration",
-        "display_name": "Prismari, the Inspiration",
-        "scryfall_uri": "https://scryfall.com/card/sos/212/prismari-the-inspiration",
-        "edhrec_uri": "https://edhrec.com/commanders/prismari-the-inspiration",
+        "exact_card_name": "Rootha, Mastering the Moment",
+        "display_name": "Rootha, Mastering the Moment",
+        "scryfall_uri": "https://scryfall.com/card/soc/8/rootha-mastering-the-moment?utm_source=api",
         "color_identity": [
           "R",
           "U"
         ],
-        "commander_legal": true,
-        "recommendation_type": "Native Fit",
+        "recommendation_type": "Support-Only Product Commander",
         "archetype_tags": [
-          "Storm",
-          "Spellslinger",
-          "Big Mana"
+          "official product row",
+          "Prismari Artistry",
+          "elemental arts",
+          "magic-as-art expression"
         ],
-        "why_this_fits": "The 2026 Elder Dragon that grants Storm to all instants and sorceries, the ultimate expression of Prismari flair.",
-        "skip_if": "You find long, non-deterministic turns (Storm) frustrating for the table.",
-        "gameplay_summary": "A 7/7 flyer with high protection (Ward 5 life) that turns every spell into a game-ending chain.",
+        "why_this_fits": "The official decklist identifies Rootha, Mastering the Moment as the face commander for Prismari Artistry.",
+        "skip_if": "Use only for official product navigation or support-only deck exploration; do not use as metagame, popularity, legality, or lore proof.",
+        "gameplay_summary": "Use as official deck/product navigation only; no independent power, popularity, legality, or metagame claim is made.",
         "faction_identity_terms": [
-          "Inspiration",
-          "Elemental Arts",
-          "Storm"
+          "PRISMARI",
+          "Prismari Artistry",
+          "elemental arts",
+          "magic-as-art expression"
         ],
+        "type_line": "Legendary Creature — Orc Sorcerer",
         "source_basis": {
-          "card_data": [
-            "Draftsim Prismari Guide"
+          "source_ids": [
+            "src_wotc_planeswalkers_guide_strixhaven_2021",
+            "src_wotc_secrets_strixhaven_commander_decklists_20260401",
+            "src_scryfall_oracle_cards_local_strixhaven_20260613"
           ],
-          "lore_or_identity": [
-            "The Legends of Secrets of Strixhaven"
+          "claim_ids": [
+            "prismari_claim_0017"
           ],
-          "commander_product_relevance": [],
-          "existing_repo_claim_ids": [
-            "prismari_claim_0007",
-            "prismari_claim_0008",
-            "prismari_claim_0009",
-            "prismari_claim_0010",
-            "prismari_claim_0011",
-            "prismari_claim_0012",
-            "prismari_claim_0013",
-            "prismari_claim_0014",
-            "prismari_claim_0015"
-          ],
-          "existing_repo_source_ids": [
-            "src_mtg_stories_a_living_flame_92d3419c",
-            "src_mtg_stories_a_cry_of_magic_2e64d07c",
-            "src_mtg_stories_the_chains_that_bind_5673ab04",
-            "src_mtg_stories_episode_4_put_to_the_test_8c6b8d55",
-            "src_mtg_stories_the_mentor_37155db5",
-            "src_mtg_stories_episode_1_class_is_in_session_bd3caf13",
-            "src_mtg_stories_episode_2_lessons_988edeb7",
-            "src_mtg_stories_episode_3_extracurriculars_39c7efc0",
-            "src_mtg_stories_episode_5_final_exam_6511a68e"
-          ]
+          "support_only": true,
+          "boundary": "Official product/card-data support only."
         },
-        "confidence": "High",
+        "confidence": "High for product/card identity; support-only for recommendation texture.",
         "caution_notes": [
-          "High mana cost (7) makes early-game ramp and protection essential."
+          "Does not prove canon lore or character biography.",
+          "Does not prove popularity, power level, legality, or metagame position."
+        ]
+      },
+      {
+        "exact_card_name": "Muddle, the Ever-Changing",
+        "display_name": "Muddle, the Ever-Changing",
+        "scryfall_uri": "https://scryfall.com/card/soc/5/muddle-the-ever-changing?utm_source=api",
+        "color_identity": [
+          "R",
+          "U"
         ],
-        "type_line": "Legendary Creature — Elder Dragon"
+        "recommendation_type": "Support-Only Product Commander",
+        "archetype_tags": [
+          "official product row",
+          "Prismari Artistry",
+          "elemental arts",
+          "magic-as-art expression"
+        ],
+        "why_this_fits": "The official decklist identifies Muddle, the Ever-Changing as the featured commander for Prismari Artistry.",
+        "skip_if": "Use only for official product navigation or support-only deck exploration; do not use as metagame, popularity, legality, or lore proof.",
+        "gameplay_summary": "Use as official deck/product navigation only; no independent power, popularity, legality, or metagame claim is made.",
+        "faction_identity_terms": [
+          "PRISMARI",
+          "Prismari Artistry",
+          "elemental arts",
+          "magic-as-art expression"
+        ],
+        "type_line": "Legendary Creature — Elemental Otter Shapeshifter",
+        "source_basis": {
+          "source_ids": [
+            "src_wotc_planeswalkers_guide_strixhaven_2021",
+            "src_wotc_secrets_strixhaven_commander_decklists_20260401",
+            "src_scryfall_oracle_cards_local_strixhaven_20260613"
+          ],
+          "claim_ids": [
+            "prismari_claim_0017"
+          ],
+          "support_only": true,
+          "boundary": "Official product/card-data support only."
+        },
+        "confidence": "High for product/card identity; support-only for recommendation texture.",
+        "caution_notes": [
+          "Does not prove canon lore or character biography.",
+          "Does not prove popularity, power level, legality, or metagame position."
+        ]
       }
     ],
     "weird_stretch_commanders": [],
     "budget_friendly_commanders": [],
-    "advanced_complexity_commanders": [
-      {
-        "exact_card_name": "Veyran, Voice of Duality",
-        "display_name": "Veyran, Voice of Duality",
-        "scryfall_uri": "https://scryfall.com/card/soc/337/veyran-voice-of-duality",
-        "edhrec_uri": "https://edhrec.com/commanders/veyran-voice-of-duality",
-        "color_identity": [
-          "R",
-          "U"
-        ],
-        "commander_legal": true,
-        "recommendation_type": "Advanced / High Complexity",
-        "archetype_tags": [
-          "Magecraft",
-          "Value Engine"
-        ],
-        "why_this_fits": "A strong Prismari product fit for expressive spell turns: casting and copying instants or sorceries makes the performance louder and the payoff repeat.",
-        "skip_if": "You want a simple board state; Veyran's trigger tracking can become overwhelming.",
-        "gameplay_summary": "Grows from magecraft when you cast or copy instants and sorceries, and doubles your permanents' cast/copy-triggered abilities from those spells.",
-        "faction_identity_terms": [
-          "Magecraft",
-          "Duality"
-        ],
-        "source_basis": {
-          "card_data": [
-            "Scryfall C21 #3"
-          ],
-          "commander_product_relevance": [
-            "EDHREC Top Izzet Commanders"
-          ],
-          "lore_or_identity": [],
-          "existing_repo_claim_ids": [
-            "prismari_claim_0007",
-            "prismari_claim_0008",
-            "prismari_claim_0009",
-            "prismari_claim_0010",
-            "prismari_claim_0011",
-            "prismari_claim_0012",
-            "prismari_claim_0013",
-            "prismari_claim_0014",
-            "prismari_claim_0015"
-          ],
-          "existing_repo_source_ids": [
-            "src_mtg_stories_a_living_flame_92d3419c",
-            "src_mtg_stories_a_cry_of_magic_2e64d07c",
-            "src_mtg_stories_the_chains_that_bind_5673ab04",
-            "src_mtg_stories_episode_4_put_to_the_test_8c6b8d55",
-            "src_mtg_stories_the_mentor_37155db5",
-            "src_mtg_stories_episode_1_class_is_in_session_bd3caf13",
-            "src_mtg_stories_episode_2_lessons_988edeb7",
-            "src_mtg_stories_episode_3_extracurriculars_39c7efc0",
-            "src_mtg_stories_episode_5_final_exam_6511a68e"
-          ]
-        },
-        "confidence": "High",
-        "caution_notes": [],
-        "type_line": "Legendary Creature — Efreet Wizard"
-      }
-    ],
+    "advanced_complexity_commanders": [],
     "iconic_lore_forward_commanders": [],
     "not_recommended_or_deprioritized": [
       {
-        "name": "Zimone and Dina",
-        "reason": "Off-color (Sultai) for pure Prismari College (UG/BG).",
-        "could_still_be_used_if": "Building a multi-faction theme deck.",
-        "confidence": "High"
+        "name": "Unverified dean/founder/story-corpus candidates",
+        "reason": "VM-378 keeps unverified leadership and discovery-only story candidates deferred unless direct source rows are promoted."
       }
     ],
     "archetype_lanes": [
       {
-        "lane_name": "Grand Performance (Storm)",
-        "description": "Winning through a single, explosive turn of casting numerous spells.",
-        "recommended_for": "Spellslinger enthusiasts and combo players.",
-        "skip_if": "You prefer creature-based combat or slow control.",
-        "example_commanders": [
-          "Prismari, the Inspiration",
-          "Zaffai, Thunder Collector"
+        "lane": "Prismari Artistry product lane",
+        "commanders": [
+          "Rootha, Mastering the Moment",
+          "Muddle, the Ever-Changing"
         ],
-        "supporting_identity_terms": [
-          "Performance",
-          "Storm",
-          "Treasure"
+        "support_only": true,
+        "source_ids": [
+          "src_wotc_secrets_strixhaven_commander_decklists_20260401"
         ],
-        "complexity": "High",
-        "budget_friendliness": "Medium"
+        "notes": "Official decklist support only; not lore, popularity, metagame, legality, or broad recommendation proof."
       }
     ],
     "link_targets": {
-      "edhrec_commander_index": "https://edhrec.com/commanders/prismari",
-      "mtgdecks_color_identity": "https://mtgdecks.net/Commander/UR",
-      "scryfall_commander_search": "https://scryfall.com/search?q=is%3Acommander+color%3DUR",
-      "archidekt_color_search": "https://archidekt.com/search/decks?colors=UR"
+      "official_decklist": "https://magic.wizards.com/en/news/announcements/secrets-of-strixhaven-commander-decklists",
+      "official_deck_gallery": "https://magic.wizards.com/en/products/secrets-of-strixhaven/card-image-gallery?cigproduct=sos-products-commander-deck-4-prismari",
+      "scryfall_commander_search": "https://scryfall.com/search?q=id%3Dur+is%3Acommander+f%3Acommander",
+      "edhrec_commander_index": "",
+      "mtgdecks_color_identity": "",
+      "archidekt_color_search": ""
     },
     "merge_notes": {
-      "product_guidance_not_canon": true,
-      "commander_legality_validated": true,
-      "scryfall_card_pages_validated": true,
-      "do_not_use_as_claim_source": true
+      "support_boundary": "VM-378 surfaces Compass data only after official product and local card-data support rows were recorded.",
+      "deferred": "Story-corpus-only figures and unverified dean/founder statuses remain source-intake-needed."
     }
+  },
+  "deck_links": [
+    {
+      "fmt": "Commander",
+      "name": "Prismari Artistry (Precon)",
+      "desc": "Official Secrets of Strixhaven Commander decklist reference for Rootha, Mastering the Moment and Muddle, the Ever-Changing, with deck and gallery navigation for Prismari Artistry.",
+      "mtgg": "https://magic.wizards.com/en/news/announcements/secrets-of-strixhaven-commander-decklists",
+      "edhrec": null,
+      "mtgd": null,
+      "gallery": "https://magic.wizards.com/en/products/secrets-of-strixhaven/card-image-gallery?cigproduct=sos-products-commander-deck-4-prismari"
+    }
+  ],
+  "research_links": {
+    "source_packet": "data/raw-factions/prismari/prismari.sources.json",
+    "official_strixhaven_guide_2021": "https://magic.wizards.com/en/news/feature/planeswalkers-guide-strixhaven-2021-04-01",
+    "official_secrets_strixhaven_commander_decklist": "https://magic.wizards.com/en/news/announcements/secrets-of-strixhaven-commander-decklists",
+    "official_deck_gallery": "https://magic.wizards.com/en/products/secrets-of-strixhaven/card-image-gallery?cigproduct=sos-products-commander-deck-4-prismari",
+    "scryfall_exact_commander_search": "https://scryfall.com/search?q=id%3Dur+is%3Acommander+f%3Acommander",
+    "scryfall_flavor_anchor_context": "data/scryfall/raw/oracle-cards.json (Prismari Campus, Prismari Apprentice, Prismari Pledgemage)"
   }
 }

@@ -3,8 +3,8 @@
   "faction_id": "grixis",
   "faction_name": "Grixis",
   "source_review_date": "2026-05-30",
-  "last_updated": "2026-05-30",
-  "claim_count": 8,
+  "last_updated": "2026-06-13",
+  "claim_count": 11,
   "claims": [
     {
       "claim_id": "grixis_claim_0001",
@@ -135,10 +135,58 @@
       ],
       "confidence": "High",
       "notes": "Use this as a false-positive guardrail against generic villain coding, not as a new lore claim."
+    },
+    {
+      "claim_id": "grixis_claim_0009",
+      "faction_id": "grixis",
+      "claim_type": "story_world_texture",
+      "statement": "The official Alara plane overview describes Grixis as an undead-infested hellscape among the five formerly separated shards.",
+      "canon_status": "Official story-facing plane overview",
+      "source_ids": [
+        "src_vm_grixis_lore_source_packet_20260530",
+        "src_wotc_alara_plane_overview_20260530"
+      ],
+      "evidence_rows": [
+        "GRIXIS-031"
+      ],
+      "confidence": "High",
+      "notes": "Broad texture only. Does not promote detailed geography, society, Vithia, Sedraxis, vis economy, or figure biographies."
+    },
+    {
+      "claim_id": "grixis_claim_0010",
+      "faction_id": "grixis",
+      "claim_type": "story_world_magic",
+      "statement": "All the Cairns of Jund says necromancy was unknown on Jund before the Conflux and was the sole province of the hellish shard of Grixis.",
+      "canon_status": "Official story capture",
+      "source_ids": [
+        "src_vm_grixis_lore_source_packet_20260530",
+        "src_wotc_all_cairns_of_jund_20151104"
+      ],
+      "evidence_rows": [
+        "GRIXIS-030"
+      ],
+      "confidence": "High",
+      "notes": "Supports a narrow pre-Conflux necromancy dimension only. Do not expand into a full vis/unearth metaphysics without stronger sources."
+    },
+    {
+      "claim_id": "grixis_claim_0011",
+      "faction_id": "grixis",
+      "claim_type": "story_world_event",
+      "statement": "The official Alara plane overview says that after the shards converged, hordes of Grixis undead assaulted other shards to maim, enslave, and drain life energy.",
+      "canon_status": "Official story-facing plane overview",
+      "source_ids": [
+        "src_vm_grixis_lore_source_packet_20260530",
+        "src_wotc_alara_plane_overview_20260530"
+      ],
+      "evidence_rows": [
+        "GRIXIS-032"
+      ],
+      "confidence": "High",
+      "notes": "Supports a broad post-Conflux assault/life-drain dimension. More granular geography, refugee movement, and campaign chronology remain source-intake-needed."
     }
   ],
   "claim_quality_summary": {
-    "raw_claims_added": 8,
+    "raw_claims_added": 11,
     "source_evidence_rows_used": [
       "GRIXIS-001",
       "GRIXIS-002",
@@ -147,11 +195,14 @@
       "GRIXIS-005",
       "GRIXIS-006",
       "GRIXIS-007",
-      "GRIXIS-008"
+      "GRIXIS-008",
+      "GRIXIS-030",
+      "GRIXIS-031",
+      "GRIXIS-032"
     ],
     "raw_claim_id_policy": "Raw claims use grixis_claim_0001-style IDs. VM-164 GRIXIS row IDs remain evidence references only.",
     "claim_floor": "Promoted/evidence-bound VM-164 identity and design rows only.",
-    "row_scope_note": "Rows outside GRIXIS-001 through GRIXIS-008 were not promoted into this claims packet.",
+    "row_scope_note": "Rows GRIXIS-030 through GRIXIS-032 were promoted in VM-379 from local official captures. Vithia/Sedraxis, full vis economy, Bolas staging, Nefarox cults, and detailed figure biographies remain source-intake-needed.",
     "overall_confidence": "High for narrow color-philosophy and design-center claims; not sufficient for detailed lore."
   }
 }

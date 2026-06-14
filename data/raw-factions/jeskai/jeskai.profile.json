@@ -11,10 +11,10 @@
     "White"
   ],
   "color_pair_or_group": "URW/WUR/RWU/UWR/RUW/WRU wedge metadata only",
-  "source_review_date": "2026-06-05",
+  "source_review_date": "2026-06-13",
   "last_full_review": "2026-05-31",
-  "last_incremental_review": "2026-06-12",
-  "last_updated": "2026-06-12",
+  "last_incremental_review": "2026-06-13",
+  "last_updated": "2026-06-13",
   "site_surface": {
     "display_name": "Jeskai Way",
     "short_summary": "Jeskai Way is a source-authored, review-gated Tarkir wedge packet for Blue-centered cunning, disciplined martial practice, Red action, White structure, Khans-era monasteries and Ways, Narset and Shu Yun timeline boundaries, Ojutai discontinuity, and modern Dragonstorm revival boundaries.",
@@ -357,19 +357,25 @@
     "placement_eligible": true,
     "preview_eligible": false,
     "live_pilot": true,
-    "notes": "VM-299 repairs Jeskai source durability after VM-234 live promotion and VM-294 generated-authoring contamination. The durable raw claim floor remains ten approved raw claims; manual fill required remains for exact mechanics, complete six-fire doctrine, complete three-Ways hierarchy, Narset biography, Shu Yun biography, and unsupported Ojutai continuity."
+    "notes": "VM-299 repairs Jeskai source durability after VM-234 live promotion and VM-294 generated-authoring contamination. The durable raw claim floor remains ten approved raw claims; manual fill required remains for exact mechanics, complete six-fire doctrine, complete three-Ways hierarchy, Narset biography, Shu Yun biography, and unsupported Ojutai continuity.",
+    "claim_count": 11,
+    "support_material_policy": "Support-only material may appear only in bounded review notes. VM-380 official decklist rows support only product/deck navigation, face/featured commander names, and gallery links.",
+    "known_limitations": [
+      "Commander product rows are support-only and do not prove Tarkir canon, popularity, metagame, legality, or placement evidence."
+    ]
   },
   "research_limitations": [
     "VM-229 remains the sole claim-bearing Jeskai evidence packet.",
     "VM-230 and VM-231 architecture sections are shaping-only and not raw-claim evidence.",
     "Commander rows are support-only and not lore proof.",
     "Seed artifacts and generated HTML are not raw-claim evidence.",
-    "Manual-fill rows remain gaps rather than raw claims."
+    "Manual-fill rows remain gaps rather than raw claims.",
+    "VM-380 official decklist rows are support-only product/navigation rows, not Tarkir canon proof."
   ],
   "commander_compass": {
     "schema_version": "1.0.0",
     "source_research_file": "docs/research/vox_mana_second_commander_recommendations_enhanced.jsonl",
-    "last_reviewed": "2026-06-12",
+    "last_reviewed": "2026-06-13",
     "review_status": "support_only_live_pilot_curation",
     "recommendation_philosophy": "Use Jeskai Commander guidance as product/operator support only: exact White/Blue/Red deck rows can express disciplined sequencing, spellslinger/prowess turns, artifact and counter engines, copy-token creativity, suspend or time-counter planning, planeswalker/proliferate value, Human combat, and convoke-style coordinated casting. These rows do not create Jeskai canon, Tarkir lore proof, Commander legality proof, placement evidence, or public color-code aliases.",
     "identity_basis": {
@@ -404,12 +410,14 @@
       "supporting_claim_ids": [
         "jeskai_claim_0002",
         "jeskai_claim_0003",
-        "jeskai_claim_0010"
+        "jeskai_claim_0010",
+        "jeskai_claim_0011"
       ],
       "supporting_source_ids": [
         "src_vm_second_commander_recommendations_wur_urw",
         "src_vm_jeskai_manual_fill_20260531",
-        "src_vm_jeskai_identity_md_20260531"
+        "src_vm_jeskai_identity_md_20260531",
+        "src_wotc_tarkir_dragonstorm_commander_decklists_20250325"
       ]
     },
     "native_fit_commanders": [
@@ -524,11 +532,32 @@
       "edhrec_commander_index": "https://edhrec.com/commanders/jeskai",
       "mtgdecks_color_identity": "https://mtgdecks.net/Commander/jeskai-commanders",
       "scryfall_commander_search": "https://scryfall.com/search?q=id%3Durw+is%3Acommander+f%3Acommander",
-      "archidekt_color_search": "https://archidekt.com/search/decks?colors=URW&deckFormat=3&orderBy=-updatedAt&page=1"
+      "archidekt_color_search": "https://archidekt.com/search/decks?colors=URW&deckFormat=3&orderBy=-updatedAt&page=1",
+      "official_decklist": "https://magic.wizards.com/en/news/announcements/tarkir-dragonstorm-commander-decklists",
+      "official_deck_gallery": "https://magic.wizards.com/en/products/tarkir-dragonstorm/card-image-gallery?cigproduct=tdm-products-jeskai-striker"
     },
     "merge_notes": {
       "support_only_boundary": "Commander/deck/operator material remains support texture only and must not be used as lore, canon, or placement proof.",
-      "deck_links_status": "External index links are provided as Commander support navigation targets only, not evidence rows."
+      "deck_links_status": "External index links are provided as Commander support navigation targets only, not evidence rows.",
+      "vm380_official_product_boundary": "Top-level deck/research links added from the official Tarkir: Dragonstorm decklist; existing Compass boundaries remain support-only."
     }
+  },
+  "deck_links": [
+    {
+      "fmt": "Commander",
+      "name": "Jeskai Striker (Precon)",
+      "desc": "Official Tarkir: Dragonstorm Commander decklist reference for Shiko and Narset, Unified and Elsha, Threefold Master, with deck and gallery navigation for Jeskai Striker.",
+      "mtgg": "https://magic.wizards.com/en/news/announcements/tarkir-dragonstorm-commander-decklists",
+      "edhrec": null,
+      "mtgd": null,
+      "gallery": "https://magic.wizards.com/en/products/tarkir-dragonstorm/card-image-gallery?cigproduct=tdm-products-jeskai-striker"
+    }
+  ],
+  "research_links": {
+    "source_packet": "data/raw-factions/jeskai/jeskai.sources.json",
+    "official_tarkir_dragonstorm_commander_decklist": "https://magic.wizards.com/en/news/announcements/tarkir-dragonstorm-commander-decklists",
+    "official_deck_gallery": "https://magic.wizards.com/en/products/tarkir-dragonstorm/card-image-gallery?cigproduct=tdm-products-jeskai-striker",
+    "scryfall_exact_commander_search": "https://scryfall.com/search?q=id%3Dwur+is%3Acommander+f%3Acommander",
+    "support_boundary": "Official product/deck navigation only; not Tarkir canon proof."
   }
 }

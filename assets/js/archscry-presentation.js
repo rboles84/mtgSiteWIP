@@ -28,6 +28,7 @@ const LIVE_FOUR_COLOR_MAZE_LABELS = new Map([
   ["DUNE", "Dune"],
   ["INK", "Ink"],
   ["WITCH", "Witch"],
+  ["WUBRG", "Five-Color"],
 ]);
 const DOSSIER_MAZE_HINTS = new Map([
   ["JUND", "Jund"],
@@ -42,12 +43,13 @@ const DOSSIER_MAZE_HINTS = new Map([
   ["DUNE", "Dune"],
   ["INK", "Ink"],
   ["WITCH", "Witch"],
+  ["WUBRG", "WUBRG"],
 ]);
 const MAZE_NO_STRETCH_KEYS = new Set([
   "GRIXIS", "JUND", "NAYA", "ABZAN", "TEMUR", "SULTAI", "MARDU", "JESKAI",
-  "YORE", "GLINT", "DUNE", "INK", "WITCH",
+  "YORE", "GLINT", "DUNE", "INK", "WITCH", "WUBRG",
 ]);
-const LIVE_FOUR_COLOR_EXACT_COMMANDER_QUERY_IDENTITIES = new Set(["wubr", "ubrg", "brgw", "rgwu", "gwub"]);
+const LIVE_FOUR_COLOR_EXACT_COMMANDER_QUERY_IDENTITIES = new Set(["wubr", "ubrg", "brgw", "rgwu", "gwub", "wubrg"]);
 
 export const FACTION_PRESENTATION = {
   W: {
@@ -482,6 +484,20 @@ export const FACTION_PRESENTATION = {
     direction: "moves toward strict outside-WUBRG construction, artifact engines, big mana, and false-positive discipline",
     selfCheck: "This may fit if you want the deck-building constraint itself to matter, with Wastes and true {C} serving the plan instead of generic costs or five-color Eldrazi blurring it.",
   },
+  WUBRG: {
+    shortName: "Five-Color",
+    tableRole: "The full-spectrum integrator",
+    opponentRead: "Opponents feel the deck as breadth under discipline: every color is available, but each tool still has to justify its place.",
+    emotionalPressure: "Pressure through coalition, full access, mana discipline, and the sense that every shortcut gets asked why it belongs.",
+    loreRole: "Vox Mana Five-Color expression for all five colors present, coalition, synthesis, and strict separation from official-faction, goodstuff-only, Colorless, and four-color leakage",
+    mechanics: "Domain, converge, sunburst, WUBRG costs or activations, multicolor payoffs, basic-land-type checks, and mana infrastructure as support texture, not unverified card claims",
+    tableExperience: "full color access, deliberate fixing, many kinds of answers, and a plan that keeps breadth from becoming drift",
+    thesis: "Five-Color read your answers as a table where all five voices were present. White asked for structure, Blue for understanding, Black for agency, Red for motion, and Green for belonging.",
+    closeReason: "all five colors present, full-spectrum integration, coalition, source-bound breadth, and tradeoffs that keep access from becoming goodstuff",
+    forkQuestion: "What does every color contribute that the others cannot carry alone?",
+    direction: "moves toward all-five-color synthesis and full-spectrum Commander expression",
+    selfCheck: "This may fit if you want a Commander deck where every color matters, mana infrastructure is part of the discipline, and support links remain browsing aids rather than lore, legality, or ranking proof.",
+  },
 };
 
 function normalizeCardName(value) {
@@ -741,6 +757,10 @@ export function buildHeroNarrative({ dossier, faction, result, factions = {} }) 
     return `${presentation.thesis}${adjacentCopy} The deciding difference was motion: Colorless turns pressure into infrastructure, then asks the table to answer one oversized threat, artifact engine, or inevitability piece at a time.`;
   }
 
+  if (dossier.isPrimary && activeKey === "WUBRG" && adjacentKey === "BG") {
+    return "Five-Color read your answers as a table where all five voices were present. White asked for structure, Blue for understanding, Black for agency, Red for motion, and Green for belonging. Golgari Swarm stayed close because your answers also carried endurance, grievance, rot, and reclamation. The deciding difference was that Five-Color turned that pressure outward: full color access, deliberate fixing, many kinds of answers, and a plan broad enough to include contradiction without drifting into goodstuff.";
+  }
+
   if (!dossier.isPrimary) {
     const primaryFaction = getFaction(factions, dossier.primaryFactionKey);
     return `${presentation.thesis} This is an adjacent reading from your original ${primaryFaction?.name || "primary"} result, so it should feel related rather than disconnected. ${buildContrastCopy(primaryFaction, faction)}`;
@@ -789,6 +809,10 @@ export function buildReadingSignalCopy({ dossier, faction, result, factions = {}
       ? `${adjacentFaction.name} remained nearby, which means your answers also carried endurance, obligation, and defensive patience.`
       : `${adjacentFaction?.name || adjacent.faction_name} remained nearby, which means your answers also carried ${adjacentPresentation.closeReason}.`;
     return `${faction.name} led with a ${band} signal, but the reading was not one-note. ${adjacentCopy} Colorless rose first because the stronger motion was toward a strict construction problem: make mana, tools, and finishers earn their place outside the usual five-color vocabulary.`;
+  }
+
+  if (activeKey === "WUBRG" && factionKey(adjacentFaction) === "BG") {
+    return "Five-Color / WUBRG led with a strong signal. The reading was not one-note: Golgari Swarm remained nearby, which suggests your answers also carried endurance, grievance, rot, and reclamation. The deciding difference was direction. Golgari turns pressure into recursion and survival; Five-Color turns it into coalition, full-spectrum access, and a disciplined plan where every color has a job.";
   }
 
   return `${faction.name} led with a ${band} signal. The reading was not one-note; ${adjacentFaction?.name || adjacent.faction_name} remained nearby, which suggests your answers carried both ${presentation.closeReason} and ${adjacentPresentation.closeReason}. The deciding difference was motion: this result chose the path that ${presentation.direction}.`;

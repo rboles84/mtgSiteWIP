@@ -20,6 +20,7 @@ import {
   buildCommanderDossier,
   buildCommanderDirectoryLinks,
   buildMtgDecksCommanderUrl,
+  buildMtgDecksUrl,
   buildPlayPatternSummary,
   buildResultSummaryStrip,
   buildCommanderStartingLane,
@@ -466,6 +467,7 @@ function assertIdentityPreviewRegistryContract() {
   assert.equal(identityLayers.expressions.INK?.preview_eligible, false);
   assert.equal(identityLayers.expressions.WITCH?.preview_eligible, false);
   assert.equal(identityLayers.expressions.COLORLESS?.preview_eligible, false);
+  assert.equal(identityLayers.expressions.WUBRG?.preview_eligible, false);
   assert.ok(!previewEntries.some(([key]) => key === "BANT"), "BANT should not enter the Home preview carousel in VM-160.");
   assert.ok(!previewEntries.some(([key]) => key === "ESPER"), "ESPER should not enter the Home preview carousel in VM-167.");
   assert.ok(!previewEntries.some(([key]) => key === "GRIXIS"), "GRIXIS should not enter the Home preview carousel in VM-168.");
@@ -481,6 +483,7 @@ function assertIdentityPreviewRegistryContract() {
   assert.ok(!previewEntries.some(([key]) => key === "INK"), "INK should not enter the Home preview carousel in VM-263.");
   assert.ok(!previewEntries.some(([key]) => key === "WITCH"), "WITCH should not enter the Home preview carousel in VM-269.");
   assert.ok(!previewEntries.some(([key]) => key === "COLORLESS"), "COLORLESS should not enter the Home preview carousel in VM-327.");
+  assert.ok(!previewEntries.some(([key]) => key === "WUBRG"), "WUBRG should not enter the Home preview carousel in VM-367.");
 
   const seenOrders = new Set();
   previewEntries.forEach(([key, expression], index) => {
@@ -527,6 +530,8 @@ function assertIdentityPreviewRegistryContract() {
   assert.deepEqual(identityLayers.expressions.INK.aliases, ["INK"]);
   assert.deepEqual(identityLayers.expressions.WITCH.aliases, ["WITCH"]);
   assert.deepEqual(identityLayers.expressions.COLORLESS.aliases, ["COLORLESS"]);
+  assert.ok(!identityLayers.expressions.COLORLESS.aliases.includes("c"));
+  assert.ok(!identityLayers.expressions.COLORLESS.aliases.includes("colorless"));
   assert.equal(identityLayers.expressions.COLORLESS.kind, "colorless");
   assert.equal(identityLayers.expressions.COLORLESS.placement_eligible, true);
   assert.deepEqual(identityLayers.expressions.COLORLESS.colors, []);
@@ -534,6 +539,17 @@ function assertIdentityPreviewRegistryContract() {
   assert.equal(identityLayers.expressions.COLORLESS.core_color, "C");
   assert.equal(identityLayers.expressions.COLORLESS.display_code, "C");
   assert.equal(identityLayers.expressions.COLORLESS.routing?.suppress_directory_links, true);
+  assert.deepEqual(identityLayers.expressions.WUBRG.aliases, ["WUBRG", "Five-Color"]);
+  assert.equal(identityLayers.expressions.WUBRG.kind, "five_color");
+  assert.equal(identityLayers.expressions.WUBRG.placement_eligible, true);
+  assert.equal(identityLayers.expressions.WUBRG.preview_eligible, false);
+  assert.deepEqual(identityLayers.expressions.WUBRG.colors, ["W", "U", "B", "R", "G"]);
+  assert.deepEqual(identityLayers.expressions.WUBRG.secondary_colors, ["W", "U", "B", "R", "G"]);
+  assert.equal(identityLayers.expressions.WUBRG.core_color, "WUBRG");
+  assert.equal(identityLayers.expressions.WUBRG.display_code, "WUBRG");
+  assert.equal(identityLayers.expressions.WUBRG.routing?.color_identity, "WUBRG");
+  assert.equal(identityLayers.expressions.WUBRG.routing?.label, "Five-Color");
+  assert.equal(identityLayers.expressions.WUBRG.routing?.suppress_directory_links, true);
   Object.entries(identityLayers.expressions).forEach(([key, expression]) => {
     assert.ok(!(expression.aliases || []).includes("colorless"), `${key} should not expose lowercase colorless as an alias.`);
     assert.ok(!(expression.aliases || []).includes("C"), `${key} should not expose C as an alias.`);
@@ -651,8 +667,47 @@ assert.deepEqual(factions.COLORLESS.identity.secondary_colors, []);
 assert.equal(factions.COLORLESS.identity.purity, null);
 assert.equal(factions.COLORLESS.identity.expression_key, "COLORLESS");
 assert.equal(factions.COLORLESS.identity.expression_kind, "colorless");
-assert.deepEqual(sortedStrings(placementModel.factions.COLORLESS.lateral_inhibition_targets), ["B", "ESPER", "G", "R", "U", "W", "WITCH", "YORE"]);
-assert.ok(!factions.COLORLESS.commander_compass, "COLORLESS should not expose Commander recommendations from support-only raw texture.");
+assert.deepEqual(sortedStrings(placementModel.factions.COLORLESS.lateral_inhibition_targets), ["B", "ESPER", "G", "R", "U", "W", "WITCH", "WUBRG", "YORE"]);
+assert.ok(!factions.COLORLESS.raw_enrichment, "COLORLESS should not expose raw enrichment under VM-372.");
+const colorlessCompass = factions.COLORLESS.commander_compass || {};
+assert.equal(colorlessCompass.review_status, "support_only_controlled_richness");
+assert.equal(colorlessCompass.link_targets?.edhrec_commander_index, "");
+assert.equal(colorlessCompass.link_targets?.mtgdecks_color_identity, "");
+const colorlessCompassRows = colorlessCompass.native_fit_commanders || [];
+assert.deepEqual(
+  colorlessCompassRows.map((candidate) => candidate.exact_card_name),
+  ["Zhulodok, Void Gorger", "Omarthis, Ghostfire Initiate"]
+);
+colorlessCompassRows.forEach((candidate) => {
+  assert.deepEqual(candidate.color_identity, []);
+  assert.equal(candidate.commander_legal, null);
+  assert.equal(candidate.recommendation_type, "Support-Only Commander Row");
+  assert.equal(candidate.confidence, "Support-only");
+  assert.match(candidate.source_basis || "", /Scryfall exact id:c check/i);
+});
+[
+  "weird_stretch_commanders",
+  "budget_friendly_commanders",
+  "advanced_complexity_commanders",
+  "iconic_lore_forward_commanders",
+  "not_recommended_or_deprioritized",
+].forEach((category) => {
+  assert.deepEqual(colorlessCompass[category] || [], [], `COLORLESS ${category} should remain empty under VM-372.`);
+});
+assert.equal(factions.COLORLESS.deck_links?.length, 1, "COLORLESS should expose exactly one support-only official precon row.");
+assert.equal(factions.COLORLESS.deck_links[0].name, "Eldrazi Unbound (Precon)");
+assert.equal(factions.COLORLESS.deck_links[0].edhrec, null);
+assert.equal(factions.COLORLESS.deck_links[0].mtgd, null);
+assert.match(factions.COLORLESS.deck_links[0].mtgg || "", /commander-masters-commander-decklists/);
+const colorlessResearchLinks = factions.COLORLESS.research_links || {};
+assert.match(colorlessResearchLinks.official_commander_masters_decklist || "", /commander-masters-commander-decklists/);
+assert.match(colorlessResearchLinks.scryfall_exact_zhulodok_id_c || "", /Zhulodok%2C%20Void%20Gorger.*id%3Ac/i);
+assert.match(colorlessResearchLinks.scryfall_exact_omarthis_id_c || "", /Omarthis%2C%20Ghostfire%20Initiate.*id%3Ac/i);
+assert.equal(colorlessResearchLinks.local_staples_review_context, "docs/research/colorless/colorless_Commander_ColorlessStaples_ManaStaples.txt");
+assert.ok(
+  !Object.entries(colorlessResearchLinks).some(([key, value]) => /edhrec|mtgdecks|archidekt|browse|directory/i.test(`${key} ${value}`)),
+  "COLORLESS research links should not enable broad directory or outbound recommendation browsing."
+);
 assert.ok(Array.isArray(archscryFlavorSnippets.snippets.COLORLESS), "COLORLESS should receive generated flavor snippets.");
 assert.ok(archscryFlavorSnippets.snippets.COLORLESS.length >= 2, "COLORLESS should resolve at least two source-safe flavor snippets.");
 assert.ok(
@@ -666,6 +721,44 @@ assert.doesNotMatch(
   archscryIndexSource,
   /view=COLORLESS|\/colorless\b|colorless\.html|COLORLESS:\s*["'](?:\/|route|preview|maze|home)/i,
   "Archscry runtime source should not hard-code COLORLESS route, preview, Maze, Home, or public alias behavior."
+);
+
+assert.ok(factions.WUBRG, "Generated factions should include WUBRG.");
+assert.ok(placementModel.factions.WUBRG, "Generated placement model should include WUBRG.");
+assert.equal((factionContextText.match(/"WUBRG": \{/g) || []).length, 1, "Generated FACTION_CONTEXT should include WUBRG exactly once.");
+assert.equal(factions.WUBRG.institution_type, "five_color");
+assert.equal(placementModel.factions.WUBRG.institution_type, "five_color");
+assert.deepEqual(factions.WUBRG.colors, ["W", "U", "B", "R", "G"]);
+assert.deepEqual(placementModel.factions.WUBRG.colors, ["W", "U", "B", "R", "G"]);
+assert.equal(factions.WUBRG.identity.core_color, "WUBRG");
+assert.equal(factions.WUBRG.identity.secondary_color, null);
+assert.deepEqual(factions.WUBRG.identity.secondary_colors, ["W", "U", "B", "R", "G"]);
+assert.equal(factions.WUBRG.identity.purity, null);
+assert.equal(factions.WUBRG.identity.expression_key, "WUBRG");
+assert.equal(factions.WUBRG.identity.expression_kind, "five_color");
+assert.equal(factions.WUBRG.identity.routing?.color_identity, "WUBRG");
+assert.equal(factions.WUBRG.identity.routing?.suppress_directory_links, true);
+assert.deepEqual(sortedStrings(placementModel.factions.WUBRG.lateral_inhibition_targets), [
+  "ABZAN", "B", "BANT", "COLORLESS", "DUNE", "ESPER", "G", "GLINT", "GRIXIS", "INK", "JESKAI", "JUND", "MARDU", "NAYA", "R", "SULTAI", "TEMUR", "U", "W", "WITCH", "YORE"
+]);
+assert.ok(factions.WUBRG.commander_compass, "WUBRG should expose only source-bounded Commander support data after Layer 2 promotion.");
+assert.equal(factions.WUBRG.commander_compass.review_status, "support_only_live_pilot_curation");
+assert.equal(factions.WUBRG.deck_links.length, 6, "WUBRG should expose the six curated support-only precon rows from the local JSONL packet.");
+assert.match(factions.WUBRG.research_links.scryfall_exact_commander, /id%3Dwubrg\+is%3Acommander\+f%3Acommander/i);
+assert.match(factions.WUBRG.research_links.scryfall_grouped_cost_activation, /mana%3A%7BW%7D%7BU%7D%7BB%7D%7BR%7D%7BG%7D/i);
+assert.match(factions.WUBRG.research_links.scryfall_broader_five_symbol_oracle_discovery, /o%3A%7BW%7D\+o%3A%7BU%7D\+o%3A%7BB%7D\+o%3A%7BR%7D\+o%3A%7BG%7D/i);
+assert.ok(Array.isArray(archscryFlavorSnippets.snippets.WUBRG), "WUBRG should receive generated flavor snippets.");
+assert.ok(archscryFlavorSnippets.snippets.WUBRG.length >= 2, "WUBRG should resolve at least two source-safe flavor snippets.");
+assert.ok(
+  archscryFlavorSnippets.snippets.WUBRG.every((snippet) =>
+    !/Golos|Tireless Pilgrim/i.test(`${snippet.card_name} ${snippet.flavor_excerpt}`)
+  ),
+  "WUBRG flavor snippets should not surface stale or banned Golos guidance."
+);
+assert.doesNotMatch(
+  archscryIndexSource,
+  /view=WUBRG|\/wubrg\b|wubrg\.html|WUBRG:\s*["'](?:\/|route|preview|maze|home)/i,
+  "Archscry runtime source should not hard-code WUBRG route, preview, Maze, Home, or public alias behavior."
 );
 
 assert.ok(factions.BANT, "Generated factions should include BANT.");
@@ -1102,6 +1195,16 @@ const crucibleIds = new Set((placementModel.question_bank?.crucible || []).map((
 fourColorCrucibleIds.forEach((id) => {
   assert.ok(crucibleIds.has(id), `expected ${id} to exist for VM-348 four-color close-call repair`);
 });
+const colorlessWubrgCrucibles = (placementModel.question_bank?.crucible || []).filter((question) =>
+  (question.pair || []).includes("COLORLESS") && (question.pair || []).includes("WUBRG")
+);
+assert.equal(colorlessWubrgCrucibles.length, 1, "expected exactly one VM-369 COLORLESS/WUBRG Crucible");
+assert.deepEqual(
+  colorlessWubrgCrucibles[0].pair,
+  ["COLORLESS", "WUBRG"],
+  "expected VM-369 Crucible to use canonical COLORLESS/WUBRG order"
+);
+assert.ok(crucibleIds.has("crucible_COLORLESS_WUBRG"), "expected VM-369 COLORLESS/WUBRG Crucible id");
 fourColorRingKeys.forEach((key) => {
   const faction = factions[key];
   const modelFaction = placementModel.factions[key];
@@ -1412,6 +1515,22 @@ assert.equal(
 assert.equal(
   buildMtgDecksCommanderUrl("Prismari, the Inspiration"),
   "https://mtgdecks.net/Commander/prismari-the-inspiration"
+);
+assert.equal(
+  buildMtgDecksUrl({ fmt: "Commander" }, ["W", "U"]),
+  "https://mtgdecks.net/Commander/azorius-commanders"
+);
+assert.equal(
+  buildMtgDecksUrl({ fmt: "Commander", mtgd: null }, []),
+  ""
+);
+assert.equal(
+  buildMtgDecksUrl({ fmt: "Commander", mtgd: "" }, []),
+  ""
+);
+assert.equal(
+  buildMtgDecksUrl({ fmt: "Commander", mtgd: "https://example.test/exact-deck" }, []),
+  "https://example.test/exact-deck"
 );
 
 [
@@ -2561,8 +2680,14 @@ assert.doesNotMatch(
 );
 
 const silverquillCommanderCandidates = collectCommanderPreviewCandidates(factions.SILVERQUILL);
-assert.ok(!factions.SILVERQUILL.commander_compass, "Silverquill should not expose public Commander Compass data until source-matrix backed.");
-assert.ok(silverquillCommanderCandidates.every((candidate) => candidate.source === "staple"));
+assert.equal(
+  factions.SILVERQUILL.commander_compass?.review_status,
+  "support_only_product_navigation",
+  "Silverquill should expose public Commander Compass data only after VM-378 source-matrix backing."
+);
+assert.equal(silverquillCommanderCandidates[0].name, "Silverquill Influence (Precon)");
+assert.equal(silverquillCommanderCandidates[0].source, "deck-link");
+assert.match(silverquillCommanderCandidates[0].desc, /Official Secrets of Strixhaven Commander decklist reference/);
 assert.doesNotMatch(
   silverquillCommanderCandidates.map((candidate) => `${candidate.name} ${candidate.desc}`).join(" "),
   /\b(contract|debt|tax|obligation|afterlife|payment|ledger)\b/i
@@ -2594,11 +2719,15 @@ const quandrixAdjacentDossier = buildCommanderDossier({
   targetFactionKey: "QUANDRIX",
   adjacentReason: "Regression check: adjacent dossiers should use the target faction's source-backed recommendation lane.",
 });
-assert.ok(!factions.QUANDRIX.commander_compass, "Quandrix should not expose public Commander Compass data until source-matrix backed.");
-assert.match(quandrixAdjacentDossier.commanderRecommendationSource, /^starter legendary whitelist \(3\)/);
+assert.equal(
+  factions.QUANDRIX.commander_compass?.review_status,
+  "support_only_product_navigation",
+  "Quandrix should expose public Commander Compass data only after VM-378 source-matrix backing."
+);
+assert.match(quandrixAdjacentDossier.commanderRecommendationSource, /^named Commander deck link \(1\), starter legendary whitelist \(2\)/);
 assert.deepEqual(
-  quandrixAdjacentDossier.commanderRecommendations.slice(0, 2).map((candidate) => candidate.name),
-  ["Tanazir Quandrix", "Adrix and Nev, Twincasters"]
+  quandrixAdjacentDossier.commanderRecommendations.slice(0, 3).map((candidate) => candidate.name),
+  ["Quandrix Unlimited (Precon)", "Tanazir Quandrix", "Adrix and Nev, Twincasters"]
 );
 assert.ok(!quandrixAdjacentDossier.commanderRecommendations.some((candidate) => /Jarad|Meren|Gitrog/i.test(candidate.name)));
 
@@ -3438,6 +3567,38 @@ assert.deepEqual(
 assert.ok(
   colorlessMazePaths.every((path) => !/\bid(?:<)?=wu\b|white-blue identity|\bWU\b/i.test(`${path.operatorQuery} ${path.plainReadingQuery} ${path.label}`)),
   "expected Colorless personalized Maze paths to stay separate from adjacent WU evidence"
+);
+
+const wubrgMazePaths = buildPersonalizedMazePaths({
+  faction: factions.WUBRG,
+  tagRefs: whiteFlavorTagRefs,
+  taxonomy: taxonomyData,
+});
+assert.deepEqual(
+  wubrgMazePaths.map((path) => path.operatorQuery),
+  [
+    "id=wubrg is:commander f:commander",
+    "id<=wubrg f:commander -is:commander -t:land (o:domain OR o:converge OR o:sunburst OR o:\"basic land type\" OR o:\"basic land types\" OR mana:{W}{U}{B}{R}{G} OR o:\"{W}{U}{B}{R}{G}\")",
+    "id<=wubrg f:commander (ft:coalition OR ft:domain OR ft:spectrum OR ft:unite OR ft:world)",
+  ],
+  "expected WUBRG personalized Maze paths to use exact five-color lanes"
+);
+assert.deepEqual(
+  wubrgMazePaths.map((path) => path.plainReadingQuery),
+  [
+    "Five-Color commanders with exactly white-blue-black-red-green identity",
+    "Five-Color support cards in WUBRG Commander identity",
+    "Five-Color flavor and story echoes across all five colors",
+  ],
+  "expected WUBRG personalized Maze paths to preserve plain-reading sidebar copy"
+);
+assert.ok(
+  wubrgMazePaths.every((path) => path.pathType !== "weird-stretch-commanders"),
+  "expected WUBRG personalized Maze paths not to expose outside-color stretch"
+);
+assert.ok(
+  wubrgMazePaths.every((path) => !/\bid(?:<)?=wu\b|white-blue identity|outside-color stretch/i.test(`${path.operatorQuery} ${path.plainReadingQuery} ${path.label}`)),
+  "expected WUBRG personalized Maze paths to avoid stale WU or stretch residue"
 );
 
 assert.match(whiteDossier.resultStatus, /primary color fit/i);

@@ -1,0 +1,334 @@
+{
+  "schema_version": "1.0.0",
+  "faction_id": "wubrg",
+  "faction_name": "Five-Color / WUBRG",
+  "source_review_date": "2026-06-13",
+  "last_updated": "2026-06-13",
+  "source_identifier_policy": "VM-367 adds WUBRG sources from the lore-first research gate. Generated/runtime artifacts are not source evidence.",
+  "sources": [
+    {
+      "source_id": "WUBRG-SCOPE-001",
+      "title": "Source / Generated Guardrails",
+      "author": "Vox Mana repo contract",
+      "publisher_or_site": "Local repository",
+      "publication_date": "Local repo contract",
+      "access_date": "2026-06-13",
+      "url_or_repository_path": "docs/reference/source-generated-guardrails.md",
+      "source_type": "Repo contract",
+      "source_role": "governance-bound",
+      "reliability": "Primary source/generated boundary",
+      "claim_bearing_evidence_rows": [
+        "WUBRG-EVID-001",
+        "WUBRG-EVID-012"
+      ],
+      "notes": "Used only for lifecycle, source/generated, and no-padding boundaries."
+    },
+    {
+      "source_id": "WUBRG-SCOPE-002",
+      "title": "VM-367 WUBRG Gold Layer 1 And Layer 2",
+      "author": "Vox Mana Kanban",
+      "publisher_or_site": "Local repository",
+      "publication_date": "2026-06-13",
+      "access_date": "2026-06-13",
+      "url_or_repository_path": "docs/kanban/in-progress/VM-367-wubrg-gold-layer1-layer2.md",
+      "source_type": "Kanban scope record",
+      "source_role": "lifecycle-product-governance",
+      "reliability": "Scope-bound authorization record",
+      "claim_bearing_evidence_rows": [
+        "WUBRG-EVID-001",
+        "WUBRG-EVID-002",
+        "WUBRG-EVID-011"
+      ],
+      "notes": "Authorizes controlled WUBRG promotion only after Layer 2 evidence. Not lore, rules, Commander, or deck evidence."
+    },
+    {
+      "source_id": "WUBRG-LOCAL-001",
+      "title": "WUBRG Identity Research Prompt",
+      "author": "User-curated Vox Mana research",
+      "publisher_or_site": "Local repository",
+      "publication_date": "2026-06-12 local file",
+      "access_date": "2026-06-13",
+      "url_or_repository_path": "docs/research/wubrg/WUBRG Identity Research Prompt.md",
+      "source_type": "Curated local research packet",
+      "source_role": "claim-bearing-with-audit-caution / support-only / shaping-only",
+      "reliability": "Strongest local WUBRG source lead packet when reconciled with captured sources",
+      "claim_bearing_evidence_rows": [
+        "WUBRG-EVID-003",
+        "WUBRG-EVID-004",
+        "WUBRG-EVID-005",
+        "WUBRG-EVID-006",
+        "WUBRG-EVID-007",
+        "WUBRG-EVID-008"
+      ],
+      "notes": "Claim-bearing only for claims mapped to captured official/current or approved repo sources. Commander, deck, search, and synthesis rows remain bounded."
+    },
+    {
+      "source_id": "WUBRG-CANON-001",
+      "title": "Five-Color Reference Audit",
+      "author": "Vox Mana canon audit",
+      "publisher_or_site": "Local repository",
+      "publication_date": "Local repo audit",
+      "access_date": "2026-06-13",
+      "url_or_repository_path": "docs/research/canon/five-color-reference-audit.md",
+      "source_type": "Local canon audit",
+      "source_role": "claim-bearing-with-audit-caution",
+      "reliability": "Repo-local five-color reference inventory",
+      "claim_bearing_evidence_rows": [
+        "WUBRG-EVID-004",
+        "WUBRG-EVID-006",
+        "WUBRG-EVID-013"
+      ],
+      "notes": "Used for WUBRG structural-category, public-label, and non-faction boundary support. Do not treat local synthesis as official doctrine."
+    },
+    {
+      "source_id": "WUBRG-CANON-002",
+      "title": "MTG Five-Color and Colorless Dossier",
+      "author": "Vox Mana canon dossier",
+      "publisher_or_site": "Local repository",
+      "publication_date": "Local repo dossier",
+      "access_date": "2026-06-13",
+      "url_or_repository_path": "docs/research/canon/misc/mtg_five_color_and_colorless_dossier.md",
+      "source_type": "Local canon dossier",
+      "source_role": "boundary-support",
+      "reliability": "Repo-local WUBRG/Colorless boundary support",
+      "claim_bearing_evidence_rows": [
+        "WUBRG-EVID-008",
+        "WUBRG-EVID-013"
+      ],
+      "notes": "Supports WUBRG/Colorless separation and false-positive boundaries only."
+    },
+    {
+      "source_id": "WUBRG-OFF-001",
+      "title": "Commander",
+      "author": "Wizards of the Coast",
+      "publisher_or_site": "Magic: The Gathering",
+      "publication_date": "Current format page",
+      "access_date": "2026-06-13",
+      "url_or_repository_path": "https://magic.wizards.com/en/formats/commander",
+      "source_type": "Official format page",
+      "source_role": "claim-bearing",
+      "reliability": "Official current Commander source",
+      "claim_bearing_evidence_rows": [
+        "WUBRG-EVID-003"
+      ],
+      "notes": "Supports Commander color-identity deck-construction claims. It does not recommend any named commander."
+    },
+    {
+      "source_id": "WUBRG-OFF-002",
+      "title": "Banned and Restricted List",
+      "author": "Wizards of the Coast",
+      "publisher_or_site": "Magic: The Gathering",
+      "publication_date": "Current list page",
+      "access_date": "2026-06-13",
+      "url_or_repository_path": "https://magic.wizards.com/en/banned-restricted-list",
+      "source_type": "Official current legality page",
+      "source_role": "current-rules support",
+      "reliability": "Official current Banned and Restricted List",
+      "claim_bearing_evidence_rows": [
+        "WUBRG-EVID-010"
+      ],
+      "notes": "Supports current legality caution and the Golos no-recommendation boundary. Do not infer broad legality from absence searches."
+    },
+    {
+      "source_id": "WUBRG-OFF-003",
+      "title": "Mechanical Color Pie 2021",
+      "author": "Mark Rosewater",
+      "publisher_or_site": "Magic: The Gathering",
+      "publication_date": "2021-10-18",
+      "access_date": "2026-06-13",
+      "url_or_repository_path": "https://magic.wizards.com/en/news/making-magic/mechanical-color-pie-2021",
+      "source_type": "Official design article",
+      "source_role": "claim-bearing",
+      "reliability": "Official design source",
+      "claim_bearing_evidence_rows": [
+        "WUBRG-EVID-005"
+      ],
+      "notes": "Supports the individual-card color-pie boundary even when a deck has WUBRG access."
+    },
+    {
+      "source_id": "WUBRG-OFF-004",
+      "title": "Commander Masters Commander Decklists",
+      "author": "Wizards of the Coast",
+      "publisher_or_site": "Magic: The Gathering",
+      "publication_date": "2023-07-20",
+      "access_date": "2026-06-13",
+      "url_or_repository_path": "https://magic.wizards.com/en/news/announcements/commander-masters-commander-decklists",
+      "source_type": "Official decklist article",
+      "source_role": "support-only / claim-bearing for product label",
+      "reliability": "Official product source",
+      "claim_bearing_evidence_rows": [
+        "WUBRG-EVID-004"
+      ],
+      "support_evidence_rows": [
+        "WUBRG-EVID-009"
+      ],
+      "notes": "Supports Five-Color public label and Sliver Swarm support deck context."
+    },
+    {
+      "source_id": "WUBRG-OFF-005",
+      "title": "Modern Horizons 3 Commander Decklists",
+      "author": "Wizards of the Coast",
+      "publisher_or_site": "Magic: The Gathering",
+      "publication_date": "2024-05-24",
+      "access_date": "2026-06-13",
+      "url_or_repository_path": "https://magic.wizards.com/en/news/announcements/modern-horizons-3-commander-decklists",
+      "source_type": "Official decklist article",
+      "source_role": "support-only",
+      "reliability": "Official product source",
+      "support_evidence_rows": [
+        "WUBRG-EVID-009"
+      ],
+      "notes": "Supports Eldrazi Incursion as WUBRG support deck context. It does not make Eldrazi Incursion Colorless proof."
+    },
+    {
+      "source_id": "WUBRG-OFF-006",
+      "title": "Teenage Mutant Ninja Turtles Commander Decklist",
+      "author": "Wizards of the Coast",
+      "publisher_or_site": "Magic: The Gathering",
+      "publication_date": "2026-02-24",
+      "access_date": "2026-06-13",
+      "url_or_repository_path": "https://magic.wizards.com/en/news/announcements/teenage-mutant-ninja-turtles-commander-decklist",
+      "source_type": "Official decklist article",
+      "source_role": "support-only",
+      "reliability": "Official product source",
+      "support_evidence_rows": [
+        "WUBRG-EVID-009"
+      ],
+      "notes": "Supports Turtle Power! support deck context when reconciled with the local JSONL row."
+    },
+    {
+      "source_id": "WUBRG-OFF-007",
+      "title": "Lorwyn Eclipsed Commander Decklists",
+      "author": "Wizards of the Coast",
+      "publisher_or_site": "Magic: The Gathering",
+      "publication_date": "2026-01-14",
+      "access_date": "2026-06-13",
+      "url_or_repository_path": "https://magic.wizards.com/en/news/announcements/lorwyn-eclipsed-commander-decklists",
+      "source_type": "Official decklist article",
+      "source_role": "support-only",
+      "reliability": "Official product source",
+      "support_evidence_rows": [
+        "WUBRG-EVID-009"
+      ],
+      "notes": "Supports Dance of the Elements support deck context when reconciled with the local JSONL row."
+    },
+    {
+      "source_id": "WUBRG-OFF-008",
+      "title": "Commander (2017 Edition) Decklists",
+      "author": "Wizards of the Coast",
+      "publisher_or_site": "Magic: The Gathering",
+      "publication_date": "2017-08-11",
+      "access_date": "2026-06-13",
+      "url_or_repository_path": "https://magic.wizards.com/en/news/feature/commander-2017-edition-decklists-2017-08-11",
+      "source_type": "Official decklist article",
+      "source_role": "support-only",
+      "reliability": "Official product source",
+      "support_evidence_rows": [
+        "WUBRG-EVID-009",
+        "WUBRG-EVID-013"
+      ],
+      "notes": "Supports Draconic Domination as WUBRG support deck context when reconciled with the local JSONL row and commander-identity cross-check."
+    },
+    {
+      "source_id": "WUBRG-OFF-009",
+      "title": "Dominaria United Commander Decklists",
+      "author": "Wizards of the Coast",
+      "publisher_or_site": "Magic: The Gathering",
+      "publication_date": "2022-08-19",
+      "access_date": "2026-06-13",
+      "url_or_repository_path": "https://magic.wizards.com/en/news/feature/dominaria-united-commander-decklists-2022-08-19",
+      "source_type": "Official decklist article",
+      "source_role": "support-only",
+      "reliability": "Official product source",
+      "support_evidence_rows": [
+        "WUBRG-EVID-009",
+        "WUBRG-EVID-013"
+      ],
+      "notes": "Supports Painbow as WUBRG support deck context when reconciled with the local JSONL row and commander-identity cross-check."
+    },
+    {
+      "source_id": "WUBRG-CMD-001",
+      "title": "Vox Mana Second Commander Recommendations Enhanced",
+      "author": "Vox Mana Commander data",
+      "publisher_or_site": "Local repository",
+      "publication_date": "Local JSONL data",
+      "access_date": "2026-06-13",
+      "url_or_repository_path": "docs/research/vox_mana_second_commander_recommendations_enhanced.jsonl",
+      "source_type": "Commander support rows",
+      "source_role": "support-only",
+      "reliability": "Support-only local Commander data",
+      "support_evidence_rows": [
+        "WUBRG-EVID-009"
+      ],
+      "notes": "May list unique WUBRG support decks only with source-role cautions. Not lore proof, legality proof, ranking proof, or placement proof."
+    },
+    {
+      "source_id": "WUBRG-SUP-005",
+      "title": "Local Scryfall Commander Index",
+      "author": "Scryfall-derived local data",
+      "publisher_or_site": "Local repository",
+      "publication_date": "Local Scryfall index",
+      "access_date": "2026-06-13",
+      "url_or_repository_path": "data/scryfall/indexes/commander-index.json",
+      "source_type": "Local card identity index",
+      "source_role": "support-only commander-identity cross-check",
+      "reliability": "Local current-card-data support source",
+      "support_evidence_rows": [
+        "WUBRG-EVID-009"
+      ],
+      "notes": "Used only to cross-check WUBRG color identity for The Ur-Dragon, Jared Carthalion, Ramos, Dragon Engine, and Jenson Carthalion, Druid Exile. Not legality, Oracle, lore, popularity, or recommendation-quality evidence."
+    },
+    {
+      "source_id": "WUBRG-SUP-001",
+      "title": "MTGDecks Commander",
+      "author": "MTGDecks",
+      "publisher_or_site": "mtgdecks.net",
+      "publication_date": "Current external page",
+      "access_date": "2026-06-13",
+      "url_or_repository_path": "https://mtgdecks.net/Commander",
+      "source_type": "External deck browsing site",
+      "source_role": "support-only / discovery-only",
+      "reliability": "External discovery only",
+      "support_evidence_rows": [
+        "WUBRG-EVID-012"
+      ],
+      "notes": "Supports a browsing link only. No popularity, ranking, legality, or deck-quality claim."
+    },
+    {
+      "source_id": "WUBRG-SUP-002",
+      "title": "MTGDecks Five Color Commanders",
+      "author": "MTGDecks",
+      "publisher_or_site": "mtgdecks.net",
+      "publication_date": "Current external page",
+      "access_date": "2026-06-13",
+      "url_or_repository_path": "https://mtgdecks.net/Commander/five-commanders",
+      "source_type": "External deck browsing site",
+      "source_role": "support-only / discovery-only",
+      "reliability": "External discovery only",
+      "support_evidence_rows": [
+        "WUBRG-EVID-012"
+      ],
+      "notes": "Supports a Five Color browsing link only."
+    },
+    {
+      "source_id": "WUBRG-SUP-003",
+      "title": "WUBRG Scryfall Query Contract",
+      "author": "Vox Mana query contract",
+      "publisher_or_site": "Local repository",
+      "publication_date": "2026-06-13",
+      "access_date": "2026-06-13",
+      "url_or_repository_path": "docs/research/wubrg/wubrg-source-ledger.md",
+      "source_type": "Search/query contract",
+      "source_role": "support-only / discovery-only",
+      "reliability": "Query contract only",
+      "claim_bearing_evidence_rows": [
+        "WUBRG-EVID-011"
+      ],
+      "support_evidence_rows": [
+        "WUBRG-EVID-007",
+        "WUBRG-EVID-012"
+      ],
+      "notes": "Exact commander query is claim-bearing as a product contract; broad Oracle query results remain manual-verify support only."
+    }
+  ]
+}

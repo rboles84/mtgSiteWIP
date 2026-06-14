@@ -3,8 +3,8 @@
   "faction_id": "sultai",
   "faction_name": "Sultai Brood",
   "source_review_date": "2026-05-31",
-  "last_updated": "2026-05-31",
-  "claim_count": 10,
+  "last_updated": "2026-06-13",
+  "claim_count": 11,
   "claims": [
     {
       "claim_id": "sultai_claim_0001",
@@ -194,6 +194,18 @@
       ],
       "confidence": "High",
       "notes": "This is a false-positive and lifecycle guardrail. Commander/operator rows are excluded by source-role policy and are not cited as raw-claim evidence."
+    },
+    {
+      "claim_id": "sultai_claim_0011",
+      "faction_id": "sultai",
+      "claim_type": "commander_product_support",
+      "statement": "The official Tarkir: Dragonstorm Commander Decklists page verifies Sultai Arisen as a Black; Green; Blue Commander deck with Kotis, Sibsig Champion as face commander and Teval, the Balanced Scale as featured commander.",
+      "canon_status": "Support-only product row",
+      "source_ids": [
+        "src_wotc_tarkir_dragonstorm_commander_decklists_20250325"
+      ],
+      "confidence": "High",
+      "notes": "Decklist support is product/navigation only. It is not Tarkir canon proof, popularity proof, metagame proof, legality proof, or placement evidence."
     }
   ],
   "claim_quality_summary": {

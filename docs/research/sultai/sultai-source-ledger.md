@@ -20,6 +20,7 @@ Status: VM-209 approved source ledger. Sultai remains docs-only, non-live, and r
 | SULTAI-SRC-012 | 2 | `docs/research/canon/mark_rosewater_official_two_color/simic_Improving Upon Nature _ MAGIC_ THE GATHERING.md` | Color-pair interpretation support for Green-Blue improvement/nature overlap. | Color/metaphysics support only. Does not prove Tarkir-specific lore, events, figures, mechanics, chronology, or clan facts. |
 | SULTAI-SRC-013 | Seed | `docs/research/sultai/source-material/sultai-brood-deep-research-report.md` copied from `docs/research/sultai brood/sultai-brood-deep-research-report.md` | Discovery material and claim queue. | discovery-only. Not approved evidence. Every claim requires independent evidence-row promotion. |
 | SULTAI-SRC-014 | Seed | `docs/research/sultai/source-material/sultai-brood-lore-source-packet.md` copied from `docs/research/sultai brood/sultai-brood-lore-source-packet.md` | Discovery material, candidate source map, and open-thread queue. | discovery-only. Not approved evidence. Packet-shaped wording cannot cite itself. |
+| SULTAI-SRC-015 | 2P | `https://magic.wizards.com/en/news/announcements/tarkir-dragonstorm-commander-decklists` | Official Tarkir: Dragonstorm Commander product row for `Sultai Arisen`, `Kotis, Sibsig Champion`, `Teval, the Balanced Scale`, deck name, color identity, and gallery/deck navigation. | Support-only. Not Tarkir canon, Sultai lore, commander legality proof, popularity proof, metagame proof, or placement evidence. |
 
 ## Exact BGU Commander Support Extraction
 

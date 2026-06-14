@@ -1,0 +1,195 @@
+{
+  "schema_version": "1.0.0",
+  "faction_id": "wubrg",
+  "faction_name": "Five-Color / WUBRG",
+  "source_review_date": "2026-06-13",
+  "last_updated": "2026-06-13",
+  "claim_count": 8,
+  "claim_quality_summary": {
+    "claim_basis": "Layer 2 gold packet rows from docs/research/wubrg, captured official/current sources, and source-generated governance.",
+    "allowed_claim_bearing_evidence_rows": [
+      "WUBRG-EVID-001",
+      "WUBRG-EVID-002",
+      "WUBRG-EVID-003",
+      "WUBRG-EVID-004",
+      "WUBRG-EVID-005",
+      "WUBRG-EVID-006",
+      "WUBRG-EVID-007",
+      "WUBRG-EVID-008",
+      "WUBRG-EVID-010",
+      "WUBRG-EVID-011",
+      "WUBRG-EVID-012",
+      "WUBRG-EVID-013"
+    ],
+    "support_material_policy": "Commander rows, MTGDecks, Archidekt, Scryfall support queries, local essays, and deck links may appear only as bounded support or discovery material.",
+    "evidence_quality": "High for Commander color-identity rules, source/generated boundary, exact Maze query contract, and no-preview lifecycle; medium for Vox Mana synthesis and five-color mechanics texture; support-only for Commander deck rows and external deck browsing.",
+    "known_limitations": [
+      "WUBRG is not an official faction, plane, civilization, guild, college, or single doctrine.",
+      "Draconic Domination and Painbow are verified only as support-only deck/product rows after VM-368; they do not support lore, legality, popularity, ranking, metagame, or representative play-pattern claims.",
+      "Named-card legality and exact Oracle claims require current manual verification.",
+      "Scryfall broad five-symbol Oracle query results are discovery/support only.",
+      "No popularity, price, metagame, or cEDH claims are authorized."
+    ],
+    "claim_ids": [
+      "wubrg_claim_0001",
+      "wubrg_claim_0002",
+      "wubrg_claim_0003",
+      "wubrg_claim_0004",
+      "wubrg_claim_0005",
+      "wubrg_claim_0006",
+      "wubrg_claim_0007",
+      "wubrg_claim_0008"
+    ]
+  },
+  "claims": [
+    {
+      "claim_id": "wubrg_claim_0001",
+      "faction_id": "wubrg",
+      "claim_type": "identity_lifecycle_boundary",
+      "statement": "WUBRG / Five-Color is approved for controlled Layer 1 promotion only after Layer 2 gold readiness; it is placeable and dossier-visible but not Home-preview, public-route, or Crucible-expanded.",
+      "canon_status": "Vox Mana lifecycle and public-interface boundary",
+      "source_ids": [
+        "WUBRG-SCOPE-001",
+        "WUBRG-SCOPE-002"
+      ],
+      "evidence_rows": [
+        "WUBRG-EVID-001",
+        "WUBRG-EVID-002"
+      ],
+      "confidence": "High",
+      "notes": "Product governance only. Not MTG lore, rules, legality, or deck evidence."
+    },
+    {
+      "claim_id": "wubrg_claim_0002",
+      "faction_id": "wubrg",
+      "claim_type": "commander_color_identity",
+      "statement": "In Commander, a WUBRG commander gives the deck access to White, Blue, Black, Red, and Green color identity at the deck-construction level.",
+      "canon_status": "Official Commander rules support",
+      "source_ids": [
+        "WUBRG-OFF-001",
+        "WUBRG-LOCAL-001"
+      ],
+      "evidence_rows": [
+        "WUBRG-EVID-003"
+      ],
+      "confidence": "High",
+      "notes": "Does not recommend a named commander or imply current legality without a dated card/source check."
+    },
+    {
+      "claim_id": "wubrg_claim_0003",
+      "faction_id": "wubrg",
+      "claim_type": "color_pie_boundary",
+      "statement": "WUBRG grants full deck-level color access, but individual cards and effects remain bounded by their own rules text, color identity, and color-pie context.",
+      "canon_status": "Official design/rules boundary",
+      "source_ids": [
+        "WUBRG-OFF-003",
+        "WUBRG-LOCAL-001"
+      ],
+      "evidence_rows": [
+        "WUBRG-EVID-005"
+      ],
+      "confidence": "High",
+      "notes": "Do not claim WUBRG erases color-pie limits."
+    },
+    {
+      "claim_id": "wubrg_claim_0004",
+      "faction_id": "wubrg",
+      "claim_type": "public_label_and_non_faction_guardrail",
+      "statement": "Five-Color is the preferred public label, WUBRG is the technical/internal code, and Vox Mana must not present WUBRG as a single official faction, plane, civilization, guild, college, or doctrine.",
+      "canon_status": "Vox Mana naming policy with official product-label support",
+      "source_ids": [
+        "WUBRG-OFF-004",
+        "WUBRG-LOCAL-001",
+        "WUBRG-CANON-001"
+      ],
+      "evidence_rows": [
+        "WUBRG-EVID-004",
+        "WUBRG-EVID-006"
+      ],
+      "confidence": "Medium-High",
+      "notes": "Vox Mana may use synthesis language, but it must stay clearly non-canon."
+    },
+    {
+      "claim_id": "wubrg_claim_0005",
+      "faction_id": "wubrg",
+      "claim_type": "mechanics_texture_boundary",
+      "statement": "Domain, converge, sunburst, WUBRG costs or activations, multicolor payoffs, and basic-land-type checks are usable discovery texture for Five-Color play patterns when specific card claims are manually verified.",
+      "canon_status": "Support-bound mechanics texture",
+      "source_ids": [
+        "WUBRG-LOCAL-001",
+        "WUBRG-SUP-003"
+      ],
+      "evidence_rows": [
+        "WUBRG-EVID-007"
+      ],
+      "confidence": "Medium",
+      "notes": "Broad query results are discovery/support only until reviewed card by card."
+    },
+    {
+      "claim_id": "wubrg_claim_0006",
+      "faction_id": "wubrg",
+      "claim_type": "commander_support_boundary",
+      "statement": "WUBRG Commander and precon rows may be shown as support-only deckbuilding navigation when local row, commander identity, product name, and official/current decklist source agree.",
+      "canon_status": "Commander support-only",
+      "source_ids": [
+        "WUBRG-CMD-001",
+        "WUBRG-OFF-004",
+        "WUBRG-OFF-005",
+        "WUBRG-OFF-006",
+        "WUBRG-OFF-007",
+        "WUBRG-OFF-008",
+        "WUBRG-OFF-009",
+        "WUBRG-SUP-005"
+      ],
+      "evidence_rows": [
+        "WUBRG-EVID-009"
+      ],
+      "confidence": "Medium",
+      "notes": "Not lore proof, legality proof, popularity proof, ranking proof, metagame proof, representative play-pattern proof, or placement proof. Draconic Domination and Painbow were verified under VM-368 as support-only deck rows."
+    },
+    {
+      "claim_id": "wubrg_claim_0007",
+      "faction_id": "wubrg",
+      "claim_type": "false_positive_boundary",
+      "statement": "WUBRG must remain distinct from Colorless, five-color Eldrazi-as-Colorless claims, four-color missing-color frames, generic goodstuff-only framing, superiority or total mastery claims, universal-superset claims, endpoint/completion claims, and default high-complexity-answer claims.",
+      "canon_status": "Boundary support",
+      "source_ids": [
+        "WUBRG-CANON-002",
+        "WUBRG-LOCAL-001",
+        "WUBRG-LOCAL-002",
+        "WUBRG-SCOPE-001"
+      ],
+      "evidence_rows": [
+        "WUBRG-EVID-008",
+        "WUBRG-EVID-010",
+        "WUBRG-EVID-012"
+      ],
+      "confidence": "Medium-High",
+      "notes": "Boundary claim only. Do not infer Colorless or four-color lore from WUBRG support material, and do not make WUBRG the default answer for breadth or complexity."
+    },
+    {
+      "claim_id": "wubrg_claim_0008",
+      "faction_id": "wubrg",
+      "claim_type": "product_anchor_boundary",
+      "statement": "Official WUBRG Commander product and decklist anchors may support named examples, deck/product texture, and source coverage only; they do not by themselves support color philosophy, metaphysics, lore proof, placement proof, legality, popularity, ranking, metagame, or deck-quality claims.",
+      "canon_status": "Source-bound support-material boundary",
+      "source_ids": [
+        "WUBRG-SCOPE-001",
+        "WUBRG-CMD-001",
+        "WUBRG-OFF-004",
+        "WUBRG-OFF-005",
+        "WUBRG-OFF-006",
+        "WUBRG-OFF-007",
+        "WUBRG-OFF-008",
+        "WUBRG-OFF-009"
+      ],
+      "evidence_rows": [
+        "WUBRG-EVID-009",
+        "WUBRG-EVID-012",
+        "WUBRG-EVID-013"
+      ],
+      "confidence": "High",
+      "notes": "Use this claim to keep WUBRG product examples useful but narrow. Stronger lore or philosophy claims require an explicit source saying the stronger thing."
+    }
+  ]
+}

@@ -1,0 +1,267 @@
+{
+  "schema_version": "1.0.0",
+  "placement_profile_version": "1.0.0",
+  "placement_model_version": "1.0.0",
+  "based_on_profile_version": "1.0.0",
+  "faction_id": "white",
+  "faction_name": "White",
+  "last_updated": "2026-06-13",
+  "color_identity": [
+    "W"
+  ],
+  "placement_summary": "White is a strong fit when a user wants safety, peace, and group flourishing made repeatable through structure, duty, law, defense, and shared standards.",
+  "moral_and_psychological_profile": {
+    "primary_drive": "Reduce suffering by binding people into durable structures of care, obligation, and protection.",
+    "ethical_pressure": "Order can protect the vulnerable, but it can also overrule difference or become inflexible.",
+    "core_boundary": "Placement language is Vox Mana interpretation from source-backed color philosophy, not official personality canon."
+  },
+  "placement_axes": [
+    {
+      "axis_id": "axis_group_order",
+      "label": "Group Order",
+      "description": "Measures how much the user's answers center the good of the group, shared rules, and durable safety.",
+      "low_end_label": "individual autonomy first",
+      "high_end_label": "shared order first",
+      "faction_position": 86,
+      "rationale": "White's goal and means center peace through collective structure.",
+      "claim_ids": [
+        "white_claim_0002",
+        "white_claim_0003"
+      ],
+      "confidence": "High"
+    },
+    {
+      "axis_id": "axis_care_as_infrastructure",
+      "label": "Care as Infrastructure",
+      "description": "Separates vague kindness from White's preference for institutions, incentives, defense, and repeatable obligations.",
+      "low_end_label": "private goodwill",
+      "high_end_label": "organized care",
+      "faction_position": 82,
+      "rationale": "White turns care into law, morality, defense, and community systems.",
+      "claim_ids": [
+        "white_claim_0003",
+        "white_claim_0004",
+        "white_claim_0006"
+      ],
+      "confidence": "High"
+    },
+    {
+      "axis_id": "axis_rigidity_risk",
+      "label": "Rigidity Risk",
+      "description": "Tracks whether the user wants principled order while still adapting to human edge cases.",
+      "low_end_label": "adaptive mercy",
+      "high_end_label": "prescriptive control",
+      "faction_position": 66,
+      "rationale": "White's strength and weakness both come from structure.",
+      "claim_ids": [
+        "white_claim_0006"
+      ],
+      "confidence": "Medium-High"
+    }
+  ],
+  "core_values": [
+    "peace",
+    "community",
+    "law",
+    "duty",
+    "protection",
+    "cooperation",
+    "honor",
+    "organized care"
+  ],
+  "behavioral_signals": [
+    "the user prioritizes what the group needs over private desire",
+    "the user wants clear rules, fair process, and shared standards",
+    "the user prefers protection, defense, and duty over improvisational freedom",
+    "the user trusts institutions or codes when they reduce harm",
+    "the user values many small coordinated pieces becoming stronger together"
+  ],
+  "inhibitor_traits": [
+    "self-interest without group accountability",
+    "recklessness framed as virtue",
+    "freedom from rules as the highest good",
+    "pure optimization of the individual at group expense",
+    "adaptability so fluid that duty never binds"
+  ],
+  "inhibitor_traps": [
+    "The answer wants safety but rejects shared obligations.",
+    "The answer praises order only as personal control, not group protection.",
+    "The answer treats peace as avoidance rather than structured care.",
+    "The answer uses White language but centers punitive rigidity without mercy."
+  ],
+  "good_fit_indicators": [
+    "group-first duty and shared responsibility",
+    "law, morality, or clear standards as protective tools",
+    "community safety over private appetite",
+    "defense, prevention, lifegain, or coordinated small pieces",
+    "willingness to sacrifice for the group",
+    "belief that peace requires structure"
+  ],
+  "ideal_fit_indicators": [
+    "the user wants a system that keeps people safe even when individuals are selfish or reckless",
+    "the user values fairness, process, and accountability",
+    "the user sees care as something to organize, not merely feel",
+    "the user accepts personal limits because the group is worth protecting"
+  ],
+  "poor_fit_indicators": [
+    "self-interest treated as the only honest motive",
+    "impulse, chaos, or freedom from law as the central good",
+    "knowledge optimization with little concern for group floor",
+    "destiny or natural order preferred over taught moral structure",
+    "rigid punishment without concern for peace or protection"
+  ],
+  "discriminator_questions": [
+    {
+      "question_id": "white_disc_001",
+      "question": "Is the user trying to reduce harm through shared rules and responsibilities, or simply asking for personal safety?",
+      "purpose": "Separates White's organized care from generic caution.",
+      "answer_pattern_that_supports_this_faction": "Supports White when the user names duties, laws, institutions, or shared standards that protect a community.",
+      "answer_pattern_that_weakens_this_faction": "Weakens White when safety is private self-protection without obligation to the group.",
+      "collision_targets": [
+        "B",
+        "U",
+        "G"
+      ],
+      "claim_ids": [
+        "white_claim_0002",
+        "white_claim_0003",
+        "white_claim_0004"
+      ],
+      "confidence": "High",
+      "lateral_inhibition": false
+    },
+    {
+      "question_id": "white_disc_002",
+      "question": "Does the answer embrace rules as protective structure, or reject restriction in favor of immediate action?",
+      "purpose": "Separates White from Red's freedom and impulse.",
+      "answer_pattern_that_supports_this_faction": "Supports White when restriction is framed as necessary for peace and fairness.",
+      "answer_pattern_that_weakens_this_faction": "Weakens White when the user treats restraint itself as the problem.",
+      "collision_targets": [
+        "R"
+      ],
+      "claim_ids": [
+        "white_claim_0003",
+        "white_claim_0005",
+        "white_claim_0006"
+      ],
+      "confidence": "High",
+      "lateral_inhibition": false
+    },
+    {
+      "question_id": "white_disc_003",
+      "question": "Is the user's group focus flexible enough to recognize individual edge cases?",
+      "purpose": "Catches White's rigidity shadow.",
+      "answer_pattern_that_supports_this_faction": "Supports White when the user wants principled order with mercy and process.",
+      "answer_pattern_that_weakens_this_faction": "Weakens White when structure becomes brittle control or one-size-fits-all prescription.",
+      "collision_targets": [
+        "G",
+        "U",
+        "B"
+      ],
+      "claim_ids": [
+        "white_claim_0006"
+      ],
+      "confidence": "Medium",
+      "lateral_inhibition": false
+    },
+    {
+      "question_id": "white_disc_004",
+      "question": "Are mechanics like tokens, protection, taxing, or conditional removal being used as White texture rather than Commander legality proof?",
+      "purpose": "Keeps mechanical and Commander support source-bound.",
+      "answer_pattern_that_supports_this_faction": "Supports White when mechanics are treated as dated color-pie texture and commander examples remain unpromoted.",
+      "answer_pattern_that_weakens_this_faction": "Weakens White when candidate commanders or stale deck notes are treated as verified Layer 2 support.",
+      "collision_targets": [
+        "WUBRG",
+        "COLORLESS"
+      ],
+      "claim_ids": [
+        "white_claim_0007",
+        "white_claim_0008"
+      ],
+      "confidence": "High",
+      "lateral_inhibition": false
+    }
+  ],
+  "collision_guidance": {
+    "rule": "White is peace through structure and group responsibility, not generic goodness, pure control, or private safety.",
+    "review_triggers": [
+      "generic kindness without structure",
+      "punitive control without care",
+      "candidate commander claims",
+      "rule language used as exact legality without CR verification"
+    ],
+    "pairs": [
+      {
+        "collision_id": "white_vs_black",
+        "against": "B",
+        "separator": "White asks what the group needs; Black asks what secures the self's power.",
+        "ask": "Is the user willing to subordinate self-interest to shared obligation?",
+        "lateral_inhibition": false,
+        "claim_ids": [
+          "white_claim_0005"
+        ]
+      },
+      {
+        "collision_id": "white_vs_red",
+        "against": "R",
+        "separator": "White restrains desire for peace; Red treats desire and action as the path.",
+        "ask": "Does the user want rules that bind action, or action that breaks stasis?",
+        "lateral_inhibition": false,
+        "claim_ids": [
+          "white_claim_0005"
+        ]
+      }
+    ]
+  },
+  "calibration_tuning": {
+    "required_positive_evidence_terms": [
+      "group needs",
+      "shared rules",
+      "duty",
+      "peace",
+      "protection",
+      "law",
+      "community"
+    ],
+    "required_positive_min_hits": 2,
+    "strengthen_when_user_centers": [
+      "reducing suffering through structure",
+      "fair process and accountability",
+      "coordinated small pieces",
+      "personal sacrifice for group safety"
+    ],
+    "suppress_when_user_centers": [
+      "self-interest above duty",
+      "impulse above restraint",
+      "knowledge optimization without group floor",
+      "natural destiny over taught moral order"
+    ],
+    "false_positive_guardrail": "Do not place White for generic kindness or safety alone; require structure, duty, or group-first obligation.",
+    "broad_match_penalty": 0.13
+  },
+  "chatbot_guidance": {
+    "use_when": [
+      "Use White when the user centers peace, law, group care, duty, or organized protection.",
+      "Frame White as care made durable through structure, not simply goodness.",
+      "Keep commander candidates deferred unless current legality verification is done."
+    ],
+    "avoid_when": [
+      "The user wants freedom from constraint more than peace.",
+      "The user wants self-interest without group accountability.",
+      "The answer only contains generic kindness, healing, or safety without structure."
+    ],
+    "how_to_recognize_mismatch": [
+      "self-interest treated as the only honest motive",
+      "impulse, chaos, or freedom from law as the central good",
+      "knowledge optimization with little concern for group floor",
+      "destiny or natural order preferred over taught moral structure",
+      "candidate commander names treated as verified evidence"
+    ],
+    "calibration_note": "White should rise only when care is organized through rules, obligation, community, or protection.",
+    "never_claim_as_canon": [
+      "White is objectively moral or objectively good.",
+      "Vox Mana placement axes are official Wizards color-pie scores.",
+      "A candidate mono-white commander is Layer 2 support without current verification."
+    ]
+  }
+}

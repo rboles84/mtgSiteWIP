@@ -3,6 +3,7 @@
 **Faction:** Grixis
 **Plane:** Alara
 **Date:** 2026-05-30
+**Last Updated:** 2026-06-13
 **Kanban Card:** VM-164
 
 This file holds claims that are useful, tempting, or draft-visible but not approved for promotion in VM-164.
@@ -19,14 +20,14 @@ Rule: if a downstream sentence depends on one of these rows, label it `Manual fi
 | GRIXIS-MF-002 | `A Planeswalker's Guide to Alara` details for vis, Vitals, Damned, Vithia, Sedraxis, Kederekt, Unx, Torchlight, Droning Isles, Kathari, liches, demons, and the dregscape | Current packet has only draft/secondary/support references | Local official guide capture or source-bound excerpt ledger |
 | GRIXIS-MF-003 | Full vis economy, vis extraction, lethemancy, blood extraction, Vitals/Damned physiology, and whether vis depletion destroys body, mind, or soul | `Absorb Vis` supports the term locally, not the full system | Official lore capture plus separate evidence rows for each subclaim |
 | GRIXIS-MF-004 | Sedris biography: former king, betrayal of Vithia, ruler of Sedraxis, scope of authority | Local card data supports Sedris as UBR unearth legend only | Official Sedris/Vithia/Sedraxis source capture |
-| GRIXIS-MF-005 | Nicol Bolas as hidden operator, staging-ground user, Conflux architect from Grixis, or manipulator of local Grixis powers | Drafts cite external lore; prompt forbids "Bolas rules Grixis" without direct sourcing | Official Alara/Bolas/Conflux capture with careful wording |
+| GRIXIS-MF-005 | Nicol Bolas as hidden operator, staging-ground user, Conflux architect from Grixis, or manipulator of local Grixis powers | VM-379 official Alara overview supports broad Bolas/Alara mana-scheme wording only, not Grixis staging or local rulership | Official Alara/Bolas/Conflux capture with careful wording for any Grixis-specific operation |
 | GRIXIS-MF-006 | Malfegor's Asha connection, status as Bolas's general, Bant invasion, Esper devastation, and death | Local card data supports Demon Dragon/sacrifice card facts only | Official story/novel/product capture |
 | GRIXIS-MF-007 | Thraximundar biography, height, mount, translation nuance, or political role | Local card data supports name, UBR identity, type, haste, and sacrifice pattern only | Official biography or story capture |
 | GRIXIS-MF-008 | Kess as native Grixian, vis harvester, restorer of life, or flagship Alara survivor | Commander row can support product language; draft lore is secondary | Official Commander 2017/story capture |
 | GRIXIS-MF-009 | Revin Skoros, Caladessa, Kaalia of the Vast, Leogin, Split-Eye Coven, or other detailed figures | Draft-visible but not locally source-bound in VM-164 | Official source capture and claim-by-claim mapping |
 | GRIXIS-MF-010 | Unearth as a vis transaction or as the whole Grixis metaphysics | Local card data supports unearth; the broader interpretation is synthesis and can overclaim | Official design/mechanics capture plus `Vox Mana synthesis` label |
 | GRIXIS-MF-011 | Cruel Ultimatum as direct vis harvesting | Local card data supports resource swing; vis-specific interpretation is unsupported | Rosewater/design capture or official lore tie |
-| GRIXIS-MF-012 | Cross-shard Conflux chronology and post-Conflux settlement/refugee details | Current claims come from drafts and support artifacts | Official story capture |
+| GRIXIS-MF-012 | Cross-shard Conflux chronology and post-Conflux settlement/refugee details | VM-379 promotes the broad Grixis undead assault/life-drain overview as GRIXIS-032; granular settlements, refugees, routes, and campaign chronology still come from drafts/support artifacts | Official story capture for each granular detail |
 | GRIXIS-MF-013 | Grixis lacks intelligence, structure, or social logic because it lacks White/Green | Forbidden overreach; Blue is explicitly part of Grixis, and social/power structures need evidence | Do not promote without a source-bound, narrower claim |
 | GRIXIS-MF-014 | Black fully resolves all Blue/Red tension | Forbidden overreach; Rosewater shows Black using both allies but not erasing their tension | Do not promote without a source-bound, narrower claim |
 | GRIXIS-MF-015 | Maestros/New Capenna UBR as interchangeable with Grixis | Prompt-forbidden and source-category error | Use only as comparator/support, never as Grixis evidence |

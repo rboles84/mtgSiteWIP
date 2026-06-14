@@ -3,7 +3,8 @@
 **Faction:** Grixis
 **Plane:** Alara
 **Date:** 2026-05-30
-**Kanban Card:** VM-164
+**Last Updated:** 2026-06-13
+**Kanban Card:** VM-164; VM-379 update
 
 This ledger records sources reviewed for the VM-164 Grixis packet and how they may be used.
 
@@ -29,6 +30,8 @@ This ledger records sources reviewed for the VM-164 Grixis packet and how they m
 |---|---|---|---|---|---|
 | GRX-SRC-001 | `docs/research/canon/mark_rosewater_official_three_color/Grixis_Looking Out For Number One _ MAGIC_ THE GATHERING.md` | Tier 1 - Local official design | Read directly | Grixis as the blue-black-red shard; Black as center; Black's self-interest/survival framing; Blue and Red ally contributions; White and Green as missing enemy pressures; not reducing Black/Grixis to simple evil | This is the evidence floor for promoted VM-164 identity claims. It is design commentary in interview form, not in-world narrative lore. |
 | GRX-SRC-002 | `docs/analysis/canon-inventory-three-color-reference-audit.md` | Tier 1A - Repo audit | Read directly | Local canon tree classification; confirms the Grixis Rosewater file as a primary identity source; records the Alara shard protocol as relevant to Bant/Esper/Grixis/Jund/Naya | Use to normalize references to the analysis path, not the older canon-tree copy. |
+| GRX-SRC-009 | `docs/research/canon/source-material/alara/alara-plane-overview.md` / `https://magic.wizards.com/en/story/alara-plane` | Tier 1 - Local official story-facing capture | Verified for VM-379; access date 2026-06-13 | Broad Grixis story texture as an undead-infested hellscape and post-Conflux undead assault/life-energy drain; broad Nicol Bolas/Alara mana-scheme wording only | Supports GRIXIS-031 and GRIXIS-032. Does not support Vithia/Sedraxis, full vis economy, Bolas staging-ground claims, Nefarox cults, or figure biographies. |
+| GRX-SRC-010 | `docs/research/canon/source-material/alara/story-all-cairns-of-jund.md` / `https://magic.wizards.com/en/news/magic-story/all-cairns-jund-2015-11-04` | Tier 1 - Local official story capture | Verified for VM-379; access date 2026-06-13 | Necromancy was unknown on Jund before the Conflux and was the sole province of hellish Grixis | Supports GRIXIS-030 only. Do not expand into full vis/unearth metaphysics or detailed Grixis society. |
 
 ---
 
@@ -77,12 +80,12 @@ The following source families appear in drafts or support docs but are not appro
 
 | Missing Source Family | Needed For | VM-164 Status |
 |---|---|---|
-| Official Alara plane page | Story-facing description of Grixis, Conflux, and undead assaults | Manual fill required |
+| Official Alara plane page | Story-facing description of Grixis, Conflux, and undead assaults | Partially promoted in VM-379 as GRIXIS-031 and GRIXIS-032; detailed geography, vis economy, Bolas staging, Nefarox cults, and campaign chronology remain manual fill |
 | `A Planeswalker's Guide to Alara` official text | Vis, Vitals, Damned, Vithia, Sedraxis, Kederekt, geography, species, and society | Manual fill required |
 | `Alara Unbroken` official/novel capture | Bolas operations, Malfegor, Torchlight, Conflux chronology | Manual fill required |
 | Official Shards/Conflux/Alara Reborn design articles beyond GRX-SRC-001 | Unearth design intent, block evolution, Bolas design association, shard mixing | Manual fill required |
 | Official unearth mechanics/release-note captures | Rules and design framing beyond local Scryfall card text | Manual fill required |
-| Official card database captures or local exact card-source extracts | Exact official card text, flavor text, and printing-specific claims | Manual fill required unless using GRX-SRC-004 as local card data |
+| Official card database captures or local exact card-source extracts | Exact official card text, flavor text, and printing-specific claims | VM-379 uses GRX-SRC-004 for short support-only card/flavor anchors; exact long flavor text and biography claims remain manual fill |
 | Official Kess, Kaalia, Revin Skoros, Malfegor, and Sedris story/product sources | Detailed figure biography, motives, and chronology | Manual fill required |
 | Any source used only through MTG Wiki, Fandom, Reddit, EDHREC, blogs, or HTML exports | Detailed lore, geography, political claims, and contested canon rulings | Manual fill required |
 

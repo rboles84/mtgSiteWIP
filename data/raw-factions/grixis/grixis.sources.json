@@ -2,8 +2,8 @@
   "schema_version": "1.0.0",
   "faction_id": "grixis",
   "faction_name": "Grixis",
-  "source_review_date": "2026-05-30",
-  "last_updated": "2026-06-12",
+  "source_review_date": "2026-06-13",
+  "last_updated": "2026-06-13",
   "sources": [
     {
       "source_id": "src_vm_grixis_source_ledger_20260530",
@@ -136,6 +136,47 @@
       "source_role": "shaping-only",
       "reliability": "Project metaphysics synthesis from VM-164 evidence",
       "notes": "May shape Vox Mana metaphysical profile fields. It is explicitly not Wizards or MTG canon."
+    },
+    {
+      "source_id": "src_wotc_alara_plane_overview_20260530",
+      "title": "Alara Plane Overview",
+      "author": "Wizards of the Coast",
+      "publisher_or_site": "Magic: The Gathering",
+      "publication_date": "Current page; local capture 2026-05-30",
+      "access_date": "2026-06-13",
+      "url_or_repository_path": "https://magic.wizards.com/en/story/alara-plane",
+      "repository_path": "docs/research/canon/source-material/alara/alara-plane-overview.md",
+      "source_type": "Official Wizards plane overview capture",
+      "source_role": "claim-bearing",
+      "reliability": "Primary / official story-facing plane overview",
+      "notes": "Supports broad Grixis undead-hellscape framing, post-Conflux undead assault, and broad Nicol Bolas/Alara mana scheme wording. Does not support Vithia/Sedraxis/vis economy or Grixis staging-ground claims."
+    },
+    {
+      "source_id": "src_wotc_all_cairns_of_jund_20151104",
+      "title": "All the Cairns of Jund",
+      "author": "Wizards of the Coast",
+      "publisher_or_site": "Magic: The Gathering / Magic Story",
+      "publication_date": "2015-11-04",
+      "access_date": "2026-06-13",
+      "url_or_repository_path": "https://magic.wizards.com/en/news/magic-story/all-cairns-jund-2015-11-04",
+      "repository_path": "docs/research/canon/source-material/alara/story-all-cairns-of-jund.md",
+      "source_type": "Official Wizards story capture",
+      "source_role": "claim-bearing",
+      "reliability": "Primary / official story capture",
+      "notes": "Supports necromancy as unknown on Jund before the Conflux and the sole province of hellish Grixis. Does not support detailed Grixis geography, vis economy, Sedris rulership, or Bolas staging claims."
+    },
+    {
+      "source_id": "src_scryfall_oracle_cards_local_grixis_20260613",
+      "title": "Local Scryfall Oracle Cards - Grixis card anchors",
+      "author": "Scryfall local data mirror",
+      "publisher_or_site": "Local repository",
+      "publication_date": "Local data snapshot",
+      "access_date": "2026-06-13",
+      "url_or_repository_path": "data/scryfall/raw/oracle-cards.json",
+      "source_type": "Local card-data source",
+      "source_role": "support-only",
+      "reliability": "Card facts and flavor-anchor support only",
+      "notes": "Supports selected card names, types, color identities, Scryfall URIs, and short flavor summaries for Grixis anchors. Does not prove biographies, rulership, geography, vis economy, popularity, metagame, or legality."
     }
   ],
   "not_used_or_rejected_sources": [

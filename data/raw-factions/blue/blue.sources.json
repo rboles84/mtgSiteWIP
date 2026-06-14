@@ -1,0 +1,195 @@
+{
+  "schema_version": "1.0.0",
+  "faction_id": "blue",
+  "faction_name": "Blue",
+  "source_review_date": "2026-06-13",
+  "source_intake_bundle": "docs/research/mono_upgrade",
+  "sources": [
+    {
+      "source_id": "MONO-U-2015",
+      "title": "True Blue Revisited",
+      "author": "Mark Rosewater",
+      "publisher_or_site": "Wizards of the Coast",
+      "publication_date": "2015-07-20",
+      "capture_date": "2026-06-13",
+      "canonical_url": "https://magic.wizards.com/en/news/making-magic/true-blue-revisited-2015-07-20",
+      "digest_path": "docs/research/mono_upgrade/11_blue.md",
+      "local_pdf_capture_path": "docs/research/mono_upgrade/True Blue Revisited _ MAGIC_ THE GATHERING.pdf",
+      "local_pdf_sha256": "12E0333DC656ABD9553AE964DADD4A8E9E0EF652919CCD68ECDA8EF57CB7D28F",
+      "source_role": "philosophy_backbone",
+      "source_tier": "gold_official_article",
+      "claim_bearing_evidence_rows": [
+        "blue_evid_0001",
+        "blue_evid_0002",
+        "blue_evid_0003",
+        "blue_evid_0004"
+      ],
+      "anchor_ids": [
+        "U2015-Q1",
+        "U2015-Q1b",
+        "U2015-Q2",
+        "U2015-Q3",
+        "U2015-Q4",
+        "U2015-Q5",
+        "U2015-Q5b",
+        "U2015-Q6"
+      ]
+    },
+    {
+      "source_id": "MONO-U-2025",
+      "title": "My Words: Blue",
+      "author": "Mark Rosewater",
+      "publisher_or_site": "Wizards of the Coast",
+      "publication_date": "2025-06-23",
+      "capture_date": "2026-06-13",
+      "canonical_url": "https://magic.wizards.com/en/news/making-magic/my-words-blue",
+      "digest_path": "docs/research/mono_upgrade/11_blue.md",
+      "local_pdf_capture_path": "docs/research/mono_upgrade/My Words_ Blue.pdf",
+      "local_pdf_sha256": "6B70C9EFBE89774180B620D3D9BEFF6995593C91FC65303A4D204298BDB35733",
+      "source_role": "current_voice_update",
+      "source_tier": "gold_official_article",
+      "claim_bearing_evidence_rows": [
+        "blue_evid_0005",
+        "blue_evid_0006",
+        "blue_evid_0007",
+        "blue_evid_0008"
+      ],
+      "anchor_ids": [
+        "U2025-a",
+        "U2025-b",
+        "U2025-c",
+        "U2025-d",
+        "U2025-e",
+        "U2025-f",
+        "U2025-g",
+        "U2025-h",
+        "U2025-i",
+        "U2025-j"
+      ]
+    },
+    {
+      "source_id": "MECH-CP-2021",
+      "title": "Mechanical Color Pie 2021",
+      "author": "Mark Rosewater with the Council of Colors",
+      "publisher_or_site": "Wizards of the Coast",
+      "publication_date": "2021-10-18",
+      "capture_date": "2026-06-13",
+      "canonical_url": "https://magic.wizards.com/en/news/making-magic/mechanical-color-pie-2021",
+      "digest_path": "docs/research/mono_upgrade/20_mechanical_color_pie_2021.md",
+      "local_pdf_capture_path": "docs/research/mono_upgrade/Mechanical Color Pie 20211.pdf",
+      "local_pdf_sha256": "F5C50A7FC501E3613D91E28FB95475DC32A9ACA0F3D2454EA0CF73F2D3F3F5DF",
+      "source_role": "mechanical_authority",
+      "source_tier": "gold_official_article_snapshot",
+      "claim_bearing_evidence_rows": [
+        "blue_evid_0009",
+        "blue_evid_0010"
+      ],
+      "anchor_ids": [
+        "MECH-carddraw",
+        "MECH-counters",
+        "MECH-flying",
+        "MECH-removal",
+        "MECH-artifact-friendly"
+      ],
+      "notes": "The filename appears to have a 20211 typo; path is preserved and annotated in the manifest."
+    },
+    {
+      "source_id": "GOV-COC-2024",
+      "title": "The Council of Colors, Revisited",
+      "author": "Mark Rosewater",
+      "publisher_or_site": "Wizards of the Coast",
+      "publication_date": "2024-08-26",
+      "capture_date": "2026-06-13",
+      "canonical_url": "https://magic.wizards.com/en/news/making-magic/the-council-of-colors-revisited",
+      "digest_path": "docs/research/mono_upgrade/22_council_of_colors.md",
+      "local_pdf_capture_path": "docs/research/mono_upgrade/The Council of Colors, Revisited.pdf",
+      "local_pdf_sha256": "D2E635E1BE453C62F5FE97FBAF9FFDB819AEA283109F8FD85BDCC9E3CA8DA27C",
+      "source_role": "governance_process_authority",
+      "source_tier": "gold_official_article",
+      "claim_bearing_evidence_rows": [
+        "blue_evid_0011"
+      ],
+      "anchor_ids": [
+        "COC-mandate",
+        "COC-setdesign",
+        "COC-longterm"
+      ]
+    },
+    {
+      "source_id": "RULES-CR",
+      "title": "Comprehensive Rules",
+      "publisher_or_site": "Wizards of the Coast",
+      "publication_date": "living_document",
+      "capture_date": "2026-06-13",
+      "canonical_url": "https://magic.wizards.com/en/rules",
+      "digest_path": "docs/research/mono_upgrade/30_commander_and_rules.md",
+      "local_pdf_capture_path": null,
+      "local_pdf_sha256": null,
+      "source_role": "commander_rules_boundary",
+      "source_tier": "gold_official_living_rules",
+      "claim_bearing_evidence_rows": [
+        "blue_evid_0012"
+      ],
+      "anchor_ids": [
+        "CR-903.3",
+        "CR-903.4",
+        "CR-usage-note"
+      ]
+    },
+    {
+      "source_id": "VM-377",
+      "title": "Mono Gold Source Intake Planning",
+      "publisher_or_site": "Vox Mana repo",
+      "publication_date": "2026-06-13",
+      "repository_path": "docs/kanban/in-progress/VM-377-mono-gold-source-intake-planning.md",
+      "source_role": "project_governance",
+      "source_tier": "vox_mana_planning_authority",
+      "claim_bearing_evidence_rows": [
+        "blue_evid_0013"
+      ]
+    },
+    {
+      "source_id": "SCRYFALL-U-2026-06-13",
+      "title": "Scryfall exact-name current checks for mono-blue commander candidates",
+      "publisher_or_site": "Scryfall",
+      "access_date": "2026-06-13",
+      "source_role": "current_card_legality_verification",
+      "source_tier": "current_card_database",
+      "claim_bearing_evidence_rows": [
+        "blue_evid_0014"
+      ],
+      "verified_cards": [
+        {
+          "name": "Talrand, Sky Summoner",
+          "color_identity": "U",
+          "commander": "legal",
+          "type_line": "Legendary Creature - Merfolk Wizard",
+          "scryfall_uri": "https://scryfall.com/card/otc/116/talrand-sky-summoner?utm_source=api"
+        },
+        {
+          "name": "Azami, Lady of Scrolls",
+          "color_identity": "U",
+          "commander": "legal",
+          "type_line": "Legendary Creature - Human Wizard",
+          "scryfall_uri": "https://scryfall.com/card/cmm/74/azami-lady-of-scrolls?utm_source=api"
+        },
+        {
+          "name": "Minn, Wily Illusionist",
+          "color_identity": "U",
+          "commander": "legal",
+          "type_line": "Legendary Creature - Gnome Wizard",
+          "scryfall_uri": "https://scryfall.com/card/afc/16/minn-wily-illusionist?utm_source=api"
+        }
+      ],
+      "notes": "Checked exact name, type_line, color_identity, and legalities.commander through the Scryfall API on 2026-06-13."
+    }
+  ],
+  "source_intake_boundary": {
+    "digest_markdown_role": "claim-digest/source-intake material",
+    "pdf_role": "local official capture evidence",
+    "readme_role": "process chatter, not source evidence",
+    "exact_quote_policy": "Pull exact quotes only from canonical URLs or local PDF captures under fair use.",
+    "commander_policy": "Do not promote commander candidates without current Scryfall/Gatherer/Commander legality verification.",
+    "axis_policy": "Official color sources support philosophy and mechanical claims; Vox Mana placement-axis values remain interpretation."
+  }
+}

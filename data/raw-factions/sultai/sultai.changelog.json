@@ -2,7 +2,7 @@
   "schema_version": "1.0.0",
   "faction_id": "sultai",
   "faction_name": "Sultai Brood",
-  "last_updated": "2026-06-09",
+  "last_updated": "2026-06-13",
   "changes": [
     {
       "change_id": "sultai_change_003",
@@ -170,6 +170,34 @@
         "Keep Home preview membership unchanged."
       ],
       "notes": "VM-214 changes only Sultai raw metadata, raw-to-live mapping, identity metadata, precedent-required support/test files, generated artifacts from approved builds, Kanban bookkeeping, and handoff files."
+    },
+    {
+      "change_id": "sultai_change_vm380_tarkir_dossier_support_20260613",
+      "change_type": "VM-380 Tarkir Dossier Support Repair",
+      "change_date": "2026-06-13",
+      "summary": "Added official Tarkir: Dragonstorm product support for SULTAI: Sultai Arisen deck links, research links, and support-only Commander surface boundaries.",
+      "sources_added": [
+        "src_wotc_tarkir_dragonstorm_commander_decklists_20250325"
+      ],
+      "sources_updated": [],
+      "claims_added": [
+        "sultai_claim_0011"
+      ],
+      "claims_updated": [],
+      "claims_superseded": [],
+      "claims_contradicted": [],
+      "profile_fields_updated": [
+        "deck_links",
+        "research_links",
+        "commander_compass",
+        "data_quality",
+        "research_limitations"
+      ],
+      "placement_fields_updated": [],
+      "manual_review_required": [
+        "Treat clan leader + Spirit Dragon anchors as product/navigation only unless a later card promotes stronger canon rows."
+      ],
+      "notes": "No public API, schema, route, Home preview, alias, hero, unrelated placement expansion, staging, or commit changes."
     }
   ],
   "audit_summary": {

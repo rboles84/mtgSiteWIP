@@ -1,6 +1,6 @@
 # Colorless Product Decision Gate
 
-Status: Ratified by VM-334; public-richness addendum ratified by VM-362
+Status: Ratified by VM-334; public-richness addendum ratified by VM-362; support-only controlled richness addendum ratified by VM-372
 Decision date: 2026-06-11
 Related card: `docs/kanban/done/VM-334-colorless-product-decision-gate.md`
 
@@ -77,14 +77,34 @@ Preserving `colorless.webp` for the dossier hero does not approve Home, public, 
 - Land-package advice, deck advice, broad recommendations, exact deck-buying advice, prices, or metagame claims.
 - Public raw-enrichment surfacing for timeline, figures, or flavor.
 - Candidate Crucibles `COLORLESS/YORE`, `COLORLESS/ESPER`, and `COLORLESS/WITCH` until paired source support plus reproducible close-call evidence exists.
+- Exactly one canonical `COLORLESS/WUBRG` Crucible is approved by VM-369 after WUBRG Layer 1 existence, source-boundary support, and reproduced placement confusion. This approval does not add Colorless Compass links, deck links, research links, Home route, preview eligibility, directory links, aliases, schema/API expansion, or broader public richness.
 
 Any deferred surface that is later approved must be split into a separate implementation card with source authority, build changes, runtime changes, no-leak scans, and QA criteria.
 
 ### Blocked
 
-- `COLORLESS/WUBRG` Crucible or comparison until `WUBRG` exists in Layer 1.
+- Additional `COLORLESS/WUBRG` Crucibles, reverse-order `WUBRG/COLORLESS` duplicates, or public comparison surfaces beyond the single VM-369 placement Crucible.
 - Any decision based on generated/runtime copy, model memory, web claims, generic artifact preference, five-color Eldrazi, Phyrexia, or sixth-color framing as evidence.
 - Any raw Colorless JSON, generated artifact, runtime route, Home preview, alias, directory, image, validator, builder, snippet, or UI implementation change under VM-362.
+
+## VM-372 Support-Only Controlled Richness Addendum
+
+Status: narrow implementation approved.
+Related card: `docs/kanban/done/VM-372-colorless-support-only-controlled-richness.md`
+
+VM-372 approves only support-only controlled richness for:
+
+- `commander_compass`
+- The single named official precon `deck_links` row: `Eldrazi Unbound (Precon)`
+- `research_links` as internal/source-context links
+
+This approval does not approve public route, Home preview, directory links, lowercase aliases, `C` aliases, hero asset work, schema/API expansion, public raw enrichment, broad Commander recommendation surfaces, broad staples, EDHREC browse links, MTGDecks browse links, legality claims, popularity claims, metagame claims, price claims, or recommendation-quality claims.
+
+`commander_legal: null` is intentional because VM-372 does not introduce legality assertions; legality remains outside the support-only row contract unless backed by a future source/governance card.
+
+The approved Commander Compass rows are limited to `Zhulodok, Void Gorger` and `Omarthis, Ghostfire Initiate`. They may assert only that the current exact-name Scryfall `id:c` checks returned those card names with empty color identity, and that the official Commander Masters decklist names them inside Eldrazi Unbound. They must not use broader `id:c is:commander` searches as implementation input.
+
+Research links remain source-context only. They must not enable public directory browsing, EDHREC, MTGDecks, derived browse links, or broad outbound recommendation surfaces.
 
 ## Expansion Blockers
 

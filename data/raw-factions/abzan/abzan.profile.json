@@ -11,10 +11,10 @@
     "Green"
   ],
   "color_pair_or_group": "WBG wedge metadata only",
-  "source_review_date": "2026-05-31",
+  "source_review_date": "2026-06-13",
   "last_full_review": "2026-05-31",
-  "last_incremental_review": "2026-06-09",
-  "last_updated": "2026-06-09",
+  "last_incremental_review": "2026-06-13",
+  "last_updated": "2026-06-13",
   "site_surface": {
     "display_name": "Abzan Houses",
     "short_summary": "Abzan Houses is a VM-202 live-pilot Tarkir wedge packet for White-centered WBG endurance, family continuity, ancestor obligation, perennation, and defensive patience.",
@@ -403,9 +403,9 @@
     "architecture_review_status": "Abzan VM-198 and VM-199 reviewed as shaping-only architecture input.",
     "raw_packet_status": "vm202_live_pilot_source_bound",
     "generation_status": "wired_through_approved_builder_path",
-    "claim_count": 10,
+    "claim_count": 11,
     "claim_basis": "Normalized ABZAN promoted and guardrail evidence rows only.",
-    "support_material_policy": "Support-only, manual-fill, discovery-only, Commander/operator, seed, generated report, architecture, and dossier material may appear only in bounded review notes.",
+    "support_material_policy": "Support-only, manual-fill, discovery-only, Commander/operator, seed, generated report, architecture, and dossier material may appear only in bounded review notes. VM-380 official decklist rows support only product/deck navigation, face/featured commander names, and gallery links.",
     "evidence_quality": "High for source-bound Abzan identity, modern guide, and guardrail claims; low for exact card facts and deferred detailed lore.",
     "known_limitations": [
       "Exact modern card facts and commander legality are not validated",
@@ -413,7 +413,8 @@
       "Minor-house hierarchy and detailed politics are deferred",
       "Exact rebellion operations are deferred",
       "Long-term dragonstorm ecology is deferred",
-      "Commander/operator rows are support-only"
+      "Commander/operator rows are support-only",
+      "Commander product rows are support-only and do not prove Tarkir canon, popularity, metagame, legality, or placement evidence."
     ],
     "claim_ids": [
       "abzan_claim_0001",
@@ -440,7 +441,8 @@
       "Wild-dragon response protocols beyond defensive/capture framing",
       "Commander products as Tarkir Abzan canon",
       "Generic WBG as Abzan Houses",
-      "Dromoka's brood as Abzan Houses continuity"
+      "Dromoka's brood as Abzan Houses continuity",
+      "Commander product rows as Tarkir canon or broad recommendation proof"
     ],
     "excluded_as_raw_claim_evidence": [
       "Commander/operator rows",
@@ -450,34 +452,197 @@
       "dossier prose",
       "manual-fill rows",
       "seed files",
-      "generated reports"
+      "generated reports",
+      "official Commander decklists beyond product/navigation facts"
     ]
   },
   "commander_compass": {
-    "review_status": "support_only",
+    "schema_version": "1.0.0",
+    "source_research_file": "docs/research/VM-378-379-380_source-intake.md",
+    "last_reviewed": "2026-06-13",
+    "review_status": "support_only_product_navigation",
     "exact_color_set": "White; Black; Green",
+    "recommendation_philosophy": "Use Abzan Armor Commander data only as official product/navigation support for exact White; Black; Green Tarkir: Dragonstorm product commanders. This does not establish Tarkir canon, popularity, metagame, legality, or placement evidence.",
+    "identity_basis": {
+      "owned_themes": [
+        "defenders",
+        "toughness matters",
+        "life-gain/graveyard support",
+        "Abzan product navigation"
+      ],
+      "allowed_phrases": [
+        "ABZAN product support",
+        "Abzan Armor",
+        "defenders",
+        "toughness matters",
+        "life-gain/graveyard support"
+      ],
+      "avoid_or_contrast_phrases": [
+        "Commander product row as Tarkir canon",
+        "Commander legality proof",
+        "generic color identity as placement evidence",
+        "clan leader + Spirit Dragon as lore proof"
+      ],
+      "adjacent_overlap_notes": [
+        "Product/deck rows are support-only navigation, not evidence for clan society, canon identity, or placement scoring.",
+        "Clan leader and Spirit Dragon names are product anchors only unless a later card promotes stronger canon rows."
+      ],
+      "supporting_claim_ids": [
+        "abzan_claim_0001",
+        "abzan_claim_0002",
+        "abzan_claim_0010",
+        "abzan_claim_0011"
+      ],
+      "supporting_source_ids": [
+        "src_vm_second_commander_recommendations_wbg",
+        "src_wotc_tarkir_dragonstorm_commander_decklists_20250325"
+      ]
+    },
     "support_decks": [
-      "Abzan Armor",
-      "Counterpunch",
-      "Symbiotic Swarm",
-      "Enduring Enchantments",
-      "Food and Fellowship",
-      "Corrupting Influence"
+      "Abzan Armor"
     ],
     "support_language": [
       "defenders",
       "toughness matters",
-      "counters",
-      "tokens",
-      "sacrifice",
-      "keyword counters",
-      "graveyard enchantments",
-      "Food",
-      "life gain",
-      "poison",
-      "corrupted",
-      "proliferate"
+      "life-gain/graveyard support",
+      "Abzan product navigation"
     ],
-    "notes": "Commander Compass material is product/operator support only. It is not Abzan canon evidence, not setting proof, and not raw-claim input."
+    "native_fit_commanders": [
+      {
+        "exact_card_name": "Felothar the Steadfast",
+        "display_name": "Felothar the Steadfast",
+        "scryfall_uri": "https://scryfall.com/card/tdc/4/felothar-the-steadfast?utm_source=api",
+        "color_identity": [
+          "B",
+          "G",
+          "W"
+        ],
+        "recommendation_type": "Support-Only Product Commander",
+        "archetype_tags": [
+          "official product row",
+          "Abzan Armor",
+          "defenders",
+          "toughness matters"
+        ],
+        "why_this_fits": "The official Tarkir: Dragonstorm decklist identifies Felothar the Steadfast as the face commander for Abzan Armor.",
+        "skip_if": "Use only for official product navigation or support-only deck exploration; do not use as metagame, popularity, legality, or lore proof.",
+        "gameplay_summary": "Use as official deck/product navigation only; no independent power, popularity, legality, metagame, or lore claim is made.",
+        "faction_identity_terms": [
+          "ABZAN",
+          "Abzan Armor",
+          "defenders",
+          "toughness matters"
+        ],
+        "type_line": "Legendary Creature — Human Warrior",
+        "source_basis": {
+          "source_ids": [
+            "src_vm_second_commander_recommendations_wbg",
+            "src_wotc_tarkir_dragonstorm_commander_decklists_20250325"
+          ],
+          "claim_ids": [
+            "abzan_claim_0011"
+          ],
+          "support_only": true,
+          "boundary": "Official product/card-data support only."
+        },
+        "confidence": "High for product/card identity; support-only for recommendation texture.",
+        "caution_notes": [
+          "Does not prove canon lore or character biography.",
+          "Does not prove popularity, power level, legality, or metagame position."
+        ]
+      },
+      {
+        "exact_card_name": "Betor, Ancestor's Voice",
+        "display_name": "Betor, Ancestor's Voice",
+        "scryfall_uri": "https://scryfall.com/card/tdc/1/betor-ancestors-voice?utm_source=api",
+        "color_identity": [
+          "B",
+          "G",
+          "W"
+        ],
+        "recommendation_type": "Support-Only Product Commander",
+        "archetype_tags": [
+          "official product row",
+          "Abzan Armor",
+          "defenders",
+          "toughness matters"
+        ],
+        "why_this_fits": "The official Tarkir: Dragonstorm decklist identifies Betor, Ancestor's Voice as the featured commander for Abzan Armor.",
+        "skip_if": "Use only for official product navigation or support-only deck exploration; do not use as metagame, popularity, legality, or lore proof.",
+        "gameplay_summary": "Use as official deck/product navigation only; no independent power, popularity, legality, metagame, or lore claim is made.",
+        "faction_identity_terms": [
+          "ABZAN",
+          "Abzan Armor",
+          "defenders",
+          "toughness matters"
+        ],
+        "type_line": "Legendary Creature — Spirit Dragon",
+        "source_basis": {
+          "source_ids": [
+            "src_vm_second_commander_recommendations_wbg",
+            "src_wotc_tarkir_dragonstorm_commander_decklists_20250325"
+          ],
+          "claim_ids": [
+            "abzan_claim_0011"
+          ],
+          "support_only": true,
+          "boundary": "Official product/card-data support only."
+        },
+        "confidence": "High for product/card identity; support-only for recommendation texture.",
+        "caution_notes": [
+          "Does not prove canon lore or character biography.",
+          "Does not prove popularity, power level, legality, or metagame position."
+        ]
+      }
+    ],
+    "weird_stretch_commanders": [],
+    "budget_friendly_commanders": [],
+    "advanced_complexity_commanders": [],
+    "iconic_lore_forward_commanders": [],
+    "not_recommended_or_deprioritized": [],
+    "archetype_lanes": [
+      {
+        "lane": "Abzan Armor product lane",
+        "commanders": [
+          "Felothar the Steadfast",
+          "Betor, Ancestor's Voice"
+        ],
+        "support_only": true,
+        "source_ids": [
+          "src_wotc_tarkir_dragonstorm_commander_decklists_20250325"
+        ],
+        "notes": "Official decklist support only; not Tarkir canon, popularity, metagame, legality, or broad recommendation proof."
+      }
+    ],
+    "link_targets": {
+      "official_decklist": "https://magic.wizards.com/en/news/announcements/tarkir-dragonstorm-commander-decklists",
+      "official_deck_gallery": "https://magic.wizards.com/en/products/tarkir-dragonstorm/card-image-gallery?cigproduct=tdm-products-abzan-armor",
+      "scryfall_commander_search": "https://scryfall.com/search?q=id%3Dwbg+is%3Acommander+f%3Acommander",
+      "edhrec_commander_index": "",
+      "mtgdecks_color_identity": "",
+      "archidekt_color_search": ""
+    },
+    "merge_notes": {
+      "support_boundary": "VM-380 surfaces Compass data only from official product and existing support-only Commander rows.",
+      "deferred": "Clan leader + Spirit Dragon anchors are product/navigation only, not Tarkir canon proof."
+    }
+  },
+  "deck_links": [
+    {
+      "fmt": "Commander",
+      "name": "Abzan Armor (Precon)",
+      "desc": "Official Tarkir: Dragonstorm Commander decklist reference for Felothar the Steadfast and Betor, Ancestor's Voice, with deck and gallery navigation for Abzan Armor.",
+      "mtgg": "https://magic.wizards.com/en/news/announcements/tarkir-dragonstorm-commander-decklists",
+      "edhrec": null,
+      "mtgd": null,
+      "gallery": "https://magic.wizards.com/en/products/tarkir-dragonstorm/card-image-gallery?cigproduct=tdm-products-abzan-armor"
+    }
+  ],
+  "research_links": {
+    "source_packet": "data/raw-factions/abzan/abzan.sources.json",
+    "official_tarkir_dragonstorm_commander_decklist": "https://magic.wizards.com/en/news/announcements/tarkir-dragonstorm-commander-decklists",
+    "official_deck_gallery": "https://magic.wizards.com/en/products/tarkir-dragonstorm/card-image-gallery?cigproduct=tdm-products-abzan-armor",
+    "scryfall_exact_commander_search": "https://scryfall.com/search?q=id%3Dwbg+is%3Acommander+f%3Acommander",
+    "support_boundary": "Official product/deck navigation only; not Tarkir canon proof."
   }
 }

@@ -2,7 +2,7 @@
   "schema_version": "1.0.0",
   "faction_id": "jeskai",
   "faction_name": "Jeskai Way",
-  "last_updated": "2026-05-31",
+  "last_updated": "2026-06-13",
   "changes": [
     {
       "change_id": "jeskai_change_001",
@@ -91,6 +91,34 @@
         "Keep JESKAI as a future/planned expression name only."
       ],
       "notes": "This initial packet intentionally leaves placement_axes empty, keeps Jeskai source-authored, review-gated, non-live, and generated from no runtime builder, does not edit builder/runtime/generated/schema/navigation/fixture/test surfaces, and does not add jeskai, JESKAI, URW, WUR, RWU, UWR, RUW, WRU, or lowercase forms as generated, fixture, lookup, public label, alias, navigation, placement, or builder targets."
+    },
+    {
+      "change_id": "jeskai_change_vm380_tarkir_dossier_support_20260613",
+      "change_type": "VM-380 Tarkir Dossier Support Repair",
+      "change_date": "2026-06-13",
+      "summary": "Added official Tarkir: Dragonstorm product support for JESKAI: Jeskai Striker deck links, research links, and support-only Commander surface boundaries.",
+      "sources_added": [
+        "src_wotc_tarkir_dragonstorm_commander_decklists_20250325"
+      ],
+      "sources_updated": [],
+      "claims_added": [
+        "jeskai_claim_0011"
+      ],
+      "claims_updated": [],
+      "claims_superseded": [],
+      "claims_contradicted": [],
+      "profile_fields_updated": [
+        "deck_links",
+        "research_links",
+        "commander_compass",
+        "data_quality",
+        "research_limitations"
+      ],
+      "placement_fields_updated": [],
+      "manual_review_required": [
+        "Treat clan leader + Spirit Dragon anchors as product/navigation only unless a later card promotes stronger canon rows."
+      ],
+      "notes": "No public API, schema, route, Home preview, alias, hero, unrelated placement expansion, staging, or commit changes."
     }
   ],
   "audit_summary": {

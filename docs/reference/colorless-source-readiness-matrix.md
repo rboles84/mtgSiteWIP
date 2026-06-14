@@ -1,7 +1,7 @@
 # Colorless Source-Readiness Matrix
 
 Created: 2026-06-12
-Related cards: VM-349, VM-354, VM-359
+Related cards: VM-349, VM-354, VM-359, VM-372
 
 ## Purpose
 
@@ -9,7 +9,7 @@ This matrix records Colorless readiness as controlled-placeable data, not public
 
 ## Guardrails
 
-- Local sources only; no web/source intake was performed.
+- VM-349/VM-354/VM-359 used local sources only. VM-372 adds current-source lookup only for the exact Colorless support rows and official Eldrazi Unbound decklist context.
 - Five-color and `WUBRG` are out of scope until five-color exists in Vox Mana.
 - Generated/runtime files, dossier output, snippets, current Archscry UI output, and existing display copy are symptoms only.
 - Architecture docs are synthesis and cannot justify raw/profile/placement fields unless a later card promotes the relevant claim through a source/evidence ledger.
@@ -27,11 +27,23 @@ This matrix records Colorless readiness as controlled-placeable data, not public
 | Any Colorless Crucible outside `COLORLESS/YORE`, `COLORLESS/ESPER`, and `COLORLESS/WITCH` | `blocked-noncanonical` | None in this gate | Do not add another Colorless pair in VM-359. |
 | Candidate `COLORLESS/WUBRG` Crucible | `blocked-noncanonical` | None until five-color exists | Do not add or test this pair in VM-354. |
 | Public raw-enrichment surfacing for Colorless timeline, figures, and flavor | `blocked-noncanonical` | Separate UX-readiness and promotion approval required | Raw profile material may remain canonical source data, but it does not authorize public dossier enrichment in this pass. |
-| Colorless Commander Compass, deck links, research links, and broad recommendations | `blocked-noncanonical` | Separate Commander/product support gate required | Keep suppressed from public generated/display surfaces. Support-only rows cannot authorize public recommendations. |
+| Colorless Commander Compass, deck links, research links, and broad recommendations | `split-after-VM-372` | VM-372 support-only gate for narrow fields; separate approval required for broad recommendations | VM-372 allows only support-only `commander_compass`, one `Eldrazi Unbound (Precon)` deck row, and source-context `research_links`. Broad recommendations remain blocked. |
 | Colorless route, Home preview, alias, public directory link, and broad public discovery surfaces | `blocked-noncanonical` | Separate public-surface promotion gate required | Must remain absent. Any new exposure is a blocking validation failure. |
 | Generated display, generated placement output, dossier output, runtime copy, and snippets | `blocked-noncanonical` | Symptoms only | May be inspected for leaks, but cannot prove or repair readiness. |
 
 ## UX Impact Notes
+
+## VM-372 Narrow Allowance
+
+VM-372 approves only these generated/public data fields for Colorless support context:
+
+- `commander_compass.native_fit_commanders` rows for `Zhulodok, Void Gorger` and `Omarthis, Ghostfire Initiate`
+- One `deck_links` row named `Eldrazi Unbound (Precon)`, with EDHREC and MTGDecks suppressed
+- `research_links` that point to official, local, or exact source-verification references
+
+Still blocked: Home preview, public route, aliases beyond `COLORLESS`, lowercase `colorless`, lowercase `c`, directory links, hero asset changes, schema/API expansion, public raw enrichment, broad staple lists, broad deck advice, EDHREC browse links, MTGDecks browse links, legality claims, popularity claims, metagame claims, price claims, and recommendation-quality claims.
+
+`commander_legal: null` is deliberate in VM-372. The support rows do not introduce legality assertions.
 
 - Placement should feel controlled and legible because Colorless has direct placement support.
 - Edge cases against adjacent identities remain less refined because Crucibles are review candidates, not implemented pairs.

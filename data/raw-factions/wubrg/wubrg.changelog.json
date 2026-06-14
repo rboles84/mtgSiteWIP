@@ -1,0 +1,63 @@
+{
+  "schema_version": "1.0.0",
+  "faction_id": "wubrg",
+  "faction_name": "Five-Color / WUBRG",
+  "changes": [
+    {
+      "date": "2026-06-13",
+      "change_id": "VM-368-VM-370",
+      "summary": "Deepened WUBRG through source-bound Commander support verification, one canonical COLORLESS/WUBRG Crucible, and claim-backed lore/readiness boundaries.",
+      "files_changed": [
+        "docs/research/wubrg/wubrg-depth-readiness-matrix.md",
+        "docs/research/wubrg/wubrg-source-ledger.md",
+        "docs/research/wubrg/wubrg-evidence-ledger.md",
+        "docs/research/wubrg/wubrg-manual-fill.md",
+        "docs/research/wubrg/wubrg-reliability-audit.md",
+        "docs/research/wubrg/wubrg-layer2-gold-findings.md",
+        "data/raw-factions/wubrg/wubrg.sources.json",
+        "data/raw-factions/wubrg/wubrg.claims.json",
+        "data/raw-factions/wubrg/wubrg.profile.json",
+        "data/raw-factions/wubrg/wubrg.placement.json",
+        "research/build-faction-artifacts.mjs",
+        "research/archscry-dossier-followup-tests.js",
+        "assets/js/quick-reading-tests.js"
+      ],
+      "why": "Promote only exact source-backed WUBRG rows, resolve Draconic Domination and Painbow as support-only, and add a single placement Crucible where source support and reproduced close-call evidence both pass.",
+      "boundaries": [
+        "Draconic Domination and Painbow are support-only Commander/product rows",
+        "product anchors do not authorize lore, metaphysics, popularity, legality, ranking, metagame, or representative play-pattern claims",
+        "COLORLESS/WUBRG is the only approved WUBRG Crucible and uses canonical order",
+        "Colorless gains no Compass links, deck links, research links, public route, Home preview, directory links, aliases, schema/API expansion, or broad public richness",
+        "WUBRG remains placement-eligible and preview-ineligible"
+      ]
+    },
+    {
+      "date": "2026-06-13",
+      "change_id": "VM-367",
+      "summary": "Created WUBRG Layer 2 gold packet and raw faction files for controlled Layer 1 promotion.",
+      "files_changed": [
+        "docs/research/wubrg/README.md",
+        "docs/research/wubrg/wubrg-existing-file-classification.md",
+        "docs/research/wubrg/wubrg-reliability-audit.md",
+        "docs/research/wubrg/wubrg-source-ledger.md",
+        "docs/research/wubrg/wubrg-evidence-ledger.md",
+        "docs/research/wubrg/wubrg-layer2-gold-findings.md",
+        "docs/research/wubrg/wubrg-manual-fill.md",
+        "data/raw-factions/wubrg/wubrg.sources.json",
+        "data/raw-factions/wubrg/wubrg.claims.json",
+        "data/raw-factions/wubrg/wubrg.profile.json",
+        "data/raw-factions/wubrg/wubrg.placement.json",
+        "data/raw-factions/wubrg/wubrg.changelog.json"
+      ],
+      "why": "Add Five-Color / WUBRG as a source-owned controlled identity without unsupported lore, deck, or route expansion.",
+      "boundaries": [
+        "Layer 2 before Layer 1",
+        "no generated/runtime evidence",
+        "support-only commander/deck/search rows",
+        "preview_eligible false",
+        "no public route expansion",
+        "no field-count padding"
+      ]
+    }
+  ]
+}

@@ -11,10 +11,10 @@
     "Black"
   ],
   "color_pair_or_group": "RWB/WBR wedge metadata only",
-  "source_review_date": "2026-06-05",
+  "source_review_date": "2026-06-13",
   "last_full_review": "2026-05-31",
-  "last_incremental_review": "2026-06-12",
-  "last_updated": "2026-06-12",
+  "last_incremental_review": "2026-06-13",
+  "last_updated": "2026-06-13",
   "site_surface": {
     "display_name": "Mardu Horde",
     "short_summary": "Mardu Horde is a source-authored, review-gated Tarkir wedge packet for Red-centered speed, war-bound action, earned names, total commitment, Khans-era raiding, Alesha bridge context, and strict Kolaghan and Dragonstorm boundaries.",
@@ -333,7 +333,7 @@
   },
   "data_quality": {
     "claim_basis": "Normalized MARDU promoted rows plus allowed guardrail/lifecycle boundary rows only.",
-    "support_material_policy": "Support-only, manual-fill, discovery-only, Commander/operator, seed, generated report, architecture, dossier, and direct source-row material may appear only in bounded review notes.",
+    "support_material_policy": "Support-only, manual-fill, discovery-only, Commander/operator, seed, generated report, architecture, dossier, and direct source-row material may appear only in bounded review notes. VM-380 official decklist rows support only product/deck navigation, face/featured commander names, and gallery links.",
     "evidence_quality": "High for source-bound Mardu identity, Khans-era floor, Fate Reforged/Alesha bridge, Kolaghan boundary, modern guide, and guardrail claims; low for exact card facts and deferred detailed lore.",
     "known_limitations": [
       "Exact raid card facts are not validated",
@@ -343,7 +343,8 @@
       "Zurgo's full biography is deferred",
       "Detailed modern named-character biographies are deferred",
       "Exact Dragonstorm story chronology is deferred",
-      "Commander/operator rows are support-only"
+      "Commander/operator rows are support-only",
+      "Commander product rows are support-only and do not prove Tarkir canon, popularity, metagame, legality, or placement evidence."
     ],
     "claim_ids": [
       "mardu_claim_0001",
@@ -361,7 +362,8 @@
     "placement_eligible": true,
     "preview_eligible": false,
     "live_pilot": true,
-    "notes": "VM-299 repairs Mardu source durability after VM-228 live promotion and VM-296 generated-authoring contamination. The durable raw claim floor remains ten approved raw claims; exact card mechanics, Commander legality, full biographies, and detailed Dragonstorm chronology remain manual-fill/support-only."
+    "notes": "VM-299 repairs Mardu source durability after VM-228 live promotion and VM-296 generated-authoring contamination. The durable raw claim floor remains ten approved raw claims; exact card mechanics, Commander legality, full biographies, and detailed Dragonstorm chronology remain manual-fill/support-only.",
+    "claim_count": 11
   },
   "research_limitations": {
     "manual_review_required": true,
@@ -377,7 +379,8 @@
       "Generic RWB or WBR as Mardu Horde",
       "Kolaghan clan as Mardu Horde continuity",
       "Modern Dragonstorm details as Khans-era backfill",
-      "Color-pair philosophy files as Tarkir lore proof"
+      "Color-pair philosophy files as Tarkir lore proof",
+      "Commander product rows as Tarkir canon or broad recommendation proof"
     ],
     "excluded_as_raw_claim_evidence": [
       "Commander/operator rows",
@@ -388,13 +391,14 @@
       "direct MARDU-SRC rows",
       "seed files",
       "generated reports",
-      "Vox Mana synthesis rows"
+      "Vox Mana synthesis rows",
+      "official Commander decklists beyond product/navigation facts"
     ]
   },
   "commander_compass": {
     "schema_version": "1.0.0",
     "source_research_file": "docs/research/vox_mana_second_commander_recommendations_enhanced.jsonl",
-    "last_reviewed": "2026-06-12",
+    "last_reviewed": "2026-06-13",
     "review_status": "support_only_live_pilot_curation",
     "exact_color_sets": [
       "Red; White; Black",
@@ -433,12 +437,14 @@
       "supporting_claim_ids": [
         "mardu_claim_0002",
         "mardu_claim_0003",
-        "mardu_claim_0010"
+        "mardu_claim_0010",
+        "mardu_claim_0011"
       ],
       "supporting_source_ids": [
         "src_vm_second_commander_recommendations_rwb_wbr",
         "src_vm_mardu_manual_fill_20260531",
-        "src_vm_mardu_identity_md_20260531"
+        "src_vm_mardu_identity_md_20260531",
+        "src_wotc_tarkir_dragonstorm_commander_decklists_20250325"
       ]
     },
     "native_fit_commanders": [
@@ -549,11 +555,32 @@
       "edhrec_commander_index": "https://edhrec.com/commanders/mardu",
       "mtgdecks_color_identity": "https://mtgdecks.net/Commander/mardu-commanders",
       "scryfall_commander_search": "https://scryfall.com/search?q=id%3Drwb+is%3Acommander+f%3Acommander",
-      "archidekt_color_search": "https://archidekt.com/search/decks?colors=RWB&deckFormat=3&orderBy=-updatedAt&page=1"
+      "archidekt_color_search": "https://archidekt.com/search/decks?colors=RWB&deckFormat=3&orderBy=-updatedAt&page=1",
+      "official_decklist": "https://magic.wizards.com/en/news/announcements/tarkir-dragonstorm-commander-decklists",
+      "official_deck_gallery": "https://magic.wizards.com/en/products/tarkir-dragonstorm/card-image-gallery?cigproduct=tdm-products-mardu-surge"
     },
     "merge_notes": {
       "support_only_boundary": "Commander/deck/operator material remains support texture only and must not be used as lore, canon, or placement proof.",
-      "deck_links_status": "External index links are provided as Commander support navigation targets only, not evidence rows."
+      "deck_links_status": "External index links are provided as Commander support navigation targets only, not evidence rows.",
+      "vm380_official_product_boundary": "Top-level deck/research links added from the official Tarkir: Dragonstorm decklist; existing Compass boundaries remain support-only."
     }
+  },
+  "deck_links": [
+    {
+      "fmt": "Commander",
+      "name": "Mardu Surge (Precon)",
+      "desc": "Official Tarkir: Dragonstorm Commander decklist reference for Zurgo Stormrender and Neriv, Crackling Vanguard, with deck and gallery navigation for Mardu Surge.",
+      "mtgg": "https://magic.wizards.com/en/news/announcements/tarkir-dragonstorm-commander-decklists",
+      "edhrec": null,
+      "mtgd": null,
+      "gallery": "https://magic.wizards.com/en/products/tarkir-dragonstorm/card-image-gallery?cigproduct=tdm-products-mardu-surge"
+    }
+  ],
+  "research_links": {
+    "source_packet": "data/raw-factions/mardu/mardu.sources.json",
+    "official_tarkir_dragonstorm_commander_decklist": "https://magic.wizards.com/en/news/announcements/tarkir-dragonstorm-commander-decklists",
+    "official_deck_gallery": "https://magic.wizards.com/en/products/tarkir-dragonstorm/card-image-gallery?cigproduct=tdm-products-mardu-surge",
+    "scryfall_exact_commander_search": "https://scryfall.com/search?q=id%3Drwb+is%3Acommander+f%3Acommander",
+    "support_boundary": "Official product/deck navigation only; not Tarkir canon proof."
   }
 }

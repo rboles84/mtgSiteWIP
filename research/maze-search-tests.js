@@ -106,6 +106,43 @@ assert.ok(
   "expected Colorless dossier Maze paths never to fall back to WU"
 );
 
+const wubrgDossierMazePaths = buildDossierMazePathEntries({
+  identity: "WUBRG",
+  factionName: "Five-Color",
+  identityHint: "WUBRG",
+});
+assert.deepEqual(
+  wubrgDossierMazePaths.map((entry) => entry.query),
+  [
+    "id=wubrg is:commander f:commander",
+    "id<=wubrg f:commander -is:commander -t:land (o:domain OR o:converge OR o:sunburst OR o:\"basic land type\" OR o:\"basic land types\" OR mana:{W}{U}{B}{R}{G} OR o:\"{W}{U}{B}{R}{G}\")",
+    "id<=wubrg f:commander (ft:coalition OR ft:domain OR ft:spectrum OR ft:unite OR ft:world)",
+  ],
+  "expected WUBRG dossier Maze paths to use exact five-color Commander and support lanes"
+);
+assert.deepEqual(
+  wubrgDossierMazePaths.map((entry) => entry.hint),
+  ["WUBRG", "five-color support", "coalition, domain, spectrum"],
+  "expected WUBRG dossier Maze hints to keep the requested WUBRG sidebar signal"
+);
+assert.deepEqual(
+  wubrgDossierMazePaths.map((entry) => entry.plainReadingQuery),
+  [
+    "Five-Color commanders with exactly white-blue-black-red-green identity",
+    "Five-Color support cards in WUBRG Commander identity",
+    "Five-Color flavor and story echoes across all five colors",
+  ],
+  "expected WUBRG dossier Maze paths to carry plain-reading copy alongside operator queries"
+);
+assert.ok(
+  wubrgDossierMazePaths.every((entry) => isMazeOperatorQuery(entry.query)),
+  "expected each WUBRG dossier Maze path to carry executable Scryfall operator syntax"
+);
+assert.ok(
+  wubrgDossierMazePaths.every((entry) => entry.pathType !== "weird-stretch-commanders"),
+  "expected WUBRG dossier Maze paths not to expose outside-color stretch"
+);
+
 const inspectorUrl = new URL(buildScryfallWebSearchUrl("banned:modern", {
   unique: "cards",
   order: "released",
@@ -758,6 +795,17 @@ async function runLiveFourColorArchscryCases() {
       storedScores: { W: 0, U: 0, B: 8, R: 7, G: 0 },
       visibleHint: "Witch",
     },
+    {
+      key: "WUBRG",
+      name: "Five-Color",
+      operatorIdentity: "gbruw",
+      canonicalIdentity: "wubrg",
+      words: "white-blue-black-red-green",
+      storedKey: "WU",
+      storedName: "Azorius Senate",
+      storedScores: { W: 8, U: 7, B: 0, R: 0, G: 0 },
+      visibleHint: "WUBRG",
+    },
   ];
 
   for (const testCase of cases) {
@@ -805,7 +853,12 @@ async function runLiveFourColorArchscryCases() {
     );
 
     const readingPaths = [...document.getElementById("reading-path-list").children];
-    const visibleSidebarText = readingPaths.map((path) => path.textContent).join(" ");
+    const visibleSidebarText = readingPaths
+      .map((path) => [
+        path.textContent,
+        ...[...path.children].map((child) => child.textContent),
+      ].join(" "))
+      .join(" ");
     const sidebarStateText = readingPaths
       .map((path) => `${path.textContent} ${path.dataset.query} ${path.dataset.plainReadingQuery}`)
       .join(" ");
@@ -822,11 +875,15 @@ async function runLiveFourColorArchscryCases() {
       readingPaths.every((path) => !/\/(?:wubr|ubrg|brgw|rgwu|gwub|WUBR|UBRG|BRGW|RGWU|GWUB)\//.test(`${path.textContent} ${path.dataset.plainReadingQuery}`)),
       `expected ${testCase.key} visible path labels to avoid public raw color-code route language`
     );
-    assert.doesNotMatch(
-      visibleSidebarText,
-      new RegExp(`\\b${testCase.storedKey}\\b|${testCase.storedName}|WBRG|UBRG|BRGW|RGWU|GWUB`, "i"),
-      `expected ${testCase.key} visible sidebar labels to avoid stale source or color-code labels`
-    );
+    if (testCase.key === "WUBRG") {
+      assert.match(visibleSidebarText, /\bWUBRG\b/, "expected active WUBRG sidebar to expose the requested WUBRG dossier signal");
+    } else {
+      assert.doesNotMatch(
+        visibleSidebarText,
+        new RegExp(`\\b${testCase.storedKey}\\b|${testCase.storedName}|WBRG|UBRG|BRGW|RGWU|GWUB`, "i"),
+        `expected ${testCase.key} visible sidebar labels to avoid stale source or color-code labels`
+      );
+    }
     if (testCase.key === "INK") {
       assert.doesNotMatch(
         sidebarStateText,
@@ -838,7 +895,7 @@ async function runLiveFourColorArchscryCases() {
     const storedActiveHandoff = JSON.parse(dom.getLocalStorageItem("vm_archscry_maze_handoff_v1"));
     assert.equal(storedActiveHandoff.fit, testCase.key);
     assert.equal(storedActiveHandoff.guild, testCase.key);
-    assert.equal(storedActiveHandoff.factionName, testCase.visibleHint);
+    assert.equal(storedActiveHandoff.factionName, testCase.key === "WUBRG" ? testCase.name : testCase.visibleHint);
     assert.equal(storedActiveHandoff.sourceFaction, "");
     assert.equal(storedActiveHandoff.operatorQuery, expectedExactQuery);
     assert.equal(Object.prototype.hasOwnProperty.call(storedActiveHandoff, "placementResult"), false);

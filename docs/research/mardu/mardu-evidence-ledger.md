@@ -38,6 +38,7 @@ Status: VM-223 evidence ledger. Mardu remains docs-only, non-live, and review-ga
 | MARDU-EVID-030 | Guardrail | The three source-material seed artifacts are discovery-only, not evidence. Their claims must be independently rebound to approved source rows or marked `Manual fill required`. | MARDU-SRC-014 through MARDU-SRC-016 | Source hygiene rule. |
 | MARDU-EVID-031 | Vox Mana synthesis | Vox Mana may later frame Mardu as Red-centered RWB speed: Red action as center, White martial structure as aim, and Black opportunity as ruthless edge, but VM-223 records this only as labeled synthesis for VM-224 consideration. | MARDU-EVID-001 through MARDU-EVID-029 | Label as Vox Mana synthesis; not MTG canon. |
 | MARDU-EVID-032 | Guardrail | VM-223 leaves Mardu non-live: no architecture docs, raw-faction JSON, runtime keys, generated artifacts, schemas, Maze changes, route changes, Home preview changes, placement model changes, builders, fixtures, or Supabase changes. | VM-223 scope | Stop gate. |
+| MARDU-EVID-033 | Support-only | The official Tarkir: Dragonstorm Commander decklist verifies `Mardu Surge` as a product deck with `Zurgo Stormrender` as face commander and `Neriv, Crackling Vanguard` as featured commander. | MARDU-SRC-017 | Product/deck navigation only; not Tarkir canon, popularity, metagame, legality, or placement evidence. |
 
 ## Manual-Fill Rows
 

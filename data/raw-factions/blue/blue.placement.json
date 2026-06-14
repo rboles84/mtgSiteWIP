@@ -1,0 +1,263 @@
+{
+  "schema_version": "1.0.0",
+  "placement_profile_version": "1.0.0",
+  "placement_model_version": "1.0.0",
+  "based_on_profile_version": "1.0.0",
+  "faction_id": "blue",
+  "faction_name": "Blue",
+  "last_updated": "2026-06-13",
+  "color_identity": [
+    "U"
+  ],
+  "placement_summary": "Blue is a strong fit when a user wants to understand, optimize, control, and improve through knowledge, tools, patience, and deliberate choice.",
+  "moral_and_psychological_profile": {
+    "primary_drive": "Become more than the present self by learning, modeling, experimenting, and choosing with care.",
+    "ethical_pressure": "Preparation can become avoidance, and control can become distrust of life before it is fully understood.",
+    "core_boundary": "Placement language is Vox Mana interpretation from source-backed color philosophy, not official personality canon."
+  },
+  "placement_axes": [
+    {
+      "axis_id": "axis_perfection_through_knowledge",
+      "label": "Perfection Through Knowledge",
+      "description": "Measures how much the user centers learning, tools, and intentional improvement.",
+      "low_end_label": "acceptance or impulse",
+      "high_end_label": "optimized becoming",
+      "faction_position": 90,
+      "rationale": "Blue's goal and means center perfection through knowledge, education, and tools.",
+      "claim_ids": [
+        "blue_claim_0002",
+        "blue_claim_0003"
+      ],
+      "confidence": "High"
+    },
+    {
+      "axis_id": "axis_deliberation_over_impulse",
+      "label": "Deliberation Over Impulse",
+      "description": "Separates Blue's careful choice from Red immediacy and Green instinct.",
+      "low_end_label": "act from feeling",
+      "high_end_label": "study before action",
+      "faction_position": 86,
+      "rationale": "Blue specifically opposes impulse and instinct when they block improvement.",
+      "claim_ids": [
+        "blue_claim_0004",
+        "blue_claim_0005"
+      ],
+      "confidence": "High"
+    },
+    {
+      "axis_id": "axis_reactivity_risk",
+      "label": "Reactivity Risk",
+      "description": "Tracks whether the user turns patience into flexible preparation or into delay.",
+      "low_end_label": "adaptive action",
+      "high_end_label": "analysis lock",
+      "faction_position": 64,
+      "rationale": "Blue's source-backed weakness is needing time and becoming passive/reactive.",
+      "claim_ids": [
+        "blue_claim_0006"
+      ],
+      "confidence": "Medium-High"
+    }
+  ],
+  "core_values": [
+    "knowledge",
+    "improvement",
+    "tools",
+    "control",
+    "choice",
+    "education",
+    "foresight",
+    "precision"
+  ],
+  "behavioral_signals": [
+    "the user wants to learn before committing",
+    "the user treats identity as improvable rather than fixed",
+    "the user values tools, models, systems, and careful planning",
+    "the user prefers control, options, and information advantage",
+    "the user distrusts impulse or instinct as insufficient"
+  ],
+  "inhibitor_traits": [
+    "immediate emotional action as the highest good",
+    "destiny or nature treated as unchangeable truth",
+    "group order valued over individual path",
+    "power seized without concern for optimization",
+    "preparation so endless that nothing happens"
+  ],
+  "inhibitor_traps": [
+    "The answer wants knowledge only as trivia, not transformation.",
+    "The answer says optimization but never acts.",
+    "The answer uses control to avoid risk rather than make better choices.",
+    "The answer treats Blue as generic intelligence without tools, learning, or becoming."
+  ],
+  "good_fit_indicators": [
+    "self-improvement and editable identity",
+    "knowledge as the central tool",
+    "careful decision-making and long-term planning",
+    "technology, research, or systems thinking",
+    "control, counterplay, or information advantage",
+    "skepticism toward impulse and instinct"
+  ],
+  "ideal_fit_indicators": [
+    "the user wants to study the system until the right move appears",
+    "the user treats mistakes as data for improvement",
+    "the user wants tools that expand what they can become",
+    "the user values options and timing more than brute force"
+  ],
+  "poor_fit_indicators": [
+    "emotion and immediacy over study",
+    "natural destiny over self-authorship",
+    "group harmony over individual optimization",
+    "calculated power without curiosity",
+    "knowledge gathered without ever acting"
+  ],
+  "discriminator_questions": [
+    {
+      "question_id": "blue_disc_001",
+      "question": "Is the user trying to become more capable through knowledge and tools, or just trying to be smart?",
+      "purpose": "Separates Blue's transformation drive from generic intelligence.",
+      "answer_pattern_that_supports_this_faction": "Supports Blue when knowledge is tied to self-improvement, mastery, tools, or better choices.",
+      "answer_pattern_that_weakens_this_faction": "Weakens Blue when knowledge is ornamental or detached from becoming.",
+      "collision_targets": [
+        "W",
+        "B"
+      ],
+      "claim_ids": [
+        "blue_claim_0002",
+        "blue_claim_0003"
+      ],
+      "confidence": "High",
+      "lateral_inhibition": false
+    },
+    {
+      "question_id": "blue_disc_002",
+      "question": "Does the user trust deliberation over impulse or instinct?",
+      "purpose": "Separates Blue from Red and Green.",
+      "answer_pattern_that_supports_this_faction": "Supports Blue when the user wants to pause, learn, plan, and optimize before acting.",
+      "answer_pattern_that_weakens_this_faction": "Weakens Blue when the user treats feeling, instinct, or natural role as more trustworthy than analysis.",
+      "collision_targets": [
+        "R",
+        "G"
+      ],
+      "claim_ids": [
+        "blue_claim_0004",
+        "blue_claim_0005"
+      ],
+      "confidence": "High",
+      "lateral_inhibition": false
+    },
+    {
+      "question_id": "blue_disc_003",
+      "question": "Is Blue's patience producing readiness, or has it become avoidance?",
+      "purpose": "Catches Blue's passivity shadow.",
+      "answer_pattern_that_supports_this_faction": "Supports Blue when the user wants better timing, preparation, and flexible answers.",
+      "answer_pattern_that_weakens_this_faction": "Weakens Blue when study becomes stalling or control replaces engagement.",
+      "collision_targets": [
+        "R",
+        "B"
+      ],
+      "claim_ids": [
+        "blue_claim_0006"
+      ],
+      "confidence": "Medium",
+      "lateral_inhibition": false
+    },
+    {
+      "question_id": "blue_disc_004",
+      "question": "Are card draw, counters, bounce, or artifacts being used as Blue texture rather than Commander legality proof?",
+      "purpose": "Keeps mechanical and Commander support source-bound.",
+      "answer_pattern_that_supports_this_faction": "Supports Blue when mechanics are treated as dated color-pie texture and commander examples remain unpromoted.",
+      "answer_pattern_that_weakens_this_faction": "Weakens Blue when candidate commanders or stale deck notes are treated as verified Layer 2 support.",
+      "collision_targets": [
+        "WUBRG",
+        "COLORLESS"
+      ],
+      "claim_ids": [
+        "blue_claim_0007",
+        "blue_claim_0008"
+      ],
+      "confidence": "High",
+      "lateral_inhibition": false
+    }
+  ],
+  "collision_guidance": {
+    "rule": "Blue is self-directed improvement through knowledge, tools, and deliberate choice, not generic intelligence or endless delay.",
+    "review_triggers": [
+      "generic intelligence without transformation",
+      "analysis paralysis",
+      "candidate commander claims",
+      "rules language used as exact legality without CR verification"
+    ],
+    "pairs": [
+      {
+        "collision_id": "blue_vs_red",
+        "against": "R",
+        "separator": "Blue pauses to optimize; Red acts from feeling.",
+        "ask": "Does the user want the right answer after study, or the honest action now?",
+        "lateral_inhibition": false,
+        "claim_ids": [
+          "blue_claim_0005"
+        ]
+      },
+      {
+        "collision_id": "blue_vs_green",
+        "against": "G",
+        "separator": "Blue believes the self can be shaped; Green trusts the self's inborn place in the natural order.",
+        "ask": "Does the user want to author the future, or discover the role already present?",
+        "lateral_inhibition": false,
+        "claim_ids": [
+          "blue_claim_0005"
+        ]
+      }
+    ]
+  },
+  "calibration_tuning": {
+    "required_positive_evidence_terms": [
+      "knowledge",
+      "learning",
+      "tools",
+      "improvement",
+      "optimization",
+      "control",
+      "deliberation"
+    ],
+    "required_positive_min_hits": 2,
+    "strengthen_when_user_centers": [
+      "self-authorship through education",
+      "careful planning before action",
+      "tools and technology",
+      "reactive control as preparation"
+    ],
+    "suppress_when_user_centers": [
+      "acting from immediate emotion",
+      "natural destiny over choice",
+      "group order above individual path",
+      "risk-taking without study"
+    ],
+    "false_positive_guardrail": "Do not place Blue for intelligence alone; require improvement, tools, deliberation, control, or learning as the core motive.",
+    "broad_match_penalty": 0.13
+  },
+  "chatbot_guidance": {
+    "use_when": [
+      "Use Blue when the user centers learning, self-improvement, tools, control, or careful planning.",
+      "Frame Blue as becoming through knowledge, not just being clever.",
+      "Keep commander candidates deferred unless current legality verification is done."
+    ],
+    "avoid_when": [
+      "The user wants immediate emotional action.",
+      "The user wants natural acceptance or destiny over self-authorship.",
+      "The answer only contains generic cleverness without transformation."
+    ],
+    "how_to_recognize_mismatch": [
+      "emotion and immediacy over study",
+      "natural destiny over self-authorship",
+      "group harmony over individual optimization",
+      "calculated power without curiosity",
+      "candidate commander names treated as verified evidence"
+    ],
+    "calibration_note": "Blue should rise only when knowledge, tools, deliberate choice, or improvement drive the answer.",
+    "never_claim_as_canon": [
+      "Blue is objectively smarter than other colors.",
+      "Vox Mana placement axes are official Wizards color-pie scores.",
+      "A candidate mono-blue commander is Layer 2 support without current verification."
+    ]
+  }
+}

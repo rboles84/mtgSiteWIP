@@ -1,5 +1,31 @@
 # Critical Teardown of a Bayesian Alignment Engine for Magic Factions
 
+## 2026-06-13 current-state update
+
+This report still holds as an architectural critique, but its numeric premise is now stale. The live placement model is no longer a 32-label or 36-label problem. Current `data/placement-model.json` reports **37 active expressions**:
+
+- 5 mono colors
+- 10 Ravnica guild expressions
+- 5 Strixhaven college expressions
+- 5 shards
+- 5 wedges
+- 5 four-color expressions
+- `WUBRG`
+- `COLORLESS`
+
+The current live direct-faction placement model is internally green: `npm.cmd run test:placement` passes with **37 factions and 37 golden paths**. That means the existing engine should be treated as the working baseline while the proposed vector Gate remains research-only.
+
+The 37-expression Gate research rerun in `gate-phase-compression-framework.md` updates the implementation conclusion:
+
+- The WUBRG-vector Gate still fits as a Gate replacement direction.
+- `sqrt` propagation with Gate `bmp = 0` remains the best color-bearing setting.
+- The Appendix A vector Gate reaches **36/37** under color-only propagation; the miss is `COLORLESS`.
+- `COLORLESS` cannot be represented by WUBRG vectors alone and needs explicit outside-WUBRG boundary evidence or a documented calibration exception.
+- `WUBRG` should not be scored as a normal additive five-color leaf; it needs balanced all-five integration.
+- Same-color guild/college duplicate pairs remain tied under a color-only Gate, which confirms that Hall and Crucible must stay faction-specific.
+
+So the report's core warning is stronger, not weaker: do not abandon Bayesian classification, but do not make the Gate a flat direct-faction lookup or a naive additive color accumulator. The right implementation target is a WUBRG-vector Gate plus special boundary/integration channels, followed by faction-specific Hall and Crucible resolution.
+
 ## Bottom line
 
 As specified, this is not yet the best possible architecture for the problem you described. The strongest idea in your design is the adaptive evidence race itself: Bayesian updating is a natural fit for interpretive classification, and adaptive testing literature strongly supports selecting later items based on earlier uncertainty rather than treating all respondents as if they need the same questions. But the current proposal has three structural weaknesses that will hurt accuracy before you even get to item writing: your taxonomy count is internally inconsistent, your flat equal-prior race does not adequately control for model flexibility, and a fixed four-question Gate is probably too short to reliably form a stable shortlist when the labels are this overlapping. Adaptive testing gains its efficiency from carefully chosen items, content constraints, and principled stopping rules, not from shortness by itself. citeturn16view8turn20view2turn18view6turn29view2turn29view3

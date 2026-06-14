@@ -24,13 +24,13 @@ After changing the precon source catalog or precon theme taxonomy, run `npm run 
 
 Source-first faction quality passes must also satisfy the source-bound gold standard and VM-300 source/generated guardrail contract in [Source / Generated Guardrails](source-generated-guardrails.md). Generated/runtime surfaces, including `data/factions.json`, generated placement JSON, generated identity layers, generated Supabase context, generated snippets/flavor output, hardcoded dossier copy, existing Archscry UI output, and existing display affinity copy are comparison targets only; they are not canonical source inputs for display parity, placement, calibration, discriminator, Commander support, or claim-backed profile fields.
 
-VM-335 records mono colors as a transitional Layer 1 exception: W/U/B/R/G remain active registry/runtime identities through `data/identity-layers.json`, but registry authorship is not VM-325 claim evidence. Future mono parity repair requires separately approved raw packets, claim ledgers, or source-intake promotion before mono display, placement, Commander, or discriminator fields may be treated as source-backed.
+VM-335 recorded mono colors as a transitional Layer 1 exception. VM-377 replaces that mono exception with raw-managed W/U/B/R/G source authority through `data/raw-factions/{white,blue,black,red,green}/` and `docs/research/mono_upgrade/`. Registry authorship in `data/identity-layers.json` is still not VM-325 claim evidence by itself.
 
 ## Identity preview registry
 
 `data/identity-layers.json` owns the canonical Home preview metadata for the current 20-expression carousel. `assets/js/home.js` fetches this registry, selects entries where `preview_eligible` is `true`, sorts by `preview_order`, and keeps `data/factions.json` as the lore-note source. VM-334 ratifies the current live placement set as 36 expressions; shards, wedges, four-color identities, and `COLORLESS` remain `preview_eligible: false`, so Home preview order remains unchanged.
 
-For mono colors, the same registry owns active membership, routing metadata, and display-generation inputs. It does not authorize new mono runtime copy, generated parity repair, raw packet creation, claim-ledger creation, validator mapping, builder migration, or placement discriminator repair.
+For mono colors, the same registry owns active membership, routing metadata, and display-generation inputs. Source-backed mono display, placement, Commander support, and discriminator fields must trace to the VM-377 raw packets and promoted mono source-intake bundle, not to generated/runtime output alone.
 
 Every expression entry must include:
 

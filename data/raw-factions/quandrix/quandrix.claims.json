@@ -2,8 +2,8 @@
   "schema_version": "1.0.0",
   "faction_id": "quandrix",
   "faction_name": "Quandrix College",
-  "last_updated": "2026-05-09",
-  "claim_count": 16,
+  "last_updated": "2026-06-13",
+  "claim_count": 18,
   "claims": [
     {
       "claim_id": "quandrix_claim_001",
@@ -208,6 +208,30 @@
       "confidence": "Medium",
       "confidence_level": "Medium",
       "notes": "This claim records searchable story-corpus relevance without treating repository search results as a substitute for full source reading."
+    },
+    {
+      "claim_id": "quandrix_claim_0017",
+      "faction_id": "quandrix",
+      "claim_type": "commander_product_support",
+      "statement": "The official Secrets of Strixhaven Commander Decklists page verifies Quandrix Unlimited as a Green-Blue Commander deck with Zimone, Infinite Analyst as face commander and Primo, the Unbounded as featured commander.",
+      "canon_status": "Support-only product row",
+      "source_ids": [
+        "src_wotc_secrets_strixhaven_commander_decklists_20260401"
+      ],
+      "confidence": "High",
+      "notes": "Decklist support is product/navigation only. It is not lore proof, popularity proof, metagame proof, legality proof, or canon identity proof."
+    },
+    {
+      "claim_id": "quandrix_claim_0018",
+      "faction_id": "quandrix",
+      "claim_type": "card_flavor_anchor_support",
+      "statement": "Local Scryfall card data verifies the selected QUANDRIX per-card flavor anchors by card name, set, collector number, and Scryfall URI.",
+      "canon_status": "Support-only card-data row",
+      "source_ids": [
+        "src_scryfall_oracle_cards_local_strixhaven_20260613"
+      ],
+      "confidence": "High for card-data attribution",
+      "notes": "Use only short summaries in generated/public surfaces; do not copy long flavor blocks."
     }
   ]
 }

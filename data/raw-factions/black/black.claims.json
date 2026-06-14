@@ -1,0 +1,180 @@
+{
+  "schema_version": "1.0.0",
+  "faction_id": "black",
+  "faction_name": "Black",
+  "source_review_date": "2026-06-13",
+  "claim_count": 8,
+  "claims": [
+    {
+      "claim_id": "black_claim_0001",
+      "faction_id": "black",
+      "claim_type": "source_authority_boundary",
+      "statement": "Black is promoted from transitional mono status only through this source-intake bundle, claim ledger, raw profile, raw placement packet, and generated QA; identity-layer or runtime text alone is not evidence.",
+      "canon_status": "Vox Mana governance",
+      "source_ids": [
+        "VM-377"
+      ],
+      "evidence_rows": [
+        "black_evid_0013"
+      ],
+      "confidence": "High"
+    },
+    {
+      "claim_id": "black_claim_0002",
+      "faction_id": "black",
+      "claim_type": "philosophy_goal",
+      "statement": "Black seeks power and opportunity as the practical means to control its own life and secure happiness in a harsh world.",
+      "canon_status": "Official color philosophy, paraphrased",
+      "source_ids": [
+        "MONO-B-2015",
+        "MONO-B-2025"
+      ],
+      "evidence_rows": [
+        "black_evid_0001",
+        "black_evid_0005"
+      ],
+      "anchor_ids": [
+        "B2015-Q1",
+        "B2015-Q1b",
+        "B2025-a",
+        "B2025-e"
+      ],
+      "confidence": "High"
+    },
+    {
+      "claim_id": "black_claim_0003",
+      "faction_id": "black",
+      "claim_type": "philosophy_means",
+      "statement": "Black's means are opportunity-seizing, self-interest, calculated ruthlessness, and willingness to use tools other colors reject when the price is worth paying.",
+      "canon_status": "Official color philosophy, paraphrased",
+      "source_ids": [
+        "MONO-B-2015",
+        "MONO-B-2025"
+      ],
+      "evidence_rows": [
+        "black_evid_0002",
+        "black_evid_0006"
+      ],
+      "anchor_ids": [
+        "B2015-Q2",
+        "B2025-b",
+        "B2025-c",
+        "B2025-d"
+      ],
+      "confidence": "High"
+    },
+    {
+      "claim_id": "black_claim_0004",
+      "faction_id": "black",
+      "claim_type": "cares_and_threats",
+      "statement": "Black's thematic center includes death, fear, pain, decay, disease, corruption, manipulation, sacrifice, individualism, and resource conversion; it distrusts self-denial for others' sake.",
+      "canon_status": "Official color philosophy, paraphrased",
+      "source_ids": [
+        "MONO-B-2015",
+        "MONO-B-2025"
+      ],
+      "evidence_rows": [
+        "black_evid_0003",
+        "black_evid_0007"
+      ],
+      "anchor_ids": [
+        "B2015-Q3",
+        "B2015-Q4",
+        "B2025-b",
+        "B2025-d"
+      ],
+      "confidence": "High"
+    },
+    {
+      "claim_id": "black_claim_0005",
+      "faction_id": "black",
+      "claim_type": "relationships",
+      "statement": "Black is allied with Blue through planning, knowledge, and emotional detachment and with Red through action, self-interest, and destruction; it opposes White's group morality and Green's destiny/natural order.",
+      "canon_status": "Official color philosophy, paraphrased",
+      "source_ids": [
+        "MONO-B-2015",
+        "MONO-B-2025"
+      ],
+      "evidence_rows": [
+        "black_evid_0004",
+        "black_evid_0008"
+      ],
+      "anchor_ids": [
+        "B2015-Q5",
+        "B2015-Q5b",
+        "B2025-f",
+        "B2025-g",
+        "B2025-h",
+        "B2025-i"
+      ],
+      "confidence": "High"
+    },
+    {
+      "claim_id": "black_claim_0006",
+      "faction_id": "black",
+      "claim_type": "strength_weakness",
+      "statement": "Black's strength is its willingness to do what is needed and exploit overlooked opportunities; its weakness is that the same risk-taking and taboo-breaking can backfire.",
+      "canon_status": "Official color philosophy, paraphrased",
+      "source_ids": [
+        "MONO-B-2015",
+        "MONO-B-2025"
+      ],
+      "evidence_rows": [
+        "black_evid_0004",
+        "black_evid_0008"
+      ],
+      "anchor_ids": [
+        "B2015-Q6",
+        "B2025-j"
+      ],
+      "confidence": "High"
+    },
+    {
+      "claim_id": "black_claim_0007",
+      "faction_id": "black",
+      "claim_type": "mechanical_texture",
+      "statement": "Black's mechanical texture includes unconditional creature destruction, discard, sacrifice, reanimation, graveyard use, life as a cost, drain, deathtouch, menace, and card draw paid for with resources.",
+      "canon_status": "Official mechanical color pie snapshot, paraphrased",
+      "source_ids": [
+        "MECH-CP-2021",
+        "MECH-CP-2021-CHG"
+      ],
+      "evidence_rows": [
+        "black_evid_0009",
+        "black_evid_0010",
+        "black_evid_0011"
+      ],
+      "anchor_ids": [
+        "MECH-removal",
+        "MECH-carddraw",
+        "MECH-discard-effect",
+        "CHG-cantblock",
+        "CHG-discard-cost"
+      ],
+      "confidence": "Medium-High",
+      "notes": "Mechanical Color Pie 2021 is a dated snapshot and must be overridden by later verified sources where needed."
+    },
+    {
+      "claim_id": "black_claim_0008",
+      "faction_id": "black",
+      "claim_type": "commander_boundary",
+      "statement": "The three native mono-black Commander support rows in this packet were verified through current Scryfall exact-name checks on 2026-06-13 for name, mono-B color identity, legendary creature type line, and Commander legality; they remain support/navigation rows rather than color philosophy or profile-axis evidence.",
+      "canon_status": "Rules and Vox Mana boundary",
+      "source_ids": [
+        "RULES-CR",
+        "VM-377",
+        "SCRYFALL-B-2026-06-13"
+      ],
+      "evidence_rows": [
+        "black_evid_0012",
+        "black_evid_0013",
+        "black_evid_0014"
+      ],
+      "anchor_ids": [
+        "CR-903.3",
+        "CR-903.4"
+      ],
+      "confidence": "High for current Scryfall support status; not evidence for popularity, price, metagame, deck quality, philosophy, or profile axes"
+    }
+  ]
+}

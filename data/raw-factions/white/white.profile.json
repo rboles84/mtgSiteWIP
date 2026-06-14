@@ -1,0 +1,276 @@
+{
+  "schema_version": "1.0.0",
+  "profile_version": "1.0.0",
+  "faction_id": "white",
+  "faction_name": "White",
+  "faction_type": "color",
+  "color_identity": [
+    "W"
+  ],
+  "color_pair_or_group": "Mono White",
+  "plane_or_setting": "The Color Pie",
+  "last_updated": "2026-06-13",
+  "source_review_date": "2026-06-13",
+  "last_full_review": "2026-06-13",
+  "core_identity": {
+    "short_form": "White seeks peace through structure, cooperation, and shared duty.",
+    "summary": "White is the mono-color expression of peace through order: it builds laws, institutions, moral commitments, defense, and community structures so the group can reduce suffering together.",
+    "philosophy": "White asks the self to enter a covenant with the group. Its highest promise is care at scale; its recurring danger is confusing the map of order for the lives inside it.",
+    "central_tension": "White can protect the many through structure, but it can become rigid, prescriptive, or too willing to lead others for their own good.",
+    "claim_ids": [
+      "white_claim_0001",
+      "white_claim_0002",
+      "white_claim_0003",
+      "white_claim_0004",
+      "white_claim_0005",
+      "white_claim_0006",
+      "white_claim_0007",
+      "white_claim_0008"
+    ]
+  },
+  "structure": {
+    "identity_class": "mono_color",
+    "present_colors": [
+      "W"
+    ],
+    "primary_anchor": "peace through structure and group coordination",
+    "support_texture": [
+      "law and morality",
+      "community protection",
+      "organized small pieces",
+      "rules-setting and taxing",
+      "defense, lifegain, and prevention",
+      "conditional removal and exile"
+    ],
+    "non_faction_boundary": "White is an official color philosophy and mechanical color-pie identity, not a single plane, faction, personality type, or commander recommendation list."
+  },
+  "great_tension": {
+    "gift": "White makes safety repeatable by turning care into structure.",
+    "shadow": "White can over-prescribe, flatten difference, and mistake compliance for peace.",
+    "boundary": "This is Vox Mana synthesis from official color philosophy, not official psychometrics."
+  },
+  "mechanics": {
+    "source_bound_texture": [
+      "rules-setting",
+      "taxing",
+      "protection and prevention",
+      "lifegain and lifelink",
+      "small-creature and team support",
+      "conditional creature answers",
+      "slow once-per-turn card draw"
+    ],
+    "summary": "White plays through order, protection, efficient groups, rules pressure, and answers that often depend on combat state, size, compensation, or exile-like containment.",
+    "claim_ids": [
+      "white_claim_0007"
+    ]
+  },
+  "site_surface": {
+    "display_name": "White",
+    "short_summary": "White builds peace by making care, law, defense, and duty into a shared structure.",
+    "one_sentence_identity": "White is the shield-wall of the color pie: community held together by principle, order, and mutual obligation.",
+    "tagline": "Peace, made durable.",
+    "primary_tags": [
+      "structure",
+      "community",
+      "law",
+      "protection",
+      "duty"
+    ],
+    "secondary_tags": [
+      "lifegain",
+      "taxing",
+      "tokens",
+      "conditional removal",
+      "rules-setting"
+    ]
+  },
+  "data_quality": {
+    "source_status": "source_grounded_mono_gold_packet",
+    "manual_review_recommended": true,
+    "placement_eligible": true,
+    "preview_eligible": true,
+    "commander_candidate_status": "current_scryfall_verified_support_only_2026-06-13",
+    "notes": "Three native mono-white commander rows are retained only after current Scryfall verification on 2026-06-13. Deck links remain intentionally empty; these rows do not prove color philosophy or Vox Mana placement axes."
+  },
+  "research_limitations": [
+    "Do not treat Vox Mana placement axes as official Wizards scores.",
+    "Do not promote candidate commanders without current card/legal verification.",
+    "Do not use generated runtime files as claim evidence.",
+    "Do not use the Commander format overview in place of CR 903.3/903.4 for exact eligibility or color-identity boundaries."
+  ],
+  "profile": {
+    "overview": "White is the color of peace, order, and collective protection, seeking a world where shared structures reduce unnecessary suffering.",
+    "philosophy": "White believes the good of the group can be made practical through law, morality, incentives, defense, and institutions.",
+    "core_tension": "White's mercy and organization can become rigidity, paternalism, or refusal to adapt.",
+    "mechanics_and_play_pattern": "White commonly expresses itself through small-creature coordination, protection, lifegain, taxing, rules-setting, and conditional answers.",
+    "claim_ids": [
+      "white_claim_0001",
+      "white_claim_0002",
+      "white_claim_0003",
+      "white_claim_0004",
+      "white_claim_0005",
+      "white_claim_0006",
+      "white_claim_0007",
+      "white_claim_0008"
+    ]
+  },
+  "deck_links": [],
+  "research_links": {
+    "source_manifest": "docs/research/mono_upgrade/00_SOURCES_MANIFEST.md",
+    "source_digest": "docs/research/mono_upgrade/10_white.md",
+    "mechanical_digest": "docs/research/mono_upgrade/20_mechanical_color_pie_2021.md",
+    "rules_digest": "docs/research/mono_upgrade/30_commander_and_rules.md",
+    "source_packet": "data/raw-factions/white/white.sources.json",
+    "claim_packet": "data/raw-factions/white/white.claims.json"
+  },
+  "commander_compass": {
+    "schema_version": "1.0.0",
+    "source_research_file": "docs/research/mono_upgrade/00_SOURCES_MANIFEST.md and Scryfall exact-name API checks on 2026-06-13",
+    "last_reviewed": "2026-06-13",
+    "review_status": "current_scryfall_verified_support_only",
+    "recommendation_philosophy": "Use these three white commanders as current verified mono-white support/navigation rows only. They do not define White philosophy, Vox Mana profile-axis scores, popularity, price, metagame strength, or deck quality.",
+    "identity_basis": {
+      "owned_themes": [
+        "protection",
+        "structure",
+        "board discipline",
+        "shared pressure"
+      ],
+      "allowed_phrases": [
+        "mono-white Commander support",
+        "current Scryfall-verified support",
+        "support-only commander candidate"
+      ],
+      "avoid_or_contrast_phrases": [
+        "commander row as philosophy proof",
+        "commander row as profile-axis evidence",
+        "popularity, price, metagame, or deck-quality claim without dated evidence"
+      ],
+      "adjacent_overlap_notes": [
+        "Use the raw placement discriminator questions for mono/guild/five-color boundary work; commander rows are support only."
+      ],
+      "supporting_claim_ids": [
+        "white_claim_0008"
+      ],
+      "supporting_source_ids": [
+        "RULES-CR",
+        "SCRYFALL-W-2026-06-13"
+      ]
+    },
+    "native_fit_commanders": [
+      {
+        "exact_card_name": "Giada, Font of Hope",
+        "display_name": "Giada, Font of Hope",
+        "scryfall_uri": "https://scryfall.com/card/fdn/141/giada-font-of-hope?utm_source=api",
+        "edhrec_uri": "https://edhrec.com/commanders/giada-font-of-hope",
+        "color_identity": [
+          "W"
+        ],
+        "commander_legal": true,
+        "recommendation_type": "Current Scryfall-Verified Support",
+        "archetype_tags": [
+          "Counters",
+          "Flying"
+        ],
+        "why_this_fits": "Turns shared protection and ordered growth into a clean mono-white board plan.",
+        "skip_if": "You want the deck to center taxes or equipment instead of a creature board.",
+        "gameplay_summary": "Grows your angel board quickly and rewards a steady curve of protective, airborne threats.",
+        "faction_identity_terms": [
+          "protection",
+          "structure",
+          "board discipline",
+          "shared pressure"
+        ],
+        "source_basis": "SCRYFALL-W-2026-06-13; RULES-CR; white_claim_0008",
+        "confidence": "Current Scryfall verification on 2026-06-13; support-only",
+        "caution_notes": "Verified for name, mono-color identity, legendary creature type line, and Commander legality in Scryfall on 2026-06-13. This is support/navigation, not color philosophy evidence."
+      },
+      {
+        "exact_card_name": "Adeline, Resplendent Cathar",
+        "display_name": "Adeline, Resplendent Cathar",
+        "scryfall_uri": "https://scryfall.com/card/tdc/108/adeline-resplendent-cathar?utm_source=api",
+        "edhrec_uri": "https://edhrec.com/commanders/adeline-resplendent-cathar",
+        "color_identity": [
+          "W"
+        ],
+        "commander_legal": true,
+        "recommendation_type": "Current Scryfall-Verified Support",
+        "archetype_tags": [
+          "Tokens",
+          "Aggro"
+        ],
+        "why_this_fits": "Makes White's belief in collective pressure visible immediately through bodies and combat.",
+        "skip_if": "You want a slower rules-and-taxes shell instead of a combat-focused table plan.",
+        "gameplay_summary": "Creates attackers every combat and turns wide-board pressure into fast, disciplined damage.",
+        "faction_identity_terms": [
+          "protection",
+          "structure",
+          "board discipline",
+          "shared pressure"
+        ],
+        "source_basis": "SCRYFALL-W-2026-06-13; RULES-CR; white_claim_0008",
+        "confidence": "Current Scryfall verification on 2026-06-13; support-only",
+        "caution_notes": "Verified for name, mono-color identity, legendary creature type line, and Commander legality in Scryfall on 2026-06-13. This is support/navigation, not color philosophy evidence."
+      },
+      {
+        "exact_card_name": "Balan, Wandering Knight",
+        "display_name": "Balan, Wandering Knight",
+        "scryfall_uri": "https://scryfall.com/card/cmm/16/balan-wandering-knight?utm_source=api",
+        "edhrec_uri": "https://edhrec.com/commanders/balan-wandering-knight",
+        "color_identity": [
+          "W"
+        ],
+        "commander_legal": true,
+        "recommendation_type": "Current Scryfall-Verified Support",
+        "archetype_tags": [
+          "Equipment",
+          "Voltron"
+        ],
+        "why_this_fits": "Channels White's disciplined protection into a single armored line that ends games cleanly.",
+        "skip_if": "You prefer broad board control to a focused equipment threat.",
+        "gameplay_summary": "Loads equipment onto one resilient attacker and punishes opponents who cannot answer it on time.",
+        "faction_identity_terms": [
+          "protection",
+          "structure",
+          "board discipline",
+          "shared pressure"
+        ],
+        "source_basis": "SCRYFALL-W-2026-06-13; RULES-CR; white_claim_0008",
+        "confidence": "Current Scryfall verification on 2026-06-13; support-only",
+        "caution_notes": "Verified for name, mono-color identity, legendary creature type line, and Commander legality in Scryfall on 2026-06-13. This is support/navigation, not color philosophy evidence."
+      }
+    ],
+    "weird_stretch_commanders": [],
+    "budget_friendly_commanders": [],
+    "advanced_complexity_commanders": [],
+    "iconic_lore_forward_commanders": [],
+    "not_recommended_or_deprioritized": [],
+    "archetype_lanes": [
+      {
+        "name": "Counters / Flying",
+        "support_basis": "Giada, Font of Hope passed current Scryfall mono-color Commander support checks on 2026-06-13.",
+        "boundary": "Support/navigation only; not philosophy, placement-axis, popularity, price, or deck-quality proof."
+      },
+      {
+        "name": "Tokens / Aggro",
+        "support_basis": "Adeline, Resplendent Cathar passed current Scryfall mono-color Commander support checks on 2026-06-13.",
+        "boundary": "Support/navigation only; not philosophy, placement-axis, popularity, price, or deck-quality proof."
+      },
+      {
+        "name": "Equipment / Voltron",
+        "support_basis": "Balan, Wandering Knight passed current Scryfall mono-color Commander support checks on 2026-06-13.",
+        "boundary": "Support/navigation only; not philosophy, placement-axis, popularity, price, or deck-quality proof."
+      }
+    ],
+    "link_targets": {
+      "edhrec_commander_index": "https://edhrec.com/commanders/w",
+      "mtgdecks_color_identity": "https://mtgdecks.net/Commander/w-commanders",
+      "scryfall_commander_search": "https://scryfall.com/search?q=id%3Dw+is%3Acommander+f%3Acommander",
+      "archidekt_color_search": "https://archidekt.com/search/decks?colors=W&deckFormat=3&orderBy=-updatedAt&page=1"
+    },
+    "merge_notes": {
+      "source_role": "current verified support-only",
+      "deck_links_status": "Deck links remain empty; Commander Compass rows carry the verified support candidates."
+    }
+  }
+}

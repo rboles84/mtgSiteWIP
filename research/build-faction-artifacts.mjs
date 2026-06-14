@@ -16,6 +16,11 @@ const MODEL_VERSION = "vox-mana-adaptive-placement-v1";
 const RESULT_VERSION = "2026-05-10";
 
 const RAW_TO_KEY = {
+  white: "W",
+  blue: "U",
+  black: "B",
+  red: "R",
+  green: "G",
   azorius_senate: "WU",
   bant: "BANT",
   boros_legion: "WR",
@@ -35,6 +40,7 @@ const RAW_TO_KEY = {
   ink: "INK",
   witch: "WITCH",
   colorless: "COLORLESS",
+  wubrg: "WUBRG",
   golgari_swarm: "BG",
   gruul_clans: "RG",
   house_dimir: "UB",
@@ -68,14 +74,14 @@ const RAW_PROFILE_ENRICHMENT_KEYS = new Set([
   "SULTAI",
   "MARDU",
   "JESKAI",
-]);
-
-const SUPPRESS_UNBACKED_PUBLIC_RICHNESS_KEYS = new Set([
   "PRISMARI",
   "QUANDRIX",
   "SILVERQUILL",
   "WITHERBLOOM",
+  "WUBRG",
 ]);
+
+const SUPPRESS_UNBACKED_PUBLIC_RICHNESS_KEYS = new Set([]);
 
 const SUPPRESS_UNBACKED_FLAVOR_ANCHOR_KEYS = new Set([
   "YORE",
@@ -334,6 +340,14 @@ const BIOLOGICAL_PRIORS = {
     inhibitor_trigger:
       "Collapses generic mana, colorless mana, artifacts, Eldrazi, Wastes, Devoid, five-color Eldrazi, or Phyrexia into one undifferentiated Colorless identity.",
   },
+  WUBRG: {
+    archetype: "The Full-Spectrum Integrator",
+    primary_foundation: "Integration",
+    secondary_foundation: "Plurality",
+    risk_signal: "high dilution risk",
+    inhibitor_trigger:
+      "Expands until every answer is included, even when the plan no longer has a center.",
+  },
   SILVERQUILL: {
     archetype: "The Rhetorical Status Shaper",
     primary_foundation: "Authority",
@@ -377,7 +391,7 @@ const BIOLOGICAL_PRIORS = {
 };
 
 const KNOWN_LATERAL_INHIBITION = {
-  W: ["WB"],
+  W: ["WU", "WB", "WG", "WR"],
   U: ["WU", "UB", "UR", "UG"],
   B: ["UB", "BR", "BG", "WB"],
   R: ["WR", "UR", "BR", "RG"],
@@ -406,6 +420,7 @@ const KNOWN_LATERAL_INHIBITION = {
   INK: ["WU", "UR", "UG", "WG", "WR", "RG", "BANT", "JESKAI", "NAYA", "TEMUR", "GLINT", "DUNE"],
   WITCH: ["WU", "UB", "BG", "WG", "UG", "WB", "BANT", "ESPER", "SULTAI", "ABZAN", "YORE", "GLINT", "DUNE", "INK"],
   COLORLESS: ["W", "U", "B", "R", "G", "YORE", "ESPER", "WITCH"],
+  WUBRG: ["W", "U", "B", "R", "G", "COLORLESS", "YORE", "GLINT", "DUNE", "INK", "WITCH", "BANT", "ESPER", "GRIXIS", "JUND", "NAYA", "ABZAN", "TEMUR", "SULTAI", "MARDU", "JESKAI"],
   QUANDRIX: ["UG", "UR", "LOREHOLD"],
   BG: ["WITHERBLOOM", "WG", "WB", "JUND", "ABZAN", "SULTAI"],
   WITHERBLOOM: ["BG", "UG", "WG", "JUND", "ABZAN", "SULTAI"],
@@ -784,6 +799,13 @@ const QUESTION_BANK = {
           suppresses: { R: 0.5, BR: 0.35, RG: 0.35, UR: 0.3, WR: 0.3, GLINT: 0.25, DUNE: 0.25, INK: 0.2 },
         },
         {
+          title: "The whole spectrum",
+          copy: "Trust begins with giving every color a real job, then asking whether the coalition still has a center.",
+          signal: "all five colors with accountable roles",
+          likelihoods: { WUBRG: 0.95 },
+          suppresses: { COLORLESS: 0.55, YORE: 0.3, GLINT: 0.3, DUNE: 0.3, INK: 0.3, WITCH: 0.3 },
+        },
+        {
           title: "The outside constraint",
           copy: "Trust begins with the rule that the color wheel is not the grammar of the answer.",
           signal: "outside-WUBRG restriction",
@@ -916,6 +938,13 @@ const QUESTION_BANK = {
           signal: "protected accumulation into inevitability",
           likelihoods: { WITCH: 0.95, WG: 0.45, WU: 0.45, UG: 0.4, WB: 0.4, UB: 0.35, BG: 0.35, BANT: 0.3, ESPER: 0.3, SULTAI: 0.3, ABZAN: 0.3 },
           suppresses: { R: 0.5, BR: 0.35, RG: 0.35, UR: 0.3, WR: 0.3, GLINT: 0.25, DUNE: 0.25, INK: 0.2 },
+        },
+        {
+          title: "Power that integrates the whole palette",
+          copy: "Power is honest when breadth becomes coordination: each color contributes without pretending the pile has no tradeoffs.",
+          signal: "full-spectrum power with tradeoffs",
+          likelihoods: { WUBRG: 0.95 },
+          suppresses: { COLORLESS: 0.55, YORE: 0.3, GLINT: 0.3, DUNE: 0.3, INK: 0.3, WITCH: 0.3 },
         },
         {
           title: "Power that stays uncolored",
@@ -1059,6 +1088,13 @@ const QUESTION_BANK = {
           suppresses: { R: 0.5, BR: 0.35, RG: 0.35, UR: 0.3, WR: 0.3, GLINT: 0.25, DUNE: 0.25, INK: 0.2 },
         },
         {
+          title: "The full map",
+          copy: "Attention goes to which color is missing from the plan, which one is over-speaking, and how the whole palette stays legible.",
+          signal: "five-color map discipline",
+          likelihoods: { WUBRG: 0.95 },
+          suppresses: { COLORLESS: 0.55, YORE: 0.3, GLINT: 0.3, DUNE: 0.3, INK: 0.3, WITCH: 0.3 },
+        },
+        {
           title: "The branch boundary",
           copy: "Attention goes to whether the pull is machine, void, Wastes, Eldrazi scale, or clean mana without letting one branch explain all of Colorless.",
           signal: "Colorless branch discipline",
@@ -1191,6 +1227,13 @@ const QUESTION_BANK = {
           signal: "protected garden as long-horizon belonging",
           likelihoods: { WITCH: 0.95, WG: 0.45, WU: 0.45, UG: 0.4, WB: 0.4, UB: 0.35, BG: 0.35, BANT: 0.3, ESPER: 0.3, SULTAI: 0.3, ABZAN: 0.3 },
           suppresses: { R: 0.5, BR: 0.35, RG: 0.35, UR: 0.3, WR: 0.3, GLINT: 0.25, DUNE: 0.25, INK: 0.2 },
+        },
+        {
+          title: "A coalition worth coordinating",
+          copy: "The cost is bearable when every color remains present, useful, and answerable to the whole plan.",
+          signal: "full-color coalition with shared discipline",
+          likelihoods: { WUBRG: 0.95 },
+          suppresses: { COLORLESS: 0.55, YORE: 0.3, GLINT: 0.3, DUNE: 0.3, INK: 0.3, WITCH: 0.3 },
         },
         {
           title: "A restriction worth choosing",
@@ -3278,7 +3321,7 @@ const QUESTION_BANK = {
           copy: "The absence is the discipline: exact mana, exact boundaries, and no need to translate the experience into WUBRG.",
           signal: "outside-WUBRG precision",
           likelihoods: { COLORLESS: 0.95 },
-          suppresses: { W: 0.35, U: 0.35, B: 0.35, R: 0.35, G: 0.35, YORE: 0.25, ESPER: 0.25, WITCH: 0.25 }
+          suppresses: { WUBRG: 0.45, W: 0.35, U: 0.35, B: 0.35, R: 0.35, G: 0.35, YORE: 0.25, ESPER: 0.25, WITCH: 0.25 }
         },
         {
           title: "Build the artifact engine",
@@ -3291,7 +3334,7 @@ const QUESTION_BANK = {
           title: "Use every color",
           copy: "The pull is fullness: every tool, every color, and a deck that answers limitation by expanding the palette.",
           signal: "five-color fullness",
-          likelihoods: { W: 0.3, U: 0.3, B: 0.3, R: 0.3, G: 0.3 },
+          likelihoods: { WUBRG: 0.95, W: 0.18, U: 0.18, B: 0.18, R: 0.18, G: 0.18 },
           suppresses: { COLORLESS: 0.65 }
         }
       ]
@@ -3308,7 +3351,7 @@ const QUESTION_BANK = {
           copy: "The appeal is the clean line: colorless mana, generic costs, artifacts, Eldrazi, Wastes, and Devoid stay related but separate.",
           signal: "strict branch separation",
           likelihoods: { COLORLESS: 0.95 },
-          suppresses: { W: 0.3, U: 0.3, B: 0.3, R: 0.3, G: 0.3, YORE: 0.25, ESPER: 0.25, WITCH: 0.25 }
+          suppresses: { WUBRG: 0.45, W: 0.3, U: 0.3, B: 0.3, R: 0.3, G: 0.3, YORE: 0.25, ESPER: 0.25, WITCH: 0.25 }
         },
         {
           title: "Only artifacts",
@@ -3321,7 +3364,7 @@ const QUESTION_BANK = {
           title: "Five-color Eldrazi",
           copy: "The Eldrazi mood is real, but the deck still wants all five colors rather than strict outside-WUBRG discipline.",
           signal: "five-color Eldrazi false positive",
-          likelihoods: { W: 0.25, U: 0.25, B: 0.25, R: 0.25, G: 0.25 },
+          likelihoods: { WUBRG: 0.8, W: 0.15, U: 0.15, B: 0.15, R: 0.15, G: 0.15 },
           suppresses: { COLORLESS: 0.7 }
         },
         {
@@ -3333,8 +3376,49 @@ const QUESTION_BANK = {
         }
       ]
     },
+    {
+      id: "hall_WUBRG_full_spectrum",
+      stage: "hall",
+      faction: "WUBRG",
+      eyebrow: "Hall - Five-Color",
+      prompt: "When every color is available, what keeps the plan from becoming everything at once?",
+      answers: [
+        {
+          title: "Every color has a job",
+          copy: "White sets the structure, Blue clarifies the pattern, Black protects agency, Red moves, and Green keeps the whole thing alive.",
+          signal: "all five colors present with roles",
+          likelihoods: { WUBRG: 0.95 },
+          suppresses: { COLORLESS: 0.55, YORE: 0.3, GLINT: 0.3, DUNE: 0.3, INK: 0.3, WITCH: 0.3 }
+        },
+        {
+          title: "The strongest pile wins",
+          copy: "The point is access to the best cards, with identity and tradeoffs treated as secondary.",
+          signal: "generic goodstuff false positive",
+          likelihoods: { B: 0.2, U: 0.2 },
+          suppresses: { WUBRG: 0.65 }
+        },
+        {
+          title: "Stay outside the wheel",
+          copy: "The appeal is still the absence of color, not the chance to include every color.",
+          signal: "outside-WUBRG restriction over fullness",
+          likelihoods: { COLORLESS: 0.9 },
+          suppresses: { WUBRG: 0.7 }
+        }
+      ]
+    },
   ],
   crucible: [
+    {
+      id: "crucible_COLORLESS_WUBRG",
+      stage: "crucible",
+      pair: ["COLORLESS", "WUBRG"],
+      eyebrow: "Crucible - Outside Color or All Five",
+      prompt: "When the color wheel is in view, is the answer strongest because it steps outside color, or because every color has a negotiated role?",
+      answers: [
+        { title: "Step outside color", copy: "The chosen restriction is the point: absence, exact colorless boundaries, and no need to translate the experience into WUBRG.", signal: "chosen outside-WUBRG restriction", likelihoods: { COLORLESS: 0.95 }, suppresses: { WUBRG: 0.9 } },
+        { title: "Bring all five in", copy: "Every color belongs at the table, with each role negotiated instead of collapsed into generic access.", signal: "all five colors present and negotiated", likelihoods: { WUBRG: 0.95 }, suppresses: { COLORLESS: 0.9 } }
+      ],
+    },
     {
       id: "crucible_W_WU",
       stage: "crucible",
@@ -4275,10 +4359,6 @@ function attachCommanderCompass(displayData, rawRecords) {
     if (!key || !displayFaction) {
       return;
     }
-    if (key === "COLORLESS") {
-      delete displayFaction.commander_compass;
-      return;
-    }
     if (SUPPRESS_UNBACKED_PUBLIC_RICHNESS_KEYS.has(key)) {
       delete displayFaction.commander_compass;
       return;
@@ -4787,7 +4867,7 @@ async function main() {
           ...existingDisplay,
           ...colorlessDisplayOverrides,
           staples: existingDisplay.staples || expressionDisplay.staples,
-          land_base: key === "COLORLESS"
+          land_base: ["COLORLESS", "WUBRG"].includes(key)
             ? expressionDisplay.land_base || existingDisplay.land_base
             : existingDisplay.land_base || expressionDisplay.land_base,
           commander_compass: rawManaged ? undefined : displayCommanderCompass,

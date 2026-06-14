@@ -6,7 +6,7 @@
       "data/scryfall/indexes/card-flavor-index.json"
     ],
     "text_policy": "Uses committed short flavor excerpts only; no flavor text is invented or paraphrased.",
-    "faction_count": 36
+    "faction_count": 37
   },
   "snippets": {
     "ABZAN": [
@@ -462,6 +462,14 @@
       },
       {
         "faction_key": "PRISMARI",
+        "card_name": "Rootha, Mastering the Moment",
+        "flavor_excerpt": "\"The great thrill of perfection is that we'll always be chasing it.\"",
+        "scryfall_uri": "https://scryfall.com/card/soc/8/rootha-mastering-the-moment?utm_source=api",
+        "source_index": "commander-index",
+        "source_type": "native_commander"
+      },
+      {
+        "faction_key": "PRISMARI",
         "card_name": "Coastal Peak",
         "flavor_excerpt": "Hidden across Arcavios are great sculptures chiseled by the claws of Galazeth Prismari himself.",
         "scryfall_uri": "https://scryfall.com/card/soc/52/coastal-peak?utm_source=api",
@@ -470,6 +478,14 @@
       }
     ],
     "QUANDRIX": [
+      {
+        "faction_key": "QUANDRIX",
+        "card_name": "Zimone, Infinite Analyst",
+        "flavor_excerpt": "\"The best answers leave you with more questions.\"",
+        "scryfall_uri": "https://scryfall.com/card/soc/10/zimone-infinite-analyst?utm_source=api",
+        "source_index": "commander-index",
+        "source_type": "native_commander"
+      },
       {
         "faction_key": "QUANDRIX",
         "card_name": "Aether Helix",
@@ -483,14 +499,6 @@
         "card_name": "Additive Evolution",
         "flavor_excerpt": "\"Numbers have no limits. Why should nature?\" —Emil, Quandrix fourth-year",
         "scryfall_uri": "https://scryfall.com/card/sos/139/additive-evolution?utm_source=api",
-        "source_index": "card-flavor-index",
-        "source_type": "matched_card"
-      },
-      {
-        "faction_key": "QUANDRIX",
-        "card_name": "Big Play",
-        "flavor_excerpt": "\"Quandrix is running out of time. If they're going to capture the Witherbloom mascot, they need something big here.\"...",
-        "scryfall_uri": "https://scryfall.com/card/stx/122/big-play?utm_source=api",
         "source_index": "card-flavor-index",
         "source_type": "matched_card"
       }
@@ -909,6 +917,32 @@
         "scryfall_uri": "https://scryfall.com/card/fdn/683/azorius-guildgate?utm_source=api",
         "source_index": "card-flavor-index",
         "source_type": "matched_card"
+      }
+    ],
+    "WUBRG": [
+      {
+        "faction_key": "WUBRG",
+        "card_name": "Coalition Victory",
+        "flavor_excerpt": "\"You can build a perfect machine out of imperfect parts.\" —Urza",
+        "scryfall_uri": "https://scryfall.com/card/tsb/91/coalition-victory?utm_source=api",
+        "source_index": "card-flavor-index",
+        "source_type": "matched_card"
+      },
+      {
+        "faction_key": "WUBRG",
+        "card_name": "Command Tower",
+        "flavor_excerpt": "Knowledge is wasted if not shared.",
+        "scryfall_uri": "https://scryfall.com/card/soc/129/command-tower?utm_source=api",
+        "source_index": "card-flavor-index",
+        "source_type": "matched_card"
+      },
+      {
+        "faction_key": "WUBRG",
+        "card_name": "Heroes in a Half Shell",
+        "flavor_excerpt": "They're the world's most fearsome fighting team!",
+        "scryfall_uri": "https://scryfall.com/card/tmc/6/heroes-in-a-half-shell?utm_source=api",
+        "source_index": "commander-index",
+        "source_type": "matched_commander"
       }
     ],
     "YORE": [

@@ -1,0 +1,279 @@
+{
+  "schema_version": "1.0.0",
+  "profile_version": "1.0.0",
+  "faction_id": "blue",
+  "faction_name": "Blue",
+  "faction_type": "color",
+  "color_identity": [
+    "U"
+  ],
+  "color_pair_or_group": "Mono Blue",
+  "plane_or_setting": "The Color Pie",
+  "last_updated": "2026-06-13",
+  "source_review_date": "2026-06-13",
+  "last_full_review": "2026-06-13",
+  "core_identity": {
+    "short_form": "Blue seeks perfection through knowledge, tools, and deliberate transformation.",
+    "summary": "Blue is the mono-color expression of becoming: it treats identity as editable, knowledge as leverage, and time as the price of choosing well.",
+    "philosophy": "Blue asks what a person, system, or world could become if it paused long enough to learn, model, test, and improve.",
+    "central_tension": "Blue can make possibility precise, but it can stall in passivity, over-planning, or control that delays action.",
+    "claim_ids": [
+      "blue_claim_0001",
+      "blue_claim_0002",
+      "blue_claim_0003",
+      "blue_claim_0004",
+      "blue_claim_0005",
+      "blue_claim_0006",
+      "blue_claim_0007",
+      "blue_claim_0008"
+    ]
+  },
+  "structure": {
+    "identity_class": "mono_color",
+    "present_colors": [
+      "U"
+    ],
+    "primary_anchor": "perfection through knowledge and self-directed improvement",
+    "support_texture": [
+      "education",
+      "research",
+      "tools and technology",
+      "control and counterplay",
+      "card draw and filtering",
+      "artifice and illusion"
+    ],
+    "non_faction_boundary": "Blue is an official color philosophy and mechanical color-pie identity, not a single plane, faction, personality type, or commander recommendation list."
+  },
+  "great_tension": {
+    "gift": "Blue can see the possible self before it exists.",
+    "shadow": "Blue can make readiness a room it never leaves.",
+    "boundary": "This is Vox Mana synthesis from official color philosophy, not official psychometrics."
+  },
+  "mechanics": {
+    "source_bound_texture": [
+      "card draw and filtering",
+      "counterspells",
+      "bounce and transformation",
+      "copying and theft",
+      "flying",
+      "artifacts and instants/sorceries"
+    ],
+    "summary": "Blue commonly plays through information advantage, reactive control, evasion, manipulation, and turning time into better options.",
+    "claim_ids": [
+      "blue_claim_0007"
+    ]
+  },
+  "site_surface": {
+    "display_name": "Blue",
+    "short_summary": "Blue believes the self and the world can be improved through knowledge, tools, and careful choice.",
+    "one_sentence_identity": "Blue is the question mark that learned how to build a machine.",
+    "tagline": "Become what is possible.",
+    "primary_tags": [
+      "knowledge",
+      "perfection",
+      "control",
+      "tools",
+      "choice"
+    ],
+    "secondary_tags": [
+      "card draw",
+      "counterspells",
+      "artifacts",
+      "flying",
+      "bounce"
+    ]
+  },
+  "data_quality": {
+    "source_status": "source_grounded_mono_gold_packet",
+    "manual_review_recommended": true,
+    "placement_eligible": true,
+    "preview_eligible": true,
+    "commander_candidate_status": "current_scryfall_verified_support_only_2026-06-13",
+    "notes": "Three native mono-blue commander rows are retained only after current Scryfall verification on 2026-06-13. Deck links remain intentionally empty; these rows do not prove color philosophy or Vox Mana placement axes."
+  },
+  "research_limitations": [
+    "Do not treat Vox Mana placement axes as official Wizards scores.",
+    "Do not promote candidate commanders without current card/legal verification.",
+    "Do not use generated runtime files as claim evidence.",
+    "Do not use the Commander format overview in place of CR 903.3/903.4 for exact eligibility or color-identity boundaries."
+  ],
+  "profile": {
+    "overview": "Blue is the color of knowledge, improvement, tools, and self-directed possibility.",
+    "philosophy": "Blue believes people are not finished objects; with time, information, and the right tools, they can become something more exact.",
+    "core_tension": "Blue's foresight and control can become passivity or over-optimization.",
+    "mechanics_and_play_pattern": "Blue commonly expresses itself through card draw, counterspells, evasion, copying, bounce, artifacts, and reactive control.",
+    "claim_ids": [
+      "blue_claim_0001",
+      "blue_claim_0002",
+      "blue_claim_0003",
+      "blue_claim_0004",
+      "blue_claim_0005",
+      "blue_claim_0006",
+      "blue_claim_0007",
+      "blue_claim_0008"
+    ]
+  },
+  "deck_links": [],
+  "research_links": {
+    "source_manifest": "docs/research/mono_upgrade/00_SOURCES_MANIFEST.md",
+    "source_digest": "docs/research/mono_upgrade/11_blue.md",
+    "mechanical_digest": "docs/research/mono_upgrade/20_mechanical_color_pie_2021.md",
+    "rules_digest": "docs/research/mono_upgrade/30_commander_and_rules.md",
+    "source_packet": "data/raw-factions/blue/blue.sources.json",
+    "claim_packet": "data/raw-factions/blue/blue.claims.json"
+  },
+  "commander_compass": {
+    "schema_version": "1.0.0",
+    "source_research_file": "docs/research/mono_upgrade/00_SOURCES_MANIFEST.md and Scryfall exact-name API checks on 2026-06-13",
+    "last_reviewed": "2026-06-13",
+    "review_status": "current_scryfall_verified_support_only",
+    "recommendation_philosophy": "Use these three blue commanders as current verified mono-blue support/navigation rows only. They do not define Blue philosophy, Vox Mana profile-axis scores, popularity, price, metagame strength, or deck quality.",
+    "identity_basis": {
+      "owned_themes": [
+        "knowledge",
+        "information",
+        "draw",
+        "options",
+        "control"
+      ],
+      "allowed_phrases": [
+        "mono-blue Commander support",
+        "current Scryfall-verified support",
+        "support-only commander candidate"
+      ],
+      "avoid_or_contrast_phrases": [
+        "commander row as philosophy proof",
+        "commander row as profile-axis evidence",
+        "popularity, price, metagame, or deck-quality claim without dated evidence"
+      ],
+      "adjacent_overlap_notes": [
+        "Use the raw placement discriminator questions for mono/guild/five-color boundary work; commander rows are support only."
+      ],
+      "supporting_claim_ids": [
+        "blue_claim_0008"
+      ],
+      "supporting_source_ids": [
+        "RULES-CR",
+        "SCRYFALL-U-2026-06-13"
+      ]
+    },
+    "native_fit_commanders": [
+      {
+        "exact_card_name": "Talrand, Sky Summoner",
+        "display_name": "Talrand, Sky Summoner",
+        "scryfall_uri": "https://scryfall.com/card/otc/116/talrand-sky-summoner?utm_source=api",
+        "edhrec_uri": "https://edhrec.com/commanders/talrand-sky-summoner",
+        "color_identity": [
+          "U"
+        ],
+        "commander_legal": true,
+        "recommendation_type": "Current Scryfall-Verified Support",
+        "archetype_tags": [
+          "Spellslinger",
+          "Tokens"
+        ],
+        "why_this_fits": "Turns Blue's patient instant-speed posture into a visible board of evasive threats.",
+        "skip_if": "You want hard artifact engines or wizard tribal more than spell-based token pressure.",
+        "gameplay_summary": "Rewards each instant and sorcery with a flying Drake while leaving mana open for interaction.",
+        "faction_identity_terms": [
+          "knowledge",
+          "information",
+          "draw",
+          "options",
+          "control"
+        ],
+        "source_basis": "SCRYFALL-U-2026-06-13; RULES-CR; blue_claim_0008",
+        "confidence": "Current Scryfall verification on 2026-06-13; support-only",
+        "caution_notes": "Verified for name, mono-color identity, legendary creature type line, and Commander legality in Scryfall on 2026-06-13. This is support/navigation, not color philosophy evidence."
+      },
+      {
+        "exact_card_name": "Azami, Lady of Scrolls",
+        "display_name": "Azami, Lady of Scrolls",
+        "scryfall_uri": "https://scryfall.com/card/cmm/74/azami-lady-of-scrolls?utm_source=api",
+        "edhrec_uri": "https://edhrec.com/commanders/azami-lady-of-scrolls",
+        "color_identity": [
+          "U"
+        ],
+        "commander_legal": true,
+        "recommendation_type": "Current Scryfall-Verified Support",
+        "archetype_tags": [
+          "Wizards",
+          "Card Draw"
+        ],
+        "why_this_fits": "Makes Blue's information advantage literal by turning a wizard board into cards.",
+        "skip_if": "You dislike tribal shells or want a lower-maintenance control commander.",
+        "gameplay_summary": "Taps Wizards to draw cards, letting the deck convert board development into a growing hand.",
+        "faction_identity_terms": [
+          "knowledge",
+          "information",
+          "draw",
+          "options",
+          "control"
+        ],
+        "source_basis": "SCRYFALL-U-2026-06-13; RULES-CR; blue_claim_0008",
+        "confidence": "Current Scryfall verification on 2026-06-13; support-only",
+        "caution_notes": "Verified for name, mono-color identity, legendary creature type line, and Commander legality in Scryfall on 2026-06-13. This is support/navigation, not color philosophy evidence."
+      },
+      {
+        "exact_card_name": "Minn, Wily Illusionist",
+        "display_name": "Minn, Wily Illusionist",
+        "scryfall_uri": "https://scryfall.com/card/afc/16/minn-wily-illusionist?utm_source=api",
+        "edhrec_uri": "https://edhrec.com/commanders/minn-wily-illusionist",
+        "color_identity": [
+          "U"
+        ],
+        "commander_legal": true,
+        "recommendation_type": "Current Scryfall-Verified Support",
+        "archetype_tags": [
+          "Card Draw",
+          "Tokens"
+        ],
+        "why_this_fits": "Rewards Blue's habit of drawing extra cards by turning information flow into board presence.",
+        "skip_if": "You want a classic counterspell deck instead of a draw-trigger creature plan.",
+        "gameplay_summary": "Creates Illusions on second draws and turns those Illusions into permanents when they die.",
+        "faction_identity_terms": [
+          "knowledge",
+          "information",
+          "draw",
+          "options",
+          "control"
+        ],
+        "source_basis": "SCRYFALL-U-2026-06-13; RULES-CR; blue_claim_0008",
+        "confidence": "Current Scryfall verification on 2026-06-13; support-only",
+        "caution_notes": "Verified for name, mono-color identity, legendary creature type line, and Commander legality in Scryfall on 2026-06-13. This is support/navigation, not color philosophy evidence."
+      }
+    ],
+    "weird_stretch_commanders": [],
+    "budget_friendly_commanders": [],
+    "advanced_complexity_commanders": [],
+    "iconic_lore_forward_commanders": [],
+    "not_recommended_or_deprioritized": [],
+    "archetype_lanes": [
+      {
+        "name": "Spellslinger / Tokens",
+        "support_basis": "Talrand, Sky Summoner passed current Scryfall mono-color Commander support checks on 2026-06-13.",
+        "boundary": "Support/navigation only; not philosophy, placement-axis, popularity, price, or deck-quality proof."
+      },
+      {
+        "name": "Wizards / Card Draw",
+        "support_basis": "Azami, Lady of Scrolls passed current Scryfall mono-color Commander support checks on 2026-06-13.",
+        "boundary": "Support/navigation only; not philosophy, placement-axis, popularity, price, or deck-quality proof."
+      },
+      {
+        "name": "Card Draw / Tokens",
+        "support_basis": "Minn, Wily Illusionist passed current Scryfall mono-color Commander support checks on 2026-06-13.",
+        "boundary": "Support/navigation only; not philosophy, placement-axis, popularity, price, or deck-quality proof."
+      }
+    ],
+    "link_targets": {
+      "edhrec_commander_index": "https://edhrec.com/commanders/u",
+      "mtgdecks_color_identity": "https://mtgdecks.net/Commander/u-commanders",
+      "scryfall_commander_search": "https://scryfall.com/search?q=id%3Du+is%3Acommander+f%3Acommander",
+      "archidekt_color_search": "https://archidekt.com/search/decks?colors=U&deckFormat=3&orderBy=-updatedAt&page=1"
+    },
+    "merge_notes": {
+      "source_role": "current verified support-only",
+      "deck_links_status": "Deck links remain empty; Commander Compass rows carry the verified support candidates."
+    }
+  }
+}

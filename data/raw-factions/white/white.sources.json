@@ -1,0 +1,202 @@
+{
+  "schema_version": "1.0.0",
+  "faction_id": "white",
+  "faction_name": "White",
+  "source_review_date": "2026-06-13",
+  "source_intake_bundle": "docs/research/mono_upgrade",
+  "sources": [
+    {
+      "source_id": "MONO-W-2015",
+      "title": "The Great White Way Revisited",
+      "author": "Mark Rosewater",
+      "publisher_or_site": "Wizards of the Coast",
+      "publication_date": "2015-07-13",
+      "capture_date": "2026-06-13",
+      "canonical_url": "https://magic.wizards.com/en/news/making-magic/great-white-way-revisited-2015-07-13",
+      "digest_path": "docs/research/mono_upgrade/10_white.md",
+      "local_pdf_capture_path": "docs/research/mono_upgrade/The Great White Way Revisited _ MAGIC_ THE GATHERING.pdf",
+      "local_pdf_sha256": "DE3690A85CB6BE3DC168187557B6C89CAF2824E030A0FC35D85281FAB5CCDE70",
+      "source_role": "philosophy_backbone",
+      "source_tier": "gold_official_article",
+      "claim_bearing_evidence_rows": [
+        "white_evid_0001",
+        "white_evid_0002",
+        "white_evid_0003",
+        "white_evid_0004"
+      ],
+      "anchor_ids": [
+        "W2015-Q1",
+        "W2015-Q1b",
+        "W2015-Q2",
+        "W2015-Q2b",
+        "W2015-Q3",
+        "W2015-Q4",
+        "W2015-Q5",
+        "W2015-Q5b",
+        "W2015-Q6"
+      ]
+    },
+    {
+      "source_id": "MONO-W-2025",
+      "title": "My Words: White",
+      "author": "Mark Rosewater",
+      "publisher_or_site": "Wizards of the Coast",
+      "publication_date": "2025-05-19",
+      "capture_date": "2026-06-13",
+      "canonical_url": "https://magic.wizards.com/en/news/making-magic/my-words-white",
+      "digest_path": "docs/research/mono_upgrade/10_white.md",
+      "local_pdf_capture_path": "docs/research/mono_upgrade/My Words_ White.pdf",
+      "local_pdf_sha256": "77AFAC5BF12284DD947D54DE9DD662107F78EEF5CCC0FF4BB8F056AD2E74C99C",
+      "source_role": "current_voice_update",
+      "source_tier": "gold_official_article",
+      "claim_bearing_evidence_rows": [
+        "white_evid_0005",
+        "white_evid_0006",
+        "white_evid_0007",
+        "white_evid_0008"
+      ],
+      "anchor_ids": [
+        "W2025-a",
+        "W2025-b",
+        "W2025-c",
+        "W2025-d",
+        "W2025-e",
+        "W2025-f",
+        "W2025-g",
+        "W2025-h",
+        "W2025-i",
+        "W2025-j"
+      ]
+    },
+    {
+      "source_id": "MECH-CP-2021",
+      "title": "Mechanical Color Pie 2021",
+      "author": "Mark Rosewater with the Council of Colors",
+      "publisher_or_site": "Wizards of the Coast",
+      "publication_date": "2021-10-18",
+      "capture_date": "2026-06-13",
+      "canonical_url": "https://magic.wizards.com/en/news/making-magic/mechanical-color-pie-2021",
+      "digest_path": "docs/research/mono_upgrade/20_mechanical_color_pie_2021.md",
+      "local_pdf_capture_path": "docs/research/mono_upgrade/Mechanical Color Pie 20211.pdf",
+      "local_pdf_sha256": "F5C50A7FC501E3613D91E28FB95475DC32A9ACA0F3D2454EA0CF73F2D3F3F5DF",
+      "source_role": "mechanical_authority",
+      "source_tier": "gold_official_article_snapshot",
+      "claim_bearing_evidence_rows": [
+        "white_evid_0009",
+        "white_evid_0010"
+      ],
+      "anchor_ids": [
+        "MECH-DEF-primary",
+        "MECH-DEF-secondary",
+        "MECH-carddraw",
+        "MECH-counters",
+        "MECH-removal"
+      ],
+      "notes": "The filename appears to have a 20211 typo; path is preserved and annotated in the manifest."
+    },
+    {
+      "source_id": "GOV-COC-2024",
+      "title": "The Council of Colors, Revisited",
+      "author": "Mark Rosewater",
+      "publisher_or_site": "Wizards of the Coast",
+      "publication_date": "2024-08-26",
+      "capture_date": "2026-06-13",
+      "canonical_url": "https://magic.wizards.com/en/news/making-magic/the-council-of-colors-revisited",
+      "digest_path": "docs/research/mono_upgrade/22_council_of_colors.md",
+      "local_pdf_capture_path": "docs/research/mono_upgrade/The Council of Colors, Revisited.pdf",
+      "local_pdf_sha256": "D2E635E1BE453C62F5FE97FBAF9FFDB819AEA283109F8FD85BDCC9E3CA8DA27C",
+      "source_role": "governance_process_authority",
+      "source_tier": "gold_official_article",
+      "claim_bearing_evidence_rows": [
+        "white_evid_0011"
+      ],
+      "anchor_ids": [
+        "COC-mandate",
+        "COC-shift-commander",
+        "COC-longterm"
+      ]
+    },
+    {
+      "source_id": "RULES-CR",
+      "title": "Comprehensive Rules",
+      "publisher_or_site": "Wizards of the Coast",
+      "publication_date": "living_document",
+      "capture_date": "2026-06-13",
+      "canonical_url": "https://magic.wizards.com/en/rules",
+      "digest_path": "docs/research/mono_upgrade/30_commander_and_rules.md",
+      "local_pdf_capture_path": null,
+      "local_pdf_sha256": null,
+      "source_role": "commander_rules_boundary",
+      "source_tier": "gold_official_living_rules",
+      "claim_bearing_evidence_rows": [
+        "white_evid_0012"
+      ],
+      "anchor_ids": [
+        "CR-903.3",
+        "CR-903.4",
+        "CR-usage-note"
+      ],
+      "notes": "Exact quote or high-stakes rules work should capture the current Comprehensive Rules PDF and record its hash."
+    },
+    {
+      "source_id": "VM-377",
+      "title": "Mono Gold Source Intake Planning",
+      "publisher_or_site": "Vox Mana repo",
+      "publication_date": "2026-06-13",
+      "capture_date": "2026-06-13",
+      "repository_path": "docs/kanban/in-progress/VM-377-mono-gold-source-intake-planning.md",
+      "source_role": "project_governance",
+      "source_tier": "vox_mana_planning_authority",
+      "claim_bearing_evidence_rows": [
+        "white_evid_0013"
+      ],
+      "anchor_ids": [
+        "source-bundle-classification",
+        "guardrails-for-future-execution"
+      ]
+    },
+    {
+      "source_id": "SCRYFALL-W-2026-06-13",
+      "title": "Scryfall exact-name current checks for mono-white commander candidates",
+      "publisher_or_site": "Scryfall",
+      "access_date": "2026-06-13",
+      "source_role": "current_card_legality_verification",
+      "source_tier": "current_card_database",
+      "claim_bearing_evidence_rows": [
+        "white_evid_0014"
+      ],
+      "verified_cards": [
+        {
+          "name": "Giada, Font of Hope",
+          "color_identity": "W",
+          "commander": "legal",
+          "type_line": "Legendary Creature - Angel",
+          "scryfall_uri": "https://scryfall.com/card/fdn/141/giada-font-of-hope?utm_source=api"
+        },
+        {
+          "name": "Adeline, Resplendent Cathar",
+          "color_identity": "W",
+          "commander": "legal",
+          "type_line": "Legendary Creature - Human Knight",
+          "scryfall_uri": "https://scryfall.com/card/tdc/108/adeline-resplendent-cathar?utm_source=api"
+        },
+        {
+          "name": "Balan, Wandering Knight",
+          "color_identity": "W",
+          "commander": "legal",
+          "type_line": "Legendary Creature - Cat Knight",
+          "scryfall_uri": "https://scryfall.com/card/cmm/16/balan-wandering-knight?utm_source=api"
+        }
+      ],
+      "notes": "Checked exact name, type_line, color_identity, and legalities.commander through the Scryfall API on 2026-06-13."
+    }
+  ],
+  "source_intake_boundary": {
+    "digest_markdown_role": "claim-digest/source-intake material",
+    "pdf_role": "local official capture evidence",
+    "readme_role": "process chatter, not source evidence",
+    "exact_quote_policy": "Pull exact quotes only from canonical URLs or local PDF captures under fair use.",
+    "commander_policy": "Do not promote commander candidates without current Scryfall/Gatherer/Commander legality verification.",
+    "axis_policy": "Official color sources support philosophy and mechanical claims; Vox Mana placement-axis values remain interpretation."
+  }
+}

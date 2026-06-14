@@ -2,8 +2,8 @@
   "schema_version": "1.0.0",
   "faction_id": "temur",
   "faction_name": "Temur Frontier",
-  "source_review_date": "2026-05-31",
-  "last_updated": "2026-05-31",
+  "source_review_date": "2026-06-13",
+  "last_updated": "2026-06-13",
   "sources": [
     {
       "source_id": "src_vm_temur_source_ledger_20260531",
@@ -318,6 +318,19 @@
       "source_role": "support-only",
       "reliability": "Card facts support only",
       "notes": "May support future claim-by-claim card facts or mechanics. VM-206 does not query card facts and does not use this source for raw claims."
+    },
+    {
+      "source_id": "src_wotc_tarkir_dragonstorm_commander_decklists_20250325",
+      "source_role": "support-only",
+      "title": "Tarkir: Dragonstorm Commander Decklists",
+      "author": "Wizards of the Coast",
+      "publisher_or_site": "Magic: The Gathering",
+      "publication_date": "2025-03-25",
+      "access_date": "2026-06-13",
+      "url_or_repository_path": "https://magic.wizards.com/en/news/announcements/tarkir-dragonstorm-commander-decklists",
+      "source_type": "Official Commander product decklist",
+      "reliability": "Primary / official product support",
+      "notes": "Verified official page for Tarkir: Dragonstorm deck names, color identities, face commanders, featured commanders, release/product navigation, and galleries. Support-only: not Tarkir canon, popularity, metagame, legality, or placement evidence."
     }
   ],
   "not_used_or_rejected_sources": [

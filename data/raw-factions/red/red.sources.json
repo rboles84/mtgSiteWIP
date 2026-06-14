@@ -1,0 +1,192 @@
+{
+  "schema_version": "1.0.0",
+  "faction_id": "red",
+  "faction_name": "Red",
+  "source_review_date": "2026-06-13",
+  "source_intake_bundle": "docs/research/mono_upgrade",
+  "sources": [
+    {
+      "source_id": "MONO-R-2015",
+      "title": "Seeing Red Revisited",
+      "author": "Mark Rosewater",
+      "publisher_or_site": "Wizards of the Coast",
+      "publication_date": "2015-08-03",
+      "capture_date": "2026-06-13",
+      "canonical_url": "https://magic.wizards.com/en/news/making-magic/seeing-red-revisited-2015-08-03",
+      "digest_path": "docs/research/mono_upgrade/13_red.md",
+      "local_pdf_capture_path": "docs/research/mono_upgrade/Seeing Red Revisited _ MAGIC_ THE GATHERING.pdf",
+      "local_pdf_sha256": "78CAF4E3CAE856865D6F86551D8C09FE3619ED5A7AB676B190A5C717E652EC5F",
+      "source_role": "philosophy_backbone",
+      "source_tier": "gold_official_article",
+      "claim_bearing_evidence_rows": [
+        "red_evid_0001",
+        "red_evid_0002",
+        "red_evid_0003",
+        "red_evid_0004"
+      ],
+      "anchor_ids": [
+        "R2015-Q1",
+        "R2015-Q2",
+        "R2015-Q3",
+        "R2015-Q4",
+        "R2015-Q5",
+        "R2015-Q5b",
+        "R2015-Q6"
+      ]
+    },
+    {
+      "source_id": "MONO-R-2025",
+      "title": "My Words: Red",
+      "author": "Mark Rosewater",
+      "publisher_or_site": "Wizards of the Coast",
+      "publication_date": "2025-10-20",
+      "capture_date": "2026-06-13",
+      "canonical_url": "https://magic.wizards.com/en/news/making-magic/my-words-red",
+      "digest_path": "docs/research/mono_upgrade/13_red.md",
+      "local_pdf_capture_path": "docs/research/mono_upgrade/My Words_ Red.pdf",
+      "local_pdf_sha256": "26328B321303243C2164AD6E294AE95DA7ED7A7BDB84AAC98902FA94FC55FA45",
+      "source_role": "current_voice_update",
+      "source_tier": "gold_official_article",
+      "claim_bearing_evidence_rows": [
+        "red_evid_0005",
+        "red_evid_0006",
+        "red_evid_0007",
+        "red_evid_0008"
+      ],
+      "anchor_ids": [
+        "R2025-a",
+        "R2025-b",
+        "R2025-c",
+        "R2025-d",
+        "R2025-e",
+        "R2025-f",
+        "R2025-g",
+        "R2025-h",
+        "R2025-i"
+      ]
+    },
+    {
+      "source_id": "MECH-CP-2021",
+      "title": "Mechanical Color Pie 2021",
+      "author": "Mark Rosewater with the Council of Colors",
+      "publisher_or_site": "Wizards of the Coast",
+      "publication_date": "2021-10-18",
+      "capture_date": "2026-06-13",
+      "canonical_url": "https://magic.wizards.com/en/news/making-magic/mechanical-color-pie-2021",
+      "digest_path": "docs/research/mono_upgrade/20_mechanical_color_pie_2021.md",
+      "local_pdf_capture_path": "docs/research/mono_upgrade/Mechanical Color Pie 20211.pdf",
+      "local_pdf_sha256": "F5C50A7FC501E3613D91E28FB95475DC32A9ACA0F3D2454EA0CF73F2D3F3F5DF",
+      "source_role": "mechanical_authority",
+      "source_tier": "gold_official_article_snapshot",
+      "claim_bearing_evidence_rows": [
+        "red_evid_0009",
+        "red_evid_0010"
+      ],
+      "anchor_ids": [
+        "MECH-removal",
+        "MECH-carddraw",
+        "MECH-antiflying",
+        "MECH-artifact-friendly"
+      ],
+      "notes": "The filename appears to have a 20211 typo; path is preserved and annotated in the manifest."
+    },
+    {
+      "source_id": "GOV-COC-2024",
+      "title": "The Council of Colors, Revisited",
+      "author": "Mark Rosewater",
+      "publisher_or_site": "Wizards of the Coast",
+      "publication_date": "2024-08-26",
+      "capture_date": "2026-06-13",
+      "canonical_url": "https://magic.wizards.com/en/news/making-magic/the-council-of-colors-revisited",
+      "digest_path": "docs/research/mono_upgrade/22_council_of_colors.md",
+      "local_pdf_capture_path": "docs/research/mono_upgrade/The Council of Colors, Revisited.pdf",
+      "local_pdf_sha256": "D2E635E1BE453C62F5FE97FBAF9FFDB819AEA283109F8FD85BDCC9E3CA8DA27C",
+      "source_role": "governance_process_authority",
+      "source_tier": "gold_official_article",
+      "claim_bearing_evidence_rows": [
+        "red_evid_0011"
+      ],
+      "anchor_ids": [
+        "COC-shift-commander",
+        "COC-gaps",
+        "COC-longterm"
+      ]
+    },
+    {
+      "source_id": "RULES-CR",
+      "title": "Comprehensive Rules",
+      "publisher_or_site": "Wizards of the Coast",
+      "publication_date": "living_document",
+      "capture_date": "2026-06-13",
+      "canonical_url": "https://magic.wizards.com/en/rules",
+      "digest_path": "docs/research/mono_upgrade/30_commander_and_rules.md",
+      "local_pdf_capture_path": null,
+      "local_pdf_sha256": null,
+      "source_role": "commander_rules_boundary",
+      "source_tier": "gold_official_living_rules",
+      "claim_bearing_evidence_rows": [
+        "red_evid_0012"
+      ],
+      "anchor_ids": [
+        "CR-903.3",
+        "CR-903.4",
+        "CR-usage-note"
+      ]
+    },
+    {
+      "source_id": "VM-377",
+      "title": "Mono Gold Source Intake Planning",
+      "publisher_or_site": "Vox Mana repo",
+      "publication_date": "2026-06-13",
+      "repository_path": "docs/kanban/in-progress/VM-377-mono-gold-source-intake-planning.md",
+      "source_role": "project_governance",
+      "source_tier": "vox_mana_planning_authority",
+      "claim_bearing_evidence_rows": [
+        "red_evid_0013"
+      ]
+    },
+    {
+      "source_id": "SCRYFALL-R-2026-06-13",
+      "title": "Scryfall exact-name current checks for mono-red commander candidates",
+      "publisher_or_site": "Scryfall",
+      "access_date": "2026-06-13",
+      "source_role": "current_card_legality_verification",
+      "source_tier": "current_card_database",
+      "claim_bearing_evidence_rows": [
+        "red_evid_0014"
+      ],
+      "verified_cards": [
+        {
+          "name": "Torbran, Thane of Red Fell",
+          "color_identity": "R",
+          "commander": "legal",
+          "type_line": "Legendary Creature - Dwarf Noble",
+          "scryfall_uri": "https://scryfall.com/card/eld/147/torbran-thane-of-red-fell?utm_source=api"
+        },
+        {
+          "name": "Krenko, Mob Boss",
+          "color_identity": "R",
+          "commander": "legal",
+          "type_line": "Legendary Creature - Goblin Warrior",
+          "scryfall_uri": "https://scryfall.com/card/fdn/204/krenko-mob-boss?utm_source=api"
+        },
+        {
+          "name": "Magda, Brazen Outlaw",
+          "color_identity": "R",
+          "commander": "legal",
+          "type_line": "Legendary Creature - Dwarf Berserker",
+          "scryfall_uri": "https://scryfall.com/card/khm/142/magda-brazen-outlaw?utm_source=api"
+        }
+      ],
+      "notes": "Checked exact name, type_line, color_identity, and legalities.commander through the Scryfall API on 2026-06-13."
+    }
+  ],
+  "source_intake_boundary": {
+    "digest_markdown_role": "claim-digest/source-intake material",
+    "pdf_role": "local official capture evidence",
+    "readme_role": "process chatter, not source evidence",
+    "exact_quote_policy": "Pull exact quotes only from canonical URLs or local PDF captures under fair use.",
+    "commander_policy": "Do not promote commander candidates without current Scryfall/Gatherer/Commander legality verification.",
+    "axis_policy": "Official color sources support philosophy and mechanical claims; Vox Mana placement-axis values remain interpretation."
+  }
+}

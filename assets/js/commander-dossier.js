@@ -48,6 +48,7 @@ const COLOR_IDENTITY_SLUGS = new Map([
   ["URG", "temur"],
   ["RGU", "temur"],
   ["RUG", "temur"],
+  ["WUBRG", "five-color"],
 ]);
 
 const EXTERNAL_ROUTING_FALLBACKS = [
@@ -71,6 +72,7 @@ const EXTERNAL_ROUTING_FALLBACKS = [
   { aliases: ["SULTAI"], guild: "sultai", colorIdentity: "BGU", label: "Sultai" },
   { aliases: ["MARDU"], guild: "mardu", colorIdentity: "RWB", label: "Mardu" },
   { aliases: ["JESKAI"], guild: "jeskai", colorIdentity: "URW", label: "Jeskai" },
+  { aliases: ["WUBRG", "FIVE COLOR", "FIVE-COLOR"], guild: "five-color", colorIdentity: "WUBRG", label: "Five-Color", suppressDirectoryLinks: true },
 ];
 
 // Temporary string-only fallback until dossier routing receives the registry alias index directly.
@@ -980,6 +982,21 @@ export const COMMANDER_FACTION_GUIDANCE = {
     tableCautionText: "Develop Wastes, true {C} sources, and mana rocks first, keep generic costs separate, and verify artifacts, Devoid, Eldrazi, or five-color Eldrazi before calling them native Colorless.",
     tableCautionReviewRule: "If text treats Colorless as a sixth color, WUBRG mastery, generic mana, all artifacts, Devoid, Phyrexia, or five-color Eldrazi, rebind it to VM-324, VM-326, VM-334, and VM-337 source boundaries.",
   },
+  WUBRG: {
+    key: "WUBRG",
+    shortName: "Five-Color",
+    ownedThemes: ["all five colors present", "full-spectrum integration", "coalition", "synthesis", "breadth with tradeoffs", "Commander color identity precision", "source-bound deck support"],
+    allowedPhrases: ["Five-Color", "WUBRG commander identity", "all five colors present", "full-spectrum integration", "coalition", "support-only Commander browsing"],
+    bannedPhrases: ["official WUBRG faction", "official five-color doctrine", "superior to WUBRG", "superior to Colorless", "goodstuff proves the identity", "five-color Eldrazi proves Colorless", "Commander legality proof", "metagame proof"],
+    bleedWarningTerms: ["generic goodstuff", "mana fixing only", "Golos", "Eldrazi Incursion as Colorless proof", "Ulalek as Colorless proof", "official faction", "total mastery"],
+    bleedWarnings: ["avoid collapsing Five-Color into generic goodstuff, mana fixing, official doctrine, Colorless proof, four-color leakage, or Commander legality and metagame claims"],
+    preferredArchetypeTags: ["Five-Color", "Ramp", "Multicolor"],
+    starterSearchTags: ["Five-Color", "Ramp", "Multicolor"],
+    commanderPlan: "uses all five colors deliberately: build reliable fixing, decide what each color contributes, and keep support-only Commander examples from becoming lore, legality, or ranking proof",
+    spellcraftIdentity: "Domain, converge, sunburst, WUBRG costs or activations, multicolor payoffs, basic-land-type checks, and mana infrastructure can express Five-Color texture while individual card claims remain manually verified.",
+    tableCautionText: "Develop fixing with a purpose, make every color justify its slot, and treat precons, MTGDecks, Archidekt, and Scryfall links as support navigation rather than proof.",
+    tableCautionReviewRule: "If text sounds like official WUBRG doctrine, generic goodstuff, Colorless proof, four-color leakage, broad legality, rankings, price, or metagame advice, rebind it to VM-367 source boundaries.",
+  },
 };
 
 const SUMMARY_STRIP_LABELS = Object.freeze({
@@ -1810,6 +1827,9 @@ export function buildArchidektDeckSearchUrl({
  * @returns {string} MTGDecks URL.
  */
 export function buildMtgDecksUrl(deck, colors) {
+  if (Object.hasOwn(deck || {}, "mtgd")) {
+    return typeof deck.mtgd === "string" ? deck.mtgd : "";
+  }
   return getExternalDeckRoutingAlias(colors || deck?.colors || deck?.name || deck?.fmt || "Commander").mtgDecksUrl;
 }
 
@@ -1866,17 +1886,29 @@ function isScryfallCardPageUrl(value) {
   return /^https:\/\/scryfall\.com\/card\//i.test(String(value || "")) && !/\/search\b/i.test(String(value || ""));
 }
 
-function isValidCommanderCompassCandidate(candidate) {
-  return Boolean(
+function isValidCommanderCompassCandidate(candidate, factionKey = "") {
+  const hasCommonSupportFields = Boolean(
     (candidate?.exact_card_name || candidate?.display_name) &&
-    candidate?.commander_legal === true &&
     isScryfallCardPageUrl(candidate?.scryfall_uri) &&
     Array.isArray(candidate?.color_identity) &&
-    candidate.color_identity.length &&
     candidate?.why_this_fits &&
     candidate?.skip_if &&
     candidate?.gameplay_summary
   );
+  if (!hasCommonSupportFields) {
+    return false;
+  }
+
+  const isColorlessSupportOnlyRow = String(factionKey || "").toUpperCase() === "COLORLESS" &&
+    candidate.commander_legal === null &&
+    candidate.recommendation_type === "Support-Only Commander Row" &&
+    candidate.confidence === "Support-only" &&
+    candidate.color_identity.length === 0;
+  if (isColorlessSupportOnlyRow) {
+    return true;
+  }
+
+  return candidate.commander_legal === true && candidate.color_identity.length > 0;
 }
 
 function cleanSkipIfText(value) {
@@ -1926,6 +1958,7 @@ function commanderCandidateSourceSummary(candidates = []) {
  */
 export function collectCommanderPreviewCandidates(faction, options = {}) {
   const limit = options.limit || 3;
+  const factionKey = String(faction?.key || "").toUpperCase();
   const candidates = [];
   const seen = new Set();
   const addCandidate = ({
@@ -1972,7 +2005,7 @@ export function collectCommanderPreviewCandidates(faction, options = {}) {
 
   COMMANDER_COMPASS_RECOMMENDATION_PRIORITY.forEach((category) => {
     (faction?.commander_compass?.[category] || [])
-      .filter(isValidCommanderCompassCandidate)
+      .filter((candidate) => isValidCommanderCompassCandidate(candidate, factionKey))
       .forEach((candidate) => {
         addCandidate({
           name: candidate.exact_card_name || candidate.display_name,
@@ -1983,6 +2016,7 @@ export function collectCommanderPreviewCandidates(faction, options = {}) {
           recommendationType: candidate.recommendation_type || "",
           skipIf: candidate.skip_if || "",
           whyThisFits: candidate.why_this_fits || "",
+          displayTags: candidate.archetype_tags || [],
         });
       });
   });
@@ -1999,26 +2033,6 @@ export function collectCommanderPreviewCandidates(faction, options = {}) {
         mtgd: buildMtgDecksUrl(deck, faction?.colors || faction?.key || ""),
       });
     });
-
-  if (String(faction?.key || "").toUpperCase() === "COLORLESS") {
-    [
-      {
-        name: "Zhulodok, Void Gorger",
-        desc: "Strict Colorless orientation: shows the Eldrazi Unbound lane for Wastes, true {C}, mana rocks, and expensive colorless spells without making five-color Eldrazi native support.",
-        displayTags: ["Strict Colorless", "Wastes + {C}", "Eldrazi Scale"],
-      },
-      {
-        name: "Omarthis, Ghostfire Initiate",
-        desc: "Strict Colorless orientation: a second official Colorless support example for the same boundary, useful when comparing artifact-engine growth to Eldrazi-scale payoffs.",
-        displayTags: ["Strict Colorless", "Colorless Growth", "Boundary Example"],
-      },
-    ].forEach((candidate) => {
-      addCandidate({
-        ...candidate,
-        source: "colorless-orientation",
-      });
-    });
-  }
 
   (faction?.staples?.creatures || []).forEach((name) => {
     if (CURATED_LEGENDARY_CREATURE_STAPLES.has(normalizeTagText(name))) {
@@ -2263,6 +2277,7 @@ export function buildCommanderStartingLane({
   tagLanes = [],
 }) {
   const colorIdentity = getColorIdentity(faction?.colors || faction?.key || "");
+  const factionKey = String(faction?.key || "").toUpperCase();
   const archetypes = (faction?.archetypes || []).slice(0, 2).map((item) => item.name);
   const mechanics = modelFaction?.identity?.mechanics || "";
   const budget = starterProfile?.budget_band || "mid";
@@ -2272,9 +2287,11 @@ export function buildCommanderStartingLane({
     ? guidance.starterSearchTags
     : tagLanes.map((lane) => lane.tagName);
   const institutionWord = getExpressionKindLabel(faction);
-  const deckCenter = archetypes.length
-    ? `Start with ${archetypes.join(" or ")}`
-    : `Start with the ${colorIdentity || "chosen"} color identity`;
+  const deckCenter = factionKey === "WUBRG" && archetypes.length
+    ? `Start from the ${archetypes.join(" or ")} lane`
+    : archetypes.length
+      ? `Start with ${archetypes.join(" or ")}`
+      : `Start with the ${colorIdentity || "chosen"} color identity`;
   const researchLanes = laneTags.length
     ? `Your first searches should orbit ${laneTags.join(", ")}.`
     : "Your first searches should favor cards that make the main plan repeatable, protected, and easy to see in an opening hand.";
@@ -2652,6 +2669,9 @@ function buildTableExperienceSentence(factionName, tableExperience) {
   }
   if (/^infrastructure first\b/i.test(fragment)) {
     return `In play, ${factionName} wants to build ${lowerInitial(fragment)}.`;
+  }
+  if (/^full color access\b/i.test(fragment)) {
+    return `In play, ${factionName} wants ${lowerInitial(fragment)}.`;
   }
   if (/^(a|an|the)\b/i.test(fragment)) {
     return `${factionName} feels like ${lowerInitial(fragment)}.`;

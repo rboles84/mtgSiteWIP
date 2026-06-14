@@ -8,7 +8,7 @@
     "white",
     "black"
   ],
-  "last_updated": "2026-05-13T21:14:06.308Z",
+  "last_updated": "2026-06-13",
   "profile": {
     "overview": "Silverquill College is a white-black college associated with Arcavios / Strixhaven.",
     "philosophy": "Language is power: it can inspire, expose, command, wound, defend, and transform identity.",
@@ -38,8 +38,8 @@
     ]
   },
   "profile_version": "1.0.0",
-  "source_review_date": "2026-05-09",
-  "last_incremental_review": "2026-05-09",
+  "source_review_date": "2026-06-13",
+  "last_incremental_review": "2026-06-13",
   "core_identity": {
     "summary": "Silverquill College is a white-black college associated with Arcavios / Strixhaven.",
     "philosophy": "Language is power: it can inspire, expose, command, wound, defend, and transform identity.",
@@ -89,98 +89,98 @@
   "historical_timeline": [],
   "key_figures": [
     {
-      "character_id": "char_embrose_lu",
-      "name": "Embrose Lu",
-      "role": "Named Silverquill figure in archive evidence.",
-      "relationship_to_faction": "Appears in source-backed evidence for this faction.",
+      "character_id": "char_rinald_silverquill",
+      "name": "Rinald Silverquill",
+      "role": "Silverquill inkmancer quoted in the official Strixhaven guide.",
+      "relationship_to_faction": "Official guide speaker for Silverquill texture; not a complete leadership roster.",
       "claim_ids": [
-        "silverquill_claim_0007",
-        "silverquill_claim_0008"
+        "silverquill_claim_001",
+        "silverquill_claim_002",
+        "silverquill_claim_003",
+        "silverquill_claim_004"
       ],
       "source_ids": [
-        "src_mtg_stories_a_silent_voice_calls_36854b19",
-        "src_mtg_stories_winnowing_season_0ca1ec59"
+        "src_wotc_planeswalkers_guide_strixhaven_2021"
       ],
-      "confidence": "Medium",
-      "notes": ""
+      "confidence": "High",
+      "notes": "VM-378 keeps unsupported leadership details deferred unless separately confirmed."
     },
     {
-      "character_id": "char_killian_lu",
-      "name": "Killian Lu",
-      "role": "Named Silverquill figure in archive evidence.",
-      "relationship_to_faction": "Appears in source-backed evidence for this faction.",
+      "character_id": "card_killian_decisive_mentor",
+      "name": "Killian, Decisive Mentor",
+      "role": "Face commander for Silverquill Influence in the official Secrets of Strixhaven Commander decklist.",
+      "relationship_to_faction": "Support-only product/navigation anchor; not a lore biography or popularity claim.",
       "claim_ids": [
-        "silverquill_claim_0007"
+        "silverquill_claim_0017"
       ],
       "source_ids": [
-        "src_mtg_stories_a_silent_voice_calls_36854b19"
+        "src_wotc_secrets_strixhaven_commander_decklists_20260401",
+        "src_scryfall_oracle_cards_local_strixhaven_20260613"
       ],
-      "confidence": "Medium",
-      "notes": ""
+      "confidence": "High for product/card fact; support-only for lore and recommendations.",
+      "notes": "Product row can support deck availability, commander name, and navigation only."
     },
     {
-      "character_id": "char_shaile",
-      "name": "Shaile",
-      "role": "Named Silverquill figure in archive evidence.",
-      "relationship_to_faction": "Appears in source-backed evidence for this faction.",
+      "character_id": "card_scriv_the_obligator",
+      "name": "Scriv, the Obligator",
+      "role": "Featured commander for Silverquill Influence in the official Secrets of Strixhaven Commander decklist.",
+      "relationship_to_faction": "Support-only product/navigation anchor; not a lore biography or popularity claim.",
       "claim_ids": [
-        "silverquill_claim_0007",
-        "silverquill_claim_0011"
+        "silverquill_claim_0017"
       ],
       "source_ids": [
-        "src_mtg_stories_a_silent_voice_calls_36854b19",
-        "src_mtg_stories_episode_1_class_is_in_session_bd3caf13"
+        "src_wotc_secrets_strixhaven_commander_decklists_20260401",
+        "src_scryfall_oracle_cards_local_strixhaven_20260613"
       ],
-      "confidence": "Medium",
-      "notes": ""
-    },
-    {
-      "character_id": "char_shadrix_silverquill",
-      "name": "Shadrix Silverquill",
-      "role": "Named Silverquill figure in archive evidence.",
-      "relationship_to_faction": "Appears in source-backed evidence for this faction.",
-      "claim_ids": [
-        "silverquill_claim_0008",
-        "silverquill_claim_0010"
-      ],
-      "source_ids": [
-        "src_mtg_stories_winnowing_season_0ca1ec59",
-        "src_mtg_stories_off_the_record_2ea68353"
-      ],
-      "confidence": "Medium",
-      "notes": ""
+      "confidence": "High for product/card fact; support-only for lore and recommendations.",
+      "notes": "Product row can support deck availability, commander name, and navigation only."
     }
   ],
   "canonical_flavor_text": [
     {
-      "card_name": "Silverquill College dossier anchor",
-      "set": "Arcavios / Strixhaven",
-      "short_excerpt_or_summary": "Language is power: it can inspire, expose, command, wound, defend, and transform identity.",
+      "card_name": "Silverquill Campus",
+      "set": "SOC",
+      "collector_number": "405",
+      "scryfall_uri": "https://scryfall.com/card/soc/405/silverquill-campus?utm_source=api",
+      "short_excerpt_or_summary": "Campus flavor anchors Silverquill to language and eloquence.",
       "is_exact_excerpt": false,
       "claim_ids": [
-        "silverquill_claim_0007",
-        "silverquill_claim_0008",
-        "silverquill_claim_0009",
-        "silverquill_claim_0010",
-        "silverquill_claim_0011",
-        "silverquill_claim_0012",
-        "silverquill_claim_0013",
-        "silverquill_claim_0014"
+        "silverquill_claim_0018"
       ],
       "source_ids": [
-        "src_mtg_stories_a_silent_voice_calls_36854b19",
-        "src_mtg_stories_winnowing_season_0ca1ec59",
-        "src_mtg_stories_the_chains_that_bind_5673ab04",
-        "src_mtg_stories_off_the_record_2ea68353",
-        "src_mtg_stories_episode_1_class_is_in_session_bd3caf13",
-        "src_mtg_stories_episode_3_extracurriculars_39c7efc0",
-        "src_mtg_stories_blue_green_ribbons_2e2606a8",
-        "src_mtg_stories_episode_1_penmanship_practice_f245144d",
-        "src_wotc_planeswalkers_guide_strixhaven_2021",
-        "src_wotc_strixhaven_product_page_2021",
-        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026"
+        "src_scryfall_oracle_cards_local_strixhaven_20260613"
       ],
-      "notes": "Derived from the faction's raw dossier copy so the flavor layer stays evidence-backed and reusable for Commander Compass."
+      "notes": "VM-378/379 card-flavor anchor verified through local Scryfall data; summary only, no long flavor text copied into public/generated surfaces."
+    },
+    {
+      "card_name": "Silverquill Apprentice",
+      "set": "STX",
+      "collector_number": "231",
+      "scryfall_uri": "https://scryfall.com/card/stx/231/silverquill-apprentice?utm_source=api",
+      "short_excerpt_or_summary": "Apprentice flavor anchors spoken performance and audience impact.",
+      "is_exact_excerpt": false,
+      "claim_ids": [
+        "silverquill_claim_0018"
+      ],
+      "source_ids": [
+        "src_scryfall_oracle_cards_local_strixhaven_20260613"
+      ],
+      "notes": "VM-378/379 card-flavor anchor verified through local Scryfall data; summary only, no long flavor text copied into public/generated surfaces."
+    },
+    {
+      "card_name": "Silverquill Pledgemage",
+      "set": "STX",
+      "collector_number": "233",
+      "scryfall_uri": "https://scryfall.com/card/stx/233/silverquill-pledgemage?utm_source=api",
+      "short_excerpt_or_summary": "Pledgemage flavor anchors wit and verbal edge over violence.",
+      "is_exact_excerpt": false,
+      "claim_ids": [
+        "silverquill_claim_0018"
+      ],
+      "source_ids": [
+        "src_scryfall_oracle_cards_local_strixhaven_20260613"
+      ],
+      "notes": "VM-378/379 card-flavor anchor verified through local Scryfall data; summary only, no long flavor text copied into public/generated surfaces."
     }
   ],
   "views_on_other_factions": [],
@@ -194,38 +194,44 @@
     ]
   },
   "search_and_filter_metadata": {
-    "search_keywords": [
+      "search_keywords": [
       "Silverquill",
-      "Embrose Lu",
       "Killian Lu",
-      "Shaile",
       "ink magic",
       "inkling",
       "eloquence",
       "shadow",
       "learn",
-      "Shadrix Silverquill",
       "debate",
       "magecraft",
       "Silverquill College",
       "rhetoric",
       "Arcavios / Strixhaven",
       "Strixhaven: School of Mages",
-      "Secrets of Strixhaven"
+      "Secrets of Strixhaven",
+      "Silverquill Influence",
+      "Killian, Decisive Mentor",
+      "Scriv, the Obligator",
+      "Silverquill Campus",
+      "Silverquill Apprentice",
+      "Silverquill Pledgemage"
     ],
     "story_corpus_paths_added": 10,
     "known_characters": [
-      "Embrose Lu",
-      "Killian Lu",
-      "Shaile",
-      "Shadrix Silverquill"
+      "Rinald Silverquill",
+      "Killian, Decisive Mentor",
+      "Scriv, the Obligator"
     ],
     "known_mechanics": [
-      "magecraft"
+      "magecraft",
+      "eloquence",
+      "language as power",
+      "ink magic and inklings"
     ],
     "sets_or_story_arcs": [
       "Strixhaven: School of Mages",
-      "Secrets of Strixhaven"
+      "Secrets of Strixhaven",
+      "Secrets of Strixhaven Commander"
     ]
   },
   "data_quality": {
@@ -246,218 +252,212 @@
       ]
     },
     "raw_enrichment": {
-      "review_date": "2026-05-13T21:14:06.308Z",
-      "source_basis": "data/raw-factions claims.json + sources.json",
-      "key_figures_added": 0,
+      "review_date": "2026-06-13",
+      "source_basis": "VM-378 official guide + official Secrets of Strixhaven Commander decklist + local Scryfall card-data anchors",
+      "key_figures_added": 3,
       "historical_timeline_entries": 0,
-      "canonical_flavor_text_entries": 1,
+      "canonical_flavor_text_entries": 3,
       "relationship_entries": 0,
-      "known_characters": 4,
-      "known_mechanics": 1,
-      "story_arcs": 2
+      "known_characters": 3,
+      "known_mechanics": 4,
+      "story_arcs": 3,
+      "support_only_surfaces": [
+        "commander_compass",
+        "deck_links",
+        "research_links"
+      ],
+      "deferred_claims": "Discovery-only story figures, deans/founders, and long flavor text remain source-intake-needed."
     }
   },
   "research_limitations": [
-    "MTG-Stories repository entries are treated as searchable archive copies; official Wizards pages should remain the primary canon authority when available."
+    "MTG-Stories repository entries are treated as searchable archive copies; official Wizards pages should remain the primary canon authority when available.",
+    "VM-378 promotes only official guide speakers, official product deck rows, and local Scryfall card/flavor anchors for public richness.",
+    "Discovery-only story-corpus figures, dean/founder statuses, and long flavor text remain source-intake-needed."
   ],
   "commander_compass": {
     "schema_version": "1.0.0",
-    "source_research_file": "silverquill.commander_compass.research.json",
-    "last_reviewed": "2026-05-14",
-    "review_status": "reviewed_not_canonical_lore",
-    "recommendation_philosophy": "Priority given to 2026 Elder Dragons as flagship 'Native Fit' options, with 2021 staples as 'Iconic' or 'Advanced' pivots.",
+    "source_research_file": "docs/research/VM-378-379-380_source-intake.md",
+    "last_reviewed": "2026-06-13",
+    "review_status": "support_only_product_navigation",
+    "recommendation_philosophy": "Use Silverquill Influence Commander data only as official product/navigation support for exact White-Black Strixhaven commanders. This does not establish lore, popularity, metagame, legality, or canon identity claims.",
     "identity_basis": {
       "owned_themes": [
-        "Silverquill is the college of eloquence. They use 'ink magic'—the power of words—to manipulate both the battlefield and the social dynamics of the game. Themes include counters, politics, and Casualty."
+        "eloquence",
+        "language as power",
+        "ink magic and inklings",
+        "inspiration versus domination"
       ],
       "allowed_phrases": [
-        "silverquill college",
-        "silverquill mage"
+        "Silverquill product support",
+        "College of Eloquence",
+        "language as power"
       ],
       "avoid_or_contrast_phrases": [
-        "Ravnica guilds",
-        "generic mana"
+        "Silverquill dean claims",
+        "Shadrix founder status",
+        "generic Orzhov politics as Silverquill proof"
       ],
       "adjacent_overlap_notes": [
-        "Shares spell-focused identity with Prismari/Quandrix but with different mechanical execution."
+        "Product commanders are support surfaces only; placement still follows the official college guide and raw placement claims.",
+        "Deck/product language should not override college lore boundaries or source-role classifications."
       ],
       "supporting_claim_ids": [
-        "silverquill_claim_0007",
-        "silverquill_claim_0008",
-        "silverquill_claim_0009",
-        "silverquill_claim_0010",
-        "silverquill_claim_0011",
-        "silverquill_claim_0012",
-        "silverquill_claim_0013",
-        "silverquill_claim_0014"
+        "silverquill_claim_001",
+        "silverquill_claim_002",
+        "silverquill_claim_003",
+        "silverquill_claim_004",
+        "silverquill_claim_006",
+        "silverquill_claim_0017",
+        "silverquill_claim_0018"
       ],
       "supporting_source_ids": [
-        "src_mtg_stories_a_silent_voice_calls_36854b19",
-        "src_mtg_stories_winnowing_season_0ca1ec59",
-        "src_mtg_stories_the_chains_that_bind_5673ab04",
-        "src_mtg_stories_off_the_record_2ea68353",
-        "src_mtg_stories_episode_1_class_is_in_session_bd3caf13",
-        "src_mtg_stories_episode_3_extracurriculars_39c7efc0",
-        "src_mtg_stories_blue_green_ribbons_2e2606a8",
-        "src_mtg_stories_episode_1_penmanship_practice_f245144d"
+        "src_wotc_planeswalkers_guide_strixhaven_2021",
+        "src_wotc_secrets_strixhaven_commander_decklists_20260401",
+        "src_scryfall_oracle_cards_local_strixhaven_20260613"
       ]
     },
     "native_fit_commanders": [
       {
-        "exact_card_name": "Silverquill, the Disputant",
-        "display_name": "Silverquill, the Disputant",
-        "scryfall_uri": "https://scryfall.com/card/sos/226/silverquill-the-disputant",
-        "edhrec_uri": "https://edhrec.com/commanders/silverquill-the-disputant",
+        "exact_card_name": "Killian, Decisive Mentor",
+        "display_name": "Killian, Decisive Mentor",
+        "scryfall_uri": "https://scryfall.com/card/soc/4/killian-decisive-mentor?utm_source=api",
         "color_identity": [
           "B",
           "W"
         ],
-        "commander_legal": true,
-        "recommendation_type": "Native Fit",
+        "recommendation_type": "Support-Only Product Commander",
         "archetype_tags": [
-          "Casualty",
-          "Aristocrats",
-          "Spellslinger"
+          "official product row",
+          "Silverquill Influence",
+          "eloquence",
+          "language as power"
         ],
-        "why_this_fits": "Uses white-black/Silverquill casualty-style spell copying: small creatures become rhetorical fuel for sharper instant and sorcery moments.",
-        "skip_if": "You want a purely political, non-aggressive deck.",
-        "gameplay_summary": "A 4-mana commander that allows you to copy any instant or sorcery by sacrificing a small creature.",
+        "why_this_fits": "The official decklist identifies Killian, Decisive Mentor as the face commander for Silverquill Influence.",
+        "skip_if": "Use only for official product navigation or support-only deck exploration; do not use as metagame, popularity, legality, or lore proof.",
+        "gameplay_summary": "Use as official deck/product navigation only; no independent power, popularity, legality, or metagame claim is made.",
         "faction_identity_terms": [
-          "Eloquence",
-          "Dispute",
-          "Casualty"
+          "SILVERQUILL",
+          "Silverquill Influence",
+          "eloquence",
+          "language as power"
         ],
+        "type_line": "Legendary Creature — Human Warlock",
         "source_basis": {
-          "card_data": [
-            "MagicSpoiler Silverquill Spoiler"
+          "source_ids": [
+            "src_wotc_planeswalkers_guide_strixhaven_2021",
+            "src_wotc_secrets_strixhaven_commander_decklists_20260401",
+            "src_scryfall_oracle_cards_local_strixhaven_20260613"
           ],
-          "lore_or_identity": [
-            "Silverquill white-black rhetoric, pressure, and words-as-power identity"
+          "claim_ids": [
+            "silverquill_claim_0017"
           ],
-          "commander_product_relevance": [],
-          "existing_repo_claim_ids": [
-            "silverquill_claim_0007",
-            "silverquill_claim_0008",
-            "silverquill_claim_0009",
-            "silverquill_claim_0010",
-            "silverquill_claim_0011",
-            "silverquill_claim_0012",
-            "silverquill_claim_0013",
-            "silverquill_claim_0014"
-          ],
-          "existing_repo_source_ids": [
-            "src_mtg_stories_a_silent_voice_calls_36854b19",
-            "src_mtg_stories_winnowing_season_0ca1ec59",
-            "src_mtg_stories_the_chains_that_bind_5673ab04",
-            "src_mtg_stories_off_the_record_2ea68353",
-            "src_mtg_stories_episode_1_class_is_in_session_bd3caf13",
-            "src_mtg_stories_episode_3_extracurriculars_39c7efc0",
-            "src_mtg_stories_blue_green_ribbons_2e2606a8",
-            "src_mtg_stories_episode_1_penmanship_practice_f245144d"
-          ]
+          "support_only": true,
+          "boundary": "Official product/card-data support only."
         },
-        "confidence": "High",
-        "caution_notes": [],
-        "type_line": "Legendary Creature — Elder Dragon"
+        "confidence": "High for product/card identity; support-only for recommendation texture.",
+        "caution_notes": [
+          "Does not prove canon lore or character biography.",
+          "Does not prove popularity, power level, legality, or metagame position."
+        ]
+      },
+      {
+        "exact_card_name": "Scriv, the Obligator",
+        "display_name": "Scriv, the Obligator",
+        "scryfall_uri": "https://scryfall.com/card/soc/9/scriv-the-obligator?utm_source=api",
+        "color_identity": [
+          "B",
+          "W"
+        ],
+        "recommendation_type": "Support-Only Product Commander",
+        "archetype_tags": [
+          "official product row",
+          "Silverquill Influence",
+          "eloquence",
+          "language as power"
+        ],
+        "why_this_fits": "The official decklist identifies Scriv, the Obligator as the featured commander for Silverquill Influence.",
+        "skip_if": "Use only for official product navigation or support-only deck exploration; do not use as metagame, popularity, legality, or lore proof.",
+        "gameplay_summary": "Use as official deck/product navigation only; no independent power, popularity, legality, or metagame claim is made.",
+        "faction_identity_terms": [
+          "SILVERQUILL",
+          "Silverquill Influence",
+          "eloquence",
+          "language as power"
+        ],
+        "type_line": "Legendary Creature — Inkling Bird",
+        "source_basis": {
+          "source_ids": [
+            "src_wotc_planeswalkers_guide_strixhaven_2021",
+            "src_wotc_secrets_strixhaven_commander_decklists_20260401",
+            "src_scryfall_oracle_cards_local_strixhaven_20260613"
+          ],
+          "claim_ids": [
+            "silverquill_claim_0017"
+          ],
+          "support_only": true,
+          "boundary": "Official product/card-data support only."
+        },
+        "confidence": "High for product/card identity; support-only for recommendation texture.",
+        "caution_notes": [
+          "Does not prove canon lore or character biography.",
+          "Does not prove popularity, power level, legality, or metagame position."
+        ]
       }
     ],
     "weird_stretch_commanders": [],
     "budget_friendly_commanders": [],
     "advanced_complexity_commanders": [],
-    "iconic_lore_forward_commanders": [
-      {
-        "exact_card_name": "Breena, the Demagogue",
-        "display_name": "Breena, the Demagogue",
-        "scryfall_uri": "https://scryfall.com/card/soc/298/breena-the-demagogue",
-        "edhrec_uri": "https://edhrec.com/commanders/breena-the-demagogue",
-        "color_identity": [
-          "B",
-          "W"
-        ],
-        "commander_legal": true,
-        "recommendation_type": "Iconic Lore-Forward",
-        "archetype_tags": [
-          "Politics",
-          "Counters"
-        ],
-        "why_this_fits": "The definitive Silverquill political commander, rewarding players for attacking your opponents.",
-        "skip_if": "You prefer to play 'archenemy' rather than making deals with the table.",
-        "gameplay_summary": "Draws cards and grows Breena whenever players attack each other, steering the game's flow.",
-        "faction_identity_terms": [
-          "Demagogue",
-          "Rhetoric"
-        ],
-        "source_basis": {
-          "card_data": [
-            "Scryfall C21 #1"
-          ],
-          "commander_product_relevance": [
-            "EDHREC Silverquill Precon"
-          ],
-          "lore_or_identity": [],
-          "existing_repo_claim_ids": [
-            "silverquill_claim_0007",
-            "silverquill_claim_0008",
-            "silverquill_claim_0009",
-            "silverquill_claim_0010",
-            "silverquill_claim_0011",
-            "silverquill_claim_0012",
-            "silverquill_claim_0013",
-            "silverquill_claim_0014"
-          ],
-          "existing_repo_source_ids": [
-            "src_mtg_stories_a_silent_voice_calls_36854b19",
-            "src_mtg_stories_winnowing_season_0ca1ec59",
-            "src_mtg_stories_the_chains_that_bind_5673ab04",
-            "src_mtg_stories_off_the_record_2ea68353",
-            "src_mtg_stories_episode_1_class_is_in_session_bd3caf13",
-            "src_mtg_stories_episode_3_extracurriculars_39c7efc0",
-            "src_mtg_stories_blue_green_ribbons_2e2606a8",
-            "src_mtg_stories_episode_1_penmanship_practice_f245144d"
-          ]
-        },
-        "confidence": "High",
-        "caution_notes": [],
-        "type_line": "Legendary Creature — Bird Warlock"
-      }
-    ],
+    "iconic_lore_forward_commanders": [],
     "not_recommended_or_deprioritized": [
       {
-        "name": "Zimone and Dina",
-        "reason": "Off-color (Sultai) for pure Silverquill College (UG/BG).",
-        "could_still_be_used_if": "Building a multi-faction theme deck.",
-        "confidence": "High"
+        "name": "Unverified dean/founder/story-corpus candidates",
+        "reason": "VM-378 keeps unverified leadership and discovery-only story candidates deferred unless direct source rows are promoted."
       }
     ],
     "archetype_lanes": [
       {
-        "lane_name": "Political Oratory",
-        "description": "Using incentives and social engineering to keep the table off-balance.",
-        "recommended_for": "Social players who enjoy negotiation and manipulation.",
-        "skip_if": "You prefer straightforward combat with no 'diplomatic' elements.",
-        "example_commanders": [
-          "Breena, the Demagogue",
+        "lane": "Silverquill Influence product lane",
+        "commanders": [
+          "Killian, Decisive Mentor",
           "Scriv, the Obligator"
         ],
-        "supporting_identity_terms": [
-          "Rhetoric",
-          "Negotiation"
+        "support_only": true,
+        "source_ids": [
+          "src_wotc_secrets_strixhaven_commander_decklists_20260401"
         ],
-        "complexity": "Medium",
-        "budget_friendliness": "High"
+        "notes": "Official decklist support only; not lore, popularity, metagame, legality, or broad recommendation proof."
       }
     ],
     "link_targets": {
-      "edhrec_commander_index": "https://edhrec.com/commanders/silverquill",
-      "mtgdecks_color_identity": "https://mtgdecks.net/Commander/WB",
-      "scryfall_commander_search": "https://scryfall.com/search?q=is%3Acommander+color%3DWB",
-      "archidekt_color_search": "https://archidekt.com/search/decks?colors=WB"
+      "official_decklist": "https://magic.wizards.com/en/news/announcements/secrets-of-strixhaven-commander-decklists",
+      "official_deck_gallery": "https://magic.wizards.com/en/products/secrets-of-strixhaven/card-image-gallery?cigproduct=sos-products-commander-deck-1-silverquill",
+      "scryfall_commander_search": "https://scryfall.com/search?q=id%3Dwb+is%3Acommander+f%3Acommander",
+      "edhrec_commander_index": "",
+      "mtgdecks_color_identity": "",
+      "archidekt_color_search": ""
     },
     "merge_notes": {
-      "product_guidance_not_canon": true,
-      "commander_legality_validated": true,
-      "scryfall_card_pages_validated": true,
-      "do_not_use_as_claim_source": true
+      "support_boundary": "VM-378 surfaces Compass data only after official product and local card-data support rows were recorded.",
+      "deferred": "Story-corpus-only figures and unverified dean/founder statuses remain source-intake-needed."
     }
+  },
+  "deck_links": [
+    {
+      "fmt": "Commander",
+      "name": "Silverquill Influence (Precon)",
+      "desc": "Official Secrets of Strixhaven Commander decklist reference for Killian, Decisive Mentor and Scriv, the Obligator, with deck and gallery navigation for Silverquill Influence.",
+      "mtgg": "https://magic.wizards.com/en/news/announcements/secrets-of-strixhaven-commander-decklists",
+      "edhrec": null,
+      "mtgd": null,
+      "gallery": "https://magic.wizards.com/en/products/secrets-of-strixhaven/card-image-gallery?cigproduct=sos-products-commander-deck-1-silverquill"
+    }
+  ],
+  "research_links": {
+    "source_packet": "data/raw-factions/silverquill/silverquill.sources.json",
+    "official_strixhaven_guide_2021": "https://magic.wizards.com/en/news/feature/planeswalkers-guide-strixhaven-2021-04-01",
+    "official_secrets_strixhaven_commander_decklist": "https://magic.wizards.com/en/news/announcements/secrets-of-strixhaven-commander-decklists",
+    "official_deck_gallery": "https://magic.wizards.com/en/products/secrets-of-strixhaven/card-image-gallery?cigproduct=sos-products-commander-deck-1-silverquill",
+    "scryfall_exact_commander_search": "https://scryfall.com/search?q=id%3Dwb+is%3Acommander+f%3Acommander",
+    "scryfall_flavor_anchor_context": "data/scryfall/raw/oracle-cards.json (Silverquill Campus, Silverquill Apprentice, Silverquill Pledgemage)"
   }
 }

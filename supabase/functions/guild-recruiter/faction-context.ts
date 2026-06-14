@@ -3,6 +3,1099 @@
  * Keep lore and placement updates in data/raw-factions and data/factions.json.
  */
 export const FACTION_CONTEXT = {
+  "W": {
+    "name": "White",
+    "institution_type": "color",
+    "world": "The Color Pie",
+    "colors": [
+      "W"
+    ],
+    "layered_identity": {
+      "core_color": "W",
+      "secondary_colors": [],
+      "secondary_color": null,
+      "expression_key": "W",
+      "expression_name": "White",
+      "expression_kind": "color",
+      "purity": 1,
+      "routing": {
+        "edhrec_slug": "mono-white",
+        "mtgdecks_slug": "mono-white",
+        "label": "White"
+      }
+    },
+    "tagline": "Safety is built, not assumed.",
+    "philosophy": "White believes peace is not a mood. It is a structure: rules that hold, shelter that lasts, and obligations people can trust under pressure.",
+    "core_tension": "White protects through standards and systems, but its virtue can harden into over-control when safety becomes more important than listening.",
+    "affinity": {
+      "drawn_to": [
+        "Shared standards that protect the vulnerable",
+        "Fairness enforced through process",
+        "Structures that outlast individual moods",
+        "Group safety over private advantage"
+      ],
+      "repelled_by": [
+        "Treating every rule as oppression by default",
+        "Power that answers only to itself",
+        "Impulsive decisions that endanger others",
+        "Private exceptions that quietly become precedent"
+      ],
+      "core_question": "What structure keeps people safe when goodwill is not enough?",
+      "interview_tells": [
+        "Frames care as duty, not only feeling",
+        "Talks about fairness in terms of standards and accountability",
+        "Wants clear expectations before conflict escalates",
+        "Sees systems as tools for shelter, not merely control"
+      ],
+      "not_to_be_confused_with": "Azorius trusts procedure above all; Boros acts faster in the face of harm; Selesnya anchors protection in belonging."
+    },
+    "decree_voice": {
+      "tone": "Steady, protective, and exacting without cruelty.",
+      "speaks_like": "A guardian who believes consistency is a form of mercy.",
+      "example_opening": "The reading turns toward shelter, standards, and the work of making safety real.",
+      "example_decree": "The reading turns toward shelter, standards, and the work of making safety real. White does not ask you to flatten every difference. It asks whether the structure holds when generosity fails. You protect by building something people can rely on, then standing beside it when the strain arrives."
+    },
+    "biological_expression": {
+      "archetype": "The Shelter Architect",
+      "primary_foundation": "Care",
+      "secondary_foundation": "Authority",
+      "risk_signal": "low risk",
+      "inhibitor_trigger": "Treats every shared rule as illegitimate, even when the alternative leaves the vulnerable exposed."
+    },
+    "placement_axes": {
+      "required_positive_evidence_terms": [
+        "group needs",
+        "shared rules",
+        "duty",
+        "peace",
+        "protection",
+        "law",
+        "community"
+      ],
+      "required_positive_min_hits": 2,
+      "strengthens_when_user_centers": [
+        "reducing suffering through structure",
+        "fair process and accountability",
+        "coordinated small pieces",
+        "personal sacrifice for group safety"
+      ],
+      "suppress_when_user_centers": [
+        "self-interest above duty",
+        "impulse above restraint",
+        "knowledge optimization without group floor",
+        "natural destiny over taught moral order"
+      ],
+      "false_positive_guardrail": "Do not place White for generic kindness or safety alone; require structure, duty, or group-first obligation.",
+      "broad_match_penalty": 0.13
+    },
+    "good_fit_indicators": [
+      "group-first duty and shared responsibility",
+      "law, morality, or clear standards as protective tools",
+      "community safety over private appetite",
+      "defense, prevention, lifegain, or coordinated small pieces",
+      "willingness to sacrifice for the group",
+      "belief that peace requires structure"
+    ],
+    "poor_fit_indicators": [
+      "self-interest treated as the only honest motive",
+      "impulse, chaos, or freedom from law as the central good",
+      "knowledge optimization with little concern for group floor",
+      "destiny or natural order preferred over taught moral structure",
+      "rigid punishment without concern for peace or protection"
+    ],
+    "inhibitor_traps": [
+      "Treats every shared rule as illegitimate, even when the alternative leaves the vulnerable exposed.",
+      "self-interest treated as the only honest motive",
+      "impulse, chaos, or freedom from law as the central good",
+      "knowledge optimization with little concern for group floor",
+      "destiny or natural order preferred over taught moral structure",
+      "candidate commander names treated as verified evidence",
+      "rigid punishment without concern for peace or protection"
+    ],
+    "lateral_inhibition_targets": [
+      "WU",
+      "WB",
+      "WG",
+      "WR"
+    ],
+    "discriminator_questions": [
+      {
+        "id": "white_disc_001",
+        "prompt": "Is the user trying to reduce harm through shared rules and responsibilities, or simply asking for personal safety?",
+        "purpose": "Separates White's organized care from generic caution.",
+        "supports": "Supports White when the user names duties, laws, institutions, or shared standards that protect a community.",
+        "weakens": "Weakens White when safety is private self-protection without obligation to the group.",
+        "collision_targets": [
+          "B",
+          "U",
+          "G"
+        ],
+        "evidence_claim_ids": [
+          "white_claim_0002",
+          "white_claim_0003",
+          "white_claim_0004"
+        ],
+        "confidence": "High",
+        "lateral_inhibition": false
+      },
+      {
+        "id": "white_disc_002",
+        "prompt": "Does the answer embrace rules as protective structure, or reject restriction in favor of immediate action?",
+        "purpose": "Separates White from Red's freedom and impulse.",
+        "supports": "Supports White when restriction is framed as necessary for peace and fairness.",
+        "weakens": "Weakens White when the user treats restraint itself as the problem.",
+        "collision_targets": [
+          "R"
+        ],
+        "evidence_claim_ids": [
+          "white_claim_0003",
+          "white_claim_0005",
+          "white_claim_0006"
+        ],
+        "confidence": "High",
+        "lateral_inhibition": false
+      },
+      {
+        "id": "white_disc_003",
+        "prompt": "Is the user's group focus flexible enough to recognize individual edge cases?",
+        "purpose": "Catches White's rigidity shadow.",
+        "supports": "Supports White when the user wants principled order with mercy and process.",
+        "weakens": "Weakens White when structure becomes brittle control or one-size-fits-all prescription.",
+        "collision_targets": [
+          "G",
+          "U",
+          "B"
+        ],
+        "evidence_claim_ids": [
+          "white_claim_0006"
+        ],
+        "confidence": "Medium",
+        "lateral_inhibition": false
+      },
+      {
+        "id": "white_disc_004",
+        "prompt": "Are mechanics like tokens, protection, taxing, or conditional removal being used as White texture rather than Commander legality proof?",
+        "purpose": "Keeps mechanical and Commander support source-bound.",
+        "supports": "Supports White when mechanics are treated as dated color-pie texture and commander examples remain unpromoted.",
+        "weakens": "Weakens White when candidate commanders or stale deck notes are treated as verified Layer 2 support.",
+        "collision_targets": [
+          "WUBRG",
+          "COLORLESS"
+        ],
+        "evidence_claim_ids": [
+          "white_claim_0007",
+          "white_claim_0008"
+        ],
+        "confidence": "High",
+        "lateral_inhibition": false
+      }
+    ],
+    "chatbot_guidance": {
+      "use_when": [
+        "Use White when the user centers peace, law, group care, duty, or organized protection.",
+        "Frame White as care made durable through structure, not simply goodness.",
+        "Keep commander candidates deferred unless current legality verification is done."
+      ],
+      "avoid_when": [
+        "The user wants freedom from constraint more than peace.",
+        "The user wants self-interest without group accountability.",
+        "The answer only contains generic kindness, healing, or safety without structure."
+      ],
+      "how_to_recognize_mismatch": [
+        "self-interest treated as the only honest motive",
+        "impulse, chaos, or freedom from law as the central good",
+        "knowledge optimization with little concern for group floor",
+        "destiny or natural order preferred over taught moral structure",
+        "candidate commander names treated as verified evidence"
+      ],
+      "calibration_note": "White should rise only when care is organized through rules, obligation, community, or protection.",
+      "never_claim_as_canon": [
+        "White is objectively moral or objectively good.",
+        "Vox Mana placement axes are official Wizards color-pie scores.",
+        "A candidate mono-white commander is Layer 2 support without current verification."
+      ]
+    },
+    "canon_guardrails": {
+      "never_claim_as_canon": [
+        "White is objectively moral or objectively good.",
+        "Vox Mana placement axes are official Wizards color-pie scores.",
+        "A candidate mono-white commander is Layer 2 support without current verification."
+      ]
+    }
+  },
+  "U": {
+    "name": "Blue",
+    "institution_type": "color",
+    "world": "The Color Pie",
+    "colors": [
+      "U"
+    ],
+    "layered_identity": {
+      "core_color": "U",
+      "secondary_colors": [],
+      "secondary_color": null,
+      "expression_key": "U",
+      "expression_name": "Blue",
+      "expression_kind": "color",
+      "purity": 1,
+      "routing": {
+        "edhrec_slug": "mono-blue",
+        "mtgdecks_slug": "mono-blue",
+        "label": "Blue"
+      }
+    },
+    "tagline": "Possibility opens when the pattern is understood.",
+    "philosophy": "Blue believes no one is finished by default. Knowledge, practice, and precise systems let people and worlds become more than their starting shape.",
+    "core_tension": "Blue protects possibility through understanding, but its virtue can harden into paralysis when perfect information matters more than timely action.",
+    "affinity": {
+      "drawn_to": [
+        "Information treated as the first resource",
+        "Systems that improve through study and iteration",
+        "Patience before commitment",
+        "Tools, education, and planning that expand possible futures"
+      ],
+      "repelled_by": [
+        "Acting before the shape of the problem is understood",
+        "Treating nature, fate, or first instincts as final",
+        "Discarding options for the relief of immediate motion",
+        "Using power without a model of what happens next"
+      ],
+      "core_question": "What becomes possible once the hidden pattern is understood?",
+      "interview_tells": [
+        "Waits for information before committing",
+        "Talks about options, systems, models, or repeatable improvement",
+        "Frames control as preparation rather than domination",
+        "Sees education, tools, and practice as liberation from default limits"
+      ],
+      "not_to_be_confused_with": "Azorius turns understanding into formal procedure; Dimir hides information as leverage; Izzet accelerates discovery into volatile testing; Simic applies improvement to living adaptation."
+    },
+    "decree_voice": {
+      "tone": "Precise, patient, curious, and cool without contempt.",
+      "speaks_like": "A strategist who believes every outcome has a structure waiting to be learned.",
+      "example_opening": "The reading turns toward knowledge, options, and the discipline of acting after understanding.",
+      "example_decree": "The reading turns toward knowledge, options, and the discipline of acting after understanding. Blue does not ask you to freeze forever. It asks you to map the hidden variables, keep the future open, and move when the pattern can be shaped instead of merely endured."
+    },
+    "biological_expression": {
+      "archetype": "The Possibility Architect",
+      "primary_foundation": "Fairness",
+      "secondary_foundation": "Authority",
+      "risk_signal": "low-medium risk",
+      "inhibitor_trigger": "Treats knowledge, planning, or education as sterile delay when careful understanding would prevent avoidable harm."
+    },
+    "placement_axes": {
+      "required_positive_evidence_terms": [
+        "knowledge",
+        "learning",
+        "tools",
+        "improvement",
+        "optimization",
+        "control",
+        "deliberation"
+      ],
+      "required_positive_min_hits": 2,
+      "strengthens_when_user_centers": [
+        "self-authorship through education",
+        "careful planning before action",
+        "tools and technology",
+        "reactive control as preparation"
+      ],
+      "suppress_when_user_centers": [
+        "acting from immediate emotion",
+        "natural destiny over choice",
+        "group order above individual path",
+        "risk-taking without study"
+      ],
+      "false_positive_guardrail": "Do not place Blue for intelligence alone; require improvement, tools, deliberation, control, or learning as the core motive.",
+      "broad_match_penalty": 0.13
+    },
+    "good_fit_indicators": [
+      "self-improvement and editable identity",
+      "knowledge as the central tool",
+      "careful decision-making and long-term planning",
+      "technology, research, or systems thinking",
+      "control, counterplay, or information advantage",
+      "skepticism toward impulse and instinct"
+    ],
+    "poor_fit_indicators": [
+      "emotion and immediacy over study",
+      "natural destiny over self-authorship",
+      "group harmony over individual optimization",
+      "calculated power without curiosity",
+      "knowledge gathered without ever acting"
+    ],
+    "inhibitor_traps": [
+      "Treats knowledge, planning, or education as sterile delay when careful understanding would prevent avoidable harm.",
+      "emotion and immediacy over study",
+      "natural destiny over self-authorship",
+      "group harmony over individual optimization",
+      "calculated power without curiosity",
+      "candidate commander names treated as verified evidence",
+      "knowledge gathered without ever acting"
+    ],
+    "lateral_inhibition_targets": [
+      "WU",
+      "UB",
+      "UR",
+      "UG"
+    ],
+    "discriminator_questions": [
+      {
+        "id": "blue_disc_001",
+        "prompt": "Is the user trying to become more capable through knowledge and tools, or just trying to be smart?",
+        "purpose": "Separates Blue's transformation drive from generic intelligence.",
+        "supports": "Supports Blue when knowledge is tied to self-improvement, mastery, tools, or better choices.",
+        "weakens": "Weakens Blue when knowledge is ornamental or detached from becoming.",
+        "collision_targets": [
+          "W",
+          "B"
+        ],
+        "evidence_claim_ids": [
+          "blue_claim_0002",
+          "blue_claim_0003"
+        ],
+        "confidence": "High",
+        "lateral_inhibition": false
+      },
+      {
+        "id": "blue_disc_002",
+        "prompt": "Does the user trust deliberation over impulse or instinct?",
+        "purpose": "Separates Blue from Red and Green.",
+        "supports": "Supports Blue when the user wants to pause, learn, plan, and optimize before acting.",
+        "weakens": "Weakens Blue when the user treats feeling, instinct, or natural role as more trustworthy than analysis.",
+        "collision_targets": [
+          "R",
+          "G"
+        ],
+        "evidence_claim_ids": [
+          "blue_claim_0004",
+          "blue_claim_0005"
+        ],
+        "confidence": "High",
+        "lateral_inhibition": false
+      },
+      {
+        "id": "blue_disc_003",
+        "prompt": "Is Blue's patience producing readiness, or has it become avoidance?",
+        "purpose": "Catches Blue's passivity shadow.",
+        "supports": "Supports Blue when the user wants better timing, preparation, and flexible answers.",
+        "weakens": "Weakens Blue when study becomes stalling or control replaces engagement.",
+        "collision_targets": [
+          "R",
+          "B"
+        ],
+        "evidence_claim_ids": [
+          "blue_claim_0006"
+        ],
+        "confidence": "Medium",
+        "lateral_inhibition": false
+      },
+      {
+        "id": "blue_disc_004",
+        "prompt": "Are card draw, counters, bounce, or artifacts being used as Blue texture rather than Commander legality proof?",
+        "purpose": "Keeps mechanical and Commander support source-bound.",
+        "supports": "Supports Blue when mechanics are treated as dated color-pie texture and commander examples remain unpromoted.",
+        "weakens": "Weakens Blue when candidate commanders or stale deck notes are treated as verified Layer 2 support.",
+        "collision_targets": [
+          "WUBRG",
+          "COLORLESS"
+        ],
+        "evidence_claim_ids": [
+          "blue_claim_0007",
+          "blue_claim_0008"
+        ],
+        "confidence": "High",
+        "lateral_inhibition": false
+      }
+    ],
+    "chatbot_guidance": {
+      "use_when": [
+        "Use Blue when the user centers learning, self-improvement, tools, control, or careful planning.",
+        "Frame Blue as becoming through knowledge, not just being clever.",
+        "Keep commander candidates deferred unless current legality verification is done."
+      ],
+      "avoid_when": [
+        "The user wants immediate emotional action.",
+        "The user wants natural acceptance or destiny over self-authorship.",
+        "The answer only contains generic cleverness without transformation."
+      ],
+      "how_to_recognize_mismatch": [
+        "emotion and immediacy over study",
+        "natural destiny over self-authorship",
+        "group harmony over individual optimization",
+        "calculated power without curiosity",
+        "candidate commander names treated as verified evidence"
+      ],
+      "calibration_note": "Blue should rise only when knowledge, tools, deliberate choice, or improvement drive the answer.",
+      "never_claim_as_canon": [
+        "Blue is objectively smarter than other colors.",
+        "Vox Mana placement axes are official Wizards color-pie scores.",
+        "A candidate mono-blue commander is Layer 2 support without current verification."
+      ]
+    },
+    "canon_guardrails": {
+      "never_claim_as_canon": [
+        "Blue is objectively smarter than other colors.",
+        "Vox Mana placement axes are official Wizards color-pie scores.",
+        "A candidate mono-blue commander is Layer 2 support without current verification."
+      ]
+    }
+  },
+  "B": {
+    "name": "Black",
+    "institution_type": "color",
+    "world": "The Color Pie",
+    "colors": [
+      "B"
+    ],
+    "layered_identity": {
+      "core_color": "B",
+      "secondary_colors": [],
+      "secondary_color": null,
+      "expression_key": "B",
+      "expression_name": "Black",
+      "expression_kind": "color",
+      "purity": 1,
+      "routing": {
+        "edhrec_slug": "mono-black",
+        "mtgdecks_slug": "mono-black",
+        "label": "Black"
+      }
+    },
+    "tagline": "Power is protection when no one is coming to save you.",
+    "philosophy": "Black believes the world offers no guaranteed fairness. It secures agency by treating life, death, loyalty, and resources as costs that can be paid for control.",
+    "core_tension": "Black protects the self through power and leverage, but its clarity can harden into isolation when every bond becomes a liability.",
+    "affinity": {
+      "drawn_to": [
+        "Self-determination when the world offers no guarantees",
+        "Power gained by paying costs others avoid",
+        "Resources converted into durable leverage",
+        "Death, loss, and sacrifice turned back into advantage"
+      ],
+      "repelled_by": [
+        "Waiting for fairness to arrive on its own",
+        "Moral purity that leaves people powerless",
+        "Dependence disguised as virtue",
+        "Systems that demand sacrifice without returning agency"
+      ],
+      "core_question": "What are you willing to pay so your fate stays yours?",
+      "interview_tells": [
+        "Frames survival as a personal responsibility",
+        "Talks about costs, leverage, and agency without apology",
+        "Treats loss as material that can still be converted",
+        "Distrusts fairness when it is not backed by power"
+      ],
+      "not_to_be_confused_with": "Dimir hides leverage behind knowledge; Rakdos spends restraint in public intensity; Golgari turns death into ecosystem and cycle; Orzhov makes power visible through debt and obligation."
+    },
+    "decree_voice": {
+      "tone": "Clear-eyed, unsentimental, and empowering without glamorizing cruelty.",
+      "speaks_like": "A survivor who knows every bargain has a price and every price can become leverage.",
+      "example_opening": "The reading turns toward cost, agency, and the refusal to remain powerless.",
+      "example_decree": "The reading turns toward cost, agency, and the refusal to remain powerless. Black does not ask whether the world is fair before it acts. It asks what can be paid, what can be reclaimed, and what power will keep your fate from being signed away by someone else."
+    },
+    "biological_expression": {
+      "archetype": "The Self-Sovereign Operator",
+      "primary_foundation": "Liberty",
+      "secondary_foundation": "Authority",
+      "risk_signal": "high agency risk",
+      "inhibitor_trigger": "Outsources survival to systems or promises that may not protect them when the cost arrives."
+    },
+    "placement_axes": {
+      "required_positive_evidence_terms": [
+        "power",
+        "opportunity",
+        "self-interest",
+        "agency",
+        "cost",
+        "sacrifice",
+        "leverage"
+      ],
+      "required_positive_min_hits": 2,
+      "strengthens_when_user_centers": [
+        "power as self-determination",
+        "calculated risk",
+        "resource conversion",
+        "ambition under harsh conditions"
+      ],
+      "suppress_when_user_centers": [
+        "group morality as final authority",
+        "natural destiny over personal agency",
+        "impulsive danger",
+        "generic evil aesthetic"
+      ],
+      "false_positive_guardrail": "Do not place Black for darkness, villainy, or cruelty alone; require power, agency, self-interest, opportunity, or cost conversion.",
+      "broad_match_penalty": 0.13
+    },
+    "good_fit_indicators": [
+      "power as the route to self-determination",
+      "clear cost accounting",
+      "calculated ruthlessness rather than mere cruelty",
+      "resource conversion, sacrifice, or graveyard value",
+      "skepticism toward inherited morality",
+      "opportunity seized before permission arrives"
+    ],
+    "poor_fit_indicators": [
+      "group good over self-interest in every conflict",
+      "natural destiny over personal ambition",
+      "emotion-first action without calculation",
+      "improvement for its own sake without concrete power",
+      "risk-taking that ignores whether it actually serves the goal"
+    ],
+    "inhibitor_traps": [
+      "Outsources survival to systems or promises that may not protect them when the cost arrives.",
+      "group good over self-interest in every conflict",
+      "natural destiny over personal ambition",
+      "emotion-first action without calculation",
+      "improvement for its own sake without concrete power",
+      "candidate commander names treated as verified evidence",
+      "risk-taking that ignores whether it actually serves the goal"
+    ],
+    "lateral_inhibition_targets": [
+      "UB",
+      "BR",
+      "BG",
+      "WB"
+    ],
+    "discriminator_questions": [
+      {
+        "id": "black_disc_001",
+        "prompt": "Is the user seeking power as agency, or merely trying to be edgy or cruel?",
+        "purpose": "Separates Black's source-backed self-advocacy from stereotype.",
+        "supports": "Supports Black when power is tied to opportunity, survival, control over life, or material leverage.",
+        "weakens": "Weakens Black when cruelty is aimless or when power is only aesthetic.",
+        "collision_targets": [
+          "R",
+          "W"
+        ],
+        "evidence_claim_ids": [
+          "black_claim_0002",
+          "black_claim_0003",
+          "black_claim_0004"
+        ],
+        "confidence": "High",
+        "lateral_inhibition": false
+      },
+      {
+        "id": "black_disc_002",
+        "prompt": "Does the user accept costs because they serve the goal, or are they just courting danger?",
+        "purpose": "Separates calculated Black risk from Red recklessness.",
+        "supports": "Supports Black when the user weighs sacrifice, cost, and opportunity methodically.",
+        "weakens": "Weakens Black when risk is impulsive, performative, or disconnected from gain.",
+        "collision_targets": [
+          "R"
+        ],
+        "evidence_claim_ids": [
+          "black_claim_0003",
+          "black_claim_0006"
+        ],
+        "confidence": "High",
+        "lateral_inhibition": false
+      },
+      {
+        "id": "black_disc_003",
+        "prompt": "Is self-interest being treated as honest advocacy, or as denial of all responsibility?",
+        "purpose": "Catches Black's self-consuming shadow and Green/White collisions.",
+        "supports": "Supports Black when self-interest is clear, strategic, and connected to agency.",
+        "weakens": "Weakens Black when the answer collapses into nihilism or refuses any consequence accounting.",
+        "collision_targets": [
+          "W",
+          "G"
+        ],
+        "evidence_claim_ids": [
+          "black_claim_0005",
+          "black_claim_0006"
+        ],
+        "confidence": "Medium",
+        "lateral_inhibition": false
+      },
+      {
+        "id": "black_disc_004",
+        "prompt": "Are removal, discard, sacrifice, or reanimation being used as Black texture rather than Commander legality proof?",
+        "purpose": "Keeps mechanical and Commander support source-bound.",
+        "supports": "Supports Black when mechanics are treated as dated color-pie texture and commander examples remain unpromoted.",
+        "weakens": "Weakens Black when candidate commanders or stale deck notes are treated as verified Layer 2 support.",
+        "collision_targets": [
+          "WUBRG",
+          "COLORLESS"
+        ],
+        "evidence_claim_ids": [
+          "black_claim_0007",
+          "black_claim_0008"
+        ],
+        "confidence": "High",
+        "lateral_inhibition": false
+      }
+    ],
+    "chatbot_guidance": {
+      "use_when": [
+        "Use Black when the user centers power, agency, ambition, cost, or resource conversion.",
+        "Frame Black as clear-eyed self-advocacy rather than objective evil.",
+        "Keep commander candidates deferred unless current legality verification is done."
+      ],
+      "avoid_when": [
+        "The user wants group-first morality as the binding answer.",
+        "The user wants natural role acceptance over self-authorship.",
+        "The answer only contains darkness or villainy without power logic."
+      ],
+      "how_to_recognize_mismatch": [
+        "group good over self-interest in every conflict",
+        "natural destiny over personal ambition",
+        "emotion-first action without calculation",
+        "improvement for its own sake without concrete power",
+        "candidate commander names treated as verified evidence"
+      ],
+      "calibration_note": "Black should rise only when ambition, self-advocacy, cost, and power are materially important.",
+      "never_claim_as_canon": [
+        "Black is objectively evil.",
+        "Vox Mana placement axes are official Wizards color-pie scores.",
+        "A candidate mono-black commander is Layer 2 support without current verification."
+      ]
+    },
+    "canon_guardrails": {
+      "never_claim_as_canon": [
+        "Black is objectively evil.",
+        "Vox Mana placement axes are official Wizards color-pie scores.",
+        "A candidate mono-black commander is Layer 2 support without current verification."
+      ]
+    }
+  },
+  "R": {
+    "name": "Red",
+    "institution_type": "color",
+    "world": "The Color Pie",
+    "colors": [
+      "R"
+    ],
+    "layered_identity": {
+      "core_color": "R",
+      "secondary_colors": [],
+      "secondary_color": null,
+      "expression_key": "R",
+      "expression_name": "Red",
+      "expression_kind": "color",
+      "purity": 1,
+      "routing": {
+        "edhrec_slug": "mono-red",
+        "mtgdecks_slug": "mono-red",
+        "label": "Red"
+      }
+    },
+    "tagline": "The honest spark moves before the cage closes.",
+    "philosophy": "Red believes feeling is a form of truth. Freedom becomes real when the impulse is allowed to move now, before fear, permission, or overthinking can smother it.",
+    "core_tension": "Red protects aliveness through immediacy and freedom, but its virtue can burn out when every delay feels like a cage.",
+    "affinity": {
+      "drawn_to": [
+        "Immediate action before paralysis settles in",
+        "Freedom from permission and artificial restraint",
+        "Emotion trusted as honest information",
+        "Direct damage, haste, impulse draw, and temporary momentum"
+      ],
+      "repelled_by": [
+        "Waiting until every variable is approved",
+        "Rules that smother feeling before anyone is harmed",
+        "Turning every impulse into performance, cruelty, or theory",
+        "Plans that preserve safety while the living moment goes cold"
+      ],
+      "core_question": "What has to move now because the feeling is already true?",
+      "interview_tells": [
+        "Names the honest first action before naming the perfect plan",
+        "Frames freedom as breath, motion, and self-expression",
+        "Prefers direct pressure to hidden leverage or slow permission",
+        "Treats emotion as a signal to answer, not a flaw to suppress"
+      ],
+      "not_to_be_confused_with": "Boros turns urgency toward protection and conviction; Izzet turns impulse into experiment and technique; Rakdos turns release toward transgression and pain-as-spectacle; Gruul roots freedom in wildness, instinct, and primal belonging."
+    },
+    "decree_voice": {
+      "tone": "Kinetic, warm, and immediate without cruelty or performance-posturing.",
+      "speaks_like": "A spark that wants the true thing said, chosen, or done before life goes numb.",
+      "example_opening": "The reading turns toward impulse, freedom, and the honest action that refuses to wait.",
+      "example_decree": "The reading turns toward impulse, freedom, and the honest action that refuses to wait. Red does not ask you to make the feeling respectable first. It asks what wants to move now, what cage has become too small, and what spark will keep the moment alive."
+    },
+    "biological_expression": {
+      "archetype": "The Ignition Heart",
+      "primary_foundation": "Liberty",
+      "secondary_foundation": "Care",
+      "risk_signal": "volatile immediacy risk",
+      "inhibitor_trigger": "Waits for permission, perfect certainty, or social approval until the honest moment goes cold."
+    },
+    "placement_axes": {
+      "required_positive_evidence_terms": [
+        "freedom",
+        "emotion",
+        "action",
+        "passion",
+        "impulse",
+        "experience",
+        "speed"
+      ],
+      "required_positive_min_hits": 2,
+      "strengthens_when_user_centers": [
+        "acting from feeling",
+        "learning by doing",
+        "breaking restrictive stasis",
+        "loyalty or passion"
+      ],
+      "suppress_when_user_centers": [
+        "rules over desire",
+        "analysis before every action",
+        "power calculation without feeling",
+        "chaos without emotional truth"
+      ],
+      "false_positive_guardrail": "Do not place Red for chaos, anger, or haste alone; require freedom, emotion, action, or lived experience.",
+      "broad_match_penalty": 0.13
+    },
+    "good_fit_indicators": [
+      "emotion as valid direction",
+      "action over inaction",
+      "freedom from overbearing rules",
+      "passion, loyalty, romance, or camaraderie",
+      "speed, damage, temporary bursts, or explosive turns",
+      "learning by doing"
+    ],
+    "poor_fit_indicators": [
+      "group law as the highest good",
+      "deliberation so heavy that action never starts",
+      "power calculus with no emotional center",
+      "natural destiny over immediate desire",
+      "chaos, damage, or anger without feeling or freedom"
+    ],
+    "inhibitor_traps": [
+      "Waits for permission, perfect certainty, or social approval until the honest moment goes cold.",
+      "group law as the highest good",
+      "deliberation so heavy that action never starts",
+      "power calculus with no emotional center",
+      "natural destiny over immediate desire",
+      "candidate commander names treated as verified evidence",
+      "chaos, damage, or anger without feeling or freedom"
+    ],
+    "lateral_inhibition_targets": [
+      "WR",
+      "UR",
+      "BR",
+      "RG"
+    ],
+    "discriminator_questions": [
+      {
+        "id": "red_disc_001",
+        "prompt": "Is the user acting from real feeling, or only seeking disruption?",
+        "purpose": "Separates Red's emotional freedom from generic chaos.",
+        "supports": "Supports Red when the action follows desire, passion, love, anger, joy, grief, or felt aliveness.",
+        "weakens": "Weakens Red when disruption has no emotional or experiential center.",
+        "collision_targets": [
+          "B",
+          "G"
+        ],
+        "evidence_claim_ids": [
+          "red_claim_0002",
+          "red_claim_0003",
+          "red_claim_0004"
+        ],
+        "confidence": "High",
+        "lateral_inhibition": false
+      },
+      {
+        "id": "red_disc_002",
+        "prompt": "Does the user reject restraint because it blocks life, or because consequences are being ignored?",
+        "purpose": "Catches Red's short-sighted shadow.",
+        "supports": "Supports Red when the user wants freedom and accepts learning through outcomes.",
+        "weakens": "Weakens Red when the user refuses any consequence accounting or care for others.",
+        "collision_targets": [
+          "W",
+          "B"
+        ],
+        "evidence_claim_ids": [
+          "red_claim_0005",
+          "red_claim_0006"
+        ],
+        "confidence": "Medium",
+        "lateral_inhibition": false
+      },
+      {
+        "id": "red_disc_003",
+        "prompt": "Is the answer asking for action now or more time to optimize?",
+        "purpose": "Separates Red from Blue.",
+        "supports": "Supports Red when immediacy and lived experience matter more than the perfect plan.",
+        "weakens": "Weakens Red when the user primarily wants study, tools, and control before moving.",
+        "collision_targets": [
+          "U"
+        ],
+        "evidence_claim_ids": [
+          "red_claim_0005",
+          "red_claim_0006"
+        ],
+        "confidence": "High",
+        "lateral_inhibition": false
+      },
+      {
+        "id": "red_disc_004",
+        "prompt": "Are damage, haste, Treasure, or impulsive draw being used as Red texture rather than Commander legality proof?",
+        "purpose": "Keeps mechanical and Commander support source-bound.",
+        "supports": "Supports Red when mechanics are treated as dated color-pie texture and commander examples remain unpromoted.",
+        "weakens": "Weakens Red when candidate commanders or stale deck notes are treated as verified Layer 2 support.",
+        "collision_targets": [
+          "WUBRG",
+          "COLORLESS"
+        ],
+        "evidence_claim_ids": [
+          "red_claim_0007",
+          "red_claim_0008"
+        ],
+        "confidence": "High",
+        "lateral_inhibition": false
+      }
+    ],
+    "chatbot_guidance": {
+      "use_when": [
+        "Use Red when the user centers freedom, emotion, action, passion, speed, or lived experience.",
+        "Frame Red as emotional truth in motion, not just chaos.",
+        "Keep commander candidates deferred unless current legality verification is done."
+      ],
+      "avoid_when": [
+        "The user wants rules and group restraint as the binding answer.",
+        "The user wants optimization before action.",
+        "The answer only contains fire, damage, or anger without freedom or feeling."
+      ],
+      "how_to_recognize_mismatch": [
+        "group law as the highest good",
+        "deliberation so heavy that action never starts",
+        "power calculus with no emotional center",
+        "natural destiny over immediate desire",
+        "candidate commander names treated as verified evidence"
+      ],
+      "calibration_note": "Red should rise only when feeling, action, freedom, or vivid experience drive the answer.",
+      "never_claim_as_canon": [
+        "Red is only anger.",
+        "Vox Mana placement axes are official Wizards color-pie scores.",
+        "A candidate mono-red commander is Layer 2 support without current verification."
+      ]
+    },
+    "canon_guardrails": {
+      "never_claim_as_canon": [
+        "Red is only anger.",
+        "Vox Mana placement axes are official Wizards color-pie scores.",
+        "A candidate mono-red commander is Layer 2 support without current verification."
+      ]
+    }
+  },
+  "G": {
+    "name": "Green",
+    "institution_type": "color",
+    "world": "The Color Pie",
+    "colors": [
+      "G"
+    ],
+    "layered_identity": {
+      "core_color": "G",
+      "secondary_colors": [],
+      "secondary_color": null,
+      "expression_key": "G",
+      "expression_name": "Green",
+      "expression_kind": "color",
+      "purity": 1,
+      "routing": {
+        "edhrec_slug": "mono-green",
+        "mtgdecks_slug": "mono-green",
+        "label": "Green"
+      }
+    },
+    "tagline": "The seed remembers what it is becoming.",
+    "philosophy": "Green believes the world is not an unsolved machine. It is a living order already holding each creature's place, and strength comes from accepting nature, rooting deeply, and letting time reveal what was always in the seed.",
+    "core_tension": "Green protects flourishing through acceptance and interdependence, but its virtue can harden into stagnation when every necessary change is dismissed as unnatural.",
+    "affinity": {
+      "drawn_to": [
+        "Organic growth that follows the shape of life",
+        "Natural order, instinct, and old patterns that still hold",
+        "Land, creatures, ramp, and patient resource abundance",
+        "Belonging to the living world without needing to redesign it"
+      ],
+      "repelled_by": [
+        "Forcing every limit into an engineered improvement project",
+        "Treating life, land, or kinship as disposable fuel",
+        "Mistaking domination, rage, or spectacle for instinct",
+        "Calling patience weakness when roots are still deepening"
+      ],
+      "core_question": "What are you already becoming when you stop fighting your nature?",
+      "interview_tells": [
+        "Talks about growth as an unfolding, not a reinvention",
+        "Trusts instinct, seasons, and embodied knowledge before abstract redesign",
+        "Finds strength in land, creatures, roots, and living interdependence",
+        "Prefers patient inevitability to frantic correction"
+      ],
+      "not_to_be_confused_with": "Selesnya turns belonging into shared community; Simic and Quandrix route growth through adaptation, optimization, or pattern logic; Golgari and Witherbloom center decay, reclamation, and life-death exchange; Gruul turns instinct into wild refusal and force."
+    },
+    "decree_voice": {
+      "tone": "Grounded, patient, and quietly immense without becoming passive.",
+      "speaks_like": "An old forest that trusts the roots before it answers the storm.",
+      "example_opening": "The reading turns toward roots, instinct, and the life that keeps becoming itself.",
+      "example_decree": "The reading turns toward roots, instinct, and the life that keeps becoming itself. Green does not ask you to outthink the seed. It asks what already knows how to grow, what pace will let strength become real, and what old belonging returns when the living world is trusted again."
+    },
+    "biological_expression": {
+      "archetype": "The Rooted Becoming",
+      "primary_foundation": "Sanctity",
+      "secondary_foundation": "Loyalty",
+      "risk_signal": "stagnation risk",
+      "inhibitor_trigger": "Rejects natural limits, inherited strengths, or patient growth unless life can be redesigned into a preferred shape."
+    },
+    "placement_axes": {
+      "required_positive_evidence_terms": [
+        "nature",
+        "acceptance",
+        "instinct",
+        "growth",
+        "interdependence",
+        "role",
+        "tradition",
+        "land"
+      ],
+      "required_positive_min_hits": 2,
+      "strengthens_when_user_centers": [
+        "discovered role",
+        "web of life",
+        "creatures and lands",
+        "slow purposeful evolution",
+        "wisdom of nature or ancestry"
+      ],
+      "suppress_when_user_centers": [
+        "blank-slate optimization",
+        "self-interest over responsibility",
+        "rules imposed over relationship",
+        "generic healing or growth without nature"
+      ],
+      "false_positive_guardrail": "Do not place Green for life, healing, or growth alone; require nature, role, instinct, interdependence, or natural-system trust.",
+      "broad_match_penalty": 0.13
+    },
+    "good_fit_indicators": [
+      "acceptance of role or innate nature",
+      "interdependence and the web of life",
+      "instinct, tradition, ancestry, or wisdom of the past",
+      "creatures, lands, mana, growth, and natural scale",
+      "suspicion of artifice or unnatural change",
+      "slow purposeful evolution over forced reinvention"
+    ],
+    "poor_fit_indicators": [
+      "blank-slate reinvention through tools",
+      "self-interest and power over responsibility",
+      "law as imposed order over natural relation",
+      "emotion-first action without rootedness",
+      "growth used as generic positivity without nature or role"
+    ],
+    "inhibitor_traps": [
+      "Rejects natural limits, inherited strengths, or patient growth unless life can be redesigned into a preferred shape.",
+      "blank-slate reinvention through tools",
+      "self-interest and power over responsibility",
+      "law as imposed order over natural relation",
+      "emotion-first action without rootedness",
+      "candidate commander names treated as verified evidence",
+      "growth used as generic positivity without nature or role"
+    ],
+    "lateral_inhibition_targets": [
+      "WG",
+      "UG",
+      "BG",
+      "RG"
+    ],
+    "discriminator_questions": [
+      {
+        "id": "green_disc_001",
+        "prompt": "Is the user seeking a role within a larger living system, or trying to author themselves from scratch?",
+        "purpose": "Separates Green from Blue.",
+        "supports": "Supports Green when the user wants to discover innate place, relationship, and natural fit.",
+        "weakens": "Weakens Green when the user wants blank-slate optimization or artificial self-authorship.",
+        "collision_targets": [
+          "U"
+        ],
+        "evidence_claim_ids": [
+          "green_claim_0002",
+          "green_claim_0003",
+          "green_claim_0005"
+        ],
+        "confidence": "High",
+        "lateral_inhibition": false
+      },
+      {
+        "id": "green_disc_002",
+        "prompt": "Is growth rooted in nature and interdependence, or is it just generic improvement?",
+        "purpose": "Separates Green from generic growth language.",
+        "supports": "Supports Green when growth is tied to nature, creatures, lands, tradition, instinct, or belonging.",
+        "weakens": "Weakens Green when growth is abstract optimization without natural relation.",
+        "collision_targets": [
+          "U",
+          "W"
+        ],
+        "evidence_claim_ids": [
+          "green_claim_0003",
+          "green_claim_0004",
+          "green_claim_0007"
+        ],
+        "confidence": "High",
+        "lateral_inhibition": false
+      },
+      {
+        "id": "green_disc_003",
+        "prompt": "Does acceptance become wisdom, or is it refusing needed adaptation?",
+        "purpose": "Catches Green's over-reliance shadow.",
+        "supports": "Supports Green when the user accepts natural limits while allowing slow purposeful evolution.",
+        "weakens": "Weakens Green when the answer uses nature to avoid all change or hard problems.",
+        "collision_targets": [
+          "B",
+          "U"
+        ],
+        "evidence_claim_ids": [
+          "green_claim_0006"
+        ],
+        "confidence": "Medium",
+        "lateral_inhibition": false
+      },
+      {
+        "id": "green_disc_004",
+        "prompt": "Are creatures, lands, mana, Fight/Bite, or natural removal being used as Green texture rather than Commander legality proof?",
+        "purpose": "Keeps mechanical and Commander support source-bound.",
+        "supports": "Supports Green when mechanics are treated as dated color-pie texture and commander examples remain unpromoted.",
+        "weakens": "Weakens Green when candidate commanders or stale deck notes are treated as verified Layer 2 support.",
+        "collision_targets": [
+          "WUBRG",
+          "COLORLESS"
+        ],
+        "evidence_claim_ids": [
+          "green_claim_0007",
+          "green_claim_0008"
+        ],
+        "confidence": "High",
+        "lateral_inhibition": false
+      }
+    ],
+    "chatbot_guidance": {
+      "use_when": [
+        "Use Green when the user centers nature, instinct, role, acceptance, creatures, lands, growth, or interdependence.",
+        "Frame Green as belonging to a living system, not generic positivity.",
+        "Keep commander candidates deferred unless current legality verification is done."
+      ],
+      "avoid_when": [
+        "The user wants blank-slate optimization through tools.",
+        "The user wants self-interest and power over responsibility.",
+        "The answer only contains generic growth, life, or healing without natural-system logic."
+      ],
+      "how_to_recognize_mismatch": [
+        "blank-slate reinvention through tools",
+        "self-interest and power over responsibility",
+        "law as imposed order over natural relation",
+        "emotion-first action without rootedness",
+        "candidate commander names treated as verified evidence"
+      ],
+      "calibration_note": "Green should rise only when nature, instinct, role, interdependence, or natural growth drive the answer.",
+      "never_claim_as_canon": [
+        "Green opposes every kind of change.",
+        "Vox Mana placement axes are official Wizards color-pie scores.",
+        "A candidate mono-green commander is Layer 2 support without current verification."
+      ]
+    },
+    "canon_guardrails": {
+      "never_claim_as_canon": [
+        "Green opposes every kind of change.",
+        "Vox Mana placement axes are official Wizards color-pie scores.",
+        "A candidate mono-green commander is Layer 2 support without current verification."
+      ]
+    }
+  },
   "WU": {
     "name": "Azorius Senate",
     "institution_type": "guild",
@@ -4150,7 +5243,8 @@ export const FACTION_CONTEXT = {
       "G",
       "YORE",
       "ESPER",
-      "WITCH"
+      "WITCH",
+      "WUBRG"
     ],
     "discriminator_questions": [
       {
@@ -4159,7 +5253,9 @@ export const FACTION_CONTEXT = {
         "purpose": "Separates Colorless identity from artifact-only, generic-mana, and Eldrazi-only false positives.",
         "supports": "Supports Colorless when the user names outside-WUBRG absence, non-coloration, or concept-boundary precision and can keep the branches separate.",
         "weakens": "Weakens Colorless when the user only wants artifacts, large costs, Eldrazi flavor, or generic ramp without the non-color identity boundary.",
-        "collision_targets": [],
+        "collision_targets": [
+          "WUBRG"
+        ],
         "evidence_claim_ids": [
           "colorless_claim_0002",
           "colorless_claim_0003",
@@ -4185,7 +5281,9 @@ export const FACTION_CONTEXT = {
         "purpose": "Separates Colorless orthogonality from five-color fullness or superiority framing.",
         "supports": "Supports Colorless when the user frames it as outside or orthogonal to WUBRG and keeps five-color fullness separate.",
         "weakens": "Weakens Colorless when it becomes a sixth color, a superior color, or a total mastery of WUBRG.",
-        "collision_targets": [],
+        "collision_targets": [
+          "WUBRG"
+        ],
         "evidence_claim_ids": [
           "colorless_claim_0002",
           "colorless_claim_0005"
@@ -4211,7 +5309,9 @@ export const FACTION_CONTEXT = {
         "purpose": "Separates strict Colorless Commander attraction from Eldrazi Incursion and other five-color Eldrazi false positives.",
         "supports": "Supports Colorless when the user values the strict colorless identity constraint and understands that five-color Eldrazi support is comparator context.",
         "weakens": "Weakens Colorless when the user wants Ulalek, five-color Eldrazi, or Devoid-heavy color decks as the primary identity.",
-        "collision_targets": [],
+        "collision_targets": [
+          "WUBRG"
+        ],
         "evidence_claim_ids": [
           "colorless_claim_0005",
           "colorless_claim_0007",
@@ -4246,6 +5346,310 @@ export const FACTION_CONTEXT = {
         "Artifacts are all Colorless.",
         "Eldrazi Unbound proves broad Colorless Commander viability.",
         "Phyrexia is Colorless."
+      ]
+    }
+  },
+  "WUBRG": {
+    "name": "Five-Color / WUBRG",
+    "institution_type": "five_color",
+    "world": "Cross-setting",
+    "colors": [
+      "W",
+      "U",
+      "B",
+      "R",
+      "G"
+    ],
+    "layered_identity": {
+      "core_color": "WUBRG",
+      "secondary_colors": [
+        "W",
+        "U",
+        "B",
+        "R",
+        "G"
+      ],
+      "secondary_color": null,
+      "expression_key": "WUBRG",
+      "expression_name": "Five-Color / WUBRG",
+      "expression_kind": "five_color",
+      "purity": null,
+      "routing": {
+        "color_identity": "WUBRG",
+        "label": "Five-Color",
+        "suppress_directory_links": true
+      }
+    },
+    "tagline": "Every color present. Every shortcut questioned.",
+    "philosophy": "Five-Color asks what happens when every color is allowed to speak and none can pretend it is the whole answer. White asks for structure, Blue for understanding, Black for agency, Red for motion, and Green for belonging; WUBRG is the negotiation among them.",
+    "core_tension": "Five-Color can hold every color in one plan, but it must resist becoming generic accumulation, false superiority, or unfocused goodstuff.",
+    "affinity": {
+      "drawn_to": [
+        "Every color having a meaningful role in one plan",
+        "Coalition, synthesis, and full-spectrum problem solving",
+        "Commander color identity as deck-construction breadth with real tradeoffs",
+        "Domain, converge, sunburst, WUBRG costs, and multicolor payoffs as support texture",
+        "Source-bound deck navigation rather than unsupported recommendation claims"
+      ],
+      "repelled_by": [
+        "Generic goodstuff-only framing",
+        "WUBRG superiority or total mastery language",
+        "Official WUBRG faction, doctrine, or personality claims",
+        "Colorless conflation or four-color missing-color framing",
+        "Support-only rows treated as legality, popularity, or lore proof"
+      ],
+      "core_question": "What changes when every color is allowed into the plan, and what keeps the plan from becoming everything at once?",
+      "interview_tells": [
+        "Names all five colors as active contributors rather than access alone",
+        "Treats mana infrastructure as a discipline and cost",
+        "Keeps support links and Commander examples in a bounded role"
+      ]
+    },
+    "decree_voice": {
+      "tone": "Broad, lucid, coalition-minded, and skeptical of easy totality.",
+      "signature_line": "All five voices enter the room; the work is deciding which one leads now."
+    },
+    "biological_expression": {
+      "archetype": "The Full-Spectrum Integrator",
+      "primary_foundation": "Integration",
+      "secondary_foundation": "Plurality",
+      "risk_signal": "high dilution risk",
+      "inhibitor_trigger": "Expands until every answer is included, even when the plan no longer has a center."
+    },
+    "placement_axes": {
+      "required_positive_evidence_terms": [
+        "all five colors present",
+        "full-spectrum integration",
+        "coalition or synthesis",
+        "Commander color identity precision",
+        "breadth with tradeoffs"
+      ],
+      "required_positive_min_hits": 2,
+      "strengthens_when_user_centers": [
+        "every color has a role",
+        "mana infrastructure as discipline",
+        "domain, converge, sunburst, or WUBRG texture with source boundaries",
+        "support-only Commander browsing with manual verification",
+        "Five-Color label over WUBRG as public copy"
+      ],
+      "suppress_when_user_centers": [
+        "generic goodstuff-only",
+        "WUBRG superiority",
+        "official WUBRG faction or doctrine",
+        "Colorless conflation",
+        "four-color missing-color framing",
+        "specific card, legality, price, ranking, or metagame claims without verification"
+      ],
+      "false_positive_guardrail": "Do not place WUBRG when the answer only wants power, fixing, generic access, Colorless restriction, or a missing-color frame; require all-five integration and source-bound tradeoff awareness.",
+      "broad_match_penalty": 0.16
+    },
+    "good_fit_indicators": [
+      "explicit all-five-colors-present framing",
+      "full-spectrum integration with tradeoffs",
+      "coalition or synthesis language without superiority",
+      "Commander color identity understood as deck construction, not lore proof",
+      "mechanics texture kept support-only until named cards are verified",
+      "Colorless and four-color boundaries kept clear",
+      "mana infrastructure treated as meaningful discipline rather than automatic access"
+    ],
+    "poor_fit_indicators": [
+      "generic goodstuff-only preference",
+      "mana fixing or color access without identity reason",
+      "WUBRG superiority or total mastery language",
+      "official WUBRG faction, doctrine, or personality claims",
+      "Colorless conflation",
+      "four-color missing-color framing",
+      "five-color Eldrazi as strict Colorless proof",
+      "Commander product proof or legality claims beyond current support-only rows",
+      "current price, ranking, popularity, cEDH, or metagame advice without dated current verification",
+      "specific WUBRG card claims from broad query results without manual verification"
+    ],
+    "inhibitor_traps": [
+      "Expands until every answer is included, even when the plan no longer has a center.",
+      "generic goodstuff-only preference",
+      "mana fixing or color access without identity reason",
+      "WUBRG superiority or total mastery language",
+      "official WUBRG faction, doctrine, or personality claims",
+      "Colorless conflation",
+      "four-color missing-color framing",
+      "Commander product proof or legality claims beyond current support-only rows",
+      "specific WUBRG card claims from broad query results without manual verification",
+      "five-color Eldrazi as strict Colorless proof",
+      "current price, ranking, popularity, cEDH, or metagame advice without dated current verification"
+    ],
+    "lateral_inhibition_targets": [
+      "W",
+      "U",
+      "B",
+      "R",
+      "G",
+      "COLORLESS",
+      "YORE",
+      "GLINT",
+      "DUNE",
+      "INK",
+      "WITCH",
+      "BANT",
+      "ESPER",
+      "GRIXIS",
+      "JUND",
+      "NAYA",
+      "ABZAN",
+      "TEMUR",
+      "SULTAI",
+      "MARDU",
+      "JESKAI"
+    ],
+    "discriminator_questions": [
+      {
+        "id": "wubrg_disc_001",
+        "prompt": "Does the answer need all five colors present, or is one color, pair, shard, wedge, four-color, or Colorless lane doing the real work?",
+        "purpose": "Separates WUBRG fullness from partial color frames and Colorless restriction.",
+        "supports": "Supports WUBRG when the user explicitly wants all five colors active and meaningful in one plan.",
+        "weakens": "Weakens WUBRG when the answer only needs one color cluster, a missing-color frame, or outside-WUBRG restriction.",
+        "collision_targets": [
+          "COLORLESS",
+          "YORE",
+          "GLINT",
+          "DUNE",
+          "INK",
+          "WITCH",
+          "BANT",
+          "ESPER",
+          "GRIXIS",
+          "JUND",
+          "NAYA",
+          "ABZAN",
+          "TEMUR",
+          "SULTAI",
+          "MARDU",
+          "JESKAI"
+        ],
+        "evidence_claim_ids": [
+          "wubrg_claim_0002",
+          "wubrg_claim_0004",
+          "wubrg_claim_0007"
+        ],
+        "confidence": "High"
+      },
+      {
+        "id": "wubrg_disc_002",
+        "prompt": "Is the breadth purposeful, or is the answer just collecting every strong card and calling the pile an identity?",
+        "purpose": "Separates full-spectrum synthesis from generic goodstuff.",
+        "supports": "Supports WUBRG when the user can explain why each color belongs and what tradeoff full access creates.",
+        "weakens": "Weakens WUBRG when power, access, or card quality replaces identity reason.",
+        "collision_targets": [
+          "W",
+          "U",
+          "B",
+          "R",
+          "G"
+        ],
+        "evidence_claim_ids": [
+          "wubrg_claim_0001",
+          "wubrg_claim_0007"
+        ],
+        "confidence": "Medium-High"
+      },
+      {
+        "id": "wubrg_disc_003",
+        "prompt": "Does full deck access stay bounded by card color identity, color-pie limits, and current legality checks?",
+        "purpose": "Protects WUBRG from turning deck-level access into unbounded card or legality claims.",
+        "supports": "Supports WUBRG when the user treats all-five access as Commander deck construction while preserving individual card boundaries.",
+        "weakens": "Weakens WUBRG when the user assumes every card, legality claim, or mechanical claim is automatically available because the deck is five-color.",
+        "collision_targets": [
+          "COLORLESS",
+          "YORE",
+          "GLINT",
+          "DUNE",
+          "INK",
+          "WITCH"
+        ],
+        "evidence_claim_ids": [
+          "wubrg_claim_0002",
+          "wubrg_claim_0003",
+          "wubrg_claim_0006"
+        ],
+        "confidence": "High"
+      },
+      {
+        "id": "wubrg_disc_004",
+        "prompt": "Is WUBRG being framed as coalition and synthesis, or as the best, highest, or final form of the color pie?",
+        "purpose": "Separates healthy Five-Color synthesis from superiority and total-mastery language.",
+        "supports": "Supports WUBRG when the user wants all five colors held in tension without making them superior to other identities.",
+        "weakens": "Weakens WUBRG when it becomes a claim of superiority, official doctrine, or total mastery.",
+        "collision_targets": [
+          "COLORLESS",
+          "W",
+          "U",
+          "B",
+          "R",
+          "G"
+        ],
+        "evidence_claim_ids": [
+          "wubrg_claim_0004",
+          "wubrg_claim_0007"
+        ],
+        "confidence": "Medium"
+      },
+      {
+        "id": "wubrg_disc_005",
+        "prompt": "Are Commander decks and search links being used as support navigation, or as proof of lore, legality, popularity, or placement?",
+        "purpose": "Keeps WUBRG support-only deck and search material in its proper role.",
+        "supports": "Supports WUBRG when the user accepts deck/search rows as browsing support and asks for manual verification before exact claims.",
+        "weakens": "Weakens WUBRG when support rows or external links are treated as source proof for lore, legality, rankings, price, or deck quality.",
+        "collision_targets": [
+          "COLORLESS",
+          "YORE",
+          "GLINT",
+          "DUNE",
+          "INK",
+          "WITCH"
+        ],
+        "evidence_claim_ids": [
+          "wubrg_claim_0005",
+          "wubrg_claim_0006",
+          "wubrg_claim_0007"
+        ],
+        "confidence": "Medium"
+      }
+    ],
+    "chatbot_guidance": {
+      "use_when": [
+        "Use WUBRG when the user clearly wants all five colors present and meaningful.",
+        "Use Five-Color as public-facing language, with WUBRG as technical shorthand.",
+        "Use Commander, deck, MTGDecks, Archidekt, and Scryfall material only as bounded support navigation."
+      ],
+      "avoid_when": [
+        "The answer only names good cards, fixing, or broad access.",
+        "The answer treats WUBRG as official faction lore or superiority.",
+        "The answer is really Colorless, four-color, or a single color cluster.",
+        "The answer needs exact legality, card text, rankings, price, or metagame advice without current verification."
+      ],
+      "how_to_recognize_mismatch": [
+        "generic goodstuff-only preference",
+        "mana fixing or color access without identity reason",
+        "WUBRG superiority or total mastery language",
+        "official WUBRG faction, doctrine, or personality claims",
+        "Colorless conflation",
+        "four-color missing-color framing",
+        "Commander product proof or legality claims beyond current support-only rows",
+        "specific WUBRG card claims from broad query results without manual verification"
+      ],
+      "calibration_note": "Do not place WUBRG when the answer only wants power, fixing, generic access, Colorless restriction, or a missing-color frame; require all-five integration and source-bound tradeoff awareness.",
+      "never_claim_as_canon": [
+        "WUBRG is an official faction, guild, college, plane, civilization, or single doctrine.",
+        "Five-Color is superior to other identities.",
+        "Support-only Commander rows prove lore, legality, placement, popularity, or deck quality.",
+        "Generated/runtime artifacts are source evidence."
+      ]
+    },
+    "canon_guardrails": {
+      "never_claim_as_canon": [
+        "WUBRG is an official faction, guild, college, plane, civilization, or single doctrine.",
+        "Five-Color is superior to other identities.",
+        "Support-only Commander rows prove lore, legality, placement, popularity, or deck quality.",
+        "Generated/runtime artifacts are source evidence."
       ]
     }
   },
@@ -7053,878 +8457,6 @@ export const FACTION_CONTEXT = {
         "Placement scoring is a Vox Mana interpretation, not official Wizards canon."
       ]
     }
-  },
-  "W": {
-    "name": "White",
-    "institution_type": "color",
-    "world": "The Color Pie",
-    "colors": [
-      "W"
-    ],
-    "layered_identity": {
-      "core_color": "W",
-      "secondary_colors": [],
-      "secondary_color": null,
-      "expression_key": "W",
-      "expression_name": "White",
-      "expression_kind": "color",
-      "purity": 1,
-      "routing": {
-        "edhrec_slug": "mono-white",
-        "mtgdecks_slug": "mono-white",
-        "label": "White"
-      }
-    },
-    "tagline": "Safety is built, not assumed.",
-    "philosophy": "White believes peace is not a mood. It is a structure: rules that hold, shelter that lasts, and obligations people can trust under pressure.",
-    "core_tension": "White protects through standards and systems, but its virtue can harden into over-control when safety becomes more important than listening.",
-    "affinity": {
-      "drawn_to": [
-        "Shared standards that protect the vulnerable",
-        "Fairness enforced through process",
-        "Structures that outlast individual moods",
-        "Group safety over private advantage"
-      ],
-      "repelled_by": [
-        "Treating every rule as oppression by default",
-        "Power that answers only to itself",
-        "Impulsive decisions that endanger others",
-        "Private exceptions that quietly become precedent"
-      ],
-      "core_question": "What structure keeps people safe when goodwill is not enough?",
-      "interview_tells": [
-        "Frames care as duty, not only feeling",
-        "Talks about fairness in terms of standards and accountability",
-        "Wants clear expectations before conflict escalates",
-        "Sees systems as tools for shelter, not merely control"
-      ],
-      "not_to_be_confused_with": "Azorius trusts procedure above all; Boros acts faster in the face of harm; Selesnya anchors protection in belonging."
-    },
-    "decree_voice": {
-      "tone": "Steady, protective, and exacting without cruelty.",
-      "speaks_like": "A guardian who believes consistency is a form of mercy.",
-      "example_opening": "The reading turns toward shelter, standards, and the work of making safety real.",
-      "example_decree": "The reading turns toward shelter, standards, and the work of making safety real. White does not ask you to flatten every difference. It asks whether the structure holds when generosity fails. You protect by building something people can rely on, then standing beside it when the strain arrives."
-    },
-    "biological_expression": {
-      "archetype": "The Shelter Architect",
-      "primary_foundation": "Care",
-      "secondary_foundation": "Authority",
-      "risk_signal": "low risk",
-      "inhibitor_trigger": "Treats every shared rule as illegitimate, even when the alternative leaves the vulnerable exposed."
-    },
-    "placement_axes": {
-      "required_positive_evidence_terms": [
-        "safety",
-        "protection",
-        "fairness",
-        "duty",
-        "shelter",
-        "shared rules",
-        "responsibility",
-        "structure"
-      ],
-      "required_positive_min_hits": 2,
-      "strengthens_when_user_centers": [
-        "safety through structure",
-        "shared duty",
-        "protect the vulnerable",
-        "fairness through standards"
-      ],
-      "suppress_when_user_centers": [
-        "private leverage",
-        "chaotic expression",
-        "knowledge for its own sake",
-        "wild autonomy"
-      ],
-      "false_positive_guardrail": "Do not award for generic niceness, generic order, or generic heroism without clear protection-through-structure language.",
-      "broad_match_penalty": 0.12
-    },
-    "good_fit_indicators": [
-      "builds safety before pursuing advantage",
-      "trusts shared standards more than private exceptions",
-      "protects the vulnerable through structure and follow-through"
-    ],
-    "poor_fit_indicators": [
-      "treats every rule as oppression by default",
-      "prefers personal advantage even when it leaves others exposed",
-      "confuses care with passive good intentions"
-    ],
-    "inhibitor_traps": [
-      "Treats every shared rule as illegitimate, even when the alternative leaves the vulnerable exposed.",
-      "treats every rule as oppression by default",
-      "prefers personal advantage even when it leaves others exposed",
-      "confuses care with passive good intentions"
-    ],
-    "lateral_inhibition_targets": [
-      "WB",
-      "WU",
-      "WR",
-      "WG"
-    ],
-    "discriminator_questions": [
-      {
-        "id": "white_q1",
-        "prompt": "What matters most when goodwill fails and people still need to be safe?",
-        "purpose": "Separates White's shelter-and-standards logic from more private or expressive forms of care.",
-        "supports": "The answer prioritizes reliable structure, shelter, or duty that protects more than one person at once.",
-        "weakens": "The answer rejects structure altogether or treats shared standards as inherently corrupt.",
-        "collision_targets": [
-          "WU",
-          "WR",
-          "WG"
-        ],
-        "evidence_claim_ids": [],
-        "confidence": "Medium"
-      },
-      {
-        "id": "white_q2",
-        "prompt": "When protection and freedom pull apart, what must hold first?",
-        "purpose": "Separates White from Red-aligned urgency and Blue-aligned procedural distance.",
-        "supports": "The answer accepts limits, duties, or standards as the price of protecting the vulnerable.",
-        "weakens": "The answer treats all limits as suspect regardless of who is left exposed.",
-        "collision_targets": [
-          "WR",
-          "WU"
-        ],
-        "evidence_claim_ids": [],
-        "confidence": "Medium"
-      }
-    ],
-    "chatbot_guidance": {
-      "how_to_recognize_match": [
-        "builds safety before pursuing advantage",
-        "trusts shared standards more than private exceptions",
-        "protects the vulnerable through structure and follow-through"
-      ],
-      "how_to_recognize_mismatch": [
-        "treats every rule as oppression by default",
-        "prefers personal advantage even when it leaves others exposed",
-        "confuses care with passive good intentions"
-      ],
-      "questions_to_ask_when_uncertain": [
-        "What structure keeps people safe when goodwill is not enough?",
-        "When protection and freedom pull apart, what must hold first?"
-      ],
-      "never_claim_as_canon": [
-        "Psychological placement categories are Vox Mana interpretation, not official Wizards canon.",
-        "Do not state that a user's personality is objectively determined by a color or expression.",
-        "Placement scoring is a Vox Mana interpretation, not official Wizards canon."
-      ],
-      "calibration_note": "White should require explicit safety, protection, duty, shelter, or fairness-through-structure language. Keep it adjacent when the answer only contains generic kindness or generic order.",
-      "scoring_guardrail": "Do not award for generic niceness, generic order, or generic heroism without clear protection-through-structure language."
-    },
-    "canon_guardrails": {
-      "never_claim_as_canon": [
-        "Psychological placement categories are Vox Mana interpretation, not official Wizards canon.",
-        "Do not state that a user's personality is objectively determined by a color or expression.",
-        "Placement scoring is a Vox Mana interpretation, not official Wizards canon."
-      ]
-    }
-  },
-  "U": {
-    "name": "Blue",
-    "institution_type": "color",
-    "world": "The Color Pie",
-    "colors": [
-      "U"
-    ],
-    "layered_identity": {
-      "core_color": "U",
-      "secondary_colors": [],
-      "secondary_color": null,
-      "expression_key": "U",
-      "expression_name": "Blue",
-      "expression_kind": "color",
-      "purity": 1,
-      "routing": {
-        "edhrec_slug": "mono-blue",
-        "mtgdecks_slug": "mono-blue",
-        "label": "Blue"
-      }
-    },
-    "tagline": "Possibility opens when the pattern is understood.",
-    "philosophy": "Blue believes no one is finished by default. Knowledge, practice, and precise systems let people and worlds become more than their starting shape.",
-    "core_tension": "Blue protects possibility through understanding, but its virtue can harden into paralysis when perfect information matters more than timely action.",
-    "affinity": {
-      "drawn_to": [
-        "Information treated as the first resource",
-        "Systems that improve through study and iteration",
-        "Patience before commitment",
-        "Tools, education, and planning that expand possible futures"
-      ],
-      "repelled_by": [
-        "Acting before the shape of the problem is understood",
-        "Treating nature, fate, or first instincts as final",
-        "Discarding options for the relief of immediate motion",
-        "Using power without a model of what happens next"
-      ],
-      "core_question": "What becomes possible once the hidden pattern is understood?",
-      "interview_tells": [
-        "Waits for information before committing",
-        "Talks about options, systems, models, or repeatable improvement",
-        "Frames control as preparation rather than domination",
-        "Sees education, tools, and practice as liberation from default limits"
-      ],
-      "not_to_be_confused_with": "Azorius turns understanding into formal procedure; Dimir hides information as leverage; Izzet accelerates discovery into volatile testing; Simic applies improvement to living adaptation."
-    },
-    "decree_voice": {
-      "tone": "Precise, patient, curious, and cool without contempt.",
-      "speaks_like": "A strategist who believes every outcome has a structure waiting to be learned.",
-      "example_opening": "The reading turns toward knowledge, options, and the discipline of acting after understanding.",
-      "example_decree": "The reading turns toward knowledge, options, and the discipline of acting after understanding. Blue does not ask you to freeze forever. It asks you to map the hidden variables, keep the future open, and move when the pattern can be shaped instead of merely endured."
-    },
-    "biological_expression": {
-      "archetype": "The Possibility Architect",
-      "primary_foundation": "Fairness",
-      "secondary_foundation": "Authority",
-      "risk_signal": "low-medium risk",
-      "inhibitor_trigger": "Treats knowledge, planning, or education as sterile delay when careful understanding would prevent avoidable harm."
-    },
-    "placement_axes": {
-      "required_positive_evidence_terms": [
-        "knowledge",
-        "information",
-        "understanding",
-        "study",
-        "optimization",
-        "prediction",
-        "control",
-        "card draw",
-        "counterspell",
-        "tempo",
-        "copy",
-        "possibility"
-      ],
-      "required_positive_min_hits": 2,
-      "strengthens_when_user_centers": [
-        "information as resource",
-        "act after understanding",
-        "optimize through knowledge",
-        "control through prediction",
-        "improve the system"
-      ],
-      "suppress_when_user_centers": [
-        "immediate emotional release",
-        "destiny over improvement",
-        "natural role acceptance",
-        "power without a model"
-      ],
-      "false_positive_guardrail": "Do not award for generic intelligence, generic control, or indecision without clear knowledge, options, optimization, or patience-before-action language.",
-      "broad_match_penalty": 0.12
-    },
-    "good_fit_indicators": [
-      "waits to understand before committing",
-      "treats knowledge, cards, and options as resources",
-      "improves systems through study, iteration, and precise control"
-    ],
-    "poor_fit_indicators": [
-      "needs immediate motion before the problem is understood",
-      "treats nature, fate, or first instinct as final",
-      "rejects planning, patience, or information as sterile delay"
-    ],
-    "inhibitor_traps": [
-      "Treats knowledge, planning, or education as sterile delay when careful understanding would prevent avoidable harm.",
-      "needs immediate motion before the problem is understood",
-      "treats nature, fate, or first instinct as final",
-      "rejects planning, patience, or information as sterile delay"
-    ],
-    "lateral_inhibition_targets": [
-      "WU",
-      "UB",
-      "UR",
-      "UG"
-    ],
-    "discriminator_questions": [
-      {
-        "id": "blue_q1",
-        "prompt": "When the situation is unstable and everyone wants movement, what has to happen before you act?",
-        "purpose": "Separates Blue's knowledge-first patience from adjacent procedure, secrecy, experimentation, or adaptation.",
-        "supports": "The answer prioritizes mapping variables, preserving options, and acting once the structure is understood.",
-        "weakens": "The answer rushes to institution, leverage, impulse, or biology before understanding the system.",
-        "collision_targets": [
-          "WU",
-          "UB",
-          "UR",
-          "UG"
-        ],
-        "evidence_claim_ids": [],
-        "confidence": "Medium"
-      },
-      {
-        "id": "blue_q2",
-        "prompt": "What makes progress trustworthy instead of merely lucky?",
-        "purpose": "Separates Blue's optimization-through-knowledge logic from pair expressions that route progress through law, secrecy, experiment, or organism.",
-        "supports": "The answer centers education, repeatable models, controlled iteration, or information that makes future choices better.",
-        "weakens": "The answer treats procedure, hidden leverage, volatile testing, or natural adaptation as sufficient without understanding.",
-        "collision_targets": [
-          "WU",
-          "UB",
-          "UR",
-          "UG"
-        ],
-        "evidence_claim_ids": [],
-        "confidence": "Medium"
-      }
-    ],
-    "chatbot_guidance": {
-      "how_to_recognize_match": [
-        "waits to understand before committing",
-        "treats knowledge, cards, and options as resources",
-        "improves systems through study, iteration, and precise control"
-      ],
-      "how_to_recognize_mismatch": [
-        "needs immediate motion before the problem is understood",
-        "treats nature, fate, or first instinct as final",
-        "rejects planning, patience, or information as sterile delay"
-      ],
-      "questions_to_ask_when_uncertain": [
-        "What becomes possible once the hidden pattern is understood?",
-        "When information and action pull apart, what must happen before you move?"
-      ],
-      "never_claim_as_canon": [
-        "Psychological placement categories are Vox Mana interpretation, not official Wizards canon.",
-        "Do not state that a user's personality is objectively determined by a color or expression.",
-        "Placement scoring is a Vox Mana interpretation, not official Wizards canon."
-      ],
-      "calibration_note": "Blue should require explicit knowledge, information, options, prediction, or optimization language. Keep it adjacent when the answer only contains generic intelligence or generic caution.",
-      "scoring_guardrail": "Do not award for generic intelligence, generic control, or indecision without clear knowledge, options, optimization, or patience-before-action language."
-    },
-    "canon_guardrails": {
-      "never_claim_as_canon": [
-        "Psychological placement categories are Vox Mana interpretation, not official Wizards canon.",
-        "Do not state that a user's personality is objectively determined by a color or expression.",
-        "Placement scoring is a Vox Mana interpretation, not official Wizards canon."
-      ]
-    }
-  },
-  "B": {
-    "name": "Black",
-    "institution_type": "color",
-    "world": "The Color Pie",
-    "colors": [
-      "B"
-    ],
-    "layered_identity": {
-      "core_color": "B",
-      "secondary_colors": [],
-      "secondary_color": null,
-      "expression_key": "B",
-      "expression_name": "Black",
-      "expression_kind": "color",
-      "purity": 1,
-      "routing": {
-        "edhrec_slug": "mono-black",
-        "mtgdecks_slug": "mono-black",
-        "label": "Black"
-      }
-    },
-    "tagline": "Power is protection when no one is coming to save you.",
-    "philosophy": "Black believes the world offers no guaranteed fairness. It secures agency by treating life, death, loyalty, and resources as costs that can be paid for control.",
-    "core_tension": "Black protects the self through power and leverage, but its clarity can harden into isolation when every bond becomes a liability.",
-    "affinity": {
-      "drawn_to": [
-        "Self-determination when the world offers no guarantees",
-        "Power gained by paying costs others avoid",
-        "Resources converted into durable leverage",
-        "Death, loss, and sacrifice turned back into advantage"
-      ],
-      "repelled_by": [
-        "Waiting for fairness to arrive on its own",
-        "Moral purity that leaves people powerless",
-        "Dependence disguised as virtue",
-        "Systems that demand sacrifice without returning agency"
-      ],
-      "core_question": "What are you willing to pay so your fate stays yours?",
-      "interview_tells": [
-        "Frames survival as a personal responsibility",
-        "Talks about costs, leverage, and agency without apology",
-        "Treats loss as material that can still be converted",
-        "Distrusts fairness when it is not backed by power"
-      ],
-      "not_to_be_confused_with": "Dimir hides leverage behind knowledge; Rakdos spends restraint in public intensity; Golgari turns death into ecosystem and cycle; Orzhov makes power visible through debt and obligation."
-    },
-    "decree_voice": {
-      "tone": "Clear-eyed, unsentimental, and empowering without glamorizing cruelty.",
-      "speaks_like": "A survivor who knows every bargain has a price and every price can become leverage.",
-      "example_opening": "The reading turns toward cost, agency, and the refusal to remain powerless.",
-      "example_decree": "The reading turns toward cost, agency, and the refusal to remain powerless. Black does not ask whether the world is fair before it acts. It asks what can be paid, what can be reclaimed, and what power will keep your fate from being signed away by someone else."
-    },
-    "biological_expression": {
-      "archetype": "The Self-Sovereign Operator",
-      "primary_foundation": "Liberty",
-      "secondary_foundation": "Authority",
-      "risk_signal": "high agency risk",
-      "inhibitor_trigger": "Outsources survival to systems or promises that may not protect them when the cost arrives."
-    },
-    "placement_axes": {
-      "required_positive_evidence_terms": [
-        "power",
-        "cost",
-        "agency",
-        "leverage",
-        "survival",
-        "self-preservation",
-        "resource conversion",
-        "graveyard",
-        "sacrifice",
-        "pay life"
-      ],
-      "required_positive_min_hits": 2,
-      "strengthens_when_user_centers": [
-        "power at a cost",
-        "personal agency",
-        "graveyard as resource",
-        "resource conversion",
-        "self-preservation"
-      ],
-      "suppress_when_user_centers": [
-        "group safety over self",
-        "procedure above leverage",
-        "wild immediate expression",
-        "acceptance of natural role"
-      ],
-      "false_positive_guardrail": "Do not award for generic ambition, generic darkness, or cruelty without clear cost, agency, survival, or resource-conversion language.",
-      "broad_match_penalty": 0.12
-    },
-    "good_fit_indicators": [
-      "treats cost as a tool instead of only a warning sign",
-      "protects agency through leverage and self-sufficiency",
-      "turns loss, death, or spent resources into future advantage"
-    ],
-    "poor_fit_indicators": [
-      "needs power to feel morally clean before using it",
-      "expects fairness to protect them without leverage",
-      "rejects cost, ambition, or self-prioritization as inherently corrupt"
-    ],
-    "inhibitor_traps": [
-      "Outsources survival to systems or promises that may not protect them when the cost arrives.",
-      "needs power to feel morally clean before using it",
-      "expects fairness to protect them without leverage",
-      "rejects cost, ambition, or self-prioritization as inherently corrupt"
-    ],
-    "lateral_inhibition_targets": [
-      "UB",
-      "BR",
-      "BG",
-      "WB"
-    ],
-    "discriminator_questions": [
-      {
-        "id": "black_q1",
-        "prompt": "What do you trust when fairness fails and no one is coming to save you?",
-        "purpose": "Separates Black's self-preservation logic from pair expressions that route power through secrecy, spectacle, cycle, or debt.",
-        "supports": "The answer prioritizes personal agency, paid costs, leverage, or resource conversion that keeps fate self-owned.",
-        "weakens": "The answer waits for an institution, group bond, natural role, or emotional release to solve the danger first.",
-        "collision_targets": [
-          "UB",
-          "BR",
-          "BG",
-          "WB"
-        ],
-        "evidence_claim_ids": [],
-        "confidence": "Medium"
-      },
-      {
-        "id": "black_q2",
-        "prompt": "When something valuable must be sacrificed to keep control, what makes the cost acceptable?",
-        "purpose": "Separates Black's transactional cost logic from adjacent expressions that moralize, ritualize, or dramatize the exchange.",
-        "supports": "The answer treats the cost as a deliberate exchange for survival, control, cards, access, or durable leverage.",
-        "weakens": "The answer treats sacrifice as unacceptable unless it serves group duty, natural renewal, or public catharsis.",
-        "collision_targets": [
-          "WB",
-          "BG",
-          "BR"
-        ],
-        "evidence_claim_ids": [],
-        "confidence": "Medium"
-      }
-    ],
-    "chatbot_guidance": {
-      "how_to_recognize_match": [
-        "treats cost as a tool instead of only a warning sign",
-        "protects agency through leverage and self-sufficiency",
-        "turns loss, death, or spent resources into future advantage"
-      ],
-      "how_to_recognize_mismatch": [
-        "needs power to feel morally clean before using it",
-        "expects fairness to protect them without leverage",
-        "rejects cost, ambition, or self-prioritization as inherently corrupt"
-      ],
-      "questions_to_ask_when_uncertain": [
-        "What are you willing to pay so your fate stays yours?",
-        "When fairness fails, what resource do you convert first?"
-      ],
-      "never_claim_as_canon": [
-        "Psychological placement categories are Vox Mana interpretation, not official Wizards canon.",
-        "Do not state that a user's personality is objectively determined by a color or expression.",
-        "Placement scoring is a Vox Mana interpretation, not official Wizards canon."
-      ],
-      "calibration_note": "Black should require explicit cost, agency, leverage, survival, sacrifice, or resource-conversion language. Keep it adjacent when the answer only contains generic ambition or villain-coded aesthetics.",
-      "scoring_guardrail": "Do not award for generic ambition, generic darkness, or cruelty without clear cost, agency, survival, or resource-conversion language."
-    },
-    "canon_guardrails": {
-      "never_claim_as_canon": [
-        "Psychological placement categories are Vox Mana interpretation, not official Wizards canon.",
-        "Do not state that a user's personality is objectively determined by a color or expression.",
-        "Placement scoring is a Vox Mana interpretation, not official Wizards canon."
-      ]
-    }
-  },
-  "R": {
-    "name": "Red",
-    "institution_type": "color",
-    "world": "The Color Pie",
-    "colors": [
-      "R"
-    ],
-    "layered_identity": {
-      "core_color": "R",
-      "secondary_colors": [],
-      "secondary_color": null,
-      "expression_key": "R",
-      "expression_name": "Red",
-      "expression_kind": "color",
-      "purity": 1,
-      "routing": {
-        "edhrec_slug": "mono-red",
-        "mtgdecks_slug": "mono-red",
-        "label": "Red"
-      }
-    },
-    "tagline": "The honest spark moves before the cage closes.",
-    "philosophy": "Red believes feeling is a form of truth. Freedom becomes real when the impulse is allowed to move now, before fear, permission, or overthinking can smother it.",
-    "core_tension": "Red protects aliveness through immediacy and freedom, but its virtue can burn out when every delay feels like a cage.",
-    "affinity": {
-      "drawn_to": [
-        "Immediate action before paralysis settles in",
-        "Freedom from permission and artificial restraint",
-        "Emotion trusted as honest information",
-        "Direct damage, haste, impulse draw, and temporary momentum"
-      ],
-      "repelled_by": [
-        "Waiting until every variable is approved",
-        "Rules that smother feeling before anyone is harmed",
-        "Turning every impulse into performance, cruelty, or theory",
-        "Plans that preserve safety while the living moment goes cold"
-      ],
-      "core_question": "What has to move now because the feeling is already true?",
-      "interview_tells": [
-        "Names the honest first action before naming the perfect plan",
-        "Frames freedom as breath, motion, and self-expression",
-        "Prefers direct pressure to hidden leverage or slow permission",
-        "Treats emotion as a signal to answer, not a flaw to suppress"
-      ],
-      "not_to_be_confused_with": "Boros turns urgency toward protection and conviction; Izzet turns impulse into experiment and technique; Rakdos turns release toward transgression and pain-as-spectacle; Gruul roots freedom in wildness, instinct, and primal belonging."
-    },
-    "decree_voice": {
-      "tone": "Kinetic, warm, and immediate without cruelty or performance-posturing.",
-      "speaks_like": "A spark that wants the true thing said, chosen, or done before life goes numb.",
-      "example_opening": "The reading turns toward impulse, freedom, and the honest action that refuses to wait.",
-      "example_decree": "The reading turns toward impulse, freedom, and the honest action that refuses to wait. Red does not ask you to make the feeling respectable first. It asks what wants to move now, what cage has become too small, and what spark will keep the moment alive."
-    },
-    "biological_expression": {
-      "archetype": "The Ignition Heart",
-      "primary_foundation": "Liberty",
-      "secondary_foundation": "Care",
-      "risk_signal": "volatile immediacy risk",
-      "inhibitor_trigger": "Waits for permission, perfect certainty, or social approval until the honest moment goes cold."
-    },
-    "placement_axes": {
-      "required_positive_evidence_terms": [
-        "immediacy",
-        "freedom",
-        "impulse",
-        "emotion",
-        "spark",
-        "ignition",
-        "direct action",
-        "haste",
-        "burn",
-        "momentum"
-      ],
-      "required_positive_min_hits": 2,
-      "strengthens_when_user_centers": [
-        "act now",
-        "honest impulse",
-        "freedom through motion",
-        "emotion as truth",
-        "direct pressure"
-      ],
-      "suppress_when_user_centers": [
-        "pain as spectacle",
-        "sacrifice for value",
-        "primal belonging",
-        "crafted experiment",
-        "technique before feeling"
-      ],
-      "false_positive_guardrail": "Do not award for generic chaos, generic aggression, cruelty, wildness, spectacle, or spell technique without clear immediacy, freedom, impulse, emotion, ignition, or direct-action language.",
-      "broad_match_penalty": 0.12
-    },
-    "good_fit_indicators": [
-      "acts before paralysis can turn feeling into theory",
-      "protects freedom through direct motion and honest impulse",
-      "uses temporary openings, damage, speed, or momentum while they are alive"
-    ],
-    "poor_fit_indicators": [
-      "needs every feeling justified before it can move",
-      "turns impulse into cruelty, performance, or technique before answering it",
-      "confuses freedom with domination, primal belonging, or hidden leverage"
-    ],
-    "inhibitor_traps": [
-      "Waits for permission, perfect certainty, or social approval until the honest moment goes cold.",
-      "needs every feeling justified before it can move",
-      "turns impulse into cruelty, performance, or technique before answering it",
-      "confuses freedom with domination, primal belonging, or hidden leverage"
-    ],
-    "lateral_inhibition_targets": [
-      "WR",
-      "UR",
-      "BR",
-      "RG"
-    ],
-    "discriminator_questions": [
-      {
-        "id": "red_q1",
-        "prompt": "What has to move now because the feeling is already true?",
-        "purpose": "Separates Red's immediate emotional action from adjacent expressions that route urgency through protection, cruelty, wild belonging, or technique.",
-        "supports": "The answer centers honest impulse, freedom, ignition, or direct action before permission or perfect certainty.",
-        "weakens": "The answer requires the impulse to become protection, transgression, primal belonging, or experiment before it can matter.",
-        "collision_targets": [
-          "WR",
-          "UR",
-          "BR",
-          "RG"
-        ],
-        "evidence_claim_ids": [],
-        "confidence": "Medium"
-      },
-      {
-        "id": "red_q2",
-        "prompt": "If the door is closing, what kind of action keeps the moment alive?",
-        "purpose": "Separates mono-Red's ignition and present-tense freedom from pair expressions with more specific moral, technical, cruel, or primal commitments.",
-        "supports": "The answer favors direct motion, haste, damage, temporary momentum, or emotional honesty in the present tense.",
-        "weakens": "The answer centers rescuing someone, crafting an experiment, making pain public, or returning to wild belonging.",
-        "collision_targets": [
-          "WR",
-          "UR",
-          "BR",
-          "RG"
-        ],
-        "evidence_claim_ids": [],
-        "confidence": "Medium"
-      }
-    ],
-    "chatbot_guidance": {
-      "how_to_recognize_match": [
-        "acts before paralysis can turn feeling into theory",
-        "protects freedom through direct motion and honest impulse",
-        "uses temporary openings, damage, speed, or momentum while they are alive"
-      ],
-      "how_to_recognize_mismatch": [
-        "needs every feeling justified before it can move",
-        "turns impulse into cruelty, performance, or technique before answering it",
-        "confuses freedom with domination, primal belonging, or hidden leverage"
-      ],
-      "questions_to_ask_when_uncertain": [
-        "What has to move now because the feeling is already true?",
-        "If no one gave permission, what honest action would still need to happen?"
-      ],
-      "never_claim_as_canon": [
-        "Psychological placement categories are Vox Mana interpretation, not official Wizards canon.",
-        "Do not state that a user's personality is objectively determined by a color or expression.",
-        "Placement scoring is a Vox Mana interpretation, not official Wizards canon."
-      ],
-      "calibration_note": "Red should require explicit immediacy, freedom, impulse, emotion, ignition, direct action, damage, haste, or temporary momentum language. Keep it adjacent when the answer centers cruelty, transgression, primal belonging, experiment, or performance craft.",
-      "scoring_guardrail": "Do not award for generic chaos, generic aggression, cruelty, wildness, spectacle, or spell technique without clear immediacy, freedom, impulse, emotion, ignition, or direct-action language."
-    },
-    "canon_guardrails": {
-      "never_claim_as_canon": [
-        "Psychological placement categories are Vox Mana interpretation, not official Wizards canon.",
-        "Do not state that a user's personality is objectively determined by a color or expression.",
-        "Placement scoring is a Vox Mana interpretation, not official Wizards canon."
-      ]
-    }
-  },
-  "G": {
-    "name": "Green",
-    "institution_type": "color",
-    "world": "The Color Pie",
-    "colors": [
-      "G"
-    ],
-    "layered_identity": {
-      "core_color": "G",
-      "secondary_colors": [],
-      "secondary_color": null,
-      "expression_key": "G",
-      "expression_name": "Green",
-      "expression_kind": "color",
-      "purity": 1,
-      "routing": {
-        "edhrec_slug": "mono-green",
-        "mtgdecks_slug": "mono-green",
-        "label": "Green"
-      }
-    },
-    "tagline": "The seed remembers what it is becoming.",
-    "philosophy": "Green believes the world is not an unsolved machine. It is a living order already holding each creature's place, and strength comes from accepting nature, rooting deeply, and letting time reveal what was always in the seed.",
-    "core_tension": "Green protects flourishing through acceptance and interdependence, but its virtue can harden into stagnation when every necessary change is dismissed as unnatural.",
-    "affinity": {
-      "drawn_to": [
-        "Organic growth that follows the shape of life",
-        "Natural order, instinct, and old patterns that still hold",
-        "Land, creatures, ramp, and patient resource abundance",
-        "Belonging to the living world without needing to redesign it"
-      ],
-      "repelled_by": [
-        "Forcing every limit into an engineered improvement project",
-        "Treating life, land, or kinship as disposable fuel",
-        "Mistaking domination, rage, or spectacle for instinct",
-        "Calling patience weakness when roots are still deepening"
-      ],
-      "core_question": "What are you already becoming when you stop fighting your nature?",
-      "interview_tells": [
-        "Talks about growth as an unfolding, not a reinvention",
-        "Trusts instinct, seasons, and embodied knowledge before abstract redesign",
-        "Finds strength in land, creatures, roots, and living interdependence",
-        "Prefers patient inevitability to frantic correction"
-      ],
-      "not_to_be_confused_with": "Selesnya turns belonging into shared community; Simic and Quandrix route growth through adaptation, optimization, or pattern logic; Golgari and Witherbloom center decay, reclamation, and life-death exchange; Gruul turns instinct into wild refusal and force."
-    },
-    "decree_voice": {
-      "tone": "Grounded, patient, and quietly immense without becoming passive.",
-      "speaks_like": "An old forest that trusts the roots before it answers the storm.",
-      "example_opening": "The reading turns toward roots, instinct, and the life that keeps becoming itself.",
-      "example_decree": "The reading turns toward roots, instinct, and the life that keeps becoming itself. Green does not ask you to outthink the seed. It asks what already knows how to grow, what pace will let strength become real, and what old belonging returns when the living world is trusted again."
-    },
-    "biological_expression": {
-      "archetype": "The Rooted Becoming",
-      "primary_foundation": "Sanctity",
-      "secondary_foundation": "Loyalty",
-      "risk_signal": "stagnation risk",
-      "inhibitor_trigger": "Rejects natural limits, inherited strengths, or patient growth unless life can be redesigned into a preferred shape."
-    },
-    "placement_axes": {
-      "required_positive_evidence_terms": [
-        "organic growth",
-        "natural order",
-        "acceptance",
-        "patience",
-        "instinct",
-        "land",
-        "roots",
-        "flourishing",
-        "creatures",
-        "ramp",
-        "big mana",
-        "becoming",
-        "natural belonging"
-      ],
-      "required_positive_min_hits": 2,
-      "strengthens_when_user_centers": [
-        "become what you are",
-        "organic growth",
-        "accept natural role",
-        "patience through roots",
-        "instinct and land",
-        "natural flourishing"
-      ],
-      "suppress_when_user_centers": [
-        "communal mobilization",
-        "engineered adaptation",
-        "mathematical optimization",
-        "rot and reclamation economy",
-        "rage and smash pressure",
-        "sacrifice for value"
-      ],
-      "false_positive_guardrail": "Do not award mono-Green for generic community, token mobilization, engineered adaptation, mathematical scaling, decay economy, reclamation loops, rage, smash, or raw pressure without clear organic growth, acceptance, patience, instinct, land, roots, creatures, or natural flourishing language.",
-      "broad_match_penalty": 0.12
-    },
-    "good_fit_indicators": [
-      "trusts organic growth and natural pace before forced reinvention",
-      "roots strength in land, creatures, instinct, and embodied belonging",
-      "lets patience reveal what was already possible in the living system"
-    ],
-    "poor_fit_indicators": [
-      "needs every limit redesigned before any growth can be trusted",
-      "turns life into a resource economy instead of a living order",
-      "confuses instinct with rage, spectacle, domination, or anti-civilization force"
-    ],
-    "inhibitor_traps": [
-      "Rejects natural limits, inherited strengths, or patient growth unless life can be redesigned into a preferred shape.",
-      "needs every limit redesigned before any growth can be trusted",
-      "turns life into a resource economy instead of a living order",
-      "confuses instinct with rage, spectacle, domination, or anti-civilization force"
-    ],
-    "lateral_inhibition_targets": [
-      "WG",
-      "UG",
-      "BG",
-      "RG"
-    ],
-    "discriminator_questions": [
-      {
-        "id": "green_q1",
-        "prompt": "When life is strained before its roots are deep, what does honest care trust first?",
-        "purpose": "Separates mono-Green's organic pace and natural role from Selesnya community, Simic adaptation, Golgari reclamation, and Gruul wild force.",
-        "supports": "The answer centers roots, patience, instinct, land, and becoming what was already present in the living system.",
-        "weakens": "The answer turns first to communal identity, engineered change, decay economy, or forceful rupture.",
-        "collision_targets": [
-          "WG",
-          "UG",
-          "BG",
-          "RG"
-        ],
-        "evidence_claim_ids": [],
-        "confidence": "Medium"
-      },
-      {
-        "id": "green_q2",
-        "prompt": "What makes strength feel real over time?",
-        "purpose": "Separates Green's patient natural flourishing from adjacent pair expressions that need community, adaptation, reclamation, or wild refusal to explain strength.",
-        "supports": "The answer favors land, creatures, roots, instinct, and patient growth that unfolds from inherent nature.",
-        "weakens": "The answer centers group mobilization, biological redesign, using remains as economy, or rage against constraint.",
-        "collision_targets": [
-          "WG",
-          "UG",
-          "BG",
-          "RG"
-        ],
-        "evidence_claim_ids": [],
-        "confidence": "Medium"
-      }
-    ],
-    "chatbot_guidance": {
-      "how_to_recognize_match": [
-        "trusts organic growth and natural pace before forced reinvention",
-        "roots strength in land, creatures, instinct, and embodied belonging",
-        "lets patience reveal what was already possible in the living system"
-      ],
-      "how_to_recognize_mismatch": [
-        "needs every limit redesigned before any growth can be trusted",
-        "turns life into a resource economy instead of a living order",
-        "confuses instinct with rage, spectacle, domination, or anti-civilization force"
-      ],
-      "questions_to_ask_when_uncertain": [
-        "What are you already becoming when you stop fighting your nature?",
-        "Does the answer need to be redesigned, or does it need time, roots, and trust?"
-      ],
-      "never_claim_as_canon": [
-        "Psychological placement categories are Vox Mana interpretation, not official Wizards canon.",
-        "Do not state that a user's personality is objectively determined by a color or expression.",
-        "Placement scoring is a Vox Mana interpretation, not official Wizards canon."
-      ],
-      "calibration_note": "Green should require explicit organic growth, natural order, acceptance, patience, instinct, land, roots, creatures, ramp, or natural flourishing language. Keep it adjacent when the answer centers community/token mobilization, engineered adaptation, math/pattern abstraction, decay/reclamation economy, or wild-force pressure.",
-      "scoring_guardrail": "Do not award mono-Green for generic community, generic growth, biomancy, equations, rot, reclamation, rage, smash, or pressure without clear organic growth, acceptance, patience, instinct, land, roots, creatures, or natural flourishing language."
-    },
-    "canon_guardrails": {
-      "never_claim_as_canon": [
-        "Psychological placement categories are Vox Mana interpretation, not official Wizards canon.",
-        "Do not state that a user's personality is objectively determined by a color or expression.",
-        "Placement scoring is a Vox Mana interpretation, not official Wizards canon."
-      ]
-    }
   }
 } as const;
 
@@ -7933,9 +8465,14 @@ export const PLACEMENT_MODEL_META = {
   "result_version": "2026-05-10",
   "source": "data/raw-factions plus data/factions.json display surface",
   "framing": "Biological expression placement model; Vox Mana interpretive taxonomy, not official canon.",
-  "faction_count": 36,
+  "faction_count": 37,
   "identity_layer_version": "2026-05-27",
   "active_expression_keys": [
+    "W",
+    "U",
+    "B",
+    "R",
+    "G",
     "WU",
     "BANT",
     "WR",
@@ -7955,6 +8492,7 @@ export const PLACEMENT_MODEL_META = {
     "INK",
     "WITCH",
     "COLORLESS",
+    "WUBRG",
     "BG",
     "RG",
     "UB",
@@ -7966,11 +8504,6 @@ export const PLACEMENT_MODEL_META = {
     "WG",
     "SILVERQUILL",
     "UG",
-    "WITHERBLOOM",
-    "W",
-    "U",
-    "B",
-    "R",
-    "G"
+    "WITHERBLOOM"
   ]
 } as const;

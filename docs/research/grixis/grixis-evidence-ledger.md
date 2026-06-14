@@ -3,9 +3,10 @@
 **Faction:** Grixis
 **Plane:** Alara
 **Date:** 2026-05-30
-**Kanban Card:** VM-164
+**Last Updated:** 2026-06-13
+**Kanban Card:** VM-164; VM-379 update
 
-This ledger maps retained Grixis packet claims to source paths, source tiers, confidence/status, and VM-164 classification.
+This ledger maps retained Grixis packet claims to source paths, source tiers, confidence/status, and VM-164/VM-379 classification.
 
 Classifications:
 
@@ -35,6 +36,9 @@ Classifications:
 | GRIXIS-013 | Thraximundar is a UBR legendary Zombie Assassin card with haste and sacrifice-pressure card text. | `data/scryfall/raw/oracle-cards.json` | Tier 2C - Local card data | High for card fact; no political-station claim | Support-only |
 | GRIXIS-014 | Prince of Thralls, Malfegor, and Cruel Ultimatum support Grixis-colored attrition/resource-loss gameplay patterns at the card-data level. | `data/scryfall/raw/oracle-cards.json` | Tier 2C - Local card data | Medium-High for card patterns; not lore proof | Support-only |
 | GRIXIS-015 | `Absorb Vis` verifies `vis` as a local card-data term and a life-swing card, but VM-164 cannot promote a full vis economy from this alone. | `data/scryfall/raw/oracle-cards.json` | Tier 2C - Local card data | High for term/card fact; low for physiology/economy | Promoted boundary |
+| GRIXIS-030 | Necromancy was unknown on Jund before the Conflux and was the sole province of the hellish shard of Grixis. | `docs/research/canon/source-material/alara/story-all-cairns-of-jund.md`; official URL verified 2026-06-13 | Tier 1 - Local official story capture | High for narrow pre-Conflux necromancy dimension | Promoted in VM-379 |
+| GRIXIS-031 | The official Alara plane overview describes Grixis as an undead-infested hellscape among the five formerly separated shards. | `docs/research/canon/source-material/alara/alara-plane-overview.md`; official URL verified 2026-06-13 | Tier 1 - Local official plane overview | High for broad story texture; not detailed geography | Promoted in VM-379 |
+| GRIXIS-032 | The official Alara plane overview says hordes of Grixis undead assaulted other shards after the convergence to maim, enslave, and drain life energy. | `docs/research/canon/source-material/alara/alara-plane-overview.md`; official URL verified 2026-06-13 | Tier 1 - Local official plane overview | High for broad post-Conflux assault/life-drain dimension; not campaign chronology | Promoted in VM-379 |
 | GRIXIS-016 | The UBR Commander JSONL contains exactly 8 rows relevant to product/operator language. | `docs/research/vox_mana_second_commander_recommendations_enhanced.jsonl` | Tier 2P - Product/operator support | High for row count and row content | Support-only |
 | GRIXIS-017 | UBR Commander rows support operator patterns such as Wizard ETB value, exile-casting, Pirate reanimation, forced choices/artifacts, control/graveyard, artifact sacrifice, cascade/Demons, and casualty/spell copy. | `docs/research/vox_mana_second_commander_recommendations_enhanced.jsonl` | Tier 2P - Product/operator support | High for product/operator language | Support-only |
 | GRIXIS-018 | UBR Commander rows must not support canon claims about Grixis society, figures, geography, metaphysics, or chronology. | `docs/research/vox_mana_second_commander_recommendations_enhanced.jsonl`; VM-164 prompt | Tier 2P / Process directive | High | Promoted boundary |
@@ -53,7 +57,7 @@ These rows are important but cannot be promoted in VM-164.
 
 | Claim ID | Claim Summary | Current Source Path | Current Source Tier | Confidence / Status | Classification |
 |---|---|---|---|---|---|
-| GRIXIS-MF-001 | Grixis is an "undead-infested hellscape" in current Wizards plane-page wording. | Unmanaged drafts cite external Wizards page; not locally captured in VM-164 | Tier 3 draft lead | Plausible, but local official capture missing | Manual fill required |
+| GRIXIS-MF-001 | Grixis is an undead-infested hellscape in current Wizards plane-page wording. | Resolved by GRIXIS-031 in VM-379 for broad texture only | Tier 1 official capture now recorded | High for broad texture; detailed geography still manual fill | Resolved / promoted boundary |
 | GRIXIS-MF-002 | `A Planeswalker's Guide to Alara` verifies the detailed vis system, Vitals, Damned, Vithia, Sedraxis, Kederekt, Droning Isles, Unx, Torchlight, and Grixis geography. | Unmanaged drafts and support docs | Tier 3 draft lead / Tier 2 support | Discovery only | Manual fill required |
 | GRIXIS-MF-003 | Sedris was former king of Vithia and rules Sedraxis, but not all of Grixis. | Drafts; MTG Wiki/Fandom-linked claims; local card data only proves card facts | Tier 3 / Tier 2C | Card association supported; biography/rulership not locally promoted | Manual fill required |
 | GRIXIS-MF-004 | Nicol Bolas used Grixis as a hideout/staging ground, manipulated local powers, or directed Conflux war logistics from Grixis. | Drafts and uncaptured Alara sources | Tier 3 draft lead | Do not promote from current local evidence | Manual fill required |
@@ -80,7 +84,7 @@ These rows are important but cannot be promoted in VM-164.
 | Unearth | Supported mechanics term | Limited | GRIXIS-010, GRIXIS-011 | Supported as Grixis-linked and local card mechanic; not the whole identity. |
 | Vis | Supported card-data term / manual-fill lore term | Limited | GRIXIS-015, GRIXIS-MF-002 | Official local card data proves the term; fuller economy needs official capture. |
 | Sedris | Supported card-data term / manual-fill biography | Limited | GRIXIS-012, GRIXIS-MF-003 | Card fact supported; rulership/biography require manual fill. |
-| Bolas | Manual-fill figure term | No promoted lore claim | GRIXIS-MF-004 | Current approved sources do not prove "Bolas rules Grixis." |
+| Bolas | Manual-fill figure term / broad Alara scheme context | Limited | GRIXIS-031, GRIXIS-032, GRIXIS-MF-004 | VM-379 official plane overview supports broad Bolas/Alara mana-scheme wording only; it does not prove Grixis staging, local rulership, or Grixis-based operations. |
 | Malfegor | Supported card-data term / manual-fill biography | Limited | GRIXIS-014, GRIXIS-MF-005 | Card fact supported; story role requires manual fill. |
 | Maestros | Comparator/support only | No Grixis claim | GRIXIS-019, GRIXIS-MF-012 | Same UBR direction can appear in product rows, but it is not Grixis evidence. |
 

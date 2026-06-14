@@ -27,7 +27,7 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 ## In Progress
 
-- [VM-364 - Archscry Identity Matrix Data Map](in-progress/VM-364-archscry-identity-matrix-data-map.md)
+- [VM-381 - Publish And Clean Dirty Tree](in-progress/VM-381-publish-and-clean-dirty-tree.md)
 
 ## Blocked
 
@@ -37,6 +37,23 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 Historical note: `VM-044` is a preserved historical duplicate ID and `VM-049` is an intentional preserved duplicate pairing per the handoff trail. `VM-197` also has a user-declared Abzan stack duplicate while preserving the existing Alara VM-197 card. `VM-215` has a manual-QA Abzan repair duplicate; the former Jeskai VM-215 through VM-220 reservation was repaired to VM-229 through VM-234 on 2026-05-31.
 
+- [VM-380 - Tarkir Dossier Support Repair](done/VM-380-tarkir-dossier-support-repair.md)
+- [VM-379 - Grixis Source Depth Repair](done/VM-379-grixis-source-depth-repair.md)
+- [VM-378 - Strixhaven Non-Lorehold UX Richness](done/VM-378-strixhaven-non-lorehold-ux-richness.md)
+- [VM-377 - Mono Gold Source Intake Planning](done/VM-377-mono-gold-source-intake-planning.md)
+- [VM-375 - WUBRG EDHREC Precon Link Repair](done/VM-375-wubrg-edhrec-precon-link-repair.md)
+- [VM-376 - WUBRG Commander Flavor Echo Image Repair](done/VM-376-wubrg-commander-flavor-echo-image-repair.md)
+- [VM-374 - WUBRG Dossier Copy Governance Polish](done/VM-374-wubrg-dossier-copy-governance-polish.md)
+- [VM-372 - Colorless Support-Only Controlled Richness](done/VM-372-colorless-support-only-controlled-richness.md)
+- [VM-373 - WUBRG Identity Hero Background Hookup](done/VM-373-wubrg-identity-hero-background-hookup.md)
+- [VM-371 - WUBRG Identity Hero Generation Prompt](done/VM-371-wubrg-identity-hero-generation-prompt.md)
+- [VM-365 - Full Test Sweep HTML Report](done/VM-365-full-test-sweep-html-report.md)
+- [VM-366 - JS HTML CSS Test Inventory](done/VM-366-js-html-css-test-inventory.md)
+- [VM-364 - Archscry Identity Matrix Data Map](done/VM-364-archscry-identity-matrix-data-map.md)
+- [VM-368 - WUBRG Commander Support Verification](done/VM-368-wubrg-commander-support-verification.md)
+- [VM-369 - COLORLESS/WUBRG Crucible Readiness](done/VM-369-colorless-wubrg-crucible-readiness.md)
+- [VM-370 - WUBRG Claim-Backed Lore Depth](done/VM-370-wubrg-claim-backed-lore-depth.md)
+- [VM-367 - WUBRG Gold Layer 1 And Layer 2](done/VM-367-wubrg-gold-layer1-layer2.md)
 - [VM-363 - Repo Cleanup And Verified Publish Bundle](done/VM-363-repo-cleanup-verified-publish-bundle.md)
 - [VM-361 - Mono Color Official Source Inventory](done/VM-361-mono-color-official-source-inventory.md)
 - [VM-362 - Colorless Public Richness Decision Gate](done/VM-362-colorless-public-richness-decision-gate.md)

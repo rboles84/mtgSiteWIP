@@ -22,6 +22,7 @@ Status: VM-200 approved source ledger. Abzan remains non-live and review-gated.
 | ABZAN-SRC-014 | Seed | `docs/research/abzan/source-material/Abzan Houses_ Deep Research Report.md` copied from VM-198 stash untracked tree path `docs/research/abzan houses/Abzan Houses_ Deep Research Report.md` | Discovery material and claim queue. | Not approved evidence. Every claim requires independent evidence-row promotion. |
 | ABZAN-SRC-015 | Seed | `docs/research/abzan/source-material/abzan-houses-lore-source-packet.md` copied from VM-198 stash untracked tree path `docs/research/abzan houses/abzan-houses-lore-source-packet.md` | Discovery material and claim queue. | Not approved evidence. Packet-shaped wording cannot cite itself. |
 | ABZAN-SRC-016 | Seed | `docs/research/abzan/source-material/abzan_houses_research_report.html` copied from VM-198 stash untracked tree path `docs/research/abzan houses/abzan_houses_research_report.html` | Structure-only discovery material. | Generated HTML cannot be canon evidence. |
+| ABZAN-SRC-017 | 2P | `https://magic.wizards.com/en/news/announcements/tarkir-dragonstorm-commander-decklists` | Official Tarkir: Dragonstorm Commander product row for `Abzan Armor`, `Felothar the Steadfast`, `Betor, Ancestor's Voice`, deck name, color identity, and gallery/deck navigation. | Support-only. Not Tarkir canon, Abzan lore, commander legality proof, popularity proof, metagame proof, or placement evidence. |
 
 ## Exact WBG Commander Support Extraction
 
