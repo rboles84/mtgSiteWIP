@@ -1,0 +1,48 @@
+# VM-386 - Publish Gate Dossier Cleanup Bundle
+
+ID: VM-386
+Title: Publish Gate Dossier Cleanup Bundle
+Status: in-progress
+Type: Release Hygiene / Git
+Area: Gate Compression, Archscry Dossier, Repo Cleanup
+Priority: high
+Created: 2026-06-14
+
+## Summary
+
+Classify, verify, commit, push, and clean the dirty tree containing documented VM-382 through VM-385 Gate compression and Archscry dossier UX work.
+
+## Scope
+
+- Preserve documented VM-382 through VM-385 work.
+- Exclude scratch `._rc*` and `._relic_*` files.
+- Rebuild generated placement output through the approved builder before staging generated files.
+- Run publish-readiness tests.
+- Commit and push to `origin/feature/ui-refactor-exploration` without force.
+- Confirm final `git status --short --branch` is clean and aligned.
+
+## Out Of Scope
+
+- No new Gate redesign beyond documented VM-382 through VM-385 work.
+- No lore, commander fact, source-claim, Home route, Maze route, API, schema, alias, or hero expansion.
+- No hand edits to generated placement output.
+- No scratch-file staging.
+
+## Acceptance Criteria
+
+- Dirty tree classification is documented in the VM-386 handoff.
+- Scratch files are removed or otherwise excluded from the final status.
+- Required verification gates pass or any known exceptions are documented.
+- Staged bundle contains only classified publishable files.
+- Commit hash, push target, and final clean status are recorded.
+
+## Validation Checklist
+
+- [x] Preflight docs reviewed.
+- [x] Dirty tree classified.
+- [x] Generated outputs rebuilt.
+- [x] Tests run.
+- [x] Classified files staged.
+- [ ] Bundle committed.
+- [ ] Branch pushed.
+- [ ] Final clean status confirmed.

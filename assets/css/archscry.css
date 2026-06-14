@@ -2172,6 +2172,9 @@ body::before{
   border:1px solid rgba(184,149,74,0.09);
   background:rgba(8,8,10,0.32);
 }
+.how-this-plays-grid > .how-this-plays-block:first-of-type > .table-identity-list{
+  margin-top:-4.44rem;
+}
 .how-this-plays-label{
   color:var(--gold-l);
   font-family:"IBM Plex Mono",monospace;
@@ -2179,6 +2182,7 @@ body::before{
   letter-spacing:0.08em;
   text-transform:uppercase;
 }
+.how-this-plays-label + .table-identity-list{margin-top:0}
 .table-identity-list{display:flex;flex-direction:column;gap:0.42rem}
 .table-identity-list div{color:rgba(236,233,225,0.93);font-size:1rem;line-height:1.48}
 .table-identity-list span{

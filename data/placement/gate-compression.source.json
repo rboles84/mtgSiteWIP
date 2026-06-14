@@ -1,0 +1,237 @@
+{
+  "_meta": {
+    "id": "wubrg-first-gate-v1",
+    "status": "live-builder-source",
+    "created": "2026-06-14",
+    "related_card": "VM-384",
+    "target_expression_count": 37,
+    "description": "Builder-owned WUBRG-vector-first Gate source for the live Archscry Gate. Generated placement scoring must be derived from this source, not hand-authored here.",
+    "ordinary_expression_rule": "Ordinary color-bearing expressions receive evidence only through answer color_loadings propagated over WUBRG colors.",
+    "colorless_rule": "COLORLESS receives evidence only through answer-level outside_wubrg.",
+    "wubrg_rule": "WUBRG receives evidence only through answer-level all_five_integration."
+  },
+  "scoring": {
+    "neutral_likelihood": 0.45,
+    "propagation_mode": "sqrt",
+    "gate_broad_match_penalty": 0,
+    "bucket_contract": "Use the current placement model likelihood_to_delta table; bucket propagated deltas to the nearest existing likelihood before scoring."
+  },
+  "questions": [
+    {
+      "id": "gate_v2_locus_of_trust",
+      "stage": "gate",
+      "eyebrow": "Gate I",
+      "axis": "Locus Of Trust",
+      "prompt": "When the ground shifts, what do you trust first?",
+      "answers": [
+        {
+          "id": "gate_v2_trust_self_claim",
+          "title": "The claim no one can make for me",
+          "copy": "I start with agency: the private decision, the necessary edge, the first motion I can own.",
+          "signal": "self-authored agency",
+          "color_loadings": { "W": 0.2, "U": 0.45, "B": 0.95, "R": 0.9, "G": 0.2 },
+          "outside_wubrg": 0.03,
+          "all_five_integration": 0.2
+        },
+        {
+          "id": "gate_v2_trust_personal_threshold",
+          "title": "The threshold in the self",
+          "copy": "I listen for the moment where desire, danger, and choice become too clear to outsource.",
+          "signal": "personal threshold",
+          "color_loadings": { "W": 0.35, "U": 0.5, "B": 0.75, "R": 0.75, "G": 0.35 },
+          "outside_wubrg": 0.03,
+          "all_five_integration": 0.2
+        },
+        {
+          "id": "gate_v2_trust_braided_witness",
+          "title": "A braided witness",
+          "copy": "I want each part of the situation named, given weight, and brought into one accountable center.",
+          "signal": "integrated whole",
+          "color_loadings": { "W": 0.55, "U": 0.55, "B": 0.55, "R": 0.55, "G": 0.55 },
+          "outside_wubrg": 0.03,
+          "all_five_integration": 0.95
+        },
+        {
+          "id": "gate_v2_trust_common_root",
+          "title": "The common root",
+          "copy": "I trust the pattern that keeps people, place, and continuity from splintering under strain.",
+          "signal": "communal continuity",
+          "color_loadings": { "W": 0.95, "U": 0.75, "B": 0.1, "R": 0.45, "G": 0.95 },
+          "outside_wubrg": 0.03,
+          "all_five_integration": 0.2
+        },
+        {
+          "id": "gate_v2_trust_outside_measure",
+          "title": "The measure outside the map",
+          "copy": "I trust the constraint that does not ask the old language for permission before it becomes real.",
+          "signal": "outside boundary",
+          "color_loadings": { "W": 0.2, "U": 0.2, "B": 0.2, "R": 0.2, "G": 0.2 },
+          "outside_wubrg": 0.95,
+          "all_five_integration": 0.2
+        }
+      ]
+    },
+    {
+      "id": "gate_v2_pressure_becomes",
+      "stage": "gate",
+      "eyebrow": "Gate II",
+      "axis": "What Pressure Becomes",
+      "prompt": "When pressure gathers, what should it become?",
+      "answers": [
+        {
+          "id": "gate_v2_pressure_form",
+          "title": "A form that can hold",
+          "copy": "Pressure should become structure: named, testable, and steady enough to keep harm from spreading.",
+          "signal": "ordered containment",
+          "color_loadings": { "W": 0.75, "U": 0.95, "B": 0.35, "R": 0.3, "G": 0.1 },
+          "outside_wubrg": 0.03,
+          "all_five_integration": 0.2
+        },
+        {
+          "id": "gate_v2_pressure_answerable_motion",
+          "title": "Answerable motion",
+          "copy": "It should move, but with a visible thread back to responsibility, memory, and consequence.",
+          "signal": "bounded action",
+          "color_loadings": { "W": 0.6, "U": 0.75, "B": 0.45, "R": 0.45, "G": 0.4 },
+          "outside_wubrg": 0.03,
+          "all_five_integration": 0.2
+        },
+        {
+          "id": "gate_v2_pressure_many_currents",
+          "title": "Many currents, one course",
+          "copy": "It should become a working convergence: different forces kept distinct, then aimed together.",
+          "signal": "balanced convergence",
+          "color_loadings": { "W": 0.55, "U": 0.55, "B": 0.55, "R": 0.55, "G": 0.55 },
+          "outside_wubrg": 0.03,
+          "all_five_integration": 0.95
+        },
+        {
+          "id": "gate_v2_pressure_wild_release",
+          "title": "A wild release",
+          "copy": "It should become adaptation, appetite, heat, and movement before a brittle answer snaps shut.",
+          "signal": "adaptive release",
+          "color_loadings": { "W": 0.35, "U": 0.35, "B": 0.75, "R": 0.85, "G": 0.95 },
+          "outside_wubrg": 0.03,
+          "all_five_integration": 0.2
+        },
+        {
+          "id": "gate_v2_pressure_silent_axis",
+          "title": "A silent axis",
+          "copy": "It should become a hard boundary: not loud, not ornamental, simply outside the usual bargain.",
+          "signal": "outside boundary",
+          "color_loadings": { "W": 0.2, "U": 0.2, "B": 0.2, "R": 0.2, "G": 0.2 },
+          "outside_wubrg": 0.95,
+          "all_five_integration": 0.2
+        }
+      ]
+    },
+    {
+      "id": "gate_v2_first_signal",
+      "stage": "gate",
+      "eyebrow": "Gate III",
+      "axis": "First Signal",
+      "prompt": "What signal reaches you first?",
+      "answers": [
+        {
+          "id": "gate_v2_signal_cold_pattern",
+          "title": "The cold pattern",
+          "copy": "Before the room gets loud, I notice leverage, implication, and what the facts are already costing.",
+          "signal": "calculated implication",
+          "color_loadings": { "W": 0.45, "U": 0.55, "B": 0.95, "R": 0.1, "G": 0.55 },
+          "outside_wubrg": 0.03,
+          "all_five_integration": 0.2
+        },
+        {
+          "id": "gate_v2_signal_measured_trace",
+          "title": "The measured trace",
+          "copy": "I look for the thread beneath the feeling: the sign that tells me what kind of change is possible.",
+          "signal": "measured inference",
+          "color_loadings": { "W": 0.45, "U": 0.55, "B": 0.85, "R": 0.25, "G": 0.55 },
+          "outside_wubrg": 0.03,
+          "all_five_integration": 0.2
+        },
+        {
+          "id": "gate_v2_signal_whole_chord",
+          "title": "The whole chord",
+          "copy": "The signal arrives as a chord: thought, hunger, duty, feeling, and life all audible at once.",
+          "signal": "balanced chord",
+          "color_loadings": { "W": 0.55, "U": 0.55, "B": 0.55, "R": 0.55, "G": 0.55 },
+          "outside_wubrg": 0.03,
+          "all_five_integration": 0.95
+        },
+        {
+          "id": "gate_v2_signal_live_spark",
+          "title": "The live spark",
+          "copy": "I hear what wants to move: the heat, the honesty, the flash before it gets explained away.",
+          "signal": "felt ignition",
+          "color_loadings": { "W": 0.55, "U": 0.45, "B": 0.1, "R": 0.95, "G": 0.45 },
+          "outside_wubrg": 0.03,
+          "all_five_integration": 0.2
+        },
+        {
+          "id": "gate_v2_signal_unlit_edge",
+          "title": "The unlit edge",
+          "copy": "The first signal is absence: a clean edge where the usual symbols stop being useful.",
+          "signal": "outside boundary",
+          "color_loadings": { "W": 0.2, "U": 0.2, "B": 0.2, "R": 0.2, "G": 0.2 },
+          "outside_wubrg": 0.95,
+          "all_five_integration": 0.2
+        }
+      ]
+    },
+    {
+      "id": "gate_v2_cost_of_oath",
+      "stage": "gate",
+      "eyebrow": "Gate IV",
+      "axis": "Cost Of The Oath",
+      "prompt": "What cost can an oath fairly ask of you?",
+      "answers": [
+        {
+          "id": "gate_v2_oath_preserve",
+          "title": "Preserve what must not break",
+          "copy": "It can ask me to carry the old weight: shelter, consequence, and the line that keeps faith intact.",
+          "signal": "preserving duty",
+          "color_loadings": { "W": 0.95, "U": 0.25, "B": 0.6, "R": 0.75, "G": 0.45 },
+          "outside_wubrg": 0.03,
+          "all_five_integration": 0.2
+        },
+        {
+          "id": "gate_v2_oath_steward",
+          "title": "Steward the change",
+          "copy": "It can ask discipline from me: not refusal of change, but care over what change consumes.",
+          "signal": "careful stewardship",
+          "color_loadings": { "W": 0.75, "U": 0.45, "B": 0.45, "R": 0.6, "G": 0.45 },
+          "outside_wubrg": 0.03,
+          "all_five_integration": 0.2
+        },
+        {
+          "id": "gate_v2_oath_whole_covenant",
+          "title": "Keep the whole covenant",
+          "copy": "It can ask me to hold every claim in view, even when no single hunger deserves the throne.",
+          "signal": "integrated covenant",
+          "color_loadings": { "W": 0.55, "U": 0.55, "B": 0.55, "R": 0.55, "G": 0.55 },
+          "outside_wubrg": 0.03,
+          "all_five_integration": 0.95
+        },
+        {
+          "id": "gate_v2_oath_transform",
+          "title": "Become the changed thing",
+          "copy": "It can ask me to release the prior shape and become the answer the threshold requires.",
+          "signal": "transformative cost",
+          "color_loadings": { "W": 0.1, "U": 0.85, "B": 0.45, "R": 0.45, "G": 0.75 },
+          "outside_wubrg": 0.03,
+          "all_five_integration": 0.2
+        },
+        {
+          "id": "gate_v2_oath_without_color",
+          "title": "Stand where the lamp does not reach",
+          "copy": "It can ask a clean refusal: no borrowed brightness, no decorated answer, only the boundary kept.",
+          "signal": "outside boundary",
+          "color_loadings": { "W": 0.2, "U": 0.2, "B": 0.2, "R": 0.2, "G": 0.2 },
+          "outside_wubrg": 0.95,
+          "all_five_integration": 0.2
+        }
+      ]
+    }
+  ]
+}

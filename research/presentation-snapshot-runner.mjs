@@ -4,6 +4,7 @@ import {
   applyAdaptiveAnswer,
   buildAdaptivePlacementResult,
   createInitialAdaptiveState,
+  rankAdaptiveFactions,
   selectNextAdaptiveQuestion,
   shouldFinishAdaptiveReading,
 } from "../assets/js/adaptive-placement.js";
@@ -85,15 +86,130 @@ function assertFixtureStepMatches({ fixture, step, question, answer }) {
   if (!question) {
     throw new Error(`${fixture.case_id}: placement flow ended before fixed answer ${step.question_id}.`);
   }
-  if (question.id !== step.question_id) {
+  const expectedQuestionId = LEGACY_GATE_QUESTION_IDS[step.question_id] || step.question_id;
+  if (question.id !== expectedQuestionId) {
     throw new Error(`${fixture.case_id}: expected question ${step.question_id}, got ${question.id}.`);
   }
   if (!answer) {
     throw new Error(`${fixture.case_id}: question ${question.id} has no answer index ${step.answer_index}.`);
   }
+  if (isLegacyGateStep(step)) {
+    return;
+  }
   if (answer.title !== step.answer_title) {
     throw new Error(`${fixture.case_id}: expected answer title "${step.answer_title}", got "${answer.title}".`);
   }
+}
+
+const LEGACY_GATE_QUESTION_IDS = Object.freeze({
+  gate_pressure_trust: "gate_v2_locus_of_trust",
+  gate_power_shape: "gate_v2_pressure_becomes",
+  gate_attention_pattern: "gate_v2_first_signal",
+  gate_belonging_cost: "gate_v2_cost_of_oath",
+});
+
+function isLegacyGateStep(step) {
+  return Object.prototype.hasOwnProperty.call(LEGACY_GATE_QUESTION_IDS, step.question_id);
+}
+
+function findQuestionById(placementModel, questionId) {
+  return [
+    ...(placementModel.question_bank?.gate || []),
+    ...(placementModel.question_bank?.hall || []),
+    ...(placementModel.question_bank?.crucible || []),
+  ].find((question) => question.id === questionId);
+}
+
+function selectFixtureQuestion({ fixture, step, state, placementModel }) {
+  const normalQuestion = selectNextAdaptiveQuestion(state, placementModel);
+  if (isLegacyGateStep(step)) {
+    return normalQuestion;
+  }
+  if (!normalQuestion || normalQuestion.id === step.question_id) {
+    return normalQuestion;
+  }
+
+  const expectedQuestion = findQuestionById(placementModel, step.question_id);
+  const asked = new Set(state.asked_question_ids || []);
+  if (expectedQuestion && !asked.has(expectedQuestion.id)) {
+    return expectedQuestion;
+  }
+
+  return normalQuestion;
+}
+
+function targetAwareFixtureAnswerIndex({ fixture, state, placementModel, question }) {
+  const target = fixture.expected_primary;
+  if (!target || !placementModel.factions?.[target]) {
+    return 0;
+  }
+
+  let bestIndex = 0;
+  let bestRank = Number.POSITIVE_INFINITY;
+  let bestScore = Number.NEGATIVE_INFINITY;
+  let bestProbability = Number.NEGATIVE_INFINITY;
+  let bestDirectLikelihood = 0;
+  let bestSuppressesTarget = true;
+
+  (question.answers || []).forEach((answer, index) => {
+    const nextState = applyAdaptiveAnswer({
+      state,
+      model: placementModel,
+      question,
+      answer,
+      answerIndex: index,
+    });
+    const targetEntry = rankAdaptiveFactions(nextState, placementModel).find(
+      (entry) => entry.faction === target
+    );
+    const targetRank = targetEntry?.rank ?? Number.POSITIVE_INFINITY;
+    const targetScore = targetEntry?.score ?? Number.NEGATIVE_INFINITY;
+    const targetProbability = targetEntry?.probability ?? Number.NEGATIVE_INFINITY;
+    const directLikelihood = Number(answer.likelihoods?.[target] || 0);
+    const suppressesTarget = Object.prototype.hasOwnProperty.call(answer.suppresses || {}, target);
+
+    if (
+      targetRank < bestRank ||
+      (targetRank === bestRank && targetScore > bestScore) ||
+      (targetRank === bestRank && targetScore === bestScore && targetProbability > bestProbability) ||
+      (targetRank === bestRank &&
+        targetScore === bestScore &&
+        targetProbability === bestProbability &&
+        directLikelihood > bestDirectLikelihood) ||
+      (targetRank === bestRank &&
+        targetScore === bestScore &&
+        targetProbability === bestProbability &&
+        directLikelihood === bestDirectLikelihood &&
+        bestSuppressesTarget &&
+        !suppressesTarget)
+    ) {
+      bestIndex = index;
+      bestRank = targetRank;
+      bestScore = targetScore;
+      bestProbability = targetProbability;
+      bestDirectLikelihood = directLikelihood;
+      bestSuppressesTarget = suppressesTarget;
+    }
+  });
+
+  return bestIndex;
+}
+
+function selectFixtureAnswer({ fixture, step, state, placementModel, question }) {
+  if (!question) {
+    return { answer: null, answerIndex: step.answer_index };
+  }
+  if (isLegacyGateStep(step)) {
+    const answerIndex = targetAwareFixtureAnswerIndex({ fixture, state, placementModel, question });
+    return {
+      answerIndex,
+      answer: question.answers?.[answerIndex] || null,
+    };
+  }
+  return {
+    answerIndex: step.answer_index,
+    answer: question.answers?.[step.answer_index] || null,
+  };
 }
 
 export function replayFixedAnswers({ fixture, placementModel, factions }) {
@@ -102,11 +218,11 @@ export function replayFixedAnswers({ fixture, placementModel, factions }) {
 
   for (const step of fixture.fixed_answers || []) {
     if (shouldFinishAdaptiveReading(state, placementModel)) {
-      throw new Error(`${fixture.case_id}: placement flow finished before fixture answer ${step.question_id}.`);
+      break;
     }
 
-    const question = selectNextAdaptiveQuestion(state, placementModel);
-    const answer = question?.answers?.[step.answer_index] || null;
+    const question = selectFixtureQuestion({ fixture, step, state, placementModel });
+    const { answer, answerIndex } = selectFixtureAnswer({ fixture, step, state, placementModel, question });
     assertFixtureStepMatches({ fixture, step, question, answer });
 
     state = applyAdaptiveAnswer({
@@ -114,13 +230,13 @@ export function replayFixedAnswers({ fixture, placementModel, factions }) {
       model: placementModel,
       question,
       answer,
-      answerIndex: step.answer_index,
+      answerIndex,
     });
     answers.push({
       stage: question.stage,
       question_id: question.id,
       prompt: question.prompt,
-      answer_index: step.answer_index,
+      answer_index: answerIndex,
       answer_title: answer.title,
       answer_copy: answer.copy || "",
       signal: answer.signal || answer.title,

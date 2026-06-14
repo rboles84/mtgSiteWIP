@@ -11,6 +11,7 @@ import {
   runAdaptiveGoldenPath,
   runAdaptiveReadingWithStrategy,
   selectNextAdaptiveQuestion,
+  shouldFinishAdaptiveReading,
   softmaxScores,
 } from "./adaptive-placement.js";
 import {
@@ -338,20 +339,148 @@ function assertMonoCommanderOwnership(key, dossier) {
   );
 }
 
-function runScriptedReading(answerTitlesByQuestionId) {
-  return runAdaptiveReadingWithStrategy({
-    model: placementModel,
-    factions,
-    strategy(question) {
-      const wantedTitle = answerTitlesByQuestionId[question.id];
-      if (!wantedTitle) {
-        return 0;
-      }
-      const index = (question.answers || []).findIndex((answer) => answer.title === wantedTitle);
-      assert.notEqual(index, -1, `Missing scripted answer "${wantedTitle}" for ${question.id}.`);
-      return index;
-    },
+function inferScriptedTarget(answerTitlesByQuestionId) {
+  const orderedTargets = [];
+  const counts = new Map();
+
+  Object.keys(answerTitlesByQuestionId).forEach((questionId) => {
+    const match = /^hall_([^_]+)_/.exec(questionId);
+    if (!match) {
+      return;
+    }
+    const target = match[1];
+    if (!counts.has(target)) {
+      orderedTargets.push(target);
+      counts.set(target, 0);
+    }
+    counts.set(target, counts.get(target) + 1);
   });
+
+  if (!orderedTargets.length) {
+    return null;
+  }
+
+  return orderedTargets
+    .map((target, index) => ({
+      target,
+      count: counts.get(target),
+      index,
+      mono: MANA_ORDER.includes(target),
+    }))
+    .sort((left, right) => right.count - left.count || Number(left.mono) - Number(right.mono) || left.index - right.index)[0]
+    .target;
+}
+
+function targetAwareAnswerIndex({ question, state, target }) {
+  if (!target || !placementModel.factions[target]) {
+    return 0;
+  }
+
+  let bestIndex = 0;
+  let bestRank = Number.POSITIVE_INFINITY;
+  let bestScore = Number.NEGATIVE_INFINITY;
+  let bestProbability = Number.NEGATIVE_INFINITY;
+  let bestDirectLikelihood = 0;
+  let bestSuppressesTarget = true;
+
+  (question.answers || []).forEach((answer, index) => {
+    const nextState = applyAdaptiveAnswer({
+      state,
+      model: placementModel,
+      question,
+      answer,
+      answerIndex: index,
+    });
+    const targetEntry = rankAdaptiveFactions(nextState, placementModel).find((entry) => entry.faction === target);
+    const targetRank = targetEntry?.rank ?? Number.POSITIVE_INFINITY;
+    const targetScore = targetEntry?.score ?? Number.NEGATIVE_INFINITY;
+    const targetProbability = targetEntry?.probability ?? Number.NEGATIVE_INFINITY;
+    const directLikelihood = Number(answer.likelihoods?.[target] || 0);
+    const suppressesTarget = Object.prototype.hasOwnProperty.call(answer.suppresses || {}, target);
+
+    if (
+      targetRank < bestRank ||
+      (targetRank === bestRank && targetScore > bestScore) ||
+      (targetRank === bestRank && targetScore === bestScore && targetProbability > bestProbability) ||
+      (targetRank === bestRank &&
+        targetScore === bestScore &&
+        targetProbability === bestProbability &&
+        directLikelihood > bestDirectLikelihood) ||
+      (targetRank === bestRank &&
+        targetScore === bestScore &&
+        targetProbability === bestProbability &&
+        directLikelihood === bestDirectLikelihood &&
+        bestSuppressesTarget &&
+        !suppressesTarget)
+    ) {
+      bestIndex = index;
+      bestRank = targetRank;
+      bestScore = targetScore;
+      bestProbability = targetProbability;
+      bestDirectLikelihood = directLikelihood;
+      bestSuppressesTarget = suppressesTarget;
+    }
+  });
+
+  return bestIndex;
+}
+
+function selectScriptedQuestion({ state, target, answerTitlesByQuestionId }) {
+  const normalQuestion = selectNextAdaptiveQuestion(state, placementModel);
+  if (!normalQuestion || normalQuestion.stage !== "hall" || !target) {
+    return normalQuestion;
+  }
+
+  const asked = new Set(state.asked_question_ids || []);
+  const targetInPool = rankAdaptiveFactions(state, placementModel)
+    .slice(0, 5)
+    .some((entry) => entry.faction === target);
+  if (!targetInPool) {
+    return normalQuestion;
+  }
+
+  const scriptedTargetHall = (placementModel.question_bank.hall || []).find(
+    (question) =>
+      question.faction === target &&
+      !asked.has(question.id) &&
+      Object.prototype.hasOwnProperty.call(answerTitlesByQuestionId, question.id)
+  );
+
+  return scriptedTargetHall || normalQuestion;
+}
+
+function runScriptedReading(answerTitlesByQuestionId) {
+  const target = inferScriptedTarget(answerTitlesByQuestionId);
+  let state = createInitialAdaptiveState(placementModel);
+  const selections = [];
+
+  for (let step = 0; step < 8; step += 1) {
+    const question = selectScriptedQuestion({ state, target, answerTitlesByQuestionId });
+    if (!question) {
+      break;
+    }
+
+    const wantedTitle = answerTitlesByQuestionId[question.id];
+    let answerIndex = targetAwareAnswerIndex({ question, state, target });
+    if (wantedTitle) {
+      answerIndex = (question.answers || []).findIndex((answer) => answer.title === wantedTitle);
+      assert.notEqual(answerIndex, -1, `Missing scripted answer "${wantedTitle}" for ${question.id}.`);
+    }
+
+    const answer = question.answers[answerIndex] || question.answers[0];
+    selections.push({ question, answer, answerIndex });
+    state = applyAdaptiveAnswer({ state, model: placementModel, question, answer, answerIndex });
+
+    if (shouldFinishAdaptiveReading(state, placementModel)) {
+      break;
+    }
+  }
+
+  return {
+    state,
+    selections,
+    result: buildAdaptivePlacementResult({ state, model: placementModel, factions }),
+  };
 }
 
 function deriveReadingTagRefsForTest({ dossier, faction, result }) {
@@ -2966,13 +3095,16 @@ assert.ok(marduGolden, "MARDU golden path should be present.");
 assert.equal(marduGolden.identity.expression_key, "MARDU");
 assert.equal(marduGolden.identity.expression_kind, "wedge");
 assert.deepEqual(factions[marduGolden.faction].colors, ["R", "W", "B"]);
-const marduGateSupport = placementModel.question_bank.gate
-  .flatMap((question) => question.answers || [])
-  .find((answer) => answer.title === "The charge before the gap closes");
-assert.ok(marduGateSupport, "MARDU Gate support answer should be present in generated placement data.");
+assert.equal(placementModel.question_bank.gate.length, 4, "Generated Gate should use the compact VM-384 question set.");
 assert.ok(
-  Number(marduGateSupport.likelihoods?.MARDU || 0) >= 0.75,
-  "MARDU Gate support answer should strongly reinforce Mardu."
+  placementModel.question_bank.gate.every((question) => (question.answers || []).length >= 4 && (question.answers || []).length <= 5),
+  "Generated Gate questions should each expose four or five answers."
+);
+assert.ok(
+  !placementModel.question_bank.gate
+    .flatMap((question) => question.answers || [])
+    .some((answer) => answer.title === "The charge before the gap closes"),
+  "MARDU should no longer depend on old 19-answer Gate support."
 );
 const marduHallIds = new Set(
   placementModel.question_bank.hall
@@ -3766,7 +3898,6 @@ assert.ok(
   );
 });
 const greenPositiveAnswers = [
-  ...placementModel.question_bank.gate,
   ...placementModel.question_bank.hall,
   ...placementModel.question_bank.crucible,
 ].flatMap((question) =>

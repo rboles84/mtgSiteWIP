@@ -10,7 +10,9 @@ const indexSource = await readFile(new URL("../assets/js/index.js", import.meta.
 
 const resultStatusIndex = indexSource.indexOf("const resultStatusHtml =");
 const placementPanelIndex = indexSource.indexOf("const placementPanelHtml =");
-const adjacentPanelIndex = indexSource.indexOf('id: "adjacent", content: `${returnToPrimaryButton}${adjacentSectionHtml}`');
+const adjacentPanelIndex = indexSource.indexOf('id: "adjacent", content: adjacentSectionHtml');
+const returnPrimaryActionCount = (indexSource.match(/buildActionAttrs\("return-primary-reading"\)/g) || []).length;
+const returnPrimaryLabelCount = (indexSource.match(/Back to Primary Reading/g) || []).length;
 
 assert.ok(resultStatusIndex >= 0, "expected renderResult to define resultStatusHtml");
 assert.ok(placementPanelIndex >= 0, "expected renderResult to define placementPanelHtml");
@@ -20,7 +22,17 @@ assert.ok(
 );
 assert.ok(
   adjacentPanelIndex >= 0,
-  "expected adjacent dossier panel to retain the Back to Primary control"
+  "expected adjacent dossier panel to avoid duplicating the Back to Primary control"
+);
+assert.equal(
+  returnPrimaryActionCount,
+  1,
+  "expected an adjacent dossier render to contain exactly one return-primary-reading control"
+);
+assert.equal(
+  returnPrimaryLabelCount,
+  1,
+  "expected an adjacent dossier render to contain exactly one Back to Primary Reading label"
 );
 
 assert.match(
@@ -37,6 +49,16 @@ assert.match(
   indexSource,
   /buildActionAttrs\("return-primary-reading"\)/,
   "expected the return control to expose the delegated action hook"
+);
+assert.match(
+  indexSource,
+  /function switchAdjacentView\(factionKey\)[\s\S]*APP_STATE\.forceDossierPanel = "placement"[\s\S]*renderResult\(factionKey\)/,
+  "expected adjacent-fit navigation to land on the Placement panel where the single return control is visible"
+);
+assert.match(
+  indexSource,
+  /function returnToPrimaryReading\(\)[\s\S]*APP_STATE\.forceDossierPanel = "placement"[\s\S]*renderResult\(primaryViewKey\)/,
+  "expected returning to the primary reading to keep the dossier anchored on Placement"
 );
 
 const primaryProfile = getDossierRadarProfile(

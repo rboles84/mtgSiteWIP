@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Vox Mana — Placement Decomposition (pro)</title>
+<meta name="description" content="Radar replacement that shows where a placement landed between its source colors, what it almost was, which axes the synthesis had to decide, and how confident the call was — with morph-to-neighbor and pull-reveal motion." />
+
+<!--
+  ===========================================================================
+  PLACEMENT DECOMPOSITION — PRO prototype (not production code).
+
+  Builds on the decomposition view by adding information + motion:
+    · PULL-REVEAL    diamonds fly from the source-average to the placed value.
+    · LOAD-BEARING   axes where the source colors disagree most = where the
+                     synthesis had to decide. These define the identity.
+    · MORPH-TO-NEIGHBOR  click "what you almost were" -> the decomposition animates
+                     into that neighbor; a ghost of your real placement stays, and
+                     the axes that differ most light up. Answers "why am I X not Y".
+    · CONFIDENCE     how close the call was, from the nearest-neighbor gap.
+    · RIDGE SIGNATURE  a tiny shape silhouette for glance comparison.
+
+  Boros uses the real on-screen numbers (84/38/46/82/62). Other readings fall back
+  to a sample composite (mean of component samples). Proximity = color-profile
+  similarity (sample). Component colors are sources, never scores.
+  Plain HTML/CSS/JS. No frameworks, no Three.js, no charting libraries.
+  ===========================================================================
+-->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600&family=EB+Garamond:ital@0;1&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    color-scheme:dark;
+    --gold:#b8954a; --gold-l:#d4b461; --gold-quiet:#8a6f3a;
+    --teal:#1aaa96; --teal-l:#28d4bc;
+    --ink:#f5ead2; --ink-soft:rgba(245,234,210,.74);
+    --panel:rgba(12,12,15,0.72); --panel-edge:rgba(184,149,74,0.26);
+    --font-display:'Cinzel',Georgia,serif; --font-text:'EB Garamond',Georgia,serif;
+    --font-mono:'IBM Plex Mono','Menlo','Monaco','Courier New',monospace;
+    --c-w:#f3ead0; --c-u:#5fb8ff; --c-b:#9a6be8; --c-r:#ff6b55; --c-g:#5fcf86;
+    --amp:#ffd27a;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;min-height:100vh;color:var(--ink);font-family:var(--font-text);
+    background:radial-gradient(circle at 20% 12%, rgba(184,149,74,0.10), transparent 46%),
+      radial-gradient(circle at 82% 90%, rgba(26,170,150,0.07), transparent 52%),
+      linear-gradient(180deg,#09090b 0%,#0f0f12 50%,#070708 100%);
+    -webkit-font-smoothing:antialiased;display:flex;justify-content:center;padding:clamp(1rem,3.5vw,2.6rem)}
+  .panel{position:relative;width:100%;max-width:580px;background:var(--panel);border:1px solid var(--panel-edge);
+    border-radius:16px;padding:clamp(1.1rem,3.5vw,1.6rem);box-shadow:0 30px 90px rgba(0,0,0,.55), inset 0 1px 0 rgba(255,240,210,.05);
+    backdrop-filter:blur(6px);overflow:hidden}
+  .panel::before{content:"";position:absolute;inset:0;pointer-events:none;opacity:.05;mix-blend-mode:overlay;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+  .panel>*{position:relative}
+
+  .kicker{font-family:var(--font-mono);font-size:.66rem;letter-spacing:.26em;text-transform:uppercase;color:var(--gold-l);opacity:.85}
+  h1{font-family:var(--font-display);font-weight:600;font-size:clamp(1.45rem,4.4vw,1.9rem);margin:.3rem 0 .1rem;letter-spacing:.02em;
+    background:linear-gradient(180deg,#f2df9d,#e0c06c 55%,var(--gold));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .subtitle{font-family:var(--font-mono);font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-quiet)}
+
+  .selectors{display:grid;grid-template-columns:1fr;gap:.5rem;margin:.8rem 0 .2rem}
+  .field label{font-family:var(--font-mono);font-size:.56rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-quiet);display:block;margin-bottom:.25rem}
+  .pick{width:100%;font-family:var(--font-mono);font-size:.76rem;color:var(--ink);background:rgba(184,149,74,.10);
+    border:1px solid var(--panel-edge);border-radius:9px;padding:.5rem .6rem}
+  .pick:focus-visible{outline:2px solid var(--teal-l);outline-offset:1px}
+
+  .controls{display:flex;flex-wrap:wrap;align-items:center;gap:.6rem 1.1rem;margin:.7rem 0 .1rem}
+  .switch{display:inline-flex;align-items:center;gap:.5rem;font-family:var(--font-mono);font-size:.7rem;color:var(--ink-soft);cursor:pointer;user-select:none}
+  .switch input{position:absolute;opacity:0;width:0;height:0}
+  .swt{width:34px;height:18px;border-radius:999px;background:rgba(255,255,255,.08);border:1px solid var(--panel-edge);position:relative;transition:.2s}
+  .swt::after{content:"";position:absolute;top:1px;left:1px;width:14px;height:14px;border-radius:50%;background:var(--gold-quiet);transition:.2s}
+  .switch input:checked + .swt{background:rgba(26,170,150,.28);border-color:var(--teal)}
+  .switch input:checked + .swt::after{transform:translateX(16px);background:var(--teal-l)}
+  .switch input:focus-visible + .swt{outline:2px solid var(--teal-l);outline-offset:2px}
+
+  .summary{position:relative;border:1px solid var(--panel-edge);border-radius:13px;padding:1rem 1.05rem;margin:.85rem 0 .4rem;overflow:hidden;background:rgba(8,8,10,.5)}
+  .summary::before{content:"";position:absolute;inset:0;background:var(--sum-glow,transparent);opacity:.85;pointer-events:none;transition:background .5s}
+  .summary>*{position:relative}
+  .sum-top{display:flex;justify-content:space-between;align-items:flex-start;gap:1rem}
+  .summary .sk{font-family:var(--font-mono);font-size:.58rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold-l)}
+  .summary h4{font-family:var(--font-display);font-weight:600;font-size:1.18rem;margin:.3rem 0 .45rem;line-height:1.2}
+  .summary p{margin:0 0 .6rem;font-size:.92rem;color:var(--ink-soft);line-height:1.55}
+  .summary p b{color:var(--ink);font-weight:600}
+  .ridge{flex:0 0 auto;opacity:.92}
+  .chips{display:flex;gap:.35rem;flex-wrap:wrap;transition:opacity .25s}
+  .chip-c{font-family:var(--font-mono);font-size:.62rem;padding:.18rem .5rem;border-radius:999px;border:1px solid currentColor;display:inline-flex;align-items:center;gap:.35rem}
+  .chip-c .sw{width:8px;height:8px;border-radius:50%;background:currentColor;box-shadow:0 0 6px currentColor}
+  .components-off .chips{opacity:.25}
+
+  .conf{display:flex;align-items:center;gap:.6rem;margin-top:.55rem;font-family:var(--font-mono);font-size:.62rem;color:var(--ink-soft)}
+  .conf .meter{flex:1 1 auto;height:6px;border-radius:999px;background:rgba(255,255,255,.07);overflow:hidden;max-width:160px}
+  .conf .mfill{height:100%;border-radius:999px;background:linear-gradient(90deg,var(--gold-quiet),var(--gold-l));transition:width .5s}
+
+  /* morph banner */
+  .banner{display:none;align-items:center;justify-content:space-between;gap:.6rem;margin:.7rem 0 .1rem;
+    border:1px dashed var(--gold-quiet);border-radius:9px;padding:.5rem .7rem;background:rgba(184,149,74,.08);
+    font-family:var(--font-mono);font-size:.66rem;color:var(--ink-soft)}
+  .banner.on{display:flex}
+  .banner b{color:var(--gold-l)}
+  .banner button{font-family:var(--font-mono);font-size:.62rem;color:var(--ink);background:transparent;border:1px solid var(--panel-edge);
+    border-radius:6px;padding:.25rem .55rem;cursor:pointer;white-space:nowrap}
+  .banner button:hover,.banner button:focus-visible{background:rgba(184,149,74,.16);outline:none}
+
+  .decomp-h{font-family:var(--font-mono);font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-quiet);margin:1rem 0 .2rem}
+  .legend{font-family:var(--font-mono);font-size:.56rem;color:var(--gold-quiet);display:flex;gap:.9rem;flex-wrap:wrap;margin:.35rem 0 .55rem}
+  .legend i{font-style:normal;display:inline-flex;align-items:center;gap:.3rem}
+  .lg-comp{width:11px;height:11px;background:var(--ink);transform:rotate(45deg);box-shadow:0 0 7px var(--ink)}
+  .lg-src{width:10px;height:10px;border-radius:50%;border:1.5px solid var(--ink-soft)}
+  .lg-ghost{width:11px;height:11px;transform:rotate(45deg);border:1px solid var(--ink-soft);background:transparent}
+  .lg-lb{color:var(--amp)}
+
+  .dax{display:grid;grid-template-columns:84px 1fr 96px;gap:.55rem;align-items:center;width:100%;text-align:left;
+    border:0;background:transparent;color:inherit;cursor:pointer;padding:.45rem .35rem;border-radius:8px;transition:background .18s;font-family:var(--font-text)}
+  .dax + .dax{margin-top:.1rem}
+  .dax:hover,.dax:focus-visible,.dax.is-active{background:rgba(184,149,74,.10);outline:none}
+  .dax:focus-visible{outline:2px solid var(--gold-l);outline-offset:1px}
+  .dax.is-active{box-shadow:inset 2px 0 0 var(--gold-l)}
+  .dax.diff{background:rgba(255,210,122,.08)}
+  .dlabel{display:flex;flex-direction:column;line-height:1.1}
+  .dlabel b{font-family:var(--font-display);font-weight:600;font-size:.9rem;letter-spacing:.01em;display:flex;align-items:center;gap:.3rem}
+  .dlabel .lb{color:var(--amp);font-size:.7rem;filter:drop-shadow(0 0 4px var(--amp))}
+  .dlabel small{font-family:var(--font-mono);font-size:.5rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold-quiet);margin-top:.15rem}
+
+  .dtrack{position:relative;height:40px}
+  .axisline{position:absolute;left:0;right:0;top:50%;height:1px;background:linear-gradient(90deg,transparent,rgba(184,149,74,.35),transparent)}
+  .band{position:absolute;top:calc(50% - 3px);height:6px;border-radius:3px;background:rgba(245,234,210,.10);border:1px solid rgba(245,234,210,.12);transition:opacity .25s}
+  .dax.lbrow .band{background:rgba(255,210,122,.14);border-color:rgba(255,210,122,.3)}
+  .components-off .band{opacity:0}
+  .src{position:absolute;top:50%;transform:translate(-50%,-50%);width:13px;height:13px;border-radius:50%;
+    border:2px solid rgba(8,8,10,.8);box-shadow:0 0 8px var(--sc,#fff);background:var(--sc,#fff);z-index:2;transition:opacity .25s}
+  .src small{position:absolute;left:50%;top:13px;transform:translateX(-50%);font-family:var(--font-mono);font-size:.5rem;color:var(--ink-soft)}
+  .components-off .src{opacity:0}
+  .ghostd{position:absolute;top:50%;transform:translate(-50%,-50%) rotate(45deg);width:13px;height:13px;z-index:3;
+    border:1px solid var(--ink-soft);background:transparent;opacity:0;transition:opacity .3s}
+  .ghostd.on{opacity:.7}
+  .ghostd small{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%) rotate(-45deg);font-size:.46rem;color:var(--ink-soft);font-family:var(--font-mono)}
+  .comp{position:absolute;top:50%;width:15px;height:15px;z-index:4;transform:translate(-50%,-50%) rotate(45deg);
+    background:var(--ink);box-shadow:0 0 10px var(--cg,rgba(245,234,210,.7)), 0 0 2px #000;border:1px solid rgba(0,0,0,.5)}
+  .comp.amp{background:var(--amp);box-shadow:0 0 13px var(--amp)}
+  .synthesis-off .comp{opacity:.25}
+  .comp-val{position:absolute;top:1px;transform:translate(-50%,-100%);font-family:var(--font-mono);font-size:.62rem;color:var(--ink);text-shadow:0 1px 2px #000;z-index:5}
+  @keyframes amppulse{0%,100%{box-shadow:0 0 9px var(--amp)}50%{box-shadow:0 0 17px var(--amp)}}
+  .comp.amp.pulse{animation:amppulse 2.2s ease-in-out infinite}
+
+  .dright{text-align:right;font-family:var(--font-mono)}
+  .dright .num{font-size:1.18rem;color:var(--ink)}
+  .dright .attr{font-size:.55rem;display:inline-block;margin-top:.15rem;padding:.1rem .3rem;border-radius:4px;border:1px solid currentColor}
+  .dright .diffd{font-size:.52rem;color:var(--amp);display:block;margin-top:.2rem}
+  .attr.white-led{color:#e8dcb6} .attr.red-led{color:#ff9b86} .attr.blue-led{color:#8fd0ff}
+  .attr.black-led{color:#c4a0f0} .attr.green-led{color:#8fe0a6}
+  .attr.amped{color:var(--amp)} .attr.low,.attr.balanced{color:var(--ink-soft)}
+
+  .prox-h{font-family:var(--font-mono);font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-quiet);margin:1.1rem 0 .5rem;display:flex;justify-content:space-between;gap:1rem}
+  .prox-h .hint{color:var(--gold-quiet);opacity:.7;text-transform:none;letter-spacing:.03em}
+  .prox{display:grid;gap:.35rem}
+  .prox-row{display:grid;grid-template-columns:104px 50px 1fr 40px;gap:.55rem;align-items:center;font-family:var(--font-mono);font-size:.7rem;
+    border:0;background:transparent;color:inherit;text-align:left;cursor:pointer;padding:.3rem .35rem;border-radius:7px;transition:background .15s;width:100%}
+  .prox-row:hover,.prox-row:focus-visible{background:rgba(184,149,74,.12);outline:none}
+  .prox-row.active{box-shadow:inset 2px 0 0 var(--amp);background:rgba(255,210,122,.08)}
+  .prox-row .pn{color:var(--ink)}
+  .prox-row .pn small{color:var(--gold-quiet);font-size:.56rem;margin-left:.3rem}
+  .ptrack{height:7px;border-radius:999px;background:rgba(255,255,255,.06);overflow:hidden}
+  .pfill{height:100%;border-radius:999px;background:linear-gradient(90deg,var(--gold-quiet),var(--gold-l));transition:width .4s}
+  .prox-row .pv{text-align:right;color:var(--ink-soft)}
+
+  .drawer{margin-top:1rem;border:1px solid var(--panel-edge);border-radius:10px;padding:.85rem 1rem;background:rgba(8,8,10,.5);min-height:46px}
+  .drawer .empty{font-family:var(--font-mono);font-size:.66rem;color:var(--gold-quiet);opacity:.8;letter-spacing:.05em}
+  .drawer p{margin:0;font-size:.9rem;color:var(--ink-soft);line-height:1.55}
+  .drawer p b{color:var(--ink)}
+  .footnote{font-family:var(--font-mono);font-size:.56rem;color:var(--gold-quiet);opacity:.7;margin-top:.9rem;line-height:1.5}
+
+  @media (max-width:480px){
+    .dax{grid-template-columns:70px 1fr 80px;gap:.4rem}
+    .dright .num{font-size:1rem}
+    .prox-row{grid-template-columns:88px 40px 1fr 34px}
+    .sum-top{flex-direction:column} .ridge{order:-1}
+  }
+  @media (prefers-reduced-motion:reduce){ *{animation:none!important;transition:none!important} }
+</style>
+</head>
+<body>
+<main class="panel" id="panel">
+  <div class="kicker">Archscry · Placement Reading</div>
+  <h1 id="title">—</h1>
+  <div class="subtitle">Where you landed · why · and what you almost were</div>
+
+  <div class="selectors"><div class="field">
+    <label for="idPick">Reading</label>
+    <select class="pick" id="idPick" aria-label="Select identity reading"></select>
+  </div></div>
+
+  <div class="controls">
+    <label class="switch"><input type="checkbox" id="tComponents" checked><span class="swt"></span><span>Show component colors</span></label>
+    <label class="switch"><input type="checkbox" id="tSynthesis" checked><span class="swt"></span><span>Show synthesis</span></label>
+  </div>
+
+  <div class="summary" id="summary">
+    <div class="sum-top">
+      <div style="min-width:0">
+        <div class="sk" id="sumKicker">Selected Placement</div>
+        <h4 id="sumTitle">—</h4>
+      </div>
+      <span class="ridge" id="ridge" aria-hidden="true"></span>
+    </div>
+    <p id="sumText">—</p>
+    <div class="chips" id="chips"></div>
+    <div class="conf"><span id="confText">—</span><span class="meter"><span class="mfill" id="confFill"></span></span></div>
+  </div>
+
+  <div class="banner" id="banner">
+    <span id="bannerText"></span>
+    <button id="bannerBack" type="button">&larr; back to your reading</button>
+  </div>
+
+  <div class="decomp-h">Per-axis placement vs. source colors</div>
+  <div class="legend">
+    <i><span class="lg-comp"></span> &#9670; landed</i>
+    <i><span class="lg-src"></span> &#9679; source pull</i>
+    <i><span class="lg-ghost"></span> your placement (when comparing)</i>
+    <i class="lg-lb">&#9878; load-bearing</i>
+  </div>
+  <div id="decomp" role="group" aria-label="Per-axis decomposition. Use arrow keys to move between axes."></div>
+
+  <div class="prox-h"><span>What you almost were</span><span class="hint">tap a row to morph &rarr;</span></div>
+  <div class="prox" id="prox"></div>
+
+  <div class="drawer" id="drawer" aria-live="polite">
+    <div class="empty" id="drawerEmpty">Select an axis for the plain-language read — which source carried it, how far the synthesis pushed, and whether it's load-bearing.</div>
+    <p id="drawerBody" style="display:none"></p>
+  </div>
+
+  <p class="footnote">
+    Prototype — not production code. Boros uses the real on-screen numbers; other readings fall back to a sample
+    composite (mean of component samples), so their peaks look flatter until engine output is wired in. Proximity
+    is color-profile similarity (sample). Component colors are sources, never scores.
+  </p>
+</main>
+
+<script>
+/* ===== axes ===== */
+const AXES=[
+  {key:'Order',word:'structure'},{key:'Knowledge',word:'insight'},{key:'Ambition',word:'drive'},
+  {key:'Freedom',word:'impulse'},{key:'Growth',word:'growth'}];
+const MONO={W:[96,42,24,30,58],U:[38,98,36,34,54],B:[30,56,98,62,42],R:[36,34,58,98,62],G:[62,48,38,58,98]};
+const HEX={W:'--c-w',U:'--c-u',B:'--c-b',R:'--c-r',G:'--c-g'};
+const COLNAME={W:'White',U:'Blue',B:'Black',R:'Red',G:'Green'};
+const WUBRG=['W','U','B','R','G'];
+const css=v=>getComputedStyle(document.documentElement).getPropertyValue(v).trim();
+const orderColors=cs=>WUBRG.filter(c=>cs.includes(c));
+const meanComposite=cols=>AXES.map((_,i)=>Math.round(cols.reduce((s,c)=>s+MONO[c][i],0)/cols.length));
+const clamp=(v,a,b)=>Math.max(a,Math.min(b,v));
+const lerp=(a,b,t)=>a+(b-a)*t;
+const pos=v=>4+v*0.92;
+
+/* ===== registry ===== */
+const GROUPS=[
+  {label:'Mono',items:[{id:'W',name:'White',colors:['W']},{id:'U',name:'Blue',colors:['U']},{id:'B',name:'Black',colors:['B']},{id:'R',name:'Red',colors:['R']},{id:'G',name:'Green',colors:['G']}]},
+  {label:'Guild',items:[
+    {id:'RW',name:'Boros',colors:['W','R'],real:[84,38,46,82,62],tagline:'Conviction through Action',
+      blurb:'Boros blends Red freedom with White order — courage, discipline, justice, and immediate moral action.'},
+    {id:'WU',name:'Azorius',colors:['W','U']},{id:'UB',name:'Dimir',colors:['U','B']},{id:'BR',name:'Rakdos',colors:['B','R']},
+    {id:'RG',name:'Gruul',colors:['R','G']},{id:'GW',name:'Selesnya',colors:['W','G']},{id:'WB',name:'Orzhov',colors:['W','B']},
+    {id:'UR',name:'Izzet',colors:['U','R']},{id:'BG',name:'Golgari',colors:['B','G']},{id:'GU',name:'Simic',colors:['U','G']}]},
+  {label:'Clan (Wedge)',items:[
+    {id:'WBG',name:'Abzan',colors:['W','B','G']},{id:'WUR',name:'Jeskai',colors:['W','U','R']},
+    {id:'UBG',name:'Sultai',colors:['U','B','G']},{id:'WBR',name:'Mardu',colors:['W','B','R']},{id:'URG',name:'Temur',colors:['U','R','G']}]},
+  {label:'Four-Color',items:[
+    {id:'WUBR',name:'Yore-Tiller',colors:['W','U','B','R']},{id:'UBRG',name:'Glint-Eye',colors:['U','B','R','G']},
+    {id:'WBRG',name:'Dune-Brood',colors:['W','B','R','G']},{id:'WUBG',name:'Witch-Maw',colors:['W','U','B','G']},{id:'WURG',name:'Ink-Treader',colors:['W','U','R','G']}]},
+  {label:'Five-Color',items:[{id:'WUBRG',name:'WUBRG',colors:['W','U','B','R','G']}]},
+];
+const REG={};
+GROUPS.forEach(g=>g.items.forEach(it=>{it.colors=orderColors(it.colors);it.type=g.label;it.scores=it.real||meanComposite(it.colors);REG[it.id]=it;}));
+
+const idPick=document.getElementById('idPick');
+idPick.innerHTML=GROUPS.map(g=>`<optgroup label="${g.label}">`+g.items.map(it=>`<option value="${it.id}">${it.name} — ${it.colors.join('')}</option>`).join('')+'</optgroup>').join('');
+idPick.value='RW';
+
+/* ===== attribution + tension ===== */
+function attribution(comp,srcs){
+  const vals=srcs.map(s=>s.v),mx=Math.max(...vals),mn=Math.min(...vals);
+  if(srcs.length===1) return {tag:comp>=70?'core':comp<=40?'quiet':'mono',cls:'balanced'};
+  if(comp>mx+3) return {tag:'amplified',cls:'amped'};
+  if(comp<mn-3) return {tag:'suppressed',cls:'low'};
+  let near=srcs[0];srcs.forEach(s=>{if(Math.abs(comp-s.v)<Math.abs(comp-near.v))near=s;});
+  const others=srcs.filter(s=>s!==near);
+  if(others.some(o=>Math.abs(Math.abs(comp-o.v)-Math.abs(comp-near.v))<3)) return {tag:'between',cls:'balanced'};
+  return {tag:`${COLNAME[near.c]}-led`,cls:`${COLNAME[near.c].toLowerCase()}-led`};
+}
+const tensionOf=(p,i)=>{const v=p.colors.map(c=>MONO[c][i]);return p.colors.length>1?Math.max(...v)-Math.min(...v):0;};
+const loadBearingIdx=p=>{let best=0,bv=-1;AXES.forEach((_,i)=>{const t=tensionOf(p,i);if(t>bv){bv=t;best=i;}});return p.colors.length>1?best:-1;};
+
+/* ===== ridge signature ===== */
+function ridge(scores,w,h,stroke,fill){
+  const pts=scores.map((v,i)=>`${(i/(scores.length-1)*(w-6)+3).toFixed(1)},${(h-3-(v/100)*(h-6)).toFixed(1)}`).join(' ');
+  const area=`3,${h-3} ${pts} ${w-3},${h-3}`;
+  return `<svg width="${w}" height="${h}" viewBox="0 0 ${w} ${h}">`+
+    (fill?`<polyline points="${area}" fill="${fill}" stroke="none" opacity=".25"/>`:'')+
+    `<polyline points="${pts}" fill="none" stroke="${stroke}" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>`+
+    scores.map((v,i)=>`<circle cx="${(i/(scores.length-1)*(w-6)+3).toFixed(1)}" cy="${(h-3-(v/100)*(h-6)).toFixed(1)}" r="1.7" fill="${stroke}"/>`).join('')+
+    `</svg>`;
+}
+
+/* ===== state + animation ===== */
+const decomp=document.getElementById('decomp'),prox=document.getElementById('prox'),chips=document.getElementById('chips');
+const banner=document.getElementById('banner'),bannerText=document.getElementById('bannerText');
+let current='RW', viewing='RW', activeAxis=null;
+let displayed=[0,0,0,0,0], target=[0,0,0,0,0];
+let rowRefs=[]; let rafId=null; let refScores=null;     /* refScores = ghost (your real placement) when comparing */
+const reduce=window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+
+function animate(){
+  let moving=false;
+  for(let i=0;i<5;i++){
+    displayed[i]=lerp(displayed[i],target[i],0.2);
+    if(Math.abs(displayed[i]-target[i])>0.25) moving=true; else displayed[i]=target[i];
+    const r=rowRefs[i]; if(!r) continue;
+    const left=pos(displayed[i]);
+    r.comp.style.left=left+'%'; r.val.style.left=left+'%'; r.val.textContent=Math.round(displayed[i]);
+  }
+  if(moving) rafId=requestAnimationFrame(animate); else rafId=null;
+}
+function startAnim(fromArr){
+  if(fromArr) displayed=fromArr.slice();
+  if(reduce){ displayed=target.slice();
+    for(let i=0;i<5;i++){const r=rowRefs[i];if(r){const l=pos(displayed[i]);r.comp.style.left=l+'%';r.val.style.left=l+'%';r.val.textContent=Math.round(displayed[i]);}}
+    return; }
+  if(rafId) cancelAnimationFrame(rafId); rafId=requestAnimationFrame(animate);
+}
+
+/* ===== build the 5 static rows for a profile (diamonds animate separately) ===== */
+function buildRows(p, ghost){
+  refScores = ghost ? ghost.scores : null;
+  const lb=loadBearingIdx(p);
+  rowRefs=[]; decomp.innerHTML='';
+  AXES.forEach((ax,i)=>{
+    const srcs=p.colors.map(c=>({c,v:MONO[c][i],hex:css(HEX[c])}));
+    const cv=p.scores[i], attr=attribution(cv,srcs);
+    const vals=srcs.map(s=>s.v),mn=Math.min(...vals),mx=Math.max(...vals);
+    let drv=p.colors[0]; p.colors.forEach(c=>{if(MONO[c][i]>MONO[drv][i])drv=c;});
+    const cg=css(HEX[drv]);
+    const diff = refScores ? Math.abs(cv-refScores[i]) : 0;
+    const isDiff = false; // set after we know top diffs
+
+    const el=document.createElement('button');el.type='button';el.className='dax'+(i===lb?' lbrow':'');el.dataset.i=i;
+    el.setAttribute('aria-label',`${ax.key}: ${cv} of 100. Sources ${srcs.map(s=>COLNAME[s.c]+' '+s.v).join(', ')}. ${attr.tag}.${i===lb?' Load-bearing axis.':''}`);
+    const band=srcs.length>1?`<span class="band" style="left:${pos(mn)}%;width:${pos(mx)-pos(mn)}%"></span>`:'';
+    const srcDots=srcs.map(s=>`<span class="src" style="--sc:${s.hex};left:${pos(s.v)}%"><small>${s.c}</small></span>`).join('');
+    const ghostd=`<span class="ghostd ${refScores?'on':''}" style="left:${pos(refScores?refScores[i]:cv)}%"><small>you</small></span>`;
+    const amped=attr.cls==='amped';
+    el.innerHTML=`
+      <span class="dlabel"><b>${ax.key}${i===lb?' <span class="lb" title="load-bearing">&#9878;</span>':''}</b><small>${ax.word}</small></span>
+      <span class="dtrack">
+        <span class="axisline"></span>${band}${srcDots}${ghostd}
+        <span class="comp ${amped?'amp pulse':''}" style="--cg:${cg};left:${pos(cv)}%"></span>
+        <span class="comp-val" style="left:${pos(cv)}%">${cv}</span>
+      </span>
+      <span class="dright"><span class="num">${cv}</span><br><span class="attr ${attr.cls}">${attr.tag}</span>${refScores?`<span class="diffd">&Delta; ${cv-refScores[i]>0?'+':''}${cv-refScores[i]}</span>`:''}</span>`;
+    decomp.appendChild(el);
+    rowRefs.push({comp:el.querySelector('.comp'),val:el.querySelector('.comp-val'),ghost:el.querySelector('.ghostd'),row:el});
+    el.addEventListener('mouseenter',()=>setAxis(i,true));el.addEventListener('mouseleave',()=>{if(activeAxis!==i)setAxis(i,false);});
+    el.addEventListener('focus',()=>setAxis(i,true));el.addEventListener('blur',()=>{if(activeAxis!==i)setAxis(i,false);});
+    el.addEventListener('click',()=>selectAxis(i));
+  });
+
+  // mark distinguishing axes (top-2 deltas) when comparing
+  if(refScores){
+    const order=AXES.map((_,i)=>({i,d:Math.abs(p.scores[i]-refScores[i])})).sort((a,b)=>b.d-a.d).filter(o=>o.d>=4).slice(0,2);
+    order.forEach(o=>rowRefs[o.i].row.classList.add('diff'));
+  }
+  target=p.scores.slice();
+}
+
+/* ===== summary, confidence, proximity ===== */
+function neighbors(p){
+  const me=meanComposite(p.colors);
+  return Object.values(REG).filter(o=>o.id!==p.id).map(o=>{
+    const v=meanComposite(o.colors), d=Math.sqrt(v.reduce((s,x,k)=>s+(x-me[k])**2,0));
+    return {o,d,sim:Math.max(2,Math.round(100*(1-Math.min(d,120)/120)))};
+  }).sort((a,b)=>a.d-b.d);
+}
+function renderSummaryAndProx(p){
+  document.getElementById('title').textContent=p.tagline?`${p.name} — ${p.tagline}`:p.name;
+  document.getElementById('sumKicker').textContent=p.colors.length>1?'Selected Synthesis':'Selected Profile';
+  document.getElementById('sumTitle').textContent=p.tagline?p.tagline:`${p.name} placement`;
+
+  const ranked=p.scores.map((v,i)=>({i,v})).sort((a,b)=>b.v-a.v);
+  const peaks=ranked.filter(r=>r.v>=60).slice(0,2);
+  const peakPhrase=peaks.map(r=>{let drv=p.colors[0];p.colors.forEach(c=>{if(MONO[c][r.i]>MONO[drv][r.i])drv=c;});
+    return `<b>${AXES[r.i].key}</b> (${r.v}, ${COLNAME[drv]}'s ${AXES[r.i].word})`;});
+  const lb=loadBearingIdx(p);
+  const lbNote=lb>=0?` The synthesis is <b>load-bearing on ${AXES[lb].key}</b> — where ${p.colors.map(c=>COLNAME[c]).join(' and ')} disagree most, it sided with the color that cared.`:'';
+  let story;
+  if(p.colors.length===1) story=`A single-color profile — ${COLNAME[p.colors[0]]}. `+(peakPhrase.length?`Its shape is ${COLNAME[p.colors[0]]}'s own: `+peakPhrase.join(' and ')+', the rest quiet.':'');
+  else if(peaks.length>=2) story=(p.blurb?p.blurb+' ':'')+`Reads as <b>two peaks</b> — `+peakPhrase.join(' and ')+` — over a quiet middle.`+lbNote;
+  else if(peaks.length===1) story=(p.blurb?p.blurb+' ':'')+`One dominant axis — `+peakPhrase[0]+`.`+lbNote;
+  else story=(p.blurb?p.blurb+' ':'')+`An even reading — the colors balance across all five.`+lbNote;
+  document.getElementById('sumText').innerHTML=story;
+
+  chips.innerHTML=p.colors.map(c=>`<span class="chip-c" style="color:${css(HEX[c])}"><span class="sw"></span>${COLNAME[c]}</span>`).join('');
+  const cols=p.colors.map(c=>css(HEX[c])), ps=['18% 30%','82% 36%','50% 78%','30% 60%','70% 64%'];
+  document.getElementById('summary').style.setProperty('--sum-glow',cols.map((h,i)=>`radial-gradient(circle at ${ps[i]||'50% 50%'}, ${h}22, transparent 60%)`).join(','));
+  document.getElementById('ridge').innerHTML=ridge(p.scores,120,36,css('--gold-l'),css('--gold'));
+
+  const nb=neighbors(p), top=nb[0];
+  const conf = top.sim>=85?`A close call — nearly <b>${top.o.name}</b>`:top.sim>=70?`Moderately distinct — nearest is ${top.o.name}`:`A distinct placement — clearly ${p.name}`;
+  document.getElementById('confText').innerHTML=`Confidence: ${conf}`;
+  document.getElementById('confFill').style.width=clamp(100-top.sim+20,12,100)+'%';
+
+  const refScoresLocal = REG[current].scores;
+  prox.innerHTML=nb.slice(0,4).map(({o,sim})=>`
+    <button type="button" class="prox-row ${o.id===viewing&&viewing!==current?'active':''}" data-id="${o.id}" aria-label="${o.name}, ${sim}% similar. Activate to morph the decomposition into ${o.name}.">
+      <span class="pn">${o.name}<small>${o.colors.join('')}</small></span>
+      <span class="ridgemini">${ridge(o.scores,46,16,css('--gold-quiet'))}</span>
+      <span class="ptrack"><span class="pfill" style="width:${sim}%"></span></span>
+      <span class="pv">${sim}%</span></button>`).join('');
+  prox.querySelectorAll('.prox-row').forEach(b=>b.addEventListener('click',()=>previewNeighbor(b.dataset.id)));
+}
+
+/* ===== axis drawer ===== */
+function setAxis(i,on){const r=rowRefs[i];if(r)r.row.classList.toggle('is-active',on);}
+function selectAxis(i){
+  if(activeAxis!==null&&activeAxis!==i)setAxis(activeAxis,false);
+  if(activeAxis===i){activeAxis=null;setAxis(i,false);renderDrawer(null);return;}
+  activeAxis=i;setAxis(i,true);renderDrawer(i);
+}
+function renderDrawer(i){
+  const empty=document.getElementById('drawerEmpty'),body=document.getElementById('drawerBody');
+  if(i===null){empty.style.display='';body.style.display='none';return;}
+  const p=REG[viewing],ax=AXES[i],cv=p.scores[i],srcs=p.colors.map(c=>({c,v:MONO[c][i]})),attr=attribution(cv,srcs),lb=loadBearingIdx(p);
+  let line;
+  if(srcs.length===1) line=`<b>${ax.key} ${cv}</b> — this is ${COLNAME[srcs[0].c]}'s own ${ax.word}; a mono profile sits at its source.`;
+  else{
+    const sorted=[...srcs].sort((a,b)=>b.v-a.v),hi=sorted[0],lo=sorted[sorted.length-1];
+    const where=attr.cls==='amped'?`pushed <b>above both sources</b> — amplified`:attr.cls==='low'?`pulled <b>below both</b> — suppressed`:`landed near <b>${COLNAME[hi.v>=cv?hi.c:lo.c]}</b>`;
+    line=`<b>${ax.key} ${cv}</b> — ${COLNAME[hi.c]} brings ${hi.v}, ${COLNAME[lo.c]} brings ${lo.v}; the placement ${where} (<b>${attr.tag}</b>).`;
+    if(i===lb) line+=` This is the <b>load-bearing axis</b> — the colors disagree most here, so it most defines the identity.`;
+  }
+  body.innerHTML=line;empty.style.display='none';body.style.display='';
+}
+
+/* ===== morph ===== */
+function previewNeighbor(id){
+  if(id===current){ backToReading(); return; }
+  const from=displayed.slice();
+  viewing=id;
+  buildRows(REG[id], REG[current]);
+  startAnim(from);
+  renderSummaryAndProx(REG[current]); // keep summary on YOUR reading; prox marks active
+  activeAxis=null; renderDrawer(null);
+  const diffs=AXES.map((_,i)=>({i,d:Math.abs(REG[id].scores[i]-REG[current].scores[i])})).sort((a,b)=>b.d-a.d).filter(o=>o.d>=4).slice(0,2);
+  bannerText.innerHTML=`Morphed into <b>${REG[id].name}</b> — what you almost were.`+(diffs.length?` Differs most on <b>${diffs.map(d=>AXES[d.i].key).join(', ')}</b>.`:'');
+  banner.classList.add('on');
+  prox.querySelectorAll('.prox-row').forEach(b=>b.classList.toggle('active',b.dataset.id===id));
+}
+function backToReading(){
+  const from=displayed.slice();
+  viewing=current;
+  buildRows(REG[current], null);
+  startAnim(from);
+  renderSummaryAndProx(REG[current]);
+  activeAxis=null; renderDrawer(null);
+  banner.classList.remove('on');
+}
+
+/* ===== render a fresh reading (with pull-reveal) ===== */
+function render(){
+  current=viewing=idPick.value;
+  const p=REG[current];
+  buildRows(p,null);
+  renderSummaryAndProx(p);
+  banner.classList.remove('on'); activeAxis=null; renderDrawer(null);
+  // pull-reveal: start each diamond at the source-average, fly to placement
+  const startArr=AXES.map((_,i)=>{const v=p.colors.map(c=>MONO[c][i]);return v.reduce((a,b)=>a+b,0)/v.length;});
+  startAnim(startArr);
+}
+
+/* ===== keyboard arrow nav across axes ===== */
+decomp.addEventListener('keydown',e=>{
+  if(e.key!=='ArrowDown'&&e.key!=='ArrowUp')return;
+  e.preventDefault();
+  const rows=[...decomp.querySelectorAll('.dax')];
+  const idx=rows.indexOf(document.activeElement);
+  let n=idx+(e.key==='ArrowDown'?1:-1); n=(n+rows.length)%rows.length;
+  rows[n].focus();
+});
+
+/* ===== toggles ===== */
+const panel=document.getElementById('panel'),tC=document.getElementById('tComponents'),tS=document.getElementById('tSynthesis');
+function sync(){panel.classList.toggle('components-off',!tC.checked);panel.classList.toggle('synthesis-off',!tS.checked);}
+tC.addEventListener('change',sync);tS.addEventListener('change',sync);
+idPick.addEventListener('change',render);
+document.getElementById('bannerBack').addEventListener('click',backToReading);
+
+sync(); render();
+</script>
+</body>
+</html>

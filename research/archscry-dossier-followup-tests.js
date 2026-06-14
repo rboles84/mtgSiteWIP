@@ -196,6 +196,7 @@ const {
   heroBannerImageSlugForFaction,
   identityMetaLabelForDisplay,
   selectCuratedFlavorEchoesForFaction,
+  selectFlavorEchoes,
 } = await import("../assets/js/index.js");
 const {
   renderDossierRadarSection,
@@ -213,6 +214,9 @@ const deckStartsPanelSource = indexSource.slice(deckStartsPanelStart, deckStarts
 const commanderPreviewStart = indexSource.indexOf("const commanderPreviewHtml =");
 const commanderPreviewEnd = indexSource.indexOf("const adjacentMatches =", commanderPreviewStart);
 const commanderPreviewSource = indexSource.slice(commanderPreviewStart, commanderPreviewEnd);
+const commanderPreviewSlotsStart = indexSource.indexOf("function commanderPreviewSlots");
+const commanderPreviewSlotsEnd = indexSource.indexOf("const renderState =", commanderPreviewSlotsStart);
+const commanderPreviewSlotsSource = indexSource.slice(commanderPreviewSlotsStart, commanderPreviewSlotsEnd);
 const deckDiscoveryGroupsStart = indexSource.indexOf("function buildDeckDiscoveryGroups");
 const deckDiscoveryGroupsEnd = indexSource.indexOf("function buildDeckDiscoveryHtml", deckDiscoveryGroupsStart);
 const deckDiscoveryGroupsSource = indexSource.slice(deckDiscoveryGroupsStart, deckDiscoveryGroupsEnd);
@@ -285,6 +289,12 @@ assert.match(radarSource, /COLORLESS/, "expected the radar companion area to bra
 assert.match(radarSource, /Colorless Matrix Boundary/, "expected Colorless radar companion copy to explain the card-example boundary");
 assert.match(radarSource, /data-archscry-card-voices/, "expected card voices to expose a stable data hook");
 assert.match(radarSource, /not a raw mana-score ledger/, "expected the matrix note to describe the authored profile source");
+assert.match(indexSource, /const matrixFlavorSnippets = flavorSnippetsForFaction\(faction\)/, "expected renderResult to capture Identity Matrix card voices before building lower examples");
+assert.match(indexSource, /excludedCardNames:\s*matrixCardNames/, "expected lower card examples to exclude card names already shown in the Identity Matrix panel");
+assert.match(indexSource, /includeCurated:\s*!hasMatrixCardVoiceSurface/, "expected curated card voices to stay out of the lower card-example surface when the Matrix voice panel is present");
+assert.match(indexSource, /flavorEchoes\.length < 2/, "expected lower card examples to hide before rendering fewer than two entries");
+assert.match(indexSource, /groundedEchoes\.length < 2/, "expected the lower card-example wrapper to disappear when fewer than two grounded examples remain");
+assert.match(indexSource, /renderDossierRadarSection\(\{ result, faction, dossier, flavorSnippets: matrixFlavorSnippets \}\)/, "expected the Identity Matrix card-voice panel to keep its original snippet surface");
 assert.match(archscryCssSource, /card-preview-overlay/, "expected starter and land cards to use an unclipped preview overlay");
 assert.match(archscryCssSource, /precon-grid\.is-compact/, "expected Archscry CSS to style the compact precon preview grid");
 assert.match(archscryCssSource, /precon-grid\.is-compact\[hidden\]\s*\{\s*display:\s*none/, "expected hidden precon preview grids to remain visually hidden despite compact grid display styles");
@@ -292,6 +302,7 @@ assert.match(archscryCssSource, /grid-template-columns:\s*minmax\(0,\s*25fr\)\s*
 assert.match(archscryCssSource, /\.dossier-snapshot-tags\[hidden\]\s*\{\s*display:\s*none/, "expected empty result-summary tag rows to stay visually hidden");
 assert.match(archscryCssSource, /precon-badge\.is-native/, "expected Archscry CSS to distinguish native-fit precon badges");
 assert.match(archscryCssSource, /precon-reveal-btn/, "expected Archscry CSS to style the reveal remaining precons control");
+assert.match(archscryCssSource, /\.how-this-plays-label\s*\+\s*\.table-identity-list\s*\{\s*margin-top:0/, "expected How This Plays label-to-row spacing selector to remain present");
 assert.doesNotMatch(archscryCssSource, /\.staple-img:hover\{[^}]*transform:scale\(3\)/, "expected starter card hover to stop scaling inside clipped panels");
 assert.doesNotMatch(archscryCssSource, /\.land-img:hover\{[^}]*transform:scale\(3\)/, "expected mana-base hover to stop scaling inside clipped panels");
 assert.doesNotMatch(archscryCssSource, /vm-faction-signal|vm-signal-node|vm-signal-ring|identity-expression-glyph/, "expected removed expression and faction-signal styles to stay out of Archscry CSS");
@@ -809,6 +820,46 @@ assert.doesNotMatch(
   abzanFlavorEchoHtml,
   /A-Hobbling Zombie|Adorned Crocodile|Aphemia, the Cacophony|\u00e2\u20ac\u201d/i,
   "expected Abzan card examples to avoid broad tag-match misses and mojibake"
+);
+const abzanMatrixExcludedEchoes = selectCuratedFlavorEchoesForFaction({
+  faction: factionsData.factions.ABZAN,
+  snippets: flavorSnippets.snippets,
+  flavorCards: cardFlavorIndex.cards,
+  tagRefs: [],
+  excludedCardNames: ["  abzan banner  ", "ABZAN DEVOTEE"],
+});
+assert.deepEqual(
+  abzanMatrixExcludedEchoes.map((entry) => entry.card.name),
+  ["Abzan Guide"],
+  "expected matrix/lower card dedupe to compare trimmed case-insensitive card names"
+);
+assert.equal(
+  buildFlavorEchoesHtml(abzanMatrixExcludedEchoes, factionsData.factions.ABZAN),
+  "",
+  "expected the lower card-example section to hide entirely when fewer than two distinct grounded examples remain"
+);
+const blackMatrixCardNames = flavorSnippets.snippets.B.map((snippet) => snippet.card_name);
+const blackLowerEchoes = selectFlavorEchoes({
+  faction: factionsData.factions.B,
+  snippets: flavorSnippets.snippets,
+  flavorCards: cardFlavorIndex.cards,
+  commanderCards: commanderFlavorIndex.commanders,
+  tagRefs: [
+    { category: "identity", tag: "death" },
+    { category: "mechanical", tag: "sacrifice" },
+  ],
+  excludedCardNames: blackMatrixCardNames,
+  includeCurated: false,
+});
+const blackMatrixNameSet = new Set(blackMatrixCardNames.map(normalizeCardName));
+const blackLowerRepeats = blackLowerEchoes
+  .map((entry) => entry.card.name)
+  .filter((name) => blackMatrixNameSet.has(normalizeCardName(name)));
+assert.ok(blackLowerEchoes.length >= 2, "expected Black lower card examples to draw from distinct source-backed card rows");
+assert.deepEqual(
+  blackLowerRepeats,
+  [],
+  "expected Black matrix card voices and lower card examples not to repeat normalized card names"
 );
 const colorlessCuratedEchoes = selectCuratedFlavorEchoesForFaction({
   faction: factionsData.factions.COLORLESS,
@@ -2665,7 +2716,51 @@ assert.doesNotMatch(indexSource, /data-commander-directory-links/, "expected Sta
 assert.match(commanderPreviewSource, /Commander starting points/, "expected Start Here to keep the commander starting-point guidance block");
 assert.match(commanderPreviewSource, /commander-preview-grid/, "expected Start Here to keep commander preview cards");
 assert.match(commanderPreviewSource, /commanderPreviewCandidates\.length\s*\?/, "expected Commander starting points to render only when preview candidates exist");
+assert.match(commanderPreviewSlotsSource, /<div class="commander-name">\$\{candidate\.name\}<\/div>/, "expected commander preview tiles to include non-empty card-name fallback content");
+assert.match(commanderPreviewSlotsSource, /commander-placeholder" id="\$\{id\}" aria-label="\$\{escapeAttributeValue\(`\$\{candidate\.name\} card art`\)\}"/, "expected commander preview tiles to keep intentional image-fallback content");
 assert.doesNotMatch(commanderPreviewSource, /starter-links|data-commander-directory-links/, "expected Start Here to remove the external commander directory service block");
+const blackPlacementResult = {
+  faction: "B",
+  confidence: 0.9,
+  scores: { B: 1 },
+  tag_refs: [
+    { category: "identity", tag: "death" },
+    { category: "mechanical", tag: "sacrifice" },
+  ],
+  starter_profile: {
+    budget_band: "mid",
+    experience_level: "returning",
+  },
+};
+const blackDossier = buildCommanderDossier({
+  factions: factionsData.factions,
+  placementModel,
+  deckTagCatalog,
+  placementResult: blackPlacementResult,
+  summaryPresentationForFaction: presentationForFaction,
+  summaryContrastCopyBuilder: buildContrastCopy,
+});
+const blackRenderState = buildDossierRenderState({
+  starterCards: blackDossier.starterCards,
+  colors: factionsData.factions.B.colors,
+});
+const blackLandRecommendations = blackDossier.landRecommendations || buildCommanderLandRecommendations(factionsData.factions.B);
+assert.ok((blackDossier.commanderRecommendations || []).length >= 2, "expected Black Start Here to expose source-backed Commander preview rows");
+(blackDossier.commanderRecommendations || []).forEach((candidate) => {
+  assert.ok(String(candidate.name || "").trim(), "expected each Black Commander preview tile to include a non-empty card name");
+  const indexedCommander = commanderFlavorIndex.commanders.find((card) => normalizeCardName(card.name) === normalizeCardName(candidate.name));
+  assert.ok(
+    indexedCommander?.image_uris?.art_crop || indexedCommander?.image_uris?.normal || candidate.desc,
+    `expected Black Commander preview ${candidate.name} to have a Scryfall image URL or intentional fallback content`
+  );
+});
+assert.equal(blackRenderState.hasStarterCardReferences, true, "expected Black Starter Card References to remain populated");
+["creatures", "spells", "permanents"].forEach((group) => {
+  assert.ok((blackRenderState.starterCards[group] || []).length >= 2, `expected Black ${group} starter references to render`);
+});
+["basics", "premium", "midrange", "budget"].forEach((tier) => {
+  assert.ok(hasRenderableLandTier(blackLandRecommendations, tier), `expected Black ${tier} mana-base rows to render`);
+});
 assert.match(deckDiscoveryGroupsSource, /service:\s*"edhrec"/, "expected Commander Deck Starts to keep the EDHREC service group");
 assert.match(deckDiscoveryGroupsSource, /service:\s*"archidekt"/, "expected Commander Deck Starts to keep the Archidekt service group");
 assert.match(deckDiscoveryGroupsSource, /service:\s*"mtgdecks"/, "expected Commander Deck Starts to keep the MTGDecks service group");

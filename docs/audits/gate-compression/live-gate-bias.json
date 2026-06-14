@@ -1,0 +1,286 @@
+{
+  "generated_at": "2026-06-14T15:41:27.210Z",
+  "source": "data/placement/gate-compression.source.json",
+  "model": "data/placement-model.json",
+  "thresholds": {
+    "path_count": 625,
+    "min_distinct_rank_one_winners": 20,
+    "max_single_rank_one_paths": 100,
+    "max_azorius_rank_one_paths": 25
+  },
+  "path_count": 625,
+  "distinct_rank_one_winners": 29,
+  "max_rank_one": {
+    "faction": "B",
+    "count": 94
+  },
+  "azorius_rank_one_paths": 10,
+  "rank_one_counts": [
+    {
+      "faction": "B",
+      "count": 94
+    },
+    {
+      "faction": "R",
+      "count": 74
+    },
+    {
+      "faction": "U",
+      "count": 59
+    },
+    {
+      "faction": "W",
+      "count": 47
+    },
+    {
+      "faction": "G",
+      "count": 41
+    },
+    {
+      "faction": "WUBRG",
+      "count": 38
+    },
+    {
+      "faction": "JESKAI",
+      "count": 31
+    },
+    {
+      "faction": "ESPER",
+      "count": 29
+    },
+    {
+      "faction": "UB",
+      "count": 24
+    },
+    {
+      "faction": "NAYA",
+      "count": 19
+    },
+    {
+      "faction": "GLINT",
+      "count": 18
+    },
+    {
+      "faction": "COLORLESS",
+      "count": 17
+    },
+    {
+      "faction": "MARDU",
+      "count": 14
+    },
+    {
+      "faction": "SULTAI",
+      "count": 12
+    },
+    {
+      "faction": "BG",
+      "count": 11
+    },
+    {
+      "faction": "GRIXIS",
+      "count": 11
+    },
+    {
+      "faction": "DUNE",
+      "count": 10
+    },
+    {
+      "faction": "WU",
+      "count": 10
+    },
+    {
+      "faction": "LOREHOLD",
+      "count": 8
+    },
+    {
+      "faction": "QUANDRIX",
+      "count": 8
+    },
+    {
+      "faction": "TEMUR",
+      "count": 8
+    },
+    {
+      "faction": "ABZAN",
+      "count": 7
+    },
+    {
+      "faction": "BR",
+      "count": 7
+    },
+    {
+      "faction": "WITCH",
+      "count": 7
+    },
+    {
+      "faction": "BANT",
+      "count": 6
+    },
+    {
+      "faction": "PRISMARI",
+      "count": 6
+    },
+    {
+      "faction": "YORE",
+      "count": 6
+    },
+    {
+      "faction": "SILVERQUILL",
+      "count": 2
+    },
+    {
+      "faction": "RG",
+      "count": 1
+    }
+  ],
+  "top_3_counts": {
+    "ESPER": 83,
+    "UB": 97,
+    "SILVERQUILL": 37,
+    "B": 165,
+    "U": 124,
+    "YORE": 30,
+    "GRIXIS": 72,
+    "MARDU": 40,
+    "JESKAI": 65,
+    "LOREHOLD": 45,
+    "WR": 26,
+    "PRISMARI": 43,
+    "UR": 29,
+    "R": 125,
+    "WB": 26,
+    "SULTAI": 56,
+    "GLINT": 51,
+    "BR": 33,
+    "WUBRG": 78,
+    "BG": 37,
+    "WITHERBLOOM": 25,
+    "JUND": 15,
+    "RG": 21,
+    "COLORLESS": 17,
+    "W": 115,
+    "TEMUR": 30,
+    "DUNE": 27,
+    "NAYA": 53,
+    "G": 86,
+    "WU": 52,
+    "WITCH": 29,
+    "ABZAN": 33,
+    "QUANDRIX": 35,
+    "BANT": 28,
+    "UG": 23,
+    "INK": 19,
+    "WG": 5
+  },
+  "top_5_counts": {
+    "ESPER": 140,
+    "UB": 131,
+    "SILVERQUILL": 60,
+    "WB": 48,
+    "B": 216,
+    "GRIXIS": 125,
+    "YORE": 63,
+    "U": 171,
+    "SULTAI": 112,
+    "GLINT": 108,
+    "MARDU": 77,
+    "JESKAI": 122,
+    "PRISMARI": 65,
+    "UR": 53,
+    "LOREHOLD": 95,
+    "WR": 66,
+    "R": 174,
+    "BR": 77,
+    "DUNE": 59,
+    "BG": 61,
+    "JUND": 48,
+    "WUBRG": 90,
+    "WITHERBLOOM": 44,
+    "TEMUR": 61,
+    "RG": 37,
+    "COLORLESS": 17,
+    "WU": 79,
+    "W": 145,
+    "WITCH": 55,
+    "NAYA": 88,
+    "ABZAN": 67,
+    "G": 125,
+    "QUANDRIX": 62,
+    "UG": 49,
+    "BANT": 67,
+    "INK": 48,
+    "WG": 20
+  },
+  "special_leakage": {
+    "colorless_top5_without_boundary_count": 0,
+    "wubrg_top5_without_integration_count": 0,
+    "examples": {
+      "colorless_top5_without_boundary": [],
+      "wubrg_top5_without_integration": []
+    }
+  },
+  "same_color_duplicate_groups": [
+    {
+      "color_identity": "BG",
+      "keys": [
+        "BG",
+        "WITHERBLOOM"
+      ],
+      "scores": {
+        "BG": -3.230918,
+        "WITHERBLOOM": -3.230918
+      },
+      "tied_after_first_answer_path": true
+    },
+    {
+      "color_identity": "UG",
+      "keys": [
+        "QUANDRIX",
+        "UG"
+      ],
+      "scores": {
+        "QUANDRIX": -4.360918,
+        "UG": -4.360918
+      },
+      "tied_after_first_answer_path": true
+    },
+    {
+      "color_identity": "UR",
+      "keys": [
+        "PRISMARI",
+        "UR"
+      ],
+      "scores": {
+        "PRISMARI": -3.210918,
+        "UR": -3.210918
+      },
+      "tied_after_first_answer_path": true
+    },
+    {
+      "color_identity": "WB",
+      "keys": [
+        "SILVERQUILL",
+        "WB"
+      ],
+      "scores": {
+        "SILVERQUILL": -0.730918,
+        "WB": -0.730918
+      },
+      "tied_after_first_answer_path": true
+    },
+    {
+      "color_identity": "WR",
+      "keys": [
+        "LOREHOLD",
+        "WR"
+      ],
+      "scores": {
+        "LOREHOLD": -2.660918,
+        "WR": -2.660918
+      },
+      "tied_after_first_answer_path": true
+    }
+  ],
+  "pass": true,
+  "failures": []
+}

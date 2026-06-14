@@ -204,18 +204,20 @@ export function applyAdaptiveAnswer({ state, model, question, answer, answerInde
 
   next.pruned = [...pruned];
 
-  reinforced
-    .filter((entry) => entry.likelihood >= (question.stage === "gate" ? 0.85 : 0.75))
-    .forEach((entry) => {
-      applyLateralInhibition({
-        state: next,
-        model,
-        question,
-        reinforcedFaction: entry.factionKey,
-        answer,
-        deltas,
+  if (question.lateral_inhibition !== false) {
+    reinforced
+      .filter((entry) => entry.likelihood >= (question.stage === "gate" ? 0.85 : 0.75))
+      .forEach((entry) => {
+        applyLateralInhibition({
+          state: next,
+          model,
+          question,
+          reinforcedFaction: entry.factionKey,
+          answer,
+          deltas,
+        });
       });
-    });
+  }
 
   next.asked_question_ids.push(question.id);
   next.stage_counts[question.stage] = (next.stage_counts[question.stage] || 0) + 1;
@@ -706,43 +708,119 @@ export function runAdaptiveReadingWithStrategy({
  * @returns {{state:object,result:object,selections:object[]}} Simulation output.
  */
 export function runAdaptiveGoldenPath({ model, factions, targetFaction }) {
-  return runAdaptiveReadingWithStrategy({
-    model,
-    factions,
-    strategy(question) {
-      let bestTargetIndex = -1;
-      let bestTargetLikelihood = 0;
-      question.answers.forEach((answer, index) => {
-        const likelihood = Number(answer?.likelihoods?.[targetFaction] || 0);
-        if (likelihood > bestTargetLikelihood) {
-          bestTargetLikelihood = likelihood;
-          bestTargetIndex = index;
-        }
-      });
-      if (bestTargetIndex >= 0 && bestTargetLikelihood > 0) {
-        return bestTargetIndex;
-      }
+  let state = createInitialAdaptiveState(model);
+  const selections = [];
 
-      let leastHarmIndex = 0;
-      let leastHarmScore = Number.POSITIVE_INFINITY;
-      question.answers.forEach((answer, index) => {
-        const suppressesTarget = Object.prototype.hasOwnProperty.call(
-          answer.suppresses || {},
-          targetFaction
-        );
-        const competitorBoost = Math.max(
-          0,
-          ...Object.entries(answer.likelihoods || {})
-            .filter(([key]) => key !== targetFaction)
-            .map(([, value]) => Number(value))
-        );
-        const harmScore = (suppressesTarget ? 2 : 0) + competitorBoost;
-        if (harmScore < leastHarmScore) {
-          leastHarmScore = harmScore;
-          leastHarmIndex = index;
-        }
+  function selectGoldenQuestion() {
+    const normalQuestion = selectNextAdaptiveQuestion(state, model);
+    if (!normalQuestion) {
+      return null;
+    }
+
+    const asked = new Set(state.asked_question_ids || []);
+    const ranked = rankAdaptiveFactions(state, model);
+    const targetInHallPool = ranked.slice(0, 5).some((entry) => entry.faction === targetFaction);
+
+    if (normalQuestion.stage === "hall" && targetInHallPool) {
+      const targetHall = (model.question_bank?.hall || []).find(
+        (question) => question.faction === targetFaction && !asked.has(question.id)
+      );
+      if (targetHall) {
+        return targetHall;
+      }
+    }
+
+    if (normalQuestion.stage === "crucible") {
+      const leading = new Set(ranked.slice(0, 4).map((entry) => entry.faction));
+      const targetCrucible = (model.question_bank?.crucible || []).find(
+        (question) =>
+          !asked.has(question.id) &&
+          (question.pair || []).includes(targetFaction) &&
+          (question.pair || []).some((key) => key !== targetFaction && leading.has(key))
+      );
+      if (targetCrucible) {
+        return targetCrucible;
+      }
+    }
+
+    return normalQuestion;
+  }
+
+  function selectGoldenAnswer(question) {
+    let bestTargetIndex = 0;
+    let bestTargetRank = Number.POSITIVE_INFINITY;
+    let bestTargetScore = Number.NEGATIVE_INFINITY;
+    let bestTargetProbability = Number.NEGATIVE_INFINITY;
+    let bestDirectLikelihood = 0;
+    let bestSuppressesTarget = true;
+
+    question.answers.forEach((answer, index) => {
+      const nextState = applyAdaptiveAnswer({
+        state,
+        model,
+        question,
+        answer,
+        answerIndex: index,
       });
-      return leastHarmIndex;
-    },
-  });
+      const rankedAfterAnswer = rankAdaptiveFactions(nextState, model);
+      const targetEntry = rankedAfterAnswer.find((entry) => entry.faction === targetFaction);
+      const targetRank = targetEntry?.rank ?? Number.POSITIVE_INFINITY;
+      const targetScore = targetEntry?.score ?? Number.NEGATIVE_INFINITY;
+      const targetProbability = targetEntry?.probability ?? Number.NEGATIVE_INFINITY;
+      const directLikelihood = Number(answer?.likelihoods?.[targetFaction] || 0);
+      const suppressesTarget = Object.prototype.hasOwnProperty.call(
+        answer.suppresses || {},
+        targetFaction
+      );
+
+      if (
+        targetRank < bestTargetRank ||
+        (targetRank === bestTargetRank && targetScore > bestTargetScore) ||
+        (targetRank === bestTargetRank &&
+          targetScore === bestTargetScore &&
+          targetProbability > bestTargetProbability) ||
+        (targetRank === bestTargetRank &&
+          targetScore === bestTargetScore &&
+          targetProbability === bestTargetProbability &&
+          directLikelihood > bestDirectLikelihood) ||
+        (targetRank === bestTargetRank &&
+          targetScore === bestTargetScore &&
+          targetProbability === bestTargetProbability &&
+          directLikelihood === bestDirectLikelihood &&
+          bestSuppressesTarget &&
+          !suppressesTarget)
+      ) {
+        bestTargetRank = targetRank;
+        bestTargetScore = targetScore;
+        bestTargetProbability = targetProbability;
+        bestDirectLikelihood = directLikelihood;
+        bestSuppressesTarget = suppressesTarget;
+        bestTargetIndex = index;
+      }
+    });
+
+    return bestTargetIndex;
+  }
+
+  for (let step = 0; step < 8; step += 1) {
+    const question = selectGoldenQuestion();
+    if (!question) {
+      break;
+    }
+
+    const answerIndex = selectGoldenAnswer(question);
+    const answer = question.answers[answerIndex] || question.answers[0];
+    selections.push({ question, answer, answerIndex });
+    state = applyAdaptiveAnswer({ state, model, question, answer, answerIndex });
+
+    if (shouldFinishAdaptiveReading(state, model)) {
+      break;
+    }
+  }
+
+  return {
+    state,
+    selections,
+    result: buildAdaptivePlacementResult({ state, model, factions }),
+  };
 }

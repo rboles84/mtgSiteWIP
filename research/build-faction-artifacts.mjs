@@ -10,10 +10,28 @@ const displayPath = path.join(repoRoot, "data", "factions.json");
 const identityLayersPath = path.join(repoRoot, "data", "identity-layers.json");
 const placementModelPath = path.join(repoRoot, "data", "placement-model.json");
 const placementSchemaPath = path.join(repoRoot, "data", "placement-model.schema.json");
+const gateCompressionSourcePath = path.join(repoRoot, "data", "placement", "gate-compression.source.json");
 const factionContextPath = path.join(repoRoot, "supabase", "functions", "guild-recruiter", "faction-context.ts");
 
 const MODEL_VERSION = "vox-mana-adaptive-placement-v1";
 const RESULT_VERSION = "2026-05-10";
+const MANA_ORDER = Object.freeze(["W", "U", "B", "R", "G"]);
+const SPECIAL_COLORLESS = "COLORLESS";
+const SPECIAL_WUBRG = "WUBRG";
+const GATE_SOURCE_ONLY_FIELDS = Object.freeze([
+  "color_loadings",
+  "outside_wubrg",
+  "all_five_integration",
+  "evenness_signal",
+]);
+const GATE_GENERATED_EVIDENCE_FIELDS = Object.freeze([
+  "likelihoods",
+  "suppresses",
+  "prunes",
+  "gate_compression_preview",
+  "generated_evidence",
+  "preview_evidence",
+]);
 
 const RAW_TO_KEY = {
   white: "W",
@@ -4021,6 +4039,221 @@ async function writeJson(filePath, value) {
   await writeFile(filePath, `${JSON.stringify(value, null, 2)}\n`);
 }
 
+function asFixedLikelihood(value) {
+  return Number(value).toFixed(2);
+}
+
+function likelihoodToDeltaForRules(likelihood, rules = {}) {
+  const table = rules.likelihood_to_delta || {};
+  const key = asFixedLikelihood(likelihood);
+  if (Object.prototype.hasOwnProperty.call(table, key)) {
+    return Number(table[key]);
+  }
+
+  const entries = Object.entries(table)
+    .map(([bucket, delta]) => [Number(bucket), Number(delta)])
+    .sort((left, right) => Math.abs(left[0] - Number(likelihood)) - Math.abs(right[0] - Number(likelihood)));
+
+  return entries.length ? entries[0][1] : 0;
+}
+
+function buildGateBucketContract(scoringRules = {}) {
+  const table = scoringRules.likelihood_to_delta || {};
+  const buckets = Object.entries(table)
+    .map(([likelihood, delta]) => ({
+      likelihood: Number(likelihood),
+      likelihoodKey: Number(likelihood).toFixed(2),
+      delta: Number(delta),
+    }))
+    .sort((left, right) => left.delta - right.delta || left.likelihood - right.likelihood);
+
+  if (!buckets.some((bucket) => bucket.likelihoodKey === "0.45" && bucket.delta === 0)) {
+    throw new Error("Gate compression builder requires 0.45 to map to neutral delta 0.");
+  }
+
+  return {
+    buckets,
+    neutralLikelihood: 0.45,
+  };
+}
+
+function nearestBucketForGateDelta(delta, contract) {
+  let nearest = contract.buckets[0];
+  let nearestDistance = Number.POSITIVE_INFINITY;
+
+  contract.buckets.forEach((bucket) => {
+    const distance = Math.abs(bucket.delta - delta);
+    if (
+      distance < nearestDistance ||
+      (distance === nearestDistance && bucket.likelihood > nearest.likelihood)
+    ) {
+      nearest = bucket;
+      nearestDistance = distance;
+    }
+  });
+
+  return nearest;
+}
+
+function directGateBucketForLikelihood(likelihood, contract, scoringRules) {
+  const key = asFixedLikelihood(likelihood);
+  const exact = contract.buckets.find((bucket) => bucket.likelihoodKey === key);
+  if (exact) {
+    return exact;
+  }
+  return nearestBucketForGateDelta(likelihoodToDeltaForRules(Number(likelihood), scoringRules), contract);
+}
+
+function assertGateCompressionSource(source = {}) {
+  if (!Array.isArray(source.questions) || source.questions.length !== 4) {
+    throw new Error("Gate compression source must contain exactly four questions.");
+  }
+  if (Number(source.scoring?.neutral_likelihood ?? 0.45) !== 0.45) {
+    throw new Error("Gate compression source must keep 0.45 as the neutral likelihood.");
+  }
+  if (Number(source.scoring?.gate_broad_match_penalty ?? 0) !== 0) {
+    throw new Error("Gate compression source must use Gate broad-match penalty 0.");
+  }
+
+  source.questions.forEach((question, questionIndex) => {
+    if (question.stage !== "gate") {
+      throw new Error(`${question.id || `question ${questionIndex + 1}`} must use stage "gate".`);
+    }
+    if (!Array.isArray(question.answers) || question.answers.length < 4 || question.answers.length > 5) {
+      throw new Error(`${question.id} must contain four or five answers.`);
+    }
+    if (GATE_GENERATED_EVIDENCE_FIELDS.some((field) => Object.prototype.hasOwnProperty.call(question, field))) {
+      throw new Error(`${question.id} must not contain generated Gate evidence fields.`);
+    }
+
+    question.answers.forEach((answer) => {
+      const loadings = answer.color_loadings || {};
+      MANA_ORDER.forEach((color) => {
+        if (typeof loadings[color] !== "number") {
+          throw new Error(`${answer.id} is missing numeric color_loadings.${color}.`);
+        }
+      });
+      GATE_GENERATED_EVIDENCE_FIELDS.forEach((field) => {
+        if (Object.prototype.hasOwnProperty.call(answer, field)) {
+          throw new Error(`${answer.id} must not contain generated Gate field ${field}.`);
+        }
+      });
+      if (Number(answer.all_five_integration ?? answer.evenness_signal ?? 0.45) > 0.45) {
+        const values = MANA_ORDER.map((color) => loadings[color]);
+        const min = Math.min(...values);
+        const max = Math.max(...values);
+        if (min < 0.55 || max - min > 0.2) {
+          throw new Error(`${answer.id} marks all_five_integration without balanced color loadings.`);
+        }
+      }
+    });
+  });
+}
+
+function propagatedGateOrdinaryEvidence({ answer, faction, contract, scoringRules }) {
+  const colors = (faction.colors || []).filter((color) => MANA_ORDER.includes(color));
+  if (!colors.length) {
+    return {
+      bucketedLikelihood: contract.neutralLikelihood,
+      bucketedDelta: 0,
+      sourceDelta: 0,
+    };
+  }
+
+  const sourceDelta =
+    colors.reduce((sum, color) => {
+      const likelihood = answer.color_loadings?.[color] ?? contract.neutralLikelihood;
+      return sum + likelihoodToDeltaForRules(likelihood, scoringRules);
+    }, 0) / Math.sqrt(colors.length);
+  const bucket = nearestBucketForGateDelta(sourceDelta, contract);
+
+  return {
+    bucketedLikelihood: bucket.likelihood,
+    bucketedDelta: bucket.delta,
+    sourceDelta: Number(sourceDelta.toFixed(4)),
+  };
+}
+
+function gateEvidenceForAnswer(answer, faction, contract, source, scoringRules) {
+  const neutral = source.scoring?.neutral_likelihood ?? contract.neutralLikelihood;
+  const key = faction.key;
+
+  if (key === SPECIAL_COLORLESS) {
+    const likelihood = answer.outside_wubrg ?? neutral;
+    const bucket = directGateBucketForLikelihood(likelihood, contract, scoringRules);
+    return {
+      bucketedLikelihood: bucket.likelihood,
+      bucketedDelta: bucket.delta,
+      sourceDelta: bucket.delta,
+    };
+  }
+
+  if (key === SPECIAL_WUBRG) {
+    const likelihood = answer.all_five_integration ?? answer.evenness_signal ?? neutral;
+    const bucket = directGateBucketForLikelihood(likelihood, contract, scoringRules);
+    return {
+      bucketedLikelihood: bucket.likelihood,
+      bucketedDelta: bucket.delta,
+      sourceDelta: bucket.delta,
+    };
+  }
+
+  return propagatedGateOrdinaryEvidence({
+    answer,
+    faction,
+    contract,
+    scoringRules,
+  });
+}
+
+function buildGeneratedGateAnswer(answer, factions, contract, source, scoringRules) {
+  const likelihoods = {};
+  const suppresses = {};
+
+  Object.entries(factions || {}).forEach(([factionKey, faction]) => {
+    const evidence = gateEvidenceForAnswer(
+      answer,
+      { ...faction, key: faction.key || factionKey },
+      contract,
+      source,
+      scoringRules
+    );
+
+    if (evidence.bucketedDelta > 0) {
+      likelihoods[factionKey] = evidence.bucketedLikelihood;
+    } else if (evidence.bucketedDelta < 0) {
+      suppresses[factionKey] = evidence.bucketedLikelihood;
+    }
+  });
+
+  return {
+    id: answer.id,
+    title: answer.title,
+    copy: answer.copy,
+    signal: answer.signal || answer.title,
+    likelihoods,
+    suppresses,
+  };
+}
+
+function buildGateCompressionGate(source, factions, scoringRules) {
+  assertGateCompressionSource(source);
+  const contract = buildGateBucketContract(scoringRules);
+
+  return source.questions.map((question) => ({
+    id: question.id,
+    stage: "gate",
+    eyebrow: question.eyebrow,
+    axis: question.axis,
+    prompt: question.prompt,
+    lateral_inhibition: false,
+    source_id: source._meta?.id || "wubrg-first-gate-v1",
+    answers: question.answers.map((answer) =>
+      buildGeneratedGateAnswer(answer, factions, contract, source, scoringRules)
+    ),
+  }));
+}
+
 function normalizeColor(color) {
   const map = {
     white: "W",
@@ -4496,7 +4729,7 @@ async function loadRawFaction(rawId) {
   };
 }
 
-function buildPlacementModel(displayData, rawRecords, identityLayers) {
+function buildPlacementModel(displayData, rawRecords, identityLayers, gateCompressionSource) {
   const factions = {};
   for (const rawId of Object.keys(RAW_TO_KEY)) {
     const key = RAW_TO_KEY[rawId];
@@ -4527,6 +4760,36 @@ function buildPlacementModel(displayData, rawRecords, identityLayers) {
     });
   });
 
+  const scoringRules = {
+    prior: "equal",
+    prior_log_probability: Math.log(1 / Object.keys(factions).length),
+    likelihood_to_delta: {
+      "0.95": 1.45,
+      "0.90": 1.2,
+      "0.85": 1.0,
+      "0.75": 0.75,
+      "0.65": 0.55,
+      "0.60": 0.4,
+      "0.55": 0.28,
+      "0.50": 0.12,
+      "0.45": 0,
+      "0.35": -0.45,
+      "0.30": -0.55,
+      "0.25": -0.7,
+      "0.20": -0.9,
+      "0.10": -1.5,
+      "0.03": -3.5,
+    },
+    suppression_multiplier: 1,
+    prune_delta: -3.5,
+    lateral_inhibition_delta: -0.95,
+    same_color_pair_inhibition_delta: -0.65,
+    broad_match_penalty: -0.12,
+    crucible_probability_gap: 0.12,
+    decisive_probability_gap: 0.24,
+  };
+  const gateQuestions = buildGateCompressionGate(gateCompressionSource, factions, scoringRules);
+
   return {
     _meta: {
       model_version: MODEL_VERSION,
@@ -4536,35 +4799,16 @@ function buildPlacementModel(displayData, rawRecords, identityLayers) {
       faction_count: Object.keys(factions).length,
       identity_layer_version: identityLayers?._meta?.version || "",
       active_expression_keys: Object.keys(factions),
-    },
-    scoring_rules: {
-      prior: "equal",
-      prior_log_probability: Math.log(1 / Object.keys(factions).length),
-      likelihood_to_delta: {
-        "0.95": 1.45,
-        "0.90": 1.2,
-        "0.85": 1.0,
-        "0.75": 0.75,
-        "0.65": 0.55,
-        "0.60": 0.4,
-        "0.55": 0.28,
-        "0.50": 0.12,
-        "0.45": 0,
-        "0.35": -0.45,
-        "0.30": -0.55,
-        "0.25": -0.7,
-        "0.20": -0.9,
-        "0.10": -1.5,
-        "0.03": -3.5,
+      gate_compression: {
+        enabled: true,
+        source: "data/placement/gate-compression.source.json",
+        source_id: gateCompressionSource?._meta?.id || "wubrg-first-gate-v1",
+        source_status: gateCompressionSource?._meta?.status || "live-builder-source",
+        related_card: "VM-384",
+        report_path: "docs/audits/gate-compression/live-gate-bias.md",
       },
-      suppression_multiplier: 1,
-      prune_delta: -3.5,
-      lateral_inhibition_delta: -0.95,
-      same_color_pair_inhibition_delta: -0.65,
-      broad_match_penalty: -0.12,
-      crucible_probability_gap: 0.12,
-      decisive_probability_gap: 0.24,
     },
+    scoring_rules: scoringRules,
     stages: {
       gate: { min_questions: 4, max_questions: 4, purpose: "Build broad priors." },
       hall: { min_questions: 2, max_questions: 3, purpose: "Ask adaptive evidence questions." },
@@ -4572,7 +4816,11 @@ function buildPlacementModel(displayData, rawRecords, identityLayers) {
       max_total_questions: 8,
     },
     factions,
-    question_bank: QUESTION_BANK,
+    question_bank: {
+      gate: gateQuestions,
+      hall: QUESTION_BANK.hall,
+      crucible: QUESTION_BANK.crucible,
+    },
   };
 }
 
@@ -4742,6 +4990,11 @@ export function renderFactionContextModule({ factionContext, placementModelMeta 
   return `/**\n * Generated by tools/build-faction-artifacts.mjs.\n * Keep lore and placement updates in data/raw-factions and data/factions.json.\n */\nexport const FACTION_CONTEXT = ${JSON.stringify(factionContext, null, 2)} as const;\n\nexport const PLACEMENT_MODEL_META = ${JSON.stringify(placementModelMeta, null, 2)} as const;\n`;
 }
 
+function supabasePlacementModelMeta(meta = {}) {
+  const { gate_compression, ...publicMeta } = meta;
+  return publicMeta;
+}
+
 export function assertOnlyContextTargetsChanged(beforeContext, afterContext, targets) {
   assertPlainObject(beforeContext, "before FACTION_CONTEXT");
   assertPlainObject(afterContext, "after FACTION_CONTEXT");
@@ -4800,6 +5053,7 @@ async function main() {
 
   const displayData = await readJson(displayPath);
   const identityLayers = await readJson(identityLayersPath);
+  const gateCompressionSource = await readJson(gateCompressionSourcePath);
   displayData._meta = {
     ...(displayData._meta || {}),
     placement_model_version: MODEL_VERSION,
@@ -4812,7 +5066,7 @@ async function main() {
     rawRecords[rawId] = await loadRawFaction(rawId);
   }
 
-  const model = buildPlacementModel(displayData, rawRecords, identityLayers);
+  const model = buildPlacementModel(displayData, rawRecords, identityLayers, gateCompressionSource);
 
   displayData.identity_layers = {
     version: identityLayers?._meta?.version || "",
@@ -4919,7 +5173,7 @@ async function main() {
 
   const ts = renderFactionContextModule({
     factionContext,
-    placementModelMeta: model._meta,
+    placementModelMeta: supabasePlacementModelMeta(model._meta),
   });
   await writeFile(factionContextPath, ts);
 

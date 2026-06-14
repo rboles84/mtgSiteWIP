@@ -44,7 +44,15 @@
       "SILVERQUILL",
       "UG",
       "WITHERBLOOM"
-    ]
+    ],
+    "gate_compression": {
+      "enabled": true,
+      "source": "data/placement/gate-compression.source.json",
+      "source_id": "wubrg-first-gate-v1",
+      "source_status": "live-builder-source",
+      "related_card": "VM-384",
+      "report_path": "docs/audits/gate-compression/live-gate-bias.md"
+    }
   },
   "scoring_rules": {
     "prior": "equal",
@@ -9515,1465 +9523,926 @@
   "question_bank": {
     "gate": [
       {
-        "id": "gate_pressure_trust",
+        "id": "gate_v2_locus_of_trust",
         "stage": "gate",
         "eyebrow": "Gate I",
-        "prompt": "When pressure rises, what do you trust first?",
+        "axis": "Locus Of Trust",
+        "prompt": "When the ground shifts, what do you trust first?",
+        "lateral_inhibition": false,
+        "source_id": "wubrg-first-gate-v1",
         "answers": [
           {
-            "title": "A process that binds everyone",
-            "copy": "Clear rules, shared limits, and a path that does not depend on anyone's mood.",
-            "signal": "procedure as protection",
+            "id": "gate_v2_trust_self_claim",
+            "title": "The claim no one can make for me",
+            "copy": "I start with agency: the private decision, the necessary edge, the first motion I can own.",
+            "signal": "self-authored agency",
             "likelihoods": {
-              "W": 0.75,
-              "WU": 0.9,
-              "BANT": 0.85,
-              "ABZAN": 0.6,
-              "WB": 0.6,
-              "WG": 0.55
-            },
-            "suppresses": {
-              "BR": 0.45,
-              "RG": 0.35
-            }
-          },
-          {
-            "title": "Immediate protection",
-            "copy": "If someone is in danger, the right first move is to step between them and harm.",
-            "signal": "protective intervention",
-            "likelihoods": {
-              "W": 0.85,
-              "WR": 0.9,
-              "LOREHOLD": 0.55,
-              "NAYA": 0.55,
-              "WG": 0.5
-            },
-            "suppresses": {
-              "WU": 0.35,
-              "UB": 0.25
-            }
-          },
-          {
-            "title": "Information advantage",
-            "copy": "Read the room, hold your position, and act when the hidden structure is visible.",
-            "signal": "hidden information",
-            "likelihoods": {
-              "U": 0.95,
-              "UB": 0.9,
-              "B": 0.75,
-              "ESPER": 0.75,
-              "GRIXIS": 0.65,
-              "WB": 0.65,
-              "QUANDRIX": 0.35
-            },
-            "suppresses": {
-              "WR": 0.3,
-              "BR": 0.25
-            }
-          },
-          {
-            "title": "A bold release of force",
-            "copy": "Break the paralysis with motion, spectacle, or a move nobody can ignore.",
-            "signal": "high-intensity action",
-            "likelihoods": {
-              "BR": 0.85,
-              "RG": 0.8,
-              "PRISMARI": 0.75,
-              "JUND": 0.7,
-              "WR": 0.55
-            },
-            "suppresses": {
-              "WU": 0.4,
-              "WG": 0.25
-            }
-          },
-          {
-            "title": "A living system response",
-            "copy": "Look for what is growing, decaying, adapting, or asking to be tended.",
-            "signal": "living systems",
-            "likelihoods": {
-              "NAYA": 0.85,
-              "WITHERBLOOM": 0.85,
-              "UG": 0.8,
-              "BG": 0.75,
-              "WG": 0.6
-            },
-            "suppresses": {
-              "UB": 0.25,
-              "BR": 0.25
-            }
-          },
-          {
-            "title": "The first honest motion",
-            "copy": "Move before the feeling gets trapped under permission, fear, or overthinking.",
-            "signal": "immediate ignition",
-            "likelihoods": {
-              "R": 0.95,
-              "GRIXIS": 0.85,
-              "JUND": 0.7,
-              "NAYA": 0.55,
+              "B": 0.95,
+              "R": 0.9,
               "WR": 0.55,
-              "UR": 0.5,
-              "BR": 0.45,
-              "RG": 0.45
+              "BR": 0.95,
+              "ESPER": 0.55,
+              "GRIXIS": 0.95,
+              "JUND": 0.85,
+              "TEMUR": 0.5,
+              "SULTAI": 0.55,
+              "MARDU": 0.85,
+              "JESKAI": 0.5,
+              "YORE": 0.85,
+              "GLINT": 0.85,
+              "DUNE": 0.6,
+              "BG": 0.6,
+              "RG": 0.55,
+              "UB": 0.85,
+              "UR": 0.75,
+              "LOREHOLD": 0.55,
+              "WB": 0.6,
+              "PRISMARI": 0.75,
+              "SILVERQUILL": 0.6,
+              "WITHERBLOOM": 0.6
             },
             "suppresses": {
+              "W": 0.2,
+              "G": 0.2,
+              "WU": 0.25,
+              "BANT": 0.2,
+              "NAYA": 0.35,
+              "INK": 0.35,
+              "COLORLESS": 0.03,
+              "WUBRG": 0.2,
+              "QUANDRIX": 0.25,
+              "WG": 0.1,
+              "UG": 0.25
+            }
+          },
+          {
+            "id": "gate_v2_trust_personal_threshold",
+            "title": "The threshold in the self",
+            "copy": "I listen for the moment where desire, danger, and choice become too clear to outsource.",
+            "signal": "personal threshold",
+            "likelihoods": {
+              "U": 0.5,
+              "B": 0.75,
+              "R": 0.75,
+              "WR": 0.55,
+              "BR": 0.85,
+              "ESPER": 0.55,
+              "GRIXIS": 0.85,
+              "JUND": 0.65,
+              "TEMUR": 0.55,
+              "SULTAI": 0.55,
+              "MARDU": 0.65,
+              "JESKAI": 0.55,
+              "YORE": 0.65,
+              "GLINT": 0.65,
+              "DUNE": 0.55,
+              "BG": 0.55,
+              "RG": 0.55,
+              "UB": 0.65,
+              "UR": 0.65,
+              "LOREHOLD": 0.55,
+              "WB": 0.55,
+              "PRISMARI": 0.65,
+              "SILVERQUILL": 0.55,
+              "WITHERBLOOM": 0.55
+            },
+            "suppresses": {
+              "W": 0.35,
+              "G": 0.35,
               "WU": 0.35,
-              "U": 0.25
+              "BANT": 0.35,
+              "COLORLESS": 0.03,
+              "WUBRG": 0.2,
+              "QUANDRIX": 0.35,
+              "WG": 0.25,
+              "UG": 0.35
             }
           },
           {
-            "title": "The older living pattern",
-            "copy": "Root, observe, and let the answer follow the life already carrying the strain.",
-            "signal": "natural order under strain",
+            "id": "gate_v2_trust_braided_witness",
+            "title": "A braided witness",
+            "copy": "I want each part of the situation named, given weight, and brought into one accountable center.",
+            "signal": "integrated whole",
             "likelihoods": {
-              "G": 0.95,
-              "NAYA": 0.85,
-              "ABZAN": 0.6,
-              "WG": 0.5,
-              "UG": 0.5,
-              "BG": 0.5,
-              "RG": 0.5
-            },
-            "suppresses": {
-              "U": 0.25,
-              "WU": 0.25
-            }
-          },
-          {
-            "title": "The house that remembers",
-            "copy": "Trust begins with the family, the names already carried, and the next generation that must survive the choice.",
-            "signal": "remembered family duty",
-            "likelihoods": {
-              "ABZAN": 0.95,
-              "WB": 0.35,
-              "WG": 0.35,
-              "BG": 0.35
-            },
-            "suppresses": {
-              "JUND": 0.35,
-              "NAYA": 0.3,
-              "BANT": 0.25
-            }
-          },
-          {
-            "title": "The wild signal",
-            "copy": "Trust begins with the land, the body, and the old warning that arrives before language.",
-            "signal": "attuned survival signal",
-            "likelihoods": {
-              "TEMUR": 0.95,
-              "G": 0.55,
-              "UG": 0.45,
-              "RG": 0.45
-            },
-            "suppresses": {
-              "JUND": 0.35,
-              "NAYA": 0.25,
-              "GRIXIS": 0.25,
-              "ABZAN": 0.25
-            }
-          },
-          {
-            "title": "The unclaimed advantage",
-            "copy": "Trust begins with the resource nobody else is willing to see: the body, secret, cost, or opening that can become power.",
-            "signal": "ruthless resource conversion",
-            "likelihoods": {
-              "SULTAI": 0.95,
-              "B": 0.55,
-              "UB": 0.45,
-              "BG": 0.45
-            },
-            "suppresses": {
-              "ABZAN": 0.3,
-              "TEMUR": 0.25,
-              "NAYA": 0.25
-            }
-          },
-          {
-            "title": "The charge before the gap closes",
-            "copy": "Trust begins with the formation that can move before fear, delay, or comfort breaks the opening.",
-            "signal": "coordinated action before hesitation",
-            "likelihoods": {
-              "MARDU": 0.95,
-              "R": 0.55,
-              "WR": 0.45,
-              "BR": 0.45
-            },
-            "suppresses": {
-              "ABZAN": 0.3,
-              "TEMUR": 0.25,
-              "SULTAI": 0.25
-            }
-          },
-          {
-            "title": "The trained line",
-            "copy": "Trust begins with practiced perception: know the angle, steady the body, then move when insight is ready.",
-            "signal": "disciplined insight into action",
-            "likelihoods": {
-              "JESKAI": 0.95,
+              "W": 0.55,
               "U": 0.55,
-              "UR": 0.45,
-              "WU": 0.4,
-              "WR": 0.35
+              "B": 0.55,
+              "R": 0.55,
+              "G": 0.55,
+              "WU": 0.6,
+              "BANT": 0.65,
+              "WR": 0.6,
+              "BR": 0.6,
+              "ESPER": 0.65,
+              "GRIXIS": 0.65,
+              "JUND": 0.65,
+              "NAYA": 0.65,
+              "ABZAN": 0.65,
+              "TEMUR": 0.65,
+              "SULTAI": 0.65,
+              "MARDU": 0.65,
+              "JESKAI": 0.65,
+              "YORE": 0.65,
+              "GLINT": 0.65,
+              "DUNE": 0.65,
+              "INK": 0.65,
+              "WITCH": 0.65,
+              "WUBRG": 0.95,
+              "BG": 0.6,
+              "RG": 0.6,
+              "UB": 0.6,
+              "UR": 0.6,
+              "LOREHOLD": 0.6,
+              "WB": 0.6,
+              "PRISMARI": 0.6,
+              "QUANDRIX": 0.6,
+              "WG": 0.6,
+              "SILVERQUILL": 0.6,
+              "UG": 0.6,
+              "WITHERBLOOM": 0.6
             },
             "suppresses": {
-              "MARDU": 0.3,
-              "TEMUR": 0.25,
-              "SULTAI": 0.25
+              "COLORLESS": 0.03
             }
           },
           {
-            "title": "The engineered answer",
-            "copy": "Trust begins with the machine you can build: structure, knowledge, cost, and heat refusing to let the limit stay final.",
-            "signal": "engineered agency against natural surrender",
+            "id": "gate_v2_trust_common_root",
+            "title": "The common root",
+            "copy": "I trust the pattern that keeps people, place, and continuity from splintering under strain.",
+            "signal": "communal continuity",
             "likelihoods": {
-              "YORE": 0.95,
-              "WU": 0.4,
-              "UB": 0.4,
-              "UR": 0.4,
-              "WB": 0.35,
-              "BR": 0.35,
-              "ESPER": 0.3,
-              "GRIXIS": 0.3,
-              "JESKAI": 0.25
-            },
-            "suppresses": {
-              "G": 0.45,
-              "NAYA": 0.35,
-              "TEMUR": 0.3,
-              "SULTAI": 0.25
-            }
-          },
-          {
-            "title": "The living surge",
-            "copy": "Trust begins with the current that can learn, feed, and move before civic order turns the opening inert.",
-            "signal": "adaptive appetite under pressure",
-            "likelihoods": {
-              "GLINT": 0.95,
-              "UG": 0.45,
-              "BR": 0.45,
-              "UR": 0.4,
-              "BG": 0.4,
-              "RG": 0.4,
-              "GRIXIS": 0.35,
-              "JUND": 0.35,
-              "TEMUR": 0.35,
-              "SULTAI": 0.35
-            },
-            "suppresses": {
-              "W": 0.45,
-              "WU": 0.4,
-              "WG": 0.35,
-              "WR": 0.3,
-              "BANT": 0.25,
-              "ABZAN": 0.25
-            }
-          },
-          {
-            "title": "The line already moving",
-            "copy": "Trust begins with the front that can claim ground now: White line, Black cost, Red ignition, and Green persistence moving before distance can cool the field.",
-            "signal": "organized territorial force before detached contemplation",
-            "likelihoods": {
-              "DUNE": 0.95,
-              "BR": 0.45,
-              "RG": 0.45,
-              "WG": 0.4,
-              "WB": 0.4,
-              "WR": 0.35,
-              "BG": 0.35,
-              "NAYA": 0.35,
-              "MARDU": 0.35,
-              "ABZAN": 0.3,
-              "JUND": 0.3
-            },
-            "suppresses": {
-              "U": 0.45,
-              "WU": 0.35,
-              "UG": 0.3,
-              "GLINT": 0.25
-            }
-          },
-          {
-            "title": "The guarded commons",
-            "copy": "Trust begins with the gift that can keep moving because the commons is protected from capture.",
-            "signal": "protected public abundance under missing Black",
-            "likelihoods": {
+              "W": 0.95,
+              "U": 0.75,
+              "G": 0.95,
+              "WU": 0.95,
+              "BANT": 0.95,
+              "WR": 0.85,
+              "ESPER": 0.6,
+              "NAYA": 0.95,
+              "ABZAN": 0.75,
+              "TEMUR": 0.9,
+              "SULTAI": 0.6,
+              "JESKAI": 0.9,
+              "YORE": 0.6,
+              "GLINT": 0.6,
+              "DUNE": 0.75,
               "INK": 0.95,
-              "WG": 0.45,
-              "WU": 0.45,
-              "UG": 0.4,
-              "UR": 0.35,
-              "WR": 0.35,
-              "RG": 0.35,
-              "BANT": 0.3,
-              "NAYA": 0.3
+              "WITCH": 0.85,
+              "RG": 0.85,
+              "UR": 0.65,
+              "LOREHOLD": 0.85,
+              "PRISMARI": 0.65,
+              "QUANDRIX": 0.95,
+              "WG": 0.95,
+              "UG": 0.95
             },
             "suppresses": {
-              "B": 0.45,
-              "UB": 0.35,
-              "BR": 0.3,
-              "BG": 0.3,
-              "GLINT": 0.25,
-              "DUNE": 0.25
+              "B": 0.1,
+              "BR": 0.2,
+              "GRIXIS": 0.35,
+              "COLORLESS": 0.03,
+              "WUBRG": 0.2,
+              "UB": 0.3
             }
           },
           {
-            "title": "The cultivated future",
-            "copy": "Trust begins with the garden that can be protected, measured, and grown until impulse no longer gets to interrupt the plan.",
-            "signal": "patient cultivation under missing Red",
-            "likelihoods": {
-              "WITCH": 0.95,
-              "WG": 0.45,
-              "WU": 0.45,
-              "UG": 0.4,
-              "WB": 0.4,
-              "UB": 0.35,
-              "BG": 0.35,
-              "BANT": 0.3,
-              "ESPER": 0.3,
-              "SULTAI": 0.3,
-              "ABZAN": 0.3
-            },
-            "suppresses": {
-              "R": 0.5,
-              "BR": 0.35,
-              "RG": 0.35,
-              "UR": 0.3,
-              "WR": 0.3,
-              "GLINT": 0.25,
-              "DUNE": 0.25,
-              "INK": 0.2
-            }
-          },
-          {
-            "title": "The whole spectrum",
-            "copy": "Trust begins with giving every color a real job, then asking whether the coalition still has a center.",
-            "signal": "all five colors with accountable roles",
-            "likelihoods": {
-              "WUBRG": 0.95
-            },
-            "suppresses": {
-              "COLORLESS": 0.55,
-              "YORE": 0.3,
-              "GLINT": 0.3,
-              "DUNE": 0.3,
-              "INK": 0.3,
-              "WITCH": 0.3
-            }
-          },
-          {
-            "title": "The outside constraint",
-            "copy": "Trust begins with the rule that the color wheel is not the grammar of the answer.",
-            "signal": "outside-WUBRG restriction",
+            "id": "gate_v2_trust_outside_measure",
+            "title": "The measure outside the map",
+            "copy": "I trust the constraint that does not ask the old language for permission before it becomes real.",
+            "signal": "outside boundary",
             "likelihoods": {
               "COLORLESS": 0.95
             },
             "suppresses": {
-              "W": 0.35,
-              "U": 0.35,
-              "B": 0.35,
-              "R": 0.35,
-              "G": 0.35,
-              "YORE": 0.25,
-              "ESPER": 0.25,
-              "WITCH": 0.25
+              "W": 0.2,
+              "U": 0.2,
+              "B": 0.2,
+              "R": 0.2,
+              "G": 0.2,
+              "WU": 0.1,
+              "BANT": 0.1,
+              "WR": 0.1,
+              "BR": 0.1,
+              "ESPER": 0.1,
+              "GRIXIS": 0.1,
+              "JUND": 0.1,
+              "NAYA": 0.1,
+              "ABZAN": 0.1,
+              "TEMUR": 0.1,
+              "SULTAI": 0.1,
+              "MARDU": 0.1,
+              "JESKAI": 0.1,
+              "YORE": 0.1,
+              "GLINT": 0.1,
+              "DUNE": 0.1,
+              "INK": 0.1,
+              "WITCH": 0.1,
+              "WUBRG": 0.2,
+              "BG": 0.1,
+              "RG": 0.1,
+              "UB": 0.1,
+              "UR": 0.1,
+              "LOREHOLD": 0.1,
+              "WB": 0.1,
+              "PRISMARI": 0.1,
+              "QUANDRIX": 0.1,
+              "WG": 0.1,
+              "SILVERQUILL": 0.1,
+              "UG": 0.1,
+              "WITHERBLOOM": 0.1
             }
           }
         ]
       },
       {
-        "id": "gate_power_shape",
+        "id": "gate_v2_pressure_becomes",
         "stage": "gate",
         "eyebrow": "Gate II",
-        "prompt": "Which kind of power feels least dishonest to you?",
+        "axis": "What Pressure Becomes",
+        "prompt": "When pressure gathers, what should it become?",
+        "lateral_inhibition": false,
+        "source_id": "wubrg-first-gate-v1",
         "answers": [
           {
-            "title": "Power that is accountable",
-            "copy": "Authority should be legible, answerable, and bound by a standard beyond itself.",
-            "signal": "accountable authority",
-            "likelihoods": {
-              "W": 0.9,
-              "BANT": 0.9,
-              "WU": 0.8,
-              "WR": 0.7,
-              "SILVERQUILL": 0.55,
-              "NAYA": 0.45
-            },
-            "suppresses": {
-              "UB": 0.3,
-              "BR": 0.25
-            }
-          },
-          {
-            "title": "Power that is earned and owed",
-            "copy": "Influence is a ledger: debts, duties, inheritance, and the price of keeping promises.",
-            "signal": "obligation ledger",
-            "likelihoods": {
-              "WB": 0.9,
-              "ABZAN": 0.65,
-              "SILVERQUILL": 0.6,
-              "WU": 0.45
-            },
-            "suppresses": {
-              "WG": 0.35,
-              "RG": 0.3
-            }
-          },
-          {
-            "title": "Power that stays unseen",
-            "copy": "The cleanest leverage is the kind people do not know you have.",
-            "signal": "invisible leverage",
-            "likelihoods": {
-              "UB": 0.9,
-              "B": 0.75,
-              "GRIXIS": 0.65,
-              "WB": 0.6
-            },
-            "suppresses": {
-              "SILVERQUILL": 0.35,
-              "WR": 0.35
-            }
-          },
-          {
-            "title": "Power that transforms",
-            "copy": "The best strength changes the organism, the system, or the self into a better fit.",
-            "signal": "adaptive transformation",
-            "likelihoods": {
-              "UG": 0.85,
-              "WITHERBLOOM": 0.65,
-              "ESPER": 0.65,
-              "QUANDRIX": 0.6,
-              "U": 0.55,
-              "UR": 0.5
-            },
-            "suppresses": {
-              "WU": 0.25
-            }
-          },
-          {
-            "title": "Power that is expressed",
-            "copy": "Presence, style, and emotional force can tell the truth faster than an argument.",
-            "signal": "expressive force",
-            "likelihoods": {
-              "PRISMARI": 0.9,
-              "BR": 0.75,
-              "SILVERQUILL": 0.7,
-              "UR": 0.55
-            },
-            "suppresses": {
-              "WU": 0.35,
-              "QUANDRIX": 0.25
-            }
-          },
-          {
-            "title": "Power that ignites action",
-            "copy": "The cleanest power is the spark that gets the honest thing moving now.",
-            "signal": "freedom through motion",
-            "likelihoods": {
-              "R": 0.95,
-              "GRIXIS": 0.85,
-              "JUND": 0.7,
-              "NAYA": 0.55,
-              "WR": 0.5,
-              "UR": 0.45,
-              "BR": 0.45,
-              "RG": 0.45
-            },
-            "suppresses": {
-              "WU": 0.3,
-              "B": 0.2
-            }
-          },
-          {
-            "title": "Power that grows from roots",
-            "copy": "Strength is cleanest when it rises from land, creatures, time, and the shape life already holds.",
-            "signal": "rooted growth",
-            "likelihoods": {
-              "G": 0.95,
-              "NAYA": 0.85,
-              "ABZAN": 0.6,
-              "WG": 0.5,
-              "UG": 0.5,
-              "BG": 0.5,
-              "RG": 0.5
-            },
-            "suppresses": {
-              "U": 0.25,
-              "WU": 0.25
-            }
-          },
-          {
-            "title": "Power that carries the house",
-            "copy": "Power is cleanest when it preserves family continuity, ancestor duty, and the living house beyond this one crisis.",
-            "signal": "house-preserving obligation",
-            "likelihoods": {
-              "ABZAN": 0.95,
-              "WB": 0.5,
-              "BG": 0.4
-            },
-            "suppresses": {
-              "JUND": 0.35,
-              "WITHERBLOOM": 0.25
-            }
-          },
-          {
-            "title": "Power that listens first",
-            "copy": "Strength is cleanest when it hears terrain, memory, and instinct before becoming force.",
-            "signal": "listening before strength",
-            "likelihoods": {
-              "TEMUR": 0.95,
-              "G": 0.55,
-              "UG": 0.45,
-              "UR": 0.4
-            },
-            "suppresses": {
-              "JUND": 0.35,
-              "GRIXIS": 0.25,
-              "NAYA": 0.25
-            }
-          },
-          {
-            "title": "Power that converts the cost",
-            "copy": "Power is honest when every body, secret, and opportunity can be turned into leverage before it is wasted.",
-            "signal": "opportunity converted into leverage",
-            "likelihoods": {
-              "SULTAI": 0.95,
-              "UB": 0.5,
-              "BG": 0.45,
-              "B": 0.4
-            },
-            "suppresses": {
-              "ABZAN": 0.3,
-              "BANT": 0.25,
-              "NAYA": 0.25
-            }
-          },
-          {
-            "title": "Power that commits the charge",
-            "copy": "Power is honest when speed, oath, and ruthless opportunity move together before the moment is gone.",
-            "signal": "martial commitment through action",
-            "likelihoods": {
-              "MARDU": 0.95,
-              "R": 0.55,
-              "WR": 0.45,
-              "BR": 0.45
-            },
-            "suppresses": {
-              "ABZAN": 0.3,
-              "TEMUR": 0.25,
-              "SULTAI": 0.25
-            }
-          },
-          {
-            "title": "Power that practices first",
-            "copy": "Power is honest when knowledge, training, courage, and restraint make the action precise enough to matter.",
-            "signal": "cunning disciplined into motion",
-            "likelihoods": {
-              "JESKAI": 0.95,
-              "U": 0.55,
-              "UR": 0.45,
-              "WU": 0.4,
-              "WR": 0.35
-            },
-            "suppresses": {
-              "MARDU": 0.3,
-              "SULTAI": 0.25,
-              "TEMUR": 0.25
-            }
-          },
-          {
-            "title": "Power that rebuilds the limit",
-            "copy": "Power is honest when a body, rule, memory, or machine can be rebuilt into agency instead of accepted as final.",
-            "signal": "constructed intervention over natural finality",
-            "likelihoods": {
-              "YORE": 0.95,
-              "WU": 0.45,
-              "UB": 0.45,
-              "BR": 0.4,
-              "UR": 0.4,
-              "WB": 0.35,
-              "ESPER": 0.35,
-              "GRIXIS": 0.3
-            },
-            "suppresses": {
-              "G": 0.45,
-              "NAYA": 0.35,
-              "TEMUR": 0.35,
-              "SULTAI": 0.2
-            }
-          },
-          {
-            "title": "Power that stays alive",
-            "copy": "The cleanest power learns in motion, feeds under pressure, and grows without asking order to bless it first.",
-            "signal": "living force without civic restraint",
-            "likelihoods": {
-              "GLINT": 0.95,
-              "UG": 0.45,
-              "BR": 0.45,
-              "BG": 0.4,
-              "UR": 0.4,
-              "RG": 0.4,
-              "GRIXIS": 0.35,
-              "JUND": 0.35,
-              "TEMUR": 0.35,
-              "SULTAI": 0.35
-            },
-            "suppresses": {
-              "W": 0.45,
-              "WU": 0.4,
-              "WG": 0.35,
-              "WR": 0.3,
-              "BANT": 0.25,
-              "ABZAN": 0.25
-            }
-          },
-          {
-            "title": "Power that holds the field",
-            "copy": "The cleanest power keeps the line intact: solidarity, cost, ignition, and growth pushing together before analysis turns presence into hesitation.",
-            "signal": "force-backed solidarity under pressure",
-            "likelihoods": {
-              "DUNE": 0.95,
-              "BR": 0.45,
-              "RG": 0.45,
-              "WG": 0.4,
-              "WB": 0.4,
-              "WR": 0.35,
-              "BG": 0.35,
-              "NAYA": 0.35,
-              "MARDU": 0.35,
-              "ABZAN": 0.3,
-              "JUND": 0.3
-            },
-            "suppresses": {
-              "U": 0.45,
-              "WU": 0.35,
-              "UG": 0.3,
-              "GLINT": 0.25
-            }
-          },
-          {
-            "title": "Power that keeps the gift moving",
-            "copy": "Power is honest when it opens knowledge, protects reciprocity, and keeps abundance circulating without becoming private leverage.",
-            "signal": "guarded generosity as public power",
-            "likelihoods": {
-              "INK": 0.95,
-              "WU": 0.45,
-              "WG": 0.45,
-              "UG": 0.4,
-              "UR": 0.35,
-              "WR": 0.35,
-              "RG": 0.35,
-              "BANT": 0.3,
-              "JESKAI": 0.25,
-              "NAYA": 0.25
-            },
-            "suppresses": {
-              "B": 0.45,
-              "UB": 0.35,
-              "BR": 0.3,
-              "BG": 0.3,
-              "GLINT": 0.25,
-              "DUNE": 0.25
-            }
-          },
-          {
-            "title": "Power that compounds",
-            "copy": "Power is honest when small, protected investments are cultivated until every counter, card, and resource becomes part of the same inevitable plan.",
-            "signal": "protected accumulation into inevitability",
-            "likelihoods": {
-              "WITCH": 0.95,
-              "WG": 0.45,
-              "WU": 0.45,
-              "UG": 0.4,
-              "WB": 0.4,
-              "UB": 0.35,
-              "BG": 0.35,
-              "BANT": 0.3,
-              "ESPER": 0.3,
-              "SULTAI": 0.3,
-              "ABZAN": 0.3
-            },
-            "suppresses": {
-              "R": 0.5,
-              "BR": 0.35,
-              "RG": 0.35,
-              "UR": 0.3,
-              "WR": 0.3,
-              "GLINT": 0.25,
-              "DUNE": 0.25,
-              "INK": 0.2
-            }
-          },
-          {
-            "title": "Power that integrates the whole palette",
-            "copy": "Power is honest when breadth becomes coordination: each color contributes without pretending the pile has no tradeoffs.",
-            "signal": "full-spectrum power with tradeoffs",
-            "likelihoods": {
-              "WUBRG": 0.95
-            },
-            "suppresses": {
-              "COLORLESS": 0.55,
-              "YORE": 0.3,
-              "GLINT": 0.3,
-              "DUNE": 0.3,
-              "INK": 0.3,
-              "WITCH": 0.3
-            }
-          },
-          {
-            "title": "Power that stays uncolored",
-            "copy": "Power is honest when the absence itself is the discipline: not five colors, not a sixth color, and not a shortcut for generic costs.",
-            "signal": "non-color precision",
-            "likelihoods": {
-              "COLORLESS": 0.95
-            },
-            "suppresses": {
-              "W": 0.35,
-              "U": 0.35,
-              "B": 0.35,
-              "R": 0.35,
-              "G": 0.35,
-              "YORE": 0.25,
-              "ESPER": 0.25,
-              "WITCH": 0.25
-            }
-          }
-        ]
-      },
-      {
-        "id": "gate_attention_pattern",
-        "stage": "gate",
-        "eyebrow": "Gate III",
-        "prompt": "Where does your attention go first in a complicated situation?",
-        "answers": [
-          {
-            "title": "The precedent",
-            "copy": "What happened before, what was promised, and what the record proves.",
-            "signal": "historical evidence",
+            "id": "gate_v2_pressure_form",
+            "title": "A form that can hold",
+            "copy": "Pressure should become structure: named, testable, and steady enough to keep harm from spreading.",
+            "signal": "ordered containment",
             "likelihoods": {
               "W": 0.75,
-              "LOREHOLD": 0.9,
-              "BANT": 0.75,
-              "ABZAN": 0.65,
-              "WU": 0.65,
-              "WB": 0.55
-            },
-            "suppresses": {
-              "BR": 0.25,
-              "RG": 0.25
-            }
-          },
-          {
-            "title": "The pattern",
-            "copy": "The hidden equation, repeatable structure, or edge case everyone else missed.",
-            "signal": "abstract pattern",
-            "likelihoods": {
-              "QUANDRIX": 0.9,
+              "U": 0.95,
+              "WU": 0.95,
+              "BANT": 0.6,
+              "WR": 0.5,
+              "ESPER": 0.85,
+              "GRIXIS": 0.55,
+              "JESKAI": 0.85,
+              "YORE": 0.65,
+              "INK": 0.5,
+              "WITCH": 0.5,
+              "UB": 0.75,
               "UR": 0.65,
-              "UG": 0.55,
-              "ESPER": 0.5,
-              "UB": 0.45
+              "LOREHOLD": 0.5,
+              "WB": 0.55,
+              "PRISMARI": 0.65,
+              "SILVERQUILL": 0.55
             },
             "suppresses": {
+              "B": 0.35,
+              "R": 0.3,
+              "G": 0.1,
               "BR": 0.25,
-              "WR": 0.2
-            }
-          },
-          {
-            "title": "The leverage",
-            "copy": "What can still be converted, what price is worth paying, and who controls the next move.",
-            "signal": "personal leverage",
-            "likelihoods": {
-              "GRIXIS": 0.85,
-              "B": 0.85,
-              "ESPER": 0.65,
-              "UB": 0.55,
-              "WB": 0.5
-            },
-            "suppresses": {
-              "W": 0.25,
-              "WG": 0.25
-            }
-          },
-          {
-            "title": "The body of the system",
-            "copy": "What is alive, vulnerable, mutating, sick, hungry, or becoming something else.",
-            "signal": "biological reality",
-            "likelihoods": {
-              "UG": 0.85,
-              "WITHERBLOOM": 0.8,
-              "BG": 0.65,
-              "ABZAN": 0.55,
-              "NAYA": 0.55
-            },
-            "suppresses": {
-              "WU": 0.25,
-              "SILVERQUILL": 0.2
-            }
-          },
-          {
-            "title": "The wound",
-            "copy": "What was taken, who was harmed, and what polite language is trying to cover.",
-            "signal": "specific grievance",
-            "likelihoods": {
-              "RG": 0.9,
-              "JUND": 0.65,
-              "WR": 0.65,
-              "BG": 0.55,
-              "NAYA": 0.45
-            },
-            "suppresses": {
-              "WU": 0.35,
-              "WB": 0.2
-            }
-          },
-          {
-            "title": "The room itself",
-            "copy": "Who has the floor, who is performing, and whose words are moving people.",
-            "signal": "social performance",
-            "likelihoods": {
-              "SILVERQUILL": 0.85,
-              "PRISMARI": 0.7,
-              "BR": 0.55
-            },
-            "suppresses": {
-              "UG": 0.25,
-              "QUANDRIX": 0.25
-            }
-          },
-          {
-            "title": "The next impulse",
-            "copy": "What wants to happen before analysis, respectability, or habit talks it down.",
-            "signal": "honest impulse",
-            "likelihoods": {
-              "R": 0.95,
-              "JUND": 0.65,
-              "WR": 0.45,
-              "UR": 0.45,
-              "BR": 0.4,
-              "RG": 0.4
-            },
-            "suppresses": {
-              "WU": 0.3,
-              "U": 0.25
-            }
-          },
-          {
-            "title": "The natural role",
-            "copy": "What is trying to grow, what pace it needs, and where it belongs in the living order.",
-            "signal": "natural role",
-            "likelihoods": {
-              "G": 0.95,
-              "NAYA": 0.85,
-              "WG": 0.5,
-              "UG": 0.5,
-              "BG": 0.5,
-              "RG": 0.5
-            },
-            "suppresses": {
-              "U": 0.25,
-              "WU": 0.2
-            }
-          },
-          {
-            "title": "The family line",
-            "copy": "What matters first is how the choice affects the house, the ancestors behind it, and the descendants ahead.",
-            "signal": "lineage across time",
-            "likelihoods": {
-              "ABZAN": 0.95,
-              "WB": 0.45,
-              "BG": 0.4
-            },
-            "suppresses": {
-              "JUND": 0.35,
-              "NAYA": 0.25
-            }
-          },
-          {
-            "title": "The terrain signal",
-            "copy": "Attention goes to weather, stone, tracks, silence, and the living warning under the noise.",
-            "signal": "terrain and elemental signal",
-            "likelihoods": {
-              "TEMUR": 0.95,
-              "UG": 0.5,
-              "RG": 0.45,
-              "UR": 0.4
-            },
-            "suppresses": {
-              "ABZAN": 0.3,
+              "JUND": 0.1,
               "NAYA": 0.25,
-              "GRIXIS": 0.25
-            }
-          },
-          {
-            "title": "The usable resource",
-            "copy": "Attention goes to what can be claimed, repurposed, stolen, buried, raised, or turned before anyone else recognizes the opening.",
-            "signal": "usable resource before public meaning",
-            "likelihoods": {
-              "SULTAI": 0.95,
-              "UB": 0.5,
-              "BG": 0.45,
-              "UG": 0.35
-            },
-            "suppresses": {
-              "ABZAN": 0.3,
-              "TEMUR": 0.25,
-              "NAYA": 0.25
-            }
-          },
-          {
-            "title": "The opening",
-            "copy": "Attention goes to the gap that speed, formation, and ruthless commitment can take before it closes.",
-            "signal": "opening claimed through martial speed",
-            "likelihoods": {
-              "MARDU": 0.95,
-              "R": 0.55,
-              "WR": 0.45,
-              "BR": 0.45
-            },
-            "suppresses": {
-              "ABZAN": 0.3,
-              "TEMUR": 0.25,
-              "SULTAI": 0.25
-            }
-          },
-          {
-            "title": "The practiced angle",
-            "copy": "Attention goes to the line where study, timing, breath, and compassion can become the cleanest action.",
-            "signal": "trained perception before precise action",
-            "likelihoods": {
-              "JESKAI": 0.95,
-              "U": 0.55,
-              "WU": 0.45,
-              "UR": 0.4,
-              "WR": 0.35
-            },
-            "suppresses": {
-              "MARDU": 0.3,
-              "SULTAI": 0.25,
-              "GRIXIS": 0.25
-            }
-          },
-          {
-            "title": "The system that can be rebuilt",
-            "copy": "Attention goes to the engine under the surface: what can be redesigned, reclaimed, mechanized, or made to choose again.",
-            "signal": "system rebuilt through artifice",
-            "likelihoods": {
-              "YORE": 0.95,
-              "UB": 0.45,
-              "UR": 0.45,
-              "WU": 0.4,
-              "WB": 0.35,
-              "BR": 0.35,
-              "ESPER": 0.3,
-              "GRIXIS": 0.3
-            },
-            "suppresses": {
-              "G": 0.45,
-              "NAYA": 0.35,
-              "TEMUR": 0.3,
-              "SULTAI": 0.25
-            }
-          },
-          {
-            "title": "The live opening",
-            "copy": "Attention goes to the storm current: what can learn, exploit, mutate, and ignite before the moment gets domesticated.",
-            "signal": "living leverage under volatility",
-            "likelihoods": {
-              "GLINT": 0.95,
-              "UG": 0.45,
-              "UB": 0.4,
-              "BR": 0.4,
-              "UR": 0.4,
-              "BG": 0.4,
-              "RG": 0.35,
-              "GRIXIS": 0.35,
-              "JUND": 0.35,
+              "ABZAN": 0.25,
               "TEMUR": 0.35,
-              "SULTAI": 0.35
-            },
-            "suppresses": {
-              "W": 0.45,
-              "WU": 0.35,
-              "WG": 0.35,
-              "WR": 0.3,
-              "BANT": 0.25,
-              "ABZAN": 0.25
-            }
-          },
-          {
-            "title": "The ground the line can take",
-            "copy": "Attention goes to bodies, costs, pressure lines, and the patch of field that becomes yours if the common front moves before distance intervenes.",
-            "signal": "territorial opening through organized force",
-            "likelihoods": {
-              "DUNE": 0.95,
-              "BR": 0.45,
-              "RG": 0.45,
-              "WG": 0.4,
-              "WB": 0.4,
-              "WR": 0.35,
-              "BG": 0.35,
-              "NAYA": 0.35,
-              "MARDU": 0.35,
-              "ABZAN": 0.3,
-              "JUND": 0.3
-            },
-            "suppresses": {
-              "U": 0.45,
-              "WU": 0.35,
-              "UG": 0.3,
-              "GLINT": 0.25
-            }
-          },
-          {
-            "title": "The shared resource",
-            "copy": "Attention goes to the archive, meal, map, promise, or care that should circulate without being captured by one private hand.",
-            "signal": "open knowledge and shared care guarded from capture",
-            "likelihoods": {
-              "INK": 0.95,
-              "WU": 0.45,
-              "WG": 0.45,
-              "UG": 0.4,
-              "UR": 0.35,
-              "WR": 0.35,
-              "RG": 0.35,
-              "BANT": 0.3,
-              "TEMUR": 0.25,
-              "NAYA": 0.25
-            },
-            "suppresses": {
-              "B": 0.45,
-              "UB": 0.35,
-              "BR": 0.3,
-              "BG": 0.3,
-              "GLINT": 0.25,
-              "DUNE": 0.25
-            }
-          },
-          {
-            "title": "The long plan",
-            "copy": "Attention goes to the root, trellis, ledger, and experiment: what can be tended now so the future becomes too established to uproot.",
-            "signal": "long-horizon cultivation and calculation",
-            "likelihoods": {
-              "WITCH": 0.95,
-              "WG": 0.45,
-              "WU": 0.45,
-              "UG": 0.4,
-              "WB": 0.4,
-              "UB": 0.35,
-              "BG": 0.35,
-              "BANT": 0.3,
-              "ESPER": 0.3,
-              "SULTAI": 0.3,
-              "ABZAN": 0.3
-            },
-            "suppresses": {
-              "R": 0.5,
-              "BR": 0.35,
-              "RG": 0.35,
-              "UR": 0.3,
-              "WR": 0.3,
-              "GLINT": 0.25,
-              "DUNE": 0.25,
-              "INK": 0.2
-            }
-          },
-          {
-            "title": "The full map",
-            "copy": "Attention goes to which color is missing from the plan, which one is over-speaking, and how the whole palette stays legible.",
-            "signal": "five-color map discipline",
-            "likelihoods": {
-              "WUBRG": 0.95
-            },
-            "suppresses": {
-              "COLORLESS": 0.55,
-              "YORE": 0.3,
+              "SULTAI": 0.35,
               "GLINT": 0.3,
-              "DUNE": 0.3,
-              "INK": 0.3,
-              "WITCH": 0.3
+              "DUNE": 0.2,
+              "COLORLESS": 0.03,
+              "WUBRG": 0.2,
+              "BG": 0.1,
+              "RG": 0.1,
+              "WG": 0.3,
+              "WITHERBLOOM": 0.1
             }
           },
           {
-            "title": "The branch boundary",
-            "copy": "Attention goes to whether the pull is machine, void, Wastes, Eldrazi scale, or clean mana without letting one branch explain all of Colorless.",
-            "signal": "Colorless branch discipline",
+            "id": "gate_v2_pressure_answerable_motion",
+            "title": "Answerable motion",
+            "copy": "It should move, but with a visible thread back to responsibility, memory, and consequence.",
+            "signal": "bounded action",
             "likelihoods": {
-              "COLORLESS": 0.95
+              "W": 0.6,
+              "U": 0.75,
+              "WU": 0.75,
+              "BANT": 0.75,
+              "WR": 0.55,
+              "ESPER": 0.75,
+              "GRIXIS": 0.6,
+              "NAYA": 0.55,
+              "ABZAN": 0.55,
+              "TEMUR": 0.6,
+              "SULTAI": 0.6,
+              "MARDU": 0.55,
+              "JESKAI": 0.75,
+              "YORE": 0.65,
+              "GLINT": 0.6,
+              "DUNE": 0.55,
+              "INK": 0.65,
+              "WITCH": 0.65,
+              "UB": 0.65,
+              "UR": 0.65,
+              "LOREHOLD": 0.55,
+              "WB": 0.55,
+              "PRISMARI": 0.65,
+              "QUANDRIX": 0.65,
+              "WG": 0.55,
+              "SILVERQUILL": 0.55,
+              "UG": 0.65
+            },
+            "suppresses": {
+              "COLORLESS": 0.03,
+              "WUBRG": 0.2
+            }
+          },
+          {
+            "id": "gate_v2_pressure_many_currents",
+            "title": "Many currents, one course",
+            "copy": "It should become a working convergence: different forces kept distinct, then aimed together.",
+            "signal": "balanced convergence",
+            "likelihoods": {
+              "W": 0.55,
+              "U": 0.55,
+              "B": 0.55,
+              "R": 0.55,
+              "G": 0.55,
+              "WU": 0.6,
+              "BANT": 0.65,
+              "WR": 0.6,
+              "BR": 0.6,
+              "ESPER": 0.65,
+              "GRIXIS": 0.65,
+              "JUND": 0.65,
+              "NAYA": 0.65,
+              "ABZAN": 0.65,
+              "TEMUR": 0.65,
+              "SULTAI": 0.65,
+              "MARDU": 0.65,
+              "JESKAI": 0.65,
+              "YORE": 0.65,
+              "GLINT": 0.65,
+              "DUNE": 0.65,
+              "INK": 0.65,
+              "WITCH": 0.65,
+              "WUBRG": 0.95,
+              "BG": 0.6,
+              "RG": 0.6,
+              "UB": 0.6,
+              "UR": 0.6,
+              "LOREHOLD": 0.6,
+              "WB": 0.6,
+              "PRISMARI": 0.6,
+              "QUANDRIX": 0.6,
+              "WG": 0.6,
+              "SILVERQUILL": 0.6,
+              "UG": 0.6,
+              "WITHERBLOOM": 0.6
+            },
+            "suppresses": {
+              "COLORLESS": 0.03
+            }
+          },
+          {
+            "id": "gate_v2_pressure_wild_release",
+            "title": "A wild release",
+            "copy": "It should become adaptation, appetite, heat, and movement before a brittle answer snaps shut.",
+            "signal": "adaptive release",
+            "likelihoods": {
+              "B": 0.75,
+              "R": 0.85,
+              "G": 0.95,
+              "BANT": 0.55,
+              "WR": 0.6,
+              "BR": 0.9,
+              "GRIXIS": 0.75,
+              "JUND": 0.95,
+              "NAYA": 0.9,
+              "ABZAN": 0.85,
+              "TEMUR": 0.9,
+              "SULTAI": 0.85,
+              "MARDU": 0.75,
+              "YORE": 0.6,
+              "GLINT": 0.95,
+              "DUNE": 0.95,
+              "INK": 0.75,
+              "WITCH": 0.75,
+              "BG": 0.95,
+              "RG": 0.95,
+              "UB": 0.55,
+              "UR": 0.6,
+              "LOREHOLD": 0.6,
+              "WB": 0.55,
+              "PRISMARI": 0.6,
+              "QUANDRIX": 0.75,
+              "WG": 0.75,
+              "SILVERQUILL": 0.55,
+              "UG": 0.75,
+              "WITHERBLOOM": 0.95
             },
             "suppresses": {
               "W": 0.35,
               "U": 0.35,
-              "B": 0.35,
-              "R": 0.35,
-              "G": 0.35,
-              "YORE": 0.25,
-              "ESPER": 0.25,
-              "WITCH": 0.25
+              "WU": 0.25,
+              "COLORLESS": 0.03,
+              "WUBRG": 0.2
+            }
+          },
+          {
+            "id": "gate_v2_pressure_silent_axis",
+            "title": "A silent axis",
+            "copy": "It should become a hard boundary: not loud, not ornamental, simply outside the usual bargain.",
+            "signal": "outside boundary",
+            "likelihoods": {
+              "COLORLESS": 0.95
+            },
+            "suppresses": {
+              "W": 0.2,
+              "U": 0.2,
+              "B": 0.2,
+              "R": 0.2,
+              "G": 0.2,
+              "WU": 0.1,
+              "BANT": 0.1,
+              "WR": 0.1,
+              "BR": 0.1,
+              "ESPER": 0.1,
+              "GRIXIS": 0.1,
+              "JUND": 0.1,
+              "NAYA": 0.1,
+              "ABZAN": 0.1,
+              "TEMUR": 0.1,
+              "SULTAI": 0.1,
+              "MARDU": 0.1,
+              "JESKAI": 0.1,
+              "YORE": 0.1,
+              "GLINT": 0.1,
+              "DUNE": 0.1,
+              "INK": 0.1,
+              "WITCH": 0.1,
+              "WUBRG": 0.2,
+              "BG": 0.1,
+              "RG": 0.1,
+              "UB": 0.1,
+              "UR": 0.1,
+              "LOREHOLD": 0.1,
+              "WB": 0.1,
+              "PRISMARI": 0.1,
+              "QUANDRIX": 0.1,
+              "WG": 0.1,
+              "SILVERQUILL": 0.1,
+              "UG": 0.1,
+              "WITHERBLOOM": 0.1
             }
           }
         ]
       },
       {
-        "id": "gate_belonging_cost",
+        "id": "gate_v2_first_signal",
         "stage": "gate",
-        "eyebrow": "Gate IV",
-        "prompt": "What would make a faction worth joining even when it asks something of you?",
+        "eyebrow": "Gate III",
+        "axis": "First Signal",
+        "prompt": "What signal reaches you first?",
+        "lateral_inhibition": false,
+        "source_id": "wubrg-first-gate-v1",
         "answers": [
           {
-            "title": "Belonging to something larger",
-            "copy": "A shared self, shared care, and the relief of not carrying the whole world alone.",
-            "signal": "communal belonging",
+            "id": "gate_v2_signal_cold_pattern",
+            "title": "The cold pattern",
+            "copy": "Before the room gets loud, I notice leverage, implication, and what the facts are already costing.",
+            "signal": "calculated implication",
             "likelihoods": {
-              "WG": 0.9,
-              "BANT": 0.85,
-              "NAYA": 0.85,
-              "ABZAN": 0.55,
-              "WITHERBLOOM": 0.55,
-              "WR": 0.45
-            },
-            "suppresses": {
-              "GRIXIS": 0.65,
-              "UB": 0.35,
-              "BR": 0.25
-            }
-          },
-          {
-            "title": "A chance to build and test",
-            "copy": "A lab, a workshop, or a problem strange enough to justify the risk.",
-            "signal": "experimental construction",
-            "likelihoods": {
-              "UR": 0.9,
-              "UG": 0.65,
               "U": 0.55,
-              "QUANDRIX": 0.55,
-              "ESPER": 0.5,
-              "PRISMARI": 0.45
-            },
-            "suppresses": {
-              "WU": 0.25,
-              "WG": 0.25
-            }
-          },
-          {
-            "title": "A stage big enough for the truth",
-            "copy": "An institution that lets intensity, beauty, critique, or discomfort actually land.",
-            "signal": "truth through expression",
-            "likelihoods": {
-              "PRISMARI": 0.85,
-              "BR": 0.75,
-              "SILVERQUILL": 0.65
-            },
-            "suppresses": {
-              "GRIXIS": 0.85,
-              "WU": 0.3,
-              "WG": 0.2
-            }
-          },
-          {
-            "title": "A durable legacy",
-            "copy": "Something that outlasts mood: law, lineage, contracts, record, or remembered duty.",
-            "signal": "durable legacy",
-            "likelihoods": {
-              "W": 0.85,
-              "WB": 0.85,
-              "ABZAN": 0.65,
-              "LOREHOLD": 0.75,
-              "ESPER": 0.65,
-              "WU": 0.6
-            },
-            "suppresses": {
-              "BR": 0.25,
-              "RG": 0.25
-            }
-          },
-          {
-            "title": "A place that uses what others discard",
-            "copy": "Waste, failure, rot, grief, and leftovers become the start of the next structure.",
-            "signal": "reclamation",
-            "likelihoods": {
+              "B": 0.95,
+              "G": 0.55,
+              "WU": 0.5,
+              "BANT": 0.55,
+              "ESPER": 0.85,
+              "GRIXIS": 0.5,
+              "JUND": 0.5,
+              "ABZAN": 0.85,
+              "SULTAI": 0.9,
+              "YORE": 0.5,
+              "GLINT": 0.55,
+              "DUNE": 0.5,
+              "WITCH": 0.85,
               "BG": 0.9,
-              "GRIXIS": 0.85,
-              "B": 0.75,
-              "WITHERBLOOM": 0.7,
-              "JUND": 0.65,
-              "RG": 0.45
+              "UB": 0.9,
+              "WB": 0.85,
+              "QUANDRIX": 0.6,
+              "WG": 0.5,
+              "SILVERQUILL": 0.85,
+              "UG": 0.6,
+              "WITHERBLOOM": 0.9
             },
             "suppresses": {
-              "WU": 0.25,
+              "R": 0.1,
+              "WR": 0.2,
+              "NAYA": 0.25,
+              "TEMUR": 0.3,
+              "JESKAI": 0.25,
+              "INK": 0.35,
+              "COLORLESS": 0.03,
+              "WUBRG": 0.2,
+              "RG": 0.2,
+              "UR": 0.2,
+              "LOREHOLD": 0.2,
               "PRISMARI": 0.2
             }
           },
           {
-            "title": "A chance to live the spark",
-            "copy": "A place where the feeling can become action before the moment goes cold.",
-            "signal": "present-tense freedom",
+            "id": "gate_v2_signal_measured_trace",
+            "title": "The measured trace",
+            "copy": "I look for the thread beneath the feeling: the sign that tells me what kind of change is possible.",
+            "signal": "measured inference",
             "likelihoods": {
-              "R": 0.95,
-              "JUND": 0.65,
-              "NAYA": 0.45,
-              "WR": 0.4,
-              "UR": 0.4,
-              "BR": 0.4,
-              "RG": 0.4
-            },
-            "suppresses": {
-              "WU": 0.25,
-              "WB": 0.2
-            }
-          },
-          {
-            "title": "A place to grow as you are",
-            "copy": "A living order where roots deepen, instincts return, and patient strength unfolds.",
-            "signal": "rooted belonging",
-            "likelihoods": {
-              "G": 0.95,
-              "NAYA": 0.85,
-              "WG": 0.55,
-              "UG": 0.5,
-              "BG": 0.5,
-              "RG": 0.5
-            },
-            "suppresses": {
-              "U": 0.25,
-              "WU": 0.2
-            }
-          },
-          {
-            "title": "A house that outlasts me",
-            "copy": "The cost is bearable when it helps the house endure beyond one life and keeps memory useful for the living.",
-            "signal": "house continuity beyond the self",
-            "likelihoods": {
-              "ABZAN": 0.95,
-              "WB": 0.55,
-              "WG": 0.45,
-              "BG": 0.4
-            },
-            "suppresses": {
-              "GRIXIS": 0.45,
-              "JUND": 0.35,
-              "NAYA": 0.25
-            }
-          },
-          {
-            "title": "A clan that hears the wild",
-            "copy": "The cost is bearable when survival belongs to terrain, kin, instinct, and the signal that keeps the next step alive.",
-            "signal": "clan survival through attunement",
-            "likelihoods": {
-              "TEMUR": 0.95,
-              "G": 0.55,
-              "RG": 0.45,
-              "UG": 0.45
-            },
-            "suppresses": {
-              "JUND": 0.35,
-              "ABZAN": 0.3,
-              "GRIXIS": 0.25
-            }
-          },
-          {
-            "title": "An advantage no one else claims",
-            "copy": "The cost is bearable when it turns waste, death, secrecy, or risk into the power to keep choosing.",
-            "signal": "cost converted into agency",
-            "likelihoods": {
-              "SULTAI": 0.95,
-              "B": 0.55,
-              "BG": 0.45,
-              "UB": 0.45
-            },
-            "suppresses": {
-              "ABZAN": 0.3,
-              "TEMUR": 0.25,
-              "BANT": 0.25
-            }
-          },
-          {
-            "title": "A name worth charging under",
-            "copy": "The cost is bearable when the charge has a name, a code, and companions moving fast enough to keep it true.",
-            "signal": "war-name belonging through commitment",
-            "likelihoods": {
-              "MARDU": 0.95,
-              "WR": 0.5,
-              "WB": 0.45,
-              "R": 0.45
-            },
-            "suppresses": {
-              "JUND": 0.3,
-              "ABZAN": 0.25,
-              "SULTAI": 0.25
-            }
-          },
-          {
-            "title": "A school that makes motion wise",
-            "copy": "The cost is bearable when discipline turns insight into action that can protect the form it serves.",
-            "signal": "monastery practice as shared action",
-            "likelihoods": {
-              "JESKAI": 0.95,
               "U": 0.55,
-              "WU": 0.45,
-              "UR": 0.4,
-              "WR": 0.35
+              "B": 0.85,
+              "G": 0.55,
+              "WU": 0.5,
+              "BANT": 0.55,
+              "BR": 0.55,
+              "ESPER": 0.75,
+              "GRIXIS": 0.55,
+              "JUND": 0.55,
+              "ABZAN": 0.75,
+              "SULTAI": 0.85,
+              "MARDU": 0.5,
+              "YORE": 0.55,
+              "GLINT": 0.6,
+              "DUNE": 0.55,
+              "WITCH": 0.75,
+              "BG": 0.85,
+              "UB": 0.85,
+              "WB": 0.75,
+              "QUANDRIX": 0.6,
+              "WG": 0.5,
+              "SILVERQUILL": 0.75,
+              "UG": 0.6,
+              "WITHERBLOOM": 0.85
             },
             "suppresses": {
-              "MARDU": 0.3,
-              "SULTAI": 0.25,
-              "TEMUR": 0.25
-            }
-          },
-          {
-            "title": "A workshop against surrender",
-            "copy": "The cost is bearable when the workbench, archive, contract, and forge keep agency alive where nature would have closed the case.",
-            "signal": "workshop archive forge against surrender",
-            "likelihoods": {
-              "YORE": 0.95,
-              "WU": 0.4,
-              "UB": 0.4,
-              "UR": 0.4,
-              "WB": 0.35,
-              "BR": 0.35,
-              "MARDU": 0.25,
-              "JESKAI": 0.25
-            },
-            "suppresses": {
-              "G": 0.45,
-              "NAYA": 0.35,
-              "TEMUR": 0.35,
-              "SULTAI": 0.2
-            }
-          },
-          {
-            "title": "A storm worth riding",
-            "copy": "The cost is bearable when the surge keeps appetite, adaptation, ignition, and living force in the same current without civic restraint freezing it still.",
-            "signal": "non-white four-color surge",
-            "likelihoods": {
-              "GLINT": 0.95,
-              "UG": 0.45,
-              "BR": 0.45,
-              "UR": 0.4,
-              "BG": 0.4,
-              "RG": 0.4,
-              "GRIXIS": 0.35,
-              "JUND": 0.35,
-              "TEMUR": 0.35,
-              "SULTAI": 0.35
-            },
-            "suppresses": {
-              "W": 0.45,
-              "WU": 0.4,
-              "WG": 0.35,
-              "WR": 0.3,
-              "BANT": 0.25,
-              "ABZAN": 0.25
-            }
-          },
-          {
-            "title": "A common front worth paying for",
-            "copy": "The cost is bearable when line, conquest, ignition, and persistence keep the formation moving together before contemplation turns the opening cold.",
-            "signal": "common front under cost-bearing pressure",
-            "likelihoods": {
-              "DUNE": 0.95,
-              "BR": 0.45,
-              "RG": 0.45,
-              "WG": 0.4,
-              "WB": 0.4,
+              "R": 0.25,
               "WR": 0.35,
-              "BG": 0.35,
               "NAYA": 0.35,
-              "MARDU": 0.35,
-              "ABZAN": 0.3,
-              "JUND": 0.3
-            },
-            "suppresses": {
-              "U": 0.45,
-              "WU": 0.35,
-              "UG": 0.3,
-              "GLINT": 0.25
-            }
-          },
-          {
-            "title": "A commons worth guarding",
-            "copy": "The cost is bearable when shared knowledge, care, and abundance stay open because someone protects them from capture.",
-            "signal": "belonging through protected public abundance",
-            "likelihoods": {
-              "INK": 0.95,
-              "WG": 0.45,
-              "WU": 0.45,
-              "UG": 0.4,
+              "JESKAI": 0.35,
+              "COLORLESS": 0.03,
+              "WUBRG": 0.2,
+              "RG": 0.35,
               "UR": 0.35,
-              "WR": 0.35,
-              "RG": 0.35,
-              "BANT": 0.3,
-              "NAYA": 0.3
-            },
-            "suppresses": {
-              "B": 0.45,
-              "UB": 0.35,
-              "BR": 0.3,
-              "BG": 0.3,
-              "GLINT": 0.25,
-              "DUNE": 0.25
+              "LOREHOLD": 0.35,
+              "PRISMARI": 0.35
             }
           },
           {
-            "title": "A garden worth binding",
-            "copy": "The cost is bearable when structure, study, and ambition keep the garden alive long enough for patient growth to become inevitable.",
-            "signal": "protected garden as long-horizon belonging",
+            "id": "gate_v2_signal_whole_chord",
+            "title": "The whole chord",
+            "copy": "The signal arrives as a chord: thought, hunger, duty, feeling, and life all audible at once.",
+            "signal": "balanced chord",
             "likelihoods": {
-              "WITCH": 0.95,
-              "WG": 0.45,
-              "WU": 0.45,
-              "UG": 0.4,
-              "WB": 0.4,
-              "UB": 0.35,
-              "BG": 0.35,
-              "BANT": 0.3,
-              "ESPER": 0.3,
-              "SULTAI": 0.3,
-              "ABZAN": 0.3
+              "W": 0.55,
+              "U": 0.55,
+              "B": 0.55,
+              "R": 0.55,
+              "G": 0.55,
+              "WU": 0.6,
+              "BANT": 0.65,
+              "WR": 0.6,
+              "BR": 0.6,
+              "ESPER": 0.65,
+              "GRIXIS": 0.65,
+              "JUND": 0.65,
+              "NAYA": 0.65,
+              "ABZAN": 0.65,
+              "TEMUR": 0.65,
+              "SULTAI": 0.65,
+              "MARDU": 0.65,
+              "JESKAI": 0.65,
+              "YORE": 0.65,
+              "GLINT": 0.65,
+              "DUNE": 0.65,
+              "INK": 0.65,
+              "WITCH": 0.65,
+              "WUBRG": 0.95,
+              "BG": 0.6,
+              "RG": 0.6,
+              "UB": 0.6,
+              "UR": 0.6,
+              "LOREHOLD": 0.6,
+              "WB": 0.6,
+              "PRISMARI": 0.6,
+              "QUANDRIX": 0.6,
+              "WG": 0.6,
+              "SILVERQUILL": 0.6,
+              "UG": 0.6,
+              "WITHERBLOOM": 0.6
             },
             "suppresses": {
-              "R": 0.5,
-              "BR": 0.35,
-              "RG": 0.35,
-              "UR": 0.3,
-              "WR": 0.3,
-              "GLINT": 0.25,
-              "DUNE": 0.25,
-              "INK": 0.2
+              "COLORLESS": 0.03
             }
           },
           {
-            "title": "A coalition worth coordinating",
-            "copy": "The cost is bearable when every color remains present, useful, and answerable to the whole plan.",
-            "signal": "full-color coalition with shared discipline",
+            "id": "gate_v2_signal_live_spark",
+            "title": "The live spark",
+            "copy": "I hear what wants to move: the heat, the honesty, the flash before it gets explained away.",
+            "signal": "felt ignition",
             "likelihoods": {
-              "WUBRG": 0.95
+              "W": 0.55,
+              "R": 0.95,
+              "WU": 0.5,
+              "BANT": 0.5,
+              "WR": 0.9,
+              "NAYA": 0.85,
+              "TEMUR": 0.75,
+              "MARDU": 0.5,
+              "JESKAI": 0.85,
+              "YORE": 0.5,
+              "DUNE": 0.5,
+              "INK": 0.75,
+              "RG": 0.85,
+              "UR": 0.85,
+              "LOREHOLD": 0.9,
+              "PRISMARI": 0.85,
+              "WG": 0.5
             },
             "suppresses": {
-              "COLORLESS": 0.55,
-              "YORE": 0.3,
-              "GLINT": 0.3,
-              "DUNE": 0.3,
-              "INK": 0.3,
-              "WITCH": 0.3
+              "B": 0.1,
+              "ESPER": 0.25,
+              "ABZAN": 0.25,
+              "SULTAI": 0.2,
+              "WITCH": 0.3,
+              "COLORLESS": 0.03,
+              "WUBRG": 0.2,
+              "BG": 0.2,
+              "UB": 0.2,
+              "WB": 0.2,
+              "SILVERQUILL": 0.2,
+              "WITHERBLOOM": 0.2
             }
           },
           {
-            "title": "A restriction worth choosing",
-            "copy": "The cost is bearable when being outside WUBRG is the appeal, not a consolation prize or a catch-all for artifacts.",
-            "signal": "chosen non-color restriction",
+            "id": "gate_v2_signal_unlit_edge",
+            "title": "The unlit edge",
+            "copy": "The first signal is absence: a clean edge where the usual symbols stop being useful.",
+            "signal": "outside boundary",
             "likelihoods": {
               "COLORLESS": 0.95
             },
             "suppresses": {
-              "W": 0.35,
-              "U": 0.35,
-              "B": 0.35,
-              "R": 0.35,
-              "G": 0.35,
-              "YORE": 0.25,
-              "ESPER": 0.25,
-              "WITCH": 0.25
+              "W": 0.2,
+              "U": 0.2,
+              "B": 0.2,
+              "R": 0.2,
+              "G": 0.2,
+              "WU": 0.1,
+              "BANT": 0.1,
+              "WR": 0.1,
+              "BR": 0.1,
+              "ESPER": 0.1,
+              "GRIXIS": 0.1,
+              "JUND": 0.1,
+              "NAYA": 0.1,
+              "ABZAN": 0.1,
+              "TEMUR": 0.1,
+              "SULTAI": 0.1,
+              "MARDU": 0.1,
+              "JESKAI": 0.1,
+              "YORE": 0.1,
+              "GLINT": 0.1,
+              "DUNE": 0.1,
+              "INK": 0.1,
+              "WITCH": 0.1,
+              "WUBRG": 0.2,
+              "BG": 0.1,
+              "RG": 0.1,
+              "UB": 0.1,
+              "UR": 0.1,
+              "LOREHOLD": 0.1,
+              "WB": 0.1,
+              "PRISMARI": 0.1,
+              "QUANDRIX": 0.1,
+              "WG": 0.1,
+              "SILVERQUILL": 0.1,
+              "UG": 0.1,
+              "WITHERBLOOM": 0.1
+            }
+          }
+        ]
+      },
+      {
+        "id": "gate_v2_cost_of_oath",
+        "stage": "gate",
+        "eyebrow": "Gate IV",
+        "axis": "Cost Of The Oath",
+        "prompt": "What cost can an oath fairly ask of you?",
+        "lateral_inhibition": false,
+        "source_id": "wubrg-first-gate-v1",
+        "answers": [
+          {
+            "id": "gate_v2_oath_preserve",
+            "title": "Preserve what must not break",
+            "copy": "It can ask me to carry the old weight: shelter, consequence, and the line that keeps faith intact.",
+            "signal": "preserving duty",
+            "likelihoods": {
+              "W": 0.95,
+              "B": 0.6,
+              "R": 0.75,
+              "WU": 0.65,
+              "BANT": 0.6,
+              "WR": 0.95,
+              "BR": 0.75,
+              "ESPER": 0.75,
+              "GRIXIS": 0.55,
+              "JUND": 0.75,
+              "NAYA": 0.9,
+              "ABZAN": 0.85,
+              "MARDU": 0.95,
+              "JESKAI": 0.75,
+              "YORE": 0.85,
+              "GLINT": 0.55,
+              "DUNE": 0.9,
+              "INK": 0.75,
+              "WITCH": 0.65,
+              "BG": 0.55,
+              "RG": 0.65,
+              "LOREHOLD": 0.95,
+              "WB": 0.9,
+              "WG": 0.85,
+              "SILVERQUILL": 0.9,
+              "WITHERBLOOM": 0.55
+            },
+            "suppresses": {
+              "U": 0.25,
+              "COLORLESS": 0.03,
+              "WUBRG": 0.2,
+              "QUANDRIX": 0.35,
+              "UG": 0.35
+            }
+          },
+          {
+            "id": "gate_v2_oath_steward",
+            "title": "Steward the change",
+            "copy": "It can ask discipline from me: not refusal of change, but care over what change consumes.",
+            "signal": "careful stewardship",
+            "likelihoods": {
+              "W": 0.75,
+              "R": 0.6,
+              "WU": 0.65,
+              "BANT": 0.6,
+              "WR": 0.75,
+              "BR": 0.55,
+              "ESPER": 0.6,
+              "GRIXIS": 0.55,
+              "JUND": 0.55,
+              "NAYA": 0.75,
+              "ABZAN": 0.6,
+              "TEMUR": 0.55,
+              "MARDU": 0.75,
+              "JESKAI": 0.75,
+              "YORE": 0.65,
+              "GLINT": 0.55,
+              "DUNE": 0.65,
+              "INK": 0.65,
+              "WITCH": 0.6,
+              "RG": 0.55,
+              "UR": 0.55,
+              "LOREHOLD": 0.75,
+              "WB": 0.65,
+              "PRISMARI": 0.55,
+              "WG": 0.65,
+              "SILVERQUILL": 0.65
+            },
+            "suppresses": {
+              "COLORLESS": 0.03,
+              "WUBRG": 0.2
+            }
+          },
+          {
+            "id": "gate_v2_oath_whole_covenant",
+            "title": "Keep the whole covenant",
+            "copy": "It can ask me to hold every claim in view, even when no single hunger deserves the throne.",
+            "signal": "integrated covenant",
+            "likelihoods": {
+              "W": 0.55,
+              "U": 0.55,
+              "B": 0.55,
+              "R": 0.55,
+              "G": 0.55,
+              "WU": 0.6,
+              "BANT": 0.65,
+              "WR": 0.6,
+              "BR": 0.6,
+              "ESPER": 0.65,
+              "GRIXIS": 0.65,
+              "JUND": 0.65,
+              "NAYA": 0.65,
+              "ABZAN": 0.65,
+              "TEMUR": 0.65,
+              "SULTAI": 0.65,
+              "MARDU": 0.65,
+              "JESKAI": 0.65,
+              "YORE": 0.65,
+              "GLINT": 0.65,
+              "DUNE": 0.65,
+              "INK": 0.65,
+              "WITCH": 0.65,
+              "WUBRG": 0.95,
+              "BG": 0.6,
+              "RG": 0.6,
+              "UB": 0.6,
+              "UR": 0.6,
+              "LOREHOLD": 0.6,
+              "WB": 0.6,
+              "PRISMARI": 0.6,
+              "QUANDRIX": 0.6,
+              "WG": 0.6,
+              "SILVERQUILL": 0.6,
+              "UG": 0.6,
+              "WITHERBLOOM": 0.6
+            },
+            "suppresses": {
+              "COLORLESS": 0.03
+            }
+          },
+          {
+            "id": "gate_v2_oath_transform",
+            "title": "Become the changed thing",
+            "copy": "It can ask me to release the prior shape and become the answer the threshold requires.",
+            "signal": "transformative cost",
+            "likelihoods": {
+              "U": 0.85,
+              "G": 0.75,
+              "BANT": 0.5,
+              "GRIXIS": 0.65,
+              "JUND": 0.6,
+              "TEMUR": 0.85,
+              "SULTAI": 0.85,
+              "GLINT": 0.85,
+              "INK": 0.5,
+              "WITCH": 0.5,
+              "BG": 0.65,
+              "RG": 0.65,
+              "UB": 0.75,
+              "UR": 0.75,
+              "PRISMARI": 0.75,
+              "QUANDRIX": 0.9,
+              "UG": 0.9,
+              "WITHERBLOOM": 0.65
+            },
+            "suppresses": {
+              "W": 0.1,
+              "WU": 0.35,
+              "WR": 0.2,
+              "ESPER": 0.35,
+              "NAYA": 0.35,
+              "ABZAN": 0.35,
+              "MARDU": 0.2,
+              "JESKAI": 0.35,
+              "YORE": 0.35,
+              "DUNE": 0.35,
+              "COLORLESS": 0.03,
+              "WUBRG": 0.2,
+              "LOREHOLD": 0.2,
+              "WB": 0.2,
+              "WG": 0.3,
+              "SILVERQUILL": 0.2
+            }
+          },
+          {
+            "id": "gate_v2_oath_without_color",
+            "title": "Stand where the lamp does not reach",
+            "copy": "It can ask a clean refusal: no borrowed brightness, no decorated answer, only the boundary kept.",
+            "signal": "outside boundary",
+            "likelihoods": {
+              "COLORLESS": 0.95
+            },
+            "suppresses": {
+              "W": 0.2,
+              "U": 0.2,
+              "B": 0.2,
+              "R": 0.2,
+              "G": 0.2,
+              "WU": 0.1,
+              "BANT": 0.1,
+              "WR": 0.1,
+              "BR": 0.1,
+              "ESPER": 0.1,
+              "GRIXIS": 0.1,
+              "JUND": 0.1,
+              "NAYA": 0.1,
+              "ABZAN": 0.1,
+              "TEMUR": 0.1,
+              "SULTAI": 0.1,
+              "MARDU": 0.1,
+              "JESKAI": 0.1,
+              "YORE": 0.1,
+              "GLINT": 0.1,
+              "DUNE": 0.1,
+              "INK": 0.1,
+              "WITCH": 0.1,
+              "WUBRG": 0.2,
+              "BG": 0.1,
+              "RG": 0.1,
+              "UB": 0.1,
+              "UR": 0.1,
+              "LOREHOLD": 0.1,
+              "WB": 0.1,
+              "PRISMARI": 0.1,
+              "QUANDRIX": 0.1,
+              "WG": 0.1,
+              "SILVERQUILL": 0.1,
+              "UG": 0.1,
+              "WITHERBLOOM": 0.1
             }
           }
         ]

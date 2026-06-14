@@ -2,6 +2,7 @@
  * Runs the lightweight Research Archives unit suites in one Node process.
  */
 await import("../assets/js/quick-reading-tests.js");
+await import("../assets/js/gate-compression-live-bias-tests.js");
 await import("./scryfall-parser-tests.js");
 await import("./research-builder-tests.js");
 await import("./maze-query-contract-tests.js");

@@ -497,3 +497,77 @@ Implementation should therefore proceed only as a non-live simulator/comparison 
 - `DUNE`, `INK`, `WITCH`, `WUBRG`, and `COLORLESS` overtrigger reports are reviewed.
 - Same-color duplicate pairs are confirmed to remain Hall/Crucible-resolved.
 - The Appendix A vector table is reconciled with the runtime neutral bucket: `.45` maps to delta `0`, while several Appendix A midpoint cells use `.55`, which maps to positive pressure in the current engine. Before source authoring, either keep vectors in runtime likelihood-bucket space or explicitly transform the Appendix A research vectors so neutral means `.45`.
+
+### C.7 - VM-382 non-live simulator evidence
+
+VM-382 adds the first non-live implementation/comparison path for the 37-expression WUBRG-first Gate:
+
+- Source fixture at the time: `docs/research/gate-compression/wubrg-first-gate.source.json` (archived by VM-384 at `docs/research/gate-compression/archive/wubrg-first-gate.vm382-research-source.json`)
+- Simulator: `research/gate-compression-simulator.mjs`
+- Stable reports:
+  - `docs/audits/gate-compression/wubrg-first-gate-comparison.md`
+  - `docs/audits/gate-compression/wubrg-first-gate-comparison.json`
+- Repeatable command: `npm.cmd run test:gate-compression`
+
+The source fixture keeps Gate answers vector-first: each answer owns `color_loadings: { W, U, B, R, G }`, plus explicit special-channel fields for `outside_wubrg` and `all_five_integration`. It does not use faction beneficiary lists, does not edit the generated placement model, and does not change live Gate copy or runtime defaults.
+
+The VM-382 report passes the implementation-readiness checks for a non-live comparison trail:
+
+- 37/37 active expressions are reachable in the Gate top five.
+- Neutral `.45` produces no Gate delta and advances no expression.
+- `COLORLESS` reaches the pool only through explicit outside-WUBRG boundary evidence.
+- `WUBRG` reaches the pool only through explicit all-five integration evidence.
+- High total color pressure alone does not route to `WUBRG`.
+- Ordinary low/suppressed color evidence without boundary does not route to `COLORLESS`.
+- Broad all-five answers rank `WUBRG` first, not a four-color expression.
+- `DUNE`, `INK`, `WITCH`, `WUBRG`, and `COLORLESS` overtrigger counts are reported.
+- Same-color duplicate pairs remain tied under Gate scoring and are confirmed as Crucible-resolved after Gate.
+
+This does not authorize a live switch. A future switch still needs accepted comparison reports, product approval, source/builder integration planning, and a separate card that explicitly changes runtime behavior.
+
+### C.8 - VM-383 explicit preview path, retired
+
+VM-383 added an opt-in runtime preview for the VM-382 compressed Gate without changing the default Archscry route or generated placement artifacts. VM-384 retired this preview path when the compressed Gate became the generated default.
+
+Retired VM-383 pieces:
+
+- Preview flag: `archscry/?vmGatePreview=compressed`
+- Runtime transformer: `assets/js/gate-compression-preview.js`
+- Focused test: `npm.cmd run test:gate-preview`
+- Preview-only question field: `disable_lateral_inhibition`
+
+These are no longer supported runtime paths. The live route now uses the generated placement model directly.
+
+### C.9 - VM-384 live default promotion
+
+VM-384 promotes the compressed four-question WUBRG-first Gate to the default Archscry quick-reading Gate through the builder:
+
+- Editable source of truth: `data/placement/gate-compression.source.json`
+- Generated output only: `data/placement-model.json`
+- Builder: `research/build-faction-artifacts.mjs`
+- Live bias reports:
+  - `docs/audits/gate-compression/live-gate-bias.md`
+  - `docs/audits/gate-compression/live-gate-bias.json`
+- Live bias command: `npm.cmd run test:gate-live-bias`
+
+The source owns Gate question text, answer text, `color_loadings`, neutral answers, special-channel markers, and Gate metadata. It must not contain generated likelihoods, generated suppresses, generated score evidence, preview-transform fields, or runtime override fields. The builder is the only layer that converts source fields into generated placement scoring fields.
+
+Runtime generation keeps the VM-382 formula:
+
+- Ordinary factions use square-root propagation from answer `color_loadings` into faction color vectors.
+- Gate broad-match penalty is `0`.
+- Propagated deltas are bucketed to the nearest current `likelihood_to_delta` bucket.
+- Positive deltas emit generated `likelihoods`; negative deltas emit generated `suppresses`.
+- `COLORLESS` uses only `outside_wubrg`.
+- `WUBRG` uses only `all_five_integration` / `evenness_signal`.
+- Generated Gate questions set `lateral_inhibition: false`.
+
+VM-384 validation on 2026-06-14:
+
+- `npm.cmd run build:factions` passed.
+- `npm.cmd run test:gate-live-bias` passed: 625 paths, 29 distinct rank-one winners, max rank-one faction `B` at 94 paths, `WU` at 10 paths, no `COLORLESS` or `WUBRG` special-channel leakage.
+- `npm.cmd run test:placement` passed: 37 factions, 37 golden paths.
+- `npm.cmd run test:gate-compression` passed: 37/37 reachable.
+- `npm.cmd run test:parser` passed: 115 parser cases.
+- `npm.cmd test` passed.
+- Local browser verification passed on `http://127.0.0.1:4173/archscry/`: default quick reading opened the compact Gate I prompt with five compact answers, no `vmGatePreview` param, no preview dataset marker, and no old `The charge before the gap closes` Gate answer.

@@ -68,10 +68,16 @@ import {
 const SESSION = VM_SESSION;
 const DATA_BASE_URL = new URL("../../data/", import.meta.url);
 const CORE_DATA_FETCH_OPTIONS = Object.freeze({ cache: "no-store" });
-const LIVE_QUICK_READING_REACHABILITY = Object.freeze({
-  MARDU: {
-    gateAnswer: "The charge before the gap closes",
-    hallQuestionIds: ["hall_MARDU_total_commitment", "hall_MARDU_war_name_oath"],
+const LIVE_GATE_COMPRESSION_CONTRACT = Object.freeze({
+  questionIds: [
+    "gate_v2_locus_of_trust",
+    "gate_v2_pressure_becomes",
+    "gate_v2_first_signal",
+    "gate_v2_cost_of_oath",
+  ],
+  oldMarduGateAnswer: "The charge before the gap closes",
+  requiredHallQuestionIds: {
+    MARDU: ["hall_MARDU_total_commitment", "hall_MARDU_war_name_oath"],
   },
 });
 
@@ -213,24 +219,35 @@ function validateQuickReadingReachability() {
   const modelFactions = model.factions || {};
   const gateQuestions = model.question_bank?.gate || [];
   const hallQuestions = model.question_bank?.hall || [];
+  const gateIds = gateQuestions.map((question) => question.id);
+  const expectedGateIds = LIVE_GATE_COMPRESSION_CONTRACT.questionIds;
+  const hasCompactGate =
+    gateQuestions.length === expectedGateIds.length &&
+    expectedGateIds.every((id, index) => gateIds[index] === id) &&
+    gateQuestions.every((question) => {
+      const answerCount = (question.answers || []).length;
+      return answerCount >= 4 && answerCount <= 5 && question.lateral_inhibition === false;
+    });
+  const hasOldMarduGateAnswer = gateQuestions.some((question) =>
+    (question.answers || []).some((answer) => answer.title === LIVE_GATE_COMPRESSION_CONTRACT.oldMarduGateAnswer)
+  );
+  const gateMeta = model._meta?.gate_compression || {};
+  const hasLiveGateMeta = gateMeta.enabled === true && gateMeta.related_card === "VM-384";
 
-  Object.entries(LIVE_QUICK_READING_REACHABILITY).forEach(([key, requirement]) => {
+  if (!hasCompactGate || hasOldMarduGateAnswer || !hasLiveGateMeta) {
+    throw new Error("Archscry placement data is stale. Reload the page so the compact Gate can load.");
+  }
+
+  Object.entries(LIVE_GATE_COMPRESSION_CONTRACT.requiredHallQuestionIds).forEach(([key, requiredHallIds]) => {
     if (!liveFactionKeys.has(key)) {
       return;
     }
 
     const hasModelFaction = Boolean(modelFactions[key]);
-    const hasGateSupport = gateQuestions.some((question) =>
-      (question.answers || []).some(
-        (answer) =>
-          answer.title === requirement.gateAnswer &&
-          Number(answer.likelihoods?.[key] || 0) >= 0.75
-      )
-    );
-    const hallQuestionIds = new Set(hallQuestions.map((question) => question.id));
-    const hasHallSupport = requirement.hallQuestionIds.every((id) => hallQuestionIds.has(id));
+    const hallQuestionIdSet = new Set(hallQuestions.map((question) => question.id));
+    const hasHallSupport = requiredHallIds.every((id) => hallQuestionIdSet.has(id));
 
-    if (!hasModelFaction || !hasGateSupport || !hasHallSupport) {
+    if (!hasModelFaction || !hasHallSupport) {
       throw new Error(
         `Archscry placement data is stale. Reload the page so the ${key} quick-reading path can load.`
       );
@@ -1779,7 +1796,6 @@ function buildDossierUtilityActionsHtml({ isPrimary, layoutMode }) {
   return `
     <div class="dossier-utility-actions" data-dossier-utility-actions ${isAllMode ? "hidden" : ""}>
       <button class="btn-secondary dossier-utility-btn" type="button" ${buildActionAttrs("retake")}>Begin Again</button>
-      ${isPrimary ? "" : `<button class="btn-secondary dossier-utility-btn" type="button" ${buildActionAttrs("return-primary-reading")}>Back to Primary Reading</button>`}
     </div>`;
 }
 
@@ -2105,18 +2121,27 @@ function resolveIndexedFlavorCardForSnippet(snippet, cards = []) {
   ) || (cards || []).find((card) => normalizeCardName(card?.name || "") === snippetName) || null;
 }
 
+function normalizedCardNameSet(cardNames = []) {
+  const values = cardNames instanceof Set ? Array.from(cardNames) : cardNames;
+  return new Set((values || [])
+    .map((name) => normalizeCardName(name || ""))
+    .filter(Boolean));
+}
+
 export function selectCuratedFlavorEchoesForFaction({
   faction,
   snippets = {},
   flavorCards = [],
   commanderCards = [],
   tagRefs = [],
+  excludedCardNames = [],
 } = {}) {
   const key = faction?.key || faction?.identity?.expression_key || "";
   const curated = Array.isArray(snippets[key]) ? snippets[key] : [];
   if (curated.length < 2) return [];
   const fallbackTags = uniqueTagRefs(tagRefs).slice(0, 3);
-  return curated.slice(0, 3).map((snippet) => {
+  const excludedNames = normalizedCardNameSet(excludedCardNames);
+  return curated.map((snippet) => {
     const indexedCard =
       resolveIndexedFlavorCardForSnippet(snippet, flavorCards) ||
       resolveIndexedFlavorCardForSnippet(snippet, commanderCards) ||
@@ -2140,22 +2165,44 @@ export function selectCuratedFlavorEchoesForFaction({
       identityFits: true,
       curatedSnippet: true,
     };
-  }).filter((entry) => entry.card.name && flavorExcerptForCard(entry.card));
+  }).filter((entry) =>
+    entry.card.name &&
+    !excludedNames.has(normalizeCardName(entry.card.name)) &&
+    flavorExcerptForCard(entry.card)
+  ).slice(0, 3);
 }
 
-function selectFlavorEchoes({ faction, tagRefs }) {
-  const curated = selectCuratedFlavorEchoesForFaction({
-    faction,
-    snippets: APP_STATE.archscryFlavorSnippets?.snippets || {},
-    flavorCards: APP_STATE.scryfallFlavorIndex?.cards || [],
-    commanderCards: APP_STATE.scryfallCommanderIndex?.commanders || [],
-    tagRefs,
-  });
-  if (curated.length >= 2) return curated;
+export function selectFlavorEchoes({
+  faction,
+  tagRefs = [],
+  excludedCardNames = [],
+  includeCurated = true,
+  snippets = APP_STATE.archscryFlavorSnippets?.snippets || {},
+  flavorCards = APP_STATE.scryfallFlavorIndex?.cards || [],
+  commanderCards = APP_STATE.scryfallCommanderIndex?.commanders || [],
+} = {}) {
+  const excludedNames = normalizedCardNameSet(excludedCardNames);
+  if (includeCurated) {
+    const curated = selectCuratedFlavorEchoesForFaction({
+      faction,
+      snippets,
+      flavorCards,
+      commanderCards,
+      tagRefs,
+      excludedCardNames: excludedNames,
+    });
+    if (curated.length >= 2) return curated;
+  }
 
   const desired = new Set(uniqueTagRefs(tagRefs).map((ref) => `${ref.category}:${ref.tag}`));
-  const cards = APP_STATE.scryfallFlavorIndex?.cards || [];
   const factionColors = faction?.colors || [];
+  const seenCardNames = new Set();
+  const cards = [...(flavorCards || []), ...(commanderCards || [])].filter((card) => {
+    const cardName = normalizeCardName(card?.name || "");
+    if (!cardName || seenCardNames.has(cardName) || excludedNames.has(cardName)) return false;
+    seenCardNames.add(cardName);
+    return true;
+  });
 
   return cards
     .map((card) => {
@@ -2237,14 +2284,14 @@ function buildFlavorEchoWhy({ tagMatches, faction, curatedSnippet = false }) {
 }
 
 export function buildFlavorEchoesHtml(flavorEchoes = [], faction = {}) {
-  if (!flavorEchoes.length) return "";
+  if (flavorEchoes.length < 2) return "";
   const groundedEchoes = flavorEchoes
     .map((entry) => ({
       ...entry,
       why: buildFlavorEchoWhy({ tagMatches: entry.tagMatches, faction, curatedSnippet: entry.curatedSnippet }),
     }))
     .filter((entry) => entry.why);
-  if (!groundedEchoes.length) return "";
+  if (groundedEchoes.length < 2) return "";
   return `
     <div class="starter-section">
       <div class="section-label">What This Looks Like In Cards</div>
@@ -2393,7 +2440,19 @@ function renderResult(viewKey) {
     preconThemeTaxonomy: APP_STATE.preconThemeTaxonomy,
   });
   const commanderDeckStartFallbackCandidates = buildCommanderDeckStartFallbackCandidates(preconRecommendations);
-  const flavorEchoes = selectFlavorEchoes({ faction, tagRefs: readingTagRefs });
+  const matrixFlavorSnippets = flavorSnippetsForFaction(faction);
+  const hasMatrixCardVoiceSurface =
+    String(faction?.key || "").toUpperCase() !== "COLORLESS" &&
+    matrixFlavorSnippets.length >= 2;
+  const matrixCardNames = hasMatrixCardVoiceSurface
+    ? matrixFlavorSnippets.map((snippet) => snippet.card_name)
+    : [];
+  const flavorEchoes = selectFlavorEchoes({
+    faction,
+    tagRefs: readingTagRefs,
+    excludedCardNames: matrixCardNames,
+    includeCurated: !hasMatrixCardVoiceSurface,
+  });
   const mazeContext = buildArchscryMazeContext({ result, dossier, faction });
   writeArchscryDossierHandoff(result, mazeContext);
   const personalizedMazePaths = withArchscryMazeContext(
@@ -2591,7 +2650,7 @@ function renderResult(viewKey) {
     ${adjacentContextHtml}
     ${resultStatusHtml}
     ${returnToPrimaryButton}
-    ${renderDossierRadarSection({ result, faction, dossier, flavorSnippets: flavorSnippetsForFaction(faction) })}
+    ${renderDossierRadarSection({ result, faction, dossier, flavorSnippets: matrixFlavorSnippets })}
     ${discoverySummaryHtml}`;
   const whyPanelHtml = `
     ${dossierInterpretationHtml}
@@ -2709,7 +2768,7 @@ function renderResult(viewKey) {
     { id: "placement", content: placementPanelHtml },
     { id: "start", content: startPanelHtml },
     { id: "why", content: whyPanelHtml },
-    { id: "adjacent", content: `${returnToPrimaryButton}${adjacentSectionHtml}` },
+    { id: "adjacent", content: adjacentSectionHtml },
     { id: "commander-deck-starts", content: deckStartsPanelHtml },
     hasStarterCardReferences ? { id: "starter-cards", content: starterCardsPanelHtml } : null,
     { id: "mana-base", content: manaBasePanelHtml },
@@ -2777,6 +2836,8 @@ function renderResult(viewKey) {
 function switchAdjacentView(factionKey) {
   APP_STATE.previousViewKey = APP_STATE.activeResult?.faction || APP_STATE.activeViewKey;
   APP_STATE.activeViewKey = factionKey;
+  APP_STATE.activeDossierPanel = "placement";
+  APP_STATE.forceDossierPanel = "placement";
   renderResult(factionKey);
 }
 
@@ -2790,6 +2851,8 @@ function returnToPrimaryReading() {
   }
 
   APP_STATE.activeViewKey = primaryViewKey;
+  APP_STATE.activeDossierPanel = "placement";
+  APP_STATE.forceDossierPanel = "placement";
   renderResult(primaryViewKey);
 }
 
