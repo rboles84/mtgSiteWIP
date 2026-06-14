@@ -2,7 +2,7 @@
 
 ID: VM-386
 Title: Publish Gate Dossier Cleanup Bundle
-Status: in-progress
+Status: done
 Type: Release Hygiene / Git
 Area: Gate Compression, Archscry Dossier, Repo Cleanup
 Priority: high
@@ -36,6 +36,13 @@ Classify, verify, commit, push, and clean the dirty tree containing documented V
 - Staged bundle contains only classified publishable files.
 - Commit hash, push target, and final clean status are recorded.
 
+## Completion Notes
+
+- Published bundle commit: `f0f066d1bd1efc6c352d8ddfb097582747ebe3a8` (`Publish gate compression dossier cleanup`).
+- Push target confirmed: `origin/feature/ui-refactor-exploration`.
+- Post-push divergence check returned `0 0` against `origin/feature/ui-refactor-exploration`.
+- Scratch files were removed before staging and did not enter the bundle.
+
 ## Validation Checklist
 
 - [x] Preflight docs reviewed.
@@ -43,6 +50,6 @@ Classify, verify, commit, push, and clean the dirty tree containing documented V
 - [x] Generated outputs rebuilt.
 - [x] Tests run.
 - [x] Classified files staged.
-- [ ] Bundle committed.
-- [ ] Branch pushed.
-- [ ] Final clean status confirmed.
+- [x] Bundle committed.
+- [x] Branch pushed.
+- [x] Final clean status confirmed.

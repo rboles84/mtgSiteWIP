@@ -23,11 +23,9 @@ Check the repo and push all changes into the repo.
 Initial coordination:
 
 - `docs/kanban/board.md`
-- `docs/kanban/in-progress/VM-386-publish-gate-dossier-cleanup-bundle.md`
+- `docs/kanban/done/VM-386-publish-gate-dossier-cleanup-bundle.md`
 - `docs/handoffs/HANDOFF_INDEX.md`
 - `docs/handoffs/2026-06-14-0939-codex-vm386-publish-gate-dossier-cleanup.md`
-
-Publish bundle changes pending final staging summary.
 
 Staged bundle summary before commit:
 
@@ -46,6 +44,8 @@ Staged bundle summary before commit:
 - Removed excluded scratch files from the working tree.
 - Rebuilt generated placement output with `npm.cmd run build:factions`.
 - Ran the Gate/dossier publish-readiness test stack.
+- Committed and pushed the classified bundle to `origin/feature/ui-refactor-exploration`.
+- Moved VM-386 to done after the push and clean/aligned status check.
 
 ## Why It Changed
 
@@ -137,7 +137,10 @@ Excluded scratch:
 - Scratch files `._rc.mjs`, `._rc2.mjs`, `._relic_abzan.png`, and `._relic_glint.png` were removed before staging.
 - `git fetch origin` passed; `git rev-list --left-right --count HEAD...origin/feature/ui-refactor-exploration` returned `0 0` before staging/commit.
 - Staged bundle contains only classified VM-382 through VM-386 work.
-- Commit/push pending.
+- Published bundle commit: `f0f066d1bd1efc6c352d8ddfb097582747ebe3a8` (`Publish gate compression dossier cleanup`).
+- Pushed branch: `origin/feature/ui-refactor-exploration`.
+- Post-push `git rev-list --left-right --count HEAD...origin/feature/ui-refactor-exploration` returned `0 0`.
+- Post-push `git status --short --branch` showed a clean aligned branch before VM-386 closeout edits.
 
 ## Risks / Uncertainties
 
@@ -161,7 +164,7 @@ Codex
 
 ## Related Kanban Card, Docs, Or Plans
 
-- `docs/kanban/in-progress/VM-386-publish-gate-dossier-cleanup-bundle.md`
+- `docs/kanban/done/VM-386-publish-gate-dossier-cleanup-bundle.md`
 - `docs/handoffs/HANDOFF_INDEX.md`
 - `docs/handoffs/2026-06-13-2212-codex-vm384-gate-live-promotion.md`
 - `docs/handoffs/2026-06-14-0009-codex-vm385-archscry-dossier-ux-repair.md`
