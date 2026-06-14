@@ -27,7 +27,7 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 ## In Progress
 
-- [VM-381 - Publish And Clean Dirty Tree](in-progress/VM-381-publish-and-clean-dirty-tree.md)
+- No cards currently in progress.
 
 ## Blocked
 
@@ -37,6 +37,7 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 Historical note: `VM-044` is a preserved historical duplicate ID and `VM-049` is an intentional preserved duplicate pairing per the handoff trail. `VM-197` also has a user-declared Abzan stack duplicate while preserving the existing Alara VM-197 card. `VM-215` has a manual-QA Abzan repair duplicate; the former Jeskai VM-215 through VM-220 reservation was repaired to VM-229 through VM-234 on 2026-05-31.
 
+- [VM-381 - Publish And Clean Dirty Tree](done/VM-381-publish-and-clean-dirty-tree.md)
 - [VM-380 - Tarkir Dossier Support Repair](done/VM-380-tarkir-dossier-support-repair.md)
 - [VM-379 - Grixis Source Depth Repair](done/VM-379-grixis-source-depth-repair.md)
 - [VM-378 - Strixhaven Non-Lorehold UX Richness](done/VM-378-strixhaven-non-lorehold-ux-richness.md)

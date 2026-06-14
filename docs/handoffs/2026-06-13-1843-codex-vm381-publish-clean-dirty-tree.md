@@ -27,7 +27,7 @@ Push everything, clean up the dirty tree, and make the repo clean.
 Initial coordination:
 
 - `docs/kanban/board.md`
-- `docs/kanban/in-progress/VM-381-publish-and-clean-dirty-tree.md`
+- `docs/kanban/done/VM-381-publish-and-clean-dirty-tree.md`
 - `docs/handoffs/HANDOFF_INDEX.md`
 - `docs/handoffs/2026-06-13-1843-codex-vm381-publish-clean-dirty-tree.md`
 
@@ -52,6 +52,8 @@ Publish bundle staged summary before commit:
 - Rebuilt Archscry flavor snippets with `node research/build-archscry-flavor-snippets.mjs`.
 - Trimmed trailing whitespace mechanically from generated/report/research artifacts so `git diff --check` and `git diff --cached --check` pass.
 - Staged only the classified publish bundle.
+- Committed and pushed the main bundle.
+- Moved VM-381 to Done after the main bundle push and clean post-push branch check.
 
 ## Why It Changed
 
@@ -157,7 +159,12 @@ Tracked deletion disposition:
 - Branch is confirmed current with `origin/feature/ui-refactor-exploration` before commit.
 - Staged bundle matches the documented VM-364 through VM-381 work and contains no scratch relic files.
 - `npm.cmd run test:lighthouse:home` was not rerun during VM-381 because VM-365 already captured the full finite sweep and documented the current Lighthouse failure: Performance 86 below the required 90 threshold, Accessibility 96.
-- Commit and push pending.
+- Main bundle commit: `9322e58c2218b9a8f3c687f70fe0b82b376016ef`
+- Main bundle message: `Publish source-bound cleanup bundle`
+- Main bundle push: `7b1028e..9322e58 feature/ui-refactor-exploration -> feature/ui-refactor-exploration`
+- Post-push branch check before closeout edits: `git rev-list --left-right --count HEAD...origin/feature/ui-refactor-exploration` returned `0 0`.
+- Post-push status before closeout edits: `git status --short --branch` showed only `## feature/ui-refactor-exploration...origin/feature/ui-refactor-exploration`.
+- This handoff/card move requires a small closeout commit so the pushed commit hash, final status, and VM-381 done-state are recorded in-repo.
 
 ## Risks / Uncertainties
 
@@ -185,6 +192,6 @@ Codex
 
 ## Related Kanban Card, Docs, Or Plans
 
-- `docs/kanban/in-progress/VM-381-publish-and-clean-dirty-tree.md`
+- `docs/kanban/done/VM-381-publish-and-clean-dirty-tree.md`
 - `docs/handoffs/HANDOFF_INDEX.md`
 - `docs/handoffs/2026-06-12-2316-codex-vm363-repo-cleanup-publish.md`

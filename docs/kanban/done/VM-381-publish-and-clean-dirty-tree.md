@@ -2,7 +2,7 @@
 
 ID: VM-381
 Title: Publish And Clean Dirty Tree
-Status: in-progress
+Status: done
 Type: Release Hygiene / Git
 Area: Repo Cleanup, Verification, Publish
 Priority: high
@@ -47,6 +47,14 @@ Classify the current dirty tree, preserve documented accumulated work, exclude s
 - [x] Generated outputs rebuilt.
 - [x] Required tests run.
 - [x] Classified files staged.
-- [ ] Bundle committed.
-- [ ] Branch pushed.
-- [ ] Final clean status confirmed.
+- [x] Bundle committed.
+- [x] Branch pushed.
+- [x] Final clean status confirmed.
+
+## Completion Notes
+
+- Main bundle commit: `9322e58c2218b9a8f3c687f70fe0b82b376016ef`
+- Main bundle push: `7b1028e..9322e58 feature/ui-refactor-exploration -> feature/ui-refactor-exploration`
+- Post-push branch check: `git rev-list --left-right --count HEAD...origin/feature/ui-refactor-exploration` returned `0 0`.
+- Post-push status before VM-381 closeout edits: `git status --short --branch` showed only the branch header.
+- Closeout commit records this done-state and final handoff metadata.
