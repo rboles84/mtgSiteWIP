@@ -4,6 +4,7 @@ This index tracks agent work across planning, board updates, documentation, JSON
 
 | Date | Agent | Task | Related Card | Status | Handoff |
 |---|---|---|---|---|---|
+| 2026-06-15 13:34 | Codex | Validate and promote `feature/ui-refactor-exploration` to `origin/main` with one lease-protected overwrite push, preserving local `main` | VM-402 | Complete; final refs reported in Codex response | [2026-06-15-1334-codex-vm402-golden-branch-promotion.md](2026-06-15-1334-codex-vm402-golden-branch-promotion.md) |
 | 2026-06-15 11:36 | Codex | Audit stale branches against `feature/ui-refactor-exploration`, delete verified obsolete local and remote branches, and preserve main/golden refs | VM-401 | Complete | [2026-06-15-1136-codex-vm401-branch-cleanup.md](2026-06-15-1136-codex-vm401-branch-cleanup.md) |
 | 2026-06-15 09:40 | Codex | Classify, verify, commit, and push the documented VM-387 through VM-399 Apocrypha/Home release-train dirty tree | VM-400 | Complete | [2026-06-15-0940-codex-vm400-apocrypha-release-train-publish.md](2026-06-15-0940-codex-vm400-apocrypha-release-train-publish.md) |
 | 2026-06-15 09:04 | Codex | Remove the Apocrypha Not Published private-system disclosure section, keep one source-boundary sentence in How These References Are Used, preserve Source Compass/public links/library alias behavior, refresh the scoped visual baseline, and close VM-399 | VM-399 | Complete | [2026-06-15-0904-codex-vm399-apocrypha-not-published-removal.md](2026-06-15-0904-codex-vm399-apocrypha-not-published-removal.md) |

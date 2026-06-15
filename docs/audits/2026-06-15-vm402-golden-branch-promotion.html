@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>VM-402 Golden Branch Promotion Validation</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #120f18;
+      --panel: #1d1825;
+      --ink: #f2edf7;
+      --muted: #b9acbf;
+      --line: #3d3348;
+      --pass: #8fd6a3;
+      --fail: #ff9a9a;
+      --skip: #f2d58a;
+      --warn: #e8b26f;
+    }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font: 15px/1.5 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+    main {
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 32px 0 48px;
+    }
+    h1, h2 {
+      line-height: 1.15;
+      letter-spacing: 0;
+    }
+    h1 {
+      margin: 0 0 8px;
+      font-size: 32px;
+    }
+    h2 {
+      margin: 28px 0 12px;
+      font-size: 21px;
+    }
+    p, li {
+      color: var(--muted);
+    }
+    code {
+      color: var(--ink);
+      background: rgba(255, 255, 255, 0.07);
+      padding: 2px 5px;
+      border-radius: 4px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: var(--panel);
+      border: 1px solid var(--line);
+    }
+    th, td {
+      padding: 10px 12px;
+      border-bottom: 1px solid var(--line);
+      text-align: left;
+      vertical-align: top;
+    }
+    th {
+      color: var(--ink);
+      font-weight: 700;
+    }
+    .status-pass { color: var(--pass); font-weight: 700; }
+    .status-fail { color: var(--fail); font-weight: 700; }
+    .status-skip { color: var(--skip); font-weight: 700; }
+    .status-waived { color: var(--warn); font-weight: 700; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>VM-402 Golden Branch Promotion Validation</h1>
+    <p>Finalized on 2026-06-15 before the one lease-protected promotion push. Post-promotion final hashes are reported in the Codex final response without a second docs commit.</p>
+
+    <h2>Promotion Hashes</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Item</th>
+          <th>Hash / Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Recorded old origin/main after fetch</td><td><code>efb44c4c2c78091c9c48f46fd9add7e4b9c0190e</code></td></tr>
+        <tr><td>Golden validation hash before tests</td><td><code>29b753cbe30d2dfda0fa64f6bc23fd363ece7130</code></td></tr>
+        <tr><td>Pre-closeout origin/main...origin/feature divergence</td><td><code>3 73</code></td></tr>
+        <tr><td>Discarded origin/main commits</td><td><code>efb44c4</code>, <code>8bc931c</code>, <code>2cae196</code></td></tr>
+        <tr><td>Promotion command</td><td><code>git push --force-with-lease=refs/heads/main:efb44c4c2c78091c9c48f46fd9add7e4b9c0190e origin feature/ui-refactor-exploration:main</code></td></tr>
+      </tbody>
+    </table>
+
+    <h2>Validation Results</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Command</th>
+          <th>Status</th>
+          <th>Notes</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td><code>npm.cmd run build:factions</code></td><td class="status-pass">Pass</td><td>37 faction placement records; deterministic.</td></tr>
+        <tr><td><code>npm.cmd run build:precons</code></td><td class="status-pass">Pass</td><td>155 precon recommendation records; deterministic.</td></tr>
+        <tr><td><code>npm.cmd run lint:html</code></td><td class="status-pass">Pass</td><td>Frontend HTML validation passed.</td></tr>
+        <tr><td><code>npm.cmd run lint:js</code></td><td class="status-pass">Pass</td><td>5 files passed.</td></tr>
+        <tr><td><code>npm.cmd run audit:factions</code></td><td class="status-pass">Pass</td><td>37 factions scanned.</td></tr>
+        <tr><td><code>npm.cmd run dossier:audit</code></td><td class="status-pass">Pass</td><td>0 failures, 113 warnings.</td></tr>
+        <tr><td><code>npm.cmd run validate:source-generated</code></td><td class="status-pass">Pass</td><td>Known JESKAI/MARDU model-owned warnings.</td></tr>
+        <tr><td><code>node research/validate-mono-color-markdown.mjs</code></td><td class="status-pass">Pass</td><td>5 color sets, 10 files.</td></tr>
+        <tr><td><code>node research/validate-colorless-markdown.mjs</code></td><td class="status-pass">Pass</td><td>1 source set, 2 files.</td></tr>
+        <tr><td><code>npm.cmd test</code></td><td class="status-pass">Pass</td><td>Aggregate test suite passed.</td></tr>
+        <tr><td><code>npm.cmd run test:builder</code></td><td class="status-pass">Pass</td><td>6 builder cases.</td></tr>
+        <tr><td><code>npm.cmd run test:faction-context-isolation</code></td><td class="status-pass">Pass</td><td>Helper tests passed.</td></tr>
+        <tr><td><code>npm.cmd run test:source-generated</code></td><td class="status-pass">Pass</td><td>Known JESKAI/MARDU model-owned warnings.</td></tr>
+        <tr><td><code>npm.cmd run test:bias</code></td><td class="status-pass">Pass</td><td>100 seeded-random runs.</td></tr>
+        <tr><td><code>npm.cmd run test:bias:all</code></td><td class="status-pass">Pass</td><td>37 golden-path runs.</td></tr>
+        <tr><td><code>npm.cmd run test:frontend-smoke</code></td><td class="status-pass">Pass</td><td>Home, Maze, Archscry, Library alias, Privacy, Terms.</td></tr>
+        <tr><td><code>npm.cmd run test:gate-compression</code></td><td class="status-pass">Pass</td><td>37/37 reachable.</td></tr>
+        <tr><td><code>npm.cmd run test:gate-live-bias</code></td><td class="status-pass">Pass</td><td>625 paths, 29 rank-one winners.</td></tr>
+        <tr><td><code>npm.cmd run test:visual:apocrypha</code></td><td class="status-pass">Pass</td><td>0 mismatched pixels for all captures.</td></tr>
+        <tr><td><code>npm.cmd run test:visual:home</code></td><td class="status-waived">Waived</td><td>VM-390 waiver: mobile 59367, tablet 100324, desktop 132503.</td></tr>
+        <tr><td><code>npm.cmd run test:visual:archscry</code></td><td class="status-waived">Waived</td><td>VM-391 waiver: landing 0, dossier stale-baseline failures.</td></tr>
+        <tr><td><code>npm.cmd run test:visual:strategium</code></td><td class="status-waived">Waived</td><td>VM-391 waiver: 174876, 66215, 185089, 153206.</td></tr>
+        <tr><td><code>npm.cmd run test:lighthouse:home</code></td><td class="status-waived">Waived</td><td>VM-392 waiver: Performance 88, Accessibility 96.</td></tr>
+        <tr><td><code>npm.cmd run test:mode</code></td><td class="status-pass">Pass</td><td>5 mode cases.</td></tr>
+        <tr><td><code>npm.cmd run test:parser</code></td><td class="status-pass">Pass</td><td>115 parser cases.</td></tr>
+        <tr><td><code>npm.cmd run test:placement</code></td><td class="status-pass">Pass</td><td>37 factions, 37 golden paths.</td></tr>
+        <tr><td><code>npm.cmd run test:presentation-snapshots</code></td><td class="status-pass">Pass</td><td>16 fixed cases.</td></tr>
+        <tr><td><code>npm.cmd run test:syntax</code></td><td class="status-pass">Pass</td><td>14 syntax translation cases.</td></tr>
+        <tr><td><code>git diff --check</code></td><td class="status-pass">Pass</td><td>Passed after generated Lighthouse whitespace cleanup.</td></tr>
+        <tr><td><code>git diff --cached --check</code></td><td class="status-pass">Pass</td><td>No staged content at validation time.</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Skipped Commands</h2>
+    <ul>
+      <li><code>npm.cmd run test:watch</code>: non-terminating watch mode.</li>
+      <li><code>npm.cmd run test:visual:*:baseline</code>: refreshes visual baselines.</li>
+      <li><code>npm.cmd run scryfall:download</code> and <code>npm.cmd run scryfall:refresh</code>: network data refresh.</li>
+      <li><code>npm.cmd run enrich:factions</code>: mutating apply script.</li>
+    </ul>
+
+    <h2>Generated Outputs</h2>
+    <ul>
+      <li>Gate compression reports refreshed with current generated timestamps.</li>
+      <li><code>docs/audits/lighthouse-home.html</code> refreshed by the VM-402 Lighthouse run and mechanically trimmed for diff hygiene.</li>
+      <li>Bias and dossier reports were written under ignored artifact/result paths.</li>
+    </ul>
+  </main>
+</body>
+</html>
