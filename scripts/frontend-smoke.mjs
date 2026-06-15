@@ -66,7 +66,7 @@ const currentStateHomeNamingFiles = [
   "docs/diagrams/route-map.svg",
   "docs/diagrams/project-architecture.mmd",
   "docs/diagrams/project-architecture.svg",
-  "docs/kanban/backlog/VM-154-home-hero-horizontal-overflow-containment.md",
+  "docs/kanban/done/VM-154-home-hero-horizontal-overflow-containment.md",
 ];
 const previewEntries = Object.entries(identityLayerData.expressions ?? {})
   .filter(([, expression]) => expression?.preview_eligible === true)
@@ -116,8 +116,8 @@ if (!homeRuntimeSource.includes('document.addEventListener("visibilitychange"'))
 if (!homeRuntimeSource.includes('addEventListener("pointerenter"') || !homeRuntimeSource.includes('addEventListener("focusin"')) {
   failures.push("Home Mana Lens smoke check failed: reader hover/focus pause listeners are missing");
 }
-if (previewEntries.length !== 20) {
-  failures.push(`Home Mana Lens smoke check failed: expected 20 preview-eligible identities, found ${previewEntries.length}`);
+if (previewEntries.length !== 37) {
+  failures.push(`Home Mana Lens smoke check failed: expected 37 preview-eligible identities, found ${previewEntries.length}`);
 }
 previewEntries.forEach(([key, expression], index) => {
   if (Number(expression.preview_order) !== index) {

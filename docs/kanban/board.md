@@ -7,9 +7,9 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 ## Backlog
 
+- [VM-398 - Apocrypha Research Vault Backlog Preservation](backlog/VM-398-apocrypha-research-vault-backlog-preservation.md)
 - [VM-356 - Rakdos And Quandrix Story Source Intake](backlog/VM-356-rakdos-quandrix-story-source-intake.md)
 - [VM-236 - Sultai Live Copy Polish And Identity Display Repair](backlog/VM-236-sultai-live-copy-polish-identity-display-repair.md)
-- [VM-154 - Home Hero Horizontal Overflow Containment](backlog/VM-154-home-hero-horizontal-overflow-containment.md)
 - [VM-006 - Archscry / Maze Verification and Repeat-Visit Polish](backlog/VM-006-archscry-maze-verification-repeat-visit-polish.md)
 - [VM-007 - Commander Dossier Quality and Link Follow-Up](backlog/VM-007-commander-dossier-quality-link-follow-up.md)
 - [VM-008 - Commander Compass V1.5 Archetype-Guided Recommendations](backlog/VM-008-commander-compass-v1-5-archetype-guided-recommendations.md)
@@ -27,7 +27,7 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 ## In Progress
 
-- No cards currently in progress.
+- [VM-400 - Publish Apocrypha Release Train Bundle](in-progress/VM-400-publish-apocrypha-release-train-bundle.md)
 
 ## Blocked
 
@@ -37,6 +37,19 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 Historical note: `VM-044` is a preserved historical duplicate ID and `VM-049` is an intentional preserved duplicate pairing per the handoff trail. `VM-197` also has a user-declared Abzan stack duplicate while preserving the existing Alara VM-197 card. `VM-215` has a manual-QA Abzan repair duplicate; the former Jeskai VM-215 through VM-220 reservation was repaired to VM-229 through VM-234 on 2026-05-31.
 
+- [VM-399 - Apocrypha Not Published Section Removal](done/VM-399-apocrypha-not-published-section-removal.md) - removed the final private-system disclosure section, kept one source-boundary note in How Used, and refreshed the scoped Apocrypha visual baseline.
+- [VM-397 - Apocrypha Source Compass](done/VM-397-apocrypha-source-compass.md) - five-tome Source Compass rail, group-level library details, JS active-state sync, no-JS fallback, and refreshed Apocrypha baseline.
+- [VM-396 - Apocrypha Reference Shelf Progressive Disclosure](done/VM-396-apocrypha-reference-shelf-progressive-disclosure.md) - collapsible MaRo source shelves implemented, baseline refreshed, and keyboard/reduced-motion QA passed.
+- [VM-395 - Apocrypha Official MaRo Source Links](done/VM-395-apocrypha-official-maro-source-links.md) - 39 verified official MaRo/Wizards links added and audited; VM-396 unblocked.
+- [VM-394 - Pre-Push Exposure And Gitignore Audit](done/VM-394-pre-push-exposure-and-gitignore-audit.md) - no private secrets found; non-secret public exposure gates documented.
+- [VM-393 - Final Release Hygiene And Main Promotion Readiness](done/VM-393-final-release-hygiene-main-promotion-readiness.md) - release-governance verdict; no promotion performed.
+- [VM-392 - Lighthouse Home Performance Readiness](done/VM-392-lighthouse-home-performance-readiness.md) - formal Performance 88/90 waiver.
+- [VM-391 - Archscry And Strategium Visual Readiness](done/VM-391-archscry-strategium-visual-readiness.md) - formal visual waiver.
+- [VM-390 - Home V1 Visual Readiness](done/VM-390-home-v1-visual-readiness.md)
+- [VM-389 - V1 Home Identity Signal Promotion](done/VM-389-v1-home-identity-signal-promotion.md)
+- [VM-154 - Home Hero Horizontal Overflow Containment](done/VM-154-home-hero-horizontal-overflow-containment.md) - superseded by VM-390.
+- [VM-388 - Apocrypha Card Spacing Repair](done/VM-388-apocrypha-card-spacing-repair.md)
+- [VM-387 - Apocrypha Visual Consistency Repair](done/VM-387-apocrypha-visual-consistency-repair.md)
 - [VM-386 - Publish Gate Dossier Cleanup Bundle](done/VM-386-publish-gate-dossier-cleanup-bundle.md)
 - [VM-385 - Archscry Dossier UX Repair](done/VM-385-archscry-dossier-ux-repair.md)
 - [VM-384 - Gate Compression Live Promotion](done/VM-384-gate-compression-live-promotion.md)

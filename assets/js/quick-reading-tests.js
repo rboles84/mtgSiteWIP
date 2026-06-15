@@ -192,6 +192,25 @@ const GWUB_FORBIDDEN_PUBLIC_KEYS = Object.freeze([
 ]);
 const LIVE_FOUR_COLOR_EXACT_COMMANDER_FORBIDDEN_FILTERS = /(?:\bo:|\bft:|\bstorm\b|spell chain|\bknowledge\b|\bstudy\b|\bhungry\b|\bdevouring\b|\baggro\b|\baggressive\b)/i;
 const PREVIEW_SCORE_KEYS = Object.freeze(["order", "knowledge", "ambition", "freedom", "growth"]);
+const VM389_HOME_PROMOTED_KEYS = Object.freeze([
+  "BANT",
+  "ESPER",
+  "GRIXIS",
+  "JUND",
+  "NAYA",
+  "ABZAN",
+  "TEMUR",
+  "SULTAI",
+  "MARDU",
+  "JESKAI",
+  "YORE",
+  "GLINT",
+  "DUNE",
+  "INK",
+  "WITCH",
+  "COLORLESS",
+  "WUBRG",
+]);
 const EXPECTED_PREVIEW_ORDER = Object.freeze([
   "W",
   "U",
@@ -213,6 +232,7 @@ const EXPECTED_PREVIEW_ORDER = Object.freeze([
   "WITHERBLOOM",
   "LOREHOLD",
   "QUANDRIX",
+  ...VM389_HOME_PROMOTED_KEYS,
 ]);
 
 function normalizeTaxonomyMatchText(value) {
@@ -580,39 +600,16 @@ function assertIdentityPreviewRegistryContract() {
     .filter(([, expression]) => expression.preview_eligible === true)
     .sort((left, right) => left[1].preview_order - right[1].preview_order);
   assert.deepEqual(previewEntries.map(([key]) => key), EXPECTED_PREVIEW_ORDER);
-  assert.equal(previewEntries.length, 20);
-  assert.equal(identityLayers.expressions.BANT?.preview_eligible, false);
-  assert.equal(identityLayers.expressions.ESPER?.preview_eligible, false);
-  assert.equal(identityLayers.expressions.GRIXIS?.preview_eligible, false);
-  assert.equal(identityLayers.expressions.JUND?.preview_eligible, false);
-  assert.equal(identityLayers.expressions.NAYA?.preview_eligible, false);
-  assert.equal(identityLayers.expressions.ABZAN?.preview_eligible, false);
-  assert.equal(identityLayers.expressions.TEMUR?.preview_eligible, false);
-  assert.equal(identityLayers.expressions.SULTAI?.preview_eligible, false);
-  assert.equal(identityLayers.expressions.MARDU?.preview_eligible, false);
-  assert.equal(identityLayers.expressions.YORE?.preview_eligible, false);
-  assert.equal(identityLayers.expressions.GLINT?.preview_eligible, false);
-  assert.equal(identityLayers.expressions.DUNE?.preview_eligible, false);
-  assert.equal(identityLayers.expressions.INK?.preview_eligible, false);
-  assert.equal(identityLayers.expressions.WITCH?.preview_eligible, false);
-  assert.equal(identityLayers.expressions.COLORLESS?.preview_eligible, false);
-  assert.equal(identityLayers.expressions.WUBRG?.preview_eligible, false);
-  assert.ok(!previewEntries.some(([key]) => key === "BANT"), "BANT should not enter the Home preview carousel in VM-160.");
-  assert.ok(!previewEntries.some(([key]) => key === "ESPER"), "ESPER should not enter the Home preview carousel in VM-167.");
-  assert.ok(!previewEntries.some(([key]) => key === "GRIXIS"), "GRIXIS should not enter the Home preview carousel in VM-168.");
-  assert.ok(!previewEntries.some(([key]) => key === "JUND"), "JUND should not enter the Home preview carousel in VM-186.");
-  assert.ok(!previewEntries.some(([key]) => key === "NAYA"), "NAYA should not enter the Home preview carousel in VM-188.");
-  assert.ok(!previewEntries.some(([key]) => key === "ABZAN"), "ABZAN should not enter the Home preview carousel in VM-202.");
-  assert.ok(!previewEntries.some(([key]) => key === "TEMUR"), "TEMUR should not enter the Home preview carousel in VM-208.");
-  assert.ok(!previewEntries.some(([key]) => key === "SULTAI"), "SULTAI should not enter the Home preview carousel in VM-214.");
-  assert.ok(!previewEntries.some(([key]) => key === "MARDU"), "MARDU should not enter the Home preview carousel in VM-228.");
-  assert.ok(!previewEntries.some(([key]) => key === "YORE"), "YORE should not enter the Home preview carousel in VM-245.");
-  assert.ok(!previewEntries.some(([key]) => key === "GLINT"), "GLINT should not enter the Home preview carousel in VM-251.");
-  assert.ok(!previewEntries.some(([key]) => key === "DUNE"), "DUNE should not enter the Home preview carousel in VM-257.");
-  assert.ok(!previewEntries.some(([key]) => key === "INK"), "INK should not enter the Home preview carousel in VM-263.");
-  assert.ok(!previewEntries.some(([key]) => key === "WITCH"), "WITCH should not enter the Home preview carousel in VM-269.");
-  assert.ok(!previewEntries.some(([key]) => key === "COLORLESS"), "COLORLESS should not enter the Home preview carousel in VM-327.");
-  assert.ok(!previewEntries.some(([key]) => key === "WUBRG"), "WUBRG should not enter the Home preview carousel in VM-367.");
+  assert.equal(previewEntries.length, EXPECTED_PREVIEW_ORDER.length);
+  const previewKeys = new Set(previewEntries.map(([key]) => key));
+  const placementPreviewExcluded = Object.entries(identityLayers.expressions)
+    .filter(([, expression]) => expression.placement_eligible === true && expression.preview_eligible !== true)
+    .map(([key]) => key);
+  assert.deepEqual(placementPreviewExcluded, [], "all v1 live placement identities should be Home preview eligible in VM-389");
+  VM389_HOME_PROMOTED_KEYS.forEach((key) => {
+    assert.equal(identityLayers.expressions[key]?.preview_eligible, true, `${key} should enter the Home preview carousel in VM-389.`);
+    assert.ok(previewKeys.has(key), `${key} should be present in the Home preview carousel in VM-389.`);
+  });
 
   const seenOrders = new Set();
   previewEntries.forEach(([key, expression], index) => {
@@ -671,7 +668,7 @@ function assertIdentityPreviewRegistryContract() {
   assert.deepEqual(identityLayers.expressions.WUBRG.aliases, ["WUBRG", "Five-Color"]);
   assert.equal(identityLayers.expressions.WUBRG.kind, "five_color");
   assert.equal(identityLayers.expressions.WUBRG.placement_eligible, true);
-  assert.equal(identityLayers.expressions.WUBRG.preview_eligible, false);
+  assert.equal(identityLayers.expressions.WUBRG.preview_eligible, true);
   assert.deepEqual(identityLayers.expressions.WUBRG.colors, ["W", "U", "B", "R", "G"]);
   assert.deepEqual(identityLayers.expressions.WUBRG.secondary_colors, ["W", "U", "B", "R", "G"]);
   assert.equal(identityLayers.expressions.WUBRG.core_color, "WUBRG");
@@ -912,7 +909,7 @@ assert.deepEqual(sortedStrings(placementModel.factions.ESPER.lateral_inhibition_
 assert.equal(factions.ESPER.identity.expression_key, "ESPER");
 assert.equal(factions.ESPER.identity.expression_kind, "shard");
 assert.equal(identityLayers.expressions.ESPER.placement_eligible, true);
-assert.equal(identityLayers.expressions.ESPER.preview_eligible, false);
+assert.equal(identityLayers.expressions.ESPER.preview_eligible, true);
 assert.ok(factions.GRIXIS, "Generated factions should include GRIXIS.");
 assert.ok(placementModel.factions.GRIXIS, "Generated placement model should include GRIXIS.");
 assert.match(factionContextText, /"GRIXIS": \{/);
@@ -924,7 +921,7 @@ assert.deepEqual(placementModel.factions.GRIXIS.lateral_inhibition_targets, ["BA
 assert.equal(factions.GRIXIS.identity.expression_key, "GRIXIS");
 assert.equal(factions.GRIXIS.identity.expression_kind, "shard");
 assert.equal(identityLayers.expressions.GRIXIS.placement_eligible, true);
-assert.equal(identityLayers.expressions.GRIXIS.preview_eligible, false);
+assert.equal(identityLayers.expressions.GRIXIS.preview_eligible, true);
 assert.ok(factions.JUND, "Generated factions should include JUND.");
 assert.ok(placementModel.factions.JUND, "Generated placement model should include JUND.");
 assert.match(factionContextText, /"JUND": \{/);
@@ -942,7 +939,7 @@ assert.deepEqual(placementModel.factions.JUND.lateral_inhibition_targets, ["BR",
 assert.equal(factions.JUND.identity.expression_key, "JUND");
 assert.equal(factions.JUND.identity.expression_kind, "shard");
 assert.equal(identityLayers.expressions.JUND.placement_eligible, true);
-assert.equal(identityLayers.expressions.JUND.preview_eligible, false);
+assert.equal(identityLayers.expressions.JUND.preview_eligible, true);
 assert.ok(factions.NAYA, "Generated factions should include NAYA.");
 assert.ok(placementModel.factions.NAYA, "Generated placement model should include NAYA.");
 assert.match(factionContextText, /"NAYA": \{/);
@@ -954,7 +951,7 @@ assert.deepEqual(placementModel.factions.NAYA.lateral_inhibition_targets, ["WG",
 assert.equal(factions.NAYA.identity.expression_key, "NAYA");
 assert.equal(factions.NAYA.identity.expression_kind, "shard");
 assert.equal(identityLayers.expressions.NAYA.placement_eligible, true);
-assert.equal(identityLayers.expressions.NAYA.preview_eligible, false);
+assert.equal(identityLayers.expressions.NAYA.preview_eligible, true);
 assert.equal(factions.NAYA.commander_compass?.review_status, "support_only_live_pilot_curation");
 assert.ok((factions.NAYA.commander_compass?.native_fit_commanders || []).length >= 3);
 assert.ok(factions.ABZAN, "Generated factions should include ABZAN.");
@@ -974,7 +971,7 @@ assert.deepEqual(placementModel.factions.ABZAN.lateral_inhibition_targets, ["WB"
 assert.equal(factions.ABZAN.identity.expression_key, "ABZAN");
 assert.equal(factions.ABZAN.identity.expression_kind, "wedge");
 assert.equal(identityLayers.expressions.ABZAN.placement_eligible, true);
-assert.equal(identityLayers.expressions.ABZAN.preview_eligible, false);
+assert.equal(identityLayers.expressions.ABZAN.preview_eligible, true);
 assert.deepEqual(identityLayers.expressions.ABZAN.aliases, ["ABZAN"]);
 assert.ok(factions.TEMUR, "Generated factions should include TEMUR.");
 assert.ok(placementModel.factions.TEMUR, "Generated placement model should include TEMUR.");
@@ -993,7 +990,7 @@ assert.deepEqual(placementModel.factions.TEMUR.lateral_inhibition_targets, ["RG"
 assert.equal(factions.TEMUR.identity.expression_key, "TEMUR");
 assert.equal(factions.TEMUR.identity.expression_kind, "wedge");
 assert.equal(identityLayers.expressions.TEMUR.placement_eligible, true);
-assert.equal(identityLayers.expressions.TEMUR.preview_eligible, false);
+assert.equal(identityLayers.expressions.TEMUR.preview_eligible, true);
 assert.deepEqual(identityLayers.expressions.TEMUR.aliases, ["TEMUR"]);
 assert.ok(factions.SULTAI, "Generated factions should include SULTAI.");
 assert.ok(placementModel.factions.SULTAI, "Generated placement model should include SULTAI.");
@@ -1012,7 +1009,7 @@ assert.deepEqual(placementModel.factions.SULTAI.lateral_inhibition_targets, ["UB
 assert.equal(factions.SULTAI.identity.expression_key, "SULTAI");
 assert.equal(factions.SULTAI.identity.expression_kind, "wedge");
 assert.equal(identityLayers.expressions.SULTAI.placement_eligible, true);
-assert.equal(identityLayers.expressions.SULTAI.preview_eligible, false);
+assert.equal(identityLayers.expressions.SULTAI.preview_eligible, true);
 assert.deepEqual(identityLayers.expressions.SULTAI.aliases, ["SULTAI"]);
 assert.ok(factions.MARDU, "Generated factions should include MARDU.");
 assert.ok(placementModel.factions.MARDU, "Generated placement model should include MARDU.");
@@ -1031,7 +1028,7 @@ assert.deepEqual(placementModel.factions.MARDU.lateral_inhibition_targets, ["WR"
 assert.equal(factions.MARDU.identity.expression_key, "MARDU");
 assert.equal(factions.MARDU.identity.expression_kind, "wedge");
 assert.equal(identityLayers.expressions.MARDU.placement_eligible, true);
-assert.equal(identityLayers.expressions.MARDU.preview_eligible, false);
+assert.equal(identityLayers.expressions.MARDU.preview_eligible, true);
 assert.deepEqual(identityLayers.expressions.MARDU.aliases, ["MARDU"]);
 assert.ok(factions.JESKAI, "Generated factions should include JESKAI.");
 assert.ok(placementModel.factions.JESKAI, "Generated placement model should include JESKAI.");
@@ -1044,7 +1041,7 @@ assert.deepEqual(placementModel.factions.JESKAI.lateral_inhibition_targets, ["WU
 assert.equal(factions.JESKAI.identity.expression_key, "JESKAI");
 assert.equal(factions.JESKAI.identity.expression_kind, "wedge");
 assert.equal(identityLayers.expressions.JESKAI.placement_eligible, true);
-assert.equal(identityLayers.expressions.JESKAI.preview_eligible, false);
+assert.equal(identityLayers.expressions.JESKAI.preview_eligible, true);
 assert.deepEqual(identityLayers.expressions.JESKAI.aliases, ["JESKAI"]);
 assert.ok(factions.YORE, "Generated factions should include YORE.");
 assert.ok(placementModel.factions.YORE, "Generated placement model should include YORE.");
@@ -1060,7 +1057,7 @@ assert.equal(factions.YORE.identity.core_color, "WUBR");
 assert.equal(factions.YORE.identity.secondary_color, null);
 assert.deepEqual(factions.YORE.identity.secondary_colors, ["W", "U", "B", "R"]);
 assert.equal(identityLayers.expressions.YORE.placement_eligible, true);
-assert.equal(identityLayers.expressions.YORE.preview_eligible, false);
+assert.equal(identityLayers.expressions.YORE.preview_eligible, true);
 assert.deepEqual(identityLayers.expressions.YORE.aliases, ["YORE"]);
 assert.equal(identityLayers.expressions.YORE.core_color, "WUBR");
 assert.deepEqual(identityLayers.expressions.YORE.secondary_colors, ["W", "U", "B", "R"]);
@@ -1092,7 +1089,7 @@ assert.equal(factions.GLINT.identity.core_color, "UBRG");
 assert.equal(factions.GLINT.identity.secondary_color, null);
 assert.deepEqual(factions.GLINT.identity.secondary_colors, ["U", "B", "R", "G"]);
 assert.equal(identityLayers.expressions.GLINT.placement_eligible, true);
-assert.equal(identityLayers.expressions.GLINT.preview_eligible, false);
+assert.equal(identityLayers.expressions.GLINT.preview_eligible, true);
 assert.deepEqual(identityLayers.expressions.GLINT.aliases, ["GLINT"]);
 assert.equal(identityLayers.expressions.GLINT.core_color, "UBRG");
 assert.deepEqual(identityLayers.expressions.GLINT.secondary_colors, ["U", "B", "R", "G"]);
@@ -1131,7 +1128,7 @@ assert.equal(factions.DUNE.identity.core_color, "BRGW");
 assert.equal(factions.DUNE.identity.secondary_color, null);
 assert.deepEqual(factions.DUNE.identity.secondary_colors, ["B", "R", "G", "W"]);
 assert.equal(identityLayers.expressions.DUNE.placement_eligible, true);
-assert.equal(identityLayers.expressions.DUNE.preview_eligible, false);
+assert.equal(identityLayers.expressions.DUNE.preview_eligible, true);
 assert.deepEqual(identityLayers.expressions.DUNE.aliases, ["DUNE"]);
 assert.equal(identityLayers.expressions.DUNE.core_color, "BRGW");
 assert.deepEqual(identityLayers.expressions.DUNE.secondary_colors, ["B", "R", "G", "W"]);
@@ -1195,7 +1192,7 @@ assert.equal(factions.INK.identity.core_color, "RGWU");
 assert.equal(factions.INK.identity.secondary_color, null);
 assert.deepEqual(factions.INK.identity.secondary_colors, ["R", "G", "W", "U"]);
 assert.equal(identityLayers.expressions.INK.placement_eligible, true);
-assert.equal(identityLayers.expressions.INK.preview_eligible, false);
+assert.equal(identityLayers.expressions.INK.preview_eligible, true);
 assert.deepEqual(identityLayers.expressions.INK.aliases, ["INK"]);
 assert.equal(identityLayers.expressions.INK.core_color, "RGWU");
 assert.deepEqual(identityLayers.expressions.INK.secondary_colors, ["R", "G", "W", "U"]);
@@ -1275,7 +1272,7 @@ assert.equal(factions.WITCH.identity.core_color, "GWUB");
 assert.equal(factions.WITCH.identity.secondary_color, null);
 assert.deepEqual(factions.WITCH.identity.secondary_colors, ["G", "W", "U", "B"]);
 assert.equal(identityLayers.expressions.WITCH.placement_eligible, true);
-assert.equal(identityLayers.expressions.WITCH.preview_eligible, false);
+assert.equal(identityLayers.expressions.WITCH.preview_eligible, true);
 assert.deepEqual(identityLayers.expressions.WITCH.aliases, ["WITCH"]);
 assert.equal(identityLayers.expressions.WITCH.core_color, "GWUB");
 assert.deepEqual(identityLayers.expressions.WITCH.secondary_colors, ["G", "W", "U", "B"]);

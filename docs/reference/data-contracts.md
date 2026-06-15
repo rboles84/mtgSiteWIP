@@ -28,7 +28,7 @@ VM-335 recorded mono colors as a transitional Layer 1 exception. VM-377 replaces
 
 ## Identity preview registry
 
-`data/identity-layers.json` owns the canonical Home preview metadata for the current 20-expression carousel. `assets/js/home.js` fetches this registry, selects entries where `preview_eligible` is `true`, sorts by `preview_order`, and keeps `data/factions.json` as the lore-note source. VM-334 ratifies the current live placement set as 36 expressions; shards, wedges, four-color identities, and `COLORLESS` remain `preview_eligible: false`, so Home preview order remains unchanged.
+`data/identity-layers.json` owns the canonical Home preview metadata for the 37-expression v1 Home Identity Signal. `assets/js/home.js` fetches this registry, selects entries where `preview_eligible` is `true`, sorts by `preview_order`, and keeps `data/factions.json` as the lore-note source. VM-389 promotes the historical 20-expression preview baseline plus the live shard, wedge, four-color, `COLORLESS`, and `WUBRG` identities into Home preview visibility without adding public routes, lowercase aliases, Maze behavior, directory links, schema/API changes, generated-data hand edits, or placement-model behavior changes.
 
 For mono colors, the same registry owns active membership, routing metadata, and display-generation inputs. Source-backed mono display, placement, Commander support, and discriminator fields must trace to the VM-377 raw packets and promoted mono source-intake bundle, not to generated/runtime output alone.
 

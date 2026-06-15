@@ -1,10 +1,11 @@
-import { access, readFile, stat } from "node:fs/promises";
+import { readFile, stat } from "node:fs/promises";
 import http from "node:http";
 import path from "node:path";
 
 import * as ChromeLauncher from "chrome-launcher";
 import desktopConfig from "lighthouse/core/config/lr-desktop-config.js";
 import lighthouse from "lighthouse";
+import puppeteer from "puppeteer-core";
 
 const root = process.cwd();
 const host = "127.0.0.1";
@@ -35,7 +36,7 @@ function send(res, statusCode, body, contentType = "text/plain; charset=utf-8") 
 async function resolveBrowserPath() {
   for (const candidate of browserCandidates) {
     try {
-      await access(candidate);
+      await stat(candidate);
       return candidate;
     } catch {
       // Try the next candidate or let chrome-launcher auto-detect later.
@@ -80,6 +81,20 @@ function startServer() {
       send(res, 500, error instanceof Error ? error.message : "Server error");
     }
   });
+  const sockets = new Set();
+
+  server.on("connection", socket => {
+    sockets.add(socket);
+    socket.on("close", () => sockets.delete(socket));
+  });
+
+  server.forceShutdown = () => {
+    server.closeIdleConnections?.();
+    server.closeAllConnections?.();
+    for (const socket of sockets) {
+      socket.destroy();
+    }
+  };
 
   return new Promise((resolve, reject) => {
     server.once("error", reject);
@@ -106,6 +121,32 @@ async function waitForDevtools(port, retries = 40, delayMs = 500) {
   throw new Error(`Failed to connect to the browser DevTools endpoint at ${endpoint}.`);
 }
 
+function delay(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+async function verifyHomePaintsBeforeAudit(port, targetUrl) {
+  let browser;
+
+  try {
+    browser = await puppeteer.connect({
+      browserURL: `http://${host}:${port}`,
+    });
+
+    const page = await browser.newPage();
+    await page.setViewport({ width: 1440, height: 1200, deviceScaleFactor: 1 });
+    await page.goto(targetUrl, { waitUntil: "domcontentloaded", timeout: 30000 });
+    await page.waitForSelector("#heroManaTitle", { timeout: 10000 });
+    await page.waitForFunction(
+      () => document.getElementById("heroManaTitle")?.textContent?.trim()?.length > 0,
+      { timeout: 10000 }
+    );
+    await page.close();
+  } finally {
+    await browser?.disconnect();
+  }
+}
+
 const server = await startServer();
 const address = server.address();
 
@@ -117,7 +158,16 @@ if (!address || typeof address === "string") {
 const url = `http://${host}:${address.port}/index.html`;
 const chromePath = await resolveBrowserPath();
 
-const chromeFlags = ["--headless=new", "--no-sandbox", "--disable-dev-shm-usage"];
+const chromeFlags = [
+  "--headless=new",
+  "--no-sandbox",
+  "--disable-dev-shm-usage",
+  "--disable-gpu",
+  "--force-color-profile=srgb",
+  "--disable-background-timer-throttling",
+  "--disable-backgrounding-occluded-windows",
+  "--disable-renderer-backgrounding",
+];
 let launchedChrome;
 
 try {
@@ -129,6 +179,7 @@ try {
   });
 
   await waitForDevtools(launchedChrome.port);
+  await verifyHomePaintsBeforeAudit(launchedChrome.port, url);
 
   const runnerResult = await lighthouse(
     url,
@@ -181,11 +232,13 @@ try {
 } finally {
   if (launchedChrome) {
     try {
-      await launchedChrome.kill();
+      await Promise.race([launchedChrome.kill(), delay(2000)]);
     } catch {
       // ChromeLauncher can fail to delete its temp profile on this machine even after the browser exits.
     }
   }
 
-  await new Promise(resolve => server.close(resolve));
+  server.forceShutdown?.();
+  await Promise.race([new Promise(resolve => server.close(resolve)), delay(2000)]);
+  process.exit(process.exitCode ?? 0);
 }

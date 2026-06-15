@@ -1,6 +1,6 @@
 # Gate Compression WUBRG-First Comparison
 
-Generated: 2026-06-14T15:41:14.422Z
+Generated: 2026-06-15T15:42:59.252Z
 
 Source fixture: `data/placement/gate-compression.source.json`
 

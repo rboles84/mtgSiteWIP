@@ -18,7 +18,7 @@
 3. After the extraction or route-local refactor, run `npm.cmd run test:visual:home`.
 4. Confirm the compare run writes current and diff artifacts under `artifacts/visual-regression/home/current/` and `artifacts/visual-regression/home/diff/`.
 5. Confirm each viewport stays within the mismatch budget and the run reports no new console or page errors beyond `console-baseline.json`.
-6. Confirm the Home identity signal initializes from `data/identity-layers.json`, shows the same 20 preview identities, and the forced `boros` visual hook resolves through the registry alias list.
+6. Confirm the Home identity signal initializes from `data/identity-layers.json`, shows all 37 v1 preview identities, and the forced `boros` visual hook resolves through the registry alias list.
 7. Confirm the Home Mana Lens reports `Still` under reduced motion, uses the tuned 4800ms cycle outside reduced motion, and still pauses on hover/focus before resuming.
 8. If the harness fails, review the generated diff PNGs before accepting any visual change.
 
@@ -144,14 +144,22 @@
 4. Confirm the compare run writes current and diff artifacts under `artifacts/visual-regression/apocrypha/current/` and `artifacts/visual-regression/apocrypha/diff/`.
 5. Confirm each capture stays within the mismatch budget and the run reports no new Apocrypha console or page errors beyond `console-baseline.json`.
 6. Confirm `/library/` still forwards into `/apocrypha/` after any Apocrypha visual pass.
-7. If the harness fails, review the generated diff PNGs before accepting any visual change.
+7. Confirm lower Apocrypha sections preserve rounded glass major panels and nested reference surfaces at desktop, tablet-ish, and mobile widths, with no square panel drift, clipped focus rings, unreadable transparent text, or stretched internal gaps; reference cards and the How Used note should keep their content top-pinned, the page rail should not include Not Published, and no private-system disclosure section should appear after How These References Are Used.
+8. Confirm the Source Compass rail appears above `Public links grouped by type` with five tome links, visible source-count chips, deck-tone spines, horizontal scroll-snap/peek behavior, and no dots, arrows, search box, or source-link carousel.
+9. Confirm each tome is a real anchor to a stable library group id; clicking a tome opens the matching top-level group, closes sibling top-level groups only, updates `aria-current`, and lands with the group title visible below the sticky topbar.
+10. Confirm the top-level library groups are native `<details name="apoc-library">` panels with clear summaries, visible focus rings, CSS-drawn chevrons, and Enter/Space toggle behavior.
+11. Confirm the `Official Wizards / Mark Rosewater` library group appears first as four native disclosure shelves: the first shelf is open, the other three are collapsed, the group shows `39 sources`, shelf count chips read `10 / 10 / 12 / 7`, and the existing non-MaRo public links stay unchanged.
+12. With reduced motion enabled, confirm keyboard Tab reaches group and shelf summaries, Enter and Space toggle them, the gold focus outline remains visible, chevrons are visible in both states, all 49 public links are reachable after opening groups/shelves, no raw URLs are exposed, and no desktop or mobile horizontal overflow appears.
+13. With JavaScript disabled, confirm the tome anchors still jump to group ids, the `<noscript>` reveal fallback keeps the library visible, summaries still toggle natively, and source links remain reachable after opening the target group.
+14. In print view, confirm closed top-level groups and nested MaRo shelf bodies are forced visible.
+15. If the harness fails, review the generated diff PNGs before accepting any visual change.
 
 ## VM-147D Static public route manual QA
 
 1. Open `/strategium/`, `/apocrypha/`, `/privacy/`, `/terms/`, and `/library/`; confirm each route loads with its current asset stack and no broken route-owned asset requests.
 2. Confirm `/library/` keeps its current compatibility behavior for Apocrypha exactly as implemented, including the alias shell text, meta refresh, inline JavaScript redirect, and noscript fallback, without changing the mechanism.
 3. On `/strategium/`, confirm the shared topbar marks Strategium as active, the mobile menu opens and closes, reduced motion toggles shared state, and all tabs, checklist controls, and archetype search behavior remain unchanged.
-4. On `/apocrypha/`, confirm the shared topbar marks Apocrypha as active, the route preserves public reference framing, all visible public source links remain reachable, versioned CSS/JS query strings stay intact, and no private-source framing leaks into public copy.
+4. On `/apocrypha/`, confirm the shared topbar marks Apocrypha as active, the route preserves public reference framing, all visible public source links remain reachable, the official Wizards / Mark Rosewater shelves appear before the existing groups without duplicating canonical URLs, versioned CSS/JS query strings stay intact, and no private-source framing leaks into public copy.
 5. On `/privacy/` and `/terms/`, confirm the shared topbar marks the current legal route as active, legal copy and service wording are unchanged, `../assets/css/legal.css` remains the final stylesheet, and the VM-153 glass opacity/no-blur treatment remains readable.
 6. At mobile, tablet, and desktop widths, confirm Strategium panels, Apocrypha reference cards, legal sections, topbars, footers, and the `/library/` compatibility shell have no obvious horizontal overflow, clipped text, or unreadable overlap.
 7. Confirm no new console or page errors appear beyond known environment-only font, favicon, or visual-harness noise.

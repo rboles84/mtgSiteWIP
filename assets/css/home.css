@@ -517,7 +517,7 @@ section {
 .vm-hero-mana::before {
   content: "";
   position: absolute;
-  inset: -28% -18% auto;
+  inset: -28% 0 auto;
   height: 58%;
   background:
     radial-gradient(circle at 28% 34%, rgba(247,215,132,0.18), transparent 34%),
@@ -791,7 +791,7 @@ section {
 }
 
 .vm-chart-wrap.vm-hero-chart-wrap {
-  overflow: visible;
+  overflow: hidden;
 }
 
 .vm-radar-card.vm-hero-radar-card .vm-radar-glow {

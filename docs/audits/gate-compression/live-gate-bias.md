@@ -1,6 +1,6 @@
 # Live Gate Bias Report
 
-Generated: 2026-06-14T15:41:27.210Z
+Generated: 2026-06-15T15:42:59.073Z
 
 Status: PASS
 

@@ -222,6 +222,121 @@
     syncSectionFromHash();
   }
 
+  function initSourceCompass() {
+    var groups = Array.prototype.slice.call(document.querySelectorAll("details.apoc-library-group"));
+    var tomes = Array.prototype.slice.call(document.querySelectorAll("[data-source-tome]"));
+
+    if (!groups.length) {
+      return;
+    }
+
+    function setActiveTome(id) {
+      tomes.forEach(function (tome) {
+        var active = tome.getAttribute("data-library-target") === id;
+        tome.setAttribute("aria-current", active ? "true" : "false");
+      });
+    }
+
+    function closeSiblingGroups(activeGroup) {
+      groups.forEach(function (group) {
+        if (group !== activeGroup) {
+          group.open = false;
+        }
+      });
+    }
+
+    function openGroup(group) {
+      if (!group) {
+        return;
+      }
+
+      group.open = true;
+      closeSiblingGroups(group);
+      setActiveTome(group.id);
+    }
+
+    function findGroupFromHash() {
+      if (!window.location.hash) {
+        return null;
+      }
+
+      var id = window.location.hash.slice(1);
+      var target = document.getElementById(id);
+      if (!target) {
+        return null;
+      }
+
+      if (target.matches && target.matches("details.apoc-library-group")) {
+        return target;
+      }
+
+      if (target.closest) {
+        return target.closest("details.apoc-library-group");
+      }
+
+      return null;
+    }
+
+    tomes.forEach(function (tome) {
+      tome.addEventListener("click", function (event) {
+        var targetId = tome.getAttribute("data-library-target");
+        var group = targetId ? document.getElementById(targetId) : null;
+
+        if (!group) {
+          return;
+        }
+
+        event.preventDefault();
+        openGroup(group);
+
+        if (window.history && window.history.pushState) {
+          window.history.pushState(null, "", "#" + group.id);
+        } else {
+          window.location.hash = group.id;
+        }
+
+        group.scrollIntoView({
+          behavior: reducedMotionEnabled() ? "auto" : "smooth",
+          block: "start"
+        });
+      });
+    });
+
+    groups.forEach(function (group) {
+      group.addEventListener("toggle", function () {
+        var hasOpenGroup;
+
+        if (group.open) {
+          closeSiblingGroups(group);
+          setActiveTome(group.id);
+          return;
+        }
+
+        hasOpenGroup = groups.some(function (candidate) {
+          return candidate.open;
+        });
+
+        if (!hasOpenGroup) {
+          setActiveTome("");
+        }
+      });
+    });
+
+    function syncFromHash() {
+      var group = findGroupFromHash();
+      if (group) {
+        openGroup(group);
+      }
+    }
+
+    window.addEventListener("hashchange", syncFromHash);
+    syncFromHash();
+
+    setActiveTome((groups.filter(function (group) {
+      return group.open;
+    })[0] || {}).id || "");
+  }
+
   function initReturnDock() {
     var dock = document.getElementById("apocReturnDock");
     if (!dock) {
@@ -272,6 +387,7 @@
     initArchiveAtmosphere();
     initRevealObserver();
     initSectionRail();
+    initSourceCompass();
     initReturnDock();
     watchMotionChanges();
   }

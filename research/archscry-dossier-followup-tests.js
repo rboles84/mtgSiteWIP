@@ -466,7 +466,7 @@ assert.equal(currentFactionKeys.length, expectedFactionCount, "expected the curr
 livePilotKeys.forEach((key) => {
   assert.ok(currentFactionKeys.includes(key), `expected the current Archscry faction set to include the ${key} pilot key`);
   assert.ok(identityLayers.expressions?.[key], `expected ${key} to exist as the public live-pilot expression key`);
-  assert.equal(identityLayers.expressions[key].preview_eligible, false, `expected ${key} to stay outside the Home preview carousel`);
+  assert.equal(identityLayers.expressions[key].preview_eligible, true, `expected ${key} to enter the Home preview carousel in VM-389`);
   assert.equal(identityLayers.expressions[key].placement_eligible, true, `expected ${key} to stay live-placement eligible`);
 });
 assert.deepEqual(identityLayers.expressions.ABZAN.aliases, ["ABZAN"], "expected ABZAN to expose only its canonical public alias");
@@ -716,10 +716,10 @@ livePilotKeys.forEach((key) => {
   });
 });
 const previewExpressions = Object.values(identityLayers.expressions || {}).filter((expression) => expression.preview_eligible);
-assert.equal(previewExpressions.length, 20, "expected Home preview metadata to remain the original 20-expression set");
+assert.equal(previewExpressions.length, 37, "expected Home preview metadata to cover the full 37-expression v1 set");
 assert.ok(
-  livePilotKeys.every((key) => !previewExpressions.some((expression) => expression.key === key)),
-  "expected the live pilots to stay out of the Home preview metadata"
+  livePilotKeys.every((key) => previewExpressions.some((expression) => expression.key === key)),
+  "expected every v1 live pilot to enter the Home preview metadata"
 );
 currentFactionKeys.forEach((key) => {
   const faction = factionsData.factions[key];

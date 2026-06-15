@@ -17,7 +17,15 @@
 <link rel="stylesheet" href="../assets/css/topbar.css">
 <link rel="stylesheet" href="../assets/css/atmosphere.css">
 <link rel="stylesheet" href="../assets/css/components.css">
-<link rel="stylesheet" href="../assets/css/apocrypha.css?v=20260521b">
+<link rel="stylesheet" href="../assets/css/apocrypha.css?v=20260615a">
+<noscript>
+  <style>
+    [data-reveal] {
+      opacity: 1 !important;
+      transform: none !important;
+    }
+  </style>
+</noscript>
 </head>
 <body data-page="apocrypha" data-vm-current="apocrypha" data-bg="medium">
 
@@ -107,7 +115,7 @@
           <div class="apoc-hero__status" aria-label="Apocrypha commitments">
             <span>Public URLs</span>
             <span>Source Groups</span>
-            <span>Private Logic Hidden</span>
+            <span>Reviewed Support</span>
           </div>
         </div>
 
@@ -115,20 +123,20 @@
           <div class="apoc-hero__signal-head">
             <p class="vm-card-kicker">At A Glance</p>
             <h2>Public links first.</h2>
-            <p>This page gathers the public references behind Vox Mana in one place so visitors can see the visible research trail without digging through internal notes.</p>
+            <p>This page gathers the public references behind Vox Mana in one place so visitors can follow the visible research trail.</p>
           </div>
           <div class="apoc-signal-list">
             <article class="apoc-signal-item">
               <h3>Public references only</h3>
-              <p>The focus here is live public URLs, not a full internal vault.</p>
+              <p>The focus here is live public URLs and plain-language source context.</p>
             </article>
             <article class="apoc-signal-item">
               <h3>Grouped for browsing</h3>
               <p>Official lore, community references, video lore, and project archives are separated so the library is easy to scan.</p>
             </article>
             <article class="apoc-signal-item">
-              <h3>Private work stays private</h3>
-              <p>Unpublished working notes, prompt artifacts, and scoring logic stay off this page.</p>
+              <h3>Reviewed support only</h3>
+              <p>Only source support that helps explain the public reference trail is surfaced here.</p>
             </article>
           </div>
         </aside>
@@ -147,8 +155,6 @@
           <a href="#decks" data-rail-link="decks" aria-current="false">Quick Guide</a>
           <a href="#ledger" data-rail-link="ledger" aria-current="false">Reference Library</a>
           <a href="#method" data-rail-link="method" aria-current="false">How Used</a>
-          <a href="#dossiers" data-rail-link="dossiers" aria-current="false">Phase 2</a>
-          <a href="#notice" data-rail-link="notice" aria-current="false">Not Published</a>
         </nav>
       </aside>
 
@@ -184,12 +190,6 @@
               <h3>Useful for navigation and continuity.</h3>
               <p>GitHub projects, story archives, PDF indexes, and public collections that help trace the research trail and find source material quickly.</p>
             </article>
-
-            <article class="vm-panel apoc-guide-card" data-reveal>
-              <p class="vm-card-kicker">Phase 2 Research Vault</p>
-              <h3>Later phases can surface deeper files.</h3>
-              <p>Generated notes, PDFs, RTF files, Markdown captures, HTML snapshots, and validated research bundles belong in a later vault once they have a cleaner public design.</p>
-            </article>
           </div>
         </section>
 
@@ -200,30 +200,182 @@
             <p>These are the public references currently linked from Apocrypha. Every entry stays visible here, with a short note about why it matters.</p>
           </div>
 
-          <div class="apoc-library-grid">
-            <article class="vm-panel apoc-library-group" data-reveal>
-              <div class="apoc-library-group__head">
-                <p class="vm-card-kicker">Official Lore And Story</p>
-                <h3>Primary lore foundations.</h3>
-                <p>Official or near-official story material used to anchor faction identity and set context.</p>
-              </div>
+          <nav class="apoc-source-compass" aria-label="Source library groups" data-source-compass>
+            <div class="apoc-source-compass__rail">
+              <a class="apoc-source-tome" href="#apoc-library-official-wizards" data-source-tome data-library-target="apoc-library-official-wizards" data-deck-tone="canon" aria-current="true" aria-controls="apoc-library-official-wizards">
+                <span class="apoc-source-tome__label">Official Wizards / Mark Rosewater</span>
+                <span class="apoc-shelf__count" aria-label="39 sources">39 sources</span>
+                <span class="apoc-source-tome__scent">Primary color-pie and faction-design sources.</span>
+              </a>
 
-              <div class="apoc-reference-list">
+              <a class="apoc-source-tome" href="#apoc-library-official-lore" data-source-tome data-library-target="apoc-library-official-lore" data-deck-tone="codex" aria-current="false" aria-controls="apoc-library-official-lore">
+                <span class="apoc-source-tome__label">Official Lore And Story</span>
+                <span class="apoc-shelf__count" aria-label="1 source">1 source</span>
+                <span class="apoc-source-tome__scent">Primary lore foundations.</span>
+              </a>
+
+              <a class="apoc-source-tome" href="#apoc-library-story-archives" data-source-tome data-library-target="apoc-library-story-archives" data-deck-tone="scholarship" aria-current="false" aria-controls="apoc-library-story-archives">
+                <span class="apoc-source-tome__label">Story Archives And Indexes</span>
+                <span class="apoc-shelf__count" aria-label="3 sources">3 sources</span>
+                <span class="apoc-source-tome__scent">Archives that help trace the story trail.</span>
+              </a>
+
+              <a class="apoc-source-tome" href="#apoc-library-community" data-source-tome data-library-target="apoc-library-community" data-deck-tone="logic" aria-current="false" aria-controls="apoc-library-community">
+                <span class="apoc-source-tome__label">Wiki And Community References</span>
+                <span class="apoc-shelf__count" aria-label="3 sources">3 sources</span>
+                <span class="apoc-source-tome__scent">Support for structure and interpretation.</span>
+              </a>
+
+              <a class="apoc-source-tome" href="#apoc-library-video-lore" data-source-tome data-library-target="apoc-library-video-lore" data-deck-tone="media" aria-current="false" aria-controls="apoc-library-video-lore">
+                <span class="apoc-source-tome__label">Video Lore And Deep Dives</span>
+                <span class="apoc-shelf__count" aria-label="3 sources">3 sources</span>
+                <span class="apoc-source-tome__scent">Review and cross-check surfaces.</span>
+              </a>
+            </div>
+          </nav>
+
+          <div class="apoc-library-grid" data-library-groups>
+            <details class="vm-panel apoc-library-group" id="apoc-library-official-wizards" name="apoc-library" data-deck-tone="canon" data-reveal open>
+              <summary class="apoc-library-summary">
+                <span class="chev" aria-hidden="true"></span>
+                <span class="apoc-library-summary__copy">
+                  <span class="vm-card-kicker">Official Wizards / Mark Rosewater</span>
+                  <span class="apoc-library-title">Primary color-pie and faction-design sources.</span>
+                  <span class="apoc-library-desc">Verified Wizards links used as the strongest public trail for color philosophy, color voice, guild design, and shard design.</span>
+                </span>
+                <span class="apoc-shelf__count" aria-label="39 sources">39 sources</span>
+              </summary>
+
+              <div class="apoc-library-body">
+                <div class="apoc-shelf-list">
+                <details class="apoc-shelf" open>
+                  <summary class="apoc-shelf__bar">
+                    <span class="chev" aria-hidden="true"></span>
+                    <h4>Foundational color philosophy</h4>
+                    <span class="apoc-shelf__count" aria-label="10 sources">10</span>
+                    <span><strong>Used for:</strong> Mono-color philosophy and the color-pie backbone.</span>
+                  </summary>
+                  <div class="apoc-shelf__body">
+                    <ul class="apoc-reference-links">
+                    <li><a href="https://magic.wizards.com/en/news/making-magic/great-white-way-2003-02-03" target="_blank" rel="noopener">The Great White Way</a></li>
+                    <li><a href="https://magic.wizards.com/en/news/making-magic/true-blue-2003-08-11" target="_blank" rel="noopener">True Blue</a></li>
+                    <li><a href="https://magic.wizards.com/en/news/making-magic/black-2004-02-02" target="_blank" rel="noopener">In the Black</a></li>
+                    <li><a href="https://magic.wizards.com/en/news/making-magic/seeing-red-2004-07-19-0" target="_blank" rel="noopener">Seeing Red</a></li>
+                    <li><a href="https://magic.wizards.com/en/news/making-magic/its-not-easy-being-green-2002-10-21-0" target="_blank" rel="noopener">It's Not Easy Being Green</a></li>
+                    <li><a href="https://magic.wizards.com/en/news/making-magic/great-white-way-revisited-2015-07-13" target="_blank" rel="noopener">The Great White Way Revisited</a></li>
+                    <li><a href="https://magic.wizards.com/en/news/making-magic/true-blue-revisited-2015-07-20" target="_blank" rel="noopener">True Blue Revisited</a></li>
+                    <li><a href="https://magic.wizards.com/en/news/making-magic/black-revisited-2015-07-27" target="_blank" rel="noopener">In the Black Revisited</a></li>
+                    <li><a href="https://magic.wizards.com/en/news/making-magic/seeing-red-revisited-2015-08-03" target="_blank" rel="noopener">Seeing Red Revisited</a></li>
+                    <li><a href="https://magic.wizards.com/en/news/making-magic/its-not-easy-being-green-revisited-2015-08-10" target="_blank" rel="noopener">It's Not Easy Being Green Revisited</a></li>
+                  </ul>
+                  </div>
+                </details>
+
+                <details class="apoc-shelf">
+                  <summary class="apoc-shelf__bar">
+                    <span class="chev" aria-hidden="true"></span>
+                    <h4>Current color voice and governance</h4>
+                    <span class="apoc-shelf__count" aria-label="10 sources">10</span>
+                    <span><strong>Used for:</strong> Color voice, color-pie maintenance, and mechanical-pie authority.</span>
+                  </summary>
+                  <div class="apoc-shelf__body">
+                    <ul class="apoc-reference-links">
+                    <li><a href="https://magic.wizards.com/en/news/making-magic/my-words-white" target="_blank" rel="noopener">My Words: White</a></li>
+                    <li><a href="https://magic.wizards.com/en/news/making-magic/my-words-blue" target="_blank" rel="noopener">My Words: Blue</a></li>
+                    <li><a href="https://magic.wizards.com/en/news/making-magic/my-words-black" target="_blank" rel="noopener">My Words: Black</a></li>
+                    <li><a href="https://magic.wizards.com/en/news/making-magic/my-words-red" target="_blank" rel="noopener">My Words: Red</a></li>
+                    <li><a href="https://magic.wizards.com/en/news/making-magic/my-words-green" target="_blank" rel="noopener">My Words: Green</a></li>
+                    <li><a href="https://magic.wizards.com/en/news/making-magic/the-council-of-colors-revisited" target="_blank" rel="noopener">The Council of Colors, Revisited</a></li>
+                    <li><a href="https://magic.wizards.com/en/news/making-magic/pie-fights-2016-11-14" target="_blank" rel="noopener">Pie Fights</a></li>
+                    <li><a href="https://magic.wizards.com/en/news/making-magic/mechanical-color-pie-2017-2017-06-05" target="_blank" rel="noopener">The Mechanical Color Pie 2017</a></li>
+                    <li><a href="https://magic.wizards.com/en/news/making-magic/mechanical-color-pie-2021" target="_blank" rel="noopener">The Mechanical Color Pie 2021</a></li>
+                    <li><a href="https://magic.wizards.com/en/news/making-magic/mechanical-color-pie-2021-changes" target="_blank" rel="noopener">Mechanical Color Pie 2021 Changes</a></li>
+                  </ul>
+                  </div>
+                </details>
+
+                <details class="apoc-shelf">
+                  <summary class="apoc-shelf__bar">
+                    <span class="chev" aria-hidden="true"></span>
+                    <h4>Ravnica guild design</h4>
+                    <span class="apoc-shelf__count" aria-label="12 sources">12</span>
+                    <span><strong>Used for:</strong> Two-color faction philosophy and guild mechanics context.</span>
+                  </summary>
+                  <div class="apoc-shelf__body">
+                    <ul class="apoc-reference-links">
+                    <li><a href="https://magic.wizards.com/en/news/making-magic/group-think-2005-10-03-0" target="_blank" rel="noopener">Group Think (Selesnya)</a></li>
+                    <li><a href="https://magic.wizards.com/en/news/making-magic/life-and-death-2005-10-24-0" target="_blank" rel="noopener">Life and Death (Golgari)</a></li>
+                    <li><a href="https://magic.wizards.com/en/news/making-magic/pretty-sneaky-sis-2005-11-07-0" target="_blank" rel="noopener">Pretty Sneaky, Sis (Dimir)</a></li>
+                    <li><a href="https://magic.wizards.com/en/news/making-magic/disorderly-conduct-2005-12-05" target="_blank" rel="noopener">Disorderly Conduct (Boros)</a></li>
+                    <li><a href="https://magic.wizards.com/en/news/making-magic/aaaargh-2006-01-30-0" target="_blank" rel="noopener">Aaaargh! (Gruul)</a></li>
+                    <li><a href="https://magic.wizards.com/en/news/making-magic/creative-differences-2006-02-27-0" target="_blank" rel="noopener">Creative Differences (Izzet)</a></li>
+                    <li><a href="https://magic.wizards.com/en/news/making-magic/playing-their-own-rules-2006-03-27-0" target="_blank" rel="noopener">Playing by Their Own Rules (Orzhov)</a></li>
+                    <li><a href="https://magic.wizards.com/en/news/making-magic/slow-and-steady-2006-05-01" target="_blank" rel="noopener">Slow and Steady (Azorius)</a></li>
+                    <li><a href="https://magic.wizards.com/en/news/making-magic/hedonism-attitude-2006-08-14-0" target="_blank" rel="noopener">Hedonism with Attitude (Rakdos)</a></li>
+                    <li><a href="https://magic.wizards.com/en/news/making-magic/improving-upon-nature-2006-05-29" target="_blank" rel="noopener">Improving Upon Nature (Simic)</a></li>
+                    <li><a href="https://magic.wizards.com/en/news/making-magic/guild-order-part-2-2018-09-17" target="_blank" rel="noopener">Guild to Order, Part 2</a></li>
+                    <li><a href="https://magic.wizards.com/en/news/feature/guilds-ravnica-mechanics-2018-09-04" target="_blank" rel="noopener">Guilds of Ravnica Mechanics</a></li>
+                  </ul>
+                  </div>
+                </details>
+
+                <details class="apoc-shelf">
+                  <summary class="apoc-shelf__bar">
+                    <span class="chev" aria-hidden="true"></span>
+                    <h4>Alara shard and three-color design</h4>
+                    <span class="apoc-shelf__count" aria-label="7 sources">7</span>
+                    <span><strong>Used for:</strong> Three-color philosophy and shard/wedge comparison context.</span>
+                  </summary>
+                  <div class="apoc-shelf__body">
+                    <ul class="apoc-reference-links">
+                    <li><a href="https://magic.wizards.com/en/news/making-magic/peace-love-and-understanding-2008-10-06" target="_blank" rel="noopener">Peace, Love and Understanding (Bant)</a></li>
+                    <li><a href="https://magic.wizards.com/en/news/making-magic/striving-for-perfection" target="_blank" rel="noopener">Striving for Perfection (Esper)</a></li>
+                    <li><a href="https://magic.wizards.com/en/news/making-magic/looking-out-number-one-2008-10-17" target="_blank" rel="noopener">Looking Out For Number One (Grixis)</a></li>
+                    <li><a href="https://magic.wizards.com/en/news/making-magic/following-your-heart-2008-12-01" target="_blank" rel="noopener">Following Your Heart (Jund)</a></li>
+                    <li><a href="https://magic.wizards.com/en/news/making-magic/searching-within-2008-11-01" target="_blank" rel="noopener">Searching Within (Naya)</a></li>
+                    <li><a href="https://magic.wizards.com/en/news/making-magic/khan-do-attitude-part-1-2014-09-01" target="_blank" rel="noopener">Khan Do Attitude, Part 1</a></li>
+                    <li><a href="https://magic.wizards.com/en/news/making-magic/khan-do-attitude-part-2-2014-09-08" target="_blank" rel="noopener">Khan Do Attitude, Part 2</a></li>
+                  </ul>
+                  </div>
+                </details>
+                </div>
+              </div>
+            </details>
+
+            <details class="vm-panel apoc-library-group" id="apoc-library-official-lore" name="apoc-library" data-deck-tone="codex" data-reveal>
+              <summary class="apoc-library-summary">
+                <span class="chev" aria-hidden="true"></span>
+                <span class="apoc-library-summary__copy">
+                  <span class="vm-card-kicker">Official Lore And Story</span>
+                  <span class="apoc-library-title">Primary lore foundations.</span>
+                  <span class="apoc-library-desc">Official or near-official story material used to anchor faction identity and set context.</span>
+                </span>
+                <span class="apoc-shelf__count" aria-label="1 source">1 source</span>
+              </summary>
+
+              <div class="apoc-library-body">
+                <div class="apoc-reference-list">
                 <article class="apoc-reference-card">
                   <h4><a href="https://magic.wizards.com/en/news/feature/flavorful-guide-guilds-ravnica-2018-10-03" target="_blank" rel="noopener">A Flavorful Guide to the Guilds of Ravnica</a></h4>
                   <p><strong>Used for:</strong> Guild identity descriptions.</p>
                 </article>
+                </div>
               </div>
-            </article>
+            </details>
 
-            <article class="vm-panel apoc-library-group" data-reveal>
-              <div class="apoc-library-group__head">
-                <p class="vm-card-kicker">Story Archives And Indexes</p>
-                <h3>Archives that help trace the story trail.</h3>
-                <p>Public archives and indexes that make story material, continuity, and chronology easier to reach.</p>
-              </div>
+            <details class="vm-panel apoc-library-group" id="apoc-library-story-archives" name="apoc-library" data-deck-tone="scholarship" data-reveal>
+              <summary class="apoc-library-summary">
+                <span class="chev" aria-hidden="true"></span>
+                <span class="apoc-library-summary__copy">
+                  <span class="vm-card-kicker">Story Archives And Indexes</span>
+                  <span class="apoc-library-title">Archives that help trace the story trail.</span>
+                  <span class="apoc-library-desc">Public archives and indexes that make story material, continuity, and chronology easier to reach.</span>
+                </span>
+                <span class="apoc-shelf__count" aria-label="3 sources">3 sources</span>
+              </summary>
 
-              <div class="apoc-reference-list">
+              <div class="apoc-library-body">
+                <div class="apoc-reference-list">
                 <article class="apoc-reference-card">
                   <h4><a href="https://github.com/polarkac/MTG-Stories/tree/master/stories" target="_blank" rel="noopener">MTG Stories - polarkac GitHub Archive</a></h4>
                   <p><strong>Used for:</strong> Story beats and faction voice.</p>
@@ -236,17 +388,23 @@
                   <h4><a href="https://mtglore.com/chronological/" target="_blank" rel="noopener">MTGLore.com - Chronological Story Index</a></h4>
                   <p><strong>Used for:</strong> Set chronology and timeline checks.</p>
                 </article>
+                </div>
               </div>
-            </article>
+            </details>
 
-            <article class="vm-panel apoc-library-group" data-reveal>
-              <div class="apoc-library-group__head">
-                <p class="vm-card-kicker">Wiki And Community References</p>
-                <h3>Support for structure and interpretation.</h3>
-                <p>Community references that help explain guild structure, player-facing readings, and lore interpretation.</p>
-              </div>
+            <details class="vm-panel apoc-library-group" id="apoc-library-community" name="apoc-library" data-deck-tone="logic" data-reveal>
+              <summary class="apoc-library-summary">
+                <span class="chev" aria-hidden="true"></span>
+                <span class="apoc-library-summary__copy">
+                  <span class="vm-card-kicker">Wiki And Community References</span>
+                  <span class="apoc-library-title">Support for structure and interpretation.</span>
+                  <span class="apoc-library-desc">Community references that help explain guild structure, player-facing readings, and lore interpretation.</span>
+                </span>
+                <span class="apoc-shelf__count" aria-label="3 sources">3 sources</span>
+              </summary>
 
-              <div class="apoc-reference-list">
+              <div class="apoc-library-body">
+                <div class="apoc-reference-list">
                 <article class="apoc-reference-card">
                   <h4><a href="https://mtg.fandom.com/wiki/Ravnican_guild" target="_blank" rel="noopener">MTG Fandom Wiki - Ravnican Guilds</a></h4>
                   <p><strong>Used for:</strong> History and guild structure support.</p>
@@ -259,17 +417,23 @@
                   <h4><a href="https://draftsim.com/mtg-guilds/" target="_blank" rel="noopener">MTG Guilds - Draftsim</a></h4>
                   <p><strong>Used for:</strong> Playstyle and deck-start framing.</p>
                 </article>
+                </div>
               </div>
-            </article>
+            </details>
 
-            <article class="vm-panel apoc-library-group" data-reveal>
-              <div class="apoc-library-group__head">
-                <p class="vm-card-kicker">Video Lore And Deep Dives</p>
-                <h3>Review and cross-check surfaces.</h3>
-                <p>Video essays and lore breakdowns used to revisit themes, compare coverage, and catch missing beats.</p>
-              </div>
+            <details class="vm-panel apoc-library-group" id="apoc-library-video-lore" name="apoc-library" data-deck-tone="media" data-reveal>
+              <summary class="apoc-library-summary">
+                <span class="chev" aria-hidden="true"></span>
+                <span class="apoc-library-summary__copy">
+                  <span class="vm-card-kicker">Video Lore And Deep Dives</span>
+                  <span class="apoc-library-title">Review and cross-check surfaces.</span>
+                  <span class="apoc-library-desc">Video essays and lore breakdowns used to revisit themes, compare coverage, and catch missing beats.</span>
+                </span>
+                <span class="apoc-shelf__count" aria-label="3 sources">3 sources</span>
+              </summary>
 
-              <div class="apoc-reference-list">
+              <div class="apoc-library-body">
+                <div class="apoc-reference-list">
                 <article class="apoc-reference-card">
                   <h4><a href="https://www.youtube.com/watch?v=a56_7ht2hCI" target="_blank" rel="noopener">The Guilds of Ravnica - Lore Overview</a></h4>
                   <p><strong>Used for:</strong> Narrative gap checking.</p>
@@ -282,8 +446,9 @@
                   <h4><a href="https://www.youtube.com/watch?v=BTWalpU7Sws" target="_blank" rel="noopener">Ravnica Guild Deep Dive - Part II</a></h4>
                   <p><strong>Used for:</strong> Tension and lore support.</p>
                 </article>
+                </div>
               </div>
-            </article>
+            </details>
           </div>
         </section>
 
@@ -291,7 +456,7 @@
           <div class="apoc-section__head" data-reveal>
             <p class="apoc-kicker">How These References Are Used</p>
             <h2 id="apocrypha-method-title">How public references support the site.</h2>
-            <p>This is the short version: what each reference type helps with, and where Vox Mana draws the line between public evidence and private drafting work.</p>
+            <p>This is the short version: what each reference type helps with, and how public sources support the site.</p>
           </div>
 
           <div class="apoc-use-grid">
@@ -321,113 +486,7 @@
           </div>
 
           <article class="vm-panel apoc-use-note" data-reveal>
-            <p>Internal notes and generated research files help with drafting, but they are not treated as public source authority.</p>
-          </article>
-        </section>
-
-        <section class="apoc-section" id="dossiers" data-rail-section aria-labelledby="apocrypha-dossiers-title">
-          <div class="apoc-section__head" data-reveal>
-            <p class="apoc-kicker">Phase 2: Research Vault</p>
-            <h2 id="apocrypha-dossiers-title">A later vault can hold the larger working collection.</h2>
-            <p>This page is intentionally focused on public URLs. A later vault can surface or summarize the larger working collection without turning the public reference page into a file dump.</p>
-          </div>
-
-          <article class="vm-panel apoc-vault-overview" data-reveal>
-            <p>Vox Mana also has a broader working research collection: PDFs, RTF files, Markdown notes, HTML captures, generated lore summaries, validation notes, and faction research bundles. Those files are valuable, but they need a separate design so they stay useful instead of overwhelming the main library.</p>
-          </article>
-
-          <div class="apoc-vault-grid">
-            <article class="vm-panel apoc-vault-card" data-reveal>
-              <div class="apoc-vault-card__top">
-                <p class="vm-card-kicker">Lore Bundles</p>
-                <span class="apoc-pill">Phase 2</span>
-              </div>
-              <p>Grouped sets of source material and summaries for a single world, faction, or theme.</p>
-            </article>
-
-            <article class="vm-panel apoc-vault-card" data-reveal>
-              <div class="apoc-vault-card__top">
-                <p class="vm-card-kicker">Faction Files</p>
-                <span class="apoc-pill">Phase 2</span>
-              </div>
-              <p>Working bundles that pull lore, philosophy, and interpretation notes into one faction-focused view.</p>
-            </article>
-
-            <article class="vm-panel apoc-vault-card" data-reveal>
-              <div class="apoc-vault-card__top">
-                <p class="vm-card-kicker">Source Captures</p>
-                <span class="apoc-pill">Phase 2</span>
-              </div>
-              <p>HTML captures, PDFs, and archived source snapshots kept for later verification and reference.</p>
-            </article>
-
-            <article class="vm-panel apoc-vault-card" data-reveal>
-              <div class="apoc-vault-card__top">
-                <p class="vm-card-kicker">Prompt Artifacts</p>
-                <span class="apoc-pill">Phase 2</span>
-              </div>
-              <p>Internal prompt-output traces that would need careful summarizing before any public release.</p>
-            </article>
-
-            <article class="vm-panel apoc-vault-card" data-reveal>
-              <div class="apoc-vault-card__top">
-                <p class="vm-card-kicker">Reference Maps</p>
-                <span class="apoc-pill">Phase 2</span>
-              </div>
-              <p>Maps that connect sources, topics, and related factions so broader research trails stay readable.</p>
-            </article>
-
-            <article class="vm-panel apoc-vault-card" data-reveal>
-              <div class="apoc-vault-card__top">
-                <p class="vm-card-kicker">Generated Summaries</p>
-                <span class="apoc-pill">Phase 2</span>
-              </div>
-              <p>Condensed lore notes and comparison drafts that could later be published as reviewed summaries.</p>
-            </article>
-
-            <article class="vm-panel apoc-vault-card" data-reveal>
-              <div class="apoc-vault-card__top">
-                <p class="vm-card-kicker">Validated Research Notes</p>
-                <span class="apoc-pill">Phase 2</span>
-              </div>
-              <p>Working notes that have been checked against stronger sources and are ready for cleaner public presentation.</p>
-            </article>
-          </div>
-        </section>
-
-        <section class="apoc-section" id="notice" data-rail-section aria-labelledby="apocrypha-notice-title">
-          <div class="apoc-section__head" data-reveal>
-            <p class="apoc-kicker">What Is Not Published</p>
-            <h2 id="apocrypha-notice-title">Public references are here. Private system details are not.</h2>
-            <p>This page lists public references and explains how they are used. It does not publish the private scoring or drafting machinery behind Vox Mana.</p>
-          </div>
-
-          <article class="vm-panel apoc-redaction-panel" data-reveal>
-            <p class="apoc-redaction-panel__lede">
-              Apocrypha shows public links, reference categories, and short usage notes. It does not publish private scoring logic, prompt internals, or unpublished working notes.
-            </p>
-            <div class="apoc-redaction-grid">
-              <div>
-                <p class="vm-card-kicker">Public On This Page</p>
-                <div class="apoc-chip-list">
-                  <span class="vm-chip">Reference groups</span>
-                  <span class="vm-chip">Used for notes</span>
-                  <span class="vm-chip">Public links</span>
-                  <span class="vm-chip">Short trust framing</span>
-                  <span class="vm-chip">Phase 2 preview</span>
-                </div>
-              </div>
-              <div>
-                <p class="vm-card-kicker">Private Working Material</p>
-                <div class="apoc-chip-list">
-                  <span class="vm-chip">Scoring logic</span>
-                  <span class="vm-chip">Prompt internals</span>
-                  <span class="vm-chip">Hidden weights</span>
-                  <span class="vm-chip">Placement calculations</span>
-                  <span class="vm-chip">Unpublished working notes</span>
-                </div>
-              </div>
-            </div>
+            <p>Working notes may inform drafts, but only reviewed public references are listed here as source support.</p>
           </article>
         </section>
       </div>
@@ -447,6 +506,6 @@
 
 <script src="../assets/js/reduce-motion.js" defer></script>
 <script src="../assets/js/vm-topbar.js" defer></script>
-<script src="../assets/js/apocrypha.js?v=20260521b" defer></script>
+<script src="../assets/js/apocrypha.js?v=20260615a" defer></script>
 </body>
 </html>

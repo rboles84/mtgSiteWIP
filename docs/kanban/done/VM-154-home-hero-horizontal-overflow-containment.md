@@ -2,7 +2,7 @@
 
 ID: VM-154
 Title: Home Hero Horizontal Overflow Containment
-Status: backlog
+Status: done - superseded by VM-390
 Type: Frontend / Visual Defect
 Area: Home, Hero, Identity Signal, Responsive Layout
 Priority: medium
@@ -12,6 +12,8 @@ Requested As: VM-150, but `VM-150` already exists as `Dossier Maze Path Differen
 ## Summary
 
 Contain the Home hero horizontal overflow caused by the identity radar glow/container stack without treating the work as route CSS/JS cleanup. This is a focused visual defect card for the Home hero radar/glow/container behavior only.
+
+2026-06-14 supersession note: VM-390 promotes this backlog defect into a v1 release-readiness implementation pass. Keep the evidence and boundaries below as historical context; do not leave VM-154 active separately from VM-390.
 
 ## Source
 

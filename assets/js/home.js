@@ -31,9 +31,11 @@ function blendGradient(hexes) {
     return `radial-gradient(circle at center, ${hexToRgba(hexes[0], 0.35)}, transparent 62%)`;
   }
 
+  const positions = ["28% 32%", "70% 30%", "72% 70%", "30% 72%", "50% 50%"];
   const stops = hexes.map((hex, index) => {
-    const position = ["35% 38%", "65% 62%", "50% 50%"][index] || "50% 50%";
-    return `radial-gradient(circle at ${position}, ${hexToRgba(hex, 0.35 / (index + 1))}, transparent 62%)`;
+    const position = positions[index] || "50% 50%";
+    const alpha = hexes.length > 3 ? Math.max(0.12, 0.3 - index * 0.035) : 0.35 / (index + 1);
+    return `radial-gradient(circle at ${position}, ${hexToRgba(hex, alpha)}, transparent 62%)`;
   });
 
   return [
@@ -391,7 +393,9 @@ function setHeroManaGlow(identity) {
   const glow = document.getElementById("heroManaGlow");
   if (!glow) return;
 
-  const componentHexes = identity.components.map(key => heroManaComponentHex(key));
+  const componentHexes = identity.components.length
+    ? identity.components.map(key => heroManaComponentHex(key))
+    : [heroManaIdentityHex(identity)];
   glow.style.background = blendGradient(componentHexes);
 }
 
@@ -550,8 +554,14 @@ function updateHeroManaPreview(identityId) {
 function updateHeroManaDatasetPills(identity) {
   const root = document.getElementById("heroManaDatasetPills");
   if (!root || !identity) return;
+  root.setAttribute(
+    "aria-label",
+    identity.components.length <= 1
+      ? `${identity.name} profile dataset`
+      : `${identity.name} overlay dataset`
+  );
 
-  if (identity.components.length === 1) {
+  if (identity.components.length <= 1) {
     const identityHex = heroManaIdentityHex(identity);
     root.innerHTML = `
       <span class="vm-hero-mana-dataset-label">Profile:</span>

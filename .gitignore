@@ -1,5 +1,30 @@
 # Claude Code local permissions
-.claude/settings.local.json
+.claude/
+
+# Codex/local agent state. Keep tracked .codex/prompts files versioned.
+.codex/attachments/
+.codex/cache/
+.codex/logs/
+.codex/sessions/
+.codex/tmp/
+.codex/settings.local.json
+.codex/*.local.*
+
+# Environment files and private key material
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+*.ppk
+id_rsa*
+id_ed25519*
+
+# Local platform clutter
+.DS_Store
+Thumbs.db
 
 node_modules/
 playwright-report/
@@ -13,3 +38,9 @@ data/scryfall/raw/*.json.gz
 desktop.ini
 docs/research/canon/
 docs/research/ui_research/
+
+# Supabase local CLI/runtime state
+supabase/.branches/
+supabase/.temp/
+supabase/.env
+supabase/.env.*

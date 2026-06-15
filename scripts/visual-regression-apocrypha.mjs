@@ -196,7 +196,15 @@ async function verifyCanvasExists(page, selector, label) {
 async function waitForApocryphaReady(page) {
   await page.waitForFunction(() => {
     const title = document.getElementById("apocrypha-title");
-    const references = document.querySelectorAll(".apoc-reference-card a");
+    const libraryGroups = [...document.querySelectorAll(".apoc-library-group")];
+    const officialGroup = libraryGroups.find((group) => {
+      const kicker = group.querySelector(".vm-card-kicker");
+      return kicker?.textContent?.trim() === "Official Wizards / Mark Rosewater";
+    });
+    const officialLinks = officialGroup?.querySelectorAll(".apoc-reference-links a") ?? [];
+    const existingReferenceLinks = libraryGroups
+      .filter((group) => group !== officialGroup)
+      .reduce((count, group) => count + group.querySelectorAll(".apoc-reference-card a").length, 0);
     const rail = document.querySelector(".apoc-rail");
     const dock = document.getElementById("apocReturnDock");
     const status = document.querySelector(".apoc-hero__status");
@@ -205,7 +213,8 @@ async function waitForApocryphaReady(page) {
     return Boolean(
       title &&
       title.textContent?.includes("The Apocrypha") &&
-      references.length === 10 &&
+      officialLinks.length === 39 &&
+      existingReferenceLinks === 10 &&
       rail &&
       dock &&
       status &&

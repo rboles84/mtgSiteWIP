@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Vox Mana — Identity Matrix (decomposition in place of radar)</title>
+<meta name="description" content="The decomposition-insight visualization, readability-tuned, shown in the real Identity Matrix screen where it replaces the radar chart." />
+
+<!--
+  ===========================================================================
+  Same decomposition-insight visual you liked — NOT redesigned. Two jobs only:
+    (1) readability pass: hover-only source/blend labels, taller rows, clearer
+        right-side numbers. The diamonds / blend ticks / pull vectors / load-
+        bearing markers are unchanged.
+    (2) fit check: rebuilt in the real two-column screen (left Identity Matrix
+        panel + bars, right = this view in the radar's old slot, with "Cards
+        That Sound Like This" beneath it).
+  Boros uses the real on-screen numbers. Component colors are sources, not scores.
+  No frameworks / Three.js / charting libraries.
+  ===========================================================================
+-->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600&family=EB+Garamond:ital@0;1&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    color-scheme:dark;
+    --gold:#b8954a; --gold-l:#d4b461; --gold-quiet:#8a6f3a;
+    --teal:#1aaa96; --teal-l:#28d4bc;
+    --ink:#f5ead2; --ink-soft:rgba(245,234,210,.74);
+    --panel:rgba(14,14,17,0.74); --panel-2:rgba(20,20,24,0.6); --panel-edge:rgba(184,149,74,0.22);
+    --font-display:'Cinzel',Georgia,serif; --font-text:'EB Garamond',Georgia,serif;
+    --font-mono:'IBM Plex Mono','Menlo','Monaco','Courier New',monospace;
+    --c-w:#f3ead0; --c-u:#5fb8ff; --c-b:#9a6be8; --c-r:#ff6b55; --c-g:#5fcf86;
+    --amp:#ffd27a; --ember:#ff8a4d;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;min-height:100vh;color:var(--ink);font-family:var(--font-text);
+    background:radial-gradient(circle at 14% 8%, rgba(184,149,74,0.10), transparent 42%),
+      radial-gradient(circle at 88% 96%, rgba(26,170,150,0.06), transparent 50%),
+      linear-gradient(180deg,#070708 0%,#0d0d10 50%,#060607 100%);
+    -webkit-font-smoothing:antialiased;padding:clamp(.8rem,2.5vw,2rem)}
+  .mam-head{font-family:var(--font-mono);font-size:.7rem;letter-spacing:.3em;text-transform:uppercase;color:var(--gold-quiet);margin:.2rem 0 1rem .3rem}
+
+  .screen{display:grid;grid-template-columns:340px 1fr;gap:1rem;max-width:1040px;margin:0 auto;align-items:start}
+  @media (max-width:820px){ .screen{grid-template-columns:1fr} }
+
+  .card{position:relative;background:var(--panel);border:1px solid var(--panel-edge);border-radius:16px;
+    padding:1.1rem 1.15rem;box-shadow:0 22px 60px rgba(0,0,0,.5)}
+  .sub{font-family:var(--font-mono);font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-quiet)}
+
+  /* ---------- LEFT: Identity Matrix (rebuilt to match) ---------- */
+  .imx h2{font-family:var(--font-display);font-weight:600;font-size:1.5rem;margin:0;display:flex;justify-content:space-between;align-items:baseline;gap:.6rem}
+  .imx h2 .ps{font-family:var(--font-mono);font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold-quiet)}
+  .imx hr{border:0;border-top:1px solid var(--panel-edge);margin:.7rem 0 1rem}
+
+  .syn{position:relative;border:1px solid var(--panel-edge);border-radius:13px;padding:1rem;background:var(--panel-2);overflow:hidden;margin-bottom:1rem}
+  .syn::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 25% 25%, rgba(255,138,77,.10), transparent 60%),radial-gradient(circle at 80% 70%, rgba(243,234,208,.06), transparent 60%);pointer-events:none}
+  .syn>*{position:relative}
+  .syn .sk{font-family:var(--font-mono);font-size:.58rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold-l)}
+  .syn h3{font-family:var(--font-display);font-weight:600;font-size:1.5rem;line-height:1.15;margin:.45rem 0 .55rem}
+  .syn p{margin:0 0 .9rem;font-size:.95rem;color:var(--ink-soft);line-height:1.5}
+  .blend-line{display:flex;align-items:center;gap:.4rem;flex-wrap:wrap}
+  .pill{font-family:var(--font-mono);font-size:.66rem;padding:.2rem .6rem;border-radius:999px;border:1px solid currentColor}
+  .pill.w{color:#e8dcb6} .pill.r{color:#ff9b86} .pill.out{color:var(--gold-l);background:rgba(184,149,74,.12)}
+  .arrow{opacity:.5}
+
+  .imxbars{display:grid;gap:.55rem;margin:.2rem 0 1rem}
+  .imxbar{display:grid;grid-template-columns:84px 1fr 30px;align-items:center;gap:.6rem;font-family:var(--font-mono);font-size:.74rem}
+  .imxbar .bl{color:var(--ink-soft)}
+  .imxbar .bt{height:8px;border-radius:999px;background:rgba(255,255,255,.06);overflow:hidden}
+  .imxbar .bf{height:100%;border-radius:999px;background:linear-gradient(90deg,#b8421d,var(--ember));transition:width .5s}
+  .imxbar .bv{text-align:right;color:var(--ink)}
+  .imx .note{border:1px dashed var(--panel-edge);border-radius:11px;padding:.85rem .95rem;font-size:.9rem;color:var(--ink-soft);line-height:1.5}
+
+  /* ---------- RIGHT: decomposition (the view, unchanged) ---------- */
+  .rcol{display:grid;gap:1rem}
+  .vizhead{display:flex;align-items:center;justify-content:space-between;gap:.8rem;flex-wrap:wrap}
+  .vizhead .vt{font-family:var(--font-display);font-weight:600;font-size:1.15rem}
+  .toggles{display:flex;gap:.9rem;flex-wrap:wrap}
+  .switch{display:inline-flex;align-items:center;gap:.4rem;font-family:var(--font-mono);font-size:.66rem;color:var(--ink-soft);cursor:pointer;user-select:none}
+  .switch input{position:absolute;opacity:0;width:0;height:0}
+  .swt{width:30px;height:16px;border-radius:999px;background:rgba(255,255,255,.08);border:1px solid var(--panel-edge);position:relative;transition:.2s}
+  .swt::after{content:"";position:absolute;top:1px;left:1px;width:12px;height:12px;border-radius:50%;background:var(--gold-quiet);transition:.2s}
+  .switch input:checked + .swt{background:rgba(26,170,150,.28);border-color:var(--teal)}
+  .switch input:checked + .swt::after{transform:translateX(14px);background:var(--teal-l)}
+  .switch input:focus-visible + .swt{outline:2px solid var(--teal-l);outline-offset:2px}
+
+  .caption{font-size:.92rem;color:var(--ink-soft);line-height:1.5;margin:.6rem 0 .2rem}
+  .caption b{color:var(--ink)}
+  .legend{font-family:var(--font-mono);font-size:.55rem;color:var(--gold-quiet);display:flex;gap:.85rem;flex-wrap:wrap;margin:.5rem 0 .6rem}
+  .legend i{font-style:normal;display:inline-flex;align-items:center;gap:.3rem}
+  .lg-comp{width:11px;height:11px;background:var(--ink);transform:rotate(45deg);box-shadow:0 0 6px var(--ink)}
+  .lg-src{width:10px;height:10px;border-radius:50%;border:1.5px solid var(--ink-soft)}
+  .lg-blend{width:1px;height:12px;background:var(--ink-soft)}
+  .lg-pull{width:15px;height:3px;border-radius:2px;background:var(--amp)}
+  .lg-lb{color:var(--amp)}
+
+  /* tracks — visual identical to decomposition-insight, only labels made hover-only + a little more height */
+  .dax{display:grid;grid-template-columns:80px 1fr 96px;gap:.55rem;align-items:center;width:100%;text-align:left;
+    border:0;background:transparent;color:inherit;cursor:pointer;padding:.55rem .35rem;border-radius:8px;transition:background .16s;font-family:var(--font-text)}
+  .dax + .dax{margin-top:.12rem}
+  .dax:hover,.dax:focus-visible,.dax.is-active{background:rgba(184,149,74,.1);outline:none}
+  .dax:focus-visible{outline:2px solid var(--gold-l);outline-offset:1px}
+  .dax.is-active{box-shadow:inset 2px 0 0 var(--gold-l)}
+  .dax.diff{background:rgba(255,210,122,.08)}
+  .dlabel{display:flex;flex-direction:column;line-height:1.1}
+  .dlabel b{font-family:var(--font-display);font-weight:600;font-size:.92rem;display:flex;align-items:center;gap:.28rem}
+  .dlabel .lb{color:var(--amp);font-size:.72rem;filter:drop-shadow(0 0 4px var(--amp))}
+  .dlabel small{font-family:var(--font-mono);font-size:.5rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold-quiet);margin-top:.14rem}
+
+  .dtrack{position:relative;height:46px}
+  .axisline{position:absolute;left:0;right:0;top:50%;height:1px;background:linear-gradient(90deg,transparent,rgba(184,149,74,.35),transparent)}
+  .band{position:absolute;top:calc(50% - 3px);height:6px;border-radius:3px;background:rgba(245,234,210,.1);border:1px solid rgba(245,234,210,.12);transition:opacity .25s}
+  .dax.lbrow .band{background:rgba(255,210,122,.12);border-color:rgba(255,210,122,.28)}
+  .components-off .band{opacity:0}
+  .blendtick{position:absolute;top:50%;transform:translate(-50%,-50%);width:1px;height:16px;background:rgba(245,234,210,.4);z-index:2}
+  .blendtick small{position:absolute;left:50%;bottom:16px;transform:translateX(-50%);font-family:var(--font-mono);font-size:.46rem;color:var(--gold-quiet);white-space:nowrap;opacity:0;transition:opacity .2s}
+  .dax:hover .blendtick small,.dax.is-active .blendtick small{opacity:.85}
+  .pull{position:absolute;top:calc(50% - 1.5px);height:3px;border-radius:2px;background:rgba(245,234,210,.22);z-index:1}
+  .pull.amped{background:linear-gradient(90deg,rgba(255,210,122,.15),var(--amp));box-shadow:0 0 9px -3px var(--amp)}
+  .pull.amped.rev{background:linear-gradient(270deg,rgba(255,210,122,.15),var(--amp))}
+  .synthesis-off .pull{opacity:.2}
+  .src{position:absolute;top:50%;transform:translate(-50%,-50%);width:13px;height:13px;border-radius:50%;
+    border:2px solid rgba(8,8,10,.8);box-shadow:0 0 8px var(--sc,#fff);background:var(--sc,#fff);z-index:3;transition:opacity .25s}
+  .components-off .src{opacity:0}
+  .ghostd{position:absolute;top:50%;transform:translate(-50%,-50%) rotate(45deg);width:13px;height:13px;z-index:3;border:1px solid var(--ink-soft);background:transparent;opacity:0;transition:opacity .3s}
+  .ghostd.on{opacity:.7}
+  .ghostd small{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%) rotate(-45deg);font-size:.44rem;color:var(--ink-soft);font-family:var(--font-mono)}
+  .comp{position:absolute;top:50%;width:16px;height:16px;z-index:4;transform:translate(-50%,-50%) rotate(45deg);
+    background:var(--ink);box-shadow:0 0 10px var(--cg,rgba(245,234,210,.7)),0 0 2px #000;border:1px solid rgba(0,0,0,.5)}
+  .comp.amp{background:var(--amp);box-shadow:0 0 13px var(--amp)}
+  .synthesis-off .comp{opacity:.3}
+  .comp-val{position:absolute;top:2px;transform:translate(-50%,-100%);font-family:var(--font-mono);font-size:.66rem;color:var(--ink);text-shadow:0 1px 2px #000;z-index:5}
+  @keyframes amppulse{0%,100%{box-shadow:0 0 9px var(--amp)}50%{box-shadow:0 0 17px var(--amp)}}
+  .comp.amp.pulse{animation:amppulse 2.2s ease-in-out infinite}
+  .dright{text-align:right;font-family:var(--font-mono)}
+  .dright .num{font-size:1.2rem;color:var(--ink)}
+  .dright .attr{font-size:.55rem;display:inline-block;margin-top:.1rem;padding:.08rem .3rem;border-radius:4px;border:1px solid currentColor}
+  .dright .pulltag{font-size:.56rem;display:block;margin-top:.2rem;color:var(--gold-quiet)}
+  .dright .pulltag.amp{color:var(--amp)}
+  .dright .diffd{font-size:.52rem;color:var(--amp);display:block;margin-top:.16rem}
+  .attr.white-led{color:#e8dcb6} .attr.red-led{color:#ff9b86} .attr.blue-led{color:#8fd0ff}
+  .attr.black-led{color:#c4a0f0} .attr.green-led{color:#8fe0a6}
+  .attr.amped{color:var(--amp)} .attr.low,.attr.balanced{color:var(--ink-soft)}
+
+  .banner{display:none;align-items:center;justify-content:space-between;gap:.6rem;margin:.5rem 0 .2rem;
+    border:1px dashed var(--gold-quiet);border-radius:9px;padding:.45rem .7rem;background:rgba(184,149,74,.08);font-family:var(--font-mono);font-size:.64rem;color:var(--ink-soft)}
+  .banner.on{display:flex} .banner b{color:var(--gold-l)}
+  .banner button{font-family:var(--font-mono);font-size:.6rem;color:var(--ink);background:transparent;border:1px solid var(--panel-edge);border-radius:6px;padding:.22rem .5rem;cursor:pointer;white-space:nowrap}
+  .banner button:hover,.banner button:focus-visible{background:rgba(184,149,74,.16);outline:none}
+
+  .prox-h{font-family:var(--font-mono);font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-quiet);margin:.9rem 0 .45rem}
+  .prox{display:grid;gap:.3rem}
+  .prox-row{display:grid;grid-template-columns:1fr 56px;gap:.55rem;align-items:center;font-family:var(--font-mono);font-size:.7rem;
+    border:0;background:transparent;color:inherit;text-align:left;cursor:pointer;padding:.32rem .4rem;border-radius:7px;transition:background .15s;width:100%}
+  .prox-row:hover,.prox-row:focus-visible{background:rgba(184,149,74,.12);outline:none}
+  .prox-row.active{box-shadow:inset 2px 0 0 var(--amp);background:rgba(255,210,122,.08)}
+  .prox-row .pn{color:var(--ink)} .prox-row .pn small{color:var(--gold-quiet);margin-left:.35rem;font-size:.58rem}
+  .prox-row .pv{text-align:right;color:var(--ink-soft)}
+
+  /* cards that sound like this (his panel, copyright-safe placeholder) */
+  .cards .ck{font-family:var(--font-display);font-weight:600;font-size:1.05rem;margin:0}
+  .cards .cdesc{font-size:.86rem;color:var(--ink-soft);line-height:1.45;margin:.35rem 0 .8rem}
+  .voice{border:1px solid var(--panel-edge);border-radius:10px;padding:.7rem .85rem;margin-bottom:.55rem;background:var(--panel-2)}
+  .voice .vn{font-family:var(--font-mono);font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-l)}
+  .voice .vp{font-size:.84rem;color:var(--gold-quiet);font-style:italic;margin-top:.3rem;opacity:.8}
+
+  /* ---- info layer: how-to-read + hover reading (no viz visual changes) ---- */
+  .iq{font-family:var(--font-mono);font-size:.62rem;color:var(--gold-l);background:transparent;border:1px solid var(--panel-edge);
+    border-radius:7px;padding:.28rem .55rem;cursor:pointer;display:inline-flex;align-items:center;gap:.35rem;transition:.15s}
+  .iq:hover,.iq:focus-visible{background:rgba(184,149,74,.12);outline:none}
+  .iq .qm{display:inline-flex;width:14px;height:14px;border-radius:50%;border:1px solid currentColor;align-items:center;justify-content:center;font-size:.58rem}
+  .howto{display:none;border:1px solid var(--panel-edge);border-radius:11px;background:var(--panel-2);padding:.85rem 1rem;margin:.55rem 0 .2rem;font-size:.85rem;color:var(--ink-soft);line-height:1.45}
+  .howto.open{display:block}
+  .howto h5{font-family:var(--font-mono);font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-quiet);margin:0 0 .55rem}
+  .howto ul{list-style:none;margin:0;padding:0;display:grid;gap:.5rem}
+  .howto li{display:grid;grid-template-columns:22px 1fr;gap:.55rem;align-items:start}
+  .howto .g{display:inline-flex;justify-content:center;align-items:flex-start}
+  .howto .g.dia{width:12px;height:12px;background:var(--ink);transform:rotate(45deg);margin:4px auto 0}
+  .howto .g.dot{width:11px;height:11px;border-radius:50%;border:2px solid var(--ink-soft);margin:3px auto 0}
+  .howto .g.bl{width:1px;height:14px;background:var(--ink-soft);margin:1px auto 0}
+  .howto .g.pl{width:16px;height:3px;border-radius:2px;background:var(--amp);margin:7px auto 0}
+  .howto .g.lb{color:var(--amp);margin-top:1px}
+  .howto b{color:var(--ink)}
+  .readhint{font-family:var(--font-mono);font-size:.58rem;color:var(--gold-quiet);opacity:.8;margin:.1rem 0 .55rem}
+  .tip{position:fixed;z-index:60;max-width:280px;background:rgba(8,9,12,.97);border:1px solid var(--panel-edge);border-radius:9px;
+    padding:.6rem .72rem;font-family:var(--font-text);font-size:.84rem;color:var(--ink);line-height:1.45;pointer-events:none;opacity:0;
+    transition:opacity .12s;box-shadow:0 14px 34px rgba(0,0,0,.55)}
+  .tip.on{opacity:1}
+  .tip .tk{font-family:var(--font-mono);font-size:.56rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold-l);display:block;margin-bottom:.3rem}
+  .tip b{color:var(--gold-l)}
+  .tip .lbnote{color:var(--amp);display:block;margin-top:.35rem;font-size:.76rem}
+
+  .footnote{font-family:var(--font-mono);font-size:.55rem;color:var(--gold-quiet);opacity:.7;margin:1rem auto 0;max-width:1040px;line-height:1.5}
+</style>
+</head>
+<body>
+  <div class="mam-head">Mana Alignment Matrix</div>
+  <div class="screen">
+
+    <!-- LEFT: Identity Matrix -->
+    <section class="card imx">
+      <h2>Identity Matrix <span class="ps">Placement Synthesis</span></h2>
+      <hr>
+      <div class="syn">
+        <div class="sk">Selected Synthesis</div>
+        <h3>Boros —<br>Conviction through Action</h3>
+        <p>Boros blends Red freedom with White order. It channels courage, discipline, justice, coordinated force, and immediate moral action.</p>
+        <div class="blend-line">
+          <span class="pill w">White</span><span class="arrow">&rarr;</span>
+          <span class="pill r">Red</span><span class="arrow">&rarr;</span>
+          <span class="pill out">Boros</span>
+        </div>
+      </div>
+      <div class="imxbars" id="imxbars"></div>
+      <div class="note">This authored identity matrix summarizes how the active placement expresses Order, Knowledge, Ambition, Freedom, and Growth. It is a readable profile for the chosen fit, not a raw mana-score ledger.</div>
+    </section>
+
+    <!-- RIGHT: the decomposition, in the radar's slot -->
+    <div class="rcol">
+      <section class="card">
+        <div class="vizhead">
+          <span class="vt">Identity Forces</span>
+          <div class="toggles">
+            <label class="switch"><input type="checkbox" id="tComponents" checked><span class="swt"></span><span>component colors</span></label>
+            <label class="switch"><input type="checkbox" id="tSynthesis" checked><span class="swt"></span><span>synthesis</span></label>
+            <button class="iq" id="howtoBtn" type="button" aria-expanded="false" aria-controls="howto"><span class="qm">?</span>How to read this</button>
+          </div>
+        </div>
+        <p class="caption" id="caption">—</p>
+        <div class="legend">
+          <i><span class="lg-comp"></span> &#9670; landed</i>
+          <i><span class="lg-src"></span> &#9679; color pull <span style="opacity:.7">(hover)</span></i>
+          <i><span class="lg-blend"></span> | even blend</i>
+          <i><span class="lg-pull"></span> synthesis pull</i>
+          <i class="lg-lb">&#9878; defines you</i>
+        </div>
+        <div class="howto" id="howto">
+          <h5>How to read a force</h5>
+          <ul>
+            <li><span class="g dia"></span><span><b>Diamond</b> — where you landed on this force, 0&ndash;100. The number on the right.</span></li>
+            <li><span class="g dot"></span><span><b>Colored dot</b> — where one of your colors sits on this force <i>alone</i>. Hover a dot for which color.</span></li>
+            <li><span class="g bl"></span><span><b>Blend tick</b> — where you'd land if your colors simply averaged.</span></li>
+            <li><span class="g pl"></span><span><b>Amber pull</b> — how far the synthesis pushed you <i>past</i> that blend, and toward which color. A long bar means the engine did real work here; no bar means you're just the average.</span></li>
+            <li><span class="g lb">&#9878;</span><span><b>Load-bearing</b> — the force where your colors disagree most, so it defines your identity more than any other.</span></li>
+          </ul>
+        </div>
+        <div class="readhint">Hover or focus any force for its full reading &middot; tap a neighbor below to compare.</div>
+        <div class="banner" id="banner"><span id="bannerText"></span><button id="bannerBack" type="button">&larr; back</button></div>
+        <div id="decomp" role="group" aria-label="Per-axis decomposition. Arrow keys move between axes."></div>
+
+        <div class="prox-h">What you almost were &middot; tap to compare</div>
+        <div class="prox" id="prox"></div>
+      </section>
+
+      <section class="card cards">
+        <h4 class="ck">Cards That Sound Like This</h4>
+        <p class="cdesc">Short source-grounded card voices that echo the reading's feel. Examples, not required pickups.</p>
+        <div id="voices"></div>
+      </section>
+    </div>
+  </div>
+
+  <div class="tip" id="tip" role="status" aria-live="polite"></div>
+
+  <p class="footnote">
+    Prototype — not production code. The decomposition view is unchanged from the version you liked; this only tunes
+    label density and shows it in the screen where it replaces the radar. Boros uses the real on-screen numbers; the
+    "what you almost were" rows are color-profile neighbors (sample). Card voices are placeholders fed by your panel.
+  </p>
+
+<script>
+/* ===== data ===== */
+const AXES=[
+  {key:'Order',word:'structure'},{key:'Knowledge',word:'insight'},{key:'Ambition',word:'drive'},
+  {key:'Freedom',word:'impulse'},{key:'Growth',word:'growth'}];
+const MONO={W:[96,42,24,30,58],U:[38,98,36,34,54],B:[30,56,98,62,42],R:[36,34,58,98,62],G:[62,48,38,58,98]};
+const HEX={W:'--c-w',U:'--c-u',B:'--c-b',R:'--c-r',G:'--c-g'};
+const COLNAME={W:'White',U:'Blue',B:'Black',R:'Red',G:'Green'};
+const WUBRG=['W','U','B','R','G'];
+const css=v=>getComputedStyle(document.documentElement).getPropertyValue(v).trim();
+const orderColors=cs=>WUBRG.filter(c=>cs.includes(c));
+const meanComposite=cols=>AXES.map((_,i)=>Math.round(cols.reduce((s,c)=>s+MONO[c][i],0)/cols.length));
+const clamp=(v,a,b)=>Math.max(a,Math.min(b,v));
+const lerp=(a,b,t)=>a+(b-a)*t;
+const pos=v=>4+v*0.92;
+
+/* registry (so "what you almost were" + compare works; Boros is the placed reading) */
+const ID={
+  RW:{name:'Boros',colors:['W','R'],real:[84,38,46,82,62]},
+  WBR:{name:'Mardu',colors:['W','B','R']},R:{name:'Red',colors:['R']},W:{name:'White',colors:['W']},
+  BR:{name:'Rakdos',colors:['B','R']},WUR:{name:'Jeskai',colors:['W','U','R']},GW:{name:'Selesnya',colors:['W','G']},
+  RG:{name:'Gruul',colors:['R','G']}
+};
+Object.values(ID).forEach(o=>{o.colors=orderColors(o.colors);o.scores=o.real||meanComposite(o.colors);});
+const current='RW';
+
+/* helpers */
+const blendOf=(p,i)=>{const v=p.colors.map(c=>MONO[c][i]);return v.reduce((a,b)=>a+b,0)/v.length;};
+const tensionOf=(p,i)=>{const v=p.colors.map(c=>MONO[c][i]);return p.colors.length>1?Math.max(...v)-Math.min(...v):0;};
+const loadBearingIdx=p=>{let b=0,bv=-1;AXES.forEach((_,i)=>{const t=tensionOf(p,i);if(t>bv){bv=t;b=i;}});return p.colors.length>1?b:-1;};
+function attribution(comp,srcs){
+  const vals=srcs.map(s=>s.v),mx=Math.max(...vals),mn=Math.min(...vals);
+  if(srcs.length===1)return {tag:comp>=70?'core':comp<=40?'quiet':'mono',cls:'balanced'};
+  if(comp>mx+3)return {tag:'amplified',cls:'amped'};
+  if(comp<mn-3)return {tag:'suppressed',cls:'low'};
+  let near=srcs[0];srcs.forEach(s=>{if(Math.abs(comp-s.v)<Math.abs(comp-near.v))near=s;});
+  return {tag:`${COLNAME[near.c]}-led`,cls:`${COLNAME[near.c].toLowerCase()}-led`};
+}
+function neighbors(p){const me=meanComposite(p.colors);
+  return Object.entries(ID).filter(([k])=>k!==current).map(([k,o])=>{const v=meanComposite(o.colors),d=Math.sqrt(v.reduce((s,x,i)=>s+(x-me[i])**2,0));
+    return {k,o,d,sim:Math.max(2,Math.round(100*(1-Math.min(d,120)/120)))};}).sort((a,b)=>a.d-b.d).slice(0,4);}
+
+/* ===== left bars ===== */
+function buildLeftBars(p){
+  document.getElementById('imxbars').innerHTML=AXES.map((ax,i)=>`
+    <div class="imxbar"><span class="bl">${ax.key}</span>
+      <span class="bt"><span class="bf" style="width:${p.scores[i]}%"></span></span>
+      <span class="bv">${p.scores[i]}</span></div>`).join('');
+}
+
+/* ===== decomposition (unchanged visual) ===== */
+let rowRefs=[],tips=[],displayed=[0,0,0,0,0],target=[0,0,0,0,0],blendArr=[0,0,0,0,0],rafId=null,activeAxis=null,viewing=current,refScores=null;
+const reduce=window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+
+function animate(){let moving=false;
+  for(let i=0;i<5;i++){displayed[i]=lerp(displayed[i],target[i],0.2);
+    if(Math.abs(displayed[i]-target[i])>0.25)moving=true;else displayed[i]=target[i];
+    const r=rowRefs[i];if(!r)continue;const left=pos(displayed[i]);
+    r.comp.style.left=left+'%';r.val.style.left=left+'%';r.val.textContent=Math.round(displayed[i]);
+    const b=pos(blendArr[i]),lo=Math.min(b,left),hi=Math.max(b,left);
+    r.pull.style.left=lo+'%';r.pull.style.width=(hi-lo)+'%';
+    const big=Math.abs(displayed[i]-blendArr[i])>=4;r.pull.classList.toggle('amped',big);r.pull.classList.toggle('rev',displayed[i]<blendArr[i]);}
+  if(moving)rafId=requestAnimationFrame(animate);else rafId=null;}
+function startAnim(from){if(from)displayed=from.slice();
+  if(reduce){displayed=target.slice();for(let i=0;i<5;i++){const r=rowRefs[i];if(!r)continue;const l=pos(displayed[i]);r.comp.style.left=l+'%';r.val.style.left=l+'%';r.val.textContent=Math.round(displayed[i]);const b=pos(blendArr[i]),lo=Math.min(b,l),hi=Math.max(b,l);r.pull.style.left=lo+'%';r.pull.style.width=(hi-lo)+'%';r.pull.classList.toggle('amped',Math.abs(displayed[i]-blendArr[i])>=4);r.pull.classList.toggle('rev',displayed[i]<blendArr[i]);}return;}
+  if(rafId)cancelAnimationFrame(rafId);rafId=requestAnimationFrame(animate);}
+
+function buildRows(p,ghost){
+  refScores=ghost?ghost.scores:null;
+  const lb=loadBearingIdx(p);rowRefs=[];tips=[];const decomp=document.getElementById('decomp');decomp.innerHTML='';
+  blendArr=AXES.map((_,i)=>blendOf(p,i));
+  AXES.forEach((ax,i)=>{
+    const srcs=p.colors.map(c=>({c,v:MONO[c][i],hex:css(HEX[c])}));
+    const cv=p.scores[i],attr=attribution(cv,srcs),blend=Math.round(blendArr[i]),pull=cv-blend;
+    const vals=srcs.map(s=>s.v),mn=Math.min(...vals),mx=Math.max(...vals);
+    let drv=p.colors[0];p.colors.forEach(c=>{if(MONO[c][i]>MONO[drv][i])drv=c;});
+    const hiSrc=srcs.reduce((a,b)=>b.v>a.v?b:a),loSrc=srcs.reduce((a,b)=>b.v<a.v?b:a);
+    const el=document.createElement('button');el.type='button';el.className='dax'+(i===lb?' lbrow':'');el.dataset.i=i;
+    el.setAttribute('aria-label',`${ax.key}: ${cv} of 100. Even blend ${blend}, pull ${pull>0?'+':''}${pull}. Sources ${srcs.map(s=>COLNAME[s.c]+' '+s.v).join(', ')}. ${attr.tag}.${i===lb?' Defines you most.':''}`);
+    const band=srcs.length>1?`<span class="band" style="left:${pos(mn)}%;width:${pos(mx)-pos(mn)}%"></span>`:'';
+    const blendTick=srcs.length>1?`<span class="blendtick" style="left:${pos(blend)}%"><small>blend ${blend}</small></span>`:'';
+    const srcDots=srcs.map(s=>`<span class="src" style="--sc:${s.hex};left:${pos(s.v)}%" title="${COLNAME[s.c]} ${s.v}"></span>`).join('');
+    const ghostd=`<span class="ghostd ${refScores?'on':''}" style="left:${pos(refScores?refScores[i]:cv)}%"><small>you</small></span>`;
+    const amped=attr.cls==='amped';
+    let ptag,pcls=''; if(srcs.length===1)ptag='source'; else if(pull>=4){ptag=`+${pull} &rarr; ${COLNAME[hiSrc.c]}`;pcls='amp';} else if(pull<=-4){ptag=`${pull} &rarr; ${COLNAME[loSrc.c]}`;pcls='amp';} else ptag='&asymp; blend';
+    el.innerHTML=`
+      <span class="dlabel"><b>${ax.key}${i===lb?' <span class="lb" title="defines you">&#9878;</span>':''}</b><small>${ax.word}</small></span>
+      <span class="dtrack"><span class="axisline"></span>${band}${blendTick}<span class="pull"></span>${srcDots}${ghostd}
+        <span class="comp ${amped?'amp pulse':''}" style="--cg:${css(HEX[drv])};left:${pos(cv)}%"></span>
+        <span class="comp-val" style="left:${pos(cv)}%">${cv}</span></span>
+      <span class="dright"><span class="num">${cv}</span><br><span class="attr ${attr.cls}">${attr.tag}</span><span class="pulltag ${pcls}">${ptag}</span>${refScores?`<span class="diffd">&Delta; ${cv-refScores[i]>0?'+':''}${cv-refScores[i]} vs you</span>`:''}</span>`;
+    decomp.appendChild(el);
+    rowRefs.push({comp:el.querySelector('.comp'),val:el.querySelector('.comp-val'),pull:el.querySelector('.pull'),row:el});
+    // compose the plain-language hover reading for this force
+    if(srcs.length===1){
+      tips[i]=`<span class="tk">${ax.key} &middot; ${ax.word}</span>Your placement: <b>${cv}</b>. This is ${COLNAME[srcs[0].c]}'s own value — a single-color identity sits right at its source.`;
+    } else {
+      const pulltxt = Math.abs(pull)<4 ? `landed on the even blend (${blend}) — your colors agree here`
+        : pull>0 ? `pulled <b>+${pull}</b> above the even blend (${blend}), toward <b>${COLNAME[hiSrc.c]}</b>`
+                 : `pulled <b>${pull}</b> below the even blend (${blend}), toward <b>${COLNAME[loSrc.c]}</b>`;
+      tips[i]=`<span class="tk">${ax.key} &middot; ${ax.word}</span>You landed at <b>${cv}</b>. ${COLNAME[hiSrc.c]} alone sits at ${hiSrc.v}, ${COLNAME[loSrc.c]} at ${loSrc.v}; the synthesis ${pulltxt}.`;
+      if(i===lb) tips[i]+=`<span class="lbnote">&#9878; Load-bearing — your colors disagree most here, so this force defines you most.</span>`;
+    }
+    el.addEventListener('mouseenter',()=>{setAxis(i,true);showTip(i,el);});
+    el.addEventListener('mouseleave',()=>{if(activeAxis!==i)setAxis(i,false);hideTip();});
+    el.addEventListener('focus',()=>{setAxis(i,true);showTip(i,el);});
+    el.addEventListener('blur',()=>{if(activeAxis!==i)setAxis(i,false);hideTip();});
+  });
+  if(refScores){const order=AXES.map((_,i)=>({i,d:Math.abs(p.scores[i]-refScores[i])})).sort((a,b)=>b.d-a.d).filter(o=>o.d>=4).slice(0,2);order.forEach(o=>rowRefs[o.i].row.classList.add('diff'));}
+  target=p.scores.slice();
+}
+function setAxis(i,on){const r=rowRefs[i];if(r)r.row.classList.toggle('is-active',on);}
+
+function buildCaption(p){
+  const pulls=AXES.map((_,i)=>({i,pull:p.scores[i]-Math.round(blendOf(p,i))})).sort((a,b)=>Math.abs(b.pull)-Math.abs(a.pull)).filter(x=>Math.abs(x.pull)>=4).slice(0,2);
+  document.getElementById('caption').innerHTML = pulls.length
+    ? `How ${p.colors.map(c=>COLNAME[c]).join(' + ')} became ${p.name}: beyond an even color blend, the synthesis pushed `+pulls.map(x=>`<b>${AXES[x.i].key} ${x.pull>0?'+':''}${x.pull}</b>`).join(' and ')+`.`
+    : `${p.name} sits close to an even blend of ${p.colors.map(c=>COLNAME[c]).join(' + ')}.`;
+}
+function buildProx(p){
+  document.getElementById('prox').innerHTML=neighbors(p).map(({k,o,sim})=>`
+    <button type="button" class="prox-row" data-id="${k}" aria-label="${o.name}, ${sim}% similar. Compare.">
+      <span class="pn">${o.name}<small>${o.colors.join('')}</small></span><span class="pv">${sim}%</span></button>`).join('');
+  document.getElementById('prox').querySelectorAll('.prox-row').forEach(b=>b.addEventListener('click',()=>preview(b.dataset.id)));
+}
+
+/* compare/morph (kept from the version you liked) */
+const banner=document.getElementById('banner'),bannerText=document.getElementById('bannerText');
+function preview(id){
+  if(id===current){back();return;}
+  const from=displayed.slice();viewing=id;buildRows(ID[id],ID[current]);startAnim(from);buildCaption(ID[current]);
+  const diffs=AXES.map((_,i)=>({i,d:Math.abs(ID[id].scores[i]-ID[current].scores[i])})).sort((a,b)=>b.d-a.d).filter(o=>o.d>=4).slice(0,2);
+  bannerText.innerHTML=`Comparing to <b>${ID[id].name}</b>`+(diffs.length?` — differs most on <b>${diffs.map(d=>AXES[d.i].key).join(', ')}</b>`:'');
+  banner.classList.add('on');
+  document.getElementById('prox').querySelectorAll('.prox-row').forEach(b=>b.classList.toggle('active',b.dataset.id===id));
+}
+function back(){const from=displayed.slice();viewing=current;buildRows(ID[current],null);startAnim(from);buildCaption(ID[current]);banner.classList.remove('on');
+  document.getElementById('prox').querySelectorAll('.prox-row').forEach(b=>b.classList.remove('active'));}
+document.getElementById('bannerBack').addEventListener('click',back);
+
+/* voices (copyright-safe placeholders shaped like his panel) */
+function buildVoices(){
+  const names=['Boros Battleshaper','Boros Strike-Captain','Blaze Commando'];
+  document.getElementById('voices').innerHTML=names.map(n=>`<div class="voice"><div class="vn">${n}</div><div class="vp">— voice pulled from your card-voice panel —</div></div>`).join('');
+}
+
+/* toggles */
+const tC=document.getElementById('tComponents'),tS=document.getElementById('tSynthesis');
+function sync(){document.body.classList.toggle('components-off',!tC.checked);document.body.classList.toggle('synthesis-off',!tS.checked);}
+[tC,tS].forEach(t=>t.addEventListener('change',sync));
+
+/* keyboard nav */
+document.getElementById('decomp').addEventListener('keydown',e=>{
+  if(e.key!=='ArrowDown'&&e.key!=='ArrowUp')return;e.preventDefault();
+  const rows=[...document.querySelectorAll('#decomp .dax')],idx=rows.indexOf(document.activeElement);
+  let n=idx+(e.key==='ArrowDown'?1:-1);n=(n+rows.length)%rows.length;rows[n].focus();});
+
+/* ===== hover reading tooltip (info layer) ===== */
+const tipEl=document.getElementById('tip');
+function showTip(i,el){ tipEl.innerHTML=tips[i]||''; tipEl.classList.add('on'); positionTip(el); }
+function positionTip(el){
+  const r=el.getBoundingClientRect(), tr=tipEl.getBoundingClientRect();
+  let left=r.left + r.width/2 - tr.width/2;
+  left=Math.max(8, Math.min(left, window.innerWidth - tr.width - 8));
+  let top=r.top - tr.height - 10;
+  if(top<8) top=r.bottom + 10;
+  tipEl.style.left=left+'px'; tipEl.style.top=top+'px';
+}
+function hideTip(){ tipEl.classList.remove('on'); }
+
+/* ===== how-to-read toggle ===== */
+const howtoBtn=document.getElementById('howtoBtn'), howtoPanel=document.getElementById('howto');
+howtoBtn.addEventListener('click',()=>{
+  const open=howtoPanel.classList.toggle('open');
+  howtoBtn.setAttribute('aria-expanded', open?'true':'false');
+});
+
+/* init */
+const P=ID[current];
+buildLeftBars(P); buildRows(P,null); buildCaption(P); buildProx(P); buildVoices(); sync();
+startAnim(blendArr.slice());
+</script>
+</body>
+</html>
