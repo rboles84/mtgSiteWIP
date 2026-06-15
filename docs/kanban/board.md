@@ -27,7 +27,7 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 ## In Progress
 
-- [VM-400 - Publish Apocrypha Release Train Bundle](in-progress/VM-400-publish-apocrypha-release-train-bundle.md)
+- No cards currently in progress.
 
 ## Blocked
 
@@ -37,6 +37,7 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 Historical note: `VM-044` is a preserved historical duplicate ID and `VM-049` is an intentional preserved duplicate pairing per the handoff trail. `VM-197` also has a user-declared Abzan stack duplicate while preserving the existing Alara VM-197 card. `VM-215` has a manual-QA Abzan repair duplicate; the former Jeskai VM-215 through VM-220 reservation was repaired to VM-229 through VM-234 on 2026-05-31.
 
+- [VM-400 - Publish Apocrypha Release Train Bundle](done/VM-400-publish-apocrypha-release-train-bundle.md)
 - [VM-399 - Apocrypha Not Published Section Removal](done/VM-399-apocrypha-not-published-section-removal.md) - removed the final private-system disclosure section, kept one source-boundary note in How Used, and refreshed the scoped Apocrypha visual baseline.
 - [VM-397 - Apocrypha Source Compass](done/VM-397-apocrypha-source-compass.md) - five-tome Source Compass rail, group-level library details, JS active-state sync, no-JS fallback, and refreshed Apocrypha baseline.
 - [VM-396 - Apocrypha Reference Shelf Progressive Disclosure](done/VM-396-apocrypha-reference-shelf-progressive-disclosure.md) - collapsible MaRo source shelves implemented, baseline refreshed, and keyboard/reduced-motion QA passed.

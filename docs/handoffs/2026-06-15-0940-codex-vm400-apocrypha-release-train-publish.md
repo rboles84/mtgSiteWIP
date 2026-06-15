@@ -32,7 +32,7 @@ Check the repo and push all changes into the repo.
 Initial coordination:
 
 - `docs/kanban/board.md`
-- `docs/kanban/in-progress/VM-400-publish-apocrypha-release-train-bundle.md`
+- `docs/kanban/done/VM-400-publish-apocrypha-release-train-bundle.md`
 - `docs/handoffs/HANDOFF_INDEX.md`
 - `docs/handoffs/2026-06-15-0940-codex-vm400-apocrypha-release-train-publish.md`
 
@@ -50,6 +50,8 @@ Staged bundle summary before commit:
 - Created VM-400 as the publish-tracking card.
 - Began this handoff before staging.
 - Classified the documented VM-387 through VM-399 dirty tree.
+- Committed and pushed the classified bundle to `origin/feature/ui-refactor-exploration`.
+- Moved VM-400 to done after push and clean/aligned status verification.
 
 ## Why It Changed
 
@@ -159,7 +161,10 @@ Excluded scratch:
 - `git rev-list --left-right --count HEAD...origin/feature/ui-refactor-exploration` returned `0 0` before staging/commit.
 - `git diff --cached --name-status` matched the documented VM-387 through VM-400 publish bundle.
 - `git diff --cached --check` passed.
-- Commit/push pending.
+- Published bundle commit: `6aec8d01e7327d9cc6b05d91a99c9bb93218bb33` (`Publish Apocrypha release train bundle`).
+- Pushed branch: `origin/feature/ui-refactor-exploration`.
+- Post-push `git rev-list --left-right --count HEAD...origin/feature/ui-refactor-exploration` returned `0 0`.
+- Post-push `git status --short --branch` showed a clean aligned branch before VM-400 closeout edits.
 
 ## Risks / Uncertainties
 
@@ -182,7 +187,7 @@ Codex
 
 ## Related Kanban Card, Docs, Or Plans
 
-- `docs/kanban/in-progress/VM-400-publish-apocrypha-release-train-bundle.md`
+- `docs/kanban/done/VM-400-publish-apocrypha-release-train-bundle.md`
 - `docs/handoffs/HANDOFF_INDEX.md`
 - `docs/kanban/done/VM-393-final-release-hygiene-main-promotion-readiness.md`
 - `docs/kanban/done/VM-394-pre-push-exposure-and-gitignore-audit.md`

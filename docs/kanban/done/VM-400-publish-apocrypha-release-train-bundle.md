@@ -2,7 +2,7 @@
 
 ID: VM-400
 Title: Publish Apocrypha Release Train Bundle
-Status: in-progress
+Status: done
 Type: Release Hygiene / Git
 Area: Apocrypha, Home, Release Readiness
 Priority: high
@@ -42,6 +42,13 @@ Classify, verify, commit, and push the documented VM-387 through VM-399 dirty tr
 - Core, parser, placement, source/generated, lint, dossier, frontend-smoke, Gate compression, Gate live-bias, Apocrypha visual, and diff hygiene gates passed.
 - Home, Archscry, Strategium visual compares and Home Lighthouse remain documented waivers from VM-390 through VM-392.
 
+## Completion Notes
+
+- Published bundle commit: `6aec8d01e7327d9cc6b05d91a99c9bb93218bb33` (`Publish Apocrypha release train bundle`).
+- Push target confirmed: `origin/feature/ui-refactor-exploration`.
+- Post-push divergence check returned `0 0` against `origin/feature/ui-refactor-exploration`.
+- Post-push status was clean before VM-400 closeout edits.
+
 ## Validation Checklist
 
 - [x] Preflight docs reviewed.
@@ -49,6 +56,6 @@ Classify, verify, commit, and push the documented VM-387 through VM-399 dirty tr
 - [x] Scratch logs excluded or removed.
 - [x] Tests run.
 - [x] Classified files staged.
-- [ ] Bundle committed.
-- [ ] Branch pushed.
-- [ ] Final clean status confirmed.
+- [x] Bundle committed.
+- [x] Branch pushed.
+- [x] Final clean status confirmed.
