@@ -37,6 +37,7 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 Historical note: `VM-044` is a preserved historical duplicate ID and `VM-049` is an intentional preserved duplicate pairing per the handoff trail. `VM-197` also has a user-declared Abzan stack duplicate while preserving the existing Alara VM-197 card. `VM-215` has a manual-QA Abzan repair duplicate; the former Jeskai VM-215 through VM-220 reservation was repaired to VM-229 through VM-234 on 2026-05-31.
 
+- [VM-403 - GitHub Pages Domain Deploy Repair](done/VM-403-github-pages-domain-deploy-repair.md) - added root `.nojekyll` after Pages ran Jekyll over internal Markdown docs; preserved `CNAME` and the VM-402 release.
 - [VM-402 - Golden Branch Promotion To Main](done/VM-402-golden-branch-promotion-to-main.md) - validated golden, documented accepted VM-390/391/392 waivers, and prepared the single lease-protected `origin/main` promotion.
 - [VM-401 - Golden Branch Stale Branch Cleanup](done/VM-401-golden-branch-stale-branch-cleanup.md)
 - [VM-400 - Publish Apocrypha Release Train Bundle](done/VM-400-publish-apocrypha-release-train-bundle.md)

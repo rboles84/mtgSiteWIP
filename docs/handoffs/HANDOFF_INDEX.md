@@ -4,6 +4,7 @@ This index tracks agent work across planning, board updates, documentation, JSON
 
 | Date | Agent | Task | Related Card | Status | Handoff |
 |---|---|---|---|---|---|
+| 2026-06-15 15:58 | Codex | Diagnose GitHub Pages Jekyll failures on internal Markdown after VM-402 and add root `.nojekyll` for the static `voxmana.io` site | VM-403 | Complete; post-push deployment verification reported in Codex response | [2026-06-15-1558-codex-vm403-pages-deploy-repair.md](2026-06-15-1558-codex-vm403-pages-deploy-repair.md) |
 | 2026-06-15 13:34 | Codex | Validate and promote `feature/ui-refactor-exploration` to `origin/main` with one lease-protected overwrite push, preserving local `main` | VM-402 | Complete; final refs reported in Codex response | [2026-06-15-1334-codex-vm402-golden-branch-promotion.md](2026-06-15-1334-codex-vm402-golden-branch-promotion.md) |
 | 2026-06-15 11:36 | Codex | Audit stale branches against `feature/ui-refactor-exploration`, delete verified obsolete local and remote branches, and preserve main/golden refs | VM-401 | Complete | [2026-06-15-1136-codex-vm401-branch-cleanup.md](2026-06-15-1136-codex-vm401-branch-cleanup.md) |
 | 2026-06-15 09:40 | Codex | Classify, verify, commit, and push the documented VM-387 through VM-399 Apocrypha/Home release-train dirty tree | VM-400 | Complete | [2026-06-15-0940-codex-vm400-apocrypha-release-train-publish.md](2026-06-15-0940-codex-vm400-apocrypha-release-train-publish.md) |
