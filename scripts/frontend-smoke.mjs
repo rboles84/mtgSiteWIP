@@ -92,8 +92,8 @@ for (const forbiddenHeroPickerHook of ["heroManaIdentitySelect", "heroManaPicker
     failures.push(`Home Mana Lens smoke check failed: stale picker hook ${forbiddenHeroPickerHook} is still present`);
   }
 }
-if (!homeRuntimeSource.includes("const heroManaCycleMs = 4800")) {
-  failures.push("Home Mana Lens smoke check failed: tuned 4800ms cycle constant is missing");
+if (!homeRuntimeSource.includes("const heroManaCycleMs = 9000")) {
+  failures.push("Home Mana Lens smoke check failed: tuned 9000ms cycle constant is missing");
 }
 if (!homeRuntimeSource.includes("loadHeroManaPreviewRegistry().then(initHeroManaPreview)")) {
   failures.push("Home Mana Lens smoke check failed: preview initialization is not gated by the registry load");

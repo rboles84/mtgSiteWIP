@@ -4,6 +4,7 @@ This index tracks agent work across planning, board updates, documentation, JSON
 
 | Date | Agent | Task | Related Card | Status | Handoff |
 |---|---|---|---|---|---|
+| 2026-06-15 23:13 | Codex | Apply contained VM-404 UI polish for topbar diamond, Home Identity Signal timing, SVG favicons, Apocrypha default collapsed source group, and backlog-only VM-405/VM-406 capture | VM-404, VM-405, VM-406 | Complete | [2026-06-15-2313-codex-vm404-ui-polish-repair.md](2026-06-15-2313-codex-vm404-ui-polish-repair.md) |
 | 2026-06-15 15:58 | Codex | Diagnose GitHub Pages Jekyll failures on internal Markdown after VM-402 and add root `.nojekyll` for the static `voxmana.io` site | VM-403 | Complete; post-push deployment verification reported in Codex response | [2026-06-15-1558-codex-vm403-pages-deploy-repair.md](2026-06-15-1558-codex-vm403-pages-deploy-repair.md) |
 | 2026-06-15 13:34 | Codex | Validate and promote `feature/ui-refactor-exploration` to `origin/main` with one lease-protected overwrite push, preserving local `main` | VM-402 | Complete; final refs reported in Codex response | [2026-06-15-1334-codex-vm402-golden-branch-promotion.md](2026-06-15-1334-codex-vm402-golden-branch-promotion.md) |
 | 2026-06-15 11:36 | Codex | Audit stale branches against `feature/ui-refactor-exploration`, delete verified obsolete local and remote branches, and preserve main/golden refs | VM-401 | Complete | [2026-06-15-1136-codex-vm401-branch-cleanup.md](2026-06-15-1136-codex-vm401-branch-cleanup.md) |

@@ -261,7 +261,7 @@ async function verifyHeroManaCycleInteraction(browser, url) {
       const originalSetInterval = window.setInterval.bind(window);
 
       window.setInterval = (handler, timeout, ...args) => {
-        const tunedTimeout = timeout === 4800 ? 60 : timeout;
+        const tunedTimeout = timeout === 9000 ? 60 : timeout;
         return originalSetInterval(handler, tunedTimeout, ...args);
       };
 

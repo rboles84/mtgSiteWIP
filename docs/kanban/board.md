@@ -7,6 +7,8 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 ## Backlog
 
+- [VM-405 - Deck Scratchpad Redesign Concept](backlog/VM-405-deck-scratchpad-redesign-concept.md)
+- [VM-406 - Archscry Placement To Strategium Bridge Concepts](backlog/VM-406-archscry-placement-strategium-bridge-concepts.md)
 - [VM-398 - Apocrypha Research Vault Backlog Preservation](backlog/VM-398-apocrypha-research-vault-backlog-preservation.md)
 - [VM-356 - Rakdos And Quandrix Story Source Intake](backlog/VM-356-rakdos-quandrix-story-source-intake.md)
 - [VM-236 - Sultai Live Copy Polish And Identity Display Repair](backlog/VM-236-sultai-live-copy-polish-identity-display-repair.md)
@@ -37,6 +39,7 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 Historical note: `VM-044` is a preserved historical duplicate ID and `VM-049` is an intentional preserved duplicate pairing per the handoff trail. `VM-197` also has a user-declared Abzan stack duplicate while preserving the existing Alara VM-197 card. `VM-215` has a manual-QA Abzan repair duplicate; the former Jeskai VM-215 through VM-220 reservation was repaired to VM-229 through VM-234 on 2026-05-31.
 
+- [VM-404 - Contained UI Polish Repair](done/VM-404-contained-ui-polish-repair.md) - topbar active diamond lift, Home signal 9000ms timing, public SVG favicon metadata, Apocrypha default-collapsed source group, and backlog-only VM-405/VM-406 capture.
 - [VM-403 - GitHub Pages Domain Deploy Repair](done/VM-403-github-pages-domain-deploy-repair.md) - added root `.nojekyll` after Pages ran Jekyll over internal Markdown docs; preserved `CNAME` and the VM-402 release.
 - [VM-402 - Golden Branch Promotion To Main](done/VM-402-golden-branch-promotion-to-main.md) - validated golden, documented accepted VM-390/391/392 waivers, and prepared the single lease-protected `origin/main` promotion.
 - [VM-401 - Golden Branch Stale Branch Cleanup](done/VM-401-golden-branch-stale-branch-cleanup.md)

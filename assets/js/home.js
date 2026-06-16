@@ -242,8 +242,8 @@ let heroManaCurrentIdentity = null;
 let heroManaLoreIndex = null;
 let heroManaLoreRequest = null;
 
-// HERO CYCLE TIMING: Bigger number = slower identity cycle; smaller number = faster cycle. 4800ms is 25% faster than 6000ms.
-const heroManaCycleMs = 4800;
+// HERO CYCLE TIMING: Bigger number = slower identity cycle; smaller number = faster cycle.
+const heroManaCycleMs = 9000;
 const heroManaBlackDisplayHex = "#a46bea";
 const heroManaLoreUrl = "./data/factions.json";
 
