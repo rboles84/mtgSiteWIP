@@ -1972,13 +1972,23 @@ function initializeDossierRadarIfVisible(result = APP_STATE.activeResult, factio
   if (!isDossierRadarMeasurable()) {
     window.requestAnimationFrame(() => {
       if (isDossierRadarMeasurable()) {
-        initDossierManaRadar({ result, faction: radarFaction, profile: getDossierRadarProfile(result, radarFaction) });
+        initDossierManaRadar({
+          result,
+          faction: radarFaction,
+          identityLayers: APP_STATE.identityLayers,
+          profile: getDossierRadarProfile(result, radarFaction, APP_STATE.identityLayers),
+        });
       }
     });
     return;
   }
 
-  initDossierManaRadar({ result, faction: radarFaction, profile: getDossierRadarProfile(result, radarFaction) });
+  initDossierManaRadar({
+    result,
+    faction: radarFaction,
+    identityLayers: APP_STATE.identityLayers,
+    profile: getDossierRadarProfile(result, radarFaction, APP_STATE.identityLayers),
+  });
 }
 
 function normalizeCardName(value) {
@@ -2650,7 +2660,7 @@ function renderResult(viewKey) {
     ${adjacentContextHtml}
     ${resultStatusHtml}
     ${returnToPrimaryButton}
-    ${renderDossierRadarSection({ result, faction, dossier, flavorSnippets: matrixFlavorSnippets })}
+    ${renderDossierRadarSection({ result, faction, dossier, flavorSnippets: matrixFlavorSnippets, identityLayers: APP_STATE.identityLayers })}
     ${discoverySummaryHtml}`;
   const whyPanelHtml = `
     ${dossierInterpretationHtml}

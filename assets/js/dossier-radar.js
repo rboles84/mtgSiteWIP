@@ -1,250 +1,8 @@
-const DOSSIER_RADAR_AXES = ["Order", "Knowledge", "Ambition", "Freedom", "Growth"];
+import "./vm-radar.js";
 
-const DOSSIER_COLOR_PROFILES = {
-  W: {
-    key: "W",
-    name: "White",
-    title: "White — Peace through Order",
-    text: "White values structure, protection, community, duty, and shared stability. It asks how life can be made safer through order.",
-    hex: "#f7f0d0",
-    data: [96, 42, 24, 30, 58],
-  },
-  U: {
-    key: "U",
-    name: "Blue",
-    title: "Blue — Perfection through Knowledge",
-    text: "Blue values learning, patience, improvement, planning, and possibility. It asks what life could become with enough understanding.",
-    hex: "#58b8ff",
-    data: [38, 98, 36, 34, 54],
-  },
-  B: {
-    key: "B",
-    name: "Black",
-    title: "Black — Power through Opportunity",
-    text: "Black values ambition, self-definition, pragmatism, and survival. It asks what you are willing to do to claim agency.",
-    hex: "#a46bea",
-    data: [30, 56, 98, 62, 42],
-  },
-  R: {
-    key: "R",
-    name: "Red",
-    title: "Red — Freedom through Action",
-    text: "Red values emotion, impulse, authenticity, passion, and expression. It asks what is true when you stop pretending.",
-    hex: "#ff6b55",
-    data: [36, 34, 58, 98, 62],
-  },
-  G: {
-    key: "G",
-    name: "Green",
-    title: "Green — Growth through Acceptance",
-    text: "Green values nature, instinct, tradition, interdependence, and belonging. It asks what you already are beneath the noise.",
-    hex: "#63e58d",
-    data: [62, 48, 38, 58, 98],
-  },
-};
-
-const DOSSIER_RADAR_PROFILES = {
-  W: {
-    key: "W",
-    name: "White",
-    title: "White — Peace through Order",
-    text: DOSSIER_COLOR_PROFILES.W.text,
-    components: ["W"],
-    data: DOSSIER_COLOR_PROFILES.W.data,
-    hex: DOSSIER_COLOR_PROFILES.W.hex,
-  },
-  U: {
-    key: "U",
-    name: "Blue",
-    title: "Blue — Perfection through Knowledge",
-    text: DOSSIER_COLOR_PROFILES.U.text,
-    components: ["U"],
-    data: DOSSIER_COLOR_PROFILES.U.data,
-    hex: DOSSIER_COLOR_PROFILES.U.hex,
-  },
-  B: {
-    key: "B",
-    name: "Black",
-    title: "Black — Power through Opportunity",
-    text: DOSSIER_COLOR_PROFILES.B.text,
-    components: ["B"],
-    data: DOSSIER_COLOR_PROFILES.B.data,
-    hex: DOSSIER_COLOR_PROFILES.B.hex,
-  },
-  R: {
-    key: "R",
-    name: "Red",
-    title: "Red — Freedom through Action",
-    text: DOSSIER_COLOR_PROFILES.R.text,
-    components: ["R"],
-    data: DOSSIER_COLOR_PROFILES.R.data,
-    hex: DOSSIER_COLOR_PROFILES.R.hex,
-  },
-  G: {
-    key: "G",
-    name: "Green",
-    title: "Green — Growth through Acceptance",
-    text: DOSSIER_COLOR_PROFILES.G.text,
-    components: ["G"],
-    data: DOSSIER_COLOR_PROFILES.G.data,
-    hex: DOSSIER_COLOR_PROFILES.G.hex,
-  },
-  WU: {
-    key: "WU",
-    name: "Azorius",
-    title: "Azorius — Law through Knowledge",
-    text: "Azorius blends White order with Blue planning. It seeks peace through systems, procedure, control, and carefully managed improvement.",
-    components: ["W", "U"],
-    data: [82, 78, 28, 26, 54],
-    hex: "#a8d9f5",
-  },
-  UB: {
-    key: "UB",
-    name: "Dimir",
-    title: "Dimir — Secrets through Control",
-    text: "Dimir blends Blue knowledge with Black ambition. It favors hidden information, memory, leverage, deception, and quiet control.",
-    components: ["U", "B"],
-    data: [34, 86, 76, 48, 46],
-    hex: "#7f93f2",
-  },
-  BR: {
-    key: "BR",
-    name: "Rakdos",
-    title: "Rakdos — Appetite through Expression",
-    text: "Rakdos blends Black ambition with Red freedom. It turns desire, spectacle, indulgence, danger, and provocation into identity.",
-    components: ["B", "R"],
-    data: [32, 48, 84, 88, 48],
-    hex: "#d86e9a",
-  },
-  RG: {
-    key: "RG",
-    name: "Gruul",
-    title: "Gruul — Instinct through Action",
-    text: "Gruul blends Red freedom with Green instinct. It values impulse, survival, body-truth, terrain, revolt, and the wild beyond civilization.",
-    components: ["R", "G"],
-    data: [44, 38, 48, 86, 84],
-    hex: "#c7a96a",
-  },
-  WG: {
-    key: "WG",
-    name: "Selesnya",
-    title: "Selesnya — Harmony through Belonging",
-    text: "Selesnya blends Green growth with White order. It seeks harmony, stewardship, collective purpose, shared life, and belonging.",
-    components: ["W", "G"],
-    data: [86, 44, 30, 42, 84],
-    hex: "#cde9a4",
-  },
-  WB: {
-    key: "WB",
-    name: "Orzhov",
-    title: "Orzhov — Obligation through Power",
-    text: "Orzhov blends White structure with Black ambition. It frames duty, debt, hierarchy, devotion, sacrifice, and power as binding systems.",
-    components: ["W", "B"],
-    data: [78, 48, 78, 42, 50],
-    hex: "#d3aedc",
-  },
-  UR: {
-    key: "UR",
-    name: "Izzet",
-    title: "Izzet — Discovery through Impulse",
-    text: "Izzet blends Blue knowledge with Red freedom. It favors experiment, inspiration, volatility, invention, and sudden impossible insight.",
-    components: ["U", "R"],
-    data: [36, 86, 46, 82, 54],
-    hex: "#88a9d6",
-  },
-  BG: {
-    key: "BG",
-    name: "Golgari",
-    title: "Golgari — Survival through Recursion",
-    text: "Golgari blends Black ambition with Green growth. It sees decay, hunger, grave-soil, renewal, inevitability, and survival as one cycle.",
-    components: ["B", "G"],
-    data: [42, 52, 82, 58, 82],
-    hex: "#84b68b",
-  },
-  WR: {
-    key: "WR",
-    name: "Boros",
-    title: "Boros — Conviction through Action",
-    text: "Boros blends Red freedom with White order. It channels courage, discipline, justice, coordinated force, and immediate moral action.",
-    components: ["W", "R"],
-    data: [84, 38, 46, 82, 62],
-    hex: "#efad84",
-  },
-  UG: {
-    key: "UG",
-    name: "Simic",
-    title: "Simic — Adaptation through Knowledge",
-    text: "Simic blends Green growth with Blue knowledge. It values mutation, research, guided evolution, optimization, and becoming.",
-    components: ["U", "G"],
-    data: [52, 84, 38, 46, 88],
-    hex: "#67d8c5",
-  },
-  SILVERQUILL: {
-    key: "SILVERQUILL",
-    name: "Silverquill",
-    title: "Silverquill — Language through Pressure",
-    text: "Silverquill overlays White structure and Black ambition through rhetoric, charisma, status, moral pressure, sharp critique, and words as weapons.",
-    components: ["W", "B"],
-    data: [82, 54, 74, 52, 42],
-    hex: "#efe2ff",
-  },
-  PRISMARI: {
-    key: "PRISMARI",
-    name: "Prismari",
-    title: "Prismari — Art through Volatility",
-    text: "Prismari overlays Blue knowledge and Red freedom through elemental art, spectacle, inspiration, creativity, and expressive mastery.",
-    components: ["U", "R"],
-    data: [34, 78, 42, 88, 58],
-    hex: "#8bd0ff",
-  },
-  WITHERBLOOM: {
-    key: "WITHERBLOOM",
-    name: "Witherbloom",
-    title: "Witherbloom — Life through Exchange",
-    text: "Witherbloom overlays Black ambition and Green growth through life-death craft, medicine, decay, nourishment, pests, and resource exchange.",
-    components: ["B", "G"],
-    data: [38, 46, 78, 58, 88],
-    hex: "#9bd36d",
-  },
-  LOREHOLD: {
-    key: "LOREHOLD",
-    name: "Lorehold",
-    title: "Lorehold — History through Action",
-    text: "Lorehold overlays Red freedom and White order through history, artifacts, memory, rhetoric, spirits, and action through legacy.",
-    components: ["W", "R"],
-    data: [78, 48, 42, 82, 64],
-    hex: "#ffce84",
-  },
-  QUANDRIX: {
-    key: "QUANDRIX",
-    name: "Quandrix",
-    title: "Quandrix — Pattern through Growth",
-    text: "Quandrix overlays Green growth and Blue knowledge through mathematics, pattern, scale, nature as equation, and impossible geometry.",
-    components: ["U", "G"],
-    data: [48, 88, 34, 46, 84],
-    hex: "#78e6ca",
-  },
-  YORE: {
-    key: "YORE",
-    name: "Yore",
-    title: "Yore / Artifice - Four-Color without Green",
-    text: "Yore combines White structure, Blue refinement, Black refusal, and Red heat into engineered agency. It uses artifice, archive, sacrifice, recursion, and constructed choice rather than accepting nature as the final answer.",
-    note: "For non-Green Yore, Growth is not a Green alignment claim. It reads continuity, adaptation, survival pressure, and the ability to keep choice alive under constraint; Yore converts that pressure into construction rather than surrender.",
-    components: ["W", "U", "B", "R"],
-    data: [50, 58, 54, 56, 54],
-    hex: "#d6a84e",
-  },
-  COLORLESS: {
-    key: "COLORLESS",
-    name: "Colorless",
-    title: "Colorless - Outside the Wheel",
-    text: "This synthesis translates the reading into one previewable identity shape while keeping Colorless outside the five-color grammar.",
-    note: "Colorless is shown as chosen restriction, true {C}, Wastes, artifact engines, and colorless finishers. The matrix is presentation support, not a claim that Colorless is a sixth color or WUBRG blend.",
-    components: [],
-    data: [50, 54, 50, 46, 48],
-    hex: "#c7c8bd",
-  },
-};
+const RADAR = globalThis.VMRadar;
+const DOSSIER_RADAR_AXES = RADAR.AXIS_LABELS;
+const DOSSIER_SYNTHESIS_GOLD = "#f0c56a";
 
 let dossierManaRadarChart = null;
 
@@ -257,58 +15,6 @@ function escapeDossierHtml(value) {
     .replace(/'/g, "&#39;");
 }
 
-function dossierHexToRgba(hex, alpha) {
-  const clean = String(hex || "").replace("#", "");
-  const r = Number.parseInt(clean.slice(0, 2), 16);
-  const g = Number.parseInt(clean.slice(2, 4), 16);
-  const b = Number.parseInt(clean.slice(4, 6), 16);
-  return `rgba(${r}, ${g}, ${b}, ${alpha})`;
-}
-
-function dossierBlendGradient(hexes) {
-  if (!hexes?.length) {
-    return "radial-gradient(circle at center, rgba(255,255,255,0.2), transparent 62%)";
-  }
-
-  if (hexes.length === 1) {
-    return `radial-gradient(circle at center, ${dossierHexToRgba(hexes[0], 0.35)}, transparent 62%)`;
-  }
-
-  const positions = ["24% 24%", "76% 28%", "50% 72%"];
-  const gradients = hexes.map((hex, index) => (
-    `radial-gradient(circle at ${positions[index] || "50% 50%"}, ${dossierHexToRgba(hex, 0.28 / (index + 1))}, transparent 62%)`
-  ));
-
-  gradients.push(`radial-gradient(circle at center, ${dossierHexToRgba(hexes[0], 0.18)}, transparent 68%)`);
-  return gradients.join(",");
-}
-
-function dossierSelectedGlow(profile) {
-  const hexes = (profile.components || [])
-    .map((key) => DOSSIER_COLOR_PROFILES[key]?.hex)
-    .filter(Boolean);
-  return dossierBlendGradient(hexes.length ? hexes : [profile.hex]);
-}
-
-function dossierRadialFill(chart, hexes) {
-  if (!chart || !chart.chartArea) {
-    return dossierHexToRgba(hexes?.[0] || "#ffffff", 0.12);
-  }
-
-  const { left, right, top, bottom } = chart.chartArea;
-  const cx = (left + right) / 2;
-  const cy = (top + bottom) / 2;
-  const radius = Math.max(right - left, bottom - top) / 2;
-  const gradient = chart.ctx.createRadialGradient(cx, cy, 0, cx, cy, radius);
-  const stops = Math.max(2, hexes.length);
-
-  hexes.forEach((hex, index) => {
-    gradient.addColorStop(index / (stops - 1), dossierHexToRgba(hex, 0.22));
-  });
-  gradient.addColorStop(1, "rgba(0,0,0,0)");
-  return gradient;
-}
-
 function resolveActiveDossierFactionKey(result, faction) {
   return String(faction?.key || result?.faction || "").toUpperCase();
 }
@@ -317,51 +23,33 @@ function resolveActiveDossierFactionName(result, faction) {
   return faction?.name || faction?.key || result?.faction || "Identity";
 }
 
-function buildDossierFallbackProfile(result, faction) {
-  const components = Array.isArray(faction?.colors) && faction.colors.length
-    ? [...faction.colors]
-    : ["W"];
-  const sourceProfiles = components
-    .map((key) => DOSSIER_COLOR_PROFILES[key])
-    .filter(Boolean);
-  const averaged = DOSSIER_RADAR_AXES.map((_, index) => {
-    const values = sourceProfiles.map((profile) => profile.data[index]);
-    const sum = values.reduce((total, value) => total + value, 0);
-    return Math.round(sum / Math.max(values.length, 1));
-  });
-  const titleName = resolveActiveDossierFactionName(result, faction);
-  return {
-    key: resolveActiveDossierFactionKey(result, faction) || "UNKNOWN",
-    name: titleName,
-    title: `${titleName} — Composite Reading`,
-    text: "This synthesis blends the active color pressures in the reading into one previewable identity shape.",
-    components,
-    data: averaged,
-    hex: sourceProfiles[0]?.hex || "#d6a84e",
+function getDossierRadarProfile(result, faction, identityLayers = null) {
+  const fallbackFaction = faction || {
+    key: resolveActiveDossierFactionKey(result, faction),
+    name: resolveActiveDossierFactionName(result, faction),
+    colors: [],
   };
+  return RADAR.resolveRadarProfile(result, identityLayers, fallbackFaction);
 }
 
-function normalizeProfileComponents(profile, faction) {
-  const factionColors = Array.isArray(faction?.colors) && faction.colors.length
-    ? faction.colors.filter((color) => DOSSIER_COLOR_PROFILES[color])
-    : [];
-  if (factionColors.length === profile.components.length) {
-    return factionColors;
-  }
-  return profile.components.filter((color) => DOSSIER_COLOR_PROFILES[color]);
+function renderPips(value) {
+  const lit = RADAR.pipCount(value);
+  return Array.from({ length: 5 }, (_, index) => (
+    `<span class="vm-trait-pip${index < lit ? " is-lit" : ""}" aria-hidden="true"></span>`
+  )).join("");
 }
 
-function getDossierRadarProfile(result, faction) {
-  const factionKey = resolveActiveDossierFactionKey(result, faction);
-  const direct = DOSSIER_RADAR_PROFILES[factionKey];
-  if (!direct) {
-    return buildDossierFallbackProfile(result, faction);
+function renderComponentDots(profile) {
+  const components = Array.isArray(profile.components) ? profile.components : [];
+  if (!components.length) {
+    return `<span class="vm-component-dot vm-component-dot-colorless" style="--component-color:${escapeDossierHtml(profile.hex)};">Colorless</span>`;
   }
 
-  return {
-    ...direct,
-    components: normalizeProfileComponents(direct, faction),
-  };
+  return components.map((componentKey) => {
+    const name = RADAR.componentName(componentKey);
+    const hex = RADAR.componentHex(componentKey);
+    return `<span class="vm-component-dot" style="--component-color:${escapeDossierHtml(hex)};"><span aria-hidden="true"></span>${escapeDossierHtml(name)}</span>`;
+  }).join("");
 }
 
 function renderDossierAxisList(profile) {
@@ -385,15 +73,41 @@ function renderDossierOverlayLine(profile) {
       <span class="vm-overlay-dot vm-overlay-dot-final" style="border-color:${escapeDossierHtml(profile.hex)};">${escapeDossierHtml(profile.name)}</span>`;
   }
 
-  const componentDots = profile.components.map((componentKey) => {
-    const component = DOSSIER_COLOR_PROFILES[componentKey];
-    return `<span class="vm-overlay-dot" style="border-color:${escapeDossierHtml(component.hex)};">${escapeDossierHtml(component.name)}</span>`;
-  }).join('<span class="vm-overlay-arrow" aria-hidden="true">→</span>');
+  const componentDots = profile.components.map((componentKey) => (
+    `<span class="vm-overlay-dot" style="border-color:${escapeDossierHtml(RADAR.componentHex(componentKey))};">${escapeDossierHtml(RADAR.componentName(componentKey))}</span>`
+  )).join('<span class="vm-overlay-arrow" aria-hidden="true">-&gt;</span>');
 
   return `
     ${componentDots}
-    <span class="vm-overlay-arrow" aria-hidden="true">→</span>
+    <span class="vm-overlay-arrow" aria-hidden="true">-&gt;</span>
     <span class="vm-overlay-dot vm-overlay-dot-final" style="border-color:${escapeDossierHtml(profile.hex)};">${escapeDossierHtml(profile.name)}</span>`;
+}
+
+function renderDossierTraitRows(profile) {
+  const emphasis = RADAR.primaryAxisSet(profile);
+  return RADAR.AXES.map((axis, index) => {
+    const value = Number(profile.data[index] || 0);
+    const strength = RADAR.strengthWord(value);
+    const dimmed = !emphasis.has(index);
+    return `
+      <div class="vm-trait-row${dimmed ? " is-dimmed" : ""}" data-dossier-axis-index="${index}" tabindex="0" role="button" aria-expanded="false" aria-label="${escapeDossierHtml(`${axis.label}: ${strength} ${value}`)}">
+        <span class="vm-trait-icon" aria-hidden="true">${escapeDossierHtml(axis.icon)}</span>
+        <span class="vm-trait-name">${escapeDossierHtml(axis.label)}</span>
+        <span class="vm-trait-readout">
+          <span class="vm-trait-pips" aria-hidden="true">${renderPips(value)}</span>
+          <span class="vm-trait-strength">${escapeDossierHtml(strength)} <small>${value}</small></span>
+        </span>
+      </div>`;
+  }).join("");
+}
+
+function renderDossierAxisDetail(profile, axisIndex = RADAR.dominantAxisIndex(profile)) {
+  const axis = RADAR.AXES[axisIndex] || RADAR.AXES[0];
+  const value = Number(profile.data[axisIndex] || 0);
+  return `
+    <span class="vm-axis-detail-kicker">${escapeDossierHtml(axis.label)} - ${escapeDossierHtml(RADAR.strengthWord(value))}</span>
+    <strong>${escapeDossierHtml(RADAR.strategiumReading(axis.label, profile.key))}</strong>
+    <span>${escapeDossierHtml(axis.meaning)}</span>`;
 }
 
 function renderDossierCardVoicesPanel(snippets = []) {
@@ -422,60 +136,75 @@ function renderColorlessCardVoiceBoundaryPanel() {
     <div class="vm-card-voice-panel" data-archscry-card-voices>
       <div class="vm-card-voice-heading">
         <span>Colorless Matrix Boundary</span>
-        <p>Colorless card examples stay in the main card section so artifacts, Wastes, Eldrazi, true {C}, generic costs, and five-color Eldrazi do not repeat as one interchangeable voice.</p>
+        <p>Colorless stays outside the five-color grammar. Its card examples stay in the main card section so artifacts, Wastes, Eldrazi, true {C}, generic costs, and five-color Eldrazi do not repeat as one interchangeable voice.</p>
       </div>
     </div>`;
 }
 
-function renderDossierRadarSection({ result, faction, flavorSnippets = [] }) {
-  const profile = getDossierRadarProfile(result, faction);
-  const factionKey = String(faction?.key || result?.primary || result?.top || "").toUpperCase();
+function renderOptionalTextBlock(className, label, text) {
+  if (!text) return "";
+  return `
+    <div class="${className}">
+      <span>${escapeDossierHtml(label)}</span>
+      <p>${escapeDossierHtml(text)}</p>
+    </div>`;
+}
+
+function renderDossierRadarSection({ result, faction, flavorSnippets = [], identityLayers = null }) {
+  const profile = getDossierRadarProfile(result, faction, identityLayers);
+  const factionKey = String(profile.key || faction?.key || result?.primary || result?.top || "").toUpperCase();
   const multiColor = (profile.components || []).length > 1;
   const controlsHtml = multiColor
     ? `
       <div class="vm-controls">
         <label class="vm-toggle">
           <input id="dossierComponentToggle" type="checkbox" checked>
-          <span>show component colors</span>
+          <span>Component traces</span>
         </label>
         <label class="vm-toggle">
           <input id="dossierCompositeToggle" type="checkbox" checked>
-          <span>show synthesis</span>
+          <span>Synthesis</span>
         </label>
       </div>`
     : "";
+  const rightPanelCopyHtml = `
+    ${renderOptionalTextBlock("vm-lore-line", "Lore", profile.loreSummary)}
+    ${renderOptionalTextBlock("vm-core-tension", "Core Tension", profile.coreTension)}`.trim();
 
   return `
-    <div class="scores-section vm-dossier-matrix-section">
+    <div class="scores-section vm-dossier-matrix-section" style="--identity-color:${escapeDossierHtml(profile.hex)};">
       <div class="section-label">Mana Alignment Matrix</div>
       <div class="vm-panel vm-lab-panel vm-dossier-radar-panel">
-        <div class="vm-lab-layout">
-          <div class="vm-selector-panel">
-            <div class="vm-selector-title">
-              <h3>Identity Matrix</h3>
-              <span>${multiColor ? "Placement Synthesis" : "Placement Profile"}</span>
-            </div>
-            <div class="vm-selected-card" id="dossierSelectedCard">
-              <div class="vm-selected-kicker" id="dossierSelectedKicker">${multiColor ? "Selected Synthesis" : "Selected Profile"}</div>
-              <h3 id="dossierColorTitle">${escapeDossierHtml(profile.title)}</h3>
-              <p id="dossierColorText">${escapeDossierHtml(profile.text)}</p>
-              <div class="vm-overlay-line" id="dossierOverlayLine">${renderDossierOverlayLine(profile)}</div>
-            </div>
-            <div class="vm-axis-list" id="dossierAxisList">${renderDossierAxisList(profile)}</div>
-            <div class="vm-placeholder-note">${escapeDossierHtml(profile.note || "This authored identity matrix summarizes how the active placement expresses Order, Knowledge, Ambition, Freedom, and Growth. It is a readable profile for the chosen fit, not a raw mana-score ledger.")}</div>
-          </div>
-          <div class="vm-radar-card">
-            ${controlsHtml}
-            <div class="vm-chart-wrap">
-              <div class="vm-radar-glow" id="dossierRadarGlow"></div>
-              <div class="vm-radar-wrap">
-                <canvas id="dossierManaRadar" aria-label="Vox Mana placement radar chart"></canvas>
-                <div class="vm-radar-fallback" data-dossier-radar-fallback hidden></div>
+        <div class="vm-matrix-v2-grid">
+          <div class="vm-matrix-chart-panel">
+            <div class="vm-radar-card">
+              ${controlsHtml}
+              <div class="vm-chart-wrap">
+                <div class="vm-radar-glow" id="dossierRadarGlow" aria-hidden="true"></div>
+                <div class="vm-radar-wrap">
+                  <canvas id="dossierManaRadar" aria-label="Vox Mana placement radar chart"></canvas>
+                  <div class="vm-radar-fallback" data-dossier-radar-fallback hidden></div>
+                </div>
+                <div class="vm-matrix-summary-card" id="dossierSelectedCard">
+                  <div class="vm-reading-kicker">Identity Reading</div>
+                  <div class="vm-selected-kicker" id="dossierSelectedKicker">${multiColor ? "Selected Synthesis" : "Selected Profile"}</div>
+                  <h3 id="dossierColorTitle">${escapeDossierHtml(profile.title)}</h3>
+                  <div class="vm-component-dot-row" id="dossierOverlayLine">${renderComponentDots(profile)}</div>
+                  <p class="vm-profile-text" id="dossierColorText">${escapeDossierHtml(profile.text)}</p>
+                </div>
               </div>
-              ${factionKey === "COLORLESS" ? renderColorlessCardVoiceBoundaryPanel() : renderDossierCardVoicesPanel(flavorSnippets)}
+            </div>
+          </div>
+          <div class="vm-identity-rail">
+            ${rightPanelCopyHtml ? `<div class="vm-identity-copy-card">${rightPanelCopyHtml}</div>` : ""}
+            <div class="vm-identity-reading-panel">
+              <div class="vm-strategium-detail" id="dossierAxisDetail" aria-live="polite" hidden>${renderDossierAxisDetail(profile)}</div>
+              <div class="vm-trait-list" id="dossierAxisList">${renderDossierTraitRows(profile)}</div>
+              <div class="vm-placeholder-note">${escapeDossierHtml(profile.note)}</div>
             </div>
           </div>
         </div>
+        ${factionKey === "COLORLESS" ? renderColorlessCardVoiceBoundaryPanel() : renderDossierCardVoicesPanel(flavorSnippets)}
       </div>
     </div>`;
 }
@@ -487,57 +216,91 @@ function destroyDossierManaRadar() {
   }
 }
 
-function buildDossierRadarDatasets(profile, showComponents, showComposite) {
-  const datasets = [];
-  const multiColor = (profile.components || []).length > 1;
-
-  if (multiColor && showComponents) {
-    profile.components.forEach((componentKey) => {
-      const component = DOSSIER_COLOR_PROFILES[componentKey];
-      datasets.push({
-        label: component.name,
-        data: component.data,
-        backgroundColor: dossierHexToRgba(component.hex, 0.05),
-        borderColor: dossierHexToRgba(component.hex, 0.82),
-        borderWidth: 2,
-        borderDash: [6, 5],
-        pointBackgroundColor: component.hex,
-        pointBorderColor: "#ffffff",
-        pointBorderWidth: 1,
-        pointRadius: 4,
-        pointHoverRadius: 8,
-        pointHoverBorderWidth: 3,
-        tension: 0.22,
-        _vmGlowBlur: 12,
-      });
-    });
-  }
-
-  if (showComposite || !multiColor) {
-    datasets.push({
-      label: profile.name,
-      data: profile.data,
-      backgroundColor: multiColor
-        ? dossierRadialFill(dossierManaRadarChart, profile.components.map((key) => DOSSIER_COLOR_PROFILES[key]?.hex).filter(Boolean))
-        : dossierHexToRgba(profile.hex, 0.22),
-      borderColor: profile.hex,
-      borderWidth: 3,
-      pointBackgroundColor: profile.hex,
-      pointBorderColor: "#ffffff",
-      pointBorderWidth: 2,
-      pointRadius: 6,
-      pointHoverRadius: 11,
-      pointHoverBorderWidth: 4,
-      tension: 0.22,
-      _vmGlowBlur: 26,
-    });
-  }
-
-  return datasets;
+function selectedGlow(profile) {
+  const hexes = (profile.components || [])
+    .map((component) => RADAR.componentHex(component))
+    .filter(Boolean);
+  return RADAR.blendGradient(hexes.length ? hexes : [profile.hex]);
 }
 
-function initDossierManaRadar({ result, faction, profile }) {
-  const resolvedProfile = profile || getDossierRadarProfile(result, faction);
+function setDossierActiveAxis(profile, axisIndex, { syncChart = true, active = true } = {}) {
+  const rows = Array.from(document.querySelectorAll("[data-dossier-axis-index]"));
+  const detail = document.getElementById("dossierAxisDetail");
+  const resolvedIndex = Number.isInteger(axisIndex) ? axisIndex : RADAR.dominantAxisIndex(profile);
+  let activeRow = null;
+
+  rows.forEach((row) => {
+    const rowIndex = Number(row.getAttribute("data-dossier-axis-index"));
+    const rowActive = active && rowIndex === resolvedIndex;
+    row.classList.toggle("is-active", rowActive);
+    row.setAttribute("aria-expanded", rowActive ? "true" : "false");
+    if (rowActive) {
+      activeRow = row;
+    }
+  });
+
+  if (detail) {
+    detail.innerHTML = renderDossierAxisDetail(profile, resolvedIndex);
+    detail.classList.toggle("is-active", active);
+    detail.hidden = !active;
+    if (active && activeRow) {
+      const panel = detail.closest(".vm-identity-reading-panel");
+      const rowMidpoint = activeRow.offsetTop + activeRow.offsetHeight / 2;
+      const minTop = panel ? Math.min(panel.clientHeight - 42, rowMidpoint) : rowMidpoint;
+      detail.style.setProperty("--detail-top", `${Math.max(42, minTop)}px`);
+    }
+  }
+
+  if (syncChart && dossierManaRadarChart) {
+    const compositeIndex = dossierManaRadarChart.data.datasets.findIndex((dataset) => dataset._vmComposite);
+    dossierManaRadarChart.setActiveElements(active && compositeIndex >= 0 ? [{ datasetIndex: compositeIndex, index: resolvedIndex }] : []);
+    dossierManaRadarChart.update("none");
+  }
+}
+
+function clearDossierActiveAxis(profile) {
+  setDossierActiveAxis(profile, RADAR.dominantAxisIndex(profile), { syncChart: true, active: false });
+}
+
+function bindDossierAxisInteractions(profile) {
+  const rows = Array.from(document.querySelectorAll("[data-dossier-axis-index]"));
+  rows.forEach((row) => {
+    const axisIndex = Number(row.getAttribute("data-dossier-axis-index"));
+    row.addEventListener("pointerenter", () => setDossierActiveAxis(profile, axisIndex));
+    row.addEventListener("pointerleave", () => clearDossierActiveAxis(profile));
+    row.addEventListener("focus", () => setDossierActiveAxis(profile, axisIndex));
+    row.addEventListener("blur", () => clearDossierActiveAxis(profile));
+  });
+  clearDossierActiveAxis(profile);
+}
+
+function updateDossierRadarDatasets(profile, showComponents, showComposite) {
+  const datasets = RADAR.buildDatasets(profile, {
+    chart: dossierManaRadarChart,
+    showComponents,
+    showComposite,
+    includeTierLabels: false,
+    layeredFill: true,
+  });
+  datasets.forEach((dataset) => {
+    if (!dataset?._vmComposite) return;
+    dataset._vmGlowBlur = 16;
+    dataset._vmGlowColor = RADAR.hexToRgba(DOSSIER_SYNTHESIS_GOLD, 0.46);
+    dataset.borderColor = RADAR.hexToRgba(profile.hex, 0.82);
+    dataset.borderWidth = 2.2;
+    dataset.pointBackgroundColor = DOSSIER_SYNTHESIS_GOLD;
+    dataset.pointBorderColor = RADAR.hexToRgba("#fff7d8", 0.95);
+    dataset.pointBorderWidth = 1.5;
+    dataset.pointRadius = 3.4;
+    dataset.pointHoverRadius = 5.4;
+    dataset.pointHoverBorderWidth = 2;
+  });
+  dossierManaRadarChart.data.datasets = datasets;
+  dossierManaRadarChart.update();
+}
+
+function initDossierManaRadar({ result, faction, profile, identityLayers = null }) {
+  const resolvedProfile = profile || getDossierRadarProfile(result, faction, identityLayers);
   const card = document.getElementById("dossierSelectedCard");
   const glow = document.getElementById("dossierRadarGlow");
   const fallback = document.querySelector("[data-dossier-radar-fallback]");
@@ -547,22 +310,20 @@ function initDossierManaRadar({ result, faction, profile }) {
   const controls = document.querySelector(".vm-controls");
 
   destroyDossierManaRadar();
+  bindDossierAxisInteractions(resolvedProfile);
 
   if (!card || !glow || !canvas) {
     return;
   }
 
-  card.style.setProperty("--selected-glow", dossierSelectedGlow(resolvedProfile));
-  glow.style.background = dossierBlendGradient(
-    (resolvedProfile.components || [])
-      .map((component) => DOSSIER_COLOR_PROFILES[component]?.hex)
-      .filter(Boolean)
-  );
+  card.style.setProperty("--selected-glow", selectedGlow(resolvedProfile));
+  card.style.setProperty("--identity-color", resolvedProfile.hex);
+  glow.style.background = selectedGlow(resolvedProfile);
 
   let showComponents = (resolvedProfile.components || []).length > 1;
   let showComposite = true;
 
-  const fallbackMessage = "Radar preview unavailable right now. The placement synthesis details still appear at left.";
+  const fallbackMessage = "Radar preview unavailable right now. The identity reading remains available.";
   const ChartCtor = globalThis.Chart;
   if (typeof ChartCtor !== "function") {
     canvas.hidden = true;
@@ -588,45 +349,6 @@ function initDossierManaRadar({ result, faction, profile }) {
     });
   }
 
-  const dossierGlowPlugin = {
-    id: "dossierGlow",
-    beforeDatasetDraw(chart, args) {
-      const dataset = chart.data.datasets[args.index];
-      const ctx = chart.ctx;
-      ctx.save();
-      ctx.globalCompositeOperation = "lighter";
-      ctx.shadowColor = dataset.borderColor || "rgba(255,255,255,0.6)";
-      ctx.shadowBlur = dataset._vmGlowBlur ?? 18;
-      ctx.shadowOffsetX = 0;
-      ctx.shadowOffsetY = 0;
-    },
-    afterDatasetDraw(chart) {
-      chart.ctx.restore();
-    },
-  };
-
-  const dossierHaloPlugin = {
-    id: "dossierHalo",
-    beforeDraw(chart) {
-      const { ctx, chartArea } = chart;
-      if (!chartArea) {
-        return;
-      }
-      const cx = (chartArea.left + chartArea.right) / 2;
-      const cy = (chartArea.top + chartArea.bottom) / 2;
-      const radius = Math.max(chartArea.right - chartArea.left, chartArea.bottom - chartArea.top) / 2;
-      const gradient = ctx.createRadialGradient(cx, cy, 0, cx, cy, radius);
-      gradient.addColorStop(0, "rgba(216,194,122,0.035)");
-      gradient.addColorStop(0.6, "rgba(216,194,122,0.02)");
-      gradient.addColorStop(1, "rgba(0,0,0,0)");
-      ctx.save();
-      ctx.globalCompositeOperation = "destination-over";
-      ctx.fillStyle = gradient;
-      ctx.fillRect(chartArea.left, chartArea.top, chartArea.right - chartArea.left, chartArea.bottom - chartArea.top);
-      ctx.restore();
-    },
-  };
-
   const syncDatasets = () => {
     if (componentToggle && compositeToggle && !componentToggle.checked && !compositeToggle.checked) {
       compositeToggle.checked = true;
@@ -635,12 +357,15 @@ function initDossierManaRadar({ result, faction, profile }) {
     showComponents = componentToggle ? componentToggle.checked : false;
     showComposite = compositeToggle ? compositeToggle.checked : true;
 
-    dossierManaRadarChart.data.datasets = buildDossierRadarDatasets(resolvedProfile, showComponents, showComposite);
-    dossierManaRadarChart.update();
+    updateDossierRadarDatasets(resolvedProfile, showComponents, showComposite);
   };
 
   dossierManaRadarChart = new ChartCtor(canvas.getContext("2d"), {
-    plugins: [dossierHaloPlugin, dossierGlowPlugin],
+    plugins: [
+      RADAR.createHaloPlugin({ id: "dossierHalo", centerAlpha: 0.01, midAlpha: 0.006 }),
+      RADAR.createLayeredFillPlugin({ id: "dossierLayeredFill" }),
+      RADAR.createGlowPlugin({ id: "dossierGlow" }),
+    ],
     type: "radar",
     data: {
       labels: DOSSIER_RADAR_AXES,
@@ -649,6 +374,14 @@ function initDossierManaRadar({ result, faction, profile }) {
     options: {
       responsive: true,
       maintainAspectRatio: false,
+      layout: {
+        padding: {
+          top: 2,
+          right: 4,
+          bottom: 2,
+          left: 4,
+        },
+      },
       animation: {
         duration: 850,
         easing: "easeInOutQuart",
@@ -657,39 +390,46 @@ function initDossierManaRadar({ result, faction, profile }) {
         mode: "nearest",
         intersect: false,
       },
+      onHover(_event, elements) {
+        if (elements?.length) {
+          setDossierActiveAxis(resolvedProfile, elements[0].index, { syncChart: false, active: true });
+          return;
+        }
+        clearDossierActiveAxis(resolvedProfile);
+      },
       plugins: {
         legend: {
           display: false,
         },
         tooltip: {
-          callbacks: {
-            label(context) {
-              return `${context.dataset.label}: ${context.formattedValue}`;
-            },
-          },
+          enabled: false,
         },
       },
       scales: {
         r: {
           min: 0,
           max: 100,
+          beginAtZero: true,
           ticks: {
-            color: "rgba(255,255,255,0.55)",
+            color: "rgba(255,255,255,0.42)",
             backdropColor: "transparent",
-            stepSize: 20,
+            stepSize: 25,
             callback: () => "",
           },
           angleLines: {
-            color: "rgba(240, 197, 106, 0.25)",
+            color: "rgba(255,255,255,0.055)",
           },
           grid: {
-            color: "rgba(240, 197, 106, 0.22)",
+            circular: false,
+            color: "rgba(255,255,255,0.055)",
           },
           pointLabels: {
-            color: "#ffffff",
+            color: "#e6ddc6",
+            padding: 10,
             font: {
-              size: 14,
-              weight: "700",
+              family: "Cinzel",
+              size: 13,
+              weight: "600",
             },
           },
         },
@@ -697,8 +437,7 @@ function initDossierManaRadar({ result, faction, profile }) {
     },
   });
 
-  dossierManaRadarChart.data.datasets = buildDossierRadarDatasets(resolvedProfile, showComponents, showComposite);
-  dossierManaRadarChart.update();
+  updateDossierRadarDatasets(resolvedProfile, showComponents, showComposite);
 
   if (componentToggle) {
     componentToggle.addEventListener("change", syncDatasets);

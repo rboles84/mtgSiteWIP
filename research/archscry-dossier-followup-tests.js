@@ -34,6 +34,8 @@ import {
 
 const indexSource = await readFile(new URL("../assets/js/index.js", import.meta.url), "utf8");
 const radarSource = await readFile(new URL("../assets/js/dossier-radar.js", import.meta.url), "utf8");
+const vmRadarSource = await readFile(new URL("../assets/js/vm-radar.js", import.meta.url), "utf8");
+const homeSource = await readFile(new URL("../assets/js/home.js", import.meta.url), "utf8");
 const presentationSource = await readFile(new URL("../assets/js/archscry-presentation.js", import.meta.url), "utf8");
 const archscryCssSource = await readFile(new URL("../assets/css/archscry.css", import.meta.url), "utf8");
 const factionsData = JSON.parse(await readFile(new URL("../data/factions.json", import.meta.url), "utf8"));
@@ -288,13 +290,55 @@ assert.match(radarSource, /Cards That Sound Like This/, "expected the radar comp
 assert.match(radarSource, /COLORLESS/, "expected the radar companion area to branch Colorless away from duplicated card voices");
 assert.match(radarSource, /Colorless Matrix Boundary/, "expected Colorless radar companion copy to explain the card-example boundary");
 assert.match(radarSource, /data-archscry-card-voices/, "expected card voices to expose a stable data hook");
-assert.match(radarSource, /not a raw mana-score ledger/, "expected the matrix note to describe the authored profile source");
+assert.match(vmRadarSource, /not a raw mana-score ledger/, "expected the shared matrix note to describe the authored profile source");
+assert.match(vmRadarSource, /createLayeredFillPlugin/, "expected shared radar to export an opt-in layered fill plugin");
+assert.match(vmRadarSource, /const layeredFill = options\.layeredFill === true/, "expected layered fill to require an explicit dataset option");
+assert.match(vmRadarSource, /_vmLayeredFill:\s*layeredFill/, "expected layered fill to be gated by a dataset flag");
+assert.match(vmRadarSource, /ctx\.save\(\);[\s\S]*ctx\.clip\(\);[\s\S]*ctx\.restore\(\);/, "expected layered fill to clip component lobes inside the composite polygon");
+assert.match(radarSource, /createLayeredFillPlugin\(\{ id: "dossierLayeredFill" \}\)/, "expected only the Archscry chart to include the layered fill plugin");
+assert.match(radarSource, /layeredFill:\s*true/, "expected Archscry datasets to opt into layered fill");
+assert.doesNotMatch(homeSource, /createLayeredFillPlugin|layeredFill:\s*true/, "expected Home radar setup to avoid the Archscry-only layered fill opt-in");
+assert.match(vmRadarSource, /borderDash:\s*\[5,\s*4\]/, "expected component traces to remain dashed with layered fill available");
+assert.match(vmRadarSource, /_vmComponent:\s*true/, "expected component traces to keep their component dataset marker");
+assert.match(vmRadarSource, /_vmGlowBlur:\s*false/, "expected component traces to remain contextual and non-glowing");
+assert.match(radarSource, /DOSSIER_SYNTHESIS_GOLD = "#f0c56a"/, "expected Archscry composite vertices to use warm yellow/gold points");
+assert.match(radarSource, /dataset\.borderWidth = 2\.2/, "expected Archscry composite line to be softer than the shared default");
+assert.match(radarSource, /dataset\.pointBackgroundColor = DOSSIER_SYNTHESIS_GOLD/, "expected Archscry composite points to remain warm gold rather than component-colored");
+assert.match(radarSource, /dataset\.pointRadius = 3\.4/, "expected Archscry composite points to be smaller than the shared default");
+assert.match(radarSource, /dataset\.pointHoverRadius = 5\.4/, "expected Archscry composite hover points to stay restrained");
+assert.match(radarSource, /dataset\._vmGlowBlur = 16/, "expected Archscry composite glow blur to stay in the softer mock-guided range");
+assert.match(radarSource, /dataset\._vmGlowColor = RADAR\.hexToRgba\(DOSSIER_SYNTHESIS_GOLD, 0\.46\)/, "expected Archscry composite glow to use a soft warm synthesis light");
+assert.match(radarSource, /<span class="vm-trait-readout">/, "expected trait rows to render the compact readout wrapper");
+assert.match(archscryCssSource, /\.vm-dossier-matrix-section \.vm-trait-readout\{\s*display:grid;/, "expected compact trait readouts to group pips and strength on the right");
+assert.ok(
+  radarSource.indexOf('id="dossierManaRadar"') < radarSource.indexOf('id="dossierSelectedCard"'),
+  "expected the Identity Reading summary to render below the radar canvas in the chart column"
+);
+assert.ok(
+  radarSource.indexOf('id="dossierSelectedCard"') < radarSource.indexOf('class="vm-identity-reading-panel"'),
+  "expected the right Identity Matrix column to start after the moved summary block"
+);
+assert.ok(
+  radarSource.indexOf('renderOptionalTextBlock("vm-lore-line"') < radarSource.indexOf('class="vm-identity-copy-card"') &&
+    radarSource.indexOf('renderOptionalTextBlock("vm-core-tension"') < radarSource.indexOf('class="vm-identity-copy-card"'),
+  "expected Lore and Core Tension to feed the right-column copy card"
+);
+assert.ok(
+  radarSource.indexOf('class="vm-identity-copy-card"') < radarSource.indexOf('class="vm-identity-reading-panel"') &&
+    radarSource.indexOf('class="vm-identity-reading-panel"') < radarSource.indexOf('id="dossierAxisList"'),
+  "expected the Lore/Core copy card to render above the trait-row panel"
+);
+assert.match(radarSource, /id="dossierAxisDetail"[^>]*hidden/, "expected Strategium detail to start hidden until trait hover/focus");
+assert.match(radarSource, /aria-expanded="false"/, "expected trait rows to expose collapsed hover-detail state");
+assert.match(archscryCssSource, /\.vm-dossier-matrix-section \.vm-strategium-detail\{\s*display:grid;\s*position:absolute;/, "expected Strategium detail to render as a popover instead of an inline row");
+assert.doesNotMatch(radarSource, /activeRow\.after\(detail\)/, "expected Strategium detail not to be inserted inline beneath trait rows");
+assert.match(archscryCssSource, /vm-strategium-detail\[hidden\]/, "expected hidden Strategium popover to stay out of layout until hover/focus");
 assert.match(indexSource, /const matrixFlavorSnippets = flavorSnippetsForFaction\(faction\)/, "expected renderResult to capture Identity Matrix card voices before building lower examples");
 assert.match(indexSource, /excludedCardNames:\s*matrixCardNames/, "expected lower card examples to exclude card names already shown in the Identity Matrix panel");
 assert.match(indexSource, /includeCurated:\s*!hasMatrixCardVoiceSurface/, "expected curated card voices to stay out of the lower card-example surface when the Matrix voice panel is present");
 assert.match(indexSource, /flavorEchoes\.length < 2/, "expected lower card examples to hide before rendering fewer than two entries");
 assert.match(indexSource, /groundedEchoes\.length < 2/, "expected the lower card-example wrapper to disappear when fewer than two grounded examples remain");
-assert.match(indexSource, /renderDossierRadarSection\(\{ result, faction, dossier, flavorSnippets: matrixFlavorSnippets \}\)/, "expected the Identity Matrix card-voice panel to keep its original snippet surface");
+assert.match(indexSource, /renderDossierRadarSection\(\{ result, faction, dossier, flavorSnippets: matrixFlavorSnippets, identityLayers: APP_STATE\.identityLayers \}\)/, "expected the Identity Matrix card-voice panel to keep its original snippet surface and registry score authority");
 assert.match(archscryCssSource, /card-preview-overlay/, "expected starter and land cards to use an unclipped preview overlay");
 assert.match(archscryCssSource, /precon-grid\.is-compact/, "expected Archscry CSS to style the compact precon preview grid");
 assert.match(archscryCssSource, /precon-grid\.is-compact\[hidden\]\s*\{\s*display:\s*none/, "expected hidden precon preview grids to remain visually hidden despite compact grid display styles");
@@ -1070,6 +1114,7 @@ const colorlessRadarHtml = renderDossierRadarSection({
   result: colorlessPlacementResult,
   faction: factionsData.factions.COLORLESS,
   flavorSnippets: flavorSnippets.snippets.COLORLESS,
+  identityLayers,
 });
 assert.doesNotMatch(colorlessRadarHtml, /Cards That Sound Like This/, "expected Colorless not to duplicate the card-example voice panel");
 assert.match(colorlessRadarHtml, /Colorless Matrix Boundary/, "expected Colorless card voice slot to explain the matrix boundary instead");

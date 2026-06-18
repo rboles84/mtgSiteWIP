@@ -22,6 +22,7 @@
 <link rel="stylesheet" href="./assets/css/fonts.css" />
 <!-- CHART.JS: Loads the local Chart.js runtime before the hero identity signal initializes. -->
 <script src="assets/js/graph.js" defer></script>
+<script src="assets/js/vm-radar.js" defer></script>
 <link rel="stylesheet" href="./assets/css/layout.css" />
 <link rel="stylesheet" href="./assets/css/topbar.css" />
 <link rel="stylesheet" href="./assets/css/home.css" />
@@ -733,6 +734,7 @@
               <div class="vm-radar-glow" id="heroManaGlow" aria-hidden="true"></div>
               <div class="vm-radar-wrap vm-hero-radar-wrap">
                 <canvas id="vmHeroManaChart" aria-label="Passive Vox Mana identity signal radar chart"></canvas>
+                <div class="vm-radar-fallback vm-hero-radar-fallback" data-hero-radar-fallback hidden></div>
               </div>
             </div>
           </div>

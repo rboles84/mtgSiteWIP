@@ -9,64 +9,11 @@
 })();
 
 // HERO MANA LENS: Registry-backed identity preview data and Chart.js helpers.
-// RADAR AXES: Labels used both by the radar chart and the horizontal score list.
-const axisLabels = ["Order", "Knowledge", "Ambition", "Freedom", "Growth"];
-
-// COLOR HELPER: Converts hex colors like #ff6b55 into rgba(...) strings with transparency.
-function hexToRgba(hex, alpha) {
-  const clean = hex.replace("#", "");
-  const r = parseInt(clean.substring(0, 2), 16);
-  const g = parseInt(clean.substring(2, 4), 16);
-  const b = parseInt(clean.substring(4, 6), 16);
-  return `rgba(${r}, ${g}, ${b}, ${alpha})`;
-}
-
-// GLOW GRADIENT HELPER: Builds CSS radial-gradient strings for one or more component colors.
-function blendGradient(hexes) {
-  if (!hexes || !hexes.length) {
-    return `radial-gradient(circle at center, rgba(255,255,255,0.2), transparent 62%)`;
-  }
-
-  if (hexes.length === 1) {
-    return `radial-gradient(circle at center, ${hexToRgba(hexes[0], 0.35)}, transparent 62%)`;
-  }
-
-  const positions = ["28% 32%", "70% 30%", "72% 70%", "30% 72%", "50% 50%"];
-  const stops = hexes.map((hex, index) => {
-    const position = positions[index] || "50% 50%";
-    const alpha = hexes.length > 3 ? Math.max(0.12, 0.3 - index * 0.035) : 0.35 / (index + 1);
-    return `radial-gradient(circle at ${position}, ${hexToRgba(hex, alpha)}, transparent 62%)`;
-  });
-
-  return [
-    ...stops,
-    `radial-gradient(circle at center, ${hexToRgba(hexes[0], 0.18)}, transparent 68%)`
-  ].join(",");
-}
-
-// CHART FILL HELPER: Creates a radial canvas gradient used as the radar dataset fill color.
-function radialFill(chart, hexes) {
-  if (!chart || !chart.chartArea) {
-    return hexToRgba(hexes?.[0] || "#ffffff", 0.12);
-  }
-
-  const { left, right, top, bottom } = chart.chartArea;
-  const cx = (left + right) / 2;
-  const cy = (top + bottom) / 2;
-  const radius = Math.max(right - left, bottom - top) / 2;
-  const gradient = chart.ctx.createRadialGradient(cx, cy, 0, cx, cy, radius);
-  const stops = Math.max(2, hexes.length);
-
-  hexes.forEach((hex, index) => {
-    gradient.addColorStop(index / (stops - 1), hexToRgba(hex, 0.22));
-  });
-
-  gradient.addColorStop(1, "rgba(0,0,0,0)");
-  return gradient;
-}
+const vmRadar = globalThis.VMRadar;
+const axisLabels = vmRadar.AXIS_LABELS;
 
 const heroManaPreviewUrl = "./data/identity-layers.json";
-const heroManaPreviewScoreKeys = ["order", "knowledge", "ambition", "freedom", "growth"];
+const heroManaPreviewScoreKeys = vmRadar.SCORE_KEYS;
 const heroManaColorNames = {
   W: "White",
   U: "Blue",
@@ -123,6 +70,7 @@ function heroManaPreviewKindLabel(kind) {
 }
 
 function buildHeroManaPreviewIdentity(key, expression) {
+  const radarProfile = vmRadar.resolveRadarProfile(key, { expressions: { [key]: expression } }, expression);
   const canonicalComponents = Array.isArray(expression.colors) ? expression.colors.slice() : [];
   const displayComponents = String(expression.display_code || "")
     .toUpperCase()
@@ -141,12 +89,12 @@ function buildHeroManaPreviewIdentity(key, expression) {
     key,
     kind: expression.kind,
     code: expression.display_code || key,
-    name: expression.preview_label || expression.name || key,
-    title: expression.preview_title || expression.preview_label || key,
-    text: expression.preview_text || expression.identity_blend || "",
-    components: displayComponents.length === canonicalComponents.length ? displayComponents : canonicalComponents,
-    data: heroManaPreviewScoreKeys.map(scoreKey => Number(expression.preview_scores?.[scoreKey]) || 0),
-    hex: expression.preview_hex || "#ffffff",
+    name: radarProfile.name,
+    title: radarProfile.title,
+    text: radarProfile.text,
+    components: displayComponents.length === canonicalComponents.length ? displayComponents : radarProfile.components,
+    data: heroManaPreviewScoreKeys.map((scoreKey, index) => Number(radarProfile.scores?.[scoreKey]) || Number(radarProfile.data[index]) || 0),
+    hex: radarProfile.hex,
     aliases,
     previewOrder: Number(expression.preview_order) || 0
   };
@@ -203,9 +151,9 @@ function heroManaComponentProfile(componentKey) {
   const key = String(componentKey || "").toUpperCase();
   return heroManaColorProfiles.get(key) || {
     key,
-    name: heroManaColorNames[key] || key,
+    name: vmRadar.componentName(key) || heroManaColorNames[key] || key,
     data: [0, 0, 0, 0, 0],
-    hex: "#ffffff"
+    hex: vmRadar.componentHex(key) || "#ffffff"
   };
 }
 
@@ -244,7 +192,7 @@ let heroManaLoreRequest = null;
 
 // HERO CYCLE TIMING: Bigger number = slower identity cycle; smaller number = faster cycle.
 const heroManaCycleMs = 9000;
-const heroManaBlackDisplayHex = "#a46bea";
+const heroManaBlackDisplayHex = vmRadar.COMPONENT_COLORS.B;
 const heroManaLoreUrl = "./data/factions.json";
 
 function heroManaComponentHex(componentKey) {
@@ -257,136 +205,24 @@ function heroManaIdentityHex(identity) {
     : identity.hex;
 }
 
-function heroManaTierLabel(value) {
-  // if (value <= 20) return "Dormant";
-  // if (value <= 40) return "Stirring";
-  // if (value <= 60) return "Aligned";
-  // if (value <= 80) return "Resonant";
-  return "";
+function heroManaRadarPlugins() {
+  return [
+    vmRadar.createHaloPlugin({ id: "heroManaHaloPlugin", centerAlpha: 0.02, midAlpha: 0.012 }),
+    vmRadar.createGlowPlugin({ id: "heroManaGlowPlugin", reducedMotion: heroManaReducedMotion }),
+    vmRadar.createTierLabelPlugin({ id: "heroManaTierLabelPlugin", minWidth: 360 }),
+  ];
 }
 
-const heroManaGlowPlugin = {
-  id: "heroManaGlowPlugin",
-  beforeDatasetDraw(chart, args) {
-    const dataset = chart.data.datasets[args.index];
-    if (dataset?._vmGlowBlur === false) return;
-
-    const ctx = chart.ctx;
-    ctx.save();
-    ctx.globalCompositeOperation = "lighter";
-    ctx.shadowColor = dataset._vmGlowColor || dataset.borderColor || "rgba(255,255,255,0.6)";
-    ctx.shadowBlur = dataset._vmGlowBlur ?? 18;
-    ctx.shadowOffsetX = 0;
-    ctx.shadowOffsetY = 0;
-  },
-  afterDatasetDraw(chart, args) {
-    const dataset = chart.data.datasets[args.index];
-    if (dataset?._vmGlowBlur === false) return;
-    chart.ctx.restore();
-  }
-};
-
-const heroManaHaloPlugin = {
-  id: "heroManaHaloPlugin",
-  beforeDraw(chart) {
-    const { ctx, chartArea } = chart;
-    if (!chartArea) return;
-
-    const cx = (chartArea.left + chartArea.right) / 2;
-    const cy = (chartArea.top + chartArea.bottom) / 2;
-    const radius = Math.max(chartArea.right - chartArea.left, chartArea.bottom - chartArea.top) / 2;
-    const gradient = ctx.createRadialGradient(cx, cy, 0, cx, cy, radius);
-    gradient.addColorStop(0, "rgba(216,194,122,0.042)");
-    gradient.addColorStop(0.58, "rgba(88,184,255,0.025)");
-    gradient.addColorStop(1, "rgba(0,0,0,0)");
-
-    ctx.save();
-    ctx.globalCompositeOperation = "destination-over";
-    ctx.fillStyle = gradient;
-    ctx.fillRect(chartArea.left, chartArea.top, chartArea.right - chartArea.left, chartArea.bottom - chartArea.top);
-    ctx.restore();
-  }
-};
-
-const heroManaTierLabelPlugin = {
-  id: "heroManaTierLabelPlugin",
-  afterDatasetDraw(chart, args) {
-    const dataset = chart.data.datasets[args.index];
-    if (!dataset?.tierLabels || chart.width < 360) return;
-
-    const ctx = chart.ctx;
-    const meta = chart.getDatasetMeta(args.index);
-    const centerY = (chart.chartArea.top + chart.chartArea.bottom) / 2;
-
-    ctx.save();
-    ctx.fillStyle = "rgba(255,255,255,0.82)";
-    ctx.font = "500 10px Cinzel";
-    ctx.textAlign = "center";
-
-    meta.data.forEach((point, index) => {
-      const axis = chart.data.labels[index];
-      if (axis === "Order") return;
-
-      const tier = heroManaTierLabel(Number(dataset.data[index]));
-      const offsetY = point.y < centerY ? -9 : 14;
-      const offsetX = point.x < chart.chartArea.left + 18 ? 12 : point.x > chart.chartArea.right - 18 ? -12 : 0;
-      ctx.fillText(tier, point.x + offsetX, point.y + offsetY);
-    });
-
-    ctx.restore();
-  }
-};
-
 function buildHeroManaDataset(identity) {
-  const datasets = [];
-  const componentHexes = identity.components.map(key => heroManaComponentHex(key));
-
-  if (identity.components.length > 1) {
-    identity.components.forEach(componentKey => {
-      const component = heroManaComponentProfile(componentKey);
-      const componentHex = heroManaComponentHex(componentKey);
-      datasets.push({
-        label: component.name,
-        data: component.data,
-        backgroundColor: hexToRgba(componentHex, 0.05),
-        borderColor: hexToRgba(componentHex, 0.82),
-        borderWidth: 2,
-        borderDash: [6, 5],
-        pointBackgroundColor: componentHex,
-        pointBorderColor: "#ffffff",
-        pointBorderWidth: 1,
-        pointRadius: 4,
-        pointHoverRadius: 8,
-        pointHoverBorderWidth: 3,
-        tension: 0.22,
-        _vmGlowBlur: componentKey === "B" ? 22 : 13,
-        _vmGlowColor: hexToRgba(componentHex, componentKey === "B" ? 0.82 : 0.58)
-      });
-    });
-  }
-
-  const identityHex = heroManaIdentityHex(identity);
-  datasets.push({
-    label: identity.name,
-    data: identity.data,
-    backgroundColor: identity.components.length > 1
-      ? radialFill(heroManaChart, componentHexes)
-      : hexToRgba(identityHex, 0.22),
-    borderColor: identityHex,
-    borderWidth: identity.components.length > 1 ? 3 : 2.6,
-    pointBackgroundColor: identityHex,
-    pointBorderColor: "#ffffff",
-    pointBorderWidth: 2,
-    pointRadius: identity.components.length > 1 ? 5 : 4.5,
-    pointHoverRadius: 10,
-    pointHoverBorderWidth: 4,
-    tension: 0.22,
-    tierLabels: true,
-    _vmGlowBlur: 26,
-    _vmGlowColor: hexToRgba(identityHex, 0.72)
+  return vmRadar.buildDatasets({
+    ...identity,
+    hex: heroManaIdentityHex(identity),
+  }, {
+    chart: heroManaChart,
+    showComponents: true,
+    showComposite: true,
+    includeTierLabels: true,
   });
-
-  return datasets;
 }
 
 function setHeroManaGlow(identity) {
@@ -396,7 +232,7 @@ function setHeroManaGlow(identity) {
   const componentHexes = identity.components.length
     ? identity.components.map(key => heroManaComponentHex(key))
     : [heroManaIdentityHex(identity)];
-  glow.style.background = blendGradient(componentHexes);
+  glow.style.background = vmRadar.blendGradient(componentHexes);
 }
 
 function summarizeHeroManaText(text) {
@@ -687,7 +523,20 @@ function setHeroManaFocusPause(paused) {
 
 function initHeroManaPreview() {
   const heroCanvas = document.getElementById("vmHeroManaChart");
-  if (!heroCanvas || !window.Chart) return;
+  const fallback = document.querySelector("[data-hero-radar-fallback]");
+  if (!heroCanvas) return;
+  if (!window.Chart) {
+    heroCanvas.hidden = true;
+    if (fallback) {
+      fallback.hidden = false;
+      fallback.textContent = "Identity signal radar unavailable right now. The compact signal caption remains available.";
+    }
+    return;
+  }
+  if (fallback) {
+    fallback.hidden = true;
+  }
+  heroCanvas.hidden = false;
   const heroManaPanel = document.querySelector(".vm-hero-mana");
   const heroManaLatch = document.getElementById("heroManaSignalLatch");
   heroManaReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -732,7 +581,7 @@ function initHeroManaPreview() {
         }
       }
     },
-    plugins: [heroManaHaloPlugin, heroManaGlowPlugin, heroManaTierLabelPlugin]
+    plugins: heroManaRadarPlugins()
   });
 
   updateHeroManaPreview(heroManaCycleIdentities[heroManaCycleIndex]?.id || "W");

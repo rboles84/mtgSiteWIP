@@ -2320,10 +2320,32 @@ const yorePressureSummary = buildTagExplanationSummaries({
 assert.equal(yorePressureSummary[0].title, "Pressure");
 assert.match(yorePressureSummary[0].copy, /not generic artifact aggro/i);
 assert.match(yorePressureSummary[0].meaning, /forcing the table to answer/i);
-const yoreRadarProfile = getDossierRadarProfile({ faction: "YORE" }, factions.YORE);
+const yoreRadarProfile = getDossierRadarProfile({ faction: "YORE" }, factions.YORE, identityLayers);
 assert.deepEqual(yoreRadarProfile.data, [50, 58, 54, 56, 54]);
-assert.match(yoreRadarProfile.note, /Growth is not a Green alignment claim/i);
-assert.match(renderDossierRadarSection({ result: { faction: "YORE" }, faction: factions.YORE }), /Growth is not a Green alignment claim/i);
+assert.equal(yoreRadarProfile.note, globalThis.VMRadar.MATRIX_NOTE);
+assert.match(renderDossierRadarSection({ result: { faction: "YORE" }, faction: factions.YORE, identityLayers }), /This authored identity matrix summarizes/i);
+const temurRadarProfile = getDossierRadarProfile({ faction: "TEMUR" }, factions.TEMUR, identityLayers);
+assert.deepEqual(temurRadarProfile.data, [45, 60, 44, 63, 71]);
+const temurHomeProfile = globalThis.VMRadar.resolveRadarProfile("TEMUR", identityLayers, factions.TEMUR);
+assert.deepEqual(temurHomeProfile.data, temurRadarProfile.data, "Home and Archscry should resolve TEMUR through the same registry score authority");
+for (const [expressionKey, expression] of Object.entries(identityLayers.expressions || {})) {
+  if (!expression.preview_eligible || !expression.preview_scores) continue;
+  const homeProfile = globalThis.VMRadar.resolveRadarProfile(expressionKey, identityLayers, factions[expressionKey]);
+  const archscryProfile = getDossierRadarProfile({ faction: expressionKey }, factions[expressionKey], identityLayers);
+  assert.deepEqual(
+    archscryProfile.data,
+    homeProfile.data,
+    `expected Archscry and Home radar scores to stay in parity for ${expressionKey}`
+  );
+}
+const temurRadarHtml = renderDossierRadarSection({
+  result: { faction: "TEMUR" },
+  faction: factions.TEMUR,
+  flavorSnippets: archscryFlavorSnippets.snippets.TEMUR,
+  identityLayers,
+});
+assert.match(temurRadarHtml, /Selected Synthesis/);
+assert.match(temurRadarHtml, /Cards That Sound Like This/);
 const yoreSnippetNames = (archscryFlavorSnippets.snippets.YORE || []).map((snippet) => snippet.card_name);
 assert.ok(yoreSnippetNames.includes("Ayara, Widow of the Realm // Ayara, Furnace Queen"));
 assert.ok(yoreSnippetNames.includes("Abandoned Sarcophagus"));

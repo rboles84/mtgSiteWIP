@@ -798,6 +798,7 @@ section {
   inset: -24% -14% -32%;
   opacity: 0.56;
   filter: blur(30px);
+  animation: vmRadarBreath 3.6s ease-in-out infinite;
 }
 
 .vm-radar-card.vm-hero-radar-card .vm-radar-caption {
@@ -813,6 +814,36 @@ section {
 .vm-dataset-pills.vm-hero-dataset-pills .vm-pill {
   padding: 0.2rem 0.38rem;
   font-size: 0.64rem;
+}
+
+@keyframes vmRadarBreath {
+  0%, 100% {
+    opacity: 0.36;
+    transform: scale(0.985);
+  }
+  50% {
+    opacity: 0.64;
+    transform: scale(1.018);
+  }
+}
+
+.vm-hero-radar-fallback {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 11rem;
+  padding: 1rem;
+  border: 1px dashed rgba(255,255,255,0.2);
+  border-radius: 8px;
+  background: rgba(255,255,255,0.04);
+  color: rgba(245,234,210,0.72);
+  font-size: 0.8rem;
+  line-height: 1.45;
+  text-align: center;
+}
+
+.vm-hero-radar-fallback[hidden] {
+  display: none !important;
 }
 
 /* CARDS / PANELS: Reusable route-local card grids, glass surfaces, hover states, and CTA text. */
@@ -1885,6 +1916,7 @@ section {
 
 /* ANIMATION / REDUCED MOTION: Disable glyph motion while preserving the still color signal. */
 @media (prefers-reduced-motion: reduce) {
+  .vm-radar-card.vm-hero-radar-card .vm-radar-glow { animation: none !important; }
   .cag-node, .cag-orbit,
   .cag-halo-w-a, .cag-halo-w-b,
   .cag-ripple-1, .cag-ripple-2, .cag-ripple-3,
