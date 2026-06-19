@@ -5,6 +5,7 @@ const DOSSIER_RADAR_AXES = RADAR.AXIS_LABELS;
 const DOSSIER_SYNTHESIS_GOLD = "#f0c56a";
 
 let dossierManaRadarChart = null;
+let dossierAxisInteractionCleanup = null;
 
 function escapeDossierHtml(value) {
   return String(value ?? "")
@@ -210,6 +211,10 @@ function renderDossierRadarSection({ result, faction, flavorSnippets = [], ident
 }
 
 function destroyDossierManaRadar() {
+  if (dossierAxisInteractionCleanup) {
+    dossierAxisInteractionCleanup();
+    dossierAxisInteractionCleanup = null;
+  }
   if (dossierManaRadarChart) {
     dossierManaRadarChart.destroy();
     dossierManaRadarChart = null;
@@ -223,7 +228,27 @@ function selectedGlow(profile) {
   return RADAR.blendGradient(hexes.length ? hexes : [profile.hex]);
 }
 
-function setDossierActiveAxis(profile, axisIndex, { syncChart = true, active = true } = {}) {
+function clearDossierPinnedAxis({ syncChart = true } = {}) {
+  const rows = Array.from(document.querySelectorAll("[data-dossier-axis-index]"));
+  const detail = document.getElementById("dossierAxisDetail");
+
+  rows.forEach((row) => {
+    row.classList.remove("is-active");
+    row.setAttribute("aria-expanded", "false");
+  });
+
+  if (detail) {
+    detail.classList.remove("is-active");
+    detail.hidden = true;
+  }
+
+  if (syncChart && dossierManaRadarChart) {
+    dossierManaRadarChart.setActiveElements([]);
+    dossierManaRadarChart.update("none");
+  }
+}
+
+function pinDossierAxis(profile, axisIndex, { syncChart = true } = {}) {
   const rows = Array.from(document.querySelectorAll("[data-dossier-axis-index]"));
   const detail = document.getElementById("dossierAxisDetail");
   const resolvedIndex = Number.isInteger(axisIndex) ? axisIndex : RADAR.dominantAxisIndex(profile);
@@ -231,7 +256,7 @@ function setDossierActiveAxis(profile, axisIndex, { syncChart = true, active = t
 
   rows.forEach((row) => {
     const rowIndex = Number(row.getAttribute("data-dossier-axis-index"));
-    const rowActive = active && rowIndex === resolvedIndex;
+    const rowActive = rowIndex === resolvedIndex;
     row.classList.toggle("is-active", rowActive);
     row.setAttribute("aria-expanded", rowActive ? "true" : "false");
     if (rowActive) {
@@ -239,39 +264,83 @@ function setDossierActiveAxis(profile, axisIndex, { syncChart = true, active = t
     }
   });
 
+  if (!activeRow) {
+    clearDossierPinnedAxis({ syncChart });
+    return;
+  }
+
   if (detail) {
     detail.innerHTML = renderDossierAxisDetail(profile, resolvedIndex);
-    detail.classList.toggle("is-active", active);
-    detail.hidden = !active;
-    if (active && activeRow) {
-      const panel = detail.closest(".vm-identity-reading-panel");
-      const rowMidpoint = activeRow.offsetTop + activeRow.offsetHeight / 2;
-      const minTop = panel ? Math.min(panel.clientHeight - 42, rowMidpoint) : rowMidpoint;
-      detail.style.setProperty("--detail-top", `${Math.max(42, minTop)}px`);
-    }
+    detail.classList.add("is-active");
+    detail.hidden = false;
+    const panel = detail.closest(".vm-identity-reading-panel");
+    const rowMidpoint = activeRow.offsetTop + activeRow.offsetHeight / 2;
+    const minTop = panel ? Math.min(panel.clientHeight - 42, rowMidpoint) : rowMidpoint;
+    detail.style.setProperty("--detail-top", `${Math.max(42, minTop)}px`);
   }
 
   if (syncChart && dossierManaRadarChart) {
     const compositeIndex = dossierManaRadarChart.data.datasets.findIndex((dataset) => dataset._vmComposite);
-    dossierManaRadarChart.setActiveElements(active && compositeIndex >= 0 ? [{ datasetIndex: compositeIndex, index: resolvedIndex }] : []);
+    dossierManaRadarChart.setActiveElements(compositeIndex >= 0 ? [{ datasetIndex: compositeIndex, index: resolvedIndex }] : []);
     dossierManaRadarChart.update("none");
   }
 }
 
-function clearDossierActiveAxis(profile) {
-  setDossierActiveAxis(profile, RADAR.dominantAxisIndex(profile), { syncChart: true, active: false });
-}
-
 function bindDossierAxisInteractions(profile) {
+  if (dossierAxisInteractionCleanup) {
+    dossierAxisInteractionCleanup();
+    dossierAxisInteractionCleanup = null;
+  }
+
   const rows = Array.from(document.querySelectorAll("[data-dossier-axis-index]"));
+  const panel = document.querySelector(".vm-identity-reading-panel");
+  const disposers = [];
+
+  const addInteractionListener = (target, eventName, handler, options) => {
+    if (!target) return;
+    target.addEventListener(eventName, handler, options);
+    disposers.push(() => target.removeEventListener(eventName, handler, options));
+  };
+
   rows.forEach((row) => {
     const axisIndex = Number(row.getAttribute("data-dossier-axis-index"));
-    row.addEventListener("pointerenter", () => setDossierActiveAxis(profile, axisIndex));
-    row.addEventListener("pointerleave", () => clearDossierActiveAxis(profile));
-    row.addEventListener("focus", () => setDossierActiveAxis(profile, axisIndex));
-    row.addEventListener("blur", () => clearDossierActiveAxis(profile));
+    const pinRow = () => pinDossierAxis(profile, axisIndex);
+    const handleKeydown = (event) => {
+      if (event.key === "Enter" || event.key === " ") {
+        event.preventDefault();
+        pinRow();
+        return;
+      }
+      if (event.key === "Escape") {
+        clearDossierPinnedAxis();
+      }
+    };
+    addInteractionListener(row, "click", pinRow);
+    addInteractionListener(row, "keydown", handleKeydown);
   });
-  clearDossierActiveAxis(profile);
+
+  const handlePanelFocusOut = (event) => {
+    if (!panel || panel.contains(event.relatedTarget)) return;
+    clearDossierPinnedAxis();
+  };
+  const handleDocumentPointerDown = (event) => {
+    if (panel?.contains(event.target)) return;
+    clearDossierPinnedAxis();
+  };
+  const handleDocumentKeydown = (event) => {
+    if (event.key !== "Escape") return;
+    clearDossierPinnedAxis();
+  };
+
+  addInteractionListener(panel, "focusout", handlePanelFocusOut);
+  addInteractionListener(document, "pointerdown", handleDocumentPointerDown);
+  addInteractionListener(document, "keydown", handleDocumentKeydown);
+  clearDossierPinnedAxis();
+
+  dossierAxisInteractionCleanup = () => {
+    disposers.forEach((dispose) => dispose());
+    clearDossierPinnedAxis({ syncChart: false });
+  };
 }
 
 function updateDossierRadarDatasets(profile, showComponents, showComposite) {
@@ -389,13 +458,6 @@ function initDossierManaRadar({ result, faction, profile, identityLayers = null 
       interaction: {
         mode: "nearest",
         intersect: false,
-      },
-      onHover(_event, elements) {
-        if (elements?.length) {
-          setDossierActiveAxis(resolvedProfile, elements[0].index, { syncChart: false, active: true });
-          return;
-        }
-        clearDossierActiveAxis(resolvedProfile);
       },
       plugins: {
         legend: {

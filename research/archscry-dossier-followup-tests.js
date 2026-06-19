@@ -328,11 +328,30 @@ assert.ok(
     radarSource.indexOf('class="vm-identity-reading-panel"') < radarSource.indexOf('id="dossierAxisList"'),
   "expected the Lore/Core copy card to render above the trait-row panel"
 );
-assert.match(radarSource, /id="dossierAxisDetail"[^>]*hidden/, "expected Strategium detail to start hidden until trait hover/focus");
-assert.match(radarSource, /aria-expanded="false"/, "expected trait rows to expose collapsed hover-detail state");
+assert.match(radarSource, /id="dossierAxisDetail"[^>]*hidden/, "expected Strategium detail to start hidden until trait click or keyboard activation");
+assert.match(radarSource, /aria-expanded="false"/, "expected trait rows to expose collapsed pinned-detail state");
+assert.doesNotMatch(radarSource, /onHover\(/, "expected dossier radar canvas hover not to activate Strategium detail");
+assert.doesNotMatch(radarSource, /setDossierActiveAxis/, "expected the old hover/focus detail population helper to be removed");
+assert.doesNotMatch(radarSource, /pointerenter|pointerleave|addInteractionListener\(row,\s*"focus"/, "expected row hover/focus handlers not to populate Strategium detail");
+assert.match(radarSource, /function pinDossierAxis/, "expected trait rows to pin Strategium detail through an explicit activation path");
+assert.match(radarSource, /addInteractionListener\(row,\s*"click",\s*pinRow\)/, "expected row click to pin Strategium detail");
+assert.match(radarSource, /event\.key === "Enter" \|\| event\.key === " "/, "expected Enter and Space to pin Strategium detail from keyboard");
+assert.match(radarSource, /function clearDossierPinnedAxis/, "expected pinned detail to have one explicit clearing path");
+assert.match(radarSource, /row\.classList\.remove\("is-active"\)/, "expected clearing pinned detail to remove active row state");
+assert.match(radarSource, /row\.setAttribute\("aria-expanded",\s*"false"\)/, "expected clearing pinned detail to reset expanded state");
+assert.match(radarSource, /detail\.hidden = true/, "expected clearing pinned detail to hide Strategium detail");
+assert.match(radarSource, /dossierManaRadarChart\.setActiveElements\(\[\]\)/, "expected clearing pinned detail to clear radar active elements");
+assert.match(radarSource, /addInteractionListener\(panel,\s*"focusout",\s*handlePanelFocusOut\)/, "expected focus leaving the panel to clear pinned detail");
+assert.match(radarSource, /panel\.contains\(event\.relatedTarget\)/, "expected focus movement inside the panel not to clear pinned detail");
+assert.match(radarSource, /addInteractionListener\(document,\s*"pointerdown",\s*handleDocumentPointerDown\)/, "expected outside click to clear pinned detail");
+assert.match(radarSource, /panel\?\.contains\(event\.target\)/, "expected outside-click clearing to ignore clicks inside the identity panel");
+assert.match(radarSource, /addInteractionListener\(document,\s*"keydown",\s*handleDocumentKeydown\)/, "expected Escape clearing to be document-scoped for the active dossier lifecycle");
+assert.match(radarSource, /event\.key !== "Escape"/, "expected non-Escape document keydowns not to clear pinned detail");
+assert.match(radarSource, /let dossierAxisInteractionCleanup = null/, "expected document-level detail handlers to be tracked for cleanup");
+assert.match(radarSource, /dossierAxisInteractionCleanup\(\);[\s\S]*dossierAxisInteractionCleanup = null;/, "expected document-level detail handlers to be cleaned before rerender or destroy");
 assert.match(archscryCssSource, /\.vm-dossier-matrix-section \.vm-strategium-detail\{\s*display:grid;\s*position:absolute;/, "expected Strategium detail to render as a popover instead of an inline row");
 assert.doesNotMatch(radarSource, /activeRow\.after\(detail\)/, "expected Strategium detail not to be inserted inline beneath trait rows");
-assert.match(archscryCssSource, /vm-strategium-detail\[hidden\]/, "expected hidden Strategium popover to stay out of layout until hover/focus");
+assert.match(archscryCssSource, /vm-strategium-detail\[hidden\]/, "expected hidden Strategium popover to stay out of layout until pinned");
 assert.match(indexSource, /const matrixFlavorSnippets = flavorSnippetsForFaction\(faction\)/, "expected renderResult to capture Identity Matrix card voices before building lower examples");
 assert.match(indexSource, /excludedCardNames:\s*matrixCardNames/, "expected lower card examples to exclude card names already shown in the Identity Matrix panel");
 assert.match(indexSource, /includeCurated:\s*!hasMatrixCardVoiceSurface/, "expected curated card voices to stay out of the lower card-example surface when the Matrix voice panel is present");

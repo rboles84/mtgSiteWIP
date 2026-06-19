@@ -2020,7 +2020,7 @@ body::before{
   background:
     radial-gradient(120% 95% at 50% 12%,rgba(38,43,58,0.28),rgba(11,13,21,0.7) 58%,rgba(4,5,10,0.76)),
     rgba(8,9,16,0.66);
-  padding:0.72rem;
+  padding:0.42rem;
 }
 .vm-dossier-matrix-section .vm-controls{
   justify-content:flex-end;
@@ -2046,7 +2046,7 @@ body::before{
   filter:blur(22px);
   animation:none;
 }
-.vm-dossier-matrix-section .vm-radar-wrap{height:clamp(300px,34vw,348px)}
+.vm-dossier-matrix-section .vm-radar-wrap{height:clamp(300px,32vw,318px)}
 .vm-dossier-matrix-section .vm-identity-copy-card,
 .vm-dossier-matrix-section .vm-identity-reading-panel,
 .vm-dossier-matrix-section .vm-matrix-summary-card{
