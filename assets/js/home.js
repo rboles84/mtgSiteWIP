@@ -576,7 +576,7 @@ function initHeroManaPreview() {
           angleLines: { color: "rgba(240, 197, 106, 0.25)" },
           pointLabels: {
             color: "#ffffff",
-            font: { size: 12, weight: "700", family: "Cinzel" }
+            font: { size: 12, weight: "700", family: "Fraunces, Georgia, serif" }
           }
         }
       }

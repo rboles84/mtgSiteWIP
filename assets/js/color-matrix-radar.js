@@ -386,7 +386,7 @@
 
       ctx.save();
       ctx.fillStyle = "rgba(255,255,255,0.9)";
-      ctx.font = "500 11px Cinzel";
+      ctx.font = "500 11px Fraunces, Georgia, serif";
       ctx.textAlign = "center";
 
       meta.data.forEach((point, index) => {
@@ -450,7 +450,7 @@
               padding: 14,
               font: {
                 size: 12,
-                family: "Cinzel"
+                family: "Fraunces, Georgia, serif"
               }
             }
           },

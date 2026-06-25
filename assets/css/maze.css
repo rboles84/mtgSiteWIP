@@ -10,7 +10,7 @@
 
 /* Route shell and shared background treatment */
 body.vm-maze-route {
-  --maze-bg-image: url("../img/backgrounds/background-vox-gateway-clean-13.webp");
+  --maze-bg-image: url("../img/backgrounds/background-maze-chamber-clean-01.webp");
   --maze-panel: rgba(12, 16, 25, 0.50);
   --maze-panel-strong: rgba(18, 23, 35, 0.62);
   --maze-panel-deep: rgba(8, 11, 18, 0.30);
@@ -20,7 +20,7 @@ body.vm-maze-route {
   --maze-teal-line: rgba(247, 215, 132, 0.30);
   --maze-text: #fffaf0;
   --maze-ink: #f5ead2;
-  --maze-muted: rgba(255, 255, 255, 0.74);
+  --maze-muted: rgba(245, 234, 210, 0.80);
   --maze-faint: rgba(255, 255, 255, 0.54);
   --maze-gold: #d7a23c;
   --maze-gold-2: #f7d784;
@@ -37,7 +37,7 @@ body.vm-maze-route {
     radial-gradient(circle at 80% 0%, rgba(164, 107, 234, 0.10), transparent 24rem),
     linear-gradient(180deg, #080812, #000);
   color: var(--maze-text);
-  font-family: "Cinzel", var(--font-display, serif);
+  font-family: var(--font-text, Georgia, serif);
   line-height: 1.6;
 }
 
@@ -50,7 +50,7 @@ body.vm-maze-route::before {
   pointer-events: none;
   background-image: var(--maze-bg-image);
   background-size: cover;
-  background-position: center;
+  background-position: 52% center;
   transform: scale(1.03);
   filter: saturate(1.04) contrast(1.08) brightness(0.72);
 }
@@ -62,10 +62,10 @@ body.vm-maze-route::after {
   z-index: -4;
   pointer-events: none;
   background:
-    linear-gradient(90deg, rgba(0, 0, 0, 0.72), rgba(0, 0, 0, 0.08) 24%, rgba(0, 0, 0, 0.08) 76%, rgba(0, 0, 0, 0.72)),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.80), rgba(0, 0, 0, 0.16) 24%, rgba(0, 0, 0, 0.14) 76%, rgba(0, 0, 0, 0.80)),
     radial-gradient(circle at var(--mx, 50%) var(--my, 40%), rgba(88, 186, 255, 0.20), transparent 28rem),
     radial-gradient(ellipse at 50% 100%, rgba(215, 162, 60, 0.08), transparent 44rem),
-    linear-gradient(180deg, rgba(0, 0, 0, 0.16), rgba(0, 0, 0, 0.48));
+    linear-gradient(180deg, rgba(0, 0, 0, 0.24), rgba(0, 0, 0, 0.56));
 }
 
 body.vm-maze-route .vm-bg {
@@ -265,8 +265,8 @@ body.vm-maze-route :focus-visible {
 .maze-command-copy h1 {
   max-width: 16ch;
   margin: 0;
-  color: var(--maze-text);
-  font-family: var(--font-display, "Cinzel", serif);
+  color: var(--maze-ink);
+  font-family: var(--font-display, Georgia, serif);
   font-size: clamp(2rem, 3.2vw, 3.35rem);
   line-height: 1.08;
   font-variation-settings: "opsz" 40, "wght" 620, "SOFT" 55;
@@ -276,7 +276,7 @@ body.vm-maze-route :focus-visible {
 .maze-command-copy p {
   max-width: 46ch;
   margin: 0.15rem 0 0;
-  color: var(--maze-muted);
+  color: rgba(245, 234, 210, 0.84);
   font-size: clamp(1rem, 1.2vw, 1.1rem);
 }
 
@@ -349,7 +349,7 @@ body.vm-maze-route :focus-visible {
 
 .mode-card-title {
   color: var(--maze-ink);
-  font-family: var(--font-display, "Cinzel", serif);
+  font-family: var(--font-display, Georgia, serif);
   font-size: 0.98rem;
   line-height: 1.1;
 }
@@ -478,7 +478,7 @@ body.vm-maze-route[data-maze-mode="builder"] .maze-user-badge {
   border-radius: var(--maze-radius-sm);
   background: rgba(8, 11, 18, 0.36);
   color: var(--maze-text);
-  font-family: var(--font-text, "Crimson Pro", Georgia, serif);
+  font-family: var(--font-text, Georgia, serif);
   font-size: 1.12rem;
   line-height: 1.48;
   padding: 1rem 1rem 1rem 2.55rem;
@@ -639,7 +639,7 @@ body.vm-maze-route[data-maze-mode="builder"] .maze-user-badge {
 .qi-input {
   display: block;
   color: var(--maze-muted);
-  font-family: var(--font-text, "Crimson Pro", Georgia, serif);
+  font-family: var(--font-text, Georgia, serif);
   font-size: 0.98rem;
   line-height: 1.45;
   word-break: break-word;
@@ -701,7 +701,7 @@ body.vm-maze-route[data-maze-mode="builder"] .maze-user-badge {
 
 .query-inspector[data-mode="raw"].is-compact .qi-query {
   color: var(--maze-faint);
-  font-family: var(--font-text, "Crimson Pro", Georgia, serif);
+  font-family: var(--font-text, Georgia, serif);
   font-size: 0.9rem;
 }
 
@@ -828,7 +828,7 @@ body.vm-maze-route[data-maze-mode="builder"] .maze-user-badge {
 .builder-head h2 {
   margin: 0.18rem 0 0;
   color: var(--maze-text);
-  font-family: var(--font-display, "Cinzel", serif);
+  font-family: var(--font-display, Georgia, serif);
   font-size: clamp(1.4rem, 2.4vw, 2.2rem);
 }
 
@@ -1388,7 +1388,7 @@ body.vm-maze-route[data-maze-mode="builder"] .maze-user-badge {
   flex: 1;
   min-width: min(100%, 18rem);
   color: var(--maze-ink);
-  font-family: var(--font-text, "Crimson Pro", Georgia, serif);
+  font-family: var(--font-text, Georgia, serif);
   font-size: 1rem;
   letter-spacing: 0.02em;
   text-transform: none;
@@ -1529,7 +1529,7 @@ body.vm-maze-route[data-maze-mode="builder"] .maze-user-badge {
 .empty-title {
   margin-top: 0.25rem;
   color: var(--maze-text);
-  font-family: var(--font-display, "Cinzel", serif);
+  font-family: var(--font-display, Georgia, serif);
   font-size: clamp(1.65rem, 3vw, 2.4rem);
   line-height: 1.05;
 }
@@ -1556,7 +1556,7 @@ body.vm-maze-route[data-maze-mode="builder"] .maze-user-badge {
 
 .empty-card-name {
   color: var(--maze-gold-2);
-  font-family: var(--font-display, "Cinzel", serif);
+  font-family: var(--font-display, Georgia, serif);
 }
 
 .empty-card-flavor {
@@ -1803,7 +1803,7 @@ body.vm-maze-route[data-stash-open="true"] .stash-panel {
 .m-name {
   margin: 0 2.5rem 0.35rem 0;
   color: var(--maze-text);
-  font-family: var(--font-display, "Cinzel", serif);
+  font-family: var(--font-display, Georgia, serif);
   font-size: clamp(1.5rem, 3vw, 2.35rem);
   line-height: 1.08;
 }

@@ -13,6 +13,7 @@ const basics = {
           <ul class="vm-console-list">
             <li>Commander tax and whether a recast still advances the game plan.</li>
             <li>Commander damage clocks and which players are quietly exposed.</li>
+            <li>Track commander damage as combat damage from each commander to each player, not as generic damage.</li>
             <li>Whether the commander is an engine, a payoff, or a political shield.</li>
           </ul>
         </div>
@@ -39,7 +40,7 @@ const basics = {
             <strong>Call out before the game</strong>
             <ul class="vm-console-list">
               <li>Precon, upgraded precon, casual brew, optimized deck, or cEDH intent.</li>
-              <li>Infinite combos, fast mana, tutors, stax pieces, extra turns, and proxy policy.</li>
+              <li>Infinite combos, fast mana, tutors, stax/lock pieces, mass land denial, extra turns, current Game Changers, and proxy policy.</li>
               <li>Whether the deck wants a long table, a battlecruiser table, or a sharper race.</li>
             </ul>
           </div>
@@ -57,6 +58,18 @@ const basics = {
           <p>
             Use bracket language only as an estimated social shortcut. If your pod does not
             use brackets, translate the same information into speed, combos, and table texture.
+          </p>
+          <p>
+            <strong>Bracket rough fit:</strong> Exhibition / Core for slower social games,
+            Upgraded for tuned casual decks, Optimized for high-power decks, and cEDH for
+            competitive, metagame-aware pods. Treat the bracket as a conversation starter,
+            then explain speed, combos, Game Changers, mass land denial, and table texture.
+          </p>
+          <p>
+            <strong>The one countable line:</strong> Game Changers are excluded at Exhibition
+            and Core (Brackets 1-2), capped at three at Upgraded (Bracket 3), and unrestricted
+            at Optimized and cEDH (Brackets 4-5). Counting them is the fastest honest read on
+            where a deck sits.
           </p>
           <div class="vm-console-script-grid">
             <article class="vm-console-script-card">
@@ -102,6 +115,13 @@ const basics = {
           <strong>Fast translation matters</strong>
           Archetype language helps the pod understand whether your commander is pointing toward
           board flood, one-shot pressure, stack interaction, value loops, or resource denial.
+        </div>
+        <div class="vm-console-note">
+          <strong>Likely colors are table-read shortcuts</strong>
+          They are not deckbuilding limits. They name the colors most associated with an
+          archetype's core Commander behavior. Example identities may include common splash or
+          support colors. Color-agnostic archetypes use "Any; often..." or "Any; most enabled
+          in..." when a narrow color home would be misleading.
         </div>
         <div class="vm-console-subpanel vm-archetype-library" data-archetype-library>
           <div class="vm-archetype-library-head">
@@ -227,6 +247,40 @@ const basics = {
             </li>
           </ol>
         </div>
+        <div class="vm-console-note">
+          <strong>Closing Window Check</strong>
+          Before passing a safe turn, ask whether you're supposed to end the game now, force
+          interaction, or make the table answer the real threat.
+        </div>
+      </div>
+    </div>`,
+  "heat-management": `
+    <div class="vm-console-body">
+      <h3>Heat Management</h3>
+      <p>
+        Deals, deflection, archenemy pressure, and not becoming the wrong target.
+      </p>
+      <div class="vm-console-grid">
+        <div class="vm-console-note">
+          <strong>What to track</strong>
+          <ul class="vm-console-list">
+            <li>Make offers that clarify intent, not manipulate the table.</li>
+            <li>Don't spend removal just because another player is loud.</li>
+            <li>Avoid kingmaking unless the game is already functionally over.</li>
+            <li>Know when to stay quiet, when to reveal pressure, and when your board already speaks for you.</li>
+            <li>Explain danger without begging the table to play for you.</li>
+          </ul>
+        </div>
+        <div class="vm-console-note">
+          <strong>What the pod reads</strong>
+          <ul class="vm-console-list">
+            <li>Whether your deals are honest or angle-shooting.</li>
+            <li>Whether you're the real threat or a convenient decoy.</li>
+            <li>Whether you're policing fairly or just protecting your own line.</li>
+            <li>Whether "I'm not a threat" is actually true this turn.</li>
+            <li>Whether you've earned archenemy heat - or dodged it too cheaply.</li>
+          </ul>
+        </div>
       </div>
     </div>`,
   "beyond-wubrg": `
@@ -240,8 +294,8 @@ const basics = {
       <ul class="vm-console-list">
         <li>Colorless can trade flexibility for giant mana spikes, utility-land lines, and huge top-end threats.</li>
         <li>Artifact engines often behave like their own resource language, even when the colors look modest.</li>
-        <li>Eldrazi pressure changes combat math and table panic the moment annihilator-scale threats are implied.</li>
-        <li>Phyrexian-flavored lists often read as inevitability, attrition, corruption, or counter-based pressure.</li>
+        <li>Eldrazi pressure changes combat math once titan-scale bodies, cast triggers, annihilator threats, or colorless ramp engines are implied.</li>
+        <li>Phyrexian-themed lists often read as attrition, corruption, poison, counters, sacrifice, or inevitability, depending on the commander.</li>
         <li>Weird commanders and crossover identities still need a clean explanation before the game begins.</li>
       </ul>
     </div>`
@@ -288,7 +342,7 @@ const archetypeEntries = [
     name: "Artifacts",
     subtitle: "Engine pieces and utility",
     summary: "Uses artifact ramp, sacrifice pieces, recursion, or combo engines to out-resource the pod.",
-    colors: "U, W, R; Esper, Jeskai, colorless",
+    colors: "Any; often colorless, U, W, B, R; Urza, Daretti, Esper, Jeskai",
     difficulty: "Medium",
     tableRead: "Value / Combo",
     tableGroup: "Snowball",
@@ -302,7 +356,7 @@ const archetypeEntries = [
     name: "Combo",
     subtitle: "Compact win lines",
     summary: "Assembles specific card interactions that can end the game once protected or repeated.",
-    colors: "U, B, R; Grixis, Simic, five-color",
+    colors: "Any; most enabled in U, B; Grixis, Simic, five-color",
     difficulty: "High",
     tableRead: "Threat / Hidden",
     tableGroup: "Hidden Threat",
@@ -316,7 +370,7 @@ const archetypeEntries = [
     name: "Lifegain",
     subtitle: "Life total as resource",
     summary: "Turns healing, drain, and payoffs into stability or a sudden lethal swing.",
-    colors: "W, B; Orzhov, Selesnya, Abzan",
+    colors: "W, B, G; Orzhov, Selesnya, Abzan",
     difficulty: "Low",
     tableRead: "Fair / Snowball",
     tableGroup: "Snowball",
@@ -386,7 +440,7 @@ const archetypeEntries = [
     name: "Lands Matter",
     subtitle: "Lands as engine",
     summary: "Treats lands as repeatable resources through recursion, utility lands, and land-count payoffs.",
-    colors: "G, R, U; Gruul, Simic, Temur, Jund",
+    colors: "G, R, U, B; Gruul, Simic, Temur, Jund",
     difficulty: "Medium",
     tableRead: "Snowball / Engine",
     tableGroup: "Snowball",
@@ -456,7 +510,7 @@ const archetypeEntries = [
     name: "Control",
     subtitle: "Answer-first pacing",
     summary: "Uses removal, counters, wipes, and card draw to slow the table until its finish is safe.",
-    colors: "U, W, B; Azorius, Esper, Grixis",
+    colors: "U, W, B, R; Azorius, Esper, Grixis",
     difficulty: "High",
     tableRead: "Annoying / Police",
     tableGroup: "Salt Risk",
@@ -540,7 +594,7 @@ const archetypeEntries = [
     name: "Typal",
     subtitle: "Creature type synergy",
     summary: "Builds around a creature type so lords, payoffs, and tribal engines make every body matter.",
-    colors: "Any; often W, G, B, R",
+    colors: "Any",
     difficulty: "Low",
     tableRead: "Fair / Familiar",
     tableGroup: "Fair",
@@ -677,17 +731,17 @@ const archetypeEntries = [
   },
   {
     id: "stax-lockout",
-    name: "Stax / Lockout",
-    subtitle: "Resource restriction",
-    summary: "Uses taxes and lock pieces to slow or prevent normal game actions, ideally asymmetrically.",
-    colors: "W, U, B; Orzhov, Azorius, Esper",
+    name: "Stax / Resource Denial",
+    subtitle: "Limits what players can do",
+    summary: "Uses taxes, locks, sacrifice pressure, untap limits, or mana denial to slow the table while its own plan keeps functioning.",
+    colors: "W, B, U, R; Azorius, Orzhov, Esper, Mardu",
     difficulty: "High",
-    tableRead: "Extreme Threat / Salt",
+    tableRead: "Salt Risk / Police",
     tableGroup: "Salt Risk",
     axis: "Control",
     family: "advanced",
     beginnerFriendly: "no",
-    aliases: ["prison", "lockout", "stax", "taxes", "resource denial"]
+    aliases: ["prison", "lockout", "stax", "taxes", "resource denial", "mana denial", "untap limits", "sacrifice pressure"]
   },
   {
     id: "group-slug",
@@ -719,17 +773,17 @@ const archetypeEntries = [
   },
   {
     id: "politics",
-    name: "Politics",
-    subtitle: "Deals and incentives",
-    summary: "Uses table deals, voting, goad, gifts, and selective pressure to shape opponent choices.",
-    colors: "W, U, B, R; Esper, Grixis, Mardu",
-    difficulty: "High",
-    tableRead: "Political / Unclear",
-    tableGroup: "Salt Risk",
+    name: "Politics / Deals",
+    subtitle: "Table negotiation and selective pressure",
+    summary: "Uses deals, favors, redirected attacks, monarch-style incentives, voting, goad, or temporary alliances to shape combat and removal decisions.",
+    colors: "W, U, B, R; often Esper, Grixis, Mardu, Jeskai",
+    difficulty: "Medium",
+    tableRead: "Social / Hidden Threat",
+    tableGroup: "Hidden Threat",
     axis: "Politics",
-    family: "advanced",
-    beginnerFriendly: "no",
-    aliases: ["deal making", "voting", "alliances", "kingmaking", "table talk"]
+    family: "core",
+    beginnerFriendly: "maybe",
+    aliases: ["politics", "deals", "deal making", "voting", "alliances", "monarch", "goad", "temporary alliances", "table talk"]
   },
   {
     id: "pillow-fort",
@@ -961,7 +1015,7 @@ const readinessItems = [
   { copy: "I can explain my deck's main plan in 20 seconds.", tag: "conversation" },
   { copy: "I know whether my deck is a precon, upgraded precon, casual brew, optimized deck, or cEDH deck.", tag: "conversation" },
   { copy: "I know whether my deck uses infinite combos.", tag: "conversation" },
-  { copy: "I know whether my deck uses tutors, fast mana, stax, mass land destruction, extra turns, or heavy control.", tag: "conversation" },
+  { copy: "I know whether my deck uses tutors, fast mana, stax/lock pieces, mass land denial/destruction, extra turns, current Game Changers, or heavy control.", tag: "conversation" },
   { copy: "I know how my commander wins or creates pressure.", tag: "deck" },
   { copy: "I know what kind of opening hand my deck wants.", tag: "deck" },
   { copy: "I can track commander damage.", tag: "kit" },
@@ -1051,7 +1105,7 @@ function renderArchetypeLibrary() {
 
   if (!filtered.length) {
     const widenHint = archetypeLibraryState.scope === "core"
-      ? " Try All to include specialist themes like Stax / Lockout, Hatebears, or Pillow Fort."
+      ? " Try All to include specialist themes like Stax / Resource Denial, Hatebears, or Pillow Fort."
       : " Clear a chip or shorten the search phrase to widen the deck-read lens.";
     results.innerHTML = `
       <div class="vm-archetype-empty">

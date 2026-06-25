@@ -22,6 +22,17 @@
 7. Confirm the Home Mana Lens reports `Still` under reduced motion, uses the tuned 9000ms cycle outside reduced motion, and still pauses on hover/focus before resuming.
 8. If the harness fails, review the generated diff PNGs before accepting any visual change.
 
+## VM-415 cross-route readability polish
+
+1. Open `/`, `/maze/`, `/apocrypha/`, and `/strategium/` at desktop, tablet, and mobile widths.
+2. Confirm Home's hero title and supporting copy fit comfortably in the first viewport without horizontal overflow or clipped text.
+3. Confirm Home, Maze, and Strategium running body copy uses the text font, while headings, labels, and nav keep their display or mono treatments.
+4. Confirm route h1/h2/h3 headings read as cream/parchment rather than route-by-route white or gold drift.
+5. Confirm muted lede/body copy remains readable over dark art, especially Maze command copy, Apocrypha section heads, and Strategium hero/intro panels.
+6. Hover and keyboard-focus the shared desktop nav links; confirm the visible label stays unchanged and the short orientation hint appears without changing hrefs or adding persistent popovers.
+7. Open the mobile utility menu; confirm desktop nav links are hidden, cloned menu links stay readable, and hidden nav hint spans do not display inside the menu.
+8. Run visual compares for Home, Apocrypha, Strategium, and Archscry when topbar changes are involved; classify expected readability diffs without refreshing baselines.
+
 ## VM-147A Home route manual QA
 
 1. Open `/` and `/index.html`; confirm both load the canonical Home route with no broken asset requests.
@@ -132,6 +143,18 @@
 5. Confirm each capture stays within the mismatch budget and the run reports no new Strategium console or page errors beyond `console-baseline.json`.
 6. In a browser, verify `.vm-checklist-button` remains readable in default, hover, `:focus-visible`, and `aria-pressed="true"` states after any Strategium panel-contrast change.
 7. If the harness fails, review the generated diff PNGs before accepting any visual change.
+
+## VM-416 Strategium content pass manual QA
+
+1. Open `/strategium/`; confirm the console has six tabs and `Heat Management` appears between `Threat Reading` and `Beyond WUBRG`.
+2. Switch through every Strategium console tab and confirm the active-state behavior still follows the existing tab pattern without dead buttons or console errors.
+3. In `Archetype Signal`, confirm the default Common scope reports 23 archetypes, includes `Politics / Deals`, and does not include `Stax / Resource Denial`.
+4. Search/filter for `Politics` and confirm it returns the unique `Politics / Deals` entry; switch to All and search/filter for Stax or Salt Risk/Control and confirm `Stax / Resource Denial` is discoverable.
+5. Confirm no duplicate old `Politics` or `Stax / Lockout` card remains visible.
+6. Confirm persona `Start with:` lines name real targets, including `Precon Pilot` to `Archetype Signal + Command Zone + Beyond WUBRG` and Heat Management routes from `Brewer / Upgrader` and `Competitive-Curious`.
+7. Confirm the Commander Readiness Checklist has one sharp-edge disclosure line using `mass land denial/destruction` and `current Game Changers`.
+8. Confirm bracket copy names all five brackets, frames brackets as conversation support, does not imply `precon = Bracket 2`, and states Game Changers as excluded for Brackets 1-2, up to three for Bracket 3, and unrestricted for Brackets 4-5.
+9. Confirm the compact Opening Hand Check sits near new-player/pregame content and the Closing Window Check sits near Threat Reading.
 
 ## `apocrypha/index.html` visual regression harness
 

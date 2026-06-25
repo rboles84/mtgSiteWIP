@@ -1,4 +1,5 @@
-import { readFile } from "node:fs/promises";
+import { readdir, readFile } from "node:fs/promises";
+import { extname, join } from "node:path";
 
 const publicPages = {
   home: "index.html",
@@ -23,6 +24,18 @@ const scriptSources = {
 const livePublicPageKeys = Object.keys(publicPages).filter(key => key !== "library");
 
 const failures = [];
+
+async function collectFiles(root, extensions) {
+  const entries = await readdir(root, { withFileTypes: true });
+  const files = await Promise.all(
+    entries.map(async entry => {
+      const file = join(root, entry.name);
+      if (entry.isDirectory()) return collectFiles(file, extensions);
+      return extensions.includes(extname(entry.name).toLowerCase()) ? [file] : [];
+    })
+  );
+  return files.flat();
+}
 
 function expect(condition, message) {
   if (!condition) failures.push(message);
@@ -89,6 +102,32 @@ function countMatches(source, pattern) {
   return [...source.matchAll(pattern)].length;
 }
 
+const mazeRouteModules = [
+  "research/research-init.js",
+  "research/research-search.js",
+  "research/research-ui.js",
+  "research/research-builder.js",
+  "research/research-mode.js",
+  "research/maze-query-core.js",
+  "research/scryfall-dictionary.js",
+  "research/scryfall-parser.js",
+];
+const liveFontRegressionFiles = [
+  ...new Set([
+    ...Object.values(publicPages),
+    ...(await collectFiles("assets/css", [".css"])),
+    ...(await collectFiles("assets/js", [".js"])),
+    ...mazeRouteModules,
+  ]),
+];
+const legacyFontPatterns = [
+  ["Cinzel Decorative", /\bCinzel Decorative\b/i],
+  ["Cinzel", /\bCinzel\b/i],
+  ["Crimson Pro", /\bCrimson Pro\b/i],
+  ["fonts.googleapis", /\bfonts\.googleapis\b/i],
+  ["fonts.gstatic", /\bfonts\.gstatic\b/i],
+];
+
 function getSectionTags(source) {
   return [...source.matchAll(/<section\b[^>]*>/gi)].map(match => match[0]);
 }
@@ -111,6 +150,17 @@ for (const [key, source] of Object.entries(sources)) {
     expect(
       imageHasIntrinsicSize(tag),
       `${publicPages[key]} should give every <img> explicit width and height: ${tag}`
+    );
+  }
+}
+
+for (const file of liveFontRegressionFiles) {
+  const source = await readFile(file, "utf8");
+  for (const [label, pattern] of legacyFontPatterns) {
+    expectAbsent(
+      source,
+      pattern,
+      `${file} should not reference legacy Google font dependency "${label}"`
     );
   }
 }
@@ -313,5 +363,5 @@ if (failures.length) {
 }
 
 console.log(
-  "Frontend HTML validation passed for public script deferral, intrinsic image sizing, landmarks, navigation semantics, Maze, Archscry, Strategium, Library, Privacy, and Terms."
+  "Frontend HTML validation passed for public script deferral, intrinsic image sizing, landmarks, navigation semantics, scoped font regression, Maze, Archscry, Strategium, Library, Privacy, and Terms."
 );

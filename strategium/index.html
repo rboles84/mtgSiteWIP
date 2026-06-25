@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Vox Mana - Strategium</title>
 <link rel="icon" type="image/svg+xml" href="../assets/img/vox-mana-header-logo.svg">
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="../assets/css/tokens.css" />
 <link rel="stylesheet" href="../assets/css/fonts.css" />
 <link rel="stylesheet" href="../assets/css/layout.css" />
@@ -31,11 +30,11 @@
     </a>
 
     <nav class="vm-nav" aria-label="Main Navigation">
-      <a class="vm-nav-link" href="../index.html" data-vm-nav="home">Home</a>
-      <a class="vm-nav-link" href="../archscry/index.html" data-vm-nav="archscry">Archscry</a>
-      <a class="vm-nav-link" href="../maze/index.html" data-vm-nav="maze">The Implicit Maze</a>
-      <a class="vm-nav-link" href="../apocrypha/index.html" data-vm-nav="apocrypha">Apocrypha</a>
-      <a class="vm-nav-link" href="#strategium" data-vm-nav="strategium">Strategium</a>
+      <a class="vm-nav-link" href="../index.html" data-vm-nav="home" data-nav-hint="Identity signal hub">Home<span class="vm-nav-hint" aria-hidden="true">Identity signal hub</span></a>
+      <a class="vm-nav-link" href="../archscry/index.html" data-vm-nav="archscry" data-nav-hint="Color identity reading">Archscry<span class="vm-nav-hint" aria-hidden="true">Color identity reading</span></a>
+      <a class="vm-nav-link" href="../maze/index.html" data-vm-nav="maze" data-nav-hint="Guided card search">The Implicit Maze<span class="vm-nav-hint" aria-hidden="true">Guided card search</span></a>
+      <a class="vm-nav-link" href="../apocrypha/index.html" data-vm-nav="apocrypha" data-nav-hint="Lore and source library">Apocrypha<span class="vm-nav-hint" aria-hidden="true">Lore and source library</span></a>
+      <a class="vm-nav-link" href="#strategium" data-vm-nav="strategium" data-nav-hint="Commander table literacy">Strategium<span class="vm-nav-hint" aria-hidden="true">Commander table literacy</span></a>
     </nav>
 
     <div class="vm-utility">
@@ -100,7 +99,7 @@
         <p class="vm-section-intro">
           Strategium is where your color identity becomes table behavior: how your deck
           introduces itself, how it wins, how it gets perceived, and how you avoid
-          becoming the player no one wants to sit across from.
+          blindsiding the table into a game it didn't sign up for.
         </p>
         <div class="vm-commander-grid">
           <article class="vm-card vm-focus-card">
@@ -145,6 +144,8 @@
               <strong>New to the Table</strong>
               <p>I need to survive my first few games without feeling lost.</p>
               <p class="vm-entry-note"><span>Best next move:</span> Learn how to explain your deck simply and ask who can actually end the game first.</p>
+              <p class="vm-entry-note"><span>Opening Hand Check:</span> A keepable Commander hand usually needs mana, a first action, and a reason it becomes your deck's plan instead of just "cards I can cast."</p>
+              <p class="vm-entry-note"><span>Start with:</span> Pod Readiness + Readiness Checklist</p>
             </div>
             <span class="vm-entry-chip">Onboard</span>
           </article>
@@ -153,6 +154,7 @@
               <strong>Returning Player</strong>
               <p>I know Magic, but Commander has changed.</p>
               <p class="vm-entry-note"><span>Watch for this:</span> Table expectations matter more now, so speed and social fit are part of the game plan.</p>
+              <p class="vm-entry-note"><span>Start with:</span> Pod Readiness + Archetype Signal</p>
             </div>
             <span class="vm-entry-chip">Relearn</span>
           </article>
@@ -161,6 +163,7 @@
               <strong>Precon Pilot</strong>
               <p>I bought a deck and want to understand what it is trying to do.</p>
               <p class="vm-entry-note"><span>Best next move:</span> Figure out the precon's default win pattern before you start swapping cards.</p>
+              <p class="vm-entry-note"><span>Start with:</span> Archetype Signal + Command Zone + Beyond WUBRG</p>
             </div>
             <span class="vm-entry-chip">Pilot</span>
           </article>
@@ -169,6 +172,7 @@
               <strong>Brewer / Upgrader</strong>
               <p>I want to tune a deck without accidentally overpowering the pod.</p>
               <p class="vm-entry-note"><span>Watch for this:</span> Tutors, fast mana, and cleaner finish lines can change a table faster than a big mythic upgrade.</p>
+              <p class="vm-entry-note"><span>Start with:</span> Pod Readiness + Threat Reading + Heat Management</p>
             </div>
             <span class="vm-entry-chip">Tune</span>
           </article>
@@ -177,6 +181,7 @@
               <strong>Competitive-Curious</strong>
               <p>I want sharper games, but I need to communicate that honestly.</p>
               <p class="vm-entry-note"><span>Best next move:</span> Practice naming combo pressure, interaction density, and speed without pretending the deck is softer than it is.</p>
+              <p class="vm-entry-note"><span>Start with:</span> Command Zone + Threat Reading + Heat Management</p>
             </div>
             <span class="vm-entry-chip">Escalate</span>
           </article>
@@ -207,6 +212,10 @@
         <button class="vm-tab" type="button" data-topic="threat-reading" role="tab" aria-selected="false">
           <span class="vm-tab-title">Threat Reading</span>
           <span class="vm-tab-copy">who is annoying, who is actually winning</span>
+        </button>
+        <button class="vm-tab" type="button" data-topic="heat-management" role="tab" aria-selected="false">
+          <span class="vm-tab-title">Heat Management</span>
+          <span class="vm-tab-copy">deals, deflection, and archenemy pressure</span>
         </button>
         <button class="vm-tab" type="button" data-topic="beyond-wubrg" role="tab" aria-selected="false">
           <span class="vm-tab-title">Beyond WUBRG</span>
@@ -266,7 +275,7 @@
       </div>
     </section>
 
-    <section class="vm-section vm-section-tight" aria-labelledby="strategium-readiness-title">
+    <section id="readiness-checklist" class="vm-section vm-section-tight" aria-labelledby="strategium-readiness-title">
       <div class="vm-panel vm-readiness-panel reveal">
         <span class="vm-eyebrow">Commander Readiness Checklist</span>
         <h2 class="vm-section-heading" id="strategium-readiness-title">Commander Readiness Checklist</h2>
