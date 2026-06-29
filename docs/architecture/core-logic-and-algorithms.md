@@ -150,7 +150,7 @@ Maze also has two discovery layers that do not replace search:
 1. General Discovery Paths are static query seeds for fresh users.
 2. From Your Reading paths are rendered only when a saved or cached placement result exists. They use the same four-lane dossier path helper as Archscry links and keep authored Plain Reading text for mode switching.
 
-The lightweight stash uses `localStorage` key `vm_maze_card_stash_v1`. Saved cards keep normalized Scryfall identifiers, name, set, collector number, type line, color identity, URI, image URI, soft stash section, and source query. It is intentionally not a deckbuilder: there is no legality validation, mana curve, land advice, account sync, or direct Moxfield/Archidekt export.
+Reading Finds uses `localStorage` key `vm_maze_reading_finds_v1`, with read-only migration from VM-405 `vm_maze_deck_idea_v2` and legacy `vm_maze_card_stash_v1`. Saved rows keep minimal card snapshots, quantities, oracle ids when available, Scryfall/card ids when available, section ownership, and reading/source context. Maze captures cards into Finds, Sparks, and Anchors; Archscry reflects matching `readingId` rows inside the Maze Discovery dossier panel without scoring, ranking, legality validation, account sync, price layer, or external handoff.
 
 The Archscry return banner reads `vm_archscry_maze_handoff_v1`, shows the faction, reading title, and path label when present, and can be dismissed by storing `returnBannerDismissed` without clearing the return URL.
 

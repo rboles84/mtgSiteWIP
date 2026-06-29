@@ -7,7 +7,6 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 ## Backlog
 
-- [VM-405 - Deck Scratchpad Redesign Concept](backlog/VM-405-deck-scratchpad-redesign-concept.md)
 - [VM-406 - Archscry Placement To Strategium Bridge Concepts](backlog/VM-406-archscry-placement-strategium-bridge-concepts.md)
 - [VM-398 - Apocrypha Research Vault Backlog Preservation](backlog/VM-398-apocrypha-research-vault-backlog-preservation.md)
 - [VM-356 - Rakdos And Quandrix Story Source Intake](backlog/VM-356-rakdos-quandrix-story-source-intake.md)
@@ -29,7 +28,7 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 ## In Progress
 
-- No cards currently in progress.
+- [VM-422 - Account Deck Links And Community Deck Ledger](in-progress/VM-422-account-deck-links-community-deck-ledger.md) - scope corrected to private saved deck links in Archscry first; public ledger, submit-for-review, moderation, and voting deferred.
 
 ## Blocked
 
@@ -39,6 +38,14 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 Historical note: `VM-044` is a preserved historical duplicate ID and `VM-049` is an intentional preserved duplicate pairing per the handoff trail. `VM-197` also has a user-declared Abzan stack duplicate while preserving the existing Alara VM-197 card. `VM-215` has a manual-QA Abzan repair duplicate; the former Jeskai VM-215 through VM-220 reservation was repaired to VM-229 through VM-234 on 2026-05-31.
 
+- [VM-427 - Repo Scan, Test Sweep, And Main Promotion](done/VM-427-repo-scan-test-sweep-main-promotion.md) - scanned the accumulated VM-420 through VM-426 bundle, ran local validation, made a small topbar-logo LCP hint, recorded current Lighthouse/visual waiver state, and prepared normal `main` promotion.
+- [VM-405 - Maze Deck Idea Tray V2](done/VM-405-maze-deck-idea-tray-v2.md) - replaced the old Maze scratchpad drawer with a semantic local-first tray; product framing and storage are superseded by VM-426 Reading Finds while preserving the VM-405 accessibility/progressive-enhancement base.
+- [VM-426 - Reading Finds And Dossier Reflection](done/VM-426-reading-finds-dossier-reflection.md) - reframed Maze as local Reading Finds capture, added conservative migration to `vm_maze_reading_finds_v1`, and reflects matching finds inside Archscry Maze Discovery without deckbuilder, recommendation, account save, legality, pricing, or analyzer scope.
+- [VM-425 - Index Mock Signal Mirror Preview](done/VM-425-index-mock-signal-mirror-preview.md) - backed out the rejected review mock at owner request; removed `index_mock.html` and mock-only CSS/JS while preserving traceability docs.
+- [VM-423 - Feedback Composer And Static Email Processor](done/VM-423-feedback-composer-static-email-processor.md) - added a shared topbar feedback composer with compact visible context, hidden page/section payload context, direct copy fallback, verified Web3Forms-to-`feedback@voxmana.io` delivery through Porkbun forwarding/Gmail labeling, action-row shimmer, hCaptcha hooks, Privacy/manual QA updates, and an external learnings note without adding a Supabase feedback write path.
+- [VM-424 - Homepage First-Visit Positioning](done/VM-424-homepage-first-visit-positioning.md) - clarified the Home first viewport as a Commander identity and taste compass, added not-a-deckbuilder framing, kept focused CTAs on the route cards, and rewrote route cards as user jobs without changing runtime/data behavior.
+- [VM-421 - Vox Mana Vault 1.0 Refresh And Learnings](done/VM-421-vox-mana-vault-refresh-learnings.md) - refreshed the external Obsidian vault as curated v1.0 memory with a release record, traceable learnings, source hierarchy, stale-term audit, note status normalization, and upgrade report while preserving repo authority.
+- [VM-420 - Docs Bloat Audit And Evidence-Preserving Consolidation](done/VM-420-docs-bloat-audit-evidence-consolidation.md) - audited docs footprint and tracked ignored-pattern classes, removed two byte-identical duplicate artifacts with a VM-420 manifest, and deferred source-drop Markdown cleanup where active provenance references remain.
 - [VM-419 - Post-Promotion Branch Cleanup](done/VM-419-post-promotion-branch-cleanup.md) - removed redundant local and remote `codex/vm407-radar-v2` after confirming both refs were contained in `origin/main`; normal branch list now preserves only `main`, `origin/main`, and `origin/HEAD`.
 - [VM-418 - Repo Scan, Cleanup, And Main Promotion](done/VM-418-repo-scan-cleanup-main-promotion.md) - classified and validated the accumulated VM-413 through VM-416 bundle, carried forward documented visual/Lighthouse waivers, cleaned generated Lighthouse whitespace, and prepared `codex/vm407-radar-v2` for normal-push main promotion.
 - [VM-416 - Strategium Content Pass](done/VM-416-strategium-content-pass.md) - updated Strategium route-local content with Option B Politics/Stax handling, Heat Management as the sixth console module, persona routing, bracket/source-checked copy, commander/readiness/checklist updates, and documented stale visual compare drift without refreshing baselines.

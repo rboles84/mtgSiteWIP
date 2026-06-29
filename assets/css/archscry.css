@@ -143,6 +143,7 @@ body.vm-archscry-route .adjacent-section,
 body.vm-archscry-route .staples-section,
 body.vm-archscry-route .lands-section,
 body.vm-archscry-route .decks-section,
+body.vm-archscry-route .deck-link-section,
 body.vm-archscry-route .footer-actions {
   position: relative;
   overflow: hidden;
@@ -492,7 +493,7 @@ body.vm-archscry-route .section-label {
   border-bottom: 1px solid rgba(184, 149, 74, 0.12);
 }
 
-body.vm-archscry-route :is(.precons-section, .scores-section, .archetypes-section, .starter-section, .adjacent-section, .staples-section, .lands-section, .decks-section, .footer-actions) {
+body.vm-archscry-route :is(.precons-section, .scores-section, .archetypes-section, .starter-section, .adjacent-section, .staples-section, .lands-section, .decks-section, .deck-link-section, .footer-actions) {
   padding: clamp(1.1rem, 2.5vw, 1.35rem);
   margin-bottom: 1.75rem;
 }
@@ -502,7 +503,7 @@ body.vm-archscry-route :is(.precon-grid, .archetypes-grid, .decks-grid, .adjacen
   background: none;
 }
 
-body.vm-archscry-route :is(.precons-section, .archetypes-section, .decks-section, .adjacent-section, .starter-section, .lands-section) {
+body.vm-archscry-route :is(.precons-section, .archetypes-section, .decks-section, .deck-link-section, .adjacent-section, .starter-section, .lands-section) {
   container-type: inline-size;
 }
 
@@ -1199,6 +1200,7 @@ body.vm-archscry-route .lands-tiers .dossier-segment-panel[hidden] {
   body.vm-archscry-route .staples-section,
   body.vm-archscry-route .lands-section,
   body.vm-archscry-route .decks-section,
+  body.vm-archscry-route .deck-link-section,
   body.vm-archscry-route .footer-actions {
     border-radius: 22px;
   }
@@ -1699,7 +1701,7 @@ body::before{
   padding-bottom:0.5rem;
   border-bottom:1px solid var(--border);
 }
-.precons-section,.scores-section,.archetypes-section,.starter-section,.adjacent-section,.staples-section,.lands-section,.decks-section,.footer-actions{
+.precons-section,.scores-section,.archetypes-section,.starter-section,.adjacent-section,.staples-section,.lands-section,.decks-section,.deck-link-section,.footer-actions{
   margin-bottom:3rem;
 }
 .score-bars{display:flex;flex-direction:column;gap:8px;max-width:420px}
@@ -2532,10 +2534,252 @@ body::before{
 }
 .starter-note-label{margin-bottom:0.35rem}
 .starter-links{display:flex;gap:8px;flex-wrap:wrap;margin-top:1rem}
+.maze-finds-card{
+  border:1px solid rgba(26,170,150,0.16);
+  background:
+    linear-gradient(135deg,rgba(26,170,150,0.08),transparent 36%),
+    rgba(5,10,12,0.72);
+  padding:1.1rem;
+}
+.maze-finds-list{
+  display:grid;
+  gap:0.75rem;
+  margin-top:0.9rem;
+}
+.maze-finds-group h4{
+  margin:0 0 0.35rem;
+  color:var(--gold);
+  font-family:var(--font-display);
+  font-size:0.82rem;
+}
+.maze-finds-group ul{
+  display:grid;
+  gap:0.3rem;
+  margin:0;
+  padding:0;
+  list-style:none;
+}
+.maze-finds-group li{
+  min-height:32px;
+  display:flex;
+  align-items:center;
+  border:1px solid rgba(231,238,234,0.08);
+  background:rgba(255,255,255,0.035);
+  padding:0.35rem 0.5rem;
+  color:var(--text-dim);
+  font-size:0.84rem;
+}
 .deck-format,.adjacent-label{font-family:var(--font-mono);font-size:0.6rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--gold-d);margin-bottom:0.4rem}
 .deck-name,.adjacent-name{font-size:1.05rem;color:var(--text);margin-bottom:0.35rem}
 .deck-desc,.adjacent-copy{font-size:0.88rem;color:var(--text-dim);line-height:1.5;flex:1;margin-bottom:1rem}
 .deck-links,.adjacent-actions{display:flex;gap:6px;flex-wrap:wrap}
+body.vm-archscry-route .deck-link-section{
+  display:grid;
+  gap:clamp(1rem,2.5vw,1.35rem);
+}
+body.vm-archscry-route .deck-link-section-head{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:1rem;
+}
+body.vm-archscry-route .deck-link-section-head h2,
+body.vm-archscry-route .deck-link-list-head h3{
+  margin:0;
+  color:var(--text);
+  font-family:var(--font-display);
+}
+body.vm-archscry-route .deck-link-section-head h2{
+  font-size:clamp(1.35rem,3vw,1.95rem);
+}
+body.vm-archscry-route .deck-link-copy{
+  max-width:68ch;
+  margin:0.55rem 0 0;
+  color:var(--text-dim);
+  line-height:1.55;
+}
+body.vm-archscry-route .deck-link-ledger-link,
+body.vm-archscry-route .deck-link-open{
+  color:var(--gold-l);
+  text-decoration:none;
+}
+body.vm-archscry-route .deck-link-ledger-link{
+  flex:0 0 auto;
+  font-family:var(--font-mono);
+  font-size:0.66rem;
+  letter-spacing:0.12em;
+  text-transform:uppercase;
+  padding:0.65rem 0.9rem;
+  border:1px solid rgba(184,149,74,0.22);
+  border-radius:999px;
+  background:rgba(10,10,12,0.58);
+}
+body.vm-archscry-route .deck-link-layout{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) minmax(280px,0.85fr);
+  gap:1rem;
+  align-items:start;
+}
+body.vm-archscry-route .deck-link-form,
+body.vm-archscry-route .deck-link-account-list{
+  display:grid;
+  gap:0.85rem;
+  min-width:0;
+}
+body.vm-archscry-route .deck-link-field{
+  display:grid;
+  gap:0.38rem;
+  min-width:0;
+}
+body.vm-archscry-route .deck-link-field > span,
+body.vm-archscry-route .deck-link-check span{
+  font-family:var(--font-mono);
+  font-size:0.62rem;
+  letter-spacing:0.14em;
+  text-transform:uppercase;
+  color:rgba(236,217,153,0.78);
+}
+body.vm-archscry-route .deck-link-field input,
+body.vm-archscry-route .deck-link-field textarea,
+body.vm-archscry-route .deck-link-field select{
+  box-sizing:border-box;
+  width:100%;
+  min-height:42px;
+  min-width:0;
+  border:1px solid rgba(184,149,74,0.18);
+  border-radius:16px;
+  background:rgba(6,7,10,0.86);
+  color:var(--text);
+  font:inherit;
+  padding:0.7rem 0.82rem;
+}
+body.vm-archscry-route .deck-link-field textarea{
+  resize:vertical;
+  line-height:1.45;
+}
+body.vm-archscry-route .deck-link-field input:focus,
+body.vm-archscry-route .deck-link-field textarea:focus,
+body.vm-archscry-route .deck-link-field select:focus{
+  outline:2px solid color-mix(in srgb,var(--gold-l) 58%,white 42%);
+  outline-offset:2px;
+  border-color:rgba(26,170,150,0.42);
+}
+body.vm-archscry-route .deck-link-field-grid,
+body.vm-archscry-route .deck-link-options{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:0.75rem;
+}
+body.vm-archscry-route .deck-link-check{
+  display:flex;
+  align-items:center;
+  gap:0.62rem;
+  min-height:42px;
+  padding:0.7rem 0.82rem;
+  border:1px solid rgba(184,149,74,0.14);
+  border-radius:16px;
+  background:rgba(6,7,10,0.54);
+}
+body.vm-archscry-route .deck-link-check input{
+  flex:0 0 auto;
+}
+body.vm-archscry-route .deck-link-actions,
+body.vm-archscry-route .deck-link-list-head,
+body.vm-archscry-route .saved-deck-link-head,
+body.vm-archscry-route .saved-deck-link-actions{
+  display:flex;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:0.65rem;
+}
+body.vm-archscry-route .deck-link-list-head{
+  justify-content:space-between;
+}
+body.vm-archscry-route .deck-link-status{
+  min-height:1.35rem;
+  margin:0;
+  color:rgba(214,203,184,0.8);
+  font-size:0.86rem;
+}
+body.vm-archscry-route .deck-link-status[data-tone="ok"]{color:var(--teal-l)}
+body.vm-archscry-route .deck-link-status[data-tone="error"]{color:#f0a090}
+body.vm-archscry-route .deck-link-list{
+  display:grid;
+  gap:0.75rem;
+  min-width:0;
+}
+body.vm-archscry-route .deck-link-empty{
+  margin:0;
+  color:var(--text-dim);
+}
+body.vm-archscry-route .saved-deck-link-card{
+  display:grid;
+  gap:0.62rem;
+  min-width:0;
+  padding:0.85rem;
+  border:1px solid rgba(184,149,74,0.16);
+  border-radius:18px;
+  background:rgba(6,7,10,0.58);
+  overflow-wrap:anywhere;
+}
+body.vm-archscry-route .saved-deck-link-head{
+  justify-content:space-between;
+}
+body.vm-archscry-route .deck-link-provider,
+body.vm-archscry-route .deck-link-visibility,
+body.vm-archscry-route .saved-deck-link-meta span{
+  display:inline-flex;
+  align-items:center;
+  min-height:24px;
+  border-radius:999px;
+  font-family:var(--font-mono);
+  font-size:0.58rem;
+  letter-spacing:0.12em;
+  text-transform:uppercase;
+}
+body.vm-archscry-route .deck-link-provider,
+body.vm-archscry-route .deck-link-visibility{
+  padding:0.2rem 0.55rem;
+  border:1px solid rgba(184,149,74,0.2);
+  color:rgba(236,217,153,0.86);
+  background:rgba(184,149,74,0.08);
+}
+body.vm-archscry-route .deck-link-visibility[data-visibility="public"]{
+  color:var(--teal-l);
+  border-color:rgba(26,170,150,0.28);
+  background:rgba(26,170,150,0.1);
+}
+body.vm-archscry-route .saved-deck-link-card h4{
+  margin:0;
+  color:var(--text);
+  font-size:1rem;
+}
+body.vm-archscry-route .saved-deck-link-meta{
+  display:flex;
+  flex-wrap:wrap;
+  gap:0.38rem;
+}
+body.vm-archscry-route .saved-deck-link-meta span{
+  padding:0.16rem 0.48rem;
+  border:1px solid rgba(255,255,255,0.1);
+  color:rgba(214,203,184,0.82);
+}
+body.vm-archscry-route .saved-deck-link-note{
+  margin:0;
+  color:var(--text-dim);
+  line-height:1.5;
+}
+@media (max-width:860px){
+  body.vm-archscry-route .deck-link-section-head,
+  body.vm-archscry-route .deck-link-layout,
+  body.vm-archscry-route .deck-link-field-grid,
+  body.vm-archscry-route .deck-link-options{
+    grid-template-columns:1fr;
+  }
+  body.vm-archscry-route .deck-link-section-head{
+    display:grid;
+  }
+}
 .adjacent-btn{
   font-family:var(--font-mono);
   font-size:0.62rem;

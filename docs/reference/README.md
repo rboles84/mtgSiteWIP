@@ -13,6 +13,7 @@ This folder is the developer map for the current Vox Mana working tree. It docum
 - [Diagrams](../diagrams/diagrams.md) - editable Mermaid sources and static SVG companions.
 - [Spec Index](./spec-index.md) - map of existing project specs and how they relate.
 - [Supabase Frontend Security Review](../architecture/supabase-frontend-security-review.md) - code-only review of the public Supabase browser surface, the archived Edge Function, and the current policy traceability gap.
+- [VM-422 Deck Links SQL Artifact](../supabase-vm422-deck-links.sql) - Supabase table, RLS, grant, trigger, private saved-link, and dormant public-view contract for account deck links.
 
 ## Existing Project Specs
 

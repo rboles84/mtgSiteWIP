@@ -16,7 +16,7 @@
 <link rel="stylesheet" href="../assets/css/components.css">
 <link rel="stylesheet" href="../assets/css/maze.css">
 </head>
-<body class="vm-maze-route" data-page="maze" data-vm-current="maze" data-bg="medium" data-vm-atmosphere="rich" data-maze-mode="ai" data-stash-open="false">
+<body class="vm-maze-route" data-page="maze" data-vm-current="maze" data-bg="medium" data-vm-atmosphere="rich" data-maze-mode="ai" data-stash-open="true">
 
 <div class="vm-bg" aria-hidden="true">
   <picture class="vm-bg__picture">
@@ -31,7 +31,7 @@
 <header class="vm-topbar" role="banner" data-maze-modal-background>
   <a class="vm-brand" href="../index.html" aria-label="Vox Mana home">
     <span class="vm-brand-mark" aria-hidden="true">
-      <img src="../assets/img/vox-mana-header-logo.svg" alt="" width="44" height="44">
+    <img src="../assets/img/vox-mana-header-logo.svg" alt="" width="44" height="44" decoding="async" fetchpriority="high">
     </span>
     <span class="vm-brand-text">Vox Mana</span>
   </a>
@@ -290,25 +290,37 @@
       <span class="more-count" id="more-count"></span>
     </div>
   </section>
+
+  <aside class="stash-rail" aria-labelledby="maze-stash-title">
+    <button class="stash-drawer-toggle" id="stash-drawer-toggle" type="button" data-action="toggle-stash-drawer" aria-controls="stash-panel" aria-expanded="true">
+      <span>Reading Finds</span>
+      <span class="stash-drawer-count" data-stash-toggle-count>0</span>
+    </button>
+
+    <section class="stash-panel" id="stash-panel" aria-labelledby="maze-stash-title">
+      <div class="stash-head">
+        <div class="stash-title-block">
+          <h2 class="stash-title" id="maze-stash-title">Reading Finds</h2>
+          <label class="visually-hidden" for="scratchpad-title-input">Reading Finds title</label>
+          <input class="stash-title-input" id="scratchpad-title-input" type="text" value="Reading Finds" data-action="rename-scratchpad" aria-describedby="scratchpad-title-help">
+        </div>
+        <div class="stash-count" id="stash-count" aria-label="Cards in Reading Finds">0</div>
+        <button class="stash-drawer-close" type="button" data-action="close-stash-drawer" aria-label="Collapse Reading Finds">&times;</button>
+      </div>
+      <p class="stash-sub" id="scratchpad-title-help">Set aside cards that resonate with this reading, then sort the finds you want to revisit.</p>
+      <div class="stash-body" id="stash-body"></div>
+      <div class="stash-actions">
+        <button class="stash-copy" id="scratchpad-copy-finds" type="button" data-action="copy-scratchpad-export" disabled>Copy finds</button>
+        <a class="stash-copy stash-return-link hidden" id="scratchpad-return-dossier" href="../archscry/" data-scratchpad-return-link>Return to Dossier with Finds</a>
+        <button class="stash-copy" type="button" data-action="clear-stash">Clear</button>
+      </div>
+      <div class="stash-export-fallback hidden" id="stash-export-fallback">
+        <label for="stash-export-text">Reading Finds text</label>
+        <textarea id="stash-export-text" rows="8" readonly></textarea>
+      </div>
+    </section>
+  </aside>
 </div>
-
-<button class="stash-drawer-toggle" id="stash-drawer-toggle" type="button" data-action="toggle-stash-drawer" aria-controls="stash-panel" aria-expanded="false">
-  <span>Deck Scratchpad</span>
-  <span class="stash-drawer-count" data-stash-toggle-count>0</span>
-</button>
-
-<section class="stash-panel" id="stash-panel" aria-labelledby="maze-stash-title">
-  <div class="stash-head">
-    <div class="stash-title" id="maze-stash-title">Deck Scratchpad</div>
-    <div class="stash-count" id="stash-count">0</div>
-    <button class="stash-drawer-close" type="button" data-action="close-stash-drawer" aria-label="Close deck scratchpad">&times;</button>
-  </div>
-  <div class="stash-body" id="stash-body"></div>
-  <div class="stash-actions">
-    <button class="stash-copy" type="button" data-action="copy-stash-export">Copy export</button>
-    <button class="stash-copy" type="button" data-action="clear-stash">Clear</button>
-  </div>
-</section>
 </main><!-- .page -->
 
 <footer class="maze-footer" aria-labelledby="maze-footer-title" data-maze-modal-background>
@@ -323,9 +335,11 @@
     <div class="modal" id="modal-inner"></div>
   </div>
 </div>
+<div class="maze-toast" id="toast" role="status" aria-live="polite"></div>
 <script type="module" src="../research/research-init.js"></script>
 <script src="../assets/js/vm-rich-atmosphere.js" defer></script>
 <script src="../assets/js/reduce-motion.js" defer></script>
+<script src="../assets/js/vm-feedback.js" defer></script>
 <script src="../assets/js/vm-topbar.js" defer></script>
 </body>
 </html>

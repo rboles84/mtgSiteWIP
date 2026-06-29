@@ -292,4 +292,30 @@ The Supabase `profiles` row should keep compatibility fields plus the richer res
 - `avatar_url`
 - `placement_result`
 
-`placement_result` is the source of truth for saved-return behavior.
+`placement_result` is the source of truth for saved-return behavior and the attachment context used by private saved deck links.
+
+## Account deck-link storage
+
+VM-422 adds `docs/supabase-vm422-deck-links.sql` as the checked-in Supabase SQL/policy artifact for external deck-link references.
+
+The deck-link contract stores URLs and metadata only:
+
+- `user_deck_links` stores external deck URL, normalized provider, optional title/commander/note, placement metadata, visibility/moderation state, a public-safe display-name snapshot, and an upvote count.
+- `community_deck_votes` stores one signed-in-user `upvote` per public deck link.
+- `community_deck_ledger_public` is the sanitized public view with `security_invoker = true`.
+- `vm422_list_my_deck_links()` is the owner-scoped private account-list RPC. The Archscry saved-link panel uses it instead of selecting `user_deck_links` directly, so a signed-in user's private account list cannot absorb other users' approved public ledger rows or dormant moderation rows.
+
+This contract does not store decklists, card JSON, scraped content, Commander legality results, or hosted deck data.
+
+Display-name boundary: existing session/profile display logic can fall back to an email local part. VM-422 must not use that path for public ledger names. Browser insert/update grants do not include `public_display_name`; it remains the default `Vox Mana player` unless a trusted moderation/account process writes a sanitized public profile name.
+
+Grant boundary: because the public ledger view is `security_invoker = true`, browser roles need narrow underlying `user_deck_links` SELECT grants for the columns used by that public view. Do not broaden those grants to `owner_id`, moderation fields, private timestamps, or other account-only columns; use owner-scoped RPCs for private account surfaces.
+
+Visibility boundary: VM-422 v1 is private-only in product behavior and exposed browser writes. Browser users may create/update owner-owned `private` rows and move their own saved rows to the approved removal state, currently `archived`. Browser users must not directly create `submitted`, `public`, or `rejected` rows; those are future trusted moderation outcomes.
+
+Frontend surfaces:
+
+- `assets/js/index.js` renders the Archscry `Account Deck Links` dossier panel after `Commander Deck Starts` and fills saved private user rows with DOM/text APIs.
+- `assets/js/community-deck-ledger.js` is dormant future-ready code. It is not linked or loaded by Apocrypha v1.
+- The public Apocrypha route must not expose Community Deck Ledger UI, voting controls, private saved links, or raw Supabase schema/policy/table errors to visitors.
+- `npm run test:deck-links:live` runs the optional live Supabase RLS verifier once test-user credentials and a service-role key are available.

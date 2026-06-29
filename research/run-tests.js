@@ -6,6 +6,7 @@ await import("../assets/js/gate-compression-live-bias-tests.js");
 await import("./scryfall-parser-tests.js");
 await import("./research-builder-tests.js");
 await import("./maze-query-contract-tests.js");
+await import("./maze-scratchpad-store-tests.js");
 await import("./research-syntax-language-tests.js");
 await import("./research-mode-tests.js");
 await import("./maze-search-tests.js");

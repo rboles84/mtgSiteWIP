@@ -33,6 +33,84 @@
 7. Open the mobile utility menu; confirm desktop nav links are hidden, cloned menu links stay readable, and hidden nav hint spans do not display inside the menu.
 8. Run visual compares for Home, Apocrypha, Strategium, and Archscry when topbar changes are involved; classify expected readability diffs without refreshing baselines.
 
+## VM-424 Home first-visit positioning
+
+1. Open `/` and `/index.html` at desktop, tablet, and mobile widths.
+2. Confirm the first viewport explains Vox Mana as a Commander identity and taste compass.
+3. Confirm the first viewport answers the expected first action through the visible route-card CTAs: `Start with Archscry`, `Search the Maze`, and `Learn Commander`.
+4. Confirm the first viewport explicitly says Vox Mana is not a deckbuilder and does not imply deck import, hosting, management, or native decklist building.
+5. Confirm route cards are job-based: Archscry for Commander color identity and placement, Maze for plain-English Magic card search, Apocrypha for sources/lore/design logic, and Strategium for Commander concepts/archetypes/table patterns.
+6. Confirm the hero copy, WUBRG color axis, Identity Signal panel, and route cards do not overlap, clip, or introduce horizontal overflow.
+7. Confirm the shared topbar and mobile utility menu still work and route to Home, Archscry, Maze, Apocrypha, Strategium, Privacy, and Terms as before.
+8. Enable reduced motion and confirm the page remains readable, the Identity Signal still reports a reduced/static state, and the new CTA/orientation copy does not depend on animation.
+9. Run `npm.cmd run test:visual:home` in compare mode; classify expected diffs only for the copy/CTA/orientation changes and treat missing radar, missing topbar, overflow, or unexpected route-card movement as failures.
+
+## VM-425 Index mock Signal Mirror preview
+
+Backed out on 2026-06-28 at owner request. The review-only `index_mock.html`, `assets/css/home-signal-mirror-mock.css`, and `assets/js/home-signal-mirror-mock.js` files were removed. No active manual QA remains for this mock.
+
+## VM-426 Reading Finds And Dossier Reflection
+
+1. Open `/maze/` with normal storage and confirm Reading Finds appears in-flow beside the results on desktop and never covers the command deck, search controls, result cards, or modal actions.
+2. Add a search result with `Set aside`; confirm it lands in Finds, announces status, keeps focus predictable, and adding the same card again increments quantity instead of creating a duplicate row.
+3. Open a card modal and use `Set aside`; confirm the card lands in Finds without changing modal close, Escape, outside-click, inert, or focus-return behavior.
+4. Use only the keyboard to rename Reading Finds, collapse and expand the tray, change quantity, move a card between Finds/Sparks/Anchors with the select control, remove a card, activate Undo, and copy finds.
+5. Confirm moving between Finds/Sparks/Anchors preserves quantity and source context, and removing from one section does not remove the same card from another section.
+6. Confirm `Copy finds` exports `Reading Finds`, then non-empty Finds, Sparks, and Anchors sections in that order with `N Card Name` lines and no empty sections.
+7. Disable or block clipboard access and confirm a selectable Reading Finds text fallback appears without losing local finds.
+8. Refresh the page and confirm the Reading Finds payload persists under `vm_maze_reading_finds_v1`.
+9. Seed malformed `vm_maze_reading_finds_v1` storage and reload; confirm Maze search, results, modal, and Archscry handoff remain usable and the tray fails to a safe empty state.
+10. Seed `vm_maze_deck_idea_v2` and `vm_maze_card_stash_v1` legacy rows with no Reading Finds key; reload and confirm migration is conservative into Finds, leaves old keys untouched, and does not duplicate or increment rows on repeated reload.
+11. Open Maze from an Archscry dossier, set aside cards, then use `Return to Dossier with Finds`; confirm `Your Maze Finds` appears only inside the Maze Discovery dossier panel and only for the matching `readingId`.
+12. Confirm the Archscry mismatch state appears only when local Reading Finds exist, none match the active `readingId`, and at least one stored find has a different `readingId`.
+13. At `320px` and `390px`, confirm the tray stacks in-flow, controls remain at least 44px, text does not overlap, and no horizontal overflow appears.
+14. Enable reduced motion and confirm tray/toast behavior remains usable without nonessential animation.
+
+## VM-423 Feedback Composer and Static Email Processor
+
+1. Open `/`, `/archscry/`, `/maze/`, `/apocrypha/`, `/strategium/`, `/privacy/`, `/terms/`, and `/library/`; confirm the topbar shows `Feedback` in the right utility area.
+2. In `/archscry/`, confirm the Feedback button coexists beside the existing identity, retake, sign-out, and utility menu controls without hiding or reordering them destructively.
+3. Open Feedback by mouse, Enter, and Space; confirm the modal shows only Page and Timestamp as visible context, plus optional email and required feedback text.
+4. Confirm path, hash, visible section/link, browser/device, viewport, ISO timestamp, feedback text, and optional email remain in the copied/submitted payload but are not all displayed up front.
+5. Enter malformed optional emails and values containing line breaks; confirm they are rejected before Copy or Send.
+6. Enter valid feedback and confirm `Copy` works when the Clipboard API is available without requiring a preview step.
+7. Disable or block clipboard access and confirm the modal shows a selectable plain-text fallback block for manual copy only after Copy or failed Send needs it.
+8. With the configured Web3Forms access key, confirm `Send` attempts live delivery and `Copy` remains available as fallback.
+9. In Web3Forms settings, confirm the recipient is configured provider-side as `feedback@voxmana.io`; do not add recipient addresses to the client payload.
+10. In Porkbun, confirm `feedback@voxmana.io` forwards through the domain email-forwarding path.
+11. In Gmail, confirm the filter matches `to:(feedback@voxmana.io)`, applies the `Vox Mana / Feedback` label, and is not dependent on one brittle subject line.
+12. Send one direct email to `feedback@voxmana.io` and one Vox Mana UI feedback submission; confirm both land under `Vox Mana / Feedback`.
+13. Confirm the compact desktop action row shows a soft pulsing line shimmer without crowding Cancel, Copy, or Send; at mobile widths, confirm the glow collapses away and buttons remain usable.
+14. Enable reduced motion and confirm the feedback action-row shimmer becomes a static full-width line.
+15. With the configured Web3Forms access key, confirm live send handles success, `success:false`, `400`, `429`, `500`, malformed JSON, timeout, blocked request, and network failure without losing the composed feedback.
+16. If hCaptcha is configured, confirm it appears only when live send is enabled, renders inside the modal, and must be completed before send.
+17. Confirm Escape closes the modal, Tab stays inside it while open, outside click closes it, and focus returns to the Feedback button.
+18. At mobile widths, confirm the modal stays within `90dvh`, scrolls internally, and does not introduce horizontal overflow.
+19. Verify no Supabase feedback table, migration, RLS policy, client write, or SQL write path was added.
+20. Verify `rg "innerHTML" assets/js/vm-feedback.js assets/js/vm-topbar.js` does not reveal user-controlled rendering.
+21. Confirm Privacy copy matches the actual fields sent and names Web3Forms as the feedback processor.
+
+## VM-422 Private account deck links
+
+1. Apply `docs/supabase-vm422-deck-links.sql` to the target Supabase project before live account QA.
+2. In `/archscry/`, restore or complete a placement and confirm the deck-link form no longer appears immediately after placement info.
+3. Confirm the Dossier Directory includes an `Account Deck Links` tab after `Commander Deck Starts` on desktop and mobile.
+4. Click `Account Deck Links` and confirm the panel title is `Save a Deck Link for this Reading`.
+5. While signed out, attempt to save a valid Moxfield or Archidekt URL and confirm the page asks the user to save/sign in first without reloading.
+6. While signed in, save a private deck link with URL, title, commander, note, and attached placement; confirm it appears in `Saved Links` with provider badge, placement metadata, note, and `Private` status.
+7. Refresh, sign out/in, restore the reading, and confirm the saved deck link is still attached to that reading.
+8. Remove the saved link and confirm archived/removed rows do not appear after refresh, sign-out/sign-in, or placement restore.
+9. Confirm User B cannot read, edit, remove, vote on, or infer User A's private deck link; signed-out users cannot read private links.
+10. Confirm browser inserts/updates cannot create `submitted`, `public`, or `rejected` rows; browser writes are private-only plus owner removal.
+11. Confirm saving is blocked when no completed/restored placement exists.
+12. Confirm saving the same normalized URL twice for the same reading does not create duplicate visible rows.
+13. Confirm no public ledger CTA, submit button, visibility selector, upvote UI, or Community Deck Ledger language appears on Archscry.
+14. Confirm `/apocrypha/` has no Community Deck Ledger rail entry, linked section, vote UI, or deck-ledger script loading.
+15. Confirm user-submitted title, commander, note, and URL text render as text-safe content and do not execute HTML.
+16. Confirm allowed providers match the VM-422 allowlist and lookalike domains, malformed URLs, `javascript:` URLs, credentialed URLs, and non-http(s) URLs are rejected.
+17. With existing owner/non-owner test users and a service-role key available in the shell, run `npm.cmd run test:deck-links:live` with `VM422_OWNER_EMAIL`, `VM422_OWNER_PASSWORD`, `VM422_OTHER_EMAIL`, `VM422_OTHER_PASSWORD`, and `SUPABASE_SERVICE_ROLE_KEY` set.
+18. Run `npm.cmd run test:deck-links`, `npm.cmd run lint:js`, `npm.cmd run lint:html`, `npm.cmd run test:frontend-smoke`, and `npm.cmd test`.
+
 ## VM-147A Home route manual QA
 
 1. Open `/` and `/index.html`; confirm both load the canonical Home route with no broken asset requests.
@@ -99,11 +177,11 @@
 8. Open `/maze/?q=ci%3C%3Dur%20t%3Alegendary%20t%3Acreature%20f%3Acommander`; confirm the route lands with query context intact and the search actions point at the same query.
 9. Open `/maze/?from=archscry&readingId=test&guild=izzet&fit=UR&readingTitle=Test%20Reading&returnUrl=/archscry/`; confirm the Archscry return banner appears, dismisses, and links back without changing the handoff payload.
 10. From an Archscry primary dossier and one adjacent-fit dossier, open Maze Discovery paths; confirm From Your Dossier reflects the active fit and Plain Reading / Operator's Hand mode switching preserves authored path text.
-11. Add a card to the Deck Scratchpad from the grid, open a modal, add a card to Commander Ideas from the modal, remove a stashed card, copy the export, and clear the stash while preserving `Commander` and `Deck` headings.
+11. Set aside a card from the grid, open a modal, set aside a card from the modal, move a find into Sparks or Anchors, remove a saved find, copy the Reading Finds export, and clear the tray.
 12. Open and close a card modal by close button, outside click, and Escape; confirm background targets become inert while open, Tab stays inside the modal, and focus returns to the opener.
 13. Search enough results to enable Load More; confirm client pagination and remote `next_page` loading still update counts and recover button state after failure.
-14. Check mobile, tablet, and desktop widths for readable command deck, sidebar, results, stash drawer, modal, and return banner with no obvious horizontal overflow.
-15. Enable reduced motion and confirm Maze keeps a static or materially reduced atmosphere while mode cards, Query Inspector, stash drawer, and modal remain usable.
+14. Check mobile, tablet, and desktop widths for readable command deck, sidebar, results, Reading Finds, modal, and return banner with no obvious horizontal overflow.
+15. Enable reduced motion and confirm Maze keeps a static or materially reduced atmosphere while mode cards, Query Inspector, Reading Finds, and modal remain usable.
 16. Confirm any duplicate Maze CSS candidate that is not byte-identical and cascade-safe remains in place and is recorded as follow-up rather than removed during VM-147C.
 
 ## VM-136 / VM-137 / VM-139 / VM-140 / VM-141 precon dossier layer
@@ -198,10 +276,10 @@
 6. Click one item each from Helper Searches, Discovery Paths, By Color, Format, and Recent Searches; confirm Helper Searches remain present and separate from Recent Searches.
 7. Open `/maze/?from=archscry&readingId=test&guild=izzet&fit=UR&readingTitle=Test%20Reading&returnUrl=/archscry/` and confirm the Archscry return banner appears with a working return link.
 8. Open `/maze/?q=ci%3C%3Dur%20t%3Alegendary%20t%3Acreature%20f%3Acommander` and confirm the page lands with the query context intact.
-9. Add a card to the stash from the result grid, open a modal, add a card to Commander Ideas from the modal, then confirm remove actions update the count.
-10. Copy the stash export and confirm the text preserves `Commander` and `Deck` headings, then clear the stash.
+9. Set aside a card from the result grid, open a modal, set aside a card from the modal, then confirm remove actions update the count.
+10. Copy Reading Finds and confirm the text uses `Reading Finds` with Finds/Sparks/Anchors headings for non-empty sections, then clear the tray.
 11. Paginate with Load More, open and close a card modal by button, outside click, and Escape, and confirm focus returns to the opener.
-12. At mobile width, confirm the stash does not cover search/results and the mode/search/path panels do not introduce horizontal overflow.
+12. At mobile width, confirm Reading Finds does not cover search/results and the mode/search/path panels do not introduce horizontal overflow.
 13. Enable reduced motion and confirm animated Maze atmosphere/effects are disabled or materially reduced.
 
 ## VM-129D Maze mode separation and console usability
@@ -216,8 +294,8 @@
 8. Confirm the sidebar order is From Your Dossier, Discovery Paths, Recent Searches, Helper Searches, By Color, and Format; Helper Searches should be collapsed by default.
 9. On a fresh Maze load, confirm the sidebar format and builder format default to Commander, but explicit `f:` tokens in URLs, raw syntax, helper paths, or dossier handoff queries are not overwritten.
 10. Search enough results to enable `Load More`; confirm local pages append immediately and remote `next_page` pagination recovers the button state if a fetch fails.
-11. Open and close the deck scratchpad drawer; confirm `stash-panel` remains mounted, writes to `stash-count` and `stash-body`, and does not cover the command deck while closed.
-12. Add a card from the grid, add a card to Commander Ideas from the modal, copy the stash export, and clear the stash.
+11. Open, collapse, and expand Reading Finds; confirm it writes to `stash-count` and `stash-body`, remains in-flow/sticky instead of overlaying the command deck, and keeps search/results usable if the tray has no saved cards.
+12. Set aside a card from the grid, set aside a card from the modal, copy Reading Finds, and clear the tray.
 13. Open `/maze/?from=archscry&readingId=test&guild=izzet&fit=UR&readingTitle=Test%20Reading&returnUrl=/archscry/` and confirm the return banner/link still works.
 14. Open `/maze/?q=ci%3C%3Dur%20t%3Alegendary%20t%3Acreature%20f%3Acommander` and confirm it lands in Operator's Hand with the exact query preserved.
 15. At mobile/devtools-width desktop, confirm the drawer and command deck remain usable without horizontal overflow.
@@ -244,11 +322,11 @@
 ## VM-129E Maze glass and sidebar disclosures
 
 1. Open `/maze/` and confirm the major panels are more transparent than VM-129D while the text remains readable.
-2. Confirm the rich background art, stars, and glowing orbs read through the command deck, sidebar, results panel, and scratchpad drawer.
+2. Confirm the rich background art, stars, and glowing orbs read through the command deck, sidebar, results panel, and Reading Finds.
 3. Confirm Helper Searches, Recent Searches, and By Color all use the same plus/minus disclosure affordance.
 4. Confirm Recent Searches is hidden when empty, appears in the third sidebar position after a search, and opens automatically once populated.
 5. Confirm By Color defaults collapsed and reveals the existing color shortcut buttons when opened.
-6. Confirm Plain Reading, Operator's Hand, The Loom, stash drawer, and Load More still work after the polish pass.
+6. Confirm Plain Reading, Operator's Hand, The Loom, Reading Finds, and Load More still work after the polish pass.
 
 ## VM-142 Maze Strategium glass unification
 
@@ -257,8 +335,8 @@
 3. Confirm the command deck, mode cards, search input, sidebar, results panel, and empty-state panel keep the background art visible while preserving readable text contrast.
 4. Confirm the search textarea placeholder remains readable over the bright center of the background image.
 5. Inspect the command deck, sidebar, and results panel and confirm their major surfaces do not use `backdrop-filter` blur.
-6. At mobile width around `390px`, confirm the mode-card examples wrap, search actions stack vertically without horizontal overflow, and the compact scratchpad toggle does not cover mode-card text.
-7. Confirm Plain Reading, Operator's Hand, The Loom, stash drawer, Archscry return banner, and Load More still work after the glass tuning.
+6. At mobile width around `390px`, confirm the mode-card examples wrap, search actions stack vertically without horizontal overflow, and Reading Finds stacks in-flow without covering mode-card text.
+7. Confirm Plain Reading, Operator's Hand, The Loom, Reading Finds, Archscry return banner, and Load More still work after the glass tuning.
 
 ## VM-129F Maze textarea and inspector space pass
 
@@ -277,7 +355,7 @@
 
 1. Open `/maze/` beside `/` and `/strategium/`; confirm Maze uses the same rich painted-background family with visible stars, glowing orbs, translucent black-glass panels, gold accents, and no teal-forward console wash.
 2. Inspect the Maze `.vm-bg__stars` canvas and confirm it is attached to `body`, sized to the current viewport, and marked by the rich runtime instead of staying at the default `300x150` canvas size.
-3. Narrow the desktop viewport or open devtools and confirm the deck scratchpad drawer remains mounted/off-canvas while closed and does not overlap the command deck, return banner, search input, or results panel.
+3. Narrow the desktop viewport or open devtools and confirm Reading Finds remains in-flow while open or collapsed and does not overlap the command deck, return banner, search input, or results panel.
 4. Open `/archscry/`; confirm stars/orbs are visible again while the route remains darker and more dossier-focused than Home, Strategium, or Maze.
 5. Confirm Archscry no longer has `data-bg-clean="true"` and does have `data-vm-atmosphere="rich"`.
 6. Enable reduced motion and confirm Maze and Archscry render a static atmosphere frame without continuous animation.

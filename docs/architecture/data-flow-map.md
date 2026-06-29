@@ -38,7 +38,7 @@ The authoritative edit path is `data/precons/vox-mana-precons.source.json` plus 
 | Reduce motion | `assets/js/reduce-motion.js`, `assets/js/vm-topbar.js` | `localStorage` key `vm_reduce_motion` | Shared motion preference. |
 | Home identity signal | `assets/js/home.js` plus `data/identity-layers.json` | Route-local runtime state, canonical preview registry fetch, and `data/factions.json` lore fetch | Renders the canonical homepage Identity Signal, hero radar, destination links, and mana lore note from registry-owned preview metadata. |
 | Archscry-to-Maze handoff | `assets/js/index.js`, `assets/js/maze-handoff.js`, `research/research-init.js` | `localStorage` key `vm_archscry_maze_handoff_v1` plus Maze query params | Preserves originating dossier, active fit, faction name, return URL, `plainReadingQuery`, executable `operatorQuery`, stable `pathType`, and return-banner dismissal state when opening the shared four-lane dossier Maze paths. |
-| Maze card stash | `research/research-init.js` | `localStorage` key `vm_maze_card_stash_v1` | Lightweight local card stash with Commander Ideas, support cards, and maybe finds. |
+| Maze Reading Finds | `research/maze-scratchpad-store.js`, `research/research-init.js`, `assets/js/index.js` | `localStorage` key `vm_maze_reading_finds_v1`, with read-only migration from `vm_maze_deck_idea_v2` and `vm_maze_card_stash_v1` | Local reading companion with Finds, Sparks, and Anchors sections, quantity grouping, readingId-filtered Archscry reflection inside Maze Discovery, plain-text finds export, and no account persistence. |
 | Command panel filters | External command panel | `localStorage` keys `cp.*` | Local panel lane/status/search/page preferences. |
 
 ## Placement Result Flow

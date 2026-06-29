@@ -376,6 +376,15 @@ section {
   text-shadow: 0 10px 28px rgba(0, 0, 0, 0.55);
 }
 
+.vm-hero-copy .vm-hero-note {
+  max-width: 31rem;
+  margin: 0.85rem 0 0;
+  color: rgba(247, 215, 132, 0.86);
+  font-size: clamp(0.92rem, 1.15vw, 1.05rem);
+  line-height: 1.5;
+  text-shadow: 0 10px 24px rgba(0, 0, 0, 0.58);
+}
+
 .vm-color-axis {
   position: relative;
   width: min(100%, 35rem);

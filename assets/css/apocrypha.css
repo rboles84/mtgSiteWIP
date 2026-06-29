@@ -148,6 +148,8 @@ body[data-page="apocrypha"] .vm-bg__stars {
 .apoc-library-group,
 .apoc-use-card,
 .apoc-use-note,
+.community-deck-ledger-boundary,
+.community-deck-card,
 .apoc-ledger-stat,
 .apoc-deck-trigger,
 .apoc-flow-card,
@@ -163,6 +165,8 @@ body[data-page="apocrypha"] .vm-bg__stars {
 .apoc-library-group,
 .apoc-use-card,
 .apoc-use-note,
+.community-deck-ledger-boundary,
+.community-deck-card,
 .apoc-ledger-stat,
 .apoc-deck-trigger,
 .apoc-flow-card,
@@ -178,7 +182,9 @@ body[data-page="apocrypha"] .vm-bg__stars {
 .apoc-guide-card,
 .apoc-library-group,
 .apoc-use-card,
-.apoc-use-note {
+.apoc-use-note,
+.community-deck-ledger-boundary,
+.community-deck-card {
   border-radius: var(--apoc-radius-major);
   border: 1px solid var(--apoc-line);
   background: var(--apoc-glass);
@@ -202,7 +208,9 @@ body[data-page="apocrypha"] .vm-bg__stars {
 .apoc-guide-card::after,
 .apoc-library-group::after,
 .apoc-use-card::after,
-.apoc-use-note::after {
+.apoc-use-note::after,
+.community-deck-ledger-boundary::after,
+.community-deck-card::after {
   content: "";
   position: absolute;
   inset: 0;
@@ -608,6 +616,173 @@ body[data-page="apocrypha"] .vm-bg__stars {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: var(--s-4);
+}
+
+.community-deck-ledger {
+  display: grid;
+  gap: var(--s-4);
+}
+
+.community-deck-ledger-boundary {
+  padding: clamp(1rem, 3vw, 1.35rem);
+  border-color: rgba(214, 177, 97, 0.22);
+}
+
+.community-deck-ledger-boundary p {
+  position: relative;
+  z-index: 1;
+  margin: 0;
+  color: var(--text-dim);
+  line-height: 1.6;
+}
+
+.community-deck-ledger-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s-3);
+}
+
+.community-deck-ledger-status {
+  margin: 0;
+  color: var(--text-dim);
+  font-size: 0.94rem;
+}
+
+.community-deck-ledger-status[data-tone="ok"] {
+  color: var(--gold-l);
+}
+
+.community-deck-ledger-status[data-tone="error"] {
+  color: #f0a090;
+}
+
+.community-deck-ledger-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: var(--s-4);
+}
+
+.community-deck-card {
+  display: grid;
+  align-content: start;
+  gap: var(--s-3);
+  min-width: 0;
+  padding: clamp(1rem, 3vw, 1.25rem);
+  overflow-wrap: anywhere;
+}
+
+.community-deck-card-empty {
+  grid-column: 1 / -1;
+}
+
+.community-deck-card-empty p {
+  margin: 0;
+  color: var(--text-dim);
+}
+
+.community-deck-card-head,
+.community-deck-actions,
+.community-deck-meta {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+}
+
+.community-deck-card-head {
+  justify-content: space-between;
+}
+
+.community-deck-provider,
+.community-deck-public-at,
+.community-deck-meta span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 24px;
+  border-radius: 999px;
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.community-deck-provider,
+.community-deck-public-at {
+  padding: 0.2rem 0.58rem;
+  border: 1px solid rgba(214, 177, 97, 0.22);
+  color: var(--gold-l);
+  background: rgba(214, 177, 97, 0.08);
+}
+
+.community-deck-public-at {
+  color: rgba(220, 215, 198, 0.72);
+  border-color: rgba(255, 255, 255, 0.11);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.community-deck-card h3 {
+  position: relative;
+  z-index: 1;
+  margin: 0;
+  color: var(--apoc-ink);
+  font-family: var(--font-display);
+  font-size: clamp(1.25rem, 2.6vw, 1.55rem);
+  line-height: 1.15;
+}
+
+.community-deck-meta span {
+  padding: 0.14rem 0.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.11);
+  color: rgba(220, 215, 198, 0.78);
+}
+
+.community-deck-note {
+  position: relative;
+  z-index: 1;
+  margin: 0;
+  color: var(--text-dim);
+  line-height: 1.55;
+}
+
+.community-deck-link,
+.community-deck-vote {
+  min-height: 38px;
+  border-radius: 999px;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.community-deck-link {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.45rem 0.85rem;
+  color: var(--bg);
+  text-decoration: none;
+  background: linear-gradient(135deg, var(--gold-l), var(--gold));
+}
+
+.community-deck-vote {
+  padding: 0.45rem 0.85rem;
+  color: var(--gold-l);
+  border: 1px solid rgba(214, 177, 97, 0.28);
+  background: rgba(10, 10, 12, 0.62);
+  cursor: pointer;
+}
+
+.community-deck-vote[aria-pressed="true"] {
+  color: var(--teal-l);
+  border-color: rgba(102, 197, 202, 0.36);
+  background: rgba(102, 197, 202, 0.1);
+}
+
+.community-deck-vote:disabled {
+  cursor: not-allowed;
+  opacity: 0.62;
 }
 
 .apoc-library-grid {

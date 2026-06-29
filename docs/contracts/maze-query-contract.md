@@ -4,7 +4,7 @@
 
 VM-022 defines a Maze-first v1 contract for the shared query core. The contract describes how route code passes user intent, builder state, and Archscry/dossier launch context into the core, and how the core returns one executable Scryfall query plus display and trace metadata.
 
-This contract records current behavior. It is not a new product design and it should not change generated query strings, Scryfall request metadata, rendered result behavior, stash behavior, modal behavior, or handoff storage semantics unless a separate bug fix explicitly documents the change.
+This contract records current behavior. It is not a new product design and it should not change generated query strings, Scryfall request metadata, rendered result behavior, modal behavior, or handoff storage semantics unless a separate bug fix explicitly documents the change. VM-405 and VM-426 are the documented exceptions for the route-owned local capture layer: VM-405 replaced the V1 stash, and VM-426 reframed that layer as Reading Finds while preserving query, modal, result, and Archscry handoff behavior.
 
 ## Non-Goals
 
@@ -14,7 +14,7 @@ This contract records current behavior. It is not a new product design and it sh
 - No VM-010 Loom graph work.
 - No Scryfall fetch, cache, or in-flight dedupe rewrite.
 - No Archscry handoff storage key or payload rewrite.
-- No stash, modal, or result-rendering behavior change.
+- No modal, query, Scryfall result-rendering, or Archscry handoff behavior change.
 
 ## Ownership Boundary
 
@@ -36,12 +36,12 @@ UI-owned behavior:
 - Button wiring and mode presentation.
 - `localStorage` and `sessionStorage` persistence.
 - Scryfall fetch execution through `research/research-search.js`.
-- Query Inspector rendering, result grid rendering, card modal behavior, and stash behavior.
+- Query Inspector rendering, result grid rendering, card modal behavior, and Reading Finds behavior.
 
 Preserved legacy adapter boundaries:
 
 - `vm_archscry_maze_handoff_v1` storage key and semantics.
-- `vm_maze_card_stash_v1` stash key and export shape.
+- `vm_maze_reading_finds_v1` Reading Finds storage key, with read-only migration from `vm_maze_deck_idea_v2` and legacy `vm_maze_card_stash_v1`.
 - `vm_scryfall_api_v1:*` request caching and in-flight dedupe behavior.
 - Current exact-name modal flow.
 - Current route-local mode state transitions.

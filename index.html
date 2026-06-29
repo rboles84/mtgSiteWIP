@@ -50,7 +50,7 @@
 <header class="vm-topbar" role="banner">
   <a class="vm-brand" href="./index.html" aria-label="Vox Mana - home">
     <span class="vm-brand-mark" aria-hidden="true">
-      <img src="./assets/img/vox-mana-header-logo.svg" alt="" width="44" height="44">
+      <img src="./assets/img/vox-mana-header-logo.svg" alt="" width="44" height="44" decoding="async" fetchpriority="high">
     </span>
     <span class="vm-brand-text">Vox Mana</span>
   </a>
@@ -112,7 +112,8 @@
             <span>have a</span>
             <span>shape.</span>
           </h1>
-          <p class="vm-hero-lede">A quiet map of instinct, pressure, philosophy, and play.</p>
+          <p class="vm-hero-lede">Vox Mana is a Commander identity and taste compass. It helps you understand your colors, placement, play patterns, and what to look for when exploring commanders or decks elsewhere.</p>
+          <p class="vm-hero-note">Not a deckbuilder: Vox Mana helps you choose a direction before you build or browse decklists somewhere else.</p>
 
           <div class="vm-color-axis" aria-label="Vox Mana color philosophy axis">
             <svg class="vm-color-axis__svg" viewBox="0 0 520 110" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
@@ -705,11 +706,6 @@
 
           </div>
 
-          <!-- <div class="vm-actions">
-            <a class="vm-button primary" href="./archscry/index.html">Start Archscry</a>
-            <a class="vm-button" href="./maze/index.html">Explore the Maze</a>
-            <a class="vm-button" href="./apocrypha/index.html">Read Apocrypha</a>
-          </div> -->
         </div>
 
         <div class="vm-panel vm-hero-mana" tabindex="0" aria-label="Passive Vox Mana identity signal">
@@ -758,40 +754,40 @@
 
   <!-- ORIENTATION -->
   <section id="what" class="vm-section vm-home-index section-lazy-render" aria-labelledby="home-preview-index-title">
-    <h2 id="home-preview-index-title">Vox Mana is a living index.</h2>
+    <h2 id="home-preview-index-title">What can you do here?</h2>
     <p class="vm-section-intro">
-      Four focused paths through one color philosophy system.
+      Four focused paths for finding your Commander direction, searching cards, reading the sources, and learning the table.
     </p>
 
     <div class="vm-card-grid">
       <a class="vm-card reveal" href="./archscry/index.html">
 
         <h3>Archscry</h3>
-        <p>Turn Commander instincts into color identity, table presence, and playstyle.</p>
+        <p>Find your Commander color identity and placement.</p>
         <!-- <span class="vm-mini-badge">Identity</span> -->
-        <span class="vm-cta">Start Archscry -></span>
+        <span class="vm-cta">Start with Archscry -></span>
       </a>
 
       <a class="vm-card reveal" href="./maze/index.html">
 
         <h3>The Implicit Maze</h3>
-        <p>Search cards through theme, mechanics, symbolism, flavor, and color philosophy.</p>
+        <p>Search Magic cards in plain English.</p>
         <!-- <span class="vm-mini-badge">Search</span> -->
-        <span class="vm-cta">Explore the Maze -></span>
+        <span class="vm-cta">Search the Maze -></span>
       </a>
 
       <a class="vm-card reveal" href="./strategium/index.html">
         <!-- <span class="vm-mini-badge">Primer</span> -->
         <h3>Strategium</h3>
-        <p>A quick field guide for Commander, mana, color identity, precons, and table confidence.</p>
+        <p>Learn Commander concepts, archetypes, and table patterns.</p>
         <!-- <span class="vm-mini-badge">Commander Corner</span> -->
-        <span class="vm-cta">Open Strategium -></span>
+        <span class="vm-cta">Learn Commander -></span>
       </a>
 
       <a class="vm-card reveal" href="./apocrypha/index.html">
         <!-- <span class="vm-mini-badge">Archive</span> -->
         <h3>Apocrypha</h3>
-        <p>Read lore notes, faction research, source trails, and symbolic fragments.</p>
+        <p>Read the sources, lore, and design logic behind the model.</p>
         <span class="vm-cta">Open Apocrypha -></span>
       </a>
     </div>
@@ -818,6 +814,7 @@
 
 <script src="./assets/js/home.js" defer></script>
 <script src="./assets/js/reduce-motion.js" defer></script>
+<script src="./assets/js/vm-feedback.js" defer></script>
 <script src="./assets/js/vm-topbar.js" defer></script>
 </body>
 </html>
