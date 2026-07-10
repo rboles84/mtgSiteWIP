@@ -1,6 +1,7 @@
 import { readFile, stat } from "node:fs/promises";
 import http from "node:http";
 import path from "node:path";
+import { gzipSync } from "node:zlib";
 
 import * as ChromeLauncher from "chrome-launcher";
 import desktopConfig from "lighthouse/core/config/lr-desktop-config.js";
@@ -28,9 +29,23 @@ const mimeTypes = {
   ".webp": "image/webp",
 };
 
-function send(res, statusCode, body, contentType = "text/plain; charset=utf-8") {
-  res.writeHead(statusCode, { "Content-Type": contentType });
-  res.end(body);
+function send(res, statusCode, body, contentType = "text/plain; charset=utf-8", acceptEncoding = "") {
+  const source = Buffer.isBuffer(body) ? body : Buffer.from(body);
+  const shouldCompress = statusCode === 200 &&
+    source.length >= 1024 &&
+    /\b(?:text\/|application\/(?:javascript|json)|image\/svg\+xml)/i.test(contentType) &&
+    /\bgzip\b/i.test(acceptEncoding);
+  const payload = shouldCompress ? gzipSync(source, { level: 9 }) : source;
+  const headers = {
+    "Content-Type": contentType,
+    "Content-Length": payload.length,
+    "Vary": "Accept-Encoding",
+  };
+  if (shouldCompress) {
+    headers["Content-Encoding"] = "gzip";
+  }
+  res.writeHead(statusCode, headers);
+  res.end(payload);
 }
 
 async function resolveBrowserPath() {
@@ -71,7 +86,7 @@ function startServer() {
       const filePath = await resolveFile(req.url ?? "/");
       const body = await readFile(filePath);
       const contentType = mimeTypes[path.extname(filePath).toLowerCase()] ?? "application/octet-stream";
-      send(res, 200, body, contentType);
+      send(res, 200, body, contentType, req.headers["accept-encoding"] ?? "");
     } catch (error) {
       if (error?.code === "ENOENT") {
         send(res, 404, "Not found");
@@ -199,7 +214,8 @@ try {
   // Write the HTML report for visual inspection.
   const { writeFile, mkdir } = await import("node:fs/promises");
   await mkdir("docs/audits", { recursive: true });
-  await writeFile("docs/audits/lighthouse-home.html", runnerResult.report[1]);
+  const normalizedHtmlReport = runnerResult.report[1].replace(/[ \t]+$/gm, "");
+  await writeFile("docs/audits/lighthouse-home.html", normalizedHtmlReport);
 
   const lhr = runnerResult.lhr;
   if (lhr.runWarnings?.length) {

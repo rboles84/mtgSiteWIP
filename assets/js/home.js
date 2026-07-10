@@ -13,6 +13,7 @@ const vmRadar = globalThis.VMRadar;
 const axisLabels = vmRadar.AXIS_LABELS;
 
 const heroManaPreviewUrl = "./data/identity-layers.json";
+const heroManaChartRuntimeUrl = "./assets/js/graph.js";
 const heroManaPreviewScoreKeys = vmRadar.SCORE_KEYS;
 const heroManaColorNames = {
   W: "White",
@@ -25,6 +26,58 @@ let heroManaPreviewIdentities = [];
 let heroManaPreviewAliases = new Map();
 let heroManaColorProfiles = new Map();
 let heroManaPreviewRequest = null;
+let heroManaChartRuntimeRequest = null;
+
+function loadHeroManaChartRuntime() {
+  if (window.Chart) {
+    return Promise.resolve(window.Chart);
+  }
+  if (heroManaChartRuntimeRequest) {
+    return heroManaChartRuntimeRequest;
+  }
+
+  heroManaChartRuntimeRequest = new Promise((resolve, reject) => {
+    const script = document.createElement("script");
+    script.src = heroManaChartRuntimeUrl;
+    script.async = true;
+    script.dataset.vmChartRuntime = "home-lazy";
+    script.addEventListener("load", () => {
+      if (window.Chart) {
+        resolve(window.Chart);
+        return;
+      }
+      reject(new Error("Chart runtime loaded without exposing Chart."));
+    }, { once: true });
+    script.addEventListener("error", () => {
+      reject(new Error("Chart runtime could not be loaded."));
+    }, { once: true });
+    document.head.appendChild(script);
+  });
+
+  return heroManaChartRuntimeRequest;
+}
+
+function scheduleHeroManaPreview() {
+  const registryRequest = loadHeroManaPreviewRegistry();
+  const initialize = () => {
+    Promise.all([registryRequest, loadHeroManaChartRuntime()])
+      .then(initHeroManaPreview)
+      .catch(initHeroManaPreview);
+  };
+  const afterLoad = () => {
+    if ("requestIdleCallback" in window) {
+      window.requestIdleCallback(initialize, { timeout: 2000 });
+      return;
+    }
+    window.setTimeout(initialize, 0);
+  };
+
+  if (document.readyState === "complete") {
+    afterLoad();
+    return;
+  }
+  window.addEventListener("load", afterLoad, { once: true });
+}
 
 function normalizeHeroManaAlias(value) {
   return String(value || "")
@@ -854,10 +907,10 @@ function initRevealObserver() {
   });
 }
 
-// PAGE BOOTSTRAP: Waits for deferred head scripts like graph.js, then starts page behavior.
+// PAGE BOOTSTRAP: Starts route behavior, then loads the large chart runtime after initial paint.
 document.addEventListener("DOMContentLoaded", () => {
   initArchscryAtmosphere();
-  loadHeroManaPreviewRegistry().then(initHeroManaPreview);
+  scheduleHeroManaPreview();
   initRevealObserver();
 
   // BACK-TO-TOP SETUP: Stores the button and toggles its visibility based on scroll distance.

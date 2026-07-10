@@ -138,13 +138,14 @@ const ARCHSCRY_MAZE_HANDOFF_KEY = "vm_archscry_maze_handoff_v1";
 const DOSSIER_DEFAULT_PANEL_ID = "placement";
 const DOSSIER_DEFAULT_LAYOUT_MODE = "focus";
 const DOSSIER_LAYOUT_MODES = new Set(["focus", "all"]);
+const ACCOUNT_DECK_LINKS_ENABLED = false;
 const DOSSIER_PANEL_CONFIG = [
   { id: "placement", label: "Placement" },
   { id: "start", label: "Start Here" },
   { id: "why", label: "Why This Fits" },
   { id: "adjacent", label: "Adjacent Fits" },
   { id: "commander-deck-starts", label: "Commander Browsing Starts" },
-  { id: "decks-saved", label: "External Deck Links" },
+  ...(ACCOUNT_DECK_LINKS_ENABLED ? [{ id: "decks-saved", label: "External Deck Links" }] : []),
   { id: "starter-cards", label: "Card Signals" },
   { id: "mana-base", label: "Mana Notes" },
   { id: "maze-discovery", label: "Maze Discovery" },
@@ -3055,7 +3056,9 @@ function renderResult(viewKey) {
         <div class="section-label">Commander Lanes</div>
         <div class="archetypes-grid">${archetypeHtml}</div>
       </div>` : ""}`;
-  const accountDeckLinksPanelHtml = buildAccountDeckLinkPanelHtml({ result });
+  const accountDeckLinksPanelHtml = ACCOUNT_DECK_LINKS_ENABLED
+    ? buildAccountDeckLinkPanelHtml({ result })
+    : "";
   const starterCardPanelContent = {
     creatures: `
       <div class="staples-category">
@@ -3136,7 +3139,7 @@ function renderResult(viewKey) {
     { id: "why", content: whyPanelHtml },
     { id: "adjacent", content: adjacentSectionHtml },
     { id: "commander-deck-starts", content: deckStartsPanelHtml },
-    { id: "decks-saved", content: accountDeckLinksPanelHtml },
+    ACCOUNT_DECK_LINKS_ENABLED ? { id: "decks-saved", content: accountDeckLinksPanelHtml } : null,
     hasStarterCardReferences ? { id: "starter-cards", content: starterCardsPanelHtml } : null,
     { id: "mana-base", content: manaBasePanelHtml },
     { id: "maze-discovery", content: mazePanelHtml },

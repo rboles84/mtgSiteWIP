@@ -1,27 +1,27 @@
 # Vox Mana Visual Baseline Waiver Ledger
 
-Last updated: 2026-07-03
-Related cards: VM-450, VM-462
-Status: current compare-only classification; continued waiver / owner decision pending
+Last updated: 2026-07-09
+Related cards: VM-450, VM-462, VM-495
+Status: VM-495 owner acceptance recorded; current local comparisons pass
 
 ## Purpose
 
-This ledger records the current route-level visual regression state after VM-440 through VM-462 readiness work. It is not a baseline refresh approval. Treat the compare failures below as release-readiness evidence that needs owner acceptance before any `test:visual:*:baseline` command is run.
+This ledger records the route-level visual regression state after owner-directed VM-495 release cleanup. VM-495 inspected current desktop/mobile captures, accepted the accumulated copy/content/background changes, refreshed the ignored local baselines, and reran every compare command.
 
 ## Baseline Rule
 
-- Compare-only commands are allowed for release evidence.
 - Baseline-refresh commands require explicit owner acceptance of the current route visuals.
-- A clean console contract does not make a route visually green; it only rules out the page-crash class of failure.
+- A clean console contract does not make a route visually green; compare mode must also remain inside its pixel budget.
+- Baseline PNGs remain under ignored `artifacts/`; they are local QA evidence and are not a remote CI hard gate.
 
 ## Current Route Status
 
 | Route | Command | Result | Current Counts | Classification | Evidence | Next Action |
 |---|---|---:|---|---|---|---|
-| Home | `npm.cmd run test:visual:home` | Fail | mobile `248201`, tablet `371757`, desktop `212808` over `300` budget | Continued carried-forward stale drift | VM-424 first-visit positioning and VM-427/VM-450 sweeps already documented comparable Home drift. VM-462 reran compare-only checks without refreshing baselines. | Owner review current/diff PNGs, then either accept and refresh in a dedicated baseline card or keep waiver. |
-| Archscry | `npm.cmd run test:visual:archscry` | Fail | landing-mobile `49853`, landing-desktop `98344`; dossier captures `480` through `11326` over `400` budget | Continued owner-review waiver needed | Dossier drift is in the known VM-391/VM-427 family, and landing drift remains large after boundary-copy repairs replaced older deck-start/staples/lands framing. VM-462 reran compare-only checks without refreshing baselines. | Owner should inspect landing current/diff before any baseline refresh. If accepted, refresh Archscry baseline under a dedicated card. |
-| Strategium | `npm.cmd run test:visual:strategium` | Fail | landing-desktop `7786`, landing-mobile `2811`, console-pod-readiness `151432`, library-search `41432` over `400` budget | Continued carried-forward stale drift | VM-416 content pass and VM-427/VM-450 sweeps documented comparable Strategium compare failures. VM-462 reran compare-only checks without refreshing baselines. | Owner review current/diff PNGs, then accept/refresh or keep waiver. |
-| Apocrypha | `npm.cmd run test:visual:apocrypha` | Fail | hero-desktop `16797`, hero-mobile `1267`, references-desktop `202461` over `400` budget | Continued carried-forward stale drift | VM-414 refreshed Apocrypha baseline, then VM-415 readability/background changes and VM-427/VM-450 sweeps documented comparable drift. VM-462 reran compare-only checks without refreshing baselines. | Owner review current/diff PNGs, then accept/refresh or keep waiver. |
+| Home | `npm.cmd run test:visual:home` | Pass | mobile `0`, tablet `0`, desktop `0` within `300` budget on two consecutive runs | Accepted current baseline | VM-495 reviewed desktop/mobile captures and stabilized the harness by waiting for lazy Chart.js readiness and freezing SVG SMIL animation time. | Keep compare coverage; refresh again only after another explicit visual acceptance. |
+| Archscry | `npm.cmd run test:visual:archscry` | Pass | all 16 landing/dossier captures `0` within `400` budget | Accepted current baseline | VM-495 reviewed landing and dossier captures and confirmed the unproven private deck-link panel is absent. | Keep compare coverage and the VM-446 reactivation gate. |
+| Strategium | `npm.cmd run test:visual:strategium` | Pass | all four captures `0` within `400` budget | Accepted current baseline | VM-495 reviewed the current mobile landing and desktop console/library states. | Keep compare coverage. |
+| Apocrypha | `npm.cmd run test:visual:apocrypha` | Pass | all three captures `0` within `400` budget | Accepted current baseline | VM-495 reviewed the current mobile hero and desktop reference-library states. | Keep compare coverage. |
 
 ## Artifact Roots
 
@@ -41,13 +41,10 @@ All four current visual harness console contracts recorded no console errors or 
 
 ## Release Interpretation
 
-These results are acceptable only as documented visual waivers for a clearly scoped public static beta. They are not acceptable as polished-release visual proof because no route is green against its current baseline. CI should continue excluding visual compares until an owner-approved baseline refresh or route-specific visual repair pass makes the visual suite meaningful again.
-
-VM-462 interpretation: no owner acceptance was provided during the pass, so the route state is closed as continued waiver / owner decision pending. No baseline refresh command was run.
+VM-495 closes the carried stale-baseline waiver for the current workspace: all four compare suites are green against owner-accepted local baselines, and the console contracts remain clean. Remote CI still excludes these suites because the large PNG artifacts are intentionally ignored; changing that storage policy requires a separate repository-size/CI decision.
 
 ## Follow-Up Notes
 
-- Do not refresh any route baseline from VM-450 evidence alone.
-- Do not refresh any route baseline from VM-462 evidence alone.
-- Archscry needs the most direct owner review because its landing captures are now materially different from the prior release-sweep classification.
-- VM-455 repaired the Home Identity Signal subtitle copy from the stale "colors, guilds, and colleges" scope frame to the current live identity-field wording. This was a copy-only fix, not a baseline refresh.
+- VM-495 owner acceptance supersedes the VM-450/VM-462 pending-review state for the inspected current captures.
+- Home visual capture must continue waiting for the lazy Chart.js runtime and freezing SVG SMIL effects before screenshotting.
+- Archscry private deck-link visuals remain out of the accepted baseline until VM-446 live RLS proof succeeds and reactivation is separately authorized.

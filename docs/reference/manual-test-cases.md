@@ -148,7 +148,7 @@ The source report left 72 of 111 rows untested. Those interactive rows remain ou
 ## VM-147A Home route manual QA
 
 1. Open `/` and `/index.html`; confirm both load the canonical Home route with no broken asset requests.
-2. Confirm `index.html` still loads `assets/js/graph.js`, `assets/css/home.css`, and `assets/js/home.js`.
+2. Confirm `index.html` loads `assets/css/home.css` and `assets/js/home.js`, and that `home.js` lazy-loads `assets/js/graph.js` after initial page load.
 3. Confirm the shared topbar marks Home as active, opens and closes the utility menu, and keeps Archscry, Maze, Apocrypha, and Strategium links working.
 4. Confirm the hero copy, WUBRG glyph row, route cards, and footer/back-to-top behavior render correctly.
 5. Confirm the identity signal radar renders through Chart.js, initializes from `data/identity-layers.json`, and shows the expected overlay pills and held-signal details.

@@ -95,8 +95,17 @@ for (const forbiddenHeroPickerHook of ["heroManaIdentitySelect", "heroManaPicker
 if (!homeRuntimeSource.includes("const heroManaCycleMs = 9000")) {
   failures.push("Home Mana Lens smoke check failed: tuned 9000ms cycle constant is missing");
 }
-if (!homeRuntimeSource.includes("loadHeroManaPreviewRegistry().then(initHeroManaPreview)")) {
-  failures.push("Home Mana Lens smoke check failed: preview initialization is not gated by the registry load");
+if (
+  !homeRuntimeSource.includes("Promise.all([registryRequest, loadHeroManaChartRuntime()])") ||
+  !homeRuntimeSource.includes(".then(initHeroManaPreview)")
+) {
+  failures.push("Home Mana Lens smoke check failed: preview initialization is not gated by registry and chart readiness");
+}
+if (homeSource.includes('src="assets/js/graph.js"')) {
+  failures.push("Home performance smoke check failed: Chart.js still blocks initial HTML parsing");
+}
+if (!homeRuntimeSource.includes('window.requestIdleCallback(initialize, { timeout: 2000 })')) {
+  failures.push("Home performance smoke check failed: lazy chart initialization is not scheduled after initial load");
 }
 if (!homeRuntimeSource.includes("expression?.preview_eligible === true")) {
   failures.push("Home Mana Lens smoke check failed: registry filtering does not use preview_eligible");

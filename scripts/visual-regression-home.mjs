@@ -435,6 +435,10 @@ async function capturePage(browser, url, viewport, screenshotDir) {
       datasetPills.textContent.trim().length > 0
     );
   });
+  await page.waitForFunction(() => Boolean(
+    window.Chart &&
+    document.getElementById("heroManaTitle")?.textContent?.includes("Boros")
+  ));
   await verifyCanvasPresent(page, ".vm-bg__stars", "Background star canvas");
   await verifyCanvasRendered(page, "#vmHeroManaChart", "Hero radar canvas");
   await verifyHeroManaCaptureState(page);
@@ -453,6 +457,16 @@ async function capturePage(browser, url, viewport, screenshotDir) {
         transition: none !important;
       }
     `,
+  });
+  await page.evaluate(() => {
+    document.querySelectorAll("svg").forEach(svg => {
+      if (typeof svg.pauseAnimations === "function") {
+        svg.pauseAnimations();
+      }
+      if (typeof svg.setCurrentTime === "function") {
+        svg.setCurrentTime(0);
+      }
+    });
   });
   await page.evaluate(() => new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve))));
 

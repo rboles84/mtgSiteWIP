@@ -48,6 +48,32 @@ async function readJson(filePath) {
   return JSON.parse(await readFile(filePath, "utf8"));
 }
 
+async function readJsonIfPresent(filePath) {
+  try {
+    return await readJson(filePath);
+  } catch (error) {
+    if (error?.code === "ENOENT") return null;
+    throw error;
+  }
+}
+
+function comparableReport(report) {
+  const { generated_at, ...rest } = report;
+  return rest;
+}
+
+async function stampReport(report, reportPath) {
+  const previousReport = await readJsonIfPresent(reportPath);
+  const previousBody = previousReport ? JSON.stringify(comparableReport(previousReport)) : null;
+  const nextBody = JSON.stringify(comparableReport(report));
+  return {
+    ...report,
+    generated_at: previousBody === nextBody && previousReport?.generated_at
+      ? previousReport.generated_at
+      : new Date().toISOString(),
+  };
+}
+
 function asFixedLikelihood(value) {
   return Number(value).toFixed(2);
 }
@@ -718,8 +744,8 @@ async function main() {
   const jsonReportPath = path.join(options.reportDir, `${options.reportStem}.json`);
   const markdownReportPath = path.join(options.reportDir, `${options.reportStem}.md`);
 
-  const report = {
-    generated_at: new Date().toISOString(),
+  let report = {
+    generated_at: null,
     inputs: {
       source: path.relative(REPO_ROOT, options.sourcePath).replaceAll("\\", "/"),
       model: path.relative(REPO_ROOT, options.modelPath).replaceAll("\\", "/"),
@@ -749,6 +775,7 @@ async function main() {
     probes,
     sameColor,
   });
+  report = await stampReport(report, jsonReportPath);
 
   if (options.write) {
     await mkdir(options.reportDir, { recursive: true });

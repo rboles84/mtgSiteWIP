@@ -6,7 +6,7 @@ Vox Mana is an unofficial Magic: The Gathering fan site that combines a themed s
 
 | Route | File | Purpose | Primary runtime |
 |---|---|---|---|
-| `/` | `index.html` | Canonical home gateway and Identity Signal showcase. | `assets/js/graph.js`, `assets/js/vm-radar.js`, `assets/js/home.js`, `assets/js/reduce-motion.js`, `assets/js/vm-topbar.js` |
+| `/` | `index.html` | Canonical home gateway and Identity Signal showcase. | `assets/js/vm-radar.js`, `assets/js/home.js` with lazy `assets/js/graph.js`, `assets/js/reduce-motion.js`, `assets/js/vm-topbar.js` |
 | `/archscry/` | `archscry/index.html` | Placement experience: landing, quick adaptive reading, dossier result, archived Scrying Terminal. | `assets/js/graph.js`, `assets/js/vm-radar.js`, `assets/js/index.js`, `assets/js/shared.js`, `assets/js/adaptive-placement.js` |
 | `/maze/` | `maze/index.html` | The Implicit Maze premium Scryfall search console. | `assets/css/maze.css`, `assets/js/vm-rich-atmosphere.js`, `research/research-init.js`, and imported research modules |
 | `/apocrypha/` | `apocrypha/index.html` | Canonical Apocrypha Archive Console and public provenance page. | `assets/css/apocrypha.css`, `assets/js/apocrypha.js`, shared topbar, and reduce-motion |

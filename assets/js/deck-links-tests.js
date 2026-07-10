@@ -560,6 +560,7 @@ for (const domain of [
 }
 
 const archscrySource = await readFile(new URL("./index.js", import.meta.url), "utf8");
+assert.match(archscrySource, /const ACCOUNT_DECK_LINKS_ENABLED = false;/);
 assert.match(archscrySource, /saveUserDeckLink/);
 assert.match(archscrySource, /archiveUserDeckLink/);
 assert.match(archscrySource, /buildAccountDeckLinkPanelHtml/);
