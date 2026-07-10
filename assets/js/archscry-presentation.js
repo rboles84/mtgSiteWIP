@@ -72,7 +72,7 @@ export const FACTION_PRESENTATION = {
     emotionalPressure: "Pressure through permission, timing, and the feeling that the table has entered court.",
     loreRole: "senate, judiciary, and lawkeeping bureaucracy",
     mechanics: "Detain, taxation, permission, sweepers, tempo, and rule-setting permanents",
-    tableExperience: "restricted action, procedural leverage, and clean enforcement",
+    tableExperience: "restricted action, procedural pressure, and clean enforcement",
     thesis: "Azorius read you as someone who protects the table by defining what is allowed to happen. White supplies the standard; blue supplies timing, documentation, and restraint. Together, the deck becomes law made playable: patient, exacting, and difficult to slip past.",
     closeReason: "procedure, restraint, and enforceable standards",
     forkQuestion: "What rule keeps the table from collapsing?",
@@ -82,12 +82,12 @@ export const FACTION_PRESENTATION = {
     shortName: "Dimir",
     tableRole: "The concealed hand",
     opponentRead: "Opponents rarely know which card matters until it has already taken their best line away.",
-    emotionalPressure: "Pressure through uncertainty, hidden leverage, and delayed reveal.",
+    emotionalPressure: "Pressure through uncertainty, hidden advantage, and delayed reveal.",
     loreRole: "couriers, archivists, spies, and memory manipulators",
     mechanics: "Surveil, mill, discard, theft, evasive threats, and control",
     tableExperience: "hidden pressure, information advantage, and wins that arrive before the table understands them",
-    thesis: "Dimir read you as someone who values the move no one can see yet. Blue gathers the pattern; black keeps the leverage private. Together, the deck wins by letting the table misread what matters.",
-    closeReason: "secrecy, patience, and information leverage",
+    thesis: "Dimir read you as someone who values the move no one can see yet. Blue gathers the pattern; black keeps the advantage private. Together, the deck wins by letting the table misread what matters.",
+    closeReason: "secrecy, patience, and information control",
     forkQuestion: "What can be won before anyone realizes it was contested?",
     direction: "moves inward into secrecy and timing",
   },
@@ -112,7 +112,7 @@ export const FACTION_PRESENTATION = {
     loreRole: "clans, wild places, razed boundaries, and anti-civilized resistance",
     mechanics: "Riot, bloodrush, ramp, trample, fight spells, and creature pressure",
     tableExperience: "immediate combat, land-fed force, and damage that refuses delay",
-    thesis: "Gruul read you as someone who trusts the body of the answer before the paperwork of the answer. Green brings the world that keeps growing; red brings the refusal to wait. Together, the deck asks whether the table can survive what it tried to fence in.",
+    thesis: "Gruul read you as someone who wants the board to answer through creatures, combat, and land-fed pressure before anyone can slow the game down. Green brings the world that keeps growing; red brings the refusal to wait. Together, the deck asks whether the table can survive what it tried to fence in.",
     closeReason: "anger, wildness, and direct force",
     forkQuestion: "What boundary deserves to be broken?",
     direction: "moves forward into impact and refusal",
@@ -138,7 +138,7 @@ export const FACTION_PRESENTATION = {
     loreRole: "church-bank hierarchy, contracts, afterlife debt, and inherited power",
     mechanics: "Extort, afterlife, aristocrats, lifedrain, sacrifice, taxes, and recursion",
     tableExperience: "transactional pressure, slow drain, and resource exchanges that stop being equal",
-    thesis: "Orzhov read you as someone who notices what is owed. White gives the institution; black gives the leverage. Together, the deck turns every exchange into a contract the table did not read closely enough.",
+    thesis: "Orzhov read you as someone who notices what is owed. White gives the institution; black gives the pressure. Together, the deck turns every exchange into a contract the table did not read closely enough.",
     closeReason: "obligation, debt, and consequence",
     forkQuestion: "What is owed, and who pays when the bill arrives?",
     direction: "moves downward into debt and permanence",
@@ -164,7 +164,7 @@ export const FACTION_PRESENTATION = {
     loreRole: "waste, agriculture, rot, undercity survival, and reclamation",
     mechanics: "Dredge, scavenge, undergrowth, recursion, sacrifice, and graveyard value",
     tableExperience: "loss converted into future pressure and a board that keeps returning",
-    thesis: "Golgari read you as someone who does not confuse loss with disappearance. Black accepts the cost; green makes the remains useful. Together, the deck turns every dead thing into future leverage.",
+    thesis: "Golgari read you as someone who does not confuse loss with disappearance. Black accepts the cost; green makes the remains useful. Together, the deck turns every dead thing into future value.",
     closeReason: "endurance, grievance, rot, and reclamation",
     forkQuestion: "What can be reclaimed from what was lost?",
     direction: "moves downward into endurance and recursion",
@@ -237,13 +237,13 @@ export const FACTION_PRESENTATION = {
   SILVERQUILL: {
     shortName: "Silverquill",
     tableRole: "The table speaker",
-    opponentRead: "Opponents feel the deck turning attacks, deals, and words into leverage.",
+    opponentRead: "Opponents feel the deck turning attacks, deals, and words into pressure.",
     emotionalPressure: "Pressure through rhetoric, politics, counters, and social combat.",
     loreRole: "orators, duelists, poets, and social power brokers",
     mechanics: "Inkling tokens, counters, combat negotiation, goad-like pressure, and life-drain politics",
-    tableExperience: "public leverage, sharpened alliances, and words that become damage",
+    tableExperience: "public pressure, sharpened alliances, and words that become damage",
     thesis: "Silverquill read you as someone who knows a sentence can change the room. White gives the form; black gives the edge. Together, the deck turns social pressure into a combat plan.",
-    closeReason: "language, politics, ambition, and public leverage",
+    closeReason: "language, politics, ambition, and public pressure",
     forkQuestion: "Who moves when the right words land?",
     direction: "moves sideways into influence and pressure",
   },
@@ -292,14 +292,14 @@ export const FACTION_PRESENTATION = {
     shortName: "Grixis",
     tableRole: "The survival strategist",
     opponentRead: "Opponents feel the deck measuring weak points, preserving the answer that matters, and taking the opening before the table can close it.",
-    emotionalPressure: "Pressure through scarcity, calculation, urgency, and the feeling that every delayed answer becomes someone else's leverage.",
+    emotionalPressure: "Pressure through scarcity, calculation, urgency, and the feeling that every delayed answer becomes someone else's advantage.",
     loreRole: "Alara shard context read through source-grounded Black-centered survival, Blue calculation, and Red immediacy",
     mechanics: "Removal, discard, sacrifice, recursion, card draw, and spell pressure as Commander support texture, not lore-canon proof or the whole identity",
-    tableExperience: "survival control, calculated leverage, and urgent openings that make each answer feel spent for a reason",
-    thesis: "Grixis read you as someone who survives by seeing the weak point before the room admits it exists. Black keeps the self alive, Blue finds the leverage, and Red moves before the opening closes.",
-    closeReason: "survival, self-advocacy, calculated leverage, urgency, and volatility under pressure",
+    tableExperience: "survival control, calculated pressure, and urgent openings that make each answer feel spent for a reason",
+    thesis: "Grixis read you as someone who survives by seeing the weak point before the room admits it exists. Black keeps the self alive, Blue finds the angle, and Red moves before the opening closes.",
+    closeReason: "survival, self-advocacy, calculated pressure, urgency, and volatility under pressure",
     forkQuestion: "What opening must be taken before it closes?",
-    direction: "moves toward survival, leverage, and immediate Commander expression",
+    direction: "moves toward survival, pressure, and immediate Commander expression",
     selfCheck: "This may fit if you want a Commander deck that treats removal, discard, recursion, sacrifice, and spell pressure as tools for staying alive and converting one narrow opening into control of the table.",
   },
   JUND: {
@@ -361,13 +361,13 @@ export const FACTION_PRESENTATION = {
   SULTAI: {
     shortName: "Sultai",
     tableRole: "The ruthless resource converter",
-    opponentRead: "Opponents feel the deck turning every cost into leverage: graveyards stay useful, stolen options become pressure, and the table's discarded resources rarely stay dead for long.",
+    opponentRead: "Opponents feel the deck turning every cost into advantage: graveyards stay useful, stolen options become pressure, and the table's discarded resources rarely stay dead for long.",
     emotionalPressure: "Pressure through opportunity, secrecy, necromantic utility, and the sense that every body, secret, or opening can become power before anyone else names it.",
     loreRole: "Tarkir wedge, Black-centered ruthless opportunity, Green life/death resources, Blue calculation, Sidisi-era ambition, and strict Silumgar and Dragonstorm boundaries",
     mechanics: "Graveyard value, theft, self-mill, morph, mutate, recursion, and resource denial as Commander-facing support texture, not Tarkir setting evidence",
-    tableExperience: "convert graveyards, stolen options, and hidden costs into leverage while keeping the table story anchored in source-bound Sultai Brood identity",
+    tableExperience: "convert graveyards, stolen options, and hidden costs into table advantage while keeping the table story anchored in Sultai source notes",
     thesis: "Sultai reads your answers as opportunity becoming power before the public meaning catches up. Black keeps ambition and cost centered, Green makes life and death usable material, and Blue decides which conversion is worth revealing.",
-    closeReason: "ruthless opportunity, graveyard/resource conversion, necromantic utility, calculated advantage, and strict same-color false-positive boundaries",
+    closeReason: "ruthless opportunity, graveyard/resource conversion, necromantic utility, calculated advantage, and clear separation from nearby same-color paths",
     forkQuestion: "What advantage is worth claiming before anyone else sees what it can become?",
     direction: "moves toward opportunity, conversion, and Commander expression",
     selfCheck: "This may fit if you want a Commander deck where graveyards, secrets, and stolen options become calculated advantage under Sultai's ruthless opportunity and Sidisi-era ambition.",
@@ -381,7 +381,7 @@ export const FACTION_PRESENTATION = {
     mechanics: "Combat pressure, tokens, sacrifice, recursion, aristocrats texture, attack triggers, and removal as Commander-facing ways to show speed, formation, and ruthless openings without turning deck mechanics into Tarkir lore",
     tableExperience: "commit early, keep the attack coordinated, convert each opening into pressure, and make the table answer the charge before it can settle",
     thesis: "Mardu reads your answers as action that has a name before the moment closes. Red supplies the speed and total commitment, White gives the charge formation and oath, and Black makes the opening too valuable to waste.",
-    closeReason: "Red-centered speed, martial oath, war names, coordinated attack, ruthless opportunity, and strict same-color false-positive boundaries",
+    closeReason: "Red-centered speed, martial oath, war names, coordinated attack, ruthless opportunity, and clear separation from nearby same-color paths",
     forkQuestion: "What opening is worth taking before the charge loses its name?",
     direction: "moves toward speed, oath, and Commander expression",
     selfCheck: "This may fit if you want a Commander deck that attacks early, keeps formation under pressure, and turns sacrifice, removal, or recursion into the feeling of a war band taking the opening now.",
@@ -395,7 +395,7 @@ export const FACTION_PRESENTATION = {
     mechanics: "Tempo, protection, copies, spells, artifacts, prowess-like pressure, energy, cycling, and time counters as Commander-facing ways to show trained insight becoming action without turning deck mechanics into Tarkir lore",
     tableExperience: "study the line, protect the stance, turn spells and timing into pressure, and move only when the action can keep its form",
     thesis: "Jeskai reads your answers as insight trained until it can move. Blue keeps knowledge and cunning centered, Red gives the moment courage, and White gives action shared form and restraint.",
-    closeReason: "Blue-centered cunning, disciplined martial practice, trained timing, compassionate restraint, and strict same-color false-positive boundaries",
+    closeReason: "Blue-centered cunning, disciplined martial practice, trained timing, compassionate restraint, and clear separation from nearby same-color paths",
     forkQuestion: "What insight is worth training until it can move without losing its form?",
     direction: "moves toward discipline, precision, and Commander expression",
     selfCheck: "This may fit if you want a Commander deck that holds the right spell, protects the critical stance, and turns tempo, copies, or martial pressure into table texture for disciplined action.",
@@ -426,7 +426,7 @@ export const FACTION_PRESENTATION = {
     closeReason: "adaptive appetite, volatility with intelligence, living force, and refusal to let White-style order make the opening harmless",
     forkQuestion: "What opening is worth feeding before order makes it harmless?",
     direction: "moves toward adaptive appetite, living pressure, and storm-fed growth",
-    selfCheck: "This may fit if you want a Commander deck that stays volatile, learns under pressure, and turns living force into table leverage without mistaking every Yidris shell, cascade turn, or same-color pile for Glint.",
+    selfCheck: "This may fit if you want a Commander deck that stays volatile, learns under pressure, and turns living force into table pressure without mistaking every Yidris shell, cascade turn, or same-color pile for Glint.",
   },
   DUNE: {
     shortName: "Dune",
@@ -437,7 +437,7 @@ export const FACTION_PRESENTATION = {
     mechanics: "Go-wide pressure, attack triggers, token-like multiplication, multi-front combat, and disciplined threat sequencing as Commander-facing ways to show line, cost, ignition, and persistence without mistaking generic combat texture for the whole identity",
     tableExperience: "take the field early, keep the line moving, and make the table answer force-backed solidarity before distance can cool it",
     thesis: "Take the field. Keep the line moving. Dune reads your answers as a four-color without Blue front where White holds the line, Black authorizes the cost, Red keeps ignition immediate, and Green keeps bodies and pressure multiplying.",
-    closeReason: "organized territorial pressure, cost-bearing solidarity, immediate strike pressure, survival-minded multiplication, and strict non-Blue false-positive boundaries",
+    closeReason: "organized territorial pressure, cost-bearing solidarity, immediate strike pressure, survival-minded multiplication, and clear separation from Blue-style distance",
     forkQuestion: "What ground is worth claiming before contemplation turns the line passive?",
     direction: "moves toward organized territorial pressure and common-front force",
     selfCheck: "This may fit if you want a Commander deck that coordinates pressure, spends resources to keep the line live, and multiplies presence without mistaking every go-wide or same-color combat shell for Dune.",
@@ -449,9 +449,9 @@ export const FACTION_PRESENTATION = {
     emotionalPressure: "Pressure through protected generosity, open knowledge, public abundance, and the sense that private hoarding cannot claim the center.",
     loreRole: "Vox Mana four-color without Black expression for protected public abundance, open knowledge, guarded generosity, and strict separation from generic group-hug or public-archive readings",
     mechanics: "Group-hug exchanges, political incentives, ramp, draw, shared-resource texture, and guarded reciprocity as Commander-facing ways to show open knowledge and public commons without mistaking one card or commander for the whole identity",
-    tableExperience: "guard the commons, keep the gift moving, and make the table answer whether shared abundance can stay open without becoming private leverage",
+    tableExperience: "guard the commons, keep the gift moving, and make the table answer whether shared abundance can stay open without becoming private control",
     thesis: "Keep the commons guarded. Keep the gift moving. Ink reads your answers as a four-color without Black commons where Red keeps care present, Green keeps reciprocity alive, White gives public promise, and Blue opens knowledge without letting Black-style private hoarding define the center.",
-    closeReason: "protected public abundance, open knowledge, community benefit, guarded generosity, and strict non-Black false-positive boundaries",
+    closeReason: "protected public abundance, open knowledge, community benefit, guarded generosity, and clear separation from Black-style private control",
     forkQuestion: "What gift is worth protecting so it can keep moving?",
     direction: "moves toward protected public abundance and open-knowledge reciprocity",
     selfCheck: "This may fit if you want a Commander deck that shares resources, negotiates openly, and protects the commons without mistaking every group-hug shell, Kynaios deck, Ink-Treader card, or same-color pile for Ink.",
@@ -465,7 +465,7 @@ export const FACTION_PRESENTATION = {
     mechanics: "Counters, proliferate texture, protected engines, value accumulation, recursion-adjacent resources, and scaling board development as Commander-facing ways to show cultivated inevitability without mistaking mechanics for the identity",
     tableExperience: "cultivate the board patiently, protect the growing engine, and make every small counter, card, and resource become part of a plan too rooted to uproot",
     thesis: "Let the garden wait. Count every root. Witch reads your answers as a four-color without Red conservatory where Green cultivates growth, White protects the structure, Blue optimizes the method, and Black keeps ambition aimed at inevitability.",
-    closeReason: "patient cultivation, calculated expansion, protected accumulation, ambition under structure, and strict non-Red false-positive boundaries",
+    closeReason: "patient cultivation, calculated expansion, protected accumulation, ambition under structure, and clear separation from Red-style impulse",
     forkQuestion: "What future is worth cultivating until impulse can no longer interrupt it?",
     direction: "moves toward protected growth and calculated inevitability",
     selfCheck: "This may fit if you want a Commander deck that protects small investments, grows through counters or proliferate texture, and turns patience into inevitability without mistaking every Atraxa, counters, or same-color pile for Witch.",
@@ -476,12 +476,12 @@ export const FACTION_PRESENTATION = {
     opponentRead: "Opponents see the deck assemble infrastructure before the threat: clean {C}, mana rocks, utility lands, and one payoff large enough to test every answer.",
     emotionalPressure: "Pressure through outside-WUBRG precision, chosen restriction, machine logic, and the sense that every resource has to justify its slot.",
     loreRole: "Vox Mana Colorless expression for outside-WUBRG precision, chosen restriction, artifacts, Wastes, Eldrazi scale, and strict generic/colorless separation",
-    mechanics: "Reliable {C}, Wastes, artifact engines, big mana, utility lands, and colorless finishers as Commander-facing proof that the constraint is functional without collapsing artifacts, Eldrazi, Devoid, or five-color Eldrazi into Colorless",
+    mechanics: "Reliable {C}, Wastes, artifact engines, big mana, utility lands, and colorless finishers as Commander examples that support the reading without collapsing artifacts, Eldrazi, Devoid, or five-color Eldrazi into Colorless",
     tableExperience: "infrastructure first, then one oversized threat, artifact engine, or inevitability piece at a time",
     thesis: "Build outside the wheel. Colorless reads your answers as chosen restriction: fewer shortcuts, stricter mana, and payoffs that make the absence of color visible.",
-    closeReason: "outside-WUBRG precision, strict true-{C} mana, Wastes, artifact engines, and five-color Eldrazi false-positive boundaries",
+    closeReason: "outside-WUBRG precision, strict true-{C} mana, Wastes, artifact engines, and clear separation from five-color Eldrazi",
     forkQuestion: "What limit is worth making into the structure of the whole deck?",
-    direction: "moves toward strict outside-WUBRG construction, artifact engines, big mana, and false-positive discipline",
+    direction: "moves toward strict outside-WUBRG construction, artifact engines, big mana, and clean colorless separation",
     selfCheck: "This may fit if you want the deck-building constraint itself to matter, with Wastes and true {C} serving the plan instead of generic costs or five-color Eldrazi blurring it.",
   },
   WUBRG: {
@@ -493,7 +493,7 @@ export const FACTION_PRESENTATION = {
     mechanics: "Domain, converge, sunburst, WUBRG costs or activations, multicolor payoffs, basic-land-type checks, and mana infrastructure as support texture, not unverified card claims",
     tableExperience: "full color access, deliberate fixing, many kinds of answers, and a plan that keeps breadth from becoming drift",
     thesis: "Five-Color read your answers as a table where all five voices were present. White asked for structure, Blue for understanding, Black for agency, Red for motion, and Green for belonging.",
-    closeReason: "all five colors present, full-spectrum integration, coalition, source-bound breadth, and tradeoffs that keep access from becoming goodstuff",
+    closeReason: "all five colors present, full-spectrum integration, coalition, color breadth, and tradeoffs that keep access from becoming goodstuff",
     forkQuestion: "What does every color contribute that the others cannot carry alone?",
     direction: "moves toward all-five-color synthesis and full-spectrum Commander expression",
     selfCheck: "This may fit if you want a Commander deck where every color matters, mana infrastructure is part of the discipline, and support links remain browsing aids rather than lore, legality, or ranking proof.",
@@ -797,25 +797,25 @@ export function buildReadingSignalCopy({ dossier, faction, result, factions = {}
   const adjacentPresentation = presentationForFaction(adjacentFaction);
 
   if (activeKey === "YORE" && factionKey(adjacentFaction) === "ABZAN") {
-    return `${faction.name} led with a ${band} signal. The reading was not one-note: ${adjacentFaction.name} remained nearby, which means your answers also carried endurance, obligation, family continuity, and defensive patience. The deciding difference was motion. Abzan preserves what must survive. Yore constructs the system that lets choice continue. This result rose first because your answers leaned toward artifice, engineered agency, controlled overreach, and the refusal to let natural limits become final.`;
+    return `${faction.name} led with a ${band} signal. A nearby secondary signal stayed close: ${adjacentFaction.name} carried endurance, obligation, family continuity, and defensive patience. The deciding difference was motion. Abzan preserves what must survive. Yore constructs the system that lets choice continue. This result rose first because your answers leaned toward artifice, engineered agency, controlled overreach, and the refusal to let natural limits become final.`;
   }
 
   if (activeKey === "GLINT" && factionKey(adjacentFaction) === "B") {
-    return `${faction.name} led with a ${band} signal. The reading was not one-note: ${adjacentFaction.name} remained nearby because your answers also carried cost, agency, and the willingness to spend from the self to keep the choice yours. This result rose first because it wanted pressure to keep learning, feeding, and changing before White-style order could make the opening harmless.`;
+    return `${faction.name} led with a ${band} signal. A supporting Black edge stayed close because your answers also carried cost, agency, and the willingness to spend from the self to keep the choice yours. This result rose first because it wanted pressure to keep learning, feeding, and changing before White-style order could make the opening harmless.`;
   }
 
   if (activeKey === "COLORLESS") {
     const adjacentCopy = factionKey(adjacentFaction) === "ABZAN"
-      ? `${adjacentFaction.name} remained nearby, which means your answers also carried endurance, obligation, and defensive patience.`
-      : `${adjacentFaction?.name || adjacent.faction_name} remained nearby, which means your answers also carried ${adjacentPresentation.closeReason}.`;
-    return `${faction.name} led with a ${band} signal, but the reading was not one-note. ${adjacentCopy} Colorless rose first because the stronger motion was toward a strict construction problem: make mana, tools, and finishers earn their place outside the usual five-color vocabulary.`;
+      ? `${adjacentFaction.name} stayed close through endurance, obligation, and defensive patience.`
+      : `${adjacentFaction?.name || adjacent.faction_name} stayed close through ${adjacentPresentation.closeReason}.`;
+    return `${faction.name} led with a ${band} signal, with a nearby secondary signal. ${adjacentCopy} Colorless rose first because the stronger motion was toward a strict construction problem: make mana, tools, and finishers earn their place outside the usual five-color vocabulary.`;
   }
 
   if (activeKey === "WUBRG" && factionKey(adjacentFaction) === "BG") {
-    return "Five-Color / WUBRG led with a strong signal. The reading was not one-note: Golgari Swarm remained nearby, which suggests your answers also carried endurance, grievance, rot, and reclamation. The deciding difference was direction. Golgari turns pressure into recursion and survival; Five-Color turns it into coalition, full-spectrum access, and a disciplined plan where every color has a job.";
+    return "Five-Color / WUBRG led with a strong signal. Golgari Swarm remained nearby, which suggests your answers also carried endurance, grievance, rot, and reclamation. The deciding difference was direction. Golgari turns pressure into recursion and survival; Five-Color turns it into coalition, full-spectrum access, and a disciplined plan where every color has a job.";
   }
 
-  return `${faction.name} led with a ${band} signal. The reading was not one-note; ${adjacentFaction?.name || adjacent.faction_name} remained nearby, which suggests your answers carried both ${presentation.closeReason} and ${adjacentPresentation.closeReason}. The deciding difference was motion: this result chose the path that ${presentation.direction}.`;
+  return `${faction.name} led with a ${band} signal. A secondary signal stayed close: ${adjacentFaction?.name || adjacent.faction_name} suggested ${adjacentPresentation.closeReason}, while this result centered ${presentation.closeReason}. The deciding difference was motion: this result chose the path that ${presentation.direction}.`;
 }
 
 export function selectReadingTagRefs({ dossier, result, taxonomy, modelMechanics = "" }) {

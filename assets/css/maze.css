@@ -2005,44 +2005,39 @@ body.vm-maze-route[data-stash-open="false"] .stash-panel {
 
 .m-cost {
   display: flex;
+  align-items: center;
   flex-wrap: wrap;
-  gap: 0.35rem;
+  gap: 0.16rem;
   margin-bottom: 0.75rem;
 }
 
-.mana-symbol {
-  width: 1.55rem;
-  height: 1.55rem;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
+.maze-card-modal .mana-symbol.ms {
+  flex: 0 0 auto;
   color: #111;
+  font-style: normal;
+  line-height: 1.3em;
+  vertical-align: middle;
+  filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.5));
+}
+
+.maze-card-modal .m-cost .mana-symbol.ms {
+  font-size: 1.4rem;
+  vertical-align: middle;
+}
+
+.maze-card-modal .m-oracle .mana-symbol.ms {
+  margin-inline: 0.04em;
+  font-size: 1.02em;
+  vertical-align: -0.1em;
+}
+
+.maze-card-modal .mana-symbol-fallback {
+  padding-inline: 0.1em;
+  border-bottom: 1px dotted currentColor;
+  color: var(--maze-muted);
   font-family: var(--font-mono, "IBM Plex Mono", monospace);
-  font-size: 0.76rem;
-  font-weight: 700;
-}
-
-.mana-W { background: #f7f0d0; }
-.mana-U { background: #58b8ff; }
-.mana-B { background: #a46bea; color: #fff; }
-.mana-R { background: #ff6b55; }
-.mana-G { background: #63e58d; }
-.mana-C,
-.mana-generic,
-.mana-X,
-.mana-Y,
-.mana-Z {
-  background: #a8abb2;
-}
-
-.mana-P,
-.mana-S {
-  background: #9da5ad;
-}
-
-.mana-half {
-  font-size: 0.55rem;
+  font-size: 0.82em;
+  font-weight: 600;
 }
 
 .m-type,
@@ -2061,6 +2056,8 @@ body.vm-maze-route[data-stash-open="false"] .stash-panel {
 
 .m-oracle {
   color: var(--maze-text);
+  line-height: 1.65;
+  overflow-wrap: anywhere;
   white-space: pre-wrap;
 }
 

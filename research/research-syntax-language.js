@@ -1,5 +1,131 @@
 const COLOR_NAMES = { w: "white", u: "blue", b: "black", r: "red", g: "green", c: "colorless" };
 const RARITY_NAMES = { c: "common", u: "uncommon", r: "rare", m: "mythic" };
+const COLOR_IDENTITY_ORDER = ["w", "u", "b", "r", "g", "c"];
+const DISPLAY_CONTROL_FIELDS = new Set(["game", "prefer", "unique", "order", "sort", "display", "direction", "include"]);
+const FUNCTIONAL_TAG_FIELDS = new Set(["otag", "function", "oracletag"]);
+const FAMILY_FIELDS = new Set(["g", "group"]);
+const IN_SCOPE_FALLBACK_FIELDS = new Set([
+  "t",
+  "type",
+  "c",
+  "color",
+  "id",
+  "ci",
+  "identity",
+  "s",
+  "e",
+  "set",
+  "edition",
+  "g",
+  "group",
+  "is",
+  "legal",
+  "f",
+  "format",
+  "game",
+  "prefer",
+  "unique",
+  "order",
+  "sort",
+  "display",
+  "direction",
+  "include",
+  "otag",
+  "function",
+  "oracletag"
+]);
+const FUNCTIONAL_TAG_NAMES = new Map([
+  ["board-wipe", "board wipes"],
+  ["counterspell", "counterspells"],
+  ["draw", "card draw"],
+  ["graveyard-recursion", "graveyard recursion effects"],
+  ["mana-rock", "mana rock effects"],
+  ["ramp", "ramp"],
+  ["treasure", "treasure effects"]
+]);
+const IDENTITY_NAMES = new Map([
+  ["w", "white"],
+  ["u", "blue"],
+  ["b", "black"],
+  ["r", "red"],
+  ["g", "green"],
+  ["c", "colorless"],
+  ["wu", "Azorius"],
+  ["ub", "Dimir"],
+  ["br", "Rakdos"],
+  ["rg", "Gruul"],
+  ["wg", "Selesnya"],
+  ["wb", "Orzhov"],
+  ["ur", "Izzet"],
+  ["bg", "Golgari"],
+  ["ug", "Simic"],
+  ["wr", "Boros"],
+  ["wug", "Bant"],
+  ["wub", "Esper"],
+  ["ubr", "Grixis"],
+  ["brg", "Jund"],
+  ["wrg", "Naya"],
+  ["wbg", "Abzan"],
+  ["ubg", "Sultai"],
+  ["urg", "Temur"],
+  ["wur", "Jeskai"],
+  ["wbr", "Mardu"],
+  ["wubr", "Yore"],
+  ["ubrg", "Glint"],
+  ["wbrg", "Dune"],
+  ["wurg", "Ink"],
+  ["wubg", "Witch"],
+  ["wubrg", "Five-Color"]
+]);
+const DEFAULT_SET_DISPLAY = new Map([
+  ["blb", "Bloomburrow"],
+  ["fin", "Final Fantasy"]
+]);
+const DEFAULT_SET_FAMILIES = [
+  {
+    label: "Bloomburrow product family",
+    codes: ["blb", "ablb", "blc", "pblb", "tblb", "yblb"],
+    aliases: ["blb"]
+  },
+  {
+    label: "Final Fantasy product family",
+    codes: ["fin", "afin", "fca", "fic", "pfin", "pss5", "rfin", "tfin", "wfin"],
+    aliases: ["fin"]
+  }
+];
+
+let setDisplayByCode = new Map();
+let familyDisplayByCodeKey = new Map();
+let familyDisplayByCode = new Map();
+
+resetSyntaxDisplayLookup();
+
+/**
+ * Seeds syntax display labels from Scryfall grounding data.
+ * @param {object|null} grounding - Checked-in Scryfall grounding artifact.
+ */
+export function setScryfallSyntaxDisplayLookup(grounding) {
+  resetSyntaxDisplayLookup();
+  if (!grounding || typeof grounding !== "object") return;
+
+  const setsByCode = grounding.sets?.byCode || {};
+  Object.entries(setsByCode).forEach(([code, set]) => {
+    registerSetDisplay(code, set?.name);
+  });
+
+  const families = grounding.setFamilies || {};
+  Object.entries(families).forEach(([key, family]) => {
+    const codes = Array.isArray(family?.setCodes) ? family.setCodes : [];
+    const label = family?.name || (family?.displayName ? `${family.displayName} product family` : "");
+    registerFamilyDisplay(codes, label, [
+      key,
+      family?.id,
+      family?.code,
+      family?.mainSetCode,
+      family?.baseSetCode
+    ]);
+  });
+}
 
 /**
  * Translates common Scryfall syntax into plain Smart Search text.
@@ -36,6 +162,8 @@ function createPhraseParts() {
     formats: [],
     rarities: [],
     mana: [],
+    sets: [],
+    functional: [],
     oracle: [],
     flavor: [],
     exclusions: [],
@@ -54,7 +182,8 @@ function applyTerm(term, parts) {
 
   const parsed = parseSimpleTerm(term);
   if (!parsed) return false;
-  parts[parsed.kind].push(parsed.text);
+  if (parsed.omit) return true;
+  pushUnique(parts[parsed.kind], parsed.text);
   return true;
 }
 
@@ -66,15 +195,23 @@ function applyTerm(term, parts) {
  */
 function applyOrGroup(term, parts) {
   const inner = term.slice(1, -1);
+  const setFamily = parseSetFamilyGroup(inner);
+  if (setFamily) {
+    pushUnique(parts[setFamily.kind], setFamily.text);
+    return true;
+  }
+
   const parsed = splitOrTerms(inner).map(parseSimpleTerm);
   if (!parsed.length || parsed.some((item) => !item)) return false;
+  if (parsed.every((item) => item.omit)) return true;
+  if (parsed.some((item) => item.omit)) return false;
 
   const kinds = [...new Set(parsed.map((item) => item.kind))];
   if (kinds.length !== 1) return false;
 
   const kind = kinds[0];
   const phrase = joinOrHuman(parsed.map((item) => item.text));
-  parts[kind].push(phrase);
+  pushUnique(parts[kind], phrase);
   return true;
 }
 
@@ -84,7 +221,7 @@ function applyOrGroup(term, parts) {
  * @returns {object|null} Parsed term or null.
  */
 function parseSimpleTerm(term) {
-  const clean = String(term || "").trim();
+  const clean = unwrapSingleGroup(String(term || "").trim());
   const negated = clean.startsWith("-");
   const value = negated ? clean.slice(1) : clean;
 
@@ -96,9 +233,9 @@ function parseSimpleTerm(term) {
     return identity;
   }
 
-  const type = value.match(/^t:(.+)$/i);
+  const type = value.match(/^(?:t|type):(.+)$/i);
   if (type) {
-    const typeText = `${unquote(type[1])} cards`;
+    const typeText = humanizeFieldValue(type[1]);
     return { kind: negated ? "exclusions" : "types", text: negated ? `excluding ${typeText}` : typeText };
   }
 
@@ -107,14 +244,24 @@ function parseSimpleTerm(term) {
     return describeIsTerm(isTerm[1], negated);
   }
 
+  const setTerm = parseSetTerm(value, negated);
+  if (setTerm) return setTerm;
+
+  const legalOrFormat = parseLegalOrFormatTerm(value, negated);
+  if (legalOrFormat) return legalOrFormat;
+
+  const displayControl = parseDisplayControlTerm(value);
+  if (displayControl) return displayControl;
+
+  const functionalTag = parseFunctionalTagTerm(value, negated);
+  if (functionalTag) return functionalTag;
+
+  const negatedPrintedIn = parseNegatedPrintedInTerm(value, negated);
+  if (negatedPrintedIn) return negatedPrintedIn;
+
   const keyword = value.match(/^kw:(.+)$/i);
   if (keyword) {
-    return { kind: "keywords", text: unquote(keyword[1]) };
-  }
-
-  const format = value.match(/^f:(\w+)$/i);
-  if (format) {
-    return { kind: "formats", text: `${format[1].toLowerCase()} legal` };
+    return { kind: "keywords", text: humanizeFieldValue(keyword[1]) };
   }
 
   const rarity = value.match(/^r:(\w+)$/i);
@@ -147,20 +294,21 @@ function parseSimpleTerm(term) {
  * @returns {object|null} Parsed identity item or null.
  */
 function parseIdentityTerm(value, negated) {
-  const identity = value.match(/^(?:id|ci)(:|=|<=|>=)([wubrgc]+)$/i);
+  const identity = value.match(/^(?:id|ci|identity)(<=|>=|=|:)([wubrgc]+)$/i);
   if (!identity) return null;
 
   const op = identity[1];
-  const words = colorsToWords(identity[2]);
+  const code = normalizeIdentityCode(identity[2]);
+  const identityName = describeIdentityName(code);
   if (negated) {
     const negativeText = op === "<="
-      ? `outside ${words} commander identity`
-      : `not ${words} commander identity`;
+      ? `outside ${identityName} color identity`
+      : `not ${identityName} color identity`;
     return { kind: "exclusions", text: negativeText };
   }
-  if (op === "=") return { kind: "colors", text: `exactly ${words} commander identity` };
-  if (op === ">=") return { kind: "colors", text: `at least ${words} commander identity` };
-  return { kind: "colors", text: `${words} commander identity` };
+  if (op === "<=") return { kind: "colors", text: `within ${identityName} color identity` };
+  if (op === ">=") return { kind: "colors", text: `including ${describeIdentityColors(code)}` };
+  return { kind: "colors", text: `${identityName} color identity` };
 }
 
 /**
@@ -190,7 +338,7 @@ function describeIsTerm(rawValue, negated) {
  * @returns {object|null} Parsed color item or null.
  */
 function parseColorTerm(value, negated) {
-  const color = value.match(/^c(:|=|<=|>=)([wubrgc]+)$/i);
+  const color = value.match(/^(?:c|color)(:|=|<=|>=)([wubrgc]+)$/i);
   if (!color) return null;
 
   const op = color[1];
@@ -200,6 +348,146 @@ function parseColorTerm(value, negated) {
   if (op === "<=") return { kind: "colors", text: `${colorsToWords(color[2], "or")} with no outside colors` };
   if (op === ">=") return { kind: "colors", text: `at least ${words}` };
   return { kind: "colors", text: words };
+}
+
+/**
+ * Parses known set, edition, and product-family fields.
+ * @param {string} value - Non-negated query term.
+ * @param {boolean} negated - Whether the original term was negated.
+ * @returns {object|null} Parsed set/family item or null.
+ */
+function parseSetTerm(value, negated) {
+  const setTerm = value.match(/^(s|e|set|edition|g|group):([a-z0-9_-]+)$/i);
+  if (!setTerm) return null;
+
+  const field = setTerm[1].toLowerCase();
+  const code = normalizeSetCode(setTerm[2]);
+  if (!code) return null;
+
+  if (FAMILY_FIELDS.has(field)) {
+    const label = getFamilyLabelByCode(code);
+    return {
+      kind: negated ? "exclusions" : "sets",
+      text: describeFamilyLabel(label, code, negated)
+    };
+  }
+
+  const label = getSetLabelByCode(code);
+  return {
+    kind: negated ? "exclusions" : "sets",
+    text: describeSetLabel(label, code, negated)
+  };
+}
+
+/**
+ * Parses legal and format fields.
+ * @param {string} value - Non-negated query term.
+ * @param {boolean} negated - Whether the original term was negated.
+ * @returns {object|null} Parsed legality item or null.
+ */
+function parseLegalOrFormatTerm(value, negated) {
+  const legal = value.match(/^(legal|f|format):([a-z0-9_-]+)$/i);
+  if (!legal) return null;
+
+  const format = humanizeFieldValue(legal[2]);
+  const phrase = `${format} legal`;
+  return {
+    kind: negated ? "exclusions" : "formats",
+    text: negated ? `not ${phrase}` : phrase
+  };
+}
+
+/**
+ * Omits display-only control fields from Plain Reading.
+ * @param {string} value - Non-negated query term.
+ * @returns {object|null} Omit marker or null.
+ */
+function parseDisplayControlTerm(value) {
+  const display = value.match(/^([a-z]+):(.+)$/i);
+  if (!display) return null;
+  if (!DISPLAY_CONTROL_FIELDS.has(display[1].toLowerCase())) return null;
+  return { omit: true };
+}
+
+/**
+ * Parses functional Oracle-tag aliases into human display phrases.
+ * @param {string} value - Non-negated query term.
+ * @param {boolean} negated - Whether the original term was negated.
+ * @returns {object|null} Parsed functional-tag item or null.
+ */
+function parseFunctionalTagTerm(value, negated) {
+  const functionalTag = value.match(/^(otag|function|oracletag):([a-z0-9_-]+)$/i);
+  if (!functionalTag) return null;
+  const phrase = describeFunctionalTag(functionalTag[2]);
+  return {
+    kind: negated ? "exclusions" : "functional",
+    text: negated ? `excluding ${phrase}` : phrase
+  };
+}
+
+/**
+ * Handles the only printed-in negation currently in scope.
+ * @param {string} value - Non-negated query term.
+ * @param {boolean} negated - Whether the original term was negated.
+ * @returns {object|null} Parsed exclusion item or null.
+ */
+function parseNegatedPrintedInTerm(value, negated) {
+  if (!negated) return null;
+  const printedIn = value.match(/^in:([a-z0-9_-]+)$/i);
+  if (!printedIn) return null;
+  const code = normalizeSetCode(printedIn[1]);
+  const label = getSetLabelByCode(code);
+  return { kind: "exclusions", text: describeSetLabel(label, code, true) };
+}
+
+/**
+ * Parses set/family OR groups and collapses exact known families.
+ * @param {string} inner - Parenthesized OR group content.
+ * @returns {object|null} Parsed set group or null.
+ */
+function parseSetFamilyGroup(inner) {
+  const terms = splitOrTerms(inner);
+  if (!terms.length) return null;
+
+  const parsed = terms.map(parseSetGroupTerm);
+  if (parsed.some((item) => !item)) return null;
+
+  const codes = parsed.flatMap((item) => item.codes);
+  const familyLabel = getFamilyLabelByCodeSet(codes);
+  if (familyLabel) {
+    return { kind: "sets", text: describeFamilyLabel(familyLabel, "", false) };
+  }
+
+  return { kind: "sets", text: joinOrHuman(parsed.map((item) => item.text)) };
+}
+
+/**
+ * Parses one set/family term inside an OR group.
+ * @param {string} term - OR group term.
+ * @returns {object|null} Parsed set group term or null.
+ */
+function parseSetGroupTerm(term) {
+  const clean = unwrapSingleGroup(String(term || "").trim());
+  if (!clean || clean.startsWith("-")) return null;
+  const match = clean.match(/^(s|e|set|edition|g|group):([a-z0-9_-]+)$/i);
+  if (!match) return null;
+
+  const field = match[1].toLowerCase();
+  const code = normalizeSetCode(match[2]);
+  if (!code) return null;
+
+  if (FAMILY_FIELDS.has(field)) {
+    const familyLabel = getFamilyLabelByCode(code);
+    return {
+      codes: familyCodesByLabel(familyLabel) || [code],
+      text: describeFamilyLabel(familyLabel, code, false)
+    };
+  }
+
+  return {
+    codes: [code],
+    text: describeSetLabel(getSetLabelByCode(code), code, false)
+  };
 }
 
 /**
@@ -344,7 +632,9 @@ function assemblePhrase(parts, unhandled) {
 
   const segments = [];
   if (parts.colors.length) segments.push(joinHuman(parts.colors));
-  if (parts.types.length) segments.push(joinHuman(parts.types));
+  if (parts.types.length) segments.push(joinTypePhrases(parts.types));
+  if (parts.functional.length) segments.push(functionalPhrase(parts.functional, segments.length > 0));
+  if (parts.sets.length) segments.push(joinHuman(parts.sets));
   if (parts.oracle.length) segments.push(joinHuman(parts.oracle));
   if (parts.flavor.length) segments.push(joinHuman(parts.flavor));
   if (parts.exclusions.length) segments.push(joinHuman(parts.exclusions));
@@ -353,8 +643,171 @@ function assemblePhrase(parts, unhandled) {
   if (parts.mana.length) segments.push(joinHuman(parts.mana));
   if (parts.keywords.length) segments.push(`with ${joinHuman(parts.keywords)}`);
   if (!segments.length && unhandled.length) return "";
-  if (unhandled.length) segments.push(`plus ${unhandled.map(describeUnhandledTerm).join(" ")}`);
+  if (unhandled.length) {
+    const describedUnhandled = unhandled.map(describeUnhandledTerm).filter(Boolean);
+    if (describedUnhandled.length) segments.push(`plus ${describedUnhandled.join(" ")}`);
+  }
   return segments.join(" ").replace(/\s+/g, " ").trim();
+}
+
+/**
+ * Joins type-like descriptors without turning "legendary creature" into a list.
+ * @param {string[]} values - Type descriptors.
+ * @returns {string} Human type phrase.
+ */
+function joinTypePhrases(values) {
+  const clean = values.filter(Boolean);
+  if (clean.length <= 1) return clean[0] || "";
+  if (clean.every((value) => !/\bor\b|,/i.test(value))) return clean.join(" ");
+  return joinHuman(clean);
+}
+
+/**
+ * Adds a non-empty value once to a phrase bucket.
+ * @param {string[]} bucket - Mutable phrase bucket.
+ * @param {string} value - Value to add.
+ */
+function pushUnique(bucket, value) {
+  const text = String(value || "").trim();
+  if (!text || bucket.includes(text)) return;
+  bucket.push(text);
+}
+
+function functionalPhrase(values, hasLeadingContext) {
+  const text = joinHuman(values);
+  if (!text) return "";
+  return hasLeadingContext ? `with ${text}` : text;
+}
+
+function resetSyntaxDisplayLookup() {
+  setDisplayByCode = new Map(DEFAULT_SET_DISPLAY);
+  familyDisplayByCodeKey = new Map();
+  familyDisplayByCode = new Map();
+  DEFAULT_SET_FAMILIES.forEach((family) => {
+    registerFamilyDisplay(family.codes, family.label, family.aliases);
+  });
+}
+
+function registerSetDisplay(code, name) {
+  const normalizedCode = normalizeSetCode(code);
+  const normalizedName = String(name || "").trim();
+  if (!normalizedCode || !normalizedName) return;
+  setDisplayByCode.set(normalizedCode, normalizedName);
+}
+
+function registerFamilyDisplay(codes, label, aliases = []) {
+  const normalizedCodes = normalizeCodeList(codes);
+  const normalizedLabel = normalizeFamilyLabel(label);
+  if (!normalizedCodes.length || !normalizedLabel) return;
+
+  familyDisplayByCodeKey.set(normalizeCodeSetKey(normalizedCodes), normalizedLabel);
+  [...normalizedCodes, ...aliases].forEach((code) => {
+    const normalizedCode = normalizeSetCode(code);
+    if (normalizedCode) familyDisplayByCode.set(normalizedCode, normalizedLabel);
+  });
+}
+
+function getSetLabelByCode(code) {
+  return setDisplayByCode.get(normalizeSetCode(code)) || "";
+}
+
+function getFamilyLabelByCode(code) {
+  return familyDisplayByCode.get(normalizeSetCode(code)) || "";
+}
+
+function getFamilyLabelByCodeSet(codes) {
+  return familyDisplayByCodeKey.get(normalizeCodeSetKey(codes)) || "";
+}
+
+function familyCodesByLabel(label) {
+  const normalizedLabel = normalizeFamilyLabel(label);
+  if (!normalizedLabel) return null;
+  for (const [codeKey, familyLabel] of familyDisplayByCodeKey.entries()) {
+    if (familyLabel === normalizedLabel) return codeKey.split("|");
+  }
+  return null;
+}
+
+function describeSetLabel(label, code, negated) {
+  if (label) {
+    return negated ? `excluding the ${label} set` : `from the ${label} set`;
+  }
+  const fallback = normalizeSetCode(code);
+  return negated ? `excluding set ${fallback}` : `from set ${fallback}`;
+}
+
+function describeFamilyLabel(label, code, negated) {
+  if (label) {
+    const familyName = normalizeFamilyLabel(label).replace(/\s+product family$/i, "");
+    return negated ? `excluding the ${familyName} product family` : `from the ${familyName} product family`;
+  }
+  const fallback = normalizeSetCode(code);
+  return negated ? `excluding set ${fallback}` : `from set ${fallback}`;
+}
+
+function normalizeFamilyLabel(label) {
+  return String(label || "").replace(/\s+/g, " ").trim();
+}
+
+function normalizeSetCode(code) {
+  return String(code || "").toLowerCase().replace(/[^a-z0-9]/g, "");
+}
+
+function normalizeCodeList(codes) {
+  return [...new Set((Array.isArray(codes) ? codes : [])
+    .map(normalizeSetCode)
+    .filter(Boolean))];
+}
+
+function normalizeCodeSetKey(codes) {
+  return normalizeCodeList(codes).sort().join("|");
+}
+
+function normalizeIdentityCode(colors) {
+  const clean = String(colors || "").toLowerCase().replace(/[^wubrgc]/g, "");
+  if (clean.includes("c") && clean.length === 1) return "c";
+  const unique = [...new Set(clean.split("").filter((color) => color !== "c"))];
+  return COLOR_IDENTITY_ORDER
+    .filter((color) => unique.includes(color))
+    .join("");
+}
+
+function describeIdentityName(code) {
+  const normalized = normalizeIdentityCode(code);
+  const named = IDENTITY_NAMES.get(normalized);
+  if (named) return named;
+  return colorsToWords(normalized);
+}
+
+function describeIdentityColors(code) {
+  const normalized = normalizeIdentityCode(code);
+  const named = IDENTITY_NAMES.get(normalized);
+  if (named && normalized.length > 1) return `${named} colors`;
+  return colorsToWords(normalized);
+}
+
+function describeFunctionalTag(rawValue) {
+  const tag = String(rawValue || "").toLowerCase().replace(/_/g, "-");
+  const known = FUNCTIONAL_TAG_NAMES.get(tag);
+  if (known) return known;
+  const phrase = humanizeFieldValue(tag);
+  if (!phrase) return "functional effects";
+  if (/\beffects?\b$/i.test(phrase)) return phrase;
+  return `${phrase} effects`;
+}
+
+function humanizeFieldValue(value) {
+  return unquote(String(value || ""))
+    .replace(/[_-]+/g, " ")
+    .replace(/\s+/g, " ")
+    .trim()
+    .toLowerCase();
+}
+
+function unwrapSingleGroup(value) {
+  const clean = String(value || "").trim();
+  if (!/^\(.+\)$/.test(clean) || /\sOR\s/i.test(clean)) return clean;
+  return clean.slice(1, -1).trim();
 }
 
 function exactCommanderPhrase(parts) {
@@ -543,8 +996,13 @@ function joinOrHuman(values) {
  * @returns {string} Human-readable fallback text.
  */
 function describeUnhandledTerm(term) {
-  const clean = String(term || "").trim();
+  const clean = unwrapSingleGroup(String(term || "").trim());
   if (!clean) return "";
+  const parsed = parseSimpleTerm(clean);
+  if (parsed?.omit) return "";
+  if (parsed?.text) return parsed.text;
+  const inScopeField = clean.match(/^-?([a-z]+)(?::|=|<=|>=)/i);
+  if (inScopeField && IN_SCOPE_FALLBACK_FIELDS.has(inScopeField[1].toLowerCase())) return "";
   if (/^-?o:/i.test(clean)) {
     return describeOraclePhrase(clean.replace(/^-?o:/i, "")).replace(/^oracle text /i, "");
   }

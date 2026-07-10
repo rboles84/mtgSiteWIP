@@ -1,4 +1,5 @@
 import { DEFAULT_DICTIONARY } from "./scryfall-dictionary.js";
+import { compileGroundedScryfallQuery, setPlainReadingDictionary } from "./scryfall-grounded-compiler.js";
 
 let activeDictionary = DEFAULT_DICTIONARY;
 
@@ -16,6 +17,7 @@ const STOP_WORDS = new Set([
  */
 export function setScryfallDictionary(dictionary) {
   activeDictionary = dictionary || DEFAULT_DICTIONARY;
+  setPlainReadingDictionary(activeDictionary);
 }
 
 /**
@@ -42,6 +44,24 @@ export function parseScryfallNaturalLanguage(input, options = {}) {
     });
   }
 
+  const grounded = compileGroundedScryfallQuery(original, { dictionary: activeDictionary });
+  if (grounded) {
+    const bareCardName = detectBareCardNameFallback(original, grounded);
+    if (!bareCardName) return grounded;
+    state.recognized.push(`card name: ${bareCardName}`);
+    state.assumptions.push("Used a Scryfall name search for bare name-like input.");
+    const result = finalizeResult(
+      state,
+      "search",
+      `name:${quoteScryfallName(bareCardName)}`,
+      "Detected bare card-name input and searched the name field.",
+      0.82
+    );
+    result.nameSearchIntent = true;
+    result.suppressFormatDefault = true;
+    return result;
+  }
+
   const highConfidence = detectHighConfidenceSearch(state);
   if (highConfidence) return highConfidence;
 
@@ -65,12 +85,35 @@ export function parseScryfallNaturalLanguage(input, options = {}) {
 
   const query = assembleQuery(state);
   state.unresolved.push(...detectUnresolvedTerms(state));
-  const finalQuery = query || (state.recognized.length ? "*" : original);
-  if (!query && state.recognized.length) {
-    state.assumptions.push("Searched all cards because the input only changed result metadata.");
+  const finalQuery = query || "*";
+  if (!query) {
+    state.assumptions.push(state.recognized.length
+      ? "Searched all cards because the input only changed result metadata."
+      : "No grounded Scryfall fields were found; raw prose was not sent as search syntax.");
   }
 
   return finalizeResult(state, "search", finalQuery, buildReason(state), scoreConfidence(state, finalQuery));
+}
+
+function quoteScryfallName(value) {
+  return `"${String(value || "").replace(/\\/g, "\\\\").replace(/"/g, '\\"')}"`;
+}
+
+function detectBareCardNameFallback(original, grounded) {
+  if (!grounded || grounded.mode === "exact_name") return "";
+  const words = String(original || "").match(/[A-Za-z0-9][A-Za-z0-9'-]*/g) || [];
+  if (words.length < 2 || words.length > 10) return "";
+  if (/[:<>=!{}]/.test(original)) return "";
+  const unresolved = grounded.unresolved || [];
+  if (!unresolved.length) return "";
+  if ((grounded.query === "*" || !grounded.query) && words.length === 2) return String(original).trim();
+
+  const spans = grounded.queryModel?.resolvedSpans || [];
+  const onlyIncidentalType = spans.length === 1
+    && spans[0].field === "type"
+    && /^type:/.test(spans[0].value || "");
+  if (onlyIncidentalType && unresolved.length >= 2 && /[-,]/.test(original)) return String(original).trim();
+  return "";
 }
 
 /**
@@ -890,6 +933,8 @@ function finalizeResult(state, mode, query, reason, confidence, api = state.api)
     confidence,
     reason,
     recognized: unique(state.recognized),
+    ignored: unique(state.ignored || []),
+    appliedDefaults: unique(state.appliedDefaults || []),
     assumptions: unique(state.assumptions),
     unresolved: unique(state.unresolved),
     alternatives: state.alternatives,

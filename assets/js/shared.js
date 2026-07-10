@@ -203,6 +203,7 @@ function normalizePlacementResult(result, fallbackProfile) {
 
   const normalized = {
     version: source.version || VM_RESULT_VERSION,
+    model_version: source.model_version || source.placement_model_version || null,
     source_mode: source.source_mode || "legacy",
     faction: source.faction || fallbackProfile?.guild || null,
     faction_name: source.faction_name || source.guild_name || null,
@@ -213,12 +214,16 @@ function normalizePlacementResult(result, fallbackProfile) {
     decree: source.decree || "",
     confidence:
       typeof source.confidence === "number" ? source.confidence : 0.66,
+    confidence_gap:
+      typeof source.confidence_gap === "number" ? source.confidence_gap : null,
     mana_scores: source.mana_scores || fallbackProfile?.scores || null,
     top_matches: topMatches,
     adjacent_matches: Array.isArray(source.adjacent_matches)
       ? source.adjacent_matches.map(normalizeMatch)
       : [],
     starter_profile: normalizeStarterProfile(source.starter_profile),
+    evidence_trail: Array.isArray(source.evidence_trail) ? source.evidence_trail : [],
+    stage_history: Array.isArray(source.stage_history) ? source.stage_history : [],
   };
 
   if (!normalized.top_matches.length && normalized.faction) {

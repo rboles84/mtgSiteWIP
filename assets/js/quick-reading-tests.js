@@ -1950,7 +1950,7 @@ assert.doesNotMatch(
 );
 
 const grixisPresentation = presentationForFaction(factions.GRIXIS);
-assert.match(grixisPresentation.thesis, /Black keeps the self alive, Blue finds the leverage, and Red moves/);
+assert.match(grixisPresentation.thesis, /Black keeps the self alive, Blue finds the angle, and Red moves/);
 assert.match(grixisPresentation.loreRole, /source-grounded Black-centered survival/);
 assert.match(grixisPresentation.mechanics, /Commander support texture, not lore-canon proof or the whole identity/);
 assert.doesNotMatch(
@@ -2421,7 +2421,7 @@ const glintBlackSignalCopy = buildReadingSignalCopy({
   result: { faction: "GLINT", confidence: 0.64, adjacent_matches: [{ faction: "B", confidence: 0.45 }] },
   factions,
 });
-assert.match(glintBlackSignalCopy, /Black remained nearby because your answers also carried cost, agency, and the willingness to spend from the self to keep the choice yours/i);
+assert.match(glintBlackSignalCopy, /supporting Black edge stayed close because your answers also carried cost, agency, and the willingness to spend from the self to keep the choice yours/i);
 assert.match(glintBlackSignalCopy, /pressure to keep learning, feeding, and changing before White-style order could make the opening harmless/i);
 assert.doesNotMatch(glintBlackSignalCopy, /Commander expression|strict non-White false-positive boundaries|turns that pressure into keep the surge alive|support-only|manual-fill|raw packet/i);
 const glintCommanderLane = buildCommanderStartingLane({

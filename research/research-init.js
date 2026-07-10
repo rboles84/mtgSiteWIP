@@ -1,7 +1,14 @@
 ﻿import { loadDictionaryFromSeedUrl } from "./scryfall-dictionary.js";
 import { normalizeSortDirection, setScryfallDictionary } from "./scryfall-parser.js";
 import { buildVisualBuilderQuery, parseKeywordInput } from "./research-builder.js";
-import { resolveMazeQueryRequest } from "./maze-query-core.js";
+import {
+  loadPlainReadingSemanticRegistryFromUrl,
+  loadScryfallGroundingFromUrl,
+  setPlainReadingSemanticRegistry,
+  setScryfallGrounding
+} from "./scryfall-grounded-compiler.js";
+import { setScryfallSyntaxDisplayLookup } from "./research-syntax-language.js";
+import { applyMazeFormatToQuery, resolveMazeQueryRequest } from "./maze-query-core.js";
 import { resolveModeInputValue } from "./research-mode.js";
 import * as ResearchSearch from "./research-search.js";
 import { buildScryfallWebSearchUrl, renderQueryInspector } from "./research-ui.js";
@@ -297,14 +304,14 @@ const MODE_CONTENT = {
     copy: "Write exact Scryfall operators. Maze will preserve the syntax, normalize small glue words when needed, and send the query directly."
   },
   builder: {
-    label: "Visual builder active",
-    copy: "Build constraints with controls instead of memorizing operators. The generated syntax stays visible as you refine the search."
+    label: "Visual query active",
+    copy: "Shape constraints with controls instead of memorizing operators. The generated syntax stays visible as you refine the search."
   }
 };
 
 const QUICK_SEARCHES = [
   { label: "Commander staples", hint: "by EDHREC rank", q: "f:commander" },
-  { label: "Best counterspells", hint: "instant speed", q: "t:instant o:\"counter target spell\"" },
+  { label: "Counterspell examples", hint: "instant speed", q: "t:instant o:\"counter target spell\"" },
   { label: "Board wipes", hint: "commander legal", q: "(o:\"destroy all creatures\" OR o:\"exile all creatures\") f:commander" },
   { label: "Efficient removal", hint: "2 mana or less", q: "(t:instant OR t:sorcery) (o:\"destroy target creature\" OR o:\"exile target creature\") mv<=2" },
   { label: "Mana dorks", hint: "1-mana creatures", q: "t:creature o:\"add {\" mv=1 f:commander" },
@@ -461,10 +468,145 @@ function createCardPlaceholder() {
   return placeholder;
 }
 
-function appendTextWithBreaks(node, text) {
-  String(text || "").split("\n").forEach((line, index) => {
+const MANA_SYMBOL_CLASS_BY_TOKEN = new Map([
+  ["W", ["ms-w"]],
+  ["U", ["ms-u"]],
+  ["B", ["ms-b"]],
+  ["R", ["ms-r"]],
+  ["G", ["ms-g"]],
+  ["C", ["ms-c"]],
+  ["X", ["ms-x"]],
+  ["Y", ["ms-y"]],
+  ["Z", ["ms-z"]],
+  ["T", ["ms-tap"]],
+  ["Q", ["ms-untap"]],
+  ["E", ["ms-e"]],
+  ["S", ["ms-s"]],
+  ["P", ["ms-p"]],
+  ["CHAOS", ["ms-chaos"]],
+  ["INFINITY", ["ms-infinity"]],
+  ["1/2", ["ms-1-2"]],
+  ["W/U", ["ms-wu"]],
+  ["W/B", ["ms-wb"]],
+  ["U/B", ["ms-ub"]],
+  ["U/R", ["ms-ur"]],
+  ["B/R", ["ms-br"]],
+  ["B/G", ["ms-bg"]],
+  ["R/G", ["ms-rg"]],
+  ["R/W", ["ms-rw"]],
+  ["G/W", ["ms-gw"]],
+  ["G/U", ["ms-gu"]],
+  ["2/W", ["ms-2w"]],
+  ["2/U", ["ms-2u"]],
+  ["2/B", ["ms-2b"]],
+  ["2/R", ["ms-2r"]],
+  ["2/G", ["ms-2g"]],
+  ["W/P", ["ms-wp"]],
+  ["U/P", ["ms-up"]],
+  ["B/P", ["ms-bp"]],
+  ["R/P", ["ms-rp"]],
+  ["G/P", ["ms-gp"]],
+  ["HW", ["ms-w", "ms-half"]],
+  ["HU", ["ms-u", "ms-half"]],
+  ["HB", ["ms-b", "ms-half"]],
+  ["HR", ["ms-r", "ms-half"]],
+  ["HG", ["ms-g", "ms-half"]]
+]);
+
+for (let value = 0; value <= 20; value += 1) {
+  MANA_SYMBOL_CLASS_BY_TOKEN.set(String(value), [`ms-${value}`]);
+}
+
+const MANA_SYMBOL_NAME_BY_TOKEN = new Map([
+  ["W", "White mana"],
+  ["U", "Blue mana"],
+  ["B", "Black mana"],
+  ["R", "Red mana"],
+  ["G", "Green mana"],
+  ["C", "Colorless mana"],
+  ["X", "X mana"],
+  ["Y", "Y mana"],
+  ["Z", "Z mana"],
+  ["T", "Tap symbol"],
+  ["Q", "Untap symbol"],
+  ["E", "Energy symbol"],
+  ["S", "Snow mana"],
+  ["P", "Phyrexian mana"],
+  ["CHAOS", "Chaos symbol"],
+  ["INFINITY", "Infinity mana"],
+  ["1/2", "One-half generic mana"]
+]);
+
+function normalizeManaSymbolToken(rawToken) {
+  const normalized = String(rawToken || "").trim().toUpperCase();
+  return normalized === "\u221E" ? "INFINITY" : normalized;
+}
+
+function getManaSymbolLabel(rawToken) {
+  const token = normalizeManaSymbolToken(rawToken);
+  const knownLabel = MANA_SYMBOL_NAME_BY_TOKEN.get(token);
+  if (knownLabel) return knownLabel;
+  if (/^\d+$/.test(token)) return `${token} generic mana`;
+  if (/^H[WUBRG]$/.test(token)) {
+    return `Half ${MANA_SYMBOL_NAME_BY_TOKEN.get(token.slice(1)).toLowerCase()}`;
+  }
+  const partLabels = token.split("/").map((part) => {
+    if (part === "P") return "Phyrexian";
+    if (part === "2") return "two generic";
+    return (MANA_SYMBOL_NAME_BY_TOKEN.get(part) || part).replace(/ mana$/i, "");
+  });
+  return `${partLabels.join(" or ")} mana`;
+}
+
+function getReadableManaFallback(rawToken) {
+  return normalizeManaSymbolToken(rawToken).replace(/\//g, " or ");
+}
+
+function createManaSymbolNode(rawToken) {
+  const token = normalizeManaSymbolToken(rawToken);
+  const symbolClasses = MANA_SYMBOL_CLASS_BY_TOKEN.get(token);
+  const label = getManaSymbolLabel(token);
+
+  if (!symbolClasses) {
+    const fallback = document.createElement("span");
+    fallback.className = "mana-symbol-fallback";
+    fallback.textContent = getReadableManaFallback(token);
+    fallback.title = `{${token}}`;
+    fallback.setAttribute("aria-label", `Unsupported mana symbol ${label}`);
+    return fallback;
+  }
+
+  const symbol = document.createElement("i");
+  symbol.classList.add("ms", ...symbolClasses, "ms-cost", "ms-shadow", "mana-symbol");
+  symbol.setAttribute("role", "img");
+  symbol.setAttribute("aria-label", label);
+  symbol.title = `{${token}}`;
+  return symbol;
+}
+
+function appendSymbolizedText(node, text) {
+  const source = String(text || "");
+  const tokenPattern = /\{([^{}]+)\}/g;
+  let lastIndex = 0;
+  let match;
+
+  while ((match = tokenPattern.exec(source)) !== null) {
+    if (match.index > lastIndex) {
+      node.appendChild(document.createTextNode(source.slice(lastIndex, match.index)));
+    }
+    node.appendChild(createManaSymbolNode(match[1]));
+    lastIndex = tokenPattern.lastIndex;
+  }
+
+  if (lastIndex < source.length) {
+    node.appendChild(document.createTextNode(source.slice(lastIndex)));
+  }
+}
+
+function appendSymbolizedTextWithBreaks(node, text) {
+  String(text || "").split(/\r?\n/).forEach((line, index) => {
     if (index > 0) node.appendChild(document.createElement("br"));
-    node.appendChild(document.createTextNode(line));
+    appendSymbolizedText(node, line);
   });
 }
 
@@ -484,15 +626,7 @@ function createMetaRow(label, value) {
 
 function createManaCostNodes(cost) {
   const fragment = document.createDocumentFragment();
-  parseManaSymbols(cost).forEach((symbol) => {
-    const chip = document.createElement("span");
-    chip.className = `mana-symbol ${getManaSymbolClass(symbol)}`;
-    const label = getManaSymbolLabel(symbol);
-    chip.title = label;
-    chip.setAttribute("aria-label", label);
-    chip.textContent = symbol;
-    fragment.appendChild(chip);
-  });
+  appendSymbolizedText(fragment, cost);
   return fragment;
 }
 
@@ -571,6 +705,24 @@ async function initializeParserDictionary() {
   } catch (error) {
     console.warn("Parser seed unavailable; using built-in parser dictionary.", error);
     setKeywordVocabulary();
+  }
+
+  try {
+    const grounding = await loadScryfallGroundingFromUrl("data/scryfall/grounding/scryfall-grounding.json");
+    setScryfallGrounding(grounding);
+    setScryfallSyntaxDisplayLookup(grounding);
+  } catch (error) {
+    console.warn("Scryfall grounding unavailable; grounded Plain Reading compiler disabled.", error);
+    setScryfallGrounding(null);
+    setScryfallSyntaxDisplayLookup(null);
+  }
+
+  try {
+    const semantics = await loadPlainReadingSemanticRegistryFromUrl("data/scryfall/grounding/plain-reading-semantics.json");
+    setPlainReadingSemanticRegistry(semantics);
+  } catch (error) {
+    console.warn("Plain Reading semantic registry unavailable; using catalog-only compiler semantics.", error);
+    setPlainReadingSemanticRegistry(null);
   }
 }
 
@@ -695,6 +847,7 @@ async function initializeResearchArchives() {
       order: urlParams.get("order") || currentOrder,
       unique: urlParams.get("unique") || currentUnique,
       dir: normalizeSortDirection(urlParams.get("dir")) || currentDir,
+      forceRaw: true,
       useFormatDefault: false,
       launchContext: { ...normalizedLaunch, operatorQuery: launchOperatorQuery }
     });
@@ -720,6 +873,7 @@ async function initializeResearchArchives() {
       order: urlParams.get("order") || currentOrder,
       unique: urlParams.get("unique") || currentUnique,
       dir: normalizeSortDirection(urlParams.get("dir")) || currentDir,
+      forceRaw: launch.from === "archscry",
       useFormatDefault: false,
       launchContext: launch
     });
@@ -851,6 +1005,11 @@ async function doSearch() {
     const query = queryResult.query;
     const diagnostics = queryResult.diagnostics || [];
     const reason = currentMode === "builder" ? "" : queryResult.reason || "";
+    if (currentMode === "raw" && queryResult.detectedMode === "plain_reading") {
+      const input = document.getElementById("search-input");
+      setMode("ai");
+      if (input) input.value = rawInput;
+    }
 
     if (currentMode === "builder" && !query.trim()) {
       showError("Add at least one filter before searching.");
@@ -864,25 +1023,35 @@ async function doSearch() {
       currentDir = normalizeSortDirection(queryResult.api.dir);
     }
 
+    if (queryResult.executionBlocked) {
+      handleBlockedQueryResult(queryResult, {
+        reason,
+        diagnostics,
+        inputValue: rawInput,
+        normalized: queryResult.normalized || queryResult.detectedMode === "plain_reading"
+      });
+      return;
+    }
+
+    if (queryResult.parserMode === "exact_name") {
+      currentQuery = query;
+      currentSearchApi = queryResult.api || { endpoint: "/cards/named" };
+      updateSearchActions(query, currentSearchApi);
+      showQueryInspector(query, reason, diagnostics, null, { inputValue: rawInput });
+      const card = await ResearchSearch.scryfallExact(query);
+      setLoading(false);
+      hideState();
+      if (card.error || card.object === "error") {
+        showError(card.details || "Card not found");
+        return;
+      }
+      openModal(card);
+      return;
+    }
+
     if (currentMode === "ai") {
       lastSmartInput = rawInput;
       lastSmartQuery = query;
-
-      if (queryResult.parserMode === "exact_name") {
-        currentQuery = query;
-        currentSearchApi = queryResult.api || { endpoint: "/cards/search", unique: currentUnique, order: currentOrder };
-        updateSearchActions(query, currentSearchApi);
-        showQueryInspector(query, reason, diagnostics, null, { inputValue: rawInput });
-        const card = await ResearchSearch.scryfallExact(query);
-        setLoading(false);
-        hideState();
-        if (card.error || card.object === "error") {
-          showError(card.details || "Card not found");
-          return;
-        }
-        openModal(card);
-        return;
-      }
     } else if (currentMode === "raw") {
       if (queryResult.normalized) document.getElementById("search-input").value = query;
       if (query !== lastSmartQuery) lastSmartQuery = "";
@@ -924,7 +1093,8 @@ function resolveMazeRouteQuery(input, opts = {}) {
       format,
       order: opts.order || currentOrder,
       unique: opts.unique || currentUnique,
-      dir: Object.hasOwn(opts, "dir") ? opts.dir : currentDir
+      dir: Object.hasOwn(opts, "dir") ? opts.dir : currentDir,
+      forceRaw: Boolean(opts.forceRaw)
     }
   };
   if (mode === "builder") request.builderFilters = opts.builderFilters || bFilters;
@@ -966,6 +1136,8 @@ async function triggerSearch(query, opts = {}) {
   const data = await ResearchSearch.scryfallSearch(query, { order: searchOrder, unique: searchUnique, dir: searchDir });
   if (data.object === "error") {
     if (isNoResultsResponse(data)) {
+      const responseDiagnostics = buildSearchResponseDiagnostics(diagnostics, { totalCards: 0 });
+      showQueryInspector(query, reason, responseDiagnostics, searchApi, { inputValue, normalized });
       await showNoResultsState(query);
       return;
     }
@@ -977,7 +1149,66 @@ async function triggerSearch(query, opts = {}) {
   allResults = data.data || [];
   hasMore = data.has_more;
   nextPageUrl = data.next_page || null;
+  if (totalCards === 0) {
+    const responseDiagnostics = buildSearchResponseDiagnostics(diagnostics, { totalCards });
+    showQueryInspector(query, reason, responseDiagnostics, searchApi, { inputValue, normalized });
+  }
   renderResults();
+}
+
+function handleBlockedQueryResult(queryResult, {
+  reason = "",
+  diagnostics = [],
+  inputValue = "",
+  normalized = false
+} = {}) {
+  currentQuery = "";
+  currentSearchApi = {};
+  allResults = [];
+  displayPage = 0;
+  hasMore = false;
+  nextPageUrl = null;
+  totalCards = 0;
+  updateSearchActions("", {});
+  showQueryInspector(queryResult.query || "", reason, diagnostics, queryResult.api || {}, {
+    inputValue,
+    normalized,
+    blocked: true
+  });
+  showBlockedQueryState(queryResult);
+  setLoading(false);
+}
+
+/**
+ * Adds response-driven validation diagnostics without issuing a separate count request.
+ * @param {object[]} diagnostics - Pre-search compiler diagnostics.
+ * @param {object} response - Scryfall response summary.
+ * @returns {object[]} Diagnostics with optional repair alternatives.
+ */
+function buildSearchResponseDiagnostics(diagnostics = [], response = {}) {
+  const base = Array.isArray(diagnostics) ? [...diagnostics] : [];
+  if (response.totalCards !== 0) return base;
+  const plans = base
+    .filter((diagnostic) => String(diagnostic?.code || "").endsWith("_validation_plan"))
+    .flatMap((diagnostic) => diagnostic.details?.relaxations || []);
+  if (!plans.length) return base;
+  base.push({
+    level: "warning",
+    code: "parser_validation_result",
+    message: "Scryfall returned 0 cards. Try relaxing the narrowest constraint below.",
+    source: "parser",
+    details: { totalCards: 0 }
+  });
+  plans.slice(0, 5).forEach((plan) => {
+    base.push({
+      level: "info",
+      code: "parser_alternative",
+      message: plan.label || "Relax this constraint",
+      source: "parser",
+      details: { query: plan.query, api: plan.api || {} }
+    });
+  });
+  return base;
 }
 
 /**
@@ -1152,7 +1383,8 @@ function openModal(card, opener = document.activeElement) {
   if (manaCost) {
     const cost = document.createElement("div");
     cost.className = "m-cost";
-    cost.setAttribute("aria-label", `Mana cost ${manaCost}`);
+    cost.setAttribute("role", "group");
+    cost.setAttribute("aria-label", "Mana cost");
     cost.appendChild(createManaCostNodes(manaCost));
     detailCol.appendChild(cost);
   }
@@ -1165,7 +1397,7 @@ function openModal(card, opener = document.activeElement) {
   if (oracle) {
     const oracleNode = document.createElement("div");
     oracleNode.className = "m-oracle";
-    appendTextWithBreaks(oracleNode, oracle);
+    appendSymbolizedTextWithBreaks(oracleNode, oracle);
     detailCol.appendChild(oracleNode);
   }
 
@@ -1279,41 +1511,6 @@ function createModalImageContent(card) {
     return image;
   }
   return createCardPlaceholder();
-}
-
-/**
- * Extracts mana symbol tokens from Scryfall brace notation.
- * @param {string} cost - Raw mana cost.
- * @returns {string[]} Mana symbols without braces.
- */
-function parseManaSymbols(cost) {
-  return [...String(cost || "").matchAll(/\{([^}]+)\}/g)].map((match) => match[1]);
-}
-
-/**
- * Chooses a visual class for a mana symbol.
- * @param {string} symbol - Mana symbol without braces.
- * @returns {string} CSS class name.
- */
-function getManaSymbolClass(symbol) {
-  const normalized = String(symbol || "").toUpperCase();
-  const color = ["W", "U", "B", "R", "G"].find((item) => normalized.includes(item));
-  if (color) return `mana-${color}${normalized.includes("/") ? " mana-half" : ""}`;
-  if (/^\d+$/.test(normalized)) return "mana-generic";
-  if (["X", "Y", "Z", "C", "P", "S"].includes(normalized)) return `mana-${normalized}`;
-  return "mana-generic";
-}
-
-/**
- * Builds a human-readable label for a mana symbol chip.
- * @param {string} symbol - Mana symbol without braces.
- * @returns {string} Accessible symbol label.
- */
-function getManaSymbolLabel(symbol) {
-  const names = { W: "white", U: "blue", B: "black", R: "red", G: "green", C: "colorless", X: "X", Y: "Y", Z: "Z", P: "phyrexian", S: "snow" };
-  const normalized = String(symbol || "").toUpperCase();
-  if (/^\d+$/.test(normalized)) return `${normalized} generic mana`;
-  return normalized.split("/").map((part) => names[part] || part).join(" or ") + " mana";
 }
 
 /**
@@ -1465,7 +1662,7 @@ function buildFilterQuery() {
 function updateBuilderOutput(query = buildFilterQuery()) {
   const queryEl = document.getElementById("builder-generated-query");
   const summaryEl = document.getElementById("builder-summary");
-  if (queryEl) queryEl.textContent = query || "Select filters to build a query.";
+  if (queryEl) queryEl.textContent = query || "Select filters to shape a query.";
   if (summaryEl) summaryEl.textContent = formatBuilderSummary();
 }
 
@@ -2178,11 +2375,27 @@ function runQuickSearch(query, opts = {}) {
   const finalQuery = queryResult.query;
   const diagnostics = queryResult.diagnostics || [];
   const plainReadingQuery = normalizeSearchInputValue(opts.plainReadingQuery || "");
-  document.getElementById("search-input").value = finalQuery;
+  const detectedPlainReading = queryResult.detectedMode === "plain_reading";
+  if (queryResult.executionBlocked) {
+    if (detectedPlainReading) {
+      const input = document.getElementById("search-input");
+      setMode("ai");
+      if (input) input.value = query;
+    }
+    handleBlockedQueryResult(queryResult, {
+      reason: queryResult.reason || "",
+      diagnostics,
+      inputValue: query,
+      normalized: queryResult.normalized || queryResult.detectedMode === "plain_reading"
+    });
+    return;
+  }
+  document.getElementById("search-input").value = detectedPlainReading ? query : finalQuery;
   selectAutoFilledInputOnFocus = true;
-  lastSmartInput = plainReadingQuery;
-  lastSmartQuery = plainReadingQuery ? finalQuery : "";
-  setMode("raw");
+  lastSmartInput = detectedPlainReading ? query : plainReadingQuery;
+  lastSmartQuery = (detectedPlainReading || plainReadingQuery) ? finalQuery : "";
+  setMode(detectedPlainReading ? "ai" : "raw");
+  if (detectedPlainReading) document.getElementById("search-input").value = query;
   currentOrder = queryResult.api?.order || opts.order || "name";
   currentUnique = queryResult.api?.unique || opts.unique || "cards";
   currentDir = normalizeSortDirection(queryResult.api?.dir || opts.dir);
@@ -2221,7 +2434,8 @@ function runQueryAlternative(query, api = {}) {
 function applyFormatFilter(format) {
   if (!currentQuery) return;
   const base = stripFormatFilter(currentQuery);
-  runQuickSearch((format ? `${base} f:${format}` : base).trim(), {
+  const formatted = applyMazeFormatToQuery(base, { format });
+  runQuickSearch(formatted.query, {
     order: currentOrder,
     unique: currentUnique,
     dir: currentDir,
@@ -2289,7 +2503,8 @@ function showQueryInspector(query, reason, diagnostics = [], api = null, ui = {}
     diagnostics,
     api,
     inputValue: ui.inputValue || "",
-    normalized: Boolean(ui.normalized)
+    normalized: Boolean(ui.normalized),
+    blocked: Boolean(ui.blocked)
   });
 }
 
@@ -2400,9 +2615,9 @@ function buildInitialStateHtml() {
       <circle cx="24" cy="24" r="10" stroke="#f2c55c" stroke-width="0.6" stroke-dasharray="2 4"/>
       <path d="M18 24 L22 28 L30 18" stroke="#c9a84c" stroke-width="1" stroke-linecap="round"/>
     </svg>
-    <div class="state-title">The Archives await</div>
+    <div class="state-title">Start with a search thread</div>
     <div class="state-sub">
-      Try <code>c:r kw:shroud</code> for red cards with shroud, or use The Plain Reading with natural language.
+      Start from a dossier path, a card texture, or exact syntax. Try <code>c:r kw:shroud</code>, or use The Plain Reading with natural language.
       <br><br>Browse the <a href="https://scryfall.com/docs/syntax" target="_blank" style="color:var(--maze-gold-2)">full Scryfall syntax reference &nearr;</a>
     </div>
   `;
@@ -2423,7 +2638,7 @@ function setLoading(on) {
       <svg class="state-spinner" width="40" height="40" viewBox="0 0 40 40" fill="none">
         <circle cx="20" cy="20" r="16" stroke="#f2c55c" stroke-width="0.8" stroke-dasharray="4 2"/>
       </svg>
-      <div class="state-title">Searching the Archives...</div>`;
+      <div class="state-title">Searching the card index...</div>`;
     panel.style.display = "flex";
     document.getElementById("card-grid").classList.add("hidden");
     document.getElementById("results-header").classList.add("hidden");
@@ -2471,6 +2686,38 @@ async function showNoResultsState(query) {
   if (card?.object === "card") renderNoResultsCard(card);
 }
 
+function showBlockedQueryState(queryResult) {
+  clearError();
+  document.getElementById("card-grid").classList.add("hidden");
+  document.getElementById("results-header").classList.add("hidden");
+  document.getElementById("results-footer").classList.add("hidden");
+
+  const panel = document.getElementById("state-panel");
+  panel.classList.remove("empty-result-active");
+  panel.innerHTML = `
+    <div class="empty-archive">
+      <div>
+        <div class="empty-kicker">Needs one choice</div>
+        <div class="empty-title">Maze needs one choice.</div>
+        <div class="empty-copy">
+          ${escapeHtml(queryResult.blockReason || "Pick one interpretation in the translation panel before searching.")}
+        </div>
+        <div class="empty-query">${escapeHtml(queryResult.query || "")}</div>
+      </div>
+    </div>
+  `;
+  panel.style.display = "flex";
+}
+
+function escapeHtml(value) {
+  return String(value ?? "")
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
+}
+
 /**
  * Builds the empty-results panel HTML.
  * @returns {string} Empty-results HTML.
@@ -2482,10 +2729,10 @@ function buildNoResultsHtml() {
         <div class="empty-card-frame" id="empty-card-frame">Searching for a strange specimen...</div>
       </a>
       <div>
-        <div class="empty-kicker">No match in the archive</div>
+        <div class="empty-kicker">No match for this thread</div>
         <div class="empty-title">The trail went cold.</div>
         <div class="empty-copy">
-          No cards matched this exact spellwork. Try loosening a color, removing one keyword, or switching an AND into an OR.
+          No cards matched this exact search. Try loosening a color, removing one keyword, or switching an AND into an OR.
         </div>
         <div class="empty-query" id="empty-query"></div>
         <div class="empty-card-lore hidden" id="empty-card-lore">
@@ -2693,7 +2940,7 @@ function renderScratchpad() {
     const empty = document.createElement("p");
     empty.className = "stash-empty";
     empty.id = "scratchpad-empty-message";
-    empty.textContent = "Set aside cards from search results or a card modal, then sort the finds that resonate.";
+    empty.textContent = "Set aside cards from this search, then sort the finds you want to revisit with the reading.";
     body.appendChild(empty);
   }
 

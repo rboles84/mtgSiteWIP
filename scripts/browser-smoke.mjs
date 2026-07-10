@@ -1,0 +1,967 @@
+import { readFile, stat } from "node:fs/promises";
+import http from "node:http";
+import path from "node:path";
+
+import * as ChromeLauncher from "chrome-launcher";
+import puppeteer from "puppeteer-core";
+
+const root = process.cwd();
+const host = "127.0.0.1";
+const manaVersion = "1.18.0";
+const manaFixtureName = "VM-485 Mana Symbol Fixture";
+const browserCandidates = [
+  process.env.LIGHTHOUSE_CHROME_PATH,
+  "C:\\Program Files\\Microsoft\\Edge\\Application\\msedge.exe",
+  "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe",
+].filter(Boolean);
+const viewportConfigs = [
+  { name: "desktop", width: 1440, height: 1200 },
+  { name: "mobile", width: 390, height: 1200 },
+];
+const chromeFlags = [
+  "--headless=new",
+  "--no-sandbox",
+  "--disable-dev-shm-usage",
+  "--disable-gpu",
+  "--force-color-profile=srgb",
+];
+const supabaseStubScript = `
+  window.supabase = window.supabase || {
+    createClient: function createClient() {
+      return {
+        auth: {
+          getSession: async function getSession() { return { data: { session: null }, error: null }; },
+          signInWithOAuth: async function signInWithOAuth() { return { data: null, error: null }; },
+          signOut: async function signOut() { return { error: null }; }
+        },
+        from: function from() {
+          return {
+            select: function select() { return this; },
+            eq: function eq() { return this; },
+            order: function order() { return this; },
+            limit: function limit() { return this; },
+            update: function update() { return this; },
+            insert: function insert() { return this; },
+            upsert: async function upsert() { return { data: null, error: null }; },
+            maybeSingle: async function maybeSingle() { return { data: null, error: null }; }
+          };
+        },
+        functions: {
+          invoke: async function invoke() { return { data: null, error: null }; }
+        }
+      };
+    }
+  };
+`;
+const mockCards = [
+  {
+    object: "card",
+    id: "00000000-0000-4000-8000-000000000001",
+    oracle_id: "11111111-1111-4111-8111-111111111111",
+    name: "Sol Ring",
+    mana_cost: "{1}",
+    cmc: 1,
+    type_line: "Artifact",
+    oracle_text: "{T}: Add {C}{C}.",
+    color_identity: [],
+    colors: [],
+    legalities: { commander: "legal" },
+    rarity: "uncommon",
+    set: "cmm",
+    set_name: "Commander Masters",
+    collector_number: "400",
+    scryfall_uri: "https://scryfall.com/card/cmm/400/sol-ring",
+  },
+  {
+    object: "card",
+    id: "00000000-0000-4000-8000-000000000002",
+    oracle_id: "22222222-2222-4222-8222-222222222222",
+    name: "Command Tower",
+    mana_cost: "",
+    cmc: 0,
+    type_line: "Land",
+    oracle_text: "{T}: Add one mana of any color in your commander's color identity.",
+    color_identity: [],
+    colors: [],
+    legalities: { commander: "legal" },
+    rarity: "common",
+    set: "cmm",
+    set_name: "Commander Masters",
+    collector_number: "1035",
+    scryfall_uri: "https://scryfall.com/card/cmm/1035/command-tower",
+  },
+  {
+    object: "card",
+    id: "00000000-0000-4000-8000-000000000003",
+    oracle_id: "33333333-3333-4333-8333-333333333333",
+    name: manaFixtureName,
+    mana_cost: "{7}{R}",
+    cmc: 8,
+    type_line: "Test Fixture",
+    oracle_text: "Mayhem {4}{R}\n{T}: Add {C}{C}.\nSymbols {X}, {S}, {E}, {W/U}, {G/P}, {HR}, and {FOO}.",
+    color_identity: ["R"],
+    colors: ["R"],
+    legalities: { commander: "not_legal" },
+    rarity: "special",
+    set: "tst",
+    set_name: "Browser Smoke Fixtures",
+    collector_number: "485",
+    scryfall_uri: "https://example.invalid/vm-485-mana-symbol-fixture",
+  },
+];
+const mockScryfallList = {
+  object: "list",
+  total_cards: mockCards.length,
+  has_more: false,
+  data: mockCards,
+};
+const mockEmptyScryfallList = {
+  object: "list",
+  total_cards: 0,
+  has_more: false,
+  data: [],
+};
+const vm487GlintStrictQuery = "id=ubrg o:treasure otag:draw is:commander legal:commander";
+const mockCorsHeaders = {
+  "Access-Control-Allow-Origin": "*",
+  "Access-Control-Allow-Methods": "GET, OPTIONS",
+  "Access-Control-Allow-Headers": "*",
+};
+const mimeTypes = {
+  ".css": "text/css; charset=utf-8",
+  ".eot": "application/vnd.ms-fontobject",
+  ".html": "text/html; charset=utf-8",
+  ".js": "application/javascript; charset=utf-8",
+  ".json": "application/json; charset=utf-8",
+  ".mjs": "application/javascript; charset=utf-8",
+  ".png": "image/png",
+  ".svg": "image/svg+xml",
+  ".ttf": "font/ttf",
+  ".txt": "text/plain; charset=utf-8",
+  ".webp": "image/webp",
+  ".woff": "font/woff",
+  ".woff2": "font/woff2",
+};
+
+function delay(ms) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
+function assert(condition, message) {
+  if (!condition) {
+    throw new Error(message);
+  }
+}
+
+async function validateVendoredManaAssets() {
+  const manaCssPath = path.join(root, "assets", "vendor", "mana", "css", "mana.min.css");
+  const rendererPath = path.join(root, "research", "research-init.js");
+  const manaPackagePath = path.join(root, "node_modules", "mana-font", "package.json");
+  const projectPackagePath = path.join(root, "package.json");
+  const [manaCss, rendererSource, manaPackageSource, projectPackageSource] = await Promise.all([
+    readFile(manaCssPath, "utf8"),
+    readFile(rendererPath, "utf8"),
+    readFile(manaPackagePath, "utf8"),
+    readFile(projectPackagePath, "utf8"),
+  ]);
+  const manaPackage = JSON.parse(manaPackageSource);
+  const projectPackage = JSON.parse(projectPackageSource);
+
+  assert(manaPackage.version === manaVersion, `Expected mana-font ${manaVersion}, received ${manaPackage.version}.`);
+  assert(
+    projectPackage.devDependencies?.["mana-font"] === manaVersion,
+    `package.json must pin mana-font exactly to ${manaVersion}.`
+  );
+
+  const mapStart = rendererSource.indexOf("const MANA_SYMBOL_CLASS_BY_TOKEN");
+  const mapEnd = rendererSource.indexOf("const MANA_SYMBOL_NAME_BY_TOKEN", mapStart);
+  assert(mapStart >= 0 && mapEnd > mapStart, "Could not locate the Maze mana symbol class map for static validation.");
+  const mapSource = rendererSource.slice(mapStart, mapEnd);
+  const generatedClasses = new Set(
+    [...mapSource.matchAll(/[\"'`](ms-[a-z0-9-]+)[\"'`]/g)].map((match) => match[1])
+  );
+  for (let value = 0; value <= 20; value += 1) generatedClasses.add(`ms-${value}`);
+  ["ms", "ms-cost", "ms-shadow"].forEach((className) => generatedClasses.add(className));
+
+  const missingClasses = [...generatedClasses].filter((className) => !manaCss.includes(`.${className}`));
+  assert(
+    missingClasses.length === 0,
+    `Maze mana symbol classes missing from vendored Mana CSS: ${missingClasses.join(", ")}`
+  );
+
+  const referencedManaFonts = new Set(
+    [...manaCss.matchAll(/\.\.\/fonts\/(mana\.[a-z0-9]+)(?:\?[^\"']*)?/g)].map((match) => match[1])
+  );
+  assert(referencedManaFonts.size > 0, "Vendored Mana CSS does not reference any Mana font files.");
+  await Promise.all(
+    [...referencedManaFonts].map((fontName) => stat(path.join(root, "assets", "vendor", "mana", "fonts", fontName)))
+  );
+}
+
+function send(res, statusCode, body, contentType = "text/plain; charset=utf-8") {
+  res.writeHead(statusCode, { "Content-Type": contentType });
+  res.end(body);
+}
+
+async function resolveBrowserPath() {
+  for (const candidate of browserCandidates) {
+    try {
+      await stat(candidate);
+      return candidate;
+    } catch {
+      // Try the next candidate or allow auto-detect.
+    }
+  }
+
+  return null;
+}
+
+async function resolveFile(requestPath) {
+  const normalized = decodeURIComponent(requestPath.split("?")[0]);
+  const relativePath = normalized.endsWith("/")
+    ? path.join(normalized, "index.html")
+    : normalized;
+  const resolvedPath = path.resolve(root, `.${relativePath}`);
+
+  if (!resolvedPath.startsWith(root)) {
+    throw new Error("Refusing to serve a path outside the workspace.");
+  }
+
+  const fileStat = await stat(resolvedPath);
+  if (fileStat.isDirectory()) {
+    return path.join(resolvedPath, "index.html");
+  }
+
+  return resolvedPath;
+}
+
+function startServer() {
+  const server = http.createServer(async (req, res) => {
+    try {
+      const filePath = await resolveFile(req.url ?? "/");
+      const body = await readFile(filePath);
+      const contentType = mimeTypes[path.extname(filePath).toLowerCase()] ?? "application/octet-stream";
+      send(res, 200, body, contentType);
+    } catch (error) {
+      if (error?.code === "ENOENT") {
+        send(res, 404, "Not found");
+        return;
+      }
+
+      send(res, 500, error instanceof Error ? error.message : "Server error");
+    }
+  });
+  const sockets = new Set();
+
+  server.on("connection", (socket) => {
+    sockets.add(socket);
+    socket.on("close", () => sockets.delete(socket));
+  });
+
+  server.forceShutdown = () => {
+    server.closeIdleConnections?.();
+    server.closeAllConnections?.();
+    for (const socket of sockets) {
+      socket.destroy();
+    }
+  };
+
+  return new Promise((resolve, reject) => {
+    server.once("error", reject);
+    server.listen(0, host, () => resolve(server));
+  });
+}
+
+async function waitForDevtools(port, retries = 40, delayMs = 500) {
+  const endpoint = `http://${host}:${port}/json/version`;
+
+  for (let attempt = 0; attempt < retries; attempt += 1) {
+    try {
+      const response = await fetch(endpoint);
+      if (response.ok) {
+        return;
+      }
+    } catch {
+      // Retry until the browser exposes the debugging endpoint.
+    }
+
+    await delay(delayMs);
+  }
+
+  throw new Error(`Failed to connect to the browser DevTools endpoint at ${endpoint}.`);
+}
+
+function isLocalUrl(url, origin) {
+  return url.startsWith(`${origin}/`) || url === origin;
+}
+
+async function fulfillRequest(request, response) {
+  if (request.isInterceptResolutionHandled?.()) return;
+  await request.respond(response);
+}
+
+async function continueRequest(request) {
+  if (request.isInterceptResolutionHandled?.()) return;
+  await request.continue();
+}
+
+async function setupRequestMocks(page, origin) {
+  await page.setRequestInterception(true);
+  page.on("request", async (request) => {
+    const url = request.url();
+    try {
+      if (url.startsWith("https://cdn.jsdelivr.net/npm/@supabase/supabase-js")) {
+        await fulfillRequest(request, {
+          status: 200,
+          contentType: "application/javascript; charset=utf-8",
+          body: supabaseStubScript,
+        });
+        return;
+      }
+
+      if (url.startsWith("https://api.scryfall.com/cards/search")) {
+        const query = new URL(url).searchParams.get("q") || "";
+        await fulfillRequest(request, {
+          status: 200,
+          contentType: "application/json; charset=utf-8",
+          headers: mockCorsHeaders,
+          body: JSON.stringify(query === vm487GlintStrictQuery ? mockEmptyScryfallList : mockScryfallList),
+        });
+        return;
+      }
+
+      if (url.startsWith("https://api.scryfall.com/cards/named")) {
+        await fulfillRequest(request, {
+          status: 200,
+          contentType: "application/json; charset=utf-8",
+          headers: mockCorsHeaders,
+          body: JSON.stringify(mockCards[0]),
+        });
+        return;
+      }
+
+      if (url.startsWith("https://api.scryfall.com/cards/random")) {
+        await fulfillRequest(request, {
+          status: 200,
+          contentType: "application/json; charset=utf-8",
+          headers: mockCorsHeaders,
+          body: JSON.stringify(mockCards[1]),
+        });
+        return;
+      }
+
+      if (!isLocalUrl(url, origin)) {
+        await fulfillRequest(request, { status: 204, body: "" });
+        return;
+      }
+
+      await continueRequest(request);
+    } catch {
+      // If Chromium has already resolved the request, keep the smoke focused on page behavior.
+    }
+  });
+}
+
+async function createSmokePage(browser, viewport, origin) {
+  const page = await browser.newPage();
+  const consoleErrors = [];
+  const pageErrors = [];
+
+  page.on("console", (message) => {
+    if (message.type() !== "error") return;
+    consoleErrors.push({
+      viewport: viewport.name,
+      text: message.text(),
+      location: message.location(),
+    });
+  });
+
+  page.on("pageerror", (error) => {
+    pageErrors.push({
+      viewport: viewport.name,
+      name: error.name,
+      message: error.message,
+    });
+  });
+
+  await page.setViewport({
+    width: viewport.width,
+    height: viewport.height,
+    deviceScaleFactor: 1,
+    isMobile: viewport.name === "mobile",
+  });
+  await page.emulateMediaFeatures([{ name: "prefers-reduced-motion", value: "reduce" }]);
+  await page.evaluateOnNewDocument(() => {
+    Object.defineProperty(window, "__vmBrowserSmoke", {
+      configurable: true,
+      enumerable: false,
+      value: true,
+      writable: false,
+    });
+    Object.defineProperty(window, "__vmVisualRegressionDisableCardArt", {
+      configurable: true,
+      enumerable: false,
+      value: true,
+      writable: false,
+    });
+    window.supabase = window.supabase || {
+      createClient: function createClient() {
+        return {
+          auth: {
+            getSession: async function getSession() { return { data: { session: null }, error: null }; },
+            signInWithOAuth: async function signInWithOAuth() { return { data: null, error: null }; },
+            signOut: async function signOut() { return { error: null }; },
+          },
+          from: function from() {
+            return {
+              select: function select() { return this; },
+              eq: function eq() { return this; },
+              order: function order() { return this; },
+              limit: function limit() { return this; },
+              update: function update() { return this; },
+              insert: function insert() { return this; },
+              upsert: async function upsert() { return { data: null, error: null }; },
+              maybeSingle: async function maybeSingle() { return { data: null, error: null }; },
+            };
+          },
+          functions: {
+            invoke: async function invoke() { return { data: null, error: null }; },
+          },
+        };
+      },
+    };
+  });
+  await setupRequestMocks(page, origin);
+
+  return { page, consoleErrors, pageErrors };
+}
+
+async function waitForPageReady(page) {
+  await page.waitForFunction(() => document.readyState !== "loading", { timeout: 20000 });
+  await page.evaluate(async () => {
+    if (!document.fonts) return;
+    await Promise.race([
+      document.fonts.ready,
+      new Promise((resolve) => setTimeout(resolve, 2000)),
+    ]);
+  });
+  await page.evaluate(() => new Promise((resolve) => requestAnimationFrame(() => requestAnimationFrame(resolve))));
+}
+
+async function resetOriginStorage(page, origin) {
+  console.log("  reset: clearing local/session storage");
+  await page.goto(`${origin}/index.html`, { waitUntil: "domcontentloaded" });
+  await page.evaluate(() => {
+    localStorage.clear();
+    sessionStorage.clear();
+    localStorage.setItem("vm_reduce_motion", "true");
+  });
+  await page.reload({ waitUntil: "domcontentloaded" });
+  await waitForPageReady(page);
+}
+
+async function expectVisible(page, selector, label, timeout = 15000) {
+  await page.waitForSelector(selector, { visible: true, timeout }).catch((error) => {
+    throw new Error(`${label} did not become visible: ${error.message}`);
+  });
+}
+
+async function verifyCanvasRendered(page, selector, label) {
+  await expectVisible(page, selector, label);
+  const rendered = await page.evaluate((targetSelector) => {
+    const canvas = document.querySelector(targetSelector);
+    if (!(canvas instanceof HTMLCanvasElement)) return false;
+    if (canvas.width === 0 || canvas.height === 0) return false;
+    if (canvas.getBoundingClientRect().width === 0 || canvas.getBoundingClientRect().height === 0) return false;
+    const context = canvas.getContext("2d", { willReadFrequently: true });
+    if (!context) return false;
+    const sampleWidth = Math.max(1, Math.min(canvas.width, 24));
+    const sampleHeight = Math.max(1, Math.min(canvas.height, 24));
+    const xSteps = Math.max(1, Math.min(5, Math.floor(canvas.width / sampleWidth)));
+    const ySteps = Math.max(1, Math.min(5, Math.floor(canvas.height / sampleHeight)));
+
+    for (let xIndex = 0; xIndex < xSteps; xIndex += 1) {
+      for (let yIndex = 0; yIndex < ySteps; yIndex += 1) {
+        const maxX = Math.max(0, canvas.width - sampleWidth);
+        const maxY = Math.max(0, canvas.height - sampleHeight);
+        const x = xSteps === 1 ? 0 : Math.round((maxX * xIndex) / (xSteps - 1));
+        const y = ySteps === 1 ? 0 : Math.round((maxY * yIndex) / (ySteps - 1));
+        const image = context.getImageData(x, y, sampleWidth, sampleHeight);
+        for (let index = 3; index < image.data.length; index += 4) {
+          if (image.data[index] > 0) {
+            return true;
+          }
+        }
+      }
+    }
+    return false;
+  }, selector);
+
+  assert(rendered, `${label} did not render visible canvas pixels.`);
+}
+
+async function waitForArchscryLanding(page) {
+  await page.waitForFunction(() => {
+    const landing = document.getElementById("landing");
+    const result = document.getElementById("result");
+    const title = document.querySelector(".landing-title");
+    return Boolean(
+      landing &&
+      !landing.classList.contains("hidden") &&
+      result &&
+      result.classList.contains("hidden") &&
+      title &&
+      title.textContent.trim()
+    );
+  }, { timeout: 20000 });
+}
+
+async function waitForDossier(page, expectedPanel = "") {
+  await page.waitForFunction((panelId) => {
+    const result = document.getElementById("result");
+    const name = document.querySelector(".guild-name");
+    const consoleNode = document.querySelector("[data-dossier-console]");
+    const snapshot = document.querySelector(".dossier-snapshot");
+    const requestedPanel = panelId ? document.querySelector(`[data-dossier-panel="${panelId}"]`) : true;
+    return Boolean(
+      result &&
+      !result.classList.contains("hidden") &&
+      name &&
+      name.textContent.trim() &&
+      consoleNode &&
+      snapshot &&
+      requestedPanel
+    );
+  }, { timeout: 20000 }, expectedPanel);
+}
+
+async function runHomeSmoke(page, origin, viewport) {
+  console.log(`  ${viewport.name}: Home`);
+  await page.goto(`${origin}/index.html`, { waitUntil: "domcontentloaded" });
+  await waitForPageReady(page);
+  await expectVisible(page, "#heroManaTitle", `${viewport.name} Home hero title`);
+  await verifyCanvasRendered(page, "#vmHeroManaChart", `${viewport.name} Home identity canvas`);
+  const routeSignals = await page.evaluate(() => ({
+    archscry: Boolean(document.querySelector('a[href*="archscry"]')),
+    maze: Boolean(document.querySelector('a[href*="maze"]')),
+    apocrypha: Boolean(document.querySelector('a[href*="apocrypha"]')),
+  }));
+  assert(routeSignals.archscry, `${viewport.name} Home is missing an Archscry route link.`);
+  assert(routeSignals.maze, `${viewport.name} Home is missing a Maze route link.`);
+  assert(routeSignals.apocrypha, `${viewport.name} Home is missing an Apocrypha route link.`);
+}
+
+async function completeQuickReading(page, viewport) {
+  await expectVisible(page, '[data-action="start-quick-flow"]', `${viewport.name} Archscry quick start`);
+  await page.click('[data-action="start-quick-flow"]');
+  await expectVisible(page, "#answer-grid button", `${viewport.name} Archscry first quick answer`);
+
+  for (let step = 0; step < 10; step += 1) {
+    const resultVisible = await page.evaluate(() => {
+      const result = document.getElementById("result");
+      return Boolean(result && !result.classList.contains("hidden"));
+    });
+    if (resultVisible) {
+      return step;
+    }
+
+    const beforeProgress = await page.$eval("#progress-copy", (node) => node.textContent || "");
+    await page.click("#answer-grid button");
+    await page.waitForFunction((previousProgress) => {
+      const result = document.getElementById("result");
+      const progress = document.getElementById("progress-copy");
+      return Boolean(
+        result &&
+        !result.classList.contains("hidden")
+      ) || Boolean(progress && (progress.textContent || "") !== previousProgress);
+    }, { timeout: 10000 }, beforeProgress);
+  }
+
+  throw new Error(`${viewport.name} Archscry quick reading did not reach a result within 10 answers.`);
+}
+
+async function runArchscrySmoke(page, origin, viewport) {
+  console.log(`  ${viewport.name}: Archscry`);
+  await page.goto(`${origin}/archscry/index.html`, { waitUntil: "domcontentloaded" });
+  await waitForPageReady(page);
+  await waitForArchscryLanding(page);
+  const answerCount = await completeQuickReading(page, viewport);
+  await waitForDossier(page);
+  await verifyCanvasRendered(page, "#dossierManaRadar", `${viewport.name} Archscry dossier radar`);
+
+  const context = await page.evaluate(() => {
+    const handoff = JSON.parse(localStorage.getItem("vm_archscry_maze_handoff_v1") || "null");
+    const cachedResult = JSON.parse(sessionStorage.getItem("vm_last_result") || "null");
+    const mazeHref = document.querySelector('[data-dossier-panel="maze-discovery"] a[data-service="maze"]')?.href || "";
+    return {
+      cachedFaction: cachedResult?.faction || "",
+      handoffReadingId: handoff?.readingId || "",
+      handoffReturnUrl: handoff?.returnUrl || "",
+      mazeHref,
+    };
+  });
+
+  assert(answerCount > 0, `${viewport.name} Archscry did not record any quick answers.`);
+  assert(context.cachedFaction, `${viewport.name} Archscry did not cache a placement result.`);
+  assert(context.handoffReadingId, `${viewport.name} Archscry did not write a Maze handoff reading id.`);
+  assert(context.handoffReturnUrl, `${viewport.name} Archscry handoff is missing a return URL.`);
+  assert(context.mazeHref, `${viewport.name} Archscry dossier did not expose a Maze link.`);
+  return context;
+}
+
+async function runMazeSmoke(page, viewport, mazeHref) {
+  console.log(`  ${viewport.name}: Maze`);
+  await page.goto(mazeHref, { waitUntil: "domcontentloaded" });
+  await waitForPageReady(page);
+  await expectVisible(page, "#search-input", `${viewport.name} Maze search input`);
+  await page.waitForFunction(() => document.querySelectorAll(".card-item").length >= 1, { timeout: 20000 });
+
+  const openedManaFixture = await page.evaluate((fixtureName) => {
+    const fixture = [...document.querySelectorAll(".card-item")]
+      .find((card) => card.querySelector(".card-item-name")?.textContent === fixtureName);
+    fixture?.click();
+    return Boolean(fixture);
+  }, manaFixtureName);
+  assert(openedManaFixture, `${viewport.name} Maze did not render the mana symbol fixture card.`);
+  await expectVisible(page, "#modal-wrap .m-cost", `${viewport.name} Maze modal mana cost`);
+  await expectVisible(page, "#modal-wrap .m-oracle", `${viewport.name} Maze modal Oracle text`);
+
+  const manaState = await page.evaluate(async () => {
+    await document.fonts.ready;
+    const cost = document.querySelector("#modal-wrap .m-cost");
+    const oracle = document.querySelector("#modal-wrap .m-oracle");
+    const signature = (host) => [...host.childNodes].map((node) => {
+      if (node.nodeType === Node.TEXT_NODE) return node.nodeValue;
+      if (node.nodeName === "BR") return "\n";
+      if (node.classList?.contains("mana-symbol-fallback")) return node.textContent;
+      if (node.classList?.contains("mana-symbol")) return "[pip]";
+      return node.textContent || "";
+    }).join("");
+    const costSymbols = [...cost.querySelectorAll(".mana-symbol")];
+    const oracleSymbols = [...oracle.querySelectorAll(".mana-symbol")];
+    const firstCostSymbol = costSymbols[0];
+    const firstOracleSymbol = oracleSymbols[0];
+    const firstOracleText = [...oracle.childNodes]
+      .find((node) => node.nodeType === Node.TEXT_NODE && (node.nodeValue || "").trim());
+    const oracleTextRange = document.createRange();
+    oracleTextRange.selectNodeContents(firstOracleText);
+    const oracleTextRect = oracleTextRange.getBoundingClientRect();
+    const oracleSymbolRect = firstOracleSymbol.getBoundingClientRect();
+    const lineBoxMatchesHeight = [...costSymbols, ...oracleSymbols].every((symbol) => {
+      const lineHeight = Number.parseFloat(getComputedStyle(symbol).lineHeight);
+      return Math.abs(lineHeight - symbol.getBoundingClientRect().height) < 0.5;
+    });
+    const costTops = costSymbols.map((symbol) => symbol.getBoundingClientRect().top);
+    return {
+      costText: cost.textContent || "",
+      oracleText: oracle.textContent || "",
+      costSignature: signature(cost),
+      oracleSignature: signature(oracle),
+      oracleBreakCount: oracle.querySelectorAll("br").length,
+      costClasses: costSymbols.map((symbol) => [...symbol.classList]),
+      oracleClasses: oracleSymbols.map((symbol) => [...symbol.classList]),
+      fallbackText: oracle.querySelector(".mana-symbol-fallback")?.textContent || "",
+      fallbackTitle: oracle.querySelector(".mana-symbol-fallback")?.getAttribute("title") || "",
+      ariaLabels: [...costSymbols, ...oracleSymbols].map((symbol) => symbol.getAttribute("aria-label") || ""),
+      allSymbolsUseCostStyle: [...costSymbols, ...oracleSymbols].every((symbol) => symbol.classList.contains("ms-cost")),
+      fontFamily: firstCostSymbol ? getComputedStyle(firstCostSymbol).fontFamily : "",
+      fontReady: document.fonts.check("16px Mana"),
+      pseudoContent: firstCostSymbol ? getComputedStyle(firstCostSymbol, "::before").content : "",
+      lineBoxMatchesHeight,
+      costTopSpread: Math.max(...costTops) - Math.min(...costTops),
+      oracleTextCenterOffset: Math.abs(
+        (oracleSymbolRect.top + oracleSymbolRect.height / 2) -
+        (oracleTextRect.top + oracleTextRect.height / 2)
+      ),
+      nonzeroSymbols: [...costSymbols, ...oracleSymbols].every((symbol) => {
+        const rect = symbol.getBoundingClientRect();
+        return rect.width > 0 && rect.height > 0;
+      }),
+    };
+  });
+
+  assert(!/\{[^{}]+\}/.test(manaState.costText), `${viewport.name} Maze modal cost leaked raw mana notation.`);
+  assert(!/\{[^{}]+\}/.test(manaState.oracleText), `${viewport.name} Maze modal Oracle text leaked raw mana notation.`);
+  assert(manaState.costSignature === "[pip][pip]", `${viewport.name} Maze modal cost pip order changed.`);
+  assert(
+    manaState.oracleSignature === "Mayhem [pip][pip]\n[pip]: Add [pip][pip].\nSymbols [pip], [pip], [pip], [pip], [pip], [pip], and FOO.",
+    `${viewport.name} Maze modal Oracle punctuation, spacing, or line breaks changed.`
+  );
+  assert(manaState.oracleBreakCount === 2, `${viewport.name} Maze modal Oracle line breaks were not preserved.`);
+  assert(manaState.fallbackText === "FOO", `${viewport.name} Maze unsupported symbol fallback is not readable.`);
+  assert(manaState.fallbackTitle === "{FOO}", `${viewport.name} Maze unsupported symbol lost its accessible source token.`);
+  assert(manaState.allSymbolsUseCostStyle, `${viewport.name} Maze modal symbols are missing Mana cost styling.`);
+  assert(manaState.fontFamily.includes("Mana"), `${viewport.name} Maze modal symbols are not using the Mana font.`);
+  assert(manaState.fontReady, `${viewport.name} Maze Mana font did not finish loading.`);
+  assert(!["", "none", '""'].includes(manaState.pseudoContent), `${viewport.name} Maze Mana glyph content is empty.`);
+  assert(manaState.lineBoxMatchesHeight, `${viewport.name} Maze mana pip line boxes do not match their rendered height.`);
+  assert(manaState.costTopSpread < 0.5, `${viewport.name} Maze casting-cost pips do not share a common vertical edge.`);
+  assert(manaState.oracleTextCenterOffset < 1, `${viewport.name} Maze Oracle pips are not centered against adjacent text.`);
+  assert(manaState.nonzeroSymbols, `${viewport.name} Maze rendered one or more zero-size mana symbols.`);
+  ["ms-7", "ms-r"].forEach((className) => {
+    assert(
+      manaState.costClasses.some((classes) => classes.includes(className)),
+      `${viewport.name} Maze modal cost is missing ${className}.`
+    );
+  });
+  ["ms-4", "ms-r", "ms-tap", "ms-c", "ms-x", "ms-s", "ms-e", "ms-wu", "ms-gp", "ms-half"].forEach((className) => {
+    assert(
+      manaState.oracleClasses.some((classes) => classes.includes(className)),
+      `${viewport.name} Maze modal Oracle text is missing ${className}.`
+    );
+  });
+  ["7 generic mana", "Red mana", "Tap symbol", "Colorless mana", "Energy symbol", "Half red mana"].forEach((label) => {
+    assert(manaState.ariaLabels.includes(label), `${viewport.name} Maze modal is missing the accessible label ${label}.`);
+  });
+
+  await page.click("#modal-close");
+  await page.waitForSelector("#modal-bg.hidden", { timeout: 10000 });
+  await expectVisible(page, ".card-item .card-stash-btn", `${viewport.name} Maze Reading Finds add button`);
+  await page.click(".card-item .card-stash-btn");
+  await page.waitForFunction(() => {
+    const count = document.getElementById("stash-count");
+    return Number(count?.textContent || 0) >= 1;
+  }, { timeout: 10000 });
+  await expectVisible(page, "#scratchpad-return-dossier:not(.hidden)", `${viewport.name} Maze return link`);
+
+  const mazeState = await page.evaluate(() => {
+    const draft = JSON.parse(localStorage.getItem("vm_maze_reading_finds_v1") || "null");
+    const handoff = JSON.parse(localStorage.getItem("vm_archscry_maze_handoff_v1") || "null");
+    const rows = Object.values(draft?.sections || {}).flat();
+    const returnHref = document.getElementById("scratchpad-return-dossier")?.href || "";
+    return {
+      handoffReadingId: handoff?.readingId || "",
+      names: rows.map((row) => row.name).filter(Boolean),
+      readingIds: rows.map((row) => row.sourceContext?.readingId || "").filter(Boolean),
+      returnHref,
+      totalRows: rows.length,
+    };
+  });
+
+  assert(mazeState.totalRows >= 1, `${viewport.name} Maze did not persist a Reading Finds row.`);
+  assert(mazeState.names.includes("Sol Ring"), `${viewport.name} Maze did not save the mocked Sol Ring find.`);
+  assert(
+    mazeState.readingIds.includes(mazeState.handoffReadingId),
+    `${viewport.name} Maze saved find did not preserve the Archscry reading id.`
+  );
+  assert(
+    /from=maze/.test(mazeState.returnHref) && /mazeReturnUrl=/.test(mazeState.returnHref),
+    `${viewport.name} Maze return URL is missing handoff parameters.`
+  );
+
+  const vm487Queries = [
+    {
+      input: "Rakdos villains from the spiderman set legal in commander",
+      expected: "type:villain c<=br -c:c legal:commander (game:paper) (set:spm OR set:spe OR set:aspm OR set:pspm OR set:tspm) prefer:best",
+    },
+    {
+      input: "Silverquill inkling tokens from the strixhaven set legal in commander",
+      expected: "type:inkling type:token c<=wb s:tstx",
+    },
+    {
+      input: "cards for my mono blue commander deck in all sets that are not black and without mill",
+      expected: "id=u -c:b -o:mill legal:commander",
+    },
+  ];
+  for (const fixture of vm487Queries) {
+    await page.evaluate(async ({ input }) => {
+      window.setMode("ai");
+      document.getElementById("search-input").value = input;
+      await window.doSearch();
+    }, fixture);
+    await page.waitForFunction(
+      (expected) => document.getElementById("qi-query")?.textContent === expected,
+      { timeout: 10000 },
+      fixture.expected
+    );
+  }
+
+  const vm490Queries = [
+    {
+      input: "cards with partner in all colors",
+      expected: "o:partner",
+    },
+    {
+      input: "captain america",
+      expected: "name:\"captain america\"",
+    },
+    {
+      input: "A-Alrund, God of the Cosmos",
+      expected: "name:\"A-Alrund, God of the Cosmos\"",
+    },
+  ];
+  for (const fixture of vm490Queries) {
+    await page.evaluate(async ({ input }) => {
+      document.getElementById("sb-format").value = "commander";
+      window.setMode("ai");
+      document.getElementById("search-input").value = input;
+      await window.doSearch();
+    }, fixture);
+    await page.waitForFunction(
+      (expected) => document.getElementById("qi-query")?.textContent === expected,
+      { timeout: 10000 },
+      fixture.expected
+    );
+    const vm490State = await page.evaluate(async () => {
+      window.setMode("raw");
+      const input = document.getElementById("search-input");
+      const operatorValue = input.value;
+      await window.doSearch();
+      const link = document.getElementById("search-scryfall-link")?.href || "";
+      return {
+        operatorValue,
+        query: link ? new URL(link).searchParams.get("q") : "",
+      };
+    });
+    assert(vm490State.operatorValue === fixture.expected, `${viewport.name} Maze did not preserve ${fixture.expected} in Operator's Hand.`);
+    assert(vm490State.query === fixture.expected, `${viewport.name} Maze changed ${fixture.expected} during Operator search.`);
+  }
+
+  await page.evaluate(async () => {
+    window.setMode("ai");
+    document.getElementById("search-input").value = "Glint chaos blue black red green commanders in all sets that make treasure and draw cards";
+    await window.doSearch();
+  });
+  await page.waitForFunction(
+    (query) => document.getElementById("qi-query")?.textContent === query,
+    { timeout: 10000 },
+    vm487GlintStrictQuery
+  );
+  const vm487GlintState = await page.evaluate(() => {
+    const alternatives = [...document.querySelectorAll(".qi-alt")];
+    return {
+      diagnostics: document.getElementById("qi-diagnostics")?.textContent || "",
+      fallbackQuery: alternatives.find((button) => button.dataset.query === "id=ubrg is:commander legal:commander")?.dataset.query || "",
+    };
+  });
+  assert(/Use any matching commander/.test(vm487GlintState.diagnostics), `${viewport.name} Maze did not render the VM-487 Glint fallback label.`);
+  assert(vm487GlintState.fallbackQuery === "id=ubrg is:commander legal:commander", `${viewport.name} Maze Glint fallback query changed.`);
+  assert(!/partner/i.test(vm487GlintState.fallbackQuery), `${viewport.name} Maze Glint fallback introduced Partner syntax.`);
+
+  await Promise.all([
+    page.waitForNavigation({ waitUntil: "domcontentloaded", timeout: 20000 }),
+    page.click("#scratchpad-return-dossier"),
+  ]);
+  await waitForPageReady(page);
+  await waitForDossier(page, "maze-discovery");
+  await page.waitForFunction(() => {
+    const panel = document.querySelector('[data-dossier-panel="maze-discovery"] [data-reading-finds-panel]');
+    return Boolean(panel && /Sol Ring/.test(panel.textContent || ""));
+  }, { timeout: 20000 });
+}
+
+function isIgnorableConsoleError(entry) {
+  const text = entry?.text || "";
+  const url = entry?.location?.url || "";
+  return (
+    url.endsWith("/favicon.ico") ||
+    text.includes("favicon.ico") ||
+    text.includes("Failed to load resource: the server responded with a status of 204")
+  );
+}
+
+function assertNoBrowserErrors(consoleErrors, pageErrors, viewport) {
+  const filteredConsoleErrors = consoleErrors.filter((entry) => !isIgnorableConsoleError(entry));
+  if (filteredConsoleErrors.length || pageErrors.length) {
+    throw new Error(
+      `${viewport.name} browser smoke found console/page errors:\n` +
+      JSON.stringify({ consoleErrors: filteredConsoleErrors, pageErrors }, null, 2)
+    );
+  }
+}
+
+async function runViewportJourney(browser, origin, viewport) {
+  const { page, consoleErrors, pageErrors } = await createSmokePage(browser, viewport, origin);
+  try {
+    console.log(`${viewport.name}: starting browser smoke.`);
+    await resetOriginStorage(page, origin);
+    await runHomeSmoke(page, origin, viewport);
+    const archscryContext = await runArchscrySmoke(page, origin, viewport);
+    await runMazeSmoke(page, viewport, archscryContext.mazeHref);
+    assertNoBrowserErrors(consoleErrors, pageErrors, viewport);
+    console.log(`${viewport.name}: browser smoke passed.`);
+  } catch (error) {
+    const pageState = await page.evaluate(() => ({
+      url: window.location.href,
+      readyState: document.readyState,
+      bodyPage: document.body?.dataset?.page || "",
+      searchInput: document.getElementById("search-input")?.value || "",
+      errorText: document.getElementById("err-msg")?.textContent || "",
+      stateText: document.getElementById("state-panel")?.textContent?.replace(/\s+/g, " ").trim() || "",
+      cardCount: document.querySelectorAll(".card-item").length,
+      stashCount: document.getElementById("stash-count")?.textContent || "",
+      readingFindsText: document.querySelector("[data-reading-finds-panel]")?.textContent?.replace(/\s+/g, " ").trim() || "",
+      activeDossierPanel: document.querySelector('[data-dossier-tab][aria-selected="true"]')?.getAttribute("data-dossier-tab") || "",
+      sessionResultFaction: JSON.parse(sessionStorage.getItem("vm_last_result") || "null")?.faction || "",
+      handoffReadingId: JSON.parse(localStorage.getItem("vm_archscry_maze_handoff_v1") || "null")?.readingId || "",
+      findDraft: JSON.parse(localStorage.getItem("vm_maze_reading_finds_v1") || "null"),
+    })).catch(() => null);
+    console.error(`${viewport.name}: page state at failure: ${JSON.stringify(pageState, null, 2)}`);
+    if (consoleErrors.length || pageErrors.length) {
+      console.error(`${viewport.name}: captured browser errors: ${JSON.stringify({ consoleErrors, pageErrors }, null, 2)}`);
+    }
+    throw error;
+  } finally {
+    await page.close().catch(() => {});
+  }
+}
+
+await validateVendoredManaAssets();
+const server = await startServer();
+const address = server.address();
+
+if (!address || typeof address === "string") {
+  server.close();
+  throw new Error("Could not determine the local browser-smoke server port.");
+}
+
+const origin = `http://${host}:${address.port}`;
+const chromePath = await resolveBrowserPath();
+let launchedChrome;
+let browser;
+
+try {
+  launchedChrome = await ChromeLauncher.launch({
+    chromeFlags,
+    chromePath: chromePath ?? undefined,
+    logLevel: "silent",
+  });
+  await waitForDevtools(launchedChrome.port);
+  browser = await puppeteer.connect({
+    browserURL: `http://${host}:${launchedChrome.port}`,
+  });
+
+  for (const viewport of viewportConfigs) {
+    await runViewportJourney(browser, origin, viewport);
+  }
+
+  console.log("Browser smoke passed for Home, Archscry, Maze, Reading Finds, and return-to-dossier handoff.");
+} catch (error) {
+  process.exitCode = 1;
+  console.error("Browser smoke failed.");
+  console.error(error instanceof Error ? error.message : String(error));
+} finally {
+  if (browser) {
+    try {
+      await Promise.race([browser.close(), delay(2000)]);
+    } catch {
+      try {
+        browser.disconnect();
+      } catch {
+        // Ignore disconnect failures.
+      }
+    }
+  }
+
+  if (launchedChrome) {
+    try {
+      await Promise.race([launchedChrome.kill(), delay(2000)]);
+    } catch {
+      // ChromeLauncher can fail to delete its temp profile after the browser exits.
+    }
+  }
+
+  server.forceShutdown?.();
+  await Promise.race([new Promise((resolve) => server.close(resolve)), delay(2000)]);
+  process.exit(process.exitCode ?? 0);
+}

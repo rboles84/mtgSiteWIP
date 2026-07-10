@@ -182,7 +182,7 @@ const EVIDENCE_EXPLANATIONS = [
   { pattern: /information|secret|hidden|leverage|discretion/i, phrase: "you valued timing and hidden information" },
   { pattern: /history|evidence|legacy|warning|field/i, phrase: "you looked for guidance in evidence and history" },
   { pattern: /pattern|proof|math|abstract|structure/i, phrase: "you trusted proof, pattern, and structure" },
-  { pattern: /debt|obligation|contract|ledger/i, phrase: "you tracked obligations and leverage" },
+  { pattern: /debt|obligation|contract|ledger/i, phrase: "you tracked obligations and pressure" },
   { pattern: /speech|rhetoric|language|verbal/i, phrase: "you saw language as a tool with force" },
 ];
 
@@ -528,7 +528,7 @@ export const COMMANDER_FACTION_GUIDANCE = {
     bleedWarningTerms: ["violent spectacle", "strength in numbers", "raw aggression", "spell spectacle"],
     bleedWarnings: ["mill must not appear without secrecy context"],
     preferredArchetypeTags: ["Control", "Mill", "Tempo"],
-    commanderPlan: "wins once the table understands too late: trade in hidden information, mill or discard the right resources, and convert delayed leverage into a protected finish",
+    commanderPlan: "wins once the table understands too late: trade in hidden information, mill or discard the right resources, and turn the delayed payoff into a protected finish",
     spellcraftIdentity: "Surveil, discard, mill, evasive threats, theft, and control tools that reward patience and secrecy over noise.",
     tableCautionText: "Wait until shields drop, hold interaction, and draw cards before revealing the card that actually wins.",
     tableCautionReviewRule: "If mill is the only theme, require secrecy or conditional reveal language",
@@ -592,7 +592,7 @@ export const COMMANDER_FACTION_GUIDANCE = {
     bleedWarningTerms: ["strength in numbers", "communal growth", "violent spectacle", "experimental spellcraft"],
     bleedWarnings: ["avoid Selesnya community tone or Rakdos spectacle"],
     preferredArchetypeTags: ["Aristocrats", "Lifegain", "Stax"],
-    commanderPlan: "makes every exchange a debt: tax resources, drain life, sacrifice small pieces, and turn obligation into leverage no opponent can ignore",
+    commanderPlan: "makes every exchange a debt: tax resources, drain life, sacrifice small pieces, and make obligation a pressure engine no opponent can ignore",
     spellcraftIdentity: "Afterlife bodies, aristocrats engines, extort-style drains, taxes, and recursion that make death and payment part of the same ledger.",
     tableCautionText: "Hold a sacrifice outlet, buy time with drains, and remove the key piece before debts turn into a board wipe.",
     tableCautionReviewRule: "If community or go-wide appears, require Selesnya confirmation",
@@ -723,9 +723,9 @@ export const COMMANDER_FACTION_GUIDANCE = {
     bleedWarningTerms: ["disciplined combat", "violent spectacle", "battalion tactics", "pure combat buffs"],
     bleedWarnings: ["avoid Boros discipline or Rakdos spectacle"],
     preferredArchetypeTags: ["Politics", "Tokens", "Counters Matter"],
-    commanderPlan: "makes language into leverage: pressure life totals, negotiate attacks, and turn counters or go-wide boards into visible social force",
+    commanderPlan: "makes language into pressure: pressure life totals, negotiate attacks, and turn counters or go-wide boards into visible social force",
     spellcraftIdentity: "Repartee, political pressure, combat negotiation, counters, evasive bodies, and table-influence tools that make every word part of the attack.",
-    tableCautionText: "Sequence smaller threats first, hold a political answer, and protect the speaker that turns attacks into leverage.",
+    tableCautionText: "Sequence smaller threats first, hold a political answer, and protect the speaker that turns attacks into table pressure.",
     tableCautionReviewRule: "If pure combat buffs appear without rhetoric, require Boros or Selesnya check",
   },
   WITHERBLOOM: {
@@ -782,9 +782,9 @@ export const COMMANDER_FACTION_GUIDANCE = {
     bleedWarnings: ["avoid collapsing Grixis into generic evil UBR, Maestros, Bolas/Sedris rulership, unearth-as-whole-identity, Dimir, Rakdos, Izzet, Esper, or Bant"],
     preferredArchetypeTags: ["Control", "Spellslinger", "Aristocrats"],
     starterSearchTags: ["Control", "Spellslinger", "Aristocrats"],
-    commanderPlan: "survives first, studies the weakness, then takes the opening before the table can close it: trade resources deliberately, keep interaction ready, and turn pressure into leverage",
+    commanderPlan: "survives first, studies the weakness, then takes the opening before the table can close it: trade resources deliberately, keep interaction ready, and turn pressure into the winning opening",
     spellcraftIdentity: "Removal, discard, sacrifice, spell recursion, card draw, and pressure pieces are Commander support texture for survival, calculation, and urgency. They are not proof that any one mechanic is the whole Grixis identity.",
-    tableCautionText: "Hold the answer that keeps you alive, spend resources only when they create leverage, and take the narrow opening before the table closes it.",
+    tableCautionText: "Hold the answer that keeps you alive, spend resources only when they change the table's options, and take the narrow opening before the table closes it.",
     tableCautionReviewRule: "If text sounds like generic villainy, Maestros style, Bolas or Sedris rule, or unearth as the whole identity, rebind it to the VM-164 evidence floor.",
   },
   JUND: {
@@ -851,28 +851,28 @@ export const COMMANDER_FACTION_GUIDANCE = {
     key: "SULTAI",
     shortName: "Sultai",
     ownedThemes: ["ruthlessness", "opportunity", "resource conversion", "necromancy", "Sidisi-era ambition", "graveyard value", "theft", "self-mill", "morph", "mutate", "recursion"],
-    allowedPhrases: ["ruthless opportunity", "resource conversion", "keep the dead useful", "calculated advantage", "no advantage unclaimed", "source-bound Sultai Brood"],
+    allowedPhrases: ["ruthless opportunity", "resource conversion", "keep the dead useful", "calculated advantage", "no advantage unclaimed", "Sultai source notes"],
     bannedPhrases: ["generic same-color goodstuff", "Silumgar continuity", "Dragonstorm backfill", "Commander products as canon", "mechanics-as-canon", "generic graveyard value"],
     bleedWarningTerms: ["generic same-color", "Silumgar continuity", "Dragonstorm backfill", "Commander canon", "generic theft", "generic mill", "generic morph", "generic mutate", "Abzan ancestry", "Temur attunement"],
     bleedWarnings: ["avoid collapsing Sultai into generic same-color goodstuff, Silumgar continuity, Dragonstorm backfill, Commander-product canon, Dimir, Golgari, Simic, Abzan, Temur, Grixis, Jund, or Witherbloom"],
     preferredArchetypeTags: ["Graveyard", "Theft", "Self-Mill"],
     starterSearchTags: ["Graveyard", "Theft", "Self-Mill"],
-    commanderPlan: "turns graveyards, stolen resources, and hidden information into table advantage while keeping that play texture anchored to source-bound Sultai Brood identity",
+    commanderPlan: "turns graveyards, stolen resources, and hidden information into table advantage while keeping that play texture anchored to Sultai source notes",
     spellcraftIdentity: "Graveyard value, theft, self-mill, mill, morph, mutate, recursion, hidden information, and complex creature value can give Commander table texture to Sultai's ruthless resource-conversion plan. They are table texture, not Tarkir setting evidence.",
-    tableCautionText: "Set up graveyard and hand-resource engines early, convert the first discarded option into leverage, and keep enough interaction to make the stolen or returned resource matter.",
+    tableCautionText: "Set up graveyard and hand-resource engines early, convert the first discarded option into advantage, and keep enough interaction to make the stolen or returned resource matter.",
     tableCautionReviewRule: "If text sounds like generic same-color goodstuff, Silumgar continuity, Dragonstorm backfill, Commander products as canon, or mechanics-as-canon, rebind it to VM-209 through VM-213 support-only limits.",
   },
   MARDU: {
     key: "MARDU",
     shortName: "Mardu",
     ownedThemes: ["speed", "total commitment", "martial order", "war names", "raid momentum", "ruthless opportunity", "combat pressure", "tokens", "sacrifice", "recursion"],
-    allowedPhrases: ["Red-centered speed", "take the opening", "war-name oath", "coordinated attack", "ruthless opportunity", "source-bound Mardu Horde"],
+    allowedPhrases: ["Red-centered speed", "take the opening", "war-name oath", "coordinated attack", "ruthless opportunity", "Mardu source notes"],
     bannedPhrases: ["generic same-color goodstuff", "Kolaghan continuity", "Dragonstorm backfill", "Commander products as canon", "mechanics-as-canon", "generic attack deck"],
     bleedWarningTerms: ["generic same-color", "Kolaghan continuity", "Dragonstorm backfill", "Commander canon", "generic attack", "generic sacrifice", "Abzan endurance", "Temur attunement", "Sultai resource conversion"],
     bleedWarnings: ["avoid collapsing Mardu into generic same-color goodstuff, Kolaghan continuity, Dragonstorm backfill, Commander-product canon, Boros, Orzhov, Rakdos, Abzan, Temur, Sultai, Naya, or Jund"],
     preferredArchetypeTags: ["Aggro", "Tokens", "Sacrifice"],
     starterSearchTags: ["Aggro", "Tokens", "Sacrifice"],
-    commanderPlan: "turns early pressure, attack triggers, expendable bodies, and removal into a coordinated charge while keeping that play texture anchored to source-bound Mardu Horde identity",
+    commanderPlan: "turns early pressure, attack triggers, expendable bodies, and removal into a coordinated charge while keeping that play texture anchored to Mardu source notes",
     spellcraftIdentity: "Combat pressure, tokens, sacrifice, recursion, aristocrats texture, attack triggers, and removal can give Commander table texture to Mardu's speed, martial oath, and ruthless-opening plan. They are table texture, not Tarkir setting evidence.",
     tableCautionText: "Commit pressure early, keep the key attack lane protected, and spend sacrifice or removal pieces only when they keep the charge named and moving.",
     tableCautionReviewRule: "If text sounds like generic same-color goodstuff, Kolaghan continuity, Dragonstorm backfill, Commander products as canon, or mechanics-as-canon, rebind it to VM-223 through VM-227 support-only limits.",
@@ -881,7 +881,7 @@ export const COMMANDER_FACTION_GUIDANCE = {
     key: "JESKAI",
     shortName: "Jeskai",
     ownedThemes: ["discipline", "cunning", "martial practice", "monastery training", "tempo", "spells", "protection", "copies", "artifacts", "energy", "cycling"],
-    allowedPhrases: ["Blue-centered cunning", "trained insight", "disciplined action", "monastery practice", "precision and restraint", "source-bound Jeskai Way"],
+    allowedPhrases: ["Blue-centered cunning", "trained insight", "disciplined action", "monastery practice", "precision and restraint", "Jeskai source notes"],
     bannedPhrases: ["generic same-color goodstuff", "Ojutai continuity", "Dragonstorm backfill", "Commander products as canon", "mechanics-as-canon", "generic spellslinger deck"],
     bleedWarningTerms: ["generic same-color", "Ojutai continuity", "Dragonstorm backfill", "Commander canon", "generic spells", "generic prowess", "Mardu speed", "Temur attunement", "Sultai resource conversion"],
     bleedWarnings: ["avoid collapsing Jeskai into generic same-color goodstuff, Ojutai continuity, Dragonstorm backfill, Commander-product canon, Izzet, Azorius, Boros, Temur, Mardu, Sultai, Naya, Esper, or Grixis"],
@@ -911,7 +911,7 @@ export const COMMANDER_FACTION_GUIDANCE = {
     key: "GLINT",
     shortName: "Glint",
     ownedThemes: ["adaptive appetite", "volatility", "living force", "missing White pressure", "improvisation", "storm-fed growth", "predatory current", "maelstrom texture"],
-    allowedPhrases: ["four-color without White", "adaptive appetite", "living force under pressure", "storm-fed growth", "volatility with intelligence", "source-bound Glint / Chaos"],
+    allowedPhrases: ["four-color without White", "adaptive appetite", "living force under pressure", "storm-fed growth", "volatility with intelligence", "Glint source notes"],
     bannedPhrases: ["official MTG faction", "official universal UBRG name", "Chaos proves a universal name", "Yidris proves Glint lore", "Commander legality proof", "generic UBRG goodstuff", "generic chaos deck"],
     bleedWarningTerms: ["generic UBRG", "generic chaos", "generic cascade", "Yidris-only", "Glint-Eye institution", "Grixis cruelty", "Jund appetite", "Temur experimentation", "Sultai exploitation", "Omnath value shell"],
     bleedWarnings: ["avoid collapsing Glint into generic UBRG goodstuff, generic chaos, generic cascade, Yidris-only shells, Glint-Eye institutional claims, Grixis, Jund, Temur, Sultai, or Omnath/non-Black four-color value"],
@@ -926,7 +926,7 @@ export const COMMANDER_FACTION_GUIDANCE = {
     key: "DUNE",
     shortName: "Dune",
     ownedThemes: ["organized territorial pressure", "force-backed solidarity", "missing Blue pressure", "common front", "cost-bearing conquest", "survival-minded multiplication", "line pressure"],
-    allowedPhrases: ["four-color without Blue", "organized territorial pressure", "force-backed solidarity", "common-front force", "missing-Blue pressure", "source-bound Dune"],
+    allowedPhrases: ["four-color without Blue", "organized territorial pressure", "force-backed solidarity", "common-front force", "missing-Blue pressure", "Dune source notes"],
     bannedPhrases: ["official MTG faction", "official universal BRGW name", "Aggression as public alias", "Saskia proves Dune lore", "Commander legality proof", "generic BRGW goodstuff", "generic combat shell"],
     bleedWarningTerms: ["generic BRGW", "generic go-wide", "generic tokens", "generic combat", "Saskia-only", "Dune-Brood institution", "Jund appetite", "Naya belonging", "Mardu raid-speed", "Abzan endurance", "Glint adaptation"],
     bleedWarnings: ["avoid collapsing Dune into generic BRGW goodstuff, generic go-wide or combat shells, Saskia-only shells, Dune-Brood institutional claims, Jund, Naya, Mardu, Abzan, Glint, or Blue-present four-color value piles"],
@@ -947,7 +947,7 @@ export const COMMANDER_FACTION_GUIDANCE = {
     bleedWarnings: ["avoid collapsing Ink into generic same-color goodstuff, generic group-hug, generic public-archive shells, Kynaios-only texture, Ink-Treader-only texture, Bant, Jeskai, Naya, Temur, Dune, Glint, or Altruism as a public alias"],
     preferredArchetypeTags: ["Group Hug", "Politics", "Ramp"],
     starterSearchTags: ["Group Hug", "Politics", "Ramp"],
-    commanderPlan: "turns shared resources, politics, ramp, draw, and table reciprocity into Commander texture for guarded public abundance without letting the gift become private leverage",
+    commanderPlan: "turns shared resources, politics, ramp, draw, and table reciprocity into Commander texture for guarded public abundance without letting the gift become private advantage",
     spellcraftIdentity: "Group-hug exchanges, political incentives, shared-card or shared-mana texture, ramp, and carefully guarded reciprocity can give Commander table texture to Ink's open knowledge and public commons plan. They are table texture, not the source of the name or identity.",
     tableCautionText: "Keep the commons guarded, but do not mistake every group-hug, Kynaios, Ink-Treader, or same-color pile for Ink unless the full non-Black anti-hoarding frame and protected public-abundance boundary are both present.",
     tableCautionReviewRule: "If text sounds like generic same-color goodstuff, Altruism as a public alias, Kynaios as lore proof, Ink-Treader as an institution, or mechanics-as-canon, rebind it to VM-258 through VM-262 source boundaries.",
@@ -985,7 +985,7 @@ export const COMMANDER_FACTION_GUIDANCE = {
   WUBRG: {
     key: "WUBRG",
     shortName: "Five-Color",
-    ownedThemes: ["all five colors present", "full-spectrum integration", "coalition", "synthesis", "breadth with tradeoffs", "Commander color identity precision", "source-bound deck support"],
+    ownedThemes: ["all five colors present", "full-spectrum integration", "coalition", "synthesis", "breadth with tradeoffs", "Commander color identity precision", "support-only deck context"],
     allowedPhrases: ["Five-Color", "WUBRG commander identity", "all five colors present", "full-spectrum integration", "coalition", "support-only Commander browsing"],
     bannedPhrases: ["official WUBRG faction", "official five-color doctrine", "superior to WUBRG", "superior to Colorless", "goodstuff proves the identity", "five-color Eldrazi proves Colorless", "Commander legality proof", "metagame proof"],
     bleedWarningTerms: ["generic goodstuff", "mana fixing only", "Golos", "Eldrazi Incursion as Colorless proof", "Ulalek as Colorless proof", "official faction", "total mastery"],
@@ -1157,7 +1157,7 @@ function commanderStapleDescription(name, faction) {
     "Anafenza, the Foremost": "Puts Abzan counters, family endurance, and graveyard denial on one aggressive body while staying anchored to house continuity.",
     "Animar, Soul of Elements": "Makes Temur's earned strength visible through creature growth and cost reduction, rewarding a board that listens before it becomes huge.",
     "Breya, Etherium Shaper": "Gives Yore a conservative support-only face for artifact engines, constructed continuity, and engineered agency without making Breya the source of Yore lore.",
-    "Breena, the Demagogue": "Turns table politics into cards and counters, exactly where Silverquill wants its social leverage to become visible.",
+    "Breena, the Demagogue": "Turns table politics into cards and counters, exactly where Silverquill wants its social pressure to become visible.",
     "Chulane, Teller of Tales": "Turns Bant creature casts into cards, lands, and reusable support, keeping refinement and living order attached to a visible board.",
     "Dina, Soul Steeper": "Converts life gain into table-wide drain, giving Witherbloom a simple engine for life and death as one economy.",
     "Doran, the Siege Tower": "Lets Abzan endurance become pressure by turning toughness and defensive patience into a practical way to end the game.",
@@ -1175,7 +1175,7 @@ function commanderStapleDescription(name, faction) {
     "Rootha, Mercurial Artist": "Copies the expressive spell that matters, letting Prismari make one big performance echo twice.",
     "Saskia the Unyielding": "Gives Dune a conservative support-only face for coordinated combat pressure and force-backed solidarity without making Saskia the source of Dune lore.",
     "Shalai and Hallar": "Makes counters visible as protective pressure, giving Naya a clean support line from growth to table impact.",
-    "Sidisi, Brood Tyrant": "Turns Sultai self-mill into bodies and leverage, keeping necromantic utility tied to Sidisi-era ambition.",
+    "Sidisi, Brood Tyrant": "Turns Sultai self-mill into bodies and future advantage, keeping necromantic utility tied to Sidisi-era ambition.",
     "Surrak Dragonclaw": "Gives Temur a clean ferocious face: uncounterable creature pressure, flash timing, and earned strength in one support line.",
     "The Mimeoplasm": "Makes Sultai graveyards into selective material, turning dead creatures into one calculated threat.",
     "Tuvasa the Sunlit": "Offers Bant an enchantress champion whose growth stays tied to refinement, protection, and visible support.",
@@ -1482,7 +1482,7 @@ function tagLaneLabel(lane, tagName, category, factionKey = "") {
   if (lane === "budget") {
     if (tagName === "Budget") return "Budget-friendly Commander builds";
     return String(factionKey || "").toUpperCase() === "COLORLESS"
-      ? `${tagName} deckbuilder lane`
+      ? `${tagName} catalog lane`
       : "Midrange Commander shells";
   }
 
@@ -2387,9 +2387,9 @@ function hasStarterCardReferences(starterCards = {}) {
 
 /**
  * Commander dossier audit contract:
- * - always required: core faction identity, Commander path, land recommendations, and package-search surfaces
- * - capability-gated: starter cards only when authored; public Commander directory links only when not intentionally suppressed
- * - intentionally suppressible: empty starter-card panels and four-color public Commander directory links
+ * - always required: core faction identity, Commander path, mana notes, and package-search surfaces
+ * - capability-gated: card signals only when authored; public Commander directory links only when not intentionally suppressed
+ * - intentionally suppressible: empty card-signal panels and four-color public Commander directory links
  */
 function buildDossierAuditSectionContract({
   faction,
@@ -3340,7 +3340,7 @@ const JUND_PRECON_FIT_SUMMARIES = new Map([
   ],
   [
     "blight curse",
-    "Exact Jund color fit with -1/-1 counters, sacrifice, and attrition play. This is Jund as careful pressure: weaken the board, manage the cost, and turn decay into leverage.",
+    "Exact Jund color fit with -1/-1 counters, sacrifice, and attrition play. This is Jund as careful pressure: weaken the board, manage the cost, and turn decay into pressure.",
   ],
   [
     "graveyard overdrive",
@@ -3429,7 +3429,7 @@ const NAYA_PRECON_FIT_SUMMARIES = new Map([
 const ABZAN_PRECON_FIT_SUMMARIES = new Map([
   [
     "abzan armor",
-    "Abzan support fit with counters and defensive board texture: make endurance visible through protected growth while keeping the house identity source-bound.",
+    "Abzan support fit with counters and defensive board texture: make endurance visible through protected growth while keeping the house identity tied to source notes.",
   ],
   [
     "counterpunch",
@@ -3487,11 +3487,11 @@ const TEMUR_PRECON_FIT_SUMMARIES = new Map([
 const SULTAI_PRECON_FIT_SUMMARIES = new Map([
   [
     "sultai arisen",
-    "Sultai Commander fit with graveyard value and recursion: make the dead useful as table texture while keeping Sultai Brood identity source-bound.",
+    "Sultai Commander fit with graveyard value and recursion: make the dead useful as table texture while keeping Sultai Brood identity tied to source notes.",
   ],
   [
     "grand larceny",
-    "Sultai Commander fit with theft and exile-casting: turn stolen resources into leverage without treating the product as Tarkir canon.",
+    "Sultai Commander fit with theft and exile-casting: turn stolen resources into advantage without treating the product as Tarkir canon.",
   ],
   [
     "mutant menace",
@@ -3503,7 +3503,7 @@ const SULTAI_PRECON_FIT_SUMMARIES = new Map([
   ],
   [
     "devour for power",
-    "Sultai Commander fit with graveyard construction and recursion: let the graveyard become leverage while keeping the pressure distinctly Sultai.",
+    "Sultai Commander fit with graveyard construction and recursion: let the graveyard become pressure while keeping the line distinctly Sultai.",
   ],
   [
     "enhanced evolution",
@@ -3561,7 +3561,7 @@ const GRIXIS_PRECON_FIT_SUMMARIES = new Map([
   ],
   [
     "mind seize",
-    "Exact Grixis color fit with Jeleva, exile-casting, and high-cost instant/sorcery pressure. Product-support only: opponents' spells become gameplay leverage, not a new lore claim.",
+    "Exact Grixis color fit with Jeleva, exile-casting, and high-cost instant/sorcery pressure. Product-support only: opponents' spells become gameplay advantage, not a new lore claim.",
   ],
   [
     "ahoy mateys",
@@ -3659,7 +3659,7 @@ function buildPreconFitSummary({ precon, lane, factionName, matchedThemes, stret
   }
   if (factionKey === "GRIXIS") {
     return GRIXIS_PRECON_FIT_SUMMARIES.get(normalizeDisplayName(precon?.deckName || "")) ||
-      `Exact Grixis color fit with ${themeText} lines that reinforce survival, calculation, and urgent leverage as product-support gameplay.`;
+      `Exact Grixis color fit with ${themeText} lines that reinforce survival, calculation, and urgent pressure as product-support gameplay.`;
   }
   if (factionKey === "JUND") {
     return JUND_PRECON_FIT_SUMMARIES.get(normalizeDisplayName(precon?.deckName || "")) ||
@@ -3920,7 +3920,7 @@ function renderLandRecommendationsText(landRecommendations = {}) {
   ];
   return [
     ...sections.map(([label, values]) => `### ${label}\n${renderNamedList(values) || "- None listed"}`),
-    `### Basic land guidance\n${landRecommendations.basicGuidance || "Tune basics to your color pips after the nonbasic shell is chosen."}`,
+    `### Basic mana note\n${landRecommendations.basicGuidance || "Tune basics to your color pips after the nonbasic shell is chosen."}`,
   ].join("\n\n");
 }
 
@@ -3958,18 +3958,18 @@ export function renderCommanderDossierText(dossier) {
     commanderPath.tableCautionText || "- Missing table caution.",
     "## Archetypes",
     renderArchetypeList(dossier.archetypes) || "- No archetypes listed.",
-    "## Starter Cards",
+    "## Card Signals",
     "### Creatures",
     renderNamedList(starterCards.creatures) || "- None listed",
     "### Instants and Sorceries",
     renderNamedList(starterCards.spells) || "- None listed",
     "### Enchantments and Artifacts",
     renderNamedList(starterCards.permanents) || "- None listed",
-    "## Land Recommendations",
+    "## Mana Notes",
     renderLandRecommendationsText(dossier.landRecommendations),
-    "## Commander Recommendations",
-    renderCommanderRecommendations(dossier.commanderRecommendations) || "- Use the deck-start links below for commander discovery.",
-    "## Commander Deck-start Links",
+    "## Commander Browsing Notes",
+    renderCommanderRecommendations(dossier.commanderRecommendations) || "- Use the external browsing links below to compare Commander examples elsewhere.",
+    "## Commander Browsing Links",
     renderLinkList(dossier.links?.commanderStart) || "- None listed",
     "## Archidekt Validated Search Links",
     renderLinkList(dossier.links?.archidekt) || "- None listed",
@@ -4100,19 +4100,19 @@ function auditRequiredSections(dossier, failures, warnings) {
     ["spellcraft/gameplay identity", commanderPath.spellcraft],
     ["table caution", commanderPath.tableCautionText],
     ["archetypes", dossier.archetypes?.length],
-    ["land recommendations", ["premium", "midrange", "budget", "utility"].some((tier) => lands[tier]?.length)],
+    ["mana notes", ["premium", "midrange", "budget", "utility"].some((tier) => lands[tier]?.length)],
     ["Maze package searches", dossier.links?.maze?.length],
     ["Scryfall package searches", dossier.links?.scryfall?.length],
   ];
 
   if (auditContract.starterCards?.required) {
-    required.push(["starter cards", hasStarterCardReferences(starterCards)]);
+    required.push(["card signals", hasStarterCardReferences(starterCards)]);
   } else {
-    warnings.push("Advisory content gap: starter cards are not authored for this dossier, so the runtime hides the starter-card panel.");
+    warnings.push("Advisory content gap: card signals are not authored for this dossier, so the runtime hides the card-signal panel.");
   }
 
   if (auditContract.commanderDirectoryLinks?.required) {
-    required.push(["Commander deck-start links", dossier.links?.commanderStart?.length]);
+    required.push(["Commander browsing links", dossier.links?.commanderStart?.length]);
   }
 
   if (auditContract.alternativeCommanderDiscovery?.required) {
@@ -4224,7 +4224,7 @@ function auditDuplicates(dossier, warnings) {
   });
 
   [
-    ["Commander deck-start", dossier.links?.commanderStart || []],
+    ["Commander browsing", dossier.links?.commanderStart || []],
     ["Archidekt validated search", dossier.links?.archidekt || []],
     ["Maze package", dossier.links?.maze || []],
     ["Scryfall package", dossier.links?.scryfall || []],
@@ -4335,7 +4335,7 @@ function auditPolishWarnings(dossier, text, warnings) {
   if (
     dossier.isPrimary &&
     !(dossier.commanderRecommendations || []).length &&
-    /Use the deck-start links below for commander discovery\./i.test(text)
+    /Use the external browsing links below to compare Commander examples elsewhere\./i.test(text)
   ) {
     warnings.push("Primary dossier has only the generic commander recommendation fallback.");
   }

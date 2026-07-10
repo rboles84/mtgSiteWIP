@@ -4,6 +4,19 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Vox Mana - The Implicit Maze</title>
+<meta name="description" content="Search Magic cards from a reading, rules text, syntax, or visual query shape, then keep local Reading Finds to revisit with an Archscry dossier.">
+<link rel="canonical" href="https://voxmana.io/maze/">
+<meta property="og:site_name" content="Vox Mana">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Vox Mana - The Implicit Maze">
+<meta property="og:description" content="Use reading-support search for Magic cards by plain language, syntax, or query shape, with local finds you can revisit later.">
+<meta property="og:url" content="https://voxmana.io/maze/">
+<meta property="og:image" content="https://voxmana.io/assets/img/vox-mana-hero-1280w.jpg">
+<meta property="og:image:alt" content="Vox Mana gateway artwork for the Implicit Maze search route.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Vox Mana - The Implicit Maze">
+<meta name="twitter:description" content="Reading-support Magic card search by plain language, syntax, and query shape.">
+<meta name="twitter:image" content="https://voxmana.io/assets/img/vox-mana-hero-1280w.jpg">
 <link rel="icon" type="image/svg+xml" href="../assets/img/vox-mana-header-logo.svg">
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js" defer></script>
 <script src="../assets/js/shared.js" defer></script>
@@ -14,6 +27,7 @@
 <link rel="stylesheet" href="../assets/css/topbar.css">
 <link rel="stylesheet" href="../assets/css/atmosphere.css">
 <link rel="stylesheet" href="../assets/css/components.css">
+<link rel="stylesheet" href="../assets/vendor/mana/css/mana.min.css">
 <link rel="stylesheet" href="../assets/css/maze.css">
 </head>
 <body class="vm-maze-route" data-page="maze" data-vm-current="maze" data-bg="medium" data-vm-atmosphere="rich" data-maze-mode="ai" data-stash-open="true">
@@ -86,10 +100,10 @@
 <section class="r-search-zone maze-command-deck" aria-labelledby="maze-page-title">
   <div class="maze-command-copy">
     <span class="maze-eyebrow">The Implicit Maze</span>
-    <h1 id="maze-page-title">Search Magic by instinct, syntax, or shape.</h1>
+    <h1 id="maze-page-title">Search from a reading, syntax, or shape.</h1>
     <p>
-      Describe what you want, write exact Scryfall syntax, or build a query visually.
-      Maze keeps the translation visible so you can learn while you search.
+      Follow a dossier thread, describe a card texture, write exact Scryfall syntax, or shape a query visually.
+      Maze keeps the translation visible so discoveries can come back to the reading.
     </p>
     <span id="r-user-badge" class="maze-user-badge" style="display:none"></span>
   </div>
@@ -98,7 +112,7 @@
     <div class="mode-row" role="group" aria-label="Maze search modes">
       <button class="mode-btn mode-card on" id="mode-ai" type="button" data-action="set-mode" data-mode="ai" aria-pressed="true"><span class="mode-card-kicker">Human language</span><span class="mode-card-title">The Plain Reading</span><span class="mode-card-copy">Describe the card you want in plain English.</span><span class="mode-card-example">red vampires that sacrifice creatures</span></button>
       <button class="mode-btn mode-card" id="mode-raw" type="button" data-action="set-mode" data-mode="raw" aria-pressed="false"><span class="mode-card-kicker">Scryfall syntax</span><span class="mode-card-title">The Operator's Hand</span><span class="mode-card-copy">Use exact operators and normalized syntax.</span><span class="mode-card-example">ci&lt;=br t:creature o:sacrifice f:commander</span></button>
-      <button class="mode-btn mode-card" id="mode-builder" type="button" data-action="set-mode" data-mode="builder" aria-pressed="false"><span class="mode-card-kicker">Visual builder</span><span class="mode-card-title">The Loom</span><span class="mode-card-copy">Build with colors, types, formats, value, and keywords.</span><span class="mode-card-example">filters become Scryfall syntax</span></button>
+      <button class="mode-btn mode-card" id="mode-builder" type="button" data-action="set-mode" data-mode="builder" aria-pressed="false"><span class="mode-card-kicker">Visual query</span><span class="mode-card-title">The Loom</span><span class="mode-card-copy">Shape colors, types, formats, value, and keywords into a search.</span><span class="mode-card-example">filters become Scryfall syntax</span></button>
     </div>
 
     <div class="maze-search-shell">
@@ -142,10 +156,10 @@
     <div class="builder-head">
       <div>
         <span class="builder-kicker">The Loom</span>
-        <h2>Visual query board</h2>
+        <h2>Query loom</h2>
       </div>
       <div class="builder-head-actions">
-        <p>Build constraints with color, type, format, mana value, and keywords, then search or switch to The Operator's Hand to keep the syntax visible.</p>
+        <p>Set color, type, format, mana value, and keyword constraints, then search or switch to The Operator's Hand to keep the syntax visible.</p>
         <button class="builder-reset-btn" id="builder-reset-btn" type="button" data-action="reset-builder">Reset board</button>
       </div>
     </div>
@@ -201,7 +215,7 @@
     </div>
     <div class="builder-output" aria-live="polite">
       <span>Generated syntax</span>
-      <code id="builder-generated-query">Select filters to build a query.</code>
+      <code id="builder-generated-query">Select filters to shape a query.</code>
       <p id="builder-summary">No visual filters selected yet.</p>
     </div>
   </div>
@@ -254,7 +268,7 @@
     <div class="maze-return-banner" id="maze-return-banner">
       <div class="maze-return-copy" id="maze-return-copy"></div>
       <div class="maze-return-actions">
-        <a class="maze-return-link" id="maze-return-link" href="../archscry/index.html">Return to dossier</a>
+        <a class="maze-return-link" id="maze-return-link" href="../archscry/index.html">Return to Dossier with Finds</a>
         <button class="maze-return-dismiss" id="maze-return-dismiss" type="button" aria-label="Dismiss return banner">&times;</button>
       </div>
     </div>
@@ -264,9 +278,9 @@
         <circle cx="24" cy="24" r="10" stroke="#f7d784" stroke-width="0.6" stroke-dasharray="2 4"/>
         <path d="M18 24 L22 28 L30 18" stroke="#b8954a" stroke-width="1" stroke-linecap="round"/>
       </svg>
-      <div class="state-title">The Archives await</div>
+      <div class="state-title">Start with a search thread</div>
       <div class="state-sub">
-        Try <code>c:r kw:shroud</code> for red cards with shroud, or use The Plain Reading with natural language.
+        Start from a dossier path, a card texture, or exact syntax. Try <code>c:r kw:shroud</code>, or use The Plain Reading with natural language.
         <br><br>Browse the <a href="https://scryfall.com/docs/syntax" target="_blank" style="color:var(--maze-gold-2)">full Scryfall syntax reference &#8599;</a>
       </div>
     </div>
@@ -330,7 +344,7 @@
 
 <!-- -- MODAL --- -->
 <div class="modal-bg hidden" id="modal-bg" role="presentation">
-  <div class="modal-wrap" id="modal-wrap" role="dialog" aria-modal="true" aria-labelledby="modal-title" tabindex="-1">
+  <div class="modal-wrap maze-card-modal" id="modal-wrap" role="dialog" aria-modal="true" aria-labelledby="modal-title" tabindex="-1">
     <button class="modal-close" id="modal-close" type="button" data-action="close-modal" aria-label="Close card details">&times;</button>
     <div class="modal" id="modal-inner"></div>
   </div>

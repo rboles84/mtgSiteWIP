@@ -481,7 +481,7 @@ function renderCaseMarkdown(entry) {
     "### Commander Path",
     presentation.commander_path_summary.copy,
     "",
-    "### Commander Recommendations",
+    "### Commander Browsing Notes",
     markdownList(presentation.commander_recommendation_names || []),
     "",
     "### External Routing",

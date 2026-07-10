@@ -40,7 +40,7 @@ const basics = {
             <strong>Call out before the game</strong>
             <ul class="vm-console-list">
               <li>Precon, upgraded precon, casual brew, optimized deck, or cEDH intent.</li>
-              <li>Infinite combos, fast mana, tutors, stax/lock pieces, mass land denial, extra turns, current Game Changers, and proxy policy.</li>
+              <li>Infinite combos, fast mana, tutors, stax/lock pieces, mass land denial, extra turns, high-impact cards, house-rule exceptions, and proxy policy.</li>
               <li>Whether the deck wants a long table, a battlecruiser table, or a sharper race.</li>
             </ul>
           </div>
@@ -63,13 +63,12 @@ const basics = {
             <strong>Bracket rough fit:</strong> Exhibition / Core for slower social games,
             Upgraded for tuned casual decks, Optimized for high-power decks, and cEDH for
             competitive, metagame-aware pods. Treat the bracket as a conversation starter,
-            then explain speed, combos, Game Changers, mass land denial, and table texture.
+            then explain speed, combos, high-impact cards, mass land denial, and table texture.
           </p>
           <p>
-            <strong>The one countable line:</strong> Game Changers are excluded at Exhibition
-            and Core (Brackets 1-2), capped at three at Upgraded (Bracket 3), and unrestricted
-            at Optimized and cEDH (Brackets 4-5). Counting them is the fastest honest read on
-            where a deck sits.
+            <strong>The one countable line:</strong> If your pod uses a watch list, bracket list,
+            or house-rule list, say how many cards from it your deck plays and what they do.
+            Counting those cards is a fast honest read on where a deck sits.
           </p>
           <div class="vm-console-script-grid">
             <article class="vm-console-script-card">
@@ -184,7 +183,7 @@ const basics = {
       <h3>Threat Reading</h3>
       <p>
         Commander threat assessment is not just "who has the biggest board?" It is resource
-        conversion, hidden interaction, turn-cycle leverage, and whether your removal is stopping
+        conversion, hidden interaction, turn-cycle advantage, and whether your removal is stopping
         a win or merely punishing the most visible player.
       </p>
       <div class="vm-console-stack">
@@ -929,7 +928,7 @@ const archetypeEntries = [
     id: "commander-matters",
     name: "Commander Matters",
     subtitle: "Commander as engine",
-    summary: "The deck only fully works when its commander is present, protected, and repeatedly leveraged.",
+    summary: "The deck only fully works when its commander is present, protected, and useful across multiple turn cycles.",
     colors: "Any",
     difficulty: "Medium",
     tableRead: "Known / Centered",
@@ -1015,7 +1014,7 @@ const readinessItems = [
   { copy: "I can explain my deck's main plan in 20 seconds.", tag: "conversation" },
   { copy: "I know whether my deck is a precon, upgraded precon, casual brew, optimized deck, or cEDH deck.", tag: "conversation" },
   { copy: "I know whether my deck uses infinite combos.", tag: "conversation" },
-  { copy: "I know whether my deck uses tutors, fast mana, stax/lock pieces, mass land denial/destruction, extra turns, current Game Changers, or heavy control.", tag: "conversation" },
+  { copy: "I know whether my deck uses tutors, fast mana, stax/lock pieces, mass land denial/destruction, extra turns, high-impact cards, or heavy control.", tag: "conversation" },
   { copy: "I know how my commander wins or creates pressure.", tag: "deck" },
   { copy: "I know what kind of opening hand my deck wants.", tag: "deck" },
   { copy: "I can track commander damage.", tag: "kit" },

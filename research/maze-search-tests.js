@@ -16,6 +16,9 @@ import {
 const LIVE_FOUR_COLOR_EXACT_COMMANDER_FORBIDDEN_FILTERS = /(?:\bo:|\bft:|\bstorm\b|spell chain|\bknowledge\b|\bstudy\b|\bhungry\b|\bdevouring\b|\baggro\b|\baggressive\b)/i;
 
 const mazeHtml = readFileSync(new URL("../maze/index.html", import.meta.url), "utf8");
+const parserSeedFixture = JSON.parse(readFileSync(new URL("./scryfall-parser-seed-2026.json", import.meta.url), "utf8"));
+const groundingFixture = JSON.parse(readFileSync(new URL("../data/scryfall/grounding/scryfall-grounding.json", import.meta.url), "utf8"));
+const semanticRegistryFixture = JSON.parse(readFileSync(new URL("../data/scryfall/grounding/plain-reading-semantics.json", import.meta.url), "utf8"));
 assert.doesNotMatch(mazeHtml, /id="mode-help-btn"/);
 assert.doesNotMatch(mazeHtml, /id="mode-help-popover"/);
 assert.match(mazeHtml, /<textarea\b[^>]*id="search-input"[^>]*rows="2"[\s\S]*?<\/textarea>/);
@@ -393,6 +396,176 @@ async function runMazeDomMetadataCases() {
   lastUrl = latestFetchUrl(dom.fetchUrls);
   assert.equal(lastUrl.searchParams.get("q"), "t:artifact");
 
+  const partnerQuery = "o:partner";
+  const partnerStart = dom.fetchUrls.length;
+  document.getElementById("sb-format").value = "commander";
+  window.setMode("ai");
+  input.value = "cards with partner in all colors";
+  await window.doSearch();
+  await waitForFetchCount(dom.fetchUrls, partnerStart + 1);
+  lastUrl = latestFetchUrl(dom.fetchUrls);
+  assert.equal(lastUrl.searchParams.get("q"), partnerQuery);
+  assert.equal(document.getElementById("qi-query").textContent, partnerQuery);
+  assert.doesNotMatch(document.getElementById("qi-diagnostics").textContent, /Alliances|set family/i);
+  assert.doesNotMatch(lastUrl.searchParams.get("q") || "", /kw:partner|set:all|f:commander|game:paper|prefer:best/);
+
+  window.setMode("raw");
+  assert.equal(input.value, partnerQuery);
+  const partnerRawStart = dom.fetchUrls.length;
+  await window.doSearch();
+  await waitForFetchCount(dom.fetchUrls, partnerRawStart + 1);
+  lastUrl = latestFetchUrl(dom.fetchUrls);
+  assert.equal(lastUrl.searchParams.get("q"), partnerQuery);
+
+  const captainQuery = "name:\"captain america\"";
+  const captainStart = dom.fetchUrls.length;
+  window.setMode("ai");
+  input.value = "captain america";
+  await window.doSearch();
+  await waitForFetchCount(dom.fetchUrls, captainStart + 1);
+  lastUrl = latestFetchUrl(dom.fetchUrls);
+  assert.equal(lastUrl.origin + lastUrl.pathname, "https://api.scryfall.com/cards/search");
+  assert.equal(lastUrl.searchParams.get("q"), captainQuery);
+  assert.equal(document.getElementById("qi-query").textContent, captainQuery);
+  assert.doesNotMatch(document.getElementById("qi-diagnostics").textContent, /Unresolved terms?:.*captain|Unresolved terms?:.*america/i);
+  assert.doesNotMatch(lastUrl.searchParams.get("q") || "", /\*|f:commander/);
+
+  window.setMode("raw");
+  assert.equal(input.value, captainQuery);
+  const captainRawStart = dom.fetchUrls.length;
+  await window.doSearch();
+  await waitForFetchCount(dom.fetchUrls, captainRawStart + 1);
+  lastUrl = latestFetchUrl(dom.fetchUrls);
+  assert.equal(lastUrl.searchParams.get("q"), captainQuery);
+  assert.doesNotMatch(lastUrl.searchParams.get("q") || "", /f:commander/);
+
+  const silverquillTokenQuery = "type:inkling type:token c<=wb s:tstx";
+  const silverquillStart = dom.fetchUrls.length;
+  document.getElementById("sb-format").value = "commander";
+  window.setMode("ai");
+  input.value = "Silverquill inkling tokens from the strixhaven set legal in commander";
+  await window.doSearch();
+  await waitForFetchCount(dom.fetchUrls, silverquillStart + 1);
+  lastUrl = latestFetchUrl(dom.fetchUrls);
+  assert.equal(lastUrl.searchParams.get("q"), silverquillTokenQuery);
+  assert.equal(document.getElementById("qi-query").textContent, silverquillTokenQuery);
+  assert.match(document.getElementById("qi-diagnostics").innerHTML, /Token objects are not Commander deck-legal cards/);
+  ["legal:commander", "f:commander", "id<=wb", "o:token", "-c:c", "s:stx"].forEach((fragment) => {
+    assert.doesNotMatch(lastUrl.searchParams.get("q") || "", new RegExp(fragment.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")));
+  });
+
+  window.setMode("raw");
+  assert.equal(input.value, silverquillTokenQuery);
+  const silverquillRawStart = dom.fetchUrls.length;
+  await window.doSearch();
+  await waitForFetchCount(dom.fetchUrls, silverquillRawStart + 1);
+  lastUrl = latestFetchUrl(dom.fetchUrls);
+  assert.equal(lastUrl.searchParams.get("q"), silverquillTokenQuery);
+
+  const silverquillFormatStart = dom.fetchUrls.length;
+  window.applyFormatFilter("commander");
+  await waitForFetchCount(dom.fetchUrls, silverquillFormatStart + 1);
+  lastUrl = latestFetchUrl(dom.fetchUrls);
+  assert.equal(lastUrl.searchParams.get("q"), silverquillTokenQuery);
+  assert.equal(document.getElementById("search-input").value, silverquillTokenQuery);
+
+  const groupedTokenObjectQuery = "type:treasure (t:token) s:stx";
+  const groupedTokenStart = dom.fetchUrls.length;
+  window.setMode("raw");
+  input.value = groupedTokenObjectQuery;
+  await window.doSearch();
+  await waitForFetchCount(dom.fetchUrls, groupedTokenStart + 1);
+  lastUrl = latestFetchUrl(dom.fetchUrls);
+  assert.equal(lastUrl.searchParams.get("q"), groupedTokenObjectQuery);
+  assert.doesNotMatch(lastUrl.searchParams.get("q") || "", /\bf:commander\b|\blegal:commander\b/);
+
+  const tokenMakerRawStart = dom.fetchUrls.length;
+  input.value = "o:\"create a token\" c:g";
+  await window.doSearch();
+  await waitForFetchCount(dom.fetchUrls, tokenMakerRawStart + 1);
+  lastUrl = latestFetchUrl(dom.fetchUrls);
+  assert.equal(lastUrl.searchParams.get("q"), "o:\"create a token\" c:g f:commander");
+
+  const tokenMakerPlainStart = dom.fetchUrls.length;
+  window.setMode("ai");
+  input.value = "cards that create tokens legal in commander";
+  await window.doSearch();
+  await waitForFetchCount(dom.fetchUrls, tokenMakerPlainStart + 1);
+  lastUrl = latestFetchUrl(dom.fetchUrls);
+  assert.equal(lastUrl.searchParams.get("q"), "o:token legal:commander");
+  assert.doesNotMatch(lastUrl.searchParams.get("q") || "", /\btype:token\b|\bf:commander\b/);
+  assert.doesNotMatch(document.getElementById("qi-diagnostics").innerHTML, /Token objects are not Commander deck-legal cards/);
+
+  const tokenMakerSetStart = dom.fetchUrls.length;
+  input.value = "cards that create tokens from the strixhaven set legal in commander";
+  await window.doSearch();
+  await waitForFetchCount(dom.fetchUrls, tokenMakerSetStart + 1);
+  lastUrl = latestFetchUrl(dom.fetchUrls);
+  assert.equal(lastUrl.searchParams.get("q"), "o:token legal:commander s:stx");
+  assert.doesNotMatch(lastUrl.searchParams.get("q") || "", /\btype:token\b|\bs:tstx\b|\bf:commander\b/);
+  assert.doesNotMatch(document.getElementById("qi-diagnostics").innerHTML, /Token objects are not Commander deck-legal cards/);
+
+  const treasureTokenPlainStart = dom.fetchUrls.length;
+  input.value = "treasure tokens legal in commander";
+  await window.doSearch();
+  await waitForFetchCount(dom.fetchUrls, treasureTokenPlainStart + 1);
+  lastUrl = latestFetchUrl(dom.fetchUrls);
+  assert.equal(lastUrl.searchParams.get("q"), "type:treasure type:token");
+  assert.match(document.getElementById("qi-diagnostics").innerHTML, /Token objects are not Commander deck-legal cards/);
+  assert.doesNotMatch(lastUrl.searchParams.get("q") || "", /\bo:token\b|\bf:commander\b|\blegal:commander\b/);
+
+  const tarkirStart = dom.fetchUrls.length;
+  window.setMode("ai");
+  input.value = "red dragons from the tarkir set legal in commander";
+  await window.doSearch();
+  await waitForFetchCount(dom.fetchUrls, tarkirStart + 1);
+  lastUrl = latestFetchUrl(dom.fetchUrls);
+  assert.match(lastUrl.searchParams.get("q") || "", /type:dragon/);
+  assert.match(lastUrl.searchParams.get("q") || "", /set:dtk/);
+  assert.match(lastUrl.searchParams.get("q") || "", /set:ytdm/);
+  assert.doesNotMatch(document.getElementById("state-panel").textContent, /Maze needs one choice/);
+  window.setMode("raw");
+  assert.equal(input.value, lastUrl.searchParams.get("q"));
+  assert.doesNotMatch(input.value, /red dragons from the tarkir set legal in commander/i);
+
+  const rakdosVillainStart = dom.fetchUrls.length;
+  window.setMode("ai");
+  input.value = "Rakdos villains from the spiderman set legal in commander";
+  await window.doSearch();
+  await waitForFetchCount(dom.fetchUrls, rakdosVillainStart + 1);
+  lastUrl = latestFetchUrl(dom.fetchUrls);
+  assert.equal(
+    lastUrl.searchParams.get("q"),
+    "type:villain c<=br -c:c legal:commander (game:paper) (set:spm OR set:spe OR set:aspm OR set:pspm OR set:tspm) prefer:best"
+  );
+  assert.doesNotMatch(lastUrl.searchParams.get("q") || "", /\bc=br\b|\bid[<>=:]br\b/);
+
+  const glintStart = dom.fetchUrls.length;
+  window.setMode("ai");
+  input.value = "Glint chaos blue black red green commanders in all sets that make treasure and draw cards";
+  await window.doSearch();
+  await waitForFetchCount(dom.fetchUrls, glintStart + 1);
+  lastUrl = latestFetchUrl(dom.fetchUrls);
+  assert.match(lastUrl.searchParams.get("q") || "", /\bid=ubrg\b/);
+  assert.match(lastUrl.searchParams.get("q") || "", /o:treasure/);
+  assert.match(lastUrl.searchParams.get("q") || "", /otag:draw/);
+  assert.match(lastUrl.searchParams.get("q") || "", /is:commander/);
+  assert.match(lastUrl.searchParams.get("q") || "", /legal:commander/);
+  assert.doesNotMatch(lastUrl.searchParams.get("q") || "", /\bid=ub\b/);
+  assert.doesNotMatch(lastUrl.searchParams.get("q") || "", /\bid=4\b/);
+  assert.doesNotMatch(document.getElementById("qi-diagnostics").textContent, /unresolved glint|unresolved chaos/i);
+  assert.match(document.getElementById("qi-diagnostics").innerHTML, /Use any matching commander/);
+  const glintRelaxation = [...document.querySelectorAll(".qi-alt")]
+    .find((button) => button.dataset.query === "id=ubrg is:commander legal:commander");
+  assert.ok(glintRelaxation, "expected zero-result Glint search to render the exact-identity commander fallback");
+  assert.doesNotMatch(glintRelaxation.dataset.query || "", /partner/i);
+  const glintRelaxationStart = dom.fetchUrls.length;
+  glintRelaxation.onclick?.();
+  await waitForFetchCount(dom.fetchUrls, glintRelaxationStart + 1);
+  lastUrl = latestFetchUrl(dom.fetchUrls);
+  assert.equal(lastUrl.searchParams.get("q"), "id=ubrg is:commander legal:commander");
+
+  window.setMode("raw");
   window.clearSearchInput();
   assert.equal(document.body.dataset.mazeMode, "raw");
   assert.equal(input.value, "");
@@ -468,6 +641,67 @@ async function runMazeDomMetadataCases() {
   assert.equal(lastUrl.searchParams.get("q"), "c:r t:creature f:commander");
   assert.equal(input.value, "c:r t:creature f:commander");
   assert.match(document.getElementById("qi-diagnostics").innerHTML, /Alternatives/);
+
+  const blockedStart = dom.fetchUrls.length;
+  const recentCountBeforeBlock = document.getElementById("recent-list").children.length;
+  document.getElementById("sb-format").value = "commander";
+  window.setMode("raw");
+  input.value = "red dragons from the phyrexia set legal in commander";
+  await window.doSearch();
+  assert.equal(dom.fetchUrls.length, blockedStart, "blocked ambiguity should not fetch Scryfall");
+  assert.equal(document.body.dataset.mazeMode, "ai");
+  assert.equal(input.value, "red dragons from the phyrexia set legal in commander");
+  assert.equal(document.getElementById("recent-list").children.length, recentCountBeforeBlock);
+  assert.equal(document.getElementById("search-copy-btn").disabled, true);
+  assert.equal(document.getElementById("search-scryfall-link").getAttribute("aria-disabled"), "true");
+  assert.equal(document.getElementById("qi-scryfall").getAttribute("aria-disabled"), "true");
+  assert.equal(document.getElementById("qi-query").textContent, "type:dragon c=r legal:commander");
+  assert.match(document.getElementById("qi-diagnostics").innerHTML, /Detected plain English/);
+  assert.match(document.getElementById("qi-diagnostics").innerHTML, /multiple set families/);
+  assert.match(document.getElementById("qi-diagnostics").innerHTML, /Alternatives/);
+  assert.match(document.getElementById("state-panel").innerHTML, /Maze needs one choice/);
+
+  const blockedEnterStart = dom.fetchUrls.length;
+  let enterPrevented = false;
+  window.setMode("raw");
+  input.value = "red dragons from the phyrexia set legal in commander";
+  window.handleSearchInputKeydown({
+    key: "Enter",
+    shiftKey: false,
+    preventDefault() {
+      enterPrevented = true;
+    }
+  });
+  await new Promise((resolve) => setTimeout(resolve, 0));
+  assert.equal(enterPrevented, true);
+  assert.equal(dom.fetchUrls.length, blockedEnterStart, "Enter-triggered blocked ambiguity should not fetch");
+
+  const ambiguityChoice = document.querySelectorAll(".qi-alt")[0];
+  assert.ok(ambiguityChoice, "expected blocking ambiguity to render choice buttons");
+  ambiguityChoice.onclick?.();
+  await waitForFetchCount(dom.fetchUrls, blockedStart + 1);
+  lastUrl = latestFetchUrl(dom.fetchUrls);
+  assert.match(lastUrl.searchParams.get("q") || "", /type:dragon/);
+  assert.match(lastUrl.searchParams.get("q") || "", /set:/);
+
+  const rawNameStart = dom.fetchUrls.length;
+  dom.setFetchResponses([{
+    object: "card",
+    name: "Lightning Bolt",
+    type_line: "Instant",
+    oracle_text: "Lightning Bolt deals 3 damage to any target.",
+    scryfall_uri: "https://scryfall.com/card/test/lightning-bolt",
+    set: "lea",
+    collector_number: "161"
+  }]);
+  window.setMode("raw");
+  input.value = "Lightning Bolt";
+  await window.doSearch();
+  await waitForFetchCount(dom.fetchUrls, rawNameStart + 1);
+  lastUrl = latestFetchUrl(dom.fetchUrls);
+  assert.equal(lastUrl.origin + lastUrl.pathname, "https://api.scryfall.com/cards/named");
+  assert.equal(lastUrl.searchParams.get("fuzzy"), "Lightning Bolt");
+  window.closeModal();
 
   const exactStart = dom.fetchUrls.length;
   dom.setFetchResponses([{
@@ -1522,12 +1756,21 @@ function installMazeDomHarness() {
   });
   Object.defineProperty(globalThis, "fetch", {
     value: async (url) => {
-      fetchUrls.push(String(url));
-      const data = fetchResponses.length
+      const requestUrl = String(url);
+      fetchUrls.push(requestUrl);
+      const data = requestUrl.includes("/research/scryfall-parser-seed-2026.json")
+        ? parserSeedFixture
+        : requestUrl.includes("/data/scryfall/grounding/scryfall-grounding.json")
+          ? groundingFixture
+          : requestUrl.includes("/data/scryfall/grounding/plain-reading-semantics.json")
+            ? semanticRegistryFixture
+          : fetchResponses.length
         ? fetchResponses.shift()
         : { object: "list", total_cards: 0, data: [], has_more: false };
       return {
-        ok: data?.object === "list",
+        ok: true,
+        status: 200,
+        statusText: "OK",
         async json() {
           return data;
         }

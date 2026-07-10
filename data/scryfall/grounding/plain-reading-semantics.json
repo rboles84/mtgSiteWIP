@@ -1,0 +1,466 @@
+{
+  "schemaVersion": 1,
+  "updatedAt": "2026-07-09",
+  "description": "Curated deterministic Plain Reading concepts that are not canonical Scryfall catalog facts. Keep Scryfall types, keywords, and set metadata in scryfall-grounding.json; keep player-language concepts here.",
+  "entries": [
+    {
+      "id": "aristocrats",
+      "label": "Aristocrats",
+      "kind": "functional-tag",
+      "confidence": 0.82,
+      "triggers": ["aristocrats", "sacrifice deck", "death triggers"],
+      "fragments": ["otag:death-trigger"],
+      "notes": "Player archetype shorthand for sacrifice/death-trigger cards."
+    },
+    {
+      "id": "blink",
+      "label": "Blink",
+      "kind": "oracle",
+      "confidence": 0.82,
+      "triggers": ["blink", "flicker", "exile and return"],
+      "fragments": ["o:exile", "o:return", "o:battlefield"],
+      "alternatives": [
+        { "label": "Blink with battlefield return", "query": "o:exile o:return o:battlefield" }
+      ],
+      "notes": "Broad deterministic approximation for blink/flicker effects."
+    },
+    {
+      "id": "blood-token",
+      "label": "Blood Token",
+      "kind": "oracle",
+      "confidence": 0.84,
+      "triggers": ["blood token", "blood tokens"],
+      "fragments": ["o:blood"],
+      "notes": "Token subtype/user phrase mapped to Oracle text mention."
+    },
+    {
+      "id": "board-wipe",
+      "label": "Board wipe",
+      "kind": "functional-tag",
+      "confidence": 0.9,
+      "triggers": ["board wipe", "board wipes", "wrath", "wraths", "sweeper", "sweepers"],
+      "fragments": ["otag:board-wipe"],
+      "alternatives": [
+        { "label": "Broader Oracle text board wipes", "query": "(o:\"destroy all creatures\" OR o:\"exile all creatures\" OR o:\"destroy all nonland permanents\")" }
+      ],
+      "notes": "Prefer Scryfall functional tag for a community semantic category."
+    },
+    {
+      "id": "burn",
+      "label": "Burn damage",
+      "kind": "oracle",
+      "confidence": 0.78,
+      "triggers": ["burn", "burn spells", "damage spells", "deal damage", "deals damage"],
+      "fragments": ["o:damage"],
+      "notes": "Broad red-spell shorthand."
+    },
+    {
+      "id": "cantrip",
+      "label": "Cantrip",
+      "kind": "oracle",
+      "confidence": 0.78,
+      "triggers": ["cantrip", "cantrips", "one mana cantrips", "1 mana cantrips"],
+      "fragments": ["mv=1", "o:draw"],
+      "notes": "Common player shorthand; intentionally broad."
+    },
+    {
+      "id": "card-draw",
+      "label": "Card draw",
+      "kind": "functional-tag",
+      "confidence": 0.88,
+      "triggers": ["card draw", "draw cards", "draw a card", "draw engine", "draw engines"],
+      "fragments": ["otag:draw"],
+      "alternatives": [
+        { "label": "Oracle text draw", "query": "o:draw" }
+      ],
+      "notes": "Prefer Scryfall functional tag for broad draw intent."
+    },
+    {
+      "id": "plus-one-counters",
+      "label": "+1/+1 counters",
+      "kind": "oracle",
+      "confidence": 0.9,
+      "triggers": ["+1/+1 counter", "+1/+1 counters", "plus one plus one counter", "plus one plus one counters", "counter synergy"],
+      "fragments": ["o:/\\+1\\/\\+1 counter/"],
+      "notes": "Specific counter meaning; should outrank broad counter/counters."
+    },
+    {
+      "id": "counter-any",
+      "label": "Counters",
+      "kind": "oracle",
+      "confidence": 0.72,
+      "triggers": ["counter", "counters"],
+      "fragments": ["o:counter"],
+      "alternatives": [
+        { "label": "Counters as +1/+1 counters", "query": "o:\"+1/+1 counter\"" },
+        { "label": "Counters as counterspells", "query": "o:\"counter target\"" }
+      ],
+      "notes": "Intentionally ambiguous; UI should expose alternatives."
+    },
+    {
+      "id": "put-counters-on-creatures",
+      "label": "Put counters on creatures",
+      "kind": "oracle",
+      "confidence": 0.9,
+      "triggers": ["put counters on creatures", "puts counters on creatures", "put a counter on creatures", "put counters on your creatures"],
+      "fragments": ["o:\"put a +1/+1 counter\""],
+      "notes": "Specific counter-object wording; must not become counterspell intent."
+    },
+    {
+      "id": "counterspell",
+      "label": "Counterspell",
+      "kind": "functional-tag",
+      "confidence": 0.88,
+      "triggers": ["counterspell", "counterspells", "counter spells", "counter magic"],
+      "fragments": ["otag:counterspell"],
+      "alternatives": [
+        { "label": "Oracle text counterspell", "query": "o:\"counter target spell\"" }
+      ],
+      "notes": "Prefer Scryfall functional tag for role search."
+    },
+    {
+      "id": "crew",
+      "label": "Crew",
+      "kind": "oracle",
+      "confidence": 0.86,
+      "triggers": ["crew", "crew vehicles", "can crew vehicles"],
+      "fragments": ["o:crew"],
+      "notes": "Vehicle support text."
+    },
+    {
+      "id": "destroy-artifact-enchantment",
+      "label": "Artifact/enchantment removal",
+      "kind": "oracle",
+      "confidence": 0.86,
+      "triggers": ["destroy artifacts or enchantments", "destroy artifact or enchantment", "artifact or enchantment removal"],
+      "operator": "OR",
+      "fragments": ["o:\"destroy target artifact\"", "o:\"destroy target enchantment\""],
+      "notes": "Bounded OR for a common removal phrase."
+    },
+    {
+      "id": "creature-dies-trigger",
+      "label": "Creature dies trigger",
+      "kind": "oracle",
+      "confidence": 0.84,
+      "triggers": ["trigger when a creature dies", "triggers when a creature dies", "when a creature dies"],
+      "fragments": ["o:whenever", "o:creature dies"],
+      "notes": "Common aristocrats/death-trigger phrasing."
+    },
+    {
+      "id": "draw-discard-trigger",
+      "label": "Draw/discard trigger",
+      "kind": "oracle",
+      "confidence": 0.82,
+      "triggers": ["trigger when i draw or discard", "whenever i draw or discard", "whenever you draw or discard"],
+      "operator": "OR",
+      "fragments": ["o:\"whenever you draw\"", "o:\"whenever you discard\""],
+      "notes": "Bounded OR for a common trigger phrase."
+    },
+    {
+      "id": "enters",
+      "label": "ETB",
+      "kind": "oracle",
+      "confidence": 0.86,
+      "triggers": ["etb", "enters", "enters the battlefield", "when this enters"],
+      "fragments": ["o:enters"],
+      "notes": "MTG shorthand for enters-the-battlefield text."
+    },
+    {
+      "id": "etb-creatures",
+      "label": "ETB creatures",
+      "kind": "predicate",
+      "confidence": 0.88,
+      "triggers": ["etb creatures", "enters the battlefield creatures"],
+      "fragments": ["is:etb", "t:creature"],
+      "notes": "Existing Scryfall predicate plus creature type."
+    },
+    {
+      "id": "full-art",
+      "label": "Full art",
+      "kind": "predicate",
+      "confidence": 0.9,
+      "triggers": ["full art", "full-art"],
+      "fragments": ["is:fullart"],
+      "notes": "Collector treatment/predicate."
+    },
+    {
+      "id": "gold-cards",
+      "label": "Gold cards",
+      "kind": "predicate",
+      "confidence": 0.86,
+      "triggers": ["gold cards", "gold card", "multicolor cards", "multicolored cards"],
+      "fragments": ["is:gold"],
+      "notes": "Scryfall predicate for multicolor cards."
+    },
+    {
+      "id": "go-wide",
+      "label": "Go-wide tokens",
+      "kind": "oracle",
+      "confidence": 0.82,
+      "triggers": ["go wide", "go-wide", "token deck", "make tokens", "create tokens"],
+      "fragments": ["o:token"],
+      "notes": "Broad token strategy shorthand."
+    },
+    {
+      "id": "graveyard-hate",
+      "label": "Graveyard hate",
+      "kind": "oracle",
+      "confidence": 0.84,
+      "triggers": ["graveyard hate", "grave hate", "exile graveyards"],
+      "fragments": ["o:/exile.*graveyard/"],
+      "notes": "Broad graveyard hate approximation."
+    },
+    {
+      "id": "graveyard-recursion",
+      "label": "Graveyard recursion",
+      "kind": "oracle",
+      "confidence": 0.8,
+      "triggers": ["graveyard recursion", "return from the graveyard", "from graveyard", "recursion", "recur", "recur creatures", "recurs creatures", "recurring creatures"],
+      "fragments": ["o:return", "o:graveyard"],
+      "notes": "Broad recursion text."
+    },
+    {
+      "id": "japanese-alternate-art",
+      "label": "Japanese alternate art",
+      "kind": "predicate",
+      "confidence": 0.88,
+      "triggers": ["japanese language cards with alternate art", "japanese alternate art", "japanese language alternate art"],
+      "fragments": ["lang:ja", "is:alternate"],
+      "notes": "Localized print/treatment shorthand."
+    },
+    {
+      "id": "lifegain",
+      "label": "Lifegain",
+      "kind": "oracle",
+      "confidence": 0.82,
+      "triggers": ["gain life", "lifegain", "life gain", "whenever i gain life", "whenever you gain life"],
+      "fragments": ["o:\"gain life\""],
+      "negatedFragments": ["-o:/gain(s)?( [^\\n.]*)? life/", "-kw:lifelink"],
+      "notes": "Broad life-gain text."
+    },
+    {
+      "id": "mana-dork",
+      "label": "Mana dork",
+      "kind": "oracle",
+      "confidence": 0.86,
+      "triggers": ["mana dork", "mana dorks", "creatures that tap for mana", "tap for mana creatures"],
+      "fragments": ["t:creature", "o:\"{T}: add\""],
+      "notes": "Common green creature ramp shorthand."
+    },
+    {
+      "id": "mana-rock",
+      "label": "Mana rock",
+      "kind": "functional-tag",
+      "confidence": 0.9,
+      "triggers": ["mana rock", "mana rocks"],
+      "fragments": ["otag:mana-rock"],
+      "alternatives": [
+        { "label": "Broader artifact mana text", "query": "t:artifact (o:\"add {\" OR produces:any)" }
+      ],
+      "notes": "Prefer Scryfall functional tag for role search."
+    },
+    {
+      "id": "mill",
+      "label": "Mill",
+      "kind": "oracle",
+      "confidence": 0.82,
+      "triggers": ["mill", "mill cards", "mills cards", "milling cards"],
+      "fragments": ["o:mill"],
+      "notes": "Broad mill text with registry-level negation support."
+    },
+    {
+      "id": "mana-fixing",
+      "label": "Mana fixing",
+      "kind": "query",
+      "confidence": 0.82,
+      "triggers": ["fix mana", "fixes mana", "mana fixing", "fix colors", "color fixing"],
+      "fragments": ["produces:any"],
+      "notes": "Broad deterministic mana-fixing approximation for checklist phrasing."
+    },
+    {
+      "id": "colorless-mana-production",
+      "label": "Colorless mana production",
+      "kind": "query",
+      "confidence": 0.84,
+      "triggers": ["make colorless mana", "makes colorless mana", "produce colorless mana", "produces colorless mana"],
+      "fragments": ["produces:c"],
+      "notes": "Mana-production intent distinct from colorless card color."
+    },
+    {
+      "id": "phyrexian-mana",
+      "label": "Phyrexian mana",
+      "kind": "predicate",
+      "confidence": 0.9,
+      "triggers": ["phyrexian mana", "phyrexian mana in their cost"],
+      "fragments": ["is:phyrexian"],
+      "notes": "Scryfall predicate for Phyrexian mana symbols."
+    },
+    {
+      "id": "protection-red",
+      "label": "Protection from red",
+      "kind": "oracle",
+      "confidence": 0.86,
+      "triggers": ["protection from red", "protected from red", "pro red"],
+      "fragments": ["o:\"protection from red\""],
+      "notes": "Also acts as a guardrail so 'from red' is not color negation."
+    },
+    {
+      "id": "protect-creatures",
+      "label": "Protect creatures",
+      "kind": "oracle",
+      "confidence": 0.78,
+      "triggers": ["protect creatures", "protect my creatures", "protect your creatures", "protect the team", "protect team"],
+      "operator": "OR",
+      "fragments": ["o:hexproof", "o:indestructible", "o:protection"],
+      "notes": "Broad protection shorthand for team-protection checklist phrases."
+    },
+    {
+      "id": "ramp",
+      "label": "Ramp",
+      "kind": "functional-tag",
+      "confidence": 0.84,
+      "triggers": ["ramp", "mana ramp", "land ramp", "land search", "search for lands"],
+      "fragments": ["otag:ramp"],
+      "alternatives": [
+        { "label": "Land-to-battlefield ramp text", "query": "o:put o:land o:battlefield" },
+        { "label": "Library land search text", "query": "o:\"search your library\" o:land" }
+      ],
+      "notes": "Prefer broad functional tag where available."
+    },
+    {
+      "id": "land-to-battlefield-ramp",
+      "label": "Land-to-battlefield ramp",
+      "kind": "oracle",
+      "confidence": 0.84,
+      "triggers": ["put lands onto the battlefield", "put land onto the battlefield"],
+      "fragments": ["o:put", "o:land", "o:battlefield"],
+      "notes": "Specific ramp wording preserved from the legacy corpus."
+    },
+    {
+      "id": "retro-frame",
+      "label": "Retro frame",
+      "kind": "frame",
+      "confidence": 0.88,
+      "triggers": ["retro frame", "retro-frame", "old frame"],
+      "fragments": ["frame:retro"],
+      "notes": "Collector frame treatment."
+    },
+    {
+      "id": "sacrifice",
+      "label": "Sacrifice",
+      "kind": "oracle",
+      "confidence": 0.82,
+      "triggers": ["sacrifice", "sacrifices", "sacrificing", "sac"],
+      "fragments": ["o:sacrifice"],
+      "notes": "Broad sacrifice text."
+    },
+    {
+      "id": "sacrifice-outlet",
+      "label": "Sacrifice outlet",
+      "kind": "functional-tag",
+      "confidence": 0.9,
+      "triggers": ["sacrifice outlet", "sac outlet"],
+      "fragments": ["otag:sacrifice-outlet"],
+      "alternatives": [
+        { "label": "Oracle text sacrifice approximation", "query": "o:sacrifice o:creature" }
+      ],
+      "notes": "Prefer Scryfall functional tag for role search."
+    },
+    {
+      "id": "free-sacrifice-outlet",
+      "label": "Free sacrifice outlet",
+      "kind": "functional-tag",
+      "confidence": 0.92,
+      "triggers": ["free sacrifice outlet", "free sac outlet"],
+      "fragments": ["otag:free-sacrifice-outlet"],
+      "alternatives": [
+        { "label": "Broader sacrifice outlets", "query": "otag:sacrifice-outlet" }
+      ],
+      "notes": "Prefer Scryfall functional tag for role search."
+    },
+    {
+      "id": "spellslinger",
+      "label": "Spellslinger",
+      "kind": "oracle",
+      "confidence": 0.82,
+      "triggers": ["spellslinger", "spells matter", "instant and sorcery payoffs"],
+      "fragments": ["o:whenever", "o:cast", "(o:instant OR o:sorcery)"],
+      "notes": "Broad deterministic approximation of instant/sorcery payoff language."
+    },
+    {
+      "id": "stax",
+      "label": "Stax",
+      "kind": "functional-tag",
+      "confidence": 0.78,
+      "triggers": ["stax", "hatebear", "hatebears"],
+      "fragments": ["otag:stax"],
+      "notes": "Player archetype shorthand, intentionally broad."
+    },
+    {
+      "id": "tokens",
+      "label": "Tokens",
+      "kind": "oracle",
+      "confidence": 0.82,
+      "triggers": ["tokens", "token maker", "make tokens", "create tokens"],
+      "fragments": ["o:token"],
+      "notes": "Broad token-production text."
+    },
+    {
+      "id": "attack-with-tokens",
+      "label": "Attack with tokens",
+      "kind": "oracle",
+      "confidence": 0.78,
+      "triggers": ["attack with tokens", "attacks with tokens", "swing with tokens"],
+      "fragments": ["o:token", "o:attack"],
+      "notes": "Checklist phrase for token combat payoffs."
+    },
+    {
+      "id": "drain-opponents",
+      "label": "Drain opponents",
+      "kind": "oracle",
+      "confidence": 0.82,
+      "triggers": ["drain opponents", "drain each opponent", "opponents lose life", "each opponent loses life"],
+      "fragments": ["o:\"each opponent\"", "o:\"lose life\""],
+      "notes": "Broad aristocrats/lifedrain wording for opponent life-loss intent."
+    },
+    {
+      "id": "clue",
+      "label": "Clue",
+      "kind": "oracle",
+      "confidence": 0.82,
+      "triggers": ["clue", "clues", "make clues", "creates clues"],
+      "fragments": ["o:clue"],
+      "notes": "Clue token text."
+    },
+    {
+      "id": "treasure",
+      "label": "Treasure",
+      "kind": "oracle",
+      "confidence": 0.84,
+      "triggers": ["treasure", "treasures", "make treasure", "creates treasure", "treasure tokens"],
+      "fragments": ["o:treasure"],
+      "notes": "Treasure token text."
+    },
+    {
+      "id": "zombie-cost-reduction",
+      "label": "Zombie cost reduction",
+      "kind": "oracle",
+      "confidence": 0.86,
+      "triggers": ["make zombies cost 0", "zombies cost 0"],
+      "fragments": ["o:\"zombie spells you cast cost {0}\""],
+      "notes": "Specific combo-enabler phrase preserved from the legacy corpus."
+    },
+    {
+      "id": "tutor",
+      "label": "Tutor",
+      "kind": "functional-tag",
+      "confidence": 0.88,
+      "triggers": ["tutor", "tutors", "search library", "search your library", "search the library"],
+      "fragments": ["otag:tutor"],
+      "alternatives": [
+        { "label": "Broader library-search text", "query": "o:\"search your library\"" }
+      ],
+      "notes": "Prefer Scryfall functional tag for tutor role."
+    }
+  ]
+}

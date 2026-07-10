@@ -277,9 +277,9 @@ assert.ok(
   "expected Start Here to be the second dossier panel"
 );
 assert.ok(
-  deckStartsPanelSource.indexOf("Precon Starting Points") < deckStartsPanelSource.indexOf("Commander Deck Starts") &&
-    deckStartsPanelSource.indexOf("Commander Deck Starts") < deckStartsPanelSource.indexOf("Commander Lanes"),
-  "expected commander-deck-starts panel order to be Precons, Commander Deck Starts, Commander Lanes"
+  deckStartsPanelSource.indexOf("Precon Starting Points") < deckStartsPanelSource.indexOf("Commander Browsing Starts") &&
+    deckStartsPanelSource.indexOf("Commander Browsing Starts") < deckStartsPanelSource.indexOf("Commander Lanes"),
+  "expected commander-deck-starts panel order to be Precons, Commander Browsing Starts, Commander Lanes"
 );
 
 assert.doesNotMatch(radarSource, /dossierRadarCaption/, "expected the lower dossier radar caption to be removed");
@@ -600,7 +600,7 @@ assert.equal(
   "expected layered identity meta to preserve WUBRG as the technical code"
 );
 const suppliedWubrgHeroThesis = "Five-Color read your answers as a table where all five voices were present. White asked for structure, Blue for understanding, Black for agency, Red for motion, and Green for belonging. Golgari Swarm stayed close because your answers also carried endurance, grievance, rot, and reclamation. The deciding difference was that Five-Color turned that pressure outward: full color access, deliberate fixing, many kinds of answers, and a plan broad enough to include contradiction without drifting into goodstuff.";
-const suppliedWubrgRoseFirst = "Five-Color / WUBRG led with a strong signal. The reading was not one-note: Golgari Swarm remained nearby, which suggests your answers also carried endurance, grievance, rot, and reclamation. The deciding difference was direction. Golgari turns pressure into recursion and survival; Five-Color turns it into coalition, full-spectrum access, and a disciplined plan where every color has a job.";
+const suppliedWubrgRoseFirst = "Five-Color / WUBRG led with a strong signal. Golgari Swarm remained nearby, which suggests your answers also carried endurance, grievance, rot, and reclamation. The deciding difference was direction. Golgari turns pressure into recursion and survival; Five-Color turns it into coalition, full-spectrum access, and a disciplined plan where every color has a job.";
 const wubrgHeroResult = {
   faction: "WUBRG",
   confidence: 0.91,
@@ -713,16 +713,16 @@ const wubrgCommanderStartCandidates = collectCommanderPreviewCandidates(factions
 const wubrgCommanderStartUrls = wubrgCommanderStartCandidates.map((candidate) => candidate.edhrec || "");
 assert.ok(
   wubrgCommanderStartUrls.includes("https://edhrec.com/precon/eldrazi-incursion"),
-  "expected WUBRG Commander Deck Starts candidates to carry the repaired Eldrazi Incursion EDHREC precon URL"
+  "expected WUBRG Commander Browsing Starts candidates to carry the repaired Eldrazi Incursion EDHREC precon URL"
 );
 assert.ok(
   wubrgCommanderStartUrls.includes("https://edhrec.com/precon/draconic-domination"),
-  "expected WUBRG Commander Deck Starts candidates to carry the repaired Draconic Domination EDHREC precon URL"
+  "expected WUBRG Commander Browsing Starts candidates to carry the repaired Draconic Domination EDHREC precon URL"
 );
 assert.doesNotMatch(
   wubrgCommanderStartUrls.join(" "),
   /https:\/\/edhrec\.com\/commanders\/(?:eldrazi-incursion|draconic-domination)-precon/i,
-  "expected WUBRG Commander Deck Starts candidates not to fall back to broken precon-as-commander EDHREC URLs"
+  "expected WUBRG Commander Browsing Starts candidates not to fall back to broken precon-as-commander EDHREC URLs"
 );
 assert.doesNotMatch(
   JSON.stringify(preconCatalog.precons),
@@ -1020,7 +1020,7 @@ const colorlessRenderState = buildDossierRenderState({
 assert.match(
   colorlessRenderState.basicLandCopy,
   /Wastes.*true \{C\}.*mana rocks/i,
-  "expected Colorless Mana Base basics guidance to center Wastes and true colorless sources"
+  "expected Colorless Mana Notes basics guidance to center Wastes and true colorless sources"
 );
 assert.match(colorlessRenderState.basicLandCopy, /Generic costs are not colorless mana/i, "expected Colorless basics guidance to preserve the generic versus colorless boundary");
 assert.match(colorlessRenderState.basicLandCopy, /effects that ask for a color will not make \{C\}/i, "expected Colorless basics guidance to warn about color-asking mana effects");
@@ -1114,19 +1114,20 @@ const normalizedDeckLinks = [
 assert.equal(
   normalizedDeckLinks.length,
   new Set(normalizedDeckLinks).size,
-  "expected Colorless Commander Deck Starts not to render duplicate normalized service + URL/query links"
+  "expected Colorless Commander Browsing Starts not to render duplicate normalized service + URL/query links"
 );
 const colorlessArchidektLabels = (colorlessDossier.links?.archidekt || []).map((link) => link.label).join(" | ");
-assert.doesNotMatch(colorlessArchidektLabels, /Midrange Commander shells/i, "expected Colorless deck-start links to avoid broad Midrange shell language");
-assert.match(colorlessArchidektLabels, /Big Mana deckbuilder lane/i, "expected Colorless mid-budget deck-start lane to stay strict Colorless-safe");
+assert.doesNotMatch(colorlessArchidektLabels, /Midrange Commander shells/i, "expected Colorless external browsing links to avoid broad Midrange shell language");
+assert.doesNotMatch(colorlessArchidektLabels, /deckbuilder/i, "expected Colorless external browsing links to avoid deckbuilder positioning");
+assert.match(colorlessArchidektLabels, /Big Mana catalog lane/i, "expected Colorless mid-budget browsing lane to stay strict Colorless-safe");
 assert.match(indexSource, /candidate\.displayTags\?\.length/, "expected Commander preview cards to prefer controlled display chips when present");
 assert.match(indexSource, /commander-placeholder" id="\$\{id\}" aria-label=/, "expected Commander preview placeholders to stay accessible without visible duplicate card names");
 assert.doesNotMatch(indexSource, /commander-placeholder" id="\$\{id\}">\$\{candidate\.name\}/, "expected Commander preview placeholders not to duplicate card names in copy-paste output");
 assert.match(indexSource, /land-placeholder" id="\$\{id\}" aria-label=/, "expected land placeholders to stay accessible without visible duplicate land names");
 assert.doesNotMatch(indexSource, /land-placeholder" id="\$\{id\}">\$\{name\}/, "expected land placeholders not to duplicate land names in copy-paste output");
-assert.match(indexSource, /<div class="starter-title">Wastes First<\/div>/, "expected Colorless Mana Base panel to include a Wastes-first primer card");
-assert.match(indexSource, /<div class="starter-title">Rocks And Sources<\/div>/, "expected Colorless Mana Base panel to explain mana rocks and true sources");
-assert.match(indexSource, /<div class="starter-title">Color-Choice Caution<\/div>/, "expected Colorless Mana Base panel to include Command Tower and Reflecting Pool cautions");
+assert.match(indexSource, /<div class="starter-title">Wastes First<\/div>/, "expected Colorless Mana Notes panel to include a Wastes-first primer card");
+assert.match(indexSource, /<div class="starter-title">Rocks And Sources<\/div>/, "expected Colorless Mana Notes panel to explain mana rocks and true sources");
+assert.match(indexSource, /<div class="starter-title">Color-Choice Caution<\/div>/, "expected Colorless Mana Notes panel to include Command Tower and Reflecting Pool cautions");
 assert.match(indexSource, /Practical Upgrade Lane/, "expected Colorless midrange mana tier to avoid duplicate Midrange heading text");
 assert.doesNotMatch(indexSource, /<div class="land-tier-label">Midrange<\/div>[\s\S]{0,180}\$\{landLaneCopy\.midrange\}/, "expected Colorless midrange tier to use a clearer label than repeated Midrange");
 const colorlessRadarHtml = renderDossierRadarSection({
@@ -1606,7 +1607,7 @@ assert.doesNotMatch(
 );
 
 const grixisPresentation = presentationForFaction(grixis);
-assert.match(grixisPresentation.thesis, /Black keeps the self alive, Blue finds the leverage, and Red moves/i);
+assert.match(grixisPresentation.thesis, /Black keeps the self alive, Blue finds the angle, and Red moves/i);
 assert.match(grixisPresentation.loreRole, /source-grounded Black-centered survival/i);
 assert.match(grixisPresentation.mechanics, /Commander support texture, not lore-canon proof or the whole identity/i);
 assert.doesNotMatch(
@@ -1665,7 +1666,7 @@ assert.match(grixisDossierText, /Commander support texture for survival, calcula
 assert.match(grixisDossierText, /\[Grixis Commander decks\]\(https:\/\/archidekt\.com\/search\/decks\?colors=UBR/, "expected Grixis Archidekt link label to use Grixis while preserving UBR as query syntax");
 assert.doesNotMatch(
   grixisDossierText,
-  /VM-166|raw claims beyond|manual-review material|playable pattern|personality label|recognizable Commander table role|UBR Commander decks|Exact UBR|Blue-Black-Red|color identity commander candidates|exactly blue, black, and red commander identity commander candidates|blank Starter Cards|blank Mana Base|\/grixis\/|\/ubr\//i,
+  /VM-166|raw claims beyond|manual-review material|playable pattern|personality label|recognizable Commander table role|UBR Commander decks|Exact UBR|Blue-Black-Red|color identity commander candidates|exactly blue, black, and red commander identity commander candidates|blank Card Signals|blank Mana Notes|\/grixis\/|\/ubr\//i,
   "expected rendered Grixis dossier text to avoid fallback copy, public UBR labels, internal jargon, and route-like Grixis paths"
 );
 
@@ -2165,16 +2166,16 @@ assert.ok(
 );
 const yorePrimaryAudit = auditCommanderDossier(yoreFallbackFixture.dossier);
 assert.ok(
-  !yorePrimaryAudit.failures.some((message) => /starter cards|Commander deck-start links/i.test(message)),
-  "expected Yore primary audit to stop failing on intentionally hidden starter cards and suppressed public commander directory links"
+  !yorePrimaryAudit.failures.some((message) => /card signals|Commander browsing links/i.test(message)),
+  "expected Yore primary audit to stop failing on intentionally hidden card signals and suppressed public commander directory links"
 );
 assert.ok(
-  !yorePrimaryAudit.warnings.some((message) => /Advisory content gap: starter cards are not authored/i.test(message)),
-  "expected Yore primary audit to stop warning once starter cards are authored"
+  !yorePrimaryAudit.warnings.some((message) => /Advisory content gap: card signals are not authored/i.test(message)),
+  "expected Yore primary audit to stop warning once card signals are authored"
 );
 assert.ok(
   yoreFallbackFixture.dossier.starterCards.creatures.includes("Breya, Etherium Shaper"),
-  "expected Yore primary dossier to expose authored starter cards after VM-292 content repair"
+  "expected Yore primary dossier to expose authored card signals after VM-292 content repair"
 );
 
 const glintFallbackCandidates = buildCommanderDeckStartFallbackCandidates(glintPreconRecommendations);
@@ -2287,16 +2288,16 @@ assert.doesNotMatch(
 );
 const abzanAudit = auditCommanderDossier(abzanDossier);
 assert.ok(
-  !abzanAudit.failures.some((message) => /starter cards/i.test(message)),
-  "expected Abzan primary audit to stop failing when starter cards are intentionally unauthored and hidden"
+  !abzanAudit.failures.some((message) => /card signals/i.test(message)),
+  "expected Abzan primary audit to stop failing when card signals are intentionally unauthored and hidden"
 );
 assert.ok(
-  !abzanAudit.warnings.some((message) => /Advisory content gap: starter cards are not authored/i.test(message)),
-  "expected Abzan primary audit to stop warning once starter cards are authored"
+  !abzanAudit.warnings.some((message) => /Advisory content gap: card signals are not authored/i.test(message)),
+  "expected Abzan primary audit to stop warning once card signals are authored"
 );
 assert.ok(
   abzanDossier.starterCards.creatures.includes("Anafenza, the Foremost"),
-  "expected Abzan primary dossier to expose authored starter cards after VM-292 content repair"
+  "expected Abzan primary dossier to expose authored card signals after VM-292 content repair"
 );
 const yoreAdjacentAbzanDossier = buildCommanderDossier({
   factions: factionsData.factions,
@@ -2338,16 +2339,16 @@ const yoreAdjacentAbzanDossier = buildCommanderDossier({
 });
 const yoreAdjacentAbzanAudit = auditCommanderDossier(yoreAdjacentAbzanDossier);
 assert.ok(
-  !yoreAdjacentAbzanAudit.failures.some((message) => /starter cards/i.test(message)),
-  "expected adjacent dossier audit to validate starter-card capabilities against the active viewed target faction"
+  !yoreAdjacentAbzanAudit.failures.some((message) => /card signals/i.test(message)),
+  "expected adjacent dossier audit to validate card-signal capabilities against the active viewed target faction"
 );
 assert.ok(
-  !yoreAdjacentAbzanAudit.warnings.some((message) => /Advisory content gap: starter cards are not authored/i.test(message)),
-  "expected adjacent Abzan dossier audit to stop warning once active target starter cards are authored"
+  !yoreAdjacentAbzanAudit.warnings.some((message) => /Advisory content gap: card signals are not authored/i.test(message)),
+  "expected adjacent Abzan dossier audit to stop warning once active target card signals are authored"
 );
 assert.ok(
   yoreAdjacentAbzanDossier.starterCards.creatures.includes("Anafenza, the Foremost"),
-  "expected adjacent Abzan dossier to expose active-target starter cards after VM-292 content repair"
+  "expected adjacent Abzan dossier to expose active-target card signals after VM-292 content repair"
 );
 
 const temurEvidenceTrail = [
@@ -2818,18 +2819,18 @@ assert.ok((blackDossier.commanderRecommendations || []).length >= 2, "expected B
     `expected Black Commander preview ${candidate.name} to have a Scryfall image URL or intentional fallback content`
   );
 });
-assert.equal(blackRenderState.hasStarterCardReferences, true, "expected Black Starter Card References to remain populated");
+assert.equal(blackRenderState.hasStarterCardReferences, true, "expected Black Card Signal References to remain populated");
 ["creatures", "spells", "permanents"].forEach((group) => {
   assert.ok((blackRenderState.starterCards[group] || []).length >= 2, `expected Black ${group} starter references to render`);
 });
 ["basics", "premium", "midrange", "budget"].forEach((tier) => {
   assert.ok(hasRenderableLandTier(blackLandRecommendations, tier), `expected Black ${tier} mana-base rows to render`);
 });
-assert.match(deckDiscoveryGroupsSource, /service:\s*"edhrec"/, "expected Commander Deck Starts to keep the EDHREC service group");
-assert.match(deckDiscoveryGroupsSource, /service:\s*"archidekt"/, "expected Commander Deck Starts to keep the Archidekt service group");
-assert.match(deckDiscoveryGroupsSource, /service:\s*"mtgdecks"/, "expected Commander Deck Starts to keep the MTGDecks service group");
-assert.match(deckDiscoveryGroupsSource, /commanderFallbackCandidates/, "expected Commander Deck Starts to honor dossier-local commander fallback candidates when directory links are suppressed");
-assert.doesNotMatch(indexSource, /\/Commander\/(?:ubrg|wubr|brgw|rgwu|gwub|UBRG|WUBR|BRGW|RGWU|GWUB)\b/, "expected four-color Commander Deck Starts never to emit color-code Commander directory links");
+assert.match(deckDiscoveryGroupsSource, /service:\s*"edhrec"/, "expected Commander Browsing Starts to keep the EDHREC service group");
+assert.match(deckDiscoveryGroupsSource, /service:\s*"archidekt"/, "expected Commander Browsing Starts to keep the Archidekt service group");
+assert.match(deckDiscoveryGroupsSource, /service:\s*"mtgdecks"/, "expected Commander Browsing Starts to keep the MTGDecks service group");
+assert.match(deckDiscoveryGroupsSource, /commanderFallbackCandidates/, "expected Commander Browsing Starts to honor dossier-local commander fallback candidates when directory links are suppressed");
+assert.doesNotMatch(indexSource, /\/Commander\/(?:ubrg|wubr|brgw|rgwu|gwub|UBRG|WUBR|BRGW|RGWU|GWUB)\b/, "expected four-color Commander Browsing Starts never to emit color-code Commander directory links");
 assert.match(archscryCssSource, /\.guild-banner\[data-hero-background="identity-image"\]::before\s*\{\s*content:\s*none;\s*\}/, "expected a generic image-backed hero overlay suppression override");
 assert.doesNotMatch(archscryCssSource, /\[data-faction-key="JESKAI"\]::before/, "expected the VM-271 rollout to remove the hard-coded Jeskai overlay override");
 assert.doesNotMatch(indexSource, /<div class="land-tier-label">Basics<\/div>/, "expected Basics to appear once through the active mana-base tab, not as a duplicate inner label");
@@ -2985,7 +2986,7 @@ assert.match(blankJundRenderState.basicLandCopy, /Swamps, Mountains, and Forests
 assert.equal(
   (`Basics ${blankJundRenderState.basicLandCopy}`.match(/\bBasics\b/g) || []).length,
   1,
-  "expected Jund Mana Base Starting Map to expose one visible Basics label"
+  "expected Jund Mana Notes Starting Map to expose one visible Basics label"
 );
 
 const actualJundRenderState = buildDossierRenderState({
@@ -3003,11 +3004,11 @@ const whiteRenderState = buildDossierRenderState({
   starterCards: factionsData.factions.W.staples,
   colors: factionsData.factions.W.colors,
 });
-assert.equal(whiteRenderState.hasStarterCardReferences, true, "expected authored starter cards to keep the starter panel renderable");
+assert.equal(whiteRenderState.hasStarterCardReferences, true, "expected authored card signals to keep the card-signal panel renderable");
 assert.deepEqual(
   whiteRenderState.starterCardSegments.map((segment) => segment.id),
   ["creatures", "spells", "permanents"],
-  "expected fully authored starter groups to keep all starter-card segments"
+  "expected fully authored starter groups to keep all card-signal segments"
 );
 
 const partialStarterRenderState = buildDossierRenderState({

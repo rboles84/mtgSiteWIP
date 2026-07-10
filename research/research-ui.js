@@ -7,6 +7,7 @@
  * @param {object} [details.api] - Search API/display metadata.
  * @param {string} [details.inputValue] - Original user input before translation/normalization.
  * @param {boolean} [details.normalized] - Whether the displayed query differs from the input.
+ * @param {boolean} [details.blocked] - Whether execution is blocked pending user choice.
  */
 export function renderQueryInspector({
   query,
@@ -14,7 +15,8 @@ export function renderQueryInspector({
   diagnostics = [],
   api = null,
   inputValue = "",
-  normalized = false
+  normalized = false,
+  blocked = false
 }) {
   const inspector = document.getElementById("query-inspector");
   if (!inspector) return;
@@ -34,7 +36,12 @@ export function renderQueryInspector({
   const queryText = document.getElementById("qi-query");
   const finalReason = reason;
   const scryfallLink = document.getElementById("qi-scryfall");
-  if (scryfallLink) scryfallLink.href = buildScryfallWebSearchUrl(query, searchApi);
+  if (scryfallLink) {
+    const canOpen = Boolean(query && !blocked);
+    scryfallLink.href = canOpen ? buildScryfallWebSearchUrl(query, searchApi) : "#";
+    scryfallLink.setAttribute("aria-disabled", canOpen ? "false" : "true");
+    scryfallLink.tabIndex = canOpen ? 0 : -1;
+  }
 
   const redundantRaw = mode === "raw" && !normalized && !finalReason && !hasDiagnostics;
   const redundantBuilder = mode === "builder" && !finalReason && !hasDiagnostics;
@@ -121,6 +128,8 @@ function renderDiagnostics(inspector, diagnosticsList = [], api = {}) {
     ${renderConfidence(groups.confidence)}
     ${renderChipGroup("API", apiItems)}
     ${renderChipGroup("Recognized", groups.recognized)}
+    ${renderChipGroup("Ignored", groups.ignored)}
+    ${renderChipGroup("Applied defaults", groups.appliedDefaults)}
     ${renderChipGroup("Assumptions", groups.assumptions)}
     ${renderChipGroup("Warnings", groups.warnings, "warn")}
     ${renderChipGroup("Unresolved", groups.unresolved, "warn")}
@@ -131,9 +140,12 @@ function renderDiagnostics(inspector, diagnosticsList = [], api = {}) {
 }
 
 function groupDiagnosticsForInspector(diagnostics = []) {
+  const seenAlternativeKeys = new Set();
   const groups = {
     confidence: undefined,
     recognized: [],
+    ignored: [],
+    appliedDefaults: [],
     assumptions: [],
     warnings: [],
     unresolved: [],
@@ -149,11 +161,18 @@ function groupDiagnosticsForInspector(diagnostics = []) {
       groups.confidence = diagnostic.details?.confidence;
     } else if (code.endsWith("_recognized") && message) {
       groups.recognized.push(message);
-    } else if (code.endsWith("_assumption") && message) {
+    } else if (code.endsWith("_ignored") && message) {
+      groups.ignored.push(message);
+    } else if (code.endsWith("_applied_default") && message) {
+      groups.appliedDefaults.push(message);
+    } else if ((code.endsWith("_assumption") || code === "raw_mixed_plain_reading" || code === "raw_name_like") && message) {
       groups.assumptions.push(message);
     } else if (code === "parser_unresolved_term") {
       groups.unresolved.push(diagnostic.details?.term || message);
-    } else if (code.endsWith("_alternative") && diagnostic.details?.query) {
+    } else if ((code.endsWith("_alternative") || code === "parser_ambiguity_choice") && diagnostic.details?.query) {
+      const key = `${message}|${diagnostic.details.query}`;
+      if (seenAlternativeKeys.has(key)) return;
+      seenAlternativeKeys.add(key);
       groups.alternatives.push({
         label: message,
         query: diagnostic.details.query,

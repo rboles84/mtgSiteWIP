@@ -50,15 +50,6 @@ import {
   renderDossierRadarSection,
 } from "./dossier-radar.js";
 import {
-  archiveUserDeckLink,
-  listUserDeckLinks,
-  saveUserDeckLink,
-} from "./deck-link-service.js";
-import {
-  DECK_LINK_PROVIDERS,
-  normalizeDeckLinkUrl,
-} from "./deck-links.js";
-import {
   READING_FIND_SECTION_CONFIG,
   READING_FINDS_STORAGE_KEY,
   getRowsForReading,
@@ -136,14 +127,9 @@ const APP_STATE = {
   },
   dossierAvailableSegments: {},
   activeDossierRadarFaction: null,
-  deckLinks: [],
-  deckLinksStatus: "idle",
 };
 
 const ARCHSCRY_MAZE_HANDOFF_KEY = "vm_archscry_maze_handoff_v1";
-const DECK_LINK_PROVIDER_LABELS = new Map(
-  DECK_LINK_PROVIDERS.map((provider) => [provider.key, provider.label])
-);
 const DOSSIER_DEFAULT_PANEL_ID = "placement";
 const DOSSIER_DEFAULT_LAYOUT_MODE = "focus";
 const DOSSIER_LAYOUT_MODES = new Set(["focus", "all"]);
@@ -152,10 +138,9 @@ const DOSSIER_PANEL_CONFIG = [
   { id: "start", label: "Start Here" },
   { id: "why", label: "Why This Fits" },
   { id: "adjacent", label: "Adjacent Fits" },
-  { id: "commander-deck-starts", label: "Commander Deck Starts" },
-  { id: "decks-saved", label: "Decks Saved" },
-  { id: "starter-cards", label: "Starter Cards" },
-  { id: "mana-base", label: "Mana Base" },
+  { id: "commander-deck-starts", label: "Commander Browsing Starts" },
+  { id: "starter-cards", label: "Card Signals" },
+  { id: "mana-base", label: "Mana Notes" },
   { id: "maze-discovery", label: "Maze Discovery" },
 ];
 const DOSSIER_PANEL_IDS = new Set(DOSSIER_PANEL_CONFIG.map((panel) => panel.id));
@@ -1471,7 +1456,7 @@ function buildDeckDiscoveryGroups({
     {
       service: "archidekt",
       name: "Archidekt",
-      desc: "Use color and catalog-tag lanes when you want deckbuilder-native filtering.",
+      desc: "Use color and catalog-tag lanes when you want external catalog filtering.",
       links: dedupeLinks(archidektLinks).slice(0, 4),
     },
     {
@@ -1764,357 +1749,6 @@ function sanitizeUserFacingCopy(value) {
     (copy, rule) => copy.replace(rule.pattern, rule.replacement),
     String(value ?? "")
   );
-}
-
-function deckLinkProviderLabel(provider) {
-  return DECK_LINK_PROVIDER_LABELS.get(String(provider || "").trim()) || "External Deck";
-}
-
-function deckLinkVisibilityLabel(visibility) {
-  switch (String(visibility || "").toLowerCase()) {
-    case "archived":
-      return "Removed";
-    case "private":
-    default:
-      return "Private";
-  }
-}
-
-function safeDeckLinkHref(deckUrl) {
-  const normalized = normalizeDeckLinkUrl(deckUrl);
-  return normalized.ok ? normalized.deck_url : "";
-}
-
-function buildAccountDeckLinkPanelHtml() {
-  return `
-    <div class="deck-link-section" data-deck-link-section>
-      <div class="deck-link-section-head">
-        <div>
-          <div class="section-label">Account Deck Links</div>
-          <h2>Decks Saved For This Reading</h2>
-          <p class="deck-link-copy">Save external deck URLs from MTGGoldfish, Archidekt, Moxfield, EDHREC, MTGDecks, Aetherhub, or TappedOut.</p>
-        </div>
-      </div>
-
-      <div class="deck-link-layout">
-        <form class="deck-link-form" id="deck-link-form" data-deck-link-form autocomplete="off">
-          <label class="deck-link-field" for="deck-link-url">
-            <span>Deck URL</span>
-            <input id="deck-link-url" name="deck_url" type="url" maxlength="2048" placeholder="https://moxfield.com/decks/..." required>
-          </label>
-          <div class="deck-link-field-grid">
-            <label class="deck-link-field" for="deck-link-title">
-              <span>Deck Title</span>
-              <input id="deck-link-title" name="deck_title" type="text" maxlength="120" placeholder="Optional">
-            </label>
-            <label class="deck-link-field" for="deck-link-commander">
-              <span>Commander</span>
-              <input id="deck-link-commander" name="commander_name" type="text" maxlength="120" placeholder="Optional">
-            </label>
-          </div>
-          <label class="deck-link-field" for="deck-link-note">
-            <span>Note</span>
-            <textarea id="deck-link-note" name="user_note" maxlength="500" rows="3" placeholder="Optional"></textarea>
-          </label>
-          <div class="deck-link-actions">
-            <button class="btn-primary" type="button" ${buildActionAttrs("save-deck-link")}>Save Private Deck Link</button>
-            <p class="deck-link-status" id="deck-link-status" role="status" aria-live="polite" data-tone="muted">Sign in by saving this reading before adding deck links.</p>
-          </div>
-        </form>
-
-        <div class="deck-link-account-list">
-          <div class="deck-link-list-head">
-            <h3>Saved Links</h3>
-            <button class="btn-secondary" type="button" ${buildActionAttrs("refresh-deck-links")}>Refresh</button>
-          </div>
-          <div class="deck-link-list" id="deck-link-list" aria-live="polite"></div>
-        </div>
-      </div>
-    </div>`;
-}
-
-function setDeckLinkStatus(message, tone = "neutral") {
-  const status = document.getElementById("deck-link-status");
-  if (!status) return;
-  status.textContent = message || "";
-  status.dataset.tone = tone;
-}
-
-function currentDeckLinkPlacementResult() {
-  const cachedResult = typeof vm_getCachedPlacementResult === "function"
-    ? vm_getCachedPlacementResult()
-    : null;
-  const result = APP_STATE.activeResult || SESSION.interviewResult || SESSION.profile?.placementResult || cachedResult || null;
-  if (!result?.faction) {
-    return null;
-  }
-
-  const faction = getFaction(result.faction);
-  if (!faction) {
-    return null;
-  }
-
-  const identity = result.identity || {};
-  const identityColors = identity.colors || identity.color_identity || null;
-  const colorIdentity = result.color_identity || result.color_identity_key || identityColors ||
-    (Array.isArray(faction.colors) ? faction.colors.join("") : null);
-
-  return {
-    ...result,
-    faction: result.faction || faction.key,
-    faction_name: result.faction_name || faction.name || null,
-    color_identity: Array.isArray(colorIdentity) ? colorIdentity.join("") : colorIdentity,
-  };
-}
-
-async function getDeckLinkSession() {
-  if (typeof getSupabase !== "function") {
-    return null;
-  }
-
-  const sb = getSupabase();
-  if (!sb) {
-    return null;
-  }
-
-  const {
-    data: { session },
-  } = await sb.auth.getSession();
-  return session?.user?.id ? session : null;
-}
-
-function appendDeckLinkMeta(parent, value) {
-  const text = String(value || "").trim();
-  if (!text) return;
-  const chip = document.createElement("span");
-  chip.textContent = text;
-  parent.append(chip);
-}
-
-function renderAccountDeckLinks(rows = []) {
-  const list = document.getElementById("deck-link-list");
-  if (!list) return;
-
-  clearNode(list);
-
-  const visibleRows = rows.filter((row) => String(row.visibility || "private").toLowerCase() === "private");
-
-  if (!visibleRows.length) {
-    const empty = document.createElement("p");
-    empty.className = "deck-link-empty";
-    empty.textContent = "No saved deck links yet.";
-    list.append(empty);
-    return;
-  }
-
-  for (const row of visibleRows) {
-    const card = document.createElement("article");
-    card.className = "saved-deck-link-card";
-
-    const head = document.createElement("div");
-    head.className = "saved-deck-link-head";
-
-    const provider = document.createElement("span");
-    provider.className = "deck-link-provider";
-    provider.textContent = deckLinkProviderLabel(row.provider);
-    head.append(provider);
-
-    const visibility = document.createElement("span");
-    visibility.className = "deck-link-visibility";
-    visibility.dataset.visibility = String(row.visibility || "private");
-    visibility.textContent = deckLinkVisibilityLabel(row.visibility);
-    head.append(visibility);
-    card.append(head);
-
-    const title = document.createElement("h4");
-    title.textContent = row.deck_title || row.commander_name || "External deck link";
-    card.append(title);
-
-    const meta = document.createElement("div");
-    meta.className = "saved-deck-link-meta";
-    appendDeckLinkMeta(meta, row.commander_name);
-    appendDeckLinkMeta(meta, row.placement_name || row.placement_key);
-    appendDeckLinkMeta(meta, row.color_identity_key);
-    if (meta.childElementCount) {
-      card.append(meta);
-    }
-
-    if (row.user_note) {
-      const note = document.createElement("p");
-      note.className = "saved-deck-link-note";
-      note.textContent = row.user_note;
-      card.append(note);
-    }
-
-    const actions = document.createElement("div");
-    actions.className = "saved-deck-link-actions";
-
-    const href = safeDeckLinkHref(row.deck_url);
-    if (href) {
-      const link = document.createElement("a");
-      link.className = "deck-link-open";
-      link.href = href;
-      link.target = "_blank";
-      link.rel = "noopener";
-      link.textContent = "Open deck";
-      actions.append(link);
-    }
-
-    if (row.id) {
-      const remove = document.createElement("button");
-      remove.className = "btn-secondary";
-      remove.type = "button";
-      remove.dataset.action = "remove-deck-link";
-      remove.dataset.deckLinkId = row.id;
-      remove.textContent = "Remove";
-      actions.append(remove);
-    }
-
-    card.append(actions);
-    list.append(card);
-  }
-}
-
-async function refreshAccountDeckLinks({ silent = false } = {}) {
-  if (!document.getElementById("deck-link-list")) {
-    return;
-  }
-
-  try {
-    const session = await getDeckLinkSession();
-    if (!session) {
-      APP_STATE.deckLinks = [];
-      renderAccountDeckLinks([]);
-      setDeckLinkStatus("Sign in by saving this reading before adding deck links.", "muted");
-      return;
-    }
-
-    if (!silent) {
-      setDeckLinkStatus("Loading saved deck links...", "muted");
-    }
-
-    const rows = await listUserDeckLinks();
-    APP_STATE.deckLinks = rows;
-    renderAccountDeckLinks(rows);
-    setDeckLinkStatus(rows.length ? "Saved deck links synced." : "Ready to save your first deck link.", "ok");
-  } catch (error) {
-    renderAccountDeckLinks(APP_STATE.deckLinks || []);
-    setDeckLinkStatus(error.message || "Could not load saved deck links.", "error");
-  }
-}
-
-function deckLinkFormValue(form, name) {
-  const field = form.elements.namedItem(name);
-  return field instanceof HTMLInputElement || field instanceof HTMLTextAreaElement || field instanceof HTMLSelectElement
-    ? field.value
-    : "";
-}
-
-function resetDeckLinkForm(form) {
-  for (const name of ["deck_url", "deck_title", "commander_name", "user_note"]) {
-    const field = form.elements.namedItem(name);
-    if (field instanceof HTMLInputElement || field instanceof HTMLTextAreaElement) {
-      field.value = "";
-    }
-  }
-}
-
-function alreadySavedDeckLinkForPlacement(deckUrl, placementResult) {
-  const normalized = normalizeDeckLinkUrl(deckUrl);
-  if (!normalized.ok) {
-    return null;
-  }
-
-  const placementKey = String(placementResult?.faction || "").trim();
-  return (APP_STATE.deckLinks || []).find((row) => {
-    if (String(row.visibility || "private").toLowerCase() === "archived") {
-      return false;
-    }
-    if (String(row.placement_key || "").trim() !== placementKey) {
-      return false;
-    }
-    const rowUrl = normalizeDeckLinkUrl(row.deck_url || "");
-    return rowUrl.ok && rowUrl.deck_url === normalized.deck_url;
-  }) || null;
-}
-
-async function handleSaveDeckLink(button = null) {
-  const form = document.getElementById("deck-link-form");
-  if (!(form instanceof HTMLFormElement)) {
-    return;
-  }
-
-  const placementResult = currentDeckLinkPlacementResult();
-  if (!placementResult) {
-    setDeckLinkStatus("Complete or restore a reading first.", "error");
-    return;
-  }
-
-  const session = await getDeckLinkSession();
-  if (!session) {
-    setDeckLinkStatus("Save this reading with Google first, then add deck links to your account.", "error");
-    return;
-  }
-
-  const deckUrl = deckLinkFormValue(form, "deck_url");
-  if (alreadySavedDeckLinkForPlacement(deckUrl, placementResult)) {
-    setDeckLinkStatus("That deck link is already saved for this reading.", "ok");
-    return;
-  }
-
-  const originalLabel = button?.textContent || "";
-  if (button) {
-    button.disabled = true;
-    button.textContent = "Saving...";
-  }
-  setDeckLinkStatus("Saving deck link...", "muted");
-
-  try {
-    await saveUserDeckLink({
-      input: {
-        deck_url: deckUrl,
-        deck_title: deckLinkFormValue(form, "deck_title"),
-        commander_name: deckLinkFormValue(form, "commander_name"),
-        user_note: deckLinkFormValue(form, "user_note"),
-        visibility: "private",
-      },
-      placementResult,
-    });
-
-    resetDeckLinkForm(form);
-    setDeckLinkStatus("Deck link saved privately.", "ok");
-    await refreshAccountDeckLinks({ silent: true });
-  } catch (error) {
-    setDeckLinkStatus(error.message || "Could not save deck link.", "error");
-  } finally {
-    if (button) {
-      button.disabled = false;
-      button.textContent = originalLabel || "Save Private Deck Link";
-    }
-  }
-}
-
-async function handleRemoveDeckLink(button = null) {
-  const deckLinkId = button?.dataset.deckLinkId || "";
-  if (!deckLinkId) {
-    return;
-  }
-
-  const originalLabel = button.textContent || "";
-  button.disabled = true;
-  button.textContent = "Removing...";
-  setDeckLinkStatus("Removing deck link...", "muted");
-
-  try {
-    await archiveUserDeckLink({ deckLinkId });
-    setDeckLinkStatus("Deck link removed.", "ok");
-    await refreshAccountDeckLinks({ silent: true });
-  } catch (error) {
-    setDeckLinkStatus(error.message || "Could not remove deck link.", "error");
-  } finally {
-    button.disabled = false;
-    button.textContent = originalLabel || "Remove";
-  }
 }
 
 function buildDossierTabsHtml(location, activePanel, layoutMode) {
@@ -2939,7 +2573,7 @@ function renderResult(viewKey) {
   const activeMonoCount = activeExpressionEntries
     .filter((entry) => String(entry?.kind || "").toLowerCase() === "color")
     .length;
-  const atlasFrontierCopy = `The atlas is still opening: ${activeExpressionCount} expressions are lit now, and the frontier still widens. Guilds, colleges, mono colors, wedges, families, and stranger color-shapes wait beyond the next veil.`;
+  const atlasFrontierCopy = `The atlas is still opening: ${activeExpressionCount} expressions are lit now, and the frontier still widens from single colors and pairs through three-color, four-color, Colorless, and Five-Color expressions.`;
   const archetypeHtml = (dossier.archetypes || [])
     .map((item) => `<div class="arch-card"><div class="arch-name">${item.name}</div><div class="arch-desc">${item.desc}</div></div>`)
     .join("");
@@ -3096,9 +2730,6 @@ function renderResult(viewKey) {
   if (!hasStarterCardReferences) {
     hiddenDossierPanelIds.push("starter-cards");
   }
-  if (!isPrimary) {
-    hiddenDossierPanelIds.push("decks-saved");
-  }
   APP_STATE.hiddenDossierPanelIds = new Set(hiddenDossierPanelIds);
   APP_STATE.dossierAvailableSegments = {
     "starter-cards": starterCardSegments,
@@ -3155,7 +2786,7 @@ function renderResult(viewKey) {
   const deckStartsPanelHtml = `
     ${preconSectionHtml}
     <div class="decks-section">
-      <div class="section-label">Commander Deck Starts</div>
+      <div class="section-label">Commander Browsing Starts</div>
       <div class="decks-grid">${decksHtml}</div>
     </div>
     ${archetypeHtml ? `
@@ -3163,7 +2794,6 @@ function renderResult(viewKey) {
         <div class="section-label">Commander Lanes</div>
         <div class="archetypes-grid">${archetypeHtml}</div>
       </div>` : ""}`;
-  const accountDeckLinkPanelHtml = isPrimary ? buildAccountDeckLinkPanelHtml() : "";
   const starterCardPanelContent = {
     creatures: `
       <div class="staples-category">
@@ -3183,17 +2813,17 @@ function renderResult(viewKey) {
   };
   const starterCardsPanelHtml = hasStarterCardReferences ? `
     <div class="staples-section">
-      <div class="section-label">${institutionLabel} Starter Card References</div>
-      ${buildSegmentControlsHtml("starter-cards", starterCardSegments, starterSegment, "Starter card groups")}
+      <div class="section-label">${institutionLabel} Card Signal References</div>
+      ${buildSegmentControlsHtml("starter-cards", starterCardSegments, starterSegment, "Card signal groups")}
       ${starterCardSegments.map((segment) =>
         buildSegmentPanelHtml("starter-cards", segment.id, starterSegment, starterCardPanelContent[segment.id])
       ).join("")}
     </div>` : "";
   const manaBasePanelHtml = `
     <div class="lands-section">
-      <div class="section-label">Mana Base Starting Map</div>
+      <div class="section-label">Mana Notes Starting Map</div>
       ${colorlessManaPrimerHtml}
-      ${buildSegmentControlsHtml("mana-base", manaBaseSegments, manaBaseSegment, "Mana base tiers")}
+      ${buildSegmentControlsHtml("mana-base", manaBaseSegments, manaBaseSegment, "Mana note tiers")}
       <div class="lands-tiers">
         ${buildSegmentPanelHtml("mana-base", "basics", manaBaseSegment, `
           <div class="land-tier tier-basics">
@@ -3244,7 +2874,6 @@ function renderResult(viewKey) {
     { id: "why", content: whyPanelHtml },
     { id: "adjacent", content: adjacentSectionHtml },
     { id: "commander-deck-starts", content: deckStartsPanelHtml },
-    isPrimary ? { id: "decks-saved", content: accountDeckLinkPanelHtml } : null,
     hasStarterCardReferences ? { id: "starter-cards", content: starterCardsPanelHtml } : null,
     { id: "mana-base", content: manaBasePanelHtml },
     { id: "maze-discovery", content: mazePanelHtml },
@@ -3293,7 +2922,6 @@ function renderResult(viewKey) {
   APP_STATE.activeResult = result;
   APP_STATE.activeViewKey = activeKey;
   APP_STATE.activeDossierRadarFaction = faction;
-  void refreshAccountDeckLinks({ silent: true });
   showSection("result");
   applyDossierConsoleState();
   applyTerminalVisibility();
@@ -3335,12 +2963,12 @@ function returnToPrimaryReading() {
 // Card art loading, Scryfall named-card cache, and desktop preview overlays.
 
 /**
- * Loads Scryfall images for Commander previews, staples, and lands after the result HTML has rendered.
+ * Loads Scryfall images for Commander previews, card signals, and lands after the result HTML has rendered.
  *
  * @param {object} faction Canonical faction record being displayed.
  * @param {object[]=} commanderCandidates Commander preview candidates to verify.
- * @param {object=} starterCards Dossier starter card groups.
- * @param {object=} landRecommendations Dossier land recommendation tiers.
+ * @param {object=} starterCards Dossier card signal groups.
+ * @param {object=} landRecommendations Dossier mana note tiers.
  * @returns {Promise<void>} Resolves after all visible slots have been attempted.
  */
 async function loadResultCardArt(faction, commanderCandidates = [], starterCards = {}, landRecommendations = {}) {
@@ -3635,13 +3263,6 @@ function bindArchscryControls() {
   app?.addEventListener("click", (event) => {
     void handleArchscryActionClick(event);
   });
-  app?.addEventListener("submit", (event) => {
-    const form = event.target instanceof Element ? event.target.closest("[data-deck-link-form]") : null;
-    if (!(form instanceof HTMLFormElement)) return;
-    event.preventDefault();
-    const button = form.querySelector('[data-action="save-deck-link"]');
-    void handleSaveDeckLink(button instanceof HTMLElement ? button : null);
-  });
   app?.addEventListener("keydown", handleArchscryKeydown);
   app?.addEventListener("pointerover", handleCardPreviewPointerOver);
   app?.addEventListener("pointermove", handleCardPreviewPointerMove);
@@ -3696,15 +3317,6 @@ async function handleArchscryActionClick(event) {
       return;
     case "save-current-result":
       await saveCurrentResult();
-      return;
-    case "save-deck-link":
-      await handleSaveDeckLink(actionNode);
-      return;
-    case "remove-deck-link":
-      await handleRemoveDeckLink(actionNode);
-      return;
-    case "refresh-deck-links":
-      await refreshAccountDeckLinks();
       return;
     case "set-dossier-panel":
       setDossierPanel(actionNode.dataset.panelId || "");

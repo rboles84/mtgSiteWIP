@@ -563,8 +563,8 @@ const archscrySource = await readFile(new URL("./index.js", import.meta.url), "u
 assert.match(archscrySource, /saveUserDeckLink/);
 assert.match(archscrySource, /archiveUserDeckLink/);
 assert.match(archscrySource, /buildAccountDeckLinkPanelHtml/);
-assert.match(archscrySource, /Decks Saved For This Reading/);
-assert.match(archscrySource, /\{ id: "decks-saved", label: "Decks Saved" \}/);
+assert.match(archscrySource, /External Deck Links Saved For This Reading/);
+assert.match(archscrySource, /\{ id: "decks-saved", label: "External Deck Links" \}/);
 assert.match(archscrySource, /buildActionAttrs\("save-deck-link"\)/);
 assert.doesNotMatch(archscrySource, /Community Deck Ledger/);
 assert.doesNotMatch(archscrySource, /Submit for review/);
