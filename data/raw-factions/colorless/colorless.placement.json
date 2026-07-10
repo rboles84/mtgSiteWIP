@@ -5,17 +5,17 @@
   "based_on_profile_version": "0.1.3",
   "faction_id": "colorless",
   "faction_name": "Colorless",
-  "last_updated": "2026-06-13",
+  "last_updated": "2026-07-10",
   "color_identity": {
     "colors": [],
     "future_expression_name": "COLORLESS",
-    "future_expression_name_status": "VM-334-ratified controlled placeable expression key: colors: [], core_color: \"C\", placement_eligible: true, preview_eligible: false, directory links suppressed, aliases limited to [\"COLORLESS\"], and no public route, Home preview, public alias, or generated hand-edit authority."
+    "future_expression_name_status": "Controlled placeable expression key: colors: [], core_color: \"C\", placement_eligible: true, and preview_eligible: true for the Home Identity Signal under VM-389. Directory links remain suppressed, aliases remain limited to [\"COLORLESS\"], and no public route, lowercase or C alias, broader recommendation expansion, or generated hand-edit authority is approved."
   },
-  "placement_summary": "Colorless is a controlled placeable raw placement packet for outside-WUBRG identity, attraction-readiness, and concept-boundary testing. It supports controlled placement and dossier-visible output without approving Home preview, public routes, public aliases, Commander Compass, broad recommendations, or generated hand edits.",
+  "placement_summary": "Colorless is a controlled placeable raw placement packet for outside-WUBRG identity, attraction-readiness, and concept-boundary testing. It supports controlled placement, dossier-visible output, and VM-389 Home Identity Signal membership without approving public routes, public aliases, directory links, Commander Compass, broad recommendations, or generated hand edits.",
   "moral_and_psychological_profile": {
     "primary_drive": "Choose a precise outside-WUBRG restriction because the absence, machine, void, austere mana, or titan-scale path is itself the appeal.",
     "ethical_pressure": "A precise outside-color identity becomes misleading if it collapses generic mana, colorless mana, artifacts, Eldrazi, Wastes, Devoid, Commander legality, and transcendent support texture into one undifferentiated bucket.",
-    "core_boundary": "Placement language is controlled guidance, not threshold tuning, public routing approval, Home preview approval, or broad Commander/deck recommendation authority."
+    "core_boundary": "Placement language and VM-389 Home Identity Signal membership are controlled guidance, not threshold tuning, public routing approval, alias approval, or broad Commander/deck recommendation authority."
   },
   "placement_axes": [
     {
@@ -31,7 +31,7 @@
         "colorless_claim_0006"
       ],
       "confidence": "Medium",
-      "notes": "Controlled placement axis only. Do not treat it as threshold tuning, public routing approval, or Home preview approval."
+      "notes": "Controlled placement axis only. Do not treat it as threshold tuning or public routing approval; Home Identity Signal membership is separately approved by VM-389."
     },
     {
       "axis_id": "axis_machine_vs_void_branch",
@@ -148,7 +148,7 @@
     "Phyrexia-only framing",
     "Commander product proof or legality claims beyond current support-only rows",
     "positive sixth-color framing",
-    "public route or Home preview readiness language",
+    "public-route readiness or preview-expansion language beyond the approved Home Identity Signal",
     "Devoid as strict Commander legality proof",
     "five-color Eldrazi as strict Colorless identity",
     "named-card legality or exact Oracle claims without verification",
@@ -283,7 +283,7 @@
       "Do not say generic mana is colorless mana.",
       "Do not say artifacts are equivalent to Colorless identity.",
       "Do not say Eldrazi, Wastes, Devoid, Ugin, Karn, Phyrexia, or Eldrazi Unbound proves all of Colorless.",
-      "Do not use controlled Colorless placement to approve Home preview, public routes, public aliases, public URL expansion, Supabase manual-context expansion, schema expansion, generated hand edits, or broad recommendation behavior.",
+      "Do not use controlled Colorless placement or VM-389 Home Identity Signal membership to approve public routes, public aliases, public URL expansion, Supabase manual-context expansion, schema expansion, generated hand edits, or broad recommendation behavior.",
       "Do not cite architecture docs or generated output as raw evidence.",
       "Do not say Devoid makes a card legal in strict Colorless Commander by itself.",
       "Do not say Ulalek or Eldrazi Incursion proves strict Colorless identity.",
@@ -295,7 +295,7 @@
       "The question is about separating generic mana, colorless mana, artifacts, Eldrazi, Wastes, Devoid, and support-only Commander examples."
     ],
     "avoid_when": [
-      "The user wants public routing, Home preview, broad recommendations, or threshold tuning.",
+      "The user wants public routing, preview expansion beyond the Home Identity Signal, broad recommendations, or threshold tuning.",
       "The answer depends on exact current official rules, Wastes rulings, official product proof, or detailed Ugin/Karn/Eldrazi lore not yet captured.",
       "The answer uses support-only Commander data as proof."
     ],
@@ -308,12 +308,13 @@
       "VM-334 is lifecycle/product-governance authority only and does not authorize lore, rules, Commander, card, legality, or deck claims."
     ],
     "how_to_recognize_mismatch": [
+      "Collapses generic mana, colorless mana, artifacts, Eldrazi, Wastes, Devoid, five-color Eldrazi, or Phyrexia into one undifferentiated Colorless identity.",
       "The answer centers artifacts, Eldrazi, or Wastes as a single proof source.",
       "The answer collapses {C} and generic mana.",
       "The answer treats five-color Eldrazi or Phyrexia as Colorless.",
-      "The answer needs public copy, route behavior, Home preview, or broad recommendations."
+      "The answer needs public route behavior, preview expansion beyond the Home Identity Signal, or broad recommendations."
     ],
-    "calibration_note": "Require precise outside-WUBRG language, branch separation, strict Commander/devoid/five-color boundaries, and controlled public-expansion boundaries. Treat all guidance here as controlled placement and dossier scaffolding, not Home preview, public routing, Commander Compass, or broad recommendation approval.",
+    "calibration_note": "Require precise outside-WUBRG language, branch separation, strict Commander/devoid/five-color boundaries, and controlled public-expansion boundaries. Treat all guidance here as controlled placement, dossier scaffolding, and approved Home Identity Signal preview only, not public routing, Commander Compass, or broad recommendation approval.",
     "never_claim_as_canon": [
       "Colorless is a sixth color.",
       "Colorless is superior to WUBRG.",
@@ -326,15 +327,15 @@
   "placement_quality": {
     "review_gated": true,
     "placement_eligible": true,
-    "preview_eligible": false,
+    "preview_eligible": true,
     "live_pilot": true,
     "placement_ready_pass": "VM-326/VM-334",
-    "status": "vm337_controlled_placeable_dossier_expansion",
-    "notes": "VM-334 controls Colorless lifecycle status. VM-337 expands controlled dossier-facing copy without approving Home preview, public routes, public aliases, Commander Compass, broad recommendations, or generated hand edits."
+    "status": "vm498_vm389_home_preview_reconciled",
+    "notes": "VM-389 is effective for Home Identity Signal membership only. VM-334 remains historical lifecycle evidence, and VM-337 remains controlled dossier-copy history; public routes, public aliases, directory links, Commander Compass, broad recommendations, and generated hand edits remain unapproved."
   },
   "calibration_tuning": {
     "status": "controlled_placeable_public_expansion_gated",
-    "notes": "Placement axes and discriminator questions support controlled Colorless placement and dossier copy. VM-337 does not add scoring weights, threshold tuning, public routes, Home preview, public aliases, Commander Compass, or broad recommendations."
+    "notes": "Placement axes and discriminator questions support controlled Colorless placement and dossier copy. VM-389 adds only Home Identity Signal membership; it does not add scoring weights, threshold tuning, public routes, public aliases, directory links, Commander Compass, or broad recommendations."
   },
   "collision_guidance": {
     "primary_false_positives": [

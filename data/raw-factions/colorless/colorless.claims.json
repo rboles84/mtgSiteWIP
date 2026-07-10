@@ -2,11 +2,11 @@
   "schema_version": "1.0.0",
   "faction_id": "colorless",
   "faction_name": "Colorless",
-  "source_review_date": "2026-06-10",
-  "last_updated": "2026-06-11",
+  "source_review_date": "2026-07-10",
+  "last_updated": "2026-07-10",
   "claim_count": 8,
   "claim_quality_summary": {
-    "claim_basis": "Existing VM-308 COLORLESS-EVID rows plus VM-324 COLORLESS-SRC-018 intake rows and VM-334 lifecycle authority, with VM-309/VM-310 architecture used as shaping context but not claim-bearing evidence.",
+    "claim_basis": "Existing VM-308 COLORLESS-EVID rows plus VM-324 COLORLESS-SRC-018 intake rows, VM-334 lifecycle authority, and VM-389's limited Home Identity Signal approval, with VM-309/VM-310 architecture used as shaping context but not claim-bearing evidence.",
     "claim_bearing_rows_used_as_raw_proof": [
       "COLORLESS-EVID-001",
       "COLORLESS-EVID-006",
@@ -22,7 +22,8 @@
       "COLORLESS-EVID-019",
       "COLORLESS-EVID-020",
       "COLORLESS-EVID-021",
-      "COLORLESS-EVID-025"
+      "COLORLESS-EVID-025",
+      "COLORLESS-EVID-033"
     ],
     "support_boundary_rows_used_as_limitations": [
       "COLORLESS-EVID-014",
@@ -33,7 +34,7 @@
       "COLORLESS-EVID-024"
     ],
     "support_material_policy": "Support-only, shaping-only, architecture, discovery, visual, relocation, Commander, generated, and manual-fill material may appear only as boundary, limitation, or traceability context.",
-    "evidence_quality": "High for lifecycle and controlled-placeable product boundaries; medium for local generic/colorless, {C}, Wastes, Devoid, artifact, Eldrazi, strict Commander, five-color comparator, and not-sixth-color boundaries because exact Oracle, legality, current rules, and public deck advice remain manual-fill constrained.",
+    "evidence_quality": "High for current placement eligibility, VM-389 Home Identity Signal membership, and retained public-surface restrictions; medium for local generic/colorless, {C}, Wastes, Devoid, artifact, Eldrazi, strict Commander, five-color comparator, and not-sixth-color boundaries because broader public recommendations remain intentionally constrained.",
     "known_limitations": [
       "Current Comprehensive Rules citations remain Manual fill required.",
       "Official Oath of the Gatewatch source mapping for {C} and Wastes remains Manual fill required.",
@@ -49,7 +50,8 @@
       "Named-card Oracle text and Commander legality require card-by-card verification before public recommendations or exact rules copy.",
       "Current price and metagame claims require fresh data before deck-buying advice.",
       "Manual browser QA remains useful for controlled Colorless dossier copy, but generated/public expansion remains out of scope.",
-      "VM-334 is lifecycle and product-governance authority only, not MTG lore, rules, Commander, card, legality, or deck evidence."
+      "VM-334 and VM-389 are lifecycle and product-governance authority only, not MTG lore, rules, Commander, card, legality, or deck evidence.",
+      "VM-389 supersedes VM-334 only for Home Identity Signal preview membership; every public-route, alias, directory-link, and recommendation restriction remains in force."
     ],
     "claim_ids": [
       "colorless_claim_0001",
@@ -67,20 +69,33 @@
       "claim_id": "colorless_claim_0001",
       "faction_id": "colorless",
       "claim_type": "identity_lifecycle_boundary",
-      "statement": "Colorless is source-authored and VM-334-ratified as a controlled placeable Layer 1 identity: COLORLESS is active for controlled placement and dossier-visible output with colors: [], core_color: \"C\", placement_eligible: true, preview_eligible: false, directory links suppressed, and no public route, public alias, Home preview, Supabase manual-context, schema, or image expansion approved by this lifecycle claim.",
+      "statement": "Colorless is a controlled placeable Layer 1 identity with colors: [], core_color: \"C\", placement_eligible: true, and preview_eligible: true for the Home Identity Signal under VM-389. That limited preview approval does not create a public Colorless route, lowercase or C alias, directory links, or broader recommendation expansion.",
+      "current_product_state": {
+        "effective_decision": "VM-389",
+        "placement_eligible": true,
+        "preview_eligible": true,
+        "home_identity_signal_only": true,
+        "public_route": false,
+        "lowercase_alias": false,
+        "c_alias": false,
+        "directory_links": false,
+        "recommendation_expansion": false
+      },
       "canon_status": "Vox Mana lifecycle and public-interface boundary",
       "source_ids": [
         "COLORLESS-SCOPE-003",
         "COLORLESS-SCOPE-004",
-        "COLORLESS-SCOPE-005"
+        "COLORLESS-SCOPE-005",
+        "COLORLESS-SCOPE-006"
       ],
       "evidence_rows": [
         "COLORLESS-EVID-001",
         "COLORLESS-EVID-018",
-        "COLORLESS-EVID-025"
+        "COLORLESS-EVID-025",
+        "COLORLESS-EVID-033"
       ],
       "confidence": "High",
-      "notes": "Use this claim only for Colorless product lifecycle and controlled-surface boundaries. It does not authorize Home preview, public routing, public aliases, schema changes, Supabase manual-context expansion, image edits, or lore/rules evidence."
+      "notes": "current_product_state is the authoritative structured current-state representation inside this raw packet; data/identity-layers.json remains runtime registry authority. VM-389 authorizes Home Identity Signal membership only and does not authorize public routing, public aliases, directory links, recommendation expansion, schema changes, Supabase manual-context expansion, image edits, or lore/rules evidence."
     },
     {
       "claim_id": "colorless_claim_0002",

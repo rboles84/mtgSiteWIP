@@ -7,14 +7,14 @@
   "plane_or_setting": "Cross-plane; Zendikar/Wastes, Eldrazi, artifacts, Ugin, and Karn remain bounded branches",
   "color_identity": [],
   "color_pair_or_group": "Colorless / no WUBRG colors; {C} support tracked separately; generic mana is not colorless mana",
-  "source_review_date": "2026-06-10",
+  "source_review_date": "2026-07-10",
   "last_full_review": "2026-06-10",
-  "last_incremental_review": "2026-06-11",
-  "last_updated": "2026-06-11",
+  "last_incremental_review": "2026-07-10",
+  "last_updated": "2026-07-10",
   "core_identity": {
     "short_form": "Outside WUBRG: absence, machinery, void, desolation, and transcendence held as separate branches.",
     "identity_frame": "Colorless is Vox Mana's VM-334-ratified controlled non-color identity for magic and objects outside the five-color philosophical wheel, with strict separation between colorless mana, generic mana costs, artifacts, Eldrazi, Wastes, Devoid, strict Commander constraints, and support-bound Ugin/Karn or named-card texture.",
-    "naming_boundary": "COLORLESS is a controlled placeable Layer 1 expression key with colors: [], core_color: \"C\", placement_eligible: true, preview_eligible: false, directory links suppressed, and aliases limited to [\"COLORLESS\"]. It is not a public route, Home preview key, lowercase alias, or public directory link.",
+    "naming_boundary": "COLORLESS is a controlled placeable Layer 1 expression key with colors: [], core_color: \"C\", placement_eligible: true, and preview_eligible: true for the Home Identity Signal under VM-389. Directory links remain suppressed, aliases remain limited to [\"COLORLESS\"], and no public route, lowercase alias, C alias, or broader recommendation expansion is approved.",
     "claim_ids": [
       "colorless_claim_0001",
       "colorless_claim_0002",
@@ -121,7 +121,7 @@
     {
       "label": "VM-324 sourced readiness intake",
       "summary": "The sourced notes added positive attraction material and sharper Devoid, Commander, and five-color Eldrazi false-positive boundaries while Colorless was still pending promotion.",
-      "boundary": "VM-326 later reviewed the raw packet and VM-334 now controls Colorless product status; the intake still does not authorize public route, Home preview, Commander Compass, or broad recommendation expansion."
+      "boundary": "VM-326 later reviewed the raw packet and VM-334 established controlled placeability; VM-389 separately authorizes Home Identity Signal membership only. The intake does not authorize a public route, aliases, Commander Compass, or broad recommendation expansion."
     }
   ],
   "key_figures": [
@@ -170,7 +170,7 @@
     "overview": "Colorless is Vox Mana's controlled placeable non-color identity for absence, machinery, void, desolation, and chosen restriction outside WUBRG, while keeping each branch separate and public expansion gated.",
     "philosophy": "Colorless asks what remains when the five colors are not the grammar of the answer: the artifact that acts without appetite, the void that does not negotiate, the Wastes where colored mana has been stripped away, and the detached perspective that must not become superiority over color.",
     "core_tension": "Colorless gains clarity by standing outside WUBRG, but loses clarity the moment outside-ness becomes a generic catch-all.",
-    "mechanics_and_play_pattern": "Colorless profile texture may discuss {C}, generic-mana separation, Wastes, Devoid, artifacts, Eldrazi, support-only Commander texture, restriction puzzles, artifact engines, and titan-scale spectacle, but these terms do not become interchangeable and do not authorize Home preview, public routes, public aliases, Commander Compass, or broad deck recommendations.",
+    "mechanics_and_play_pattern": "Colorless profile texture may discuss {C}, generic-mana separation, Wastes, Devoid, artifacts, Eldrazi, support-only Commander texture, restriction puzzles, artifact engines, and titan-scale spectacle, but these terms do not become interchangeable and do not authorize public routes, public aliases, Commander Compass, or broad deck recommendations. Home Identity Signal membership is separately governed by VM-389.",
     "claim_ids": [
       "colorless_claim_0001",
       "colorless_claim_0002",
@@ -216,7 +216,7 @@
       "Phyrexia false-positive discriminator grounding",
       "named-card Oracle and Commander legality verification",
       "current price and metagame claims",
-      "public Colorless route, Home preview, and broader recommendation UX"
+      "public Colorless route and broader recommendation UX beyond the approved Home Identity Signal"
     ],
     "claim_ids": [
       "colorless_claim_0002",
@@ -253,7 +253,7 @@
     "source_research_file": "docs/research/vox_mana_second_commander_recommendations_enhanced.jsonl; docs/research/colorless/colorless_Commander_ColorlessStaples_ManaStaples.txt review-context-only",
     "last_reviewed": "2026-06-13",
     "review_status": "support_only_controlled_richness",
-    "recommendation_philosophy": "Support-only orientation for strict Colorless Commander context, Eldrazi Unbound product texture, and source-navigation review. VM-372 does not approve lore, legality, popularity, metagame, price, deck quality, broad recommendation, public route, Home preview, directory, alias, schema, or API expansion.",
+    "recommendation_philosophy": "Support-only orientation for strict Colorless Commander context, Eldrazi Unbound product texture, and source-navigation review. VM-372 did not approve lore, legality, popularity, metagame, price, deck quality, broad recommendation, public route, directory, alias, schema, or API expansion; VM-389 later approved only Home Identity Signal membership.",
     "identity_basis": {
       "summary": "Strict Colorless Commander rows may support the outside-WUBRG restriction branch only when the row has exact current-source checks and stays detached from broad recommendation quality.",
       "owned_themes": [
@@ -351,7 +351,7 @@
       {
         "name": "Eldrazi Unbound support",
         "summary": "A source-context lane for the named official Colorless precon and its two exact strict-Colorless rows.",
-        "boundary": "Do not expand this lane into broad staples, Colorless commander ranking, EDHREC, MTGDecks, directory, route, Home preview, alias, legality, price, popularity, or metagame output."
+        "boundary": "Do not expand this lane into broad staples, Colorless commander ranking, EDHREC, MTGDecks, directory, route, alias, legality, price, popularity, or metagame output. VM-389 Home Identity Signal membership is separate from this Commander-support lane."
       }
     ],
     "link_targets": {
@@ -391,7 +391,7 @@
   },
   "search_and_filter_metadata": {
     "future_expression_name": "COLORLESS",
-    "future_expression_name_status": "VM-334-ratified controlled placeable expression key. COLORLESS remains preview-ineligible, directory-link suppressed, and not approved as a public route, lowercase alias, Home preview key, Supabase manual-context expansion, schema expansion, or public interface expansion.",
+    "future_expression_name_status": "Controlled placeable expression key with VM-389 Home Identity Signal membership. COLORLESS remains directory-link suppressed and is not approved as a public route, lowercase alias, C alias, Supabase manual-context expansion, schema expansion, broader recommendation surface, or other public interface expansion.",
     "metadata_query_only_terms": [
       "COLORLESS",
       "colorless",
@@ -400,7 +400,7 @@
     ],
     "source_status": "source_grounded_vm334_controlled_placeable",
     "placement_status": "controlled_placeable",
-    "preview_eligible": false,
+    "preview_eligible": true,
     "review_gated": true,
     "placement_eligible": true,
     "live_pilot": true,
@@ -465,7 +465,6 @@
       "placement authors separating artifact-machine, Wastes/desolation, Eldrazi spectacle, and strict Commander constraints"
     ],
     "avoid_for": [
-      "Home preview",
       "public aliases",
       "public routes",
       "directory links",
@@ -475,16 +474,16 @@
       "schema or builder validation",
       "named-card legality advice",
       "deck-buying advice",
-      "Home or public-discovery rendering assumptions"
+      "public-discovery rendering assumptions beyond the approved Home Identity Signal"
     ]
   },
   "data_quality": {
     "review_gated": true,
     "placement_eligible": true,
-    "preview_eligible": false,
+    "preview_eligible": true,
     "live_pilot": true,
-    "raw_packet_status": "vm337_controlled_dossier_expansion",
-    "source_basis": "VM-308 COLORLESS-EVID rows plus VM-324 COLORLESS-SRC-018 intake rows and VM-334 lifecycle authority; VM-309/VM-310 architecture is shaping-only",
+    "raw_packet_status": "vm498_vm389_home_preview_reconciled",
+    "source_basis": "VM-308 COLORLESS-EVID rows plus VM-324 COLORLESS-SRC-018 intake rows, VM-334 historical lifecycle authority, and VM-389 Home Identity Signal authority; VM-309/VM-310 architecture is shaping-only",
     "manual_fill_required": [
       "COLORLESS-MF-001",
       "COLORLESS-MF-002",
@@ -515,7 +514,7 @@
     ]
   },
   "research_limitations": [
-    "Do not treat controlled placeability as Home preview, public route, public alias, directory link, Commander Compass, or broader recommendation approval.",
+    "Do not treat VM-389 Home Identity Signal membership as public route, public alias, directory link, Commander Compass, or broader recommendation approval.",
     "Do not treat VM-334 as lore, rules, Commander, card, legality, or deck evidence.",
     "Do not cite VM-309/VM-310 architecture docs as claim-bearing evidence.",
     "Do not copy generated placement, profile, or context language into this packet.",

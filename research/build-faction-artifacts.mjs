@@ -662,7 +662,7 @@ const LIVE_PLACEMENT_COPY_OVERRIDES = {
       "Phyrexia-only framing",
       "Commander product proof or legality claims beyond current support-only rows",
       "positive sixth-color framing",
-      "public route or Home preview readiness language",
+      "public-route readiness or preview-expansion language beyond the approved Home Identity Signal",
       "Devoid as strict Commander legality proof",
       "five-color Eldrazi as strict Colorless identity",
       "named-card legality or exact Oracle claims without verification",

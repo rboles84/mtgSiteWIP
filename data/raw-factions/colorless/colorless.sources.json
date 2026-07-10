@@ -2,9 +2,9 @@
   "schema_version": "1.0.0",
   "faction_id": "colorless",
   "faction_name": "Colorless",
-  "source_review_date": "2026-06-10",
-  "last_updated": "2026-06-11",
-  "source_identifier_policy": "VM-337 adds COLORLESS-SCOPE-005 from VM-334 product-governance authority while preserving existing VM-308/VM-311/VM-324 identifiers. Future source, evidence, and manual-fill IDs must remain ledger-managed.",
+  "source_review_date": "2026-07-10",
+  "last_updated": "2026-07-10",
+  "source_identifier_policy": "VM-498 adds COLORLESS-SCOPE-006 for VM-389's limited Home Identity Signal supersession while preserving all existing identifiers and historical VM-334 evidence. Future source, evidence, and manual-fill IDs must remain ledger-managed.",
   "sources": [
     {
       "source_id": "COLORLESS-SCOPE-003",
@@ -52,6 +52,21 @@
         "COLORLESS-EVID-025"
       ],
       "notes": "Records COLORLESS as a controlled placeable Layer 1 identity with preview and public-route suppression. Use only for product lifecycle, registry, routing, and controlled-surface boundaries; not as MTG lore, rules, Commander, card, legality, or deck evidence."
+    },
+    {
+      "source_id": "COLORLESS-SCOPE-006",
+      "title": "V1 Home Identity Signal Promotion",
+      "author": "Vox Mana product governance",
+      "publisher_or_site": "Local repository",
+      "publication_date": "2026-06-14",
+      "url_or_repository_path": "docs/kanban/done/VM-389-v1-home-identity-signal-promotion.md",
+      "source_type": "Product governance decision",
+      "source_role": "home-preview-lifecycle-governance",
+      "reliability": "Primary authority for Colorless Home Identity Signal membership",
+      "claim_bearing_evidence_rows": [
+        "COLORLESS-EVID-033"
+      ],
+      "notes": "Supersedes VM-334 only for preview_eligible and Home Identity Signal membership. It does not authorize a public route, lowercase or C alias, directory links, broader recommendations, lore, rules, Commander, card, legality, or deck claims."
     },
     {
       "source_id": "COLORLESS-SRC-008",

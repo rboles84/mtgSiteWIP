@@ -67,6 +67,9 @@ const placementSchema = JSON.parse(
 const identityLayers = JSON.parse(
   await readFile(new URL("../../data/identity-layers.json", import.meta.url), "utf8")
 );
+const colorlessClaims = JSON.parse(
+  await readFile(new URL("../../data/raw-factions/colorless/colorless.claims.json", import.meta.url), "utf8")
+);
 const identityLayerSchema = JSON.parse(
   await readFile(new URL("../../data/identity-layers.schema.json", import.meta.url), "utf8")
 );
@@ -665,6 +668,31 @@ function assertIdentityPreviewRegistryContract() {
   assert.equal(identityLayers.expressions.COLORLESS.core_color, "C");
   assert.equal(identityLayers.expressions.COLORLESS.display_code, "C");
   assert.equal(identityLayers.expressions.COLORLESS.routing?.suppress_directory_links, true);
+  const colorlessLifecycleClaim = colorlessClaims.claims.find((claim) => claim.claim_id === "colorless_claim_0001");
+  const colorlessProductState = colorlessLifecycleClaim?.current_product_state;
+  assert.ok(colorlessProductState, "Colorless lifecycle claim should expose authoritative current_product_state.");
+  assert.equal(colorlessProductState.effective_decision, "VM-389");
+  assert.equal(
+    colorlessProductState.placement_eligible,
+    identityLayers.expressions.COLORLESS.placement_eligible,
+    "Colorless raw lifecycle placement state should match the runtime registry."
+  );
+  assert.equal(
+    colorlessProductState.preview_eligible,
+    identityLayers.expressions.COLORLESS.preview_eligible,
+    "Colorless raw lifecycle preview state should match the runtime registry."
+  );
+  assert.equal(colorlessProductState.home_identity_signal_only, true);
+  assert.equal(colorlessProductState.public_route, false);
+  assert.equal(colorlessProductState.lowercase_alias, false);
+  assert.equal(colorlessProductState.c_alias, false);
+  assert.equal(colorlessProductState.directory_links, false);
+  assert.equal(colorlessProductState.recommendation_expansion, false);
+  assert.equal(
+    colorlessProductState.directory_links,
+    !identityLayers.expressions.COLORLESS.routing?.suppress_directory_links,
+    "Colorless raw lifecycle directory-link state should match the runtime registry suppression flag."
+  );
   assert.deepEqual(identityLayers.expressions.WUBRG.aliases, ["WUBRG", "Five-Color"]);
   assert.equal(identityLayers.expressions.WUBRG.kind, "five_color");
   assert.equal(identityLayers.expressions.WUBRG.placement_eligible, true);

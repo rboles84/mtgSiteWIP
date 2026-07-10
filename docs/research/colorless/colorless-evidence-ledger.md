@@ -1,7 +1,7 @@
 # Colorless Evidence Ledger
 
-Status: VM-340 Layer 2 gold certification
-Evidence rule: VM-339/VM-340 authorize docs/research source capture, ledger promotion, relocation mapping, and gold certification only. They do not authorize raw-faction edits, runtime changes, generated artifacts, image cleanup, route changes, schemas, Maze changes, Home preview, public aliases, Commander Compass, or Supabase changes.
+Status: VM-498 current lifecycle reconciliation over VM-340 Layer 2 gold certification
+Evidence rule: VM-339/VM-340 authorize source capture and Layer 2 gold certification. VM-389 separately authorizes Home Identity Signal membership for current runtime scope only; it does not authorize routes, aliases, directory links, Commander Compass, broad recommendations, schemas, Maze changes, Supabase changes, or new MTG claims.
 
 ## Evidence Rows
 
@@ -39,6 +39,7 @@ Evidence rule: VM-339/VM-340 authorize docs/research source capture, ledger prom
 | `COLORLESS-EVID-030` | VM-339 captures official Ugin, Karn, and Battle for Zendikar story pages as branch-level lore anchors only. | `COLORLESS-OFF-007`; `COLORLESS-EVID-014` | Official branch-level lore capture | Closes `COLORLESS-MF-005` and `COLORLESS-MF-006` at branch altitude only; no deep titan-by-titan lore expansion. |
 | `COLORLESS-EVID-031` | VM-340 records the file-by-file replacement map for the Colorless canon relocation, resolving the Layer 2 content/governance blocker without staging or normalizing dirty worktree drift. | `docs/research/colorless/colorless-canon-relocation-map.md`; `COLORLESS-CANON-002`; `COLORLESS-CANON-006` | Repo-governance / relocation resolution | Closes `COLORLESS-MF-009` as `resolved-local`; future git hygiene remains separate. |
 | `COLORLESS-EVID-032` | VM-340 certifies Colorless Layer 2 as gold for source authority: no `external-required` or `blocked` manual-fill rows remain, deferred rows have explicit policy reasons, and support-only/generated/runtime/recommendation files do not independently authorize claims. | `docs/research/colorless/colorless-layer2-gap-analysis.md`; `docs/research/colorless/colorless-manual-fill.md`; `docs/research/colorless/colorless-source-ledger.md`; `docs/research/colorless/colorless-evidence-ledger.md`; `docs/research/colorless/colorless-reliability-audit.md` | Gold certification / governance | Gold does not authorize Layer 1 registry changes, raw Colorless edits, generated artifacts, runtime behavior, Home preview, public routes, aliases, directory links, Commander Compass, Supabase, image edits, prices, metagame claims, or broad recommendations. |
+| `COLORLESS-EVID-033` | VM-389 supersedes VM-334 only for current Colorless preview state: `placement_eligible` remains true and `preview_eligible` becomes true for Home Identity Signal membership. | `COLORLESS-SCOPE-006`; `docs/kanban/done/VM-389-v1-home-identity-signal-promotion.md`; `data/identity-layers.json` | Lifecycle/product-governance authority | Preserve no-public-route, lowercase-alias, `C`-alias, directory-link, and recommendation-expansion restrictions. This row is not MTG lore, rules, Commander, card, legality, deck, or placement-score evidence. |
 
 ## Manual Fill Flags
 

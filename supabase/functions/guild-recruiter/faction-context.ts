@@ -5183,7 +5183,7 @@ export const FACTION_CONTEXT = {
       "required_positive_min_hits": 2,
       "strengthens_when_user_centers": [],
       "suppress_when_user_centers": [],
-      "false_positive_guardrail": "Require precise outside-WUBRG language, branch separation, strict Commander/devoid/five-color boundaries, and controlled public-expansion boundaries. Treat all guidance here as controlled placement and dossier scaffolding, not Home preview, public routing, Commander Compass, or broad recommendation approval.",
+      "false_positive_guardrail": "Require precise outside-WUBRG language, branch separation, strict Commander/devoid/five-color boundaries, and controlled public-expansion boundaries. Treat all guidance here as controlled placement, dossier scaffolding, and approved Home Identity Signal preview only, not public routing, Commander Compass, or broad recommendation approval.",
       "broad_match_penalty": 0.12
     },
     "good_fit_indicators": [
@@ -5207,7 +5207,7 @@ export const FACTION_CONTEXT = {
       "Phyrexia-only framing",
       "Commander product proof or legality claims beyond current support-only rows",
       "positive sixth-color framing",
-      "public route or Home preview readiness language",
+      "public-route readiness or preview-expansion language beyond the approved Home Identity Signal",
       "Devoid as strict Commander legality proof",
       "five-color Eldrazi as strict Colorless identity",
       "named-card legality or exact Oracle claims without verification",
@@ -5229,7 +5229,7 @@ export const FACTION_CONTEXT = {
       "Phyrexia-only framing",
       "Commander product proof or legality claims beyond current support-only rows",
       "positive sixth-color framing",
-      "public route or Home preview readiness language",
+      "public-route readiness or preview-expansion language beyond the approved Home Identity Signal",
       "Devoid as strict Commander legality proof",
       "five-color Eldrazi as strict Colorless identity",
       "named-card legality or exact Oracle claims without verification",

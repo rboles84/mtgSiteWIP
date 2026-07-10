@@ -2,7 +2,7 @@
   "schema_version": "1.0.0",
   "faction_id": "colorless",
   "faction_name": "Colorless",
-  "last_updated": "2026-06-13",
+  "last_updated": "2026-07-10",
   "audit_summary": {
     "raw_packet_created": true,
     "raw_claim_count": 8,
@@ -21,7 +21,8 @@
       "COLORLESS-EVID-019",
       "COLORLESS-EVID-020",
       "COLORLESS-EVID-021",
-      "COLORLESS-EVID-025"
+      "COLORLESS-EVID-025",
+      "COLORLESS-EVID-033"
     ],
     "support_boundary_rows_used_as_limitations": [
       "COLORLESS-EVID-014",
@@ -73,20 +74,54 @@
     "identity_layers_changed": true,
     "placement_model_changed": true,
     "schema_files_changed": false,
-    "status": "vm372_support_only_controlled_richness",
+    "status": "vm498_vm389_home_preview_reconciled",
     "placement_status": "controlled_placeable",
-    "placement_ready_pass": "VM-326/VM-334",
+    "placement_ready_pass": "VM-326/VM-334/VM-389",
+    "effective_decision": "VM-389",
+    "historical_lifecycle_baseline": "VM-334",
     "colorless_future_planned_only": false,
     "raw_key_mapping_updated": true,
     "build_factions_run": true,
     "placement_eligible": true,
-    "preview_eligible": false,
+    "preview_eligible": true,
+    "home_identity_signal_only": true,
+    "public_route": false,
+    "lowercase_alias": false,
+    "c_alias": false,
+    "directory_links": false,
+    "recommendation_expansion": false,
     "live_pilot": true,
     "raw_hash_baseline_invalidated_by_vm324": true,
     "raw_hash_baseline_invalidated_by_vm337": true,
-    "next_review_gate_required": "Manual browser QA and separate approval before Home preview, public routes, public aliases, directory links, hero assets, schema/API expansion, broad recommendations, or additional Commander/deck/research expansion"
+    "next_review_gate_required": "Separate approval before public routes, public aliases, directory links, hero assets, schema/API expansion, broad recommendations, preview expansion beyond the Home Identity Signal, or additional Commander/deck/research expansion"
   },
   "changes": [
+    {
+      "change_id": "colorless_change_006",
+      "change_type": "VM-498 VM-389 Lifecycle Authority Reconciliation",
+      "change_date": "2026-07-10",
+      "summary": "Reconciled the current Colorless lifecycle claim with VM-389: placement remains eligible and Home Identity Signal preview membership is active, while public routes, lowercase and C aliases, directory links, and broader recommendation expansion remain unapproved.",
+      "claims_added": [],
+      "claims_updated": [
+        "colorless_claim_0001"
+      ],
+      "source_ids_added": [
+        "COLORLESS-SCOPE-006"
+      ],
+      "evidence_rows_added": [
+        "COLORLESS-EVID-033"
+      ],
+      "historical_evidence_preserved": [
+        "VM-334 product-decision state",
+        "colorless_change_001 through colorless_change_005",
+        "COLORLESS-EVID-025"
+      ],
+      "manual_review_required": [
+        "Treat colorless_claim_0001.current_product_state as the authoritative structured current-state representation in the raw packet and data/identity-layers.json as runtime registry authority.",
+        "Do not infer a public route, lowercase alias, C alias, directory links, broad recommendations, lore, Commander expansion, or placement-score changes from Home Identity Signal membership."
+      ],
+      "notes": "VM-389 supersedes VM-334 only for preview_eligible and Home Identity Signal membership. Historical VM-334 evidence remains unchanged and authoritative for the earlier lifecycle state and retained non-preview restrictions."
+    },
     {
       "change_id": "colorless_change_005",
       "change_type": "VM-372 Colorless Support-Only Controlled Richness",

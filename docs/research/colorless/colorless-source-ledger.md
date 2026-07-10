@@ -1,7 +1,7 @@
 # Colorless Source Ledger
 
-Status: VM-340 Layer 2 gold certification
-Evidence rule: Use official/current capture rows for rules, card, Commander, product, and branch-level lore claims. Support-only sources may shape context but cannot independently authorize raw, rules, lore, Commander, Oracle, legality, deck-buying, price, or metagame claims.
+Status: VM-498 current lifecycle reconciliation over VM-340 Layer 2 gold certification
+Evidence rule: Use official/current capture rows for rules, card, Commander, product, and branch-level lore claims. VM-389 is current authority only for Home Identity Signal membership. Support-only and product-governance sources cannot independently authorize raw MTG, rules, lore, Commander, Oracle, legality, deck-buying, price, or metagame claims.
 
 ## Source Rows
 
@@ -12,6 +12,7 @@ Evidence rule: Use official/current capture rows for rules, card, Commander, pro
 | `COLORLESS-SCOPE-003` | `docs/reference/source-generated-guardrails.md` | Repo contract | Source/generated guardrail | Prevents generated placement/profile output from becoming source truth |
 | `COLORLESS-SCOPE-004` | `docs/reference/data-contracts.md` | Repo contract | Interface context | Notes current data layers and that `colorless` exists in the identity-layer institution enum |
 | `COLORLESS-SCOPE-005` | `docs/architecture/colors/colorless/product-decision-gate.md` | Product governance decision | Lifecycle/product authority | Records the VM-334 controlled-placeable Colorless contract; not lore, rules, Commander, or card evidence |
+| `COLORLESS-SCOPE-006` | `docs/kanban/done/VM-389-v1-home-identity-signal-promotion.md` | Product governance decision | Home preview lifecycle authority | Supersedes VM-334 only for `preview_eligible: true` and Home Identity Signal membership; does not authorize routes, lowercase or `C` aliases, directory links, broad recommendations, lore, rules, Commander, or card claims |
 | `COLORLESS-SRC-001` | `docs/research/colorless/colorless-evidence-map.md` | Historical source packet | Prior evidence map | Useful VM-035 support/guardrail; narrower than VM-308 because it allowed only three source files |
 | `COLORLESS-SRC-002` | `docs/research/colorless/colorless_DMP.md` | Mixed dossier | Support / claim-bearing with caution | Rules, mana, branch, and five-color/colorless discussion; verify before raw use |
 | `COLORLESS-SRC-003` | `docs/research/colorless/source-material/06_Color_Pie_Framework_and_Philosophy.md` | Local research | Support-only | Broad color-pie framework |
@@ -52,7 +53,7 @@ Evidence rule: Use official/current capture rows for rules, card, Commander, pro
 | --- | --- | --- |
 | Official/current claim authority | `COLORLESS-OFF-001` through `COLORLESS-OFF-007` | Use for Layer 2 gold rows. These rows close only the claim scopes stated in their note files and manual-fill mappings. |
 | Claim-bearing design/rules floor | `COLORLESS-SRC-008`, `COLORLESS-SRC-010`, `COLORLESS-SRC-012`, `COLORLESS-SRC-017`, `COLORLESS-SRC-018` where its cited primary sources are represented, cross-checked with `COLORLESS-CANON-001` | Use for managed evidence rows only; raw claims still need review. `COLORLESS-SRC-018` cannot stand alone for legality, Oracle text, prices, metagame claims, or public deck advice. |
-| Repo-truth boundaries | `COLORLESS-SCOPE-001` through `COLORLESS-SCOPE-005`, `COLORLESS-CANON-001`, `COLORLESS-CANON-002`, `COLORLESS-CANON-006` | Use for scope, relocation, source/generated constraints, reference-audit reconciliation, and product lifecycle status. `COLORLESS-SCOPE-005` and `COLORLESS-CANON-006` are not MTG lore, rules, Commander, Oracle, legality, or deck evidence. |
+| Repo-truth boundaries | `COLORLESS-SCOPE-001` through `COLORLESS-SCOPE-006`, `COLORLESS-CANON-001`, `COLORLESS-CANON-002`, `COLORLESS-CANON-006` | Use for scope, relocation, source/generated constraints, reference-audit reconciliation, and product lifecycle status. `COLORLESS-SCOPE-005`, `COLORLESS-SCOPE-006`, and `COLORLESS-CANON-006` are not MTG lore, rules, Commander, Oracle, legality, or deck evidence. |
 | Support-only | `COLORLESS-SRC-003` through `COLORLESS-SRC-007`, `COLORLESS-SRC-015`, `COLORLESS-CANON-003`, `COLORLESS-CANON-004`, `COLORLESS-CANON-005` | Context only. |
 | Commander support-only | `COLORLESS-CMD-001`, `COLORLESS-CMD-002` | May identify support texture, comparator material, and future Commander-source gaps; cannot prove lore, rules, legality, Oracle text, public recommendations, or raw claims alone. |
 | Vox Mana synthesis | `COLORLESS-SRC-011`, `COLORLESS-SRC-013` | Useful for VM-309/VM-310 after evidence links are preserved. |
