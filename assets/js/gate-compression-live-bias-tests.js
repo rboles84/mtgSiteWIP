@@ -46,6 +46,17 @@ async function readJson(filePath) {
   return JSON.parse(await readFile(filePath, "utf8"));
 }
 
+async function readJsonIfPresent(filePath) {
+  try {
+    return await readJson(filePath);
+  } catch (error) {
+    if (error?.code === "ENOENT") {
+      return null;
+    }
+    throw error;
+  }
+}
+
 function round(value, places = 6) {
   return Number(Number(value).toFixed(places));
 }
@@ -223,7 +234,7 @@ function buildGateBiasReport(model, source) {
     });
 
   return {
-    generated_at: new Date().toISOString(),
+    generated_at: null,
     source: "data/placement/gate-compression.source.json",
     model: "data/placement-model.json",
     thresholds: THRESHOLDS,
@@ -245,6 +256,23 @@ function buildGateBiasReport(model, source) {
     same_color_duplicate_groups: duplicateGateTies,
     pass: thresholdFailures.length === 0,
     failures: thresholdFailures,
+  };
+}
+
+function comparableReport(report) {
+  const { generated_at, ...rest } = report;
+  return rest;
+}
+
+async function stampGateBiasReport(report) {
+  const previousReport = await readJsonIfPresent(reportJsonPath);
+  const previousBody = previousReport ? JSON.stringify(comparableReport(previousReport)) : null;
+  const nextBody = JSON.stringify(comparableReport(report));
+  return {
+    ...report,
+    generated_at: previousBody === nextBody && previousReport?.generated_at
+      ? previousReport.generated_at
+      : new Date().toISOString(),
   };
 }
 
@@ -407,7 +435,7 @@ duplicateGroups.forEach((group) => {
   });
 });
 
-const report = buildGateBiasReport(placementModel, gateCompressionSource);
+const report = await stampGateBiasReport(buildGateBiasReport(placementModel, gateCompressionSource));
 await writeGateBiasReport(report);
 assert.deepEqual(report.failures, [], `Live Gate bias thresholds failed; inspect ${reportMdPath}.`);
 
