@@ -353,6 +353,80 @@ function toLearningProfile(profile, pathLabel) {
   };
 }
 
+const UNSUPPORTED_PRECON_AUTHORITY_RULES = [
+  {
+    label: "popularity or power ranking",
+    pattern: /\b(?:(?:one of the\s+)?(?:strongest|most popular)|one of the\s+most powerful)\b/i,
+  },
+  {
+    label: "unsupported broad consensus",
+    pattern: /\b(?:widely|generally)\s+(?:regarded|considered|praised|preferred)\b/i,
+  },
+  {
+    label: "unsupported preferred-commander consensus",
+    pattern: /\bpreferred\b[^.!?]{0,48}\bcommander\b[^.!?]{0,24}\b(?:for many|overall)\b/i,
+  },
+  {
+    label: "entity-level primacy claim",
+    pattern: /\b(?:best|most aggressive|most versatile|most beloved|most iconic)\b(?:\s+[\w'-]+){0,7}\s+\b(?:commander|precon|deck|product|support)\b/i,
+  },
+  {
+    label: "entity-level reverse primacy claim",
+    pattern: /\b(?:commander|precon|deck|product|support)\b[^.!?]{0,32}\b(?:is|are|remains|as|among)\s+(?:the\s+)?(?:best|most aggressive|most versatile|most beloved|most iconic)\b/i,
+  },
+  {
+    label: "editorial product primacy",
+    pattern: /\b(?:standout|quintessential|definitive|landmark)\b[^.!?]{0,72}\b(?:commander|precon|deck|product|support|example|archetype)\b/i,
+  },
+  {
+    label: "unsupported considered-status claim",
+    pattern: /\bconsidered\b[^.!?]{0,72}\b(?:commander|precon|deck|product|archetype)\b/i,
+  },
+  {
+    label: "six-color misconception",
+    pattern: /\btechnically\s+six\b/i,
+  },
+];
+
+const BASICS_PAGE_PRIMACY_PATTERN = /\b(?:best|definitive|perfect|clearest|strongest|most)\b/i;
+
+function preconEditorialFields(record) {
+  return [
+    ["deckDescription", record.deckDescription],
+    ["mainStrategy", record.mainStrategy],
+    ["recommendationProfile.recommendedFor", record.recommendationProfile?.recommendedFor],
+    ["recommendationProfile.notRecommendedFor", record.recommendationProfile?.notRecommendedFor],
+    ["recommendationProfile.voxManaPlacementFit", record.recommendationProfile?.voxManaPlacementFit],
+    ["learningProfile.colorPhilosophySummary", record.learningProfile?.colorPhilosophySummary],
+    ["learningProfile.whatThisDeckTeachesAboutItsColors", record.learningProfile?.whatThisDeckTeachesAboutItsColors],
+    ["learningProfile.beginnerLesson", record.learningProfile?.beginnerLesson],
+    ["learningProfile.strategyLesson", record.learningProfile?.strategyLesson],
+    ["learningProfile.voxManaBasicsPageUse", record.learningProfile?.voxManaBasicsPageUse],
+  ];
+}
+
+function assertNoUnsupportedPreconAuthority(record, pathLabel) {
+  const violations = [];
+
+  preconEditorialFields(record).forEach(([fieldPath, value]) => {
+    const text = String(value || "");
+    UNSUPPORTED_PRECON_AUTHORITY_RULES.forEach(({ label, pattern }) => {
+      if (pattern.test(text)) {
+        violations.push(`${pathLabel}.${fieldPath}: ${label}`);
+      }
+    });
+
+    if (fieldPath === "learningProfile.voxManaBasicsPageUse" && BASICS_PAGE_PRIMACY_PATTERN.test(text)) {
+      violations.push(`${pathLabel}.${fieldPath}: unsupported basics-page primacy`);
+    }
+  });
+
+  invariant(
+    violations.length === 0,
+    `Canonical precon source contains unsupported authority language:\n- ${violations.join("\n- ")}`
+  );
+}
+
 export function normalizeColorIdentity(colors, pathLabel = "colors") {
   const names = toStringList(colors, pathLabel);
   invariant(names.length > 0, `${pathLabel} must contain at least one color.`);
@@ -576,6 +650,8 @@ export function normalizePreconSourceRecord(record, index, themeLookup) {
     recommendationProfile: toRecommendationProfile(record.recommendationProfile, `${pathLabel}.recommendationProfile`),
     learningProfile: toLearningProfile(record.learningProfile, `${pathLabel}.learningProfile`),
   };
+
+  assertNoUnsupportedPreconAuthority(normalizedSource, pathLabel);
 
   const primaryTheme = resolveNormalizedTheme(normalizedSource.primaryTheme, themeLookup);
   invariant(primaryTheme, `${pathLabel}.primaryTheme could not be normalized.`);

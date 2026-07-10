@@ -112,6 +112,63 @@ assert.equal(sourceCatalog._meta.schema_version, "vox-mana-precons-source-v2.1",
 assert.equal(sourceCatalog._meta.record_count, sourceCatalog.precons.length, "expected source record_count to match precons length");
 assert.equal(sourceCatalog.precons.length, 155, "expected all 155 canonical precons to remain present");
 
+function cloneSourceCatalog() {
+  return JSON.parse(JSON.stringify(sourceCatalog));
+}
+
+function setNestedValue(target, path, value) {
+  const segments = path.split(".");
+  const leaf = segments.pop();
+  const parent = segments.reduce((current, segment) => current[segment], target);
+  parent[leaf] = value;
+}
+
+function assertEditorialGuardRejects(path, value, expectedLabel) {
+  const fixture = cloneSourceCatalog();
+  setNestedValue(fixture.precons[0], path, value);
+  assert.throws(
+    () => buildPreconCatalog(fixture, themeTaxonomy),
+    new RegExp(expectedLabel, "i"),
+    `expected ${path} fixture to reject ${expectedLabel}`
+  );
+}
+
+assertEditorialGuardRejects(
+  "deckDescription",
+  "One of the most popular Commander products for this strategy.",
+  "popularity or power ranking"
+);
+assertEditorialGuardRejects(
+  "recommendationProfile.recommendedFor",
+  "Players seeking the strongest precon support available.",
+  "popularity or power ranking"
+);
+assertEditorialGuardRejects(
+  "learningProfile.voxManaBasicsPageUse",
+  "Definitive example for teaching this mechanic.",
+  "basics-page primacy"
+);
+assertEditorialGuardRejects(
+  "deckDescription",
+  "Widely considered the Commander product that defines this strategy.",
+  "unsupported broad consensus"
+);
+assertEditorialGuardRejects(
+  "deckDescription",
+  "A five-color identity that is technically six colors.",
+  "six-color misconception"
+);
+
+const allowedEditorialFixture = cloneSourceCatalog();
+allowedEditorialFixture.precons[0].deckDescription =
+  "This Commander deck uses a support package built around Auras and political combat.";
+allowedEditorialFixture.precons[0].mainStrategy =
+  "Choose the best sacrifice target for the current board, then reuse the resulting value.";
+assert.doesNotThrow(
+  () => buildPreconCatalog(allowedEditorialFixture, themeTaxonomy),
+  "expected factual Commander/deck terminology and tactical best-target language to remain valid"
+);
+
 const rebuiltCatalog = buildPreconCatalog(sourceCatalog, themeTaxonomy);
 assert.equal(rebuiltCatalog._meta.record_count, generatedCatalog.precons.length, "expected generated record count to remain stable");
 assert.equal(rebuiltCatalog.precons.length, generatedCatalog.precons.length, "expected rebuilt catalog length to match committed catalog");
