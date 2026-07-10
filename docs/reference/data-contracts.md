@@ -242,7 +242,7 @@ All result-producing paths should converge on this shape:
 
 Notes:
 
-- `institution_type` uses the identity-layer institution enum: `guild`, `college`, `color`, `shard`, `wedge`, `four_color`, `five_color`, or `colorless`. Current placement outputs use the active 36-expression set: mono colors, guilds, colleges, shards, wedges, four-color identities, and controlled placeable `COLORLESS`.
+- `institution_type` uses the identity-layer institution enum: `guild`, `college`, `color`, `shard`, `wedge`, `four_color`, `five_color`, or `colorless`. Current placement outputs use the active 37-identity set: mono colors, guilds, colleges, shards, wedges, four-color identities, controlled placeable `COLORLESS`, and controlled `WUBRG`.
 - `identity` is the layered identity block used by dossier rendering, routing, and compatibility recovery.
 - `color_weights` is an optional field. Phase 0 does not fabricate or approximate it when the current scoring model cannot derive it accurately.
 - `top_matches` and `adjacent_matches` should carry `identity` entries so the presenter layer does not need to infer mono or pair structure from display names alone.
@@ -283,6 +283,8 @@ Contract notes:
 
 ## Profile storage
 
+`docs/supabase-profile-update.sql` is the checked-in Supabase schema/RLS artifact for optional signed-in profile storage.
+
 The Supabase `profiles` row should keep compatibility fields plus the richer result payload:
 
 - `guild`
@@ -292,18 +294,20 @@ The Supabase `profiles` row should keep compatibility fields plus the richer res
 - `avatar_url`
 - `placement_result`
 
-`placement_result` is the source of truth for saved-return behavior and the attachment context used by private saved deck links.
+`placement_result` is the source of truth for saved-return behavior. It would be the attachment context for private saved deck links if that deferred feature is reactivated later.
+
+RLS boundary: authenticated users may select, insert/upsert, and update only their own row where `auth.uid() = id`. Anonymous users should not receive profile table grants. Repo presence of the SQL artifact is not live Supabase proof; live project verification is still required before treating saved profiles as production-ready.
 
 ## Account deck-link storage
 
-VM-422 adds `docs/supabase-vm422-deck-links.sql` as the checked-in Supabase SQL/policy artifact for external deck-link references.
+VM-422 adds `docs/supabase-vm422-deck-links.sql` as the checked-in Supabase SQL/policy artifact for external deck-link references. As of VM-458, VM-461, and the VM-470 reaffirmation, this is a dormant/deferred artifact, not active public release scope.
 
 The deck-link contract stores URLs and metadata only:
 
 - `user_deck_links` stores external deck URL, normalized provider, optional title/commander/note, placement metadata, visibility/moderation state, a public-safe display-name snapshot, and an upvote count.
 - `community_deck_votes` stores one signed-in-user `upvote` per public deck link.
 - `community_deck_ledger_public` is the sanitized public view with `security_invoker = true`.
-- `vm422_list_my_deck_links()` is the owner-scoped private account-list RPC. The Archscry saved-link panel uses it instead of selecting `user_deck_links` directly, so a signed-in user's private account list cannot absorb other users' approved public ledger rows or dormant moderation rows.
+- `vm422_list_my_deck_links()` is the owner-scoped private account-list RPC. The deferred Archscry saved-link panel was designed to use it instead of selecting `user_deck_links` directly, so a signed-in user's private account list cannot absorb other users' approved public ledger rows or dormant moderation rows.
 
 This contract does not store decklists, card JSON, scraped content, Commander legality results, or hosted deck data.
 
@@ -311,11 +315,14 @@ Display-name boundary: existing session/profile display logic can fall back to a
 
 Grant boundary: because the public ledger view is `security_invoker = true`, browser roles need narrow underlying `user_deck_links` SELECT grants for the columns used by that public view. Do not broaden those grants to `owner_id`, moderation fields, private timestamps, or other account-only columns; use owner-scoped RPCs for private account surfaces.
 
-Visibility boundary: VM-422 v1 is private-only in product behavior and exposed browser writes. Browser users may create/update owner-owned `private` rows and move their own saved rows to the approved removal state, currently `archived`. Browser users must not directly create `submitted`, `public`, or `rejected` rows; those are future trusted moderation outcomes.
+Visibility boundary if reactivated: VM-422 v1 remains private-only in product behavior and exposed browser writes. Browser users may create/update owner-owned `private` rows and move their own saved rows to the approved removal state, currently `archived`. Browser users must not directly create `submitted`, `public`, or `rejected` rows; those are future trusted moderation outcomes.
+
+Reactivation boundary: account-backed deck-link saving must stay hidden until the owner explicitly approves reactivation and VM-446 live private deck-link RLS proof passes against the target Supabase project with owner, non-owner, and service-role evidence. Repo SQL, local tests, and dormant UI/service code are not live proof.
 
 Frontend surfaces:
 
-- `assets/js/index.js` renders the Archscry `Account Deck Links` dossier panel after `Commander Deck Starts` and fills saved private user rows with DOM/text APIs.
+- VM-458 hides the Archscry `Account Deck Links` dossier panel, deck-link form, saved-link list, save button, and active action dispatch from the current public flow. Do not restore those surfaces without owner reactivation approval and VM-446 live RLS proof.
+- Dormant VM-422 code in `assets/js/index.js` and related deck-link modules must continue to use DOM/text APIs if later revived.
 - `assets/js/community-deck-ledger.js` is dormant future-ready code. It is not linked or loaded by Apocrypha v1.
 - The public Apocrypha route must not expose Community Deck Ledger UI, voting controls, private saved links, or raw Supabase schema/policy/table errors to visitors.
 - `npm run test:deck-links:live` runs the optional live Supabase RLS verifier once test-user credentials and a service-role key are available.

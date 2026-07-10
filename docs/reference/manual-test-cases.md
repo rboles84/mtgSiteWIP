@@ -66,6 +66,40 @@ Backed out on 2026-06-28 at owner request. The review-only `index_mock.html`, `a
 13. At `320px` and `390px`, confirm the tray stacks in-flow, controls remain at least 44px, text does not overlap, and no horizontal overflow appears.
 14. Enable reduced motion and confirm tray/toast behavior remains usable without nonessential animation.
 
+## VM-490 Maze Partner And Name Search Repair
+
+1. Select Commander in Maze, enter `cards with partner in all colors` in Plain Reading, and search. Confirm the executable query is exactly `o:partner` with no `kw:partner`, `set:all`, `game:paper`, `prefer:best`, or `f:commander`.
+2. Confirm Query Inspector has no Alliances/set-family interpretation and no unresolved `all` or `colors` terms.
+3. Switch the same result to Operator's Hand and search again. Confirm the input and executed query remain exactly `o:partner`.
+4. Search `commanders with partner`, `creatures with partner with`, and a negative Partner phrase. Confirm Commander candidates still use Partner keyword syntax and legality, `partner with` remains distinct, and negative wording remains negative.
+5. In Plain Reading, search `captain america`. Confirm Maze executes `/cards/search` with `name:"captain america"`, not `*`, and does not add `f:commander` even when Commander is selected.
+6. Switch the Captain America result to Operator's Hand and search again. Confirm `name:"captain america"` is preserved exactly.
+7. Repeat with `A-Alrund, God of the Cosmos`; confirm `name:"A-Alrund, God of the Cosmos"` returns the rebalanced double-faced card without an incidental `type:god` filter.
+8. Search `!Captain America, First Avenger` or `card named Captain America, First Avenger`; confirm the existing named-card modal route still opens a single card.
+9. In Operator's Hand, try `is:universesbeyond name:"Captain America"`; confirm the query is preserved without an implicit format. Then try `name:"Token Collector" c:w`; confirm mixed name-plus-color searches retain the normal selected-format behavior.
+10. Confirm ordinary compiled phrases, unresolved non-name prose, Reading Finds, and card modals behave as before.
+
+## VM-487 Maze Scryfall Checklist Follow-up
+
+1. Search `Rakdos villains from the spiderman set legal in commander`; confirm the executable query contains `type:villain c<=br -c:c legal:commander` and the Spider-Man family, with no `c=br` or identity operator.
+2. Search one Orzhov and one Mardu printed type/subtype phrase; confirm both use the named color pool plus `-c:c`. Confirm `Rakdos commanders`, Rakdos deck support, `exactly Rakdos villains`, and a single-color type search retain their prior identity/exact/single-color operators.
+3. Search `Silverquill inkling tokens from the strixhaven set legal in commander` and `pest tokens from the strixhaven set legal in commander`; confirm both use `s:tstx`, preserve the token-object warning, and receive no Commander format default.
+4. Search a token object from an explicitly named token/substitute set, a parent with multiple token children, and a parent with none; confirm explicit input remains exact, multiple children form a token-only group, and no-child input preserves its parent set.
+5. Search `cards that create tokens from the strixhaven set legal in commander`; confirm it remains `o:token legal:commander s:stx` and does not use `type:token` or `s:tstx`.
+6. Run the strict Glint treasure-and-draw Commander search against a zero-result response; confirm Query Inspector offers `Use any matching commander` as `id=ubrg is:commander legal:commander`, with no Partner syntax, and that clicking it executes the fallback.
+7. Search the mono-blue deck phrase ending in `without mill`; confirm it emits `-o:mill`. Search positive mill wording and confirm it emits `o:mill`.
+8. Search a Commander-candidate phrase that also says `legal in commander`; confirm legality appears once and Query Inspector shows no unresolved `legal` or `commander` terms.
+
+The source report left 72 of 111 rows untested. Those interactive rows remain outside VM-487.
+
+## VM-485 Maze Modal Mana Pips
+
+1. In Maze Operator's Hand, search `!"Abomination, World Ravager"`; confirm the modal cost renders a generic seven pip and a red pip, and both `Mayhem {4}{R}` costs render as pips with no visible brace notation.
+2. Open a mocked or fixture modal containing `{T}: Add {C}{C}.`, `{X}`, `{S}`, `{E}`, `{W/U}`, `{G/P}`, `{HR}`, and `{FOO}`; confirm supported tokens use Mana Font pips while the unsupported token reads `FOO` without braces.
+3. Confirm the tap colon, spaces, adjacent colorless pips, periods, commas, and Oracle line breaks remain in their original order, and symbol labels/titles are available to assistive technology.
+4. At desktop and `390px` mobile width, confirm cost and inline Oracle pips remain legible, the modal stacks without horizontal overflow, and no pip overlaps card text or adjacent controls.
+5. Close the modal by close button, outside click, and Escape; confirm focus return, background inert behavior, and modal `Set aside` remain unchanged.
+
 ## VM-423 Feedback Composer and Static Email Processor
 
 1. Open `/`, `/archscry/`, `/maze/`, `/apocrypha/`, `/strategium/`, `/privacy/`, `/terms/`, and `/library/`; confirm the topbar shows `Feedback` in the right utility area.
@@ -387,7 +421,7 @@ Backed out on 2026-06-28 at owner request. The review-only `index_mock.html`, `a
 ## Adaptive placement sanity
 
 1. Run `node assets/js/quick-reading-tests.js`.
-2. Confirm all 30 golden paths pass.
+2. Confirm all 37 golden paths pass.
 3. Run `node assets/js/quick-reading-bias.js --all`.
 4. Confirm no faction is listed under `Never selected`.
 5. Run `node assets/js/quick-reading-bias.js --runs=100`.
@@ -405,7 +439,7 @@ Backed out on 2026-06-28 at owner request. The review-only `index_mock.html`, `a
 ## Mono rollout acceptance sweep
 
 1. Run `npm run test:placement`.
-2. Confirm the suite reports `30 factions, 30 golden paths`.
+2. Confirm the suite reports `37 factions, 37 golden paths`.
 3. Confirm mono routing checks still pass for `mono-white`, `mono-blue`, `mono-black`, `mono-red`, and `mono-green`.
 4. Confirm mono adjacent-fit boundary checks stay inside the expected pair shells:
    - `W` vs `WU`-family / `WB`-family / `WG`-family / `WR`-family
@@ -622,3 +656,18 @@ Backed out on 2026-06-28 at owner request. The review-only `index_mock.html`, `a
 12. Click the Strategium nav, card, and footer links from `index.html` and confirm they resolve to the renamed local route.
 13. Confirm no live local-file path still points to `basics/index.html`.
 14. Open the footer `Privacy` and `Terms` links from `index.html` and confirm those pages load their styling and topbar correctly under `file://`.
+
+## VM-477 Maze Plain Reading manual checklist repair
+
+Baseline from `C:\Users\obake\Downloads\scryfall_checklist_report_2026-07-07_2206.md`: 36 tested, 26 failed, 75 untested. VM-477 converted the failed categories into automated parser, query-contract, and search-helper regressions; the full interactive HTML checklist remains a deferred browser pass.
+
+1. In Maze Plain Reading, run `commanders that draw cards`, `commanders with lifegain`, and `commander cards that make tokens`; confirm each query includes `is:commander legal:commander` plus the resolved semantic filter.
+2. Run `legendary creatures that can be commanders`; confirm it keeps legendary creature terms and commander eligibility instead of broadening to all commanders.
+3. Run `Rakdos commanders`, `Bant commanders`, `Mardu commanders`, `Glint commanders`, `mono blue commanders`, and `five color commanders`; confirm each uses exact identity and does not leak adjacent, partial, or WUBRG identities.
+4. Run `commanders with blue`, `commanders that include blue`, and `commanders with blue in the color identity`; confirm each uses includes-color identity, not mono-blue exact identity.
+5. Run `cards for my Rakdos commander deck that make treasure` and `cards for my commander deck that draw cards`; confirm named deck support uses `id<=br legal:commander`, while the no-identity deck phrase does not invent an identity.
+6. Run `blue wizards legal in commander`; confirm it uses actual card color and Commander legality, and does not emit `id<=u`.
+7. Run `cards without lifegain`, `cards without ramp`, `cards without counterspells`, and `cards without devoid`; confirm each negates the resolved semantic or keyword group rather than the raw word.
+8. Compare `counter spells`, `counterspells`, and `counters`; confirm spell-countering and counter-object intents stay distinct.
+9. Trigger an alternative or zero-result repair from a query with Commander role, color/identity, type, and semantic text; confirm every alternative preserves the full resolved context.
+10. Trigger a known set-family explanation; confirm friendly family text appears only in the explanation while the executable Scryfall query stays syntactically explicit.

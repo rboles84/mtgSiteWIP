@@ -2,17 +2,20 @@
 
 ID: VM-422
 Title: Account Deck Links And Community Deck Ledger
-Status: In Progress
+Status: Backlog - deferred enhancement
 Type: Enhancement / Account / Supabase / Community
 Area: Archscry, Apocrypha, Account, Supabase
-Priority: High
+Priority: Medium
 Created: 2026-06-27
+Deferred: 2026-06-30
+
+VM-470 reaffirmation, 2026-07-03: still backlog. Do not restore visible account-backed deck-saving UI, legal claims, community ledger copy, or active release-scope language without owner reactivation approval and VM-446 live RLS proof.
 
 ## Summary
 
-Scope-correct VM-422 to launch private deck-link saves first. Users get or restore an Archscry reading, open `Account Deck Links`, paste an external deck URL, save it privately, and later see it attached to the same reading. Decklists remain hosted on external services.
+Deck saving is still a wanted future enhancement, but it is deferred behind higher-priority product/readiness work. VM-458 removes the account-backed deck-saving surface from the active Archscry user journey: no `External Deck Links` dossier entry, no saved-link panel, no save button, and no deck-link form should render while this card is in backlog.
 
-Public ledger, submit-for-review, voting, moderation, and public discovery move to a later normal VM card after private saves have real user behavior to curate.
+The existing deck-link modules, SQL artifact, tests, and live RLS harness are preserved for later review. They are not current public-surface scope and must not be treated as production-proven until the conditional VM-446 live proof is revived and passes with real owner/non-owner/service-role credentials.
 
 ## Pre-Flight Carry-Forward
 
@@ -26,9 +29,9 @@ Public ledger, submit-for-review, voting, moderation, and public discovery move 
 
 ## Key Changes
 
-- Keep the existing `user_deck_links` SQL direction, but make v1 private-only in product behavior and exposed browser writes.
-- Move the deck-link UI out from directly under placement info and into a Dossier Directory panel after `Commander Deck Starts`.
-- Add a desktop/mobile dossier tab named `Account Deck Links`; panel title is `Save a Deck Link for this Reading`.
+- Preserve the existing `user_deck_links` SQL direction for possible future revival, but keep it out of the current Archscry surface.
+- Hide the deck-link UI from the active Dossier Directory while this enhancement is deferred.
+- Do not show an account deck-link tab, saved-link panel, save button, or deck-link form during current readiness work.
 - Remove visible `Community Deck Ledger`, `Submit for review`, visibility selector, voting, public discovery, and community language from Archscry v1.
 - Defer the Apocrypha Community Deck Ledger surface by removing the rail entry, linked section, and script loading.
 - Default all new browser saves to `visibility = 'private'` in client code and database defaults.
@@ -81,6 +84,16 @@ This copy is not shown in Archscry v1 because the public ledger is not launched.
 
 ## Acceptance Criteria
 
+Current backlog status:
+
+- [x] VM-422 is no longer active release scope.
+- [x] Existing deck-link modules, SQL, tests, and live harness are preserved for possible future use.
+- [x] Archscry active surface does not render the deck-saving dossier entry, saved-link panel, save button, or form while deferred.
+- [ ] Product owner re-approves deck saving as active scope after higher-priority readiness work.
+- [ ] VM-446 live private deck-link RLS proof passes before any account-backed deck saving is shipped.
+
+Historical implementation evidence preserved from the earlier private-first slice:
+
 - [x] `user_deck_links` SQL exists in a checked-in artifact with explicit grants, RLS, indexes, constraints, defaults, and operation-specific policies.
 - [x] Browser inserts/updates are private-only, except owner removal through `archived`.
 - [x] Owner account list returns only the signed-in user's private active deck links.
@@ -90,13 +103,29 @@ This copy is not shown in Archscry v1 because the public ledger is not launched.
 - [x] Account users can save private deck links with optional title, commander, note, and placement metadata.
 - [x] Account users can remove their own saved private links; archived rows are hidden from the saved-link list.
 - [x] Duplicate active saves for the same owner + URL + placement are blocked or handled with a friendly message.
-- [x] Archscry renders deck links inside an `Account Deck Links` dossier panel after `Commander Deck Starts`.
+- [x] VM-458 supersedes the prior active Archscry deck-link panel by hiding it from the current user journey.
 - [x] Archscry does not expose public ledger CTAs, submit-for-review, visibility selection, voting UI, or community language in v1.
 - [x] Apocrypha does not link, render, or load the Community Deck Ledger surface in v1.
 - [x] UI rendering treats all deck-link fields as untrusted user content and avoids `innerHTML` for those fields.
 - [x] No decklist parsing, scraping, crawling, deck hosting, legality, card JSON storage, or decklist rendering is introduced.
 
 ## Implementation Progress
+
+2026-06-30 VM-458 deferral and surface suppression:
+
+- Owner still wants deck saving eventually, but wants higher-priority product/readiness work first.
+- VM-422 moved from in progress to backlog as `Backlog - deferred enhancement`.
+- Archscry deck-saving UI was removed from the active rendered dossier surface.
+- Existing deck-link modules, SQL artifact, tests, and live harness were preserved for possible future reactivation.
+- VM-446 moved to backlog as the conditional security gate required before any private account-backed deck-link saving ships.
+- Private deck-link behavior remains not production-proven.
+
+2026-06-30 VM-446 live proof attempt:
+
+- `npm.cmd run test:deck-links:live` was attempted from the repo.
+- The harness exited before live network/API checks because the workspace lacked `VM422_OWNER_EMAIL`, `VM422_OWNER_PASSWORD`, `VM422_OTHER_EMAIL`, `VM422_OTHER_PASSWORD`, and `SUPABASE_SERVICE_ROLE_KEY`.
+- VM-446 was created as a blocked live-proof card.
+- VM-458 later deferred VM-422 to backlog; do not treat private saved deck links or account behavior as production-proven until VM-446 is revived and passes with live credentials.
 
 2026-06-28 private-first scope correction:
 
@@ -152,6 +181,14 @@ This copy is not shown in Archscry v1 because the public ledger is not launched.
 - Added local tests and live harness coverage for browser rejection attempts.
 
 ## Test Plan
+
+While deferred:
+
+- Do not run `npm.cmd run test:deck-links:live` as a current release gate.
+- Do not show account-backed deck-saving UI in Archscry.
+- Re-run the live proof only if VM-422 is revived as active account-backed deck-saving work.
+
+Reactivation tests:
 
 - Run `npm run test:deck-links` for provider detection, URL rejection, visibility mapping, private-only write protection, length limits, duplicate/archival SQL guards, dormant public-view filtering, and text-safe rendering checks.
 - Run `npm run test:deck-links:live` after setting `VM422_OWNER_EMAIL`, `VM422_OWNER_PASSWORD`, `VM422_OTHER_EMAIL`, `VM422_OTHER_PASSWORD`, and `SUPABASE_SERVICE_ROLE_KEY`.

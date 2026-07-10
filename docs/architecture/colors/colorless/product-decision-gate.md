@@ -4,6 +4,10 @@ Status: Ratified by VM-334; public-richness addendum ratified by VM-362; support
 Decision date: 2026-06-11
 Related card: `docs/kanban/done/VM-334-colorless-product-decision-gate.md`
 
+## Current Status Note
+
+VM-444 reconciliation note, 2026-06-30: this document preserves the VM-334, VM-362, and VM-372 decision history. Those decisions did not approve Colorless Home preview membership at the time they were ratified. VM-389 later promoted all 37 v1 live placement identities, including `COLORLESS` and `WUBRG`, into the Home Identity Signal only. That later Home preview approval does not create public Colorless routes, lowercase aliases, directory links, broader Commander recommendations, or any other public expansion blocked below.
+
 ## Decision
 
 `COLORLESS` is a controlled placeable Layer 1 identity in Vox Mana. It is not reference-only.
@@ -22,7 +26,7 @@ This decision ratifies the repo-current state established by VM-327 and repaired
 - `display_code: "C"`
 - `aliases: ["COLORLESS"]`
 - `placement_eligible: true`
-- `preview_eligible: false`
+- `preview_eligible: false` in the VM-334 accepted contract; superseded for Home Identity Signal preview membership by VM-389 only
 - `routing.suppress_directory_links: true`
 
 `C` is a technical outside-WUBRG marker for the controlled Colorless lane. It is not a sixth color, not mono-color, not generic mana, and not five-color.
@@ -39,7 +43,7 @@ Layer 1 authority is split by role:
 ## Accepted Surfaces
 
 - `COLORLESS` remains controlled placeable and dossier-visible.
-- Home preview remains disabled through `preview_eligible: false`.
+- Home preview remained disabled under VM-334. VM-389 later approved Home Identity Signal preview membership for all 37 v1 live placement identities, including `COLORLESS`, without approving public route, alias, directory, or recommendation expansion.
 - Public route, directory alias, public Colorless URL expansion, lowercase alias expansion, and Home carousel expansion are not approved by this decision.
 - Generated Supabase context may include `COLORLESS` only as generated placement/recruiter context. It is not claim evidence and must not be hand-authored as part of this card.
 - Existing or future approved dossier hero mapping may reference `assets/img/identity-hero/colorless.webp`, but VM-334 does not add, remove, regenerate, normalize, or edit that mapping or image.
@@ -66,7 +70,7 @@ Preserving `colorless.webp` for the dossier hero does not approve Home, public, 
 
 ### Deferred
 
-- Home preview.
+- Home preview under VM-362. VM-389 later supersedes this only for Home Identity Signal preview membership.
 - Public route or public URL expansion.
 - Lowercase `colorless` alias.
 - `C` alias.
@@ -112,7 +116,7 @@ The following remain blocked behind separate approval:
 
 - Manual browser QA for Colorless dossier visual fit, hero crop, Matrix Boundary copy, mana-base panel, and Maze handoff labels.
 - Source intake before richer Commander compass, deck advice, land-package advice, or Colorless recommendation expansion.
-- Separate product approval for Home preview, public routes, public aliases, public URL expansion, broader hero rollout, or richer public copy.
+- Separate product approval for any expansion beyond VM-389 Home Identity Signal preview membership, including public routes, public aliases, public URL expansion, broader hero rollout, or richer public copy.
 - Any repair if validation proves current runtime contradicts the accepted `id=c` / `id<=c` Maze contract.
 
 ## Non-Goals
@@ -128,10 +132,12 @@ VM-334 does not:
 
 ## Validation Contract
 
-Completion requires:
+VM-334 historical completion required:
 
-- Current counts remain at 36 identity expressions, 36 generated display entries, 36 placement entries, 36 flavor-snippet entries, and 20 Home preview entries.
-- `WUBRG` remains absent from controlled placement.
+- At VM-334 completion time, counts stayed at 36 identity expressions, 36 generated display entries, 36 placement entries, 36 flavor-snippet entries, and 20 Home preview entries.
+- At VM-334 completion time, `WUBRG` remained absent from controlled placement.
 - All five `data/raw-factions/colorless/*.json` hashes match before and after VM-334.
 - `npm.cmd run validate:source-generated -- --targets=COLORLESS` has no new failures; the known model-owned inhibitor warning remains acceptable.
 - Regression tests are diagnostic only unless failures are caused by VM-334 documentation edits.
+
+Current VM-444 release invariant: current runtime/source-generated surfaces describe 37 live placement identities and 37 Home Identity Signal preview identities. Use `data/identity-layers.json`, `data/factions.json`, `data/placement-model.json`, and `docs/reference/data-contracts.md` for current count authority.

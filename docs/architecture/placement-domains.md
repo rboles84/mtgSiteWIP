@@ -8,15 +8,18 @@ The live adaptive placement model currently runs without a runtime `domain` fiel
 
 - `ravnica_strixhaven`
 
-The live placement set is now the current 30-expression runtime:
+The live placement set is now the current 37-identity runtime:
 
 - 10 Ravnica guilds
 - 5 Strixhaven colleges
 - 5 mono colors represented through the identity-layer model
 - 5 controlled Alara shard pilots: `BANT`, `ESPER`, `GRIXIS`, `JUND`, `NAYA`
 - 5 controlled wedge pilots: `ABZAN`, `TEMUR`, `SULTAI`, `MARDU`, `JESKAI`
+- 5 controlled four-color identities: `YORE`, `GLINT`, `DUNE`, `INK`, `WITCH`
+- controlled `COLORLESS`
+- controlled `WUBRG`
 
-`ravnica_strixhaven` is still the current baseline-domain decision for the original 20-expression Home preview baseline. The five Alara shards and five wedge pilots are layered into the live placement set without adding a live domain selector, creating a public Alara or Khans route key, or splitting Ravnica and Strixhaven into separate runtime domain contracts. Any future split requires a separate architecture decision because it would affect question routing, adjacent-fit behavior, and dossier language.
+`ravnica_strixhaven` is still the current baseline-domain decision for the historical 20-expression baseline. Later shard, wedge, four-color, Colorless, and WUBRG identities are layered into the live placement set without adding a live domain selector, creating public route keys for those groups, or splitting Ravnica and Strixhaven into separate runtime domain contracts. Any future split requires a separate architecture decision because it would affect question routing, adjacent-fit behavior, and dossier language.
 
 ## What A Domain Owns
 
@@ -34,22 +37,22 @@ Domains are meant to organize how Vox Mana reasons about groups of expressions. 
 
 The documented domain map is:
 
-- `ravnica_strixhaven` for the original 20-expression baseline that still anchors the current no-domain runtime alongside five controlled Alara shard pilots and five controlled wedge pilots
+- `ravnica_strixhaven` for the historical 20-expression baseline that still anchors the current no-domain runtime alongside later shard, wedge, four-color, Colorless, and WUBRG identities
 - `khans` for the future Khans wedge expansion
 - `new_capenna` for the future New Capenna family expansion
 
-Khans and New Capenna are post-v1 roadmap domains only. They do not have live domain routing or runtime domain fields in this slice. The Alara shard pilots do not create a separate live `alara` runtime domain or a broad shard-domain selector, and the live wedge pilots do not create a separate live `khans` runtime domain or a broad wedge-domain selector.
+Khans and New Capenna are post-v1 roadmap domains only. They do not have live domain routing or runtime domain fields in this slice. The Alara shard pilots, live wedge pilots, four-color identities, Colorless, and WUBRG do not create separate live runtime domains or broad domain selectors.
 
 ## Current Repo Truth
 
 The current repository shape remains:
 
-- raw source coverage is 20 faction folders under `data/raw-factions/`
-- mono coverage is represented through `data/identity-layers.json`
-- the adaptive placement model is the live 30-expression set: the original 20-expression Home preview baseline plus `BANT`, `ESPER`, `GRIXIS`, `JUND`, `NAYA`, `ABZAN`, `TEMUR`, `SULTAI`, `MARDU`, and `JESKAI`
+- raw source coverage is 37 faction folders under `data/raw-factions/`
+- mono coverage is represented through raw mono packets and `data/identity-layers.json`
+- the adaptive placement model is the live 37-identity set: the historical 20-expression baseline plus `BANT`, `ESPER`, `GRIXIS`, `JUND`, `NAYA`, `ABZAN`, `TEMUR`, `SULTAI`, `MARDU`, `JESKAI`, `YORE`, `GLINT`, `DUNE`, `INK`, `WITCH`, `COLORLESS`, and `WUBRG`
 - no runtime or generated contract currently carries a live `domain` field
 
-The 30-expression live set does not mean raw source coverage should be inflated by this card: the five mono colors remain identity-layer expressions, not raw-faction folders. Do not add, rename, or reclassify any further expression, faction, guild, college, shard, wedge, family, or mono identity without a separate card.
+The 37-identity live set does not mean domain taxonomy should be inflated by this card. Do not add, rename, or reclassify any further expression, faction, guild, college, shard, wedge, four-color, colorless, five-color, family, or mono identity without a separate card.
 
 ## Future Contract Direction
 

@@ -3,7 +3,7 @@
 Status: Report-only summary (no data changed). Date: 2026-06-10.
 Purpose: a standing, codex-ready snapshot of what the live identity data ("Layer 1") actually contains, what's missing or broken, and exactly what it takes to add WUBRG. Build an implementation plan from this; do not treat it as a plan itself.
 
-VM-334 supersession note, 2026-06-11: this report is preserved as a pre-VM-327 snapshot. Current product authority ratifies `COLORLESS` as a controlled placeable Layer 1 identity with `colors: []`, `core_color: "C"`, `placement_eligible: true`, and `preview_eligible: false`; use `docs/architecture/colors/colorless/product-decision-gate.md` for the current Colorless decision.
+VM-444 supersession note, 2026-06-30: this report is preserved as a pre-VM-327, pre-WUBRG, and pre-VM-389 snapshot. Do not use the counts, missing-WUBRG notes, or `preview_eligible` flags below as current runtime truth. Current product authority is `data/identity-layers.json`, `data/factions.json`, `data/placement-model.json`, `docs/reference/data-contracts.md`, and the later VM-389/VM-427 evidence trail: 37 live placement identities and 37 Home Identity Signal preview identities.
 
 ---
 
@@ -18,9 +18,11 @@ There are two layers, and only one of them is the product:
 
 ---
 
-## Layer 1 coverage matrix
+## Historical Layer 1 Coverage Matrix
 
-| Tier | Count | Expression keys | Status |
+This matrix is preserved as the 2026-06-10 capture only. It is not current runtime truth after VM-389.
+
+| Tier | Count | Expression keys | Historical status |
 |---|---|---|---|
 | Mono | 5 | W, U, B, R, G | ✅ Complete |
 | Guilds (allied) | 5 | WU, UB, BR, RG, WG | ✅ Complete |
@@ -32,7 +34,7 @@ There are two layers, and only one of them is the product:
 | Colorless | 1 | (`raw-factions/colorless/` exists) | ❌ Sourced but NOT wired as an expression |
 | Five-color WUBRG | 1 | — | ❌ Absent from Layer 1 entirely |
 
-**Live total today: 35 expression keys** in `placement-model.json` (`active_expression_keys`); `identity-layers.json` describes a "clean live set" of **34**, the difference being WITCH.
+**Historical capture total: 35 expression keys** in `placement-model.json` (`active_expression_keys`); `identity-layers.json` described a "clean live set" of **34**, the difference being WITCH.
 
 Keying note: keys use **W>U>B>R>G priority order** (so `WR` = Boros, `WG` = Selesnya, `UG` = Simic are *correct*, not ordering bugs). Enemy guild + college share a color pair but are keyed distinctly (e.g. `WB` Orzhov vs `SILVERQUILL`). This is consistent — no action needed.
 

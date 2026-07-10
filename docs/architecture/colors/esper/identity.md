@@ -226,7 +226,7 @@ It does not use `Esper Lore Dossier Generation.md`, `esper_codex.html`, `esper_l
 | Color direction | WUB | `ESPER-001`, `ESPER-002` |
 | Center color | Blue | `ESPER-002`, `ESPER-003` |
 | Runtime status | Live as `ESPER`; `WUB` remains metadata-only | VM-167 controlled promotion; VM-169 process boundary |
-| Placement status | Placement-eligible live pilot; Home preview remains disabled | VM-167 controlled promotion |
+| Placement status | Placement-eligible live pilot; Home Identity Signal preview membership enabled by VM-389 | VM-167 controlled promotion; VM-389 Home Identity Signal promotion |
 | Direct authoring floor | Blue-centered design philosophy | `ESPER-003` through `ESPER-007` |
 
 ## Manual Fill Deferred

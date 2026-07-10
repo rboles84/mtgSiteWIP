@@ -8,7 +8,7 @@ Files: `assets/js/adaptive-placement.js`, `data/placement-model.json`, plus the 
 
 The adaptive placement engine treats each faction as a hypothesis with an equal log prior. Each answer carries likelihoods for one or more factions. The engine converts likelihoods into configured log-score deltas, applies positive and negative evidence, optionally suppresses lookalike factions through lateral inhibition, prunes poison-pill matches, and converts scores into probabilities through softmax.
 
-The shipped engine currently operates without live domain-aware routing across the active 30-expression set: the original 20-expression Ravnica/Strixhaven/mono Home preview baseline plus five live Alara shard pilots and five live wedge pilots. The baseline-domain decision is documented as `ravnica_strixhaven` in [Placement Domains](placement-domains.md). There is no live `domain` field in runtime contracts and no upfront domain selector in the current Archscry flow.
+The shipped engine currently operates without live domain-aware routing across the active 37-identity set: the historical 20-expression Ravnica/Strixhaven/mono baseline plus five Alara shard pilots, five Tarkir wedge pilots, five four-color identities, controlled `COLORLESS`, and controlled `WUBRG`. The baseline-domain decision is documented as `ravnica_strixhaven` in [Placement Domains](placement-domains.md). There is no live `domain` field in runtime contracts and no upfront domain selector in the current Archscry flow.
 
 Main flow:
 
@@ -107,7 +107,7 @@ Legacy fallback:
 
 ## Scryfall Natural-Language Parser
 
-Files: `research/scryfall-parser.js`, `research/scryfall-dictionary.js`, `research/scryfall-parser-seed-2026.json`.
+Files: `research/scryfall-parser.js`, `research/scryfall-grounded-compiler.js`, `research/scryfall-dictionary.js`, `research/scryfall-parser-seed-2026.json`, `data/scryfall/grounding/scryfall-grounding.json`.
 
 The parser converts plain-English search requests into Scryfall syntax with diagnostics.
 
@@ -116,10 +116,12 @@ Flow:
 1. `loadDictionaryFromSeedUrl` loads seed rows.
 2. `createDictionaryFromSeed` expands trigger phrases into dictionaries and oracle rows.
 3. `getScryfallDictionaryVocabulary` exposes deterministic local keyword, subtype, card type, and format vocabulary for validation and Maze autocomplete.
-4. `parseScryfallNaturalLanguage` normalizes input, creates mutable parse state, detects exact-card intent, checks high-confidence special rules, then runs detector phases.
-5. Detector phases add terms for formats, identities, colors, types, keywords, oracle phrases, mana value, power/toughness, rarity, price, sorting, and ambiguity.
-6. `assembleQuery`, `scoreConfidence`, and `buildReason` finalize the result.
-7. Warnings, alternatives, and unresolved terms help users recover when the parser is unsure.
+4. `research/research-init.js` loads `data/scryfall/grounding/scryfall-grounding.json` from the app host and registers it with `setScryfallGrounding`.
+5. `parseScryfallNaturalLanguage` normalizes input, creates mutable parse state, detects exact-card intent, then gives bounded catalog/set-family cases to `compileGroundedScryfallQuery`.
+6. `compileGroundedScryfallQuery` resolves explicit syntax, type-line terms, set names, set families, basic keywords, basic oracle concepts, color identity, commander-candidate intent, ignored glue words, and applied defaults into a query model before serializing Scryfall syntax.
+7. If the grounded compiler does not apply, the legacy detector phases add terms for formats, identities, colors, types, keywords, oracle phrases, mana value, power/toughness, rarity, price, sorting, and ambiguity.
+8. `assembleQuery`, `scoreConfidence`, and `buildReason` finalize legacy results; grounded results return their own confidence, reason, recognized, ignored, applied-default, unresolved, warning, and alternative diagnostics.
+9. Warnings, alternatives, ignored terms, applied defaults, and unresolved terms help users recover when the parser is unsure.
 
 Design notes:
 
@@ -128,6 +130,8 @@ Design notes:
 - "Counter" ambiguity gets special handling to avoid confusing counterspells with +1/+1 counters.
 - Protection phrases avoid accidentally interpreting target colors as card colors.
 - Sacrifice remains Oracle text intent (`o:sacrifice`), not a keyword/subtype/type/formal format.
+- The grounding artifact is generated at build time from Scryfall catalogs and `/sets`; Maze does not fetch live catalog metadata in the browser.
+- Product-family set matches serialize to grouped `set:<code>` OR clauses, while single exact set matches still use `s:<code>` for existing repo compatibility.
 
 ## Maze Research Workspace
 
@@ -214,7 +218,7 @@ Important transforms:
 - Good/poor indicators and inhibitor traps are flattened to plain lists.
 - Context is condensed for prompt use while keeping display metadata.
 
-Future domain modeling may eventually add metadata above the current expression set, but this build currently emits the live 30-expression set without a `domain` field. Any future split between Ravnica and Strixhaven must be treated as a separate architecture decision because it would change question routing, adjacent-fit behavior, and dossier language.
+Future domain modeling may eventually add metadata above the current identity set, but this build currently emits the live 37-identity set without a `domain` field. Any future split between Ravnica and Strixhaven must be treated as a separate architecture decision because it would change question routing, adjacent-fit behavior, and dossier language.
 
 ## Command Panel
 
