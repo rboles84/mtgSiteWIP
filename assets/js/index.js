@@ -55,6 +55,11 @@ import {
   getRowsForReading,
   hasRowsForOtherReadings,
 } from "../../research/maze-scratchpad-store.js";
+import {
+  archiveUserDeckLink,
+  listUserDeckLinks,
+  saveUserDeckLink,
+} from "./deck-link-service.js";
 
 /*
  * Archscry route runtime ownership map (VM-147B)
@@ -139,6 +144,7 @@ const DOSSIER_PANEL_CONFIG = [
   { id: "why", label: "Why This Fits" },
   { id: "adjacent", label: "Adjacent Fits" },
   { id: "commander-deck-starts", label: "Commander Browsing Starts" },
+  { id: "decks-saved", label: "External Deck Links" },
   { id: "starter-cards", label: "Card Signals" },
   { id: "mana-base", label: "Mana Notes" },
   { id: "maze-discovery", label: "Maze Discovery" },
@@ -1806,6 +1812,261 @@ function buildDossierUtilityActionsHtml({ isPrimary, layoutMode }) {
     </div>`;
 }
 
+function buildAccountDeckLinkPanelHtml({ result }) {
+  const faction = getFaction(result?.faction);
+  const placementName = result?.faction_name || faction?.name || "this reading";
+  const signedInCopy = SESSION.username
+    ? `Saved under ${escapeHtml(SESSION.username)} for ${escapeHtml(placementName)}.`
+    : "Sign in with Google from this reading before saving private external deck links.";
+
+  return `
+    <div class="deck-link-section" data-account-deck-links>
+      <div class="deck-link-section-head">
+        <div>
+          <div class="section-label">External Deck Links</div>
+          <h2>External Deck Links Saved For This Reading</h2>
+          <p class="deck-link-copy">${signedInCopy}</p>
+        </div>
+        <button class="btn-secondary" type="button" ${buildActionAttrs("refresh-deck-links")}>Refresh</button>
+      </div>
+      <div class="deck-link-layout">
+        <form class="deck-link-form" data-deck-link-form>
+          <label class="deck-link-field">
+            <span>Deck URL</span>
+            <input name="deck_url" type="url" autocomplete="url" placeholder="https://moxfield.com/decks/..." required>
+          </label>
+          <div class="deck-link-field-grid">
+            <label class="deck-link-field">
+              <span>Deck Title</span>
+              <input name="deck_title" type="text" maxlength="120" autocomplete="off" placeholder="Table-ready shell">
+            </label>
+            <label class="deck-link-field">
+              <span>Commander</span>
+              <input name="commander_name" type="text" maxlength="120" autocomplete="off" placeholder="Commander name">
+            </label>
+          </div>
+          <label class="deck-link-field">
+            <span>Private Note</span>
+            <textarea name="user_note" rows="4" maxlength="500" placeholder="Why this deck belongs with the reading."></textarea>
+          </label>
+          <div class="deck-link-actions">
+            <button class="btn-primary" type="button" ${buildActionAttrs("save-deck-link")}>Save Deck Link</button>
+          </div>
+          <p class="deck-link-status" id="deck-link-status" data-tone="muted" role="status" aria-live="polite"></p>
+        </form>
+        <div class="deck-link-account-list" aria-live="polite">
+          <div class="deck-link-list-head">
+            <h3>Saved Links</h3>
+          </div>
+          <div class="deck-link-list" id="deck-link-account-list"></div>
+        </div>
+      </div>
+    </div>`;
+}
+
+function setDeckLinkStatus(message, tone = "muted") {
+  const status = document.getElementById("deck-link-status");
+  if (!status) return;
+  status.textContent = message || "";
+  status.dataset.tone = tone;
+}
+
+function setDeckLinkControlsDisabled(disabled) {
+  const root = document.querySelector("[data-account-deck-links]");
+  root?.querySelectorAll("input, textarea, button").forEach((control) => {
+    control.disabled = disabled;
+  });
+}
+
+function readDeckLinkFormInput() {
+  const form = document.querySelector("[data-deck-link-form]");
+  if (!(form instanceof HTMLFormElement)) {
+    return {};
+  }
+  const formData = new FormData(form);
+  return {
+    deck_url: String(formData.get("deck_url") || "").trim(),
+    deck_title: String(formData.get("deck_title") || "").trim(),
+    commander_name: String(formData.get("commander_name") || "").trim(),
+    user_note: String(formData.get("user_note") || "").trim(),
+    visibility: "private",
+  };
+}
+
+function currentDeckLinkPlacementResult() {
+  return APP_STATE.activeResult || SESSION.profile?.placementResult || vm_getCachedPlacementResult();
+}
+
+function safeDeckLinkHref(value) {
+  try {
+    const url = new URL(String(value || ""));
+    return url.protocol === "https:" ? url.href : "";
+  } catch (_) {
+    return "";
+  }
+}
+
+function renderAccountDeckLinks(rows = []) {
+  const list = document.getElementById("deck-link-account-list");
+  if (!list) return;
+  clearNode(list);
+
+  if (!SESSION.username) {
+    const empty = document.createElement("p");
+    empty.className = "deck-link-empty";
+    empty.textContent = "Sign in with Google to keep private external deck links with this reading.";
+    list.appendChild(empty);
+    return;
+  }
+
+  if (!rows.length) {
+    const empty = document.createElement("p");
+    empty.className = "deck-link-empty";
+    empty.textContent = "No private deck links saved yet.";
+    list.appendChild(empty);
+    return;
+  }
+
+  rows.forEach((row) => {
+    const card = document.createElement("article");
+    card.className = "saved-deck-link-card";
+
+    const head = document.createElement("div");
+    head.className = "saved-deck-link-head";
+
+    const provider = document.createElement("span");
+    provider.className = "deck-link-provider";
+    provider.textContent = String(row.provider || "deck").replace(/[-_]+/g, " ");
+
+    const visibility = document.createElement("span");
+    visibility.className = "deck-link-visibility";
+    visibility.dataset.visibility = row.visibility || "private";
+    visibility.textContent = row.visibility || "private";
+
+    head.append(provider, visibility);
+
+    const title = document.createElement("h4");
+    title.textContent = row.deck_title;
+    if (!title.textContent) {
+      title.textContent = row.commander_name || "Saved deck link";
+    }
+
+    const meta = document.createElement("div");
+    meta.className = "saved-deck-link-meta";
+    [row.placement_name, row.commander_name, row.color_identity_key].filter(Boolean).forEach((value) => {
+      const chip = document.createElement("span");
+      chip.textContent = value;
+      meta.appendChild(chip);
+    });
+
+    const note = document.createElement("p");
+    note.className = "saved-deck-link-note";
+    note.textContent = row.user_note;
+    if (!note.textContent) {
+      note.textContent = "No private note saved for this deck link.";
+    }
+
+    const actions = document.createElement("div");
+    actions.className = "saved-deck-link-actions";
+    const href = safeDeckLinkHref(row.deck_url);
+    if (href) {
+      const open = document.createElement("a");
+      open.className = "deck-link-open";
+      open.href = href;
+      open.target = "_blank";
+      open.rel = "noopener noreferrer";
+      open.textContent = "Open deck";
+      actions.appendChild(open);
+    }
+
+    const remove = document.createElement("button");
+    remove.className = "btn-secondary";
+    remove.type = "button";
+    remove.dataset.action = "archive-deck-link";
+    remove.dataset.deckLinkId = row.id || "";
+    remove.textContent = "Remove";
+    actions.appendChild(remove);
+
+    card.append(head, title, meta, note, actions);
+    list.appendChild(card);
+  });
+}
+
+async function refreshAccountDeckLinks() {
+  if (!document.querySelector("[data-account-deck-links]")) {
+    return;
+  }
+  if (!SESSION.username) {
+    renderAccountDeckLinks([]);
+    setDeckLinkStatus("Sign in before saving private external deck links.");
+    return;
+  }
+
+  try {
+    setDeckLinkStatus("Loading saved deck links...");
+    const rows = await listUserDeckLinks();
+    renderAccountDeckLinks(rows);
+    setDeckLinkStatus(
+      rows.length ? `${rows.length} saved deck link${rows.length === 1 ? "" : "s"} loaded.` : "No saved deck links yet.",
+      rows.length ? "ok" : "muted"
+    );
+  } catch (error) {
+    renderAccountDeckLinks([]);
+    setDeckLinkStatus(error.message || "Could not load saved deck links.", "error");
+  }
+}
+
+async function handleSaveDeckLink() {
+  const result = currentDeckLinkPlacementResult();
+  if (!result) {
+    setDeckLinkStatus("Complete or restore a reading first.", "error");
+    return;
+  }
+  if (!SESSION.username) {
+    setDeckLinkStatus("Sign in with Google before saving private external deck links.", "error");
+    return;
+  }
+
+  try {
+    setDeckLinkControlsDisabled(true);
+    setDeckLinkStatus("Saving deck link...");
+    await saveUserDeckLink({
+      input: readDeckLinkFormInput(),
+      placementResult: result,
+    });
+    const form = document.querySelector("[data-deck-link-form]");
+    if (form instanceof HTMLFormElement) {
+      form.reset();
+    }
+    setDeckLinkStatus("Deck link saved.", "ok");
+    await refreshAccountDeckLinks();
+  } catch (error) {
+    setDeckLinkStatus(error.message || "Could not save deck link.", "error");
+  } finally {
+    setDeckLinkControlsDisabled(false);
+  }
+}
+
+async function handleArchiveDeckLink(actionNode) {
+  const deckLinkId = actionNode?.dataset?.deckLinkId || "";
+  if (!deckLinkId) {
+    setDeckLinkStatus("Could not find that deck link.", "error");
+    return;
+  }
+
+  try {
+    setDeckLinkControlsDisabled(true);
+    setDeckLinkStatus("Removing deck link...");
+    await archiveUserDeckLink({ deckLinkId });
+    setDeckLinkStatus("Deck link removed.", "ok");
+    await refreshAccountDeckLinks();
+  } catch (error) {
+    setDeckLinkStatus(error.message || "Could not remove deck link.", "error");
+  } finally {
+    setDeckLinkControlsDisabled(false);
+  }
+}
+
 function buildPlacementSnapshotHtml({ dossier }) {
   const summary = dossier?.resultSummaryStrip || {};
   const adjacentFit = summary.adjacentFit || {};
@@ -2794,6 +3055,7 @@ function renderResult(viewKey) {
         <div class="section-label">Commander Lanes</div>
         <div class="archetypes-grid">${archetypeHtml}</div>
       </div>` : ""}`;
+  const accountDeckLinksPanelHtml = buildAccountDeckLinkPanelHtml({ result });
   const starterCardPanelContent = {
     creatures: `
       <div class="staples-category">
@@ -2874,6 +3136,7 @@ function renderResult(viewKey) {
     { id: "why", content: whyPanelHtml },
     { id: "adjacent", content: adjacentSectionHtml },
     { id: "commander-deck-starts", content: deckStartsPanelHtml },
+    { id: "decks-saved", content: accountDeckLinksPanelHtml },
     hasStarterCardReferences ? { id: "starter-cards", content: starterCardsPanelHtml } : null,
     { id: "mana-base", content: manaBasePanelHtml },
     { id: "maze-discovery", content: mazePanelHtml },
@@ -2926,6 +3189,7 @@ function renderResult(viewKey) {
   applyDossierConsoleState();
   applyTerminalVisibility();
   updateTopbar();
+  void refreshAccountDeckLinks();
   initializeDossierRadarIfVisible(result, faction);
   if (!shouldDisableResultCardArt()) {
     loadResultCardArt(faction, commanderPreviewCandidates, renderableStarterCards, landRecommendations);
@@ -3317,6 +3581,15 @@ async function handleArchscryActionClick(event) {
       return;
     case "save-current-result":
       await saveCurrentResult();
+      return;
+    case "save-deck-link":
+      await handleSaveDeckLink();
+      return;
+    case "archive-deck-link":
+      await handleArchiveDeckLink(actionNode);
+      return;
+    case "refresh-deck-links":
+      await refreshAccountDeckLinks();
       return;
     case "set-dossier-panel":
       setDossierPanel(actionNode.dataset.panelId || "");
