@@ -1,6 +1,7 @@
 import { readdir, readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { buildProvenanceManifest } from "./semantic-readiness-lib.mjs";
 
 const modulePath = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(modulePath);
@@ -12,6 +13,8 @@ const placementModelPath = path.join(repoRoot, "data", "placement-model.json");
 const placementSchemaPath = path.join(repoRoot, "data", "placement-model.schema.json");
 const gateCompressionSourcePath = path.join(repoRoot, "data", "placement", "gate-compression.source.json");
 const factionContextPath = path.join(repoRoot, "supabase", "functions", "guild-recruiter", "faction-context.ts");
+const semanticReadinessLedgerPath = path.join(repoRoot, "docs", "incidents", "CRIT-001-identity-recovery-ledger.json");
+const semanticProvenancePath = path.join(repoRoot, "data", "semantic-readiness-provenance.json");
 
 const MODEL_VERSION = "vox-mana-adaptive-placement-v1";
 const RESULT_VERSION = "2026-05-10";
@@ -4726,6 +4729,8 @@ async function loadRawFaction(rawId) {
   return {
     placement: await readJson(`${basePath}.placement.json`),
     profile: await readJson(`${basePath}.profile.json`),
+    claims: await readJson(`${basePath}.claims.json`),
+    sources: await readJson(`${basePath}.sources.json`),
   };
 }
 
@@ -5171,6 +5176,14 @@ async function main() {
   await writeJson(placementModelPath, model);
   await writeJson(placementSchemaPath, PLACEMENT_SCHEMA);
 
+  const semanticReadinessLedger = await readJson(semanticReadinessLedgerPath);
+  const semanticProvenance = buildProvenanceManifest({
+    rawRecords,
+    rawToKey: RAW_TO_KEY,
+    ledger: semanticReadinessLedger,
+  });
+  await writeJson(semanticProvenancePath, semanticProvenance);
+
   const ts = renderFactionContextModule({
     factionContext,
     placementModelMeta: supabasePlacementModelMeta(model._meta),
@@ -5181,6 +5194,7 @@ async function main() {
   console.log(`Wrote ${path.relative(repoRoot, placementModelPath)}`);
   console.log(`Wrote ${path.relative(repoRoot, placementSchemaPath)}`);
   console.log(`Wrote ${path.relative(repoRoot, factionContextPath)}`);
+  console.log(`Wrote ${path.relative(repoRoot, semanticProvenancePath)}`);
 }
 
 if (process.argv[1] && path.resolve(process.argv[1]) === modulePath) {

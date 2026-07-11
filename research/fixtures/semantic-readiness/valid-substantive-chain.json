@@ -1,0 +1,41 @@
+{
+  "identity_key": "FIXTURE_VALID",
+  "raw_id": "fixture_valid",
+  "claims": {
+    "claims": [
+      {
+        "claim_id": "fixture_claim_substantive",
+        "semantic_role": "substantive_claim",
+        "claim_type": "identity",
+        "statement": "The source explicitly describes the identity as balancing trained technique with expressive action.",
+        "source_ids": ["fixture_source"],
+        "evidence_locations": [
+          {
+            "source_id": "fixture_source",
+            "locator_type": "section",
+            "locator": "Identity overview",
+            "bounded_paraphrase": "The overview directly contrasts learned technique with expressive action.",
+            "evidence_scope": "identity-wide",
+            "interpretation_level": "direct-fact"
+          }
+        ]
+      }
+    ]
+  },
+  "sources": {
+    "sources": [
+      {
+        "source_id": "fixture_source",
+        "source_role": "claim-bearing",
+        "title": "Synthetic official overview"
+      }
+    ]
+  },
+  "profile": {
+    "profile": {
+      "summary": "This identity balances trained technique with expressive action.",
+      "claim_ids": ["fixture_claim_substantive"]
+    }
+  },
+  "placement": {}
+}

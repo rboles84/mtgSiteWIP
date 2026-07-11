@@ -1,0 +1,31 @@
+{
+  "identity_key": "FIXTURE_INVALID",
+  "raw_id": "fixture_invalid",
+  "claims": {
+    "claims": [
+      {
+        "claim_id": "fixture_claim_discovery",
+        "semantic_role": "discovery_record",
+        "claim_type": "story_corpus_evidence",
+        "statement": "A source matched the search term expression.",
+        "source_ids": ["fixture_source"]
+      }
+    ]
+  },
+  "sources": {
+    "sources": [
+      {
+        "source_id": "fixture_source",
+        "source_role": "discovery-only",
+        "title": "Synthetic search result"
+      }
+    ]
+  },
+  "profile": {
+    "profile": {
+      "summary": "This identity always values expressive truth.",
+      "claim_ids": ["fixture_claim_discovery"]
+    }
+  },
+  "placement": {}
+}
