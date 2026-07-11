@@ -163,7 +163,7 @@ export async function auditRepository({ targets = null } = {}) {
         if (!claim) missingReferences.push({ pointer: `${site.canonical_file}#${site.canonical_pointer}`, claim_id: id });
         else resolvedRoles.push(inferSemanticRole(claim));
       }
-      if (resolvedRoles.length && !resolvedRoles.includes("substantive_claim") && resolvedRoles.some((role) => role !== "unclassified")) {
+      if ((site.evidence_use || "semantic") === "semantic" && resolvedRoles.length && !resolvedRoles.includes("substantive_claim") && resolvedRoles.some((role) => role !== "unclassified")) {
         potentialRoleInvalid.push({ pointer: `${site.canonical_file}#${site.canonical_pointer}`, roles: [...new Set(resolvedRoles)] });
       }
     }

@@ -1,5 +1,5 @@
 import assert from "node:assert/strict";
-import { contentHash, pointerGet } from "./semantic-readiness-lib.mjs";
+import { collectClaimReferenceSites, contentHash, pointerGet } from "./semantic-readiness-lib.mjs";
 import { renderLedgerMarkdown, updateLedgerComputed } from "./audit-semantic-readiness.mjs";
 import { validateFixture } from "./validate-semantic-readiness.mjs";
 
@@ -11,6 +11,11 @@ assert.deepEqual(validErrors, [], "bounded substantive evidence must pass semant
 
 assert.notEqual(contentHash({ value: "before" }), contentHash({ value: "after" }), "content changes must invalidate provenance hashes");
 assert.equal(pointerGet({ a: [{ b: "ok" }] }, "/a/0/b"), "ok", "JSON Pointer resolution must be stable");
+
+const defaultSemanticSite = collectClaimReferenceSites({ field: { claim_ids: ["claim"] } }, "fixture.json")[0];
+assert.equal(defaultSemanticSite.evidence_use, undefined, "implicit semantic evidence must not churn generated provenance");
+const explicitDiscoverySite = collectClaimReferenceSites({ field: { claim_ids: ["claim"], evidence_use: "discovery_metadata" } }, "fixture.json")[0];
+assert.equal(explicitDiscoverySite.evidence_use, "discovery_metadata", "explicit non-semantic evidence use must survive provenance collection");
 
 const ledger = {
   current_contract_version: "v0",

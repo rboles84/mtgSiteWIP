@@ -2,7 +2,7 @@
   "schema_version": "1.0.0",
   "faction_id": "prismari",
   "faction_name": "Prismari College",
-  "last_updated": "2026-05-10T02:56:03.254Z",
+  "last_updated": "2026-07-11",
   "placement_model_version": "vox-mana-lore-json-v1",
   "color_identity": [
     "blue",
@@ -10,68 +10,114 @@
   ],
   "ideal_fit_indicators": [
     {
-      "indicator": "thinks through art or performance",
-      "rationale": "Matches the official Prismari College identity summarized in the profile.",
+      "indicator": "thinks through art or elemental form, not merely abstract correctness",
+      "rationale": "Contract v1 Prismari semantic evidence.",
       "claim_ids": [
-        "prismari_claim_001"
+        "prismari_claim_002",
+        "prismari_claim_003",
+        "prismari_claim_0022",
+        "prismari_claim_0025"
       ],
-      "confidence": "Medium"
+      "confidence": "High"
     },
     {
-      "indicator": "values emotional truth and craft",
-      "rationale": "Matches the official Prismari College identity summarized in the profile.",
+      "indicator": "uses disciplined technique to carry emotional or conceptual truth",
+      "rationale": "Contract v1 Prismari semantic evidence.",
       "claim_ids": [
-        "prismari_claim_002"
+        "prismari_claim_004",
+        "prismari_claim_0019",
+        "prismari_claim_0025"
       ],
-      "confidence": "Medium"
+      "confidence": "High"
     },
     {
-      "indicator": "wants work to be felt, not merely understood",
-      "rationale": "Matches the official Prismari College identity summarized in the profile.",
+      "indicator": "revises work through practice, criticism, collaboration, or audience response",
+      "rationale": "Contract v1 Prismari semantic evidence.",
       "claim_ids": [
-        "prismari_claim_003"
+        "prismari_claim_0019",
+        "prismari_claim_0020",
+        "prismari_claim_0021",
+        "prismari_claim_0025"
       ],
-      "confidence": "Medium"
+      "confidence": "High"
+    },
+    {
+      "indicator": "can make quiet, private, visual, physical, musical, immersive, or public work",
+      "rationale": "Contract v1 Prismari semantic evidence.",
+      "claim_ids": [
+        "prismari_claim_0020",
+        "prismari_claim_0022"
+      ],
+      "confidence": "High"
+    },
+    {
+      "indicator": "accepts responsibility for the consequences of powerful expression",
+      "rationale": "Contract v1 Prismari semantic evidence.",
+      "claim_ids": [
+        "prismari_claim_0023",
+        "prismari_claim_0024",
+        "prismari_claim_0025",
+        "prismari_claim_0026"
+      ],
+      "confidence": "High"
     }
   ],
   "poor_fit_indicators": [
     {
-      "indicator": "prefers invisible optimization",
-      "rationale": "Counters a core Prismari College placement signal.",
+      "indicator": "centers mechanisms, prototypes, or technical outcomes instead of felt artistic experience",
+      "rationale": "Contract v1 neighbor or unhealthy-expression boundary.",
       "claim_ids": [
-        "prismari_claim_001"
+        "prismari_claim_0028"
       ],
-      "confidence": "Medium"
+      "confidence": "High"
     },
     {
-      "indicator": "rejects spectacle as unserious",
-      "rationale": "Counters a core Prismari College placement signal.",
+      "indicator": "centers transgression, cruelty, or authority-parody instead of expression",
+      "rationale": "Contract v1 neighbor or unhealthy-expression boundary.",
       "claim_ids": [
-        "prismari_claim_002"
+        "prismari_claim_0029"
       ],
-      "confidence": "Medium"
+      "confidence": "High"
     },
     {
-      "indicator": "values only proof and never expression",
-      "rationale": "Counters a core Prismari College placement signal.",
+      "indicator": "centers mathematical proof or hidden structure as the final aim",
+      "rationale": "Contract v1 neighbor or unhealthy-expression boundary.",
       "claim_ids": [
-        "prismari_claim_003"
+        "prismari_claim_0030"
       ],
-      "confidence": "Medium"
+      "confidence": "High"
+    },
+    {
+      "indicator": "centers rhetoric, status, or influence as the final aim",
+      "rationale": "Contract v1 neighbor or unhealthy-expression boundary.",
+      "claim_ids": [
+        "prismari_claim_0031"
+      ],
+      "confidence": "High"
+    },
+    {
+      "indicator": "treats spectacle, damage, or attention as proof of successful expression",
+      "rationale": "Contract v1 neighbor or unhealthy-expression boundary.",
+      "claim_ids": [
+        "prismari_claim_0024",
+        "prismari_claim_0026"
+      ],
+      "confidence": "High"
     }
   ],
   "discriminator_questions": [
     {
       "question_id": "prismari_q1",
       "question": "When has making something beautiful mattered more than making it efficient?",
-      "purpose": "Tests Prismari value logic.",
+      "purpose": "Tests whether artistic form has independent value beyond efficiency.",
       "answer_pattern_that_supports_this_faction": "The answer emphasizes the ideal-fit indicators listed for this faction.",
       "answer_pattern_that_weakens_this_faction": "The answer rejects or treats the faction's core tension as irrelevant.",
       "related_factions_to_compare": [],
       "claim_ids": [
-        "prismari_claim_001",
         "prismari_claim_002",
-        "prismari_claim_003"
+        "prismari_claim_003",
+        "prismari_claim_0022",
+        "prismari_claim_0025"
       ],
       "confidence": "Medium",
       "notes": "Question is placement-engine guidance, not canon text."
@@ -79,14 +125,16 @@
     {
       "question_id": "prismari_q2",
       "question": "Do you perfect the technique first, or throw the feeling into the room and refine later?",
-      "purpose": "Separates blue and red Prismari poles.",
+      "purpose": "Tests integration of practiced technique, emotional truth, and responsibility.",
       "answer_pattern_that_supports_this_faction": "The answer emphasizes the ideal-fit indicators listed for this faction.",
       "answer_pattern_that_weakens_this_faction": "The answer rejects or treats the faction's core tension as irrelevant.",
       "related_factions_to_compare": [],
       "claim_ids": [
-        "prismari_claim_001",
-        "prismari_claim_002",
-        "prismari_claim_003"
+        "prismari_claim_004",
+        "prismari_claim_0019",
+        "prismari_claim_0025",
+        "prismari_claim_0026",
+        "prismari_claim_0027"
       ],
       "confidence": "Medium",
       "notes": "Question is placement-engine guidance, not canon text."
@@ -94,7 +142,7 @@
     {
       "question_id": "prismari_q3",
       "question": "When a pattern is correct but lifeless, do you prove it more carefully or make it land as an experience?",
-      "purpose": "Separates Prismari expressive performance from Quandrix proof and abstract model logic.",
+      "purpose": "Separates felt artistic experience from Quandrix proof and abstract model logic.",
       "answer_pattern_that_supports_this_faction": "The answer centers art, performance, elemental spectacle, felt expression, or technique in service of emotion.",
       "answer_pattern_that_weakens_this_faction": "The answer centers proof, mathematical model, hidden structure, or abstraction before experience.",
       "related_factions_to_compare": [
@@ -104,7 +152,8 @@
         "prismari_claim_002",
         "prismari_claim_003",
         "prismari_claim_004",
-        "prismari_claim_006"
+        "prismari_claim_0030",
+        "prismari_claim_0032"
       ],
       "confidence": "Medium",
       "notes": "Question is placement-engine guidance grounded in claim-bearing Prismari rows, not canon text."
@@ -112,7 +161,7 @@
     {
       "question_id": "prismari_q4",
       "question": "When language can move a room, should it become a precise argument, a public performance, or an elemental spectacle?",
-      "purpose": "Separates Prismari art and elemental performance from Silverquill rhetorical influence.",
+      "purpose": "Separates Prismari artistic/elemental expression from Silverquill rhetorical influence.",
       "answer_pattern_that_supports_this_faction": "The answer centers art, performance, elemental spectacle, movement, emotion, or expressive force.",
       "answer_pattern_that_weakens_this_faction": "The answer centers precise rhetoric, status, reputation, leadership, or word-magic influence.",
       "related_factions_to_compare": [
@@ -121,335 +170,580 @@
       "claim_ids": [
         "prismari_claim_002",
         "prismari_claim_003",
-        "prismari_claim_004",
-        "prismari_claim_006"
+        "prismari_claim_0022",
+        "prismari_claim_0031",
+        "prismari_claim_0032"
       ],
       "confidence": "Medium",
       "notes": "Question is placement-engine guidance grounded in claim-bearing Prismari rows, not canon text."
+    },
+    {
+      "question_id": "prismari_q5",
+      "question": "When you create something new, is the breakthrough successful because the mechanism works, or because practiced form makes an inner truth felt?",
+      "purpose": "Directly separates Prismari expression-through-craft from Izzet mechanism and prototype logic.",
+      "answer_pattern_that_supports_this_faction": "The answer centers practiced artistic or elemental form, emotional truth, revision, and felt experience.",
+      "answer_pattern_that_weakens_this_faction": "The answer centers mechanism, prototype function, technical novelty, infrastructure, or experiment outcomes.",
+      "related_factions_to_compare": [
+        "Izzet League"
+      ],
+      "claim_ids": [
+        "prismari_claim_004",
+        "prismari_claim_0019",
+        "prismari_claim_0025",
+        "prismari_claim_0028",
+        "prismari_claim_0032"
+      ],
+      "confidence": "High",
+      "notes": "Contract v1 pair discriminator derived from bounded official Prismari and Izzet evidence; not Hall/Crucible authoring or score calibration."
     }
   ],
   "chatbot_guidance": {
     "how_to_recognize_match": [
-      "thinks through art or performance",
-      "values emotional truth and craft",
-      "wants work to be felt, not merely understood"
+      "uses disciplined technique to make emotional or conceptual truth felt through art or elemental media",
+      "revises craft through practice, collaboration, criticism, or audience response",
+      "can express Prismari through quiet, visual, physical, musical, immersive, or public work rather than spectacle alone"
     ],
     "how_to_recognize_mismatch": [
-      "prefers invisible optimization",
-      "rejects spectacle as unserious",
-      "values only proof and never expression"
+      "centers mechanism, prototype, infrastructure, or technical outcome rather than felt artistic experience",
+      "centers transgression, cruelty, chaos, or authority-parody rather than expression",
+      "uses mathematical proof or rhetorical influence as the primary end rather than artistic elemental form"
     ],
     "questions_to_ask_when_uncertain": [
-      "When has making something beautiful mattered more than making it efficient?",
-      "Do you perfect the technique first, or throw the feeling into the room and refine later?",
-      "When a pattern is correct but lifeless, do you prove it more carefully or make it land as an experience?",
-      "When language can move a room, should it become a precise argument, a public performance, or an elemental spectacle?"
+      "What is the work trying to make happen: felt experience, mechanism, proof, influence, or transgression?",
+      "When criticism lands, do you revise the form, escalate the intensity, or discard the consequences?",
+      "Does technique serve expression, or replace it?",
+      "Would the same creative act still matter if it were quiet, private, or seen by only one person?"
     ],
     "do_not_overweight": [
-      "Do not overfit a single color preference.",
-      "Do not treat one favorite card or mechanic as enough evidence by itself.",
-      "Do not score a faction highly from color identity alone when another faction shares the same colors or surface traits."
+      "Do not overfit a shared blue-red color preference.",
+      "Do not treat spectacle, creativity, emotion, or spellslinger mechanics as sufficient by themselves.",
+      "Do not use question count or source volume as a readiness signal."
     ],
     "never_claim_as_canon": [
       "Psychological placement categories are Vox Mana interpretation, not official Wizards canon.",
       "Do not state that a user's personality is objectively determined by a faction.",
       "Placement scoring is a Vox Mana interpretation, not official Wizards canon."
     ],
-    "calibration_note": "Prismari College should require its specific positive evidence cluster: expression, performance, art, emotion, elemental. Keep it adjacent when the answer only contains broad color identity or generic personality language.",
-    "scoring_guardrail": "Do not award for generic spectacle if the answer is provocation, engineering, or rhetoric."
+    "calibration_note": "Require evidence that practiced form makes a truth or idea felt. Keep Prismari uncertain when the answer's purpose could instead be mechanism, proof, rhetoric, or transgression.",
+    "scoring_guardrail": "Do not award for generic spectacle, creativity, or blue-red identity without artistic or elemental expression and an identifiable purpose."
   },
   "placement_quality": {
-    "overall_confidence": "Medium",
+    "overall_confidence": "High for semantic foundation; runtime calibration not certified",
     "strongest_evidence_areas": [
-      "official faction overview",
-      "official mechanics identity",
-      "MTG-Stories corpus search evidence"
+      "official 2021 and 2026 setting guides",
+      "bounded practice, revision, collaboration, responsibility, and risk evidence",
+      "four required-neighbor distinctions"
     ],
     "weakest_evidence_areas": [
-      "deep story episode coverage",
-      "cross-faction comparison calibration"
+      "live recruiter outcomes",
+      "Hall/Crucible scheduling and score calibration"
     ],
     "manual_review_recommended": true,
-    "notes": "Good for initial placement testing; should be expanded with story-specific claims in a later pass. Corpus-enriched data should be reviewed with calibration and collision reports before being treated as tuned scoring fuel.",
+    "notes": "Contract v1 candidate. Runtime calibration remains outside CRIT-001.",
     "calibration_tuning_status": "explicit",
-    "last_placement_ready_pass": "2026-05-10T02:56:03.254Z"
+    "last_placement_ready_pass": "2026-05-10T02:56:03.254Z",
+    "semantic_readiness_contract": "v1"
   },
   "placement_profile_version": "vox-mana-lore-json-v1",
   "based_on_profile_version": "1.0.0",
   "placement_summary": {
-    "short_description": "Prismari College placement is informed by official overview sources and MTG-Stories corpus evidence.",
-    "best_fit_summary": "thinks through art or performance values emotional truth and craft wants work to be felt, not merely understood",
-    "poor_fit_summary": "prefers invisible optimization rejects spectacle as unserious values only proof and never expression",
+    "short_description": "Prismari placement centers practiced artistic or elemental form making an inner truth felt.",
+    "best_fit_summary": "Integrates technique, emotion, chosen medium, revision, audience or collaborator awareness, and responsibility.",
+    "poor_fit_summary": "Centers mechanism, proof, rhetoric, transgression, or spectacle without expressive purpose and consequence.",
     "interpretation_warning": "Placement data is interpretive and should be treated as a matching heuristic, not direct canon.",
     "claim_ids": [
-      "prismari_claim_0007",
-      "prismari_claim_0008",
-      "prismari_claim_0009",
-      "prismari_claim_0010",
-      "prismari_claim_0011",
-      "prismari_claim_0012",
-      "prismari_claim_0013",
-      "prismari_claim_0014"
+      "prismari_claim_001",
+      "prismari_claim_002",
+      "prismari_claim_003",
+      "prismari_claim_004",
+      "prismari_claim_0019",
+      "prismari_claim_0020",
+      "prismari_claim_0021",
+      "prismari_claim_0022",
+      "prismari_claim_0023",
+      "prismari_claim_0024",
+      "prismari_claim_0025",
+      "prismari_claim_0026",
+      "prismari_claim_0027",
+      "prismari_claim_0028",
+      "prismari_claim_0029",
+      "prismari_claim_0030",
+      "prismari_claim_0031",
+      "prismari_claim_0032"
     ],
-    "calibrated_primary_read": "Requires expressive art, emotional force, elemental performance, or creative spectacle.",
-    "calibrated_false_positive_guardrail": "Do not award for generic spectacle if the answer is provocation, engineering, or rhetoric.",
+    "calibrated_primary_read": "Requires practiced artistic or elemental form used to make a truth, idea, or emotion felt.",
+    "calibrated_false_positive_guardrail": "Do not award for generic creativity or spectacle when the center is mechanism, proof, rhetoric, transgression, or attention.",
     "evidence_claim_ids": [
       "prismari_claim_001",
       "prismari_claim_002",
       "prismari_claim_003",
       "prismari_claim_004",
       "prismari_claim_005",
-      "prismari_claim_006"
+      "prismari_claim_006",
+      "prismari_claim_0019",
+      "prismari_claim_0020",
+      "prismari_claim_0021",
+      "prismari_claim_0022",
+      "prismari_claim_0023",
+      "prismari_claim_0024",
+      "prismari_claim_0025",
+      "prismari_claim_0026",
+      "prismari_claim_0027",
+      "prismari_claim_0028",
+      "prismari_claim_0029",
+      "prismari_claim_0030",
+      "prismari_claim_0031",
+      "prismari_claim_0032"
     ]
   },
   "placement_axes": [
     {
-      "axis_id": "axis_expression_vs_optimization",
-      "label": "Expression vs Optimization",
-      "description": "Measures whether user answers align with Prismari College's specific evidence instead of only its color pair.",
-      "low_end_label": "private optimization",
-      "high_end_label": "performed feeling",
+      "axis_id": "axis_expression_through_craft",
+      "label": "Expression Through Craft",
+      "description": "Measures whether technique and creative force combine into a felt artistic or elemental experience.",
+      "low_end_label": "technique or intensity without expressive purpose",
+      "high_end_label": "practiced form carrying emotional truth",
       "faction_position": 88,
-      "rationale": "Corpus evidence adds story-context support for Prismari, Rootha, elemental, performance, art, expression, learn, Prismari College.",
+      "rationale": "Contract v1 Prismari foundation integrates technique, expression, revision, responsibility, and bounded neighbor distinctions.",
       "claim_ids": [
-        "prismari_claim_0007",
-        "prismari_claim_0008",
-        "prismari_claim_0009",
-        "prismari_claim_0010",
-        "prismari_claim_0011",
-        "prismari_claim_0012",
-        "prismari_claim_0013",
-        "prismari_claim_0014"
+        "prismari_claim_002",
+        "prismari_claim_003",
+        "prismari_claim_004",
+        "prismari_claim_0019",
+        "prismari_claim_0021",
+        "prismari_claim_0025",
+        "prismari_claim_0026",
+        "prismari_claim_0028",
+        "prismari_claim_0032"
       ],
-      "confidence": "Medium",
-      "notes": "Added during MTG-Stories corpus upgrade."
+      "confidence": "High",
+      "notes": "Semantic placement evidence only; no scoring-weight change."
     }
   ],
   "moral_and_psychological_profile": {
-    "summary": "Prismari College should be scored through faction-specific behavioral evidence, not only broad color identity.",
+    "summary": "Prismari is strongest when craft, expression, revision, and responsibility reinforce one another; it weakens when technique becomes sterile or spectacle abandons consequences.",
     "claim_ids": [
-      "prismari_claim_0007",
-      "prismari_claim_0008",
-      "prismari_claim_0009",
-      "prismari_claim_0010",
-      "prismari_claim_0011"
+      "prismari_claim_0025",
+      "prismari_claim_0026",
+      "prismari_claim_0027",
+      "prismari_claim_0032"
     ]
   },
   "core_values": [
     {
-      "value": "Prismari",
-      "placement_relevance": "Corpus search evidence for Prismari College.",
+      "value": "art and magic as one act",
+      "placement_relevance": "The work uses magical or elemental form as expression.",
       "claim_ids": [
-        "prismari_claim_0007",
-        "prismari_claim_0008",
-        "prismari_claim_0009"
-      ],
-      "confidence": "Medium"
+        "prismari_claim_002",
+        "prismari_claim_003"
+      ]
     },
     {
-      "value": "Rootha",
-      "placement_relevance": "Corpus search evidence for Prismari College.",
+      "value": "technique serving emotional truth",
+      "placement_relevance": "Practice gives expression a trustworthy form.",
       "claim_ids": [
-        "prismari_claim_0007",
-        "prismari_claim_0008",
-        "prismari_claim_0009"
-      ],
-      "confidence": "Medium"
+        "prismari_claim_004",
+        "prismari_claim_0019",
+        "prismari_claim_0025"
+      ]
     },
     {
-      "value": "elemental",
-      "placement_relevance": "Corpus search evidence for Prismari College.",
+      "value": "revision through response",
+      "placement_relevance": "Criticism and audience reaction improve the work.",
       "claim_ids": [
-        "prismari_claim_0007",
-        "prismari_claim_0008",
-        "prismari_claim_0009"
-      ],
-      "confidence": "Medium"
+        "prismari_claim_0021",
+        "prismari_claim_0027"
+      ]
     },
     {
-      "value": "performance",
-      "placement_relevance": "Corpus search evidence for Prismari College.",
+      "value": "collaboration without loss of voice",
+      "placement_relevance": "Art can be cooperative and still personal.",
       "claim_ids": [
-        "prismari_claim_0007",
-        "prismari_claim_0008",
-        "prismari_claim_0009"
-      ],
-      "confidence": "Medium"
+        "prismari_claim_0020",
+        "prismari_claim_0025"
+      ]
     },
     {
-      "value": "art",
-      "placement_relevance": "Corpus search evidence for Prismari College.",
+      "value": "many valid modes of expression",
+      "placement_relevance": "Prismari need not be a stereotypical stage performer.",
       "claim_ids": [
-        "prismari_claim_0007",
-        "prismari_claim_0008",
-        "prismari_claim_0009"
-      ],
-      "confidence": "Medium"
+        "prismari_claim_0022"
+      ]
     },
     {
-      "value": "expression",
-      "placement_relevance": "Corpus search evidence for Prismari College.",
+      "value": "responsible spectacle",
+      "placement_relevance": "Scale and intensity serve expression without making harm the purpose.",
       "claim_ids": [
-        "prismari_claim_0007",
-        "prismari_claim_0008",
-        "prismari_claim_0009"
-      ],
-      "confidence": "Medium"
-    },
-    {
-      "value": "learn",
-      "placement_relevance": "Corpus search evidence for Prismari College.",
-      "claim_ids": [
-        "prismari_claim_0007",
-        "prismari_claim_0008",
-        "prismari_claim_0009"
-      ],
-      "confidence": "Medium"
-    },
-    {
-      "value": "Prismari College",
-      "placement_relevance": "Corpus search evidence for Prismari College.",
-      "claim_ids": [
-        "prismari_claim_0007",
-        "prismari_claim_0008",
-        "prismari_claim_0009"
-      ],
-      "confidence": "Medium"
-    },
-    {
-      "value": "Uvilda",
-      "placement_relevance": "Corpus search evidence for Prismari College.",
-      "claim_ids": [
-        "prismari_claim_0007",
-        "prismari_claim_0008",
-        "prismari_claim_0009"
-      ],
-      "confidence": "Medium"
+        "prismari_claim_0023",
+        "prismari_claim_0024",
+        "prismari_claim_0025",
+        "prismari_claim_0026"
+      ]
     }
   ],
   "behavioral_signals": [
     {
-      "signal": "References A Living Flame, A Cry of Magic, The Chains That Bind as story-context evidence rather than relying only on color identity.",
-      "placement_relevance": "Strengthens Prismari College with corpus-backed specificity.",
-      "supports_match_when": "The user's answers echo Prismari, Rootha, elemental, performance, art, expression in a faction-specific way.",
-      "weakens_match_when": "The user's answers only match the shared color pair without any faction-specific behavior.",
+      "signal": "practices, presents, observes response, and revises",
+      "placement_relevance": "Supports mature Prismari craft.",
+      "supports_match_when": "Feedback changes the form without erasing the intended truth.",
+      "weakens_match_when": "Criticism causes only escalation or abandonment.",
       "claim_ids": [
-        "prismari_claim_0007",
-        "prismari_claim_0008",
-        "prismari_claim_0009",
-        "prismari_claim_0010",
-        "prismari_claim_0011",
-        "prismari_claim_0012"
+        "prismari_claim_0019",
+        "prismari_claim_0021",
+        "prismari_claim_0025",
+        "prismari_claim_0027"
       ],
-      "confidence": "Medium"
+      "confidence": "High"
     },
-    "feels ideas physically",
-    "communicates through artful force",
-    "values beauty and intensity together"
+    {
+      "signal": "chooses artistic or elemental form to make an idea felt",
+      "placement_relevance": "Separates expression from abstract correctness.",
+      "supports_match_when": "The medium and felt experience are central.",
+      "weakens_match_when": "Only mechanism or proof matters.",
+      "claim_ids": [
+        "prismari_claim_002",
+        "prismari_claim_003",
+        "prismari_claim_0022",
+        "prismari_claim_0028",
+        "prismari_claim_0030"
+      ],
+      "confidence": "High"
+    },
+    {
+      "signal": "works privately, collaboratively, or publicly without requiring spectacle",
+      "placement_relevance": "Prevents performer stereotype overfit.",
+      "supports_match_when": "Expression remains meaningful across audience sizes.",
+      "weakens_match_when": "Attention itself is the goal.",
+      "claim_ids": [
+        "prismari_claim_0020",
+        "prismari_claim_0021",
+        "prismari_claim_0022",
+        "prismari_claim_0025",
+        "prismari_claim_0026"
+      ],
+      "confidence": "High"
+    },
+    {
+      "signal": "contains the consequences of powerful creative work",
+      "placement_relevance": "Separates mature expression from destructive residue.",
+      "supports_match_when": "Responsibility remains part of the craft.",
+      "weakens_match_when": "Damage is treated as proof of authenticity.",
+      "claim_ids": [
+        "prismari_claim_0023",
+        "prismari_claim_0024",
+        "prismari_claim_0025",
+        "prismari_claim_0026",
+        "prismari_claim_0027"
+      ],
+      "confidence": "High"
+    }
   ],
   "inhibitor_traits": [
     {
-      "trait": "Generic color-pair overfit",
-      "why_it_conflicts": "The corpus upgrade is intended to prevent Prismari College from winning on broad color identity alone.",
+      "trait": "mechanism replacing art",
+      "why_it_conflicts": "The answer centers prototype function, public works, or technical outcomes rather than felt artistic experience.",
       "status": "Supported Interpretation",
       "claim_ids": [
-        "prismari_claim_0007",
-        "prismari_claim_0008",
-        "prismari_claim_0009",
-        "prismari_claim_0010"
+        "prismari_claim_0028"
       ],
-      "confidence": "Medium",
-      "notes": "Use collision questions when another faction shares the same or adjacent colors."
+      "confidence": "High"
     },
-    "experiments to solve mechanisms",
-    "uses words for status",
-    "performs to unsettle rather than express"
+    {
+      "trait": "provocation replacing expression",
+      "why_it_conflicts": "The answer centers transgression, cruelty, chaos, or parody of authority.",
+      "status": "Supported Interpretation",
+      "claim_ids": [
+        "prismari_claim_0029"
+      ],
+      "confidence": "High"
+    },
+    {
+      "trait": "proof replacing experience",
+      "why_it_conflicts": "The answer centers mathematical structure or proof as the final end.",
+      "status": "Supported Interpretation",
+      "claim_ids": [
+        "prismari_claim_0030"
+      ],
+      "confidence": "High"
+    },
+    {
+      "trait": "rhetoric replacing elemental art",
+      "why_it_conflicts": "The answer centers verbal influence, status, or reputation.",
+      "status": "Supported Interpretation",
+      "claim_ids": [
+        "prismari_claim_0031"
+      ],
+      "confidence": "High"
+    },
+    {
+      "trait": "spectacle without responsibility",
+      "why_it_conflicts": "The answer treats attention, damage, or dangerous residue as success.",
+      "status": "Supported Interpretation",
+      "claim_ids": [
+        "prismari_claim_0024",
+        "prismari_claim_0026",
+        "prismari_claim_0027"
+      ],
+      "confidence": "High"
+    }
   ],
   "good_fit_indicators": [
     {
-      "indicator": "thinks through art or performance",
-      "rationale": "Matches the official Prismari College identity summarized in the profile.",
+      "indicator": "thinks through art or elemental form, not merely abstract correctness",
+      "rationale": "Contract v1 Prismari semantic evidence.",
       "claim_ids": [
-        "prismari_claim_001"
+        "prismari_claim_002",
+        "prismari_claim_003",
+        "prismari_claim_0022",
+        "prismari_claim_0025"
       ],
-      "confidence": "Medium"
+      "confidence": "High"
     },
     {
-      "indicator": "values emotional truth and craft",
-      "rationale": "Matches the official Prismari College identity summarized in the profile.",
+      "indicator": "uses disciplined technique to carry emotional or conceptual truth",
+      "rationale": "Contract v1 Prismari semantic evidence.",
       "claim_ids": [
-        "prismari_claim_002"
+        "prismari_claim_004",
+        "prismari_claim_0019",
+        "prismari_claim_0025"
       ],
-      "confidence": "Medium"
+      "confidence": "High"
     },
     {
-      "indicator": "wants work to be felt, not merely understood",
-      "rationale": "Matches the official Prismari College identity summarized in the profile.",
+      "indicator": "revises work through practice, criticism, collaboration, or audience response",
+      "rationale": "Contract v1 Prismari semantic evidence.",
       "claim_ids": [
-        "prismari_claim_003"
+        "prismari_claim_0019",
+        "prismari_claim_0020",
+        "prismari_claim_0021",
+        "prismari_claim_0025"
       ],
-      "confidence": "Medium"
+      "confidence": "High"
+    },
+    {
+      "indicator": "can make quiet, private, visual, physical, musical, immersive, or public work",
+      "rationale": "Contract v1 Prismari semantic evidence.",
+      "claim_ids": [
+        "prismari_claim_0020",
+        "prismari_claim_0022"
+      ],
+      "confidence": "High"
+    },
+    {
+      "indicator": "accepts responsibility for the consequences of powerful expression",
+      "rationale": "Contract v1 Prismari semantic evidence.",
+      "claim_ids": [
+        "prismari_claim_0023",
+        "prismari_claim_0024",
+        "prismari_claim_0025",
+        "prismari_claim_0026"
+      ],
+      "confidence": "High"
     }
   ],
   "calibration_tuning": {
     "required_positive_evidence_terms": [
-      "expression",
-      "performance",
       "art",
-      "emotion",
+      "expression",
+      "felt",
       "elemental",
-      "creativity",
-      "dramatic",
-      "style",
-      "movement",
-      "spectacle"
+      "medium",
+      "technique",
+      "practice",
+      "revision",
+      "audience",
+      "collaboration",
+      "responsibility"
     ],
     "required_positive_min_hits": 2,
     "broad_match_penalty": 0.1,
     "strengthen_when_user_centers": [
-      "emotion as art",
-      "elemental expression",
-      "creative performance",
-      "style as force"
+      "technique serving expression",
+      "elemental or artistic medium",
+      "revision through response",
+      "responsible felt experience"
     ],
     "suppress_when_user_centers": [
       "mechanical experiment",
-      "precise rhetoric",
-      "dangerous transgression",
+      "prototype function",
       "mathematical proof",
-      "archive evidence"
+      "rhetorical influence",
+      "transgressive performance",
+      "attention without responsibility"
     ],
-    "false_positive_guardrail": "Do not award for generic spectacle if the answer is provocation, engineering, or rhetoric.",
-    "smoke_test_note": "Used by lore review scripts as metadata-level calibration guidance; production placement may use richer weighted logic."
+    "false_positive_guardrail": "Do not award for generic creativity, spectacle, emotion, or blue-red identity without artistic purpose and practiced form.",
+    "smoke_test_note": "Used by lore review scripts as metadata-level calibration guidance; production placement may use richer weighted logic.",
+    "evidence_claim_ids": [
+      "prismari_claim_0025",
+      "prismari_claim_0026",
+      "prismari_claim_0027",
+      "prismari_claim_0028",
+      "prismari_claim_0029",
+      "prismari_claim_0030",
+      "prismari_claim_0031",
+      "prismari_claim_0032"
+    ]
   },
   "collision_guidance": [
     {
-      "collision_id": "collision_prismari_vs_quandrix_placement_ready",
-      "against": "quandrix",
-      "lateral_inhibition": false,
-      "separator": "Prismari makes the pattern land as art and experience; Quandrix proves the pattern through model and abstraction.",
-      "ask": "When a pattern is correct but lifeless, do you prove it more carefully or make it land as an experience?",
-      "suppress_if": "the answer centers proof, mathematical models, hidden structure, or abstraction before performance",
+      "collision_id": "collision_prismari_vs_izzet_contract_v1",
+      "against": "izzet_league",
+      "lateral_inhibition": true,
+      "separator": "Prismari uses practiced form to make inner truth felt; Izzet centers mechanism, experiment, invention, public works, and technical outcomes.",
+      "ask": "When you create something new, is the breakthrough successful because the mechanism works, or because practiced form makes an inner truth felt?",
+      "suppress_if": "the answer centers prototype function, infrastructure, mechanism, or experimental outcome",
       "evidence_claim_ids": [
-        "prismari_claim_002",
-        "prismari_claim_003",
         "prismari_claim_004",
-        "prismari_claim_006"
+        "prismari_claim_0019",
+        "prismari_claim_0025",
+        "prismari_claim_0028",
+        "prismari_claim_0032"
       ]
     },
     {
-      "collision_id": "collision_prismari_vs_silverquill_placement_ready",
-      "against": "silverquill",
+      "collision_id": "collision_prismari_vs_rakdos_contract_v1",
+      "against": "cult_of_rakdos",
       "lateral_inhibition": false,
-      "separator": "Prismari moves the room through art, performance, and elemental spectacle; Silverquill moves the room through precise words and public influence.",
-      "ask": "When language can move a room, should it become a precise argument, a public performance, or an elemental spectacle?",
-      "suppress_if": "the answer centers rhetoric, reputation, leadership, or word-magic influence before expressive art",
+      "separator": "Prismari performs to express through artistic or elemental form; Rakdos performs to transgress, parody authority, intensify sensation, or embrace destructive chaos.",
+      "ask": "If the performance unsettles the room, is that collateral to expression or the point of the act?",
+      "suppress_if": "provocation, cruelty, chaos, or authority-parody is the primary aim",
+      "evidence_claim_ids": [
+        "prismari_claim_0023",
+        "prismari_claim_0025",
+        "prismari_claim_0026",
+        "prismari_claim_0029",
+        "prismari_claim_0032"
+      ]
+    },
+    {
+      "collision_id": "collision_prismari_vs_quandrix_contract_v1",
+      "against": "quandrix",
+      "lateral_inhibition": false,
+      "separator": "Prismari makes the pattern land as felt art; Quandrix pursues mathematical model, proof, and fundamental structure.",
+      "ask": "When a pattern is correct but lifeless, do you prove it more carefully or make it land as an experience?",
+      "suppress_if": "proof, model, or abstract structure is the final aim",
       "evidence_claim_ids": [
         "prismari_claim_002",
         "prismari_claim_003",
         "prismari_claim_004",
-        "prismari_claim_006"
+        "prismari_claim_0030",
+        "prismari_claim_0032"
+      ]
+    },
+    {
+      "collision_id": "collision_prismari_vs_silverquill_contract_v1",
+      "against": "silverquill",
+      "lateral_inhibition": false,
+      "separator": "Prismari uses artistic and elemental media; Silverquill uses spoken or written language, reputation, and influence.",
+      "ask": "When language can move a room, should it become a precise argument, a public performance, or an elemental spectacle?",
+      "suppress_if": "rhetoric, reputation, leadership, or verbal influence is the final aim",
+      "evidence_claim_ids": [
+        "prismari_claim_002",
+        "prismari_claim_003",
+        "prismari_claim_0022",
+        "prismari_claim_0031",
+        "prismari_claim_0032"
       ]
     }
-  ]
+  ],
+  "semantic_guidance_evidence": [
+    {
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_match/0",
+      "canonical_content_hash": "sha256:6bf7153018e525a9a9f5c9cc76771ebce403049fea523aea1a5a74f2880c188e",
+      "evidence_claim_ids": [
+        "prismari_claim_004",
+        "prismari_claim_0025"
+      ]
+    },
+    {
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_match/1",
+      "canonical_content_hash": "sha256:eba0202615ec6dfcc46622d0d9ab1261ef6a53dbe4b0ea6a8c23294c35063090",
+      "evidence_claim_ids": [
+        "prismari_claim_0019",
+        "prismari_claim_0020",
+        "prismari_claim_0021",
+        "prismari_claim_0025"
+      ]
+    },
+    {
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_match/2",
+      "canonical_content_hash": "sha256:8ab9acdea8ee92ea9f77a532e9d8993afdd6353931a542057b4052b7b9900e6b",
+      "evidence_claim_ids": [
+        "prismari_claim_0022",
+        "prismari_claim_0025"
+      ]
+    },
+    {
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_mismatch/0",
+      "canonical_content_hash": "sha256:141bc05ee6603b91667c646374d63d47a2b624c7629e7d2544acb570679d1ab8",
+      "evidence_claim_ids": [
+        "prismari_claim_0028"
+      ]
+    },
+    {
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_mismatch/1",
+      "canonical_content_hash": "sha256:90c1fb6356f686ab72b2250377dd84005edf92a5ad37910f8d8ad87f89277913",
+      "evidence_claim_ids": [
+        "prismari_claim_0029"
+      ]
+    },
+    {
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_mismatch/2",
+      "canonical_content_hash": "sha256:7c8b3988d313e26546be3ef79faf2d3f496c232dc654cad42ffdec4e3863bdcf",
+      "evidence_claim_ids": [
+        "prismari_claim_0030",
+        "prismari_claim_0031"
+      ]
+    },
+    {
+      "canonical_pointer": "/chatbot_guidance/questions_to_ask_when_uncertain/0",
+      "canonical_content_hash": "sha256:26ac077d13f2e19ae55c933fd521b00b5e17133be441ca1fd983385fa003a454",
+      "evidence_claim_ids": [
+        "prismari_claim_0028",
+        "prismari_claim_0029",
+        "prismari_claim_0030",
+        "prismari_claim_0031",
+        "prismari_claim_0032"
+      ]
+    },
+    {
+      "canonical_pointer": "/chatbot_guidance/questions_to_ask_when_uncertain/1",
+      "canonical_content_hash": "sha256:17d9465b0b5b4abcb318bc73190af6676e1446136ce9a4261723320838d92697",
+      "evidence_claim_ids": [
+        "prismari_claim_0021",
+        "prismari_claim_0024",
+        "prismari_claim_0027"
+      ]
+    },
+    {
+      "canonical_pointer": "/chatbot_guidance/questions_to_ask_when_uncertain/2",
+      "canonical_content_hash": "sha256:fc7b8281ddd5cb2e5dacd61f20a897f3b6ddbecfb68b4419f8ea74ce39b94550",
+      "evidence_claim_ids": [
+        "prismari_claim_004",
+        "prismari_claim_0025",
+        "prismari_claim_0026"
+      ]
+    },
+    {
+      "canonical_pointer": "/chatbot_guidance/questions_to_ask_when_uncertain/3",
+      "canonical_content_hash": "sha256:e302ce9698c202bba834b429272071a4c860ca56808acf8b900c7fbd1c96c860",
+      "evidence_claim_ids": [
+        "prismari_claim_0020",
+        "prismari_claim_0021",
+        "prismari_claim_0022",
+        "prismari_claim_0025"
+      ]
+    }
+  ],
+  "semantic_readiness": {
+    "contract_version": "v1",
+    "certification_status": "candidate",
+    "required_neighbors": [
+      "UR",
+      "BR",
+      "QUANDRIX",
+      "SILVERQUILL"
+    ],
+    "audit_report": "docs/incidents/recoveries/VM-502-prismari-semantic-recovery.md"
+  }
 }

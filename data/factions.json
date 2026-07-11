@@ -9272,7 +9272,8 @@
                 "prismari_claim_0017"
               ],
               "support_only": true,
-              "boundary": "Official product/card-data support only."
+              "boundary": "Official product/card-data support only.",
+              "evidence_use": "auxiliary_support"
             },
             "confidence": "High for product/card identity; support-only for recommendation texture.",
             "caution_notes": [
@@ -9315,7 +9316,8 @@
                 "prismari_claim_0017"
               ],
               "support_only": true,
-              "boundary": "Official product/card-data support only."
+              "boundary": "Official product/card-data support only.",
+              "evidence_use": "auxiliary_support"
             },
             "confidence": "High for product/card identity; support-only for recommendation texture.",
             "caution_notes": [
@@ -9406,7 +9408,8 @@
               "src_scryfall_oracle_cards_local_strixhaven_20260613"
             ],
             "confidence": "High for product/card fact; support-only for lore and recommendations.",
-            "notes": "Product row can support deck availability, commander name, and navigation only."
+            "notes": "Product row can support deck availability, commander name, and navigation only.",
+            "evidence_use": "auxiliary_support"
           },
           {
             "character_id": "card_muddle_the_ever_changing",
@@ -9421,7 +9424,8 @@
               "src_scryfall_oracle_cards_local_strixhaven_20260613"
             ],
             "confidence": "High for product/card fact; support-only for lore and recommendations.",
-            "notes": "Product row can support deck availability, commander name, and navigation only."
+            "notes": "Product row can support deck availability, commander name, and navigation only.",
+            "evidence_use": "auxiliary_support"
           }
         ],
         "canonical_flavor_text": [
@@ -9438,7 +9442,8 @@
             "source_ids": [
               "src_scryfall_oracle_cards_local_strixhaven_20260613"
             ],
-            "notes": "VM-378/379 card-flavor anchor verified through local Scryfall data; summary only, no long flavor text copied into public/generated surfaces."
+            "notes": "VM-378/379 card-flavor anchor verified through local Scryfall data; summary only, no long flavor text copied into public/generated surfaces.",
+            "evidence_use": "auxiliary_support"
           },
           {
             "card_name": "Prismari Apprentice",
@@ -9453,7 +9458,8 @@
             "source_ids": [
               "src_scryfall_oracle_cards_local_strixhaven_20260613"
             ],
-            "notes": "VM-378/379 card-flavor anchor verified through local Scryfall data; summary only, no long flavor text copied into public/generated surfaces."
+            "notes": "VM-378/379 card-flavor anchor verified through local Scryfall data; summary only, no long flavor text copied into public/generated surfaces.",
+            "evidence_use": "auxiliary_support"
           },
           {
             "card_name": "Prismari Pledgemage",
@@ -9468,7 +9474,8 @@
             "source_ids": [
               "src_scryfall_oracle_cards_local_strixhaven_20260613"
             ],
-            "notes": "VM-378/379 card-flavor anchor verified through local Scryfall data; summary only, no long flavor text copied into public/generated surfaces."
+            "notes": "VM-378/379 card-flavor anchor verified through local Scryfall data; summary only, no long flavor text copied into public/generated surfaces.",
+            "evidence_use": "auxiliary_support"
           }
         ],
         "views_on_other_factions": [],

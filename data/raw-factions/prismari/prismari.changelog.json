@@ -2,7 +2,7 @@
   "schema_version": "1.0.0",
   "faction_id": "prismari",
   "faction_name": "Prismari College",
-  "last_updated": "2026-06-13",
+  "last_updated": "2026-07-11",
   "changes": [
     {
       "change_id": "change_prismari_placement_ready_20260510025603",
@@ -132,24 +132,117 @@
         "Keep discovery-only story figures, deans/founders, and long flavor text deferred until direct source rows are promoted."
       ],
       "notes": "No public API, schema, route, Home preview, alias, hero, unrelated placement expansion, staging, or commit changes."
+    },
+    {
+      "change_id": "prismari_change_crit001_vm502_semantic_recovery_20260711",
+      "change_type": "CRIT-001 Contract v1 Semantic Recovery",
+      "change_date": "2026-07-11",
+      "summary": "Classified discovery/support/substantive records, localized evidence, extracted bounded official-guide claims, repaired invalid semantic references, added four grounded neighbor boundaries, added one direct Izzet discriminator, and preserved guidance provenance without changing Hall/Crucible or scoring.",
+      "sources_added": [
+        "src_izzet_league_0002",
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019"
+      ],
+      "sources_updated": [
+        "src_wotc_planeswalkers_guide_strixhaven_2021",
+        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026"
+      ],
+      "claims_added": [
+        "prismari_claim_0019",
+        "prismari_claim_0020",
+        "prismari_claim_0021",
+        "prismari_claim_0022",
+        "prismari_claim_0023",
+        "prismari_claim_0024",
+        "prismari_claim_0025",
+        "prismari_claim_0026",
+        "prismari_claim_0027",
+        "prismari_claim_0028",
+        "prismari_claim_0029",
+        "prismari_claim_0030",
+        "prismari_claim_0031",
+        "prismari_claim_0032"
+      ],
+      "claims_updated": [
+        "prismari_claim_001",
+        "prismari_claim_002",
+        "prismari_claim_003",
+        "prismari_claim_004",
+        "prismari_claim_005",
+        "prismari_claim_006",
+        "prismari_claim_0007",
+        "prismari_claim_0008",
+        "prismari_claim_0009",
+        "prismari_claim_0010",
+        "prismari_claim_0011",
+        "prismari_claim_0012",
+        "prismari_claim_0013",
+        "prismari_claim_0014",
+        "prismari_claim_0015",
+        "prismari_claim_0016",
+        "prismari_claim_0017",
+        "prismari_claim_0018"
+      ],
+      "claims_superseded": [],
+      "claims_contradicted": [],
+      "profile_fields_updated": [
+        "profile",
+        "evidence_summary",
+        "core_identity",
+        "site_surface",
+        "structure",
+        "great_tension",
+        "mechanics",
+        "semantic_coverage",
+        "semantic_readiness",
+        "evidence_use boundaries"
+      ],
+      "placement_fields_updated": [
+        "ideal_fit_indicators",
+        "poor_fit_indicators",
+        "discriminator_questions",
+        "chatbot_guidance",
+        "semantic_guidance_evidence",
+        "placement_summary",
+        "placement_axes",
+        "moral_and_psychological_profile",
+        "core_values",
+        "behavioral_signals",
+        "inhibitor_traits",
+        "calibration_tuning evidence",
+        "collision_guidance",
+        "semantic_readiness"
+      ],
+      "manual_review_required": [
+        "Independent reviewer must inspect the exact candidate recovery SHA before certification."
+      ],
+      "notes": "Runtime scheduling, Hall/Crucible content, scoring, lateral inhibition, confidence formulas, and live recruiter outcomes remain outside CRIT-001."
     }
   ],
   "audit_summary": {
     "faction_researched": "Prismari College",
     "plane_or_setting": "Arcavios / Strixhaven",
-    "number_of_sources_reviewed": 15,
-    "number_of_official_sources_used": 3,
+    "number_of_sources_reviewed": 17,
+    "number_of_official_sources_used": 5,
     "number_of_repository_archive_sources_used": 10,
     "number_of_secondary_discovery_sources_used": 0,
-    "number_of_claims_verified": 18,
-    "number_of_claims_marked_uncertain": 0,
+    "number_of_claims_verified": 32,
+    "semantic_role_counts": {
+      "substantive_claim": 20,
+      "discovery_record": 10,
+      "support_record": 2,
+      "unclassified": 0
+    },
     "sections_with_limited_evidence": [
-      "deep story episode coverage",
-      "current post-source leadership status where later canon may update the cited-era overview"
+      "deep story episode coverage remains optional enrichment",
+      "runtime outcome calibration is outside semantic certification"
     ],
     "conflicting_sources_found": [],
-    "assumptions_removed_during_validation": [],
-    "overall_confidence_rating": "Medium-High for bounded public richness; support-only for Commander/deck surfaces.",
-    "last_placement_ready_pass": "2026-05-10T02:56:03.254Z"
+    "assumptions_removed_during_validation": [
+      "Discovery/search-match records no longer support authoritative semantic statements.",
+      "Prismari is not limited to stereotypical public stage performance.",
+      "Question-count parity is not a readiness goal."
+    ],
+    "overall_confidence_rating": "Candidate semantically ready under CRIT-001 Contract v1; independent certification pending.",
+    "last_semantic_recovery_pass": "2026-07-11"
   }
 }

@@ -8,13 +8,13 @@
     "blue",
     "red"
   ],
-  "last_updated": "2026-06-13",
+  "last_updated": "2026-07-11",
   "profile": {
-    "overview": "Prismari College is a blue-red college associated with Arcavios / Strixhaven.",
-    "philosophy": "Magic and art are the same act when craft, emotion, spectacle, and elemental force become expression.",
-    "core_tension": "Prismari splits between disciplined technique and raw expression, blue refinement and red catharsis.",
-    "social_or_institutional_role": "The official guides frame Prismari as the College of Elemental Arts, whose students make magic through performance and elemental media.",
-    "mechanics_and_play_pattern": "Prismari's mechanical and thematic identity centers on spells, elemental scale, performance, and expressive payoff.",
+    "overview": "Prismari is Strixhaven's blue-red College of Elemental Arts, where magic becomes art through trained technique, emotional truth, and elemental media.",
+    "philosophy": "Prismari treats magic and art as the same act. Its central question is how practiced craft and expressive emotion can intensify one another rather than collapse into technique-only or spectacle-only work.",
+    "core_tension": "Prismari balances disciplined refinement with raw expression, including the responsibility to revise, collaborate, and contain the consequences of powerful creative work.",
+    "social_or_institutional_role": "Prismari trains artists through coursework, residencies, apprenticeship, cooperation, galleries, and audience-facing performance across many media.",
+    "mechanics_and_play_pattern": "Prismari's supported thematic center is expressive spellcraft and elemental media; mechanical examples are texture, not substitutes for semantic evidence.",
     "placement_use": "Use this profile to support thematic placement, quiz design, and lore browsing. Do not present placement inferences as canon.",
     "strongest_source_ids": [
       "src_wotc_planeswalkers_guide_strixhaven_2021",
@@ -27,63 +27,73 @@
       "prismari_claim_003",
       "prismari_claim_004",
       "prismari_claim_005",
-      "prismari_claim_006"
+      "prismari_claim_006",
+      "prismari_claim_0019",
+      "prismari_claim_0020",
+      "prismari_claim_0021",
+      "prismari_claim_0022",
+      "prismari_claim_0023",
+      "prismari_claim_0024",
+      "prismari_claim_0025",
+      "prismari_claim_0026",
+      "prismari_claim_0027"
     ]
   },
   "evidence_summary": {
-    "overall_confidence": "High",
+    "overall_confidence": "High for official-guide foundations; interpretive claims remain explicitly labeled.",
     "limitations": [
-      "This is a compact first-pass JSON package generated from official overview and mechanics sources.",
-      "Novel-level or story-episode-specific details should be added in a later deep-dive pass with direct story citations."
+      "The packet intentionally stops after evidence required for Contract v1 readiness.",
+      "Discovery-only story records remain research pointers and do not support semantic statements.",
+      "Runtime scoring and recruiter outcomes are outside semantic certification."
     ]
   },
   "profile_version": "1.0.0",
-  "source_review_date": "2026-06-13",
-  "last_incremental_review": "2026-06-13",
+  "source_review_date": "2026-07-11",
+  "last_incremental_review": "2026-07-11",
   "core_identity": {
-    "summary": "Prismari College is a blue-red college associated with Arcavios / Strixhaven.",
-    "philosophy": "Magic and art are the same act when craft, emotion, spectacle, and elemental force become expression.",
-    "central_tension": "Prismari splits between disciplined technique and raw expression, blue refinement and red catharsis.",
+    "summary": "Prismari is Strixhaven's blue-red College of Elemental Arts, where magic becomes art through trained technique, emotional truth, and elemental media.",
+    "philosophy": "Prismari treats magic and art as the same act. Its central question is how practiced craft and expressive emotion can intensify one another rather than collapse into technique-only or spectacle-only work.",
+    "central_tension": "Prismari balances disciplined refinement with raw expression, including the responsibility to revise, collaborate, and contain the consequences of powerful creative work.",
     "claim_ids": [
-      "prismari_claim_0007",
-      "prismari_claim_0008",
-      "prismari_claim_0009",
-      "prismari_claim_0010",
-      "prismari_claim_0011",
-      "prismari_claim_0012",
-      "prismari_claim_0013",
-      "prismari_claim_0014"
+      "prismari_claim_001",
+      "prismari_claim_002",
+      "prismari_claim_003",
+      "prismari_claim_004",
+      "prismari_claim_0022",
+      "prismari_claim_0025"
     ]
   },
   "site_surface": {
     "display_name": "Prismari College",
     "short_label": "Prismari College",
-    "tagline": "Magic and art are the same act when craft, emotion, spectacle, and elemental force become expression.",
+    "tagline": "Disciplined craft gives emotional truth an elemental form.",
     "claim_ids": [
-      "prismari_claim_0007",
-      "prismari_claim_0008",
-      "prismari_claim_0009",
-      "prismari_claim_0010"
+      "prismari_claim_001",
+      "prismari_claim_002",
+      "prismari_claim_003",
+      "prismari_claim_004",
+      "prismari_claim_0022",
+      "prismari_claim_0025"
     ]
   },
   "structure": {
-    "summary": "The official guides frame Prismari as the College of Elemental Arts, whose students make magic through performance and elemental media.",
+    "summary": "Prismari trains artists through coursework, residencies, apprenticeship, cooperation, galleries, and audience-facing performance across many media.",
     "claim_ids": [
-      "prismari_claim_0007",
-      "prismari_claim_0008",
-      "prismari_claim_0009",
-      "prismari_claim_0010"
+      "prismari_claim_001",
+      "prismari_claim_005",
+      "prismari_claim_0019",
+      "prismari_claim_0020",
+      "prismari_claim_0021"
     ]
   },
   "great_tension": {
-    "summary": "Prismari splits between disciplined technique and raw expression, blue refinement and red catharsis.",
-    "placement_relevance": "Used to distinguish surface color overlap from faction-specific behavior.",
+    "summary": "Technique can carry expression, or become sterile control; expression can become honest art, or outrun craft and responsibility.",
+    "placement_relevance": "Distinguishes mature integration from technique-only optimization and consequence-free spectacle.",
     "claim_ids": [
-      "prismari_claim_0007",
-      "prismari_claim_0008",
-      "prismari_claim_0009",
-      "prismari_claim_0010",
-      "prismari_claim_0011"
+      "prismari_claim_004",
+      "prismari_claim_0025",
+      "prismari_claim_0026",
+      "prismari_claim_0027"
     ]
   },
   "historical_timeline": [],
@@ -118,7 +128,8 @@
         "src_scryfall_oracle_cards_local_strixhaven_20260613"
       ],
       "confidence": "High for product/card fact; support-only for lore and recommendations.",
-      "notes": "Product row can support deck availability, commander name, and navigation only."
+      "notes": "Product row can support deck availability, commander name, and navigation only.",
+      "evidence_use": "auxiliary_support"
     },
     {
       "character_id": "card_muddle_the_ever_changing",
@@ -133,7 +144,8 @@
         "src_scryfall_oracle_cards_local_strixhaven_20260613"
       ],
       "confidence": "High for product/card fact; support-only for lore and recommendations.",
-      "notes": "Product row can support deck availability, commander name, and navigation only."
+      "notes": "Product row can support deck availability, commander name, and navigation only.",
+      "evidence_use": "auxiliary_support"
     }
   ],
   "canonical_flavor_text": [
@@ -150,7 +162,8 @@
       "source_ids": [
         "src_scryfall_oracle_cards_local_strixhaven_20260613"
       ],
-      "notes": "VM-378/379 card-flavor anchor verified through local Scryfall data; summary only, no long flavor text copied into public/generated surfaces."
+      "notes": "VM-378/379 card-flavor anchor verified through local Scryfall data; summary only, no long flavor text copied into public/generated surfaces.",
+      "evidence_use": "auxiliary_support"
     },
     {
       "card_name": "Prismari Apprentice",
@@ -165,7 +178,8 @@
       "source_ids": [
         "src_scryfall_oracle_cards_local_strixhaven_20260613"
       ],
-      "notes": "VM-378/379 card-flavor anchor verified through local Scryfall data; summary only, no long flavor text copied into public/generated surfaces."
+      "notes": "VM-378/379 card-flavor anchor verified through local Scryfall data; summary only, no long flavor text copied into public/generated surfaces.",
+      "evidence_use": "auxiliary_support"
     },
     {
       "card_name": "Prismari Pledgemage",
@@ -180,18 +194,20 @@
       "source_ids": [
         "src_scryfall_oracle_cards_local_strixhaven_20260613"
       ],
-      "notes": "VM-378/379 card-flavor anchor verified through local Scryfall data; summary only, no long flavor text copied into public/generated surfaces."
+      "notes": "VM-378/379 card-flavor anchor verified through local Scryfall data; summary only, no long flavor text copied into public/generated surfaces.",
+      "evidence_use": "auxiliary_support"
     }
   ],
   "views_on_other_factions": [],
   "mechanics": {
     "summary": "Prismari's mechanical and thematic identity centers on spells, elemental scale, performance, and expressive payoff.",
     "claim_ids": [
-      "prismari_claim_0007",
-      "prismari_claim_0008",
-      "prismari_claim_0009",
-      "prismari_claim_0010"
-    ]
+      "prismari_claim_003",
+      "prismari_claim_0022",
+      "prismari_claim_0023",
+      "prismari_claim_0024"
+    ],
+    "evidence_use": "semantic"
   },
   "search_and_filter_metadata": {
     "search_keywords": [
@@ -251,7 +267,8 @@
         "prismari_claim_0014",
         "prismari_claim_0015",
         "prismari_claim_0016"
-      ]
+      ],
+      "evidence_use": "discovery_metadata"
     },
     "raw_enrichment": {
       "review_date": "2026-06-13",
@@ -354,7 +371,8 @@
             "prismari_claim_0017"
           ],
           "support_only": true,
-          "boundary": "Official product/card-data support only."
+          "boundary": "Official product/card-data support only.",
+          "evidence_use": "auxiliary_support"
         },
         "confidence": "High for product/card identity; support-only for recommendation texture.",
         "caution_notes": [
@@ -397,7 +415,8 @@
             "prismari_claim_0017"
           ],
           "support_only": true,
-          "boundary": "Official product/card-data support only."
+          "boundary": "Official product/card-data support only.",
+          "evidence_use": "auxiliary_support"
         },
         "confidence": "High for product/card identity; support-only for recommendation texture.",
         "caution_notes": [
@@ -461,5 +480,86 @@
     "official_deck_gallery": "https://magic.wizards.com/en/products/secrets-of-strixhaven/card-image-gallery?cigproduct=sos-products-commander-deck-4-prismari",
     "scryfall_exact_commander_search": "https://scryfall.com/search?q=id%3Dur+is%3Acommander+f%3Acommander",
     "scryfall_flavor_anchor_context": "data/scryfall/raw/oracle-cards.json (Prismari Campus, Prismari Apprentice, Prismari Pledgemage)"
+  },
+  "semantic_coverage": {
+    "core_identity": {
+      "summary": "Magic and art are one act expressed through elemental media.",
+      "evidence_claim_ids": [
+        "prismari_claim_001",
+        "prismari_claim_002",
+        "prismari_claim_003"
+      ]
+    },
+    "internal_tension": {
+      "summary": "Disciplined technique and emotional expression must strengthen rather than erase one another.",
+      "evidence_claim_ids": [
+        "prismari_claim_004",
+        "prismari_claim_0025",
+        "prismari_claim_0026"
+      ]
+    },
+    "motivation": {
+      "summary": "Make an inner truth or idea take a form that can be felt.",
+      "evidence_claim_ids": [
+        "prismari_claim_002",
+        "prismari_claim_003",
+        "prismari_claim_0022",
+        "prismari_claim_0025"
+      ]
+    },
+    "preferred_method": {
+      "summary": "Practice, choose a medium, present, observe response, and refine.",
+      "evidence_claim_ids": [
+        "prismari_claim_004",
+        "prismari_claim_0019",
+        "prismari_claim_0021",
+        "prismari_claim_0025"
+      ]
+    },
+    "mature_expression": {
+      "summary": "Integrates craft, emotion, revision, collaboration, audience awareness, and responsibility.",
+      "evidence_claim_ids": [
+        "prismari_claim_0020",
+        "prismari_claim_0021",
+        "prismari_claim_0023",
+        "prismari_claim_0025"
+      ]
+    },
+    "unhealthy_expression": {
+      "summary": "Lets spectacle or release outrun technique, responsibility, and consequences.",
+      "evidence_claim_ids": [
+        "prismari_claim_0024",
+        "prismari_claim_0026"
+      ]
+    },
+    "failure_or_pressure": {
+      "summary": "Revises from response or escalates and abandons consequences.",
+      "evidence_claim_ids": [
+        "prismari_claim_0021",
+        "prismari_claim_0024",
+        "prismari_claim_0027"
+      ]
+    },
+    "uncertainty": {
+      "summary": "Requires purpose evidence when technique and expression overlap with neighboring identities.",
+      "evidence_claim_ids": [
+        "prismari_claim_0028",
+        "prismari_claim_0029",
+        "prismari_claim_0030",
+        "prismari_claim_0031",
+        "prismari_claim_0032"
+      ]
+    }
+  },
+  "semantic_readiness": {
+    "contract_version": "v1",
+    "certification_status": "candidate",
+    "required_neighbors": [
+      "UR",
+      "BR",
+      "QUANDRIX",
+      "SILVERQUILL"
+    ],
+    "audit_report": "docs/incidents/recoveries/VM-502-prismari-semantic-recovery.md"
   }
 }

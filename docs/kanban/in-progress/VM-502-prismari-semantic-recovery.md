@@ -15,10 +15,10 @@ Recover Prismari end to end under CRIT-001: audit the existing packet, bound rea
 
 ## Gates
 
-- [ ] Gate 1 — Packet audit and bounded disposition.
-- [ ] Gate 2 — Sufficient evidence completion.
-- [ ] Gate 3 — Canonical remediation.
-- [ ] Gate 4 — Generation and validation.
+- [x] Gate 1 — Packet audit and bounded disposition.
+- [x] Gate 2 — Sufficient evidence completion.
+- [x] Gate 3 — Canonical remediation.
+- [x] Gate 4 — Generation and validation.
 - [ ] Gate 5 — Independent certification.
 
 ## Scope Rules
@@ -33,7 +33,20 @@ Recover Prismari end to end under CRIT-001: audit the existing packet, bound rea
 - Canonical ledger: `docs/incidents/CRIT-001-identity-recovery-ledger.json`
 - Shared contract: `docs/reference/semantic-readiness-contract.md`
 - Shared template: `docs/incidents/templates/identity-semantic-recovery-template.md`
-- Audit/recovery report: pending
+- Audit/recovery report: `docs/incidents/recoveries/VM-502-prismari-semantic-recovery.md`
 - Candidate recovery SHA: pending
 - Independent reviewer: pending
 - Certification commit: pending
+
+## Gate 1 Disposition
+
+- Primary disposition: `claim_extraction_and_traceability_repair`
+- Required neighbors: `UR`, `BR`, `QUANDRIX`, `SILVERQUILL`
+- Active gate: Gate 5 — independent review of immutable candidate
+
+## Candidate Validation
+
+- Semantic validation: passed.
+- Source/generated validation: passed with one documented builder-owned prior warning.
+- Generated isolation: only `PRISMARI` changed across faction, placement, recruiter, and provenance identity entries.
+- Full regression suite and parser suite: passed.

@@ -1,0 +1,69 @@
+{
+  "identity_key": "PRISMARI",
+  "contract_version": "1.0.0",
+  "runtime_assertions": false,
+  "fixtures": [
+    {
+      "fixture_id": "prismari_core_inclusion",
+      "fixture_type": "core_inclusion",
+      "scenario": "A creator studies technique and elemental craft so a personally meaningful idea can take a vivid form, then revises the work without treating technique as the final purpose.",
+      "intended_interpretation": "Strong Prismari inclusion: trained technique serves expressive creation.",
+      "evidence_claim_ids": ["prismari_claim_001", "prismari_claim_002", "prismari_claim_0019"]
+    },
+    {
+      "fixture_id": "prismari_mature_pressure",
+      "fixture_type": "mature_or_pressure_behavior",
+      "scenario": "After a difficult public critique, the creator separates useful feedback from mere taste, revises the work, and keeps collaborators and bystanders safe during the next attempt.",
+      "intended_interpretation": "Mature Prismari accepts criticism, refines expression, and carries responsibility for creative risk.",
+      "evidence_claim_ids": ["prismari_claim_0021", "prismari_claim_0023", "prismari_claim_0025", "prismari_claim_0027"]
+    },
+    {
+      "fixture_id": "prismari_exclusion_izzet",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "UR",
+      "scenario": "The creator values a prototype mainly because it proves a mechanism, unlocks a reusable process, and can become infrastructure; expressive impact is incidental.",
+      "intended_interpretation": "Prefer Izzet over Prismari because mechanism and invention are the end rather than tools of expression.",
+      "evidence_claim_ids": ["prismari_claim_0028"]
+    },
+    {
+      "fixture_id": "prismari_exclusion_rakdos",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "BR",
+      "scenario": "The performer uses spectacle chiefly to violate taboos, provoke the audience, and make transgression itself the point.",
+      "intended_interpretation": "Prefer Rakdos over Prismari because provocation and transgression are the purpose of performance.",
+      "evidence_claim_ids": ["prismari_claim_0029"]
+    },
+    {
+      "fixture_id": "prismari_exclusion_quandrix",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "QUANDRIX",
+      "scenario": "The researcher pursues elegant mathematical structure and natural law for explanatory truth, even when no personal expression or performance results.",
+      "intended_interpretation": "Prefer Quandrix over Prismari because abstraction and natural law are the ends.",
+      "evidence_claim_ids": ["prismari_claim_0030"]
+    },
+    {
+      "fixture_id": "prismari_exclusion_silverquill",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "SILVERQUILL",
+      "scenario": "The speaker treats rhetoric as leverage over status, reputation, and another person's choices rather than as an artistic medium.",
+      "intended_interpretation": "Prefer Silverquill over Prismari because persuasive social power is the purpose of expression.",
+      "evidence_claim_ids": ["prismari_claim_0031"]
+    },
+    {
+      "fixture_id": "prismari_ambiguous_izzet",
+      "fixture_type": "nearest_collision_ambiguity",
+      "neighbor": "UR",
+      "scenario": "A creator builds a technically novel device for a performance and speaks equally about what the mechanism proves and what the experience communicates.",
+      "intended_interpretation": "Remain uncertain between Prismari and Izzet until the person clarifies whether invention or expression is the final purpose.",
+      "evidence_claim_ids": ["prismari_claim_0028", "prismari_claim_0032"]
+    },
+    {
+      "fixture_id": "prismari_provenance_chain",
+      "fixture_type": "provenance",
+      "canonical_file": "data/raw-factions/prismari/prismari.placement.json",
+      "canonical_pointer": "/discriminator_questions/4",
+      "intended_interpretation": "The direct Prismari/Izzet discriminator is supported by approved pair-boundary evidence and must retain that chain in generated provenance.",
+      "evidence_claim_ids": ["prismari_claim_0028"]
+    }
+  ]
+}

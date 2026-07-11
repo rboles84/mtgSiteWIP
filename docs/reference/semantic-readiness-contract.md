@@ -55,6 +55,8 @@ Select a small bounded set from same-color alternatives, highest conceptual over
 
 Certified canonical statements and guidance must resolve through identity key, canonical file, stable native ID where available, JSON Pointer, content hash, evidence claim IDs, evidence source IDs, generated consumers, and contract version. Array position alone is not a durable locator.
 
+Reference sites default to `evidence_use: semantic` and therefore require substantive claims. Canonical fields that explicitly preserve discovery metadata may use `evidence_use: discovery_metadata`; auxiliary product, card, bibliography, or navigation fields may use `evidence_use: auxiliary_support`. These markers preserve valid non-semantic provenance without allowing discovery or support records to prove identity meaning.
+
 ## Automation Boundary
 
 Automation may validate roles, fields, references, orphans, source linkage, role-invalid support, content hashes, generated provenance, and parity. Automation may not declare genuine entailment, maturity, stereotype risk, conceptual sufficiency, overbuilding, or semantic readiness.

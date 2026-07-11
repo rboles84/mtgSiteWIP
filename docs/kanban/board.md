@@ -36,7 +36,7 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 ## In Progress
 
-- [VM-502 - Prismari Semantic Recovery](in-progress/VM-502-prismari-semantic-recovery.md) - active identity; audit and bounded repair under Contract v1. Lorehold is explicitly next.
+- [VM-502 - Prismari Semantic Recovery](in-progress/VM-502-prismari-semantic-recovery.md) - active identity; Gates 1–4 complete and immutable candidate pending independent review. Lorehold remains explicitly next.
 
 ## Blocked
 

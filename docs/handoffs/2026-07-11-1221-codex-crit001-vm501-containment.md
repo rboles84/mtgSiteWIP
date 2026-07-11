@@ -94,3 +94,12 @@ VM-501 is committed and complete. VM-502 Prismari is the sole active identity re
 
 - `9773bf0` — CRIT-001 governance, contract, ledger, cards, warnings, and handoff.
 - `7d4f26c` — VM-501 fingerprint, provenance, schema, validator, fixtures, and test integration.
+
+## VM-502 Candidate Update
+
+- Prismari completed Gates 1–4 under Contract v1 and is awaiting independent review at Gate 5.
+- The candidate classifies all 32 Prismari records, adds bounded evidence to all 20 substantive claims, preserves ten discovery and two support records under explicit non-semantic uses, grounds four required-neighbor boundaries, and adds one direct Izzet discriminator.
+- Generated isolation was verified: only `PRISMARI` changed in faction, placement-model, recruiter-context, and provenance identity entries.
+- Semantic validation, source/generated validation, 37 placement golden paths, context isolation, dossier follow-ups, full `npm.cmd test`, 226 parser cases, and `git diff --check` passed. The dossier audit retained its known 113-warning/0-failure result, and source/generated validation retained one documented builder-owned inhibitor warning.
+- No Hall, Crucible, score, inhibition, confidence, scheduling, or global recruiter behavior changed.
+- The candidate recovery SHA will be appended after the immutable recovery commit. Robert or a separate non-authoring review session must inspect and approve that exact SHA; this author will not self-certify it.
