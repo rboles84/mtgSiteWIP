@@ -1,7 +1,7 @@
 # Semantic Readiness Contract
 
-Contract version: `v1`
-Status: Frozen after Prismari/Lorehold/Izzet pilot
+Contract version: `v1.1`
+Status: Frozen after v1.1 evidence-role amendment
 Incident: CRIT-001
 
 ## Purpose
@@ -55,13 +55,19 @@ Select a small bounded set from same-color alternatives, highest conceptual over
 
 Certified canonical statements and guidance must resolve through identity key, canonical file, stable native ID where available, JSON Pointer, content hash, evidence claim IDs, evidence source IDs, generated consumers, and contract version. Array position alone is not a durable locator.
 
+Reference sites default to `evidence_use: semantic` and therefore require substantive claims. `discovery_metadata` is permitted only in explicitly non-authoritative profile containers such as data-quality, corpus-coverage, and research metadata. `auxiliary_support` is permitted only in explicitly auxiliary profile containers such as canonical flavor-text support, Commander-compass support, card support, and product support. Authoritative identity, profile, behavior, placement, question, and guidance fields cannot use either marker. These markers preserve valid non-semantic provenance without allowing discovery or support records to prove identity meaning.
+
+For every new or remediated substantive claim using `evidence_locations`, the set of `evidence_locations[].source_id` values must exactly equal the claim's declared `source_ids`, and every value must resolve in the canonical source inventory. Fixture and generated provenance source chains use that complete union and cannot omit locator evidence.
+
+Every generated semantic consumer changed by an identity recovery must appear in that identity's generated provenance. Existing native canonical identifiers must be retained when the identified object remains present.
+
 ## Automation Boundary
 
 Automation may validate roles, fields, references, orphans, source linkage, role-invalid support, content hashes, generated provenance, and parity. Automation may not declare genuine entailment, maturity, stereotype risk, conceptual sufficiency, overbuilding, or semantic readiness.
 
 ## Semantic Fixtures
 
-Each identity requires one core-inclusion fixture, one mature/pressure fixture, one exclusion fixture per required neighbor, one nearest-collision ambiguous fixture, and one provenance fixture. These validate defensible canonical meaning, not rankings, score gaps, Hall/Crucible reachability, confidence, recruiter outputs, or live LLM behavior.
+Each identity requires one core-inclusion fixture, one mature/pressure fixture, one exclusion fixture per required neighbor, one nearest-collision ambiguous fixture, and one provenance fixture. Every fixture declares its complete evidence-claim and evidence-source chain. The provenance fixture must exactly match the generated chain at its canonical locator. These validate defensible canonical meaning, not rankings, score gaps, Hall/Crucible reachability, confidence, recruiter outputs, or live LLM behavior.
 
 ## Certification
 
@@ -79,3 +85,7 @@ A demonstrated defect creates a versioned amendment. The amendment identifies it
 - The positive and negative fixtures prove both acceptance and rejection paths.
 
 See [CRIT-001 Contract v0 Pilot](../incidents/CRIT-001-contract-pilot.md).
+
+## v1.1 Amendment
+
+Contract v1.1 distinguishes semantic references from explicit discovery-metadata and auxiliary-support references. It also makes complete fixture evidence chains, generated-consumer coverage, native-ID retention, identity-scope isolation, forbidden-field isolation, and deterministic ledger regeneration enforceable prerequisites. See [CRIT-001 Contract v1.1 Amendment](../incidents/CRIT-001-contract-v1.1-amendment.md).

@@ -1,7 +1,7 @@
 import { readFile } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import { buildProvenanceManifest, validateSemanticPacket } from "./semantic-readiness-lib.mjs";
+import { buildProvenanceManifest, claimEvidenceSourceIds, claimId, claimsArray, inferSemanticRole, validateSemanticPacket } from "./semantic-readiness-lib.mjs";
 import { RAW_TO_KEY } from "./build-semantic-readiness-provenance.mjs";
 
 const modulePath = fileURLToPath(import.meta.url);
@@ -49,14 +49,96 @@ export async function validateFixture(fileName) {
   });
 }
 
-async function validateTarget(key, provenance) {
+function sameStringSet(left, right) {
+  return JSON.stringify([...new Set(left.map(String))].sort()) === JSON.stringify([...new Set(right.map(String))].sort());
+}
+
+export async function validateIdentityFixtures({ key, rawId, claimsFile, provenance, ledgerRow, fixtureDocument = null }) {
+  const errors = [];
+  let document = fixtureDocument;
+  if (!document) {
+    const fixturePath = path.join(repoRoot, "research", "fixtures", "semantic-readiness", `${rawId}.semantic-fixtures.json`);
+    try {
+      document = await readJson(fixturePath);
+    } catch (error) {
+      if (error?.code === "ENOENT") return [`${key}: missing identity semantic fixtures`];
+      throw error;
+    }
+  }
+  if (document.identity_key !== key) errors.push(`${key}: semantic fixture identity_key mismatch`);
+  if (document.runtime_assertions !== false) errors.push(`${key}: semantic fixtures must explicitly disable runtime assertions`);
+  const fixtures = Array.isArray(document.fixtures) ? document.fixtures : [];
+  const fixtureIds = fixtures.map((fixture) => fixture.fixture_id).filter(Boolean);
+  if (new Set(fixtureIds).size !== fixtureIds.length) errors.push(`${key}: semantic fixture IDs must be unique`);
+  for (const requiredType of ["core_inclusion", "mature_or_pressure_behavior", "nearest_collision_ambiguity", "provenance"]) {
+    if (!fixtures.some((fixture) => fixture.fixture_type === requiredType)) errors.push(`${key}: missing ${requiredType} semantic fixture`);
+  }
+  for (const neighbor of ledgerRow?.semantic_review?.required_neighbors || []) {
+    if (!fixtures.some((fixture) => fixture.fixture_type === "required_neighbor_exclusion" && fixture.neighbor === neighbor)) {
+      errors.push(`${key}: missing exclusion semantic fixture for required neighbor ${neighbor}`);
+    }
+  }
+  const claims = new Map(claimsArray(claimsFile).map((claim) => [claimId(claim), claim]));
+  for (const fixture of fixtures) {
+    if (!fixture.fixture_id || !fixture.fixture_type || (!fixture.scenario && fixture.fixture_type !== "provenance")) {
+      errors.push(`${key}: incomplete semantic fixture ${fixture.fixture_id || "<missing-id>"}`);
+    }
+    if (!Array.isArray(fixture.evidence_claim_ids) || !fixture.evidence_claim_ids.length) {
+      errors.push(`${key} ${fixture.fixture_id}: complete evidence_claim_ids are required`);
+      continue;
+    }
+    if (!Array.isArray(fixture.evidence_source_ids) || !fixture.evidence_source_ids.length) {
+      errors.push(`${key} ${fixture.fixture_id}: complete evidence_source_ids are required`);
+    }
+    const chainSources = [];
+    for (const evidenceId of fixture.evidence_claim_ids) {
+      const claim = claims.get(String(evidenceId));
+      if (!claim) errors.push(`${key} ${fixture.fixture_id}: missing evidence claim ${evidenceId}`);
+      else {
+        if (inferSemanticRole(claim) !== "substantive_claim") errors.push(`${key} ${fixture.fixture_id}: evidence claim ${evidenceId} is not substantive`);
+        chainSources.push(...claimEvidenceSourceIds(claim));
+      }
+    }
+    if (Array.isArray(fixture.evidence_source_ids) && !sameStringSet(fixture.evidence_source_ids, chainSources)) {
+      errors.push(`${key} ${fixture.fixture_id}: declared evidence_source_ids do not equal the complete claim source chain`);
+    }
+    if (fixture.fixture_type === "provenance") {
+      const match = provenance.entries?.find((entry) =>
+        entry.identity_key === key &&
+        entry.canonical_file === fixture.canonical_file &&
+        entry.canonical_pointer === fixture.canonical_pointer
+      );
+      if (!match) errors.push(`${key} ${fixture.fixture_id}: generated provenance entry is missing`);
+      else {
+        if (!sameStringSet(match.evidence_claim_ids || [], fixture.evidence_claim_ids)) {
+          errors.push(`${key} ${fixture.fixture_id}: provenance claim chain differs from the complete declared chain`);
+        }
+        if (!sameStringSet(match.evidence_source_ids || [], fixture.evidence_source_ids || [])) {
+          errors.push(`${key} ${fixture.fixture_id}: provenance source chain differs from the complete declared chain`);
+        }
+      }
+    }
+  }
+  return errors;
+}
+
+async function validateTarget(key, provenance, ledger) {
   const rawId = Object.entries(RAW_TO_KEY).find(([, value]) => value === key)?.[0];
   if (!rawId) return [`Unknown identity target ${key}`];
   const base = path.join(repoRoot, "data", "raw-factions", rawId, rawId);
   const [claimsFile, sourcesFile, profile, placement] = await Promise.all([
     readJson(`${base}.claims.json`), readJson(`${base}.sources.json`), readJson(`${base}.profile.json`), readJson(`${base}.placement.json`),
   ]);
-  return validateSemanticPacket({ key, rawId, profile, placement, claimsFile, sourcesFile, provenance, requireAllRoles: true });
+  return [
+    ...validateSemanticPacket({ key, rawId, profile, placement, claimsFile, sourcesFile, provenance, requireAllRoles: true }),
+    ...(await validateIdentityFixtures({
+      key,
+      rawId,
+      claimsFile,
+      provenance,
+      ledgerRow: ledger.identities.find((row) => row.identity.key === key),
+    })),
+  ];
 }
 
 async function main() {
@@ -76,8 +158,11 @@ async function main() {
     targets = ledger.identities.filter((row) => row.workflow.status === "semantically_ready").map((row) => row.identity.key);
   }
   if (targets.length) {
-    const provenance = await readJson(path.join(repoRoot, "data", "semantic-readiness-provenance.json"));
-    for (const target of targets) errors.push(...(await validateTarget(target, provenance)));
+    const [provenance, ledger] = await Promise.all([
+      readJson(path.join(repoRoot, "data", "semantic-readiness-provenance.json")),
+      readJson(path.join(repoRoot, "docs", "incidents", "CRIT-001-identity-recovery-ledger.json")),
+    ]);
+    for (const target of targets) errors.push(...(await validateTarget(target, provenance, ledger)));
   }
   if (errors.length) {
     console.error(errors.map((error) => `- ${error}`).join("\n"));

@@ -1,13 +1,23 @@
 {
   "schema_version": "1.0.0",
   "incident_id": "CRIT-001",
-  "current_contract_version": "v1",
+  "current_contract_version": "v1.1",
   "authoritative": true,
   "program": {
     "status": "active",
     "active_identity": "PRISMARI",
     "next_identity": "LOREHOLD",
-    "wip_limit": 1
+    "wip_limit": 1,
+    "active_prerequisite": "VM-501 semantic-readiness correction",
+    "prerequisite_candidate_sha": null,
+    "prerequisite_review_result": "pending",
+    "prerequisite_review_cycles": 1,
+    "rejected_prerequisite_candidates": [
+      {
+        "sha": "b5d1c8db4758cab740392a6417c16019d778cc4c",
+        "result": "changes_requested"
+      }
+    ]
   },
   "identities": [
     {

@@ -94,3 +94,11 @@ VM-501 is committed and complete. VM-502 Prismari is the sole active identity re
 
 - `9773bf0` — CRIT-001 governance, contract, ledger, cards, warnings, and handoff.
 - `7d4f26c` — VM-501 fingerprint, provenance, schema, validator, fixtures, and test integration.
+
+## VM-501 Prerequisite Correction
+
+The first VM-502 independent review requested changes and exposed shared enforcement gaps. A correction branch was created from accepted program base `5165434`, without Prismari candidate data. Contract v1.1 and the narrowly scoped provenance, fixture-chain, identity-scope, forbidden-field, native-ID, and deterministic-ledger guards require a separate non-authoring review before acceptance. Prismari replacement work and Lorehold remain paused.
+
+Candidate `b5d1c8db4758cab740392a6417c16019d778cc4c` received `changes_requested` from the non-authoring reviewer. It remains immutable rejected history and is not accepted. Required corrections are evidence-use canonical-path allowlisting, comprehensive global/identity diff isolation, complete claim/source/native-ID retention, and exact evidence-location/source-chain validation. Prismari replacement work and Lorehold remain paused.
+
+The corrected replacement closes all four findings with adversarial tests, retains full regression success, and is isolated as a fresh squash on accepted base `5165434`. A new exact candidate SHA and second independent review are required before program-base acceptance.

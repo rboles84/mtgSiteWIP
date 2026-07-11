@@ -25,6 +25,10 @@
       "type": "object",
       "properties": {
         "semantic_role": { "$ref": "#/$defs/semanticRole" },
+        "evidence_use": {
+          "type": "string",
+          "enum": ["semantic", "discovery_metadata", "auxiliary_support"]
+        },
         "evidence_locations": {
           "type": "array",
           "items": { "$ref": "#/$defs/evidenceLocation" }

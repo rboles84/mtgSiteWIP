@@ -69,12 +69,34 @@ function canonicalIdFor(value) {
     "axis_id",
     "indicator_id",
     "guidance_id",
+    "character_id",
+    "division_id",
+    "era_id",
+    "event_id",
+    "location_id",
+    "mechanic_id",
+    "relationship_id",
     "claim_id",
     "id",
   ]) {
     if (value[key]) return String(value[key]);
   }
+  for (const [key, child] of Object.entries(value)) {
+    if (key.endsWith("_id") && child) return String(child);
+  }
   return null;
+}
+
+export function evidenceUseAllowed(canonicalFile, pointer, evidenceUse) {
+  if (!evidenceUse || evidenceUse === "semantic") return true;
+  if (!canonicalFile.endsWith(".profile.json")) return false;
+  if (evidenceUse === "discovery_metadata") {
+    return pointer === "/data_quality" || pointer.startsWith("/data_quality/") || pointer.startsWith("/evidence_summary/corpus_coverage") || pointer.startsWith("/research_metadata/");
+  }
+  if (evidenceUse === "auxiliary_support") {
+    return pointer.startsWith("/canonical_flavor_text/") || pointer.startsWith("/commander_compass/") || pointer.startsWith("/card_support/") || pointer.startsWith("/product_support/");
+  }
+  return false;
 }
 
 function supportedValue(value) {
@@ -106,6 +128,7 @@ export function collectClaimReferenceSites(document, canonicalFile) {
         canonical_id: canonicalIdFor(value),
         canonical_content_hash: contentHash(supportedValue(value)),
         evidence_claim_ids: [...new Set(refs)],
+        ...(value.evidence_use ? { evidence_use: value.evidence_use } : {}),
       });
     }
     for (const [key, child] of Object.entries(value)) {
@@ -128,6 +151,7 @@ export function collectGuidanceReferenceSites(placement, canonicalFile) {
       canonical_content_hash: contentHash(value),
       evidence_claim_ids: [...new Set(entry.evidence_claim_ids.map(String))],
       declared_content_hash: entry.canonical_content_hash || null,
+      evidence_use: "semantic",
     });
   }
   return sites;
@@ -150,6 +174,13 @@ export function hasBoundedEvidence(claim) {
   );
 }
 
+export function claimEvidenceSourceIds(claim) {
+  return [...new Set([
+    ...(claim?.source_ids || []),
+    ...(claim?.evidence_locations || []).map((entry) => entry?.source_id).filter(Boolean),
+  ].map(String))].sort();
+}
+
 export function buildProvenanceManifest({ rawRecords, rawToKey, ledger, generatedConsumers = {} }) {
   const rowsByKey = new Map((ledger?.identities || []).map((row) => [row.identity.key, row]));
   const entries = [];
@@ -168,13 +199,14 @@ export function buildProvenanceManifest({ rawRecords, rawToKey, ledger, generate
         const evidenceSourceIds = [];
         for (const id of site.evidence_claim_ids) {
           const claim = claimById.get(id);
-          for (const sourceId of claim?.source_ids || []) evidenceSourceIds.push(String(sourceId));
+          evidenceSourceIds.push(...claimEvidenceSourceIds(claim));
         }
         entries.push({
           identity_key: key,
           ...site,
           evidence_source_ids: [...new Set(evidenceSourceIds)].sort(),
           generated_consumers: generatedConsumers[key] || [
+            `data/factions.json#/factions/${escapeJsonPointer(key)}`,
             `data/placement-model.json#/factions/${escapeJsonPointer(key)}`,
             `supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/${escapeJsonPointer(key)}`,
           ],
@@ -211,7 +243,12 @@ export function validateSemanticPacket({ key, rawId, profile, placement, claimsF
     if (role === "substantive_claim" && !hasBoundedEvidence(claim)) {
       errors.push(`${key} ${id}: substantive claim lacks bounded evidence localization`);
     }
-    for (const sourceId of claim.source_ids || []) {
+    const declaredSourceIds = [...new Set((claim.source_ids || []).map(String))].sort();
+    const locationSourceIds = [...new Set((claim.evidence_locations || []).map((entry) => String(entry?.source_id || "")).filter(Boolean))].sort();
+    if (role === "substantive_claim" && Array.isArray(claim.evidence_locations) && claim.evidence_locations.length && stableStringify(declaredSourceIds) !== stableStringify(locationSourceIds)) {
+      errors.push(`${key} ${id}: evidence location sources must exactly match claim source_ids`);
+    }
+    for (const sourceId of claimEvidenceSourceIds(claim)) {
       if (!sourceIds.has(String(sourceId))) errors.push(`${key} ${id}: missing source ${sourceId}`);
     }
   }
@@ -241,8 +278,19 @@ export function validateSemanticPacket({ key, rawId, profile, placement, claimsF
       const missing = site.evidence_claim_ids.filter((id, index) => !resolved[index]);
       if (missing.length) errors.push(`${key} ${canonicalFile}${site.canonical_pointer}: missing claims ${missing.join(", ")}`);
       const roles = resolved.filter(Boolean).map(inferSemanticRole);
-      if (roles.length && !roles.includes("substantive_claim")) {
-        errors.push(`${key} ${canonicalFile}${site.canonical_pointer}: authoritative reference has no substantive claim`);
+      if (roles.length) {
+        const evidenceUse = site.evidence_use || "semantic";
+        if (!evidenceUseAllowed(canonicalFile, site.canonical_pointer, evidenceUse)) {
+          errors.push(`${key} ${canonicalFile}${site.canonical_pointer}: evidence_use ${evidenceUse} is not allowed at this canonical field`);
+        } else if (evidenceUse === "semantic" && !roles.includes("substantive_claim")) {
+          errors.push(`${key} ${canonicalFile}${site.canonical_pointer}: authoritative reference has no substantive claim`);
+        } else if (evidenceUse === "discovery_metadata" && !roles.some((role) => ["discovery_record", "substantive_claim"].includes(role))) {
+          errors.push(`${key} ${canonicalFile}${site.canonical_pointer}: discovery metadata lacks discovery or substantive evidence`);
+        } else if (evidenceUse === "auxiliary_support" && !roles.some((role) => ["support_record", "substantive_claim"].includes(role))) {
+          errors.push(`${key} ${canonicalFile}${site.canonical_pointer}: auxiliary field lacks support or substantive evidence`);
+        } else if (!["semantic", "discovery_metadata", "auxiliary_support"].includes(evidenceUse)) {
+          errors.push(`${key} ${canonicalFile}${site.canonical_pointer}: unknown evidence_use ${evidenceUse}`);
+        }
       }
       if (site.declared_content_hash && site.declared_content_hash !== site.canonical_content_hash) {
         errors.push(`${key} ${canonicalFile}${site.canonical_pointer}: declared guidance content hash is stale`);

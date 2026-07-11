@@ -9,6 +9,8 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 **CRIT-001 is open.** Faction-foundation authoring, readiness approvals, canonical semantic guidance outside an active recovery card, Hall/Crucible authoring, and placement calibration are frozen. VM-501 owns shared recovery infrastructure; VM-502 through VM-538 recover the 37 identities one at a time. See the [incident](../incidents/CRIT-001-faction-semantic-readiness-integrity.md) and [authoritative recovery ledger](../incidents/CRIT-001-identity-recovery-ledger.json).
 
+**VM-501 prerequisite correction is active.** Contract v1.1 and the candidate-scope/provenance guards require separate independent approval before VM-502 replacement work resumes. Prismari remains the active identity; Lorehold has not started.
+
 ## Backlog
 
 - [VM-502 through VM-538 — Identity Semantic Recovery](../incidents/CRIT-001-identity-recovery-ledger.md) - standardized one-card-per-identity recovery queue; execution order and status live in the CRIT-001 ledger.
