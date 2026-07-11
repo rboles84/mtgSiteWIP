@@ -79,7 +79,7 @@
         "inventory_updated_at": "2026-07-11T19:05:20.811Z"
       },
       "workflow": {
-        "current_gate": "review",
+        "current_gate": "correction_prerequisite",
         "status": "active",
         "started_at": "2026-07-11T18:40:52.4047758Z",
         "gate_entered_at": "2026-07-11T19:30:00.0000000Z",
@@ -105,7 +105,8 @@
         "recovery_commit": "85d3c79daa5081b6af4376506f51d33fe51e1225",
         "certification_commit": null,
         "reviewer": null,
-        "review_cycles": 0,
+        "review_result": "changes_requested",
+        "review_cycles": 1,
         "approval_date": null,
         "certified_at": null
       }

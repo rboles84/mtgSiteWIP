@@ -2,7 +2,7 @@
 
 Identity: `PRISMARI`
 Contract: v1
-Status: Gate 5 — independent certification pending
+Status: Changes requested — candidate rejected; correction prerequisite pending
 Required neighbors: `UR`, `BR`, `QUANDRIX`, `SILVERQUILL`
 
 ## Gate 1 — Packet Audit
@@ -130,4 +130,26 @@ Eight non-runtime fixtures cover core inclusion, mature pressure behavior, exclu
 
 Candidate recovery SHA: `85d3c79daa5081b6af4376506f51d33fe51e1225`
 
-Certification remains pending review by Robert or a separate session/agent that did not author this remediation. The reviewer must inspect that exact parent-to-candidate canonical diff, generated diff, evidence, provenance, semantic fixtures, and validation record. The author will not self-certify. Any requested correction must produce a new candidate SHA and invalidate this pending candidate.
+Review result: `changes_requested`
+
+No certification exists. Candidate `85d3c79daa5081b6af4376506f51d33fe51e1225` remains immutable rejected audit history and must not be modified, certified, pushed, or merged. Prismari remains the active identity; Lorehold has not started.
+
+### Independent review findings
+
+1. Shared Contract v1/schema/tooling changes were mixed into an identity candidate and require extraction into a separately reviewed VM-501 prerequisite.
+2. The candidate enabled new Prismari–Izzet `lateral_inhibition`, violating the runtime-calibration freeze.
+3. Generated public Prismari content still contained stale or contradictory statements including “bigger, louder,” “Functional over beautiful,” and “Prismari does not want craftspeople.”
+4. Claims 0023 and 0024 generalized red-aligned spectacle, Ruleburners, and Furygale subgroup/location evidence too broadly.
+5. Claims 0026 and 0027 asserted unsupported attention-as-success, criticism-driven escalation, and abandonment after failure or criticism.
+6. “Technique becomes sterile” was not established by bounded authoritative evidence; technique and expression must be modeled as a tension that can also be integrated.
+7. The Izzet boundary reduced Izzet to functional mechanism and Prismari to inner truth/emotional impact; it lacked neutral mixed-purpose ambiguity.
+8. The Quandrix boundary used “correct but lifeless” despite official beauty, pattern, and optical-effect evidence.
+9. The Silverquill boundary added unsupported status, reputation, leverage, and choice-control claims.
+10. Quiet/private Prismari language was supported with mismatched collaboration/audience evidence rather than direct evidence.
+11. Brodd Scaldbreath lacked a Brodd-specific substantive claim, retained unrelated product evidence, and lost native provenance ID `char_brodd_scaldbreath`.
+12. Semantic fixtures exceeded their complete cited evidence chains, including unsupported feedback-versus-taste, protection, reusable-infrastructure, status/reputation, and control details.
+13. Shared guards were insufficient for frozen-file identity scope, forbidden fields, complete generated-consumer provenance, native-ID retention, complete fixture evidence chains, and stable ledger regeneration.
+
+### Required correction sequence
+
+The shared VM-501 prerequisite must be extracted from accepted program base `5165434` and independently accepted before any fresh Prismari replacement branch is created. The rejected candidate may be consulted only as reference and must not be cherry-picked intact.

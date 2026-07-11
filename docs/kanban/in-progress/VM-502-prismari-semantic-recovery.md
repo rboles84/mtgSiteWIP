@@ -35,14 +35,14 @@ Recover Prismari end to end under CRIT-001: audit the existing packet, bound rea
 - Shared template: `docs/incidents/templates/identity-semantic-recovery-template.md`
 - Audit/recovery report: `docs/incidents/recoveries/VM-502-prismari-semantic-recovery.md`
 - Candidate recovery SHA: `85d3c79daa5081b6af4376506f51d33fe51e1225`
-- Independent reviewer: pending
+- Independent review result: `changes_requested`
 - Certification commit: pending
 
 ## Gate 1 Disposition
 
 - Primary disposition: `claim_extraction_and_traceability_repair`
 - Required neighbors: `UR`, `BR`, `QUANDRIX`, `SILVERQUILL`
-- Active gate: Gate 5 — independent review of immutable candidate
+- Active gate: correction cycle paused for VM-501 prerequisite
 
 ## Candidate Validation
 
@@ -50,3 +50,10 @@ Recover Prismari end to end under CRIT-001: audit the existing packet, bound rea
 - Source/generated validation: passed with one documented builder-owned prior warning.
 - Generated isolation: only `PRISMARI` changed across faction, placement, recruiter, and provenance identity entries.
 - Full regression suite and parser suite: passed.
+
+## Rejected Candidate
+
+- `85d3c79daa5081b6af4376506f51d33fe51e1225` is immutable rejected audit history.
+- No certification exists.
+- Prismari remains active; Lorehold has not started.
+- Full findings and the correction sequence are recorded in the audit/recovery report.
