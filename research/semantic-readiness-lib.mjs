@@ -69,6 +69,13 @@ function canonicalIdFor(value) {
     "axis_id",
     "indicator_id",
     "guidance_id",
+    "character_id",
+    "division_id",
+    "era_id",
+    "event_id",
+    "location_id",
+    "mechanic_id",
+    "relationship_id",
     "claim_id",
     "id",
   ]) {
@@ -106,6 +113,7 @@ export function collectClaimReferenceSites(document, canonicalFile) {
         canonical_id: canonicalIdFor(value),
         canonical_content_hash: contentHash(supportedValue(value)),
         evidence_claim_ids: [...new Set(refs)],
+        ...(value.evidence_use ? { evidence_use: value.evidence_use } : {}),
       });
     }
     for (const [key, child] of Object.entries(value)) {
@@ -128,6 +136,7 @@ export function collectGuidanceReferenceSites(placement, canonicalFile) {
       canonical_content_hash: contentHash(value),
       evidence_claim_ids: [...new Set(entry.evidence_claim_ids.map(String))],
       declared_content_hash: entry.canonical_content_hash || null,
+      evidence_use: "semantic",
     });
   }
   return sites;
@@ -175,6 +184,7 @@ export function buildProvenanceManifest({ rawRecords, rawToKey, ledger, generate
           ...site,
           evidence_source_ids: [...new Set(evidenceSourceIds)].sort(),
           generated_consumers: generatedConsumers[key] || [
+            `data/factions.json#/factions/${escapeJsonPointer(key)}`,
             `data/placement-model.json#/factions/${escapeJsonPointer(key)}`,
             `supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/${escapeJsonPointer(key)}`,
           ],
@@ -241,8 +251,17 @@ export function validateSemanticPacket({ key, rawId, profile, placement, claimsF
       const missing = site.evidence_claim_ids.filter((id, index) => !resolved[index]);
       if (missing.length) errors.push(`${key} ${canonicalFile}${site.canonical_pointer}: missing claims ${missing.join(", ")}`);
       const roles = resolved.filter(Boolean).map(inferSemanticRole);
-      if (roles.length && !roles.includes("substantive_claim")) {
-        errors.push(`${key} ${canonicalFile}${site.canonical_pointer}: authoritative reference has no substantive claim`);
+      if (roles.length) {
+        const evidenceUse = site.evidence_use || "semantic";
+        if (evidenceUse === "semantic" && !roles.includes("substantive_claim")) {
+          errors.push(`${key} ${canonicalFile}${site.canonical_pointer}: authoritative reference has no substantive claim`);
+        } else if (evidenceUse === "discovery_metadata" && !roles.some((role) => ["discovery_record", "substantive_claim"].includes(role))) {
+          errors.push(`${key} ${canonicalFile}${site.canonical_pointer}: discovery metadata lacks discovery or substantive evidence`);
+        } else if (evidenceUse === "auxiliary_support" && !roles.some((role) => ["support_record", "substantive_claim"].includes(role))) {
+          errors.push(`${key} ${canonicalFile}${site.canonical_pointer}: auxiliary field lacks support or substantive evidence`);
+        } else if (!["semantic", "discovery_metadata", "auxiliary_support"].includes(evidenceUse)) {
+          errors.push(`${key} ${canonicalFile}${site.canonical_pointer}: unknown evidence_use ${evidenceUse}`);
+        }
       }
       if (site.declared_content_hash && site.declared_content_hash !== site.canonical_content_hash) {
         errors.push(`${key} ${canonicalFile}${site.canonical_pointer}: declared guidance content hash is stale`);

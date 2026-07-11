@@ -163,7 +163,7 @@ export async function auditRepository({ targets = null } = {}) {
         if (!claim) missingReferences.push({ pointer: `${site.canonical_file}#${site.canonical_pointer}`, claim_id: id });
         else resolvedRoles.push(inferSemanticRole(claim));
       }
-      if (resolvedRoles.length && !resolvedRoles.includes("substantive_claim") && resolvedRoles.some((role) => role !== "unclassified")) {
+      if ((site.evidence_use || "semantic") === "semantic" && resolvedRoles.length && !resolvedRoles.includes("substantive_claim") && resolvedRoles.some((role) => role !== "unclassified")) {
         potentialRoleInvalid.push({ pointer: `${site.canonical_file}#${site.canonical_pointer}`, roles: [...new Set(resolvedRoles)] });
       }
     }
@@ -226,7 +226,7 @@ export function updateLedgerComputed(ledger, inventory, updatedAt) {
   for (const row of result.identities || []) {
     const record = byKey.get(row.identity.key);
     if (!record) continue;
-    row.computed = {
+    const nextComputed = {
       structural_fingerprint: record.structural_fingerprint,
       semantic_role_counts: record.semantic_role_counts,
       source_count: record.source_count,
@@ -247,8 +247,15 @@ export function updateLedgerComputed(ledger, inventory, updatedAt) {
         neighbors: record.provisional_neighbor_risk_indicators,
       },
       template_cohort_pattern: record.template_cohort_pattern,
-      inventory_updated_at: updatedAt,
     };
+    const previousComparable = { ...(row.computed || {}) };
+    delete previousComparable.inventory_updated_at;
+    delete previousComparable.template_cohort_change_explanation;
+    if (JSON.stringify(previousComparable) === JSON.stringify(nextComputed)) continue;
+    if (row.computed && row.computed.template_cohort_pattern !== record.template_cohort_pattern) {
+      nextComputed.template_cohort_change_explanation = `Recomputed from the all-37 structural template-signature cohort: ${row.computed.template_cohort_pattern} -> ${record.template_cohort_pattern}.`;
+    }
+    row.computed = { ...nextComputed, inventory_updated_at: updatedAt };
   }
   return result;
 }

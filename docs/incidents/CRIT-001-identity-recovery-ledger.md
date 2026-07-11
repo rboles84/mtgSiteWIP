@@ -2,7 +2,7 @@
 
 Generated from `CRIT-001-identity-recovery-ledger.json`. The JSON file is authoritative.
 
-- Contract: `v1`
+- Contract: `v1.1`
 - Active identity: `PRISMARI`
 - Next identity: `LOREHOLD`
 - WIP limit: 1

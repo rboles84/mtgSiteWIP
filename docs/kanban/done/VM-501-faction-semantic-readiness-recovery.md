@@ -49,3 +49,11 @@ VM-501 does not repair an identity, redesign the builder, change public APIs, tu
 ## Outcome
 
 Contract v1 is frozen after the bounded Prismari/Lorehold/Izzet pilot. The all-37 structural inventory, protected JSON ledger synchronization, stable provenance manifest, additive semantic schema, positive/negative fixtures, semantic validator, and normal test-runner integration are committed and validated. Existing generated faction, placement, and recruiter content remained semantically unchanged.
+
+## Prerequisite Correction Cycle
+
+Status: Reopened prerequisite candidate pending independent review.
+
+The first VM-502 review exposed shared enforcement gaps. VM-501 now owns Contract v1.1, complete generated-consumer provenance, complete fixture evidence-chain validation, identity-candidate scope and forbidden-field guards, native-ID retention, and deterministic ledger regeneration. No identity remediation may resume until the exact VM-501 correction candidate is independently approved and accepted into the program base.
+
+Validation is complete. The correction candidate changes shared contract/schema/tooling/provenance/governance only, contains no identity packet or identity fixture delta, and is awaiting an immutable candidate SHA plus non-authoring review.
