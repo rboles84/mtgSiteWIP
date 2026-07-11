@@ -56,4 +56,4 @@ Status: Reopened prerequisite candidate pending independent review.
 
 The first VM-502 review exposed shared enforcement gaps. VM-501 now owns Contract v1.1, complete generated-consumer provenance, complete fixture evidence-chain validation, identity-candidate scope and forbidden-field guards, native-ID retention, and deterministic ledger regeneration. No identity remediation may resume until the exact VM-501 correction candidate is independently approved and accepted into the program base.
 
-Validation is complete. The correction candidate changes shared contract/schema/tooling/provenance/governance only, contains no identity packet or identity fixture delta, and is awaiting an immutable candidate SHA plus non-authoring review.
+Validation is complete. Candidate `b5d1c8db4758cab740392a6417c16019d778cc4c` changes shared contract/schema/tooling/provenance/governance only, contains no identity packet or identity fixture delta, and awaits non-authoring review.

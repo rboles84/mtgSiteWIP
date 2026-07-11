@@ -1,6 +1,6 @@
 # CRIT-001 VM-501 Prerequisite Correction
 
-Status: Immutable candidate preparation complete; independent review pending
+Status: Immutable candidate committed; independent review pending
 Accepted program base: `5165434`
 Rejected identity candidate used for audit reference only: `85d3c79daa5081b6af4376506f51d33fe51e1225`
 
@@ -53,4 +53,6 @@ The immutable prerequisite candidate must be reviewed by a non-authoring reviewe
 - No identity packet or identity fixture changes.
 - No public generated semantic changes; provenance metadata only.
 - No global recruiter, Hall, Crucible, scoring, inhibition, confidence, tie-ordering, or scheduling changes.
-- Candidate SHA: pending immutable commit.
+- Candidate parent SHA: `5165434`
+- Candidate SHA: `b5d1c8db4758cab740392a6417c16019d778cc4c`
+- Certification/acceptance: none pending independent review.
