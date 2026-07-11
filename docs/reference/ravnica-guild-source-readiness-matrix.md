@@ -1,5 +1,7 @@
 # Ravnica Guild Source-Readiness Matrix
 
+> **CRIT-001 superseding warning:** existing `ready` language records legacy structural or targeted-gap readiness, not semantic certification. This identity cohort is frozen for semantic-foundation work outside CRIT-001 until reviewed under the [Semantic Readiness Contract](semantic-readiness-contract.md).
+
 Created: 2026-06-12
 Related cards: VM-343, VM-344, VM-345, VM-349, VM-350
 

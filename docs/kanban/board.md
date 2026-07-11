@@ -5,7 +5,13 @@ This board tracks planned, active, blocked, and completed Vox Mana work.
 Cards live in the matching status folders under `docs/kanban/`:
 `backlog/`, `ready/`, `in-progress/`, `blocked/`, and `done/`.
 
+## P0 Semantic Readiness Incident
+
+**CRIT-001 is open.** Faction-foundation authoring, readiness approvals, canonical semantic guidance outside an active recovery card, Hall/Crucible authoring, and placement calibration are frozen. VM-501 owns shared recovery infrastructure; VM-502 through VM-538 recover the 37 identities one at a time. See the [incident](../incidents/CRIT-001-faction-semantic-readiness-integrity.md) and [authoritative recovery ledger](../incidents/CRIT-001-identity-recovery-ledger.json).
+
 ## Backlog
+
+- [VM-502 through VM-538 — Identity Semantic Recovery](../incidents/CRIT-001-identity-recovery-ledger.md) - standardized one-card-per-identity recovery queue; execution order and status live in the CRIT-001 ledger.
 
 - [VM-422 - Account Deck Links And Community Deck Ledger](backlog/VM-422-account-deck-links-community-deck-ledger.md) - deferred enhancement; deck saving remains wanted later, but the active Archscry surface is hidden until higher-priority readiness work is complete.
 - [VM-446 - VM-422 Live Private Deck-Link RLS Proof](backlog/VM-446-vm422-live-private-deck-link-rls-proof.md) - conditional security gate required only before shipping private account-backed deck-link saving.
@@ -30,7 +36,7 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 ## In Progress
 
-- No cards currently in progress.
+- [VM-501 - Faction Semantic Readiness Recovery Infrastructure](in-progress/VM-501-faction-semantic-readiness-recovery.md) - builds Contract v1, the all-37 structural fingerprint, provenance, validator, fixtures, and recovery ledger without runtime calibration.
 
 ## Blocked
 

@@ -1,5 +1,7 @@
 # Source / Generated Guardrails
 
+> **CRIT-001 semantic-readiness warning:** this validator proves structural/source-generated parity, not claim entailment or conceptual sufficiency. Existing readiness declarations are under semantic review. No packet is semantically certified until it passes the [Semantic Readiness Contract](semantic-readiness-contract.md).
+
 ## Purpose
 
 VM-300 adds a focused validation gate for source-first faction quality work.

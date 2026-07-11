@@ -1,5 +1,7 @@
 # WUBRG Depth / Readiness Matrix
 
+> **CRIT-001 superseding warning:** existing `ready` language records legacy structural or targeted-gap readiness, not semantic certification. This identity cohort is frozen for semantic-foundation work outside CRIT-001 until reviewed under the [Semantic Readiness Contract](../../reference/semantic-readiness-contract.md).
+
 Date opened: 2026-06-13
 Related cards: VM-368, VM-369, VM-370
 

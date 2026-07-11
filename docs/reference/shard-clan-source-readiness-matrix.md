@@ -1,5 +1,7 @@
 # Shard And Tarkir Clan Source Readiness Matrix
 
+> **CRIT-001 superseding warning:** existing `ready` language records legacy structural or targeted-gap readiness, not semantic certification. This identity cohort is frozen for semantic-foundation work outside CRIT-001 until reviewed under the [Semantic Readiness Contract](semantic-readiness-contract.md).
+
 Last updated: 2026-06-13
 
 Related cards: `VM-347 - Shard And Tarkir Clan Source-Bound Cohort Repair`, VM-349, VM-352, VM-353, VM-358, VM-379, VM-380

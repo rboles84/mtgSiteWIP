@@ -1,5 +1,7 @@
 # Strixhaven College Source-Readiness Matrix
 
+> **CRIT-001 superseding warning:** existing `ready` language records legacy structural or targeted-gap readiness, not semantic certification. This identity cohort is frozen for semantic-foundation work outside CRIT-001 until reviewed under the [Semantic Readiness Contract](semantic-readiness-contract.md).
+
 Created: 2026-06-12
 Last updated: 2026-06-13
 Related cards: VM-343, VM-345, VM-346, VM-349, VM-351, VM-353, VM-357, VM-378

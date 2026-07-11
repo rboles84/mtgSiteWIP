@@ -1,5 +1,7 @@
 # Four-Color Source Readiness Matrix
 
+> **CRIT-001 superseding warning:** existing `ready` language records legacy structural or targeted-gap readiness, not semantic certification. This identity cohort is frozen for semantic-foundation work outside CRIT-001 until reviewed under the [Semantic Readiness Contract](semantic-readiness-contract.md).
+
 Status: VM-348 source-bound cohort repair; VM-360 source-depth review
 Last reviewed: 2026-06-12
 
