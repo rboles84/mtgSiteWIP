@@ -58,4 +58,4 @@ The first VM-502 review exposed shared enforcement gaps. VM-501 now owns Contrac
 
 Candidate `b5d1c8db4758cab740392a6417c16019d778cc4c` received `changes_requested` and remains immutable rejected history. Its four blockers are evidence-use path bypass, incomplete global/identity scope isolation, incomplete native-ID coverage, and incomplete evidence-location/source-chain validation. A corrected prerequisite candidate is required before identity work resumes.
 
-The corrected replacement resolves all four findings, passes the full validation matrix, and is being committed as a fresh squashed candidate directly on accepted base `5165434` for a second non-authoring review.
+Corrected replacement `6e53acd5691c85caf3328d3bd301ac18d07879e1` resolves all four findings, passes the full validation matrix, and is one clean commit directly on accepted base `5165434`. It awaits a second non-authoring review.

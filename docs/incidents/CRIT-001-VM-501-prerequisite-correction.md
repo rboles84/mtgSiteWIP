@@ -1,6 +1,6 @@
 # CRIT-001 VM-501 Prerequisite Correction
 
-Status: Corrected replacement candidate ready for immutable commit
+Status: Corrected replacement candidate pending independent review
 Accepted program base: `5165434`
 Rejected identity candidate used for audit reference only: `85d3c79daa5081b6af4376506f51d33fe51e1225`
 
@@ -76,4 +76,9 @@ Candidate `b5d1c8db4758cab740392a6417c16019d778cc4c` remains immutable rejected 
 
 The corrected negative suite directly covers the four independent-review examples: authoritative evidence-use bypass, global builder/runtime file changes, unrelated/global generated drift, claim/source ID loss, Brodd provenance ID loss, and missing or mismatched evidence-location sources.
 
-The corrected replacement is built as one squashed candidate directly on accepted base `5165434`; rejected prerequisite commits are not part of its ancestry. Replacement candidate SHA remains pending until the immutable commit is created.
+The corrected replacement is one commit directly on accepted base `5165434`; rejected prerequisite commits are not part of its ancestry.
+
+- Replacement candidate parent: `5165434`
+- Replacement candidate SHA: `6e53acd5691c85caf3328d3bd301ac18d07879e1`
+- Replacement review result: `pending`
+- Certification/acceptance: none.

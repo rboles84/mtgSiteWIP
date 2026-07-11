@@ -101,4 +101,4 @@ The first VM-502 independent review requested changes and exposed shared enforce
 
 Candidate `b5d1c8db4758cab740392a6417c16019d778cc4c` received `changes_requested` from the non-authoring reviewer. It remains immutable rejected history and is not accepted. Required corrections are evidence-use canonical-path allowlisting, comprehensive global/identity diff isolation, complete claim/source/native-ID retention, and exact evidence-location/source-chain validation. Prismari replacement work and Lorehold remain paused.
 
-The corrected replacement closes all four findings with adversarial tests, retains full regression success, and is isolated as a fresh squash on accepted base `5165434`. A new exact candidate SHA and second independent review are required before program-base acceptance.
+Corrected replacement `6e53acd5691c85caf3328d3bd301ac18d07879e1` closes all four findings with adversarial tests, retains full regression success, and is one clean commit on accepted base `5165434`. It requires a second independent review before program-base acceptance.
