@@ -1,6 +1,6 @@
 # CRIT-001 VM-501 Prerequisite Correction
 
-Status: Changes requested; replacement prerequisite candidate in progress
+Status: Replacement prerequisite candidate validation complete; immutable commit pending
 Accepted program base: `5165434`
 Rejected identity candidate used for audit reference only: `85d3c79daa5081b6af4376506f51d33fe51e1225`
 
@@ -66,3 +66,12 @@ The immutable prerequisite candidate must be reviewed by a non-authoring reviewe
 4. Evidence-chain validation used `claim.source_ids` without requiring `evidence_locations[].source_id` to resolve, match the claim source chain, and propagate through fixtures/provenance.
 
 Candidate `b5d1c8db4758cab740392a6417c16019d778cc4c` remains immutable rejected audit history. It must not be accepted into the program base. A replacement candidate requires correction of all four blockers and a new independent review.
+
+## Correction of review blockers
+
+1. Non-semantic `evidence_use` markers are now restricted to allowlisted, explicitly non-authoritative profile containers. An adversarial `core_identity` support-only bypass is rejected.
+2. Identity candidate scope now freezes all research/runtime/builder code except the identity fixture and generated recruiter context; rejects non-identity data paths; compares every unrelated/global faction, placement-model, recruiter-context, and provenance value; and freezes every placement key matching inhibition, calibration, scoring, confidence, tie-order, scheduling, Hall, or Crucible surfaces.
+3. Native-ID retention now covers every `id` or `*_id` in claims, sources, profile, and placement, and evidence-bearing native IDs must also survive into generated provenance.
+4. Substantive claim `source_ids` and `evidence_locations[].source_id` sets must match exactly, every locator source must resolve, fixtures use the complete union, and provenance preserves the same complete chain.
+
+The corrected negative suite directly covers the four independent-review examples: authoritative evidence-use bypass, global builder/runtime file changes, unrelated/global generated drift, claim/source ID loss, Brodd provenance ID loss, and missing or mismatched evidence-location sources.

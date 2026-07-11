@@ -1,6 +1,6 @@
 # CRIT-001 Contract v1.1 Amendment
 
-Status: Candidate `b5d1c8db4758cab740392a6417c16019d778cc4c` rejected; corrected candidate pending
+Status: Candidate `b5d1c8db4758cab740392a6417c16019d778cc4c` rejected; corrected candidate validation complete
 Owner: VM-501
 Base: `5165434`
 
@@ -10,7 +10,7 @@ Rejected VM-502 candidate `85d3c79daa5081b6af4376506f51d33fe51e1225` mixed share
 
 ## Rule change
 
-Contract v1.1 permits explicit `discovery_metadata` and `auxiliary_support` reference uses while continuing to require substantive claims for semantic statements. Discovery and support records still cannot prove identity meaning.
+Contract v1.1 permits explicit `discovery_metadata` and `auxiliary_support` reference uses only inside allowlisted non-authoritative profile containers while continuing to require substantive claims for semantic statements. Discovery and support records still cannot prove identity meaning. Substantive claim source IDs, evidence-location source IDs, fixture source chains, and provenance source chains must be complete and mutually consistent.
 
 Contract v1.1 also requires:
 

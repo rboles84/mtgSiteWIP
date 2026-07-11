@@ -1,5 +1,5 @@
 import assert from "node:assert/strict";
-import { buildProvenanceManifest, collectClaimReferenceSites, contentHash, pointerGet } from "./semantic-readiness-lib.mjs";
+import { buildProvenanceManifest, collectClaimReferenceSites, contentHash, pointerGet, validateSemanticPacket } from "./semantic-readiness-lib.mjs";
 import { renderLedgerMarkdown, updateLedgerComputed } from "./audit-semantic-readiness.mjs";
 import { validateFixture, validateIdentityFixtures } from "./validate-semantic-readiness.mjs";
 
@@ -16,6 +16,34 @@ const defaultSemanticSite = collectClaimReferenceSites({ field: { claim_ids: ["c
 assert.equal(defaultSemanticSite.evidence_use, undefined, "implicit semantic evidence must not churn generated provenance");
 const explicitDiscoverySite = collectClaimReferenceSites({ field: { claim_ids: ["claim"], evidence_use: "discovery_metadata" } }, "fixture.json")[0];
 assert.equal(explicitDiscoverySite.evidence_use, "discovery_metadata", "explicit non-semantic evidence use must survive provenance collection");
+
+const supportBypassErrors = validateSemanticPacket({
+  key: "BYPASS",
+  rawId: "bypass",
+  claimsFile: { claims: [{ claim_id: "support", semantic_role: "support_record", source_ids: ["source"] }] },
+  sourcesFile: { sources: [{ source_id: "source" }] },
+  profile: { core_identity: { summary: "Authoritative identity meaning", claim_ids: ["support"], evidence_use: "auxiliary_support" } },
+  placement: {},
+  provenance: null,
+});
+assert.ok(supportBypassErrors.some((error) => error.includes("not allowed at this canonical field")), "authoritative identity fields cannot relabel support evidence as auxiliary");
+
+const invalidLocationErrors = validateSemanticPacket({
+  key: "LOCATION",
+  rawId: "location",
+  claimsFile: { claims: [{
+    claim_id: "claim",
+    semantic_role: "substantive_claim",
+    source_ids: ["source"],
+    evidence_locations: [{ source_id: "missing", locator_type: "section", locator: "A", bounded_paraphrase: "Bounded.", evidence_scope: "identity-wide", interpretation_level: "direct-fact" }],
+  }] },
+  sourcesFile: { sources: [{ source_id: "source" }] },
+  profile: {},
+  placement: {},
+  provenance: null,
+});
+assert.ok(invalidLocationErrors.some((error) => error.includes("exactly match claim source_ids")), "locator sources must equal the declared claim source chain");
+assert.ok(invalidLocationErrors.some((error) => error.includes("missing source missing")), "locator source IDs must resolve in the source inventory");
 
 const ledger = {
   current_contract_version: "v0",

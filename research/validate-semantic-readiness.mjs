@@ -1,7 +1,7 @@
 import { readFile } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import { buildProvenanceManifest, claimId, claimsArray, inferSemanticRole, validateSemanticPacket } from "./semantic-readiness-lib.mjs";
+import { buildProvenanceManifest, claimEvidenceSourceIds, claimId, claimsArray, inferSemanticRole, validateSemanticPacket } from "./semantic-readiness-lib.mjs";
 import { RAW_TO_KEY } from "./build-semantic-readiness-provenance.mjs";
 
 const modulePath = fileURLToPath(import.meta.url);
@@ -96,7 +96,7 @@ export async function validateIdentityFixtures({ key, rawId, claimsFile, provena
       if (!claim) errors.push(`${key} ${fixture.fixture_id}: missing evidence claim ${evidenceId}`);
       else {
         if (inferSemanticRole(claim) !== "substantive_claim") errors.push(`${key} ${fixture.fixture_id}: evidence claim ${evidenceId} is not substantive`);
-        chainSources.push(...(claim.source_ids || []).map(String));
+        chainSources.push(...claimEvidenceSourceIds(claim));
       }
     }
     if (Array.isArray(fixture.evidence_source_ids) && !sameStringSet(fixture.evidence_source_ids, chainSources)) {

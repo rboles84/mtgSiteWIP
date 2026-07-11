@@ -7,6 +7,7 @@ import {
   claimId,
   claimsArray,
   collectClaimReferenceSites,
+  evidenceUseAllowed,
   inferSemanticRole,
   sourcesArray,
 } from "./semantic-readiness-lib.mjs";
@@ -163,7 +164,8 @@ export async function auditRepository({ targets = null } = {}) {
         if (!claim) missingReferences.push({ pointer: `${site.canonical_file}#${site.canonical_pointer}`, claim_id: id });
         else resolvedRoles.push(inferSemanticRole(claim));
       }
-      if ((site.evidence_use || "semantic") === "semantic" && resolvedRoles.length && !resolvedRoles.includes("substantive_claim") && resolvedRoles.some((role) => role !== "unclassified")) {
+      const evidenceUse = site.evidence_use || "semantic";
+      if (!evidenceUseAllowed(site.canonical_file, site.canonical_pointer, evidenceUse) || (evidenceUse === "semantic" && resolvedRoles.length && !resolvedRoles.includes("substantive_claim") && resolvedRoles.some((role) => role !== "unclassified"))) {
         potentialRoleInvalid.push({ pointer: `${site.canonical_file}#${site.canonical_pointer}`, roles: [...new Set(resolvedRoles)] });
       }
     }

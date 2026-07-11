@@ -8,34 +8,13 @@ import { stableStringify } from "./semantic-readiness-lib.mjs";
 const modulePath = fileURLToPath(import.meta.url);
 const repoRoot = path.resolve(path.dirname(modulePath), "..");
 
-const NATIVE_ID_KEYS = new Set([
-  "question_id",
-  "collision_id",
-  "axis_id",
-  "indicator_id",
-  "guidance_id",
-  "character_id",
-  "event_id",
-  "claim_id",
-  "id",
-]);
+export function isNativeIdKey(key) {
+  return key === "id" || key.endsWith("_id");
+}
 
-const FORBIDDEN_FIELD_KEYS = new Set([
-  "lateral_inhibition",
-  "lateral_inhibition_targets",
-  "broad_match_penalty",
-  "required_positive_min_hits",
-  "calibration_tuning",
-  "scoring_guardrail",
-  "score_delta",
-  "scoring_weights",
-  "confidence_formula",
-  "confidence_weight",
-  "tie_order",
-  "scheduling",
-  "hall",
-  "crucible",
-]);
+export function isForbiddenPlacementKey(key) {
+  return /(lateral_inhibition|inhibition|calibrat|scor|confidence|tie_order|schedul|hall|crucible|broad_match_penalty|required_positive_min_hits)/i.test(key);
+}
 
 export function isFrozenSharedPath(file) {
   const normalized = file.replaceAll("\\", "/");
@@ -44,30 +23,49 @@ export function isFrozenSharedPath(file) {
     "data/raw-factions/semantic-readiness.schema.json",
     "package.json",
   ].includes(normalized)) return true;
-  if (/^research\/(audit-semantic-readiness|build-semantic-readiness-provenance|semantic-readiness-lib|semantic-readiness-tests|semantic-candidate-scope-tests|validate-semantic-candidate-scope|validate-semantic-readiness)\.(?:mjs|js)$/.test(normalized)) return true;
+  if (normalized.startsWith("research/") && !/^research\/fixtures\/semantic-readiness\/[^/]+\.semantic-fixtures\.json$/.test(normalized)) return true;
+  if (normalized.startsWith("assets/js/") || normalized.startsWith("scripts/")) return true;
+  if (normalized.startsWith("supabase/functions/") && normalized !== "supabase/functions/guild-recruiter/faction-context.ts") return true;
+  if (/\.(?:js|mjs|ts|html|css)$/.test(normalized) && normalized !== "supabase/functions/guild-recruiter/faction-context.ts") return true;
+  if (normalized.startsWith("docs/incidents/templates/") || normalized === "docs/incidents/CRIT-001-faction-semantic-readiness-integrity.md" || normalized === "docs/incidents/CRIT-001-contract-v1.1-amendment.md" || normalized === "docs/incidents/CRIT-001-VM-501-prerequisite-correction.md") return true;
+  if (normalized.includes("VM-501-faction-semantic-readiness-recovery.md")) return true;
   return [
     "research/fixtures/semantic-readiness/invalid-discovery-chain.json",
     "research/fixtures/semantic-readiness/valid-substantive-chain.json",
   ].includes(normalized);
 }
 
-function collectFieldValues(value, keys, pointer = "", results = new Map()) {
+export function isAllowedIdentityCandidatePath(file, rawId) {
+  const normalized = file.replaceAll("\\", "/");
+  if (isFrozenSharedPath(normalized)) return false;
+  if (normalized.startsWith(`data/raw-factions/${rawId}/`)) return true;
+  if (normalized === `research/fixtures/semantic-readiness/${rawId}.semantic-fixtures.json`) return true;
+  if ([
+    "data/factions.json",
+    "data/placement-model.json",
+    "data/semantic-readiness-provenance.json",
+    "supabase/functions/guild-recruiter/faction-context.ts",
+  ].includes(normalized)) return true;
+  return normalized.startsWith("docs/");
+}
+
+function collectFieldValues(value, predicate, pointer = "", results = new Map()) {
   if (Array.isArray(value)) {
-    value.forEach((child, index) => collectFieldValues(child, keys, `${pointer}/${index}`, results));
+    value.forEach((child, index) => collectFieldValues(child, predicate, `${pointer}/${index}`, results));
     return results;
   }
   if (!value || typeof value !== "object") return results;
   for (const [key, child] of Object.entries(value)) {
     const childPointer = `${pointer}/${key.replaceAll("~", "~0").replaceAll("/", "~1")}`;
-    if (keys.has(key)) results.set(childPointer, child);
-    collectFieldValues(child, keys, childPointer, results);
+    if (predicate(key)) results.set(childPointer, child);
+    collectFieldValues(child, predicate, childPointer, results);
   }
   return results;
 }
 
 export function findForbiddenFieldChanges(before, after) {
-  const left = collectFieldValues(before, FORBIDDEN_FIELD_KEYS);
-  const right = collectFieldValues(after, FORBIDDEN_FIELD_KEYS);
+  const left = collectFieldValues(before, isForbiddenPlacementKey);
+  const right = collectFieldValues(after, isForbiddenPlacementKey);
   const changes = [];
   for (const pointer of new Set([...left.keys(), ...right.keys()])) {
     if (stableStringify(left.get(pointer)) !== stableStringify(right.get(pointer))) changes.push(pointer);
@@ -82,7 +80,7 @@ export function collectNativeIds(value, results = new Set()) {
   }
   if (!value || typeof value !== "object") return results;
   for (const [key, child] of Object.entries(value)) {
-    if (NATIVE_ID_KEYS.has(key) && (typeof child === "string" || typeof child === "number")) results.add(`${key}:${child}`);
+    if (isNativeIdKey(key) && (typeof child === "string" || typeof child === "number")) results.add(`${key}:${child}`);
     collectNativeIds(child, results);
   }
   return results;
@@ -103,7 +101,7 @@ export function collectReferencedNativeIds(value, results = new Set()) {
   const hasEvidence = Array.isArray(value.claim_ids) || Array.isArray(value.evidence_claim_ids);
   if (hasEvidence) {
     for (const [key, child] of Object.entries(value)) {
-      if (NATIVE_ID_KEYS.has(key) && (typeof child === "string" || typeof child === "number")) results.add(String(child));
+      if (isNativeIdKey(key) && (typeof child === "string" || typeof child === "number")) results.add(String(child));
     }
   }
   Object.values(value).forEach((child) => collectReferencedNativeIds(child, results));
@@ -123,6 +121,24 @@ export function validateGeneratedConsumerCoverage({ identityKey, changedConsumer
       .flatMap((entry) => entry.generated_consumers || [])
   );
   return changedConsumers.filter((consumer) => !declared.has(consumer)).map((consumer) => `missing generated provenance consumer ${consumer}`);
+}
+
+function withoutIdentity(document, identityKey) {
+  const copy = structuredClone(document);
+  if (copy?.factions && Object.prototype.hasOwnProperty.call(copy.factions, identityKey)) delete copy.factions[identityKey];
+  else if (copy && Object.prototype.hasOwnProperty.call(copy, identityKey)) delete copy[identityKey];
+  return copy;
+}
+
+export function validateUnrelatedGeneratedIsolation({ identityKey, beforeFactions, afterFactions, beforePlacement, afterPlacement, beforeContext, afterContext, beforeContextMeta, afterContextMeta, beforeProvenance, afterProvenance }) {
+  const errors = [];
+  if (stableStringify(withoutIdentity(beforeFactions, identityKey)) !== stableStringify(withoutIdentity(afterFactions, identityKey))) errors.push("unrelated or global data/factions.json content changed");
+  if (stableStringify(withoutIdentity(beforePlacement, identityKey)) !== stableStringify(withoutIdentity(afterPlacement, identityKey))) errors.push("unrelated or global data/placement-model.json content changed");
+  if (stableStringify(withoutIdentity(beforeContext, identityKey)) !== stableStringify(withoutIdentity(afterContext, identityKey)) || stableStringify(beforeContextMeta) !== stableStringify(afterContextMeta)) errors.push("unrelated or global recruiter context content changed");
+  const beforeOtherProvenance = { ...beforeProvenance, entries: (beforeProvenance.entries || []).filter((entry) => entry.identity_key !== identityKey) };
+  const afterOtherProvenance = { ...afterProvenance, entries: (afterProvenance.entries || []).filter((entry) => entry.identity_key !== identityKey) };
+  if (stableStringify(beforeOtherProvenance) !== stableStringify(afterOtherProvenance)) errors.push("unrelated or global semantic provenance content changed");
+  return errors;
 }
 
 function parseArgs(argv) {
@@ -164,6 +180,7 @@ async function main() {
   const errors = [];
   for (const file of files) {
     if (isFrozenSharedPath(file)) errors.push(`identity candidate modified frozen shared file ${file}`);
+    if (!isAllowedIdentityCandidatePath(file, rawId)) errors.push(`identity candidate modified non-identity path ${file}`);
     if (file.startsWith("data/raw-factions/") && !file.startsWith(`data/raw-factions/${rawId}/`)) {
       errors.push(`identity candidate modified another raw packet or shared raw schema ${file}`);
     }
@@ -171,6 +188,8 @@ async function main() {
 
   const placementFile = `data/raw-factions/${rawId}/${rawId}.placement.json`;
   const profileFile = `data/raw-factions/${rawId}/${rawId}.profile.json`;
+  const claimsFile = `data/raw-factions/${rawId}/${rawId}.claims.json`;
+  const sourcesFile = `data/raw-factions/${rawId}/${rawId}.sources.json`;
   const beforePlacement = gitJson(options.base, placementFile);
   const afterPlacement = gitJson(options.target, placementFile);
   for (const pointer of findForbiddenFieldChanges(beforePlacement, afterPlacement)) errors.push(`forbidden placement field changed ${placementFile}#${pointer}`);
@@ -178,8 +197,8 @@ async function main() {
   const beforeProfile = gitJson(options.base, profileFile);
   const afterProfile = gitJson(options.target, profileFile);
   const missingIds = findMissingNativeIds(
-    { profile: beforeProfile, placement: beforePlacement },
-    { profile: afterProfile, placement: afterPlacement }
+    { claims: gitJson(options.base, claimsFile), sources: gitJson(options.base, sourcesFile), profile: beforeProfile, placement: beforePlacement },
+    { claims: gitJson(options.target, claimsFile), sources: gitJson(options.target, sourcesFile), profile: afterProfile, placement: afterPlacement }
   );
   for (const id of missingIds) errors.push(`native canonical ID was not retained: ${id}`);
 
@@ -188,17 +207,22 @@ async function main() {
     errors.push(`native canonical ID is absent from generated provenance: ${id}`);
   }
 
+  const beforeFactions = gitJson(options.base, "data/factions.json");
+  const afterFactions = gitJson(options.target, "data/factions.json");
+  const beforePlacementModel = gitJson(options.base, "data/placement-model.json");
+  const afterPlacementModel = gitJson(options.target, "data/placement-model.json");
   const expectedConsumers = [
     ["data/factions.json", `data/factions.json#/factions/${options.identity}`],
     ["data/placement-model.json", `data/placement-model.json#/factions/${options.identity}`],
   ];
   const changedConsumers = [];
-  for (const [file, consumer] of expectedConsumers) {
-    if (stableStringify(identityValue(gitJson(options.base, file), options.identity)) !== stableStringify(identityValue(gitJson(options.target, file), options.identity))) changedConsumers.push(consumer);
-  }
+  if (stableStringify(identityValue(beforeFactions, options.identity)) !== stableStringify(identityValue(afterFactions, options.identity))) changedConsumers.push(expectedConsumers[0][1]);
+  if (stableStringify(identityValue(beforePlacementModel, options.identity)) !== stableStringify(identityValue(afterPlacementModel, options.identity))) changedConsumers.push(expectedConsumers[1][1]);
   const contextFile = "supabase/functions/guild-recruiter/faction-context.ts";
-  const beforeContext = parseFactionContextModule(gitText(options.base, contextFile)).factionContext;
-  const afterContext = parseFactionContextModule(gitText(options.target, contextFile)).factionContext;
+  const beforeContextDocument = parseFactionContextModule(gitText(options.base, contextFile));
+  const afterContextDocument = parseFactionContextModule(gitText(options.target, contextFile));
+  const beforeContext = beforeContextDocument.factionContext;
+  const afterContext = afterContextDocument.factionContext;
   if (stableStringify(beforeContext[options.identity]) !== stableStringify(afterContext[options.identity])) {
     changedConsumers.push(`supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/${options.identity}`);
   }
@@ -206,6 +230,19 @@ async function main() {
     identityKey: options.identity,
     changedConsumers,
     provenance: targetProvenance,
+  }));
+  errors.push(...validateUnrelatedGeneratedIsolation({
+    identityKey: options.identity,
+    beforeFactions,
+    afterFactions,
+    beforePlacement: beforePlacementModel,
+    afterPlacement: afterPlacementModel,
+    beforeContext,
+    afterContext,
+    beforeContextMeta: beforeContextDocument.placementModelMeta,
+    afterContextMeta: afterContextDocument.placementModelMeta,
+    beforeProvenance: gitJson(options.base, "data/semantic-readiness-provenance.json"),
+    afterProvenance: targetProvenance,
   }));
 
   if (errors.length) {

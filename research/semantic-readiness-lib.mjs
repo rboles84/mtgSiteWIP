@@ -81,7 +81,22 @@ function canonicalIdFor(value) {
   ]) {
     if (value[key]) return String(value[key]);
   }
+  for (const [key, child] of Object.entries(value)) {
+    if (key.endsWith("_id") && child) return String(child);
+  }
   return null;
+}
+
+export function evidenceUseAllowed(canonicalFile, pointer, evidenceUse) {
+  if (!evidenceUse || evidenceUse === "semantic") return true;
+  if (!canonicalFile.endsWith(".profile.json")) return false;
+  if (evidenceUse === "discovery_metadata") {
+    return pointer === "/data_quality" || pointer.startsWith("/data_quality/") || pointer.startsWith("/evidence_summary/corpus_coverage") || pointer.startsWith("/research_metadata/");
+  }
+  if (evidenceUse === "auxiliary_support") {
+    return pointer.startsWith("/canonical_flavor_text/") || pointer.startsWith("/commander_compass/") || pointer.startsWith("/card_support/") || pointer.startsWith("/product_support/");
+  }
+  return false;
 }
 
 function supportedValue(value) {
@@ -159,6 +174,13 @@ export function hasBoundedEvidence(claim) {
   );
 }
 
+export function claimEvidenceSourceIds(claim) {
+  return [...new Set([
+    ...(claim?.source_ids || []),
+    ...(claim?.evidence_locations || []).map((entry) => entry?.source_id).filter(Boolean),
+  ].map(String))].sort();
+}
+
 export function buildProvenanceManifest({ rawRecords, rawToKey, ledger, generatedConsumers = {} }) {
   const rowsByKey = new Map((ledger?.identities || []).map((row) => [row.identity.key, row]));
   const entries = [];
@@ -177,7 +199,7 @@ export function buildProvenanceManifest({ rawRecords, rawToKey, ledger, generate
         const evidenceSourceIds = [];
         for (const id of site.evidence_claim_ids) {
           const claim = claimById.get(id);
-          for (const sourceId of claim?.source_ids || []) evidenceSourceIds.push(String(sourceId));
+          evidenceSourceIds.push(...claimEvidenceSourceIds(claim));
         }
         entries.push({
           identity_key: key,
@@ -221,7 +243,12 @@ export function validateSemanticPacket({ key, rawId, profile, placement, claimsF
     if (role === "substantive_claim" && !hasBoundedEvidence(claim)) {
       errors.push(`${key} ${id}: substantive claim lacks bounded evidence localization`);
     }
-    for (const sourceId of claim.source_ids || []) {
+    const declaredSourceIds = [...new Set((claim.source_ids || []).map(String))].sort();
+    const locationSourceIds = [...new Set((claim.evidence_locations || []).map((entry) => String(entry?.source_id || "")).filter(Boolean))].sort();
+    if (role === "substantive_claim" && Array.isArray(claim.evidence_locations) && claim.evidence_locations.length && stableStringify(declaredSourceIds) !== stableStringify(locationSourceIds)) {
+      errors.push(`${key} ${id}: evidence location sources must exactly match claim source_ids`);
+    }
+    for (const sourceId of claimEvidenceSourceIds(claim)) {
       if (!sourceIds.has(String(sourceId))) errors.push(`${key} ${id}: missing source ${sourceId}`);
     }
   }
@@ -253,7 +280,9 @@ export function validateSemanticPacket({ key, rawId, profile, placement, claimsF
       const roles = resolved.filter(Boolean).map(inferSemanticRole);
       if (roles.length) {
         const evidenceUse = site.evidence_use || "semantic";
-        if (evidenceUse === "semantic" && !roles.includes("substantive_claim")) {
+        if (!evidenceUseAllowed(canonicalFile, site.canonical_pointer, evidenceUse)) {
+          errors.push(`${key} ${canonicalFile}${site.canonical_pointer}: evidence_use ${evidenceUse} is not allowed at this canonical field`);
+        } else if (evidenceUse === "semantic" && !roles.includes("substantive_claim")) {
           errors.push(`${key} ${canonicalFile}${site.canonical_pointer}: authoritative reference has no substantive claim`);
         } else if (evidenceUse === "discovery_metadata" && !roles.some((role) => ["discovery_record", "substantive_claim"].includes(role))) {
           errors.push(`${key} ${canonicalFile}${site.canonical_pointer}: discovery metadata lacks discovery or substantive evidence`);
