@@ -128,4 +128,6 @@ Eight non-runtime fixtures cover core inclusion, mature pressure behavior, exclu
 
 ## Gate 5 — Independent Certification
 
-The authoring work is ready for an immutable candidate commit. Certification remains pending review by Robert or a separate session/agent that did not author this remediation. The reviewer must inspect the exact parent-to-candidate canonical diff, generated diff, evidence, provenance, semantic fixtures, and validation record. The author will not self-certify.
+Candidate recovery SHA: `85d3c79daa5081b6af4376506f51d33fe51e1225`
+
+Certification remains pending review by Robert or a separate session/agent that did not author this remediation. The reviewer must inspect that exact parent-to-candidate canonical diff, generated diff, evidence, provenance, semantic fixtures, and validation record. The author will not self-certify. Any requested correction must produce a new candidate SHA and invalidate this pending candidate.

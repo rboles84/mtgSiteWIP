@@ -34,7 +34,7 @@ Recover Prismari end to end under CRIT-001: audit the existing packet, bound rea
 - Shared contract: `docs/reference/semantic-readiness-contract.md`
 - Shared template: `docs/incidents/templates/identity-semantic-recovery-template.md`
 - Audit/recovery report: `docs/incidents/recoveries/VM-502-prismari-semantic-recovery.md`
-- Candidate recovery SHA: pending
+- Candidate recovery SHA: `85d3c79daa5081b6af4376506f51d33fe51e1225`
 - Independent reviewer: pending
 - Certification commit: pending
 

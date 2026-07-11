@@ -102,4 +102,4 @@ VM-501 is committed and complete. VM-502 Prismari is the sole active identity re
 - Generated isolation was verified: only `PRISMARI` changed in faction, placement-model, recruiter-context, and provenance identity entries.
 - Semantic validation, source/generated validation, 37 placement golden paths, context isolation, dossier follow-ups, full `npm.cmd test`, 226 parser cases, and `git diff --check` passed. The dossier audit retained its known 113-warning/0-failure result, and source/generated validation retained one documented builder-owned inhibitor warning.
 - No Hall, Crucible, score, inhibition, confidence, scheduling, or global recruiter behavior changed.
-- The candidate recovery SHA will be appended after the immutable recovery commit. Robert or a separate non-authoring review session must inspect and approve that exact SHA; this author will not self-certify it.
+- Candidate recovery SHA: `85d3c79daa5081b6af4376506f51d33fe51e1225`. Robert or a separate non-authoring review session must inspect and approve that exact SHA; this author will not self-certify it.
