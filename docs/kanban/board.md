@@ -36,7 +36,7 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 ## In Progress
 
-- [VM-501 - Faction Semantic Readiness Recovery Infrastructure](in-progress/VM-501-faction-semantic-readiness-recovery.md) - builds Contract v1, the all-37 structural fingerprint, provenance, validator, fixtures, and recovery ledger without runtime calibration.
+- [VM-502 - Prismari Semantic Recovery](in-progress/VM-502-prismari-semantic-recovery.md) - active identity; audit and bounded repair under Contract v1. Lorehold is explicitly next.
 
 ## Blocked
 
@@ -47,6 +47,8 @@ Cards live in the matching status folders under `docs/kanban/`:
 Historical note: `VM-044` is a preserved historical duplicate ID and `VM-049` is an intentional preserved duplicate pairing per the handoff trail. `VM-197` also has a user-declared Abzan stack duplicate while preserving the existing Alara VM-197 card. `VM-215` has a manual-QA Abzan repair duplicate; the former Jeskai VM-215 through VM-220 reservation was repaired to VM-229 through VM-234 on 2026-05-31.
 
 VM-429 Section 14 ID reconciliation, 2026-06-30: the early readiness plan expected route metadata as `VM-448` and public demo / strategic case study as `VM-449`, but final ID assignment shifted after intervening queue work. In the final handoff trail, `VM-448` is Critical Browser E2E Smoke and `VM-449` is Maze Return Loop Microcopy Tightening; both are complete. The originally expected route metadata and public demo / strategic case-study scopes were completed as `VM-451` and `VM-452`. VM-458 later moved VM-422/VM-446 to backlog; live private deck-link behavior remains not production-proven.
+
+- [VM-501 - Faction Semantic Readiness Recovery Infrastructure](done/VM-501-faction-semantic-readiness-recovery.md) - established Contract v1, all-37 structural inventory, provenance, validator, fixtures, ledger, and recovery governance without changing placement or recruiter semantics.
 
 - [VM-499 - Deterministic Radar Capture And Legibility Repair](done/VM-499-deterministic-radar-capture-legibility-repair.md) - captured the production Home/Archscry radars, added deterministic structural/pixel checks, and refreshed owner-approved local baselines.
 - [VM-498 - Colorless Lifecycle Authority Reconciliation](done/VM-498-colorless-lifecycle-authority-reconciliation.md) - reconciled current Colorless Home preview evidence with VM-389, added structured registry parity, and preserved every non-preview restriction.

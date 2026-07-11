@@ -3,13 +3,13 @@
 Generated from `CRIT-001-identity-recovery-ledger.json`. The JSON file is authoritative.
 
 - Contract: `v1`
-- Active identity: `none`
-- Next identity: `PRISMARI`
+- Active identity: `PRISMARI`
+- Next identity: `LOREHOLD`
 - WIP limit: 1
 
 | Card | Identity | Cohort | Gate | Status | Structural fingerprint | Contract | Recovery | Certification |
 |---|---|---|---|---|---|---|---|---|
-| VM-502 | PRISMARI — Prismari | college | not_started | backlog | low-volume-pattern, mixed-role-pattern, discovery-heavy-pattern, support-heavy-pattern, template-cohort-pattern | — | — | — |
+| VM-502 | PRISMARI — Prismari | college | audit | active | low-volume-pattern, mixed-role-pattern, discovery-heavy-pattern, support-heavy-pattern, template-cohort-pattern | — | — | — |
 | VM-503 | QUANDRIX — Quandrix | college | not_started | backlog | low-volume-pattern, mixed-role-pattern, discovery-heavy-pattern, support-heavy-pattern | — | — | — |
 | VM-504 | SILVERQUILL — Silverquill | college | not_started | backlog | low-volume-pattern, mixed-role-pattern, discovery-heavy-pattern, support-heavy-pattern | — | — | — |
 | VM-505 | WITHERBLOOM — Witherbloom | college | not_started | backlog | low-volume-pattern, mixed-role-pattern, discovery-heavy-pattern, support-heavy-pattern, template-cohort-pattern | — | — | — |

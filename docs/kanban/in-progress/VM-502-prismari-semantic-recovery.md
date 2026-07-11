@@ -1,13 +1,13 @@
 # VM-502 — Prismari Semantic Recovery
 
 ID: VM-502
-Status: Backlog
+Status: In Progress
 Type: Canonical Identity Semantic Recovery
 Priority: CRIT-001
 Identity key: PRISMARI
 Raw packet: `data/raw-factions/prismari/`
 Cohort: college
-Contract: pending Contract v1
+Contract: v1
 
 ## Objective
 

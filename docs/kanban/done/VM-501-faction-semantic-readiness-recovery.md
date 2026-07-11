@@ -1,11 +1,12 @@
 # VM-501 — Faction Semantic Readiness Recovery Infrastructure
 
 ID: VM-501
-Status: In Progress
+Status: Done
 Type: Critical Incident / Data Contract / Validation
 Priority: P0 / Showstopper
 Incident: CRIT-001
 Created: 2026-07-11
+Completed: 2026-07-11
 
 ## Objective
 
@@ -44,3 +45,7 @@ VM-501 does not repair an identity, redesign the builder, change public APIs, tu
 - `docs/incidents/CRIT-001-faction-semantic-readiness-integrity.md`
 - `docs/reference/semantic-readiness-contract.md`
 - `docs/incidents/CRIT-001-identity-recovery-ledger.json`
+
+## Outcome
+
+Contract v1 is frozen after the bounded Prismari/Lorehold/Izzet pilot. The all-37 structural inventory, protected JSON ledger synchronization, stable provenance manifest, additive semantic schema, positive/negative fixtures, semantic validator, and normal test-runner integration are committed and validated. Existing generated faction, placement, and recruiter content remained semantically unchanged.

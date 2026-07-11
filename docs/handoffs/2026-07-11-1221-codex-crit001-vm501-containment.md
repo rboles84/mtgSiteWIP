@@ -88,4 +88,9 @@ Untracked SHA-256:
 
 ## Next
 
-Commit the isolated governance and VM-501 infrastructure, then open VM-502 Prismari as the sole active identity recovery.
+VM-501 is committed and complete. VM-502 Prismari is the sole active identity recovery; Lorehold is explicitly next.
+
+## Commits
+
+- `9773bf0` — CRIT-001 governance, contract, ledger, cards, warnings, and handoff.
+- `7d4f26c` — VM-501 fingerprint, provenance, schema, validator, fixtures, and test integration.
