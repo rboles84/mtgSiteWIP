@@ -1,6 +1,6 @@
 # CRIT-001 Contract v1.1 Amendment
 
-Status: Candidate `b5d1c8db4758cab740392a6417c16019d778cc4c` pending independent review
+Status: Candidate `b5d1c8db4758cab740392a6417c16019d778cc4c` rejected; corrected candidate pending
 Owner: VM-501
 Base: `5165434`
 

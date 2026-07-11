@@ -1,6 +1,6 @@
 # CRIT-001 VM-501 Prerequisite Correction
 
-Status: Immutable candidate committed; independent review pending
+Status: Changes requested; replacement prerequisite candidate in progress
 Accepted program base: `5165434`
 Rejected identity candidate used for audit reference only: `85d3c79daa5081b6af4376506f51d33fe51e1225`
 
@@ -55,4 +55,14 @@ The immutable prerequisite candidate must be reviewed by a non-authoring reviewe
 - No global recruiter, Hall, Crucible, scoring, inhibition, confidence, tie-ordering, or scheduling changes.
 - Candidate parent SHA: `5165434`
 - Candidate SHA: `b5d1c8db4758cab740392a6417c16019d778cc4c`
-- Certification/acceptance: none pending independent review.
+- Independent review result: `changes_requested`
+- Certification/acceptance: none.
+
+## Independent review findings for `b5d1c8d`
+
+1. `evidence_use` was trusted without canonical-path restrictions, allowing an authoritative identity field to relabel support-only evidence as auxiliary and bypass the substantive-evidence rule.
+2. The identity-scope guard used a narrow blocklist, left global builder/runtime files mutable, and did not compare unrelated identity or global generated content.
+3. Native-ID retention inspected only profile and placement, omitted claims/sources and several native ID forms, and therefore did not comprehensively protect canonical IDs.
+4. Evidence-chain validation used `claim.source_ids` without requiring `evidence_locations[].source_id` to resolve, match the claim source chain, and propagate through fixtures/provenance.
+
+Candidate `b5d1c8db4758cab740392a6417c16019d778cc4c` remains immutable rejected audit history. It must not be accepted into the program base. A replacement candidate requires correction of all four blockers and a new independent review.
