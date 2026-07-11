@@ -797,8 +797,11 @@ section {
 }
 
 .vm-radar-wrap.vm-hero-radar-wrap {
-  height: clamp(190px, 19vw, 250px);
-  padding-top: 2.50rem;
+  width: 100%;
+  max-width: 560px;
+  height: clamp(205px, 21vw, 270px);
+  padding-top: 0.75rem;
+  margin-inline: auto;
 }
 
 .vm-chart-wrap.vm-hero-chart-wrap {
@@ -1649,12 +1652,13 @@ section {
     min-height: 0;
   }
 
-  .vm-hero-chart-wrap {
+  .vm-chart-wrap.vm-hero-chart-wrap {
     height: clamp(230px, 42vw, 310px);
   }
 
-  .vm-hero-radar-wrap {
-    height: clamp(205px, 38vw, 275px);
+  .vm-radar-wrap.vm-hero-radar-wrap {
+    max-width: 470px;
+    height: clamp(220px, 40vw, 285px);
   }
 }
 
@@ -1744,12 +1748,12 @@ section {
     height: 250px;
   }
 
-  .vm-hero-chart-wrap {
+  .vm-chart-wrap.vm-hero-chart-wrap {
     height: 260px;
   }
 
   .vm-hero-radar-wrap {
-    height: 228px;
+    height: 240px;
   }
 
   .vm-hero-signal-details {

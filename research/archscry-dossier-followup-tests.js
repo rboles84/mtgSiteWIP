@@ -295,19 +295,22 @@ assert.match(vmRadarSource, /createLayeredFillPlugin/, "expected shared radar to
 assert.match(vmRadarSource, /const layeredFill = options\.layeredFill === true/, "expected layered fill to require an explicit dataset option");
 assert.match(vmRadarSource, /_vmLayeredFill:\s*layeredFill/, "expected layered fill to be gated by a dataset flag");
 assert.match(vmRadarSource, /ctx\.save\(\);[\s\S]*ctx\.clip\(\);[\s\S]*ctx\.restore\(\);/, "expected layered fill to clip component lobes inside the composite polygon");
-assert.match(radarSource, /createLayeredFillPlugin\(\{ id: "dossierLayeredFill" \}\)/, "expected only the Archscry chart to include the layered fill plugin");
+assert.match(radarSource, /createLayeredFillPlugin\(\{ id: "dossierLayeredFill", baseAlpha: 0\.14, componentAlpha: 0\.62 \}\)/, "expected only the Archscry chart to include the production layered fill tuning");
 assert.match(radarSource, /layeredFill:\s*true/, "expected Archscry datasets to opt into layered fill");
 assert.doesNotMatch(homeSource, /createLayeredFillPlugin|layeredFill:\s*true/, "expected Home radar setup to avoid the Archscry-only layered fill opt-in");
 assert.match(vmRadarSource, /borderDash:\s*\[5,\s*4\]/, "expected component traces to remain dashed with layered fill available");
 assert.match(vmRadarSource, /_vmComponent:\s*true/, "expected component traces to keep their component dataset marker");
 assert.match(vmRadarSource, /_vmGlowBlur:\s*false/, "expected component traces to remain contextual and non-glowing");
 assert.match(radarSource, /DOSSIER_SYNTHESIS_GOLD = "#f0c56a"/, "expected Archscry composite vertices to use warm yellow/gold points");
-assert.match(radarSource, /dataset\.borderWidth = 2\.2/, "expected Archscry composite line to be softer than the shared default");
+assert.match(radarSource, /dataset\.borderColor = RADAR\.hexToRgba\(profile\.hex, 0\.95\)/, "expected Archscry composite line to retain the production identity color at the approved opacity");
+assert.match(radarSource, /dataset\.borderWidth = 2\.8/, "expected Archscry composite line to use the approved legible width");
 assert.match(radarSource, /dataset\.pointBackgroundColor = DOSSIER_SYNTHESIS_GOLD/, "expected Archscry composite points to remain warm gold rather than component-colored");
-assert.match(radarSource, /dataset\.pointRadius = 3\.4/, "expected Archscry composite points to be smaller than the shared default");
+assert.match(radarSource, /dataset\.pointRadius = 4\.2/, "expected Archscry composite points to use the approved synthesis-point radius");
 assert.match(radarSource, /dataset\.pointHoverRadius = 5\.4/, "expected Archscry composite hover points to stay restrained");
-assert.match(radarSource, /dataset\._vmGlowBlur = 16/, "expected Archscry composite glow blur to stay in the softer mock-guided range");
-assert.match(radarSource, /dataset\._vmGlowColor = RADAR\.hexToRgba\(DOSSIER_SYNTHESIS_GOLD, 0\.46\)/, "expected Archscry composite glow to use a soft warm synthesis light");
+assert.match(radarSource, /dataset\._vmGlowBlur = 18/, "expected Archscry composite glow blur to use the approved production value");
+assert.match(radarSource, /dataset\._vmGlowColor = RADAR\.hexToRgba\(DOSSIER_SYNTHESIS_GOLD, 0\.60\)/, "expected Archscry composite glow to use the approved warm synthesis light");
+assert.match(radarSource, /duration: reducedMotion \? 0 : 850/, "expected the production dossier radar to use zero-duration animation under reduced motion");
+assert.match(radarSource, /color: "rgba\(255,255,255,0\.09\)"/, "expected dossier grid and angle lines to use the approved legibility alpha");
 assert.match(radarSource, /<span class="vm-trait-readout">/, "expected trait rows to render the compact readout wrapper");
 assert.match(archscryCssSource, /\.vm-dossier-matrix-section \.vm-trait-readout\{\s*display:grid;/, "expected compact trait readouts to group pips and strength on the right");
 assert.ok(

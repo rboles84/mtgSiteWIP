@@ -9,6 +9,7 @@ import puppeteer from "puppeteer-core";
 
 import { runAdaptiveGoldenPath } from "../assets/js/adaptive-placement.js";
 import { loadDossierInputs } from "../research/dossier-runner.mjs";
+import { stabilizeAndVerifyRadar } from "./visual-radar-assertions.mjs";
 
 const root = process.cwd();
 const host = "127.0.0.1";
@@ -218,43 +219,6 @@ async function verifyCanvasExists(page, selector, label) {
   }
 }
 
-async function verifyCanvasRendered(page, selector, label) {
-  await page.waitForSelector(selector);
-  const rendered = await page.evaluate((targetSelector) => {
-    const canvas = document.querySelector(targetSelector);
-    if (!(canvas instanceof HTMLCanvasElement)) return false;
-    if (canvas.width === 0 || canvas.height === 0) return false;
-    const context = canvas.getContext("2d", { willReadFrequently: true });
-    if (!context) return false;
-
-    const sampleWidth = Math.max(1, Math.min(canvas.width, 24));
-    const sampleHeight = Math.max(1, Math.min(canvas.height, 24));
-    const xSteps = Math.max(1, Math.min(5, Math.floor(canvas.width / sampleWidth)));
-    const ySteps = Math.max(1, Math.min(5, Math.floor(canvas.height / sampleHeight)));
-
-    for (let xIndex = 0; xIndex < xSteps; xIndex += 1) {
-      for (let yIndex = 0; yIndex < ySteps; yIndex += 1) {
-        const maxX = Math.max(0, canvas.width - sampleWidth);
-        const maxY = Math.max(0, canvas.height - sampleHeight);
-        const x = xSteps === 1 ? 0 : Math.round((maxX * xIndex) / (xSteps - 1));
-        const y = ySteps === 1 ? 0 : Math.round((maxY * yIndex) / (ySteps - 1));
-        const image = context.getImageData(x, y, sampleWidth, sampleHeight);
-        for (let index = 3; index < image.data.length; index += 4) {
-          if (image.data[index] > 0) {
-            return true;
-          }
-        }
-      }
-    }
-
-    return false;
-  }, selector);
-
-  if (!rendered) {
-    throw new Error(`${label} did not render visible pixels before capture.`);
-  }
-}
-
 async function verifyBaselineArtifacts() {
   const missingArtifacts = [];
 
@@ -353,9 +317,6 @@ async function waitForDossier(page, captureConfig) {
     throw new Error(`${captureConfig.name} dossier wait failed: ${error.message}; state=${JSON.stringify(state)}`);
   }
   await verifyCanvasExists(page, ".vm-bg__stars", "Background star canvas");
-  if (captureConfig.expectRadar) {
-    await verifyCanvasRendered(page, "#dossierManaRadar", "Dossier radar canvas");
-  }
 }
 
 async function capturePage(browser, url, captureConfig, seededResult) {
@@ -457,11 +418,17 @@ async function capturePage(browser, url, captureConfig, seededResult) {
     await waitForDossier(page, captureConfig);
   }
 
+  if (captureConfig.expectRadar) {
+    await stabilizeAndVerifyRadar(page, {
+      selector: "#dossierManaRadar",
+      label: `Archscry ${captureConfig.name} dossier radar`,
+      pointStyle: "archscry",
+    });
+  }
+
   await page.addStyleTag({
     content: `
-      .vm-bg__stars,
-      #dossierManaRadar,
-      .vm-radar-glow {
+      .vm-bg__stars {
         visibility: hidden !important;
       }
 

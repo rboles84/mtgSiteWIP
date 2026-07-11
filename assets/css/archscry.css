@@ -2044,7 +2044,7 @@ body::before{
 .vm-dossier-matrix-section .vm-radar-glow{
   inset:18% 16% 44%;
   border-radius:8px;
-  opacity:0.1;
+  opacity:0.16;
   filter:blur(22px);
   animation:none;
 }
@@ -3138,6 +3138,12 @@ body.vm-archscry-route .saved-deck-link-note{
   }
   .vm-dossier-matrix-section .vm-radar-wrap{
     height:390px;
+  }
+}
+
+@media(max-width:560px){
+  .vm-dossier-matrix-section .vm-radar-wrap{
+    height:330px;
   }
 }
 

@@ -353,14 +353,14 @@ function updateDossierRadarDatasets(profile, showComponents, showComposite) {
   });
   datasets.forEach((dataset) => {
     if (!dataset?._vmComposite) return;
-    dataset._vmGlowBlur = 16;
-    dataset._vmGlowColor = RADAR.hexToRgba(DOSSIER_SYNTHESIS_GOLD, 0.46);
-    dataset.borderColor = RADAR.hexToRgba(profile.hex, 0.82);
-    dataset.borderWidth = 2.2;
+    dataset._vmGlowBlur = 18;
+    dataset._vmGlowColor = RADAR.hexToRgba(DOSSIER_SYNTHESIS_GOLD, 0.60);
+    dataset.borderColor = RADAR.hexToRgba(profile.hex, 0.95);
+    dataset.borderWidth = 2.8;
     dataset.pointBackgroundColor = DOSSIER_SYNTHESIS_GOLD;
     dataset.pointBorderColor = RADAR.hexToRgba("#fff7d8", 0.95);
     dataset.pointBorderWidth = 1.5;
-    dataset.pointRadius = 3.4;
+    dataset.pointRadius = 4.2;
     dataset.pointHoverRadius = 5.4;
     dataset.pointHoverBorderWidth = 2;
   });
@@ -429,11 +429,14 @@ function initDossierManaRadar({ result, faction, profile, identityLayers = null 
     updateDossierRadarDatasets(resolvedProfile, showComponents, showComposite);
   };
 
+  const reducedMotion = typeof globalThis.matchMedia === "function" &&
+    globalThis.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
   dossierManaRadarChart = new ChartCtor(canvas.getContext("2d"), {
     plugins: [
       RADAR.createHaloPlugin({ id: "dossierHalo", centerAlpha: 0.01, midAlpha: 0.006 }),
-      RADAR.createLayeredFillPlugin({ id: "dossierLayeredFill" }),
-      RADAR.createGlowPlugin({ id: "dossierGlow" }),
+      RADAR.createLayeredFillPlugin({ id: "dossierLayeredFill", baseAlpha: 0.14, componentAlpha: 0.62 }),
+      RADAR.createGlowPlugin({ id: "dossierGlow", reducedMotion }),
     ],
     type: "radar",
     data: {
@@ -446,13 +449,13 @@ function initDossierManaRadar({ result, faction, profile, identityLayers = null 
       layout: {
         padding: {
           top: 2,
-          right: 4,
+          right: 12,
           bottom: 2,
-          left: 4,
+          left: 12,
         },
       },
       animation: {
-        duration: 850,
+        duration: reducedMotion ? 0 : 850,
         easing: "easeInOutQuart",
       },
       interaction: {
@@ -479,11 +482,11 @@ function initDossierManaRadar({ result, faction, profile, identityLayers = null 
             callback: () => "",
           },
           angleLines: {
-            color: "rgba(255,255,255,0.055)",
+            color: "rgba(255,255,255,0.09)",
           },
           grid: {
             circular: false,
-            color: "rgba(255,255,255,0.055)",
+            color: "rgba(255,255,255,0.09)",
           },
           pointLabels: {
             color: "#e6ddc6",

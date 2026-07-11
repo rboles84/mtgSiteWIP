@@ -262,7 +262,7 @@ function heroManaRadarPlugins() {
   return [
     vmRadar.createHaloPlugin({ id: "heroManaHaloPlugin", centerAlpha: 0.02, midAlpha: 0.012 }),
     vmRadar.createGlowPlugin({ id: "heroManaGlowPlugin", reducedMotion: heroManaReducedMotion }),
-    vmRadar.createTierLabelPlugin({ id: "heroManaTierLabelPlugin", minWidth: 360 }),
+    vmRadar.createTierLabelPlugin({ id: "heroManaTierLabelPlugin", minWidth: 480 }),
   ];
 }
 
