@@ -13,7 +13,7 @@ Contract: v1.1
 
 Recover Lorehold end to end under CRIT-001: audit the existing packet, bound readiness blockers, gather only sufficient evidence, repair canonical data, rebuild generated artifacts, validate semantic fixtures and regressions, obtain independent review of an immutable candidate SHA, and certify that exact recovery.
 
-Current state: active identity after Prismari certification acceptance. Gate 1 audit, Gate 2 bounded evidence confirmation, Gate 3 canonical remediation, and Gate 4 generation/validation are complete in `docs/incidents/recoveries/VM-506-lorehold-semantic-recovery.md`. Lorehold remains uncertified; candidate recovery and certification have not started.
+Current state: active identity after Prismari certification acceptance. Gate 1 audit, Gate 2 bounded evidence confirmation, Gate 3 canonical remediation, and Gate 4 generation/validation are complete in `docs/incidents/recoveries/VM-506-lorehold-semantic-recovery.md`. Immutable candidate recovery commit `c43127858e1a8609e1aed8481c2726ab03026a61` exists and is awaiting independent review. Lorehold remains uncertified; certification has not started.
 
 ## Gates
 
@@ -36,7 +36,7 @@ Current state: active identity after Prismari certification acceptance. Gate 1 a
 - Shared contract: `docs/reference/semantic-readiness-contract.md`
 - Shared template: `docs/incidents/templates/identity-semantic-recovery-template.md`
 - Audit/recovery report: `docs/incidents/recoveries/VM-506-lorehold-semantic-recovery.md`
-- Candidate recovery SHA: pending
+- Candidate recovery SHA: `c43127858e1a8609e1aed8481c2726ab03026a61`
 - Independent reviewer: pending
 - Certification commit: pending
 
@@ -72,5 +72,15 @@ Current state: active identity after Prismari certification acceptance. Gate 1 a
 - Validation passed: semantic-readiness validation, source/generated validation, semantic-readiness tests, placement golden paths, faction-context isolation, and dossier audit.
 - Known warnings unchanged: one builder-owned Lorehold inhibitor warning in source/generated validation; dossier audit reports 113 warnings and 0 failures.
 - Generated-diff isolation found no non-Lorehold semantic changes in generated JSON/provenance when Lorehold is omitted.
-- Gate 5 pending: candidate recovery commit, exact-SHA candidate-scope validation, independent review, and certification.
+- Gate 5 pending: exact-SHA candidate-scope validation, independent review, and certification.
 - Scope status: no canonical Lorehold raw files changed during Gate 4, no runtime behavior changed, Prismari remains certified, and no other identity started.
+
+## Gate 5 Candidate Record
+
+- Candidate parent SHA: `51667c7d91e8530a4cd508c891179893a44a14a2`.
+- Candidate recovery SHA: `c43127858e1a8609e1aed8481c2726ab03026a61`.
+- Candidate commit message: `VM-506 create Lorehold semantic recovery candidate`.
+- Workflow-record status: candidate recorded; independent review pending.
+- Certification status: none; Lorehold remains uncertified.
+- Known warnings unchanged: one builder-owned Lorehold inhibitor warning; dossier audit reports 113 warnings and 0 failures.
+- No other identity started.

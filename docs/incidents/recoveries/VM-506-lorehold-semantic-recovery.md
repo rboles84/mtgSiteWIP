@@ -801,6 +801,59 @@ Deferred to Gate 5:
 
 Lorehold is ready for Gate 5 candidate creation and exact-SHA review, subject to owner authorization. Lorehold remains uncertified.
 
+## Gate 5 Candidate Creation
+
+Candidate creation was authorized after Gate 4 validation completed. This section records the immutable recovery candidate only; it does not certify Lorehold and does not start independent review.
+
+| Field | Value |
+|---|---|
+| Candidate parent SHA | `51667c7d91e8530a4cd508c891179893a44a14a2` |
+| Candidate recovery SHA | `c43127858e1a8609e1aed8481c2726ab03026a61` |
+| Candidate commit message | `VM-506 create Lorehold semantic recovery candidate` |
+| Workflow-record status | Candidate recorded; independent review pending |
+| Certification status | None; Lorehold remains uncertified |
+
+Candidate changed files:
+
+- `data/raw-factions/lorehold/lorehold.changelog.json`
+- `data/raw-factions/lorehold/lorehold.claims.json`
+- `data/raw-factions/lorehold/lorehold.placement.json`
+- `data/raw-factions/lorehold/lorehold.profile.json`
+- `data/semantic-readiness-provenance.json`
+- `docs/handoffs/2026-07-12-1126-codex-vm506-lorehold-gate1-audit.md`
+- `docs/handoffs/2026-07-12-1142-codex-vm506-lorehold-gate2-evidence.md`
+- `docs/handoffs/2026-07-12-1154-codex-vm506-lorehold-gate3-remediation.md`
+- `docs/handoffs/2026-07-12-1211-codex-vm506-lorehold-gate4-validation.md`
+- `docs/handoffs/HANDOFF_INDEX.md`
+- `docs/incidents/recoveries/VM-506-lorehold-semantic-recovery.md`
+- `docs/kanban/board.md`
+- `docs/kanban/in-progress/VM-506-lorehold-semantic-recovery.md`
+- `research/fixtures/semantic-readiness/lorehold.semantic-fixtures.json`
+
+Validation summary inherited from Gate 4:
+
+- `npm.cmd run build:factions`: passed.
+- `node research/validate-semantic-readiness.mjs --targets=LOREHOLD`: passed.
+- `npm.cmd run validate:source-generated -- --targets=LOREHOLD`: passed with 1 known builder-owned inhibitor warning and 0 failures.
+- `npm.cmd run test:semantic-readiness`: passed.
+- `npm.cmd run test:placement`: passed, 37 factions / 37 golden paths.
+- `npm.cmd run test:faction-context-isolation`: passed.
+- `npm.cmd run dossier:audit`: passed with 113 warnings and 0 failures.
+- JSON parse checks: passed.
+- `git diff --check`: passed.
+
+Known warnings unchanged:
+
+- Builder-owned Lorehold inhibitor warning remains.
+- Dossier audit remains 113 warnings / 0 failures.
+
+Deferred until independent review / certification authorization:
+
+- Exact-SHA candidate-scope validation if required by reviewer.
+- Full `npm.cmd test`, if required by candidate-stage convention.
+- `npm.cmd run test:parser`, if required by candidate-stage convention.
+- Certification commit.
+
 ## Validation Commands Run
 
 ```powershell
@@ -827,8 +880,8 @@ Deferred:
 
 ## Final Status
 
-Lorehold is active under VM-506 and remains uncertified.
+Lorehold is active under VM-506 and remains uncertified. Candidate recovery commit `c43127858e1a8609e1aed8481c2726ab03026a61` is ready for independent review.
 
-Recommended next owner decision: authorize Gate 5 candidate creation and exact-SHA independent review if the current Gate 4 output is accepted.
+Recommended next owner decision: send candidate `c43127858e1a8609e1aed8481c2726ab03026a61` to independent Gate 5 review.
 
 Prismari remains certified under CRIT-001 Contract v1.1. No other identity was started.

@@ -929,10 +929,10 @@
           "mixed-role-pattern"
         ],
         "semantic_role_counts": {
-          "substantive_claim": 0,
-          "discovery_record": 6,
-          "support_record": 0,
-          "unclassified": 91
+          "substantive_claim": 88,
+          "discovery_record": 7,
+          "support_record": 2,
+          "unclassified": 0
         },
         "source_count": 20,
         "source_role_counts": {
@@ -943,93 +943,7 @@
         "claim_bearing_source_rate": 0.65,
         "reference_site_count": 117,
         "missing_references": [],
-        "potential_role_invalid_support_links": [
-          {
-            "pointer": "data/raw-factions/lorehold/lorehold.profile.json#/core_identity",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/lorehold/lorehold.profile.json#/data_quality/corpus_upgrade",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/lorehold/lorehold.placement.json#/placement_summary",
-            "roles": [
-              "unclassified",
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/lorehold/lorehold.placement.json#/core_values/8",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/lorehold/lorehold.placement.json#/core_values/9",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/lorehold/lorehold.placement.json#/core_values/10",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/lorehold/lorehold.placement.json#/core_values/11",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/lorehold/lorehold.placement.json#/core_values/12",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/lorehold/lorehold.placement.json#/core_values/13",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/lorehold/lorehold.placement.json#/core_values/14",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/lorehold/lorehold.placement.json#/core_values/15",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/lorehold/lorehold.placement.json#/core_values/16",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/lorehold/lorehold.placement.json#/core_values/17",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/lorehold/lorehold.placement.json#/behavioral_signals/9",
-            "roles": [
-              "discovery_record"
-            ]
-          }
-        ],
+        "potential_role_invalid_support_links": [],
         "raw_question_count": 7,
         "unique_question_claim_ids": [
           "claim_lorehold_core_0004",
@@ -1076,39 +990,55 @@
           "docs/reference/strixhaven-college-source-readiness-matrix.md:61"
         ],
         "provisional_risk_indicators": {
-          "coverage": [
-            "no-explicit-substantive-role"
-          ],
+          "coverage": [],
           "neighbors": []
         },
         "template_cohort_pattern": false,
         "inventory_updated_at": "2026-07-11T18:42:33.624Z"
       },
       "workflow": {
-        "current_gate": "audit_pending",
+        "current_gate": "candidate_review_pending",
         "status": "active",
-        "started_at": null,
-        "gate_entered_at": "2026-07-12T17:02:57.3594517Z",
+        "started_at": "2026-07-12T17:02:57.3594517Z",
+        "gate_entered_at": "2026-07-12T18:17:31Z",
         "blocked_at": null,
         "blocked_reason": null,
         "next_identity": "UR",
-        "primary_disposition": null
+        "primary_disposition": "claim_role_classification_required"
       },
       "semantic_review": {
-        "required_neighbors": [],
-        "audit_report": null,
-        "residual_findings": []
+        "required_neighbors": [
+          "WR",
+          "QUANDRIX",
+          "PRISMARI",
+          "SILVERQUILL",
+          "WB",
+          "WU",
+          "RG",
+          "WITHERBLOOM"
+        ],
+        "audit_report": "docs/incidents/recoveries/VM-506-lorehold-semantic-recovery.md",
+        "residual_findings": [
+          "Runtime Hall, Crucible, scoring, inhibition, scheduling, confidence, and live recruiter calibration remain post-CRIT investigations.",
+          "Adjacent identities except Prismari are not yet certified, so Lorehold neighbor guidance remains Lorehold-side and neutral until those packets receive CRIT-001 recovery."
+        ]
       },
       "certification": {
-        "contract_version": null,
+        "contract_version": "v1.1",
         "contract_revalidation_required": false,
-        "candidate_recovery_sha": null,
-        "recovery_commit": null,
+        "candidate_recovery_sha": "c43127858e1a8609e1aed8481c2726ab03026a61",
+        "recovery_commit": "c43127858e1a8609e1aed8481c2726ab03026a61",
         "certification_commit": null,
         "reviewer": null,
+        "review_result": "pending_independent_review",
         "review_cycles": 0,
         "approval_date": null,
-        "certified_at": null
+        "certified_at": null,
+        "final_state": "uncertified",
+        "known_unchanged_warnings": [
+          "dossier_audit: 113 warnings, 0 failures",
+          "existing builder-owned Lorehold inhibitor warning unchanged"
+        ]
       }
     },
     {
