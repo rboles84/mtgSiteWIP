@@ -831,3 +831,64 @@ Generated-diff isolation showed changed generated/display identity keys were Qua
 ### Gate 4 final state
 
 Gate 4 is complete. The Esix/generated-display blocker is resolved. Quandrix remains uncertified and is ready for Gate 5 candidate creation when explicitly authorized.
+
+
+## Gate 5 Candidate Scope-Policy Cleanup
+
+Gate 5 candidate scope-policy cleanup was completed on 2026-07-12. This section records a new replacement candidate and the exact remaining candidate-scope classification. This is not certification.
+
+### Superseded candidates
+
+- Superseded candidate SHA: `805ede66670485e35689a56368e242984a8e17f3`
+- Earlier superseded candidate SHA: `a6dd5df19c3333ad8c78b315d5649356f1289977`
+- Status: audit history only; do not send either superseded candidate to independent review.
+
+### New candidate record
+
+- Candidate parent SHA: `41e27da9b9fe324eec5f63f26e9dd8d08a06edf9`
+- New candidate recovery SHA: `af3c2439f9c96fb4b199b4c47eea1f7c735dfebe`
+- Certification state: uncertified
+- Independent review: not started
+
+### Scope-policy cleanup performed
+
+- Removed added `confidence` fields from rewritten Quandrix behavioral-signal and inhibitor-trait entries where the accepted base had no confidence field.
+- Preserved repaired, source-backed Quandrix core-value semantics while keeping confidence-bearing core-value slots, eliminating the prior removed-confidence-path deltas.
+- Rebuilt generated faction artifacts and semantic provenance from the cleaned canonical placement data.
+- Did not change Contract v1.1, schema, validators, builder scripts, Hall, Crucible, scoring, inhibition, confidence behavior, scheduling, tie ordering, or global recruiter behavior.
+
+### Candidate-scope guard classification
+
+The candidate-scope guard now has no confidence-field findings. Remaining findings are exactly:
+
+- `data/identity-layers.json` ? previously authorized VM-503 display-source exception. The change is Quandrix-scoped only and was required to resolve unsupported Esix/generated-display copy.
+- `data/factions.json` ? previously authorized VM-503 preserved-display-source exception. The change is Quandrix-scoped only and was required to resolve unsupported Esix/generated-display copy under existing builder display-preservation behavior.
+
+The guard has no approved-exception mechanism, so these remain reviewer-facing documented display-source exceptions rather than validator changes.
+
+### Validation summary
+
+| Check | Result |
+|---|---|
+| Candidate-scope guard | FAILS only on documented `data/identity-layers.json` and `data/factions.json` display-source exceptions; no confidence-field deltas remain |
+| Candidate boundary `git diff --check` | PASS |
+| Final tree `git diff --check` | PASS |
+| `node research/validate-semantic-readiness.mjs --targets=QUANDRIX` | PASS |
+| `npm.cmd run validate:source-generated -- --targets=QUANDRIX` | PASS with known builder-owned inhibitor warning |
+| `npm.cmd run test:semantic-readiness` | PASS; verified 1389 semantic provenance entries |
+| `npm.cmd run test:placement` | PASS: 37 factions, 37 golden paths |
+| `npm.cmd run test:faction-context-isolation` | PASS |
+| `node research/archscry-dossier-followup-tests.js` | PASS |
+| `npm.cmd run dossier:audit` | PASS: 113 warnings, 0 failures |
+| Display/generated key isolation | PASS: `data/identity-layers.json`, `data/factions.json`, and `data/placement-model.json` changes are Quandrix-only |
+| Unsupported Esix generated/public scan | PASS: no unsupported Esix copy remains |
+| Shared infra diff check | PASS: no builder/contract/schema/validator/shared tooling files changed |
+
+### Known unchanged warnings
+
+- Known builder-owned Quandrix inhibitor warning remains unchanged.
+- Dossier audit remains 113 warnings and 0 failures.
+
+### Gate 5 stop state
+
+Quandrix remains uncertified. No other identity was started. The next step is owner/independent-review direction for exact candidate SHA `af3c2439f9c96fb4b199b4c47eea1f7c735dfebe`, with the two display-source exceptions visible in this record.
