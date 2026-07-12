@@ -892,3 +892,37 @@ The guard has no approved-exception mechanism, so these remain reviewer-facing d
 ### Gate 5 stop state
 
 Quandrix remains uncertified. No other identity was started. The next step is owner/independent-review direction for exact candidate SHA `af3c2439f9c96fb4b199b4c47eea1f7c735dfebe`, with the two display-source exceptions visible in this record.
+
+
+## Certification and Program Acceptance
+
+Quandrix was certified under CRIT-001 Contract v1.1 on 2026-07-12 after independent Gate 5 review returned APPROVE EXACT SHA for recovery commit `af3c2439f9c96fb4b199b4c47eea1f7c735dfebe`.
+
+### Certification record
+
+- Identity: Quandrix.
+- VM: VM-503.
+- Contract version: v1.1.
+- Approved recovery SHA: `af3c2439f9c96fb4b199b4c47eea1f7c735dfebe`.
+- Candidate workflow-record SHA: `8b979070397dd8ef0b0d9e316875dc416a31a912`.
+- Independent review result: APPROVE EXACT SHA.
+- Reviewer: Robert / user-supplied independent Gate 5 review in this Codex thread.
+- Approval date: 2026-07-12.
+- Final certification state: `semantically_ready`.
+- Recovery commit: `af3c2439f9c96fb4b199b4c47eea1f7c735dfebe`.
+- Certification commit: `PENDING_VM503_CERTIFICATION_COMMIT_SHA`.
+
+### Residual non-blocking findings
+
+- Runtime Hall, Crucible, scoring, inhibition, scheduling, confidence, and live recruiter calibration remain post-CRIT investigations.
+- Unchanged global Prismari/Quandrix Crucible wording remains outside CRIT-001 identity certification scope.
+- Candidate-scope guard has two documented display-source exceptions: `data/identity-layers.json` and preserved Quandrix display fields in `data/factions.json`; confidence-field deltas were removed before certification.
+
+### Known unchanged warnings
+
+- Dossier audit remains 113 warnings / 0 failures.
+- Existing builder-owned Quandrix inhibitor warning remains unchanged.
+
+### Final state
+
+Quandrix is semantically ready under CRIT-001 Contract v1.1. VM-503 is Done. Silverquill is the next active identity by branch setup only; no Silverquill remediation has started.

@@ -1,13 +1,15 @@
 # VM-504 — Silverquill Semantic Recovery
 
 ID: VM-504
-Status: Backlog
+Status: In Progress
 Type: Canonical Identity Semantic Recovery
 Priority: CRIT-001
 Identity key: SILVERQUILL
 Raw packet: `data/raw-factions/silverquill/`
 Cohort: college
-Contract: pending Contract v1
+Contract: v1.1
+
+Current state: next active identity after VM-503 Quandrix certification. Branch setup only; Gate 1 audit has not started.
 
 ## Objective
 

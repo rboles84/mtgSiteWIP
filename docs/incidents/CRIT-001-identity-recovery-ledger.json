@@ -5,8 +5,8 @@
   "authoritative": true,
   "program": {
     "status": "active",
-    "active_identity": "QUANDRIX",
-    "next_identity": "SILVERQUILL",
+    "active_identity": "SILVERQUILL",
+    "next_identity": "WITHERBLOOM",
     "wip_limit": 1,
     "active_prerequisite": null,
     "prerequisite_candidate_sha": "6e53acd5691c85caf3328d3bd301ac18d07879e1",
@@ -199,10 +199,10 @@
         "template_cohort_change_explanation": "Gate 3 canonical remediation changed Quandrix from thin discovery-heavy triage pattern to mixed-role/support-heavy structural pattern; semantic readiness still awaits Gate 4 validation and certification."
       },
       "workflow": {
-        "current_gate": "gate5_candidate_recorded",
-        "status": "active",
+        "current_gate": "certified",
+        "status": "semantically_ready",
         "started_at": "2026-07-12T19:07:19.2965496Z",
-        "gate_entered_at": "2026-07-12T23:09:38.390Z",
+        "gate_entered_at": "2026-07-12T23:47:43.847Z",
         "blocked_at": null,
         "blocked_reason": null,
         "next_identity": "SILVERQUILL",
@@ -218,25 +218,31 @@
         ],
         "audit_report": "docs/incidents/recoveries/VM-503-quandrix-semantic-recovery.md",
         "residual_findings": [
-          "Scope-policy-clean candidate recovery SHA af3c2439f9c96fb4b199b4c47eea1f7c735dfebe supersedes 805ede66670485e35689a56368e242984a8e17f3 and a6dd5df19c3333ad8c78b315d5649356f1289977; Quandrix remains uncertified.",
-          "Candidate-scope guard has no confidence-field deltas; remaining findings are documented authorized display-source exceptions for data/identity-layers.json and data/factions.json.",
-          "Known builder-owned Quandrix inhibitor warning remains unchanged.",
-          "Runtime Hall, Crucible, scoring, inhibition, scheduling, confidence, and live recruiter calibration remain post-CRIT investigations."
+          "Runtime Hall, Crucible, scoring, inhibition, scheduling, confidence, and live recruiter calibration remain post-CRIT investigations.",
+          "Unchanged global Prismari/Quandrix Crucible wording remains outside CRIT-001 identity certification scope.",
+          "Candidate-scope guard display-source exceptions for data/identity-layers.json and preserved Quandrix data/factions.json display fields are documented and Quandrix-scoped."
         ]
       },
       "certification": {
         "contract_version": "v1.1",
         "contract_revalidation_required": false,
         "candidate_recovery_sha": "af3c2439f9c96fb4b199b4c47eea1f7c735dfebe",
-        "recovery_commit": null,
-        "certification_commit": null,
-        "reviewer": null,
-        "review_cycles": 0,
-        "approval_date": null,
-        "certified_at": null,
+        "recovery_commit": "af3c2439f9c96fb4b199b4c47eea1f7c735dfebe",
+        "certification_commit": "PENDING_VM503_CERTIFICATION_COMMIT_SHA",
+        "reviewer": "Robert / user-supplied independent Gate 5 review in this Codex thread",
+        "review_cycles": 1,
+        "approval_date": "2026-07-12",
+        "certified_at": "2026-07-12T23:47:43.847Z",
         "superseded_candidate_shas": [
           "805ede66670485e35689a56368e242984a8e17f3",
           "a6dd5df19c3333ad8c78b315d5649356f1289977"
+        ],
+        "review_result": "approved_exact_sha",
+        "final_state": "semantically_ready",
+        "known_unchanged_warnings": [
+          "dossier_audit: 113 warnings, 0 failures",
+          "existing builder-owned Quandrix inhibitor warning unchanged",
+          "unchanged global Prismari/Quandrix Crucible wording remains out of CRIT-001 scope"
         ]
       }
     },
@@ -472,9 +478,9 @@
       },
       "workflow": {
         "current_gate": "not_started",
-        "status": "backlog",
-        "started_at": null,
-        "gate_entered_at": null,
+        "status": "active",
+        "started_at": "2026-07-12T23:47:43.847Z",
+        "gate_entered_at": "2026-07-12T23:47:43.847Z",
         "blocked_at": null,
         "blocked_reason": null,
         "next_identity": "WITHERBLOOM",
